@@ -326,9 +326,7 @@ export function renderProvenanceBlock(params: {
   const manifestUrl = githubBlobUrl(params.manifestRelPath);
   const treeUrl = `https://github.com/Hack23/euparliamentmonitor/tree/main/${params.runDirRelPath}`;
   return [
-    '<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->',
-    '',
-    '> **Provenance**',
+    '> **Provenance & Audit**',
     '>',
     `> - **Article type:** \`${params.articleType}\``,
     `> - **Run date:** ${params.date}`,
@@ -517,10 +515,12 @@ function renderArtifactFragment(
   });
   const stem = runRel.split('/').pop()?.replace(/\.md$/i, '') ?? runRel;
   const headerLines = suppressHeader ? [] : ['', `### ${humanize(stem)}`];
+  // Per-section "View source" links are intentionally omitted — references
+  // are consolidated in the end-of-document Analysis Index appendix so the
+  // body reads as a journalistic / political-intelligence narrative rather
+  // than as a per-paragraph artifact dump.
   const lines = [
     ...headerLines,
-    '',
-    `<p class="artifact-source"><a href="${githubBlobUrl(repoRel)}" rel="noopener">View source: <code>${runRel}</code></a></p>`,
     '',
     cleaned.markdown,
   ];
@@ -602,9 +602,8 @@ function appendSection(
 ): void {
   if (paths.length === 0) return;
   const emittedId = namespacedSectionId(sectionId);
-  sectionMarkdown.push(`<h2 id="${emittedId}">${sectionTitle}</h2>`);
   const suppress = shouldSuppressFragmentHeader(paths, sectionTitle);
-  let anyFragmentRendered = false;
+  const fragments: string[] = [];
   for (const runRel of paths) {
     const fragment = renderArtifactFragment(
       runDir,
@@ -615,13 +614,16 @@ function appendSection(
       suppress
     );
     if (!fragment) continue;
-    anyFragmentRendered = true;
-    sectionMarkdown.push(...fragment.lines);
+    fragments.push(...fragment.lines);
     included.push(fragment.included);
   }
-  if (anyFragmentRendered) {
-    emittedSections.push({ id: emittedId, title: sectionTitle });
-  }
+  // Only emit the section H2 + body when at least one artifact was rendered;
+  // an empty heading with no content is a workflow-metadata leak (used to
+  // happen for the Supplementary bucket when leftovers were missing on disk).
+  if (fragments.length === 0) return;
+  sectionMarkdown.push(`<h2 id="${emittedId}">${sectionTitle}</h2>`);
+  sectionMarkdown.push(...fragments);
+  emittedSections.push({ id: emittedId, title: sectionTitle });
   sectionMarkdown.push('');
 }
 
@@ -676,8 +678,19 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
   const manifestFiles = flattenManifestFiles(manifest.files);
   const discovered = collectRunArtifacts(runDir);
   // Merge manifest-declared files with discovered files; manifest gives order
-  // priority, discovery ensures nothing is missed.
-  const availableSet = new Set<string>([...manifestFiles, ...discovered]);
+  // priority, discovery ensures nothing is missed. Filter to renderable
+  // markdown only and exclude raw payload directories (`data/`, `runs/`,
+  // `pass1/`) — these are workflow-internal and would leak into the
+  // Supplementary bucket as JSON dumps if the manifest declared them.
+  const availableSet = new Set<string>(
+    [...manifestFiles, ...discovered].filter(
+      (p) =>
+        p.endsWith('.md') &&
+        !p.startsWith('data/') &&
+        !p.startsWith('runs/') &&
+        !p.startsWith('pass1/')
+    )
+  );
   const available = [...availableSet].sort();
 
   const consumed = new Set<string>();
@@ -750,11 +763,11 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
   const markdown = [
     `# ${documentTitle}`,
     '',
-    provenance,
-    '',
     readerGuide,
     '',
     ...sectionMarkdown,
+    '',
+    provenance,
     '',
     tradecraft,
     '',

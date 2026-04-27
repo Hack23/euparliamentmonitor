@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-17
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-17
-> - **Run id:** `180`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-17/breaking-run180](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-17/breaking-run180)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run180/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -33,8 +22,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run180/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 ### Breaking-Run180 | April 17, 2026 | T+3 Recess Analysis
 _Mode: DEGRADED (server health unavailable) | Run: 180 | Confidence: 🟡 Medium_
@@ -174,8 +161,6 @@ _Run 180 completes the T+3 analysis cycle with a new intelligence thread (defenc
 
 ### Significance Classification
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run180/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
-
 ### Breaking-Run180 | Defence & Strategic Autonomy Legislative Sprint Analysis
 _Analysis Date: 2026-04-17 | Confidence: 🟡 Medium (DEGRADED MODE — server health unavailable)_
 
@@ -292,8 +277,6 @@ _Source: EP adopted texts 2026-01-20 to 2026-03-26 via EP Open Data Portal_
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run180/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### Breaking-Run180 | April 17, 2026 | T+3 Recess Analysis
 _Methodology: Likelihood × Impact 5×5 Matrix | Confidence: 🟡 Medium_
@@ -415,8 +398,6 @@ _Sources: EP Open Data Portal (adopted texts 2026); coalition analysis run 180; 
 
 ### Quantitative Swot
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run180/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
-
 ### Breaking-Run180 | April 17, 2026 | Framework: Political SWOT v5.0
 _Analysis Date: 2026-04-17 | Confidence: 🟡 Medium (DEGRADED MODE)_
 
@@ -494,8 +475,6 @@ _Sources: EP adopted texts 2026; coalition dynamics run 180; threat analysis run
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Political Threat Landscape
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run180/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
 
 ### EU Defence & Strategic Autonomy Legislative Cluster | Breaking-Run180
 _Analysis Date: 2026-04-17 | Run: 180 | Confidence: 🟡 Medium_
@@ -666,8 +645,6 @@ _Sources: EP adopted texts March 2026; coalition dynamics analysis (Run 180); pr
 
 ### Document Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run180/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
 ### Breaking-Run180 | Focus: Defence, Strategic Autonomy & Governance Cluster
 _Analysis Date: 2026-04-17 | Source: EP Open Data Portal_
 
@@ -794,8 +771,6 @@ _Sources: EP Open Data Portal (adopted texts); EP committee documentation; publi
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Deep Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run180/intelligence/deep-analysis.md" rel="noopener">View source: <code>intelligence/deep-analysis.md</code></a></p>
 
 ### Breaking-Run180 | April 17, 2026 | T+3 Recess Intelligence
 _Analyst: AI Intelligence Operative | Run: 180 | Confidence: 🟡 Medium (DEGRADED MODE)_
@@ -928,6 +903,15 @@ Priority items for immediate surveillance when Parliament returns:
 7. **EU-Canada trade chapter acceleration signals** — INTA committee hearing on CETA Chapter X deepening, potentially scheduled for April 29.
 
 _Sources: EP adopted texts 2026 (March plenary); coalition dynamics analysis run 180; risk matrix run 180; threat assessment run 180; cross-run intelligence from runs 176-179; editorial context file April 17_
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-17
+> - **Run id:** `180`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-17/breaking-run180](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-17/breaking-run180)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run180/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

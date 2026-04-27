@@ -11,17 +11,6 @@ layout: article
 ---
 # Committee Reports — 2026-04-17
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `committee-reports`
-> - **Run date:** 2026-04-17
-> - **Run id:** `f1dc673b-2d98-4641-930e-4d14497da488`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-17/committee-reports-run53](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-17/committee-reports-run53)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,8 +23,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
 
 ### Executive Summary
 
@@ -86,8 +73,6 @@ The March 2026 Strasbourg sessions produced a multi-domain legislative sprint ac
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 ### Stakeholder Impact
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
 
 ### Stakeholder 1: EU Workers in Shortage Sectors (Direct Impact: POSITIVE/MIXED)
 **Impact**: POSITIVE | **Severity**: HIGH | 🟡 Confidence: MEDIUM
@@ -177,8 +162,6 @@ For European AI companies (Mistral, Aleph Alpha, various startups), the copyrigh
 
 ### Risk Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
-
 | # | Risk | Likelihood (1-5) | Impact (1-5) | Score | Mitigation |
 |---|------|-----------------|--------------|-------|------------|
 | R1 | Council dilutes Talent Pool wage parity in trilogue | 4 | 4 | 16 🔴 | EP commits to minimum floor in mandate |
@@ -195,8 +178,6 @@ For European AI companies (Mistral, Aleph Alpha, various startups), the copyrigh
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Formal Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/threat-assessment/formal-risk-assessment.md" rel="noopener">View source: <code>threat-assessment/formal-risk-assessment.md</code></a></p>
 
 ### Risk Register
 
@@ -234,8 +215,6 @@ For European AI companies (Mistral, Aleph Alpha, various startups), the copyrigh
 ---
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 ### 1. Executive Summary
 
@@ -459,8 +438,6 @@ The March sprint's achievements face a challenging political environment as Parl
 
 ### Committee Power Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/existing/committee-power-analysis.md" rel="noopener">View source: <code>existing/committee-power-analysis.md</code></a></p>
-
 **📅 Analysis Date**: 2026-04-17 | **📊 Confidence**: MEDIUM (degraded API mode)
 **🔍 Period**: January–March 2026 | **🏢 Committees Analyzed**: 7 (EMPL, JURI, ITRE, ENVI, TRAN, INTA, REGI)
 
@@ -574,8 +551,6 @@ The March sprint reveals several important cross-committee dynamics:
 
 ### Swot Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/existing/swot-analysis.md" rel="noopener">View source: <code>existing/swot-analysis.md</code></a></p>
-
 ### STRENGTHS
 
 #### S1: Cross-Domain Legislative Coherence 🟢 HIGH CONFIDENCE
@@ -634,8 +609,6 @@ The cross-group coalition that supported the digital sovereignty text (TA-0022) 
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
-
 ### Key Findings
 
 1. **EMPL committee completed three labour reform texts in March 2026** (TA-0050, TA-0058, TA-0076), representing the most concentrated EMPL legislative output in a single month since 2019. The Talent Pool text in particular marks a new phase in EU labour migration governance.
@@ -663,6 +636,15 @@ The cross-group coalition that supported the digital sovereignty text (TA-0022) 
 - Thread 2 (Banking Union): Not primary focus — covered run 178
 - Thread 3 (Defence): Not primary focus — covered run 180
 - Thread 4 (NEW): Labour + Digital + Climate cluster — TODAY'S FOCUS
+
+> **Provenance & Audit**
+>
+> - **Article type:** `committee-reports`
+> - **Run date:** 2026-04-17
+> - **Run id:** `f1dc673b-2d98-4641-930e-4d14497da488`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-17/committee-reports-run53](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-17/committee-reports-run53)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/committee-reports-run53/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

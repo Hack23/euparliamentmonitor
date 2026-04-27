@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-09
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-09
-> - **Run id:** `breaking`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-09/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-09/breaking)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Coalition Sentiment Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/coalition-sentiment-analysis.md" rel="noopener">View source: <code>coalition-sentiment-analysis.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-09 12:30 UTC
 **📊 Overall Assessment:** ![Assessment](https://img.shields.io/badge/-Evolving-fd7e14?style=for-the-badge)
@@ -309,8 +296,6 @@ S&D's improving positioning catalyses a progressive counter-movement. Greens/EFA
 
 ### Political Classification
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/political-classification.md" rel="noopener">View source: <code>political-classification.md</code></a></p>
-
 **📅 Analysis Date:** 2026-04-09 06:42 UTC | **📰 Article Type:** `breaking`
 **🏛️ Parliament Status:** Easter Recess (Day 14 of 18)
 **🤖 Produced By:** `news-breaking` workflow (Run 2)
@@ -564,8 +549,6 @@ Coalition impact scores reveal EP10's dominant governance model: variable geomet
 *7-dimension classification applied to 6 thematic clusters (51 adopted texts)*
 
 ### Post Recess Preparedness
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/post-recess-preparedness.md" rel="noopener">View source: <code>post-recess-preparedness.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-09 18:30 UTC (Run 4)
 **📊 Overall Assessment:** ![Assessment](https://img.shields.io/badge/-Forward_Looking-0d6efd?style=for-the-badge)
@@ -956,8 +939,6 @@ flowchart TD
 
 ### Risk Assessment
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
-
 **📅 Analysis Date:** 2026-04-09 00:40 UTC
 **📰 Article Type:** `breaking`
 **🏛️ Parliament Status:** Easter Recess (Day 14 of 18)
@@ -1163,8 +1144,6 @@ graph TD
 *Extends RSK-2026-04-08-001 from yesterday's analysis with updated interconnection mapping*
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/significance-scoring.md" rel="noopener">View source: <code>significance-scoring.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-09 00:25 UTC
 **📰 Article Type:** `breaking`
@@ -1415,8 +1394,6 @@ graph TD
 
 ### Stakeholder Impact
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/stakeholder-impact.md" rel="noopener">View source: <code>stakeholder-impact.md</code></a></p>
-
 **📅 Analysis Date:** 2026-04-09 00:30 UTC
 **📰 Article Type:** `breaking`
 **🏛️ Parliament Status:** Easter Recess (Day 14 of 18)
@@ -1625,8 +1602,6 @@ graph TD
 
 ### Swot Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
-
 **📅 Analysis Date:** 2026-04-09 00:35 UTC
 **📰 Article Type:** `breaking`
 **🏛️ Parliament Status:** Easter Recess (Day 14 of 18)
@@ -1786,8 +1761,6 @@ quadrantChart
 *Methodology: analysis/methodologies/political-swot-framework.md*
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-09 00:15 UTC
 **📊 Overall Assessment:** ![Assessment](https://img.shields.io/badge/-Routine-28a745?style=for-the-badge)
@@ -2277,8 +2250,6 @@ quadrantChart
 
 ### Threat Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/threat-analysis.md" rel="noopener">View source: <code>threat-analysis.md</code></a></p>
-
 **📅 Analysis Date:** 2026-04-09 06:40 UTC | **📰 Article Type:** `breaking`
 **🏛️ Parliament Status:** Easter Recess (Day 14 of 18 — March 27 to April 13, 2026)
 **🤖 Produced By:** `news-breaking` workflow (Run 2)
@@ -2580,6 +2551,15 @@ graph LR
 *Methodology: analysis/methodologies/political-threat-framework.md v3.1*
 *Frameworks applied: Political Threat Landscape (6-dim) + Attack Trees + PESTLE + Kill Chain*
 *Extends Run 1 analysis with dedicated threat assessment*
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-09
+> - **Run id:** `breaking`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-09/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-09/breaking)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

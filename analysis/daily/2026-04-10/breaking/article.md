@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-10
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-10
-> - **Run id:** `breaking`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-10/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-10/breaking)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/political-classification.md" rel="noopener">View source: <code>political-classification.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-10 00:20 UTC | **🏛️ Parliament Status:** Easter Recess (Day 15/18) | **📰 Article Type:** `breaking`
 **🤖 Analyst:** `news-breaking` workflow | **🔒 Sensitivity:** 🟢 PUBLIC | **Confidence:** 🟡 MEDIUM
@@ -122,8 +109,6 @@ The European Parliament remains in Easter recess, with no plenary or committee a
 | **Next expected breaking news** | April 14 (committee week start) or April 12-13 (feed recovery) |
 
 ### Political Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/political-risk-assessment.md" rel="noopener">View source: <code>political-risk-assessment.md</code></a></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Composite_Risk-11.10%2F25-orange?style=for-the-badge" alt="Composite Risk"/>
@@ -307,8 +292,6 @@ pie title Risk Score Distribution (10 April 2026)
 *Source: EP MCP precomputed stats, editorial memory, prior run analysis*
 
 ### Pre Restart Intelligence Brief
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/pre-restart-intelligence-brief.md" rel="noopener">View source: <code>pre-restart-intelligence-brief.md</code></a></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Date-2026--04--10_(Friday)-blue?style=for-the-badge" alt="Date"/>
@@ -514,8 +497,6 @@ graph TD
 
 ### Risk Assessment
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
-
 **📅 Analysis Date:** 2026-04-10 00:25 UTC | **🏛️ Parliament Status:** Easter Recess (Day 15/18) | **📰 Article Type:** `breaking`
 **🤖 Analyst:** `news-breaking` workflow | **🔒 Sensitivity:** 🟢 PUBLIC | **Overall Risk:** 🟡 MEDIUM (Composite 10.35/25)
 
@@ -692,8 +673,6 @@ graph TD
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/significance-scoring.md" rel="noopener">View source: <code>significance-scoring.md</code></a></p>
-
 <p align="center">
   <img src="https://img.shields.io/badge/Date-2026--04--10-blue?style=for-the-badge" alt="Date"/>
   <img src="https://img.shields.io/badge/Breaking_News-NOT_WARRANTED-grey?style=for-the-badge" alt="No Breaking"/>
@@ -820,8 +799,6 @@ The following events would trigger breaking news generation if they occur:
 *7-dimension scoring on 1-5 scale; breaking threshold ≥25/35 with today-dated event requirement*
 
 ### Stakeholder Impact
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/stakeholder-impact.md" rel="noopener">View source: <code>stakeholder-impact.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-10 00:40 UTC | **🏛️ Parliament Status:** Easter Recess (Day 15/18) | **📰 Article Type:** `breaking`
 **🤖 Analyst:** `news-breaking` workflow | **🔒 Sensitivity:** 🟢 PUBLIC | **Confidence:** 🟡 MEDIUM
@@ -968,8 +945,6 @@ Direct citizen impact is limited during recess. Indirect impact through:
 | Greens/GUE | 🔴 MARGINALISED | Not needed for trade majority, limited to amendment influence | 🟡 MEDIUM |
 
 ### Swot Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Analysis_Date-2026--04--10-blue?style=for-the-badge" alt="Date"/>
@@ -1139,8 +1114,6 @@ flowchart LR
 *Source: EP MCP precomputed stats, editorial memory, prior run analysis*
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Date-2026--04--10-blue?style=for-the-badge" alt="Date"/>
@@ -1344,8 +1317,6 @@ Risk drivers:
 
 ### Threat Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/threat-analysis.md" rel="noopener">View source: <code>threat-analysis.md</code></a></p>
-
 **📅 Analysis Date:** 2026-04-10 00:30 UTC | **🏛️ Parliament Status:** Easter Recess (Day 15/18) | **📰 Article Type:** `breaking`
 **🤖 Analyst:** `news-breaking` workflow | **🔒 Sensitivity:** 🟢 PUBLIC | **Threat Level:** 🟡 MODERATE
 
@@ -1515,8 +1486,6 @@ No acute democratic erosion threats. EP10 stability score 84/100. MEP stability 
 
 ### Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/threat-landscape.md" rel="noopener">View source: <code>threat-landscape.md</code></a></p>
-
 <p align="center">
   <img src="https://img.shields.io/badge/Date-2026--04--10-blue?style=for-the-badge" alt="Date"/>
   <img src="https://img.shields.io/badge/Threat_Level-ELEVATED-orange?style=for-the-badge" alt="Threat Level"/>
@@ -1685,6 +1654,15 @@ pie title Threat Dimension Scores (10 April 2026)
 *Threat analysis methodology: political-threat-framework.md v3.1*
 *Frameworks applied: Political Threat Landscape, Attack Trees, Diamond Model, Kill Chain, PESTLE*
 *Source: EP MCP precomputed stats, editorial memory, prior run analysis*
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-10
+> - **Run id:** `breaking`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-10/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-10/breaking)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

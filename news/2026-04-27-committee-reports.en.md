@@ -11,17 +11,6 @@ layout: article
 ---
 # Committee Reports — 2026-04-27
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `committee-reports`
-> - **Run date:** 2026-04-27
-> - **Run id:** `committee-reports-run-1777275816`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-27/committee-reports](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-27/committee-reports)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -36,8 +25,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-executive-brief">Executive Brief</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/executive-brief.md" rel="noopener">View source: <code>executive-brief.md</code></a></p>
 
 ### BLUF (Bottom Line Up Front)
 
@@ -125,8 +112,6 @@ The EP's adoption of tariff quota adjustments (TA-10-2026-0096) is a reactive me
 *EP Committee Reports | Analysis Week 2026-04-27 | OSINT — Public Data Only*
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 ### Executive Summary: The Geopolitical Turn in EP Committee Work
 
@@ -234,8 +219,6 @@ Three simultaneous rule-of-law threads in Q1 2026:
 *Synthesis Summary — EP Committee Reports 2026-04-27 | Integrative analysis across all artifacts; WEP bands throughout*
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
 
 ### Actor Roster
 
@@ -476,8 +459,6 @@ The joint committee approach on AI copyright reflects a deliberate rapporteur st
 
 ### Pestle Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/pestle-analysis.md" rel="noopener">View source: <code>intelligence/pestle-analysis.md</code></a></p>
-
 ### 1. Political Dimension
 
 #### 1.1 Parliamentary Architecture and Power Distribution
@@ -661,8 +642,6 @@ EU-Mercosur concerns (TA-10-2026-0008) embed environmental conditionality — th
 
 ### Historical Baseline
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
-
 ### 1. EP Legislative Output: Historical Context
 
 #### 1.1 Parliamentary Term Productivity (EP6–EP10)
@@ -771,8 +750,6 @@ The 2017 European Pillar of Social Rights was a high-profile EP-Council declarat
 
 <h2 id="section-economic-context">Economic Context</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
-
 ### 1. Euro Area Macroeconomic Context
 
 #### 1.1 Monetary Policy Cycle (ECB, Q1 2026)
@@ -877,8 +854,6 @@ The IMF Article IV consultations for the EU and Euro Area typically published in
 
 ### Risk Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
-
 ### Risk Matrix (5×5)
 
 | Risk Event | Likelihood | Impact | Risk Score | WEP Band | Priority |
@@ -956,8 +931,6 @@ quadrantChart
 *Risk Matrix — EP Committee Reports 2026-04-27 | 5×5 risk scoring, WEP bands, Mermaid quadrant*
 
 ### Quantitative Swot
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
 
 ### Scoring Methodology
 
@@ -1054,8 +1027,6 @@ Final Score = Relevance × Evidence × WEP/10
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Threat Model
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
 
 ### Threat Assessment Overview
 
@@ -1212,8 +1183,6 @@ Goal: Neutralize TA-10-2026-0066 before binding law
 
 ### Scenario Forecast
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
-
 ### Scenario Framework Overview
 
 Three scenarios structure the committee reports outlook for Q2 2026. All three assume the current 9-group EP10 composition persists (no early elections). Scenarios differ on two key pivots: (1) US-EU trade trajectory and (2) AI copyright legislative follow-through.
@@ -1352,8 +1321,6 @@ pie title EP Committee Reports Scenario Probabilities
 *Scenario Forecast — EP Committee Reports 2026-04-27 | WEP bands, ACH, Structured Scenario Planning*
 
 ### Wildcards Blackswans
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
 
 ### Overview
 
@@ -1500,8 +1467,6 @@ A true black swan for the EP committee system would be:
 
 ### Committee Productivity
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/existing/committee-productivity.md" rel="noopener">View source: <code>existing/committee-productivity.md</code></a></p>
-
 ### 1. Q1 2026 Committee Productivity Overview
 
 #### 1.1 Adopted Text Production (Year-to-Date 2026)
@@ -1622,8 +1587,6 @@ A key productivity metric for EP10 is how effectively committees coordinate on c
 *Committee Productivity — EP Committee Reports 2026-04-27 | Committee-type specific analysis*
 
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/mcp-reliability-audit.md" rel="noopener">View source: <code>intelligence/mcp-reliability-audit.md</code></a></p>
 
 ### 1. Triage Framework
 
@@ -1781,9 +1744,114 @@ Per `07-mcp-reference.md` §11, every EP MCP feed defect must be triaged against
 
 <h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
-### Reference Analysis Quality
+### Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/reference-analysis-quality.md" rel="noopener">View source: <code>intelligence/reference-analysis-quality.md</code></a></p>
+### Overview
+
+This index catalogs the full artifact set for the 2026-04-27 committee-reports analysis run. The European Parliament's committees have been active across critical legislative domains during the week ending 27 April 2026, including trade policy responses to US tariffs, AI governance, environmental legislation, monetary affairs, housing rights, and electoral reform. The adopted texts corpus (31 texts from EP10 term to date) provides the primary evidence base.
+
+---
+
+### Artifact Registry
+
+| # | Path | Lines | Status | Methodology |
+|---|------|-------|--------|-------------|
+| 1 | `executive-brief.md` | ≥180 | ✅ | BLUF, ICD 203, decision-maker brief |
+| 2 | `intelligence/analysis-index.md` | ≥100 | ✅ | Index / read-me-first |
+| 3 | `intelligence/pestle-analysis.md` | ≥180 | ✅ | PESTLE political-economic framework |
+| 4 | `intelligence/stakeholder-map.md` | ≥200 | ✅ | Influence matrix, actor network |
+| 5 | `intelligence/scenario-forecast.md` | ≥180 | ✅ | Structured scenario planning, WEP bands |
+| 6 | `intelligence/threat-model.md` | ≥160 | ✅ | Political threat framework v4.0 |
+| 7 | `intelligence/historical-baseline.md` | ≥120 | ✅ | Comparative historical analysis |
+| 8 | `intelligence/economic-context.md` | ≥120 | ✅ | EU/EA macro context, IMF data |
+| 9 | `intelligence/wildcards-blackswans.md` | ≥180 | ✅ | Wild cards, black swans, WEP |
+| 10 | `intelligence/synthesis-summary.md` | ≥160 | ✅ | Integrative synthesis |
+| 11 | `intelligence/mcp-reliability-audit.md` | ≥200 | ✅ | Feed availability, data quality |
+| 12 | `intelligence/reference-analysis-quality.md` | ≥140 | ✅ | Quality assessment vs. reference run |
+| 13 | `risk-scoring/risk-matrix.md` | ≥100 | ✅ | Risk matrix, WEP bands |
+| 14 | `risk-scoring/quantitative-swot.md` | ≥100 | ✅ | Quantitative SWOT |
+| 15 | `existing/committee-productivity.md` | ≥120 | ✅ | Committee output metrics |
+| 16 | `intelligence/methodology-reflection.md` | ≥180 | ✅ | Step 10.5 final artifact |
+
+---
+
+### Key Findings (Read-First Summary)
+
+#### Primary Legislative Themes (Week of 2026-04-20)
+
+**1. Trade & Economic Sovereignty (HIGH PRIORITY)**  
+The EP's INTA committee advanced EU-Mercosur concerns (judicial safeguard request, TA-10-2026-0008) and US tariff counter-measures (TA-10-2026-0096). With the EP in a fractured political landscape (9 groups, majority threshold 361 seats), these trade dossiers require cross-ideological coalition building between EPP (185), S&D (135), and Renew (77).
+
+**2. Digital Governance / AI Copyright (HIGH PRIORITY)**  
+TA-10-2026-0066 on copyright and generative AI adopted on 2026-03-10 signals the JURI/ITRE cooperation track on foundational AI regulation. This represents the EP's parallel legislative posture alongside the AI Act implementation.
+
+**3. Monetary & Financial Stability (MEDIUM-HIGH PRIORITY)**  
+ECON committee delivered: ECB Annual Report 2025 (TA-10-2026-0034), two senior ECB appointments (TA-10-2026-0033, TA-10-2026-0060), and financial stability framework (TA-10-2026-0004). This reflects sustained parliamentary oversight of ECB independence during elevated economic uncertainty.
+
+**4. Housing & Social Rights (MEDIUM PRIORITY)**  
+TA-10-2026-0064 (Housing crisis resolution) from SOCI/REGI committees marks a significant policy milestone — the first comprehensive EP position on the EU housing affordability crisis.
+
+**5. Electoral Reform & Democratic Resilience (MEDIUM PRIORITY)**  
+AFCO's work on Electoral Act reform (TA-10-2026-0006) and the Lithuania broadcaster takeover (TA-10-2026-0024) reflect the committee's dual mandate on institutional integrity.
+
+---
+
+### Data Quality Assessment
+
+| Source | Status | Quality | Notes |
+|--------|--------|---------|-------|
+| EP Adopted Texts (2026) | ✅ OK | 🟢 High | 31 texts retrieved, full titles |
+| Committee Documents | ✅ OK | 🟡 Medium | 51 documents, limited metadata |
+| Committee Documents Feed | 🔴 FAIL | N/A | EP API error-in-body |
+| Events Feed | 🔴 FAIL | N/A | EP API error-in-body |
+| Procedures Feed | ⚠️ HISTORICAL | 🔴 Low | Returns pre-2000 procedures |
+| Political Landscape | ✅ OK | 🟢 High | 719 MEPs, all 9 groups mapped |
+| Committee Activity (ENVI/ITRE/ECON) | ✅ OK | 🟡 Medium | Counts available, meetings=0 (API limitation) |
+| Voting Records | ⚠️ EMPTY | 🟡 Medium | Rolling delay in EP publication (expected) |
+
+---
+
+### Analytical Frameworks Applied
+
+1. **PESTLE Analysis** — Political, Economic, Social, Technological, Legal, Environmental
+2. **Stakeholder Influence Matrix** — committee chairs, rapporteurs, political groups
+3. **Structured Scenario Planning** — 3 scenarios with probability ranges (WEP bands)
+4. **Political Threat Framework v4.0** — 5-dimension model (not STRIDE)
+5. **Quantitative SWOT** — weighted scoring with confidence levels
+6. **Risk Matrix** — likelihood × impact with WEP probability ranges
+7. **Historical Baseline Comparison** — EP6-EP10 legislative output trends
+8. **CIA Coalition Analysis** — 9 groups, size-similarity proxies
+9. **OSINT Tradecraft Standards** — Admiralty grading, confidence tracking
+10. **ICD 203 BLUF Format** — executive-brief, 60-second read
+
+---
+
+### Cross-Reference Map
+
+| Artifact | Feeds Into | Dependencies |
+|----------|------------|--------------|
+| `executive-brief.md` | Article lead section | synthesis-summary, scenario-forecast |
+| `intelligence/synthesis-summary.md` | All article sections | All intelligence artifacts |
+| `intelligence/economic-context.md` | PESTLE E-dimension, risk matrix | IMF EA indicators |
+| `intelligence/threat-model.md` | Scenario 3 (adversarial) | actor-mapping, coalition data |
+| `risk-scoring/risk-matrix.md` | Executive brief risk snapshot | threat-model, historical-baseline |
+| `existing/committee-productivity.md` | Article committee analysis | Adopted texts data |
+
+---
+
+### Reader Navigation
+
+- **Decision-makers (60 sec):** → `executive-brief.md` § 60-Second Read
+- **Political analysts:** → `intelligence/pestle-analysis.md` + `intelligence/scenario-forecast.md`
+- **Trade/economic focus:** → `intelligence/economic-context.md` + `risk-scoring/risk-matrix.md`
+- **Democratic resilience:** → `intelligence/threat-model.md` + `intelligence/historical-baseline.md`
+- **Methodology:** → `intelligence/methodology-reflection.md`
+
+---
+
+*Generated: 2026-04-27 | Run: committee-reports | Stage B Pass 1*
+
+### Reference Analysis Quality
 
 ### 1. Self-Assessment Framework
 
@@ -1908,8 +1976,6 @@ If a Pass 2 / Pass 3 is needed, prioritize:
 *Reference Analysis Quality — EP Committee Reports 2026-04-27 | Self-assessment, benchmark comparison*
 
 ### Methodology Reflection
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/methodology-reflection.md" rel="noopener">View source: <code>intelligence/methodology-reflection.md</code></a></p>
 
 ### Overview
 
@@ -2056,173 +2122,14 @@ All four diagrams use simple Mermaid syntax to avoid rendering errors. The quadr
 
 *Methodology Reflection — EP Committee Reports 2026-04-27 | Step 10.5 final artifact; ≥12 SATs documented*
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Stage A Summary.Json
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/data/stage-a-summary.json" rel="noopener">View source: <code>data/stage-a-summary.json</code></a></p>
-
-{
-  "collectionDate": "2026-04-27",
-  "dataWindow": "2026-04-20 to 2026-04-27",
-  "adoptedTexts2026Count": 31,
-  "committeeDocumentsCount": 51,
-  "feedsStatus": {
-    "committeeDocumentsFeed": "UNAVAILABLE - EP API error",
-    "eventsFeed": "UNAVAILABLE - EP API error",
-    "proceduresFeed": "HISTORICAL_DATA (pre-2000s)",
-    "adoptedTextsFeed": "OK - 119 items"
-  },
-  "politicalLandscape": {
-    "totalMEPs": 719,
-    "groups": 9,
-    "majorityThreshold": 361,
-    "fragmentation": "HIGH",
-    "EPP": 185,
-    "SD": 135,
-    "PfE": 85,
-    "ECR": 81,
-    "Renew": 77,
-    "GreensEFA": 53,
-    "Left": 46,
-    "NI": 30,
-    "ESN": 27
-  },
-  "keyAdoptedTexts2026": [
-    {"id": "TA-10-2026-0004", "title": "Safeguarding financial stability amid economic uncertainties", "date": "2026-01-20", "committee": "ECON"},
-    {"id": "TA-10-2026-0006", "title": "Reform of European Electoral Act - hurdles to ratification", "date": "2026-01-20", "committee": "AFCO"},
-    {"id": "TA-10-2026-0008", "title": "Request for CJEU opinion: EU-Mercosur compatibility with Treaties", "date": "2026-01-21", "committee": "AFET/INTA"},
-    {"id": "TA-10-2026-0010", "title": "Enhanced cooperation on Loan for Ukraine", "date": "2026-01-21", "committee": "BUDG"},
-    {"id": "TA-10-2026-0024", "title": "Attempted takeover of Lithuania public broadcaster - democracy threat", "date": "2026-01-22", "committee": "CULT/LIBE"},
-    {"id": "TA-10-2026-0026", "title": "Application of safe third country concept", "date": "2026-02-10", "committee": "LIBE"},
-    {"id": "TA-10-2026-0029", "title": "Amending Measuring Instruments Directive", "date": "2026-02-10", "committee": "ITRE"},
-    {"id": "TA-10-2026-0030", "title": "EU-Mercosur bilateral safeguard clause - agricultural products", "date": "2026-02-10", "committee": "INTA/AGRI"},
-    {"id": "TA-10-2026-0033", "title": "Appointment of ECB Supervisory Board Vice-Chair", "date": "2026-02-10", "committee": "ECON"},
-    {"id": "TA-10-2026-0034", "title": "ECB Annual Report 2025", "date": "2026-02-10", "committee": "ECON"},
-    {"id": "TA-10-2026-0050", "title": "Addressing subcontracting chains - workers rights", "date": "2026-02-12", "committee": "EMPL"},
-    {"id": "TA-10-2026-0060", "title": "Appointment of ECB Vice-President", "date": "2026-03-10", "committee": "ECON"},
-    {"id": "TA-10-2026-0063", "title": "EU regulatory fitness - Better Law-Making 2023-2024", "date": "2026-03-10", "committee": "AFCO/JURI"},
-    {"id": "TA-10-2026-0064", "title": "Housing crisis in EU - solutions for decent housing", "date": "2026-03-10", "committee": "SOCI/REGI"},
-    {"id": "TA-10-2026-0066", "title": "Copyright and generative AI - opportunities and challenges", "date": "2026-03-10", "committee": "JURI/ITRE"},
-    {"id": "TA-10-2026-0084", "title": "Emission credits for heavy-duty vehicles 2025-2029", "date": "2026-03-12", "committee": "ENVI/TRAN"},
-    {"id": "TA-10-2026-0094", "title": "Combating corruption", "date": "2026-03-26", "committee": "LIBE/JURI"},
-    {"id": "TA-10-2026-0096", "title": "Adjustment of customs duties - US tariff quotas", "date": "2026-03-26", "committee": "INTA"}
-  ],
-  "committeeActivityMetrics": {
-    "ENVI": {"workloadIntensity": "HIGH", "productivityScore": 100, "policyImpactRating": "HIGH"},
-    "ITRE": {"workloadIntensity": "HIGH", "productivityScore": 100, "policyImpactRating": "HIGH"},
-    "ECON": {"workloadIntensity": "HIGH", "productivityScore": 100, "policyImpactRating": "HIGH"}
-  }
-}
-
-### Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
-
-### Overview
-
-This index catalogs the full artifact set for the 2026-04-27 committee-reports analysis run. The European Parliament's committees have been active across critical legislative domains during the week ending 27 April 2026, including trade policy responses to US tariffs, AI governance, environmental legislation, monetary affairs, housing rights, and electoral reform. The adopted texts corpus (31 texts from EP10 term to date) provides the primary evidence base.
-
----
-
-### Artifact Registry
-
-| # | Path | Lines | Status | Methodology |
-|---|------|-------|--------|-------------|
-| 1 | `executive-brief.md` | ≥180 | ✅ | BLUF, ICD 203, decision-maker brief |
-| 2 | `intelligence/analysis-index.md` | ≥100 | ✅ | Index / read-me-first |
-| 3 | `intelligence/pestle-analysis.md` | ≥180 | ✅ | PESTLE political-economic framework |
-| 4 | `intelligence/stakeholder-map.md` | ≥200 | ✅ | Influence matrix, actor network |
-| 5 | `intelligence/scenario-forecast.md` | ≥180 | ✅ | Structured scenario planning, WEP bands |
-| 6 | `intelligence/threat-model.md` | ≥160 | ✅ | Political threat framework v4.0 |
-| 7 | `intelligence/historical-baseline.md` | ≥120 | ✅ | Comparative historical analysis |
-| 8 | `intelligence/economic-context.md` | ≥120 | ✅ | EU/EA macro context, IMF data |
-| 9 | `intelligence/wildcards-blackswans.md` | ≥180 | ✅ | Wild cards, black swans, WEP |
-| 10 | `intelligence/synthesis-summary.md` | ≥160 | ✅ | Integrative synthesis |
-| 11 | `intelligence/mcp-reliability-audit.md` | ≥200 | ✅ | Feed availability, data quality |
-| 12 | `intelligence/reference-analysis-quality.md` | ≥140 | ✅ | Quality assessment vs. reference run |
-| 13 | `risk-scoring/risk-matrix.md` | ≥100 | ✅ | Risk matrix, WEP bands |
-| 14 | `risk-scoring/quantitative-swot.md` | ≥100 | ✅ | Quantitative SWOT |
-| 15 | `existing/committee-productivity.md` | ≥120 | ✅ | Committee output metrics |
-| 16 | `intelligence/methodology-reflection.md` | ≥180 | ✅ | Step 10.5 final artifact |
-
----
-
-### Key Findings (Read-First Summary)
-
-#### Primary Legislative Themes (Week of 2026-04-20)
-
-**1. Trade & Economic Sovereignty (HIGH PRIORITY)**  
-The EP's INTA committee advanced EU-Mercosur concerns (judicial safeguard request, TA-10-2026-0008) and US tariff counter-measures (TA-10-2026-0096). With the EP in a fractured political landscape (9 groups, majority threshold 361 seats), these trade dossiers require cross-ideological coalition building between EPP (185), S&D (135), and Renew (77).
-
-**2. Digital Governance / AI Copyright (HIGH PRIORITY)**  
-TA-10-2026-0066 on copyright and generative AI adopted on 2026-03-10 signals the JURI/ITRE cooperation track on foundational AI regulation. This represents the EP's parallel legislative posture alongside the AI Act implementation.
-
-**3. Monetary & Financial Stability (MEDIUM-HIGH PRIORITY)**  
-ECON committee delivered: ECB Annual Report 2025 (TA-10-2026-0034), two senior ECB appointments (TA-10-2026-0033, TA-10-2026-0060), and financial stability framework (TA-10-2026-0004). This reflects sustained parliamentary oversight of ECB independence during elevated economic uncertainty.
-
-**4. Housing & Social Rights (MEDIUM PRIORITY)**  
-TA-10-2026-0064 (Housing crisis resolution) from SOCI/REGI committees marks a significant policy milestone — the first comprehensive EP position on the EU housing affordability crisis.
-
-**5. Electoral Reform & Democratic Resilience (MEDIUM PRIORITY)**  
-AFCO's work on Electoral Act reform (TA-10-2026-0006) and the Lithuania broadcaster takeover (TA-10-2026-0024) reflect the committee's dual mandate on institutional integrity.
-
----
-
-### Data Quality Assessment
-
-| Source | Status | Quality | Notes |
-|--------|--------|---------|-------|
-| EP Adopted Texts (2026) | ✅ OK | 🟢 High | 31 texts retrieved, full titles |
-| Committee Documents | ✅ OK | 🟡 Medium | 51 documents, limited metadata |
-| Committee Documents Feed | 🔴 FAIL | N/A | EP API error-in-body |
-| Events Feed | 🔴 FAIL | N/A | EP API error-in-body |
-| Procedures Feed | ⚠️ HISTORICAL | 🔴 Low | Returns pre-2000 procedures |
-| Political Landscape | ✅ OK | 🟢 High | 719 MEPs, all 9 groups mapped |
-| Committee Activity (ENVI/ITRE/ECON) | ✅ OK | 🟡 Medium | Counts available, meetings=0 (API limitation) |
-| Voting Records | ⚠️ EMPTY | 🟡 Medium | Rolling delay in EP publication (expected) |
-
----
-
-### Analytical Frameworks Applied
-
-1. **PESTLE Analysis** — Political, Economic, Social, Technological, Legal, Environmental
-2. **Stakeholder Influence Matrix** — committee chairs, rapporteurs, political groups
-3. **Structured Scenario Planning** — 3 scenarios with probability ranges (WEP bands)
-4. **Political Threat Framework v4.0** — 5-dimension model (not STRIDE)
-5. **Quantitative SWOT** — weighted scoring with confidence levels
-6. **Risk Matrix** — likelihood × impact with WEP probability ranges
-7. **Historical Baseline Comparison** — EP6-EP10 legislative output trends
-8. **CIA Coalition Analysis** — 9 groups, size-similarity proxies
-9. **OSINT Tradecraft Standards** — Admiralty grading, confidence tracking
-10. **ICD 203 BLUF Format** — executive-brief, 60-second read
-
----
-
-### Cross-Reference Map
-
-| Artifact | Feeds Into | Dependencies |
-|----------|------------|--------------|
-| `executive-brief.md` | Article lead section | synthesis-summary, scenario-forecast |
-| `intelligence/synthesis-summary.md` | All article sections | All intelligence artifacts |
-| `intelligence/economic-context.md` | PESTLE E-dimension, risk matrix | IMF EA indicators |
-| `intelligence/threat-model.md` | Scenario 3 (adversarial) | actor-mapping, coalition data |
-| `risk-scoring/risk-matrix.md` | Executive brief risk snapshot | threat-model, historical-baseline |
-| `existing/committee-productivity.md` | Article committee analysis | Adopted texts data |
-
----
-
-### Reader Navigation
-
-- **Decision-makers (60 sec):** → `executive-brief.md` § 60-Second Read
-- **Political analysts:** → `intelligence/pestle-analysis.md` + `intelligence/scenario-forecast.md`
-- **Trade/economic focus:** → `intelligence/economic-context.md` + `risk-scoring/risk-matrix.md`
-- **Democratic resilience:** → `intelligence/threat-model.md` + `intelligence/historical-baseline.md`
-- **Methodology:** → `intelligence/methodology-reflection.md`
-
----
-
-*Generated: 2026-04-27 | Run: committee-reports | Stage B Pass 1*
+> **Provenance & Audit**
+>
+> - **Article type:** `committee-reports`
+> - **Run date:** 2026-04-27
+> - **Run id:** `committee-reports-run-1777275816`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-27/committee-reports](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-27/committee-reports)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -2322,8 +2229,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
 | section-documents | [committee-productivity](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/existing/committee-productivity.md) | `existing/committee-productivity.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
+| section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
-| section-supplementary-intelligence | [stage-a-summary.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/data/stage-a-summary.json) | `data/stage-a-summary.json` |
-| section-supplementary-intelligence | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 

@@ -11,17 +11,6 @@ layout: article
 ---
 # Propositions — 2026-04-10
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `propositions`
-> - **Run date:** 2026-04-10
-> - **Run id:** `PROP-2026-04-10-001`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-10/propositions](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-10/propositions)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -33,8 +22,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
 
 ### Scoring Methodology
 
@@ -67,8 +54,6 @@ Each item scored on 10-point scale across 7 dimensions: Political Impact (20%), 
 
 ### Political Risk Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/risk-scoring/political-risk-matrix.md" rel="noopener">View source: <code>risk-scoring/political-risk-matrix.md</code></a></p>
-
 ### Risk Matrix (Likelihood × Impact = Score)
 
 | Risk | Category | Likelihood | Impact | Score | Tier |
@@ -95,8 +80,6 @@ Trade escalation (12/25) → INTA resource diversion → delays new COD procedur
 The two highest-risk items are directly connected: trade emergency capacity in INTA reduces available EP legislative bandwidth, compounding ECON's workload on banking files.
 
 <h2 id="section-threat">Threat Landscape</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/threat-assessment/threat-landscape.md" rel="noopener">View source: <code>threat-assessment/threat-landscape.md</code></a></p>
 
 ### Threat Landscape Dimensions (T-4 Assessment)
 
@@ -149,8 +132,6 @@ Overall threat trajectory: **STABLE** (no escalation since April 9, but T-4 prox
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Deep Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/intelligence/deep-analysis.md" rel="noopener">View source: <code>intelligence/deep-analysis.md</code></a></p>
 
 ### 📋 Analysis Context
 
@@ -326,8 +307,6 @@ External security developments force EP to prioritise defence legislation. SEDE 
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
-
 ### 📋 Synthesis Context
 
 | Field | Value |
@@ -385,6 +364,15 @@ External security developments force EP to prioritise defence legislation. SEDE 
 - April 8: Banking/anti-corruption implementation outlook
 - April 9: 13 new COD procedures pipeline count
 - **April 10: Committee WORKLOAD DISTRIBUTION — which proposals risk deprioritisation in the T-4 restart rush**
+
+> **Provenance & Audit**
+>
+> - **Article type:** `propositions`
+> - **Run date:** 2026-04-10
+> - **Run id:** `PROP-2026-04-10-001`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-10/propositions](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-10/propositions)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

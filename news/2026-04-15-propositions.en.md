@@ -11,17 +11,6 @@ layout: article
 ---
 # Propositions — 2026-04-15
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `propositions`
-> - **Run date:** 2026-04-15
-> - **Run id:** `56d5a875-0b05-4753-8aca-36b9af05c1e2`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-15/propositions-run43](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-15/propositions-run43)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/propositions-run43/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -33,8 +22,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/propositions-run43/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
 
 ### Scoring Context
 
@@ -91,8 +78,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/propositions-run43/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### Risk Dashboard
 
@@ -189,8 +174,6 @@ quadrantChart
 
 ### Political Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/propositions-run43/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
-
 ### Threat Level: ELEVATED
 
 Key drivers: tariff T-0 activation, inter-session gap, grand coalition deficit (-38 seats).
@@ -220,8 +203,6 @@ Current: Stage 3. Confidence: HIGH.
 - Grand coalition deficit requiring ECR: MEDIUM stability
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/propositions-run43/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 ### Executive Summary
 
@@ -278,8 +259,6 @@ Selective engagement continues from prior sessions.
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/propositions-run43/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
-
 ### Intelligence Dashboard
 
 Decision: PUBLISH as propositions article. Lead with pipeline transition from adoption to implementation on T-0 tariff day. Differentiated from breaking (T-0 news) and committee-reports (committee output) angles.
@@ -317,6 +296,15 @@ Two distinct patterns from March 26: Grand Coalition + Greens on trade/anti-corr
 Scenario A (Likely): Managed transition - adoptions proceed to implementation, CODs processed normally
 Scenario B (Possible): Escalation overload - tariff retaliation absorbs INTA/ECON bandwidth
 Scenario C (Unlikely): Coalition fracture on trade response
+
+> **Provenance & Audit**
+>
+> - **Article type:** `propositions`
+> - **Run date:** 2026-04-15
+> - **Run id:** `56d5a875-0b05-4753-8aca-36b9af05c1e2`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-15/propositions-run43](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-15/propositions-run43)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/propositions-run43/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

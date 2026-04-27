@@ -11,17 +11,6 @@ layout: article
 ---
 # Motions — 2026-04-20
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `motions`
-> - **Run date:** 2026-04-20
-> - **Run id:** `motions-run46`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-20/motions-run46](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-20/motions-run46)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -37,8 +26,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 ### Classification
 
@@ -311,8 +298,6 @@ The primary analytical risk is **confirmation bias** — the data is so consiste
 
 ### Significance Classification
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
-
 ### Significance Scoring Methodology
 
 Scores based on five criteria (0-2 each, max 10):
@@ -513,8 +498,6 @@ Based on significance scoring, the article should focus on:
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Actor Mapping
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/classification/actor-mapping.md" rel="noopener">View source: <code>classification/actor-mapping.md</code></a></p>
 
 ### Executive Summary
 
@@ -743,8 +726,6 @@ Actor influence weights are scored 1-10 based on: (a) formal institutional posit
 *Analysis generated: 2026-04-20 | Data source: European Parliament MCP Server | Period: EP10 Q1 2026 (January–March 2026)*
 
 ### Forces Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/classification/forces-analysis.md" rel="noopener">View source: <code>classification/forces-analysis.md</code></a></p>
 
 ### Analytical Framework
 
@@ -995,8 +976,6 @@ Force strength assessments (1-5 scale) derive from: (a) Q1 2026 roll-call vote a
 *Analysis generated: 2026-04-20 | Data source: European Parliament MCP Server | Period: EP10 Q1 2026 (January–March 2026)*
 
 ### Impact Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/classification/impact-matrix.md" rel="noopener">View source: <code>classification/impact-matrix.md</code></a></p>
 
 ### Methodology
 
@@ -1252,8 +1231,6 @@ Scores are assigned based on: (a) legal bindingness and scope of application, (b
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Voting Patterns
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/intelligence/voting-patterns.md" rel="noopener">View source: <code>intelligence/voting-patterns.md</code></a></p>
 
 ### Overview
 
@@ -1521,8 +1498,6 @@ Confidence intervals account for: MEP absence rates (~10-15%), free vote provisi
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 ### Stakeholder Map
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
 
 ### Executive Summary
 
@@ -1896,8 +1871,6 @@ graph LR
 
 ### Stakeholder Impact
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
-
 ### Stakeholder 1: European Commission (DG TRADE, DG EMPL, DG GROW, DG NEAR)
 
 **Role:** Legislative initiator and implementation authority
@@ -2038,8 +2011,6 @@ China's optimal response is to continue selective trade engagement (TRQ, consume
 <h2 id="section-pestle-context">PESTLE & Context</h2>
 
 ### Pestle Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/intelligence/pestle-analysis.md" rel="noopener">View source: <code>intelligence/pestle-analysis.md</code></a></p>
 
 ### Executive Summary
 
@@ -2547,8 +2518,6 @@ EP10's Q1 2026 PESTLE environment is characterised by:
 
 ### Historical Baseline
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
-
 ### Executive Summary
 
 EP10's Q1 2026 legislative output represents a structural break from historical patterns. With 567 roll-call votes in a single quarter — compared to 420 for all of 2025 — the current Parliament is operating at a velocity unprecedented in the institution's directly-elected history (since 1979). This analysis establishes quantitative baselines from EP7 (2009–2014), EP8 (2014–2019), and EP9 (2019–2024) to contextualise EP10's extraordinary performance and assess whether it represents sustainable institutional capacity or crisis-induced overshoot.
@@ -2865,8 +2834,6 @@ For reference: An HHI below 0.15 in market economics indicates a "competitive ma
 
 <h2 id="section-economic-context">Economic Context</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
-
 ### Executive Summary
 
 The European Parliament's record Q1 2026 legislative output — 567 roll-call votes, 180 resolutions, 114 legislative acts — is not occurring in an economic vacuum. It represents a direct institutional response to converging macroeconomic pressures: a transatlantic trade war following US tariff reimposition, the €800 billion ReArm Europe defence mobilisation, incomplete Banking Union architecture exposed by financial stress, and a housing affordability crisis affecting 23 of 27 Member States.
@@ -3100,8 +3067,6 @@ The 2.7x pace multiplier is not merely legislative activism — it is the instit
 
 ### Risk Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
-
 ### Risk Scoring Methodology
 
 **Likelihood:** 1 (Rare) → 5 (Almost Certain)
@@ -3191,8 +3156,6 @@ The 2.7x pace multiplier is not merely legislative activism — it is the instit
 3. Commission Housing Action Plan design that maximises achievable impact within Treaty constraints
 
 ### Quantitative Swot
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
 
 ### Analytical Framework
 
@@ -3438,8 +3401,6 @@ Magnitude scores (1-10) are calibrated against the full range of EP10 legislativ
 *Analysis generated: 2026-04-20 | Data source: European Parliament MCP Server | Period: EP10 Q1 2026 (January–March 2026)*
 
 ### Political Capital Risk
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/risk-scoring/political-capital-risk.md" rel="noopener">View source: <code>risk-scoring/political-capital-risk.md</code></a></p>
 
 ### Executive Summary
 
@@ -3765,8 +3726,6 @@ Political capital is modeled as a renewable but depletable resource. Capital sto
 
 ### Legislative Velocity Risk
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/risk-scoring/legislative-velocity-risk.md" rel="noopener">View source: <code>risk-scoring/legislative-velocity-risk.md</code></a></p>
-
 ### Executive Summary
 
 The European Parliament processed 567 roll-call votes, 180 resolutions, and 104 adopted texts in Q1 2026 — representing a 2.7x annualized pace compared to the full-year 2025 output of 420 RCVs. This analysis examines whether this velocity is sustainable, identifies capacity constraints at each institutional node, and projects velocity trajectories for Q2-Q4 2026 under multiple scenarios.
@@ -4082,8 +4041,6 @@ Velocity Index normalized to EP9 2022 full-year output as baseline (1.0). Constr
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Threat Model
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
 
 ### Executive Summary
 
@@ -4450,8 +4407,6 @@ After applying all mitigations, the residual risk profile for EP10 Q2 2026:
 
 ### Actor Threat Profiles
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/threat-assessment/actor-threat-profiles.md" rel="noopener">View source: <code>threat-assessment/actor-threat-profiles.md</code></a></p>
-
 ### Executive Summary
 
 This assessment profiles six threat actors with demonstrated capability and intent to disrupt the European Parliament's legislative agenda as established through Q1 2026 motions activity (567 roll-call votes, 180 resolutions, 104 adopted texts). The 2.7x legislative pace acceleration compared to 2025 creates both expanded attack surface and compressed response windows for threat actors seeking to exploit institutional vulnerabilities.
@@ -4792,8 +4747,6 @@ graph LR
 
 ### Consequence Trees
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/threat-assessment/consequence-trees.md" rel="noopener">View source: <code>threat-assessment/consequence-trees.md</code></a></p>
-
 ### Executive Summary
 
 This document applies consequence tree methodology to four critical decision nodes emerging from Q1 2026 EP10 legislative activity. Each decision node represents a binary or multi-path choice point where institutional action (or inaction) cascades into divergent political, economic, and institutional outcomes. Probability assignments are derived from historical precedent analysis, current political dynamics assessment, and structural constraint evaluation.
@@ -5081,8 +5034,6 @@ graph LR
 *Data sources: EP Open Data Portal, ECB Financial Stability Review, Council voting records*
 
 ### Legislative Disruption
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/threat-assessment/legislative-disruption.md" rel="noopener">View source: <code>threat-assessment/legislative-disruption.md</code></a></p>
 
 ### Executive Summary
 
@@ -5637,8 +5588,6 @@ graph TD
 
 ### Political Stride Assessment
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/threat-assessment/political-stride-assessment.md" rel="noopener">View source: <code>threat-assessment/political-stride-assessment.md</code></a></p>
-
 ### Executive Summary
 
 This assessment adapts the STRIDE threat modelling framework from cybersecurity to political-institutional threat analysis of the European Parliament's Q1 2026 legislative programme. Each STRIDE category maps to a distinct mode of institutional attack against legislative processes, democratic accountability, and policy implementation capacity.
@@ -6135,8 +6084,6 @@ The 2.7x legislative pace acceleration directly amplifies Tampering and Denial o
 
 ### Political Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
-
 ### Threat Framework
 
 Threats are categorised across four domains:
@@ -6283,8 +6230,6 @@ The **Grand Centre coalition's 86% cohesion score** means the internal threat is
 <h2 id="section-scenarios">Scenarios & Wildcards</h2>
 
 ### Scenario Forecast
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
 
 ### Executive Summary
 
@@ -6606,8 +6551,6 @@ This forecast employs scenario planning methodology combining quantitative legis
 *Analysis produced: 2026-04-20 | Next update trigger: USTR Section 301 determination publication or Grand Centre cohesion rate <78% on trade votes*
 
 ### Wildcards Blackswans
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
 
 ### Executive Summary
 
@@ -7109,8 +7052,6 @@ The worst outcome is an institution caught unprepared AND simultaneously over-co
 
 ### Cross Session Intelligence
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/intelligence/cross-session-intelligence.md" rel="noopener">View source: <code>intelligence/cross-session-intelligence.md</code></a></p>
-
 ### Session Overview
 
 | Session | Dates | Sitting Days | Location | Texts Adopted | Theme |
@@ -7350,8 +7291,6 @@ Most likely: all three factors operating simultaneously.
 
 ### Session Baseline
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/existing/session-baseline.md" rel="noopener">View source: <code>existing/session-baseline.md</code></a></p>
-
 ### Run Context
 
 | Field | Value |
@@ -7542,8 +7481,6 @@ This baseline provides the reference framework against which all subsequent quar
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
-
 ### Executive Summary
 
 The European Parliament's first quarter of 2026 produced an unprecedented 567 roll-call votes and 180 resolutions — both records that, when set against the corresponding 2025 figures (420 RCVs and 135 resolutions in the full calendar year), reveal a parliamentary body operating at roughly triple its prior-year cadence. This acceleration is not mere statistical noise: it reflects a strategic clarity that EP10 has been building since its constitutive phase concluded in late 2024. The Parliament has found its political voice, and the record pace of its output in Q1 2026 is the most reliable leading indicator of that maturation.
@@ -7724,8 +7661,6 @@ This PfE-ECR divergence is one of the most important structural features of EP10
 
 ### Document Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
 ### Data Availability Summary
 
 | Category | Available | Notes |
@@ -7844,289 +7779,9 @@ This PfE-ECR divergence is one of the most important structural features of EP10
 5. **Texts with subject codes confirmed:** ~50 (via metadata batch query)
 6. **Texts requiring inference:** All texts with limited metadata; significance scores based on title + subject code + political context
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Coalition Dynamics
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/existing/coalition-dynamics.md" rel="noopener">View source: <code>existing/coalition-dynamics.md</code></a></p>
-
-### Political Group Composition (EP10, April 2026)
-
-| Group | Seats | % | Alliance Orientation |
-|-------|-------|---|---------------------|
-| EPP (European People's Party) | ~182* | ~25.3% | Centre-right, pro-EU, federalist |
-| S&D (Socialists & Democrats) | 135 | 18.8% | Centre-left, pro-EU social market |
-| PfE (Patriots for Europe) | 84 | 11.7% | Nationalist right, EU-skeptic |
-| ECR (European Conservatives & Reformists) | 81 | 11.3% | Conservative right, EU-reform |
-| Renew Europe | 77 | 10.7% | Liberal, pro-EU, federalist |
-| Greens/EFA | 53 | 7.4% | Progressive, Green, regionalist |
-| The Left | 46 | 6.4% | Progressive left, EU-critical |
-| NI (Non-Inscrits) | 30 | 4.2% | Mixed |
-| ESN (Europe of Sovereign Nations) | 27 | 3.8% | Hard nationalist, EU-skeptic |
-| **TOTAL** | **~715** | **100%** | |
-
-*EPP count from known composition; API returns "PPE" label with memberCount=0 (data issue)
-
----
-
-### Grand Centre Coalition Analysis
-
-#### Core Governing Bloc (EPP + S&D + Renew)
-- **Combined seats:** ~394 (54.7% of 720 total)
-- **Majority threshold:** 361 seats (simple majority in a 720-seat Parliament)
-- **Structural surplus:** ~33 seats above majority
-- **Cohesion assessment:** 🟡 Estimated 85-90% on mainstream legislative texts
-
-The Grand Centre coalition is the primary engine of EP10 legislative productivity. Its slim structural majority means that:
-1. Any two Grand Centre groups can form an effective majority with one opposition partner
-2. Full Grand Centre alignment is required for contested texts with significant opposition
-3. The Greens/EFA "extended majority" option (adding 53 Greens brings total to 447 seats) provides a comfortable buffer for progressive legislation
-
-#### Extended Majority Options
-
-| Coalition | Seats | % | Use Cases |
-|-----------|-------|---|-----------|
-| Grand Centre | ~394 | 54.7% | Standard legislation |
-| Grand Centre + Greens | ~447 | 62.1% | Progressive/green legislation |
-| Grand Centre + ECR | ~475 | 66.0% | Security, enlargement (anti-Russia) |
-| Grand Centre + Left | ~440 | 61.1% | Social policy, labour rights |
-| Broad centre | ~540 | 75.0% | Constitutional texts (2/3 required) |
-
----
-
-### Q1 2026 Voting Pattern Analysis by Policy Domain
-
-#### Trade Policy (TA-0096, TA-0101, TA-0086)
-**Expected alignment:**
-- EPP: ✅ Strongly in favour (manufacturing sector protection from US tariffs)
-- S&D: ✅ Strongly in favour (workers' employment protection)
-- Renew: ✅ In favour (EU commercial policy autonomy principle)
-- Greens: ✅/🟡 In favour with caveats (trade sustainability conditions)
-- The Left: 🟡 Split (anti-tariff escalation vs. anti-corporate trade deals)
-- ECR: 🟡 Split (Polish Atlanticists vs. Italian/Spanish nationalists)
-- PfE: ❌ Against (supranational trade authority concerns; Orbán-Russia triangle complicates anti-US framing)
-- ESN: ❌ Against (sovereignty concerns)
-
-**Confidence:** 🟡 Medium (no vote data; position inference from group doctrine)
-
-#### Social Policy (TA-0064 Housing, TA-0076 Semester, TA-0050 Subcontracting)
-**Expected alignment:**
-- S&D: ✅ Strongly in favour (core electoral mandate)
-- Greens: ✅ Strongly in favour (urban housing crisis, climate-social nexus)
-- The Left: ✅ Strongly in favour (housing as human right)
-- Renew: 🟡 Split (social liberal wing vs. economic liberal wing)
-- EPP: 🟡 Split (Christian Democratic worker protection tradition vs. market-liberal wing)
-- ECR: ❌ Against (subsidiarity, anti-EU social competence expansion)
-- PfE: ❌ Against (sovereignty, national housing policy preference)
-- ESN: ❌ Against
-
-**Key insight:** Social policy texts pass on a "non-standard Grand Centre" coalition — S&D + Greens + Left + portions of Renew and EPP. This represents roughly 315-360 votes, which is at or just below the 360-seat majority threshold. Housing resolution likely passed by thin margin (20-40 votes).
-
-#### Security & Defence (TA-0079 Defence Single Market, TA-0020 Drones)
-**Expected alignment:**
-- EPP: ✅ Strongly in favour (strategic autonomy, defence industrial priorities)
-- S&D: ✅ In favour (collective security, NATO complementarity)
-- Renew: ✅ Strongly in favour (pro-NATO, security policy modernisation)
-- ECR: ✅ Strongly in favour (particularly Polish MEPs, pro-NATO caucus)
-- Greens: 🟡 Split (pacifist wing vs. security realist wing; drones text particularly divisive)
-- The Left: ❌ Against (pacifist, anti-militarisation)
-- PfE: 🟡 Split (pro-defence spending but anti-EU competence expansion; Rassemblement National complex on defence)
-- ESN: ❌ Against (against EU defence integration)
-
-**Key insight:** Defence policy texts achieve atypically broad majorities by bringing ECR firmly into the governing coalition. Grand Centre + ECR (475 seats) is more than sufficient. The Left opposes but provides no blocking mechanism.
-
-#### Foreign Policy & Enlargement (TA-0077, TA-0078, TA-0053, TA-0046)
-**Expected alignment on Enlargement:**
-- EPP: ✅ Strongly in favour (anti-Russia geopolitics; Merkel-era legacy)
-- S&D: ✅ In favour (democratisation, European values)
-- Renew: ✅ Strongly in favour (liberal democratic enlargement)
-- ECR: ✅ Strongly in favour (Ukraine accession = anti-Russia)
-- Greens: 🟡 Cautiously in favour (conditionality requirements)
-- The Left: 🟡 Mixed (enlargement yes, NATO/security conditions controversial)
-- PfE: ❌ Strongly against (Orbán explicitly opposes Ukraine accession)
-- ESN: ❌ Against
-
-**Human rights urgency resolutions (Iran, Syria):** Near-unanimous except ESN/some NI (anti-Western political orientation)
-
----
-
-### Opposition Bloc Fragmentation Analysis
-
-The combined PfE (84) + ECR (81) + ESN (27) + NI-right (est. 15) bloc theoretically commands approximately 207 seats — not enough to block standard majority decisions but potentially significant in qualified majority scenarios or when combined with Grand Centre defections.
-
-**Critical structural observation:** PfE and ECR cannot form a stable governing coalition even if they wanted to because:
-
-1. **Ukraine policy:** ECR (Poland dominant) is strongly pro-Ukraine accession; PfE (Orbán) is explicitly opposed
-2. **NATO/Security:** ECR strongly pro-NATO; PfE contains parties with Russia-sympathetic track records (RN, FPÖ)
-3. **EU trade tools:** ECR accepts supranational trade policy instruments; PfE opposes them on sovereignty grounds
-4. **Social policy:** ECR is market-conservative (anti-welfare expansion); PfE contains national welfare chauvinists
-5. **Rule of law:** ECR contains Polish parties pushing back against EU conditionality; PfE contains Hungarian parties that are the primary targets of conditionality
-
-This structural incoherence means the opposition's political arithmetic is 207 seats minus the "contradictions discount" of approximately 60-80 seats on any given contested vote — making effective opposition closer to 127-147 seats, barely 20% of the house. This is a historically weak opposition position in the European Parliament.
-
----
-
-### Coalition Stress Indicators
-
-#### High-Stress Scenarios Identified in Q1 2026
-
-| Issue | Stress Type | Groups Affected | Likely Resolution |
-|-------|-------------|-----------------|-------------------|
-| US Tariff Countermeasures | EPP business vs. solidarity | EPP internal | Business wing accepted trade solidarity precedent |
-| Housing Subsidiarity | Renew economic liberalism vs. S&D social mandate | Renew internal | Social liberal wing prevailed |
-| Defence Spending Greens | Greens pacifism vs. security realism | Greens internal | Security realism prevailed (36 of 53 Greens) |
-| Iran Urgency (sanctions escalation) | Left anti-sanctions principle | The Left | Left split; majority of left MEPs supported urgency |
-| CSAM AI detection privacy | Renew civil liberties vs. child protection | Renew, EPP | Child protection prevailed; privacy safeguards added |
-
-#### Grand Centre Cohesion Score (Q1 2026 Estimate)
-- **Legislative texts:** 88% alignment (EPP+S&D+Renew voting same direction)
-- **Non-legislative resolutions:** 79% alignment (more internal variation permitted)
-- **Urgency resolutions:** 92% alignment (common external threat focus)
-- **Overall Q1 2026:** 🟢 86% cohesion (STRONG — above EP9 equivalent of ~79%)
-
----
-
-### Parliamentary Fragmentation Index
-
-Based on group seat distribution, the parliamentary fragmentation index (Laakso-Taagepera effective number of parties) for EP10 is approximately **6.8** — reflecting a more fragmented parliament than EP9 (estimated 5.9 effective parties) but with higher governing coalition coherence. This apparent paradox (more fragmentation + more coherence) reflects the fact that the PfE/ECR/ESN growth has primarily come from consolidation of previously fragmented far-right groupings rather than from eating into Grand Centre territory.
-
-**Implication:** EP10 may actually be easier to govern than the fragmentation index suggests, because the opposition's internal contradictions limit its effectiveness as a blocking force.
-
----
-
-### Q1 2026 Coalition Architecture Summary
-
-```
-720 seats total | 360 majority threshold
-
-GOVERNING ZONE (EPP+S&D+Renew ~394):
-████████████████████████████████████████████████████ 55%
-
-PROGRESSIVE EXTENSION (add Greens ~447):
-█████████████████████████████████████████████████████████ 62%
-
-SECURITY EXTENSION (add ECR ~475):
-██████████████████████████████████████████████████████████████ 66%
-
-OPPOSITION ZONE (PfE+ECR+ESN+NI ~207):
-████████████████████████████ 29%
-```
-
-The governing zone commands a structural majority in all configuration variants. The opposition zone cannot form a majority coalition. EP10 is the most governable parliament in EU history in terms of structural coalition mathematics — but with a thin enough majority that sustained Grand Centre discipline is non-negotiable.
-
-### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
-
-### Article Concept
-
-**Headline:** EP10's Record Quarter: From Housing Rights to Trade Wars, Parliament Defines Its Political Identity
-
-**Subheadline:** An unprecedented 567 roll-call votes and 180 resolutions in Q1 2026 reveal a parliament achieving strategic clarity across defence, social policy, and geopolitical positioning simultaneously
-
-**Angle:** The record legislative pace is the story's lead, but the substance is the emergence of EP10's distinctive political identity — neither EP9's green-growth idealism nor a mere institutional machine, but a parliament that has internalised the polycrisis (Russian aggression, American transactionalism, housing unaffordability, climate-economic transition) and is responding with systematic legislative assertiveness. The Grand Centre's 86% cohesion rate enables this productivity; the question the article must pose is whether productivity translates to policy outcomes in the face of structural delivery constraints.
-
----
-
-### Key Findings Summary
-
-#### Finding 1: Record Parliamentary Velocity Is Policy Signal, Not Just Metric
-567 RCVs in Q1 2026 vs. 420 in all of 2025 (34% pace increase). 180 resolutions vs. 135 in 2025. 104 adopted texts. These figures represent the most productive parliamentary quarter in EU history. The statistical signature of this productivity pattern — more amendment votes per text, not just more texts — indicates higher legislative complexity being processed efficiently. The Grand Centre coalition's 86% vote alignment (estimated) is the engine. The polycrisis context (multiple simultaneous external pressures) is the fuel.
-
-#### Finding 2: March 26 Mini-Plenary as Crystallisation Moment
-In a single session, Parliament adopted 14 texts across five dimensions simultaneously: trade countermeasures (TA-0096 US tariffs), trade diplomacy (TA-0101 China TRQ), financial stability (TA-0092 SRMR3), anti-corruption (TA-0094), and digital protection (TA-0095 CSAM). No previous mini-plenary in EP10 has combined this breadth of legislative output. The March 26 session demonstrates the logistical and political management capacity that EP10's experienced leadership team (President Metsola, Conference of Presidents) has developed through 18 months of institutional learning.
-
-#### Finding 3: Three-Pillar Resolutory Architecture
-EP10's Q1 non-legislative resolutions cluster into three coherent pillars:
-
-**Pillar A — Geopolitical Assertion:** Enlargement strategy (TA-0077), EU-Canada solidarity (TA-0078), Defence single market (TA-0079), Global Gateway evaluation (TA-0104), WTO MC14 position (TA-0086), Syria urgency (TA-0053), Iran urgency (TA-0046), Drones doctrine (TA-0020). Common thread: Parliament asserting EU agency in a multipolar world where US reliability is questioned and Russian revisionism continues.
-
-**Pillar B — Social Contract Renewal:** Housing crisis (TA-0064), European Semester 2026 (TA-0076), Subcontracting workers' rights (TA-0050), EU Talent Pool (TA-0074). Common thread: Parliament recognising that EU legitimacy requires visible response to citizens' daily quality-of-life concerns, particularly housing affordability.
-
-**Pillar C — Institutional Integrity:** Anti-corruption directive (TA-0094), Public access to documents (TA-0065), Regulatory fitness (TA-0063), Grzegorz Braun immunity waiver (TA-0088). Common thread: Parliament addressing its own legitimacy gap following Qatargate and managing populist challenge to institutional norms.
-
-#### Finding 4: Opposition Fragmentation Enables Productivity
-The PfE+ECR+ESN combined opposition (207 seats, 29%) appears formidable but is structurally incoherent. On Ukraine enlargement, ECR supports while PfE opposes. On trade countermeasures, ECR splits while PfE opposes. On defence integration, ECR strongly supports while ESN opposes. This incoherence reduces effective blocking power to approximately 127-147 votes on any given contested text — far below the 360-seat majority threshold needed to stop Grand Centre legislation.
-
-#### Finding 5: DEGRADED MODE Intelligence Gap
-Individual text content (PDF documents, full legislative text) was unavailable via EP API for all texts from TA-0083 onwards (10-day degraded mode). Analysis relies on titles, subject codes, editorial context, and political inference. Key limitation: cannot verify specific resolution language, amendment history, or precise vote tallies. Coalition analysis marked 🟡 Medium confidence throughout.
-
----
-
-### Article Quality Gate Pre-Check
-
-| Gate | Status | Notes |
-|------|--------|-------|
-| ≥80 words per SWOT item | ✅ Target | SWOT to be generated in article |
-| ≥150 words per stakeholder | ✅ Exceeded | Stakeholder analysis file has 7 major stakeholders at 200-400 words each |
-| ≥60% prose ratio | ✅ Target | Article will be primarily analytical prose |
-| ≥1 Chart.js visualization | ✅ Planned | Bar chart of quarterly RCV volumes EP7-EP10 comparison |
-| Zero AI_ANALYSIS_REQUIRED markers | ✅ Confirmed | All analysis files contain substantive content |
-| World Bank data for policy articles | ✅ Optional | Housing and trade sections may reference GDP/housing data |
-| 2-pass quality review | ⏳ Pending | Pass 2 to be completed after article generation |
-
----
-
-### Article Structure Outline
-
-#### Section 1: The Numbers That Tell a Story (300-400 words)
-Lead with the 567/180/104 record. Place in historical context (EP7-EP10 Q1 comparison chart). Explain what the numbers mean — not just productivity but political confidence. Quote-worthy framing: "A parliament that votes 567 times in a quarter has reached institutional maturity."
-
-#### Section 2: The March 26 Signal — Five Dimensions in One Session (400-500 words)
-Unpack the mini-plenary as crystallisation moment. Lead with the US tariff countermeasure as most consequential. Connect China TRQ, SRMR3, anti-corruption, CSAM as a coherent five-point agenda. Establish the "dual-track trade architecture" concept.
-
-#### Section 3: Housing as Watershed — Europe's Social Contract Rewritten (350-400 words)
-The housing resolution's political significance. Why "first-ever EP housing resolution" matters as framing. The subsidiarity challenge. What civil society won and what limits remain. The European Semester connection.
-
-#### Section 4: Geopolitical Parliament — Enlargement, Solidarity, Defence (400-500 words)
-Enlargement strategy as the most consequential long-term resolution. EU-Canada solidarity in trans-Atlantic realignment context. Defence single market as industrial integration. Global Gateway as BRI competition.
-
-#### Section 5: Coalition Architecture — How 86% Cohesion Enables Records (300-350 words)
-Explain Grand Centre dynamics. Describe opposition fragmentation. The PfE-ECR contradiction matrix. Why EP10 is more governable than EP9 despite higher fragmentation index.
-
-#### Section 6: What the Easter Recess Masks — Looking Forward (200-300 words)
-Post-recess legislative agenda. Implementation risks. US tariff trajectory. Housing Action Plan timing. Enlargement Council blockade. The gap between Parliament's assertive posture and Commission/Council delivery capacity.
-
-#### SWOT Analysis (4 dimensions, ≥80 words each)
-
-#### Chart.js Visualization: EP Quarterly RCV Volume 2010-2026
-
----
-
-### Time Budget Status
-
-| Phase | Target | Actual | Status |
-|-------|--------|--------|--------|
-| Data retrieval | 0-15 min | 0-7 min | ✅ Complete |
-| Pass 1 Analysis | 15-30 min | 7-22 min | ✅ Complete |
-| Pass 2 Review | 30-40 min | Pending | ⏳ |
-| Article generation | 40-50 min | Pending | ⏳ |
-| Validation | 50-55 min | Pending | ⏳ |
-| Final PR | 55-60 min | Pending | ⏳ |
-
-**ELAPSED_MINUTES:** 15 (approximate, as of synthesis writing)
-**Required minimum:** 45 minutes active work
-**Remaining budget:** ~30 minutes
-
----
-
-### Editorial Decision: Article Parameters
-
-**Article type slug:** motions
-**Article date:** 2026-04-20
-**Languages to generate:** en (English only, as specified by workflow)
-**Run ID:** 46
-**Output file expected:** news/2026-04-20-motions-en.html
-
-**Title:** "EP10's Record Quarter: From Housing Rights to Trade Wars, Parliament Defines Its Political Identity"
-
-**Description:** "An unprecedented 567 roll-call votes and 180 resolutions in Q1 2026 reveal a European Parliament achieving strategic clarity across defence, social policy, and geopolitical positioning — the statistical signature of institutional maturation in a polycrisis era."
-
-**Author:** EU Parliament Monitor Intelligence Unit | **Date:** 2026-04-20
+<h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
 ### Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
 
 ### Executive Summary
 
@@ -8355,6 +8010,291 @@ This analysis package adheres to the following standards:
 *Next scheduled update: Post-recess (2026-04-27) when legislative activity resumes*
 *Classification: UNCLASSIFIED // PUBLIC*
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Coalition Dynamics
+
+### Political Group Composition (EP10, April 2026)
+
+| Group | Seats | % | Alliance Orientation |
+|-------|-------|---|---------------------|
+| EPP (European People's Party) | ~182* | ~25.3% | Centre-right, pro-EU, federalist |
+| S&D (Socialists & Democrats) | 135 | 18.8% | Centre-left, pro-EU social market |
+| PfE (Patriots for Europe) | 84 | 11.7% | Nationalist right, EU-skeptic |
+| ECR (European Conservatives & Reformists) | 81 | 11.3% | Conservative right, EU-reform |
+| Renew Europe | 77 | 10.7% | Liberal, pro-EU, federalist |
+| Greens/EFA | 53 | 7.4% | Progressive, Green, regionalist |
+| The Left | 46 | 6.4% | Progressive left, EU-critical |
+| NI (Non-Inscrits) | 30 | 4.2% | Mixed |
+| ESN (Europe of Sovereign Nations) | 27 | 3.8% | Hard nationalist, EU-skeptic |
+| **TOTAL** | **~715** | **100%** | |
+
+*EPP count from known composition; API returns "PPE" label with memberCount=0 (data issue)
+
+---
+
+### Grand Centre Coalition Analysis
+
+#### Core Governing Bloc (EPP + S&D + Renew)
+- **Combined seats:** ~394 (54.7% of 720 total)
+- **Majority threshold:** 361 seats (simple majority in a 720-seat Parliament)
+- **Structural surplus:** ~33 seats above majority
+- **Cohesion assessment:** 🟡 Estimated 85-90% on mainstream legislative texts
+
+The Grand Centre coalition is the primary engine of EP10 legislative productivity. Its slim structural majority means that:
+1. Any two Grand Centre groups can form an effective majority with one opposition partner
+2. Full Grand Centre alignment is required for contested texts with significant opposition
+3. The Greens/EFA "extended majority" option (adding 53 Greens brings total to 447 seats) provides a comfortable buffer for progressive legislation
+
+#### Extended Majority Options
+
+| Coalition | Seats | % | Use Cases |
+|-----------|-------|---|-----------|
+| Grand Centre | ~394 | 54.7% | Standard legislation |
+| Grand Centre + Greens | ~447 | 62.1% | Progressive/green legislation |
+| Grand Centre + ECR | ~475 | 66.0% | Security, enlargement (anti-Russia) |
+| Grand Centre + Left | ~440 | 61.1% | Social policy, labour rights |
+| Broad centre | ~540 | 75.0% | Constitutional texts (2/3 required) |
+
+---
+
+### Q1 2026 Voting Pattern Analysis by Policy Domain
+
+#### Trade Policy (TA-0096, TA-0101, TA-0086)
+**Expected alignment:**
+- EPP: ✅ Strongly in favour (manufacturing sector protection from US tariffs)
+- S&D: ✅ Strongly in favour (workers' employment protection)
+- Renew: ✅ In favour (EU commercial policy autonomy principle)
+- Greens: ✅/🟡 In favour with caveats (trade sustainability conditions)
+- The Left: 🟡 Split (anti-tariff escalation vs. anti-corporate trade deals)
+- ECR: 🟡 Split (Polish Atlanticists vs. Italian/Spanish nationalists)
+- PfE: ❌ Against (supranational trade authority concerns; Orbán-Russia triangle complicates anti-US framing)
+- ESN: ❌ Against (sovereignty concerns)
+
+**Confidence:** 🟡 Medium (no vote data; position inference from group doctrine)
+
+#### Social Policy (TA-0064 Housing, TA-0076 Semester, TA-0050 Subcontracting)
+**Expected alignment:**
+- S&D: ✅ Strongly in favour (core electoral mandate)
+- Greens: ✅ Strongly in favour (urban housing crisis, climate-social nexus)
+- The Left: ✅ Strongly in favour (housing as human right)
+- Renew: 🟡 Split (social liberal wing vs. economic liberal wing)
+- EPP: 🟡 Split (Christian Democratic worker protection tradition vs. market-liberal wing)
+- ECR: ❌ Against (subsidiarity, anti-EU social competence expansion)
+- PfE: ❌ Against (sovereignty, national housing policy preference)
+- ESN: ❌ Against
+
+**Key insight:** Social policy texts pass on a "non-standard Grand Centre" coalition — S&D + Greens + Left + portions of Renew and EPP. This represents roughly 315-360 votes, which is at or just below the 360-seat majority threshold. Housing resolution likely passed by thin margin (20-40 votes).
+
+#### Security & Defence (TA-0079 Defence Single Market, TA-0020 Drones)
+**Expected alignment:**
+- EPP: ✅ Strongly in favour (strategic autonomy, defence industrial priorities)
+- S&D: ✅ In favour (collective security, NATO complementarity)
+- Renew: ✅ Strongly in favour (pro-NATO, security policy modernisation)
+- ECR: ✅ Strongly in favour (particularly Polish MEPs, pro-NATO caucus)
+- Greens: 🟡 Split (pacifist wing vs. security realist wing; drones text particularly divisive)
+- The Left: ❌ Against (pacifist, anti-militarisation)
+- PfE: 🟡 Split (pro-defence spending but anti-EU competence expansion; Rassemblement National complex on defence)
+- ESN: ❌ Against (against EU defence integration)
+
+**Key insight:** Defence policy texts achieve atypically broad majorities by bringing ECR firmly into the governing coalition. Grand Centre + ECR (475 seats) is more than sufficient. The Left opposes but provides no blocking mechanism.
+
+#### Foreign Policy & Enlargement (TA-0077, TA-0078, TA-0053, TA-0046)
+**Expected alignment on Enlargement:**
+- EPP: ✅ Strongly in favour (anti-Russia geopolitics; Merkel-era legacy)
+- S&D: ✅ In favour (democratisation, European values)
+- Renew: ✅ Strongly in favour (liberal democratic enlargement)
+- ECR: ✅ Strongly in favour (Ukraine accession = anti-Russia)
+- Greens: 🟡 Cautiously in favour (conditionality requirements)
+- The Left: 🟡 Mixed (enlargement yes, NATO/security conditions controversial)
+- PfE: ❌ Strongly against (Orbán explicitly opposes Ukraine accession)
+- ESN: ❌ Against
+
+**Human rights urgency resolutions (Iran, Syria):** Near-unanimous except ESN/some NI (anti-Western political orientation)
+
+---
+
+### Opposition Bloc Fragmentation Analysis
+
+The combined PfE (84) + ECR (81) + ESN (27) + NI-right (est. 15) bloc theoretically commands approximately 207 seats — not enough to block standard majority decisions but potentially significant in qualified majority scenarios or when combined with Grand Centre defections.
+
+**Critical structural observation:** PfE and ECR cannot form a stable governing coalition even if they wanted to because:
+
+1. **Ukraine policy:** ECR (Poland dominant) is strongly pro-Ukraine accession; PfE (Orbán) is explicitly opposed
+2. **NATO/Security:** ECR strongly pro-NATO; PfE contains parties with Russia-sympathetic track records (RN, FPÖ)
+3. **EU trade tools:** ECR accepts supranational trade policy instruments; PfE opposes them on sovereignty grounds
+4. **Social policy:** ECR is market-conservative (anti-welfare expansion); PfE contains national welfare chauvinists
+5. **Rule of law:** ECR contains Polish parties pushing back against EU conditionality; PfE contains Hungarian parties that are the primary targets of conditionality
+
+This structural incoherence means the opposition's political arithmetic is 207 seats minus the "contradictions discount" of approximately 60-80 seats on any given contested vote — making effective opposition closer to 127-147 seats, barely 20% of the house. This is a historically weak opposition position in the European Parliament.
+
+---
+
+### Coalition Stress Indicators
+
+#### High-Stress Scenarios Identified in Q1 2026
+
+| Issue | Stress Type | Groups Affected | Likely Resolution |
+|-------|-------------|-----------------|-------------------|
+| US Tariff Countermeasures | EPP business vs. solidarity | EPP internal | Business wing accepted trade solidarity precedent |
+| Housing Subsidiarity | Renew economic liberalism vs. S&D social mandate | Renew internal | Social liberal wing prevailed |
+| Defence Spending Greens | Greens pacifism vs. security realism | Greens internal | Security realism prevailed (36 of 53 Greens) |
+| Iran Urgency (sanctions escalation) | Left anti-sanctions principle | The Left | Left split; majority of left MEPs supported urgency |
+| CSAM AI detection privacy | Renew civil liberties vs. child protection | Renew, EPP | Child protection prevailed; privacy safeguards added |
+
+#### Grand Centre Cohesion Score (Q1 2026 Estimate)
+- **Legislative texts:** 88% alignment (EPP+S&D+Renew voting same direction)
+- **Non-legislative resolutions:** 79% alignment (more internal variation permitted)
+- **Urgency resolutions:** 92% alignment (common external threat focus)
+- **Overall Q1 2026:** 🟢 86% cohesion (STRONG — above EP9 equivalent of ~79%)
+
+---
+
+### Parliamentary Fragmentation Index
+
+Based on group seat distribution, the parliamentary fragmentation index (Laakso-Taagepera effective number of parties) for EP10 is approximately **6.8** — reflecting a more fragmented parliament than EP9 (estimated 5.9 effective parties) but with higher governing coalition coherence. This apparent paradox (more fragmentation + more coherence) reflects the fact that the PfE/ECR/ESN growth has primarily come from consolidation of previously fragmented far-right groupings rather than from eating into Grand Centre territory.
+
+**Implication:** EP10 may actually be easier to govern than the fragmentation index suggests, because the opposition's internal contradictions limit its effectiveness as a blocking force.
+
+---
+
+### Q1 2026 Coalition Architecture Summary
+
+```
+720 seats total | 360 majority threshold
+
+GOVERNING ZONE (EPP+S&D+Renew ~394):
+████████████████████████████████████████████████████ 55%
+
+PROGRESSIVE EXTENSION (add Greens ~447):
+█████████████████████████████████████████████████████████ 62%
+
+SECURITY EXTENSION (add ECR ~475):
+██████████████████████████████████████████████████████████████ 66%
+
+OPPOSITION ZONE (PfE+ECR+ESN+NI ~207):
+████████████████████████████ 29%
+```
+
+The governing zone commands a structural majority in all configuration variants. The opposition zone cannot form a majority coalition. EP10 is the most governable parliament in EU history in terms of structural coalition mathematics — but with a thin enough majority that sustained Grand Centre discipline is non-negotiable.
+
+### Synthesis Summary
+
+### Article Concept
+
+**Headline:** EP10's Record Quarter: From Housing Rights to Trade Wars, Parliament Defines Its Political Identity
+
+**Subheadline:** An unprecedented 567 roll-call votes and 180 resolutions in Q1 2026 reveal a parliament achieving strategic clarity across defence, social policy, and geopolitical positioning simultaneously
+
+**Angle:** The record legislative pace is the story's lead, but the substance is the emergence of EP10's distinctive political identity — neither EP9's green-growth idealism nor a mere institutional machine, but a parliament that has internalised the polycrisis (Russian aggression, American transactionalism, housing unaffordability, climate-economic transition) and is responding with systematic legislative assertiveness. The Grand Centre's 86% cohesion rate enables this productivity; the question the article must pose is whether productivity translates to policy outcomes in the face of structural delivery constraints.
+
+---
+
+### Key Findings Summary
+
+#### Finding 1: Record Parliamentary Velocity Is Policy Signal, Not Just Metric
+567 RCVs in Q1 2026 vs. 420 in all of 2025 (34% pace increase). 180 resolutions vs. 135 in 2025. 104 adopted texts. These figures represent the most productive parliamentary quarter in EU history. The statistical signature of this productivity pattern — more amendment votes per text, not just more texts — indicates higher legislative complexity being processed efficiently. The Grand Centre coalition's 86% vote alignment (estimated) is the engine. The polycrisis context (multiple simultaneous external pressures) is the fuel.
+
+#### Finding 2: March 26 Mini-Plenary as Crystallisation Moment
+In a single session, Parliament adopted 14 texts across five dimensions simultaneously: trade countermeasures (TA-0096 US tariffs), trade diplomacy (TA-0101 China TRQ), financial stability (TA-0092 SRMR3), anti-corruption (TA-0094), and digital protection (TA-0095 CSAM). No previous mini-plenary in EP10 has combined this breadth of legislative output. The March 26 session demonstrates the logistical and political management capacity that EP10's experienced leadership team (President Metsola, Conference of Presidents) has developed through 18 months of institutional learning.
+
+#### Finding 3: Three-Pillar Resolutory Architecture
+EP10's Q1 non-legislative resolutions cluster into three coherent pillars:
+
+**Pillar A — Geopolitical Assertion:** Enlargement strategy (TA-0077), EU-Canada solidarity (TA-0078), Defence single market (TA-0079), Global Gateway evaluation (TA-0104), WTO MC14 position (TA-0086), Syria urgency (TA-0053), Iran urgency (TA-0046), Drones doctrine (TA-0020). Common thread: Parliament asserting EU agency in a multipolar world where US reliability is questioned and Russian revisionism continues.
+
+**Pillar B — Social Contract Renewal:** Housing crisis (TA-0064), European Semester 2026 (TA-0076), Subcontracting workers' rights (TA-0050), EU Talent Pool (TA-0074). Common thread: Parliament recognising that EU legitimacy requires visible response to citizens' daily quality-of-life concerns, particularly housing affordability.
+
+**Pillar C — Institutional Integrity:** Anti-corruption directive (TA-0094), Public access to documents (TA-0065), Regulatory fitness (TA-0063), Grzegorz Braun immunity waiver (TA-0088). Common thread: Parliament addressing its own legitimacy gap following Qatargate and managing populist challenge to institutional norms.
+
+#### Finding 4: Opposition Fragmentation Enables Productivity
+The PfE+ECR+ESN combined opposition (207 seats, 29%) appears formidable but is structurally incoherent. On Ukraine enlargement, ECR supports while PfE opposes. On trade countermeasures, ECR splits while PfE opposes. On defence integration, ECR strongly supports while ESN opposes. This incoherence reduces effective blocking power to approximately 127-147 votes on any given contested text — far below the 360-seat majority threshold needed to stop Grand Centre legislation.
+
+#### Finding 5: DEGRADED MODE Intelligence Gap
+Individual text content (PDF documents, full legislative text) was unavailable via EP API for all texts from TA-0083 onwards (10-day degraded mode). Analysis relies on titles, subject codes, editorial context, and political inference. Key limitation: cannot verify specific resolution language, amendment history, or precise vote tallies. Coalition analysis marked 🟡 Medium confidence throughout.
+
+---
+
+### Article Quality Gate Pre-Check
+
+| Gate | Status | Notes |
+|------|--------|-------|
+| ≥80 words per SWOT item | ✅ Target | SWOT to be generated in article |
+| ≥150 words per stakeholder | ✅ Exceeded | Stakeholder analysis file has 7 major stakeholders at 200-400 words each |
+| ≥60% prose ratio | ✅ Target | Article will be primarily analytical prose |
+| ≥1 Chart.js visualization | ✅ Planned | Bar chart of quarterly RCV volumes EP7-EP10 comparison |
+| Zero AI_ANALYSIS_REQUIRED markers | ✅ Confirmed | All analysis files contain substantive content |
+| World Bank data for policy articles | ✅ Optional | Housing and trade sections may reference GDP/housing data |
+| 2-pass quality review | ⏳ Pending | Pass 2 to be completed after article generation |
+
+---
+
+### Article Structure Outline
+
+#### Section 1: The Numbers That Tell a Story (300-400 words)
+Lead with the 567/180/104 record. Place in historical context (EP7-EP10 Q1 comparison chart). Explain what the numbers mean — not just productivity but political confidence. Quote-worthy framing: "A parliament that votes 567 times in a quarter has reached institutional maturity."
+
+#### Section 2: The March 26 Signal — Five Dimensions in One Session (400-500 words)
+Unpack the mini-plenary as crystallisation moment. Lead with the US tariff countermeasure as most consequential. Connect China TRQ, SRMR3, anti-corruption, CSAM as a coherent five-point agenda. Establish the "dual-track trade architecture" concept.
+
+#### Section 3: Housing as Watershed — Europe's Social Contract Rewritten (350-400 words)
+The housing resolution's political significance. Why "first-ever EP housing resolution" matters as framing. The subsidiarity challenge. What civil society won and what limits remain. The European Semester connection.
+
+#### Section 4: Geopolitical Parliament — Enlargement, Solidarity, Defence (400-500 words)
+Enlargement strategy as the most consequential long-term resolution. EU-Canada solidarity in trans-Atlantic realignment context. Defence single market as industrial integration. Global Gateway as BRI competition.
+
+#### Section 5: Coalition Architecture — How 86% Cohesion Enables Records (300-350 words)
+Explain Grand Centre dynamics. Describe opposition fragmentation. The PfE-ECR contradiction matrix. Why EP10 is more governable than EP9 despite higher fragmentation index.
+
+#### Section 6: What the Easter Recess Masks — Looking Forward (200-300 words)
+Post-recess legislative agenda. Implementation risks. US tariff trajectory. Housing Action Plan timing. Enlargement Council blockade. The gap between Parliament's assertive posture and Commission/Council delivery capacity.
+
+#### SWOT Analysis (4 dimensions, ≥80 words each)
+
+#### Chart.js Visualization: EP Quarterly RCV Volume 2010-2026
+
+---
+
+### Time Budget Status
+
+| Phase | Target | Actual | Status |
+|-------|--------|--------|--------|
+| Data retrieval | 0-15 min | 0-7 min | ✅ Complete |
+| Pass 1 Analysis | 15-30 min | 7-22 min | ✅ Complete |
+| Pass 2 Review | 30-40 min | Pending | ⏳ |
+| Article generation | 40-50 min | Pending | ⏳ |
+| Validation | 50-55 min | Pending | ⏳ |
+| Final PR | 55-60 min | Pending | ⏳ |
+
+**ELAPSED_MINUTES:** 15 (approximate, as of synthesis writing)
+**Required minimum:** 45 minutes active work
+**Remaining budget:** ~30 minutes
+
+---
+
+### Editorial Decision: Article Parameters
+
+**Article type slug:** motions
+**Article date:** 2026-04-20
+**Languages to generate:** en (English only, as specified by workflow)
+**Run ID:** 46
+**Output file expected:** news/2026-04-20-motions-en.html
+
+**Title:** "EP10's Record Quarter: From Housing Rights to Trade Wars, Parliament Defines Its Political Identity"
+
+**Description:** "An unprecedented 567 roll-call votes and 180 resolutions in Q1 2026 reveal a European Parliament achieving strategic clarity across defence, social policy, and geopolitical positioning — the statistical signature of institutional maturation in a polycrisis era."
+
+**Author:** EU Parliament Monitor Intelligence Unit | **Date:** 2026-04-20
+
+> **Provenance & Audit**
+>
+> - **Article type:** `motions`
+> - **Run date:** 2026-04-20
+> - **Run id:** `motions-run46`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-20/motions-run46](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-20/motions-run46)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/manifest.json)
+
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
 This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.
@@ -8467,7 +8407,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-continuity | [session-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/existing/session-baseline.md) | `existing/session-baseline.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/existing/deep-analysis.md) | `existing/deep-analysis.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
+| section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-supplementary-intelligence | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/existing/coalition-dynamics.md) | `existing/coalition-dynamics.md` |
 | section-supplementary-intelligence | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/existing/synthesis-summary.md) | `existing/synthesis-summary.md` |
-| section-supplementary-intelligence | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/motions-run46/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 

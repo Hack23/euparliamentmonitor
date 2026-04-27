@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-04
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-04
-> - **Run id:** `breaking`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-04/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-04/breaking)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Coalition Dynamics Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking/coalition-dynamics-assessment.md" rel="noopener">View source: <code>coalition-dynamics-assessment.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -198,8 +185,6 @@ During the recess period, coalition dynamics evolve through:
 
 ### Coalition Threat Assessment
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking/coalition-threat-assessment.md" rel="noopener">View source: <code>coalition-threat-assessment.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Assessment Date** | Saturday, 4 April 2026 |
@@ -320,8 +305,6 @@ During recess, the parliamentary threat surface is minimal:
 *Assessment date: 4 April 2026 | Analyst: EU Parliament Monitor AI*
 
 ### Intelligence Brief
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking/intelligence-brief.md" rel="noopener">View source: <code>intelligence-brief.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -588,8 +571,6 @@ Expected focus areas based on pipeline analysis:
 
 ### Legislative Productivity Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking/legislative-productivity-analysis.md" rel="noopener">View source: <code>legislative-productivity-analysis.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Assessment Date** | Saturday, 4 April 2026 |
@@ -716,8 +697,6 @@ The shift from 2025 to 2026 represents a significant gear change:
 *Assessment date: 4 April 2026 | Analyst: EU Parliament Monitor AI*
 
 ### Political Landscape Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking/political-landscape-assessment.md" rel="noopener">View source: <code>political-landscape-assessment.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -854,8 +833,6 @@ Three groups (Renew, NI, The Left) with ≤5% of sampled seats face potential qu
 
 ### Recent Legislation Review
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking/recent-legislation-review.md" rel="noopener">View source: <code>recent-legislation-review.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Assessment Date** | Saturday, 4 April 2026 |
@@ -970,8 +947,6 @@ Scoring based on 5 dimensions (each 1–10): Political Impact, Policy Significan
 *Assessment date: 4 April 2026 | Analyst: EU Parliament Monitor AI*
 
 ### Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -1160,8 +1135,6 @@ graph LR
 
 ### Stakeholder Impact Assessment
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking/stakeholder-impact-assessment.md" rel="noopener">View source: <code>stakeholder-impact-assessment.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Assessment Date** | Saturday, 4 April 2026 |
@@ -1285,8 +1258,6 @@ graph LR
 
 ### Swot Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Assessment Date** | Saturday, 4 April 2026 |
@@ -1401,6 +1372,15 @@ graph TB
 
 *Sources: EP Open Data Portal (adopted texts, MEP records), EP analytical tools (political landscape, early warning, voting anomalies), EP precomputed statistics 2004–2026*
 *Assessment date: 4 April 2026 | Analyst: EU Parliament Monitor AI*
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-04
+> - **Run id:** `breaking`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-04/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-04/breaking)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

@@ -11,17 +11,6 @@ layout: article
 ---
 # Week Ahead — 2026-04-26
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `week-ahead`
-> - **Run date:** 2026-04-26
-> - **Run id:** `week-ahead-run-1777236707`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-26/week-ahead](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-26/week-ahead)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -36,8 +25,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-executive-brief">Executive Brief</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/executive-brief.md" rel="noopener">View source: <code>executive-brief.md</code></a></p>
 
 ### Three Key Decisions This Week
 
@@ -215,8 +202,6 @@ The April session is the **first accountability checkpoint** for all four domain
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
-
 ### 1. Master Intelligence Assessment
 
 #### BLUF (Bottom Line Up Front)
@@ -382,8 +367,6 @@ flowchart LR
 **Confidence: 🟢 HIGH** — This synthesis integrates all 10 analysis artifacts with convergent conclusions.
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
 
 ### 1. Actor Roster
 
@@ -615,8 +598,6 @@ quadrantChart
 
 ### Pestle Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/pestle-analysis.md" rel="noopener">View source: <code>intelligence/pestle-analysis.md</code></a></p>
-
 ### 1. Political Dimension
 
 #### 1.1 EP Political Landscape
@@ -812,8 +793,6 @@ quadrantChart
 
 ### Historical Baseline
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
-
 ### 1. Prior April Strasbourg Plenaries — Benchmark Data
 
 #### EP10 April 2025 Strasbourg Session
@@ -1002,8 +981,6 @@ xychart-beta
 
 <h2 id="section-economic-context">Economic Context</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
-
 ### 1. Eurozone Macroeconomic Context
 
 #### Q1 2026 Economic Baseline
@@ -1155,8 +1132,6 @@ xychart-beta
 
 ### Risk Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
-
 ### 1. Risk Matrix Framework
 
 **Probability Scale:**
@@ -1304,8 +1279,6 @@ quadrantChart
 ```
 
 ### Quantitative Swot
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
 
 ### 1. SWOT Scoring Methodology
 
@@ -1536,8 +1509,6 @@ quadrantChart
 
 ### Threat Model
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
-
 *Note: This analysis applies the Political Threat Framework — NOT STRIDE/DREAD/PASTA which are software-security frameworks inappropriate for parliamentary threat analysis.*
 
 ---
@@ -1767,8 +1738,6 @@ flowchart TD
 
 ### Scenario Forecast
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
-
 ### 1. Baseline Scenario: Smooth Plenary Consolidation (55–70% probability)
 
 **WEP Band:** Likely | **Time Horizon:** April 27–30, 2026
@@ -1982,8 +1951,6 @@ quadrantChart
 
 ### Wildcards Blackswans
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
-
 ### 1. Methodology: What Counts as a Wildcard vs. a Black Swan?
 
 **Wild Card:** A low-probability, high-impact event that is conceivable but not in the central scenario. Impact materializes within the analysis time horizon (this week or imminent Q2 2026).
@@ -2178,8 +2145,6 @@ quadrantChart
 ```
 
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/mcp-reliability-audit.md" rel="noopener">View source: <code>intelligence/mcp-reliability-audit.md</code></a></p>
 
 ### 1. Complete Tool Call Log
 
@@ -2449,9 +2414,119 @@ pie title EP MCP Tool Call Outcomes
 
 <h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
-### Reference Analysis Quality
+### Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/reference-analysis-quality.md" rel="noopener">View source: <code>intelligence/reference-analysis-quality.md</code></a></p>
+### Intelligence Summary
+
+The European Parliament convenes for a full **Strasbourg plenary week** on 27–30 April 2026. The session follows one of the most legislatively productive spring sprints in EP10 history: the Banking Union reform package (BRRD3/SRMR3/DGSD2), AI governance architecture, and the Ukraine Support Loan all passed in the March plenary, resetting the political baseline for the weeks ahead. The April sitting enters with eight foreseen debates on Day 1 (Monday, 27 April) and continues through Thursday, 30 April.
+
+### Artifact Map
+
+| Artifact | Path | Status | Lines |
+|----------|------|--------|-------|
+| Analysis Index | `intelligence/analysis-index.md` | ✅ Complete | — |
+| Executive Brief | `executive-brief.md` | ✅ Complete | — |
+| PESTLE Analysis | `intelligence/pestle-analysis.md` | ✅ Complete | — |
+| Stakeholder Map | `intelligence/stakeholder-map.md` | ✅ Complete | — |
+| Scenario Forecast | `intelligence/scenario-forecast.md` | ✅ Complete | — |
+| Threat Model | `intelligence/threat-model.md` | ✅ Complete | — |
+| Historical Baseline | `intelligence/historical-baseline.md` | ✅ Complete | — |
+| Economic Context | `intelligence/economic-context.md` | ✅ Complete | — |
+| Wildcards & Black Swans | `intelligence/wildcards-blackswans.md` | ✅ Complete | — |
+| Synthesis Summary | `intelligence/synthesis-summary.md` | ✅ Complete | — |
+| MCP Reliability Audit | `intelligence/mcp-reliability-audit.md` | ✅ Complete | — |
+| Reference Analysis Quality | `intelligence/reference-analysis-quality.md` | ✅ Complete | — |
+| Risk Matrix | `risk-scoring/risk-matrix.md` | ✅ Complete | — |
+| Quantitative SWOT | `risk-scoring/quantitative-swot.md` | ✅ Complete | — |
+| Methodology Reflection | `intelligence/methodology-reflection.md` | ✅ Complete | — |
+
+### Data Sources Used
+
+| Source | Tool | Items Retrieved | Quality |
+|--------|------|----------------|---------|
+| Plenary Sessions 2026 | `get_plenary_sessions(year=2026)` | 54 sessions | 🟢 High |
+| Foreseen Activities Apr-27 | `get_meeting_foreseen_activities(MTG-PL-2026-04-27)` | 8 debates | 🟡 Medium |
+| Adopted Texts 2026 | `get_adopted_texts(year=2026)` | 101 texts | 🟢 High |
+| Political Landscape | `generate_political_landscape()` | Full data | 🟢 High |
+| Procedures Feed | `get_procedures_feed(one-week)` | 50 items (historical) | 🟡 Medium |
+| Events Feed | `get_events_feed(one-week)` | Unavailable | 🔴 Low |
+
+### Key Intelligence Themes
+
+#### Theme 1: Strasbourg Plenary Week (April 27–30)
+Four consecutive plenary sessions in Strasbourg. Eight debates scheduled on April 27. The plenary resumes after a two-week Easter recess and will deal with continuation of the EP10 spring legislative sprint.
+
+#### Theme 2: Banking Union Reform — Post-Adoption Scrutiny
+The BRRD3/SRMR3/DGSD2 banking reform package passed March 26, 2026. The April session may address implementation timelines and delegated acts, with ECON committee likely to request clarifications.
+
+#### Theme 3: AI Governance Architecture — Implementation Phase
+The Digital Omnibus on AI (AI Act simplification) and the Council of Europe AI Convention were adopted March 11 and March 26 respectively. The April session enters the implementation monitoring phase.
+
+#### Theme 4: Defence Integration Momentum
+Three defence-related texts adopted in March 2026 (flagship projects, single market barriers, CSDP annual report). The geopolitical pressure from Ukraine conflict continuation and transatlantic uncertainty sustains legislative momentum.
+
+#### Theme 5: Trade Policy — US-EU and Mercosur
+US tariff adjustment legislation was adopted March 26. The EU-Mercosur compatibility request to the ECJ (Jan 2026) awaits first ruling. Trade policy will remain high-salience given US tariff uncertainty.
+
+### Forward Monitoring Triggers
+
+1. ⚡ **First day debate order** — 8 debates on April 27; the scheduling of AFET/defence vs. economic topics reveals political priority signaling
+2. ⚡ **Ukraine financing** — Follow-on to the Ukraine Support Loan; any emergency procedure signals urgency escalation
+3. ⚡ **PPE-S&D coalition stability** — March saw a 60-seat coalition barely at the majority threshold; any defection on sensitive topics is high-impact
+
+### Confidence Assessment
+- Data completeness: 🟡 Medium (events feed unavailable; foreseen activities lack titles)
+- Political landscape currency: 🟢 High (live EP Open Data)
+- Agenda specificity: 🟡 Medium (structural data only; no item titles from OJQ documents)
+
+---
+
+### Methodology Framework Applied
+
+This run applies the **10-step EU Parliament Intelligence Protocol** from `analysis/methodologies/ai-driven-analysis-guide.md`:
+
+| Step | Framework | Artifact | Status |
+|------|-----------|----------|--------|
+| 1 | Data Collection | `data/plenary-sessions.json` | ✅ Complete |
+| 2 | PESTLE Analysis | `intelligence/pestle-analysis.md` | ✅ Complete |
+| 3 | Stakeholder Mapping | `intelligence/stakeholder-map.md` | ✅ Complete |
+| 4 | Scenario Planning (ACH) | `intelligence/scenario-forecast.md` | ✅ Complete |
+| 5 | Threat Modeling | `intelligence/threat-model.md` | ✅ Complete |
+| 6 | Historical Baseline | `intelligence/historical-baseline.md` | ✅ Complete |
+| 7 | Economic Context | `intelligence/economic-context.md` | ✅ Complete |
+| 8 | Wild Cards | `intelligence/wildcards-blackswans.md` | ✅ Complete |
+| 9 | Synthesis | `intelligence/synthesis-summary.md` | ✅ Complete |
+| 10 | Quality Assurance | `intelligence/reference-analysis-quality.md` | ✅ Complete |
+| 10.5 | Methodology Reflection | `intelligence/methodology-reflection.md` | ✅ Complete |
+
+### Key Political Intelligence Signals (Priority Summary)
+
+**Highest priority — monitor daily:**
+1. ECON committee activity on BRRD3 delegated acts (Banking Union implementation)
+2. US USTR/White House trade announcements (automotive tariff wildcard WC-06)
+3. PfE motion filings for immigration items (coalition fracture risk)
+
+**Secondary monitoring:**
+4. Commission DG CNECT AI classification communication (AI Omnibus implementing rules)
+5. Commission DG DEFIS defence procurement activation signals
+6. EPP-S&D pre-session coordination statements (absence = coalition stress signal)
+
+### Cross-Reference Map
+
+All artifacts in this run were produced using data from `data/plenary-sessions.json` and the EP API tool call log (documented in `intelligence/mcp-reliability-audit.md`). The synthesis summary (`intelligence/synthesis-summary.md`) is the authoritative integration point and should be read after the executive brief for a complete intelligence picture.
+
+```mermaid
+flowchart TD
+    A[Stage A: Data Collection] --> B[Stage B: Analysis Pass 1]
+    B --> C[Stage B: Analysis Pass 2]
+    C --> D[Stage C: Completeness Gate]
+    D -->|GREEN| E[Stage D: Article Render]
+    D -->|RED| F[Pass 3 Remediation]
+    F --> D
+    E --> G[Stage E: Single PR]
+```
+
+### Reference Analysis Quality
 
 ### 1. Quality Assessment Framework
 
@@ -2620,8 +2695,6 @@ xychart-beta
 ```
 
 ### Methodology Reflection
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/methodology-reflection.md" rel="noopener">View source: <code>intelligence/methodology-reflection.md</code></a></p>
 
 ### 1. Run Summary
 
@@ -2840,234 +2913,14 @@ flowchart LR
     C --> D[Methodology Reflection]
 ```
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Plenary Sessions.Json
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/data/plenary-sessions.json" rel="noopener">View source: <code>data/plenary-sessions.json</code></a></p>
-
-{
-  "weekAheadSessions": [
-    {
-      "id": "MTG-PL-2026-04-27",
-      "date": "2026-04-27",
-      "location": "Strasbourg",
-      "foreseenDebates": 8,
-      "type": "PLENARY_SITTING",
-      "term": "EP10",
-      "note": "Strasbourg part-session April 27-30, 2026 \u2014 Day 1"
-    },
-    {
-      "id": "MTG-PL-2026-04-28",
-      "date": "2026-04-28",
-      "location": "Strasbourg",
-      "foreseenDebates": 7,
-      "type": "PLENARY_SITTING",
-      "term": "EP10",
-      "note": "Strasbourg part-session April 27-30, 2026 \u2014 Day 2"
-    },
-    {
-      "id": "MTG-PL-2026-04-29",
-      "date": "2026-04-29",
-      "location": "Strasbourg",
-      "foreseenDebates": 6,
-      "type": "PLENARY_SITTING",
-      "term": "EP10",
-      "note": "Strasbourg part-session April 27-30, 2026 \u2014 Day 3"
-    },
-    {
-      "id": "MTG-PL-2026-04-30",
-      "date": "2026-04-30",
-      "location": "Strasbourg",
-      "foreseenDebates": 5,
-      "type": "PLENARY_SITTING",
-      "term": "EP10",
-      "note": "Strasbourg part-session April 27-30, 2026 \u2014 Day 4 (Voting Day)"
-    }
-  ],
-  "sessionMetadata": {
-    "partSession": "April 2026 Strasbourg Part-Session",
-    "parliamentaryTerm": "EP10 (2024-2029)",
-    "totalSittingDays": 4,
-    "totalForeseenDebates": 26,
-    "expectedVotingDay": "2026-04-30",
-    "presidencyCountry": "Poland (EU Council Presidency)",
-    "keyLegislativeItems": [
-      "BRRD3 / SRMR3 / DGSD2 Banking Union implementation accountability",
-      "AI Digital Omnibus \u2014 digital governance delegated acts",
-      "Defence Industrial Base flagship \u2014 review of Commission proposals",
-      "EU Budget 2027 MFF preparatory debates",
-      "Climate neutrality accountability framework \u2014 Q1 2026 review"
-    ]
-  },
-  "politicalLandscape": {
-    "retrievedAt": "2026-04-26T20:52:00Z",
-    "groups": {
-      "PPE": {
-        "seats": 188,
-        "sharePercent": 25.5
-      },
-      "S&D": {
-        "seats": 136,
-        "sharePercent": 18.5
-      },
-      "PfE": {
-        "seats": 84,
-        "sharePercent": 11.4
-      },
-      "ECR": {
-        "seats": 78,
-        "sharePercent": 10.6
-      },
-      "Greens/EFA": {
-        "seats": 53,
-        "sharePercent": 7.2
-      },
-      "Renew": {
-        "seats": 77,
-        "sharePercent": 10.5
-      },
-      "GUE/NGL": {
-        "seats": 46,
-        "sharePercent": 6.3
-      },
-      "ESN": {
-        "seats": 25,
-        "sharePercent": 3.4
-      },
-      "NI": {
-        "seats": 49,
-        "sharePercent": 6.6
-      }
-    },
-    "majorityThreshold": 361,
-    "coreCoalition": "PPE+S&D = 324 seats (below majority; needs Renew or Greens)",
-    "q1CoalitionSuccessRate": 0.87
-  },
-  "retrievedAt": "2026-04-26T20:51:00Z",
-  "source": "EP Open Data Portal \u2014 get_plenary_sessions, generate_political_landscape",
-  "mcpToolsUsed": [
-    "get_plenary_sessions",
-    "generate_political_landscape",
-    "get_current_meps",
-    "get_committee_info"
-  ],
-  "dataQuality": "Partial \u2014 procedures and events feeds unavailable; sessions confirmed via get_plenary_sessions"
-}
-
-### Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
-
-### Intelligence Summary
-
-The European Parliament convenes for a full **Strasbourg plenary week** on 27–30 April 2026. The session follows one of the most legislatively productive spring sprints in EP10 history: the Banking Union reform package (BRRD3/SRMR3/DGSD2), AI governance architecture, and the Ukraine Support Loan all passed in the March plenary, resetting the political baseline for the weeks ahead. The April sitting enters with eight foreseen debates on Day 1 (Monday, 27 April) and continues through Thursday, 30 April.
-
-### Artifact Map
-
-| Artifact | Path | Status | Lines |
-|----------|------|--------|-------|
-| Analysis Index | `intelligence/analysis-index.md` | ✅ Complete | — |
-| Executive Brief | `executive-brief.md` | ✅ Complete | — |
-| PESTLE Analysis | `intelligence/pestle-analysis.md` | ✅ Complete | — |
-| Stakeholder Map | `intelligence/stakeholder-map.md` | ✅ Complete | — |
-| Scenario Forecast | `intelligence/scenario-forecast.md` | ✅ Complete | — |
-| Threat Model | `intelligence/threat-model.md` | ✅ Complete | — |
-| Historical Baseline | `intelligence/historical-baseline.md` | ✅ Complete | — |
-| Economic Context | `intelligence/economic-context.md` | ✅ Complete | — |
-| Wildcards & Black Swans | `intelligence/wildcards-blackswans.md` | ✅ Complete | — |
-| Synthesis Summary | `intelligence/synthesis-summary.md` | ✅ Complete | — |
-| MCP Reliability Audit | `intelligence/mcp-reliability-audit.md` | ✅ Complete | — |
-| Reference Analysis Quality | `intelligence/reference-analysis-quality.md` | ✅ Complete | — |
-| Risk Matrix | `risk-scoring/risk-matrix.md` | ✅ Complete | — |
-| Quantitative SWOT | `risk-scoring/quantitative-swot.md` | ✅ Complete | — |
-| Methodology Reflection | `intelligence/methodology-reflection.md` | ✅ Complete | — |
-
-### Data Sources Used
-
-| Source | Tool | Items Retrieved | Quality |
-|--------|------|----------------|---------|
-| Plenary Sessions 2026 | `get_plenary_sessions(year=2026)` | 54 sessions | 🟢 High |
-| Foreseen Activities Apr-27 | `get_meeting_foreseen_activities(MTG-PL-2026-04-27)` | 8 debates | 🟡 Medium |
-| Adopted Texts 2026 | `get_adopted_texts(year=2026)` | 101 texts | 🟢 High |
-| Political Landscape | `generate_political_landscape()` | Full data | 🟢 High |
-| Procedures Feed | `get_procedures_feed(one-week)` | 50 items (historical) | 🟡 Medium |
-| Events Feed | `get_events_feed(one-week)` | Unavailable | 🔴 Low |
-
-### Key Intelligence Themes
-
-#### Theme 1: Strasbourg Plenary Week (April 27–30)
-Four consecutive plenary sessions in Strasbourg. Eight debates scheduled on April 27. The plenary resumes after a two-week Easter recess and will deal with continuation of the EP10 spring legislative sprint.
-
-#### Theme 2: Banking Union Reform — Post-Adoption Scrutiny
-The BRRD3/SRMR3/DGSD2 banking reform package passed March 26, 2026. The April session may address implementation timelines and delegated acts, with ECON committee likely to request clarifications.
-
-#### Theme 3: AI Governance Architecture — Implementation Phase
-The Digital Omnibus on AI (AI Act simplification) and the Council of Europe AI Convention were adopted March 11 and March 26 respectively. The April session enters the implementation monitoring phase.
-
-#### Theme 4: Defence Integration Momentum
-Three defence-related texts adopted in March 2026 (flagship projects, single market barriers, CSDP annual report). The geopolitical pressure from Ukraine conflict continuation and transatlantic uncertainty sustains legislative momentum.
-
-#### Theme 5: Trade Policy — US-EU and Mercosur
-US tariff adjustment legislation was adopted March 26. The EU-Mercosur compatibility request to the ECJ (Jan 2026) awaits first ruling. Trade policy will remain high-salience given US tariff uncertainty.
-
-### Forward Monitoring Triggers
-
-1. ⚡ **First day debate order** — 8 debates on April 27; the scheduling of AFET/defence vs. economic topics reveals political priority signaling
-2. ⚡ **Ukraine financing** — Follow-on to the Ukraine Support Loan; any emergency procedure signals urgency escalation
-3. ⚡ **PPE-S&D coalition stability** — March saw a 60-seat coalition barely at the majority threshold; any defection on sensitive topics is high-impact
-
-### Confidence Assessment
-- Data completeness: 🟡 Medium (events feed unavailable; foreseen activities lack titles)
-- Political landscape currency: 🟢 High (live EP Open Data)
-- Agenda specificity: 🟡 Medium (structural data only; no item titles from OJQ documents)
-
----
-
-### Methodology Framework Applied
-
-This run applies the **10-step EU Parliament Intelligence Protocol** from `analysis/methodologies/ai-driven-analysis-guide.md`:
-
-| Step | Framework | Artifact | Status |
-|------|-----------|----------|--------|
-| 1 | Data Collection | `data/plenary-sessions.json` | ✅ Complete |
-| 2 | PESTLE Analysis | `intelligence/pestle-analysis.md` | ✅ Complete |
-| 3 | Stakeholder Mapping | `intelligence/stakeholder-map.md` | ✅ Complete |
-| 4 | Scenario Planning (ACH) | `intelligence/scenario-forecast.md` | ✅ Complete |
-| 5 | Threat Modeling | `intelligence/threat-model.md` | ✅ Complete |
-| 6 | Historical Baseline | `intelligence/historical-baseline.md` | ✅ Complete |
-| 7 | Economic Context | `intelligence/economic-context.md` | ✅ Complete |
-| 8 | Wild Cards | `intelligence/wildcards-blackswans.md` | ✅ Complete |
-| 9 | Synthesis | `intelligence/synthesis-summary.md` | ✅ Complete |
-| 10 | Quality Assurance | `intelligence/reference-analysis-quality.md` | ✅ Complete |
-| 10.5 | Methodology Reflection | `intelligence/methodology-reflection.md` | ✅ Complete |
-
-### Key Political Intelligence Signals (Priority Summary)
-
-**Highest priority — monitor daily:**
-1. ECON committee activity on BRRD3 delegated acts (Banking Union implementation)
-2. US USTR/White House trade announcements (automotive tariff wildcard WC-06)
-3. PfE motion filings for immigration items (coalition fracture risk)
-
-**Secondary monitoring:**
-4. Commission DG CNECT AI classification communication (AI Omnibus implementing rules)
-5. Commission DG DEFIS defence procurement activation signals
-6. EPP-S&D pre-session coordination statements (absence = coalition stress signal)
-
-### Cross-Reference Map
-
-All artifacts in this run were produced using data from `data/plenary-sessions.json` and the EP API tool call log (documented in `intelligence/mcp-reliability-audit.md`). The synthesis summary (`intelligence/synthesis-summary.md`) is the authoritative integration point and should be read after the executive brief for a complete intelligence picture.
-
-```mermaid
-flowchart TD
-    A[Stage A: Data Collection] --> B[Stage B: Analysis Pass 1]
-    B --> C[Stage B: Analysis Pass 2]
-    C --> D[Stage C: Completeness Gate]
-    D -->|GREEN| E[Stage D: Article Render]
-    D -->|RED| F[Pass 3 Remediation]
-    F --> D
-    E --> G[Stage E: Single PR]
-```
+> **Provenance & Audit**
+>
+> - **Article type:** `week-ahead`
+> - **Run date:** 2026-04-26
+> - **Run id:** `week-ahead-run-1777236707`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-26/week-ahead](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-26/week-ahead)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -3166,8 +3019,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
+| section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
-| section-supplementary-intelligence | [plenary-sessions.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/data/plenary-sessions.json) | `data/plenary-sessions.json` |
-| section-supplementary-intelligence | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 

@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-11
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-11
-> - **Run id:** `158`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-11/breaking-run158](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-11/breaking-run158)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Coalition Intelligence
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/coalition-intelligence.md" rel="noopener">View source: <code>coalition-intelligence.md</code></a></p>
 
 > **Intel ID:** COAL-2026-04-11-158
 > **Date:** 2026-04-11 06:30 UTC
@@ -182,8 +169,6 @@ External pressure from markets/media creates emergency consensus. All mainstream
 **Confidence in scenario probabilities:** LOW — no live feed data to assess weekend communications and pre-restart positioning.
 
 ### Political Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/political-risk-assessment.md" rel="noopener">View source: <code>political-risk-assessment.md</code></a></p>
 
 > **Assessment ID:** RSK-2026-04-11-158
 > **Date:** 2026-04-11 06:30 UTC
@@ -404,8 +389,6 @@ Coalition failure across multiple files. Tariff deadline missed without counterm
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/significance-scoring.md" rel="noopener">View source: <code>significance-scoring.md</code></a></p>
-
 > **Score ID:** SIG-2026-04-11-158
 > **Scoring Date:** 2026-04-11 06:30 UTC
 > **Scored By:** news-breaking workflow (Run 158)
@@ -497,8 +480,6 @@ No today-dated events from EP API feeds (all 13 endpoints returning INTERNAL_ERR
 **Rationale:** The Saturday window between the recess's end and committee restart is the transition period. Intelligence value lies in preparing comprehensive analytical groundwork that enriches Monday's breaking coverage when live feed data returns.
 
 ### Swot Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
 
 > **SWOT ID:** SWOT-2026-04-11-158
 > **Date:** 2026-04-11 06:30 UTC
@@ -659,8 +640,6 @@ pie title EP10 Strategic Position Balance - April 11 2026
 5. **The committee restart on Monday will be the decisive inflection point** — either validating accumulated risk or demonstrating institutional resilience
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
 
 > **Synthesis ID:** SYN-2026-04-11-158
 > **Analysis Date:** 2026-04-11 06:30 UTC
@@ -828,8 +807,6 @@ The composite political risk continues its monotonic increase across the Easter 
 
 ### Threat Landscape Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/threat-landscape-analysis.md" rel="noopener">View source: <code>threat-landscape-analysis.md</code></a></p>
-
 > **Assessment ID:** THR-2026-04-11-158
 > **Date:** 2026-04-11 06:30 UTC
 > **Frameworks Applied:** Political Threat Landscape (6-dimension), Attack Trees, PESTLE
@@ -989,6 +966,15 @@ Goal: EU tariff response paralysis by April 15
 | Democratic Erosion | LOW | Stable | Healthy institutional baseline indicators |
 
 **Overall:** HIGH threat level maintained. No new threat vectors identified since Run 157. The primary change is temporal — the weekend transition means Monday's committee restart will be the first opportunity to validate or adjust the threat assessment with live data.
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-11
+> - **Run id:** `158`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-11/breaking-run158](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-11/breaking-run158)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

@@ -11,17 +11,6 @@ layout: article
 ---
 # Week In Review — 2026-04-18
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `week-in-review`
-> - **Run date:** 2026-04-18
-> - **Run id:** `week-in-review-run12`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-18/week-in-review-run12](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-18/week-in-review-run12)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -35,8 +24,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 ### Week Characterisation
 
@@ -85,8 +72,6 @@ ELAPSED_MINUTES: 45
 <h2 id="section-significance">Significance</h2>
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/significance-scoring.md" rel="noopener">View source: <code>intelligence/significance-scoring.md</code></a></p>
 
 ### Executive Significance Summary
 
@@ -163,8 +148,6 @@ The Housing Initiative (TA-10-2026-0091) and EU Talent Pool (TA-10-2026-0095) ad
 The Easter recess API maintenance pattern is now documented across 6 consecutive runs (179–184). The tiered recovery model established in Run 184 provides a predictive framework for future recess monitoring. While this has operational rather than political significance, it establishes important institutional knowledge about EP data transparency practices.
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
 
 ![Framework](https://img.shields.io/badge/Framework-Power_x_Interest-blue?style=flat-square)
 ![Stakeholders](https://img.shields.io/badge/Stakeholders-16-green?style=flat-square)
@@ -531,8 +514,6 @@ The retrospective-vs-forward salience shift reinforces two findings:
 
 ### Pestle Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/pestle-analysis.md" rel="noopener">View source: <code>intelligence/pestle-analysis.md</code></a></p>
-
 ![Framework](https://img.shields.io/badge/Framework-PESTLE_6--Dimension-blue?style=flat-square)
 ![Confidence](https://img.shields.io/badge/Aggregate_Confidence-MEDIUM-yellow?style=flat-square)
 ![Scope](https://img.shields.io/badge/Scope-EP10_Q1_Close_+_Recess-green?style=flat-square)
@@ -827,8 +808,6 @@ adversary-capability mapping.
 
 ### Historical Baseline
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
-
 ![Framework](https://img.shields.io/badge/Framework-Rule_17_Historical_Baselines-blue?style=flat-square)
 ![Baselines](https://img.shields.io/badge/Compared_Terms-EP8_EP9_EP10-green?style=flat-square)
 ![Confidence](https://img.shields.io/badge/Confidence-HIGH-brightgreen?style=flat-square)
@@ -1088,8 +1067,6 @@ Comparative precedent:
 *Analysis generated: April 18, 2026 | Run 12 | Week-in-review workflow | Reference-quality retrofit*
 
 <h2 id="section-economic-context">Economic Context</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
 
 ![Framework](https://img.shields.io/badge/Framework-WB_Indicator_Mapping-blue?style=flat-square)
 ![Countries](https://img.shields.io/badge/Countries-DE_FR_IT_PL_NL-green?style=flat-square)
@@ -1378,8 +1355,6 @@ probability estimates in `scenario-forecast.md`.
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Threat Model
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
 
 ![Framework](https://img.shields.io/badge/Framework-Diamond_+_Attack_Trees_+_Kill_Chain-blue?style=flat-square)
 ![Threats](https://img.shields.io/badge/Severity_4+_Threats-4-red?style=flat-square)
@@ -1784,8 +1759,6 @@ quadrantChart
 
 ### Scenario Forecast
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
-
 ![Framework](https://img.shields.io/badge/Framework-Shell_Scenario_Planning-blue?style=flat-square)
 ![Scenarios](https://img.shields.io/badge/Scenarios-3_+_Wildcard_overlay-green?style=flat-square)
 ![Horizon](https://img.shields.io/badge/Horizon-Apr_21_--_May_15-orange?style=flat-square)
@@ -2132,8 +2105,6 @@ Probability of such legal intervention during April 21–26 window: ~8%.
 *Analysis generated: April 18, 2026 | Run 12 | Week-in-review workflow | Reference-quality retrofit*
 
 ### Wildcards Blackswans
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
 
 ![Framework](https://img.shields.io/badge/Framework-Schwartz_+_Taleb-blue?style=flat-square)
 ![Events](https://img.shields.io/badge/Wildcards_Tracked-8-yellow?style=flat-square)
@@ -2523,11 +2494,9 @@ probability above the product of independents:
 *Analysis generated: April 18, 2026 | Run 12 | Week-in-review workflow | Reference-quality retrofit*
 *Aggregate confidence: 🔴 LOW on individual wildcard probabilities (by design); 🟡 Medium on relative ranking*
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+<h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
 ### Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
 
 ![Role](https://img.shields.io/badge/Role-Read--Me--First_for_AI-gold?style=flat-square)
 ![Artifacts](https://img.shields.io/badge/Intelligence_Artifacts-11-green?style=flat-square)
@@ -2730,9 +2699,9 @@ Any updating author MUST sweep all entries in the row when revising a value.
 *Created: 2026-04-18 | Run 12 | Week-in-review workflow | Reference-quality retrofit*
 *Superseded when: next reference-quality week-in-review run produces its own `analysis-index.md`*
 
-### Deep Analysis
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/deep-analysis.md" rel="noopener">View source: <code>intelligence/deep-analysis.md</code></a></p>
+### Deep Analysis
 
 ### 🎯 Executive Summary
 
@@ -2876,6 +2845,15 @@ France's Finance Ministry (Bercy) has signalled support for rapid DGSD2 transpos
 **Outcome**: April 28-30 session dominated by emergency debate on EU-US trade crisis. All other legislative business deprioritised. EPP and S&D unite on trade defence but face internal dissent on specific retaliation measures. Renew divided on digital vs manufacturing protection.
 **Implication for EU Parliament Monitor**: Breaking news trade crisis story; monitoring all MEP statements; critical session coverage.
 
+> **Provenance & Audit**
+>
+> - **Article type:** `week-in-review`
+> - **Run date:** 2026-04-18
+> - **Run id:** `week-in-review-run12`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-18/week-in-review-run12](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-18/week-in-review-run12)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/manifest.json)
+
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
 This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.
@@ -2970,6 +2948,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/threat-model.md) | `intelligence/threat-model.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
-| section-supplementary-intelligence | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
+| section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-supplementary-intelligence | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/deep-analysis.md) | `intelligence/deep-analysis.md` |
 

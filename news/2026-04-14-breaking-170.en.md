@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-14
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-14
-> - **Run id:** `170`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-14/breaking-run170](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-14/breaking-run170)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run170/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,8 +23,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-significance">Significance</h2>
 
 ### Significance Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run170/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
 ### Executive Summary
 
@@ -169,8 +156,6 @@ The convergence of tariff deadline (T-1), record legislative backlog, and coalit
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run170/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### Risk Scoring Methodology
 
@@ -390,8 +375,6 @@ Each group will need to spend political capital on trade response, Banking Union
 
 ### Political Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run170/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
-
 ### Executive Summary
 
 The European Parliament faces a convergence of three independent threat vectors as it returns from Easter recess on April 15:
@@ -542,8 +525,6 @@ Post-recess positions hardened. Grand coalition deficit prevents progress on con
 <h2 id="section-documents">Document Analysis</h2>
 
 ### Document Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run170/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
 
 ### Overview
 
@@ -729,8 +710,6 @@ Broad support across EPP, S&D, Renew, ECR. ECR particularly supportive (defence 
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run170/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
-
 ### Executive Summary
 
 This is the second breaking-news analysis run on April 14, 2026 (Easter recess final day). Run 170 builds on run 169 earlier analysis and cross-references 5 prior runs this week. No today-dated EP events exist; Parliament returns tomorrow (April 15).
@@ -886,6 +865,15 @@ Easter recess Day 18/18 (final day). Zero today-dated EP events across all feeds
 ---
 
 *Source: European Parliament Open Data Portal via EP MCP Server v1.2.7. Cross-session intelligence from runs 169, 168, 163, 48, 41, 40, 39. All assessments subject to revision based on post-recess developments. DEGRADED MODE active due to EP API partial outage.*
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-14
+> - **Run id:** `170`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-14/breaking-run170](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-14/breaking-run170)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run170/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

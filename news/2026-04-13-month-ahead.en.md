@@ -11,17 +11,6 @@ layout: article
 ---
 # Month Ahead — 2026-04-13
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `month-ahead`
-> - **Run date:** 2026-04-13
-> - **Run id:** `07c000a5-e613-4ca8-98c7-cae22b3eb835`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-13/month-ahead-run4](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-13/month-ahead-run4)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/month-ahead-run4/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -35,8 +24,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-significance">Significance</h2>
 
 ### Significance Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/month-ahead-run4/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
 ### 📋 Classification Context
 
@@ -135,8 +122,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 ### Stakeholder Impact
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/month-ahead-run4/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
 
 ### Assessment Context
 
@@ -279,8 +264,6 @@ Commission faces implementation overload from record Q1 output. Council must pos
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/month-ahead-run4/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### Risk Context
 
@@ -427,8 +410,6 @@ pie title Risk Distribution by Severity
 
 ### Political Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/month-ahead-run4/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
-
 ### Assessment Context
 
 | Field | Value |
@@ -565,8 +546,6 @@ Simultaneous stalling of trade response, banking trilogue, and anti-corruption C
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Swot Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/month-ahead-run4/existing/swot-analysis.md" rel="noopener">View source: <code>existing/swot-analysis.md</code></a></p>
 
 ### SWOT Context
 
@@ -746,8 +725,6 @@ Trade, banking, digital, and social dossiers create four separate potential frac
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/month-ahead-run4/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
-
 ### Synthesis Context
 
 | Field | Value |
@@ -886,6 +863,15 @@ Trade, banking, and anti-corruption all stall simultaneously. ECR expands defect
 - EP MCP: adopted texts 2026 (51 items), adopted texts feed (216 items), political landscape, precomputed stats 2004-2026
 - Prior analysis: 7 daily runs from April 9-13 across breaking, motions, propositions, committee-reports, week-ahead
 - Confidence: HIGH (multiple confirmed data sources, cross-validated across runs)
+
+> **Provenance & Audit**
+>
+> - **Article type:** `month-ahead`
+> - **Run date:** 2026-04-13
+> - **Run id:** `07c000a5-e613-4ca8-98c7-cae22b3eb835`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-13/month-ahead-run4](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-13/month-ahead-run4)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/month-ahead-run4/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

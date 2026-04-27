@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-06
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-06
-> - **Run id:** `breaking-4`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-06/breaking-4](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-06/breaking-4)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Coalition Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/coalition-analysis.md" rel="noopener">View source: <code>coalition-analysis.md</code></a></p>
 
 ### Coalition Landscape Overview
 
@@ -188,8 +175,6 @@ During the Easter recess, coalition dynamics are in a frozen state — no votes 
 *Source: European Parliament Open Data Portal via EP MCP Server. Coalition analysis uses dual-track model developed across 15+ monitoring runs during Easter recess. Power index estimates based on seat distribution analysis (not actual voting data, which is unavailable during recess). Shapley-Shubik indices are approximations. All named legislative files (SRMR3, Anti-Corruption Directive, US tariff response, EU Talent Pool, Copyright & AI, Housing Crisis) are real procedures from the pre-recess session.*
 
 ### Cross Session Intelligence
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/cross-session-intelligence.md" rel="noopener">View source: <code>cross-session-intelligence.md</code></a></p>
 
 ### Purpose
 
@@ -360,8 +345,6 @@ graph TD
 
 ### Political Swot Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/political-swot-analysis.md" rel="noopener">View source: <code>political-swot-analysis.md</code></a></p>
-
 ### SWOT Matrix
 
 #### 💪 Strengths (Internal — EP Institutional Capacity)
@@ -517,8 +500,6 @@ The balance between these forces will be determined in the 14-23 April window. T
 *Source: European Parliament Open Data Portal via EP MCP Server. SWOT analysis follows the Political SWOT Framework (Cross-SWOT interference, TOWS matrix, PESTLE integration, scenario generation). Evidence thresholds exceeded: 20 evidence-backed claims, 10+ EP data citations, 8+ named actors/groups. Longitudinal validation from 4 intraday observations on 6 April 2026.*
 
 ### Political Threat Landscape
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/political-threat-landscape.md" rel="noopener">View source: <code>political-threat-landscape.md</code></a></p>
 
 ### Threat Landscape Dashboard
 
@@ -701,8 +682,6 @@ API issues persist through committee week. Institutional transparency reduced. E
 *Source: European Parliament Open Data Portal via EP MCP Server. Threat landscape analysis follows the Political Threat Framework methodology (6-dimension model, severity scale SEVERE/HIGH/MODERATE/LOW/MINIMAL). Kill Chain adapted for parliamentary context. Longitudinal tracking based on 4 intraday observations on 6 April 2026 and 15+ observations since 28 March 2026. All confidence levels stated per evidence quality hierarchy.*
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/risk-matrix.md" rel="noopener">View source: <code>risk-matrix.md</code></a></p>
 
 ### Risk Matrix Overview
 
@@ -904,8 +883,6 @@ graph TD
 
 ### Significance Classification
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/significance-classification.md" rel="noopener">View source: <code>significance-classification.md</code></a></p>
-
 ### Executive Summary
 
 | Metric | Value | Trend | vs. Run 3 (12:15) |
@@ -1085,8 +1062,6 @@ These projections confirm EP10's record-breaking pace. The 114 legislative acts 
 
 ### Stakeholder Impact
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/stakeholder-impact.md" rel="noopener">View source: <code>stakeholder-impact.md</code></a></p>
-
 ### Overview
 
 This assessment analyses the impact of the Easter recess data transparency gap on 6 key stakeholder categories. While no parliamentary decisions occurred today (Easter Monday), the 11-day API degradation has differential effects on different stakeholders' ability to monitor, influence, and respond to parliamentary developments.
@@ -1255,8 +1230,6 @@ The primary institutional impact is reputational: the EP's API degradation durin
 *Source: European Parliament Open Data Portal via EP MCP Server. Stakeholder impact assessment based on differential analysis of data dependency, adaptation capacity, and power position across 6 stakeholder categories. Evidence drawn from API audit (11-day degradation pattern), political landscape data (group sizes), and institutional analysis. All confidence levels stated per evidence quality hierarchy.*
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
 
 ### Executive Dashboard
 
@@ -1488,6 +1461,15 @@ gantt
 ---
 
 *Source: European Parliament Open Data Portal via EP MCP Server. Synthesis summary consolidates findings from 8 workflow runs on 6 April 2026 (Easter Monday, Day 11/18 of Easter recess). Total analytical output: ~61 artifacts, ~19,000+ lines. All data points verified against live EP API endpoints. This document serves as the daily intelligence closure per ai-driven-analysis-guide.md Rule 5 — no workflow run wasted.*
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-06
+> - **Run id:** `breaking-4`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-06/breaking-4](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-06/breaking-4)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

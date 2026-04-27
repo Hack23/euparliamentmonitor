@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-18
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-18
-> - **Run id:** `183`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-18/breaking-run183](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-18/breaking-run183)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run183/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -33,8 +22,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run183/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 > **Purpose**: Consolidated intelligence for Run 183 — Easter Recess Day 5 assessment,
 > TA-10-2026-0099–0104 data gap documentation, EPP coalition anomaly analysis, trade scenario
@@ -313,8 +300,6 @@ endpoint polling that is structurally expected to fail during recess periods.
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run183/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
 ### Easter Recess Day 5: Productive Silence & Implementation Watch
 #### April 18, 2026 | Easter Recess Day 5 (Saturday) | T+4 Trade Countermeasures
 
@@ -424,8 +409,6 @@ attendance metrics are null as a result, creating a material blind spot in coali
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Coalition Dynamics
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run183/intelligence/coalition-dynamics.md" rel="noopener">View source: <code>intelligence/coalition-dynamics.md</code></a></p>
 
 ### Easter Recess Day 5 — Inter-Recess Coalition Analysis
 
@@ -609,8 +592,6 @@ coalition cohesion by creating an external adversarial focal point.
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run183/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### EP10 March Sprint Implementation Risks | April 18, 2026
 
@@ -843,8 +824,6 @@ but its documentation in real-time will be limited. Pre-plenary intelligence (th
 runs) is therefore the primary analytical asset for the April 27-30 session.
 
 ### Quantitative Swot
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run183/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
 
 ### Post-Adoption Strategic Assessment | Easter Recess Day 5
 
@@ -1253,8 +1232,6 @@ not evidence of intent.
 
 ### Political Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run183/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
-
 ### Democratic Institution Resilience Assessment | Easter Recess Day 5
 
 ![Date](https://img.shields.io/badge/Date-2026--04--18-blue?style=flat-square)
@@ -1448,8 +1425,6 @@ response to emerging threats.
 
 ### Cross Run Diff
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run183/intelligence/cross-run-diff.md" rel="noopener">View source: <code>intelligence/cross-run-diff.md</code></a></p>
-
 ### Run 183 vs. Runs 179–182 (April 17–18, 2026 Easter Recess Series)
 
 ![Date](https://img.shields.io/badge/Date-2026--04--18-blue?style=flat-square)
@@ -1605,8 +1580,6 @@ action has not eliminated the structural motivation — it has merely delayed it
 
 ### Document Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run183/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
 ### TA-10-2026-0099 through TA-10-2026-0104 — Data Gap Documentation
 
 ![Date](https://img.shields.io/badge/Date-2026--04--18-blue?style=flat-square)
@@ -1678,6 +1651,15 @@ Priority verification order (when EP API individual text lookup is restored):
 Expected API recovery: April 27, 2026 (when Parliament returns from recess and EP Open Data
 team resumes operations). Alternatively, direct access via ep.europarl.eu text database
 (requires web access, not API) can resolve these gaps before April 27.
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-18
+> - **Run id:** `183`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-18/breaking-run183](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-18/breaking-run183)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run183/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

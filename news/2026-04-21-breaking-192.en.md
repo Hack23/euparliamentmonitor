@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-21
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-21
-> - **Run id:** `192`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-21/breaking-run192](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-21/breaking-run192)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,8 +23,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 ### Executive Summary
 
@@ -125,8 +112,6 @@ Session started ~01:20 UTC. Analysis phase running from ~01:26 UTC.
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
 
 ### Classification Framework
 
@@ -246,8 +231,6 @@ Events are assessed on four dimensions:
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
-
 ### Stakeholder Analysis Framework
 
 This stakeholder map assesses how key institutional and political actors are positioned as Parliament prepares to return from Easter recess on April 27, 2026. The analysis focuses on the strategic posture of each actor in the post-Easter environment, their interests in pending legislative business, and likely responses to potential external catalysts (USTR Section 301, API restoration, Commission housing initiative).
@@ -352,8 +335,6 @@ Greens and The Left would demand that any EU trade response include Carbon Borde
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### Risk Matrix Framework
 
@@ -469,8 +450,6 @@ Risks assessed on 5×5 matrix: **Likelihood** (1-5) × **Impact** (1-5) = **Risk
 
 ### Quantitative Swot
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
-
 ### STRENGTHS
 
 #### S1: Banking Union Legislative Completion — Institutional Strength Peak (Confidence: HIGH)
@@ -552,8 +531,6 @@ The PPE/EPP acronym bug, the extended outage, and the delayed roll-call publicat
 <h2 id="section-scenarios">Scenarios & Wildcards</h2>
 
 ### Scenario Forecast
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
 
 ### Scenario Architecture
 
@@ -639,8 +616,6 @@ The 4-scenario model above accounts for ~82% of the probability mass. The remain
 
 ### Cross Run Diff
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/intelligence/cross-run-diff.md" rel="noopener">View source: <code>intelligence/cross-run-diff.md</code></a></p>
-
 ### Differential Summary
 
 Run 191 (April 20, Easter Monday) marked a significant inflection point: metadata count restoration from 100 to 104. Run 192 (April 21, post-Easter Tuesday) tests whether that restoration continues into content (Phase 2). Answer: **NO — content still unavailable.**
@@ -719,11 +694,63 @@ The following conclusions from prior runs are CONFIRMED STABLE but not new:
 | March 26 roll-calls publish this week | 55% | 60% | ↑ | Now overdue by standard metrics |
 | April 27 agenda published this week | 90% | 95% | ↑ | Now T-6 days — imminent |
 
+<h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
+
+### Analysis Index
+
+### Key Context
+
+Today is **Tuesday, April 21, 2026** — the first working day after Easter Monday. The European Parliament remains on Easter recess until **April 27 (Strasbourg plenary)**. No breaking news events occurred today. This analysis continues the cross-run intelligence accumulation series initiated on April 14 (Easter Monday) when recess began.
+
+#### Critical Intelligence for Today
+
+1. **USTR Section 301 Annual Review Window Opens TODAY** — The US Trade Representative's statutory review period for Section 301 tariff actions began April 21. No formal notice has been detected in EP API feeds. Probability of formal Section 301 notice targeting EU sectors this week: 20% (maintained from prior runs).
+
+2. **EP API Tier-2 Content Outage: Day 12** — Phase 1 (metadata restoration to 104 texts) confirmed April 20 (Run 191). Phase 2 (content restoration: TA-10-2026-0087 through TA-10-2026-0104) has NOT occurred as of April 21 08:00 UTC. All 18 March 26 texts return 404.
+
+3. **Parliament Returns in 6 Days** — April 27-30 Strasbourg plenary confirmed in EP API (MTG-PL-2026-04-27 through MTG-PL-2026-04-30). Agenda: 0 items (not yet published). Expected publication: April 22-23.
+
+4. **March 26 Roll-Call Votes: T+26 Days Overdue** — EP standard publication window is ~3 weeks. Votes should appear any day, enabling coalition behaviour analysis for Banking Union and Trade texts.
+
+### Analysis Files in This Run
+
+| File | Category | Lines | Status |
+|------|----------|-------|--------|
+| `intelligence/analysis-index.md` | Navigation | ~80 | ✅ |
+| `intelligence/synthesis-summary.md` | Synthesis | ~300 | ✅ |
+| `intelligence/cross-run-diff.md` | Cross-run | ~200 | ✅ |
+| `intelligence/stakeholder-map.md` | Stakeholders | ~300 | ✅ |
+| `intelligence/scenario-forecast.md` | Scenarios | ~200 | ✅ |
+| `risk-scoring/quantitative-swot.md` | SWOT | ~400 | ✅ |
+| `risk-scoring/risk-matrix.md` | Risk | ~250 | ✅ |
+| `classification/significance-scoring.md` | Classification | ~200 | ✅ |
+| `existing/coalition-dynamics.md` | Coalition | ~200 | ✅ |
+| `manifest.json` | Manifest | — | ✅ |
+
+### Data Sources Accessed
+
+| Tool | Status | Data Returned |
+|------|--------|--------------|
+| `get_all_generated_stats` | ✅ Working | 2004–2026 statistics |
+| `get_adopted_texts_feed` (today) | ⚠️ Empty | 0 items (recess) |
+| `get_adopted_texts_feed` (one-week) | ✅ Working | 203 items (historical) |
+| `get_adopted_texts` (offset 89, 2026) | ✅ Working | 104 total (stable) |
+| `get_events_feed` | ❌ Error | Tier-2 outage |
+| `get_procedures_feed` | ❌ Error | Tier-2 outage |
+| `get_meps_feed` | ✅ Working | Large dataset |
+| `get_documents_feed` | ❌ Error | Tier-2 outage |
+| `get_committee_documents_feed` | ❌ Error | Tier-2 outage |
+| `get_parliamentary_questions_feed` | ❌ Error | Tier-2 outage |
+| `get_speeches` (Easter recess) | ✅ Working | 0 speeches |
+| `get_voting_records` | ✅ Working | 0 records (delay) |
+| `get_plenary_sessions` (2026) | ✅ Working | 20 sessions confirmed |
+| `analyze_coalition_dynamics` | ✅ Working | Structural data only |
+| `get_meeting_decisions` (Mar 26) | ✅ Working | 124 decisions |
+| Content probe TA-0087, 0090, 0097, 0098, 0101 | ❌ All 404 | Content unavailable |
+
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Coalition Dynamics
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/existing/coalition-dynamics.md" rel="noopener">View source: <code>existing/coalition-dynamics.md</code></a></p>
 
 ### Current EP10 Coalition Composition
 
@@ -807,59 +834,14 @@ The EP10 grand coalition scores 87/100 on stability but the qualitative assessme
 2. **Risk of S&D-EPP fatigue** as EP10 enters its second year — S&D will need to differentiate from EPP as 2029 elections approach
 3. **Greens/Left becoming more assertive** as climate policy pressures increase (COP31, Climate Neutrality 2035 targets approaching)
 
-### Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
-
-### Key Context
-
-Today is **Tuesday, April 21, 2026** — the first working day after Easter Monday. The European Parliament remains on Easter recess until **April 27 (Strasbourg plenary)**. No breaking news events occurred today. This analysis continues the cross-run intelligence accumulation series initiated on April 14 (Easter Monday) when recess began.
-
-#### Critical Intelligence for Today
-
-1. **USTR Section 301 Annual Review Window Opens TODAY** — The US Trade Representative's statutory review period for Section 301 tariff actions began April 21. No formal notice has been detected in EP API feeds. Probability of formal Section 301 notice targeting EU sectors this week: 20% (maintained from prior runs).
-
-2. **EP API Tier-2 Content Outage: Day 12** — Phase 1 (metadata restoration to 104 texts) confirmed April 20 (Run 191). Phase 2 (content restoration: TA-10-2026-0087 through TA-10-2026-0104) has NOT occurred as of April 21 08:00 UTC. All 18 March 26 texts return 404.
-
-3. **Parliament Returns in 6 Days** — April 27-30 Strasbourg plenary confirmed in EP API (MTG-PL-2026-04-27 through MTG-PL-2026-04-30). Agenda: 0 items (not yet published). Expected publication: April 22-23.
-
-4. **March 26 Roll-Call Votes: T+26 Days Overdue** — EP standard publication window is ~3 weeks. Votes should appear any day, enabling coalition behaviour analysis for Banking Union and Trade texts.
-
-### Analysis Files in This Run
-
-| File | Category | Lines | Status |
-|------|----------|-------|--------|
-| `intelligence/analysis-index.md` | Navigation | ~80 | ✅ |
-| `intelligence/synthesis-summary.md` | Synthesis | ~300 | ✅ |
-| `intelligence/cross-run-diff.md` | Cross-run | ~200 | ✅ |
-| `intelligence/stakeholder-map.md` | Stakeholders | ~300 | ✅ |
-| `intelligence/scenario-forecast.md` | Scenarios | ~200 | ✅ |
-| `risk-scoring/quantitative-swot.md` | SWOT | ~400 | ✅ |
-| `risk-scoring/risk-matrix.md` | Risk | ~250 | ✅ |
-| `classification/significance-scoring.md` | Classification | ~200 | ✅ |
-| `existing/coalition-dynamics.md` | Coalition | ~200 | ✅ |
-| `manifest.json` | Manifest | — | ✅ |
-
-### Data Sources Accessed
-
-| Tool | Status | Data Returned |
-|------|--------|--------------|
-| `get_all_generated_stats` | ✅ Working | 2004–2026 statistics |
-| `get_adopted_texts_feed` (today) | ⚠️ Empty | 0 items (recess) |
-| `get_adopted_texts_feed` (one-week) | ✅ Working | 203 items (historical) |
-| `get_adopted_texts` (offset 89, 2026) | ✅ Working | 104 total (stable) |
-| `get_events_feed` | ❌ Error | Tier-2 outage |
-| `get_procedures_feed` | ❌ Error | Tier-2 outage |
-| `get_meps_feed` | ✅ Working | Large dataset |
-| `get_documents_feed` | ❌ Error | Tier-2 outage |
-| `get_committee_documents_feed` | ❌ Error | Tier-2 outage |
-| `get_parliamentary_questions_feed` | ❌ Error | Tier-2 outage |
-| `get_speeches` (Easter recess) | ✅ Working | 0 speeches |
-| `get_voting_records` | ✅ Working | 0 records (delay) |
-| `get_plenary_sessions` (2026) | ✅ Working | 20 sessions confirmed |
-| `analyze_coalition_dynamics` | ✅ Working | Structural data only |
-| `get_meeting_decisions` (Mar 26) | ✅ Working | 124 decisions |
-| Content probe TA-0087, 0090, 0097, 0098, 0101 | ❌ All 404 | Content unavailable |
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-21
+> - **Run id:** `192`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-21/breaking-run192](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-21/breaking-run192)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -953,6 +935,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-continuity | [cross-run-diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/intelligence/cross-run-diff.md) | `intelligence/cross-run-diff.md` |
+| section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-supplementary-intelligence | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/existing/coalition-dynamics.md) | `existing/coalition-dynamics.md` |
-| section-supplementary-intelligence | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 

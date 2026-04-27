@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-03
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-03
-> - **Run id:** `breaking-2`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-03/breaking-2](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-03/breaking-2)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-2/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Api Reliability Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-2/api-reliability-assessment.md" rel="noopener">View source: <code>api-reliability-assessment.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -250,8 +237,6 @@ quadrantChart
 
 ### Cross Session Intelligence
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-2/cross-session-intelligence.md" rel="noopener">View source: <code>cross-session-intelligence.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Date** | Friday, 3 April 2026 |
@@ -423,8 +408,6 @@ Across 3 analytical runs on 3 April 2026, the breaking news pipeline has produce
 *Analysis produced by EU Parliament Monitor AI (Claude Opus 4.6). Classification: PUBLIC. Cross-session intelligence validation — 3 runs, 12 files, 99% reproducibility.*
 
 ### Early Warning Deep Dive
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-2/early-warning-deep-dive.md" rel="noopener">View source: <code>early-warning-deep-dive.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -664,8 +647,6 @@ graph LR
 
 ### Intelligence Brief
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-2/intelligence-brief.md" rel="noopener">View source: <code>intelligence-brief.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Date** | Friday, 3 April 2026 |
@@ -813,6 +794,15 @@ April plenary produces a roll-call vote where Renew-ECR alignment materialises i
 ---
 
 *Analysis produced by EU Parliament Monitor AI (Claude Opus 4.6). Classification: PUBLIC. No breaking news detected — Easter recess period. This analysis extends prior work in analysis/2026-04-03/breaking/ per ai-driven-analysis-guide.md Rule 5.*
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-03
+> - **Run id:** `breaking-2`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-03/breaking-2](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-03/breaking-2)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/breaking-2/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

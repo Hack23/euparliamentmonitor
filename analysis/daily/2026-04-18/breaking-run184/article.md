@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-18
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-18
-> - **Run id:** `184`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-18/breaking-run184](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-18/breaking-run184)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -36,8 +25,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 > **Purpose**: Consolidated intelligence for Run 184 — first API recovery signal documentation,
 > TA-10-2026-0099–0104 confirmed existence, tiered API recovery model establishment, and final
@@ -260,8 +247,6 @@ the project's reference-quality exemplar per `reference-analysis-quality.md`.
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
 ![Date](https://img.shields.io/badge/Date-2026--04--18-blue?style=flat-square)
 ![RunId](https://img.shields.io/badge/Run-184-orange?style=flat-square)
 ![Mode](https://img.shields.io/badge/Mode-Analysis_Only-grey?style=flat-square)
@@ -374,8 +359,6 @@ When EP returns April 27–28, these intelligence items should be immediately ve
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Coalition Dynamics
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/coalition-dynamics.md" rel="noopener">View source: <code>intelligence/coalition-dynamics.md</code></a></p>
 
 ![Confidence](https://img.shields.io/badge/Confidence-LOW-red?style=flat-square)
 ![DataQuality](https://img.shields.io/badge/Data-Structural_Only-orange?style=flat-square)
@@ -519,8 +502,6 @@ None of these were checked in this run due to scope restrictions (MCP-only data 
 *Appended in Pass 2 review — April 18, 2026 | Run 184*
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
 
 ![Framework](https://img.shields.io/badge/Framework-Power_x_Interest-blue?style=flat-square)
 ![Stakeholders](https://img.shields.io/badge/Stakeholders-18-green?style=flat-square)
@@ -855,8 +836,6 @@ public statements, and German CDU MEP coordinator signals.
 
 ### Pestle Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/pestle-analysis.md" rel="noopener">View source: <code>intelligence/pestle-analysis.md</code></a></p>
-
 ![Framework](https://img.shields.io/badge/Framework-PESTLE_6--Dimension-blue?style=flat-square)
 ![Confidence](https://img.shields.io/badge/Aggregate_Confidence-MEDIUM-yellow?style=flat-square)
 ![Scope](https://img.shields.io/badge/Scope-EP10_Pre--Plenary_April_28-green?style=flat-square)
@@ -1132,8 +1111,6 @@ agenda from its planned substance toward emergency trade debate.
 
 ### Historical Baseline
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
-
 ![Framework](https://img.shields.io/badge/Framework-Rule_17_Historical_Baselines-blue?style=flat-square)
 ![Baselines](https://img.shields.io/badge/Compared_Terms-EP8_EP9_EP10-green?style=flat-square)
 ![Confidence](https://img.shields.io/badge/Confidence-HIGH-brightgreen?style=flat-square)
@@ -1340,8 +1317,6 @@ analysis and should be replicated (where applicable) in future runs.
 
 <h2 id="section-economic-context">Economic Context</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
-
 ![Framework](https://img.shields.io/badge/Framework-WB_Indicator_Mapping-blue?style=flat-square)
 ![Countries](https://img.shields.io/badge/Countries-DE_FR_IT_PL-green?style=flat-square)
 ![Data](https://img.shields.io/badge/Source-World_Bank_Open_Data-brightgreen?style=flat-square)
@@ -1546,8 +1521,6 @@ estimate in `scenario-forecast.md`.
 
 ### Risk Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
-
 ![Risk Level](https://img.shields.io/badge/Composite_Risk-18%2F50-orange?style=flat-square)
 ![Framework](https://img.shields.io/badge/Framework-Likelihood×Impact_5×5-blue?style=flat-square)
 ![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=flat-square)
@@ -1707,8 +1680,6 @@ The April 27 target for full API restoration is achievable if EP IT follows its 
 
 ### Quantitative Swot
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
-
 ![Date](https://img.shields.io/badge/Date-2026--04--18-blue?style=flat-square)
 ![Framework](https://img.shields.io/badge/Framework-Evidence--Based_SWOT-green?style=flat-square)
 ![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=flat-square)
@@ -1863,8 +1834,6 @@ The threat is that post-recess first-run analysis will need to simultaneously: (
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Threat Model
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
 
 ![Framework](https://img.shields.io/badge/Framework-Diamond_Model_+_Attack_Trees-blue?style=flat-square)
 ![Threats](https://img.shields.io/badge/High_Severity_Threats-3-red?style=flat-square)
@@ -2139,8 +2108,6 @@ quadrantChart
 <h2 id="section-scenarios">Scenarios & Wildcards</h2>
 
 ### Scenario Forecast
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
 
 ![Framework](https://img.shields.io/badge/Framework-Shell_Scenario_Planning-blue?style=flat-square)
 ![Scenarios](https://img.shields.io/badge/Scenarios-4-green?style=flat-square)
@@ -2446,8 +2413,6 @@ graph TD
 
 ### Wildcards Blackswans
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
-
 ![Framework](https://img.shields.io/badge/Framework-Taleb_+_Schwartz-blue?style=flat-square)
 ![Events](https://img.shields.io/badge/Wildcards_Tracked-8-yellow?style=flat-square)
 ![Confidence](https://img.shields.io/badge/Confidence-LOW_by_design-red?style=flat-square)
@@ -2750,8 +2715,6 @@ confidence remains 🟡 Medium.
 
 ### Cross Run Diff
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/cross-run-diff.md" rel="noopener">View source: <code>intelligence/cross-run-diff.md</code></a></p>
-
 ![Date](https://img.shields.io/badge/Date-2026--04--18-blue?style=flat-square)
 ![Baseline](https://img.shields.io/badge/Baseline-Run_183-grey?style=flat-square)
 ![Change](https://img.shields.io/badge/Change-2%2F13_Feeds_Operational-green?style=flat-square)
@@ -2858,8 +2821,6 @@ Run 184 contributes three distinct intelligence increments beyond Run 183:
 
 ### Document Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
 ![Date](https://img.shields.io/badge/Date-2026--04--18-blue?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Content_Inaccessible-red?style=flat-square)
 ![Priority](https://img.shields.io/badge/Priority-HIGH_post--recess-orange?style=flat-square)
@@ -2961,8 +2922,6 @@ For reference, the confirmed texts from the same March 26 session:
 *Analysis generated: April 18, 2026 | Run 184 | Breaking workflow | Analysis-only mode*
 
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/mcp-reliability-audit.md" rel="noopener">View source: <code>intelligence/mcp-reliability-audit.md</code></a></p>
 
 ![Scope](https://img.shields.io/badge/Scope-EP_MCP_Server_1.2.8-blue?style=flat-square)
 ![Runs](https://img.shields.io/badge/Empirical_Basis-Runs_179--184-green?style=flat-square)
@@ -3389,9 +3348,181 @@ within the MCP server. It is the highest-priority upstream fix.
 
 <h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
-### Reference Analysis Quality
+### Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/reference-analysis-quality.md" rel="noopener">View source: <code>intelligence/reference-analysis-quality.md</code></a></p>
+![Role](https://img.shields.io/badge/Role-Read--Me--First_for_AI-gold?style=flat-square)
+![Artifacts](https://img.shields.io/badge/Artifacts-17-green?style=flat-square)
+![Lines](https://img.shields.io/badge/Total_Lines-3600%2B-blue?style=flat-square)
+![Frameworks](https://img.shields.io/badge/Frameworks-13-blueviolet?style=flat-square)
+
+> **This file is the single entry point for any article-generation workflow that
+> consumes Run 184's analysis output.** Read this file first, then consume the listed
+> artifacts in the recommended order. Article generation MUST NOT start until every
+> mandatory artifact has been read in full.
+
+---
+
+### 🎯 Run Context (one-line summary)
+
+**Easter Saturday, April 18, 2026 — EP in recess (Day 5 of 10). Newsworthiness gate:
+FAIL. Mode: ANALYSIS_ONLY. This is the 6th consecutive analysis-only run of the
+Easter recess series (Runs 179–184) and the designated reference-quality exemplar.**
+
+#### Top-of-mind findings (the 5 things every future article must know)
+
+1. **TA-10-2026-0090 through 0098 adopted March 26** (Banking Union, Anti-Corruption,
+   Critical Minerals Reserve, US Countermeasures, EU-Morocco, Digital Omnibus). **0099–0104 exist
+   in feed but content is pending** (6 texts).
+2. **EP MCP server is in API-degraded mode** since Day 1 of recess. Tier-1 feeds
+   (adopted_texts_feed, meps_feed) operational; Tier-2/3 analytical tools down.
+   Recovery projected April 21–27.
+3. **Coalition integrity faces stress-tests on 4 axes** — trade (Section 301),
+   banking (BRRD3 transposition), housing (Commission response), digital (ECJ
+   challenge). EPP cohesion is the single most decisive unknown (`memberCount=0`
+   data gap — see `mcp-reliability-audit.md`).
+4. **4 probability-weighted scenarios** for the April 28 plenary:
+   A (baseline, 40%), B (resolute response to USTR, 25%), C (muddled housing
+   confrontation, 20%), D (compound crisis, 15%).
+5. **Run 184 surfaces 3 historically novel analytical contributions** — sustained
+   Diamond Model application, MCP reliability audit with upstream issues, and
+   empirical API-tiered recovery model.
+
+---
+
+### 📚 Mandatory Reading Order for Article Generation
+
+Article-generation workflows MUST read these 17 artifacts (plus `manifest.json`
+as metadata) in this order. Expected total time: 15–20 minutes of active reading.
+The list below enumerates 18 rows because row #1 is `manifest.json` (metadata, not
+counted as an artifact) — all 17 artifact entries from row #2 through row #18 appear
+in `manifest.files.*`.
+
+#### Stage 1 — Orientation (read first)
+
+| # | Artifact | Purpose | Lines |
+|:-:|----------|---------|:-----:|
+| 1 | [`manifest.json`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/manifest.json) | Machine-readable metadata; list of all artifacts; analytical frameworks applied | — |
+| 2 | [`intelligence/synthesis-summary.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/synthesis-summary.md) | Consolidated picture + forward-monitoring priorities + full artifact index | 230+ |
+| 3 | **(this file)** | Read-me-first pre-flight index | 200+ |
+
+#### Stage 2 — Core findings (read in any order)
+
+| # | Artifact | Framework | Confidence | Lines |
+|:-:|----------|-----------|:----------:|:-----:|
+| 4 | [`classification/significance-scoring.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/classification/significance-scoring.md) | Newsworthiness gate + 100-point scoring | 🟢 High | 118 |
+| 5 | [`risk-scoring/risk-matrix.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/risk-scoring/risk-matrix.md) | 5×5 Likelihood × Impact (6 vectors) | 🟡 Medium | 144 |
+| 6 | [`risk-scoring/quantitative-swot.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/risk-scoring/quantitative-swot.md) | 3+3+3+3 SWOT with evidence anchors | 🟡 Medium | 159 |
+| 7 | [`documents/document-analysis-index.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/documents/document-analysis-index.md) | Per-text status table for TA-10-2026-0090–0104 | 🟢 High | 109 |
+
+#### Stage 3 — Political intelligence (read in any order)
+
+| # | Artifact | Framework | Confidence | Lines |
+|:-:|----------|-----------|:----------:|:-----:|
+| 8 | [`intelligence/coalition-dynamics.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/coalition-dynamics.md) | Group composition + pair analysis | 🔴 Low (EPP gap) | 150 |
+| 9 | [`intelligence/pestle-analysis.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/pestle-analysis.md) | 6-dimension macro scan | 🟡 Medium | 282 |
+| 10 | [`intelligence/stakeholder-map.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/stakeholder-map.md) | Mendelow grid, 18 stakeholders | 🟡 Medium | 317 |
+| 11 | [`intelligence/scenario-forecast.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/scenario-forecast.md) | 2×2 + 4 probability-weighted scenarios | 🟡 Medium | 290 |
+| 12 | [`intelligence/threat-model.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/threat-model.md) | Diamond + Attack Trees + Kill Chain | 🟡 Medium | 254 |
+| 13 | [`intelligence/historical-baseline.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/historical-baseline.md) | EP10 vs EP8/EP9 (Rule 17) | 🟢 High | 211 |
+| 14 | [`intelligence/economic-context.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/economic-context.md) | World Bank data for DE/FR/IT/PL | 🟢 High | 211 |
+| 15 | [`intelligence/wildcards-blackswans.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/wildcards-blackswans.md) | 8 wildcards + Black Swan reserve | 🔴 Low (by design) | 285 |
+
+#### Stage 4 — Meta-analysis (read last)
+
+| # | Artifact | Purpose | Lines |
+|:-:|----------|---------|:-----:|
+| 16 | [`intelligence/cross-run-diff.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/cross-run-diff.md) | Delta vs Run 183; hypothesis-tracking | 112 |
+| 17 | [`intelligence/mcp-reliability-audit.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/mcp-reliability-audit.md) | 7 data-quality defects; upstream issues #366–#370 | 434 |
+| 18 | [`intelligence/reference-analysis-quality.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/reference-analysis-quality.md) | Quality-gate checklist (optional for authors) | 180+ |
+
+---
+
+### 🧭 Finding-Level Cross-Reference Map
+
+When drafting a particular kind of passage, consult these specific artifacts:
+
+| Article section you're writing | Primary sources | Supporting sources |
+|--------------------------------|-----------------|--------------------|
+| **Headline / lead** | `synthesis-summary.md` §Executive Summary | `classification/significance-scoring.md` |
+| **News lede — trade angle** | `scenario-forecast.md` §Scenario B, §Decision Tree | `stakeholder-map.md` #5 (USTR), `pestle-analysis.md` §P1 |
+| **News lede — banking angle** | `risk-scoring/risk-matrix.md` Risk #1 | `stakeholder-map.md` #4, #7, #8; `economic-context.md` §Germany |
+| **News lede — housing angle** | `risk-scoring/risk-matrix.md` Risk #4 | `stakeholder-map.md` #17; `pestle-analysis.md` §S1 |
+| **News lede — digital/AI angle** | `threat-model.md` §T2 context, `pestle-analysis.md` §L1 | `stakeholder-map.md` #16 |
+| **Coalition dynamics passage** | `intelligence/coalition-dynamics.md` | `stakeholder-map.md` §Coalition-Formation Implications, `threat-model.md` §T3 |
+| **Risk / opportunity language** | `risk-scoring/quantitative-swot.md` | `scenario-forecast.md`, `wildcards-blackswans.md` |
+| **Historical-comparison paragraph** | `historical-baseline.md` | `get_all_generated_stats` MCP data |
+| **Economic context sidebar** | `economic-context.md` | World Bank MCP direct calls |
+| **Forward-monitoring / "what to watch" section** | `synthesis-summary.md` §Post-Recess First Run Instructions | `scenario-forecast.md` §Monitoring Priorities |
+| **"What if things go very wrong" passage** | `wildcards-blackswans.md` | `scenario-forecast.md` §Scenario D |
+| **Data-quality caveats** | `mcp-reliability-audit.md` | `coalition-dynamics.md` §Data-quality warning |
+
+---
+
+### 📝 Article Footer Requirements (MANDATORY)
+
+Every article produced from Run 184 MUST include an **Analysis Sources** footer listing
+every analysis artifact consumed. The `renderAnalysisTransparencySection` helper in
+`src/templates/article-template.ts` generates this automatically from `manifest.json`
+`files` entries — **do not bypass or customise away from this default**.
+
+Minimum expectation: the rendered footer must link to:
+
+1. The run directory: `analysis/daily/2026-04-18/breaking-run184/`
+2. `manifest.json`
+3. Every file listed in `manifest.files.classification`, `manifest.files.risk_scoring`,
+   `manifest.files.intelligence`, `manifest.files.documents`
+4. The methodology documents in `analysis/methodologies/`
+
+If an article draft omits the Analysis Sources footer, **it MUST fail validation** and
+the workflow MUST execute another pass to add it before publication.
+
+---
+
+### 🚫 Anti-Patterns Rejected
+
+When reading this run, DO NOT:
+
+1. **Skim-read only `synthesis-summary.md`** and treat it as a substitute for the
+   underlying artifacts. Synthesis is compression; specifics live in the source files.
+2. **Ignore the confidence taxonomy.** Every 🔴 Low finding must be flagged as such in
+   article prose; every 🟡 Medium finding carries appropriate hedging language.
+3. **Cite only a subset of artifacts.** The Analysis Sources footer exists precisely so
+   readers can verify every claim — incomplete citation defeats transparency.
+4. **Paraphrase data-quality caveats away.** The EPP `memberCount=0` gap, the
+   cohesion-mislabelling defect, and the server-health discrepancy are mandatory
+   disclosures in any article that quotes coalition arithmetic.
+5. **Invent facts not present in these artifacts.** If a finding is needed but not
+   here, trigger an MCP data call — don't fabricate.
+
+---
+
+### 📦 Machine-Readable Summary
+
+```yaml
+run_id: 184
+date: 2026-04-18
+article_type: breaking
+mode: ANALYSIS_ONLY
+newsworthiness: NO_BREAKING_NEWS
+reference_analysis: true
+artifacts_total: 17
+lines_total: 3632
+frameworks_applied: 13
+confidence_distribution:
+  high: 0.25
+  medium: 0.55
+  low: 0.20
+must_read_before_article: true
+citation_footer_mandatory: true
+```
+
+---
+
+*Document role: Pre-flight reading index for article-generation workflows*
+*Created: 2026-04-18 | Run 184 | Breaking workflow | Analysis-only mode*
+*Superseded when: next reference-quality run produces its own `analysis-index.md`*
+
+### Reference Analysis Quality
 
 ![Role](https://img.shields.io/badge/Role-Reference_Analysis-gold?style=flat-square)
 ![Mode](https://img.shields.io/badge/Mode-Analysis_Only-grey?style=flat-square)
@@ -3597,183 +3728,14 @@ reference run.
 *Document compiled: April 18, 2026 | Run 184 | Role: reference-analysis designation*
 *Next review: July 2026 (post-summer-recess series) or when methodology v4.6+ ships*
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
-
-![Role](https://img.shields.io/badge/Role-Read--Me--First_for_AI-gold?style=flat-square)
-![Artifacts](https://img.shields.io/badge/Artifacts-17-green?style=flat-square)
-![Lines](https://img.shields.io/badge/Total_Lines-3600%2B-blue?style=flat-square)
-![Frameworks](https://img.shields.io/badge/Frameworks-13-blueviolet?style=flat-square)
-
-> **This file is the single entry point for any article-generation workflow that
-> consumes Run 184's analysis output.** Read this file first, then consume the listed
-> artifacts in the recommended order. Article generation MUST NOT start until every
-> mandatory artifact has been read in full.
-
----
-
-### 🎯 Run Context (one-line summary)
-
-**Easter Saturday, April 18, 2026 — EP in recess (Day 5 of 10). Newsworthiness gate:
-FAIL. Mode: ANALYSIS_ONLY. This is the 6th consecutive analysis-only run of the
-Easter recess series (Runs 179–184) and the designated reference-quality exemplar.**
-
-#### Top-of-mind findings (the 5 things every future article must know)
-
-1. **TA-10-2026-0090 through 0098 adopted March 26** (Banking Union, Anti-Corruption,
-   Critical Minerals Reserve, US Countermeasures, EU-Morocco, Digital Omnibus). **0099–0104 exist
-   in feed but content is pending** (6 texts).
-2. **EP MCP server is in API-degraded mode** since Day 1 of recess. Tier-1 feeds
-   (adopted_texts_feed, meps_feed) operational; Tier-2/3 analytical tools down.
-   Recovery projected April 21–27.
-3. **Coalition integrity faces stress-tests on 4 axes** — trade (Section 301),
-   banking (BRRD3 transposition), housing (Commission response), digital (ECJ
-   challenge). EPP cohesion is the single most decisive unknown (`memberCount=0`
-   data gap — see `mcp-reliability-audit.md`).
-4. **4 probability-weighted scenarios** for the April 28 plenary:
-   A (baseline, 40%), B (resolute response to USTR, 25%), C (muddled housing
-   confrontation, 20%), D (compound crisis, 15%).
-5. **Run 184 surfaces 3 historically novel analytical contributions** — sustained
-   Diamond Model application, MCP reliability audit with upstream issues, and
-   empirical API-tiered recovery model.
-
----
-
-### 📚 Mandatory Reading Order for Article Generation
-
-Article-generation workflows MUST read these 17 artifacts (plus `manifest.json`
-as metadata) in this order. Expected total time: 15–20 minutes of active reading.
-The list below enumerates 18 rows because row #1 is `manifest.json` (metadata, not
-counted as an artifact) — all 17 artifact entries from row #2 through row #18 appear
-in `manifest.files.*`.
-
-#### Stage 1 — Orientation (read first)
-
-| # | Artifact | Purpose | Lines |
-|:-:|----------|---------|:-----:|
-| 1 | [`manifest.json`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/manifest.json) | Machine-readable metadata; list of all artifacts; analytical frameworks applied | — |
-| 2 | [`intelligence/synthesis-summary.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/synthesis-summary.md) | Consolidated picture + forward-monitoring priorities + full artifact index | 230+ |
-| 3 | **(this file)** | Read-me-first pre-flight index | 200+ |
-
-#### Stage 2 — Core findings (read in any order)
-
-| # | Artifact | Framework | Confidence | Lines |
-|:-:|----------|-----------|:----------:|:-----:|
-| 4 | [`classification/significance-scoring.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/classification/significance-scoring.md) | Newsworthiness gate + 100-point scoring | 🟢 High | 118 |
-| 5 | [`risk-scoring/risk-matrix.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/risk-scoring/risk-matrix.md) | 5×5 Likelihood × Impact (6 vectors) | 🟡 Medium | 144 |
-| 6 | [`risk-scoring/quantitative-swot.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/risk-scoring/quantitative-swot.md) | 3+3+3+3 SWOT with evidence anchors | 🟡 Medium | 159 |
-| 7 | [`documents/document-analysis-index.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/documents/document-analysis-index.md) | Per-text status table for TA-10-2026-0090–0104 | 🟢 High | 109 |
-
-#### Stage 3 — Political intelligence (read in any order)
-
-| # | Artifact | Framework | Confidence | Lines |
-|:-:|----------|-----------|:----------:|:-----:|
-| 8 | [`intelligence/coalition-dynamics.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/coalition-dynamics.md) | Group composition + pair analysis | 🔴 Low (EPP gap) | 150 |
-| 9 | [`intelligence/pestle-analysis.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/pestle-analysis.md) | 6-dimension macro scan | 🟡 Medium | 282 |
-| 10 | [`intelligence/stakeholder-map.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/stakeholder-map.md) | Mendelow grid, 18 stakeholders | 🟡 Medium | 317 |
-| 11 | [`intelligence/scenario-forecast.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/scenario-forecast.md) | 2×2 + 4 probability-weighted scenarios | 🟡 Medium | 290 |
-| 12 | [`intelligence/threat-model.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/threat-model.md) | Diamond + Attack Trees + Kill Chain | 🟡 Medium | 254 |
-| 13 | [`intelligence/historical-baseline.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/historical-baseline.md) | EP10 vs EP8/EP9 (Rule 17) | 🟢 High | 211 |
-| 14 | [`intelligence/economic-context.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/economic-context.md) | World Bank data for DE/FR/IT/PL | 🟢 High | 211 |
-| 15 | [`intelligence/wildcards-blackswans.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/wildcards-blackswans.md) | 8 wildcards + Black Swan reserve | 🔴 Low (by design) | 285 |
-
-#### Stage 4 — Meta-analysis (read last)
-
-| # | Artifact | Purpose | Lines |
-|:-:|----------|---------|:-----:|
-| 16 | [`intelligence/cross-run-diff.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/cross-run-diff.md) | Delta vs Run 183; hypothesis-tracking | 112 |
-| 17 | [`intelligence/mcp-reliability-audit.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/mcp-reliability-audit.md) | 7 data-quality defects; upstream issues #366–#370 | 434 |
-| 18 | [`intelligence/reference-analysis-quality.md`](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/reference-analysis-quality.md) | Quality-gate checklist (optional for authors) | 180+ |
-
----
-
-### 🧭 Finding-Level Cross-Reference Map
-
-When drafting a particular kind of passage, consult these specific artifacts:
-
-| Article section you're writing | Primary sources | Supporting sources |
-|--------------------------------|-----------------|--------------------|
-| **Headline / lead** | `synthesis-summary.md` §Executive Summary | `classification/significance-scoring.md` |
-| **News lede — trade angle** | `scenario-forecast.md` §Scenario B, §Decision Tree | `stakeholder-map.md` #5 (USTR), `pestle-analysis.md` §P1 |
-| **News lede — banking angle** | `risk-scoring/risk-matrix.md` Risk #1 | `stakeholder-map.md` #4, #7, #8; `economic-context.md` §Germany |
-| **News lede — housing angle** | `risk-scoring/risk-matrix.md` Risk #4 | `stakeholder-map.md` #17; `pestle-analysis.md` §S1 |
-| **News lede — digital/AI angle** | `threat-model.md` §T2 context, `pestle-analysis.md` §L1 | `stakeholder-map.md` #16 |
-| **Coalition dynamics passage** | `intelligence/coalition-dynamics.md` | `stakeholder-map.md` §Coalition-Formation Implications, `threat-model.md` §T3 |
-| **Risk / opportunity language** | `risk-scoring/quantitative-swot.md` | `scenario-forecast.md`, `wildcards-blackswans.md` |
-| **Historical-comparison paragraph** | `historical-baseline.md` | `get_all_generated_stats` MCP data |
-| **Economic context sidebar** | `economic-context.md` | World Bank MCP direct calls |
-| **Forward-monitoring / "what to watch" section** | `synthesis-summary.md` §Post-Recess First Run Instructions | `scenario-forecast.md` §Monitoring Priorities |
-| **"What if things go very wrong" passage** | `wildcards-blackswans.md` | `scenario-forecast.md` §Scenario D |
-| **Data-quality caveats** | `mcp-reliability-audit.md` | `coalition-dynamics.md` §Data-quality warning |
-
----
-
-### 📝 Article Footer Requirements (MANDATORY)
-
-Every article produced from Run 184 MUST include an **Analysis Sources** footer listing
-every analysis artifact consumed. The `renderAnalysisTransparencySection` helper in
-`src/templates/article-template.ts` generates this automatically from `manifest.json`
-`files` entries — **do not bypass or customise away from this default**.
-
-Minimum expectation: the rendered footer must link to:
-
-1. The run directory: `analysis/daily/2026-04-18/breaking-run184/`
-2. `manifest.json`
-3. Every file listed in `manifest.files.classification`, `manifest.files.risk_scoring`,
-   `manifest.files.intelligence`, `manifest.files.documents`
-4. The methodology documents in `analysis/methodologies/`
-
-If an article draft omits the Analysis Sources footer, **it MUST fail validation** and
-the workflow MUST execute another pass to add it before publication.
-
----
-
-### 🚫 Anti-Patterns Rejected
-
-When reading this run, DO NOT:
-
-1. **Skim-read only `synthesis-summary.md`** and treat it as a substitute for the
-   underlying artifacts. Synthesis is compression; specifics live in the source files.
-2. **Ignore the confidence taxonomy.** Every 🔴 Low finding must be flagged as such in
-   article prose; every 🟡 Medium finding carries appropriate hedging language.
-3. **Cite only a subset of artifacts.** The Analysis Sources footer exists precisely so
-   readers can verify every claim — incomplete citation defeats transparency.
-4. **Paraphrase data-quality caveats away.** The EPP `memberCount=0` gap, the
-   cohesion-mislabelling defect, and the server-health discrepancy are mandatory
-   disclosures in any article that quotes coalition arithmetic.
-5. **Invent facts not present in these artifacts.** If a finding is needed but not
-   here, trigger an MCP data call — don't fabricate.
-
----
-
-### 📦 Machine-Readable Summary
-
-```yaml
-run_id: 184
-date: 2026-04-18
-article_type: breaking
-mode: ANALYSIS_ONLY
-newsworthiness: NO_BREAKING_NEWS
-reference_analysis: true
-artifacts_total: 17
-lines_total: 3632
-frameworks_applied: 13
-confidence_distribution:
-  high: 0.25
-  medium: 0.55
-  low: 0.20
-must_read_before_article: true
-citation_footer_mandatory: true
-```
-
----
-
-*Document role: Pre-flight reading index for article-generation workflows*
-*Created: 2026-04-18 | Run 184 | Breaking workflow | Analysis-only mode*
-*Superseded when: next reference-quality run produces its own `analysis-index.md`*
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-18
+> - **Run id:** `184`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-18/breaking-run184](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-18/breaking-run184)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -3875,6 +3837,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-continuity | [cross-run-diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/cross-run-diff.md) | `intelligence/cross-run-diff.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
+| section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
-| section-supplementary-intelligence | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run184/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 

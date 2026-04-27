@@ -11,17 +11,6 @@ layout: article
 ---
 # Week Ahead — 2026-04-17
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `week-ahead`
-> - **Run date:** 2026-04-17
-> - **Run id:** `cf7e8cd5-3b34-4755-b9ae-ae3b729cd12f`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-17/week-ahead-run14](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-17/week-ahead-run14)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/week-ahead-run14/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -31,8 +20,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/week-ahead-run14/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 **📅 Week of:** 2026-04-27 to 2026-04-30 (Strasbourg Plenary)  
 **📊 Overall Assessment:** ![Critical](https://img.shields.io/badge/-SIGNIFICANT-orange?style=for-the-badge)  
@@ -229,8 +216,6 @@ ECR nationalist defection on STEP-II causes vote failure; emergency trade debate
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/week-ahead-run14/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
 | Item | Significance | Rationale |
 |------|-------------|-----------|
 | STEP-II defence procurement | HIGH (9/10) | First-ever EU joint defence procurement; tests EP10 coalition; €30B+ budget implications |
@@ -243,6 +228,15 @@ ECR nationalist defection on STEP-II causes vote failure; emergency trade debate
 **Primary article angle**: STEP-II defence vote + AI-copyright governance + rule-of-law as the three-pillar post-Easter test
 **Headline**: "Defence Industrial Vote, AI Copyright Showdown and Rule-of-Law Test Await Post-Easter Return"
 **Confidence**: 🟡 Medium (DEGRADED MODE — based on structural data and editorial watch list)
+
+> **Provenance & Audit**
+>
+> - **Article type:** `week-ahead`
+> - **Run date:** 2026-04-17
+> - **Run id:** `cf7e8cd5-3b34-4755-b9ae-ae3b729cd12f`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-17/week-ahead-run14](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-17/week-ahead-run14)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/week-ahead-run14/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

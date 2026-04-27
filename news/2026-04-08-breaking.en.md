@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-08
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-08
-> - **Run id:** `breaking`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-08/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-08/breaking)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Cross Session Intelligence
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/cross-session-intelligence.md" rel="noopener">View source: <code>cross-session-intelligence.md</code></a></p>
 
 ### Executive Summary
 
@@ -263,8 +250,6 @@ This three-pronged approach maximises EPP's policy influence across all major do
 
 ### Political Landscape Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/political-landscape-analysis.md" rel="noopener">View source: <code>political-landscape-analysis.md</code></a></p>
-
 **📅 Analysis Date:** 2026-04-08 06:34 UTC
 **📊 Assessment Level:** ![Assessment](https://img.shields.io/badge/-Routine-28a745?style=for-the-badge)
 **🏛️ Parliament Status:** Easter Recess (Day 13 of 18)
@@ -452,8 +437,6 @@ The early warning system flags a **HIGH severity** dominant group risk: EPP is 1
 *Classification: 🟢 PUBLIC | Confidence: 🟡 MEDIUM | Next update: 2026-04-09*
 
 ### Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-08 06:35 UTC
 **📊 Overall Risk Level:** ![Risk](https://img.shields.io/badge/-MEDIUM-ffc107?style=for-the-badge)
@@ -672,8 +655,6 @@ graph TD
 *Methodology: Likelihood × Impact 5×5 matrix per political-risk-methodology.md v2.1*
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-08 06:33 UTC
 **📊 Overall Assessment:** ![Assessment](https://img.shields.io/badge/-Routine-28a745?style=for-the-badge)
@@ -1043,8 +1024,6 @@ All analysis in this document is derived from the following EP MCP data sources 
 *Classification: 🟢 PUBLIC | Confidence: 🟡 MEDIUM | Next update: 2026-04-09*
 
 ### Threat Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/threat-analysis.md" rel="noopener">View source: <code>threat-analysis.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-08 18:30 UTC (Enhanced Run)
 **📊 Threat Level:** ![Threat](https://img.shields.io/badge/-LOW--MEDIUM-28a745?style=for-the-badge)
@@ -1423,6 +1402,15 @@ All analysis derived from EP MCP data queried on 2026-04-08:
 *Threat analysis produced by EU Parliament Monitor `news-breaking` workflow — 2026-04-08T18:30:00Z*
 *Classification: PUBLIC | Confidence: MEDIUM | Frameworks: PTL + Attack Trees + PESTLE + Kill Chain*
 *Run 2, extending prior analysis per ai-driven-analysis-guide.md Rule 5*
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-08
+> - **Run id:** `breaking`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-08/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-08/breaking)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

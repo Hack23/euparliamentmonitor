@@ -11,17 +11,6 @@ layout: article
 ---
 # Committee Reports — 2026-04-16
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `committee-reports`
-> - **Run date:** 2026-04-16
-> - **Run id:** `485c93f9-8c68-4b20-a7bb-fb4f6e5ab0ab`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-16/committee-reports-run52](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-16/committee-reports-run52)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,8 +23,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
 
 ### 7-Dimension Classification Matrix
 
@@ -117,8 +104,6 @@ Conference of Presidents must allocate these on April 27, the first day back. Th
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
 ### Scoring Methodology
 
 Items scored on 5-point scale across 4 dimensions: Political Impact (PI), Legislative Novelty (LN), Citizen Relevance (CR), Institutional Significance (IS). Total = PI + LN + CR + IS (max 20).
@@ -158,8 +143,6 @@ EU Talent Pool, housing crisis, copyright/AI, defence, and emission credits repr
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 ### Stakeholder Impact
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
 
 ### Multi-Perspective Stakeholder Analysis
 
@@ -215,8 +198,6 @@ The European Commission faces implementation pressure from the record legislativ
 The most significant cross-cutting impact is the **governance gap during tariff activation**. This affects all stakeholders simultaneously: political groups cannot exercise oversight, civil society monitoring is suspended, industry faces uncertainty, national governments lack parliamentary legitimacy for responses, and citizens are excluded from democratic deliberation on a policy that directly affects prices and employment.
 
 <h2 id="section-risk">Risk Assessment</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
 
 ### 5×5 Risk Matrix (Likelihood × Impact)
 
@@ -291,8 +272,6 @@ Risk peaked at 16.5 on April 15 (tariff activation day) and has moderated slight
 
 ### Threat Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/threat-assessment/threat-analysis.md" rel="noopener">View source: <code>threat-assessment/threat-analysis.md</code></a></p>
-
 ### Threat Landscape — Democratic Governance Perspective
 
 #### T1: Legislative Overload Threat
@@ -358,8 +337,6 @@ Tariff countermeasures (INTA), defence single market (AFET/SEDE), and EU-Canada 
 **Overall threat level**: ELEVATED — driven primarily by the governance gap (T2) and legislative overload (T1). Both threats are structural and will require institutional responses (calendar reform, committee capacity expansion) rather than political solutions.
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 ### I. Committee Capacity Under Strain: The March Supercycle
 
@@ -455,8 +432,6 @@ The flexibility to switch between these configurations is EP10's defining instit
 
 ### Swot Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/existing/swot-analysis.md" rel="noopener">View source: <code>existing/swot-analysis.md</code></a></p>
-
 ### Strategic Assessment of EP10 Committee System (Q1 2026)
 
 #### Strengths
@@ -551,8 +526,6 @@ quadrantChart
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
-
 ### Executive Summary
 
 European Parliament committees produced a record Q1 2026 output of 104 adopted texts and 114 legislative acts, marking a 46% increase over the full-year 2025 total. The March 26 session alone delivered 18 texts including the Banking Union triple package (DGSD2/BRRD3/SRMR3), the first EU anti-corruption directive, and the fastest trade countermeasures in EP history. This article analyzes the committee capacity strain created by this unprecedented productivity as tariff countermeasures activated during the inter-session governance gap.
@@ -628,6 +601,15 @@ Key collaboration chains identified:
 - ✅ Evidence chains: All claims cite specific EP MCP data sources
 - ✅ Risk scoring: 6 risks assessed on 5×5 matrix with trend indicators
 - ✅ SWOT: 3+ items per quadrant, ≥80 words each with confidence levels
+
+> **Provenance & Audit**
+>
+> - **Article type:** `committee-reports`
+> - **Run date:** 2026-04-16
+> - **Run id:** `485c93f9-8c68-4b20-a7bb-fb4f6e5ab0ab`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-16/committee-reports-run52](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-16/committee-reports-run52)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run52/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-02
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-02
-> - **Run id:** `breaking`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-02/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-02/breaking)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/breaking/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,8 +23,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-significance">Significance</h2>
 
 ### Significance Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/breaking/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
 ![Hack23](https://hack23.com/wp-content/uploads/2024/01/logo-200.webp)
 
@@ -155,8 +142,6 @@ This quiet day contributes to the longitudinal pattern analysis of EP activity c
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Political Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/breaking/risk-scoring/political-risk-matrix.md" rel="noopener">View source: <code>risk-scoring/political-risk-matrix.md</code></a></p>
 
 ![Hack23](https://hack23.com/wp-content/uploads/2024/01/logo-200.webp)
 
@@ -318,8 +303,6 @@ April 2026 Political Environment
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Political Threat Landscape
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/breaking/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
 
 ![Hack23](https://hack23.com/wp-content/uploads/2024/01/logo-200.webp)
 
@@ -553,8 +536,6 @@ flowchart TD
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Intelligence Brief
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/breaking/intelligence-brief.md" rel="noopener">View source: <code>intelligence-brief.md</code></a></p>
 
 ![Hack23](https://hack23.com/wp-content/uploads/2024/01/logo-200.webp)
 
@@ -965,8 +946,6 @@ All data sourced from **European Parliament Open Data Portal** (data.europarl.eu
 
 ### Political Landscape Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/breaking/political-landscape-analysis.md" rel="noopener">View source: <code>political-landscape-analysis.md</code></a></p>
-
 ![Hack23](https://hack23.com/wp-content/uploads/2024/01/logo-200.webp)
 
 | Field | Value |
@@ -1185,6 +1164,15 @@ A major policy disagreement (e.g., trade policy, social rights directive, foreig
 ---
 
 *Generated: 2 April 2026 | Classification: PUBLIC | EU Parliament Monitor — Hack23 AB*
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-02
+> - **Run id:** `breaking`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-02/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-02/breaking)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/breaking/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

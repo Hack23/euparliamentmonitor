@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-07
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-07
-> - **Run id:** `d9f79a7a-aa2f-4a35-aa13-d6df91d7b296`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-07/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-07/breaking)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -36,8 +25,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-significance">Significance</h2>
 
 ### Significance Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
 ### Overall Significance: **ROUTINE**
 
@@ -108,8 +95,6 @@ quadrantChart
 
 ### Actor Mapping
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/classification/actor-mapping.md" rel="noopener">View source: <code>classification/actor-mapping.md</code></a></p>
-
 ### Actors Identified: 0
 
 ```mermaid
@@ -133,8 +118,6 @@ pie title Actor Type Distribution — 2026-04-07
 ### Date: 2026-04-07
 
 ### Forces Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/classification/forces-analysis.md" rel="noopener">View source: <code>classification/forces-analysis.md</code></a></p>
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
@@ -167,8 +150,6 @@ pie title Political Force Distribution — 2026-04-07
 ### Date: 2026-04-07
 
 ### Impact Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/classification/impact-matrix.md" rel="noopener">View source: <code>classification/impact-matrix.md</code></a></p>
 
 ### Overall Significance: **ROUTINE**
 
@@ -206,8 +187,6 @@ pie title Impact Distribution by Dimension — 2026-04-07
 
 ### Voting Patterns
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/existing/voting-patterns.md" rel="noopener">View source: <code>existing/voting-patterns.md</code></a></p>
-
 ### Detected Trends (Script-Generated Context)
 | Trend ID | Direction | Confidence | Data Points |
 |----------|-----------|------------|-------------|
@@ -239,8 +218,6 @@ pie title Impact Distribution by Dimension — 2026-04-07
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 ### Stakeholder Impact
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
 
 ### Data Available for Stakeholder Assessment (Script-Generated Context)
 | Stakeholder Group | Primary Data Sources | Data Points |
@@ -292,8 +269,6 @@ pie title Impact Distribution by Dimension — 2026-04-07
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### Overview
 
@@ -362,8 +337,6 @@ quadrantChart
 ### Date: 2026-04-07
 
 ### Quantitative Swot
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
 
 ### Executive Summary
 
@@ -504,8 +477,6 @@ quadrantChart
 
 ### Political Capital Risk
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/risk-scoring/political-capital-risk.md" rel="noopener">View source: <code>risk-scoring/political-capital-risk.md</code></a></p>
-
 ### Data Inventory for Capital Risk Assessment
 | Data Source | Count | Relevance |
 |-------------|-------|-----------|
@@ -517,8 +488,6 @@ quadrantChart
 ### Date: 2026-04-07
 
 ### Legislative Velocity Risk
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/risk-scoring/legislative-velocity-risk.md" rel="noopener">View source: <code>risk-scoring/legislative-velocity-risk.md</code></a></p>
 
 ### Overview
 Risk assessment based on legislative processing speed for 0 procedures.
@@ -534,8 +503,6 @@ Risk assessment based on legislative processing speed for 0 procedures.
 - **Date**: 2026-04-07
 
 ### Agent Risk Workflow
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/risk-scoring/agent-risk-workflow.md" rel="noopener">View source: <code>risk-scoring/agent-risk-workflow.md</code></a></p>
 
 ### Risk Heat Map
 
@@ -574,8 +541,6 @@ Risk assessment based on legislative processing speed for 0 procedures.
 
 ### Actor Threat Profiling
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/threat-assessment/actor-threat-profiling.md" rel="noopener">View source: <code>threat-assessment/actor-threat-profiling.md</code></a></p>
-
 ### Overview
 Individual threat profiles for 0 political actors.
 
@@ -588,8 +553,6 @@ Individual threat profiles for 0 political actors.
 
 ### Consequence Trees
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/threat-assessment/consequence-trees.md" rel="noopener">View source: <code>threat-assessment/consequence-trees.md</code></a></p>
-
 ### Overview
 Structured analysis of action-consequence chains for 0 legislative procedures.
 
@@ -598,8 +561,6 @@ Structured analysis of action-consequence chains for 0 legislative procedures.
 ### Date: 2026-04-07
 
 ### Legislative Disruption
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/threat-assessment/legislative-disruption.md" rel="noopener">View source: <code>threat-assessment/legislative-disruption.md</code></a></p>
 
 ### Overview
 Identification of factors disrupting the normal legislative process.
@@ -612,8 +573,6 @@ Identification of factors disrupting the normal legislative process.
 ### Date: 2026-04-07
 
 ### Political Threat Landscape
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
 
 ### Political Threat Landscape Analysis
 
@@ -735,8 +694,6 @@ graph TD
 
 ### Cross Session Intelligence
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/existing/cross-session-intelligence.md" rel="noopener">View source: <code>existing/cross-session-intelligence.md</code></a></p>
-
 ### Computed Stability Metrics (Script-Generated Context)
 - **Overall Stability**: 0.0%
 - **Forecast**: volatile
@@ -764,8 +721,6 @@ graph TD
 ### Date: 2026-04-07
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 ### Data Inventory
 
@@ -916,8 +871,6 @@ graph LR
 
 ### Document Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
 ### Executive Summary
 
 Full per-document political intelligence analysis for 18 unique documents
@@ -984,8 +937,6 @@ All 18 documents have been stored in their entirety:
 ### Date: 2026-04-07
 
 ### Adoptedtexts Ta 10 2026 0087 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0087-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0087-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1055,8 +1006,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0088 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0088-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0088-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1124,8 +1073,6 @@ No description available
 ### Analysis Date: 2026-04-07
 
 ### Adoptedtexts Ta 10 2026 0089 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0089-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0089-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1195,8 +1142,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0090 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0090-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0090-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1264,8 +1209,6 @@ No description available
 ### Analysis Date: 2026-04-07
 
 ### Adoptedtexts Ta 10 2026 0091 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0091-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0091-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1335,8 +1278,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0092 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0092-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0092-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1404,8 +1345,6 @@ No description available
 ### Analysis Date: 2026-04-07
 
 ### Adoptedtexts Ta 10 2026 0093 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0093-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0093-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1475,8 +1414,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0094 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0094-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0094-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1544,8 +1481,6 @@ No description available
 ### Analysis Date: 2026-04-07
 
 ### Adoptedtexts Ta 10 2026 0095 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0095-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0095-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1615,8 +1550,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0096 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0096-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0096-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1684,8 +1617,6 @@ No description available
 ### Analysis Date: 2026-04-07
 
 ### Adoptedtexts Ta 10 2026 0097 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0097-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0097-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1755,8 +1686,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0098 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0098-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0098-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1824,8 +1753,6 @@ No description available
 ### Analysis Date: 2026-04-07
 
 ### Adoptedtexts Ta 10 2026 0099 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0099-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0099-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1895,8 +1822,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0100 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0100-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0100-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1964,8 +1889,6 @@ No description available
 ### Analysis Date: 2026-04-07
 
 ### Adoptedtexts Ta 10 2026 0101 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0101-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0101-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -2035,8 +1958,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0102 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0102-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0102-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -2105,8 +2026,6 @@ No description available
 
 ### Adoptedtexts Ta 10 2026 0103 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0103-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0103-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -2174,8 +2093,6 @@ No description available
 ### Analysis Date: 2026-04-07
 
 ### Adoptedtexts Ta 10 2026 0104 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/documents/adoptedtexts-ta-10-2026-0104-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ta-10-2026-0104-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -2247,8 +2164,6 @@ No description available
 
 ### Coalition Dynamics
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/existing/coalition-dynamics.md" rel="noopener">View source: <code>existing/coalition-dynamics.md</code></a></p>
-
 ### Computed Metrics (Script-Generated Context)
 - **Overall Stability**: 0.0%
 - **Forecast**: volatile
@@ -2278,8 +2193,6 @@ No description available
 ### Date: 2026-04-07
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
 
 Analysis Date: 2026-04-07 | Confidence: MEDIUM | Breaking News: NONE | Recess Day: 12/18
 
@@ -2495,6 +2408,15 @@ EP API degradation persists beyond Easter recess (past April 14). Monitoring cap
 
 **Total MCP calls**: 15 (4 primary + 3 retry fallback + 4 advisory + 4 analytical)
 **Feed availability**: 2/8 operational (Sparse)
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-07
+> - **Run id:** `d9f79a7a-aa2f-4a35-aa13-d6df91d7b296`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-07/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-07/breaking)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

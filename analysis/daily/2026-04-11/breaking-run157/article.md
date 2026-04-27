@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-11
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-11
-> - **Run id:** `157`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-11/breaking-run157](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-11/breaking-run157)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Coalition Intelligence
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/coalition-intelligence.md" rel="noopener">View source: <code>coalition-intelligence.md</code></a></p>
 
 > **Assessment ID:** COA-2026-04-11-157
 > **Date:** 2026-04-11 00:30 UTC
@@ -161,8 +148,6 @@ pie title EP10 Political Blocs - April 2026
 - Official EP seat composition - HIGH confidence
 
 ### Political Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/political-risk-assessment.md" rel="noopener">View source: <code>political-risk-assessment.md</code></a></p>
 
 > **Assessment ID:** RSK-2026-04-11-157
 > **Date:** 2026-04-11 00:30 UTC
@@ -359,8 +344,6 @@ graph TD
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/significance-scoring.md" rel="noopener">View source: <code>significance-scoring.md</code></a></p>
-
 > **Score ID:** SIG-2026-04-11-157
 > **Scoring Date:** 2026-04-11 00:30 UTC
 > **Scored By:** news-breaking workflow (Run 157)
@@ -426,8 +409,6 @@ No today-dated events were available from EP API feeds (all 13 endpoints returni
 - Committee calendar projections - HIGH confidence
 
 ### Swot Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
 
 > **Assessment ID:** SWOT-2026-04-11-157
 > **Date:** 2026-04-11 00:30 UTC
@@ -659,8 +640,6 @@ quadrantChart
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
-
 > **Synthesis ID:** SYN-2026-04-11-157
 > **Analysis Date:** 2026-04-11 00:30 UTC
 > **Documents Analyzed:** 0 live feeds (all 13 EP API endpoints returning errors); 264K chars precomputed statistics
@@ -888,8 +867,6 @@ pie title EP10 Seat Distribution April 2026
 
 ### Threat Landscape Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/threat-landscape-analysis.md" rel="noopener">View source: <code>threat-landscape-analysis.md</code></a></p>
-
 > **Assessment ID:** THR-2026-04-11-157
 > **Date:** 2026-04-11 00:30 UTC
 > **Frameworks Applied:** Political Threat Landscape (6-dimension), Attack Trees, PESTLE
@@ -1036,6 +1013,15 @@ No active Article 7 proceedings. EP-Council relations stable within normal param
 - Coalition dynamics (partial, 11.6K chars) - LOW confidence
 - Risk trajectory editorial memory (Runs 3-12) - MEDIUM confidence
 - Tariff file: 2025/0261(COD), Banking Union: TA-10-2026-0092/0094/0096 - HIGH confidence
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-11
+> - **Run id:** `157`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-11/breaking-run157](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-11/breaking-run157)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run157/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

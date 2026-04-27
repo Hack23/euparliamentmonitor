@@ -11,17 +11,6 @@ layout: article
 ---
 # Week In Review — 2026-04-11
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `week-in-review`
-> - **Run date:** 2026-04-11
-> - **Run id:** `8`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-11/week-in-review-run8](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-11/week-in-review-run8)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,8 +23,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
 
 > **Score ID:** SIG-2026-04-11-008
 > **Scoring Date:** 2026-04-11 10:55 UTC
@@ -148,8 +135,6 @@ The weekly review should lead with the convergence of three pressures as Parliam
 
 ### Stakeholder Impact
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
-
 > **Assessment ID:** STA-2026-04-11-008
 > **Assessment Date:** 2026-04-11 10:55 UTC
 > **Policy/Event Subject:** Easter Recess Week and Upcoming Committee Restart
@@ -248,8 +233,6 @@ The Commission's tariff response proposal depends on Parliament's willingness to
 
 <h2 id="section-risk">Risk Assessment</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
-
 > **Risk Assessment ID:** RSK-2026-04-11-008
 > **Assessment Date:** 2026-04-11 10:55 UTC
 > **Assessment Period:** 2026-04-04 to 2026-04-11
@@ -332,8 +315,6 @@ EP API feeds remain down through committee week. Monitoring capacity degraded bu
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Threat Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/threat-assessment/threat-analysis.md" rel="noopener">View source: <code>threat-assessment/threat-analysis.md</code></a></p>
 
 > **Threat Analysis ID:** THR-2026-04-11-008
 > **Analysis Date:** 2026-04-11 10:55 UTC
@@ -418,8 +399,6 @@ EP API feeds remain down through committee week. Monitoring capacity degraded bu
 
 ### Api Outage Diagnostic
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/existing/api-outage-diagnostic.md" rel="noopener">View source: <code>existing/api-outage-diagnostic.md</code></a></p>
-
 > **Diagnostic ID:** DIAG-2026-04-11-008
 > **Analysis Date:** 2026-04-11 10:50 UTC
 > **MCP Server:** european-parliament-mcp-server v1.2.1 (62 tools available)
@@ -501,8 +480,6 @@ This diagnostic was triggered because the week-in-review workflow could not obta
 
 ### Swot Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/existing/swot-analysis.md" rel="noopener">View source: <code>existing/swot-analysis.md</code></a></p>
-
 > **SWOT ID:** SWT-2026-04-11-008
 > **Analysis Date:** 2026-04-11 10:55 UTC
 > **Analysis Scope:** EP10 Grand Coalition and Political Landscape
@@ -571,8 +548,6 @@ This diagnostic was triggered because the week-in-review workflow could not obta
 | Pre-vote group coordinator networks | WT | Ongoing | High |
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
 
 > **Synthesis ID:** SYN-2026-04-11-008
 > **Analysis Date:** 2026-04-11 10:55 UTC
@@ -748,6 +723,15 @@ Confidence: MEDIUM - procedure reference confirmed; specific negotiating positio
 - Coalition dynamics tool returned null group metrics - assessments based on structural analysis only
 - Risk trajectory extrapolated from prior runs scoring - no independent validation available
 - EP references sourced from prior analysis runs, not fresh MCP queries
+
+> **Provenance & Audit**
+>
+> - **Article type:** `week-in-review`
+> - **Run date:** 2026-04-11
+> - **Run id:** `8`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-11/week-in-review-run8](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-11/week-in-review-run8)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/week-in-review-run8/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

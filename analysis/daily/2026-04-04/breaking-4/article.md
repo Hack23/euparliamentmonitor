@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-04
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-04
-> - **Run id:** `breaking-4`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-04/breaking-4](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-04/breaking-4)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Adopted Texts Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/adopted-texts-analysis.md" rel="noopener">View source: <code>adopted-texts-analysis.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -235,8 +222,6 @@ Applied significance scoring to the adopted texts dataset:
 *Classification: PUBLIC | Confidence: MEDIUM*
 
 ### Forward Outlook
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/forward-outlook.md" rel="noopener">View source: <code>forward-outlook.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -492,8 +477,6 @@ The 4-pass refinement cycle was applied: (1) Initial forecast based on historica
 *Classification: PUBLIC | Confidence: MEDIUM*
 
 ### Intelligence Brief
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/intelligence-brief.md" rel="noopener">View source: <code>intelligence-brief.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -824,8 +807,6 @@ Applied the 5x5 risk matrix to six identified risks. Critical finding: R-001 (sc
 
 ### Recess Pattern Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/recess-pattern-analysis.md" rel="noopener">View source: <code>recess-pattern-analysis.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Assessment Date** | Saturday, 4 April 2026 |
@@ -1089,6 +1070,15 @@ Easter recess 2026 follows established EP patterns precisely. The 18-day break (
 *Methodology: Historical Pattern Analysis + Political Risk Assessment + Attack Tree + Evidence-Based SWOT*
 *4-pass refinement cycle completed*
 *Classification: PUBLIC | Confidence: MEDIUM*
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-04
+> - **Run id:** `breaking-4`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-04/breaking-4](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-04/breaking-4)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking-4/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

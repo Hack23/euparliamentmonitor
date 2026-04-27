@@ -11,17 +11,6 @@ layout: article
 ---
 # Committee Reports — 2026-04-13
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `committee-reports`
-> - **Run date:** 2026-04-13
-> - **Run id:** `43b9989e-4e2a-4672-aa00-f50e936aa128`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-13/committee-reports-run47](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-13/committee-reports-run47)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/committee-reports-run47/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,8 +23,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/committee-reports-run47/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-13 | **📊 Confidence:** HIGH
 **🔍 Period:** Q1 2026 (January–March) + Post-Easter Restart Context
@@ -139,8 +126,6 @@ Each item scored on 5 dimensions (1-5 each, max 25):
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 ### Stakeholder Impact
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/committee-reports-run47/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-13 | **📊 Confidence:** HIGH
 **🔍 Period:** Q1 2026 Review + April 14 Restart Implications
@@ -266,8 +251,6 @@ graph TD
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/committee-reports-run47/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-13 | **📊 Confidence:** HIGH
 **🔍 Period:** Q1 2026 + April 14 Restart | **Risk Categories:** 6
@@ -433,8 +416,6 @@ Anti-Corruption Directive Adopted (TA-10-2026-0094)
 
 ### Political Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/committee-reports-run47/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
-
 **📅 Analysis Date:** 2026-04-13 | **📊 Confidence:** HIGH
 **🔍 Period:** Q1 2026 Review + Post-Easter Restart
 **🏢 Threat Dimensions:** 6
@@ -581,8 +562,6 @@ The 0.95 cohesion rate between Renew and ECR on trade policy represents a potent
 5. Transparency International CPI 2025 (external reference for implementation risk)
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/committee-reports-run47/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-13 | **📊 Confidence:** HIGH
 **🔍 Period:** Q1 2026 Review + April 14 Restart Outlook
@@ -775,8 +754,6 @@ Simultaneous tariff crisis, Georgia deterioration, and Banking Union complicatio
 
 ### Coalition Dynamics
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/committee-reports-run47/existing/coalition-dynamics.md" rel="noopener">View source: <code>existing/coalition-dynamics.md</code></a></p>
-
 **📅 Analysis Date:** 2026-04-13 | **📊 Confidence:** HIGH
 **🔍 Period:** Q1 2026 | **Coalitions Tracked:** 4
 
@@ -881,8 +858,6 @@ pie title Coalition Voting Frequency Q1 2026
 5. EP MCP precomputed statistics: group seat counts and voting pattern data
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/committee-reports-run47/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
 
 **📅 Analysis Date:** 2026-04-13 | **📊 Overall Confidence:** HIGH
 **📋 Documents Analyzed:** 100 adopted texts | **Analysis Files:** 5
@@ -1028,6 +1003,15 @@ graph LR
 | Georgia association review outcome | AFET agenda | Q2 2026 | 🟡 MEDIUM |
 | ENVI pesticide regulation restart | ENVI calendar | April 2026 | 🟡 MEDIUM |
 | Renew-ECR cohesion on non-trade votes | EP voting records | April-May 2026 | 🟡 MEDIUM |
+
+> **Provenance & Audit**
+>
+> - **Article type:** `committee-reports`
+> - **Run date:** 2026-04-13
+> - **Run id:** `43b9989e-4e2a-4672-aa00-f50e936aa128`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-13/committee-reports-run47](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-13/committee-reports-run47)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/committee-reports-run47/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-15
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-15
-> - **Run id:** `174`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-15/breaking-run174](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-15/breaking-run174)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/political-classification.md" rel="noopener">View source: <code>political-classification.md</code></a></p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -236,8 +223,6 @@ graph TD
 *Political classification produced by EU Parliament Monitor — news-breaking Run 174. Methodology: 7-dimension classification per analysis/methodologies/political-classification-guide.md.*
 
 ### Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -456,8 +441,6 @@ xychart-beta
 *Risk assessment produced by EU Parliament Monitor — news-breaking Run 174. Methodology: 5×5 Likelihood × Impact matrix per analysis/methodologies/political-risk-methodology.md. Data: EP Open Data Portal (DEGRADED MODE).*
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/significance-scoring.md" rel="noopener">View source: <code>significance-scoring.md</code></a></p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -696,8 +679,6 @@ quadrantChart
 *Significance scoring produced by EU Parliament Monitor — news-breaking Run 174. Methodology: 5-dimension weighted composite per analysis/templates/significance-scoring.md.*
 
 ### Swot Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -953,8 +934,6 @@ quadrantChart
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
-
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Risk_Level-HIGH-orange?style=for-the-badge" alt="Risk"/></a>
@@ -1179,8 +1158,6 @@ Coalition arithmetic prevents majority on trade response. Banking Union trilogue
 *Analysis produced by EU Parliament Monitor — news-breaking workflow (Run 174). Data source: European Parliament Open Data Portal via MCP server (DEGRADED MODE). Next scheduled analysis: Run 175.*
 
 ### Threat Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/threat-analysis.md" rel="noopener">View source: <code>threat-analysis.md</code></a></p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -1412,6 +1389,15 @@ graph LR
 ---
 
 *Threat analysis produced by EU Parliament Monitor — news-breaking Run 174. Frameworks: Political Threat Landscape + Actor Threat Profiling + Consequence Trees (per analysis/methodologies/political-threat-framework.md). Data: EP Open Data Portal (DEGRADED MODE).*
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-15
+> - **Run id:** `174`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-15/breaking-run174](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-15/breaking-run174)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

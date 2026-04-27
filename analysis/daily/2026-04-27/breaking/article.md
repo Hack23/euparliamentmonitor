@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-27
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-27
-> - **Run id:** `breaking-run1777273481`
-> - **Gate result:** `ANALYSIS_ONLY`
-> - **Analysis tree:** [analysis/daily/2026-04-27/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-27/breaking)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -35,8 +24,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-executive-brief">Executive Brief</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/executive-brief.md" rel="noopener">View source: <code>executive-brief.md</code></a></p>
 
 ### Situation Summary
 
@@ -91,8 +78,6 @@ All adopted text data from European Parliament Open Data Portal (data.europarl.e
 **IMF Economic Context**: April 2026 WEO projections (vintage WEO-April-2026) indicate EU zone economic growth headwinds from trade policy uncertainty. US tariff escalation adds approximately 0.3–0.5% downside risk to EU GDP growth projections for 2026 according to IMF modelling (IMF WEO April 2026 baseline). Euro area fragility is a key determinant of EP legislative urgency on the SRMR3 banking reform package.
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 ### Strategic Intelligence Overview
 
@@ -204,8 +189,6 @@ The April 2026 Strasbourg plenary is operating in a period of HIGH legislative i
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Actor Mapping
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/classification/actor-mapping.md" rel="noopener">View source: <code>classification/actor-mapping.md</code></a></p>
 
 ### For Citizens — Who's Who in This Story
 
@@ -363,8 +346,6 @@ graph TD
 
 ### Forces Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/classification/forces-analysis.md" rel="noopener">View source: <code>classification/forces-analysis.md</code></a></p>
-
 ### For Citizens — Plain Language
 
 Politics is always a battle of forces pushing in different directions. In the European Parliament right now, there are powerful forces pushing MEPs to take strong action against the United States on trade, protect European workers and banks, and defend democracy in countries near the EU. But there are also forces pushing back — fears about economic retaliation, disagreements between political groups, and uncertainty about what the right strategy is. This analysis maps those competing forces.
@@ -506,8 +487,6 @@ The April 2026 plenary convenes with driving forces stronger than restraining fo
 **Data Sources**: EP Open Data Portal adopted texts (A1), EP political landscape (B2), coalition dynamics (B3)
 
 ### Impact Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/classification/impact-matrix.md" rel="noopener">View source: <code>classification/impact-matrix.md</code></a></p>
 
 ### For Citizens — Plain Language Summary
 
@@ -651,8 +630,6 @@ graph TD
 
 ### Coalition Dynamics
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/intelligence/coalition-dynamics.md" rel="noopener">View source: <code>intelligence/coalition-dynamics.md</code></a></p>
-
 ### Current Parliamentary Composition (April 2026)
 
 | Group | Seats | Share | Bloc | Status |
@@ -755,8 +732,6 @@ Progressive bloc (S&D+Greens+Left+Renew): Blocking minority on right-wing votes
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### For Citizens — Why This Matters
 
@@ -882,8 +857,6 @@ When the European Parliament meets this week, the EU faces several real risks: a
 | Geopolitical analysis (US-EU trade) | B2 |
 
 ### Political Capital Risk
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/risk-scoring/political-capital-risk.md" rel="noopener">View source: <code>risk-scoring/political-capital-risk.md</code></a></p>
 
 ### For Citizens — What Is "Political Capital"?
 
@@ -1018,8 +991,6 @@ graph LR
 
 ### Legislative Velocity Risk
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/risk-scoring/legislative-velocity-risk.md" rel="noopener">View source: <code>risk-scoring/legislative-velocity-risk.md</code></a></p>
-
 ### For Citizens — Why Legislative Speed Matters
 
 How fast the EU makes laws matters enormously. When legislative processes are slow — because of political disagreements, legal challenges, or institutional deadlock — important regulations are delayed, problems go unaddressed, and Europe falls behind global competitors. This analysis assesses how fast or slow the EU's current legislative pipeline is moving, and what risks are threatening to slow it down.
@@ -1132,8 +1103,6 @@ graph TD
 
 ### Political Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/intelligence/political-threat-landscape.md" rel="noopener">View source: <code>intelligence/political-threat-landscape.md</code></a></p>
-
 ### Overview: The Current EP Political Threat Landscape
 
 The European Parliament operates in a political landscape shaped by four simultaneous threat vectors: external geopolitical pressure (US trade war, Russian information operations, Georgia democratic backsliding), internal coalition stress (EPP right-wing pressure, ECR Braun case), technological disruption (AI governance gap, digital dependency), and economic uncertainty (trade war recession risk, implementation bottlenecks).
@@ -1174,8 +1143,6 @@ The EP faces a MODERATE-HIGH threat environment characterised by simultaneous pr
 **Admiralty Grade**: B2 — structured threat landscape synthesis
 
 ### Threat Model
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
 
 ### Threat Model Framework (STRIDE-adapted)
 
@@ -1230,8 +1197,6 @@ Applied to EP institutional security and democratic integrity during the April 2
 **Admiralty Grade**: B2 — STRIDE analysis applied to A1/B2 source base
 
 ### Actor Threat Profiles
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/threat-assessment/actor-threat-profiles.md" rel="noopener">View source: <code>threat-assessment/actor-threat-profiles.md</code></a></p>
 
 ### For Citizens — Who Are the Threat Actors?
 
@@ -1323,8 +1288,6 @@ quadrantChart
 **Admiralty Grade**: B2 — structured threat analysis with A1 documentary base
 
 ### Consequence Trees
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/threat-assessment/consequence-trees.md" rel="noopener">View source: <code>threat-assessment/consequence-trees.md</code></a></p>
 
 ### For Citizens — What Happens Next?
 
@@ -1423,8 +1386,6 @@ The April 2026 plenary decisions will shape EU institutional direction across th
 **Admiralty Grade**: B2 — consequence analysis based on A1 legislative record + analytical extrapolation
 
 ### Legislative Disruption
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/threat-assessment/legislative-disruption.md" rel="noopener">View source: <code>threat-assessment/legislative-disruption.md</code></a></p>
 
 ### For Citizens — How Laws Get Blocked
 
@@ -1525,8 +1486,6 @@ graph TD
 
 ### Scenario Forecast
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
-
 ### Scenario Framework
 
 Three scenarios for the next 90 days (May–July 2026) based on EP April plenary decisions and external developments.
@@ -1574,8 +1533,6 @@ Three scenarios for the next 90 days (May–July 2026) based on EP April plenary
 **Admiralty Grade**: B2 — scenario analysis extrapolated from A1 legislative record and geopolitical assessment
 
 ### Wildcards Blackswans
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
 
 ### Black Swan Events (Low Probability, Extreme Impact)
 
@@ -1627,8 +1584,6 @@ Three scenarios for the next 90 days (May–July 2026) based on EP April plenary
 
 ### Cross Run Diff
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/intelligence/cross-run-diff.md" rel="noopener">View source: <code>intelligence/cross-run-diff.md</code></a></p>
-
 ### Cross-Run Differential Summary
 
 This is the **first run** for 2026-04-27 breaking news analysis. No prior same-day run manifest.json exists for comparison. Cross-run diff is therefore a baseline establishment report rather than a differential analysis.
@@ -1669,8 +1624,6 @@ Per `02-analysis-protocol.md` §2: No prior same-day manifest exists. Re-run mer
 
 ### Comparative International
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/extended/comparative-international.md" rel="noopener">View source: <code>extended/comparative-international.md</code></a></p>
-
 ### Comparative Context: EP vs. Other Democratic Parliaments
 
 How does the EU Parliament's current situation compare to peer democratic institutions globally?
@@ -1704,8 +1657,6 @@ How does the EU Parliament's current situation compare to peer democratic instit
 **Admiralty Grade**: B2 — comparative analysis with B2 institutional knowledge base
 
 ### Devils Advocate Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/extended/devils-advocate-analysis.md" rel="noopener">View source: <code>extended/devils-advocate-analysis.md</code></a></p>
 
 ### Purpose: Challenging Dominant Analytical Assumptions
 
@@ -1743,8 +1694,6 @@ Devil's advocate analysis supports the view that the analytical baseline is broa
 **Admiralty Grade**: B2 — adversarial analytical exercise against A1/B2 base
 
 ### Forward Indicators
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/extended/forward-indicators.md" rel="noopener">View source: <code>extended/forward-indicators.md</code></a></p>
 
 ### Purpose
 
@@ -1808,8 +1757,6 @@ Forward indicators are observable signals that, if they change, should trigger r
 
 ### Historical Parallels
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/extended/historical-parallels.md" rel="noopener">View source: <code>extended/historical-parallels.md</code></a></p>
-
 ### Purpose: Learning from Historical Analogues
 
 Historical parallels provide context for understanding current EP dynamics. They should be used as lenses, not blueprints — each situation is unique.
@@ -1846,8 +1793,6 @@ Historical parallels provide context for understanding current EP dynamics. They
 
 ### Intelligence Assessment
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/extended/intelligence-assessment.md" rel="noopener">View source: <code>extended/intelligence-assessment.md</code></a></p>
-
 ### ICD-203 BLUF (Bottom Line Up Front)
 
 **The European Parliament's April 2026 Strasbourg plenary convenes on 2026-04-27 with the governing coalition intact and the EU in a structured confrontation posture with the United States over trade, while simultaneously managing Georgian democratic backsliding, SRMR3 banking reform implementation, and the internal ECR/Braun controversy. The most consequential near-term risk is EU-US trade war escalation; the most consequential institutional risk is EPP right-wing drift toward PfE accommodation. The political system is functional but operating under simultaneous stress across four vectors.**
@@ -1880,8 +1825,6 @@ The Braun case creates genuine ECR instability. FdI-Meloni's continued pragmatic
 **Admiralty Grade**: B2 — Structured intelligence assessment based on A1 EP Open Data and B2 analytical inference
 
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/intelligence/mcp-reliability-audit.md" rel="noopener">View source: <code>intelligence/mcp-reliability-audit.md</code></a></p>
 
 ### Executive Summary
 
@@ -1959,8 +1902,6 @@ Per §11 triage protocol: **No new upstream issues to file**. All degraded tools
 
 ### Methodology Reflection
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/intelligence/methodology-reflection.md" rel="noopener">View source: <code>intelligence/methodology-reflection.md</code></a></p>
-
 ### SAT (Structured Analytic Technique) Documentation
 
 #### Techniques Applied
@@ -2023,7 +1964,14 @@ Per §11 triage protocol: **No new upstream issues to file**. All degraded tools
 
 **Step 10.5 attestation**: Methodology reflection complete. This is the final artifact per the 10-step analysis protocol.
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-27
+> - **Run id:** `breaking-run1777273481`
+> - **Gate result:** `ANALYSIS_ONLY`
+> - **Analysis tree:** [analysis/daily/2026-04-27/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-27/breaking)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/breaking/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

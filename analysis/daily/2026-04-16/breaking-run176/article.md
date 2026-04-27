@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-16
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-16
-> - **Run id:** `176`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-16/breaking-run176](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-16/breaking-run176)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -33,8 +22,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
 
 ### Classification Framework
 
@@ -122,8 +109,6 @@ Defence single market (TA-10-2026-0079), drones/warfare (TA-10-2026-0020), EU-Ca
 **Data sources**: EP adopted texts, procedures, political landscape analysis
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
 
 ### Scoring Methodology
 
@@ -248,8 +233,6 @@ Each item is scored across 5 dimensions (1-5 each, max 25):
 
 ### Risk Assessment
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
-
 ### Risk Matrix Methodology
 
 Using the Likelihood x Impact 5x5 matrix per `political-risk-methodology.md`:
@@ -357,8 +340,6 @@ Compared to prior runs:
 
 ### Swot Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/risk-scoring/swot-analysis.md" rel="noopener">View source: <code>risk-scoring/swot-analysis.md</code></a></p>
-
 ### Framework
 
 Evidence-based SWOT per `political-swot-framework.md`, applied to the European Parliament's strategic position during the post-Easter inter-session period.
@@ -443,8 +424,6 @@ Evidence-based SWOT per `political-swot-framework.md`, applied to the European P
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Threat Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/threat-assessment/threat-analysis.md" rel="noopener">View source: <code>threat-assessment/threat-analysis.md</code></a></p>
 
 ### Framework
 
@@ -574,8 +553,6 @@ T4 (Representation Gap) ←→ T3 (Capacity Overload)
 <h2 id="section-documents">Document Analysis</h2>
 
 ### Document Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
 
 ### Overview
 
@@ -717,8 +694,6 @@ This index consolidates per-document intelligence for the key legislative texts 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
 
 ### Executive Summary
 
@@ -886,6 +861,15 @@ The three-pole system represents the most significant structural shift in Europe
 **Data sources**: EP Open Data Portal, EP MCP Server v1.2.7
 **Methodology**: AI-driven analysis per ai-driven-analysis-guide.md
 **Next scheduled analysis**: 17 April 2026 (breaking-news workflow)
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-16
+> - **Run id:** `176`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-16/breaking-run176](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-16/breaking-run176)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

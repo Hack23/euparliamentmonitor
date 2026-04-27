@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-05
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-05
-> - **Run id:** `breaking-2`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-05/breaking-2](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-05/breaking-2)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Intelligence Brief
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/intelligence-brief.md" rel="noopener">View source: <code>intelligence-brief.md</code></a></p>
 
 ### Cross-Session Intelligence Summary
 
@@ -254,8 +241,6 @@ graph LR
 
 ### Political Landscape Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/political-landscape-analysis.md" rel="noopener">View source: <code>political-landscape-analysis.md</code></a></p>
-
 ### Current Political Configuration
 
 The 10th European Parliament operates with **8 political groups** across **23 member states** (as sampled from MEPs feed). Group composition remains stable through the Easter recess, with no MEP changes detected between the morning (00:20 UTC) and evening (06:30 UTC) data collection runs.
@@ -467,8 +452,6 @@ Internal PPE tensions on Green Deal or social policy create unexpected fractures
 *Analysis produced by EU Parliament Monitor Agentic Workflow. Data source: European Parliament Open Data Portal — data.europarl.europa.eu. Run 2 of 2 for 2026-04-05.*
 
 ### Risk Assessment
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
 
 ### Executive Risk Summary
 
@@ -704,8 +687,6 @@ graph LR
 
 ### Swot Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
-
 ### SWOT Matrix
 
 #### 🟢 Strengths
@@ -825,6 +806,15 @@ graph TD
 ---
 
 *Analysis produced by EU Parliament Monitor Agentic Workflow. Data source: European Parliament Open Data Portal — data.europarl.europa.eu. Run 2 of 2 for 2026-04-05.*
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-05
+> - **Run id:** `breaking-2`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-05/breaking-2](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-05/breaking-2)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking-2/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

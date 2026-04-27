@@ -11,17 +11,6 @@ layout: article
 ---
 # Propositions — 2026-04-13
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `propositions`
-> - **Run date:** 2026-04-13
-> - **Run id:** `149c3a19-6339-45aa-a427-5c30eceb4e49`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-13/propositions-run41](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-13/propositions-run41)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,8 +23,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
 
 ### 📋 Classification Context
 
@@ -164,8 +151,6 @@ Per editorial context, April 10 propositions article covered "Trade and Banking 
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
 ### 📋 Scoring Context
 
 | Field | Value |
@@ -252,8 +237,6 @@ The elevated publish count reflects the convergence of trade policy urgency (US 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 ### Stakeholder Impact
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
 
 ### 📋 Assessment Context
 
@@ -369,8 +352,6 @@ The elevated publish count reflects the convergence of trade policy urgency (US 
 **YES — HIGH**: Multiple high-impact legislative streams converge at the post-Easter restart. Trade, banking, and anti-corruption all have immediate stakeholder consequences. The combination of immediate tariff deadline pressure with longer-term institutional reform creates a compelling narrative arc.
 
 <h2 id="section-risk">Risk Assessment</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
 
 ### 📋 Risk Context
 
@@ -511,8 +492,6 @@ flowchart TD
 
 ### Threat Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/threat-assessment/threat-analysis.md" rel="noopener">View source: <code>threat-assessment/threat-analysis.md</code></a></p>
-
 ### 📋 Threat Analysis Context
 
 | Field | Value |
@@ -650,8 +629,6 @@ flowchart TD
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
-
 ### Executive Summary
 
 The European Parliament's final Easter recess day (April 13, 2026) marks a transition point for the EU's legislative machinery. The March plenary sessions — particularly the March 26 session — produced a concentrated burst of legislative output that now enters implementation and trilogue phases as Parliament returns April 14. Three interconnected policy streams dominate the post-recess landscape: trade defence (US tariff countermeasures with an April 15 deadline), financial regulation (Banking Union triple package entering Council negotiations), and rule-of-law governance (first EU-wide Anti-Corruption Directive starting its 24-month transposition clock).
@@ -773,8 +750,6 @@ Multiple crises converge: US trade escalation, Council Banking Union rejection, 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Swot Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/existing/swot-analysis.md" rel="noopener">View source: <code>existing/swot-analysis.md</code></a></p>
 
 ### 📋 SWOT Context
 
@@ -931,8 +906,6 @@ quadrantChart
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
-
 ### 📋 Synthesis Context
 
 | Field | Value |
@@ -1061,6 +1034,15 @@ flowchart LR
 | **Description** (150-160 chars) | European Parliament returns April 14 to compressed Q2 calendar as US tariff countermeasures face implementation and Banking Union triple package enters trilogue |
 | **Primary Keywords** | EU tariff countermeasures, SRMR3, Banking Union trilogue, Anti-Corruption Directive, COD procedures 2026, European Parliament Q2 |
 | **Justification** | Trade deadline urgency (7.40 adjusted significance) combined with Banking Union institutional complexity creates the strongest narrative arc for a legislative procedures article. The Anti-Corruption milestone and pipeline analysis provide depth. |
+
+> **Provenance & Audit**
+>
+> - **Article type:** `propositions`
+> - **Run date:** 2026-04-13
+> - **Run id:** `149c3a19-6339-45aa-a427-5c30eceb4e49`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-13/propositions-run41](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-13/propositions-run41)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/propositions-run41/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

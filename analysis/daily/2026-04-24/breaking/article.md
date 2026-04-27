@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-24
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-24
-> - **Run id:** `breaking-run-1777011267`
-> - **Gate result:** `GREEN`
-> - **Analysis tree:** [analysis/daily/2026-04-24/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-24/breaking)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -35,8 +24,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 ### BLUF (Bottom Line Up Front)
 
@@ -245,8 +232,6 @@ End of methodology notes.
 
 ### Coalition Dynamics
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/coalition-dynamics.md" rel="noopener">View source: <code>intelligence/coalition-dynamics.md</code></a></p>
-
 ### 1. EP10 Seat Geometry (baseline)
 
 | Group | Seats | Share of 720 |
@@ -381,8 +366,6 @@ The following numbered notes document the analytic decisions that shaped this ar
 End of methodology notes.
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
 
 Stakeholder classes considered: (1) EP political groups, (2) Council presidency + rotating trio, (3) European Commission DGs most relevant to the breaking file-set, (4) Member State capitals with agenda weight, (5) civil-society / industry stakeholders visible in recent EP10 procedural files, (6) third-country diplomatic angle.
 
@@ -699,8 +682,6 @@ End of methodology notes.
 
 ### Pestle Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/pestle-analysis.md" rel="noopener">View source: <code>intelligence/pestle-analysis.md</code></a></p>
-
 PESTLE organises the macro environment into six orthogonal dimensions: **P**olitical, **E**conomic, **S**ocial, **T**echnological, **L**egal, **E**nvironmental. This scan anchors each dimension to evidence observed in the probe window plus forward-dated signals from prior-run artifacts. Every claim carries a WEP band and Admiralty grade per `osint-tradecraft-standards.md`.
 
 ---
@@ -960,8 +941,6 @@ End of methodology notes.
 
 ### Historical Baseline
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
-
 ### 1. Five-Year EP Breaking-Day Baseline
 
 | Year | Approximate April cadence | Common pattern | Representative breaking event |
@@ -1155,8 +1134,6 @@ End of methodology notes.
 
 <h2 id="section-economic-context">Economic Context</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
-
 ### 1. Eurozone Macroeconomic Snapshot
 
 | Indicator | Series | Latest value | Direction | Source |
@@ -1342,8 +1319,6 @@ End of methodology notes.
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Threat Model
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
 
 ### 1. Asset Inventory
 
@@ -1597,8 +1572,6 @@ End of methodology notes.
 <h2 id="section-scenarios">Scenarios & Wildcards</h2>
 
 ### Scenario Forecast
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
 
 ### 1. Scenario Matrix — 24-Hour Horizon
 
@@ -1880,8 +1853,6 @@ End of methodology notes.
 
 ### Wildcards Blackswans
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
-
 ### 1. Political Tail Events
 
 #### 1.1 Grand-coalition fracture (EPP–S&D–Renew)
@@ -2159,8 +2130,6 @@ The following numbered notes document the analytic decisions that shaped this ar
 End of methodology notes.
 
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/mcp-reliability-audit.md" rel="noopener">View source: <code>intelligence/mcp-reliability-audit.md</code></a></p>
 
 **Grading scale (custom, hybrid Admiralty + SRE):**
 
@@ -2549,11 +2518,9 @@ The following numbered notes document the analytic decisions that shaped this ar
 
 End of methodology notes.
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+<h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
 ### Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
 
 ### 1. Executive Read-Order (Rule 19 Pre-Flight)
 
@@ -2702,6 +2669,15 @@ The following numbered notes document the analytic decisions that shaped this ar
 
 End of methodology notes.
 
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-24
+> - **Run id:** `breaking-run-1777011267`
+> - **Gate result:** `GREEN`
+> - **Analysis tree:** [analysis/daily/2026-04-24/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-24/breaking)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/manifest.json)
+
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
 This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.
@@ -2797,5 +2773,5 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
-| section-supplementary-intelligence | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
+| section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 

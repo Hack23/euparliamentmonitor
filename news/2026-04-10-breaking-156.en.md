@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-10
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-10
-> - **Run id:** `156`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-10/breaking-run156](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-10/breaking-run156)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Precomputed Stats.Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/precomputed-stats.analysis.md" rel="noopener">View source: <code>precomputed-stats.analysis.md</code></a></p>
 
 > **Document ID:** STATS-2026-04-08-ALL
 > **Source:** `get_all_generated_stats({ category: "all", includePredictions: true, includeMonthlyBreakdown: true, includeRankings: true })`
@@ -355,8 +342,6 @@ Tariff crisis triggers fundamental coalition realignment. Renew formally breaks 
 
 ### Risk Assessment
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
-
 > **Score ID:** RSK-2026-04-10-156
 > **Analysis Date:** 2026-04-10 18:35 UTC
 > **Analyst:** news-breaking workflow, run 156
@@ -601,8 +586,6 @@ graph TD
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/significance-scoring.md" rel="noopener">View source: <code>significance-scoring.md</code></a></p>
-
 > **Score ID:** SIG-2026-04-10-156
 > **Scoring Date:** 2026-04-10 18:40 UTC
 > **Scored By:** news-breaking workflow, run 156
@@ -806,8 +789,6 @@ The significance trend is rising in parallel with the risk trajectory. If this t
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
-
 > **Synthesis ID:** SYN-2026-04-10-156
 > **Analysis Date:** 2026-04-10 18:45 UTC
 > **Documents Analyzed:** 3 (precomputed stats, coalition dynamics partial, feed status)
@@ -1006,6 +987,15 @@ Per ai-driven-analysis-guide.md Rule 5 ("No workflow run should be wasted"), thi
 ---
 
 *Synthesis produced by news-breaking workflow, run 156. All intelligence assessments use evidence-based methodology with stated confidence levels. Data limitations acknowledged: analysis relies on 48-hour-stale precomputed statistics; all 13 live EP API feeds unavailable.*
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-10
+> - **Run id:** `156`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-10/breaking-run156](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-10/breaking-run156)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking-run156/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

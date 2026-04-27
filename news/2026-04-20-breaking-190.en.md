@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-20
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-20
-> - **Run id:** `190`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-20/breaking-run190](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-20/breaking-run190)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -37,8 +26,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 ![Status](https://img.shields.io/badge/Parliament-Easter_Recess_Day_7-orange?style=flat-square)
 ![Significance](https://img.shields.io/badge/Significance-15%2F50-red?style=flat-square)
@@ -328,8 +315,6 @@ the next.
 
 ### Significance Classification
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
-
 ### Classification Decision
 
 **Final Score:** 15/50  
@@ -446,8 +431,6 @@ This analytical work is not wasted — it is the infrastructure enabling rapid h
 article generation when the threshold is next exceeded.
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/significance-scoring.md" rel="noopener">View source: <code>intelligence/significance-scoring.md</code></a></p>
 
 ![Status](https://img.shields.io/badge/Parliament-Easter_Monday_Day_7-orange?style=flat-square)
 ![Significance](https://img.shields.io/badge/Significance-15%2F50-yellow?style=flat-square)
@@ -582,8 +565,6 @@ on April 21. Run 191 significance estimate: 20-28/50 depending on USTR outcome.
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Coalition Dynamics
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/coalition-dynamics.md" rel="noopener">View source: <code>intelligence/coalition-dynamics.md</code></a></p>
 
 ![Stability](https://img.shields.io/badge/Grand_Centre-STABLE-green?style=flat-square)
 ![EPP](https://img.shields.io/badge/EPP-190%2B_seats-blue?style=flat-square)
@@ -793,8 +774,6 @@ runs, lower per-run depth.
 | API restoration timeline | 🔴 LOW | TA-0101 regression undermines all timeline estimates |
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
 
 ### Stakeholder Landscape Overview
 
@@ -1099,8 +1078,6 @@ For each critical stakeholder, the specific monitoring source for Run 191:
 
 ### Pestle Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/pestle-analysis.md" rel="noopener">View source: <code>intelligence/pestle-analysis.md</code></a></p>
-
 ### PESTLE Overview
 
 The PESTLE analysis for Run 190 reflects the EU Parliament's operating environment during the
@@ -1345,8 +1322,6 @@ April 28-30 plenary preparation (EPP-Greens tension monitoring begins April 26-2
 
 ### Historical Baseline
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
-
 ### Easter Recess Historical Context
 
 The 2026 Easter recess (April 14-26) is the first extended parliamentary break of the 10th
@@ -1586,8 +1561,6 @@ restore full functionality before 720 MEPs return to work.
 
 <h2 id="section-economic-context">Economic Context</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
-
 ![GDP](https://img.shields.io/badge/EU_GDP_Growth-2.1%25_Q1_2026-green?style=flat-square)
 ![Inflation](https://img.shields.io/badge/Inflation-2.3%25-lightgreen?style=flat-square)
 ![Trade](https://img.shields.io/badge/Trade_Tension-ELEVATED-orange?style=flat-square)
@@ -1822,8 +1795,6 @@ session will reveal whether Germany's political alignment with the economic case
 
 ### Risk Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
-
 ![Risk](https://img.shields.io/badge/Risk_Level-ELEVATED-orange?style=flat-square)
 ![Top_Risk](https://img.shields.io/badge/Top_Risk-USTR_Section_301-red?style=flat-square)
 ![Stability](https://img.shields.io/badge/Coalition-STABLE_84%2F100-green?style=flat-square)
@@ -2033,8 +2004,6 @@ operational risk becomes the dominant concern rather than political risk.
 3. Overall risk level reassessment post-USTR window
 
 ### Quantitative Swot
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
 
 ![SWOT](https://img.shields.io/badge/SWOT-Full_4x3_Analysis-brightgreen?style=flat-square)
 ![Confidence](https://img.shields.io/badge/Overall_Confidence-MEDIUM-yellow?style=flat-square)
@@ -2424,8 +2393,6 @@ will resolve multiple uncertainties simultaneously.
 
 ### Political Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/political-threat-landscape.md" rel="noopener">View source: <code>intelligence/political-threat-landscape.md</code></a></p>
-
 ![Threat](https://img.shields.io/badge/Threat_Level-ELEVATED-orange?style=flat-square)
 ![Primary](https://img.shields.io/badge/Primary_Threat-USTR_301_Window-red?style=flat-square)
 ![Secondary](https://img.shields.io/badge/Secondary-API_Outage-yellow?style=flat-square)
@@ -2651,8 +2618,6 @@ first real test of EPP-S&D trade retaliation alignment — and that test could r
 fractures not detectable during a recess monitoring period.
 
 ### Threat Model
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
 
 ### Threat Model Overview
 
@@ -2910,8 +2875,6 @@ probabilities, same response frameworks.
 <h2 id="section-scenarios">Scenarios & Wildcards</h2>
 
 ### Scenario Forecast
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
 
 ### Scenario Framework
 
@@ -3183,8 +3146,6 @@ evidence quality and source reliability adjustments.*
 - If USTR filed: Scenario B dominates regardless of API status
 
 ### Wildcards Blackswans
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
 
 ### Methodology
 
@@ -3458,8 +3419,6 @@ this is assessed as LOW probability cyber scenario vs. HIGH probability routine 
 
 ### Cross Run Diff
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/cross-run-diff.md" rel="noopener">View source: <code>intelligence/cross-run-diff.md</code></a></p>
-
 ![Diff](https://img.shields.io/badge/Change_Interval-1_day-blue?style=flat-square)
 ![Delta](https://img.shields.io/badge/Net_Delta-MINIMAL-yellow?style=flat-square)
 ![Mode](https://img.shields.io/badge/Mode-Easter_Recess-orange?style=flat-square)
@@ -3622,8 +3581,6 @@ and should be carried forward to Run 191 with the specific Run 190 updates incor
 
 ### Document Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
 ### Methodology
 
 Documents were analyzed via the dual-layer EP API architecture established in Run 188.
@@ -3757,8 +3714,6 @@ For each restoration check:
 **Expected restoration window:** April 21-26 (pre-Parliament return)
 
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/mcp-reliability-audit.md" rel="noopener">View source: <code>intelligence/mcp-reliability-audit.md</code></a></p>
 
 ### Audit Summary
 
@@ -4146,9 +4101,155 @@ of the Tier-2 data limitations — those are upstream EP Open Data Portal issues
 
 <h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
-### Reference Analysis Quality
+### Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/reference-analysis-quality.md" rel="noopener">View source: <code>intelligence/reference-analysis-quality.md</code></a></p>
+### Intelligence Artifacts
+
+| File | Category | Content | Lines |
+|------|----------|---------|-------|
+| `intelligence/significance-scoring.md` | INTELLIGENCE | 15/50 score, dimensional breakdown, ANALYSIS_ONLY rationale | ~200 |
+| `intelligence/coalition-dynamics.md` | INTELLIGENCE | Grand Centre 402-seat analysis, stability 84/100, post-recess scenarios | ~350 |
+| `intelligence/political-threat-landscape.md` | INTELLIGENCE | T1-T5 threat tiers, USTR 20%, compound scenarios, democratic health | ~280 |
+| `intelligence/cross-run-diff.md` | INTELLIGENCE | Run 188→190 delta: probability updates, hypothesis status, continuity | ~220 |
+| `intelligence/synthesis-summary.md` | INTELLIGENCE | Executive overview, 5 findings, 5 FMPs, scenario probabilities, transparency | ~300 |
+
+### Risk Artifacts
+
+| File | Category | Content | Lines |
+|------|----------|---------|-------|
+| `risk/quantitative-swot.md` | RISK | 4×3 SWOT (S1-S3, W1-W3, O1-O3, T1-T4), ≥80 words each, quadrant chart | ~600 |
+| `risk/risk-matrix.md` | RISK | R1-R6 risk register, likelihood×impact, trend analysis, response protocols | ~270 |
+
+### Document Artifacts
+
+| File | Category | Content | Lines |
+|------|----------|---------|-------|
+| `documents/document-analysis-index.md` | DOCUMENTS | 6 landmark texts, accessibility status, restoration protocol | ~180 |
+
+### Data Files (raw, not for analysis)
+
+| File | Category | Content | Size |
+|------|----------|---------|------|
+| `data/generated-stats.json` | DATA | EP precomputed stats 2004-2026 (85KB JSON) | ~85KB |
+| `data/meps-feed-today.json` | DATA | 738 current MEPs (today's feed) | ~variable |
+| `data/adopted-texts-week.json` | DATA | 159 adopted texts metadata (one-week) | ~variable |
+
+---
+
+### Quality Checklist
+
+- [x] significance-scoring.md — dimensional scoring, ANALYSIS_ONLY rationale
+- [x] coalition-dynamics.md — Grand Centre analysis, 84/100 stability, post-recess
+- [x] political-threat-landscape.md — T1-T5 tiers, USTR priority, compound scenario
+- [x] cross-run-diff.md — MANDATORY (prior run 188 within 7 days) — COMPLETE
+- [x] synthesis-summary.md — 5 findings, 5 forward monitoring priorities
+- [x] quantitative-swot.md — 4×3 SWOT, ≥80 words per item, Mermaid chart
+- [x] risk-matrix.md — R1-R6 register, 5×5 matrix, trend analysis
+- [x] document-analysis-index.md — 6 landmark texts, restoration protocol
+- [x] manifest.json — run metadata, degradedMode flag
+- [x] analysis-index.md — this file
+- [ ] Pass 2 quality review — pending
+- [ ] Forward Monitoring Extension — synthesis-summary.md, minutes 40-45
+
+---
+
+### Key Analytical Conclusions
+
+1. **Significance 15/50** — below 25/50 threshold; ANALYSIS_ONLY confirmed
+2. **Easter Monday** — institutional nadir confirmed; negative intelligence documented
+3. **API Day 10** — Tier-2 outage persists; metadata layer only; 6 texts remain blocked
+4. **USTR T-12h** — section 301 window opens April 21; top priority for Run 191
+5. **Coalition stable** — 84/100, untested for 10 days; first test April 28-30
+
+---
+
+### Series Intelligence Accumulation
+
+The Easter Recess Series (Runs 179-190) has built a comprehensive intelligence baseline:
+- Dual-layer API architecture documented and operational
+- 6 landmark March 26 texts identified by official title
+- Non-monotonic restoration protocol established (TA-0101 regression)
+- Grand Centre stability 84/100 across 18-day dormancy period
+- USTR, Bundesrat, Chinese response monitoring frameworks pre-built
+- Forward analytical frameworks ready for immediate post-recess deployment
+
+**Expected high-value run:** Run 191 (April 21) — USTR window check + API restoration probe
+
+---
+
+### Analytical Method Summary
+
+#### Sequential Thinking Protocol Applied
+Run 190 employed a 5-pass structured reasoning protocol:
+- Pass 1: Data collection and significance assessment (15/50)
+- Pass 2: SWOT analysis construction (quantitative-swot.md)
+- Pass 3: Risk identification and probability calibration (risk-matrix.md)
+- Pass 4: Stakeholder and coalition mapping (stakeholder-map.md, coalition-dynamics.md)
+- Pass 5: Forward monitoring framework construction (synthesis-summary.md FMPs 1-5)
+
+#### Intelligence Methodology
+- **Dual-layer API exploitation:** Metadata layer (titles) vs content layer (full text)
+- **Absence-of-evidence reasoning:** USTR non-filing reduces R1 probability 25%→20%
+- **Non-monotonic restoration protocol:** Three-run stability before content analysis
+- **Cross-run differential analysis:** Run 188→190 delta mapping
+- **Probability calibration:** Bayesian updating from prior run estimates
+
+#### Data Source Triangulation
+All analytical conclusions have at minimum two supporting data sources:
+- USTR risk: EP precomputed stats (historical context) + Run 188 forward monitoring
+- Coalition stability: analyze_coalition_dynamics + Run 188 series history
+- API degradation: Direct endpoint testing (6 tools tested) + Run 188 pattern
+- Chinese silence: get_meps_feed (no emergency MEP activity) + editorial-context.md
+
+---
+
+### Cross-Reference Index
+
+| Finding | Supporting Files |
+|---------|-----------------|
+| 15/50 significance score | significance-scoring.md, classification/significance-classification.md |
+| USTR 20% probability | risk-matrix.md (R1), political-threat-landscape.md (T1), synthesis-summary.md |
+| API Day 10 outage | mcp-reliability-audit.md, cross-run-diff.md, synthesis-summary.md |
+| Grand Centre 84/100 | coalition-dynamics.md, stakeholder-map.md, quantitative-swot.md |
+| Scenario probabilities | scenario-forecast.md, synthesis-summary.md |
+| Banking Union completion | economic-context.md, historical-baseline.md, documents/document-analysis-index.md |
+| Non-monotonic restoration | mcp-reliability-audit.md (R2), document-analysis-index.md (TA-0101) |
+| USTR deterrence architecture | economic-context.md (TA-0096), political-threat-landscape.md (T1), threat-model.md |
+
+---
+
+### Run 190 Quality Gates Summary
+
+| Gate | Requirement | Status |
+|------|-------------|--------|
+| Significance scoring | Documented with dimensions | ✅ PASS |
+| ANALYSIS_ONLY decision | Justified (15/50 < 25/50) | ✅ PASS |
+| Cross-run diff | Mandatory (prior run within 7 days) | ✅ PASS |
+| Forward monitoring | ≥5 specific triggers | ✅ PASS (5 triggers) |
+| Data quality delta | Documented in synthesis | ✅ PASS |
+| Zero placeholder markers | No AI_ANALYSIS_REQUIRED | ✅ PASS |
+| Internal consistency | Probabilities consistent | ✅ PASS |
+| Heartbeats sent | ≤8 min intervals | ✅ PASS (5 heartbeats) |
+
+---
+
+### Next Run (191) Pre-Flight Checklist
+
+Before Run 191 analysis begins:
+- [ ] Read this analysis-index.md to establish continuity
+- [ ] Read synthesis-summary.md FMPs 1-5 for monitoring priorities
+- [ ] Read cross-run-diff.md hypothesis status table
+- [ ] Confirm workflow_start_epoch recorded
+- [ ] Open USTR.gov and Federal Register before any MCP calls
+- [ ] First MCP call: EP API probe (TA-10-2026-0092)
+- [ ] Second MCP call: Events feed probe (Tier-2 restoration check)
+- [ ] Only then: Full MCP data collection cycle
+
+**Easter Recess Series Total:** 7 runs (184-190), all ANALYSIS_ONLY, avg significance 14.3/50.
+**Parliament return (April 27):** First post-recess breaking news article expected Run 192.
+**Run 191 context established by this index.**
+
+### Reference Analysis Quality
 
 ### Quality Assessment Overview
 
@@ -4380,8 +4481,6 @@ no claims exceed their evidential support.
 
 ### Workflow Audit
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/workflow-audit.md" rel="noopener">View source: <code>intelligence/workflow-audit.md</code></a></p>
-
 ### Workflow Execution Summary
 
 | Phase | Status | Notes |
@@ -4516,157 +4615,14 @@ ANALYSIS_ONLY run with 15/50 significance.
 
 **Compliance status:** FULLY COMPLIANT — all Rule 19 + Rule 22 + AI-First Quality requirements met.
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
-
-### Intelligence Artifacts
-
-| File | Category | Content | Lines |
-|------|----------|---------|-------|
-| `intelligence/significance-scoring.md` | INTELLIGENCE | 15/50 score, dimensional breakdown, ANALYSIS_ONLY rationale | ~200 |
-| `intelligence/coalition-dynamics.md` | INTELLIGENCE | Grand Centre 402-seat analysis, stability 84/100, post-recess scenarios | ~350 |
-| `intelligence/political-threat-landscape.md` | INTELLIGENCE | T1-T5 threat tiers, USTR 20%, compound scenarios, democratic health | ~280 |
-| `intelligence/cross-run-diff.md` | INTELLIGENCE | Run 188→190 delta: probability updates, hypothesis status, continuity | ~220 |
-| `intelligence/synthesis-summary.md` | INTELLIGENCE | Executive overview, 5 findings, 5 FMPs, scenario probabilities, transparency | ~300 |
-
-### Risk Artifacts
-
-| File | Category | Content | Lines |
-|------|----------|---------|-------|
-| `risk/quantitative-swot.md` | RISK | 4×3 SWOT (S1-S3, W1-W3, O1-O3, T1-T4), ≥80 words each, quadrant chart | ~600 |
-| `risk/risk-matrix.md` | RISK | R1-R6 risk register, likelihood×impact, trend analysis, response protocols | ~270 |
-
-### Document Artifacts
-
-| File | Category | Content | Lines |
-|------|----------|---------|-------|
-| `documents/document-analysis-index.md` | DOCUMENTS | 6 landmark texts, accessibility status, restoration protocol | ~180 |
-
-### Data Files (raw, not for analysis)
-
-| File | Category | Content | Size |
-|------|----------|---------|------|
-| `data/generated-stats.json` | DATA | EP precomputed stats 2004-2026 (85KB JSON) | ~85KB |
-| `data/meps-feed-today.json` | DATA | 738 current MEPs (today's feed) | ~variable |
-| `data/adopted-texts-week.json` | DATA | 159 adopted texts metadata (one-week) | ~variable |
-
----
-
-### Quality Checklist
-
-- [x] significance-scoring.md — dimensional scoring, ANALYSIS_ONLY rationale
-- [x] coalition-dynamics.md — Grand Centre analysis, 84/100 stability, post-recess
-- [x] political-threat-landscape.md — T1-T5 tiers, USTR priority, compound scenario
-- [x] cross-run-diff.md — MANDATORY (prior run 188 within 7 days) — COMPLETE
-- [x] synthesis-summary.md — 5 findings, 5 forward monitoring priorities
-- [x] quantitative-swot.md — 4×3 SWOT, ≥80 words per item, Mermaid chart
-- [x] risk-matrix.md — R1-R6 register, 5×5 matrix, trend analysis
-- [x] document-analysis-index.md — 6 landmark texts, restoration protocol
-- [x] manifest.json — run metadata, degradedMode flag
-- [x] analysis-index.md — this file
-- [ ] Pass 2 quality review — pending
-- [ ] Forward Monitoring Extension — synthesis-summary.md, minutes 40-45
-
----
-
-### Key Analytical Conclusions
-
-1. **Significance 15/50** — below 25/50 threshold; ANALYSIS_ONLY confirmed
-2. **Easter Monday** — institutional nadir confirmed; negative intelligence documented
-3. **API Day 10** — Tier-2 outage persists; metadata layer only; 6 texts remain blocked
-4. **USTR T-12h** — section 301 window opens April 21; top priority for Run 191
-5. **Coalition stable** — 84/100, untested for 10 days; first test April 28-30
-
----
-
-### Series Intelligence Accumulation
-
-The Easter Recess Series (Runs 179-190) has built a comprehensive intelligence baseline:
-- Dual-layer API architecture documented and operational
-- 6 landmark March 26 texts identified by official title
-- Non-monotonic restoration protocol established (TA-0101 regression)
-- Grand Centre stability 84/100 across 18-day dormancy period
-- USTR, Bundesrat, Chinese response monitoring frameworks pre-built
-- Forward analytical frameworks ready for immediate post-recess deployment
-
-**Expected high-value run:** Run 191 (April 21) — USTR window check + API restoration probe
-
----
-
-### Analytical Method Summary
-
-#### Sequential Thinking Protocol Applied
-Run 190 employed a 5-pass structured reasoning protocol:
-- Pass 1: Data collection and significance assessment (15/50)
-- Pass 2: SWOT analysis construction (quantitative-swot.md)
-- Pass 3: Risk identification and probability calibration (risk-matrix.md)
-- Pass 4: Stakeholder and coalition mapping (stakeholder-map.md, coalition-dynamics.md)
-- Pass 5: Forward monitoring framework construction (synthesis-summary.md FMPs 1-5)
-
-#### Intelligence Methodology
-- **Dual-layer API exploitation:** Metadata layer (titles) vs content layer (full text)
-- **Absence-of-evidence reasoning:** USTR non-filing reduces R1 probability 25%→20%
-- **Non-monotonic restoration protocol:** Three-run stability before content analysis
-- **Cross-run differential analysis:** Run 188→190 delta mapping
-- **Probability calibration:** Bayesian updating from prior run estimates
-
-#### Data Source Triangulation
-All analytical conclusions have at minimum two supporting data sources:
-- USTR risk: EP precomputed stats (historical context) + Run 188 forward monitoring
-- Coalition stability: analyze_coalition_dynamics + Run 188 series history
-- API degradation: Direct endpoint testing (6 tools tested) + Run 188 pattern
-- Chinese silence: get_meps_feed (no emergency MEP activity) + editorial-context.md
-
----
-
-### Cross-Reference Index
-
-| Finding | Supporting Files |
-|---------|-----------------|
-| 15/50 significance score | significance-scoring.md, classification/significance-classification.md |
-| USTR 20% probability | risk-matrix.md (R1), political-threat-landscape.md (T1), synthesis-summary.md |
-| API Day 10 outage | mcp-reliability-audit.md, cross-run-diff.md, synthesis-summary.md |
-| Grand Centre 84/100 | coalition-dynamics.md, stakeholder-map.md, quantitative-swot.md |
-| Scenario probabilities | scenario-forecast.md, synthesis-summary.md |
-| Banking Union completion | economic-context.md, historical-baseline.md, documents/document-analysis-index.md |
-| Non-monotonic restoration | mcp-reliability-audit.md (R2), document-analysis-index.md (TA-0101) |
-| USTR deterrence architecture | economic-context.md (TA-0096), political-threat-landscape.md (T1), threat-model.md |
-
----
-
-### Run 190 Quality Gates Summary
-
-| Gate | Requirement | Status |
-|------|-------------|--------|
-| Significance scoring | Documented with dimensions | ✅ PASS |
-| ANALYSIS_ONLY decision | Justified (15/50 < 25/50) | ✅ PASS |
-| Cross-run diff | Mandatory (prior run within 7 days) | ✅ PASS |
-| Forward monitoring | ≥5 specific triggers | ✅ PASS (5 triggers) |
-| Data quality delta | Documented in synthesis | ✅ PASS |
-| Zero placeholder markers | No AI_ANALYSIS_REQUIRED | ✅ PASS |
-| Internal consistency | Probabilities consistent | ✅ PASS |
-| Heartbeats sent | ≤8 min intervals | ✅ PASS (5 heartbeats) |
-
----
-
-### Next Run (191) Pre-Flight Checklist
-
-Before Run 191 analysis begins:
-- [ ] Read this analysis-index.md to establish continuity
-- [ ] Read synthesis-summary.md FMPs 1-5 for monitoring priorities
-- [ ] Read cross-run-diff.md hypothesis status table
-- [ ] Confirm workflow_start_epoch recorded
-- [ ] Open USTR.gov and Federal Register before any MCP calls
-- [ ] First MCP call: EP API probe (TA-10-2026-0092)
-- [ ] Second MCP call: Events feed probe (Tier-2 restoration check)
-- [ ] Only then: Full MCP data collection cycle
-
-**Easter Recess Series Total:** 7 runs (184-190), all ANALYSIS_ONLY, avg significance 14.3/50.
-**Parliament return (April 27):** First post-recess breaking news article expected Run 192.
-**Run 191 context established by this index.**
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-20
+> - **Run id:** `190`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-20/breaking-run190](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-20/breaking-run190)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -4770,7 +4726,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-continuity | [cross-run-diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/cross-run-diff.md) | `intelligence/cross-run-diff.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
+| section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [workflow-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/workflow-audit.md) | `intelligence/workflow-audit.md` |
-| section-supplementary-intelligence | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-20/breaking-run190/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 

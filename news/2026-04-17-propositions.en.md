@@ -11,17 +11,6 @@ layout: article
 ---
 # Propositions — 2026-04-17
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `propositions`
-> - **Run date:** 2026-04-17
-> - **Run id:** `ecb889c2-f7ce-4177-85e4-3b9d13c7989b`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-17/propositions-run45](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-17/propositions-run45)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -33,8 +22,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
 
 #### EU Parliament Propositions Analysis | EP10 Year 3 — Peak Velocity Sprint
 
@@ -91,8 +78,6 @@ Use this guide to read the article as a political-intelligence product rather th
 
 ### Risk Matrix
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
-
 ### Scenario Analysis (Probability × Impact)
 
 #### Scenario A: Orderly Legislative Acceleration (Likelihood: 65%)
@@ -118,8 +103,6 @@ Rising market volatility exposes weaknesses in systemic banks before BRRD3 takes
 | EP API data gap limiting pipeline tracking | High (current) | Low | Fallback to direct endpoint queries |
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 ### 1. Banking Union Completion: 14 Years in the Making
 
@@ -211,8 +194,6 @@ The S&D coalition claim on EU Talent Pool is genuine: the directive's wage parit
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
-
 ### Cross-Dossier Intelligence
 
 #### The March 25-27 Package: A Multi-Crisis Response
@@ -245,6 +226,15 @@ The March 2026 Strasbourg session was remarkable not for the volume of legislati
 **Headline**: "Banking Union Breakthrough and Anti-Corruption Landmark Cap Parliament's Most Ambitious Pre-Easter Sprint"
 **Meta description**: "European Parliament's March 25-27 Strasbourg plenary adopted landmark Banking Union reforms (DGSD2, BRRD3, SRMR3), Anti-Corruption Directive (2023/0135), and US tariff countermeasures, as EP10 posts record 114 legislative acts for 2026 ahead of April 27-30 post-recess return to Strasbourg."
 **Key keywords**: DGSD2, BRRD3, SRMR3, Anti-Corruption Directive, 2023/0135, EU Talent Pool, 2023/0404, EMPL, ECON, TA-10-2026-0094, TA-10-2026-0092, TA-10-2026-0096, EPP, S&D, Renew, ECR, Banking Union, Strasbourg session, Easter recess 2026
+
+> **Provenance & Audit**
+>
+> - **Article type:** `propositions`
+> - **Run date:** 2026-04-17
+> - **Run id:** `ecb889c2-f7ce-4177-85e4-3b9d13c7989b`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-17/propositions-run45](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-17/propositions-run45)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/propositions-run45/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

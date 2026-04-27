@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-13
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-13
-> - **Run id:** `168`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-13/breaking-run168](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-13/breaking-run168)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,8 +23,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-significance">Significance</h2>
 
 ### Significance Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
 ### 📋 Classification Context
 
@@ -201,8 +188,6 @@ The final pre-Easter plenary on March 26 adopted these key texts:
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
 ### 📋 Scoring Context
 
 | Field | Value |
@@ -303,8 +288,6 @@ pie title Score Distribution — 51 Adopted Texts (2026)
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### 📋 Assessment Context
 
@@ -475,8 +458,6 @@ The risks above are interconnected:
 | Prior synthesis | SYN-2026-04-13-MOTIONS-RUN39 | 2026-04-13 |
 
 ### Quantitative Swot
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
 
 ### 📋 SWOT Context
 
@@ -654,8 +635,6 @@ quadrantChart
 
 ### Political Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
-
 ### 📋 Threat Assessment Context
 
 | Field | Value |
@@ -798,8 +777,6 @@ flowchart TB
 <h2 id="section-documents">Document Analysis</h2>
 
 ### Document Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
 
 ### 📋 Index Context
 
@@ -981,8 +958,6 @@ All document references verified against EP API `get_adopted_texts(year=2026)` �
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
-
 ### 📋 Synthesis Context
 
 | Field | Value |
@@ -1145,6 +1120,15 @@ Post-recess committee restart reveals capacity constraints. INTA and ECON face o
 | get_server_health | - | ✅ Success | Unhealthy |
 
 **Feed success rate**: 5/12 endpoints (42%) — DEGRADED MODE. Direct endpoints (adopted texts, MEPs) work; feed endpoints (/feed path) all timeout. This is consistent with EP API degradation pattern observed since April 11 (Easter recess period).
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-13
+> - **Run id:** `168`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-13/breaking-run168](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-13/breaking-run168)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/breaking-run168/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

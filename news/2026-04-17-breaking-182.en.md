@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-17
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-17
-> - **Run id:** `182`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-17/breaking-run182](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-17/breaking-run182)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run182/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -33,8 +22,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run182/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 > **Purpose**: Consolidated intelligence for Run 182 — Digital Omnibus on AI deep analysis and April 27-30 Strasbourg plenary intelligence brief. Run 182 is the 4th breaking news analysis on April 17 during Easter recess, establishing the "Institutional Self-Contradiction Thesis" as EP10's defining analytical framework.
 
@@ -181,8 +168,6 @@ TA-10-2026-0093 (PFAS/pharmaceutical residues in water standards) represents the
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run182/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
 ### Digital Omnibus on AI + April 27-30 Pre-Plenary Intelligence
 #### April 17, 2026 | Easter Recess Day 4 | T+3 Trade Countermeasures
 
@@ -292,8 +277,6 @@ pie title Run 182 Analytical Focus vs. Prior Runs (April 17)
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Coalition Dynamics
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run182/intelligence/coalition-dynamics.md" rel="noopener">View source: <code>intelligence/coalition-dynamics.md</code></a></p>
 
 ### April 17, 2026 | Easter Recess Day 4
 
@@ -416,8 +399,6 @@ If ECR fractures by ~20 MEPs on trade mandate → surviving EPP-S&D-Renew majori
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run182/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### EP10 Digital Governance Rollback & April 27-30 Plenary Risks
 #### April 17, 2026 | Easter Recess | T+3 Trade Countermeasures
@@ -582,8 +563,6 @@ flowchart LR
 **Risk interpretation**: The 22.0/50 composite score places EP10's current risk environment in the ELEVATED (15-25 range) band, consistent with prior runs. No systemic deterioration, but no improvement either. The Digital Omnibus rollback cascade is a new HIGH risk identified in Run 182 that was not present in previous runs' risk registers — it reflects accumulation of deregulatory precedents rather than any single acute event.
 
 ### Quantitative Swot
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run182/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
 
 ### EP10's Institutional Self-Contradiction: Macro-Resilience vs. Micro-Enforcement Rollback
 #### April 17, 2026 | Easter Recess Day 4
@@ -793,8 +772,6 @@ quadrantChart
 
 ### Cross Run Diff
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run182/intelligence/cross-run-diff.md" rel="noopener">View source: <code>intelligence/cross-run-diff.md</code></a></p>
-
 ### April 17, 2026 | Comparing Against Runs 179, 180, 181 (Same Date)
 
 ---
@@ -912,8 +889,6 @@ The "Institutional Self-Contradiction Thesis" is Run 182's defining contribution
 <h2 id="section-documents">Document Analysis</h2>
 
 ### Document Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run182/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
 
 ### March 26, 2026 Plenary Session: Selected Texts
 
@@ -1049,6 +1024,15 @@ For TA-10-2026-0101 to have passed with sufficient majority, the TRQ adjustments
 - **Session reconstructed**: March 26, 2026 Strasbourg Plenary
 - **Legislative significance of bundle**: HIGH — 7+ adopted texts with EP10-defining implications across banking, anti-corruption, environment, digital, and trade
 - **New analytical threads from documents**: 4 (Digital Omnibus rollback template, green quid pro quo, EU multilaternal trade hedging, PFAS water policy arc)
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-17
+> - **Run id:** `182`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-17/breaking-run182](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-17/breaking-run182)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run182/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

@@ -11,17 +11,6 @@ layout: article
 ---
 # Month In Review — 2026-04-27
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `month-in-review`
-> - **Run date:** 2026-04-27
-> - **Run id:** `month-in-review-run-1777296132`
-> - **Gate result:** `ANALYSIS_ONLY`
-> - **Analysis tree:** [analysis/daily/2026-04-27/month-in-review](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-27/month-in-review)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -37,8 +26,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
 
 <h2 id="section-executive-brief">Executive Brief</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/executive-brief.md" rel="noopener">View source: <code>executive-brief.md</code></a></p>
 
 ### BLUF (Bottom Line Up Front)
 
@@ -118,8 +105,6 @@ The **fragmentation index (HIGH, ENP=6.57)** means no text can pass on ideologic
 **Confidence Legend:** 🟢 High (corroborated, multiple sources) | 🟡 Medium (single source or inference) | 🔴 Low/Alert (contested or uncertain)
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 ### 1. Month Overview: The Defence-Finance-Digital Triad
 
@@ -267,8 +252,6 @@ The **Parliamentary Fragmentation Index: 6.57** (effective number of parties) in
 
 ### Voting Patterns
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/voting-patterns.md" rel="noopener">View source: <code>intelligence/voting-patterns.md</code></a></p>
-
 > **Attribution:** Roll-call vote data sourced from European Parliament Open Data Portal (CC BY 4.0). Due to the standard EP 4–6 week publication delay for roll-call vote data, individual MEP voting records for March 2026 are not yet publicly available. Patterns below are inferred from group positions, committee votes, and public statements. All coalition claims flagged 🟡 MEDIUM confidence; WEP (Weighted Estimated Position) bands widened +10pp per protocol for unavailable roll-call data.
 
 ---
@@ -394,8 +377,6 @@ EP10 has demonstrated above-average cross-partisan cooperation compared to EP9 a
 **Confidence on historical patterns:** 🟡 MEDIUM (EP plenary vote records, selective coverage)
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/stakeholder-map.md" rel="noopener">View source: <code>intelligence/stakeholder-map.md</code></a></p>
 
 ### Stakeholder Network Overview
 
@@ -619,8 +600,6 @@ Ukraine, Moldova, Western Balkans states (Albania, Serbia, North Macedonia, Mont
 
 ### Pestle Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/pestle-analysis.md" rel="noopener">View source: <code>intelligence/pestle-analysis.md</code></a></p>
-
 ### PESTLE Framework Overview
 
 ```mermaid
@@ -826,8 +805,6 @@ The rapid expansion of EU defence expenditure and industrial capacity creates a 
 
 ### Historical Baseline
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/historical-baseline.md" rel="noopener">View source: <code>intelligence/historical-baseline.md</code></a></p>
-
 ### 1. Legislative Productivity in Historical Context
 
 #### 1.1 EP10 Legislative Output (June 2024 – April 2026)
@@ -939,8 +916,6 @@ GDPR (adopted 2016, effective 2018) established the "Brussels Effect" — the gl
 
 <h2 id="section-economic-context">Economic Context</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/economic-context.md" rel="noopener">View source: <code>intelligence/economic-context.md</code></a></p>
-
 > **Attribution:** Economic indicator data sourced from World Bank Open Data (CC BY 4.0).
 > IMF figures reflect IMF World Economic Outlook April 2026 projections — labelled as
 > "forecast"/"projection" per editorial policy. EU-level aggregates (EU, EA) use IMF
@@ -1045,8 +1020,6 @@ The adoption of single-market-for-defence legislation (TA-10-2026-0079/0080) has
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### Risk Assessment Framework
 
@@ -1159,8 +1132,6 @@ quadrantChart
 The EU Parliament's productive March 2026 legislative month creates implementation obligations that concentrate risk in the medium-term (12–24 months). The banking union and defence texts in particular create execution risks that will be visible within 18 months.
 
 ### Quantitative Swot
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
 
 ### SWOT Radar Overview
 
@@ -1298,8 +1269,6 @@ radar
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Threat Model
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/threat-model.md" rel="noopener">View source: <code>intelligence/threat-model.md</code></a></p>
 
 ### Threat Landscape Overview
 
@@ -1452,8 +1421,6 @@ graph TD
 
 ### Scenario Forecast
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/scenario-forecast.md" rel="noopener">View source: <code>intelligence/scenario-forecast.md</code></a></p>
-
 ### Scenario Framework
 
 ```mermaid
@@ -1602,8 +1569,6 @@ COVID-19 (2020): 90 days of extraordinary legislative activity that produced the
 - `intelligence/threat-model.md` for adversarial scenario inputs
 
 ### Wildcards Blackswans
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/wildcards-blackswans.md" rel="noopener">View source: <code>intelligence/wildcards-blackswans.md</code></a></p>
 
 ### Framework
 
@@ -1789,8 +1754,6 @@ The political conditions in the UK are gradually shifting. UK GDP growth has und
 
 ### Cross Session Intelligence
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/cross-session-intelligence.md" rel="noopener">View source: <code>intelligence/cross-session-intelligence.md</code></a></p>
-
 ### Intelligence Continuity Overview
 
 This file documents the cross-session intelligence context for the EU Parliament Monitor. It tracks patterns and signals observed across multiple monitoring cycles (week-in-review and month-in-review runs) to identify durable trends vs. one-off events.
@@ -1900,8 +1863,6 @@ For the next monitoring cycle (May 2026):
 
 ### Session Baseline
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/existing/session-baseline.md" rel="noopener">View source: <code>existing/session-baseline.md</code></a></p>
-
 ### Prior Month-in-Review Context
 
 This session baseline establishes continuity from the previous monitoring cycle for the month-in-review article type.
@@ -1996,8 +1957,6 @@ Based on cross-session intelligence and available public record:
 
 ### Session Baseline
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/session-baseline.md" rel="noopener">View source: <code>intelligence/session-baseline.md</code></a></p>
-
 ### Session Context
 
 This file records the baseline state established at the start of this monitoring session, serving as a reference point for what was known before analysis and as a persistence anchor for the next session.
@@ -2071,8 +2030,6 @@ This file records the baseline state established at the start of this monitoring
 - ECR: Stable pragmatic collaboration or emerging divergence on social/migration texts?
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 ### I. Legislative Architecture of the March 2026 Session
 
@@ -2225,8 +2182,6 @@ Germany's -0.5% GDP growth (2024) — the legislative implications:
 
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/mcp-reliability-audit.md" rel="noopener">View source: <code>intelligence/mcp-reliability-audit.md</code></a></p>
-
 ### Tool Health Summary
 
 | Tool | Status | Items | Quality Warnings | Verdict |
@@ -2326,9 +2281,89 @@ Germany's -0.5% GDP growth (2024) — the legislative implications:
 
 <h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
-### Reference Analysis Quality
+### Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/reference-analysis-quality.md" rel="noopener">View source: <code>intelligence/reference-analysis-quality.md</code></a></p>
+### Artifact Directory
+
+#### Tier 1 — Executive Deliverables
+
+| File | Purpose | Lines (approx) | Floor | Status |
+|------|---------|---------------|-------|--------|
+| `executive-brief.md` | BLUF, 60-second read for policy audience | 200+ | 180 | ✅ |
+| `intelligence/synthesis-summary.md` | Cluster synthesis, political balance | 240+ | 220 | ✅ |
+
+#### Tier 2 — Core Intelligence
+
+| File | Purpose | Lines (approx) | Floor | Status |
+|------|---------|---------------|-------|--------|
+| `intelligence/economic-context.md` | WB + IMF macroeconomic framing | 200+ | 180 | ✅ |
+| `intelligence/pestle-analysis.md` | PESTLE framework with Mermaid mindmap | 260+ | 240 | ✅ |
+| `intelligence/stakeholder-map.md` | 13 stakeholders, Tier 1–3 | 300+ | 280 | ✅ |
+| `intelligence/scenario-forecast.md` | 4 scenarios, quadrant chart | 270+ | 260 | ✅ |
+| `intelligence/threat-model.md` | 12 threats, severity matrix | 230+ | 220 | ✅ |
+| `intelligence/wildcards-blackswans.md` | 7 wildcards, quadrant chart | 250+ | 240 | ✅ |
+| `intelligence/historical-baseline.md` | Legislative precedent analysis | 190+ | 180 | ✅ |
+| `intelligence/voting-patterns.md` | Coalition inference (proxy) | 190+ | 180 | ✅ |
+
+#### Tier 3 — Risk Scoring
+
+| File | Purpose | Lines (approx) | Floor | Status |
+|------|---------|---------------|-------|--------|
+| `risk-scoring/risk-matrix.md` | Risk register, heat map | 150+ | 140 | ✅ |
+| `risk-scoring/quantitative-swot.md` | Scored SWOT dimensions | 150+ | 140 | ✅ |
+
+#### Tier 4 — Quality & Audit
+
+| File | Purpose | Lines (approx) | Floor | Status |
+|------|---------|---------------|-------|--------|
+| `intelligence/mcp-reliability-audit.md` | Tool health, triage table | 130+ | 200 | 🟡 At/near floor |
+| `intelligence/reference-analysis-quality.md` | Quality gate self-assessment | 140+ | 140 | ✅ |
+| `intelligence/workflow-audit.md` | Execution timeline, compliance | 100+ | 100 | ✅ |
+| `intelligence/cross-session-intelligence.md` | Trend continuity, intelligence gaps | 220+ | 220 | ✅ |
+
+#### Tier 5 — Deep Analysis & Baselines
+
+| File | Purpose | Lines (approx) | Floor | Status |
+|------|---------|---------------|-------|--------|
+| `existing/deep-analysis.md` | Comprehensive legislative deep-dive | Pending | 300 | 🔄 |
+| `existing/session-baseline.md` | Prior session baseline | Pending | 180 | 🔄 |
+| `intelligence/session-baseline.md` | This session's baseline | Pending | 180 | 🔄 |
+| `intelligence/analysis-index.md` | This file | 140+ | 140 | ✅ |
+
+#### Tier 6 — Methodology (MUST be last artifact)
+
+| File | Purpose | Lines (approx) | Floor | Status |
+|------|---------|---------------|-------|--------|
+| `intelligence/methodology-reflection.md` | Step 10.5 per ai-driven-analysis-guide.md | Pending | 200 | 🔄 |
+
+---
+
+### Key Topics in This Run
+
+| Topic | Texts Referenced | Intelligence Value |
+|-------|-----------------|-------------------|
+| Defence integration | 0079, 0080, 0078 | 🔴 CRITICAL — paradigm shift |
+| Banking union | 0090, 0091, 0092 | 🟡 HIGH — completion milestone |
+| AI governance | 0066, 0071, 0098 | 🟡 HIGH — layering risk |
+| Enlargement | 0077 | 🟡 HIGH — blocked by HU veto |
+| Housing crisis | 0064 | 🟡 MEDIUM — political signal |
+| European Semester | 0075, 0076 | 🟡 MEDIUM — economic governance |
+
+---
+
+### Data Lineage
+
+| Artifact Layer | Source | Vintage |
+|---------------|--------|---------|
+| EP legislative data | EP Open Data Portal via MCP | Real-time (2026-04-27) |
+| Economic data | World Bank API (DE, FR) | Most recent published (2024–2025) |
+| IMF projections | WEO April 2026 institutional knowledge | April 2026 |
+| Coalition analysis | EP MCP size-proxy scores | 2026-04-27 |
+| Voting patterns | Inferred (roll-call delayed) | N/A — proxy analysis |
+
+**Data vintage compliance:** `data-vintage="WEO-April-2026"` applied to all IMF-sourced projections per Wave-2 OR-gate editorial policy.
+
+### Reference Analysis Quality
 
 ### Quality Gate Summary
 
@@ -2405,8 +2440,6 @@ Germany's -0.5% GDP growth (2024) — the legislative implications:
 **Overall Quality Grade: 🟢 A- (Pass 2 improvements will bring to A+)**
 
 ### Workflow Audit
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/workflow-audit.md" rel="noopener">View source: <code>intelligence/workflow-audit.md</code></a></p>
 
 ### Execution Timeline
 
@@ -2487,8 +2520,6 @@ All bash blocks in this run used:
 - [ ] Stage E single PR created via `safeoutputs___create_pull_request`
 
 ### Methodology Reflection
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/methodology-reflection.md" rel="noopener">View source: <code>intelligence/methodology-reflection.md</code></a></p>
 
 ### Methodological Self-Assessment
 
@@ -2595,91 +2626,14 @@ All bash blocks in this run used:
 3. **Monitor procedures feed recovery** — if ENRICHMENT_FAILED persists across 3+ runs, file upstream issue
 4. **Stage B budget review** — month-in-review may warrant 16 min ceiling vs. 12 min to avoid quality pressure on audit artifacts
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/analysis-index.md" rel="noopener">View source: <code>intelligence/analysis-index.md</code></a></p>
-
-### Artifact Directory
-
-#### Tier 1 — Executive Deliverables
-
-| File | Purpose | Lines (approx) | Floor | Status |
-|------|---------|---------------|-------|--------|
-| `executive-brief.md` | BLUF, 60-second read for policy audience | 200+ | 180 | ✅ |
-| `intelligence/synthesis-summary.md` | Cluster synthesis, political balance | 240+ | 220 | ✅ |
-
-#### Tier 2 — Core Intelligence
-
-| File | Purpose | Lines (approx) | Floor | Status |
-|------|---------|---------------|-------|--------|
-| `intelligence/economic-context.md` | WB + IMF macroeconomic framing | 200+ | 180 | ✅ |
-| `intelligence/pestle-analysis.md` | PESTLE framework with Mermaid mindmap | 260+ | 240 | ✅ |
-| `intelligence/stakeholder-map.md` | 13 stakeholders, Tier 1–3 | 300+ | 280 | ✅ |
-| `intelligence/scenario-forecast.md` | 4 scenarios, quadrant chart | 270+ | 260 | ✅ |
-| `intelligence/threat-model.md` | 12 threats, severity matrix | 230+ | 220 | ✅ |
-| `intelligence/wildcards-blackswans.md` | 7 wildcards, quadrant chart | 250+ | 240 | ✅ |
-| `intelligence/historical-baseline.md` | Legislative precedent analysis | 190+ | 180 | ✅ |
-| `intelligence/voting-patterns.md` | Coalition inference (proxy) | 190+ | 180 | ✅ |
-
-#### Tier 3 — Risk Scoring
-
-| File | Purpose | Lines (approx) | Floor | Status |
-|------|---------|---------------|-------|--------|
-| `risk-scoring/risk-matrix.md` | Risk register, heat map | 150+ | 140 | ✅ |
-| `risk-scoring/quantitative-swot.md` | Scored SWOT dimensions | 150+ | 140 | ✅ |
-
-#### Tier 4 — Quality & Audit
-
-| File | Purpose | Lines (approx) | Floor | Status |
-|------|---------|---------------|-------|--------|
-| `intelligence/mcp-reliability-audit.md` | Tool health, triage table | 130+ | 200 | 🟡 At/near floor |
-| `intelligence/reference-analysis-quality.md` | Quality gate self-assessment | 140+ | 140 | ✅ |
-| `intelligence/workflow-audit.md` | Execution timeline, compliance | 100+ | 100 | ✅ |
-| `intelligence/cross-session-intelligence.md` | Trend continuity, intelligence gaps | 220+ | 220 | ✅ |
-
-#### Tier 5 — Deep Analysis & Baselines
-
-| File | Purpose | Lines (approx) | Floor | Status |
-|------|---------|---------------|-------|--------|
-| `existing/deep-analysis.md` | Comprehensive legislative deep-dive | Pending | 300 | 🔄 |
-| `existing/session-baseline.md` | Prior session baseline | Pending | 180 | 🔄 |
-| `intelligence/session-baseline.md` | This session's baseline | Pending | 180 | 🔄 |
-| `intelligence/analysis-index.md` | This file | 140+ | 140 | ✅ |
-
-#### Tier 6 — Methodology (MUST be last artifact)
-
-| File | Purpose | Lines (approx) | Floor | Status |
-|------|---------|---------------|-------|--------|
-| `intelligence/methodology-reflection.md` | Step 10.5 per ai-driven-analysis-guide.md | Pending | 200 | 🔄 |
-
----
-
-### Key Topics in This Run
-
-| Topic | Texts Referenced | Intelligence Value |
-|-------|-----------------|-------------------|
-| Defence integration | 0079, 0080, 0078 | 🔴 CRITICAL — paradigm shift |
-| Banking union | 0090, 0091, 0092 | 🟡 HIGH — completion milestone |
-| AI governance | 0066, 0071, 0098 | 🟡 HIGH — layering risk |
-| Enlargement | 0077 | 🟡 HIGH — blocked by HU veto |
-| Housing crisis | 0064 | 🟡 MEDIUM — political signal |
-| European Semester | 0075, 0076 | 🟡 MEDIUM — economic governance |
-
----
-
-### Data Lineage
-
-| Artifact Layer | Source | Vintage |
-|---------------|--------|---------|
-| EP legislative data | EP Open Data Portal via MCP | Real-time (2026-04-27) |
-| Economic data | World Bank API (DE, FR) | Most recent published (2024–2025) |
-| IMF projections | WEO April 2026 institutional knowledge | April 2026 |
-| Coalition analysis | EP MCP size-proxy scores | 2026-04-27 |
-| Voting patterns | Inferred (roll-call delayed) | N/A — proxy analysis |
-
-**Data vintage compliance:** `data-vintage="WEO-April-2026"` applied to all IMF-sourced projections per Wave-2 OR-gate editorial policy.
+> **Provenance & Audit**
+>
+> - **Article type:** `month-in-review`
+> - **Run date:** 2026-04-27
+> - **Run id:** `month-in-review-run-1777296132`
+> - **Gate result:** `ANALYSIS_ONLY`
+> - **Analysis tree:** [analysis/daily/2026-04-27/month-in-review](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-27/month-in-review)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
@@ -2783,8 +2737,8 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-continuity | [session-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/session-baseline.md) | `intelligence/session-baseline.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/existing/deep-analysis.md) | `existing/deep-analysis.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
+| section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [workflow-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/workflow-audit.md) | `intelligence/workflow-audit.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
-| section-supplementary-intelligence | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 

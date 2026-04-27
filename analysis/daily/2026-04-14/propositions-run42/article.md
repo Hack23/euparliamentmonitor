@@ -11,17 +11,6 @@ layout: article
 ---
 # Propositions — 2026-04-14
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `propositions`
-> - **Run date:** 2026-04-14
-> - **Run id:** `68d9a632-9043-4f92-8e7c-ff5d558e91a5`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-14/propositions-run42](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-14/propositions-run42)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/propositions-run42/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,8 +23,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/propositions-run42/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
 
 ### Scoring Context
 
@@ -163,8 +150,6 @@ PUBLISH as standard propositions article. Lead with US tariff countermeasures (8
 
 ### Stakeholder Impact
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/propositions-run42/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
-
 ### Assessment Context
 
 | Field | Value |
@@ -243,8 +228,6 @@ The Commission faces an April 15 decision on deploying tariff countermeasures �
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/propositions-run42/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### Risk Context
 
@@ -350,8 +333,6 @@ Confidence: MEDIUM (external trade dynamics uncertain, but internal parliamentar
 
 ### Political Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/propositions-run42/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
-
 ### Threat Context
 
 | Field | Value |
@@ -456,8 +437,6 @@ The post-recess period faces ELEVATED threat levels driven primarily by the US t
 Confidence: HIGH on internal dynamics; MEDIUM on external trade scenario outcomes.
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/propositions-run42/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 ### Executive Summary
 
@@ -611,8 +590,6 @@ pie title EP10 Seat Distribution (720 MEPs)
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/propositions-run42/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
-
 ### Synthesis Context
 
 | Field | Value |
@@ -701,6 +678,15 @@ Trade deal averts confrontation. Normal legislative rhythm resumes. All 13 COD p
 - Precomputed statistics (get_all_generated_stats, 2024-2026)
 - Political landscape analysis (generate_political_landscape)
 - Prior analysis: analysis/daily/2026-04-13/propositions-run41/existing/synthesis-summary.md
+
+> **Provenance & Audit**
+>
+> - **Article type:** `propositions`
+> - **Run date:** 2026-04-14
+> - **Run id:** `68d9a632-9043-4f92-8e7c-ff5d558e91a5`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-14/propositions-run42](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-14/propositions-run42)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/propositions-run42/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

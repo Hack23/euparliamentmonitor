@@ -168,6 +168,7 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
     id: 'quality-reflection',
     title: 'Analytical Quality & Reflection',
     artifacts: [
+      'intelligence/analysis-index.md',
       'intelligence/reference-analysis-quality.md',
       'intelligence/workflow-audit.md',
       'intelligence/methodology-reflection.md',

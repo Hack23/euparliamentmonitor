@@ -11,17 +11,6 @@ layout: article
 ---
 # Propositions — 2026-04-16
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `propositions`
-> - **Run date:** 2026-04-16
-> - **Run id:** `a44262b7-c7fe-4d49-8de1-d7e07919e39b`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-16/propositions-run44](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-16/propositions-run44)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -33,8 +22,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
 
 ### 7-Dimension Classification
 
@@ -61,8 +48,6 @@ Budget: TA-10-2026-0038, TA-10-2026-0073, TA-10-2026-0103
 Source: EP Open Data Portal. Accessed 2026-04-16.
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
 
 ### Executive Summary
 
@@ -94,8 +79,6 @@ Total 2026 procedures: 51 (all tracked via EP Open Data)
 Source: EP Open Data Portal - get_procedures (year 2026), get_adopted_texts (year 2026), track_legislation (8 COD)
 
 <h2 id="section-risk">Risk Assessment</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
 
 ### Risk Matrix (Likelihood x Impact)
 
@@ -138,8 +121,6 @@ Source: EP Open Data Portal. Accessed 2026-04-16.
 
 ### Threat Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/threat-assessment/threat-analysis.md" rel="noopener">View source: <code>threat-assessment/threat-analysis.md</code></a></p>
-
 ### Threat Landscape
 
 #### T1: Committee Capacity Overload - HIGH
@@ -173,8 +154,6 @@ Source: EP Open Data Portal. Accessed 2026-04-16.
 
 ### Swot Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/existing/swot-analysis.md" rel="noopener">View source: <code>existing/swot-analysis.md</code></a></p>
-
 ### Strengths
 1. Record legislative output: 114 acts in Q1 2026 vs 78 in all 2025. Severity: HIGH.
 2. Landmark adoptions: SRMR3, Anti-corruption, tariff countermeasures. Severity: HIGH.
@@ -202,8 +181,6 @@ Source: EP Open Data Portal. Accessed 2026-04-16.
 Source: EP Open Data Portal. Accessed 2026-04-16.
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
 
 ### Executive Summary
 
@@ -256,6 +233,15 @@ Composite Risk: 10.6/25 (MEDIUM)
 
 ### Data Sources
 EP Open Data Portal: get_procedures (2026), get_adopted_texts (2026), get_plenary_sessions (2026), track_legislation (8 COD), analyze_coalition_dynamics, get_all_generated_stats (2024-2026). Accessed 2026-04-16.
+
+> **Provenance & Audit**
+>
+> - **Article type:** `propositions`
+> - **Run date:** 2026-04-16
+> - **Run id:** `a44262b7-c7fe-4d49-8de1-d7e07919e39b`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-16/propositions-run44](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-16/propositions-run44)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/propositions-run44/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

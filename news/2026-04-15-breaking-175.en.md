@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-15
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-15
-> - **Run id:** `175`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-15/breaking-run175](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-15/breaking-run175)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -33,8 +22,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/articleType-breaking-red?style=for-the-badge" alt="Article Type"/></a>
@@ -158,8 +145,6 @@ Use this guide to read the article as a political-intelligence product rather th
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/articleType-breaking-red?style=for-the-badge" alt="Article Type"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Run-175-blue?style=for-the-badge" alt="Run"/></a>
@@ -274,8 +259,6 @@ xychart-beta
 **Conditions for upgrading to article**: (1) US announces counter-tariffs, (2) Conference of Presidents convenes emergency session, (3) ECR or PfE formally breaks with EPP on trade stance, or (4) EP API reveals unexpected procedure/event updates.
 
 <h2 id="section-risk">Risk Assessment</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/articleType-breaking-red?style=for-the-badge" alt="Article Type"/></a>
@@ -410,8 +393,6 @@ quadrantChart
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Threat Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/threat-assessment/threat-analysis.md" rel="noopener">View source: <code>threat-assessment/threat-analysis.md</code></a></p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/articleType-breaking-red?style=for-the-badge" alt="Article Type"/></a>
@@ -571,8 +552,6 @@ mindmap
 
 ### Swot Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/existing/swot-analysis.md" rel="noopener">View source: <code>existing/swot-analysis.md</code></a></p>
-
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/articleType-breaking-red?style=for-the-badge" alt="Article Type"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Run-175-blue?style=for-the-badge" alt="Run"/></a>
@@ -718,8 +697,6 @@ quadrantChart
 **Strategic recommendation**: Prioritize exploitation of the trade mandate (S2+O1) and Banking Union momentum (S3+O2) while defending against the coalition paralysis–transparency erosion combination (W1+T2, W3+T5).
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge" alt="Confidence"/></a>
@@ -951,6 +928,15 @@ quadrantChart
 **Decision: Analysis-Only PR** — No today-dated EP parliamentary actions qualify as breaking news. Tariff activation (TA-10-2026-0096) is significant policy execution but represents implementation of March 26 adoption, not a new parliamentary event. This analysis persists the T-0+13h intelligence assessment for cross-session continuity.
 
 **Next critical windows**: April 16-17 (US trade response), April 27-30 (first post-recess plenary).
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-15
+> - **Run id:** `175`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-15/breaking-run175](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-15/breaking-run175)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run175/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

@@ -11,17 +11,6 @@ layout: article
 ---
 # Committee Reports — 2026-04-14
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `committee-reports`
-> - **Run date:** 2026-04-14
-> - **Run id:** `e93a1c2e-1784-43d5-8039-6855c4e1a1d4`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-14/committee-reports-run48](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-14/committee-reports-run48)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/committee-reports-run48/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,8 +23,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/committee-reports-run48/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
 
 ### Executive Summary
 
@@ -144,8 +131,6 @@ All scores based on European Parliament Open Data Portal adopted texts (TA-10-20
 
 ### Stakeholder Impact
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/committee-reports-run48/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
-
 ### Overview
 
 Analysis of March 26 pre-Easter committee output from six stakeholder perspectives, covering Banking Union triple package (TA-0090/0091/0092), Anti-Corruption Directive (TA-0094), Tariff Countermeasures (TA-0096/0097), Water Pollutants (TA-0093), and AI Digital Omnibus (TA-0098).
@@ -226,8 +211,6 @@ Stakeholder analysis based on adopted texts TA-10-2026-0090 through TA-10-2026-0
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/committee-reports-run48/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### Risk Assessment Matrix (Likelihood × Impact)
 
@@ -337,8 +320,6 @@ Risk scores based on EP adopted texts (TA-10-2026 series), procedure pipeline da
 
 ### Political Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/committee-reports-run48/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
-
 ### Threat Overview
 
 ```mermaid
@@ -402,8 +383,6 @@ This domain-specific coalition variability means committee chairs cannot predict
 Threat landscape based on adopted texts (TA-10-2026 series), political landscape data (fragmentation 6.59, 9 groups), coalition dynamics analysis, and procedure pipeline data. All data from European Parliament Open Data Portal via MCP Server v1.2.7.
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/committee-reports-run48/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 ### Executive Summary
 
@@ -531,8 +510,6 @@ pie title EP10 Political Group Seat Distribution
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/committee-reports-run48/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
-
 ### Run Metadata
 
 - **Article Type**: committee-reports
@@ -603,6 +580,15 @@ ECR's abstention on SRMR3 while supporting tariff countermeasures reveals an int
 | threat-assessment/ | political-threat-landscape.md | ~100 |
 | . | synthesis-summary.md | This file |
 | . | manifest.json | Run metadata |
+
+> **Provenance & Audit**
+>
+> - **Article type:** `committee-reports`
+> - **Run date:** 2026-04-14
+> - **Run id:** `e93a1c2e-1784-43d5-8039-6855c4e1a1d4`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-14/committee-reports-run48](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-14/committee-reports-run48)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/committee-reports-run48/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

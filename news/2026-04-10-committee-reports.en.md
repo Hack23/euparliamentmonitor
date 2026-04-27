@@ -11,17 +11,6 @@ layout: article
 ---
 # Committee Reports — 2026-04-10
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `committee-reports`
-> - **Run date:** 2026-04-10
-> - **Run id:** `committee-reports-2026-04-10`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-10/committee-reports](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-10/committee-reports)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -35,8 +24,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-significance">Significance</h2>
 
 ### Significance Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
 ### Overall Significance: **STRATEGIC PRIORITY**
 
@@ -102,8 +89,6 @@ quadrantChart
 
 ### Stakeholder Impact
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
-
 ### EP Political Groups
 
 #### EPP (188 seats)
@@ -153,8 +138,6 @@ The Single Resolution Board gains enhanced powers under SRMR3. The European Comm
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Political Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/risk-scoring/political-risk-matrix.md" rel="noopener">View source: <code>risk-scoring/political-risk-matrix.md</code></a></p>
 
 ### Risk Dashboard
 
@@ -223,8 +206,6 @@ quadrantChart
 
 ### Political Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
-
 ### Threat Overview
 
 | Threat Vector | Severity | Likelihood | Evidence |
@@ -254,8 +235,6 @@ With 30+ texts plus 13 new COD procedures awaiting committee consideration, the 
 - Precomputed stats show legislative productivity trend is INCREASING
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 ### Executive Summary
 
@@ -445,6 +424,15 @@ Renew-ECR competitiveness coalition solidifies, challenging EPP-S&D grand coalit
 - EP MCP get_server_health - status unhealthy (Easter recess blackout)
 - Prior analysis: analysis/daily/2026-04-09/committee-reports/ (19 files processed)
 - Precomputed stats: EP10 fragmentation index 6.59, majority threshold 361 seats
+
+> **Provenance & Audit**
+>
+> - **Article type:** `committee-reports`
+> - **Run date:** 2026-04-10
+> - **Run id:** `committee-reports-2026-04-10`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-10/committee-reports](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-10/committee-reports)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

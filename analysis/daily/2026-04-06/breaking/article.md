@@ -11,22 +11,9 @@ layout: article
 ---
 # Breaking — 2026-04-06
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-06
-> - **Run id:** `breaking`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-06/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-06/breaking)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Political Swot Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking/political-swot-analysis.md" rel="noopener">View source: <code>political-swot-analysis.md</code></a></p>
 
 ### SWOT Matrix
 
@@ -136,8 +123,6 @@ API degradation persists, limiting institutional transparency. Information asymm
 *Source: European Parliament Open Data Portal via EP MCP Server. SWOT analysis follows the Political SWOT Framework (Cross-SWOT interference, TOWS matrix, scenario generation). Evidence thresholds met: 8+ evidence-backed claims, 4+ EP data citations, 4+ named actors/groups.*
 
 ### Political Threat Landscape
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking/political-threat-landscape.md" rel="noopener">View source: <code>political-threat-landscape.md</code></a></p>
 
 ### Threat Landscape Dashboard
 
@@ -280,8 +265,6 @@ API issues persist through committee week. Institutional transparency reduced. A
 *Source: European Parliament Open Data Portal via EP MCP Server. Threat landscape analysis follows the Political Threat Framework methodology (6-dimension model). Longitudinal tracking based on 15+ consecutive monitoring runs since 28 March 2026. All confidence levels stated per evidence quality hierarchy.*
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking/risk-matrix.md" rel="noopener">View source: <code>risk-matrix.md</code></a></p>
 
 ### Risk Matrix Overview
 
@@ -446,8 +429,6 @@ quadrantChart
 
 ### Significance Classification
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking/significance-classification.md" rel="noopener">View source: <code>significance-classification.md</code></a></p>
-
 ### Executive Summary
 
 | Metric | Value | Trend |
@@ -544,6 +525,15 @@ This confirms the pre-recess legislative sprint produced a substantial body of a
 ---
 
 *Source: European Parliament Open Data Portal (data.europarl.europa.eu) via EP MCP Server. Analysis produced by AI-driven political intelligence pipeline. All data verified against live EP API endpoints on 6 April 2026.*
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-06
+> - **Run id:** `breaking`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-06/breaking](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-06/breaking)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

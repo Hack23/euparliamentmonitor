@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-17
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-17
-> - **Run id:** `181`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-17/breaking-run181](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-17/breaking-run181)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run181/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -33,8 +22,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run181/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 > **Purpose**: Consolidated intelligence for April 17, 2026 breaking news analysis. Run 181 extends prior coverage with new analytical focus on the "secondary sprint" legislative cluster from March 2026 not covered in Runs 179/180.
 
@@ -171,8 +158,6 @@ These are not contradictory signals from a dysfunctional parliament. They are th
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run181/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
 ### Breaking-Run181 | April 17, 2026 | T+3 Recess Analysis
 
 ![Date](https://img.shields.io/badge/Date-2026--04--17-blue?style=flat-square)
@@ -239,8 +224,6 @@ The March 12 EP resolution positioned the EU as a multilateral trade rules champ
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Coalition Dynamics
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run181/intelligence/coalition-dynamics.md" rel="noopener">View source: <code>intelligence/coalition-dynamics.md</code></a></p>
 
 ### April 17, 2026 | Run 181
 
@@ -328,8 +311,6 @@ The fragmentation trend is gradual and structurally stable — there is no immin
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run181/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 > **Matrix dimensions**: Likelihood (1-5) × Impact (1-5) = Risk Score (1-25)
 > **Threshold**: 🔴 CRITICAL = ≥16 | 🟠 HIGH = 10-15 | 🟡 MEDIUM = 5-9 | 🟢 LOW = 1-4
@@ -429,8 +410,6 @@ Impact
 **Priority action**: BUDG+EMPL coordination on MFF 2028-2034 EGF budget framework by June 2026 (before Commission proposal deadline). This is the only Critical risk with a specific, actionable window.
 
 ### Quantitative Swot
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run181/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
 
 ### April 17, 2026 | Easter Recess T+3 | Analysis-Only Run 181
 
@@ -608,8 +587,6 @@ graph TD
 
 ### Political Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run181/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
-
 ### Breaking-Run181 | April 17, 2026
 
 ![Confidence](https://img.shields.io/badge/Confidence-Medium-yellow?style=flat-square)
@@ -716,8 +693,6 @@ Each change is reversible in isolation. The systemic threat is that the "Better 
 
 ### Cross Run Diff
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run181/intelligence/cross-run-diff.md" rel="noopener">View source: <code>intelligence/cross-run-diff.md</code></a></p>
-
 ### April 17, 2026 | Comparing Against Runs 179, 180 (Same Date)
 
 ---
@@ -814,8 +789,6 @@ This is the third breaking-news analysis run on April 17, 2026. Runs 179 and 180
 <h2 id="section-documents">Document Analysis</h2>
 
 ### Document Analysis Index
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run181/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
 
 > **Context**: 8 adopted texts from EP10 January-March 2026 not covered in Runs 179-180. These form the "secondary sprint" cluster — less headlined, but collectively revealing EP10's legislative identity beyond the Banking Union/Anti-Corruption/US tariffs trio.
 
@@ -977,7 +950,14 @@ Better Law-Making and EDIP together define the EP10 regulatory agenda battlegrou
 **Cluster 3: Geopolitical Framework Construction (TA-0078, 0086)**
 EU-Canada + WTO reform together form a coherent "multilateral democratic front" signal. EP is asserting that the EU will anchor its trade and security policy in rules-based multilateralism rather than bilateral dealmaking — a direct contrast with the US Administration's preference for bilateral leverage.
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-17
+> - **Run id:** `181`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-17/breaking-run181](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-17/breaking-run181)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run181/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

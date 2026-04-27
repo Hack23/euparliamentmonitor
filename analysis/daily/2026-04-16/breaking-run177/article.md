@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-16
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-16
-> - **Run id:** `177`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-16/breaking-run177](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-16/breaking-run177)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run177/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -33,8 +22,6 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run177/intelligence/synthesis-summary.md" rel="noopener">View source: <code>intelligence/synthesis-summary.md</code></a></p>
 
 ### Executive Summary
 
@@ -173,8 +160,6 @@ This analysis-only run (Run 177) was conducted on 16 April 2026, the second day 
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run177/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
 ### Executive Summary
 
 | Dimension | Score | Max | Assessment | Confidence |
@@ -252,8 +237,6 @@ Multiple crises converge — tariffs, defence spending, migration — exhausting
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
 ### Coalition Dynamics
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run177/intelligence/coalition-dynamics.md" rel="noopener">View source: <code>intelligence/coalition-dynamics.md</code></a></p>
 
 ### EP10 Coalition Architecture
 
@@ -376,8 +359,6 @@ The coalition will recover cohesion on non-trade files, maintaining the 0.90+ ba
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run177/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### Methodology
 
@@ -537,8 +518,6 @@ pie title Risk Score Distribution (Run 177)
 
 ### Political Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run177/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
-
 ### Threat Environment Overview
 
 The European Parliament faces a **compound threat** arising from the intersection of trade policy activation, institutional calendar constraints, and unprecedented legislative workload. This assessment evaluates threats to parliamentary effectiveness, democratic legitimacy, and coalition stability during the inter-session period.
@@ -667,8 +646,6 @@ The 2026 legislative pipeline faces a **compound disruption** from three simulta
 
 ### Document Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run177/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
 ### Document Coverage Summary
 
 This run analysed documents from the following EP data sources:
@@ -779,8 +756,6 @@ The 30 AFCO opinions in the 2026 pipeline indicate sustained activity on institu
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Quantitative Swot
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run177/intelligence/quantitative-swot.md" rel="noopener">View source: <code>intelligence/quantitative-swot.md</code></a></p>
 
 ### Methodology
 
@@ -1051,6 +1026,15 @@ The timing amplifies the threat: tariff impacts on consumer prices and export in
 | Legislative Backlog Pressure | High | High+ | ↑ |
 
 **Key Finding**: The SWOT balance is shifting incrementally toward threats and weaknesses with each day of the inter-session. The structural strengths (legislative velocity, Renew-ECR cohesion) remain stable but their value is time-limited — they only convert to parliamentary influence when plenary is in session.
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-16
+> - **Run id:** `177`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-16/breaking-run177](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-16/breaking-run177)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run177/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

@@ -11,17 +11,6 @@ layout: article
 ---
 # Committee Reports — 2026-04-16
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `committee-reports`
-> - **Run date:** 2026-04-16
-> - **Run id:** `1677eddd-9ddd-4b92-a3b7-876a5a4ce8d4`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-16/committee-reports-run50](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-16/committee-reports-run50)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,8 +23,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
 
 ### Classification Matrix
 
@@ -72,8 +59,6 @@ pie title Committee Domain Distribution Q1 2026
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
 ### Executive Summary
 
 | Item | Score | Committee | Rationale |
@@ -99,8 +84,6 @@ March 2026 sessions produced unprecedented cross-committee legislation volume. T
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 ### Stakeholder Impact
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
 
 ### EU Talent Pool (TA-10-2026-0058)
 
@@ -153,8 +136,6 @@ March 2026 sessions produced unprecedented cross-committee legislation volume. T
 
 <h2 id="section-risk">Risk Assessment</h2>
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
-
 ### Risk Matrix (Likelihood × Impact, 5×5)
 
 | Risk | Likelihood | Impact | Score | Trend |
@@ -190,8 +171,6 @@ March 2026 sessions produced unprecedented cross-committee legislation volume. T
 <h2 id="section-threat">Threat Landscape</h2>
 
 ### Threat Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/threat-assessment/threat-analysis.md" rel="noopener">View source: <code>threat-assessment/threat-analysis.md</code></a></p>
 
 ### Threat Landscape
 
@@ -230,8 +209,6 @@ Primary concern: External trade shock diverting committee legislative capacity
 
 ### Document Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
 ### Primary Feed Documents (Adopted Texts)
 
 | Doc ID | Title | Date | Committee | Score |
@@ -265,8 +242,6 @@ Primary concern: External trade shock diverting committee legislative capacity
 
 ### Swot Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/existing/swot-analysis.md" rel="noopener">View source: <code>existing/swot-analysis.md</code></a></p>
-
 ### Strengths
 - **Record productivity**: 114 legislative acts in Q1, 46% above 2025 total
 - **Cross-committee cooperation**: Multi-committee files demonstrate institutional adaptability
@@ -292,8 +267,6 @@ Primary concern: External trade shock diverting committee legislative capacity
 - **Council delays**: Trilogue bottleneck on March 26 adoptions slows final legislation
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
 
 ### Executive Summary
 
@@ -346,6 +319,15 @@ The most significant political development is the emergence of cross-committee l
 - ✅ Coalition dynamics: Fragmentation data and flexible majority analysis
 - ✅ Forward scenarios: 3 named scenarios with probability labels
 - ✅ Evidence chains: All claims cite specific EP MCP data sources
+
+> **Provenance & Audit**
+>
+> - **Article type:** `committee-reports`
+> - **Run date:** 2026-04-16
+> - **Run id:** `1677eddd-9ddd-4b92-a3b7-876a5a4ce8d4`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-16/committee-reports-run50](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-16/committee-reports-run50)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/committee-reports-run50/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

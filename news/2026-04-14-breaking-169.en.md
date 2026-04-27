@@ -11,17 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-14
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `breaking`
-> - **Run date:** 2026-04-14
-> - **Run id:** `169`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-14/breaking-run169](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-14/breaking-run169)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -33,8 +22,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/classification/political-classification.md" rel="noopener">View source: <code>classification/political-classification.md</code></a></p>
 
 ![Classification](https://img.shields.io/badge/Classification-PUBLIC-green?style=for-the-badge)
 ![Items Classified](https://img.shields.io/badge/Items-8_Key_Texts-blue?style=for-the-badge)
@@ -178,8 +165,6 @@ pie title Adopted Texts by Policy Domain (2026)
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
 ![Status](https://img.shields.io/badge/Breaking_News-NO_TODAY--DATED_EVENTS-grey?style=for-the-badge)
 ![Composite Score](https://img.shields.io/badge/Composite-17.6%2F25-orange?style=for-the-badge)
 
@@ -279,8 +264,6 @@ All scores derived from:
 - Cross-session intelligence from runs 159-168
 
 <h2 id="section-risk">Risk Assessment</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/risk-scoring/risk-assessment.md" rel="noopener">View source: <code>risk-scoring/risk-assessment.md</code></a></p>
 
 ![Risk Level](https://img.shields.io/badge/Overall_Risk-ELEVATED_18.7%2F25-orange?style=for-the-badge)
 ![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge)
@@ -466,8 +449,6 @@ quadrantChart
 
 ### Political Threat Landscape
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
-
 ![Threat Level](https://img.shields.io/badge/Threat_Level-MODERATE-yellow?style=for-the-badge)
 ![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge)
 
@@ -616,8 +597,6 @@ graph TD
 
 ### Document Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
 ![Documents](https://img.shields.io/badge/Documents_Analyzed-51_Adopted_Texts-blue?style=for-the-badge)
 ![Focus](https://img.shields.io/badge/Focus-March_26_Session-orange?style=for-the-badge)
 
@@ -763,8 +742,6 @@ gantt
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
 
 ![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=for-the-badge)
 ![Risk Level](https://img.shields.io/badge/Composite_Risk-17.6%2F25_ELEVATED-orange?style=for-the-badge)
@@ -994,6 +971,15 @@ Fragmentation prevents working majorities on key dossiers. SRMR3 trilogue stalls
 - Precomputed Statistics: Generated 2026-04-08, covering 2004-2026
 - Coalition Analysis: CIA methodology applied to current MEP composition data
 - Prior Run Intelligence: Run 168 (2026-04-13), Run 163 (2026-04-12), cross-session continuity
+
+> **Provenance & Audit**
+>
+> - **Article type:** `breaking`
+> - **Run date:** 2026-04-14
+> - **Run id:** `169`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-14/breaking-run169](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-14/breaking-run169)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

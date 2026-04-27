@@ -11,17 +11,6 @@ layout: article
 ---
 # Week Ahead — 2026-04-10
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `week-ahead`
-> - **Run date:** 2026-04-10
-> - **Run id:** `12`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-10/week-ahead-run12](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-10/week-ahead-run12)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/manifest.json)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -36,8 +25,6 @@ Use this guide to read the article as a political-intelligence product rather th
 <h2 id="section-significance">Significance</h2>
 
 ### Significance Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/classification/significance-classification.md" rel="noopener">View source: <code>classification/significance-classification.md</code></a></p>
 
 ### Overall Significance: **ROUTINE**
 
@@ -108,8 +95,6 @@ quadrantChart
 
 ### Actor Mapping
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/classification/actor-mapping.md" rel="noopener">View source: <code>classification/actor-mapping.md</code></a></p>
-
 ### Actors Identified: 2
 
 ```mermaid
@@ -134,8 +119,6 @@ pie title Actor Type Distribution — 2026-04-10
 ### Date: 2026-04-10
 
 ### Forces Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/classification/forces-analysis.md" rel="noopener">View source: <code>classification/forces-analysis.md</code></a></p>
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
@@ -168,8 +151,6 @@ pie title Political Force Distribution — 2026-04-10
 ### Date: 2026-04-10
 
 ### Impact Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/classification/impact-matrix.md" rel="noopener">View source: <code>classification/impact-matrix.md</code></a></p>
 
 ### Overall Significance: **NOTABLE**
 
@@ -205,8 +186,6 @@ pie title Impact Distribution by Dimension — 2026-04-10
 
 ### Significance Scoring
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/classification/significance-scoring.md" rel="noopener">View source: <code>classification/significance-scoring.md</code></a></p>
-
 ### Summary
 
 | Decision | Count |
@@ -239,8 +218,6 @@ pie title Impact Distribution by Dimension — 2026-04-10
 
 ### Voting Patterns
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/existing/voting-patterns.md" rel="noopener">View source: <code>existing/voting-patterns.md</code></a></p>
-
 ### Detected Trends (Script-Generated Context)
 | Trend ID | Direction | Confidence | Data Points |
 |----------|-----------|------------|-------------|
@@ -271,8 +248,6 @@ pie title Impact Distribution by Dimension — 2026-04-10
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
 ### Stakeholder Impact
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/existing/stakeholder-impact.md" rel="noopener">View source: <code>existing/stakeholder-impact.md</code></a></p>
 
 ### Data Available for Stakeholder Assessment (Script-Generated Context)
 | Stakeholder Group | Primary Data Sources | Data Points |
@@ -323,8 +298,6 @@ pie title Impact Distribution by Dimension — 2026-04-10
 <h2 id="section-risk">Risk Assessment</h2>
 
 ### Risk Matrix
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/risk-scoring/risk-matrix.md" rel="noopener">View source: <code>risk-scoring/risk-matrix.md</code></a></p>
 
 ### Overview
 
@@ -400,8 +373,6 @@ quadrantChart
 ### Date: 2026-04-10
 
 ### Quantitative Swot
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/risk-scoring/quantitative-swot.md" rel="noopener">View source: <code>risk-scoring/quantitative-swot.md</code></a></p>
 
 ### Executive Summary
 
@@ -542,8 +513,6 @@ quadrantChart
 
 ### Political Capital Risk
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/risk-scoring/political-capital-risk.md" rel="noopener">View source: <code>risk-scoring/political-capital-risk.md</code></a></p>
-
 ### Data Inventory for Capital Risk Assessment
 | Data Source | Count | Relevance |
 |-------------|-------|-----------|
@@ -555,8 +524,6 @@ quadrantChart
 ### Date: 2026-04-10
 
 ### Legislative Velocity Risk
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/risk-scoring/legislative-velocity-risk.md" rel="noopener">View source: <code>risk-scoring/legislative-velocity-risk.md</code></a></p>
 
 ### Overview
 Risk assessment based on legislative processing speed for 4 procedures.
@@ -572,8 +539,6 @@ Risk assessment based on legislative processing speed for 4 procedures.
 - **Date**: 2026-04-10
 
 ### Agent Risk Workflow
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/risk-scoring/agent-risk-workflow.md" rel="noopener">View source: <code>risk-scoring/agent-risk-workflow.md</code></a></p>
 
 ### Risk Heat Map
 
@@ -612,8 +577,6 @@ Risk assessment based on legislative processing speed for 4 procedures.
 
 ### Actor Threat Profiling
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/threat-assessment/actor-threat-profiling.md" rel="noopener">View source: <code>threat-assessment/actor-threat-profiling.md</code></a></p>
-
 ### Overview
 Individual threat profiles for 0 political actors.
 
@@ -625,8 +588,6 @@ Individual threat profiles for 0 political actors.
 ### Date: 2026-04-10
 
 ### Consequence Trees
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/threat-assessment/consequence-trees.md" rel="noopener">View source: <code>threat-assessment/consequence-trees.md</code></a></p>
 
 ### Overview
 Structured analysis of action-consequence chains for 4 legislative procedures.
@@ -663,8 +624,6 @@ Structured analysis of action-consequence chains for 4 legislative procedures.
 
 ### Legislative Disruption
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/threat-assessment/legislative-disruption.md" rel="noopener">View source: <code>threat-assessment/legislative-disruption.md</code></a></p>
-
 ### Overview
 Identification of factors disrupting the normal legislative process.
 
@@ -676,8 +635,6 @@ Identification of factors disrupting the normal legislative process.
 ### Date: 2026-04-10
 
 ### Political Threat Landscape
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/threat-assessment/political-threat-landscape.md" rel="noopener">View source: <code>threat-assessment/political-threat-landscape.md</code></a></p>
 
 ### Political Threat Landscape Analysis
 
@@ -799,8 +756,6 @@ graph TD
 
 ### Cross Session Intelligence
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/existing/cross-session-intelligence.md" rel="noopener">View source: <code>existing/cross-session-intelligence.md</code></a></p>
-
 ### Computed Stability Metrics (Script-Generated Context)
 - **Overall Stability**: 0.0%
 - **Forecast**: volatile
@@ -827,8 +782,6 @@ graph TD
 ### Date: 2026-04-10
 
 <h2 id="section-deep-analysis">Deep Analysis</h2>
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/existing/deep-analysis.md" rel="noopener">View source: <code>existing/deep-analysis.md</code></a></p>
 
 ### Pipeline Data Context
 
@@ -911,8 +864,6 @@ graph TD
 
 ### Document Analysis Index
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/document-analysis-index.md" rel="noopener">View source: <code>documents/document-analysis-index.md</code></a></p>
-
 ### Executive Summary
 
 Full per-document political intelligence analysis for 21 unique documents
@@ -983,8 +934,6 @@ All 21 documents have been stored in their entirety:
 
 ### Adoptedtexts Ai Act Delegated Acts Implementation Timeline 1k46de Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/adoptedtexts-ai-act-delegated-acts-implementation-timeline-1k46de-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-ai-act-delegated-acts-implementation-timeline-1k46de-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1052,8 +1001,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Adoptedtexts Anti Corruption Directive Establishing Minimum R Of9y4z Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/adoptedtexts-anti-corruption-directive-establishing-minimum-r-of9y4z-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-anti-corruption-directive-establishing-minimum-r-of9y4z-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1123,8 +1070,6 @@ No description available
 
 ### Adoptedtexts Bank Recovery And Resolution Directive Brrd3 B Bq346k Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/adoptedtexts-bank-recovery-and-resolution-directive-brrd3-b-bq346k-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-bank-recovery-and-resolution-directive-brrd3-b-bq346k-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1192,8 +1137,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Adoptedtexts Clean Industrial Deal Framework Regulation Xv8wy2 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/adoptedtexts-clean-industrial-deal-framework-regulation-xv8wy2-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-clean-industrial-deal-framework-regulation-xv8wy2-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1263,8 +1206,6 @@ No description available
 
 ### Adoptedtexts Deposit Guarantee Schemes Directive Dgsd2 Bank 4hn9dl Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/adoptedtexts-deposit-guarantee-schemes-directive-dgsd2-bank-4hn9dl-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-deposit-guarantee-schemes-directive-dgsd2-bank-4hn9dl-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1332,8 +1273,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Adoptedtexts Digital Sovereignty And Cloud Services Framework 3yjkwy Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/adoptedtexts-digital-sovereignty-and-cloud-services-framework-3yjkwy-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-digital-sovereignty-and-cloud-services-framework-3yjkwy-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1403,8 +1342,6 @@ No description available
 
 ### Adoptedtexts European Defence Industrial Strategy Implementatio 5fjcvr Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/adoptedtexts-european-defence-industrial-strategy-implementatio-5fjcvr-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-european-defence-industrial-strategy-implementatio-5fjcvr-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1472,8 +1409,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Adoptedtexts European Globalisation Adjustment Fund Austria K Y6v0s Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/adoptedtexts-european-globalisation-adjustment-fund-austria-k-y6v0s-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-european-globalisation-adjustment-fund-austria-k-y6v0s-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1543,8 +1478,6 @@ No description available
 
 ### Adoptedtexts Mercosur Bilateral Safeguard Clause Regulation Rfnbej Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/adoptedtexts-mercosur-bilateral-safeguard-clause-regulation-rfnbej-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-mercosur-bilateral-safeguard-clause-regulation-rfnbej-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1612,8 +1545,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Adoptedtexts Single Resolution Mechanism Regulation Srmr3 B 1jj9p0 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/adoptedtexts-single-resolution-mechanism-regulation-srmr3-b-1jj9p0-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-single-resolution-mechanism-regulation-srmr3-b-1jj9p0-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1683,8 +1614,6 @@ No description available
 
 ### Adoptedtexts Waiver Of Immunity Daniel Freund Mep 59hc6g Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/adoptedtexts-waiver-of-immunity-daniel-freund-mep-59hc6g-analysis.md" rel="noopener">View source: <code>documents/adoptedtexts-waiver-of-immunity-daniel-freund-mep-59hc6g-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1752,8 +1681,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Documents Econ Working Document On Banking Union Trilogue Pr Kzmq3x Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/documents-econ-working-document-on-banking-union-trilogue-pr-kzmq3x-analysis.md" rel="noopener">View source: <code>documents/documents-econ-working-document-on-banking-union-trilogue-pr-kzmq3x-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1823,8 +1750,6 @@ No description available
 
 ### Documents Inta Draft Report On Eu Trade Countermeasures Yq8lzk Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/documents-inta-draft-report-on-eu-trade-countermeasures-yq8lzk-analysis.md" rel="noopener">View source: <code>documents/documents-inta-draft-report-on-eu-trade-countermeasures-yq8lzk-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -1892,8 +1817,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Events Committee Week Post Easter Restart Logol0 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/events-committee-week-post-easter-restart-logol0-analysis.md" rel="noopener">View source: <code>documents/events-committee-week-post-easter-restart-logol0-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -1963,8 +1886,6 @@ First committee meetings after Easter recess
 
 ### Events Econ Committee Meeting Banking Union Trilogue Ma Y2sd3e Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/events-econ-committee-meeting-banking-union-trilogue-ma-y2sd3e-analysis.md" rel="noopener">View source: <code>documents/events-econ-committee-meeting-banking-union-trilogue-ma-y2sd3e-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -2032,8 +1953,6 @@ Preparation of Council negotiating position for SRMR3/BRRD3/DGSD2
 ### Analysis Date: 2026-04-10
 
 ### Events Inta Emergency Session Us Tariff Countermeasures 8tngyr Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/events-inta-emergency-session-us-tariff-countermeasures-8tngyr-analysis.md" rel="noopener">View source: <code>documents/events-inta-emergency-session-us-tariff-countermeasures-8tngyr-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -2103,8 +2022,6 @@ Emergency consideration of EU trade response package
 
 ### Events Plenary Session Restart Fvz8h3 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/events-plenary-session-restart-fvz8h3-analysis.md" rel="noopener">View source: <code>documents/events-plenary-session-restart-fvz8h3-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -2172,8 +2089,6 @@ First plenary after Easter recess, Strasbourg
 ### Analysis Date: 2026-04-10
 
 ### Procedures Bank Recovery And Resolution Directive Recast Brr Ep53j2 Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/procedures-bank-recovery-and-resolution-directive-recast-brr-ep53j2-analysis.md" rel="noopener">View source: <code>documents/procedures-bank-recovery-and-resolution-directive-recast-brr-ep53j2-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -2243,8 +2158,6 @@ No description available
 
 ### Procedures Deposit Guarantee Schemes Directive Revision Dgsd 8nmxb3 Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/procedures-deposit-guarantee-schemes-directive-revision-dgsd-8nmxb3-analysis.md" rel="noopener">View source: <code>documents/procedures-deposit-guarantee-schemes-directive-revision-dgsd-8nmxb3-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -2313,8 +2226,6 @@ No description available
 
 ### Procedures Eu Countermeasures To Us Tariff Actions Trade Em 4f56gm Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/procedures-eu-countermeasures-to-us-tariff-actions-trade-em-4f56gm-analysis.md" rel="noopener">View source: <code>documents/procedures-eu-countermeasures-to-us-tariff-actions-trade-em-4f56gm-analysis.md</code></a></p>
-
 ### Document Metadata
 
 | Field | Value |
@@ -2382,8 +2293,6 @@ No description available
 ### Analysis Date: 2026-04-10
 
 ### Procedures Single Resolution Mechanism Regulation Recast Srm Iy50ec Analysis
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/documents/procedures-single-resolution-mechanism-regulation-recast-srm-iy50ec-analysis.md" rel="noopener">View source: <code>documents/procedures-single-resolution-mechanism-regulation-recast-srm-iy50ec-analysis.md</code></a></p>
 
 ### Document Metadata
 
@@ -2455,8 +2364,6 @@ No description available
 
 ### Coalition Dynamics
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/existing/coalition-dynamics.md" rel="noopener">View source: <code>existing/coalition-dynamics.md</code></a></p>
-
 ### Computed Metrics (Script-Generated Context)
 - **Overall Stability**: 0.0%
 - **Forecast**: volatile
@@ -2484,8 +2391,6 @@ No description available
 ### Date: 2026-04-10
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/existing/synthesis-summary.md" rel="noopener">View source: <code>existing/synthesis-summary.md</code></a></p>
 
 ### 📋 Synthesis Context
 
@@ -2541,8 +2446,6 @@ No description available
 
 ### Synthesis Summary
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
-
 ### Key Intelligence Findings
 
 1. **CRITICAL: US Tariff Deadline (15 April)** - Forces INTA emergency session on committee restart day. Procedure 2025/0261(COD). Risk score 16/25. Coalition fault line between measured EPP response and robust Renew-ECR retaliation stance.
@@ -2571,8 +2474,6 @@ Based on significance scoring, the article should lead with the convergence of t
 **Headline direction:** Focus on the tariff deadline as the forcing function that tests both institutional capacity and coalition cohesion during post-Easter restart.
 
 ### Weekly Intelligence Brief
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/weekly-intelligence-brief.md" rel="noopener">View source: <code>weekly-intelligence-brief.md</code></a></p>
 
 ### Situation Overview Dashboard
 
@@ -2741,6 +2642,15 @@ Overall Threat Level: MODERATE (14/30)
 4. Procedure references: 2025/0261(COD), 2023/0111(COD), 2023/0135(COD)
 5. Adopted text references: TA-10-2026-0092, TA-10-2026-0094, TA-10-2026-0096
 6. EP10 parliamentary calendar (published schedule)
+
+> **Provenance & Audit**
+>
+> - **Article type:** `week-ahead`
+> - **Run date:** 2026-04-10
+> - **Run id:** `12`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-10/week-ahead-run12](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-10/week-ahead-run12)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/week-ahead-run12/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 

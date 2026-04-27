@@ -11,22 +11,9 @@ layout: article
 ---
 # Week Ahead — 2026-04-14
 
-<!-- Aggregated analysis — do not edit; regenerate via `npm run generate-article`. -->
-
-> **Provenance**
->
-> - **Article type:** `week-ahead`
-> - **Run date:** 2026-04-14
-> - **Run id:** `d453dec8-df2f-4b80-9c0c-73659e377e8c`
-> - **Gate result:** `PENDING`
-> - **Analysis tree:** [analysis/daily/2026-04-14/week-ahead-run13](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-14/week-ahead-run13)
-> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/week-ahead-run13/manifest.json)
-
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Political Classification
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/week-ahead-run13/political-classification.md" rel="noopener">View source: <code>political-classification.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -102,8 +89,6 @@ layout: article
 
 ### Risk Assessment
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/week-ahead-run13/risk-assessment.md" rel="noopener">View source: <code>risk-assessment.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Assessment ID** | `RSK-2026-04-14-013` |
@@ -166,8 +151,6 @@ layout: article
 - Precomputed stats (2025-2026 legislative output comparison)
 
 ### Significance Scoring
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/week-ahead-run13/significance-scoring.md" rel="noopener">View source: <code>significance-scoring.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -253,8 +236,6 @@ layout: article
 
 ### Swot Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/week-ahead-run13/swot-analysis.md" rel="noopener">View source: <code>swot-analysis.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **SWOT ID** | `SWOT-2026-04-14-013` |
@@ -312,8 +293,6 @@ The key variable is Renew (76 seats) — as the structural kingmaker, their posi
 - Prior runs 156-171 cross-referenced
 
 ### Synthesis Summary
-
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/week-ahead-run13/synthesis-summary.md" rel="noopener">View source: <code>synthesis-summary.md</code></a></p>
 
 | Field | Value |
 |-------|-------|
@@ -403,8 +382,6 @@ TA-10-2026-0094 (COD 2023/0135) — post-Qatargate reforms entering trilogue. LI
 
 ### Threat Analysis
 
-<p class="artifact-source"><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/week-ahead-run13/threat-analysis.md" rel="noopener">View source: <code>threat-analysis.md</code></a></p>
-
 | Field | Value |
 |-------|-------|
 | **Threat ID** | `THR-2026-04-14-013` |
@@ -476,6 +453,15 @@ The three threats are interconnected: trade crisis (THR-001) amplifies capacity 
 - Early warning system: 3 warnings at HIGH sensitivity
 - Coalition dynamics: grand coalition deficit -41 seats
 - Prior analysis: Runs 156-171 (April 10-14 cross-reference)
+
+> **Provenance & Audit**
+>
+> - **Article type:** `week-ahead`
+> - **Run date:** 2026-04-14
+> - **Run id:** `d453dec8-df2f-4b80-9c0c-73659e377e8c`
+> - **Gate result:** `PENDING`
+> - **Analysis tree:** [analysis/daily/2026-04-14/week-ahead-run13](https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-14/week-ahead-run13)
+> - **Manifest:** [manifest.json](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/week-ahead-run13/manifest.json)
 
 <h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
 
