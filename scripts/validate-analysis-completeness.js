@@ -90,6 +90,9 @@ const MCP_TOOL_RE =
 const IMF_SOURCE_FIELD_RE =
   /^\|\s*\*\*IMF Source\*\*\s*\|\s*`?([^`|\]]+?)`?\s*\|/im;
 
+// Keep the proximity window wide enough for one short citation clause
+// ("IMF WEO April 2026 reports Germany at 1.1%...") but narrow enough to
+// avoid treating a generic methodology paragraph as a numeric IMF claim.
 const IMF_FIGURE_CLAIM_RE =
   /\bIMF\b[\s\S]{0,160}\b\d+(?:\.\d+)?\s*(?:%|pp|percentage points|GDP|EUR|USD|billion|trillion|million)/i;
 

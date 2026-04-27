@@ -54,6 +54,8 @@ _IMF_WEO_QUERY="data/WEO/EA+DEU+FRA+ITA.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP.A?startPer
 _IMF_CURL_OPTS=(--silent --show-error --fail --max-time 15 --connect-timeout 5 \
   -H 'Accept: application/json')
 
+# Use the repo-standard Node runtime for JSON escaping instead of adding a jq
+# dependency to workflow containers.
 _imf_json_string() {
   node -e 'process.stdout.write(JSON.stringify(process.argv[1] || ""));' -- "$1" 2>/dev/null \
     || printf '""'

@@ -142,6 +142,8 @@ function encodeSDMXDimension(codes) {
 function buildSDMXKey(dimensions, filters) {
     return dimensions
         .map((dim) => {
+        // Avoid direct dynamic object indexing here so the security lint rule
+        // does not flag caller-supplied SDMX dimension names as an injection sink.
         const codes = Object.entries(filters).find(([key]) => key === dim)?.[1];
         return Array.isArray(codes) ? encodeSDMXDimension(codes) : '';
     })

@@ -12,6 +12,7 @@ const VALIDATOR = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   '../../scripts/validate-analysis-completeness.js',
 );
+const ECONOMIC_CONTEXT_PADDING_LINES = 230;
 
 function run(runDir, extraArgs = []) {
   const result = spawnSync(
@@ -246,7 +247,10 @@ describe('scripts/validate-analysis-completeness.js', () => {
       'IMF --> EP',
       '```',
       '',
-      ...Array.from({ length: 230 }, (_, i) => `Filler line ${i}`),
+      ...Array.from(
+        { length: ECONOMIC_CONTEXT_PADDING_LINES },
+        (_, i) => `Filler line ${i}`,
+      ),
     ].join('\n');
   }
 
