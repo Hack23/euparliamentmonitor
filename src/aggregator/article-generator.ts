@@ -37,6 +37,7 @@ import { renderMarkdown } from './markdown-renderer.js';
 import { wrapArticleHtml, getArticleFilename } from './article-html.js';
 import { ALL_LANGUAGES } from '../constants/language-core.js';
 import type { LanguageCode } from '../types/index.js';
+import { blobUrl } from './infra/github-urls.js';
 
 /** Parsed CLI arguments. */
 export interface CliOptions {
@@ -477,9 +478,7 @@ function writeLanguageVariant(
     sourceMarkdownRelPath: chromeOptions.sourceMarkdownRelPath,
     toc: aggregated.sectionToc,
     articleCount: chromeOptions.articleCount,
-    isBasedOn: aggregated.includedArtifacts.map(
-      (a) => `https://github.com/Hack23/euparliamentmonitor/blob/main/${a.repoRelPath}`
-    ),
+    isBasedOn: aggregated.includedArtifacts.map((a) => blobUrl(a.repoRelPath)),
   });
   const filename = getArticleFilename(slug, lang);
   fs.writeFileSync(path.join(opts.outDir, filename), html, 'utf8');

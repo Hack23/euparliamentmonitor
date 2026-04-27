@@ -13,60 +13,37 @@ import fs from 'fs';
 import path from 'path';
 import { ARTIFACT_SECTIONS, MANIFEST_SECTION_ID, MANIFEST_SECTION_TITLE, SUPPLEMENTARY_SECTION_ID, SUPPLEMENTARY_SECTION_TITLE, TRADECRAFT_SECTION_ID, TRADECRAFT_SECTION_TITLE, } from './artifact-order.js';
 import { cleanArtifact, githubBlobUrl } from './clean-artifact.js';
+import { treeUrl } from './infra/github-urls.js';
+import { flattenManifestFiles as _flattenManifestFiles, latestGateResult as _latestGateResult, resolveArticleType as _resolveArticleType, resolveRunId as _resolveRunId, } from './manifest/index.js';
 /** Id of the generated reader guide section. */
 export const READER_GUIDE_SECTION_ID = 'reader-intelligence-guide';
 /** Display title of the generated reader guide section. */
 export const READER_GUIDE_SECTION_TITLE = 'Reader Intelligence Guide';
 /**
- * Extract every string entry from a single `files` value (which may be an
- * array of strings or a `path → description` object). Split out so
- * {@link flattenManifestFiles} stays under the cognitive-complexity budget.
- *
- * @param value - One value from `Object.values(files)`
- * @returns Strings contained within, or `[]` when the shape is unknown
- */
-function extractFileEntries(value) {
-    if (Array.isArray(value)) {
-        return value.filter((e) => typeof e === 'string');
-    }
-    if (value && typeof value === 'object') {
-        return Object.keys(value);
-    }
-    return [];
-}
-/**
  * Normalise `manifest.files` into a flat list of `runRelPath` strings.
+ *
+ * Thin re-export of {@link _flattenManifestFiles} from
+ * `aggregator/manifest/index.js`; preserved here so external callers
+ * (`backport-article-seo`, curator scripts) keep resolving.
  *
  * @param files - Manifest `files` section (nested or flat)
  * @returns De-duplicated list of run-relative artifact paths
  */
 export function flattenManifestFiles(files) {
-    if (!files)
-        return [];
-    const out = [];
-    for (const value of Object.values(files)) {
-        out.push(...extractFileEntries(value));
-    }
-    return out;
+    return _flattenManifestFiles(files);
 }
 /**
  * Pick the latest non-PENDING gateResult from `manifest.history[]`, falling
- * back to `PENDING` if none is recorded. Mirrors the behaviour of
- * {@link readLatestResolvedGateResult} in `src/utils/file-utils.ts` but
- * operates on an in-memory manifest.
+ * back to `PENDING` if none is recorded.
+ *
+ * Thin re-export of {@link _latestGateResult} from
+ * `aggregator/manifest/index.js`.
  *
  * @param manifest - Parsed manifest object
  * @returns The latest non-PENDING gate result, or `"PENDING"` when none found
  */
 export function latestGateResult(manifest) {
-    const history = manifest.history ?? [];
-    for (let i = history.length - 1; i >= 0; i--) {
-        const entry = history[i];
-        const gr = entry?.gateResult;
-        if (gr && gr !== 'PENDING')
-            return gr;
-    }
-    return 'PENDING';
+    return _latestGateResult(manifest);
 }
 /**
  * Expand an `artifacts` entry from {@link ArtifactSection} into a list of
@@ -207,7 +184,7 @@ function humanize(stem) {
  */
 export function renderProvenanceBlock(params) {
     const manifestUrl = githubBlobUrl(params.manifestRelPath);
-    const treeUrl = `https://github.com/Hack23/euparliamentmonitor/tree/main/${params.runDirRelPath}`;
+    const treeHref = treeUrl(params.runDirRelPath);
     return [
         '> **Provenance & Audit**',
         '>',
@@ -215,7 +192,7 @@ export function renderProvenanceBlock(params) {
         `> - **Run date:** ${params.date}`,
         `> - **Run id:** \`${params.runId}\``,
         `> - **Gate result:** \`${params.gateResult}\``,
-        `> - **Analysis tree:** [${params.runDirRelPath}](${treeUrl})`,
+        `> - **Analysis tree:** [${params.runDirRelPath}](${treeHref})`,
         `> - **Manifest:** [manifest.json](${manifestUrl})`,
         '',
     ].join('\n');
@@ -473,28 +450,15 @@ function appendSection(runDir, runDirRelPath, sectionId, sectionTitle, paths, se
 /**
  * Resolve the article-type slug from a manifest, tolerating legacy schemas.
  *
- * Resolution order (highest precedence first):
- *   1. `articleType` — canonical singular field
- *   2. `articleTypes[0]` — pre-aggregator-pipeline plural array
- *   3. `runType` — legacy field on older breaking-run manifests
- *
- * Falls back to `'unknown'` when none of the above is a non-empty string.
+ * Thin re-export of {@link _resolveArticleType} from
+ * `aggregator/manifest/index.js`. Resolution order: `articleType` →
+ * `articleTypes[0]` → `runType` → `'unknown'`.
  *
  * @param manifest - Parsed manifest (any of the supported schemas)
  * @returns Article-type slug usable as a filename component
  */
 export function resolveArticleTypeFromManifest(manifest) {
-    if (typeof manifest.articleType === 'string' && manifest.articleType) {
-        return manifest.articleType;
-    }
-    const first = manifest.articleTypes?.[0];
-    if (typeof first === 'string' && first) {
-        return first;
-    }
-    if (typeof manifest.runType === 'string' && manifest.runType) {
-        return manifest.runType;
-    }
-    return 'unknown';
+    return _resolveArticleType(manifest);
 }
 /**
  * Read, clean, and concatenate every artifact declared by the run's manifest
@@ -559,7 +523,7 @@ export function aggregateAnalysisRun(options) {
     const tradecraftFiles = options.tradecraftFiles ?? discoverTradecraftFiles(repoRoot);
     const articleType = resolveArticleTypeFromManifest(manifest);
     const date = manifest.date ?? guessDateFromRunDir(runDirRelPath);
-    const runId = manifest.runId ?? path.basename(runDir);
+    const runId = _resolveRunId(manifest, path.basename(runDir));
     const gateResult = latestGateResult(manifest);
     const manifestRelPath = `${runDirRelPath}/manifest.json`;
     const documentTitle = `${humanize(articleType)} — ${date}`;

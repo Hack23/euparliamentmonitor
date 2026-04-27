@@ -24,6 +24,7 @@ import { resolveArticleMetadata, extractStrongProseLine, } from './article-metad
 import { renderMarkdown } from './markdown-renderer.js';
 import { wrapArticleHtml, getArticleFilename } from './article-html.js';
 import { ALL_LANGUAGES } from '../constants/language-core.js';
+import { blobUrl } from './infra/github-urls.js';
 /**
  * Fold one parsed {@link FlagResult} into the accumulator. Split out so
  * {@link parseCliArgs} stays under the cognitive-complexity budget.
@@ -350,7 +351,7 @@ function writeLanguageVariant(lang, slug, aggregated, englishHtml, chromeOptions
         sourceMarkdownRelPath: chromeOptions.sourceMarkdownRelPath,
         toc: aggregated.sectionToc,
         articleCount: chromeOptions.articleCount,
-        isBasedOn: aggregated.includedArtifacts.map((a) => `https://github.com/Hack23/euparliamentmonitor/blob/main/${a.repoRelPath}`),
+        isBasedOn: aggregated.includedArtifacts.map((a) => blobUrl(a.repoRelPath)),
     });
     const filename = getArticleFilename(slug, lang);
     fs.writeFileSync(path.join(opts.outDir, filename), html, 'utf8');

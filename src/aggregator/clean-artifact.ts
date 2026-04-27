@@ -21,11 +21,10 @@
  *      state) — identical blocks are replaced with a reference comment.
  */
 
-/** Hack23 repo slug used when building blob/raw URLs. */
-const GITHUB_REPO = 'Hack23/euparliamentmonitor';
-
-/** Default branch used in generated URLs. */
-const GITHUB_BRANCH = 'main';
+// Re-export GitHub URL helpers from the canonical infra module so callers
+// that already imported `githubBlobUrl` / `githubRawUrl` from this file
+// keep working. New code should import from `aggregator/infra/github-urls.js`.
+import { blobUrl as _blobUrl, rawUrl as _rawUrl } from './infra/github-urls.js';
 
 /**
  * Build a GitHub blob URL for a repo-relative path.
@@ -34,7 +33,7 @@ const GITHUB_BRANCH = 'main';
  * @returns Absolute `https://github.com/.../blob/main/...` URL
  */
 export function githubBlobUrl(relPath: string): string {
-  return `https://github.com/${GITHUB_REPO}/blob/${GITHUB_BRANCH}/${relPath.replace(/\\/g, '/')}`;
+  return _blobUrl(relPath);
 }
 
 /**
@@ -44,7 +43,7 @@ export function githubBlobUrl(relPath: string): string {
  * @returns Absolute raw-content URL
  */
 export function githubRawUrl(relPath: string): string {
-  return `https://raw.githubusercontent.com/${GITHUB_REPO}/${GITHUB_BRANCH}/${relPath.replace(/\\/g, '/')}`;
+  return _rawUrl(relPath);
 }
 
 /** Options controlling artifact cleanup. */
