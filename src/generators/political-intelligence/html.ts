@@ -25,7 +25,11 @@ import {
   getTextDirection,
 } from '../../constants/languages.js';
 import { FOOTER_SITEMAP_LABELS } from '../../constants/language-ui.js';
-import { buildSiteFooter, buildSiteHeader, buildPageBanner } from '../../templates/section-builders.js';
+import {
+  buildSiteFooter,
+  buildSiteHeader,
+  buildPageBanner,
+} from '../../templates/section-builders.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { blobUrl, treeUrl } from '../../aggregator/infra/github-urls.js';
 import type { LanguageCode } from '../../types/index.js';

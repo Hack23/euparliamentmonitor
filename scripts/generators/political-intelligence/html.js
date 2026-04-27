@@ -15,7 +15,7 @@
 import { BASE_URL, THEME_TOGGLE_SCRIPT } from '../../constants/config.js';
 import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, PAGE_TITLES, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../../constants/languages.js';
 import { FOOTER_SITEMAP_LABELS } from '../../constants/language-ui.js';
-import { buildSiteFooter, buildSiteHeader, buildPageBanner } from '../../templates/section-builders.js';
+import { buildSiteFooter, buildSiteHeader, buildPageBanner, } from '../../templates/section-builders.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { blobUrl, treeUrl } from '../../aggregator/infra/github-urls.js';
 import { getCuratedDescription, getCuratedTitle, getRunTypeInfo, getArtifactInfo, } from '../political-intelligence-descriptions.js';
