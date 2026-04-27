@@ -214,6 +214,7 @@ Per-request timeout: 30 s (override with `IMF_API_TIMEOUT_MS`).
 
 ```bash
 source scripts/mcp-setup.sh
+mkdir -p "${ANALYSIS_DIR}/cache/imf"
 source scripts/imf-mcp-probe.sh > "${ANALYSIS_DIR}/cache/imf/probe-summary.json"
 if [ "$IMF_MCP_OK" = "true" ]; then
   echo "IMF data available — prefer IMF for macro context"

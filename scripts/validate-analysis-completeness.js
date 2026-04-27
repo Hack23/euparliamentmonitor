@@ -276,22 +276,55 @@ function parseImfSourceField(content) {
   if (raw.startsWith('live')) return 'live';
   if (raw.startsWith('cache')) return 'cache';
   if (raw.startsWith('knowledge-only')) return 'knowledge-only';
-  return raw;
+  // Unknown value (including untouched template placeholders like
+  // "<live | cache | knowledge-only>") must not bypass the provenance gate.
+  return null;
 }
 
 function claimsImfFigures(content) {
   return IMF_FIGURE_CLAIM_RE.test(content);
 }
 
+// Stage C IMF evidence gate. The probe always writes a summary JSON even
+// when `available:false`, so a generic "any .json file" check is insufficient
+// — it would let a failed probe satisfy the gate. Require:
+//   1. At least one canonical WEO evidence file (`weo-*.json`) that is
+//      non-empty, AND
+//   2. If `imf-probe-summary.json` is present, it must report
+//      `available:true` (the probe writes `available:false` when the live
+//      fetch failed and no cache was hit).
 function hasImfCacheJson(runDir) {
   const cacheDir = path.join(runDir, 'cache', 'imf');
+  let entries;
   try {
-    return fs
-      .readdirSync(cacheDir, { withFileTypes: true })
-      .some((entry) => entry.isFile() && entry.name.endsWith('.json'));
+    entries = fs.readdirSync(cacheDir, { withFileTypes: true });
   } catch {
     return false;
   }
+  const hasWeoEvidence = entries.some((entry) => {
+    if (
+      !entry.isFile() ||
+      !entry.name.startsWith('weo-') ||
+      !entry.name.endsWith('.json')
+    ) {
+      return false;
+    }
+    try {
+      return fs.statSync(path.join(cacheDir, entry.name)).size > 0;
+    } catch {
+      return false;
+    }
+  });
+  if (!hasWeoEvidence) return false;
+  const summaryPath = path.join(cacheDir, 'imf-probe-summary.json');
+  try {
+    const summary = JSON.parse(fs.readFileSync(summaryPath, 'utf8'));
+    if (summary && summary.available === false) return false;
+  } catch {
+    // No summary, unreadable, or malformed — fall back to the WEO evidence
+    // check above. The summary is best-effort additional confirmation.
+  }
+  return true;
 }
 
 function dirOfArtifact(relativePath) {
