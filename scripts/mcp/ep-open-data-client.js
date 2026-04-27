@@ -108,9 +108,7 @@ export class EPOpenDataClient {
         }
         this._apiBaseUrl = end === base.length ? base : base.slice(0, end);
         this._timeoutMs =
-            options.timeoutMs !== undefined &&
-                Number.isFinite(options.timeoutMs) &&
-                options.timeoutMs > 0
+            options.timeoutMs !== undefined && Number.isFinite(options.timeoutMs) && options.timeoutMs > 0
                 ? options.timeoutMs
                 : Number.isFinite(parsedEnvTimeout) && parsedEnvTimeout > 0
                     ? parsedEnvTimeout
@@ -146,7 +144,9 @@ export class EPOpenDataClient {
         }
         catch (error) {
             const message = error instanceof Error ? error.message : String(error);
-            throw new Error(`Invalid EP_OPEN_DATA_BASE_URL "${this._apiBaseUrl}": ${message}`, { cause: error });
+            throw new Error(`Invalid EP_OPEN_DATA_BASE_URL "${this._apiBaseUrl}": ${message}`, {
+                cause: error,
+            });
         }
     }
     /**
@@ -243,10 +243,11 @@ export class EPOpenDataClient {
      * Build the canonical `🔴 voting data unavailable` marker emitted when
      * both MCP and the EP Open Data Portal fallback return empty.
      *
-     * The marker text is intentionally not a JSON votes array so consumers
-     * that read raw text for display purposes see the human-readable alert.
-     * {@link isVotingDataEmpty} treats this as "empty" so it can be passed
-     * safely through the existing pipeline.
+     * The returned payload remains a normal MCP JSON envelope containing an
+     * empty `votes` array plus human-readable marker metadata (`_marker`,
+     * `_reason`, `_unavailable`). This preserves compatibility with consumers
+     * that parse `response.content[0]?.text` as JSON, while still exposing a
+     * clear alert message for downstream display or diagnostics.
      *
      * @param dateFrom - Analysis period start (YYYY-MM-DD).
      * @param dateTo   - Analysis period end (YYYY-MM-DD).

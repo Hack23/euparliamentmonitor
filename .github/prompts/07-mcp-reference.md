@@ -310,7 +310,7 @@ Failures are skipped, not retried.
 # Stage A — always run this after get_voting_records returns
 # (no shell expansion patterns — use explicit if/else, not ${VAR:-$(cmd)})
 MCP_VOTES=$(get_voting_records_result)
-if [ -z "$MCP_VOTES" ] || echo "$MCP_VOTES" | grep -q '"votes":\[\]'; then
+if [ -z "$MCP_VOTES" ] || echo "$MCP_VOTES" | grep -Eq '"votes"[[:space:]]*:[[:space:]]*\[[[:space:]]*\]'; then
   # Activate EP Open Data Portal fallback
   # In TypeScript: call getVotingRecordsWithFallback(mcpResult, { dateFrom, dateTo })
   FALLBACK_ACTIVE=true

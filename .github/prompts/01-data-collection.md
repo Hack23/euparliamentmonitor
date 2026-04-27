@@ -33,9 +33,9 @@ Every workflow downloads (tools and parameter corrections in
    - `get_adopted_texts({ year, limit: 100 })` — full text, not titles
    Budget: up to 10 deep-fetch calls.
 4. **Voting-data fallback (MANDATORY when get_voting_records returns empty)** —
-   EP roll-call data publishes with a 4–6 week delay (documented, §6 rule 6 in
-   `07-mcp-reference.md` §11). When `get_voting_records` returns an empty votes
-   array, **always** activate the EP Open Data Portal fallback before writing
+   EP roll-call data publishes with a 4–6 week delay (documented in
+   `07-mcp-reference.md` §11 item #6). When `get_voting_records` returns an empty
+   votes array, **always** activate the EP Open Data Portal fallback before writing
    `voting-patterns.md`:
    - In TypeScript: call `getVotingRecordsWithFallback(mcpResult, { dateFrom, dateTo })`
      from `src/mcp/ep-open-data-client.ts`.
