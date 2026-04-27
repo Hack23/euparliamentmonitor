@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -313,6 +313,25 @@ describe('scripts/aggregator/prior-run-diff.js', () => {
       fs.writeFileSync(path.join(runDir, 'manifest.json'), JSON.stringify(legacyManifest), 'utf8');
       const plan = buildPriorRunDiff(runDir, THRESHOLDS, true);
       expect(plan.articleType).toBe('breaking');
+    });
+
+    it('handles manifest.files entries that are bare strings (e.g. "executiveBrief": "executive-brief.md")', () => {
+      const stringValueManifest = {
+        articleType: 'week-in-review',
+        files: {
+          executiveBrief: 'executive-brief.md',
+          synthesis: { path: 'intelligence/synthesis-summary.md' },
+        },
+        history: [{ runId: 'sv-run-1', gateResult: 'GREEN', filesWritten: [] }],
+      };
+      fs.writeFileSync(path.join(runDir, 'manifest.json'), JSON.stringify(stringValueManifest), 'utf8');
+      writeArtifact('executive-brief.md', makeLines(200));
+      writeArtifact('intelligence/synthesis-summary.md', makeLines(200, { mermaid: true }));
+
+      const plan = buildPriorRunDiff(runDir, THRESHOLDS, true);
+      const cfPaths = plan.carryForward.map((e) => e.relativePath);
+      expect(cfPaths).toContain('executive-brief.md');
+      expect(cfPaths).toContain('intelligence/synthesis-summary.md');
     });
 
     it('snapshot: plan shape is stable', () => {

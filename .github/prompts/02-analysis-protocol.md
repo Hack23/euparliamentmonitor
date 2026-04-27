@@ -79,13 +79,15 @@ reads this exact path from `HEAD` of `main` after the analysis PR merges.
 
 1. Load existing `manifest.json` — if present, treat the folder as a resume
    candidate, not a conflict.
-2. **If `manifest.json.history[]` is non-empty**, run the prior-run diff helper
-   to classify artifacts before starting Stage B:
+2. **If `manifest.json.history[]` is non-empty AND the workflow env has set
+   `ENABLE_PRIOR_RUN_MERGE=true`**, run the prior-run diff helper to classify
+   artifacts before starting Stage B:
    ```bash
-   ENABLE_PRIOR_RUN_MERGE=true \
-     npm run prior-run-diff -- "${ANALYSIS_DIR}"
+   npm run prior-run-diff -- "${ANALYSIS_DIR}"
    ```
-   The helper emits a JSON `priorRunDiff` plan:
+   If the env flag is unset, **skip this helper** and continue with a normal
+   Stage-B rewrite of all mandatory artifacts (the helper would no-op anyway,
+   returning `enabled: false`). The helper emits a JSON `priorRunDiff` plan:
    - `carryForward[]` — artifacts already at/above floor (lines ≥ floor,
      mermaid present if required, no placeholders): **skip writing these**
      in Stage B unless new Stage-A data materially changes their conclusions.

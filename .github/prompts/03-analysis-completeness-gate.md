@@ -164,10 +164,13 @@ a `manifest.json` from a prior run today:
    now fails (e.g. because the floor was raised in
    `reference-quality-thresholds.json` since the prior run), it surfaces as a
    RED violation just like any freshly written artifact.
-4. When the validator lists a carried-forward artifact as `short:N<floor` and
-   the prior-run diff plan shows the floor was lower in the prior run, annotate
-   the Pass 3 target with `[FLOOR-RAISED: <oldFloor>→<newFloor>]` so the
-   reviewer understands why it regressed.
+4. When the validator lists a carried-forward artifact as `short:N<floor`,
+   annotate the Pass 3 target with
+   `[FLOOR-RAISED: current floor <newFloor>; prior run validated under a lower floor]`
+   so the reviewer understands why it regressed. The current
+   `prior-run-diff.json` only exposes the current floor value, so an exact
+   `<oldFloor>→<newFloor>` pair is not derivable without reading the prior
+   run's threshold snapshot.
 5. Load prior `manifest.json` and inspect every artifact's line count vs.
    `reference-quality-thresholds.json` floors.
 6. Artifacts at/above floor: **carry forward** (do not rewrite) unless new

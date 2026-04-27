@@ -286,13 +286,20 @@ function collectArtifactPaths(manifest, perArtifactFloors) {
   const files = manifest?.files;
   if (files && typeof files === 'object') {
     for (const value of Object.values(files)) {
-      if (Array.isArray(value)) {
+      if (typeof value === 'string') {
+        // e.g. `"executiveBrief": "executive-brief.md"`
+        set.add(value);
+      } else if (Array.isArray(value)) {
         for (const entry of value) {
           if (typeof entry === 'string') set.add(entry);
           else if (entry && typeof entry.path === 'string') set.add(entry.path);
         }
       } else if (value && typeof value === 'object') {
-        for (const k of Object.keys(value)) set.add(k);
+        if (typeof value.path === 'string') {
+          set.add(value.path);
+        } else {
+          for (const k of Object.keys(value)) set.add(k);
+        }
       }
     }
   }
