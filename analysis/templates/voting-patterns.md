@@ -154,19 +154,37 @@ For each group: cohesion, defection highlights, sample votes.
 
 ---
 
-## 7️⃣ Confidence Ledger
+## 7️⃣ Voting Data Freshness
 
-- ✅ **Roll-call IDs present**: `[count cited in this file]`
-- ⚠️ **Aggregate vs. per-MEP**: `[REQUIRED: note where EP roll-call delay limits claims to LOW]`
-- 🔬 **Tools used**: `analyze_voting_patterns`, `analyze_coalition_dynamics`, `compare_political_groups`, `get_voting_records` (per session)
+> **Required field** — consumed by `mcp-reliability-audit.md` §"Data-source bridge" and by Stage-C completeness gate. Copy the value from `VotingRecordsFallbackResult.freshnessLabel` produced by `getVotingRecordsWithFallback()` in `src/mcp/ep-open-data-client.ts`.
+
+| Field | Value |
+|-------|-------|
+| **Data source** | `[REQUIRED: "mcp" / "ep-open-data-portal" / "unavailable"]` |
+| **Freshness label** | `[REQUIRED: 🟢 MCP (...→...) / 🟡 EP Open Data Portal fallback (...→...) / 🔴 voting data unavailable for window ...]` |
+| **EP MCP tool** | `get_voting_records` (`dateFrom` / `dateTo`) |
+| **Fallback used?** | `[yes — queried EP Open Data Portal /api/v2/decision / no — MCP data sufficient / n/a — both sources empty]` |
+| **Attribution** | `[REQUIRED when fallback active: "European Parliament Open Data Portal — https://data.europarl.europa.eu — CC BY 4.0"]` |
+| **Confidence adjustment** | `[REQUIRED: explain whether 🟡 or 🔴 widens WEP bands or degrades Admiralty grade per osint-tradecraft-standards.md §3]` |
+
+**When `source = "unavailable"`:** Do NOT substitute structural-proxy cohesion scores without an explicit `🔴 LOW-confidence` flag on every claim in §§2–4. Widen all WEP bands by ~10 pp. See `analysis/methodologies/osint-tradecraft-standards.md` §3.1 and `.github/prompts/07-mcp-reference.md` §11 item #6.
 
 ---
 
-## 8️⃣ EP MCP Tool Inputs
+## 8️⃣ Confidence Ledger
+
+- ✅ **Roll-call IDs present**: `[count cited in this file]`
+- ⚠️ **Aggregate vs. per-MEP**: `[REQUIRED: note where EP roll-call delay limits claims to LOW]`
+- 🔬 **Tools used**: `analyze_voting_patterns`, `analyze_coalition_dynamics`, `compare_political_groups`, `get_voting_records` (per session), `ep-get-voting-records` (fallback, if active)
+
+---
+
+## 9️⃣ EP MCP Tool Inputs
 
 | EP MCP tool | Used for which section | Notes |
 |-------------|------------------------|-------|
 | `get_voting_records` | §1 RCV-evidence column (every claim cites RCV ID) | Aggregate margins; flag LOW if <4 weeks. |
+| `ep-get-voting-records` *(fallback)* | §1 RCV-evidence column when MCP returns empty | EP Open Data Portal `/api/v2/decision`; activate via `getVotingRecordsWithFallback()`; CC BY 4.0 attribution required. |
 | `analyze_voting_patterns` | §2 Per-MEP behaviour rubric | When per-MEP feed available; aggregate otherwise. |
 | `analyze_coalition_dynamics` | §3 Group-cohesion proxy | Two-window deltas. |
 | `compare_political_groups` | §4 Seat-share normalisation | Confirms majority arithmetic. |
@@ -246,8 +264,9 @@ For each group: cohesion, defection highlights, sample votes.
 | Required H2 substrings | "Top RCVs" / "Roll-Call" / "Behaviour" / "Anomalies" | structural contract |
 | Mermaid block | ≥1 (xychart of For/Against/Abstain across top-5 preferred) | visual contract |
 | Tradecraft markers | Admiralty per RCV; LOW flag for <4-week-old votes; abstain column populated | `osint-tradecraft-standards.md` |
-| Source diversity | ≥3 EP MCP tools (must include `get_voting_records`) | per-artifact rule |
+| Source diversity | ≥3 EP MCP tools (must include `get_voting_records` or `ep-get-voting-records` fallback) | per-artifact rule |
 | Top-5 coverage | 5 distinct RCVs cited with procedure codes | template logic |
+| Voting data freshness | §7 "Voting Data Freshness" table present and `source` field populated | D-02 fallback compliance |
 
 ---
 

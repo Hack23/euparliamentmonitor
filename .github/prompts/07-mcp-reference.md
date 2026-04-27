@@ -275,3 +275,55 @@ Failures are skipped, not retried.
 3. If the row matches a 🟢 LIMITATION or 🔵 CALLING-PATTERN entry, set `Defect ID` to `"documented behaviour — see 07-mcp-reference.md §11 #N"` and skip the "Issues needing creation" subsection for that finding.
 4. Only 🔴 REAL BUG findings (or new symptoms not in this table) appear in §3 "Upstream Issues" with a fileable bug profile.
 5. Re-classify obsolete findings: item #1 is **resolved upstream in v1.2.15+** — the gateway is now pinned to v1.2.15, so it should no longer surface in audits. Item #2's alias-fragmentation symptom is similarly suppressed in v1.2.15+ but the canonical-short-code consumer rule remains the primary triage answer at every gateway version.
+
+## 12 · Voting-Data Fallback Decision Tree (D-02)
+
+> **Why this section exists.** All four 2026-04-26 methodology-reflections identified `get_voting_records` returning empty as Defect D-02 — the single largest confidence-grade limiter. Investigation confirmed this is the documented EP publication delay (item #6 above, 🟢 LIMITATION — NOT a server bug). The fix is a fallback to the EP Open Data Portal. The tree below is the canonical calling pattern for every news workflow.
+
+### Decision tree (copy into Stage A for every article type)
+
+```
+1. Call get_voting_records({ dateFrom: D-90, dateTo: TODAY, limit: 50 })
+   ├── votes array non-empty  →  use MCP result
+   │       freshnessLabel = "🟢 MCP (D-90 → TODAY)"
+   │
+   └── votes array empty (EP publication delay)
+           │
+           2. Call ep-get-voting-records via getVotingRecordsWithFallback()
+              (src/mcp/ep-open-data-client.ts → /api/v2/decision?date-of-vote-start=…)
+              ├── Portal has data  →  use Portal result
+              │       freshnessLabel = "🟡 EP Open Data Portal fallback (…→…)"
+              │       MUST add CC BY 4.0 attribution in §7 of voting-patterns.md
+              │       MUST widen WEP bands +5 pp (less uncertainty than both-empty)
+              │
+              └── Portal also empty (window within 4–6 week delay AND no published data)
+                      use 🔴 unavailability marker
+                      freshnessLabel = "🔴 voting data unavailable for window …→…"
+                      MUST flag every coalition cohesion claim LOW per
+                      osint-tradecraft-standards.md §3.1
+                      MUST widen WEP bands +10 pp
+```
+
+### How to invoke the fallback in a workflow bash block
+
+```bash
+# Stage A — always run this after get_voting_records returns
+# (no shell expansion patterns — use explicit if/else, not ${VAR:-$(cmd)})
+MCP_VOTES=$(get_voting_records_result)
+if [ -z "$MCP_VOTES" ] || echo "$MCP_VOTES" | grep -q '"votes":\[\]'; then
+  # Activate EP Open Data Portal fallback
+  # In TypeScript: call getVotingRecordsWithFallback(mcpResult, { dateFrom, dateTo })
+  FALLBACK_ACTIVE=true
+fi
+```
+
+### Per-artifact freshness row format (paste into voting-patterns.md §7)
+
+| Field | Value when MCP ok | Value when fallback active | Value when both empty |
+|-------|-------------------|---------------------------|----------------------|
+| Data source | `mcp` | `ep-open-data-portal` | `unavailable` |
+| Freshness label | `🟢 MCP (D-90→TODAY)` | `🟡 EP Open Data Portal fallback (D-90→TODAY)` | `🔴 voting data unavailable for window D-90→TODAY` |
+| Attribution | — | CC BY 4.0 (EP Open Data Portal) | — |
+| Confidence adj. | none | Admiralty grade C → D for portal data; WEP +5 pp | LOW on all coalition claims; WEP +10 pp |
+
+**Triage classification:** item #6 in the audit-recurring table (🟢 LIMITATION). Activating the fallback is the correct mitigation. Do NOT file upstream against `Hack23/European-Parliament-MCP-Server` — the EP API itself publishes with a delay; the MCP server faithfully reflects that. The fallback path (`EPOpenDataClient`, `getVotingRecordsWithFallback`) lives in `src/mcp/ep-open-data-client.ts`.

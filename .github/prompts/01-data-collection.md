@@ -32,6 +32,20 @@ Every workflow downloads (tools and parameter corrections in
    - `get_speeches({ dateFrom, dateTo, limit: 20 })` — debate contributions
    - `get_adopted_texts({ year, limit: 100 })` — full text, not titles
    Budget: up to 10 deep-fetch calls.
+4. **Voting-data fallback (MANDATORY when get_voting_records returns empty)** —
+   EP roll-call data publishes with a 4–6 week delay (documented, §6 rule 6 in
+   `07-mcp-reference.md` §11). When `get_voting_records` returns an empty votes
+   array, **always** activate the EP Open Data Portal fallback before writing
+   `voting-patterns.md`:
+   - In TypeScript: call `getVotingRecordsWithFallback(mcpResult, { dateFrom, dateTo })`
+     from `src/mcp/ep-open-data-client.ts`.
+   - This queries `https://data.europarl.europa.eu/api/v2/decision` directly.
+   - Copy the returned `freshnessLabel` into `voting-patterns.md` §"Voting Data
+     Freshness". If source is `"unavailable"`, flag all coalition claims LOW and
+     widen WEP bands +10 pp. See the full decision tree in
+     [`07-mcp-reference.md §12`](07-mcp-reference.md).
+   - **Attribution:** EP Open Data Portal data is CC BY 4.0. Include the
+     attribution string in §7 of every `voting-patterns.md` that uses fallback data.
 
 ## 3 · Feed → Direct Fallback (Short Map)
 
