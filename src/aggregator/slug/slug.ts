@@ -40,11 +40,7 @@ export const DEFAULT_RUN_SUFFIX = 'run';
  *        when multiple runs share the same (date, articleType) pair
  * @returns Combined slug used as the file-stem for every language variant
  */
-export function buildArticleSlug(
-  date: string,
-  articleType: string,
-  runSuffix?: string
-): string {
+export function buildArticleSlug(date: string, articleType: string, runSuffix?: string): string {
   const base = `${date}-${articleType}`;
   return runSuffix ? `${base}-${runSuffix}` : base;
 }

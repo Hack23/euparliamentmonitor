@@ -48,11 +48,14 @@ describe('escapeXML', () => {
     expect(escapeXML('Hello World 123 — π')).toBe('Hello World 123 — π');
   });
 
-  it('does not double-encode pre-escaped entities', () => {
-    // The function escapes the literal `&` even when the next characters
-    // already form an entity reference. This is the correct (and standard)
-    // behaviour: round-trip-safe escaping must operate on the raw octet
-    // stream, not try to detect existing entities.
+  it('always escapes the literal `&`, even inside an existing entity reference', () => {
+    // Round-trip-safe XML escaping must operate on the raw octet stream
+    // and never try to detect "already-escaped" entities — otherwise a
+    // payload like `&amp;` (literal text the author actually typed)
+    // would silently survive into the output and corrupt the document.
+    // So `a &amp; b` (literal 11 chars) MUST emit `a &amp;amp; b` —
+    // round-tripping back through an XML decoder yields the original
+    // `a &amp; b` literal text intact.
     const out = escapeXML('a &amp; b');
     expect(out).toBe('a &amp;amp; b');
   });

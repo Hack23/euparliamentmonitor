@@ -13,7 +13,7 @@
  */
 import fs from 'fs';
 import path from 'path';
-import { readManifest, resolveArticleType, resolveDate, resolveRunId, } from '../manifest/index.js';
+import { readManifest, resolveArticleType, resolveDate, resolveRunId } from '../manifest/index.js';
 /**
  * Pull a `YYYY-MM-DD` date from a path segment (typically the run
  * directory). Falls back to the epoch date when no ISO date is embedded —

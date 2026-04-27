@@ -107,10 +107,12 @@ describe('parseCliArgsSafe — kind:"help"', () => {
     expect(r.kind).toBe('help');
   });
 
-  it('exposes HELP_TEXT as a non-empty string', () => {
+  it('exposes HELP_TEXT as a non-empty string with all documented aliases', () => {
     expect(typeof HELP_TEXT).toBe('string');
     expect(HELP_TEXT.length).toBeGreaterThan(50);
-    expect(HELP_TEXT).toMatch(/--run <path>/);
+    expect(HELP_TEXT).toMatch(/--run, --analysis-dir/);
+    expect(HELP_TEXT).toMatch(/--lang, --language/);
+    expect(HELP_TEXT).toMatch(/--out-dir, --output/);
     expect(HELP_TEXT).toMatch(/--all/);
   });
 });
@@ -157,6 +159,28 @@ describe('parseCliArgsSafe — kind:"error"', () => {
     const r = parseCliArgsSafe(['--run', FIXTURE_RUN, '--title'], REPO_ROOT);
     if (r.kind !== 'error') throw new Error('not error');
     expect(r.message).toMatch(/Missing value for --title/);
+  });
+
+  it('errors when an inline `--flag=` form has an empty value', () => {
+    // Empty inline values (e.g. `--run=`) must be rejected just like the
+    // space-separated missing-value case — otherwise an empty string
+    // resolves to surprising defaults (e.g. `path.resolve('')` →
+    // `process.cwd()`).
+    const r = parseCliArgsSafe(['--run='], REPO_ROOT);
+    if (r.kind !== 'error') throw new Error('not error');
+    expect(r.message).toMatch(/Missing value for --run/);
+  });
+
+  it('errors on empty inline value for --lang=', () => {
+    const r = parseCliArgsSafe(['--run', FIXTURE_RUN, '--lang='], REPO_ROOT);
+    if (r.kind !== 'error') throw new Error('not error');
+    expect(r.message).toMatch(/Missing value for --lang/);
+  });
+
+  it('errors on empty inline value for --since=', () => {
+    const r = parseCliArgsSafe(['--all', '--since='], REPO_ROOT);
+    if (r.kind !== 'error') throw new Error('not error');
+    expect(r.message).toMatch(/Missing value for --since/);
   });
 
   it('does not call process.exit on --help (testable without spy)', () => {

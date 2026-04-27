@@ -15,12 +15,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import {
-  readManifest,
-  resolveArticleType,
-  resolveDate,
-  resolveRunId,
-} from '../manifest/index.js';
+import { readManifest, resolveArticleType, resolveDate, resolveRunId } from '../manifest/index.js';
 
 /** One run discovered by {@link discoverAnalysisRuns}. */
 export interface DiscoveredRun {

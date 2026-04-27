@@ -19,9 +19,7 @@ import type { DiscoveredRun } from './discover.js';
  * @param run - Discovered run
  * @returns Pipe-separated collision key
  */
-export function collisionKey(
-  run: Pick<DiscoveredRun, 'date' | 'articleType'>
-): string {
+export function collisionKey(run: Pick<DiscoveredRun, 'date' | 'articleType'>): string {
   return `${run.date}|${run.articleType}`;
 }
 

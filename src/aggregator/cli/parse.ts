@@ -58,11 +58,14 @@ export const HELP_TEXT: string = [
   'and regenerates the full historic catalogue in one pass.',
   '',
   'Options:',
-  '  --run <path>          Analysis run directory (single-run mode)',
+  '  --run, --analysis-dir <path>',
+  '                        Analysis run directory (single-run mode)',
   '  --all                 Batch-regenerate every run under analysis/daily/',
   '  --since YYYY-MM-DD    With --all: skip runs dated before this cut-off',
-  '  --lang <code>         Language to render (repeatable; default: all 14)',
-  '  --out-dir <path>      Output directory (default: news/)',
+  '  --lang, --language <code>',
+  '                        Language to render (repeatable; default: all 14)',
+  '  --out-dir, --output <path>',
+  '                        Output directory (default: news/)',
   '  --title <text>        Override article title (single-run only)',
   '  --description <text>  Override article meta description (single-run only)',
   '  --markdown-only       Write only the source .md (skip HTML)',
@@ -220,7 +223,16 @@ function processArgvToken(
   const [flag, inlineValue] = arg.includes('=') ? splitFlag(arg) : [arg, undefined];
   let consumedNext = 0;
   const takeValue = (): string => {
-    if (inlineValue !== undefined) return inlineValue;
+    // Treat `--flag=` (empty inline value) as missing — otherwise an empty
+    // string sneaks past value-bearing flags and resolves to surprising
+    // defaults (e.g. `path.resolve('')` → `process.cwd()`). Mirrors the
+    // space-separated missing-value branch below for symmetry.
+    if (inlineValue !== undefined) {
+      if (inlineValue === '') {
+        throw new FlagValueError(`Missing value for ${flag}`);
+      }
+      return inlineValue;
+    }
     const next = argv.at(index + 1);
     if (next === undefined) {
       throw new FlagValueError(`Missing value for ${flag}`);

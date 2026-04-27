@@ -595,8 +595,6 @@ export const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
   };
 })();
 
-
-
 /**
  * Resolve the localized copy for the political-intelligence page,
  * merging the locale-specific overrides on top of the English

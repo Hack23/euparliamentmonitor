@@ -151,6 +151,25 @@ describe('flattenManifestFiles', () => {
     const result = flattenManifestFiles({ x: [1, 'a.md', null, 'b.md'] });
     expect(result).toEqual(['a.md', 'b.md']);
   });
+
+  it('de-duplicates entries while preserving first-seen order', () => {
+    // The same artifact path can legitimately be listed under two
+    // top-level keys (e.g. once under `intelligence` and once under
+    // `analysis`); downstream consumers expect each path exactly once.
+    const result = flattenManifestFiles({
+      intelligence: ['shared/brief.md', 'intel-only.md'],
+      analysis: ['analysis-only.md', 'shared/brief.md'],
+      review: ['shared/brief.md'],
+    });
+    expect(result).toEqual(['shared/brief.md', 'intel-only.md', 'analysis-only.md']);
+    // No duplicates
+    expect(new Set(result).size).toBe(result.length);
+  });
+
+  it('de-duplicates inside a single section as well', () => {
+    const result = flattenManifestFiles({ x: ['a.md', 'a.md', 'b.md', 'a.md'] });
+    expect(result).toEqual(['a.md', 'b.md']);
+  });
 });
 
 describe('parseManifest', () => {

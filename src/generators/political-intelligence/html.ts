@@ -39,12 +39,7 @@ import {
 } from '../political-intelligence-descriptions.js';
 import { pickDocumentIcon } from './icons.js';
 import { getPICopy, type PICopy } from './copy.js';
-import type {
-  PIDocument,
-  PIDailyDateGroup,
-  PIDailyRun,
-  PIPageData,
-} from './types.js';
+import type { PIDocument, PIDailyDateGroup, PIDailyRun, PIPageData } from './types.js';
 
 /**
  * Build a GitHub blob URL (single file) on the main branch.

@@ -94,15 +94,26 @@ function extractFileEntries(value) {
 /**
  * Normalise `manifest.files` into a flat list of `runRelPath` strings.
  *
+ * De-duplicates while preserving first-seen order so callers downstream
+ * (the aggregator's `availableSet`, `materialiseManifestFiles`, etc.)
+ * never observe the same path twice when a manifest section accidentally
+ * lists it under two top-level keys.
+ *
  * @param files - Manifest `files` section (nested or flat)
- * @returns De-duplicated list of run-relative artifact paths
+ * @returns De-duplicated, first-seen-ordered list of run-relative artifact paths
  */
 export function flattenManifestFiles(files) {
     if (!files)
         return [];
+    const seen = new Set();
     const out = [];
     for (const value of Object.values(files)) {
-        out.push(...extractFileEntries(value));
+        for (const entry of extractFileEntries(value)) {
+            if (seen.has(entry))
+                continue;
+            seen.add(entry);
+            out.push(entry);
+        }
     }
     return out;
 }
