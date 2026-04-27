@@ -108,8 +108,9 @@ file.
 
 2. **Probe.** `scripts/imf-mcp-probe.sh` verifies the IMF API is
    reachable in ≤ 2 HTTP calls / 30 s wall-clock, exporting
-   `IMF_MCP_OK` and `IMF_MCP_PROBE_ERROR`. Workflows source it after
-   `scripts/mcp-setup.sh`.
+   `IMF_MCP_OK` and `IMF_MCP_PROBE_ERROR` when sourced. Macro-context
+   workflows run it after `scripts/mcp-setup.sh` and cache JSON under
+   `analysis/daily/<date>/<slug>/cache/imf/`.
 
 3. **Fetch.** The agent calls the five virtual tools (via the native
    client wrapper in `scripts/mcp/imf-mcp-client.js` or an inline `tsx`
