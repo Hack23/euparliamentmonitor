@@ -1,0 +1,15 @@
+{
+  "upcomingSessions": [
+    {"id": "MTG-PL-2026-04-27", "date": "2026-04-27", "location": "Strasbourg", "debates": 8, "votes": 0},
+    {"id": "MTG-PL-2026-04-28", "date": "2026-04-28", "location": "Strasbourg", "debates": 21, "votes": 0},
+    {"id": "MTG-PL-2026-04-29", "date": "2026-04-29", "location": "Strasbourg", "debates": 12, "votes": 9},
+    {"id": "MTG-PL-2026-04-30", "date": "2026-04-30", "location": "Strasbourg", "debates": 4, "votes": 11},
+    {"id": "MTG-PL-2026-05-18", "date": "2026-05-18", "location": "Strasbourg", "debates": 0, "votes": 0},
+    {"id": "MTG-PL-2026-05-19", "date": "2026-05-19", "location": "Strasbourg", "debates": 0, "votes": 0},
+    {"id": "MTG-PL-2026-05-20", "date": "2026-05-20", "location": "Strasbourg", "debates": 0, "votes": 0},
+    {"id": "MTG-PL-2026-05-21", "date": "2026-05-21", "location": "Strasbourg", "debates": 0, "votes": 0}
+  ],
+  "windowStart": "2026-04-27",
+  "windowEnd": "2026-05-27",
+  "note": "May 18-21 foreseen activities not yet scheduled"
+}

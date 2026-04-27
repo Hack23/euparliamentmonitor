@@ -1,0 +1,68 @@
+{
+  "articleType": "month-ahead",
+  "runId": "month-ahead-run-1777304697",
+  "runDate": "2026-04-27",
+  "analysisDir": "analysis/daily/2026-04-27/month-ahead",
+  "admiraltyGrade": "B2",
+  "dataVerification": {
+    "plenary_sessions": "OK",
+    "foreseen_activities_2026-04-27": "OK",
+    "foreseen_activities_2026-04-28": "OK",
+    "foreseen_activities_2026-04-29": "OK",
+    "foreseen_activities_2026-04-30": "OK",
+    "political_landscape": "OK",
+    "adopted_texts_2026": "OK",
+    "coalition_dynamics": "OK_LIMITED",
+    "economic_world_bank": "OK",
+    "imf_context": "PROXY",
+    "procedures_feed": "RECESS_MODE",
+    "events_feed": "UNAVAILABLE",
+    "voting_records": "EXPECTED_DELAY",
+    "parliamentary_questions": "OK"
+  },
+  "files": {
+    "executive-brief": "executive-brief.md",
+    "analysis-index": "intelligence/analysis-index.md",
+    "synthesis-summary": "intelligence/synthesis-summary.md",
+    "scenario-forecast": "intelligence/scenario-forecast.md",
+    "stakeholder-map": "intelligence/stakeholder-map.md",
+    "coalition-dynamics": "intelligence/coalition-dynamics.md",
+    "economic-context": "intelligence/economic-context.md",
+    "historical-baseline": "intelligence/historical-baseline.md",
+    "pestle-analysis": "intelligence/pestle-analysis.md",
+    "threat-model": "intelligence/threat-model.md",
+    "wildcards-blackswans": "intelligence/wildcards-blackswans.md",
+    "mcp-reliability-audit": "intelligence/mcp-reliability-audit.md",
+    "methodology-reflection": "intelligence/methodology-reflection.md",
+    "reference-analysis-quality": "intelligence/reference-analysis-quality.md",
+    "issue-classification": "classification/issue-classification.md",
+    "priority-matrix": "classification/priority-matrix.md",
+    "stakeholder-classification": "classification/stakeholder-classification.md",
+    "sensitivity-assessment": "classification/sensitivity-assessment.md",
+    "legislative-risk": "risk-scoring/legislative-risk.md",
+    "political-risk": "risk-scoring/political-risk.md",
+    "economic-risk": "risk-scoring/economic-risk.md",
+    "institutional-risk": "risk-scoring/institutional-risk.md",
+    "threat-landscape": "threat-assessment/threat-landscape.md",
+    "attack-trees": "threat-assessment/attack-trees.md",
+    "kill-chain": "threat-assessment/kill-chain.md",
+    "diamond-model": "threat-assessment/diamond-model.md",
+    "threat-actor-profiles": "threat-assessment/threat-actor-profiles.md"
+  },
+  "pass2": {
+    "startedAt": "2026-04-27T16:04:00Z",
+    "endedAt": "2026-04-27T16:05:30Z",
+    "rewriteCount": 3,
+    "expandedArtifacts": ["synthesis-summary", "coalition-dynamics", "economic-context"]
+  },
+  "gateResult": null,
+  "history": [
+    {
+      "runId": "month-ahead-run-1777304697",
+      "runDate": "2026-04-27",
+      "timestamp": "2026-04-27T16:05:00Z",
+      "artifactCount": 27,
+      "priorRunMerged": false
+    }
+  ]
+}
