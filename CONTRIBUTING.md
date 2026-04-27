@@ -1,29 +1,76 @@
-# Contributing to EU Parliament Monitor
+<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 
-Thank you for your interest in contributing to EU Parliament Monitor! This
-document provides guidelines and instructions for contributing to the project.
+<p align="center">
+  <img src="https://hack23.com/icon-192.png" alt="Hack23 Logo" width="192" height="192">
+</p>
 
-## Table of Contents
+<h1 align="center">🤝 Contributing to EU Parliament Monitor</h1>
 
-- [Code of Conduct](#code-of-conduct)
-- [Getting Started](#getting-started)
-- [Development Workflow](#development-workflow)
-- [Code Quality Requirements](#code-quality-requirements)
-- [Commit Guidelines](#commit-guidelines)
-- [Pull Request Process](#pull-request-process)
+<p align="center">
+  <strong>Code · Tests · Docs · Translations · Political Intelligence · Security</strong><br>
+  <em>🇪🇺 Civic-tech for European democracy · 🛡️ Security-by-design · 🌍 14 languages · ♿ WCAG 2.1 AA</em>
+</p>
 
-## Code of Conduct
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.2-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Classification-Public-success?style=for-the-badge" alt="Classification"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--27-2E7D32?style=for-the-badge" alt="Effective"/></a>
+</p>
 
-By participating in this project, you agree to maintain a respectful and
-inclusive environment for all contributors.
+<p align="center">
+  <a href="https://github.com/Hack23/euparliamentmonitor/blob/main/CODE_OF_CONDUCT.md"><img src="https://img.shields.io/badge/💜_Code_of_Conduct-Contributor_Covenant_2.1-7B1FA2?style=for-the-badge" alt="Code of Conduct"/></a>
+  <a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md"><img src="https://img.shields.io/badge/🛡️_Security-Policy-D32F2F?style=for-the-badge" alt="Security Policy"/></a>
+  <a href="https://github.com/Hack23/ISMS-PUBLIC"><img src="https://img.shields.io/badge/🏛️_Hack23-ISMS--PUBLIC-7B1FA2?style=for-the-badge" alt="Hack23 ISMS"/></a>
+  <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"/></a>
+</p>
 
-## Getting Started
+**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:** 2026-04-27 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-27 | **🏷️ Classification:** Public
 
-### Prerequisites
+---
 
-- Node.js >= 20
-- npm >= 10
-- Git
+Thank you for your interest in contributing to **[EU Parliament Monitor](https://euparliamentmonitor.com)** — the open-source European Parliament political-intelligence platform that publishes AI-generated, evidence-based analysis in 14 languages every day. We welcome contributions from **developers, journalists, translators, political scientists, OSINT analysts, accessibility advocates, and security researchers**.
+
+## 📑 Table of Contents
+
+- [Code of Conduct](#-code-of-conduct)
+- [Who Should Contribute](#-who-should-contribute)
+- [Getting Started](#-getting-started)
+- [Development Workflow](#-development-workflow)
+- [Code Quality Requirements](#-code-quality-requirements)
+- [Commit Guidelines](#-commit-guidelines)
+- [Pull Request Process](#-pull-request-process)
+- [Project Structure](#-project-structure)
+- [Custom Agents](#-custom-agents)
+- [ISMS Compliance](#%EF%B8%8F-isms-compliance--security-policy-alignment)
+- [Hack23 Ecosystem](#-hack23-ecosystem)
+
+## 💜 Code of Conduct
+
+This project adheres to the [Contributor Covenant 2.1](CODE_OF_CONDUCT.md). By participating, you agree to maintain a respectful and inclusive environment. Report unacceptable behaviour to [conduct@hack23.com](mailto:conduct@hack23.com).
+
+## 👥 Who Should Contribute
+
+| 🎭 Role | 🎯 What you can do |
+|---|---|
+| 👨‍💻 **Developers** | TypeScript aggregator, MCP integrations, GitHub Actions, accessibility, performance |
+| 📰 **Journalists** | Editorial style review, political analysis quality, source attribution discipline |
+| 🌐 **Translators** | Improve any of the 14 languages (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH) |
+| 🧠 **Political scientists / OSINT analysts** | Methodologies under [`analysis/methodologies/`](analysis/methodologies/), threat-framework refinement, ACH/SWOT/PESTLE rigor |
+| ♿ **Accessibility advocates** | WCAG 2.1 AA audits, RTL improvements (Arabic, Hebrew), screen-reader testing |
+| 🛡️ **Security researchers** | Responsible disclosure via [SECURITY.md](SECURITY.md) — see also [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) and [THREAT_MODEL.md](THREAT_MODEL.md) |
+| 📚 **Doc authors** | Architecture docs ([ARCHITECTURE.md](ARCHITECTURE.md)), C4 diagrams, ADRs, runbooks |
+
+## 🚀 Getting Started
+
+### 📋 Prerequisites
+
+- 🟢 **Node.js** ≥ 25 (the platform runtime — see [`package.json`](package.json) `engines.node`)
+- 📦 **npm** ≥ 10 (ships with Node.js 25)
+- 🔧 **Git**
 
 ### Setup
 
@@ -42,9 +89,9 @@ inclusive environment for all contributors.
    git checkout -b feature/your-feature-name
    ```
 
-## Development Workflow
+## 🛠️ Development Workflow
 
-### Running Locally
+### ▶️ Running Locally
 
 ```bash
 # Render an article from analysis artifacts (manual testing)
@@ -81,7 +128,7 @@ npm run format:check
 npm run htmlhint
 ```
 
-## Code Quality Requirements
+## ✅ Code Quality Requirements
 
 All contributions must meet these quality standards:
 
@@ -223,7 +270,7 @@ These hooks run automatically on `git commit`. To bypass (not recommended):
 git commit --no-verify
 ```
 
-## Commit Guidelines
+## 📝 Commit Guidelines
 
 ### Commit Message Format
 
@@ -259,7 +306,7 @@ git commit -m "test: add unit tests for article template"
 git commit -m "test: increase coverage for MCP client"
 ```
 
-## Pull Request Process
+## 🔀 Pull Request Process
 
 ### Before Submitting
 
@@ -347,7 +394,7 @@ Your PR must pass these automated checks:
 3. All review comments must be addressed
 4. PR will be merged by a maintainer
 
-## Project Structure
+## 📂 Project Structure
 
 ```
 euparliamentmonitor/
@@ -383,24 +430,31 @@ euparliamentmonitor/
 └── package.json         # Dependencies and scripts
 ```
 
-## Development Tips
+## 🤖 Custom Agents
 
-### Custom Agents
+EU Parliament Monitor ships with a **layered agent catalog** under [`.github/agents/`](.github/agents/) — product-domain agents that own the news critical path, plus infrastructure agents that maintain workflow and CI hygiene. See [`.github/agents/README.md`](.github/agents/README.md) for the full directory and the [`.github/skills/`](.github/skills/) and [`.github/prompts/`](.github/prompts/) libraries that they share.
 
-EU Parliament Monitor includes 8 specialized GitHub Copilot agents:
+### 🎭 Product-domain agents (own the news critical path)
 
-- `@product-task-agent` - Issue creation and coordination
-- `@news-journalist` - Content generation
-- `@frontend-specialist` - UI/UX improvements
-- `@data-pipeline-specialist` - MCP integration
-- `@devops-engineer` - CI/CD automation
-- `@security-architect` - Security compliance
-- `@documentation-architect` - Documentation
-- `@quality-engineer` - Testing and validation
+| Agent | Role |
+|---|---|
+| 🕵️ `@intelligence-operative` | Senior political-intelligence analyst — applies ACH, SWOT, PESTLE, OSINT tradecraft, threat framework. Owns Stage-B analysis artifacts. |
+| 📰 `@news-journalist` | The Economist-style EP reporting in 14 languages. Authors editorial prose only when analysis artifacts are signed off. |
+| 🔄 `@data-pipeline-specialist` | EP MCP integration (60+ tools), data quality, voting-records fallback to EP Open Data Portal. |
+| 🎨 `@frontend-specialist` | HTML5/CSS3, WCAG 2.1 AA accessibility, multi-language UI, RTL support. |
+| ✅ `@quality-engineer` | Vitest + Playwright, HTML validation, accessibility testing, performance benchmarking. |
+| ⚙️ `@devops-engineer` | gh-aw workflow compilation, GitHub Actions, S3/CloudFront deploy, MCP gateway. |
+| 📚 `@documentation-architect` | C4 models, Mermaid diagrams, ARCHITECTURE.md, ADRs. |
+| 🛡️ `@security-architect` | ISMS, GDPR, NIS2, EU CRA compliance — reviews data classification of intelligence products. |
+| 📋 `@product-task-agent` | Issue creation, ISMS tracking, capability-roadmap coordination. |
+| 📣 `@marketing-specialist` | Privacy-first multi-language engagement, GDPR-compliant outreach. |
+| 💼 `@business-development-specialist` | Strategic planning, civic-tech partnerships, sustainable transparency models. |
 
-See [.github/agents/README.md](.github/agents/README.md) for usage.
+### 🛠️ Infrastructure agents (maintain workflows and CI hygiene)
 
-### Debugging
+`agentic-workflows.agent.md` · `news-generation.agent.md` · `ci-cleaner.agent.md` · `contribution-checker.agent.md` · `create-safe-output-type.agent.md` · `custom-engine-implementation.agent.md` · `grumpy-reviewer.agent.md` · `interactive-agent-designer.agent.md` · `technical-doc-writer.agent.md` · `w3c-specification-writer.agent.md`
+
+## 🐛 Debugging
 
 ```bash
 # View TypeScript compilation
@@ -410,7 +464,7 @@ npm run build:check
 npm run generate-article -- --run analysis/daily/YYYY-MM-DD/article-type
 ```
 
-### IDE Setup
+## 💻 IDE Setup
 
 **VS Code Extensions**:
 
@@ -430,14 +484,14 @@ npm run generate-article -- --run analysis/daily/YYYY-MM-DD/article-type
 }
 ```
 
-## Questions?
+## ❓ Questions?
 
 - Open an issue for bugs or feature requests
 - Check [docs/CODE_STANDARDS.md](docs/CODE_STANDARDS.md) for code guidelines
 - Review existing code for examples
 - Contact maintainers via GitHub
 
-## Security Badge Maintenance
+## 🏆 Security Badge Maintenance
 
 ### Contributing to Badge Status
 
@@ -487,11 +541,66 @@ When SonarCloud is enabled, PRs will be checked for:
 
 See [README.md - Badge Maintenance](README.md#badge-maintenance) for detailed badge status and procedures.
 
-## License
+## 🛡️ ISMS Compliance & Security-Policy Alignment
 
-By contributing, you agree that your contributions will be licensed under the
-Apache-2.0 License.
+EU Parliament Monitor operates under the [Hack23 ISMS](https://github.com/Hack23/ISMS-PUBLIC) framework. **All contributions must align with these public policies** — both in code (Secure Development Policy) and in conduct (Acceptable Use Policy).
+
+| 🏛️ Policy | 🎯 Why it applies | 📌 What you must do |
+|---|---|---|
+| [🛠️ **Secure Development Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | All code changes go through SSDLC gates | Threat-model new pipelines; pin actions to SHAs; no eval/dynamic code |
+| [📋 **Information Security Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Integrity of analysis + confidentiality of methodology notes | Cite primary EP / IMF / World Bank sources; never leak credentials |
+| [🤖 **AI Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md) | Analysis is AI-assisted and must be auditable | Apply Pass-1 + Pass-2 review; disclose assumptions and uncertainty |
+| [🏷️ **Classification Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Classification_Policy.md) | Only **public** open-source material is used | No paywalled, leaked, or embargoed material in artifacts |
+| [🐛 **Vulnerability Management**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) | Severity-based remediation SLAs | Follow the [SECURITY.md](SECURITY.md) disclosure timeline |
+| [🔍 **Threat Modelling Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md) | New attack surfaces require STRIDE analysis | Update [THREAT_MODEL.md](THREAT_MODEL.md) for changes that touch CIA assets |
+| [🔐 **Cryptography Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) | No deprecated algorithms (MD5, SHA-1, DES, 3DES) | Use modern crypto only; rely on platform / OIDC primitives |
+| [🚒 **Incident Response Plan**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md) | Coordinated handling of security incidents | Notify [security@hack23.com](mailto:security@hack23.com) for any suspected incident |
+| [📜 **Open Source Policy**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) | Governance, licence headers, REUSE compliance | Apache-2.0 SPDX headers on every new code file |
+| [🇪🇺 **CRA Conformity Assessment**](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md) | EU Cyber Resilience Act compliance | See [CRA-ASSESSMENT.md](CRA-ASSESSMENT.md) for the project conformity table |
+
+### 📚 Internal docs every contributor should know
+
+| Topic | Document |
+|---|---|
+| 🏛️ **Architecture** | [ARCHITECTURE.md](ARCHITECTURE.md) · [DATA_MODEL.md](DATA_MODEL.md) · [FLOWCHART.md](FLOWCHART.md) · [STATEDIAGRAM.md](STATEDIAGRAM.md) · [MINDMAP.md](MINDMAP.md) |
+| 📰 **Article generation** | [Article-Generation.md](Article-Generation.md) — full Stage A→E pipeline |
+| 🧠 **Analysis methodology** | [analysis/methodologies/](analysis/methodologies/) (17 methodologies) · [analysis/templates/](analysis/templates/) (51 templates) |
+| 🛡️ **Security** | [SECURITY.md](SECURITY.md) · [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) · [THREAT_MODEL.md](THREAT_MODEL.md) · [CRA-ASSESSMENT.md](CRA-ASSESSMENT.md) · [CLASSIFICATION.md](CLASSIFICATION.md) |
+| ⚙️ **CI/CD** | [WORKFLOWS.md](WORKFLOWS.md) · [.github/workflows/README.md](.github/workflows/README.md) · [.github/prompts/README.md](.github/prompts/README.md) |
+| 🧪 **Testing** | [UnitTestPlan.md](UnitTestPlan.md) · [E2ETestPlan.md](E2ETestPlan.md) · [test/README.md](test/README.md) · [e2e/README.md](e2e/README.md) |
+| 💼 **Business / lifecycle** | [SWOT.md](SWOT.md) · [BCPPlan.md](BCPPlan.md) · [End-of-Life-Strategy.md](End-of-Life-Strategy.md) · [FinancialSecurityPlan.md](FinancialSecurityPlan.md) |
 
 ---
 
-**Thank you for contributing to EU Parliament Monitor!** 🇪🇺
+## 🌐 Hack23 Ecosystem
+
+EU Parliament Monitor is part of the broader **[Hack23](https://hack23.com/)** civic-tech and security portfolio. Cross-pollination is welcome — many architectural patterns and ISMS controls are shared.
+
+| 🏛️ Project | 🎯 Focus | 🔗 Link |
+|---|---|---|
+| 🌐 **Hack23 Homepage** | Organisation site, ISMS hub | [hack23.com](https://hack23.com/) · [`Hack23/homepage`](https://github.com/Hack23/homepage) |
+| 📜 **ISMS-PUBLIC** | Public ISO 27001 / NIST CSF / CIS / GDPR / NIS2 / EU CRA policies | [`Hack23/ISMS-PUBLIC`](https://github.com/Hack23/ISMS-PUBLIC) |
+| 🔌 **European Parliament MCP Server** | TypeScript MCP server with 60+ EP open-data tools | [`Hack23/European-Parliament-MCP-Server`](https://github.com/Hack23/European-Parliament-MCP-Server) |
+| 🇸🇪 **Riksdag Monitor** | Swedish Parliament monitor (sister project, foundation for this codebase) | [`Hack23/riksdagsmonitor`](https://github.com/Hack23/riksdagsmonitor) |
+| 🕵️ **CIA** | Swedish Parliament intelligence platform (Java/Spring) | [`Hack23/cia`](https://github.com/Hack23/cia) |
+| ✅ **CIA Compliance Manager** | CIA-triad compliance dashboard (TypeScript) | [`Hack23/cia-compliance-manager`](https://github.com/Hack23/cia-compliance-manager) |
+| 🥋 **Black Trigram** | Korean martial-arts game with security focus | [`Hack23/blacktrigram`](https://github.com/Hack23/blacktrigram) |
+
+---
+
+## 📜 License
+
+By contributing, you agree that your contributions will be licensed under the [**Apache License 2.0**](LICENSE) — the same licence that covers the rest of the project. All new code files must include SPDX headers:
+
+```javascript
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+```
+
+Configuration files without headers must be covered by entries in [`.reuse/dep5`](.reuse/dep5).
+
+---
+
+🙏 **Thank you for contributing to EU Parliament Monitor!** 🇪🇺
+
+> _Maintained by **Hack23 AB — Intelligence Operations Team** under the [Hack23 ISMS](https://github.com/Hack23/ISMS-PUBLIC) framework._
