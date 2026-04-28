@@ -1,0 +1,46 @@
+{
+  "collectedAt": "2026-04-28T07:07:00Z",
+  "dataVerification": {
+    "adoptedTextsDownloaded": true,
+    "adoptedTextsCount": 104,
+    "votingRecordsFetched": false,
+    "votingRecordsNote": "Roll-call data has 4-6 week delay; April data not yet published",
+    "meetingDecisionsFetched": true,
+    "meetingDecisionsSittingId": "MTG-PL-2026-03-26",
+    "coalitionDynamicsFetched": true,
+    "generatedStatsFetched": true,
+    "earlyWarningFetched": true,
+    "pipelineMonitorFetched": true
+  },
+  "keyFindings": {
+    "ep10Composition": {
+      "EPP": 185, "S&D": 135, "PfE": 84, "ECR": 79, "Renew": 76,
+      "Greens/EFA": 53, "GUE/NGL": 46, "ESN": 28, "NI": 32,
+      "totalMEPs": 718
+    },
+    "stats2026": {
+      "rollCallVotes": 567,
+      "legislativeActsAdopted": 114,
+      "adoptedTexts": 104,
+      "plenarySessions": 54,
+      "legislativeOutputChange": "+46.2% vs 2025"
+    },
+    "structuralDynamics": {
+      "minimumWinningCoalitionSize": 3,
+      "topTwoGroupsConcentration": "44.5%",
+      "rightBlocShare": "52.3%",
+      "leftBlocShare": "32.6%",
+      "centreBlocShare": "10.6%",
+      "euroscepticShare": "15.6%"
+    },
+    "recentKeyMotions": [
+      "TA-10-2026-0096: US tariff response/customs duties adjustment (March 26)",
+      "TA-10-2026-0092/0091/0090: Banking Union package SRMR3/BRRD3/DGSD2 (March 26)",
+      "TA-10-2026-0098: AI Digital Omnibus simplification (March 26)",
+      "TA-10-2026-0094: Combating corruption directive (March 26)",
+      "TA-10-2026-0031: Climate neutrality framework (Feb 10)",
+      "TA-10-2026-0080: Flagship European defence projects (March 11)",
+      "TA-10-2026-0096: US tariff countermeasures (March 26)"
+    ]
+  }
+}
