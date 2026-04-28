@@ -1,0 +1,51 @@
+{
+  "articleType": "month-in-review",
+  "runId": "month-in-review-run-1777373049",
+  "date": "2026-04-28",
+  "gateResult": "ANALYSIS_ONLY",
+  "gateReason": "elapsed-time tripwire at minute 22",
+  "pass2": {
+    "startedAt": "~minute 18",
+    "endedAt": "~minute 21",
+    "rewriteCount": 6
+  },
+  "dataQuality": {
+    "adoptedTexts": "HIGH",
+    "politicalLandscape": "HIGH",
+    "worldBank": "HIGH",
+    "votingRecords": "EMPTY_EXPECTED",
+    "proceduresFeed": "DEGRADED",
+    "imf": "UNAVAILABLE"
+  },
+  "files": {
+    "executiveBrief": "executive-brief.md",
+    "intelligenceSynthesis": "intelligence/synthesis-summary.md",
+    "economicContext": "intelligence/economic-context.md",
+    "pestleAnalysis": "intelligence/pestle-analysis.md",
+    "stakeholderMap": "intelligence/stakeholder-map.md",
+    "scenarioForecast": "intelligence/scenario-forecast.md",
+    "threatModel": "intelligence/threat-model.md",
+    "wildcards": "intelligence/wildcards-blackswans.md",
+    "mcpReliabilityAudit": "intelligence/mcp-reliability-audit.md",
+    "votingPatterns": "intelligence/voting-patterns.md",
+    "workflowAudit": "intelligence/workflow-audit.md",
+    "crossSessionIntelligence": "intelligence/cross-session-intelligence.md",
+    "historicalBaseline": "intelligence/historical-baseline.md",
+    "analysisIndex": "intelligence/analysis-index.md",
+    "referenceAnalysisQuality": "intelligence/reference-analysis-quality.md",
+    "sessionBaselineExisting": "existing/session-baseline.md",
+    "sessionBaselineIntelligence": "intelligence/session-baseline.md",
+    "riskMatrix": "risk-scoring/risk-matrix.md",
+    "quantitativeSwot": "risk-scoring/quantitative-swot.md",
+    "methodologyReflection": "intelligence/methodology-reflection.md"
+  },
+  "history": [
+    {
+      "runId": "month-in-review-run-1777373049",
+      "date": "2026-04-28",
+      "gateResult": "ANALYSIS_ONLY",
+      "artifactCount": 20,
+      "elapsedMinutes": 22
+    }
+  ]
+}
