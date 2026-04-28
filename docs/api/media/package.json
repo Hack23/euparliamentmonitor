@@ -1,0 +1,189 @@
+{
+  "name": "euparliamentmonitor",
+  "version": "0.8.49",
+  "type": "module",
+  "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
+  "main": "scripts/index.js",
+  "types": "scripts/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./scripts/index.js",
+      "types": "./scripts/index.d.ts"
+    },
+    "./types": {
+      "import": "./scripts/types/index.js",
+      "types": "./scripts/types/index.d.ts"
+    },
+    "./mcp/*": {
+      "import": "./scripts/mcp/*.js",
+      "types": "./scripts/mcp/*.d.ts"
+    },
+    "./constants/*": {
+      "import": "./scripts/constants/*.js",
+      "types": "./scripts/constants/*.d.ts"
+    },
+    "./utils/*": {
+      "import": "./scripts/utils/*.js",
+      "types": "./scripts/utils/*.d.ts"
+    },
+    "./templates/*": {
+      "import": "./scripts/templates/*.js",
+      "types": "./scripts/templates/*.d.ts"
+    },
+    "./generators/*": {
+      "import": "./scripts/generators/*.js",
+      "types": "./scripts/generators/*.d.ts"
+    },
+    "./generators/pipeline/*": {
+      "import": "./scripts/generators/pipeline/*.js",
+      "types": "./scripts/generators/pipeline/*.d.ts"
+    },
+    "./generators/strategies/*": {
+      "import": "./scripts/generators/strategies/*.js",
+      "types": "./scripts/generators/strategies/*.d.ts"
+    }
+  },
+  "files": [
+    "scripts/**/*.js",
+    "scripts/**/*.d.ts",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "prebuild": "node scripts/generators/news-indexes.js && node scripts/generators/sitemap.js",
+    "build": "tsc",
+    "build:check": "tsc --noEmit",
+    "build:check-tests": "tsc --project tsconfig.test.json --noEmit",
+    "copy-vendor": "node scripts/copy-vendor.js",
+    "validate-analysis": "node scripts/validate-analysis-completeness.js",
+    "prior-run-diff": "node scripts/aggregator/prior-run-diff.js",
+    "generate-article": "node scripts/aggregator/article-generator.js",
+    "generate-article:all": "node scripts/aggregator/article-generator.js --all",
+    "generate-news-indexes": "node scripts/generators/news-indexes.js",
+    "generate-sitemap": "node scripts/generators/sitemap.js",
+    "validate-ep-api": "npx tsx src/utils/validate-ep-api.ts",
+    "lint:prompts": "node scripts/lint-prompts.js",
+    "htmlhint": "sh -c 'htmlhint *.html; set -- news/*.html; if [ -e \"$1\" ]; then htmlhint \"$@\"; else echo \"No news/*.html files to lint\"; fi'",
+    "serve": "python3 -m http.server 8080",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage",
+    "test:unit": "vitest run test/unit",
+    "test:integration": "vitest run test/integration",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:debug": "playwright test --debug",
+    "test:e2e:report": "playwright show-report",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "lint:report": "eslint src/ --format json --output-file builds/test-results/eslint-report.json",
+    "lint:report:html": "eslint src/ --format html --output-file builds/test-results/eslint-report.html",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\"",
+    "docs:api": "typedoc",
+    "docs:copy-reports": "node scripts/utils/copy-test-reports.js",
+    "docs:index": "node scripts/utils/generate-docs-index.js",
+    "docs:generate": "npm run docs:api && npm run docs:copy-reports && npm run docs:index",
+    "prepare": "husky",
+    "prepublishOnly": "npm run lint && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hack23/euparliamentmonitor.git"
+  },
+  "sideEffects": false,
+  "keywords": [
+    "european-parliament",
+    "european-union",
+    "parliament",
+    "eu",
+    "mep",
+    "politics",
+    "democracy",
+    "civic-tech",
+    "osint",
+    "transparency",
+    "intelligence",
+    "political-analysis",
+    "legislative",
+    "voting",
+    "monitoring",
+    "news-generation",
+    "multilingual",
+    "i18n",
+    "mcp",
+    "model-context-protocol",
+    "open-data",
+    "typescript"
+  ],
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/Hack23"
+  },
+  "author": "Hack23 AB",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Hack23/euparliamentmonitor/issues"
+  },
+  "homepage": "https://euparliamentmonitor.com",
+  "devDependencies": {
+    "@axe-core/playwright": "4.11.2",
+    "@eslint/js": "10.0.1",
+    "@playwright/test": "1.59.1",
+    "@types/d3": "7.4.3",
+    "@types/markdown-it": "^14.1.2",
+    "@types/node": "25.6.0",
+    "@types/papaparse": "5.5.2",
+    "@typescript-eslint/eslint-plugin": "8.59.1",
+    "@typescript-eslint/parser": "8.59.1",
+    "@vitest/coverage-v8": "4.1.5",
+    "@vitest/ui": "4.1.5",
+    "chart.js": "4.5.1",
+    "chartjs-plugin-annotation": "3.1.0",
+    "d3": "7.9.0",
+    "eslint": "10.2.1",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-jsdoc": "62.9.0",
+    "eslint-plugin-security": "4.0.0",
+    "eslint-plugin-sonarjs": "4.0.3",
+    "happy-dom": "20.9.0",
+    "htmlhint": "1.9.2",
+    "husky": "9.1.7",
+    "jscpd": "4.0.9",
+    "lint-staged": "16.4.0",
+    "mermaid": "11.14.0",
+    "papaparse": "5.5.3",
+    "prettier": "3.8.3",
+    "ts-api-utils": "2.5.0",
+    "tsx": "4.21.0",
+    "typedoc": "0.28.19",
+    "typescript": "6.0.3",
+    "vitest": "4.1.5"
+  },
+  "engines": {
+    "node": ">=25"
+  },
+  "dependencies": {
+    "european-parliament-mcp-server": "1.2.15",
+    "markdown-it": "^14.1.1",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-attrs": "^4.3.1",
+    "markdown-it-deflist": "^3.0.0",
+    "markdown-it-footnote": "^4.0.0"
+  },
+  "optionalDependencies": {
+    "worldbank-mcp": "1.0.1"
+  },
+  "overrides": {
+    "flatted": ">=3.4.2",
+    "path-to-regexp": ">=8.4.0"
+  }
+}

@@ -1,501 +1,503 @@
-# E2E Testing Guide
+# Test Suite Documentation
 
-End-to-end (E2E) testing for EU Parliament Monitor using Playwright.
+Comprehensive testing infrastructure for EU Parliament Monitor project.
 
 ## Overview
 
-The E2E test suite validates the complete user experience from a browser perspective, ensuring:
+This test suite provides unit and integration testing with high coverage
+standards for all core functionality:
 
-- **User Journeys**: Critical user paths work correctly
-- **Cross-Browser**: Tests run on Chromium, Firefox, and WebKit
-- **Mobile Support**: Tests cover mobile and tablet viewports
-- **Accessibility**: WCAG 2.1 AA compliance validation
-- **Responsive Design**: Layout adapts to different screen sizes
+- **Article HTML generation** with multi-language support
+- **MCP client** connection and data retrieval
+- **News index generation** for all languages
+- **Sitemap generation** with proper SEO
+- **Full integration** workflows including MCP, multi-language, and news
+  generation
 
-## Test Suite Structure
+## Test Structure
 
 ```
-e2e/
-├── tests/
-│   ├── homepage.spec.js           # Homepage functionality tests
-│   ├── news-browsing.spec.js      # Article browsing and reading
-│   ├── navigation.spec.js         # Site navigation tests
-│   ├── multi-language.spec.js     # Multi-language support tests (all 14 languages)
-│   ├── accessibility.spec.js      # WCAG 2.1 AA compliance tests
-│   ├── responsive.spec.js         # Responsive design tests
-│   ├── rss-feed.spec.js           # RSS 2.0 feed validation tests
-│   ├── sitemap.spec.js            # Sitemap XML and HTML validation tests
-│   └── seo-metadata.spec.js       # SEO meta tags and Open Graph validation
-├── fixtures/                      # Test data (future)
-├── helpers/                       # Test utilities (future)
-└── README.md                      # This file
+test/
+├── unit/                      # Unit tests (isolated components)
+│   ├── article-template.test.js
+│   ├── ep-mcp-client.test.js
+│   ├── generate-news-indexes.test.js
+│   └── generate-sitemap.test.js
+├── integration/               # Integration tests (full workflows)
+│   ├── news-generation.test.js
+│   ├── mcp-integration.test.js
+│   └── multi-language.test.js
+├── fixtures/                  # Test data and mock data
+│   └── ep-data.js
+├── helpers/                   # Test utilities and helpers
+│   ├── test-utils.js
+│   └── mock-mcp-server.js
+├── setup.js                   # Global test setup
+└── README.md                  # This file
 ```
 
-## Running E2E Tests
+## Running Tests
 
-### Prerequisites
-
-1. **Install Dependencies**:
-
-   ```bash
-   npm install
-   ```
-
-2. **Install Playwright Browsers**:
-   ```bash
-   npx playwright install --with-deps
-   ```
-
-### Run Tests
+### Quick Commands
 
 ```bash
-# Run all E2E tests (headless)
-npm run test:e2e
+# Run all tests
+npm test
 
-# Run tests in UI mode (interactive)
-npm run test:e2e:ui
+# Run tests in watch mode
+npm run test:watch
 
-# Run tests in headed mode (see browser)
-npm run test:e2e:headed
+# Run tests with UI (browser interface)
+npm run test:ui
 
-# Run tests in debug mode
-npm run test:e2e:debug
+# Run tests with coverage report
+npm run test:coverage
 
-# Run specific test file
-npx playwright test e2e/tests/homepage.spec.js
+# Run only unit tests
+npm run test:unit
 
-# Run tests in specific browser
-npx playwright test --project=chromium
-npx playwright test --project=firefox
-npx playwright test --project=webkit
-
-# Run tests in mobile viewports
-npx playwright test --project=mobile-chrome
-npx playwright test --project=mobile-safari
+# Run only integration tests
+npm run test:integration
 ```
 
-### View Test Reports
+### CI/CD Integration
 
-```bash
-# Open HTML report
-npm run test:e2e:report
+Tests run automatically in GitHub Actions on:
 
-# Or manually
-npx playwright show-report
-```
+- Every push to `main`
+- Every pull request
+- Manual workflow dispatch
 
 ## Test Categories
 
-### 1. Homepage Tests (`homepage.spec.js`)
+### Unit Tests
 
-Tests homepage loading and structure:
+#### article-template.test.js
 
-- ✅ Page loads successfully
-- ✅ Navigation menu displays
-- ✅ Recent articles display
-- ✅ Sitemap link works
-- ✅ Proper HTML structure
-- ✅ SEO meta tags present
+Tests for HTML article generation:
 
-### 2. News Browsing Tests (`news-browsing.spec.js`)
+- ✅ Valid HTML structure (DOCTYPE, meta tags, semantic HTML)
+- ✅ Multi-language support (14 languages)
+- ✅ RTL support (Arabic, Hebrew)
+- ✅ SEO optimization (Open Graph, Twitter Cards, Schema.org)
+- ✅ Accessibility (ARIA, semantic tags)
+- ✅ XSS prevention and security
+- ✅ Date formatting and localization
+- ✅ Article metadata and sources
 
-Tests article browsing experience:
+**Coverage Goal**: 100% (critical security paths)
 
-- ✅ Open and display articles
-- ✅ Navigate back to homepage
-- ✅ Article metadata displays
-- ✅ Internal links work
-- ✅ Article content displays
+#### ep-mcp-client.test.js
 
-### 3. Navigation Tests (`navigation.spec.js`)
+Tests for European Parliament MCP client:
 
-Tests site navigation:
+- ✅ Connection management and retry logic
+- ✅ Message handling (JSON-RPC protocol)
+- ✅ Request/response flow
+- ✅ Tool operations (plenary sessions, documents, questions)
+- ✅ Error handling and timeouts
+- ✅ Singleton client management
 
-- ✅ Navigation menu functions
-- ✅ Navigate to different sections
-- ✅ Navigation state maintained
-- ✅ Home link works
-- ✅ Browser back/forward buttons
-- ✅ Skip navigation links
-- ✅ Keyboard focus states
-- ✅ External links security
+**Coverage Goal**: 95% (complex async paths)
 
-### 4. Multi-Language Tests (`multi-language.spec.js`)
+#### generate-news-indexes.test.js
 
-Tests multi-language functionality:
+Tests for index page generation:
 
-- ✅ Load language-specific versions (14 languages)
-- ✅ Switch between languages
-- ✅ Consistent structure across languages
-- ✅ Language-specific meta tags
-- ✅ Maintain language in navigation
-- ✅ Proper charset encoding
-- ✅ Alternate language links
+- ✅ Article filename parsing (YYYY-MM-DD-slug-lang.html)
+- ✅ Article grouping by language
+- ✅ Date sorting (newest first)
+- ✅ Slug formatting (title case)
+- ✅ Index HTML generation for all languages
+- ✅ Language-specific titles and descriptions
+- ✅ File operations and filtering
 
-**Supported Languages**:
+**Coverage Goal**: 90%
 
-- EN (English), SV (Swedish), DA (Danish), NO (Norwegian)
-- FI (Finnish), DE (German), FR (French), ES (Spanish)
-- NL (Dutch), AR (Arabic), HE (Hebrew), JA (Japanese)
-- KO (Korean), ZH (Chinese)
+#### generate-sitemap.test.js
 
-### 5. Accessibility Tests (`accessibility.spec.js`)
+Tests for sitemap.xml generation:
 
-Tests WCAG 2.1 AA compliance:
+- ✅ Valid XML structure
+- ✅ URL formatting (HTTPS, proper encoding)
+- ✅ Priority and changefreq settings
+- ✅ Date formatting (YYYY-MM-DD)
+- ✅ All language indexes (14 URLs)
+- ✅ News articles inclusion
+- ✅ Performance with large datasets
 
-- ✅ Automated accessibility scanning (axe-core)
-- ✅ Proper heading hierarchy
-- ✅ Alt text for images
-- ✅ Keyboard navigation
-- ✅ Link activation with Enter key
-- ✅ Sufficient color contrast
-- ✅ ARIA landmarks
-- ✅ Proper link text
-- ✅ Skip navigation link
-- ✅ Page title
-- ✅ Language attribute
-- ✅ Text zoom support
-- ✅ Form labels (if forms exist)
+**Coverage Goal**: 90%
 
-### 6. Responsive Design Tests (`responsive.spec.js`)
+### Integration Tests
 
-Tests responsive design:
+#### news-generation.test.js
 
-- ✅ Mobile portrait (375x667)
-- ✅ Mobile landscape (667x375)
-- ✅ Tablet portrait (768x1024)
-- ✅ Tablet landscape (1024x768)
-- ✅ Desktop (1920x1080)
-- ✅ Viewport meta tag
-- ✅ Adaptive layout
-- ✅ Touch-friendly tap targets
-- ✅ No horizontal scroll on mobile
-- ✅ Readable text on mobile
-- ✅ Content stacking on mobile
-- ✅ Responsive images
-- ✅ Text resizing support
+Full article generation workflow:
 
-### 7. RSS Feed Tests (`rss-feed.spec.js`)
+- ✅ End-to-end article creation
+- ✅ File system operations (save, update)
+- ✅ Multi-language article generation
+- ✅ Metadata generation alongside articles
+- ✅ Content validation (sections, dates, sources)
+- ✅ Placeholder content mode (MCP unavailable)
+- ✅ Error recovery and resilience
+- ✅ Performance benchmarks (< 100ms per article)
 
-Tests RSS 2.0 feed validity:
+**Coverage Goal**: 85%
 
-- ✅ Feed loads successfully (HTTP 200)
-- ✅ Valid RSS 2.0 root element with version attribute
-- ✅ Required channel elements (title, link, description)
-- ✅ Dublin Core namespace for per-item language tags
-- ✅ Items present with required elements (title, pubDate, guid)
-- ✅ dc:language tags on items
-- ✅ Multi-language article coverage
-- ✅ Atom self-link for feed discovery
-- ✅ lastBuildDate element
+#### mcp-integration.test.js
 
-### 8. Sitemap Tests (`sitemap.spec.js`)
+MCP server integration and data flow:
 
-Tests sitemap completeness and validity:
+- ✅ MCP client connection (mock server)
+- ✅ Data retrieval (sessions, questions, documents, MEPs)
+- ✅ Article generation from MCP data
+- ✅ Fallback mode handling
+- ✅ Data transformation for articles
+- ✅ Request tracking and history
+- ✅ Error handling (malformed responses, timeouts)
+- ✅ Concurrent request handling
 
-- ✅ sitemap.xml loads when available (graceful skip if not generated)
-- ✅ Valid XML urlset structure with sitemaps.org namespace
-- ✅ Article URLs present in sitemap
-- ✅ More than 50 URL entries
-- ✅ RSS feed URL listed in sitemap
-- ✅ All 14 language HTML sitemap pages load successfully
-- ✅ Correct lang attribute on each language sitemap page
-- ✅ RTL direction for Arabic and Hebrew sitemap pages
-- ✅ Language navigation in HTML sitemaps
+**Coverage Goal**: 85%
 
-### 9. SEO Metadata Tests (`seo-metadata.spec.js`)
+#### multi-language.test.js
 
-Tests SEO metadata completeness on articles:
+Multi-language functionality:
 
-- ✅ Open Graph title, description, type (article), locale, site_name
-- ✅ Twitter Card meta tags (card, title, description)
-- ✅ Standard meta tags (description, keywords, author)
-- ✅ Schema.org JSON-LD structured data (valid JSON)
-- ✅ Page title includes site name
-- ✅ Charset UTF-8
-- ✅ Viewport meta tag
-- ✅ Multi-language og:locale correctness
-- ✅ RTL direction for Arabic and Hebrew articles
+- ✅ All 14 languages support
+- ✅ Language-specific labels (type, read time, navigation)
+- ✅ Date formatting per locale
+- ✅ Character encoding (special chars, diacritics)
+- ✅ SEO per language (Open Graph locale, structured data)
+- ✅ Index generation for all languages
+- ✅ Sitemap with all language URLs
+- ✅ Language consistency across article
+- ✅ Performance across all languages
 
-## Writing E2E Tests
+**Coverage Goal**: 80%
 
-### Test Structure
+## Test Coverage Requirements
+
+### Global Thresholds
+
+- **Lines**: ≥80%
+- **Functions**: ≥80%
+- **Branches**: ≥75%
+- **Statements**: ≥80%
+
+### Coverage Scope
+
+Coverage is measured for library modules only. CLI entry point scripts are
+excluded from coverage thresholds as they:
+
+- Have no exports (pure executables)
+- Are tested via integration tests
+- Are validated by functional tests in GitHub Actions (`test-and-report.yml`)
+
+**Excluded from coverage**:
+
+- `scripts/generators/news-indexes.js` - Index generation CLI
+- `scripts/generators/sitemap.js` - Sitemap generation CLI
+- `scripts/utils/generate-docs-index.js` - Docs-index utility
+- `scripts/utils/copy-test-reports.js` - Test-report copy utility
+
+**Included in coverage** (library modules):
+
+- `scripts/aggregator/*.js` - Analysis-artifact-driven article pipeline
+- `scripts/mcp/*.js` - MCP clients (EP, World Bank, IMF) + transport
+
+### Critical Paths
+
+Security-critical paths require ≥95% coverage:
+
+- XSS prevention and input sanitization
+- HTML generation and escaping
+- MCP client error handling
+- File operations and path validation
+
+## Test Fixtures
+
+### Mock EP Data (`test/fixtures/ep-data.js`)
+
+Realistic mock data for testing:
+
+- `mockPlenarySession` - Sample plenary session with agenda
+- `mockParliamentaryQuestions` - Written and oral questions
+- `mockDocuments` - Legislative proposals and reports
+- `mockMEPs` - Member information
+- `mockCommitteeMeeting` - Committee session data
+- `mockArticleMetadata` - Article configuration
+- `mockArticleContent` - Sample HTML content
+- `mockSources` - External reference links
+
+## Test Helpers
+
+### test-utils.js
+
+Common utilities:
+
+- `createTempDir()` - Create temporary test directory
+- `cleanupTempDir()` - Clean up after tests
+- `validateHTML()` - Validate HTML structure
+- `extractHTMLMetadata()` - Parse HTML metadata
+- `containsXSSVulnerability()` - Check for XSS issues
+- `mockConsole()` - Capture console output
+- `wait()` - Async delay helper
+- `isValidDate()` - Date validation
+
+### mock-mcp-server.js
+
+Mock MCP server for testing:
+
+- `MockMCPServer` class - Full mock implementation
+- `createMockMCPClient()` - Factory function
+- Simulates all MCP tool operations
+- Configurable failures for error testing
+- Request tracking and history
+
+## Writing Tests
+
+### Test Structure (AAA Pattern)
 
 ```javascript
-import { test, expect } from '@playwright/test';
+describe('Feature Name', () => {
+  // Setup
+  beforeEach(() => {
+    // Arrange: Prepare test data and environment
+  });
 
-test.describe('Feature Name', () => {
-  test('should do something specific', async ({ page }) => {
-    // Navigate to page
-    await page.goto('/');
+  // Teardown
+  afterEach(() => {
+    // Cleanup: Remove temp files, restore mocks
+  });
 
-    // Interact with elements
-    const button = page.locator('button');
-    await button.click();
+  describe('Specific Functionality', () => {
+    it('should do something specific', () => {
+      // Arrange: Set up test data
+      const input = {
+        /* test data */
+      };
 
-    // Assert expectations
-    await expect(page.locator('.result')).toBeVisible();
+      // Act: Execute the code being tested
+      const result = functionToTest(input);
+
+      // Assert: Verify expected outcomes
+      expect(result).toBe(expected);
+    });
   });
 });
 ```
 
 ### Best Practices
 
-1. **Use Locators Wisely**:
+1. **Test Independence**: Each test should run independently
+2. **Clear Names**: Use descriptive test names explaining what is tested
+3. **Single Assertion**: Focus each test on one aspect
+4. **Mock External Dependencies**: Use mocks for MCP, filesystem, etc.
+5. **Test Edge Cases**: Cover boundary conditions and errors
+6. **Fast Execution**: Keep unit tests < 1s, integration tests < 10s
+7. **No Flaky Tests**: Ensure tests are deterministic
 
-   ```javascript
-   // Good: Specific and stable
-   page.locator('[data-testid="submit-button"]');
-   page.locator('button:has-text("Submit")');
+### Example: Unit Test
 
-   // Avoid: Fragile CSS classes
-   page.locator('.btn-primary-123');
-   ```
+```javascript
+import { describe, it, expect } from 'vitest';
+import { generateArticleHTML } from '../../scripts/article-template.js';
 
-2. **Wait for State Changes**:
+describe('generateArticleHTML', () => {
+  it('should generate valid HTML with all meta tags', () => {
+    // Arrange
+    const options = {
+      slug: 'test-article',
+      title: 'Test Article',
+      subtitle: 'Test subtitle',
+      date: '2025-01-15',
+      category: 'week-ahead',
+      readTime: 5,
+      lang: 'en',
+      content: '<p>Content</p>',
+    };
 
-   ```javascript
-   // Good: Wait for navigation
-   await page.waitForLoadState('domcontentloaded');
+    // Act
+    const html = generateArticleHTML(options);
 
-   // Good: Wait for element
-   await expect(element).toBeVisible();
-   ```
+    // Assert
+    expect(html).toContain('<!DOCTYPE html>');
+    expect(html).toContain('<meta charset="UTF-8">');
+    expect(html).toContain(`<title>${options.title}`);
+  });
+});
+```
 
-3. **Handle Dynamic Content**:
+### Example: Integration Test
 
-   ```javascript
-   // Check if element exists before interacting
-   const count = await page.locator('.article').count();
-   if (count > 0) {
-     // Interact with element
-   }
-   ```
+```javascript
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import fs from 'fs';
+import { createTempDir, cleanupTempDir } from '../helpers/test-utils.js';
 
-4. **Test Independence**:
+describe('News Generation Flow', () => {
+  let tempDir;
 
-   ```javascript
-   // Each test should be independent
-   test.beforeEach(async ({ page }) => {
-     await page.goto('/');
-   });
-   ```
+  beforeEach(() => {
+    tempDir = createTempDir();
+  });
 
-5. **Meaningful Assertions**:
-   ```javascript
-   // Good: Clear assertion
-   await expect(page.locator('h1')).toContainText('EU Parliament Monitor');
-   // Avoid: Vague assertion
-   await expect(element).toBeTruthy();
-   ```
+  afterEach(() => {
+    cleanupTempDir(tempDir);
+  });
+
+  it('should generate and save article to filesystem', () => {
+    // Arrange
+    const newsDir = path.join(tempDir, 'news');
+    fs.mkdirSync(newsDir, { recursive: true });
+
+    // Act
+    const html = generateArticleHTML(options);
+    const filepath = path.join(newsDir, 'article.html');
+    fs.writeFileSync(filepath, html, 'utf-8');
+
+    // Assert
+    expect(fs.existsSync(filepath)).toBe(true);
+    const content = fs.readFileSync(filepath, 'utf-8');
+    expect(content).toBe(html);
+  });
+});
+```
 
 ## Debugging Tests
 
-### Visual Debugging
+### Running Single Test File
 
 ```bash
-# UI Mode - Interactive debugging
-npm run test:e2e:ui
-
-# Headed Mode - See browser
-npm run test:e2e:headed
-
-# Debug Mode - Step through
-npm run test:e2e:debug
+npx vitest test/unit/article-template.test.js
 ```
 
-### Screenshots and Videos
-
-Playwright automatically captures:
-
-- **Screenshots**: On failure
-- **Videos**: On failure
-- **Traces**: On first retry
-
-Find these in:
-
-- `test-results/` - Screenshots and videos
-- `playwright-report/` - HTML report with artifacts
-
-### Console Debugging
-
-```javascript
-// Add console.log in tests
-test('debug test', async ({ page }) => {
-  const text = await page.locator('h1').textContent();
-  console.log('Heading text:', text);
-});
-
-// Pause execution
-await page.pause();
-```
-
-### Test Selector
+### Running Single Test
 
 ```bash
-# Open Playwright Inspector
-npx playwright inspector
+npx vitest -t "should generate valid HTML"
 ```
 
-## CI/CD Integration
+### Watch Mode with Filter
 
-E2E tests run automatically in GitHub Actions on:
-
-- **Pull Requests**: All tests must pass
-- **Push to Main**: Full test suite
-- **Daily Schedule**: Regression testing
-
-See `.github/workflows/e2e.yml` for configuration.
-
-## Configuration
-
-### Playwright Config (`playwright.config.js`)
-
-Key settings:
-
-- **Base URL**: `http://localhost:8080`
-- **Browsers**: Chromium, Firefox, WebKit, Mobile Chrome, Mobile Safari
-- **Retries**: 2 retries in CI, 0 locally
-- **Timeouts**: 30s test timeout, 120s server startup
-- **Web Server**: Auto-starts `npm run serve`
-
-### Modifying Configuration
-
-```javascript
-// playwright.config.js
-export default defineConfig({
-  // Add test timeout
-  timeout: 60000, // 60 seconds
-
-  // Add global setup
-  globalSetup: './e2e/global-setup.js',
-
-  // Add more browsers
-  projects: [
-    {
-      name: 'chromium-desktop',
-      use: { ...devices['Desktop Chrome'] },
-    },
-  ],
-});
+```bash
+npx vitest watch test/unit/
 ```
 
-## Accessibility Testing
+### Debug with Chrome DevTools
 
-### Using Axe-Core
-
-```javascript
-import AxeBuilder from '@axe-core/playwright';
-
-test('accessibility test', async ({ page }) => {
-  await page.goto('/');
-
-  const results = await new AxeBuilder({ page })
-    .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
-    .analyze();
-
-  expect(results.violations).toEqual([]);
-});
+```bash
+npm run test:ui
+# Opens browser interface at http://localhost:51204/__vitest__/
 ```
 
-### WCAG Compliance Levels
+## Coverage Reports
 
-- **A**: Basic accessibility
-- **AA**: Recommended compliance (our target)
-- **AAA**: Enhanced accessibility
+### Viewing Coverage
 
-## Performance Considerations
+After running `npm run test:coverage`:
 
-### Test Speed
+```bash
+# View in terminal
+# Coverage summary is displayed automatically
 
-- **Unit Tests**: < 1s per test
-- **Integration Tests**: < 10s per test
-- **E2E Tests**: < 30s per test
+# View HTML report
+open coverage/index.html
 
-### Optimization Tips
+# View LCOV report (for CI tools)
+cat coverage/lcov.info
+```
 
-1. **Parallel Execution**: Tests run in parallel by default
-2. **Reuse Server**: `reuseExistingServer: !process.env.CI`
-3. **Selective Testing**: Run specific tests during development
-4. **Fast Selectors**: Use data-testid attributes
+### Coverage Badges
+
+Coverage results are exported to:
+
+- `coverage/coverage-summary.json` - JSON summary
+- `coverage/lcov.info` - LCOV format (for Codecov)
+- `coverage/index.html` - Interactive HTML report
+
+## Continuous Integration
+
+### GitHub Actions Workflow
+
+Tests run automatically in `.github/workflows/test-and-report.yml`:
+
+```yaml
+test:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+    - run: npm ci
+    - run: npm test
+    - run: npm run test:coverage
+    - uses: codecov/codecov-action@v4 # Upload coverage
+```
+
+### Quality Gates
+
+All PRs must pass:
+
+- ✅ All tests passing
+- ✅ Coverage thresholds met (80%+ lines, 75%+ branches)
+- ✅ No ESLint errors
+- ✅ Code formatted with Prettier
 
 ## Troubleshooting
 
-### Tests Fail Locally
+### Tests Failing Locally
 
 ```bash
-# Clear Playwright cache
-npx playwright install --force
+# Clear cache and reinstall
+rm -rf node_modules package-lock.json
+npm install
 
-# Update browsers
-npx playwright install
+# Clear Vitest cache
+npx vitest --clearCache
 
-# Check server is running
-npm run serve
+# Run tests with verbose output
+npx vitest --reporter=verbose
 ```
 
-### Tests Pass Locally but Fail in CI
+### Coverage Not Generated
 
-- Check if content is generated in CI
-- Verify server starts correctly
-- Check for race conditions
-- Review CI logs and screenshots
+```bash
+# Ensure coverage is installed
+npm install --save-dev @vitest/coverage-v8
 
-### Flaky Tests
-
-```javascript
-// Add explicit waits
-await page.waitForLoadState('networkidle');
-
-// Increase timeout for specific test
-test('slow test', async ({ page }) => {
-  test.setTimeout(60000);
-  // test code
-});
-
-// Add retry logic
-test('flaky test', async ({ page }) => {
-  test.retry(2);
-  // test code
-});
+# Run with coverage explicitly
+npx vitest run --coverage
 ```
 
-### Element Not Found
+### Mock Server Issues
 
-```javascript
-// Wait for element
-await page.waitForSelector('.element');
-
-// Use timeout
-await expect(page.locator('.element')).toBeVisible({ timeout: 10000 });
-
-// Check if exists first
-const count = await page.locator('.element').count();
-if (count > 0) {
-  // interact with element
-}
+```bash
+# Check if mock server is properly initialized
+# Add debug logging in test:
+console.log('Mock server connected:', mcpClient.connected);
 ```
 
 ## Contributing
 
 When adding new features:
 
-1. **Write E2E tests** for user-facing changes
-2. **Test accessibility** with axe-core
-3. **Test responsive design** on multiple viewports
-4. **Test cross-browser** (at least Chromium + Firefox)
-5. **Update documentation** if adding new test patterns
+1. **Write tests first** (TDD approach)
+2. **Ensure coverage** meets thresholds
+3. **Update this README** if adding new test categories
+4. **Run full test suite** before submitting PR
 
 ## Resources
 
-- [Playwright Documentation](https://playwright.dev/)
-- [Playwright Best Practices](https://playwright.dev/docs/best-practices)
-- [Axe-Core Rules](https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md)
-- [WCAG 2.1 Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+- [Vitest Documentation](https://vitest.dev/)
+- [Testing Best Practices](https://vitest.dev/guide/best-practices)
+- [Code Coverage Guide](https://vitest.dev/guide/coverage)
+- [EU Parliament Monitor Code Standards](../docs/CODE_STANDARDS.md)
 
 ---
 
-**Last Updated**: March 2026  
-**Framework**: Playwright 1.58+  
-**Test Count**: 90+ E2E tests  
-**Coverage**: Homepage, Navigation, Multi-language (14 languages), Accessibility, Responsive, RSS Feed, Sitemap, SEO Metadata
+**Last Updated**: January 2025  
+**Test Framework**: Vitest 4.0+  
+**Coverage Tool**: v8  
+**Total Tests**: 169+  
+**Current Coverage**: 80%+ (target met)
