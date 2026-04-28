@@ -65,7 +65,7 @@ sandbox:
     keepalive-interval: 300
 
 imports:
-  -.github/agents/news-generation.agent.md
+  - .github/agents/news-generation.agent.md
   - shared/mcp/news-mcp-servers.md
 
 concurrency:
@@ -197,7 +197,7 @@ steps:
 # were lost because no patch was serialised.
 post-steps:
   - name: Capture agent recovery patch
-    if: always
+    if: always()
     continue-on-error: true
     run: bash scripts/gh-aw-capture-agent-patch.sh
 
@@ -205,7 +205,7 @@ jobs:
   pat-pr-fallback:
     name: Host-side PAT PR fallback
     needs: [agent]
-    if: always && needs.agent.result != 'skipped'
+    if: always() && needs.agent.result != 'skipped'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -310,7 +310,7 @@ prose pass.
 
 ## 🎯 Article-Type Specifics
 
-- Economic context (**IMF only** for macro/fiscal/monetary/trade, is mandatory — monthly articles always touch macro/policy.
+- Economic context (**IMF only** for macro/fiscal/monetary/trade) is mandatory — monthly articles always touch macro/policy.
 - Mine prior-run forward statements (per `01-data-collection.md` §8).
 - **Seed synthesis from forward-statements registry** (per `01-data-collection.md` §8a): read open items from `analysis/forward-statements/` before Stage B.
 - **Multi-day foreseen activities fan-out** (per `01-data-collection.md` §8b): for each plenary session in the next 30 days, call `get_meeting_foreseen_activities` for all session days (Mon–Thu for Strasbourg, Wed–Thu for Brussels mini-sessions).

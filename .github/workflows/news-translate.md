@@ -190,7 +190,7 @@ steps:
 # §"Post-run recovery" and scripts/gh-aw-capture-agent-patch.sh.
 post-steps:
   - name: Capture agent recovery patch
-    if: always
+    if: always()
     continue-on-error: true
     run: bash scripts/gh-aw-capture-agent-patch.sh
 

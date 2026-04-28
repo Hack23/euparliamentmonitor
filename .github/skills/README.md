@@ -94,7 +94,7 @@ Canonical analysis anchors — every skill on the news critical path points to t
 
 ## Skills Statistics
 
-For the authoritative list, `ls.github/skills/*.md` is the source of truth. Categories above group every file currently in the directory.
+For the authoritative list, `ls .github/skills/*.md` is the source of truth. Categories above group every file currently in the directory.
 
 ## Agent Cross-Reference
 

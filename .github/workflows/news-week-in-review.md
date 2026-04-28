@@ -67,7 +67,7 @@ sandbox:
     keepalive-interval: 300
 
 imports:
-  -.github/agents/news-generation.agent.md
+  - .github/agents/news-generation.agent.md
   - shared/mcp/news-mcp-servers.md
 
 concurrency:
@@ -199,7 +199,7 @@ steps:
 # and Stage C `GREEN` were lost because no patch was serialised.
 post-steps:
   - name: Capture agent recovery patch
-    if: always
+    if: always()
     continue-on-error: true
     run: bash scripts/gh-aw-capture-agent-patch.sh
 
@@ -209,7 +209,7 @@ jobs:
   pat-pr-fallback:
     name: Host-side PAT PR fallback
     needs: [agent]
-    if: always && needs.agent.result != 'skipped'
+    if: always() && needs.agent.result != 'skipped'
     runs-on: ubuntu-latest
     permissions:
       contents: write
