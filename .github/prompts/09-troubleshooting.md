@@ -187,6 +187,47 @@ during PR review.
 
 **Related upstream tracker:** escalate to gh-aw upstream (see `.github/agents/agentic-workflows.agent.md`) if it recurs after Stage B is already bounded ≤ 22 min.
 
+## 5b · Threat Detection `parse_error` Warnings
+
+**Symptom:** The `[aw] Detection Runs` issue receives an automated comment
+`Conclusion: warning | Reason: parse_error` from a news workflow run, and
+the `detection` job exits with code 1 even though the workflow's main
+`agent` job (Stages A–E) completed normally and the safe-outputs PR was
+created.
+
+**Root cause (do NOT treat as a workflow content bug):** the gh-aw
+sandbox's `awf-api-proxy` container occasionally fails its docker
+healthcheck at startup (typically when GitHub-hosted runner cold-start
+saturates the network briefly). When that happens, the threat-detection
+AI model never executes, so no `THREAT_DETECTION_RESULT:{…}` line is
+emitted to `/tmp/gh-aw/threat-detection/detection.log`, and the
+post-step `parse_threat_detection_results.cjs` records `ERR_PARSE` as a
+**warning** (because `GH_AW_DETECTION_CONTINUE_ON_ERROR=true` is the
+gh-aw default and is hard-coded in every news workflow's compiled
+`.lock.yml`). Telltale lines in the `detection` job log:
+
+```
+[ERROR] Failed to start containers: … docker compose up -d --pull never
+##[warning]⚠️ ERR_PARSE: ❌ No THREAT_DETECTION_RESULT found in detection log.
+```
+
+**Triage rule:** This is a transient sandbox-infrastructure event, not
+an invalid command in the workflow `.md` or imported prompts. Confirm by
+running `npm run lint:prompts` (must be `0 violations`) and
+`npm run test -- test/unit/shell-safety.test.js` — if both pass, no
+workflow content fix is required. The `[aw] Detection Runs` tracking
+issue says "**No action to take - Do not assign to an agent.**" by
+design; only re-investigate if the same workflow emits `parse_error`
+warnings on **three consecutive scheduled runs**, which would indicate a
+non-transient regression in the sandbox setup rather than docker
+flake.
+
+**Reference run:** [`#25056314235`](https://github.com/Hack23/euparliamentmonitor/actions/runs/25056314235)
+(news-month-in-review, 2026-04-28) — `awf-api-proxy` reported `Error`
+~10 s after `Container … Starting`, dependency healthcheck failed,
+detection job exited with code 1, parse step emitted the canonical
+warning. Main agent run was unaffected.
+
 ## 6 · Recovery Before Calling Noop
 
 1. Run `bash scripts/awf-firewall-diagnostic.sh`.
