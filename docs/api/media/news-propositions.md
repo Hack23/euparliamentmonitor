@@ -184,7 +184,22 @@ steps:
     run: |
       npm run copy-vendor
 
-
+# Post-execution recovery: when the agent commits Stage E output to a local
+# news/* branch but the safeoutputs MCP create_pull_request call fails with
+# session not found (well-known TTL expiry — see prompts/09-troubleshooting.md),
+# the agent commits live only on the agent runner filesystem and are lost
+# when the runner is reaped. This post-step writes
+# /tmp/gh-aw/aw-agent-recovery.patch from the news/* branch, which the
+# existing Upload agent artifacts step bundles into agent.zip and the
+# host-side pat-pr-fallback job applies on its fresh main checkout via
+# scripts/gh-aw-pat-pr-fallback.sh aw-*.patch loop. Originated from run
+# #25028873034 (week-in-review) where 35 staged files and Stage C GREEN
+# were lost because no patch was serialised.
+post-steps:
+  - name: Capture agent recovery patch
+    if: always()
+    continue-on-error: true
+    run: bash scripts/gh-aw-capture-agent-patch.sh
 
 jobs:
   pat-pr-fallback:
