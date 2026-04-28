@@ -1,0 +1,79 @@
+{
+  "articleType": "breaking",
+  "runId": "breaking-run1777336869",
+  "date": "2026-04-28",
+  "analysisDir": "analysis/daily/2026-04-28/breaking",
+  "createdAt": "2026-04-28T00:41:00Z",
+  "updatedAt": "2026-04-28T01:05:00Z",
+  "gateResult": "ANALYSIS_ONLY",
+  "gateReason": "elapsed-time tripwire at minute 20+; multiple artifacts below floor or missing",
+  "pass2": {
+    "startedAt": "2026-04-28T00:55:00Z",
+    "endedAt": "2026-04-28T01:05:00Z",
+    "rewriteCount": 2,
+    "filesExpanded": ["intelligence/mcp-reliability-audit.md", "executive-brief.md"]
+  },
+  "artifactSources": {
+    "executive-brief.md": "fresh",
+    "intelligence/political-dynamics.md": "fresh",
+    "intelligence/voting-patterns.md": "fresh",
+    "intelligence/swot-analysis.md": "fresh",
+    "intelligence/stakeholder-analysis.md": "fresh",
+    "intelligence/coalition-dynamics.md": "fresh",
+    "intelligence/mcp-reliability-audit.md": "fresh",
+    "intelligence/legislative-timeline.md": "fresh",
+    "intelligence/geopolitical-risk.md": "fresh",
+    "intelligence/procedure-tracker.md": "fresh",
+    "risk-scoring/risk-register.md": "fresh",
+    "classification/document-classification.md": "fresh",
+    "threat-assessment/political-threat-assessment.md": "fresh"
+  },
+  "files": {
+    "executive-brief": "executive-brief.md",
+    "intelligence": {
+      "political-dynamics": "intelligence/political-dynamics.md",
+      "voting-patterns": "intelligence/voting-patterns.md",
+      "swot-analysis": "intelligence/swot-analysis.md",
+      "stakeholder-analysis": "intelligence/stakeholder-analysis.md",
+      "coalition-dynamics": "intelligence/coalition-dynamics.md",
+      "mcp-reliability-audit": "intelligence/mcp-reliability-audit.md",
+      "legislative-timeline": "intelligence/legislative-timeline.md",
+      "geopolitical-risk": "intelligence/geopolitical-risk.md",
+      "procedure-tracker": "intelligence/procedure-tracker.md"
+    },
+    "risk-scoring": {
+      "risk-register": "risk-scoring/risk-register.md"
+    },
+    "classification": {
+      "document-classification": "classification/document-classification.md"
+    },
+    "threat-assessment": {
+      "political-threat-assessment": "threat-assessment/political-threat-assessment.md"
+    }
+  },
+  "dataCollection": {
+    "adoptedTextsCount": 41,
+    "plenarySessionsCount": 21,
+    "currentSession": "Strasbourg April 27-30 2026",
+    "politicalLandscape": {
+      "totalMEPs": 719,
+      "groups": 9,
+      "stabilityScore": 84,
+      "majorityThreshold": 361
+    },
+    "earlyWarnings": 3,
+    "riskLevel": "MEDIUM",
+    "topStory": "TA-10-2026-0096 EU response to US tariffs adopted March 26 2026"
+  },
+  "history": [
+    {
+      "runId": "breaking-run1777336869",
+      "startedAt": "2026-04-28T00:41:09Z",
+      "gateResult": "ANALYSIS_ONLY",
+      "gateReason": "elapsed-time tripwire at minute 22; reserve remaining budget for Stage E PR-call deadline",
+      "artifactsProduced": 13,
+      "pass2RewriteCount": 2,
+      "note": "Stage B partially complete; 13 of 35+ required artifacts produced; MCP data limitations: voting records delayed, procedures feed stale, events feed timeout"
+    }
+  ]
+}
