@@ -25,8 +25,8 @@ import {
   aggregateAnalysisRun,
   resolveArticleTypeFromManifest,
   type AggregatedRun,
-  type AnalysisManifest,
 } from './analysis-aggregator.js';
+import type { Manifest } from './manifest/index.js';
 import {
   resolveArticleMetadata,
   extractStrongProseLine,
@@ -728,7 +728,7 @@ function readManifestMetadata(runDir: string): MetadataManifest {
   try {
     const parsed = JSON.parse(fs.readFileSync(manifestPath, 'utf8')) as Record<string, unknown>;
     const manifest: MetadataManifest = {};
-    const resolvedType = resolveArticleTypeFromManifest(parsed as unknown as AnalysisManifest);
+    const resolvedType = resolveArticleTypeFromManifest(parsed as unknown as Manifest);
     if (resolvedType && resolvedType !== 'unknown') {
       Object.assign(manifest, { articleType: resolvedType });
     }

@@ -31,34 +31,8 @@ import {
   resolveArticleType as _resolveArticleType,
   resolveRunId as _resolveRunId,
   type Manifest,
-  type ManifestFiles as _ManifestFiles,
-  type ManifestHistoryEntry as _ManifestHistoryEntry,
+  type ManifestFiles,
 } from './manifest/index.js';
-
-/**
- * Raw manifest shape as committed by the analysis pipeline.
- *
- * @deprecated Use {@link Manifest} from `aggregator/manifest/index.js`.
- *   This alias is preserved for back-compat with the existing test suite
- *   and external curators that import `AnalysisManifest` from this module.
- */
-export type AnalysisManifest = Manifest;
-
-/**
- * `manifest.files` can be nested category → paths or flat path → description.
- *
- * @deprecated Use {@link _ManifestFiles} (`ManifestFiles`) from
- *   `aggregator/manifest/index.js`.
- */
-export type ManifestFiles = _ManifestFiles;
-
-/**
- * One entry in `manifest.history[]`; only fields we read are typed.
- *
- * @deprecated Use {@link _ManifestHistoryEntry} (`ManifestHistoryEntry`) from
- *   `aggregator/manifest/index.js`.
- */
-export type ManifestHistoryEntry = _ManifestHistoryEntry;
 
 /** Result of {@link aggregateAnalysisRun}. */
 export interface AggregatedRun {
@@ -147,7 +121,7 @@ export function flattenManifestFiles(files: ManifestFiles | undefined): string[]
  * @param manifest - Parsed manifest object
  * @returns The latest non-PENDING gate result, or `"PENDING"` when none found
  */
-export function latestGateResult(manifest: AnalysisManifest): string {
+export function latestGateResult(manifest: Manifest): string {
   return _latestGateResult(manifest);
 }
 
@@ -608,7 +582,7 @@ function appendSection(
  * @param manifest - Parsed manifest (any of the supported schemas)
  * @returns Article-type slug usable as a filename component
  */
-export function resolveArticleTypeFromManifest(manifest: AnalysisManifest): string {
+export function resolveArticleTypeFromManifest(manifest: Manifest): string {
   return _resolveArticleType(manifest);
 }
 
@@ -629,9 +603,9 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
     throw new Error(`Run directory does not exist: ${runDir}`);
   }
   const manifestPath = path.join(runDir, 'manifest.json');
-  let manifest: AnalysisManifest = { articleType: 'unknown' };
+  let manifest: Manifest = { articleType: 'unknown' };
   if (fs.existsSync(manifestPath)) {
-    manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8')) as AnalysisManifest;
+    manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8')) as Manifest;
   }
   const manifestFiles = flattenManifestFiles(manifest.files);
   const discovered = collectRunArtifacts(runDir);
