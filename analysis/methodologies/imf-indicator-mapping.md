@@ -8,7 +8,7 @@
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public  
 **🔗 Mirror file:** [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) (non-economic domains — Wave-4 partition)  
 **📥 Feeds artifact:** [`economic-context.md`](../templates/economic-context.md) (Stage B.6, [`strategic-extensions-methodology.md`](strategic-extensions-methodology.md) §Economic Context)  
-**🛂 Wave-2 OR-gate:** A policy-required article passes the economic-context gate when **either** an IMF indicator from this mapping **or** a World Bank non-economic indicator (per the mirror file) is cited with vintage and Admiralty grade. IMF coverage of a fiscal/monetary/trade claim is the strongly preferred path; WB is the fallback when IMF coverage is absent for a given indicator/year.
+**🛂 Wave-4 IMF-primary gate (April 2026):** A policy-required article passes the economic-context gate when **every** economic / fiscal / monetary / trade / FDI / exchange-rate / banking-soundness claim cites an IMF indicator from this mapping (with SDMX code + vintage prose + `data-vintage` HTML attribute + forecast marker within 30 words of any projected number). The Admiralty grade is A1/A2 for IMF WEO/FM actuals and B2 for IMF staff estimates. World Bank is **not an acceptable substitute** for any economic claim — it is reserved for non-economic domains only (see the mirror file). The legacy Wave-2 OR-gate ("WB **or** IMF satisfies the gate") is **retired** under Wave-4.
 
 **Purpose**: Canonical reference that maps European Parliament Monitor
 article types to the most-relevant IMF indicators sourced from WEO,
@@ -296,9 +296,9 @@ Log the triangulation outcome in
 
 | Wave | Status | Enforcement | WB-for-economic policy |
 |:----:|--------|-------------|-----------------------|
-| 2 | ✅ shipped | Runtime `articlePolicyHasEconomicContext` OR-gate | Retained as secondary; WB economic indicators satisfied the gate |
-| 3 | ✅ shipped | Same OR-gate + dark-launched `articlePolicyHasIMFEconomicEvidence` behind `WAVE3_IMF_STRICT` flag | IMF **primary** for economic; WB accepted but diagnostic flagged when used |
-| 4 | ✅ **current** | **Editorial** at Stage-C review over markdown artifacts; all runtime helpers purged in April-2026 aggregator-pipeline migration | IMF **required** for economic; WB for economic blocked at Stage C |
+| 2 | 🗄️ historical | Runtime `articlePolicyHasEconomicContext` OR-gate (purged in April-2026 aggregator-pipeline migration) | Historical only — WB-for-economic is **retired** under Wave-4 and was never editorially endorsed for new articles |
+| 3 | 🗄️ historical | Same OR-gate + dark-launched `articlePolicyHasIMFEconomicEvidence` behind `WAVE3_IMF_STRICT` flag (purged April-2026) | Transitional only — IMF promoted to primary; WB-for-economic flagged diagnostic; **retired** at Wave-4 |
+| 4 | ✅ **current** | **Editorial** at Stage-C review over markdown artifacts; all runtime helpers purged in April-2026 aggregator-pipeline migration; `scripts/validate-analysis-completeness.js` rejects WB economic indicator codes (`NY.GDP.*`, `FP.CPI.*`, `SL.UEM.*`, …) and WB economic prose claims inside `intelligence/economic-context.md`; `scripts/lint-prompts.js` rejects "World Bank or IMF" / "IMF or World Bank" / "economic context (… World Bank …)" phrasing in workflow prompts | IMF **required** for every economic claim; **World Bank is never acceptable** for economic context (not primary, not secondary, not fallback) |
 
 **What changed at Wave-4**: the aggregator-pipeline migration removed
 `src/utils/validate-articles.ts`, `src/utils/content-validator.ts`,

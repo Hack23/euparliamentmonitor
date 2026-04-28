@@ -176,7 +176,7 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Purpose.** Political / Economic / Social / Technological / Legal / Environmental scan of factors shaping the period's dominant issue.
 
-**EP MCP inputs.** `get_procedures`, `get_adopted_texts`, `search_documents`, plus IMF economic context (primary, Wave-3) and World Bank non-economic context (additive) via [`imf-indicator-mapping.md`](imf-indicator-mapping.md) and [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md).
+**EP MCP inputs.** `get_procedures`, `get_adopted_texts`, `search_documents`, plus **IMF** economic context (sole authoritative source — Wave-4) and World Bank non-economic context (health, education, social, environment, demographics, defence, agriculture, innovation, governance only) via [`imf-indicator-mapping.md`](imf-indicator-mapping.md) and [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md). World Bank is **never** acceptable for the Economic dimension of PESTLE.
 
 **Required sections.**
 1. Issue frame — the question the scan answers.
@@ -188,7 +188,7 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Depth floor (breaking):** 250 lines.
 
-**Quality signals.** At least one IMF indicator cited for any economic dimension (Wave-3 mandatory primary); WB non-economic indicator additionally cited for health/education/social/environment/defence dimensions; legal dimension cites at least one treaty article or CJEU reference; each dimension's pressure rating has a written justification.
+**Quality signals.** At least one IMF indicator cited for any economic dimension (Wave-4 sole authoritative source); WB non-economic indicator additionally cited for health/education/social/environment/defence dimensions; legal dimension cites at least one treaty article or CJEU reference; each dimension's pressure rating has a written justification.
 
 ---
 
@@ -270,9 +270,9 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 ### economic-context
 
-**Purpose.** Anchor the period's policy topics in **IMF** (primary — Wave-4) macro, fiscal, trade, monetary, exchange-rate, banking-soundness, and commodity data, plus optional World Bank cross-refs for non-economic context.
+**Purpose.** Anchor the period's policy topics in **IMF** (sole authoritative source — Wave-4) macro, fiscal, trade, monetary, exchange-rate, banking-soundness, and commodity data. World Bank is **never** acceptable for economic context (not primary, not secondary, not fallback) — it is reserved for non-economic cross-refs only (health, education, social, environment, demographics, defence, agriculture, innovation, governance).
 
-**EP MCP inputs.** IMF native client (`scripts/imf-mcp-probe.sh`, tools `imf-fetch-data` / `imf-search-databases` / `imf-get-parameter-defs` / `imf-get-parameter-codes`) is the **primary** source. World Bank MCP (`worldbank-get-social-data`, `worldbank-get-health-data`, `worldbank-get-education-data`) is additive for non-economic context only. See [Wave-4 IMF-primary policy](../../.github/skills/imf-data-integration.md): IMF is the required primary source; WB cannot substitute for economic context in new articles.
+**EP MCP inputs.** IMF native client (`scripts/imf-mcp-probe.sh`, tools `imf-fetch-data` / `imf-search-databases` / `imf-get-parameter-defs` / `imf-get-parameter-codes`) is the **sole** authoritative source for economic / fiscal / monetary / trade / FDI / exchange-rate / banking-soundness claims. World Bank MCP (`worldbank-get-social-data`, `worldbank-get-health-data`, `worldbank-get-education-data`) is additive for non-economic context only — never for economic claims (not primary, not secondary, not fallback). See [Wave-4 IMF-primary policy](../../.github/skills/imf-data-integration.md).
 
 **Required sections.**
 1. Topic-to-indicator mapping — table linking each EP policy topic discussed this period to ≥1 **IMF** SDMX series (required for economic topics) plus optional WB non-economic cross-refs. See [`imf-indicator-mapping.md`](imf-indicator-mapping.md) and (non-economic only) [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md).

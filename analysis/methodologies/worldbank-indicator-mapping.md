@@ -1,21 +1,21 @@
 <!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
-# World Bank Indicator → Article Type Mapping (Non-Economic Only — Wave-3)
+# World Bank Indicator → Article Type Mapping (Non-Economic Only — Wave-4)
 
 **📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:** 2026-04-25 (UTC)  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31  
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public  
 **🔗 Mirror file:** [`imf-indicator-mapping.md`](imf-indicator-mapping.md) (economic / fiscal / monetary / trade — Wave-4 partition)  
 **📥 Feeds artifact:** [`economic-context.md`](../templates/economic-context.md) (Stage B.6, [`strategic-extensions-methodology.md`](strategic-extensions-methodology.md) §Economic Context)  
-**🛂 Wave-2 OR-gate:** A policy-required article passes the economic-context gate when **either** an IMF indicator from the mirror file **or** a World Bank non-economic indicator from this mapping is cited with vintage and Admiralty grade. WB is the authoritative path for non-economic domains (health, education, social, environment, demographics, defence, agriculture, innovation, governance); legacy WB economic codes are retained for backward compatibility but MUST NOT appear in new articles.
+**🛂 Wave-4 non-economic-only gate (April 2026):** Under the IMF-primary policy, World Bank cannot satisfy the economic-context gate at all — every economic / fiscal / monetary / trade / FDI / exchange-rate / banking claim must cite IMF. World Bank is required only when an article makes a **non-economic** claim (health, education, social, environment, demographics, defence, agriculture, innovation, governance) and is cited with vintage and Admiralty grade per the WB rows in § 4. Legacy WB economic codes (GDP, INFLATION, UNEMPLOYMENT, EXPORTS_GDP, FDI_NET, GNI, …) are retained in the WB MCP catalog for backward compatibility but **must not** appear in new article evidence chains — those redirect to `imf-fetch-data` per the mirror file. The Wave-2 OR-gate ("WB **or** IMF satisfies the gate") is **retired**.
 
 **Purpose**: Canonical reference that maps European Parliament Monitor article
 types to the most-relevant **non-economic** World Bank Open Data indicators.
 Every news workflow cites this file so the AI agent selects indicators
 consistently and the validator's quality gate remains enforceable.
 
-**⚡ Wave-3 scope (April 2026)**: World Bank is the source for **health,
+**⚡ Wave-4 scope (April 2026)**: World Bank is the source for **health,
 education, social, environment, demographics, defence, agriculture,
 innovation, and governance** indicators only. **All economic / monetary /
 fiscal / trade / FDI / exchange-rate / banking context (GDP, inflation,
@@ -29,7 +29,7 @@ new-article policy is **IMF-primary**. Wave-4 (target ~2 weeks after
 2026-04-24) will remove these WB economic codes from the production
 article generation code path entirely.
 
-**Retained WB domains (Wave-3)**:
+**Retained WB domains (Wave-4 — non-economic only)**:
 
 | Domain | Covered by WB | Primary MCP tool |
 |---|---|---|
@@ -114,7 +114,7 @@ The MCP tool `get-economic-data` ⚠️ (deprecated for new articles — use IMF
 | `MALNUTRITION`          | Prevalence of undernourishment (% of pop.)     | health          |
 | `TUBERCULOSIS`          | Incidence of tuberculosis (per 100,000)        | health          |
 
-## 2. Mandatory — policy article types (Wave-3 non-economic only)
+## 2. Mandatory — policy article types (Wave-4 non-economic only)
 
 The validator **fails** when the article has an economic claim without IMF
 citation, or when a non-economic claim is missing its WB indicator. This
@@ -141,7 +141,7 @@ per-committee IMF indicator floors.
 | `breaking`   | Only when the breaking event has a direct non-economic consequence (public health emergency, migration, defence) |
 | `week-ahead` | When the week's agenda includes non-economic legislation (health, education, environment, defence) |
 
-## 4. Committee → non-economic indicator quick-lookup (Wave-3)
+## 4. Committee → non-economic indicator quick-lookup (Wave-4)
 
 Used by the `news-committee-reports` workflow to pick defaults for
 **non-economic** context; the economic counterpart defaults live in

@@ -238,4 +238,98 @@ describe('scripts/lint-prompts.js', () => {
     expect(result.code).toBe(1);
     expect(result.stderr).toContain('completeness-gate');
   });
+
+  // ── Wave-4 IMF-primary editorial policy (April 2026) ───────────────
+  // The legacy Wave-2 OR-gate ("World Bank **or** IMF satisfies the
+  // economic-context gate") is retired. Workflow prompts that still
+  // describe WB as substitutable for IMF on economic claims are out
+  // of policy and must fail lint:prompts.
+
+  it('flags "World Bank or IMF" economic-context phrasing (Wave-4)', () => {
+    writeWorkflow(
+      'news-bad-or-gate.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n' +
+        'Economic context (World Bank or IMF) is mandatory.\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain('forbidden phrase');
+    expect(result.stderr.toLowerCase()).toContain('world bank');
+  });
+
+  it('flags "IMF or World Bank" economic-context phrasing (Wave-4 reversed)', () => {
+    writeWorkflow(
+      'news-bad-or-gate-reversed.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n' +
+        'Economic context citing IMF or World Bank is mandatory.\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain('forbidden phrase');
+  });
+
+  it('flags "WB/IMF" slash phrasing in an economic-context sentence (Wave-4)', () => {
+    writeWorkflow(
+      'news-bad-slash.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n' +
+        'Cite economic context using WB/IMF for every macro claim.\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain('forbidden phrase');
+  });
+
+  it('still permits the bold-markdown variant "World Bank **or** IMF" detection', () => {
+    // The historical bug fixture used the bold-markdown variant in
+    // .github/workflows/news-month-in-review.md. The forbidden-phrase
+    // regex must catch both plain and bold forms.
+    writeWorkflow(
+      'news-bad-bold-or-gate.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n' +
+        '- Economic context (World Bank **or** IMF) is mandatory.\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain('forbidden phrase');
+  });
+
+  it('accepts Wave-4 IMF-primary phrasing ("IMF (primary), WB non-economic only")', () => {
+    writeWorkflow(
+      'news-good-wave4.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n' +
+        'Economic context: IMF is the sole authoritative source. ' +
+        'World Bank is reserved for non-economic domains only ' +
+        '(governance WGI, demographics, defence-spending).\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(0);
+  });
+
+  it('accepts Wave-4 negation phrasing ("World Bank is never acceptable for economic context")', () => {
+    // Policy enforcement language must NOT trip the forbidden-phrase
+    // regex — the detector targets positive listings of WB-as-economic-
+    // source ("WB **or** IMF", "WB/IMF", …), not statements forbidding
+    // the practice.
+    writeWorkflow(
+      'news-good-negation.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n' +
+        '- Economic context (**IMF only** for macro/fiscal/monetary/trade — ' +
+        'Wave-4 policy; World Bank is **never** acceptable for economic ' +
+        'context, not primary, not secondary, not fallback) is mandatory.\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(0);
+  });
 });

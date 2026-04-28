@@ -46,7 +46,7 @@ graph LR
 |:----------:|-------------------|----------|
 | **HIGH** | Official EP adopted text, legislative resolution | `get_adopted_texts`, `get_procedures` |
 | **HIGH** | Verified roll-call voting record | `get_voting_records`, `analyze_voting_patterns` |
-| **HIGH** | Eurostat/IMF (primary economic)/World Bank (non-economic) official statistics | IMF SDMX REST + World Bank MCP tools |
+| **HIGH** | Eurostat / IMF (sole authoritative economic source — Wave-4) / World Bank (non-economic only — health, education, social, environment, demographics, defence, agriculture, innovation, governance; **never** for economic context) official statistics | IMF SDMX REST + World Bank MCP tools |
 | **MEDIUM** | Commission communication or proposal | `get_external_documents`, `search_documents` |
 | **MEDIUM** | Named MEP speech in plenary record | `get_speeches` |
 | **MEDIUM** | Verified major media outlet with named sources | External verification |

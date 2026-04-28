@@ -17,7 +17,7 @@
 | **Analysis Period** | `[REQUIRED: YYYY-MM-DD to YYYY-MM-DD]` |
 | **Primary Data Source** | `IMF (vintage: [REQUIRED: e.g. WEO-April-2026])` |
 | **IMF Source** | `[REQUIRED: live | cache | knowledge-only]` |
-| **Secondary (non-economic)** | `[REQUIRED: World Bank or "None"]` |
+| **Secondary (non-economic only)** | `[OPTIONAL: World Bank for non-economic cross-refs (health, education, social, environment, demographics, defence, agriculture, innovation, governance) only — or "None". World Bank is **never** acceptable as a secondary source for economic context under Wave-4 policy.]` |
 | **IMF Indicators Cited** | `[REQUIRED: count — must meet article-type floor from imf-indicator-mapping.md §8]` |
 | **Forecast Horizon** | `[REQUIRED: current / t+1 / t+3 / t+5 — sizes the optimism-bias caveat per forecast-accuracy-baseline.md]` |
 | **Triangulation Performed** | `[REQUIRED: Yes/No — required for Tier-1 + high-sensitivity indicators per cross-source-triangulation.md]` |

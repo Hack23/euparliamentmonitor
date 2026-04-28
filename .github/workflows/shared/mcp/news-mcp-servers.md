@@ -34,7 +34,7 @@ It mounts the four MCP servers every article-generating workflow needs:
 | Server | Version | Purpose |
 |---|---|---|
 | `european-parliament` | `european-parliament-mcp-server@1.2.15` | 62 EP tools (see `.github/prompts/07-mcp-reference.md`) |
-| `world-bank` | `worldbank-mcp@1.0.1` | Economic context indicators |
+| `world-bank` | `worldbank-mcp@1.0.1` | **Non-economic** indicators only — health, education, social, environment, demographics, defence (military expenditure), agriculture, innovation, governance (WGI). **Never** used for economic context (Wave-4 policy — IMF is the sole authoritative economic source). |
 | `memory` | `@modelcontextprotocol/server-memory` | Run-scoped scratch memory |
 | `sequential-thinking` | `@modelcontextprotocol/server-sequential-thinking` | Structured reasoning tool |
 

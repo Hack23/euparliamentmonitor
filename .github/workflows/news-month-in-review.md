@@ -309,7 +309,7 @@ prose pass.
 
 ## 🎯 Article-Type Specifics
 
-- Economic context (World Bank **or** IMF) is mandatory.
+- Economic context is **mandatory** and must be sourced from **IMF** (Wave-4 editorial policy — primary, sole authoritative source for every economic / fiscal / monetary / trade / FDI / exchange-rate / banking-soundness claim). World Bank may only be cited for non-economic domains (governance WGI, demographics, social, environment, defence-spending). See [`.github/skills/imf-data-integration.md`](../skills/imf-data-integration.md) and [`analysis/methodologies/imf-indicator-mapping.md §8`](../../analysis/methodologies/imf-indicator-mapping.md#8-per-article-type-indicator-minimums) (`month-in-review` ≥ 2 IMF indicators).
 - Cross-reference prior month-ahead predictions; produce a confirmed/refuted tally.
 - Include `intelligence/historical-baseline.md` in the analysis set.
 

@@ -194,7 +194,7 @@ Translate the matrix for a newsroom audience. Plain language, no acronyms withou
 
 **EP MCP tools used:** `get_procedures`, `analyze_country_delegation`, `compare_political_groups`, `get_voting_records`, `get_adopted_texts` *(REQUIRED: ≥3 distinct tools)*
 
-**External corroboration:** `[REQUIRED: ≥1 World Bank / IMF / Eurostat indicator OR official Council/Commission document with link]`
+**External corroboration:** `[REQUIRED: ≥1 IMF indicator (for any economic / fiscal / monetary / trade dimension — Wave-4 policy: IMF is the **sole** source for economic corroboration, World Bank is never acceptable here) / Eurostat indicator / World Bank indicator (non-economic only — health, education, social, environment, demographics, defence, agriculture, innovation, governance) / official Council or Commission document with link]`
 
 **Admiralty grades for primary sources:** `[REQUIRED: table or inline B2/A1/B3 grades on each major citation]`
 

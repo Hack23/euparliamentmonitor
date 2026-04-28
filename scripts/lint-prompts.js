@@ -96,6 +96,29 @@ const FORBIDDEN_PHRASES = [
   /\bnews-<type>-analysis\.md\b/i,
   /\bnews-<type>-article\.md\b/i,
   /\bgenerate-news\b(?!-indexes\b)/i,
+  // Wave-4 IMF-primary editorial policy (April 2026): IMF is the SOLE
+  // authoritative source for every economic / fiscal / monetary / trade /
+  // FDI / exchange-rate / banking-soundness claim. World Bank is reserved
+  // for non-economic domains only. Workflow prompts that still describe
+  // the legacy Wave-2 OR-gate ("WB **or** IMF satisfies the gate") are
+  // out of policy. We catch the positive listings:
+  //
+  //   - "World Bank **or** IMF"  (bold or plain)
+  //   - "IMF **or** World Bank"  (bold or plain)
+  //   - "WB or IMF" / "IMF or WB"
+  //   - "WB/IMF" / "IMF/WB" inside an economic context phrase
+  //
+  // The detectors are intentionally narrow so a sentence that says
+  // "World Bank is **never** acceptable for economic context" — i.e.
+  // policy enforcement language — does NOT trigger.
+  // See .github/skills/imf-data-integration.md and
+  // analysis/methodologies/imf-indicator-mapping.md §8.
+  /\bWorld\s+Bank\s+\*?\*?or\*?\*?\s+IMF\b/i,
+  /\bIMF\s+\*?\*?or\*?\*?\s+World\s+Bank\b/i,
+  /\bWB\s+or\s+IMF\b/i,
+  /\bIMF\s+or\s+WB\b/i,
+  /economic\s+context[^.\n]{0,40}\bWB\s*\/\s*IMF\b/i,
+  /economic\s+context[^.\n]{0,40}\bIMF\s*\/\s*WB\b/i,
   // Note: the AI_MARKER / [AI_ANALYSIS_REQUIRED] / FALLBACK_TEMPLATE_PATTERNS
   // string tokens are NOT banned — workflow prompts legitimately instruct the
   // agent "no [AI_ANALYSIS_REQUIRED] markers may remain in committed

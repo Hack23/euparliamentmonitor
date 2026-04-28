@@ -330,7 +330,7 @@ Which artifacts are mandatory (🟥 M), recommended (🟨 R), or optional (⬜ O
 | Scenario-forecast (≥3) | 🟥 | 🟨 | 🟥 | 🟥 | 🟥 | 🟨 | 🟨 | 🟥 | 🟥 |
 | Threat-model (Diamond / Attack / Kill-chain) | 🟥 | 🟨 | 🟥 | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 | 🟥 |
 | Historical-baseline | 🟨 | 🟥 | 🟥 | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 | 🟥 |
-| Economic-context (WB or IMF) | 🟨 | 🟨 | 🟥 | 🟨 | 🟥 | 🟨 | 🟨 | 🟥 | 🟥 |
+| Economic-context (IMF primary, Wave-4) | 🟨 | 🟨 | 🟥 | 🟨 | 🟥 | 🟨 | 🟨 | 🟥 | 🟥 |
 | Wildcards-blackswans | 🟨 | 🟨 | 🟥 | 🟨 | 🟥 | ⬜ | ⬜ | 🟨 | 🟥 |
 | Document-analysis-index | 🟥 | 🟥 | 🟥 | ⬜ | ⬜ | 🟥 | 🟥 | 🟥 | 🟥 |
 | MCP-reliability-audit | 🟨 when API degraded | 🟨 same | 🟨 same | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 | 🟨 |
@@ -645,7 +645,7 @@ Every security-relevant control maps to **ISO 27001:2022**, **NIST CSF 2.0**, **
 - [`political-threat-framework.md`](political-threat-framework.md) — Diamond / Attack Trees / Kill Chain / PESTLE
 - [`political-classification-guide.md`](political-classification-guide.md) — 7-dimension classification
 - [`political-style-guide.md`](political-style-guide.md) — writing standards
-- [`imf-indicator-mapping.md`](imf-indicator-mapping.md) — economic context (primary, Wave-3) / [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) — non-economic only
+- [`imf-indicator-mapping.md`](imf-indicator-mapping.md) — economic context (sole authoritative, Wave-4) / [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) — non-economic only
 - [`reference-quality-thresholds.json`](reference-quality-thresholds.json) — machine-enforced depth floors
 - [`../templates/README.md`](../templates/README.md) — template catalog
 - [Run 184 reference benchmark](../daily/2026-04-18/breaking-run184/) — depth exemplar

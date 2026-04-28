@@ -310,7 +310,7 @@ prose pass.
 
 ## 🎯 Article-Type Specifics
 
-- Economic context (**IMF primary** for macro/fiscal/monetary/trade — Wave-3 policy; WB only for non-economic) is mandatory — monthly articles always touch macro/policy.
+- Economic context (**IMF only** for macro/fiscal/monetary/trade — Wave-4 policy; World Bank is **never** acceptable for economic context, not primary, not secondary, not fallback) is mandatory — monthly articles always touch macro/policy.
 - Mine prior-run forward statements (per `01-data-collection.md` §8).
 - **Seed synthesis from forward-statements registry** (per `01-data-collection.md` §8a): read open items from `analysis/forward-statements/` before Stage B.
 - **Multi-day foreseen activities fan-out** (per `01-data-collection.md` §8b): for each plenary session in the next 30 days, call `get_meeting_foreseen_activities` for all session days (Mon–Thu for Strasbourg, Wed–Thu for Brussels mini-sessions).

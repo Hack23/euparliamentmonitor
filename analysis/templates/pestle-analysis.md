@@ -233,7 +233,7 @@ T (EU compute investment via Horizon Europe + Digital Europe).
 | Dim | Tools |
 |---|---|
 | **P**olitical | `analyze_coalition_dynamics`, `compare_political_groups`, `get_voting_records` |
-| **E**conomic | `imf-fetch-data`, `worldbank-mcp/get-economic-data` |
+| **E**conomic | `imf-fetch-data` (WEO / Fiscal Monitor / IFS / BOP / ER / PCPS / GFSR / EREO / FSI / GFS / DOT) — **IMF only**. Never `worldbank-mcp/get-economic-data` (Wave-4 policy). |
 | **S**ocial | `worldbank-mcp/get-social-data`, Eurobarometer (manual) |
 | **T**echnological | `get_committee_documents` (ITRE), industry reports (manual) |
 | **L**egal | `get_external_documents`, CJEU docket (manual) |
@@ -251,7 +251,7 @@ T (EU compute investment via Horizon Europe + Digital Europe).
 - All 6 dimensions populated with indicator + direction + confidence
 - ≥ 1 cross-dimensional cluster identified
 - Highest-leverage lever per cluster
-- IMF or WB indicator cited for E (with vintage)
+- IMF indicator cited for E (with vintage). World Bank is **never** acceptable for the Economic dimension under Wave-4 policy.
 
 ---
 

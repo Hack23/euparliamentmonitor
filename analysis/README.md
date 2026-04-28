@@ -114,7 +114,8 @@ products that enable:
 graph TB
     subgraph "🌐 Data Sources"
         EP["🏛️ European Parliament\nOpen Data Portal"]
-        WB["🌍 World Bank\nEconomic Data"]
+        IMF["💱 IMF SDMX 3.0\nEconomic Data (Wave-4)"]
+        WB["🌍 World Bank\nNon-Economic Only"]
     end
 
     subgraph "📥 Data Ingestion Layer"
@@ -206,8 +207,8 @@ analysis/
 │   ├── political-threat-framework.md      ← Political Threat Landscape (6 dims) + 5 frameworks
 │   ├── political-swot-framework.md        ← Evidence-based SWOT for EP landscape
 │   ├── political-style-guide.md           ← Writing standards, depth levels, evidence density
-│   ├── imf-indicator-mapping.md           ← IMF indicator mapping for economic context
-│   ├── worldbank-indicator-mapping.md     ← World Bank indicator mapping for economic context
+│   ├── imf-indicator-mapping.md           ← IMF indicator mapping for economic context (sole authoritative source — Wave-4)
+│   ├── worldbank-indicator-mapping.md     ← World Bank indicator mapping for **non-economic** domains only (health, education, social, environment, demographics, defence, agriculture, innovation, governance)
 │   └── reference-quality-thresholds.json  ← Machine-readable per-artifact line-floor thresholds (Stage C gate)
 ├── templates/                         ← 39 structured templates (+ README + analysis-index) — see templates/README.md
 │   ├── README.md                          ← Template catalog and selection guide

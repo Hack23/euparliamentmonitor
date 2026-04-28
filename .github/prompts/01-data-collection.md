@@ -58,8 +58,9 @@ returns 404/timeout, try the corresponding direct endpoint before giving up.
 Required for articles covering trade, employment, digital/tech, health,
 environment/energy, agriculture, housing, migration, defence.
 
-**Wave-3 split (April 2026) — IMF is the sole authoritative source for
-economic context**:
+**Wave-4 IMF-primary policy (April 2026) — IMF is the sole authoritative source for
+economic context. World Bank is *never* acceptable for economic context (not primary,
+not secondary, not fallback)**:
 
 - **Economic / monetary / fiscal / trade / FDI / exchange-rate / banking**
   (GDP, inflation, unemployment, current account, debt, deficit, policy
@@ -99,15 +100,20 @@ economic context**:
   under `${ANALYSIS_DIR}/cache/imf/` while EP MCP calls continue. The probe
   always exits 0; `{"available": false}` is a provenance signal, not a Stage-A
   abort condition.
-- Editorial rule (Wave-3+): **IMF is the required primary source** for
-  every economic claim; World Bank may be cited as corroborating
+- Editorial rule (Wave-4): **IMF is the sole authoritative source** for
+  every economic / fiscal / monetary / trade / FDI / exchange-rate / banking-soundness
+  claim. World Bank is **never** acceptable for economic context (not primary,
+  not secondary, not fallback). World Bank may be cited only as corroborating
   evidence for non-economic indicators (health, education, social,
   environment, demographics, defence, agriculture, innovation,
   governance). WB `Country not found` responses for EU-level aggregate codes
-  are expected fallback triggers: switch to IMF `EU`/`EA` aggregates for
-  economic framing and use WB only for member-state or non-economic data. Stage
+  are expected: switch to IMF `EU`/`EA` aggregates for
+  economic framing and use WB only for member-state non-economic data. Stage
   C fails any `economic-context.md` that cites IMF figures from agent
-  knowledge without `cache/imf/*.json`.
+  knowledge without `cache/imf/*.json`, and rejects any WB economic
+  indicator code (`NY.GDP.*`, `FP.CPI.*`, `SL.UEM.*`, `GC.DOD.*`,
+  `NE.EXP.*`, `NE.TRD.*`, `BX.KLT.*`, …) or "World Bank … GDP/inflation/…"
+  prose claim inside `intelligence/economic-context.md`.
 - Forecast labelling: every IMF projection prose MUST include
   "forecast"/"projection"/"projects"/"expects" within 30 words of the
   number (regex-enforced), AND the section MUST carry

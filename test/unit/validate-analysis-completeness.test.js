@@ -349,6 +349,125 @@ describe('scripts/validate-analysis-completeness.js', () => {
     expect(result.stderr).toMatch(/economic-context\.md.*imf-cache:missing/);
   });
 
+  describe('Wave-4 IMF-primary policy: World Bank rejected for economic context', () => {
+    function writeWBEconomicArtifact(extraBody = '') {
+      writeEconomicContextManifest();
+      fs.mkdirSync(path.join(runDir, 'cache/imf'), { recursive: true });
+      fs.writeFileSync(
+        path.join(
+          runDir,
+          'cache/imf/weo-ea-deu-fra-ita-gdp-inflation-fiscal.json',
+        ),
+        JSON.stringify({
+          data: { dataSets: [{ series: { '0:0:0': { observations: { 0: [1.1] } } } }] },
+        }),
+        'utf8',
+      );
+      const body = [
+        '# Economic Context',
+        '',
+        '## Document Metadata',
+        '',
+        '| Field | Value |',
+        '|-------|-------|',
+        '| **IMF Source** | live |',
+        '',
+        '## IMF Evidence',
+        '',
+        'IMF WEO April 2026 reports Germany at 1.1% real GDP growth, anchoring the policy reading.',
+        '',
+        extraBody,
+        '',
+        '```mermaid',
+        'flowchart LR',
+        'IMF --> EP',
+        '```',
+        '',
+        ...Array.from(
+          { length: ECONOMIC_CONTEXT_PADDING_LINES },
+          (_, i) => `Filler line ${i}`,
+        ),
+      ].join('\n');
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/economic-context.md'),
+        body,
+        'utf8',
+      );
+    }
+
+    it('returns RED when economic-context cites a WB economic indicator code (NY.GDP.*)', () => {
+      writeWBEconomicArtifact(
+        'World Bank NY.GDP.MKTP.KD.ZG reports Germany at -0.5% in 2024.',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stderr).toMatch(
+        /economic-context\.md.*wb-economic-code:NY\.GDP\.MKTP\.KD\.ZG/,
+      );
+    });
+
+    it('returns RED for FP.CPI.* WB code in economic-context', () => {
+      writeWBEconomicArtifact(
+        'Inflation cross-check: World Bank FP.CPI.TOTL.ZG shows 5.4% in 2024.',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stderr).toMatch(
+        /economic-context\.md.*wb-economic-code:FP\.CPI\.TOTL\.ZG/,
+      );
+    });
+
+    it('returns RED for SL.UEM.* WB code in economic-context', () => {
+      writeWBEconomicArtifact(
+        'Unemployment series: World Bank SL.UEM.TOTL.ZS at 6.1% (2024).',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stderr).toMatch(
+        /economic-context\.md.*wb-economic-code:SL\.UEM\.TOTL\.ZS/,
+      );
+    });
+
+    it('returns RED for "World Bank GDP" prose claim without an SDMX code', () => {
+      writeWBEconomicArtifact(
+        'According to the World Bank, GDP growth in Germany was -0.5% in 2024.',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stderr).toMatch(/economic-context\.md.*wb-economic-claim/);
+    });
+
+    it('returns RED for "World Bank inflation" prose claim', () => {
+      writeWBEconomicArtifact(
+        'World Bank data on inflation in the euro area reached 5.4% in 2024.',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stderr).toMatch(/economic-context\.md.*wb-economic-claim/);
+    });
+
+    it('passes GREEN when economic-context cites WB only for non-economic governance (WGI)', () => {
+      // World Bank Governance Indicator references are non-economic and
+      // therefore explicitly allowed by the Wave-4 partition. The detector
+      // must not trigger here.
+      writeWBEconomicArtifact(
+        'World Bank WGI governance score for the rule of law is 1.6 in 2024 — non-economic cross-ref only.',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+    });
+
+    it('passes GREEN when economic-context cites WB social/health/education (non-economic)', () => {
+      writeWBEconomicArtifact(
+        'World Bank social indicator: life expectancy at birth in DE is 81 years (SP.DYN.LE00.IN, 2024) — non-economic cross-ref.',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+    });
+  });
+
   describe('Pass 2 skipped heuristic', () => {
     it('warns when pass2 block is absent and an artifact sits exactly at its floor', () => {
       // Artifact at exactly the 200-line floor (minLines for synthesis-summary.md)

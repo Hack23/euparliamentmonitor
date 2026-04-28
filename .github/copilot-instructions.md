@@ -93,7 +93,7 @@ Every article-generating workflow produces a **39-template analysis artifact set
 - `news-translate.md` (45 min, multi-call flush) → first productive flush at ~minute 14, periodic flushes every +3 translated files, final flush by minute ≤ 28
 - If you finish early, go back and improve. There is ALWAYS more depth to add.
 
-**Quality Gates**: ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, zero `[AI_ANALYSIS_REQUIRED]` markers, World Bank **or** IMF economic context data for policy articles (Wave-2 OR-gate — see `.github/skills/imf-data-integration.md`).
+**Quality Gates**: ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, zero `[AI_ANALYSIS_REQUIRED]` markers, **IMF** economic context data — IMF is the **sole authoritative source** for every economic / fiscal / monetary / trade / FDI / exchange-rate / banking-soundness claim in policy articles (Wave-4 IMF-primary editorial policy — see `.github/skills/imf-data-integration.md`). World Bank is **never** acceptable for economic context (it is reserved for non-economic domains only: health, education, social, environment, demographics, defence, agriculture, innovation, governance).
 
 ## 🚨 Critical Rules
 

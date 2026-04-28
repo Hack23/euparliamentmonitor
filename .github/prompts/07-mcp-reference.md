@@ -150,7 +150,7 @@ Timeframes: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"custom"`
 
 Rate limit: 500 req / 5 min. Cached responses < 200 ms.
 
-## 8 · IMF (native TypeScript client — PRIMARY economic-context source, Wave-3)
+## 8 · IMF (native TypeScript client — sole authoritative economic-context source, Wave-4)
 
 > ### ⚡ Scope (Wave-4 editorial)
 >
@@ -195,25 +195,33 @@ completeness review): committee-reports/ECON ≥ 4, /BUDG ≥ 3,
 /INTA ≥ 3; week-ahead/month-ahead/monthly-review ≥ 2; breaking /
 weekly-review / motions / propositions ≥ 1.
 
-## 9 · World Bank (`worldbank-mcp@1.0.1`) — NON-ECONOMIC only (Wave-3)
+## 9 · World Bank (`worldbank-mcp@1.0.1`) — NON-ECONOMIC ONLY (Wave-4)
 
 All tools respond in < 5 s; 10 s HTTP timeout per call.
 
-> ### ⚡ Scope (Wave-3)
+> ### ⚡ Scope (Wave-4 — IMF-primary editorial policy)
 >
 > WB serves **non-economic** indicators only: health, education,
 > social, environment, demographics, defence, agriculture, innovation,
-> governance. **Economic context → IMF (§9 below) is mandatory
-> primary.** Wave-3 retains the WB economic endpoints in MCP but marks
-> them legacy; Wave-4 will remove them from the policy-required
-> article code path.
+> governance. **Economic context → IMF (§8 above) is the sole
+> authoritative source.** World Bank is **never** acceptable for any
+> economic / fiscal / monetary / trade / FDI / exchange-rate / banking
+> claim — not primary, not secondary, not fallback. The legacy
+> `get-economic-data` endpoint listed below is retained in the MCP
+> server for backward compatibility with old test fixtures only and
+> **MUST NOT** be called from new article code paths or analysis
+> artifacts. Stage-C `validate-analysis-completeness.js` rejects WB
+> economic indicator codes (`NY.GDP.*`, `FP.CPI.*`, `SL.UEM.*`,
+> `GC.DOD.*`, `NE.EXP.*`, `NE.TRD.*`, `BX.KLT.*`, …) and "World Bank
+> … GDP/inflation/…" prose claims inside `intelligence/economic-
+> context.md`.
 
 | Tool | Parameters |
 |------|-----------|
 | `search-indicators` | `keyword` |
 | `get-countries` | `region`, `incomeLevel` |
 | `get-country-info` | `countryCode` (ISO2/alpha-3, **individual countries only** — aggregates rejected) |
-| `get-economic-data` ⚠️ | **Wave-3 legacy** — retained for test fixtures only; do NOT call from new article code paths (economic context → IMF). |
+| `get-economic-data` 🚫 | **Forbidden under Wave-4** — retained in the MCP server for backward compatibility with old test fixtures only. **NEVER** call from any new article code path or analysis artifact. Economic context → IMF (§8 above). |
 | `get-social-data` | `countryCode`, `indicator`, `years` (POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS) |
 | `get-education-data` | `countryCode`, `indicator`, `years` (LITERACY_RATE, SCHOOL_ENROLLMENT, SCHOOL_COMPLETION, TEACHERS_PRIMARY, EDUCATION_EXPENDITURE) |
 | `get-health-data` | `countryCode`, `indicator`, `years` (HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, HIV_PREVALENCE, MALNUTRITION, TUBERCULOSIS) |

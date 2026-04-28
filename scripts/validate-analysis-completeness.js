@@ -96,6 +96,35 @@ const IMF_SOURCE_FIELD_RE =
 const IMF_FIGURE_CLAIM_RE =
   /\bIMF\b[\s\S]{0,160}\b\d+(?:\.\d+)?\s*(?:%|pp|percentage points|GDP|EUR|USD|billion|trillion|million)/i;
 
+// Wave-4 IMF-primary editorial policy (April 2026): World Bank is NOT an
+// acceptable source for economic / fiscal / monetary / trade / FDI /
+// exchange-rate / banking-soundness claims inside economic-context.md.
+// Two complementary detectors:
+//
+//   1. WB economic indicator codes — surface the offending SDMX-style
+//      identifier when an economic-context artifact still cites raw WB
+//      economic series (NY.GDP.*, FP.CPI.*, SL.UEM.*, GC.DOD.*, NE.EXP.*,
+//      NE.TRD.*, BX.KLT.*, NY.GNP.*, GC.TAX.*, NE.CON.GOVT.*).
+//   2. WB economic prose claim — match "World Bank" within 120 chars of an
+//      economic noun (GDP, inflation, unemployment, fiscal balance, debt,
+//      trade, FDI, exchange rate). The window is intentionally narrow so
+//      a sentence like "World Bank WGI governance index" (legitimate
+//      non-economic domain) does not trigger.
+//
+// Both detectors deliberately exclude the narrative "Retired from WB
+// (now IMF-primary…)" and "legacy WB economic codes (… retained for
+// backward compatibility but MUST NOT…)" wording that appears in the
+// methodology files themselves — those files are not validated as run
+// artifacts. The detectors only run against `intelligence/economic-
+// context.md` and only when the artifact is also flagged as making
+// numeric IMF claims (i.e. the artifact actually carries economic
+// content), see callers in `evaluateArtifact`.
+const WB_ECONOMIC_INDICATOR_CODE_RE =
+  /\b(NY\.GDP\.[A-Z0-9.]+|NY\.GNP\.[A-Z0-9.]+|FP\.CPI\.[A-Z0-9.]+|SL\.UEM\.[A-Z0-9.]+|GC\.DOD\.[A-Z0-9.]+|GC\.TAX\.[A-Z0-9.]+|NE\.EXP\.[A-Z0-9.]+|NE\.IMP\.[A-Z0-9.]+|NE\.TRD\.[A-Z0-9.]+|NE\.CON\.GOVT\.[A-Z0-9.]+|BX\.KLT\.[A-Z0-9.]+|BN\.KLT\.[A-Z0-9.]+|FR\.INR\.[A-Z0-9.]+)\b/;
+
+const WB_ECONOMIC_CLAIM_RE =
+  /\bWorld\s+Bank\b[\s\S]{0,120}\b(?:GDP(?:\s+growth|\s+per\s+capita)?|inflation|CPI|unemployment(?:\s+rate)?|fiscal\s+balance|primary\s+balance|government\s+debt|public\s+debt|current\s+account|trade(?:\s+balance)?|FDI|foreign\s+direct\s+investment|exchange\s+rate|REER|policy\s+rate|reserve\s+assets|capital\s+adequacy|NPL\s+ratio)\b/i;
+
 // Bypass placeholder scan only on template-instruction blocks themselves —
 // NOT on every artifact that happens to link to a methodology document.
 // Matching `methodology` here would suppress placeholder detection for any
@@ -283,6 +312,46 @@ function parseImfSourceField(content) {
 
 function claimsImfFigures(content) {
   return IMF_FIGURE_CLAIM_RE.test(content);
+}
+
+/**
+ * Wave-4 IMF-primary editorial policy (April 2026).
+ *
+ * Detect WB economic-policy violations inside `intelligence/economic-
+ * context.md`:
+ *
+ *   - Any WB economic indicator code (NY.GDP.*, FP.CPI.*, SL.UEM.*,
+ *     GC.DOD.*, NE.EXP.*, NE.TRD.*, BX.KLT.*, NY.GNP.*, GC.TAX.*,
+ *     NE.CON.GOVT.*, FR.INR.*) — these belong in IMF SDMX form (NGDP,
+ *     PCPIPCH, LUR, GGXWDG_NGDP, BCA_NGDPD, …).
+ *   - Any "World Bank … <economic noun>" prose claim within 120 chars
+ *     (GDP, inflation, unemployment, fiscal balance, debt, trade, FDI,
+ *     exchange rate, policy rate, banking soundness).
+ *
+ * The detector deliberately runs only on `intelligence/economic-
+ * context.md`. Other artifacts may legitimately reference WB for non-
+ * economic context (governance WGI, demographics, social, environment,
+ * defence-spending, agriculture, innovation, education, health) and
+ * the WB methodology files themselves describe legacy codes for
+ * backward-compatibility — neither path is validated here.
+ *
+ * Returns `{ codes, prose }` arrays of offending excerpts. Empty arrays
+ * mean clean.
+ */
+function detectWorldBankEconomicViolations(content) {
+  const codes = [];
+  const codeMatch = WB_ECONOMIC_INDICATOR_CODE_RE.exec(content);
+  if (codeMatch) {
+    codes.push(codeMatch[1]);
+  }
+  const prose = [];
+  const proseMatch = WB_ECONOMIC_CLAIM_RE.exec(content);
+  if (proseMatch) {
+    // Trim the matched span to a short excerpt for the violation message.
+    const excerpt = proseMatch[0].replace(/\s+/g, ' ').trim().slice(0, 100);
+    prose.push(excerpt);
+  }
+  return { codes, prose };
 }
 
 // Stage C IMF evidence gate. The probe always writes a summary JSON even
@@ -474,6 +543,21 @@ function validateArtifact({
       result.issues.push('imf-source:knowledge-only');
     } else if ((imfSource === 'live' || imfSource === 'cache') && !hasImfCacheJson(runDir)) {
       result.issues.push('imf-cache:missing');
+    }
+  }
+  // Wave-4 IMF-primary editorial policy: economic-context.md must not
+  // cite World Bank for economic claims regardless of whether IMF prose
+  // is also present. Run on every economic-context artifact (not gated
+  // on claimsImfFigures) so an article that drops IMF entirely and
+  // tries to satisfy economic context with WB alone is caught.
+  if (isEconomicContextArtifact(relativePath)) {
+    const { codes: wbCodes, prose: wbProse } =
+      detectWorldBankEconomicViolations(content);
+    if (wbCodes.length > 0) {
+      result.issues.push(`economic-context:wb-economic-code:${wbCodes[0]}`);
+    }
+    if (wbProse.length > 0) {
+      result.issues.push('economic-context:wb-economic-claim');
     }
   }
 
