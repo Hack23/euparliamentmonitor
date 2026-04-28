@@ -126,8 +126,37 @@ The server's Streamable HTTP session GC is not configurable from the workflow
 side. Once the session is gone, the analysis branch is already committed
 locally but cannot be pushed via safeoutputs (gh-aw uses `git format-patch`
 via safeoutputs, not `git push`) — the run ends with zero safe outputs even
-though the agent exited 0, and the work is lost to the next run (only
-visible in the agent artifact).
+though the agent exited 0.
+
+**Post-run recovery (auto, since #1502 / run #25028873034 fix)**
+
+The agent commits to a `news/<date>-<slug>-<runid>` branch on the agent
+runner's filesystem (the AWF sandbox bind-mounts the host workspace `:rw`,
+see `sandbox/firewall/audit/docker-compose.redacted.yml` in any agent.zip).
+Two pieces close the loop so this branch is no longer lost when safeoutputs
+expires:
+
+1. **`scripts/gh-aw-capture-agent-patch.sh`** runs in the agent job's
+   `post-steps:` (after the agent exits, before `Upload agent artifacts`).
+   It walks `refs/heads/news/*`, picks the newest branch ahead of
+   `origin/main`, and writes `/tmp/gh-aw/aw-agent-recovery.patch` (plus a
+   `.meta` sidecar with branch / commit-count / run-id). Idempotent: skips
+   if any `aw-*.patch` already exists (so a successful safeoutputs run is
+   never clobbered).
+2. **`scripts/gh-aw-pat-pr-fallback.sh`** runs as the `pat-pr-fallback`
+   job on a fresh runner with a fresh `main` checkout. It downloads
+   `agent.zip` (which now contains the recovery patch via the existing
+   `aw-*.patch` upload glob), `git apply`s the patch onto `main`, stages
+   only `analysis/daily/**` and `news/**` paths, force-pushes to the
+   target branch, and opens / updates the PR via the host PAT.
+
+The two scripts share the `aw-*.patch` filename contract — neither knows
+about the other directly, which is what made the contract trivial to add
+without changing the existing fallback. **Prefer the prevention levers
+below over relying on this recovery path** — every recovery run is a
+30-minute compute spend that produced no human-reviewable output, and the
+fallback PR carries an explicit "Fallback reason" header so it is visible
+during PR review.
 
 **Prevention levers (in order of impact)**
 
