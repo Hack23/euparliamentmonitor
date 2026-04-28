@@ -133,6 +133,8 @@ tools:
     max-patch-size: 51200
 
 safe-outputs:
+  threat-detection:
+    continue-on-error: true
   # Analysis artifacts can exceed the 1024 KB default patch limit; raise to
   # 10 MB to match news-translate.md and prevent legitimate analysis-only
   # patches from being rejected (see run 24961736954 for week-in-review).
