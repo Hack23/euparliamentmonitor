@@ -213,6 +213,37 @@ gh aw compile --poutine                   # Supply chain risks
 - **MCP servers use `container/entrypoint/entrypointArgs` format** in gh-aw workflows (not `command/args` which is for copilot-mcp.json)
 - **Omit the `tools` / `allowed` field entirely** on MCP servers — the gh-aw MCP gateway (awmg) treats `"*"` as a literal tool name (exposing 0 tools), and omitting the field is equivalent to "all tools". **Never** write `allowed: ["*"]` or `tools: ["*"]`.
 
+## Maintainer Triage — `[aw] Detection Runs` `parse_error`
+
+The auto-managed `[aw] Detection Runs` tracking issue receives one comment per
+workflow run whose `detection` job exited with a warning. The issue body
+itself states *"No action to take - Do not assign to an agent."* — the rule
+below exists for the rare case a maintainer (or a misrouted agent) does open
+the issue.
+
+**Symptom comment:** `Conclusion: warning | Reason: parse_error` posted by
+`github-actions[bot]` while the workflow's main `agent` job completed
+normally and the safe-outputs PR was created.
+
+**Root cause (transient, not a workflow-content bug):** the gh-aw sandbox's
+`awf-api-proxy` container occasionally fails its docker healthcheck at
+startup when GitHub-hosted runner cold-start saturates the network. The
+threat-detection model never executes, so `parse_threat_detection_results.cjs`
+records `ERR_PARSE` as a warning under the gh-aw default
+`GH_AW_DETECTION_CONTINUE_ON_ERROR=true`. Log fingerprint:
+
+```
+[ERROR] Failed to start containers: … docker compose up -d --pull never
+##[warning]⚠️ ERR_PARSE: ❌ No THREAT_DETECTION_RESULT found in detection log.
+```
+
+**Triage rule (no source change required):** confirm via
+`npm run lint:prompts` (must be `0 violations`) and
+`npm run test -- test/unit/shell-safety.test.js`; if both pass, the workflow
+content is clean and the failure is sandbox infrastructure. Re-investigate
+**only after three consecutive runs** of the same workflow emit `parse_error`
+— that threshold separates a docker flake from a sandbox-setup regression.
+
 ---
 
 ## 🧠 AI-FIRST QUALITY PRINCIPLE (NON-NEGOTIABLE)

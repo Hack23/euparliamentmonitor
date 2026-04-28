@@ -37,6 +37,7 @@ export function generateRssFeed(articleInfos, buildDate = new Date().toUTCString
       <dc:language>${escapeXML(item.lang)}</dc:language>
     </item>`)
         .join('\n');
+    // REUSE-IgnoreStart
     return `<?xml version="1.0" encoding="UTF-8"?>
 <!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
 <!-- SPDX-License-Identifier: Apache-2.0 -->
@@ -51,5 +52,6 @@ export function generateRssFeed(articleInfos, buildDate = new Date().toUTCString
 ${items}
   </channel>
 </rss>`;
+    // REUSE-IgnoreEnd
 }
 //# sourceMappingURL=rss.js.map

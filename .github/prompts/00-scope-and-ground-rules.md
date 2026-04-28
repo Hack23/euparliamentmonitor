@@ -67,6 +67,7 @@ dependencies, no standalone test-only edits.
 |----------|-----|
 | Python / Ruby / Perl scripts | Use only the Node.js + TypeScript toolchain |
 | Dangerous shell expansion: `${var@P}`, `${!var}`, nested `$($(..))`, `$(cmd < file)`, `${var:+...${#other}...}`, adjacent `${RANDOM}${RANDOM}` | Blocked by AWF sandbox — use `if/else` blocks |
+| `cat > file << 'EOF' … EOF` heredocs to write analysis prose, SWOT, stakeholder, or article content | Copilot CLI bash-safety filter scans the heredoc body and rejects writes whose content contains tokens like *"kill"* (endemic in political analysis: *"motion to kill the bill"*, *"amendment killed in committee"*). Use the native `create` / `Write` file tool. Heredocs remain safe for short keyword-free files (`manifest.json` via `jq`, SPDX stubs). See [`02-analysis-protocol.md` §2a](02-analysis-protocol.md). |
 | Metadata-only analysis (titles + TA numbers) | Must download FULL document content |
 | New standalone helper scripts | Use existing pipeline in `scripts/` |
 | Deciding article topic before analysis is complete | Always finish Stage B first |
