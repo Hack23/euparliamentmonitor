@@ -179,6 +179,19 @@ steps:
     run: |
       npm run build
 
+# Post-execution recovery — same contract as the unified news-<type>.md
+# workflows: emit /tmp/gh-aw/aw-agent-recovery.patch from any news/* branch
+# the agent committed to before the agent runner is reaped. news-translate
+# has no pat-pr-fallback consumer job (multi-flush model already mitigates
+# most TTL loss), so the patch is preserved purely as forensic / manual
+# recovery material inside agent.zip. See prompts/09-troubleshooting.md
+# §"Post-run recovery" and scripts/gh-aw-capture-agent-patch.sh.
+post-steps:
+  - name: Capture agent recovery patch
+    if: always()
+    continue-on-error: true
+    run: bash scripts/gh-aw-capture-agent-patch.sh
+
 engine:
   id: copilot
   model: claude-opus-4.7
