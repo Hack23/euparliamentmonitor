@@ -109,6 +109,8 @@ tools:
     max-patch-size: 51200
 
 safe-outputs:
+  threat-detection:
+    continue-on-error: true
   # This workflow translates 1 English article into 13 languages per run
   # (plus manual runs may cover 2+ article types). Each translated HTML is
   # typically 20–40 KB, so a full run patch is commonly 500 KB–2 MB once

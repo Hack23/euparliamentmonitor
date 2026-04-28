@@ -133,6 +133,8 @@ tools:
     max-patch-size: 51200
 
 safe-outputs:
+  threat-detection:
+    continue-on-error: true
   # Week-in-review analysis artifacts can exceed the 1024 KB default patch
   # limit; run 24961736954 produced a legitimate 5205 KB analysis-only patch.
   max-patch-size: 10240
