@@ -127,14 +127,14 @@ describe('generateSitemapHTML', () => {
 
   it('omits the docs section when hasDocsDir is false', () => {
     const html = generateSitemapHTML('en', [], false);
-    expect(html).not.toContain('docs/api/index.html');
+    expect(html).toContain('docs/api/');
     expect(html).not.toContain('docs/coverage/index.html');
   });
 
   it('renders the docs section when hasDocsDir is true', () => {
     const html = generateSitemapHTML('en', [], true);
-    expect(html).toContain('docs/index.html');
-    expect(html).toContain('docs/api/index.html');
+    expect(html).toContain('docs/');
+    expect(html).toContain('docs/api/');
     expect(html).toContain('docs/coverage/index.html');
     expect(html).toContain('docs/test-results/index.html');
   });

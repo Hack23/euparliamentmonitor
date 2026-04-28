@@ -7,11 +7,7 @@
   "readme": "README.md",
   "tsconfig": "tsconfig.json",
   "plugin": [],
-  "exclude": [
-    "**/node_modules/**",
-    "**/*.test.*",
-    "**/*.spec.*"
-  ],
+  "exclude": ["**/node_modules/**", "**/*.test.*", "**/*.spec.*"],
   "blockTags": [
     "@author",
     "@callback",
@@ -119,10 +115,14 @@
   },
   "navigationLinks": {
     "🏠 Home": "https://euparliamentmonitor.com",
+    "📊 Analysis & Reports": "https://euparliamentmonitor.com/docs/",
+    "📚 API": "https://euparliamentmonitor.com/docs/api/",
     "🧠 Political Intelligence": "https://euparliamentmonitor.com/political-intelligence.html",
     "🗺️ Sitemap": "https://euparliamentmonitor.com/sitemap.html",
     "📦 GitHub": "https://github.com/Hack23/euparliamentmonitor",
+    "💖 Sponsor": "https://github.com/sponsors/Hack23",
     "🛡️ ISMS": "https://github.com/Hack23/ISMS-PUBLIC",
+    "🔐 Security Commitment": "https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md",
     "🇪🇺 EP MCP Server": "https://github.com/Hack23/European-Parliament-MCP-Server",
     "📦 npm": "https://www.npmjs.com/package/euparliamentmonitor"
   },

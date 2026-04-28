@@ -12,10 +12,10 @@
  * link points at GitHub blob/tree URLs so readers can audit the raw
  * tradecraft behind every published article.
  */
-import { BASE_URL, createThemeToggleButton, THEME_TOGGLE_SCRIPT } from '../../constants/config.js';
-import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, PAGE_TITLES, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, getLocalizedString, getTextDirection, } from '../../constants/languages.js';
+import { BASE_URL, THEME_TOGGLE_SCRIPT } from '../../constants/config.js';
+import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, PAGE_TITLES, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../../constants/languages.js';
 import { FOOTER_SITEMAP_LABELS } from '../../constants/language-ui.js';
-import { buildSiteFooter } from '../../templates/section-builders.js';
+import { buildSiteFooter, buildSiteHeader, buildPageBanner, } from '../../templates/section-builders.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { blobUrl, treeUrl } from '../../aggregator/infra/github-urls.js';
 import { getCuratedDescription, getCuratedTitle, getRunTypeInfo, getArtifactInfo, } from '../political-intelligence-descriptions.js';
@@ -215,8 +215,6 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
     const pageTitle = `${siteTitle} - ${copy.title}`;
     const description = copy.intro;
     const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, safeLang);
-    const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, safeLang));
-    const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, safeLang));
     const dir = getTextDirection(safeLang);
     const canonicalUrl = `${BASE_URL}/${getPoliticalIntelligenceFilename(safeLang)}`;
     const indexHref = safeLang === 'en' ? 'index.html' : `index-${safeLang}.html`;
@@ -236,8 +234,15 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
         const active = code === safeLang ? ' active' : '';
         const ariaCurrent = code === safeLang ? ' aria-current="page"' : '';
         const href = getPoliticalIntelligenceFilename(code);
-        return `<a href="${href}" class="lang-link${active}" hreflang="${code}" title="${escapeHTML(name)}"${ariaCurrent}>${flag} ${code.toUpperCase()}</a>`;
+        return `<a href="${href}" class="lang-link${active}" hreflang="${code}" lang="${code}" title="${escapeHTML(name)}" aria-label="${escapeHTML(name)}"${ariaCurrent}>${flag} ${code.toUpperCase()}</a>`;
     }).join('\n        ');
+    const header = buildSiteHeader({
+        lang: safeLang,
+        pathPrefix: '',
+        homeHref: indexHref,
+        siteTitle,
+        languageSwitcherHtml: langSwitcher,
+    });
     // Methodologies, templates & reference cards.
     // Descriptions are sourced from the curated per-file, per-language table
     // ({@link getCuratedDescription}) — every language page renders a
@@ -366,25 +371,9 @@ ${hreflangLinks}
 <body>
   <a href="#main" class="skip-link">${escapeHTML(skipLinkText)}</a>
 
-  <header class="site-header" role="banner">
-    <div class="site-header__inner">
-      <a href="${indexHref}" class="site-header__brand" aria-label="${escapeHTML(siteTitle)}">
-        <picture class="site-header__logo-picture">
-          <source srcset="images/favicon-96x96.webp" type="image/webp">
-          <img class="site-header__logo" src="images/favicon-96x96.png" alt="" width="36" height="36" aria-hidden="true">
-        </picture>
-        <span>
-          <span class="site-header__title">${escapeHTML(siteTitle)}</span>
-          <span class="site-header__subtitle">${headerSubtitle}</span>
-        </span>
-      </a>
-      ${createThemeToggleButton(themeToggleLabel)}
-    </div>
-  </header>
+  ${header}
 
-  <nav class="language-switcher" role="navigation" aria-label="Language selection">
-    ${langSwitcher}
-  </nav>
+  ${buildPageBanner('')}
 
   <main id="main" class="site-main">
     <section class="sitemap-hero pi-hero" aria-labelledby="pi-heading">

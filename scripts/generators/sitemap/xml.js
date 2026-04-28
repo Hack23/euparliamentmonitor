@@ -269,12 +269,28 @@ function buildDocsUrls(docsFiles, today) {
             // Use today if file stat fails
         }
         return {
-            loc: `${BASE_URL}/${relPath.replace(/\\/g, '/')}`,
+            loc: `${BASE_URL}/${canonicalDocsPath(relPath)}`,
             lastmod,
             changefreq: 'weekly',
             priority: '0.3',
         };
     });
+}
+/**
+ * Convert documentation file paths to their preferred public canonical URL path.
+ *
+ * @param relPath - Docs file path relative to the project root
+ * @returns URL path with canonical directory forms for docs index pages
+ */
+function canonicalDocsPath(relPath) {
+    const normalized = relPath.replace(/\\/g, '/');
+    if (normalized === 'docs/index.html') {
+        return 'docs/';
+    }
+    if (normalized === 'docs/api/index.html') {
+        return 'docs/api/';
+    }
+    return normalized;
 }
 /**
  * Render a single `<url>` block, including any `xhtml:link` alternates.

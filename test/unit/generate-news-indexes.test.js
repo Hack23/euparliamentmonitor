@@ -472,18 +472,18 @@ describe('generate-news-indexes', () => {
       const heroBanner = document.querySelector('.hero__banner');
 
       expect(html).toContain('site-header__inner--stacked');
-      expect(html).toContain('images/header-logo.webp');
-      expect(html).toContain('images/header-logo.png');
+      expect(html).toContain('images/banner.webp');
+      expect(html).toContain('images/banner.jpg');
       expect(html).not.toContain('images/favicon-96x96.png');
       expect(headerInner).not.toBeNull();
       expect(headerInner.classList.contains('site-header__inner--stacked')).toBe(true);
       expect(headerLogoPicture).not.toBeNull();
       const headerLogoSource = headerLogoPicture.querySelector('source');
       expect(headerLogoSource).not.toBeNull();
-      expect(headerLogoSource.getAttribute('srcset')).toBe('images/header-logo.webp');
+      expect(headerLogoSource.getAttribute('srcset')).toBe('images/banner.webp');
       expect(headerLogo).not.toBeNull();
-      expect(headerLogo.classList.contains('site-header__logo--header')).toBe(true);
-      expect(headerLogo.getAttribute('src')).toBe('images/header-logo.png');
+      expect(headerLogo.classList.contains('site-header__logo--banner')).toBe(true);
+      expect(headerLogo.getAttribute('src')).toBe('images/banner.jpg');
       expect(html).toContain('class="hero__inner"');
       expect(html).toContain('class="hero__content"');
       expect(html).toContain('class="hero__kicker"');

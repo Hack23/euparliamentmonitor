@@ -12,12 +12,7 @@
 
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import {
-  PROJECT_ROOT,
-  APP_VERSION,
-  NEWS_DIR,
-  createThemeToggleButton,
-} from '../constants/config.js';
+import { PROJECT_ROOT, APP_VERSION, NEWS_DIR } from '../constants/config.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_NAMES,
@@ -31,11 +26,10 @@ import {
   FILTER_LABELS,
   ARTICLE_TYPE_LABELS,
   HEADER_SUBTITLE_LABELS,
-  THEME_TOGGLE_LABELS,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
-import { buildSiteFooter } from '../templates/section-builders.js';
+import { buildSiteFooter, buildSiteHeader } from '../templates/section-builders.js';
 import {
   getNewsArticles,
   groupArticlesByLanguage,
@@ -167,7 +161,7 @@ export function generateIndexHTML(
   const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, lang);
   const dir = getTextDirection(lang);
   const selfHref = getIndexFilename(lang);
-  const heroTitle = title.split(' - ')[0];
+  const heroTitle = title.split(' - ')[0] ?? 'EU Parliament Monitor';
   const filterLabels = getLocalizedString(FILTER_LABELS, lang) as { all: string; search: string };
   const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, lang) as ArticleCategoryLabels;
 
@@ -219,9 +213,14 @@ export function generateIndexHTML(
           .join('\n          ')
       : '';
 
-  const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
-  const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
   const canonicalUrl = `https://hack23.github.io/euparliamentmonitor/${selfHref}`;
+  const header = buildSiteHeader({
+    lang: lang as LanguageCode,
+    pathPrefix: '',
+    homeHref: selfHref,
+    siteTitle: heroTitle,
+    languageSwitcherHtml: buildLangSwitcher(lang),
+  });
 
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
@@ -263,28 +262,12 @@ export function generateIndexHTML(
 <body>
   <a href="#main" class="skip-link">${skipLinkText}</a>
 
-  <header class="site-header" role="banner">
-    <div class="site-header__inner site-header__inner--stacked">
-      <a href="${selfHref}" class="site-header__brand" aria-label="${heroTitle}">
-        <picture class="site-header__logo-picture">
-          <source srcset="images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="images/header-logo.png" alt="" width="72" height="48" aria-hidden="true">
-        </picture>
-        <span>
-          <span class="site-header__title">${heroTitle}</span>
-        </span>
-      </a>
-      ${createThemeToggleButton(themeToggleLabel)}
-      <nav class="site-header__langs" role="navigation" aria-label="Language selection">
-        ${buildLangSwitcher(lang)}
-      </nav>
-    </div>
-  </header>
+  ${header}
 
   <section class="hero">
     <div class="hero__inner">
       <div class="hero__content">
-        <p class="hero__kicker">${headerSubtitle}</p>
+        <p class="hero__kicker">${escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang))}</p>
         <h1 class="hero__title">${heroTitle}</h1>
         <p class="hero__description">${description}</p>
       </div>

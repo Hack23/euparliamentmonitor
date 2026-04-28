@@ -18,10 +18,10 @@
  * `11.14.0`); regenerating articles after a Mermaid bump invalidates
  * browser and CloudFront caches automatically.
  */
-import { BASE_URL, createThemeToggleButton, MERMAID_VERSION, THEME_TOGGLE_SCRIPT, } from '../constants/config.js';
-import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, SKIP_LINK_TEXTS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, TOC_ARIA_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { BASE_URL, MERMAID_VERSION } from '../constants/config.js';
+import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, SKIP_LINK_TEXTS, TOC_ARIA_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML } from '../utils/file-utils.js';
-import { buildSiteFooter } from '../templates/section-builders.js';
+import { buildSiteFooter, buildSiteHeader, buildPageBanner, } from '../templates/section-builders.js';
 /**
  * Build the canonical filename for an article in a given language. English
  * uses the bare stem (`2026-01-15-breaking-en.html`); other languages share
@@ -112,8 +112,6 @@ export function wrapArticleHtml(options) {
     const dir = getTextDirection(safeLang);
     const siteTitle = getLocalizedString(PAGE_TITLES, safeLang).split(' - ')[0] ?? 'EU Parliament Monitor';
     const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, safeLang);
-    const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, safeLang));
-    const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, safeLang));
     const canonicalUrl = `${BASE_URL}/news/${getArticleFilename(options.articleSlug, safeLang)}`;
     const indexHref = safeLang === 'en' ? '../index.html' : `../index-${safeLang}.html`;
     const hreflangLinks = buildArticleHreflangLinks(options.articleSlug);
@@ -146,6 +144,13 @@ export function wrapArticleHtml(options) {
     };
     const jsonLdString = JSON.stringify(jsonLd).replace(/</g, '\\u003c');
     const pageTitle = `${options.title} — ${siteTitle}`;
+    const header = buildSiteHeader({
+        lang: safeLang,
+        pathPrefix: '../',
+        homeHref: indexHref,
+        siteTitle,
+        languageSwitcherHtml: langSwitcher,
+    });
     return `<!DOCTYPE html>
 <html lang="${safeLang}" dir="${dir}">
 <head>
@@ -186,28 +191,14 @@ ${hreflangLinks}
   <link rel="stylesheet" href="../styles.css">
   <script type="application/ld+json">${jsonLdString}</script>
   <script type="module" src="../js/mermaid-init.js?v=${MERMAID_VERSION}" defer></script>
+  <script src="../js/article-runtime.js" defer></script>
 </head>
 <body>
   <a href="#main" class="skip-link">${escapeHTML(skipLinkText)}</a>
 
-  <header class="site-header" role="banner">
-    <div class="site-header__inner site-header__inner--stacked">
-      <a href="${indexHref}" class="site-header__brand" aria-label="${escapeHTML(siteTitle)}">
-        <picture class="site-header__logo-picture">
-          <source srcset="../images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="72" height="48" aria-hidden="true">
-        </picture>
-        <span>
-          <span class="site-header__title">${escapeHTML(siteTitle)}</span>
-          <span class="site-header__subtitle">${headerSubtitle}</span>
-        </span>
-      </a>
-      ${createThemeToggleButton(themeToggleLabel)}
-      <nav class="site-header__langs" role="navigation" aria-label="Language selection">
-        ${langSwitcher}
-      </nav>
-    </div>
-  </header>
+  ${header}
+
+  ${buildPageBanner('../')}
 
   <main id="main" class="site-main article-main">
 ${tocHtml}    <article class="article-body" lang="${safeLang}">
@@ -222,7 +213,7 @@ ${tocHtml}    <article class="article-body" lang="${safeLang}">
     </article>
   </main>
 
-  ${buildSiteFooter({ lang: safeLang, pathPrefix: '../', ...(typeof options.articleCount === 'number' ? { articleCount: options.articleCount } : {}) })}${THEME_TOGGLE_SCRIPT}
+  ${buildSiteFooter({ lang: safeLang, pathPrefix: '../', ...(typeof options.articleCount === 'number' ? { articleCount: options.articleCount } : {}) })}
 </body>
 </html>`;
 }
