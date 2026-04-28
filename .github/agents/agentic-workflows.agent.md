@@ -208,7 +208,7 @@ gh aw compile --poutine                   # Supply chain risks
 - **Bash tools are enabled by default** - Don't restrict bash commands unnecessarily since workflows are sandboxed by the AWF
 - Follow security best practices: minimal permissions, explicit network access, no template injection
 - **Single-file output**: When creating a workflow, produce exactly **one** workflow `.md` file. Do not create separate documentation files (architecture docs, runbooks, usage guides, etc.). If documentation is needed, add a brief `## Usage` section inside the workflow file itself.
-- **Always include `runtimes: node: version: "25"`** in all workflow .md files for Node.js 25 runtime
+- **Always include `runtimes: node: version: "25"`** in all workflow.md files for Node.js 25 runtime
 - **Use `defaults` (not `default`)** as the network ecosystem identifier for basic infrastructure
 - **MCP servers use `container/entrypoint/entrypointArgs` format** in gh-aw workflows (not `command/args` which is for copilot-mcp.json)
 - **Omit the `tools` / `allowed` field entirely** on MCP servers — the gh-aw MCP gateway (awmg) treats `"*"` as a literal tool name (exposing 0 tools), and omitting the field is equivalent to "all tools". **Never** write `allowed: ["*"]` or `tools: ["*"]`.
@@ -280,7 +280,7 @@ No source change required. Confirm:
 
 If both pass, the workflow content is clean and the failure is sandbox
 infrastructure. Re-run the workflow once. Re-investigate **only after
-three consecutive runs of the same workflow** emit the same fingerprint —
+three consecutive runs of the same workflow** emit the same fingerprint
 that threshold separates a docker / Copilot-CLI cold-start flake from a
 real sandbox-setup or workflow-content regression.
 

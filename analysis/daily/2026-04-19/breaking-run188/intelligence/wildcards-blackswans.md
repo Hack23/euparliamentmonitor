@@ -142,7 +142,7 @@ SRM/SRF activation during the Banking Union transposition window. Could be
 triggered by market-volatility stress-testing weakness (see
 `intelligence/economic-context.md` on BTP-Bund spread monitoring) exposing
 vulnerabilities in second-tier banks. Run 188's particular relevance: SRMR3
-(TA-10-2026-0092) has been adopted by Parliament but not yet Council-ratified —
+(TA-10-2026-0092) has been adopted by Parliament but not yet Council-ratified
 a resolution event in this window would create legal-framework uncertainty about
 which resolution framework applies (the pre-SRMR3 BRRD2 framework or the post-
 adoption but pre-ratification SRMR3).

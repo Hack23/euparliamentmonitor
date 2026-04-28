@@ -103,7 +103,7 @@ EU-level aggregate data unavailable from IMF (timeout during this run) or World 
 - Inflation: declining toward ECB 2% target; ECB rates on easing cycle
 - Fiscal position: Most member states above 3% deficit; Commission flexibility in application of SGP
 
-**Wave-2 OR-gate note:** World Bank is the approved fallback per `.github/skills/imf-data-integration.md`. All EU-level aggregate economic claims carry enhanced uncertainty flags.
+** IMF requirement note:** World Bank is the approved fallback per `.github/skills/imf-data-integration.md`. All EU-level aggregate economic claims carry enhanced uncertainty flags.
 
 ---
 

@@ -42,8 +42,8 @@ network:
     - node                    # npm/npx installation
     - data.europarl.europa.eu
     - "*.europa.eu"
-    - dataservices.imf.org    # IMF SDMX 3.0 REST — Wave-3 MANDATORY for policy-required article types
-    - api.worldbank.org       # WB MCP — non-economic domains only
+    - dataservices.imf.org    # IMF SDMX 3.0 REST — sole authoritative economic source
+    - api.worldbank.org       # WB MCP — non-economic domains
     - hack23.com
     - www.hack23.com
     - riksdagsmonitor.com

@@ -98,7 +98,7 @@ Every change moves through these phases. Each phase has a **mandatory gate**; no
 - SPDX headers on every new file (`SPDX-FileCopyrightText: 2024-2026 Hack23 AB` + `SPDX-License-Identifier: Apache-2.0`)
 - TypeScript strict mode, no `any` on untrusted boundaries, explicit return types
 - Validate + sanitise every MCP / external response before use
-- Use `crypto.randomUUID()` / `crypto.randomBytes()` — never `Math.random()` for anything security-relevant
+- Use `crypto.randomUUID` / `crypto.randomBytes` — never `Math.random` for anything security-relevant
 - Never interpolate untrusted input into RegExp, HTML, shell, or SQL without escaping
 - Never hard-code tokens, URLs with credentials, or private keys
 

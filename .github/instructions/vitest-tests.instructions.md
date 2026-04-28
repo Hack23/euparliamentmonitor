@@ -59,8 +59,8 @@ describe('module-name', () => {
 - Test both happy path and edge cases (empty input, null, invalid data)
 
 ### Mocking
-- Mock external dependencies (file system, network) using `vi.mock()` or `vi.spyOn()`
-- Restore mocks in `afterEach` with `vi.restoreAllMocks()`
+- Mock external dependencies (file system, network) using `vi.mock` or `vi.spyOn`
+- Restore mocks in `afterEach` with `vi.restoreAllMocks`
 
 ### Running Tests
 ```bash

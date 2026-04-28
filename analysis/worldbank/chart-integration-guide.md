@@ -38,7 +38,7 @@ World Bank MCP Server  ──▶  AI Agent (Copilot)  ──▶  TypeScript Gene
 ### How It Works
 
 1. **AI agent** fetches World Bank data via MCP tools
-2. **AI agent** calls `buildDashboardSection()` with chart configuration
+2. **AI agent** calls `buildDashboardSection` with chart configuration
 3. TypeScript generator embeds chart config as `data-chart-config` JSON attribute on `<canvas>` elements
 4. Client-side `js/chart-init.js` reads these attributes and initializes Chart.js instances
 
@@ -303,7 +303,7 @@ The `chart-init.js` applies these colors automatically:
 
 ## 🔧 Dashboard Section Builder
 
-The TypeScript `buildDashboardSection()` function in `dashboard-content.ts` generates dashboard HTML with:
+The TypeScript `buildDashboardSection` function in `dashboard-content.ts` generates dashboard HTML with:
 
 - **Metric cards**: Key numeric indicators with trend arrows
 - **Chart panels**: Canvas elements with `data-chart-config` attributes
@@ -527,14 +527,14 @@ gantt
 ### For HTML Articles (Chart.js)
 - [ ] Fetch indicator data using World Bank MCP tools (within the workflow's `maxWBCalls` budget)
 - [ ] Create Chart.js configuration JSON with **real data values** (never placeholder zeros)
-- [ ] Pass chart config to `buildDashboardSection()` or embed directly in `<canvas>`
+- [ ] Pass chart config to `buildDashboardSection` or embed directly in `<canvas>`
 - [ ] Include data attribution: "Source: World Bank Open Data (YYYY)"
 - [ ] Add accessible `aria-label` describing the chart
 - [ ] Include trend indicators (↑↓→) in metric cards
 - [ ] Note data year in chart subtitle or caption
 
 ### For Analysis Documents (Mermaid)
-- [ ] Use `xychart-beta` for bar/line comparisons in .md files
+- [ ] Use `xychart-beta` for bar/line comparisons in.md files
 - [ ] Use `quadrantChart` for positioning analysis
 - [ ] Use `pie` for share/composition analysis
 - [ ] Use `graph` for flow/relationship diagrams with WB data context

@@ -15,7 +15,7 @@
 
 IMF SDMX 3.0 API was unreachable at run time (proxy CONNECT abort; exit code 28). EU/EA aggregate economic indicators (GDP growth, HICP inflation, general government deficit) are **not available from IMF WEO** for this run. All economic analysis uses World Bank member-state data. EU-level aggregate economic claims carry 🔴 LOW confidence where IMF data would normally be authoritative.
 
-Per editorial policy (Wave-3 split, April 2026): this run documents the IMF data limitation in `cache/imf/probe-summary.json` and applies enhanced uncertainty flags to all economic judgements that would benefit from IMF aggregates. Voting-patterns IMF requirement = **not_applicable** (data unavailable, documented, limitation flagged).
+Per editorial policy: this run documents the IMF data limitation in `cache/imf/probe-summary.json` and applies enhanced uncertainty flags to all economic judgements that would benefit from IMF aggregates. Voting-patterns IMF requirement = **not_applicable** (data unavailable, documented, limitation flagged).
 
 ---
 
@@ -177,7 +177,7 @@ IMF SDMX 3.0 API timed out during Stage A. The following IMF data points are ABS
 - IMF fiscal monitor data
 - IMF financial stability indicators
 
-**Wave-2 OR-gate applied:** World Bank is the approved Wave-2 fallback per `.github/skills/imf-data-integration.md`. Economic analysis confidence is reduced from 🟢 HIGH to 🟡 MEDIUM; no WEO indicators were retrieved.
+** IMF requirement applied:** World Bank is the approved  fallback per `.github/skills/imf-data-integration.md`. Economic analysis confidence is reduced from 🟢 HIGH to 🟡 MEDIUM; no WEO indicators were retrieved.
 
 ---
 

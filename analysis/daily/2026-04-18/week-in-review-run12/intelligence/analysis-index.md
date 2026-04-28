@@ -40,7 +40,7 @@ week-in-review run in the EP10 series.**
    BRRD3 (TA-10-2026-0092), SRMR3 (TA-10-2026-0093) adopted March 26. Transposition
    stress concentrates in Germany. See `economic-context.md` §Germany and
    `threat-model.md` §T1.
-3. **Anti-Corruption Directive (TA-10-2026-0094) creates Article 83 TFEU precedent** —
+3. **Anti-Corruption Directive (TA-10-2026-0094) creates Article 83 TFEU precedent**
    first sustained EP10 use of criminal-law competence. See `pestle-analysis.md` §L1
    and `scenario-forecast.md` §Scenario 1 (Productive Recess).
 4. **Housing Initiative Commission-response deadline April 21** — 55% probability of

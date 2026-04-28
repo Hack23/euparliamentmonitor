@@ -60,7 +60,7 @@ These acts are now having downstream effects:
 - Commission legal services are reviewing US countermeasure implementation options
 - Civil society organizations are evaluating challenge strategies
 
-Parliament will return April 27 to a policy landscape that has evolved significantly during recess —
+Parliament will return April 27 to a policy landscape that has evolved significantly during recess
 and this analysis series is designed to map that evolution before the institutional response resumes.
 
 ---
@@ -122,7 +122,7 @@ period. Probability assessment for this window:
 - No action: 20% (PATH E — de facto restraint)
 
 The probability of any USTR action (Paths A+B+C) in the April 22-26 window: 70%. The probability
-of escalatory action specifically (Paths B+C): 30%. This assessment is 🟡 MEDIUM confidence —
+of escalatory action specifically (Paths B+C): 30%. This assessment is 🟡 MEDIUM confidence
 it is analytical, not based on USTR intelligence signals.
 
 ### Finding 4: April 21 Housing Response — 3-Day Critical Window 🟢 HIGH Confidence

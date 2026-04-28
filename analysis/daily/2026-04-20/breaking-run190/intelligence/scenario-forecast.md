@@ -193,7 +193,7 @@ API data during the acute period.
 
 The Easter Recess Series (Runs 179-190) has consistently operated in Scenario C territory
 (API degraded, no external shocks, ANALYSIS_ONLY). The series ends April 27 when Parliament
-returns. The transition from Scenario C to Scenario A is the most likely single outcome —
+returns. The transition from Scenario C to Scenario A is the most likely single outcome
 but the 20% Scenario B (USTR) probability represents a non-trivial risk that the post-recess
 period begins with a major breaking story rather than the expected stable return.
 

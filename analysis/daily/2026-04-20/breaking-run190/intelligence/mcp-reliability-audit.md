@@ -71,7 +71,7 @@ the EP-MCP architecture. Consistent with all prior runs in Easter Recess Series.
 ---
 
 ### 6. `analyze_coalition_dynamics` — ✅ OPERATIONAL (Structural Only)
-**Test call:** `analyze_coalition_dynamics()`
+**Test call:** `analyze_coalition_dynamics`
 **Response:** Coalition data returned with size-proxy methodology
 **Assessment:** Tool functional; cohesion data null (as expected — EP API does not expose
 per-MEP roll-call data required for true cohesion calculation). Structural data (seat counts,
@@ -132,7 +132,7 @@ is expected behavior, not degradation.
 ---
 
 ### 12. `get_all_generated_stats` — ✅ OPERATIONAL
-**Test call:** `get_all_generated_stats()`
+**Test call:** `get_all_generated_stats`
 **Response:** 85KB of precomputed statistics (2004-2026)
 **Assessment:** Precomputed stats endpoint fully operational. This provides the historical
 baseline for all comparative analysis in the Easter Recess Series.
@@ -282,7 +282,7 @@ adoption. Served by: `get_adopted_texts(year:2026)` and `get_adopted_texts_feed(
 **Layer 2 (Content):** Full legislative text, recitals, articles, annexes. Available after
 legal-linguistic review completion. Served by: `get_adopted_texts({docId:"TA-..."})`.
 
-The 2.6:1 ratio (159 metadata : ~61 content) implies that approximately 98 texts (62%) have
+The 2.6:1 ratio (159 metadata: ~61 content) implies that approximately 98 texts (62%) have
 completed EP adoption but not yet completed the EP's internal legal-linguistic review process.
 This ratio has been stable across multiple runs, suggesting the review backlog is a structural
 feature of EP10's legislative throughput rather than an artifact of the current API outage.

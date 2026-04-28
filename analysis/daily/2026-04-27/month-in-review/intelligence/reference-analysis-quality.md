@@ -77,6 +77,6 @@
 - ✅ **≥80 words per SWOT item** in quantitative-swot.md
 - ✅ **≥150 words per stakeholder perspective** in stakeholder-map.md
 - ✅ **Mermaid visualizations** present in multiple artifacts (flowchart, quadrant, mindmap, timeline)
-- ✅ **World Bank OR IMF economic data** present in economic-context.md (Wave-2 OR-gate met)
+- ✅ **World Bank OR IMF economic data** present in economic-context.md
 
 **Overall Quality Grade: 🟢 A- (Pass 2 improvements will bring to A+)**

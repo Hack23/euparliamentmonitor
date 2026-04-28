@@ -309,7 +309,7 @@ prose pass.
 
 ## 🎯 Article-Type Specifics
 
-- Economic context (World Bank **or** IMF) is mandatory.
+- Economic context is **mandatory** and must be sourced from **IMF**. World Bank is cited for non-economic domains (governance WGI, demographics, social, environment, defence-spending). See [`.github/skills/imf-data-integration.md`](../skills/imf-data-integration.md) and [`analysis/methodologies/imf-indicator-mapping.md §8`](../../analysis/methodologies/imf-indicator-mapping.md#8-per-article-type-indicator-minimums) (`month-in-review` ≥ 2 IMF indicators).
 - Cross-reference prior month-ahead predictions; produce a confirmed/refuted tally.
 - Include `intelligence/historical-baseline.md` in the analysis set.
 
@@ -435,7 +435,7 @@ STAGE_C_GATE: RED articleType=${ARTICLE_TYPE_SLUG} missing=<N> short=<N> placeho
 > straight to Stage E. The 30-day data window naturally pushes Stage B
 > long; do not chase or honor a late GREEN gate past the deadline.
 > Run #24954208628 lost 33 analysis + 15 news files because the PR
-> call landed at minute 35 after the safeoutputs session was reaped —
+> call landed at minute 35 after the safeoutputs session was reaped
 > shipping ANALYSIS_ONLY at minute 22 is strictly better than losing
 > the whole run to TTL.
 

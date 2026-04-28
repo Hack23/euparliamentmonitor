@@ -39,7 +39,7 @@ The European Parliament convenes for a full **Strasbourg plenary week** on 27–
 | Plenary Sessions 2026 | `get_plenary_sessions(year=2026)` | 54 sessions | 🟢 High |
 | Foreseen Activities Apr-27 | `get_meeting_foreseen_activities(MTG-PL-2026-04-27)` | 8 debates | 🟡 Medium |
 | Adopted Texts 2026 | `get_adopted_texts(year=2026)` | 101 texts | 🟢 High |
-| Political Landscape | `generate_political_landscape()` | Full data | 🟢 High |
+| Political Landscape | `generate_political_landscape` | Full data | 🟢 High |
 | Procedures Feed | `get_procedures_feed(one-week)` | 50 items (historical) | 🟡 Medium |
 | Events Feed | `get_events_feed(one-week)` | Unavailable | 🔴 Low |
 

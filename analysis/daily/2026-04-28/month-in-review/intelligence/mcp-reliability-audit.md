@@ -36,7 +36,7 @@
 
 **§11 triage classification:** 🔵 KNOWN DEGRADED UPSTREAM — per §11 row #5 in 07-mcp-reference.md, `get_procedures_feed` is documented as slower and prone to timeout/404. The RECESS_MODE indicator and STALENESS_WARNING in `dataQualityWarnings` are expected.
 
-**EP MCP client handling:** `getProceduresFeed()` returns `{feed: [...historical...], recessMode: true, dataQualityWarnings: [{type: "STALENESS_WARNING", ...}]}` when the upstream returns historical-archive ordering. This is correct per the ADR.
+**EP MCP client handling:** `getProceduresFeed` returns `{feed: [...historical...], recessMode: true, dataQualityWarnings: [{type: "STALENESS_WARNING"...}]}` when the upstream returns historical-archive ordering. This is correct per the ADR.
 
 **Upstream issue filing:** ❌ NOT required — this is a documented upstream degradation, not a reportable bug.
 
@@ -60,7 +60,7 @@
 
 **Observed behavior:** Tool returned `cohesionRate: null`, `sharedVotes: null` for all coalition pairs. The `sizeSimilarityScore` (seat-share ratio) was available as a proxy.
 
-**§11 triage classification:** 🔵 KNOWN LIMITATION — per §11 row #2 note: "until per-MEP roll-call data is exposed by the EP Open Data Portal, cohesion uses size-ratio proxy only." Per memory entry: EP MCP group-ID consumer rule confirmed, normalizePoliticalGroup() via PR #405.
+**§11 triage classification:** 🔵 KNOWN LIMITATION — per §11 row #2 note: "until per-MEP roll-call data is exposed by the EP Open Data Portal, cohesion uses size-ratio proxy only." Per memory entry: EP MCP group-ID consumer rule confirmed, normalizePoliticalGroup via PR #405.
 
 **Upstream issue filing:** ❌ NOT required — per-MEP voting data is an upstream EP API limitation, not an MCP server bug.
 
@@ -188,7 +188,7 @@ The IMF SDMX 3.0 API timeout during Stage A is documented here per §12 of `07-m
 - **Triage classification:** Known intermittent outage (documented as network-level issue, not EP MCP bug)
 - **Impact on analysis:** MEDIUM — `economic-context.md` uses World Bank DE/FR data exclusively; IMF World Economic Outlook projections unavailable
 - **Confidence flag:** 🟡 MEDIUM on all economic projection claims in this run
-- **Wave-2 OR-gate:** World Bank data is the approved Wave-2 fallback per `.github/skills/imf-data-integration.md`
+- ** IMF requirement:** World Bank data is the approved  fallback per `.github/skills/imf-data-integration.md`
 
 ### Procedures Feed Degradation (§11 Row #5)
 
@@ -203,7 +203,7 @@ The IMF SDMX 3.0 API timeout during Stage A is documented here per §12 of `07-m
 |----------|-------|-------|
 | EP MCP tools | 🟢 HIGH (9/11 functional) | 2 degraded (procedures feed, events slow) |
 | World Bank | 🟢 HIGH (5/5 functional) | All indicators available for DE/FR |
-| IMF | 🔴 FAILED | Network timeout — OR-gate applied |
+| IMF | 🔴 FAILED | Network timeout — IMF requirement applied |
 | Sequential thinking | 🟢 HIGH | Available and used in analysis |
 | Memory | 🟢 HIGH | Available for scratch storage |
 
@@ -211,7 +211,7 @@ The IMF SDMX 3.0 API timeout during Stage A is documented here per §12 of `07-m
 
 ---
 
-*MCP reliability audit expanded: 2026-04-28 | Standard: 07-mcp-reference.md §11 triage table | Wave-2 OR-gate applied for IMF*
+*MCP reliability audit expanded: 2026-04-28 | Standard: 07-mcp-reference.md §11 triage table |  IMF requirement applied for IMF*
 
 ## MCP Tool Health Visualization
 
@@ -223,4 +223,4 @@ pie title MCP Tool Availability April 2026
     "IMF Failed (1 API)" : 1
 ```
 
-*Reliability snapshot for this run. IMF treated as OR-gate fallback per .github/skills/imf-data-integration.md.*
+*Reliability snapshot for this run. IMF treated as IMF requirement fallback per.github/skills/imf-data-integration.md.*

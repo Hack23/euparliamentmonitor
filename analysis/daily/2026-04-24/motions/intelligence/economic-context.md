@@ -54,7 +54,7 @@ act (industrial competitiveness).
   "completion of the banking union including crisis management"
   as a top-3 strategic priority.
 * Single Resolution Fund target level = €79.8bn reached 2024-Q1;
-  SRB operating with full target balance for the first time —
+  SRB operating with full target balance for the first time
   strengthens the political argument for a modernised SRMR3.
 * Recent bank-stress episodes (2023 Credit Suisse → UBS; 2024 mid-
   tier US regional banking) confirm that early-intervention +
@@ -113,7 +113,7 @@ act (industrial competitiveness).
 * Manufacturing sector EGF cases 2024-2026: six active cases, including
   Tupperware BE (TA-10-2026-0073) and KTM AT (TA-10-2026-0103) from
   this cluster. Total authorised EGF aid across active cases ~€18m.
-* Services-sector employment growth +1.7% YoY (Eurostat 2026-Q1) —
+* Services-sector employment growth +1.7% YoY (Eurostat 2026-Q1)
   absorbing displaced manufacturing labour.
 
 ## 8 · Political-economy linkage

@@ -255,8 +255,8 @@ extension.
 
 Article 83(1) TFEU explicitly provides QMV basis for criminal-law harmonization in
 enumerated areas including corruption, reducing unanimity-veto paths. Threshold
-for subsidiarity yellow card is 1/3 of national parliament votes within 8 weeks —
-substantial coordination hurdle. Subsidiarity orange card requires 1/2 threshold —
+for subsidiarity yellow card is 1/3 of national parliament votes within 8 weeks
+substantial coordination hurdle. Subsidiarity orange card requires 1/2 threshold
 higher still. Historical precedent: only two subsidiarity yellow cards have been
 successful in EU history (2012 Monti II Regulation; 2013 Public Prosecutor's
 Office) and neither fully blocked the legislation.
@@ -394,7 +394,7 @@ quadrantChart
   dominate; EU can at best shape timing and scope.
 - T2 (Banking Union) is HIGH-IMPACT and MODERATELY-MITIGABLE — primary lever lies
   in German federal politics (Commission + ECB coordination).
-- T3 (Anti-Corruption subsidiarity) is MEDIUM-IMPACT and MODERATELY-MITIGABLE —
+- T3 (Anti-Corruption subsidiarity) is MEDIUM-IMPACT and MODERATELY-MITIGABLE
   Article 83(1) TFEU legal basis narrows successful-challenge pathways.
 - T4 (API regression) is MEDIUM-IMPACT and LOW-MITIGABLE for EP Monitor — EP IT
   decisions are exogenous; mitigation is EP Monitor-side (dual-layer verification).
@@ -406,10 +406,10 @@ quadrantChart
 
 ## Intelligence Implications
 
-1. **T5 (coalition fracture) is the threat most within EP's own control** —
+1. **T5 (coalition fracture) is the threat most within EP's own control**
    investment in pre-plenary coordination yields highest risk reduction per unit
    effort. The 84/100 stability score reflects this coordination capacity.
-2. **T2 (Banking Union ratification) demands external-partner engagement** —
+2. **T2 (Banking Union ratification) demands external-partner engagement**
    Commission DG FISMA and ECB public communications during April 22–25 are the
    leverage points.
 3. **T1 (Section 301) is largely exogenous** — EP can prepare resilience (clear

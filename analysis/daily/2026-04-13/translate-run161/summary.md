@@ -53,7 +53,7 @@ All sections translated: header, meta tags, SWOT (3 strengths/opportunities/weak
 - CJK files: lang=zh, lang=ja, lang=ko — correct
 - canonical URLs, og:locale, JSON-LD inLanguage all match filename language
 - Footer language-grid: active lang marked correctly in each file
-- Back-to-news links: ../index-XX.html pattern used correctly
+- Back-to-news links:../index-XX.html pattern used correctly
 
 ## Language Coverage Matrix
 

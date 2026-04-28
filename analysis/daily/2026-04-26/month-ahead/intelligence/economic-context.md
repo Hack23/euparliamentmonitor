@@ -7,9 +7,9 @@
 
 ---
 
-## ⚠️ Data Source Declaration (Wave-3 IMF Primary Rule)
+## ⚠️ Data Source Declaration
 
-Per `.github/prompts/01-data-collection.md` Wave-3 IMF-Primary rule: this article type
+Per `.github/prompts/01-data-collection.md`  IMF-Primary rule: this article type
 (month-ahead) touches macro/fiscal/monetary/trade — IMF WEO is the **primary** data source.
 World Bank data is used only for structural/development indicators not covered by IMF WEO.
 IMF data cited below is from the **IMF World Economic Outlook April 2026 Edition** vintage,
@@ -40,7 +40,7 @@ risk to European growth. A full tariff escalation scenario (all US goods, 25% ra
 scope) limits but does not eliminate this risk.
 
 **EP nexus:** INTA committee rapporteur's trilogue mandate (approved March 26) targets a proportional
-retaliation instrument. The economic logic — supported by IMF structural competitiveness analysis —
+retaliation instrument. The economic logic — supported by IMF structural competitiveness analysis
 is that targeted retaliation is less damaging than a broad tariff war. The trilogue outcome will
 determine whether EP's proportional approach is accepted by Council member states with more exposed
 economies (Germany, France).

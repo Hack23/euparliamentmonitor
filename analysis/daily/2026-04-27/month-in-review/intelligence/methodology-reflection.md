@@ -92,7 +92,7 @@
 |------|-------------|--------|
 | Rule 1 | No hard-coded dates | ✅ All dates derived from $TODAY |
 | Rule 2 | Tool health triage vs §11 | ✅ mcp-reliability-audit.md §11 cross-reference applied |
-| Rule 3 | Wave-2 OR-gate for economic data | ✅ WB+IMF = OR-gate satisfied |
+| Rule 3 |  IMF requirement for economic data | ✅ WB+IMF = IMF requirement satisfied |
 | Rule 4 | No placeholder text | ✅ No `[AI_ANALYSIS_REQUIRED]` in any artifact |
 | Rule 5 | Confidence labels | ✅ 🟢/🟡/🔴 applied consistently |
 | Rule 6 | Evidence citations | ✅ Specific TA-10-2026-xxxx references throughout |

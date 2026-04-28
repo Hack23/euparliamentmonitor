@@ -35,7 +35,7 @@ The political landscape is, however, preparing for significant challenges:
   TRQ approach represents von der Leyen's preferred proportionality doctrine; EPP conservatives
   would prefer stronger retaliation.
 - **PfE-ECR opposition coordination:** The combined ECR-PfE opposition (165 seats) has been
-  disciplined in opposition throughout EP10. They are the second political story of this recess —
+  disciplined in opposition throughout EP10. They are the second political story of this recess
   no defections, no coalition communications, sustained opposition posture.
 - **Climate agenda confrontation:** Post-recess first plenary will test whether Greens/EFA and
   Left can force climate amendments through cross-party votes, fraying EPP support.

@@ -254,11 +254,11 @@ quadrantChart
 ```
 
 **Implications**:
-- T1 (Banking Union) is HIGH-IMPACT but only MODERATELY-MITIGABLE by EU actors —
+- T1 (Banking Union) is HIGH-IMPACT but only MODERATELY-MITIGABLE by EU actors
   primary lever lies in German federal politics.
 - T2 (Section 301) is HIGH-IMPACT but LOW-MITIGABLE — US domestic-political drivers
   dominate; EU can at best shape timing and scope.
-- T3 (Coalition fragmentation) is MEDIUM-HIGH-IMPACT and MODERATELY-HIGH-MITIGABLE —
+- T3 (Coalition fragmentation) is MEDIUM-HIGH-IMPACT and MODERATELY-HIGH-MITIGABLE
   EP-internal coordination can close most attack paths; this is where EP leadership
   can earn credit.
 
@@ -266,7 +266,7 @@ quadrantChart
 
 ## Intelligence Implications
 
-1. **T3 (coalition fragmentation) is the threat most within EP's own control** —
+1. **T3 (coalition fragmentation) is the threat most within EP's own control**
    investment in pre-plenary coordination yields highest risk reduction per unit effort.
 2. **T1 (Banking Union) demands external-partner engagement** — Commission DG FISMA
    and ECB public communications during April 22–25 are the leverage points.

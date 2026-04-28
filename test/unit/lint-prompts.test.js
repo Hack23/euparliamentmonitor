@@ -238,4 +238,78 @@ describe('scripts/lint-prompts.js', () => {
     expect(result.code).toBe(1);
     expect(result.stderr).toContain('completeness-gate');
   });
+
+  // ── IMF-primary editorial policy ───────────────────────────────────
+  // Workflow prompts that describe WB as substitutable for IMF on
+  // economic claims are out of policy and must fail lint:prompts.
+
+  it('flags "World Bank or IMF" economic-context phrasing', () => {
+    writeWorkflow(
+      'news-bad-or-gate.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n' +
+        'Economic context (World Bank or IMF) is mandatory.\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain('forbidden phrase');
+    expect(result.stderr.toLowerCase()).toContain('world bank');
+  });
+
+  it('flags "IMF or World Bank" economic-context phrasing', () => {
+    writeWorkflow(
+      'news-bad-or-gate-reversed.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n' +
+        'Economic context citing IMF or World Bank is mandatory.\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain('forbidden phrase');
+  });
+
+  it('flags "WB/IMF" slash phrasing in an economic-context sentence', () => {
+    writeWorkflow(
+      'news-bad-slash.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n' +
+        'Cite economic context using WB/IMF for every macro claim.\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain('forbidden phrase');
+  });
+
+  it('still permits the bold-markdown variant "World Bank **or** IMF" detection', () => {
+    // The historical bug fixture used the bold-markdown variant in
+    // .github/workflows/news-month-in-review.md. The forbidden-phrase
+    // regex must catch both plain and bold forms.
+    writeWorkflow(
+      'news-bad-bold-or-gate.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n' +
+        '- Economic context (World Bank **or** IMF) is mandatory.\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain('forbidden phrase');
+  });
+
+  it('accepts IMF-primary phrasing ("IMF (primary), WB non-economic")', () => {
+    writeWorkflow(
+      'news-good-imf-primary.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n' +
+        'Economic context: IMF is the sole authoritative source. ' +
+        'World Bank is for non-economic domains ' +
+        '(governance WGI, demographics, defence-spending).\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(0);
+  });
 });

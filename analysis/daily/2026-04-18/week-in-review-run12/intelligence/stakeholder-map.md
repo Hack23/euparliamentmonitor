@@ -20,7 +20,7 @@ frameworks: [Mendelow]
 > decisive Q1 2026 legislative actions (Banking Union trilogy, Anti-Corruption
 > Directive, Housing Initiative, EU Talent Pool, US Countermeasures) and the first
 > post-recess plenary agenda (April 28–30). Stakeholder mapping underpins
-> `scenario-forecast.md` and `threat-model.md` and complements — without duplicating —
+> `scenario-forecast.md` and `threat-model.md` and complements — without duplicating
 > the stakeholder perspectives in `deep-analysis.md` §Stakeholder Perspectives.
 
 ---
@@ -168,7 +168,7 @@ sets the market tone entering the recess.
 
 ### 7. Sparkassen + Italian BCC coalition (DSGV + Federcasse)
 
-**Power**: Sparkassen ~40% of German retail banking + BCC ~25% of Italian retail —
+**Power**: Sparkassen ~40% of German retail banking + BCC ~25% of Italian retail
 jointly the most politically networked banking constituency in the Eurozone.
 **Interest**: Intense on BRRD3 transposition specifically; low on other dossiers.
 **Expected lobbying vector**: Amendment campaign for transposition exemptions via
@@ -319,11 +319,11 @@ possible bilateral démarche if US-EU trade war escalates.
 
 The matrix reveals three decisive coalition arithmetic configurations:
 
-1. **Banking Union Implementation Coalition (EPP + S&D + Renew + Greens/EFA)** —
+1. **Banking Union Implementation Coalition (EPP + S&D + Renew + Greens/EFA)**
    robust in principle; vulnerable only to German EPP delegation drag on BRRD3
    transposition signalling. Probability of coalition-holding on implementation-
    stage votes: 80% (🟡 Medium). See `threat-model.md` §T1 attack tree.
-2. **Progressive Housing Bloc (S&D + Greens/EFA + The Left + left-Renew)** —
+2. **Progressive Housing Bloc (S&D + Greens/EFA + The Left + left-Renew)**
    aggregate ~280 seats, falls short of 361 majority threshold. Requires at least
    moderate EPP defection (~80 EPP MEPs) to pass aggressive housing measures. Current
    probability of such defection: 15–20%.

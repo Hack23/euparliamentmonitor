@@ -77,7 +77,7 @@
 ## 5. Shell Safety Compliance
 
 This run uses the following safe patterns:
-- Time calculation: `awk` arithmetic for elapsed minutes (no nested `$(())`)
+- Time calculation: `awk` arithmetic for elapsed minutes (no nested `$()`)
 - Date derivation: `date -u +%Y-%m-%d` (no expansion)
 - File operations: simple `cat`, `mkdir -p` (no nested command substitution)
 

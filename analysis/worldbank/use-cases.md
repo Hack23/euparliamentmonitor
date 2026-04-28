@@ -4,12 +4,12 @@
 
 **📅 Last Updated:** 2026-04-22 | **🏷️ Classification:** Public
 
-> ### ⚡ Wave-2 policy (April 2026)
+> ### ⚡ (April 2026)
 >
-> **World Bank is used only for non-economic indicators**: health,
+> **World Bank is used for non-economic indicators**: health,
 > education, social, environment, demographics, defence, agriculture,
 > innovation, governance. **Economic context (GDP, inflation,
-> unemployment, fiscal, trade, FDI, monetary) is sourced from IMF** —
+> unemployment, fiscal, trade, FDI, monetary) is sourced from IMF**
 > see [`analysis/imf/use-cases.md`](../imf/use-cases.md).
 
 ---
@@ -36,7 +36,7 @@
 
 ### 1. Economic Backdrop — Moved to IMF
 
-> **⚡ Wave-2 flip**: economic backdrop is no longer sourced from World
+> **⚡  flip**: economic backdrop is no longer sourced from World
 > Bank. See [`analysis/imf/use-cases.md § 1`](../imf/use-cases.md) for
 > the IMF-sourced equivalent — including the AI prompt pattern using
 > `imf-fetch-data` with WEO indicators `NGDP_RPCH` (GDP growth),
@@ -69,7 +69,7 @@ Recommended Chart.js config:
 
 ### 3. Tax Revenue Analysis — Moved to IMF
 
-> **⚡ Wave-2 flip**: tax-revenue / fiscal-capacity analysis is now
+> **⚡  flip**: tax-revenue / fiscal-capacity analysis is now
 > sourced from **IMF Fiscal Monitor** (`FM` dataflow) and **WEO**. See
 > [`analysis/imf/use-cases.md`](../imf/use-cases.md) for the IMF
 > counterpart — including WEO indicators `GGR_NGDP` (gov revenue % GDP)
@@ -97,11 +97,11 @@ Recommended Chart.js config:
 **Chart**: Stacked bar chart showing youth vs. total unemployment by country
 
 **AI Prompt Pattern**:
-> "For employment articles, combine WB youth unemployment (`SL.UEM.1524.ZS`) with IMF `LUR` (overall unemployment, WEO) for Southern European states (ES, GR, IT, PT). Overall unemployment is macro-economic and comes from IMF per Wave-2 policy; youth unemployment is a labour-social breakdown and remains on WB. Include GINI index (`SI.POV.GINI`) for inequality context."
+> "For employment articles, combine WB youth unemployment (`SL.UEM.1524.ZS`) with IMF `LUR` (overall unemployment, WEO) for Southern European states (ES, GR, IT, PT). Overall unemployment is macro-economic and comes from IMF. Include GINI index (`SI.POV.GINI`) for inequality context."
 
 ### 6. Trade & Investment Analysis — Moved to IMF
 
-> **⚡ Wave-2 flip**: trade-volume + FDI + current-account analysis
+> **⚡  flip**: trade-volume + FDI + current-account analysis
 > comes from **IMF BOP / WEO** — see
 > [`analysis/imf/use-cases.md`](../imf/use-cases.md). WB export/import
 > indicators remain valid raw-REST IDs but not the preferred source.
@@ -169,16 +169,16 @@ Recommended Chart.js config:
 | **Deep Analysis** | Non-economic WB (CO₂, GINI, health, edu) | Environmental, R&D | Full non-economic set |
 
 > Economic/macro rows (GDP, inflation, unemployment, trade, FDI,
-> fiscal) removed from the WB priority matrix in Wave 2 and relocated
-> to [`analysis/imf/use-cases.md § 5`](../imf/use-cases.md).
+> fiscal) are sourced from IMF — see
+> [`analysis/imf/use-cases.md § 5`](../imf/use-cases.md).
 
 ---
 
 ## ⚠️ Anti-Patterns: When NOT to Use World Bank Data
 
 1. **Translation workflow** — Never fetch WB data during translation; preserve existing data
-2. **Economic context** — ⚡ Wave 2: **use IMF, not WB**, for GDP/inflation/unemployment/FDI/trade/fiscal/monetary
-3. **Aggregate codes (`EUU`, `EMU`, `ECS`, `OED`, `WLD`, ...)** — Rejected by `worldbank-mcp@1.0.1`; call `isMCPSupportedWBCountryCode()` first, or cite IMF `EU`/`EA` aggregates
+2. **Economic context** — ⚡: **use IMF, not WB**, for GDP/inflation/unemployment/FDI/trade/fiscal/monetary
+3. **Aggregate codes (`EUU`, `EMU`, `ECS`, `OED`, `WLD`...)** — Rejected by `worldbank-mcp@1.0.1`; cite IMF `EU`/`EA` aggregates instead
 4. **Breaking news with no policy angle** — Don't force context on procedural/rights-focused stories
 5. **Outdated data caveat** — Always note the data year; don't present 2022 data as "current"
 6. **Over-enrichment** — Do not exceed the workflow's maxWBCalls; don't drown political analysis in charts

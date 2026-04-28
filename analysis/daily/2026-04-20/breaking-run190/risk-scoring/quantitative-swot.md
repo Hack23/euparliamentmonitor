@@ -105,7 +105,7 @@ without stress indicators; 84/100 stability score verified via early_warning_sys
 
 The Run 188 methodological breakthrough — discovering that the EP API exposes a dual-layer
 architecture where a metadata layer (year-filter endpoint: 159 texts with titles, dates, procedure
-references) exists independently from a content layer (~61 texts with full accessible content) —
+references) exists independently from a content layer (~61 texts with full accessible content)
 has permanently enhanced the EU Parliament Monitor's monitoring capability. The 2.6:1 ratio between
 indexed texts and accessible texts (98 texts indexed but content-pending) quantifies the analytical
 gap for the first time.
@@ -294,7 +294,7 @@ EU digital regulations potentially subject to Section 301 scrutiny:
 2. **Digital Services Act (DSA):** Imposes content moderation obligations and algorithmic
    transparency requirements — US platforms argue these impose compliance burdens disproportionate
    to EU market share
-3. **AI Act:** Imposes high-risk AI system requirements and General Purpose AI obligations —
+3. **AI Act:** Imposes high-risk AI system requirements and General Purpose AI obligations
    US AI companies (OpenAI, Google DeepMind) face compliance costs not borne by non-US actors
 
 **Impact if filed (probability-weighted):** Emergency plenary session pressure, IMCO/INTA

@@ -8,14 +8,12 @@
 
 ## 🤖 AI Agent / Agentic Workflow Instructions
 
-**Scope (Wave-4):** World Bank is the source for **non-economic**
+**Scope:** World Bank is the source for **non-economic**
 indicators only — health, education, social, environment, demographics,
 defence, agriculture, innovation, governance. **Economic context (GDP,
 inflation, unemployment, fiscal, trade, FDI, monetary) comes from
 IMF** — see [`analysis/imf/indicator-catalog.md`](../imf/indicator-catalog.md).
-Enforced editorially at Stage-C review — the legacy runtime helper
-`articlePolicyHasEconomicContext` in `src/utils/content-validator.ts`
-was purged in the April-2026 aggregator-pipeline migration.
+Enforced editorially at Stage-C review.
 
 **This catalog is a reference document, NOT a hard limit.** The World Bank has **thousands** of indicators. Follow this process for every article or analysis:
 
@@ -44,8 +42,8 @@ Each workflow has a `maxWBCalls` limit (1-3 calls). Pick the highest-impact indi
 - Use `years: 5` for articles, `years: 10` for trend analysis
 
 ### Step 5: Visualize
-- **HTML articles**: Chart.js via `buildDashboardSection()` — see `chart-integration-guide.md`
-- **Analysis .md files**: Mermaid `xychart-beta`, `quadrantChart`, or `pie` — see `chart-integration-guide.md`
+- **HTML articles**: Chart.js via `buildDashboardSection` — see `chart-integration-guide.md`
+- **Analysis.md files**: Mermaid `xychart-beta`, `quadrantChart`, or `pie` — see `chart-integration-guide.md`
 
 ---
 
@@ -102,11 +100,11 @@ mindmap
 
 ---
 
-## 1️⃣ ECONOMIC & MONETARY — ⚡ Moved to IMF (Wave 2)
+## 1️⃣ ECONOMIC & MONETARY — ⚡ Moved to IMF
 
 > ### ⛔ Do NOT use World Bank for economic context
 >
-> Since **Wave 2 (April 2026)**, **all economic & monetary context**
+> Since ** (April 2026)**, **all economic & monetary context**
 > (GDP, inflation, unemployment, fiscal balance, debt, trade, FDI,
 > monetary aggregates, exchange rates) for EU Parliament articles and
 > analysis artefacts is sourced from **IMF** via the native TypeScript
@@ -114,13 +112,13 @@ mindmap
 >
 > **Authoritative sources:**
 >
-> - [`analysis/imf/indicator-catalog.md`](../imf/indicator-catalog.md) —
+> - [`analysis/imf/indicator-catalog.md`](../imf/indicator-catalog.md)
 >   ~80 IMF indicators across WEO / IFS / FM / BOP / ER / PCPS with
 >   SDMX codes, frequency, and forecast horizon
-> - [`analysis/imf/eu-country-mapping.md`](../imf/eu-country-mapping.md) —
+> - [`analysis/imf/eu-country-mapping.md`](../imf/eu-country-mapping.md)
 >   IMF EU-27 + `EU`, `EA`, `G7`, `G20` aggregates (**all accepted**
 >   by the IMF API, unlike the WB MCP aggregates which are rejected)
-> - [`analysis/methodologies/imf-indicator-mapping.md`](../methodologies/imf-indicator-mapping.md) —
+> - [`analysis/methodologies/imf-indicator-mapping.md`](../methodologies/imf-indicator-mapping.md)
 >   committee-level mapping and migration sequence
 >
 > **Why IMF, not WB, for economic context:**
@@ -140,16 +138,12 @@ mindmap
 > **Enforced by** the Stage-C editorial review of
 > `intelligence/economic-context.md` per
 > [`.github/prompts/04-article-generation.md §5`](../../.github/prompts/04-article-generation.md).
-> The legacy runtime helper `articlePolicyHasEconomicContext` in
-> `src/utils/content-validator.ts` (and the surrounding
-> `src/utils/validate-articles.ts` CLI) were purged in the April-2026
-> aggregator-pipeline migration.
 
 ### ⚠️ Legacy WB economic IDs (use IMF instead)
 
 > **Retained for reverse-compatibility only.** The indicator IDs below
 > are valid raw-WB-REST identifiers and may appear in historical
-> articles written before the Wave-2 flip. **Do not cite them in new
+> articles written before the  flip. **Do not cite them in new
 > articles.** Use the IMF counterpart from
 > [`analysis/imf/indicator-catalog.md`](../imf/indicator-catalog.md).
 
@@ -189,9 +183,9 @@ mindmap
 | raw-REST | — | FI.RES.TOTL.CD | Total reserves | IFS |
 
 *Note*: Word-boundary-matched WB indicator codes still read as valid
-World Bank evidence to Stage-C reviewers, so pre-Wave-2 articles remain
+World Bank evidence to Stage-C reviewers, so pre
 green — but **new articles must cite the IMF replacement** per the
-Wave-4 editorial IMF-primary policy.
+ editorial IMF-primary policy.
 
 </details>
 

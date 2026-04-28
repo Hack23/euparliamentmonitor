@@ -151,7 +151,7 @@ confidence  = B3 (Admiralty: source usually reliable, information possibly
 
 The paired article workflow (`news-breaking-article.md`) will:
 
-1. Load this manifest via `readLatestGateResult()`.
+1. Load this manifest via `readLatestGateResult`.
 2. Observe `gateResult: ANALYSIS_ONLY`.
 3. Emit a single `safeoutputs___noop` call with message referencing this run's analysis directory.
 4. Exit without generating any HTML.

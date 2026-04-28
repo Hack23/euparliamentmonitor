@@ -192,7 +192,7 @@ dynamics analysis in Run 185.
 **Probability**: ~12%. **Impact**: 🟠 HIGH.
 
 **Mechanism**: A ransomware or sustained DDoS attack on EP or Commission digital
-infrastructure during the recess-to-plenary transition window. Not unprecedented —
+infrastructure during the recess-to-plenary transition window. Not unprecedented
 EU institutions face regular APT-28/Fancy Bear-attributed operations. A successful
 incident during April 25–28 would disrupt plenary preparation.
 
@@ -211,7 +211,7 @@ dynamics but changes risk optics (EU institutional-resilience narrative).
 
 ## W7. Ukraine Conflict Escalation
 
-**Probability**: ~18% for *material* escalation (not base rate of any activity —
+**Probability**: ~18% for *material* escalation (not base rate of any activity
 material = new NATO-member-adjacent incident or major territorial shift). **Impact**:
 🔴 CRITICAL.
 

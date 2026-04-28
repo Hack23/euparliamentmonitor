@@ -1,9 +1,9 @@
 # Economic Context — Propositions — 2026-04-24
 
-**OR-gate (Wave-2)**: This artifact uses **World Bank** indicators
+**IMF requirement**: This artifact uses **World Bank** indicators
 (Germany + France bilaterals) after attempted Eurozone aggregates
 (`EUU`, `EMU`) failed to resolve in the current World Bank MCP
-deployment (`worldbank-mcp@1.0.1`). The OR-gate requires either WB or
+deployment (`worldbank-mcp@1.0.1`). The IMF requirement requires either WB or
 IMF data on policy files; WB is available for DE + FR and is therefore
 used here.
 
@@ -44,7 +44,7 @@ EPP-DE rapporteurs through at least H1 2026.
 | 2023 | 1.44 | — |
 | 2024 | **1.19** | — |
 
-**Reading**: FR growth decelerated but remained positive throughout —
+**Reading**: FR growth decelerated but remained positive throughout
 a gentler profile than DE. For propositions, France gives the
 progressive bloc more fiscal headroom to defend CAP, social pillar,
 and industrial-strategy files.
@@ -96,7 +96,7 @@ before falling back to DE+FR.
 ## 8 · Limitations
 
 - No IMF cross-check this run (IMF MCP probe returned no data).
-- No fiscal-space data (debt/GDP, deficit/GDP) fetched this run —
+- No fiscal-space data (debt/GDP, deficit/GDP) fetched this run
   scheduled for next propositions run.
 
 *— Economic Context · Pass 2 complete · 2026-04-24*

@@ -103,7 +103,7 @@ quadrantChart
 
 ### Fragmentation Triggers
 
-1. **S&D Red Lines:** If PPE uses the right-of-centre track for >3 consecutive files post-recess, S&D's cooperation on governance files becomes untenable. The current ratio (5 right-of-centre : 3 grand coalition from pre-recess) is near the tolerance boundary.
+1. **S&D Red Lines:** If PPE uses the right-of-centre track for >3 consecutive files post-recess, S&D's cooperation on governance files becomes untenable. The current ratio (5 right-of-centre: 3 grand coalition from pre-recess) is near the tolerance boundary.
    - **Indicator:** Watch S&D's procedural motions in April plenary — procedural obstruction is the early warning signal.
    - **Probability:** Possible (40-55%)
    - **Confidence:** 🟡 MEDIUM

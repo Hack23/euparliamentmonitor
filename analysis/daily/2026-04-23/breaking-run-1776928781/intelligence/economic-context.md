@@ -185,8 +185,8 @@ Data not available from World Bank API:
 - Italy GDP growth 2024: NOT RETURNED (API coverage gap)
 - Spain GDP: NOT RETURNED (API coverage gap)
 
-**IMF data gap (Wave-2 policy)**:
-IMF SDMX 3.0 EU-level aggregate data was not collected in this run due to time constraints. Future runs should include IMF EU-level data as the primary economic context source per Wave-2 policy.
+**IMF data gap**:
+IMF SDMX 3.0 EU-level aggregate data was not collected in this run due to time constraints. Future runs should include IMF EU-level data as the primary economic context source.
 
 **Estimated IMF aggregate for EU**:
 - EU GDP growth 2024 (IMF WEO estimate): ~0.8%

@@ -5,7 +5,7 @@
 
 **Run Date:** 2026-04-27 | **Admiralty Grade:** B2
 **Sources:** IMF WEO April 2026 (primary), World Bank API (Germany GDP, France inflation, unemployment)
-**Wave-3 OR-gate:** IMF primary for macro/fiscal/monetary/trade; WB for social/development indicators
+** IMF requirement:** IMF primary for macro/fiscal/monetary/trade; WB for social/development indicators
 
 ---
 
@@ -176,7 +176,7 @@ depending on escalation), and euro appreciation pressure create a fragile extern
 **Net assessment for EP:** The economic context increases urgency of both the CID (address
 structural competitiveness) and the tariff retaliation mechanism (protect EU exporters). However,
 the same economic fragility makes any CID provision that increases short-term costs politically
-toxic for MEPs from German, Czech, and Polish constituencies. This is not a contradiction —
+toxic for MEPs from German, Czech, and Polish constituencies. This is not a contradiction
 it is the core political economy tension that will determine the month's legislative outcome.
 
 ---

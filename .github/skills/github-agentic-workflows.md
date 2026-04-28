@@ -79,8 +79,8 @@ network:
     - api.github.com
     - data.europarl.europa.eu
     - "*.europa.eu"
-    - dataservices.imf.org   # IMF SDMX REST — primary economic (Wave-3)
-    - api.worldbank.org      # World Bank WDI — non-economic only (Wave-3)
+    - dataservices.imf.org   # IMF SDMX REST — sole authoritative economic source
+    - api.worldbank.org      # World Bank WDI — non-economic
     - hack23.com
     - www.hack23.com
     - riksdagsmonitor.com
@@ -193,7 +193,7 @@ network:
     - defaults                    # Basic infrastructure (certificates, DNS, etc.)
 ```
 
-**Example — EP + IMF + World Bank workflow (Wave-3):**
+**Example — EP + IMF + World Bank workflow:**
 ```yaml
 network:
   allowed:
@@ -201,8 +201,8 @@ network:
     - github.com
     - api.github.com
     - data.europarl.europa.eu
-    - dataservices.imf.org        # IMF SDMX REST — primary economic (Wave-3)
-    - api.worldbank.org           # World Bank API — non-economic only (Wave-3)
+    - dataservices.imf.org        # IMF SDMX REST — sole authoritative economic source
+    - api.worldbank.org           # World Bank API — non-economic
     - "*.europa.eu"
     - hack23.com
     - www.hack23.com
@@ -427,7 +427,6 @@ This project uses gh-aw for **9 automated news workflows** in `.github/workflows
 **Translation helper**:
 - `news-translate.md` — Multi-language translation (14 languages, manual `workflow_dispatch:` only, multi-call flush, exempt from single-PR rule)
 
-> The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were removed in the April-2026 aggregator-pipeline migration in favour of the unified single-PR pattern. See `.github/workflows/README.md` and `.github/agents/news-generation.agent.md` § "Shared Stage Contract".
 
 ## Gallery of Workflow Patterns
 

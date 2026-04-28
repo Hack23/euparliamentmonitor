@@ -64,7 +64,7 @@ CID investment argument and may delay Council's co-investment framework.
 
 **WEP: Very unlikely (5–10%)**
 
-An unexpected ceasefire announcement in Ukraine — even a temporary humanitarian pause —
+An unexpected ceasefire announcement in Ukraine — even a temporary humanitarian pause
 would create an immediate and difficult political question for EP: whether to support
 conditional normalisation of EU-Russia relations, particularly on energy. EPP has elements
 (Hungarian Fidesz-adjacent) that would embrace this narrative; S&D and Greens would be

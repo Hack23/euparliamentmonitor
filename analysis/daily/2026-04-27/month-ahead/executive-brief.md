@@ -183,7 +183,7 @@ working hours rather than layoffs — a politically stabilising factor.
 
 **Key risk:** If US tariff escalation materialises in May–June 2026, the IMF projects an
 additional -0.4 to -0.6 pp GDP growth reduction for EU 2026. This would bring the EU aggregate
-to near-zero growth and likely trigger Commission-requested supplementary budget procedures —
+to near-zero growth and likely trigger Commission-requested supplementary budget procedures
 requiring EP approval. The political stakes of the April 27–30 EU-US trade debate are therefore
 directly linked to the macroeconomic baseline.
 

@@ -1356,7 +1356,7 @@ timeline
 
 IMF SDMX 3.0 API was unreachable at run time (proxy CONNECT abort; exit code 28). EU/EA aggregate economic indicators (GDP growth, HICP inflation, general government deficit) are **not available from IMF WEO** for this run. All economic analysis uses World Bank member-state data. EU-level aggregate economic claims carry 🔴 LOW confidence where IMF data would normally be authoritative.
 
-Per editorial policy (Wave-3 split, April 2026): this run documents the IMF data limitation in `cache/imf/probe-summary.json` and applies enhanced uncertainty flags to all economic judgements that would benefit from IMF aggregates. Voting-patterns IMF requirement = **not_applicable** (data unavailable, documented, limitation flagged).
+Per editorial policy: this run documents the IMF data limitation in `cache/imf/probe-summary.json` and applies enhanced uncertainty flags to all economic judgements that would benefit from IMF aggregates. Voting-patterns IMF requirement = **not_applicable** (data unavailable, documented, limitation flagged).
 
 ---
 
@@ -1518,7 +1518,7 @@ IMF SDMX 3.0 API timed out during Stage A. The following IMF data points are ABS
 - IMF fiscal monitor data
 - IMF financial stability indicators
 
-**Wave-2 OR-gate applied:** World Bank is the approved Wave-2 fallback per `.github/skills/imf-data-integration.md`. Economic analysis confidence is reduced from 🟢 HIGH to 🟡 MEDIUM; no WEO indicators were retrieved.
+** IMF requirement applied:** World Bank is the approved  fallback per `.github/skills/imf-data-integration.md`. Economic analysis confidence is reduced from 🟢 HIGH to 🟡 MEDIUM; no WEO indicators were retrieved.
 
 ---
 
@@ -3307,7 +3307,7 @@ EU-level aggregate data unavailable from IMF (timeout during this run) or World 
 - Inflation: declining toward ECB 2% target; ECB rates on easing cycle
 - Fiscal position: Most member states above 3% deficit; Commission flexibility in application of SGP
 
-**Wave-2 OR-gate note:** World Bank is the approved fallback per `.github/skills/imf-data-integration.md`. All EU-level aggregate economic claims carry enhanced uncertainty flags.
+** IMF requirement note:** World Bank is the approved fallback per `.github/skills/imf-data-integration.md`. All EU-level aggregate economic claims carry enhanced uncertainty flags.
 
 ---
 
@@ -3550,7 +3550,7 @@ Post-2025 US trade policy posture has forced EP into a more assertive trade defe
 
 **§11 triage classification:** 🔵 KNOWN DEGRADED UPSTREAM — per §11 row #5 in 07-mcp-reference.md, `get_procedures_feed` is documented as slower and prone to timeout/404. The RECESS_MODE indicator and STALENESS_WARNING in `dataQualityWarnings` are expected.
 
-**EP MCP client handling:** `getProceduresFeed()` returns `{feed: [...historical...], recessMode: true, dataQualityWarnings: [{type: "STALENESS_WARNING", ...}]}` when the upstream returns historical-archive ordering. This is correct per the ADR.
+**EP MCP client handling:** `getProceduresFeed` returns `{feed: [...historical...], recessMode: true, dataQualityWarnings: [{type: "STALENESS_WARNING"...}]}` when the upstream returns historical-archive ordering. This is correct per the ADR.
 
 **Upstream issue filing:** ❌ NOT required — this is a documented upstream degradation, not a reportable bug.
 
@@ -3574,7 +3574,7 @@ Post-2025 US trade policy posture has forced EP into a more assertive trade defe
 
 **Observed behavior:** Tool returned `cohesionRate: null`, `sharedVotes: null` for all coalition pairs. The `sizeSimilarityScore` (seat-share ratio) was available as a proxy.
 
-**§11 triage classification:** 🔵 KNOWN LIMITATION — per §11 row #2 note: "until per-MEP roll-call data is exposed by the EP Open Data Portal, cohesion uses size-ratio proxy only." Per memory entry: EP MCP group-ID consumer rule confirmed, normalizePoliticalGroup() via PR #405.
+**§11 triage classification:** 🔵 KNOWN LIMITATION — per §11 row #2 note: "until per-MEP roll-call data is exposed by the EP Open Data Portal, cohesion uses size-ratio proxy only." Per memory entry: EP MCP group-ID consumer rule confirmed, normalizePoliticalGroup via PR #405.
 
 **Upstream issue filing:** ❌ NOT required — per-MEP voting data is an upstream EP API limitation, not an MCP server bug.
 
@@ -3702,7 +3702,7 @@ The IMF SDMX 3.0 API timeout during Stage A is documented here per §12 of `07-m
 - **Triage classification:** Known intermittent outage (documented as network-level issue, not EP MCP bug)
 - **Impact on analysis:** MEDIUM — `economic-context.md` uses World Bank DE/FR data exclusively; IMF World Economic Outlook projections unavailable
 - **Confidence flag:** 🟡 MEDIUM on all economic projection claims in this run
-- **Wave-2 OR-gate:** World Bank data is the approved Wave-2 fallback per `.github/skills/imf-data-integration.md`
+- ** IMF requirement:** World Bank data is the approved  fallback per `.github/skills/imf-data-integration.md`
 
 #### Procedures Feed Degradation (§11 Row #5)
 
@@ -3717,7 +3717,7 @@ The IMF SDMX 3.0 API timeout during Stage A is documented here per §12 of `07-m
 |----------|-------|-------|
 | EP MCP tools | 🟢 HIGH (9/11 functional) | 2 degraded (procedures feed, events slow) |
 | World Bank | 🟢 HIGH (5/5 functional) | All indicators available for DE/FR |
-| IMF | 🔴 FAILED | Network timeout — OR-gate applied |
+| IMF | 🔴 FAILED | Network timeout — IMF requirement applied |
 | Sequential thinking | 🟢 HIGH | Available and used in analysis |
 | Memory | 🟢 HIGH | Available for scratch storage |
 
@@ -3725,7 +3725,7 @@ The IMF SDMX 3.0 API timeout during Stage A is documented here per §12 of `07-m
 
 ---
 
-*MCP reliability audit expanded: 2026-04-28 | Standard: 07-mcp-reference.md §11 triage table | Wave-2 OR-gate applied for IMF*
+*MCP reliability audit expanded: 2026-04-28 | Standard: 07-mcp-reference.md §11 triage table |  IMF requirement applied for IMF*
 
 ### MCP Tool Health Visualization
 
@@ -3737,7 +3737,7 @@ pie title MCP Tool Availability April 2026
     "IMF Failed (1 API)" : 1
 ```
 
-*Reliability snapshot for this run. IMF treated as OR-gate fallback per .github/skills/imf-data-integration.md.*
+*Reliability snapshot for this run. IMF treated as IMF requirement fallback per.github/skills/imf-data-integration.md.*
 
 <h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
@@ -4119,7 +4119,7 @@ pie title Artifact Quality Status (month-in-review 2026-04-28)
 ### 5. Shell Safety Compliance
 
 This run uses the following safe patterns:
-- Time calculation: `awk` arithmetic for elapsed minutes (no nested `$(())`)
+- Time calculation: `awk` arithmetic for elapsed minutes (no nested `$()`)
 - Date derivation: `date -u +%Y-%m-%d` (no expansion)
 - File operations: simple `cat`, `mkdir -p` (no nested command substitution)
 

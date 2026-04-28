@@ -4,7 +4,7 @@
 
 **📅 Last Updated:** 2026-04-22 | **🏷️ Classification:** Public
 
-> ### ⚡ Scope (Wave-4, April 2026)
+> ### ⚡ Scope
 >
 > **World Bank is the source for non-economic indicators only** — health,
 > education, social, environment, demographics, defence, agriculture,
@@ -12,10 +12,7 @@
 > inflation, unemployment, FDI, trade, fiscal balance, debt, monetary,
 > exchange rates) is sourced from IMF** — see [`analysis/imf/`](../imf/).
 > Enforced editorially at Stage-C review per
-> [`.github/prompts/04-article-generation.md`](../../.github/prompts/04-article-generation.md);
-> the legacy runtime gate `articlePolicyHasEconomicContext` in
-> `src/utils/content-validator.ts` was purged in the April-2026
-> aggregator-pipeline migration.
+> [`.github/prompts/04-article-generation.md`](../../.github/prompts/04-article-generation.md).
 
 ---
 
@@ -46,11 +43,8 @@
 
 > **⚠️ Country code guard**: `worldbank-mcp@1.0.1` rejects aggregate
 > codes (`EUU`, `EMU`, `ECS`, `OED`, `WLD`, `NAC`, `EAS`, `SSF`) and the
-> informal `UK` alias. Agents must avoid these codes at Stage A. The
-> earlier runtime helper `isMCPSupportedWBCountryCode(code)` in
-> `src/utils/world-bank-data.ts` was purged in the April-2026
-> aggregator-pipeline migration; the allow-list is now an editorial
-> rule — use the ISO-3166 codes listed in
+> informal `UK` alias. Agents must avoid these codes at Stage A — use
+> the ISO-3166 codes listed in
 > [`eu-country-mapping.md`](eu-country-mapping.md) and the comparison
 > groups in §2 below. For EU-aggregate economic context, use IMF
 > `EU`/`EA` aggregates (accepted by the IMF API).
@@ -121,9 +115,9 @@ All 22 EP committees are mapped to relevant World Bank indicators in `src/consta
 | File | Purpose |
 |------|---------|
 | `src/types/world-bank.ts` | PolicyRelevantIndicators (25 fields), WBToolIndicatorKeys, WBMCPToolName |
-| `src/utils/world-bank-data.ts` | COMPARISON_COUNTRIES, WB_AGGREGATE_LABELS, EU_COUNTRY_CODES, formatIndicatorValue() |
+| `src/utils/world-bank-data.ts` | COMPARISON_COUNTRIES, WB_AGGREGATE_LABELS, EU_COUNTRY_CODES, formatIndicatorValue |
 | `src/constants/committee-indicator-map.ts` | WB_INDICATORS (34 IDs), committee→indicator mappings |
-| `src/generators/dashboard-content.ts` | buildDashboardSection(), Chart.js config generation |
+| `src/generators/dashboard-content.ts` | buildDashboardSection, Chart.js config generation |
 | `js/chart-init.js` | Client-side Chart.js hydration with EU Parliament color palette |
 
 ### Workflow Integration
@@ -137,11 +131,11 @@ All 9 content workflow `.md` files include:
 
 ### Analysis Template Integration
 
-Three analysis templates include data sections; note the Wave-2 split:
+Three analysis templates include data sections; note the 
 
 - `analysis/templates/per-file-political-intelligence.md` — Economic Context section sourced from **IMF** (WEO vintage); non-economic context (health/edu/env) from WB
 - `analysis/templates/stakeholder-impact.md` — WB indicators per stakeholder group (non-economic); macro-economic stakeholder framing via IMF
-- `analysis/templates/synthesis-summary.md` — Period Economic Snapshot sourced from **IMF** (moved from WB in Wave 2); non-economic movers remain on WB
+- `analysis/templates/synthesis-summary.md` — Period Economic Snapshot sourced from **IMF** (moved from WB in ); non-economic movers remain on WB
 
 ---
 
@@ -151,5 +145,5 @@ Three analysis templates include data sections; note the Wave-2 split:
 |-----------|------------|---------------|
 | ISO 27001 A.5.10 | Appropriate use of information | Public World Bank data only |
 | GDPR | Data minimization | Country-level aggregates only (no personal data) |
-| ISO 27001 A.8.28 | Secure coding | Input validation via escapeHTML() before embedding |
+| ISO 27001 A.8.28 | Secure coding | Input validation via escapeHTML before embedding |
 | NIST CSF ID.AM | Asset identification | All data sources attributed to World Bank |

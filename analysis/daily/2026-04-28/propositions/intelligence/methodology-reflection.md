@@ -81,7 +81,7 @@ This artifact completes the 10-step analysis protocol (`ai-driven-analysis-guide
 | EP voting records | 🔴 UNAVAILABLE | 🔴 UNAVAILABLE | 4-6 week publication delay |
 | EP committee documents | 🔴 UNAVAILABLE | 🔴 UNAVAILABLE | Upstream API error |
 | EP external documents | 🟡 MEDIUM | 🟡 PARTIAL | 6 Council SP responses only |
-| World Bank / IMF | 🔵 NOT_REQUIRED | 🔵 N/A | IMF OR-gate: not_required for this run |
+| World Bank / IMF | 🔵 NOT_REQUIRED | 🔵 N/A | IMF IMF requirement: not_required for this run |
 
 **Data quality overall**: 🟡 MODERATE — primary data source (adopted texts) is reliable and comprehensive; secondary sources (active procedures, voting patterns) significantly constrained.
 

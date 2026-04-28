@@ -219,7 +219,7 @@ source scripts/imf-mcp-probe.sh > "${ANALYSIS_DIR}/cache/imf/probe-summary.json"
 if [ "$IMF_MCP_OK" = "true" ]; then
   echo "IMF data available — prefer IMF for macro context"
 else
-  echo "IMF offline ($IMF_MCP_PROBE_ERROR) — escalate per Wave-4 policy: IMF is mandatory for economic context. Fall back to prior-run IMF cache first; only use World Bank non-economic cross-refs when no economic claim is being made."
+  echo "IMF offline ($IMF_MCP_PROBE_ERROR) — IMF is mandatory for economic context. Fall back to prior-run IMF cache first; use World Bank for non-economic cross-refs."
 fi
 ```
 

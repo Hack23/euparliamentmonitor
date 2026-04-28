@@ -151,7 +151,7 @@ SVB/Credit Suisse parallel: an external financial shock during a recess period t
 rapid parliamentary response without emergency convening. If USTR files Section 301 on
 April 21-24, the EP's institutional response will likely follow the 2023 template:
 Conference of Presidents coordination, INTA/IMCO emergency committee meetings, no formal
-plenary until scheduled April 28-30 sitting. This is a known, managed response pathway —
+plenary until scheduled April 28-30 sitting. This is a known, managed response pathway
 not a governance crisis.
 
 The historical baseline confirms: Easter recess analytical-only periods are normal features

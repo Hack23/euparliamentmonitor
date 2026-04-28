@@ -458,7 +458,7 @@ STAGE_C_GATE: RED articleType=${ARTICLE_TYPE_SLUG} missing=<N> short=<N> placeho
 >
 > Then skip Pass 3 and **all** Stage D render attempts and proceed
 > straight to Stage E. Shipping ANALYSIS_ONLY at minute 22 is strictly
-> better than losing the whole run to the safeoutputs session TTL —
+> better than losing the whole run to the safeoutputs session TTL
 > see #1444, run #24957585804, and run #24963129839 (the trigger for
 > this tighter budget) for the failure mode this backstop prevents.
 

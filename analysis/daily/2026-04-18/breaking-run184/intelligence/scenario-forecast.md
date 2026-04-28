@@ -300,7 +300,7 @@ graph TD
 
 - **Central estimate**: Scenario A remains the modal outcome (40%) but with
   meaningful tail risk concentrated in B (25%) and C (20%).
-- **Tail-risk concentration**: Scenario D (15%) is disproportionately consequential —
+- **Tail-risk concentration**: Scenario D (15%) is disproportionately consequential
   if it materialises, it reshapes EP10's Q2 2026 political narrative and invalidates
   the "March sprint legislative strength" framing.
 - **Key intelligence gaps**: EPP internal positioning (MCP data gap) is the single

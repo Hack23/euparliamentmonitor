@@ -215,7 +215,7 @@ detail calls return the following payload:
 ```
 
 This is neither a 404 (document not found), a 202 (content being prepared), nor a `null`
-(field not applicable). It is a well-formed response whose every string field is empty —
+(field not applicable). It is a well-formed response whose every string field is empty
 the **worst possible** error signal for a consumer because:
 
 - It passes JSON-schema validation (all required string fields are present).
