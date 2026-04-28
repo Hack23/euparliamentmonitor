@@ -26,6 +26,7 @@
 **CI/CD Pipeline Status:**
 
 [![Test and Report](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/test-and-report.yml)
+[![Knip — Unused Code Detection](https://github.com/Hack23/euparliamentmonitor/actions/workflows/knip.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/knip.yml)
 [![CodeQL](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/codeql.yml)
 [![E2E Tests](https://github.com/Hack23/euparliamentmonitor/actions/workflows/e2e.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/e2e.yml)
 [![Release](https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/release.yml)
@@ -676,6 +677,75 @@ graph LR
 - **Policy:** [Secure Development Policy §3.3 - Testing Requirements](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md#33-testing-requirements)
 - **Workflow:** [test-and-report.yml](.github/workflows/test-and-report.yml)
 - **Coverage Report:** [Live Coverage](https://hack23.github.io/euparliamentmonitor/docs/coverage/)
+
+---
+
+### 2b. Knip — Unused Code Detection
+
+**📄 File:** `.github/workflows/knip.yml`  
+**🎯 Purpose:** Detect unused files, exports, dependencies, and types across `src/**` and the hand-written scripts in `scripts/**` so the codebase stays lean ahead of releases.  
+**⏰ Trigger:** On push to `main`, on PR to `main`  
+**📊 Mode:** ⚠️ **Warning-only** (`continue-on-error: true`) until the baseline stabilises across two consecutive PR cycles, then flipped to blocking.
+
+#### What Knip Scans
+
+| Surface | Coverage |
+|---------|----------|
+| **Source files** | `src/**/*.ts` (the authoritative TypeScript tree) |
+| **Hand-written JS** | `scripts/lint-prompts.js`, `scripts/copy-vendor.js`, `scripts/backport-article-seo.js`, `scripts/validate-analysis-completeness.js`, `scripts/aggregator/forward-statements-registry.js`, `scripts/aggregator/prior-run-diff.js`, `scripts/utils/migrate-legacy-articles.js` |
+| **Test fixtures** | `test/**/*.test.js`, `e2e/**/*.spec.js` |
+| **Compiled `scripts/**`** | Excluded from `project` (it is a 1:1 build output of `src/**`); CLI entry points are auto-discovered via the `package.json` `exports` map |
+| **Generated artefacts** | `analysis/**`, `data/**`, `news/**`, `docs/**`, `coverage/**`, `js/vendor/**` — never scanned |
+
+#### Configuration
+
+The full configuration lives in [`knip.json`](./knip.json). Highlights:
+
+- **Entries** explicitly list every CLI / npm-script / agentic-workflow-invoked script that knip cannot otherwise reach (e.g. scripts referenced only from `.github/workflows/*.md` gh-aw bodies).
+- **`ignoreDependencies`** covers runtime-spawned packages (`european-parliament-mcp-server` — launched via `npx` by the MCP gateway, not imported), browser-vendored bundles (`chart.js`, `d3`, `mermaid`, `chartjs-plugin-annotation`, `papaparse` — copied by `scripts/copy-vendor.js`), and config-only tooling (`jscpd`, `lint-staged`, `eslint-config-prettier`, `ts-api-utils`).
+- **`scripts/index.old.js`** is intentionally excluded — it is a frozen pre-aggregator-pipeline barrel kept only as a staging archive and removed under the pre-release purge.
+
+#### Local Workflow
+
+```bash
+npm run knip            # show all unused files / exports / deps
+npm run knip:production # production-only mode (skips test entries)
+npm run knip:fix        # auto-remove unused exports (use with care, review diff)
+```
+
+#### Triage Categories
+
+| Finding | Category | Action |
+|---|---|---|
+| Unused **file** | (a) should be wired up | Open follow-up issue; do not delete |
+| Unused **export** | (b) used by workflow not detected | Refine `entry`/`project` in `knip.json` (preferred) or add comment-justified ignore |
+| Unused **dependency** | (c) truly unused | Remove from `package.json`, run `npm install`, commit lockfile |
+| Unused **type** | (c) truly unused | Delete and update tests |
+
+Prefer fixing knip's view of the world over adding ignores. Every ignore must carry an inline `$comment` or a one-line rationale in the PR description.
+
+#### Workflow Jobs
+
+| Job | Name | Purpose | Key Steps |
+|-----|------|---------|-----------|
+| `knip` | Knip Scan | Unused-code detection | Checkout → setup Node 25 → `npm ci` → `npm run build` → `npm run knip` → write `$GITHUB_STEP_SUMMARY` → upload `knip-output.txt` artefact (14-day retention) |
+
+The job runs `npm run build` first because knip resolves imports through the `package.json` `exports` map, which points at compiled `scripts/**`.
+
+#### Security Controls
+
+| Control | Implementation | ISMS Reference |
+|---------|----------------|----------------|
+| **Hardened Runner** | `step-security/harden-runner` (audit egress) | ISO 27001 A.8.16 |
+| **Read-only permissions** | `contents: read`, `pull-requests: read` | ISO 27001 A.5.15 |
+| **SHA-pinned actions** | All third-party actions pinned by digest | ISO 27001 A.8.30 |
+| **Concurrency control** | `cancel-in-progress: true` per ref | Resource hygiene |
+
+#### ISMS Evidence
+
+- **Policy:** [Secure Development Policy §3.2 - Code Quality Standards](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
+- **Workflow:** [knip.yml](.github/workflows/knip.yml)
+- **Configuration:** [knip.json](./knip.json)
 
 ---
 

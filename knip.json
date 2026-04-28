@@ -1,0 +1,41 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": [
+    "src/aggregator/article-generator.ts",
+    "src/aggregator/clean-artifact.ts",
+    "src/aggregator/article-html.ts",
+    "src/aggregator/markdown-renderer.ts",
+    "src/aggregator/cli/index.ts",
+    "src/aggregator/runs/index.ts",
+    "src/aggregator/manifest/index.ts",
+    "src/aggregator/slug/index.ts",
+    "src/aggregator/infra/github-urls.ts",
+    "scripts/backport-article-seo.js",
+    "scripts/aggregator/forward-statements-registry.js",
+    "scripts/utils/migrate-legacy-articles.js",
+    "test/**/*.test.js",
+    "e2e/**/*.spec.js"
+  ],
+  "project": [
+    "src/**/*.ts",
+    "test/**/*.js",
+    "e2e/**/*.js"
+  ],
+  "ignoreDependencies": [
+    "lint-staged",
+    "jscpd",
+    "eslint-config-prettier",
+    "ts-api-utils",
+    "chartjs-plugin-annotation",
+    "mermaid",
+    "d3",
+    "chart.js",
+    "papaparse",
+    "@types/d3",
+    "@types/papaparse",
+    "european-parliament-mcp-server"
+  ],
+  "ignoreBinaries": [
+    "python3"
+  ]
+}
