@@ -438,7 +438,7 @@ typical single-rapporteur load. This creates a risk of delayed committee amendme
 
 ## 📊 IMF Economic Context (primary) + World Bank Non-Economic Cross-Refs
 
-> **AI Instructions (Wave-4):** Include **IMF** data context for every policy subject with economic, fiscal, monetary, or trade implications — IMF is the mandatory primary source under Wave-4 policy. Use `imf-fetch-data` for WEO/FM/IFS/BOP/ER/PCPS/GFSR/EREO/FSI/GFS/DOT. Reference `analysis/imf/database-directory.md`, `analysis/imf/indicator-catalog.md`, and `analysis/methodologies/imf-indicator-mapping.md §2` for per-article-type indicator floors. Use **World Bank** only for non-economic cross-refs (health, education, social, environment, demographics, defence, agriculture, innovation, governance) — reference `analysis/worldbank/indicator-catalog.md`.
+> **AI Instructions:** Include **IMF** data context for every policy subject with economic, fiscal, monetary, or trade implications — IMF is the mandatory primary source. Use `imf-fetch-data` for WEO/FM/IFS/BOP/ER/PCPS/GFSR/EREO/FSI/GFS/DOT. Reference `analysis/imf/database-directory.md`, `analysis/imf/indicator-catalog.md`, and `analysis/methodologies/imf-indicator-mapping.md §2` for per-article-type indicator floors. Use **World Bank** only for non-economic cross-refs (health, education, social, environment, demographics, defence, agriculture, innovation, governance) — reference `analysis/worldbank/indicator-catalog.md`.
 
 ### Economic Indicators for This Policy (IMF primary)
 
@@ -466,7 +466,7 @@ xychart-beta
     bar [0, 0, 0]
 ```
 
-### Which Indicators to Use (Wave-4 split)
+### Which Indicators to Use
 
 | Policy Domain | Primary IMF Indicators (SDMX codes) | Non-Economic WB Indicators (if needed) | Comparison Group |
 |--------------|-------------------------------------|----------------------------------------|------------------|
@@ -480,7 +480,7 @@ xychart-beta
 | Monetary policy | `FPOLM_PA` (policy rate), `EREER_IX` (REER) | — | Euro Area only |
 | Banking stability | `FSI/NPLR_PT` (NPL ratio), `FSI/CAPAR_PT` (capital adequacy) | — | Eurozone Core |
 
-> **Important IMF tool note (Wave-4):** Every IMF citation MUST include (a) the SDMX indicator code (e.g. `NGDP_RPCH`), (b) the vintage in prose (`IMF WEO April 2026`), (c) the `data-vintage="WEO-April-2026"` HTML attribute on an enclosing `<section class="economic-context imf-economic-context">` element, and (d) a forecast marker (`forecast`/`projection`/`projects`/`expects`) within 30 words of any projected number. Because the current aggregator renders Markdown headings/tables as-is and does **not** inject that wrapper automatically, the IMF economic-context block MUST be authored with explicit raw HTML in the markdown artifact body, for example: `<section class="economic-context imf-economic-context" data-vintage="WEO-April-2026">…</section>`. Enforced at Stage-C editorial review per [`../methodologies/imf-indicator-mapping.md §5`](../methodologies/imf-indicator-mapping.md#5-forecast-labelling-rule); the legacy regex helper `validateIMFForecastMarker()` in `src/utils/imf-data.ts` was purged in the April-2026 aggregator-pipeline migration.
+> **Important IMF tool note:** Every IMF citation MUST include (a) the SDMX indicator code (e.g. `NGDP_RPCH`), (b) the vintage in prose (`IMF WEO April 2026`), (c) the `data-vintage="WEO-April-2026"` HTML attribute on an enclosing `<section class="economic-context imf-economic-context">` element, and (d) a forecast marker (`forecast`/`projection`/`projects`/`expects`) within 30 words of any projected number. Because the current aggregator renders Markdown headings/tables as-is and does **not** inject that wrapper automatically, the IMF economic-context block MUST be authored with explicit raw HTML in the markdown artifact body, for example: `<section class="economic-context imf-economic-context" data-vintage="WEO-April-2026">…</section>`. Enforced at Stage-C editorial review per [`../methodologies/imf-indicator-mapping.md §5`](../methodologies/imf-indicator-mapping.md#5-forecast-labelling-rule); the legacy regex helper `validateIMFForecastMarker` in `src/utils/imf-data.ts` was purged in the April-2026 aggregator-pipeline migration.
 >
 > **Important World Bank tool note:** Several non-economic indicator names are conceptual labels only and may be **API-only** or otherwise **not accepted as direct indicator keys** by standard WB MCP tools such as `get-social-data`/`get-health-data`/`get-education-data`.
 >

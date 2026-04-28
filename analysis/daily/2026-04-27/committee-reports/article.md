@@ -1618,7 +1618,7 @@ Per `07-mcp-reference.md` §11, every EP MCP feed defect must be triaged against
 
 **Observed behavior:** Tool returned UNAVAILABLE or empty response with an error-in-body pattern. Zero events returned from the events feed.
 
-**§11 triage:** ✅ **MATCHES §11 Row #8 (SLOW_FEED_WARNING).** The EP API `/events/feed` endpoint is documented as significantly slower than other feeds and can exceed the 120-second extended timeout. `getEventsFeed()` downgrades TIMEOUT errors to 🟡 `SLOW_FEED_WARNING` in `_slowFeedWarnings` (not `_failedTools`).
+**§11 triage:** ✅ **MATCHES §11 Row #8 (SLOW_FEED_WARNING).** The EP API `/events/feed` endpoint is documented as significantly slower than other feeds and can exceed the 120-second extended timeout. `getEventsFeed` downgrades TIMEOUT errors to 🟡 `SLOW_FEED_WARNING` in `_slowFeedWarnings` (not `_failedTools`).
 
 **Assessment:** 🟢 **KNOWN/EXPECTED** — matches §11 row #8. No upstream issue required.
 
@@ -1628,9 +1628,9 @@ Per `07-mcp-reference.md` §11, every EP MCP feed defect must be triaged against
 
 #### 2.3 `get_procedures_feed` — 🟢 RECESS_MODE DETECTED
 
-**Observed behavior:** `get_procedures_feed` returned historical data (all items pre-2000). The MCP client's `detectProceduresFeedRecessMode()` function would classify this as recess mode.
+**Observed behavior:** `get_procedures_feed` returned historical data (all items pre-2000). The MCP client's `detectProceduresFeedRecessMode` function would classify this as recess mode.
 
-**§11 triage:** ✅ **MATCHES §11 Row #5 (RECESS_MODE).** `getProceduresFeed()` adds `recessMode:true` + `RECESS_MODE` dataQualityWarning when all items are ≤1995. Not counted as a failure.
+**§11 triage:** ✅ **MATCHES §11 Row #5 (RECESS_MODE).** `getProceduresFeed` adds `recessMode:true` + `RECESS_MODE` dataQualityWarning when all items are ≤1995. Not counted as a failure.
 
 **Assessment:** 🟢 **KNOWN/EXPECTED** — standard EP API recess behavior. No upstream issue required.
 
@@ -2023,7 +2023,7 @@ Per `analysis/methodologies/ai-driven-analysis-guide.md` Rule 22 and Step 10.5, 
 
 **Tradecraft note:** The IMF MCP (`imf-fetch-data` tool) was not available in this run environment. Economic context (ECB rate cycle, EU GDP outlook, inflation trajectory) was inferred from institutional knowledge based on ECB Annual Report context (TA-10-2026-0034) rather than from live IMF query data.
 
-**Quality impact:** 🔴 **Acknowledged gap** — the Wave-2 OR-gate economic quality requirement (World Bank OR IMF data) was not met through direct tool query. Economic indicators are qualitatively contextual, not quantitatively confirmed from live source.
+**Quality impact:** 🔴 **Acknowledged gap** — the  IMF requirement economic quality requirement (World Bank OR IMF data) was not met through direct tool query. Economic indicators are qualitatively contextual, not quantitatively confirmed from live source.
 
 **Compensating measure:** The economic-context artifact explicitly flags this limitation with a 🔴 indicator. The analysis is not wrong — it is based on correct institutional knowledge — but it lacks the live-data confirmation that the quality framework requires.
 

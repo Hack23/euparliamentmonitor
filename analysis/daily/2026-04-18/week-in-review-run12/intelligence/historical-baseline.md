@@ -166,7 +166,7 @@ harmonisation. See `pestle-analysis.md` §L1.
 
 EP9 Q1 2021 was the first full-term post-Brexit Q1 but produced only 48 texts,
 constrained by COVID remote-working. **EP10 Q1 2026 is the first post-Brexit
-parliament to demonstrate throughput exceeding pre-Brexit EP8 levels by 68%** —
+parliament to demonstrate throughput exceeding pre-Brexit EP8 levels by 68%**
 establishing that the 705-seat-post-UK-departure parliament (720 seats in EP10)
 can out-produce the 751-seat pre-Brexit parliament.
 

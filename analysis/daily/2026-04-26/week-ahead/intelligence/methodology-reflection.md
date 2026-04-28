@@ -56,7 +56,7 @@
 
 2. **`get_adopted_texts(year=2026, offset=0+50)`** — Two paginated calls returned 101 texts from Q1 2026. This became the foundation of the legislative context analysis and is the primary evidence base for the entire analysis.
 
-3. **`generate_political_landscape()`** — Complete group distribution with fragmentation index. This is consistently the most information-dense single tool call for any EU Parliament analysis run.
+3. **`generate_political_landscape`** — Complete group distribution with fragmentation index. This is consistently the most information-dense single tool call for any EU Parliament analysis run.
 
 4. **`get_meeting_foreseen_activities(MTG-PL-2026-04-27)`** — 8 foreseen activity types confirmed for the first day of the April session. While titles weren't available, the foreseen activities structure confirmed the session format.
 

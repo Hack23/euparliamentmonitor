@@ -114,7 +114,9 @@ products that enable:
 graph TB
     subgraph "🌐 Data Sources"
         EP["🏛️ European Parliament\nOpen Data Portal"]
-        WB["🌍 World Bank\nEconomic Data"]
+        IMF["💱 IMF SDMX 3.0
+Economic Data"]
+        WB["🌍 World Bank\nNon-Economic Only"]
     end
 
     subgraph "📥 Data Ingestion Layer"
@@ -206,8 +208,8 @@ analysis/
 │   ├── political-threat-framework.md      ← Political Threat Landscape (6 dims) + 5 frameworks
 │   ├── political-swot-framework.md        ← Evidence-based SWOT for EP landscape
 │   ├── political-style-guide.md           ← Writing standards, depth levels, evidence density
-│   ├── imf-indicator-mapping.md           ← IMF indicator mapping for economic context
-│   ├── worldbank-indicator-mapping.md     ← World Bank indicator mapping for economic context
+│   ├── imf-indicator-mapping.md           ← IMF indicator mapping for economic context (sole authoritative source)
+│   ├── worldbank-indicator-mapping.md     ← World Bank indicator mapping for **non-economic** domains only (health, education, social, environment, demographics, defence, agriculture, innovation, governance)
 │   └── reference-quality-thresholds.json  ← Machine-readable per-artifact line-floor thresholds (Stage C gate)
 ├── templates/                         ← 39 structured templates (+ README + analysis-index) — see templates/README.md
 │   ├── README.md                          ← Template catalog and selection guide
@@ -620,7 +622,7 @@ flowchart LR
 ```
 
 | Step | Action                                       | Quality Check                                        |
-| :--: | -------------------------------------------- | ---------------------------------------------------- |
+|:--: | -------------------------------------------- | ---------------------------------------------------- |
 |  1   | Download EP MCP data to `data/` subdirectory | All mandatory feeds queried                          |
 |  2   | Catalog files needing analysis               | No file missed                                       |
 |  3   | AI reads every methodology doc               | Evidence: methodology citations in output            |
@@ -648,7 +650,7 @@ Every per-file analysis must score **≥ 7.0/10** across 5 weighted dimensions:
 ### Methodology Documents (AI Must Read Before Analysing)
 
 | Priority | Document                                                                             | Key Content                                                                                                        |
-| :------: | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+|:------: | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
 |   🔴 1   | [political-swot-framework.md](methodologies/political-swot-framework.md)             | Evidence hierarchy, confidence levels, temporal decay, aggregation                                                 |
 |   🔴 2   | [political-risk-methodology.md](methodologies/political-risk-methodology.md)         | 5×5 Likelihood × Impact matrix, EU calibration examples                                                            |
 |   🔴 3   | [political-threat-framework.md](methodologies/political-threat-framework.md)         | Political Threat Landscape (6 dimensions) + Diamond Model + Attack Trees + PESTLE + Scenario Planning + Kill Chain |

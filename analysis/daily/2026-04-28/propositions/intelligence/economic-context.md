@@ -12,7 +12,7 @@
 
 ### EU Economic Conditions (April 2026)
 
-*Note: Real-time World Bank / IMF data for Q1 2026 not available in this run cycle; assessment based on legislative text signals and EP debate topics visible in adopted texts. IMF Wave-2 OR-gate: not_required for propositions analysis absent specific macroeconomic legislation.*
+*Note: Real-time World Bank / IMF data for Q1 2026 not available in this run cycle; assessment based on legislative text signals and EP debate topics visible in adopted texts. IMF  IMF requirement: not_required for propositions analysis absent specific macroeconomic legislation.*
 
 **Contextual indicators from legislative record**:
 - **Ukraine Support Loan** (TA-10-2026-0035) — €35bn facility suggests continued fiscal commitment to Ukraine support, with windfall profits from Russian frozen assets reducing direct EU budget burden

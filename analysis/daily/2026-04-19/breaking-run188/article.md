@@ -186,7 +186,7 @@ No external OSINT signals of parliamentary significance detected on Easter Sunda
 - `get_meps_feed(timeframe:"today")` — 738 MEPs (stable)
 - `get_events_feed(timeframe:"today")` — 404 (Tier 2 offline, Day 7)
 - `get_procedures_feed(timeframe:"today")` — 404 (Tier 2 offline, Day 7)
-- `analyze_coalition_dynamics()` — group composition, alliance signals
+- `analyze_coalition_dynamics` — group composition, alliance signals
 - `early_warning_system(sensitivity:"medium")` — stability score 84/100
 - `get_all_generated_stats(category:"all")` — historical context
 - Direct document probes: TA-0092, 0094, 0096, 0101, 0104 — all DATA_UNAVAILABLE except 0101 (regression)
@@ -424,10 +424,10 @@ Run 188 marks the first time official EP legislative titles are confirmed for:
 - **TA-10-2026-0094**: *"Combating corruption"* — first EU mandatory anti-corruption
   standard
 - **TA-10-2026-0096**: *"Adjustment of customs duties and opening of tariff quotas
-  for the import of certain goods originating in the United States of America"* —
+  for the import of certain goods originating in the United States of America"*
   the EU's formal legislative response to Trump tariffs, confirmed dual-instrument
   title
-- **TA-10-2026-0104**: *"Global Gateway — past impacts and future orientation"* —
+- **TA-10-2026-0104**: *"Global Gateway — past impacts and future orientation"*
   €300bn EU investment initiative review
 
 These titles were not accessible in any prior run's direct document lookups. They
@@ -813,7 +813,7 @@ quadrantChart
 > Quadrant 2 (top-left, Keep Satisfied) holds high-power actors currently in lower-
 > intensity engagement whose posture can escalate on a single signal — the ECB in
 > particular, whose April 30 meeting sits at the boundary of the analytical horizon.
-> Quadrant 4 (bottom-right, Keep Informed) contains high-interest lower-power actors —
+> Quadrant 4 (bottom-right, Keep Informed) contains high-interest lower-power actors
 > civil society coalitions and third-country trade partners — who shape the narrative
 > environment even when they cannot directly determine votes.
 
@@ -963,7 +963,7 @@ requirements and any SRMR3-triggered intervention. SSM ongoing preparatory work 
 resolvability-assessment templates continues regardless of plenary cadence.
 
 **Expected plenary impact**: Not a direct plenary actor, but an ECB public statement
-on SRMR3 early-intervention implementation timeline — delivered April 25–28 —
+on SRMR3 early-intervention implementation timeline — delivered April 25–28
 would strongly pre-commit the Council ratification and member-state transposition
 schedule toward the baseline Scenario A trajectory.
 
@@ -1029,7 +1029,7 @@ but fragmented on trade; critical on Global Gateway.
 **Power**: High committee-level access; extensive technical-expertise credibility;
 member-state-government coordination capacity. The DSGV (Sparkassen Association)
 specifically controls ~40% of German retail banking and has historically effective
-Bundesrat channels through CDU/CSU parliamentary groups. **Interest**: Variable —
+Bundesrat channels through CDU/CSU parliamentary groups. **Interest**: Variable
 DSGV high on BRRD3 bail-in requirements; BusinessEurope high on trade countermeasure
 scope; ECBA watching Anti-Corruption compliance costs; BDA monitoring Anti-Corruption
 whistleblower-protection employer implications.
@@ -1042,7 +1042,7 @@ phase.
 #### 13. Civil Society Coalition — Transparency International EU / EDRi / Access Now / noyb
 
 **Power**: Media amplification; Article 263 TFEU litigation capacity on AI Act/DMA
-enforcement; expert-witness credibility with EP committees. **Interest**: Extreme —
+enforcement; expert-witness credibility with EP committees. **Interest**: Extreme
 Anti-Corruption Directive implementation monitoring is TI-EU's flagship file;
 digital-rights coalition (EDRi/Access Now/noyb) continues Article 263 preparation
 work on Digital Omnibus provisions during recess.
@@ -1179,7 +1179,7 @@ shape the Legal and Technological PESTLE dimensions substantially.
 **Current state**: Parliament in Easter recess (April 14–26); Grand Centre coalition
 (EPP + S&D + Renew, ~399/720 = 55.4%) holds with `early_warning_system` stability
 score at the series-high 84/100. The `analyze_coalition_dynamics` MCP output
-continues to report the EPP `memberCount=0` data anomaly (API uses `PPE` label) —
+continues to report the EPP `memberCount=0` data anomaly (API uses `PPE` label)
 see `mcp-reliability-audit.md` candidate-defect #2. Post-recess plenary opens
 April 28 in Strasbourg per the standard EP10 calendar at
 `europarl.europa.eu/plenary/en/schedule.html`.
@@ -2891,8 +2891,8 @@ extension.
 
 Article 83(1) TFEU explicitly provides QMV basis for criminal-law harmonization in
 enumerated areas including corruption, reducing unanimity-veto paths. Threshold
-for subsidiarity yellow card is 1/3 of national parliament votes within 8 weeks —
-substantial coordination hurdle. Subsidiarity orange card requires 1/2 threshold —
+for subsidiarity yellow card is 1/3 of national parliament votes within 8 weeks
+substantial coordination hurdle. Subsidiarity orange card requires 1/2 threshold
 higher still. Historical precedent: only two subsidiarity yellow cards have been
 successful in EU history (2012 Monti II Regulation; 2013 Public Prosecutor's
 Office) and neither fully blocked the legislation.
@@ -3030,7 +3030,7 @@ quadrantChart
   dominate; EU can at best shape timing and scope.
 - T2 (Banking Union) is HIGH-IMPACT and MODERATELY-MITIGABLE — primary lever lies
   in German federal politics (Commission + ECB coordination).
-- T3 (Anti-Corruption subsidiarity) is MEDIUM-IMPACT and MODERATELY-MITIGABLE —
+- T3 (Anti-Corruption subsidiarity) is MEDIUM-IMPACT and MODERATELY-MITIGABLE
   Article 83(1) TFEU legal basis narrows successful-challenge pathways.
 - T4 (API regression) is MEDIUM-IMPACT and LOW-MITIGABLE for EP Monitor — EP IT
   decisions are exogenous; mitigation is EP Monitor-side (dual-layer verification).
@@ -3042,10 +3042,10 @@ quadrantChart
 
 ### Intelligence Implications
 
-1. **T5 (coalition fracture) is the threat most within EP's own control** —
+1. **T5 (coalition fracture) is the threat most within EP's own control**
    investment in pre-plenary coordination yields highest risk reduction per unit
    effort. The 84/100 stability score reflects this coordination capacity.
-2. **T2 (Banking Union ratification) demands external-partner engagement** —
+2. **T2 (Banking Union ratification) demands external-partner engagement**
    Commission DG FISMA and ECB public communications during April 22–25 are the
    leverage points.
 3. **T1 (Section 301) is largely exogenous** — EP can prepare resilience (clear
@@ -3495,7 +3495,7 @@ graph TD
   55% — meaningfully above the A-baseline in Run 184's reference-quality analysis
   (which was 40% due to an earlier point in the recess series and less-advanced
   API recovery signal).
-- **Tail-risk concentration**: Scenario D (5%) is disproportionately consequential —
+- **Tail-risk concentration**: Scenario D (5%) is disproportionately consequential
   if it materialises, it reshapes EP10's Q2 2026 political narrative and invalidates
   the "March 26 sprint legislative strength" framing.
 - **Key intelligence gaps**: EPP internal positioning (MCP data gap — see
@@ -3676,7 +3676,7 @@ SRM/SRF activation during the Banking Union transposition window. Could be
 triggered by market-volatility stress-testing weakness (see
 `intelligence/economic-context.md` on BTP-Bund spread monitoring) exposing
 vulnerabilities in second-tier banks. Run 188's particular relevance: SRMR3
-(TA-10-2026-0092) has been adopted by Parliament but not yet Council-ratified —
+(TA-10-2026-0092) has been adopted by Parliament but not yet Council-ratified
 a resolution event in this window would create legal-framework uncertainty about
 which resolution framework applies (the pre-SRMR3 BRRD2 framework or the post-
 adoption but pre-ratification SRMR3).
@@ -4025,7 +4025,7 @@ transition that should be tracked formally in subsequent runs:
    such transition is observed in Run 189–191, the non-deterministic-restoration
    hypothesis upgrades from 🟡 Medium to 🟢 High confidence.
 3. **Metadata-layer revelations** (title-unknown → title-confirmed): The four
-   Run 188 title confirmations represent a qualitatively different transition —
+   Run 188 title confirmations represent a qualitatively different transition
    not content restoration but metadata-endpoint discovery.
 
 For Run 189 cross-run-diff.md, track:
@@ -5553,7 +5553,7 @@ inline in the relevant file:
 | EP Open Data Portal — MEPs feed | `get_meps_feed(timeframe:"today")` | coalition-dynamics |
 | EP Open Data Portal — events feed | `get_events_feed(timeframe:"today")` | synthesis (404 observation) |
 | EP Open Data Portal — procedures feed | `get_procedures_feed(timeframe:"today")` | synthesis (404 observation) |
-| Coalition-dynamics MCP tool | `analyze_coalition_dynamics()` | coalition-dynamics, stakeholder-map |
+| Coalition-dynamics MCP tool | `analyze_coalition_dynamics` | coalition-dynamics, stakeholder-map |
 | Early-warning MCP tool | `early_warning_system(sensitivity:"medium")` | synthesis, PTL, risk-matrix |
 | Historical stats MCP tool | `get_all_generated_stats(category:"all")` | historical-baseline |
 | World Bank WDI | `world-bank.get-economic-data` | economic-context, pestle-analysis |
@@ -5816,7 +5816,7 @@ threshold does not require code changes.
 
 The validator now reads the thresholds file and, when an entry exists for the current
 `articleType × relativePath`, enforces the per-artifact floor (replacing the flat
-`DEFAULT_MIN_LINES = 30`). When no entry exists the flat floor applies as before —
+`DEFAULT_MIN_LINES = 30`). When no entry exists the flat floor applies as before
 preserving backward compatibility for non-breaking article types and custom runs.
 The CLI output lists every artifact with its applicable threshold so triage is
 immediate.

@@ -152,7 +152,7 @@ The AI agent **MUST** follow this protocol when performing risk assessment:
    - `get_voting_records` + `analyze_voting_patterns` — recent vote margins and group alignment
    - `track_legislation` — legislative pipeline bottlenecks
    - `get_parliamentary_questions` — oversight activity patterns
-   - IMF data (primary — Wave-4) — economic context for budget and electoral risk; World Bank (non-economic governance / demographics / social)
+   - IMF data (primary) — economic context for budget and electoral risk; World Bank (non-economic governance / demographics / social)
 3. **Score each risk dimension** using the 5×5 matrix with evidence citations
 4. **Apply calibration** — compare against the calibration examples above
 5. **Assign overall risk level** — weighted: Grand Coalition 0.30, Policy 0.25, Budget 0.20, Electoral 0.15, External 0.10

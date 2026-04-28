@@ -256,18 +256,18 @@ Given the persistent outage, this run used the following sourcing hierarchy:
 - Note: Only January-February sessions returned; March sessions may have data lag
 - Data quality: MEDIUM — session dates confirmed but coverage incomplete
 
-**Tool**: get_all_generated_stats()
+**Tool**: get_all_generated_stats
 - Result: �� SUCCESS — comprehensive multi-year precomputed dataset
 - Data quality: HIGH — EPP 185, S&D 135, PfE 84, ECR 79, Renew 76, Greens 53, GUE/NGL 46, ESN 28, NI 32
 - Coverage: EP6-EP10 historical data; 2026 partial year (114 legislative acts)
 - Note: Precomputed/cached data — unaffected by feed outage
 
-**Tool**: analyze_coalition_dynamics()
+**Tool**: analyze_coalition_dynamics
 - Result: Partial — EPP returned as 0 seats (known API normalization bug); other 6 groups correct
 - Status: 🟡 PARTIAL
 - Mitigation: Used get_all_generated_stats EPP count (185) directly
 
-**Tool**: early_warning_system()
+**Tool**: early_warning_system
 - Result: 🟢 SUCCESS — stability score 87/100; 2 warnings (attendance flag, coalition divergence flag)
 - Data quality: HIGH for stability score
 

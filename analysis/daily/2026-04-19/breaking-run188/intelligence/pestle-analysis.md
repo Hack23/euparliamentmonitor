@@ -41,7 +41,7 @@ shape the Legal and Technological PESTLE dimensions substantially.
 **Current state**: Parliament in Easter recess (April 14–26); Grand Centre coalition
 (EPP + S&D + Renew, ~399/720 = 55.4%) holds with `early_warning_system` stability
 score at the series-high 84/100. The `analyze_coalition_dynamics` MCP output
-continues to report the EPP `memberCount=0` data anomaly (API uses `PPE` label) —
+continues to report the EPP `memberCount=0` data anomaly (API uses `PPE` label)
 see `mcp-reliability-audit.md` candidate-defect #2. Post-recess plenary opens
 April 28 in Strasbourg per the standard EP10 calendar at
 `europarl.europa.eu/plenary/en/schedule.html`.

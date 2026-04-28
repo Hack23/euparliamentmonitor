@@ -156,12 +156,12 @@ For each group: cohesion, defection highlights, sample votes.
 
 ## 7️⃣ Voting Data Freshness
 
-> **Required field** — consumed by `mcp-reliability-audit.md` §"Data-source bridge" and by Stage-C completeness gate. Copy the value from `VotingRecordsFallbackResult.freshnessLabel` produced by `getVotingRecordsWithFallback()` in `src/mcp/ep-open-data-client.ts`.
+> **Required field** — consumed by `mcp-reliability-audit.md` §"Data-source bridge" and by Stage-C completeness gate. Copy the value from `VotingRecordsFallbackResult.freshnessLabel` produced by `getVotingRecordsWithFallback` in `src/mcp/ep-open-data-client.ts`.
 
 | Field | Value |
 |-------|-------|
 | **Data source** | `[REQUIRED: "mcp" / "ep-open-data-portal" / "unavailable"]` |
-| **Freshness label** | `[REQUIRED: 🟢 MCP (...→...) / 🟡 EP Open Data Portal fallback (...→...) / 🔴 voting data unavailable for window ...]` |
+| **Freshness label** | `[REQUIRED: 🟢 MCP (...→...) / 🟡 EP Open Data Portal fallback (...→...) / 🔴 voting data unavailable for window...]` |
 | **EP MCP tool** | `get_voting_records` (`dateFrom` / `dateTo`) |
 | **Fallback used?** | `[yes — queried EP Open Data Portal /api/v2/decision / no — MCP data sufficient / n/a — both sources empty]` |
 | **Attribution** | `[REQUIRED when fallback active: "European Parliament Open Data Portal — https://data.europarl.europa.eu — CC BY 4.0"]` |
@@ -184,7 +184,7 @@ For each group: cohesion, defection highlights, sample votes.
 | EP MCP tool | Used for which section | Notes |
 |-------------|------------------------|-------|
 | `get_voting_records` | §1 RCV-evidence column (every claim cites RCV ID) | Aggregate margins; flag LOW if <4 weeks. |
-| `ep-get-voting-records` *(fallback)* | §1 RCV-evidence column when MCP returns empty | EP Open Data Portal `/api/v2/decision`; activate via `getVotingRecordsWithFallback()`; CC BY 4.0 attribution required. |
+| `ep-get-voting-records` *(fallback)* | §1 RCV-evidence column when MCP returns empty | EP Open Data Portal `/api/v2/decision`; activate via `getVotingRecordsWithFallback`; CC BY 4.0 attribution required. |
 | `analyze_voting_patterns` | §2 Per-MEP behaviour rubric | When per-MEP feed available; aggregate otherwise. |
 | `analyze_coalition_dynamics` | §3 Group-cohesion proxy | Two-window deltas. |
 | `compare_political_groups` | §4 Seat-share normalisation | Confirms majority arithmetic. |

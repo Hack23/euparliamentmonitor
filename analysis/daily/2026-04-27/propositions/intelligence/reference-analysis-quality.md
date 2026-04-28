@@ -103,13 +103,13 @@ This artifact provides a structured quality review of all analysis artifacts pro
 
 | Source | Reliability | Items Used |
 |--------|------------|-----------|
-| `track_legislation()` — 3 procedures | 🟢 HIGH | SRMR3, Anti-Corruption, US Tariffs |
+| `track_legislation` — 3 procedures | 🟢 HIGH | SRMR3, Anti-Corruption, US Tariffs |
 | `get_adopted_texts(year: 2026)` | 🟢 HIGH | 71 items (catalog completeness) |
-| `generate_political_landscape()` | 🟢 HIGH | EP10 seat counts, group composition |
+| `generate_political_landscape` | 🟢 HIGH | EP10 seat counts, group composition |
 | `get_all_generated_stats(legislative_acts)` | 🟢 HIGH | 2024–2026 output trend |
 | `world-bank-get-economic-data(DE, GDP_GROWTH)` | 🟢 HIGH | Germany -0.87%/-0.496% |
-| `get_external_documents_feed()` | 🟡 MEDIUM | 6 ACT_FOLLOWUP items |
-| `analyze_coalition_dynamics()` | 🟡 MEDIUM | Size proxy; no vote cohesion |
+| `get_external_documents_feed` | 🟡 MEDIUM | 6 ACT_FOLLOWUP items |
+| `analyze_coalition_dynamics` | 🟡 MEDIUM | Size proxy; no vote cohesion |
 | EP OJ adoption dates (SRMR3: April 20, 2026) | 🟢 HIGH | Confirmed via track_legislation |
 
 ### Known Evidence Gaps
@@ -119,7 +119,7 @@ This artifact provides a structured quality review of all analysis artifacts pro
 | Full text of Commission follow-up documents | Medium | Metadata-based analysis; document IDs provided |
 | March 26, 2026 voting record details | Medium | Adopted text numbers provide proxy |
 | Committee-level rapporteur information | Low | Political group analysis covers coalition dynamics |
-| IMF direct data retrieval | Low | WB data provides sufficient OR-gate coverage |
+| IMF direct data retrieval | Low | WB data provides sufficient IMF requirement coverage |
 | Individual MEP voting behavior (April 2026) | Low | EP API delay acknowledged |
 
 ---
@@ -151,7 +151,7 @@ This artifact provides a structured quality review of all analysis artifacts pro
 
 ## Final Quality Certification
 
-This run's analysis artifacts meet the minimum quality standards for publication in the EU Parliament Monitor. All mandatory artifacts are present, all line floors are met, mermaid and reader briefing requirements are satisfied, and the World Bank economic data OR-gate is satisfied.
+This run's analysis artifacts meet the minimum quality standards for publication in the EU Parliament Monitor. All mandatory artifacts are present, all line floors are met, mermaid and reader briefing requirements are satisfied, and the World Bank economic data IMF requirement is satisfied.
 
 **Certification:** ✅ PASS — cleared for Stage C completeness gate
 

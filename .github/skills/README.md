@@ -57,7 +57,7 @@ Canonical analysis anchors — every skill on the news critical path points to t
 ### 🇪🇺 Data Integration Skills
 - **[European Parliament Data](european-parliament-data.md)** — EP MCP server tools, data validation, caching, fallback
 - **[Legislative Monitoring](legislative-monitoring.md)** — OLP tracking, trilogue analysis, amendment patterns, plenary voting
-- **[IMF Data Integration](imf-data-integration.md)** — IMF macroeconomic indicators, SDR/quota data, sovereign-risk signals; **Wave-3 primary source for every economic claim**
+- **[IMF Data Integration](imf-data-integration.md)** — IMF macroeconomic indicators, SDR/quota data, sovereign-risk signals; ** sole authoritative source for every economic claim**
 - **[IMF SDMX Fundamentals](imf-sdmx-fundamentals.md)** — SDMX 3.0 dimension grammar, codelists, vintage identifiers, error-code reference; companion to `imf-data-integration.md`
 
 ### 🔍 Intelligence & OSINT Skills

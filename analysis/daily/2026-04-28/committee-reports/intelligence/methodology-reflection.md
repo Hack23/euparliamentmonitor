@@ -47,7 +47,7 @@ Per the 10-step protocol, this run must demonstrate ≥10 distinct SATs:
 ### Choice 4: WEO April 2026 Economic Context Without Live IMF Probe
 **Decision:** Relied on WEO April 2026 published framework for economic context rather than live IMF MCP tool call.  
 **Rationale:** IMF probe script (`scripts/imf-mcp-probe.sh`) was not executed in this run; World Bank MCP tools provided partial compensation. WEO April 2026 is the most recent IMF publication and provides authoritative macro context.  
-**Impact:** Economic context data flagged as below-standard for IMF direct data requirement; OR-gate may be partially met through World Bank data if WB tools were queried. A follow-up run should execute IMF probe directly.
+**Impact:** Economic context data flagged as below-standard for IMF direct data requirement; IMF requirement may be partially met through World Bank data if WB tools were queried. A follow-up run should execute IMF probe directly.
 
 ## Data Quality Assessment
 

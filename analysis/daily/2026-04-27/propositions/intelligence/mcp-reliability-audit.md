@@ -32,8 +32,8 @@ This audit documents the operational reliability of the EP MCP server tools used
 **Status:** 🔴 RECESS_MODE
 **Items Returned:** Historical archive items (procedures from 1972–1987 era)
 **Triage:** ⚠️ Known degraded-upstream pattern — see `07-mcp-reference.md` §11 row #5
-**Classification:** `detectProceduresFeedRecessMode()` returns `recessMode: true` when all items ≤ 1995
-**Action Taken:** Used `track_legislation()` for specific procedures; `get_procedures()` (paginated) as fallback
+**Classification:** `detectProceduresFeedRecessMode` returns `recessMode: true` when all items ≤ 1995
+**Action Taken:** Used `track_legislation` for specific procedures; `get_procedures` (paginated) as fallback
 **Upstream Issue Filing:** ❌ NOT REQUIRED — known behavior, tracked in §11
 
 ### T2: `get_external_documents_feed(timeframe: "one-week")`
@@ -45,7 +45,7 @@ This audit documents the operational reliability of the EP MCP server tools used
 **Completeness Note:** External documents feed does not return full text; only document metadata and reference IDs
 **Upstream Issue Filing:** N/A
 
-### T3: `get_committee_documents_feed()`
+### T3: `get_committee_documents_feed`
 
 **Status:** 🔴 UNAVAILABLE
 **Items Returned:** 0
@@ -53,7 +53,7 @@ This audit documents the operational reliability of the EP MCP server tools used
 **Triage:** Known degraded feed behavior (committee documents EP API instability)
 **Classification:** Per §11 — committee_documents_feed endpoint has known periodic unavailability
 **Action Taken:** Proceeded without committee-level documents for this run
-**Impact on Analysis:** Moderate — committee reports provide more granular procedure status but are supplemented by `track_legislation()` data
+**Impact on Analysis:** Moderate — committee reports provide more granular procedure status but are supplemented by `track_legislation` data
 **Upstream Issue Filing:** ❌ NOT REQUIRED for known-degraded endpoint
 
 ### T4: `get_adopted_texts(year: 2026)` (×3 pages)
@@ -89,10 +89,10 @@ This audit documents the operational reliability of the EP MCP server tools used
 **Items Returned:** 0 active procedures with enrichment data
 **Error Type:** "enrichment data missing for 20 procedures" — pipeline health endpoint returns no items when enrichment layer unavailable
 **Triage:** Known behavior — `monitor_legislative_pipeline` requires enrichment cache that is periodically unavailable
-**Action Taken:** Fell back to `track_legislation()` for individual procedures
+**Action Taken:** Fell back to `track_legislation` for individual procedures
 **Upstream Issue Filing:** N/A
 
-### T8: `generate_political_landscape()`
+### T8: `generate_political_landscape`
 
 **Status:** 🟢 OPERATIONAL
 **Items Returned:** Complete EP10 composition (9 groups, 719 MEPs, seat counts)

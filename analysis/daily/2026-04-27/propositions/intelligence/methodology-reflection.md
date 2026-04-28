@@ -36,7 +36,7 @@ This artifact is Step 10.5 of the AI-driven analysis guide — the mandatory met
 
 ### What We Know with High Confidence (🟢)
 
-- **EP10 seat counts and political composition:** `generate_political_landscape()` provides real-time data. EPP 185, S&D 135, PfE 85, ECR 81, Renew 77, Greens/EFA 53, The Left 46, NI 30, ESN 27 = 719 MEPs.
+- **EP10 seat counts and political composition:** `generate_political_landscape` provides real-time data. EPP 185, S&D 135, PfE 85, ECR 81, Renew 77, Greens/EFA 53, The Left 46, NI 30, ESN 27 = 719 MEPs.
 - **SRMR3 legal status:** OJ published April 20, 2026. Confirmed via `track_legislation(2023/0111)` timeline. Fact: banking union resolution architecture is now law.
 - **Anti-Corruption Directive EP position:** First reading position adopted March 26, 2026. Confirmed via `track_legislation(2023/0135)`.
 - **US Tariff Counter-measure trilogue Round 1:** Completed April 13, 2026. Confirmed via `track_legislation(2025/0261)`.
@@ -63,7 +63,7 @@ This artifact is Step 10.5 of the AI-driven analysis guide — the mandatory met
 ## 3. Methodological Strengths
 
 **Strength 1: Three-procedure deep tracking**
-Using `track_legislation()` on SRMR3, Anti-Corruption, and US Tariffs provided full event timelines for the three most important active dossiers. This approach compensates for the procedures feed RECESS_MODE defect.
+Using `track_legislation` on SRMR3, Anti-Corruption, and US Tariffs provided full event timelines for the three most important active dossiers. This approach compensates for the procedures feed RECESS_MODE defect.
 
 **Strength 2: Cross-framework analysis**
 Applying PESTLE, SWOT, Scenario, Stakeholder, Threat Model, and Actor Mapping simultaneously creates a multi-dimensional intelligence picture that surface tensions between frameworks (e.g., the SWOT weakness of coalition arithmetic vs. the PESTLE political opportunity of Anti-Corruption directive).
@@ -82,7 +82,7 @@ Documenting all tool outcomes (operational, degraded, unavailable) against the �
 The committee documents feed unavailability (T3 in reliability audit) creates a significant blind spot: rapporteur dynamics, committee amendments, and the specific provisions under debate in JURI/LIBE and INTA are invisible. Future runs should retry the committee documents endpoint and consider using GitHub MCP to search EP committee press releases as a fallback.
 
 **Limitation 2: Economic context depth**
-IMF data was not retrieved (WB data satisfied the OR-gate). However, IMF's EU Article IV consultation would provide 2026–2027 growth forecasts with higher precision than Commission estimates. Future runs should include `imf.org/en/Publications/CR` retrieval as a standard Stage A step.
+IMF data was not retrieved (WB data satisfied the IMF requirement). However, IMF's EU Article IV consultation would provide 2026–2027 growth forecasts with higher precision than Commission estimates. Future runs should include `imf.org/en/Publications/CR` retrieval as a standard Stage A step.
 
 **Limitation 3: No primary source text analysis**
 Analysis relies on structured EP API metadata rather than full text of legislative documents. For legal precision (e.g., the exact treaty base provisions in Anti-Corruption Directive), direct access to the legislative text (EUR-Lex) would improve claim precision. This is a structural limitation of the current MCP toolset.

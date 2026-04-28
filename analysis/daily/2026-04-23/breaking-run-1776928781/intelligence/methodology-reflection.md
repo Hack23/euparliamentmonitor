@@ -122,7 +122,7 @@ Stage C gate ready.
 
 **World Bank data**: Successfully retrieved Germany GDP growth (-0.50%), Germany GDP_PER_CAPITA, France GDP (€3.16T). Failed: France GDP_GROWTH (no data in API), Italy GDP_GROWTH (no data).
 
-**IMF data gap**: IMF SDMX 3.0 endpoint not queried in this run due to time constraints (legacy decision; future runs should include IMF EU-level aggregates per Wave-2 policy).
+**IMF data gap**: IMF SDMX 3.0 endpoint not queried in this run due to time constraints (legacy decision; future runs should include IMF EU-level aggregates).
 
 **Economic significance**: The Germany -0.50 0DP growth in 2024 is crucial context for the March 26 trade package. German economic stagnation makes German MEPs (and by extension CDU/CSU = EPP bloc) more receptive to trade defence instruments — the political economy argument for TDI extension is stronger in a contracting economy than an expanding one.
 
@@ -182,7 +182,7 @@ Stage C gate ready.
 5. Prior-run editorial context providing story continuity
 
 **What should improve in future runs**:
-1. Include IMF EU-level aggregates (per Wave-2 policy — was omitted due to time pressure)
+1. Include IMF EU-level aggregates (per was omitted due to time pressure)
 2. Cache adopted texts metadata to avoid repeated pagination calls
 3. EP committee-level analysis (analyze_committee_activity was not called due to time constraints)
 4. Deeper MEP-level voting pattern analysis when API not in outage

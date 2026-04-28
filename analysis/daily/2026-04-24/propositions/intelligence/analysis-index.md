@@ -13,7 +13,7 @@ pipeline** over the last 30 days, assessing which files, which stages, which
 rapporteurs, and which political-group coalitions are most likely to shape
 law within the 6-month window ending 2026-04-10-24. The focus is on
 *propositions-in-motion* — ordinary legislative procedure (COD), consultation
-procedure (CNS), consent procedure (APP/NLE), own-initiative reports (INI) —
+procedure (CNS), consent procedure (APP/NLE), own-initiative reports (INI)
 not on already-adopted acts, which are the scope of the `adopted-texts`
 breaking workflow.
 
@@ -24,7 +24,7 @@ breaking workflow.
 | 1 | `intelligence/analysis-index.md` | per-artifact §1 | 100 | 🟢 |
 | 2 | `intelligence/synthesis-summary.md` | OSINT tradecraft · ICD-203 BLUF | 160 | 🟢 |
 | 3 | `intelligence/historical-baseline.md` | longitudinal baselining | 120 | 🟢 |
-| 4 | `intelligence/economic-context.md` | IMF/WB OR-gate policy framing | 120 | 🟢 |
+| 4 | `intelligence/economic-context.md` | IMF policy policy framing | 120 | 🟢 |
 | 5 | `intelligence/pestle-analysis.md` | PESTLE framework | 180 | 🟢 |
 | 6 | `intelligence/stakeholder-map.md` | stakeholder-mapping standard | 200 | 🟢 |
 | 7 | `intelligence/scenario-forecast.md` | WEP-band scenario forecasting | 180 | 🟢 |
@@ -42,7 +42,7 @@ against `analysis/methodologies/reference-quality-thresholds.json §thresholds.p
 ## 3 · Dataset Summary
 
 - **Primary feeds** (Stage A):
-  - `get_procedures_feed` (one-month): 50 items; legacy-ID skew (1972–1987 range) —
+  - `get_procedures_feed` (one-month): 50 items; legacy-ID skew (1972–1987 range)
     known EP API limitation where the feed returns historical procedure IDs
     with empty metadata fields (`stage`, `status`, `subjectMatter`,
     `dateInitiated`, `dateLastActivity`, `responsibleCommittee`, `rapporteur`
@@ -61,10 +61,10 @@ against `analysis/methodologies/reference-quality-thresholds.json §thresholds.p
     `internalCohesion: null` (per-MEP voting data not available from EP API);
     dominant sized-based alliance signal on Renew↔ECR (0.95), ECR↔PfE (0.95),
     Greens/EFA↔The Left (0.87), ESN↔NI (0.90).
-  - `get_all_generated_stats` (2024–2026): EP10 Year-2 structural picture —
+  - `get_all_generated_stats` (2024–2026): EP10 Year-2 structural picture
     935 procedures projected for 2026, ENP 6.59, HHI 0.1515, right-bloc 52.3%.
-- **Economic context** (World Bank, Wave-2 OR-gate):
-  - Eurozone aggregates (`EUU`, `EMU`) not resolvable by the World Bank MCP —
+- **Economic context** (World Bank IMF requirement):
+  - Eurozone aggregates (`EUU`, `EMU`) not resolvable by the World Bank MCP
     fell back to DE + FR bilaterals. DE 2024 GDP growth `-0.496%`, FR `+1.19%`,
     DE CPI `+2.256%`.
 

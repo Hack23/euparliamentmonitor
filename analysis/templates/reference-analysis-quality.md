@@ -102,7 +102,7 @@
 
 `[REQUIRED: ≥100 words identifying the run's weakest artifacts and why they fall short of reference quality. Examples:
 - "stakeholder-map.md at 260 lines (floor 305) — quadrant narratives are 80 words each instead of required ≥150"
-- "economic-context.md missing IMF forward projections — cites only backward-looking historical data; IMF is the Wave-4 mandatory primary source"
+- "economic-context.md missing IMF forward projections — cites only backward-looking historical data; IMF is the  mandatory primary source"
 - "threat-model.md attack tree has only 2 levels instead of required ≥3"
 - "synthesis-summary.md forward monitors lack date-bounded trigger events"
 

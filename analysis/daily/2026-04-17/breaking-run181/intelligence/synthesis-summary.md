@@ -111,7 +111,7 @@ These are not contradictory signals from a dysfunctional parliament. They are th
 ### Priority 7: Commission MFF 2028-2034 EGF Proposal Signal (Watch: Q3 2026)
 **Observable**: Commission MFF 2028-2034 discussion papers; DG EMPL commissioner statements on just transition
 **Key question**: Is EGF budget tripling proposed in MFF framework?
-**Significance**: Determines whether critical risk (16/25) will be addressed or left to escalate into Wave 2 displacement crisis
+**Significance**: Determines whether critical risk (16/25) will be addressed or left to escalate into  displacement crisis
 
 ---
 

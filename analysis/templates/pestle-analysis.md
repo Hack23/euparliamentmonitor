@@ -78,7 +78,7 @@ mindmap
 
 **Pressure rating:** `[REQUIRED: 🟢 Low / 🟡 Moderate / 🔴 High]`
 
-`[REQUIRED: ≥150 words analyzing economic pressures — GDP trends, fiscal constraints, trade flows, sectoral performance, monetary policy. Cite ≥2 evidence sources with **IMF as primary** (WEO / Fiscal Monitor / IFS / BOP), plus optional Eurostat or ECB for triangulation. World Bank only for non-economic cross-refs (health, education, social, environment, demographics, defence, agriculture, innovation, governance). Reference imf-indicator-mapping.md as the primary source of citation codes; worldbank-indicator-mapping.md only for non-economic.]`
+`[REQUIRED: ≥150 words analyzing economic pressures — GDP trends, fiscal constraints, trade flows, sectoral performance, monetary policy. Cite ≥2 evidence sources with **IMF as primary** (WEO / Fiscal Monitor / IFS / BOP), plus optional Eurostat or ECB for triangulation. World Bank for non-economic cross-refs (health, education, social, environment, demographics, defence, agriculture, innovation, governance). Reference imf-indicator-mapping.md as the primary source of citation codes; worldbank-indicator-mapping.md only for non-economic.]`
 
 **Key drivers:**
 - `[REQUIRED: named driver 1 with indicator code]`
@@ -169,7 +169,7 @@ mindmap
 ## 5️⃣ Data Sources
 
 **EP MCP tools used:** `get_procedures`, `get_adopted_texts`, `search_documents`  
-**External data sources:** `[REQUIRED: list IMF (primary economic), Eurostat, ECB, EEA, and optionally World Bank (non-economic only) sources consulted]`  
+**External data sources:** `[REQUIRED: list IMF (primary economic), Eurostat, ECB, EEA, and optionally World Bank (non-economic) sources consulted]`  
 **IMF indicators cited:** `[REQUIRED: list SDMX codes and vintage e.g. "NGDP_RPCH (WEO April 2026)"]`  
 **World Bank indicators cited:** `[OPTIONAL — non-economic domains only; list codes or note "none"]`  
 **IMF indicators cited:** `[REQUIRED: list series or note "none"]`
@@ -233,7 +233,7 @@ T (EU compute investment via Horizon Europe + Digital Europe).
 | Dim | Tools |
 |---|---|
 | **P**olitical | `analyze_coalition_dynamics`, `compare_political_groups`, `get_voting_records` |
-| **E**conomic | `imf-fetch-data`, `worldbank-mcp/get-economic-data` |
+| **E**conomic | `imf-fetch-data` (WEO / Fiscal Monitor / IFS / BOP / ER / PCPS / GFSR / EREO / FSI / GFS / DOT) — **IMF only**. Never `worldbank-mcp/get-economic-data`. |
 | **S**ocial | `worldbank-mcp/get-social-data`, Eurobarometer (manual) |
 | **T**echnological | `get_committee_documents` (ITRE), industry reports (manual) |
 | **L**egal | `get_external_documents`, CJEU docket (manual) |
@@ -251,7 +251,7 @@ T (EU compute investment via Horizon Europe + Digital Europe).
 - All 6 dimensions populated with indicator + direction + confidence
 - ≥ 1 cross-dimensional cluster identified
 - Highest-leverage lever per cluster
-- IMF or WB indicator cited for E (with vintage)
+- IMF indicator cited for E (with vintage).
 
 ---
 

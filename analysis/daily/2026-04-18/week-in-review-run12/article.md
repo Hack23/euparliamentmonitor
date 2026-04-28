@@ -157,7 +157,7 @@ The Easter recess API maintenance pattern is now documented across 6 consecutive
 > decisive Q1 2026 legislative actions (Banking Union trilogy, Anti-Corruption
 > Directive, Housing Initiative, EU Talent Pool, US Countermeasures) and the first
 > post-recess plenary agenda (April 28–30). Stakeholder mapping underpins
-> `scenario-forecast.md` and `threat-model.md` and complements — without duplicating —
+> `scenario-forecast.md` and `threat-model.md` and complements — without duplicating
 > the stakeholder perspectives in `deep-analysis.md` §Stakeholder Perspectives.
 
 ---
@@ -305,7 +305,7 @@ sets the market tone entering the recess.
 
 #### 7. Sparkassen + Italian BCC coalition (DSGV + Federcasse)
 
-**Power**: Sparkassen ~40% of German retail banking + BCC ~25% of Italian retail —
+**Power**: Sparkassen ~40% of German retail banking + BCC ~25% of Italian retail
 jointly the most politically networked banking constituency in the Eurozone.
 **Interest**: Intense on BRRD3 transposition specifically; low on other dossiers.
 **Expected lobbying vector**: Amendment campaign for transposition exemptions via
@@ -456,11 +456,11 @@ possible bilateral démarche if US-EU trade war escalates.
 
 The matrix reveals three decisive coalition arithmetic configurations:
 
-1. **Banking Union Implementation Coalition (EPP + S&D + Renew + Greens/EFA)** —
+1. **Banking Union Implementation Coalition (EPP + S&D + Renew + Greens/EFA)**
    robust in principle; vulnerable only to German EPP delegation drag on BRRD3
    transposition signalling. Probability of coalition-holding on implementation-
    stage votes: 80% (🟡 Medium). See `threat-model.md` §T1 attack tree.
-2. **Progressive Housing Bloc (S&D + Greens/EFA + The Left + left-Renew)** —
+2. **Progressive Housing Bloc (S&D + Greens/EFA + The Left + left-Renew)**
    aggregate ~280 seats, falls short of 361 majority threshold. Requires at least
    moderate EPP defection (~80 EPP MEPs) to pass aggressive housing measures. Current
    probability of such defection: 15–20%.
@@ -596,7 +596,7 @@ split likely to surface at April 28 plenary's anti-corruption follow-up debate.
 #### P5. US political calendar constraint (MEDIUM pressure)
 
 The USTR operates on a fiscal-year filing cadence. The April 22–26 window sits before
-a May 3 US statutory notification deadline for Section 301 tariff categories —
+a May 3 US statutory notification deadline for Section 301 tariff categories
 constraining US flexibility to delay a filing. EU counter-posture must be ready by
 April 24 irrespective of EP recess status.
 
@@ -962,7 +962,7 @@ harmonisation. See `pestle-analysis.md` §L1.
 
 EP9 Q1 2021 was the first full-term post-Brexit Q1 but produced only 48 texts,
 constrained by COVID remote-working. **EP10 Q1 2026 is the first post-Brexit
-parliament to demonstrate throughput exceeding pre-Brexit EP8 levels by 68%** —
+parliament to demonstrate throughput exceeding pre-Brexit EP8 levels by 68%**
 establishing that the 705-seat-post-UK-departure parliament (720 seats in EP10)
 can out-produce the 751-seat pre-Brexit parliament.
 
@@ -1705,15 +1705,15 @@ quadrantChart
 ```
 
 **Implications**:
-- **T1** (Banking Union) is HIGH-IMPACT but only MODERATELY-MITIGABLE by EU actors —
+- **T1** (Banking Union) is HIGH-IMPACT but only MODERATELY-MITIGABLE by EU actors
   primary lever lies in German federal politics and Italian Corte Costituzionale
   disposition.
-- **T2** (Housing collapse) is MEDIUM-HIGH-IMPACT and MODERATELY-HIGH-MITIGABLE —
+- **T2** (Housing collapse) is MEDIUM-HIGH-IMPACT and MODERATELY-HIGH-MITIGABLE
   Commission has agency up to Stage 3 publication; this is the threat where
   defensive investment yields most risk reduction.
 - **T3** (Section 301) is HIGH-IMPACT but LOW-MITIGABLE — US domestic-political
   drivers dominate; EU can at best shape timing and scope.
-- **T4** (Anti-Corruption challenge) is MEDIUM-IMPACT and MODERATELY-MITIGABLE —
+- **T4** (Anti-Corruption challenge) is MEDIUM-IMPACT and MODERATELY-MITIGABLE
   long timelines give preparation runway.
 
 ---
@@ -1738,7 +1738,7 @@ quadrantChart
 1. **T2 (housing collapse) is the threat most within defensive control** — Commission
    investment in multi-DG coordination and pre-briefing yields highest expected-value
    risk reduction per unit effort. See `scenario-forecast.md` §Scenario 2 indicators.
-2. **T1 (Banking Union transposition) demands external-partner engagement** —
+2. **T1 (Banking Union transposition) demands external-partner engagement**
    Commission DG FISMA and ECB SSM public communications April 22–25 are the
    leverage points.
 3. **T3 (Section 301) is largely exogenous** — EP can prepare resilience (TA-10-2026-
@@ -2360,7 +2360,7 @@ institutional-integrity response. Legislative agenda compressed.
 
 **Probability**: ~6%. **Impact**: 🟠 HIGH.
 
-**Mechanism**: Merz CDU/CSU-led coalition partners experience acute dispute —
+**Mechanism**: Merz CDU/CSU-led coalition partners experience acute dispute
 triggered by banking-union transposition positioning (ironically), housing policy
 disagreement, or unrelated domestic event — leading to coalition breakdown during
 April 14–May 15 window. Bundestag motion of confidence or similar.
@@ -2527,7 +2527,7 @@ week-in-review run in the EP10 series.**
    BRRD3 (TA-10-2026-0092), SRMR3 (TA-10-2026-0093) adopted March 26. Transposition
    stress concentrates in Germany. See `economic-context.md` §Germany and
    `threat-model.md` §T1.
-3. **Anti-Corruption Directive (TA-10-2026-0094) creates Article 83 TFEU precedent** —
+3. **Anti-Corruption Directive (TA-10-2026-0094) creates Article 83 TFEU precedent**
    first sustained EP10 use of criminal-law competence. See `pestle-analysis.md` §L1
    and `scenario-forecast.md` §Scenario 1 (Productive Recess).
 4. **Housing Initiative Commission-response deadline April 21** — 55% probability of

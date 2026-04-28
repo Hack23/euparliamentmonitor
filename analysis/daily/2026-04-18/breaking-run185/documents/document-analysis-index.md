@@ -77,7 +77,7 @@ The 6 inaccessible texts (0099-0104) likely cover remaining agenda items from th
 ### get_documents_feed — No timeframe Parameter
 
 **CORRECTION**: The `get_documents_feed` endpoint does NOT accept a `timeframe` parameter. Calling it with `{timeframe: "one-week"}` returns:
-> "Invalid parameters: : Unrecognized key: 'timeframe'"
+> "Invalid parameters:: Unrecognized key: 'timeframe'"
 
 This means: `get_documents_feed` is a fixed-window feed. It should be called as `get_documents_feed({})` with no parameters. This correction applies to future runs' advisory feed call sequences.
 

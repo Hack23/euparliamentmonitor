@@ -73,7 +73,7 @@ observed political group membership changes, defections, or structural shifts.
 
 **Safety margin interpretation:** A 40+ vote margin means the Grand Centre could withstand
 approximately 20 full defections from any single member group (assuming symmetric abstentions)
-before losing a simple majority. In practice, multi-group defections would need to be coordinated —
+before losing a simple majority. In practice, multi-group defections would need to be coordinated
 historically rare in the EP. 🟢 HIGH confidence.
 
 ### Coalition Testing Gap

@@ -16,7 +16,7 @@ horizon: "April 19 – May 19, 2026"
 ![Confidence](https://img.shields.io/badge/Confidence-MEDIUM-yellow?style=flat-square)
 ![Horizon](https://img.shields.io/badge/Horizon-30_days-orange?style=flat-square)
 
-> **Purpose**: Enumerate the 16 stakeholders with material influence on the April 19 –
+> **Purpose**: Enumerate the 16 stakeholders with material influence on the April 19
 > May 19, 2026 legislative window, position them on a Mendelow power × interest grid, and
 > summarise each one's known position, current activity, and expected 30-day behaviour.
 > This map extends Run 184's 18-stakeholder pre-plenary snapshot across a full 30-day

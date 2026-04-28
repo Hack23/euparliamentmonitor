@@ -172,7 +172,7 @@ This manifest documents all data collection activities for GDPR Article 30 compl
 
 | Source | Purpose | License | Retention |
 |--------|---------|---------|-----------|
-| IMF (primary economic — Wave-4) | Macro / fiscal / monetary / trade context + forecasts | IMF Copyright | 30 days |
+| IMF (primary economic) | Macro / fiscal / monetary / trade context + forecasts | IMF Copyright | 30 days |
 | World Bank (non-economic only) | Health / education / social / env / demographics / governance | CC-BY 4.0 | 30 days |
 | Eurostat | EU statistics (Tier-1 triangulation) | Eurostat terms | 30 days |
 ```
@@ -240,7 +240,7 @@ for (const country of ['DE', 'FR', 'IT', 'ES', 'PL']) {
   await ep.get_meps({ country, active: true });
 }
 
-// ... additional calls as logged above
+//... additional calls as logged above
 ```
 
 ### Verification

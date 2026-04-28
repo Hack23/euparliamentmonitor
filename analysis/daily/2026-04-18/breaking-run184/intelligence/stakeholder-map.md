@@ -88,7 +88,7 @@ quadrantChart
 ### 1. European Commission (Von der Leyen II)
 
 **Power**: Institutional monopoly on legislative initiative; enforcement authority;
-Article 122 emergency powers; college of 27 commissioners. **Interest**: Extreme —
+Article 122 emergency powers; college of 27 commissioners. **Interest**: Extreme
 every live dossier (housing response, trade countermeasure activation, Banking Union
 transposition, ECJ defence) demands college attention in the April 21–28 window.
 

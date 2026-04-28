@@ -234,7 +234,7 @@ threshold does not require code changes.
 
 The validator now reads the thresholds file and, when an entry exists for the current
 `articleType × relativePath`, enforces the per-artifact floor (replacing the flat
-`DEFAULT_MIN_LINES = 30`). When no entry exists the flat floor applies as before —
+`DEFAULT_MIN_LINES = 30`). When no entry exists the flat floor applies as before
 preserving backward compatibility for non-breaking article types and custom runs.
 The CLI output lists every artifact with its applicable threshold so triage is
 immediate.

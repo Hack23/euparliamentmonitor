@@ -57,7 +57,7 @@ This artifact evaluates the quality of analysis produced in Stage B of this run 
 | Data source citations | ✅ EP Open Data Portal referenced throughout |
 | Data quality warnings documented | ✅ Procedures feed RECESS_MODE documented in all relevant artifacts |
 | Confidence labels (🟢/🟡/🔴) | ✅ Present in analysis-index, synthesis-summary, MCP audit |
-| IMF/World Bank OR-gate | 🟡 IMF: not_required declared; WB: contextual use in economic-context.md |
+| IMF policy | 🟡 IMF: not_required declared; WB: contextual use in economic-context.md |
 | No `[AI_ANALYSIS_REQUIRED]` placeholders | ✅ Verified |
 
 ---

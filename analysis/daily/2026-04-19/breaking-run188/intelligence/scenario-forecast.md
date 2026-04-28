@@ -439,7 +439,7 @@ graph TD
   55% — meaningfully above the A-baseline in Run 184's reference-quality analysis
   (which was 40% due to an earlier point in the recess series and less-advanced
   API recovery signal).
-- **Tail-risk concentration**: Scenario D (5%) is disproportionately consequential —
+- **Tail-risk concentration**: Scenario D (5%) is disproportionately consequential
   if it materialises, it reshapes EP10's Q2 2026 political narrative and invalidates
   the "March 26 sprint legislative strength" framing.
 - **Key intelligence gaps**: EPP internal positioning (MCP data gap — see

@@ -40,7 +40,7 @@ Scoring: 🟢 = Meets/exceeds standard | 🟡 = Marginal | 🔴 = Below standard
 - **Depth:** 🟢 Estimated ≥170 lines (floor: 150)
 - **Evidence:** World Bank DE GDP -0.50%, -0.87%; ECB rate path; IMF WEO references; housing finance context
 - **Methodology:** Economic context methodology with IMF/WB data integration
-- **IMF Wave-2 OR-gate:** IMF WEO context cited ✅
+- **IMF  IMF requirement:** IMF WEO context cited ✅
 - **Score: 🟢 PASS**
 
 ### pestle-analysis.md

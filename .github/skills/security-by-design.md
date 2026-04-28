@@ -97,12 +97,12 @@ Apply these security activities in every feature lifecycle. See [sdlc-security-i
 
 | Risk | Primary Control | Code Pattern |
 |------|-----------------|--------------|
-| XSS | HTML output encoding | `escapeHtml()` helper in templates |
+| XSS | HTML output encoding | `escapeHtml` helper in templates |
 | Injection | Parameterised APIs | Never concatenate untrusted → RegExp, shell, SQL, HTML |
 | SSRF | Allowlist outbound URLs | Validate against known MCP hosts; use AWF firewall for workflows |
 | Prototype pollution | Safe parsing | Never merge untrusted JSON into shared objects |
 | Unsafe deserialisation | Schema validation | Validate MCP responses with shape guards before use |
-| Weak randomness | Platform crypto | `crypto.randomUUID()` / `crypto.randomBytes()` |
+| Weak randomness | Platform crypto | `crypto.randomUUID` / `crypto.randomBytes` |
 | Secret leakage | Env + secret scanning | GitHub env secrets; never in code, logs, artifacts |
 | Broken auth | Least privilege | GitHub tokens scoped; workflows pinned by SHA |
 | Misconfig | CSP + security headers | See headers block above |

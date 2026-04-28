@@ -165,7 +165,7 @@ inline in the relevant file:
 | EP Open Data Portal — MEPs feed | `get_meps_feed(timeframe:"today")` | coalition-dynamics |
 | EP Open Data Portal — events feed | `get_events_feed(timeframe:"today")` | synthesis (404 observation) |
 | EP Open Data Portal — procedures feed | `get_procedures_feed(timeframe:"today")` | synthesis (404 observation) |
-| Coalition-dynamics MCP tool | `analyze_coalition_dynamics()` | coalition-dynamics, stakeholder-map |
+| Coalition-dynamics MCP tool | `analyze_coalition_dynamics` | coalition-dynamics, stakeholder-map |
 | Early-warning MCP tool | `early_warning_system(sensitivity:"medium")` | synthesis, PTL, risk-matrix |
 | Historical stats MCP tool | `get_all_generated_stats(category:"all")` | historical-baseline |
 | World Bank WDI | `world-bank.get-economic-data` | economic-context, pestle-analysis |

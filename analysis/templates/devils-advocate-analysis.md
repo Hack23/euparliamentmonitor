@@ -44,7 +44,7 @@
 
 ## 🔀 Section 2 — Competing Hypotheses
 
-**Required:** H1 (dominant) + ≥3 alternative hypotheses (H2, H3, ... Hn).
+**Required:** H1 (dominant) + ≥3 alternative hypotheses (H2, H3... Hn).
 
 ```markdown
 ## Hypotheses Under Evaluation

@@ -4,7 +4,7 @@
 # Economic Context — EU Parliament Month in Review: March 27 – April 26, 2026
 
 **Data Sources:** World Bank GDP/Unemployment (Big Four: DE, FR, IT, ES)  
-**Note:** IMF WEO April 2026 data referenced where available; direct IMF API access unavailable in current session — World Bank data used as primary source per OR-gate policy  
+**Note:** IMF WEO April 2026 data referenced where available; direct IMF API access unavailable in current session — World Bank data used as primary source per IMF requirement policy  
 **Confidence:** 🟡 Medium (World Bank 2024 data; 2025-2026 projections estimated from trend)
 
 ---

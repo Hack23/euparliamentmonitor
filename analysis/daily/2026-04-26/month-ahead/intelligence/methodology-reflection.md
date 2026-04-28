@@ -12,7 +12,7 @@
 
 ### Stage Compliance
 - Stage A (Data Collection): ✅ Completed within 4 min. EP MCP tools called in parallel.
-  IMF WEO cited per Wave-3 IMF-Primary rule. WB query attempted (no data returned for DE).
+  IMF WEO cited. WB query attempted (no data returned for DE).
 - Stage B Pass 1 (Analysis): ✅ All mandatory artifacts written using native create tool
   (no heredoc per `02-analysis-protocol.md §2a`). 14 artifacts written across 4 subdirectories.
 - Stage B Pass 2 (Review): ✅ Artifacts read end-to-end during sequential creation. Each
@@ -27,7 +27,7 @@
 | Stakeholder 6-lens model | ✅ | 6 perspectives, each ≥150 words |
 | Scenario forecast (3 scenarios) | ✅ | Baseline + 2 alternatives with WEP bands |
 | WEP confidence bands on uncertain assessments | ✅ | All probability assessments carry WEP label |
-| IMF WEO primary source for macro/fiscal/trade | ✅ | Wave-3 IMF-primary rule applied |
+| IMF WEO primary source for macro/fiscal/trade | ✅ | rule applied |
 | No [AI_ANALYSIS_REQUIRED] markers | ✅ | No placeholder markers in any artifact |
 | Admiralty grading | ✅ | All artifacts carry A–C source / 1–3 reliability grade |
 | Coalition structural analysis | ✅ | 4 configurations with seat counts and WEP |

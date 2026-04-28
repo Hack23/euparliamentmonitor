@@ -46,8 +46,8 @@ analysis/               # AI analysis artifacts per article
 
 ### Security
 - Sanitize all user/external inputs
-- No `eval`, `new Function()`, or dynamic RegExp with untrusted input
-- Use `crypto.randomUUID()` — never `Math.random()` for tokens
+- No `eval`, `new Function`, or dynamic RegExp with untrusted input
+- Use `crypto.randomUUID` — never `Math.random` for tokens
 - No hardcoded secrets; use GitHub Secrets
 
 ### JSDoc Documentation
@@ -159,8 +159,8 @@ Workflow `.md` files reference these by relative path — never duplicate. Runni
 ### Test Conventions
 - Fixtures in `test/fixtures/ep-data.js`
 - Helpers in `test/helpers/test-utils.js`
-- Mock external deps with `vi.mock()` / `vi.spyOn()`
-- Restore mocks in `afterEach` with `vi.restoreAllMocks()`
+- Mock external deps with `vi.mock` / `vi.spyOn`
+- Restore mocks in `afterEach` with `vi.restoreAllMocks`
 
 ## Quick Reference
 

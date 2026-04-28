@@ -42,7 +42,7 @@ The EP's first reading position on the Anti-Corruption Directive (2023/0135, ado
 
 EP10's fundamental structural weakness: no two-party coalition can form a majority (EPP+S&D = 320, need 361). Every vote requires a new coalition negotiation. This creates institutional transaction costs, reduces legislative predictability, and gives smaller groups (ECR, PfE, Greens/EFA) disproportionate leverage. The 2027 budget negotiations will be fought under this structural constraint, creating maximum political risk at maximum political stakes.
 
-**Evidence:** EP10 composition: EPP (185) + S&D (135) = 320. Threshold: 361. Gap: 41 seats. `generate_political_landscape()` confirmed.
+**Evidence:** EP10 composition: EPP (185) + S&D (135) = 320. Threshold: 361. Gap: 41 seats. `generate_political_landscape` confirmed.
 
 ### W2: Data Feed Degradation — Analytical Gaps (-5.0 weighted)
 **Magnitude:** 6 | **Confidence Weight:** 0.85 = **-5.1**

@@ -39,7 +39,7 @@
 - **Metadata translated**: `<title>`, `<html lang>`, `og:locale`, `inLanguage` JSON-LD, `description`, `keywords`, `articleSection`
 - **RTL handling**: `dir="rtl"` set on `<html>` for ar and he
 - **Filename references**: Internal `-en.html` links updated to target language suffix
-- **Node.js scripts**: Pattern-replacement approach using `escapeRegex()` + `String.replace()` with regex
+- **Node.js scripts**: Pattern-replacement approach using `escapeRegex` + `String.replace` with regex
 - **EP terminology**: Official multilingual vocabulary used (e.g., Europaparlamentet, Parlement européen, البرلمان الأوروبي, 欧州議会)
 
 ## Validation Results

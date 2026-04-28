@@ -2201,7 +2201,7 @@ Germany's -0.5% GDP growth (2024) — the legislative implications:
 
 #### `get_procedures_feed` — 🟡 KNOWN ISSUE (§11 row #5)
 
-**Observed behavior:** Feed returned 50 items all dated 1972, indicating historical archive ordering. `detectProceduresFeedRecessMode()` logic applies: all items ≤1995 → recess mode flag.
+**Observed behavior:** Feed returned 50 items all dated 1972, indicating historical archive ordering. `detectProceduresFeedRecessMode` logic applies: all items ≤1995 → recess mode flag.
 
 **Triage result:** NOT a new bug. Documented at §11 row #5 as `STALENESS_WARNING / recessMode:true` — a known degraded-upstream pattern where the EP API falls back to historical archive ordering. Mitigation applied: used `get_adopted_texts` direct endpoint instead.
 
@@ -2277,7 +2277,7 @@ Germany's -0.5% GDP growth (2024) — the legislative implications:
 - ✅ No `tools: ["*"]` or wildcard tool specifications used
 - ✅ ENRICHMENT_FAILED warnings properly logged and not re-raised as bugs
 - ✅ Empty voting/speech results handled per protocol (not treated as errors)
-- ✅ IMF institutional knowledge applied with proper vintage labelling per Wave-2 OR-gate policy
+- ✅ IMF institutional knowledge applied with proper vintage labelling
 
 <h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
@@ -2361,7 +2361,7 @@ Germany's -0.5% GDP growth (2024) — the legislative implications:
 | Coalition analysis | EP MCP size-proxy scores | 2026-04-27 |
 | Voting patterns | Inferred (roll-call delayed) | N/A — proxy analysis |
 
-**Data vintage compliance:** `data-vintage="WEO-April-2026"` applied to all IMF-sourced projections per Wave-2 OR-gate editorial policy.
+**Data vintage compliance:** `data-vintage="WEO-April-2026"` applied to all IMF-sourced projections.
 
 ### Reference Analysis Quality
 
@@ -2435,7 +2435,7 @@ Germany's -0.5% GDP growth (2024) — the legislative implications:
 - ✅ **≥80 words per SWOT item** in quantitative-swot.md
 - ✅ **≥150 words per stakeholder perspective** in stakeholder-map.md
 - ✅ **Mermaid visualizations** present in multiple artifacts (flowchart, quadrant, mindmap, timeline)
-- ✅ **World Bank OR IMF economic data** present in economic-context.md (Wave-2 OR-gate met)
+- ✅ **World Bank OR IMF economic data** present in economic-context.md
 
 **Overall Quality Grade: 🟢 A- (Pass 2 improvements will bring to A+)**
 
@@ -2475,7 +2475,7 @@ Germany's -0.5% GDP growth (2024) — the legislative implications:
 - ✅ No `[AI_ANALYSIS_REQUIRED]` placeholder markers in completed artifacts
 - ✅ Evidence citations use specific document references (TA-10-2026-xxxx)
 - ✅ IMF institutional knowledge applied with vintage labelling (data-vintage="WEO-April-2026")
-- ✅ Shell-safety compliance: no nested `$()`, no `${var@P}`, no `${!var}` in any bash block
+- ✅ Shell-safety compliance: no nested `$`, no `${var@P}`, no `${!var}` in any bash block
 
 #### Tripwire Monitoring
 - **Minute 16 tripwire:** Pass 2 must begin at or before minute 16
@@ -2606,7 +2606,7 @@ All bash blocks in this run used:
 |------|-------------|--------|
 | Rule 1 | No hard-coded dates | ✅ All dates derived from $TODAY |
 | Rule 2 | Tool health triage vs §11 | ✅ mcp-reliability-audit.md §11 cross-reference applied |
-| Rule 3 | Wave-2 OR-gate for economic data | ✅ WB+IMF = OR-gate satisfied |
+| Rule 3 |  IMF requirement for economic data | ✅ WB+IMF = IMF requirement satisfied |
 | Rule 4 | No placeholder text | ✅ No `[AI_ANALYSIS_REQUIRED]` in any artifact |
 | Rule 5 | Confidence labels | ✅ 🟢/🟡/🔴 applied consistently |
 | Rule 6 | Evidence citations | ✅ Specific TA-10-2026-xxxx references throughout |

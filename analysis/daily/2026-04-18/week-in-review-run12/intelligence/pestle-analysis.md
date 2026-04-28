@@ -93,7 +93,7 @@ split likely to surface at April 28 plenary's anti-corruption follow-up debate.
 ### P5. US political calendar constraint (MEDIUM pressure)
 
 The USTR operates on a fiscal-year filing cadence. The April 22–26 window sits before
-a May 3 US statutory notification deadline for Section 301 tariff categories —
+a May 3 US statutory notification deadline for Section 301 tariff categories
 constraining US flexibility to delay a filing. EU counter-posture must be ready by
 April 24 irrespective of EP recess status.
 

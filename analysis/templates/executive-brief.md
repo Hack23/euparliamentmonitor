@@ -74,7 +74,7 @@
 Example: *Parliament's ECON committee advanced a banking-union compromise today,
 forcing EPP, S&D, and Renew to defend a narrower supervisory timetable before the
 next plenary vote. The move lowers short-term coalition risk but raises
-implementation pressure on national supervisors and the Commission. [🟩 HIGH —
+implementation pressure on national supervisors and the Commission. [🟩 HIGH
 sources: ECON agenda, procedure record, committee document].*
 
 ---
@@ -95,7 +95,7 @@ sources: ECON agenda, procedure record, committee document].*
 - 🟠 **[Second development]** — named actor, quantified effect, confidence label.
 - 🟢 **[Positive development or coalition win]** — include political group or institution.
 - 🟡 **[Point of tension or ambiguity]** — explain uncertainty in one line.
-- 🔵 **[Economic / social context]** — IMF vintage + SDMX code when economic; WB only for non-economic residue.
+- 🔵 **[Economic / social context]** — IMF vintage + SDMX code when economic; WB for non-economic residue.
 - 🟣 **[Cross-reference]** — link to another artifact or EP source.
 - 🩷 **[Emerging threat or disruption vector]** — political-threat-framework dimension.
 - ⚪ **[Carry-forward or stale item]** — only if relevant; otherwise omit.

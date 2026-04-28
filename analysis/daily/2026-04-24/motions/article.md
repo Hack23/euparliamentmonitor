@@ -35,7 +35,7 @@ March 2026 plenary cluster marks a structural reorientation of the
 Parliament's agenda from pure legislative throughput toward a hybrid
 rule-of-law + economic-sovereignty posture, driven by the combined
 pressure of Trump-II tariffs, the Braun immunity waiver, and a
-cross-group consensus on housing. Confidence in evidence: **MEDIUM** —
+cross-group consensus on housing. Confidence in evidence: **MEDIUM**
 base rate of similar clusters (EP9 2022 energy-crisis bundle) supports
 the pattern, but per-MEP roll-call data is unavailable.
 
@@ -76,13 +76,13 @@ at least 13 politically salient motions, spanning six strategic bundles
   piece on early intervention and resolution funding. A technical
   file but one of the Parliament's last chances to shape the BRRD
   successor before the 2027 review.
-* **Copyright × generative AI** (TA-10-2026-0066, 2026-03-10) —
+* **Copyright × generative AI** (TA-10-2026-0066, 2026-03-10)
   Non-legislative resolution arguing for mandatory disclosure of
   training-set provenance and a robust opt-out for rights-holders.
 * **ECB VP** (TA-10-2026-0060, 2026-03-10) — Parliament opinion on
   the Council-proposed ECB Vice-President. Parliament opinion is
   non-binding but politically load-bearing for ECB legitimacy.
-* **HDV emission credits 2025-2029** (TA-10-2026-0084, 2026-03-12) —
+* **HDV emission credits 2025-2029** (TA-10-2026-0084, 2026-03-12)
   Delegated-act scrutiny on how super-credits for zero/low-emission
   heavy-duty vehicles are calculated.
 * **Braun immunity** (TA-10-2026-0088, 2026-03-26) — Waiver of the
@@ -140,14 +140,14 @@ larger PfE and ECR groups.
 
 ### 4 · Key risks (see `risk-scoring/risk-matrix.md`)
 
-* **R1 · Grand-coalition fatigue on banking** (WEP: EVEN CHANCE) —
+* **R1 · Grand-coalition fatigue on banking** (WEP: EVEN CHANCE)
   SRMR3 passed, but the ECON fault-line on bail-in vs bail-out is not
   closed. Next test is the Capital Markets Union omnibus expected
   2026-Q3.
-* **R2 · Housing resolution substitution risk** (WEP: LIKELY) —
+* **R2 · Housing resolution substitution risk** (WEP: LIKELY)
   Commission responds with a Communication rather than a Directive;
   political capital of the resolution erodes over 12 months.
-* **R3 · Anti-corruption directive dilution** (WEP: EVEN CHANCE) —
+* **R3 · Anti-corruption directive dilution** (WEP: EVEN CHANCE)
   Council carve-outs on asset-recovery + whistle-blower protection.
 * **R4 · AI-copyright enforcement gap** (WEP: LIKELY) — AI Act
   Article 53 reopened via secondary rule-making; training-data
@@ -168,14 +168,14 @@ larger PfE and ECR groups.
 
 ### 6 · Confidence ledger
 
-🟢 Motion titles, dates, committee-of-origin, adoption status —
+🟢 Motion titles, dates, committee-of-origin, adoption status
 direct EP Open Data.
 
 🟡 Inferred winning coalition per bundle — standard-pattern inference,
 no per-MEP roll-call data. Upgrade to 🟢 after 2026-05-15 roll-call
 catch-up.
 
-🔴 Exact vote margins, abstention counts, group defection rates —
+🔴 Exact vote margins, abstention counts, group defection rates
 unavailable in this window. No estimates provided; analysis uses
 historical base rates only.
 
@@ -514,7 +514,7 @@ precautionary widening of eligible collateral.
   requires €100-250 bn of EU-level housing-targeted financing over
   2028-2034 MFF envelope (size inferred from Parliament rapporteurs'
   published positions 2025; not present in the motion text itself).
-* **TA-10-2026-0073 (EGF Tupperware BE)** and **-0103 (EGF KTM AT)** —
+* **TA-10-2026-0073 (EGF Tupperware BE)** and **-0103 (EGF KTM AT)**
   EGF drawdowns are small in absolute terms (€2-20 mn per
   application) but salient as signal of industrial-restructuring
   pressure.
@@ -843,7 +843,7 @@ act (industrial competitiveness).
   "completion of the banking union including crisis management"
   as a top-3 strategic priority.
 * Single Resolution Fund target level = €79.8bn reached 2024-Q1;
-  SRB operating with full target balance for the first time —
+  SRB operating with full target balance for the first time
   strengthens the political argument for a modernised SRMR3.
 * Recent bank-stress episodes (2023 Credit Suisse → UBS; 2024 mid-
   tier US regional banking) confirm that early-intervention +
@@ -902,7 +902,7 @@ act (industrial competitiveness).
 * Manufacturing sector EGF cases 2024-2026: six active cases, including
   Tupperware BE (TA-10-2026-0073) and KTM AT (TA-10-2026-0103) from
   this cluster. Total authorised EGF aid across active cases ~€18m.
-* Services-sector employment growth +1.7% YoY (Eurostat 2026-Q1) —
+* Services-sector employment growth +1.7% YoY (Eurostat 2026-Q1)
   absorbing displaced manufacturing labour.
 
 ### 8 · Political-economy linkage

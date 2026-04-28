@@ -6,9 +6,9 @@
 **📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-04-25 (UTC)  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31  
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public  
-**🔗 Mirror file:** [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) (non-economic domains — Wave-4 partition)  
+**🔗 Mirror file:** [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) (non-economic domains)  
 **📥 Feeds artifact:** [`economic-context.md`](../templates/economic-context.md) (Stage B.6, [`strategic-extensions-methodology.md`](strategic-extensions-methodology.md) §Economic Context)  
-**🛂 Wave-2 OR-gate:** A policy-required article passes the economic-context gate when **either** an IMF indicator from this mapping **or** a World Bank non-economic indicator (per the mirror file) is cited with vintage and Admiralty grade. IMF coverage of a fiscal/monetary/trade claim is the strongly preferred path; WB is the fallback when IMF coverage is absent for a given indicator/year.
+**🛂 gate (April 2026):** A policy-required article passes the economic-context gate when **every** economic / fiscal / monetary / trade / FDI / exchange-rate / banking-soundness claim cites an IMF indicator from this mapping (with SDMX code + vintage prose + `data-vintage` HTML attribute + forecast marker within 30 words of any projected number). The Admiralty grade is A1/A2 for IMF WEO/FM actuals and B2 for IMF staff estimates. The legacy  IMF requirement ("WB **or** IMF satisfies the gate") is **retired**.
 
 **Purpose**: Canonical reference that maps European Parliament Monitor
 article types to the most-relevant IMF indicators sourced from WEO,
@@ -17,9 +17,9 @@ native TypeScript IMF SDMX 3.0 REST client in
 [`src/mcp/imf-mcp-client.ts`](../../src/mcp/imf-mcp-client.ts)
 (base URL `https://dataservices.imf.org/REST/SDMX_3.0/`).
 
-**Scope**: The **sole authoritative source** for all economic context —
+**Scope**: The **sole authoritative source** for all economic context
 macro / fiscal / trade / monetary / exchange-rate / debt / FDI / banking
-— under the **Wave-4 policy (April 2026)**. Social / health / education /
+— under the **(April 2026)**. Social / health / education /
 environment / defence / agriculture / innovation / governance indicators
 remain on World Bank — see
 [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md).
@@ -34,22 +34,15 @@ Outlook, April 2026"` provenance line with no vintage patching, and (d)
 IMF is the only source that ships multi-year forecasts at EU-member-
 state granularity.
 
-**Enforcement (Wave-4, April 2026)**: IMF is the required primary
-source for every economic claim in policy-required articles. The legacy
-runtime validator gate (`articlePolicyHasEconomicContext` OR-gate +
-`articlePolicyHasIMFEconomicEvidence` strict helper, dark-launched
-behind the `WAVE3_IMF_STRICT` feature flag) lived in
-`src/utils/content-validator.ts` and the surrounding
-`src/utils/validate-articles.ts` CLI; both were **purged in the
-April-2026 aggregator-pipeline migration**. Enforcement is now editorial
-at Stage-C completeness review of the markdown analysis artifacts — see
+**Enforcement**: IMF is the required primary source for every economic
+claim in policy-required articles. Enforcement is editorial at Stage-C
+completeness review of the markdown analysis artifacts — see
 [`.github/prompts/04-article-generation.md §5`](../../.github/prompts/04-article-generation.md).
-The fingerprint surface (product names, tool identifiers, SDMX indicator
-codes) that the Wave-3 helpers consumed survives in
+The fingerprint surface (product names, tool identifiers, SDMX
+indicator codes) is documented in
 [`../imf/indicator-catalog.md §6`](../imf/indicator-catalog.md#6-fingerprint-convention)
 as the editorial fingerprint list.
 
-**Wave history**: see §10 Migration Plan.
 
 ---
 
@@ -107,7 +100,7 @@ database enumeration in
 
 ---
 
-## 2. Policy Article Types — IMF Primary Source (Wave-4)
+## 2. Policy Article Types — IMF Primary Source
 
 | Article type | Primary IMF indicators | Database | Min IMF indicators | Stakeholders |
 |---|---|---|:---:|---|
@@ -132,7 +125,7 @@ purged in the April-2026 aggregator-pipeline migration.
 
 ---
 
-## 3. World Bank — non-economic domains only (Wave-4)
+## 3. World Bank — non-economic domains
 
 IMF does **not** cover these domains — the World Bank remains the
 authoritative source:
@@ -174,15 +167,6 @@ per-article-type floor in §2 / §8. The same IMF-backed facts may inform
 contains the EP policy bridge described in `economic-context.md` and
 `Article-Generation.md`'s SEO metadata contract.
 
-> The earlier runtime helpers (`hasIMFEvidence`, `hasWorldBankEvidence`,
-> `articlePolicyHasWorldBank`, `articlePolicyHasEconomicContext`,
-> `articlePolicyHasIMFEconomicEvidence`, plus the
-> `IMF_STRONG_FINGERPRINTS` / `IMF_INDICATOR_CODES` /
-> `WORLD_BANK_STRONG_FINGERPRINTS` / `WORLD_BANK_INDICATOR_CODES`
-> tables) lived in `src/utils/content-validator.ts` and were purged in
-> the April-2026 aggregator-pipeline migration. The Stage-C editorial
-> review replaces them in full.
-
 ---
 
 ## 5. Forecast Labelling Rule
@@ -190,7 +174,7 @@ contains the EP policy bridge described in `economic-context.md` and
 Articles citing an IMF forecast MUST:
 
 1. **Forecast marker** (Stage-C editorial check): include at least one
-   of the following within 30 words of the number —
+   of the following within 30 words of the number
 
     ```regex
     /\b(forecast|forecasts|forecasted|projection|projections|projected|IMF\s+projects?|IMF\s+expects?|expected\s+to\s+(reach|rise|fall|grow|shrink|contract|expand))\b/i
@@ -209,8 +193,8 @@ Articles citing an IMF forecast MUST:
    [`../imf/forecast-accuracy-baseline.md`](../imf/forecast-accuracy-baseline.md).
 
 All three rules are enforced at Stage-C completeness review of the
-markdown artifact. The legacy Wave-2 regex helper
-(`validateIMFForecastMarker`) and the Wave-3 metadata helper
+markdown artifact. The legacy  regex helper
+(`validateIMFForecastMarker`) and the  metadata helper
 (`validateIMFVintageMetadata`) in `src/utils/imf-data.ts` were purged
 in the April-2026 aggregator-pipeline migration.
 
@@ -248,7 +232,7 @@ HTML on the rendered container in `intelligence/economic-context.md`
 its presence for any article matching the forecast-marker regex in
 §5.
 
-> The earlier `buildIMFEconomicContextHTML()` utility and the
+> The earlier `buildIMFEconomicContextHTML` utility and the
 > `validateIMFVintageMetadata(html)` check in `src/utils/imf-data.ts`
 > / `src/utils/content-validator.ts` were purged in the April-2026
 > aggregator-pipeline migration. The editorial requirement is unchanged.
@@ -292,37 +276,13 @@ Log the triangulation outcome in
 
 ---
 
-## 10. Migration Plan (Wave-2 → Wave-3 → Wave-4)
-
-| Wave | Status | Enforcement | WB-for-economic policy |
-|:----:|--------|-------------|-----------------------|
-| 2 | ✅ shipped | Runtime `articlePolicyHasEconomicContext` OR-gate | Retained as secondary; WB economic indicators satisfied the gate |
-| 3 | ✅ shipped | Same OR-gate + dark-launched `articlePolicyHasIMFEconomicEvidence` behind `WAVE3_IMF_STRICT` flag | IMF **primary** for economic; WB accepted but diagnostic flagged when used |
-| 4 | ✅ **current** | **Editorial** at Stage-C review over markdown artifacts; all runtime helpers purged in April-2026 aggregator-pipeline migration | IMF **required** for economic; WB for economic blocked at Stage C |
-
-**What changed at Wave-4**: the aggregator-pipeline migration removed
-`src/utils/validate-articles.ts`, `src/utils/content-validator.ts`,
-`src/utils/imf-data.ts`, and the wrapper generators. The `src/aggregator/**`
-pipeline renders `analysis/daily/<run>/**` markdown artifacts as-is, so
-there is no HTML-authoring hook left for runtime validation. The editorial
-rules survived — they are checked during Stage-C completeness review and
-blocked at PR-creation time by the agentic-workflow reviewer.
-
-**Historical note (Wave-3 → Wave-4 transition)**: the Wave-3 dark-launch
-collected two weeks of diagnostic signals showing that every scheduled
-news run already cited IMF for policy-required articles. Wave-4 promoted
-the policy from dark-launched helper to editorial default in April-2026
-when the surrounding validator layer was removed.
-
----
-
-## 12. Worked vintage-selection scenarios
+## 10. Worked vintage-selection scenarios
 
 The vintage decision is the most error-prone part of IMF integration.
 Below are six EP-domain scenarios showing how to pick the right vintage
 for the article date.
 
-### Scenario 12.1 — `weekly-review` published 2026-04-25
+### Scenario 10.1 — `weekly-review` published 2026-04-25
 
 **Required**: WEO `NGDP_RPCH` real GDP growth EU/EA, `PCPI_PCH` headline
 inflation, IFS `FPOLM_PA` ECB policy rate.
@@ -340,7 +300,7 @@ inflation, IFS `FPOLM_PA` ECB policy rate.
 distinguish 2025 *actual* from 2026 *projection*. IFS Mar 2026 for the
 ECB policy rate sequence.
 
-### Scenario 12.2 — `month-ahead` for May 2026 plenary
+### Scenario 10.2 — `month-ahead` for May 2026 plenary
 
 **Required**: forward-looking IMF projections to anchor the policy outlook.
 
@@ -348,7 +308,7 @@ ECB policy rate sequence.
 ("IMF projects 1.4% real growth ± 0.4 pp"); do NOT present projections as
 hard numbers. Cite the WEO database release date in `manifest.dataVintage[]`.
 
-### Scenario 12.3 — `breaking` on ECON committee push for fiscal-rule reform
+### Scenario 10.3 — `breaking` on ECON committee push for fiscal-rule reform
 
 **Required**: Member-state fiscal headroom; gross debt; primary balance.
 
@@ -357,7 +317,7 @@ published (next FM release is October). Mention this constraint in the
 data-source footer; cite both the IMF FM and Eurostat MIP scoreboard for
 triangulation per §9.
 
-### Scenario 12.4 — `committee-reports` on ECB independence
+### Scenario 10.4 — `committee-reports` on ECB independence
 
 **Required**: ECB policy-rate path, monetary aggregates, REER.
 
@@ -365,7 +325,7 @@ triangulation per §9.
 vintage acceptable. Cross-check vs ECB SDW because IMF mirrors ECB with a
 1-week lag for euro-area policy-rate changes.
 
-### Scenario 12.5 — `propositions` on EU enlargement (UKR, MDA, GEO)
+### Scenario 10.5 — `propositions` on EU enlargement (UKR, MDA, GEO)
 
 **Required**: candidate-country macro context.
 
@@ -374,16 +334,16 @@ vintage acceptable. Cross-check vs ECB SDW because IMF mirrors ECB with a
 authorities — this counts as Admiralty B2 (usually reliable, fairly
 likely) rather than A2.
 
-### Scenario 12.6 — `propositions` on common defence financing
+### Scenario 10.6 — `propositions` on common defence financing
 
 **Required**: Defence expenditure + fiscal capacity per MS.
 
 **Decision**: For defence-as-percent-of-GDP use WB (`MS.MIL.XPND.GD.ZS`,
-SIPRI mirror) per Wave-4 split; for fiscal capacity use IMF FM
+SIPRI mirror); for fiscal capacity use IMF FM
 `G_XWDG_G01_GDP_PT` (general government gross debt). Combined view in
 `economic-context.md` references both source files.
 
-## 13. Anti-patterns (Stage-C editorial blocks)
+## 11. Anti-patterns (Stage-C editorial blocks)
 
 | Anti-pattern | Why blocked | Correct approach |
 |---|---|---|
@@ -398,7 +358,7 @@ SIPRI mirror) per Wave-4 split; for fiscal capacity use IMF FM
 | Using deprecated WEO codes | Codes change between vintages | Use the SDMX 3.0 canonical codes (e.g. `NGDP_RPCH` not `NGDP_R`) |
 | Ratio computed inline without sourcing | Reproducibility fail | Cite numerator + denominator IMF series separately |
 
-## 14. MCP tool quick-reference
+## 12. MCP tool quick-reference
 
 | Tool | Purpose | Key parameter |
 |---|---|---|
@@ -415,7 +375,7 @@ year/release, country panel, and Admiralty grade in
 
 ---
 
-## 15. See also
+## 13. See also
 
 - [`../imf/README.md`](../imf/README.md) — directory overview
 - [`../imf/database-directory.md`](../imf/database-directory.md) — all ~155 SDMX dataflows

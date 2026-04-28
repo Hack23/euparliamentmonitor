@@ -178,8 +178,8 @@ network:
     - github.com
     - api.github.com
     - data.europarl.europa.eu
-    - dataservices.imf.org   # IMF SDMX 3.0 REST — primary economic source (Wave-3)
-    - api.worldbank.org      # World Bank WDI — non-economic only (Wave-3)
+    - dataservices.imf.org   # IMF SDMX 3.0 REST — sole authoritative economic source
+    - api.worldbank.org      # World Bank WDI — non-economic
     - "*.europa.eu"
     - hack23.com
     - www.hack23.com

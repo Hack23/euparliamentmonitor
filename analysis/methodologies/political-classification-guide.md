@@ -348,7 +348,7 @@ no media uptake within 48h). **Urgency**: 🔵 ELEVATED.
 | Stakeholder mobilisation | 7 | Industry lobbying intense; trade unions engaged |
 | Geopolitical resonance | 7 | China-EU rare-earths context |
 
-**Total**: 52 / 70 → **Tier-1 SIGNIFICANT**. **Urgency**: 🔴 CRITICAL —
+**Total**: 52 / 70 → **Tier-1 SIGNIFICANT**. **Urgency**: 🔴 CRITICAL
 trilogue collapse with shrinking calendar window. **Sensitivity**:
 RESTRICTED (internal positions in conciliation are confidential).
 

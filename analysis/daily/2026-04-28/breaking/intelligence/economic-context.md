@@ -138,7 +138,7 @@ Economic context assessment for current EU Parliament session. IMF and World Ban
 3. IMF World Economic Outlook April 2026 estimated ranges based on published methodology (MEDIUM confidence — C-2)
 4. World Bank economic database proxies for EU aggregate indicators (MEDIUM confidence — C-2)
 
-**Wave-2 OR-gate compliance:** This artifact acknowledges the IMF/World Bank integration limitation and provides best-available estimates with appropriate confidence labels, per the quality threshold requirement.
+** IMF requirement compliance:** This artifact acknowledges the IMF/World Bank integration limitation and provides best-available estimates with appropriate confidence labels, per the quality threshold requirement.
 
 ---
 

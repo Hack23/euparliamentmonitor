@@ -186,7 +186,7 @@ working hours rather than layoffs — a politically stabilising factor.
 
 **Key risk:** If US tariff escalation materialises in May–June 2026, the IMF projects an
 additional -0.4 to -0.6 pp GDP growth reduction for EU 2026. This would bring the EU aggregate
-to near-zero growth and likely trigger Commission-requested supplementary budget procedures —
+to near-zero growth and likely trigger Commission-requested supplementary budget procedures
 requiring EP approval. The political stakes of the April 27–30 EU-US trade debate are therefore
 directly linked to the macroeconomic baseline.
 
@@ -751,7 +751,7 @@ French Les Républicains remnant within EPP (15 MEPs); Polish PO delegation (17 
 **Strategic constraint:** EPP cannot publicly govern with PfE — it can only accept the numerical
 coincidence of PfE votes without formal coordination. This creates an implicit veto threat from
 PfE without formal alliance costs for EPP.
-**Intelligence note:** EPP's optimal strategy is to keep all coalitions open simultaneously —
+**Intelligence note:** EPP's optimal strategy is to keep all coalitions open simultaneously
 this requires continuous ambiguity about CID priorities, which creates communication costs.
 
 ---
@@ -817,7 +817,7 @@ deliver votes that EPP needs — creating a bargaining position for May CID nego
 targeted US tariff retaliation but frames it as "sovereignty response"
 **Strategic constraint:** PfE cannot formally govern — its members include parties from Hungary
 (Fidesz), France (RN), Italy (Lega), Austria (FPÖ) with divergent interests on many files
-**Intelligence note:** PfE's influence is maximised by being a permanent outside option for EPP —
+**Intelligence note:** PfE's influence is maximised by being a permanent outside option for EPP
 if EPP can threaten to use PfE votes on migration files, S&D must moderate its demands on CID.
 
 ---
@@ -857,7 +857,7 @@ would constitute Scenario 3's triggering event
 **Interest:** EU fiscal stability; bank resolution credibility (SRMR3); trade conflict de-escalation
 **Position:** IMF WEO April 2026 projects EU growth at +1.2% (baseline) with -0.4pp downside if
 tariff escalation materialises. IMF has published staff papers supporting SRMR3 rationale.
-**Intelligence note:** MEPs who cite IMF projections in plenary signal institutional alignment —
+**Intelligence note:** MEPs who cite IMF projections in plenary signal institutional alignment
 this is a political communication choice, not an analytical one.
 
 ---
@@ -966,7 +966,7 @@ market resilience despite GDP contraction. Kurzarbeit in Germany defers unemploy
 
 #### Economic Risk Assessment: 🟡 MEDIUM
 Core risk is not immediate recession but multi-year competitiveness erosion. The EU's legislative
-response (CID, SRMR3, tariff retaliation) is structurally correct but procedurally slow — 
+response (CID, SRMR3, tariff retaliation) is structurally correct but procedurally slow
 if CID is delayed by coalition management failures, the competitiveness intervention arrives 2–3
 years late for affected German industrial firms.
 
@@ -1066,7 +1066,7 @@ response AND its environmental policy for the second legislative period. If CID 
 decarbonisation timelines (eastern EPP faction concession), it effectively dilutes the Green Deal
 without formally reopening it. Greens/EFA will oppose this weakening.
 
-**HDV emissions adjustment (passed Q1 2026):** Adjusted heavy-duty vehicle emissions timeline —
+**HDV emissions adjustment (passed Q1 2026):** Adjusted heavy-duty vehicle emissions timeline
 transitional provision for truck/bus manufacturers. ACEA (European Automobile Manufacturers
 Association) lobbied successfully for 2-year timeline extension. Environmental NGOs filed complaints
 but cannot block EP legislation.
@@ -1214,7 +1214,7 @@ provisions — creating a genuine Council-EP gap that may require trilogue resol
 The March 2026 wave of confirmations (ECB VP, SRMR3, defence single market) represents EP10's
 first major institutional consolidation moment. For context:
 
-- **March 10 cluster:** 7 legislative/institutional items voted in a single Strasbourg session —
+- **March 10 cluster:** 7 legislative/institutional items voted in a single Strasbourg session
   unusual for the breadth of coverage. Signals EP's processing capacity when coalition is aligned.
 - **ECB Vice-President confirmation:** EP asserted substantive scrutiny (committee hearings,
   written questions, plenary debate) before the March 10 vote, establishing a precedent for
@@ -1406,7 +1406,7 @@ depending on escalation), and euro appreciation pressure create a fragile extern
 **Net assessment for EP:** The economic context increases urgency of both the CID (address
 structural competitiveness) and the tariff retaliation mechanism (protect EU exporters). However,
 the same economic fragility makes any CID provision that increases short-term costs politically
-toxic for MEPs from German, Czech, and Polish constituencies. This is not a contradiction —
+toxic for MEPs from German, Czech, and Polish constituencies. This is not a contradiction
 it is the core political economy tension that will determine the month's legislative outcome.
 
 ---
@@ -2280,7 +2280,7 @@ direct `get_procedures(limit:20)`.
 
 **Root cause (per §11 row #5):** The EP Open Data Portal's procedures feed periodically returns
 historical-archive content instead of current procedures. The EP MCP client
-`detectProceduresFeedRecessMode()` detects this pattern and adds `recessMode:true` + RECESS_MODE
+`detectProceduresFeedRecessMode` detects this pattern and adds `recessMode:true` + RECESS_MODE
 `dataQualityWarning`. Not counted as a failure in client health metrics.
 
 **Impact on analysis:** Current legislative procedures (CID, EU-US tariff trilogue) could not be
@@ -2380,7 +2380,7 @@ monitored but is likely transient).
 
 ---
 
-*Reference: .github/prompts/07-mcp-reference.md §11 triage table; analysis/templates/mcp-reliability-audit.md*
+*Reference:.github/prompts/07-mcp-reference.md §11 triage table; analysis/templates/mcp-reliability-audit.md*
 *Generated: 2026-04-27 | SPDX: Apache-2.0*
 
 <h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
@@ -2542,7 +2542,7 @@ from a specific mathematical constraint (e.g., "EPP + ECR + Renew = 343 seats �
 — requires 18 additional seats") rather than from qualitative impression.
 
 #### 4. IMF primary sourcing for macro context
-Per the Wave-3 OR-gate rule, IMF WEO April 2026 data was used as primary for all macro/fiscal/
+Per the  IMF requirement rule, IMF WEO April 2026 data was used as primary for all macro/fiscal/
 monetary/trade context. World Bank API provided supplementary member-state level data (Germany GDP,
 France inflation). The economic-context.md artifact explicitly labels the source hierarchy.
 
@@ -2608,7 +2608,7 @@ actual vote outcomes as the primary calibration event for this run's forward-loo
 
 **`[AI_ANALYSIS_REQUIRED]` markers:** Zero ✅
 
-**IMF sourcing (Wave-3 OR-gate):** Applied — IMF WEO April 2026 used as primary for all macro ✅
+**IMF sourcing:** Applied — IMF WEO April 2026 used as primary for all macro ✅
 
 **Forward-looking statements (registry-compatible):** 3 formally registered in synthesis-summary.md ✅
 

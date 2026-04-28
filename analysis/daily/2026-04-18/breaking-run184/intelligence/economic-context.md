@@ -15,7 +15,7 @@ confidence: HIGH (World Bank data reliability)
 ![Data](https://img.shields.io/badge/Source-World_Bank_Open_Data-brightgreen?style=flat-square)
 
 > **Purpose**: Establish the macro-economic context for the four member states most
-> consequential in the Banking Union Phase-2 transposition risk (DE, FR, IT, PL —
+> consequential in the Banking Union Phase-2 transposition risk (DE, FR, IT, PL
 > identified in `risk-scoring/risk-matrix.md` Risk Vector #1 and `stakeholder-map.md`
 > entries 4, 9, 10, 11). Economic context is essential for reading political signals:
 > a Bundesrat BRRD3 opposition hearing against backdrop of 0.2% GDP growth means

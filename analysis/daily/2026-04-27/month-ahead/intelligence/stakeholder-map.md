@@ -24,7 +24,7 @@ French Les Républicains remnant within EPP (15 MEPs); Polish PO delegation (17 
 **Strategic constraint:** EPP cannot publicly govern with PfE — it can only accept the numerical
 coincidence of PfE votes without formal coordination. This creates an implicit veto threat from
 PfE without formal alliance costs for EPP.
-**Intelligence note:** EPP's optimal strategy is to keep all coalitions open simultaneously —
+**Intelligence note:** EPP's optimal strategy is to keep all coalitions open simultaneously
 this requires continuous ambiguity about CID priorities, which creates communication costs.
 
 ---
@@ -90,7 +90,7 @@ deliver votes that EPP needs — creating a bargaining position for May CID nego
 targeted US tariff retaliation but frames it as "sovereignty response"
 **Strategic constraint:** PfE cannot formally govern — its members include parties from Hungary
 (Fidesz), France (RN), Italy (Lega), Austria (FPÖ) with divergent interests on many files
-**Intelligence note:** PfE's influence is maximised by being a permanent outside option for EPP —
+**Intelligence note:** PfE's influence is maximised by being a permanent outside option for EPP
 if EPP can threaten to use PfE votes on migration files, S&D must moderate its demands on CID.
 
 ---
@@ -130,7 +130,7 @@ would constitute Scenario 3's triggering event
 **Interest:** EU fiscal stability; bank resolution credibility (SRMR3); trade conflict de-escalation
 **Position:** IMF WEO April 2026 projects EU growth at +1.2% (baseline) with -0.4pp downside if
 tariff escalation materialises. IMF has published staff papers supporting SRMR3 rationale.
-**Intelligence note:** MEPs who cite IMF projections in plenary signal institutional alignment —
+**Intelligence note:** MEPs who cite IMF projections in plenary signal institutional alignment
 this is a political communication choice, not an analytical one.
 
 ---
