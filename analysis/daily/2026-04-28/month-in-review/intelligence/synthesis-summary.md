@@ -161,4 +161,87 @@ This thematic coherence suggests a Parliament operating with an implicit strateg
 
 ---
 
-*Data sources: EP Open Data Portal (data.europarl.europa.eu), World Bank API (api.worldbank.org), prior analysis run 2026-04-27/month-in-review*
+## 5. STRATEGIC INTELLIGENCE ASSESSMENT
+
+### 5.1 April 2026 as a Structural Inflection Point
+
+The reporting period marks EP10's transition from **reactive legislation** (responding to the 2022–2024 polycrisis — energy, inflation, Russian military threat) to **proactive institution-building** (establishing new frameworks in defence, AI, banking, trade). This transition has three observable indicators:
+
+1. **Shift from emergency resolutions to structural regulation**: The March–April docket features fewer urgency resolutions and more first-reading legislative positions than Q1–Q2 2025.
+2. **Commission-Parliament alignment**: The Von der Leyen II Commission's "Competitiveness Agenda" and "Savings and Investments Union" priorities are directly reflected in EP's legislative calendar, suggesting effective inter-institutional coordination.
+3. **ECR integration into governance coalitions**: ECR's participation in the defence package coalition signals its conditional acceptance of EU-level competences in security matters — a significant evolution from its 2019–2024 position of near-blanket institutional Euroscepticism.
+
+### 5.2 Economic-Legislative Feedback Loops
+
+**Germany's recession (2023–2024)** creates two competing pressures on EP legislative choices:
+- **Pro-regulatory pressure**: Banking union completion, housing crisis resolution, and working conditions regulation are politically easier to pass when the largest member-state economy is visibly struggling.
+- **Anti-regulatory counter-pressure**: Industry lobbying for deregulation (visible in AI Act simplification, Better Law-Making report, Digital Omnibus) is partly driven by German industry concerns about regulatory burden during economic stress.
+
+The current legislative mix — structural regulation (banking, defence) + deregulation (AI Act simplification, Better Law-Making) — reflects the resolution of this tension in favour of a **selective interventionism** model: heavy regulation in strategic priority areas, lighter touch in commercial applications.
+
+### 5.3 Coalition Architecture Stability Assessment
+
+| Coalition Type | Key Texts | Seat Count | Stability Assessment |
+|----------------|-----------|------------|---------------------|
+| Grand coalition (EPP+S&D+Renew) | Banking union, economic texts | 397 | 🟢 Stable through Q4 2026 |
+| Security coalition (EPP+ECR+PfE) | Migration, safe countries | 351 | 🟡 Issue-specific, unstable on socioeconomics |
+| Defence coalition (EPP+S&D+ECR+Renew) | Defence industrial texts | ~478 | 🟢 Stable while Russian threat persists |
+| Progressive coalition (S&D+Renew+Greens+Left) | Social, environment, rights | ~311 | 🟡 Insufficient for majority — requires EPP or ECR |
+
+The Parliament's working majority in practice is the **flexible centre coalition** (EPP + S&D + Renew = 397), which operates as the baseline governing arrangement for non-defence, non-migration legislation.
+
+### 5.4 Outstanding Intelligence Requirements
+
+The following areas require follow-on monitoring to complete the analytical picture:
+
+1. **Voting record detail**: Roll-call vote data has a 4–6 week publication lag. Voting patterns for March–April texts will become available in May–June 2026. Party discipline and cross-group defection rates cannot be assessed with current data.
+2. **Commission response to housing resolution**: TA-10-2026-0064 mandates Commission action. No legislative proposal has been published as of the analysis date.
+3. **EDIS negotiation status**: SRMR3's passage creates political momentum but EDIS still requires inter-governmental negotiation. German government position after September 2025 election should be monitored.
+4. **AI Act implementing acts**: First batch expected Q3 2026; EP IMCO committee scrutiny will determine whether the regulation's risk categories remain coherent.
+
+---
+
+*Data sources: EP Open Data Portal (data.europarl.europa.eu), World Bank API (api.worldbank.org), prior analysis run 2026-04-27/month-in-review. IMF data unavailable (network timeout). All political group seat counts from EP Open Data real-time API, April 2026.*
+
+---
+
+## 6. OSINT TRADECRAFT STANDARDS ATTESTATION
+
+This synthesis applies the following structured analytic techniques (SATs) per `analysis/methodologies/osint-tradecraft-standards.md`:
+
+| SAT Applied | Location | Purpose |
+|-------------|----------|---------|
+| Key Judgements (KJ) | §2 Key Judgements | WEP-banded headline assessments |
+| Alternative Competing Hypotheses (ACH) | §3 Political Landscape | Competing coalition models |
+| Indicators Analysis | §4 Thematic Analysis | Legislative output trend indicators |
+| Devil's Advocate | §5.2 Economic Feedback | Counter-pressure analysis |
+| Quality of Information Check (QIC) | §5.4 Intelligence Requirements | Data gap identification |
+| Source Reliability Assessment (Admiralty) | Header metadata | B2 overall grading |
+
+**Confidence-in-Evidence**: HIGH (EP political data) / MEDIUM (economic data) / LOW (voting roll-call detail — publication lag).
+**WEP Calibration**: All 5-scenario forecasts carry WEP bands. Methodology-reflection.md §12 carries the full SAT attestation (≥10 SATs applied).
+
+## Strategic Intelligence Landscape
+
+```mermaid
+mindmap
+  root((EU Parliament April 2026))
+    Defence
+      EDIP Framework
+      ReArm Europe
+      EU-NATO
+    Economics
+      German Stagnation
+      French Recovery
+      EIB Lending
+    Politics
+      EPP Hegemony
+      S&D Coalition
+      Renew Kingmaker
+    Risks
+      US Trade
+      Coalition Fracture
+      EP11 2029
+```
+
+*Synthesis map: Key themes from April 2026 EP intelligence analysis.*

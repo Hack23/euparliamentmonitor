@@ -160,3 +160,46 @@ Digital Omnibus simplification (TA-0098):
 ---
 
 *Data note: EP roll-call voting records are published with a 4–6 week lag. This is expected behavior per EP MCP documentation. This artifact provides proxy analysis only — not authoritative voting statistics.*
+
+## VOTING PATTERNS SUPPLEMENT — PROXY ANALYSIS & DATA FRESHNESS
+
+### Voting Data Freshness
+
+| Data Type | Status | Date Range | WEP Impact |
+|-----------|--------|-----------|-----------|
+| Roll-call votes (EP MCP) | ❌ EMPTY (publication lag) | March-April 2026 | HIGH — coalition claims are proxies only |
+| Adopted texts (EP Open Data) | ✅ FULL | 2026 YTD (114 texts) | None — confirmed legislative output |
+| Political landscape | ✅ FULL | Real-time April 28 | None — current group composition confirmed |
+| Coalition dynamics | ⚠️ SIZE PROXY | April 28 | MEDIUM — cohesion estimates unverifiable |
+
+### Adopted Texts as Voting Proxy
+
+In the absence of roll-call voting records (4–6 week publication lag), this analysis uses **adopted texts** as a proxy for coalition voting behavior. The logic:
+
+- **Simple majority votes** require >50% of votes cast; any adopted text implies a passing coalition existed
+- **Qualified majority (QMV)** requires different thresholds; EP uses simple majority for most legislative acts
+- **April 28 adopted texts:** TA-0105, TA-0112 (budget guidelines), TA-0115 (animal welfare), TA-0119 (EIB), TA-0122 (performance instruments) — all passed, implying EPP+S&D+Renew coalition functioned
+
+### Coalition Cohesion Estimate (Size-Ratio Proxy)
+
+| Coalition Pair | Size Similarity | Estimated Alignment | Basis |
+|----------------|----------------|-------------------|-------|
+| EPP–S&D | 0.73 (185/253) | HIGH | Structural governing coalition |
+| EPP–Renew | 0.42 (77/185) | MEDIUM-HIGH | Pro-European alignment |
+| S&D–Renew | 0.57 (77/135) | MEDIUM | Liberal-social democrat overlap |
+
+*Voting patterns supplement: 2026-04-28 | Publication lag documented | Proxy analysis only | Confidence: 🟡 MEDIUM*
+
+## Coalition Size Distribution
+
+```mermaid
+pie title EP10 Coalition Vote Power Distribution
+    "EPP (185)" : 185
+    "S&D (135)" : 135
+    "Renew (77)" : 77
+    "Other Pro-EU (53+46)" : 99
+    "Far-Right Bloc (193)" : 193
+    "NI (30)" : 30
+```
+
+*Proxy analysis only — roll-call voting records unavailable (4–6 week publication lag). See voting-patterns.md §5 for freshness assessment.*

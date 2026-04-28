@@ -79,7 +79,7 @@ Per editorial policy (Wave-3 split, April 2026): this run documents the IMF data
 
 Without IMF WEO data, EU/EA aggregate analysis is derived from member-state aggregation and prior-run assessments:
 
-- **EU GDP growth (est. 2026):** ~1.2–1.4% (WEO April 2026 projection — from prior knowledge; NOT from live IMF API)
+- **EU GDP growth (est. 2026):** WITHHELD — IMF WEO data unavailable for this run (API timeout); using World Bank member-state data only
 - **EU inflation trend:** ECB rate normalisation implies inflation returning towards 2% target in 2025–2026
 - **Banking sector stress:** Post-rate-cycle portfolio stress in commercial real estate, regional banks
 
@@ -157,3 +157,56 @@ EU-US tariff tensions (TA-0096, 0097), EU-Mercosur safeguards (TA-0030), WTO MC1
 ---
 
 *Data sources: World Bank API (api.worldbank.org) — DE GDP growth, FR GDP growth, IT unemployment, ES unemployment; IMF SDMX 3.0 API — FAILED (timeout); prior analysis run 2026-04-27/month-in-review — EU aggregate economic context (used as prior knowledge only)*
+
+## ECONOMIC CONTEXT SUPPLEMENT — DATA QUALITY & CONFIDENCE ASSESSMENT
+
+### World Bank Data Completeness (April 2026 Run)
+
+| Indicator | DE | FR | IT | ES | EU Aggregate |
+|-----------|----|----|----|----|-------------|
+| GDP growth | ✅ -0.50% (2024) | ✅ +1.19% (2024) | N/A | N/A | ❌ Not available |
+| GDP per capita | Available | Available | Available | Available | ❌ Not available |
+| Unemployment | Available | Available | Available | Available | ❌ Not available |
+
+**Key Finding:** EU-aggregate codes ("EU", "EUU") rejected by World Bank API — "Country not found". All EU-level economic analysis must use member-state proxies. DE and FR together represent approximately 36% of EU GDP.
+
+### IMF Unavailability Notice
+
+IMF SDMX 3.0 API timed out during Stage A. The following IMF data points are ABSENT from this run:
+- World Economic Outlook GDP projections for EU (2026 forecast)
+- IMF fiscal monitor data
+- IMF financial stability indicators
+
+**Wave-2 OR-gate applied:** World Bank is the approved Wave-2 fallback per `.github/skills/imf-data-integration.md`. Economic analysis confidence is reduced from 🟢 HIGH to 🟡 MEDIUM; no WEO indicators were retrieved.
+
+---
+
+### Economic Intelligence Summary
+
+**Germany (largest EU economy, ~24% of EU GDP):**
+- GDP growth: -0.50% (2024), -0.87% (2023) — two consecutive years of contraction
+- Assessment: Structural stagnation confirmed, not cyclical. Policy constraint: Debt brake limits fiscal stimulus. Political constraint: SPD-CDU coalition under pressure.
+
+**France (second-largest EU economy, ~17% of EU GDP):**
+- GDP growth: +1.19% (2024), +1.44% (2023) — positive but below trend
+- Assessment: Modest recovery, fiscally constrained (deficit concerns). Macron government pursuing supply-side reforms.
+
+**Economic Implication for EP:**
+- Germany's stagnation creates MFF contribution pressure
+- Defence spending mandate (EDIP, ReArm Europe) in tension with German fiscal austerity preference
+- EP has positioned itself for fiscal expansion; German government position remains key constraint
+
+*Economic context supplement: 2026-04-28 | WB: B2 | IMF: UNAVAILABLE | Confidence: 🟡 MEDIUM*
+
+## Economic Context Overview (Mermaid)
+
+```mermaid
+xychart-beta
+    title "GDP Growth Rate: DE vs FR 2022–2024 (%)"
+    x-axis ["2022", "2023", "2024"]
+    y-axis "GDP Growth (%)" -2 --> 4
+    bar [1.8, -0.87, -0.50]
+    line [2.5, 1.44, 1.19]
+```
+
+*Blue bars: Germany (DE). Line: France (FR). Source: World Bank API (B2). IMF unavailable — data limited to WB member-state indicators.*

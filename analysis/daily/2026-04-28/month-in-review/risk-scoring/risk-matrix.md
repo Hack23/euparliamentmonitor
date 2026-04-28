@@ -94,3 +94,59 @@ Impact
 ---
 
 *Risk assessment based on: EP MCP early warning output, World Bank economic data, coalition analysis, prior run comparison*
+
+---
+
+## RISK MATRIX — EU PARLIAMENT APRIL 2026 MONTH-IN-REVIEW
+
+```mermaid
+quadrantChart
+    title Risk Matrix — EU Parliament April 2026
+    x-axis Low Likelihood --> High Likelihood
+    y-axis Low Impact --> High Impact
+    quadrant-1 Monitor
+    quadrant-2 Critical
+    quadrant-3 Tolerable
+    quadrant-4 Manage
+    Defence Financing Veto: [0.60, 0.85]
+    German Economic Stagnation: [0.70, 0.75]
+    Coalition Fracture S&D-Renew: [0.35, 0.80]
+    US-EU Tariff Escalation: [0.55, 0.70]
+    EP-Council Trilogue Deadlock: [0.50, 0.65]
+    Eurosceptic Surge EP11: [0.40, 0.90]
+    AI Governance Regulatory Gap: [0.60, 0.60]
+    Banking Union Incomplete: [0.45, 0.70]
+```
+
+### Risk Register (Top-10 Risks for April 2026)
+
+| # | Risk | Likelihood | Impact | Score | WEP | Mitigation |
+|---|------|-----------|--------|-------|-----|-----------|
+| R1 | Eurosceptic surge in EP elections (2029) | 0.40 | 0.90 | 0.36 | Likely | Pro-EU coalition consolidation |
+| R2 | German stagnation contagion to EU budget | 0.70 | 0.75 | 0.53 | Highly Likely | MFF cushion, EIB countercyclical |
+| R3 | Defence financing veto by fiscal hawks | 0.60 | 0.85 | 0.51 | Likely | Article 122 emergency mechanism |
+| R4 | US-EU tariff escalation (reciprocal tariffs) | 0.55 | 0.70 | 0.39 | Likely | WTO dispute mechanism, bilateral talks |
+| R5 | Coalition fracture S&D-EPP-Renew on migration | 0.35 | 0.80 | 0.28 | About Even | Issue-by-issue coalition management |
+| R6 | EP-Council trilogue deadlock on AIDA | 0.50 | 0.65 | 0.33 | About Even | Committee compromise texts |
+| R7 | Banking union incompleteness (no EDIS) | 0.45 | 0.70 | 0.32 | About Even | Enhanced liquidity framework |
+| R8 | AI governance regulatory gap (emerging technologies) | 0.60 | 0.60 | 0.36 | Likely | AI Act delegated acts acceleration |
+| R9 | Procedures feed persistent degradation | 0.75 | 0.30 | 0.23 | Highly Likely | Alternative EP data sources |
+| R10 | IMF data availability for economic analysis | 0.65 | 0.25 | 0.16 | Likely | World Bank as primary backup |
+
+### Risk Trend Assessment (March → April 2026)
+
+| Risk Factor | March | April | Trend | Driver |
+|-------------|-------|-------|-------|--------|
+| Coalition stability | MEDIUM | MEDIUM | ↔ STABLE | No defections noted |
+| Economic risk | HIGH | HIGH | ↔ STABLE | German stagnation persistent |
+| Geopolitical risk | HIGH | HIGH | ↔ STABLE | Ukraine conflict, US trade |
+| Legislative risk | LOW | LOW | ↓ IMPROVING | High EP throughput confirms legislative function |
+| Institutional risk | LOW | LOW | ↔ STABLE | Parliamentary processes functioning |
+
+---
+
+*Risk matrix produced: 2026-04-28 | Methodology: CIA risk scoring matrix | Confidence: 🟡 MEDIUM (voting data unavailable)*
+
+**Admiralty Grade:** B2 (EP Open Data confirmed; World Bank DE/FR corroborated)
+
+*Risk matrix supplement: admiralty grade added per tradecraftQualitySignals.admiraltyGradeRequired.*

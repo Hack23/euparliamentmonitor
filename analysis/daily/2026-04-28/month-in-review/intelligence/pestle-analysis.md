@@ -178,3 +178,66 @@ Germany's recession creates political pressure to roll back environmental compli
 ---
 
 *Data sources: EP Open Data Portal (adopted texts), World Bank API (macroeconomic indicators), prior-run analysis 2026-04-27*
+
+## PESTLE EXTENDED ANALYSIS — APRIL 2026 DEEP DIVE
+
+### Political Factor — Coalition Mathematics (Quantified)
+
+The EP10 political configuration as of April 28, 2026:
+
+```mermaid
+pie title EP10 Seat Distribution April 2026
+    "EPP (185)" : 185
+    "S&D (135)" : 135
+    "PfE (85)" : 85
+    "ECR (81)" : 81
+    "Renew (77)" : 77
+    "Greens/EFA (53)" : 53
+    "Left (46)" : 46
+    "NI (30)" : 30
+    "ESN (27)" : 27
+```
+
+**Political Implication:** With majority at 361, EPP+S&D+Renew (397) is the minimum working majority. This creates extreme sensitivity to Renew group defections on any contentious legislation. The far-right bloc (PfE+ECR+ESN=193) is ~27% — unable to block but able to shape debate and public opinion.
+
+### Economic Factor — Growth Divergence
+
+**Key divergence (April 2026):**
+- Germany: -0.50% (2024) — recession territory
+- France: +1.19% (2024) — moderate growth
+- Southern member states generally positive trajectory
+
+**Economic Policy Implication for EP:**
+The growth divergence creates a fiscal-political fault line. Germany's stagnation reinforces fiscal hawk positions (budget discipline, MFF constraints), while France's moderate growth enables slightly more fiscal expansionism (defence, infrastructure). The EP majority (EPP+S&D+Renew) spans both orientations, creating internal negotiating tension on any spending-related legislation.
+
+### Social Factor — Democratic Legitimacy
+
+EP turnout data (2024 election) showed improved engagement vs. 2019, but EP10 faces legitimacy challenges:
+- Public perception of EP as distant institution remains a challenge
+- High legislative throughput (567 RCV YTD) demonstrates institutional effectiveness but is invisible to average citizens
+- Social media engagement on EP legislation remains low compared to national parliamentary debates
+
+### Technology Factor — AI Act Implementation
+
+The EU AI Act (adopted EP9, in force EP10) is the world's first comprehensive AI regulatory framework. April 2026 status:
+- High-risk AI systems: Compliance deadlines approaching August 2026
+- General purpose AI: Codes of practice in development
+- EP ITRE committee: Oversight hearings on AI Act delegated acts
+
+### Legal Factor — Regulatory Complexity
+
+EP10 has produced 114+ adopted texts YTD 2026, contributing to:
+- Regulatory layering challenges for businesses
+- Compliance burden for SMEs
+- Calls from EPP and Renew for "regulatory simplification agenda" (direct policy implication)
+
+### Environmental Factor — Climate-Economy Integration
+
+Post-Green Deal consolidation phase:
+- ETS II (buildings and road transport) in implementation
+- Carbon Border Adjustment Mechanism (CBAM) in early operation
+- EP position: Maintain climate ambition while addressing competitiveness concerns (German "Competitiveness Agenda" influence)
+
+---
+
+*PESTLE extended analysis produced: 2026-04-28 | Mermaid: pie chart (coalition seats) | Confidence: 🟢 HIGH (political) / 🟡 MEDIUM (economic) / 🟢 HIGH (legal)*
