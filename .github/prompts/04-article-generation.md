@@ -61,7 +61,7 @@ is present on disk and passes the Stage-C depth floors in
 |---|---|---|
 | **AI agent** (Stages A–C) | Every analysis artifact under `analysis/daily/<run>/**/*.md`; manifest.json; Stage-C self-review | Draft article HTML; invent artifact-level prose at render time |
 | **Aggregator CLI** (`src/aggregator/**`) | Read `manifest.json`; walk every artifact in canonical order; clean front-matter/banners/demote headings; rewrite relative links; dedupe mermaid diagrams; emit final HTML via shared chrome + 14 hreflang | Judge prose quality; re-author missing sections; silently fill gaps |
-| **Stage-C review** (agent-side, Pass 2) | Depth floors, IMF economic-context presence (Wave-4 strict default — see below), artifact citations, manifest schema | Render HTML; post-publish policing |
+| **Stage-C review** (agent-side, Pass 2) | Depth floors, IMF economic-context presence, artifact citations, manifest schema | Render HTML; post-publish policing |
 
 The legacy `AI_MARKER` / `[AI_ANALYSIS_REQUIRED]` sentinel contract and the
 `FALLBACK_TEMPLATE_PATTERNS` runtime scanner were removed with the
@@ -91,7 +91,7 @@ and are checked during the agent-side Stage-C completeness review (Pass 2):
 Shipping an article without the matching artifacts passing their floors is a
 contract violation; the Stage-C gate must refuse to stamp `GREEN`.
 
-## 5 · Economic & Non-Economic Context (Wave-4 IMF-strict default)
+## 5 · Economic & Non-Economic Context
 
 Articles with measurable policy impact MUST include **IMF economic context**
 (GDP, inflation, unemployment, debt, deficit, trade, FDI, exchange rate,
@@ -100,19 +100,14 @@ monetary policy) as the primary anchor in
 domains only (health, education, social, environment, demographics, defence,
 agriculture, innovation, governance).
 
-**IMF is the required primary source for economic claims.** The legacy
-runtime validator gates (`articlePolicyHasEconomicContext` /
-`articlePolicyHasIMFEconomicEvidence`) lived in
-`src/utils/content-validator.ts`, which was purged in the April-2026
-aggregator-pipeline migration; enforcement is now editorial and happens
-during Stage C completeness review.
+**IMF is the required primary source for economic claims.** Enforcement is editorial and happens during Stage C completeness review.
 
 Follow the indicator-mapping files:
 [`imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md)
 (macro / fiscal / trade / monetary + WEO forecasts + per-type indicator
 minimums — mandatory primary source) and
 [`worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md)
-(non-economic domains only). **Do not** pass WB aggregate codes
+(non-economic domains). **Do not** pass WB aggregate codes
 (`EUU`, `EMU`, `ECS`, `OED`, `WLD`, `NAC`, `EAS`, `SSF`) to WB MCP
 tools — the server rejects them; cite IMF `EU`/`EA` aggregates for
 EU-level framing instead.
@@ -226,7 +221,7 @@ longer synthesis and audit appendices.
 | Risk / threat outlook | `risk-scoring/risk-matrix.md`, `threat-assessment/political-threat-landscape.md` | `threat-assessment/actor-threat-profiles.md`, `threat-assessment/consequence-trees.md`, `risk-scoring/political-capital-risk.md`, `risk-scoring/legislative-velocity-risk.md` |
 | Forecast / scenarios | `intelligence/scenario-forecast.md` | `intelligence/wildcards-blackswans.md` |
 | PESTLE / policy context | `intelligence/pestle-analysis.md` | `intelligence/historical-baseline.md` |
-| Economic context block (Wave-4) | `intelligence/economic-context.md` | `analysis/methodologies/imf-indicator-mapping.md` (primary), `analysis/methodologies/worldbank-indicator-mapping.md` (non-economic only), `analysis/imf/forecast-accuracy-baseline.md` |
+| Economic context block | `intelligence/economic-context.md` | `analysis/methodologies/imf-indicator-mapping.md` (primary), `analysis/methodologies/worldbank-indicator-mapping.md` (non-economic), `analysis/imf/forecast-accuracy-baseline.md` |
 | Threat-model callout | `intelligence/threat-model.md` OR `intelligence/political-threat-landscape.md` | `threat-assessment/actor-threat-profiles.md` |
 | Voting-pattern chart | `existing/voting-patterns.md` | `intelligence/coalition-dynamics.md` |
 | Cross-session continuity | `existing/cross-session-intelligence.md`, `existing/cross-run-diff.md` | `existing/session-baseline.md` |

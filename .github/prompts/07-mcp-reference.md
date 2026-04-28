@@ -150,18 +150,14 @@ Timeframes: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"custom"`
 
 Rate limit: 500 req / 5 min. Cached responses < 200 ms.
 
-## 8 · IMF (native TypeScript client — sole authoritative economic-context source, Wave-4)
+## 8 · IMF (native TypeScript client — sole authoritative economic-context source)
 
-> ### ⚡ Scope (Wave-4 editorial)
+> ### ⚡ Scope
 >
 > IMF is the **sole authoritative source** for all **economic** context
 > — GDP, inflation, unemployment, fiscal balance, debt, trade, FDI,
 > monetary, exchange rates, banking soundness. Enforcement is
-> editorial/agent-side at Stage-C completeness review — the legacy
-> runtime gates (`articlePolicyHasEconomicContext`,
-> `articlePolicyHasIMFEconomicEvidence`, `isWave3IMFStrictEnabled`) in
-> `src/utils/content-validator.ts` were purged in the April-2026
-> aggregator-pipeline migration.
+> editorial/agent-side at Stage-C completeness review.
 
 Client: `src/mcp/imf-mcp-client.ts` (class `IMFMCPClient`).
 Transport: direct REST to `https://dataservices.imf.org/REST/SDMX_3.0/`
@@ -171,7 +167,7 @@ via `fetch` (no Python MCP dependency). Env vars:
 
 | Virtual tool | Method | REST endpoint | Purpose |
 |--------------|--------|---------------|---------|
-| `imf-list-databases` | `listDatabases()` | `GET /dataflow/IMF` | List ~155 SDMX dataflows |
+| `imf-list-databases` | `listDatabases` | `GET /dataflow/IMF` | List ~155 SDMX dataflows |
 | `imf-search-databases` | `searchDatabases(keyword)` | dataflow list + filter | Find a database by keyword |
 | `imf-get-parameter-defs` | `getParameterDefs(dbId)` | `GET /datastructure/{id}` | SDMX data-structure definition |
 | `imf-get-parameter-codes` | `getParameterCodes(db, dim, search?)` | `GET /datastructure/{id}?references=codelist` | Codelist for a dimension |
@@ -195,18 +191,18 @@ completeness review): committee-reports/ECON ≥ 4, /BUDG ≥ 3,
 /INTA ≥ 3; week-ahead/month-ahead/monthly-review ≥ 2; breaking /
 weekly-review / motions / propositions ≥ 1.
 
-## 9 · World Bank (`worldbank-mcp@1.0.1`) — NON-ECONOMIC ONLY (Wave-4)
+## 9 · World Bank (`worldbank-mcp@1.0.1`) — NON-ECONOMIC ONLY
 
 All tools respond in < 5 s; 10 s HTTP timeout per call.
 
-> ### ⚡ Scope (Wave-4 — IMF-primary editorial policy)
+> ### ⚡ Scope
 >
-> WB serves **non-economic** indicators only: health, education,
+> WB serves **non-economic** indicators: health, education,
 > social, environment, demographics, defence, agriculture, innovation,
 > governance. **Economic context → IMF (§8 above) is the sole
-> authoritative source.** World Bank is **never** acceptable for any
+> authoritative source.**
 > economic / fiscal / monetary / trade / FDI / exchange-rate / banking
-> claim — not primary, not secondary, not fallback. The legacy
+> claim — The legacy
 > `get-economic-data` endpoint listed below is retained in the MCP
 > server for backward compatibility with old test fixtures only and
 > **MUST NOT** be called from new article code paths or analysis
@@ -221,7 +217,7 @@ All tools respond in < 5 s; 10 s HTTP timeout per call.
 | `search-indicators` | `keyword` |
 | `get-countries` | `region`, `incomeLevel` |
 | `get-country-info` | `countryCode` (ISO2/alpha-3, **individual countries only** — aggregates rejected) |
-| `get-economic-data` 🚫 | **Forbidden under Wave-4** — retained in the MCP server for backward compatibility with old test fixtures only. **NEVER** call from any new article code path or analysis artifact. Economic context → IMF (§8 above). |
+| `get-economic-data` 🚫 | **Forbidden. **NEVER** call from any new article code path or analysis artifact. Economic context → IMF (§8 above). |
 | `get-social-data` | `countryCode`, `indicator`, `years` (POPULATION, LIFE_EXPECTANCY, BIRTH_RATE, DEATH_RATE, INTERNET_USERS) |
 | `get-education-data` | `countryCode`, `indicator`, `years` (LITERACY_RATE, SCHOOL_ENROLLMENT, SCHOOL_COMPLETION, TEACHERS_PRIMARY, EDUCATION_EXPENDITURE) |
 | `get-health-data` | `countryCode`, `indicator`, `years` (HEALTH_EXPENDITURE, PHYSICIANS, HOSPITAL_BEDS, IMMUNIZATION, HIV_PREVALENCE, MALNUTRITION, TUBERCULOSIS) |
@@ -230,11 +226,8 @@ All tools respond in < 5 s; 10 s HTTP timeout per call.
 `EMU`, `ECS`, `OED`, `WLD`, `NAC`, `EAS`, `SSF`) and the informal `UK`
 alias. Use only the ISO-3166 codes listed in
 [`analysis/worldbank/eu-country-mapping.md`](../../analysis/worldbank/eu-country-mapping.md).
-The legacy runtime helper `isMCPSupportedWBCountryCode()` in
-`src/utils/world-bank-data.ts` was purged in the April-2026
-aggregator-pipeline migration; the allow-list is now an editorial
-rule enforced at Stage A. For EU-level economic context, use IMF
-`EU`/`EA` aggregates (§8 above).
+The allow-list is enforced as an editorial rule at Stage A. For
+EU-level economic context, use IMF `EU`/`EA` aggregates (§8 above).
 
 Max 3 data calls per 60-min workflow (search-indicators exempt).
 Failures are skipped, not retried.
@@ -266,15 +259,15 @@ Failures are skipped, not retried.
 
 | # | Symptom | Tool(s) | Category | Disposition / Calling-pattern fix |
 |---|---------|---------|:--------:|-----------------------------------|
-| 1 | `generate_political_landscape` returns `totalMEPs: 100` (sampling artifact); seat shares approximate | `generate_political_landscape` | 🔴 REAL BUG | **Fixed upstream in [Hack23/European-Parliament-MCP-Server#405](https://github.com/Hack23/European-Parliament-MCP-Server/pull/405)** — full ~720-MEP roster via `fetchAllCurrentMEPs()`, ships in **v1.2.15+** (gateway is pinned to `v1.2.15`). Cross-reference seat shares with `get_all_generated_stats({ category:"political_groups" })` for full-roster validation; the historical ±2 pp drift no longer applies. Do NOT re-file. |
-| 2 | `analyze_coalition_dynamics` reports `EPP memberCount: 0`; group appears as `"PPE"` (French) elsewhere; same group split across `EPP`/`PPE`/`Verts-ALE`/`Greens/EFA`/legacy `ID`/`PfE` | `analyze_coalition_dynamics`, `compare_political_groups`, `generate_political_landscape` | 🔵 CALLING-PATTERN | **Treat as a calling-pattern issue for triage purposes.** Always pass canonical English short codes — `["EPP","S&D","Renew","Greens/EFA","ECR","PfE","Left","NI"]`. Never pass `"PPE"`, `"Verts-ALE"`, `"ID"`, or full group names. **Historical note:** alias normalization was also fixed upstream in [#405](https://github.com/Hack23/European-Parliament-MCP-Server/pull/405) via `normalizePoliticalGroup()` in `aggregateByGroup` (collapses `PPE → EPP`, `Verts-ALE → Greens/EFA`, legacy `ID → PfE`), shipping in **v1.2.15+**. Do NOT re-file. |
+| 1 | `generate_political_landscape` returns `totalMEPs: 100` (sampling artifact); seat shares approximate | `generate_political_landscape` | 🔴 REAL BUG | **Fixed upstream in [Hack23/European-Parliament-MCP-Server#405](https://github.com/Hack23/European-Parliament-MCP-Server/pull/405)** — full ~720-MEP roster via `fetchAllCurrentMEPs`, ships in **v1.2.15+** (gateway is pinned to `v1.2.15`). Cross-reference seat shares with `get_all_generated_stats({ category:"political_groups" })` for full-roster validation; the historical ±2 pp drift no longer applies. Do NOT re-file. |
+| 2 | `analyze_coalition_dynamics` reports `EPP memberCount: 0`; group appears as `"PPE"` (French) elsewhere; same group split across `EPP`/`PPE`/`Verts-ALE`/`Greens/EFA`/legacy `ID`/`PfE` | `analyze_coalition_dynamics`, `compare_political_groups`, `generate_political_landscape` | 🔵 CALLING-PATTERN | **Treat as a calling-pattern issue for triage purposes.** Always pass canonical English short codes — `["EPP","S&D","Renew","Greens/EFA","ECR","PfE","Left","NI"]`. Never pass `"PPE"`, `"Verts-ALE"`, `"ID"`, or full group names. **Historical note:** alias normalization was also fixed upstream in [#405](https://github.com/Hack23/European-Parliament-MCP-Server/pull/405) via `normalizePoliticalGroup` in `aggregateByGroup` (collapses `PPE → EPP`, `Verts-ALE → Greens/EFA`, legacy `ID → PfE`), shipping in **v1.2.15+**. Do NOT re-file. |
 | 3 | `analyze_coalition_dynamics` returns `cohesionRate: null`, `defectionRate: null`, `sharedVotes: null` — only `sizeSimilarityScore` populated | `analyze_coalition_dynamics`, `compare_political_groups` | 🟢 LIMITATION | **Documented EP API limitation** — per-MEP roll-call data is not exposed by the EP Open Data Portal. Tool returns size-ratio proxy only. Already in tool schema description. Stage-A guard: emit `coalition_dynamics.cohesion=null` data-quality warning per [`01-data-collection.md` §6 rule 1](01-data-collection.md). Do NOT classify as a defect; classify as `"documented limitation — size-similarity proxy used"`. |
 | 4 | `monitor_legislative_pipeline` returns empty pipeline | `monitor_legislative_pipeline` | 🔵 CALLING-PATTERN | **Historical v1.2.13 default-period bug + consumer fix.** Pre-v1.2.14, when invoked **without** `dateFrom`/`dateTo`, the server reported `period: 2024-01-01..2024-12-31` (empty for current procedures). **Always pass explicit dates:** `monitor_legislative_pipeline({ dateFrom: $LAST_MONTH, dateTo: $TODAY, status: "ACTIVE", limit: 20 })`. Forward-looking workflows use the next-week/next-month window. v1.2.14+ defaults to rolling-30-days; gateway is pinned to `v1.2.15`, but explicit dates remain the required calling pattern for reproducibility. Already documented in §4 above + [`01-data-collection.md` §6 rule 6](01-data-collection.md). |
-| 5 | `get_procedures` / `get_procedures_feed` return 1972–1990 historical procedures with no current-year content | `get_procedures`, `get_procedures_feed` | 🟢 LIMITATION | **Documented EP API behaviour** — these endpoints serve the historical archive in ID order, not chronological. The feed has no server-side date filter. **MCP client mitigation (v0.8.47+):** `getProceduresFeed()` now detects the historical-only response (all items ≤ 1995) and automatically adds `recessMode: true` and a `RECESS_MODE: …` entry to `dataQualityWarnings[]`; Stage-A consumers should check for this flag and fall back to `get_adopted_texts({ year: $YEAR, limit: 100 })`. **Additional mitigation:** use `track_legislation({ procedureId: "YYYY/NNNN(COD)" })` for individual procedures by known ID. Already in §7 reliability matrix. Do NOT file. |
+| 5 | `get_procedures` / `get_procedures_feed` return 1972–1990 historical procedures with no current-year content | `get_procedures`, `get_procedures_feed` | 🟢 LIMITATION | **Documented EP API behaviour** — these endpoints serve the historical archive in ID order, not chronological. The feed has no server-side date filter. **MCP client mitigation (v0.8.47+):** `getProceduresFeed` now detects the historical-only response (all items ≤ 1995) and automatically adds `recessMode: true` and a `RECESS_MODE: …` entry to `dataQualityWarnings[]`; Stage-A consumers should check for this flag and fall back to `get_adopted_texts({ year: $YEAR, limit: 100 })`. **Additional mitigation:** use `track_legislation({ procedureId: "YYYY/NNNN(COD)" })` for individual procedures by known ID. Already in §7 reliability matrix. Do NOT file. |
 | 6 | `get_voting_records` returns empty for last 1–2 months; `get_speeches` returns empty for last 1–2 months | `get_voting_records`, `get_speeches` | 🟢 LIMITATION | **Documented EP publication delay** — roll-call data publishes 4–6 weeks late, plenary speeches similarly. Already in tool schema description ("expected EP API behavior, not an error"). **Mitigation:** broaden `dateFrom` to D-60 minimum; use `get_adopted_texts` metadata for vote outcomes; use `get_plenary_documents` as proxy for debate content. Do NOT file. |
 | 7 | `get_meeting_foreseen_activities` returns rows with empty `title` strings for future sessions | `get_meeting_foreseen_activities` | 🟢 LIMITATION | **Documented EP API behaviour** — OJQ agenda documents return 404 until publication date for future sessions; activity type and metadata available but titles are populated post-session. **Reliability audit note:** this 🟢-classified behaviour is **excluded from the success-rate denominator** per `analysis/templates/mcp-reliability-audit.md` §5 denominator-exclusion rule (only 🔴 REAL BUG rows count against the score). **Mitigation:** treat as "scheduled count only" data; use plenary calendar + topic context for forward-looking agenda framing. Do NOT file. |
-| 8 | `get_events_feed` times out / returns "EP API upstream error" | `get_events_feed` | 🟢 LIMITATION | **Documented slow feed** (30–120s+, see §7 latency table). Tool schema warns: `"events/feed endpoint is significantly slower than other feeds"`. **MCP client mitigation (v0.8.47+):** `getEventsFeed()` now downgrades timeout errors to 🟡 `SLOW_FEED_WARNING` — the timeout is recorded in `getSlowFeedWarnings()` (not in `getFailedTools()`), excluded from the success-rate denominator, and a fallback `{ "feed": [], "slowFeedWarning": true }` is returned so Stage-A consumers can detect the condition and fall back to `get_plenary_sessions({ year })`. **Additional mitigation:** raise `EP_REQUEST_TIMEOUT_MS=120000` for the call. Already in §7. Do NOT file unless timeout exceeds 180 s with `EP_REQUEST_TIMEOUT_MS=120000` set. |
-| 9 | `world-bank get-country-info({ countryCode: "EU" })` returns `"Country not found"`; aggregates `EUU`/`EMU`/`ECS`/`OED`/`WLD` rejected | `worldbank-mcp` (any tool with `countryCode`) | 🟢 LIMITATION | **Documented WB MCP limitation** — aggregates not supported. Already in §9 above + [`01-data-collection.md` §4](01-data-collection.md). **Mitigation:** for EU-level economic context use **IMF** `EU`/`EA`/`G7`/`G20` aggregates (§8 — IMF is Wave-4 primary economic source); for non-economic indicators use individual member-state codes (Big Four: `DE`/`FR`/`IT`/`ES`). Do NOT file. |
+| 8 | `get_events_feed` times out / returns "EP API upstream error" | `get_events_feed` | 🟢 LIMITATION | **Documented slow feed** (30–120s+, see §7 latency table). Tool schema warns: `"events/feed endpoint is significantly slower than other feeds"`. **MCP client mitigation (v0.8.47+):** `getEventsFeed` now downgrades timeout errors to 🟡 `SLOW_FEED_WARNING` — the timeout is recorded in `getSlowFeedWarnings` (not in `getFailedTools`), excluded from the success-rate denominator, and a fallback `{ "feed": [], "slowFeedWarning": true }` is returned so Stage-A consumers can detect the condition and fall back to `get_plenary_sessions({ year })`. **Additional mitigation:** raise `EP_REQUEST_TIMEOUT_MS=120000` for the call. Already in §7. Do NOT file unless timeout exceeds 180 s with `EP_REQUEST_TIMEOUT_MS=120000` set. |
+| 9 | `world-bank get-country-info({ countryCode: "EU" })` returns `"Country not found"`; aggregates `EUU`/`EMU`/`ECS`/`OED`/`WLD` rejected | `worldbank-mcp` (any tool with `countryCode`) | 🟢 LIMITATION | **Documented WB MCP limitation** — aggregates not supported. Already in §9 above + [`01-data-collection.md` §4](01-data-collection.md). **Mitigation:** for EU-level economic context use **IMF** `EU`/`EA`/`G7`/`G20` aggregates (§8 — IMF is  primary economic source); for non-economic indicators use individual member-state codes (Big Four: `DE`/`FR`/`IT`/`ES`). Do NOT file. |
 
 **How to use this table in Stage B (`mcp-reliability-audit.md`):**
 

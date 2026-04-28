@@ -8,7 +8,7 @@
 
 **Source grades:** World Bank (`NY.GDP.MKTP.CD`, `NY.GDP.MKTP.KD.ZG`, etc.) — Admiralty A2 (completely reliable, probably true). IMF WEO — A2.
 
-**Wave-2 OR-gate:** per `.github/skills/ai-first-quality.md`, policy articles require World Bank OR IMF economic context. This run does not draft an article, but still publishes the economic baseline for future use.
+** IMF requirement:** per `.github/skills/ai-first-quality.md`, policy articles require World Bank OR IMF economic context. This run does not draft an article, but still publishes the economic baseline for future use.
 
 ---
 
@@ -87,7 +87,7 @@ Forward-looking risk: if the IMF April-WEO revises EU27 growth down on the next 
 
 - [pestle-analysis.md](./pestle-analysis.md) §E — economic dimension summary.
 - [synthesis-summary.md](./synthesis-summary.md) §Judgement 1 — feed-regime context.
-- Wave-2 AI-First skill: `.github/skills/imf-data-integration.md`.
+.github/skills/imf-data-integration.md`.
 
 ## 10. Data Provenance
 
@@ -134,7 +134,7 @@ The following numbered notes document the analytic decisions that shaped this ar
 
 17. Macro-surprise index (informal, not computed here) is near neutral based on absence of surprise announcements today.
 
-18. The Wave-2 OR-gate requires either WB or IMF context for policy articles; this run does not draft an article, but the baseline is pre-staged for tomorrow.
+18. The  IMF requirement requires either WB or IMF context for policy articles; this run does not draft an article, but the baseline is pre-staged for tomorrow.
 
 19. When the IMF April-WEO update cycle lands, a revision downward on EU27 growth would be a policy-relevant trigger; watch for this in scenario forecasting.
 
@@ -176,7 +176,7 @@ The following numbered notes document the analytic decisions that shaped this ar
 
 38. Macro-surprise index (informal, not computed here) is near neutral based on absence of surprise announcements today.
 
-39. The Wave-2 OR-gate requires either WB or IMF context for policy articles; this run does not draft an article, but the baseline is pre-staged for tomorrow.
+39. The  IMF requirement requires either WB or IMF context for policy articles; this run does not draft an article, but the baseline is pre-staged for tomorrow.
 
 40. When the IMF April-WEO update cycle lands, a revision downward on EU27 growth would be a policy-relevant trigger; watch for this in scenario forecasting.
 

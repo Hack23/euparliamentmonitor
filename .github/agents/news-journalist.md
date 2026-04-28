@@ -52,7 +52,7 @@ Article content MUST derive from the current run's `analysis/daily/<YYYY-MM-DD>/
 | Stakeholder outcome matrix | `classification/impact-matrix.md` |
 | Risk / threat outlook | `risk-scoring/risk-matrix.md` + `threat-assessment/political-threat-landscape.md` |
 | Forecast / scenarios | `intelligence/scenario-forecast.md` + `intelligence/wildcards-blackswans.md` |
-| Economic context (Wave-4 IMF-only) | `intelligence/economic-context.md` + IMF indicator mapping (`analysis/methodologies/imf-indicator-mapping.md`). World Bank is **never** acceptable for economic context. |
+| Economic context | `intelligence/economic-context.md` + IMF indicator mapping (`analysis/methodologies/imf-indicator-mapping.md`). |
 | Transparency footer | every `manifest.files.*` entry |
 
 Full artifact → section map: [`.github/prompts/04-article-generation.md`](../prompts/04-article-generation.md) § 7.1. Read-Before-Write contract: [`.github/prompts/05-analysis-to-article-contract.md`](../prompts/05-analysis-to-article-contract.md) § 3. An article that doesn't cite a specific artifact per section fails Stage C and is blocked.
@@ -625,7 +625,7 @@ export const generateCommitteeReport = async (committee, language, mcpData) => {
    - Prose ratio ≥60% (paragraphs, not bullet lists)
    - ≥1 Chart.js canvas with real EP data
    - Zero `[AI_ANALYSIS_REQUIRED]` markers in final output
-   - **IMF** economic data is included whenever the policy has any economic / fiscal / monetary / trade / FDI / exchange-rate / banking-soundness dimension — IMF is the **sole authoritative source** under Wave-4 policy. World Bank is **never** acceptable for economic context (not primary, not secondary, not fallback) and is reserved for non-economic domains only (health, education, social, environment, demographics, defence, agriculture, innovation, governance).
+   - **IMF** economic data is included whenever the policy has any economic / fiscal / monetary / trade / FDI / exchange-rate / banking-soundness dimension — IMF is the **sole authoritative source**.
 
 4. **No Early Completion**: If the time budget says 15 minutes for article generation, use ALL 15 minutes. If you finish Pass 2 early, do Pass 3. Rushing produces shallow articles that fail the Economist Test.
 

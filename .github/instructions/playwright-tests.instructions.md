@@ -21,9 +21,9 @@ import AxeBuilder from '@axe-core/playwright'; // for accessibility tests
 
 ### Locators — Use Stable Selectors
 Prefer in this order:
-1. `getByRole()` — semantic and robust
-2. `getByText()` — visible text
-3. `getByTestId()` — `data-testid` attribute
+1. `getByRole` — semantic and robust
+2. `getByText` — visible text
+3. `getByTestId` — `data-testid` attribute
 4. CSS selectors — only as last resort
 
 ### Conditional Element Checks

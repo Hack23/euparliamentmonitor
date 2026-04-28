@@ -109,7 +109,7 @@ would invalidate our Scenario 5.1 and force a methodological revamp.
 Wildcard environment is **moderate-intensity** for this 90-day
 horizon. No imminent catastrophic trigger identified; 4 of 10 grey
 swans carry EVEN probability (W6, W8, W9 plus the counter-scenarios).
-The single most impactful grey swan is **W1 (defence emergency)** —
+The single most impactful grey swan is **W1 (defence emergency)**
 which would push Scenario A probability into HIGHLY LIKELY territory.
 
 *— Wildcards & Black Swans · Pass 2 complete · 2026-04-24*

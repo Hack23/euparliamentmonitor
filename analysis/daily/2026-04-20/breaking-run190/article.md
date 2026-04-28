@@ -629,7 +629,7 @@ observed political group membership changes, defections, or structural shifts.
 
 **Safety margin interpretation:** A 40+ vote margin means the Grand Centre could withstand
 approximately 20 full defections from any single member group (assuming symmetric abstentions)
-before losing a simple majority. In practice, multi-group defections would need to be coordinated —
+before losing a simple majority. In practice, multi-group defections would need to be coordinated
 historically rare in the EP. 🟢 HIGH confidence.
 
 #### Coalition Testing Gap
@@ -870,7 +870,7 @@ S&D's post-recess agenda priorities.
 
 **USTR risk special relevance:** If USTR files against EU digital regulations, Renew has the
 highest political stake of any coalition partner. Their legislative flagship texts (AI Act, DMA,
-DSA) are the direct targets. Renew would likely push for the most forceful response —
+DSA) are the direct targets. Renew would likely push for the most forceful response
 including WTO dispute filing — potentially putting them to the left of S&D on trade defense.
 
 **Coalition calculation:** Renew cannot afford to let USTR delegitimize their digital regulatory
@@ -1101,7 +1101,7 @@ The political landscape is, however, preparing for significant challenges:
   TRQ approach represents von der Leyen's preferred proportionality doctrine; EPP conservatives
   would prefer stronger retaliation.
 - **PfE-ECR opposition coordination:** The combined ECR-PfE opposition (165 seats) has been
-  disciplined in opposition throughout EP10. They are the second political story of this recess —
+  disciplined in opposition throughout EP10. They are the second political story of this recess
   no defections, no coalition communications, sustained opposition posture.
 - **Climate agenda confrontation:** Post-recess first plenary will test whether Greens/EFA and
   Left can force climate amendments through cross-party votes, fraying EPP support.
@@ -1461,7 +1461,7 @@ SVB/Credit Suisse parallel: an external financial shock during a recess period t
 rapid parliamentary response without emergency convening. If USTR files Section 301 on
 April 21-24, the EP's institutional response will likely follow the 2023 template:
 Conference of Presidents coordination, INTA/IMCO emergency committee meetings, no formal
-plenary until scheduled April 28-30 sitting. This is a known, managed response pathway —
+plenary until scheduled April 28-30 sitting. This is a known, managed response pathway
 not a governance crisis.
 
 The historical baseline confirms: Easter recess analytical-only periods are normal features
@@ -2100,7 +2100,7 @@ without stress indicators; 84/100 stability score verified via early_warning_sys
 
 The Run 188 methodological breakthrough — discovering that the EP API exposes a dual-layer
 architecture where a metadata layer (year-filter endpoint: 159 texts with titles, dates, procedure
-references) exists independently from a content layer (~61 texts with full accessible content) —
+references) exists independently from a content layer (~61 texts with full accessible content)
 has permanently enhanced the EU Parliament Monitor's monitoring capability. The 2.6:1 ratio between
 indexed texts and accessible texts (98 texts indexed but content-pending) quantifies the analytical
 gap for the first time.
@@ -2289,7 +2289,7 @@ EU digital regulations potentially subject to Section 301 scrutiny:
 2. **Digital Services Act (DSA):** Imposes content moderation obligations and algorithmic
    transparency requirements — US platforms argue these impose compliance burdens disproportionate
    to EU market share
-3. **AI Act:** Imposes high-risk AI system requirements and General Purpose AI obligations —
+3. **AI Act:** Imposes high-risk AI system requirements and General Purpose AI obligations
    US AI companies (OpenAI, Google DeepMind) face compliance costs not borne by non-US actors
 
 **Impact if filed (probability-weighted):** Emergency plenary session pressure, IMCO/INTA
@@ -2430,7 +2430,7 @@ US companies.
 
 **Democratic Threat Vector:** Section 301 activation against EU digital regulations creates
 a profound democratic legitimacy tension. The DMA, DSA, and AI Act were adopted through the
-EP's ordinary legislative procedure — the most democratically legitimate EU lawmaking process —
+EP's ordinary legislative procedure — the most democratically legitimate EU lawmaking process
 following years of committee work, public consultation, and trilogues. A USTR Section 301
 investigation would subject these democratically-adopted regulations to US trade law scrutiny,
 creating a direct conflict between EU democratic legitimacy and US trade power.
@@ -2549,7 +2549,7 @@ health is assessed as STABLE on April 20, 2026:
 | Inter-institutional relations | 🟡 WATCH (Council ratification) | MEDIUM |
 | External pressure resilience | 🟡 WATCH (USTR window) | MEDIUM |
 
-The Parliament's internal health is fundamentally sound. The threats are real but external —
+The Parliament's internal health is fundamentally sound. The threats are real but external
 they do not reflect parliamentary dysfunction but rather the normal challenges of an institution
 operating in a complex geopolitical environment while managing a 13-day legislative recess.
 
@@ -3057,7 +3057,7 @@ API data during the acute period.
 
 The Easter Recess Series (Runs 179-190) has consistently operated in Scenario C territory
 (API degraded, no external shocks, ANALYSIS_ONLY). The series ends April 27 when Parliament
-returns. The transition from Scenario C to Scenario A is the most likely single outcome —
+returns. The transition from Scenario C to Scenario A is the most likely single outcome
 but the 20% Scenario B (USTR) probability represents a non-trivial risk that the post-recess
 period begins with a major breaking story rather than the expected stable return.
 
@@ -3681,7 +3681,7 @@ Do not treat accessibility as stable until confirmed in three consecutive runs.
 **Metadata Status:** ✅ Full official title confirmed (Run 188)  
 **Tracking Status:** PRIORITY-4 (strategic context)  
 **Significance:** Own-initiative review signals Parliament's self-positioning on global investment
-competition with BRI. The adoption on March 26 — same day as EU-China TRQ and US countermeasure —
+competition with BRI. The adoption on March 26 — same day as EU-China TRQ and US countermeasure
 suggests a coordinated package narrative: EP simultaneously managing EU-US and EU-China trade
 relations while asserting its own global investment strategy.
 
@@ -3774,7 +3774,7 @@ the EP-MCP architecture. Consistent with all prior runs in Easter Recess Series.
 ---
 
 #### 6. `analyze_coalition_dynamics` — ✅ OPERATIONAL (Structural Only)
-**Test call:** `analyze_coalition_dynamics()`
+**Test call:** `analyze_coalition_dynamics`
 **Response:** Coalition data returned with size-proxy methodology
 **Assessment:** Tool functional; cohesion data null (as expected — EP API does not expose
 per-MEP roll-call data required for true cohesion calculation). Structural data (seat counts,
@@ -3835,7 +3835,7 @@ is expected behavior, not degradation.
 ---
 
 #### 12. `get_all_generated_stats` — ✅ OPERATIONAL
-**Test call:** `get_all_generated_stats()`
+**Test call:** `get_all_generated_stats`
 **Response:** 85KB of precomputed statistics (2004-2026)
 **Assessment:** Precomputed stats endpoint fully operational. This provides the historical
 baseline for all comparative analysis in the Easter Recess Series.
@@ -3985,7 +3985,7 @@ adoption. Served by: `get_adopted_texts(year:2026)` and `get_adopted_texts_feed(
 **Layer 2 (Content):** Full legislative text, recitals, articles, annexes. Available after
 legal-linguistic review completion. Served by: `get_adopted_texts({docId:"TA-..."})`.
 
-The 2.6:1 ratio (159 metadata : ~61 content) implies that approximately 98 texts (62%) have
+The 2.6:1 ratio (159 metadata: ~61 content) implies that approximately 98 texts (62%) have
 completed EP adoption but not yet completed the EP's internal legal-linguistic review process.
 This ratio has been stable across multiple runs, suggesting the review backlog is a structural
 feature of EP10's legislative throughput rather than an artifact of the current API outage.

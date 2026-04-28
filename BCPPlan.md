@@ -346,13 +346,13 @@ flowchart TD
 | **Recovery** | Update EP MCP client code to match new API; server reports uniform `{status:"unavailable", items:[]}` envelope allowing graceful skip |
 | **Mitigation** | MCP abstraction layer (`src/mcp/ep-mcp-client.ts`); `mcp-retry.ts` exponential backoff; uniform unavailable envelope |
 
-### Scenario 7: IMF Economic Data Outage (Wave-4 IMF-only economic context)
+### Scenario 7: IMF Economic Data Outage
 
 | 📋 **Aspect** | 📊 **Detail** |
 |---------------|--------------|
-| **Impact** | IMF is the **sole authoritative source** for economic / fiscal / monetary / trade / FDI / exchange-rate / banking-soundness context (Wave-4 policy). When `dataservices.imf.org` is unavailable, the agent must (a) attempt the cached `analysis/daily/<date>/<run>/cache/imf/*.json` path first, (b) if no cache exists, mark the economic-context artifact as `IMF Source: knowledge-only` (which Stage-C blocks), and (c) defer the article to a later run when IMF recovers. World Bank is **never** an acceptable substitute for economic context, not even as a fallback. |
+| **Impact** | IMF is the **sole authoritative source** for economic / fiscal / monetary / trade / FDI / exchange-rate / banking-soundness context. When `dataservices.imf.org` is unavailable, the agent must (a) attempt the cached `analysis/daily/<date>/<run>/cache/imf/*.json` path first, (b) if no cache exists, mark the economic-context artifact as `IMF Source: knowledge-only` (which Stage-C blocks), and (c) defer the article to a later run when IMF recovers. |
 | **Probability** | Low–Medium (IMF SDMX 3.0 is generally stable; transient SDMX-XML 503s are observed during scheduled IMF maintenance windows) |
-| **Recovery** | Automatic on IMF recovery — re-run the workflow; the cached probe JSON is reused for back-fill on subsequent same-day runs. Stage-C `imf-cache:missing` / `imf-source:knowledge-only` issues block article PR creation until IMF data is present. The legacy WB OR-gate fallback is **retired** under Wave-4. |
+| **Recovery** | Automatic on IMF recovery — re-run the workflow; the cached probe JSON is reused for back-fill on subsequent same-day runs. Stage-C `imf-cache:missing` / `imf-source:knowledge-only` issues block article PR creation until IMF data is present. The legacy WB IMF requirement fallback is **retired**. |
 | **Mitigation** | (a) Single-source IMF surface (`IMFMCPClient` SDMX 3.0 with WEO + FM 5-year forecasts) with per-call cache writes to `cache/imf/*.json`; (b) per-source `IMF_API_BASE_URL` / `IMF_API_TIMEOUT_MS` overrides; (c) `analysis/methodologies/imf-indicator-mapping.md §7` vintage rules so an article can use last-known-good cached data with explicit vintage; (d) Stage-C `validate-analysis-completeness.js` enforces IMF presence and rejects WB economic indicator codes (`NY.GDP.*`, `FP.CPI.*`, `SL.UEM.*`, …) and "World Bank … GDP/inflation/…" prose claims inside `intelligence/economic-context.md`. |
 
 ### Scenario 8: GitHub Actions / Agentic Runner Outage
@@ -482,8 +482,8 @@ For **critical static-site availability (primary S3/CloudFront or GitHub Pages f
 | **GitHub Actions**          | CI/CD + gh-aw Runtime | High            | Manual local build + deploy        | 4 hours |
 | **GitHub Copilot Business** | AI inference via `gh aw` | High         | Engine switch (Claude / Codex) in workflow frontmatter; human fallback | 30 minutes |
 | **EP MCP Server (`european-parliament-mcp-server@1.2.15`)** | EU Parliament Data | High | Uniform unavailable envelope + `mcp-retry.ts` backoff; existing articles continue to serve | N/A (graceful degrade) |
-| **World Bank MCP (`worldbank-mcp@1.0.1`)** | Biannual WDI data — **non-economic indicators only** (health, education, social, environment, demographics, defence, agriculture, innovation, governance) | Medium | Article continues without WB cross-refs; non-economic claims relax to "data unavailable for current vintage" with explicit caveat | N/A (graceful degrade) |
-| **IMF REST (SDMX 3.0, native `IMFMCPClient`)** | WEO + FM forecasts (sole authoritative economic source under Wave-4) | High | Cached `cache/imf/*.json` reused on transient outage; if no cache and live IMF down, Stage-C blocks article (`imf-cache:missing`); `IMF_API_TIMEOUT_MS` configurable. World Bank is **never** an acceptable fallback for economic context. | Defer article to next run |
+| **World Bank MCP (`worldbank-mcp@1.0.1`)** | Biannual WDI data — **non-economic indicators** (health, education, social, environment, demographics, defence, agriculture, innovation, governance) | Medium | Article continues without WB cross-refs; non-economic claims relax to "data unavailable for current vintage" with explicit caveat | N/A (graceful degrade) |
+| **IMF REST (SDMX 3.0, native `IMFMCPClient`)** | WEO + FM forecasts (sole authoritative economic source) | High | Cached `cache/imf/*.json` reused on transient outage; if no cache and live IMF down, Stage-C blocks article (`imf-cache:missing`); `IMF_API_TIMEOUT_MS` configurable. | Defer article to next run |
 | **npm Registry**            | Dependency + Publish  | High            | GitHub Packages mirror; npm cache + `npm ci`; SLSA 3 attestations verifiable | 2 hours |
 | **gh-aw toolchain (v0.69.0)** | Agentic workflow compiler | High         | Pinned version; rollback via git; sibling repos as cross-reference | 4 hours |
 | **GitHub Dependabot**       | Security Scanning     | Medium          | Manual `npm audit`; CodeQL          | Low priority |
@@ -543,7 +543,7 @@ Quarterly exercises validate recovery procedures without production impact:
 |---------|-------|-------------------|
 | **Q1 each year** | GitHub Pages failover dry-run (Scenario 10) | Fallback site live within 2 h; all 14 languages verified |
 | **Q2 each year** | Local build + deploy without GitHub Actions (Scenarios 8 + 11) | Full site rebuilt locally; artifacts match CI output |
-| **Q3 each year** | MCP degraded-mode test (Scenarios 3 + 6 + 7) | Agentic workflow completes with fallback economic context via WB↔IMF OR-gate |
+| **Q3 each year** | MCP degraded-mode test (Scenarios 3 + 6 + 7) | Agentic workflow completes with fallback economic context via WB↔IMF IMF requirement |
 | **Q4 each year** | npm republish + provenance verification (Scenario 12) | `gh attestation verify` succeeds; SLSA 3 attestation validated |
 
 ### Responsibility & Escalation

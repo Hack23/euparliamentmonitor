@@ -4,7 +4,7 @@
 # MCP Reliability Audit — EP Month Ahead: April 27 – May 27, 2026
 
 **Run Date:** 2026-04-27 | **Admiralty Grade:** B2
-**Reference:** .github/prompts/07-mcp-reference.md §11 triage table (mandatory before filing issues)
+**Reference:**.github/prompts/07-mcp-reference.md §11 triage table (mandatory before filing issues)
 
 ---
 
@@ -44,7 +44,7 @@ direct `get_procedures(limit:20)`.
 
 **Root cause (per §11 row #5):** The EP Open Data Portal's procedures feed periodically returns
 historical-archive content instead of current procedures. The EP MCP client
-`detectProceduresFeedRecessMode()` detects this pattern and adds `recessMode:true` + RECESS_MODE
+`detectProceduresFeedRecessMode` detects this pattern and adds `recessMode:true` + RECESS_MODE
 `dataQualityWarning`. Not counted as a failure in client health metrics.
 
 **Impact on analysis:** Current legislative procedures (CID, EU-US tariff trilogue) could not be
@@ -144,5 +144,5 @@ monitored but is likely transient).
 
 ---
 
-*Reference: .github/prompts/07-mcp-reference.md §11 triage table; analysis/templates/mcp-reliability-audit.md*
+*Reference:.github/prompts/07-mcp-reference.md §11 triage table; analysis/templates/mcp-reliability-audit.md*
 *Generated: 2026-04-27 | SPDX: Apache-2.0*

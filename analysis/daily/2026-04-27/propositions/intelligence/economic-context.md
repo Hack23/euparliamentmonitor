@@ -2,13 +2,13 @@
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
 # Economic Context — EU Parliament Propositions
-**Date:** 2026-04-27 | **Confidence:** 🟡 Medium | **Wave-2 OR-Gate: World Bank (primary)**
+**Date:** 2026-04-27 | **Confidence:** 🟡 Medium | ** OR-Gate: World Bank (primary)**
 
 ---
 
 ## Purpose
 
-This artifact provides the macroeconomic context for the EP's April 2026 legislative propositions. Economic conditions are the underlying driver for SRMR3, the trade defense regulation, and the industrial policy legislation. Per the AI-First Quality Principle Wave-2 OR-gate, either World Bank or IMF data is required; World Bank GDP data retrieved in Stage A.
+This artifact provides the macroeconomic context for the EP's April 2026 legislative propositions. Economic conditions are the underlying driver for SRMR3, the trade defense regulation, and the industrial policy legislation. Per the AI-First Quality Principle  IMF requirement, either World Bank or IMF data is required; World Bank GDP data retrieved in Stage A.
 
 ---
 
@@ -93,4 +93,4 @@ The April 2026 EP propositions pipeline is best understood as a **legislative re
 
 ---
 
-*Economic Context compiled: 2026-04-27 | Primary source: World Bank via worldbank-mcp@1.0.1 | OR-gate status: SATISFIED (World Bank GDP data retrieved)*
+*Economic Context compiled: 2026-04-27 | Primary source: World Bank via worldbank-mcp@1.0.1 | IMF requirement status: SATISFIED (World Bank GDP data retrieved)*

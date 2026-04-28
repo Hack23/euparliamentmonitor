@@ -131,7 +131,7 @@ of both major powers — precisely the "strategic autonomy" doctrine that Commis
 Trade Commissioner have championed since 2019.
 
 **Evidence**: TA-10-2026-0096/0097 adoption from editorial context (confirmed in prior runs);
-TA-10-2026-0101 identified in run 182 synthesis as EU-China quota management text (MEDIUM confidence —
+TA-10-2026-0101 identified in run 182 synthesis as EU-China quota management text (MEDIUM confidence
 detail API unavailable); strategic autonomy doctrine from Commission communications.
 
 **Confidence rationale**: 🟡 MEDIUM — TA-10-2026-0101 content (EU-China accommodation) is inferred
@@ -240,7 +240,7 @@ with refreshed constituency contact and recalibrated political positioning. For 
 Strasbourg session, three groups have clear strategic opportunities that their leadership will have
 been developing during recess:
 
-**EPP's opportunity**: The defence industrial base agenda is EPP's natural political terrain —
+**EPP's opportunity**: The defence industrial base agenda is EPP's natural political terrain
 sovereignty, national security, industrial policy. With US tariff countermeasures just authorized
 and NATO spending pressures intensifying post-Ukraine ceasefire negotiations, EPP can position
 itself as the party of European defence renaissance. The April 27-30 defence texts represent EPP's

@@ -134,7 +134,7 @@ migration.
 
 When calling the IMF SDMX 3.0 REST API via the native client
 (`src/mcp/imf-mcp-client.ts`), pass the ISO-3 code through the `country`
-filter on `fetchData()`:
+filter on `fetchData`:
 
 ```ts
 await client.fetchData({

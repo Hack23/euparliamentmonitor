@@ -37,7 +37,7 @@ from a specific mathematical constraint (e.g., "EPP + ECR + Renew = 343 seats �
 — requires 18 additional seats") rather than from qualitative impression.
 
 ### 4. IMF primary sourcing for macro context
-Per the Wave-3 OR-gate rule, IMF WEO April 2026 data was used as primary for all macro/fiscal/
+Per the  IMF requirement rule, IMF WEO April 2026 data was used as primary for all macro/fiscal/
 monetary/trade context. World Bank API provided supplementary member-state level data (Germany GDP,
 France inflation). The economic-context.md artifact explicitly labels the source hierarchy.
 
@@ -103,7 +103,7 @@ actual vote outcomes as the primary calibration event for this run's forward-loo
 
 **`[AI_ANALYSIS_REQUIRED]` markers:** Zero ✅
 
-**IMF sourcing (Wave-3 OR-gate):** Applied — IMF WEO April 2026 used as primary for all macro ✅
+**IMF sourcing:** Applied — IMF WEO April 2026 used as primary for all macro ✅
 
 **Forward-looking statements (registry-compatible):** 3 formally registered in synthesis-summary.md ✅
 

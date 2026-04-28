@@ -96,10 +96,10 @@ const IMF_SOURCE_FIELD_RE =
 const IMF_FIGURE_CLAIM_RE =
   /\bIMF\b[\s\S]{0,160}\b\d+(?:\.\d+)?\s*(?:%|pp|percentage points|GDP|EUR|USD|billion|trillion|million)/i;
 
-// Wave-4 IMF-primary editorial policy (April 2026): World Bank is NOT an
-// acceptable source for economic / fiscal / monetary / trade / FDI /
-// exchange-rate / banking-soundness claims inside economic-context.md.
-// Two complementary detectors:
+// IMF-primary editorial policy: IMF is the sole authoritative source for
+// economic / fiscal / monetary / trade / FDI / exchange-rate /
+// banking-soundness claims inside economic-context.md. World Bank is
+// used for non-economic domains. Two complementary detectors:
 //
 //   1. WB economic indicator codes — surface the offending SDMX-style
 //      identifier when an economic-context artifact still cites raw WB
@@ -315,7 +315,7 @@ function claimsImfFigures(content) {
 }
 
 /**
- * Wave-4 IMF-primary editorial policy (April 2026).
+ * IMF-primary editorial policy.
  *
  * Detect WB economic-policy violations inside `intelligence/economic-
  * context.md`:
@@ -547,7 +547,7 @@ function validateArtifact({
       result.issues.push('imf-cache:missing');
     }
   }
-  // Wave-4 IMF-primary editorial policy: economic-context.md must not
+  // IMF-primary editorial policy: economic-context.md must not
   // cite World Bank for economic claims regardless of whether IMF prose
   // is also present. Run on every economic-context artifact (not gated
   // on claimsImfFigures) so an article that drops IMF entirely and

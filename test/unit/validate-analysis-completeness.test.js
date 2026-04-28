@@ -349,7 +349,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
     expect(result.stderr).toMatch(/economic-context\.md.*imf-cache:missing/);
   });
 
-  describe('Wave-4 IMF-primary policy: World Bank rejected for economic context', () => {
+  describe('IMF-primary policy: World Bank rejected for economic context', () => {
     function writeWBEconomicArtifact(extraBody = '') {
       writeEconomicContextManifest();
       fs.mkdirSync(path.join(runDir, 'cache/imf'), { recursive: true });
@@ -448,7 +448,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
 
     it('passes GREEN when economic-context cites WB only for non-economic governance (WGI)', () => {
       // World Bank Governance Indicator references are non-economic and
-      // therefore explicitly allowed by the Wave-4 partition. The detector
+      // therefore explicitly allowed. The detector
       // must not trigger here.
       writeWBEconomicArtifact(
         'World Bank WGI governance score for the rule of law is 1.6 in 2024 — non-economic cross-ref only.',
@@ -472,7 +472,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
       // citing several distinct WB economic series must surface all of
       // them to the editor in one validator run, not just the first.
       writeWBEconomicArtifact(
-        'World Bank NY.GDP.MKTP.KD.ZG, FP.CPI.TOTL.ZG, and SL.UEM.TOTL.ZS series cited in violation of Wave-4 policy.',
+        'World Bank NY.GDP.MKTP.KD.ZG, FP.CPI.TOTL.ZG, and SL.UEM.TOTL.ZS series cited in violation of IMF-primary policy.',
       );
       const result = runHere();
       expect(result.code).toBe(1);

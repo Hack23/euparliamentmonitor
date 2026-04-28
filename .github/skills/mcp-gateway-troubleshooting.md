@@ -499,7 +499,7 @@ export MCP_GATEWAY_PAYLOAD_SIZE_THRESHOLD=20480  # 20KB
 **Connection Pooling**:
 - Gateway automatically reuses connections per session
 - Ensure sessions are properly maintained
-- Monitor pool with: `DEBUG=launcher:pool ./awmg ...`
+- Monitor pool with: `DEBUG=launcher:pool./awmg...`
 
 ### Health Check Monitoring
 
@@ -563,14 +563,14 @@ When encountering an issue, follow this workflow:
    - [ ] Check per-server logs if backend-specific
 
 2. **Gather Diagnostics**
-   - [ ] Enable debug logging: `DEBUG=* ./awmg ...`
+   - [ ] Enable debug logging: `DEBUG=*./awmg...`
    - [ ] Check Docker status: `docker info && docker ps`
    - [ ] Verify environment variables: `env | grep MCP_GATEWAY`
    - [ ] Test configuration: `./awmg --config config.toml --validate-env`
 
 3. **Isolate the Problem**
    - [ ] Test health endpoint: `curl http://localhost:8000/health`
-   - [ ] Test backend directly: `docker run -i <container> ...`
+   - [ ] Test backend directly: `docker run -i <container>...`
    - [ ] Check authentication: Verify API key format
    - [ ] Review configuration: Look for typos and validation errors
 

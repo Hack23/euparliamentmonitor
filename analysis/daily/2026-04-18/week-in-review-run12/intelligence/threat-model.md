@@ -361,15 +361,15 @@ quadrantChart
 ```
 
 **Implications**:
-- **T1** (Banking Union) is HIGH-IMPACT but only MODERATELY-MITIGABLE by EU actors —
+- **T1** (Banking Union) is HIGH-IMPACT but only MODERATELY-MITIGABLE by EU actors
   primary lever lies in German federal politics and Italian Corte Costituzionale
   disposition.
-- **T2** (Housing collapse) is MEDIUM-HIGH-IMPACT and MODERATELY-HIGH-MITIGABLE —
+- **T2** (Housing collapse) is MEDIUM-HIGH-IMPACT and MODERATELY-HIGH-MITIGABLE
   Commission has agency up to Stage 3 publication; this is the threat where
   defensive investment yields most risk reduction.
 - **T3** (Section 301) is HIGH-IMPACT but LOW-MITIGABLE — US domestic-political
   drivers dominate; EU can at best shape timing and scope.
-- **T4** (Anti-Corruption challenge) is MEDIUM-IMPACT and MODERATELY-MITIGABLE —
+- **T4** (Anti-Corruption challenge) is MEDIUM-IMPACT and MODERATELY-MITIGABLE
   long timelines give preparation runway.
 
 ---
@@ -394,7 +394,7 @@ quadrantChart
 1. **T2 (housing collapse) is the threat most within defensive control** — Commission
    investment in multi-DG coordination and pre-briefing yields highest expected-value
    risk reduction per unit effort. See `scenario-forecast.md` §Scenario 2 indicators.
-2. **T1 (Banking Union transposition) demands external-partner engagement** —
+2. **T1 (Banking Union transposition) demands external-partner engagement**
    Commission DG FISMA and ECB SSM public communications April 22–25 are the
    leverage points.
 3. **T3 (Section 301) is largely exogenous** — EP can prepare resilience (TA-10-2026-

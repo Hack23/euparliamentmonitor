@@ -108,7 +108,7 @@ precautionary widening of eligible collateral.
   requires €100-250 bn of EU-level housing-targeted financing over
   2028-2034 MFF envelope (size inferred from Parliament rapporteurs'
   published positions 2025; not present in the motion text itself).
-* **TA-10-2026-0073 (EGF Tupperware BE)** and **-0103 (EGF KTM AT)** —
+* **TA-10-2026-0073 (EGF Tupperware BE)** and **-0103 (EGF KTM AT)**
   EGF drawdowns are small in absolute terms (€2-20 mn per
   application) but salient as signal of industrial-restructuring
   pressure.

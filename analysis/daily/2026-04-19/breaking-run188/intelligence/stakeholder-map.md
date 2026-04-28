@@ -86,7 +86,7 @@ quadrantChart
 > Quadrant 2 (top-left, Keep Satisfied) holds high-power actors currently in lower-
 > intensity engagement whose posture can escalate on a single signal — the ECB in
 > particular, whose April 30 meeting sits at the boundary of the analytical horizon.
-> Quadrant 4 (bottom-right, Keep Informed) contains high-interest lower-power actors —
+> Quadrant 4 (bottom-right, Keep Informed) contains high-interest lower-power actors
 > civil society coalitions and third-country trade partners — who shape the narrative
 > environment even when they cannot directly determine votes.
 
@@ -236,7 +236,7 @@ requirements and any SRMR3-triggered intervention. SSM ongoing preparatory work 
 resolvability-assessment templates continues regardless of plenary cadence.
 
 **Expected plenary impact**: Not a direct plenary actor, but an ECB public statement
-on SRMR3 early-intervention implementation timeline — delivered April 25–28 —
+on SRMR3 early-intervention implementation timeline — delivered April 25–28
 would strongly pre-commit the Council ratification and member-state transposition
 schedule toward the baseline Scenario A trajectory.
 
@@ -302,7 +302,7 @@ but fragmented on trade; critical on Global Gateway.
 **Power**: High committee-level access; extensive technical-expertise credibility;
 member-state-government coordination capacity. The DSGV (Sparkassen Association)
 specifically controls ~40% of German retail banking and has historically effective
-Bundesrat channels through CDU/CSU parliamentary groups. **Interest**: Variable —
+Bundesrat channels through CDU/CSU parliamentary groups. **Interest**: Variable
 DSGV high on BRRD3 bail-in requirements; BusinessEurope high on trade countermeasure
 scope; ECBA watching Anti-Corruption compliance costs; BDA monitoring Anti-Corruption
 whistleblower-protection employer implications.
@@ -315,7 +315,7 @@ phase.
 ### 13. Civil Society Coalition — Transparency International EU / EDRi / Access Now / noyb
 
 **Power**: Media amplification; Article 263 TFEU litigation capacity on AI Act/DMA
-enforcement; expert-witness credibility with EP committees. **Interest**: Extreme —
+enforcement; expert-witness credibility with EP committees. **Interest**: Extreme
 Anti-Corruption Directive implementation monitoring is TI-EU's flagship file;
 digital-rights coalition (EDRi/Access Now/noyb) continues Article 263 preparation
 work on Digital Omnibus provisions during recess.

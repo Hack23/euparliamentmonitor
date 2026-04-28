@@ -32,7 +32,7 @@ and [`07-mcp-reference.md`](../prompts/07-mcp-reference.md)) and feeds the
 Stage-B analysis artifacts catalogued in
 [`analysis/methodologies/artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md).
 Economic-context artifacts use WB/IMF data per
-[`worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) (non-economic only — Wave-4) / [`imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md) (sole authoritative economic source — Wave-4)
+[`worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) (non-economic) / [`imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md) (sole authoritative economic source)
 and [`imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md).
 
 ## Core Framework

@@ -7,32 +7,32 @@
 
 ---
 
-## 1. Article-Type Quality Matrix (Wave-4 IMF-primary)
+## 1. Article-Type Quality Matrix
 
-Under Wave-4 policy, **IMF is the sole authoritative source for
+Under **IMF is the sole authoritative source for
 economic context** for every article type below — World Bank is
 retained only for non-economic domains and is additive, not
 substitutable.
 
 | Article type | IMF contribution | Min IMF indicators | WB cross-ref allowed? |
 |---|---|:---:|:---:|
-| `news-week-ahead` | Forward-looking forecasts populate the "Economic outlook" paragraph with actual IMF numbers instead of AI-speculation | ≥ 2 | non-economic only |
-| `news-month-ahead` | Same as above + quarterly IFS inflation/unemployment trajectory | ≥ 2 | non-economic only |
-| `news-committee-reports` (ECON) | WEO+IFS+FSI core macro+monetary; GFSR for stability callouts | ≥ 4 | non-economic only |
-| `news-committee-reports` (BUDG) | FM debt, primary balance, structural balance | ≥ 3 | non-economic only |
+| `news-week-ahead` | Forward-looking forecasts populate the "Economic outlook" paragraph with actual IMF numbers instead of AI-speculation | ≥ 2 | non-economic |
+| `news-month-ahead` | Same as above + quarterly IFS inflation/unemployment trajectory | ≥ 2 | non-economic |
+| `news-committee-reports` (ECON) | WEO+IFS+FSI core macro+monetary; GFSR for stability callouts | ≥ 4 | non-economic |
+| `news-committee-reports` (BUDG) | FM debt, primary balance, structural balance | ≥ 3 | non-economic |
 | `news-committee-reports` (AFET / SEDE) | WEO macro context, DOT bilateral flows, EREO Europe briefs | ≥ 2 | defence/military on WB |
-| `news-committee-reports` (INTA) | DOT + BOP_AGG + WEO trade volume | ≥ 3 | non-economic only |
-| `news-weekly-review` | Period-over-period change from CPI/IFS; WEO-delta vs prior vintage | ≥ 1 | non-economic only |
-| `news-monthly-review` | Same + monthly PCPS commodity and ER exchange-rate context | ≥ 2 | non-economic only |
-| `news-breaking` | Eliminates "data to 2024" stale claim; cites Q4 2025 / Q1 2026 IFS inflation | ≥ 1 | non-economic only |
-| `news-motions` | Macro backdrop for legislative risk-assessment SWOT | ≥ 1 | non-economic only |
-| `news-propositions` | As motions | ≥ 1 | non-economic only |
+| `news-committee-reports` (INTA) | DOT + BOP_AGG + WEO trade volume | ≥ 3 | non-economic |
+| `news-weekly-review` | Period-over-period change from CPI/IFS; WEO-delta vs prior vintage | ≥ 1 | non-economic |
+| `news-monthly-review` | Same + monthly PCPS commodity and ER exchange-rate context | ≥ 2 | non-economic |
+| `news-breaking` | Eliminates "data to 2024" stale claim; cites Q4 2025 / Q1 2026 IFS inflation | ≥ 1 | non-economic |
+| `news-motions` | Macro backdrop for legislative risk-assessment SWOT | ≥ 1 | non-economic |
+| `news-propositions` | As motions | ≥ 1 | non-economic |
 | `news-article-generator` | Topic-dependent; matches the underlying article type | per underlying type | per underlying type |
 | `news-translate` | Terminology: preserve "IMF", "WEO", "Fiscal Monitor" proper names in non-Latin scripts | — | — |
 
 ---
 
-## 2. Decision Rule: When IMF is mandatory (Wave-3)
+## 2. Decision Rule: When IMF is mandatory
 
 IMF is **mandatory** for any policy-required article type whose
 subject matter touches:
@@ -116,7 +116,7 @@ attribution + data currency dates" checklist item in
 
 ---
 
-## 5. Canonical Citation Pattern (Wave-4)
+## 5. Canonical Citation Pattern
 
 ```
 <p>
@@ -131,7 +131,7 @@ attribution + data currency dates" checklist item in
 
 IMF is the primary citation for the fiscal claim; World Bank is
 additive for the non-economic health-expenditure framing. This
-pattern satisfies the Wave-4 editorial IMF-primary policy enforced at
+pattern satisfies the  editorial IMF-primary policy enforced at
 Stage C — see [`../methodologies/imf-indicator-mapping.md`](../methodologies/imf-indicator-mapping.md)
 for the per-committee mapping.
 

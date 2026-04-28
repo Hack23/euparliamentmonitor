@@ -169,7 +169,7 @@ No external OSINT signals of parliamentary significance detected on Easter Sunda
 - `get_meps_feed(timeframe:"today")` — 738 MEPs (stable)
 - `get_events_feed(timeframe:"today")` — 404 (Tier 2 offline, Day 7)
 - `get_procedures_feed(timeframe:"today")` — 404 (Tier 2 offline, Day 7)
-- `analyze_coalition_dynamics()` — group composition, alliance signals
+- `analyze_coalition_dynamics` — group composition, alliance signals
 - `early_warning_system(sensitivity:"medium")` — stability score 84/100
 - `get_all_generated_stats(category:"all")` — historical context
 - Direct document probes: TA-0092, 0094, 0096, 0101, 0104 — all DATA_UNAVAILABLE except 0101 (regression)

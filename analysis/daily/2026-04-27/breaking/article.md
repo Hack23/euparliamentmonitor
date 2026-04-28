@@ -1838,8 +1838,8 @@ This audit assesses the reliability of EP MCP server tools used in Stage A data 
 | Tool | Status | Result | §11 Triage | Action |
 |------|--------|--------|-----------|--------|
 | `get_adopted_texts_feed` | 🟢 OK | 25 items (FRESHNESS_FALLBACK to year=2026 list) | §11 row: FRESHNESS_FALLBACK expected when today-feed is empty | None |
-| `get_events_feed` | 🔴 ERROR | "EP API returned error-in-body" | §11 row #8: getEventsFeed() downgrades TIMEOUT to 🟡 SLOW_FEED_WARNING | Known degraded endpoint; no action |
-| `get_procedures_feed` | 🟡 DEGRADED | RECESS_MODE — historical data (1972-1980) returned | §11 row #5: detectProceduresFeedRecessMode() detects historical-archive responses; adds recessMode:true | Expected recessMode; no action |
+| `get_events_feed` | 🔴 ERROR | "EP API returned error-in-body" | §11 row #8: getEventsFeed downgrades TIMEOUT to 🟡 SLOW_FEED_WARNING | Known degraded endpoint; no action |
+| `get_procedures_feed` | 🟡 DEGRADED | RECESS_MODE — historical data (1972-1980) returned | §11 row #5: detectProceduresFeedRecessMode detects historical-archive responses; adds recessMode:true | Expected recessMode; no action |
 | `get_meps_feed` | 🟢 OK | Full MEP roster (payload too large — 33MB) | §11: OVERSIZED_PAYLOAD — full-census dump; MCP saves to payloadPath | No upstream issue; data accessible |
 | `get_adopted_texts (year=2026)` | 🟢 OK | 51 items returned across 3 pages | Direct endpoint reliable | None |
 | `get_plenary_sessions (year=2026)` | 🟢 OK | 21 sessions confirmed including MTG-PL-2026-04-27 | Direct endpoint reliable | None |
@@ -1858,7 +1858,7 @@ This audit assesses the reliability of EP MCP server tools used in Stage A data 
 **Workaround Applied**: Used `get_plenary_sessions(year=2026)` as direct fallback; confirmed April 27-30 Strasbourg plenary confirmed
 
 #### 2. `get_procedures_feed` — RECESS_MODE
-**Classification**: 🟢 KNOWN (§11 row #5 — detectProceduresFeedRecessMode() — historical-archive responses expected during low-activity periods)
+**Classification**: 🟢 KNOWN (§11 row #5 — detectProceduresFeedRecessMode — historical-archive responses expected during low-activity periods)
 **Impact**: Low — procedure feed data from 1972-1980 unusable, but adopted texts and plenary decisions provide equivalent legislative intelligence
 **Workaround Applied**: Adopted texts feed and direct `get_adopted_texts(year=2026)` used as primary source; 51 adopted texts in 2026 captured comprehensively
 

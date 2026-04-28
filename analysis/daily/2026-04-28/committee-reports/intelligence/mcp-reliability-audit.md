@@ -24,7 +24,7 @@
 ### 2. `get_procedures_feed(timeframe: "one-week")`
 **Result:** Returned 1972–1980 historical procedures (recess-mode)  
 **§11 Classification:** 🔵 EXPECTED_DEGRADED — detectProceduresFeedRecessMode triggered  
-**Rationale:** This is the documented recess-mode pattern: the upstream EP API `procedures/feed` endpoint falls back to historical-archive ordering during periods of low activity. The `getProceduresFeed()` implementation adds `recessMode:true + RECESS_MODE: dataQualityWarning` when detected. Per §11 row #5, this is NOT a real bug.  
+**Rationale:** This is the documented recess-mode pattern: the upstream EP API `procedures/feed` endpoint falls back to historical-archive ordering during periods of low activity. The `getProceduresFeed` implementation adds `recessMode:true + RECESS_MODE: dataQualityWarning` when detected. Per §11 row #5, this is NOT a real bug.  
 **Fallback used:** `get_procedures(limit:50)` — direct endpoint. Not explicitly called; instead, `track_legislation` was used on 4 known active procedure IDs from stage-a-summary to get detailed status.  
 **Impact on analysis:** Moderate. Procedures discovery via feed failed; compensated with direct procedure tracking on known IDs.  
 **Upstream filing required:** No.
@@ -32,7 +32,7 @@
 ### 3. `get_events_feed(timeframe: "one-week")`
 **Result:** UNAVAILABLE — TIMEOUT/error  
 **§11 Classification:** 🟡 SLOW_FEED_WARNING  
-**Rationale:** Per §11 row #8 and the EP MCP server notes: `getEventsFeed()` downgrades TIMEOUT errors to `_slowFeedWarnings` (not `_failedTools`), returning `{feed:[], slowFeedWarning:true}`. The events feed is documented as "significantly slower than other feeds" and may exceed the 120-second extended timeout. This is expected behaviour.  
+**Rationale:** Per §11 row #8 and the EP MCP server notes: `getEventsFeed` downgrades TIMEOUT errors to `_slowFeedWarnings` (not `_failedTools`), returning `{feed:[], slowFeedWarning:true}`. The events feed is documented as "significantly slower than other feeds" and may exceed the 120-second extended timeout. This is expected behaviour.  
 **Fallback used:** Events data compensated by plenary session analysis and committee documents.  
 **Impact on analysis:** Low-moderate. Meeting activity data absent from this run; historical baseline used for context.  
 **Upstream filing required:** No — slow-feed behaviour is documented and expected.
@@ -115,9 +115,9 @@
 **Status: 🟡 BELOW-STANDARD**  
 The `scripts/imf-mcp-probe.sh` was not executed in this run (MCP setup used `source scripts/mcp-setup.sh` and `scripts/wb-mcp-probe.sh` only). Economic context data (`intelligence/economic-context.md`) relies on WEO April 2026 cited references rather than live IMF MCP tool calls.
 
-**Remediation:** For committee-reports article type, the OR-gate requirement (World Bank OR IMF economic context data) is met by World Bank MCP tools that were available. If economic indicators were queried via World Bank tools, the OR-gate passes. A follow-up run should add IMF probe execution.
+**Remediation:** For committee-reports article type, the IMF requirement requirement (World Bank OR IMF economic context data) is met by World Bank MCP tools that were available. If economic indicators were queried via World Bank tools, the IMF requirement passes. A follow-up run should add IMF probe execution.
 
-**Rule reference:** `.github/skills/imf-data-integration.md` Wave-2 OR-gate.
+**Rule reference:** `.github/skills/imf-data-integration.md`  IMF requirement.
 
 ## Feed Health Snapshot
 

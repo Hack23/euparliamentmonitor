@@ -65,7 +65,7 @@ This directory contains **fourteen interlocking political-intelligence methodolo
 
 **Core Principle:** Every analytical claim requires verifiable evidence sourced from European Parliament open data. Opinion-based analysis, boilerplate summaries, and the unmodified use of software-centric threat models (such as STRIDE, DREAD, or PASTA) are explicitly rejected. Political threat analysis uses purpose-built frameworks (Political Threat Landscape, Attack Trees, Kill Chain, Diamond Model, ICO Profiling) designed specifically for democratic process analysis.
 
-**Design Philosophy:** The six core frameworks form a layered analytical pipeline — classification provides the foundation, risk and threat assessments build the analytical core, SWOT synthesizes strategic implications, style standards enforce writing quality, and the AI guide orchestrates the entire pipeline with quality gates. The eight supporting methodologies extend that pipeline horizontally: [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md) is the cross-cutting professional-tradecraft layer (ICD 203 · Admiralty Code · Words of Estimative Probability · SAT catalog · OSINT ethics) every artifact applies; [`synthesis-methodology.md`](synthesis-methodology.md) governs the Stage-B.7 synthesis layer; [`strategic-extensions-methodology.md`](strategic-extensions-methodology.md) and [`electoral-domain-methodology.md`](electoral-domain-methodology.md) cover deep-analysis and electoral-specific runs; [`per-document-methodology.md`](per-document-methodology.md) and [`structural-metadata-methodology.md`](structural-metadata-methodology.md) cover atomic per-EP-document analysis and run-level provenance; and [`imf-indicator-mapping.md`](imf-indicator-mapping.md) (primary, Wave-4) + [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) (non-economic only) govern the economic-context evidence ladder.
+**Design Philosophy:** The six core frameworks form a layered analytical pipeline — classification provides the foundation, risk and threat assessments build the analytical core, SWOT synthesizes strategic implications, style standards enforce writing quality, and the AI guide orchestrates the entire pipeline with quality gates. The eight supporting methodologies extend that pipeline horizontally: [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md) is the cross-cutting professional-tradecraft layer (ICD 203 · Admiralty Code · Words of Estimative Probability · SAT catalog · OSINT ethics) every artifact applies; [`synthesis-methodology.md`](synthesis-methodology.md) governs the Stage-B.7 synthesis layer; [`strategic-extensions-methodology.md`](strategic-extensions-methodology.md) and [`electoral-domain-methodology.md`](electoral-domain-methodology.md) cover deep-analysis and electoral-specific runs; [`per-document-methodology.md`](per-document-methodology.md) and [`structural-metadata-methodology.md`](structural-metadata-methodology.md) cover atomic per-EP-document analysis and run-level provenance; and [`imf-indicator-mapping.md`](imf-indicator-mapping.md) (primary) + [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) (non-economic) govern the economic-context evidence ladder.
 
 ---
 
@@ -300,21 +300,21 @@ graph LR
 | **Consumed by** | Stage-C completeness gate — `npm run validate-analysis -- <runDir>` ([`scripts/validate-analysis-completeness.js`](../../scripts/validate-analysis-completeness.js)) reads this JSON in machine mode to confirm every artifact meets its line/depth floor before the agentic-workflow reviewer creates the PR. Hermetic tests pass `--thresholds` to inject fixture floors. The duplicate `src/utils/validate-analysis-completeness.ts` runtime layer was purged in the April-2026 aggregator-pipeline migration. |
 | **Update cadence** | Bumped whenever `per-artifact-methodologies.md` tightens or loosens a floor; the two files must stay in lock-step |
 
-### 💱 IMF Indicator Mapping — `imf-indicator-mapping.md` (primary economic source — Wave-4)
+### 💱 IMF Indicator Mapping — `imf-indicator-mapping.md` (primary economic source)
 
 | Attribute | Value |
 |-----------|-------|
-| **Purpose** | Canonical mapping of IMF WEO / FM / IFS / BOP / ER / PCPS / GFSR / EREO / FSI / GFS / DOT indicator codes to EP analysis use cases — Wave-4 authoritative economic context for every policy-required article type |
+| **Purpose** | Canonical mapping of IMF WEO / FM / IFS / BOP / ER / PCPS / GFSR / EREO / FSI / GFS / DOT indicator codes to EP analysis use cases
 | **Paired MCP** | IMF REST SDMX 3.0 client in `src/mcp/imf-mcp-client.ts` (virtual tools `imf-list-databases`, `imf-search-databases`, `imf-get-parameter-defs`, `imf-get-parameter-codes`, `imf-fetch-data`) |
 
-### 🌍 World Bank Indicator Mapping — `worldbank-indicator-mapping.md` (non-economic only — Wave-4)
+### 🌍 World Bank Indicator Mapping — `worldbank-indicator-mapping.md` (non-economic)
 
 | Attribute | Value |
 |-----------|-------|
-| **Purpose** | Canonical mapping of World Bank WDI indicator codes — **non-economic domains only** under Wave-4: health, education, social, environment, demographics, defence, agriculture, innovation, governance. The legacy WB economic codes are retained for backward compatibility but MUST NOT be used in new articles; economic context → IMF |
+| **Purpose** | Canonical mapping of World Bank WDI indicator codes — **non-economic domains only**, education, social, environment, demographics, defence, agriculture, innovation, governance. The legacy WB economic codes are retained for backward compatibility but MUST NOT be used in new articles; economic context → IMF |
 | **Paired MCP** | World Bank MCP (`world-bank-*` tools) |
 
-> ✅ Together, `artifact-catalog.md` (**what**), `per-artifact-methodologies.md` (**how**), and `reference-quality-thresholds.json` (**how much**) form the Stage B / Stage C contract enforced by the Stage-C validator (`npm run validate-analysis`) plus an editorial completeness review. The two indicator-mapping files provide the Stage A economic-context inputs that Wave-4 editorial policy requires — IMF primary for economic/fiscal/monetary/trade claims, WB additive for non-economic domains. The legacy article-side runtime gates (`articlePolicyHasEconomicContext`, `articlePolicyHasIMFEconomicEvidence`, `WAVE3_IMF_STRICT` flag) and the duplicate `src/utils/validate-analysis-completeness.ts` were purged in the April-2026 aggregator-pipeline migration; analysis-completeness enforcement now lives exclusively in the surviving CLI plus Stage-C editorial review.
+> ✅ Together, `artifact-catalog.md` (**what**), `per-artifact-methodologies.md` (**how**), and `reference-quality-thresholds.json` (**how much**) form the Stage B / Stage C contract enforced by the Stage-C validator (`npm run validate-analysis`) plus an editorial completeness review. The two indicator-mapping files provide the Stage A economic-context inputs that editorial policy requires — IMF for economic/fiscal/monetary/trade claims, WB for non-economic domains. Analysis-completeness enforcement lives in the CLI plus Stage-C editorial review.
 
 ---
 

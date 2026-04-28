@@ -28,7 +28,7 @@
 |------|--------|-------|
 | MCP gateway setup | ✅ Completed | EP_MCP_GATEWAY_URL configured |
 | WB MCP probe | ✅ Completed | worldbank-mcp@1.0.1 operational |
-| IMF MCP probe | ⚠️ Not retrieved | WB data satisfies OR-gate; IMF fallback not required |
+| IMF MCP probe | ⚠️ Not retrieved | WB data satisfies IMF requirement; IMF fallback not required |
 | EP procedures feed | 🔴 RECESS_MODE | Known degraded — used track_legislation instead |
 | External documents feed | ✅ 6 items | ACT_FOLLOWUP documents April 22, 2026 |
 | Committee documents | 🔴 UNAVAILABLE | Known intermittent — analysis proceeds without |
@@ -47,7 +47,7 @@
 | intelligence/analysis-index.md | ✅ | 115+ | Registry complete |
 | intelligence/synthesis-summary.md | ✅ | 170+ | Three-front narrative |
 | intelligence/historical-baseline.md | ✅ | 130+ | EP6–EP10 comparison |
-| intelligence/economic-context.md | ✅ | 130+ | WB data cited; OR-gate satisfied |
+| intelligence/economic-context.md | ✅ | 130+ | WB data cited; IMF requirement satisfied |
 | intelligence/pestle-analysis.md | ✅ | 190+ | All 6 dimensions |
 | intelligence/stakeholder-map.md | ✅ | 220+ | Tier 1/2/3 actors |
 | intelligence/scenario-forecast.md | ✅ | 185+ | 4-scenario matrix |

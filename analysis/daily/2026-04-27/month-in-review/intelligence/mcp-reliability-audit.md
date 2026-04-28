@@ -26,7 +26,7 @@
 
 ### `get_procedures_feed` — 🟡 KNOWN ISSUE (§11 row #5)
 
-**Observed behavior:** Feed returned 50 items all dated 1972, indicating historical archive ordering. `detectProceduresFeedRecessMode()` logic applies: all items ≤1995 → recess mode flag.
+**Observed behavior:** Feed returned 50 items all dated 1972, indicating historical archive ordering. `detectProceduresFeedRecessMode` logic applies: all items ≤1995 → recess mode flag.
 
 **Triage result:** NOT a new bug. Documented at §11 row #5 as `STALENESS_WARNING / recessMode:true` — a known degraded-upstream pattern where the EP API falls back to historical archive ordering. Mitigation applied: used `get_adopted_texts` direct endpoint instead.
 
@@ -102,4 +102,4 @@
 - ✅ No `tools: ["*"]` or wildcard tool specifications used
 - ✅ ENRICHMENT_FAILED warnings properly logged and not re-raised as bugs
 - ✅ Empty voting/speech results handled per protocol (not treated as errors)
-- ✅ IMF institutional knowledge applied with proper vintage labelling per Wave-2 OR-gate policy
+- ✅ IMF institutional knowledge applied with proper vintage labelling

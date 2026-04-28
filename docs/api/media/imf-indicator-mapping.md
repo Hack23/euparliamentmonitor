@@ -174,15 +174,6 @@ per-article-type floor in §2 / §8. The same IMF-backed facts may inform
 contains the EP policy bridge described in `economic-context.md` and
 `Article-Generation.md`'s SEO metadata contract.
 
-> The earlier runtime helpers (`hasIMFEvidence`, `hasWorldBankEvidence`,
-> `articlePolicyHasWorldBank`, `articlePolicyHasEconomicContext`,
-> `articlePolicyHasIMFEconomicEvidence`, plus the
-> `IMF_STRONG_FINGERPRINTS` / `IMF_INDICATOR_CODES` /
-> `WORLD_BANK_STRONG_FINGERPRINTS` / `WORLD_BANK_INDICATOR_CODES`
-> tables) lived in `src/utils/content-validator.ts` and were purged in
-> the April-2026 aggregator-pipeline migration. The Stage-C editorial
-> review replaces them in full.
-
 ---
 
 ## 5. Forecast Labelling Rule

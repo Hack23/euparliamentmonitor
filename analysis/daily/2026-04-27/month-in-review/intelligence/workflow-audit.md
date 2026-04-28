@@ -41,7 +41,7 @@
 - ✅ No `[AI_ANALYSIS_REQUIRED]` placeholder markers in completed artifacts
 - ✅ Evidence citations use specific document references (TA-10-2026-xxxx)
 - ✅ IMF institutional knowledge applied with vintage labelling (data-vintage="WEO-April-2026")
-- ✅ Shell-safety compliance: no nested `$()`, no `${var@P}`, no `${!var}` in any bash block
+- ✅ Shell-safety compliance: no nested `$`, no `${var@P}`, no `${!var}` in any bash block
 
 ### Tripwire Monitoring
 - **Minute 16 tripwire:** Pass 2 must begin at or before minute 16

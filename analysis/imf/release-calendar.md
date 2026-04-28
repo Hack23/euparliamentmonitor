@@ -4,7 +4,7 @@
 # 📅 IMF Release Calendar — EU Parliament Monitor
 
 > **Purpose**: Rolling 18-month calendar of IMF flagship vintages
-> (WEO, FM, GFSR, EREO, IFS, CPI, BOP) with EP editorial triggers —
+> (WEO, FM, GFSR, EREO, IFS, CPI, BOP) with EP editorial triggers
 > i.e. which article types must refresh their economic-context block
 > within 14 days of each release.
 
@@ -13,7 +13,7 @@
 > Dates below are indicative — IMF occasionally shifts by 1–2 weeks.
 > The authoritative source is
 > [imf.org/en/Publications/SPROLLs/calendar](https://www.imf.org/en/Publications/SPROLLs/calendar).
-> Agents and workflow schedulers MUST NOT hard-code these dates —
+> Agents and workflow schedulers MUST NOT hard-code these dates
 > always query the live calendar and use this file as an editorial
 > relevance map.
 

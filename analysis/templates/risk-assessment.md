@@ -195,7 +195,7 @@ graph TD
 
 | Scenario | Probability | Key Trigger | Risk Dimensions Affected |
 |----------|:----------:|------------|-------------------------|
-| `[REQUIRED: Most likely outcome]` | `[%]` | `[Specific EP trigger]` | `[Coalition + Legislative + ...]` |
+| `[REQUIRED: Most likely outcome]` | `[%]` | `[Specific EP trigger]` | `[Coalition + Legislative +...]` |
 | `[REQUIRED: Alternative outcome]` | `[%]` | `[Specific EP trigger]` | `[Risk dimensions]` |
 | `[OPTIONAL: Worst case]` | `[%]` | `[Specific EP trigger]` | `[Risk dimensions]` |
 

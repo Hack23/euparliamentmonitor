@@ -85,4 +85,4 @@
 | Coalition analysis | EP MCP size-proxy scores | 2026-04-27 |
 | Voting patterns | Inferred (roll-call delayed) | N/A — proxy analysis |
 
-**Data vintage compliance:** `data-vintage="WEO-April-2026"` applied to all IMF-sourced projections per Wave-2 OR-gate editorial policy.
+**Data vintage compliance:** `data-vintage="WEO-April-2026"` applied to all IMF-sourced projections.

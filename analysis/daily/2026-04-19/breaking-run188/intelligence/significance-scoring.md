@@ -58,10 +58,10 @@ Run 188 marks the first time official EP legislative titles are confirmed for:
 - **TA-10-2026-0094**: *"Combating corruption"* — first EU mandatory anti-corruption
   standard
 - **TA-10-2026-0096**: *"Adjustment of customs duties and opening of tariff quotas
-  for the import of certain goods originating in the United States of America"* —
+  for the import of certain goods originating in the United States of America"*
   the EU's formal legislative response to Trump tariffs, confirmed dual-instrument
   title
-- **TA-10-2026-0104**: *"Global Gateway — past impacts and future orientation"* —
+- **TA-10-2026-0104**: *"Global Gateway — past impacts and future orientation"*
   €300bn EU investment initiative review
 
 These titles were not accessible in any prior run's direct document lookups. They

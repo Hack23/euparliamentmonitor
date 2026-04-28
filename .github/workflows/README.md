@@ -27,7 +27,7 @@ This directory contains GitHub Actions workflows for the EU Parliament Monitor p
 
 ### 📰 News Generation (Agentic Workflows)
 
-The project uses **agentic workflow markdown files** (`.md`) that are compiled to `.lock.yml` files via `gh aw compile --validate`. Each news workflow generates a specific type of EU Parliament article using the European Parliament MCP server as the primary data source, with **IMF native REST-client enrichment as the sole authoritative source for economic context** (Wave-4 policy) and World Bank MCP enrichment **only for non-economic domains** (health, education, social, environment, demographics, defence, agriculture, innovation, governance). World Bank is **never** used for economic context — not primary, not secondary, not fallback. (The World Bank is mounted as an MCP server; IMF data is fetched via a native TypeScript REST client — there is no IMF MCP mount in the workflow frontmatter.)
+The project uses **agentic workflow markdown files** (`.md`) that are compiled to `.lock.yml` files via `gh aw compile --validate`. Each news workflow generates a specific type of EU Parliament article using the European Parliament MCP server as the primary data source, with **IMF native REST-client enrichment as the sole authoritative source for economic context** and World Bank MCP enrichment **only for non-economic domains** (health, education, social, environment, demographics, defence, agriculture, innovation, governance). World Bank is — (The World Bank is mounted as an MCP server; IMF data is fetched via a native TypeScript REST client — there is no IMF MCP mount in the workflow frontmatter.)
 
 > **Unified single-PR architecture (canonical):** each article type is
 > served by a **single** unified workflow (`news-<type>.md`, 45-min timeout)
@@ -349,7 +349,7 @@ incrementally during the run and persists independently of the
 - Open up to 10 PRs at once
 - Groups minor/patch updates
 - Automatic labeling with `dependencies`, `javascript`, `github_actions`
-- Commit message format: `build(deps): ...`
+- Commit message format: `build(deps):...`
 - Reviewers/Assignees: Hack23
 
 **Security**: Enables automated security updates for vulnerabilities
@@ -548,7 +548,7 @@ jobs:
 **Problem**: CodeQL analysis encounters errors
 
 **Solution**:
-1. Check JavaScript syntax in all .js files
+1. Check JavaScript syntax in all.js files
 2. Verify no build step required (build-mode: none)
 3. Review ignored paths configuration
 4. Check CodeQL query compatibility

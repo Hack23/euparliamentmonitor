@@ -93,7 +93,7 @@ Every article-generating workflow produces a **39-template analysis artifact set
 - `news-translate.md` (45 min, multi-call flush) → first productive flush at ~minute 14, periodic flushes every +3 translated files, final flush by minute ≤ 28
 - If you finish early, go back and improve. There is ALWAYS more depth to add.
 
-**Quality Gates**: ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, zero `[AI_ANALYSIS_REQUIRED]` markers, **IMF** economic context data — IMF is the **sole authoritative source** for every economic / fiscal / monetary / trade / FDI / exchange-rate / banking-soundness claim in policy articles (Wave-4 IMF-primary editorial policy — see `.github/skills/imf-data-integration.md`). World Bank is **never** acceptable for economic context (it is reserved for non-economic domains only: health, education, social, environment, demographics, defence, agriculture, innovation, governance).
+**Quality Gates**: ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, zero `[AI_ANALYSIS_REQUIRED]` markers, **IMF** economic context data — IMF is the **sole authoritative source** for every economic / fiscal / monetary / trade / FDI / exchange-rate / banking-soundness claim in policy articles.
 
 ## 🚨 Critical Rules
 
@@ -106,7 +106,7 @@ Every article-generating workflow produces a **39-template analysis artifact set
 6. **ISMS Compliance** - Follow ISO 27001, NIST CSF, CIS Controls frameworks
 7. **Architecture Docs** - Update ARCHITECTURE.md, SECURITY_ARCHITECTURE.md when relevant
 8. **Minimal Changes** - Make surgical, focused changes only
-9. **gh-aw Workflows** - Compile with `gh aw compile --validate` after editing .md workflows
+9. **gh-aw Workflows** - Compile with `gh aw compile --validate` after editing.md workflows
 
 ### MUST NOT Do
 1. **Never** hard-code secrets, credentials, or API keys
@@ -129,9 +129,9 @@ Apply these rules to **every** executable bash block — inside `.github/workflo
 | **Nested parameter expansion** | `${var#${other}}`, `${A:-${B:-}}`, `${var:+...${#other}...}` | Inner expansion result becomes part of the outer pattern — classic prompt-injection vector |
 | **Indirect expansion** | `${!var}`, `${!prefix*}`, `${!prefix@}` | Reads arbitrary variables by name |
 | **Parameter transformation** | `${var@P}`, `${var@Q}`, `${var@E}`, `${var@A}`, `${var@K}`, `${var@a}` | `@P` re-evaluates the string as a prompt; the others leak state |
-| **Nested command substitution** | `$(cmd $(inner))`, `$(wc -l < "$(...)")` | Inner `$()` executes under the outer |
-| **Default-with-command-substitution** | `${VAR:-$(cmd)}`, `${VAR:+$(cmd)}` | Same as nested `$()` — the default expression is a live command |
-| **Input redirection inside `$()`** | `$(cmd < file)`, `$(cmd 2< file)` | Redirection inside substitution — often used to smuggle arbitrary reads |
+| **Nested command substitution** | `$(cmd $(inner))`, `$(wc -l < "$(...)")` | Inner `$` executes under the outer |
+| **Default-with-command-substitution** | `${VAR:-$(cmd)}`, `${VAR:+$(cmd)}` | Same as nested `$` — the default expression is a live command |
+| **Input redirection inside `$`** | `$(cmd < file)`, `$(cmd 2< file)` | Redirection inside substitution — often used to smuggle arbitrary reads |
 | **`eval`** | `eval "$str"`, `eval $cmd` | Explicit arbitrary-code execution |
 | **Adjacent `${RANDOM}${RANDOM}`** | `suffix="${RANDOM}${RANDOM}"` | Adjacency heuristic trips nested-expansion detection |
 
@@ -182,7 +182,7 @@ rel=$(printf '%s\n' "$f" | awk -v p="$ANALYSIS_DIR/" '
 
 **6. `eval "$cmd"`** — replace with explicit `case` or `if` dispatch. Never construct commands from variables.
 
-**7. Input redirection inside `$()` — `$(cmd < file)`**
+**7. Input redirection inside `$` — `$(cmd < file)`**
 
 ```bash
 cmd "$file"              # PREFERRED — most tools accept a path argument
@@ -196,7 +196,7 @@ result=$(cat "$file" | cmd)
 
 ### Allowed patterns (safe, idiomatic bash)
 
-- Single-level `$(cmd)` with no inner `$()` and no `<` redirection
+- Single-level `$(cmd)` with no inner `$` and no `<` redirection
 - Simple parameter expansion: `${var}`, `${var:-default}`, `${var:=default}`, `${var:?err}`, `${var:+alt}`, `${#var}`, `${var:offset:length}`, `${var/pat/sub}`, `${var%suffix}`, `${var#prefix}` — as long as the inner operand is a **literal**, not another expansion or substitution
 - `if`/`elif`/`else`/`case` dispatch — the preferred way to express defaults and fall-backs
 - Shell arrays: `arr=("$a" "$b")`, `"${arr[@]}"`, `"${arr[0]}"`

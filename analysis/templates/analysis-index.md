@@ -205,7 +205,7 @@ No "TBD" rows in inventory: `[REQUIRED: ✅ none / ⚠️ count]`
 | 2 | All artifacts tagged P2 (no P1/P3 differentiation) | Priority rubric violated; on-call has no entry point. |
 | 3 | `manifest.json` count diverges from inventory count | Internal inconsistency — Stage-C blocker. |
 | 4 | "Reading time 5 min" assigned to a 400-line file | Arithmetic violation. |
-| 5 | Index missing `imf/vintage-audit.md` on a policy-article run | Required artifact omitted (Wave-2 OR-gate). |
+| 5 | Index missing `imf/vintage-audit.md` on a policy-article run | Required artifact omitted. |
 | 6 | Broken relative path (e.g. `./intelligence/missing.md`) | Reviewer's link doesn't resolve. |
 
 ---

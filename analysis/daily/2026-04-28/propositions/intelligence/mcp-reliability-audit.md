@@ -18,7 +18,7 @@ This artifact documents the EP MCP tool invocations during Stage A data collecti
 
 | # | Tool | Status | Classification | Notes |
 |---|------|--------|----------------|-------|
-| 1 | `get_procedures_feed` (one-week) | RECESS_MODE → 1972-1990 data | 🟢 Expected | §11 row #5: historical archive pattern; `detectProceduresFeedRecessMode()` detects all items ≤1995. Not a failure. |
+| 1 | `get_procedures_feed` (one-week) | RECESS_MODE → 1972-1990 data | 🟢 Expected | §11 row #5: historical archive pattern; `detectProceduresFeedRecessMode` detects all items ≤1995. Not a failure. |
 | 2 | `get_external_documents_feed` (one-week) | 6 items returned (April 22) | 🟢 Working | Council SP responses — genuine recent data |
 | 3 | `get_committee_documents_feed` (one-week) | ERROR / UNAVAILABLE | 🟡 Acceptable | Known intermittent upstream EP API error; documented as degraded feed pattern |
 | 4 | `get_procedures` (limit=50) | Same RECESS_MODE archive data | 🟢 Expected | Consistent with feed RECESS_MODE; confirmed pattern |

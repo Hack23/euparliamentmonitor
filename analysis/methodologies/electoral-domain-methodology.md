@@ -175,7 +175,7 @@ Analyze the **27-member-state electorate** that produces the EP composition. Ess
 
 - `analyze_country_delegation` — per-country MEP analysis
 - `get_meps` — filtered by country and political group
-- IMF MCP tools (sole authoritative economic source — Wave-4 policy) + World Bank MCP tools (non-economic demographic and social indicators only — never for economic context)
+- IMF MCP tools (sole authoritative economic source) + World Bank MCP tools (non-economic demographic and social indicators only —)
 
 ### Segmentation Dimensions
 

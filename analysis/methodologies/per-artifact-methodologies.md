@@ -176,7 +176,7 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Purpose.** Political / Economic / Social / Technological / Legal / Environmental scan of factors shaping the period's dominant issue.
 
-**EP MCP inputs.** `get_procedures`, `get_adopted_texts`, `search_documents`, plus **IMF** economic context (sole authoritative source — Wave-4) and World Bank non-economic context (health, education, social, environment, demographics, defence, agriculture, innovation, governance only) via [`imf-indicator-mapping.md`](imf-indicator-mapping.md) and [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md). World Bank is **never** acceptable for the Economic dimension of PESTLE.
+**EP MCP inputs.** `get_procedures`, `get_adopted_texts`, `search_documents`, plus **IMF** economic context (sole authoritative source) and World Bank non-economic context (health, education, social, environment, demographics, defence, agriculture, innovation, governance only) via [`imf-indicator-mapping.md`](imf-indicator-mapping.md) and [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md).
 
 **Required sections.**
 1. Issue frame — the question the scan answers.
@@ -188,7 +188,7 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Depth floor (breaking):** 250 lines.
 
-**Quality signals.** At least one IMF indicator cited for any economic dimension (Wave-4 sole authoritative source); WB non-economic indicator additionally cited for health/education/social/environment/defence dimensions; legal dimension cites at least one treaty article or CJEU reference; each dimension's pressure rating has a written justification.
+**Quality signals.** At least one IMF indicator cited for any economic dimension; WB non-economic indicator additionally cited for health/education/social/environment/defence dimensions; legal dimension cites at least one treaty article or CJEU reference; each dimension's pressure rating has a written justification.
 
 ---
 
@@ -270,12 +270,12 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 ### economic-context
 
-**Purpose.** Anchor the period's policy topics in **IMF** (sole authoritative source — Wave-4) macro, fiscal, trade, monetary, exchange-rate, banking-soundness, and commodity data. World Bank is **never** acceptable for economic context (not primary, not secondary, not fallback) — it is reserved for non-economic cross-refs only (health, education, social, environment, demographics, defence, agriculture, innovation, governance).
+**Purpose.** Anchor the period's policy topics in **IMF** (sole authoritative source) macro, fiscal, trade, monetary, exchange-rate, banking-soundness, and commodity data.
 
-**EP MCP inputs.** IMF native client (`scripts/imf-mcp-probe.sh`, tools `imf-fetch-data` / `imf-search-databases` / `imf-get-parameter-defs` / `imf-get-parameter-codes`) is the **sole** authoritative source for economic / fiscal / monetary / trade / FDI / exchange-rate / banking-soundness claims. World Bank MCP (`worldbank-get-social-data`, `worldbank-get-health-data`, `worldbank-get-education-data`) is additive for non-economic context only — never for economic claims (not primary, not secondary, not fallback). See [Wave-4 IMF-primary policy](../../.github/skills/imf-data-integration.md).
+**EP MCP inputs.** IMF native client (`scripts/imf-mcp-probe.sh`, tools `imf-fetch-data` / `imf-search-databases` / `imf-get-parameter-defs` / `imf-get-parameter-codes`) is the **sole** authoritative source for economic / fiscal / monetary / trade / FDI / exchange-rate / banking-soundness claims. World Bank MCP (`worldbank-get-social-data`, `worldbank-get-health-data`, `worldbank-get-education-data`) is used for non-economic context (health, education, social, environment, demographics, defence, agriculture, innovation, governance). See [policy](../../.github/skills/imf-data-integration.md).
 
 **Required sections.**
-1. Topic-to-indicator mapping — table linking each EP policy topic discussed this period to ≥1 **IMF** SDMX series (required for economic topics) plus optional WB non-economic cross-refs. See [`imf-indicator-mapping.md`](imf-indicator-mapping.md) and (non-economic only) [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md).
+1. Topic-to-indicator mapping — table linking each EP policy topic discussed this period to ≥1 **IMF** SDMX series (required for economic topics) plus optional WB non-economic cross-refs. See [`imf-indicator-mapping.md`](imf-indicator-mapping.md) and (non-economic) [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md).
 2. EU-27 headline indicators — IMF WEO latest values + 5-year trend + delta vs. EU average.
 3. Affected member-state focus — ≥3 member states most exposed to the period's dominant policy; compare IMF indicators.
 4. Forward outlook — IMF WEO / Fiscal Monitor projection data (+5y). Apply optimism-bias caveat sized per [`../imf/forecast-accuracy-baseline.md`](../imf/forecast-accuracy-baseline.md) for horizons ≥3y.
@@ -431,7 +431,7 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 **Depth floor (breaking):** 150 lines (weekly / other: 120 lines).
 
-**Quality signals.** ≥5 RCV IDs cited; every cohesion % has a vote-count backing; aggregate-only claims explicitly flagged LOW confidence where EP roll-call data has not yet published. §"Voting Data Freshness" table present with `source` field populated (`mcp` / `ep-open-data-portal` / `unavailable`); when source is `ep-open-data-portal` the CC BY 4.0 attribution string is present and WEP bands widened +5 pp; when source is `unavailable` all coalition claims carry explicit LOW-confidence flag and WEP bands widened +10 pp per `osint-tradecraft-standards.md` §3.1. The D-02 fallback path (`getVotingRecordsWithFallback()` in `src/mcp/ep-open-data-client.ts`) is invoked whenever `get_voting_records` returns an empty votes array — **structural-proxy cohesion scores may never be used as a silent substitute for real voting data**.
+**Quality signals.** ≥5 RCV IDs cited; every cohesion % has a vote-count backing; aggregate-only claims explicitly flagged LOW confidence where EP roll-call data has not yet published. §"Voting Data Freshness" table present with `source` field populated (`mcp` / `ep-open-data-portal` / `unavailable`); when source is `ep-open-data-portal` the CC BY 4.0 attribution string is present and WEP bands widened +5 pp; when source is `unavailable` all coalition claims carry explicit LOW-confidence flag and WEP bands widened +10 pp per `osint-tradecraft-standards.md` §3.1. The D-02 fallback path (`getVotingRecordsWithFallback` in `src/mcp/ep-open-data-client.ts`) is invoked whenever `get_voting_records` returns an empty votes array — **structural-proxy cohesion scores may never be used as a silent substitute for real voting data**.
 
 ---
 
@@ -932,7 +932,7 @@ Older `motions-*` runs mirror `intelligence/coalition-dynamics.md`, `intelligenc
 
 **Required sources.** All artifacts in this run.
 
-**Construction steps.** (1) Parse every artifact for `[[link]]` / `]()` references. (2) Build citation-edge list. (3) Mermaid graph. (4) Identify orphans and over-cites. (5) Flag evidence-terminal vs synthesis-terminal nodes.
+**Construction steps.** (1) Parse every artifact for `[[link]]` / `]` references. (2) Build citation-edge list. (3) Mermaid graph. (4) Identify orphans and over-cites. (5) Flag evidence-terminal vs synthesis-terminal nodes.
 
 **Quality signals.** ≥260 lines. Citation graph ≥30 edges. Orphan / over-cite flags. Evidence-terminal nodes identified.
 

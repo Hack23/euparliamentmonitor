@@ -428,7 +428,7 @@ Produce the **≤90-second decision-grade briefing** for editors, duty officers,
    - 🟠 **Second development** — named actor, quantified effect
    - 🟢 **Positive development** or win for democratic accountability
    - 🟡 **Point of tension** or ambiguity
-   - 🔵 **Data point** — Eurostat / ECB / IMF (sole authoritative economic source — Wave-4) figure with year. World Bank may appear only for non-economic data points (health, education, social, environment, demographics, defence, agriculture, innovation, governance) and is **never** acceptable for economic data points.
+   - 🔵 **Data point** — Eurostat / ECB / IMF (sole authoritative economic source) figure with year. World Bank appears for non-economic data points (health, education, social, environment, demographics, defence, agriculture, innovation, governance).
    - 🟣 **Cross-reference** — link to another document or cluster
    - 🩷 **Emerging threat** — political-threat-landscape dimension
    - ⚪ **Carry-forward** — only if relevant from prior session

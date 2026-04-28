@@ -55,7 +55,7 @@ Per `analysis/methodologies/ai-driven-analysis-guide.md` Rule 22 and Step 10.5, 
 
 **Tradecraft note:** The IMF MCP (`imf-fetch-data` tool) was not available in this run environment. Economic context (ECB rate cycle, EU GDP outlook, inflation trajectory) was inferred from institutional knowledge based on ECB Annual Report context (TA-10-2026-0034) rather than from live IMF query data.
 
-**Quality impact:** 🔴 **Acknowledged gap** — the Wave-2 OR-gate economic quality requirement (World Bank OR IMF data) was not met through direct tool query. Economic indicators are qualitatively contextual, not quantitatively confirmed from live source.
+**Quality impact:** 🔴 **Acknowledged gap** — the  IMF requirement economic quality requirement (World Bank OR IMF data) was not met through direct tool query. Economic indicators are qualitatively contextual, not quantitatively confirmed from live source.
 
 **Compensating measure:** The economic-context artifact explicitly flags this limitation with a 🔴 indicator. The analysis is not wrong — it is based on correct institutional knowledge — but it lacks the live-data confirmation that the quality framework requires.
 

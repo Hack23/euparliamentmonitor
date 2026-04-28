@@ -480,9 +480,9 @@ flowchart LR
 
 ---
 
-## 📊 IMF Economic Context Summary (primary, Wave-4)
+## 📊 IMF Economic Context Summary (primary)
 
-> **AI Instructions (Wave-4):** Include a summary of **IMF** data context for the synthesis period — IMF is the required primary source for every economic citation. World Bank is retained only for non-economic domains and is optional/additive. Reference `analysis/imf/indicator-catalog.md` + `analysis/imf/database-directory.md` as the full indicator/database references, and `analysis/methodologies/imf-indicator-mapping.md §8` for per-article-type indicator floors.
+> **AI Instructions:** Include a summary of **IMF** data context for the synthesis period — IMF is the required primary source for every economic citation. World Bank is used for non-economic domains and is optional/additive. Reference `analysis/imf/indicator-catalog.md` + `analysis/imf/database-directory.md` as the full indicator/database references, and `analysis/methodologies/imf-indicator-mapping.md §8` for per-article-type indicator floors.
 
 ### Period Economic Snapshot (IMF primary)
 

@@ -110,7 +110,7 @@ If ECB delivers two additional rate cuts in H2 2026 (priced in by markets as of 
 Euro area sovereign borrowing costs fall by ~40–50bp. This creates genuine fiscal space for
 member states to co-invest alongside the CID framework without breaching SGP deficit limits.
 The political opportunity is to use the CID legislative process to embed fiscal space provisions
-(investment clauses) that would allow CID co-investment to be excluded from SGP calculations —
+(investment clauses) that would allow CID co-investment to be excluded from SGP calculations
 a proposal that S&D and Renew support and that Commission's Fiscal Monitor analysis
 would likely endorse. 🟡 **WEP: Realistic possibility (40–55%)** for ECB cut materialising.
 

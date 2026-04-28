@@ -1732,8 +1732,8 @@ Data not available from World Bank API:
 - Italy GDP growth 2024: NOT RETURNED (API coverage gap)
 - Spain GDP: NOT RETURNED (API coverage gap)
 
-**IMF data gap (Wave-2 policy)**:
-IMF SDMX 3.0 EU-level aggregate data was not collected in this run due to time constraints. Future runs should include IMF EU-level data as the primary economic context source per Wave-2 policy.
+**IMF data gap**:
+IMF SDMX 3.0 EU-level aggregate data was not collected in this run due to time constraints. Future runs should include IMF EU-level data as the primary economic context source.
 
 **Estimated IMF aggregate for EU**:
 - EU GDP growth 2024 (IMF WEO estimate): ~0.8%
@@ -3405,18 +3405,18 @@ Given the persistent outage, this run used the following sourcing hierarchy:
 - Note: Only January-February sessions returned; March sessions may have data lag
 - Data quality: MEDIUM — session dates confirmed but coverage incomplete
 
-**Tool**: get_all_generated_stats()
+**Tool**: get_all_generated_stats
 - Result: �� SUCCESS — comprehensive multi-year precomputed dataset
 - Data quality: HIGH — EPP 185, S&D 135, PfE 84, ECR 79, Renew 76, Greens 53, GUE/NGL 46, ESN 28, NI 32
 - Coverage: EP6-EP10 historical data; 2026 partial year (114 legislative acts)
 - Note: Precomputed/cached data — unaffected by feed outage
 
-**Tool**: analyze_coalition_dynamics()
+**Tool**: analyze_coalition_dynamics
 - Result: Partial — EPP returned as 0 seats (known API normalization bug); other 6 groups correct
 - Status: 🟡 PARTIAL
 - Mitigation: Used get_all_generated_stats EPP count (185) directly
 
-**Tool**: early_warning_system()
+**Tool**: early_warning_system
 - Result: 🟢 SUCCESS — stability score 87/100; 2 warnings (attendance flag, coalition divergence flag)
 - Data quality: HIGH for stability score
 
@@ -3899,10 +3899,10 @@ Confidence label distribution is appropriate for a degraded-API run.
 
 ### Improvement Recommendations for Future Runs
 
-1. Include IMF SDMX 3.0 call for EU-level economic aggregates (Wave-2 policy requirement)
+1. Include IMF SDMX 3.0 call for EU-level economic aggregates
 2. Cache EP adopted texts locally to avoid repeated pagination
 3. Add analyze_committee_activity calls for INTA/ECON/LIBE when available
-4. Automate World Bank country code filtering using isMCPSupportedWBCountryCode()
+4. Apply World Bank country code allow-list editorially at Stage A
 5. Improve cross-referencing: add explicit citation links in ALL artifacts
 
 🟢 HIGH confidence on quality score methodology. 🟡 MEDIUM confidence on absolute score values.
@@ -4144,7 +4144,7 @@ Stage C gate ready.
 
 **World Bank data**: Successfully retrieved Germany GDP growth (-0.50%), Germany GDP_PER_CAPITA, France GDP (€3.16T). Failed: France GDP_GROWTH (no data in API), Italy GDP_GROWTH (no data).
 
-**IMF data gap**: IMF SDMX 3.0 endpoint not queried in this run due to time constraints (legacy decision; future runs should include IMF EU-level aggregates per Wave-2 policy).
+**IMF data gap**: IMF SDMX 3.0 endpoint not queried in this run due to time constraints (legacy decision; future runs should include IMF EU-level aggregates).
 
 **Economic significance**: The Germany -0.50 0DP growth in 2024 is crucial context for the March 26 trade package. German economic stagnation makes German MEPs (and by extension CDU/CSU = EPP bloc) more receptive to trade defence instruments — the political economy argument for TDI extension is stronger in a contracting economy than an expanding one.
 
@@ -4204,7 +4204,7 @@ Stage C gate ready.
 5. Prior-run editorial context providing story continuity
 
 **What should improve in future runs**:
-1. Include IMF EU-level aggregates (per Wave-2 policy — was omitted due to time pressure)
+1. Include IMF EU-level aggregates (per was omitted due to time pressure)
 2. Cache adopted texts metadata to avoid repeated pagination calls
 3. EP committee-level analysis (analyze_committee_activity was not called due to time constraints)
 4. Deeper MEP-level voting pattern analysis when API not in outage

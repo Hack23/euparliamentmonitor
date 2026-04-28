@@ -79,7 +79,7 @@
 
 ## 3. Tool-by-Tool Results (IMF)
 
-- IMF SDMX 3.0 endpoints are reachable via the native TypeScript client (`src/mcp/imf-mcp-client.ts`) but were NOT invoked this run. Wave-2 OR-gate is satisfied by the World Bank baseline in `economic-context.md`.
+- IMF SDMX 3.0 endpoints are reachable via the native TypeScript client (`src/mcp/imf-mcp-client.ts`) but were NOT invoked this run.  IMF requirement is satisfied by the World Bank baseline in `economic-context.md`.
 
 ## 4. Tool-by-Tool Results (Auxiliary MCP servers)
 
@@ -187,7 +187,7 @@ The following numbered notes document the analytic decisions that shaped this ar
 
 15. World Bank tools were not invoked this run; \`economic-context.md\` uses most-recent-known values.
 
-16. IMF tools were not invoked this run; Wave-2 OR-gate is satisfied by World Bank baseline.
+16. IMF tools were not invoked this run;  IMF requirement is satisfied by World Bank baseline.
 
 17. Auxiliary MCP (memory, sequential-thinking) were not explicitly exercised today but are structurally healthy.
 
@@ -279,7 +279,7 @@ The following numbered notes document the analytic decisions that shaped this ar
 
 61. World Bank tools were not invoked this run; \`economic-context.md\` uses most-recent-known values.
 
-62. IMF tools were not invoked this run; Wave-2 OR-gate is satisfied by World Bank baseline.
+62. IMF tools were not invoked this run;  IMF requirement is satisfied by World Bank baseline.
 
 63. Auxiliary MCP (memory, sequential-thinking) were not explicitly exercised today but are structurally healthy.
 
@@ -371,7 +371,7 @@ The following numbered notes document the analytic decisions that shaped this ar
 
 107. World Bank tools were not invoked this run; \`economic-context.md\` uses most-recent-known values.
 
-108. IMF tools were not invoked this run; Wave-2 OR-gate is satisfied by World Bank baseline.
+108. IMF tools were not invoked this run;  IMF requirement is satisfied by World Bank baseline.
 
 109. Auxiliary MCP (memory, sequential-thinking) were not explicitly exercised today but are structurally healthy.
 

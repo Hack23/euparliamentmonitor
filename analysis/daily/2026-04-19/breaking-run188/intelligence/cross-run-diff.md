@@ -102,7 +102,7 @@ transition that should be tracked formally in subsequent runs:
    such transition is observed in Run 189–191, the non-deterministic-restoration
    hypothesis upgrades from 🟡 Medium to 🟢 High confidence.
 3. **Metadata-layer revelations** (title-unknown → title-confirmed): The four
-   Run 188 title confirmations represent a qualitatively different transition —
+   Run 188 title confirmations represent a qualitatively different transition
    not content restoration but metadata-endpoint discovery.
 
 For Run 189 cross-run-diff.md, track:

@@ -142,7 +142,7 @@ expanded to the full year range.
 
 ## 7. Editorial dimensions (Stage-C review)
 
-Wave-4 editorial review requires that every IMF citation in a
+ editorial review requires that every IMF citation in a
 policy-required article carries:
 
 1. `INDICATOR` code (word-bounded SDMX code from
@@ -155,11 +155,8 @@ policy-required article carries:
 4. `FREQ` is inferred from the cadence and is not gated.
 
 Missing `REF_AREA` context (e.g. "inflation is 3.2%" with no country
-or aggregate) fails Stage-C review. The legacy runtime helper
-(`articlePolicyHasIMFEconomicEvidence`) that enforced these rules
-lived in `src/utils/content-validator.ts` and was purged in the
-April-2026 aggregator-pipeline migration; enforcement is now editorial
-per [`.github/prompts/04-article-generation.md §5`](../../.github/prompts/04-article-generation.md).
+or aggregate) fails Stage-C review per
+[`.github/prompts/04-article-generation.md §5`](../../.github/prompts/04-article-generation.md).
 
 ---
 
@@ -167,7 +164,7 @@ per [`.github/prompts/04-article-generation.md §5`](../../.github/prompts/04-ar
 
 | Method | Dimensions involved | Returns |
 |--------|---------------------|---------|
-| `listDatabases()` | — | `MCPToolResult<DataflowSummary[]>` |
+| `listDatabases` | — | `MCPToolResult<DataflowSummary[]>` |
 | `searchDatabases(keyword)` | dataflow names & descriptions | `MCPToolResult<DataflowSummary[]>` |
 | `getParameterDefs(databaseId)` | all dimensions for a dataflow | `MCPToolResult<DataStructureDefinition>` |
 | `getParameterCodes(db, dim, search?)` | codelist for one dimension | `MCPToolResult<Codelist>` |

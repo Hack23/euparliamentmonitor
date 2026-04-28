@@ -100,8 +100,8 @@ at horizons ≥3y. Treat trade-balance forecasts at t+3+ as 🟡.
 | t+2 | Optional one-phrase flag: *"…a projection that carries IMF's usual medium-term uncertainty"* |
 | t+3+ | **Mandatory** dedicated sentence: *"IMF medium-term forecasts carry documented optimism bias, particularly for growth and fiscal consolidation; actual outcomes have historically fallen [X] pp short of the [vintage] projection over this horizon."* |
 
-The validator in Wave-4 will enforce the presence of this sentence
-when an IMF indicator is cited at horizon ≥3y; Wave-3 leaves it
+The validator in  will enforce the presence of this sentence
+when an IMF indicator is cited at horizon ≥3y;  leaves it
 editorial.
 
 ---

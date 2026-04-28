@@ -72,8 +72,6 @@ export default defineConfig({
         'scripts/constants/languages.js',
         // Exclude barrel re-export entry points (no testable logic)
         'scripts/index.js',
-        // Orphaned pre-purge entry point (no corresponding .ts source; references deleted modules)
-        'scripts/index.old.js',
       ],
     },
     

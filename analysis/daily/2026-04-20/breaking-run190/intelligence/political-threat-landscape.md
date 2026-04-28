@@ -47,7 +47,7 @@ US companies.
 
 **Democratic Threat Vector:** Section 301 activation against EU digital regulations creates
 a profound democratic legitimacy tension. The DMA, DSA, and AI Act were adopted through the
-EP's ordinary legislative procedure — the most democratically legitimate EU lawmaking process —
+EP's ordinary legislative procedure — the most democratically legitimate EU lawmaking process
 following years of committee work, public consultation, and trilogues. A USTR Section 301
 investigation would subject these democratically-adopted regulations to US trade law scrutiny,
 creating a direct conflict between EU democratic legitimacy and US trade power.
@@ -166,7 +166,7 @@ health is assessed as STABLE on April 20, 2026:
 | Inter-institutional relations | 🟡 WATCH (Council ratification) | MEDIUM |
 | External pressure resilience | 🟡 WATCH (USTR window) | MEDIUM |
 
-The Parliament's internal health is fundamentally sound. The threats are real but external —
+The Parliament's internal health is fundamentally sound. The threats are real but external
 they do not reflect parliamentary dysfunction but rather the normal challenges of an institution
 operating in a complex geopolitical environment while managing a 13-day legislative recess.
 

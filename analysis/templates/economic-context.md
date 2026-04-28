@@ -3,9 +3,9 @@
 
 # 💹 Economic Context Template — IMF Primary Anchor + World Bank Non-Economic Cross-Refs
 
-> **📌 Template Instructions:** Copy to `analysis/daily/{date}/{article-type}-run{N}/intelligence/economic-context.md`. Anchor EP policy topics in **IMF** macro/fiscal/trade/monetary data as the primary source (Wave-4 policy). Use **World Bank** only for non-economic cross-refs (health, education, social, environment, demographics). See [methodologies/per-artifact-methodologies.md §economic-context](../methodologies/per-artifact-methodologies.md#economic-context).
+> **📌 Template Instructions:** Copy to `analysis/daily/{date}/{article-type}-run{N}/intelligence/economic-context.md`. Anchor EP policy topics in **IMF** macro/fiscal/trade/monetary data as the primary source. Use **World Bank** only for non-economic cross-refs (health, education, social, environment, demographics). See [methodologies/per-artifact-methodologies.md §economic-context](../methodologies/per-artifact-methodologies.md#economic-context).
 
-> **🎯 Purpose:** Bridge EP legislative activity to real-economy fundamentals using IMF indicators (WEO / Fiscal Monitor / IFS / BOP / ER / PCPS / GFSR / EREO / FSI / GFS / DOT). Under the **Wave-4 IMF-primary editorial policy** IMF is the required primary source for every economic claim; WB is additive for non-economic context only. Enforced at Stage-C editorial review per [`.github/prompts/04-article-generation.md §5`](../../.github/prompts/04-article-generation.md) — the legacy runtime gates (`articlePolicyHasEconomicContext` / `articlePolicyHasIMFEconomicEvidence` in `src/utils/content-validator.ts`, surrounded by `src/utils/validate-articles.ts`) were purged in the April-2026 aggregator-pipeline migration.
+> **🎯 Purpose:** Bridge EP legislative activity to real-economy fundamentals using IMF indicators (WEO / Fiscal Monitor / IFS / BOP / ER / PCPS / GFSR / EREO / FSI / GFS / DOT). IMF is the required primary source for every economic claim; WB is used for non-economic context. Enforced at Stage-C editorial review per [`.github/prompts/04-article-generation.md §5`](../../.github/prompts/04-article-generation.md).
 
 ---
 
@@ -17,7 +17,7 @@
 | **Analysis Period** | `[REQUIRED: YYYY-MM-DD to YYYY-MM-DD]` |
 | **Primary Data Source** | `IMF (vintage: [REQUIRED: e.g. WEO-April-2026])` |
 | **IMF Source** | `[REQUIRED: live | cache | knowledge-only]` |
-| **Secondary (non-economic only)** | `[OPTIONAL: World Bank for non-economic cross-refs (health, education, social, environment, demographics, defence, agriculture, innovation, governance) only — or "None". World Bank is **never** acceptable as a secondary source for economic context under Wave-4 policy.]` |
+| **Secondary (non-economic)** | `[OPTIONAL: World Bank for non-economic cross-refs (health, education, social, environment, demographics, defence, agriculture, innovation, governance) only — or "None".]` |
 | **IMF Indicators Cited** | `[REQUIRED: count — must meet article-type floor from imf-indicator-mapping.md §8]` |
 | **Forecast Horizon** | `[REQUIRED: current / t+1 / t+3 / t+5 — sizes the optimism-bias caveat per forecast-accuracy-baseline.md]` |
 | **Triangulation Performed** | `[REQUIRED: Yes/No — required for Tier-1 + high-sensitivity indicators per cross-source-triangulation.md]` |
@@ -29,7 +29,7 @@
 
 | EP Policy Topic | IMF Indicator (primary) | IMF Database | WB Indicator (non-economic cross-ref only) | Latest Value | Vintage Date |
 |-----------------|-------------------------|:-------------|--------------------------------------------|:------------:|:------------:|
-| `[REQUIRED: e.g. Green Deal / Digital Single Market]` | `[REQUIRED: SDMX code + name]` | `[REQUIRED: WEO/FM/IFS/etc.]` | `[OPTIONAL: WB code for non-economic only, or "N/A"]` | `[REQUIRED: value + unit]` | `[REQUIRED: YYYY-MM-DD]` |
+| `[REQUIRED: e.g. Green Deal / Digital Single Market]` | `[REQUIRED: SDMX code + name]` | `[REQUIRED: WEO/FM/IFS/etc.]` | `[OPTIONAL: WB code for non-economic, or "N/A"]` | `[REQUIRED: value + unit]` | `[REQUIRED: YYYY-MM-DD]` |
 | `[REQUIRED]` | `[REQUIRED]` | `[REQUIRED]` | `[OPTIONAL]` | `[REQUIRED]` | `[REQUIRED]` |
 | `[REQUIRED]` | `[REQUIRED]` | `[REQUIRED]` | `[OPTIONAL]` | `[REQUIRED]` | `[REQUIRED]` |
 
@@ -143,12 +143,12 @@ sentence the Stage-B agent can reuse safely.]`
 
 ## 7️⃣ Data-Source Bridge
 
-**Wave-4 IMF-primary status:**
+**status:**
 
 | Source | Available? | Records Retrieved | Used in This Run? | Role |
 |--------|:----------:|:-----------------:|:------------------:|------|
-| IMF SDMX REST (primary economic) | `[✅/❌]` | `[#]` | `[✅/❌]` | **Primary** — Wave-4 mandatory for economic context |
-| World Bank MCP (non-economic only) | `[✅/❌]` | `[#]` | `[✅/❌]` | Additive — health/edu/social/env/demographics/defence/agri/innov/gov only |
+| IMF SDMX REST (primary economic) | `[✅/❌]` | `[#]` | `[✅/❌]` | **Primary**
+| World Bank MCP (non-economic) | `[✅/❌]` | `[#]` | `[✅/❌]` | Additive — health/edu/social/env/demographics/defence/agri/innov/gov only |
 
 **Cross-source triangulation** (required for Tier-1 articles citing high-sensitivity indicators):
 
@@ -210,7 +210,7 @@ country values, link to procedure, confidence labelled.
 |---|---|---|
 | Single-year point with no trend | Loses context | 5-year actual + 3-year forecast |
 | "About 2%" / "around 1%" | Imprecision | Cite to 0.1 pp with vintage |
-| WB cited for GDP/inflation | Wave-4 source split | IMF for economic; WB for non-economic only |
+| WB cited for GDP/inflation | | IMF for economic; WB for non-economic |
 | `EUU` aggregate | Banned by WB MCP | Use IMF `EU` or `EA` |
 | Mixing actual + projection without label | Misleads | "1.3% (2025 actual)", "1.6% (2026 projection)" |
 | No Admiralty grade | Tradecraft fail | A2 default for IMF/Eurostat; B2 for staff estimates |
@@ -225,7 +225,7 @@ country values, link to procedure, confidence labelled.
 | Source | Domain | Tool / dataflow |
 |---|---|---|
 | IMF MCP | Economic / fiscal / monetary | `imf-fetch-data` `WEO`, `FM`, `IFS`, `BOP`, `ER`, `PCPS` |
-| WB MCP (non-economic only) | Health, education, social, environment, defence | `worldbank-mcp/get-*-data`, `raw-rest` |
+| WB MCP (non-economic) | Health, education, social, environment, defence | `worldbank-mcp/get-*-data`, `raw-rest` |
 | Eurostat (cross-source) | EU-27 official statistics | manual; cite as A2 |
 | ECB SDW (monetary triangulation) | Policy rate, M3, REER | manual; cite as A1 |
 | OECD (cross-source) | OECD members; well-being | manual; cite as A2 |
@@ -241,7 +241,7 @@ country values, link to procedure, confidence labelled.
 ## ✅ Stage-C completeness signals
 
 - Line floor: 185 lines
-- ≥ 1 IMF indicator with vintage cited (Wave-2 OR-gate)
+- ≥ 1 IMF indicator with vintage cited
 - For Tier-1 articles: ≥ 1 cross-source triangulation row in §7 with
   reconciliation note when delta ≥ 0.2 pp
 - Confidence assessment present (🟢/🟡/🔴 per source)

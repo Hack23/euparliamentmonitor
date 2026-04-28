@@ -39,7 +39,7 @@ quadrantChart
 |----------|--------|-------|
 | AI-First content — no placeholder text | ✅ | All artifacts contain substantive analysis |
 | WEP confidence bands on uncertain claims | ✅ | Applied throughout |
-| IMF WEO primary source for economic context | ✅ | Wave-3 rule applied |
+| IMF WEO primary source for economic context | ✅ | applied |
 | Data quality warnings for EP API gaps | ✅ | 8 defects documented in MCP reliability audit |
 | Admiralty grading on all artifacts | ✅ | A1–C3 grades applied |
 | Coalition structural analysis | ✅ | 4 coalition configurations with seat counts |

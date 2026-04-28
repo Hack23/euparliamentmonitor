@@ -72,7 +72,7 @@ market resilience despite GDP contraction. Kurzarbeit in Germany defers unemploy
 
 ### Economic Risk Assessment: 🟡 MEDIUM
 Core risk is not immediate recession but multi-year competitiveness erosion. The EU's legislative
-response (CID, SRMR3, tariff retaliation) is structurally correct but procedurally slow — 
+response (CID, SRMR3, tariff retaliation) is structurally correct but procedurally slow
 if CID is delayed by coalition management failures, the competitiveness intervention arrives 2–3
 years late for affected German industrial firms.
 
@@ -172,7 +172,7 @@ response AND its environmental policy for the second legislative period. If CID 
 decarbonisation timelines (eastern EPP faction concession), it effectively dilutes the Green Deal
 without formally reopening it. Greens/EFA will oppose this weakening.
 
-**HDV emissions adjustment (passed Q1 2026):** Adjusted heavy-duty vehicle emissions timeline —
+**HDV emissions adjustment (passed Q1 2026):** Adjusted heavy-duty vehicle emissions timeline
 transitional provision for truck/bus manufacturers. ACEA (European Automobile Manufacturers
 Association) lobbied successfully for 2-year timeline extension. Environmental NGOs filed complaints
 but cannot block EP legislation.

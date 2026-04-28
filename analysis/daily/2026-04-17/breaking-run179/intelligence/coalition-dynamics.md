@@ -9,7 +9,7 @@ fragmentationIndex: 4.04
 
 # 🔗 Coalition Dynamics Intelligence — 17 April 2026 (Run 179, T+3)
 
-> **Data sources**: `analyze_coalition_dynamics()` (structural) | `early_warning_system(sensitivity=high)` | `get_all_generated_stats()` (historical context). Events/procedures feeds unavailable (404) — coalition assessment relies on structural data rather than event-level voting analysis.
+> **Data sources**: `analyze_coalition_dynamics` (structural) | `early_warning_system(sensitivity=high)` | `get_all_generated_stats` (historical context). Events/procedures feeds unavailable (404) — coalition assessment relies on structural data rather than event-level voting analysis.
 
 ---
 

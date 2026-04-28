@@ -117,7 +117,7 @@ provisions — creating a genuine Council-EP gap that may require trilogue resol
 The March 2026 wave of confirmations (ECB VP, SRMR3, defence single market) represents EP10's
 first major institutional consolidation moment. For context:
 
-- **March 10 cluster:** 7 legislative/institutional items voted in a single Strasbourg session —
+- **March 10 cluster:** 7 legislative/institutional items voted in a single Strasbourg session
   unusual for the breadth of coverage. Signals EP's processing capacity when coalition is aligned.
 - **ECB Vice-President confirmation:** EP asserted substantive scrutiny (committee hearings,
   written questions, plenary debate) before the March 10 vote, establishing a precedent for

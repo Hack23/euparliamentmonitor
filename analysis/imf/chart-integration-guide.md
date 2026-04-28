@@ -11,7 +11,7 @@
 ## 1. Design Principles
 
 1. **Forecast visibility**: Every IMF chart that extends into
-   projection years MUST visually separate actuals from forecasts —
+   projection years MUST visually separate actuals from forecasts
    the recommended technique is a dashed line segment for forecasts
    plus a subtle shaded background rectangle from
    `forecastStartYear - 0.5` onward.

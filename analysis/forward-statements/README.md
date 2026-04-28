@@ -13,7 +13,7 @@
 ## Purpose
 
 The forward-statements registry persists forward-looking claims made in **week-ahead** and
-**month-ahead** analysis runs. Each subsequent run reads open items and must address them —
+**month-ahead** analysis runs. Each subsequent run reads open items and must address them
 either confirming delivery, marking as superseded, or carrying them forward with updated
 evidence. This closes the loop between predictive analysis and accountability, implementing
 the NIS2 transparency principle.

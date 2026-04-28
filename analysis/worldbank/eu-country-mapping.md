@@ -6,16 +6,16 @@
 
 ---
 
-## ⚡ Policy: WB = non-economic only · IMF = economic
+## ⚡ Policy: WB = non-economic · IMF = economic
 
-Since Wave 2 (April 2026), **all economic context (GDP, inflation,
+Since April 2026, **all economic context (GDP, inflation,
 unemployment, FDI, trade, fiscal balance, debt, monetary) is sourced from
 IMF** via `src/mcp/imf-mcp-client.ts` — see
 [`analysis/imf/eu-country-mapping.md`](../imf/eu-country-mapping.md) and
 [`analysis/imf/indicator-catalog.md`](../imf/indicator-catalog.md). World
-Bank is retained for **health, education, social, environment,
+Bank is used for **health, education, social, environment,
 demographics, defence, agriculture, innovation, and governance**
-indicators only. This document enumerates the WB country codes that the
+indicators. This document enumerates the WB country codes that the
 `worldbank-mcp@1.0.1` server actually accepts for those non-economic
 domains.
 
@@ -29,10 +29,7 @@ domains.
 > codes (`EUU`, `EMU`, `ECS`, `OED`, `WLD`, …) are **rejected** by the MCP
 > server with `Error: Country not found` — see § "Aggregate & Regional
 > Codes" below. Use IMF `EU`/`EA`/`G7`/`G20` aggregates for any EU-level
-> context. The TypeScript utility `EU_COUNTRY_CODES` in
-> `src/utils/world-bank-data.ts` maps ISO2 → WB alpha-3 for internal use,
-> and `isMCPSupportedWBCountryCode()` (same module) guards against the
-> aggregate-code trap.
+> context.
 
 | # | Country | ISO2 | WB Alpha-3 | WB Region | Income Level | EP Seats | Capital |
 |---|---------|------|-----------|-----------|-------------|----------|---------|
@@ -146,11 +143,9 @@ domains.
 > weighted average from the Big Four + Convergence proxy country list
 > instead — see § "Recommended Country Comparisons" below.
 >
-> The TypeScript constants `WB_AGGREGATE_LABELS` and `EU_AGGREGATE_CODE`
-> in `src/utils/world-bank-data.ts` are retained for back-compatibility
-> with raw-REST call paths (e.g., `committee-indicator-map.ts`) but are
-> **not safe** to pass to the MCP client. Call
-> `isMCPSupportedWBCountryCode(code)` before any MCP invocation.
+> Avoid aggregate codes (`EUU`, `EMU`, `ECS`, `OED`, `WLD`, `NAC`, `EAS`,
+> `SSF`) and the informal `UK` alias when calling the WB MCP — use the
+> ISO-3166 codes listed in the table above.
 
 ---
 
@@ -202,7 +197,7 @@ Bulgaria (BG), Romania (RO), Croatia (HR), Hungary (HU), Latvia (LV), Lithuania 
 
 **Note**: Poland (PL), Czechia (CZ), and Slovakia (SK) are all now WB-classified as **High income**; Poland in particular is no longer below EU-average GDP per capita and has moved out of the convergence cluster. Keep SK and CZ here when the policy framing is cohesion-fund eligibility rather than income level.
 
-**Best indicators** (non-economic only per Wave-2 policy): Youth Unemployment (`SL.UEM.1524.ZS` via WB — labour/social, not macro-economic), Health Expenditure, Education Expenditure, Internet Users. For GDP per capita / GDP growth use IMF `NGDPDPC` / `NGDP_RPCH`.
+**Best indicators** (non-economic): Youth Unemployment (`SL.UEM.1524.ZS` via WB — labour/social, not macro-economic), Health Expenditure, Education Expenditure, Internet Users. For GDP per capita / GDP growth use IMF `NGDPDPC` / `NGDP_RPCH`.
 
 ### Nordic/High-Income
 Denmark (DK), Finland (FI), Sweden (SE), Luxembourg (LU), Ireland (IE), Netherlands (NL), Austria (AT)
@@ -256,7 +251,7 @@ graph TD
 1. **Malta**: WB region is "Middle East, North Africa, Afghanistan & Pakistan" (geographic, not political)
 2. **EU aggregate (EUU, EMU, ECS, OED, WLD, NAC, EAS, SSF)**: **Rejected by `worldbank-mcp@1.0.1`** — see § "Aggregate & Regional Codes" above. Use IMF client for EU-level economic context; build explicit country lists for EU-level non-economic context.
 3. **Data lag**: Most WB indicators 1-2 years behind current date; IMF WEO refreshes in April/October each year with actuals + 5-year forecasts.
-4. **Comparison countries**: Individual ISO2/alpha-3 codes work with WB MCP tools; **aggregate codes do not**. `isMCPSupportedWBCountryCode()` in `src/utils/world-bank-data.ts` is the authoritative guard.
+4. **Comparison countries**: Individual ISO2/alpha-3 codes work with WB MCP tools; **aggregate codes do not**. Use the ISO-3166 codes listed above.
 5. **Russia (RU)**: Some indicators may have reduced availability post-2022
 6. **Candidate states**: Some indicators (GINI, health) have gaps
 7. **Annual data only**: All WB indicators are annual time series

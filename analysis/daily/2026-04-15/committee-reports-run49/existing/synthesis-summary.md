@@ -76,7 +76,7 @@ With 51 new procedures in 2026 and 13 pending COD files, the post-recess backlog
 | risk-scoring/ | risk-matrix.md | 80+ |
 | threat-assessment/ | political-threat-landscape.md | 100+ |
 | existing/ | synthesis-summary.md | This file |
-| . | manifest.json | Run metadata |
+|. | manifest.json | Run metadata |
 
 ---
 

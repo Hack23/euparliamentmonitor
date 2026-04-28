@@ -166,7 +166,7 @@ For legislative and procedural documents, provide clause-by-clause analysis:
 | Article/Clause | Summary | Political Implications | Stakeholder Impact |
 |----------------|---------|----------------------|-------------------|
 | Art. 1 | {Core provision summary} | {Who wins/loses} | {Affected actors} |
-| Art. 2 | ... | ... | ... |
+| Art. 2 |... |... |... |
 | Recital N | {Narrative framing} | {Political intent signals} | {Policy context} |
 
 ### 5. Actor Mapping
@@ -180,13 +180,13 @@ For legislative and procedural documents, provide clause-by-clause analysis:
 | Political Group | Official Position | Key MEP Voices | Coherence Score |
 |-----------------|-------------------|----------------|-----------------|
 | EPP | {Position} | {Named MEPs} | {HIGH/MED/LOW} |
-| S&D | ... | ... | ... |
-| Renew | ... | ... | ... |
-| Greens/EFA | ... | ... | ... |
-| ECR | ... | ... | ... |
-| ID/PfE | ... | ... | ... |
-| The Left | ... | ... | ... |
-| NI | ... | ... | ... |
+| S&D |... |... |... |
+| Renew |... |... |... |
+| Greens/EFA |... |... |... |
+| ECR |... |... |... |
+| ID/PfE |... |... |... |
+| The Left |... |... |... |
+| NI |... |... |... |
 
 ### 7. Procedural Analysis
 
@@ -412,7 +412,7 @@ UPSTREAM_404: document indexed but content not yet available
 
 ### Retry-Scheduling Sidecar
 
-`ep-mcp-client.ts` `getAdoptedTexts()` intercepts this sentinel and persists it to
+`ep-mcp-client.ts` `getAdoptedTexts` intercepts this sentinel and persists it to
 `data/pending-documents.json` with exponential back-off scheduling:
 
 | Attempt | Back-off delay | Notes |
@@ -455,7 +455,7 @@ Stage B run N:
 ### Audit Grader Guidance
 
 When generating `mcp-reliability-audit.md`:
-- Classify `CONTENT_PENDING` entries (from `getFailedTools()`) separately from `NOT_FOUND`
+- Classify `CONTENT_PENDING` entries (from `getFailedTools`) separately from `NOT_FOUND`
 - Report the count of pending documents and due-for-reprobe counts as **availability-lag metrics**
 - Report escalated documents (status = `ESCALATED`) as **potential data-completeness issues**
   requiring wildcards-blackswans coverage — these are legitimate intelligence gaps

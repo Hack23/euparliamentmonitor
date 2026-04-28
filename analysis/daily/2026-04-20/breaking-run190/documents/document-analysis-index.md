@@ -112,7 +112,7 @@ Do not treat accessibility as stable until confirmed in three consecutive runs.
 **Metadata Status:** ✅ Full official title confirmed (Run 188)  
 **Tracking Status:** PRIORITY-4 (strategic context)  
 **Significance:** Own-initiative review signals Parliament's self-positioning on global investment
-competition with BRI. The adoption on March 26 — same day as EU-China TRQ and US countermeasure —
+competition with BRI. The adoption on March 26 — same day as EU-China TRQ and US countermeasure
 suggests a coordinated package narrative: EP simultaneously managing EU-US and EU-China trade
 relations while asserting its own global investment strategy.
 

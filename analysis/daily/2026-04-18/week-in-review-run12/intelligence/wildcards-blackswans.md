@@ -266,7 +266,7 @@ institutional-integrity response. Legislative agenda compressed.
 
 **Probability**: ~6%. **Impact**: 🟠 HIGH.
 
-**Mechanism**: Merz CDU/CSU-led coalition partners experience acute dispute —
+**Mechanism**: Merz CDU/CSU-led coalition partners experience acute dispute
 triggered by banking-union transposition positioning (ironically), housing policy
 disagreement, or unrelated domestic event — leading to coalition breakdown during
 April 14–May 15 window. Bundestag motion of confidence or similar.

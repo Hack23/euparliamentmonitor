@@ -107,7 +107,7 @@ S&D's post-recess agenda priorities.
 
 **USTR risk special relevance:** If USTR files against EU digital regulations, Renew has the
 highest political stake of any coalition partner. Their legislative flagship texts (AI Act, DMA,
-DSA) are the direct targets. Renew would likely push for the most forceful response —
+DSA) are the direct targets. Renew would likely push for the most forceful response
 including WTO dispute filing — potentially putting them to the left of S&D on trade defense.
 
 **Coalition calculation:** Renew cannot afford to let USTR delegitimize their digital regulatory

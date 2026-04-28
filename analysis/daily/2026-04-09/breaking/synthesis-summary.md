@@ -360,8 +360,8 @@ quadrantChart
 | Adopted texts (30+ records) | `get_adopted_texts(year=2026)` | 🟢 HIGH |
 | Adopted texts feed (12 IDs) | `get_adopted_texts_feed(one-week)` | 🟢 HIGH |
 | MEP roster (737 records) | `get_meps_feed(today)` | 🟢 HIGH |
-| Coalition dynamics | `analyze_coalition_dynamics()` | 🟡 MEDIUM |
-| Political landscape | `generate_political_landscape()` | 🟡 MEDIUM |
+| Coalition dynamics | `analyze_coalition_dynamics` | 🟡 MEDIUM |
+| Political landscape | `generate_political_landscape` | 🟡 MEDIUM |
 | Early warning system | `early_warning_system(medium)` | 🟡 MEDIUM |
 | Voting anomalies | `detect_voting_anomalies(0.3)` | 🟡 MEDIUM |
 | Precomputed statistics | `get_all_generated_stats(2025-2026)` | �� HIGH |

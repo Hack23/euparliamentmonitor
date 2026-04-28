@@ -30,7 +30,7 @@
 **`dataQualityWarnings` entry:** `FRESHNESS_FALLBACK` — confirmed present  
 
 **§11 Triage:**  
-This is a documented behavior pattern in the EP MCP client (`getFeedHealthSummary()` reports as 🟡 degraded for this feed). The FRESHNESS_FALLBACK augmentation correctly retrieved current-year data. No upstream bug to file.  
+This is a documented behavior pattern in the EP MCP client (`getFeedHealthSummary` reports as 🟡 degraded for this feed). The FRESHNESS_FALLBACK augmentation correctly retrieved current-year data. No upstream bug to file.  
 
 **Data adequacy assessment:**  
 The 50 returned items represent the complete Q1 2026 adopted text output, including all significant legislative acts. The "today" timeframe parameter was correctly handled — the fallback mechanism exists precisely for this pattern.  
@@ -90,7 +90,7 @@ This is a known behavior; the adopted texts are confirmed via the list endpoint 
 **`EP_REQUEST_TIMEOUT_MS`:** Set to `120000` (120 seconds) — still insufficient  
 
 **§11 Triage (row #8):**  
-`getEventsFeed()` downgrades TIMEOUT errors to 🟡 `SLOW_FEED_WARNING` in `_slowFeedWarnings` (not `_failedTools`), returning `{feed: [], slowFeedWarning: true}`. `getFeedHealthSummary()` shows 🟡 for this feed. This is the documented degraded-upstream behavior for the events feed endpoint.  
+`getEventsFeed` downgrades TIMEOUT errors to 🟡 `SLOW_FEED_WARNING` in `_slowFeedWarnings` (not `_failedTools`), returning `{feed: [], slowFeedWarning: true}`. `getFeedHealthSummary` shows 🟡 for this feed. This is the documented degraded-upstream behavior for the events feed endpoint.  
 
 **Impact on analysis:** MEDIUM — day-of-meeting event details not machine-readable from this endpoint. Critical for breaking news timeliness.  
 **Mitigation applied:** Used `get_plenary_sessions` (confirmed April 27-30 Strasbourg session) + `get_meeting_foreseen_activities` (21 planned debates for April 28) as reliable fallbacks for meeting agenda data.  
@@ -106,7 +106,7 @@ This is a known behavior; the adopted texts are confirmed via the list endpoint 
 **`recessMode: true`:** Set by `detectProceduresFeedRecessMode(payload)` which extracts years only in [1952, 2100]  
 
 **§11 Triage (row #5):**  
-`detectProceduresFeedRecessMode()` correctly identified the stale/historical feed response. `getProceduresFeed()` adds `recessMode: true` + `RECESS_MODE` dataQualityWarning. Not counted as a failure. This occurs during parliamentary recess or when the upstream feed has not been refreshed with current procedure data.  
+`detectProceduresFeedRecessMode` correctly identified the stale/historical feed response. `getProceduresFeed` adds `recessMode: true` + `RECESS_MODE` dataQualityWarning. Not counted as a failure. This occurs during parliamentary recess or when the upstream feed has not been refreshed with current procedure data.  
 
 **Impact on analysis:** HIGH — no current procedure pipeline data available via this tool. Procedure tracking required manual inference from adopted texts metadata.  
 **Mitigation applied:**  
@@ -283,7 +283,7 @@ Empty voting records for April and March 2026 is fully expected behavior. The EP
 Per `.github/prompts/07-mcp-reference.md` §11:
 
 - **Row #1 (group ID normalization):** ✅ Not triggered — canonical codes used throughout: `EPP`, `S&D`, `Renew`, `ECR`, `PfE`, `Greens/EFA`, `Left`, `NI`
-- **Row #2 (post-v1.2.15 normalization):** ✅ Applied — `normalizePoliticalGroup()` handles variant inputs
+- **Row #2 (post-v1.2.15 normalization):** ✅ Applied — `normalizePoliticalGroup` handles variant inputs
 - **Row #3 (SRMR3 or specific text content):** 🔵 Not applicable — content detail endpoints returned 404 as expected
 - **Row #4 (MEP feed oversized):** 🔵 OVERSIZED_PAYLOAD — handled, not a bug
 - **Row #5 (procedures recessMode):** 🟡 Triggered — `recessMode: true` applied; fell back to adopted texts
@@ -344,4 +344,4 @@ The combined effect of tool limitations on this run:
 - Breaking same-day details: 🟡 LOW-MEDIUM (40%)
 
 ---
-*Sources: EP Open Data Portal via European Parliament MCP Server v1.2.15 | Triage framework: .github/prompts/07-mcp-reference.md §11 | Generated: 2026-04-28*
+*Sources: EP Open Data Portal via European Parliament MCP Server v1.2.15 | Triage framework:.github/prompts/07-mcp-reference.md §11 | Generated: 2026-04-28*
