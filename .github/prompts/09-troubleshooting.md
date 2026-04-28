@@ -68,165 +68,41 @@ inside the workflow `.md`.
 | `Base branch override is not allowed` | Missing `allowed-base-branches: ["main"]` in safe-outputs | Add to frontmatter (see [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md) §6). |
 | `create_pull_request: No changes to commit - no commits found` | The working tree has nothing to snapshot at call time | You called the tool too early — one PR at end-of-run, after files are written. |
 
-## 5a · safeoutputs `session not found` — extended context
+## 5a · safeoutputs `session not found` — quick reference
 
-The `session not found` row above is the most load-bearing entry in §5. Full
-context separated out to keep the table scannable:
+The `session not found` row above is the most load-bearing entry in §5. The
+**preventive rules and time budget are authoritative in
+[`02-analysis-protocol.md` §3](02-analysis-protocol.md)** (22 / ≤25 min split,
+B1→B2 tripwire at minute 16, single-PR deadline at minute 22). The
+**post-run recovery path** (host-side PAT fallback) is authoritative in
+[`06-pr-and-safe-outputs.md` §4a](06-pr-and-safe-outputs.md). Do NOT
+re-state those rules here — link to them.
 
-**Two known triggers**
+**Two known triggers** (see 02 §3 for the time budget that prevents both):
 
-- **(a) Banned keep-alive / heartbeat pattern** — the sandbox eventually
-  kills the session. Heartbeats are lint-banned (`scripts/lint-prompts.js`);
-  do not reintroduce them.
-- **(b) Pure idle** — no safeoutputs tool calls issued for long enough that
-  the session is reaped: typically ~28–30 minutes in observed failures, but
-  treat anything approaching 25 minutes of pure idle as unsafe. Agent
-  activity on any other tool (EP MCP, bash, `create`, `edit`) does **not**
-  refresh the safeoutputs session.
+- **(a) Banned keep-alive / heartbeat pattern** — lint-banned by
+  `scripts/lint-prompts.js`; never reintroduce.
+- **(b) Pure idle ≥ ~28–30 min** — agent activity on EP MCP, bash, `create`,
+  or `edit` does **not** refresh the safeoutputs session.
+  `sandbox.mcp.keepalive-interval` does **not** help — it pings HTTP MCP
+  backends (gateway → backend), not the agent ↔ gateway streamable-HTTP
+  session that emits `session not found`.
 
-**Forensic evidence**
+**Forensic runs** (kept here because the link economy is unique):
 
-- [Run 24818921747](https://github.com/Hack23/euparliamentmonitor/actions/runs/24818921747)
-  (news-propositions-analysis): Stage B ran ~28 min of pure model output +
-  file `create`; the single end-of-run PR call failed with session-not-found.
-- [Run 24819497608](https://github.com/Hack23/euparliamentmonitor/actions/runs/24819497608)
-  (news-motions-analysis): agent connected to safeoutputs at `06:01:36`;
-  last successful interaction `06:06:41` (SSE GET closed); worked silently
-  for ~29 min; final `create_pull_request` at `06:35:09` → HTTP 404 on every
-  retry. `mcp-gateway.log` shows exactly **one** ping to `/mcp/safeoutputs`
-  (at connect time).
-- [Run 24963129839](https://github.com/Hack23/euparliamentmonitor/actions/runs/24963129839)
-  (news-week-in-review unified): Stage B suffered two context compactions;
-  the elapsed-time tripwire fired at minute 28 and forced
-  `GATE_RESULT=ANALYSIS_ONLY`; `SINGLE_PR_ATTESTATION` emitted at minute
-  28m43s; `create_pull_request` landed at minute 29m13s and failed with
-  `Error POSTing to endpoint: session not found` on every retry, plus a
-  follow-up `noop` that also returned `session not found`. The ≤28-min
-  hard ceiling that previously applied to 7-day workflows was clearly too
-  close to the failure window — this run motivated the move to a uniform
-  22 / ≤25 budget across all unified `news-<type>.md` workflows
-  (see [`02-analysis-protocol.md`](02-analysis-protocol.md) §3).
-- `sandbox.mcp.keepalive-interval: 300` does **not** refresh the
-  agent ↔ gateway safeoutputs session. Per upstream
-  [`reference/mcp-gateway.md` §4.1.3.5](https://github.github.com/gh-aw/reference/mcp-gateway/),
-  the keepalive knob pings **HTTP MCP backends** (gateway → backend
-  direction) — it does not touch the streamable-HTTP session that the
-  agent client holds with the gateway, which is the layer that emits
-  `session not found` (see `actions/setup/js/mcp_http_transport.cjs`
-  line ~264 in gh-aw v0.69.3 — the error fires on session-id mismatch,
-  not on idle timeout). Setting the interval *higher* (e.g. 45 min) is
-  strictly worse: it removes existing backend pings without adding any
-  protection at the failing layer. The only effective lever is to land
-  the PR call earlier than the observed 28–30 min TTL window — hence
-  the uniform 22 / ≤25 budget above.
+- [Run 24818921747](https://github.com/Hack23/euparliamentmonitor/actions/runs/24818921747) (news-propositions-analysis): ~28 min Stage B → end-of-run PR call failed.
+- [Run 24819497608](https://github.com/Hack23/euparliamentmonitor/actions/runs/24819497608) (news-motions-analysis): connect 06:01:36, last SSE 06:06:41, PR call 06:35:09 → HTTP 404 every retry.
+- [Run 24963129839](https://github.com/Hack23/euparliamentmonitor/actions/runs/24963129839) (news-week-in-review): elapsed-time tripwire fired at minute 28; PR landed at minute 29:13 → `session not found`. Motivated the uniform 22 / ≤25 budget.
 
-**Why you can't recover mid-run**
+**Where to find logs** for your own run — Workflow run → Artifacts → `agent.zip`:
 
-The server's Streamable HTTP session GC is not configurable from the workflow
-side. Once the session is gone, the analysis branch is already committed
-locally but cannot be pushed via safeoutputs (gh-aw uses `git format-patch`
-via safeoutputs, not `git push`) — the run ends with zero safe outputs even
-though the agent exited 0.
+- `agent-stdio.log` — Copilot CLI stdout (grep `safeoutputs___create_pull_request`, `SINGLE_PR_ATTESTATION`).
+- `mcp-logs/mcp-gateway.log` — per-session MCP gateway trace (grep `routed:safeoutputs`).
+- `mcp-logs/safeoutputs.log` — safeoutputs backend registration timing.
 
-**Post-run recovery (auto, since #1502 / run #25028873034 fix)**
-
-The agent commits to a `news/<date>-<slug>-<runid>` branch on the agent
-runner's filesystem (the AWF sandbox bind-mounts the host workspace `:rw`,
-see `sandbox/firewall/audit/docker-compose.redacted.yml` in any agent.zip).
-Two pieces close the loop so this branch is no longer lost when safeoutputs
-expires:
-
-1. **`scripts/gh-aw-capture-agent-patch.sh`** runs in the agent job's
-   `post-steps:` (after the agent exits, before `Upload agent artifacts`).
-   It walks `refs/heads/news/*`, picks the newest branch ahead of
-   `origin/main`, and writes `/tmp/gh-aw/aw-agent-recovery.patch` (plus a
-   `.meta` sidecar with branch / commit-count / run-id). Idempotent: skips
-   if any `aw-*.patch` already exists (so a successful safeoutputs run is
-   never clobbered).
-2. **`scripts/gh-aw-pat-pr-fallback.sh`** runs as the `pat-pr-fallback`
-   job on a fresh runner with a fresh `main` checkout. It downloads
-   `agent.zip` (which now contains the recovery patch via the existing
-   `aw-*.patch` upload glob), `git apply`s the patch onto `main`, stages
-   only `analysis/daily/**` and `news/**` paths, force-pushes to the
-   target branch, and opens / updates the PR via the host PAT.
-
-The two scripts share the `aw-*.patch` filename contract — neither knows
-about the other directly, which is what made the contract trivial to add
-without changing the existing fallback. **Prefer the prevention levers
-below over relying on this recovery path** — every recovery run is a
-30-minute compute spend that produced no human-reviewable output, and the
-fallback PR carries an explicit "Fallback reason" header so it is visible
-during PR review.
-
-**Prevention levers (in order of impact)**
-
-1. Keep **total wall-clock** from agent start to the single PR call under
-   the **hard limit of 25 minutes**, and aim for **≤ 22 minutes**; that
-   target stays safely below the observed ~28–30 minute failure window.
-   Treat the 30–40 minute budgets in the canonical shared prompts/skills as
-   the general baseline, but for workflows that end with a single
-   `safeoutputs___create_pull_request` call this troubleshooting guidance is
-   the effective source of truth because the safeoutputs session TTL is
-   stricter.
-2. Trim redundant Stage B Pass-2 file-re-reads.
-3. Commit + emit `SINGLE_PR_ATTESTATION` as soon as Stage C is GREEN — do
-   **not** append further post-gate manifest edits that push the call past
-   the TTL.
-4. If Stage B naturally runs long for an article type, narrow
-   `--analysis-methods=all` to the subset that article type actually uses
-   in the wrap-up invocation.
-5. **Never** add a heartbeat / keep-alive workaround — it triggers (a)
-   faster than pure idle triggers (b).
-
-**Where to find these logs for your own run:**
-
-- Workflow run → Artifacts → `agent.zip`
-  - `agent-stdio.log` — Copilot CLI stdout (search for `safeoutputs___create_pull_request`, `SINGLE_PR_ATTESTATION`).
-  - `mcp-logs/mcp-gateway.log` — per-session MCP gateway trace (grep `routed:safeoutputs` to see every request/response and session connect/disconnect events).
-  - `mcp-logs/safeoutputs.log` — safeoutputs backend registration timing.
-
-**Related upstream tracker:** escalate to gh-aw upstream (see `.github/agents/agentic-workflows.agent.md`) if it recurs after Stage B is already bounded ≤ 22 min.
-
-## 5b · Threat Detection `parse_error` Warnings
-
-**Symptom:** The `[aw] Detection Runs` issue receives an automated comment
-`Conclusion: warning | Reason: parse_error` from a news workflow run, and
-the `detection` job exits with code 1 even though the workflow's main
-`agent` job (Stages A–E) completed normally and the safe-outputs PR was
-created.
-
-**Root cause (do NOT treat as a workflow content bug):** the gh-aw
-sandbox's `awf-api-proxy` container occasionally fails its docker
-healthcheck at startup (typically when GitHub-hosted runner cold-start
-saturates the network briefly). When that happens, the threat-detection
-AI model never executes, so no `THREAT_DETECTION_RESULT:{…}` line is
-emitted to `/tmp/gh-aw/threat-detection/detection.log`, and the
-post-step `parse_threat_detection_results.cjs` records `ERR_PARSE` as a
-**warning** (because `GH_AW_DETECTION_CONTINUE_ON_ERROR=true` is the
-gh-aw default and is hard-coded in every news workflow's compiled
-`.lock.yml`). Telltale lines in the `detection` job log:
-
-```
-[ERROR] Failed to start containers: … docker compose up -d --pull never
-##[warning]⚠️ ERR_PARSE: ❌ No THREAT_DETECTION_RESULT found in detection log.
-```
-
-**Triage rule:** This is a transient sandbox-infrastructure event, not
-an invalid command in the workflow `.md` or imported prompts. Confirm by
-running `npm run lint:prompts` (must be `0 violations`) and
-`npm run test -- test/unit/shell-safety.test.js` — if both pass, no
-workflow content fix is required. The `[aw] Detection Runs` tracking
-issue says "**No action to take - Do not assign to an agent.**" by
-design; only re-investigate if the same workflow emits `parse_error`
-warnings on **three consecutive scheduled runs**, which would indicate a
-non-transient regression in the sandbox setup rather than docker
-flake.
-
-**Reference run:** [`#25056314235`](https://github.com/Hack23/euparliamentmonitor/actions/runs/25056314235)
-(news-month-in-review, 2026-04-28) — `awf-api-proxy` reported `Error`
-~10 s after `Container … Starting`, dependency healthcheck failed,
-detection job exited with code 1, parse step emitted the canonical
-warning. Main agent run was unaffected.
+**Escalation:** if the symptom recurs after Stage B is already bounded
+≤ 22 min, escalate to gh-aw upstream via
+[`.github/agents/agentic-workflows.agent.md`](../agents/agentic-workflows.agent.md).
 
 ## 6 · Recovery Before Calling Noop
 
