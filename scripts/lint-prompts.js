@@ -113,8 +113,8 @@ const FORBIDDEN_PHRASES = [
   // policy enforcement language — does NOT trigger.
   // See .github/skills/imf-data-integration.md and
   // analysis/methodologies/imf-indicator-mapping.md §8.
-  /\bWorld\s+Bank\s+\*?\*?or\*?\*?\s+IMF\b/i,
-  /\bIMF\s+\*?\*?or\*?\*?\s+World\s+Bank\b/i,
+  /\bWorld\s+Bank\s+(?:\*\*)?or(?:\*\*)?\s+IMF\b/i,
+  /\bIMF\s+(?:\*\*)?or(?:\*\*)?\s+World\s+Bank\b/i,
   /\bWB\s+or\s+IMF\b/i,
   /\bIMF\s+or\s+WB\b/i,
   /economic\s+context[^.\n]{0,40}\bWB\s*\/\s*IMF\b/i,

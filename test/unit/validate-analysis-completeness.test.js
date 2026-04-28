@@ -466,6 +466,23 @@ describe('scripts/validate-analysis-completeness.js', () => {
       expect(result.code).toBe(0);
       expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
     });
+
+    it('reports multiple WB economic violations in a single Stage-C pass', () => {
+      // Regression guard for the matchAll() fix — a single artifact
+      // citing several distinct WB economic series must surface all of
+      // them to the editor in one validator run, not just the first.
+      writeWBEconomicArtifact(
+        'World Bank NY.GDP.MKTP.KD.ZG, FP.CPI.TOTL.ZG, and SL.UEM.TOTL.ZS series cited in violation of Wave-4 policy.',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      // All three violations must appear in stderr (the validator's
+      // human-readable issue list); they are independently surfaced as
+      // wb-economic-code:<CODE> entries.
+      expect(result.stderr).toContain('wb-economic-code:NY.GDP.MKTP.KD.ZG');
+      expect(result.stderr).toContain('wb-economic-code:FP.CPI.TOTL.ZG');
+      expect(result.stderr).toContain('wb-economic-code:SL.UEM.TOTL.ZS');
+    });
   });
 
   describe('Pass 2 skipped heuristic', () => {

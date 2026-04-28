@@ -339,17 +339,19 @@ function claimsImfFigures(content) {
  * mean clean.
  */
 function detectWorldBankEconomicViolations(content) {
+  // Use matchAll() so callers get every offending excerpt, not just the
+  // first hit — an artifact that cites several WB economic series
+  // ("NY.GDP.MKTP.KD.ZG and FP.CPI.TOTL.ZG and SL.UEM.TOTL.ZS") must
+  // surface all three to the editor in a single Stage-C pass.
   const codes = [];
-  const codeMatch = WB_ECONOMIC_INDICATOR_CODE_RE.exec(content);
-  if (codeMatch) {
-    codes.push(codeMatch[1]);
+  const codeRe = new RegExp(WB_ECONOMIC_INDICATOR_CODE_RE.source, 'gi');
+  for (const m of content.matchAll(codeRe)) {
+    codes.push(m[1]);
   }
   const prose = [];
-  const proseMatch = WB_ECONOMIC_CLAIM_RE.exec(content);
-  if (proseMatch) {
-    // Trim the matched span to a short excerpt for the violation message.
-    const excerpt = proseMatch[0].replace(/\s+/g, ' ').trim().slice(0, 100);
-    prose.push(excerpt);
+  const proseRe = new RegExp(WB_ECONOMIC_CLAIM_RE.source, 'gi');
+  for (const m of content.matchAll(proseRe)) {
+    prose.push(m[0].replace(/\s+/g, ' ').trim().slice(0, 100));
   }
   return { codes, prose };
 }
@@ -553,8 +555,11 @@ function validateArtifact({
   if (isEconomicContextArtifact(relativePath)) {
     const { codes: wbCodes, prose: wbProse } =
       detectWorldBankEconomicViolations(content);
-    if (wbCodes.length > 0) {
-      result.issues.push(`economic-context:wb-economic-code:${wbCodes[0]}`);
+    // Surface every offending code (de-duplicated to keep the issue
+    // list concise when the same series is cited many times in one
+    // artifact). Stage-C editors get the full picture in one pass.
+    for (const code of [...new Set(wbCodes)]) {
+      result.issues.push(`economic-context:wb-economic-code:${code}`);
     }
     if (wbProse.length > 0) {
       result.issues.push('economic-context:wb-economic-claim');

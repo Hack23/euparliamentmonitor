@@ -318,7 +318,7 @@ describe('scripts/lint-prompts.js', () => {
   it('accepts Wave-4 negation phrasing ("World Bank is never acceptable for economic context")', () => {
     // Policy enforcement language must NOT trip the forbidden-phrase
     // regex — the detector targets positive listings of WB-as-economic-
-    // source ("WB **or** IMF", "WB/IMF", …), not statements forbidding
+    // source ("WB **or** IMF", "WB/IMF", …), not statements that forbid
     // the practice.
     writeWorkflow(
       'news-good-negation.md',
