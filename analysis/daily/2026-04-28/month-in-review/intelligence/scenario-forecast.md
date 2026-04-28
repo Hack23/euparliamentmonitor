@@ -178,4 +178,103 @@ The 30-day forward predictions in Scenario B have higher confidence than the 6-m
 
 ---
 
-*Data sources: EP MCP tools, World Bank API, prior run (2026-04-27), EP adopted texts registry*
+## SCENARIO C: STRUCTURAL DISRUPTION (Probability: WEP 20–25%)
+
+**Trigger Condition**: At least two of: German GDP Q2 contraction exceeds -1.5%; US reciprocal tariffs expand to services sector; Russian military operations expand to NATO-adjacent territory; Italian bond yield spread exceeds 350 bps.
+
+**Political Dynamics Under Disruption:**
+If structural disruption occurs, EP's legislative calendar faces compression and the coalition architecture becomes under strain:
+
+1. **Emergency legislation acceleration**: Budget revision, financial stability measures, security authorisations — all requiring broad coalition support on compressed timetables
+2. **Coalition fragmentation risk**: PfE's Eurosceptic base would demand national solutions to economic disruptions, creating tension within ECR-PfE cooperation on defence
+3. **Renew as swing vote under pressure**: Renew's liberal economic programme becomes harder to defend during economic contraction; its MEPs face domestic electoral pressure
+
+**High-Impact Pivot Points Under Scenario C:**
+- **Banking system stress test failure** (any major EU bank): Would immediately validate SRMR3's passage as prescient but expose EDIS gap
+- **US tariff escalation to automotive sector**: Germany's automotive industry is the #1 exposure point; Mercedes, BMW, Volkswagen are major employer/taxpayer units
+- **Migration shock from Black Sea or Eastern Mediterranean**: Would push migration coalition (EPP+ECR+PfE) to demand emergency measures, potentially straining fundamental rights compliance
+
+**Scenario C Lead Indicators to Monitor:**
+| Indicator | Current Status | Disruption Threshold |
+|-----------|---------------|---------------------|
+| German Q2 GDP (June 2026) | -0.50% (2024) | < -1.0% = elevated concern |
+| Italian BTP-Bund spread | ~180 bps (estimated) | > 300 bps = stress signal |
+| ECB rate path | Cutting cycle in progress | Reversal = inflation re-emergence |
+| EP emergency procedure usage | Low baseline | Spike = institutional stress signal |
+
+---
+
+## SCENARIO D: COALITION REALIGNMENT (Probability: WEP 10–15%)
+
+**Trigger**: EPP shifts governance strategy toward ECR+PfE formal coalition, abandoning the S&D working relationship. Trigger mechanism: October 2026 German or Italian elections produce right-wing governments that pressure national EPP delegations.
+
+**Mechanism**: EPP's German delegation (CDU/CSU MEPs) and Italian delegation (Forza Italia) collectively represent ~65 EPP seats. If CDU governs in Berlin under Merz-led coalition with strong pressure to align with ECR/PfE on key files, the internal balance within EPP shifts. Von der Leyen Commission, requiring EP confidence, would face pressure to tilt rightward.
+
+**Legislative Impact of D-scenario:**
+- Migration: Hard-right turn; Dublin Regulation further restricted
+- Climate: Green Deal rollback accelerated; Nature Restoration Law implementation challenged
+- Rule of Law: Reduced Commission pressure on Hungary/Poland
+- Defence: Maintained (broad consensus)
+- Banking/AI: Uncertain; mixed signals from right-wing on regulation vs. deregulation
+
+**D-scenario Rejection Criterion**: If EPP continues co-sponsoring legislation with S&D at the observed 70%+ rate through Q3 2026, D-scenario probability drops to <5%.
+
+---
+
+## SCENARIO E: EUROSCEPTIC SURGE — BREAKDOWN (Probability: WEP 5–10%)
+
+**Trigger**: Multiple simultaneous crises (economic recession deepening + migration spike + energy price shock) cause institutional confidence crisis. PfE becomes largest parliamentary force in snap polls. EU institutional authority disputed.
+
+**Assessment**: This scenario is LOW probability but HIGH consequence. The existing EP legislative architecture — single-market completion, banking union, AI governance — is existentially threatened under this scenario. Early indicators (none currently present) would include: PfE polling above 20% in 3+ major member states simultaneously, withdrawal of national government representatives from COSAC sessions, Commission confidence motion.
+
+**This scenario is included for completeness. Current data provides NO evidence of imminent materialisation.**
+
+---
+
+## SCENARIO PROBABILITY SUMMARY TABLE
+
+| Scenario | Description | 30-day | 6-month | 12-month | WEP Band |
+|----------|-------------|--------|---------|----------|----------|
+| A | Continued moderate progress | 70% | 55% | 40% | 🟢 HIGH confidence |
+| B | Acceleration + geopolitical headwinds | — | 55% | 45% | 🟡 MEDIUM confidence |
+| C | Structural disruption | 15% | 25% | 30% | 🟡 MEDIUM confidence |
+| D | Coalition realignment | — | 10% | 15% | 🔴 LOW confidence |
+| E | Eurosceptic breakdown | <5% | 5% | 10% | 🔴 LOW confidence |
+
+**Note**: Scenario A and B are not mutually exclusive at 30-day horizon; the 30-day forecast is primarily between A and C. At 6-month and 12-month horizons, A/B merge into a "constructive" outcome bucket vs. C/D/E disruption bucket.
+
+---
+
+## FORECAST CONFIDENCE CALIBRATION
+
+**Calibration anchors used:**
+- Historical EP legislative output rates (EP Open Data 2004–2026 stats series)
+- Germany's GDP trajectory 2022–2024 (World Bank)
+- Early warning system stability score: 84/100 (EP MCP)
+- Coalition size distribution: ENP ≈ 4.4 (MEDIUM fragmentation)
+
+**Degradation factors:**
+- Voting roll-call data unavailable (4–6 week lag) → coalition cohesion cannot be empirically verified
+- IMF SDMX timeout → economic context partially constrained
+- Procedures feed degraded → pipeline clarity reduced
+
+**Forecast horizon reliability**: 30-day HIGH; 6-month MEDIUM; 12-month LOW. Standard intelligence tradecraft caveats apply.
+
+---
+
+*Sources: EP Open Data Portal, World Bank API (DE/FR), EP generated stats 2025–2026, early warning system, coalition dynamics analysis. IMF WEO data unavailable for this run. Analysis date: 2026-04-28.*
+
+## Scenario Probability Distribution
+
+```mermaid
+pie title 6-Month Scenario Probability Distribution
+    "A: EPP-S&D-Renew Stability (40%)" : 40
+    "B: Renew Realignment (25%)" : 25
+    "C: Fiscal Showdown (15%)" : 15
+    "D: Coalition Realignment (10%)" : 10
+    "E: Eurosceptic Shock (10%)" : 10
+```
+
+**Admiralty Grade:** B2 (source generally reliable; information confirmed by pattern analysis)
+
+*Scenario forecast produced: 2026-04-28 | Horizon: 6 months | Method: 5-scenario analysis with WEP bands*

@@ -110,3 +110,86 @@ IMF data: UNAVAILABLE (proxy timeout; documented in cache/imf/probe-summary.json
 ---
 
 *Baseline established from Stage A data collection for intelligence/ variant. See existing/session-baseline.md for standard baseline.*
+
+---
+
+## EXTENDED SESSION BASELINE — APRIL 2026 POLITICAL CONFIGURATION
+
+### Current EP Political Architecture (Real-time EP Open Data, 2026-04-28)
+
+**Group Configuration:**
+
+| Political Group | Seats | Seat Share | Political Orientation | Key Countries |
+|----------------|-------|------------|----------------------|---------------|
+| EPP | 185 | 25.73% | Centre-Right, Christian Democratic | DE, IT, FR, PL, ES |
+| S&D | 135 | 18.78% | Centre-Left, Social Democratic | DE, ES, IT, FR, PL |
+| PfE | 85 | 11.82% | Right-Wing, Nationalist | IT, FR, HU, AT, CZ |
+| ECR | 81 | 11.27% | Conservative, National Conservative | PL, IT, SE, BE, CZ |
+| Renew | 77 | 10.71% | Liberal, Pro-European | FR, DE, NL, ES, RO |
+| Greens/EFA | 53 | 7.37% | Green, Regionalist | DE, FR, ES, NL, BE |
+| The Left | 46 | 6.40% | Left, GUE/NGL successor | ES, DE, FR, GR, PT |
+| NI | 30 | 4.17% | Non-Inscrits | Mixed |
+| ESN | 27 | 3.76% | Far-Right | Mixed |
+
+**Total MEPs:** 719 | **Majority threshold:** 361 | **Grand coalition (EPP+S&D):** 320 (SHORT of majority)
+
+**Critical structural observation:** No two-group coalition can form a majority in EP10. All legislation requires minimum three-group coalitions. EPP+S&D+Renew = 397 (minimum working majority).
+
+### March-April 2026 Session Calendar Baseline
+
+**April 27-28, 2026 Plenary (Brussels):**
+- Today's session topics: Budget guidelines 2027, EIB annual report, financial performance instruments, dogs/cats welfare
+- This is a MINI-SESSION (Brussels, Mon-Tue pattern) vs. a full Strasbourg session (Mon-Thu)
+- Attendance indicator: Mini-sessions typically have 10-15% lower attendance than Strasbourg full sessions
+
+**March 2026 Plenary (Strasbourg):**
+- Major legislation passed: defence package (5 texts), banking union (SRMR3), EU-US tariff adjustment, WTO MC14 position
+- March was high-volume, high-political-significance month
+
+### Early Warning System Baseline (2026-04-28)
+
+| Warning | Severity | Description |
+|---------|----------|-------------|
+| HIGH_FRAGMENTATION | MEDIUM | 8 political groups; coalition building complex |
+| DOMINANT_GROUP_RISK | HIGH | EPP 19x smallest group size |
+| SMALL_GROUP_QUORUM_RISK | LOW | 3 groups with ≤5 members |
+
+**Stability score:** 84/100 | **Risk level:** MEDIUM | **Overall trend:** STABLE
+
+### Legislative Throughput Baseline (EP10, 2025-2026)
+
+| Metric | 2025 (Full Year) | 2026 YTD | Rate vs. 2025 |
+|--------|-----------------|----------|---------------|
+| Adopted texts | 78 | 114+ | +46% above pace |
+| Roll-call votes | 420 | 567 | +35% above pace |
+| Parliamentary questions | 4,946 | 6,147 | +24% above pace |
+| Resolutions | 135 | 180 | +33% above pace |
+
+This baseline confirms EP10 is operating at historically elevated legislative throughput in 2026, driven by the Commission's Competitiveness Agenda, geopolitical urgency (defence, Ukraine), and completion of multi-year regulatory processes (banking union, AI).
+
+---
+
+*Baseline produced: 2026-04-28 | Source: EP Open Data Portal real-time API | Admiralty: B2 | Confidence: 🟢 HIGH*
+
+### Political Risk Heat Map (April 2026)
+
+| Domain | Level | Key Driver |
+|--------|-------|-----------|
+| Coalition stability | 🟡 MEDIUM | No majority without 3+ groups |
+| Economic | 🔴 HIGH | German stagnation, EZ growth weak |
+| Geopolitical | 🔴 HIGH | Ukraine, US trade friction |
+| Institutional | 🟢 LOW | EP processes functioning normally |
+| Electoral | 🟡 MEDIUM | EP11 2029 concerns emerging |
+
+*Supplement produced: 2026-04-28 | Source: EP MCP early_warning_system | Gap fill*
+
+## Session Attendance Pattern
+
+```mermaid
+pie title Session Type Distribution April 2026
+    "Full Strasbourg Sessions" : 2
+    "Mini Brussels Sessions" : 2
+    "Committee-only periods" : 1
+```
+
+*Session calendar based on EP plenary schedule. Current run covers mini-session of April 27-28.*

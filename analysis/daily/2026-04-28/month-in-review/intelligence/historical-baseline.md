@@ -178,3 +178,18 @@ The combating corruption resolution (TA-0094) responds to the Qatar-gate scandal
 ---
 
 *Historical data sources: EP institutional records, World Bank historical data, prior analysis runs*
+
+## Historical Timeline
+
+```mermaid
+timeline
+    title EP10 Key Milestones (2024-2026)
+    2024-07 : EP10 constitutive session
+    2024-09 : Von der Leyen Commission approved
+    2025-03 : ReArm Europe proposal
+    2025-06 : AI Act implementation begins
+    2026-03 : SRMR3 (Banking Union) adopted
+    2026-04 : Defence Financing package proceeding
+```
+
+*Historical milestones from EP Open Data Portal and prior analysis runs.*

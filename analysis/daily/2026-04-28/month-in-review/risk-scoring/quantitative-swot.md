@@ -114,3 +114,60 @@ The Digital Omnibus simplification (TA-0098) creates a parallel track to the AI 
 ---
 
 *SWOT analysis based on: EP adopted texts, World Bank economic data, coalition dynamics, risk matrix, scenario forecast*
+
+## QUANTITATIVE SWOT — EXTENDED SCORING MATRIX
+
+### SWOT Score Breakdown (1–10 scale per item)
+
+**STRENGTHS:**
+| Strength | Score | Evidence |
+|----------|-------|---------|
+| High legislative throughput (EP10) | 9/10 | 567 RCV YTD vs. 420 full-year 2025 |
+| EPP coalition anchor (stable) | 8/10 | No major defections detected |
+| Banking union SRMR3 adopted | 8/10 | Confirmed adopted text 2026 |
+| EIB countercyclical capacity | 7/10 | TA-0119 adopted April 28 |
+
+**WEAKNESSES:**
+| Weakness | Score | Evidence |
+|----------|-------|---------|
+| No two-group majority possible | 8/10 | EPP+S&D=320 < 361 threshold |
+| German stagnation (-0.50% GDP) | 7/10 | WB data 2024 |
+| IMF data unavailable | 5/10 | Network timeout this run |
+| Voting records publication lag | 6/10 | 4–6 week lag confirmed |
+
+**OPPORTUNITIES:**
+| Opportunity | Score | Evidence |
+|-------------|-------|---------|
+| Defence financing mandate | 9/10 | EDIP, ReArm Europe adoption |
+| AI governance leadership | 8/10 | AI Act delegated acts in progress |
+| Banking union completion | 7/10 | SRMR3 done; EDIS next |
+| Savings union creation | 7/10 | EP speeches April 28 |
+
+**THREATS:**
+| Threat | Score | Evidence |
+|--------|-------|---------|
+| Eurosceptic surge risk (EP11 2029) | 7/10 | PfE+ECR+ESN = 27% seats |
+| US-EU trade escalation | 7/10 | EP WTO position adopted |
+| German fiscal austerity resistance | 8/10 | Debt brake constraint |
+| Coalition fracture (migration votes) | 5/10 | No evidence yet |
+
+**Overall SWOT Score:**
+- Strengths total: 32/40 (80%)
+- Weaknesses total: 26/40 (65%)
+- Opportunities total: 31/40 (78%)
+- Threats total: 27/40 (68%)
+- **Net Strategic Position: FAVORABLE** (Strengths + Opportunities > Weaknesses + Threats)
+
+*Quantitative SWOT expanded: 2026-04-28 | Standard: per-artifact-methodologies.md §quantitative-swot*
+
+## Strategic SWOT Balance
+
+```mermaid
+xychart-beta
+    title "SWOT Quantitative Scores (out of 40)"
+    x-axis ["Strengths", "Weaknesses", "Opportunities", "Threats"]
+    y-axis "Score" 0 --> 40
+    bar [32, 26, 31, 27]
+```
+
+*Net strategic position: FAVORABLE. Strengths + Opportunities (63) > Weaknesses + Threats (53).*

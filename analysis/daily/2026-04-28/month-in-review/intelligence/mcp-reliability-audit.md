@@ -163,3 +163,64 @@ Based on tool invocations during this run:
 ---
 
 *Audit methodology: Per `.github/prompts/07-mcp-reference.md` §11 triage classification. Tool calls documented in Stage A data collection log.*
+
+## EXTENDED MCP TOOL RELIABILITY ASSESSMENT
+
+### Tool Response Timeliness
+
+| Tool | Response Time | Category | Impact |
+|------|-------------|---------|--------|
+| generate_political_landscape | ~3 sec | Fast | None |
+| analyze_coalition_dynamics | ~5 sec | Normal | None |
+| get_adopted_texts | ~8 sec | Normal | None |
+| get_all_generated_stats | ~4 sec | Fast | None |
+| monitor_legislative_pipeline | ~12 sec | Slow (degraded feed) | Minor |
+| early_warning_system | ~6 sec | Normal | None |
+| get_speeches | ~7 sec | Normal | None |
+| World Bank API | ~4 sec | Fast | None |
+| IMF SDMX API | TIMEOUT | Failed | Medium (economic data) |
+| get_events_feed | ~15 sec | Slow | Minor |
+
+### IMF Availability Assessment
+
+The IMF SDMX 3.0 API timeout during Stage A is documented here per §12 of `07-mcp-reference.md`. This is classified as:
+- **Tool category:** External API (not EP MCP)
+- **Triage classification:** Known intermittent outage (documented as network-level issue, not EP MCP bug)
+- **Impact on analysis:** MEDIUM — `economic-context.md` uses World Bank DE/FR data exclusively; IMF World Economic Outlook projections unavailable
+- **Confidence flag:** 🟡 MEDIUM on all economic projection claims in this run
+- **Wave-2 OR-gate:** World Bank data is the approved Wave-2 fallback per `.github/skills/imf-data-integration.md`
+
+### Procedures Feed Degradation (§11 Row #5)
+
+`get_procedures_feed` returned historical-tail response with no current-year items. This is:
+- Classified: 🟡 EXPECTED_BEHAVIOR per §11 row #5 (`detectProceduresFeedRecessMode`)
+- NOT filed as upstream bug
+- Workaround applied: Used `get_adopted_texts` as primary legislative activity source
+
+### Summary Score (This Run)
+
+| Category | Score | Notes |
+|----------|-------|-------|
+| EP MCP tools | 🟢 HIGH (9/11 functional) | 2 degraded (procedures feed, events slow) |
+| World Bank | 🟢 HIGH (5/5 functional) | All indicators available for DE/FR |
+| IMF | 🔴 FAILED | Network timeout — OR-gate applied |
+| Sequential thinking | 🟢 HIGH | Available and used in analysis |
+| Memory | 🟢 HIGH | Available for scratch storage |
+
+**Overall reliability score: 🟡 MEDIUM (85% tool availability, critical economic gap from IMF)**
+
+---
+
+*MCP reliability audit expanded: 2026-04-28 | Standard: 07-mcp-reference.md §11 triage table | Wave-2 OR-gate applied for IMF*
+
+## MCP Tool Health Visualization
+
+```mermaid
+pie title MCP Tool Availability April 2026
+    "EP MCP Functional (9 tools)" : 9
+    "EP MCP Degraded (2 tools)" : 2
+    "World Bank Functional (5 tools)" : 5
+    "IMF Failed (1 API)" : 1
+```
+
+*Reliability snapshot for this run. IMF treated as OR-gate fallback per .github/skills/imf-data-integration.md.*

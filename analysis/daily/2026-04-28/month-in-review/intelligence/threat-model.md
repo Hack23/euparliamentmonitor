@@ -193,3 +193,54 @@ HIGH PROBABILITY + MEDIUM SEVERITY:
 ---
 
 *Data sources: EP MCP tools, World Bank API, coalition dynamics analysis, early warning system output*
+
+## THREAT VECTOR EXPANSION — APRIL 2026
+
+### Economic Threat Vectors
+
+**T-ECO-01: German Stagnation Spillover**
+- Threat type: Macro-economic contagion
+- Mechanism: German economic contraction (-0.50% GDP 2024) reduces EU budget contributions, forcing austerity-oriented MFF negotiations
+- Indicators: WB GDP data DE; EIB lending requests; Commission budget proposals
+- Mitigation: EIB countercyclical lending (confirmed via adopted TA-0119); MFF flexibility reserve
+- WEP: Likely (P=0.65)
+
+**T-ECO-02: US-EU Trade Escalation**
+- Threat type: Trade shock / geopolitical economic coercion
+- Mechanism: Post-2024 US tariff regime creates retaliatory pressure on EU; EP WTO MC14 position (adopted April 27) reflects pre-emptive positioning
+- Indicators: US USTR announcements; EP resolution texts; Trade committee activities
+- Mitigation: EP WTO MC14 position; Article 207 TFEU trade defense mechanisms
+- WEP: Likely (P=0.55)
+
+### Institutional Threat Vectors
+
+**T-INST-01: Coalition Mathematics Brittleness**
+- Threat type: Governance instability
+- Mechanism: EPP+S&D+Renew = 397 seats; loss of any two of these groups fractures the majority
+- Indicators: Defection votes; committee rapporteurship allocations; committee attendance
+- Mitigation: Cross-cutting alliances on issue-by-issue basis
+- WEP: Remote (P=0.15) for major coalition fracture; About Even (P=0.45) for ad-hoc breakdowns
+
+*Threat model supplement produced: 2026-04-28 | Standard: per-artifact-methodologies.md §threat-model*
+
+## Threat Landscape Overview
+
+```mermaid
+quadrantChart
+    title Threat Priority Matrix (April 2026)
+    x-axis Low Probability --> High Probability
+    y-axis Low Impact --> High Impact
+    quadrant-1 Priority
+    quadrant-2 Escalation Watch
+    quadrant-3 Monitor
+    quadrant-4 Prepare
+    German Stagnation: [0.70, 0.75]
+    Defence Veto: [0.60, 0.85]
+    US Tariff Escalation: [0.55, 0.70]
+    Coalition Fracture: [0.35, 0.80]
+    EP-Council Deadlock: [0.50, 0.65]
+```
+
+**Admiralty Grade:** B2 (source: EP Open Data Portal, real-time political data; confirmed via multiple tool calls)
+
+*Threat model produced: 2026-04-28 | Method: STRIDE + Political Intelligence | Confidence: 🟡 MEDIUM*

@@ -250,3 +250,46 @@ The Commission is facing a demanding delivery schedule created by EP10's legisla
 ---
 
 *Data sources: EP Open Data Portal (coalition analysis), World Bank (economic context), prior analysis run 2026-04-27*
+
+## STAKEHOLDER POWER-INTEREST MATRIX — APRIL 2026 SUPPLEMENT
+
+```mermaid
+quadrantChart
+    title Stakeholder Power-Interest Matrix (April 2026)
+    x-axis Low Interest --> High Interest
+    y-axis Low Power --> High Power
+    quadrant-1 Manage Closely
+    quadrant-2 Keep Satisfied
+    quadrant-3 Monitor
+    quadrant-4 Keep Informed
+    EPP Group: [0.95, 0.95]
+    S&D Group: [0.90, 0.85]
+    European Commission: [0.85, 0.80]
+    Renew Europe: [0.80, 0.75]
+    ECR Group: [0.75, 0.60]
+    PfE Group: [0.70, 0.55]
+    Member State Governments: [0.60, 0.90]
+    Greens/EFA: [0.85, 0.50]
+    The Left: [0.80, 0.40]
+    Civil Society: [0.70, 0.35]
+    Financial Industry: [0.60, 0.70]
+    Defence Industry: [0.55, 0.65]
+```
+
+### Priority Stakeholder Updates (April 2026)
+
+**EPP (Manage Closely — Quadrant 1):**
+April update: EPP's majority control of committee rapporteurships confirmed. BUDG committee EPP rapporteur steering 2027 MFF debates. EPP internal cohesion estimated HIGH (no major defections detected).
+
+**European Commission (Keep Satisfied — Quadrant 2):**
+April update: Commission's Competitiveness Agenda 2026 remains central to EP10 legislative output. High legislative throughput (567 RCV YTD) confirms strong Commission-EP alignment on priority legislation.
+
+**S&D Group (Manage Closely — Quadrant 1):**
+April update: S&D role as EPP coalition partner in all major legislation confirmed by adopted texts analysis. S&D-EPP gap (50 seats) creates structural incentive for S&D to maintain coalition position rather than defect.
+
+**Member State Governments (Keep Satisfied — Quadrant 2):**
+April update: Germany's fiscal hawkishness on defence spending (based on WB economic data showing -0.50% GDP growth 2024) creates divergence with EP majority position on EDIP financing. France (+1.19% GDP growth) more supportive of fiscal expansion for defence.
+
+---
+
+*Stakeholder map supplement produced: 2026-04-28 | Standard: per-artifact-methodologies.md §stakeholder-map | Power-interest matrix (Mermaid)*

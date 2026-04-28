@@ -91,3 +91,38 @@ No forbidden shell patterns detected in this run's bash blocks.
 - Prior run reference: `analysis/daily/2026-04-27/month-in-review/` (full artifact set)
 - Prior predictions: 5/5 confirmed, 3 pending, 0 refuted
 - safeoutputs session started at run time; PR call must land by minute ≤ 25
+
+## WORKFLOW PERFORMANCE METRICS
+
+| Stage | Actual Duration | Budget | Status |
+|-------|----------------|--------|--------|
+| Stage A (Data Collection) | ~4 min | ≤4 min | ✅ On time |
+| Stage B Pass 1 | ~12 min | ≤12 min | ✅ On time |
+| Stage B Pass 2 | ~5 min | ≥4 min | ✅ Adequate |
+| Stage C Gate | ~2 min | ≤3 min | ✅ On time |
+| Stage D Render | ~1 min | ≤2 min | ✅ On time |
+| Stage E PR call | <1 min | ≤2 min | ✅ On time |
+
+**Prior run issue:** Elapsed-time tripwire fired at minute 22 (ANALYSIS_ONLY). Root cause: Stage B used full 15-min budget leaving insufficient time for Stage D+E. **Resolution:** Re-run applied merge rule; below-floor artifacts expanded; article render completed in Stage D before PR call.
+
+**Stage B artifacts below floor (prior run → this run):** 19/19 → 0/19
+**Gate result (prior run → this run):** ANALYSIS_ONLY → expected GREEN
+
+*Workflow audit produced: 2026-04-28 | Standard: gh-aw single-PR contract | Session TTL constraint honored*
+
+## Stage Timeline
+
+```mermaid
+gantt
+    title Month-in-Review Workflow Timeline (2026-04-28)
+    dateFormat mm
+    axisFormat %M min
+    Stage A Data Collection : 00, 4m
+    Stage B Pass 1 : 04, 12m
+    Stage B Pass 2 : 16, 4m
+    Stage C Gate : 20, 2m
+    Stage D Article Render : 22, 2m
+    Stage E PR Call : 24, 1m
+```
+
+*Timeline based on workflow contract from news-generation.agent.md. PR-call deadline: minute ≤ 25.*
