@@ -213,36 +213,76 @@ gh aw compile --poutine                   # Supply chain risks
 - **MCP servers use `container/entrypoint/entrypointArgs` format** in gh-aw workflows (not `command/args` which is for copilot-mcp.json)
 - **Omit the `tools` / `allowed` field entirely** on MCP servers — the gh-aw MCP gateway (awmg) treats `"*"` as a literal tool name (exposing 0 tools), and omitting the field is equivalent to "all tools". **Never** write `allowed: ["*"]` or `tools: ["*"]`.
 
-## Maintainer Triage — `[aw] Detection Runs` `parse_error`
+## Maintainer Triage — Transient gh-aw Sandbox Flakes
 
-The auto-managed `[aw] Detection Runs` tracking issue receives one comment per
-workflow run whose `detection` job exited with a warning. The issue body
-itself states *"No action to take - Do not assign to an agent."* — the rule
-below exists for the rare case a maintainer (or a misrouted agent) does open
-the issue.
+Two related symptoms come from the same root-cause family (gh-aw sandbox
+cold-start infra flake on GitHub-hosted runners) and share **one** triage
+rule. Both surface the same auto-filed `[aw] …` tracking issue family
+("No action to take - Do not assign to an agent.") — the rule below exists
+for the rare case a maintainer or misrouted agent opens such an issue.
 
-**Symptom comment:** `Conclusion: warning | Reason: parse_error` posted by
-`github-actions[bot]` while the workflow's main `agent` job completed
-normally and the safe-outputs PR was created.
+### A. `Conclusion: warning | Reason: parse_error` (detection job)
 
-**Root cause (transient, not a workflow-content bug):** the gh-aw sandbox's
-`awf-api-proxy` container occasionally fails its docker healthcheck at
-startup when GitHub-hosted runner cold-start saturates the network. The
-threat-detection model never executes, so `parse_threat_detection_results.cjs`
-records `ERR_PARSE` as a warning under the gh-aw default
-`GH_AW_DETECTION_CONTINUE_ON_ERROR=true`. Log fingerprint:
+Posted by `github-actions[bot]` to the auto-managed `[aw] Detection Runs`
+tracking issue while the workflow's main `agent` job completed normally and
+the safe-outputs PR was created.
+
+**Root cause (transient):** the sandbox's `awf-api-proxy` container
+occasionally fails its docker healthcheck at startup when GitHub-hosted
+runner cold-start saturates the network. The threat-detection model never
+executes, so `parse_threat_detection_results.cjs` records `ERR_PARSE` as a
+warning under the gh-aw default `GH_AW_DETECTION_CONTINUE_ON_ERROR=true`.
+Log fingerprint:
 
 ```
 [ERROR] Failed to start containers: … docker compose up -d --pull never
 ##[warning]⚠️ ERR_PARSE: ❌ No THREAT_DETECTION_RESULT found in detection log.
 ```
 
-**Triage rule (no source change required):** confirm via
-`npm run lint:prompts` (must be `0 violations`) and
-`npm run test -- test/unit/shell-safety.test.js`; if both pass, the workflow
-content is clean and the failure is sandbox infrastructure. Re-investigate
-**only after three consecutive runs** of the same workflow emit `parse_error`
-— that threshold separates a docker flake from a sandbox-setup regression.
+### B. `Engine Failure` — `copilot` engine terminated unexpectedly (agent job)
+
+Surfaces in the auto-filed `[aw] News: <workflow-name> failed` issue family
+(one issue per failed news workflow run; same "Do not assign to an agent"
+guidance pattern as `[aw] Detection Runs`). The issue body contains the
+exact block:
+
+```
+exitCode: 1,
+signal: undefined,
+stdout: undefined,
+stderr: undefined,
+failed: true,
+timedOut: false,
+```
+
+**Root cause (transient, distinct fingerprint):** the Copilot CLI exits
+immediately after `start_mcp_gateway.cjs` finishes registering MCP backends
+and **before** any inference call. Diagnostic markers in the agent log
+(Workflow run → Artifacts → `agent.zip` → `agent-stdio.log`):
+
+- Total agent-job duration < 3 minutes
+- `world-bank` (or another MCP backend) tool registration took 30–60 s
+- Final post-step line is `No token usage data found, skipping summary`
+- `agent_output.json` is the default `{"items":[]}` written by the
+  fallback bash step — never produced by the engine itself
+- No `safeoutputs___…` invocations in `mcp-logs/safeoutputs.log`
+
+Forensic example: [run 25072577594](https://github.com/Hack23/euparliamentmonitor/actions/runs/25072577594)
+(news-month-in-review, 2026-04-28) — engine started 19:15:04, terminated
+19:16:50, MCP gateway healthy, zero tokens consumed.
+
+### Unified Triage Rule (covers both A and B)
+
+No source change required. Confirm:
+
+1. `npm run lint:prompts` → `0 violations`
+2. `npm run test -- test/unit/shell-safety.test.js` → all pass
+
+If both pass, the workflow content is clean and the failure is sandbox
+infrastructure. Re-run the workflow once. Re-investigate **only after
+three consecutive runs of the same workflow** emit the same fingerprint —
+that threshold separates a docker / Copilot-CLI cold-start flake from a
+real sandbox-setup or workflow-content regression.
 
 ---
 
