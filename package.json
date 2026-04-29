@@ -172,7 +172,7 @@
     "node": ">=25"
   },
   "dependencies": {
-    "european-parliament-mcp-server": "1.2.15",
+    "european-parliament-mcp-server": "1.2.16",
     "markdown-it": "^14.1.1",
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-attrs": "^4.3.1",
