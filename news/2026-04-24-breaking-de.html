@@ -61,8 +61,8 @@
     <div class="site-header__inner site-header__inner--stacked">
       <a href="../index-de.html" class="site-header__brand" aria-label="EU-Parlamentsmonitor">
         <picture class="site-header__logo-picture">
-          <source srcset="../images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
+          <source srcset="../images/banner.webp" type="image/webp">
+          <img class="site-header__logo site-header__logo--banner" src="../images/banner.jpg" alt="EU-Parlamentsmonitor" width="240" height="80" loading="eager">
         </picture>
         <span class="site-header__brand-text">
           <span class="site-header__title">EU-Parlamentsmonitor</span>
@@ -93,6 +93,13 @@
       </nav>
     </div>
   </header>
+
+  <div class="page-banner" role="img" aria-label="EU Parliament Monitor">
+    <picture>
+      <source srcset="../images/banner.webp" type="image/webp">
+      <img class="page-banner__img" src="../images/banner.jpg" alt="" aria-hidden="true" width="1200" height="400" loading="eager">
+    </picture>
+  </div>
 
   <main id="main" class="site-main article-main">
   <aside class="article-toc-container" aria-label="Inhaltsverzeichnis">
@@ -289,7 +296,7 @@ confidence  = B3 (Admiralty: source usually reliable, information possibly
 <h3 id="handoff-contract" tabindex="-1"><a class="header-anchor" href="#handoff-contract"><span>Handoff Contract</span></a></h3>
 <p>The paired article workflow (<code>news-breaking-article.md</code>) will:</p>
 <ol>
-<li>Load this manifest via <code>readLatestGateResult()</code>.</li>
+<li>Load this manifest via <code>readLatestGateResult</code>.</li>
 <li>Observe <code>gateResult: ANALYSIS_ONLY</code>.</li>
 <li>Emit a single <code>safeoutputs___noop</code> call with message referencing this run's analysis directory.</li>
 <li>Exit without generating any HTML.</li>
@@ -1826,6 +1833,8 @@ confidence  = B3 (Admiralty: source usually reliable, information possibly
 </ol>
 <p>End of methodology notes.</p>
 <h2 id="section-economic-context">Economic Context</h2>
+<p>** IMF requirement:** per <code>.github/skills/ai-first-quality.md</code>, policy articles require World Bank OR IMF economic context. This run does not draft an article, but still publishes the economic baseline for future use.</p>
+<hr>
 <h3 id="1-eurozone-macroeconomic-snapshot" tabindex="-1"><a class="header-anchor" href="#1-eurozone-macroeconomic-snapshot"><span>1. Eurozone Macroeconomic Snapshot</span></a></h3>
 <div class="table-scroll" role="region" tabindex="0"><table>
 <thead>
@@ -2041,8 +2050,8 @@ confidence  = B3 (Admiralty: source usually reliable, information possibly
 <h3 id="9-cross-reference-1" tabindex="-1"><a class="header-anchor" href="#9-cross-reference-1"><span>9. Cross-Reference</span></a></h3>
 <ul>
 <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/pestle-analysis.md">pestle-analysis.md</a> §E — economic dimension summary.</li>
-<li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/synthesis-summary.md">synthesis-summary.md</a> §Judgement 1 — feed-regime context.</li>
-<li>Wave-2 AI-First skill: <code>.github/skills/imf-data-integration.md</code>.</li>
+<li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/synthesis-summary.md">synthesis-summary.md</a> §Judgement 1 — feed-regime context.
+.github/skills/imf-data-integration.md`.</li>
 </ul>
 <h3 id="10-data-provenance" tabindex="-1"><a class="header-anchor" href="#10-data-provenance"><span>10. Data Provenance</span></a></h3>
 <ul>
@@ -2106,7 +2115,7 @@ confidence  = B3 (Admiralty: source usually reliable, information possibly
 <p>Macro-surprise index (informal, not computed here) is near neutral based on absence of surprise announcements today.</p>
 </li>
 <li>
-<p>The Wave-2 OR-gate requires either WB or IMF context for policy articles; this run does not draft an article, but the baseline is pre-staged for tomorrow.</p>
+<p>The  IMF requirement requires either WB or IMF context for policy articles; this run does not draft an article, but the baseline is pre-staged for tomorrow.</p>
 </li>
 <li>
 <p>When the IMF April-WEO update cycle lands, a revision downward on EU27 growth would be a policy-relevant trigger; watch for this in scenario forecasting.</p>
@@ -2169,7 +2178,7 @@ confidence  = B3 (Admiralty: source usually reliable, information possibly
 <p>Macro-surprise index (informal, not computed here) is near neutral based on absence of surprise announcements today.</p>
 </li>
 <li>
-<p>The Wave-2 OR-gate requires either WB or IMF context for policy articles; this run does not draft an article, but the baseline is pre-staged for tomorrow.</p>
+<p>The  IMF requirement requires either WB or IMF context for policy articles; this run does not draft an article, but the baseline is pre-staged for tomorrow.</p>
 </li>
 <li>
 <p>When the IMF April-WEO update cycle lands, a revision downward on EU27 growth would be a policy-relevant trigger; watch for this in scenario forecasting.</p>
@@ -3508,7 +3517,7 @@ confidence  = B3 (Admiralty: source usually reliable, information possibly
 </ul>
 <h3 id="3-tool-by-tool-results-imf" tabindex="-1"><a class="header-anchor" href="#3-tool-by-tool-results-imf"><span>3. Tool-by-Tool Results (IMF)</span></a></h3>
 <ul>
-<li>IMF SDMX 3.0 endpoints are reachable via the native TypeScript client (<code>src/mcp/imf-mcp-client.ts</code>) but were NOT invoked this run. Wave-2 OR-gate is satisfied by the World Bank baseline in <code>economic-context.md</code>.</li>
+<li>IMF SDMX 3.0 endpoints are reachable via the native TypeScript client (<code>src/mcp/imf-mcp-client.ts</code>) but were NOT invoked this run.  IMF requirement is satisfied by the World Bank baseline in <code>economic-context.md</code>.</li>
 </ul>
 <h3 id="4-tool-by-tool-results-auxiliary-mcp-servers" tabindex="-1"><a class="header-anchor" href="#4-tool-by-tool-results-auxiliary-mcp-servers"><span>4. Tool-by-Tool Results (Auxiliary MCP servers)</span></a></h3>
 <ul>
@@ -3702,7 +3711,7 @@ confidence  = B3 (Admiralty: source usually reliable, information possibly
 <p>World Bank tools were not invoked this run; `economic-context.md` uses most-recent-known values.</p>
 </li>
 <li>
-<p>IMF tools were not invoked this run; Wave-2 OR-gate is satisfied by World Bank baseline.</p>
+<p>IMF tools were not invoked this run;  IMF requirement is satisfied by World Bank baseline.</p>
 </li>
 <li>
 <p>Auxiliary MCP (memory, sequential-thinking) were not explicitly exercised today but are structurally healthy.</p>
@@ -3840,7 +3849,7 @@ confidence  = B3 (Admiralty: source usually reliable, information possibly
 <p>World Bank tools were not invoked this run; `economic-context.md` uses most-recent-known values.</p>
 </li>
 <li>
-<p>IMF tools were not invoked this run; Wave-2 OR-gate is satisfied by World Bank baseline.</p>
+<p>IMF tools were not invoked this run;  IMF requirement is satisfied by World Bank baseline.</p>
 </li>
 <li>
 <p>Auxiliary MCP (memory, sequential-thinking) were not explicitly exercised today but are structurally healthy.</p>
@@ -3978,7 +3987,7 @@ confidence  = B3 (Admiralty: source usually reliable, information possibly
 <p>World Bank tools were not invoked this run; `economic-context.md` uses most-recent-known values.</p>
 </li>
 <li>
-<p>IMF tools were not invoked this run; Wave-2 OR-gate is satisfied by World Bank baseline.</p>
+<p>IMF tools were not invoked this run;  IMF requirement is satisfied by World Bank baseline.</p>
 </li>
 <li>
 <p>Auxiliary MCP (memory, sequential-thinking) were not explicitly exercised today but are structurally healthy.</p>
@@ -4493,7 +4502,7 @@ confidence  = B3 (Admiralty: source usually reliable, information possibly
       <div class="footer-section">
         <h3>Über EU Parliament Monitor</h3>
         <p>Europäische Parlamentsnachrichten-Plattform — Überwachung politischer Aktivitäten mit systematischer Transparenz. Angetrieben von offenen Daten des Europäischen Parlaments.</p>
-        <p class="footer-stats">116 Artikel verfügbar</p>
+        <p class="footer-stats">127 Artikel verfügbar</p>
         <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">
@@ -4520,10 +4529,10 @@ confidence  = B3 (Admiralty: source usually reliable, information possibly
       <div class="footer-section">
         <h3>Erstellt von Hack23 AB</h3>
         <div class="footer-badges" aria-label="Project trust badges">
-          <a href="https://www.npmjs.com/package/euparliamentmonitor"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
-          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
-          <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
-          <a href="https://github.com/Hack23/euparliamentmonitor/attestations"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
+          <a href="https://www.npmjs.com/package/euparliamentmonitor" aria-label="npm package version"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
+          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor" aria-label="OpenSSF Scorecard"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
+          <a href="https://www.bestpractices.dev/projects/12068" aria-label="OpenSSF Best Practices"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
+          <a href="https://github.com/Hack23/euparliamentmonitor/attestations" aria-label="SLSA Level 3"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
         </div>
         <ul>
           <li><a href="https://hack23.com">Hack23.com</a></li>
@@ -4562,7 +4571,7 @@ confidence  = B3 (Admiralty: source usually reliable, information possibly
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.48</p>
+      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.50</p>
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> Diese Plattform wird laufend verbessert. <a href="https://github.com/Hack23/euparliamentmonitor/issues">Probleme auf GitHub melden</a>.</p>
     </div>
   </footer>

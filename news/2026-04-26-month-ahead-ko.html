@@ -61,8 +61,8 @@
     <div class="site-header__inner site-header__inner--stacked">
       <a href="../index-ko.html" class="site-header__brand" aria-label="EU 의회 모니터">
         <picture class="site-header__logo-picture">
-          <source srcset="../images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
+          <source srcset="../images/banner.webp" type="image/webp">
+          <img class="site-header__logo site-header__logo--banner" src="../images/banner.jpg" alt="EU 의회 모니터" width="240" height="80" loading="eager">
         </picture>
         <span class="site-header__brand-text">
           <span class="site-header__title">EU 의회 모니터</span>
@@ -93,6 +93,13 @@
       </nav>
     </div>
   </header>
+
+  <div class="page-banner" role="img" aria-label="EU Parliament Monitor">
+    <picture>
+      <source srcset="../images/banner.webp" type="image/webp">
+      <img class="page-banner__img" src="../images/banner.jpg" alt="" aria-hidden="true" width="1200" height="400" loading="eager">
+    </picture>
+  </div>
 
   <main id="main" class="site-main article-main">
   <aside class="article-toc-container" aria-label="목차">
@@ -1300,8 +1307,8 @@ history has combined all four of these factors simultaneously.</p>
 <p><em>Source: EP Generated Statistics 2004–2026, EP MCP tools, institutional history.</em>
 <em>Generated: 2026-04-26</em></p>
 <h2 id="section-economic-context">Economic Context</h2>
-<h3 id="data-source-declaration-wave-3-imf-primary-rule" tabindex="-1"><a class="header-anchor" href="#data-source-declaration-wave-3-imf-primary-rule"><span>⚠️ Data Source Declaration (Wave-3 IMF Primary Rule)</span></a></h3>
-<p>Per <code>.github/prompts/01-data-collection.md</code> Wave-3 IMF-Primary rule: this article type
+<h3 id="data-source-declaration" tabindex="-1"><a class="header-anchor" href="#data-source-declaration"><span>⚠️ Data Source Declaration</span></a></h3>
+<p>Per <code>.github/prompts/01-data-collection.md</code>  IMF-Primary rule: this article type
 (month-ahead) touches macro/fiscal/monetary/trade — IMF WEO is the <strong>primary</strong> data source.
 World Bank data is used only for structural/development indicators not covered by IMF WEO.
 IMF data cited below is from the <strong>IMF World Economic Outlook April 2026 Edition</strong> vintage,
@@ -1370,7 +1377,7 @@ risk to European growth. A full tariff escalation scenario (all US goods, 25% ra
 ~0.4pp from EU GDP in 2027. The Commission's proposed targeted customs adjustment (€26 billion
 scope) limits but does not eliminate this risk.</p>
 <p><strong>EP nexus:</strong> INTA committee rapporteur's trilogue mandate (approved March 26) targets a proportional
-retaliation instrument. The economic logic — supported by IMF structural competitiveness analysis —
+retaliation instrument. The economic logic — supported by IMF structural competitiveness analysis
 is that targeted retaliation is less damaging than a broad tariff war. The trilogue outcome will
 determine whether EP's proportional approach is accepted by Council member states with more exposed
 economies (Germany, France).</p>
@@ -1725,7 +1732,7 @@ that a successful trilogue conclusion can be reached before May 21 plenary.</p>
 Euro area sovereign borrowing costs fall by ~40–50bp. This creates genuine fiscal space for
 member states to co-invest alongside the CID framework without breaching SGP deficit limits.
 The political opportunity is to use the CID legislative process to embed fiscal space provisions
-(investment clauses) that would allow CID co-investment to be excluded from SGP calculations —
+(investment clauses) that would allow CID co-investment to be excluded from SGP calculations
 a proposal that S&amp;D and Renew support and that Commission's Fiscal Monitor analysis
 would likely endorse. 🟡 <strong>WEP: Realistic possibility (40–55%)</strong> for ECB cut materialising.</p>
 <hr>
@@ -2268,7 +2275,7 @@ CID investment argument and may delay Council's co-investment framework.</p>
 <hr>
 <h3 id="wildcard-4-russia-ukraine-ceasefire-announcement" tabindex="-1"><a class="header-anchor" href="#wildcard-4-russia-ukraine-ceasefire-announcement"><span>Wildcard 4: Russia-Ukraine Ceasefire Announcement</span></a></h3>
 <p><strong>WEP: Very unlikely (5–10%)</strong></p>
-<p>An unexpected ceasefire announcement in Ukraine — even a temporary humanitarian pause —
+<p>An unexpected ceasefire announcement in Ukraine — even a temporary humanitarian pause
 would create an immediate and difficult political question for EP: whether to support
 conditional normalisation of EU-Russia relations, particularly on energy. EPP has elements
 (Hungarian Fidesz-adjacent) that would embrace this narrative; S&amp;D and Greens would be
@@ -2648,7 +2655,7 @@ quadrantChart
 <tr>
 <td>IMF WEO primary source for economic context</td>
 <td>✅</td>
-<td>Wave-3 rule applied</td>
+<td>applied</td>
 </tr>
 <tr>
 <td>Data quality warnings for EP API gaps</td>
@@ -2736,7 +2743,7 @@ analysis. This is systemic, not addressable within the workflow.</p>
 <h4 id="stage-compliance" tabindex="-1"><a class="header-anchor" href="#stage-compliance"><span>Stage Compliance</span></a></h4>
 <ul>
 <li>Stage A (Data Collection): ✅ Completed within 4 min. EP MCP tools called in parallel.
-IMF WEO cited per Wave-3 IMF-Primary rule. WB query attempted (no data returned for DE).</li>
+IMF WEO cited. WB query attempted (no data returned for DE).</li>
 <li>Stage B Pass 1 (Analysis): ✅ All mandatory artifacts written using native create tool
 (no heredoc per <code>02-analysis-protocol.md §2a</code>). 14 artifacts written across 4 subdirectories.</li>
 <li>Stage B Pass 2 (Review): ✅ Artifacts read end-to-end during sequential creation. Each
@@ -2776,7 +2783,7 @@ artifact built on prior artifacts (executive-brief → synthesis-summary → sce
 <tr>
 <td>IMF WEO primary source for macro/fiscal/trade</td>
 <td>✅</td>
-<td>Wave-3 IMF-primary rule applied</td>
+<td>rule applied</td>
 </tr>
 <tr>
 <td>No [AI_ANALYSIS_REQUIRED] markers</td>
@@ -3087,7 +3094,7 @@ some individual behavioral data even if group cohesion is unavailable.</p>
       <div class="footer-section">
         <h3>EU Parliament Monitor 소개</h3>
         <p>유럽 의회 인텔리전스 플랫폼 — 체계적인 투명성으로 정치 활동을 모니터링. 유럽 의회 공개 데이터를 기반으로 함.</p>
-        <p class="footer-stats">116개 기사 이용 가능</p>
+        <p class="footer-stats">127개 기사 이용 가능</p>
         <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">
@@ -3114,10 +3121,10 @@ some individual behavioral data even if group cohesion is unavailable.</p>
       <div class="footer-section">
         <h3>Hack23 AB 제작</h3>
         <div class="footer-badges" aria-label="Project trust badges">
-          <a href="https://www.npmjs.com/package/euparliamentmonitor"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
-          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
-          <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
-          <a href="https://github.com/Hack23/euparliamentmonitor/attestations"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
+          <a href="https://www.npmjs.com/package/euparliamentmonitor" aria-label="npm package version"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
+          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor" aria-label="OpenSSF Scorecard"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
+          <a href="https://www.bestpractices.dev/projects/12068" aria-label="OpenSSF Best Practices"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
+          <a href="https://github.com/Hack23/euparliamentmonitor/attestations" aria-label="SLSA Level 3"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
         </div>
         <ul>
           <li><a href="https://hack23.com">Hack23.com</a></li>
@@ -3156,7 +3163,7 @@ some individual behavioral data even if group cohesion is unavailable.</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.48</p>
+      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.50</p>
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> 이 플랫폼은 지속적으로 개선되고 있습니다. <a href="https://github.com/Hack23/euparliamentmonitor/issues">GitHub에서 문제 보고</a>.</p>
     </div>
   </footer>

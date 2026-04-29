@@ -61,8 +61,8 @@
     <div class="site-header__inner site-header__inner--stacked">
       <a href="../index-fi.html" class="site-header__brand" aria-label="EU-parlamentin seuranta">
         <picture class="site-header__logo-picture">
-          <source srcset="../images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
+          <source srcset="../images/banner.webp" type="image/webp">
+          <img class="site-header__logo site-header__logo--banner" src="../images/banner.jpg" alt="EU-parlamentin seuranta" width="240" height="80" loading="eager">
         </picture>
         <span class="site-header__brand-text">
           <span class="site-header__title">EU-parlamentin seuranta</span>
@@ -93,6 +93,13 @@
       </nav>
     </div>
   </header>
+
+  <div class="page-banner" role="img" aria-label="EU Parliament Monitor">
+    <picture>
+      <source srcset="../images/banner.webp" type="image/webp">
+      <img class="page-banner__img" src="../images/banner.jpg" alt="" aria-hidden="true" width="1200" height="400" loading="eager">
+    </picture>
+  </div>
 
   <main id="main" class="site-main article-main">
   <aside class="article-toc-container" aria-label="Sisällysluettelo">
@@ -3475,7 +3482,7 @@ The flagship projects list reflects a carefully negotiated balance:</p>
 </div><hr>
 <h3 id="triage-against-githubprompts07-mcp-referencemd-11" tabindex="-1"><a class="header-anchor" href="#triage-against-githubprompts07-mcp-referencemd-11"><span>Triage Against <code>.github/prompts/07-mcp-reference.md §11</code></span></a></h3>
 <h4 id="getproceduresfeed-known-issue-11-row-5" tabindex="-1"><a class="header-anchor" href="#getproceduresfeed-known-issue-11-row-5"><span><code>get_procedures_feed</code> — 🟡 KNOWN ISSUE (§11 row #5)</span></a></h4>
-<p><strong>Observed behavior:</strong> Feed returned 50 items all dated 1972, indicating historical archive ordering. <code>detectProceduresFeedRecessMode()</code> logic applies: all items ≤1995 → recess mode flag.</p>
+<p><strong>Observed behavior:</strong> Feed returned 50 items all dated 1972, indicating historical archive ordering. <code>detectProceduresFeedRecessMode</code> logic applies: all items ≤1995 → recess mode flag.</p>
 <p><strong>Triage result:</strong> NOT a new bug. Documented at §11 row #5 as <code>STALENESS_WARNING / recessMode:true</code> — a known degraded-upstream pattern where the EP API falls back to historical archive ordering. Mitigation applied: used <code>get_adopted_texts</code> direct endpoint instead.</p>
 <p><strong>Upstream issue warranted:</strong> No — documented behavior.</p>
 <hr>
@@ -3580,7 +3587,7 @@ The flagship projects list reflects a carefully negotiated balance:</p>
 <li>✅ No <code>tools: [&quot;*&quot;]</code> or wildcard tool specifications used</li>
 <li>✅ ENRICHMENT_FAILED warnings properly logged and not re-raised as bugs</li>
 <li>✅ Empty voting/speech results handled per protocol (not treated as errors)</li>
-<li>✅ IMF institutional knowledge applied with proper vintage labelling per Wave-2 OR-gate policy</li>
+<li>✅ IMF institutional knowledge applied with proper vintage labelling</li>
 </ul>
 <h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 <h3 id="analysis-index" tabindex="-1"><a class="header-anchor" href="#analysis-index"><span>Analysis Index</span></a></h3>
@@ -3897,7 +3904,7 @@ The flagship projects list reflects a carefully negotiated balance:</p>
 </tr>
 </tbody>
 </table>
-</div><p><strong>Data vintage compliance:</strong> <code>data-vintage=&quot;WEO-April-2026&quot;</code> applied to all IMF-sourced projections per Wave-2 OR-gate editorial policy.</p>
+</div><p><strong>Data vintage compliance:</strong> <code>data-vintage=&quot;WEO-April-2026&quot;</code> applied to all IMF-sourced projections.</p>
 <h3 id="reference-analysis-quality" tabindex="-1"><a class="header-anchor" href="#reference-analysis-quality"><span>Reference Analysis Quality</span></a></h3>
 <h3 id="quality-gate-summary" tabindex="-1"><a class="header-anchor" href="#quality-gate-summary"><span>Quality Gate Summary</span></a></h3>
 <div class="table-scroll" role="region" tabindex="0"><table>
@@ -4079,7 +4086,7 @@ The flagship projects list reflects a carefully negotiated balance:</p>
 <li>✅ <strong>≥80 words per SWOT item</strong> in quantitative-swot.md</li>
 <li>✅ <strong>≥150 words per stakeholder perspective</strong> in stakeholder-map.md</li>
 <li>✅ <strong>Mermaid visualizations</strong> present in multiple artifacts (flowchart, quadrant, mindmap, timeline)</li>
-<li>✅ <strong>World Bank OR IMF economic data</strong> present in economic-context.md (Wave-2 OR-gate met)</li>
+<li>✅ <strong>World Bank OR IMF economic data</strong> present in economic-context.md</li>
 </ul>
 <p><strong>Overall Quality Grade: 🟢 A- (Pass 2 improvements will bring to A+)</strong></p>
 <h3 id="workflow-audit" tabindex="-1"><a class="header-anchor" href="#workflow-audit"><span>Workflow Audit</span></a></h3>
@@ -4160,7 +4167,7 @@ The flagship projects list reflects a carefully negotiated balance:</p>
 <li>✅ No <code>[AI_ANALYSIS_REQUIRED]</code> placeholder markers in completed artifacts</li>
 <li>✅ Evidence citations use specific document references (TA-10-2026-xxxx)</li>
 <li>✅ IMF institutional knowledge applied with vintage labelling (data-vintage=&quot;WEO-April-2026&quot;)</li>
-<li>✅ Shell-safety compliance: no nested <code>$()</code>, no <code>${var@P}</code>, no <code>${!var}</code> in any bash block</li>
+<li>✅ Shell-safety compliance: no nested <code>$</code>, no <code>${var@P}</code>, no <code>${!var}</code> in any bash block</li>
 </ul>
 <h4 id="tripwire-monitoring" tabindex="-1"><a class="header-anchor" href="#tripwire-monitoring"><span>Tripwire Monitoring</span></a></h4>
 <ul>
@@ -4365,8 +4372,8 @@ The flagship projects list reflects a carefully negotiated balance:</p>
 </tr>
 <tr>
 <td>Rule 3</td>
-<td>Wave-2 OR-gate for economic data</td>
-<td>✅ WB+IMF = OR-gate satisfied</td>
+<td>IMF requirement for economic data</td>
+<td>✅ WB+IMF = IMF requirement satisfied</td>
 </tr>
 <tr>
 <td>Rule 4</td>
@@ -4629,7 +4636,7 @@ The flagship projects list reflects a carefully negotiated balance:</p>
       <div class="footer-section">
         <h3>Tietoa EU Parliament Monitorista</h3>
         <p>Euroopan parlamentin tiedustelualusta — seuraa poliittista toimintaa järjestelmällisellä avoimuudella. Perustuu Euroopan parlamentin avoimeen dataan.</p>
-        <p class="footer-stats">116 artikkelia saatavilla</p>
+        <p class="footer-stats">127 artikkelia saatavilla</p>
         <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">
@@ -4656,10 +4663,10 @@ The flagship projects list reflects a carefully negotiated balance:</p>
       <div class="footer-section">
         <h3>Rakennettu Hack23 AB:n toimesta</h3>
         <div class="footer-badges" aria-label="Project trust badges">
-          <a href="https://www.npmjs.com/package/euparliamentmonitor"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
-          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
-          <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
-          <a href="https://github.com/Hack23/euparliamentmonitor/attestations"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
+          <a href="https://www.npmjs.com/package/euparliamentmonitor" aria-label="npm package version"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
+          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor" aria-label="OpenSSF Scorecard"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
+          <a href="https://www.bestpractices.dev/projects/12068" aria-label="OpenSSF Best Practices"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
+          <a href="https://github.com/Hack23/euparliamentmonitor/attestations" aria-label="SLSA Level 3"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
         </div>
         <ul>
           <li><a href="https://hack23.com">Hack23.com</a></li>
@@ -4698,7 +4705,7 @@ The flagship projects list reflects a carefully negotiated balance:</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.48</p>
+      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.50</p>
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> Tätä alustaa kehitetään jatkuvasti. <a href="https://github.com/Hack23/euparliamentmonitor/issues">ilmoita ongelmista GitHubissa</a>.</p>
     </div>
   </footer>

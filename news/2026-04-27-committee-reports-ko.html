@@ -61,8 +61,8 @@
     <div class="site-header__inner site-header__inner--stacked">
       <a href="../index-ko.html" class="site-header__brand" aria-label="EU 의회 모니터">
         <picture class="site-header__logo-picture">
-          <source srcset="../images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
+          <source srcset="../images/banner.webp" type="image/webp">
+          <img class="site-header__logo site-header__logo--banner" src="../images/banner.jpg" alt="EU 의회 모니터" width="240" height="80" loading="eager">
         </picture>
         <span class="site-header__brand-text">
           <span class="site-header__title">EU 의회 모니터</span>
@@ -93,6 +93,13 @@
       </nav>
     </div>
   </header>
+
+  <div class="page-banner" role="img" aria-label="EU Parliament Monitor">
+    <picture>
+      <source srcset="../images/banner.webp" type="image/webp">
+      <img class="page-banner__img" src="../images/banner.jpg" alt="" aria-hidden="true" width="1200" height="400" loading="eager">
+    </picture>
+  </div>
 
   <main id="main" class="site-main article-main">
   <aside class="article-toc-container" aria-label="목차">
@@ -2404,13 +2411,13 @@ The adopted copyright-AI resolution (TA-10-2026-0066) is non-binding, but as the
 <hr>
 <h4 id="22-geteventsfeed-slowfeedwarning-unavailable" tabindex="-1"><a class="header-anchor" href="#22-geteventsfeed-slowfeedwarning-unavailable"><span>2.2 <code>get_events_feed</code> — 🟡 SLOW_FEED_WARNING / UNAVAILABLE</span></a></h4>
 <p><strong>Observed behavior:</strong> Tool returned UNAVAILABLE or empty response with an error-in-body pattern. Zero events returned from the events feed.</p>
-<p><strong>§11 triage:</strong> ✅ <strong>MATCHES §11 Row #8 (SLOW_FEED_WARNING).</strong> The EP API <code>/events/feed</code> endpoint is documented as significantly slower than other feeds and can exceed the 120-second extended timeout. <code>getEventsFeed()</code> downgrades TIMEOUT errors to 🟡 <code>SLOW_FEED_WARNING</code> in <code>_slowFeedWarnings</code> (not <code>_failedTools</code>).</p>
+<p><strong>§11 triage:</strong> ✅ <strong>MATCHES §11 Row #8 (SLOW_FEED_WARNING).</strong> The EP API <code>/events/feed</code> endpoint is documented as significantly slower than other feeds and can exceed the 120-second extended timeout. <code>getEventsFeed</code> downgrades TIMEOUT errors to 🟡 <code>SLOW_FEED_WARNING</code> in <code>_slowFeedWarnings</code> (not <code>_failedTools</code>).</p>
 <p><strong>Assessment:</strong> 🟢 <strong>KNOWN/EXPECTED</strong> — matches §11 row #8. No upstream issue required.</p>
 <p><strong>Run impact:</strong> Minimal — committee activity analysis used <code>analyze_committee_activity</code> and direct committee endpoints instead. All primary committees (ENVI, ITRE, ECON, INTA, JURI, LIBE, EMPL) analyzed via workload analytics.</p>
 <hr>
 <h4 id="23-getproceduresfeed-recessmode-detected" tabindex="-1"><a class="header-anchor" href="#23-getproceduresfeed-recessmode-detected"><span>2.3 <code>get_procedures_feed</code> — 🟢 RECESS_MODE DETECTED</span></a></h4>
-<p><strong>Observed behavior:</strong> <code>get_procedures_feed</code> returned historical data (all items pre-2000). The MCP client's <code>detectProceduresFeedRecessMode()</code> function would classify this as recess mode.</p>
-<p><strong>§11 triage:</strong> ✅ <strong>MATCHES §11 Row #5 (RECESS_MODE).</strong> <code>getProceduresFeed()</code> adds <code>recessMode:true</code> + <code>RECESS_MODE</code> dataQualityWarning when all items are ≤1995. Not counted as a failure.</p>
+<p><strong>Observed behavior:</strong> <code>get_procedures_feed</code> returned historical data (all items pre-2000). The MCP client's <code>detectProceduresFeedRecessMode</code> function would classify this as recess mode.</p>
+<p><strong>§11 triage:</strong> ✅ <strong>MATCHES §11 Row #5 (RECESS_MODE).</strong> <code>getProceduresFeed</code> adds <code>recessMode:true</code> + <code>RECESS_MODE</code> dataQualityWarning when all items are ≤1995. Not counted as a failure.</p>
 <p><strong>Assessment:</strong> 🟢 <strong>KNOWN/EXPECTED</strong> — standard EP API recess behavior. No upstream issue required.</p>
 <p><strong>Run impact:</strong> None — <code>get_procedures</code> direct endpoint and <code>get_adopted_texts</code> provided sufficient legislative context.</p>
 <hr>
@@ -3071,7 +3078,7 @@ AFCO's work on Electoral Act reform (TA-10-2026-0006) and the Lithuania broadcas
 <hr>
 <h3 id="sat-04-imf-economic-data-integration-limitation" tabindex="-1"><a class="header-anchor" href="#sat-04-imf-economic-data-integration-limitation"><span>SAT-04: IMF Economic Data Integration Limitation</span></a></h3>
 <p><strong>Tradecraft note:</strong> The IMF MCP (<code>imf-fetch-data</code> tool) was not available in this run environment. Economic context (ECB rate cycle, EU GDP outlook, inflation trajectory) was inferred from institutional knowledge based on ECB Annual Report context (TA-10-2026-0034) rather than from live IMF query data.</p>
-<p><strong>Quality impact:</strong> 🔴 <strong>Acknowledged gap</strong> — the Wave-2 OR-gate economic quality requirement (World Bank OR IMF data) was not met through direct tool query. Economic indicators are qualitatively contextual, not quantitatively confirmed from live source.</p>
+<p><strong>Quality impact:</strong> 🔴 <strong>Acknowledged gap</strong> — the  IMF requirement economic quality requirement (World Bank OR IMF data) was not met through direct tool query. Economic indicators are qualitatively contextual, not quantitatively confirmed from live source.</p>
 <p><strong>Compensating measure:</strong> The economic-context artifact explicitly flags this limitation with a 🔴 indicator. The analysis is not wrong — it is based on correct institutional knowledge — but it lacks the live-data confirmation that the quality framework requires.</p>
 <p><strong>Lesson:</strong> In future runs, attempt <code>world-bank-get-economic-data</code> for EU/EA GDP, inflation, and unemployment data (World Bank has comparable indicators to IMF). The World Bank tool IS available; was not leveraged in this run.</p>
 <hr>
@@ -3322,7 +3329,7 @@ AFCO's work on Electoral Act reform (TA-10-2026-0006) and the Lithuania broadcas
       <div class="footer-section">
         <h3>EU Parliament Monitor 소개</h3>
         <p>유럽 의회 인텔리전스 플랫폼 — 체계적인 투명성으로 정치 활동을 모니터링. 유럽 의회 공개 데이터를 기반으로 함.</p>
-        <p class="footer-stats">116개 기사 이용 가능</p>
+        <p class="footer-stats">127개 기사 이용 가능</p>
         <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">
@@ -3349,10 +3356,10 @@ AFCO's work on Electoral Act reform (TA-10-2026-0006) and the Lithuania broadcas
       <div class="footer-section">
         <h3>Hack23 AB 제작</h3>
         <div class="footer-badges" aria-label="Project trust badges">
-          <a href="https://www.npmjs.com/package/euparliamentmonitor"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
-          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
-          <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
-          <a href="https://github.com/Hack23/euparliamentmonitor/attestations"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
+          <a href="https://www.npmjs.com/package/euparliamentmonitor" aria-label="npm package version"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
+          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor" aria-label="OpenSSF Scorecard"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
+          <a href="https://www.bestpractices.dev/projects/12068" aria-label="OpenSSF Best Practices"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
+          <a href="https://github.com/Hack23/euparliamentmonitor/attestations" aria-label="SLSA Level 3"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
         </div>
         <ul>
           <li><a href="https://hack23.com">Hack23.com</a></li>
@@ -3391,7 +3398,7 @@ AFCO's work on Electoral Act reform (TA-10-2026-0006) and the Lithuania broadcas
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.48</p>
+      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.50</p>
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> 이 플랫폼은 지속적으로 개선되고 있습니다. <a href="https://github.com/Hack23/euparliamentmonitor/issues">GitHub에서 문제 보고</a>.</p>
     </div>
   </footer>

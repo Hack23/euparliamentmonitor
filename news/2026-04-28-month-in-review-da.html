@@ -1985,7 +1985,7 @@ The growth divergence creates a fiscal-political fault line. Germany's stagnatio
 <h2 id="section-economic-context">Economic Context</h2>
 <h3 id="data-quality-notice" tabindex="-1"><a class="header-anchor" href="#data-quality-notice"><span>⚠️ Data Quality Notice</span></a></h3>
 <p>IMF SDMX 3.0 API was unreachable at run time (proxy CONNECT abort; exit code 28). EU/EA aggregate economic indicators (GDP growth, HICP inflation, general government deficit) are <strong>not available from IMF WEO</strong> for this run. All economic analysis uses World Bank member-state data. EU-level aggregate economic claims carry 🔴 LOW confidence where IMF data would normally be authoritative.</p>
-<p>Per editorial policy (Wave-3 split, April 2026): this run documents the IMF data limitation in <code>cache/imf/probe-summary.json</code> and applies enhanced uncertainty flags to all economic judgements that would benefit from IMF aggregates. Voting-patterns IMF requirement = <strong>not_applicable</strong> (data unavailable, documented, limitation flagged).</p>
+<p>Per editorial policy: this run documents the IMF data limitation in <code>cache/imf/probe-summary.json</code> and applies enhanced uncertainty flags to all economic judgements that would benefit from IMF aggregates. Voting-patterns IMF requirement = <strong>not_applicable</strong> (data unavailable, documented, limitation flagged).</p>
 <hr>
 <h3 id="1-eu-member-state-economic-performance-world-bank-data" tabindex="-1"><a class="header-anchor" href="#1-eu-member-state-economic-performance-world-bank-data"><span>1. EU Member State Economic Performance — World Bank Data</span></a></h3>
 <h4 id="11-germany-de-largest-eu-economy" tabindex="-1"><a class="header-anchor" href="#11-germany-de-largest-eu-economy"><span>1.1 Germany (DE) — Largest EU Economy</span></a></h4>
@@ -2275,7 +2275,7 @@ The growth divergence creates a fiscal-political fault line. Germany's stagnatio
 <li>IMF fiscal monitor data</li>
 <li>IMF financial stability indicators</li>
 </ul>
-<p><strong>Wave-2 OR-gate applied:</strong> World Bank is the approved Wave-2 fallback per <code>.github/skills/imf-data-integration.md</code>. Economic analysis confidence is reduced from 🟢 HIGH to 🟡 MEDIUM; no WEO indicators were retrieved.</p>
+<p>** IMF requirement applied:** World Bank is the approved  fallback per <code>.github/skills/imf-data-integration.md</code>. Economic analysis confidence is reduced from 🟢 HIGH to 🟡 MEDIUM; no WEO indicators were retrieved.</p>
 <hr>
 <h4 id="economic-intelligence-summary" tabindex="-1"><a class="header-anchor" href="#economic-intelligence-summary"><span>Economic Intelligence Summary</span></a></h4>
 <p><strong>Germany (largest EU economy, ~24% of EU GDP):</strong></p>
@@ -5027,7 +5027,7 @@ With EPP+S&amp;D = 320 (below majority threshold 361), Renew's 77 seats become s
 <li>Inflation: declining toward ECB 2% target; ECB rates on easing cycle</li>
 <li>Fiscal position: Most member states above 3% deficit; Commission flexibility in application of SGP</li>
 </ul>
-<p><strong>Wave-2 OR-gate note:</strong> World Bank is the approved fallback per <code>.github/skills/imf-data-integration.md</code>. All EU-level aggregate economic claims carry enhanced uncertainty flags.</p>
+<p>** IMF requirement note:** World Bank is the approved fallback per <code>.github/skills/imf-data-integration.md</code>. All EU-level aggregate economic claims carry enhanced uncertainty flags.</p>
 <hr>
 <h3 id="4-banking-union-and-capital-markets-union-progress" tabindex="-1"><a class="header-anchor" href="#4-banking-union-and-capital-markets-union-progress"><span>4. Banking Union and Capital Markets Union Progress</span></a></h3>
 <h4 id="41-srmr3-adoption-march-2026" tabindex="-1"><a class="header-anchor" href="#41-srmr3-adoption-march-2026"><span>4.1 SRMR3 Adoption (March 2026)</span></a></h4>
@@ -5442,7 +5442,7 @@ With EPP+S&amp;D = 320 (below majority threshold 361), Renew's 77 seats become s
 <h4 id="21-getproceduresfeed-404-upstream-known-degraded-pattern" tabindex="-1"><a class="header-anchor" href="#21-getproceduresfeed-404-upstream-known-degraded-pattern"><span>2.1 <code>get_procedures_feed</code> — 404 Upstream (⚠️ Known Degraded Pattern)</span></a></h4>
 <p><strong>Observed behavior:</strong> <code>get_procedures_feed</code> with <code>timeframe: &quot;one-month&quot;</code> returned HTTP 404 from the upstream EP API. The client fell back to the <code>/procedures</code> endpoint returning 50 historical records dated 1972–1986.</p>
 <p><strong>§11 triage classification:</strong> 🔵 KNOWN DEGRADED UPSTREAM — per §11 row #5 in 07-mcp-reference.md, <code>get_procedures_feed</code> is documented as slower and prone to timeout/404. The RECESS_MODE indicator and STALENESS_WARNING in <code>dataQualityWarnings</code> are expected.</p>
-<p><strong>EP MCP client handling:</strong> <code>getProceduresFeed()</code> returns <code>{feed: [...historical...], recessMode: true, dataQualityWarnings: [{type: &quot;STALENESS_WARNING&quot;, ...}]}</code> when the upstream returns historical-archive ordering. This is correct per the ADR.</p>
+<p><strong>EP MCP client handling:</strong> <code>getProceduresFeed</code> returns <code>{feed: [...historical...], recessMode: true, dataQualityWarnings: [{type: &quot;STALENESS_WARNING&quot;...}]}</code> when the upstream returns historical-archive ordering. This is correct per the ADR.</p>
 <p><strong>Upstream issue filing:</strong> ❌ NOT required — this is a documented upstream degradation, not a reportable bug.</p>
 <p><strong>Data quality impact:</strong> Cannot track legislative procedure progression for March–April 2026. Mitigated by: (a) adopted texts data provides completion signal; (b) prior run had same degradation.</p>
 <hr>
@@ -5454,7 +5454,7 @@ With EPP+S&amp;D = 320 (below majority threshold 361), Renew's 77 seats become s
 <hr>
 <h4 id="23-analyzecoalitiondynamics-proxy-data-known-limitation" tabindex="-1"><a class="header-anchor" href="#23-analyzecoalitiondynamics-proxy-data-known-limitation"><span>2.3 <code>analyze_coalition_dynamics</code> — Proxy Data (⚠️ Known Limitation)</span></a></h4>
 <p><strong>Observed behavior:</strong> Tool returned <code>cohesionRate: null</code>, <code>sharedVotes: null</code> for all coalition pairs. The <code>sizeSimilarityScore</code> (seat-share ratio) was available as a proxy.</p>
-<p><strong>§11 triage classification:</strong> 🔵 KNOWN LIMITATION — per §11 row #2 note: &quot;until per-MEP roll-call data is exposed by the EP Open Data Portal, cohesion uses size-ratio proxy only.&quot; Per memory entry: EP MCP group-ID consumer rule confirmed, normalizePoliticalGroup() via PR #405.</p>
+<p><strong>§11 triage classification:</strong> 🔵 KNOWN LIMITATION — per §11 row #2 note: &quot;until per-MEP roll-call data is exposed by the EP Open Data Portal, cohesion uses size-ratio proxy only.&quot; Per memory entry: EP MCP group-ID consumer rule confirmed, normalizePoliticalGroup via PR #405.</p>
 <p><strong>Upstream issue filing:</strong> ❌ NOT required — per-MEP voting data is an upstream EP API limitation, not an MCP server bug.</p>
 <p><strong>Data quality impact:</strong> Coalition analysis is qualitative (political group position statements, adopted text analysis) rather than quantitative (vote-level alignment). This is the appropriate fallback when voting data is unavailable.</p>
 <hr>
@@ -5644,7 +5644,7 @@ With EPP+S&amp;D = 320 (below majority threshold 361), Renew's 77 seats become s
 <li><strong>Triage classification:</strong> Known intermittent outage (documented as network-level issue, not EP MCP bug)</li>
 <li><strong>Impact on analysis:</strong> MEDIUM — <code>economic-context.md</code> uses World Bank DE/FR data exclusively; IMF World Economic Outlook projections unavailable</li>
 <li><strong>Confidence flag:</strong> 🟡 MEDIUM on all economic projection claims in this run</li>
-<li><strong>Wave-2 OR-gate:</strong> World Bank data is the approved Wave-2 fallback per <code>.github/skills/imf-data-integration.md</code></li>
+<li>** IMF requirement:** World Bank data is the approved  fallback per <code>.github/skills/imf-data-integration.md</code></li>
 </ul>
 <h4 id="procedures-feed-degradation-11-row-5" tabindex="-1"><a class="header-anchor" href="#procedures-feed-degradation-11-row-5"><span>Procedures Feed Degradation (§11 Row #5)</span></a></h4>
 <p><code>get_procedures_feed</code> returned historical-tail response with no current-year items. This is:</p>
@@ -5676,7 +5676,7 @@ With EPP+S&amp;D = 320 (below majority threshold 361), Renew's 77 seats become s
 <tr>
 <td>IMF</td>
 <td>🔴 FAILED</td>
-<td>Network timeout — OR-gate applied</td>
+<td>Network timeout — IMF requirement applied</td>
 </tr>
 <tr>
 <td>Sequential thinking</td>
@@ -5692,7 +5692,7 @@ With EPP+S&amp;D = 320 (below majority threshold 361), Renew's 77 seats become s
 </table>
 </div><p><strong>Overall reliability score: 🟡 MEDIUM (85% tool availability, critical economic gap from IMF)</strong></p>
 <hr>
-<p><em>MCP reliability audit expanded: 2026-04-28 | Standard: 07-mcp-reference.md §11 triage table | Wave-2 OR-gate applied for IMF</em></p>
+<p><em>MCP reliability audit expanded: 2026-04-28 | Standard: 07-mcp-reference.md §11 triage table |  IMF requirement applied for IMF</em></p>
 <h3 id="mcp-tool-health-visualization" tabindex="-1"><a class="header-anchor" href="#mcp-tool-health-visualization"><span>MCP Tool Health Visualization</span></a></h3>
 <figure class="mermaid-figure" role="img" aria-label="Mermaid diagram 15">
 <pre class="mermaid">pie title MCP Tool Availability April 2026
@@ -5702,7 +5702,7 @@ With EPP+S&amp;D = 320 (below majority threshold 361), Renew's 77 seats become s
     &quot;IMF Failed (1 API)&quot; : 1
 </pre>
 </figure>
-<p><em>Reliability snapshot for this run. IMF treated as OR-gate fallback per .github/skills/imf-data-integration.md.</em></p>
+<p><em>Reliability snapshot for this run. IMF treated as IMF requirement fallback per.github/skills/imf-data-integration.md.</em></p>
 <h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 <h3 id="analysis-index" tabindex="-1"><a class="header-anchor" href="#analysis-index"><span>Analysis Index</span></a></h3>
 <h3 id="artifact-registry" tabindex="-1"><a class="header-anchor" href="#artifact-registry"><span>Artifact Registry</span></a></h3>
@@ -6962,7 +6962,7 @@ With EPP+S&amp;D = 320 (below majority threshold 361), Renew's 77 seats become s
 <h3 id="5-shell-safety-compliance" tabindex="-1"><a class="header-anchor" href="#5-shell-safety-compliance"><span>5. Shell Safety Compliance</span></a></h3>
 <p>This run uses the following safe patterns:</p>
 <ul>
-<li>Time calculation: <code>awk</code> arithmetic for elapsed minutes (no nested <code>$(())</code>)</li>
+<li>Time calculation: <code>awk</code> arithmetic for elapsed minutes (no nested <code>$()</code>)</li>
 <li>Date derivation: <code>date -u +%Y-%m-%d</code> (no expansion)</li>
 <li>File operations: simple <code>cat</code>, <code>mkdir -p</code> (no nested command substitution)</li>
 </ul>
@@ -7602,7 +7602,7 @@ With EPP+S&amp;D = 320 (below majority threshold 361), Renew's 77 seats become s
       <div class="footer-section">
         <h3>Om EU Parliament Monitor</h3>
         <p>Europæisk parlamentarisk efterretningsplatform — overvåger politisk aktivitet med systematisk gennemsigtighed. Drevet af Europa-Parlamentets åbne data.</p>
-        <p class="footer-stats">121 artikler tilgængelige</p>
+        <p class="footer-stats">127 artikler tilgængelige</p>
         <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">

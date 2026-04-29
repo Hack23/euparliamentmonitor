@@ -866,7 +866,7 @@ EP10 spring 2026 is consistent with historical patterns. The simultaneous public
 
 ### Purpose
 
-This artifact provides the macroeconomic context for the EP's April 2026 legislative propositions. Economic conditions are the underlying driver for SRMR3, the trade defense regulation, and the industrial policy legislation. Per the AI-First Quality Principle Wave-2 OR-gate, either World Bank or IMF data is required; World Bank GDP data retrieved in Stage A.
+This artifact provides the macroeconomic context for the EP's April 2026 legislative propositions. Economic conditions are the underlying driver for SRMR3, the trade defense regulation, and the industrial policy legislation. Per the AI-First Quality Principle  IMF requirement, either World Bank or IMF data is required; World Bank GDP data retrieved in Stage A.
 
 ---
 
@@ -951,7 +951,7 @@ The April 2026 EP propositions pipeline is best understood as a **legislative re
 
 ---
 
-*Economic Context compiled: 2026-04-27 | Primary source: World Bank via worldbank-mcp@1.0.1 | OR-gate status: SATISFIED (World Bank GDP data retrieved)*
+*Economic Context compiled: 2026-04-27 | Primary source: World Bank via worldbank-mcp@1.0.1 | IMF requirement status: SATISFIED (World Bank GDP data retrieved)*
 
 <h2 id="section-risk">Risk Assessment</h2>
 
@@ -1103,7 +1103,7 @@ The EP's first reading position on the Anti-Corruption Directive (2023/0135, ado
 
 EP10's fundamental structural weakness: no two-party coalition can form a majority (EPP+S&D = 320, need 361). Every vote requires a new coalition negotiation. This creates institutional transaction costs, reduces legislative predictability, and gives smaller groups (ECR, PfE, Greens/EFA) disproportionate leverage. The 2027 budget negotiations will be fought under this structural constraint, creating maximum political risk at maximum political stakes.
 
-**Evidence:** EP10 composition: EPP (185) + S&D (135) = 320. Threshold: 361. Gap: 41 seats. `generate_political_landscape()` confirmed.
+**Evidence:** EP10 composition: EPP (185) + S&D (135) = 320. Threshold: 361. Gap: 41 seats. `generate_political_landscape` confirmed.
 
 #### W2: Data Feed Degradation — Analytical Gaps (-5.0 weighted)
 **Magnitude:** 6 | **Confidence Weight:** 0.85 = **-5.1**
@@ -2174,8 +2174,8 @@ This audit documents the operational reliability of the EP MCP server tools used
 **Status:** 🔴 RECESS_MODE
 **Items Returned:** Historical archive items (procedures from 1972–1987 era)
 **Triage:** ⚠️ Known degraded-upstream pattern — see `07-mcp-reference.md` §11 row #5
-**Classification:** `detectProceduresFeedRecessMode()` returns `recessMode: true` when all items ≤ 1995
-**Action Taken:** Used `track_legislation()` for specific procedures; `get_procedures()` (paginated) as fallback
+**Classification:** `detectProceduresFeedRecessMode` returns `recessMode: true` when all items ≤ 1995
+**Action Taken:** Used `track_legislation` for specific procedures; `get_procedures` (paginated) as fallback
 **Upstream Issue Filing:** ❌ NOT REQUIRED — known behavior, tracked in §11
 
 #### T2: `get_external_documents_feed(timeframe: "one-week")`
@@ -2187,7 +2187,7 @@ This audit documents the operational reliability of the EP MCP server tools used
 **Completeness Note:** External documents feed does not return full text; only document metadata and reference IDs
 **Upstream Issue Filing:** N/A
 
-#### T3: `get_committee_documents_feed()`
+#### T3: `get_committee_documents_feed`
 
 **Status:** 🔴 UNAVAILABLE
 **Items Returned:** 0
@@ -2195,7 +2195,7 @@ This audit documents the operational reliability of the EP MCP server tools used
 **Triage:** Known degraded feed behavior (committee documents EP API instability)
 **Classification:** Per §11 — committee_documents_feed endpoint has known periodic unavailability
 **Action Taken:** Proceeded without committee-level documents for this run
-**Impact on Analysis:** Moderate — committee reports provide more granular procedure status but are supplemented by `track_legislation()` data
+**Impact on Analysis:** Moderate — committee reports provide more granular procedure status but are supplemented by `track_legislation` data
 **Upstream Issue Filing:** ❌ NOT REQUIRED for known-degraded endpoint
 
 #### T4: `get_adopted_texts(year: 2026)` (×3 pages)
@@ -2231,10 +2231,10 @@ This audit documents the operational reliability of the EP MCP server tools used
 **Items Returned:** 0 active procedures with enrichment data
 **Error Type:** "enrichment data missing for 20 procedures" — pipeline health endpoint returns no items when enrichment layer unavailable
 **Triage:** Known behavior — `monitor_legislative_pipeline` requires enrichment cache that is periodically unavailable
-**Action Taken:** Fell back to `track_legislation()` for individual procedures
+**Action Taken:** Fell back to `track_legislation` for individual procedures
 **Upstream Issue Filing:** N/A
 
-#### T8: `generate_political_landscape()`
+#### T8: `generate_political_landscape`
 
 **Status:** 🟢 OPERATIONAL
 **Items Returned:** Complete EP10 composition (9 groups, 719 MEPs, seat counts)
@@ -2549,13 +2549,13 @@ This artifact provides a structured quality review of all analysis artifacts pro
 
 | Source | Reliability | Items Used |
 |--------|------------|-----------|
-| `track_legislation()` — 3 procedures | 🟢 HIGH | SRMR3, Anti-Corruption, US Tariffs |
+| `track_legislation` — 3 procedures | 🟢 HIGH | SRMR3, Anti-Corruption, US Tariffs |
 | `get_adopted_texts(year: 2026)` | 🟢 HIGH | 71 items (catalog completeness) |
-| `generate_political_landscape()` | 🟢 HIGH | EP10 seat counts, group composition |
+| `generate_political_landscape` | 🟢 HIGH | EP10 seat counts, group composition |
 | `get_all_generated_stats(legislative_acts)` | 🟢 HIGH | 2024–2026 output trend |
 | `world-bank-get-economic-data(DE, GDP_GROWTH)` | 🟢 HIGH | Germany -0.87%/-0.496% |
-| `get_external_documents_feed()` | 🟡 MEDIUM | 6 ACT_FOLLOWUP items |
-| `analyze_coalition_dynamics()` | 🟡 MEDIUM | Size proxy; no vote cohesion |
+| `get_external_documents_feed` | 🟡 MEDIUM | 6 ACT_FOLLOWUP items |
+| `analyze_coalition_dynamics` | 🟡 MEDIUM | Size proxy; no vote cohesion |
 | EP OJ adoption dates (SRMR3: April 20, 2026) | 🟢 HIGH | Confirmed via track_legislation |
 
 #### Known Evidence Gaps
@@ -2565,7 +2565,7 @@ This artifact provides a structured quality review of all analysis artifacts pro
 | Full text of Commission follow-up documents | Medium | Metadata-based analysis; document IDs provided |
 | March 26, 2026 voting record details | Medium | Adopted text numbers provide proxy |
 | Committee-level rapporteur information | Low | Political group analysis covers coalition dynamics |
-| IMF direct data retrieval | Low | WB data provides sufficient OR-gate coverage |
+| IMF direct data retrieval | Low | WB data provides sufficient IMF requirement coverage |
 | Individual MEP voting behavior (April 2026) | Low | EP API delay acknowledged |
 
 ---
@@ -2597,7 +2597,7 @@ This artifact provides a structured quality review of all analysis artifacts pro
 
 ### Final Quality Certification
 
-This run's analysis artifacts meet the minimum quality standards for publication in the EU Parliament Monitor. All mandatory artifacts are present, all line floors are met, mermaid and reader briefing requirements are satisfied, and the World Bank economic data OR-gate is satisfied.
+This run's analysis artifacts meet the minimum quality standards for publication in the EU Parliament Monitor. All mandatory artifacts are present, all line floors are met, mermaid and reader briefing requirements are satisfied, and the World Bank economic data IMF requirement is satisfied.
 
 **Certification:** ✅ PASS — cleared for Stage C completeness gate
 
@@ -2629,7 +2629,7 @@ This run's analysis artifacts meet the minimum quality standards for publication
 |------|--------|-------|
 | MCP gateway setup | ✅ Completed | EP_MCP_GATEWAY_URL configured |
 | WB MCP probe | ✅ Completed | worldbank-mcp@1.0.1 operational |
-| IMF MCP probe | ⚠️ Not retrieved | WB data satisfies OR-gate; IMF fallback not required |
+| IMF MCP probe | ⚠️ Not retrieved | WB data satisfies IMF requirement; IMF fallback not required |
 | EP procedures feed | 🔴 RECESS_MODE | Known degraded — used track_legislation instead |
 | External documents feed | ✅ 6 items | ACT_FOLLOWUP documents April 22, 2026 |
 | Committee documents | 🔴 UNAVAILABLE | Known intermittent — analysis proceeds without |
@@ -2648,7 +2648,7 @@ This run's analysis artifacts meet the minimum quality standards for publication
 | intelligence/analysis-index.md | ✅ | 115+ | Registry complete |
 | intelligence/synthesis-summary.md | ✅ | 170+ | Three-front narrative |
 | intelligence/historical-baseline.md | ✅ | 130+ | EP6–EP10 comparison |
-| intelligence/economic-context.md | ✅ | 130+ | WB data cited; OR-gate satisfied |
+| intelligence/economic-context.md | ✅ | 130+ | WB data cited; IMF requirement satisfied |
 | intelligence/pestle-analysis.md | ✅ | 190+ | All 6 dimensions |
 | intelligence/stakeholder-map.md | ✅ | 220+ | Tier 1/2/3 actors |
 | intelligence/scenario-forecast.md | ✅ | 185+ | 4-scenario matrix |
@@ -2721,7 +2721,7 @@ This artifact is Step 10.5 of the AI-driven analysis guide — the mandatory met
 
 #### What We Know with High Confidence (🟢)
 
-- **EP10 seat counts and political composition:** `generate_political_landscape()` provides real-time data. EPP 185, S&D 135, PfE 85, ECR 81, Renew 77, Greens/EFA 53, The Left 46, NI 30, ESN 27 = 719 MEPs.
+- **EP10 seat counts and political composition:** `generate_political_landscape` provides real-time data. EPP 185, S&D 135, PfE 85, ECR 81, Renew 77, Greens/EFA 53, The Left 46, NI 30, ESN 27 = 719 MEPs.
 - **SRMR3 legal status:** OJ published April 20, 2026. Confirmed via `track_legislation(2023/0111)` timeline. Fact: banking union resolution architecture is now law.
 - **Anti-Corruption Directive EP position:** First reading position adopted March 26, 2026. Confirmed via `track_legislation(2023/0135)`.
 - **US Tariff Counter-measure trilogue Round 1:** Completed April 13, 2026. Confirmed via `track_legislation(2025/0261)`.
@@ -2748,7 +2748,7 @@ This artifact is Step 10.5 of the AI-driven analysis guide — the mandatory met
 ### 3. Methodological Strengths
 
 **Strength 1: Three-procedure deep tracking**
-Using `track_legislation()` on SRMR3, Anti-Corruption, and US Tariffs provided full event timelines for the three most important active dossiers. This approach compensates for the procedures feed RECESS_MODE defect.
+Using `track_legislation` on SRMR3, Anti-Corruption, and US Tariffs provided full event timelines for the three most important active dossiers. This approach compensates for the procedures feed RECESS_MODE defect.
 
 **Strength 2: Cross-framework analysis**
 Applying PESTLE, SWOT, Scenario, Stakeholder, Threat Model, and Actor Mapping simultaneously creates a multi-dimensional intelligence picture that surface tensions between frameworks (e.g., the SWOT weakness of coalition arithmetic vs. the PESTLE political opportunity of Anti-Corruption directive).
@@ -2767,7 +2767,7 @@ Documenting all tool outcomes (operational, degraded, unavailable) against the �
 The committee documents feed unavailability (T3 in reliability audit) creates a significant blind spot: rapporteur dynamics, committee amendments, and the specific provisions under debate in JURI/LIBE and INTA are invisible. Future runs should retry the committee documents endpoint and consider using GitHub MCP to search EP committee press releases as a fallback.
 
 **Limitation 2: Economic context depth**
-IMF data was not retrieved (WB data satisfied the OR-gate). However, IMF's EU Article IV consultation would provide 2026–2027 growth forecasts with higher precision than Commission estimates. Future runs should include `imf.org/en/Publications/CR` retrieval as a standard Stage A step.
+IMF data was not retrieved (WB data satisfied the IMF requirement). However, IMF's EU Article IV consultation would provide 2026–2027 growth forecasts with higher precision than Commission estimates. Future runs should include `imf.org/en/Publications/CR` retrieval as a standard Stage A step.
 
 **Limitation 3: No primary source text analysis**
 Analysis relies on structured EP API metadata rather than full text of legislative documents. For legal precision (e.g., the exact treaty base provisions in Anti-Corruption Directive), direct access to the legislative text (EUR-Lex) would improve claim precision. This is a structural limitation of the current MCP toolset.
