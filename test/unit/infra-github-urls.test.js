@@ -4,7 +4,7 @@
 /**
  * Unit tests for src/aggregator/infra/github-urls — repo slug, blob/raw/tree
  * URL builders, and POSIX-path normalisation. Verifies that the centralised
- * helpers match the legacy hard-coded URLs they replaced.
+ * helpers match the historic hard-coded URLs they replaced.
  */
 
 import { describe, it, expect } from 'vitest';
@@ -49,7 +49,7 @@ describe('infra/github-urls — blobUrl', () => {
     );
   });
 
-  it('matches the legacy githubBlobUrl shim byte-for-byte', () => {
+  it('matches the historic githubBlobUrl shim byte-for-byte', () => {
     const path = 'analysis/templates/synthesis-summary.md';
     expect(blobUrl(path)).toBe(githubBlobUrl(path));
   });
@@ -68,7 +68,7 @@ describe('infra/github-urls — rawUrl', () => {
     );
   });
 
-  it('matches the legacy githubRawUrl shim byte-for-byte', () => {
+  it('matches the historic githubRawUrl shim byte-for-byte', () => {
     const path = 'images/euparliamentmonitor-logo.png';
     expect(rawUrl(path)).toBe(githubRawUrl(path));
   });

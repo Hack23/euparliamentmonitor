@@ -583,7 +583,7 @@ function decodeHtmlEntities(str: string): string {
  *
  * Title resolution order:
  *   1. `<head><title>` value with the trailing ` — EU Parliament Monitor`
- *      (or legacy ` | EU Parliament Monitor`) site-suffix stripped.
+ *      (or historic ` | EU Parliament Monitor`) site-suffix stripped.
  *      This is where the editorial-highlights resolver + SEO backport
  *      script write their output, so using it as the primary source
  *      surfaces the strongest headline on index cards and sitemaps.
@@ -696,7 +696,7 @@ const REQUIRED_ARTICLE_ELEMENTS: ReadonlyArray<{
  * Validate that generated article HTML includes all required structural elements.
  *
  * This is the primary validation gate — articles must be generated correctly
- * by the template. The fix-articles script is only a fallback for legacy articles.
+ * by the template. The fix-articles script is only a fallback for historic articles.
  *
  * @param html - Complete HTML string of the article
  * @returns Validation result with errors list (empty if valid)

@@ -486,7 +486,7 @@ to every importing workflow. Paired with
 `news-week-ahead`, `news-month-ahead`, `news-committee-reports`,
 `news-motions`, `news-propositions` (the 8 unified article workflows).
 Explicitly **not** imported by `news-translate` (multi-call flush pattern,
-exempt from single-PR rule). The legacy split-pair `news-<type>-analysis.md`
+exempt from single-PR rule). The previous split-pair `news-<type>-analysis.md`
 + `news-<type>-article.md` layout and the manual `news-article-generator.md`
 helper were removed in the April-2026 aggregator-pipeline migration.
 

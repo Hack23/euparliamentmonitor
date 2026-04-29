@@ -33,14 +33,6 @@
     "./generators/*": {
       "import": "./scripts/generators/*.js",
       "types": "./scripts/generators/*.d.ts"
-    },
-    "./generators/pipeline/*": {
-      "import": "./scripts/generators/pipeline/*.js",
-      "types": "./scripts/generators/pipeline/*.d.ts"
-    },
-    "./generators/strategies/*": {
-      "import": "./scripts/generators/strategies/*.js",
-      "types": "./scripts/generators/strategies/*.d.ts"
     }
   },
   "files": [
@@ -84,6 +76,9 @@
     "test:e2e:report": "playwright show-report",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
+    "knip": "knip",
+    "knip:production": "knip --production",
+    "knip:fix": "knip --fix",
     "lint:report": "eslint src/ --format json --output-file builds/test-results/eslint-report.json",
     "lint:report:html": "eslint src/ --format html --output-file builds/test-results/eslint-report.html",
     "format": "prettier --write \"src/**/*.ts\"",
@@ -158,6 +153,7 @@
     "htmlhint": "1.9.2",
     "husky": "9.1.7",
     "jscpd": "4.0.9",
+    "knip": "^6.7.0",
     "lint-staged": "16.4.0",
     "mermaid": "11.14.0",
     "papaparse": "5.5.3",

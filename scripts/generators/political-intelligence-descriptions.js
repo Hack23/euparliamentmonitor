@@ -2047,7 +2047,7 @@ export function hasCuratedTitle(relPath) {
  *    this is where all 14-language localization is maintained)
  * 2. Curated English title from {@link CURATED_TITLES} (`.en` overlay)
  * 3. Per-entry `titleI18n[lang]` on a `CURATED_DESCRIPTIONS` entry
- *    (legacy path; retained so future entries can colocate title + desc)
+ *    (historic path; retained so future entries can colocate title + desc)
  * 4. Per-entry `title` on a `CURATED_DESCRIPTIONS` entry
  * 5. `fallback` — the H1-extracted title from the source Markdown
  *
@@ -2073,7 +2073,7 @@ export function getCuratedTitle(relPath, lang, fallback) {
         if (titleEntry.en)
             return titleEntry.en;
     }
-    // 3 + 4: legacy colocated title on CURATED_DESCRIPTIONS entry
+    // 3 + 4: historic colocated title on CURATED_DESCRIPTIONS entry
     // eslint-disable-next-line security/detect-object-injection
     const descEntry = CURATED_DESCRIPTIONS[key];
     if (descEntry) {

@@ -388,7 +388,7 @@ function extractBodyFirstProse(articleHtml) {
  * 1. If a manifest.json for the run exists (aggregator cohort), use the
  *    full {@link resolveArticleMetadata} pipeline — this picks up manifest
  *    overrides and artefact H1s.
- * 2. Otherwise (legacy cohort), derive from the rendered body:
+ * 2. Otherwise (historic cohort), derive from the rendered body:
  *    - Title = non-generic `<h1>` from the body, else first sentence of
  *      the first strong prose paragraph.
  *    - Description = first strong prose paragraph (full, not the same
@@ -412,7 +412,7 @@ function deriveMetadataForFile(file, html) {
   // fallback for `committee-reports` renders realistic abbreviations
   // (`ENVI, ECON, AFET, LIBE, AGRI`) instead of the placeholder
   // `Main Committees`. This keeps the localized template consistent
-  // with the legacy format even when the manifest is missing.
+  // with the historic format even when the manifest is missing.
   const committee = extractCommitteeCodes(bodyH1) || extractCommitteeCodes(bodyProse);
 
   const resolved = resolveArticleMetadata({
@@ -425,7 +425,7 @@ function deriveMetadataForFile(file, html) {
 
   if (file.lang !== 'en') {
     // NON-ENGLISH files: The article body may be in a different language
-    // than the file claims to be — legacy files have localized H1/chrome
+    // than the file claims to be — historic files have localized H1/chrome
     // but English body prose; aggregator PR#1404 files have English H1
     // AND English body in every language variant. We accept body content
     // only when it is plausibly in the file's language, and fall back to
@@ -658,9 +658,9 @@ function buildSyntheticMarkdown(h1, prose) {
 
 /**
  * Choose the final title text. Prefers a non-generic body H1. When the
- * H1 is generic (e.g. legacy "Legislative Procedures: European Parliament
+ * H1 is generic (e.g. historic "Legislative Procedures: European Parliament
  * Monitor"), falls back to the first sentence of body prose — this is
- * the single biggest SEO win for legacy files.
+ * the single biggest SEO win for historic files.
  *
  * @param {string} bodyH1 - First H1 from the body
  * @param {string} bodyProse - First strong prose paragraph
@@ -681,7 +681,7 @@ function chooseTitle(bodyH1, bodyProse, templateTitle, file) {
 
 /**
  * Extend {@link isGenericHeading} with a few extra patterns specific to
- * legacy-era titles (pre-aggregator pipeline) so those files get
+ * historic-era titles (pre-aggregator pipeline) so those files get
  * replaced during backport. Also catches the pure `<Title-Case-Phrase>
  * — <ISO-date>` form that the default aggregator title emits when the
  * articleType slug has a run suffix (e.g. `breaking-190`) that
@@ -695,7 +695,7 @@ function chooseTitle(bodyH1, bodyProse, templateTitle, file) {
 function isGenericBodyH1(h1, articleType, date) {
   if (isGenericHeading(h1, articleType, date)) return true;
   const normalized = h1.trim();
-  const legacyTemplates = [
+  const historicTemplates = [
     'Legislative Procedures: European Parliament Monitor',
     'EU Parliament Committee Activity Report',
     'EU Parliament Breaking',
@@ -703,7 +703,7 @@ function isGenericBodyH1(h1, articleType, date) {
     'Plenary Votes & Resolutions',
     'Plenary Votes and Resolutions',
   ];
-  for (const t of legacyTemplates) {
+  for (const t of historicTemplates) {
     if (normalized === t || normalized.startsWith(`${t} `) || normalized.startsWith(`${t}:`)) {
       return true;
     }
@@ -814,7 +814,7 @@ function rewriteHtml(html, metadata) {
 /**
  * Replace `<meta name="<name>" content="…">` in-place. When absent the
  * document is returned unchanged — we never inject new tags during
- * backport so legacy files retain their original meta-tag order.
+ * backport so historic files retain their original meta-tag order.
  *
  * The `content` match is quote-aware: the content of a double-quoted
  * attribute value may contain apostrophes (e.g. `Parliament's`), so the

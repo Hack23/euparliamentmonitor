@@ -3,7 +3,7 @@
 /**
  * @module Aggregator/Cli/Parse
  * @description Pure CLI parser that returns a discriminated union instead
- * of calling `process.exit` mid-parse. The legacy `parseCliArgs` entry
+ * of calling `process.exit` mid-parse. The original `parseCliArgs` entry
  * point in `article-generator.ts` is preserved for backward compatibility
  * with existing callers and tests; new callers and unit tests should
  * prefer {@link parseCliArgsSafe} so the `--help` and error branches are
@@ -202,7 +202,7 @@ function processArgvToken(argv, index, acc) {
  * - `{kind:'options', value}` — argv parsed cleanly; `value` is ready to
  *   pass to `generateArticle` / `generateAllArticles`.
  *
- * Compared to the legacy `parseCliArgs` in `article-generator.ts` (which
+ * Compared to the original `parseCliArgs` in `article-generator.ts` (which
  * throws and calls `process.exit` on `--help`), this entry point keeps
  * tests self-contained.
  *

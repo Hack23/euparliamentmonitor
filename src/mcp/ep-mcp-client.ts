@@ -287,7 +287,7 @@ function _parseResultPayload(
  *    Hack23/European-Parliament-MCP-Server#301 and extended to
  *    `get_events_feed`/`get_procedures_feed` by
  *    Hack23/European-Parliament-MCP-Server#380 (which closed #378).
- * 2. **Legacy raw upstream 404 shape** (historically emitted pre-v1.2.13 by
+ * 2. **Pre-v1.2.13 raw upstream 404 shape** (historically emitted pre-v1.2.13 by
  *    `get_events_feed` / `get_procedures_feed`, fixed upstream in PR #380) —
  *    `{"@id":"https://data.europarl.europa.eu/eli/dl/...","error":"404 N..."}`.
  *    Retained purely as defense-in-depth for older pinned server versions or
@@ -307,7 +307,7 @@ export function isFeedUnavailable(result: MCPToolResult | undefined): boolean {
   // Shape 1 — uniform {status:"unavailable"} envelope (#301 / #380).
   if (envelope['status'] === 'unavailable') return true;
 
-  // Shape 2 — legacy raw upstream 404 leak (historically pre-v1.2.13, #378).
+  // Shape 2 — pre-v1.2.13 raw upstream 404 leak (historically pre-v1.2.13, #378).
   const error = envelope['error'];
   const idField = envelope['@id'];
   if (
@@ -522,7 +522,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
       }
 
       // Detect the unavailable-feed envelope — uniform `{status:"unavailable"}`
-      // (all feeds as of v1.2.13, #301/#380) as well as the legacy raw upstream
+      // (all feeds as of v1.2.13, #301/#380) as well as the pre-v1.2.13 raw upstream
       // 404 shape `{"@id":..., "error":"404 ..."}` that pre-v1.2.13
       // get_events_feed / get_procedures_feed emitted
       // (Hack23/European-Parliament-MCP-Server#378, closed by PR #380). The
@@ -1587,7 +1587,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
         );
       }
 
-      // Detect unavailable-feed envelope (uniform {status:"unavailable"} or legacy 404)
+      // Detect unavailable-feed envelope (uniform {status:"unavailable"} or pre-v1.2.13 404)
       if (isFeedUnavailable(result)) {
         this._slowFeedWarnings.delete('get_events_feed');
         return this._recordToolFailure(

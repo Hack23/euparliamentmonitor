@@ -25,8 +25,8 @@ import {
   aggregateAnalysisRun,
   resolveArticleTypeFromManifest,
   type AggregatedRun,
-  type AnalysisManifest,
 } from './analysis-aggregator.js';
+import type { Manifest } from './manifest/index.js';
 import {
   resolveArticleMetadata,
   extractStrongProseLine,
@@ -375,7 +375,7 @@ const FALLBACK_DESCRIPTION =
  */
 export function extractDefaultDescription(markdown: string): string {
   // Suppress unused warning: keep `shouldSkipDescriptionLine` for any
-  // legacy consumer importing it transitively.
+  // historic consumer importing it transitively.
   void shouldSkipDescriptionLine;
   const strong = extractStrongProseLine(markdown);
   return strong.length > 0 ? strong : FALLBACK_DESCRIPTION;
@@ -647,11 +647,11 @@ export function generateArticle(
   };
 }
 
-/** Candidate run discovered under `analysis/daily/`. */
 /**
  * One run discovered by {@link discoverAnalysisRuns}.
  *
- * @deprecated Re-exported from `aggregator/runs/index.js` for back-compat.
+ * Thin re-export of {@link _DiscoveredRun} from `aggregator/runs/index.js`,
+ * preserved here as the public type for `article-generator` consumers.
  */
 export type DiscoveredRun = _DiscoveredRun;
 
@@ -728,7 +728,7 @@ function readManifestMetadata(runDir: string): MetadataManifest {
   try {
     const parsed = JSON.parse(fs.readFileSync(manifestPath, 'utf8')) as Record<string, unknown>;
     const manifest: MetadataManifest = {};
-    const resolvedType = resolveArticleTypeFromManifest(parsed as unknown as AnalysisManifest);
+    const resolvedType = resolveArticleTypeFromManifest(parsed as unknown as Manifest);
     if (resolvedType && resolvedType !== 'unknown') {
       Object.assign(manifest, { articleType: resolvedType });
     }

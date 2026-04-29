@@ -126,8 +126,7 @@ jobs:
           Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
           export DISPLAY=:99
           
-          # Deterministic render (replaces the removed `npm run generate-news`
-          # legacy pipeline as of April-2026):
+          # Deterministic render replaces the removed `npm run generate-news` pipeline (April-2026):
           npm run generate-article -- --run "${ANALYSIS_DIR}"
         env:
           ANALYSIS_DIR: analysis/daily/${{ inputs.date }}/${{ inputs.slug }}-run${{ inputs.run }}/

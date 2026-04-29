@@ -292,9 +292,9 @@ flowchart LR
 
 ---
 
-## 🔐 Legacy Reference: News Generation Security Flow (pre-agentic)
+## 🔐 Historical Reference: News Generation Security Flow (pre-agentic)
 
-*Preserved for reference. The legacy path below was superseded by the agentic flow above on platform v0.8.x. Kept to document historical control genealogy.*
+*Preserved for reference. The path below was superseded by the agentic flow above on platform v0.8.x. Kept to document historical control genealogy.*
 
 ```mermaid
 flowchart TD
@@ -316,7 +316,7 @@ flowchart TD
     ValidateSchema -->|"✅ Valid"| SanitizeHTML["🧹 Sanitize HTML"]
 
     Fallback --> AgentContext
-    SanitizeHTML --> AgentContext["🤖 Copilot/LLM Agent\n5 legacy article types"]
+    SanitizeHTML --> AgentContext["🤖 Copilot/LLM Agent\n5 historic article types"]
 
     AgentContext --> GenerateEN["📝 Generate English Content"]
     GenerateEN --> Translate["🌍 Translate to 13 languages"]

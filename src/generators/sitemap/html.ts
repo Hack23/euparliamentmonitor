@@ -14,7 +14,7 @@
  * future renderer (Atom-feed metadata, OG-card builder, etc.) without
  * having to import `sitemap.ts` and pull in the entire CLI surface.
  *
- * Output is byte-identical to the legacy in-line implementation that
+ * Output is byte-identical to the previous in-line implementation that
  * lived in `sitemap.ts` between Apr-2026 and the bounded-context
  * refactor — verified by the regression test in
  * `test/unit/sitemap-byte-equality.test.js` (compares against the

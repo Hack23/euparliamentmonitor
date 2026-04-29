@@ -47,7 +47,7 @@
  *   `https://dataservices.imf.org/REST/SDMX_3.0`).
  * - `IMF_API_TIMEOUT_MS` — per-request timeout (default `30000`).
  *
- * Legacy env vars (`IMF_MCP_GATEWAY_URL`, `IMF_MCP_GATEWAY_API_KEY`,
+ * Historic env vars (`IMF_MCP_GATEWAY_URL`, `IMF_MCP_GATEWAY_API_KEY`,
  * `IMF_MCP_SERVER_PATH`) are no longer consulted — no gateway is needed
  * because the IMF SDMX 3.0 API is an unauthenticated public endpoint.
  */

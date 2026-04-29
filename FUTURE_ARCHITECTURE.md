@@ -224,7 +224,7 @@ C4Container
 
     Container_Boundary(api_layer, "API Layer") {
         Container(graphql_api, "GraphQL API", "Apollo Server, Node.js", "Unified query interface for all data")
-        Container(rest_api, "REST API", "Express, Node.js", "Legacy endpoints and webhooks")
+        Container(rest_api, "REST API", "Express, Node.js", "Pre-existing endpoints and webhooks")
         Container(websocket_server, "WebSocket Server", "Socket.io, Node.js", "Real-time event streaming to clients")
     }
 

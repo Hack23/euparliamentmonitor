@@ -273,7 +273,7 @@ import { EuropeanParliamentMCPClient } from './mcp/ep-mcp-client.js';
 const client = new EuropeanParliamentMCPClient(); // reads env vars automatically
 ```
 
-**Legacy JavaScript pattern (pre-TypeScript migration):**
+**Historical JavaScript pattern (pre-TypeScript migration):**
 
 ```javascript
 // scripts/mcp/ep-mcp-client.js — compiled output, do not edit directly

@@ -51,7 +51,7 @@ import type { MCPClientOptions } from './mcp.js';
  * - `timeoutMs` — per-request timeout in milliseconds.
  * - `fetchImpl` — optional `fetch` injection for tests.
  *
- * The inherited legacy MCP transport fields (`serverPath`, `gatewayUrl`,
+ * The inherited historic MCP transport fields (`serverPath`, `gatewayUrl`,
  * `gatewayApiKey`, `maxConnectionAttempts`, `connectionRetryDelay`) are
  * accepted for backwards compatibility but **ignored** by the native
  * client — they date from the earlier `c-cf/imf-data-mcp` proxy
