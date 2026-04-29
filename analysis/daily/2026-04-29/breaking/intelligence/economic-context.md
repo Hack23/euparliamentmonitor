@@ -91,3 +91,58 @@ EU-26 GSP reform (TA-10-2026-0114) context:
 ---
 
 *EU Parliament Monitor | Economic Context | 2026-04-29 | IMF WEO April 2026*
+
+## Sectoral Investment Context
+
+### Defence and Security — The New Fiscal Variable
+
+The 2027 budget guidelines (TA-10-2026-0112) reflect an emerging fiscal reality: the EU must mobilise defence investment at a scale unprecedented in the post-Cold War era. The IMF's April 2026 WEO estimates that EU member states collectively need to increase defence spending by EUR 150-200 billion per year (approximately 1% of EU GDP) to meet NATO commitments and address capability gaps exposed by the Russia-Ukraine war.
+
+The macroeconomic consequences are significant:
+- Higher defence spending creates short-term fiscal multiplier effects (0.7-1.0x GDP multiplier per IMF estimates)
+- Competes with green transition investment for skilled labour and manufacturing capacity
+- Changes the political economy of the MFF: defence-focused MEPs (especially from Eastern EU) may support a larger budget for different reasons than social-spending MEPs
+
+IMF assessment: The EU has fiscal space to increase both climate and defence investment simultaneously only if own resources reform succeeds. Under the GNI contribution baseline, fiscal constraints would force difficult tradeoffs between competing investment priorities.
+
+### Automotive Sector Transition
+
+The EGF reform (TA-10-2026-0116) targeting "imminent job displacement" must be understood in the context of the IMF's structural adjustment analysis:
+
+- EU automotive sector employs approximately 2.6 million workers directly and 9-10 million in supply chains
+- EV transition is displacing 200,000-300,000 jobs directly by 2032 (IMF estimate)
+- Legacy ICE component manufacturers concentrated in Germany, Czech Republic, Slovakia, Hungary, and Romania
+- EGF current ceiling of EUR 186 million/year is approximately 5-10% of what an adequately-funded transition support programme would require
+
+The political-economic linkage: automotive sector vulnerability is the primary reason Germany resists fiscal expansion at EU level while simultaneously facing the largest industrial transition adjustment. German governments are caught between fiscal conservatism and the need for EU-funded industrial support.
+
+### Financial Markets and MFF Expectations
+
+Current financial market signals relevant to MFF negotiations:
+
+| Indicator | Current Level | MFF Signal |
+|-----------|--------------|------------|
+| EUR/USD exchange rate | ~1.09 (IMF WEO baseline) | Moderate EUR strength; EU fiscal expansion would support EUR |
+| German Bund 10y yield | ~2.8% | German borrowing cost constrains fiscal expansion appetite |
+| EU-level bond spread vs. Bunds | ~25-30 bps | NGEU bonds priced at moderate premium; market accepts EU fiscal capacity |
+| Italian BTP-Bund spread | ~130 bps | Contained fragmentation risk; supports ECB TPI credibility |
+
+Market participants are watching MFF negotiations as a signal of EU fiscal integration trajectory. A larger MFF with genuine own resources would be positively received; a smaller MFF with GNI top-ups would reinforce fragmentation concerns.
+
+---
+
+## Economic Governance Implications
+
+### Conditionality Economic Incentives
+
+The rule-of-law conditionality framework (embedded in current MFF and expected in MFF 2028-2034) creates economic incentives that the April 28 proceedings make concrete:
+
+- Poland: rule-of-law restoration since December 2023 has unlocked EUR 35+ billion in frozen EU funds. The immunity proceedings and broader accountability actions reinforce the economic incentive to maintain reform trajectory.
+- Hungary: remains under Article 7 with EUR 13+ billion in frozen funds. Economic pressure is significant — Hungary's GDP growth (IMF: 2.1% for 2026) is below potential, partially due to reduced EU fund flows.
+- Romania: Conditionality compliance affects EUR 28 billion in cohesion funds. Government has strong economic incentive to avoid Article 7 escalation.
+
+**IMF assessment:** Conditionality frameworks are economically efficient when the fiscal stake is large enough to generate compliance incentives. The current freeze levels appear sufficient to maintain pressure on Poland (under Tusk) and Hungary (where economic pain is accumulating).
+
+---
+
+*EU Parliament Monitor | Economic Context | 2026-04-29 | IMF WEO April 2026*

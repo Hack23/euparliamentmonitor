@@ -166,3 +166,44 @@ The consent-based rape legislation vote reveals the coalition mathematics of pro
 | MEP group data | EP Open Data | `get_meps_feed` | 🟢 High |
 
 *EU Parliament Monitor | Breaking News Intelligence Synthesis | 2026-04-29*
+
+## §8 — Forward Strategic Synthesis
+
+### The Three Trajectories
+
+**Trajectory 1 — Institutional Assertiveness (Probability: LIKELY 65%)**
+
+The April 28 session represents the beginning of a period of heightened parliamentary assertiveness. Parliament has:
+1. Set an ambitious MFF negotiating position before Commission can anchor expectations
+2. Demonstrated accountability capacity through six simultaneous immunity proceedings
+3. Advanced progressive social legislation to maximum position before legal challenge
+
+This trajectory supports Parliament continuing to assert maximum positions through H2 2026 as MFF negotiations begin in earnest.
+
+**Trajectory 2 — Centrist Consolidation (Probability: POSSIBLE 45%)**
+
+The EPP-S&D-Renew coalition is durable on a shared institutional agenda. April 28 shows centrist coalition holding: on rule-of-law (immunity), on fiscal ambition (MFF), and on progressive rights (consent). If the centrist majority remains cohesive through MFF negotiations, it strengthens Parliament's hand in trilogue.
+
+**Trajectory 3 — Coalition Fracture Under MFF Pressure (Probability: POSSIBLE 25%)**
+
+The MFF negotiations will generate significant internal Parliament pressure. Right-wing groups will campaign against ambitious budget; some EPP members from net contributor states may align with Council against Parliament's own leadership. This scenario would significantly weaken Parliament's negotiating position.
+
+### Intelligence Summary
+
+The April 28, 2026 plenary session was a high-significance session with implications across three major policy domains: EU fiscal architecture (MFF), democratic accountability (immunity), and fundamental rights (consent). The centrist coalition performed as expected; opposition groups are now activated. Key monitoring indicators for the next 30 days are documented in scenario-forecast.md §8.
+
+---
+
+*EU Parliament Monitor | Synthesis Summary | 2026-04-29 | breaking*
+
+## §9 — Confidence Assessment Summary
+
+| Domain | Confidence | Basis |
+|--------|-----------|-------|
+| MFF positions | MEDIUM-HIGH | Interim report text confirmed; negotiations not yet started |
+| Immunity outcomes | HIGH | JURI decision is formal and binding; waiver confirmed |
+| Economic context | HIGH | IMF WEO April 2026 authoritative |
+| Coalition dynamics | MEDIUM | Size proxy only; no vote-level cohesion data |
+| Scenario probabilities | MEDIUM | Based on structural analysis; not predictive models |
+
+*EU Parliament Monitor | Synthesis Summary | 2026-04-29 | breaking (extended)*
