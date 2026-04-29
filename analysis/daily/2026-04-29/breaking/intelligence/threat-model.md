@@ -164,3 +164,57 @@ The April 28, 2026 plenary session generates both direct and indirect threat vec
 ---
 
 *EU Parliament Monitor | Threat Model | 2026-04-29*
+
+## §7 — Extended Threat Architecture
+
+### Threat Category 4: Institutional Legitimacy Threats
+
+**Threat 4.1: MFF Negotiation Breakdown**
+- Actor: Member state governments (Council)
+- Vector: Council unanimity requirement; net contributor coalition veto
+- Target: EU budget framework continuity
+- Impact: HIGH if MFF not agreed by Q4 2027; extensions required
+- Probability: POSSIBLE (25-35%)
+- Countermeasure: Parliament maintains negotiating unity; Commission proposes balanced text
+
+**Threat 4.2: Immunity Proceedings Obstruction**
+- Actor: PiS network; ECR parliamentary communications
+- Vector: Political pressure on Polish prosecutors; judicial delay tactics
+- Target: Accountability process credibility
+- Impact: MEDIUM — delay not defeat; may require EU monitoring escalation
+- Probability: POSSIBLE (30-40%)
+- Countermeasure: EU rule-of-law monitoring; Article 7 backstop
+
+**Threat 4.3: Coalition Fracture on Values Legislation**
+- Actor: EPP right wing; ECR opportunism
+- Vector: Future rights legislation forces EPP internal vote
+- Target: Progressive centrist majority cohesion
+- Impact: MEDIUM — specific legislation may fail; overall coalition survives
+- Probability: POSSIBLE-LIKELY (40-55%)
+- Countermeasure: Careful agenda management; issue-specific coalition building
+
+### Threat Category 5: Information Operations
+
+**Threat 5.1: Social Media Amplification of Anti-EU Narratives**
+- Actor: Far-right MEPs (PfE, ECR affiliated networks)
+- Vector: Large social media following; Spanish, Polish, Romanian language amplification
+- Target: EU institutional credibility in national publics
+- Impact: MEDIUM — limited direct policy effect; public trust damage if sustained
+- Probability: HIGHLY LIKELY (80-90%)
+
+**Threat 5.2: Russian Information Operations on MFF**
+- Actor: State-aligned information operations
+- Vector: Amplification of EU budget conflict narratives
+- Target: Public support for European integration
+- Impact: LOW-MEDIUM — information noise; marginal effect on policy outcomes
+- Probability: LIKELY (65-75%)
+
+### Threat Mitigation Summary
+
+Most critical mitigation priorities for the next 90 days:
+1. EU monitoring of Polish judicial proceedings to prevent accountability delays
+2. EPP leadership management of internal tensions on MFF positions
+3. European Commission proactive communication on MFF proposal timeline
+4. Counter-disinformation strategy for immunity proceedings narrative
+
+*EU Parliament Monitor | Threat Model | 2026-04-29 | breaking (complete)*

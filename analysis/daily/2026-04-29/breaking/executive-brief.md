@@ -167,3 +167,15 @@ Parliament adopted updated legislation for the EU's **Generalised Scheme of Pref
 
 *Produced by EU Parliament Monitor | Breaking News | Analysis Date: 2026-04-29*
 *Article Type: breaking | Run: 2026-04-29*
+
+## §6 — Intelligence Assessment Confidence
+
+| Domain | Confidence | Basis |
+|--------|-----------|-------|
+| MFF interim report significance | HIGH | Official text confirmed; historical precedent strong |
+| Immunity waiver outcomes | HIGH | JURI decision binding; formal waiver executed |
+| Consent legislation impact | MEDIUM | Non-legislative; future path uncertain |
+| Economic projections | HIGH | IMF WEO April 2026 authoritative source |
+| Coalition stability | MEDIUM | Size proxy only; vote cohesion not available |
+
+*EU Parliament Monitor | Executive Brief | 2026-04-29 (final)*
