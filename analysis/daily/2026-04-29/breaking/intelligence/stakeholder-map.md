@@ -256,4 +256,32 @@ The key intelligence question is whether Polish courts maintain institutional in
 
 ---
 
+## Extended Stakeholder Perspectives
+
+### 1. European Parliament President's Office
+
+The President's office faces a delicate communication challenge following the April 28 session. The MFF interim report and six immunity waivers simultaneously signal Parliament's institutional ambition and its accountability function. The consent resolution adds a third dimension — Parliament as a champion of progressive values even where direct legislative competence is limited.
+
+Strategic communication priority: emphasize that April 28 was an example of Parliament exercising its full institutional range — budget leadership, accountability enforcement, and political advocacy — in a single session. This narrative supports EP's position in the upcoming inter-institutional MFF negotiations.
+
+### 2. European People's Party (EPP) Group
+
+EPP's position following April 28 is strategically complex. The party voted unanimously for immunity waivers on PiS-affiliated MEPs — some of whom are in the ECR group that EPP occasionally cooperates with on procedural matters. This creates a 'clean hands' position for EPP on accountability while maintaining the option of tactical cooperation with ECR on other files.
+
+On the MFF, EPP's centrist position is the negotiating anchor: ambitious enough to satisfy S&D/Renew on social/climate, but framed in competitiveness/defence language to maintain credibility with net-contributor member states.
+
+### 3. ECR Group — Internal Dynamics
+
+The immunity waivers directly affect three ECR MEPs (Jaki, Buczek, Obajtek). ECR's official response will frame this as "politically motivated Brussels persecution," but this framing creates internal tensions: ECR's non-Polish members (Italian FdI, Spanish Vox, French RN-breakaway) have less interest in defending PiS-affiliated MEPs whose legal problems predated their EP mandate.
+
+Intelligence assessment: ECR's internal cohesion on this issue is 🟡 FRAGILE — cohesion on other legislative files should not be affected, but the "persecution" narrative may be more muted from non-Polish ECR members than from the Polish ECR contingent.
+
+### 4. Polish Government (Tusk Coalition)
+
+Prime Minister Tusk's government actively cooperated with the immunity waiver proceedings against PiS-era figures. The April 28 outcome is a political success for the Tusk coalition — it demonstrates that the EU accountability architecture supports rather than obstructs Polish democratic repair.
+
+Communication strategy expected: Tusk government will cite the EP votes as evidence that EU membership includes rule-of-law enforcement, which was unavailable under PiS governance.
+
+---
+
 *EU Parliament Monitor | Stakeholder Map (extended) | 2026-04-29*

@@ -129,4 +129,22 @@ Likelihood
 
 ---
 
+## Risk Trend Analysis
+
+Comparing risk profile across the three analysis runs for 2026-04-29:
+
+| Risk ID | Run 1 Level | Run 2 Level | Run 3 Level | Trend |
+|---------|------------|------------|------------|-------|
+| R-01 MFF stalemate | HIGH | HIGH | HIGH | ➡ Stable |
+| R-02 Narrative erosion | MEDIUM | MEDIUM | MEDIUM | ➡ Stable |
+| R-03 Non-binding gender rights | MEDIUM | HIGH | MEDIUM | ↘ Slight improvement (EP vote completed) |
+| R-04 Trade retaliation | LOW | MEDIUM | MEDIUM | ↗ Worsening (US tariff news) |
+| R-05 Economic impact | MEDIUM | MEDIUM | MEDIUM | ➡ Stable |
+| R-06 ECJ challenge | NEW | LOW | LOW | ➡ Stable |
+| R-07 Implementation timeline | NEW | LOW | LOW | ➡ Stable |
+
+**Overall Risk Profile Trend:** Stable. No new high-severity risks emerged between runs; US tariff context slightly elevated trade risk.
+
+---
+
 *EU Parliament Monitor | Risk Matrix | 2026-04-29*
