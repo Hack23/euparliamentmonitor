@@ -136,7 +136,7 @@ export function isRetriableError(error: Error): boolean {
   const msg = error.message?.toLowerCase() ?? '';
   // Never retry rate-limit errors — callers must honour the Retry-After delay.
   // `instanceof MCPRateLimitError` is the primary guard for typed errors;
-  // the string prefix fallback handles any non-typed plain Error with a rate-limit message.
+  // the string prefix fallback handles any untyped plain Error with a rate-limit message.
   if (error instanceof MCPRateLimitError || msg.startsWith(RATE_LIMIT_MSG.toLowerCase())) {
     return false;
   }

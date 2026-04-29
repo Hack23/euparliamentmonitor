@@ -14,7 +14,8 @@ on:
   pull_request:
     branches: [ "main" ]
 
-permissions: read-all
+permissions:
+  contents: read
 
 concurrency:
   group: knip-${{ github.workflow }}-${{ github.ref }}
@@ -59,6 +60,7 @@ jobs:
       - name: Run Knip
         id: knip
         continue-on-error: true
+        shell: bash
         run: |
           set +e
           npm run knip 2>&1 | tee knip-output.txt
