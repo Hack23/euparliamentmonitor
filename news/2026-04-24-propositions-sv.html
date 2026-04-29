@@ -61,8 +61,8 @@
     <div class="site-header__inner site-header__inner--stacked">
       <a href="../index-sv.html" class="site-header__brand" aria-label="EU-parlamentsmonitor">
         <picture class="site-header__logo-picture">
-          <source srcset="../images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
+          <source srcset="../images/banner.webp" type="image/webp">
+          <img class="site-header__logo site-header__logo--banner" src="../images/banner.jpg" alt="EU-parlamentsmonitor" width="240" height="80" loading="eager">
         </picture>
         <span class="site-header__brand-text">
           <span class="site-header__title">EU-parlamentsmonitor</span>
@@ -93,6 +93,13 @@
       </nav>
     </div>
   </header>
+
+  <div class="page-banner" role="img" aria-label="EU Parliament Monitor">
+    <picture>
+      <source srcset="../images/banner.webp" type="image/webp">
+      <img class="page-banner__img" src="../images/banner.jpg" alt="" aria-hidden="true" width="1200" height="400" loading="eager">
+    </picture>
+  </div>
 
   <main id="main" class="site-main article-main">
   <aside class="article-toc-container" aria-label="Innehållsförteckning">
@@ -1088,7 +1095,7 @@ pre-2024 figures use the legacy EP9 group taxonomy.</li>
 <h2 id="section-economic-context">Economic Context</h2>
 <p>(Germany + France bilaterals) after attempted Eurozone aggregates
 (<code>EUU</code>, <code>EMU</code>) failed to resolve in the current World Bank MCP
-deployment (<code>worldbank-mcp@1.0.1</code>). The OR-gate requires either WB or
+deployment (<code>worldbank-mcp@1.0.1</code>). The IMF requirement requires either WB or
 IMF data on policy files; WB is available for DE + FR and is therefore
 used here.</p>
 <h3 id="1-why-economic-context-matters-for-propositions" tabindex="-1"><a class="header-anchor" href="#1-why-economic-context-matters-for-propositions"><span>1 · Why Economic Context Matters for Propositions</span></a></h3>
@@ -1170,7 +1177,7 @@ EPP-DE rapporteurs through at least H1 2026.</p>
 </tr>
 </tbody>
 </table>
-</div><p><strong>Reading</strong>: FR growth decelerated but remained positive throughout —
+</div><p><strong>Reading</strong>: FR growth decelerated but remained positive throughout
 a gentler profile than DE. For propositions, France gives the
 progressive bloc more fiscal headroom to defend CAP, social pillar,
 and industrial-strategy files.</p>
@@ -1255,7 +1262,7 @@ important macro swing variable for propositions H2 2026.</li>
 <h3 id="8-limitations" tabindex="-1"><a class="header-anchor" href="#8-limitations"><span>8 · Limitations</span></a></h3>
 <ul>
 <li>No IMF cross-check this run (IMF MCP probe returned no data).</li>
-<li>No fiscal-space data (debt/GDP, deficit/GDP) fetched this run —
+<li>No fiscal-space data (debt/GDP, deficit/GDP) fetched this run
 scheduled for next propositions run.</li>
 </ul>
 <p><em>— Economic Context · Pass 2 complete · 2026-04-24</em></p>
@@ -2561,7 +2568,7 @@ would invalidate our Scenario 5.1 and force a methodological revamp.</p>
 <p>Wildcard environment is <strong>moderate-intensity</strong> for this 90-day
 horizon. No imminent catastrophic trigger identified; 4 of 10 grey
 swans carry EVEN probability (W6, W8, W9 plus the counter-scenarios).
-The single most impactful grey swan is <strong>W1 (defence emergency)</strong> —
+The single most impactful grey swan is <strong>W1 (defence emergency)</strong>
 which would push Scenario A probability into HIGHLY LIKELY territory.</p>
 <p><em>— Wildcards &amp; Black Swans · Pass 2 complete · 2026-04-24</em></p>
 <h3 id="6-pass-2-deepening-notes" tabindex="-1"><a class="header-anchor" href="#6-pass-2-deepening-notes"><span>6 · Pass-2 deepening notes</span></a></h3>
@@ -2963,7 +2970,7 @@ pipeline</strong> over the last 30 days, assessing which files, which stages, wh
 rapporteurs, and which political-group coalitions are most likely to shape
 law within the 6-month window ending 2026-04-10-24. The focus is on
 <em>propositions-in-motion</em> — ordinary legislative procedure (COD), consultation
-procedure (CNS), consent procedure (APP/NLE), own-initiative reports (INI) —
+procedure (CNS), consent procedure (APP/NLE), own-initiative reports (INI)
 not on already-adopted acts, which are the scope of the <code>adopted-texts</code>
 breaking workflow.</p>
 <h3 id="2-artifact-map-14-mandatory-files" tabindex="-1"><a class="header-anchor" href="#2-artifact-map-14-mandatory-files"><span>2 · Artifact Map (14 mandatory files)</span></a></h3>
@@ -3002,7 +3009,7 @@ breaking workflow.</p>
 <tr>
 <td>4</td>
 <td><code>intelligence/economic-context.md</code></td>
-<td>IMF/WB OR-gate policy framing</td>
+<td>IMF policy policy framing</td>
 <td style="text-align:right">120</td>
 <td style="text-align:center">🟢</td>
 </tr>
@@ -3084,7 +3091,7 @@ against <code>analysis/methodologies/reference-quality-thresholds.json §thresho
 <ul>
 <li><strong>Primary feeds</strong> (Stage A):
 <ul>
-<li><code>get_procedures_feed</code> (one-month): 50 items; legacy-ID skew (1972–1987 range) —
+<li><code>get_procedures_feed</code> (one-month): 50 items; legacy-ID skew (1972–1987 range)
 known EP API limitation where the feed returns historical procedure IDs
 with empty metadata fields (<code>stage</code>, <code>status</code>, <code>subjectMatter</code>,
 <code>dateInitiated</code>, <code>dateLastActivity</code>, <code>responsibleCommittee</code>, <code>rapporteur</code>
@@ -3106,13 +3113,13 @@ fragmentation index <code>HIGH</code>, majority type <code>MULTI_COALITION_REQUI
 <code>internalCohesion: null</code> (per-MEP voting data not available from EP API);
 dominant sized-based alliance signal on Renew↔ECR (0.95), ECR↔PfE (0.95),
 Greens/EFA↔The Left (0.87), ESN↔NI (0.90).</li>
-<li><code>get_all_generated_stats</code> (2024–2026): EP10 Year-2 structural picture —
+<li><code>get_all_generated_stats</code> (2024–2026): EP10 Year-2 structural picture
 935 procedures projected for 2026, ENP 6.59, HHI 0.1515, right-bloc 52.3%.</li>
 </ul>
 </li>
-<li><strong>Economic context</strong> (World Bank, Wave-2 OR-gate):
+<li><strong>Economic context</strong> (World Bank IMF requirement):
 <ul>
-<li>Eurozone aggregates (<code>EUU</code>, <code>EMU</code>) not resolvable by the World Bank MCP —
+<li>Eurozone aggregates (<code>EUU</code>, <code>EMU</code>) not resolvable by the World Bank MCP
 fell back to DE + FR bilaterals. DE 2024 GDP growth <code>-0.496%</code>, FR <code>+1.19%</code>,
 DE CPI <code>+2.256%</code>.</li>
 </ul>
@@ -4007,7 +4014,7 @@ subset)</strong>, subject to disclosed caveats §3.1–§3.5.</p>
       <div class="footer-section">
         <h3>Om EU Parliament Monitor</h3>
         <p>Europäisk parlamentarisk underrättelseplattform — övervakar politisk verksamhet med systematisk öppenhet. Drivs av Europaparlamentets öppna data.</p>
-        <p class="footer-stats">116 artiklar tillgängliga</p>
+        <p class="footer-stats">127 artiklar tillgängliga</p>
         <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">
@@ -4034,10 +4041,10 @@ subset)</strong>, subject to disclosed caveats §3.1–§3.5.</p>
       <div class="footer-section">
         <h3>Byggd av Hack23 AB</h3>
         <div class="footer-badges" aria-label="Project trust badges">
-          <a href="https://www.npmjs.com/package/euparliamentmonitor"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
-          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
-          <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
-          <a href="https://github.com/Hack23/euparliamentmonitor/attestations"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
+          <a href="https://www.npmjs.com/package/euparliamentmonitor" aria-label="npm package version"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
+          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor" aria-label="OpenSSF Scorecard"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
+          <a href="https://www.bestpractices.dev/projects/12068" aria-label="OpenSSF Best Practices"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
+          <a href="https://github.com/Hack23/euparliamentmonitor/attestations" aria-label="SLSA Level 3"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
         </div>
         <ul>
           <li><a href="https://hack23.com">Hack23.com</a></li>
@@ -4076,7 +4083,7 @@ subset)</strong>, subject to disclosed caveats §3.1–§3.5.</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.48</p>
+      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.50</p>
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> Denna plattform förbättras löpande. <a href="https://github.com/Hack23/euparliamentmonitor/issues">rapportera problem på GitHub</a>.</p>
     </div>
   </footer>

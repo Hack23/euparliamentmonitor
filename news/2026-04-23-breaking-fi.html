@@ -61,8 +61,8 @@
     <div class="site-header__inner site-header__inner--stacked">
       <a href="../index-fi.html" class="site-header__brand" aria-label="EU-parlamentin seuranta">
         <picture class="site-header__logo-picture">
-          <source srcset="../images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
+          <source srcset="../images/banner.webp" type="image/webp">
+          <img class="site-header__logo site-header__logo--banner" src="../images/banner.jpg" alt="EU-parlamentin seuranta" width="240" height="80" loading="eager">
         </picture>
         <span class="site-header__brand-text">
           <span class="site-header__title">EU-parlamentin seuranta</span>
@@ -93,6 +93,13 @@
       </nav>
     </div>
   </header>
+
+  <div class="page-banner" role="img" aria-label="EU Parliament Monitor">
+    <picture>
+      <source srcset="../images/banner.webp" type="image/webp">
+      <img class="page-banner__img" src="../images/banner.jpg" alt="" aria-hidden="true" width="1200" height="400" loading="eager">
+    </picture>
+  </div>
 
   <main id="main" class="site-main article-main">
   <aside class="article-toc-container" aria-label="Sisällysluettelo">
@@ -2710,8 +2717,8 @@ The TRQ modification (TA-0101) adjusts existing quota allocations — smaller ec
 <li>Italy GDP growth 2024: NOT RETURNED (API coverage gap)</li>
 <li>Spain GDP: NOT RETURNED (API coverage gap)</li>
 </ul>
-<p><strong>IMF data gap (Wave-2 policy)</strong>:
-IMF SDMX 3.0 EU-level aggregate data was not collected in this run due to time constraints. Future runs should include IMF EU-level data as the primary economic context source per Wave-2 policy.</p>
+<p><strong>IMF data gap</strong>:
+IMF SDMX 3.0 EU-level aggregate data was not collected in this run due to time constraints. Future runs should include IMF EU-level data as the primary economic context source.</p>
 <p><strong>Estimated IMF aggregate for EU</strong>:</p>
 <ul>
 <li>EU GDP growth 2024 (IMF WEO estimate): ~0.8%</li>
@@ -4763,20 +4770,20 @@ The delayed Commission housing package, if released at or before the April 27 pl
 <li>Note: Only January-February sessions returned; March sessions may have data lag</li>
 <li>Data quality: MEDIUM — session dates confirmed but coverage incomplete</li>
 </ul>
-<p><strong>Tool</strong>: get_all_generated_stats()</p>
+<p><strong>Tool</strong>: get_all_generated_stats</p>
 <ul>
 <li>Result: �� SUCCESS — comprehensive multi-year precomputed dataset</li>
 <li>Data quality: HIGH — EPP 185, S&amp;D 135, PfE 84, ECR 79, Renew 76, Greens 53, GUE/NGL 46, ESN 28, NI 32</li>
 <li>Coverage: EP6-EP10 historical data; 2026 partial year (114 legislative acts)</li>
 <li>Note: Precomputed/cached data — unaffected by feed outage</li>
 </ul>
-<p><strong>Tool</strong>: analyze_coalition_dynamics()</p>
+<p><strong>Tool</strong>: analyze_coalition_dynamics</p>
 <ul>
 <li>Result: Partial — EPP returned as 0 seats (known API normalization bug); other 6 groups correct</li>
 <li>Status: 🟡 PARTIAL</li>
 <li>Mitigation: Used get_all_generated_stats EPP count (185) directly</li>
 </ul>
-<p><strong>Tool</strong>: early_warning_system()</p>
+<p><strong>Tool</strong>: early_warning_system</p>
 <ul>
 <li>Result: 🟢 SUCCESS — stability score 87/100; 2 warnings (attendance flag, coalition divergence flag)</li>
 <li>Data quality: HIGH for stability score</li>
@@ -5733,10 +5740,10 @@ The delayed Commission housing package, if released at or before the April 27 pl
 </div><p><strong>Assessment</strong>: SUFFICIENT FOR PUBLICATION. Quality below typical run (8.5+) due to API outage reducing data coverage. Analysis depth compensates. Proceed to Stage D.</p>
 <h3 id="improvement-recommendations-for-future-runs" tabindex="-1"><a class="header-anchor" href="#improvement-recommendations-for-future-runs"><span>Improvement Recommendations for Future Runs</span></a></h3>
 <ol>
-<li>Include IMF SDMX 3.0 call for EU-level economic aggregates (Wave-2 policy requirement)</li>
+<li>Include IMF SDMX 3.0 call for EU-level economic aggregates</li>
 <li>Cache EP adopted texts locally to avoid repeated pagination</li>
 <li>Add analyze_committee_activity calls for INTA/ECON/LIBE when available</li>
-<li>Automate World Bank country code filtering using isMCPSupportedWBCountryCode()</li>
+<li>Apply World Bank country code allow-list editorially at Stage A</li>
 <li>Improve cross-referencing: add explicit citation links in ALL artifacts</li>
 </ol>
 <p>🟢 HIGH confidence on quality score methodology. 🟡 MEDIUM confidence on absolute score values.</p>
@@ -6179,7 +6186,7 @@ methodology Step 10.5 complete)
 <hr>
 <h3 id="step-5-trade-and-economic-context-expanded" tabindex="-1"><a class="header-anchor" href="#step-5-trade-and-economic-context-expanded"><span>Step 5: Trade and Economic Context (Expanded)</span></a></h3>
 <p><strong>World Bank data</strong>: Successfully retrieved Germany GDP growth (-0.50%), Germany GDP_PER_CAPITA, France GDP (€3.16T). Failed: France GDP_GROWTH (no data in API), Italy GDP_GROWTH (no data).</p>
-<p><strong>IMF data gap</strong>: IMF SDMX 3.0 endpoint not queried in this run due to time constraints (legacy decision; future runs should include IMF EU-level aggregates per Wave-2 policy).</p>
+<p><strong>IMF data gap</strong>: IMF SDMX 3.0 endpoint not queried in this run due to time constraints (legacy decision; future runs should include IMF EU-level aggregates).</p>
 <p><strong>Economic significance</strong>: The Germany -0.50 0DP growth in 2024 is crucial context for the March 26 trade package. German economic stagnation makes German MEPs (and by extension CDU/CSU = EPP bloc) more receptive to trade defence instruments — the political economy argument for TDI extension is stronger in a contracting economy than an expanding one.</p>
 <hr>
 <h3 id="step-6-risk-scoring-and-matrix-construction" tabindex="-1"><a class="header-anchor" href="#step-6-risk-scoring-and-matrix-construction"><span>Step 6: Risk Scoring and Matrix Construction</span></a></h3>
@@ -6219,7 +6226,7 @@ methodology Step 10.5 complete)
 </ol>
 <p><strong>What should improve in future runs</strong>:</p>
 <ol>
-<li>Include IMF EU-level aggregates (per Wave-2 policy — was omitted due to time pressure)</li>
+<li>Include IMF EU-level aggregates (per was omitted due to time pressure)</li>
 <li>Cache adopted texts metadata to avoid repeated pagination calls</li>
 <li>EP committee-level analysis (analyze_committee_activity was not called due to time constraints)</li>
 <li>Deeper MEP-level voting pattern analysis when API not in outage</li>
@@ -6550,7 +6557,7 @@ methodology Step 10.5 complete)
       <div class="footer-section">
         <h3>Tietoa EU Parliament Monitorista</h3>
         <p>Euroopan parlamentin tiedustelualusta — seuraa poliittista toimintaa järjestelmällisellä avoimuudella. Perustuu Euroopan parlamentin avoimeen dataan.</p>
-        <p class="footer-stats">116 artikkelia saatavilla</p>
+        <p class="footer-stats">127 artikkelia saatavilla</p>
         <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">
@@ -6577,10 +6584,10 @@ methodology Step 10.5 complete)
       <div class="footer-section">
         <h3>Rakennettu Hack23 AB:n toimesta</h3>
         <div class="footer-badges" aria-label="Project trust badges">
-          <a href="https://www.npmjs.com/package/euparliamentmonitor"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
-          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
-          <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
-          <a href="https://github.com/Hack23/euparliamentmonitor/attestations"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
+          <a href="https://www.npmjs.com/package/euparliamentmonitor" aria-label="npm package version"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
+          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor" aria-label="OpenSSF Scorecard"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
+          <a href="https://www.bestpractices.dev/projects/12068" aria-label="OpenSSF Best Practices"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
+          <a href="https://github.com/Hack23/euparliamentmonitor/attestations" aria-label="SLSA Level 3"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
         </div>
         <ul>
           <li><a href="https://hack23.com">Hack23.com</a></li>
@@ -6619,7 +6626,7 @@ methodology Step 10.5 complete)
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.48</p>
+      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.50</p>
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> Tätä alustaa kehitetään jatkuvasti. <a href="https://github.com/Hack23/euparliamentmonitor/issues">ilmoita ongelmista GitHubissa</a>.</p>
     </div>
   </footer>

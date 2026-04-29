@@ -61,8 +61,8 @@
     <div class="site-header__inner site-header__inner--stacked">
       <a href="../index-ko.html" class="site-header__brand" aria-label="EU 의회 모니터">
         <picture class="site-header__logo-picture">
-          <source srcset="../images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
+          <source srcset="../images/banner.webp" type="image/webp">
+          <img class="site-header__logo site-header__logo--banner" src="../images/banner.jpg" alt="EU 의회 모니터" width="240" height="80" loading="eager">
         </picture>
         <span class="site-header__brand-text">
           <span class="site-header__title">EU 의회 모니터</span>
@@ -93,6 +93,13 @@
       </nav>
     </div>
   </header>
+
+  <div class="page-banner" role="img" aria-label="EU Parliament Monitor">
+    <picture>
+      <source srcset="../images/banner.webp" type="image/webp">
+      <img class="page-banner__img" src="../images/banner.jpg" alt="" aria-hidden="true" width="1200" height="400" loading="eager">
+    </picture>
+  </div>
 
   <main id="main" class="site-main article-main">
   <aside class="article-toc-container" aria-label="목차">
@@ -2569,14 +2576,14 @@ Progressive bloc (S&amp;D+Greens+Left+Renew): Blocking minority on right-wing vo
 <td><code>get_events_feed</code></td>
 <td>🔴 ERROR</td>
 <td>&quot;EP API returned error-in-body&quot;</td>
-<td>§11 row #8: getEventsFeed() downgrades TIMEOUT to 🟡 SLOW_FEED_WARNING</td>
+<td>§11 row #8: getEventsFeed downgrades TIMEOUT to 🟡 SLOW_FEED_WARNING</td>
 <td>Known degraded endpoint; no action</td>
 </tr>
 <tr>
 <td><code>get_procedures_feed</code></td>
 <td>🟡 DEGRADED</td>
 <td>RECESS_MODE — historical data (1972-1980) returned</td>
-<td>§11 row #5: detectProceduresFeedRecessMode() detects historical-archive responses; adds recessMode:true</td>
+<td>§11 row #5: detectProceduresFeedRecessMode detects historical-archive responses; adds recessMode:true</td>
 <td>Expected recessMode; no action</td>
 </tr>
 <tr>
@@ -2650,7 +2657,7 @@ Progressive bloc (S&amp;D+Greens+Left+Renew): Blocking minority on right-wing vo
 <strong>Impact</strong>: Moderate — events data unavailable, but plenary session data obtained via direct <code>get_plenary_sessions</code> endpoint
 <strong>Workaround Applied</strong>: Used <code>get_plenary_sessions(year=2026)</code> as direct fallback; confirmed April 27-30 Strasbourg plenary confirmed</p>
 <h4 id="2-getproceduresfeed-recessmode" tabindex="-1"><a class="header-anchor" href="#2-getproceduresfeed-recessmode"><span>2. <code>get_procedures_feed</code> — RECESS_MODE</span></a></h4>
-<p><strong>Classification</strong>: 🟢 KNOWN (§11 row #5 — detectProceduresFeedRecessMode() — historical-archive responses expected during low-activity periods)
+<p><strong>Classification</strong>: 🟢 KNOWN (§11 row #5 — detectProceduresFeedRecessMode — historical-archive responses expected during low-activity periods)
 <strong>Impact</strong>: Low — procedure feed data from 1972-1980 unusable, but adopted texts and plenary decisions provide equivalent legislative intelligence
 <strong>Workaround Applied</strong>: Adopted texts feed and direct <code>get_adopted_texts(year=2026)</code> used as primary source; 51 adopted texts in 2026 captured comprehensively</p>
 <h4 id="3-getvotingrecords-april-2026-empty-results" tabindex="-1"><a class="header-anchor" href="#3-getvotingrecords-april-2026-empty-results"><span>3. <code>get_voting_records (April 2026)</code> — Empty Results</span></a></h4>
@@ -3057,7 +3064,7 @@ Progressive bloc (S&amp;D+Greens+Left+Renew): Blocking minority on right-wing vo
       <div class="footer-section">
         <h3>EU Parliament Monitor 소개</h3>
         <p>유럽 의회 인텔리전스 플랫폼 — 체계적인 투명성으로 정치 활동을 모니터링. 유럽 의회 공개 데이터를 기반으로 함.</p>
-        <p class="footer-stats">116개 기사 이용 가능</p>
+        <p class="footer-stats">127개 기사 이용 가능</p>
         <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">
@@ -3084,10 +3091,10 @@ Progressive bloc (S&amp;D+Greens+Left+Renew): Blocking minority on right-wing vo
       <div class="footer-section">
         <h3>Hack23 AB 제작</h3>
         <div class="footer-badges" aria-label="Project trust badges">
-          <a href="https://www.npmjs.com/package/euparliamentmonitor"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
-          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
-          <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
-          <a href="https://github.com/Hack23/euparliamentmonitor/attestations"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
+          <a href="https://www.npmjs.com/package/euparliamentmonitor" aria-label="npm package version"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
+          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor" aria-label="OpenSSF Scorecard"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
+          <a href="https://www.bestpractices.dev/projects/12068" aria-label="OpenSSF Best Practices"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
+          <a href="https://github.com/Hack23/euparliamentmonitor/attestations" aria-label="SLSA Level 3"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
         </div>
         <ul>
           <li><a href="https://hack23.com">Hack23.com</a></li>
@@ -3126,7 +3133,7 @@ Progressive bloc (S&amp;D+Greens+Left+Renew): Blocking minority on right-wing vo
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.48</p>
+      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.50</p>
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> 이 플랫폼은 지속적으로 개선되고 있습니다. <a href="https://github.com/Hack23/euparliamentmonitor/issues">GitHub에서 문제 보고</a>.</p>
     </div>
   </footer>

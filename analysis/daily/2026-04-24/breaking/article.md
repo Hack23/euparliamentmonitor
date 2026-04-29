@@ -1134,6 +1134,10 @@ End of methodology notes.
 
 <h2 id="section-economic-context">Economic Context</h2>
 
+** IMF requirement:** per `.github/skills/ai-first-quality.md`, policy articles require World Bank OR IMF economic context. This run does not draft an article, but still publishes the economic baseline for future use.
+
+---
+
 ### 1. Eurozone Macroeconomic Snapshot
 
 | Indicator | Series | Latest value | Direction | Source |

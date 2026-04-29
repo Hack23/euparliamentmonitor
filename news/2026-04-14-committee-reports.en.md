@@ -578,8 +578,8 @@ ECR's abstention on SRMR3 while supporting tariff countermeasures reveals an int
 | existing/ | stakeholder-impact.md | ~130 |
 | risk-scoring/ | risk-matrix.md | ~130 |
 | threat-assessment/ | political-threat-landscape.md | ~100 |
-| . | synthesis-summary.md | This file |
-| . | manifest.json | Run metadata |
+|. | synthesis-summary.md | This file |
+|. | manifest.json | Run metadata |
 
 > **Provenance & Audit**
 >
