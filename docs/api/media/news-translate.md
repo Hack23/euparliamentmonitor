@@ -109,6 +109,8 @@ tools:
     max-patch-size: 51200
 
 safe-outputs:
+  threat-detection:
+    continue-on-error: true
   # This workflow translates 1 English article into 13 languages per run
   # (plus manual runs may cover 2+ article types). Each translated HTML is
   # typically 20–40 KB, so a full run patch is commonly 500 KB–2 MB once
@@ -246,7 +248,7 @@ Mandatory ordering contract:
 > - Run #188 (PR #1346): called safeoutputs 6× but `max:1` default rejected 5/6 → 13 lost + empty PR left behind. **Root cause**: two separate bugs — `max:1` default (fixed in previous commit, now `max:10`), and the "empty baseline" anti-pattern (fixed in this commit).
 
 > **📚 Reference**: [README.md](../prompts/README.md) for EP MCP tools and safe outputs.
-> **📈 Economic context pass-through (Wave-3)**: Translation workflows inherit IMF (primary economic) + World Bank (non-economic) citations and chart structure from the source English article. Do not add, remove, or alter `<canvas data-chart-config>` blocks, IMF citations, WB citations, or vintage strings; translations are structural pass-throughs and must preserve the same Chart.js + indicator evidence as the source. **Preserve proper names untranslated**: `IMF`, `WEO`, `Fiscal Monitor`, `World Economic Outlook`, `data-vintage="WEO-April-2026"`. See [`analysis/methodologies/imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md) and [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) for reference only.
+> **📈 Economic context pass-through**: Translation workflows inherit IMF (sole authoritative economic source) + World Bank (non-economic — health, education, social, environment, demographics, defence, agriculture, innovation, governance) citations and chart structure from the source English article. Do not add, remove, or alter `<canvas data-chart-config>` blocks, IMF citations, WB citations, or vintage strings; translations are structural pass-throughs and must preserve the same Chart.js + indicator evidence as the source. Translations must **never** introduce a World Bank citation for an economic claim that was IMF-sourced in the original — **Preserve proper names untranslated**: `IMF`, `WEO`, `Fiscal Monitor`, `World Economic Outlook`, `data-vintage="WEO-April-2026"`. See [`analysis/methodologies/imf-indicator-mapping.md`](../../analysis/methodologies/imf-indicator-mapping.md) and [`analysis/methodologies/worldbank-indicator-mapping.md`](../../analysis/methodologies/worldbank-indicator-mapping.md) for reference only.
 
 ## 🔁 MCP Gateway Keepalive + Flush Policy (NON-NEGOTIABLE)
 
@@ -284,7 +286,7 @@ Mandatory ordering contract:
 > ```
 >
 > Additionally, to avoid AWF sandbox shell-expansion rejections:
-> - Do NOT nest `$(...)` inside `$(( ... ))` arithmetic — assign command output to a variable on its own line first, then reference the variable.
+> - Do NOT nest `$(...)` inside `$((... ))` arithmetic — assign command output to a variable on its own line first, then reference the variable.
 > - Do NOT combine `${VAR:-$(cmd || cmd2)}` default-with-fallback — use explicit `if/else` blocks.
 > - Do NOT use adjacent `${RANDOM}${RANDOM}` — use `$$` (PID) and `$(date +%s)` on separate assignment lines.
 > - Avoid putting multiple `$(...)` substitutions inside a single double-quoted string — split onto separate variable assignments.

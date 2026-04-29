@@ -540,7 +540,7 @@ test('homepage passes axe accessibility audit', async ({ page }) => {
 | Policy | Why it applies to frontend | Key duties |
 |--------|---------------------------|------------|
 | [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Frontend is the visible CIA boundary for every reader | CSP, HTTPS-only, SRI, no tracking, no third-party JS without review |
-| [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Output encoding + CSP are the last line against XSS | `escapeHtml()` on all data, strict CSP, no inline `<script>` |
+| [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) | Output encoding + CSP are the last line against XSS | `escapeHtml` on all data, strict CSP, no inline `<script>` |
 | [Open Source Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md) | Any CDN/NPM UI library must pass intake | License + advisory + SRI for CDN |
 | [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) | Only HTTPS/TLS 1.3 on all assets | Enforce via server/CDN config; reject `http://` links |
 | [Data Protection / GDPR](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md) | Privacy by design — no reader tracking without consent | No analytics cookies by default; minimal data in `<meta>` |

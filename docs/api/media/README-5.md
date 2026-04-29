@@ -32,7 +32,7 @@
 | [`forecast-accuracy-baseline.md`](forecast-accuracy-baseline.md) | Per-horizon MAE bands for WEO/FM forecasts driving the mandatory optimism-bias acknowledgement on horizons ≥3y | AI workflows, news-journalist |
 | [`cross-source-triangulation.md`](cross-source-triangulation.md) | When IMF figures must be cross-checked against ECB SDW / Eurostat / OECD / BIS, keyed to significance tier & indicator class | AI workflows, quality-engineer |
 | [`chart-integration-guide.md`](chart-integration-guide.md) | Chart.js templates with forecast-shaded overlay + Mermaid `xychart-beta` patterns for IMF data visualisation | AI workflows, frontend |
-| [`use-cases.md`](use-cases.md) | When IMF adds editorial value per article type (Wave-4 IMF-primary matrix) | AI workflows, product |
+| [`use-cases.md`](use-cases.md) | When IMF adds editorial value per article type | AI workflows, product |
 
 ---
 
@@ -47,7 +47,7 @@ and the workflow probe.
 
 | Virtual tool | Method | REST endpoint |
 |---|---|---|
-| `imf-list-databases` | `listDatabases()` | `GET /dataflow/IMF` |
+| `imf-list-databases` | `listDatabases` | `GET /dataflow/IMF` |
 | `imf-search-databases` | `searchDatabases(keyword)` | `/dataflow/IMF` + client-side filter |
 | `imf-get-parameter-defs` | `getParameterDefs(databaseId)` | `GET /datastructure/{id}` |
 | `imf-get-parameter-codes` | `getParameterCodes(db, param, search?)` | `GET /datastructure/{id}?references=codelist` |
@@ -89,7 +89,7 @@ subset. It does **not** cover:
 - Environment: CO₂, renewable energy
 - Innovation: R&D spending, high-tech exports
 
-World Bank WDI remains the authoritative source for those domains —
+World Bank WDI remains the authoritative source for those domains
 see [`analysis/worldbank/`](../worldbank/) and
 [`analysis/methodologies/worldbank-indicator-mapping.md`](../methodologies/worldbank-indicator-mapping.md)
 for the WB-only indicator inventory.
@@ -166,7 +166,7 @@ Stage-C editorial review then checks that the artifact satisfies:
 
 ## 🔁 Relationship to World Bank
 
-Under **Wave-4 (April 2026)** the WB↔IMF split is enforced editorially at
+Under ** (April 2026)** the WB↔IMF split is enforced editorially at
 Stage C:
 
 | Domain class | Primary source | Notes |
@@ -174,19 +174,9 @@ Stage C:
 | Economic / macro / monetary / fiscal / trade / FDI / exchange-rate | **IMF** | Mandatory for policy-required article types |
 | Social / health / education / environment / demographics / defence / agriculture / innovation / governance | **World Bank** | IMF does not cover these domains |
 
-The legacy runtime gate helpers (`articlePolicyHasEconomicContext`,
-`articlePolicyHasIMFEconomicEvidence`, `articlePolicyHasWorldBank`) lived
-in `src/utils/content-validator.ts` alongside the surrounding
-`src/utils/validate-articles.ts` CLI and the `src/utils/imf-data.ts`
-helpers (`parseSDMXJSON`, `buildIMFEconomicContextHTML`,
-`getIMFCountryCode`, `IMF_POLICY_INDICATORS`, `IMF_PER_ARTICLE_INDICATOR_FLOORS`,
-`IMF_STRONG_FINGERPRINTS`, …). All three files were **purged in the
-April-2026 aggregator-pipeline migration** — the aggregator renders the
-analysis artifacts as-is, so there is no HTML-authoring hook left for
-runtime validation. The editorial rules survive in the review checklist
-in [`.github/prompts/04-article-generation.md`](../../.github/prompts/04-article-generation.md)
+For per-committee indicator selection, see
+[`../methodologies/imf-indicator-mapping.md`](../methodologies/imf-indicator-mapping.md).
+The editorial rules survive in the review checklist in
+[`.github/prompts/04-article-generation.md`](../../.github/prompts/04-article-generation.md)
 and in the per-committee mapping of
 [`../methodologies/imf-indicator-mapping.md`](../methodologies/imf-indicator-mapping.md).
-
-For the full migration sequence (Wave-3 dark-launch → Wave-4 editorial
-default), see [`../methodologies/imf-indicator-mapping.md §10`](../methodologies/imf-indicator-mapping.md#10-migration-plan-wave-2--wave-3--wave-4).

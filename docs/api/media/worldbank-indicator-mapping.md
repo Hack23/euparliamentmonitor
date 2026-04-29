@@ -1,35 +1,29 @@
 <!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
-# World Bank Indicator → Article Type Mapping (Non-Economic Only — Wave-3)
+# World Bank Indicator → Article Type Mapping (Non-Economic Only)
 
 **📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:** 2026-04-25 (UTC)  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31  
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public  
-**🔗 Mirror file:** [`imf-indicator-mapping.md`](imf-indicator-mapping.md) (economic / fiscal / monetary / trade — Wave-4 partition)  
+**🔗 Mirror file:** [`imf-indicator-mapping.md`](imf-indicator-mapping.md) (economic / fiscal / monetary / trade)  
 **📥 Feeds artifact:** [`economic-context.md`](../templates/economic-context.md) (Stage B.6, [`strategic-extensions-methodology.md`](strategic-extensions-methodology.md) §Economic Context)  
-**🛂 Wave-2 OR-gate:** A policy-required article passes the economic-context gate when **either** an IMF indicator from the mirror file **or** a World Bank non-economic indicator from this mapping is cited with vintage and Admiralty grade. WB is the authoritative path for non-economic domains (health, education, social, environment, demographics, defence, agriculture, innovation, governance); legacy WB economic codes are retained for backward compatibility but MUST NOT appear in new articles.
+**🛂 Scope:** World Bank is cited when an article makes a **non-economic** claim (health, education, social, environment, demographics, defence, agriculture, innovation, governance), with vintage and Admiralty grade per the WB rows in § 4. All economic / fiscal / monetary / trade / FDI / exchange-rate / banking claims cite IMF — see the mirror file.
 
 **Purpose**: Canonical reference that maps European Parliament Monitor article
 types to the most-relevant **non-economic** World Bank Open Data indicators.
 Every news workflow cites this file so the AI agent selects indicators
 consistently and the validator's quality gate remains enforceable.
 
-**⚡ Wave-3 scope (April 2026)**: World Bank is the source for **health,
-education, social, environment, demographics, defence, agriculture,
-innovation, and governance** indicators only. **All economic / monetary /
-fiscal / trade / FDI / exchange-rate / banking context (GDP, inflation,
-unemployment, current account, fiscal balance, debt, monetary, REER) is
-sourced from IMF** — see
-[`imf-indicator-mapping.md`](imf-indicator-mapping.md) and
-[`analysis/imf/`](../imf/). The legacy WB economic indicator codes listed
-in § 1 are retained as raw-REST identifiers for backward compatibility
-with pre-Wave-2 fixtures but **must not** be used in new articles — the
-new-article policy is **IMF-primary**. Wave-4 (target ~2 weeks after
-2026-04-24) will remove these WB economic codes from the production
-article generation code path entirely.
+**Scope**: World Bank is the source for **health, education, social,
+environment, demographics, defence, agriculture, innovation, and
+governance** indicators. **All economic / monetary / fiscal / trade /
+FDI / exchange-rate / banking context (GDP, inflation, unemployment,
+current account, fiscal balance, debt, monetary, REER) is sourced from
+IMF** — see [`imf-indicator-mapping.md`](imf-indicator-mapping.md) and
+[`analysis/imf/`](../imf/).
 
-**Retained WB domains (Wave-3)**:
+**Retained WB domains**:
 
 | Domain | Covered by WB | Primary MCP tool |
 |---|---|---|
@@ -42,48 +36,28 @@ article generation code path entirely.
 | Innovation | R&D expenditure, high-tech exports, internet users, patents | raw-REST `GB.XPD.RSDV.GD.ZS`, `IT.NET.USER.ZS` |
 | Governance | Women in Parliament, gender parity, business environment, rule of law (WGI) | raw-REST `SG.*`, `IC.*`, `RL.*` |
 
-**Retired from WB (now IMF-primary under Wave-4)**: GDP, GDP_GROWTH,
-GDP_PER_CAPITA, GNI, GNI_PER_CAPITA, EXPORTS_GDP, FDI_NET, INFLATION,
-UNEMPLOYMENT — all redirected to `imf-fetch-data` with appropriate
-WEO/FM/IFS/BOP/ER/PCPS SDMX codes.
-
 **Scope**: Applies to article types where EU legislation intersects with
 measurable non-economic outcomes. Article types without a direct policy
 nexus (e.g. `breaking` for institutional news) remain opt-in.
 
-**Enforcement (Wave-4)**: Stage-C editorial review of the markdown
-artifacts enforces the IMF-primary policy: every economic / fiscal /
-monetary / trade / FDI / exchange-rate claim must cite IMF; World Bank
-is accepted only for non-economic domains (health, education, social,
+**Enforcement**: Stage-C editorial review of the markdown artifacts
+uses World Bank for non-economic domains (health, education, social,
 environment, demographics, defence, agriculture, innovation,
-governance). Pre-Wave-2 articles citing only WB indicators remain
-green but new articles MUST cite IMF for economic context.
-
-The earlier Wave-3 runtime gate (`articlePolicyHasEconomicContext`
-OR-gate + `articlePolicyHasIMFEconomicEvidence` strict helper, dark-
-launched behind `WAVE3_IMF_STRICT`) lived in
-`src/utils/content-validator.ts` and `src/utils/validate-articles.ts`;
-both were purged in the April-2026 aggregator-pipeline migration along
-with the World Bank counterparts (`hasWorldBankEvidence`,
-`articlePolicyHasWorldBank`, `WORLD_BANK_STRONG_FINGERPRINTS`,
-`WORLD_BANK_INDICATOR_CODES`).
+governance).
 
 **Country-code guard**: `worldbank-mcp@1.0.1` rejects the aggregate codes
 `EUU`, `EMU`, `ECS`, `OED`, `WLD`, `NAC`, `EAS`, `SSF` and the informal `UK`
 alias. Agents must avoid these codes when calling the WB MCP. For
 EU-level economic context use IMF `EU`/`EA` aggregates (accepted by the
-IMF API). The earlier `isMCPSupportedWBCountryCode()` helper in
-`src/utils/world-bank-data.ts` was purged in the April-2026 aggregator-
-pipeline migration; the country-code allow-list is now an editorial rule
-enforced at Stage A.
+IMF API).
 
 ---
 
 ## 1. Indicator Codes (reference)
 
-The MCP tool `get-economic-data` ⚠️ (deprecated for new articles — use IMF
-`imf-fetch-data` instead) and siblings `get-social-data`,
-`get-education-data`, `get-health-data` accept these stable codes:
+The MCP tools `get-social-data`, `get-education-data`, `get-health-data`
+accept these stable codes (use IMF `imf-fetch-data` for any economic
+context):
 
 | Code                    | Description                                    | Tool            |
 | ----------------------- | ---------------------------------------------- | --------------- |
@@ -114,7 +88,7 @@ The MCP tool `get-economic-data` ⚠️ (deprecated for new articles — use IMF
 | `MALNUTRITION`          | Prevalence of undernourishment (% of pop.)     | health          |
 | `TUBERCULOSIS`          | Incidence of tuberculosis (per 100,000)        | health          |
 
-## 2. Mandatory — policy article types (Wave-3 non-economic only)
+## 2. Mandatory — policy article types
 
 The validator **fails** when the article has an economic claim without IMF
 citation, or when a non-economic claim is missing its WB indicator. This
@@ -125,7 +99,7 @@ indicators, see [`imf-indicator-mapping.md §2`](imf-indicator-mapping.md).
 | ------------------- | ----------------------------------------------------------------- | ------------------------------- |
 | `committee-reports` | Committee-specific: EMPL→`EDUCATION_EXPENDITURE`; ENVI→`HEALTH_EXPENDITURE`, `LIFE_EXPECTANCY`, `PHYSICIANS`; LIBE→`INTERNET_USERS`, `LITERACY_RATE`; CULT→`SCHOOL_ENROLLMENT`; DEVE→`MALNUTRITION`, `IMMUNIZATION`; FEMM→`SCHOOL_ENROLLMENT`; AGRI→`MALNUTRITION` | Member states, sectoral lobbies |
 | `propositions`      | Topic-specific non-economic indicators (health/education/environment/defence) | Council, Commission, MEPs      |
-| `motions`           | Same as `propositions`; distributional via WB Governance (non-economic only) | Civil society, national parties |
+| `motions`           | Same as `propositions`; distributional via WB Governance (non-economic) | Civil society, national parties |
 | `month-ahead`       | Relevant non-economic context (health, education, environment) for EU27 | Institutional actors           |
 | `weekly-review`     | At least one non-economic indicator per policy cluster discussed  | General public, researchers     |
 | `monthly-review`    | Same as `weekly-review` plus `POPULATION`, `LIFE_EXPECTANCY` when relevant | Subscribers, press            |
@@ -141,7 +115,7 @@ per-committee IMF indicator floors.
 | `breaking`   | Only when the breaking event has a direct non-economic consequence (public health emergency, migration, defence) |
 | `week-ahead` | When the week's agenda includes non-economic legislation (health, education, environment, defence) |
 
-## 4. Committee → non-economic indicator quick-lookup (Wave-3)
+## 4. Committee → non-economic indicator quick-lookup
 
 Used by the `news-committee-reports` workflow to pick defaults for
 **non-economic** context; the economic counterpart defaults live in
@@ -359,7 +333,7 @@ explicitly.
 | Single country, no comparator | Fails Economist-style rigour | Min 3-country panel + comparator |
 | `UK` (informal alias) | Rejected by WB MCP | `GBR` |
 | Static link to WB website | Volatile, breaks reproducibility | Cite indicator code; let MCP resolve |
-| Mixing economic + non-economic in one chart | Wave-4 source split | Two charts; economic→IMF, non-economic→WB |
+| Mixing economic + non-economic in one chart | | Two charts; economic→IMF, non-economic→WB |
 | Using `WLD` (World) for EU comparison | Diluted signal | EU-27 + 3-4 named comparators |
 | Citing 2018 data in 2026 article | Breaches freshness floor §8 | Escalate to fallback §9 |
 | WGI score without "Estimate" suffix | WGI has 4 columns: Estimate, StdErr, RankPct, Sources | Cite `RL.EST` not `RL` |
@@ -413,7 +387,7 @@ Inline `<script>` is forbidden (CSP). Colour palette: Hack23 7-colour
 vintage floors, §9 fallback hierarchy, §10 six worked EP-domain selection
 scenarios, §11 ten anti-patterns, §12 MCP tool quick-reference, §13
 `economic-context.md` cross-check, §14 charting integration. v1.1
-(2026-04-25 earlier): Wave-3/4 partition cleanup. v1.0 (2026-04-17):
+(2026-04-25 earlier): /4 partition cleanup. v1.0 (2026-04-17):
 initial extraction.
 
 **Cross-references**:

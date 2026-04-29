@@ -13,7 +13,7 @@ artifact is missing, under its depth floor, or contains an
 
 The `2026-04-20-motions-run46-en.html` regression shipped six stakeholder
 cards whose text looked AI-authored but was produced by
-`deriveStakeholderReasoning()` — script-generated template prose that
+`deriveStakeholderReasoning` — script-generated template prose that
 survived into news/. The April-2026 aggregator-pipeline migration removed
 that class of leak at the root by deleting every HTML-authoring path from
 the generator (`src/generators/strategies/**`, `src/generators/builders/**`,
