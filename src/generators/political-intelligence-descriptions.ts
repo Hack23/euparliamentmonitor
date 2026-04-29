@@ -30,6 +30,14 @@ import type { LanguageCode } from '../types/index.js';
 /** Per-language text overlay keyed by 2-letter language code. */
 export type TextI18n = Partial<Record<LanguageCode, string>>;
 
+/**
+ * Back-compat alias for {@link TextI18n}. Preserved so downstream
+ * TypeScript consumers that import this name from
+ * `euparliamentmonitor/generators/political-intelligence-descriptions`
+ * keep compiling. Prefer `TextI18n` for new code.
+ */
+export type DescriptionI18n = TextI18n;
+
 /** One curated entry for a methodology / template / reference file. */
 export interface CuratedDescription {
   /** Canonical English title shown on the card heading and used as the

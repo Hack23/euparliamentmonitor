@@ -70,9 +70,9 @@ export type ResolvedMetadata = LanguageMap<ResolvedMetadataEntry>;
 
 /**
  * Raw manifest subset consumed by the resolver. Deliberately narrower
- * than the full {@link Manifest} shape so the resolver stays
- * usable for backport (which only has the manifest in text form) and for
- * callers that don't need the full typed structure.
+ * than the full {@link import('./manifest/types.js').Manifest} shape so
+ * the resolver stays usable for backport (which only has the manifest in
+ * text form) and for callers that don't need the full typed structure.
  */
 export interface MetadataManifest {
   readonly articleType?: string;
