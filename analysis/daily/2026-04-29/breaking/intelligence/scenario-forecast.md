@@ -184,6 +184,34 @@ Scenarios are structured across three primary uncertainty axes: (1) MFF negotiat
 
 ---
 
+## Cross-Scenario Analysis: Interaction Effects
+
+The six scenarios are not independent — several pairs exhibit strong interaction effects that alter the probability landscape:
+
+**Scenario 1 × Scenario 5 (MFF Stalemate + Economic Shock):** If the EU economy enters recession in late 2026, the MFF stalemate scenario becomes significantly more likely — net contributors will face domestic budget pressure and be even less willing to accept higher EU contributions. WEP adjustment: +10pp on both scenarios if recession materialises.
+
+**Scenario 2 × Scenario 3 (Council Compromise × Token Accountability):** If the Council delivers a viable MFF compromise by Q1 2027, Hungarian and Polish incentives to resist accountability decisions diminish. A successful budget deal could paradoxically unlock more genuine judicial cooperation than direct EU pressure. WEP adjustment: -15pp on Scenario 3 if Scenario 2 resolves positively.
+
+**Scenario 4 × Scenario 6 (Gender Rights Stagnation × Polish Normalisation):** Polish normalisation under Tusk includes adoption of consent-based rape law in Poland — the largest EU member state that currently lacks it. If Scenario 6 materialises, it substantially reduces the population covered by the "gender rights stagnation" scenario. WEP adjustment: 60% overlap between these scenarios.
+
+**Key Scenario Discriminator Indicators:**
+- German coalition stability (discriminates between Scenarios 1 and 2)
+- Hungarian ECHR ruling date (discriminates between Scenarios 3 and 5 interaction)
+- French National Assembly election polling (discriminates between Scenario 5 severity levels)
+- Polish Sejm legislative agenda Q3 2026 (discriminates between Scenarios 4 and 6)
+
+---
+
+## Forecast Confidence Calibration
+
+**Highest Confidence:** Scenario 3 (Token Accountability, 70%) — the legal and political mechanics of immunity waiver proceedings are well-understood; the "token" outcome is almost tautologically certain on the 1-year horizon given judicial timelines.
+
+**Lowest Confidence:** Scenario 5 (Economic Shock, 25%) — economic forecasting beyond 6 months has inherently high uncertainty; the WEP range of 15-40% reflects genuine expert disagreement, not analytical weakness.
+
+**Calibration Adjustment from Prior Runs:** Run 1 and Run 2 both assigned higher probability to Scenario 1 (MFF Stalemate, 45%). This run adjusts downward to 40% based on German coalition signals suggesting greater flexibility on EU investment, though this evidence is thin and should be monitored.
+
+---
+
 ## Intelligence Indicators to Monitor
 
 **MFF Track:**

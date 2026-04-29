@@ -71,4 +71,34 @@ Four tiers: Tier 1 (Transformative), Tier 2 (Significant), Tier 3 (Moderate), Ti
 
 ---
 
+## Comparative Significance Assessment: April 28 vs. Prior High-Water Marks
+
+To contextualise the April 28 session in the longer term of EP legislative history:
+
+| Session | Key Acts | Significance Score | Comparison |
+|---------|---------|---------------------|------------|
+| **April 28, 2026** | MFF interim (T1) + 6 immunity waivers (T2) + consent resolution (T2) + GSP (T2) | 🟢 HIGH (9/10) | Present session |
+| February 2024 | Artificial Intelligence Act final vote | 🟢 HIGH (9/10) | Landmark digital regulation |
+| June 2021 | European Climate Law adoption | 🟢 HIGH (8/10) | First EU constitutional climate obligation |
+| March 2019 | Copyright Directive (Articles 15/17) | 🟡 MEDIUM-HIGH (7/10) | Controversial but significant digital IP |
+| December 2015 | Refugee crisis resolutions | 🟡 MEDIUM-HIGH (6/10) | Political significance without legislative output |
+
+**Conclusion:** The April 28, 2026 session is in the top decile of EP plenary significance for the current parliamentary term, primarily because of the combination of a Tier 1 budget commitment with the historically unprecedented six-waiver accountability action.
+
+---
+
+## Salience-Accessibility Matrix
+
+| Decision | Public Salience | Expert Salience | Media Accessibility |
+|----------|----------------|-----------------|---------------------|
+| MFF Interim Report | 🟡 MEDIUM (abstract to general public) | 🟢 HIGH | 🟡 MEDIUM |
+| Immunity waivers | 🟢 HIGH (clear accountability narrative) | 🟢 HIGH | 🟢 HIGH |
+| Consent resolution | 🟢 HIGH (resonant personal rights) | 🟡 MEDIUM | 🟢 HIGH |
+| GSP Renewal | 🔴 LOW (technical trade) | 🟢 HIGH | 🔴 LOW |
+| 2027 Budget guidelines | 🔴 LOW (annual budget process) | 🟡 MEDIUM | 🔴 LOW |
+
+**Communication recommendation:** Lead with immunity waivers and consent resolution in public-facing communications; reserve MFF complexity for policy stakeholder communications.
+
+---
+
 *EU Parliament Monitor | Significance Classification | 2026-04-29*

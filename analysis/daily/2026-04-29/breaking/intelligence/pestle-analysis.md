@@ -194,4 +194,39 @@ Over the 12-month horizon (April 2026 to April 2027):
 - Social dimension will track consent legislation follow-through at member state level
 - Technological dimension will reflect Chips Act delivery milestones
 
+---
+
+## PESTLE Deep-Dive: Political-Legal Interaction
+
+The most analytically important interaction in the April 28, 2026 session is the **Political-Legal nexus** — specifically, the way in which immunity proceedings are fundamentally a legal process that ECR/PfE parties are attempting to re-frame as a political act.
+
+**The Parliamentary Immunity Process (Legal Dimension):**
+Parliamentary immunity under Protocol No. 7 (TFEU) is a formal legal procedure governed by established JURI jurisprudence. The standard is: did the alleged conduct occur in the course of the MEP's mandate? If not (as in all April 28 cases — all relate to pre-mandate or personal conduct), immunity is routinely waived. JURI's unanimous recommendation in all five cases confirms this legal assessment.
+
+**The Political Re-Framing Attempt:**
+ECR and PfE-affiliated media are attempting to re-frame the waivers as politically motivated persecution. This is legally inaccurate but politically potent in sovereignist media ecosystems.
+
+**Interaction Assessment:**
+The Political-Legal interaction creates an **asymmetric information environment** where:
+- Legally informed observers understand the procedural correctness of the waivers
+- Politically mobilised ECR/PfE constituencies receive a "persecution" narrative
+- The EU's institutional legitimacy in ECR/PfE voter segments is further damaged regardless of legal facts
+
+This is a structural vulnerability in EU democratic communication. The institution operates legally correctly but cannot effectively communicate to all citizens why a "unanimous JURI recommendation" represents sound procedural practice rather than political consensus.
+
+---
+
+## PESTLE Sector-Level Risk Table
+
+| PESTLE Category | Short-Term Risk (3 months) | Medium-Term Risk (12 months) | Long-Term Risk (5 years) |
+|----------------|---------------------------|------------------------------|--------------------------|
+| Political | MFF negotiation delay | Far-right coalition fragmentation | EP composition shift |
+| Economic | US tariff uncertainty | Investment gap from MFF delay | Green transition disruption |
+| Social | Disinformation spread | Gender rights stagnation | Demographic pressure on pensions |
+| Technical | None (session-specific) | Chips Act implementation | AI governance gap |
+| Legal | CJEU challenges on immunity | Accountability proceeding delays | Treaty reform needed on subsidiarity |
+| Environmental | ETS price volatility | CBAM trade disputes | Net-zero commitment credibility |
+
+---
+
 *EU Parliament Monitor | PESTLE Analysis | 2026-04-29 | breaking (complete)*

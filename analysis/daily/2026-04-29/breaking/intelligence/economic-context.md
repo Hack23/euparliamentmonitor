@@ -145,4 +145,32 @@ The rule-of-law conditionality framework (embedded in current MFF and expected i
 
 ---
 
+## Euro Area Economic Outlook: Relevance to April 28 Outcomes
+
+### IMF Baseline: Euro Area 2026
+
+**GDP Growth:** Euro Area 2026 forecast: 1.4% (IMF WEO April 2026, down from 1.6% projection in October 2025, reflecting US tariff headwinds and energy market uncertainty)
+
+**Inflation:** Euro Area HICP 2026: 2.4% (converging toward ECB 2% target; core inflation remains elevated at 2.7% due to services-sector persistence)
+
+**Unemployment:** 6.1% (near-record low; labor market resilience is primary buffer against demand shock)
+
+**Current Account:** Euro Area surplus: +2.2% of GDP (large surplus generates political friction with US, adding to tariff pressure risk)
+
+### Fiscal Context for MFF Negotiations
+
+**EU Member State Fiscal Positions (IMF WEO):**
+- Germany: General government deficit -1.4% GDP (2026); debt 64.7% GDP
+- France: Deficit -5.2% GDP (2026); debt 113.7% GDP (elevated; constrains French support for higher EU budget)
+- Italy: Deficit -3.8% GDP (2026); debt 138.5% GDP (under EU excessive deficit procedure)
+- Poland: Deficit -4.9% GDP (2026); debt 58.6% GDP (NATO 5% defence commitment strains fiscal space)
+
+**Implication for MFF:** Member states with fiscal stress (France, Italy, deficit-procedure members) face a difficult domestic sell for higher GNI contributions to MFF. Parliament's interim report must acknowledge this constraint to be credible as a negotiating document.
+
+**IMF Fiscal Policy Recommendations for EU 2026:** The IMF Euro Area Article IV Consultation (March 2026) recommends gradual fiscal consolidation preserving growth-enhancing investments, completion of Banking Union, and alignment of energy taxation with climate targets. These recommendations directly support Parliament's MFF interim report direction.
+
+**IMF Warning:** US tariff policy is the single largest downside risk to EU growth in 2026 (IMF WEO). A 10pp tariff increase would reduce EU GDP growth by 0.3-0.5 percentage points — heightening the strategic importance of EU own resources as a fiscal buffer.
+
+---
+
 *EU Parliament Monitor | Economic Context | 2026-04-29 | IMF WEO April 2026*
