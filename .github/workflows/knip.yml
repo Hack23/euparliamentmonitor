@@ -58,7 +58,7 @@ jobs:
           npm run knip 2>&1 | tee knip-output.txt
           status=${PIPESTATUS[0]}
           echo "status=$status" >> "$GITHUB_OUTPUT"
-          exit 0
+          exit "$status"
 
       - name: Write step summary
         if: always()
