@@ -43,14 +43,6 @@ jobs:
           node-version: '25'
           cache: 'npm'
 
-      - name: Cache dependencies
-        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
       - name: Install dependencies
         run: npm ci
 
@@ -88,7 +80,7 @@ jobs:
               echo "</details>"
             fi
             echo ""
-            echo "_See [WORKFLOWS.md](../blob/main/WORKFLOWS.md) § Knip for triage guidance._"
+            echo "_See [WORKFLOWS.md](${{ github.server_url }}/${{ github.repository }}/blob/main/WORKFLOWS.md) § Knip for triage guidance._"
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload Knip report artifact
