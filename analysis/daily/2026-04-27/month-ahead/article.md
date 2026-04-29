@@ -1239,6 +1239,10 @@ EP typical Year 2 legislative output (adopted texts, plenary sessions):
 
 <h2 id="section-economic-context">Economic Context</h2>
 
+** IMF requirement:** IMF primary for macro/fiscal/monetary/trade; WB for social/development indicators
+
+---
+
 ### IMF World Economic Outlook April 2026 — EU Context
 
 #### EU Growth Trajectory
@@ -2243,6 +2247,10 @@ For each wildcard, the following monitoring signals should be observed before Ma
 *Generated: 2026-04-27 | SPDX: Apache-2.0*
 
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
+
+**Reference:**.github/prompts/07-mcp-reference.md §11 triage table (mandatory before filing issues)
+
+---
 
 ### Audit Summary
 

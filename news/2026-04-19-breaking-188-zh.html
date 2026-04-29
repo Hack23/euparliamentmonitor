@@ -61,8 +61,8 @@
     <div class="site-header__inner site-header__inner--stacked">
       <a href="../index-zh.html" class="site-header__brand" aria-label="EU议会监测">
         <picture class="site-header__logo-picture">
-          <source srcset="../images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
+          <source srcset="../images/banner.webp" type="image/webp">
+          <img class="site-header__logo site-header__logo--banner" src="../images/banner.jpg" alt="EU议会监测" width="240" height="80" loading="eager">
         </picture>
         <span class="site-header__brand-text">
           <span class="site-header__title">EU议会监测</span>
@@ -93,6 +93,13 @@
       </nav>
     </div>
   </header>
+
+  <div class="page-banner" role="img" aria-label="EU Parliament Monitor">
+    <picture>
+      <source srcset="../images/banner.webp" type="image/webp">
+      <img class="page-banner__img" src="../images/banner.jpg" alt="" aria-hidden="true" width="1200" height="400" loading="eager">
+    </picture>
+  </div>
 
   <main id="main" class="site-main article-main">
   <aside class="article-toc-container" aria-label="目录">
@@ -401,7 +408,7 @@
 <li><code>get_meps_feed(timeframe:&quot;today&quot;)</code> — 738 MEPs (stable)</li>
 <li><code>get_events_feed(timeframe:&quot;today&quot;)</code> — 404 (Tier 2 offline, Day 7)</li>
 <li><code>get_procedures_feed(timeframe:&quot;today&quot;)</code> — 404 (Tier 2 offline, Day 7)</li>
-<li><code>analyze_coalition_dynamics()</code> — group composition, alliance signals</li>
+<li><code>analyze_coalition_dynamics</code> — group composition, alliance signals</li>
 <li><code>early_warning_system(sensitivity:&quot;medium&quot;)</code> — stability score 84/100</li>
 <li><code>get_all_generated_stats(category:&quot;all&quot;)</code> — historical context</li>
 <li>Direct document probes: TA-0092, 0094, 0096, 0101, 0104 — all DATA_UNAVAILABLE except 0101 (regression)</li>
@@ -812,10 +819,10 @@ funding of resolution action (SRMR3)&quot;</em> — Banking Union reform milesto
 <li><strong>TA-10-2026-0094</strong>: <em>&quot;Combating corruption&quot;</em> — first EU mandatory anti-corruption
 standard</li>
 <li><strong>TA-10-2026-0096</strong>: <em>&quot;Adjustment of customs duties and opening of tariff quotas
-for the import of certain goods originating in the United States of America&quot;</em> —
+for the import of certain goods originating in the United States of America&quot;</em>
 the EU's formal legislative response to Trump tariffs, confirmed dual-instrument
 title</li>
-<li><strong>TA-10-2026-0104</strong>: <em>&quot;Global Gateway — past impacts and future orientation&quot;</em> —
+<li><strong>TA-10-2026-0104</strong>: <em>&quot;Global Gateway — past impacts and future orientation&quot;</em>
 €300bn EU investment initiative review</li>
 </ul>
 <p>These titles were not accessible in any prior run's direct document lookups. They
@@ -1341,7 +1348,7 @@ directly determine whether Scenarios A–D in <code>scenario-forecast.md</code> 
 Quadrant 2 (top-left, Keep Satisfied) holds high-power actors currently in lower-
 intensity engagement whose posture can escalate on a single signal — the ECB in
 particular, whose April 30 meeting sits at the boundary of the analytical horizon.
-Quadrant 4 (bottom-right, Keep Informed) contains high-interest lower-power actors —
+Quadrant 4 (bottom-right, Keep Informed) contains high-interest lower-power actors
 civil society coalitions and third-country trade partners — who shape the narrative
 environment even when they cannot directly determine votes.</p>
 </blockquote>
@@ -1462,7 +1469,7 @@ scheduled press conference will colour market expectations around BRRD3 MREL
 requirements and any SRMR3-triggered intervention. SSM ongoing preparatory work on
 resolvability-assessment templates continues regardless of plenary cadence.</p>
 <p><strong>Expected plenary impact</strong>: Not a direct plenary actor, but an ECB public statement
-on SRMR3 early-intervention implementation timeline — delivered April 25–28 —
+on SRMR3 early-intervention implementation timeline — delivered April 25–28
 would strongly pre-commit the Council ratification and member-state transposition
 schedule toward the baseline Scenario A trajectory.</p>
 <hr>
@@ -1510,7 +1517,7 @@ but fragmented on trade; critical on Global Gateway.</p>
 <p><strong>Power</strong>: High committee-level access; extensive technical-expertise credibility;
 member-state-government coordination capacity. The DSGV (Sparkassen Association)
 specifically controls ~40% of German retail banking and has historically effective
-Bundesrat channels through CDU/CSU parliamentary groups. <strong>Interest</strong>: Variable —
+Bundesrat channels through CDU/CSU parliamentary groups. <strong>Interest</strong>: Variable
 DSGV high on BRRD3 bail-in requirements; BusinessEurope high on trade countermeasure
 scope; ECBA watching Anti-Corruption compliance costs; BDA monitoring Anti-Corruption
 whistleblower-protection employer implications.</p>
@@ -1520,7 +1527,7 @@ response; Anti-Corruption compliance-cost amendments in the Council negotiating
 phase.</p>
 <h4 id="13-civil-society-coalition-transparency-international-eu-edri-access-now-noyb" tabindex="-1"><a class="header-anchor" href="#13-civil-society-coalition-transparency-international-eu-edri-access-now-noyb"><span>13. Civil Society Coalition — Transparency International EU / EDRi / Access Now / noyb</span></a></h4>
 <p><strong>Power</strong>: Media amplification; Article 263 TFEU litigation capacity on AI Act/DMA
-enforcement; expert-witness credibility with EP committees. <strong>Interest</strong>: Extreme —
+enforcement; expert-witness credibility with EP committees. <strong>Interest</strong>: Extreme
 Anti-Corruption Directive implementation monitoring is TI-EU's flagship file;
 digital-rights coalition (EDRi/Access Now/noyb) continues Article 263 preparation
 work on Digital Omnibus provisions during recess.</p>
@@ -1716,7 +1723,7 @@ shape the Legal and Technological PESTLE dimensions substantially.</p>
 <p><strong>Current state</strong>: Parliament in Easter recess (April 14–26); Grand Centre coalition
 (EPP + S&amp;D + Renew, ~399/720 = 55.4%) holds with <code>early_warning_system</code> stability
 score at the series-high 84/100. The <code>analyze_coalition_dynamics</code> MCP output
-continues to report the EPP <code>memberCount=0</code> data anomaly (API uses <code>PPE</code> label) —
+continues to report the EPP <code>memberCount=0</code> data anomaly (API uses <code>PPE</code> label)
 see <code>mcp-reliability-audit.md</code> candidate-defect #2. Post-recess plenary opens
 April 28 in Strasbourg per the standard EP10 calendar at
 <code>europarl.europa.eu/plenary/en/schedule.html</code>.</p>
@@ -3794,8 +3801,8 @@ arguments but no formal challenge procedure active</li>
 <h4 id="mitigation" tabindex="-1"><a class="header-anchor" href="#mitigation"><span>Mitigation</span></a></h4>
 <p>Article 83(1) TFEU explicitly provides QMV basis for criminal-law harmonization in
 enumerated areas including corruption, reducing unanimity-veto paths. Threshold
-for subsidiarity yellow card is 1/3 of national parliament votes within 8 weeks —
-substantial coordination hurdle. Subsidiarity orange card requires 1/2 threshold —
+for subsidiarity yellow card is 1/3 of national parliament votes within 8 weeks
+substantial coordination hurdle. Subsidiarity orange card requires 1/2 threshold
 higher still. Historical precedent: only two subsidiarity yellow cards have been
 successful in EU history (2012 Monti II Regulation; 2013 Public Prosecutor's
 Office) and neither fully blocked the legislation.</p>
@@ -3946,7 +3953,7 @@ quadrantChart
 dominate; EU can at best shape timing and scope.</li>
 <li>T2 (Banking Union) is HIGH-IMPACT and MODERATELY-MITIGABLE — primary lever lies
 in German federal politics (Commission + ECB coordination).</li>
-<li>T3 (Anti-Corruption subsidiarity) is MEDIUM-IMPACT and MODERATELY-MITIGABLE —
+<li>T3 (Anti-Corruption subsidiarity) is MEDIUM-IMPACT and MODERATELY-MITIGABLE
 Article 83(1) TFEU legal basis narrows successful-challenge pathways.</li>
 <li>T4 (API regression) is MEDIUM-IMPACT and LOW-MITIGABLE for EP Monitor — EP IT
 decisions are exogenous; mitigation is EP Monitor-side (dual-layer verification).</li>
@@ -3957,10 +3964,10 @@ can earn credit.</li>
 <hr>
 <h3 id="intelligence-implications" tabindex="-1"><a class="header-anchor" href="#intelligence-implications"><span>Intelligence Implications</span></a></h3>
 <ol>
-<li><strong>T5 (coalition fracture) is the threat most within EP's own control</strong> —
+<li><strong>T5 (coalition fracture) is the threat most within EP's own control</strong>
 investment in pre-plenary coordination yields highest risk reduction per unit
 effort. The 84/100 stability score reflects this coordination capacity.</li>
-<li><strong>T2 (Banking Union ratification) demands external-partner engagement</strong> —
+<li><strong>T2 (Banking Union ratification) demands external-partner engagement</strong>
 Commission DG FISMA and ECB public communications during April 22–25 are the
 leverage points.</li>
 <li><strong>T1 (Section 301) is largely exogenous</strong> — EP can prepare resilience (clear
@@ -4448,7 +4455,7 @@ graph TD
 55% — meaningfully above the A-baseline in Run 184's reference-quality analysis
 (which was 40% due to an earlier point in the recess series and less-advanced
 API recovery signal).</li>
-<li><strong>Tail-risk concentration</strong>: Scenario D (5%) is disproportionately consequential —
+<li><strong>Tail-risk concentration</strong>: Scenario D (5%) is disproportionately consequential
 if it materialises, it reshapes EP10's Q2 2026 political narrative and invalidates
 the &quot;March 26 sprint legislative strength&quot; framing.</li>
 <li><strong>Key intelligence gaps</strong>: EPP internal positioning (MCP data gap — see
@@ -4604,7 +4611,7 @@ SRM/SRF activation during the Banking Union transposition window. Could be
 triggered by market-volatility stress-testing weakness (see
 <code>intelligence/economic-context.md</code> on BTP-Bund spread monitoring) exposing
 vulnerabilities in second-tier banks. Run 188's particular relevance: SRMR3
-(TA-10-2026-0092) has been adopted by Parliament but not yet Council-ratified —
+(TA-10-2026-0092) has been adopted by Parliament but not yet Council-ratified
 a resolution event in this window would create legal-framework uncertainty about
 which resolution framework applies (the pre-SRMR3 BRRD2 framework or the post-
 adoption but pre-ratification SRMR3).</p>
@@ -5004,7 +5011,7 @@ TA-0101 regression is the first observation in this category. If more than one
 such transition is observed in Run 189–191, the non-deterministic-restoration
 hypothesis upgrades from 🟡 Medium to 🟢 High confidence.</li>
 <li><strong>Metadata-layer revelations</strong> (title-unknown → title-confirmed): The four
-Run 188 title confirmations represent a qualitatively different transition —
+Run 188 title confirmations represent a qualitatively different transition
 not content restoration but metadata-endpoint discovery.</li>
 </ol>
 <p>For Run 189 cross-run-diff.md, track:</p>
@@ -6863,7 +6870,7 @@ inline in the relevant file:</p>
 </tr>
 <tr>
 <td>Coalition-dynamics MCP tool</td>
-<td><code>analyze_coalition_dynamics()</code></td>
+<td><code>analyze_coalition_dynamics</code></td>
 <td>coalition-dynamics, stakeholder-map</td>
 </tr>
 <tr>
@@ -7445,7 +7452,7 @@ threshold does not require code changes.</p>
 <h4 id="62-srcutilsvalidate-analysis-completenessts-extended" tabindex="-1"><a class="header-anchor" href="#62-srcutilsvalidate-analysis-completenessts-extended"><span>6.2 <code>src/utils/validate-analysis-completeness.ts</code> (EXTENDED)</span></a></h4>
 <p>The validator now reads the thresholds file and, when an entry exists for the current
 <code>articleType × relativePath</code>, enforces the per-artifact floor (replacing the flat
-<code>DEFAULT_MIN_LINES = 30</code>). When no entry exists the flat floor applies as before —
+<code>DEFAULT_MIN_LINES = 30</code>). When no entry exists the flat floor applies as before
 preserving backward compatibility for non-breaking article types and custom runs.
 The CLI output lists every artifact with its applicable threshold so triage is
 immediate.</p>
@@ -8022,7 +8029,7 @@ risks are documented and tracked; none block this PR.</p>
       <div class="footer-section">
         <h3>关于 EU Parliament Monitor</h3>
         <p>欧洲议会情报平台 — 以系统性透明度监测政治活动。由欧洲议会开放数据驱动。</p>
-        <p class="footer-stats">116篇文章可用</p>
+        <p class="footer-stats">127篇文章可用</p>
         <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">
@@ -8049,10 +8056,10 @@ risks are documented and tracked; none block this PR.</p>
       <div class="footer-section">
         <h3>由 Hack23 AB 构建</h3>
         <div class="footer-badges" aria-label="Project trust badges">
-          <a href="https://www.npmjs.com/package/euparliamentmonitor"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
-          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
-          <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
-          <a href="https://github.com/Hack23/euparliamentmonitor/attestations"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
+          <a href="https://www.npmjs.com/package/euparliamentmonitor" aria-label="npm package version"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
+          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor" aria-label="OpenSSF Scorecard"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
+          <a href="https://www.bestpractices.dev/projects/12068" aria-label="OpenSSF Best Practices"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
+          <a href="https://github.com/Hack23/euparliamentmonitor/attestations" aria-label="SLSA Level 3"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
         </div>
         <ul>
           <li><a href="https://hack23.com">Hack23.com</a></li>
@@ -8091,7 +8098,7 @@ risks are documented and tracked; none block this PR.</p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.48</p>
+      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.50</p>
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> 此平台正在持续改进中。 <a href="https://github.com/Hack23/euparliamentmonitor/issues">在GitHub上报告问题</a>.</p>
     </div>
   </footer>

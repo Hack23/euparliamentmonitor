@@ -581,7 +581,7 @@ quadrantChart
 #### 1. European Commission (Von der Leyen II)
 
 **Power**: Institutional monopoly on legislative initiative; enforcement authority;
-Article 122 emergency powers; college of 27 commissioners. **Interest**: Extreme —
+Article 122 emergency powers; college of 27 commissioners. **Interest**: Extreme
 every live dossier (housing response, trade countermeasure activation, Banking Union
 transposition, ECJ defence) demands college attention in the April 21–28 window.
 
@@ -1322,7 +1322,7 @@ analysis and should be replicated (where applicable) in future runs.
 ![Data](https://img.shields.io/badge/Source-World_Bank_Open_Data-brightgreen?style=flat-square)
 
 > **Purpose**: Establish the macro-economic context for the four member states most
-> consequential in the Banking Union Phase-2 transposition risk (DE, FR, IT, PL —
+> consequential in the Banking Union Phase-2 transposition risk (DE, FR, IT, PL
 > identified in `risk-scoring/risk-matrix.md` Risk Vector #1 and `stakeholder-map.md`
 > entries 4, 9, 10, 11). Economic context is essential for reading political signals:
 > a Bundesrat BRRD3 opposition hearing against backdrop of 0.2% GDP growth means
@@ -2079,11 +2079,11 @@ quadrantChart
 ```
 
 **Implications**:
-- T1 (Banking Union) is HIGH-IMPACT but only MODERATELY-MITIGABLE by EU actors —
+- T1 (Banking Union) is HIGH-IMPACT but only MODERATELY-MITIGABLE by EU actors
   primary lever lies in German federal politics.
 - T2 (Section 301) is HIGH-IMPACT but LOW-MITIGABLE — US domestic-political drivers
   dominate; EU can at best shape timing and scope.
-- T3 (Coalition fragmentation) is MEDIUM-HIGH-IMPACT and MODERATELY-HIGH-MITIGABLE —
+- T3 (Coalition fragmentation) is MEDIUM-HIGH-IMPACT and MODERATELY-HIGH-MITIGABLE
   EP-internal coordination can close most attack paths; this is where EP leadership
   can earn credit.
 
@@ -2091,7 +2091,7 @@ quadrantChart
 
 ### Intelligence Implications
 
-1. **T3 (coalition fragmentation) is the threat most within EP's own control** —
+1. **T3 (coalition fragmentation) is the threat most within EP's own control**
    investment in pre-plenary coordination yields highest risk reduction per unit effort.
 2. **T1 (Banking Union) demands external-partner engagement** — Commission DG FISMA
    and ECB public communications during April 22–25 are the leverage points.
@@ -2398,7 +2398,7 @@ graph TD
 
 - **Central estimate**: Scenario A remains the modal outcome (40%) but with
   meaningful tail risk concentrated in B (25%) and C (20%).
-- **Tail-risk concentration**: Scenario D (15%) is disproportionately consequential —
+- **Tail-risk concentration**: Scenario D (15%) is disproportionately consequential
   if it materialises, it reshapes EP10's Q2 2026 political narrative and invalidates
   the "March sprint legislative strength" framing.
 - **Key intelligence gaps**: EPP internal positioning (MCP data gap) is the single
@@ -2595,7 +2595,7 @@ dynamics analysis in Run 185.
 **Probability**: ~12%. **Impact**: 🟠 HIGH.
 
 **Mechanism**: A ransomware or sustained DDoS attack on EP or Commission digital
-infrastructure during the recess-to-plenary transition window. Not unprecedented —
+infrastructure during the recess-to-plenary transition window. Not unprecedented
 EU institutions face regular APT-28/Fancy Bear-attributed operations. A successful
 incident during April 25–28 would disrupt plenary preparation.
 
@@ -2614,7 +2614,7 @@ dynamics but changes risk optics (EU institutional-resilience narrative).
 
 ### W7. Ukraine Conflict Escalation
 
-**Probability**: ~18% for *material* escalation (not base rate of any activity —
+**Probability**: ~18% for *material* escalation (not base rate of any activity
 material = new NATO-member-adjacent incident or major territorial shift). **Impact**:
 🔴 CRITICAL.
 
@@ -3128,7 +3128,7 @@ detail calls return the following payload:
 ```
 
 This is neither a 404 (document not found), a 202 (content being prepared), nor a `null`
-(field not applicable). It is a well-formed response whose every string field is empty —
+(field not applicable). It is a well-formed response whose every string field is empty
 the **worst possible** error signal for a consumer because:
 
 - It passes JSON-schema validation (all required string fields are present).

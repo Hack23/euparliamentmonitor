@@ -937,9 +937,9 @@ history has combined all four of these factors simultaneously.
 
 <h2 id="section-economic-context">Economic Context</h2>
 
-### ⚠️ Data Source Declaration (Wave-3 IMF Primary Rule)
+### ⚠️ Data Source Declaration
 
-Per `.github/prompts/01-data-collection.md` Wave-3 IMF-Primary rule: this article type
+Per `.github/prompts/01-data-collection.md`  IMF-Primary rule: this article type
 (month-ahead) touches macro/fiscal/monetary/trade — IMF WEO is the **primary** data source.
 World Bank data is used only for structural/development indicators not covered by IMF WEO.
 IMF data cited below is from the **IMF World Economic Outlook April 2026 Edition** vintage,
@@ -970,7 +970,7 @@ risk to European growth. A full tariff escalation scenario (all US goods, 25% ra
 scope) limits but does not eliminate this risk.
 
 **EP nexus:** INTA committee rapporteur's trilogue mandate (approved March 26) targets a proportional
-retaliation instrument. The economic logic — supported by IMF structural competitiveness analysis —
+retaliation instrument. The economic logic — supported by IMF structural competitiveness analysis
 is that targeted retaliation is less damaging than a broad tariff war. The trilogue outcome will
 determine whether EP's proportional approach is accepted by Council member states with more exposed
 economies (Germany, France).
@@ -1262,7 +1262,7 @@ If ECB delivers two additional rate cuts in H2 2026 (priced in by markets as of 
 Euro area sovereign borrowing costs fall by ~40–50bp. This creates genuine fiscal space for
 member states to co-invest alongside the CID framework without breaching SGP deficit limits.
 The political opportunity is to use the CID legislative process to embed fiscal space provisions
-(investment clauses) that would allow CID co-investment to be excluded from SGP calculations —
+(investment clauses) that would allow CID co-investment to be excluded from SGP calculations
 a proposal that S&D and Renew support and that Commission's Fiscal Monitor analysis
 would likely endorse. 🟡 **WEP: Realistic possibility (40–55%)** for ECB cut materialising.
 
@@ -1725,7 +1725,7 @@ CID investment argument and may delay Council's co-investment framework.
 
 **WEP: Very unlikely (5–10%)**
 
-An unexpected ceasefire announcement in Ukraine — even a temporary humanitarian pause —
+An unexpected ceasefire announcement in Ukraine — even a temporary humanitarian pause
 would create an immediate and difficult political question for EP: whether to support
 conditional normalisation of EU-Russia relations, particularly on energy. EPP has elements
 (Hungarian Fidesz-adjacent) that would embrace this narrative; S&D and Greens would be
@@ -1910,7 +1910,7 @@ quadrantChart
 |----------|--------|-------|
 | AI-First content — no placeholder text | ✅ | All artifacts contain substantive analysis |
 | WEP confidence bands on uncertain claims | ✅ | Applied throughout |
-| IMF WEO primary source for economic context | ✅ | Wave-3 rule applied |
+| IMF WEO primary source for economic context | ✅ | applied |
 | Data quality warnings for EP API gaps | ✅ | 8 defects documented in MCP reliability audit |
 | Admiralty grading on all artifacts | ✅ | A1–C3 grades applied |
 | Coalition structural analysis | ✅ | 4 coalition configurations with seat counts |
@@ -1962,7 +1962,7 @@ quadrantChart
 
 #### Stage Compliance
 - Stage A (Data Collection): ✅ Completed within 4 min. EP MCP tools called in parallel.
-  IMF WEO cited per Wave-3 IMF-Primary rule. WB query attempted (no data returned for DE).
+  IMF WEO cited. WB query attempted (no data returned for DE).
 - Stage B Pass 1 (Analysis): ✅ All mandatory artifacts written using native create tool
   (no heredoc per `02-analysis-protocol.md §2a`). 14 artifacts written across 4 subdirectories.
 - Stage B Pass 2 (Review): ✅ Artifacts read end-to-end during sequential creation. Each
@@ -1977,7 +1977,7 @@ quadrantChart
 | Stakeholder 6-lens model | ✅ | 6 perspectives, each ≥150 words |
 | Scenario forecast (3 scenarios) | ✅ | Baseline + 2 alternatives with WEP bands |
 | WEP confidence bands on uncertain assessments | ✅ | All probability assessments carry WEP label |
-| IMF WEO primary source for macro/fiscal/trade | ✅ | Wave-3 IMF-primary rule applied |
+| IMF WEO primary source for macro/fiscal/trade | ✅ | rule applied |
 | No [AI_ANALYSIS_REQUIRED] markers | ✅ | No placeholder markers in any artifact |
 | Admiralty grading | ✅ | All artifacts carry A–C source / 1–3 reliability grade |
 | Coalition structural analysis | ✅ | 4 configurations with seat counts and WEP |

@@ -61,8 +61,8 @@
     <div class="site-header__inner site-header__inner--stacked">
       <a href="../index-fi.html" class="site-header__brand" aria-label="EU-parlamentin seuranta">
         <picture class="site-header__logo-picture">
-          <source srcset="../images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
+          <source srcset="../images/banner.webp" type="image/webp">
+          <img class="site-header__logo site-header__logo--banner" src="../images/banner.jpg" alt="EU-parlamentin seuranta" width="240" height="80" loading="eager">
         </picture>
         <span class="site-header__brand-text">
           <span class="site-header__title">EU-parlamentin seuranta</span>
@@ -93,6 +93,13 @@
       </nav>
     </div>
   </header>
+
+  <div class="page-banner" role="img" aria-label="EU Parliament Monitor">
+    <picture>
+      <source srcset="../images/banner.webp" type="image/webp">
+      <img class="page-banner__img" src="../images/banner.jpg" alt="" aria-hidden="true" width="1200" height="400" loading="eager">
+    </picture>
+  </div>
 
   <main id="main" class="site-main article-main">
   <aside class="article-toc-container" aria-label="Sisällysluettelo">
@@ -1345,7 +1352,7 @@ LOW INTEREST
 <p><em>Historical Baseline compiled: 2026-04-27 | Data source: EP statistics API, procedure tracking</em></p>
 <h2 id="section-economic-context">Economic Context</h2>
 <h3 id="purpose-1" tabindex="-1"><a class="header-anchor" href="#purpose-1"><span>Purpose</span></a></h3>
-<p>This artifact provides the macroeconomic context for the EP's April 2026 legislative propositions. Economic conditions are the underlying driver for SRMR3, the trade defense regulation, and the industrial policy legislation. Per the AI-First Quality Principle Wave-2 OR-gate, either World Bank or IMF data is required; World Bank GDP data retrieved in Stage A.</p>
+<p>This artifact provides the macroeconomic context for the EP's April 2026 legislative propositions. Economic conditions are the underlying driver for SRMR3, the trade defense regulation, and the industrial policy legislation. Per the AI-First Quality Principle  IMF requirement, either World Bank or IMF data is required; World Bank GDP data retrieved in Stage A.</p>
 <hr>
 <h3 id="germany-gdp-anchoring-eu-economic-context" tabindex="-1"><a class="header-anchor" href="#germany-gdp-anchoring-eu-economic-context"><span>Germany GDP — Anchoring EU Economic Context</span></a></h3>
 <p><strong>Source:</strong> World Bank via worldbank-mcp@1.0.1 (retrieved 2026-04-27)</p>
@@ -1539,7 +1546,7 @@ LOW INTEREST
 <p>The April 2026 EP propositions pipeline is best understood as a <strong>legislative response to a multi-year economic stress period</strong> (2022–2025): energy shock, COVID aftershocks, US trade tension, and the China rebalancing. Germany's two-year contraction is the economic canary in the coal mine — if the EU's largest economy cannot grow, the EP's legislative output (banking stability, trade defense, housing, defence industry) represents Europe's institutional adaptation strategy.</p>
 <p><strong>IMF Fallback Note:</strong> This analysis relies primarily on World Bank (Germany GDP confirmed) and Commission/ECB estimates. An IMF Article IV consultation for the EU/Euro area (published typically in June) would provide more authoritative projections for 2026–2027. Consumers requiring higher confidence on economic projections should consult <code>imf.org/en/Publications/CR</code> directly.</p>
 <hr>
-<p><em>Economic Context compiled: 2026-04-27 | Primary source: World Bank via worldbank-mcp@1.0.1 | OR-gate status: SATISFIED (World Bank GDP data retrieved)</em></p>
+<p><em>Economic Context compiled: 2026-04-27 | Primary source: World Bank via worldbank-mcp@1.0.1 | IMF requirement status: SATISFIED (World Bank GDP data retrieved)</em></p>
 <h2 id="section-risk">Risk Assessment</h2>
 <h3 id="risk-matrix" tabindex="-1"><a class="header-anchor" href="#risk-matrix"><span>Risk Matrix</span></a></h3>
 <h3 id="overview-2" tabindex="-1"><a class="header-anchor" href="#overview-2"><span>Overview</span></a></h3>
@@ -1695,7 +1702,7 @@ LOW INTEREST
 <h4 id="w1-coalition-arithmetic-no-stable-majority-80-weighted" tabindex="-1"><a class="header-anchor" href="#w1-coalition-arithmetic-no-stable-majority-80-weighted"><span>W1: Coalition Arithmetic — No Stable Majority (-8.0 weighted)</span></a></h4>
 <p><strong>Magnitude:</strong> 9 | <strong>Confidence Weight:</strong> 0.95 = <strong>-8.6</strong></p>
 <p>EP10's fundamental structural weakness: no two-party coalition can form a majority (EPP+S&amp;D = 320, need 361). Every vote requires a new coalition negotiation. This creates institutional transaction costs, reduces legislative predictability, and gives smaller groups (ECR, PfE, Greens/EFA) disproportionate leverage. The 2027 budget negotiations will be fought under this structural constraint, creating maximum political risk at maximum political stakes.</p>
-<p><strong>Evidence:</strong> EP10 composition: EPP (185) + S&amp;D (135) = 320. Threshold: 361. Gap: 41 seats. <code>generate_political_landscape()</code> confirmed.</p>
+<p><strong>Evidence:</strong> EP10 composition: EPP (185) + S&amp;D (135) = 320. Threshold: 361. Gap: 41 seats. <code>generate_political_landscape</code> confirmed.</p>
 <h4 id="w2-data-feed-degradation-analytical-gaps-50-weighted" tabindex="-1"><a class="header-anchor" href="#w2-data-feed-degradation-analytical-gaps-50-weighted"><span>W2: Data Feed Degradation — Analytical Gaps (-5.0 weighted)</span></a></h4>
 <p><strong>Magnitude:</strong> 6 | <strong>Confidence Weight:</strong> 0.85 = <strong>-5.1</strong></p>
 <p>Three key EP data feeds were unavailable or degraded during this run (procedures feed: RECESS_MODE; committee documents: UNAVAILABLE; pipeline monitor: EMPTY). The MCP server reliability audit documents this as known behavior, but the analytical consequence is real: committee-level deliberations, rapporteur dynamics, and recent voting records are invisible. Analysis relies more heavily on proxy indicators (adopted texts as vote proxies, size-ratio as coalition proxy) than preferred direct evidence.</p>
@@ -3087,8 +3094,8 @@ The regulation was initiated 2025 and reached trilogue Round 1 by April 2026 —
 <p><strong>Status:</strong> 🔴 RECESS_MODE
 <strong>Items Returned:</strong> Historical archive items (procedures from 1972–1987 era)
 <strong>Triage:</strong> ⚠️ Known degraded-upstream pattern — see <code>07-mcp-reference.md</code> §11 row #5
-<strong>Classification:</strong> <code>detectProceduresFeedRecessMode()</code> returns <code>recessMode: true</code> when all items ≤ 1995
-<strong>Action Taken:</strong> Used <code>track_legislation()</code> for specific procedures; <code>get_procedures()</code> (paginated) as fallback
+<strong>Classification:</strong> <code>detectProceduresFeedRecessMode</code> returns <code>recessMode: true</code> when all items ≤ 1995
+<strong>Action Taken:</strong> Used <code>track_legislation</code> for specific procedures; <code>get_procedures</code> (paginated) as fallback
 <strong>Upstream Issue Filing:</strong> ❌ NOT REQUIRED — known behavior, tracked in §11</p>
 <h4 id="t2-getexternaldocumentsfeedtimeframe-one-week" tabindex="-1"><a class="header-anchor" href="#t2-getexternaldocumentsfeedtimeframe-one-week"><span>T2: <code>get_external_documents_feed(timeframe: &quot;one-week&quot;)</code></span></a></h4>
 <p><strong>Status:</strong> 🟢 OPERATIONAL
@@ -3097,14 +3104,14 @@ The regulation was initiated 2025 and reached trilogue Round 1 by April 2026 —
 <strong>Data Quality:</strong> ✅ Fresh data (within 5 days of run date)
 <strong>Completeness Note:</strong> External documents feed does not return full text; only document metadata and reference IDs
 <strong>Upstream Issue Filing:</strong> N/A</p>
-<h4 id="t3-getcommitteedocumentsfeed" tabindex="-1"><a class="header-anchor" href="#t3-getcommitteedocumentsfeed"><span>T3: <code>get_committee_documents_feed()</code></span></a></h4>
+<h4 id="t3-getcommitteedocumentsfeed" tabindex="-1"><a class="header-anchor" href="#t3-getcommitteedocumentsfeed"><span>T3: <code>get_committee_documents_feed</code></span></a></h4>
 <p><strong>Status:</strong> 🔴 UNAVAILABLE
 <strong>Items Returned:</strong> 0
 <strong>Error Type:</strong> EP API error in body (malformed or empty response)
 <strong>Triage:</strong> Known degraded feed behavior (committee documents EP API instability)
 <strong>Classification:</strong> Per §11 — committee_documents_feed endpoint has known periodic unavailability
 <strong>Action Taken:</strong> Proceeded without committee-level documents for this run
-<strong>Impact on Analysis:</strong> Moderate — committee reports provide more granular procedure status but are supplemented by <code>track_legislation()</code> data
+<strong>Impact on Analysis:</strong> Moderate — committee reports provide more granular procedure status but are supplemented by <code>track_legislation</code> data
 <strong>Upstream Issue Filing:</strong> ❌ NOT REQUIRED for known-degraded endpoint</p>
 <h4 id="t4-getadoptedtextsyear-2026-3-pages" tabindex="-1"><a class="header-anchor" href="#t4-getadoptedtextsyear-2026-3-pages"><span>T4: <code>get_adopted_texts(year: 2026)</code> (×3 pages)</span></a></h4>
 <p><strong>Status:</strong> 🟢 OPERATIONAL
@@ -3132,9 +3139,9 @@ The regulation was initiated 2025 and reached trilogue Round 1 by April 2026 —
 <strong>Items Returned:</strong> 0 active procedures with enrichment data
 <strong>Error Type:</strong> &quot;enrichment data missing for 20 procedures&quot; — pipeline health endpoint returns no items when enrichment layer unavailable
 <strong>Triage:</strong> Known behavior — <code>monitor_legislative_pipeline</code> requires enrichment cache that is periodically unavailable
-<strong>Action Taken:</strong> Fell back to <code>track_legislation()</code> for individual procedures
+<strong>Action Taken:</strong> Fell back to <code>track_legislation</code> for individual procedures
 <strong>Upstream Issue Filing:</strong> N/A</p>
-<h4 id="t8-generatepoliticallandscape" tabindex="-1"><a class="header-anchor" href="#t8-generatepoliticallandscape"><span>T8: <code>generate_political_landscape()</code></span></a></h4>
+<h4 id="t8-generatepoliticallandscape" tabindex="-1"><a class="header-anchor" href="#t8-generatepoliticallandscape"><span>T8: <code>generate_political_landscape</code></span></a></h4>
 <p><strong>Status:</strong> 🟢 OPERATIONAL
 <strong>Items Returned:</strong> Complete EP10 composition (9 groups, 719 MEPs, seat counts)
 <strong>Data Quality:</strong> ✅ High
@@ -3987,7 +3994,7 @@ The regulation was initiated 2025 and reached trilogue Round 1 by April 2026 —
 </thead>
 <tbody>
 <tr>
-<td><code>track_legislation()</code> — 3 procedures</td>
+<td><code>track_legislation</code> — 3 procedures</td>
 <td>🟢 HIGH</td>
 <td>SRMR3, Anti-Corruption, US Tariffs</td>
 </tr>
@@ -3997,7 +4004,7 @@ The regulation was initiated 2025 and reached trilogue Round 1 by April 2026 —
 <td>71 items (catalog completeness)</td>
 </tr>
 <tr>
-<td><code>generate_political_landscape()</code></td>
+<td><code>generate_political_landscape</code></td>
 <td>🟢 HIGH</td>
 <td>EP10 seat counts, group composition</td>
 </tr>
@@ -4012,12 +4019,12 @@ The regulation was initiated 2025 and reached trilogue Round 1 by April 2026 —
 <td>Germany -0.87%/-0.496%</td>
 </tr>
 <tr>
-<td><code>get_external_documents_feed()</code></td>
+<td><code>get_external_documents_feed</code></td>
 <td>🟡 MEDIUM</td>
 <td>6 ACT_FOLLOWUP items</td>
 </tr>
 <tr>
-<td><code>analyze_coalition_dynamics()</code></td>
+<td><code>analyze_coalition_dynamics</code></td>
 <td>🟡 MEDIUM</td>
 <td>Size proxy; no vote cohesion</td>
 </tr>
@@ -4056,7 +4063,7 @@ The regulation was initiated 2025 and reached trilogue Round 1 by April 2026 —
 <tr>
 <td>IMF direct data retrieval</td>
 <td>Low</td>
-<td>WB data provides sufficient OR-gate coverage</td>
+<td>WB data provides sufficient IMF requirement coverage</td>
 </tr>
 <tr>
 <td>Individual MEP voting behavior (April 2026)</td>
@@ -4139,7 +4146,7 @@ The regulation was initiated 2025 and reached trilogue Round 1 by April 2026 —
 </div><p><strong>Assessment:</strong> Distribution is appropriate for a propositions analysis where core procedure facts are high-confidence but political forecasts and scenario projections are inherently speculative.</p>
 <hr>
 <h3 id="final-quality-certification" tabindex="-1"><a class="header-anchor" href="#final-quality-certification"><span>Final Quality Certification</span></a></h3>
-<p>This run's analysis artifacts meet the minimum quality standards for publication in the EU Parliament Monitor. All mandatory artifacts are present, all line floors are met, mermaid and reader briefing requirements are satisfied, and the World Bank economic data OR-gate is satisfied.</p>
+<p>This run's analysis artifacts meet the minimum quality standards for publication in the EU Parliament Monitor. All mandatory artifacts are present, all line floors are met, mermaid and reader briefing requirements are satisfied, and the World Bank economic data IMF requirement is satisfied.</p>
 <p><strong>Certification:</strong> ✅ PASS — cleared for Stage C completeness gate</p>
 <hr>
 <p><em>Quality Review: 2026-04-27 | Reviewer: Automated pipeline | Stage: B Pass 2</em></p>
@@ -4215,7 +4222,7 @@ The regulation was initiated 2025 and reached trilogue Round 1 by April 2026 —
 <tr>
 <td>IMF MCP probe</td>
 <td>⚠️ Not retrieved</td>
-<td>WB data satisfies OR-gate; IMF fallback not required</td>
+<td>WB data satisfies IMF requirement; IMF fallback not required</td>
 </tr>
 <tr>
 <td>EP procedures feed</td>
@@ -4294,7 +4301,7 @@ The regulation was initiated 2025 and reached trilogue Round 1 by April 2026 —
 <td>intelligence/economic-context.md</td>
 <td>✅</td>
 <td>130+</td>
-<td>WB data cited; OR-gate satisfied</td>
+<td>WB data cited; IMF requirement satisfied</td>
 </tr>
 <tr>
 <td>intelligence/pestle-analysis.md</td>
@@ -4554,7 +4561,7 @@ The regulation was initiated 2025 and reached trilogue Round 1 by April 2026 —
 <h3 id="2-data-quality-assessment" tabindex="-1"><a class="header-anchor" href="#2-data-quality-assessment"><span>2. Data Quality Assessment</span></a></h3>
 <h4 id="what-we-know-with-high-confidence" tabindex="-1"><a class="header-anchor" href="#what-we-know-with-high-confidence"><span>What We Know with High Confidence (🟢)</span></a></h4>
 <ul>
-<li><strong>EP10 seat counts and political composition:</strong> <code>generate_political_landscape()</code> provides real-time data. EPP 185, S&amp;D 135, PfE 85, ECR 81, Renew 77, Greens/EFA 53, The Left 46, NI 30, ESN 27 = 719 MEPs.</li>
+<li><strong>EP10 seat counts and political composition:</strong> <code>generate_political_landscape</code> provides real-time data. EPP 185, S&amp;D 135, PfE 85, ECR 81, Renew 77, Greens/EFA 53, The Left 46, NI 30, ESN 27 = 719 MEPs.</li>
 <li><strong>SRMR3 legal status:</strong> OJ published April 20, 2026. Confirmed via <code>track_legislation(2023/0111)</code> timeline. Fact: banking union resolution architecture is now law.</li>
 <li><strong>Anti-Corruption Directive EP position:</strong> First reading position adopted March 26, 2026. Confirmed via <code>track_legislation(2023/0135)</code>.</li>
 <li><strong>US Tariff Counter-measure trilogue Round 1:</strong> Completed April 13, 2026. Confirmed via <code>track_legislation(2025/0261)</code>.</li>
@@ -4579,7 +4586,7 @@ The regulation was initiated 2025 and reached trilogue Round 1 by April 2026 —
 <hr>
 <h3 id="3-methodological-strengths" tabindex="-1"><a class="header-anchor" href="#3-methodological-strengths"><span>3. Methodological Strengths</span></a></h3>
 <p><strong>Strength 1: Three-procedure deep tracking</strong>
-Using <code>track_legislation()</code> on SRMR3, Anti-Corruption, and US Tariffs provided full event timelines for the three most important active dossiers. This approach compensates for the procedures feed RECESS_MODE defect.</p>
+Using <code>track_legislation</code> on SRMR3, Anti-Corruption, and US Tariffs provided full event timelines for the three most important active dossiers. This approach compensates for the procedures feed RECESS_MODE defect.</p>
 <p><strong>Strength 2: Cross-framework analysis</strong>
 Applying PESTLE, SWOT, Scenario, Stakeholder, Threat Model, and Actor Mapping simultaneously creates a multi-dimensional intelligence picture that surface tensions between frameworks (e.g., the SWOT weakness of coalition arithmetic vs. the PESTLE political opportunity of Anti-Corruption directive).</p>
 <p><strong>Strength 3: Quantitative calibration</strong>
@@ -4591,7 +4598,7 @@ Documenting all tool outcomes (operational, degraded, unavailable) against the �
 <p><strong>Limitation 1: No committee-level granularity</strong>
 The committee documents feed unavailability (T3 in reliability audit) creates a significant blind spot: rapporteur dynamics, committee amendments, and the specific provisions under debate in JURI/LIBE and INTA are invisible. Future runs should retry the committee documents endpoint and consider using GitHub MCP to search EP committee press releases as a fallback.</p>
 <p><strong>Limitation 2: Economic context depth</strong>
-IMF data was not retrieved (WB data satisfied the OR-gate). However, IMF's EU Article IV consultation would provide 2026–2027 growth forecasts with higher precision than Commission estimates. Future runs should include <code>imf.org/en/Publications/CR</code> retrieval as a standard Stage A step.</p>
+IMF data was not retrieved (WB data satisfied the IMF requirement). However, IMF's EU Article IV consultation would provide 2026–2027 growth forecasts with higher precision than Commission estimates. Future runs should include <code>imf.org/en/Publications/CR</code> retrieval as a standard Stage A step.</p>
 <p><strong>Limitation 3: No primary source text analysis</strong>
 Analysis relies on structured EP API metadata rather than full text of legislative documents. For legal precision (e.g., the exact treaty base provisions in Anti-Corruption Directive), direct access to the legislative text (EUR-Lex) would improve claim precision. This is a structural limitation of the current MCP toolset.</p>
 <p><strong>Limitation 4: Short temporal window</strong>
@@ -4863,7 +4870,7 @@ The 7-day data window (April 20–27, 2026) captures the SRMR3 OJ publication an
       <div class="footer-section">
         <h3>Tietoa EU Parliament Monitorista</h3>
         <p>Euroopan parlamentin tiedustelualusta — seuraa poliittista toimintaa järjestelmällisellä avoimuudella. Perustuu Euroopan parlamentin avoimeen dataan.</p>
-        <p class="footer-stats">116 artikkelia saatavilla</p>
+        <p class="footer-stats">127 artikkelia saatavilla</p>
         <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
       </div>
       <div class="footer-section">
@@ -4890,10 +4897,10 @@ The 7-day data window (April 20–27, 2026) captures the SRMR3 OJ publication an
       <div class="footer-section">
         <h3>Rakennettu Hack23 AB:n toimesta</h3>
         <div class="footer-badges" aria-label="Project trust badges">
-          <a href="https://www.npmjs.com/package/euparliamentmonitor"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
-          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
-          <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
-          <a href="https://github.com/Hack23/euparliamentmonitor/attestations"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
+          <a href="https://www.npmjs.com/package/euparliamentmonitor" aria-label="npm package version"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
+          <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor" aria-label="OpenSSF Scorecard"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
+          <a href="https://www.bestpractices.dev/projects/12068" aria-label="OpenSSF Best Practices"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
+          <a href="https://github.com/Hack23/euparliamentmonitor/attestations" aria-label="SLSA Level 3"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
         </div>
         <ul>
           <li><a href="https://hack23.com">Hack23.com</a></li>
@@ -4932,7 +4939,7 @@ The 7-day data window (April 20–27, 2026) captures the SRMR3 OJ publication an
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.48</p>
+      <p>&copy; 2008-2026 <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v0.8.50</p>
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> Tätä alustaa kehitetään jatkuvasti. <a href="https://github.com/Hack23/euparliamentmonitor/issues">ilmoita ongelmista GitHubissa</a>.</p>
     </div>
   </footer>

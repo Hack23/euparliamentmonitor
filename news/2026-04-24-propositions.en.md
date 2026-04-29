@@ -744,7 +744,7 @@ Most recent same-type run with the canonical folder layout is
 
 (Germany + France bilaterals) after attempted Eurozone aggregates
 (`EUU`, `EMU`) failed to resolve in the current World Bank MCP
-deployment (`worldbank-mcp@1.0.1`). The OR-gate requires either WB or
+deployment (`worldbank-mcp@1.0.1`). The IMF requirement requires either WB or
 IMF data on policy files; WB is available for DE + FR and is therefore
 used here.
 
@@ -785,7 +785,7 @@ EPP-DE rapporteurs through at least H1 2026.
 | 2023 | 1.44 | — |
 | 2024 | **1.19** | — |
 
-**Reading**: FR growth decelerated but remained positive throughout —
+**Reading**: FR growth decelerated but remained positive throughout
 a gentler profile than DE. For propositions, France gives the
 progressive bloc more fiscal headroom to defend CAP, social pillar,
 and industrial-strategy files.
@@ -837,7 +837,7 @@ before falling back to DE+FR.
 ### 8 · Limitations
 
 - No IMF cross-check this run (IMF MCP probe returned no data).
-- No fiscal-space data (debt/GDP, deficit/GDP) fetched this run —
+- No fiscal-space data (debt/GDP, deficit/GDP) fetched this run
   scheduled for next propositions run.
 
 *— Economic Context · Pass 2 complete · 2026-04-24*
@@ -1559,7 +1559,7 @@ would invalidate our Scenario 5.1 and force a methodological revamp.
 Wildcard environment is **moderate-intensity** for this 90-day
 horizon. No imminent catastrophic trigger identified; 4 of 10 grey
 swans carry EVEN probability (W6, W8, W9 plus the counter-scenarios).
-The single most impactful grey swan is **W1 (defence emergency)** —
+The single most impactful grey swan is **W1 (defence emergency)**
 which would push Scenario A probability into HIGHLY LIKELY territory.
 
 *— Wildcards & Black Swans · Pass 2 complete · 2026-04-24*
@@ -1861,7 +1861,7 @@ pipeline** over the last 30 days, assessing which files, which stages, which
 rapporteurs, and which political-group coalitions are most likely to shape
 law within the 6-month window ending 2026-04-10-24. The focus is on
 *propositions-in-motion* — ordinary legislative procedure (COD), consultation
-procedure (CNS), consent procedure (APP/NLE), own-initiative reports (INI) —
+procedure (CNS), consent procedure (APP/NLE), own-initiative reports (INI)
 not on already-adopted acts, which are the scope of the `adopted-texts`
 breaking workflow.
 
@@ -1872,7 +1872,7 @@ breaking workflow.
 | 1 | `intelligence/analysis-index.md` | per-artifact §1 | 100 | 🟢 |
 | 2 | `intelligence/synthesis-summary.md` | OSINT tradecraft · ICD-203 BLUF | 160 | 🟢 |
 | 3 | `intelligence/historical-baseline.md` | longitudinal baselining | 120 | 🟢 |
-| 4 | `intelligence/economic-context.md` | IMF/WB OR-gate policy framing | 120 | 🟢 |
+| 4 | `intelligence/economic-context.md` | IMF policy policy framing | 120 | 🟢 |
 | 5 | `intelligence/pestle-analysis.md` | PESTLE framework | 180 | 🟢 |
 | 6 | `intelligence/stakeholder-map.md` | stakeholder-mapping standard | 200 | 🟢 |
 | 7 | `intelligence/scenario-forecast.md` | WEP-band scenario forecasting | 180 | 🟢 |
@@ -1890,7 +1890,7 @@ against `analysis/methodologies/reference-quality-thresholds.json §thresholds.p
 ### 3 · Dataset Summary
 
 - **Primary feeds** (Stage A):
-  - `get_procedures_feed` (one-month): 50 items; legacy-ID skew (1972–1987 range) —
+  - `get_procedures_feed` (one-month): 50 items; legacy-ID skew (1972–1987 range)
     known EP API limitation where the feed returns historical procedure IDs
     with empty metadata fields (`stage`, `status`, `subjectMatter`,
     `dateInitiated`, `dateLastActivity`, `responsibleCommittee`, `rapporteur`
@@ -1909,10 +1909,10 @@ against `analysis/methodologies/reference-quality-thresholds.json §thresholds.p
     `internalCohesion: null` (per-MEP voting data not available from EP API);
     dominant sized-based alliance signal on Renew↔ECR (0.95), ECR↔PfE (0.95),
     Greens/EFA↔The Left (0.87), ESN↔NI (0.90).
-  - `get_all_generated_stats` (2024–2026): EP10 Year-2 structural picture —
+  - `get_all_generated_stats` (2024–2026): EP10 Year-2 structural picture
     935 procedures projected for 2026, ENP 6.59, HHI 0.1515, right-bloc 52.3%.
-- **Economic context** (World Bank, Wave-2 OR-gate):
-  - Eurozone aggregates (`EUU`, `EMU`) not resolvable by the World Bank MCP —
+- **Economic context** (World Bank IMF requirement):
+  - Eurozone aggregates (`EUU`, `EMU`) not resolvable by the World Bank MCP
     fell back to DE + FR bilaterals. DE 2024 GDP growth `-0.496%`, FR `+1.19%`,
     DE CPI `+2.256%`.
 
