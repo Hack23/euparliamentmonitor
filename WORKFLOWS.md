@@ -692,7 +692,7 @@ graph LR
 | Surface | Coverage |
 |---------|----------|
 | **Source files** | `src/**/*.ts` (the authoritative TypeScript tree) |
-| **Hand-written JS** | `scripts/lint-prompts.js`, `scripts/copy-vendor.js`, `scripts/backport-article-seo.js`, `scripts/validate-analysis-completeness.js`, `scripts/aggregator/forward-statements-registry.js`, `scripts/aggregator/prior-run-diff.js` |
+| **Hand-written JS** | All `scripts/**/*.js` files referenced from `package.json` scripts are auto-discovered (e.g. `scripts/copy-vendor.js`, `scripts/lint-prompts.js`, `scripts/validate-analysis-completeness.js`); files only invoked from agentic-workflow `.md` bodies (e.g. `scripts/backport-article-seo.js`, `scripts/aggregator/forward-statements-registry.js`) are listed explicitly in `knip.json` `entry` |
 | **Test fixtures** | `test/**/*.test.js`, `e2e/**/*.spec.js` |
 | **Compiled `scripts/**`** | Excluded from `project` (it is a 1:1 build output of `src/**`); CLI entry points are auto-discovered via the `package.json` `exports` map |
 | **Generated artefacts** | `analysis/**`, `data/**`, `news/**`, `docs/**`, `coverage/**`, `js/vendor/**` — never scanned |
