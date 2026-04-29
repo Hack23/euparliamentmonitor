@@ -1,0 +1,26 @@
+{
+  "source": "european_parliament_open_data_portal",
+  "session_date": "2026-04-28",
+  "location": "Strasbourg",
+  "plenary_session": "MTG-PL-2026-04-28",
+  "total_adopted_texts": 16,
+  "adopted_texts": [
+    {"id":"TA-10-2026-0105","title":"Request for the waiver of the immunity of Patryk Jaki","dateAdopted":"2026-04-28","procedureReference":"eli/dl/event/2025-2171-DEC-DCPL-2026-04-28","subjectMatter":"PRIV","mep_group":"ECR","mep_country":"PL","type":"immunity_waiver"},
+    {"id":"TA-10-2026-0106","title":"Request for the waiver of the immunity of Daniel Obajtek","dateAdopted":"2026-04-28","procedureReference":"eli/dl/event/2025-2172-DEC-DCPL-2026-04-28","subjectMatter":"PRIV","mep_group":"ECR","mep_country":"PL","type":"immunity_waiver"},
+    {"id":"TA-10-2026-0107","title":"Request for the waiver of the immunity of Tomasz Buczek","dateAdopted":"2026-04-28","procedureReference":"eli/dl/event/2025-2193-DEC-DCPL-2026-04-28","subjectMatter":"PRIV","mep_group":"","mep_country":"PL","type":"immunity_waiver"},
+    {"id":"TA-10-2026-0108","title":"Request for the waiver of the immunity of Diana Iovanovici Şoşoacă","dateAdopted":"2026-04-28","procedureReference":"eli/dl/event/2025-2196-DEC-DCPL-2026-04-28","subjectMatter":"PRIV","mep_group":"NI","mep_country":"RO","type":"immunity_waiver"},
+    {"id":"TA-10-2026-0111","title":"Interim report on the proposal for the multiannual financial framework for 2028-2034","dateAdopted":"2026-04-28","procedureReference":"eli/dl/event/2025-0571R-DEC-DCPL-2026-04-28","subjectMatter":"BUDG","type":"legislative_resolution","significance":"HIGH"},
+    {"id":"TA-10-2026-0112","title":"Guidelines for the 2027 budget - Section III","dateAdopted":"2026-04-28","procedureReference":"eli/dl/event/2025-2246-DEC-DCPL-2026-04-28","subjectMatter":"BUDG","type":"budget_guidelines","significance":"HIGH"},
+    {"id":"TA-10-2026-0113","title":"Accounting of greenhouse gas emissions of transport services","dateAdopted":"2026-04-28","procedureReference":"eli/dl/event/2023-0266-DEC-DCPL-2026-04-28","subjectMatter":"TRAN,ENV","type":"legislative_resolution","significance":"MEDIUM"},
+    {"id":"TA-10-2026-0114","title":"Generalised scheme of tariff preferences","dateAdopted":"2026-04-28","procedureReference":"eli/dl/event/2021-0297-DEC-DCPL-2026-04-28","subjectMatter":"PCOM","type":"legislative_resolution","significance":"MEDIUM"},
+    {"id":"TA-10-2026-0115","title":"Welfare of dogs and cats and their traceability","dateAdopted":"2026-04-28","procedureReference":"eli/dl/event/2023-0447-DEC-DCPL-2026-04-28","subjectMatter":"AGRI","type":"legislative_resolution","significance":"MEDIUM"},
+    {"id":"TA-10-2026-0116","title":"European Globalisation Adjustment Fund: workers affected by imminent job displacement","dateAdopted":"2026-04-28","procedureReference":"eli/dl/event/2025-0073-DEC-DCPL-2026-04-28","subjectMatter":"EMPL","type":"legislative_resolution","significance":"MEDIUM"},
+    {"id":"TA-10-2026-0117","title":"Amendments to Biocidal Products Regulation as regards the extension of certain data protection periods","dateAdopted":"2026-04-28","procedureReference":"eli/dl/event/2025-0408-DEC-DCPL-2026-04-28","subjectMatter":"ENVI","type":"legislative_resolution","significance":"LOW"},
+    {"id":"TA-10-2026-0118","title":"Amendments to Parliament's Rules of Procedure concerning appointments to Union agencies and bodies (Rule 135)","dateAdopted":"2026-04-28","procedureReference":"eli/dl/event/2025-2262-DEC-DCPL-2026-04-28","subjectMatter":"INST","type":"procedural_amendment","significance":"MEDIUM"},
+    {"id":"TA-10-2026-0119","title":"Control of the financial activities of the European Investment Bank Group — annual report 2024","dateAdopted":"2026-04-28","procedureReference":"eli/dl/event/2025-2237-DEC-DCPL-2026-04-28","subjectMatter":"BUDG","type":"annual_report","significance":"MEDIUM"},
+    {"id":"TA-10-2026-0120","title":"Importance of consent-based rape legislation in the EU","dateAdopted":"2026-04-28","procedureReference":"eli/dl/event/2025-2040-DEC-DCPL-2026-04-28","subjectMatter":"DDLH,JURI","type":"non_legislative_resolution","significance":"HIGH"},
+    {"id":"TA-10-2026-0121","title":"The role of ocean diplomacy for the competitiveness of EU fisheries and aquaculture","dateAdopted":"2026-04-28","procedureReference":"eli/dl/event/2025-2054-DEC-DCPL-2026-04-28","subjectMatter":"PECH","type":"non_legislative_resolution","significance":"MEDIUM"},
+    {"id":"TA-10-2026-0122","title":"Control, transparency and traceability of performance-based instruments","dateAdopted":"2026-04-28","procedureReference":"eli/dl/event/2025-2032-DEC-DCPL-2026-04-28","subjectMatter":"BUDG","type":"non_legislative_resolution","significance":"MEDIUM"},
+    {"id":"TA-10-2026-0123","title":"Enhancing connectivity, preserving cultural heritage and driving local excellence in European tourism","dateAdopted":"2026-04-28","procedureReference":"eli/dl/event/2025-2120-DEC-DCPL-2026-04-28","subjectMatter":"TRAN","type":"non_legislative_resolution","significance":"LOW"}
+  ]
+}
