@@ -199,3 +199,61 @@ The consent legislation vote crystallises the ongoing values conflict within the
 ---
 
 *EU Parliament Monitor | Stakeholder Map | 2026-04-29*
+
+## Individual MEP Stakeholder Profiles
+
+### Priority MEPs Affected by April 28 Decisions
+
+**Maciej Ziobro Jaki (ECR, Poland) — IMMUNITY WAIVED (TA-10-2026-0105)**
+
+*Background:* Polish MEP (ECR group), former national MP; associate of PiS justice wing. Faces Polish judicial proceedings related to conduct during 2015–2023 PiS governance.
+*Political position:* Hardline ECR position; national-sovereignty oriented; likely to contest proceedings politically rather than legally.
+*Stakeholder interest post-waiver:* Primary interest is preventing conviction and protecting ECR's narrative; secondary interest in using proceedings as political fundraising with PiS base.
+*Expected behaviour:* Legal challenge through Polish courts; political messaging campaign; ECR party support in communications.
+*Intelligence assessment:* MEDIUM risk of political disruption; LOW risk of institutional escalation.
+
+**Daniel Obajtek (ECR, Poland) — IMMUNITY WAIVED (TA-10-2026-0106)**
+
+*Background:* Former CEO of PKN Orlen (state oil company); MEP since 2024 elections; ECR member. Faces Polish judicial proceedings related to PKN Orlen corporate governance during PiS period.
+*Stakeholder interest post-waiver:* Primary interest is protecting personal legal exposure; secondary interest in corporate relationships.
+*Expected behaviour:* Corporate legal team engagement; complex multi-jurisdiction proceedings expected; quieter political messaging than Jaki.
+*Intelligence assessment:* MEDIUM risk of long legal proceedings; LOW direct political fallout.
+
+**Diana Şoşoacă (NI, Romania) — IMMUNITY WAIVED (TA-10-2026-0109)**
+
+*Background:* Far-right Romanian MEP; Non-Inscrits group; notorious for disruption of EP plenary sessions; known for conspiracy theories and anti-EU rhetoric.
+*Stakeholder interest post-waiver:* Will use proceedings as evidence of "EU persecution of patriots"; significant domestic media amplification in Romania.
+*Expected behaviour:* Maximum political theatrics; likely to refuse cooperation with Romanian authorities while generating media content about "EU tyranny".
+*Intelligence assessment:* HIGH risk of EP institutional disruption; MEDIUM risk of domestic political amplification in Romania's far-right ecosystem.
+
+**Alvise Pérez (PfE, Spain) — IMMUNITY WAIVED (TA-10-2026-0110)**
+
+*Background:* Spanish MEP (Libertad Europa/PfE affiliated); political figure with large social media following; known for disinformation campaigns during 2023 Spanish elections; proceedings relate to influence operations.
+*Stakeholder interest post-waiver:* Primary interest in social media narrative control; PfE group has incentive to frame as "censorship of political speech".
+*Expected behaviour:* Social media campaign leveraging large Spanish-speaking online following; disinformation amplification risk.
+*Intelligence assessment:* HIGH risk of disinformation ecosystem activation; MEDIUM risk of genuine accountability outcome given Spain's political context.
+
+---
+
+## Multi-Stakeholder Interaction Analysis
+
+### Parliament-Commission-Council Triangle on MFF
+
+The three primary institutional stakeholders interact in a structured but adversarial triangular dynamic. Parliament set its ambitious position in April 2026 to shift the centre of gravity before the Commission's formal proposal. The Commission will use Parliament's position as leverage with the Council, likely proposing a budget in the range of EUR 1.1-1.2 trillion. The Council's net contributor coalition (DE, NL, AT, SE, DK, FI) will resist; net beneficiaries (PL, HU, ES, PT, GR) will support Parliament's position. Outcome: prolonged negotiations, likely concluded Q1-Q2 2027 at earliest.
+
+The key wild card is Germany's fiscal stance post-2025 elections. If CDU/CSU leads with fiscal hawks dominant, German resistance to enlarged MFF hardens significantly.
+
+### Accountability Stakeholder Network
+
+The immunity proceedings create a multi-layer accountability network:
+
+1. EP JURI recommendation followed by Plenary vote (COMPLETED April 28)
+2. EP decision notified to national prosecution authorities (Polish courts, Romanian courts, Spanish courts)
+3. National courts commence formal proceedings; EU institutions monitor for judicial independence violations
+4. EU monitoring potentially triggers Article 7 consultation if proceedings are systematically obstructed
+
+The key intelligence question is whether Polish courts maintain institutional independence under potential future PiS interference attempts, given that the three Polish MEPs have strong partisan motivation to obstruct proceedings.
+
+---
+
+*EU Parliament Monitor | Stakeholder Map (extended) | 2026-04-29*

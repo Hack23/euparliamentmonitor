@@ -164,3 +164,34 @@ Both the 2027 budget guidelines and the MFF interim report contain explicit clim
 ---
 
 *EU Parliament Monitor | PESTLE Analysis | 2026-04-29*
+
+## §7 — PESTLE Summary Assessment
+
+| Dimension | Score | Key Driver | Monitoring Signal |
+|-----------|-------|-----------|------------------|
+| Political | 9/10 | MFF negotiations + accountability actions | Commission proposal timing |
+| Economic | 8/10 | IMF GDP slowdown + MFF fiscal stakes | Euro area GDP trajectory |
+| Social | 7/10 | Consent legislation + digital rights | Member state implementation |
+| Technological | 6/10 | Digital sovereignty in MFF context | AI Act implementation |
+| Legal | 9/10 | Six immunity waivers + competence ruling | Court proceedings |
+| Environmental | 7/10 | Green Deal funding in MFF context | ETS price trajectory |
+
+### Cross-Dimensional PESTLE Interactions
+
+The Political-Economic linkage is the dominant interaction in this analysis. The MFF negotiating position determines the economic investment envelope for 2028-2034. The Legal-Political linkage (immunity proceedings vs. political framing) is the second most significant interaction.
+
+Social-Economic interaction is the emerging risk: the EGF reform expansion addresses the social consequences of economic structural adjustment in the automotive sector. The economic displacement of 200,000-300,000 workers in ICE component manufacturing is the primary social challenge the EU faces in 2026-2032.
+
+Technological-Political linkage: Digital sovereignty investment in the MFF is primarily a political choice about how much the EU is willing to invest in reducing platform dependency.
+
+### PESTLE Forecast Summary
+
+Over the 12-month horizon (April 2026 to April 2027):
+- Political dimension will intensify as MFF negotiations enter formal phase (Q3 2026)
+- Economic dimension will reflect US tariff impact outcomes (resolution or escalation)
+- Legal dimension will track accountability proceedings outcomes in Polish and Romanian courts
+- Environmental dimension will reflect ETS price trajectory and Green Deal investment pace
+- Social dimension will track consent legislation follow-through at member state level
+- Technological dimension will reflect Chips Act delivery milestones
+
+*EU Parliament Monitor | PESTLE Analysis | 2026-04-29 | breaking (complete)*
