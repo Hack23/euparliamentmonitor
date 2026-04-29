@@ -32,7 +32,7 @@ export const AI_MARKER = '[AI_ANALYSIS_REQUIRED]';
  *
  * Recognises three marker formats:
  * - `[AI_ANALYSIS_REQUIRED]` — the current standard marker (v3.0+)
- * - `[REQUIRED]` — legacy marker used in template stubs before v3.0
+ * - `[REQUIRED]` — historic marker used in template stubs before v3.0
  * - `[?]` — shorthand used in some early methodology templates
  *
  * @param text - Text to test

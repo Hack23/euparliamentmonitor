@@ -16,12 +16,12 @@ import type { Manifest, ManifestFiles } from './types.js';
 export const UNKNOWN_ARTICLE_TYPE = 'unknown';
 
 /**
- * Resolve the article-type slug from a manifest, tolerating legacy schemas.
+ * Resolve the article-type slug from a manifest, tolerating historic schemas.
  *
  * Resolution order (highest precedence first):
  *   1. `articleType` — canonical singular field
  *   2. `articleTypes[0]` — pre-aggregator-pipeline plural array
- *   3. `runType` — legacy field on older breaking-run manifests
+ *   3. `runType` — historic field on older breaking-run manifests
  *
  * Falls back to `'unknown'` when none of the above is a non-empty string.
  *

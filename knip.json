@@ -12,7 +12,7 @@
     "src/aggregator/infra/github-urls.ts",
     "scripts/backport-article-seo.js",
     "scripts/aggregator/forward-statements-registry.js",
-    "scripts/utils/migrate-legacy-articles.js",
+    "scripts/aggregator/prior-run-diff.js",
     "test/**/*.test.js",
     "e2e/**/*.spec.js"
   ],

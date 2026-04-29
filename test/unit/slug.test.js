@@ -16,8 +16,8 @@ import {
   DEFAULT_RUN_SUFFIX,
 } from '../../scripts/aggregator/slug/index.js';
 import {
-  buildArticleSlug as legacyBuildArticleSlug,
-  sanitizeRunSuffix as legacySanitizeRunSuffix,
+  buildArticleSlug as historicBuildArticleSlug,
+  sanitizeRunSuffix as historicSanitizeRunSuffix,
 } from '../../scripts/aggregator/article-generator.js';
 
 describe('buildArticleSlug', () => {
@@ -37,9 +37,9 @@ describe('buildArticleSlug', () => {
     expect(buildArticleSlug('2026-04-27', 'breaking', undefined)).toBe('2026-04-27-breaking');
   });
 
-  it('matches the legacy article-generator export byte-for-byte', () => {
+  it('matches the historic article-generator export byte-for-byte', () => {
     expect(buildArticleSlug('2026-04-06', 'propositions', 'run42')).toBe(
-      legacyBuildArticleSlug('2026-04-06', 'propositions', 'run42')
+      historicBuildArticleSlug('2026-04-06', 'propositions', 'run42')
     );
   });
 });
@@ -81,8 +81,8 @@ describe('sanitizeRunSuffix', () => {
     expect(sanitizeRunSuffix('   ')).toBe(DEFAULT_RUN_SUFFIX);
   });
 
-  it('matches the legacy article-generator export byte-for-byte', () => {
-    expect(sanitizeRunSuffix('run/181 final!')).toBe(legacySanitizeRunSuffix('run/181 final!'));
+  it('matches the historic article-generator export byte-for-byte', () => {
+    expect(sanitizeRunSuffix('run/181 final!')).toBe(historicSanitizeRunSuffix('run/181 final!'));
   });
 
   it('produces a filename-safe round-trip via buildArticleSlug', () => {

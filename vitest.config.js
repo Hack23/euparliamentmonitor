@@ -39,8 +39,7 @@ export default defineConfig({
         // Exclude CLI entry point scripts (tested via integration tests)
         'scripts/generators/news-indexes.js',
         'scripts/generators/sitemap.js',
-        // One-shot migration / pre-flight CLIs (library logic is covered via imports; CLI code paths are tested via integration runs)
-        'scripts/utils/migrate-legacy-articles.js',
+        // Pre-flight CLIs (library logic is covered via imports; CLI code paths are tested via integration runs)
         'scripts/utils/validate-ep-api.js',
         // Exclude documentation generation scripts (utility scripts)
         'scripts/utils/generate-docs-index.js',

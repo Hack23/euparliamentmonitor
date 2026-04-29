@@ -223,7 +223,7 @@ function collectRunArtifacts(runDir: string): string[] {
       const full = path.join(dir, entry.name);
       const rel = prefix ? `${prefix}/${entry.name}` : entry.name;
       if (entry.isDirectory()) {
-        // Skip raw payloads, legacy run snapshots, and Pass-1 work-in-progress
+        // Skip raw payloads, prior-run snapshots, and Pass-1 work-in-progress
         // snapshots so they are not rendered as supplementary artifacts.
         if (entry.name === 'data' || entry.name === 'runs' || entry.name === 'pass1') continue;
         walk(full, rel);
@@ -573,7 +573,7 @@ function appendSection(
 }
 
 /**
- * Resolve the article-type slug from a manifest, tolerating legacy schemas.
+ * Resolve the article-type slug from a manifest, tolerating historic schemas.
  *
  * Thin re-export of {@link _resolveArticleType} from
  * `aggregator/manifest/index.js`. Resolution order: `articleType` →

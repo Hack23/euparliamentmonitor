@@ -131,7 +131,7 @@ describe('extractBodyH1 / extractBodyFirstProse', () => {
 });
 
 describe('isGenericBodyH1', () => {
-  it('flags legacy template H1s as generic', () => {
+  it('flags historic template H1s as generic', () => {
     expect(
       isGenericBodyH1(
         'Legislative Procedures: European Parliament Monitor',
@@ -180,7 +180,7 @@ describe('truncateUpto', () => {
 });
 
 describe('deriveMetadataForFile — full pipeline', () => {
-  it('replaces a generic legacy H1 with a body-derived editorial highlight', () => {
+  it('replaces a generic historic H1 with a body-derived editorial highlight', () => {
     const html = buildHtml({
       title: 'Legislative Procedures: European Parliament Monitor',
       description: 'Recent legislative proposals, procedure tracking, and pipeline status.',
@@ -485,11 +485,11 @@ describe('chooseTitle — tier fallback branches', async () => {
   });
 });
 
-describe('isGenericBodyH1 — legacy + date-suffix patterns', async () => {
+describe('isGenericBodyH1 — historic + date-suffix patterns', async () => {
   const { isGenericBodyH1 } = await import('../../scripts/backport-article-seo.js');
 
-  it('flags each known legacy-era title verbatim', () => {
-    const legacy = [
+  it('flags each known historic-era title verbatim', () => {
+    const historic = [
       'Legislative Procedures: European Parliament Monitor',
       'EU Parliament Committee Activity Report',
       'EU Parliament Breaking',
@@ -497,12 +497,12 @@ describe('isGenericBodyH1 — legacy + date-suffix patterns', async () => {
       'Plenary Votes & Resolutions',
       'Plenary Votes and Resolutions',
     ];
-    for (const t of legacy) {
+    for (const t of historic) {
       expect(isGenericBodyH1(t, 'breaking', '2026-04-20')).toBe(true);
     }
   });
 
-  it('flags legacy templates when they carry a suffix', () => {
+  it('flags historic templates when they carry a suffix', () => {
     expect(
       isGenericBodyH1(
         'Legislative Procedures: European Parliament Monitor — Follow-up',

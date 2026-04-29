@@ -384,7 +384,7 @@ export interface CorporateBodyFeedItem {
   label?: string | undefined;
 }
 
-/** Aggregated feed data for breaking news articles (legacy compat) */
+/** Aggregated feed data for breaking news articles (back-compat shape) */
 export interface BreakingNewsFeedData {
   adoptedTexts: readonly AdoptedTextFeedItem[];
   events: readonly EventFeedItem[];

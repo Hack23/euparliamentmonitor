@@ -261,7 +261,7 @@ const FALLBACK_DESCRIPTION = 'EU Parliament intelligence summary derived from co
  */
 export function extractDefaultDescription(markdown) {
     // Suppress unused warning: keep `shouldSkipDescriptionLine` for any
-    // legacy consumer importing it transitively.
+    // historic consumer importing it transitively.
     void shouldSkipDescriptionLine;
     const strong = extractStrongProseLine(markdown);
     return strong.length > 0 ? strong : FALLBACK_DESCRIPTION;

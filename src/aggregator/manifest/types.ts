@@ -5,8 +5,8 @@
  * @module Aggregator/Manifest/Types
  * @description Canonical manifest schema for analysis runs and the narrower
  * projection consumed by the editorial-metadata resolver. Centralises every
- * historic schema variant (canonical `articleType`, legacy plural
- * `articleTypes[]`, very-legacy `runType`) into one type that downstream
+ * historic schema variant (canonical `articleType`, plural
+ * `articleTypes[]`, original `runType`) into one type that downstream
  * modules can read against.
  */
 
@@ -36,20 +36,22 @@ export type ManifestMetadataOverride = string | Partial<Record<LanguageCode, str
 /**
  * Raw manifest shape as committed by the analysis pipeline. Matches every
  * schema variant the pipeline has ever emitted; readers consult
- * {@link resolveArticleType} rather than `articleType` directly so legacy
+ * {@link resolveArticleType} rather than `articleType` directly so historic
  * runs stay readable.
  */
 export interface Manifest {
   /** Canonical singular form (current pipeline). */
   readonly articleType?: string;
   /**
-   * Legacy plural form emitted by some pre-aggregator-pipeline workflows.
-   * When present, `articleTypes[0]` is treated as the article type.
+   * Plural form emitted by some pre-aggregator-pipeline workflows (historic
+   * schema variant). When present, `articleTypes[0]` is treated as the
+   * article type.
    */
   readonly articleTypes?: readonly string[];
   /**
-   * Very-legacy field on older breaking-run manifests. Used as the last
-   * fallback when neither `articleType` nor `articleTypes` is present.
+   * Original field on older breaking-run manifests (historic schema variant).
+   * Used as the last fallback when neither `articleType` nor `articleTypes`
+   * is present.
    */
   readonly runType?: string;
   /** Stable run identifier; falls back to the run-dir basename. */
@@ -74,7 +76,7 @@ export interface Manifest {
  * Narrower manifest projection consumed by {@link resolveArticleMetadata}
  * in `aggregator/article-metadata.ts`. The metadata resolver only needs a
  * subset; keeping this projection separate means string-only callers
- * (backport, legacy curators) don't have to construct a full {@link Manifest}.
+ * (backport, historic curators) don't have to construct a full {@link Manifest}.
  */
 export interface MetadataManifest {
   readonly articleType?: string;

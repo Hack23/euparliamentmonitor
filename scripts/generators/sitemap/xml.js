@@ -14,7 +14,7 @@
  * pure (no HTML chrome dependencies), and so future XML output formats
  * (news-sitemap, video-sitemap) can reuse the same URL builders.
  *
- * Output is byte-identical to the legacy in-line implementation that
+ * Output is byte-identical to the previous in-line implementation that
  * lived in `sitemap.ts`, verified by the byte-equality regression test.
  */
 import fs from 'fs';

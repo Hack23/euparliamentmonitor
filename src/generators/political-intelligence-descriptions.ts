@@ -30,12 +30,6 @@ import type { LanguageCode } from '../types/index.js';
 /** Per-language text overlay keyed by 2-letter language code. */
 export type TextI18n = Partial<Record<LanguageCode, string>>;
 
-/**
- * @deprecated use {@link TextI18n}. Kept as an alias so consumers outside
- * this module don't break across the title-localization refactor.
- */
-export type DescriptionI18n = TextI18n;
-
 /** One curated entry for a methodology / template / reference file. */
 export interface CuratedDescription {
   /** Canonical English title shown on the card heading and used as the
@@ -2202,7 +2196,7 @@ export function hasCuratedTitle(relPath: string): boolean {
  *    this is where all 14-language localization is maintained)
  * 2. Curated English title from {@link CURATED_TITLES} (`.en` overlay)
  * 3. Per-entry `titleI18n[lang]` on a `CURATED_DESCRIPTIONS` entry
- *    (legacy path; retained so future entries can colocate title + desc)
+ *    (historic path; retained so future entries can colocate title + desc)
  * 4. Per-entry `title` on a `CURATED_DESCRIPTIONS` entry
  * 5. `fallback` — the H1-extracted title from the source Markdown
  *
@@ -2226,7 +2220,7 @@ export function getCuratedTitle(relPath: string, lang: LanguageCode, fallback: s
     if (localized) return localized;
     if (titleEntry.en) return titleEntry.en;
   }
-  // 3 + 4: legacy colocated title on CURATED_DESCRIPTIONS entry
+  // 3 + 4: historic colocated title on CURATED_DESCRIPTIONS entry
   // eslint-disable-next-line security/detect-object-injection
   const descEntry = CURATED_DESCRIPTIONS[key];
   if (descEntry) {

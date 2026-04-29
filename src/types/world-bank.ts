@@ -154,7 +154,7 @@ export interface PolicyRelevantIndicators {
  *
  * **Note:** The codebase also has a `WorldBankMCPClient.getIndicatorForCountry()`
  * wrapper (in `src/mcp/wb-mcp-client.ts`) that calls the `get_indicator_for_country`
- * tool — this is a legacy convenience method not listed in this type union since it
+ * tool — this is a back-compat convenience method not listed in this type union since it
  * is not part of the standard worldbank-mcp tool surface.
  */
 export type WBMCPToolName =

@@ -10,7 +10,7 @@
  * `githubRawUrl`) and `article-generator.ts` (which embedded the same slug
  * literally inside an `isBasedOn` template string).
  *
- * Every consumer should import from here; the legacy entry points in
+ * Every consumer should import from here; the original entry points in
  * `clean-artifact.ts` are preserved as thin re-export shims for back-compat.
  */
 

@@ -52,7 +52,7 @@ export function readRunCandidate(runDir) {
  * The walk stops descending into a directory the moment it sees a
  * `manifest.json`, so nested artifact subdirectories never get reported
  * as separate runs. Results are sorted by date ascending then by path
- * lexically — the same order used by the legacy implementation in
+ * lexically — the same order used by the previous in-line implementation in
  * `article-generator.ts`.
  *
  * @param repoRoot - Absolute repository root

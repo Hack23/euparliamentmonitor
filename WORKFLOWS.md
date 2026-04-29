@@ -692,7 +692,7 @@ graph LR
 | Surface | Coverage |
 |---------|----------|
 | **Source files** | `src/**/*.ts` (the authoritative TypeScript tree) |
-| **Hand-written JS** | `scripts/lint-prompts.js`, `scripts/copy-vendor.js`, `scripts/backport-article-seo.js`, `scripts/validate-analysis-completeness.js`, `scripts/aggregator/forward-statements-registry.js`, `scripts/aggregator/prior-run-diff.js`, `scripts/utils/migrate-legacy-articles.js` |
+| **Hand-written JS** | `scripts/lint-prompts.js`, `scripts/copy-vendor.js`, `scripts/backport-article-seo.js`, `scripts/validate-analysis-completeness.js`, `scripts/aggregator/forward-statements-registry.js`, `scripts/aggregator/prior-run-diff.js` |
 | **Test fixtures** | `test/**/*.test.js`, `e2e/**/*.spec.js` |
 | **Compiled `scripts/**`** | Excluded from `project` (it is a 1:1 build output of `src/**`); CLI entry points are auto-discovered via the `package.json` `exports` map |
 | **Generated artefacts** | `analysis/**`, `data/**`, `news/**`, `docs/**`, `coverage/**`, `js/vendor/**` — never scanned |
@@ -703,7 +703,7 @@ The full configuration lives in [`knip.json`](./knip.json). Highlights:
 
 - **Entries** explicitly list every CLI / npm-script / agentic-workflow-invoked script that knip cannot otherwise reach (e.g. scripts referenced only from `.github/workflows/*.md` gh-aw bodies).
 - **`ignoreDependencies`** covers runtime-spawned packages (`european-parliament-mcp-server` — launched via `npx` by the MCP gateway, not imported), browser-vendored bundles (`chart.js`, `d3`, `mermaid`, `chartjs-plugin-annotation`, `papaparse` — copied by `scripts/copy-vendor.js`), and config-only tooling (`jscpd`, `lint-staged`, `eslint-config-prettier`, `ts-api-utils`).
-- **`scripts/index.old.js`** is intentionally excluded — it is a frozen pre-aggregator-pipeline barrel kept only as a staging archive and removed under the pre-release purge.
+- **Runtime-spawned tools** (e.g. `european-parliament-mcp-server` invoked via `npx` by the MCP gateway, never imported as a library) are listed in `ignoreDependencies` so they are not flagged as unused.
 
 #### Local Workflow
 

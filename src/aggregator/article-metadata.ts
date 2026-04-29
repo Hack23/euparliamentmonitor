@@ -25,7 +25,7 @@
  * 3. **Aggregated-markdown H1** — the first `# …` heading in the aggregator
  *    output, accepted under the same non-generic rule. In practice this
  *    tier rarely fires because the aggregator itself writes the generic
- *    default, but it covers hand-edited or legacy aggregates.
+ *    default, but it covers hand-edited or historic aggregates.
  * 4. **First strong prose paragraph** — the first line of the aggregated
  *    Markdown that survives {@link shouldSkipDescriptionLine}. Used for
  *    `description`; also used for `title` as a last editorial-content
@@ -103,7 +103,7 @@ export interface ResolveMetadataOptions {
   readonly date: string;
   /** Aggregated Markdown document body (after provenance/header). */
   readonly markdown: string;
-  /** Parsed analysis manifest (may be empty for legacy/backport callers). */
+  /** Parsed analysis manifest (may be empty for historic/backport callers). */
   readonly manifest?: MetadataManifest;
   /**
    * Absolute path to the analysis run directory so the resolver can
@@ -383,7 +383,7 @@ export function isGenericHeading(heading: string, articleType: string, date: str
   ];
 
   // Also accept the collision-suffix pattern (e.g. `Breaking Breaking — …`)
-  // and the auto-generated "EU Parliament <Type> — <date>" legacy form.
+  // and the auto-generated "EU Parliament <Type> — <date>" historic form.
   const humanRedundant = `${human} ${human}`;
   for (const p of patterns) {
     if (normalized === p) return true;
