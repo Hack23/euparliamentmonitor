@@ -1,0 +1,36 @@
+{
+  "fetchedAt": "2026-04-29T05:15:00Z",
+  "source": "european-parliament-mcp-server@1.2.15",
+  "tool": "get_adopted_texts",
+  "parameters": {"year": 2026},
+  "sessionDate": "2026-04-28",
+  "location": "Strasbourg",
+  "keyAdoptedTextsApril28": [
+    {"id": "TA-10-2026-0105", "title": "Request for the waiver of the immunity of Patryk Jaki", "dateAdopted": "2026-04-28", "procedureRef": "2025-2171"},
+    {"id": "TA-10-2026-0106", "title": "Request for the waiver of the immunity of Daniel Obajtek", "dateAdopted": "2026-04-28", "procedureRef": "2025-2172"},
+    {"id": "TA-10-2026-0107", "title": "Request for the waiver of the immunity of Tomasz Buczek", "dateAdopted": "2026-04-28", "procedureRef": "2025-2193"},
+    {"id": "TA-10-2026-0108", "title": "Request for the waiver of the immunity of Diana Iovanovici Şoşoacă", "dateAdopted": "2026-04-28", "procedureRef": "2025-2196"},
+    {"id": "TA-10-2026-0109", "title": "Request for the waiver of the immunity of Grzegorz Braun", "dateAdopted": "2026-04-28", "procedureRef": "2025-2241"},
+    {"id": "TA-10-2026-0111", "title": "Interim report on the proposal for the multiannual financial framework for 2028-2034", "dateAdopted": "2026-04-28", "procedureRef": "2025-0571R", "committee": "BUDG"},
+    {"id": "TA-10-2026-0112", "title": "Guidelines for the 2027 budget - Section III", "dateAdopted": "2026-04-28", "procedureRef": "2025-2246", "committee": "BUDG"},
+    {"id": "TA-10-2026-0113", "title": "Accounting of greenhouse gas emissions of transport services", "dateAdopted": "2026-04-28", "procedureRef": "2023-0266", "committee": "TRAN/ENVI"},
+    {"id": "TA-10-2026-0114", "title": "Generalised scheme of tariff preferences", "dateAdopted": "2026-04-28", "procedureRef": "2021-0297", "committee": "INTA"},
+    {"id": "TA-10-2026-0115", "title": "Welfare of dogs and cats and their traceability", "dateAdopted": "2026-04-28", "procedureRef": "2023-0447", "committee": "AGRI/ENVI"},
+    {"id": "TA-10-2026-0116", "title": "European Globalisation Adjustment Fund: workers affected by imminent job displacement", "dateAdopted": "2026-04-28", "procedureRef": "2025-0073"},
+    {"id": "TA-10-2026-0117", "title": "Amendments to Biocidal Products Regulation as regards the extension of certain data protection periods", "dateAdopted": "2026-04-28", "procedureRef": "2025-0408"},
+    {"id": "TA-10-2026-0118", "title": "Amendments to Parliament's Rules of Procedure concerning appointments to Union agencies and bodies (Rule 135)", "dateAdopted": "2026-04-28", "procedureRef": "2025-2262"},
+    {"id": "TA-10-2026-0119", "title": "Control of the financial activities of the European Investment Bank Group — annual report 2024", "dateAdopted": "2026-04-28", "procedureRef": "2025-2237", "committee": "CONT"},
+    {"id": "TA-10-2026-0120", "title": "Importance of consent-based rape legislation in the EU", "dateAdopted": "2026-04-28", "procedureRef": "2025-2040"},
+    {"id": "TA-10-2026-0121", "title": "The role of ocean diplomacy for the competitiveness of EU fisheries and aquaculture", "dateAdopted": "2026-04-28", "procedureRef": "2025-2054"},
+    {"id": "TA-10-2026-0122", "title": "Control, transparency and traceability of performance-based instruments", "dateAdopted": "2026-04-28", "procedureRef": "2025-2032", "committee": "CONT"},
+    {"id": "TA-10-2026-0123", "title": "Enhancing connectivity, preserving cultural heritage and driving local excellence in European tourism", "dateAdopted": "2026-04-28", "procedureRef": "2025-2120"}
+  ],
+  "totalAdoptedTexts2026": 101,
+  "plenarySession": {
+    "id": "MTG-PL-2026-04-28",
+    "date": "2026-04-28",
+    "location": "Strasbourg",
+    "agendaItemsCount": 22,
+    "attendanceCount": 0
+  }
+}
