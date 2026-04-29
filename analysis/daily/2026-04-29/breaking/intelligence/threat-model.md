@@ -217,4 +217,38 @@ Most critical mitigation priorities for the next 90 days:
 3. European Commission proactive communication on MFF proposal timeline
 4. Counter-disinformation strategy for immunity proceedings narrative
 
+---
+
+## Threat Monitoring Dashboard
+
+| Threat ID | Threat Name | Probability | Current Status | 30-Day Indicator |
+|-----------|-------------|-------------|----------------|-----------------|
+| T1.1 | MFF Stalemate | 40% | Active risk | Commission proposal timing |
+| T1.2 | Own Resources Failure | 55% | Active risk | Council working group progress |
+| T2.1 | ECJ Challenge on Waivers | 70% | Expected | Şoşoacă/Braun legal team activities |
+| T2.2 | Polish Judiciary Obstruction | 25% | Monitoring | PiS parliamentary committee activities |
+| T3.1 | EPP Internal Split | 35% | Latent risk | EPP Congress positioning |
+| T3.2 | ECR Fragmentation | 40% | Latent risk | ECR group meeting outcomes |
+| T4.1 | Economic Shock | 25% | Monitoring | IMF GDP revision triggers |
+| T5.1 | PiS Disinformation Campaign | 85% | Active | Social media amplification metrics |
+| T5.2 | Russian Information Operations | 70% | Active | EEAS East StratCom reporting |
+
+**Aggregate Threat Level:** 🟡 ELEVATED
+- High probability threats are primarily informational/legal (manageable)
+- Medium probability threats are primarily institutional (require sustained attention)
+- Low probability threats are primarily geopolitical/economic (tail risks)
+
+---
+
+## Threat Response Capability Assessment
+
+| Threat Vector | EU Capability | National Capability | Gap |
+|--------------|---------------|---------------------|-----|
+| ECJ challenge | 🟢 HIGH (established legal defense) | N/A | None |
+| Disinformation | 🟡 MEDIUM (EEAS capacity limited) | Variable | EEAS funding gap |
+| MFF delay | 🟡 MEDIUM (MFF 2021-2027 extension possible) | Dependent on Council | Council unanimity risk |
+| Economic shock | 🟡 MEDIUM (ESM activated; NGEU precedent) | Variable | Coordination mechanism activation lag |
+
+---
+
 *EU Parliament Monitor | Threat Model | 2026-04-29 | breaking (complete)*

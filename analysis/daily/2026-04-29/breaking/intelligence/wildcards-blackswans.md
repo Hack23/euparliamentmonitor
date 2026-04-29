@@ -199,4 +199,37 @@ German debt brake broader reform coalition; NGEU-2 discussion emergence if econo
 
 ---
 
+## Early Warning Indicator Matrix
+
+The following table synthesises observable indicators that would signal wildcard/black swan activation across all domains. Analysts should monitor these indicators on a monthly basis.
+
+| Indicator | Domain | Signal Direction | Monitoring Priority |
+|-----------|--------|-----------------|---------------------|
+| German Bundestag constitutional reform committee hearings | MFF | POSITIVE (wildcard 1.1 activation) | 🔴 HIGH |
+| Poland Sejm PiS group voting cohesion in opposition | MFF/Immunity | NEGATIVE (obstruction risk) | 🔴 HIGH |
+| WTO panel request for CBAM | Environmental/Economic | NEGATIVE (EU-US/China trade war) | 🟡 MEDIUM |
+| ECtHR (Grand Chamber) hearing date on ECHR/Art 7 cases | Legal | POSITIVE (EU accountability strengthened) | 🔴 HIGH |
+| EP vaccine passport ECtHR ruling | Legal/Medical | WILDCARD variable | 🟡 MEDIUM |
+| Commission MFF proposal headline figures vs. Parliament's position | MFF | Quantitative benchmark | 🔴 HIGH |
+| Hungarian government veto threats in Council | MFF | NEGATIVE | 🟡 MEDIUM |
+| US Senate confirmation of EU ambassador | Geopolitical | POSITIVE (stabilisation signal) | 🟡 MEDIUM |
+| ECB rate decision (June/September) | Economic | Variable | 🟡 MEDIUM |
+| French NatAss electoral polling | Domestic EU-state | NEGATIVE if FN leads | 🟡 MEDIUM |
+
+---
+
+## Black Swan Monitoring Log
+
+This artifact will be updated in subsequent runs to track whether any black swan signals have materialised. Current status (April 29, 2026):
+
+| Black Swan | Status | Evidence | Last Updated |
+|------------|--------|---------|-------------|
+| German debt brake reform | NOT TRIGGERED | Reform limited to defence (2025) | 2026-04-29 |
+| NGEU-2 emergency deployment | NOT TRIGGERED | No Commission proposal | 2026-04-29 |
+| EP legitimacy crisis | NOT TRIGGERED | Stable institutional functioning | 2026-04-29 |
+| MFF negotiations collapse | NOT TRIGGERED | Formal procedure not yet begun | 2026-04-29 |
+| Gender rights reverse | NOT TRIGGERED | April 28 vote positive signal | 2026-04-29 |
+
+---
+
 *EU Parliament Monitor | Wildcards and Black Swans | 2026-04-29*

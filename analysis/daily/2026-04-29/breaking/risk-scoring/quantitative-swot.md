@@ -106,4 +106,37 @@ Each SWOT item is scored on:
 
 ---
 
+## Quantitative Summary Dashboard
+
+| SWOT Category | Score | Weighted Score | Key Driver |
+|---------------|-------|----------------|------------|
+| Strengths (S) | 3.8/5.0 | 3.42 | Coalition size (S1) and accountability norm (S4) |
+| Weaknesses (W) | 2.6/5.0 | 2.21 | Legal competence limit (W3) and own resources dependency (W2) |
+| Opportunities (O) | 3.2/5.0 | 2.88 | German opening (O1) and own resources window (O2) |
+| Threats (T) | 3.1/5.0 | 2.79 | Council blocking (T1) and far-right narrative (T2) |
+
+**Net SWOT Balance:** Strengths + Opportunities (6.30) vs. Weaknesses + Threats (5.00) = **+1.30 Net Positive** — Parliament is positioned to achieve meaningful but not maximal outcomes from the April 28 legislative package.
+
+---
+
+## Sensitivity Analysis: Key SWOT Levers
+
+**Scenario: German Fiscal Pivot (Wildcard 1.1 materialises)**
+- S1 (Coalition size) increases weight by +0.3 (budget coalition more cohesive)
+- T1 (Council blocking) decreases weight by -0.5 (primary blocker becomes flexible)
+- Net SWOT balance improves from +1.30 to **+2.10 Net Positive**
+
+**Scenario: ECJ Challenge on Waivers Succeeds**
+- S4 (Accountability norm) decreases weight by -0.5 (precedent weakened)
+- W1 (Immunity challenge) increases weight by +0.4 (vulnerability confirmed)
+- Net SWOT balance declines from +1.30 to **+0.70 Net Positive** (still positive, but substantially weaker)
+
+**Scenario: Own Resources Reform Fails Completely**
+- W2 (Council dependency) increases weight by +0.6
+- O2 (Own resources window) becomes irrelevant (-0.4)
+- T5 (Full blocking) becomes more probable (+0.5)
+- Net SWOT balance declines from +1.30 to **-0.20 Net Negative** (tipping point)
+
+---
+
 *EU Parliament Monitor | Quantitative SWOT | 2026-04-29*
