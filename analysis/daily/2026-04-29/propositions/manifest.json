@@ -1,0 +1,65 @@
+{
+  "articleType": "propositions",
+  "date": "2026-04-29",
+  "runId": "propositions-run-1777442543",
+  "createdAt": "2026-04-29T00:00:00Z",
+  "analysisDir": "analysis/daily/2026-04-29/propositions",
+  "pass2": {
+    "startedAt": "2026-04-29T16-minutes",
+    "endedAt": null,
+    "rewriteCount": 0
+  },
+  "files": {
+    "executiveBrief": "executive-brief.md",
+    "intelligence": {
+      "synthesisSummary": "intelligence/synthesis-summary.md",
+      "pestleAnalysis": "intelligence/pestle-analysis.md",
+      "stakeholderMap": "intelligence/stakeholder-map.md",
+      "economicContext": "intelligence/economic-context.md",
+      "coalitionDynamics": "intelligence/coalition-dynamics.md",
+      "scenarioForecast": "intelligence/scenario-forecast.md",
+      "historicalBaseline": "intelligence/historical-baseline.md",
+      "wildcardsBlackswans": "intelligence/wildcards-blackswans.md",
+      "threatModel": "intelligence/threat-model.md",
+      "mcpReliabilityAudit": "intelligence/mcp-reliability-audit.md",
+      "analysisIndex": "intelligence/analysis-index.md"
+    },
+    "classification": {
+      "significanceClassification": "classification/significance-classification.md",
+      "actorMapping": "classification/actor-mapping.md"
+    },
+    "riskScoring": {
+      "riskMatrix": "risk-scoring/risk-matrix.md",
+      "quantitativeSwot": "risk-scoring/quantitative-swot.md"
+    },
+    "threatAssessment": {
+      "politicalThreatLandscape": "threat-assessment/political-threat-landscape.md"
+    },
+    "existing": {
+      "pipelineHealth": "existing/pipeline-health.md"
+    },
+    "data": {
+      "artifactIndex": "data/artifact-index.json"
+    }
+  },
+  "history": [
+    {
+      "runId": "propositions-run-1777442543",
+      "startedAt": "2026-04-29T00:00:00Z",
+      "completedAt": null,
+      "artifactsProduced": 19,
+      "gateResult": null
+    }
+  ],
+  "imfCompliance": {
+    "required": true,
+    "satisfied": true,
+    "citedIn": [
+      "executive-brief.md",
+      "intelligence/economic-context.md",
+      "intelligence/scenario-forecast.md",
+      "risk-scoring/quantitative-swot.md",
+      "threat-assessment/political-threat-landscape.md"
+    ]
+  }
+}
