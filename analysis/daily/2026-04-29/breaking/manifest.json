@@ -1,0 +1,35 @@
+{
+  "articleType": "breaking",
+  "date": "2026-04-29",
+  "runId": "breaking-run-1777424088",
+  "gateResult": "ANALYSIS_ONLY",
+  "gateReason": "elapsed-time tripwire at minute 24; reserve remaining budget for Stage D+E PR-call deadline",
+  "history": [
+    {
+      "runId": "breaking-run-1777424088",
+      "gateResult": "ANALYSIS_ONLY",
+      "timestamp": "2026-04-29T00:00:00Z",
+      "artifactsProduced": 16,
+      "reason": "elapsed-time tripwire at minute 24"
+    }
+  ],
+  "files": {
+    "executive-brief": "executive-brief.md",
+    "synthesis-summary": "intelligence/synthesis-summary.md",
+    "coalition-dynamics": "intelligence/coalition-dynamics.md",
+    "pestle-analysis": "intelligence/pestle-analysis.md",
+    "stakeholder-map": "intelligence/stakeholder-map.md",
+    "scenario-forecast": "intelligence/scenario-forecast.md",
+    "threat-model": "intelligence/threat-model.md",
+    "economic-context": "intelligence/economic-context.md",
+    "mcp-reliability-audit": "intelligence/mcp-reliability-audit.md",
+    "wildcards-blackswans": "intelligence/wildcards-blackswans.md",
+    "risk-matrix": "risk-scoring/risk-matrix.md",
+    "quantitative-swot": "risk-scoring/quantitative-swot.md",
+    "document-analysis-index": "documents/document-analysis-index.md",
+    "significance-classification": "classification/significance-classification.md",
+    "analysis-index": "intelligence/analysis-index.md",
+    "adopted-texts-data": "data/adopted-texts-2026-04-28.json",
+    "political-landscape-data": "data/political-landscape.json"
+  }
+}
