@@ -153,17 +153,15 @@ function networkFirstHTML(request) {
       return resp;
     })
     .catch(function () {
-      return caches
-        .match(OFFLINE_URL)
-        .then(function (offline) {
-          return (
-            offline ||
-            new Response('Offline', {
-              status: 503,
-              headers: { 'Content-Type': 'text/plain; charset=utf-8' },
-            })
-          );
-        });
+      return caches.match(OFFLINE_URL).then(function (offline) {
+        return (
+          offline ||
+          new Response('Offline', {
+            status: 503,
+            headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+          })
+        );
+      });
     });
 }
 
@@ -176,6 +174,38 @@ function networkFirstJSON(request) {
       });
     }
   );
+}
+
+function networkFirstManifest(request) {
+  var bypassReq = new Request(request.url, {
+    method: request.method,
+    headers: request.headers,
+    cache: 'no-store',
+    redirect: request.redirect,
+    credentials: request.credentials,
+    mode: request.mode,
+    referrer: request.referrer,
+  });
+  return fetch(bypassReq).catch(function () {
+    return new Response(
+      JSON.stringify({
+        name: 'EU Parliament Monitor',
+        short_name: 'EU Monitor',
+        start_url: '/?source=pwa',
+        scope: '/',
+        display: 'standalone',
+        background_color: '#003399',
+        theme_color: '#003399',
+        icons: [],
+      }),
+      {
+        headers: {
+          'Content-Type': 'application/manifest+json; charset=utf-8',
+          'Cache-Control': 'no-store',
+        },
+      }
+    );
+  });
 }
 
 self.addEventListener('fetch', function (event) {
@@ -197,6 +227,8 @@ self.addEventListener('fetch', function (event) {
   if (isFreshnessCritical(request, url)) {
     if (request.mode === 'navigate' || /\.html$/i.test(url.pathname)) {
       event.respondWith(networkFirstHTML(request));
+    } else if (/\.webmanifest$/i.test(url.pathname)) {
+      event.respondWith(networkFirstManifest(request));
     } else {
       event.respondWith(networkFirstJSON(request));
     }

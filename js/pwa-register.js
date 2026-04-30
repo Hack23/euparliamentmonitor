@@ -10,8 +10,8 @@
  * Responsibilities:
  *
  *   1. Register the same-origin service worker (`sw.js`) — derives the
- *      correct relative URL from the `<link rel="preload">` tag the
- *      generator emitted (works for root pages and `news/*.html`).
+ *      correct relative URL from the page path (root pages use `./`,
+ *      `news/*.html` pages use `../`).
  *   2. Poll `build-info.json` on visibility-change and every 5 minutes
  *      while the document is visible. When the published `buildId`
  *      differs from the embedded `<meta name="build-id">`, surface a
@@ -35,14 +35,9 @@
   }
 
   /**
-   * Resolve a same-origin URL by reading the `<link rel="preload">` tag
-   * the generator emitted. Falls back to a path-depth heuristic when
-   * the link is missing (e.g. for legacy news pages until the deploy
-   * step rewrites them).
+   * Resolve a same-origin root asset URL for root and `news/*.html` pages.
    */
-  function resolvePreloadHref(file) {
-    var link = document.querySelector('link[rel="preload"][href$="/' + file + '"], link[rel="preload"][href$="' + file + '"]');
-    if (link) return link.getAttribute('href') || file;
+  function resolveRootAssetHref(file) {
     if (window.location.pathname.indexOf('/news/') === 0) return '../' + file;
     return './' + file;
   }
@@ -52,7 +47,7 @@
   var I18N_UPDATE_CTA = metaContent('ep-i18n-update-cta') || 'Refresh';
   var I18N_UPDATE_DISMISS = metaContent('ep-i18n-dismiss') || 'Dismiss';
 
-  var BUILD_INFO_URL = resolvePreloadHref('build-info.json');
+  var BUILD_INFO_URL = resolveRootAssetHref('build-info.json');
   var SW_URL = BUILD_INFO_URL.replace(/build-info\.json$/, 'sw.js');
   var SW_SCOPE = SW_URL.replace(/sw\.js$/, '');
 
