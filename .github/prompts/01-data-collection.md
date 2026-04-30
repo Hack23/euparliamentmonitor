@@ -25,28 +25,75 @@ Every workflow downloads (tools and parameter corrections in
    empty/error/404/timeout.
 2. **Direct lookups** — always use these when a feed fails. They query the EP
    database directly and are usually more reliable than feeds.
-3. **Deep-fetch (MANDATORY)** — for every adopted text / procedure referenced:
+3. **Deep-fetch (best-effort under budget — prioritised, not exhaustive)** —
+   for adopted texts / procedures referenced. The deep-fetch set is
+   **best-effort under the budget caps below**, *not* a per-item mandate.
+   When the run references more items than the budget allows, apply the
+   prioritisation policy in §3a to pick the top N items.
+
    - `track_legislation({ procedureId })` — status, timeline, committees.
-     **404 fallback:** when `track_legislation` returns 404 for a procedure
-     ID extracted from an adopted text, fall back to
-     `get_procedures({ processId })` for the per-procedure direct lookup.
-     If both return 404, log the procedure ID under
-     `manifest.dataVerification.unresolvedProcedureIds[]` and proceed with
-     adopted-text data only — do not abort the run.
+     **404 fallback (identifier types differ):** `track_legislation` takes
+     a `procedureId` (e.g. `"2024/0001(COD)"`), while `get_procedures`
+     takes a different identifier — `processId`. When `track_legislation`
+     returns 404 for a procedure ID extracted from an adopted text, read
+     the same adopted-text payload item and extract its `processId` field
+     for the fallback direct lookup. **Do not** try to derive `processId`
+     by transforming the `procedureId` string — they are not equivalent.
+     If the adopted-text item exposes `processId`, call
+     `get_procedures({ processId })`. If `track_legislation` returns 404
+     and no `processId` is present on that adopted-text item, log the
+     `procedureId` under
+     `manifest.dataVerification.unresolvedProcedureIds[]` and proceed
+     with adopted-text data only — do not abort the run.
    - `get_voting_records({ sessionId, limit: 50 })` — actual vote counts
    - `get_meeting_decisions({ sittingId })` — adopted decisions
    - `get_speeches({ dateFrom, dateTo, limit: 20 })` — debate contributions
    - `get_adopted_texts({ year, limit: 100 })` — full text, not titles
-   - **Named-MEP cross-reference (MANDATORY when MEPs are named in
-     analysis):** for every MEP named as an immunity-waiver subject,
-     rapporteur, shadow rapporteur, named defector, or named whip in any
-     adopted text / procedure / committee output, call
-     `get_mep_details({ id: "MEP-NNNNNN" })` once per named MEP. This
-     gives biographical context (national party, committee assignments,
-     prior votes) needed for stakeholder-map and actor-mapping artifacts.
-     Cap at 10 MEP detail calls per run; prioritise immunity subjects and
-     named rapporteurs first.
-   Budget: up to 10 deep-fetch calls + up to 10 MEP-detail calls.
+   - **Named-MEP cross-reference (best-effort, prioritised):** for MEPs
+     named as immunity-waiver subjects, rapporteurs, shadow rapporteurs,
+     named defectors or named whips in any adopted text / procedure /
+     committee output, call `get_mep_details({ id: "MEP-NNNNNN" })` once
+     per named MEP. This gives biographical context (national party,
+     committee assignments, prior votes) for stakeholder-map and
+     actor-mapping artifacts. Prioritise immunity subjects first, then
+     named rapporteurs / shadow rapporteurs, then named defectors. Cap at
+     10 MEP-detail calls per run; surplus MEPs go on a "deferred lookup"
+     list in `manifest.dataVerification.deferredMepLookups[]`.
+
+   **Budget caps:** up to 10 deep-fetch calls + up to 10 MEP-detail
+   calls. When the candidate set exceeds these caps, items not selected
+   by §3a are *not* failures — they are deferred and logged under
+   `manifest.dataVerification.deferredDeepFetches[]`.
+
+### 3a · Deep-fetch prioritisation policy (which items get the budget)
+
+When the candidate set exceeds the budget caps, score every candidate
+item (adopted text / procedure / named MEP) on this 0–10 salience
+rubric, then take the top N up to the budget cap:
+
+| Signal | Weight | Score |
+|--------|:-----:|------|
+| Item appears in the lead / executive-brief candidate list | +4 | 0–4 |
+| Item is referenced by ≥2 other already-collected artifacts | +2 | 0–2 |
+| Item is a Rule 132 urgency motion or Rule 9 immunity waiver | +2 | 0–2 |
+| Item is a binding act (REGULATION / DIRECTIVE / DECISION) vs. non-binding RESOLUTION | +1 | 0–1 |
+| Item touches a Tier-1 economic indicator named in IMF minimums for this article type | +1 | 0–1 |
+
+**Rules:**
+- Always include every item referenced by the lead story / executive
+  brief candidate, even if that consumes most of the budget.
+- For named-MEP cross-reference, immunity-waiver subjects are a hard
+  must-include (until the budget is exhausted) — they have political
+  and legal salience that rapporteurs alone do not.
+- Items not selected go to `deferredDeepFetches[]` /
+  `deferredMepLookups[]` with their salience score; a follow-up run on
+  the same date+type can pick them up first via the prior-run-diff
+  carry-forward path.
+
+A run that respects the budget cap and logs deferred items is **not**
+incomplete — it is correctly prioritised. Stage C does not penalise
+deferred entries; it only penalises lead-story items missing from the
+deep-fetch set.
 4. **Voting-data fallback (MANDATORY when get_voting_records returns empty)**
    EP roll-call data publishes with a 4–6 week delay (documented in
    `07-mcp-reference.md` §11 item #6). When `get_voting_records` returns an empty

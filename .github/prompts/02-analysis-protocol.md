@@ -385,9 +385,12 @@ ability to read-back early artifacts in full. Defensive pattern:
    Lower-floor artifacts (`analysis-index`, `methodology-reflection`)
    tolerate compaction-summarised inputs better.
 4. **Log `[COMPACTION-SURVIVED: <relativePath>]`** in Pass 2 for every
-   artifact written before the first compaction event, so the Stage-C
-   reviewer can see which artifacts were re-read from disk versus
-   re-read from in-context chat.
+   artifact that Pass 2 explicitly re-opens from disk via the file-read
+   tool, so the Stage-C reviewer can see which artifacts were verified
+   from durable storage rather than relied on from in-context chat. This
+   is unconditional — the agent does not need to detect when a
+   compaction event occurred; the log line is emitted for every
+   disk-reopened artifact during Pass 2.
 
 This pattern was raised in the 2026-04-30 breaking-news methodology
 reflection — the run hit a compaction event after 8 artifacts and Pass 2

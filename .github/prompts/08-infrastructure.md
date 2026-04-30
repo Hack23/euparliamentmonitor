@@ -193,6 +193,34 @@ exists (even when the probe returned `{"available": false}` — the file is
 the provenance signal). A missing probe-summary.json is a Stage A defect:
 re-run the probe synchronously before exiting Stage A.
 
+**IMF-unavailable degraded mode (`{"available": false}`).** When the probe
+file exists *and* reports `{"available": false}`, treat the run as an
+explicit IMF-unavailable degraded mode:
+
+- Provenance is satisfied by the saved probe summary (the
+  `cache/imf/probe-summary.json` file is the audit record of the
+  unavailability).
+- IMF minimums for this run are **waived** — Stage C does not RED on a
+  missing per-article-type IMF count when probe-summary records
+  `available: false`.
+- `economic-context.md` MUST NOT cite IMF figures from agent knowledge,
+  MUST NOT claim IMF-backed completeness, and MUST surface the
+  unavailability with a 🔴 marker plus the full probe error message in
+  §"Data freshness".
+- Downstream stages (Stage D article render) MUST NOT inject IMF
+  citations into prose.
+- **Fail-early exception:** if the planned article type cannot remain
+  valid without IMF-backed data — currently `committee-reports` runs
+  scoped to ECON / BUDG / INTA, where the IMF minimum is ≥3 indicators —
+  fail early in Stage A after writing the probe summary, set
+  `GATE_RESULT=ANALYSIS_ONLY`, and record the unavailability as the
+  justification in `runs/stage-a-fail.log`. All other article types
+  proceed in degraded mode.
+
+The waiver applies *only* to runs where `available: false` is the
+authentic probe outcome. Any IMF-cited prose must still be backed by
+`cache/imf/*.json` files when the probe reports `available: true`.
+
 `${ARTICLE_TYPE_SLUG}`, `${ANALYSIS_DIR}`, and `${TODAY}` are set by the
 workflow's own Date Context Establishment block (see each `news-*.md` §Date
 Context). Title/description are AI-generated per
