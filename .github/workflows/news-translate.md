@@ -118,8 +118,11 @@ safe-outputs:
   # small: run 156 (24635614642) had all 26 translations completed by the
   # agent but safeoutputs rejected the PR with
   #   "Patch size (1084 KB) exceeds maximum allowed size (1024 KB)"
-  # causing total data loss. Raising to 10 MB gives ample headroom while
-  # still protecting against runaway patches.
+  # causing total data loss. Raised to 10240 KB (10 MB) — the gh-aw schema
+  # maximum (see safe-outputs schema in github/gh-aw
+  # main_workflow_schema.json: "maximum": 10240). The cap CANNOT be raised
+  # further via this knob; if a run exceeds 10 MB, expand `excluded-files`
+  # below to drop large generated raw-data captures from the PR patch.
   max-patch-size: 10240
   allowed-domains:
     - github                         # ecosystem: github.com + api.github.com (least-privilege; PR creation only)

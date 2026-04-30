@@ -136,7 +136,12 @@ safe-outputs:
   threat-detection:
     continue-on-error: true
   # Week-in-review analysis artifacts can exceed the 1024 KB default patch
-  # limit; run 24961736954 produced a legitimate 5205 KB analysis-only patch.
+  # limit; raised to 10240 KB (10 MB) — the gh-aw schema maximum (see
+  # safe-outputs schema in github/gh-aw main_workflow_schema.json:
+  # "maximum": 10240). Run 24961736954 produced a legitimate 5205 KB patch.
+  # If a run exceeds 10 MB (e.g. news-breaking run 25127031620 produced
+  # 11541 KB), the fix is to expand `excluded-files` below to drop large
+  # generated raw-data captures from the PR patch.
   max-patch-size: 10240
   allowed-domains:
     - github                         # ecosystem: github.com + api.github.com (least-privilege; PR creation only)
