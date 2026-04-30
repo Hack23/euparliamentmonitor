@@ -137,17 +137,24 @@ function cacheFirst(request) {
   });
 }
 
-function networkFirstHTML(request) {
-  // Always force the upstream — HTML must always be latest.
-  var bypassReq = new Request(request.url, {
+function createNoStoreRequest(request, mode) {
+  return new Request(request.url, {
     method: request.method,
     headers: request.headers,
     cache: 'no-store',
     redirect: request.redirect,
     credentials: request.credentials,
-    mode: request.mode === 'navigate' ? 'cors' : request.mode,
+    mode: mode || request.mode,
     referrer: request.referrer,
   });
+}
+
+function networkFirstHTML(request) {
+  // Always force the upstream — HTML must always be latest.
+  var bypassReq = createNoStoreRequest(
+    request,
+    request.mode === 'navigate' ? 'cors' : request.mode
+  );
   return fetch(bypassReq)
     .then(function (resp) {
       return resp;
@@ -166,26 +173,16 @@ function networkFirstHTML(request) {
 }
 
 function networkFirstJSON(request) {
-  return fetch(new Request(request.url, { cache: 'no-store', credentials: 'same-origin' })).catch(
-    function () {
-      return new Response('{}', {
-        status: 503,
-        headers: { 'Content-Type': 'application/json; charset=utf-8' },
-      });
-    }
-  );
+  return fetch(createNoStoreRequest(request)).catch(function () {
+    return new Response('{}', {
+      status: 503,
+      headers: { 'Content-Type': 'application/json; charset=utf-8' },
+    });
+  });
 }
 
 function networkFirstManifest(request) {
-  var bypassReq = new Request(request.url, {
-    method: request.method,
-    headers: request.headers,
-    cache: 'no-store',
-    redirect: request.redirect,
-    credentials: request.credentials,
-    mode: request.mode,
-    referrer: request.referrer,
-  });
+  var bypassReq = createNoStoreRequest(request);
   return fetch(bypassReq).catch(function () {
     return new Response(
       JSON.stringify({
