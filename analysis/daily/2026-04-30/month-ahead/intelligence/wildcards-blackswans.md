@@ -200,3 +200,25 @@ A credible security threat to the Strasbourg plenary building in the week of May
 
 **Cross-wildcard assessment:** The wildcard events are largely independent — the most plausible interaction is W2 firing (Russia-Ukraine peace development) triggering a rapid reorientation of EP defence agenda priorities, which could paradoxically accelerate or delay EDIS depending on whether peace is seen as reducing or maintaining the need for autonomous EU defence capability.
 
+---
+
+## Wildcard Probability Update — April 30 Context
+
+**Revised wildcard probability assessments based on April 30 data sweep:**
+
+| Wildcard | Prior Probability | Updated Probability | Signal Basis |
+|----------|------------------|---------------------|--------------|
+| W1 — EPP-S&D Grand Coalition formal pact | 8% | **9%** (+1pp) | April 30 session: normal coalition functioning confirms low urgency for formalisation |
+| W2 — Russia-Ukraine ceasefire / peace agreement | 12% | **11%** (-1pp) | No new diplomatic signals in April 30 data sweep |
+| W3 — Trump tariff escalation +25pp additional | 18% | **20%** (+2pp) | IMF April 2026 WEO flags elevated US trade policy risk |
+| W4 — ECB emergency rate cut / hawkish reversal | 7% | **6%** (-1pp) | EA HICP 2.3% = within target band; no emergency cut signal |
+| W5 — AI Act Stage 2 emergency suspension | 3% | **3%** (unchanged) | No CJEU challenge signals |
+| W6 — Snap national election (major EU state) | 5% | **5%** (unchanged) | No imminent election calendar signals |
+
+**Wildcard interaction matrix update:**
+If W3 fires (+25pp US tariffs): EP would likely invoke trade defence instruments rapidly, requiring EPP-S&D-ECR coalition (not EPP-S&D-Renew), disrupting month-ahead coalition architecture. Probability of W3 → coalition realignment: 30%. This would be the highest-impact wildcard realisation for the May 2026 legislative window.
+
+**Watchpoint:** April 30 one-minute speeches (agenda item D-103+) are often the first visible signal of emerging wildcard narratives. Monitor speech registry when published for any trade/tariff or Russia-Ukraine early signals. 🟡 MEDIUM reliability on wildcard probability estimates; structural analysis only, no direct observation of MEP intent.
+
+
+**Wildcard audit confidence: 🟡 MEDIUM** — Probability estimates are structural (no direct observational basis); updated against April 30 signal sweep. W3 (trade escalation) remains highest-probability wildcard at 20%.

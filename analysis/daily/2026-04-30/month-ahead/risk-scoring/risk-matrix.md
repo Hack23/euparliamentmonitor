@@ -140,3 +140,40 @@ xychart-beta
 | Trade + ECB shock | RISK-02 + RISK-07 | 8-10% | 🟡 MEDIUM |
 | Triple compound (01+02+03) | All three simultaneously | <5% | 🟡 MEDIUM |
 
+---
+
+## Risk Matrix Update — April 30 Live Data
+
+**Risk probability updates based on April 30 real-time signals:**
+
+**RISK-01 (Coalition Fragmentation) — Updated:**
+- Prior probability: 15% | Updated: **13%** (-2pp)
+- Basis: EP stability score 84/100 (early warning system, April 30); April 30 session proceeding normally without coalition stress signals
+- May 2026 residual risk: EPP-S&D 320 seats means any Budget 2027 vote with EPP-S&D only = failure → third-partner dependency remains structural
+
+**RISK-02 (US Trade Escalation) — Updated:**
+- Prior probability: 65% | Updated: **68%** (+3pp)
+- Basis: IMF April 2026 WEO raises trade disruption risk; EA growth downgraded to 1.2% (from 1.4% October 2025 WEO)
+- 90-day outlook: EU-US Comprehensive Trade Agreement framework talks stalled; INTA committee expected to table retaliatory measures in May 2026 session
+
+**RISK-03 (Geopolitical Disruption) — Updated:**
+- Prior probability: 20% | Updated: **19%** (-1pp)
+- Basis: No new Ukraine escalation signals in April 30 EP data sweep; EDIS advancing normally
+
+**RISK-04 (Budget 2027 Failure) — Updated:**
+- Prior probability: 25% | Updated: **23%** (-2pp)
+- Basis: April 28 EP guidelines adopted (TA-10-2026-0112) — confirms EP baseline position established on schedule
+
+**New risk entry — RISK-08 (AI Act Stage 2 Implementation Delay):**
+- Probability: **8%**
+- Impact: MEDIUM — delayed implementation creates legal uncertainty for EU tech sector
+- Signal: April 30 written questions (E-10-2026 series) include unresolved AI Act queries; 21 pending written questions in EP system
+
+| Risk | Prob (Updated) | Impact | Residual | Change |
+|------|----------------|--------|----------|--------|
+| RISK-01 Coalition | 13% | HIGH | 🟡 | ↓ -2pp |
+| RISK-02 Trade | 68% | HIGH | 🔴 | ↑ +3pp |
+| RISK-03 Geopolitical | 19% | HIGH | 🟡 | ↓ -1pp |
+| RISK-04 Budget 2027 | 23% | HIGH | 🟡 | ↓ -2pp |
+| RISK-08 AI Act delay | 8% | MEDIUM | 🟢 | NEW |
+

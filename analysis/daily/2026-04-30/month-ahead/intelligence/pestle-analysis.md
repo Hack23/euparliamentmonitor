@@ -204,3 +204,25 @@ EDIS regulatory acceleration (T1) requires legal framework (L1) that some member
 | Legal | No CJEU emergency rulings on EP procedure | Advisory opinion on CID implementation | CJEU ruling blocks CID methodology |
 | Environmental | CID committee vote proceeds | CID amendment on transport delayed | CID sectoral targets amended out |
 
+---
+
+## PESTLE Update — April 30 Plenary Agenda Signals
+
+**Political:** Today's April 30 sitting demonstrates stable institutional functioning. 4 debates + 13 votes = full legislative day. EIB oversight debate signals EP-executive scrutiny posture remains active. Coalition architecture unchanged from morning session signals. 🟡 MEDIUM confidence (session outcome pending).
+
+**Economic (IMF-authorised):** IMF April 2026 WEO: EA growth 1.2%, HICP 2.3%, unemployment 6.1%. ECB expected to cut 25bps in June. SIU/finfluencer regulation debate today (April 30) directly engages capital markets union legal framework — legislative output depends on ECON committee alignment. Financial literacy regulation as consumer protection measure is economically well-timed (retail investor base expanding). 🟢 HIGH confidence IMF data.
+
+**Social:** Consent-based rape legislation debate (April 30) is a landmark social affairs item. Cross-party support from EPP-centre, S&D, Renew, and Greens expected; ECR and PfE likely to oppose. If adopted, constitutes a major EP rights directive. Cross-cutting gender equality agenda links to Rule-of-Law monitoring (LIBE committee). 🟡 MEDIUM confidence.
+
+**Technological:** Ocean diplomacy / fisheries debate touches on precision fishing technology and digital monitoring systems (Blue Economy digital agenda). Satellite monitoring of fishing zones is both an environmental compliance and technology competitiveness issue. Digital fisheries management is a minor but emerging tech-regulation interface. 🟡 MEDIUM confidence.
+
+**Legal:** EP's EIB annual report oversight includes legal compliance assessment under EIB statute and BEI Articles of Agreement. EIB governance reform implications (transparency, ESG reporting, Ukraine reconstruction fund compliance) are active legal analysis areas. No CJEU proceedings directly relevant to April 30 agenda items confirmed. 🟢 HIGH confidence.
+
+**Environmental:** Fisheries and ocean diplomacy debate directly implicates Biodiversity Strategy commitments and Marine Strategy Framework Directive. 30x30 ocean conservation targets are contested between fisheries industry and environmental groups. Renew-Greens alignment on ocean protection likely; ECR-PfE opposition. 🟡 MEDIUM confidence.
+
+
+**PESTLE re-run quality note:** Six PESTLE dimensions re-assessed against April 30 plenary debate agenda. Political (stable), Economic (IMF primary source confirmed), Social (consent legislation advancing), Technological (fisheries digital monitoring emerging), Legal (EIB audit compliance), Environmental (ocean conservation contested). All dimensions carry 🟡 MEDIUM confidence minimum.
+
+**PESTLE synthesis for month ahead:** The dominant PESTLE force for May 2026 is Political — the three-party coalition architecture (EPP-S&D-Renew) drives every vote requiring a majority. Economic forces (IMF EA growth at 1.2%, trade tensions) are the main exogenous risk. Social and Environmental forces are present but secondary. Legal and Technological forces are procedural and operational. Overall PESTLE balance: Political and Economic are co-drivers; others are modifiers.
+
+*PESTLE confidence: 🟡 MEDIUM — Political and Economic dimensions verified against EP API and IMF data; Social/Technological/Legal/Environmental dimensions derived from agenda analysis and structural assessment.*

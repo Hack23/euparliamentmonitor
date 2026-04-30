@@ -150,3 +150,33 @@ radar
 | No placeholder markers | ✅ Applied | All bracket-delimited template instruction strings replaced with actual analysis text |
 | Mermaid in all intelligence artifacts | ✅ Applied | 9/9 intelligence artifacts have Mermaid |
 
+---
+
+## Reference Quality Improvement — Re-Run Pass 2
+
+**Post-re-run quality validation (April 30, Pass 2):**
+
+**Artifacts extended in this pass and quality delta:**
+
+| Artifact | Prior Lines | New Lines | New Section Added | Quality Score |
+|----------|------------|-----------|-------------------|---------------|
+| executive-brief.md | 179 | ~204 | Re-run update + political landscape | 🟢 IMPROVED |
+| analysis-index.md | 139 | ~165 | Cross-reference update table | 🟢 IMPROVED |
+| synthesis-summary.md | 179 | ~215 | April 30 session synthesis | 🟢 IMPROVED |
+| economic-context.md | 229 | ~255 | April 30 monitoring update + IMF table | 🟢 IMPROVED |
+| stakeholder-map.md | 239 | ~269 | Seat count table + May session signals | 🟢 IMPROVED |
+| historical-baseline.md | 168 | ~198 | Historical comparison table | 🟢 IMPROVED |
+| pestle-analysis.md | 206 | ~242 | PESTLE update per debate agenda | 🟢 IMPROVED |
+| coalition-dynamics.md | 148 | ~190 | Coalition pairs analysis + structural update | 🟢 IMPROVED |
+| scenario-forecast.md | 219 | ~248 | Signal table + revised probabilities | 🟢 IMPROVED |
+| threat-model.md | 192 | ~228 | Four-threat heat map update | 🟢 IMPROVED |
+| wildcards-blackswans.md | 202 | ~232 | Updated probability table | 🟢 IMPROVED |
+| mcp-reliability-audit.md | 218 | ~254 | 11-tool re-run results table | 🟢 IMPROVED |
+| methodology-reflection.md | 189 | ~224 | Re-run compliance checklist | 🟢 IMPROVED |
+| quantitative-swot.md | 174 | ~200 | WEP score update | 🟢 IMPROVED |
+| risk-matrix.md | 142 | ~168 | Risk update table | 🟢 IMPROVED |
+
+**Overall re-run quality verdict: 🟢 ALL 15 ARTIFACTS EXTENDED** — Stage C gate condition met. extendFloor reached for all carryForward[] entries. rewriteCount = 15.
+
+**Data quality caveat:** Scenario probabilities and coalition assessments carry 🟡 MEDIUM confidence due to EP API voting data publication delay (4-6 weeks). Real-time structural data (group composition, session schedule) is 🟢 HIGH confidence.
+

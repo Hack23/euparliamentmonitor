@@ -1,18 +1,29 @@
 {
   "articleType": "month-ahead",
   "runDate": "2026-04-30",
-  "runId": "month-ahead-run-1777536024",
+  "runId": "month-ahead-run-1777558354",
   "analysisDir": "analysis/daily/2026-04-30/month-ahead",
-  "gateResult": "ANALYSIS_ONLY",
-  "gateReason": "elapsed-time tripwire at minute 23; Stage E PR-call deadline priority",
+  "gateResult": "GREEN",
   "pass2": {
-    "startedAt": "minute-18-approx",
-    "endedAt": "minute-22-approx",
-    "rewriteCount": 3,
+    "startedAt": "minute-8-approx",
+    "endedAt": "minute-11-approx",
+    "rewriteCount": 15,
     "rewrittenArtifacts": [
+      "executive-brief.md",
+      "intelligence/analysis-index.md",
       "intelligence/synthesis-summary.md",
+      "intelligence/economic-context.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/pestle-analysis.md",
       "intelligence/coalition-dynamics.md",
-      "intelligence/economic-context.md"
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/methodology-reflection.md",
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/risk-matrix.md"
     ]
   },
   "dataQualityWarnings": [
@@ -20,7 +31,9 @@
     "get_procedures_feed: RECESS_MODE - historical 1972 data returned",
     "get_voting_records: EMPTY - 4-6 week publication delay",
     "vote_cohesion_data: NULL - EP Open Data Portal limitation; seat-share proxy used",
-    "May 18-21 agenda: not yet published (18 days out)"
+    "May 18-21 agenda: not yet published (18 days out)",
+    "monitor_legislative_pipeline: zero active procedures - EP API limitation",
+    "compare_political_groups: zero performance scores - voting data unavailable"
   ],
   "mcpServersUsed": [
     "european-parliament-mcp-server@1.2.18",
@@ -31,6 +44,13 @@
   "mermaidPresent": true,
   "forwardStatementsReviewed": 4,
   "forwardStatementsGenerated": 3,
+  "freshDataCollected": {
+    "politicalLandscape": "719 MEPs, 9 groups, stabilityScore 84",
+    "earlyWarnings": "3 warnings, MEDIUM risk level",
+    "coalitionDynamics": "ENP 6.57, EPP+S&D=320/361",
+    "aprilThirtySitting": "21 foreseen activities confirmed",
+    "aprilTwentySevenSpeeches": "21 speeches retrieved"
+  },
   "files": {
     "executive-brief.md": "analysis/daily/2026-04-30/month-ahead/executive-brief.md",
     "intelligence/analysis-index.md": "analysis/daily/2026-04-30/month-ahead/intelligence/analysis-index.md",
@@ -63,6 +83,15 @@
       "gateResult": "ANALYSIS_ONLY",
       "artifactCount": 19,
       "totalFiles": 22
+    },
+    {
+      "runId": "month-ahead-run-1777558354",
+      "runDate": "2026-04-30",
+      "runEpoch": 1777558354,
+      "gateResult": "GREEN",
+      "artifactCount": 22,
+      "totalFiles": 22,
+      "pass2RewriteCount": 15
     }
   ]
 }

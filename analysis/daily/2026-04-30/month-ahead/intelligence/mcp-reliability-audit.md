@@ -216,3 +216,25 @@ The compensating sources fully address the analytical requirements for the month
 3. **Forward statement registry** significantly reduced dependency on live feed data — pre-seeded open items from prior runs maintained analytical continuity despite feed failures.
 4. **IMF probe parallelisation** was effective — running `imf-mcp-probe.sh` as background process during EP MCP calls saved approximately 45-60 seconds in Stage A.
 
+---
+
+## Re-Run MCP Audit — April 30 Pass 2 Results
+
+**Additional tool calls executed in this re-run and their reliability:**
+
+| Tool Called | Status | Data Quality | Notes |
+|-------------|--------|-------------|-------|
+| `get_plenary_sessions` (dateFrom: 2026-04-30) | ✅ Success | 🟢 GOOD | Returned future sessions including May 18-21 |
+| `get_procedures_feed` (timeframe: one-month) | ⚠️ RECESS_MODE | 🔴 HISTORICAL | 1972-1980 era data returned — known degraded-upstream pattern |
+| `get_meeting_foreseen_activities` (MTG-PL-2026-04-30) | ✅ Success | 🟡 PARTIAL | 21 activities returned with limited title data |
+| `get_adopted_texts_feed` (one-month) | ✅ Success | 🟢 GOOD | Large payload (101.9 KB); TA-10-2026 items confirmed |
+| `generate_political_landscape` | ✅ Success | 🟢 GOOD | Real-time EP API — 719 MEPs, 9 groups confirmed |
+| `early_warning_system` | ✅ Success | 🟡 MEDIUM | Structural analysis only (no voting cohesion data) |
+| `analyze_coalition_dynamics` | ✅ Success | 🟡 LOW | null cohesion metrics — voting data unavailable from EP API |
+| `monitor_legislative_pipeline` | ✅ Partial | 🔴 LOW | Zero active procedures returned — EP API limitation |
+| `get_parliamentary_questions` | ✅ Success | 🟡 PARTIAL | 21 questions returned; author/topic metadata empty |
+| `compare_political_groups` | ✅ Success | 🟡 PARTIAL | Member counts correct; performance scores zero (no voting data) |
+| `get_speeches` (2026-04-27) | ✅ Success | 🟢 GOOD | 21 speeches with debate titles from April 27 session |
+
+**Re-run data quality summary:** 8/11 tools returned usable data (73% reliability rate). RECESS_MODE procedures feed and empty legislative pipeline are known EP API limitations, not version-specific issues. All critical structural data (group composition, upcoming sessions, foreseen activities, adopted texts) confirmed via successful tools. 🟡 MEDIUM overall confidence rating for this re-run data collection phase.
+

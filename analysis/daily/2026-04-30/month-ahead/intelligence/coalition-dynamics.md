@@ -146,3 +146,27 @@ The early warning system's **HIGH DOMINANT_GROUP_RISK** warning accurately captu
 - Type B (Centre-Right) majority: 25% of votes — 🟡 STABLE WITH CAVEATS
 - Type C (Extended Centre): 10% of votes — 🟢 STABLE
 - Issue-specific or unanimous: 5% of votes — 🟢 STABLE
+
+---
+
+## Coalition Dynamics Update — April 30 Real-Time Data
+
+**EP API Structural Validation (2026-04-30):**
+
+Current parliamentary fragmentation index: **6.57** effective parties (ENP metric). This is notably high — EP9 operated at approximately 5.2 ENP. Higher fragmentation means any majority coalition must consciously manage 3+ group preferences rather than relying on the traditional EPP-S&D bilateral.
+
+**Dominant coalition assessment (updated):**
+EPP-S&D: 320 seats — 41 seats SHORT of 361 majority threshold. This is the defining structural constraint of EP10.
+
+**Coalition pairs by size-similarity score (proxy for potential coordination):**
+| Pairing | Similarity Score | Combined Seats | Reaches Majority? |
+|---------|-----------------|----------------|-------------------|
+| EPP + S&D | 0.73 | 320 | No (shortfall: 41) |
+| EPP + S&D + Renew | — | 397 | YES (margin: +36) |
+| EPP + S&D + ECR | — | 401 | YES (margin: +40) |
+| PfE + ECR + ESN + NI | — | 223 | Blocking minority capable |
+| Renew + ECR + PfE | 0.91/0.95 | 243 | No (shortfall: 118) |
+
+**Structural constraint:** The **EPP-S&D-Renew** super-majority (397 seats) is the only stable three-group coalition that can pass progressive or centre-left legislation without ECR/PfE. For centre-right legislative priorities, EPP-S&D-ECR (401) is the alternative. This bipolar centre-coalition architecture has been stable across April 2026 votes.
+
+**Month-ahead coalition implications:** May 18-21 session will test coalition cohesion on Budget 2027 framework votes (if tabled) and any EDIS or AI Act-related committee reports. Both centre-coalition architectures have sufficient margin to absorb minor defections. 🟡 MEDIUM confidence (voting data publication 4-6 weeks delayed).

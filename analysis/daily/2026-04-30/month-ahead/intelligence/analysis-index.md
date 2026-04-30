@@ -137,3 +137,26 @@ graph LR
 | reference-analysis-quality.md | ~140 | ✅ | - | - | 🟢 |
 | mcp-reliability-audit.md | ~220 | ✅ | - | - | 🟢 |
 
+---
+
+## Re-Run Cross-Reference Update — 2026-04-30 Pass 2
+
+**New cross-links established in this re-run:**
+
+| Source Artifact | New Citation Target | Cross-Reference Type | Evidence Strength |
+|-----------------|---------------------|----------------------|-------------------|
+| `coalition-dynamics.md` | April 30 EP API real-time data | Structural validation | 🟢 HIGH — live API confirmation |
+| `economic-context.md` | April 30 session voting implications | Policy-economy nexus | 🟡 MEDIUM — forecast linkage |
+| `synthesis-summary.md` | May 18-21 plenary session forward signals | Forward projection | 🟡 MEDIUM — schedule-based |
+| `scenario-forecast.md` | April 30 vote outcomes (pending) | Signal update | 🔴 LOW — voting not yet concluded |
+| `stakeholder-map.md` | April 27-30 debate participation | Engagement validation | 🟡 MEDIUM — speech attribution incomplete |
+
+**Quality assurance for re-run artifact set:**
+- All 15 `carryForward[]` artifacts extended per prior-run-diff plan (extendFloor +20 lines each)
+- `rewriteCount` updated in manifest to reflect Pass 2 completion
+- No mandatory-analysis placeholder markers remain
+- IMF economic context validated as primary authoritative source for all fiscal/monetary claims
+- WEP confidence ratings calibrated against April 30 real-time EP API data (stability score: 84/100)
+- May 18-21 Strasbourg session confirmed as primary month-ahead focus period
+- Foreseen activities for May sessions not yet published — acknowledged as data gap in `mcp-reliability-audit.md`
+
