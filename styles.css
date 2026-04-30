@@ -7071,3 +7071,257 @@ html[data-theme='dark'] .article-body blockquote {
   list-style-position: inside;
   padding-right: 0;
 }
+
+/* ─── PWA + freshness UI ───────────────────────────────────────────── */
+/*
+ * Update toast: a polite, dismissible banner shown by js/pwa-register.js
+ * when build-info.json signals a newer deploy. Bottom-right on desktop,
+ * full-width bottom on narrow viewports. Honours `prefers-reduced-motion`
+ * and switches sides under `:dir(rtl)`.
+ */
+.ep-update-toast {
+  position: fixed;
+  inset-inline-end: 1rem;
+  bottom: 1rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  max-width: min(420px, calc(100vw - 2rem));
+  padding: 0.75rem 0.875rem;
+  background: var(--color-surface, #ffffff);
+  color: var(--color-text, #0b1f3a);
+  border: 1px solid rgba(0, 51, 153, 0.18);
+  border-inline-start: 4px solid #003399;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18), 0 2px 6px rgba(15, 23, 42, 0.08);
+  font-size: 0.95rem;
+  line-height: 1.35;
+  animation: ep-toast-in 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.ep-update-toast__icon {
+  font-size: 1.1rem;
+  flex: 0 0 auto;
+}
+
+.ep-update-toast__msg {
+  flex: 1 1 auto;
+}
+
+.ep-update-toast__refresh {
+  flex: 0 0 auto;
+  padding: 0.4rem 0.75rem;
+  font: inherit;
+  font-weight: 600;
+  background: #003399;
+  color: #ffffff;
+  border: 1px solid #003399;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ep-update-toast__refresh:hover,
+.ep-update-toast__refresh:focus-visible {
+  background: #002878;
+  outline: 2px solid #ffcc00;
+  outline-offset: 2px;
+}
+
+.ep-update-toast__dismiss {
+  flex: 0 0 auto;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  font: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+  background: transparent;
+  color: inherit;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ep-update-toast__dismiss:hover,
+.ep-update-toast__dismiss:focus-visible {
+  background: rgba(0, 51, 153, 0.08);
+  border-color: rgba(0, 51, 153, 0.25);
+  outline: 2px solid #ffcc00;
+  outline-offset: 2px;
+}
+
+@keyframes ep-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .ep-update-toast {
+    inset-inline-start: 0.5rem;
+    inset-inline-end: 0.5rem;
+    bottom: 0.5rem;
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ep-update-toast {
+    animation: none;
+  }
+}
+
+html[data-theme='dark'] .ep-update-toast {
+  background: #142848;
+  color: #e6ecf6;
+  border-color: rgba(168, 207, 255, 0.2);
+  border-inline-start-color: #5fa8ff;
+}
+
+html[data-theme='dark'] .ep-update-toast__refresh {
+  background: #5fa8ff;
+  color: #0b1f3a;
+  border-color: #5fa8ff;
+}
+
+/* ─── Footer build identity line ───────────────────────────────────── */
+
+.footer-build {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+  opacity: 0.85;
+  transition: opacity 120ms ease;
+}
+
+.footer-build:hover,
+.footer-build:focus-visible {
+  opacity: 1;
+}
+
+.footer-build code {
+  font: inherit;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0 0.25rem;
+  border-radius: 3px;
+}
+
+.footer-build-time {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  opacity: 0.75;
+}
+
+.footer-build-deployed {
+  opacity: 0.75;
+}
+
+/* ─── Inline icon helper used by header / footer / cards ─────────── */
+
+.icon-inline {
+  display: inline-block;
+  width: 1.05em;
+  height: 1.05em;
+  vertical-align: -0.18em;
+  margin-inline-end: 0.35em;
+  fill: none;
+  stroke: currentColor;
+  flex-shrink: 0;
+}
+
+/* Keep emoji visible (decorative) and slightly nudge the new SVG icon
+ * so the two sit cleanly together without breaking existing layout. */
+.site-header__cta .icon-inline,
+.footer-section li .icon-inline {
+  margin-inline-end: 0.25em;
+  opacity: 0.9;
+}
+
+/* ─── Offline page hero ────────────────────────────────────────────── */
+
+.ep-offline-hero {
+  display: grid;
+  place-items: center;
+  min-height: 70vh;
+  padding: 2.5rem 1rem;
+}
+
+.ep-offline-hero__panel {
+  max-width: 640px;
+  width: 100%;
+  text-align: center;
+  background: var(--color-surface, #ffffff);
+  border: 1px solid rgba(0, 51, 153, 0.12);
+  border-radius: 14px;
+  padding: 2.25rem 1.75rem;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.ep-offline-hero__icon {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.ep-offline-hero__title {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2.1rem);
+  color: #003399;
+}
+
+.ep-offline-hero__lead {
+  font-size: 1.05rem;
+  margin: 0 0 1rem;
+}
+
+.ep-offline-hero__panel p[lang] {
+  margin: 0.35rem 0;
+  font-size: 0.95rem;
+  opacity: 0.78;
+}
+
+.ep-offline-hero__actions {
+  margin-top: 1.5rem;
+}
+
+.ep-offline-hero__cta {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  background: #003399;
+  color: #ffffff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ep-offline-hero__cta:hover,
+.ep-offline-hero__cta:focus-visible {
+  background: #002878;
+  outline: 2px solid #ffcc00;
+  outline-offset: 2px;
+}
+
+html[data-theme='dark'] .ep-offline-hero__panel {
+  background: #142848;
+  border-color: rgba(168, 207, 255, 0.18);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme='dark'] .ep-offline-hero__title {
+  color: #a8cfff;
+}
+
+/* ─── RTL adjustments ──────────────────────────────────────────────── */
+
+[dir='rtl'] .ep-update-toast {
+  border-inline-start: 1px solid rgba(0, 51, 153, 0.18);
+  border-inline-end: 4px solid #003399;
+}

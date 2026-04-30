@@ -1,0 +1,227 @@
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+
+/**
+ * EU Parliament Monitor — service worker template.
+ *
+ * Rendered to `sw.js` at the project root by
+ * `scripts/generators/build-info.js`, which substitutes:
+ *   - `__BUILD_ID__`    → 40-char git SHA of the deployed build.
+ *   - `__BUILD_SHORT__` → first 7 chars of the SHA.
+ *
+ * Strategy summary (the user's #1 rule: "All pages must always get
+ * latest content"):
+ *
+ *   • Navigations + `*.json`/`*.webmanifest` → network-first with
+ *     `cache: 'no-store'`. Cached responses are only served when the
+ *     network is offline. HTML never sticks in cache.
+ *   • Static assets (`/images/`, `/fonts/`, `/js/vendor/`, common
+ *     binary types) → cache-first under a versioned bucket so old
+ *     deploys are evicted on activation.
+ *   • Other same-origin JS + CSS → stale-while-revalidate so pages
+ *     render instantly while still pulling the latest bundle.
+ *   • Cross-origin → pass-through `fetch(req)` (we do not proxy
+ *     external traffic and CSP is `connect-src 'self'`-only anyway).
+ *
+ * `skipWaiting()` + `clients.claim()` are intentional: every deploy
+ * should immediately take effect, with stale caches purged on
+ * activation.
+ */
+
+/* eslint-env serviceworker */
+/* global self, caches */
+
+'use strict';
+
+const CACHE_VERSION = '__BUILD_SHORT__';
+const BUILD_ID = '__BUILD_ID__';
+const STATIC_CACHE = 'static-' + CACHE_VERSION;
+const RUNTIME_CACHE = 'runtime-' + CACHE_VERSION;
+const HTML_FALLBACK_CACHE = 'html-fallback-' + CACHE_VERSION;
+const OFFLINE_URL = '/offline.html';
+
+self.addEventListener('install', function (event) {
+  event.waitUntil(
+    caches
+      .open(HTML_FALLBACK_CACHE)
+      .then(function (cache) {
+        return cache.add(new Request(OFFLINE_URL, { cache: 'reload' })).catch(function () {
+          /* offline.html may not be deployed yet — non-fatal */
+        });
+      })
+      .then(function () {
+        return self.skipWaiting();
+      })
+  );
+});
+
+self.addEventListener('activate', function (event) {
+  event.waitUntil(
+    caches
+      .keys()
+      .then(function (keys) {
+        var keep = [STATIC_CACHE, RUNTIME_CACHE, HTML_FALLBACK_CACHE];
+        return Promise.all(
+          keys.map(function (key) {
+            if (keep.indexOf(key) === -1) {
+              return caches.delete(key);
+            }
+            return undefined;
+          })
+        );
+      })
+      .then(function () {
+        return self.clients.claim();
+      })
+  );
+});
+
+/**
+ * Decide if this request is for a static asset that's safe to cache
+ * aggressively (cache-first).
+ */
+function isStaticAsset(url) {
+  if (url.pathname.indexOf('/js/vendor/') === 0) return true;
+  if (url.pathname.indexOf('/images/') === 0) return true;
+  if (url.pathname.indexOf('/fonts/') === 0) return true;
+  return /\.(?:woff2?|ttf|otf|eot|svg|png|jpe?g|webp|gif|ico)$/i.test(url.pathname);
+}
+
+/**
+ * Decide if this request must always hit the network first
+ * (HTML navigations + JSON metadata + manifest).
+ */
+function isFreshnessCritical(request, url) {
+  if (request.mode === 'navigate') return true;
+  if (request.destination === 'document') return true;
+  if (/\.html$/i.test(url.pathname)) return true;
+  if (/\.json$/i.test(url.pathname)) return true;
+  if (/\.webmanifest$/i.test(url.pathname)) return true;
+  return false;
+}
+
+/**
+ * Stale-while-revalidate for same-origin scripts + styles. Cached
+ * response is served instantly; fetch updates the cache in the
+ * background so the next navigation gets the latest bundle.
+ */
+function staleWhileRevalidate(request) {
+  return caches.open(RUNTIME_CACHE).then(function (cache) {
+    return cache.match(request).then(function (cached) {
+      var fetchPromise = fetch(request)
+        .then(function (resp) {
+          if (resp && resp.ok) {
+            cache.put(request, resp.clone());
+          }
+          return resp;
+        })
+        .catch(function () {
+          return cached;
+        });
+      return cached || fetchPromise;
+    });
+  });
+}
+
+function cacheFirst(request) {
+  return caches.open(STATIC_CACHE).then(function (cache) {
+    return cache.match(request).then(function (cached) {
+      if (cached) return cached;
+      return fetch(request).then(function (resp) {
+        if (resp && resp.ok) {
+          cache.put(request, resp.clone());
+        }
+        return resp;
+      });
+    });
+  });
+}
+
+function networkFirstHTML(request) {
+  // Always force the upstream — HTML must always be latest.
+  var bypassReq = new Request(request.url, {
+    method: request.method,
+    headers: request.headers,
+    cache: 'no-store',
+    redirect: request.redirect,
+    credentials: request.credentials,
+    mode: request.mode === 'navigate' ? 'cors' : request.mode,
+    referrer: request.referrer,
+  });
+  return fetch(bypassReq)
+    .then(function (resp) {
+      return resp;
+    })
+    .catch(function () {
+      return caches
+        .match(OFFLINE_URL)
+        .then(function (offline) {
+          return (
+            offline ||
+            new Response('Offline', {
+              status: 503,
+              headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+            })
+          );
+        });
+    });
+}
+
+function networkFirstJSON(request) {
+  return fetch(new Request(request.url, { cache: 'no-store', credentials: 'same-origin' })).catch(
+    function () {
+      return new Response('{}', {
+        status: 503,
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      });
+    }
+  );
+}
+
+self.addEventListener('fetch', function (event) {
+  var request = event.request;
+  if (request.method !== 'GET') return;
+
+  var url;
+  try {
+    url = new URL(request.url);
+  } catch (_err) {
+    return;
+  }
+
+  // Cross-origin: never intercept (CSP is `connect-src 'self'`).
+  if (url.origin !== self.location.origin) {
+    return;
+  }
+
+  if (isFreshnessCritical(request, url)) {
+    if (request.mode === 'navigate' || /\.html$/i.test(url.pathname)) {
+      event.respondWith(networkFirstHTML(request));
+    } else {
+      event.respondWith(networkFirstJSON(request));
+    }
+    return;
+  }
+
+  if (isStaticAsset(url)) {
+    event.respondWith(cacheFirst(request));
+    return;
+  }
+
+  if (/\.(?:js|mjs|css)$/i.test(url.pathname)) {
+    event.respondWith(staleWhileRevalidate(request));
+    return;
+  }
+
+  // Default: pass-through.
+});
+
+// Allow the page to ask the SW to skip waiting (used by the update toast).
+self.addEventListener('message', function (event) {
+  if (event && event.data && event.data.type === 'SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
+
+// Surface the build id for diagnostics.
+self.BUILD_ID = BUILD_ID;

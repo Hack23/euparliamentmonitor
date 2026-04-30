@@ -22,6 +22,7 @@
  */
 
 import { BASE_URL, THEME_TOGGLE_SCRIPT } from '../../constants/config.js';
+import { buildHeadFreshnessTags } from '../../constants/build-info-meta.js';
 import {
   ALL_LANGUAGES,
   LANGUAGE_NAMES,
@@ -29,6 +30,9 @@ import {
   PAGE_TITLES,
   PAGE_DESCRIPTIONS,
   SKIP_LINK_TEXTS,
+  UPDATE_AVAILABLE_LABELS,
+  UPDATE_REFRESH_CTA_LABELS,
+  UPDATE_DISMISS_LABELS,
   getLocalizedString,
   getTextDirection,
 } from '../../constants/languages.js';
@@ -322,6 +326,10 @@ ${hreflangLinks}
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#003399">
   <link rel="stylesheet" href="styles.css">
+  <meta name="ep-i18n-update-text" content="${escapeHTML(getLocalizedString(UPDATE_AVAILABLE_LABELS, lang))}">
+  <meta name="ep-i18n-update-cta" content="${escapeHTML(getLocalizedString(UPDATE_REFRESH_CTA_LABELS, lang))}">
+  <meta name="ep-i18n-dismiss" content="${escapeHTML(getLocalizedString(UPDATE_DISMISS_LABELS, lang))}">
+${buildHeadFreshnessTags('')}
   <script type="application/ld+json">${jsonLdString}</script>
 </head>
 <body>
