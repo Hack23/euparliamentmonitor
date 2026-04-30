@@ -73,7 +73,7 @@ describe('PWA freshness assets', () => {
     const pwaRegister = readPwaRegister();
 
     expect(pwaRegister).toContain('function resolveRootAssetHref(file)');
-    expect(pwaRegister).toContain("window.location.pathname.indexOf('/news/') === 0");
+    expect(pwaRegister).toContain("window.location.pathname.split('/')");
     expect(pwaRegister).not.toContain('resolvePreloadHref');
     expect(pwaRegister).not.toContain('link[rel="preload"]');
   });
@@ -136,6 +136,17 @@ describe('PWA freshness assets', () => {
     expect(registerForPath('/news/2026-04-30-example-en.html')).toEqual({
       url: '../sw.js',
       options: { scope: '../' },
+    });
+    // GitHub Pages base-path failover (/<repo>/news/<page>.html) must also
+    // resolve sibling assets via `../` so SW registration and freshness
+    // polling work without hitting 404s.
+    expect(registerForPath('/euparliamentmonitor/news/2026-04-30-example-en.html')).toEqual({
+      url: '../sw.js',
+      options: { scope: '../' },
+    });
+    expect(registerForPath('/euparliamentmonitor/index.html')).toEqual({
+      url: './sw.js',
+      options: { scope: './' },
     });
   });
 });

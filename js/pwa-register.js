@@ -36,9 +36,20 @@
 
   /**
    * Resolve a same-origin root asset URL for root and `news/*.html` pages.
+   * Detects the parent directory (segment before the filename) so it works
+   * for both bare `/news/<page>.html` and base-path deployments such as
+   * `/euparliamentmonitor/news/<page>.html` (GitHub Pages failover).
    */
   function resolveRootAssetHref(file) {
-    if (window.location.pathname.indexOf('/news/') === 0) return '../' + file;
+    var segments = window.location.pathname.split('/');
+    // Drop trailing empty segment (e.g. for `/news/` directory URLs) so the
+    // last entry is always the filename and segments[length - 2] is its
+    // parent directory.
+    if (segments.length > 0 && segments[segments.length - 1] === '') {
+      segments.pop();
+    }
+    var parent = segments.length >= 2 ? segments[segments.length - 2] : '';
+    if (parent === 'news') return '../' + file;
     return './' + file;
   }
 
