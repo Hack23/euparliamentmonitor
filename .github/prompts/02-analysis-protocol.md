@@ -93,42 +93,70 @@ agent when Stage B2 begins and ends):**
   first).
 - `endedAt`: ISO-8601 timestamp when Pass 2 ended (before Stage C).
 - `rewriteCount`: number of artifacts whose content was changed during
-  Pass 2 (not merely re-read). A `rewriteCount` of `0` is valid **only**
-  when all artifacts were already above their line floors from a prior
-  same-day run. The Stage-C validator warns when `rewriteCount === 0`
-  and any artifact sits at exactly its floor.
+  Pass 2 (not merely re-read). On a **re-run** (`manifest.json.history[]`
+  non-empty before this run started), `rewriteCount` MUST equal the total
+  artifact count — re-runs always extend or rewrite every artifact (see
+  §"Re-run improve/extend rule" below). On a **first run** of the day,
+  `rewriteCount === 0` is valid only when every artifact already met its
+  floor on the first Pass 1 write. The Stage-C validator emits a hard RED
+  on `rewriteCount === 0` for re-runs and warns on first runs when any
+  artifact sits at exactly its floor.
 
-**Re-run merge rule (§1 of the plan):**
+**Re-run improve/extend rule (§1 of the plan) — never no-op:**
 
-1. Load existing `manifest.json` — if present, treat the folder as a resume
-   candidate, not a conflict.
-2. **If `manifest.json.history[]` is non-empty AND the workflow env has set
-   `ENABLE_PRIOR_RUN_MERGE=true`**, run the prior-run diff helper to classify
-   artifacts before starting Stage B:
+When `${ANALYSIS_DIR}/manifest.json` already exists with a non-empty
+`history[]`, every re-run MUST **detect** the prior analysis (and any
+already-rendered article under `news/`) and **deepen** it. Re-running a
+workflow on the same date+type is **never** a no-op: every artifact is
+either *extended* (raised in line count, evidence, or new sections) or
+*rewritten*. Article markdown and HTML are always regenerated from the
+updated analysis.
+
+1. Load existing `manifest.json` — treat the folder as a resume candidate,
+   not a conflict.
+2. Always run the prior-run diff helper (no env flag, always-on):
    ```bash
    npm run prior-run-diff -- "${ANALYSIS_DIR}"
    ```
-   If the env flag is unset, **skip this helper** and continue with a normal
-   Stage-B rewrite of all mandatory artifacts (the helper would no-op anyway,
-   returning `enabled: false`). The helper emits a JSON `priorRunDiff` plan:
-   - `carryForward[]` — artifacts already at/above floor (lines ≥ floor,
-     mermaid present if required, no placeholders): **skip writing these**
-     in Stage B unless new Stage-A data materially changes their conclusions.
-   - `rewrite[]` — artifacts below floor or missing: **write a stronger version**.
-   Persist the plan to `${ANALYSIS_DIR}/runs/prior-run-diff.json` for Stage C.
-3. Run Stage-B Pass 1 + Pass 2 producing every mandatory artifact, **respecting
-   the carry-forward list**: log a `[CARRY-FORWARD: <relativePath>]` line for
-   each skipped artifact so the Stage-C reviewer can see the attribution.
-4. For artifacts in `rewrite[]`, write a stronger version (overwriting the
-   prior file).
-5. Run Stage C — if GREEN, append a history entry with `gateResult: "GREEN"`.
-   Stage C validates every artifact (including carried-forward ones) via
-   `npm run validate-analysis`.
+   The helper emits a `priorRunDiff` plan with `mode: "improve-and-extend"`:
+   - `carryForward[]` — artifacts already at/above floor in the prior run.
+     **These are must-extend targets, not skip-write targets.** Each entry
+     exposes `priorLines` (current on-disk size from the prior run) and
+     `extendFloor` (= `max(threshold floor, priorLines + 20)`). Stage B
+     MUST raise each artifact past `extendFloor` AND add at least one of:
+     a new section, ≥3 new evidence citations, or ≥1 new chart/diagram.
+   - `rewrite[]` — artifacts below floor or missing. Write a stronger
+     version from scratch, sized to the catalog floor.
 
-> **Env flag for safe rollout:** `ENABLE_PRIOR_RUN_MERGE` defaults to disabled.
-> Set it to `true` in the workflow's env block once the first A/B pair confirms
-> Stage B time drops. The helper is a no-op (returns `enabled: false`) when the
-> flag is unset.
+   Persist the plan to `${ANALYSIS_DIR}/runs/prior-run-diff.json` for
+   Stage C.
+3. Run Stage-B Pass 1 + Pass 2 producing every mandatory artifact. For
+   each carry-forward entry, log a single line per artifact when it is
+   re-written so the Stage-C reviewer can see the delta:
+   ```text
+   [EXTEND-FROM-PRIOR: <relativePath> prior=<priorLines>L → new=<newLines>L (+<delta>)]
+   ```
+   Skip-writes (`[CARRY-FORWARD: …]`) are forbidden — emitting one is a
+   Stage-C RED.
+4. For artifacts in `rewrite[]`, write a stronger version (overwriting
+   the prior file) sized to the catalog floor.
+5. Run Stage C — if GREEN, append a history entry with
+   `gateResult: "GREEN"`. Stage C validates every artifact via
+   `npm run validate-analysis` and additionally checks each
+   carry-forward artifact's new line count exceeds its `extendFloor`.
+
+> **Always-on.** The legacy `ENABLE_PRIOR_RUN_MERGE` env flag is no longer
+> read by `scripts/aggregator/prior-run-diff.js`. The helper runs
+> unconditionally so re-runs cannot accidentally regress to the
+> pre-2026-05 skip-write behaviour. Do not gate this rule on any env
+> variable in workflow `env:` blocks.
+
+> **Article render is always re-rendered on re-runs.** Stage D
+> (`npm run generate-article`) is invoked on every workflow run regardless
+> of analysis mtime; the renderer is byte-for-byte deterministic so an
+> unchanged analysis still produces an identical, freshly written
+> `article.md` + localized HTML files. Skipping Stage D on the basis of
+> "no changes" is forbidden — see `04-article-generation.md`.
 
 > **Canonical paths:** `synthesis-summary.md` lives under `intelligence/` (the
 > canonical location, as enforced by `reference-quality-thresholds.json`).

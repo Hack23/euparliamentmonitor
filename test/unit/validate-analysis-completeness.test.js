@@ -858,6 +858,197 @@ describe('scripts/validate-analysis-completeness.js', () => {
     expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
   });
 
+  // ─── Re-run improve/extend enforcement ───────────────────────────────────
+
+  describe('Re-run improve/extend enforcement', () => {
+    function writeManifestRerun(extra = {}) {
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'breaking',
+          history: [{ runId: 'breaking-run-1714128000', gateResult: 'GREEN', filesWritten: [] }],
+          files: {
+            intelligence: ['intelligence/synthesis-summary.md'],
+          },
+          pass2: {
+            startedAt: '2026-04-30T08:00:00Z',
+            endedAt: '2026-04-30T08:15:00Z',
+            rewriteCount: 3,
+          },
+          ...extra,
+        }),
+        'utf8',
+      );
+    }
+
+    function writePriorRunDiff(carryForward = []) {
+      fs.mkdirSync(path.join(runDir, 'runs'), { recursive: true });
+      fs.writeFileSync(
+        path.join(runDir, 'runs/prior-run-diff.json'),
+        JSON.stringify({
+          enabled: true,
+          mode: 'improve-and-extend',
+          runDir: 'analysis/daily/2026-04-30/breaking',
+          articleType: 'breaking',
+          priorRunId: 'breaking-run-1714128000',
+          carryForward,
+          rewrite: [],
+        }),
+        'utf8',
+      );
+    }
+
+    it('passes GREEN on re-run when artifact meets extendFloor', () => {
+      // extendFloor = max(200 floor, 250 priorLines + 20) = 270
+      writePriorRunDiff([
+        {
+          relativePath: 'intelligence/synthesis-summary.md',
+          lines: 250,
+          priorLines: 250,
+          floor: 200,
+          extendFloor: 270,
+          source: 'extend-from-prior:breaking-run-1714128000',
+        },
+      ]);
+      writeManifestRerun();
+      // Write artifact at 275 lines — above extendFloor of 270
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(275, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+    });
+
+    it('returns RED on re-run when artifact is below extendFloor', () => {
+      // extendFloor = 270 but artifact only has 250 lines
+      writePriorRunDiff([
+        {
+          relativePath: 'intelligence/synthesis-summary.md',
+          lines: 250,
+          priorLines: 250,
+          floor: 200,
+          extendFloor: 270,
+          source: 'extend-from-prior:breaking-run-1714128000',
+        },
+      ]);
+      writeManifestRerun();
+      // Write at exactly the prior-run size (250) — below extendFloor
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
+      expect(result.stderr).toMatch(/extend:below-extendFloor/);
+    });
+
+    it('returns RED on re-run when pass2.rewriteCount === 0', () => {
+      writePriorRunDiff([]);
+      // Manifest with history but zero rewriteCount
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'breaking',
+          history: [{ runId: 'breaking-run-1714128000', gateResult: 'GREEN', filesWritten: [] }],
+          files: { intelligence: ['intelligence/synthesis-summary.md'] },
+          pass2: {
+            startedAt: '2026-04-30T08:00:00Z',
+            endedAt: '2026-04-30T08:15:00Z',
+            rewriteCount: 0,
+          },
+        }),
+        'utf8',
+      );
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(280, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
+      expect(result.stderr).toMatch(/rerun-no-op/);
+    });
+
+    it('warns (not RED) on first run when pass2.rewriteCount === 0 and artifact at floor', () => {
+      // No history[] → first run; the old WARN behaviour is preserved.
+      writeManifest();
+      // Override with a pass2 zero-rewrites manifest (no history)
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'breaking',
+          files: { intelligence: ['intelligence/synthesis-summary.md'] },
+          pass2: {
+            startedAt: '2026-04-30T08:00:00Z',
+            endedAt: '2026-04-30T08:15:00Z',
+            rewriteCount: 0,
+          },
+        }),
+        'utf8',
+      );
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(200, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      // Should still be GREEN (just a warning, not RED) on first run
+      expect(result.code).toBe(0);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+      expect(result.stderr).toMatch(/pass2-skipped-heuristic/);
+      expect(result.stderr).not.toMatch(/rerun-no-op/);
+    });
+
+    it('passes GREEN on re-run with no prior-run-diff.json (extendFloor not enforced)', () => {
+      // If prior-run-diff.json is absent, extendFloor is not checked — the
+      // normal threshold floor is the only constraint.
+      writeManifestRerun();
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(210, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+    });
+
+    it('--json output includes isRerun:true on re-run', () => {
+      writeManifestRerun();
+      writePriorRunDiff([]);
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(210, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere(['--json']);
+      expect(result.code).toBe(0);
+      const jsonStart = result.stdout.indexOf('{');
+      const json = JSON.parse(result.stdout.slice(jsonStart));
+      expect(json.isRerun).toBe(true);
+    });
+
+    it('--json output includes isRerun:false on first run', () => {
+      writeManifest();
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(210, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere(['--json']);
+      expect(result.code).toBe(0);
+      const jsonStart = result.stdout.indexOf('{');
+      const json = JSON.parse(result.stdout.slice(jsonStart));
+      expect(json.isRerun).toBe(false);
+    });
+  });
+
   it('does NOT apply forward-registry check to breaking article type', () => {
     // breaking manifest — even with a non-empty open.json, no section needed
     writeManifest();
