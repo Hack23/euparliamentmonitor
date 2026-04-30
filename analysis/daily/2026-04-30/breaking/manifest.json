@@ -1,0 +1,65 @@
+{
+  "articleType": "breaking",
+  "runId": "breaking-run-1777532537",
+  "date": "2026-04-30",
+  "analysisDir": "analysis/daily/2026-04-30/breaking",
+  "gateResult": "ANALYSIS_ONLY",
+  "gateReason": "Line counts below floor on multiple artifacts due to dense paragraph formatting; elapsed-time tripwire at minute 22 prevents Pass 3 remediation within PR-call deadline",
+  "history": [
+    {
+      "runId": "breaking-run-1777532537",
+      "startedAt": "2026-04-30T07:02:17Z",
+      "gateResult": "ANALYSIS_ONLY",
+      "artifactCount": 24,
+      "pass2": {
+        "startedAt": "2026-04-30T07:19:00Z",
+        "endedAt": "2026-04-30T07:27:00Z",
+        "rewriteCount": 0
+      }
+    }
+  ],
+  "files": {
+    "executive-brief.md": "executive-brief.md",
+    "intelligence/analysis-index.md": "intelligence/analysis-index.md",
+    "intelligence/synthesis-summary.md": "intelligence/synthesis-summary.md",
+    "intelligence/coalition-dynamics.md": "intelligence/coalition-dynamics.md",
+    "intelligence/mcp-reliability-audit.md": "intelligence/mcp-reliability-audit.md",
+    "intelligence/economic-context.md": "intelligence/economic-context.md",
+    "intelligence/pestle-analysis.md": "intelligence/pestle-analysis.md",
+    "intelligence/scenario-forecast.md": "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md": "intelligence/stakeholder-map.md",
+    "intelligence/threat-model.md": "intelligence/threat-model.md",
+    "intelligence/wildcards-blackswans.md": "intelligence/wildcards-blackswans.md",
+    "intelligence/historical-baseline.md": "intelligence/historical-baseline.md",
+    "intelligence/significance-scoring.md": "intelligence/significance-scoring.md",
+    "intelligence/political-threat-landscape.md": "intelligence/political-threat-landscape.md",
+    "intelligence/voting-patterns.md": "intelligence/voting-patterns.md",
+    "intelligence/cross-session-intelligence.md": "intelligence/cross-session-intelligence.md",
+    "intelligence/reference-analysis-quality.md": "intelligence/reference-analysis-quality.md",
+    "intelligence/workflow-audit.md": "intelligence/workflow-audit.md",
+    "intelligence/cross-run-diff.md": "intelligence/cross-run-diff.md",
+    "intelligence/methodology-reflection.md": "intelligence/methodology-reflection.md",
+    "risk-scoring/risk-matrix.md": "risk-scoring/risk-matrix.md",
+    "risk-scoring/quantitative-swot.md": "risk-scoring/quantitative-swot.md",
+    "classification/significance-classification.md": "classification/significance-classification.md",
+    "documents/document-analysis-index.md": "documents/document-analysis-index.md"
+  },
+  "primaryEvents": [
+    "TA-10-2026-0112: 2027 Budget Guidelines adopted",
+    "TA-10-2026-0115: Dog and cat welfare regulation adopted",
+    "TA-10-2026-0119: EIB Group Annual Report 2024 endorsed",
+    "TA-10-2026-0122: Performance-based instruments transparency adopted",
+    "TA-10-2026-0105: MEP immunity waiver (Patryk Jaki) adopted",
+    "TA-10-2026-0142: EU-Iceland PNR Agreement adopted",
+    "MFF 2028-2034 Interim Report debate",
+    "Rule of Law 2025 Annual Report debate",
+    "Ukraine accountability debate",
+    "Armenian democratic resilience debate"
+  ],
+  "dataQuality": {
+    "votingRecords": "UNAVAILABLE - 4-6 week EP API delay",
+    "eventsFeed": "UNAVAILABLE - API error in body",
+    "proceduresFeed": "RECESS_MODE - historical archive returned",
+    "adoptedTexts": "AVAILABLE - 7 texts confirmed"
+  }
+}
