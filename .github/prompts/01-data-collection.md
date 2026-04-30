@@ -26,12 +26,27 @@ Every workflow downloads (tools and parameter corrections in
 2. **Direct lookups** — always use these when a feed fails. They query the EP
    database directly and are usually more reliable than feeds.
 3. **Deep-fetch (MANDATORY)** — for every adopted text / procedure referenced:
-   - `track_legislation({ procedureId })` — status, timeline, committees
+   - `track_legislation({ procedureId })` — status, timeline, committees.
+     **404 fallback:** when `track_legislation` returns 404 for a procedure
+     ID extracted from an adopted text, fall back to
+     `get_procedures({ processId })` for the per-procedure direct lookup.
+     If both return 404, log the procedure ID under
+     `manifest.dataVerification.unresolvedProcedureIds[]` and proceed with
+     adopted-text data only — do not abort the run.
    - `get_voting_records({ sessionId, limit: 50 })` — actual vote counts
    - `get_meeting_decisions({ sittingId })` — adopted decisions
    - `get_speeches({ dateFrom, dateTo, limit: 20 })` — debate contributions
    - `get_adopted_texts({ year, limit: 100 })` — full text, not titles
-   Budget: up to 10 deep-fetch calls.
+   - **Named-MEP cross-reference (MANDATORY when MEPs are named in
+     analysis):** for every MEP named as an immunity-waiver subject,
+     rapporteur, shadow rapporteur, named defector, or named whip in any
+     adopted text / procedure / committee output, call
+     `get_mep_details({ id: "MEP-NNNNNN" })` once per named MEP. This
+     gives biographical context (national party, committee assignments,
+     prior votes) needed for stakeholder-map and actor-mapping artifacts.
+     Cap at 10 MEP detail calls per run; prioritise immunity subjects and
+     named rapporteurs first.
+   Budget: up to 10 deep-fetch calls + up to 10 MEP-detail calls.
 4. **Voting-data fallback (MANDATORY when get_voting_records returns empty)**
    EP roll-call data publishes with a 4–6 week delay (documented in
    `07-mcp-reference.md` §11 item #6). When `get_voting_records` returns an empty
@@ -87,6 +102,20 @@ not secondary, not fallback)**:
   `NAC`, `EAS`, `SSF`) to the WB MCP — the server rejects them with
   `Error: Country not found`. Use individual member-state codes or cite
   IMF `EU`/`EA` for any EU-level framing.
+  **Member-state proxy defaults (positive guidance):** when an EU-level
+  framing is desired but WB rejects the aggregate, default to the
+  Big-Four (`DE`, `FR`, `IT`, `ES`) plus topic-specific affected states:
+  - Migration / external border → `IT`, `ES`, `EL`, `PL`, `HU`
+  - Energy / Russia exposure / Eastern flank → `PL`, `RO`, `LT`, `LV`, `EE`
+  - Defence / NATO Eastern flank → `PL`, `RO`, `LT`, `LV`, `EE`, `FI`, `SE`
+  - Rule-of-law / immunity proceedings → use the named MEPs' national
+    member-state codes (e.g. `PL` for Polish-MEP immunity files)
+  - Eurozone / banking → `DE`, `FR`, `IT`, `ES`, `NL`, `IE`
+  - Agriculture / CAP → `FR`, `PL`, `ES`, `RO`, `IT`
+  Cite IMF aggregates (`EU`/`EA`) for the EU-level economic frame and
+  the WB member-state proxy for the non-economic distributional detail.
+  Never silently substitute one member state as a stand-in for the EU
+  aggregate without naming it as a proxy in prose.
 - **Per-article-type IMF minimums** (editorial policy — enforced at
   Stage-C completeness gate):
   committee-reports/ECON ≥ 4 indicators, /BUDG ≥ 3, /INTA ≥ 3;
@@ -173,6 +202,42 @@ Every `manifest.json` records what was successfully downloaded:
    future date span. As of v1.2.15 the server defaults to a rolling
    last-30-days window when no dates are supplied, but explicit dates
    remain the required calling pattern for reproducibility.
+7. **Chronic feed degradation — pivot fast, do not retry-loop.** The
+   `get_events_feed` API errors and `get_procedures_feed` `RECESS_MODE`
+   responses are **structural**, not transient. After **one** failed
+   call, immediately pivot to the documented compensating source — do
+   not retry the same feed multiple times within Stage A. Compensating
+   sources:
+   - `get_events_feed` failure → `get_adopted_texts_feed` (today/one-week)
+     + `get_meeting_decisions({ sittingId })` for the in-window plenary
+     sittings.
+   - `get_procedures_feed` `RECESS_MODE` → `get_procedures({ processId })`
+     for procedure IDs harvested from adopted texts; for forward-looking
+     workflows use `get_meeting_foreseen_activities({ sittingId })`
+     fan-out (see §8b).
+   - `get_voting_records` empty → EP Open Data Portal fallback (§2 item 4).
+   Log the pivot decision in `intelligence/mcp-reliability-audit.md`
+   with timestamp and the compensating source used.
+8. **Roll-call follow-up forward statement (MANDATORY).** EP publishes
+   roll-call records 4–6 weeks after the session date. When
+   `getVotingRecordsWithFallback` returns `unavailable` or `empty` for
+   the in-window plenary, append a forward statement to
+   `/tmp/new-forward-statements.json` (per §8a) of the form:
+   ```json
+   {
+     "id": "FS-<YYYY>-vote-followup-<sessionDate>",
+     "kind": "data-followup",
+     "horizonStart": "<sessionDate + 35 days>",
+     "horizonEnd":   "<sessionDate + 50 days>",
+     "trigger": "Roll-call records published for plenary <sessionDate>",
+     "action":  "Re-run voting-patterns.md analysis with confirmed roll-call data",
+     "status":  "open"
+   }
+   ```
+   This guarantees the proxy-only voting analysis is automatically
+   superseded by confirmed roll-call data once it becomes available, and
+   the next breaking / week-in-review run can validate the proxy
+   coalitions estimated under the lag.
 
 ## 7 · Seat-Count Normalization
 

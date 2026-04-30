@@ -363,3 +363,33 @@ then ship the single combined PR (see
 - Rely on workflow-level MCP gateway keepalive (`sandbox.mcp.keepalive-interval`)
   plus the single end-of-run PR snapshot in
   [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md).
+
+### 10a · Context-Compaction Defensive Pattern
+
+The Copilot CLI compacts agent context once it exceeds a model-dependent
+threshold (typically after 8–12 large artifacts in Stage B). Compacted
+content is summarised, not preserved verbatim, which limits Pass 2's
+ability to read-back early artifacts in full. Defensive pattern:
+
+1. **Write artifacts to disk as they are produced.** Pass 1 writes are
+   the authoritative copy — never hold a finished artifact in chat
+   context "to extend later." Once written, the disk file survives
+   compaction.
+2. **Pass 2 reads from disk, not from chat memory.** Open every
+   artifact path explicitly via the file-read tool at Pass 2 start;
+   do not rely on the agent remembering the prose it wrote 12 minutes
+   earlier.
+3. **Order Pass 1 writes by depth-floor, not by analytical convenience.**
+   Write the highest-floor artifacts (`synthesis-summary`, `pestle-analysis`,
+   `threat-model`, `scenario-forecast`) first, while context is freshest.
+   Lower-floor artifacts (`analysis-index`, `methodology-reflection`)
+   tolerate compaction-summarised inputs better.
+4. **Log `[COMPACTION-SURVIVED: <relativePath>]`** in Pass 2 for every
+   artifact written before the first compaction event, so the Stage-C
+   reviewer can see which artifacts were re-read from disk versus
+   re-read from in-context chat.
+
+This pattern was raised in the 2026-04-30 breaking-news methodology
+reflection — the run hit a compaction event after 8 artifacts and Pass 2
+depth on the first batch was structurally limited.
+

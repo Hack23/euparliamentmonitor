@@ -168,8 +168,17 @@ export USE_EP_MCP=true
 # Stage D article rendering uses: npm run generate-article -- --run "${ANALYSIS_DIR}"
 ```
 
-Macro-context workflows start the IMF live probe immediately after this setup
-and before EP MCP fan-out:
+**All article-generating workflows** (`news-breaking`, `news-week-in-review`,
+`news-month-in-review`, `news-week-ahead`, `news-month-ahead`,
+`news-committee-reports`, `news-motions`, `news-propositions`) start the
+IMF live probe immediately after this setup and before EP MCP fan-out.
+The probe is **mandatory** — every article type carries an IMF minimum
+≥1 indicator per [`01-data-collection.md §4`](01-data-collection.md), and
+Stage C fails any `economic-context.md` that cites IMF figures from agent
+knowledge without `cache/imf/*.json`. The phrase "macro-context workflows"
+in earlier revisions of this section was ambiguous; the rule now applies
+to every article-generating workflow without exception. Only
+`news-translate.md` (no analysis stage) is exempt.
 
 ```bash
 mkdir -p "${ANALYSIS_DIR}/cache/imf"
@@ -178,6 +187,11 @@ IMF_PROBE_PID=$!
 # Run EP MCP collection here, then:
 wait "$IMF_PROBE_PID" || true
 ```
+
+**Self-check before Stage B:** confirm `${ANALYSIS_DIR}/cache/imf/probe-summary.json`
+exists (even when the probe returned `{"available": false}` — the file is
+the provenance signal). A missing probe-summary.json is a Stage A defect:
+re-run the probe synchronously before exiting Stage A.
 
 `${ARTICLE_TYPE_SLUG}`, `${ANALYSIS_DIR}`, and `${TODAY}` are set by the
 workflow's own Date Context Establishment block (see each `news-*.md` §Date

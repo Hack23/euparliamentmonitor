@@ -46,7 +46,7 @@ Timeframes: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"custom"`
 | `get_mep_declarations` | `year`, `docId` | `get_mep_declarations_feed` |
 | `get_committee_info` | `abbreviation`, `id`, `showCurrent` | — |
 | `search_documents` | `keyword`, `documentType`, `committee`, `dateFrom/dateTo` | — |
-| `track_legislation` | `procedureId` (e.g., `"2024/0001(COD)"`) | — |
+| `track_legislation` | `procedureId` (e.g., `"2024/0001(COD)"`) | `get_procedures({ processId })` for per-procedure 404 fallback |
 | `get_procedure_events` | `processId` | — |
 | `get_procedure_event_by_id` | `processId`, `eventId` | — |
 | `get_meeting_decisions` | `sittingId` | — |
