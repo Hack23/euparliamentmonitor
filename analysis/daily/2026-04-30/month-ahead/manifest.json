@@ -1,0 +1,68 @@
+{
+  "articleType": "month-ahead",
+  "runDate": "2026-04-30",
+  "runId": "month-ahead-run-1777536024",
+  "analysisDir": "analysis/daily/2026-04-30/month-ahead",
+  "gateResult": "ANALYSIS_ONLY",
+  "gateReason": "elapsed-time tripwire at minute 23; Stage E PR-call deadline priority",
+  "pass2": {
+    "startedAt": "minute-18-approx",
+    "endedAt": "minute-22-approx",
+    "rewriteCount": 3,
+    "rewrittenArtifacts": [
+      "intelligence/synthesis-summary.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/economic-context.md"
+    ]
+  },
+  "dataQualityWarnings": [
+    "get_events_feed: EP API error (unavailable)",
+    "get_procedures_feed: RECESS_MODE - historical 1972 data returned",
+    "get_voting_records: EMPTY - 4-6 week publication delay",
+    "vote_cohesion_data: NULL - EP Open Data Portal limitation; seat-share proxy used",
+    "May 18-21 agenda: not yet published (18 days out)"
+  ],
+  "mcpServersUsed": [
+    "european-parliament-mcp-server@1.2.18",
+    "worldbank-mcp@1.0.1"
+  ],
+  "imfIntegration": "present",
+  "chartjsPresent": true,
+  "mermaidPresent": true,
+  "forwardStatementsReviewed": 4,
+  "forwardStatementsGenerated": 3,
+  "files": {
+    "executive-brief.md": "analysis/daily/2026-04-30/month-ahead/executive-brief.md",
+    "intelligence/analysis-index.md": "analysis/daily/2026-04-30/month-ahead/intelligence/analysis-index.md",
+    "intelligence/pestle-analysis.md": "analysis/daily/2026-04-30/month-ahead/intelligence/pestle-analysis.md",
+    "intelligence/economic-context.md": "analysis/daily/2026-04-30/month-ahead/intelligence/economic-context.md",
+    "intelligence/stakeholder-map.md": "analysis/daily/2026-04-30/month-ahead/intelligence/stakeholder-map.md",
+    "intelligence/scenario-forecast.md": "analysis/daily/2026-04-30/month-ahead/intelligence/scenario-forecast.md",
+    "intelligence/historical-baseline.md": "analysis/daily/2026-04-30/month-ahead/intelligence/historical-baseline.md",
+    "intelligence/threat-model.md": "analysis/daily/2026-04-30/month-ahead/intelligence/threat-model.md",
+    "intelligence/wildcards-blackswans.md": "analysis/daily/2026-04-30/month-ahead/intelligence/wildcards-blackswans.md",
+    "intelligence/coalition-dynamics.md": "analysis/daily/2026-04-30/month-ahead/intelligence/coalition-dynamics.md",
+    "intelligence/synthesis-summary.md": "analysis/daily/2026-04-30/month-ahead/intelligence/synthesis-summary.md",
+    "intelligence/mcp-reliability-audit.md": "analysis/daily/2026-04-30/month-ahead/intelligence/mcp-reliability-audit.md",
+    "intelligence/methodology-reflection.md": "analysis/daily/2026-04-30/month-ahead/intelligence/methodology-reflection.md",
+    "intelligence/reference-analysis-quality.md": "analysis/daily/2026-04-30/month-ahead/intelligence/reference-analysis-quality.md",
+    "risk-scoring/risk-matrix.md": "analysis/daily/2026-04-30/month-ahead/risk-scoring/risk-matrix.md",
+    "risk-scoring/quantitative-swot.md": "analysis/daily/2026-04-30/month-ahead/risk-scoring/quantitative-swot.md",
+    "classification/significance-classification.md": "analysis/daily/2026-04-30/month-ahead/classification/significance-classification.md",
+    "classification/actor-mapping.md": "analysis/daily/2026-04-30/month-ahead/classification/actor-mapping.md",
+    "threat-assessment/political-threat-landscape.md": "analysis/daily/2026-04-30/month-ahead/threat-assessment/political-threat-landscape.md",
+    "data/plenary-sessions.json": "analysis/daily/2026-04-30/month-ahead/data/plenary-sessions.json",
+    "data/recent-adopted-texts.json": "analysis/daily/2026-04-30/month-ahead/data/recent-adopted-texts.json",
+    "data/foreseen-activities-2026-04-30.json": "analysis/daily/2026-04-30/month-ahead/data/foreseen-activities-2026-04-30.json"
+  },
+  "history": [
+    {
+      "runId": "month-ahead-run-1777536024",
+      "runDate": "2026-04-30",
+      "runEpoch": 1777536024,
+      "gateResult": "ANALYSIS_ONLY",
+      "artifactCount": 19,
+      "totalFiles": 22
+    }
+  ]
+}
