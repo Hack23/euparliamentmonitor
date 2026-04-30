@@ -50,7 +50,7 @@ inside the workflow `.md`.
 |----------|-------|
 | `TIMEOUT` | EP API slow — use direct endpoint fallbacks (see [`07-mcp-reference.md`](07-mcp-reference.md) §6); raise `EP_REQUEST_TIMEOUT_MS` to `"120000"`; try `timeframe: "one-week"` instead of `"today"`. |
 | `SERVER_ERROR` | EP API returning 5xx — retry in 1–2 hours. Verify with direct probe `https://data.europarl.europa.eu/api/v2/meps?format=application%2Fld%2Bjson&offset=0&limit=1`. |
-| `INTERNAL_ERROR` | MCP server internal failure — verify `european-parliament-mcp-server@1.2.15` installed; check DNS for `data.europarl.europa.eu`. |
+| `INTERNAL_ERROR` | MCP server internal failure — verify `european-parliament-mcp-server@1.2.18` installed; check DNS for `data.europarl.europa.eu`. |
 | `RATE_LIMIT` | Back off 5+ min; reduce call frequency. |
 | `NOT_FOUND` | Tool name/params mismatch — see [`07-mcp-reference.md`](07-mcp-reference.md) §5. |
 | `DNS_FAILURE` | Add `data.europarl.europa.eu` + `"*.europa.eu"` to `network.allowed`. |

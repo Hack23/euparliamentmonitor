@@ -16,7 +16,7 @@
 
 - **Stack**: Node.js 25, TypeScript 6, HTML5/CSS3, Vitest, Playwright, ESLint
 - **License**: Apache-2.0 | **Deployment**: AWS S3/CloudFront (primary) with GitHub Pages as fallback/runbook
-- **Data**: European Parliament MCP Server (`european-parliament-mcp-server@1.2.15`)
+- **Data**: European Parliament MCP Server (`european-parliament-mcp-server@1.2.18`)
 - **Languages**: EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH
 - **Agentic Workflows**: 9 gh-aw markdown workflows for automated news generation — 8 unified `news-<type>.md` workflows (run Stages A → E in one 45-min session, single PR) plus the `news-translate.md` 14-language helper (manual, multi-call flush, exempt from single-PR rule)
 - **Security**: ISO 27001, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA
