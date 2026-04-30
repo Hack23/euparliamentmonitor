@@ -405,19 +405,30 @@ and `get_procedures_feed` with `timeframe: "today"` to capture Rule 132 urgency
 motions before confirming agenda-specific predictions. Save to
 `${ANALYSIS_DIR}/data/urgency-motions-${TODAY}.json`.
 
-### Stage B — Analysis (Ref: 02 §2 re-run merge rule)
+### Stage B — Analysis (Ref: 02 §"Re-run improve/extend rule" — never no-op)
 
-**If `${ANALYSIS_DIR}/manifest.json` already exists from a prior run today,
-do NOT rewrite it — apply the re-run merge rule from `02-analysis-protocol.md`
-§2:**
+**If `${ANALYSIS_DIR}/manifest.json` already exists with non-empty `history[]`
+from a prior run today, the re-run is *never* a no-op — apply the re-run
+improve/extend rule from `02-analysis-protocol.md`:**
 
-1. Load prior `manifest.json` and inspect every artifact's line count vs.
-   `reference-quality-thresholds.json` floor.
-2. Carry forward at/above-floor artifacts unless new Stage-A data changes
-   their conclusions.
-3. Rewrite below-floor or missing artifacts with Pass 1 + Pass 2 output.
+1. Always run `npm run prior-run-diff -- "${ANALYSIS_DIR}"` (always-on; the
+   helper no longer reads `ENABLE_PRIOR_RUN_MERGE`). Persist the plan to
+   `${ANALYSIS_DIR}/runs/prior-run-diff.json`. The plan classifies every
+   prior artifact as a must-extend target (`carryForward[]`) with
+   `priorLines` + `extendFloor` exposed, or a below-floor target
+   (`rewrite[]`).
+2. For every `carryForward[]` entry, **extend & deepen** the artifact —
+   skip-writes are forbidden. Each must reach its `extendFloor`
+   (`= max(threshold floor, priorLines + 20)`) AND add at least one of:
+   a new section, ≥3 new evidence citations, or ≥1 new chart/diagram.
+   Log one line per extended artifact:
+   `[EXTEND-FROM-PRIOR: <relativePath> prior=<priorLines>L → new=<newLines>L (+<delta>)]`.
+3. For every `rewrite[]` entry, write a stronger version (overwriting the
+   prior file) sized to the catalog floor.
 4. Append a new entry to `manifest.json.history[]` (written automatically
-   by `runAnalysisStage` via `mergeManifestHistory`).
+   by `runAnalysisStage` via `mergeManifestHistory`). On a re-run,
+   `manifest.pass2.rewriteCount` MUST equal the total artifact count —
+   `rewriteCount === 0` on a re-run is a Stage-C hard RED.
 
 **Pass 1 (~60% of analysis time):** Apply every methodology and template
 (`analysis/methodologies/` + `analysis/templates/`) to every downloaded
@@ -490,8 +501,10 @@ export USE_EP_MCP=true
 
 # Deterministic article rendering from the committed analysis artifacts.
 #    Emits news/<TODAY>-week-ahead.en.md (canonical aggregated markdown) plus
-#    news/<TODAY>-week-ahead-en.html (rendered article). Idempotent — skips
-#    writes when target mtime ≥ all source artifacts.
+#    news/<TODAY>-week-ahead-en.html (rendered article). Always
+#    regenerates article.md + HTML on every run (never no-op): the renderer
+#    overwrites byte-for-byte from the freshly extended/rewritten Stage-B
+#    analysis artifacts.
 npm run generate-article -- --run "${ANALYSIS_DIR}"
 ```
 

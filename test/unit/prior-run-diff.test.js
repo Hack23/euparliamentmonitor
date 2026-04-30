@@ -108,22 +108,24 @@ describe('scripts/aggregator/prior-run-diff.js', () => {
       expect(r.status).toBe(1);
     });
 
-    it('emits valid JSON to stdout when feature is disabled (no env flag)', () => {
+    it('emits valid JSON and is always enabled (env flag ignored)', () => {
       writeManifest();
       const r = runCli(runDir, { ENABLE_PRIOR_RUN_MERGE: '' }, ['--thresholds', thresholdsPath]);
       expect(r.status).toBe(0);
       const plan = JSON.parse(r.stdout);
-      expect(plan.enabled).toBe(false);
+      expect(plan.enabled).toBe(true);
+      expect(plan.mode).toBe('improve-and-extend');
       expect(plan.carryForward).toEqual([]);
       expect(plan.rewrite).toEqual([]);
     });
 
-    it('emits valid JSON with enabled=true when ENABLE_PRIOR_RUN_MERGE=true', () => {
+    it('emits valid JSON with enabled=true regardless of env flag value', () => {
       writeManifest();
       const r = runCli(runDir, { ENABLE_PRIOR_RUN_MERGE: 'true' }, ['--thresholds', thresholdsPath]);
       expect(r.status).toBe(0);
       const plan = JSON.parse(r.stdout);
       expect(plan.enabled).toBe(true);
+      expect(plan.mode).toBe('improve-and-extend');
     });
   });
 
@@ -193,10 +195,11 @@ describe('scripts/aggregator/prior-run-diff.js', () => {
   // ─── buildPriorRunDiff unit tests ────────────────────────────────────────
 
   describe('buildPriorRunDiff', () => {
-    it('returns enabled=false when disabled flag is passed', () => {
+    it('returns enabled=false when disabled flag is passed (back-compat unit-test signature)', () => {
       writeManifest({ history: [{ runId: 'run-1', gateResult: 'GREEN', filesWritten: [] }] });
       const plan = buildPriorRunDiff(runDir, THRESHOLDS, false);
       expect(plan.enabled).toBe(false);
+      expect(plan.mode).toBe('improve-and-extend');
       expect(plan.carryForward).toEqual([]);
       expect(plan.rewrite).toEqual([]);
     });
@@ -205,6 +208,7 @@ describe('scripts/aggregator/prior-run-diff.js', () => {
       writeManifest({ history: [] });
       const plan = buildPriorRunDiff(runDir, THRESHOLDS, true);
       expect(plan.enabled).toBe(true);
+      expect(plan.mode).toBe('improve-and-extend');
       expect(plan.priorRunId).toBeNull();
       expect(plan.carryForward).toEqual([]);
       expect(plan.rewrite).toEqual([]);
@@ -214,12 +218,13 @@ describe('scripts/aggregator/prior-run-diff.js', () => {
       // no writeManifest() call
       const plan = buildPriorRunDiff(runDir, THRESHOLDS, true);
       expect(plan.enabled).toBe(true);
+      expect(plan.mode).toBe('improve-and-extend');
       expect(plan.priorRunId).toBeNull();
       expect(plan.carryForward).toHaveLength(0);
       expect(plan.rewrite).toHaveLength(0);
     });
 
-    it('all artifacts at-floor → all in carryForward, rewrite empty', () => {
+    it('all artifacts at-floor → all in carryForward as must-extend (priorLines+extendFloor exposed)', () => {
       writeManifest({
         history: [{ runId: 'wir-run-42', gateResult: 'GREEN', filesWritten: [] }],
       });
@@ -233,8 +238,13 @@ describe('scripts/aggregator/prior-run-diff.js', () => {
       expect(plan.rewrite).toHaveLength(0);
       expect(plan.carryForward).toHaveLength(3);
       for (const cf of plan.carryForward) {
-        expect(cf.source).toBe('carry-forward-from:wir-run-42');
+        expect(cf.source).toBe('extend-from-prior:wir-run-42');
         expect(cf.lines).toBeGreaterThanOrEqual(cf.floor);
+        // priorLines mirrors current on-disk size; extendFloor must be at least
+        // priorLines + 20 (and at least the catalog floor) so re-runs cannot no-op.
+        expect(cf.priorLines).toBe(cf.lines);
+        expect(cf.extendFloor).toBeGreaterThanOrEqual(cf.priorLines + 20);
+        expect(cf.extendFloor).toBeGreaterThanOrEqual(cf.floor);
       }
     });
 
@@ -272,7 +282,7 @@ describe('scripts/aggregator/prior-run-diff.js', () => {
       const plan = buildPriorRunDiff(runDir, THRESHOLDS, true);
       expect(plan.priorRunId).toBe('wir-run-2');
       for (const cf of plan.carryForward) {
-        expect(cf.source).toBe('carry-forward-from:wir-run-2');
+        expect(cf.source).toBe('extend-from-prior:wir-run-2');
       }
     });
 
@@ -290,7 +300,7 @@ describe('scripts/aggregator/prior-run-diff.js', () => {
       // But intelligence/ dir requires mermaid — and we provided one — so it should be at-floor
       const cf = plan.carryForward.find((e) => e.relativePath === 'intelligence/synthesis-summary.md');
       expect(cf).toBeDefined();
-      expect(cf.source).toBe('carry-forward-from:wir-run-10');
+      expect(cf.source).toBe('extend-from-prior:wir-run-10');
     });
 
     it('resolves articleType from legacy manifest.articleTypes[] schema', () => {
@@ -381,6 +391,7 @@ describe('scripts/aggregator/prior-run-diff.js', () => {
 
       expect(plan).toMatchObject({
         enabled: true,
+        mode: 'improve-and-extend',
         articleType: 'week-in-review',
         priorRunId: 'snap-run-1',
       });
@@ -391,8 +402,10 @@ describe('scripts/aggregator/prior-run-diff.js', () => {
       for (const cf of plan.carryForward) {
         expect(typeof cf.relativePath).toBe('string');
         expect(typeof cf.lines).toBe('number');
+        expect(typeof cf.priorLines).toBe('number');
         expect(typeof cf.floor).toBe('number');
-        expect(cf.source).toMatch(/^carry-forward-from:/);
+        expect(typeof cf.extendFloor).toBe('number');
+        expect(cf.source).toMatch(/^extend-from-prior:/);
       }
       // Every rewrite entry has required shape
       for (const rw of plan.rewrite) {

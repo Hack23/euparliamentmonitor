@@ -3,24 +3,33 @@
 // SPDX-License-Identifier: Apache-2.0
 
 /**
- * Prior-run diff helper for the re-run merge rule.
+ * Prior-run diff helper for the re-run improve/extend rule.
  *
  * Reads `manifest.json.history[]` from a same-day analysis folder and
- * classifies every artifact as **at-floor** (carry-forward) or **below-floor**
- * (rewrite). The result — a `priorRunDiff` plan — is written to stdout as
- * JSON and can be consumed by Stage A of the analysis workflow.
+ * classifies every artifact as **at-floor** (must-extend / carry-forward) or
+ * **below-floor** (rewrite). The result — a `priorRunDiff` plan with
+ * `mode: "improve-and-extend"` — is written to stdout as JSON and is
+ * consumed by Stage B of the analysis workflow.
  *
- * Controlled by the `ENABLE_PRIOR_RUN_MERGE` environment variable:
- *   - `ENABLE_PRIOR_RUN_MERGE=true`  → normal operation (produce plan)
- *   - unset / any other value        → short-circuit: emit plan with
- *                                       `enabled: false` and empty arrays
+ * **Re-run semantics (never no-op).** Entries listed under `carryForward[]`
+ * are **NOT** skipped on re-runs — they are must-extend targets. Stage B
+ * MUST raise their depth: each prior artifact's `priorLines` becomes the new
+ * floor and the agent must add ≥1 new section, ≥3 new evidence citations, or
+ * ≥1 new chart, ending at `lines >= max(floor, priorLines + 20)`. Entries in
+ * `rewrite[]` are still written from scratch to the catalog floor.
+ *
+ * Always-on. The `ENABLE_PRIOR_RUN_MERGE` environment variable is no longer
+ * read — the helper runs unconditionally so re-runs cannot accidentally
+ * regress to the legacy "skip-write" behaviour. The `buildPriorRunDiff(..,
+ * enabled)` parameter is kept for back-compat with unit tests but the CLI
+ * always passes `true`.
  *
  * Invocation:
  *   node scripts/aggregator/prior-run-diff.js <runDir>
  *   npm run prior-run-diff -- analysis/daily/2026-04-26/week-in-review
  *
  * Exit codes:
- *   0  — plan emitted successfully (or feature disabled)
+ *   0  — plan emitted successfully
  *   1  — runDir missing or invalid
  *   2  — bad CLI usage
  *
@@ -28,6 +37,7 @@
  * ```json
  * {
  *   "enabled": true,
+ *   "mode": "improve-and-extend",
  *   "runDir": "analysis/daily/2026-04-26/week-in-review",
  *   "articleType": "week-in-review",
  *   "priorRunId": "week-in-review-run-1714128000",
@@ -35,8 +45,10 @@
  *     {
  *       "relativePath": "intelligence/synthesis-summary.md",
  *       "lines": 250,
+ *       "priorLines": 250,
  *       "floor": 180,
- *       "source": "carry-forward-from:week-in-review-run-1714128000"
+ *       "extendFloor": 270,
+ *       "source": "extend-from-prior:week-in-review-run-1714128000"
  *     }
  *   ],
  *   "rewrite": [
@@ -50,10 +62,13 @@
  * }
  * ```
  *
- * The `source` value on each carry-forward entry follows the schema:
- *   `"carry-forward-from:<runId>"`
- * which Stage B writes into `manifest.json.artifactSources` (additive,
- * backward-compatible with the existing schema).
+ * - `priorLines` exposes the prior-run line count so Stage B knows the lower
+ *   bound it must beat.
+ * - `extendFloor` = `max(floor, priorLines + 20)` — the minimum line count
+ *   the new pass MUST reach for this artifact.
+ * - The `source` value follows the schema `"extend-from-prior:<runId>"`,
+ *   which Stage B writes into `manifest.json.artifactSources` (additive,
+ *   back-compat with prior `"carry-forward-from:<runId>"` consumers).
  */
 
 import fs from 'node:fs';
@@ -63,6 +78,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = process.cwd();
 const DEFAULT_MIN_LINES = 30;
+const EXTEND_DELTA_LINES = 20;
 
 // Artifacts that must contain at least one Mermaid fenced block.
 // Mirrors the directory-based heuristic in validate-analysis-completeness.js.
@@ -86,9 +102,10 @@ function usage(code = 2) {
     '',
     '  <runDir>   Path to analysis/daily/<date>/<slug>/',
     '',
-    'Environment:',
-    '  ENABLE_PRIOR_RUN_MERGE=true   Enable the carry-forward classifier',
-    '                                (default: disabled — emits empty plan)',
+    'Always-on. The helper unconditionally classifies prior-run artifacts as',
+    'must-extend (carryForward[]) or below-floor rewrite (rewrite[]) so re-runs',
+    'can never accidentally no-op. The legacy ENABLE_PRIOR_RUN_MERGE env flag',
+    'is no longer read.',
     '',
     'Example:',
     '  npm run prior-run-diff -- analysis/daily/2026-04-26/week-in-review',
@@ -190,9 +207,14 @@ export function classifyArtifact(runDir, relativePath, floor, mermaidRequiredLis
 /**
  * Build the `priorRunDiff` plan for a same-day analysis folder.
  *
+ * Mode is always **improve-and-extend**: `carryForward[]` entries are
+ * must-extend targets (their `priorLines` and `extendFloor` exposed), not
+ * skip-write targets. The `enabled` parameter is preserved for back-compat
+ * with the legacy unit-test signature; the CLI always passes `true`.
+ *
  * @param {string} runDir              - Absolute path to the run folder.
  * @param {object|null} thresholdsJson - Parsed reference-quality-thresholds.json.
- * @param {boolean} enabled            - Whether the feature is enabled.
+ * @param {boolean} enabled            - Whether the feature is enabled (CLI: always true).
  * @returns {object} The diff plan (serialisable to JSON).
  */
 export function buildPriorRunDiff(runDir, thresholdsJson, enabled) {
@@ -210,6 +232,7 @@ export function buildPriorRunDiff(runDir, thresholdsJson, enabled) {
   if (!enabled) {
     return {
       enabled: false,
+      mode: 'improve-and-extend',
       runDir: relRunDir,
       articleType,
       priorRunId: null,
@@ -222,6 +245,7 @@ export function buildPriorRunDiff(runDir, thresholdsJson, enabled) {
   if (history.length === 0) {
     return {
       enabled: true,
+      mode: 'improve-and-extend',
       runDir: relRunDir,
       articleType,
       priorRunId: null,
@@ -248,11 +272,14 @@ export function buildPriorRunDiff(runDir, thresholdsJson, enabled) {
     const floor = Math.max(DEFAULT_MIN_LINES, perArtifactFloors[relativePath] ?? 0);
     const result = classifyArtifact(runDir, relativePath, floor, mermaidRequiredList);
     if (result.atFloor) {
+      const extendFloor = Math.max(floor, result.lines + EXTEND_DELTA_LINES);
       carryForward.push({
         relativePath,
         lines: result.lines,
+        priorLines: result.lines,
         floor: result.floor,
-        source: `carry-forward-from:${priorRunId}`,
+        extendFloor,
+        source: `extend-from-prior:${priorRunId}`,
       });
     } else {
       rewrite.push({
@@ -266,6 +293,7 @@ export function buildPriorRunDiff(runDir, thresholdsJson, enabled) {
 
   return {
     enabled: true,
+    mode: 'improve-and-extend',
     runDir: relRunDir,
     articleType,
     priorRunId,
@@ -338,7 +366,11 @@ function main() {
     process.exit(1);
   }
 
-  const enabled = process.env['ENABLE_PRIOR_RUN_MERGE'] === 'true';
+  // Re-run improve/extend rule is always-on. The legacy ENABLE_PRIOR_RUN_MERGE
+  // env flag is no longer read — re-runs cannot accidentally regress to the
+  // pre-2026-05 skip-write behaviour. See .github/prompts/02-analysis-protocol.md
+  // §"Re-run improve/extend rule".
+  const enabled = true;
   const thresholdsJson = loadThresholds(opts.thresholdsPath);
   const plan = buildPriorRunDiff(runDir, thresholdsJson, enabled);
 
