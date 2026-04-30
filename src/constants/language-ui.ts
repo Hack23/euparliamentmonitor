@@ -2172,7 +2172,7 @@ export const OFFLINE_BODY_LABELS: LanguageMap = {
   no: 'EU Parliament Monitor er utilgjengelig mens du er frakoblet. Koble til på nytt for å laste inn den nyeste politiske etterretningen.',
   fi: 'EU Parliament Monitor ei ole käytettävissä, kun olet offline-tilassa. Yhdistä uudelleen ladataksesi uusimman poliittisen tiedustelun.',
   de: 'EU Parliament Monitor ist offline nicht verfügbar. Stellen Sie die Verbindung wieder her, um die neuesten politischen Informationen zu laden.',
-  fr: "EU Parliament Monitor est indisponible hors ligne. Reconnectez-vous pour charger les dernières informations politiques.",
+  fr: 'EU Parliament Monitor est indisponible hors ligne. Reconnectez-vous pour charger les dernières informations politiques.',
   es: 'EU Parliament Monitor no está disponible sin conexión. Vuelve a conectarte para cargar la última inteligencia política.',
   nl: 'EU Parliament Monitor is offline niet beschikbaar. Maak opnieuw verbinding om de laatste politieke intelligentie te laden.',
   ar: 'مراقب البرلمان الأوروبي غير متوفر أثناء عدم الاتصال. أعد الاتصال لتحميل أحدث المعلومات السياسية.',
