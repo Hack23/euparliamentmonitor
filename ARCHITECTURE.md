@@ -490,7 +490,7 @@ C4Component
     }
 
     Container_Boundary(scripts_c, "Workflow Scripts (scripts/aggregator/)") {
-        Component(prior_run_diff, "prior-run-diff.js", "Node.js", "Re-run merge helper; carry-forward vs rewrite classification; ENABLE_PRIOR_RUN_MERGE flag")
+        Component(prior_run_diff, "prior-run-diff.js", "Node.js", "Re-run improve/extend helper; classifies prior-run artifacts as must-extend (carryForward[]) or rewrite; always-on (no env flag); emits priorRunDiff JSON with priorLines+extendFloor")
         Component(forward_statements, "forward-statements-registry.js", "Node.js", "Forward-looking-statement JSONL registry; week/month-ahead seeding")
         Component(checkpoint, "checkpoint-analysis-to-memory.sh", "Bash", "Pre-audited helper; replaces inline expansion-heavy bash in workflows (shell-safety)")
     }
@@ -535,7 +535,7 @@ C4Component
 | 💰 **IMF Client** | `class IMFMCPClient` + `IMF_MCP_TOOLS`; primary economic source per IMF Indicator Mapping; native Node 25 `fetch` SDMX 3.0; env `IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS` | None (REST) | `src/mcp/imf-mcp-client.ts` |
 | 🌱 **World Bank Client** | `WORLD_BANK_MCP_TOOLS`; non-economic WDI indicators only (health, education, environment, governance, innovation) | `worldbank-mcp` (optional) | `src/mcp/wb-mcp-client.ts` |
 | ⚖️ **Stage-C completeness gate** | Editorial agent-side review against `.github/prompts/03-analysis-completeness-gate.md` and `analysis/methodologies/reference-quality-thresholds.json` line floors. **Replaces the purged runtime `content-validator.ts`** | Methodology library + per-artifact thresholds | `.github/prompts/03-…`, `analysis/methodologies/reference-quality-thresholds.json` |
-| 🔁 **Prior-Run Diff** | Re-run merge helper; classifies existing artifacts as at-floor (carry-forward) or below-floor (rewrite); `ENABLE_PRIOR_RUN_MERGE=true` env flag; emits `priorRunDiff` JSON consumed by Stage B | — | `scripts/aggregator/prior-run-diff.js` |
+| 🔁 **Prior-Run Diff** | Re-run improve/extend helper; classifies prior-run artifacts as must-extend (`carryForward[]`) or below-floor rewrite; always-on (no env flag); emits `priorRunDiff` JSON with `priorLines`+`extendFloor` consumed by Stage B and Stage C | — | `scripts/aggregator/prior-run-diff.js` |
 | 📜 **Forward-statements registry** | Canonical last-occurrence-per-id JSONL registry; week/month-ahead seeds `data/forward-statements-open.json`; Stage C enforces a "carried-forward forward statements" section when open items exist | JSONL registry | `scripts/aggregator/forward-statements-registry.js`, `analysis/forward-statements/` |
 | 🛡️ **Shell-safety helper** | Pre-audited bash helper for checkpoint-to-memory; replaces expansion-heavy inline workflow bash that the sandbox shell-safety filter would block | Bash | `scripts/checkpoint-analysis-to-memory.sh` |
 | 🧠 **Intelligence utilities** | `political-classification` (7D), `political-threat-assessment` (5-framework), `political-risk-assessment` (5×5 L×I), `significance-scoring`, `article-quality-scorer` | Types | `src/utils/*.ts` |

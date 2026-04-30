@@ -803,6 +803,51 @@ function main() {
   const forwardRegistryResult = validateForwardStatementsRegistryCoverage(runDir, articleType);
   mergeForwardRegistryResult(results, forwardRegistryResult);
 
+  // ── Re-run improve/extend enforcement ────────────────────────────────────
+  // Detect whether this is a re-run of an existing same-day analysis by
+  // checking manifest.history[]. When prior runs exist the agent MUST extend
+  // every artifact (rewriteCount must equal total artifact count, and each
+  // carry-forward artifact must reach its extendFloor). These are hard-RED
+  // violations, not warnings. See `.github/prompts/02-analysis-protocol.md`
+  // §"Re-run improve/extend rule".
+  const isRerun =
+    Array.isArray(manifest.history) && manifest.history.length > 0;
+
+  // Load prior-run-diff.json if present (produced unconditionally by
+  // `npm run prior-run-diff` in Stage A). Use a safeReadJson wrapper so a
+  // corrupt file degrades gracefully.
+  let priorRunDiff = null;
+  const priorRunDiffPath = path.join(runDir, 'runs', 'prior-run-diff.json');
+  if (fs.existsSync(priorRunDiffPath)) {
+    const raw = safeReadJson(priorRunDiffPath);
+    if (!raw.__error) priorRunDiff = raw;
+  }
+
+  // Build a quick lookup: relativePath → extendFloor, used below.
+  const extendFloorByPath = new Map();
+  if (priorRunDiff?.carryForward && Array.isArray(priorRunDiff.carryForward)) {
+    for (const entry of priorRunDiff.carryForward) {
+      if (entry.relativePath && typeof entry.extendFloor === 'number') {
+        extendFloorByPath.set(entry.relativePath, entry.extendFloor);
+      }
+    }
+  }
+
+  // On re-runs, check every carry-forward artifact's new line count against
+  // its extendFloor. Failures are hard-RED violations injected directly into
+  // the per-artifact result (not warnings) because a skip-write on a
+  // carry-forward target defeats the never-no-op contract.
+  if (isRerun && extendFloorByPath.size > 0) {
+    for (const r of results) {
+      const extendFloor = extendFloorByPath.get(r.relativePath);
+      if (extendFloor === undefined) continue;
+      if (!r.exists) continue; // already flagged as missing
+      if (r.lines < extendFloor) {
+        r.issues.push(`extend:below-extendFloor(${r.lines}<${extendFloor})`);
+      }
+    }
+  }
+
   // Orphans are reported as warnings (not blocking) — they may be valid extras.
   const summary = summarize(results);
   const offending = results.filter((r) => r.issues.length > 0);
@@ -825,13 +870,15 @@ function main() {
     );
   }
 
-  const green = offending.length === 0;
-
+  // ── pass2 rewriteCount enforcement ───────────────────────────────────────
   // Pass-2-skipped heuristic: warn when manifest.pass2 is absent, malformed,
   // or `rewriteCount === 0` AND at least one artifact sits at exactly its
-  // line floor. This is the script-side enforcement of the B1/B2 split
-  // defined in `.github/prompts/02-analysis-protocol.md` §3. A malformed
-  // pass2 block (non-numeric, non-finite, negative, non-integer
+  // line floor. On a re-run, `rewriteCount === 0` is a hard-RED violation
+  // (not a warning) because every artifact must be extended — a zero count
+  // means Stage B was a no-op. See `.github/prompts/02-analysis-protocol.md`
+  // §"Re-run improve/extend rule".
+  //
+  // A malformed pass2 block (non-numeric, non-finite, negative, non-integer
   // rewriteCount, or missing/non-string startedAt/endedAt timestamps) is
   // treated like an absent block so the enforcement can't be bypassed by
   // typos or malformed values.
@@ -876,7 +923,19 @@ function main() {
     );
   }
 
-  if (pass2Absent || pass2Invalid || pass2ZeroRewrites) {
+  // On re-runs, a zero-rewrite pass2 is a hard-RED gate violation because
+  // every artifact must be extended. On first runs, it remains a warning.
+  let rerunZeroRewritesRed = false;
+  if (isRerun && pass2ZeroRewrites) {
+    rerunZeroRewritesRed = true;
+    process.stderr.write(
+      `RED rerun-no-op: manifest.pass2.rewriteCount === 0 on a re-run ` +
+        `(history[] non-empty) — Stage B must extend every artifact. ` +
+        `See .github/prompts/02-analysis-protocol.md §"Re-run improve/extend rule".\n`,
+    );
+  }
+
+  if (!rerunZeroRewritesRed && (pass2Absent || pass2Invalid || pass2ZeroRewrites)) {
     const atFloor = results.filter(
       (r) => r.exists && r.lines > 0 && r.lines === r.minLines,
     );
@@ -892,6 +951,8 @@ function main() {
     }
   }
 
+  const green = offending.length === 0 && !rerunZeroRewritesRed;
+
   const gateLine = green
     ? `STAGE_C_GATE: GREEN articleType=${articleType} artifacts=${results.length} lines=${summary.totalLines}`
     : `STAGE_C_GATE: RED articleType=${articleType} missing=${summary.missing} short=${summary.short} placeholders=${summary.placeholders} mermaid_missing=${summary.mermaidMissing} other=${summary.other}`;
@@ -905,6 +966,7 @@ function main() {
           articleType,
           runDir: path.relative(ROOT, runDir) || runDir,
           artifacts: results.length,
+          isRerun,
           summary,
           results,
           orphans,
