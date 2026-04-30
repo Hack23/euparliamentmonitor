@@ -1,0 +1,51 @@
+{
+  "articleType": "motions",
+  "runId": "motions-run-1777531962",
+  "runDate": "2026-04-30",
+  "analysisDir": "analysis/daily/2026-04-30/motions",
+  "primaryTheme": "Three MEP immunity waivers (Jaki, Obajtek, Şoşoacă) + 2027 Budget Guidelines — April 28-29 Strasbourg plenary",
+  "workflowStartEpoch": 1777531962,
+  "pass2": {
+    "startedAt": "2026-04-30T06:00:00Z",
+    "endedAt": "2026-04-30T06:20:00Z",
+    "rewriteCount": 0
+  },
+  "gateResult": "ANALYSIS_ONLY",
+  "files": {
+    "classification/actor-mapping.md": "analysis/daily/2026-04-30/motions/classification/actor-mapping.md",
+    "classification/forces-analysis.md": "analysis/daily/2026-04-30/motions/classification/forces-analysis.md",
+    "classification/impact-matrix.md": "analysis/daily/2026-04-30/motions/classification/impact-matrix.md",
+    "classification/significance-classification.md": "analysis/daily/2026-04-30/motions/classification/significance-classification.md",
+    "documents/document-analysis-index.md": "analysis/daily/2026-04-30/motions/documents/document-analysis-index.md",
+    "existing/deep-analysis.md": "analysis/daily/2026-04-30/motions/existing/deep-analysis.md",
+    "existing/session-baseline.md": "analysis/daily/2026-04-30/motions/existing/session-baseline.md",
+    "intelligence/cross-session-intelligence.md": "analysis/daily/2026-04-30/motions/intelligence/cross-session-intelligence.md",
+    "intelligence/methodology-reflection.md": "analysis/daily/2026-04-30/motions/intelligence/methodology-reflection.md",
+    "intelligence/pestle-analysis.md": "analysis/daily/2026-04-30/motions/intelligence/pestle-analysis.md",
+    "intelligence/scenario-forecast.md": "analysis/daily/2026-04-30/motions/intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md": "analysis/daily/2026-04-30/motions/intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md": "analysis/daily/2026-04-30/motions/intelligence/synthesis-summary.md",
+    "intelligence/threat-model.md": "analysis/daily/2026-04-30/motions/intelligence/threat-model.md",
+    "intelligence/voting-patterns.md": "analysis/daily/2026-04-30/motions/intelligence/voting-patterns.md",
+    "intelligence/wildcards-blackswans.md": "analysis/daily/2026-04-30/motions/intelligence/wildcards-blackswans.md",
+    "intelligence/workflow-audit.md": "analysis/daily/2026-04-30/motions/intelligence/workflow-audit.md",
+    "risk-scoring/legislative-velocity-risk.md": "analysis/daily/2026-04-30/motions/risk-scoring/legislative-velocity-risk.md",
+    "risk-scoring/political-capital-risk.md": "analysis/daily/2026-04-30/motions/risk-scoring/political-capital-risk.md",
+    "risk-scoring/quantitative-swot.md": "analysis/daily/2026-04-30/motions/risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md": "analysis/daily/2026-04-30/motions/risk-scoring/risk-matrix.md",
+    "threat-assessment/actor-threat-profiles.md": "analysis/daily/2026-04-30/motions/threat-assessment/actor-threat-profiles.md",
+    "threat-assessment/consequence-trees.md": "analysis/daily/2026-04-30/motions/threat-assessment/consequence-trees.md",
+    "threat-assessment/legislative-disruption.md": "analysis/daily/2026-04-30/motions/threat-assessment/legislative-disruption.md",
+    "threat-assessment/political-threat-landscape.md": "analysis/daily/2026-04-30/motions/threat-assessment/political-threat-landscape.md"
+  },
+  "history": [
+    {
+      "runId": "motions-run-1777531962",
+      "runDate": "2026-04-30",
+      "timestamp": "2026-04-30T06:20:00Z",
+      "artifactCount": 25,
+      "gateResult": "ANALYSIS_ONLY",
+      "note": "First run today. 25 artifacts produced. Several below motions line floors (Stage C RED). Elapsed-time tripwire at minute 22 forced ANALYSIS_ONLY."
+    }
+  ]
+}
