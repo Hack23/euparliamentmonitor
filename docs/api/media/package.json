@@ -1,6 +1,6 @@
 {
   "name": "euparliamentmonitor",
-  "version": "0.8.51",
+  "version": "0.8.52",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
   "main": "scripts/index.js",
@@ -48,7 +48,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "prebuild": "node scripts/generators/news-indexes.js && node scripts/generators/sitemap.js",
+    "prebuild": "node scripts/generators/build-info.js && node scripts/generators/news-indexes.js && node scripts/generators/sitemap.js",
+    "generate-build-info": "node scripts/generators/build-info.js",
     "build": "tsc",
     "build:check": "tsc --noEmit",
     "build:check-tests": "tsc --project tsconfig.test.json --noEmit",
@@ -168,7 +169,7 @@
     "node": ">=25"
   },
   "dependencies": {
-    "european-parliament-mcp-server": "1.2.15",
+    "european-parliament-mcp-server": "1.2.18",
     "markdown-it": "^14.1.1",
     "markdown-it-anchor": "^9.2.0",
     "markdown-it-attrs": "^4.3.1",

@@ -718,7 +718,7 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"      # Docker container for MCP server
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.15", "--timeout", "120000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.18", "--timeout", "120000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "120000"
     # NOTE: Omit `allowed:` / `tools:` entirely — the gh-aw MCP gateway (awmg)

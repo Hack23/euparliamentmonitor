@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">99.09% </span>
+                <span class="strong">99.14% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>110/111</span>
+                <span class='fraction'>116/117</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">99.06% </span>
+                <span class="strong">99.11% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>106/107</span>
+                <span class='fraction'>112/113</span>
             </div>
         
             
@@ -649,7 +649,38 @@
 <a name='L584'></a><a href='#L584'>584</a>
 <a name='L585'></a><a href='#L585'>585</a>
 <a name='L586'></a><a href='#L586'>586</a>
-<a name='L587'></a><a href='#L587'>587</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L587'></a><a href='#L587'>587</a>
+<a name='L588'></a><a href='#L588'>588</a>
+<a name='L589'></a><a href='#L589'>589</a>
+<a name='L590'></a><a href='#L590'>590</a>
+<a name='L591'></a><a href='#L591'>591</a>
+<a name='L592'></a><a href='#L592'>592</a>
+<a name='L593'></a><a href='#L593'>593</a>
+<a name='L594'></a><a href='#L594'>594</a>
+<a name='L595'></a><a href='#L595'>595</a>
+<a name='L596'></a><a href='#L596'>596</a>
+<a name='L597'></a><a href='#L597'>597</a>
+<a name='L598'></a><a href='#L598'>598</a>
+<a name='L599'></a><a href='#L599'>599</a>
+<a name='L600'></a><a href='#L600'>600</a>
+<a name='L601'></a><a href='#L601'>601</a>
+<a name='L602'></a><a href='#L602'>602</a>
+<a name='L603'></a><a href='#L603'>603</a>
+<a name='L604'></a><a href='#L604'>604</a>
+<a name='L605'></a><a href='#L605'>605</a>
+<a name='L606'></a><a href='#L606'>606</a>
+<a name='L607'></a><a href='#L607'>607</a>
+<a name='L608'></a><a href='#L608'>608</a>
+<a name='L609'></a><a href='#L609'>609</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1171,6 +1202,19 @@
 <span class="cline-any cline-yes">176x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">176x</span>
+<span class="cline-any cline-yes">176x</span>
+<span class="cline-any cline-yes">176x</span>
+<span class="cline-any cline-yes">176x</span>
+<span class="cline-any cline-yes">176x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">176x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">176x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1277,8 +1321,17 @@ import {
   FOOTER_POLITICAL_INTELLIGENCE_LABELS,
   HEADER_SUBTITLE_LABELS,
   THEME_TOGGLE_LABELS,
+  BUILD_INFO_COMMIT_LABELS,
+  BUILD_INFO_DEPLOYED_LABELS,
 } from '../constants/languages.js';
-import { APP_VERSION, createThemeToggleButton } from '../constants/config.js';
+import {
+  APP_VERSION,
+  BUILD_ID,
+  BUILD_SHORT,
+  BUILD_TIME,
+  createThemeToggleButton,
+} from '../constants/config.js';
+import { icon } from './icons.js';
 import { stripScriptBlocks, stripHtmlTags } from '../utils/html-sanitize.js';
 &nbsp;
 // ─── New section builder interfaces ─────────────────────────────────────────
@@ -1642,9 +1695,9 @@ export function buildSiteHeader(options: SiteHeaderOptions): string {
         &lt;/span&gt;
       &lt;/a&gt;
       &lt;div class="site-header__actions"&gt;
-        &lt;a class="site-header__cta site-header__cta--sponsor" href="https://github.com/sponsors/Hack23"&gt;💖 Sponsor Hack23&lt;/a&gt;
+        &lt;a class="site-header__cta site-header__cta--sponsor" href="https://github.com/sponsors/Hack23"&gt;${icon('sponsor')}&lt;span class="emoji" aria-hidden="true"&gt;💖&lt;/span&gt; Sponsor Hack23&lt;/a&gt;
         &lt;a class="site-header__cta" href="https://www.hack23.com"&gt;Become a sponsor&lt;/a&gt;
-        &lt;a class="site-header__cta site-header__cta--security" href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md"&gt;🔐 Commitment to Transparency and Security&lt;/a&gt;
+        &lt;a class="site-header__cta site-header__cta--security" href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md"&gt;${icon('security')}&lt;span class="emoji" aria-hidden="true"&gt;🔐&lt;/span&gt; Commitment to Transparency and Security&lt;/a&gt;
         ${createThemeToggleButton(themeToggleLabel)}
       &lt;/div&gt;
       &lt;nav class="site-header__langs" role="navigation" aria-label="Language selection"&gt;
@@ -1756,6 +1809,19 @@ export function buildSiteFooter(options: SiteFooterOptions): string {
 &nbsp;
   const langGrid = buildFooterLangGrid(lang, pathPrefix);
 &nbsp;
+  const buildLabel = escapeHTML(getLocalizedString(BUILD_INFO_COMMIT_LABELS, lang));
+  const deployedLabel = escapeHTML(getLocalizedString(BUILD_INFO_DEPLOYED_LABELS, lang));
+  const safeBuildId = escapeHTML(BUILD_ID);
+  const safeBuildShort = escapeHTML(BUILD_SHORT);
+  const safeBuildTime = escapeHTML(BUILD_TIME);
+  const buildLine =
+    `v${escapeHTML(APP_VERSION)} · ` +
+    `&lt;a href="https://github.com/Hack23/euparliamentmonitor/commit/${safeBuildId}" ` +
+    `class="footer-build" title="${buildLabel} ${safeBuildShort}" rel="noopener"&gt;` +
+    `&lt;code&gt;${safeBuildShort}&lt;/code&gt;&lt;/a&gt; · ` +
+    `&lt;span class="footer-build-deployed"&gt;${deployedLabel}&lt;/span&gt; ` +
+    `&lt;time class="footer-build-time" datetime="${safeBuildTime}" data-relative-time&gt;${safeBuildTime}&lt;/time&gt;`;
+&nbsp;
   return `&lt;footer class="site-footer" role="contentinfo"&gt;
     &lt;div class="footer-content"&gt;
       &lt;div class="footer-section"&gt;
@@ -1768,17 +1834,17 @@ export function buildSiteFooter(options: SiteFooterOptions): string {
         &lt;ul&gt;
           &lt;li&gt;&lt;a href="${homeHref}"&gt;${homeLabel}&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="${homeHref}#main"&gt;News&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="${analysisDocsHref}"&gt;📊 Analysis &amp; Reports&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="${analysisDocsHref}"&gt;📊 Analysis &amp;amp; Reports&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="${pathPrefix}docs/index.html"&gt;Dashboard&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="${politicalIntelligenceHref}"&gt;🧠 ${politicalIntelligenceLabel}&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="${sitemapHref}"&gt;🗺️ ${sitemapLabel}&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="${politicalIntelligenceHref}"&gt;${icon('pi')}&lt;span class="emoji" aria-hidden="true"&gt;🧠&lt;/span&gt; ${politicalIntelligenceLabel}&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="${sitemapHref}"&gt;${icon('sitemap')}&lt;span class="emoji" aria-hidden="true"&gt;🗺️&lt;/span&gt; ${sitemapLabel}&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="${apiDocsHref}"&gt;📚 API Documentation (TypeDoc)&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="${pathPrefix}rss.xml"&gt;${rssLabel}&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="${pathPrefix}rss.xml"&gt;${icon('rss')}${rssLabel}&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="https://hack23.com/euparliamentmonitor.html"&gt;EU Parliament Monitor by Hack23&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="https://hack23.com/euparliamentmonitor-features.html"&gt;EU Parliament Monitor Features&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="https://hack23.com/cia-features.html"&gt;CIA Platform&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="https://www.riksdagen.se/"&gt;Sveriges Riksdag&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href="https://github.com/Hack23/euparliamentmonitor"&gt;${githubLabel}&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href="https://github.com/Hack23/euparliamentmonitor"&gt;${icon('github')}${githubLabel}&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="https://github.com/Hack23/euparliamentmonitor/issues"&gt;${reportIssuesLabel}&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE"&gt;${licenseLabel}&lt;/a&gt;&lt;/li&gt;
           &lt;li&gt;&lt;a href="https://www.europarl.europa.eu/"&gt;${europarlLabel}&lt;/a&gt;&lt;/li&gt;
@@ -1816,7 +1882,7 @@ export function buildSiteFooter(options: SiteFooterOptions): string {
       &lt;/div&gt;
     &lt;/div&gt;
     &lt;div class="footer-bottom"&gt;
-      &lt;p&gt;&amp;copy; 2008-${year} &lt;a href="https://hack23.com"&gt;Hack23 AB&lt;/a&gt; (Org.nr 5595347807) | Gothenburg, Sweden | v${escapeHTML(APP_VERSION)}&lt;/p&gt;
+      &lt;p&gt;&amp;copy; 2008-${year} &lt;a href="https://hack23.com"&gt;Hack23 AB&lt;/a&gt; (Org.nr 5595347807) | Gothenburg, Sweden | ${buildLine}&lt;/p&gt;
       &lt;p class="footer-disclaimer"&gt;&lt;span aria-hidden="true"&gt;⚠️&lt;/span&gt; ${disclaimerText} &lt;a href="https://github.com/Hack23/euparliamentmonitor/issues"&gt;${reportIssuesLabel}&lt;/a&gt;.&lt;/p&gt;
     &lt;/div&gt;
   &lt;/footer&gt;`;
@@ -1828,7 +1894,7 @@ export function buildSiteFooter(options: SiteFooterOptions): string {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-04-29T18:00:38.514Z
+                at 2026-04-30T15:18:06.506Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
