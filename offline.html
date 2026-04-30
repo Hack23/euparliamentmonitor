@@ -1,0 +1,56 @@
+<!--
+  SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+  SPDX-License-Identifier: Apache-2.0
+
+  EU Parliament Monitor — offline fallback page.
+  Served by the service worker (`sw.js`) when a navigation request fails
+  because the device is offline. CSP matches every other site page
+  (`script-src 'self'`); no inline scripts.
+-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="referrer" content="no-referrer">
+  <title>You're offline — EU Parliament Monitor</title>
+  <meta name="description" content="EU Parliament Monitor is unavailable while you're offline. Reconnect to load the latest political intelligence.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#003399">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="main" class="site-main ep-offline-hero" role="main">
+    <section class="ep-offline-hero__panel">
+      <div class="ep-offline-hero__icon" aria-hidden="true">📡</div>
+      <h1 class="ep-offline-hero__title">You're offline</h1>
+      <p class="ep-offline-hero__lead">EU Parliament Monitor is unavailable while you're offline. Reconnect to load the latest political intelligence.</p>
+
+      <p lang="sv" dir="ltr">Du är offline. EU Parliament Monitor är otillgänglig — anslut igen för att läsa den senaste politiska underrättelsen.</p>
+      <p lang="da" dir="ltr">Du er offline. EU Parliament Monitor er utilgængelig — opret forbindelse igen for at hente den nyeste politiske efterretning.</p>
+      <p lang="no" dir="ltr">Du er frakoblet. EU Parliament Monitor er utilgjengelig — koble til på nytt for å laste inn den nyeste politiske etterretningen.</p>
+      <p lang="fi" dir="ltr">Olet offline-tilassa. EU Parliament Monitor ei ole käytettävissä — yhdistä uudelleen ladataksesi uusimman poliittisen tiedustelun.</p>
+      <p lang="de" dir="ltr">Sie sind offline. EU Parliament Monitor ist nicht verfügbar — stellen Sie die Verbindung wieder her, um die neuesten politischen Informationen zu laden.</p>
+      <p lang="fr" dir="ltr">Vous êtes hors ligne. EU Parliament Monitor est indisponible — reconnectez-vous pour charger les dernières informations politiques.</p>
+      <p lang="es" dir="ltr">Estás sin conexión. EU Parliament Monitor no está disponible — vuelve a conectarte para cargar la última inteligencia política.</p>
+      <p lang="nl" dir="ltr">Je bent offline. EU Parliament Monitor is niet beschikbaar — maak opnieuw verbinding om de laatste politieke intelligentie te laden.</p>
+      <p lang="ar" dir="rtl">أنت غير متصل. مراقب البرلمان الأوروبي غير متوفر — أعد الاتصال لتحميل أحدث المعلومات السياسية.</p>
+      <p lang="he" dir="rtl">אתה במצב לא מקוון. EU Parliament Monitor אינו זמין — התחבר מחדש כדי לטעון את המודיעין הפוליטי העדכני ביותר.</p>
+      <p lang="ja" dir="ltr">オフラインです。EU Parliament Monitor を利用できません — 再接続して最新の政治情報を読み込んでください。</p>
+      <p lang="ko" dir="ltr">오프라인 상태입니다. EU Parliament Monitor를 이용할 수 없습니다 — 다시 연결하여 최신 정치 정보를 불러오세요.</p>
+      <p lang="zh" dir="ltr">您处于离线状态。无法使用 EU Parliament Monitor — 重新连接以加载最新的政治情报。</p>
+
+      <p class="ep-offline-hero__actions">
+        <a class="ep-offline-hero__cta" href="/index.html">EU Parliament Monitor</a>
+      </p>
+    </section>
+  </main>
+  <script src="js/pwa-register.js" defer></script>
+</body>
+</html>

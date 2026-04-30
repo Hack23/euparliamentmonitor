@@ -2,26 +2,60 @@
   "name": "EU Parliament Monitor",
   "short_name": "EU Monitor",
   "description": "European Parliament Intelligence Platform — monitoring political activity with systematic transparency",
-  "start_url": "/",
+  "id": "/?source=pwa",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "minimal-ui", "standalone", "browser"],
+  "orientation": "any",
   "background_color": "#003399",
   "theme_color": "#003399",
+  "prefer_related_applications": false,
+  "categories": ["news", "politics", "government", "education"],
+  "launch_handler": { "client_mode": "auto" },
   "icons": [
     {
       "src": "images/favicon-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "images/favicon-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "images/favicon-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Latest News",
+      "short_name": "News",
+      "description": "Browse the most recent EU Parliament news analyses",
+      "url": "/index.html",
+      "icons": [{ "src": "images/favicon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Sitemap",
+      "short_name": "Sitemap",
+      "description": "Full directory of every published article and report",
+      "url": "/sitemap.html",
+      "icons": [{ "src": "images/favicon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Political Intelligence",
+      "short_name": "Intel",
+      "description": "Daily political intelligence runs and methodology",
+      "url": "/political-intelligence.html",
+      "icons": [{ "src": "images/favicon-192x192.png", "sizes": "192x192" }]
     }
   ]
 }

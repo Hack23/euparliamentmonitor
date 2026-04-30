@@ -40,8 +40,17 @@ import {
   FOOTER_POLITICAL_INTELLIGENCE_LABELS,
   HEADER_SUBTITLE_LABELS,
   THEME_TOGGLE_LABELS,
+  BUILD_INFO_COMMIT_LABELS,
+  BUILD_INFO_DEPLOYED_LABELS,
 } from '../constants/languages.js';
-import { APP_VERSION, createThemeToggleButton } from '../constants/config.js';
+import {
+  APP_VERSION,
+  BUILD_ID,
+  BUILD_SHORT,
+  BUILD_TIME,
+  createThemeToggleButton,
+} from '../constants/config.js';
+import { icon } from './icons.js';
 import { stripScriptBlocks, stripHtmlTags } from '../utils/html-sanitize.js';
 
 // ─── New section builder interfaces ─────────────────────────────────────────
@@ -405,9 +414,9 @@ export function buildSiteHeader(options: SiteHeaderOptions): string {
         </span>
       </a>
       <div class="site-header__actions">
-        <a class="site-header__cta site-header__cta--sponsor" href="https://github.com/sponsors/Hack23">💖 Sponsor Hack23</a>
+        <a class="site-header__cta site-header__cta--sponsor" href="https://github.com/sponsors/Hack23">${icon('sponsor')}<span class="emoji" aria-hidden="true">💖</span> Sponsor Hack23</a>
         <a class="site-header__cta" href="https://www.hack23.com">Become a sponsor</a>
-        <a class="site-header__cta site-header__cta--security" href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md">🔐 Commitment to Transparency and Security</a>
+        <a class="site-header__cta site-header__cta--security" href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md">${icon('security')}<span class="emoji" aria-hidden="true">🔐</span> Commitment to Transparency and Security</a>
         ${createThemeToggleButton(themeToggleLabel)}
       </div>
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
@@ -519,6 +528,19 @@ export function buildSiteFooter(options: SiteFooterOptions): string {
 
   const langGrid = buildFooterLangGrid(lang, pathPrefix);
 
+  const buildLabel = escapeHTML(getLocalizedString(BUILD_INFO_COMMIT_LABELS, lang));
+  const deployedLabel = escapeHTML(getLocalizedString(BUILD_INFO_DEPLOYED_LABELS, lang));
+  const safeBuildId = escapeHTML(BUILD_ID);
+  const safeBuildShort = escapeHTML(BUILD_SHORT);
+  const safeBuildTime = escapeHTML(BUILD_TIME);
+  const buildLine =
+    `v${escapeHTML(APP_VERSION)} · ` +
+    `<a href="https://github.com/Hack23/euparliamentmonitor/commit/${safeBuildId}" ` +
+    `class="footer-build" title="${buildLabel} ${safeBuildShort}" rel="noopener">` +
+    `<code>${safeBuildShort}</code></a> · ` +
+    `<span class="footer-build-deployed">${deployedLabel}</span> ` +
+    `<time class="footer-build-time" datetime="${safeBuildTime}" data-relative-time>${safeBuildTime}</time>`;
+
   return `<footer class="site-footer" role="contentinfo">
     <div class="footer-content">
       <div class="footer-section">
@@ -531,17 +553,17 @@ export function buildSiteFooter(options: SiteFooterOptions): string {
         <ul>
           <li><a href="${homeHref}">${homeLabel}</a></li>
           <li><a href="${homeHref}#main">News</a></li>
-          <li><a href="${analysisDocsHref}">📊 Analysis & Reports</a></li>
+          <li><a href="${analysisDocsHref}">📊 Analysis &amp; Reports</a></li>
           <li><a href="${pathPrefix}docs/index.html">Dashboard</a></li>
-          <li><a href="${politicalIntelligenceHref}">🧠 ${politicalIntelligenceLabel}</a></li>
-          <li><a href="${sitemapHref}">🗺️ ${sitemapLabel}</a></li>
+          <li><a href="${politicalIntelligenceHref}">${icon('pi')}<span class="emoji" aria-hidden="true">🧠</span> ${politicalIntelligenceLabel}</a></li>
+          <li><a href="${sitemapHref}">${icon('sitemap')}<span class="emoji" aria-hidden="true">🗺️</span> ${sitemapLabel}</a></li>
           <li><a href="${apiDocsHref}">📚 API Documentation (TypeDoc)</a></li>
-          <li><a href="${pathPrefix}rss.xml">${rssLabel}</a></li>
+          <li><a href="${pathPrefix}rss.xml">${icon('rss')}${rssLabel}</a></li>
           <li><a href="https://hack23.com/euparliamentmonitor.html">EU Parliament Monitor by Hack23</a></li>
           <li><a href="https://hack23.com/euparliamentmonitor-features.html">EU Parliament Monitor Features</a></li>
           <li><a href="https://hack23.com/cia-features.html">CIA Platform</a></li>
           <li><a href="https://www.riksdagen.se/">Sveriges Riksdag</a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor">${githubLabel}</a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor">${icon('github')}${githubLabel}</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor/issues">${reportIssuesLabel}</a></li>
           <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">${licenseLabel}</a></li>
           <li><a href="https://www.europarl.europa.eu/">${europarlLabel}</a></li>
@@ -579,7 +601,7 @@ export function buildSiteFooter(options: SiteFooterOptions): string {
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | v${escapeHTML(APP_VERSION)}</p>
+      <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | ${buildLine}</p>
       <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> ${disclaimerText} <a href="https://github.com/Hack23/euparliamentmonitor/issues">${reportIssuesLabel}</a>.</p>
     </div>
   </footer>`;

@@ -6,6 +6,7 @@
  * @description Shared configuration constants
  */
 
+import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -167,3 +168,62 @@ export const THEME_TOGGLE_SCRIPT_CONTENT = `
  */
 export const THEME_TOGGLE_SCRIPT = `
   <script>${THEME_TOGGLE_SCRIPT_CONTENT}</script>`;
+
+/**
+ * Resolve the current build commit SHA. Precedence:
+ *   1. `process.env.BUILD_ID` (CI sets this from `${{ github.sha }}`)
+ *   2. `git rev-parse HEAD` (works in dev clones / local builds)
+ *   3. `'0'.repeat(40)` (deterministic, never throws)
+ *
+ * Always returns a 40-char lowercase hex string. Never throws — generator
+ * scripts must be safe to run on machines without git installed.
+ *
+ * @returns 40-char lowercase hex commit SHA, or `'0'.repeat(40)` placeholder.
+ */
+function resolveBuildId(): string {
+  const fromEnv = (process.env.BUILD_ID ?? '').trim();
+  if (/^[0-9a-f]{40}$/i.test(fromEnv)) {
+    return fromEnv.toLowerCase();
+  }
+  try {
+    const fromGit = execSync('git rev-parse HEAD', {
+      encoding: 'utf-8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+      cwd: PROJECT_ROOT,
+    }).trim();
+    if (/^[0-9a-f]{40}$/i.test(fromGit)) {
+      return fromGit.toLowerCase();
+    }
+  } catch {
+    /* git unavailable or not a repo — fall through to placeholder */
+  }
+  return '0'.repeat(40);
+}
+
+/**
+ * Full git commit SHA (40 chars) for the running build. Resolved via env
+ * (`BUILD_ID`), then `git rev-parse HEAD`, then a deterministic placeholder
+ * (`'0'.repeat(40)`). Never empty, never throws.
+ */
+export const BUILD_ID: string = resolveBuildId();
+
+/** First 7 chars of {@link BUILD_ID} — the conventional short SHA. */
+export const BUILD_SHORT: string = BUILD_ID.slice(0, 7);
+
+/**
+ * ISO 8601 timestamp for when this build was produced. Precedence:
+ *   1. `process.env.BUILD_TIME` (CI sets this in the workflow)
+ *   2. `new Date().toISOString()` fallback
+ */
+export const BUILD_TIME: string = (() => {
+  const fromEnv = (process.env.BUILD_TIME ?? '').trim();
+  if (fromEnv) return fromEnv;
+  return new Date().toISOString();
+})();
+
+/**
+ * Optional release tag (e.g. `v0.8.51`). Empty string when no tag was
+ * supplied via `process.env.RELEASE_TAG`. Surfaced in `build-info.json`
+ * for clients that want a human-readable label.
+ */
+export const RELEASE_TAG: string = (process.env.RELEASE_TAG ?? '').trim();

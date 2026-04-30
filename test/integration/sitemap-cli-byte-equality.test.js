@@ -43,6 +43,16 @@ function normalizeForComparison(content) {
     .replace(
       /<time datetime="\d{4}-\d{2}-\d{2}">\d{4}-\d{2}-\d{2}<\/time>/g,
       '<time datetime="FIXED">FIXED</time>'
+    )
+    // Build-time meta (varies across runs unless BUILD_TIME env is pinned)
+    .replace(
+      /<meta name="build-time" content="[^"]+">/g,
+      '<meta name="build-time" content="FIXED">'
+    )
+    // Footer build-time <time> element renders BUILD_TIME twice (datetime + text)
+    .replace(
+      /<time class="footer-build-time" datetime="[^"]+" data-relative-time>[^<]*<\/time>/g,
+      '<time class="footer-build-time" datetime="FIXED" data-relative-time>FIXED</time>'
     );
 }
 

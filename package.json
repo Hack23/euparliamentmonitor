@@ -48,7 +48,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "prebuild": "node scripts/generators/news-indexes.js && node scripts/generators/sitemap.js",
+    "prebuild": "node scripts/generators/build-info.js && node scripts/generators/news-indexes.js && node scripts/generators/sitemap.js",
+    "generate-build-info": "node scripts/generators/build-info.js",
     "build": "tsc",
     "build:check": "tsc --noEmit",
     "build:check-tests": "tsc --project tsconfig.test.json --noEmit",

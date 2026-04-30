@@ -502,23 +502,31 @@ describe('generate-sitemap', () => {
 
       // Malicious title must be escaped in the sitemap article list
       expect(html).toContain('&lt;script&gt;');
-      // The only <script> tags should be (1) the JSON-LD structured data and
-      // (2) the theme toggle — never from the untrusted article title.
+      // The only <script> tags should be (1) the JSON-LD structured data,
+      // (2) the theme toggle, and (3) the same-origin PWA register script —
+      // never from the untrusted article title.
       const scriptTags = html.match(/<script\b[^>]*>/gi) || [];
-      expect(scriptTags.length).toBe(2);
+      expect(scriptTags.length).toBe(3);
 
       const jsonLdScripts = scriptTags.filter((tag) =>
         /\btype="application\/ld\+json"/i.test(tag)
       );
       expect(jsonLdScripts.length).toBe(1);
 
+      // Non-JSON-LD scripts: theme toggle (inline) + pwa-register (same-origin src)
       const nonJsonLdScripts = scriptTags.filter(
         (tag) => !/\btype="application\/ld\+json"/i.test(tag)
       );
-      expect(nonJsonLdScripts.length).toBe(1);
-      // The non-JSON-LD script must be a safe inline script (no src= attribute)
-      expect(/^<script\b/i.test(nonJsonLdScripts[0])).toBe(true);
-      expect(/\bsrc=/i.test(nonJsonLdScripts[0])).toBe(false);
+      expect(nonJsonLdScripts.length).toBe(2);
+      // Every non-JSON-LD script must be safe — either inline (no src) or
+      // referencing a same-origin path under `js/`.
+      for (const tag of nonJsonLdScripts) {
+        expect(/^<script\b/i.test(tag)).toBe(true);
+        const srcMatch = tag.match(/\bsrc="([^"]+)"/i);
+        if (srcMatch) {
+          expect(srcMatch[1].startsWith('js/')).toBe(true);
+        }
+      }
     });
 
     it('should link news articles correctly', () => {
