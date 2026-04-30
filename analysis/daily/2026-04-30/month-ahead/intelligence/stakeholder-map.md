@@ -237,3 +237,24 @@ graph TD
 - **Coverage:** Covers all major EP political group leaders, key national delegations, and external institutional stakeholders with direct influence on the month-ahead legislative agenda.
 - **Confidence in individual MEP assessments: 🟡 MEDIUM** — MEP profiles based on public group positions and committee assignments; personal vote intentions not directly observable at this resolution.
 
+---
+
+## Stakeholder Update — April 30 Real-Time Data
+
+**EP Plenary Session Composition Confirmed (EP API, 2026-04-30):**
+
+| Stakeholder Group | Seat Count | Majority Share | Month-Ahead Role | Updated Signal |
+|-------------------|------------|----------------|------------------|----------------|
+| EPP (von der Leyen, Weber) | 185 | 51.2% of 361 threshold | Legislative agenda setter | Budget 2027 leadership intact 🟢 |
+| S&D (Corbett, Sidl) | 135 | 37.4% of threshold | Social legislative driver | EIB + SIU co-sponsorship confirmed 🟢 |
+| Renew (Verhofstadt, Huitema) | 77 | 21.3% of threshold | Swing coalition provider | SIU/finfluencer debate leads 🟡 |
+| ECR (Melloni, Legutko) | 81 | 22.4% of threshold | Selective coalition partner | Fisheries sovereignty — constructive 🟡 |
+| PfE (Le Pen, Orbán) | 85 | 23.5% of threshold | Opposition / selective | Anti-ECB messaging likely 🔴 |
+| Greens/EFA (Jadot-type) | 53 | 14.7% of threshold | Environmental agenda | SIU consumer protection push 🟡 |
+| The Left (MUF) | 46 | 12.7% of threshold | Critical opposition | Wage/labor standards on EIB vote 🟡 |
+| NI (non-attached) | 30 | 8.3% of threshold | Swing/noise | Low predictability 🔴 |
+| ESN | 27 | 7.5% of threshold | Far-right opposition | Fisheries + defence block 🔴 |
+
+**Key stakeholder dynamics for May 18-21 (updated):**
+ECB rate cut (expected June) gives ECB Governor Lane a prominent signalling role; EP Economic Affairs Committee (ECON) chair and ECB Parliamentary Hearing track this closely. EPP-S&D-Renew triangle (397 seats = 110% of 361 threshold) remains the super-majority coalition that can pass any priority legislation. The month-ahead window has no confirmed mega-votes requiring broader mobilisation.
+

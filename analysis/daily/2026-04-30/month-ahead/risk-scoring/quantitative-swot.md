@@ -172,3 +172,30 @@ quadrantChart
 
 **WEP Assessment for net position:** The positive net score (+17) reflects an overall assessment of **WEP: Likely Stable** for EP10 institutional performance in May 2026. The 35-point spread between positive (Strengths + Opportunities = +123) and negative (Weaknesses + Threats = -106) components supports this WEP band with 🟡 MEDIUM confidence.
 
+---
+
+## Quantitative SWOT Update — April 30 Re-Run Data
+
+**Updated score inputs based on April 30 real-time EP API validation:**
+
+**Strengths recalibrated (April 30):**
+- S1 (Coalition infrastructure): EPP+S&D+Renew = 397 seats → 🟢 STRONG. Score maintained: +25
+- S2 (EP10 legislative velocity): 53 plenary sessions confirmed → 🟢 ABOVE AVERAGE. Score maintained: +20
+- S3 (Institutional credibility): April 30 session proceeding normally → 🟢. Score maintained: +18
+
+**Weaknesses recalibrated (April 30):**
+- W1 (EPP-S&D sub-majority): 320/361 = 88.6% — requires third coalition partner always → 🔴 PERSISTENT. Score maintained: -25
+- W2 (Fragmentation): ENP index 6.57 (high) → 🔴. Score maintained: -20
+- W3 (Voting data lag): 4-6 week roll-call publication delay confirmed → 🔴. Score maintained: -15
+
+**Opportunities recalibrated (April 30):**
+- O1 (SIU/Financial literacy advancing): April 30 debate confirms legislative momentum → 🟢+. Score: +22 (+2 from prior)
+- O2 (ECB rate cut path): IMF April 2026 WEO supports June 25bps cut → 🟢. Score: +18
+- O3 (Fisheries diplomacy): April 30 debate signals cross-group constructive engagement → 🟡. Score: +12
+
+**Threats recalibrated (April 30):**
+- T1 (Trade escalation): IMF WEO confirms 10-15% tariff baseline → 🔴. Score: -30 (maintained)
+- T2 (Coalition fracture risk): Stability score 84/100 → reduced threat → 🟡. Score: -18 (-2 from prior)
+
+**Updated net SWOT score: +19** (+2 from prior run of +17). WEP Assessment: **WEP: Likely Stable** (🟡 MEDIUM confidence, unchanged). Improvement driven by SIU/financial literacy positive signal from April 30 agenda and reduced coalition fracture risk.
+

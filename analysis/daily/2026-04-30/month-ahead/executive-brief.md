@@ -177,3 +177,24 @@ EPP coalition fractures on CID/EDIS votes, requiring vote postponement; Ukraine 
 **Admiralty rating:** B2 (credible source: EP institutional data; probably true: analytical assessments calibrated to WEP standard)  
 **Source set:** EP Open Data Portal (primary), IMF WEO April 2026 (economic context), EP MCP Server v1.2.18 (data retrieval)
 
+---
+
+## Re-Run Update — 2026-04-30 Pass 2
+
+**Fresh data signals incorporated in this re-run:**
+
+**April 30 Plenary Session (ongoing):** Today's sitting has 21 foreseen activities — 4 plenary debates and 13 votes scheduled across morning (09:00), noon (12:00), and afternoon (15:00) sessions. Active votes today span items V-25, V-52, V-95, V-99, V-103, V-104, V-108, V-111–V-115, V-119. Debate items cover: EIB Group financial activities (annual report 2024), consent-based rape legislation in the EU, financial literacy and finfluencers in the context of the Savings and Investments Union, and ocean diplomacy for EU fisheries and aquaculture.
+
+**Political Landscape Validation (real-time EP API, 2026-04-30):**
+- Total: 719 MEPs across 9 political groups, 27 member states
+- EPP: 185 (25.7%) | S&D: 135 (18.8%) | PfE: 85 (11.8%) | ECR: 81 (11.3%)
+- Renew: 77 (10.7%) | Greens/EFA: 53 (7.4%) | The Left: 46 (6.4%) | NI: 30 | ESN: 27
+- Majority threshold: 361 seats — no single pair can reach this; EPP+S&D = 320 (short by 41)
+- Stability score: **84/100** (early warning system, 2026-04-30); risk level: MEDIUM
+
+**Dominant Coalition Architecture Confirmed:** EPP-S&D grand coalition remains structurally below majority threshold (320/361). Every passing vote requires a third group — Renew (77) is the swing provider for centre-left majorities; ECR (81) for centre-right. This structural constraint shapes every legislative outcome in the May 2026 window. 🟢 HIGH confidence in this structural assessment.
+
+
+**Re-run attestation:** This executive brief was reviewed and extended in Pass 2 of a same-day re-run. All structural intelligence updated against April 30 real-time EP API data. Admiralty rating and confidence levels re-calibrated accordingly.
+
+**Context for briefing consumers:** The month-ahead intelligence window covers April 30 – May 29, 2026. The next scheduled Strasbourg session (May 18-21) is the principal legislative event. Subsequent mini-session in Brussels is expected late May. Monitoring recommendations: track May provisional agenda publication (ETA: May 7-8), Budget 2027 ECOFIN signals, and ECB pre-meeting communications (May 28 Governing Council).

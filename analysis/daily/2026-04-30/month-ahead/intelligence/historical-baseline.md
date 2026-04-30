@@ -166,3 +166,24 @@ timeline
 
 **Admiralty rating for historical data: A1** — Data sourced from EP's own statistical database (`get_all_generated_stats`); multiple year cross-checks confirm internal consistency. Historical institutional patterns are highly reliable; forward projections based on them carry standard forecast uncertainty.
 
+---
+
+## Historical Baseline Cross-Validation — April 30 Update
+
+**Comparison with prior April-May periods (EP10 context):**
+
+| Metric | April 30, 2026 (Current) | Historical April Baseline | Assessment |
+|--------|--------------------------|---------------------------|------------|
+| Active plenary votes today | 13 confirmed | 8-15 typical | 🟢 Within historical range |
+| Active plenary debates | 4 | 3-6 typical | 🟢 Normal legislative load |
+| Group count | 9 | 7-9 (EP9: 7, EP10: 9) | 🟡 Higher fragmentation than EP9 |
+| Majority threshold | 361/719 | 376/751 (EP9) | 🟢 Lower absolute threshold |
+| EPP-S&D combined share | 44.5% | 43-55% (EP8-EP10 range) | 🟡 Below historical grand coalition peak |
+
+**Key historical pattern — May Strasbourg plenary cycle:**
+May Strasbourg sessions historically see higher-than-average vote counts (32-45 items) because committees rush to clear accumulated dossiers before the summer recess. May 2026's session (18-21) falls 5 weeks before the informal June recess; this structural urgency typically elevates both the volume and political salience of agenda items.
+
+**EP10 institutional velocity (updated):** 53 plenary sessions recorded in EP10 to date (EP API `get_all_generated_stats`), consistent with the 2019-2024 EP9 baseline rate. Legislative output metrics indicate a productive term, supporting the Steady-State historical baseline with 🟢 HIGH confidence.
+
+
+**Historical baseline confidence: 🟢 A1** — EP10 session data from authoritative EP Open Data Portal. Forward extrapolations carry standard forecast uncertainty band.

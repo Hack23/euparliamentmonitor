@@ -190,3 +190,27 @@ graph TD
 
 **Net threat environment for May 2026:** 🟡 ELEVATED — consistent with EP10 baseline risk level. The dominant threat (T1: coalition fragmentation) is unlikely individually but represents the highest-impact-per-probability risk in the threat portfolio. The structural mitigation (Budget 2027 EPP-S&D bilateral incentive) is the single most important counter-threat mechanism and should be monitored closely.
 
+---
+
+## Threat Model Update — April 30 Real-Time Assessment
+
+**Threat 1 Update — Coalition Fragmentation (T1):**
+EP API confirms EPP-S&D combined: 320/361 (89% of majority threshold). Early warning system flags HIGH: Dominant Group Risk (EPP 19x smallest group). However, stability score 84/100 indicates structural resilience. April 30 plenary proceeding normally with no coalition defection signals. **T1 net assessment: 🟡 MEDIUM — structural constraint persists but no imminent fracture signal.** WEP: Unlikely to materialise in May 2026 window.
+
+**Threat 2 Update — US Trade Escalation (T2):**
+IMF April 2026 WEO projects 1.2% EA growth baseline; 10-15% effective US tariff rate confirmed. No new USTR/White House signals since April 28 EP Budget guidelines vote. EP Trade Committee (INTA) expected to debate retaliatory measures framework in May session. **T2 net assessment: 🔴 HIGH background risk — systemic but stable.** WEP: Likely continuing at current level.
+
+**Threat 3 Update — Geopolitical Disruption (T3):**
+No new signals from Ukraine conflict theatre or Russia-EU diplomatic track since April 28. EDIS debate ongoing; no acute escalation signals. April 30 session includes no defence-specific agenda items. **T3 net assessment: 🟡 MEDIUM** — background geopolitical risk is EP10 structural constant.
+
+**New threat signal (T4 — Institutional) — April 30:**
+Parliamentary questions backlog (21 written questions pending EP10-000002 through EP10-000029) suggests potential LIBE/JURI committee overload if legislative calendar tightens in May. Manageable but worth monitoring if plenary overflow occurs. **T4 net assessment: 🟢 LOW**.
+
+**Aggregate threat heat map update:**  
+| Threat | Probability | Impact | Residual Risk |
+|--------|------------|--------|---------------|
+| T1 Coalition fragmentation | 15% | HIGH | 🟡 MEDIUM |
+| T2 US trade escalation | 70% | HIGH | 🔴 HIGH |
+| T3 Geopolitical disruption | 20% | HIGH | 🟡 MEDIUM |
+| T4 Institutional overload | 10% | LOW | 🟢 LOW |
+

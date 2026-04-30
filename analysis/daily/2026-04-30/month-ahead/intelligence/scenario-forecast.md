@@ -217,3 +217,29 @@ The scenario probabilities should be updated when the following signals are obse
 
 **Calibration note:** Probabilities use the ACH framework — H1 currently has 5 positive, 0 negative scores. Any of the above signals firing would shift at least 2 scores from positive to negative, materially reducing H1 probability and elevating H2.
 
+---
+
+## Scenario Probability Update — April 30 Session Signals
+
+**Signal assessment from today's April 30 plenary agenda:**
+
+| Signal | Hypothesis Impact | Updated H1 Score | Updated H2 Score |
+|--------|------------------|------------------|------------------|
+| 13 votes + 4 debates = full legislative day | H1+ (normal operations) | +1 | -1 |
+| EIB oversight debate active (no disruption) | H1+ (institutional continuity) | +1 | 0 |
+| SIU/finfluencer regulation advancing | H1+ (legislative velocity) | +1 | 0 |
+| Ocean diplomacy/fisheries cross-group | H1+ (constructive coalition) | +1 | 0 |
+| Procedures feed RECESS_MODE (historical data) | H2 neutral (data gap only) | 0 | 0 |
+| May 18-21 agenda not yet published | Neutral (18 days out) | 0 | 0 |
+
+**Updated H1 (Steady-State) score: 9 positive, 0 negative** — 🟢 Strong support  
+**Updated H2 (Moderate Disruption) score: 1 positive, 4 negative** — 🟡 Not well supported  
+**Updated H3 (Structural Shift) score: 0 positive, 6 negative** — 🔴 Not supported
+
+**Revised probability distribution (April 30 update):**
+- S1 (Steady-State): **67%** (+2pp from prior run) — reinforced by operational plenary continuity
+- S2 (Moderate Disruption): **22%** (-2pp) — no new disruption signals materialised
+- S3 (Coalition Fracture): **11%** (unchanged) — US tariff escalation main residual risk
+
+**Key watchpoint for May 2026:** Budget 2027 first reading vote. If tabled before June recess, this becomes the dominant scenario discriminator — EPP-S&D alignment on MFF envelope determines whether S1 or S2 prevails.
+
