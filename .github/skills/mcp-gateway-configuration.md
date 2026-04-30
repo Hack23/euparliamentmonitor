@@ -314,7 +314,7 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.15"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.18"]
     allowed: ["*"]
 ```
 
@@ -325,7 +325,7 @@ mcp-servers:
     "european-parliament": {
       "type": "local",
       "command": "npx",
-      "args": ["-y", "european-parliament-mcp-server@1.2.15"],
+      "args": ["-y", "european-parliament-mcp-server@1.2.18"],
       "tools": ["*"]
     }
   }
