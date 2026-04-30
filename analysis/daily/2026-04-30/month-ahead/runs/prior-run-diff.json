@@ -1,0 +1,263 @@
+{
+  "enabled": true,
+  "mode": "improve-and-extend",
+  "runDir": "analysis/daily/2026-04-30/month-ahead",
+  "articleType": "month-ahead",
+  "priorRunId": "month-ahead-run-1777536024",
+  "carryForward": [
+    {
+      "relativePath": "executive-brief.md",
+      "lines": 180,
+      "priorLines": 180,
+      "floor": 180,
+      "extendFloor": 200,
+      "source": "extend-from-prior:month-ahead-run-1777536024"
+    },
+    {
+      "relativePath": "intelligence/analysis-index.md",
+      "lines": 140,
+      "priorLines": 140,
+      "floor": 120,
+      "extendFloor": 160,
+      "source": "extend-from-prior:month-ahead-run-1777536024"
+    },
+    {
+      "relativePath": "intelligence/economic-context.md",
+      "lines": 230,
+      "priorLines": 230,
+      "floor": 140,
+      "extendFloor": 250,
+      "source": "extend-from-prior:month-ahead-run-1777536024"
+    },
+    {
+      "relativePath": "intelligence/historical-baseline.md",
+      "lines": 169,
+      "priorLines": 169,
+      "floor": 140,
+      "extendFloor": 189,
+      "source": "extend-from-prior:month-ahead-run-1777536024"
+    },
+    {
+      "relativePath": "intelligence/mcp-reliability-audit.md",
+      "lines": 219,
+      "priorLines": 219,
+      "floor": 200,
+      "extendFloor": 239,
+      "source": "extend-from-prior:month-ahead-run-1777536024"
+    },
+    {
+      "relativePath": "intelligence/methodology-reflection.md",
+      "lines": 190,
+      "priorLines": 190,
+      "floor": 180,
+      "extendFloor": 210,
+      "source": "extend-from-prior:month-ahead-run-1777536024"
+    },
+    {
+      "relativePath": "intelligence/pestle-analysis.md",
+      "lines": 207,
+      "priorLines": 207,
+      "floor": 200,
+      "extendFloor": 227,
+      "source": "extend-from-prior:month-ahead-run-1777536024"
+    },
+    {
+      "relativePath": "intelligence/reference-analysis-quality.md",
+      "lines": 153,
+      "priorLines": 153,
+      "floor": 140,
+      "extendFloor": 173,
+      "source": "extend-from-prior:month-ahead-run-1777536024"
+    },
+    {
+      "relativePath": "intelligence/scenario-forecast.md",
+      "lines": 220,
+      "priorLines": 220,
+      "floor": 220,
+      "extendFloor": 240,
+      "source": "extend-from-prior:month-ahead-run-1777536024"
+    },
+    {
+      "relativePath": "intelligence/stakeholder-map.md",
+      "lines": 240,
+      "priorLines": 240,
+      "floor": 240,
+      "extendFloor": 260,
+      "source": "extend-from-prior:month-ahead-run-1777536024"
+    },
+    {
+      "relativePath": "intelligence/synthesis-summary.md",
+      "lines": 180,
+      "priorLines": 180,
+      "floor": 180,
+      "extendFloor": 200,
+      "source": "extend-from-prior:month-ahead-run-1777536024"
+    },
+    {
+      "relativePath": "intelligence/threat-model.md",
+      "lines": 193,
+      "priorLines": 193,
+      "floor": 180,
+      "extendFloor": 213,
+      "source": "extend-from-prior:month-ahead-run-1777536024"
+    },
+    {
+      "relativePath": "intelligence/wildcards-blackswans.md",
+      "lines": 203,
+      "priorLines": 203,
+      "floor": 200,
+      "extendFloor": 223,
+      "source": "extend-from-prior:month-ahead-run-1777536024"
+    },
+    {
+      "relativePath": "risk-scoring/quantitative-swot.md",
+      "lines": 175,
+      "priorLines": 175,
+      "floor": 120,
+      "extendFloor": 195,
+      "source": "extend-from-prior:month-ahead-run-1777536024"
+    },
+    {
+      "relativePath": "risk-scoring/risk-matrix.md",
+      "lines": 143,
+      "priorLines": 143,
+      "floor": 120,
+      "extendFloor": 163,
+      "source": "extend-from-prior:month-ahead-run-1777536024"
+    }
+  ],
+  "rewrite": [
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/classification/actor-mapping.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/classification/significance-classification.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/data/foreseen-activities-2026-04-30.json",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/data/plenary-sessions.json",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/data/recent-adopted-texts.json",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/executive-brief.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/intelligence/analysis-index.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/intelligence/coalition-dynamics.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/intelligence/economic-context.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/intelligence/historical-baseline.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/intelligence/mcp-reliability-audit.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/intelligence/methodology-reflection.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/intelligence/pestle-analysis.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/intelligence/reference-analysis-quality.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/intelligence/scenario-forecast.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/intelligence/stakeholder-map.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/intelligence/synthesis-summary.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/intelligence/threat-model.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/intelligence/wildcards-blackswans.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/risk-scoring/quantitative-swot.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/risk-scoring/risk-matrix.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "analysis/daily/2026-04-30/month-ahead/threat-assessment/political-threat-landscape.md",
+      "lines": 0,
+      "floor": 30,
+      "reason": "missing"
+    }
+  ]
+}

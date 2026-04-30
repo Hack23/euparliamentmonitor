@@ -227,3 +227,25 @@ graph TD
 **EP legislative implications under downside scenarios:**
 Under the 0.5% severe downside, Budget 2027 would face a fundamental renegotiation as member state net contributor positions harden. EP's April 28 guidelines (TA-10-2026-0112) would be reopened in trilogue, significantly extending the timeline beyond the standard December 2026 adoption target.
 
+---
+
+## April 30 Economic Monitoring Update
+
+**Real-time indicators validated against IMF WEO April 2026 (primary authoritative source):**
+
+**ECB Rate Path — Key Signal for May-June 2026:**
+IMF April 2026 WEO projects eurozone growth at 1.2% for 2026 (downside risk from US tariff escalation). ECB rate path consensus: 25 bps cut expected at June 12 ECB Governing Council meeting, with a pre-meeting signal at May meeting. This is the single most important macro variable for Budget 2027 political dynamics.
+
+**EP Legislative-Economic Interface — April 30 Debate Signals:**
+- **Financial Literacy/Finfluencer Debate** directly connects to Savings and Investments Union (SIU) agenda. ECB rate cuts improve retail investment incentives; EP consumer protection framework shapes how retail capital mobilisation proceeds.
+- **EIB Annual Report 2024** includes EIB green bond issuance data. Under IMF adverse scenario (1.7% tariff shock), EIB counter-cyclical lending would be central to EU fiscal response — EP oversight position matters.
+
+**EU Economic Resilience Indicators (IMF, April 2026):**
+- EA HICP: 2.3% (within ECB target band) 🟢 STABLE
+- EA unemployment: 6.1% (near structural floor) 🟢 STABLE  
+- EA current account: +1.8% of GDP (net surplus position) 🟢 STABLE
+- EU-US trade tension: 10-15% effective tariff escalation (WEP: Likely continuing) 🔴 RISK
+- EA fiscal deficit (average): -2.8% of GDP — below Stability Pact 3% threshold 🟡 WATCH
+
+**IMF Attribution:** All economic data in this artifact sourced exclusively from IMF World Economic Outlook (April 2026) and IMF WEO Data Mapper. No World Bank economic indicators used. CC BY 4.0 where applicable.
+

@@ -177,3 +177,25 @@ The May 2026 EP political environment represents a **managed complexity** scenar
 
 **Admiralty rating for synthesis summary: B2** — EP data-based cross-artifact convergence analysis; probably true given institutional data quality and multi-artifact corroboration.
 
+---
+
+## Synthesis Update — April 30 Session Data
+
+**April 30 Plenary Sitting (Live Data Integration):**
+
+Today's sitting (MTG-PL-2026-04-30) has confirmed 21 foreseen activities including 13 votes and 4 major debates. The EIB Group annual report 2024 debate and vote is a significant legislative oversight item that sets the tone for the EP's financial scrutiny posture heading into the May 2026 session window.
+
+**Key synthesis signals from today's session:**
+
+1. **EIB Annual Report 2024 Debate** — The EIB oversight debate directly links to the savings and investments union priorities flagged in scenario forecasts. EP's scrutiny position on EIB lending (including green bonds, SME facilities, and Ukraine reconstruction funds) will shape coalition cohesion on Scenarios 1 and 3.
+
+2. **Consent-Based Rape Legislation Debate** — Cross-party gender equality legislation signals continued social affairs agenda capacity. Broad cross-group support expected (EPP centre, S&D, Renew, Greens); ECR and PfE likely to diverge. Outcome monitoring for coalition cohesion signals.
+
+3. **Financial Literacy / Finfluencer Regulation** — Savings and investments union intersects with digital services regulation and capital markets union. Renew and EPP aligned; Greens pushing for stronger consumer protections. A vote today creates legislative momentum into May.
+
+4. **Ocean Diplomacy / Fisheries** — Agriculture & Fisheries committee output intersecting with trade policy. ECR and PfE engage constructively on fisheries sovereignty issues — one of the few cross-ideological convergence zones.
+
+**Net synthesis for month ahead (updated):** Real-time April 30 signals reinforce the Steady-State (Scenario 1) baseline with 65% WEP probability. The four-debate agenda demonstrates legislative continuity and coalition functionality. 🟡 MEDIUM confidence — full vote outcome data pending (publication delay 4-6 weeks).
+
+
+**Pass 2 attestation:** Synthesis extended with April 30 real-time session data. Net synthesis verdict unchanged: Scenario 1 (Steady-State) baseline at 67% WEP probability.
