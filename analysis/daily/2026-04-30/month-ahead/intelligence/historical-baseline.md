@@ -125,3 +125,44 @@ The most relevant historical analogy for EP10 May 2026 is **EP9 May 2022**: same
 However, EP9 May 2022 benefited from a unified pro-Ukraine/anti-Russia coalition that temporarily suppressed the EPP-ECR-PfE right flank. EP10 May 2026 lacks this unifying external event — the fragmentation is more politically diffuse, and the US-EU trade confrontation creates a less clear-cut coalition response than the Russia-Ukraine binary.
 
 **Confidence in historical baseline: 🟢 High** — EP data is authoritative and multi-year trends are well-established.
+
+---
+
+## EP Term Comparison Timeline
+
+```mermaid
+timeline
+    title EP Parliamentary Terms — Legislative Activity Trends
+    section EP7 (2009-2014)
+        2009 : Low activity year 1
+        2011 : Peak legislative output, Fiscal Compact
+        2013 : High output, Banking Union
+    section EP8 (2014-2019)
+        2016 : GDPR, Digital Single Market
+        2018 : Peak output EP8
+        2019 : Final session
+    section EP9 (2019-2024)
+        2020 : Low year 1 (COVID)
+        2021 : Recovery legislation
+        2022 : Ukraine shock — acceleration
+        2023 : Green Deal peak
+    section EP10 (2024-)
+        2024 : Constitution year
+        2025 : Steady acceleration
+        2026 : High velocity (114 acts through April)
+```
+
+---
+
+## Historical Analogy Confidence Assessment
+
+| Analogy | Similarity Score | Key Differences | Confidence |
+|---------|----------------|----------------|------------|
+| EP9 May 2022 | 🟢 HIGH (8/10) | Ukraine unifying factor absent in 2026; US confrontation is more diffuse | 🟢 High with caveats |
+| EP8 May 2018 | 🟡 MEDIUM (6/10) | GDPR final push created different urgency; smaller fragmentation ENP | 🟡 Medium |
+| EP7 May 2012 (Fiscal Compact) | 🟡 MEDIUM (5/10) | EU fiscal crisis context more severe; EP less fragmented | 🟡 Medium with caveats |
+
+**Bottom line:** Historical patterns strongly support the Steady-State Scenario 1 as baseline. The EP10 institutional machinery is operating at above-historical-average legislative velocity, which is the strongest structural argument against disruption scenarios.
+
+**Admiralty rating for historical data: A1** — Data sourced from EP's own statistical database (`get_all_generated_stats`); multiple year cross-checks confirm internal consistency. Historical institutional patterns are highly reliable; forward projections based on them carry standard forecast uncertainty.
+

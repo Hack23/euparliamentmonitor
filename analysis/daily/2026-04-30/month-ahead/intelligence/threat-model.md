@@ -141,3 +141,52 @@ Monitor these signals to determine which scenario is materialising:
 | Ukraine support: stable | PfE/ESN amendments on Ukraine rejected by ≥3/4 majority | EP committee rapporteur reports |
 | MEP attendance: at risk | Quorum challenges on ≥2 items in session | EP President's procedural announcements |
 | ECB guidance: stable | ECB Governing Council statement maintains June rate cut guidance | ECB website, ECON committee agenda |
+
+---
+
+## Threat Interaction Network
+
+```mermaid
+graph TD
+    T1[Threat 1: Coalition Fragmentation\nProbability 35%] --> T3[Threat 3: Ukraine Erosion\nAmplified by T1]
+    T2[Threat 2: US Trade Escalation\nProbability 25%] --> T1
+    T2 --> T4[Threat 4: Data/Info Quality\nProbability 60%]
+    T3 --> T1
+    T5[Threat 5: EP Procedure Crisis\nProbability 10%] --> T1
+    Budget2027[Budget 2027 Incentive\nStructural Mitigant] --> |Reduces| T1
+    EPP_SD[EPP-S&D Bilateral\nRelationship] --> |Reduces| T1
+    IMF[IMF 1.3% GDP Baseline\nEconomic Stabiliser] --> |Reduces| T2
+```
+
+---
+
+## Threat Assessment — Admiralty Scale
+
+| Source | Admiralty Grade | Rationale |
+|--------|----------------|-----------|
+| EP MCP data (coalition dynamics, adopted texts) | A1 | Primary EP institutional source; confirmed by multiple cross-checks |
+| IMF WEO April 2026 (economic context) | A1 | IMF is primary authoritative source for economic projections |
+| Early Warning System (analytical tool) | B2 | EP-data-based calculations; credible but model-dependent |
+| PTF v4.0 threat scoring (analyst assessment) | C2 | Structured methodology applied to B-grade source data |
+| Forward statements from prior runs | B3 | Self-generated from previous analysis runs; internally consistent |
+
+**Admiralty rating for this threat model: B2** (Credible source — EP data-based with IMF cross-reference; probably true — probabilities calibrated to WEP standard)
+
+---
+
+## Threat Probability Distribution Summary
+
+**WEP assessments for each threat:**
+
+| Threat | WEP Assessment | Probability |
+|--------|---------------|------------|
+| T1: Coalition fragmentation — any form | WEP: Unlikely | 35% |
+| T2: US-EU trade escalation — material impact | WEP: Unlikely | 25% |
+| T3: Ukraine support — visible erosion | WEP: Unlikely | 20% |
+| T4: Data quality — analytical gap impact | WEP: Likely | 60% |
+| T5: EP procedure crisis | WEP: Highly Unlikely | 10% |
+| T1+T2 compound (cascade) | WEP: Highly Unlikely | 12-15% |
+| No significant threat materialises | WEP: Likely | ~45% |
+
+**Net threat environment for May 2026:** 🟡 ELEVATED — consistent with EP10 baseline risk level. The dominant threat (T1: coalition fragmentation) is unlikely individually but represents the highest-impact-per-probability risk in the threat portfolio. The structural mitigation (Budget 2027 EPP-S&D bilateral incentive) is the single most important counter-threat mechanism and should be monitored closely.
+

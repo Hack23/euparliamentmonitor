@@ -156,3 +156,63 @@ This reliability audit documents the EP MCP server's performance during the 2026
 3. **Vote cohesion data absence:** The EP Open Data Portal does not expose per-MEP roll-call positions. This is a fundamental EP API limitation. Analysis should consistently use seat-share proxy with explicit confidence caveat 🟡.
 
 4. **Stage A timing:** The month-ahead data collection window (30 days) generates more MCP calls than other article types. Consider whether the 4-minute Stage A budget is realistic or should be extended to 5-6 minutes for this article type.
+
+---
+
+## MCP Tool Reliability Dashboard
+
+```mermaid
+pie title EP MCP Tool Success Rate — 2026-04-30 Run
+    "Success (full data)" : 9
+    "Success (partial/degraded)" : 3
+    "Failure (recess mode)" : 1
+    "Failure (unavailable)" : 2
+```
+
+**Reliability tier classification:**
+
+| Tier | Status | Tools |
+|------|--------|-------|
+| 🟢 RELIABLE | Consistently provides complete data | `get_plenary_sessions`, `get_adopted_texts`, `get_all_generated_stats`, `get_current_meps`, `analyze_coalition_dynamics`, `generate_political_landscape`, `early_warning_system`, `get_meeting_decisions`, `get_meeting_foreseen_activities` |
+| 🟡 DEGRADED | Provides partial or proxy data | `get_voting_records` (delay), `search_documents` (partial), `track_legislation` (partial pipeline) |
+| 🔴 FAILED | No usable data returned | `get_events_feed` (API error), `get_procedures_feed` (recess mode — historical data), `get_voting_records` (empty due to 4-6 week delay) |
+
+---
+
+## Tool Failure Pattern Analysis
+
+### Structural vs. Transient Failures
+
+**Structural failures (chronic for month-ahead runs):**
+- `get_events_feed`: EP API error is not run-specific — this tool has consistently failed in month-ahead runs. Root cause: EP feed infrastructure issue for the events endpoint. Mitigation: use `get_plenary_sessions` with `dateFrom/dateTo` parameters instead.
+- `get_voting_records` empty: EP roll-call data publishes with 4-6 week delay. This is a documented EP Open Data Portal policy, not an API failure. Mitigation: use `getVotingRecordsWithFallback()` from `ep-open-data-client.ts`.
+
+**Recess mode anomaly:**
+- `get_procedures_feed`: Returns historical 1972 data when recess mode detected. The `detectProceduresFeedRecessMode` function in `ep-mcp-client.ts` correctly identifies this pattern and surfaces it as a `RECESS_MODE` data quality warning. Mitigation: use paginated `get_procedures` endpoint.
+
+**Transient degradation:**
+- `search_documents`: Partial results returned — some document detail fields absent. Likely server-side rate limiting under high query load.
+
+---
+
+## Compensating Data Sources Assessment
+
+| Compensating Source | Used For | Reliability |
+|--------------------|---------|------------|
+| `get_adopted_texts` direct | Recent legislation (replaces procedures feed) | 🟢 HIGH |
+| `get_all_generated_stats` | Historical statistical baseline (replaces missing vote data) | 🟢 HIGH |
+| `generate_political_landscape` | Coalition and group composition analysis | 🟢 HIGH |
+| IMF WEO April 2026 (via imf-mcp-probe.sh) | Economic context (primary macro source) | 🟢 HIGH |
+| `get_meeting_foreseen_activities` | Forward-looking agenda items | 🟢 HIGH |
+
+The compensating sources fully address the analytical requirements for the month-ahead article type. The primary gap that cannot be compensated is granular vote-level coalition composition (EP Open Data Portal structural limitation).
+
+---
+
+## MCP Infrastructure Recommendations
+
+1. **EP MCP version 1.2.18 is functional** for core data retrieval — no version upgrade needed based on this run's audit results.
+2. **EP_REQUEST_TIMEOUT_MS: 120000** (120 seconds) is appropriate — no tools timed out in this run, though `get_events_feed` failed for API reasons (not timeout).
+3. **Forward statement registry** significantly reduced dependency on live feed data — pre-seeded open items from prior runs maintained analytical continuity despite feed failures.
+4. **IMF probe parallelisation** was effective — running `imf-mcp-probe.sh` as background process during EP MCP calls saved approximately 45-60 seconds in Stage A.
+

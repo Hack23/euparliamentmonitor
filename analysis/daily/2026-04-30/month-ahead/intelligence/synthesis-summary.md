@@ -111,3 +111,69 @@ Integrating threat model probabilities (35% coalition fragmentation, 25% trade s
 **Confidence calibration present:** ✅ All artifacts use 🟢/🟡/🔴 confidence markers. All forward-looking claims labelled as projections/forecasts, not facts.
 
 **Forward statements:** ✅ All 4 open items from prior runs incorporated. 3 new forward statements generated.
+
+---
+
+## WEP Probability Summary — Cross-Scenario Assessment
+
+**WEP: Likely (55%)** — Scenario 1 (Steady-State Progress): EP May 2026 session advances the legislative agenda without major coalition rupture. Supporting evidence: April 28 Budget Guidelines adoption, high legislative velocity, IMF 1.3% GDP baseline.
+
+**WEP: Unlikely (25%)** — Scenario 2 (Trade Shock): US tariff escalation disrupts INTA/CID agendas. Supporting evidence: US Executive Order rhetoric; EU automotive sector vulnerability; IMF -0.4pp trade shock sensitivity.
+
+**WEP: Unlikely (20%)** — Scenario 3 (Ukraine Fragmentation): PfE/ECR coalition pressure erodes EP's Ukraine consensus. Supporting evidence: Fragmentation index ENP 6.59; right-flank growth trend; but mitigated by EPP structural incentive to maintain S&D relationship.
+
+**Calibration note:** These probabilities are WEP-standard assessments, not statistical calculations. They represent the synthesis of 10 independent analytical frameworks (PESTLE, ACH, PTF v4.0, SWOT, Admiralty, SAT cross-check, historical baseline, coalition dynamics, forward statements, economic context).
+
+---
+
+## Cross-Finding Interaction Map
+
+```mermaid
+graph LR
+    F1[Finding 1\nBudget 2027 Anchor] --> F3[Finding 3\nFragmentation Risk]
+    F2[Finding 2\nTrade Confrontation] --> F3
+    F3 --> F5[Finding 5\nInstitutional Resilience]
+    F4[Finding 4\nForward Statements] --> F1
+    F2 --> |IMF 0.9%-0.5% downside| F3
+    F5 --> |Historical base rate 60%| F1
+    F3 --> |Structural mitigation: Budget incentive| F1
+```
+
+**Net synthesis:** Findings 1 and 5 are structurally reinforcing — Budget 2027's institutional incentives actively mitigate the fragmentation risk (Finding 3). Finding 2's trade shock is the exogenous variable most likely to disrupt this self-reinforcing stability.
+
+---
+
+## Intelligence Gaps and Priority Collection Requirements
+
+| Gap | Analytical Impact | Priority | Resolution Timeline |
+|----|-----------------|----------|-------------------|
+| May 18-21 provisional agenda | Cannot confirm specific vote items | HIGH | Available ~May 15 |
+| Post-April EP roll-call voting | Cannot confirm April vote coalition composition | MEDIUM | Available ~June 2026 |
+| Procedure pipeline: CID committee schedule | Cannot confirm ITRE/ENVI joint committee dates | MEDIUM | EP committee calendar |
+| US tariff announcement timeline | Cannot time Scenario 2 trigger precisely | HIGH | US executive branch monitoring |
+| ECB June meeting pre-announcement | FS-2026-007 resolution signal | LOW | ECB communication calendar |
+
+---
+
+## Strategic Intelligence Assessment (Admiralty: B2)
+
+The May 2026 EP political environment represents a **managed complexity** scenario: multiple simultaneous legislative agendas, coalition requirements that differ across issues, and external pressure from the US-EU trade confrontation. None of these individually creates crisis conditions. Their simultaneous occurrence creates the primary strategic risk.
+
+**Bottom line:** EP10 has demonstrated institutional capacity to manage multi-domain complexity in its first two years. The structural incentives for coalition maintenance (Budget 2027 bilateral EPP-S&D interest) are stronger than the structural pressures for fragmentation. The analyst's overall assessment is **WEP: Likely (60%)** that May 2026 represents a period of managed legislative progress rather than institutional stress, with **WEP: Unlikely (25%)** probability of significant disruption and **WEP: Highly Unlikely (15%)** probability of fundamental coalition breakdown.
+
+---
+
+## Decision Points — May 2026 Calendar
+
+| Date | Event | Intelligence Value | Watch Signal |
+|------|-------|-------------------|-------------|
+| May 7 | EP Plenary week — provisional agenda | HIGH | Any emergency INTA item = Scenario 2 signal |
+| May 12 | ECB pre-meeting silence period starts | MEDIUM | Hawkish signals before silence = Scenario 3 risk |
+| May 14-18 | May 18-21 provisional agenda publication window | HIGH | Agenda completeness = Scenario 1 confirming |
+| May 18-21 | Strasbourg plenary — CID + EDIS votes | CRITICAL | Vote margins on CID/EDIS = coalition health indicator |
+| May 21 | INTA trade response vote (if scheduled) | HIGH | Outcome = EPP-Renew alignment or fracture |
+| June 5 | ECB Governing Council pre-meeting prep | MEDIUM | Rate cut confirmation = positive for Scenario 1 |
+| June 12 | ECB rate decision | HIGH | 25bps cut = FS-2026-007 confirmed |
+
+**Admiralty rating for synthesis summary: B2** — EP data-based cross-artifact convergence analysis; probably true given institutional data quality and multi-artifact corroboration.
+

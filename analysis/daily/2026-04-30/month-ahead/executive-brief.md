@@ -129,3 +129,51 @@ EU GDP growth forecast: **1.3% (2026)** — positive but fragile
 - **France:** INTA trade response vote is a priority for French MEPs defending Airbus, luxury goods, and agricultural exports; French Renew delegation is most vocal.
 - **Poland/CEE:** EDIS defence vote aligns with CEE security priorities; CID provisions on energy intensity create friction with Polish industrial interests.
 - **Nordic countries:** Finland and Sweden MEPs are engaged on Ukraine support maintenance (NATO context) and Budget 2027 fiscal discipline.
+
+---
+
+## Strategic Priority Matrix for Decision-Makers
+
+| Priority | Issue | Action Required | Timeline |
+|----------|-------|----------------|---------|
+| 🔴 URGENT | May 18-21 plenary — CID + EDIS votes | Monitor committee rapporteur statements for amendment signals | Now → May 17 |
+| 🔴 URGENT | EPP coalition management | Track EPP-S&D bilateral meetings; monitor PfE defection signals | Now → May 21 |
+| 🟠 HIGH | US tariff policy — automotive/pharma | Monitor USTR statements, DG TRADE alert list | Daily |
+| 🟠 HIGH | Budget 2027 Council position | Track ECOFIN working group leaks | May-September |
+| 🟡 MEDIUM | ECB June rate decision preparation | Monitor ECB Governing Council member statements | May → June 12 |
+| 🟡 MEDIUM | CID implementing legislation timeline | Monitor ITRE/ENVI committee vote schedules | May-July |
+
+---
+
+## Intelligence Confidence Summary
+
+| Intelligence Domain | Confidence | Basis |
+|--------------------|-----------|-------|
+| EP institutional data | 🟢 HIGH | EP Open Data Portal — primary source |
+| EP plenary agenda (confirmed) | 🟢 HIGH | April 28 agenda confirmed; May 18-21 not yet published |
+| Coalition dynamics | 🟡 MEDIUM | Seat-share proxy; actual vote cohesion not available |
+| Economic outlook | 🟡 MEDIUM | IMF WEO April 2026 — latest available; ECB signal pending |
+| US trade policy impact | 🟡 MEDIUM | Policy known; EP response uncertain |
+| 30-day event timing | 🟡 MEDIUM | Historical precedent strong; EP scheduling sometimes shifts |
+
+---
+
+## Bottom Line Assessment — WEP
+
+**Scenario 1 (Steady-State, Baseline): WEP: Likely** (~55% probability)  
+EP10 maintains legislative velocity, EPP-S&D coalition holds on major votes, CID and EDIS advance on schedule.
+
+**Scenario 2 (Moderate Disruption): WEP: Unlikely** (~30% probability)  
+US tariff escalation forces emergency INTA response, absorbing political bandwidth; delays ≥1 major legislative item.
+
+**Scenario 3 (High Disruption): WEP: Highly Unlikely** (~15% probability)  
+EPP coalition fractures on CID/EDIS votes, requiring vote postponement; Ukraine support motion fails.
+
+**Executive summary verdict:** The European Parliament enters May 2026 with strong institutional momentum. The baseline scenario (steady legislative progress) is most probable. The critical watch point is the EPP coalition's management of the CID and EDIS votes at the May 18-21 Strasbourg plenary — these are the specific events that determine which scenario materialises. Monitoring recommendation: **daily EPP internal communications, INTA committee rapporteur updates, and US USTR announcement feeds through May 17.**
+
+---
+
+**Intelligence classification:** 🟡 MEDIUM CONFIDENCE | **Data freshness:** 2026-04-30 | **Next update recommended:** May 14 (provisional agenda publication)  
+**Admiralty rating:** B2 (credible source: EP institutional data; probably true: analytical assessments calibrated to WEP standard)  
+**Source set:** EP Open Data Portal (primary), IMF WEO April 2026 (economic context), EP MCP Server v1.2.18 (data retrieval)
+

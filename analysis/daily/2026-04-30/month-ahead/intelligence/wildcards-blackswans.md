@@ -128,3 +128,75 @@ Wildcard scenarios are incorporated into the scenario-forecast.md with the sub-s
 **EP analysis should maintain contingency positions on all three primary scenarios (Steady-State 55%, Trade Shock 25%, Ukraine Erosion 20%) with the understanding that wildcard events could shift these probabilities by ±10-15% depending on which wildcard materialises.**
 
 The most actionable wildcard monitoring target is the **Grey Rhino EDIS vote failure** — this is the highest-probability, highest-impact event that the mainstream analysis tends to underweight because it is "known" but politically uncomfortable to highlight.
+
+---
+
+## Wildcard Pre-Mortem Analysis
+
+**If we are wrong about Scenario 1 (Steady-State) being most likely, what happened?**
+
+The most plausible pre-mortem for a wildcard-driven Scenario 1 failure involves a Grey Rhino compound event: a US tariff announcement (Grey Rhino #3 at 15% probability) arrives simultaneously with an EPP internal revolt on CID (Grey Rhino #2 at 12%), creating a compound event with approximately 3-4% joint probability but catastrophic agenda disruption impact. This combination is the "reasonable worst case" for May 2026 that is not captured in the three primary scenarios.
+
+**Wildcard-scenario interaction matrix:**
+
+| Wildcard | Scenario 1 Impact | Scenario 2 Impact | Scenario 3 Impact |
+|----------|-----------------|-----------------|-----------------|
+| WC-1: Gov collapse (7%) | Disrupts S&D bloc | May accelerate trade response | Complicates Ukraine support |
+| WC-2: CJEU ruling (5%) | Procedural delay | Delays trade litigation path | Neutral |
+| WC-3: EP leadership crisis (4%) | Delays session agenda | Delays INTA response | Delays Ukraine vote |
+| WC-4: CBDC emergency (4%) | Inserts new agenda item | Neutral | Neutral |
+| WC-5: Cyberattack (3%) | Disrupts EP infrastructure | Neutral | May trigger security response |
+
+---
+
+## Wildcard Monitoring Protocol
+
+| Wildcard Event | Monitoring Source | Alert Threshold | Response Time |
+|---------------|-----------------|----------------|---------------|
+| Member state government collapse | European Council press releases; national news agencies | Cabinet confidence vote scheduled | 48 hours |
+| CJEU unexpected ruling | CURIA database; EP Legal Affairs alerts | Grand Chamber judgment affecting EP institutional powers | 24 hours |
+| EP leadership crisis | EP official communications; Metsola office communications | EPP group formal challenge to President's decision | 12 hours |
+| CBDC emergency vote | ECB Governing Council emergency meeting announcement | ECB emergency statement on digital euro | 48 hours |
+| Cyberattack on EP infrastructure | EP IT security bulletins | EP website/email infrastructure disruption >4 hours | Real-time |
+| Grey Rhino EDIS vote failure | EPP group internal communications; ITRE committee voting signals | EPP ITRE/AFET MEPs signalling opposition to group line | 7 days prior |
+
+---
+
+## Black Swan Pre-Mortem — Low-Probability Catastrophic Scenarios
+
+### Black Swan 1: Simultaneous EU Treaty Crisis
+**Probability:** <1% | **Impact:** Existential to EP legislative authority
+
+A CJEU ruling that simultaneously challenges the EP's legislative standing on CID, EDIS, and Budget 2027 — effectively questioning the legal basis of the April 28 guidelines and May session agenda — would require an Emergency European Council session and could suspend EP normal legislative business for months.
+
+**Detection:** No prior precedent. Monitor CJEU Advocate General opinions on pending treaty interpretation cases.
+
+### Black Swan 2: EP Building Security Threat
+**Probability:** <2% | **Impact:** Critical to session delivery
+
+A credible security threat to the Strasbourg plenary building in the week of May 18-21 would force the activation of the Brussels emergency session protocol (Art. 229 EP Rules of Procedure). While procedures exist, the political and logistical disruption would be significant.
+
+**Detection:** EU Counter-terrorism units; threat intelligence from member state security services through EP security office.
+
+---
+
+## WEP Assessment — Wildcard Event Probability
+
+**WEP: Almost No Chance (<5%)** that any individual Black Swan event (defined as <2% individual probability) materialises in May 2026.
+
+**WEP: Unlikely (26%)** that at least one Grey Rhino wildcard event materialises in the 30-day analysis window — this is the aggregate wildcard probability, consistent with EP10's historical base rate.
+
+**WEP: Roughly Even (50%)** that at least one wildcard event from the monitoring list triggers an alert-level signal that requires analytical re-evaluation of the primary scenario probabilities, even if it does not rise to the level of a full wildcard event materialisation.
+
+---
+
+## Wildcard Interaction Map
+
+| If W1 (EP President crisis) fires | Impact on W2 | Impact on W3 | Impact on W4 |
+|----------------------------------|-------------|-------------|-------------|
+| Institutional disruption | Accelerates US negotiation leverage | Delays Ukraine vote (quorum issues) | Increases ECB meeting significance |
+| **If W2 (peace deal) fires** | **Impact on W1** | **Impact on W3** | **Impact on W4** |
+| Realigns coalition priorities | Minimal procedural impact | Removes Ukraine agenda pressure | Positive for ECB (reduced geopolitical risk premium) |
+
+**Cross-wildcard assessment:** The wildcard events are largely independent — the most plausible interaction is W2 firing (Russia-Ukraine peace development) triggering a rapid reorientation of EP defence agenda priorities, which could paradoxically accelerate or delay EDIS depending on whether peace is seen as reducing or maintaining the need for autonomous EU defence capability.
+

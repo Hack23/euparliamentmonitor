@@ -88,3 +88,52 @@ This index is the mandatory entry point for all artifact consumers. Read this be
 - **CIA Admiralty Scale** — source and information reliability ratings
 - **Bayesian scenario planning** — probability-weighted scenario analysis
 - **Political Kill Chain** — 7-stage threat progression model
+
+---
+
+## Analysis Network Map
+
+```mermaid
+graph LR
+    IDX[analysis-index.md\nThis file] --> EB[executive-brief.md]
+    IDX --> SC[scenario-forecast.md]
+    IDX --> TM[threat-model.md]
+    IDX --> SM[stakeholder-map.md]
+    IDX --> EC[economic-context.md]
+    IDX --> HB[historical-baseline.md]
+    IDX --> PL[pestle-analysis.md]
+    IDX --> WC[wildcards-blackswans.md]
+    IDX --> SY[synthesis-summary.md]
+    IDX --> RM[risk-matrix.md]
+    IDX --> QS[quantitative-swot.md]
+    IDX --> MR[methodology-reflection.md]
+    IDX --> RQ[reference-analysis-quality.md]
+    IDX --> MA[mcp-reliability-audit.md]
+    EB --> SY
+    SC --> TM
+    TM --> SM
+    EC --> PL
+    HB --> SC
+```
+
+---
+
+## Artifact Quality Summary
+
+| Artifact | Lines | Mermaid | WEP | Admiralty | Status |
+|----------|-------|---------|-----|-----------|--------|
+| executive-brief.md | ~180 | - | - | - | 🟢 |
+| scenario-forecast.md | ~220 | ✅ | ✅ | - | 🟢 |
+| threat-model.md | ~195 | ✅ | ✅ | ✅ | 🟢 |
+| stakeholder-map.md | ~244 | - | ✅ | - | 🟢 |
+| economic-context.md | ~222 | ✅ | - | - | 🟢 |
+| historical-baseline.md | ~175 | ✅ | - | ✅ | 🟢 |
+| pestle-analysis.md | ~200 | ✅ | ✅ | - | 🟢 |
+| wildcards-blackswans.md | ~200 | - | ✅ | - | 🟢 |
+| synthesis-summary.md | ~183 | ✅ | ✅ | - | 🟢 |
+| risk-matrix.md | ~120 | ✅ | - | ✅ | 🟢 |
+| quantitative-swot.md | ~148 | ✅ | - | - | 🟢 |
+| methodology-reflection.md | ~205 | ✅ | - | - | 🟢 |
+| reference-analysis-quality.md | ~140 | ✅ | - | - | 🟢 |
+| mcp-reliability-audit.md | ~220 | ✅ | - | - | 🟢 |
+

@@ -145,3 +145,30 @@ Each SWOT item is scored on:
 **Strategic interpretation:** The positive net score (+17) reflects that EP10's institutional strengths (high output momentum, enacted mechanisms, established coalitions) outweigh the structural weaknesses and external threats for the 30-day window. However, the margin is not large. The primary risk is the W1/T1 intersection (structural majority deficit combined with EPP coalition management failure) — which represents the most plausible path to a negative outcome.
 
 **Confidence:** 🟡 MEDIUM — quantitative scores carry inherent analytical uncertainty. The directional assessment (positive but fragile) is robust; specific weight values are indicative rather than precise.
+
+---
+
+## SWOT Interaction Matrix
+
+```mermaid
+quadrantChart
+    title EP10 May 2026 — SWOT Strategic Quadrants
+    x-axis Low Impact --> High Impact
+    y-axis Low Probability --> High Probability
+    quadrant-1 Monitor Closely
+    quadrant-2 Priority Actions
+    quadrant-3 Low Priority
+    quadrant-4 Strategic Opportunities
+    S1 Legislative velocity: [0.8, 0.9]
+    S2 Budget position: [0.7, 0.8]
+    S3 Defence mechanisms: [0.6, 0.7]
+    W1 Majority deficit: [0.85, 0.85]
+    W2 US uncertainty: [0.75, 0.6]
+    O1 CID-EDIS synergy: [0.7, 0.5]
+    O2 Budget 2027 leverage: [0.65, 0.7]
+    T1 Coalition fracture: [0.8, 0.35]
+    T2 Trade escalation: [0.7, 0.25]
+```
+
+**WEP Assessment for net position:** The positive net score (+17) reflects an overall assessment of **WEP: Likely Stable** for EP10 institutional performance in May 2026. The 35-point spread between positive (Strengths + Opportunities = +123) and negative (Weaknesses + Threats = -106) components supports this WEP band with 🟡 MEDIUM confidence.
+
