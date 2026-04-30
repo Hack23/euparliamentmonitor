@@ -177,6 +177,8 @@ export const THEME_TOGGLE_SCRIPT = `
  *
  * Always returns a 40-char lowercase hex string. Never throws — generator
  * scripts must be safe to run on machines without git installed.
+ *
+ * @returns 40-char lowercase hex commit SHA, or `'0'.repeat(40)` placeholder.
  */
 function resolveBuildId(): string {
   const fromEnv = (process.env.BUILD_ID ?? '').trim();

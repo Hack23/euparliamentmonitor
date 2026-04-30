@@ -7,7 +7,6 @@
  * generator must include so the PWA layer (`js/pwa-register.js`) can:
  *
  *   - Read the embedded build commit SHA + timestamp from `<meta>` tags.
- *   - Preload `build-info.json` for cache-bust polling.
  *   - Load the same-origin service-worker registration script.
  *   - Tell browsers + intermediate proxies to revalidate every navigation
  *     (`Cache-Control: no-cache`, `Pragma: no-cache`).
@@ -43,7 +42,6 @@ export function buildHeadFreshnessTags(pathPrefix: string): string {
     `  <meta name="build-time" content="${safeBuildTime}">`,
     `  <meta http-equiv="Cache-Control" content="no-cache">`,
     `  <meta http-equiv="Pragma" content="no-cache">`,
-    `  <link rel="preload" href="${safePrefix}build-info.json" as="fetch" crossorigin="anonymous">`,
     `  <script src="${safePrefix}js/pwa-register.js" defer></script>`,
   ].join('\n');
 }

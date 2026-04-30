@@ -150,7 +150,25 @@ export function validateHTML(html) {
   const closeTags = html.match(/<\/(\w+)>/g) || [];
   
   /** Self-closing tags that should be excluded from balance checking */
-  const VOID_ELEMENTS = ['meta', 'link', 'br', 'hr', 'img', 'input', 'source'];
+  const VOID_ELEMENTS = [
+    'meta',
+    'link',
+    'br',
+    'hr',
+    'img',
+    'input',
+    'source',
+    // SVG self-closing primitives — used by inline icon helpers.
+    'path',
+    'circle',
+    'rect',
+    'line',
+    'polyline',
+    'polygon',
+    'ellipse',
+    'use',
+    'stop',
+  ];
 
   /**
    * Filter out undefined entries and void/self-closing elements
