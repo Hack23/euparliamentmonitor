@@ -134,3 +134,73 @@ The April 28 Budget Guidelines adoption (TA-10-2026-0112) reflects EP's position
 | Technological | EDIS regulatory acceleration | 70% | High | 🟢 |
 | Legal | EU-Mercosur CJEU opinion delay | 95% | Low | 🟢 |
 | Environmental | CID implementing votes proceed | 70% | High | 🟡 |
+
+---
+
+## PESTLE Force Interaction Diagram
+
+```mermaid
+graph TD
+    P1[Political: EPP Coalition Management] --> E1[Economic: Budget 2027 Progress]
+    P1 --> T1[Technological: EDIS Advances]
+    P2[Political: US-EU Trade Confrontation] --> E2[Economic: GDP Downside Risk]
+    E2 --> P1
+    E1 --> S1[Social: Just Transition Funding]
+    T1 --> L1[Legal: EDIS Regulatory Framework]
+    L1 --> E1
+    ENV1[Environmental: CID Implementation] --> S1
+    ENV1 --> E2
+    P2 --> ENV1
+    S1 --> P1
+    IMF[IMF WEO 1.3% GDP Baseline] --> E1
+    ECB[ECB Rate Path] --> E2
+```
+
+---
+
+## PESTLE Cross-Dimensional Stress Test
+
+**Stress Test 1: Trade Shock (P2 triggers E2):**
+If US-EU trade escalation materialises (P2, 25%), the economic impact (E2) creates feedback pressure on coalition management (P1) via German industrial constituencies. The PESTLE cascade: US tariff → German GDP revision downward → CDU/CSU MEPs pressure Weber → EPP coalition tension → Budget 2027 delay. Full cascade probability: approximately 8-12%.
+
+**Stress Test 2: Environmental-Social Tension on CID:**
+If CID environmental standards (ENV1) are weakened to secure right-flank EPP-ECR coalition, this triggers S1 (Just Transition conflict) with ETUC/NGO mobilisation, which feeds back into P1 (EPP facing progressive bloc walkout). This is the "green paradox" scenario — trying to advance CID faster by weakening standards actually slows it by triggering a new coalition crisis.
+
+**Stress Test 3: Technology-Legal Acceleration (EDIS):**
+EDIS regulatory acceleration (T1) requires legal framework (L1) that some member states challenge as overriding national defence competence. If a challenge is filed at CJEU, it creates a Legal delay (L1 negative) while Technological urgency (T1) increases — producing an institutional tension that EP must manage.
+
+---
+
+## WEP Assessment — PESTLE Dimension Stability
+
+**Political stability: WEP Likely (70%)** — EPP coalition management succeeds in May
+**Economic outlook: WEP Likely (65%)** — Budget 2027 advances on timeline
+**Social stability: WEP Highly Likely (85%)** — Workers' rights and AI Act proceed
+**Technological: WEP Likely (70%)** — EDIS advances
+**Legal: WEP Almost Certain (95%)** — No major CJEU surprises in 30-day window
+**Environmental: WEP Likely (70%)** — CID committee work advances
+
+**Integrated PESTLE assessment (Admiralty: B2):** The PESTLE environment for May 2026 is characterised by **manageable complexity rather than crisis**. No single PESTLE dimension is in a critical failure state; the main risk is cross-dimensional compound effects at the 10-15% probability range.
+
+---
+
+## PESTLE Decision Matrix
+
+| If Political dimension deteriorates | Economic response | Legal response | Environmental impact |
+|------------------------------------|------------------|----------------|---------------------|
+| EPP-S&D split on CID | IMF 1.3% GDP growth at risk from delayed implementation | CID legal basis challenged | CID delay = 1-2 year setback to emission targets |
+| US tariff escalation (Economic D deteriorates) | IMF forecasts revised downward (0.3-0.5pp) | WTO Article 21.5 arbitration risk | Tariff revenue used for US defence offset vs EU green transition |
+
+---
+
+## PESTLE Forward Indicators for 30-Day Window
+
+| Dimension | GREEN indicator | AMBER indicator | RED indicator |
+|-----------|----------------|----------------|--------------|
+| Political | EPP-S&D vote together on CID/EDIS | EPP abstentions on CID > 10% | EPP/S&D split vote; majority fails |
+| Economic | IMF GDP forecast stable ≥1.2% | US tariff expansion announced | Full automotive/pharma tariffs enacted |
+| Social | AI Act Stage 2 implementation on schedule | Worker consultation delays | AI Act implementation suspended |
+| Technological | EDIS advances in committee | EDIS scope narrowed | EDIS vote postponed >1 session |
+| Legal | No CJEU emergency rulings on EP procedure | Advisory opinion on CID implementation | CJEU ruling blocks CID methodology |
+| Environmental | CID committee vote proceeds | CID amendment on transport delayed | CID sectoral targets amended out |
+

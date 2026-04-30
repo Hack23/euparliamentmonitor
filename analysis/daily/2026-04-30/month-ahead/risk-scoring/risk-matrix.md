@@ -100,3 +100,43 @@
 **Dominant risk vector:** Coalition fragmentation on CID/EDIS votes is the highest-scoring individual risk. The compounding risk (Risks 01+02 occurring simultaneously) elevates the effective risk profile beyond any individual score.
 
 **Confidence:** 🟡 MEDIUM — risk matrix reflects the analysis across all intelligence artifacts, but underlying probability estimates carry inherent uncertainty at 30-day horizon.
+
+---
+
+## Risk Interaction Heatmap
+
+```mermaid
+xychart-beta
+    title "Risk Matrix — Likelihood vs Impact"
+    x-axis ["R01 Coalition", "R02 Trade", "R03 Ukraine", "R04 Attendance", "R05 Budget", "R06 Procedure", "R07 IMF-ECB"]
+    y-axis "Risk Score (Likelihood × Impact)" 0 --> 15
+    bar [12, 9, 8, 7, 6, 4, 9]
+```
+
+---
+
+## Risk Register — Admiralty Assessment
+
+| Risk ID | Source Quality | Admiralty Grade | Confidence |
+|---------|---------------|----------------|-----------|
+| RISK-01 | EP coalition data (seat-share proxy) | B2 | 🟡 MEDIUM |
+| RISK-02 | IMF WEO + Reuters trade signals | A2 | 🟡 MEDIUM |
+| RISK-03 | EP roll-call proxy + Ukraine policy history | B2 | 🟡 MEDIUM |
+| RISK-04 | EP plenary attendance historical data | A2 | 🟡 MEDIUM |
+| RISK-05 | EP adopted texts + Budget 2027 timeline | A1 | 🟢 HIGH |
+| RISK-06 | EP procedures assessment | B3 | 🟢 LOW (low risk, high confidence it's low) |
+| RISK-07 | IMF WEO April 2026 + ECB forward guidance | A1 | 🟡 MEDIUM |
+
+**Admiralty rating for risk register overall: B2** — primary EP data sources are authoritative (A-grade); probability estimates rely on analyst judgment (B-grade). Overall information: probably true (2-grade) given EP institutional data quality.
+
+---
+
+## Compound Risk Assessment
+
+| Compound Risk | Component Risks | Joint Probability | Score |
+|--------------|----------------|-------------------|-------|
+| Coalition + Trade cascade | RISK-01 + RISK-02 | 12-15% | 🔴 HIGH |
+| Coalition + Ukraine | RISK-01 + RISK-03 | 10-12% | 🟠 ELEVATED |
+| Trade + ECB shock | RISK-02 + RISK-07 | 8-10% | 🟡 MEDIUM |
+| Triple compound (01+02+03) | All three simultaneously | <5% | 🟡 MEDIUM |
+

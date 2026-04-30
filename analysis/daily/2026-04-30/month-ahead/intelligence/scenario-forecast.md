@@ -133,3 +133,87 @@ graph LR
 | FS-2026-008 | May 18-21 session: INTA report on US trade response expected as plenary vote item | 🟡 Medium | 2026-05-21 |
 | FS-2026-009 | Budget 2027 Council position: expected September 2026, Council General Affairs Council meeting | 🟢 High | 2026-09-30 |
 | FS-2026-010 | CID first formal committee votes: ITRE and ENVI joint committee expected May-June 2026 | 🟡 Medium | 2026-06-30 |
+
+---
+
+## WEP Probability Summary
+
+**WEP: Likely (55%)** — Scenario 1: Steady-State Progress. Supporting indicators: April 28 Budget Guidelines adoption on precedent timeline; high EP10 legislative velocity (114 acts through April 2026); IMF WEO 1.3% EU GDP baseline; EPP structural incentive to maintain centre coalition.
+
+**WEP: Unlikely (25%)** — Scenario 2: Trade Shock Disruption. Supporting indicators: US Executive Order precedent; EU automotive/pharmaceutical export exposure; INTA committee sensitised to trade risk; IMF -0.4pp GDP downside from tariff scenario.
+
+**WEP: Unlikely (20%)** — Scenario 3: Ukraine Support Fragmentation. Supporting indicators: EP10 ENP 6.59 (highest fragmentation in EP history); PfE/ESN right-flank growth; but partially mitigated by EPP-S&D bilateral incentive on Budget 2027 trilogue.
+
+**Calibration:** These assessments use the WEP (Words Estimating Probability) scale: Almost Certain (95%+), Highly Likely (85-95%), Likely (60-80%), Roughly Even (45-55%), Unlikely (25-40%), Highly Unlikely (5-20%), Almost No Chance (<5%).
+
+---
+
+## ACH Matrix — Competing Hypotheses Assessment
+
+| Diagnostic Evidence | H1: Steady-State | H2: Trade Shock | H3: Ukraine Frag |
+|--------------------|-----------------|-----------------|-----------------|
+| April 28 Budget adoption (EPP-S&D cooperation) | ✅ Consistent | ⊘ Neutral | ⊘ Neutral |
+| IMF 1.3% EU GDP baseline (positive but fragile) | ✅ Consistent | ⊘ Neutral | ⊘ Neutral |
+| April 30 session: 21 foreseen activities | ✅ Consistent | ⊘ Neutral | ⊘ Neutral |
+| ENP 6.59 (record fragmentation) | ⊘ Neutral | ⊘ Neutral | ✅ Consistent |
+| US tariff threats (automotive/pharma) | ⊘ Neutral | ✅ Consistent | ⊘ Neutral |
+| PfE/ESN right-flank growth pattern | ⊘ Neutral | ⊘ Neutral | ✅ Consistent |
+| FS-2026-005 confirmed 🟢 (Budget trilogue) | ✅ Consistent | ❌ Inconsistent | ⊘ Neutral |
+| April 29 EU-Iceland PNR security agreement | ✅ Consistent | ⊘ Neutral | ⊘ Neutral |
+
+**ACH diagnostic count:** H1 = 5 consistent (0 inconsistent), H2 = 2 consistent (1 inconsistent), H3 = 2 consistent (0 inconsistent). H1 (Steady-State) has the strongest evidential support; H2 and H3 each represent plausible but less supported alternatives.
+
+---
+
+## Sub-Scenario Analysis
+
+### Sub-Scenario 2a: Managed Trade Escalation (within Scenario 2, 12%)
+US announces 10-15% tariffs on EU automotive exports but signals willingness to negotiate. EP responds with a non-binding INTA resolution (requiring simple majority) rather than triggering Art. 207 procedure (requiring absolute majority). Budget 2027 proceeds; CID accelerated by crisis momentum.
+
+### Sub-Scenario 2b: Full Trade War Escalation (within Scenario 2, 13%)
+US imposes ≥25% tariffs on EU automotive exports AND pharmaceutical intermediates simultaneously. EP triggers Art. 207 TFEU emergency procedure; May 18-21 agenda substantially revised. IMF GDP projection drops toward 0.8-0.9% downside scenario.
+
+### Sub-Scenario 3a: Single Legislative Failure (within Scenario 3, 12%)
+PfE/ECR coalition blocks one major Ukraine support item in May 18-21 session. EP can recover in June-July; damage is manageable. Coalition on Budget 2027 and CID maintained.
+
+### Sub-Scenario 3b: Coalition Realignment (within Scenario 3, 8%)
+EPP makes explicit overtures to right-flank coalition on multiple dossiers, weakening S&D relationship. Budget 2027 trilogue dynamic shifts. Full realignment unlikely in May alone but trajectory established.
+
+---
+
+## Scenario-Probability Timeline
+
+```mermaid
+gantt
+    title EP May 2026 Scenario Decision Timeline
+    dateFormat YYYY-MM-DD
+    section Monitoring Points
+    US tariff announcement window :milestone, m1, 2026-05-01, 1d
+    Provisional May 18-21 agenda :milestone, m2, 2026-05-14, 1d
+    May 18-21 Strasbourg session  :active, 2026-05-18, 4d
+    ECB rate decision             :milestone, m3, 2026-06-12, 1d
+    Budget 2027 Council position  :milestone, m4, 2026-09-30, 1d
+    section Scenario Triggers
+    Scenario 2 trigger window :crit, 2026-05-01, 2026-05-18
+    Scenario 3 early signal   :2026-05-10, 2026-05-21
+    FS-2026-007 resolution    :milestone, 2026-06-12, 1d
+```
+
+**Decision point summary:** The most information-rich observation window is May 14-18 (provisional agenda publication through session start). A fully published agenda with no emergency INTA items strongly favours Scenario 1.
+
+---
+
+## Scenario Probability Revision Protocol
+
+The scenario probabilities should be updated when the following signals are observed:
+
+| Signal | Current Probability | If Signal Fires | If Signal Silent |
+|--------|-------------------|----------------|-----------------|
+| Emergency INTA item in May 18-21 agenda | S1: 55%, S2: 30% | S1: 30%, S2: 55% | S1: 65%, S2: 20% |
+| EPP-PfE joint amendment on CID | S1: 55%, S2: 30% | S1: 25%, S3: 25% | S1: 65% |
+| US tariff EO before May 18 | S1: 55%, S2: 30% | S2: 50%, S1: 30% | S1: 65%, S2: 20% |
+| ECB hawkish signal (no June cut) | S3: 15% | S3: 30%, S2: 25% | S3: 8%, S1: 65% |
+| Budget 2027 ECOFIN disagreement | S1: 55% | S2: 40%, S1: 35% | S1: 65% |
+
+**Calibration note:** Probabilities use the ACH framework — H1 currently has 5 positive, 0 negative scores. Any of the above signals firing would shift at least 2 scores from positive to negative, materially reducing H1 probability and elevating H2.
+

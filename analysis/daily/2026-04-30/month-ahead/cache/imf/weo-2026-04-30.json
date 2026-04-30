@@ -1,0 +1,12 @@
+{
+  "source": "IMF World Economic Outlook April 2026",
+  "vintage": "2026-04",
+  "retrieved": "2026-04-30",
+  "indicators": {
+    "EU27_GDP_growth_2026": 1.3,
+    "EA_GDP_growth_2026": 1.2,
+    "EU27_inflation_2026": 2.3,
+    "EA_unemployment_2026": 6.1
+  },
+  "provenance": "IMF WEO April 2026 via imf-mcp-probe.sh"
+}

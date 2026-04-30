@@ -122,3 +122,118 @@ graph TD
     Germany[Germany Govt] --> |Net contributor| EPP
     Poland[Poland Govt] --> |Cohesion defense| EPP
 ```
+
+---
+
+## Stakeholder Influence Matrix — May 2026 Dossiers
+
+| Actor | Budget 2027 | CID | EDIS/Defence | US-EU Trade | Ukraine |
+|-------|------------|-----|-------------|------------|---------|
+| EPP (185) | 🟢 Driver | 🟢 Driver | 🟢 Driver | 🟡 Negotiator | 🟡 Divided |
+| S&D (135) | 🟡 Conditional | 🟡 Social floor | 🟢 Support | 🟡 Moderate | 🟢 Strong |
+| PfE (85) | 🔴 Oppose (increases) | 🟡 Industrial | 🟡 Mixed | 🟢 Anti-China axis | 🔴 Oppose |
+| ECR (81) | 🟡 Neutral | 🟡 Industry+ | 🟢 Strong | 🟡 Mixed | 🟡 Conditional |
+| Renew (77) | 🟡 Fiscal | 🟢 Growth agenda | 🟡 Support | 🟢 Coordination | 🟢 Support |
+| Greens (53) | 🟡 Conditional | 🔴 Standards | 🟡 Neutral | 🟡 Neutral | 🟢 Strong |
+| Left (46) | 🟡 Social | 🔴 Workers | 🔴 Anti-militarism | 🟡 Mixed | 🟡 Divided |
+| ESN (27) | 🔴 Oppose | 🔴 Oppose | 🔴 Oppose | 🟡 Protectionist | 🔴 Oppose |
+
+**Legend:** 🟢 Supportive/Active | 🟡 Conditional/Divided | 🔴 Opposed/Blocking
+
+---
+
+## Stakeholder Power Dynamics — Conflict and Convergence Analysis
+
+### Convergence Zones (Coalition Forming)
+
+**Zone 1 — Budget 2027 Centre Majority (EPP + S&D + Renew = 397 seats):** These three groups share an interest in advancing the Budget 2027 process on the historical precedent timeline. EPP needs Budget success to demonstrate governance capacity; S&D needs Budget to protect social/cohesion provisions; Renew needs Budget to enable its Savings and Investments Union agenda.
+
+**Zone 2 — Defence/EDIS Right-Centre Majority (EPP + ECR + PfE + Renew = 428 seats):** On EDIS-specific items, EPP can build a right-centre majority without S&D. This is the "defence coalition" that recurs across EP10 defence items.
+
+**Zone 3 — Trade Defence (EPP + S&D + ECR + some PfE = 500+ seats):** US-EU trade response generates unusual cross-ideological alignment. Even PfE's anti-China trade measures align with the trade defence posture.
+
+### Conflict Zones (Coalition Collapsing)
+
+**Zone A — CID Social Standards (EPP vs. S&D):** EPP's competitiveness-focused CID version versus S&D's social-floor version represents the May session's primary internal coalition stress. EPP needs S&D votes for majority but compromises on social standards risk losing EPP's industrial-constituency voters.
+
+**Zone B — Ukrainian Support (EPP-S&D-Renew-Greens vs. PfE-ESN):** Any Ukraine support item becomes a litmus test for the right-flank coalition dynamics. EPP's tolerance for PfE/ESN amendments that weaken Ukraine support is the primary observable indicator of coalition direction.
+
+**Zone C — Environmental Standards in CID:** The environmental integrity of CID creates a potential mirror-image of the social standards conflict — EPP could trade environmental protections for right-flank support, losing progressive coalition.
+
+---
+
+## Individual MEP Influence Profiles — May 2026
+
+### Tier 1 — Decision-Shaping MEPs
+
+| MEP | Group | Nationality | Key Dossier | Influence Mechanism |
+|-----|-------|------------|------------|---------------------|
+| Manfred Weber | EPP | German | CID, Budget 2027 | Group leader; agenda setter |
+| Roberta Metsola | EPP | Maltese | All sessions | Parliamentary President |
+| Iratxe García Pérez | S&D | Spanish | CID social floor | Group leader; coalition coordinator |
+| Marine Le Pen's delegation | PfE | French | Trade, Ukraine | Blocking minority formation |
+| Nicola Procaccini | ECR | Italian | EDIS, Trade | ECR coordination with EPP |
+
+### Tier 2 — Committee-Level Decision Points
+
+| Committee | Key May Issue | Coalition Configuration |
+|-----------|--------------|------------------------|
+| INTA | US trade response framework | EPP + S&D + Renew driving; ECR split |
+| ECON | Savings and Investments Union 2R | EPP + Renew; S&D conditional |
+| ITRE+ENVI | CID first committee votes | Contested EPP-S&D-Greens dynamic |
+| BUDG | Budget 2027 trilogue preparation | EPP-S&D majority with Renew |
+| AFET | Ukraine support mechanisms | All groups except PfE-ESN |
+
+---
+
+## Civil Society Mobilisation Assessment
+
+**ETUC:** Mobilisation 🟢 HIGH for CID social floor (existential priority). Will deliver 15-20 MEP constituency briefings before May 18-21.
+
+**BusinessEurope:** Mobilisation 🟢 HIGH for CID competitiveness provisions. Position papers to EPP and Renew MEPs already circulated.
+
+**CAN Europe / WWF:** Mobilisation 🟡 MEDIUM — monitoring with escalation threat if CID environmental integrity compromised.
+
+**Ukrainian civil society (Razom, diasporas):** Mobilisation 🟡 MEDIUM — monitoring PfE/ESN Ukraine conditionality amendments.
+
+---
+
+## Stakeholder Risk Summary
+
+| Risk | Probability | Impact | Early Warning Signal |
+|------|------------|-------|---------------------|
+| EPP internal split on CID | 30% | High | EPP group meeting minutes; German MEPs voting against Weber |
+| S&D walkout from coalition | 10% | Critical | S&D press release challenging EPP "social regression" |
+| PfE Ukraine amendment succeeds | 25% | High | PfE amendment tabled in AFET committee |
+| Germany-Poland EPP cohesion crisis | 20% | High | BUDG committee EPP split vote |
+| Renew swing to right-flank | 15% | High | Renew voting with ECR/PfE on multiple non-defence items |
+
+**Overall stakeholder risk:** 🟡 MODERATE — coalition architecture is structurally resilient but faces multiple potential fracture points across the May legislative agenda. **WEP: Likely (65%)** that all major stakeholder relationships remain stable through May 18-21 session. **WEP: Unlikely (25%)** that at least one significant stakeholder relationship experiences a visible rupture.
+
+---
+
+## External Stakeholders — Commission and Council
+
+| External Actor | Relationship to EP | May 2026 Stakes | Interaction Expected |
+|---------------|-------------------|----------------|---------------------|
+| European Commission (von der Leyen 2) | Executive partner; proposes legislation EP votes on | CID implementing acts require EP/Council approval; Commission must maintain EP's support | Daily; Commission VP expected at INTA session |
+| Council Presidency (Poland Q1 2026) | Co-legislator in ordinary legislative procedure | Budget 2027 negotiations; Poland chairs ECOFIN | Weekly; BUDG trilogue preparation |
+| US Trade Representative (USTR) | External pressure on EP autonomy | Tariff escalation affects EP's INTA committee political agenda | Indirect; USTR statements shape EP response |
+| ECB Governing Council | Independent central bank; informs EP economic positions | ECON committee hearings on June rate decision | Monthly; pre-meeting ECB testimony to ECON |
+| NATO/Ukraine Partners | Security context for EP defence votes | EDIS and EU defence budget require political will from NATO allies | Indirect; Ukraine war status affects EP vote margins |
+
+---
+
+## Stakeholder Engagement Quality — Self-Assessment
+
+**Data quality for this stakeholder map: 🟡 MEDIUM**
+
+- EP MCP data provides seat-share and committee composition data: strong (🟢 HIGH confidence)
+- Individual MEP behaviour is inferred from group positions: moderate (🟡 MEDIUM confidence)
+- External stakeholder positions are assessed from public statements: moderate (🟡 MEDIUM confidence)
+- No per-MEP vote-level data available (EP Open Data structural limitation): analytical constraint clearly documented
+- **Admiralty rating for stakeholder map: B2** — credible EP institutional source; assessments probably true based on structural analysis
+- **Forward-looking note:** This stakeholder map should be updated after the May 18-21 Strasbourg plenary session to incorporate observed voting behaviour and coalition dynamics data.
+- **Coverage:** Covers all major EP political group leaders, key national delegations, and external institutional stakeholders with direct influence on the month-ahead legislative agenda.
+- **Confidence in individual MEP assessments: 🟡 MEDIUM** — MEP profiles based on public group positions and committee assignments; personal vote intentions not directly observable at this resolution.
+
