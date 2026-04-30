@@ -168,8 +168,17 @@ export USE_EP_MCP=true
 # Stage D article rendering uses: npm run generate-article -- --run "${ANALYSIS_DIR}"
 ```
 
-Macro-context workflows start the IMF live probe immediately after this setup
-and before EP MCP fan-out:
+**All article-generating workflows** (`news-breaking`, `news-week-in-review`,
+`news-month-in-review`, `news-week-ahead`, `news-month-ahead`,
+`news-committee-reports`, `news-motions`, `news-propositions`) start the
+IMF live probe immediately after this setup and before EP MCP fan-out.
+The probe is **mandatory** — every article type carries an IMF minimum
+≥1 indicator per [`01-data-collection.md §4`](01-data-collection.md), and
+Stage C fails any `economic-context.md` that cites IMF figures from agent
+knowledge without `cache/imf/*.json`. The phrase "macro-context workflows"
+in earlier revisions of this section was ambiguous; the rule now applies
+to every article-generating workflow without exception. Only
+`news-translate.md` (no analysis stage) is exempt.
 
 ```bash
 mkdir -p "${ANALYSIS_DIR}/cache/imf"
@@ -178,6 +187,39 @@ IMF_PROBE_PID=$!
 # Run EP MCP collection here, then:
 wait "$IMF_PROBE_PID" || true
 ```
+
+**Self-check before Stage B:** confirm `${ANALYSIS_DIR}/cache/imf/probe-summary.json`
+exists (even when the probe returned `{"available": false}` — the file is
+the provenance signal). A missing probe-summary.json is a Stage A defect:
+re-run the probe synchronously before exiting Stage A.
+
+**IMF-unavailable degraded mode (`{"available": false}`).** When the probe
+file exists *and* reports `{"available": false}`, treat the run as an
+explicit IMF-unavailable degraded mode:
+
+- Provenance is satisfied by the saved probe summary (the
+  `cache/imf/probe-summary.json` file is the audit record of the
+  unavailability).
+- IMF minimums for this run are **waived** — Stage C does not RED on a
+  missing per-article-type IMF count when probe-summary records
+  `available: false`.
+- `economic-context.md` MUST NOT cite IMF figures from agent knowledge,
+  MUST NOT claim IMF-backed completeness, and MUST surface the
+  unavailability with a 🔴 marker plus the full probe error message in
+  §"Data freshness".
+- Downstream stages (Stage D article render) MUST NOT inject IMF
+  citations into prose.
+- **Fail-early exception:** if the planned article type cannot remain
+  valid without IMF-backed data — currently `committee-reports` runs
+  scoped to ECON / BUDG / INTA, where the IMF minimum is ≥3 indicators —
+  fail early in Stage A after writing the probe summary, set
+  `GATE_RESULT=ANALYSIS_ONLY`, and record the unavailability as the
+  justification in `runs/stage-a-fail.log`. All other article types
+  proceed in degraded mode.
+
+The waiver applies *only* to runs where `available: false` is the
+authentic probe outcome. Any IMF-cited prose must still be backed by
+`cache/imf/*.json` files when the probe reports `available: true`.
 
 `${ARTICLE_TYPE_SLUG}`, `${ANALYSIS_DIR}`, and `${TODAY}` are set by the
 workflow's own Date Context Establishment block (see each `news-*.md` §Date

@@ -46,7 +46,7 @@ Timeframes: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"custom"`
 | `get_mep_declarations` | `year`, `docId` | `get_mep_declarations_feed` |
 | `get_committee_info` | `abbreviation`, `id`, `showCurrent` | — |
 | `search_documents` | `keyword`, `documentType`, `committee`, `dateFrom/dateTo` | — |
-| `track_legislation` | `procedureId` (e.g., `"2024/0001(COD)"`) | — |
+| `track_legislation` | `procedureId` (e.g., `"2024/0001(COD)"`) | No same-identifier fallback. `get_procedures` requires `processId` (a different identifier, not derivable from `procedureId`); use it as a fallback only when the adopted-text payload exposes `processId` — see [`01-data-collection.md` §3](01-data-collection.md). |
 | `get_procedure_events` | `processId` | — |
 | `get_procedure_event_by_id` | `processId`, `eventId` | — |
 | `get_meeting_decisions` | `sittingId` | — |
