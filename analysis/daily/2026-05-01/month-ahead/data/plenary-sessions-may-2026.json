@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-05-01T08:44:00Z",
+  "source": "european-parliament MCP get_plenary_sessions",
+  "maySessions": [
+    {
+      "id": "MTG-PL-2026-05-18",
+      "date": "2026-05-18",
+      "location": "Strasbourg",
+      "sessionType": "Full Strasbourg plenary session (Mon)",
+      "foreseenActivities": [
+        {"id": "eli/dl/event/MTG-PL-2026-05-18-TF-1700", "time": "17:00", "type": "MEETING_PART"}
+      ]
+    },
+    {
+      "id": "MTG-PL-2026-05-19",
+      "date": "2026-05-19",
+      "location": "Strasbourg",
+      "sessionType": "Full Strasbourg plenary session (Tue)",
+      "foreseenActivities": [
+        {"id": "eli/dl/event/MTG-PL-2026-05-19-TF-0900", "time": "09:00", "type": "MEETING_PART"},
+        {"id": "eli/dl/event/MTG-PL-2026-05-19-TF-1130", "time": "11:30", "type": "MEETING_PART"},
+        {"id": "eli/dl/event/MTG-PL-2026-05-19-TF-1230", "time": "12:30", "type": "MEETING_PART"},
+        {"id": "eli/dl/event/MTG-PL-2026-05-19-TF-1330", "time": "13:30", "type": "MEETING_PART"},
+        {"id": "eli/dl/event/MTG-PL-2026-05-19-TF-1500", "time": "15:00", "type": "MEETING_PART"}
+      ]
+    },
+    {
+      "id": "MTG-PL-2026-05-20",
+      "date": "2026-05-20",
+      "location": "Strasbourg",
+      "sessionType": "Full Strasbourg plenary session (Wed)",
+      "foreseenActivities": [
+        {"id": "eli/dl/event/MTG-PL-2026-05-20-TF-0900", "time": "09:00", "type": "MEETING_PART"},
+        {"id": "eli/dl/event/MTG-PL-2026-05-20-TF-1030", "time": "10:30", "type": "MEETING_PART"},
+        {"id": "eli/dl/event/MTG-PL-2026-05-20-TF-1200", "time": "12:00", "type": "MEETING_PART"},
+        {"id": "eli/dl/event/MTG-PL-2026-05-20-TF-1300", "time": "13:00", "type": "MEETING_PART"}
+      ]
+    },
+    {
+      "id": "MTG-PL-2026-05-21",
+      "date": "2026-05-21",
+      "location": "Strasbourg",
+      "sessionType": "Full Strasbourg plenary session (Thu - voting day)",
+      "foreseenActivities": [
+        {"id": "eli/dl/event/MTG-PL-2026-05-21-TF-0900", "time": "09:00", "type": "MEETING_PART"},
+        {"id": "eli/dl/event/MTG-PL-2026-05-21-TF-1200", "time": "12:00", "type": "MEETING_PART"},
+        {"id": "eli/dl/event/MTG-PL-2026-05-21-TF-1500", "time": "15:00", "type": "MEETING_PART"}
+      ]
+    }
+  ],
+  "upcomingSessions": [
+    {"id": "MTG-PL-2026-06-15", "week": "June 15-18", "location": "Strasbourg"},
+    {"id": "MTG-PL-2026-07-06", "week": "July 6-9", "location": "Strasbourg"}
+  ],
+  "notes": "May 18-21 is the only full Strasbourg plenary in May 2026. No Brussels mini-session scheduled for May. Agenda items not yet published - to be set approximately 2 weeks before session."
+}
