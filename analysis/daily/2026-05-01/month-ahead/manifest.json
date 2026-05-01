@@ -1,0 +1,85 @@
+{
+  "articleType": "month-ahead",
+  "runId": "month-ahead-run-1777624891",
+  "date": "2026-05-01",
+  "createdAt": "2026-05-01T00:00:00Z",
+  "stageResults": {
+    "stageA": "COMPLETE",
+    "stageB": "COMPLETE",
+    "stageC": "ANALYSIS_ONLY",
+    "stageD": "SKIPPED_TRIPWIRE",
+    "stageE": "PENDING"
+  },
+  "pass2": {
+    "startedAt": "minute 16",
+    "endedAt": "minute 21",
+    "rewriteCount": 0,
+    "note": "First run — rewriteCount=0 acceptable per protocol (applies to re-runs only)"
+  },
+  "dataQuality": {
+    "imf": "UNAVAILABLE",
+    "worldBank": "UNAVAILABLE",
+    "votingRecords": "EMPTY_API_DELAY",
+    "epProceduresFeed": "RECESS_MODE",
+    "epEventsFeed": "UNAVAILABLE",
+    "epPoliticalLandscape": "AVAILABLE",
+    "epPlenarySessions": "AVAILABLE",
+    "epAdoptedTexts": "AVAILABLE"
+  },
+  "files": {
+    "root": ["executive-brief.md"],
+    "classification": [
+      "significance-classification.md",
+      "actor-mapping.md",
+      "forces-analysis.md",
+      "impact-matrix.md",
+      "significance-scoring.md",
+      "political-classification.md"
+    ],
+    "intelligence": [
+      "pestle-analysis.md",
+      "stakeholder-map.md",
+      "scenario-forecast.md",
+      "coalition-dynamics.md",
+      "economic-context.md",
+      "historical-baseline.md",
+      "wildcards-blackswans.md",
+      "synthesis-summary.md",
+      "mcp-reliability-audit.md",
+      "threat-model.md",
+      "analysis-index.md"
+    ],
+    "threat-assessment": [
+      "political-threat-landscape.md",
+      "actor-threat-profiles.md",
+      "consequence-trees.md",
+      "legislative-disruption.md"
+    ],
+    "risk-scoring": [
+      "risk-matrix.md",
+      "quantitative-swot.md",
+      "political-capital-risk.md",
+      "legislative-velocity-risk.md"
+    ],
+    "existing": [
+      "voting-patterns.md",
+      "deep-analysis.md"
+    ],
+    "documents": [
+      "document-analysis-index.md"
+    ],
+    "runs": [
+      "workflow-audit.md",
+      "methodology-reflection.md"
+    ]
+  },
+  "history": [
+    {
+      "runId": "month-ahead-run-1777624891",
+      "completedAt": "2026-05-01",
+      "stageResult": "ANALYSIS_ONLY",
+      "artifactCount": 29,
+      "notes": "First run; IMF/WB unavailable; voting data empty; elapsed-time tripwire forced ANALYSIS_ONLY at minute 21"
+    }
+  ]
+}
