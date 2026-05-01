@@ -60,7 +60,7 @@ function generateProcedureFixture(count) {
         { date: committeeEnd.toISOString(), title: 'Committee vote - draft report adopted' },
         { date: plenaryEnd.toISOString(), title: 'Plenary first reading' },
         { date: trilogueEnd.toISOString(), title: 'Trilogue agreement reached' },
-        { date: adoptionEnd.toISOString(), title: 'Final adoption in plenary' },
+        { date: adoptionEnd.toISOString(), title: 'Final adoption by parliament' },
       ]),
     );
   }
@@ -130,8 +130,10 @@ describe('pipeline-transit-model', () => {
 
   describe('classifyEventStage', () => {
     it('should classify adoption keywords', () => {
-      expect(classifyEventStage('final vote in plenary')).toBe('adoption');
-      expect(classifyEventStage('text adopted')).toBe('adoption');
+      expect(classifyEventStage('final vote in council')).toBe('adoption');
+      expect(classifyEventStage('final adoption by parliament')).toBe('adoption');
+      expect(classifyEventStage('adopted in plenary session')).toBe('adoption');
+      expect(classifyEventStage('signature by presidents')).toBe('adoption');
     });
 
     it('should classify trilogue keywords', () => {
@@ -151,6 +153,17 @@ describe('pipeline-transit-model', () => {
 
     it('should return null for unclassifiable text', () => {
       expect(classifyEventStage('some random text')).toBeNull();
+    });
+
+    it('should classify "draft report adopted" as committee (not adoption)', () => {
+      expect(classifyEventStage('committee vote - draft report adopted')).toBe('committee');
+      expect(classifyEventStage('draft report adopted in committee')).toBe('committee');
+    });
+
+    it('should not misclassify committee events containing "adopted"', () => {
+      // These are committee-stage events that happen to contain "adopted"
+      expect(classifyEventStage('draft report adopted by committee')).toBe('committee');
+      expect(classifyEventStage('committee adopted opinion')).toBe('committee');
     });
   });
 
@@ -174,9 +187,26 @@ describe('pipeline-transit-model', () => {
 
     it('should detect adoption stage', () => {
       const proc = makeProcedure('test', [
-        { date: '2025-01-01', title: 'Adopted in plenary' },
+        { date: '2025-01-01', title: 'Final adoption by parliament' },
       ]);
       expect(inferCurrentStage(proc)).toBe('adoption');
+    });
+
+    it('should not misclassify "draft report adopted" as adoption stage', () => {
+      const proc = makeProcedure('test', [
+        { date: '2025-01-01', title: 'Committee referral' },
+        { date: '2025-03-15', title: 'Committee vote - draft report adopted' },
+      ]);
+      expect(inferCurrentStage(proc)).toBe('committee');
+    });
+
+    it('should classify based on most recent classifiable event', () => {
+      const proc = makeProcedure('test', [
+        { date: '2025-01-01', title: 'Committee referral' },
+        { date: '2025-03-01', title: 'Draft report adopted in committee' },
+        { date: '2025-06-01', title: 'Plenary first reading' },
+      ]);
+      expect(inferCurrentStage(proc)).toBe('plenary');
     });
   });
 

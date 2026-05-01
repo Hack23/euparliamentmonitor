@@ -124,6 +124,8 @@ export function deriveProcedureSeed(baseSeed, processId) {
 
 /**
  * Infer the current stage of a procedure from its event timeline.
+ * Uses classifyEventStage on the most recent event to avoid misclassifying
+ * committee events containing generic "adopted" keywords as final adoption.
  *
  * @param {object} proc - Procedure object from procedures-feed
  * @returns {string|null} One of STAGES or null if indeterminate
@@ -134,17 +136,28 @@ export function inferCurrentStage(proc) {
     return 'committee'; // default: assume earliest stage
   }
 
-  // Look for stage keywords in event descriptions (reverse order = latest first)
-  const flatText = JSON.stringify(events).toLowerCase();
-  if (flatText.includes('adoption') || flatText.includes('adopted')) return 'adoption';
-  if (flatText.includes('trilogue') || flatText.includes('trialogue')) return 'trilogue';
-  if (flatText.includes('plenary') || flatText.includes('first reading')) return 'plenary';
+  // Sort events by date (most recent last) and classify from latest backward
+  const sorted = events
+    .filter((e) => e.date || e.startDate || e.timestamp)
+    .map((e) => ({
+      date: new Date(e.date || e.startDate || e.timestamp),
+      text: (e.title || e.description || e.type || '').toLowerCase(),
+    }))
+    .filter((e) => !isNaN(e.date.getTime()))
+    .sort((a, b) => a.date - b.date);
+
+  // Walk backward from the most recent event
+  for (let i = sorted.length - 1; i >= 0; i--) {
+    const stage = classifyEventStage(sorted[i].text);
+    if (stage) return stage;
+  }
+
   return 'committee';
 }
 
 /**
  * Extract stage-transition durations from historical procedures.
- * Returns an object keyed by stage with arrays of { days, recencyWeight }.
+ * Returns an object keyed by stage with arrays of { days, weight }.
  *
  * @param {object[]} procedures - Array of procedure objects
  * @param {object[]} votingRecords - Array of voting-record objects
@@ -218,12 +231,26 @@ export function extractTransitionDurations(procedures, votingRecords, asOf) {
 
 /**
  * Classify an event's text into a pipeline stage.
+ * Priority: committee keywords checked first (to prevent "draft report adopted"
+ * misclassification), then specific adoption patterns, then trilogue/plenary.
  *
  * @param {string} text - Lowercased event text
  * @returns {string|null} Stage name or null
  */
 export function classifyEventStage(text) {
-  if (text.includes('adopt') || text.includes('final vote') || text.includes('signature')) {
+  // Check committee first — "draft report adopted" is a committee event
+  if (text.includes('committee') || text.includes('rapporteur') || text.includes('draft report')) {
+    return 'committee';
+  }
+  // Adoption: specific patterns checked before generic plenary keywords
+  // to correctly classify "adopted in plenary" as adoption (not plenary)
+  if (
+    text.includes('final adoption') ||
+    text.includes('adopted in plenary') ||
+    text.includes('final vote') ||
+    text.includes('signature') ||
+    (text.includes('adopt') && !text.includes('report adopt'))
+  ) {
     return 'adoption';
   }
   if (text.includes('trilogue') || text.includes('trialogue') || text.includes('conciliation')) {
@@ -231,9 +258,6 @@ export function classifyEventStage(text) {
   }
   if (text.includes('plenary') || text.includes('first reading') || text.includes('second reading')) {
     return 'plenary';
-  }
-  if (text.includes('committee') || text.includes('rapporteur') || text.includes('draft report')) {
-    return 'committee';
   }
   return null;
 }
@@ -328,39 +352,30 @@ export function computeTransitModel(procedures, votingRecords, seed, asOf) {
     const procSeed = deriveProcedureSeed(baseSeed, processId);
     const rng = mulberry32(procSeed);
 
-    // Compute priors for remaining stages
-    const stageIdx = STAGES.indexOf(currentStage);
-    const stages = {};
+    // Only simulate the current stage (no need for downstream stages in output)
+    const currentSamples = durations[currentStage];
+    const mcResult = monteCarloStage(currentSamples, rng);
 
-    for (let i = stageIdx; i < STAGES.length; i++) {
-      const stage = STAGES[i];
-      const samples = durations[stage];
-      const mcResult = monteCarloStage(samples, rng);
-
-      if (mcResult) {
-        stages[stage] = {
-          ...mcResult,
-          methodologyVersion: METHODOLOGY_VERSION,
-        };
-      } else {
-        // Base-rate fallback
-        stages[stage] = {
-          ...BASE_RATE_PRIORS[stage],
-          sampleSize: samples ? samples.length : 0,
-          methodologyVersion: METHODOLOGY_VERSION,
-          fallback: true,
-        };
-      }
+    if (mcResult) {
+      output[processId] = {
+        stage: currentStage,
+        p10Days: mcResult.p10Days,
+        p50Days: mcResult.p50Days,
+        p90Days: mcResult.p90Days,
+        sampleSize: mcResult.sampleSize,
+        methodologyVersion: METHODOLOGY_VERSION,
+      };
+    } else {
+      // Base-rate fallback
+      output[processId] = {
+        stage: currentStage,
+        p10Days: BASE_RATE_PRIORS[currentStage].p10Days,
+        p50Days: BASE_RATE_PRIORS[currentStage].p50Days,
+        p90Days: BASE_RATE_PRIORS[currentStage].p90Days,
+        sampleSize: currentSamples ? currentSamples.length : 0,
+        methodologyVersion: METHODOLOGY_VERSION,
+      };
     }
-
-    output[processId] = {
-      stage: currentStage,
-      p10Days: stages[currentStage].p10Days,
-      p50Days: stages[currentStage].p50Days,
-      p90Days: stages[currentStage].p90Days,
-      sampleSize: stages[currentStage].sampleSize,
-      methodologyVersion: METHODOLOGY_VERSION,
-    };
   }
 
   return output;
@@ -429,7 +444,8 @@ export function parseArgs(argv) {
         process.stderr.write(`Error: --seed must be a valid integer, got "${rawSeed}"\n`);
         process.exit(1);
       }
-      args.seed = parsed;
+      // Normalize to 32-bit signed integer range (mulberry32 uses `seed | 0`)
+      args.seed = parsed | 0;
     } else if (argv[i] === '--as-of' && argv[i + 1]) {
       const ts = Date.parse(argv[++i]);
       if (isNaN(ts)) {
