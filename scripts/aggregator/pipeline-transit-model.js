@@ -8,17 +8,21 @@
  * (committee → plenary → trilogue → adoption).
  *
  * Consumes stage-transition timings from `data/procedures-feed.json` and
- * `data/voting-records.json`, outputting probabilistic priors consumed by
- * the `legislative-pipeline-forecast.md` template.
+ * `data/voting-records.json`, outputting probabilistic priors intended for
+ * integration with the `legislative-pipeline-forecast.md` template once the
+ * consumer wiring is complete (planned for a follow-up PR).
  *
  * Reference: analysis/methodologies/forward-projection-methodology.md §5
+ *
+ * Output schema per processId:
+ *   { stage, p10Days, p50Days, p90Days, sampleSize, methodologyVersion }
  *
  * CLI:
  *   node scripts/aggregator/pipeline-transit-model.js \
  *     --in data/procedures-feed.json \
  *     --voting data/voting-records.json \
  *     --out cache/pipeline-transit/<runId>.json \
- *     [--seed <integer>]
+ *     [--seed <integer>] [--as-of <ISO date>]
  */
 
 import fs from 'node:fs';
@@ -198,7 +202,7 @@ export function extractTransitionDurations(procedures, votingRecords, asOf) {
     if (isNaN(voteDate.getTime())) continue;
 
     const ageMs = refTime - voteDate.getTime();
-    const weight = ageMs <= RECENT_WINDOW_MS ? RECENT_WEIGHT : OLDER_WEIGHT;
+    const weight = ageMs <= RECENT_WINDOW_MS ? RECENT_WEIGHT : ageMs <= 2 * RECENT_WINDOW_MS ? OLDER_WEIGHT : STALE_WEIGHT;
 
     // Voting records generally correspond to plenary or adoption stage
     const text = (vote.title || vote.description || vote.type || '').toLowerCase();
@@ -266,7 +270,18 @@ export function monteCarloStage(samples, rng) {
   const results = [];
   for (let i = 0; i < MC_ITERATIONS; i++) {
     const u = rng();
-    const pick = cdf.find((c) => u <= c.cdf) || cdf[cdf.length - 1];
+    // Binary search over CDF for O(log n) sampling
+    let lo = 0;
+    let hi = cdf.length - 1;
+    while (lo < hi) {
+      const mid = (lo + hi) >>> 1;
+      if (cdf[mid].cdf < u) {
+        lo = mid + 1;
+      } else {
+        hi = mid;
+      }
+    }
+    const pick = cdf[lo];
     // Add small jitter (±20%) to avoid discrete spikes
     const jitter = 1 + (rng() - 0.5) * JITTER_RANGE;
     results.push(Math.max(1, Math.round(pick.days * jitter)));
@@ -340,8 +355,11 @@ export function computeTransitModel(procedures, votingRecords, seed, asOf) {
 
     output[processId] = {
       stage: currentStage,
-      ...stages[currentStage],
-      allStages: stages,
+      p10Days: stages[currentStage].p10Days,
+      p50Days: stages[currentStage].p50Days,
+      p90Days: stages[currentStage].p90Days,
+      sampleSize: stages[currentStage].sampleSize,
+      methodologyVersion: METHODOLOGY_VERSION,
     };
   }
 
@@ -401,9 +419,14 @@ export function parseArgs(argv) {
     } else if (argv[i] === '--out' && argv[i + 1]) {
       args.outFile = argv[++i];
     } else if (argv[i] === '--seed' && argv[i + 1]) {
-      const parsed = parseInt(argv[++i], 10);
+      const rawSeed = argv[++i];
+      if (!/^-?\d+$/.test(rawSeed)) {
+        process.stderr.write(`Error: --seed must be a valid integer, got "${rawSeed}"\n`);
+        process.exit(1);
+      }
+      const parsed = parseInt(rawSeed, 10);
       if (!Number.isInteger(parsed)) {
-        process.stderr.write(`Error: --seed must be a valid integer, got "${argv[i]}"\n`);
+        process.stderr.write(`Error: --seed must be a valid integer, got "${rawSeed}"\n`);
         process.exit(1);
       }
       args.seed = parsed;

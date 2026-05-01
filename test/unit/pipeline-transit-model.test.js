@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -230,7 +230,7 @@ describe('pipeline-transit-model', () => {
   // -------------------------------------------------------------------------
 
   describe('computeTransitModel — empty input fallback', () => {
-    it('should return base-rate priors for empty procedures', () => {
+    it('should return empty result for empty procedures array', () => {
       const result = computeTransitModel([], [], 42);
       expect(Object.keys(result)).toHaveLength(0);
     });
@@ -242,25 +242,22 @@ describe('pipeline-transit-model', () => {
       expect(result['2025/0001(COD)']).toBeDefined();
       const entry = result['2025/0001(COD)'];
       expect(entry.stage).toBe('committee');
-      expect(entry.fallback).toBe(true);
       expect(entry.p10Days).toBe(BASE_RATE_PRIORS.committee.p10Days);
       expect(entry.p50Days).toBe(BASE_RATE_PRIORS.committee.p50Days);
       expect(entry.p90Days).toBe(BASE_RATE_PRIORS.committee.p90Days);
       expect(entry.methodologyVersion).toBe(METHODOLOGY_VERSION);
+      expect(entry.sampleSize).toBe(0);
     });
 
-    it('should provide allStages with base-rate fallback for all stages', () => {
+    it('should produce base-rate priors for procedure with no historical data', () => {
       const procedures = [makeProcedure('2025/0001(COD)', [])];
       const result = computeTransitModel(procedures, [], 42);
       const entry = result['2025/0001(COD)'];
 
-      for (const stage of STAGES) {
-        expect(entry.allStages[stage]).toBeDefined();
-        expect(entry.allStages[stage].fallback).toBe(true);
-        expect(entry.allStages[stage].p10Days).toBe(BASE_RATE_PRIORS[stage].p10Days);
-        expect(entry.allStages[stage].p50Days).toBe(BASE_RATE_PRIORS[stage].p50Days);
-        expect(entry.allStages[stage].p90Days).toBe(BASE_RATE_PRIORS[stage].p90Days);
-      }
+      // Output matches documented schema: { stage, p10Days, p50Days, p90Days, sampleSize, methodologyVersion }
+      expect(Object.keys(entry).sort()).toEqual(
+        ['methodologyVersion', 'p10Days', 'p50Days', 'p90Days', 'sampleSize', 'stage'].sort(),
+      );
     });
   });
 
@@ -283,7 +280,7 @@ describe('pipeline-transit-model', () => {
         expect(entry.p10Days).toBeGreaterThan(0);
         expect(entry.p50Days).toBeGreaterThanOrEqual(entry.p10Days);
         expect(entry.p90Days).toBeGreaterThanOrEqual(entry.p50Days);
-        expect(entry.allStages).toBeDefined();
+        expect(entry.sampleSize).toBeDefined();
       }
     });
 
@@ -300,11 +297,11 @@ describe('pipeline-transit-model', () => {
       const votingRecords = generateVotingRecords(20);
       const result = computeTransitModel(procedures, votingRecords, 42);
 
-      // Procedures in committee should have allStages covering all four stages
+      // Procedures in committee should produce committee-stage priors
       const committeeEntry = result['2025/C0(COD)'];
       expect(committeeEntry).toBeDefined();
       expect(committeeEntry.stage).toBe('committee');
-      expect(Object.keys(committeeEntry.allStages).length).toBe(4);
+      expect(committeeEntry.sampleSize).toBeDefined();
 
       // Base-rate committee P50 should be larger than base-rate adoption P50
       expect(BASE_RATE_PRIORS.committee.p50Days).toBeGreaterThan(BASE_RATE_PRIORS.adoption.p50Days);
@@ -438,6 +435,21 @@ describe('pipeline-transit-model', () => {
       const result = spawnSync('node', [
         SCRIPT_PATH, '--in', procFile, '--voting', votingFile,
         '--out', path.join(tmpDir, 'o.json'), '--seed', 'notanumber',
+      ], { encoding: 'utf8' });
+
+      expect(result.status).toBe(1);
+      expect(result.stderr).toContain('--seed must be a valid integer');
+    });
+
+    it('should reject partially-numeric --seed values like "42abc"', () => {
+      const procFile = path.join(tmpDir, 'p2.json');
+      const votingFile = path.join(tmpDir, 'v2.json');
+      fs.writeFileSync(procFile, '[]');
+      fs.writeFileSync(votingFile, '[]');
+
+      const result = spawnSync('node', [
+        SCRIPT_PATH, '--in', procFile, '--voting', votingFile,
+        '--out', path.join(tmpDir, 'o2.json'), '--seed', '42abc',
       ], { encoding: 'utf8' });
 
       expect(result.status).toBe(1);
