@@ -67,13 +67,22 @@ Read every artifact word-by-word. Apply the AI-First Quality Principle
 For `term-outlook` and `election-cycle` (where
 `SCENARIO_MAX_MONTHS ≥ 36`), [`scenario-forecast.md`](../../analysis/templates/scenario-forecast.md)
 opens its long-horizon-mode header — see
-[`strategic-extensions-methodology.md`](../../analysis/methodologies/strategic-extensions-methodology.md)
-for the appendix. ≥ 6 scenarios are mandatory, including at least one
-regime-change branch when any tripwire from §2 is armed.
+[`scenario-forecast.md §0`](../../analysis/templates/scenario-forecast.md#0️⃣-long-horizon-mode)
+for the full specification. Key requirements in long-horizon mode:
+
+- **≥ 6 scenarios** are mandatory (enforced by Stage-C validator on `term-outlook`/`election-cycle`).
+- Mandatory **EP-election outcome branch** with three sub-paths: centre-right majority, centre-left majority, fragmented coalition.
+- Mandatory **regime-change branch**; use tripwires from §2 to define and monitor the branch.
+- At least **2 wildcard/black-swan branches**.
+- Per-scenario WEP confidence band **drawn from the decay table** at [`forward-projection-methodology.md §3`](../../analysis/methodologies/forward-projection-methodology.md#3-wep-decay-table) — this is the **single source of truth** for horizon-conditional WEP numbers; do not copy the table into `scenario-forecast.md`.
+
+**Forward indicators in long-horizon mode:** [`forward-indicators.md`](../../analysis/templates/forward-indicators.md) includes a **Multi-Horizon Decay Table** (§Multi-Horizon Decay Table) that maps every indicator type to the horizons at which it retains predictive signal. Ensure every indicator card carries a `**Horizons:**` tag so monitoring plans retire indicators at their decay horizon. Canonical WEP decay numbers are in [`forward-projection-methodology.md §3`](../../analysis/methodologies/forward-projection-methodology.md#3-wep-decay-table) — `forward-indicators.md` references but does not duplicate them.
 
 ## 6 · Cross-References
 
-- [`forward-projection-methodology.md`](../../analysis/methodologies/forward-projection-methodology.md) — protocol authority.
+- [`forward-projection-methodology.md`](../../analysis/methodologies/forward-projection-methodology.md) — **protocol authority and canonical WEP decay table (§3)**.
+- [`scenario-forecast.md §0`](../../analysis/templates/scenario-forecast.md#0️⃣-long-horizon-mode) — long-horizon-mode specification.
+- [`forward-indicators.md §Multi-Horizon Decay Table`](../../analysis/templates/forward-indicators.md#-multi-horizon-decay-table) — horizon tags per indicator type.
 - [`02-analysis-protocol.md`](02-analysis-protocol.md) — 2-pass iterative improvement.
 - [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md) — Stage-C gate definition.
 - [`04-article-generation.md`](04-article-generation.md) — how the artifacts in §1 land in the rendered article.
