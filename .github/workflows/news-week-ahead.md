@@ -310,6 +310,7 @@ prose pass.
 
 ## 🎯 Article-Type Specifics
 
+- Long-horizon stage helpers: see [`.github/prompts/10-horizon-stage-helpers.md`](../prompts/10-horizon-stage-helpers.md) for the registry-driven Stage-A/B/C contract.
 - Mine prior-run forward statements (per `01-data-collection.md` §8) and carry ≥ 3 forward statements forward with status updates.
 - Include `intelligence/scenario-forecast.md` in the analysis set; render probability-labelled scenario cards.
 - **Seed synthesis from forward-statements registry** (per `01-data-collection.md` §8a): read open items from `analysis/forward-statements/` before Stage B.

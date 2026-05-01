@@ -310,6 +310,7 @@ prose pass.
 
 ## 🎯 Article-Type Specifics
 
+- Long-horizon stage helpers: see [`.github/prompts/10-horizon-stage-helpers.md`](../prompts/10-horizon-stage-helpers.md) for the registry-driven Stage-A/B/C contract.
 - Every procedure mentioned MUST carry its full identifier (`2025/0042(COD)` etc.) and current stage.
 - Include `existing/pipeline-health.md` in the analysis set.
 

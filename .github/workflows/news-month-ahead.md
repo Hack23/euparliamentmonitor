@@ -310,6 +310,7 @@ prose pass.
 
 ## 🎯 Article-Type Specifics
 
+- Long-horizon stage helpers: see [`.github/prompts/10-horizon-stage-helpers.md`](../prompts/10-horizon-stage-helpers.md) for the registry-driven Stage-A/B/C contract.
 - Economic context (**IMF only** for macro/fiscal/monetary/trade) is mandatory — monthly articles always touch macro/policy.
 - Mine prior-run forward statements (per `01-data-collection.md` §8).
 - **Seed synthesis from forward-statements registry** (per `01-data-collection.md` §8a): read open items from `analysis/forward-statements/` before Stage B.

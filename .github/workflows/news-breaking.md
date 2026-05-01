@@ -310,6 +310,7 @@ prose pass.
 
 ## 🎯 Article-Type Specifics
 
+- Long-horizon stage helpers: see [`.github/prompts/10-horizon-stage-helpers.md`](../prompts/10-horizon-stage-helpers.md) for the registry-driven Stage-A/B/C contract.
 - Every document/event reference MUST include its publish date. Items without a recent date are not breaking news.
 - If no new developments exist today, still ship a PR marked `gateResult=ANALYSIS_ONLY` in `manifest.json.history[]` — the deterministic renderer will then emit a noop placeholder rather than a full article.
 - Include `intelligence/coalition-dynamics.md` and `intelligence/mcp-reliability-audit.md` in the analysis set (per `reference-quality-thresholds.json`).

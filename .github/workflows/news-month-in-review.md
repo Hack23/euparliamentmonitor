@@ -309,6 +309,7 @@ prose pass.
 
 ## 🎯 Article-Type Specifics
 
+- Long-horizon stage helpers: see [`.github/prompts/10-horizon-stage-helpers.md`](../prompts/10-horizon-stage-helpers.md) for the registry-driven Stage-A/B/C contract.
 - Economic context is **mandatory** and must be sourced from **IMF**. World Bank is cited for non-economic domains (governance WGI, demographics, social, environment, defence-spending). See [`.github/skills/imf-data-integration.md`](../skills/imf-data-integration.md) and [`analysis/methodologies/imf-indicator-mapping.md §8`](../../analysis/methodologies/imf-indicator-mapping.md#8-per-article-type-indicator-minimums) (`month-in-review` ≥ 2 IMF indicators).
 - Cross-reference prior month-ahead predictions; produce a confirmed/refuted tally.
 - Include `intelligence/historical-baseline.md` in the analysis set.
