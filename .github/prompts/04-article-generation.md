@@ -91,6 +91,20 @@ and are checked during the agent-side Stage-C completeness review (Pass 2):
 Shipping an article without the matching artifacts passing their floors is a
 contract violation; the Stage-C gate must refuse to stamp `GREEN`.
 
+### 4.1 · Confidence Labels Are Horizon-Conditional
+
+Every WEP-graded judgement in the article (and the analysis artifacts that
+feed it) MUST use the floor band that matches the **dominant horizon of the
+claim**, not the run's filing cadence. A `news-week-ahead` article uses the
+`T+7d` band for next-plenary forecasts and the `T+EP-election ±6m` band for
+any structural-break aside in the same body. A `news-month-in-review`
+retrospective whose forward section reaches into the next Strasbourg cycle
+uses the `T+30d` / `T+90d` bands accordingly.
+
+- **Author-facing surface (style):** [`political-style-guide.md` §Confidence Labels Are Horizon-Conditional](../../analysis/methodologies/political-style-guide.md#confidence-labels-are-horizon-conditional) — read this when authoring Stage-B analysis artifacts and calibrating horizon-conditional probability judgements (Stage D itself does not author prose; Stage-B is where the WEP-graded sentences are written).
+- **Canonical decay table (numbers):** [`forward-projection-methodology.md` §3 — WEP Decay Table](../../analysis/methodologies/forward-projection-methodology.md#3-wep-decay-table) — single source of truth for the floor bands per horizon.
+- **Pass-2 calibration check (editorial):** if the committed analysis/article output does not contain at least one judgement at the horizon's floor band — i.e. every band is *Roughly even chance* / *About even* — the analyst has avoided commitment and must revise the artifacts during Pass 2 / Stage-C completeness review before the run can be stamped `GREEN`. This is an editorial review criterion, not a deterministic rule currently enforced by `scripts/validate-analysis-completeness.js`.
+
 ## 5 · Economic & Non-Economic Context
 
 Articles with measurable policy impact MUST include **IMF economic context**

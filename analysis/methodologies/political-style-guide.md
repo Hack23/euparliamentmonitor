@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-2.6-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--25-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-2.7-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--01-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.6 | **📅 Last Updated:** 2026-04-25 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 2.7 | **📅 Last Updated:** 2026-05-01 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -582,6 +582,16 @@ All probabilistic judgements produced in EU Parliament Monitor analysis follow t
 - Confidence in the **quality of the evidence** (High / Medium / Low, per [`osint-tradecraft-standards.md` §3.3](osint-tradecraft-standards.md)) is tracked **separately** from WEP probability — the two are never merged into a single marker.
 - Legacy markers 🟢 / 🟡 / 🔴 remain valid and map onto High / Medium / Low confidence respectively; they are a visual overlay on the WEP + confidence pair, not a replacement.
 
+### Confidence Labels Are Horizon-Conditional
+
+WEP bands are not horizon-agnostic: the threshold to call something *Likely* at T+7 days is much higher than at T+12 months, because uncertainty grows non-linearly with horizon. A week-ahead claim graded *Likely* using a 12-month band is statistically wrong — calendar, rapporteur, and trilogue-date signal at one week leave less room for upset than a year of Council Presidency turnover, coalition arithmetic shifts, or EP-election structural breaks.
+
+- The **canonical decay table** lives in [`forward-projection-methodology.md` §3 — WEP Decay Table](forward-projection-methodology.md#3-wep-decay-table), and is the single source of truth across the platform. This style guide deliberately does **not** duplicate the numbers or the horizon enumeration — refer to the methodology for the complete set of floor bands per horizon (short-term through EP-election structural-break).
+- Authors of `news-week-ahead`, `news-month-ahead`, `news-week-in-review`, `news-month-in-review`, `news-breaking`, `news-committee-reports`, `news-motions`, and `news-propositions` MUST pick the floor band that matches the **dominant horizon of the claim**, not the run's filing cadence. A week-ahead article that includes a structural-break judgement extending past the next election cycle uses the `T+EP-election ±6m` band for that one judgement and the `T+7d` band for everything else.
+- **Reference-class refinement:** widen one band (e.g. *Likely* → *Roughly even chance*) when the reference class has fewer than 6 analogues — this rule is mirrored in `forward-projection-methodology.md` §3 and applies uniformly across articles and analysis artifacts. (`forward-projection-methodology.md` §3 prints this midpoint band as "About even"; treat the two as synonyms — *Roughly even chance* is the canonical Kent/WEP term used for prose grading in this style guide.)
+- **Pass-2 calibration check:** if a long-horizon article (`week-ahead`, `month-ahead`, scenario sections of any retrospective) does not contain at least one judgement at the horizon's floor band — i.e. every band collapses to *Roughly even chance* / *About even* — the analyst has avoided commitment and the article fails Pass 2.
+- **Templates that consume this rule:** `analysis/templates/forward-projection.md`, `analysis/templates/scenario-forecast.md`, and `analysis/templates/forward-indicators.md` already cite the canonical table; their WEP claims must agree with the run's resolved horizon, using `manifest.json.horizonProfile` when present (legacy or unknown-slug runs without a `horizonProfile` fall back to the article-type's nominal horizon documented in `src/aggregator/article-horizons.ts`).
+
 ### Source Grading (Admiralty)
 
 - Every cited external source MUST carry an Admiralty grade of the form `A1`–`F6` (see [`osint-tradecraft-standards.md` §2](osint-tradecraft-standards.md)):
@@ -695,6 +705,7 @@ All analysis produced in English serves as the source for 13 additional language
 - **Path:** `/analysis/methodologies/political-style-guide.md`
 - **ISMS Reference:** [STYLE_GUIDE.md](https://github.com/Hack23/ISMS-PUBLIC/blob/main/STYLE_GUIDE.md)
 - **Classification:** Public
+- **Version:** 2.7 — Added §Confidence Labels Are Horizon-Conditional under Estimative Language. The section anchors WEP bands to the canonical decay table in `forward-projection-methodology.md` §3 (single source of truth — not duplicated here) so authors of week-ahead, month-ahead, and retrospective news articles pick the floor band that matches the dominant horizon of the claim, not the run's filing cadence. Cross-linked from `.github/prompts/04-article-generation.md`.
 - **Version:** 2.6 — Added §Estimative Language & Source Grading codifying ICD 203 BLUF/confidence format, Kent/WEP probability bands with mandatory time horizons, Admiralty source grading (A1–F6), and Pass-2 reviewer checklist. Added §Reader-Engagement Standards to strengthen narrative discipline, scannability, and reader retention expectations for political-intelligence outputs. Cross-links `osint-tradecraft-standards.md` as the normative contract; this guide is the style contract.
 - **Version:** 2.5 — Added universal mermaid init block (mandatory for all `graph`/`flowchart`/`mindmap`/`pie`/`gantt`/`timeline`/`sequenceDiagram`/`stateDiagram`/`classDiagram`/`erDiagram`/`gitGraph`/`xychart-beta`/`C4Context`/`block-beta` diagrams) covering `pie1`–`pie12`, `git0`–`git3`, `cScale0`–`cScale7`, `noteBkgColor`, `errorBkgColor`, and xyChart `plotColorPalette` so every diagram inherits the canonical ISMS palette without per-diagram styling. Added node-icon authoring rule.
 - **Version:** 2.4 — Added classification-aligned Mermaid colour palette, mandatory `quadrantChart` init block (per ISMS STYLE_GUIDE.md stakeholder-mapping format), `classDef` snippet for graph/flowchart diagrams, and quadrant-icon labelling rules
