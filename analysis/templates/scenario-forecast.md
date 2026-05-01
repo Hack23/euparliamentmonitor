@@ -1,11 +1,51 @@
+---
+long-horizon-mode: false
+---
+
 <!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
 # 🔮 Scenario Forecast Template — Probability-Weighted Futures
 
-> **📌 Template Instructions:** Copy to `analysis/daily/{date}/{article-type}-run{N}/intelligence/scenario-forecast.md`. Develop 3-5 forward scenarios with probability weights, early-warning indicators, and trigger events. See [methodologies/per-artifact-methodologies.md §scenario-forecast](../methodologies/per-artifact-methodologies.md#scenario-forecast).
+> **📌 Template Instructions:** Copy to `analysis/daily/{date}/{article-type}-run{N}/intelligence/scenario-forecast.md`. Develop 3-5 forward scenarios (standard mode) or ≥6 scenarios (long-horizon mode) with probability weights, early-warning indicators, and trigger events. See [methodologies/per-artifact-methodologies.md §scenario-forecast](../methodologies/per-artifact-methodologies.md#scenario-forecast).
 
-> **🎯 Purpose:** Forward-looking analysis mapping plausible futures for the next 7/30/90 days. Each scenario includes probability, narrative, early-warning indicators, trigger events, and stakeholder impact.
+> **🎯 Purpose:** Forward-looking analysis mapping plausible futures for the next 7/30/90 days (standard) or 12m/term-end/EP-election (long-horizon). Each scenario includes probability, narrative, early-warning indicators, trigger events, and stakeholder impact.
+
+---
+
+## 0️⃣ Long-Horizon Mode
+
+**`long-horizon-mode`** is an optional frontmatter flag that marks a run as long-horizon in the template. Set it to `true` when writing a `term-outlook` or `election-cycle` analysis run. However, for validator-enforced long-horizon article types — **`term-outlook`** and **`election-cycle`** — Stage C still applies the long-horizon rules from `manifest.articleType` even if this flag is unset or `false`. Standard behaviour (3–5 scenarios, 7/30/90-day horizon) is preserved only for article types outside that enforced set.
+
+### For long-horizon runs — whether triggered by `long-horizon-mode: true` or by validator-enforced `manifest.articleType` — the following requirements override the standard rules:
+
+| Requirement | Standard mode | Long-horizon mode |
+|---|---|---|
+| **Minimum scenario count** | ≥ 3 | **≥ 6** |
+| **EP-election outcome branch** | Optional | **Mandatory** (centre-right / centre-left / fragmented coalition) |
+| **Per-scenario WEP confidence band** | Required | Required — drawn from the decay table in [`forward-projection-methodology.md §3`](../methodologies/forward-projection-methodology.md#3-wep-decay-table) |
+| **Regime-change branch** | When any tripwire fires | **Mandatory** (at least 1 dedicated branch) |
+| **Wildcard/black-swan branches** | Recommended | **≥ 2 mandatory** |
+| **Anti-pattern "5+ scenarios"** | Applies | **Overridden** — cap lifted to ≥ 6 main + residual |
+
+### Activation signals (checked by Stage-C validator)
+
+The validator enforces the ≥ 6 scenario floor when the manifest's `articleType` is one of the configured types: **`term-outlook`**, **`election-cycle`**. Registry fields such as `electoralOverlay === true` and `scenarioMaxHorizonMonths >= 36` explain why those types are included, but are not the fields the validator directly inspects.
+
+### EP-election outcome branches (mandatory in long-horizon mode)
+
+The three mandatory EP-election branches are:
+
+| Branch | Label | Probability range |
+|---|---|---|
+| Centre-right majority | `EPP + ECR + ID` ≥ 360 seats | Derive from `seat-projection.md` |
+| Centre-left majority | `S&D + RE + Greens/EFA` ≥ 360 seats | Derive from `seat-projection.md` |
+| Fragmented coalition | No bloc ≥ 360 — EP-wide grand coalition needed | Often highest probability in long horizon |
+
+Each EP-election branch **must** carry:
+- A WEP band drawn from the `T+EP-election ±6m` row of the decay table (`Highly Unlikely` → `Almost No Chance`; see [`forward-projection-methodology.md §3`](../methodologies/forward-projection-methodology.md#3-wep-decay-table)).
+- A reference class from `historical-baseline.md §Electoral baselines` (≥ 3 EP-term analogues).
+- ≥ 3 early-warning indicators with ISO-date thresholds.
 
 ---
 
@@ -15,8 +55,9 @@
 |-------|-------|
 | **Report ID** | `[REQUIRED: SF-YYYY-MM-DD-runNN]` |
 | **Analysis Date** | `[REQUIRED: YYYY-MM-DD]` |
-| **Horizon** | `[REQUIRED: 7 days / 30 days / 90 days]` |
-| **Scenarios Developed** | `[REQUIRED: count 3-5]` |
+| **Horizon** | `[REQUIRED: 7 days / 30 days / 90 days / 12m / term-end / EP-election]` |
+| **Scenarios Developed** | `[REQUIRED: count 3-5 (standard) or ≥6 (long-horizon)]` |
+| **Long-Horizon Mode** | `[REQUIRED for term-outlook and election-cycle articleTypes: true / false]` |
 | **Confidence** | `[REQUIRED: 🟢/🟡/🔴]` |
 
 ---
@@ -240,11 +281,14 @@ exclusive.
 | Probabilities all equal (33/33/33) | "I don't know" disguised | Differentiate; if uniform, cite reasoning |
 | Scenario without driver | Cannot be tested | Each scenario has ≥1 named causal driver |
 | Scenario without indicator | Cannot be monitored | Each scenario has ≥3 falsifiable indicators |
-| Probabilities outside WEP grid | Non-standard | Use WEP bands: very likely (75-90%), likely (55-75%), possible (35-55%), unlikely (15-35%) |
+| Probabilities outside WEP grid | Non-standard | Use WEP bands from [`forward-projection-methodology.md §3`](../methodologies/forward-projection-methodology.md#3-wep-decay-table) |
 | Update without version-stamp | Loses audit trail | Date-stamp each forecast revision |
-| 5+ scenarios | Too granular for human interpretation | Cap at 3-4 main + 1 residual |
-| "Black swan" scenario in main 3 | Misclassification | Black swans → `wildcards-blackswans.md` |
+| 5+ scenarios (standard mode) | Too granular for human interpretation | Cap at 3-4 main + 1 residual **unless long-horizon-mode active** |
+| < 6 scenarios (long-horizon mode) | Insufficient coverage for multi-year horizon | Must have ≥6 including EP-election branch + regime-change + 2 wildcards |
+| Missing EP-election branch in long-horizon | Omits dominant structural variable | Add centre-right / centre-left / fragmented branches per §0 |
+| "Black swan" scenario in main set | Misclassification | Black swans → `wildcards-blackswans.md`; in long-horizon, 2 wildcard branches are mandatory |
 | Forecast without monitoring plan | Cannot be revised | §6 monitoring plan with dates and decision points |
+| Long-horizon WEP band out of range | Violates decay table | T+EP-election bands must use "Highly Unlikely" to "Almost No Chance" per [`forward-projection-methodology.md §3`](../methodologies/forward-projection-methodology.md#3-wep-decay-table) |
 
 ## 🎯 EP MCP tool inputs
 
@@ -260,11 +304,14 @@ exclusive.
 ## 🔗 Controlling methodology cross-references
 
 - [`../methodologies/strategic-extensions-methodology.md`](../methodologies/strategic-extensions-methodology.md) §Scenarios
+- [`../methodologies/forward-projection-methodology.md §3`](../methodologies/forward-projection-methodology.md#3-wep-decay-table) — **canonical WEP decay table** (single source of truth for horizon-conditional WEP bands; do NOT duplicate numbers here)
 - [`../methodologies/osint-tradecraft-standards.md §3 WEP`](../methodologies/osint-tradecraft-standards.md)
-- [`forward-indicators.md`](forward-indicators.md) — companion artifact for tripwire signposts
-- [`wildcards-blackswans.md`](wildcards-blackswans.md) — for ≤5% probability tail risks
+- [`forward-indicators.md`](forward-indicators.md) — companion artifact for tripwire signposts; see its §Multi-Horizon Decay Table for indicator horizon tags
+- [`wildcards-blackswans.md`](wildcards-blackswans.md) — for ≤5% probability tail risks; long-horizon mode requires ≥2 wildcard branches
 
 ## ✅ Stage-C completeness signals
+
+**Standard mode (`long-horizon-mode: false`):**
 
 - Line floor: 280 lines
 - ≥ 3 main scenarios with WEP-band probabilities summing to 100%
@@ -273,6 +320,16 @@ exclusive.
 - §6 monitoring plan with at least 3 dated decision points
 - Confidence label per scenario (🟢/🟡/🔴) with rationale
 
+**Long-horizon mode (`long-horizon-mode: true`, with Stage-C scenario-count enforcement for `term-outlook` or `election-cycle` article types):**
+
+- Line floor: 360 lines (term-outlook) / 400 lines (election-cycle)
+- **≥ 6 scenarios** — enforced by Stage-C validator when article type is `term-outlook` or `election-cycle`
+- Mandatory EP-election outcome branch (centre-right / centre-left / fragmented coalition) per §0
+- At least 1 dedicated regime-change branch
+- At least 2 wildcard/black-swan branches
+- Per-scenario WEP confidence band drawn from [`forward-projection-methodology.md §3`](../methodologies/forward-projection-methodology.md#3-wep-decay-table) decay table
+- Each EP-election branch carries reference class from `historical-baseline.md §Electoral baselines`
+
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/scenario-forecast.md` · Template v1.2 · Depth floor: 280 lines.
+**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/scenario-forecast.md` · Template v1.3 · Standard depth floor: 280 lines · Long-horizon depth floor: 360–400 lines.
