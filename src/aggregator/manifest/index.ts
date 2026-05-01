@@ -7,6 +7,7 @@
  */
 
 export type {
+  HorizonProfile,
   Manifest,
   ManifestFiles,
   ManifestHistoryEntry,
@@ -22,3 +23,4 @@ export {
   UNKNOWN_ARTICLE_TYPE,
 } from './resolver.js';
 export { readManifest, parseManifest, type ReadManifestResult } from './reader.js';
+export { applyHorizonProfile, buildHorizonProfile } from './manifest-writer.js';

@@ -7,6 +7,7 @@
 import { randomUUID } from 'crypto';
 import fs from 'fs';
 import path from 'path';
+import { applyHorizonProfile } from '../aggregator/manifest/manifest-writer.js';
 import { NEWS_DIR, ARTICLE_FILENAME_PATTERN } from '../constants/config.js';
 import { ALL_LANGUAGES } from '../constants/language-core.js';
 /**
@@ -227,6 +228,16 @@ export function mergeManifestHistory(manifestPath, entry) {
         : [];
     manifest['history'] = [...existingHistory, entry];
     manifest['updatedAt'] = entry.finishedAt;
+    // Enrich with horizonProfile from the article-horizons registry.
+    // Strips any stale `horizonProfile` for legacy / unknown slugs so the
+    // "absent for unknown slugs" invariant holds across registry evolutions.
+    const enriched = applyHorizonProfile(manifest, { overwrite: true });
+    if (enriched.horizonProfile) {
+        manifest['horizonProfile'] = enriched.horizonProfile;
+    }
+    else {
+        delete manifest['horizonProfile'];
+    }
     fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, 'utf-8');
 }
 /**
