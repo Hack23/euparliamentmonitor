@@ -153,7 +153,6 @@ describe('article-horizons registry — drift guard', () => {
         const templatePath = path.join(templateDir, basename);
         const aliasMap = {
           'stakeholder-map.md': 'stakeholder-impact.md',
-          'wildcards-blackswans.md': 'wildcards-blackswans.md',
           'threat-model.md': 'political-threat-landscape.md',
         };
         const resolvedName = aliasMap[basename] || basename;

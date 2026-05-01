@@ -71,6 +71,10 @@ const FAMILY_D_ARTIFACTS = [
   'intelligence/mandate-fulfilment-scorecard.md',
 ];
 
+// Minimum scenarioMaxHorizonMonths threshold that triggers structural-break
+// requirement (3 years — long enough to span an EP election cycle).
+const LONG_HORIZON_THRESHOLD_MONTHS = 36;
+
 // Regex for structural-break / regime-change content in scenario-forecast.md
 const STRUCTURAL_BREAK_RE =
   /\b(structural[- ]break|regime[- ]change|regime[- ]shift)\b/i;
@@ -1024,7 +1028,7 @@ function main() {
   // ── Long-horizon structural-break gate ─────────────────────────────────────
   // When scenarioMaxHorizonMonths >= 36 (from registry), scenario-forecast.md
   // MUST contain a non-empty structural-break / regime-change section.
-  if (horizonCfg && horizonCfg.scenarioMaxHorizonMonths >= 36) {
+  if (horizonCfg && horizonCfg.scenarioMaxHorizonMonths >= LONG_HORIZON_THRESHOLD_MONTHS) {
     const scenarioPath = path.join(runDir, 'intelligence/scenario-forecast.md');
     if (fs.existsSync(scenarioPath)) {
       const content = fs.readFileSync(scenarioPath, 'utf8');
