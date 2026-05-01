@@ -329,3 +329,77 @@ fi
 | Confidence adj. | none | Admiralty grade C → D for portal data; WEP +5 pp | LOW on all coalition claims; WEP +10 pp |
 
 **Triage classification:** item #6 in the audit-recurring table (🟢 LIMITATION). Activating the fallback is the correct mitigation. Do NOT file upstream against `Hack23/European-Parliament-MCP-Server` — the EP API itself publishes with a delay; the MCP server faithfully reflects that. The fallback path (`EPOpenDataClient`, `getVotingRecordsWithFallback`) lives in `src/mcp/ep-open-data-client.ts`.
+
+## 13 · External Documents for Trio Presidency & Commission Work Programme
+
+For long-horizon articles (≥ 90-day data window), Stage A must retrieve
+institutional-calendar context via external documents:
+
+### `get_external_documents_feed` — recent Commission/Council publications
+
+```
+get_external_documents_feed({ timeframe: "one-month" })
+```
+
+Returns non-EP documents (Commission proposals, Council positions, Trio
+Presidency programmes) updated in the last month. Fast (< 2 s). Use as
+primary source for Commission Work Programme (CWP) progress and upcoming
+Council Presidency priorities.
+
+### `get_external_documents` — paginated fallback
+
+```
+get_external_documents({ limit: 50 })
+```
+
+When the feed is empty or stale, use the direct endpoint. Scan results for:
+- **Commission Work Programme** — annual CWP document (typically published
+  Q4 of preceding year); look for titles containing "Work Programme" or
+  "Strategic Foresight".
+- **Trio Presidency programme** — 18-month joint programme of the three
+  rotating Council presidencies; look for titles containing "Trio" or
+  "Presidency Programme".
+- **Council conclusions** — key policy conclusions that signal legislative
+  pipeline direction.
+
+Write matches to `${ANALYSIS_DIR}/data/external-docs-horizon.json` and
+reference in `intelligence/presidency-trio-context.md` and
+`intelligence/commission-wp-alignment.md`.
+
+### Election calendar context (when `electoralOverlay=true`)
+
+When the article-horizons registry sets `electoralOverlay: true`, derive the
+election context from the fixed EP-term anchors documented in
+[`electoral-cycle-methodology.md`](../../analysis/methodologies/electoral-cycle-methodology.md) §1
+rather than calling a dedicated MCP client helper. Include EP-term anchors
+(EP9/EP10/EP11 start/end dates), days-to-next-election, and the auto-trigger
+thresholds (T-180 / T-90 / T-30) defined by the methodology. Reference:
+[`12-electoral-cycle.md`](12-electoral-cycle.md) §5.
+
+## 14 · Recess-Mode Handling for Long-Horizon Queries
+
+EP plenary sessions follow a fixed calendar with recesses (August, Christmas,
+Easter). When a long-horizon fan-out (§8d of
+[`01-data-collection.md`](01-data-collection.md)) hits months with zero
+plenary sessions:
+
+**Detection:** `get_plenary_sessions({ dateFrom, dateTo })` returns an empty
+array for the recess month. The MCP client surfaces `recessMode: true` in
+`dataQualityWarnings[]` for procedure feeds during low-activity periods.
+
+**Handling rules:**
+
+1. **Do NOT treat empty results as an error.** Recess months legitimately
+   have no plenary activity.
+2. **Log the gap** in `manifest.json` under `dataVerification.recessGaps[]`
+   with the month and affected feeds.
+3. **Soft-fail forward-projection:** When > 50% of the queried months return
+   empty, downgrade the article to a calendar-projection focus (reduced
+   confidence on legislative-pipeline timing; widen WEP bands +10
+   percentage points for affected months).
+4. **Use committee-meeting data as proxy:** During recess, committees may
+   still hold extraordinary meetings. Call
+   `get_committee_documents_feed({ timeframe: "one-month" })` to detect
+   inter-sessional activity.
+5. **Reference:** See [`10-horizon-stage-helpers.md`](10-horizon-stage-helpers.md) §8
+   for the full recess-mode protocol.

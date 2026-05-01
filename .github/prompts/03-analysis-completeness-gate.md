@@ -98,6 +98,63 @@ and the dedicated methodologies
 [structural-metadata](../../analysis/methodologies/structural-metadata-methodology.md),
 [electoral-domain](../../analysis/methodologies/electoral-domain-methodology.md)).
 
+### Long-horizon mandatory artifacts (≥90-day horizons)
+
+For article types with `dataWindow.days ≥ 90` (per
+`src/config/article-horizons.ts`), the following artifacts become
+**mandatory** in addition to the base 7 + synthesis set:
+
+| Artifact | Required for | Stage C threshold source |
+|----------|-------------|--------------------------|
+| `intelligence/forward-projection.md` | All prospective ≥ 90d | See `analysis/methodologies/reference-quality-thresholds.json` |
+| `intelligence/legislative-pipeline-forecast.md` | All prospective ≥ 90d | See `analysis/methodologies/reference-quality-thresholds.json` |
+| `intelligence/parliamentary-calendar-projection.md` | All prospective ≥ 90d | See `analysis/methodologies/reference-quality-thresholds.json` |
+| `extended/forward-indicators.md` | All ≥ 90d (promoted from optional) | See `analysis/methodologies/reference-quality-thresholds.json` |
+| `intelligence/presidency-trio-context.md` | year-ahead, term-outlook, election-cycle, year-in-review | See `analysis/methodologies/reference-quality-thresholds.json` |
+| `intelligence/commission-wp-alignment.md` | year-ahead, term-outlook, election-cycle, year-in-review | See `analysis/methodologies/reference-quality-thresholds.json` |
+| `intelligence/term-arc.md` | term-outlook, election-cycle, year-in-review | See `analysis/methodologies/reference-quality-thresholds.json` |
+| `intelligence/seat-projection.md` | term-outlook, election-cycle | See `analysis/methodologies/reference-quality-thresholds.json` |
+| `intelligence/mandate-fulfilment-scorecard.md` | election-cycle, year-in-review | See `analysis/methodologies/reference-quality-thresholds.json` |
+
+The validator reads the article type from `manifest.json` → derives the
+mandatory artifact set from the matching per-article-type entries in
+[`analysis/methodologies/reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json)
+∪ artifacts listed under `manifest.files.*` → enforces existence + line
+floors for that combined set. Treat that JSON file as the **sole source of
+truth** for minimum line counts; do not rely on prose tables for numeric
+thresholds. See [`10-horizon-stage-helpers.md`](10-horizon-stage-helpers.md)
+§3 for construction order guidance.
+
+### Electoral-overlay gate (Family-D required when `electoralOverlay=true`)
+
+When the article type has `electoralOverlay: true` in the registry
+(`term-outlook`, `election-cycle`), Stage C additionally enforces **all
+Family-D electoral artifacts**:
+
+- `intelligence/term-arc.md` — term-progress index + coalition-trajectory
+  Mermaid chart (≥ 4 quarters)
+- `intelligence/seat-projection.md` — seat-bands at 6/12/24/36-month
+  horizons for all 8 major groups with explicit WEP labels
+- `intelligence/mandate-fulfilment-scorecard.md` — pledge → adopted-act
+  traceability (≥ 5 entries per group), defection-flow Mermaid
+- `intelligence/presidency-trio-context.md` — current + next Trio
+  programme alignment
+- `intelligence/commission-wp-alignment.md` — Commission Work Programme
+  delivery vs. original ambition
+
+**Electoral quality expectations (human QA review — not automated by Stage-C validator):**
+- Vote-share delta table covers all 8 groups
+- Seat-projection bands at 4 horizons for all groups
+- Coalition-viability matrix ≥ 4 plausible majorities
+- Spitzenkandidaten section ≥ 2 named candidates
+- National-spillover ≥ 3 upcoming national elections
+
+These are maintainer-review quality expectations from
+[`12-electoral-cycle.md`](12-electoral-cycle.md) §2; the Stage-C validator
+does not parse domain-specific structures. For electoral artifacts, the
+validator reports missing files with the generic `missing` issue and depth
+shortfalls as `short:<lines><<floor>`.
+
 ## 3 · Pre-Flight Checklist (one-shot)
 
 Before calling the validator:

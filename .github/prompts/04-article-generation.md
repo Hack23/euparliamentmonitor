@@ -240,6 +240,11 @@ longer synthesis and audit appendices.
 | Voting-pattern chart | `existing/voting-patterns.md` | `intelligence/coalition-dynamics.md` |
 | Cross-session continuity | `existing/cross-session-intelligence.md`, `existing/cross-run-diff.md` | `existing/session-baseline.md` |
 | **Carried-forward forward statements** (week/month-ahead) | `intelligence/synthesis-summary.md` §"Carried-forward forward statements" | `data/forward-statements-open.json` (registry seed) |
+| **Forward projection & pipeline** (≥90-day horizons) | `intelligence/forward-projection.md`, `intelligence/legislative-pipeline-forecast.md` | `intelligence/scenario-forecast.md`, `extended/forward-indicators.md` |
+| **Parliamentary calendar** (≥90-day horizons) | `intelligence/parliamentary-calendar-projection.md` | `intelligence/forward-projection.md` |
+| **Presidency & Commission context** (year-ahead, term-outlook, election-cycle) | `intelligence/presidency-trio-context.md`, `intelligence/commission-wp-alignment.md` | `intelligence/pestle-analysis.md` |
+| **Term arc & mandate scorecard** (electoral-overlay) | `intelligence/term-arc.md`, `intelligence/mandate-fulfilment-scorecard.md` | `intelligence/historical-baseline.md`, `existing/voting-patterns.md` |
+| **Seat projection** (electoral-overlay) | `intelligence/seat-projection.md` | `intelligence/coalition-dynamics.md`, `intelligence/scenario-forecast.md` |
 | Transparency footer | all `manifest.files.*` entries (linked by the aggregator) | `intelligence/analysis-index.md` |
 
 ### 7.1 · Forward-Statements Registry Contract (week-ahead / month-ahead)
