@@ -811,7 +811,7 @@ jobs:
                 "entrypoint": "npx",
                 "entrypointArgs": [
                   "-y",
-                  "european-parliament-mcp-server@1.2.18",
+                  "european-parliament-mcp-server@1.2.19",
                   "--timeout",
                   "120000"
                 ],
