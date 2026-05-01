@@ -15,6 +15,30 @@ import type { LanguageCode } from '../../types/index.js';
 /** `manifest.files` can be nested category → paths or flat path → description. */
 export type ManifestFiles = Record<string, readonly string[] | Record<string, string>>;
 
+/**
+ * Optional horizon-profile bucket attached to a manifest, derived from the
+ * canonical {@link import('../../config/article-horizons.js').ArticleHorizonConfig}
+ * registry entry that matches the manifest's `articleType` slug.
+ *
+ * Threading this onto the manifest lets downstream auditing (run discovery,
+ * dashboards, prior-run-diff) filter and bucket runs by horizon length and
+ * electoral overlay without re-resolving the slug against the registry.
+ *
+ * Always **absent** for legacy / unknown slugs (no registry entry matches).
+ */
+export interface HorizonProfile {
+  /**
+   * Horizon length in days. Derived from the registry's
+   * `dataWindow.days` for `forward` / `backward` directions, falling back to
+   * `forwardStatementsHorizonDays` for `span` and `point` directions where
+   * the data window is anchored (e.g. `election-cycle` → 1825,
+   * `breaking` → 0).
+   */
+  readonly horizonDays: number;
+  /** Mirrors the registry's `electoralOverlay` flag. */
+  readonly electoralOverlay: boolean;
+}
+
 /** One entry in `manifest.history[]`; only fields we read are typed. */
 export interface ManifestHistoryEntry {
   readonly stage?: string;
@@ -70,6 +94,12 @@ export interface Manifest {
   readonly description?: ManifestMetadataOverride;
   /** Committee code (e.g. `ENVI`) used by committee-reports templates. */
   readonly committee?: string;
+  /**
+   * Horizon-profile derived from the article-horizons registry entry that
+   * matches `articleType`. Always populated when the slug resolves to a
+   * registry entry, absent otherwise. See {@link HorizonProfile}.
+   */
+  readonly horizonProfile?: HorizonProfile;
 }
 
 /**

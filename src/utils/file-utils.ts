@@ -9,6 +9,8 @@
 import { randomUUID } from 'crypto';
 import fs from 'fs';
 import path from 'path';
+import { applyHorizonProfile } from '../aggregator/manifest/manifest-writer.js';
+import type { Manifest } from '../aggregator/manifest/types.js';
 import { NEWS_DIR, ARTICLE_FILENAME_PATTERN } from '../constants/config.js';
 import { ALL_LANGUAGES } from '../constants/language-core.js';
 import type { AnalysisFileEntry, LanguageCode, ParsedArticle } from '../types/index.js';
@@ -284,6 +286,13 @@ export function mergeManifestHistory(
 
   manifest['history'] = [...existingHistory, entry];
   manifest['updatedAt'] = entry.finishedAt;
+
+  // Enrich with horizonProfile from the article-horizons registry. No-op
+  // for legacy / unknown slugs — the manifest is left untouched.
+  const enriched = applyHorizonProfile(manifest as unknown as Manifest, { overwrite: true });
+  if (enriched.horizonProfile) {
+    manifest['horizonProfile'] = enriched.horizonProfile;
+  }
 
   fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, 'utf-8');
 }
