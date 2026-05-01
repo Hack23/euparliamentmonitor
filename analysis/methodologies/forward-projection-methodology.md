@@ -85,6 +85,8 @@ The reference-class table MUST appear in every `forward-projection.md`, with at 
 
 Words-of-Estimative-Probability bands tighten as the forecast horizon shrinks. Use the band that corresponds to the horizon **and** the reference-class size; widen one band when the reference class has fewer than 6 analogues.
 
+> **Canonical surface for authors.** This table is the single source of truth for horizon-conditional WEP floors across the EU Parliament Monitor platform. The article-style cross-reference lives in [`political-style-guide.md` §Confidence Labels Are Horizon-Conditional](political-style-guide.md#confidence-labels-are-horizon-conditional), which deliberately does **not** duplicate the numbers — any change to the bands below propagates everywhere via that link.
+
 | Horizon | Floor band (probability range) | Notes |
 |---|---|---|
 | T+7d | **Almost certain** (95–99%) / **Highly likely** (85–95%) | Pipeline data is dense — narrow bands required |
@@ -184,3 +186,4 @@ Stage C raises a **🔴 RED** when the run carries > 2 unresolved expired statem
 | Version | Date | Summary |
 |---|---|---|
 | 1.0 | 2026-05-01 | Initial release — multi-horizon forecasting protocol, WEP decay table, structural-break tripwires, carry-forward quality gate. |
+| 1.1 | 2026-05-01 | Marked §3 WEP Decay Table as the canonical surface; cross-linked from `political-style-guide.md` §Confidence Labels Are Horizon-Conditional so the article style guide references rather than duplicates the table. |
