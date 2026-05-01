@@ -97,6 +97,23 @@ export function mulberry32(seed) {
   };
 }
 
+/**
+ * Derive a per-procedure seed from a base seed and a processId string.
+ * Ensures output is stable regardless of input array ordering.
+ *
+ * @param {number} baseSeed - Global seed from CLI
+ * @param {string} processId - Unique procedure identifier
+ * @returns {number} Derived integer seed
+ */
+export function deriveProcedureSeed(baseSeed, processId) {
+  let hash = baseSeed | 0;
+  for (let i = 0; i < processId.length; i++) {
+    hash = Math.imul(hash ^ processId.charCodeAt(i), 0x5bd1e995);
+    hash ^= hash >>> 15;
+  }
+  return hash | 0;
+}
+
 // ---------------------------------------------------------------------------
 // Data extraction helpers
 // ---------------------------------------------------------------------------
@@ -127,9 +144,10 @@ export function inferCurrentStage(proc) {
  *
  * @param {object[]} procedures - Array of procedure objects
  * @param {object[]} votingRecords - Array of voting-record objects
+ * @param {number} asOf - Reference timestamp (ms) for age-weighting
  * @returns {Record<string, Array<{days: number, weight: number}>>}
  */
-export function extractTransitionDurations(procedures, votingRecords) {
+export function extractTransitionDurations(procedures, votingRecords, asOf) {
   const durations = {
     committee: [],
     plenary: [],
@@ -137,7 +155,7 @@ export function extractTransitionDurations(procedures, votingRecords) {
     adoption: [],
   };
 
-  const now = Date.now();
+  const refTime = asOf;
 
   for (const proc of procedures) {
     const events = proc.events || proc.stages || [];
@@ -162,7 +180,7 @@ export function extractTransitionDurations(procedures, votingRecords) {
       const daysDiff = Math.max(1, Math.round((curr.date - prev.date) / (24 * 60 * 60 * 1000)));
 
       // Age-weighting: events within trailing 24 months get higher weight
-      const ageMs = now - curr.date.getTime();
+      const ageMs = refTime - curr.date.getTime();
       const weight = ageMs <= RECENT_WINDOW_MS ? RECENT_WEIGHT : ageMs <= 2 * RECENT_WINDOW_MS ? OLDER_WEIGHT : STALE_WEIGHT;
 
       // Classify transition by destination stage
@@ -179,7 +197,7 @@ export function extractTransitionDurations(procedures, votingRecords) {
     const voteDate = new Date(vote.date || vote.timestamp);
     if (isNaN(voteDate.getTime())) continue;
 
-    const ageMs = now - voteDate.getTime();
+    const ageMs = refTime - voteDate.getTime();
     const weight = ageMs <= RECENT_WINDOW_MS ? RECENT_WEIGHT : OLDER_WEIGHT;
 
     // Voting records generally correspond to plenary or adoption stage
@@ -269,20 +287,31 @@ export function monteCarloStage(samples, rng) {
 
 /**
  * Compute transit-time priors for all active procedures.
+ * Uses per-procedure RNG derived from (seed, processId) so output is
+ * stable regardless of input array ordering.
  *
  * @param {object[]} procedures - Procedure objects
  * @param {object[]} votingRecords - Voting record objects
  * @param {number|null} seed - Optional seed for deterministic runs
+ * @param {number|null} asOf - Optional reference timestamp (ms) for age-weighting; defaults to max date in dataset
  * @returns {Record<string, object>} Map from processId to forecast per stage
  */
-export function computeTransitModel(procedures, votingRecords, seed) {
-  const rng = mulberry32(seed != null ? seed : Date.now());
-  const durations = extractTransitionDurations(procedures, votingRecords);
+export function computeTransitModel(procedures, votingRecords, seed, asOf) {
+  const baseSeed = seed != null ? seed : Date.now();
+
+  // Derive asOf from dataset if not explicitly provided
+  const refTime = asOf != null ? asOf : deriveAsOfFromData(procedures, votingRecords);
+
+  const durations = extractTransitionDurations(procedures, votingRecords, refTime);
   const output = {};
 
   for (const proc of procedures) {
     const processId = proc.processId || proc.id || proc.reference || 'unknown';
     const currentStage = inferCurrentStage(proc);
+
+    // Per-procedure RNG ensures output is independent of input ordering
+    const procSeed = deriveProcedureSeed(baseSeed, processId);
+    const rng = mulberry32(procSeed);
 
     // Compute priors for remaining stages
     const stageIdx = STAGES.indexOf(currentStage);
@@ -319,6 +348,38 @@ export function computeTransitModel(procedures, votingRecords, seed) {
   return output;
 }
 
+/**
+ * Derive an asOf reference timestamp from the dataset (max event/vote date).
+ * Falls back to Date.now() when the dataset is empty.
+ *
+ * @param {object[]} procedures - Procedure objects
+ * @param {object[]} votingRecords - Voting record objects
+ * @returns {number} Timestamp in ms
+ */
+function deriveAsOfFromData(procedures, votingRecords) {
+  let maxTime = 0;
+
+  for (const proc of procedures) {
+    const events = proc.events || proc.stages || [];
+    if (!Array.isArray(events)) continue;
+    for (const e of events) {
+      const d = new Date(e.date || e.startDate || e.timestamp || 0);
+      if (!isNaN(d.getTime()) && d.getTime() > maxTime) {
+        maxTime = d.getTime();
+      }
+    }
+  }
+
+  for (const vote of votingRecords) {
+    const d = new Date(vote.date || vote.timestamp || 0);
+    if (!isNaN(d.getTime()) && d.getTime() > maxTime) {
+      maxTime = d.getTime();
+    }
+  }
+
+  return maxTime > 0 ? maxTime : Date.now();
+}
+
 // ---------------------------------------------------------------------------
 // CLI
 // ---------------------------------------------------------------------------
@@ -327,10 +388,10 @@ export function computeTransitModel(procedures, votingRecords, seed) {
  * Parse CLI arguments.
  *
  * @param {string[]} argv - process.argv.slice(2)
- * @returns {{inFile: string, votingFile: string, outFile: string, seed: number|null}}
+ * @returns {{inFile: string, votingFile: string, outFile: string, seed: number|null, asOf: number|null}}
  */
 export function parseArgs(argv) {
-  const args = { inFile: '', votingFile: '', outFile: '', seed: null };
+  const args = { inFile: '', votingFile: '', outFile: '', seed: null, asOf: null };
 
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === '--in' && argv[i + 1]) {
@@ -340,7 +401,19 @@ export function parseArgs(argv) {
     } else if (argv[i] === '--out' && argv[i + 1]) {
       args.outFile = argv[++i];
     } else if (argv[i] === '--seed' && argv[i + 1]) {
-      args.seed = parseInt(argv[++i], 10);
+      const parsed = parseInt(argv[++i], 10);
+      if (!Number.isInteger(parsed)) {
+        process.stderr.write(`Error: --seed must be a valid integer, got "${argv[i]}"\n`);
+        process.exit(1);
+      }
+      args.seed = parsed;
+    } else if (argv[i] === '--as-of' && argv[i + 1]) {
+      const ts = Date.parse(argv[++i]);
+      if (isNaN(ts)) {
+        process.stderr.write(`Error: --as-of must be a valid ISO date, got "${argv[i]}"\n`);
+        process.exit(1);
+      }
+      args.asOf = ts;
     } else if (argv[i] === '--help' || argv[i] === '-h') {
       process.stdout.write(
         [
@@ -351,6 +424,7 @@ export function parseArgs(argv) {
           '  --voting <path>   Path to voting-records JSON (required)',
           '  --out <path>      Output path for transit-model JSON (required)',
           '  --seed <int>      Deterministic PRNG seed for reproducible CI runs',
+          '  --as-of <date>    Reference date (ISO 8601) for age-weighting (default: max date in dataset)',
           '  --help, -h        Show this help',
           '',
         ].join('\n'),
@@ -400,7 +474,7 @@ export function cli(argv) {
   }
 
   // Compute model
-  const result = computeTransitModel(procedures, votingRecords, args.seed);
+  const result = computeTransitModel(procedures, votingRecords, args.seed, args.asOf);
 
   // Ensure output directory exists
   const outDir = path.dirname(args.outFile);
