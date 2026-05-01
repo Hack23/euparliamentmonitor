@@ -26,14 +26,22 @@ export function detectCategory(slug) {
         return ArticleCategory.WEEK_AHEAD;
     if (s.includes('month-ahead'))
         return ArticleCategory.MONTH_AHEAD;
+    if (s.includes('quarter-ahead'))
+        return ArticleCategory.QUARTER_AHEAD;
     if (s.includes('year-ahead'))
         return ArticleCategory.YEAR_AHEAD;
     if (s.includes('week-in-review'))
         return ArticleCategory.WEEK_IN_REVIEW;
     if (s.includes('month-in-review'))
         return ArticleCategory.MONTH_IN_REVIEW;
+    if (s.includes('quarter-in-review'))
+        return ArticleCategory.QUARTER_IN_REVIEW;
     if (s.includes('year-in-review'))
         return ArticleCategory.YEAR_IN_REVIEW;
+    if (s.includes('term-outlook'))
+        return ArticleCategory.TERM_OUTLOOK;
+    if (s.includes('election-cycle') || s.includes('electoral-cycle'))
+        return ArticleCategory.ELECTION_CYCLE;
     if (s.includes('committee'))
         return ArticleCategory.COMMITTEE_REPORTS;
     if (s.includes('motion') || s.includes('vote') || s.includes('voting'))
