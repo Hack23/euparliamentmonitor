@@ -227,3 +227,24 @@ export const BUILD_TIME: string = (() => {
  * for clients that want a human-readable label.
  */
 export const RELEASE_TAG: string = (process.env.RELEASE_TAG ?? '').trim();
+
+// ─── EP Election Calendar Constants ────────────────────────────────────────
+
+/**
+ * Start of the next European Parliament election window (EP10 → EP11 transition).
+ * Council Decision (EU) 2018/767 sets the election in the second week of June.
+ * ISO 8601 date string.
+ */
+export const EP_NEXT_ELECTION_START = '2029-06-04';
+
+/**
+ * End of the next European Parliament election window (EP10 → EP11 transition).
+ * ISO 8601 date string.
+ */
+export const EP_NEXT_ELECTION_END = '2029-06-09';
+
+/** Current parliamentary term identifier */
+export const EP_CURRENT_TERM: 'EP10' | 'EP11' = 'EP10';
+
+/** Next parliamentary term identifier */
+export const EP_NEXT_TERM: 'EP10' | 'EP11' = 'EP11';
