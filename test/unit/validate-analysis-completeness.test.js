@@ -1390,7 +1390,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
       );
       const result = runHere();
       expect(result.code).toBe(1);
-      expect(result.stderr).toMatch(/long-horizon-scenario-gate:invalid-config/);
+      expect(result.stdout).toContain('STAGE_C_GATE: RED');
     });
   });
 });

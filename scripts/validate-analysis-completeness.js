@@ -647,24 +647,24 @@ function mergeUnique(left, right) {
   return [...new Set([...(left || []), ...(right || [])])];
 }
 
-function mergeForwardRegistryResult(results, forwardRegistryResult) {
-  if (!forwardRegistryResult) return;
+function mergeSyntheticResult(results, syntheticResult) {
+  if (!syntheticResult) return;
 
   const existingResultIndex = results.findIndex(
-    (result) => result.relativePath === forwardRegistryResult.relativePath,
+    (result) => result.relativePath === syntheticResult.relativePath,
   );
 
   if (existingResultIndex >= 0) {
     const existingResult = results[existingResultIndex];
     results[existingResultIndex] = {
       ...existingResult,
-      issues: mergeUnique(existingResult.issues, forwardRegistryResult.issues),
-      warnings: mergeUnique(existingResult.warnings, forwardRegistryResult.warnings),
+      issues: mergeUnique(existingResult.issues, syntheticResult.issues),
+      warnings: mergeUnique(existingResult.warnings, syntheticResult.warnings),
     };
     return;
   }
 
-  results.push(forwardRegistryResult);
+  results.push(syntheticResult);
 }
 
 /**
@@ -920,16 +920,31 @@ function main() {
   );
 
   const forwardRegistryResult = validateForwardStatementsRegistryCoverage(runDir, articleType);
-  mergeForwardRegistryResult(results, forwardRegistryResult);
+  mergeSyntheticResult(results, forwardRegistryResult);
 
   // ── Long-horizon scenario-count gate ─────────────────────────────────────
   // For term-outlook and election-cycle article types, scenario-forecast.md
   // MUST contain >= 6 scenario headings. See analysis/templates/scenario-forecast.md
   // §0 and analysis/methodologies/reference-quality-thresholds.json
   // structuralRequirements.longHorizonScenarioGate.
-  const longHorizonScenarioResult = validateLongHorizonScenarioGate(runDir, rules);
-  if (longHorizonScenarioResult) {
-    mergeForwardRegistryResult(results, longHorizonScenarioResult);
+  try {
+    const longHorizonScenarioResult = validateLongHorizonScenarioGate(runDir, rules);
+    if (longHorizonScenarioResult) {
+      mergeSyntheticResult(results, longHorizonScenarioResult);
+    }
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : String(error);
+    mergeSyntheticResult(results, {
+      relativePath: 'intelligence/scenario-forecast.md',
+      exists: false,
+      lines: 0,
+      minLines: 0,
+      issues: [`long-horizon-scenario-gate:error — ${message}`],
+      warnings: [],
+      mermaid: false,
+      placeholders: [],
+    });
   }
 
   // ── Re-run improve/extend enforcement ────────────────────────────────────
