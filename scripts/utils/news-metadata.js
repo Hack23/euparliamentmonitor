@@ -183,7 +183,12 @@ const STOP_WORDS = new Set([
 const ARTICLE_TYPE_NOISE = new Set([
     'week',
     'month',
+    'quarter',
     'year',
+    'term',
+    'outlook',
+    'election',
+    'cycle',
     'ahead',
     'review',
     'breaking',

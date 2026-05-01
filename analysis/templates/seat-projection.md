@@ -1,0 +1,146 @@
+<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+
+# 🪑 Seat Projection Template
+
+**Template Purpose:** Per-group seat bands at 6/12/24/36-month horizons with confidence intervals and a Mermaid stacked-bar projection.
+
+**Methodology:** [electoral-cycle-methodology.md §3.1](../methodologies/electoral-cycle-methodology.md) and [forward-projection-methodology.md §3](../methodologies/forward-projection-methodology.md#3-wep-decay-table)
+
+**Min Lines:** 280 (`term-outlook`), 320 (`election-cycle`).
+
+**Required by:** `election-cycle`, `term-outlook`. Optional for `year-ahead` and `year-in-review`.
+
+---
+
+## 📋 Header Block
+
+```markdown
+# Seat Projection — EP{outgoing} → EP{incoming} — {Run Date}
+
+**Classification:** PUBLIC
+**Election anchor:** {ISO date of the EP-election week}
+**Months to election:** {N}
+**Polling Admiralty floor:** B2 (national polls), A2 (Eurobarometer), A1 (EP results portal)
+**Confidence interval method:** binomial / bootstrap on national-polling samples
+```
+
+---
+
+## 🎯 Section 1 — Headline BLUF
+
+```markdown
+**Headline arithmetic — {WEP band}**
+
+- Largest group projected: {group} at {seats} (P50)
+- Grand-coalition viability at T+12m: {WEP band}
+- Climate coalition viability at T+12m: {WEP band}
+- Centre-right coalition viability at T+12m: {WEP band}
+- Conservative-populist coalition viability at T+12m: {WEP band}
+```
+
+---
+
+## 📈 Section 2 — Per-Group Seat Bands
+
+```markdown
+| Group | Current | T+6m (band, WEP) | T+12m (band, WEP) | T+24m (band, WEP) | T+36m (band, WEP) | T+election (P50) |
+|---|---|---|---|---|---|---|
+| EPP | … | …–… (Likely) | …–… (Likely) | …–… (About even) | …–… (About even) | … |
+| S&D | … | …–… | …–… | …–… | …–… | … |
+| Renew | … | …–… | …–… | …–… | …–… | … |
+| Greens/EFA | … | …–… | …–… | …–… | …–… | … |
+| ECR | … | …–… | …–… | …–… | …–… | … |
+| ID / PfE | … | …–… | …–… | …–… | …–… | … |
+| The Left | … | …–… | …–… | …–… | …–… | … |
+| Non-attached | … | …–… | …–… | …–… | …–… | … |
+```
+
+---
+
+## 📊 Section 3 — Mermaid Stacked-Bar Projection
+
+```mermaid
+%%{ init: { 'theme': 'default' } }%%
+xychart-beta
+    title "Seat projection per group — P50 trajectory"
+    x-axis [Now, T+6m, T+12m, T+24m, T+36m, Election]
+    y-axis "Seats" 0 --> 720
+    bar [EPP, S&D, Renew, Greens, ECR, PfE, Left, NI]
+```
+
+(Render real values; the order of groups matches the legend.)
+
+---
+
+## 🤝 Section 4 — Coalition Viability Matrix
+
+Cross-tab plausible majorities, with the threshold (≥ 361 seats in EP10; ≥ 1/2+1 of seats in EP11) and an explicit WEP band:
+
+```markdown
+| Coalition | T+6m seats (P50) | Threshold | Viability | Stress points |
+|---|---|---|---|---|
+| Grand | … | 361 | 🟢 / 🟡 / 🔴 (Likely) | … |
+| Centre-right | … | 361 | … | … |
+| Climate | … | 361 | … | … |
+| Conservative-populist | … | 361 | … | … |
+| Stop-the-clock blocking minority | … | 162 | … | … |
+```
+
+---
+
+## 🇪🇺 Section 5 — National-Election Spillover
+
+For each upcoming national election within the horizon (sourced from open-source national tickers):
+
+```markdown
+| Country | Election date | Polling shift | EP-list translation factor | Projected EP-group impact |
+|---|---|---|---|---|
+| {ISO} | {date} | EPP +M, AfD/PfE +M | {coefficient} | EPP ±N, PfE ±N |
+```
+
+Link to [`electoral-cycle-methodology.md` §4](../methodologies/electoral-cycle-methodology.md) for the translation-coefficient tables.
+
+---
+
+## 🪞 Section 6 — Spitzenkandidaten Arithmetic
+
+```markdown
+| Candidate | Group | Threshold to claim | National-election dependencies | Cross-group endorsement viability | WEP band |
+|---|---|---|---|---|---|
+| {name} | {group} | {seats / pct} | {top-3 elections} | ≥ 1/2 endorsements: {Y / N} | {Likely / About even} |
+```
+
+---
+
+## ⚖️ Section 7 — Treaty-Revision Feasibility
+
+A short bullet block on whether the projected EP composition + Council majority crosses the threshold for an IGC convocation under Art. 48 TEU.
+
+---
+
+## 🪞 Section 8 — Drift vs Prior Run
+
+| Group | Prior P50 | This run P50 | Δ | Plausible cause |
+|---|---|---|---|---|
+| EPP | … | … | ±N | Polling shift in DE/FR |
+
+---
+
+## 📝 Section 9 — Pass-2 Quality Self-Audit
+
+```markdown
+- [ ] All major groups present in §2
+- [ ] WEP bands tighten / widen with horizon
+- [ ] Mermaid stacked-bar present and consistent with §2
+- [ ] ≥ 4 coalitions assessed in §4
+- [ ] ≥ 3 driver national elections in §5
+- [ ] ≥ 2 Spitzenkandidaten profiled
+- [ ] Drift vs prior run reconciled
+```
+
+---
+
+## ⚙️ Section 10 — Methodology Compliance
+
+Note any group whose projection lacks a sufficient reference class (< 6 analogues) and the widened band applied per [`forward-projection-methodology.md` §2](../methodologies/forward-projection-methodology.md#2-reference-class-forecasting-tetlock-outside-view).

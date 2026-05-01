@@ -33,7 +33,7 @@
  * Invocation:
  *   node scripts/aggregator/forward-statements-registry.js --help
  *   node scripts/aggregator/forward-statements-registry.js append  <json-file-or-stdin>
- *   node scripts/aggregator/forward-statements-registry.js read    [--status open] [--horizon-from YYYY-MM-DD] [--horizon-to YYYY-MM-DD]
+ *   node scripts/aggregator/forward-statements-registry.js read    [--status open] [--horizon-from YYYY-MM-DD] [--horizon-to YYYY-MM-DD] [--electoral-mode]
  *   node scripts/aggregator/forward-statements-registry.js update  --id <id> --status <status> [--evidence <ref>] [--date <YYYY-MM-DD>]
  *   node scripts/aggregator/forward-statements-registry.js summary
  */
@@ -201,7 +201,12 @@ export function appendEntries(entries, registryDir) {
  * @param {object} [opts] - Filter options
  * @param {string} [opts.status] - Filter by status (e.g. "open")
  * @param {string} [opts.horizonFrom] - ISO date; entries with expectedHorizon < this are excluded
- * @param {string} [opts.horizonTo] - ISO date; entries with expectedHorizon > this are excluded
+ * @param {string} [opts.horizonTo] - ISO date; entries with expectedHorizon > this are excluded.
+ *   Long-horizon callers (term-outlook, election-cycle) may pass a date up to
+ *   **+1825 days** (~5 years) ahead of `horizonFrom` to cover the EP-term arc.
+ * @param {boolean} [opts.electoralMode] - When true, only entries with `category === 'electoral'`
+ *   (or whose `tags[]` contains `'electoral'`) are returned. Used by the `news-election-cycle.md`
+ *   and `news-term-outlook.md` workflows to scope carry-forward to electoral-domain forecasts.
  * @param {string} [opts.registryDir] - Override registry directory (used in tests)
  * @returns {Record<string, unknown>[]} All matching entries
  */
@@ -259,6 +264,13 @@ export function readEntries(opts) {
 
     if (opts?.horizonFrom && typeof horizon === 'string' && horizon < opts.horizonFrom) continue;
     if (opts?.horizonTo && typeof horizon === 'string' && horizon > opts.horizonTo) continue;
+
+    if (opts?.electoralMode) {
+      const category = typeof entry.category === 'string' ? entry.category.toLowerCase() : '';
+      const tags = Array.isArray(entry.tags) ? entry.tags.map((t) => String(t).toLowerCase()) : [];
+      if (category !== 'electoral' && !tags.includes('electoral')) continue;
+    }
+
     results.push(entry);
   }
   return results;
@@ -430,7 +442,7 @@ export function cli(argv) {
         'Commands:',
         '  append  [--file <path>]  Append entries from a JSON array file (or stdin)',
         '  read    [--status open|implemented|superseded|abandoned]',
-        '          [--horizon-from YYYY-MM-DD] [--horizon-to YYYY-MM-DD]',
+        '          [--horizon-from YYYY-MM-DD] [--horizon-to YYYY-MM-DD] [--electoral-mode]',
         '                           Read and print matching entries as JSON array',
         '  update  --id <id> --status <status> [--evidence <ref>] [--date YYYY-MM-DD]',
         '                           Update an existing entry',
@@ -460,10 +472,12 @@ export function cli(argv) {
     const statusFlag = rest.indexOf('--status');
     const fromFlag = rest.indexOf('--horizon-from');
     const toFlag = rest.indexOf('--horizon-to');
+    const electoralFlag = rest.indexOf('--electoral-mode');
     const opts = {};
     if (statusFlag !== -1 && rest[statusFlag + 1]) opts.status = rest[statusFlag + 1];
     if (fromFlag !== -1 && rest[fromFlag + 1]) opts.horizonFrom = rest[fromFlag + 1];
     if (toFlag !== -1 && rest[toFlag + 1]) opts.horizonTo = rest[toFlag + 1];
+    if (electoralFlag !== -1) opts.electoralMode = true;
     process.stdout.write(JSON.stringify(readEntries(opts), null, 2) + '\n');
     return;
   }

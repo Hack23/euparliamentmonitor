@@ -315,6 +315,49 @@ describe('forward-statements-registry', () => {
       expect(entries).toHaveLength(1);
       expect(entries[0].id).toBe('valid-week');
     });
+
+    it('should filter to electoral-mode entries via category or tags', () => {
+      const electoralByCategory = makeEntry({
+        id: 'electoral-by-category',
+        topic: 'spitzenkandidaten',
+        category: 'electoral',
+      });
+      const electoralByTag = makeEntry({
+        id: 'electoral-by-tag',
+        topic: 'seat-projection-EPP',
+        tags: ['electoral', 'EPP'],
+      });
+      const economic = makeEntry({
+        id: 'economic-only',
+        topic: 'banking-union',
+        category: 'economic',
+      });
+      appendEntries([electoralByCategory, electoralByTag, economic], tmpDir);
+
+      const all = readEntries({ registryDir: tmpDir });
+      expect(all).toHaveLength(3);
+
+      const electoral = readEntries({ electoralMode: true, registryDir: tmpDir });
+      expect(electoral.map((e) => e.id).sort()).toEqual(['electoral-by-category', 'electoral-by-tag']);
+    });
+
+    it('should accept long-horizon (5 year) filters without exception', () => {
+      const longHorizon = makeEntry({
+        id: 'long-horizon',
+        topic: 'EP11-seat-projection',
+        expectedHorizon: '2030-06-15',
+        category: 'electoral',
+      });
+      appendEntries([longHorizon], tmpDir);
+
+      const fiveYearWindow = readEntries({
+        horizonFrom: '2026-04-01',
+        horizonTo: '2031-04-01',
+        registryDir: tmpDir,
+      });
+      expect(fiveYearWindow).toHaveLength(1);
+      expect(fiveYearWindow[0].id).toBe('long-horizon');
+    });
   });
 
   // -------------------------------------------------------------------------
