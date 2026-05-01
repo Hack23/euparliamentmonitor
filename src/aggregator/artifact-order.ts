@@ -128,6 +128,27 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
     artifacts: ['intelligence/scenario-forecast.md', 'intelligence/wildcards-blackswans.md'],
   },
   {
+    id: 'forward-projection',
+    title: 'Forward Projection',
+    artifacts: [
+      'intelligence/forward-projection.md',
+      'intelligence/legislative-pipeline-forecast.md',
+      'intelligence/parliamentary-calendar-projection.md',
+      'extended/forward-indicators.md',
+    ],
+  },
+  {
+    id: 'electoral-arc',
+    title: 'Electoral Arc & Mandate',
+    artifacts: [
+      'intelligence/term-arc.md',
+      'intelligence/seat-projection.md',
+      'intelligence/mandate-fulfilment-scorecard.md',
+      'intelligence/presidency-trio-context.md',
+      'intelligence/commission-wp-alignment.md',
+    ],
+  },
+  {
     id: 'continuity',
     title: 'Cross-Run Continuity',
     artifacts: [

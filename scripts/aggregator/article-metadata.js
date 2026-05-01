@@ -45,7 +45,7 @@
 import fs from 'fs';
 import path from 'path';
 import { ALL_LANGUAGES, getLocalizedString } from '../constants/language-core.js';
-import { BREAKING_NEWS_TITLES, COMMITTEE_REPORTS_TITLES, MONTH_AHEAD_TITLES, MONTHLY_REVIEW_TITLES, MOTIONS_TITLES, PROPOSITIONS_TITLES, WEEK_AHEAD_TITLES, WEEKLY_REVIEW_TITLES, } from '../constants/language-articles.js';
+import { BREAKING_NEWS_TITLES, COMMITTEE_REPORTS_TITLES, ELECTION_CYCLE_TITLES, MONTH_AHEAD_TITLES, MONTHLY_REVIEW_TITLES, MOTIONS_TITLES, PROPOSITIONS_TITLES, QUARTER_AHEAD_TITLES, QUARTER_IN_REVIEW_TITLES, TERM_OUTLOOK_TITLES, WEEK_AHEAD_TITLES, WEEKLY_REVIEW_TITLES, YEAR_AHEAD_TITLES, YEAR_IN_REVIEW_TITLES, } from '../constants/language-articles.js';
 /** Maximum `<meta description>` length we will emit. */
 const DESCRIPTION_MAX_LENGTH = 300;
 /** Maximum `<title>` length — anything longer is truncated with an ellipsis. */
@@ -455,6 +455,10 @@ export function buildTemplateFallback(articleType, date, committee) {
         : deriveWeekRange(date);
     const monthLabel = deriveMonthLabel(date);
     const committeeLabel = committee && committee.trim().length > 0 ? committee : 'Main Committees';
+    const quarterLabel = deriveQuarterLabel(date);
+    const yearLabel = deriveYearLabel(date);
+    const termLabel = deriveTermLabel(date);
+    const cycleLabel = deriveElectionCycleLabel(date);
     for (const lang of ALL_LANGUAGES) {
         const entry = templateForType(lang, articleType, {
             date,
@@ -462,6 +466,10 @@ export function buildTemplateFallback(articleType, date, committee) {
             weekEnd: weekRange.end,
             month: monthLabel,
             committee: committeeLabel,
+            quarter: quarterLabel,
+            year: yearLabel,
+            term: termLabel,
+            cycle: cycleLabel,
         });
         Object.defineProperty(map, lang, {
             value: entry,
@@ -501,6 +509,18 @@ function templateForType(lang, articleType, inputs) {
             return getLocalizedString(WEEKLY_REVIEW_TITLES, lang)(inputs.weekStart, inputs.weekEnd);
         case 'month-in-review':
             return getLocalizedString(MONTHLY_REVIEW_TITLES, lang)(inputs.month);
+        case 'quarter-ahead':
+            return getLocalizedString(QUARTER_AHEAD_TITLES, lang)(inputs.quarter);
+        case 'quarter-in-review':
+            return getLocalizedString(QUARTER_IN_REVIEW_TITLES, lang)(inputs.quarter);
+        case 'year-ahead':
+            return getLocalizedString(YEAR_AHEAD_TITLES, lang)(inputs.year);
+        case 'year-in-review':
+            return getLocalizedString(YEAR_IN_REVIEW_TITLES, lang)(inputs.year);
+        case 'term-outlook':
+            return getLocalizedString(TERM_OUTLOOK_TITLES, lang)(inputs.term);
+        case 'election-cycle':
+            return getLocalizedString(ELECTION_CYCLE_TITLES, lang)(inputs.cycle);
         default:
             return {
                 title: `${humanizeSlug(articleType)} — ${inputs.date}`,
@@ -580,6 +600,92 @@ export function deriveMonthLabel(date) {
     ];
     const name = monthNames[parsed.getUTCMonth()] ?? '';
     return `${name} ${parsed.getUTCFullYear()}`.trim();
+}
+/**
+ * Return a quarter label for an ISO date — `Q<n> <YYYY>` (e.g. `Q2 2026`).
+ * Used by `quarter-ahead` and `quarter-in-review` title generators.
+ *
+ * @param date - ISO date string
+ * @returns Quarter label, or the input when parsing fails
+ */
+export function deriveQuarterLabel(date) {
+    const parsed = parseIsoDate(date);
+    if (!parsed)
+        return date;
+    const quarter = Math.floor(parsed.getUTCMonth() / 3) + 1;
+    return `Q${quarter} ${parsed.getUTCFullYear()}`;
+}
+/**
+ * Return a four-digit year label for an ISO date. Used by `year-ahead`
+ * and `year-in-review` title generators.
+ *
+ * @param date - ISO date string
+ * @returns Year label, or the input when parsing fails
+ */
+export function deriveYearLabel(date) {
+    const parsed = parseIsoDate(date);
+    if (!parsed)
+        return date;
+    return String(parsed.getUTCFullYear());
+}
+/**
+ * EP-term constants — keep these in sync with
+ * {@link analysis/methodologies/electoral-cycle-methodology.md}.
+ *  - EP10: 16 Jul 2024 → ~end of June 2029
+ *  - EP11: ~Jul 2029 → ~Jun 2034
+ */
+const EP10_START_YEAR = 2024;
+const EP10_END_YEAR = 2029;
+const EP11_END_YEAR = 2034;
+const EP_ELECTION_MONTH = 6; // June
+/**
+ * Return the EP-term label for an ISO date — `EP10 → 2029` or `EP11 → 2034`.
+ * Used by `term-outlook` title generator.
+ *
+ * @param date - ISO date string
+ * @returns Term label, or the input when parsing fails
+ */
+export function deriveTermLabel(date) {
+    const parsed = parseIsoDate(date);
+    if (!parsed)
+        return date;
+    const year = parsed.getUTCFullYear();
+    if (year < EP10_START_YEAR)
+        return `EP9 → ${EP10_START_YEAR}`;
+    if (year < EP10_END_YEAR)
+        return `EP10 → ${EP10_END_YEAR}`;
+    if (year < EP11_END_YEAR)
+        return `EP11 → ${EP11_END_YEAR}`;
+    // Beyond EP11 — extrapolate by 5-year terms.
+    const termIndex = 11 + Math.floor((year - EP11_END_YEAR) / 5);
+    const termEnd = EP11_END_YEAR + 5 * Math.ceil((year - EP11_END_YEAR + 1) / 5);
+    return `EP${termIndex} → ${termEnd}`;
+}
+/**
+ * Return the election-cycle label for an ISO date — pairs the outgoing
+ * and incoming EP terms with the election year (e.g. `EP10 → EP11 (2029)`).
+ * Used by the `election-cycle` title generator.
+ *
+ * @param date - ISO date string
+ * @returns Cycle label, or the input when parsing fails
+ */
+export function deriveElectionCycleLabel(date) {
+    const parsed = parseIsoDate(date);
+    if (!parsed)
+        return date;
+    const year = parsed.getUTCFullYear();
+    const month = parsed.getUTCMonth() + 1;
+    // Pre- or post-election treatment within ±6 months around June of the election year.
+    if (year < EP10_END_YEAR || (year === EP10_END_YEAR && month <= EP_ELECTION_MONTH)) {
+        return `EP10 → EP11 (${EP10_END_YEAR})`;
+    }
+    if (year < EP11_END_YEAR || (year === EP11_END_YEAR && month <= EP_ELECTION_MONTH)) {
+        return `EP11 → EP12 (${EP11_END_YEAR})`;
+    }
+    // Beyond EP11 — extrapolate.
+    const elections = EP11_END_YEAR + 5 * Math.ceil((year - EP11_END_YEAR + 1) / 5);
+    const out = 11 + Math.floor((year - EP11_END_YEAR) / 5);
+    return `EP${out} → EP${out + 1} (${elections})`;
 }
 /**
  * Parse an ISO date string as UTC midnight. Returns `null` for malformed
