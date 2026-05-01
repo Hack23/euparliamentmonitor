@@ -98,6 +98,57 @@ and the dedicated methodologies
 [structural-metadata](../../analysis/methodologies/structural-metadata-methodology.md),
 [electoral-domain](../../analysis/methodologies/electoral-domain-methodology.md)).
 
+### Long-horizon mandatory artifacts (≥90-day horizons)
+
+For article types with `dataWindow.days ≥ 90` (per
+`src/config/article-horizons.ts`), the following artifacts become
+**mandatory** in addition to the base 7 + synthesis set:
+
+| Artifact | Required for | Floor lines |
+|----------|-------------|:-----------:|
+| `intelligence/forward-projection.md` | All prospective ≥ 90d | 80 |
+| `intelligence/legislative-pipeline-forecast.md` | All prospective ≥ 90d | 50 |
+| `intelligence/parliamentary-calendar-projection.md` | All prospective ≥ 90d | 40 |
+| `extended/forward-indicators.md` | All ≥ 90d (promoted from optional) | 40 |
+| `intelligence/presidency-trio-context.md` | year-ahead, term-outlook, election-cycle | 60 |
+| `intelligence/commission-wp-alignment.md` | year-ahead, term-outlook, election-cycle | 50 |
+| `intelligence/term-arc.md` | term-outlook, election-cycle, year-in-review | 60 |
+| `intelligence/seat-projection.md` | term-outlook, election-cycle | 80 |
+| `intelligence/mandate-fulfilment-scorecard.md` | election-cycle, year-in-review | 60 |
+
+The validator reads the article type from `manifest.json` → looks up
+`ARTICLE_HORIZONS[type].mandatoryArtifacts` → enforces existence + line
+floors. See [`10-horizon-stage-helpers.md`](10-horizon-stage-helpers.md) §3
+for construction order.
+
+### Electoral-overlay gate (Family-D required when `electoralOverlay=true`)
+
+When the article type has `electoralOverlay: true` in the registry
+(`term-outlook`, `election-cycle`), Stage C additionally enforces **all
+Family-D electoral artifacts**:
+
+- `intelligence/term-arc.md` — term-progress index + coalition-trajectory
+  Mermaid chart (≥ 4 quarters)
+- `intelligence/seat-projection.md` — seat-bands at 6/12/24/36-month
+  horizons for all 8 major groups with explicit WEP labels
+- `intelligence/mandate-fulfilment-scorecard.md` — pledge → adopted-act
+  traceability (≥ 5 entries per group), defection-flow Mermaid
+- `intelligence/presidency-trio-context.md` — current + next Trio
+  programme alignment
+- `intelligence/commission-wp-alignment.md` — Commission Work Programme
+  delivery vs. original ambition
+
+**Electoral quality gates (validator checks):**
+- Vote-share delta table covers all 8 groups
+- Seat-projection bands at 4 horizons for all groups
+- Coalition-viability matrix ≥ 4 plausible majorities
+- Spitzenkandidaten section ≥ 2 named candidates
+- National-spillover ≥ 3 upcoming national elections
+
+See [`12-electoral-cycle.md`](12-electoral-cycle.md) §2 for the full
+quality gate checklist. The validator flags missing electoral artifacts as
+`RED electoral:missing:<artifact-name>`.
+
 ## 3 · Pre-Flight Checklist (one-shot)
 
 Before calling the validator:

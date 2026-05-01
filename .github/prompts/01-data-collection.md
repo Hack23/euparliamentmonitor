@@ -404,6 +404,54 @@ This 60-second sweep ensures the article's agenda predictions reflect the
 Monday morning Rule 132 filings and are not locked to Sunday's pre-session
 state.
 
+## 8d · Quarter+ Horizon Fan-Out (≥90-day horizons)
+
+For article types with a data window ≥ 90 days (`quarter-ahead`,
+`quarter-in-review`, `year-ahead`, `year-in-review`, `term-outlook`,
+`election-cycle`), Stage A **must** fan out EP data collection per-month
+and pull institutional-calendar context:
+
+**Per-month plenary session fan-out:**
+
+```bash
+TODAY=$(date -u +%Y-%m-%d)
+if [ "${FORWARD_HORIZON_DAYS:-0}" -ge 90 ]; then
+  MONTHS_TO_COVER=$(( FORWARD_HORIZON_DAYS / 30 ))
+  for i in $(seq 0 "$MONTHS_TO_COVER"); do
+    MONTH_START=$(date -u -d "$TODAY +${i} months" +%Y-%m-01)
+    MONTH_END=$(date -u -d "$MONTH_START +1 month -1 day" +%Y-%m-%d)
+    echo "Fetching plenary sessions: $MONTH_START → $MONTH_END"
+  done
+fi
+```
+
+For each month in the window, call `get_plenary_sessions({ dateFrom:
+<month-start>, dateTo: <month-end>, limit: 20 })`. Merge results into
+`${ANALYSIS_DIR}/data/plenary-sessions-horizon.json`.
+
+**Commission Work Programme & Council Presidency (external documents):**
+
+For horizons ≥ 90 days, additionally pull:
+1. `get_external_documents_feed({ timeframe: "one-month" })` — captures
+   Commission proposals and Council Presidency programme documents.
+2. `get_external_documents({ limit: 50 })` — fallback if feed is empty;
+   scan for Commission Work Programme (CWP) and Trio Presidency programme.
+
+Write results to `${ANALYSIS_DIR}/data/external-docs-horizon.json`.
+
+**Election calendar context:**
+
+When `ELECTORAL_OVERLAY=true` (per `src/config/article-horizons.ts`), also
+call `getElectionCalendarContext()` (from `src/mcp/ep-mcp-client.ts`) to
+retrieve EP-term anchors and days-to-next-election. Reference
+[`12-electoral-cycle.md`](12-electoral-cycle.md) §5 for auto-trigger
+thresholds.
+
+**Budget:** Per-month fan-out adds ~2 s per month; a 12-month horizon adds
+~24 s. External-docs feed is < 2 s. Total overhead stays within the ≤ 5 min
+Stage A budget for prospective horizons (per `src/config/article-horizons.ts`
+`PROSPECTIVE_BUDGETS.A = 5`).
+
 ## 9 · Hard Rules
 
 - ❌ Do not skip data collection because feeds are 404 — try direct endpoints.
