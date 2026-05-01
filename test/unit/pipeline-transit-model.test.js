@@ -291,6 +291,7 @@ describe('pipeline-transit-model', () => {
         ['methodologyVersion', 'remainingStages', 'stage'].sort(),
       );
       // remainingStages should contain priors for all stages from current onward
+      // (this procedure defaults to committee = index 0, so all 4 stages are included)
       expect(Object.keys(entry.remainingStages).sort()).toEqual([...STAGES].sort());
       // Each stage entry has { p10Days, p50Days, p90Days, sampleSize }
       for (const stageData of Object.values(entry.remainingStages)) {
