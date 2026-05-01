@@ -109,6 +109,9 @@ dist/
 # Gatsby files
 .cache/
 
+# Pipeline transit model cache output
+cache/
+
 # vuepress build output
 .vuepress/dist
 
