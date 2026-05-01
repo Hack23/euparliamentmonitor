@@ -1610,6 +1610,8 @@ describe('scripts/validate-analysis-completeness.js', () => {
         }
       }
       const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
       expect(result.stderr).not.toMatch(/long-horizon-structural-break:missing/);
     });
 
