@@ -550,7 +550,7 @@ All domain types are strongly typed in `src/types/*.ts` (strict mode, ESM). 15 t
 
 ### MCP Data Contracts
 
-The EP MCP Server `v1.2.18+` exposes two distinct feed-option schemas. This split was finalised in the v1.2.13 release (fixes [Hack23/European-Parliament-MCP-Server#377](https://github.com/Hack23/European-Parliament-MCP-Server/issues/377) / [#378](https://github.com/Hack23/European-Parliament-MCP-Server/issues/378)) and the political-group code normalisation in v1.2.15 (PR #405) is reflected in `src/types/mcp.ts`:
+The EP MCP Server `v1.2.19+` exposes two distinct feed-option schemas. This split was finalised in the v1.2.13 release (fixes [Hack23/European-Parliament-MCP-Server#377](https://github.com/Hack23/European-Parliament-MCP-Server/issues/377) / [#378](https://github.com/Hack23/European-Parliament-MCP-Server/issues/378)) and the political-group code normalisation in v1.2.15 (PR #405) is reflected in `src/types/mcp.ts`:
 
 ```typescript
 // Sliding-window feeds (6 tools)
@@ -574,7 +574,7 @@ export interface FixedWindowFeedOptions {
   // NO timeframe/startDate — these feeds ignore those parameters
 }
 
-// Uniform unavailable envelope — EP v1.2.18+
+// Uniform unavailable envelope — EP v1.2.19+
 export interface MCPUnavailableEnvelope<T> {
   status: "unavailable";
   items: T[];           // ALWAYS empty array — never null or undefined

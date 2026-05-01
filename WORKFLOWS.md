@@ -256,7 +256,7 @@ graph TD
     D --> F[📥 Checkout Repository]
     F --> G[⚙️ Setup Node.js 25]
     G --> H[📦 Install Dependencies]
-    H --> I[🔗 Install EP MCP Server v1.2.18+]
+    H --> I[🔗 Install EP MCP Server v1.2.19+]
     I --> J1[🔬 Analysis Stage<br/>Political Intelligence Pipeline<br/>--analysis flag]
     J1 --> J1a[📊 Classification: significance, impact-matrix, actors, forces]
     J1 --> J1b[🛡️ Threat Assessment: Political Threat Landscape,<br/>actor-threats, disruption]
@@ -297,8 +297,8 @@ graph TD
 | **Agent job permissions** | `contents: write`, `pull-requests: write`, `issues: write`, `models: read` |
 | **Concurrency group** | `gh-aw-${{ github.workflow }}` |
 | **Node.js version** | 25 |
-| **EP MCP Server** | `european-parliament-mcp-server@1.2.18` (globally installed via `scripts/mcp-setup.sh`, MCP gateway `EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament`) |
-| **Data sources** | European Parliament MCP Server `v1.2.18+` (primary, 60+ tools — sliding + fixed-window feeds + analytical), IMF REST SDMX 3.0 (native fetch in `src/mcp/imf-mcp-client.ts`, **primary economic source** — WEO+FM+IFS+BOP+ER+PCPS+GFSR+EREO+FSI+GFS+DOT), World Bank Open Data MCP (non-economic only — WDI social/health/education/environment/governance). Economic-context enforcement is editorial at the Stage-C completeness review against [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md) and the per-artifact line floors in [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json) — the runtime `articlePolicyHas*` gates were purged in April-2026 |
+| **EP MCP Server** | `european-parliament-mcp-server@1.2.19` (globally installed via `scripts/mcp-setup.sh`, MCP gateway `EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament`) |
+| **Data sources** | European Parliament MCP Server `v1.2.19+` (primary, 60+ tools — sliding + fixed-window feeds + analytical), IMF REST SDMX 3.0 (native fetch in `src/mcp/imf-mcp-client.ts`, **primary economic source** — WEO+FM+IFS+BOP+ER+PCPS+GFSR+EREO+FSI+GFS+DOT), World Bank Open Data MCP (non-economic only — WDI social/health/education/environment/governance). Economic-context enforcement is editorial at the Stage-C completeness review against [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md) and the per-artifact line floors in [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json) — the runtime `articlePolicyHas*` gates were purged in April-2026 |
 | **Analysis stage** | `--analysis` flag enables 18-method political intelligence pipeline before article generation |
 | **Analysis output** | `analysis/daily/{date}/` for cross-article artifacts (for example shared synthesis outputs), plus `analysis/daily/{date}/{article-type}/` for article-type-scoped classification, threat-assessment, risk-scoring, and data (EP feeds, World Bank, IMF, OSINT) artifacts committed to PR. Article-type scoping prevents merge conflicts between concurrent workflows. |
 
@@ -1888,7 +1888,7 @@ The following diagram shows the complete intelligence cycle from EP data collect
 
 ```mermaid
 flowchart TD
-    subgraph Collection["📡 COLLECTION<br/>(EP MCP Server v1.2.18+)"]
+    subgraph Collection["📡 COLLECTION<br/>(EP MCP Server v1.2.19+)"]
         direction TB
         C1["🗳️ Votes &<br/>Adopted Texts"]
         C2["📜 Legislative<br/>Procedures"]
@@ -2016,7 +2016,7 @@ flowchart LR
     end
 
     subgraph "🔌 MCP Layer"
-        MCP["EP MCP Server<br/>v1.2.18+<br/>(120s timeout;<br/>60+ tools, sliding + fixed-window feeds)"]
+        MCP["EP MCP Server<br/>v1.2.19+<br/>(120s timeout;<br/>60+ tools, sliding + fixed-window feeds)"]
     end
 
     subgraph "🤖 Agent Layer"

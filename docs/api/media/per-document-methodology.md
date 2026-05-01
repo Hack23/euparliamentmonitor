@@ -311,12 +311,12 @@ The `document-analysis-index.md` file provides a navigable summary:
 
 > **⚠️ EP API date-filter note (v1.2.14+, Defect #5) — upstream contract active:**
 >
-> This is an upstream contract that is **active on the pinned `v1.2.18` server**. Stage-B
+> This is an upstream contract that is **active on the pinned `v1.2.19` server**. Stage-B
 > consumers may rely on the post-filter behavior described below.
 >
 > Background: The EP Open Data Portal `/meetings` endpoint silently ignores its `date-from` /
 > `date-to` query parameters. From `european-parliament-mcp-server` v1.2.14 onward (and
-> on the pinned v1.2.18 server), the MCP server applies a **server-side post-filter** on
+> on the pinned v1.2.19 server), the MCP server applies a **server-side post-filter** on
 > `dateFrom` / `dateTo` before serialising `get_plenary_sessions` responses.
 >
 > Consequences for Stage-B analysis on v1.2.14+ servers:
