@@ -107,3 +107,63 @@ This artifact applies quantitative significance scoring to the April 28–30, 20
 | **Session Average** | **7.16** | 🟡 HIGH-SIGNIFICANCE SESSION |
 
 **Data Sources:** UPSF v3.2 framework; EP adopted texts TA-10-2026-0157 through TA-10-2026-0165; political analyst assessment. Analysis conducted 2026-05-01.
+
+---
+
+## Additional Texts Scored (Run 2 Extended Coverage)
+
+### V. Digital Markets Act Enforcement (TA-10-2026-0160)
+
+| Dimension | Score | Rationale |
+|:----------:|:-----:|:----------|
+| Breadth | 8 | All EU digital markets; affects 500M+ consumers |
+| Depth | 8 | Enforcement push with criminal liability proposals — structural |
+| Urgency | 7 | DMA in force since 2024; enforcement gap is immediate |
+| Political capital | 7 | Industry opposition high; platform lobbying intense |
+| Reversibility | 4 | Hard to reverse once criminal liability embedded in law |
+| International impact | 9 | US-EU digital relations; global tech regulation standard-setter |
+
+**Composite: (8×0.20)+(8×0.25)+(7×0.15)+(7×0.15)+(4×0.10)+(9×0.15) = 1.60+2.00+1.05+1.05+0.40+1.35 = 7.45/10**
+
+🟡 **SIGNIFICANT** (5.5–7.5) — borderline HIGH
+
+### VI. Haiti Trafficking Resolution (TA-10-2026-0151)
+
+| Dimension | Score | Rationale |
+|:----------:|:-----:|:----------|
+| Breadth | 5 | Caribbean-specific; limited direct EU impact |
+| Depth | 4 | Non-binding resolution; humanitarian signal |
+| Urgency | 6 | Criminal groups in Haiti are escalating (2024-2026) |
+| Political capital | 3 | Limited controversy; humanitarian consensus |
+| Reversibility | 8 | High — no binding obligations |
+| International impact | 6 | UN Security Council Haiti context; US foreign policy |
+
+**Composite: (5×0.20)+(4×0.25)+(6×0.15)+(3×0.15)+(8×0.10)+(6×0.15) = 1.00+1.00+0.90+0.45+0.80+0.90 = 5.05/10**
+
+🟢 **MODERATE** (3.5–5.5)
+
+---
+
+## Significance Mermaid Chart — Full Session
+
+```mermaid
+quadrantChart
+    title EP Significance Scoring — Strasbourg April 28-30, 2026
+    x-axis Low Political Capital --> High Political Capital
+    y-axis Low Significance --> High Significance
+    quadrant-1 High Stakes / Low Controversy
+    quadrant-2 High Stakes / High Controversy
+    quadrant-3 Routine / Low Controversy
+    quadrant-4 Politicised / Lower Significance
+    Ukraine Accountability: [0.85, 0.90]
+    Armenia Resilience: [0.65, 0.75]
+    DMA Enforcement: [0.75, 0.82]
+    Cyberbullying Platforms: [0.60, 0.72]
+    Budget 2027 Guidelines: [0.50, 0.70]
+    Haiti Trafficking: [0.30, 0.55]
+    EU-Iceland PNR: [0.55, 0.52]
+    EIB Audit: [0.40, 0.45]
+    Livestock Food Security: [0.55, 0.60]
+```
+
+**Interpretation:** Ukraine Accountability and DMA Enforcement sit in the high-significance/high-political-capital quadrant, confirming their designation as the session's most consequential outputs. Armenia Resilience and Budget 2027 follow closely. Haiti and EIB Audit are routine lower-significance items.

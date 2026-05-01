@@ -208,3 +208,77 @@ PfE + ECR (Southern wing) + ESN + NI = ~195 seats
 - Agriculture: "Green Deal vs. food security" (livestock sector) vs. "Just transition" (Greens/EFA)
 
 **Data Sources:** EP MCP `generate_political_landscape`, `analyze_coalition_dynamics`, `early_warning_system`; EP Open Data Portal MEP and group data. Analysis 2026-05-01.
+
+---
+
+## Tier 2 Stakeholders: National Governments
+
+### 4. Germany (CDU/CSU led coalition government)
+**Position:** Central to outcomes in all 14 adopted texts. Chancellor Merz's government leans into accountability and rule-of-law framing domestically.
+**Ukraine Accountability:** Strong supporter of the special tribunal — aligns with Germany's evolving foreign policy doctrine of "Verantwortungspolitik" (responsible foreign policy) post-2022.
+**DMA Enforcement:** Mixed signals — German tech industry lobbies against criminal liability; foreign ministry supports "digital sovereignty" narrative.
+**Armenia:** Supportive of Armenia's EU integration pathway; German-Armenian diaspora is a political constituency.
+**Budget:** Fiscal hawk position — pushing for conditionality and reforms before new own resources. EPP German MEPs reflect government's dual pressure.
+
+### 5. France (Macron government)
+**Position:** Strategically engaged on all major dossiers; France's EU presidency record (2022) gives Macron credibility as interlocutor.
+**Ukraine Accountability:** Supportive but emphasises "European justice architecture" over a standalone tribunal — favours ICC cooperation rather than duplication.
+**DMA Enforcement:** Strong DMA champion — France sees the Brussels Effect as aligned with French tech sovereignty goals.
+**Budget:** Supports MFF increase for strategic autonomy (defence) and agriculture (CAP); concerned about climate investment cuts.
+**Armenia:** Historically significant — the Armenian diaspora in France is the largest in Europe. French support for TA-10-2026-0154 was strong but tepid on candidate status (doesn't want to antagonise Azerbaijan on energy supply).
+
+### 6. Hungary (Orbán government) — Spoiler Actor
+**Position:** Systematically opposes Ukraine accountability and enlargement measures. The Article 7 TEU process against Hungary is ongoing.
+**Ukraine Accountability:** Will veto in Council; Orbán's personal ties to Russian energy market create a structural conflict of interest.
+**Armenia Enlargement:** Hard VETO — Orbán has announced he will block Armenia candidate status as long as Azerbaijan gas supplies are at risk.
+**Budget:** Weaponises budget negotiations to protect RRF conditionality exemptions.
+**Strategic behaviour:** Uses EP resolutions as evidence of "Brussels interference" in domestic political campaigning.
+**Risk level:** 🔴 HIGH — single actor with veto power over the most significant outcomes
+
+---
+
+## Tier 2 Stakeholders: Third Parties and International Actors
+
+### 7. United States (Trump/Republican administration)
+**Ukraine Accountability:** Uncertain support — Special Tribunal requires multilateral buy-in; current US posture is transactional. Risk of US withdrawing support from ICC-adjacent mechanisms.
+**DMA Enforcement:** Hostile — US considers DMA a trade barrier; criminal liability proposals would escalate to formal WTO dispute threat.
+**Armenia:** Strategic interest in Armenia as a wedge vs. Russia; however, current administration may prioritise Azerbaijan (energy, geopolitics) over Armenia (democratic symbolism).
+
+### 8. Russia
+**Ukraine Accountability:** Primary target of the accountability architecture. Moscow will use every diplomatic, cyber, and information tool to undermine the tribunal. Already framing the EP resolution as "politically motivated show trials."
+**Armenia:** Sees Armenia's EU pivot as an existential threat to CSTO and its sphere of influence. Will continue supporting pro-Russian factions within Armenia.
+**DMA:** Russia has no direct stake but monitors EU digital sovereignty measures for model/precedent.
+
+### 9. Azerbaijan
+**Armenia:** Directly concerned by EP's Armenia resolution and candidate status language. Leverages energy supply (5.5% of EU gas imports) as implicit negotiating chip. Ilham Aliyev has signalled displeasure at "biased" EP positions.
+**Digital:** No direct stake.
+
+---
+
+## Tier 3 Stakeholders: Civil Society and Epistemic Community
+
+### 10. Digital Rights NGOs (EDRi, AlgorithmWatch, EFF)
+**DMA Enforcement:** Strong support for enforcement; advocates for expanding criminal liability. Key civil society voice feeding Parliament positions.
+**Cyberbullying/platforms:** Major constituency for TA-10-2026-0157; drove the evidence base for the resolution.
+
+### 11. Ukrainian Civil Society (Euromaidan Press, Centre for Civil Liberties — 2022 Nobel Prize)
+**Ukraine Accountability:** Foundational driver of the accountability movement. Centre for Civil Liberties documented the evidence base for the tribunal case. Their advocacy is the legitimate source of the accountability framing.
+
+### 12. Tech Platforms (Apple, Google/Alphabet, Meta, ByteDance)
+**DMA Enforcement:** Directly targeted by enforcement actions. Mounting CJEU legal challenges. Apple's interoperability resistance is the central test case. Substantial lobbying budget directed at EPP business wing and Council.
+**Cyberbullying resolution:** Meta and TikTok are primary addressees; resist binding obligations.
+
+---
+
+## Stakeholder Coalition Matrix
+
+| Issue | Pro-Coalition | Anti-Coalition | Swing |
+|-------|--------------|----------------|-------|
+| Ukraine Tribunal | EPP+S&D+Greens+ECR | PfE+The Left partial | ECR (some divisions) |
+| Armenia EU Path | EPP+S&D+Greens+RE | PfE+ESN | Hungary national veto |
+| DMA Criminal Liability | S&D+Greens+ECR | PfE+EPP business wing | EPP (fragmented) |
+| MFF 2027 Increase | S&D+Greens+RE | ECR+PfE+ESN | EPP (internal split) |
+| Budget Conditionality | EPP+RE+ECR | S&D+Greens+The Left | The Left partial |
+
+**Data Sources:** EP MCP coalition analysis; `generate_political_landscape` group composition; MEP voting patterns 2024-2026; Politico EU Parliament tracker. Analysis 2026-05-01.
+

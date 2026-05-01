@@ -80,3 +80,54 @@ X/Meta/Google are coordinating a "Free Speech vs. EU Censorship" counter-narrati
 **Interpretation: POSITIVE strategic balance.** EP's internal strengths (coalition, mandate, clarity) and external opportunities (Brussels Effect, G7 window) exceed its structural weaknesses and threats. The primary strategic concern is the ECtHR asset ruling threat — high-impact, moderate-probability risk that directly undermines the session's most significant decision.
 
 **Data Sources:** SWOT evidence drawn from all previous analysis artifacts in this run; EP Research Service institutional data; EP seat data (generate_political_landscape MCP tool). Analysis conducted 2026-05-01.
+
+---
+
+## Extended SWOT: DMA and Budget Dimensions (Run 2)
+
+### S4: Digital Regulatory Leadership — Score: 88/100
+The DMA enforcement resolution (TA-10-2026-0160) extends Parliament's position as the global leader in technology regulation. Building on the DMA (2022), DSA (2022), AI Act (2024), and Data Act (2024), the enforcement push completes the EU regulatory stack. Parliament's willingness to propose criminal liability (previously reserved for competition law and financial crime) signals that platforms are now treated as systemically significant infrastructure — not just services. The Brussels Effect projection: digital criminal liability principles will be adopted by at least 8–12 countries by 2030.
+
+**SWOT impact: +18/100 to strategic strength score (Brussels Effect multiplier)**
+
+### W4: Internal EPP Business Wing Fragmentation on Digital — Score: -38/100
+The EPP's German MEP cohort (heavily influenced by BDI — German Industry Federation) voted divergently on DMA enforcement compared to EPP's Southern European MEPs who favour stricter platform accountability. This intra-EPP fragmentation on digital policy creates a recurring vulnerability: the coalition is consistent on geopolitical resolutions but fractured on economic regulation. If the criminal liability provision returns in a legislative proposal, EPP internal discipline cannot be assumed.
+
+### O4: MFF 2027 Own Resources Window — Score: +68/100
+Parliament's 2027 budget position (own budget estimates + budget guidelines) creates a leverage window for the Commission's October MFF proposal. Parliament has historically used the budget cycle to extract policy concessions — in 2021, Parliament secured the Rule of Law conditionality mechanism in exchange for MFF approval. The 2027 cycle may offer a similar leverage point: Parliament could condition MFF approval on Council action on the Ukraine tribunal or Armenia candidate status. WEP: POSSIBLE (45%) that Parliament uses this leverage effectively.
+
+### T4: Fiscal Conservatism Wave in Council — Score: -55/100
+The "fiscal hawk" coalition in the Council (Germany, Netherlands, Austria, Denmark, Finland) is pushing for an MFF at or below the 2021–2027 level in real terms. If this coalition prevails in October, Parliament's budget guidelines become irrelevant. The political risk is not that Parliament loses the vote, but that the Council produces an MFF framework that Parliament must either accept or veto — both options carry political costs.
+
+---
+
+## Updated Net SWOT Calculation (Run 2)
+
+| Dimension | Run 1 Score | Run 2 Extension | Total |
+|-----------|------------|----------------|-------|
+| S1: Coalition Cohesion | +82 | (unchanged) | +82 |
+| S2: Legislative Completeness | +78 | (unchanged) | +78 |
+| S3: Institutional Mandate Clarity | +85 | (unchanged) | +85 |
+| S4: Digital Regulatory Leadership | — | +88 | +88 |
+| **Strengths Total** | **245** | **+88** | **333** |
+| W1: Non-Binding Limitations | -72 | (unchanged) | -72 |
+| W2: Data/Evidence Gaps | -45 | (unchanged) | -45 |
+| W3: Right-Wing Entrenchment | -60 | (unchanged) | -60 |
+| W4: EPP Digital Fragmentation | — | -38 | -38 |
+| **Weaknesses Total** | **-177** | **-38** | **-215** |
+| O1: Brussels Effect | +90 | (unchanged) | +90 |
+| O2: G7 Political Window | +75 | (unchanged) | +75 |
+| O3: Armenia Peace Dividend | +30 | (unchanged) | +30 |
+| O4: MFF Own Resources Window | — | +68 | +68 |
+| **Opportunities Total** | **+195** | **+68** | **+263** |
+| T1: Russia Escalation | -80 | (unchanged) | -80 |
+| T2: ECtHR Asset Ruling | -65 | (unchanged) | -65 |
+| T3: US Policy Divergence | -50 | (unchanged) | -50 |
+| T4: Fiscal Conservatism | — | -55 | -55 |
+| **Threats Total** | **-195** | **-55** | **-250** |
+
+**Run 2 Net SWOT Score:** (333+263) - (215+250) = 596 - 465 = **+131**
+**Run 1 Net SWOT Score:** (245+195) - (177+195) = +68
+
+**Interpretation (updated):** The Run 2 DMA enforcement dimension significantly strengthens the strategic positive score. The +131 score represents a robustly positive strategic balance for the EP following this plenary — the digital regulatory leadership opportunity outweighs the fragmentation and fiscal risk addition. The parliament is in a strategically strong position heading into the summer recess.
+

@@ -80,3 +80,22 @@ The three highest-priority threats share a common attacker posture: **narrative 
 **Combined threat level: 🔴 HIGH** for the accountability and digital regulation legislative pipeline.
 
 **Data Sources:** EU lobbying register; CERT-EU advisories; EP disclosure register; political group press statements; EP early_warning_system output (April 2026). Analysis conducted 2026-05-01.
+
+---
+
+## Extended Threat Analysis: DMA Enforcement Threat Actors (Run 2)
+
+### T5: US Retaliatory Trade Measures on DMA Enforcement
+**Threat actor:** US Trade Representative / executive branch
+**Mechanism:** Formal WTO dispute filing + threat of tariffs on European goods contingent on DMA enforcement actions against US-headquartered platforms
+**Probability:** 🟡 MEDIUM-HIGH (35–45%) — explicit precedent: USTR 2025 report naming DMA
+**Potential impact:** 🔴 HIGH — could force Commission to moderate enforcement scope
+**Timeline:** 6–12 months after first major DMA fine against a US platform
+
+### T6: Russian Information Operation Targeting Ukraine Accountability Narrative
+**Threat actor:** GRU / FSB information operations directorate
+**Mechanism:** Coordinated disinformation campaign in Western European media framing EP accountability resolution as "warmonger" policy; targeted at EPP/PfE MEPs in Hungary, Italy, Slovakia
+**Probability:** 🔴 HIGH (70–80%) — consistent with historical GRU playbook
+**Potential impact:** 🟡 MEDIUM — non-binding resolutions are resilient to information campaigns; implementation pressure on Council is more vulnerable
+**Timeline:** Ongoing; intensifies before June European Council
+

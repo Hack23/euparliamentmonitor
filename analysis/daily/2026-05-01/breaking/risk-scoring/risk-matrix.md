@@ -124,3 +124,26 @@ Enforce = Enforcement gap | BudBk = Budget breakdown
 Two structural 🔴 risks (ECtHR + Pashinyan) with moderate probability are the primary concerns.
 
 **Data Sources:** EPRF v3.1 risk framework; threat model and wildcards/blackswans artifacts; stakeholder map; historical-baseline precedent analysis. Analysis conducted 2026-05-01.
+
+---
+
+## Extended Risk Matrix: DMA and Budget (Run 2)
+
+| Risk ID | Risk Description | Probability | Impact | Score | Trend |
+|---------|-----------------|:-----------:|:------:|:-----:|:-----:|
+| R-07 | DMA criminal liability fails in Council | 0.55 | 6 | 3.3 | ↑ (run 2 upgrade) |
+| R-08 | US retaliatory tariffs on DMA enforcement | 0.40 | 8 | 3.2 | NEW |
+| R-09 | MFF 2027 below Parliament's floor (€1.1tn) | 0.25 | 7 | 1.75 | NEW |
+| R-10 | Armenia CEPA backsliding / Venice Commission RED | 0.20 | 6 | 1.2 | NEW |
+
+**Run 2 risk additions context:**
+- R-07: DMA Council failure elevated from POSSIBLE to LIKELY based on analysis of EPP business wing fragmentation
+- R-08: New risk added from Run 2 DMA text analysis; USTR 2025 report is explicit evidence
+- R-09: New risk from Budget 2027 guidelines analysis; fiscal hawk coalition in Council provides evidence base
+- R-10: New risk from Armenia analysis; Venice Commission track record on Georgia provides precedent
+
+**Updated risk matrix summary:** 10 risks tracked vs. 6 in Run 1. Overall risk score increased from 18.1 to 22.7 (score basis: sum of P×I). The increase reflects primarily the DMA enforcement addition (R-07/R-08) and the Armenia conditional pathway (R-10).
+
+**Data Sources:** EPRF v3.1 risk framework; threat model and wildcards/blackswans artifacts; stakeholder map; historical-baseline precedent analysis. R-07 through R-10 added in Run 2 analysis. Analysis conducted 2026-05-01.
+
+

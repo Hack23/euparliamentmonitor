@@ -180,3 +180,38 @@ quadrantChart
 4. **Agricultural coalition management:** Pair livestock flexibility with binding Just Transition funding commitments to maintain Greens/EFA support
 
 **Data Sources:** EP MCP tools; EP Open Data Portal; analysis of EP voting patterns and historical precedents. Analysis conducted 2026-05-01.
+
+---
+
+## Extended Threat Model: DMA and Digital Domain (Run 2)
+
+### TH-7: DMA Non-Compliance — Systemic Evasion
+**Threat actor:** Platform gatekeepers (Apple, Google, Meta)
+**Attack vector:** Legal evasion through compliance-theatre measures — technically meeting DMA obligations while preserving anti-competitive effects through design choices
+**Specific technique:** Apple's "Core Technology Fee" (CTF) for alternative distribution — replaces App Store commission with a per-install fee that achieves similar financial extraction
+**Probability of partial success:** 🔴 HIGH (75%+) — already demonstrated with CTF in iOS 17.4/18 compliance
+**Probability of full evasion:** 🟡 MEDIUM (35–45%) — Commission has tools to pierce compliance theatre under Article 26 DMA
+**Mitigation:** Commission must issue implementation guidance on "economic equivalence" standard for compliance measures; Parliament's enforcement resolution strengthens the legal mandate for this
+
+### TH-8: Russian Cyber Operation Against EP Election Infrastructure
+**Threat actor:** GRU / SVR
+**Attack vector:** Targeted intrusion into EP voting management systems (EVOTING, Vote Management System) in advance of the 2029 elections; or disinformation campaign to undermine confidence in results
+**Probability:** 🔴 HIGH (65%+) — Russia has targeted every major EU election since 2016 (ENISA); EP is a high-value symbolic target
+**Current defences:** CERT-EU monitoring; NIS2 compliance; network segregation; EU threat intelligence sharing
+**Mitigation gap:** EP's digital infrastructure was assessed as "adequately protected" by ENISA 2025 but the "advanced persistent threat" classification means defences must evolve continuously
+
+### TH-9: US-EU Digital Trade War — DMA Criminal Liability Trigger
+**Threat actor:** US Trade Representative / executive branch
+**Attack vector:** Section 301 tariffs on EU exports contingent on DMA criminal prosecutions of US-based platforms; framed as "discriminatory market access barriers"
+**Probability of tariff threat:** 🔴 HIGH (70%) — USTR 2025 position is explicit
+**Probability of actual tariff imposition:** 🟡 MEDIUM (30–40%) — depends on US-EU diplomatic state and whether Commission modifies enforcement approach
+**Mitigation:** WTO dispute resolution; EU-US Trade and Technology Council engagement; Commission communication framing criminal liability as proportionate to the size of the harm
+
+**Updated threat landscape summary:**
+- 9 identified threats vs. 6 in Run 1
+- 4 at 🔴 HIGH probability (TH-2 Russian info ops, TH-4 ECtHR, TH-8 Russian cyber, TH-9 trade war)
+- 4 at 🟡 MEDIUM probability (TH-1 direct escalation, TH-3 Armenian destabilisation, TH-5 platform evasion DMA, TH-7 compliance theatre)
+- 1 at 🟢 LOW probability (TH-6 ECR fragmentation)
+
+**Combined threat level upgraded to: 🔴 HIGH-SEVERE** — the addition of TH-7, TH-8, TH-9 increases overall threat density significantly.
+
