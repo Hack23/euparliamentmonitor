@@ -138,3 +138,78 @@ graph LR
 4. **Armenian domestic stability (B2 — reliable, probably true):** Pashinyan's government has survived multiple challenges; risk of renewed destabilisation from pro-Russian factions estimated at 25–35%
 
 **Data Sources:** EP MCP tools; EP Open Data Portal; historical precedent analysis. Forecast calibrated to 2026-05-01 information environment.
+
+---
+
+## Digital Markets Act: Scenario Supplement
+
+### DMA Scenario A: "Enforcement Takes Hold" (WEP: LIKELY 55–65%)
+**Narrative (12 months):** The Commission levies €1bn+ fines against at least two gatekeepers within 6 months of TA-10-2026-0160, demonstrating that Parliament's enforcement push has produced tangible results. Apple modifies iOS to comply with interoperability obligations. Criminal liability legislation enters the European legislative pipeline as a dedicated directive.
+
+**Indicators:**
+- Commission DMA fine >€500m announced by August 2026: POSITIVE
+- New gatekeeper designated (TikTok/ByteDance): POSITIVE
+- Parliament tables formal criminal liability amendment: POSITIVE
+
+**Risks:** US executive intervention, CJEU appeal delays, Commission capacity constraints
+
+---
+
+### DMA Scenario B: "Paper Regulation" (WEP: POSSIBLE 30–40%)
+**Narrative (12 months):** Enforcement actions stall due to legal challenges. Apple's CJEU appeal delays the browser/app store ruling. Commission announces "capacity review" before new criminal liability proposal. US retaliatory threats produce a Commission "engagement track" that softens enforcement.
+
+**Indicators:**
+- CJEU interim measures halting DMA enforcement actions: NEGATIVE
+- Commission announces 6-month "stakeholder dialogue" before any fine: NEGATIVE
+- US-EU trade negotiations use DMA enforcement as bargaining chip: NEGATIVE
+
+---
+
+### DMA Scenario C: "Geopolitical Overreach" (WEP: UNLIKELY 10–15%)
+**Narrative (12 months):** Criminal liability proposal creates a full-scale US-EU digital trade war. US retaliatory tariffs on European goods announced as response to DMA criminal prosecutions. EU internal coalition fractures — EPP business wing revolts. Parliament is forced to moderate criminal liability language in trilogue.
+
+---
+
+## Budget 2027: Scenario Supplement
+
+### Budget Scenario A: "Parliament's Position Largely Prevails" (WEP: POSSIBLE 40%)
+**Narrative (18 months):** The Commission's autumn 2026 MFF proposal aligns broadly with Parliament's guidelines — maintaining Green Deal investment, adding defence flexibility, and proposing new own resources (digital services levy, enhanced carbon border mechanism). Parliament's April guidelines prove to have been an effective opening position.
+
+### Budget Scenario B: "Austerity Compromise" (WEP: LIKELY 45%)
+**Narrative (18 months):** The German/Dutch fiscal hawks in the Council force austerity-direction MFF framework. Parliament's guidelines are used as negotiating leverage but ultimately accommodation is reached at lower spend levels than Parliament sought. New own resources are delayed. Defence flexibility is the one area where Parliament's position prevails.
+
+### Budget Scenario C: "MFF Crisis" (WEP: UNLIKELY 15%)
+**Narrative (18 months):** MFF negotiations stall due to multiple simultaneous veto threats (Hungary, Italy, Netherlands). The 2028 MFF entry is delayed, creating budgetary uncertainty. Parliament exercises its veto threat but the Council produces an interim arrangement. Budget Scenario C is a governance crisis outcome, not a policy outcome.
+
+---
+
+## Armenia-Azerbaijan Scenario Supplement
+
+### AA-Scenario A: Peace Treaty Signed (WEP: POSSIBLE 35%)
+**Narrative (12 months):** Armenia-Azerbaijan peace treaty signed with EU mediation, normalising borders and formally concluding the Karabakh conflict. This removes the primary geopolitical obstacle to Armenia's EU integration pathway and opens a Council discussion on candidate status.
+
+**Key tripwires:**
+- Washington-brokered talks, EUMM supporting: POSITIVE
+- Treaty text resolves Zangezur corridor dispute: CRITICAL POSITIVE
+
+### AA-Scenario B: Stalemate Continues (WEP: LIKELY 50%)
+**Narrative (12 months):** Armenia-Azerbaijan normalisation talks continue without conclusion. EU resolution helps Pashinyan domestically but does not translate into concrete candidate status progress due to Council division (Hungary veto threat remains). Armenia remains in the "Association + enhanced partnership" limbo.
+
+### AA-Scenario C: Renewed Escalation (WEP: UNLIKELY 15%)
+**Narrative (12 months):** Border skirmishes or Azerbaijani pressure trigger another military confrontation, reversing Armenia's EU integration trajectory. Russia explicitly backs a frozen conflict to maintain its regional leverage. EU's Armenia policy is set back 2-3 years.
+
+---
+
+## Scenario Cross-Matrix (Correlation Analysis)
+
+| Primary Scenario | Correlated Scenario | Correlation Direction |
+|-----------------|--------------------|-----------------------|
+| Ukraine Tribunal Advances (A) | Armenia Candidate Status Advances | POSITIVE (both signal EU geopolitical strength) |
+| Ukraine Tribunal Fails (B) | Armenia Integration Stalls | POSITIVE (same coalition failure dynamic) |
+| DMA Enforcement Takes Hold (A) | EU Regulatory Power Confirmed | POSITIVE (Brussels Effect reinforced) |
+| Budget MFF Crisis (C) | Armenia/Ukraine Support Weakened | POSITIVE (resource constraints cascade) |
+| Armenia Peace Treaty (AA-A) | EU Enlargement Momentum | POSITIVE (precedent for Eastern Partnership) |
+| Pashinyan Government Falls | Ukraine Accountability Credibility | NEUTRAL (separate political dimensions) |
+
+**Overall scenario confidence:** 🟡 Medium — forecasts reflect best available evidence as of 2026-05-01; 6-month and 12-month indicators should be monitored via the forward-indicators.md artifact.
+

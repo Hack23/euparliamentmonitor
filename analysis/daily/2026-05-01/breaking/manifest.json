@@ -1,13 +1,13 @@
 {
   "articleType": "breaking",
-  "runId": "breaking-run-1777595709",
+  "runId": "breaking-run-1777638113",
   "runDate": "2026-05-01",
   "analysisDir": "analysis/daily/2026-05-01/breaking",
   "createdAt": "2026-05-01T00:34:43Z",
   "pass2": {
-    "startedAt": "2026-05-01T00:52:00Z",
-    "endedAt": "2026-05-01T00:54:00Z",
-    "rewriteCount": 3
+    "startedAt": "2026-05-01T12:16:00Z",
+    "endedAt": "2026-05-01T12:22:00Z",
+    "rewriteCount": 21
   },
   "files": {
     "executiveBrief": "executive-brief.md",
@@ -29,7 +29,23 @@
     "quantitativeSwot": "risk-scoring/quantitative-swot.md",
     "documentAnalysisIndex": "documents/document-analysis-index.md",
     "workflowAudit": "intelligence/workflow-audit.md",
-    "methodologyReflection": "intelligence/methodology-reflection.md"
+    "methodologyReflection": "intelligence/methodology-reflection.md",
+    "referenceAnalysisQuality": "intelligence/reference-analysis-quality.md",
+    "votingPatterns": "intelligence/voting-patterns.md",
+    "crossRunDiff": "intelligence/cross-run-diff.md",
+    "crossSessionIntelligence": "intelligence/cross-session-intelligence.md",
+    "coalitionMathematics": "extended/coalition-mathematics.md",
+    "comparativeInternational": "extended/comparative-international.md",
+    "crossReferenceMap": "extended/cross-reference-map.md",
+    "dataDownloadManifest": "extended/data-download-manifest.md",
+    "devilsAdvocateAnalysis": "extended/devils-advocate-analysis.md",
+    "extendedExecutiveBrief": "extended/executive-brief.md",
+    "forwardIndicators": "extended/forward-indicators.md",
+    "historicalParallels": "extended/historical-parallels.md",
+    "implementationFeasibility": "extended/implementation-feasibility.md",
+    "intelligenceAssessment": "extended/intelligence-assessment.md",
+    "mediaFramingAnalysis": "extended/media-framing-analysis.md",
+    "voterSegmentation": "extended/voter-segmentation.md"
   },
   "dataFiles": {
     "adoptedTexts": "data/adopted-texts-2026-04-28-30.json",
@@ -48,6 +64,18 @@
       "stageC": {
         "result": "ANALYSIS_ONLY",
         "reason": "Stage C RED (missing=16 short=17 mermaid_missing=15); elapsed-time at minute 20; protecting PR-call deadline"
+      }
+    },
+    {
+      "runId": "breaking-run-1777638113",
+      "runAt": "2026-05-01T12:02:00Z",
+      "gateResult": "ANALYSIS_ONLY",
+      "artifactCount": 36,
+      "pass2RewriteCount": 21,
+      "notes": "Run 2. Extended from Run 1: 5 additional adopted texts (TA-10-2026-0160 DMA enforcement HIGH, TA-10-2026-0151, TA-10-2026-0122, TA-10-2026-0132, TA-10-2026-0105). 16 new artifacts created/10 extended. Session upgraded to LANDMARK MULTI-DOMAIN PLENARY (3x HIGH vs 2x HIGH in Run 1).",
+      "stageC": {
+        "result": "ANALYSIS_ONLY",
+        "reason": "Elapsed-time tripwire at minute 23; many files still below floor but not safe to continue without risking PR deadline. GATE: RED short=23 mermaid_missing=16 at second check."
       }
     }
   ]

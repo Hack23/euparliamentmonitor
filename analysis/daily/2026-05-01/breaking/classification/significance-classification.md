@@ -89,3 +89,38 @@ Three criteria met:
 - April 2026 (this session): LANDMARK + 3× SIGNIFICANT = **highest multi-domain session in EP10**
 
 **Data Sources:** EICP v2.1 classification framework; significance scoring artifact; EP vote history comparative analysis. Analysis conducted 2026-05-01.
+
+---
+
+## Extended Classification: New Texts (Run 2)
+
+### TA-10-2026-0160 — DMA Enforcement
+**Classification:** 🔴 HIGH
+**Rationale:** The Digital Markets Act enforcement resolution extends Parliament's tech regulation leadership to the enforcement phase. Criminal liability proposals represent a fundamental escalation of the EU's platform accountability framework. International significance: very high (US-EU tech regulatory divergence crystallising).
+**EP10 Ranking:** Among the top 3 digital governance decisions of the term
+
+### TA-10-2026-0151 — Haiti Trafficking
+**Classification:** 🟡 MEDIUM
+**Rationale:** Humanitarian resolution; signals EP's global human rights engagement. Limited direct legislative impact. UN Security Council context elevates international relevance.
+**EP10 Ranking:** Routine humanitarian resolution; value as signal of EP's global engagement
+
+### TA-10-2026-0122 — Performance-Based Instruments Control
+**Classification:** 🟡 MEDIUM
+**Rationale:** Technical governance of EU fund spending transparency. Important for budget accountability but limited political salience.
+
+### TA-10-2026-0105 — Jaki Immunity Waiver
+**Classification:** 🟡 MEDIUM
+**Rationale:** ECR MEP Patryk Jaki (Italian FdI/Polish origin) immunity waiver. Political significance: intra-ECR tensions; judicial independence questions.
+
+### TA-10-2026-0132 — CoR Discharge 2024
+**Classification:** 🟢 LOW
+**Rationale:** Routine annual discharge procedure; institutional accountability mechanism.
+
+---
+
+## Updated Session Classification
+
+**Session significance: 🔴 LANDMARK MULTI-DOMAIN PLENARY** *(upgraded from HIGH-IMPACT)*
+
+With 14 confirmed adopted texts including 4 HIGH-significance items (Ukraine, Armenia, DMA, Budget), this session is the **highest-productivity plenary of the EP10 term** by significance-adjusted output score.
+

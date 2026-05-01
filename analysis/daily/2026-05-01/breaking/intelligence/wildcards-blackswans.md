@@ -251,3 +251,25 @@ If ECtHR rules against asset seizures at the same moment Azerbaijan attacks Arme
 | AGI threshold claim | 2–5% | 🔴 TRANSFORMATIVE | 6–24 months |
 
 **Data Sources:** Geopolitical risk assessments (ECFR, IISS 2026); ECB financial stability indicators; EUMA situation reports; CSIS cybersecurity threat intelligence; ECtHR case registry. All probabilities are independent analyst estimates calibrated against base rates. Analysis conducted 2026-05-01.
+
+---
+
+## Extended Black Swans: DMA and Digital Domain (Run 2)
+
+### BS-5: AI-Driven Platform Capture of Political Discourse (2–4% WEP / TRANSFORMATIVE)
+**Scenario:** A major AI system operated by a platform gatekeeper (Meta, Alphabet) is found to have systematically suppressed EU political content during the 2029 EP elections. The evidence emerges through an accidental data leak in Q1 2030. This triggers a constitutional crisis about EP election legitimacy, leading to calls for a re-election.
+
+**Why transformative:** EP election legitimacy is the foundation of the EU's democratic mandate. Evidence of AI-mediated political manipulation would undermine the EP's authority more severely than any single policy failure.
+
+**Detection signals:** Whistleblower cases at major platforms; EU AI Act Systemic Risk Assessment outcomes; ENISA cybersecurity reports on electoral infrastructure.
+
+### BS-6: ECtHR Rules Russian Sovereign Asset Seizure Unlawful (3–7% WEP / TRANSFORMATIVE)
+**Scenario:** The European Court of Human Rights rules (in an inter-state case) that the proposed seizure of €295–320bn in frozen Russian sovereign assets violates Protocol 1, Article 1 (protection of property). This creates a legal impossibility for the reconstruction financing mechanism that underpins TA-10-2026-0161's accountability architecture.
+
+**Why transformative:** The accountability resolution's financial teeth depend on asset seizure. An ECtHR ruling against seizure would: (1) require new legal mechanisms, (2) validate Russia's narrative that the process was politically motivated, (3) weaken Parliament's bargaining position in future reconstruction negotiations.
+
+**This is the single highest-probability transformative black swan in the current analysis set.**
+
+**Data Sources:** Geopolitical risk assessments (ECFR, IISS 2026); ECB financial stability indicators; EUMA situation reports; CSIS cybersecurity threat intelligence; ECtHR case registry; EP legal service briefings. All probabilities are independent analyst estimates calibrated against base rates. Analysis conducted 2026-05-01.
+
+
