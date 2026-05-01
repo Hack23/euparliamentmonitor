@@ -384,7 +384,7 @@ plenary sessions:
 
 **Detection:** `get_plenary_sessions({ dateFrom, dateTo })` returns an empty
 array for the recess month. The MCP client surfaces `recessMode: true` in
-`dataQualityWarnings[]` for procedure/event feeds during low-activity periods.
+`dataQualityWarnings[]` for procedure feeds during low-activity periods.
 
 **Handling rules:**
 
