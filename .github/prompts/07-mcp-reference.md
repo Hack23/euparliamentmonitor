@@ -372,12 +372,12 @@ When the article-horizons registry sets `electoralOverlay: true`, use the
 `getElectionCalendarContext()` helper exported from `src/mcp/ep-mcp-client.ts`:
 
 ```ts
-import { getElectionCalendarContext } from '../mcp/ep-mcp-client.js';
+import { getElectionCalendarContext } from './scripts/mcp/ep-mcp-client.js';
 
 const ctx = getElectionCalendarContext(); // defaults to new Date()
 // ctx.termId            — 'EP10' or 'EP11'
 // ctx.nextElectionWindow — { start: '2029-06-04', end: '2029-06-09' }
-// ctx.daysToElection    — days until election start (negative if started)
+// ctx.daysToElection    — days until election start (0 or negative once started)
 // ctx.electionImminentTier — 'NONE' | 'T-180' | 'T-90' | 'T-30'
 ```
 

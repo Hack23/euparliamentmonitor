@@ -484,7 +484,9 @@ export function getElectionCalendarContext(referenceDate?: Date): ElectionCalend
   const ref = referenceDate ?? new Date();
   const electionStart = new Date(EP_NEXT_ELECTION_START + 'T00:00:00Z');
   const diffMs = electionStart.getTime() - ref.getTime();
-  const daysToElection = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+  const millisecondsPerDay = 1000 * 60 * 60 * 24;
+  const daysToElection =
+    diffMs >= 0 ? Math.ceil(diffMs / millisecondsPerDay) : Math.floor(diffMs / millisecondsPerDay);
 
   let electionImminentTier: ElectionImminentTier;
   if (daysToElection > 180) {
