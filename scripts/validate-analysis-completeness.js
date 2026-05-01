@@ -991,7 +991,7 @@ function main() {
   if (horizonCfg && horizonCfg.electoralOverlay) {
     for (const famD of FAMILY_D_ARTIFACTS) {
       const absPath = path.join(runDir, famD);
-      const minLines = rules.perArtifactFloors?.[famD] ?? opts.minLines;
+      const minLines = Math.max(opts.minLines, rules.perArtifactFloors?.[famD] ?? 0);
       const existing = results.find((r) => r.relativePath === famD);
       const alreadyTracked = Boolean(existing);
 
@@ -1064,7 +1064,10 @@ function main() {
             relativePath: 'intelligence/scenario-forecast.md',
             exists: true,
             lines: countLines(content),
-            minLines: rules.perArtifactFloors?.['intelligence/scenario-forecast.md'] ?? opts.minLines,
+            minLines: Math.max(
+              opts.minLines,
+              rules.perArtifactFloors?.['intelligence/scenario-forecast.md'] ?? 0,
+            ),
             issues: ['long-horizon-structural-break:missing'],
             warnings: [],
             mermaid: hasMermaid(content),

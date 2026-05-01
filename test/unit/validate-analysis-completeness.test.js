@@ -739,26 +739,17 @@ describe('scripts/validate-analysis-completeness.js', () => {
   // -------------------------------------------------------------------------
 
   // week-ahead mandatory artifacts from the registry
-  const WEEK_AHEAD_MANDATORY = [
-    'classification/significance-classification.md',
-    'classification/actor-mapping.md',
-    'classification/forces-analysis.md',
-    'classification/impact-matrix.md',
-    'risk-scoring/risk-matrix.md',
-    'risk-scoring/quantitative-swot.md',
-    'intelligence/synthesis-summary.md',
-    'intelligence/coalition-dynamics.md',
-    'intelligence/scenario-forecast.md',
-    'intelligence/pestle-analysis.md',
-    'intelligence/stakeholder-map.md',
-    'intelligence/wildcards-blackswans.md',
-    'intelligence/historical-baseline.md',
-    'intelligence/economic-context.md',
-    'intelligence/threat-model.md',
-    'intelligence/mcp-reliability-audit.md',
-    'intelligence/analysis-index.md',
-    'intelligence/methodology-reflection.md',
-  ];
+  const WEEK_AHEAD_MANDATORY = (() => {
+    const mandatoryArtifacts = getHorizonConfig('week-ahead')?.mandatoryArtifacts;
+
+    if (!Array.isArray(mandatoryArtifacts)) {
+      throw new Error(
+        'Expected getHorizonConfig("week-ahead").mandatoryArtifacts to be defined as an array',
+      );
+    }
+
+    return mandatoryArtifacts;
+  })();
 
   function writeWeekAheadManifest() {
     fs.writeFileSync(
@@ -866,7 +857,15 @@ describe('scripts/validate-analysis-completeness.js', () => {
     const result = runHere(['--json']);
     const occurrences = result.stderr.match(/forward-registry:missing-carried-forward-section/g) || [];
     expect(occurrences).toHaveLength(1);
-    expect(result.stdout).toMatch(/"forward-registry:missing-carried-forward-section"/);
+
+    // stdout contains the STAGE_C_GATE line followed by JSON
+    const jsonStart = result.stdout.indexOf('{');
+    expect(jsonStart).toBeGreaterThan(-1);
+    const json = JSON.parse(result.stdout.slice(jsonStart));
+    expect(json.results).toBeInstanceOf(Array);
+
+    const issues = json.results.flatMap((entry) => entry.issues || []);
+    expect(issues).toContain('forward-registry:missing-carried-forward-section');
   });
 
   it('passes GREEN for week-ahead when open items exist and synthesis has the carried-forward section', () => {
