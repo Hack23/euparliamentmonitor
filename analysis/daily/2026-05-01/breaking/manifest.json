@@ -1,0 +1,69 @@
+{
+  "articleType": "breaking",
+  "runDate": "2026-05-01",
+  "analysisDir": "analysis/daily/2026-05-01/breaking",
+  "workflowRunId": "25205692269",
+  "createdAt": "2026-05-01T07:22:00Z",
+  "gateResult": "ANALYSIS_ONLY",
+  "gateReason": "elapsed-time tripwire at minute 24; reserve remaining budget for Stage E PR-call deadline",
+  "imfAvailable": false,
+  "imfMinimumsWaived": true,
+  "pass2": {
+    "startedAt": null,
+    "endedAt": null,
+    "rewriteCount": 0,
+    "note": "Pass 2 deferred due to elapsed-time tripwire at minute 22"
+  },
+  "preflight": {
+    "attestation": "PREFLIGHT_ATTESTATION: read 24/24 artifacts from analysis/daily/2026-05-01/breaking",
+    "artifactCount": 24,
+    "allAboveFloor": true
+  },
+  "history": [
+    {
+      "runIndex": 0,
+      "runId": "breaking-first-2026-05-01",
+      "startedAt": "2026-05-01T06:56:43Z",
+      "completedAt": "2026-05-01T07:22:00Z",
+      "gateResult": "ANALYSIS_ONLY",
+      "stageD": "skipped",
+      "stageE": "in-progress",
+      "artifactsProduced": 24,
+      "dataQualityWarnings": [
+        "IMF_PROXY_TIMEOUT: IMF WEO data unavailable",
+        "EP_VOTING_RECORDS_DELAYED: April 28-30 roll-call votes not yet published",
+        "EP_EVENTS_FEED_UNAVAILABLE: get_events_feed returned status:unavailable",
+        "EP_ADOPTED_TEXTS_CONTENT_UNAVAILABLE: Full text of TA-10-2026-0160 and TA-10-2026-0161 not yet available",
+        "CONTEXT_COMPACTION: Session was compacted mid-Stage-B; resumed from summary"
+      ]
+    }
+  ],
+  "files": {
+    "executive-brief": "executive-brief.md",
+    "significance-scoring": "intelligence/significance-scoring.md",
+    "pestle-analysis": "intelligence/pestle-analysis.md",
+    "stakeholder-map": "intelligence/stakeholder-map.md",
+    "scenario-forecast": "intelligence/scenario-forecast.md",
+    "wildcards-blackswans": "intelligence/wildcards-blackswans.md",
+    "threat-model": "intelligence/threat-model.md",
+    "economic-context": "intelligence/economic-context.md",
+    "historical-baseline": "intelligence/historical-baseline.md",
+    "coalition-dynamics": "intelligence/coalition-dynamics.md",
+    "voting-patterns": "intelligence/voting-patterns.md",
+    "political-threat-landscape": "intelligence/political-threat-landscape.md",
+    "mcp-reliability-audit": "intelligence/mcp-reliability-audit.md",
+    "synthesis-summary": "intelligence/synthesis-summary.md",
+    "analysis-index": "intelligence/analysis-index.md",
+    "reference-analysis-quality": "intelligence/reference-analysis-quality.md",
+    "cross-run-diff": "intelligence/cross-run-diff.md",
+    "cross-session-intelligence": "intelligence/cross-session-intelligence.md",
+    "workflow-audit": "intelligence/workflow-audit.md",
+    "methodology-reflection": "intelligence/methodology-reflection.md",
+    "significance-classification": "classification/significance-classification.md",
+    "risk-matrix": "risk-scoring/risk-matrix.md",
+    "quantitative-swot": "risk-scoring/quantitative-swot.md",
+    "document-analysis-index": "documents/document-analysis-index.md",
+    "data-raw": "data/adopted-texts-summary.json",
+    "imf-probe": "cache/imf/imf-probe-summary.json"
+  }
+}

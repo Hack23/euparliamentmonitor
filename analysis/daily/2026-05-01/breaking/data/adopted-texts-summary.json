@@ -1,0 +1,29 @@
+{
+  "dataCollectedAt": "2026-05-01T06:58:00Z",
+  "source": "EP MCP get_adopted_texts year=2026",
+  "breakingItems_apr28_30": [
+    {"id":"TA-10-2026-0105","title":"Request for the waiver of the immunity of Patryk Jaki","dateAdopted":"2026-04-28","significance":"HIGH","domain":"PARLIAMENTARY_GOVERNANCE"},
+    {"id":"TA-10-2026-0112","title":"Guidelines for the 2027 budget - Section III","dateAdopted":"2026-04-28","significance":"HIGH","domain":"BUDGET_FINANCE"},
+    {"id":"TA-10-2026-0115","title":"Welfare of dogs and cats and their traceability","dateAdopted":"2026-04-28","significance":"MEDIUM","domain":"ANIMAL_WELFARE"},
+    {"id":"TA-10-2026-0119","title":"Control of the financial activities of the European Investment Bank Group — annual report 2024","dateAdopted":"2026-04-28","significance":"MEDIUM","domain":"FINANCIAL_OVERSIGHT"},
+    {"id":"TA-10-2026-0122","title":"Control, transparency and traceability of performance-based instruments","dateAdopted":"2026-04-28","significance":"HIGH","domain":"FINANCIAL_GOVERNANCE"},
+    {"id":"TA-10-2026-0132","title":"Discharge 2024: EU general budget - Committee of the Regions","dateAdopted":"2026-04-29","significance":"MEDIUM","domain":"BUDGET_DISCHARGE"},
+    {"id":"TA-10-2026-0142","title":"EU-Iceland agreement on transfer of passenger name record (PNR) data to prevent, detect, investigate and prosecute terrorist offences and serious crime","dateAdopted":"2026-04-29","significance":"HIGH","domain":"SECURITY_COOPERATION"},
+    {"id":"TA-10-2026-0151","title":"Escalating trafficking and exploitation by criminal groups in Haiti","dateAdopted":"2026-04-30","significance":"HIGH","domain":"HUMAN_RIGHTS"},
+    {"id":"TA-10-2026-0160","title":"Enforcement of the Digital Markets Act","dateAdopted":"2026-04-30","significance":"CRITICAL","domain":"DIGITAL_REGULATION"},
+    {"id":"TA-10-2026-0161","title":"Ensuring accountability and justice in response to Russia continued attacks against the civilian population in Ukraine","dateAdopted":"2026-04-30","significance":"CRITICAL","domain":"FOREIGN_POLICY_UKRAINE"},
+    {"id":"TA-10-2026-0162","title":"Supporting democratic resilience in Armenia","dateAdopted":"2026-04-30","significance":"HIGH","domain":"FOREIGN_POLICY_CAUCASUS"}
+  ],
+  "plenarySession": {
+    "apr27": {"id":"MTG-PL-2026-04-27","location":"Strasbourg","attendanceCount":610},
+    "apr28": {"id":"MTG-PL-2026-04-28","location":"Strasbourg","attendanceCount":663},
+    "apr29": {"id":"MTG-PL-2026-04-29","location":"Strasbourg","attendanceCount":658},
+    "apr30": {"id":"MTG-PL-2026-04-30","location":"Strasbourg","attendanceCount":599}
+  },
+  "politicalLandscape": {
+    "totalMEPs": 719,
+    "majorityThreshold": 361,
+    "EPP": 185, "SD": 135, "PfE": 85, "ECR": 81, "Renew": 77,
+    "GreensEFA": 53, "TheLeft": 46, "NI": 30, "ESN": 27
+  }
+}
