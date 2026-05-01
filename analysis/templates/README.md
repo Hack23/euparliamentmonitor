@@ -8,7 +8,7 @@
 <h1 align="center">📋 EU Parliament Monitor — Analysis Templates</h1>
 
 <p align="center">
-  <strong>📊 51 Structured Intelligence Templates for AI-Driven Political Analysis</strong><br>
+  <strong>📊 59 Structured Intelligence Templates for AI-Driven Political Analysis</strong><br>
   <em>🎯 14 master-catalog templates (incl. 6 reusable framework templates) + 25 per-artifact templates + 12 extended deep-intelligence templates — covering every unique <code>.md</code> file produced under <code>analysis/daily/</code></em>
 </p>
 
@@ -89,7 +89,7 @@ These analysis templates implement structured intelligence production mandated b
 
 ## 🎯 Purpose
 
-This directory contains **51 analysis templates** that AI agents fill when analysing European Parliament data — split into **14 master-catalog templates** (the article-generating workflow set: 6 reusable framework templates that compose inside per-file analysis + 8 supporting workflow templates including voting-patterns, workflow-audit, cross-session-intelligence, deep-analysis, session-baseline, methodology-reflection, executive-brief, synthesis-summary), **25 per-artifact templates** (one for every mandatory `analysis/daily/<run>/…` artifact under `intelligence/`, `classification/`, `risk-scoring/`, `threat-assessment/`, plus the run-root `executive-brief.md`), and **12 optional `extended/` templates** for long-form review, crisis, and breaking-deep runs. Each template enforces a specific analytical framework, requires evidence citations from EP MCP data, and produces structured intelligence that feeds into downstream article generation.
+This directory contains **59 analysis templates** that AI agents fill when analysing European Parliament data — split into **14 master-catalog templates** (the article-generating workflow set: 6 reusable framework templates that compose inside per-file analysis + 8 supporting workflow templates including voting-patterns, workflow-audit, cross-session-intelligence, deep-analysis, session-baseline, methodology-reflection, executive-brief, synthesis-summary), **25 per-artifact templates** (one for every mandatory `analysis/daily/<run>/…` artifact under `intelligence/`, `classification/`, `risk-scoring/`, `threat-assessment/`, plus the run-root `executive-brief.md`), **8 long-horizon &amp; electoral templates** (forward-projection, legislative-pipeline-forecast, parliamentary-calendar-projection, term-arc, seat-projection, mandate-fulfilment-scorecard, presidency-trio-context, commission-wp-alignment), and **12 optional `extended/` templates** for long-form review, crisis, and breaking-deep runs. Each template enforces a specific analytical framework, requires evidence citations from EP MCP data, and produces structured intelligence that feeds into downstream article generation.
 
 Templates are **not** standalone outputs. They form a **composable intelligence pipeline** — individual templates feed into the daily synthesis, which aggregates into weekly and monthly intelligence reports. The per-file analysis template is the most frequently used: every downloaded EP MCP data file receives a comprehensive analysis using this template.
 
@@ -308,6 +308,7 @@ Every mandatory artifact under `analysis/daily/*/` has a 1:1 template in `analys
 | `threat-assessment/` | [consequence-trees](consequence-trees.md) · [legislative-disruption](legislative-disruption.md) · [actor-threat-profiles](actor-threat-profiles.md) |
 | run root *(required first article artifact)* | [executive-brief](executive-brief.md) — BLUF, three decisions, 60-second read, top trigger |
 | `extended/` *(optional — not gated by default)* | [devils-advocate-analysis](devils-advocate-analysis.md) · [historical-parallels](historical-parallels.md) · [coalition-mathematics](coalition-mathematics.md) · [forward-indicators](forward-indicators.md) · [intelligence-assessment](intelligence-assessment.md) · [implementation-feasibility](implementation-feasibility.md) · [media-framing-analysis](media-framing-analysis.md) · [comparative-international](comparative-international.md) · [cross-reference-map](cross-reference-map.md) · [data-download-manifest](data-download-manifest.md) · [voter-segmentation](voter-segmentation.md) |
+| `intelligence/` *(long-horizon & electoral — required for `quarter-ahead+`, `term-outlook`, `election-cycle`)* | [forward-projection](forward-projection.md) · [legislative-pipeline-forecast](legislative-pipeline-forecast.md) · [parliamentary-calendar-projection](parliamentary-calendar-projection.md) · [term-arc](term-arc.md) · [seat-projection](seat-projection.md) · [mandate-fulfilment-scorecard](mandate-fulfilment-scorecard.md) · [presidency-trio-context](presidency-trio-context.md) · [commission-wp-alignment](commission-wp-alignment.md) |
 
 ### 🧱 Framework Templates (6 reusable)
 
