@@ -1319,5 +1319,78 @@ describe('scripts/validate-analysis-completeness.js', () => {
       expect(result.code).toBe(0);
       expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
     });
+
+    it('excludes scenario headings from worked-example section', () => {
+      writeLongHorizonThresholds('term-outlook');
+      writeLongHorizonManifest('term-outlook');
+      // Only 3 real scenarios, plus 4 in the worked example — should fail
+      const lines = [
+        '# Scenario Forecast',
+        '',
+        '## 1️⃣ Horizon Statement',
+        '',
+        'Horizon: 36 months.',
+        '',
+        '```mermaid',
+        'flowchart TD',
+        '    BASELINE[Baseline] --> S1[Scenario 1]',
+        '```',
+        '',
+      ];
+      for (let i = 1; i <= 3; i += 1) {
+        lines.push(`### Scenario ${i}: Real Scenario`);
+        lines.push('');
+        lines.push('Narrative text here.');
+        lines.push('');
+      }
+      lines.push('## 🛠️ Worked example');
+      lines.push('');
+      for (let i = 1; i <= 4; i += 1) {
+        lines.push(`### Scenario X${i}: Example Scenario`);
+        lines.push('');
+        lines.push('Example text.');
+        lines.push('');
+      }
+      while (lines.length < 400) lines.push(`Filler line ${lines.length}`);
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/scenario-forecast.md'),
+        lines.join('\n'),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stderr).toMatch(/long-horizon-scenario-count:3<6/);
+    });
+
+    it('rejects path-traversal in artifact config', () => {
+      fs.writeFileSync(
+        thresholdsPath,
+        JSON.stringify({
+          thresholds: {
+            'term-outlook': {
+              'intelligence/scenario-forecast.md': 360,
+            },
+          },
+          tradecraftQualitySignals: {},
+          structuralRequirements: {
+            longHorizonScenarioGate: {
+              articleTypes: ['term-outlook'],
+              minScenarios: 6,
+              artifact: '../../../etc/passwd',
+            },
+          },
+        }),
+        'utf8',
+      );
+      writeLongHorizonManifest('term-outlook');
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/scenario-forecast.md'),
+        makeScenarioForecast(6),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stderr).toMatch(/long-horizon-scenario-gate:invalid-config/);
+    });
   });
 });

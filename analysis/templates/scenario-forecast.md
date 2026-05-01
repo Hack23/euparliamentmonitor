@@ -15,9 +15,9 @@ long-horizon-mode: false
 
 ## 0️⃣ Long-Horizon Mode
 
-**`long-horizon-mode`** is an optional frontmatter flag. Set it to `true` when writing a `term-outlook` or `election-cycle` analysis run. When unset or `false`, standard behaviour (3–5 scenarios, 7/30/90-day horizon) is preserved.
+**`long-horizon-mode`** is an optional frontmatter flag that marks a run as long-horizon in the template. Set it to `true` when writing a `term-outlook` or `election-cycle` analysis run. However, for validator-enforced long-horizon article types — **`term-outlook`** and **`election-cycle`** — Stage C still applies the long-horizon rules from `manifest.articleType` even if this flag is unset or `false`. Standard behaviour (3–5 scenarios, 7/30/90-day horizon) is preserved only for article types outside that enforced set.
 
-### When `long-horizon-mode: true` is set the following requirements override the standard rules:
+### For long-horizon runs — whether triggered by `long-horizon-mode: true` or by validator-enforced `manifest.articleType` — the following requirements override the standard rules:
 
 | Requirement | Standard mode | Long-horizon mode |
 |---|---|---|
@@ -320,7 +320,7 @@ exclusive.
 - §6 monitoring plan with at least 3 dated decision points
 - Confidence label per scenario (🟢/🟡/🔴) with rationale
 
-**Long-horizon mode (`long-horizon-mode: true`, activated when `electoralOverlay === true` OR `scenarioMaxHorizonMonths >= 36`):**
+**Long-horizon mode (`long-horizon-mode: true`, with Stage-C scenario-count enforcement for `term-outlook` or `election-cycle` article types):**
 
 - Line floor: 360 lines (term-outlook) / 400 lines (election-cycle)
 - **≥ 6 scenarios** — enforced by Stage-C validator when article type is `term-outlook` or `election-cycle`

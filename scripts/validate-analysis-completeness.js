@@ -668,17 +668,36 @@ function mergeForwardRegistryResult(results, forwardRegistryResult) {
 }
 
 /**
+ * Return the portion of a scenario-forecast artifact that should contribute
+ * to the scenario-count gate.
+ *
+ * Worked examples in the template may contain `### Scenario ...` headings
+ * that must not satisfy the minimum authored-scenarios requirement, so
+ * everything from the first `## ... Worked example` H2 onwards is excluded.
+ */
+function getScenarioCountableContent(content) {
+  const workedExampleHeader = /^##\s+.*Worked example\b.*$/im;
+  const match = workedExampleHeader.exec(content);
+  if (!match || typeof match.index !== 'number') {
+    return content;
+  }
+  return content.slice(0, match.index);
+}
+
+/**
  * Count the number of scenario headings in a scenario-forecast artifact.
- * Matches `### Scenario N:` and `### Scenario N —` patterns (both numeric
- * and letter variants used in worked examples), and also supports
- * hyphen-separated alphanumeric identifiers such as `A-24`. Underscore-
- * containing identifiers are still excluded to avoid false positives.
+ * Matches authored `### Scenario N:` and `### Scenario N —` patterns and
+ * also supports hyphen-separated alphanumeric identifiers such as `A-24`.
+ * Underscore-containing identifiers are still excluded to avoid false
+ * positives. Headings in the worked-example section are ignored.
  */
 function countScenarios(content) {
+  const countableContent = getScenarioCountableContent(content);
+
   // Match "### Scenario 1:", "### Scenario A —", or "### Scenario A-24 —"
   // while rejecting underscore-containing identifiers.
   const re = /^###\s+Scenario\s+[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*\s*[:—]/gm;
-  const matches = content.match(re);
+  const matches = countableContent.match(re);
   return matches ? matches.length : 0;
 }
 
@@ -693,7 +712,22 @@ function countScenarios(content) {
 function validateLongHorizonScenarioGate(runDir, rules) {
   if (!rules.longHorizonScenarioGate) return null;
   const { artifact, minScenarios } = rules.longHorizonScenarioGate;
-  const absPath = path.join(runDir, artifact);
+
+  // Reject absolute paths or path-traversal segments to prevent reading
+  // arbitrary files outside runDir.
+  if (path.isAbsolute(artifact) || artifact.includes('..')) {
+    throw new Error(
+      `long-horizon-scenario-gate:invalid-config artifact="${artifact}" ` +
+        'must be a relative path without ".." segments.'
+    );
+  }
+  const absPath = path.resolve(runDir, artifact);
+  if (!absPath.startsWith(path.resolve(runDir) + path.sep)) {
+    throw new Error(
+      `long-horizon-scenario-gate:invalid-config artifact="${artifact}" ` +
+        'resolves outside runDir.'
+    );
+  }
   if (!fs.existsSync(absPath)) return null; // already caught as missing artifact
   const content = fs.readFileSync(absPath, 'utf8');
   const count = countScenarios(content);
