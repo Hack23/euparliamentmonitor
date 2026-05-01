@@ -667,6 +667,47 @@ function mergeForwardRegistryResult(results, forwardRegistryResult) {
   results.push(forwardRegistryResult);
 }
 
+/**
+ * Count the number of scenario headings in a scenario-forecast artifact.
+ * Matches `### Scenario N:` and `### Scenario N —` patterns (both numeric
+ * and letter variants used in worked examples).
+ */
+function countScenarios(content) {
+  // Match "### Scenario 1:" or "### Scenario A —" (any heading-3 scenario)
+  const re = /^###\s+Scenario\s+[\w]+\s*[:—]/gm;
+  const matches = content.match(re);
+  return matches ? matches.length : 0;
+}
+
+/**
+ * Validate the long-horizon scenario-count gate.
+ *
+ * When the article type is in `longHorizonScenarioGate.articleTypes`,
+ * `intelligence/scenario-forecast.md` MUST contain at least
+ * `longHorizonScenarioGate.minScenarios` scenario headings.
+ * Returns a synthetic result object if the gate fires, or null if it passes.
+ */
+function validateLongHorizonScenarioGate(runDir, rules) {
+  if (!rules.longHorizonScenarioGate) return null;
+  const { artifact, minScenarios } = rules.longHorizonScenarioGate;
+  const absPath = path.join(runDir, artifact);
+  if (!fs.existsSync(absPath)) return null; // already caught as missing artifact
+  const content = fs.readFileSync(absPath, 'utf8');
+  const count = countScenarios(content);
+  if (count >= minScenarios) return null; // gate passes
+
+  return {
+    relativePath: artifact,
+    exists: true,
+    lines: countLines(content),
+    minLines: 0,
+    issues: [`long-horizon-scenario-count:${count}<${minScenarios}`],
+    warnings: [],
+    mermaid: hasMermaid(content),
+    placeholders: [],
+  };
+}
+
 function buildRules(thresholdsJson, articleType) {
   const empty = {
     perArtifactFloors: {},
@@ -678,12 +719,22 @@ function buildRules(thresholdsJson, articleType) {
     satDocumentationRequired: [],
     readerBlockRequired: [],
     sourceDiversityRequired: [],
+    longHorizonScenarioGate: null,
   };
   if (!thresholdsJson) return empty;
 
   const perArtifactFloors = thresholdsJson.thresholds?.[articleType] || {};
   const tradecraft = thresholdsJson.tradecraftQualitySignals || {};
   const structural = thresholdsJson.structuralRequirements || {};
+
+  // Load long-horizon scenario gate config from JSON if present.
+  const lhGateCfg = structural.longHorizonScenarioGate || null;
+  const longHorizonScenarioGate =
+    lhGateCfg &&
+    Array.isArray(lhGateCfg.articleTypes) &&
+    lhGateCfg.articleTypes.includes(articleType)
+      ? { artifact: lhGateCfg.artifact || 'intelligence/scenario-forecast.md', minScenarios: lhGateCfg.minScenarios || 6 }
+      : null;
 
   return {
     perArtifactFloors,
@@ -695,6 +746,7 @@ function buildRules(thresholdsJson, articleType) {
     satDocumentationRequired: tradecraft.satDocumentationRequired || [],
     readerBlockRequired: structural.readerBlockRequired || [],
     sourceDiversityRequired: structural.sourceDiversityRequired || [],
+    longHorizonScenarioGate,
   };
 }
 
@@ -802,6 +854,16 @@ function main() {
 
   const forwardRegistryResult = validateForwardStatementsRegistryCoverage(runDir, articleType);
   mergeForwardRegistryResult(results, forwardRegistryResult);
+
+  // ── Long-horizon scenario-count gate ─────────────────────────────────────
+  // For term-outlook and election-cycle article types, scenario-forecast.md
+  // MUST contain >= 6 scenario headings. See analysis/templates/scenario-forecast.md
+  // §0 and analysis/methodologies/reference-quality-thresholds.json
+  // structuralRequirements.longHorizonScenarioGate.
+  const longHorizonScenarioResult = validateLongHorizonScenarioGate(runDir, rules);
+  if (longHorizonScenarioResult) {
+    mergeForwardRegistryResult(results, longHorizonScenarioResult);
+  }
 
   // ── Re-run improve/extend enforcement ────────────────────────────────────
   // Detect whether this is a re-run of an existing same-day analysis by

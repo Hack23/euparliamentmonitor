@@ -1067,4 +1067,168 @@ describe('scripts/validate-analysis-completeness.js', () => {
     expect(result.code).toBe(0);
     expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
   });
+
+  describe('Long-horizon scenario-count gate', () => {
+    function writeLongHorizonThresholds(articleType) {
+      fs.writeFileSync(
+        thresholdsPath,
+        JSON.stringify({
+          thresholds: {
+            [articleType]: {
+              'intelligence/scenario-forecast.md': 360,
+            },
+          },
+          tradecraftQualitySignals: {},
+          structuralRequirements: {
+            longHorizonScenarioGate: {
+              articleTypes: ['term-outlook', 'election-cycle'],
+              minScenarios: 6,
+              artifact: 'intelligence/scenario-forecast.md',
+            },
+          },
+        }),
+        'utf8',
+      );
+    }
+
+    function writeLongHorizonManifest(articleType) {
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType,
+          files: {
+            intelligence: ['intelligence/scenario-forecast.md'],
+          },
+        }),
+        'utf8',
+      );
+    }
+
+    function makeScenarioForecast(scenarioCount) {
+      const lines = [
+        '# Scenario Forecast',
+        '',
+        '## 1️⃣ Horizon Statement',
+        '',
+        'Horizon: 36 months.',
+        '',
+        '```mermaid',
+        'flowchart TD',
+        '    BASELINE[Baseline] --> S1[Scenario 1]',
+        '```',
+        '',
+      ];
+      for (let i = 1; i <= scenarioCount; i += 1) {
+        lines.push(`### Scenario ${i}: Some Scenario`);
+        lines.push('');
+        lines.push('Narrative text here.');
+        lines.push('');
+      }
+      // Pad to 400 lines for the floor
+      while (lines.length < 400) lines.push(`Filler line ${lines.length}`);
+      return lines.join('\n');
+    }
+
+    it('returns RED for term-outlook when scenario-forecast has fewer than 6 scenarios', () => {
+      writeLongHorizonThresholds('term-outlook');
+      writeLongHorizonManifest('term-outlook');
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/scenario-forecast.md'),
+        makeScenarioForecast(4),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stderr).toMatch(/long-horizon-scenario-count:4<6/);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
+    });
+
+    it('passes GREEN for term-outlook when scenario-forecast has exactly 6 scenarios', () => {
+      writeLongHorizonThresholds('term-outlook');
+      writeLongHorizonManifest('term-outlook');
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/scenario-forecast.md'),
+        makeScenarioForecast(6),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+    });
+
+    it('passes GREEN for term-outlook when scenario-forecast has more than 6 scenarios', () => {
+      writeLongHorizonThresholds('term-outlook');
+      writeLongHorizonManifest('term-outlook');
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/scenario-forecast.md'),
+        makeScenarioForecast(8),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+    });
+
+    it('returns RED for election-cycle when scenario-forecast has fewer than 6 scenarios', () => {
+      writeLongHorizonThresholds('election-cycle');
+      writeLongHorizonManifest('election-cycle');
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/scenario-forecast.md'),
+        makeScenarioForecast(3),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stderr).toMatch(/long-horizon-scenario-count:3<6/);
+    });
+
+    it('does NOT apply scenario-count gate to breaking article type', () => {
+      // Use the long-horizon thresholds but breaking article type —
+      // the gate should not fire even if scenario-forecast has only 3 scenarios.
+      writeLongHorizonThresholds('breaking');
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'breaking',
+          files: {
+            intelligence: ['intelligence/scenario-forecast.md'],
+          },
+        }),
+        'utf8',
+      );
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/scenario-forecast.md'),
+        makeScenarioForecast(3),
+        'utf8',
+      );
+      const result = runHere();
+      // Gate is not in the breaking thresholds, so no long-horizon issue.
+      expect(result.stderr).not.toMatch(/long-horizon-scenario-count/);
+    });
+
+    it('does NOT apply scenario-count gate when longHorizonScenarioGate is absent from thresholds', () => {
+      // Use minimal thresholds with no longHorizonScenarioGate field
+      fs.writeFileSync(
+        thresholdsPath,
+        JSON.stringify({
+          thresholds: {
+            'term-outlook': {
+              'intelligence/scenario-forecast.md': 360,
+            },
+          },
+          tradecraftQualitySignals: {},
+          structuralRequirements: {},
+        }),
+        'utf8',
+      );
+      writeLongHorizonManifest('term-outlook');
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/scenario-forecast.md'),
+        makeScenarioForecast(3),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.stderr).not.toMatch(/long-horizon-scenario-count/);
+    });
+  });
 });

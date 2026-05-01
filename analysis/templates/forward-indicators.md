@@ -11,6 +11,49 @@
 
 ---
 
+## 🕐 Multi-Horizon Decay Table
+
+**Canonical decay numbers live in [`forward-projection-methodology.md §3`](../methodologies/forward-projection-methodology.md#3-wep-decay-table).** The table below shows *which indicator types remain predictively useful at each horizon* — it does NOT replicate WEP probability values. Always read `forward-projection-methodology.md §3` as the authoritative source for the numbers themselves.
+
+Each indicator is tagged with the horizons at which it retains meaningful predictive signal (`✅ active`) vs. the horizons where it has decayed beyond utility (`⬜ decayed`).
+
+```markdown
+## Multi-Horizon Decay Table
+
+> WEP decay values are sourced from: [forward-projection-methodology.md §3](../methodologies/forward-projection-methodology.md#3-wep-decay-table).
+> Do NOT duplicate or override those numbers here.
+
+| Indicator Type | Example | T+7d | T+30d | T+90d | T+12m | T+term-end | T+EP-election |
+|---|---|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Procedural / calendar** | Committee vote date, rapporteur deadline, trilogue round | ✅ | ✅ | ⬜ | ⬜ | ⬜ | ⬜ |
+| **Coalition cohesion** | EPP/S&D alignment rate on roll-call votes | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
+| **Legislative pipeline** | Procedure stage, report adoption, trilogue conclusion | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
+| **Policy-position shift** | MEP speech-content pivot, amendment filing pattern | ✅ | ✅ | ✅ | ⬜ | ⬜ | ⬜ |
+| **National-government change** | Election results, coalition formation in MS | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Macro-economic signal** | IMF WEO growth revision, fiscal-deficit threshold | ⬜ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **EP-group composition drift** | Defection rate, new-member absorption pace | ⬜ | ⬜ | ✅ | ✅ | ✅ | ✅ |
+| **Presidential/Commission cycle** | Commission WP priorities, DG-level reshuffles | ⬜ | ⬜ | ✅ | ✅ | ✅ | ✅ |
+| **Electoral/polling signal** | Eurobarometer party-preference trend, national polling | ⬜ | ⬜ | ⬜ | ✅ | ✅ | ✅ |
+| **Spitzenkandidaten declared** | Lead-candidate announcement, party-congress endorsement | ⬜ | ⬜ | ⬜ | ✅ | ✅ | ✅ |
+| **Seat-projection model** | EP seat arithmetic based on national polls | ⬜ | ⬜ | ⬜ | ⬜ | ✅ | ✅ |
+| **Treaty-revision / IGC signal** | IGC announcement, Art. 48 TEU trigger | ⬜ | ⬜ | ⬜ | ⬜ | ✅ | ✅ |
+
+**Legend:** ✅ active (indicator retains predictive signal) | ⬜ decayed (signal below useful threshold at this horizon)
+```
+
+### Per-indicator horizon tagging
+
+When populating Section 3 (Indicator Detail Cards), **tag every indicator** with its active horizons using the `**Horizons:**` field (see card template in §3). This allows monitoring plans to silently retire indicators at their decay horizon rather than reporting stale signals.
+
+**Horizon tag examples:**
+- `rapporteur-deadline` → horizons: `7d / 30d`
+- `EPP-S&D alignment rate` → horizons: `7d / 30d / 90d`
+- `Spitzenkandidaten declared candidates` → horizons: `12m / term-end / EP-election`
+- `Eurobarometer party-preference trend` → horizons: `12m / term-end / EP-election`
+- `National-government election result` → horizons: `30d / 90d / 12m / term-end / EP-election`
+
+---
+
 ## 📋 Header Block
 
 ```markdown
@@ -71,6 +114,9 @@
 ### FI-{NNN}: {Indicator Name}
 
 **Category:** Political | Institutional | Policy | Electoral | External | Crisis
+
+**Horizons:** {comma-separated list from: 7d / 30d / 90d / 12m / term-end / EP-election}
+*(See Multi-Horizon Decay Table above for decay rules; canonical WEP bands per horizon in [forward-projection-methodology.md §3](../methodologies/forward-projection-methodology.md#3-wep-decay-table))*
 
 **Description:** {What this indicator measures and why it matters}
 
@@ -243,7 +289,9 @@ graph TB
 ## ✅ Quality Checklist
 
 - [ ] ≥10 indicators defined
-- [ ] Each indicator has all 7 structure fields
+- [ ] Each indicator has all 7 structure fields (including `**Horizons:**` tag)
+- [ ] Multi-Horizon Decay Table present in §Multi-Horizon Decay Table
+- [ ] Every indicator tagged with its active horizons (7d / 30d / 90d / 12m / term-end / EP-election)
 - [ ] Indicator categories balanced across Political/Institutional/Policy/Electoral/External/Crisis
 - [ ] Dashboard Mermaid shows all indicators with status
 - [ ] Scenario linkage explicit for each indicator
@@ -251,7 +299,14 @@ graph TB
 - [ ] EP MCP tool mapping complete
 - [ ] Historical context provided for key indicators
 - [ ] Thresholds evidence-based, not arbitrary
+- [ ] WEP bands referenced from [`forward-projection-methodology.md §3`](../methodologies/forward-projection-methodology.md#3-wep-decay-table) — NOT duplicated here
+
+## 🔗 Cross-References
+
+- [`../methodologies/forward-projection-methodology.md §3`](../methodologies/forward-projection-methodology.md#3-wep-decay-table) — **canonical WEP decay table** and horizon lattice (single source of truth)
+- [`scenario-forecast.md §0`](scenario-forecast.md) — long-horizon mode requirements; EP-election branches that this indicator set must support
+- [`../methodologies/electoral-domain-methodology.md §Part 6`](../methodologies/electoral-domain-methodology.md#part-6--forward-indicators-forward-indicatorsmd) — full methodology for this artifact
 
 ---
 
-*Template version 1.0 — EU Parliament Monitor Forward Indicators*
+*Template version 1.1 — EU Parliament Monitor Forward Indicators*
