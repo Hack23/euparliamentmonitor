@@ -147,20 +147,11 @@ describe('article-horizons registry — drift guard', () => {
       for (const artifact of cfg.mandatoryArtifacts) {
         // Extract the filename from the relative path (e.g. intelligence/synthesis-summary.md → synthesis-summary.md)
         const basename = path.basename(artifact);
-        // Some artifacts use a different naming convention:
-        // stakeholder-map.md → stakeholder-impact.md (the template uses a canonical name)
-        // Allow the artifact to either match directly or via common aliases
         const templatePath = path.join(templateDir, basename);
-        const aliasMap = {
-          'stakeholder-map.md': 'stakeholder-impact.md',
-          'threat-model.md': 'political-threat-landscape.md',
-        };
-        const resolvedName = aliasMap[basename] || basename;
-        const resolvedPath = path.join(templateDir, resolvedName);
-        const exists = fs.existsSync(templatePath) || fs.existsSync(resolvedPath);
+        const exists = fs.existsSync(templatePath);
         expect(
           exists,
-          `mandatoryArtifact "${artifact}" (slug=${cfg.slug}) does not resolve to a template: tried "${basename}" and "${resolvedName}" in analysis/templates/`,
+          `mandatoryArtifact "${artifact}" (slug=${cfg.slug}) does not resolve to a template: expected "${basename}" in analysis/templates/`,
         ).toBe(true);
       }
     }

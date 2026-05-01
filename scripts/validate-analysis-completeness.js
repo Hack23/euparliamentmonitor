@@ -991,36 +991,57 @@ function main() {
   if (horizonCfg && horizonCfg.electoralOverlay) {
     for (const famD of FAMILY_D_ARTIFACTS) {
       const absPath = path.join(runDir, famD);
+      const minLines = rules.perArtifactFloors?.[famD] ?? opts.minLines;
+      const existing = results.find((r) => r.relativePath === famD);
+      const alreadyTracked = Boolean(existing);
+
       if (!fs.existsSync(absPath)) {
-        // Only inject if not already in mandatory results
-        const alreadyTracked = results.some((r) => r.relativePath === famD);
         if (!alreadyTracked) {
           mergeSyntheticResult(results, {
             relativePath: famD,
             exists: false,
             lines: 0,
-            minLines: rules.perArtifactFloors?.[famD] ?? opts.minLines,
+            minLines,
             issues: ['missing', 'electoral-overlay:required'],
             warnings: [],
             mermaid: false,
             placeholders: [],
           });
-        } else {
-          // Already tracked as missing by the mandatory list — add context
-          const existing = results.find((r) => r.relativePath === famD);
-          if (existing && !existing.issues.includes('electoral-overlay:required')) {
-            existing.issues.push('electoral-overlay:required');
-          }
+        } else if (!existing.issues.includes('electoral-overlay:required')) {
+          // Already tracked as missing by the mandatory list — add context.
+          existing.issues.push('electoral-overlay:required');
         }
-      } else {
-        // Check if the artifact is below its floor — this is already done
-        // by validateArtifact for mandatory artifacts, but add the tag.
-        const existing = results.find((r) => r.relativePath === famD);
-        if (existing && existing.issues.length > 0) {
-          if (!existing.issues.includes('electoral-overlay:required')) {
-            existing.issues.push('electoral-overlay:required');
-          }
+        continue;
+      }
+
+      if (!alreadyTracked) {
+        // Artifact exists on disk but wasn't in the mandatory list — validate it
+        const content = fs.readFileSync(absPath, 'utf8');
+        const lines = countLines(content);
+        const issues = [];
+
+        if (lines < minLines) {
+          issues.push(`short:${lines}<${minLines}`);
         }
+        issues.push('electoral-overlay:required');
+
+        mergeSyntheticResult(results, {
+          relativePath: famD,
+          exists: true,
+          lines,
+          minLines,
+          issues,
+          warnings: [],
+          mermaid: hasMermaid(content),
+          placeholders: [],
+        });
+        continue;
+      }
+
+      // For already-validated mandatory artifacts, just add the overlay tag
+      // when there is already a blocking issue on the result.
+      if (existing.issues.length > 0 && !existing.issues.includes('electoral-overlay:required')) {
+        existing.issues.push('electoral-overlay:required');
       }
     }
   }

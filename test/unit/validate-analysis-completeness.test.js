@@ -7,7 +7,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
-import { getHorizonConfig, ARTICLE_HORIZONS } from '../../scripts/config/article-horizons.js';
+import { getHorizonConfig } from '../../scripts/config/article-horizons.js';
 
 const VALIDATOR = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -1473,8 +1473,8 @@ describe('scripts/validate-analysis-completeness.js', () => {
     it('returns RED when electoralOverlay is true but Family-D artifacts are missing', () => {
       // term-outlook has electoralOverlay: true in the registry
       // Provide all registry mandatory artifacts EXCEPT the Family-D ones
-      
       const cfg = getHorizonConfig('term-outlook');
+      expect(cfg).toBeDefined();
       const allMandatory = cfg.mandatoryArtifacts;
       const familyD = [
         'intelligence/seat-projection.md',
@@ -1530,8 +1530,8 @@ describe('scripts/validate-analysis-completeness.js', () => {
     it('returns RED when scenarioMaxHorizonMonths >= 36 and scenario-forecast lacks structural-break content', () => {
       // term-outlook has scenarioMaxHorizonMonths: 36
       // Write a minimal scenario-forecast without structural-break content
-      
       const cfg = getHorizonConfig('term-outlook');
+      expect(cfg).toBeDefined();
       const allMandatory = cfg.mandatoryArtifacts;
       const byDir = {};
       for (const a of allMandatory) {
@@ -1561,8 +1561,8 @@ describe('scripts/validate-analysis-completeness.js', () => {
     });
 
     it('passes when scenario-forecast contains structural-break content', () => {
-      
       const cfg = getHorizonConfig('term-outlook');
+      expect(cfg).toBeDefined();
       const allMandatory = cfg.mandatoryArtifacts;
       const byDir = {};
       for (const a of allMandatory) {
