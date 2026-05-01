@@ -737,18 +737,25 @@ function buildRules(thresholdsJson, articleType) {
     lhGateCfg.articleTypes.includes(articleType)
   ) {
     // Both artifact and minScenarios are required fields — do not silently
-    // default them; a malformed config should not bypass the gate.
-    if (
-      typeof lhGateCfg.artifact === 'string' &&
-      lhGateCfg.artifact.length > 0 &&
-      typeof lhGateCfg.minScenarios === 'number' &&
-      lhGateCfg.minScenarios > 0
-    ) {
-      longHorizonScenarioGate = {
-        artifact: lhGateCfg.artifact,
-        minScenarios: lhGateCfg.minScenarios,
-      };
+    // default them; a malformed config must fail Stage C instead of bypassing
+    // the gate for targeted article types.
+    const hasValidArtifact =
+      typeof lhGateCfg.artifact === 'string' && lhGateCfg.artifact.trim().length > 0;
+    const hasValidMinScenarios =
+      typeof lhGateCfg.minScenarios === 'number' && lhGateCfg.minScenarios > 0;
+
+    if (!hasValidArtifact || !hasValidMinScenarios) {
+      throw new Error(
+        `long-horizon-scenario-gate:invalid-config articleType=${articleType} ` +
+          'structuralRequirements.longHorizonScenarioGate must define a non-empty ' +
+          '`artifact` and a positive numeric `minScenarios` for targeted article types.',
+      );
     }
+
+    longHorizonScenarioGate = {
+      artifact: lhGateCfg.artifact.trim(),
+      minScenarios: lhGateCfg.minScenarios,
+    };
   }
 
   return {
@@ -856,7 +863,16 @@ function main() {
   }
 
   const thresholdsJson = loadThresholds(opts.thresholdsPath);
-  const rules = buildRules(thresholdsJson, articleType);
+  let rules;
+  try {
+    rules = buildRules(thresholdsJson, articleType);
+  } catch (err) {
+    process.stderr.write(`error: ${err.message}\n`);
+    process.stdout.write(
+      `STAGE_C_GATE: RED articleType=${articleType} missing=0 short=0 placeholders=0\n`,
+    );
+    process.exit(1);
+  }
 
   const manifestArtifacts = flattenManifestArtifacts(manifest);
   const onDisk = walkArtifacts(runDir);

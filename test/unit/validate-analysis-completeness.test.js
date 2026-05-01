@@ -1230,5 +1230,59 @@ describe('scripts/validate-analysis-completeness.js', () => {
       const result = runHere();
       expect(result.stderr).not.toMatch(/long-horizon-scenario-count/);
     });
+
+    it('exits 1 with invalid-config error when longHorizonScenarioGate targets articleType but has missing artifact', () => {
+      fs.writeFileSync(
+        thresholdsPath,
+        JSON.stringify({
+          thresholds: {},
+          tradecraftQualitySignals: {},
+          structuralRequirements: {
+            longHorizonScenarioGate: {
+              articleTypes: ['term-outlook'],
+              minScenarios: 6,
+              // artifact field intentionally omitted
+            },
+          },
+        }),
+        'utf8',
+      );
+      writeLongHorizonManifest('term-outlook');
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/scenario-forecast.md'),
+        makeScenarioForecast(6),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stderr).toMatch(/long-horizon-scenario-gate:invalid-config/);
+    });
+
+    it('exits 1 with invalid-config error when longHorizonScenarioGate targets articleType but minScenarios is zero', () => {
+      fs.writeFileSync(
+        thresholdsPath,
+        JSON.stringify({
+          thresholds: {},
+          tradecraftQualitySignals: {},
+          structuralRequirements: {
+            longHorizonScenarioGate: {
+              articleTypes: ['term-outlook'],
+              minScenarios: 0,
+              artifact: 'intelligence/scenario-forecast.md',
+            },
+          },
+        }),
+        'utf8',
+      );
+      writeLongHorizonManifest('term-outlook');
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/scenario-forecast.md'),
+        makeScenarioForecast(6),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stderr).toMatch(/long-horizon-scenario-gate:invalid-config/);
+    });
   });
 });

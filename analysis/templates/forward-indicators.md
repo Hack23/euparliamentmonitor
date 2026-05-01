@@ -289,9 +289,9 @@ graph TB
 ## ✅ Quality Checklist
 
 - [ ] ≥10 indicators defined
-- [ ] Each indicator has all 7 structure fields (including `**Horizons:**` tag)
+- [ ] Each indicator has all 8 structure fields (including required `**Horizons:**` tag)
 - [ ] Multi-Horizon Decay Table present in §Multi-Horizon Decay Table
-- [ ] Every indicator tagged with its active horizons (7d / 30d / 90d / 12m / term-end / EP-election)
+- [ ] Every indicator has the `**Horizons:**` field populated with its active horizons (7d / 30d / 90d / 12m / term-end / EP-election)
 - [ ] Indicator categories balanced across Political/Institutional/Policy/Electoral/External/Crisis
 - [ ] Dashboard Mermaid shows all indicators with status
 - [ ] Scenario linkage explicit for each indicator

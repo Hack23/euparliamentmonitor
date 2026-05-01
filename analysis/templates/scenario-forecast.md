@@ -1,9 +1,9 @@
-<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
-<!-- SPDX-License-Identifier: Apache-2.0 -->
-
 ---
 long-horizon-mode: false
 ---
+
+<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
 
 # 🔮 Scenario Forecast Template — Probability-Weighted Futures
 

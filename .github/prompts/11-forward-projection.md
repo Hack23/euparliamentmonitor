@@ -72,7 +72,7 @@ for the full specification. Key requirements in long-horizon mode:
 
 - **≥ 6 scenarios** are mandatory (enforced by Stage-C validator on `term-outlook`/`election-cycle`).
 - Mandatory **EP-election outcome branch** with three sub-paths: centre-right majority, centre-left majority, fragmented coalition.
-- At least **1 regime-change branch** when any tripwire from §2 is armed.
+- Mandatory **regime-change branch**; use tripwires from §2 to define and monitor the branch.
 - At least **2 wildcard/black-swan branches**.
 - Per-scenario WEP confidence band **drawn from the decay table** at [`forward-projection-methodology.md §3`](../../analysis/methodologies/forward-projection-methodology.md#3-wep-decay-table) — this is the **single source of truth** for horizon-conditional WEP numbers; do not copy the table into `scenario-forecast.md`.
 

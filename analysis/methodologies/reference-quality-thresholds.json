@@ -53,7 +53,7 @@
       "articleTypes": ["term-outlook", "election-cycle"],
       "minScenarios": 6,
       "artifact": "intelligence/scenario-forecast.md",
-      "note": "Enforced by scripts/validate-analysis-completeness.js countScenarios(). Counts headings matching /^###\\s+Scenario\\s+\\d+[:—]/m in the artifact. Activated for articleTypes listed above (electoralOverlay===true OR scenarioMaxHorizonMonths>=36 in article-horizons registry)."
+      "note": "Enforced by scripts/validate-analysis-completeness.js countScenarios(). Counts all headings matching /^###\\s+Scenario\\s+[A-Z0-9]+[:—]/gm in the artifact. Activated for articleTypes listed above (electoralOverlay===true OR scenarioMaxHorizonMonths>=36 in article-horizons registry)."
     },
     "mermaidRequired": [
       "classification/impact-matrix.md",
