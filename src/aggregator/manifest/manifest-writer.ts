@@ -51,21 +51,28 @@ export function buildHorizonProfile(articleType: string | undefined): HorizonPro
 
 /**
  * Return a copy of the manifest with `horizonProfile` populated from the
- * article-horizons registry. No-op (returns the manifest unchanged) when:
- *   - the manifest has no resolvable article type, OR
- *   - the slug is legacy / unknown (no registry entry).
+ * article-horizons registry.
  *
- * The function is pure — the input manifest is never mutated. Callers that
- * need to overwrite an existing `horizonProfile` should pass `{ overwrite:
- * true }`; the default keeps a manifest-supplied value (rare, but allowed
- * for forward-compat).
+ * Behaviour matrix:
+ *   - Slug resolves to a registry entry → `horizonProfile` is set from
+ *     {@link buildHorizonProfile}.
+ *   - Slug is legacy / unknown (no registry entry) AND `overwrite` is
+ *     `true` → any existing `horizonProfile` is **stripped** so the
+ *     "absent for unknown slugs" invariant holds even when the registry
+ *     evolves (e.g. a slug is removed) or a manifest carries a stale
+ *     value from a previous registry version.
+ *   - Slug is legacy / unknown AND `overwrite` is `false` → no-op.
+ *   - An existing `horizonProfile` is present AND `overwrite` is `false`
+ *     → no-op (forward-compat: respect a manifest-supplied value).
+ *
+ * The function is pure — the input manifest is never mutated.
  *
  * @param manifest - Manifest to enrich.
  * @param options - Behaviour options.
- * @param options.overwrite - When `true`, replaces any existing
- *                            `horizonProfile`. Default `false`.
- * @returns A new manifest with `horizonProfile` set, or the original
- *          manifest reference when no enrichment applies.
+ * @param options.overwrite - When `true`, replaces (or strips) any
+ *                            existing `horizonProfile`. Default `false`.
+ * @returns A new manifest with `horizonProfile` set or removed, or the
+ *          original manifest reference when no change applies.
  */
 export function applyHorizonProfile(
   manifest: Manifest,
@@ -75,7 +82,17 @@ export function applyHorizonProfile(
 
   const articleType = resolveArticleType(manifest);
   const profile = buildHorizonProfile(articleType);
-  if (!profile) return manifest;
+
+  if (!profile) {
+    // Slug is legacy / unknown. With overwrite=true we must actively
+    // strip any stale `horizonProfile` to honour the documented
+    // "absent for unknown slugs" invariant.
+    if (options.overwrite && manifest.horizonProfile) {
+      const { horizonProfile: _stale, ...rest } = manifest;
+      return rest as Manifest;
+    }
+    return manifest;
+  }
 
   return { ...manifest, horizonProfile: profile };
 }

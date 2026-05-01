@@ -135,6 +135,26 @@ describe('applyHorizonProfile', () => {
     const result = applyHorizonProfile(manifest, { overwrite: true });
     expect(result.horizonProfile).toEqual({ horizonDays: 30, electoralOverlay: false });
   });
+
+  it('strips a stale horizonProfile when overwrite=true and slug is unknown', () => {
+    const manifest = {
+      articleType: 'legacy-removed-slug',
+      horizonProfile: { horizonDays: 999, electoralOverlay: true },
+    };
+    const result = applyHorizonProfile(manifest, { overwrite: true });
+    expect(result).not.toBe(manifest);
+    expect('horizonProfile' in result).toBe(false);
+    // input is not mutated
+    expect(manifest.horizonProfile).toEqual({ horizonDays: 999, electoralOverlay: true });
+  });
+
+  it('keeps a stale horizonProfile when overwrite=false (default forward-compat)', () => {
+    const stale = { horizonDays: 999, electoralOverlay: true };
+    const manifest = { articleType: 'legacy-removed-slug', horizonProfile: stale };
+    const result = applyHorizonProfile(manifest);
+    expect(result).toBe(manifest);
+    expect(result.horizonProfile).toBe(stale);
+  });
 });
 
 describe('mergeManifestHistory — horizonProfile enrichment', () => {
@@ -198,6 +218,29 @@ describe('mergeManifestHistory — horizonProfile enrichment', () => {
     // top-level fields preserved
     expect(parsed.articleType).toBe('legacy-mystery');
     expect(parsed.history).toHaveLength(1);
+  });
+
+  it('strips a stale horizonProfile when the slug becomes unknown', () => {
+    const manifestPath = path.join(tempDir, 'manifest.json');
+    fs.writeFileSync(
+      manifestPath,
+      JSON.stringify({
+        articleType: 'legacy-removed-slug',
+        // Stale value from before the slug was removed from the registry.
+        horizonProfile: { horizonDays: 999, electoralOverlay: true },
+      })
+    );
+    mergeManifestHistory(manifestPath, {
+      runId: 'run-1',
+      startedAt: '2026-04-22T10:00:00Z',
+      finishedAt: '2026-04-22T10:30:00Z',
+      gateResult: 'PENDING',
+      filesWritten: [],
+    });
+    const parsed = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+    // Stale profile must be gone — invariant: absent for unknown slugs.
+    expect('horizonProfile' in parsed).toBe(false);
+    expect(parsed.articleType).toBe('legacy-removed-slug');
   });
 
   it('refreshes a stale horizonProfile on subsequent merges (overwrite semantics)', () => {
