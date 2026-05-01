@@ -72,7 +72,7 @@ const PLACEHOLDER_PATTERNS = [
 ];
 
 const WEP_BAND_RE =
-  /\b(Almost Certain|Highly Likely|Likely|Roughly Even|Even Chance|Unlikely|Highly Unlikely|Almost No Chance|WEP\s*:)\b/i;
+  /\b(Almost Certain|Highly Likely|Likely|Roughly Even|Even Chance|About even|Unlikely|Highly Unlikely|Almost No Chance|WEP\s*:)\b/i;
 
 const ADMIRALTY_RE = /(^|[\s|`(])([A-F][1-6])([\s|`)]|$)/;
 
@@ -647,24 +647,102 @@ function mergeUnique(left, right) {
   return [...new Set([...(left || []), ...(right || [])])];
 }
 
-function mergeForwardRegistryResult(results, forwardRegistryResult) {
-  if (!forwardRegistryResult) return;
+function mergeSyntheticResult(results, syntheticResult) {
+  if (!syntheticResult) return;
 
   const existingResultIndex = results.findIndex(
-    (result) => result.relativePath === forwardRegistryResult.relativePath,
+    (result) => result.relativePath === syntheticResult.relativePath,
   );
 
   if (existingResultIndex >= 0) {
     const existingResult = results[existingResultIndex];
     results[existingResultIndex] = {
       ...existingResult,
-      issues: mergeUnique(existingResult.issues, forwardRegistryResult.issues),
-      warnings: mergeUnique(existingResult.warnings, forwardRegistryResult.warnings),
+      issues: mergeUnique(existingResult.issues, syntheticResult.issues),
+      warnings: mergeUnique(existingResult.warnings, syntheticResult.warnings),
     };
     return;
   }
 
-  results.push(forwardRegistryResult);
+  results.push(syntheticResult);
+}
+
+/**
+ * Return the portion of a scenario-forecast artifact that should contribute
+ * to the scenario-count gate.
+ *
+ * Worked examples in the template may contain `### Scenario ...` headings
+ * that must not satisfy the minimum authored-scenarios requirement, so
+ * everything from the first `## ... Worked example` H2 onwards is excluded.
+ */
+function getScenarioCountableContent(content) {
+  const workedExampleHeader = /^##\s+.*Worked example\b.*$/im;
+  const match = workedExampleHeader.exec(content);
+  if (!match || typeof match.index !== 'number') {
+    return content;
+  }
+  return content.slice(0, match.index);
+}
+
+/**
+ * Count the number of scenario headings in a scenario-forecast artifact.
+ * Matches authored `### Scenario N:` and `### Scenario N —` patterns and
+ * also supports hyphen-separated alphanumeric identifiers such as `A-24`.
+ * Underscore-containing identifiers are still excluded to avoid false
+ * positives. Headings in the worked-example section are ignored.
+ */
+function countScenarios(content) {
+  const countableContent = getScenarioCountableContent(content);
+
+  // Match "### Scenario 1:", "### Scenario A —", or "### Scenario A-24 —"
+  // while rejecting underscore-containing identifiers.
+  const re = /^###\s+Scenario\s+[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*\s*[:—]/gm;
+  const matches = countableContent.match(re);
+  return matches ? matches.length : 0;
+}
+
+/**
+ * Validate the long-horizon scenario-count gate.
+ *
+ * When the article type is in `longHorizonScenarioGate.articleTypes`,
+ * `intelligence/scenario-forecast.md` MUST contain at least
+ * `longHorizonScenarioGate.minScenarios` scenario headings.
+ * Returns a synthetic result object if the gate fires, or null if it passes.
+ */
+function validateLongHorizonScenarioGate(runDir, rules) {
+  if (!rules.longHorizonScenarioGate) return null;
+  const { artifact, minScenarios } = rules.longHorizonScenarioGate;
+
+  // Reject absolute paths or path-traversal segments to prevent reading
+  // arbitrary files outside runDir.
+  if (path.isAbsolute(artifact) || artifact.includes('..')) {
+    throw new Error(
+      `long-horizon-scenario-gate:invalid-config artifact="${artifact}" ` +
+        'must be a relative path without ".." segments.'
+    );
+  }
+  const absPath = path.resolve(runDir, artifact);
+  if (!absPath.startsWith(path.resolve(runDir) + path.sep)) {
+    throw new Error(
+      `long-horizon-scenario-gate:invalid-config artifact="${artifact}" ` +
+        'resolves outside runDir.'
+    );
+  }
+  if (!fs.existsSync(absPath)) return null; // already caught as missing artifact
+  const content = fs.readFileSync(absPath, 'utf8');
+  const count = countScenarios(content);
+  if (count >= minScenarios) return null; // gate passes
+
+  return {
+    relativePath: artifact,
+    exists: true,
+    lines: countLines(content),
+    minLines: 0,
+    issues: [`long-horizon-scenario-count:${count}<${minScenarios}`],
+    warnings: [],
+    mermaid: hasMermaid(content),
+    placeholders: [],
+  };
 }
 
 function buildRules(thresholdsJson, articleType) {
@@ -678,12 +756,43 @@ function buildRules(thresholdsJson, articleType) {
     satDocumentationRequired: [],
     readerBlockRequired: [],
     sourceDiversityRequired: [],
+    longHorizonScenarioGate: null,
   };
   if (!thresholdsJson) return empty;
 
   const perArtifactFloors = thresholdsJson.thresholds?.[articleType] || {};
   const tradecraft = thresholdsJson.tradecraftQualitySignals || {};
   const structural = thresholdsJson.structuralRequirements || {};
+
+  // Load long-horizon scenario gate config from JSON if present.
+  const lhGateCfg = structural.longHorizonScenarioGate || null;
+  let longHorizonScenarioGate = null;
+  if (
+    lhGateCfg &&
+    Array.isArray(lhGateCfg.articleTypes) &&
+    lhGateCfg.articleTypes.includes(articleType)
+  ) {
+    // Both artifact and minScenarios are required fields — do not silently
+    // default them; a malformed config must fail Stage C instead of bypassing
+    // the gate for targeted article types.
+    const hasValidArtifact =
+      typeof lhGateCfg.artifact === 'string' && lhGateCfg.artifact.trim().length > 0;
+    const hasValidMinScenarios =
+      typeof lhGateCfg.minScenarios === 'number' && lhGateCfg.minScenarios > 0;
+
+    if (!hasValidArtifact || !hasValidMinScenarios) {
+      throw new Error(
+        `long-horizon-scenario-gate:invalid-config articleType=${articleType} ` +
+          'structuralRequirements.longHorizonScenarioGate must define a non-empty ' +
+          '`artifact` and a positive numeric `minScenarios` for targeted article types.',
+      );
+    }
+
+    longHorizonScenarioGate = {
+      artifact: lhGateCfg.artifact.trim(),
+      minScenarios: lhGateCfg.minScenarios,
+    };
+  }
 
   return {
     perArtifactFloors,
@@ -695,6 +804,7 @@ function buildRules(thresholdsJson, articleType) {
     satDocumentationRequired: tradecraft.satDocumentationRequired || [],
     readerBlockRequired: structural.readerBlockRequired || [],
     sourceDiversityRequired: structural.sourceDiversityRequired || [],
+    longHorizonScenarioGate,
   };
 }
 
@@ -789,7 +899,16 @@ function main() {
   }
 
   const thresholdsJson = loadThresholds(opts.thresholdsPath);
-  const rules = buildRules(thresholdsJson, articleType);
+  let rules;
+  try {
+    rules = buildRules(thresholdsJson, articleType);
+  } catch (err) {
+    process.stderr.write(`error: ${err.message}\n`);
+    process.stdout.write(
+      `STAGE_C_GATE: RED articleType=${articleType} missing=0 short=0 placeholders=0\n`,
+    );
+    process.exit(1);
+  }
 
   const manifestArtifacts = flattenManifestArtifacts(manifest);
   const onDisk = walkArtifacts(runDir);
@@ -801,7 +920,32 @@ function main() {
   );
 
   const forwardRegistryResult = validateForwardStatementsRegistryCoverage(runDir, articleType);
-  mergeForwardRegistryResult(results, forwardRegistryResult);
+  mergeSyntheticResult(results, forwardRegistryResult);
+
+  // ── Long-horizon scenario-count gate ─────────────────────────────────────
+  // For term-outlook and election-cycle article types, scenario-forecast.md
+  // MUST contain >= 6 scenario headings. See analysis/templates/scenario-forecast.md
+  // §0 and analysis/methodologies/reference-quality-thresholds.json
+  // structuralRequirements.longHorizonScenarioGate.
+  try {
+    const longHorizonScenarioResult = validateLongHorizonScenarioGate(runDir, rules);
+    if (longHorizonScenarioResult) {
+      mergeSyntheticResult(results, longHorizonScenarioResult);
+    }
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : String(error);
+    mergeSyntheticResult(results, {
+      relativePath: 'intelligence/scenario-forecast.md',
+      exists: false,
+      lines: 0,
+      minLines: 0,
+      issues: [`long-horizon-scenario-gate:error — ${message}`],
+      warnings: [],
+      mermaid: false,
+      placeholders: [],
+    });
+  }
 
   // ── Re-run improve/extend enforcement ────────────────────────────────────
   // Detect whether this is a re-run of an existing same-day analysis by
