@@ -1,0 +1,75 @@
+{
+  "articleType": "motions",
+  "date": "2026-05-01",
+  "runId": "motions-run-1777618418",
+  "gateResult": "ANALYSIS_ONLY",
+  "gateReason": "elapsed-time tripwire at minute 22; reserve remaining budget for Stage D+E PR-call deadline",
+  "pass2": {
+    "startedAt": "2026-05-01T00:18:00Z",
+    "endedAt": "2026-05-01T00:20:00Z",
+    "rewriteCount": 6
+  },
+  "imf": {
+    "available": false,
+    "degradedMode": true,
+    "waiver": "motions type — IMF economic data not required"
+  },
+  "files": {
+    "executiveBrief": "executive-brief.md",
+    "classification": {
+      "significanceClassification": "classification/significance-classification.md",
+      "actorMapping": "classification/actor-mapping.md",
+      "forcesAnalysis": "classification/forces-analysis.md",
+      "impactMatrix": "classification/impact-matrix.md"
+    },
+    "threatAssessment": {
+      "politicalThreatLandscape": "threat-assessment/political-threat-landscape.md",
+      "actorThreatProfiles": "threat-assessment/actor-threat-profiles.md",
+      "consequenceTrees": "threat-assessment/consequence-trees.md",
+      "legislativeDisruption": "threat-assessment/legislative-disruption.md"
+    },
+    "riskScoring": {
+      "riskMatrix": "risk-scoring/risk-matrix.md",
+      "quantitativeSwot": "risk-scoring/quantitative-swot.md",
+      "politicalCapitalRisk": "risk-scoring/political-capital-risk.md",
+      "legislativeVelocityRisk": "risk-scoring/legislative-velocity-risk.md"
+    },
+    "intelligence": {
+      "pestleAnalysis": "intelligence/pestle-analysis.md",
+      "stakeholderMap": "intelligence/stakeholder-map.md",
+      "scenarioForecast": "intelligence/scenario-forecast.md",
+      "economicContext": "intelligence/economic-context.md",
+      "coalitionDynamics": "intelligence/coalition-dynamics.md",
+      "synthesisSummary": "intelligence/synthesis-summary.md",
+      "mcpReliabilityAudit": "intelligence/mcp-reliability-audit.md",
+      "methodologyReflection": "intelligence/methodology-reflection.md",
+      "votingPatterns": "intelligence/voting-patterns.md",
+      "analysisIndex": "intelligence/analysis-index.md",
+      "historicalBaseline": "intelligence/historical-baseline.md",
+      "crossSessionIntelligence": "intelligence/cross-session-intelligence.md",
+      "wildcardsBlackswans": "intelligence/wildcards-blackswans.md",
+      "threatModel": "intelligence/threat-model.md",
+      "workflowAudit": "intelligence/workflow-audit.md",
+      "sessionBaseline": "intelligence/session-baseline.md",
+      "referenceAnalysisQuality": "intelligence/reference-analysis-quality.md"
+    },
+    "existing": {
+      "stakeholderImpact": "existing/stakeholder-impact.md",
+      "votingPatterns": "existing/voting-patterns.md",
+      "deepAnalysis": "existing/deep-analysis.md",
+      "sessionBaseline": "existing/session-baseline.md"
+    },
+    "data": {
+      "politicalLandscape": "data/political-landscape.json"
+    }
+  },
+  "history": [
+    {
+      "runId": "motions-run-1777618418",
+      "startedAt": "2026-05-01T00:00:00Z",
+      "completedAt": "2026-05-01T00:22:00Z",
+      "artifactsProduced": 33,
+      "gateResult": "ANALYSIS_ONLY"
+    }
+  ]
+}
