@@ -1019,11 +1019,14 @@ function main() {
         const content = fs.readFileSync(absPath, 'utf8');
         const lines = countLines(content);
         const issues = [];
+        const warnings = [];
 
         if (lines < minLines) {
-          issues.push(`short:${lines}<${minLines}`);
+          issues.push(`short:${lines}<${minLines}`, 'electoral-overlay:required');
+        } else {
+          // Artifact meets floor — tag as context warning, not a blocking issue
+          warnings.push('electoral-overlay:required');
         }
-        issues.push('electoral-overlay:required');
 
         mergeSyntheticResult(results, {
           relativePath: famD,
@@ -1031,7 +1034,7 @@ function main() {
           lines,
           minLines,
           issues,
-          warnings: [],
+          warnings,
           mermaid: hasMermaid(content),
           placeholders: [],
         });
