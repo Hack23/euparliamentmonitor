@@ -1,6 +1,6 @@
 {
   "name": "euparliamentmonitor",
-  "version": "0.8.52",
+  "version": "0.8.53",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
   "main": "scripts/index.js",
@@ -131,7 +131,7 @@
   },
   "homepage": "https://euparliamentmonitor.com",
   "devDependencies": {
-    "@axe-core/playwright": "4.11.2",
+    "@axe-core/playwright": "4.11.3",
     "@eslint/js": "10.0.1",
     "@playwright/test": "1.59.1",
     "@types/d3": "7.4.3",
@@ -145,7 +145,7 @@
     "chart.js": "4.5.1",
     "chartjs-plugin-annotation": "3.1.0",
     "d3": "7.9.0",
-    "eslint": "10.2.1",
+    "eslint": "10.3.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-jsdoc": "62.9.0",
     "eslint-plugin-security": "4.0.0",

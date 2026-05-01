@@ -45,15 +45,21 @@ The project uses **agentic workflow markdown files** (`.md`) that are compiled t
 
 #### Unified workflows (8 article types)
 
-The repository contains **8 unified agentic workflows** for automated news article generation. Each workflow follows the 5-stage pipeline (Data → Analysis → Completeness Gate → Article → Single PR) and produces one PR per run containing both analysis artifacts and rendered article HTML.
+The repository contains **14 unified agentic workflows** for automated news article generation. Each workflow follows the 5-stage pipeline (Data → Analysis → Completeness Gate → Article → Single PR) and produces one PR per run containing both analysis artifacts and rendered article HTML.
 
 | Workflow (`.md`) | Article Type Slug | Schedule (UTC) | Trigger |
 |---|---|---|---|
 | [`news-breaking.md`](news-breaking.md) | `breaking` | Every 6 hours (`0 */6 * * *`) | Schedule + manual |
 | [`news-week-in-review.md`](news-week-in-review.md) | `week-in-review` | Saturdays 09:00 (`0 9 * * 6`) | Schedule + manual |
 | [`news-month-in-review.md`](news-month-in-review.md) | `month-in-review` | 28th of each month 10:00 (`0 10 28 * *`) | Schedule + manual |
+| [`news-quarter-in-review.md`](news-quarter-in-review.md) | `quarter-in-review` | 5th of each month 08:00 (`0 8 5 * *`) | Schedule + manual |
+| [`news-year-in-review.md`](news-year-in-review.md) | `year-in-review` | Mid-Jan annual (`0 8 15 1 *`) | Schedule + manual |
 | [`news-week-ahead.md`](news-week-ahead.md) | `week-ahead` | Fridays 07:00 (`0 7 * * 5`) | Schedule + manual |
 | [`news-month-ahead.md`](news-month-ahead.md) | `month-ahead` | 1st of each month 08:00 (`0 8 1 * *`) | Schedule + manual |
+| [`news-quarter-ahead.md`](news-quarter-ahead.md) | `quarter-ahead` | 1st of each month 08:00 (`0 8 1 * *`) | Schedule + manual |
+| [`news-year-ahead.md`](news-year-ahead.md) | `year-ahead` | Quarterly (`0 8 2 1,4,7,10 *`) | Schedule + manual |
+| [`news-term-outlook.md`](news-term-outlook.md) | `term-outlook` | Semi-annual (`0 8 1 1,7 *`) | Schedule + manual |
+| [`news-election-cycle.md`](news-election-cycle.md) | `election-cycle` | Annual December (`0 8 1 12 *`) + manual | Schedule + manual |
 | [`news-committee-reports.md`](news-committee-reports.md) | `committee-reports` | Weekdays 04:00 (`0 4 * * 1-5`) | Schedule + manual |
 | [`news-motions.md`](news-motions.md) | `motions` | Weekdays 06:00 (`0 6 * * 1-5`) | Schedule + manual |
 | [`news-propositions.md`](news-propositions.md) | `propositions` | Weekdays 05:00 (`0 5 * * 1-5`) | Schedule + manual |

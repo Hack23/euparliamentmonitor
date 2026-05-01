@@ -182,7 +182,31 @@ updated analysis.
 | Workflow family | Stage B1→B2 tripwire | Stage C exit tripwire | PR-call deadline |
 |----------|:------------------------------------:|:--------------------:|:----------------:|
 | Every unified `news-<type>.md` (all article types — today, 7-day, and 30-day windows) | **minute 16** — stop Pass 1, begin Pass 2 even if Pass 1 is incomplete; degraded artifacts > skipped Pass 2 | **minute 22** | **≤ minute 25** (target ≤ 22) |
+| Long-horizon prospective (quarter-ahead, year-ahead, term-outlook) | **minute 19** — extended B1 for larger artifact sets | **minute 24** | **≤ minute 28** (target ≤ 25) |
+| Electoral-overlay (election-cycle) | **minute 23** — maximum B1 budget (B: 18 min per registry) | **minute 27** | **≤ minute 28** (target ≤ 25) |
+| Long-horizon retrospective (quarter-in-review, year-in-review) | **minute 18** — slightly extended for cross-term analysis | **minute 23** | **≤ minute 26** (target ≤ 23) |
 | Translation helper (`news-translate.md`) | No Stage B | N/A (multi-call flush, exempt from single-PR rule) | N/A |
+
+### Multi-Horizon Stage Budget Summary (`src/config/article-horizons.ts` is authoritative)
+
+Exact per-slug stage budgets are defined in the `article-horizons.ts`
+registry and MUST be treated as the source of truth. The table below is an
+approximate planning summary only; if any row conflicts with the registry,
+follow the registry for the specific slug.
+
+| Representative budget pattern | Stage A | Stage B | Stage C | Stage D | Stage E | Total |
+|-------------------------------|:-------:|:-------:|:-------:|:-------:|:-------:|:-----:|
+| **Standard prospective examples** (`week-ahead`, `month-ahead`) | 5 | 14 | 3 | 2 | 1 | 25 |
+| **Standard retrospective examples** (`week-in-review`, `month-in-review`) | 4 | 14 | 3 | 2 | 1 | 24 |
+| **Extended prospective examples** (some longer-range forward-looking slugs) | 5 | 15 | 3 | 2 | 1 | 26 |
+| **Extended analysis / overlay examples** (some deep-dive or election-related slugs) | 5 | 18 | 3 | 2 | 1 | 29 |
+
+All workflows enforce a hard 45-minute `timeout-minutes` cap. Unused budget
+is NOT redistributed — the agent exits cleanly after shipping the PR.
+Long-horizon or deep-analysis workflows may get extended B1 windows because
+they produce additional mandatory artifacts (see §1b Family-D +
+forward-projection set). Always verify the exact slug budget in
+`src/config/article-horizons.ts` before treating a grouped example as exact.
 
 ### Stage B Sub-stage Budget (Pass 1 / Pass 2 split)
 
@@ -284,6 +308,39 @@ analysis before the aggregator writes `${ANALYSIS_DIR}/article.md` and `news/**`
 - Evidence citations in ≥ 80 % of paragraphs.
 - Confidence level (🟢/🟡/🔴) on every aggregate finding.
 - Cross-references between artifacts.
+
+### Pass-2 Readback Rules for Long-Horizon Scenarios (≥90-day horizons)
+
+When the article type has a data window ≥ 90 days (per
+`src/config/article-horizons.ts`), Pass 2 readback applies additional gates:
+
+1. **Scenario floor enforcement:** `intelligence/scenario-forecast.md` MUST
+   contain **≥ 6 distinct scenarios** for `term-outlook` and `election-cycle`
+   article types: 1 mainline scenario + 2 adjacent scenarios + 1
+   regime-change branch + 2 wildcard/black-swan scenarios (= 6 minimum).
+   Fewer than 6 on a long-horizon run triggers a Pass 2 rewrite of the
+   scenario artifact.
+
+2. **Structural-break section non-empty:** For any horizon ≥ 12 months,
+   `intelligence/scenario-forecast.md` MUST have a non-empty
+   `## Structural-Break Detection` section listing at least one tripwire
+   evaluation (even if all tripwires are currently inactive). See
+   [`forward-projection-methodology.md` §4](../../analysis/methodologies/forward-projection-methodology.md).
+
+3. **WEP decay compliance:** Every forward-looking probability judgment in
+   `intelligence/forward-projection.md` must carry a WEP band appropriate to
+   its horizon (per the canonical decay table in
+   [`forward-projection-methodology.md` §3](../../analysis/methodologies/forward-projection-methodology.md)).
+   Pass 2 must verify no evasion to "About even" at short horizons where
+   tighter bands are required.
+
+4. **Carry-forward hygiene:** For re-runs on the same day/type, every
+   forward-statement carried from a prior run must be resolved as
+   `implemented`, `superseded`, `stale`, or explicitly `extended`. More than
+   2 unresolved expired items on a ≥ 90-day horizon requires Pass-2 cleanup
+   and, if still present after readback, must be called out as maintainer
+   hygiene for manual Stage-C review rather than assumed as an automatic RED
+   validator gate.
 
 ## 5 · Reference-Quality Depth (seven deep-intelligence artifacts)
 

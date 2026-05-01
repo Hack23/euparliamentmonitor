@@ -312,6 +312,7 @@ prose pass.
 
 ## 🎯 Article-Type Specifics
 
+- Long-horizon stage helpers: see [`.github/prompts/10-horizon-stage-helpers.md`](../prompts/10-horizon-stage-helpers.md) for the registry-driven Stage-A/B/C contract.
 - Cross-reference prior week-ahead predictions — confirm or refute forward statements.
 - Include `intelligence/historical-baseline.md` + `risk-scoring/risk-matrix.md` in the analysis set.
 
