@@ -15,7 +15,7 @@
  * Reference: analysis/methodologies/forward-projection-methodology.md §5
  *
  * Output schema per processId:
- *   { stage, p10Days, p50Days, p90Days, sampleSize, methodologyVersion }
+ *   { stage, remainingStages: { <stageName>: { p10Days, p50Days, p90Days, sampleSize } }, methodologyVersion }
  *
  * CLI:
  *   node scripts/aggregator/pipeline-transit-model.js \
@@ -79,7 +79,7 @@ export const BASE_RATE_PRIORS = {
 };
 
 /** Ordered pipeline stages. */
-export const STAGES = ['committee', 'plenary', 'trilogue', 'adoption'];
+export const STAGES = Object.freeze(['committee', 'plenary', 'trilogue', 'adoption']);
 
 // ---------------------------------------------------------------------------
 // Seeded PRNG (Mulberry32) — deterministic when --seed provided
@@ -157,6 +157,10 @@ export function inferCurrentStage(proc) {
 
 /**
  * Extract stage-transition durations from historical procedures.
+ * Only records true stage transitions (where prevStage !== currStage) and
+ * attributes the duration (time spent) to the **source** stage — i.e., the
+ * time a procedure stayed in `prevStage` before advancing to `currStage`.
+ *
  * Returns an object keyed by stage with arrays of { days, weight }.
  *
  * @param {object[]} procedures - Array of procedure objects
@@ -190,20 +194,31 @@ export function extractTransitionDurations(procedures, votingRecords, asOf) {
 
     if (sorted.length < 2) continue;
 
-    // Identify stage transitions
-    for (let i = 1; i < sorted.length; i++) {
-      const prev = sorted[i - 1];
-      const curr = sorted[i];
+    // Classify each event's stage
+    const classified = sorted.map((e) => ({
+      ...e,
+      stage: classifyEventStage(e.text),
+    }));
+
+    // Only record transitions where the stage actually changes.
+    // Attribute duration to the SOURCE stage (time spent there before advancing).
+    for (let i = 1; i < classified.length; i++) {
+      const prev = classified[i - 1];
+      const curr = classified[i];
+
+      // Both events must be classifiable and represent different stages
+      if (!prev.stage || !curr.stage) continue;
+      if (prev.stage === curr.stage) continue;
+
       const daysDiff = Math.max(1, Math.round((curr.date - prev.date) / (24 * 60 * 60 * 1000)));
 
       // Age-weighting: events within trailing 24 months get higher weight
       const ageMs = refTime - curr.date.getTime();
       const weight = ageMs <= RECENT_WINDOW_MS ? RECENT_WEIGHT : ageMs <= 2 * RECENT_WINDOW_MS ? OLDER_WEIGHT : STALE_WEIGHT;
 
-      // Classify transition by destination stage
-      const stage = classifyEventStage(curr.text);
-      if (stage && daysDiff > 0 && daysDiff < MAX_STAGE_DURATION_DAYS) {
-        durations[stage].push({ days: daysDiff, weight });
+      // Duration is attributed to the source stage
+      if (daysDiff > 0 && daysDiff < MAX_STAGE_DURATION_DAYS) {
+        durations[prev.stage].push({ days: daysDiff, weight });
       }
     }
   }
@@ -326,14 +341,14 @@ export function monteCarloStage(samples, rng) {
 
 /**
  * Compute transit-time priors for all active procedures.
- * Uses per-procedure RNG derived from (seed, processId) so output is
- * stable regardless of input array ordering.
+ * Precomputes stage percentiles once (shared across all procedures) and
+ * outputs priors for all remaining stages from currentStage onward.
  *
  * @param {object[]} procedures - Procedure objects
  * @param {object[]} votingRecords - Voting record objects
  * @param {number|null} seed - Optional seed for deterministic runs
  * @param {number|null} asOf - Optional reference timestamp (ms) for age-weighting; defaults to max date in dataset
- * @returns {Record<string, object>} Map from processId to forecast per stage
+ * @returns {Record<string, object>} Map from processId to forecast with all remaining stages
  */
 export function computeTransitModel(procedures, votingRecords, seed, asOf) {
   const baseSeed = seed != null ? seed : Date.now();
@@ -342,40 +357,47 @@ export function computeTransitModel(procedures, votingRecords, seed, asOf) {
   const refTime = asOf != null ? asOf : deriveAsOfFromData(procedures, votingRecords);
 
   const durations = extractTransitionDurations(procedures, votingRecords, refTime);
+
+  // Precompute stage percentiles once — shared across all procedures in each stage.
+  // Uses a single RNG per stage (derived from baseSeed + stage name) so results are
+  // deterministic and independent of procedure count/ordering.
+  const stagePercentiles = {};
+  for (const stage of STAGES) {
+    const stageSeed = deriveProcedureSeed(baseSeed, `__stage__${stage}`);
+    const stageRng = mulberry32(stageSeed);
+    const mcResult = monteCarloStage(durations[stage], stageRng);
+    if (mcResult) {
+      stagePercentiles[stage] = mcResult;
+    } else {
+      // Base-rate fallback
+      stagePercentiles[stage] = {
+        p10Days: BASE_RATE_PRIORS[stage].p10Days,
+        p50Days: BASE_RATE_PRIORS[stage].p50Days,
+        p90Days: BASE_RATE_PRIORS[stage].p90Days,
+        sampleSize: durations[stage] ? durations[stage].length : 0,
+      };
+    }
+  }
+
   const output = {};
 
   for (const proc of procedures) {
     const processId = proc.processId || proc.id || proc.reference || 'unknown';
     const currentStage = inferCurrentStage(proc);
+    const stageIdx = STAGES.indexOf(currentStage);
 
-    // Per-procedure RNG ensures output is independent of input ordering
-    const procSeed = deriveProcedureSeed(baseSeed, processId);
-    const rng = mulberry32(procSeed);
-
-    // Only simulate the current stage (no need for downstream stages in output)
-    const currentSamples = durations[currentStage];
-    const mcResult = monteCarloStage(currentSamples, rng);
-
-    if (mcResult) {
-      output[processId] = {
-        stage: currentStage,
-        p10Days: mcResult.p10Days,
-        p50Days: mcResult.p50Days,
-        p90Days: mcResult.p90Days,
-        sampleSize: mcResult.sampleSize,
-        methodologyVersion: METHODOLOGY_VERSION,
-      };
-    } else {
-      // Base-rate fallback
-      output[processId] = {
-        stage: currentStage,
-        p10Days: BASE_RATE_PRIORS[currentStage].p10Days,
-        p50Days: BASE_RATE_PRIORS[currentStage].p50Days,
-        p90Days: BASE_RATE_PRIORS[currentStage].p90Days,
-        sampleSize: currentSamples ? currentSamples.length : 0,
-        methodologyVersion: METHODOLOGY_VERSION,
-      };
+    // Build remaining stages object: priors for current stage and all downstream
+    const remainingStages = {};
+    for (let i = stageIdx; i < STAGES.length; i++) {
+      const stage = STAGES[i];
+      remainingStages[stage] = { ...stagePercentiles[stage] };
     }
+
+    output[processId] = {
+      stage: currentStage,
+      remainingStages,
+      methodologyVersion: METHODOLOGY_VERSION,
+    };
   }
 
   return output;

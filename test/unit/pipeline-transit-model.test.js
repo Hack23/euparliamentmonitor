@@ -272,22 +272,32 @@ describe('pipeline-transit-model', () => {
       expect(result['2025/0001(COD)']).toBeDefined();
       const entry = result['2025/0001(COD)'];
       expect(entry.stage).toBe('committee');
-      expect(entry.p10Days).toBe(BASE_RATE_PRIORS.committee.p10Days);
-      expect(entry.p50Days).toBe(BASE_RATE_PRIORS.committee.p50Days);
-      expect(entry.p90Days).toBe(BASE_RATE_PRIORS.committee.p90Days);
+      expect(entry.remainingStages).toBeDefined();
+      expect(entry.remainingStages.committee).toBeDefined();
+      expect(entry.remainingStages.committee.p10Days).toBe(BASE_RATE_PRIORS.committee.p10Days);
+      expect(entry.remainingStages.committee.p50Days).toBe(BASE_RATE_PRIORS.committee.p50Days);
+      expect(entry.remainingStages.committee.p90Days).toBe(BASE_RATE_PRIORS.committee.p90Days);
       expect(entry.methodologyVersion).toBe(METHODOLOGY_VERSION);
-      expect(entry.sampleSize).toBe(0);
+      expect(entry.remainingStages.committee.sampleSize).toBe(0);
     });
 
-    it('should produce base-rate priors for procedure with no historical data', () => {
+    it('should produce output matching documented schema', () => {
       const procedures = [makeProcedure('2025/0001(COD)', [])];
       const result = computeTransitModel(procedures, [], 42);
       const entry = result['2025/0001(COD)'];
 
-      // Output matches documented schema: { stage, p10Days, p50Days, p90Days, sampleSize, methodologyVersion }
+      // Output matches documented schema: { stage, remainingStages: {...}, methodologyVersion }
       expect(Object.keys(entry).sort()).toEqual(
-        ['methodologyVersion', 'p10Days', 'p50Days', 'p90Days', 'sampleSize', 'stage'].sort(),
+        ['methodologyVersion', 'remainingStages', 'stage'].sort(),
       );
+      // remainingStages should contain priors for all stages from current onward
+      expect(Object.keys(entry.remainingStages).sort()).toEqual([...STAGES].sort());
+      // Each stage entry has { p10Days, p50Days, p90Days, sampleSize }
+      for (const stageData of Object.values(entry.remainingStages)) {
+        expect(Object.keys(stageData).sort()).toEqual(
+          ['p10Days', 'p50Days', 'p90Days', 'sampleSize'].sort(),
+        );
+      }
     });
   });
 
@@ -307,10 +317,18 @@ describe('pipeline-transit-model', () => {
         expect(entry.stage).toBeDefined();
         expect(STAGES).toContain(entry.stage);
         expect(entry.methodologyVersion).toBe(METHODOLOGY_VERSION);
-        expect(entry.p10Days).toBeGreaterThan(0);
-        expect(entry.p50Days).toBeGreaterThanOrEqual(entry.p10Days);
-        expect(entry.p90Days).toBeGreaterThanOrEqual(entry.p50Days);
-        expect(entry.sampleSize).toBeDefined();
+        expect(entry.remainingStages).toBeDefined();
+
+        // remainingStages should contain current stage onward
+        const stageIdx = STAGES.indexOf(entry.stage);
+        for (let i = stageIdx; i < STAGES.length; i++) {
+          const stageName = STAGES[i];
+          expect(entry.remainingStages[stageName]).toBeDefined();
+          expect(entry.remainingStages[stageName].p10Days).toBeGreaterThan(0);
+          expect(entry.remainingStages[stageName].p50Days).toBeGreaterThanOrEqual(entry.remainingStages[stageName].p10Days);
+          expect(entry.remainingStages[stageName].p90Days).toBeGreaterThanOrEqual(entry.remainingStages[stageName].p50Days);
+          expect(entry.remainingStages[stageName].sampleSize).toBeDefined();
+        }
       }
     });
 
@@ -327,11 +345,14 @@ describe('pipeline-transit-model', () => {
       const votingRecords = generateVotingRecords(20);
       const result = computeTransitModel(procedures, votingRecords, 42);
 
-      // Procedures in committee should produce committee-stage priors
+      // Procedures in committee should produce priors for all remaining stages
       const committeeEntry = result['2025/C0(COD)'];
       expect(committeeEntry).toBeDefined();
       expect(committeeEntry.stage).toBe('committee');
-      expect(committeeEntry.sampleSize).toBeDefined();
+      expect(committeeEntry.remainingStages.committee).toBeDefined();
+      expect(committeeEntry.remainingStages.plenary).toBeDefined();
+      expect(committeeEntry.remainingStages.trilogue).toBeDefined();
+      expect(committeeEntry.remainingStages.adoption).toBeDefined();
 
       // Base-rate committee P50 should be larger than base-rate adoption P50
       expect(BASE_RATE_PRIORS.committee.p50Days).toBeGreaterThan(BASE_RATE_PRIORS.adoption.p50Days);
