@@ -2,6 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import {
   ARTICLE_HORIZONS,
@@ -133,5 +136,24 @@ describe('article-horizons registry — drift guard', () => {
     const cfg = getHorizonConfig('quarter-ahead');
     expect(getMandatoryArtifacts('quarter-ahead')).toEqual(cfg?.mandatoryArtifacts);
     expect(getMandatoryArtifacts('does-not-exist')).toEqual([]);
+  });
+
+  it('every mandatoryArtifact resolves to a valid template path under analysis/templates/', () => {
+    const templateDir = path.resolve(
+      path.dirname(fileURLToPath(import.meta.url)),
+      '../../analysis/templates',
+    );
+    for (const cfg of Object.values(ARTICLE_HORIZONS)) {
+      for (const artifact of cfg.mandatoryArtifacts) {
+        // Extract the filename from the relative path (e.g. intelligence/synthesis-summary.md → synthesis-summary.md)
+        const basename = path.basename(artifact);
+        const templatePath = path.join(templateDir, basename);
+        const exists = fs.existsSync(templatePath);
+        expect(
+          exists,
+          `mandatoryArtifact "${artifact}" (slug=${cfg.slug}) does not resolve to a template: expected "${basename}" in analysis/templates/`,
+        ).toBe(true);
+      }
+    }
   });
 });

@@ -7,6 +7,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
+import { getHorizonConfig } from '../../scripts/config/article-horizons.js';
 
 const VALIDATOR = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -75,11 +76,17 @@ describe('scripts/validate-analysis-completeness.js', () => {
 
     // Minimal thresholds doc — keeps tests independent of the production
     // reference-quality-thresholds.json contents.
+    // Uses 'test-type' (not in the article-horizons registry) so the
+    // validator falls back to threshold-keys-only mandatory-artifact logic.
     thresholdsPath = path.join(tmp, 'thresholds.json');
     fs.writeFileSync(
       thresholdsPath,
       JSON.stringify({
         thresholds: {
+          'test-type': {
+            'intelligence/synthesis-summary.md': 200,
+          },
+          // Keep a breaking entry for tests that explicitly use breaking
           breaking: {
             'intelligence/synthesis-summary.md': 200,
           },
@@ -100,7 +107,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
     fs.writeFileSync(
       path.join(runDir, 'manifest.json'),
       JSON.stringify({
-        articleType: 'breaking',
+        articleType: 'test-type',
         files: {
           intelligence: ['intelligence/synthesis-summary.md'],
           ...extra,
@@ -166,7 +173,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
     );
     const result = runHere();
     expect(result.code).toBe(0);
-    expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN articleType=breaking/);
+    expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN articleType=test-type/);
   });
 
   it('emits machine-readable JSON when --json passed', () => {
@@ -182,7 +189,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
     expect(lastJsonLineIdx).toBeGreaterThan(-1);
     const json = JSON.parse(lines.slice(lastJsonLineIdx).join('\n'));
     expect(json.gate).toBe('GREEN');
-    expect(json.articleType).toBe('breaking');
+    expect(json.articleType).toBe('test-type');
     expect(Array.isArray(json.results)).toBe(true);
   });
 
@@ -219,7 +226,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
     fs.writeFileSync(
       path.join(runDir, 'manifest.json'),
       JSON.stringify({
-        articleType: 'week-in-review',
+        articleType: 'test-economic',
         files: {
           intelligence: ['intelligence/economic-context.md'],
         },
@@ -505,7 +512,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
 
     it('warns when pass2.rewriteCount === 0 and an artifact is exactly at its floor', () => {
       const manifest = {
-        articleType: 'breaking',
+        articleType: 'test-type',
         files: {
           intelligence: ['intelligence/synthesis-summary.md'],
         },
@@ -530,7 +537,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
 
     it('does NOT warn when pass2.rewriteCount === 0 but artifact is strictly above its floor', () => {
       const manifest = {
-        articleType: 'breaking',
+        articleType: 'test-type',
         files: {
           intelligence: ['intelligence/synthesis-summary.md'],
         },
@@ -554,7 +561,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
 
     it('does NOT warn when pass2.rewriteCount > 0 even if artifact is at its floor', () => {
       const manifest = {
-        articleType: 'breaking',
+        articleType: 'test-type',
         files: {
           intelligence: ['intelligence/synthesis-summary.md'],
         },
@@ -590,7 +597,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
 
     it('treats malformed pass2.rewriteCount (non-numeric) as invalid schema and still triggers heuristic at-floor', () => {
       const manifest = {
-        articleType: 'breaking',
+        articleType: 'test-type',
         files: {
           intelligence: ['intelligence/synthesis-summary.md'],
         },
@@ -616,7 +623,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
 
     it('treats missing rewriteCount field as invalid schema', () => {
       const manifest = {
-        articleType: 'breaking',
+        articleType: 'test-type',
         files: {
           intelligence: ['intelligence/synthesis-summary.md'],
         },
@@ -640,7 +647,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
 
     it('treats negative rewriteCount as invalid schema', () => {
       const manifest = {
-        articleType: 'breaking',
+        articleType: 'test-type',
         files: { intelligence: ['intelligence/synthesis-summary.md'] },
         pass2: {
           startedAt: '2026-04-22T10:18:00Z',
@@ -662,7 +669,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
 
     it('treats non-integer rewriteCount as invalid schema', () => {
       const manifest = {
-        articleType: 'breaking',
+        articleType: 'test-type',
         files: { intelligence: ['intelligence/synthesis-summary.md'] },
         pass2: {
           startedAt: '2026-04-22T10:18:00Z',
@@ -684,7 +691,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
 
     it('treats missing startedAt as invalid schema', () => {
       const manifest = {
-        articleType: 'breaking',
+        articleType: 'test-type',
         files: { intelligence: ['intelligence/synthesis-summary.md'] },
         pass2: {
           // startedAt missing
@@ -706,7 +713,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
 
     it('treats missing endedAt as invalid schema', () => {
       const manifest = {
-        articleType: 'breaking',
+        articleType: 'test-type',
         files: { intelligence: ['intelligence/synthesis-summary.md'] },
         pass2: {
           startedAt: '2026-04-22T10:18:00Z',
@@ -731,26 +738,51 @@ describe('scripts/validate-analysis-completeness.js', () => {
   // Forward-statements registry check (week-ahead / month-ahead)
   // -------------------------------------------------------------------------
 
+  // week-ahead mandatory artifacts from the registry
+  const WEEK_AHEAD_MANDATORY = (() => {
+    const mandatoryArtifacts = getHorizonConfig('week-ahead')?.mandatoryArtifacts;
+
+    if (!Array.isArray(mandatoryArtifacts)) {
+      throw new Error(
+        'Expected getHorizonConfig("week-ahead").mandatoryArtifacts to be defined as an array',
+      );
+    }
+
+    return mandatoryArtifacts;
+  })();
+
   function writeWeekAheadManifest() {
     fs.writeFileSync(
       path.join(runDir, 'manifest.json'),
       JSON.stringify({
         articleType: 'week-ahead',
         files: {
-          intelligence: ['intelligence/synthesis-summary.md'],
+          classification: WEEK_AHEAD_MANDATORY.filter((a) => a.startsWith('classification/')),
+          'risk-scoring': WEEK_AHEAD_MANDATORY.filter((a) => a.startsWith('risk-scoring/')),
+          intelligence: WEEK_AHEAD_MANDATORY.filter((a) => a.startsWith('intelligence/')),
         },
       }),
       'utf8',
     );
   }
 
+  function writeAllWeekAheadArtifacts() {
+    // Ensure directories exist
+    fs.mkdirSync(path.join(runDir, 'classification'), { recursive: true });
+    fs.mkdirSync(path.join(runDir, 'risk-scoring'), { recursive: true });
+    fs.mkdirSync(path.join(runDir, 'intelligence'), { recursive: true });
+    for (const artifact of WEEK_AHEAD_MANDATORY) {
+      fs.writeFileSync(
+        path.join(runDir, artifact),
+        makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+    }
+  }
+
   it('passes GREEN for week-ahead when no forward-statements-open.json exists', () => {
     writeWeekAheadManifest();
-    fs.writeFileSync(
-      path.join(runDir, 'intelligence/synthesis-summary.md'),
-      makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
-      'utf8',
-    );
+    writeAllWeekAheadArtifacts();
     const result = runHere();
     expect(result.code).toBe(0);
     expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
@@ -758,13 +790,9 @@ describe('scripts/validate-analysis-completeness.js', () => {
 
   it('passes GREEN for week-ahead when forward-statements-open.json is empty array', () => {
     writeWeekAheadManifest();
+    writeAllWeekAheadArtifacts();
     fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });
     fs.writeFileSync(path.join(runDir, 'data/forward-statements-open.json'), '[]', 'utf8');
-    fs.writeFileSync(
-      path.join(runDir, 'intelligence/synthesis-summary.md'),
-      makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
-      'utf8',
-    );
     const result = runHere();
     expect(result.code).toBe(0);
     expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
@@ -772,6 +800,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
 
   it('returns RED for week-ahead when open items exist but synthesis lacks the carried-forward section', () => {
     writeWeekAheadManifest();
+    writeAllWeekAheadArtifacts();
     fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });
     // Non-empty open items
     fs.writeFileSync(
@@ -779,7 +808,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
       JSON.stringify([{ id: 'abc', topic: 'banking-union', status: 'open' }]),
       'utf8',
     );
-    // Synthesis without the required section
+    // Synthesis without the required section (overwrite the one from writeAllWeekAheadArtifacts)
     fs.writeFileSync(
       path.join(runDir, 'intelligence/synthesis-summary.md'),
       makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
@@ -793,6 +822,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
 
   it('returns RED for week-ahead when forward-statements-open.json is non-array JSON', () => {
     writeWeekAheadManifest();
+    writeAllWeekAheadArtifacts();
     fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });
     // Valid JSON but unexpected shape should not bypass the section gate.
     fs.writeFileSync(
@@ -812,6 +842,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
 
   it('reports forward-registry failures once and includes them in --json results', () => {
     writeWeekAheadManifest();
+    writeAllWeekAheadArtifacts();
     fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });
     fs.writeFileSync(
       path.join(runDir, 'data/forward-statements-open.json'),
@@ -826,26 +857,27 @@ describe('scripts/validate-analysis-completeness.js', () => {
     const result = runHere(['--json']);
     const occurrences = result.stderr.match(/forward-registry:missing-carried-forward-section/g) || [];
     expect(occurrences).toHaveLength(1);
-    expect(result.stdout).toMatch(/"forward-registry:missing-carried-forward-section"/);
-    const jsonLines = result.stdout.split('\n');
-    const jsonStart = jsonLines.findIndex((line) => line.trim() === '{');
-    expect(jsonStart).toBeGreaterThanOrEqual(0);
-    const json = JSON.parse(jsonLines.slice(jsonStart).join('\n'));
-    expect(json.artifacts).toBe(1);
-    expect(json.results).toHaveLength(1);
-    expect(json.results[0].relativePath).toBe('intelligence/synthesis-summary.md');
-    expect(json.results[0].issues).toContain('forward-registry:missing-carried-forward-section');
+
+    // stdout contains the STAGE_C_GATE line followed by JSON
+    const jsonStart = result.stdout.indexOf('{');
+    expect(jsonStart).toBeGreaterThan(-1);
+    const json = JSON.parse(result.stdout.slice(jsonStart));
+    expect(json.results).toBeInstanceOf(Array);
+
+    const issues = json.results.flatMap((entry) => entry.issues || []);
+    expect(issues).toContain('forward-registry:missing-carried-forward-section');
   });
 
   it('passes GREEN for week-ahead when open items exist and synthesis has the carried-forward section', () => {
     writeWeekAheadManifest();
+    writeAllWeekAheadArtifacts();
     fs.mkdirSync(path.join(runDir, 'data'), { recursive: true });
     fs.writeFileSync(
       path.join(runDir, 'data/forward-statements-open.json'),
       JSON.stringify([{ id: 'abc', topic: 'banking-union', status: 'open' }]),
       'utf8',
     );
-    // Synthesis WITH the required section
+    // Synthesis WITH the required section (overwrite)
     const synthBody = makeArtifact(250, { mermaid: true, wep: true, admiralty: true });
     const synthWithSection = `${synthBody}\n\n## Carried-Forward Forward Statements\n\nNo open items resolved this run.\n`;
     fs.writeFileSync(
@@ -865,7 +897,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
       fs.writeFileSync(
         path.join(runDir, 'manifest.json'),
         JSON.stringify({
-          articleType: 'breaking',
+          articleType: 'test-type',
           history: [{ runId: 'breaking-run-1714128000', gateResult: 'GREEN', filesWritten: [] }],
           files: {
             intelligence: ['intelligence/synthesis-summary.md'],
@@ -889,7 +921,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
           enabled: true,
           mode: 'improve-and-extend',
           runDir: 'analysis/daily/2026-04-30/breaking',
-          articleType: 'breaking',
+          articleType: 'test-type',
           priorRunId: 'breaking-run-1714128000',
           carryForward,
           rewrite: [],
@@ -953,7 +985,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
       fs.writeFileSync(
         path.join(runDir, 'manifest.json'),
         JSON.stringify({
-          articleType: 'breaking',
+          articleType: 'test-type',
           history: [{ runId: 'breaking-run-1714128000', gateResult: 'GREEN', filesWritten: [] }],
           files: { intelligence: ['intelligence/synthesis-summary.md'] },
           pass2: {
@@ -982,7 +1014,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
       fs.writeFileSync(
         path.join(runDir, 'manifest.json'),
         JSON.stringify({
-          articleType: 'breaking',
+          articleType: 'test-type',
           files: { intelligence: ['intelligence/synthesis-summary.md'] },
           pass2: {
             startedAt: '2026-04-30T08:00:00Z',
@@ -1081,7 +1113,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
           tradecraftQualitySignals: {},
           structuralRequirements: {
             longHorizonScenarioGate: {
-              articleTypes: ['term-outlook', 'election-cycle'],
+              articleTypes: ['test-term-outlook', 'test-election-cycle'],
               minScenarios: 6,
               artifact: 'intelligence/scenario-forecast.md',
             },
@@ -1130,8 +1162,8 @@ describe('scripts/validate-analysis-completeness.js', () => {
     }
 
     it('returns RED for term-outlook when scenario-forecast has fewer than 6 scenarios', () => {
-      writeLongHorizonThresholds('term-outlook');
-      writeLongHorizonManifest('term-outlook');
+      writeLongHorizonThresholds('test-term-outlook');
+      writeLongHorizonManifest('test-term-outlook');
       fs.writeFileSync(
         path.join(runDir, 'intelligence/scenario-forecast.md'),
         makeScenarioForecast(4),
@@ -1144,8 +1176,8 @@ describe('scripts/validate-analysis-completeness.js', () => {
     });
 
     it('passes GREEN for term-outlook when scenario-forecast has exactly 6 scenarios', () => {
-      writeLongHorizonThresholds('term-outlook');
-      writeLongHorizonManifest('term-outlook');
+      writeLongHorizonThresholds('test-term-outlook');
+      writeLongHorizonManifest('test-term-outlook');
       fs.writeFileSync(
         path.join(runDir, 'intelligence/scenario-forecast.md'),
         makeScenarioForecast(6),
@@ -1157,8 +1189,8 @@ describe('scripts/validate-analysis-completeness.js', () => {
     });
 
     it('passes GREEN for term-outlook when scenario-forecast has more than 6 scenarios', () => {
-      writeLongHorizonThresholds('term-outlook');
-      writeLongHorizonManifest('term-outlook');
+      writeLongHorizonThresholds('test-term-outlook');
+      writeLongHorizonManifest('test-term-outlook');
       fs.writeFileSync(
         path.join(runDir, 'intelligence/scenario-forecast.md'),
         makeScenarioForecast(8),
@@ -1170,8 +1202,8 @@ describe('scripts/validate-analysis-completeness.js', () => {
     });
 
     it('returns RED for election-cycle when scenario-forecast has fewer than 6 scenarios', () => {
-      writeLongHorizonThresholds('election-cycle');
-      writeLongHorizonManifest('election-cycle');
+      writeLongHorizonThresholds('test-election-cycle');
+      writeLongHorizonManifest('test-election-cycle');
       fs.writeFileSync(
         path.join(runDir, 'intelligence/scenario-forecast.md'),
         makeScenarioForecast(3),
@@ -1182,14 +1214,14 @@ describe('scripts/validate-analysis-completeness.js', () => {
       expect(result.stderr).toMatch(/long-horizon-scenario-count:3<6/);
     });
 
-    it('does NOT apply scenario-count gate to breaking article type', () => {
-      // Use the long-horizon thresholds but breaking article type —
+    it('does NOT apply scenario-count gate to non-targeted article type', () => {
+      // Use the long-horizon thresholds but a non-targeted article type —
       // the gate should not fire even if scenario-forecast has only 3 scenarios.
-      writeLongHorizonThresholds('breaking');
+      writeLongHorizonThresholds('test-type');
       fs.writeFileSync(
         path.join(runDir, 'manifest.json'),
         JSON.stringify({
-          articleType: 'breaking',
+          articleType: 'test-type',
           files: {
             intelligence: ['intelligence/scenario-forecast.md'],
           },
@@ -1202,7 +1234,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
         'utf8',
       );
       const result = runHere();
-      // Gate is not in the breaking thresholds, so no long-horizon issue.
+      // Gate is not targeting test-type, so no long-horizon issue.
       expect(result.stderr).not.toMatch(/long-horizon-scenario-count/);
     });
 
@@ -1212,7 +1244,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
         thresholdsPath,
         JSON.stringify({
           thresholds: {
-            'term-outlook': {
+            'test-term-outlook': {
               'intelligence/scenario-forecast.md': 360,
             },
           },
@@ -1221,7 +1253,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
         }),
         'utf8',
       );
-      writeLongHorizonManifest('term-outlook');
+      writeLongHorizonManifest('test-term-outlook');
       fs.writeFileSync(
         path.join(runDir, 'intelligence/scenario-forecast.md'),
         makeScenarioForecast(3),
@@ -1239,7 +1271,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
           tradecraftQualitySignals: {},
           structuralRequirements: {
             longHorizonScenarioGate: {
-              articleTypes: ['term-outlook'],
+              articleTypes: ['test-term-outlook'],
               minScenarios: 6,
               // artifact field intentionally omitted
             },
@@ -1247,7 +1279,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
         }),
         'utf8',
       );
-      writeLongHorizonManifest('term-outlook');
+      writeLongHorizonManifest('test-term-outlook');
       fs.writeFileSync(
         path.join(runDir, 'intelligence/scenario-forecast.md'),
         makeScenarioForecast(6),
@@ -1266,7 +1298,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
           tradecraftQualitySignals: {},
           structuralRequirements: {
             longHorizonScenarioGate: {
-              articleTypes: ['term-outlook'],
+              articleTypes: ['test-term-outlook'],
               minScenarios: 0,
               artifact: 'intelligence/scenario-forecast.md',
             },
@@ -1274,7 +1306,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
         }),
         'utf8',
       );
-      writeLongHorizonManifest('term-outlook');
+      writeLongHorizonManifest('test-term-outlook');
       fs.writeFileSync(
         path.join(runDir, 'intelligence/scenario-forecast.md'),
         makeScenarioForecast(6),
@@ -1286,8 +1318,8 @@ describe('scripts/validate-analysis-completeness.js', () => {
     });
 
     it('counts hyphenated scenario IDs (e.g. A-24) correctly', () => {
-      writeLongHorizonThresholds('term-outlook');
-      writeLongHorizonManifest('term-outlook');
+      writeLongHorizonThresholds('test-term-outlook');
+      writeLongHorizonManifest('test-term-outlook');
       // Build a scenario-forecast using hyphenated IDs
       const lines = [
         '# Scenario Forecast',
@@ -1321,8 +1353,8 @@ describe('scripts/validate-analysis-completeness.js', () => {
     });
 
     it('excludes scenario headings from worked-example section', () => {
-      writeLongHorizonThresholds('term-outlook');
-      writeLongHorizonManifest('term-outlook');
+      writeLongHorizonThresholds('test-term-outlook');
+      writeLongHorizonManifest('test-term-outlook');
       // Only 3 real scenarios, plus 4 in the worked example — should fail
       const lines = [
         '# Scenario Forecast',
@@ -1367,14 +1399,14 @@ describe('scripts/validate-analysis-completeness.js', () => {
         thresholdsPath,
         JSON.stringify({
           thresholds: {
-            'term-outlook': {
+            'test-term-outlook': {
               'intelligence/scenario-forecast.md': 360,
             },
           },
           tradecraftQualitySignals: {},
           structuralRequirements: {
             longHorizonScenarioGate: {
-              articleTypes: ['term-outlook'],
+              articleTypes: ['test-term-outlook'],
               minScenarios: 6,
               artifact: '../../../etc/passwd',
             },
@@ -1382,7 +1414,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
         }),
         'utf8',
       );
-      writeLongHorizonManifest('term-outlook');
+      writeLongHorizonManifest('test-term-outlook');
       fs.writeFileSync(
         path.join(runDir, 'intelligence/scenario-forecast.md'),
         makeScenarioForecast(6),
@@ -1391,6 +1423,209 @@ describe('scripts/validate-analysis-completeness.js', () => {
       const result = runHere();
       expect(result.code).toBe(1);
       expect(result.stdout).toContain('STAGE_C_GATE: RED');
+    });
+  });
+
+  // ─── Registry-driven mandatory artifacts ──────────────────────────────────
+
+  describe('Registry-driven mandatory artifacts', () => {
+    it('uses registry mandatoryArtifacts when slug is in the registry', () => {
+      // breaking is in the registry — validator should require registry artifacts
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'breaking',
+          files: { intelligence: ['intelligence/synthesis-summary.md'] },
+        }),
+        'utf8',
+      );
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      // Should be RED because registry mandates many more artifacts
+      expect(result.code).toBe(1);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
+      // Some registry artifact should be flagged as missing
+      expect(result.stderr).toMatch(/missing/);
+    });
+
+    it('falls back to threshold keys when slug is NOT in the registry', () => {
+      // test-type is NOT in the registry — old behavior: threshold keys + manifest
+      writeManifest();
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+    });
+  });
+
+  // ─── Electoral-overlay gate (requireElectoralOverlay) ─────────────────────
+
+  describe('Electoral-overlay gate (requireElectoralOverlay)', () => {
+    it('returns RED when electoralOverlay is true but Family-D artifacts are missing', () => {
+      // term-outlook has electoralOverlay: true in the registry
+      // Provide all registry mandatory artifacts EXCEPT the Family-D ones
+      const cfg = getHorizonConfig('term-outlook');
+      expect(cfg).toBeDefined();
+      const allMandatory = cfg.mandatoryArtifacts;
+      const familyD = [
+        'intelligence/seat-projection.md',
+        'intelligence/term-arc.md',
+        'intelligence/mandate-fulfilment-scorecard.md',
+      ];
+      // Write manifest with all mandatory artifacts
+      const byDir = {};
+      for (const a of allMandatory) {
+        const dir = a.split('/')[0];
+        if (!byDir[dir]) byDir[dir] = [];
+        byDir[dir].push(a);
+      }
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({ articleType: 'term-outlook', files: byDir }),
+        'utf8',
+      );
+      // Write all artifacts EXCEPT Family-D
+      fs.mkdirSync(path.join(runDir, 'threat-assessment'), { recursive: true });
+      for (const artifact of allMandatory) {
+        if (familyD.includes(artifact)) continue;
+        const dir = path.dirname(path.join(runDir, artifact));
+        fs.mkdirSync(dir, { recursive: true });
+        fs.writeFileSync(
+          path.join(runDir, artifact),
+          makeArtifact(400, { mermaid: true, wep: true, admiralty: true }),
+          'utf8',
+        );
+      }
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stderr).toMatch(/electoral-overlay:required/);
+    });
+
+    it('does NOT fire electoral-overlay gate for non-electoral article types', () => {
+      // test-type is not in the registry, so electoralOverlay is not checked
+      writeManifest();
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stderr).not.toMatch(/electoral-overlay/);
+    });
+  });
+
+  // ─── Long-horizon structural-break gate ───────────────────────────────────
+
+  describe('Long-horizon structural-break gate', () => {
+    it('returns RED when scenarioMaxHorizonMonths >= 36 and scenario-forecast lacks structural-break content', () => {
+      // term-outlook has scenarioMaxHorizonMonths: 36
+      // Write a minimal scenario-forecast without structural-break content
+      const cfg = getHorizonConfig('term-outlook');
+      expect(cfg).toBeDefined();
+      const allMandatory = cfg.mandatoryArtifacts;
+      const byDir = {};
+      for (const a of allMandatory) {
+        const dir = a.split('/')[0];
+        if (!byDir[dir]) byDir[dir] = [];
+        byDir[dir].push(a);
+      }
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({ articleType: 'term-outlook', files: byDir }),
+        'utf8',
+      );
+      fs.mkdirSync(path.join(runDir, 'threat-assessment'), { recursive: true });
+      for (const artifact of allMandatory) {
+        const dir = path.dirname(path.join(runDir, artifact));
+        fs.mkdirSync(dir, { recursive: true });
+        // scenario-forecast without structural-break content
+        fs.writeFileSync(
+          path.join(runDir, artifact),
+          makeArtifact(400, { mermaid: true, wep: true, admiralty: true }),
+          'utf8',
+        );
+      }
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stderr).toMatch(/long-horizon-structural-break:missing/);
+    });
+
+    it('passes when scenario-forecast contains structural-break content', () => {
+      const cfg = getHorizonConfig('term-outlook');
+      expect(cfg).toBeDefined();
+      const allMandatory = cfg.mandatoryArtifacts;
+      const byDir = {};
+      for (const a of allMandatory) {
+        const dir = a.split('/')[0];
+        if (!byDir[dir]) byDir[dir] = [];
+        byDir[dir].push(a);
+      }
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({ articleType: 'term-outlook', files: byDir }),
+        'utf8',
+      );
+      fs.mkdirSync(path.join(runDir, 'threat-assessment'), { recursive: true });
+      for (const artifact of allMandatory) {
+        const dir = path.dirname(path.join(runDir, artifact));
+        fs.mkdirSync(dir, { recursive: true });
+        if (artifact === 'intelligence/scenario-forecast.md') {
+          // Include structural-break and regime-change content + 6 scenarios
+          const lines = [
+            '# Scenario Forecast',
+            '',
+            '## Structural-Break Assessment',
+            '',
+            'Coalition-cohesion drop detected. Regime change branch activated.',
+            '',
+            '```mermaid',
+            'flowchart TD',
+            'A --> B',
+            '```',
+            '',
+          ];
+          for (let i = 1; i <= 6; i++) {
+            lines.push(`### Scenario ${i}: Test`);
+            lines.push('');
+            lines.push('Narrative text.');
+            lines.push('');
+          }
+          while (lines.length < 400) lines.push(`Filler line ${lines.length}`);
+          fs.writeFileSync(path.join(runDir, artifact), lines.join('\n'), 'utf8');
+        } else {
+          fs.writeFileSync(
+            path.join(runDir, artifact),
+            makeArtifact(400, { mermaid: true, wep: true, admiralty: true }),
+            'utf8',
+          );
+        }
+      }
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+      expect(result.stderr).not.toMatch(/long-horizon-structural-break:missing/);
+    });
+
+    it('does NOT fire structural-break gate for short-horizon article types', () => {
+      // test-type is not in the registry so scenarioMaxHorizonMonths is not checked
+      writeManifest();
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stderr).not.toMatch(/long-horizon-structural-break/);
     });
   });
 });
