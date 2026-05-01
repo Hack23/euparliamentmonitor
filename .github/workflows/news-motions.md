@@ -310,6 +310,7 @@ prose pass.
 
 ## 🎯 Article-Type Specifics
 
+- Long-horizon stage helpers: see [`.github/prompts/10-horizon-stage-helpers.md`](../prompts/10-horizon-stage-helpers.md) for the registry-driven Stage-A/B/C contract.
 - Name specific MEPs + groups on leading/opposing votes — never describe 'the EPP voted for' without naming a shadow rapporteur or floor leader. Quantify margins, abstentions, defections.
 - Include `existing/stakeholder-impact.md`, `classification/impact-matrix.md`, `intelligence/stakeholder-map.md` in the analysis set.
 

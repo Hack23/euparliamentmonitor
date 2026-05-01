@@ -156,4 +156,21 @@ describe('article-horizons registry — drift guard', () => {
       }
     }
   });
+
+  it('every news-*.md workflow (except news-translate.md) references 10-horizon-stage-helpers.md', () => {
+    const workflowDir = path.resolve(
+      path.dirname(fileURLToPath(import.meta.url)),
+      '../../.github/workflows',
+    );
+    const files = fs.readdirSync(workflowDir)
+      .filter((f) => f.startsWith('news-') && f.endsWith('.md') && f !== 'news-translate.md');
+    expect(files.length).toBeGreaterThan(0);
+    for (const file of files) {
+      const content = fs.readFileSync(path.join(workflowDir, file), 'utf8');
+      expect(
+        content.includes('10-horizon-stage-helpers.md'),
+        `${file} does not reference 10-horizon-stage-helpers.md`,
+      ).toBe(true);
+    }
+  });
 });

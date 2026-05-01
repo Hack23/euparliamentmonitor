@@ -310,6 +310,7 @@ prose pass.
 
 ## 🎯 Article-Type Specifics
 
+- Long-horizon stage helpers: see [`.github/prompts/10-horizon-stage-helpers.md`](../prompts/10-horizon-stage-helpers.md) for the registry-driven Stage-A/B/C contract.
 - Ground every claim in a named committee + document ID (e.g. ENVI draft report on directive 2025/0042(COD)).
 - Include `existing/committee-productivity.md` in the analysis set.
 
