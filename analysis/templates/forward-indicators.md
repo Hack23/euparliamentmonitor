@@ -85,7 +85,7 @@ When populating Section 3 (Indicator Detail Cards), **tag every indicator** with
 
 ## 📊 Section 2 — Indicator Master Table
 
-**Required:** ≥10 indicators with all 7 structure fields.
+**Required:** ≥10 indicators with all 8 structure fields.
 
 ```markdown
 ## Indicator Inventory

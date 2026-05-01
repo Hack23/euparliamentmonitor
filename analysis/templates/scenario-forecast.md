@@ -15,7 +15,7 @@ long-horizon-mode: false
 
 ## 0️⃣ Long-Horizon Mode
 
-**`long-horizon-mode`** is an optional frontmatter flag. Set it to `true` when writing a `term-outlook` or `election-cycle` analysis run — or any run where the workflow's registry entry carries `electoralOverlay === true` OR `scenarioMaxHorizonMonths >= 36`. When unset or `false`, standard behaviour (3–5 scenarios, 7/30/90-day horizon) is preserved.
+**`long-horizon-mode`** is an optional frontmatter flag. Set it to `true` when writing a `term-outlook` or `election-cycle` analysis run. When unset or `false`, standard behaviour (3–5 scenarios, 7/30/90-day horizon) is preserved.
 
 ### When `long-horizon-mode: true` is set the following requirements override the standard rules:
 
@@ -30,7 +30,7 @@ long-horizon-mode: false
 
 ### Activation signals (checked by Stage-C validator)
 
-The validator enforces the ≥ 6 scenario floor when the manifest's `articleType` is one of: **`term-outlook`**, **`election-cycle`** (i.e. any type whose registry entry has `electoralOverlay === true` OR `scenarioMaxHorizonMonths >= 36`).
+The validator enforces the ≥ 6 scenario floor when the manifest's `articleType` is one of the configured types: **`term-outlook`**, **`election-cycle`**. Registry fields such as `electoralOverlay === true` and `scenarioMaxHorizonMonths >= 36` explain why those types are included, but are not the fields the validator directly inspects.
 
 ### EP-election outcome branches (mandatory in long-horizon mode)
 
@@ -57,7 +57,7 @@ Each EP-election branch **must** carry:
 | **Analysis Date** | `[REQUIRED: YYYY-MM-DD]` |
 | **Horizon** | `[REQUIRED: 7 days / 30 days / 90 days / 12m / term-end / EP-election]` |
 | **Scenarios Developed** | `[REQUIRED: count 3-5 (standard) or ≥6 (long-horizon)]` |
-| **Long-Horizon Mode** | `[REQUIRED when electoralOverlay=true or scenarioMaxHorizonMonths≥36: true / false]` |
+| **Long-Horizon Mode** | `[REQUIRED for term-outlook and election-cycle articleTypes: true / false]` |
 | **Confidence** | `[REQUIRED: 🟢/🟡/🔴]` |
 
 ---
