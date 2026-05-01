@@ -1284,5 +1284,40 @@ describe('scripts/validate-analysis-completeness.js', () => {
       expect(result.code).toBe(1);
       expect(result.stderr).toMatch(/long-horizon-scenario-gate:invalid-config/);
     });
+
+    it('counts hyphenated scenario IDs (e.g. A-24) correctly', () => {
+      writeLongHorizonThresholds('term-outlook');
+      writeLongHorizonManifest('term-outlook');
+      // Build a scenario-forecast using hyphenated IDs
+      const lines = [
+        '# Scenario Forecast',
+        '',
+        '## 1️⃣ Horizon Statement',
+        '',
+        'Horizon: 36 months.',
+        '',
+        '```mermaid',
+        'flowchart TD',
+        '    BASELINE[Baseline] --> S1[Scenario A-1]',
+        '```',
+        '',
+      ];
+      const ids = ['A-1', 'A-2', 'A-3', 'B-1', 'B-2', 'C-1'];
+      for (const id of ids) {
+        lines.push(`### Scenario ${id}: Some Scenario`);
+        lines.push('');
+        lines.push('Narrative text here.');
+        lines.push('');
+      }
+      while (lines.length < 400) lines.push(`Filler line ${lines.length}`);
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/scenario-forecast.md'),
+        lines.join('\n'),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+    });
   });
 });

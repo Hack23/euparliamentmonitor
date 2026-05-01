@@ -72,7 +72,7 @@ const PLACEHOLDER_PATTERNS = [
 ];
 
 const WEP_BAND_RE =
-  /\b(Almost Certain|Highly Likely|Likely|Roughly Even|Even Chance|Unlikely|Highly Unlikely|Almost No Chance|WEP\s*:)\b/i;
+  /\b(Almost Certain|Highly Likely|Likely|Roughly Even|Even Chance|About even|Unlikely|Highly Unlikely|Almost No Chance|WEP\s*:)\b/i;
 
 const ADMIRALTY_RE = /(^|[\s|`(])([A-F][1-6])([\s|`)]|$)/;
 
@@ -670,12 +670,14 @@ function mergeForwardRegistryResult(results, forwardRegistryResult) {
 /**
  * Count the number of scenario headings in a scenario-forecast artifact.
  * Matches `### Scenario N:` and `### Scenario N —` patterns (both numeric
- * and letter variants used in worked examples). Only alphanumeric identifiers
- * are matched to avoid false positives from underscore-containing headings.
+ * and letter variants used in worked examples), and also supports
+ * hyphen-separated alphanumeric identifiers such as `A-24`. Underscore-
+ * containing identifiers are still excluded to avoid false positives.
  */
 function countScenarios(content) {
-  // Match "### Scenario 1:" or "### Scenario A —" (digit or letter identifier only)
-  const re = /^###\s+Scenario\s+[A-Za-z0-9]+\s*[:—]/gm;
+  // Match "### Scenario 1:", "### Scenario A —", or "### Scenario A-24 —"
+  // while rejecting underscore-containing identifiers.
+  const re = /^###\s+Scenario\s+[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*\s*[:—]/gm;
   const matches = content.match(re);
   return matches ? matches.length : 0;
 }

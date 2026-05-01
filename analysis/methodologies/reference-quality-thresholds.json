@@ -53,7 +53,7 @@
       "articleTypes": ["term-outlook", "election-cycle"],
       "minScenarios": 6,
       "artifact": "intelligence/scenario-forecast.md",
-      "note": "Enforced by scripts/validate-analysis-completeness.js countScenarios(). Counts all headings matching /^###\\s+Scenario\\s+[A-Z0-9]+[:—]/gm in the artifact. Activated for articleTypes listed above (electoralOverlay===true OR scenarioMaxHorizonMonths>=36 in article-horizons registry)."
+      "note": "Enforced by scripts/validate-analysis-completeness.js countScenarios(). Counts all headings matching /^###\\s+Scenario\\s+[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*\\s*[:—]/gm in the artifact (supports hyphenated IDs like A-24; underscores excluded). Activated for manifest.articleType values listed in articleTypes above."
     },
     "mermaidRequired": [
       "classification/impact-matrix.md",
