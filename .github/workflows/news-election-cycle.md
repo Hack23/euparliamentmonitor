@@ -4,7 +4,7 @@ description: Generates a single PR containing analysis artifacts and the rendere
 strict: false
 on:
   schedule:
-    - cron: "0 8 1 12 *"  # 1st of each month around 08:00 UTC
+    - cron: "0 8 1 12 *"  # December 1st each year around 08:00 UTC
   workflow_dispatch:
     inputs:
       force_generation:
@@ -371,10 +371,13 @@ wait "$IMF_PROBE_PID" || true
 
 **Forward-statements registry seed (mandatory):**
 
+The election-cycle horizon spans up to ±6 months around the next EP election (early June of 2029, 2034, …). Until the EP MCP `getElectionCalendarContext()` helper is available, anchor the horizon-end on a fixed `+1825 days` (~5y) window from `$TODAY` to cover the full electoral arc — this matches the registry's `forwardStatementsHorizonDays` for `ELECTION_CYCLE`.
+
 ```bash
-HORIZON_END=$(date -u -d 'EP-election window ±6 months' +%Y-%m-%d)
+HORIZON_END=$(date -u -d "$TODAY +1825 days" +%Y-%m-%d)
 node scripts/aggregator/forward-statements-registry.js read \
   --status open \
+  --electoral-mode \
   --horizon-from "$TODAY" \
   --horizon-to "$HORIZON_END" \
   > "${ANALYSIS_DIR}/data/forward-statements-open.json"

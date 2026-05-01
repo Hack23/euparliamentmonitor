@@ -1084,7 +1084,8 @@ export const QUARTER_IN_REVIEW_TITLES: LanguageMap<(quarter: string) => LangTitl
   }),
   ja: (quarter) => ({
     title: `四半期レビュー: ${quarter}`,
-    subtitle: '欧州議会の四半期振り返り — 連立軌道、法案スループット差分、異常投票、ローリング政治リスク傾向',
+    subtitle:
+      '欧州議会の四半期振り返り — 連立軌道、法案スループット差分、異常投票、ローリング政治リスク傾向',
   }),
   ko: (quarter) => ({
     title: `분기 리뷰: ${quarter}`,
@@ -1228,11 +1229,13 @@ export const YEAR_IN_REVIEW_TITLES: LanguageMap<(year: string) => LangTitleSubti
   }),
   ja: (year) => ({
     title: `年間レビュー: ${year}`,
-    subtitle: '欧州議会の年間振り返り — 連立マップ、法案スループット、公約実現スコアカード、累積政治リスク軌道',
+    subtitle:
+      '欧州議会の年間振り返り — 連立マップ、法案スループット、公約実現スコアカード、累積政治リスク軌道',
   }),
   ko: (year) => ({
     title: `연간 리뷰: ${year}`,
-    subtitle: '유럽 의회 연간 회고 — 연정 지도·법안 처리량·공약 이행 스코어카드·누적 정치 위험 궤적',
+    subtitle:
+      '유럽 의회 연간 회고 — 연정 지도·법안 처리량·공약 이행 스코어카드·누적 정치 위험 궤적',
   }),
   zh: (year) => ({
     title: `年度回顾: ${year}`,
@@ -1304,7 +1307,8 @@ export const TERM_OUTLOOK_TITLES: LanguageMap<(term: string) => LangTitleSubtitl
   }),
   ko: (term) => ({
     title: `의회 임기 전망: ${term}`,
-    subtitle: '유럽 의회 다년간 전망 — 연정 궤적·공약 이행 진척·Spitzenkandidaten 시그널·의석 투영 구간',
+    subtitle:
+      '유럽 의회 다년간 전망 — 연정 궤적·공약 이행 진척·Spitzenkandidaten 시그널·의석 투영 구간',
   }),
   zh: (term) => ({
     title: `议会任期展望: ${term}`,

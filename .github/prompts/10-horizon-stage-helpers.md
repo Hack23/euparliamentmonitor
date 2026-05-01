@@ -38,8 +38,12 @@ Every horizon-aware workflow starts Stage A with the canonical sequence:
 2. `node scripts/imf-mcp-probe.sh` to populate `cache/imf/imf-probe-summary.json`.
 3. World Bank baseline pull via the standard helper.
 4. Forward-statements seeding from `analysis/forward-statements/` JSONL via
-   `scripts/aggregator/forward-statements-registry.js` with
-   `--horizon-days $FORWARD_HORIZON_DAYS`.
+   `scripts/aggregator/forward-statements-registry.js` using the supported
+   date-range flags: compute `HORIZON_FROM` from the workflow's canonical
+   start date (normally `$TODAY`) and compute `HORIZON_TO` as
+   `HORIZON_FROM + FORWARD_HORIZON_DAYS` (e.g. `date -u -d "$TODAY +$FORWARD_HORIZON_DAYS days"`),
+   then call the registry with `--horizon-from "$HORIZON_FROM" --horizon-to "$HORIZON_TO"`.
+   When `ELECTORAL_OVERLAY` is `true`, also pass `--electoral-mode`.
 
 For `quarter-ahead+` horizons (≥ 90 days), the Stage-A fan-out additionally
 runs `get_plenary_sessions` per-month inside the data window and pulls

@@ -22,7 +22,7 @@
 **Horizon:** {next 90 days | next 12 months | trailing 90 days}
 **Active Procedures Tracked:** {N}
 **Reference Window for Prior:** {trailing 24 months — date range}
-**Transit-Model Source:** scripts/aggregator/pipeline-transit-model.js (P10/P50/P90)
+**Transit-Model Source:** {heuristic stage-timing prior — Stage B agent reasoning over trailing 24-month transitions; a probabilistic `scripts/aggregator/pipeline-transit-model.js` is planned for a later slicing-plan PR}
 ```
 
 ---

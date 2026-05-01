@@ -127,7 +127,7 @@ For each active procedure produce:
 - **Probability of completion** within the horizon, expressed as a WEP band.
 - **Critical-path bottleneck**: name the stage with the highest variance.
 
-Implementation: `scripts/aggregator/pipeline-transit-model.js` (added in PR 6 of the slicing plan).
+Planned implementation: a future aggregator component, `scripts/aggregator/pipeline-transit-model.js`, is intended to generate this prior in a later slicing-plan PR. Until that component lands, treat the Monte-Carlo prior as a methodological requirement and have the Stage B agent reason directly over the trailing 24-month stage-transition timings — not a currently-available Stage A/B dependency in this PR.
 
 ---
 

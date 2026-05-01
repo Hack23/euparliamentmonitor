@@ -13,16 +13,13 @@
  *   3. Per-language title generator in `src/constants/language-articles.ts`.
  *   4. New `news-<slug>.md` workflow under `.github/workflows/`.
  *
- * The aggregator (`src/aggregator/article-metadata.ts`), validator
- * (`scripts/validate-analysis-completeness.js`), forward-statements
+ * The aggregator (`src/aggregator/article-metadata.ts`), forward-statements
  * registry (`scripts/aggregator/forward-statements-registry.js`) and the
- * drift-guard tests all consume this registry — so once the four steps
- * are done, the new horizon is fully wired end-to-end.
- *
- * The registry replaces the hard-coded `switch` previously hidden inside
- * `templateForType()` (article-metadata.ts) and the per-slug map inside
- * `validate-analysis-completeness.js`. Both are now driven from this one
- * file, eliminating the long-standing drift between them.
+ * drift-guard tests all consume this registry directly. The validator
+ * (`scripts/validate-analysis-completeness.js`) currently still uses its
+ * own per-slug map; converging it onto `mandatoryArtifacts[]` from this
+ * registry is tracked as deferred work in the slicing plan and will
+ * eliminate the remaining drift between the two surfaces.
  *
  * @see analysis/methodologies/forward-projection-methodology.md
  * @see analysis/methodologies/electoral-cycle-methodology.md
@@ -406,7 +403,8 @@ export const ARTICLE_HORIZONS: Record<ArticleCategory, ArticleHorizonConfig> = {
     dataWindow: { direction: 'span', days: 365, anchor: 'next-election' },
     cadence: {
       cron: '0 8 1 12 *',
-      description: 'Annual — 1 Dec @ 08:00 UTC, plus T-180 / T-90 / T-30 election-imminent triggers',
+      description:
+        'Annual — 1 Dec @ 08:00 UTC, plus T-180 / T-90 / T-30 election-imminent triggers',
       triggerEvents: ['election-imminent-t180', 'election-imminent-t90', 'election-imminent-t30'],
     },
     primaryFeeds: [...STANDARD_FEEDS, 'get_voting_records'],
@@ -538,9 +536,9 @@ export function getProspectiveSlugs(): readonly string[] {
       .filter(
         (h) =>
           h.perspective === ArticlePerspective.PROSPECTIVE ||
-          (h.perspective === ArticlePerspective.ELECTORAL && h.dataWindow.direction === 'forward'),
+          (h.perspective === ArticlePerspective.ELECTORAL && h.dataWindow.direction === 'forward')
       )
-      .map((h) => h.slug),
+      .map((h) => h.slug)
   );
 }
 
@@ -553,7 +551,7 @@ export function getElectoralOverlaySlugs(): readonly string[] {
   return Object.freeze(
     Object.values(ARTICLE_HORIZONS)
       .filter((h) => h.electoralOverlay)
-      .map((h) => h.slug),
+      .map((h) => h.slug)
   );
 }
 
