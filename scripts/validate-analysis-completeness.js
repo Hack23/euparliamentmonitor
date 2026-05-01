@@ -59,9 +59,21 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
+import { getHorizonConfig } from './config/article-horizons.js';
 
 const ROOT = process.cwd();
 const DEFAULT_MIN_LINES = 30;
+
+// Family-D artifacts required when electoralOverlay is true.
+const FAMILY_D_ARTIFACTS = [
+  'intelligence/seat-projection.md',
+  'intelligence/term-arc.md',
+  'intelligence/mandate-fulfilment-scorecard.md',
+];
+
+// Regex for structural-break / regime-change content in scenario-forecast.md
+const STRUCTURAL_BREAK_RE =
+  /\b(structural[- ]break|regime[- ]change|regime[- ]shift)\b/i;
 
 const PLACEHOLDER_PATTERNS = [
   /\[AI_ANALYSIS_REQUIRED\]/,
@@ -619,8 +631,14 @@ function hasOpenForwardStatementItems(runDir) {
 }
 
 function validateForwardStatementsRegistryCoverage(runDir, articleType) {
-  const forwardStatementArticleTypes = ['week-ahead', 'month-ahead'];
-  if (!forwardStatementArticleTypes.includes(articleType)) return null;
+  // Determine if this article type requires forward-statements coverage.
+  // Registry-driven: any slug with forwardStatementsHorizonDays > 0 requires it.
+  // Legacy fallback: hardcoded list for types not in the registry.
+  const horizonCfg = getHorizonConfig(articleType);
+  const requiresForwardStatements = horizonCfg
+    ? horizonCfg.forwardStatementsHorizonDays > 0
+    : ['week-ahead', 'month-ahead'].includes(articleType);
+  if (!requiresForwardStatements) return null;
   if (!hasOpenForwardStatementItems(runDir)) return null;
 
   const relativePath = 'intelligence/synthesis-summary.md';
@@ -808,11 +826,25 @@ function buildRules(thresholdsJson, articleType) {
   };
 }
 
-function listMandatoryArtifacts(rules, manifestArtifacts) {
-  // Mandatory artifacts = union of (per-articleType threshold keys) ∪
-  // (every entry in manifest.files.*).
+function listMandatoryArtifacts(rules, manifestArtifacts, articleType) {
+  // Mandatory artifacts are determined as follows:
+  //   - If the slug is in the article-horizons registry → use registry's
+  //     mandatoryArtifacts[] as the primary set (source of truth), unioned
+  //     with manifest.files.* entries.
+  //   - If the slug is NOT in the registry (legacy / unknown) → fall back to
+  //     the old behavior: threshold keys ∪ manifest.files.*.
   const set = new Set();
-  for (const k of Object.keys(rules.perArtifactFloors || {})) set.add(k);
+
+  const horizonCfg = getHorizonConfig(articleType);
+  if (horizonCfg) {
+    // Registry-driven: use mandatoryArtifacts from the registry
+    for (const a of horizonCfg.mandatoryArtifacts) set.add(a);
+  } else {
+    // Legacy fallback: threshold keys serve as mandatory list
+    for (const k of Object.keys(rules.perArtifactFloors || {})) set.add(k);
+  }
+
+  // Always include manifest entries (agent-declared artifacts)
   for (const a of manifestArtifacts) set.add(a);
   return Array.from(set).sort();
 }
@@ -913,7 +945,7 @@ function main() {
   const manifestArtifacts = flattenManifestArtifacts(manifest);
   const onDisk = walkArtifacts(runDir);
   const orphans = onDisk.filter((p) => !manifestArtifacts.includes(p));
-  const mandatory = listMandatoryArtifacts(rules, manifestArtifacts);
+  const mandatory = listMandatoryArtifacts(rules, manifestArtifacts, articleType);
 
   const results = mandatory.map((relativePath) =>
     validateArtifact({ runDir, relativePath, rules, options: opts }),
@@ -945,6 +977,77 @@ function main() {
       mermaid: false,
       placeholders: [],
     });
+  }
+
+  // ── Electoral-overlay gate (requireElectoralOverlay) ───────────────────────
+  // When the registry declares `electoralOverlay === true` for this article
+  // type, Family-D artifacts (seat-projection, term-arc, mandate-fulfilment-
+  // scorecard) MUST be present and above their floors.
+  const horizonCfg = getHorizonConfig(articleType);
+  if (horizonCfg && horizonCfg.electoralOverlay) {
+    for (const famD of FAMILY_D_ARTIFACTS) {
+      const absPath = path.join(runDir, famD);
+      if (!fs.existsSync(absPath)) {
+        // Only inject if not already in mandatory results
+        const alreadyTracked = results.some((r) => r.relativePath === famD);
+        if (!alreadyTracked) {
+          mergeSyntheticResult(results, {
+            relativePath: famD,
+            exists: false,
+            lines: 0,
+            minLines: rules.perArtifactFloors?.[famD] ?? opts.minLines,
+            issues: ['missing', 'electoral-overlay:required'],
+            warnings: [],
+            mermaid: false,
+            placeholders: [],
+          });
+        } else {
+          // Already tracked as missing by the mandatory list — add context
+          const existing = results.find((r) => r.relativePath === famD);
+          if (existing && !existing.issues.includes('electoral-overlay:required')) {
+            existing.issues.push('electoral-overlay:required');
+          }
+        }
+      } else {
+        // Check if the artifact is below its floor — this is already done
+        // by validateArtifact for mandatory artifacts, but add the tag.
+        const existing = results.find((r) => r.relativePath === famD);
+        if (existing && existing.issues.length > 0) {
+          if (!existing.issues.includes('electoral-overlay:required')) {
+            existing.issues.push('electoral-overlay:required');
+          }
+        }
+      }
+    }
+  }
+
+  // ── Long-horizon structural-break gate ─────────────────────────────────────
+  // When scenarioMaxHorizonMonths >= 36 (from registry), scenario-forecast.md
+  // MUST contain a non-empty structural-break / regime-change section.
+  if (horizonCfg && horizonCfg.scenarioMaxHorizonMonths >= 36) {
+    const scenarioPath = path.join(runDir, 'intelligence/scenario-forecast.md');
+    if (fs.existsSync(scenarioPath)) {
+      const content = fs.readFileSync(scenarioPath, 'utf8');
+      if (!STRUCTURAL_BREAK_RE.test(content)) {
+        const existing = results.find(
+          (r) => r.relativePath === 'intelligence/scenario-forecast.md',
+        );
+        if (existing) {
+          existing.issues.push('long-horizon-structural-break:missing');
+        } else {
+          mergeSyntheticResult(results, {
+            relativePath: 'intelligence/scenario-forecast.md',
+            exists: true,
+            lines: countLines(content),
+            minLines: rules.perArtifactFloors?.['intelligence/scenario-forecast.md'] ?? opts.minLines,
+            issues: ['long-horizon-structural-break:missing'],
+            warnings: [],
+            mermaid: hasMermaid(content),
+            placeholders: [],
+          });
+        }
+      }
+    }
   }
 
   // ── Re-run improve/extend enforcement ────────────────────────────────────

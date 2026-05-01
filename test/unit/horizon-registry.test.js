@@ -2,6 +2,9 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 import {
   ARTICLE_HORIZONS,
@@ -133,5 +136,34 @@ describe('article-horizons registry — drift guard', () => {
     const cfg = getHorizonConfig('quarter-ahead');
     expect(getMandatoryArtifacts('quarter-ahead')).toEqual(cfg?.mandatoryArtifacts);
     expect(getMandatoryArtifacts('does-not-exist')).toEqual([]);
+  });
+
+  it('every mandatoryArtifact resolves to a valid template path under analysis/templates/', () => {
+    const templateDir = path.resolve(
+      path.dirname(fileURLToPath(import.meta.url)),
+      '../../analysis/templates',
+    );
+    for (const cfg of Object.values(ARTICLE_HORIZONS)) {
+      for (const artifact of cfg.mandatoryArtifacts) {
+        // Extract the filename from the relative path (e.g. intelligence/synthesis-summary.md → synthesis-summary.md)
+        const basename = path.basename(artifact);
+        // Some artifacts use a different naming convention:
+        // stakeholder-map.md → stakeholder-impact.md (the template uses a canonical name)
+        // Allow the artifact to either match directly or via common aliases
+        const templatePath = path.join(templateDir, basename);
+        const aliasMap = {
+          'stakeholder-map.md': 'stakeholder-impact.md',
+          'wildcards-blackswans.md': 'wildcards-blackswans.md',
+          'threat-model.md': 'political-threat-landscape.md',
+        };
+        const resolvedName = aliasMap[basename] || basename;
+        const resolvedPath = path.join(templateDir, resolvedName);
+        const exists = fs.existsSync(templatePath) || fs.existsSync(resolvedPath);
+        expect(
+          exists,
+          `mandatoryArtifact "${artifact}" (slug=${cfg.slug}) does not resolve to a template: tried "${basename}" and "${resolvedName}" in analysis/templates/`,
+        ).toBe(true);
+      }
+    }
   });
 });
