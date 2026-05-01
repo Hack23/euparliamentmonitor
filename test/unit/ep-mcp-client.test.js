@@ -3660,4 +3660,178 @@ describe('ep-mcp-client', () => {
       expect(failed.get('get_adopted_texts')).toMatch(/^CONTENT_PENDING:/);
     });
   });
+
+  describe('getElectionCalendarContext', () => {
+    let getElectionCalendarContext;
+
+    beforeEach(async () => {
+      ({ getElectionCalendarContext } = await import('../../scripts/mcp/ep-mcp-client.js'));
+    });
+
+    it('should return NONE tier when election is far away (> 180 days)', () => {
+      // 2026-01-01 is ~1250 days before 2029-06-04
+      const ctx = getElectionCalendarContext(new Date('2026-01-01T00:00:00Z'));
+      expect(ctx.termId).toBe('EP10');
+      expect(ctx.nextElectionWindow.start).toBe('2029-06-04');
+      expect(ctx.nextElectionWindow.end).toBe('2029-06-09');
+      expect(ctx.daysToElection).toBeGreaterThan(180);
+      expect(ctx.electionImminentTier).toBe('NONE');
+    });
+
+    it('should return T-180 tier when 90 < days <= 180', () => {
+      // 180 days before 2029-06-04 is 2028-12-06
+      const ctx = getElectionCalendarContext(new Date('2028-12-10T00:00:00Z'));
+      expect(ctx.daysToElection).toBeGreaterThan(90);
+      expect(ctx.daysToElection).toBeLessThanOrEqual(180);
+      expect(ctx.electionImminentTier).toBe('T-180');
+    });
+
+    it('should return T-90 tier when 30 < days <= 90', () => {
+      // 60 days before 2029-06-04 is approx 2029-04-05
+      const ctx = getElectionCalendarContext(new Date('2029-04-05T00:00:00Z'));
+      expect(ctx.daysToElection).toBeGreaterThan(30);
+      expect(ctx.daysToElection).toBeLessThanOrEqual(90);
+      expect(ctx.electionImminentTier).toBe('T-90');
+    });
+
+    it('should return T-30 tier when days <= 30', () => {
+      // 10 days before 2029-06-04 is 2029-05-25
+      const ctx = getElectionCalendarContext(new Date('2029-05-25T00:00:00Z'));
+      expect(ctx.daysToElection).toBeLessThanOrEqual(30);
+      expect(ctx.electionImminentTier).toBe('T-30');
+    });
+
+    it('should return T-30 tier with negative days when election window has started', () => {
+      // During election window: 2029-06-06
+      const ctx = getElectionCalendarContext(new Date('2029-06-06T00:00:00Z'));
+      expect(ctx.daysToElection).toBeLessThanOrEqual(0);
+      expect(ctx.electionImminentTier).toBe('T-30');
+      expect(ctx.termId).toBe('EP10'); // still in EP10 until election ends
+    });
+
+    it('should return EP11 term after election window ends', () => {
+      // After 2029-06-09T23:59:59Z
+      const ctx = getElectionCalendarContext(new Date('2029-06-10T12:00:00Z'));
+      expect(ctx.termId).toBe('EP11');
+      expect(ctx.electionImminentTier).toBe('T-30');
+    });
+
+    it('should use current date when no referenceDate is provided', () => {
+      vi.useFakeTimers();
+      vi.setSystemTime(new Date('2029-05-25T00:00:00Z'));
+
+      try {
+        const ctx = getElectionCalendarContext();
+        expect(ctx.termId).toBe('EP10');
+        expect(ctx.nextElectionWindow.start).toBe('2029-06-04');
+        expect(ctx.nextElectionWindow.end).toBe('2029-06-09');
+        expect(ctx.daysToElection).toBe(10);
+        expect(ctx.electionImminentTier).toBe('T-30');
+      } finally {
+        vi.useRealTimers();
+      }
+    });
+
+    it('should return exact boundary: 181 days → NONE', () => {
+      // 181 days before 2029-06-04 is 2028-12-05
+      const electionStart = new Date('2029-06-04T00:00:00Z');
+      const refDate = new Date(electionStart.getTime() - 181 * 24 * 60 * 60 * 1000);
+      const ctx = getElectionCalendarContext(refDate);
+      expect(ctx.electionImminentTier).toBe('NONE');
+    });
+
+    it('should return exact boundary: 180 days → T-180', () => {
+      // Exactly 180 days before election start (ceil rounds up)
+      const electionStart = new Date('2029-06-04T00:00:00Z');
+      const refDate = new Date(electionStart.getTime() - 180 * 24 * 60 * 60 * 1000);
+      const ctx = getElectionCalendarContext(refDate);
+      expect(ctx.electionImminentTier).toBe('T-180');
+    });
+
+    it('should return exact boundary: 91 days → T-180', () => {
+      const electionStart = new Date('2029-06-04T00:00:00Z');
+      const refDate = new Date(electionStart.getTime() - 91 * 24 * 60 * 60 * 1000);
+      const ctx = getElectionCalendarContext(refDate);
+      expect(ctx.electionImminentTier).toBe('T-180');
+    });
+
+    it('should return exact boundary: 90 days → T-90', () => {
+      const electionStart = new Date('2029-06-04T00:00:00Z');
+      const refDate = new Date(electionStart.getTime() - 90 * 24 * 60 * 60 * 1000);
+      const ctx = getElectionCalendarContext(refDate);
+      expect(ctx.electionImminentTier).toBe('T-90');
+    });
+
+    it('should return exact boundary: 31 days → T-90', () => {
+      const electionStart = new Date('2029-06-04T00:00:00Z');
+      const refDate = new Date(electionStart.getTime() - 31 * 24 * 60 * 60 * 1000);
+      const ctx = getElectionCalendarContext(refDate);
+      expect(ctx.electionImminentTier).toBe('T-90');
+    });
+
+    it('should return exact boundary: 30 days → T-30', () => {
+      const electionStart = new Date('2029-06-04T00:00:00Z');
+      const refDate = new Date(electionStart.getTime() - 30 * 24 * 60 * 60 * 1000);
+      const ctx = getElectionCalendarContext(refDate);
+      expect(ctx.electionImminentTier).toBe('T-30');
+    });
+  });
+
+  describe('getCommissionWorkProgramme and getCouncilPresidencyProgramme', () => {
+    /** @type {EPMCPClient} */
+    let client;
+    /** @type {MockConsoleResult} */
+    let consoleOutput;
+
+    beforeEach(() => {
+      consoleOutput = mockConsole();
+      client = new EuropeanParliamentMCPClient();
+    });
+
+    afterEach(() => {
+      consoleOutput.restore();
+    });
+
+    it('should call getExternalDocumentsFeed with COM_WORK_PROGRAMME workType', async () => {
+      vi.spyOn(client, 'callTool').mockResolvedValue({
+        content: [{ type: 'text', text: '{"items": []}' }],
+      });
+
+      await client.getCommissionWorkProgramme({ timeframe: 'one-month' });
+
+      expect(client.callTool).toHaveBeenCalledWith('get_external_documents_feed', {
+        timeframe: 'one-month',
+        workType: 'COM_WORK_PROGRAMME',
+      });
+    });
+
+    it('should call getExternalDocumentsFeed with COUNCIL_PRESIDENCY_PROGRAMME workType', async () => {
+      vi.spyOn(client, 'callTool').mockResolvedValue({
+        content: [{ type: 'text', text: '{"items": []}' }],
+      });
+
+      await client.getCouncilPresidencyProgramme({ timeframe: 'one-week' });
+
+      expect(client.callTool).toHaveBeenCalledWith('get_external_documents_feed', {
+        timeframe: 'one-week',
+        workType: 'COUNCIL_PRESIDENCY_PROGRAMME',
+      });
+    });
+
+    it('should handle tool failure gracefully for getCommissionWorkProgramme', async () => {
+      vi.spyOn(client, 'callTool').mockRejectedValue(new Error('Tool not available'));
+
+      const result = await client.getCommissionWorkProgramme();
+
+      expect(result.content[0].text).toContain('feed');
+    });
+
+    it('should handle tool failure gracefully for getCouncilPresidencyProgramme', async () => {
+      vi.spyOn(client, 'callTool').mockRejectedValue(new Error('Tool not available'));
+
+      const result = await client.getCouncilPresidencyProgramme();
+
+      expect(result.content[0].text).toContain('feed');
+    });
+  });
 });

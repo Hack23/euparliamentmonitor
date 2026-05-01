@@ -368,13 +368,46 @@ reference in `intelligence/presidency-trio-context.md` and
 
 ### Election calendar context (when `electoralOverlay=true`)
 
-When the article-horizons registry sets `electoralOverlay: true`, derive the
-election context from the fixed EP-term anchors documented in
-[`electoral-cycle-methodology.md`](../../analysis/methodologies/electoral-cycle-methodology.md) §1
-rather than calling a dedicated MCP client helper. Include EP-term anchors
-(EP9/EP10/EP11 start/end dates), days-to-next-election, and the auto-trigger
-thresholds (T-180 / T-90 / T-30) defined by the methodology. Reference:
-[`12-electoral-cycle.md`](12-electoral-cycle.md) §5.
+When the article-horizons registry sets `electoralOverlay: true`, use the
+`getElectionCalendarContext()` helper exported from `src/mcp/ep-mcp-client.ts`:
+
+```ts
+import { getElectionCalendarContext } from './scripts/mcp/ep-mcp-client.js';
+
+const ctx = getElectionCalendarContext(); // defaults to new Date()
+// ctx.termId            — 'EP10' or 'EP11'
+// ctx.nextElectionWindow — { start: '2029-06-04', end: '2029-06-09' }
+// ctx.daysToElection    — days until election start (0 or negative once started)
+// ctx.electionImminentTier — 'NONE' | 'T-180' | 'T-90' | 'T-30'
+```
+
+Tier thresholds (per `electoral-cycle-methodology.md` §1):
+- `daysToElection > 180`  → `NONE`
+- `180 ≥ d > 90`          → `T-180`
+- `90 ≥ d > 30`           → `T-90`
+- `30 ≥ d`                → `T-30`
+
+Constants are centralised in `src/constants/config.ts`
+(`EP_NEXT_ELECTION_START`, `EP_NEXT_ELECTION_END`, `EP_CURRENT_TERM`,
+`EP_NEXT_TERM`).
+
+### Commission Work Programme and Council Presidency wrappers
+
+Typed convenience methods on `EuropeanParliamentMCPClient`:
+
+```ts
+// Commission Work Programme — filters get_external_documents_feed by workType
+await client.getCommissionWorkProgramme({ timeframe: 'one-month' });
+
+// Council Presidency Programme — filters get_external_documents_feed by workType
+await client.getCouncilPresidencyProgramme({ timeframe: 'one-month' });
+```
+
+Both delegate to `getExternalDocumentsFeed` with the appropriate `workType`
+filter (`COM_WORK_PROGRAMME` / `COUNCIL_PRESIDENCY_PROGRAMME`). When the feed
+is empty (recess period or no matching documents), the standard feed fallback
+(`{"feed": []}`) is returned — callers should fall back to scanning
+`getExternalDocuments({ limit: 50 })` manually.
 
 ## 14 · Recess-Mode Handling for Long-Horizon Queries
 
