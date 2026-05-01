@@ -1,0 +1,120 @@
+{
+  "articleType": "propositions",
+  "runDate": "2026-05-01",
+  "analysisDir": "analysis/daily/2026-05-01/propositions",
+  "runId": "propositions-run-1777615486",
+  "createdAt": "2026-05-01T06:25:00Z",
+  "pass2": {
+    "startedAt": "2026-05-01T06:15:00Z",
+    "endedAt": "2026-05-01T06:25:00Z",
+    "rewriteCount": 1
+  },
+  "gateResult": "ANALYSIS_ONLY",
+  "files": {
+    "intelligence/synthesis-summary.md": {
+      "lines": 170,
+      "status": "complete"
+    },
+    "executive-brief.md": {
+      "lines": 200,
+      "status": "complete"
+    },
+    "intelligence/stakeholder-map.md": {
+      "lines": 215,
+      "status": "complete"
+    },
+    "intelligence/pestle-analysis.md": {
+      "lines": 200,
+      "status": "complete"
+    },
+    "intelligence/scenario-forecast.md": {
+      "lines": 195,
+      "status": "complete"
+    },
+    "intelligence/threat-model.md": {
+      "lines": 170,
+      "status": "complete"
+    },
+    "intelligence/wildcards-blackswans.md": {
+      "lines": 185,
+      "status": "complete"
+    },
+    "intelligence/economic-context.md": {
+      "lines": 175,
+      "status": "complete"
+    },
+    "intelligence/historical-baseline.md": {
+      "lines": 195,
+      "status": "complete"
+    },
+    "intelligence/mcp-reliability-audit.md": {
+      "lines": 205,
+      "status": "complete"
+    },
+    "intelligence/reference-analysis-quality.md": {
+      "lines": 145,
+      "status": "complete"
+    },
+    "intelligence/analysis-index.md": {
+      "lines": 108,
+      "status": "complete"
+    },
+    "intelligence/methodology-reflection.md": {
+      "lines": 185,
+      "status": "complete"
+    },
+    "risk-scoring/quantitative-swot.md": {
+      "lines": 145,
+      "status": "complete"
+    },
+    "risk-scoring/risk-matrix.md": {
+      "lines": 140,
+      "status": "complete"
+    },
+    "existing/pipeline-health.md": {
+      "lines": 100,
+      "status": "complete"
+    },
+    "documents/document-analysis-index.md": {
+      "lines": 55,
+      "status": "complete"
+    },
+    "data/adopted-texts-2026-04-28-30.json": {
+      "status": "complete"
+    },
+    "data/political-landscape.json": {
+      "status": "complete"
+    }
+  },
+  "history": [
+    {
+      "runId": "propositions-run-1777615486",
+      "runDate": "2026-05-01",
+      "startedAt": "2026-05-01T06:04:46Z",
+      "completedAt": "2026-05-01T06:25:00Z",
+      "artifactCount": 17,
+      "totalLines": 2113,
+      "dataAvailability": "DEGRADED_RECESS_MODE",
+      "primaryDataSource": "get_adopted_texts_feed",
+      "imfStatus": "analyst_knowledge_path"
+    }
+  ],
+  "mcpStatus": {
+    "proceduresFeed": "RECESS_MODE",
+    "adoptedTextsFeed": "OPERATIONAL",
+    "trackLegislation": "OPERATIONAL",
+    "politicalLandscape": "OPERATIONAL",
+    "votingRecords": "EMPTY_EXPECTED_DELAY",
+    "plenarySessionsIndex": "PARTIAL_MARCH2026"
+  },
+  "keyFindings": [
+    "Anti-Corruption Regulation signed April 29, 2026 \u2014 first dedicated EU criminal anti-corruption framework",
+    "SRMR3 in force April 20, 2026 \u2014 banking union resolution pillar complete",
+    "EP urgency resolution on DMA enforcement \u2014 36 months, zero formal decisions",
+    "Dogs and Cats Welfare Regulation post-trilogue EP position adopted April 29",
+    "Ukraine civilian infrastructure accountability urgency resolution adopted April 30",
+    "EPP+S&D+Renew coalition = 397 seats, maintaining stable legislative majority"
+  ],
+  "gateReason": "Stage C first RED at minute 21; 14 mermaid_missing and 10 short artifacts; completing Pass 3 would exceed minute-22 elapsed-time tripwire",
+  "stageCGateLine": "STAGE_C_GATE: ANALYSIS_ONLY articleType=propositions reason=elapsed-time-tripwire-minute-21"
+}

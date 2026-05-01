@@ -1,0 +1,135 @@
+{
+  "collectedAt": "2026-05-01T06:04:00Z",
+  "source": "EP MCP Tool: get_adopted_texts (year=2026)",
+  "recentAdoptedTexts": [
+    {
+      "id": "TA-10-2026-0105",
+      "title": "Request for the waiver of the immunity of Patryk Jaki",
+      "dateAdopted": "2026-04-28",
+      "subjectMatter": "PRIV",
+      "procedureRef": "eli/dl/event/2025-2171-DEC-DCPL-2026-04-28",
+      "type": "TEXT_ADOPTED"
+    },
+    {
+      "id": "TA-10-2026-0112",
+      "title": "Guidelines for the 2027 budget - Section III",
+      "dateAdopted": "2026-04-28",
+      "subjectMatter": "BUDG",
+      "procedureRef": "eli/dl/event/2025-2246-DEC-DCPL-2026-04-28",
+      "type": "TEXT_ADOPTED"
+    },
+    {
+      "id": "TA-10-2026-0115",
+      "title": "Welfare of dogs and cats and their traceability",
+      "dateAdopted": "2026-04-28",
+      "procedureId": "2023/0447(COD)",
+      "procedureRef": "eli/dl/event/2023-0447-DEC-DCPL-2026-04-29",
+      "type": "TEXT_ADOPTED",
+      "stage": "PLENARY_ADOPT_POSITION (post-trilogue)"
+    },
+    {
+      "id": "TA-10-2026-0119",
+      "title": "Control of the financial activities of the European Investment Bank Group — annual report 2024",
+      "dateAdopted": "2026-04-28",
+      "subjectMatter": "BEI",
+      "procedureRef": "eli/dl/event/2025-2237-DEC-DCPL-2026-04-28",
+      "type": "TEXT_ADOPTED"
+    },
+    {
+      "id": "TA-10-2026-0122",
+      "title": "Control, transparency and traceability of performance-based instruments",
+      "dateAdopted": "2026-04-28",
+      "subjectMatter": "BUDG, CONT",
+      "procedureRef": "eli/dl/event/2025-2032-DEC-DCPL-2026-04-28",
+      "type": "TEXT_ADOPTED"
+    },
+    {
+      "id": "TA-10-2026-0132",
+      "title": "Discharge 2024: EU general budget - Committee of the Regions",
+      "dateAdopted": "2026-04-29",
+      "subjectMatter": "CONT, REGI",
+      "procedureRef": "eli/dl/event/2025-2152-DEC-DCPL-2026-04-29",
+      "type": "TEXT_ADOPTED"
+    },
+    {
+      "id": "TA-10-2026-0142",
+      "title": "EU-Iceland agreement on transfer of passenger name record (PNR) data to prevent, detect, investigate and prosecute terrorist offences and serious crime",
+      "dateAdopted": "2026-04-29",
+      "subjectMatter": "LIBE, EXT",
+      "procedureId": "2025/0156(NLE)",
+      "procedureRef": "eli/dl/event/2025-0156-DEC-DCPL-2026-04-29",
+      "type": "TEXT_ADOPTED"
+    },
+    {
+      "id": "TA-10-2026-0151",
+      "title": "Escalating trafficking and exploitation by criminal groups in Haiti",
+      "dateAdopted": "2026-04-30",
+      "subjectMatter": "DROI, EXT",
+      "procedureRef": "eli/dl/event/2026-2702-DEC-DCPL-2026-04-30",
+      "type": "TEXT_ADOPTED",
+      "urgency": true
+    },
+    {
+      "id": "TA-10-2026-0160",
+      "title": "Enforcement of the Digital Markets Act",
+      "dateAdopted": "2026-04-30",
+      "subjectMatter": "IMCO, ITRE",
+      "procedureRef": "eli/dl/event/2026-2596-DEC-DCPL-2026-04-30",
+      "type": "TEXT_ADOPTED",
+      "urgency": true
+    },
+    {
+      "id": "TA-10-2026-0161",
+      "title": "Ensuring accountability and justice in response to Russia's continued attacks against the civilian population in Ukraine",
+      "dateAdopted": "2026-04-30",
+      "subjectMatter": "AFET, DROI",
+      "procedureRef": "eli/dl/event/2026-2700-DEC-DCPL-2026-04-30",
+      "type": "TEXT_ADOPTED",
+      "urgency": true
+    },
+    {
+      "id": "TA-10-2026-0162",
+      "title": "Supporting democratic resilience in Armenia",
+      "dateAdopted": "2026-04-30",
+      "subjectMatter": "AFET, DROI",
+      "procedureRef": "eli/dl/event/2026-2701-DEC-DCPL-2026-04-30",
+      "type": "TEXT_ADOPTED",
+      "urgency": true
+    },
+    {
+      "id": "TA-10-2026-04-30-ANN01",
+      "title": "ESTIMATES OF THE EUROPEAN PARLIAMENT FOR THE FINANCIAL YEAR 2027",
+      "dateAdopted": "2026-04-30",
+      "type": "BUDGET_EP_DRAFT"
+    }
+  ],
+  "recentlyCompletedLegislation": [
+    {
+      "procedureId": "2023/0111(COD)",
+      "title": "Early intervention measures, conditions for resolution and funding of resolution action (SRMR3)",
+      "adoptedRef": "TA-10-2026-0092",
+      "dateAdopted": "2026-03-26",
+      "dateSigned": "2026-03-30",
+      "datePublishedOJ": "2026-04-20",
+      "status": "NOW EU LAW",
+      "note": "Signed by Council and President, published Official Journal April 20, 2026"
+    },
+    {
+      "procedureId": "2023/0135(COD)",
+      "title": "Combating corruption",
+      "adoptedRef": "TA-10-2026-0094",
+      "dateAdopted": "2026-03-26",
+      "dateSigned": "2026-04-29",
+      "status": "SIGNED — entering into force",
+      "note": "Anti-Corruption Regulation signed April 29, 2026"
+    },
+    {
+      "procedureId": "2023/0447(COD)",
+      "title": "Welfare of dogs and cats and their traceability",
+      "adoptedRef": "TA-10-2026-0115",
+      "dateAdopted": "2026-04-29",
+      "status": "EP POSITION ADOPTED — awaiting Council final adoption",
+      "trilogue": "Provisional agreement approved January 12, 2026"
+    }
+  ]
+}
