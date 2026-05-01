@@ -587,7 +587,7 @@ describe('ep-mcp-client', () => {
         // period: { from: "2024-01-01", to: "2024-12-31" } producing an empty
         // pipeline; that is why Stage-A prompts (01-data-collection.md rule 6,
         // 07-mcp-reference.md §4) require explicit dates. The gateway is now
-        // pinned to v1.2.18 (rolling-30-days default), but explicit dates remain
+        // pinned to v1.2.19 (rolling-30-days default), but explicit dates remain
         // the required calling pattern for reproducibility.
         const now = Date.now();
         const today = new Date(now).toISOString().slice(0, 10);
