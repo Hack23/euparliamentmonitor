@@ -38,6 +38,30 @@ export const MC_ITERATIONS = 10_000;
 /** Minimum historical sample size before base-rate fallback fires. */
 export const MIN_SAMPLE_SIZE = 5;
 
+/** Trailing window (ms) for recent-weight multiplier (24 months). */
+const RECENT_WINDOW_MS = 2 * 365.25 * 24 * 60 * 60 * 1000;
+
+/** Weight multiplier for transitions within trailing 24 months. */
+const RECENT_WEIGHT = 2.0;
+
+/** Weight multiplier for transitions 24–48 months old. */
+const OLDER_WEIGHT = 1.0;
+
+/** Weight multiplier for transitions older than 48 months. */
+const STALE_WEIGHT = 0.5;
+
+/** Maximum reasonable stage duration in days (filter outliers). */
+const MAX_STAGE_DURATION_DAYS = 2000;
+
+/** Default duration (days) for adoption-like voting records. */
+const VOTING_ADOPTION_DEFAULT_DAYS = 14;
+
+/** Default duration (days) for plenary-like voting records. */
+const VOTING_PLENARY_DEFAULT_DAYS = 30;
+
+/** Jitter half-range applied to MC samples (±20% = 0.4 total range). */
+const JITTER_RANGE = 0.4;
+
 /**
  * Tetlock-style base-rate fallback priors (days) when sample < MIN_SAMPLE_SIZE.
  * Sourced from forward-projection-methodology.md §5 and historical EP data.
@@ -114,7 +138,6 @@ export function extractTransitionDurations(procedures, votingRecords) {
   };
 
   const now = Date.now();
-  const twoYearsMs = 2 * 365.25 * 24 * 60 * 60 * 1000;
 
   for (const proc of procedures) {
     const events = proc.events || proc.stages || [];
@@ -140,11 +163,11 @@ export function extractTransitionDurations(procedures, votingRecords) {
 
       // Age-weighting: events within trailing 24 months get higher weight
       const ageMs = now - curr.date.getTime();
-      const weight = ageMs <= twoYearsMs ? 2.0 : ageMs <= 2 * twoYearsMs ? 1.0 : 0.5;
+      const weight = ageMs <= RECENT_WINDOW_MS ? RECENT_WEIGHT : ageMs <= 2 * RECENT_WINDOW_MS ? OLDER_WEIGHT : STALE_WEIGHT;
 
       // Classify transition by destination stage
       const stage = classifyEventStage(curr.text);
-      if (stage && daysDiff > 0 && daysDiff < 2000) {
+      if (stage && daysDiff > 0 && daysDiff < MAX_STAGE_DURATION_DAYS) {
         durations[stage].push({ days: daysDiff, weight });
       }
     }
@@ -157,14 +180,14 @@ export function extractTransitionDurations(procedures, votingRecords) {
     if (isNaN(voteDate.getTime())) continue;
 
     const ageMs = now - voteDate.getTime();
-    const weight = ageMs <= twoYearsMs ? 2.0 : 1.0;
+    const weight = ageMs <= RECENT_WINDOW_MS ? RECENT_WEIGHT : OLDER_WEIGHT;
 
     // Voting records generally correspond to plenary or adoption stage
     const text = (vote.title || vote.description || vote.type || '').toLowerCase();
     if (text.includes('final') || text.includes('adopt')) {
-      durations.adoption.push({ days: 14, weight });
+      durations.adoption.push({ days: VOTING_ADOPTION_DEFAULT_DAYS, weight });
     } else {
-      durations.plenary.push({ days: 30, weight });
+      durations.plenary.push({ days: VOTING_PLENARY_DEFAULT_DAYS, weight });
     }
   }
 
@@ -227,7 +250,7 @@ export function monteCarloStage(samples, rng) {
     const u = rng();
     const pick = cdf.find((c) => u <= c.cdf) || cdf[cdf.length - 1];
     // Add small jitter (±20%) to avoid discrete spikes
-    const jitter = 1 + (rng() - 0.5) * 0.4;
+    const jitter = 1 + (rng() - 0.5) * JITTER_RANGE;
     results.push(Math.max(1, Math.round(pick.days * jitter)));
   }
 
