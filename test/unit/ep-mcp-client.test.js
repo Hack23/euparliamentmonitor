@@ -3717,12 +3717,19 @@ describe('ep-mcp-client', () => {
     });
 
     it('should use current date when no referenceDate is provided', () => {
-      const ctx = getElectionCalendarContext();
-      expect(ctx.termId).toBe('EP10');
-      expect(ctx.nextElectionWindow.start).toBe('2029-06-04');
-      expect(ctx.nextElectionWindow.end).toBe('2029-06-09');
-      expect(typeof ctx.daysToElection).toBe('number');
-      expect(['NONE', 'T-180', 'T-90', 'T-30']).toContain(ctx.electionImminentTier);
+      vi.useFakeTimers();
+      vi.setSystemTime(new Date('2029-05-25T00:00:00Z'));
+
+      try {
+        const ctx = getElectionCalendarContext();
+        expect(ctx.termId).toBe('EP10');
+        expect(ctx.nextElectionWindow.start).toBe('2029-06-04');
+        expect(ctx.nextElectionWindow.end).toBe('2029-06-09');
+        expect(ctx.daysToElection).toBe(10);
+        expect(ctx.electionImminentTier).toBe('T-30');
+      } finally {
+        vi.useRealTimers();
+      }
     });
 
     it('should return exact boundary: 181 days → NONE', () => {
