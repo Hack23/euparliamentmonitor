@@ -416,7 +416,7 @@ and pull institutional-calendar context:
 ```bash
 TODAY=$(date -u +%Y-%m-%d)
 if [ "${FORWARD_HORIZON_DAYS:-0}" -ge 90 ]; then
-  MONTHS_TO_COVER=$(( FORWARD_HORIZON_DAYS / 30 ))
+  MONTHS_TO_COVER=$(( (FORWARD_HORIZON_DAYS + 29) / 30 ))
   for i in $(seq 0 "$MONTHS_TO_COVER"); do
     MONTH_START=$(date -u -d "$TODAY +${i} months" +%Y-%m-01)
     MONTH_END=$(date -u -d "$MONTH_START +1 month -1 day" +%Y-%m-%d)

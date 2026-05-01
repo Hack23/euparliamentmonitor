@@ -394,8 +394,8 @@ array for the recess month. The MCP client surfaces `recessMode: true` in
    with the month and affected feeds.
 3. **Soft-fail forward-projection:** When > 50% of the queried months return
    empty, downgrade the article to a calendar-projection focus (reduced
-   confidence on legislative-pipeline timing; widen WEP bands +10 pp for
-   affected months).
+   confidence on legislative-pipeline timing; widen WEP bands +10
+   percentage points for affected months).
 4. **Use committee-meeting data as proxy:** During recess, committees may
    still hold extraordinary meetings. Call
    `get_committee_documents_feed({ timeframe: "one-month" })` to detect

@@ -312,9 +312,10 @@ When the article type has a data window ≥ 90 days (per
 
 1. **Scenario floor enforcement:** `intelligence/scenario-forecast.md` MUST
    contain **≥ 6 distinct scenarios** for `term-outlook` and `election-cycle`
-   article types: mainline scenario + 2 adjacent scenarios + ≥ 1
-   regime-change branch + ≥ 2 wildcard/black-swan scenarios. Fewer than 6
-   on a long-horizon run triggers a Pass 2 rewrite of the scenario artifact.
+   article types: 1 mainline scenario + 2 adjacent scenarios + 1
+   regime-change branch + 2 wildcard/black-swan scenarios (= 6 minimum).
+   Fewer than 6 on a long-horizon run triggers a Pass 2 rewrite of the
+   scenario artifact.
 
 2. **Structural-break section non-empty:** For any horizon ≥ 12 months,
    `intelligence/scenario-forecast.md` MUST have a non-empty
