@@ -408,17 +408,30 @@ state.
 
 For article types with a data window ≥ 90 days (`quarter-ahead`,
 `quarter-in-review`, `year-ahead`, `year-in-review`, `term-outlook`,
-`election-cycle`), Stage A **must** fan out EP data collection per-month
-and pull institutional-calendar context:
+`election-cycle`, `deep-analysis`), Stage A **must** fan out EP data
+collection per-month and pull institutional-calendar context:
 
 **Per-month plenary session fan-out:**
 
+The fan-out loop iterates over the article's `dataWindow` (days + direction)
+from `src/config/article-horizons.ts`, NOT the `forwardStatementsHorizonDays`
+value (which may be 0 for retrospective horizons). For prospective articles,
+iterate forward from today; for retrospective articles, iterate backward.
+
 ```bash
 TODAY=$(date -u +%Y-%m-%d)
-if [ "${FORWARD_HORIZON_DAYS:-0}" -ge 90 ]; then
-  MONTHS_TO_COVER=$(( (FORWARD_HORIZON_DAYS + 29) / 30 ))
+# Use dataWindow.days from the article-horizons registry (NOT FORWARD_HORIZON_DAYS)
+HORIZON_DAYS="${DATA_WINDOW_DAYS:-90}"
+if [ "${HORIZON_DAYS}" -ge 90 ]; then
+  MONTHS_TO_COVER=$(( (HORIZON_DAYS + 29) / 30 ))
+  # direction: +N months for prospective, -N months for retrospective
+  DIRECTION="${DATA_WINDOW_DIRECTION:-forward}"
   for i in $(seq 0 "$MONTHS_TO_COVER"); do
-    MONTH_START=$(date -u -d "$TODAY +${i} months" +%Y-%m-01)
+    if [ "$DIRECTION" = "backward" ]; then
+      MONTH_START=$(date -u -d "$TODAY -${i} months" +%Y-%m-01)
+    else
+      MONTH_START=$(date -u -d "$TODAY +${i} months" +%Y-%m-01)
+    fi
     MONTH_END=$(date -u -d "$MONTH_START +1 month -1 day" +%Y-%m-%d)
     echo "Fetching plenary sessions: $MONTH_START → $MONTH_END"
   done
@@ -441,11 +454,14 @@ Write results to `${ANALYSIS_DIR}/data/external-docs-horizon.json`.
 
 **Election calendar context:**
 
-When `ELECTORAL_OVERLAY=true` (per `src/config/article-horizons.ts`), also
-call `getElectionCalendarContext()` (from `src/mcp/ep-mcp-client.ts`) to
-retrieve EP-term anchors and days-to-next-election. Reference
+When `ELECTORAL_OVERLAY=true` (per `src/config/article-horizons.ts`),
+derive EP-term anchors and days-to-next-election from the fallback guidance
+in [`electoral-cycle-methodology.md`](../../analysis/methodologies/electoral-cycle-methodology.md)
+using the documented term anchors (EP9: 2019-07-02 → 2024-07-15; EP10:
+2024-07-16 → 2029-06; next EP election = second Sunday of June per Council
+Decision 2018/767). Reference
 [`12-electoral-cycle.md`](12-electoral-cycle.md) §5 for auto-trigger
-thresholds.
+thresholds (T-180 / T-90 / T-30).
 
 **Budget:** Per-month fan-out adds ~2 s per month; a 12-month horizon adds
 ~24 s. External-docs feed is < 2 s. Total overhead stays within the ≤ 5 min

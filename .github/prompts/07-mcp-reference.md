@@ -368,12 +368,13 @@ reference in `intelligence/presidency-trio-context.md` and
 
 ### Election calendar context (when `electoralOverlay=true`)
 
-When the article-horizons registry sets `electoralOverlay: true`, also call
-`getElectionCalendarContext()` (from `src/mcp/ep-mcp-client.ts`). This
-returns EP-term anchors (EP9/EP10/EP11 start/end dates), days-to-next-election,
-and auto-trigger thresholds (T-180 / T-90 / T-30). Reference:
-[`12-electoral-cycle.md`](12-electoral-cycle.md) §5,
-[`electoral-cycle-methodology.md`](../../analysis/methodologies/electoral-cycle-methodology.md) §1.
+When the article-horizons registry sets `electoralOverlay: true`, derive the
+election context from the fixed EP-term anchors documented in
+[`electoral-cycle-methodology.md`](../../analysis/methodologies/electoral-cycle-methodology.md) §1
+rather than calling a dedicated MCP client helper. Include EP-term anchors
+(EP9/EP10/EP11 start/end dates), days-to-next-election, and the auto-trigger
+thresholds (T-180 / T-90 / T-30) defined by the methodology. Reference:
+[`12-electoral-cycle.md`](12-electoral-cycle.md) §5.
 
 ## 14 · Recess-Mode Handling for Long-Horizon Queries
 

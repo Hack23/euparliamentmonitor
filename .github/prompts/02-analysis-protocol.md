@@ -187,22 +187,26 @@ updated analysis.
 | Long-horizon retrospective (quarter-in-review, year-in-review) | **minute 18** — slightly extended for cross-term analysis | **minute 23** | **≤ minute 26** (target ≤ 23) |
 | Translation helper (`news-translate.md`) | No Stage B | N/A (multi-call flush, exempt from single-PR rule) | N/A |
 
-### Multi-Horizon Stage Budget Reference (from `src/config/article-horizons.ts`)
+### Multi-Horizon Stage Budget Summary (`src/config/article-horizons.ts` is authoritative)
 
-The authoritative per-horizon stage budgets are defined in the
-`article-horizons.ts` registry. The table below summarises:
+Exact per-slug stage budgets are defined in the `article-horizons.ts`
+registry and MUST be treated as the source of truth. The table below is an
+approximate planning summary only; if any row conflicts with the registry,
+follow the registry for the specific slug.
 
-| Horizon class | Stage A | Stage B | Stage C | Stage D | Stage E | Total |
-|---------------|:-------:|:-------:|:-------:|:-------:|:-------:|:-----:|
-| **Standard prospective** (week-ahead, month-ahead) | 5 | 14 | 3 | 2 | 1 | 25 |
-| **Standard retrospective** (week-in-review, month-in-review) | 4 | 14 | 3 | 2 | 1 | 24 |
-| **Long-horizon prospective** (quarter-ahead, year-ahead, term-outlook) | 5 | 15 | 3 | 2 | 1 | 26 |
-| **Electoral-overlay** (election-cycle, deep-analysis) | 5 | 18 | 3 | 2 | 1 | 29 |
+| Representative budget pattern | Stage A | Stage B | Stage C | Stage D | Stage E | Total |
+|-------------------------------|:-------:|:-------:|:-------:|:-------:|:-------:|:-----:|
+| **Standard prospective examples** (`week-ahead`, `month-ahead`) | 5 | 14 | 3 | 2 | 1 | 25 |
+| **Standard retrospective examples** (`week-in-review`, `month-in-review`) | 4 | 14 | 3 | 2 | 1 | 24 |
+| **Extended prospective examples** (some longer-range forward-looking slugs) | 5 | 15 | 3 | 2 | 1 | 26 |
+| **Extended analysis / overlay examples** (some deep-dive or election-related slugs) | 5 | 18 | 3 | 2 | 1 | 29 |
 
 All workflows enforce a hard 45-minute `timeout-minutes` cap. Unused budget
 is NOT redistributed — the agent exits cleanly after shipping the PR.
-Long-horizon workflows get extended B1 windows because they produce
-additional mandatory artifacts (see §1b Family-D + forward-projection set).
+Long-horizon or deep-analysis workflows may get extended B1 windows because
+they produce additional mandatory artifacts (see §1b Family-D +
+forward-projection set). Always verify the exact slug budget in
+`src/config/article-horizons.ts` before treating a grouped example as exact.
 
 ### Stage B Sub-stage Budget (Pass 1 / Pass 2 split)
 
@@ -333,8 +337,10 @@ When the article type has a data window ≥ 90 days (per
 4. **Carry-forward hygiene:** For re-runs on the same day/type, every
    forward-statement carried from a prior run must be resolved as
    `implemented`, `superseded`, `stale`, or explicitly `extended`. More than
-   2 unresolved expired items on a ≥ 90-day horizon triggers a RED flag at
-   Stage C.
+   2 unresolved expired items on a ≥ 90-day horizon requires Pass-2 cleanup
+   and, if still present after readback, must be called out as maintainer
+   hygiene for manual Stage-C review rather than assumed as an automatic RED
+   validator gate.
 
 ## 5 · Reference-Quality Depth (seven deep-intelligence artifacts)
 

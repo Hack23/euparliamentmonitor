@@ -110,8 +110,8 @@ For article types with `dataWindow.days ≥ 90` (per
 | `intelligence/legislative-pipeline-forecast.md` | All prospective ≥ 90d | See `analysis/methodologies/reference-quality-thresholds.json` |
 | `intelligence/parliamentary-calendar-projection.md` | All prospective ≥ 90d | See `analysis/methodologies/reference-quality-thresholds.json` |
 | `extended/forward-indicators.md` | All ≥ 90d (promoted from optional) | See `analysis/methodologies/reference-quality-thresholds.json` |
-| `intelligence/presidency-trio-context.md` | year-ahead, term-outlook, election-cycle | See `analysis/methodologies/reference-quality-thresholds.json` |
-| `intelligence/commission-wp-alignment.md` | year-ahead, term-outlook, election-cycle | See `analysis/methodologies/reference-quality-thresholds.json` |
+| `intelligence/presidency-trio-context.md` | year-ahead, term-outlook, election-cycle, year-in-review | See `analysis/methodologies/reference-quality-thresholds.json` |
+| `intelligence/commission-wp-alignment.md` | year-ahead, term-outlook, election-cycle, year-in-review | See `analysis/methodologies/reference-quality-thresholds.json` |
 | `intelligence/term-arc.md` | term-outlook, election-cycle, year-in-review | See `analysis/methodologies/reference-quality-thresholds.json` |
 | `intelligence/seat-projection.md` | term-outlook, election-cycle | See `analysis/methodologies/reference-quality-thresholds.json` |
 | `intelligence/mandate-fulfilment-scorecard.md` | election-cycle, year-in-review | See `analysis/methodologies/reference-quality-thresholds.json` |
