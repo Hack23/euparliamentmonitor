@@ -1,0 +1,54 @@
+{
+  "articleType": "breaking",
+  "runId": "breaking-run-1777595709",
+  "runDate": "2026-05-01",
+  "analysisDir": "analysis/daily/2026-05-01/breaking",
+  "createdAt": "2026-05-01T00:34:43Z",
+  "pass2": {
+    "startedAt": "2026-05-01T00:52:00Z",
+    "endedAt": "2026-05-01T00:54:00Z",
+    "rewriteCount": 3
+  },
+  "files": {
+    "executiveBrief": "executive-brief.md",
+    "analysisIndex": "intelligence/analysis-index.md",
+    "pestleAnalysis": "intelligence/pestle-analysis.md",
+    "stakeholderMap": "intelligence/stakeholder-map.md",
+    "scenarioForecast": "intelligence/scenario-forecast.md",
+    "threatModel": "intelligence/threat-model.md",
+    "historicalBaseline": "intelligence/historical-baseline.md",
+    "economicContext": "intelligence/economic-context.md",
+    "wildcardsBlackswans": "intelligence/wildcards-blackswans.md",
+    "coalitionDynamics": "intelligence/coalition-dynamics.md",
+    "synthesisSummary": "intelligence/synthesis-summary.md",
+    "mcpReliabilityAudit": "intelligence/mcp-reliability-audit.md",
+    "politicalThreatLandscape": "intelligence/political-threat-landscape.md",
+    "significanceScoring": "intelligence/significance-scoring.md",
+    "significanceClassification": "classification/significance-classification.md",
+    "riskMatrix": "risk-scoring/risk-matrix.md",
+    "quantitativeSwot": "risk-scoring/quantitative-swot.md",
+    "documentAnalysisIndex": "documents/document-analysis-index.md",
+    "workflowAudit": "intelligence/workflow-audit.md",
+    "methodologyReflection": "intelligence/methodology-reflection.md"
+  },
+  "dataFiles": {
+    "adoptedTexts": "data/adopted-texts-2026-04-28-30.json",
+    "politicalLandscape": "data/political-landscape.json"
+  },
+  "imfStatus": "degraded",
+  "imfProbeFile": "cache/imf/probe-summary.json",
+  "history": [
+    {
+      "runId": "breaking-run-1777595709",
+      "runAt": "2026-05-01T00:34:43Z",
+      "gateResult": "ANALYSIS_ONLY",
+      "artifactCount": 20,
+      "pass2RewriteCount": 3,
+      "notes": "First run. April 28-30 Strasbourg plenary. Ukraine accountability (TA-10-2026-0161), Armenia (TA-10-2026-0162), Cyberbullying (TA-10-2026-0163), Budget 2027 (TA-10-2026-0112). IMF degraded mode; events feed unavailable; voting records delayed.",
+      "stageC": {
+        "result": "ANALYSIS_ONLY",
+        "reason": "Stage C RED (missing=16 short=17 mermaid_missing=15); elapsed-time at minute 20; protecting PR-call deadline"
+      }
+    }
+  ]
+}
