@@ -670,11 +670,12 @@ function mergeForwardRegistryResult(results, forwardRegistryResult) {
 /**
  * Count the number of scenario headings in a scenario-forecast artifact.
  * Matches `### Scenario N:` and `### Scenario N —` patterns (both numeric
- * and letter variants used in worked examples).
+ * and letter variants used in worked examples). Only alphanumeric identifiers
+ * are matched to avoid false positives from underscore-containing headings.
  */
 function countScenarios(content) {
-  // Match "### Scenario 1:" or "### Scenario A —" (any heading-3 scenario)
-  const re = /^###\s+Scenario\s+[\w]+\s*[:—]/gm;
+  // Match "### Scenario 1:" or "### Scenario A —" (digit or letter identifier only)
+  const re = /^###\s+Scenario\s+[A-Za-z0-9]+\s*[:—]/gm;
   const matches = content.match(re);
   return matches ? matches.length : 0;
 }
@@ -729,12 +730,26 @@ function buildRules(thresholdsJson, articleType) {
 
   // Load long-horizon scenario gate config from JSON if present.
   const lhGateCfg = structural.longHorizonScenarioGate || null;
-  const longHorizonScenarioGate =
+  let longHorizonScenarioGate = null;
+  if (
     lhGateCfg &&
     Array.isArray(lhGateCfg.articleTypes) &&
     lhGateCfg.articleTypes.includes(articleType)
-      ? { artifact: lhGateCfg.artifact || 'intelligence/scenario-forecast.md', minScenarios: lhGateCfg.minScenarios || 6 }
-      : null;
+  ) {
+    // Both artifact and minScenarios are required fields — do not silently
+    // default them; a malformed config should not bypass the gate.
+    if (
+      typeof lhGateCfg.artifact === 'string' &&
+      lhGateCfg.artifact.length > 0 &&
+      typeof lhGateCfg.minScenarios === 'number' &&
+      lhGateCfg.minScenarios > 0
+    ) {
+      longHorizonScenarioGate = {
+        artifact: lhGateCfg.artifact,
+        minScenarios: lhGateCfg.minScenarios,
+      };
+    }
+  }
 
   return {
     perArtifactFloors,
