@@ -5,54 +5,34 @@
  * Horizon navigation E2E tests — political-intelligence index structure
  *
  * Verifies that every political-intelligence page (14 languages — canonical
- * English + 13 localized variants) has the correct structure to surface new
+ * English + 13 localized variants) has the correct structure to surface
  * analysis-horizon run cards:
  *
- *   1. The page loads successfully (HTTP 200)
- *   2. The page heading `#pi-heading` is visible
- *   3. The daily-runs section (`.pi-date-group`) exists
- *   4. The hreflang alternates reference every other language variant
- *   5. Localized UI title for each of the 6 new horizons is non-empty
- *      when resolved via `getRunTypeInfo` (validates the title table
- *      in `political-intelligence-descriptions.js` for each language)
+ *   1. The page loads successfully (HTTP 200) and `#pi-heading` is visible
+ *   2. The daily-runs section (`.pi-date-group`) exists
+ *   3. All 14 hreflang alternates are present in the `<head>`
+ *   4. The page passes an axe-core WCAG 2.1 AA accessibility scan
+ *   5. Every run-card slug rendered on the page resolves to a non-empty
+ *      localised title via `getRunTypeInfo` (guards against title lookup
+ *      regressions for any horizon type rendered in the PI index)
  *
- * The per-language × per-horizon HTML generation tests (84 cases) live in
- * `test/unit/horizon-pi-html.test.js`, which uses the `test/fixtures/horizons/`
- * fixture stubs to generate PI HTML without polluting `analysis/daily/`.
+ * Per-language × per-horizon HTML generation coverage (84 cases) lives in
+ * `test/unit/horizon-pi-html.test.js`, which builds a temp analysis tree
+ * from `test/fixtures/horizons/` without polluting `analysis/daily/`.
  *
- * Test count: 14 pages × (structure + hreflang + 6 title resolution) = 14 × 8 = 112
+ * Test count: 14 pages × 5 tests = 70
  */
 
 import { test, expect } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
 import { getRunTypeInfo } from '../../scripts/generators/political-intelligence-descriptions.js';
 
-// ─── PI page variants ────────────────────────────────────────────────────────
-const PI_PAGES = [
-  { lang: 'en', path: '/political-intelligence.html' },
-  { lang: 'sv', path: '/political-intelligence_sv.html' },
-  { lang: 'da', path: '/political-intelligence_da.html' },
-  { lang: 'no', path: '/political-intelligence_no.html' },
-  { lang: 'fi', path: '/political-intelligence_fi.html' },
-  { lang: 'de', path: '/political-intelligence_de.html' },
-  { lang: 'fr', path: '/political-intelligence_fr.html' },
-  { lang: 'es', path: '/political-intelligence_es.html' },
-  { lang: 'nl', path: '/political-intelligence_nl.html' },
-  { lang: 'ar', path: '/political-intelligence_ar.html' },
-  { lang: 'he', path: '/political-intelligence_he.html' },
-  { lang: 'ja', path: '/political-intelligence_ja.html' },
-  { lang: 'ko', path: '/political-intelligence_ko.html' },
-  { lang: 'zh', path: '/political-intelligence_zh.html' },
-];
-
-// ─── New horizons (slug-only — used only for title resolution) ───────────────
-const NEW_HORIZON_SLUGS = [
-  'quarter-ahead',
-  'quarter-in-review',
-  'year-ahead',
-  'year-in-review',
-  'term-outlook',
-  'election-cycle',
-];
+// ─── PI page variants (derived from shared ALL_LANGUAGES constant) ────────────
+const PI_PAGES = ALL_LANGUAGES.map((lang) => ({
+  lang,
+  path: lang === 'en' ? '/political-intelligence.html' : `/political-intelligence_${lang}.html`,
+}));
 
 // ─── Parameterised structural tests ─────────────────────────────────────────
 for (const { lang, path: pagePath } of PI_PAGES) {
@@ -72,26 +52,56 @@ for (const { lang, path: pagePath } of PI_PAGES) {
       expect(count, 'at least one .pi-date-group should exist').toBeGreaterThan(0);
     });
 
-    test('hreflang alternates include English canonical', async ({ page }) => {
+    test('hreflang alternates cover all 14 language variants', async ({ page }) => {
       await page.goto(pagePath);
-      const canonical = page.locator(
-        'link[rel="alternate"][hreflang="en"], link[rel="canonical"]'
-      );
-      const count = await canonical.count();
-      expect(count, 'canonical/hreflang=en alternate should be present').toBeGreaterThan(0);
+      // Every PI page must emit one hreflang alternate for each supported language.
+      // A regression that drops alternates would break search-engine language routing.
+      for (const code of ALL_LANGUAGES) {
+        const link = page.locator(`link[rel="alternate"][hreflang="${code}"]`);
+        await expect(
+          link,
+          `hreflang="${code}" alternate must be present in ${pagePath}`
+        ).toHaveCount(1);
+      }
     });
 
-    for (const horizonSlug of NEW_HORIZON_SLUGS) {
-      test(`getRunTypeInfo("${horizonSlug}", "${lang}") returns a non-empty localised title`, async () => {
-        // This validates the RUN_TYPE_TITLES table in political-intelligence-descriptions.js
-        // for every horizon × language combination — a fast, server-free check.
-        const { title } = getRunTypeInfo(horizonSlug, lang);
+    test('passes WCAG 2.1 AA accessibility scan', async ({ page }) => {
+      await page.goto(pagePath);
+      await page.waitForLoadState('networkidle');
+
+      const results = await new AxeBuilder({ page })
+        .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
+        .analyze();
+
+      if (results.violations.length > 0) {
+        console.log(
+          `[${lang}] Accessibility violations on ${pagePath}:`,
+          JSON.stringify(results.violations, null, 2)
+        );
+      }
+      expect(results.violations).toEqual([]);
+    });
+
+    test('all rendered run-card slugs resolve to a localised title', async ({ page }) => {
+      await page.goto(pagePath);
+
+      // Collect every <code> text inside a .pi-run__slug badge that is actually
+      // rendered in the page (guards against PI rendering breaking entirely AND
+      // against title lookup regressions for any rendered horizon type).
+      const slugElements = page.locator('.pi-run__slug code');
+      const count = await slugElements.count();
+      expect(count, 'at least one run-card slug should be rendered on the page').toBeGreaterThan(0);
+
+      const slugs = await slugElements.allTextContents();
+      for (const slug of slugs) {
+        const trimmed = slug.trim();
+        const { title } = getRunTypeInfo(trimmed, lang);
         expect(
           title,
-          `getRunTypeInfo("${horizonSlug}", "${lang}") should return a non-empty title`
+          `run slug "${trimmed}" must resolve to a non-empty localised title for lang="${lang}"`
         ).toBeTruthy();
         expect(title.length).toBeGreaterThan(0);
-      });
-    }
+      }
+    });
   });
 }

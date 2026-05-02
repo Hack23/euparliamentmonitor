@@ -27,9 +27,7 @@ import {
   generatePoliticalIntelligenceHTML,
 } from '../../scripts/generators/political-intelligence.js';
 import { getRunTypeInfo } from '../../scripts/generators/political-intelligence-descriptions.js';
-
-// ─── Language codes served by the PI generator ───────────────────────────────
-const ALL_LANGUAGES = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
 
 // ─── New horizons to test ─────────────────────────────────────────────────────
 const NEW_HORIZONS = [
