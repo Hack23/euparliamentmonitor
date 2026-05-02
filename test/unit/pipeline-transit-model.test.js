@@ -634,5 +634,68 @@ describe('pipeline-transit-model', () => {
       const output = JSON.parse(fs.readFileSync(outFile, 'utf8'));
       expect(Object.keys(output)).toHaveLength(0);
     });
+
+    it('should accept procedures in { data: [...] } envelope', () => {
+      const procedures = generateProcedureFixture(3);
+      const votingRecords = generateVotingRecords(2);
+
+      const procFile = path.join(tmpDir, 'env-proc.json');
+      const votingFile = path.join(tmpDir, 'env-votes.json');
+      const outFile = path.join(tmpDir, 'env-out.json');
+
+      fs.writeFileSync(procFile, JSON.stringify({ data: procedures }));
+      fs.writeFileSync(votingFile, JSON.stringify(votingRecords));
+
+      const result = spawnSync('node', [
+        SCRIPT_PATH, '--in', procFile, '--voting', votingFile,
+        '--out', outFile, '--seed', '42',
+      ], { encoding: 'utf8' });
+
+      expect(result.status).toBe(0);
+      const output = JSON.parse(fs.readFileSync(outFile, 'utf8'));
+      expect(Object.keys(output).length).toBe(3);
+    });
+
+    it('should accept voting records in { votes: [...] } envelope', () => {
+      const procedures = generateProcedureFixture(3);
+      const votingRecords = generateVotingRecords(2);
+
+      const procFile = path.join(tmpDir, 'env2-proc.json');
+      const votingFile = path.join(tmpDir, 'env2-votes.json');
+      const outFile = path.join(tmpDir, 'env2-out.json');
+
+      fs.writeFileSync(procFile, JSON.stringify(procedures));
+      fs.writeFileSync(votingFile, JSON.stringify({ votes: votingRecords }));
+
+      const result = spawnSync('node', [
+        SCRIPT_PATH, '--in', procFile, '--voting', votingFile,
+        '--out', outFile, '--seed', '42',
+      ], { encoding: 'utf8' });
+
+      expect(result.status).toBe(0);
+      const output = JSON.parse(fs.readFileSync(outFile, 'utf8'));
+      expect(Object.keys(output).length).toBe(3);
+    });
+
+    it('should accept both envelopes together: { data: [...] } + { votes: [...] }', () => {
+      const procedures = generateProcedureFixture(5);
+      const votingRecords = generateVotingRecords(3);
+
+      const procFile = path.join(tmpDir, 'both-proc.json');
+      const votingFile = path.join(tmpDir, 'both-votes.json');
+      const outFile = path.join(tmpDir, 'both-out.json');
+
+      fs.writeFileSync(procFile, JSON.stringify({ data: procedures }));
+      fs.writeFileSync(votingFile, JSON.stringify({ votes: votingRecords }));
+
+      const result = spawnSync('node', [
+        SCRIPT_PATH, '--in', procFile, '--voting', votingFile,
+        '--out', outFile, '--seed', '42',
+      ], { encoding: 'utf8' });
+
+      expect(result.status).toBe(0);
+      const output = JSON.parse(fs.readFileSync(outFile, 'utf8'));
+      expect(Object.keys(output).length).toBe(5);
+    });
   });
 });

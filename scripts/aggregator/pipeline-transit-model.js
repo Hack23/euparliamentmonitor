@@ -542,7 +542,11 @@ export function cli(argv) {
   try {
     const rawProc = fs.readFileSync(args.inFile, 'utf8');
     const parsed = JSON.parse(rawProc);
-    procedures = Array.isArray(parsed) ? parsed : parsed.items || parsed.procedures || [];
+    procedures = Array.isArray(parsed) ? parsed : parsed.data || parsed.items || parsed.procedures || [];
+    if (!Array.isArray(procedures)) {
+      process.stderr.write('Error: procedures file does not contain a recognized array (expected top-level array or { data | items | procedures: [...] })\n');
+      process.exit(1);
+    }
   } catch (err) {
     process.stderr.write(`Error reading procedures file: ${err.message}\n`);
     process.exit(1);
@@ -551,7 +555,11 @@ export function cli(argv) {
   try {
     const rawVoting = fs.readFileSync(args.votingFile, 'utf8');
     const parsed = JSON.parse(rawVoting);
-    votingRecords = Array.isArray(parsed) ? parsed : parsed.items || parsed.records || [];
+    votingRecords = Array.isArray(parsed) ? parsed : parsed.votes || parsed.data || parsed.items || parsed.records || [];
+    if (!Array.isArray(votingRecords)) {
+      process.stderr.write('Error: voting records file does not contain a recognized array (expected top-level array or { votes | data | items | records: [...] })\n');
+      process.exit(1);
+    }
   } catch (err) {
     process.stderr.write(`Error reading voting records file: ${err.message}\n`);
     process.exit(1);
