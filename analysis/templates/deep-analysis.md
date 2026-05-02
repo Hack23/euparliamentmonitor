@@ -237,6 +237,70 @@ analytic neutrality preserved.
 - [`../methodologies/political-style-guide.md`](../methodologies/political-style-guide.md) — Economist tone
 - [`../methodologies/osint-tradecraft-standards.md`](../methodologies/osint-tradecraft-standards.md) — every claim graded
 
+## 📐 Mandatory long-form diagrams (≥3)
+
+Stage-C requires `deep-analysis.md` to ship at least **three** color-coded
+Mermaid diagrams in addition to the in-section structural diagram. The three
+templates below are the minimum baseline — extend, do not replace — and every
+diagram MUST inherit the canonical universal init block from
+[`political-style-guide.md` §Standard universal init block](../methodologies/political-style-guide.md).
+
+### Diagram 1 — Argument arc (executive → forward)
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+flowchart TD
+    EXEC["📰 Executive Summary<br/>BLUF + WEP band"] --> THESIS["🧱 Structural Thesis<br/>{N} policy clusters"]
+    THESIS --> CRYST["⚡ Crystallisation Moment<br/>defining session"]
+    CRYST --> COAL["🤝 Coalition Dynamics<br/>{cohesion %}"]
+    COAL --> POL["📜 Policy Dimensions<br/>≥4 sub-sections"]
+    POL --> INST["🏛️ Institutional Dynamics<br/>EP × Council × COM"]
+    INST --> GEO["🌍 Geopolitical Context"]
+    GEO --> FWD["🧭 Forward Trajectory<br/>scenarios + WEP"]
+    FWD --> CONF["✅ Confidence & Method"]
+
+    style EXEC fill:#1565C0,color:#ffffff
+    style THESIS fill:#2E7D32,color:#ffffff
+    style CRYST fill:#FFC107,color:#000000
+    style COAL fill:#7B1FA2,color:#ffffff
+    style POL fill:#0288D1,color:#ffffff
+    style INST fill:#388E3C,color:#ffffff
+    style GEO fill:#FF9800,color:#000000
+    style FWD fill:#D32F2F,color:#ffffff
+    style CONF fill:#9E9E9E,color:#ffffff
+```
+
+### Diagram 2 — Political timeline of the period
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+timeline
+    title 🗓️ Political arc of the period
+    {Window start} : Opening signal — {named procedure}
+    {Mid-window} : Crystallisation session — {RCV title}
+    {Late window} : Coalition stress test — {motion}
+    {Run date} : Filing window — analysis snapshot
+    T+30d : Forward trigger — {scheduled file}
+```
+
+### Diagram 3 — Coalition cohesion vs opposition pressure
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+xychart-beta
+    title "🤝 Coalition cohesion vs opposition pressure (rolling)"
+    x-axis [W-4, W-3, W-2, W-1, W0]
+    y-axis "% cohesion / pressure" 0 --> 100
+    bar [{cohesion W-4}, {cohesion W-3}, {cohesion W-2}, {cohesion W-1}, {cohesion W0}]
+    line [{pressure W-4}, {pressure W-3}, {pressure W-2}, {pressure W-1}, {pressure W0}]
+```
+
+> **AI Agent:** Replace `{…}` placeholders with actual values from
+> `intelligence/coalition-dynamics.md`, `intelligence/voting-patterns.md`, and
+> `existing/session-baseline.md`. Diagrams 1–3 are the minimum; add domain-
+> specific diagrams in the relevant body section if a single visual is more
+> persuasive than prose.
+
 ## ✅ Stage-C completeness signals
 
 - Line floor: per-article-type from `reference-quality-thresholds.json`
