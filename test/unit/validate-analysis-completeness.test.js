@@ -958,18 +958,30 @@ describe('scripts/validate-analysis-completeness.js', () => {
   it('returns RED for month-ahead when forward-projection.md is below floor (§9.4)', () => {
     writeMonthAheadManifest();
     writeAllMonthAheadArtifacts();
-    // Overwrite with a too-short file (floor is 120 for month-ahead in production thresholds)
+    // Overwrite with a too-short file (floor is 120 for month-ahead)
     fs.writeFileSync(
       path.join(runDir, 'intelligence/forward-projection.md'),
       makeArtifact(30, { mermaid: true, wep: true, admiralty: true }),
       'utf8',
     );
-    // Use production thresholds to pick up the month-ahead forward-projection floor
-    const prodThresholds = path.resolve(
-      path.dirname(fileURLToPath(import.meta.url)),
-      '../../analysis/methodologies/reference-quality-thresholds.json',
+    // Write a dedicated fixture with only the forward-projection floor
+    const fpThresholds = path.join(tmp, 'fp-thresholds.json');
+    fs.writeFileSync(
+      fpThresholds,
+      JSON.stringify({
+        thresholds: {
+          'month-ahead': {
+            'intelligence/forward-projection.md': 120,
+          },
+        },
+        tradecraftQualitySignals: {
+          wepBandRequired: ['intelligence/forward-projection.md'],
+          admiraltyGradeRequired: ['intelligence/forward-projection.md'],
+        },
+      }),
+      'utf8',
     );
-    const result = run(runDir, ['--thresholds', prodThresholds]);
+    const result = run(runDir, ['--thresholds', fpThresholds]);
     expect(result.code).toBe(1);
     expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
     expect(result.stderr).toMatch(/short/);
@@ -978,18 +990,30 @@ describe('scripts/validate-analysis-completeness.js', () => {
   it('returns RED for week-ahead when forward-projection.md is below floor (§9.4)', () => {
     writeWeekAheadManifest();
     writeAllWeekAheadArtifacts();
-    // Overwrite with a too-short file (floor is 80 for week-ahead in production thresholds)
+    // Overwrite with a too-short file (floor is 80 for week-ahead)
     fs.writeFileSync(
       path.join(runDir, 'intelligence/forward-projection.md'),
       makeArtifact(20, { mermaid: true, wep: true, admiralty: true }),
       'utf8',
     );
-    // Use production thresholds to pick up the week-ahead forward-projection floor
-    const prodThresholds = path.resolve(
-      path.dirname(fileURLToPath(import.meta.url)),
-      '../../analysis/methodologies/reference-quality-thresholds.json',
+    // Write a dedicated fixture with only the forward-projection floor
+    const fpThresholds = path.join(tmp, 'fp-thresholds.json');
+    fs.writeFileSync(
+      fpThresholds,
+      JSON.stringify({
+        thresholds: {
+          'week-ahead': {
+            'intelligence/forward-projection.md': 80,
+          },
+        },
+        tradecraftQualitySignals: {
+          wepBandRequired: ['intelligence/forward-projection.md'],
+          admiraltyGradeRequired: ['intelligence/forward-projection.md'],
+        },
+      }),
+      'utf8',
     );
-    const result = run(runDir, ['--thresholds', prodThresholds]);
+    const result = run(runDir, ['--thresholds', fpThresholds]);
     expect(result.code).toBe(1);
     expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
     expect(result.stderr).toMatch(/short/);
