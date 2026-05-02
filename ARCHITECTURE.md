@@ -42,8 +42,10 @@
 >   `article-metadata.ts` (5-tier editorial-highlight resolver for
 >   `<title>` / `<meta description>` — manifest override → first artefact
 >   H1 → aggregated H1 → first strong prose → localized template)
-> - 🤖 **Agentic workflows**: 8 unified `news-<type>.md` files (Stages A → B
->   → C → D → E in one session) + `news-translate.md`; the split-family
+> - 🤖 **Agentic workflows**: 14 unified `news-<type>.md` files (Stages A → B
+>   → C → D → E in one session, covering 14 article types — including the
+>   long-horizon `quarter-ahead`/`year-ahead` and electoral `term-outlook`/
+>   `election-cycle` set added in 2026-Q2) + `news-translate.md`; the split-family
 >   workflows (`news-<type>-analysis.md` + `news-<type>-article.md`) and
 >   the manual `news-article-generator.md` helper were deleted
 > - 💰 **Economic-context enforcement**: editorial Stage-C agent-side
@@ -153,7 +155,7 @@ Evidence of ISMS compliance is maintained through:
 
 ## 🎯 System Overview
 
-EU Parliament Monitor is a **TypeScript-first static site generator and political intelligence platform** that creates multi-language news articles about European Parliament activities. Content is produced by a fleet of **9 agentic GitHub Workflows** (gh-aw — 8 unified `news-<type>.md` + `news-translate.md`) that drive AI agents (Claude Opus 4.7 via GitHub Copilot) through the Stage A→E protocol, consuming structured data from **three data surfaces**:
+EU Parliament Monitor is a **TypeScript-first static site generator and political intelligence platform** that creates multi-language news articles about European Parliament activities. Content is produced by a fleet of **15 agentic GitHub Workflows** (gh-aw — 14 unified `news-<type>.md` covering 14 article types + `news-translate.md`) that drive AI agents (Claude Opus 4.7 via GitHub Copilot) through the Stage A→E protocol, consuming structured data from **three data surfaces**:
 
 - **[European Parliament MCP Server](https://github.com/Hack23/European-Parliament-MCP-Server)** `v1.2.20+` (primary — 60+ tools including plenary, MEPs, votes, committees, procedures, adopted texts, sliding-window + fixed-window feeds, analytical tools, and a three-state voting fallback to the EP Open Data Portal)
 - **World Bank Open Data MCP** (non-economic only — WDI social/health/education/environment/governance indicators)
@@ -174,7 +176,7 @@ architecture.
 - **TypeScript Source**: All source in `src/` written in TypeScript 6.0.3 (strict, ESM, `"type": "module"`), compiled via `tsc` — `rootDir: ./src`, `outDir: ./scripts`, `target: ES2025`, `module: NodeNext`
 - **Multi-Language Support**: Generates content in 14 languages (`en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh`), defined in `src/constants/language-core.ts::ALL_LANGUAGES`
 - **Article Types**: 8 production content types (`breaking`, `committee-reports`, `month-ahead`, `month-in-review`, `motions`, `propositions`, `week-ahead`, `week-in-review`) — each type is a slug, not a strategy module; the aggregator renders the same canonical artifact order for every type and per-type content differences are carried by the Stage-B artifacts themselves
-- **Agentic Workflows**: 9 unified gh-aw markdown workflows — 8 `news-<type>.md` article types (Stages A → B → C → D → E in one session, active-work budget 22–27 min before the single safe-outputs `create_pull_request` call, 75-min hard timeout) + `news-translate.md` (14-language flush translation, exempt from the single-PR rule) — compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.69.0`)
+- **Agentic Workflows**: 15 unified gh-aw markdown workflows — 14 `news-<type>.md` article types (Stages A → B → C → D → E in one session, active-work budget 22–28 min before the single safe-outputs `create_pull_request` call, 60-min `timeout-minutes` cap, `engine.mcp.session-timeout: 65m`) + `news-translate.md` (14-language flush translation, exempt from the single-PR rule) — compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.69.0`)
 - **Analysis-Artifact-Driven Article Pipeline**: Agents author the full Stage-B artifact set under `analysis/daily/<date>/<slug>-run<NN>/` and commit it. The deterministic aggregator (`src/aggregator/**`, invoked via `npm run generate-article -- --run <analysis-run-dir>` for a single run or `npm run generate-article:all` for batch regen) walks `manifest.json`, cleans each artifact, and emits the final HTML with the shared site chrome (stacked header + embedded 14-language switcher + TOC sidebar + footer stats) and 14-language hreflang entries. There is no AI-authored HTML step, no strategies, no builders, no section-builders
 - **Economic Data (IMF-primary, Wave-4 strict default editorial)**: IMF REST is the **primary** source for every economic claim in `intelligence/economic-context.md`; World Bank MCP provides complementary non-economic context only. Enforcement is editorial at the Stage-C completeness review — the legacy runtime gates (`articlePolicyHasEconomicContext`, `articlePolicyHasIMFEconomicEvidence`, `isWave3IMFStrictEnabled`) in `src/utils/content-validator.ts` were purged in April-2026; the Stage-C reviewer applies the IMF-required-for-policy rule directly over the committed artifact
 - **Quality-Through-Artifact Principle**: Mandatory 2-pass iterative improvement during Stage B (~60% pass 1, ~40% pass 2); ≥ 80 words/SWOT item, ≥ 150 words/stakeholder perspective, ≥ 1 Mermaid or Chart.js visualisation per core artifact, 0 `[AI_ANALYSIS_REQUIRED]` sentinel markers in any committed file (enforced at Stage-C agent-side review against `reference-quality-thresholds.json`)
@@ -317,7 +319,7 @@ C4Container
     Person(researcher, "Researcher / Journalist", "Audits analysis artifacts via the Political Intelligence Hub")
 
     Container_Boundary(epmonitor, "EU Parliament Monitor") {
-        Container(aw_orchestrator, "gh-aw Orchestrator", "Agentic Workflows (Claude Opus 4.7)", "9 agentic workflows: 8 unified news-<type>.md + news-translate.md")
+        Container(aw_orchestrator, "gh-aw Orchestrator", "Agentic Workflows (Claude Opus 4.7)", "15 agentic workflows: 14 unified news-<type>.md + news-translate.md")
         Container(prompt_lib, "Prompt Library", "10 bounded contexts", ".github/prompts/00-scope … 09-troubleshooting; lint:prompts drift-guard")
         Container(methodology_lib, "Methodology Library", "Markdown methodologies + JSON thresholds", "17 methodologies + reference-quality-thresholds.json (analysis/methodologies/)")
         Container(template_lib, "Template Library", "51 Markdown templates", "39 core + 12 extended (analysis/templates/)")
@@ -647,24 +649,30 @@ C4Deployment
 
 ### Article Types & Workflows
 
-8 production article types are driven by 8 unified `news-<type>.md` workflows (Stage A→E in one ~45-min session, single PR per run). Article HTML is rendered deterministically by `src/aggregator/article-generator.ts` from committed Stage-B analysis artifacts — there are no per-type strategy modules in the post-April-2026 pipeline.
+14 production article types are driven by 14 unified `news-<type>.md` workflows (Stage A→E in one ~60-min session, single PR per run). Article HTML is rendered deterministically by `src/aggregator/article-generator.ts` from committed Stage-B analysis artifacts — there are no per-type strategy modules in the post-April-2026 pipeline. Every horizon's data window, cadence, mandatory artifacts and stage budgets are defined centrally in [`src/config/article-horizons.ts`](src/config/article-horizons.ts) (see ADR-007).
 
-| 🏷️ Article Type     | 🤖 gh-aw Workflow                | 📅 Cadence                    |
-|---------------------|----------------------------------|-------------------------------|
-| 🚨 `breaking`        | `news-breaking.md`               | Every 6 hours                 |
-| 🔮 `week-ahead`      | `news-week-ahead.md`             | Fri 07:00 UTC                 |
-| 📋 `week-in-review`  | `news-week-in-review.md`         | Sat 09:00 UTC                 |
-| 📊 `month-ahead`     | `news-month-ahead.md`            | 1st of month 08:00 UTC        |
-| 📈 `month-in-review` | `news-month-in-review.md`        | 28th of month 10:00 UTC       |
-| 🏛️ `committee-reports` | `news-committee-reports.md`    | Mon–Fri 04:00 UTC             |
-| 🗳️ `motions`         | `news-motions.md`                | Mon–Fri 06:00 UTC             |
-| ⚖️ `propositions`    | `news-propositions.md`           | Mon–Fri 05:00 UTC             |
+| 🏷️ Article Type        | 🤖 gh-aw Workflow                | 📅 Cadence                    |
+|------------------------|----------------------------------|-------------------------------|
+| 🚨 `breaking`           | `news-breaking.md`               | Every 4 hours                 |
+| 🔮 `week-ahead`         | `news-week-ahead.md`             | Fri 07:00 UTC                 |
+| 📊 `month-ahead`        | `news-month-ahead.md`            | 1st of month 08:00 UTC        |
+| 🌐 `quarter-ahead`      | `news-quarter-ahead.md`          | 1st of month 06:00 UTC        |
+| 🛰️ `year-ahead`         | `news-year-ahead.md`             | Quarterly (2 Jan/Apr/Jul/Oct) |
+| 🗓️ `term-outlook`       | `news-term-outlook.md`           | Semi-annual (1 Jan & 1 Jul)   |
+| 🗳️ `election-cycle`     | `news-election-cycle.md`         | Annual (1 Dec) + T-180/T-90/T-30 imminent triggers |
+| 📋 `week-in-review`     | `news-week-in-review.md`         | Sat 09:00 UTC                 |
+| 📈 `month-in-review`    | `news-month-in-review.md`        | 28th of month 10:00 UTC       |
+| 📚 `quarter-in-review`  | `news-quarter-in-review.md`      | 5th of month 08:00 UTC        |
+| 📜 `year-in-review`     | `news-year-in-review.md`         | Annual (15 Jan)               |
+| 🏛️ `committee-reports`  | `news-committee-reports.md`      | Mon–Fri 04:00 UTC             |
+| 🗳️ `motions`            | `news-motions.md`                | Mon–Fri 06:00 UTC             |
+| ⚖️ `propositions`       | `news-propositions.md`           | Mon–Fri 05:00 UTC             |
 
 Plus: `news-translate.md` (14-language translation helper, manual dispatch only).
 
 ### Agentic Workflows (gh-aw)
 
-All 9 news workflows are **markdown source files compiled to YAML** (`.md` → `.lock.yml`) via the GitHub Agentic Workflows CLI (`gh aw compile --validate`) with pinned `GH_AW_VERSION: v0.69.0` in `.github/workflows/compile-agentic-workflows.yml`. See [WORKFLOWS.md](WORKFLOWS.md) for the full surface.
+All 15 news workflows are **markdown source files compiled to YAML** (`.md` → `.lock.yml`) via the GitHub Agentic Workflows CLI (`gh aw compile --validate`) with pinned `GH_AW_VERSION: v0.69.0` in `.github/workflows/compile-agentic-workflows.yml`. See [WORKFLOWS.md](WORKFLOWS.md) for the full surface.
 
 **5-layer security model**:
 1. **AWF Squid firewall allowlist** — egress HTTP allowlist per workflow
@@ -1378,6 +1386,70 @@ We shift the `week-in-review` analysis window to **D-36 → D-8** (`start = D-36
 - `src/constants/language-articles.ts`: `WEEKLY_REVIEW_TITLES` subtitles updated (14 languages).
 
 **Compliance:** Aligns with Hack23 AI Policy (unambiguous date semantics in published articles), GDPR (accurate published metadata).
+
+---
+
+### ADR-007: Centralised Horizon Registry — `src/config/article-horizons.ts`
+
+**Status:** Accepted  
+**Date:** 2026-05-01  
+**Decision Makers:** CEO, Development Team
+
+**Context:**
+
+- The April-2026 long-horizon expansion (PR #1561 / Look-Ahead epic #1562) added 6 new article types — `quarter-ahead`, `year-ahead`, `term-outlook`, `election-cycle`, `quarter-in-review`, `year-in-review` — bringing the total to 14 article types and 15 unified gh-aw workflows.
+- Each new horizon needs to declare its data window, cadence, mandatory artifacts, optional artifacts, stage budgets, scenario depth, forward-statements horizon and electoral-overlay flag.
+- Before this ADR, equivalent metadata for the 8 short-form types was scattered across the workflow `.md` files, the aggregator (`src/aggregator/article-metadata.ts`), the forward-statements registry (`scripts/aggregator/forward-statements-registry.js`), the prompt library (`.github/prompts/02-analysis-protocol.md`), the per-language title generators (`src/constants/language-articles.ts`), and `analysis/methodologies/reference-quality-thresholds.json`.
+- Adding a new horizon required edits in 6+ separate places with no compile-time guarantee that they agreed. A drift between the workflow's mandatory-artifact list and the Stage-C completeness gate's expectations would silently allow the PR through, defeating the gate.
+
+**Decision:**
+
+Introduce **[`src/config/article-horizons.ts`](src/config/article-horizons.ts)** as the **single source of truth** for every horizon's configuration. Each `ArticleCategory` enum value maps to one `ArticleHorizonConfig` entry containing:
+
+- `slug` — canonical slug used in workflow filenames, artifact paths and URLs.
+- `perspective` — `RETROSPECTIVE` / `PROSPECTIVE` / `ELECTORAL` / `POINT-IN-TIME`.
+- `timePeriod` — human-readable label for article titles.
+- `dataWindow` — `{ direction: 'forward' | 'backward' | 'span' | 'point', days?, anchor }` where `anchor` is `today` / `next-election` / `commission-wp` / `term-end`.
+- `cadence` — `{ cron, description, triggerEvents? }` — supports auxiliary triggers like `election-imminent-t180`.
+- `primaryFeeds` — EP MCP tools that **must** be probed in Stage A.
+- `mandatoryArtifacts` / `optionalArtifacts` — relative paths under `analysis/daily/<date>/<slug>/`.
+- `stageBudgets` — `{ A, B, C, D, E }` minute ceilings (sum ≤ 50 — drift-guard `test/unit/horizon-registry.test.js`).
+- `scenarioMaxHorizonMonths` — caps the scenario-forecast time window.
+- `forwardStatementsHorizonDays` — bounds open-statement carry-forward (week-ahead = 14 … election-cycle = 1825).
+- `electoralOverlay` — when `true`, Family-D electoral artifacts become mandatory and the scenario-forecast must include an EP-election outcome branch.
+
+The aggregator (`src/aggregator/article-metadata.ts` via `getHorizonConfig(slug)`), the forward-statements registry (`scripts/aggregator/forward-statements-registry.js`), the Stage-C completeness gate metadata (`getMandatoryArtifacts(slug)`, `getProspectiveSlugs()`, `getElectoralOverlaySlugs()`), and the drift-guard tests (`test/unit/horizon-registry.test.js`, `test/unit/horizon-snapshot.test.js`) all consume this registry directly. There is no parallel registry; if a workflow needs the data, it imports from this module.
+
+**Rationale:**
+
+1. **One change, one place.** Adding a new horizon is now a four-step edit: new `ArticleCategory` enum value → new `ARTICLE_HORIZONS` entry → per-language title generator in `src/constants/language-articles.ts` → new `news-<slug>.md` workflow. Everything else (Stage-C gate, aggregator, scenario depth, forward-statements decay) follows automatically.
+2. **Compile-time safety.** TypeScript's exhaustiveness checks force every consumer to handle every `ArticleCategory` enum value; missing a case in (e.g.) the article metadata fallback now fails the build.
+3. **Drift-guard.** `test/unit/horizon-registry.test.js` asserts every horizon's stage-budget sum ≤ 50 (within the 60-min cap leaves the 10-min buffer for sandbox setup, MCP gateway boot and the safe-output round-trip), and that the `electoralOverlay` flag matches the artifact-list family. `test/unit/horizon-snapshot.test.js` snapshots every horizon's resolved configuration so unintentional changes are flagged at PR time.
+4. **Plan §3 alignment.** The Look-Ahead Plan §3.1 mandates a single registry to drive workflow scheduling, completeness-gate validation, and aggregator metadata. This ADR codifies that decision.
+
+**Alternatives Considered:**
+
+- **YAML / JSON registry under `analysis/methodologies/`** — rejected because TypeScript exhaustiveness checks across the aggregator, generator, and validator would not catch missing entries; runtime parsing also reduces type safety.
+- **One module per horizon under `src/config/horizons/<slug>.ts`** — rejected because cross-horizon comparisons (e.g. "does this slug have an electoral overlay?") would require N imports and the drift-guard tests would lose their single-pass invariant check.
+- **Keep distributed metadata, add a runtime validator** — rejected because the validator is the very gate we are trying to harden; making the gate authoritative without making the registry authoritative leaves the structural drift.
+
+**Consequences:**
+
+- ✅ **Positive:** Schema for new horizons is reviewed once on the registry edit; all 6 derivative locations update mechanically. The Stage-C gate, aggregator, and forward-statements decay all stay in lock-step.
+- ✅ **Positive:** A follow-up issue (cross-referenced in [Look-Ahead Plan §3.1](https://github.com/Hack23/euparliamentmonitor/issues/1562)) refactors the runtime validator (`scripts/validate-analysis.js`) to read from the registry; once shipped, the gate cannot diverge from the workflow declarations even by accident.
+- ⚠️ **Trade-off:** The registry module is large (15 entries × ~25 fields each). Mitigated by extracting shared constants (`STANDARD_FEEDS`, `PROSPECTIVE_MANDATORY`, `RETROSPECTIVE_MANDATORY`, `LONG_HORIZON_PROSPECTIVE_EXTRA`, `ELECTORAL_EXTRA`, `PROSPECTIVE_BUDGETS`, `RETROSPECTIVE_BUDGETS`, `ELECTORAL_BUDGETS`) so per-horizon entries stay readable.
+- ⚠️ **Negative:** Renaming a slug now requires a coordinated change across the registry, workflow filename, analysis-folder schema, and any committed analysis artifacts under `analysis/daily/<date>/<slug>/`. Renames are rare; the aggregator emits a clear error when a slug it cannot resolve is encountered.
+
+**Implementation:**
+
+- [`src/config/article-horizons.ts`](src/config/article-horizons.ts) — registry module (added in PR #1561).
+- [`test/unit/horizon-registry.test.js`](test/unit/horizon-registry.test.js) — drift-guard tests (stage-budget sum, electoral-overlay invariants, slug round-trip).
+- [`test/unit/horizon-snapshot.test.js`](test/unit/horizon-snapshot.test.js) — golden-snapshot test (use `npx vitest run -u` to regenerate after intentional registry edits).
+- [`src/aggregator/article-metadata.ts`](src/aggregator/article-metadata.ts) — consumes `getHorizonConfig(slug)` for window resolution.
+- [`scripts/aggregator/forward-statements-registry.js`](scripts/aggregator/forward-statements-registry.js) — consumes `forwardStatementsHorizonDays` for carry-forward decay.
+- [`.github/prompts/10-horizon-stage-helpers.md`](.github/prompts/10-horizon-stage-helpers.md) — prompt-side reference to the registry families and stage-C tripwires.
+
+**Compliance:** Aligns with Hack23 Secure Development Policy (single source of truth for security-relevant configuration), AI Policy (deterministic, auditable horizon contract), and ISO 27001 A.8.32 (change management — a single review surface for every new horizon).
 
 ---
 

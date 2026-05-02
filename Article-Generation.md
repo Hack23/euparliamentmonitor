@@ -111,15 +111,21 @@ The article is a deterministic view over this object.
 
 ### Source workflows
 
-The article-generating workflows are Markdown gh-aw workflows under `.github/workflows/` and are compiled to `.lock.yml` files. This table reflects the **current repository files**: one source workflow per article type plus the translation helper. Some older or external documentation may describe split analysis/article pairs; those paired workflow files are not present in the current tree.
+The article-generating workflows are Markdown gh-aw workflows under `.github/workflows/` and are compiled to `.lock.yml` files. This table reflects the **current repository files**: one source workflow per article type plus the translation helper. The 8 new long-horizon and electoral workflows (`news-quarter-ahead.md`, `news-year-ahead.md`, `news-quarter-in-review.md`, `news-year-in-review.md`, `news-term-outlook.md`, `news-election-cycle.md`) were added in 2026-Q2 — see [§ Forward-looking horizons & election cycle](#-forward-looking-horizons--election-cycle).
 
 | Workflow | Article type slug | Purpose |
 |---|---|---|
 | `.github/workflows/news-breaking.md` | `breaking` | Rapid coverage of recent EP developments. |
 | `.github/workflows/news-week-in-review.md` | `week-in-review` | Weekly retrospective intelligence. |
 | `.github/workflows/news-month-in-review.md` | `month-in-review` | Monthly retrospective intelligence. |
+| `.github/workflows/news-quarter-in-review.md` | `quarter-in-review` | Quarterly retrospective with pipeline transit + presidency-trio overlay. |
+| `.github/workflows/news-year-in-review.md` | `year-in-review` | Annual retrospective with mandate-fulfilment + term-arc + historical parallels. |
 | `.github/workflows/news-week-ahead.md` | `week-ahead` | Forward calendar and risk outlook. |
 | `.github/workflows/news-month-ahead.md` | `month-ahead` | Monthly forward outlook. |
+| `.github/workflows/news-quarter-ahead.md` | `quarter-ahead` | 90-day legislative pipeline forecast + presidency-trio overlay. |
+| `.github/workflows/news-year-ahead.md` | `year-ahead` | 12-month strategic outlook + Commission Work Programme alignment. |
+| `.github/workflows/news-term-outlook.md` | `term-outlook` | Full EP-term outlook anchored to the next-EP-election week. |
+| `.github/workflows/news-election-cycle.md` | `election-cycle` | EP-election span (±6 mo) with mandate scorecard, seat projection, Spitzenkandidaten arithmetic. |
 | `.github/workflows/news-committee-reports.md` | `committee-reports` | Committee activity and legislative-production analysis. |
 | `.github/workflows/news-motions.md` | `motions` | Motions, resolutions, urgency files, political signals. |
 | `.github/workflows/news-propositions.md` | `propositions` | Legislative proposals and pipeline analysis. |
@@ -146,6 +152,66 @@ Each workflow declares the operational envelope used by gh-aw:
 | Build setup | `npm ci`, `npm run build`, `npm run copy-vendor`. |
 | Render command | `npm run generate-article -- --run "$ANALYSIS_DIR"`. |
 | Vendor assets | Chart.js, Chart.js annotation plugin, D3, and Mermaid vendor bundle copied to `js/vendor/`. |
+
+---
+
+## 🔭 Forward-Looking Horizons & Election Cycle
+
+The April-2026 long-horizon and electoral expansion added **6 new article types** on top of the 8 short-form types. Each is driven by a single unified `news-<slug>.md` workflow that produces one PR per run, just like the short-form workflows — the difference is **scope, depth, and which mandatory artifacts the Stage-C completeness gate enforces**.
+
+### Horizon registry — single source of truth
+
+The full horizon configuration lives in [`src/config/article-horizons.ts`](src/config/article-horizons.ts) — one entry per `ArticleCategory` enum value, with:
+
+- `dataWindow` — direction (`forward` / `backward` / `span` / `point`), span in days, and anchor (`today` / `next-election` / `commission-wp` / `term-end`).
+- `cadence` — cron string + free-text description + optional auxiliary triggers (e.g. `election-imminent-t180/t90/t30`).
+- `primaryFeeds` — EP MCP tools that **must** be probed in Stage A.
+- `mandatoryArtifacts` / `optionalArtifacts` — relative paths under `analysis/daily/<date>/<slug>/`.
+- `stageBudgets` — A / B / C / D / E minute ceilings (sum ≤ 50 within the 60-min cap, drift-guard: `test/unit/horizon-registry.test.js`).
+- `scenarioMaxHorizonMonths` — caps the scenario-forecast time window.
+- `forwardStatementsHorizonDays` — bounds open-statement carry-forward (week-ahead = 14, term-outlook = 1500, election-cycle = 1825).
+- `electoralOverlay` — when `true`, Family-D electoral artifacts (`term-arc`, `seat-projection`, `mandate-fulfilment-scorecard`, `presidency-trio-context`, `commission-wp-alignment`, `forward-indicators`) become mandatory and the scenario-forecast must include an EP-election outcome branch.
+
+Adding a new horizon is a four-step change documented in the module header: new `ArticleCategory` enum value → new `ARTICLE_HORIZONS` entry → per-language title generator in `src/constants/language-articles.ts` → new `news-<slug>.md` workflow. The aggregator (`src/aggregator/article-metadata.ts`), forward-statements registry (`scripts/aggregator/forward-statements-registry.js`), and drift-guard tests all consume this registry directly.
+
+### Six new horizons (2026-Q2)
+
+| Slug | Window | Cadence | Mandatory extras (vs base) | Electoral overlay |
+|---|---|---|---|:---:|
+| `quarter-ahead` | T+90d (forward) | `0 6 1 * *` — 1st of month 06:00 UTC | `forward-projection` · `legislative-pipeline-forecast` · `parliamentary-calendar-projection` · `forward-indicators` | — |
+| `year-ahead` | T+365d (forward) | `0 8 2 1,4,7,10 *` — quarterly | adds `presidency-trio-context` · `commission-wp-alignment` (mandatory) | — |
+| `quarter-in-review` | T-90d (backward) | `0 8 5 * *` — 5th of month | retrospective base + `legislative-pipeline-forecast` | — |
+| `year-in-review` | T-365d (backward) | `0 8 15 1 *` — 15 Jan | retrospective base + `mandate-fulfilment-scorecard` · `term-arc` · `legislative-pipeline-forecast` · `presidency-trio-context` · `commission-wp-alignment` · `historical-parallels` | — |
+| `term-outlook` | today → next-election (~1500d) | `0 8 1 1,7 *` — 1 Jan & 1 Jul | prospective base + full electoral artifact set | ✅ |
+| `election-cycle` | ±6 mo around the election week | `0 8 1 12 *` + T-180/T-90/T-30 imminent triggers | prospective base + full electoral artifact set + `mandate-fulfilment-scorecard` · `historical-parallels` · `comparative-international` | ✅ |
+
+### Eight new analysis artifacts
+
+The long-horizon workflows author 8 new artifacts produced under `intelligence/`. Each has a row in [`analysis/methodologies/artifact-catalog.md`](analysis/methodologies/artifact-catalog.md) and a section in [`analysis/methodologies/per-artifact-methodologies.md`](analysis/methodologies/per-artifact-methodologies.md), with depth floors keyed per article type in [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json):
+
+| Artifact | Produced for | Methodology |
+|---|---|---|
+| `intelligence/forward-projection.md` | every prospective horizon ≥ 7d | [forward-projection-methodology.md](analysis/methodologies/forward-projection-methodology.md) |
+| `intelligence/legislative-pipeline-forecast.md` | quarter-ahead, year-ahead, term-outlook, quarter-in-review, year-in-review | [forward-projection-methodology.md §5](analysis/methodologies/forward-projection-methodology.md) |
+| `intelligence/parliamentary-calendar-projection.md` | quarter-ahead, year-ahead, term-outlook | [forward-projection-methodology.md §6](analysis/methodologies/forward-projection-methodology.md) |
+| `intelligence/term-arc.md` | year-in-review, term-outlook, election-cycle | [electoral-cycle-methodology.md](analysis/methodologies/electoral-cycle-methodology.md) |
+| `intelligence/seat-projection.md` | term-outlook, election-cycle (mandatory); year-ahead/year-in-review (optional) | [electoral-cycle-methodology.md §3](analysis/methodologies/electoral-cycle-methodology.md) |
+| `intelligence/mandate-fulfilment-scorecard.md` | year-in-review, term-outlook, election-cycle | [electoral-cycle-methodology.md §2 (Track A)](analysis/methodologies/electoral-cycle-methodology.md) |
+| `intelligence/presidency-trio-context.md` | year-ahead, year-in-review, term-outlook, election-cycle | [forward-projection-methodology.md §7](analysis/methodologies/forward-projection-methodology.md) |
+| `intelligence/commission-wp-alignment.md` | year-ahead, year-in-review, term-outlook, election-cycle | [forward-projection-methodology.md §8](analysis/methodologies/forward-projection-methodology.md) |
+
+### Stage-C tripwires for long-horizon runs
+
+Stage-C completeness gate exit minute (within the 60-min `timeout-minutes` cap, `engine.mcp.session-timeout: 65m`):
+
+| Family | Stage-C exit | PR-call deadline | Stage budgets (A/B/C/D/E) |
+|---|:---:|:---:|---|
+| Standard short-form (breaking, week-*, month-*, committee-reports, motions, propositions) | minute 36 | minute ≤ 45 | 5 / 22 / 4 / 2 / 2 = 35 (prospective) · 4 / 22 / 4 / 2 / 2 = 34 (retrospective) |
+| Long-horizon prospective (quarter-ahead, year-ahead) | minute 38–39 | minute ≤ 45 | 5 / 24–25 / 4 / 2 / 2 |
+| Long-horizon retrospective (quarter-in-review, year-in-review) | minute 38–39 | minute ≤ 45 | 4–5 / 24–25 / 4 / 2 / 2 |
+| Electoral (term-outlook, election-cycle) | minute 42 | minute ≤ 47 | 5 / 26–28 / 4 / 2 / 2 = up to 41 |
+
+The drift-guard test (`test/unit/horizon-registry.test.js`) asserts every horizon's `stageBudgets` sum is ≤ 50 to leave the 10-min buffer for sandbox setup, MCP gateway boot, and the safe-output `create_pull_request` round-trip.
 
 ---
 

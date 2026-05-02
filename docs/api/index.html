@@ -58,7 +58,7 @@
 </tr>
 <tr>
 <td>🤖 <strong>AI-Generated News</strong></td>
-<td>8 unified gh-aw agentic workflows + 1 translation workflow run autonomously, produce structured analysis, render deterministic HTML, and open publication-ready pull requests for human review.</td>
+<td>14 unified gh-aw agentic workflows + 1 translation workflow run autonomously, produce structured analysis, render deterministic HTML, and open publication-ready pull requests for human review.</td>
 </tr>
 </tbody>
 </table>
@@ -125,7 +125,7 @@
 <li><a href="media/README.md">Agent Catalog</a> — custom Copilot agents (analysis producers / consumers / gh-aw infrastructure)</li>
 <li><a href="media/README-1.md">Skills Library</a> — shared skills (security, compliance, intelligence, gh-aw)</li>
 <li><a href="media/README-2.md">Prompt Library</a> — 10-file bounded-context prompt set (<code>00</code>→<code>09</code>) + <code>npm run lint:prompts</code> drift-guard</li>
-<li><a href="media/README-3.md">Workflows</a> + <a href="documents/WORKFLOWS.html">WORKFLOWS.md</a> — 9 <code>news-*.md</code> agentic workflows (8 unified <code>news-&lt;type&gt;.md</code> + <code>news-translate.md</code>) + CI workflows</li>
+<li><a href="media/README-3.md">Workflows</a> + <a href="documents/WORKFLOWS.html">WORKFLOWS.md</a> — 15 <code>news-*.md</code> agentic workflows (14 unified <code>news-&lt;type&gt;.md</code> covering 14 article types — including the long-horizon <code>quarter-ahead</code>/<code>quarter-in-review</code>/<code>year-ahead</code>/<code>year-in-review</code>/<code>term-outlook</code>/<code>election-cycle</code> set added in 2026-Q2 — plus <code>news-translate.md</code>) + CI workflows</li>
 <li><a href="media/README-4.md">Analysis Chain</a> — 5-stage pipeline (Data → Analysis → Completeness Gate → Article → Single PR), methodologies, 39 templates, quality thresholds</li>
 </ul>
 <p><strong>🔒 ISMS Compliance:</strong></p>
@@ -141,7 +141,7 @@ v1.2.20 for accessing real EU Parliament data via the Model Context Protocol.</p
 <ul>
 <li><strong>MCP Server Status</strong>: ✅ Fully operational — 60+ EP data tools available
 (feeds, direct lookups, analytical tools, intelligence correlation)</li>
-<li><strong>Agentic Workflows</strong>: 9 unified gh-aw markdown workflows — 8 article types (<code>news-&lt;type&gt;.md</code>, Stages A → B → C → D → E in one session) + <code>news-translate.md</code> (14-language flush translation) — compiled with
+<li><strong>Agentic Workflows</strong>: 15 unified gh-aw markdown workflows — 14 article types (<code>news-&lt;type&gt;.md</code>, Stages A → B → C → D → E in one session) + <code>news-translate.md</code> (14-language flush translation) — compiled with
 <code>gh-aw v0.69.3</code> (pin in <code>.github/workflows/compile-agentic-workflows.yml</code>) to <code>.lock.yml</code> for automated news generation with AI-driven political
 intelligence analysis. See <a href="media/README-3.md"><code>.github/workflows/README.md</code></a>.</li>
 <li><strong>Analysis-Artifact-Driven Article Pipeline</strong>: Agents author the full
@@ -365,7 +365,7 @@ testing:<a href="#eu-parliament-monitor-maintains-high-code-quality-standards-wi
 </blockquote>
 <hr>
 <h2 id="📰-live-news-streams" class="tsd-anchor-link">📰 Live News Streams<a href="#📰-live-news-streams" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2>
-<p><strong>Eight unified gh-aw article workflows</strong> plus a <strong>14-language translation helper</strong> run on precision schedules, autonomously generating <em>Economist-style</em> political intelligence and opening publication-ready pull requests. Every workflow follows the same Stage A → E contract documented in <a href="media/Article-Generation.md">Article-Generation.md</a>.</p>
+<p><strong>Fourteen unified gh-aw article workflows</strong> plus a <strong>14-language translation helper</strong> run on precision schedules, autonomously generating <em>Economist-style</em> political intelligence and opening publication-ready pull requests. Every workflow follows the same Stage A → E contract documented in <a href="media/Article-Generation.md">Article-Generation.md</a>. The single source of truth for every horizon's data window, cadence, mandatory artifacts, stage budgets, scenario depth and electoral overlay is the <a href="modules/Config_ArticleHorizons.html"><code>ARTICLE_HORIZONS</code> registry in <code>src/config/article-horizons.ts</code></a>.</p>
 <table>
 <thead>
 <tr>
@@ -391,6 +391,26 @@ testing:<a href="#eu-parliament-monitor-maintains-high-code-quality-standards-wi
 <td>30-day strategic horizon and risk forecast.</td>
 </tr>
 <tr>
+<td>🌐 <strong><a href="media/news-quarter-ahead.md">news-quarter-ahead.md</a></strong></td>
+<td><code>quarter-ahead</code></td>
+<td>90-day legislative pipeline forecast + presidency-trio overlay.</td>
+</tr>
+<tr>
+<td>🛰️ <strong><a href="media/news-year-ahead.md">news-year-ahead.md</a></strong></td>
+<td><code>year-ahead</code></td>
+<td>12-month strategic outlook with seat-projection sensitivity.</td>
+</tr>
+<tr>
+<td>🗓️ <strong><a href="media/news-term-outlook.md">news-term-outlook.md</a></strong></td>
+<td><code>term-outlook</code></td>
+<td>Full EP-term outlook anchored to the next-EP-election week.</td>
+</tr>
+<tr>
+<td>🗳️ <strong><a href="media/news-election-cycle.md">news-election-cycle.md</a></strong></td>
+<td><code>election-cycle</code></td>
+<td>EP-election span (±6 mo) — mandate scorecard + seat projection + Spitzenkandidaten arithmetic.</td>
+</tr>
+<tr>
 <td>📊 <strong><a href="media/news-week-in-review.md">news-week-in-review.md</a></strong></td>
 <td><code>week-in-review</code></td>
 <td>Past-week retrospective intelligence (D-8 → D-36 reporting window).</td>
@@ -399,6 +419,16 @@ testing:<a href="#eu-parliament-monitor-maintains-high-code-quality-standards-wi
 <td>📈 <strong><a href="media/news-month-in-review.md">news-month-in-review.md</a></strong></td>
 <td><code>month-in-review</code></td>
 <td>Monthly retrospective with cross-run continuity analysis.</td>
+</tr>
+<tr>
+<td>📚 <strong><a href="media/news-quarter-in-review.md">news-quarter-in-review.md</a></strong></td>
+<td><code>quarter-in-review</code></td>
+<td>Quarterly retrospective with pipeline transit + presidency-trio overlay.</td>
+</tr>
+<tr>
+<td>📜 <strong><a href="media/news-year-in-review.md">news-year-in-review.md</a></strong></td>
+<td><code>year-in-review</code></td>
+<td>Annual retrospective with mandate-fulfilment + term-arc + historical parallels.</td>
 </tr>
 <tr>
 <td>🏛️ <strong><a href="media/news-committee-reports.md">news-committee-reports.md</a></strong></td>
@@ -422,7 +452,7 @@ testing:<a href="#eu-parliament-monitor-maintains-high-code-quality-standards-wi
 </tr>
 </tbody>
 </table>
-<p>Each unified workflow runs Stages A–E <strong>in a single 45-minute session</strong> and produces exactly one PR containing both the analysis artifacts and the rendered HTML. The earlier split-pair <code>news-&lt;type&gt;-analysis.md</code> + <code>news-&lt;type&gt;-article.md</code> layout was retired in the April-2026 aggregator migration. See <strong><a href="media/README-3.md">.github/workflows/README.md</a></strong> for compile / lock-file / safe-output mechanics, and <strong><a href="documents/WORKFLOWS.html">WORKFLOWS.md</a></strong> for the full CI/CD catalog.</p>
+<p>Each unified workflow runs Stages A–E <strong>in a single 60-minute session</strong> (<code>engine.mcp.session-timeout: 65m</code>) and produces exactly one PR containing both the analysis artifacts and the rendered HTML. The earlier split-pair <code>news-&lt;type&gt;-analysis.md</code> + <code>news-&lt;type&gt;-article.md</code> layout was retired in the April-2026 aggregator migration. See <strong><a href="media/README-3.md">.github/workflows/README.md</a></strong> for compile / lock-file / safe-output mechanics, <strong><a href="documents/WORKFLOWS.html">WORKFLOWS.md</a></strong> for the full CI/CD catalog, and <strong><a href="media/Article-Generation.md">Article-Generation.md § Forward-looking horizons &amp; election cycle</a></strong> for the new long-horizon and electoral pipeline.</p>
 <blockquote>
 <p>📚 <strong>Prompt Library (<code>.github/prompts/</code>)</strong> — 10 bounded-context prompt files (<code>00-scope-and-ground-rules.md</code> → <code>09-troubleshooting.md</code>) shared across every workflow. The <code>npm run lint:prompts</code> drift-guard fails CI on banned patterns (<code>checkpoint pr</code>, <code>keep-alive</code>, <code>heartbeat</code>, <code>progressive safe output</code>, <code>push_repo_memory</code>).</p>
 </blockquote>
@@ -684,7 +714,7 @@ testing:<a href="#eu-parliament-monitor-maintains-high-code-quality-standards-wi
 <p><em>&quot;We're not just keeping up with AI — we're building the editorial infrastructure for the era when machines understand parliamentary procedure better than most MEPs.&quot;</em></p>
 </blockquote>
 <p>Six-phase roadmap from current agentic news generation to AGI-enhanced transformative democracy, with human oversight maintained at every level.</p>
-<pre><code class="mermaid"><span class="hl-0">timeline</span><br/><span class="hl-0">    title EU Parliament Monitor — AI Evolution Roadmap</span><br/><span class="hl-0">    section Phase 1 (2026)</span><br/><span class="hl-0">        Agentic News : 8 unified workflows</span><br/><span class="hl-0">                     : 14-language generation</span><br/><span class="hl-0">                     : Deterministic aggregator</span><br/><span class="hl-0">                     : 51-artifact analysis catalog</span><br/><span class="hl-0">    section Phase 2 (2027)</span><br/><span class="hl-0">        Predictive Analytics : Voting outcome prediction</span><br/><span class="hl-0">                             : Legislative impact forecasting</span><br/><span class="hl-0">                             : Cross-party coalition detection</span><br/><span class="hl-0">    section Phase 3 (2028–2029)</span><br/><span class="hl-0">        Multi-Modal Intelligence : Video plenary analysis</span><br/><span class="hl-0">                                 : Real-time debate tracking</span><br/><span class="hl-0">                                 : Infographic auto-generation</span><br/><span class="hl-0">    section Phase 4 (2030–2031)</span><br/><span class="hl-0">        Near-Expert Analysis : 50+ parliament coverage</span><br/><span class="hl-0">                             : Expert-level policy briefs</span><br/><span class="hl-0">                             : Predictive governance models</span><br/><span class="hl-0">    section Phase 5 (2032–2033)</span><br/><span class="hl-0">        Global Coverage : 100+ parliaments</span><br/><span class="hl-0">                        : Pre-AGI capabilities</span><br/><span class="hl-0">                        : Cross-jurisdiction analysis</span><br/><span class="hl-0">    section Phase 6 (2034–2037)</span><br/><span class="hl-0">        AGI Era : Transformative democracy</span><br/><span class="hl-0">               : 195 national legislatures</span><br/><span class="hl-0">               : Human oversight maintained</span>
+<pre><code class="mermaid"><span class="hl-0">timeline</span><br/><span class="hl-0">    title EU Parliament Monitor — AI Evolution Roadmap</span><br/><span class="hl-0">    section Phase 1 (2026)</span><br/><span class="hl-0">        Agentic News : 14 unified workflows</span><br/><span class="hl-0">                     : 14-language generation</span><br/><span class="hl-0">                     : Deterministic aggregator</span><br/><span class="hl-0">                     : 51-artifact analysis catalog</span><br/><span class="hl-0">    section Phase 2 (2027)</span><br/><span class="hl-0">        Predictive Analytics : Voting outcome prediction</span><br/><span class="hl-0">                             : Legislative impact forecasting</span><br/><span class="hl-0">                             : Cross-party coalition detection</span><br/><span class="hl-0">    section Phase 3 (2028–2029)</span><br/><span class="hl-0">        Multi-Modal Intelligence : Video plenary analysis</span><br/><span class="hl-0">                                 : Real-time debate tracking</span><br/><span class="hl-0">                                 : Infographic auto-generation</span><br/><span class="hl-0">    section Phase 4 (2030–2031)</span><br/><span class="hl-0">        Near-Expert Analysis : 50+ parliament coverage</span><br/><span class="hl-0">                             : Expert-level policy briefs</span><br/><span class="hl-0">                             : Predictive governance models</span><br/><span class="hl-0">    section Phase 5 (2032–2033)</span><br/><span class="hl-0">        Global Coverage : 100+ parliaments</span><br/><span class="hl-0">                        : Pre-AGI capabilities</span><br/><span class="hl-0">                        : Cross-jurisdiction analysis</span><br/><span class="hl-0">    section Phase 6 (2034–2037)</span><br/><span class="hl-0">        AGI Era : Transformative democracy</span><br/><span class="hl-0">               : 195 national legislatures</span><br/><span class="hl-0">               : Human oversight maintained</span>
 </code><button type="button">Copy</button></pre>
 
 <p>📘 <strong><a href="documents/FUTURE_MINDMAP.html">FUTURE_MINDMAP.md</a></strong> — capability evolution &amp; system vision · 📗 <strong><a href="documents/FUTURE_WORKFLOWS.html">FUTURE_WORKFLOWS.md</a></strong> — CI/CD evolution &amp; automation roadmap</p>

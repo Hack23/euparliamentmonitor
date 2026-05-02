@@ -109,13 +109,13 @@ EU Parliament Monitor's CI/CD workflows implement security controls mandated by 
 
 ## 📋 Executive Summary
 
-EU Parliament Monitor employs a comprehensive suite of **GitHub Actions workflows** (~15 standard + 9 agentic — 8 unified `news-<type>.md` + `news-translate.md`) for automated intelligence operations, quality assurance, security scanning, and release management. All workflows follow the [Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) standards.
+EU Parliament Monitor employs a comprehensive suite of **GitHub Actions workflows** (~15 standard + 15 agentic — 14 unified `news-<type>.md` + `news-translate.md`) for automated intelligence operations, quality assurance, security scanning, and release management. All workflows follow the [Hack23 ISMS Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) standards.
 
 ### Workflow Portfolio
 
 | # | Workflow | Purpose | Schedule / Trigger | ISMS Alignment |
 |---|---------|---------|-------------------|----------------|
-| 1 | **Agentic News Workflows** (×10) | AI-generated multi-language news articles (9 content + `news-translate`) | Varied schedules (see §1) | Integrity controls (Medium) |
+| 1 | **Agentic News Workflows** (×15) | AI-generated multi-language news articles (14 article-type unified `news-<type>.md` + `news-translate`) | Varied schedules (see §1) | Integrity controls (Medium) |
 | 2 | **Test & Report** | Unit + integration tests, 3061+ tests, coverage, performance | On PR/push to main | Quality assurance (ISO 27001 A.12.1.4) |
 | 3 | **CodeQL** | SAST security scanning (JS/TS + GitHub Actions) | On PR/push + weekly Saturday | Vulnerability management (ISO 27001 A.12.6) |
 | 4 | **E2E Tests** | End-to-end Playwright tests (Chromium) + axe-core | On PR/push + daily midnight UTC | Functional validation + WCAG 2.1 AA |
@@ -221,31 +221,56 @@ flowchart TB
 
 ## 🚀 Workflow Detailed Documentation
 
-### 1. Agentic News Workflows (×10)
+### 1. Agentic News Workflows (×15)
 
 **🎯 Purpose:** AI-powered generation of multi-language news articles about European Parliament activities using GitHub Copilot with the `claude-sonnet-4.6` model
-**📁 Architecture:** 9 markdown source files (8 unified `news-<type>.md` + 1 `news-translate.md` helper) compiled to 9 `.lock.yml` files via `gh aw compile` (GitHub Agentic Workflows CLI)
+**📁 Architecture:** 15 markdown source files (14 unified `news-<type>.md` covering 14 article types + 1 `news-translate.md` helper) compiled to 15 `.lock.yml` files via `gh aw compile` (GitHub Agentic Workflows CLI)
 **🌐 Languages:** 14 (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
+**📜 Horizon registry:** Every horizon's data window, cadence, mandatory artifacts, stage budgets, scenario depth and electoral overlay is defined in [`src/config/article-horizons.ts`](src/config/article-horizons.ts) — the single source of truth consumed by the aggregator, the forward-statements registry, and the drift-guard tests.
 
-#### Agentic Workflow Schedule Matrix (April-2026 unified workflows)
+#### Agentic Workflow Schedule Matrix (2026-Q2 long-horizon expansion)
 
 | 🤖 Workflow | 📄 File | 📅 Schedule | ⏱️ Timeout |
 |---|---|---|---|
+| 🚨 **EU Parliament Breaking News** | `news-breaking.lock.yml` | Every 6 hours (`0 */6 * * *`) | 60 min |
 | 🔮 **EU Parliament Week Ahead** | `news-week-ahead.lock.yml` | Friday 07:00 UTC | 60 min |
+| 📊 **EU Parliament Month Ahead** | `news-month-ahead.lock.yml` | 1st of month 08:00 UTC | 60 min |
+| 🌐 **EU Parliament Quarter Ahead** | `news-quarter-ahead.lock.yml` | 1st of month 06:00 UTC (`0 6 1 * *`) | 60 min |
+| 🛰️ **EU Parliament Year Ahead** | `news-year-ahead.lock.yml` | Quarterly — 2nd of Jan/Apr/Jul/Oct 08:00 UTC (`0 8 2 1,4,7,10 *`) | 60 min |
+| 🗓️ **EU Parliament Term Outlook** | `news-term-outlook.lock.yml` | Semi-annual — 1 Jan & 1 Jul 08:00 UTC (`0 8 1 1,7 *`) | 60 min |
+| 🗳️ **EU Parliament Election Cycle** | `news-election-cycle.lock.yml` | Annual — 1 Dec 08:00 UTC (`0 8 1 12 *`) + T-180 / T-90 / T-30 imminent triggers | 60 min |
 | 📋 **EU Parliament Week in Review** | `news-week-in-review.lock.yml` | Saturday 09:00 UTC | 60 min |
+| 📈 **EU Parliament Month in Review** | `news-month-in-review.lock.yml` | 28th of month 10:00 UTC | 60 min |
+| 📚 **EU Parliament Quarter in Review** | `news-quarter-in-review.lock.yml` | 5th of month 08:00 UTC (`0 8 5 * *`) | 60 min |
+| 📜 **EU Parliament Year in Review** | `news-year-in-review.lock.yml` | Annual — 15 Jan 08:00 UTC (`0 8 15 1 *`) | 60 min |
 | 🗳️ **EU Parliament Plenary Votes & Resolutions** | `news-motions.lock.yml` | Weekdays (Mon–Fri) 06:00 UTC | 60 min |
 | ⚖️ **EU Parliament Legislative Procedures** | `news-propositions.lock.yml` | Weekdays (Mon–Fri) 05:00 UTC | 60 min |
 | 🏛️ **EU Parliament Committee Activity** | `news-committee-reports.lock.yml` | Weekdays (Mon–Fri) 04:00 UTC | 60 min |
-| 📊 **EU Parliament Month Ahead** | `news-month-ahead.lock.yml` | 1st of month 08:00 UTC | 60 min |
-| 📈 **EU Parliament Month in Review** | `news-month-in-review.lock.yml` | 28th of month 10:00 UTC | 60 min |
-| 🚨 **EU Parliament Breaking News** | `news-breaking.lock.yml` | Every 6 hours (`0 */6 * * *`) | 60 min |
 | 🌐 **Translate Articles** | `news-translate.lock.yml` | Weekdays 09:00/12:00/15:00 UTC; Sat 15:00; 1st & 28th 15:00 | 60 min |
 
 > Each `news-<type>.md` workflow runs **Stages A → B → C → D → E in one 60-minute session** and produces **exactly one PR** containing both analysis artifacts and rendered article HTML. The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were **deleted** in the April-2026 aggregator-pipeline migration. The `news-translate.md` helper (manual dispatch only) is the sole exemption from the single-PR rule.
 
+#### Long-horizon family classification
+
+| Family | Slugs | Stage budgets (A/B/C/D/E) | Stage-C exit | PR-call deadline | Electoral overlay |
+|---|---|---|:---:|:---:|:---:|
+| Standard short-form | breaking, week-ahead, month-ahead, week-in-review, month-in-review, committee-reports, motions, propositions | 5/22/4/2/2 = 35 (prospective) · 4/22/4/2/2 = 34 (retrospective) | minute 36 | ≤ 45 | — |
+| Long-horizon prospective | quarter-ahead, year-ahead | 5/24–25/4/2/2 | minute 38–39 | ≤ 45 | — |
+| Long-horizon retrospective | quarter-in-review, year-in-review | 4–5/24–25/4/2/2 | minute 38–39 | ≤ 45 | — |
+| Electoral overlay | term-outlook, election-cycle | 5/26–28/4/2/2 = up to 41 | minute 42 | ≤ 47 | ✅ |
+
+**Electoral-overlay invariants** (enforced by Stage-C completeness gate when `electoralOverlay: true` in the registry):
+
+1. The mandatory artifact set includes `forward-projection.md`, `term-arc.md`, `seat-projection.md`, `mandate-fulfilment-scorecard.md`, `presidency-trio-context.md`, `commission-wp-alignment.md`, `forward-indicators.md`, `comparative-international.md`, and `historical-parallels.md`.
+2. The scenario-forecast must include an EP-election outcome branch.
+3. `forwardStatementsHorizonDays` is bounded at 1500 (term-outlook) / 1825 (election-cycle) — the registry caps it at 1825.
+4. `dataWindow.anchor` is `next-election` (constant June 2029 today), giving deterministic windowing across runs.
+
+**Fallback behaviour**: every horizon inherits the standard fallback chain — empty `today` MCP feed → fall back to the wider sliding window declared in the registry; failed `get_voting_records` for retrospective runs → EP Open Data Portal direct fetch (see [`scripts/mcp-setup.sh`](scripts/mcp-setup.sh) and [`src/mcp/ep-mcp-client.ts`](src/mcp/ep-mcp-client.ts)). A failed long-horizon run does **not** fall back to a shorter horizon — Stage-C blocks the PR and the workflow exits non-zero.
+
 #### Agentic Workflow Architecture
 
-All 9 agentic workflows share a common architecture (8 unified `news-<type>.md` produce English articles in single 60-min sessions; the manual `news-translate` helper then generates the remaining 13 languages):
+All 15 agentic workflows share a common architecture (14 unified `news-<type>.md` produce English articles in single 60-min sessions; the manual `news-translate` helper then generates the remaining 13 languages):
 
 ```mermaid
 graph TD
@@ -464,7 +489,7 @@ flowchart LR
 
 The agentic news system uses a **separation of concerns** architecture:
 
-1. **Content Workflows** (9 workflows) → Generate English-only articles with deep political intelligence
+1. **Content Workflows** (14 workflows) → Generate English-only articles with deep political intelligence
 2. **Translation Workflow** (1 workflow) → Translates English articles to 13 other languages
 
 This split ensures content workflows spend their full time budget on political intelligence quality, while translations maintain fidelity to the English source content.
@@ -531,7 +556,7 @@ graph TD
 
 #### Enhanced Analysis Features (v2)
 
-The following 8 unified article-generation workflows include mandatory analytical enhancements: `news-week-ahead.md`, `news-month-ahead.md`, `news-breaking.md`, `news-committee-reports.md`, `news-propositions.md`, `news-motions.md`, `news-week-in-review.md`, `news-month-in-review.md`. The `news-translate.md` workflow has complementary analysis-fidelity requirements for preserving these elements in translation.
+The following 14 unified article-generation workflows include mandatory analytical enhancements: `news-breaking.md`, `news-week-ahead.md`, `news-month-ahead.md`, `news-quarter-ahead.md`, `news-year-ahead.md`, `news-term-outlook.md`, `news-election-cycle.md`, `news-week-in-review.md`, `news-month-in-review.md`, `news-quarter-in-review.md`, `news-year-in-review.md`, `news-committee-reports.md`, `news-propositions.md`, `news-motions.md`. The `news-translate.md` workflow has complementary analysis-fidelity requirements for preserving these elements in translation.
 
 ##### 🎭 Multi-Stakeholder Perspective Requirements
 
@@ -1880,7 +1905,7 @@ The following tools integrate with the GitHub Security Dashboard via SARIF or na
 
 ## 🔬 Political Intelligence Operations Centre
 
-The 9 agentic news workflows collectively form a **European Parliament Political Intelligence Operations Centre** — a systematic, automated pipeline that transforms raw parliamentary data into multi-language political intelligence articles published daily.
+The 15 agentic news workflows collectively form a **European Parliament Political Intelligence Operations Centre** — a systematic, automated pipeline that transforms raw parliamentary data into multi-language political intelligence articles published daily, weekly, monthly, quarterly, annually and across the full EP-term electoral cycle.
 
 ### Intelligence Collection Cycle
 
@@ -1976,7 +2001,7 @@ mindmap
 
 ### Workflow Cadence — Weekly Intelligence Rhythm
 
-The 9 agentic workflows follow a carefully orchestrated schedule to ensure continuous intelligence coverage of the European Parliament.
+The 15 agentic workflows follow a carefully orchestrated schedule to ensure continuous intelligence coverage of the European Parliament across daily / weekly / monthly / quarterly / annual / term-scoped horizons.
 
 > **Note:** The Gantt chart below uses sample dates (week of 2026-01-05) to illustrate the recurring weekly cadence. Mermaid's gantt format requires concrete dates; the actual schedule repeats every week.
 

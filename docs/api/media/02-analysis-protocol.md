@@ -181,10 +181,10 @@ updated analysis.
 
 | Workflow family | Stage B1→B2 tripwire | Stage C exit tripwire | PR-call deadline |
 |----------|:------------------------------------:|:--------------------:|:----------------:|
-| Every unified `news-<type>.md` (all article types — today, 7-day, and 30-day windows) | **minute 16** — stop Pass 1, begin Pass 2 even if Pass 1 is incomplete; degraded artifacts > skipped Pass 2 | **minute 22** | **≤ minute 25** (target ≤ 22) |
-| Long-horizon prospective (quarter-ahead, year-ahead, term-outlook) | **minute 19** — extended B1 for larger artifact sets | **minute 24** | **≤ minute 28** (target ≤ 25) |
-| Electoral-overlay (election-cycle) | **minute 23** — maximum B1 budget (B: 18 min per registry) | **minute 27** | **≤ minute 28** (target ≤ 25) |
-| Long-horizon retrospective (quarter-in-review, year-in-review) | **minute 18** — slightly extended for cross-term analysis | **minute 23** | **≤ minute 26** (target ≤ 23) |
+| Standard prospective / retrospective unified `news-<type>.md` (today, 7-day, 30-day windows) | **minute 22** — stop Pass 1, begin Pass 2 even if Pass 1 is incomplete; degraded artifacts > skipped Pass 2 | **minute 36** | **≤ minute 45** (target ≤ 42) |
+| Long-horizon prospective (`quarter-ahead`, `year-ahead`, `term-outlook`) | **minute 25** — extended B1 for larger artifact sets | **minute 39** | **≤ minute 45** (target ≤ 42) |
+| Long-horizon retrospective (`quarter-in-review`, `year-in-review`) | **minute 24** — slightly extended for cross-term analysis | **minute 38** | **≤ minute 45** (target ≤ 42) |
+| Electoral-overlay (`election-cycle`) | **minute 28** — maximum B1 budget (B = 28 min per registry) | **minute 42** | **≤ minute 47** (target ≤ 44) |
 | Translation helper (`news-translate.md`) | No Stage B | N/A (multi-call flush, exempt from single-PR rule) | N/A |
 
 ### Multi-Horizon Stage Budget Summary (`src/config/article-horizons.ts` is authoritative)
@@ -196,14 +196,21 @@ follow the registry for the specific slug.
 
 | Representative budget pattern | Stage A | Stage B | Stage C | Stage D | Stage E | Total |
 |-------------------------------|:-------:|:-------:|:-------:|:-------:|:-------:|:-----:|
-| **Standard prospective examples** (`week-ahead`, `month-ahead`) | 5 | 14 | 3 | 2 | 1 | 25 |
-| **Standard retrospective examples** (`week-in-review`, `month-in-review`) | 4 | 14 | 3 | 2 | 1 | 24 |
-| **Extended prospective examples** (some longer-range forward-looking slugs) | 5 | 15 | 3 | 2 | 1 | 26 |
-| **Extended analysis / overlay examples** (some deep-dive or election-related slugs) | 5 | 18 | 3 | 2 | 1 | 29 |
+| **Standard prospective examples** (`week-ahead`, `month-ahead`) | 5 | 22 | 4 | 2 | 2 | 35 |
+| **Standard retrospective examples** (`week-in-review`, `month-in-review`) | 4 | 22 | 4 | 2 | 2 | 34 |
+| **Extended prospective examples** (`quarter-ahead`, `year-ahead`, `term-outlook`) | 5 | 24–26 | 4 | 2 | 2 | 37–39 |
+| **Extended analysis / overlay examples** (`election-cycle`, deep dives) | 5 | 28 | 4 | 2 | 2 | 41 |
 
-All workflows enforce a hard 45-minute `timeout-minutes` cap. Unused budget
-is NOT redistributed — the agent exits cleanly after shipping the PR.
-Long-horizon or deep-analysis workflows may get extended B1 windows because
+All workflows enforce a hard **60-minute** `timeout-minutes` cap (raised
+from 45 min in the gh-aw v0.71.3 refactor) with all stages targeted to
+complete by **minute ≤ 45**, leaving a 15-minute buffer for sandbox
+setup, MCP gateway boot, deterministic article render, and git push.
+The MCP gateway session lifetime is set per workflow via
+`engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+), so the safeoutputs
+HTTP session outlasts the full run — superseding the previous ~28–30
+min hard TTL that capped the old 45-minute schedule. Unused budget is
+NOT redistributed — the agent exits cleanly after shipping the PR.
+Long-horizon or deep-analysis workflows get extended B1 windows because
 they produce additional mandatory artifacts (see §1b Family-D +
 forward-projection set). Always verify the exact slug budget in
 `src/config/article-horizons.ts` before treating a grouped example as exact.
@@ -214,19 +221,20 @@ forward-projection set). Always verify the exact slug budget in
 Relative phrases such as "from Stage A end" are descriptive only and MUST NOT
 override the absolute tripwires above.
 
-| Sub-stage | Label | Budget / window |
-|-----------|-------|:---------------:|
-| **B1** | Pass 1 — Initial Analysis | From **Stage A completion** until the **absolute minute-16 tripwire**. If Stage A ends by minute 4, this yields **≤ 12 min** for B1. |
-| **B2** | Pass 2 — Read-back & Rewrite | Fixed absolute window: **minute 16 → minute 20** (**≥ 4 min**) before Stage C must run. |
-| **C** | Completeness Gate | Fixed absolute window: **minute 20 → minute 22** (**≤ 2 min**) before the Stage C exit tripwire. |
+| Sub-stage | Label | Budget / window (standard prospective example) |
+|-----------|-------|:----------------------------------------------:|
+| **B1** | Pass 1 — Initial Analysis | From **Stage A completion** until the **per-family B1→B2 tripwire** in the table above. For standard slugs (Stage A end ≈ minute 5, tripwire = minute 22) this yields **~17 min** for B1. |
+| **B2** | Pass 2 — Read-back & Rewrite | Fixed absolute window: **B1→B2 tripwire → Stage C exit tripwire − 4 min** (e.g. minute 22 → minute 32 for standard slugs, **≥ 10 min**) before Stage C must run. |
+| **C** | Completeness Gate | Fixed absolute window: **last 4 min before Stage C exit tripwire** (e.g. minute 32 → minute 36 for standard slugs). |
 
-**Hard tripwire at minute 16:** At the start of each B1 artifact-write loop
-iteration, the agent MUST check elapsed workflow time. If elapsed ≥ 16
-minutes, stop writing new Pass 1 artifacts and transition immediately to
-Pass 2. Pass 2 then occupies the minute-16 → minute-20 window, after which
-Stage C must run and exit by minute 22. An incomplete artifact set with a
-genuine Pass 2 rewrite is higher quality than a complete artifact set
-where "Pass 2" was only inline checks during Pass 1.
+**Hard tripwire at the per-family minute mark:** At the start of each B1
+artifact-write loop iteration, the agent MUST check elapsed workflow time.
+If elapsed ≥ B1→B2 tripwire (table above), stop writing new Pass 1
+artifacts and transition immediately to Pass 2. Pass 2 then occupies the
+window to (Stage C exit − 4 min), after which Stage C must run and exit
+by its tripwire. An incomplete artifact set with a genuine Pass 2 rewrite
+is higher quality than a complete artifact set where "Pass 2" was only
+inline checks during Pass 1.
 
 **Pass 2 log in `manifest.json`:** When Pass 2 starts and ends, the agent
 MUST write a top-level `pass2` block to `manifest.json`:
@@ -235,7 +243,7 @@ MUST write a top-level `pass2` block to `manifest.json`:
 {
   "pass2": {
     "startedAt": "2026-04-22T10:18:00Z",
-    "endedAt":   "2026-04-22T10:24:00Z",
+    "endedAt":   "2026-04-22T10:32:00Z",
     "rewriteCount": 4
   }
 }
@@ -252,25 +260,26 @@ block is missing/malformed) and any artifact sits exactly at its floor line
 count; malformed schema additionally produces a `WARN manifest.pass2
 invalid schema` line listing each invalid field.
 
-> **Why one budget for all unified workflows?** The previous 7-day-window
-> 25 / ≤28 split sat on the edge of the observed 28–30 min safeoutputs
-> session TTL. Run [#24963129839](https://github.com/Hack23/euparliamentmonitor/actions/runs/24963129839)
-> (`news-week-in-review`) hit it: Stage B suffered two context
-> compactions, the elapsed-time tripwire fired at minute 28, and the
-> single `safeoutputs___create_pull_request` call landed at minute 29 →
-> `session not found` HTTP 404 → zero safe outputs shipped. The
-> tightened 22 / ≤25 budget — already proven for the 30-day workflows
-> after #1444 and #24957585804 — gives a 3–5 min margin below the
-> failure window and absorbs Stage B compaction overruns. The
-> per-stage ceilings in the 7-day workflows shrink to **A ≤ 4, B
-> 12–15 (B1 minutes 4→16, B2 minutes 16→20), C ≤ 2 (minutes 20→22) = 22 min** to match.
+> **Why widen the budget?** gh-aw v0.71.3 introduced the per-workflow
+> `engine.mcp.session-timeout` knob (Go duration, ≥ 5m). Setting it to
+> `65m` removes the prior ~28–30 min safeoutputs MCP HTTP session TTL
+> ceiling — the constraint that originally forced the 22 / ≤25 budget
+> after run [#24963129839](https://github.com/Hack23/euparliamentmonitor/actions/runs/24963129839)
+> (`news-week-in-review`, Stage B suffered two context compactions, the
+> elapsed-time tripwire fired at minute 28, and the single
+> `safeoutputs___create_pull_request` call landed at minute 29 →
+> `session not found` HTTP 404 → zero safe outputs shipped). With the
+> session now alive for 65 min, the workflow can safely use the full
+> 60-min `timeout-minutes` cap and target minute ≤ 45 for the PR call,
+> giving Pass 2 a ≥ 10-min absolute window (vs the prior 4-min floor)
+> for genuine read-back-and-rewrite quality work.
 
 The schedule is built around **three distinct deadlines** in every unified
-news workflow (see #1444 for the original rationale and the failure mode
+news workflow (see #1444 and run #24963129839 for the original rationale
 that motivated the explicit ceilings):
 
-1. **Stage B1 → B2 tripwire (minute 16)** — regardless of Pass 1
-   completeness, Pass 2 begins at minute 16. The agent logs
+1. **Stage B1 → B2 tripwire** — regardless of Pass 1 completeness, Pass 2
+   begins at the per-family tripwire (table above). The agent logs
    `pass2.startedAt` to `manifest.json` at this point.
 2. **Stage C exit tripwire** — elapsed-time backstop that fires
    regardless of GREEN/RED. The agent computes elapsed minutes at the
@@ -278,17 +287,17 @@ that motivated the explicit ceilings):
    when the threshold is reached, even if Stage C has just emitted
    GREEN. This guarantees Stage D + E retain budget before the PR call.
 3. **safe-outputs `create_pull_request` deadline** — must land by the
-   stricter of (a) the per-workflow PR-call deadline above or (b) the
-   ~28–30 min observed safeoutputs MCP HTTP session TTL. Once the
-   session is reaped, the analysis branch exists locally but cannot be
-   pushed via safeoutputs and the run ships zero safe outputs.
+   per-workflow PR-call deadline above (≤ minute 45 for standard slugs;
+   ≤ minute 47 for electoral). The 65-min `engine.mcp.session-timeout`
+   keeps the safeoutputs HTTP session alive for the full run, so the
+   PR-call deadline is now governed solely by `timeout-minutes` and
+   Stage E budget rather than by the underlying MCP session TTL.
 
-30-day workflows (`news-month-in-review`, `news-month-ahead`) and 7-day
-workflows now share the tighter 22 / ≤25 split — see
-[`09-troubleshooting.md`](09-troubleshooting.md) §5 for the underlying
-TTL and recovery rules. Stage A ≤ 4 min, Stage D ≤ 2 min (deterministic
-render), and Stage E ≤ 1–2 min are common to every article-generating
-workflow.
+Per-slug values live in `src/config/article-horizons.ts`
+(`stageBudgets`) — see [`09-troubleshooting.md`](09-troubleshooting.md) §5
+for the historical TTL recovery rules. Stage A ≤ 4–5 min, Stage D ≤ 2
+min (deterministic render), and Stage E ≤ 2 min are common to every
+article-generating workflow.
 
 Stage D is deterministic rendering, not a prose pass. Spend the active-work
 budget in Stage B/C so the artifacts already contain the article-quality

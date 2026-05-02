@@ -82,6 +82,12 @@ SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
 SPDX-License-Identifier = "Apache-2.0"
 
 [[annotations]]
+path = ["test/**/__snapshots__/**.snap"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
 path = "**.patch"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "2024-2026 Hack23 AB"
