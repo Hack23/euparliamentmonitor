@@ -3251,6 +3251,75 @@ Currently elevated fragility signals in EU Parliament system:
 
 **Attribution:** European Parliament Open Data Portal (data.europarl.europa.eu) — CC BY 4.0
 
+<h2 id="section-forward-projection">Forward Projection</h2>
+
+### Forward Indicators
+
+### Overview
+
+Forward-looking indicators that signal trajectory of EU Parliament legislative and political developments over the next 3-12 months. Designed as a recurring monitoring dashboard.
+
+---
+
+### 1. Political Indicators
+
+| Indicator | Current Reading | Signal Direction | Monitoring Frequency |
+|-----------|----------------|-----------------|---------------------|
+| EPP group size stability | 185 MEPs (HIGH) | WATCH | Monthly |
+| Renew internal cohesion | MEDIUM | DECLINING slightly | Monthly |
+| PfE US alignment split | VISIBLE | ELEVATED | Weekly |
+| Hungarian Council cooperation | LOW | STABLE | Weekly |
+
+---
+
+### 2. Legislative Pipeline Indicators
+
+| Indicator | Current Status | Implication | Next Checkpoint |
+|-----------|---------------|------------|-----------------|
+| MFF mid-term review | In negotiation | Budget uncertainty | Q3 2026 vote |
+| EDIS banking deposit insurance | STALLED | Banking union gap | 2027 at earliest |
+| AI Act implementing acts | In consultation | Tech regulation | Q4 2026 |
+| CBAM full implementation | Q4 2026 | Trade friction | WTO status |
+| EU-Mercosur CJEU opinion | PENDING | Trade architecture | H2 2026 |
+
+---
+
+### 3. External Environment Indicators
+
+| Indicator | Current Reading | Risk Signal |
+|-----------|----------------|------------|
+| US tariff escalation | Active/elevated | HIGH |
+| EUR/USD exchange rate | ~1.08-1.12 range | MONITOR |
+| ECB policy rate direction | EASING | LOW risk |
+| Oil/energy prices | STABILISED | LOW risk |
+| Russian military activity | ONGOING | HIGH risk |
+| Chinese Taiwan activity | ELEVATED | MEDIUM risk |
+
+---
+
+### 4. WEP-based Forward Forecasts
+
+**3-month horizon:**
+- WEP 70-80%: Coalition maintains majority through June 2026 plenary sessions
+- WEP 40-50%: At least one US de-escalation signal on trade
+- WEP 80-90%: No new EP10 structural crisis
+
+**6-month horizon:**
+- WEP 60-70%: SRMR3 successfully implemented in national law (major member states)
+- WEP 30-40%: EU-US trade framework negotiations begin
+- WEP 50-60%: Hungarian veto crisis escalates requiring QMV workaround
+
+**12-month horizon:**
+- WEP 55-65%: Anti-corruption directive reaches transposition phase in majority of MS
+- WEP 25-35%: EP emergency session triggered by external crisis
+- WEP 40-50%: Renew ideological tension leads to formal internal restructuring
+
+---
+
+### Attribution
+
+European Parliament Open Data Portal (data.europarl.europa.eu) — CC BY 4.0
+
 <h2 id="section-continuity">Cross-Run Continuity</h2>
 
 ### Cross Run Diff
@@ -3872,73 +3941,6 @@ This artifact challenges the prevailing positive assessment of EU Parliament's S
 **Key contrarian finding:** The Spring 2026 session represents significant legislative symbolism, but the real test is implementation in the 12-24 months following adoption. Historical EU track record on implementation is mixed.
 
 **Probability that all three flagship measures achieve stated objectives within 5 years:** WEP 35-50% — the structural and political implementation risks are substantial.
-
----
-
-### Attribution
-
-European Parliament Open Data Portal (data.europarl.europa.eu) — CC BY 4.0
-
-### Forward Indicators
-
-### Overview
-
-Forward-looking indicators that signal trajectory of EU Parliament legislative and political developments over the next 3-12 months. Designed as a recurring monitoring dashboard.
-
----
-
-### 1. Political Indicators
-
-| Indicator | Current Reading | Signal Direction | Monitoring Frequency |
-|-----------|----------------|-----------------|---------------------|
-| EPP group size stability | 185 MEPs (HIGH) | WATCH | Monthly |
-| Renew internal cohesion | MEDIUM | DECLINING slightly | Monthly |
-| PfE US alignment split | VISIBLE | ELEVATED | Weekly |
-| Hungarian Council cooperation | LOW | STABLE | Weekly |
-
----
-
-### 2. Legislative Pipeline Indicators
-
-| Indicator | Current Status | Implication | Next Checkpoint |
-|-----------|---------------|------------|-----------------|
-| MFF mid-term review | In negotiation | Budget uncertainty | Q3 2026 vote |
-| EDIS banking deposit insurance | STALLED | Banking union gap | 2027 at earliest |
-| AI Act implementing acts | In consultation | Tech regulation | Q4 2026 |
-| CBAM full implementation | Q4 2026 | Trade friction | WTO status |
-| EU-Mercosur CJEU opinion | PENDING | Trade architecture | H2 2026 |
-
----
-
-### 3. External Environment Indicators
-
-| Indicator | Current Reading | Risk Signal |
-|-----------|----------------|------------|
-| US tariff escalation | Active/elevated | HIGH |
-| EUR/USD exchange rate | ~1.08-1.12 range | MONITOR |
-| ECB policy rate direction | EASING | LOW risk |
-| Oil/energy prices | STABILISED | LOW risk |
-| Russian military activity | ONGOING | HIGH risk |
-| Chinese Taiwan activity | ELEVATED | MEDIUM risk |
-
----
-
-### 4. WEP-based Forward Forecasts
-
-**3-month horizon:**
-- WEP 70-80%: Coalition maintains majority through June 2026 plenary sessions
-- WEP 40-50%: At least one US de-escalation signal on trade
-- WEP 80-90%: No new EP10 structural crisis
-
-**6-month horizon:**
-- WEP 60-70%: SRMR3 successfully implemented in national law (major member states)
-- WEP 30-40%: EU-US trade framework negotiations begin
-- WEP 50-60%: Hungarian veto crisis escalates requiring QMV workaround
-
-**12-month horizon:**
-- WEP 55-65%: Anti-corruption directive reaches transposition phase in majority of MS
-- WEP 25-35%: EP emergency session triggered by external crisis
-- WEP 40-50%: Renew ideological tension leads to formal internal restructuring
 
 ---
 
@@ -5615,7 +5617,9 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [README](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/README.md)
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
+- [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
 - [Imf Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/imf-indicator-mapping.md)
 - [Osint Tradecraft Standards](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/osint-tradecraft-standards.md)
 - [Per Artifact Methodologies](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/per-artifact-methodologies.md)
@@ -5638,6 +5642,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Analysis Index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/analysis-index.md)
 - [Coalition Dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/coalition-dynamics.md)
 - [Coalition Mathematics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/coalition-mathematics.md)
+- [Commission Wp Alignment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/commission-wp-alignment.md)
 - [Comparative International](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/comparative-international.md)
 - [Consequence Trees](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/consequence-trees.md)
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
@@ -5650,6 +5655,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Executive Brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/executive-brief.md)
 - [Forces Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/forces-analysis.md)
 - [Forward Indicators](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/forward-indicators.md)
+- [Forward Projection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/forward-projection.md)
 - [Historical Baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/historical-baseline.md)
 - [Historical Parallels](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/historical-parallels.md)
 - [Imf Vintage Audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/imf-vintage-audit.md)
@@ -5657,20 +5663,25 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Implementation Feasibility](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/implementation-feasibility.md)
 - [Intelligence Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/intelligence-assessment.md)
 - [Legislative Disruption](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/legislative-disruption.md)
+- [Legislative Pipeline Forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/legislative-pipeline-forecast.md)
 - [Legislative Velocity Risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/legislative-velocity-risk.md)
+- [Mandate Fulfilment Scorecard](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/mandate-fulfilment-scorecard.md)
 - [Mcp Reliability Audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/mcp-reliability-audit.md)
 - [Media Framing Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/media-framing-analysis.md)
 - [Methodology Reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/methodology-reflection.md)
+- [Parliamentary Calendar Projection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/parliamentary-calendar-projection.md)
 - [Per File Political Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/per-file-political-intelligence.md)
 - [Pestle Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/pestle-analysis.md)
 - [Political Capital Risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/political-capital-risk.md)
 - [Political Classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/political-classification.md)
 - [Political Threat Landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/political-threat-landscape.md)
+- [Presidency Trio Context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/presidency-trio-context.md)
 - [Quantitative Swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/quantitative-swot.md)
 - [Reference Analysis Quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/reference-analysis-quality.md)
 - [Risk Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/risk-assessment.md)
 - [Risk Matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/risk-matrix.md)
 - [Scenario Forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/scenario-forecast.md)
+- [Seat Projection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/seat-projection.md)
 - [Session Baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/session-baseline.md)
 - [Significance Classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/significance-classification.md)
 - [Significance Scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/significance-scoring.md)
@@ -5678,6 +5689,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Stakeholder Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/stakeholder-map.md)
 - [Swot Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/swot-analysis.md)
 - [Synthesis Summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/synthesis-summary.md)
+- [Term Arc](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/term-arc.md)
 - [Threat Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/threat-analysis.md)
 - [Threat Model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/threat-model.md)
 - [Voter Segmentation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/voter-segmentation.md)
@@ -5718,6 +5730,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [political-threat-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/threat-assessment/political-threat-assessment.md) | `threat-assessment/political-threat-assessment.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-forward-projection | [forward-indicators](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/extended/forward-indicators.md) | `extended/forward-indicators.md` |
 | section-continuity | [cross-run-diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/intelligence/cross-run-diff.md) | `intelligence/cross-run-diff.md` |
 | section-continuity | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/intelligence/cross-session-intelligence.md) | `intelligence/cross-session-intelligence.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
@@ -5726,7 +5739,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-extended-intel | [cross-reference-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/extended/cross-reference-map.md) | `extended/cross-reference-map.md` |
 | section-extended-intel | [data-download-manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/extended/data-download-manifest.md) | `extended/data-download-manifest.md` |
 | section-extended-intel | [devils-advocate-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/extended/devils-advocate-analysis.md) | `extended/devils-advocate-analysis.md` |
-| section-extended-intel | [forward-indicators](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/extended/forward-indicators.md) | `extended/forward-indicators.md` |
 | section-extended-intel | [historical-parallels](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/extended/historical-parallels.md) | `extended/historical-parallels.md` |
 | section-extended-intel | [implementation-feasibility](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/extended/implementation-feasibility.md) | `extended/implementation-feasibility.md` |
 | section-extended-intel | [intelligence-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/extended/intelligence-assessment.md) | `extended/intelligence-assessment.md` |
