@@ -1,0 +1,928 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`horizon: election-cycle > matches the markdown snapshot (golden — regenerate with --update-snapshots) 1`] = `
+"# Election Cycle — 2026-01-15
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | \`intelligence/synthesis-summary.md\` |
+
+<h2 id="section-synthesis">Synthesis Summary</h2>
+
+### Top Findings
+
+Electoral-cycle dual brief combining EP10 retrospective scorecard (vote-share delta, mandate fulfilment, defection-flow map) with forward seat projections, coalition viability matrix, and Spitzenkandidaten arithmetic for the 2029 election.
+
+### Retrospective Scorecard (EP10 Mid-Term)
+
+- EPP vote-share delta: +2.3 % from 2024 election baseline — mandate over-performance.
+- S&D defection rate: 6.2 % on average (low) — strong internal cohesion.
+- Renew mandate fulfilment: 61 % (below 68 % mid-term benchmark) — risk of seat erosion.
+
+### Forward Seat Projections (to 2029)
+
+Coalition viability matrix indicates EPP-S&D-Renew centrist majority viable at 67 % probability under baseline scenario. Far-right super-majority (ECR+PfE+ID successors) structurally blocked at current trajectory.
+
+### Spitzenkandidaten Arithmetic
+
+EP President seat likely EPP-held for second cycle. Commissioner nominee map favours balanced S&D-EPP-Renew split contingent on post-election coalition architecture.
+
+### Cross-References
+
+Supported by forward-projection, mandate-scorecard, and historical-parallels artifacts for full electoral-cycle analysis.
+
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Forward Projection
+
+### Electoral Cycle Scenario Map (to 2029 Election)
+
+**Baseline trajectory (50 %):** EPP-S&D-Renew centrist coalition navigates EP10 intact and translates to comparable EP2029 parliamentary arithmetic. Von der Leyen succession follows orderly Spitzenkandidaten process.
+
+**Coalition fracture scenario (30 %):** Renew seat erosion in EP2029 breaks three-way centrist majority below 361-seat threshold. EPP pivots to selective ECR engagement on specific legislative files — new majority architecture emerges.
+
+**Transformative election scenario (20 %):** Anti-establishment wave across 3+ large member states delivers Far-right bloc near blocking-minority status (≈220 seats). New grand coalition (EPP+S&D+Greens+Renew) required — German-style "traffic light" architecture at EP level.
+
+### Key Electoral Cycle Milestones
+
+- **2026**: EU budget mid-term review — political salience test for current coalition.
+- **2027**: National election cycles in France, Germany, and Poland — bellwether for EP2029.
+- **2028 H2**: EP campaign launch; Commission Work Programme wind-down; legislative pipeline acceleration.
+- **2029 June**: European Parliament elections.
+
+> **Provenance & Audit**
+>
+> - **Article type:** \`election-cycle\`
+> - **Run date:** 2026-01-15
+> - **Run id:** \`election-cycle-fixture\`
+> - **Gate result:** \`GREEN\`
+> - **Analysis tree:** [test/fixtures/horizons/election-cycle](GITHUB_URL)
+> - **Manifest:** [manifest.json](GITHUB_URL)
+
+<h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
+
+This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.
+
+### Methodologies
+
+- [README](GITHUB_URL)
+- [Ai Driven Analysis Guide](GITHUB_URL)
+- [Artifact Catalog](GITHUB_URL)
+- [Electoral Cycle Methodology](GITHUB_URL)
+- [Electoral Domain Methodology](GITHUB_URL)
+- [Forward Projection Methodology](GITHUB_URL)
+- [Imf Indicator Mapping](GITHUB_URL)
+- [Osint Tradecraft Standards](GITHUB_URL)
+- [Per Artifact Methodologies](GITHUB_URL)
+- [Per Document Methodology](GITHUB_URL)
+- [Political Classification Guide](GITHUB_URL)
+- [Political Risk Methodology](GITHUB_URL)
+- [Political Style Guide](GITHUB_URL)
+- [Political Swot Framework](GITHUB_URL)
+- [Political Threat Framework](GITHUB_URL)
+- [Strategic Extensions Methodology](GITHUB_URL)
+- [Structural Metadata Methodology](GITHUB_URL)
+- [Synthesis Methodology](GITHUB_URL)
+- [Worldbank Indicator Mapping](GITHUB_URL)
+
+### Artifact templates
+
+- [README](GITHUB_URL)
+- [Actor Mapping](GITHUB_URL)
+- [Actor Threat Profiles](GITHUB_URL)
+- [Analysis Index](GITHUB_URL)
+- [Coalition Dynamics](GITHUB_URL)
+- [Coalition Mathematics](GITHUB_URL)
+- [Commission Wp Alignment](GITHUB_URL)
+- [Comparative International](GITHUB_URL)
+- [Consequence Trees](GITHUB_URL)
+- [Cross Reference Map](GITHUB_URL)
+- [Cross Run Diff](GITHUB_URL)
+- [Cross Session Intelligence](GITHUB_URL)
+- [Data Download Manifest](GITHUB_URL)
+- [Deep Analysis](GITHUB_URL)
+- [Devils Advocate Analysis](GITHUB_URL)
+- [Economic Context](GITHUB_URL)
+- [Executive Brief](GITHUB_URL)
+- [Forces Analysis](GITHUB_URL)
+- [Forward Indicators](GITHUB_URL)
+- [Forward Projection](GITHUB_URL)
+- [Historical Baseline](GITHUB_URL)
+- [Historical Parallels](GITHUB_URL)
+- [Imf Vintage Audit](GITHUB_URL)
+- [Impact Matrix](GITHUB_URL)
+- [Implementation Feasibility](GITHUB_URL)
+- [Intelligence Assessment](GITHUB_URL)
+- [Legislative Disruption](GITHUB_URL)
+- [Legislative Pipeline Forecast](GITHUB_URL)
+- [Legislative Velocity Risk](GITHUB_URL)
+- [Mandate Fulfilment Scorecard](GITHUB_URL)
+- [Mcp Reliability Audit](GITHUB_URL)
+- [Media Framing Analysis](GITHUB_URL)
+- [Methodology Reflection](GITHUB_URL)
+- [Parliamentary Calendar Projection](GITHUB_URL)
+- [Per File Political Intelligence](GITHUB_URL)
+- [Pestle Analysis](GITHUB_URL)
+- [Political Capital Risk](GITHUB_URL)
+- [Political Classification](GITHUB_URL)
+- [Political Threat Landscape](GITHUB_URL)
+- [Presidency Trio Context](GITHUB_URL)
+- [Quantitative Swot](GITHUB_URL)
+- [Reference Analysis Quality](GITHUB_URL)
+- [Risk Assessment](GITHUB_URL)
+- [Risk Matrix](GITHUB_URL)
+- [Scenario Forecast](GITHUB_URL)
+- [Seat Projection](GITHUB_URL)
+- [Session Baseline](GITHUB_URL)
+- [Significance Classification](GITHUB_URL)
+- [Significance Scoring](GITHUB_URL)
+- [Stakeholder Impact](GITHUB_URL)
+- [Stakeholder Map](GITHUB_URL)
+- [Swot Analysis](GITHUB_URL)
+- [Synthesis Summary](GITHUB_URL)
+- [Term Arc](GITHUB_URL)
+- [Threat Analysis](GITHUB_URL)
+- [Threat Model](GITHUB_URL)
+- [Voter Segmentation](GITHUB_URL)
+- [Voting Patterns](GITHUB_URL)
+- [Wildcards Blackswans](GITHUB_URL)
+- [Workflow Audit](GITHUB_URL)
+
+<h2 id="aggregator-analysis-index">Analysis Index</h2>
+
+Every artifact below was read by the aggregator and contributed to this article. The raw [manifest.json](GITHUB_URL) carries the full machine-readable list, including gate-result history.
+
+| Section | Artifact | Path |
+|---|---|---|
+| section-synthesis | [synthesis-summary](GITHUB_URL) | \`intelligence/synthesis-summary.md\` |
+| section-supplementary-intelligence | [forward-projection](GITHUB_URL) | \`forward/forward-projection.md\` |
+
+"
+`;
+
+exports[`horizon: quarter-ahead > matches the markdown snapshot (golden — regenerate with --update-snapshots) 1`] = `
+"# Quarter Ahead — 2026-01-15
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | \`intelligence/synthesis-summary.md\` |
+
+<h2 id="section-synthesis">Synthesis Summary</h2>
+
+### Top Findings
+
+EP legislative pipeline for Q2 2026 focuses on three intersecting dossiers: AI Act delegated acts, defence industry fund disbursement, and CBAM implementation phase-in.
+
+### Quarterly Outlook
+
+The next 90 days (≈ 3 plenary sessions) carry elevated procedural density. EPP and S&D maintain coalition stability on flagship files while Renew introduces swing-vote pressure on digital provisions.
+
+### Risk Surfaces
+
+- **Trade defence trigger risk**: Medium — US tariff escalation could activate emergency trade instruments.
+- **Coalition fragility on AI Act**: Low — EPP/S&D/Renew centrist block holds on delegated-act methodology.
+- **CBAM phase-in timeline**: Low — Council and EP alignment confirmed for Q2 start.
+
+### Cross-References
+
+Supported by forward-projection artifact for 90-day horizon analysis.
+
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Forward Projection
+
+### 90-Day Scenario Map
+
+**Baseline scenario (60 %):** EP legislative calendar proceeds as scheduled. AI Act delegated acts progress through committee scrutiny. CBAM implementation begins Q2 with minor technical delays. Coalition stability maintained.
+
+**Upside scenario (25 %):** Trilogue acceleration on Defence Fund delivers political agreement ahead of schedule, boosting EP legislative output metrics. US tariff de-escalation removes external risk trigger.
+
+**Downside scenario (15 %):** Trade defence emergency procedure disrupts legislative calendar. Commission Work Programme reprioritisation delays three flagship dossiers by 6–8 weeks.
+
+### Forward Indicators
+
+- EP plenary sessions: 3 scheduled for Q2 (April, May, June Strasbourg weeks).
+- Committee priority dossiers: AI Act implementation (IMCO/LIBE), Defence Fund (AFET/BUDG), CBAM secondary legislation (ENVI/INTA).
+- Council Presidency: Polish Presidency closes Q2; Danish Presidency assumes H2 2026.
+
+> **Provenance & Audit**
+>
+> - **Article type:** \`quarter-ahead\`
+> - **Run date:** 2026-01-15
+> - **Run id:** \`quarter-ahead-fixture\`
+> - **Gate result:** \`GREEN\`
+> - **Analysis tree:** [test/fixtures/horizons/quarter-ahead](GITHUB_URL)
+> - **Manifest:** [manifest.json](GITHUB_URL)
+
+<h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
+
+This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.
+
+### Methodologies
+
+- [README](GITHUB_URL)
+- [Ai Driven Analysis Guide](GITHUB_URL)
+- [Artifact Catalog](GITHUB_URL)
+- [Electoral Cycle Methodology](GITHUB_URL)
+- [Electoral Domain Methodology](GITHUB_URL)
+- [Forward Projection Methodology](GITHUB_URL)
+- [Imf Indicator Mapping](GITHUB_URL)
+- [Osint Tradecraft Standards](GITHUB_URL)
+- [Per Artifact Methodologies](GITHUB_URL)
+- [Per Document Methodology](GITHUB_URL)
+- [Political Classification Guide](GITHUB_URL)
+- [Political Risk Methodology](GITHUB_URL)
+- [Political Style Guide](GITHUB_URL)
+- [Political Swot Framework](GITHUB_URL)
+- [Political Threat Framework](GITHUB_URL)
+- [Strategic Extensions Methodology](GITHUB_URL)
+- [Structural Metadata Methodology](GITHUB_URL)
+- [Synthesis Methodology](GITHUB_URL)
+- [Worldbank Indicator Mapping](GITHUB_URL)
+
+### Artifact templates
+
+- [README](GITHUB_URL)
+- [Actor Mapping](GITHUB_URL)
+- [Actor Threat Profiles](GITHUB_URL)
+- [Analysis Index](GITHUB_URL)
+- [Coalition Dynamics](GITHUB_URL)
+- [Coalition Mathematics](GITHUB_URL)
+- [Commission Wp Alignment](GITHUB_URL)
+- [Comparative International](GITHUB_URL)
+- [Consequence Trees](GITHUB_URL)
+- [Cross Reference Map](GITHUB_URL)
+- [Cross Run Diff](GITHUB_URL)
+- [Cross Session Intelligence](GITHUB_URL)
+- [Data Download Manifest](GITHUB_URL)
+- [Deep Analysis](GITHUB_URL)
+- [Devils Advocate Analysis](GITHUB_URL)
+- [Economic Context](GITHUB_URL)
+- [Executive Brief](GITHUB_URL)
+- [Forces Analysis](GITHUB_URL)
+- [Forward Indicators](GITHUB_URL)
+- [Forward Projection](GITHUB_URL)
+- [Historical Baseline](GITHUB_URL)
+- [Historical Parallels](GITHUB_URL)
+- [Imf Vintage Audit](GITHUB_URL)
+- [Impact Matrix](GITHUB_URL)
+- [Implementation Feasibility](GITHUB_URL)
+- [Intelligence Assessment](GITHUB_URL)
+- [Legislative Disruption](GITHUB_URL)
+- [Legislative Pipeline Forecast](GITHUB_URL)
+- [Legislative Velocity Risk](GITHUB_URL)
+- [Mandate Fulfilment Scorecard](GITHUB_URL)
+- [Mcp Reliability Audit](GITHUB_URL)
+- [Media Framing Analysis](GITHUB_URL)
+- [Methodology Reflection](GITHUB_URL)
+- [Parliamentary Calendar Projection](GITHUB_URL)
+- [Per File Political Intelligence](GITHUB_URL)
+- [Pestle Analysis](GITHUB_URL)
+- [Political Capital Risk](GITHUB_URL)
+- [Political Classification](GITHUB_URL)
+- [Political Threat Landscape](GITHUB_URL)
+- [Presidency Trio Context](GITHUB_URL)
+- [Quantitative Swot](GITHUB_URL)
+- [Reference Analysis Quality](GITHUB_URL)
+- [Risk Assessment](GITHUB_URL)
+- [Risk Matrix](GITHUB_URL)
+- [Scenario Forecast](GITHUB_URL)
+- [Seat Projection](GITHUB_URL)
+- [Session Baseline](GITHUB_URL)
+- [Significance Classification](GITHUB_URL)
+- [Significance Scoring](GITHUB_URL)
+- [Stakeholder Impact](GITHUB_URL)
+- [Stakeholder Map](GITHUB_URL)
+- [Swot Analysis](GITHUB_URL)
+- [Synthesis Summary](GITHUB_URL)
+- [Term Arc](GITHUB_URL)
+- [Threat Analysis](GITHUB_URL)
+- [Threat Model](GITHUB_URL)
+- [Voter Segmentation](GITHUB_URL)
+- [Voting Patterns](GITHUB_URL)
+- [Wildcards Blackswans](GITHUB_URL)
+- [Workflow Audit](GITHUB_URL)
+
+<h2 id="aggregator-analysis-index">Analysis Index</h2>
+
+Every artifact below was read by the aggregator and contributed to this article. The raw [manifest.json](GITHUB_URL) carries the full machine-readable list, including gate-result history.
+
+| Section | Artifact | Path |
+|---|---|---|
+| section-synthesis | [synthesis-summary](GITHUB_URL) | \`intelligence/synthesis-summary.md\` |
+| section-supplementary-intelligence | [forward-projection](GITHUB_URL) | \`forward/forward-projection.md\` |
+
+"
+`;
+
+exports[`horizon: quarter-in-review > matches the markdown snapshot (golden — regenerate with --update-snapshots) 1`] = `
+"# Quarter In Review — 2026-01-15
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | \`intelligence/synthesis-summary.md\` |
+
+<h2 id="section-synthesis">Synthesis Summary</h2>
+
+### Top Findings
+
+Q1 2026 retrospective analysis of European Parliament activity across three legislative tracks: AI governance, trade defence, and financial regulation.
+
+### Quarterly Retrospective
+
+The 90-day period yielded above-average plenary throughput with 47 roll-call votes, 12 adopted texts, and 3 trilogues reaching political agreement. Coalition cohesion remained high (EPP-S&D-Renew bloc held on 83 % of contested votes).
+
+### Throughput Delta
+
+Dossier pipeline velocity increased 14 % quarter-on-quarter, driven by urgency procedures on trade and defence files. Committee productivity concentrated in ECON and INTA.
+
+### Cross-References
+
+See actor-mapping and coalition-dynamics artifacts for detailed vote-flow analysis.
+
+> **Provenance & Audit**
+>
+> - **Article type:** \`quarter-in-review\`
+> - **Run date:** 2026-01-15
+> - **Run id:** \`quarter-in-review-fixture\`
+> - **Gate result:** \`GREEN\`
+> - **Analysis tree:** [test/fixtures/horizons/quarter-in-review](GITHUB_URL)
+> - **Manifest:** [manifest.json](GITHUB_URL)
+
+<h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
+
+This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.
+
+### Methodologies
+
+- [README](GITHUB_URL)
+- [Ai Driven Analysis Guide](GITHUB_URL)
+- [Artifact Catalog](GITHUB_URL)
+- [Electoral Cycle Methodology](GITHUB_URL)
+- [Electoral Domain Methodology](GITHUB_URL)
+- [Forward Projection Methodology](GITHUB_URL)
+- [Imf Indicator Mapping](GITHUB_URL)
+- [Osint Tradecraft Standards](GITHUB_URL)
+- [Per Artifact Methodologies](GITHUB_URL)
+- [Per Document Methodology](GITHUB_URL)
+- [Political Classification Guide](GITHUB_URL)
+- [Political Risk Methodology](GITHUB_URL)
+- [Political Style Guide](GITHUB_URL)
+- [Political Swot Framework](GITHUB_URL)
+- [Political Threat Framework](GITHUB_URL)
+- [Strategic Extensions Methodology](GITHUB_URL)
+- [Structural Metadata Methodology](GITHUB_URL)
+- [Synthesis Methodology](GITHUB_URL)
+- [Worldbank Indicator Mapping](GITHUB_URL)
+
+### Artifact templates
+
+- [README](GITHUB_URL)
+- [Actor Mapping](GITHUB_URL)
+- [Actor Threat Profiles](GITHUB_URL)
+- [Analysis Index](GITHUB_URL)
+- [Coalition Dynamics](GITHUB_URL)
+- [Coalition Mathematics](GITHUB_URL)
+- [Commission Wp Alignment](GITHUB_URL)
+- [Comparative International](GITHUB_URL)
+- [Consequence Trees](GITHUB_URL)
+- [Cross Reference Map](GITHUB_URL)
+- [Cross Run Diff](GITHUB_URL)
+- [Cross Session Intelligence](GITHUB_URL)
+- [Data Download Manifest](GITHUB_URL)
+- [Deep Analysis](GITHUB_URL)
+- [Devils Advocate Analysis](GITHUB_URL)
+- [Economic Context](GITHUB_URL)
+- [Executive Brief](GITHUB_URL)
+- [Forces Analysis](GITHUB_URL)
+- [Forward Indicators](GITHUB_URL)
+- [Forward Projection](GITHUB_URL)
+- [Historical Baseline](GITHUB_URL)
+- [Historical Parallels](GITHUB_URL)
+- [Imf Vintage Audit](GITHUB_URL)
+- [Impact Matrix](GITHUB_URL)
+- [Implementation Feasibility](GITHUB_URL)
+- [Intelligence Assessment](GITHUB_URL)
+- [Legislative Disruption](GITHUB_URL)
+- [Legislative Pipeline Forecast](GITHUB_URL)
+- [Legislative Velocity Risk](GITHUB_URL)
+- [Mandate Fulfilment Scorecard](GITHUB_URL)
+- [Mcp Reliability Audit](GITHUB_URL)
+- [Media Framing Analysis](GITHUB_URL)
+- [Methodology Reflection](GITHUB_URL)
+- [Parliamentary Calendar Projection](GITHUB_URL)
+- [Per File Political Intelligence](GITHUB_URL)
+- [Pestle Analysis](GITHUB_URL)
+- [Political Capital Risk](GITHUB_URL)
+- [Political Classification](GITHUB_URL)
+- [Political Threat Landscape](GITHUB_URL)
+- [Presidency Trio Context](GITHUB_URL)
+- [Quantitative Swot](GITHUB_URL)
+- [Reference Analysis Quality](GITHUB_URL)
+- [Risk Assessment](GITHUB_URL)
+- [Risk Matrix](GITHUB_URL)
+- [Scenario Forecast](GITHUB_URL)
+- [Seat Projection](GITHUB_URL)
+- [Session Baseline](GITHUB_URL)
+- [Significance Classification](GITHUB_URL)
+- [Significance Scoring](GITHUB_URL)
+- [Stakeholder Impact](GITHUB_URL)
+- [Stakeholder Map](GITHUB_URL)
+- [Swot Analysis](GITHUB_URL)
+- [Synthesis Summary](GITHUB_URL)
+- [Term Arc](GITHUB_URL)
+- [Threat Analysis](GITHUB_URL)
+- [Threat Model](GITHUB_URL)
+- [Voter Segmentation](GITHUB_URL)
+- [Voting Patterns](GITHUB_URL)
+- [Wildcards Blackswans](GITHUB_URL)
+- [Workflow Audit](GITHUB_URL)
+
+<h2 id="aggregator-analysis-index">Analysis Index</h2>
+
+Every artifact below was read by the aggregator and contributed to this article. The raw [manifest.json](GITHUB_URL) carries the full machine-readable list, including gate-result history.
+
+| Section | Artifact | Path |
+|---|---|---|
+| section-synthesis | [synthesis-summary](GITHUB_URL) | \`intelligence/synthesis-summary.md\` |
+
+"
+`;
+
+exports[`horizon: term-outlook > matches the markdown snapshot (golden — regenerate with --update-snapshots) 1`] = `
+"# Term Outlook — 2026-01-15
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | \`intelligence/synthesis-summary.md\` |
+
+<h2 id="section-synthesis">Synthesis Summary</h2>
+
+### Top Findings
+
+Multi-year electoral outlook spanning from Q1 2026 to the next European Parliament election (June 2029): coalition trajectory, mandate delivery progress, Spitzenkandidaten early signals, and seat-projection bands at 6/12/24/36-month intervals.
+
+### Term Trajectory
+
+EP10 (2024–2029) enters its second legislative year with the EPP-S&D-Renew centrist bloc structurally intact but showing marginal cohesion erosion on defence and migration. Far-right ECR-PfE bloc consolidating opposition capacity.
+
+### Seat Projection Bands
+
+| Horizon | EPP | S&D | Renew | Greens | ECR+PfE | Others |
+|---------|-----|-----|-------|--------|---------|--------|
+| 12 months | 183±5 | 132±4 | 73±4 | 51±3 | 112±6 | 149±8 |
+| 24 months | 181±8 | 129±7 | 70±6 | 48±5 | 118±9 | 154±10 |
+
+### Electoral Signals
+
+No declared Spitzenkandidaten at 36 months pre-election. EPP internal primary process expected to begin H2 2027. S&D exploring cross-progressive alliance architecture.
+
+### Cross-References
+
+Supported by forward-projection artifact for 36-month electoral scenario analysis.
+
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Forward Projection
+
+### Multi-Year Electoral Scenario Map (2026–2029)
+
+**Baseline electoral scenario (55 %):** EP10 concludes with centrist coalition EPP-S&D-Renew retaining governing majority. EP2029 election produces comparable seat distribution to 2024. Commission President re-nomination avoids protracted bloc warfare.
+
+**Progressive shift scenario (20 %):** Renew recovery in France and Germany produces stronger liberal bloc. Green resurgence in Nordic and Benelux countries. Centre-left majority becomes viable without EPP dependency.
+
+**Nationalist surge scenario (25 %):** ECR-PfE bloc consolidates seats in Southern and Central European member states. Centrist coalition loses majority — grand coalition (EPP+S&D+Renew+Greens) required for stable governance. Commission President nomination contested.
+
+### Term-Arc Inflection Points
+
+- **2026 Q4**: Austrian and German post-elections stabilise or shift bloc compositions.
+- **2027 Q2**: Mid-term mandate review — Commission Work Programme adjustment.
+- **2028 Q1**: European election campaign season begins; Spitzenkandidaten declarations expected.
+- **2029 Q2**: EP election. New Parliament constituted July 2029.
+
+> **Provenance & Audit**
+>
+> - **Article type:** \`term-outlook\`
+> - **Run date:** 2026-01-15
+> - **Run id:** \`term-outlook-fixture\`
+> - **Gate result:** \`GREEN\`
+> - **Analysis tree:** [test/fixtures/horizons/term-outlook](GITHUB_URL)
+> - **Manifest:** [manifest.json](GITHUB_URL)
+
+<h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
+
+This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.
+
+### Methodologies
+
+- [README](GITHUB_URL)
+- [Ai Driven Analysis Guide](GITHUB_URL)
+- [Artifact Catalog](GITHUB_URL)
+- [Electoral Cycle Methodology](GITHUB_URL)
+- [Electoral Domain Methodology](GITHUB_URL)
+- [Forward Projection Methodology](GITHUB_URL)
+- [Imf Indicator Mapping](GITHUB_URL)
+- [Osint Tradecraft Standards](GITHUB_URL)
+- [Per Artifact Methodologies](GITHUB_URL)
+- [Per Document Methodology](GITHUB_URL)
+- [Political Classification Guide](GITHUB_URL)
+- [Political Risk Methodology](GITHUB_URL)
+- [Political Style Guide](GITHUB_URL)
+- [Political Swot Framework](GITHUB_URL)
+- [Political Threat Framework](GITHUB_URL)
+- [Strategic Extensions Methodology](GITHUB_URL)
+- [Structural Metadata Methodology](GITHUB_URL)
+- [Synthesis Methodology](GITHUB_URL)
+- [Worldbank Indicator Mapping](GITHUB_URL)
+
+### Artifact templates
+
+- [README](GITHUB_URL)
+- [Actor Mapping](GITHUB_URL)
+- [Actor Threat Profiles](GITHUB_URL)
+- [Analysis Index](GITHUB_URL)
+- [Coalition Dynamics](GITHUB_URL)
+- [Coalition Mathematics](GITHUB_URL)
+- [Commission Wp Alignment](GITHUB_URL)
+- [Comparative International](GITHUB_URL)
+- [Consequence Trees](GITHUB_URL)
+- [Cross Reference Map](GITHUB_URL)
+- [Cross Run Diff](GITHUB_URL)
+- [Cross Session Intelligence](GITHUB_URL)
+- [Data Download Manifest](GITHUB_URL)
+- [Deep Analysis](GITHUB_URL)
+- [Devils Advocate Analysis](GITHUB_URL)
+- [Economic Context](GITHUB_URL)
+- [Executive Brief](GITHUB_URL)
+- [Forces Analysis](GITHUB_URL)
+- [Forward Indicators](GITHUB_URL)
+- [Forward Projection](GITHUB_URL)
+- [Historical Baseline](GITHUB_URL)
+- [Historical Parallels](GITHUB_URL)
+- [Imf Vintage Audit](GITHUB_URL)
+- [Impact Matrix](GITHUB_URL)
+- [Implementation Feasibility](GITHUB_URL)
+- [Intelligence Assessment](GITHUB_URL)
+- [Legislative Disruption](GITHUB_URL)
+- [Legislative Pipeline Forecast](GITHUB_URL)
+- [Legislative Velocity Risk](GITHUB_URL)
+- [Mandate Fulfilment Scorecard](GITHUB_URL)
+- [Mcp Reliability Audit](GITHUB_URL)
+- [Media Framing Analysis](GITHUB_URL)
+- [Methodology Reflection](GITHUB_URL)
+- [Parliamentary Calendar Projection](GITHUB_URL)
+- [Per File Political Intelligence](GITHUB_URL)
+- [Pestle Analysis](GITHUB_URL)
+- [Political Capital Risk](GITHUB_URL)
+- [Political Classification](GITHUB_URL)
+- [Political Threat Landscape](GITHUB_URL)
+- [Presidency Trio Context](GITHUB_URL)
+- [Quantitative Swot](GITHUB_URL)
+- [Reference Analysis Quality](GITHUB_URL)
+- [Risk Assessment](GITHUB_URL)
+- [Risk Matrix](GITHUB_URL)
+- [Scenario Forecast](GITHUB_URL)
+- [Seat Projection](GITHUB_URL)
+- [Session Baseline](GITHUB_URL)
+- [Significance Classification](GITHUB_URL)
+- [Significance Scoring](GITHUB_URL)
+- [Stakeholder Impact](GITHUB_URL)
+- [Stakeholder Map](GITHUB_URL)
+- [Swot Analysis](GITHUB_URL)
+- [Synthesis Summary](GITHUB_URL)
+- [Term Arc](GITHUB_URL)
+- [Threat Analysis](GITHUB_URL)
+- [Threat Model](GITHUB_URL)
+- [Voter Segmentation](GITHUB_URL)
+- [Voting Patterns](GITHUB_URL)
+- [Wildcards Blackswans](GITHUB_URL)
+- [Workflow Audit](GITHUB_URL)
+
+<h2 id="aggregator-analysis-index">Analysis Index</h2>
+
+Every artifact below was read by the aggregator and contributed to this article. The raw [manifest.json](GITHUB_URL) carries the full machine-readable list, including gate-result history.
+
+| Section | Artifact | Path |
+|---|---|---|
+| section-synthesis | [synthesis-summary](GITHUB_URL) | \`intelligence/synthesis-summary.md\` |
+| section-supplementary-intelligence | [forward-projection](GITHUB_URL) | \`forward/forward-projection.md\` |
+
+"
+`;
+
+exports[`horizon: year-ahead > matches the markdown snapshot (golden — regenerate with --update-snapshots) 1`] = `
+"# Year Ahead — 2026-01-15
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | \`intelligence/synthesis-summary.md\` |
+
+<h2 id="section-synthesis">Synthesis Summary</h2>
+
+### Top Findings
+
+EP annual strategic outlook for 2026 covers Commission Work Programme delivery, Trio Presidency (Poland/Denmark/Cyprus) transition, and 12-month legislative pipeline priorities spanning climate, digital, and defence.
+
+### Annual Strategic Outlook
+
+The 12-month legislative horizon carries four flagship trilogues near conclusion: CBAM implementation acts, Defence Fund regulation, AI Act delegated acts, and Digital Networks Act. Each carries coalition risk above baseline.
+
+### Strategic Risk Surfaces
+
+- **Presidency transition (July)**: Polish-to-Danish handover introduces 6-week agenda discontinuity.
+- **AI Act delegation window**: Three delegated acts due by September — EP scrutiny rights activated.
+- **Defence Fund**: Disbursement conditionality debate likely to resurface in Q3 budget discussions.
+
+### Cross-References
+
+Supported by forward-projection artifact covering 12-month scenario analysis.
+
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Forward Projection
+
+### 12-Month Scenario Map
+
+**Baseline scenario (55 %):** EP legislative programme delivers Commission Work Programme 2026 core priorities. Trio Presidency (Poland → Denmark → Cyprus) maintains institutional continuity. No snap elections or major coalition realignment.
+
+**Upside scenario (25 %):** Defence Fund disbursement accelerates; AI Act delegated acts adopted on schedule; CBAM phase-in completes without third-country retaliation. EP-Commission co-legislative momentum highest in EP10 term.
+
+**Downside scenario (20 %):** US-EU trade dispute escalation triggers EP emergency procedures, displacing planned legislative calendar. Geopolitical shock (Ukraine ceasefire collapse) forces budget re-prioritisation.
+
+### 12-Month Forward Indicators
+
+- Plenary sessions: 12 scheduled (monthly Strasbourg + Brussels supplementary sessions).
+- Flagship trilogues: 4 near-conclusion, 6 in active negotiation, 3 mandate phase.
+- Presidency handovers: 2 (Poland → Denmark July, Denmark → Cyprus December).
+
+> **Provenance & Audit**
+>
+> - **Article type:** \`year-ahead\`
+> - **Run date:** 2026-01-15
+> - **Run id:** \`year-ahead-fixture\`
+> - **Gate result:** \`GREEN\`
+> - **Analysis tree:** [test/fixtures/horizons/year-ahead](GITHUB_URL)
+> - **Manifest:** [manifest.json](GITHUB_URL)
+
+<h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
+
+This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.
+
+### Methodologies
+
+- [README](GITHUB_URL)
+- [Ai Driven Analysis Guide](GITHUB_URL)
+- [Artifact Catalog](GITHUB_URL)
+- [Electoral Cycle Methodology](GITHUB_URL)
+- [Electoral Domain Methodology](GITHUB_URL)
+- [Forward Projection Methodology](GITHUB_URL)
+- [Imf Indicator Mapping](GITHUB_URL)
+- [Osint Tradecraft Standards](GITHUB_URL)
+- [Per Artifact Methodologies](GITHUB_URL)
+- [Per Document Methodology](GITHUB_URL)
+- [Political Classification Guide](GITHUB_URL)
+- [Political Risk Methodology](GITHUB_URL)
+- [Political Style Guide](GITHUB_URL)
+- [Political Swot Framework](GITHUB_URL)
+- [Political Threat Framework](GITHUB_URL)
+- [Strategic Extensions Methodology](GITHUB_URL)
+- [Structural Metadata Methodology](GITHUB_URL)
+- [Synthesis Methodology](GITHUB_URL)
+- [Worldbank Indicator Mapping](GITHUB_URL)
+
+### Artifact templates
+
+- [README](GITHUB_URL)
+- [Actor Mapping](GITHUB_URL)
+- [Actor Threat Profiles](GITHUB_URL)
+- [Analysis Index](GITHUB_URL)
+- [Coalition Dynamics](GITHUB_URL)
+- [Coalition Mathematics](GITHUB_URL)
+- [Commission Wp Alignment](GITHUB_URL)
+- [Comparative International](GITHUB_URL)
+- [Consequence Trees](GITHUB_URL)
+- [Cross Reference Map](GITHUB_URL)
+- [Cross Run Diff](GITHUB_URL)
+- [Cross Session Intelligence](GITHUB_URL)
+- [Data Download Manifest](GITHUB_URL)
+- [Deep Analysis](GITHUB_URL)
+- [Devils Advocate Analysis](GITHUB_URL)
+- [Economic Context](GITHUB_URL)
+- [Executive Brief](GITHUB_URL)
+- [Forces Analysis](GITHUB_URL)
+- [Forward Indicators](GITHUB_URL)
+- [Forward Projection](GITHUB_URL)
+- [Historical Baseline](GITHUB_URL)
+- [Historical Parallels](GITHUB_URL)
+- [Imf Vintage Audit](GITHUB_URL)
+- [Impact Matrix](GITHUB_URL)
+- [Implementation Feasibility](GITHUB_URL)
+- [Intelligence Assessment](GITHUB_URL)
+- [Legislative Disruption](GITHUB_URL)
+- [Legislative Pipeline Forecast](GITHUB_URL)
+- [Legislative Velocity Risk](GITHUB_URL)
+- [Mandate Fulfilment Scorecard](GITHUB_URL)
+- [Mcp Reliability Audit](GITHUB_URL)
+- [Media Framing Analysis](GITHUB_URL)
+- [Methodology Reflection](GITHUB_URL)
+- [Parliamentary Calendar Projection](GITHUB_URL)
+- [Per File Political Intelligence](GITHUB_URL)
+- [Pestle Analysis](GITHUB_URL)
+- [Political Capital Risk](GITHUB_URL)
+- [Political Classification](GITHUB_URL)
+- [Political Threat Landscape](GITHUB_URL)
+- [Presidency Trio Context](GITHUB_URL)
+- [Quantitative Swot](GITHUB_URL)
+- [Reference Analysis Quality](GITHUB_URL)
+- [Risk Assessment](GITHUB_URL)
+- [Risk Matrix](GITHUB_URL)
+- [Scenario Forecast](GITHUB_URL)
+- [Seat Projection](GITHUB_URL)
+- [Session Baseline](GITHUB_URL)
+- [Significance Classification](GITHUB_URL)
+- [Significance Scoring](GITHUB_URL)
+- [Stakeholder Impact](GITHUB_URL)
+- [Stakeholder Map](GITHUB_URL)
+- [Swot Analysis](GITHUB_URL)
+- [Synthesis Summary](GITHUB_URL)
+- [Term Arc](GITHUB_URL)
+- [Threat Analysis](GITHUB_URL)
+- [Threat Model](GITHUB_URL)
+- [Voter Segmentation](GITHUB_URL)
+- [Voting Patterns](GITHUB_URL)
+- [Wildcards Blackswans](GITHUB_URL)
+- [Workflow Audit](GITHUB_URL)
+
+<h2 id="aggregator-analysis-index">Analysis Index</h2>
+
+Every artifact below was read by the aggregator and contributed to this article. The raw [manifest.json](GITHUB_URL) carries the full machine-readable list, including gate-result history.
+
+| Section | Artifact | Path |
+|---|---|---|
+| section-synthesis | [synthesis-summary](GITHUB_URL) | \`intelligence/synthesis-summary.md\` |
+| section-supplementary-intelligence | [forward-projection](GITHUB_URL) | \`forward/forward-projection.md\` |
+
+"
+`;
+
+exports[`horizon: year-in-review > matches the markdown snapshot (golden — regenerate with --update-snapshots) 1`] = `
+"# Year In Review — 2026-01-15
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | \`intelligence/synthesis-summary.md\` |
+
+<h2 id="section-synthesis">Synthesis Summary</h2>
+
+### Top Findings
+
+Annual retrospective of European Parliament legislative output for 2025: coalition evolution, dossier throughput scorecard, mandate fulfilment progress, and cumulative political-risk trajectory across four quarters.
+
+### Annual Retrospective
+
+2025 delivered the highest plenary throughput since EP9 inauguration: 194 roll-call votes, 31 adopted texts, and 8 trilogues concluded. The EPP-S&D-Renew centrist coalition held cohesion above 78 % across all major files.
+
+### Mandate Fulfilment Scorecard
+
+Commission Work Programme 2025 completion rate reached 74 % by December — above the 68 % mid-term benchmark. Priority shortfalls identified in social policy (gender-pay directive delayed) and housing (no standalone legislative proposal).
+
+### Cumulative Risk Trajectory
+
+Political-risk aggregate rose from baseline 3.1 (Q1) to 4.7 (Q4) driven by trade defence activation and defence spending coalition fractures. Year-on-year risk delta: +1.6 points.
+
+### Cross-References
+
+See mandate-scorecard and term-arc artifacts for multi-year trend analysis.
+
+> **Provenance & Audit**
+>
+> - **Article type:** \`year-in-review\`
+> - **Run date:** 2026-01-15
+> - **Run id:** \`year-in-review-fixture\`
+> - **Gate result:** \`GREEN\`
+> - **Analysis tree:** [test/fixtures/horizons/year-in-review](GITHUB_URL)
+> - **Manifest:** [manifest.json](GITHUB_URL)
+
+<h2 id="aggregator-tradecraft-references">Tradecraft References</h2>
+
+This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.
+
+### Methodologies
+
+- [README](GITHUB_URL)
+- [Ai Driven Analysis Guide](GITHUB_URL)
+- [Artifact Catalog](GITHUB_URL)
+- [Electoral Cycle Methodology](GITHUB_URL)
+- [Electoral Domain Methodology](GITHUB_URL)
+- [Forward Projection Methodology](GITHUB_URL)
+- [Imf Indicator Mapping](GITHUB_URL)
+- [Osint Tradecraft Standards](GITHUB_URL)
+- [Per Artifact Methodologies](GITHUB_URL)
+- [Per Document Methodology](GITHUB_URL)
+- [Political Classification Guide](GITHUB_URL)
+- [Political Risk Methodology](GITHUB_URL)
+- [Political Style Guide](GITHUB_URL)
+- [Political Swot Framework](GITHUB_URL)
+- [Political Threat Framework](GITHUB_URL)
+- [Strategic Extensions Methodology](GITHUB_URL)
+- [Structural Metadata Methodology](GITHUB_URL)
+- [Synthesis Methodology](GITHUB_URL)
+- [Worldbank Indicator Mapping](GITHUB_URL)
+
+### Artifact templates
+
+- [README](GITHUB_URL)
+- [Actor Mapping](GITHUB_URL)
+- [Actor Threat Profiles](GITHUB_URL)
+- [Analysis Index](GITHUB_URL)
+- [Coalition Dynamics](GITHUB_URL)
+- [Coalition Mathematics](GITHUB_URL)
+- [Commission Wp Alignment](GITHUB_URL)
+- [Comparative International](GITHUB_URL)
+- [Consequence Trees](GITHUB_URL)
+- [Cross Reference Map](GITHUB_URL)
+- [Cross Run Diff](GITHUB_URL)
+- [Cross Session Intelligence](GITHUB_URL)
+- [Data Download Manifest](GITHUB_URL)
+- [Deep Analysis](GITHUB_URL)
+- [Devils Advocate Analysis](GITHUB_URL)
+- [Economic Context](GITHUB_URL)
+- [Executive Brief](GITHUB_URL)
+- [Forces Analysis](GITHUB_URL)
+- [Forward Indicators](GITHUB_URL)
+- [Forward Projection](GITHUB_URL)
+- [Historical Baseline](GITHUB_URL)
+- [Historical Parallels](GITHUB_URL)
+- [Imf Vintage Audit](GITHUB_URL)
+- [Impact Matrix](GITHUB_URL)
+- [Implementation Feasibility](GITHUB_URL)
+- [Intelligence Assessment](GITHUB_URL)
+- [Legislative Disruption](GITHUB_URL)
+- [Legislative Pipeline Forecast](GITHUB_URL)
+- [Legislative Velocity Risk](GITHUB_URL)
+- [Mandate Fulfilment Scorecard](GITHUB_URL)
+- [Mcp Reliability Audit](GITHUB_URL)
+- [Media Framing Analysis](GITHUB_URL)
+- [Methodology Reflection](GITHUB_URL)
+- [Parliamentary Calendar Projection](GITHUB_URL)
+- [Per File Political Intelligence](GITHUB_URL)
+- [Pestle Analysis](GITHUB_URL)
+- [Political Capital Risk](GITHUB_URL)
+- [Political Classification](GITHUB_URL)
+- [Political Threat Landscape](GITHUB_URL)
+- [Presidency Trio Context](GITHUB_URL)
+- [Quantitative Swot](GITHUB_URL)
+- [Reference Analysis Quality](GITHUB_URL)
+- [Risk Assessment](GITHUB_URL)
+- [Risk Matrix](GITHUB_URL)
+- [Scenario Forecast](GITHUB_URL)
+- [Seat Projection](GITHUB_URL)
+- [Session Baseline](GITHUB_URL)
+- [Significance Classification](GITHUB_URL)
+- [Significance Scoring](GITHUB_URL)
+- [Stakeholder Impact](GITHUB_URL)
+- [Stakeholder Map](GITHUB_URL)
+- [Swot Analysis](GITHUB_URL)
+- [Synthesis Summary](GITHUB_URL)
+- [Term Arc](GITHUB_URL)
+- [Threat Analysis](GITHUB_URL)
+- [Threat Model](GITHUB_URL)
+- [Voter Segmentation](GITHUB_URL)
+- [Voting Patterns](GITHUB_URL)
+- [Wildcards Blackswans](GITHUB_URL)
+- [Workflow Audit](GITHUB_URL)
+
+<h2 id="aggregator-analysis-index">Analysis Index</h2>
+
+Every artifact below was read by the aggregator and contributed to this article. The raw [manifest.json](GITHUB_URL) carries the full machine-readable list, including gate-result history.
+
+| Section | Artifact | Path |
+|---|---|---|
+| section-synthesis | [synthesis-summary](GITHUB_URL) | \`intelligence/synthesis-summary.md\` |
+
+"
+`;

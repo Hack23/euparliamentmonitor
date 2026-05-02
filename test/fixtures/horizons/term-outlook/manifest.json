@@ -1,0 +1,18 @@
+{
+  "articleType": "term-outlook",
+  "runId": "term-outlook-fixture",
+  "date": "2026-01-15",
+  "analysisDir": "test/fixtures/horizons/term-outlook",
+  "files": {
+    "intelligence": ["intelligence/synthesis-summary.md"],
+    "forward": ["forward/forward-projection.md"]
+  },
+  "history": [
+    {
+      "stage": "stage-b",
+      "completedAt": "2026-01-15T00:30:00Z",
+      "gateResult": "GREEN",
+      "summary": "Term-outlook fixture run"
+    }
+  ]
+}
