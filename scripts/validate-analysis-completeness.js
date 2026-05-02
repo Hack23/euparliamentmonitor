@@ -1000,7 +1000,7 @@ function main() {
       });
       process.stderr.write(
         `RED forward-registry:expired-unresolved — ${expiredUnresolved.length} expired ` +
-          `carry-forward statements without a terminal status (status=open): ${ids}\n`,
+          `carry-forward statements without a terminal status: ${ids}\n`,
       );
     } else {
       mergeSyntheticResult(results, {
