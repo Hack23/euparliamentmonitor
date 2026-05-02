@@ -963,8 +963,15 @@ function main() {
   // When >2 forward statements have expired (expectedHorizon < evaluation date)
   // without being marked resolved|stale|extended, Stage C turns RED. ≤2 expired
   // entries emit a warning but do not block.
+  // Only runs for article types that manage forward statements (same logic as
+  // validateForwardStatementsRegistryCoverage) so retrospective/unrelated types
+  // are not blocked by registry state they don't control.
   // Use manifest.runDate (or date extracted from runDir path) for deterministic
   // evaluation so re-validating historical runs produces stable results.
+  const expiredHorizonCfg = getHorizonConfig(articleType);
+  const requiresExpiredGate = expiredHorizonCfg
+    ? expiredHorizonCfg.forwardStatementsHorizonDays > 0
+    : ['week-ahead', 'month-ahead'].includes(articleType);
   const runDirPosix = runDir.split(path.sep).join('/');
   const gateDate =
     manifest.runDate ||
@@ -972,10 +979,12 @@ function main() {
     manifest.run_date ||
     (runDirPosix.match(/analysis\/daily\/(\d{4}-\d{2}-\d{2})\//) || [])[1] ||
     new Date().toISOString().slice(0, 10);
-  const expiredUnresolved = readExpiredUnresolved({
-    today: gateDate,
-    registryDir: path.join(ROOT, 'analysis/forward-statements'),
-  });
+  const expiredUnresolved = requiresExpiredGate
+    ? readExpiredUnresolved({
+        today: gateDate,
+        registryDir: path.join(ROOT, 'analysis/forward-statements'),
+      })
+    : [];
   if (expiredUnresolved.length > 0) {
     const ids = expiredUnresolved.map((e) => e.id).join(', ');
     if (expiredUnresolved.length > 2) {

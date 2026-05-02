@@ -348,14 +348,17 @@ After Stage B, for each open item in `data/forward-statements-open.json`:
 
 **Expired carry-forward close-out (§9.2 quality gate):** When a forward statement's
 `expectedHorizon` has passed (i.e. `now > expectedHorizon`), the agent MUST close it
-out with a status update row containing `evidenceRefs`. Stage C turns RED if >2
-expired statements remain unresolved. For each expired item, append a JSONL row:
-- `status: 'resolved'` — prediction confirmed by EP data (cite evidence)
-- `status: 'stale'` — horizon passed without resolution; mark as withdrawn
-- `status: 'extended'` — horizon passed but analyst extends with fresh evidence
+out with a status update. Stage C turns RED if >2 expired statements remain
+unresolved. For each expired item, update the registry row:
+- `status: 'resolved'` — prediction confirmed by EP data; use `--evidence <ref>` to cite the confirming source
+- `status: 'stale'` — horizon passed without resolution; mark as withdrawn (`--evidence` is optional)
+- `status: 'extended'` — horizon passed but analyst extends with fresh evidence; use `--evidence <ref>`
+
+The `--evidence` flag appends to the entry's `evidenceRefs` array (it can remain empty for `stale` close-outs).
 
 ```bash
 node scripts/aggregator/forward-statements-registry.js update --id <id> --status resolved --evidence <ref>
+node scripts/aggregator/forward-statements-registry.js update --id <id> --status stale
 ```
 
 At the end of Stage B, append new forward statements produced by this run:
