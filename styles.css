@@ -166,12 +166,15 @@ img {
   line-height: 1;
   font-family: var(--font-sans);
   position: relative;
+  /* Slight inverse rotation on hover communicates "toggle" affordance —
+   * matches the moon → sun pivot users see when the SVG swaps. */
+  --theme-toggle-hover-rotation: -12deg;
 }
 
 .theme-toggle:hover {
   background: rgba(255, 255, 255, 0.24);
   border-color: rgba(255, 255, 255, 0.45);
-  transform: scale(1.08) rotate(-12deg);
+  transform: scale(1.08) rotate(var(--theme-toggle-hover-rotation));
   box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.06);
 }
 
@@ -193,7 +196,15 @@ img {
 }
 
 /* Emoji glyphs are a fallback only when the SVG is unavailable
- * (no SVG support / blocked). When the SVG is present they remain hidden. */
+ * (no SVG support / blocked). When the SVG is present they remain hidden.
+ * The `:has()` selector is supported in all evergreen browsers
+ * (Chrome/Edge ≥105, Safari ≥15.4, Firefox ≥121). On older engines
+ * `:has()` is ignored — both the SVG glyphs and the emoji fall-back
+ * would then render, which is harmless visually (they sit on top of
+ * each other in the same flex centre); the SVG path uses
+ * `currentColor`, so the user still sees a moon/sun in the right tint.
+ * Anyone targeting older browsers can additionally hide the emoji by
+ * overriding `.theme-toggle__emoji { display: none; }`. */
 .theme-toggle:has(svg.theme-toggle__svg) .theme-toggle__emoji {
   display: none !important;
 }
