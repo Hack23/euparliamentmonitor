@@ -100,7 +100,18 @@ export interface DataWindowConfig {
   readonly anchor?: DataWindowAnchor;
 }
 
-/** Minute budgets for each of the five workflow stages. Sum should be ≤ 45. */
+/** Minute ceilings for the five workflow stages.
+ *
+ * Stage D (deterministic render) and Stage E (commit + safe-output
+ * `create_pull_request`) are included in these per-slug ceilings; they are not
+ * part of the workflow-overhead buffer. The drift guard allows totals up to
+ * 50 minutes so long-horizon/electoral variants have room to grow, while the
+ * operational tripwires in `.github/prompts/02-analysis-protocol.md` §3 still
+ * require the PR call by minute ≤45 (≤47 for electoral). The remaining time
+ * under the 60-minute workflow cap is overhead/slack for sandbox setup, MCP
+ * gateway boot, and GitHub Actions completion. Each workflow sets
+ * `engine.mcp.session-timeout: 65m` so the safeoutputs HTTP session outlasts
+ * the job cap. */
 export interface StageBudgetConfig {
   /** Stage A — data collection. */
   readonly A: number;
@@ -143,7 +154,8 @@ export interface ArticleHorizonConfig {
   readonly mandatoryArtifacts: readonly string[];
   /** Optional artifacts — produced when data supports them. */
   readonly optionalArtifacts: readonly string[];
-  /** Stage budget. Sum should be ≤ 45 (gh-aw timeout). */
+  /** Stage budget. Sum should be ≤ 50 (60-min `timeout-minutes` cap with
+   *  ≥ 10-min buffer for sandbox/render/PR call). */
   readonly stageBudgets: StageBudgetConfig;
   /** Scenario-forecast maximum horizon in months. */
   readonly scenarioMaxHorizonMonths: number;
@@ -156,14 +168,23 @@ export interface ArticleHorizonConfig {
   readonly electoralOverlay: boolean;
 }
 
-/** Stage budgets shared by the four short/mid prospective horizons. */
-const PROSPECTIVE_BUDGETS: StageBudgetConfig = { A: 5, B: 14, C: 3, D: 2, E: 1 };
+/** Stage budgets shared by the four short/mid prospective horizons.
+ *  Sum 35 (A=5, B=22, C=4, D=2, E=2). Per-family B1→B2,
+ *  Stage C exit, and PR-call tripwires are defined in
+ *  `.github/prompts/02-analysis-protocol.md` §3. */
+const PROSPECTIVE_BUDGETS: StageBudgetConfig = { A: 5, B: 22, C: 4, D: 2, E: 2 };
 
-/** Stage budgets shared by retrospective horizons. */
-const RETROSPECTIVE_BUDGETS: StageBudgetConfig = { A: 4, B: 14, C: 3, D: 2, E: 1 };
+/** Stage budgets shared by retrospective horizons. Sum 34 — same shape
+ *  as PROSPECTIVE_BUDGETS but Stage A is one minute lighter (no
+ *  forward-statements registry pre-read). */
+const RETROSPECTIVE_BUDGETS: StageBudgetConfig = { A: 4, B: 22, C: 4, D: 2, E: 2 };
 
-/** Stage budgets for long-horizon electoral runs. */
-const ELECTORAL_BUDGETS: StageBudgetConfig = { A: 5, B: 18, C: 3, D: 2, E: 1 };
+/** Stage budgets for long-horizon electoral runs. Sum 41 — extended
+ *  Stage B (28 min) for the larger Family-D + electoral-overlay
+ *  artifact set (mandate-scorecard, seat-projection, term-arc, etc.)
+ *  while keeping the same Stage C/D/E budgets. PR-call still lands by
+ *  minute ~45 inside the 60-min cap and 65-min MCP session window. */
+const ELECTORAL_BUDGETS: StageBudgetConfig = { A: 5, B: 28, C: 4, D: 2, E: 2 };
 
 /** Standard EP MCP feeds reused across horizons. */
 const STANDARD_FEEDS = [
@@ -285,7 +306,7 @@ export const ARTICLE_HORIZONS: Record<ArticleCategory, ArticleHorizonConfig> = {
     primaryFeeds: [...STANDARD_FEEDS],
     mandatoryArtifacts: [...PROSPECTIVE_MANDATORY, ...LONG_HORIZON_PROSPECTIVE_EXTRA],
     optionalArtifacts: [A_PRESIDENCY_TRIO, A_COMMISSION_WP, A_EXEC_BRIEF],
-    stageBudgets: { A: 5, B: 14, C: 3, D: 2, E: 1 },
+    stageBudgets: { A: 5, B: 24, C: 4, D: 2, E: 2 },
     scenarioMaxHorizonMonths: 6,
     forwardStatementsHorizonDays: 180,
     electoralOverlay: false,
@@ -307,7 +328,7 @@ export const ARTICLE_HORIZONS: Record<ArticleCategory, ArticleHorizonConfig> = {
       A_COMMISSION_WP,
     ],
     optionalArtifacts: [A_SEAT_PROJECTION, A_EXEC_BRIEF, A_HISTORICAL_PARALLELS],
-    stageBudgets: { A: 5, B: 15, C: 3, D: 2, E: 1 },
+    stageBudgets: { A: 5, B: 25, C: 4, D: 2, E: 2 },
     scenarioMaxHorizonMonths: 18,
     forwardStatementsHorizonDays: 730,
     electoralOverlay: false,
@@ -353,7 +374,7 @@ export const ARTICLE_HORIZONS: Record<ArticleCategory, ArticleHorizonConfig> = {
     primaryFeeds: [...STANDARD_FEEDS, 'get_voting_records'],
     mandatoryArtifacts: [...RETROSPECTIVE_MANDATORY, A_PIPELINE_FORECAST],
     optionalArtifacts: [A_PRESIDENCY_TRIO, A_COMMISSION_WP, A_EXEC_BRIEF],
-    stageBudgets: { A: 4, B: 14, C: 3, D: 2, E: 1 },
+    stageBudgets: { A: 4, B: 24, C: 4, D: 2, E: 2 },
     scenarioMaxHorizonMonths: 6,
     forwardStatementsHorizonDays: 0,
     electoralOverlay: false,
@@ -375,7 +396,7 @@ export const ARTICLE_HORIZONS: Record<ArticleCategory, ArticleHorizonConfig> = {
       A_HISTORICAL_PARALLELS,
     ],
     optionalArtifacts: [A_SEAT_PROJECTION, A_EXEC_BRIEF, A_COMPARATIVE_INTL],
-    stageBudgets: { A: 5, B: 15, C: 3, D: 2, E: 1 },
+    stageBudgets: { A: 5, B: 25, C: 4, D: 2, E: 2 },
     scenarioMaxHorizonMonths: 12,
     forwardStatementsHorizonDays: 0,
     electoralOverlay: false,
@@ -390,7 +411,7 @@ export const ARTICLE_HORIZONS: Record<ArticleCategory, ArticleHorizonConfig> = {
     primaryFeeds: [...STANDARD_FEEDS],
     mandatoryArtifacts: [...PROSPECTIVE_MANDATORY, ...ELECTORAL_EXTRA],
     optionalArtifacts: [A_EXEC_BRIEF],
-    stageBudgets: { A: 5, B: 15, C: 3, D: 2, E: 1 },
+    stageBudgets: { A: 5, B: 26, C: 4, D: 2, E: 2 },
     scenarioMaxHorizonMonths: 36,
     forwardStatementsHorizonDays: 1500,
     electoralOverlay: true,

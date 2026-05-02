@@ -21,32 +21,24 @@ permissions:
   discussions: read
   security-events: read
 
-# Hard safety cap. Two distinct deadlines drive this workflow's schedule:
+# Hard safety cap = 60 minutes (`timeout-minutes: 60`). Two deadlines
+# drive this workflow's schedule:
 #
-#   1. **Stage C exit deadline = minute 22 elapsed.** This is the latest
-#      point at which Stage C must hand off to Stage D (or skip Stage D
-#      and jump to Stage E). The minute-22 elapsed-time tripwire in the
-#      prompt body enforces this regardless of GREEN/RED — even a freshly
-#      GREEN gate at minute 22 must fall through to ANALYSIS_ONLY so
-#      Stage D + E still have reserved time before the PR-call deadline.
-#      Local stage ceilings (A ≤ 4, B 12–15, C ≤ 3) sum to 22 — the
-#      tripwire backstops any per-stage overrun.
+#   1. **Active-work target ≤ minute 45.** Stages A → E complete by
+#      minute 45, leaving a 15-minute buffer under the 60-min cap for
+#      sandbox setup, MCP gateway boot, deterministic article render,
+#      and git push. Per-slug stage budgets live in
+#      `src/config/article-horizons.ts` and are surfaced in the
+#      Workflow-Parameters table below.
 #
-#   2. **safe-outputs PR-call deadline = minute ≤ 25 (target ≤ 22).**
-#      This is the deadline for the single safe-outputs
-#      `create_pull_request` call. Stage D ≤ 2 min and Stage E ≤ 1–2 min
-#      must fit between the Stage C exit (≤ minute 22) and this deadline.
-#
-# Sized for the ~28–30 min safeoutputs MCP session TTL: agent must call
-# create_pull_request by minute ≤ 25 (target ≤ 22), leaving ~20 min of
-# headroom for npm setup, render, and git push under the 45-min cap.
-# Tightened from the previous 25 / ≤28 split after run #24963129839
-# (news-week-in-review): Stage B suffered two context compactions, the
-# tripwire fired at minute 28, and the safe-outputs PR call landed at
-# minute 29 → `session not found` HTTP 404 → zero safe outputs. The
-# unified 22 / ≤25 budget mirrors the proven fix already in place for
-# news-month-in-review (#1444) and news-month-ahead (#24957585804).
-timeout-minutes: 45
+#   2. **Single safe-output `create_pull_request` call by minute ≤ 45.**
+#      The MCP gateway session lifetime is set per workflow via
+#      `engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+) so the
+#      safeoutputs HTTP session outlasts the full run — superseding the
+#      previous ~28–30 min hard TTL that capped the old 45-minute
+#      schedule. See `.github/prompts/02-analysis-protocol.md` §3 for
+#      the per-family stage budget table and tripwires.
+timeout-minutes: 60
 
 features:
   mcp-gateway: true
@@ -59,7 +51,7 @@ sandbox:
     # reference/mcp-gateway.md §4.1.3.5. Gateway default is 1500 (25 min);
     # we override to 300 so the gateway pings each backend (european-parliament,
     # world-bank, memory, sequential-thinking) every 5 minutes. This keeps
-    # backend HTTP sessions warm during the 45-minute Stage B/C/D window
+    # backend HTTP sessions warm during the 60-minute Stage B/C/D window
     # without triggering EP-side rate limits. Setting to -1 would disable
     # pings; 0/unset would silently default to 1500 — both unsafe for
     # long-running news runs that can idle on MCP for 10+ minutes during
@@ -101,7 +93,7 @@ network:
     - www.euparliamentmonitor.com
 
 # Tools — all available read/edit/web/memory tools the agent needs for a
-# resilient 45-min news-generation session. See upstream reference/tools.md
+# resilient 60-min news-generation session. See upstream reference/tools.md
 # and reference/github-tools.md.
 tools:
   timeout: 300            # per-tool-call cap (bash, MCP, github, edit, web-fetch)
@@ -238,7 +230,15 @@ jobs:
 
 engine:
   id: copilot
-  model: claude-opus-4.7
+  model: claude-sonnet-4.6
+  mcp:
+    # gh-aw v0.71.3+: per-workflow MCP gateway session lifetime.
+    # Set to 65m so the safeoutputs HTTP session outlasts the
+    # 60-minute `timeout-minutes` cap with a 5-minute margin —
+    # superseding the previous ~28–30 min hard TTL that capped the
+    # old 45-minute schedule. Min 5m, no upper bound; format is a
+    # Go duration string (kebab-case key only).
+    session-timeout: 65m
   # max-continuations: 1 tells gh-aw NOT to enable autopilot mode — when this
   # equals 1 the compiler omits --autopilot from the Copilot CLI invocation so
   # the agent runs exactly once with no restarts.  Within-session runaway
@@ -276,37 +276,27 @@ prose pass.
 | Family | **Unified** (Stages A → B → C → D → E in one workflow) |
 | Data window | last 7 days |
 | Primary feeds | `get_committee_documents`, `get_committee_documents_feed`, `get_procedures_feed`, `get_events_feed` with `timeframe: "one-week"`. |
-| Stage A budget | ≤ 4 min |
-| Stage B budget (2 passes) | **12–15 min — HARD CEILING** (do **not** exceed 15 min on Stage B even if Pass 2 still has shallow sections; force `GATE_RESULT=ANALYSIS_ONLY` instead) |
-| Stage C budget (gate + optional Pass 3) | ≤ 3 min |
+| Stage A budget | ≤ 4–5 min (per `article-horizons.ts`) |
+| Stage B budget (2 passes) | **22–28 min — HARD CEILING per `article-horizons.ts`** (do **not** exceed the per-slug ceiling on Stage B even if Pass 2 still has shallow sections; force `GATE_RESULT=ANALYSIS_ONLY` instead) |
+| Stage C budget (gate + optional Pass 3) | ≤ 4 min |
 | Stage D budget | ≤ 2 min (deterministic) |
-| Stage E budget (commit + single PR) | ≤ 1–2 min |
-| **Stage C exit tripwire** | **minute 22 elapsed** — the **decision threshold** for forcing `GATE_RESULT=ANALYSIS_ONLY` and (if late) skipping Stage D so the run can still reach the PR call. Stages A → C local ceilings (4 + 15 + 3) sum to 22; the tripwire backstops any per-stage overrun. **Note:** 22 min is *not* the sum of Stages A → E — D + E run *after* this tripwire, between minute 22 and the PR-call deadline. |
-| **Hard PR-call deadline** | **minute ≤ 25 elapsed** (target ≤ 22) — deadline for the single safe-outputs `create_pull_request` call. After this, the safeoutputs MCP HTTP session is at risk of being reaped (run #24963129839 lost the PR call at minute 29). |
-| Hard safety cap | 45-min `timeout-minutes` |
+| Stage E budget (commit + single PR) | ≤ 2 min |
+| **Stage C exit tripwire** | **minute 36 elapsed** (long-horizon prospective: 39; long-horizon retrospective: 38; electoral: 42) — the **decision threshold** for forcing `GATE_RESULT=ANALYSIS_ONLY` and (if late) skipping Stage D so the run can still reach the PR call. Per-slug stage ceilings live in `src/config/article-horizons.ts`; the tripwire backstops any per-stage overrun. **Note:** Stage D + E run *after* this tripwire, between the Stage C exit and the PR-call deadline. |
+| **Hard PR-call deadline** | **minute ≤ 45 elapsed** (target ≤ 42) — deadline for the single safe-outputs `create_pull_request` call. Backed by `engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+) which keeps the safeoutputs HTTP session alive for the full 60-min cap. |
+| Hard safety cap | 60-min `timeout-minutes` |
 | PR rule | **Exactly one** `[news]` PR at end of run |
 
-> **⚠️ safeoutputs Session TTL**: The safeoutputs MCP HTTP session on
-> `localhost:3001` has been observed to fail after roughly **28–30
-> minutes** with no safeoutputs tool calls (agent activity on other
-> tools does **not** refresh it). The schedule has **two distinct
-> deadlines**:
->
-> - **Stage C exit by minute ≤ 22** (Stage A ≤ 4 + Stage B 12–15 +
->   Stage C ≤ 3 = 22 min ceiling) — backstopped by the elapsed-time
->   tripwire below.
-> - **Single PR call by minute ≤ 25** (Stage D ≤ 2 + Stage E ≤ 1–2 =
->   ~3 min after the Stage C exit) — well below the ~28–30 min
->   safeoutputs session TTL window that bit run #24963129839.
->
-> As soon as Stage C exits (GREEN, RED-second-failure, or tripwire
-> ANALYSIS_ONLY), run Stage D (`npm run generate-article`) and Stage E
-> immediately and call the single PR without delay. **At minute 22,
-> the elapsed-time tripwire fires unconditionally — even a freshly
-> GREEN gate at minute 22 must fall through to ANALYSIS_ONLY so Stage
-> D + E retain the budget needed to land the PR call by minute ≤ 25.
-> Losing the article render is acceptable; losing the entire run to
-> TTL is not.** See [`09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5.
+> **⏱️ MCP session lifetime (gh-aw v0.71.3+)**: This workflow sets
+> `engine.mcp.session-timeout: 65m`, which keeps the safeoutputs HTTP
+> session on `localhost:3001` alive for 65 minutes — outlasting the
+> 60-min `timeout-minutes` cap with a 5-min margin. The previous
+> ~28–30 min hard TTL (which capped the old 45-min schedule and bit
+> run #24963129839) no longer applies. The Stage C exit tripwire
+> still fires at the slug-specific elapsed-minute mark in
+> `src/config/article-horizons.ts` so Stage D + E retain enough
+> budget to land the single PR call by minute ≤ 45. See
+> [`09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5 for
+> the historical context.
 
 ## 🎯 Article-Type Specifics
 
@@ -340,12 +330,18 @@ echo "WORKFLOW_START_EPOCH=$WORKFLOW_START_EPOCH" >> "$GITHUB_ENV"
 ## 🔁 Stage Order (absolute)
 
 ```
-Stage A · Data Collection (≤ 4 min — minute 0–4)
-  → Stage B · Analysis (Pass 1 + Pass 2, 12–15 min HARD CEILING — minute 4–19)
-    → Stage C · Completeness Gate (agent-side readback, ≤ 3 min — minute 19–22) — BLOCKING; minute-22 elapsed-time tripwire forces ANALYSIS_ONLY
-      → Stage D · Article Render (npm run generate-article — deterministic, ≤ 2 min — minute 22–24)
-        → Stage E · Single PR (≤ 1–2 min — minute ≤ 25; exactly once)
+Stage A · Data Collection (per-slug budget — see article-horizons.ts)
+  → Stage B · Analysis (Pass 1 + Pass 2, hard ceiling per article-horizons.ts)
+    → Stage C · Completeness Gate (≤ 4 min) — BLOCKING; elapsed-time
+      tripwire (per-slug) forces ANALYSIS_ONLY before Stage D
+      → Stage D · Article Render (npm run generate-article — deterministic, ≤ 2 min)
+        → Stage E · Single PR (≤ 2 min — by minute ≤ 45; exactly once)
 ```
+
+> Per-slug minute boundaries are derived from
+> `src/config/article-horizons.ts` (`stageBudgets`) and surfaced in
+> the Workflow-Parameters table above. The full table of per-family
+> tripwires lives in [`.github/prompts/02-analysis-protocol.md` §3](../prompts/02-analysis-protocol.md#3--minimum-analysis-time).
 
 ### Stage A — Data Collection (Ref: 01, 07)
 
@@ -419,24 +415,29 @@ STAGE_C_GATE: RED articleType=${ARTICLE_TYPE_SLUG} missing=<N> short=<N> placeho
 > ELAPSED_MIN=$(( (NOW_EPOCH - WORKFLOW_START_EPOCH) / 60 ))
 > ```
 >
-> **If `ELAPSED_MIN >= 22`, immediately set `GATE_RESULT=ANALYSIS_ONLY`
-> — even if Stage C has just emitted GREEN.** Minute 22 is the latest
-> safe Stage C exit because Stage D + E still need ~3 min of budget
-> before the PR-call deadline at minute ≤ 25; honoring a late GREEN
-> would push the PR call past the safeoutputs session TTL. Emit the
-> gate line as a single unbroken record (note the mandatory
-> `articleType=` field — required by the contract above and by
-> `scripts/validate-analysis-completeness.js`):
+> **Look up the slug-specific Stage C exit tripwire in
+> `src/config/article-horizons.ts`** — short/mid prospective &
+> retrospective slugs trip at **minute 36**, long-horizon
+> prospective slugs at **minute 39**, long-horizon retrospective
+> slugs at **minute 38**, electoral-overlay slugs at **minute 42**. **If `ELAPSED_MIN ≥ tripwire`, immediately
+> set `GATE_RESULT=ANALYSIS_ONLY` — even if Stage C has just emitted
+> GREEN.** Stage D + E need ≥ 4 min of budget before the PR-call
+> deadline at minute ≤ 45. Emit the gate line as a single unbroken
+> record (note the mandatory `articleType=` field — required by the
+> contract above and by `scripts/validate-analysis-completeness.js`):
 >
 > ```text
 > STAGE_C_GATE: ANALYSIS_ONLY articleType=${ARTICLE_TYPE_SLUG} reason="elapsed-time tripwire at minute ${ELAPSED_MIN}; reserve remaining budget for Stage D+E PR-call deadline"
 > ```
 >
 > Then skip Pass 3 and **all** Stage D render attempts and proceed
-> straight to Stage E. Shipping ANALYSIS_ONLY at minute 22 is strictly
-> better than losing the whole run to the safeoutputs session TTL
-> see #1444, run #24957585804, and run #24963129839 (the trigger for
-> this tighter budget) for the failure mode this backstop prevents.
+> straight to Stage E. Shipping ANALYSIS_ONLY at the tripwire is
+> strictly better than blowing the 60-min `timeout-minutes` cap.
+> The 65-min `engine.mcp.session-timeout` (gh-aw v0.71.3+) keeps the
+> safeoutputs HTTP session alive for the full run, but the workflow
+> still hard-caps at 60 minutes. See [`09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5
+> for run #24963129839 (`session not found` at minute 29 under the
+> old 45-min schedule) — historical context for the new design.
 
 ### Stage D — Deterministic Article Render (Refs: 04-article-generation + Article-Generation.md)
 

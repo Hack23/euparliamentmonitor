@@ -14,7 +14,7 @@ Stay within the 10-minute budget.
 [Stage A: Data Collection] → Stage B: Analysis → Stage C: Gate → Stage D: Article → PR
 ```
 
-Time budget: **≤ 5 minutes** of a 45-minute workflow (the Stage-A line in every workflow's parameter table).
+Time budget: **≤ 5 minutes** of a 60-minute workflow (the Stage-A line in every workflow's parameter table; per-slug values authoritative in `src/config/article-horizons.ts`).
 
 ## 2 · What to Collect
 
