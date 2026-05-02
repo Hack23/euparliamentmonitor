@@ -409,7 +409,7 @@ export interface SiteHeaderOptions {
 export function buildSiteHeader(options: SiteHeaderOptions): string {
   const { lang, pathPrefix, homeHref, siteTitle, languageSwitcherHtml } = options;
   const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
-  const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
+  const themeToggleLabel = getLocalizedString(THEME_TOGGLE_LABELS, lang);
   const sponsorLabel = escapeHTML(getLocalizedString(HEADER_CTA_SPONSOR_LABELS, lang));
   const becomeSponsorLabel = escapeHTML(getLocalizedString(HEADER_CTA_BECOME_SPONSOR_LABELS, lang));
   const securityLabel = escapeHTML(getLocalizedString(HEADER_CTA_SECURITY_LABELS, lang));
