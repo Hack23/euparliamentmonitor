@@ -756,6 +756,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
       path.join(runDir, 'manifest.json'),
       JSON.stringify({
         articleType: 'week-ahead',
+        runDate: '2026-05-01',
         files: {
           classification: WEEK_AHEAD_MANDATORY.filter((a) => a.startsWith('classification/')),
           'risk-scoring': WEEK_AHEAD_MANDATORY.filter((a) => a.startsWith('risk-scoring/')),
@@ -888,6 +889,134 @@ describe('scripts/validate-analysis-completeness.js', () => {
     const result = runHere();
     expect(result.code).toBe(0);
     expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+  });
+
+  // ─── Forward-projection mandatory gate (§9.4) ──────────────────────────────
+
+  // month-ahead mandatory artifacts from the registry
+  const MONTH_AHEAD_MANDATORY = (() => {
+    const mandatoryArtifacts = getHorizonConfig('month-ahead')?.mandatoryArtifacts;
+    if (!Array.isArray(mandatoryArtifacts)) {
+      throw new Error(
+        'Expected getHorizonConfig("month-ahead").mandatoryArtifacts to be defined as an array',
+      );
+    }
+    return mandatoryArtifacts;
+  })();
+
+  function writeMonthAheadManifest() {
+    fs.writeFileSync(
+      path.join(runDir, 'manifest.json'),
+      JSON.stringify({
+        articleType: 'month-ahead',
+        runDate: '2026-05-01',
+        files: {
+          classification: MONTH_AHEAD_MANDATORY.filter((a) => a.startsWith('classification/')),
+          'risk-scoring': MONTH_AHEAD_MANDATORY.filter((a) => a.startsWith('risk-scoring/')),
+          intelligence: MONTH_AHEAD_MANDATORY.filter((a) => a.startsWith('intelligence/')),
+        },
+      }),
+      'utf8',
+    );
+  }
+
+  function writeAllMonthAheadArtifacts() {
+    fs.mkdirSync(path.join(runDir, 'classification'), { recursive: true });
+    fs.mkdirSync(path.join(runDir, 'risk-scoring'), { recursive: true });
+    fs.mkdirSync(path.join(runDir, 'intelligence'), { recursive: true });
+    for (const artifact of MONTH_AHEAD_MANDATORY) {
+      fs.writeFileSync(
+        path.join(runDir, artifact),
+        makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+    }
+  }
+
+  it('returns RED for week-ahead when forward-projection.md is missing (§9.4)', () => {
+    writeWeekAheadManifest();
+    writeAllWeekAheadArtifacts();
+    // Remove forward-projection to simulate a missing artifact
+    fs.unlinkSync(path.join(runDir, 'intelligence/forward-projection.md'));
+    const result = runHere();
+    expect(result.code).toBe(1);
+    expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
+    expect(result.stderr).toMatch(/missing/);
+  });
+
+  it('returns RED for month-ahead when forward-projection.md is missing (§9.4)', () => {
+    writeMonthAheadManifest();
+    writeAllMonthAheadArtifacts();
+    // Remove forward-projection to simulate a missing artifact
+    fs.unlinkSync(path.join(runDir, 'intelligence/forward-projection.md'));
+    const result = runHere();
+    expect(result.code).toBe(1);
+    expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
+    expect(result.stderr).toMatch(/missing/);
+  });
+
+  it('returns RED for month-ahead when forward-projection.md is below floor (§9.4)', () => {
+    writeMonthAheadManifest();
+    writeAllMonthAheadArtifacts();
+    // Overwrite with a too-short file (floor is 120 for month-ahead)
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/forward-projection.md'),
+      makeArtifact(30, { mermaid: true, wep: true, admiralty: true }),
+      'utf8',
+    );
+    // Write a dedicated fixture with only the forward-projection floor
+    const fpThresholds = path.join(tmp, 'fp-thresholds.json');
+    fs.writeFileSync(
+      fpThresholds,
+      JSON.stringify({
+        thresholds: {
+          'month-ahead': {
+            'intelligence/forward-projection.md': 120,
+          },
+        },
+        tradecraftQualitySignals: {
+          wepBandRequired: ['intelligence/forward-projection.md'],
+          admiraltyGradeRequired: ['intelligence/forward-projection.md'],
+        },
+      }),
+      'utf8',
+    );
+    const result = run(runDir, ['--thresholds', fpThresholds]);
+    expect(result.code).toBe(1);
+    expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
+    expect(result.stderr).toMatch(/short/);
+  });
+
+  it('returns RED for week-ahead when forward-projection.md is below floor (§9.4)', () => {
+    writeWeekAheadManifest();
+    writeAllWeekAheadArtifacts();
+    // Overwrite with a too-short file (floor is 80 for week-ahead)
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/forward-projection.md'),
+      makeArtifact(20, { mermaid: true, wep: true, admiralty: true }),
+      'utf8',
+    );
+    // Write a dedicated fixture with only the forward-projection floor
+    const fpThresholds = path.join(tmp, 'fp-thresholds.json');
+    fs.writeFileSync(
+      fpThresholds,
+      JSON.stringify({
+        thresholds: {
+          'week-ahead': {
+            'intelligence/forward-projection.md': 80,
+          },
+        },
+        tradecraftQualitySignals: {
+          wepBandRequired: ['intelligence/forward-projection.md'],
+          admiraltyGradeRequired: ['intelligence/forward-projection.md'],
+        },
+      }),
+      'utf8',
+    );
+    const result = run(runDir, ['--thresholds', fpThresholds]);
+    expect(result.code).toBe(1);
+    expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
+    expect(result.stderr).toMatch(/short/);
   });
 
   // ─── Re-run improve/extend enforcement ───────────────────────────────────
