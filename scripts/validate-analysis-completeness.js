@@ -963,7 +963,9 @@ function main() {
   // When >2 forward statements have expired (horizonEnd < today) without being
   // marked resolved|stale|extended, Stage C turns RED. ≤2 expired entries emit
   // a warning but do not block.
-  const expiredUnresolved = readExpiredUnresolved();
+  const expiredUnresolved = readExpiredUnresolved({
+    registryDir: path.join(ROOT, 'analysis/forward-statements'),
+  });
   if (expiredUnresolved.length > 0) {
     const ids = expiredUnresolved.map((e) => e.id).join(', ');
     if (expiredUnresolved.length > 2) {
