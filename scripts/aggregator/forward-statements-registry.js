@@ -17,7 +17,7 @@
  *     originatingDate:     string  — YYYY-MM-DD
  *     statement:           string  — The forward-looking statement text
  *     expectedHorizon:     string  — YYYY-MM-DD or ISO week (e.g. "2026-W18")
- *     status:              "open" | "implemented" | "superseded" | "abandoned"
+ *     status:              "open" | "implemented" | "superseded" | "abandoned" | "resolved" | "stale" | "extended"
  *     lastObservedDate:    string  — YYYY-MM-DD of last run that touched this entry
  *     evidenceRefs:        string[] — EP document IDs or procedure IDs supporting the claim
  *   }
@@ -44,7 +44,10 @@ import path from 'node:path';
 import process from 'node:process';
 
 const REGISTRY_DIR = path.resolve(process.cwd(), 'analysis/forward-statements');
-const VALID_STATUSES = /** @type {const} */ (['open', 'implemented', 'superseded', 'abandoned']);
+const VALID_STATUSES = /** @type {const} */ ([
+  'open', 'implemented', 'superseded', 'abandoned',
+  'resolved', 'stale', 'extended',
+]);
 
 // ---------------------------------------------------------------------------
 // Public helpers (exported for Vitest)
@@ -276,6 +279,52 @@ export function readEntries(opts) {
   return results;
 }
 
+/** Statuses that close out an expired forward statement (all terminal states). */
+const RESOLVED_STATUSES = [
+  'implemented', 'superseded', 'abandoned',
+  'resolved', 'stale', 'extended',
+];
+
+/**
+ * Return forward-statement entries whose `expectedHorizon` is before `today`
+ * and whose latest status is NOT a terminal state (implemented, superseded,
+ * abandoned, resolved, stale, or extended).
+ * These are "expired unresolved" entries that Stage B must close out.
+ *
+ * @param {object} [opts] - Options
+ * @param {string} [opts.today] - Override today's date (YYYY-MM-DD); defaults to UTC today
+ * @param {string} [opts.registryDir] - Override registry directory (used in tests)
+ * @returns {Record<string, unknown>[]} Expired unresolved entries
+ */
+export function readExpiredUnresolved(opts) {
+  const today = opts?.today ?? new Date().toISOString().slice(0, 10);
+  const all = readEntries({ registryDir: opts?.registryDir });
+  const expired = [];
+  for (const entry of all) {
+    if (typeof entry.expectedHorizon !== 'string') {
+      process.stderr.write(
+        `Skipping forward-statement entry "${entry.id}" with missing expectedHorizon\n`,
+      );
+      continue;
+    }
+    let horizon;
+    try {
+      horizon = normaliseHorizon(/** @type {string} */ (entry.expectedHorizon));
+    } catch (error) {
+      process.stderr.write(
+        `Skipping forward-statement entry "${entry.id}" with invalid expectedHorizon ` +
+          `"${entry.expectedHorizon}": ${error instanceof Error ? error.message : String(error)}\n`,
+      );
+      continue;
+    }
+    if (horizon >= today) continue;
+    const status = typeof entry.status === 'string' ? entry.status : '';
+    if (RESOLVED_STATUSES.includes(status)) continue;
+    expired.push(entry);
+  }
+  return expired;
+}
+
 /**
  * Update an existing entry's status, lastObservedDate, and optionally append
  * an evidence reference. The update is written as a new JSONL line in the
@@ -441,7 +490,7 @@ export function cli(argv) {
         '',
         'Commands:',
         '  append  [--file <path>]  Append entries from a JSON array file (or stdin)',
-        '  read    [--status open|implemented|superseded|abandoned]',
+        '  read    [--status open|implemented|superseded|abandoned|resolved|stale|extended]',
         '          [--horizon-from YYYY-MM-DD] [--horizon-to YYYY-MM-DD] [--electoral-mode]',
         '                           Read and print matching entries as JSON array',
         '  update  --id <id> --status <status> [--evidence <ref>] [--date YYYY-MM-DD]',

@@ -145,7 +145,7 @@ A carried forward statement that has expired (`now > horizon-end` of original pr
 | `stale` | Horizon passed without resolution | Mark as withdrawn; do not re-emit |
 | `extended` | Horizon passed; analyst extends with fresh evidence | New WEP band + reference-class refresh required |
 
-Stage C raises a **🔴 RED** when the run carries > 2 unresolved expired statements without status updates.
+Stage C raises a **🔴 RED** when the run carries > 2 unresolved expired statements without status updates. Enforced by `scripts/validate-analysis-completeness.js` via `readExpiredUnresolved()` (see [#1563](https://github.com/Hack23/euparliamentmonitor/issues/1563)).
 
 ---
 

@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -14,6 +14,7 @@ import {
   validateEntry,
   appendEntries,
   readEntries,
+  readExpiredUnresolved,
   updateEntry,
   buildSummary,
   normaliseHorizon,
@@ -543,6 +544,89 @@ describe('forward-statements-registry', () => {
       expect(isMondayRun('2026-04-27')).toBe(true);
       expect(isMondayRun('2026-04-28')).toBe(false);
       expect(isMondayRun('2026-04-29')).toBe(false);
+    });
+  });
+
+  // -------------------------------------------------------------------------
+  // readExpiredUnresolved
+  // -------------------------------------------------------------------------
+  describe('readExpiredUnresolved', () => {
+    it('should return empty array when no entries exist', () => {
+      const result = readExpiredUnresolved({ today: '2026-05-02', registryDir: tmpDir });
+      expect(result).toHaveLength(0);
+    });
+
+    it('should return empty array when all entries have future horizons', () => {
+      appendEntries([
+        makeEntry({ id: 'future-1', expectedHorizon: '2026-06-15', status: 'open' }),
+        makeEntry({ id: 'future-2', expectedHorizon: '2026-07-01', status: 'open' }),
+      ], tmpDir);
+      const result = readExpiredUnresolved({ today: '2026-05-02', registryDir: tmpDir });
+      expect(result).toHaveLength(0);
+    });
+
+    it('should return expired entries that are not in a terminal state', () => {
+      appendEntries([
+        makeEntry({ id: 'expired-open', expectedHorizon: '2026-04-01', status: 'open' }),
+        makeEntry({ id: 'expired-implemented', expectedHorizon: '2026-03-15', status: 'implemented' }),
+        makeEntry({ id: 'not-expired', expectedHorizon: '2026-06-01', status: 'open' }),
+      ], tmpDir);
+      const result = readExpiredUnresolved({ today: '2026-05-02', registryDir: tmpDir });
+      expect(result).toHaveLength(1);
+      expect(result[0].id).toBe('expired-open');
+    });
+
+    it('should exclude entries with status resolved, stale, or extended', () => {
+      appendEntries([
+        makeEntry({ id: 'resolved-one', expectedHorizon: '2026-03-01', status: 'resolved' }),
+        makeEntry({ id: 'stale-one', expectedHorizon: '2026-02-01', status: 'stale' }),
+        makeEntry({ id: 'extended-one', expectedHorizon: '2026-01-01', status: 'extended' }),
+        makeEntry({ id: 'open-expired', expectedHorizon: '2026-04-01', status: 'open' }),
+      ], tmpDir);
+      const result = readExpiredUnresolved({ today: '2026-05-02', registryDir: tmpDir });
+      expect(result).toHaveLength(1);
+      expect(result[0].id).toBe('open-expired');
+    });
+
+    it('should handle ISO week horizons correctly', () => {
+      // 2026-W10 = Monday 2026-03-02
+      appendEntries([
+        makeEntry({ id: 'week-expired', expectedHorizon: '2026-W10', status: 'open' }),
+      ], tmpDir);
+      const result = readExpiredUnresolved({ today: '2026-05-02', registryDir: tmpDir });
+      expect(result).toHaveLength(1);
+      expect(result[0].id).toBe('week-expired');
+    });
+
+    it('should skip entries with missing or invalid expectedHorizon and log warnings', () => {
+      const stderrSpy = vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
+      try {
+        // Write raw JSONL directly to bypass appendEntries validation
+        const shard = path.join(tmpDir, '2026-04.jsonl');
+        fs.mkdirSync(tmpDir, { recursive: true });
+        const noHorizon = JSON.stringify({ id: 'no-horizon', topic: 'test', originatingRunId: 'r1', originatingDate: '2026-04-01', statement: 's', status: 'open', evidenceRefs: [] });
+        const badHorizon = JSON.stringify({ id: 'bad-horizon', topic: 'test', originatingRunId: 'r1', originatingDate: '2026-04-01', statement: 's', expectedHorizon: 'soon', status: 'open', evidenceRefs: [] });
+        const validExpired = JSON.stringify({ id: 'valid-expired', topic: 'test', originatingRunId: 'r1', originatingDate: '2026-04-01', statement: 's', expectedHorizon: '2026-04-01', status: 'open', evidenceRefs: [] });
+        fs.writeFileSync(shard, `${noHorizon}\n${badHorizon}\n${validExpired}\n`, 'utf8');
+        const result = readExpiredUnresolved({ today: '2026-05-02', registryDir: tmpDir });
+        expect(result).toHaveLength(1);
+        expect(result[0].id).toBe('valid-expired');
+        // Verify warnings were emitted for missing and invalid horizons
+        const warnings = stderrSpy.mock.calls.map((c) => String(c[0]));
+        expect(warnings.some((w) => w.includes('no-horizon') && w.includes('missing'))).toBe(true);
+        expect(warnings.some((w) => w.includes('bad-horizon') && w.includes('invalid'))).toBe(true);
+      } finally {
+        stderrSpy.mockRestore();
+      }
+    });
+
+    it('should use today UTC when no today option provided', () => {
+      // An entry far in the past should always be expired
+      appendEntries([
+        makeEntry({ id: 'old-one', expectedHorizon: '2020-01-01', status: 'open' }),
+      ], tmpDir);
+      const result = readExpiredUnresolved({ registryDir: tmpDir });
+      expect(result).toHaveLength(1);
     });
   });
 });

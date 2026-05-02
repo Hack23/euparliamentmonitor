@@ -60,6 +60,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 import { getHorizonConfig } from './config/article-horizons.js';
+import { readExpiredUnresolved } from './aggregator/forward-statements-registry.js';
 
 const ROOT = process.cwd();
 const DEFAULT_MIN_LINES = 30;
@@ -957,6 +958,63 @@ function main() {
 
   const forwardRegistryResult = validateForwardStatementsRegistryCoverage(runDir, articleType);
   mergeSyntheticResult(results, forwardRegistryResult);
+
+  // ── Expired-unresolved forward-statements gate (§9.2) ───────────────────
+  // When >2 forward statements have expired (expectedHorizon < evaluation date)
+  // without a terminal status, Stage C turns RED. ≤2 expired
+  // entries emit a warning but do not block.
+  // Only runs for article types that manage forward statements (same logic as
+  // validateForwardStatementsRegistryCoverage) so retrospective/unrelated types
+  // are not blocked by registry state they don't control.
+  // Use manifest.runDate (or date extracted from runDir path) for deterministic
+  // evaluation so re-validating historical runs produces stable results.
+  const expiredHorizonCfg = getHorizonConfig(articleType);
+  const requiresExpiredGate = expiredHorizonCfg
+    ? expiredHorizonCfg.forwardStatementsHorizonDays > 0
+    : ['week-ahead', 'month-ahead'].includes(articleType);
+  const runDirPosix = runDir.split(path.sep).join('/');
+  const gateDate =
+    manifest.runDate ||
+    manifest.date ||
+    manifest.run_date ||
+    (runDirPosix.match(/analysis\/daily\/(\d{4}-\d{2}-\d{2})\//) || [])[1] ||
+    new Date().toISOString().slice(0, 10);
+  const expiredUnresolved = requiresExpiredGate
+    ? readExpiredUnresolved({
+        today: gateDate,
+        registryDir: path.join(ROOT, 'analysis/forward-statements'),
+      })
+    : [];
+  if (expiredUnresolved.length > 0) {
+    const ids = expiredUnresolved.map((e) => e.id).join(', ');
+    if (expiredUnresolved.length > 2) {
+      mergeSyntheticResult(results, {
+        relativePath: 'forward-statements-registry',
+        exists: true,
+        lines: 0,
+        minLines: 0,
+        issues: [
+          `forward-registry:expired-unresolved(${expiredUnresolved.length}) ids=${ids}`,
+        ],
+        warnings: [],
+        mermaid: false,
+        placeholders: [],
+      });
+    } else {
+      mergeSyntheticResult(results, {
+        relativePath: 'forward-statements-registry',
+        exists: true,
+        lines: 0,
+        minLines: 0,
+        issues: [],
+        warnings: [
+          `forward-registry:expired-unresolved(${expiredUnresolved.length}) ids=${ids}`,
+        ],
+        mermaid: false,
+        placeholders: [],
+      });
+    }
+  }
 
   // ── Long-horizon scenario-count gate ─────────────────────────────────────
   // For term-outlook and election-cycle article types, scenario-forecast.md
