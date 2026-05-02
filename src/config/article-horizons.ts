@@ -100,16 +100,18 @@ export interface DataWindowConfig {
   readonly anchor?: DataWindowAnchor;
 }
 
-/** Minute budgets for each of the five workflow stages.
+/** Minute ceilings for the five workflow stages.
  *
- * Sum should be ≤ 50 minutes — the workflow has a 60-minute hard cap
- * (`timeout-minutes: 60`) and is sized so all stages complete by minute ≤ 45,
- * leaving a 15-minute buffer for sandbox setup, MCP gateway boot, the
- * deterministic article render, and the safe-output `create_pull_request`
- * call. The MCP gateway session timeout (`engine.mcp.session-timeout`,
- * gh-aw v0.71.3+) is set to `65m` per workflow so the safeoutputs HTTP
- * session stays alive for the full duration — superseding the previous
- * 28–30 min safeoutputs TTL constraint that gated the 45-min cap. */
+ * Stage D (deterministic render) and Stage E (commit + safe-output
+ * `create_pull_request`) are included in these per-slug ceilings; they are not
+ * part of the workflow-overhead buffer. The drift guard allows totals up to
+ * 50 minutes so long-horizon/electoral variants have room to grow, while the
+ * operational tripwires in `.github/prompts/02-analysis-protocol.md` §3 still
+ * require the PR call by minute ≤45 (≤47 for electoral). The remaining time
+ * under the 60-minute workflow cap is overhead/slack for sandbox setup, MCP
+ * gateway boot, and GitHub Actions completion. Each workflow sets
+ * `engine.mcp.session-timeout: 65m` so the safeoutputs HTTP session outlasts
+ * the job cap. */
 export interface StageBudgetConfig {
   /** Stage A — data collection. */
   readonly A: number;
