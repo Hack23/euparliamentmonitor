@@ -71,6 +71,8 @@ export default defineConfig({
         'scripts/constants/languages.js',
         // Exclude barrel re-export entry points (no testable logic)
         'scripts/index.js',
+        // Pure CLI entry-point with no exports — cannot be imported for testing
+        'scripts/generators/build-info.js',
       ],
     },
     
