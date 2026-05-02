@@ -164,23 +164,33 @@ The following capabilities have already been delivered and are documented in [WO
 
 ### 0.2 Agentic News Workflows — ✅ COMPLETED
 
-**Status:** 10 agentic news workflows compiled via `gh-aw` (GitHub Agentic Workflows v0.57.0) are in production.  
+**Status:** 15 agentic news workflows compiled via `gh-aw` (GitHub Agentic Workflows ≥ v0.69.3, `engine.mcp.session-timeout: 65m`) are in production.  
 **Engine:** GitHub Copilot CLI with `claude-sonnet-4.6` model  
-**Data Source:** `european-parliament-mcp-server` via MCP protocol  
-**Coverage:** 14 languages (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH)
+**Data Source:** `european-parliament-mcp-server@1.2.20+` via MCP protocol  
+**Coverage:** 14 languages (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH)  
+**Horizon registry:** [`src/config/article-horizons.ts`](src/config/article-horizons.ts) is the single source of truth for every horizon's data window, cadence, mandatory artifacts, stage budgets and electoral overlay.
 
 | Workflow | Schedule | Purpose |
 |----------|----------|---------|
+| `news-breaking.lock.yml` | Every 4 hours (`0 */4 * * *`) | Breaking news |
 | `news-week-ahead.lock.yml` | Friday 07:00 UTC | Parliamentary week preview |
-| `news-weekly-review.lock.yml` | Saturday 09:00 UTC | Week retrospective |
+| `news-month-ahead.lock.yml` | 1st of month 08:00 UTC | Monthly outlook |
+| `news-quarter-ahead.lock.yml` | 1st of month 06:00 UTC | 90-day pipeline forecast + presidency-trio overlay (**shipped 2026-Q2**) |
+| `news-year-ahead.lock.yml` | Quarterly — 2nd of Jan/Apr/Jul/Oct 08:00 UTC | 12-month outlook + Commission Work Programme alignment (**shipped 2026-Q2**) |
+| `news-term-outlook.lock.yml` | Semi-annual — 1 Jan & 1 Jul 08:00 UTC | Full EP-term outlook anchored to next-EP-election (**shipped 2026-Q2**) |
+| `news-election-cycle.lock.yml` | Annual — 1 Dec 08:00 UTC + T-180/T-90/T-30 imminent triggers | EP-election span (±6 mo) — mandate scorecard, seat projection, Spitzenkandidaten arithmetic (**shipped 2026-Q2**) |
+| `news-week-in-review.lock.yml` | Saturday 09:00 UTC | Week retrospective (D-8 → D-36 reporting window) |
+| `news-month-in-review.lock.yml` | 28th of month 10:00 UTC | Monthly retrospective |
+| `news-quarter-in-review.lock.yml` | 5th of month 08:00 UTC | Quarterly retrospective with pipeline transit overlay (**shipped 2026-Q2**) |
+| `news-year-in-review.lock.yml` | Annual — 15 Jan 08:00 UTC | Annual retrospective with mandate-fulfilment + term-arc + historical parallels (**shipped 2026-Q2**) |
 | `news-motions.lock.yml` | Weekdays 06:00 UTC | Plenary votes & resolutions |
 | `news-propositions.lock.yml` | Weekdays 05:00 UTC | Legislative procedures |
 | `news-committee-reports.lock.yml` | Weekdays 04:00 UTC | Committee activity |
-| `news-month-ahead.lock.yml` | 1st of month 08:00 UTC | Monthly outlook |
-| `news-monthly-review.lock.yml` | 28th of month 10:00 UTC | Monthly retrospective |
-| `news-breaking.lock.yml` | Every 6 hours | Breaking news |
-| `news-article-generator.lock.yml` | Manual dispatch | Multi-type generator |
-| `news-translate.lock.yml` | After content PRs merged | Translate EN articles → 13 languages |
+| `news-translate.lock.yml` | After content PRs merged + scheduled flushes | Translate EN articles → 13 languages |
+
+#### Recently shipped — long-horizon & election-cycle expansion (2026-Q2)
+
+The 6 new workflows above (`news-quarter-ahead`, `news-year-ahead`, `news-term-outlook`, `news-election-cycle`, `news-quarter-in-review`, `news-year-in-review`) were graduated from the original "future" backlog by PR #1561 / Look-Ahead epic #1562. They introduce 8 new analysis artifacts (`forward-projection`, `legislative-pipeline-forecast`, `parliamentary-calendar-projection`, `term-arc`, `seat-projection`, `mandate-fulfilment-scorecard`, `presidency-trio-context`, `commission-wp-alignment`) with depth floors keyed per article type in [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json) and full methodology coverage in [`forward-projection-methodology.md`](analysis/methodologies/forward-projection-methodology.md) + [`electoral-cycle-methodology.md`](analysis/methodologies/electoral-cycle-methodology.md). The original "Article Generator" manual dispatch workflow (`news-article-generator.lock.yml`) was retired in the April-2026 aggregator-pipeline migration.
 
 ### 0.3 Copilot Agent Setup — ✅ COMPLETED
 

@@ -55,7 +55,7 @@ This repository is the open-source platform behind **[euparliamentmonitor.com](h
 | 🧠 **Political Intelligence** | Structured analytic techniques (ACH, SWOT/TOWS, PESTLE, scenario forecasting, devil's-advocate), Admiralty source grading, Words of Estimative Probability (WEP) bands, ICD-203 standards, and a 6-dimension political-threat framework — applied daily to live EP data. |
 | 🔍 **Radical Transparency** | Every article links back to the analysis run it was rendered from. Every artifact links to its methodology. Every methodology is published. No black box. |
 | 🗳️ **Democratic Accountability** | Public-data only. GDPR-clean. No personal profiling. Multi-language so a Finnish farmer, a Greek student, and a Polish journalist all get the same intelligence in their own language. |
-| 🤖 **AI-Generated News** | 8 unified gh-aw agentic workflows + 1 translation workflow run autonomously, produce structured analysis, render deterministic HTML, and open publication-ready pull requests for human review. |
+| 🤖 **AI-Generated News** | 14 unified gh-aw agentic workflows + 1 translation workflow run autonomously, produce structured analysis, render deterministic HTML, and open publication-ready pull requests for human review. |
 
 ### Documentation & Reports
 [![API Docs](https://img.shields.io/badge/API-Documentation-blue?logo=javascript)](https://euparliamentmonitor.com/docs/api/)
@@ -124,7 +124,7 @@ The published site is the audience-facing companion to this npm/TypeScript packa
 - [Agent Catalog](.github/agents/README.md) — custom Copilot agents (analysis producers / consumers / gh-aw infrastructure)
 - [Skills Library](.github/skills/README.md) — shared skills (security, compliance, intelligence, gh-aw)
 - [Prompt Library](.github/prompts/README.md) — 10-file bounded-context prompt set (`00`→`09`) + `npm run lint:prompts` drift-guard
-- [Workflows](.github/workflows/README.md) + [WORKFLOWS.md](WORKFLOWS.md) — 9 `news-*.md` agentic workflows (8 unified `news-<type>.md` + `news-translate.md`) + CI workflows
+- [Workflows](.github/workflows/README.md) + [WORKFLOWS.md](WORKFLOWS.md) — 15 `news-*.md` agentic workflows (14 unified `news-<type>.md` covering 14 article types — including the long-horizon `quarter-ahead`/`quarter-in-review`/`year-ahead`/`year-in-review`/`term-outlook`/`election-cycle` set added in 2026-Q2 — plus `news-translate.md`) + CI workflows
 - [Analysis Chain](analysis/README.md) — 5-stage pipeline (Data → Analysis → Completeness Gate → Article → Single PR), methodologies, 39 templates, quality thresholds
 
 **🔒 ISMS Compliance:**
@@ -140,7 +140,7 @@ v1.2.20 for accessing real EU Parliament data via the Model Context Protocol.
 
 - **MCP Server Status**: ✅ Fully operational — 60+ EP data tools available
   (feeds, direct lookups, analytical tools, intelligence correlation)
-- **Agentic Workflows**: 9 unified gh-aw markdown workflows — 8 article types (`news-<type>.md`, Stages A → B → C → D → E in one session) + `news-translate.md` (14-language flush translation) — compiled with
+- **Agentic Workflows**: 15 unified gh-aw markdown workflows — 14 article types (`news-<type>.md`, Stages A → B → C → D → E in one session) + `news-translate.md` (14-language flush translation) — compiled with
   `gh-aw v0.69.3` (pin in `.github/workflows/compile-agentic-workflows.yml`) to `.lock.yml` for automated news generation with AI-driven political
   intelligence analysis. See [`.github/workflows/README.md`](.github/workflows/README.md).
 - **Analysis-Artifact-Driven Article Pipeline**: Agents author the full
@@ -338,21 +338,27 @@ flowchart LR
 
 ## 📰 Live News Streams
 
-**Eight unified gh-aw article workflows** plus a **14-language translation helper** run on precision schedules, autonomously generating *Economist-style* political intelligence and opening publication-ready pull requests. Every workflow follows the same Stage A → E contract documented in [Article-Generation.md](Article-Generation.md).
+**Fourteen unified gh-aw article workflows** plus a **14-language translation helper** run on precision schedules, autonomously generating *Economist-style* political intelligence and opening publication-ready pull requests. Every workflow follows the same Stage A → E contract documented in [Article-Generation.md](Article-Generation.md). The single source of truth for every horizon's data window, cadence, mandatory artifacts, stage budgets, scenario depth and electoral overlay is the [`ARTICLE_HORIZONS` registry in `src/config/article-horizons.ts`](src/config/article-horizons.ts).
 
 | Workflow | Article Type | Focus |
 |----------|--------------|-------|
 | 🚨 **[news-breaking.md](.github/workflows/news-breaking.md)** | `breaking` | Rapid-response coverage of significant EP developments. |
 | 📋 **[news-week-ahead.md](.github/workflows/news-week-ahead.md)** | `week-ahead` | Forward calendar, committee agenda, urgency-file outlook. |
 | 🔭 **[news-month-ahead.md](.github/workflows/news-month-ahead.md)** | `month-ahead` | 30-day strategic horizon and risk forecast. |
+| 🌐 **[news-quarter-ahead.md](.github/workflows/news-quarter-ahead.md)** | `quarter-ahead` | 90-day legislative pipeline forecast + presidency-trio overlay. |
+| 🛰️ **[news-year-ahead.md](.github/workflows/news-year-ahead.md)** | `year-ahead` | 12-month strategic outlook with seat-projection sensitivity. |
+| 🗓️ **[news-term-outlook.md](.github/workflows/news-term-outlook.md)** | `term-outlook` | Full EP-term outlook anchored to the next-EP-election week. |
+| 🗳️ **[news-election-cycle.md](.github/workflows/news-election-cycle.md)** | `election-cycle` | EP-election span (±6 mo) — mandate scorecard + seat projection + Spitzenkandidaten arithmetic. |
 | 📊 **[news-week-in-review.md](.github/workflows/news-week-in-review.md)** | `week-in-review` | Past-week retrospective intelligence (D-8 → D-36 reporting window). |
 | 📈 **[news-month-in-review.md](.github/workflows/news-month-in-review.md)** | `month-in-review` | Monthly retrospective with cross-run continuity analysis. |
+| 📚 **[news-quarter-in-review.md](.github/workflows/news-quarter-in-review.md)** | `quarter-in-review` | Quarterly retrospective with pipeline transit + presidency-trio overlay. |
+| 📜 **[news-year-in-review.md](.github/workflows/news-year-in-review.md)** | `year-in-review` | Annual retrospective with mandate-fulfilment + term-arc + historical parallels. |
 | 🏛️ **[news-committee-reports.md](.github/workflows/news-committee-reports.md)** | `committee-reports` | Committee activity, rapporteur work, legislative-production analysis. |
 | ⚖️ **[news-motions.md](.github/workflows/news-motions.md)** | `motions` | Plenary motions, resolutions, urgency files, political signals. |
 | 📜 **[news-propositions.md](.github/workflows/news-propositions.md)** | `propositions` | Legislative proposals and pipeline analysis. |
 | 🌍 **[news-translate.md](.github/workflows/news-translate.md)** | translation helper | 14-language flush translation (manual dispatch only). |
 
-Each unified workflow runs Stages A–E **in a single 45-minute session** and produces exactly one PR containing both the analysis artifacts and the rendered HTML. The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout was retired in the April-2026 aggregator migration. See **[.github/workflows/README.md](.github/workflows/README.md)** for compile / lock-file / safe-output mechanics, and **[WORKFLOWS.md](WORKFLOWS.md)** for the full CI/CD catalog.
+Each unified workflow runs Stages A–E **in a single 60-minute session** (`engine.mcp.session-timeout: 65m`) and produces exactly one PR containing both the analysis artifacts and the rendered HTML. The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout was retired in the April-2026 aggregator migration. See **[.github/workflows/README.md](.github/workflows/README.md)** for compile / lock-file / safe-output mechanics, **[WORKFLOWS.md](WORKFLOWS.md)** for the full CI/CD catalog, and **[Article-Generation.md § Forward-looking horizons & election cycle](Article-Generation.md)** for the new long-horizon and electoral pipeline.
 
 > 📚 **Prompt Library (`.github/prompts/`)** — 10 bounded-context prompt files (`00-scope-and-ground-rules.md` → `09-troubleshooting.md`) shared across every workflow. The `npm run lint:prompts` drift-guard fails CI on banned patterns (`checkpoint pr`, `keep-alive`, `heartbeat`, `progressive safe output`, `push_repo_memory`).
 
@@ -560,7 +566,7 @@ Six-phase roadmap from current agentic news generation to AGI-enhanced transform
 timeline
     title EU Parliament Monitor — AI Evolution Roadmap
     section Phase 1 (2026)
-        Agentic News : 8 unified workflows
+        Agentic News : 14 unified workflows
                      : 14-language generation
                      : Deterministic aggregator
                      : 51-artifact analysis catalog

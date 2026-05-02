@@ -5,7 +5,7 @@
 <h1 align="center">📐 EU Parliament Monitor — Analysis Methodologies</h1>
 
 <p align="center">
-  <strong>📊 Fourteen Interlocking Political Intelligence Methodologies for European Parliament Analysis</strong><br>
+  <strong>📊 Sixteen Interlocking Political Intelligence Methodologies for European Parliament Analysis</strong><br>
   <em>🎯 Six core frameworks (Classification · Risk · Threat · SWOT · AI Quality · OSINT) + eight supporting methodologies (Style · Synthesis · Strategic Extensions · Per-Document · Structural Metadata · Electoral Domain · IMF Indicator Mappings · World Bank Indicator Mappings) governing all 51 analysis templates</em>
 </p>
 
@@ -61,7 +61,7 @@
 
 ## 🎯 Purpose
 
-This directory contains **fourteen interlocking political-intelligence methodologies** that govern how EU Parliament Monitor's agentic workflows produce, classify, assess, and publish European Parliament analysis. They split into two layers: **six core analytical frameworks** (Classification, Risk, Threat, SWOT, Style, AI-Driven Guide) and **eight supporting / cross-cutting methodologies** (OSINT Tradecraft, Synthesis, Strategic Extensions, Per-Document, Structural Metadata, Electoral Domain, IMF Indicator Mapping, World Bank Indicator Mapping). Together they transform raw European Parliament MCP data into structured, evidence-based political intelligence.
+This directory contains **sixteen interlocking political-intelligence methodologies** that govern how EU Parliament Monitor's agentic workflows produce, classify, assess, and publish European Parliament analysis. They split into two layers: **six core analytical frameworks** (Classification, Risk, Threat, SWOT, Style, AI-Driven Guide) and **ten supporting / cross-cutting methodologies** (OSINT Tradecraft, Synthesis, Strategic Extensions, Per-Document, Structural Metadata, Electoral Domain, IMF Indicator Mapping, World Bank Indicator Mapping, Forward-Projection, Electoral-Cycle). Together they transform raw European Parliament MCP data into structured, evidence-based political intelligence.
 
 **Core Principle:** Every analytical claim requires verifiable evidence sourced from European Parliament open data. Opinion-based analysis, boilerplate summaries, and the unmodified use of software-centric threat models (such as STRIDE, DREAD, or PASTA) are explicitly rejected. Political threat analysis uses purpose-built frameworks (Political Threat Landscape, Attack Trees, Kill Chain, Diamond Model, ICO Profiling) designed specifically for democratic process analysis.
 
@@ -76,7 +76,7 @@ The following diagram illustrates the sequential pipeline that an AI agent follo
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
 flowchart TD
-    Start([📥 EP MCP Data Received]) --> Read[📚 Agent Reads the<br/>Methodology Library<br/>(14 docs)]
+    Start([📥 EP MCP Data Received]) --> Read[📚 Agent Reads the<br/>Methodology Library<br/>(16 docs)]
     Read --> Classify[🏷️ Step 1: Classify Event<br/>7-Dimension Classification]
     Classify --> Risk[⚠️ Step 2: Assess Risk<br/>Likelihood × Impact Matrix]
     Risk --> Threat[🎯 Step 3: Analyze Threats<br/>Political Threat Landscape<br/>+ 5 Supporting Frameworks]
@@ -154,7 +154,7 @@ graph TB
 
 ## 📊 Methodology Relationship Map
 
-This diagram shows how the fourteen methodology/framework documents relate to each other and feed into the final analysis output. The visualisation focuses on the six core analytical frameworks because they are the load-bearing nodes; the eight supporting methodologies (OSINT tradecraft, synthesis, strategic extensions, per-document, structural metadata, electoral domain, IMF + WB indicator mappings) are cross-cutting layers that every framework applies and are catalogued in the **Methodology Summary Table** below:
+This diagram shows how the sixteen methodology/framework documents relate to each other and feed into the final analysis output. The visualisation focuses on the six core analytical frameworks because they are the load-bearing nodes; the ten supporting methodologies (OSINT tradecraft, synthesis, strategic extensions, per-document, structural metadata, electoral domain, IMF + WB indicator mappings, forward-projection, electoral-cycle) are cross-cutting layers that every framework applies and are catalogued in the **Methodology Summary Table** below:
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
@@ -198,6 +198,8 @@ graph LR
 | **12** | **[Per-Document Methodology](per-document-methodology.md)** | Construction rules for `per-file-political-intelligence` — atomic evidence extraction per EP document (COM, A-*, B-*, RC, reports, opinions, motions) | 8 evidence layers; Admiralty per-claim; provenance URL required | **Stage A.3** — produced for every downloaded EP document before synthesis |
 | **13** | **[Structural Metadata Methodology](structural-metadata-methodology.md)** | Construction rules for provenance layer — `analysis-index.md`, `document-analysis-index.md`, `manifest.json`, and the `extended/cross-reference-map.md` + `extended/data-download-manifest.md` artifacts | Manifest schema; MCP call inventory; citation graph | **Stage A.1 / E.1** — produced at run start (index scaffolding) and run end (full manifest) |
 | **14** | **[Electoral Domain Methodology](electoral-domain-methodology.md)** | EP election analysis — 2024 retrospective + 2029 forecast; national-delegation seat projections; Spitzenkandidaten; cross-MS party family analysis | 27 MS; 720 seats; D'Hondt variants; Europhile/Euroskeptic segmentation | **Electoral runs** — produced for election-focused workflows and for `extended/voter-segmentation.md` |
+| **15** | **[Forward-Projection Methodology](forward-projection-methodology.md)** | Multi-horizon forecasting protocol — 7d / 30d / 90d / 12m / term-end / EP-election. WEP decay tables, structural-break tripwires, reference-class forecasting, pipeline transit-time priors. | 6-horizon lattice; WEP decay bands; ≥6 alt scenarios for long-horizon; pipeline transit Monte-Carlo P10/P50/P90 | **Long-horizon prospective runs** — every prospective horizon ≥ 7 days produces a `forward-projection.md` artifact governed by this methodology |
+| **16** | **[Electoral-Cycle Methodology](electoral-cycle-methodology.md)** | Dual-track lens for the election-cycle horizon — Track A (term retrospective: vote-share delta, mandate-fulfilment scorecard, defection-flow) + Track B (term forecast: seat projections at 6/12/24/36-month horizons, coalition viability, Spitzenkandidaten arithmetic, treaty-revision feasibility) | EP9/EP10/EP11 anchors; 27 MS; 720 seats; mandate-fulfilment matrix; coalition arithmetic | **Election-cycle and term-outlook workflows** — promoted from extended layer to primary lens of the article |
 
 ---
 
@@ -315,6 +317,27 @@ graph LR
 | **Paired MCP** | World Bank MCP (`world-bank-*` tools) |
 
 > ✅ Together, `artifact-catalog.md` (**what**), `per-artifact-methodologies.md` (**how**), and `reference-quality-thresholds.json` (**how much**) form the Stage B / Stage C contract enforced by the Stage-C validator (`npm run validate-analysis`) plus an editorial completeness review. The two indicator-mapping files provide the Stage A economic-context inputs that editorial policy requires — IMF for economic/fiscal/monetary/trade claims, WB for non-economic domains. Analysis-completeness enforcement lives in the CLI plus Stage-C editorial review.
+
+### 🔭 Forward-Projection Methodology — `forward-projection-methodology.md`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Multi-horizon forecasting protocol applied by every prospective horizon ≥ 7 days. Replaces ad-hoc "what's coming up" prose with a horizon-conditional, evidence-anchored protocol: WEP decay tables, structural-break tripwires, reference-class forecasting, pipeline transit-time priors |
+| **Horizons** | 6-tier lattice: T+7d (week-ahead) · T+30d (month-ahead) · T+90d (quarter-ahead) · T+12m (year-ahead) · term-end (term-outlook) · EP-election (election-cycle) |
+| **Output artifacts** | `forward-projection.md` (master), `legislative-pipeline-forecast.md` (Monte-Carlo P10/P50/P90 transit times), `parliamentary-calendar-projection.md` (3- or 12-month calendar walk-forward), `presidency-trio-context.md` (Council-Trio overlay), `commission-wp-alignment.md` (CWP line-item map) |
+| **Tradecraft anchors** | F3EAD ANALYZE; Admiralty A1/A2/B2 floors; WEP requirement per probability claim; ICD 203 standards 3/4/5/7; SATs: Reference-Class Forecasting, Outside-In, Indicators & Warnings, Pre-Mortem, Morphological Analysis, Devil's Advocate |
+| **Used by** | `news-week-ahead.md`, `news-month-ahead.md`, `news-quarter-ahead.md`, `news-year-ahead.md`, `news-term-outlook.md`, `news-election-cycle.md` |
+
+### 🗳️ Electoral-Cycle Methodology — `electoral-cycle-methodology.md`
+
+| Attribute | Value |
+|-----------|-------|
+| **Purpose** | Dual-track lens for the election-cycle horizon — extends `electoral-domain-methodology.md` with a protocol that promotes the electoral lens to the **primary** lens of the article |
+| **Tracks** | Track A — Term Retrospective (vote-share delta vs prior baseline, mandate-fulfilment scorecard, defection-flow map) · Track B — Term Forecast (seat projections per group at 6/12/24/36-month horizons, coalition viability matrix, Spitzenkandidaten arithmetic, treaty-revision feasibility) |
+| **EP-Term anchors** | Canonical constants for EP9 (2 Jul 2019 → 1 Jul 2024), EP10 (16 Jul 2024 → ~end of Jun 2029), EP11 (~Jul 2029 → ~Jun 2034) |
+| **Output artifacts** | `term-arc.md`, `seat-projection.md`, `mandate-fulfilment-scorecard.md` (also referenced by `forward-projection-methodology.md` for the electoral-cycle track) |
+| **Tradecraft anchors** | F3EAD ANALYZE; Admiralty A1/A2/B2/C2 floors per data class; WEP per seat-projection band at 6/12/24/36 mo; ICD 203 standards 3/4/7; SATs: Reference-Class Forecasting, Devil's Advocate, Outside-In, Indicators & Warnings, Pre-Mortem, Coalition Mathematics |
+| **Used by** | `news-election-cycle.md`, `news-term-outlook.md` (single-PR layout, no split-PR) |
 
 ---
 

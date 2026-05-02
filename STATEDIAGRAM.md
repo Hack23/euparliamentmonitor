@@ -349,21 +349,34 @@ stateDiagram-v2
     ArticleAbandoned --> [*]: Generation Failed
 
     note right of ArticlePending
-        8 article types:
-        - Breaking News
-        - Week Ahead
-        - Week in Review
-        - Month Ahead
-        - Month in Review
+        14 article types:
+        Short-form (8):
+        - Breaking News (every 4h)
+        - Week Ahead / Week in Review
+        - Month Ahead / Month in Review
         - Committee Reports
-        - Motions
-        - Propositions
+        - Motions / Propositions
+        Long-horizon prospective (2):
+        - Quarter Ahead (T+90d)
+        - Year Ahead (T+365d)
+        Long-horizon retrospective (2):
+        - Quarter in Review
+        - Year in Review
+        Electoral overlay (2):
+        - Term Outlook (today → next-election)
+        - Election Cycle (±6 mo around election)
         Each driven by a unified
         news-<type>.md gh-aw workflow
         (Stages A→E in one session,
          deterministic HTML rendered
          from Stage-B artifacts by
-         src/aggregator/article-generator.ts)
+         src/aggregator/article-generator.ts).
+        Horizon registry:
+        src/config/article-horizons.ts
+        (single source of truth for
+         data window, cadence, mandatory
+         artifacts, stage budgets,
+         electoral overlay).
     end note
 
     note right of ContentGeneration
@@ -410,6 +423,81 @@ stateDiagram-v2
 | **ArticleArchived**    | Moved to archive                  | Permanent      | No                |
 
 \*Git history allows reverting, but articles are conceptually immutable.
+
+### Horizon-family branching (long-horizon expansion 2026-Q2)
+
+Stage-A `DataCollecting` and Stage-B `ContentGeneration` follow a different artifact path depending on the horizon family resolved from [`src/config/article-horizons.ts`](src/config/article-horizons.ts):
+
+```mermaid
+stateDiagram-v2
+    [*] --> ResolveHorizon: News workflow dispatched
+
+    ResolveHorizon --> StandardShortForm: breaking · week-* · month-* · committee-reports · motions · propositions
+    ResolveHorizon --> LongHorizonProspective: quarter-ahead · year-ahead
+    ResolveHorizon --> LongHorizonRetrospective: quarter-in-review · year-in-review
+    ResolveHorizon --> ElectoralOverlay: term-outlook · election-cycle
+
+    state StandardShortForm {
+        [*] --> ShortForm_StageA: 5 min budget
+        ShortForm_StageA --> ShortForm_StageB: 22 min budget
+        ShortForm_StageB --> ShortForm_StageC: 4 min · exit minute 36
+        ShortForm_StageC --> ShortForm_StageD: 2 min budget
+        ShortForm_StageD --> ShortForm_PR: 2 min · PR ≤ minute 45
+    }
+
+    state LongHorizonProspective {
+        [*] --> LHP_StageA: 5 min budget
+        LHP_StageA --> LHP_StageB: 24-25 min budget · forward-projection · legislative-pipeline-forecast · parliamentary-calendar-projection
+        LHP_StageB --> LHP_StageC: 4 min · exit minute 38-39
+        LHP_StageC --> LHP_StageD: 2 min budget
+        LHP_StageD --> LHP_PR: 2 min · PR ≤ minute 45
+    }
+
+    state LongHorizonRetrospective {
+        [*] --> LHR_StageA: 4-5 min budget
+        LHR_StageA --> LHR_StageB: 24-25 min budget · cross-run-diff · cross-session-intelligence · pipeline-forecast
+        LHR_StageB --> LHR_StageC: 4 min · exit minute 38-39
+        LHR_StageC --> LHR_StageD: 2 min budget
+        LHR_StageD --> LHR_PR: 2 min · PR ≤ minute 45
+    }
+
+    state ElectoralOverlay {
+        [*] --> EO_StageA: 5 min budget
+        EO_StageA --> EO_StageB: 26-28 min budget · electoral artifact set mandatory<br/>term-arc · seat-projection · mandate-fulfilment-scorecard<br/>presidency-trio-context · commission-wp-alignment · forward-indicators<br/>+ EP-election scenario branch in scenario-forecast
+        EO_StageB --> EO_StageC: 4 min · exit minute 42 · electoral invariants asserted
+        EO_StageC --> EO_StageD: 2 min budget
+        EO_StageD --> EO_PR: 2 min · PR ≤ minute 47
+    }
+
+    ShortForm_PR --> [*]: ArticlePublished
+    LHP_PR --> [*]: ArticlePublished
+    LHR_PR --> [*]: ArticlePublished
+    EO_PR --> [*]: ArticlePublished
+
+    note right of ResolveHorizon
+        Horizon registry returns:
+        - dataWindow (forward/backward/span)
+        - cadence + auxiliary triggers
+        - mandatoryArtifacts list
+        - stageBudgets {A,B,C,D,E}
+        - electoralOverlay flag
+    end note
+
+    note right of ElectoralOverlay
+        Stage-C completeness gate
+        asserts these invariants when
+        electoralOverlay = true:
+        1. mandate-fulfilment-scorecard
+           is present
+        2. seat-projection is present
+        3. scenario-forecast contains
+           an EP-election outcome branch
+        4. forwardStatementsHorizonDays
+           is bounded at ≤ 1825
+    end note
+```
+
+The drift-guard test [`test/unit/horizon-registry.test.js`](test/unit/horizon-registry.test.js) asserts every horizon's `stageBudgets` sum is ≤ 50 to leave the 10-min buffer for sandbox setup, MCP gateway boot and the safe-output `create_pull_request` round-trip within the 60-min `timeout-minutes` cap.
 
 ---
 
