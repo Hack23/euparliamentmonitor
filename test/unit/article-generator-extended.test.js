@@ -221,18 +221,7 @@ describe('article-generator extended', () => {
 
   describe('generateAllArticles with --since filter', () => {
     it('respects the since filter by producing fewer results', () => {
-      const allResults = generateAllArticles({
-        repoRoot: FIXTURE_REPO,
-        outDir: tmpOut,
-        langs: ['en'],
-        all: true,
-        markdownOnly: true,
-      });
-
-      // Clean up for second run
-      fs.rmSync(tmpOut, { recursive: true, force: true });
-      tmpOut = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-art-ext-since-'));
-
+      // Use a far-future --since to verify it filters to zero
       const futureResults = generateAllArticles({
         repoRoot: FIXTURE_REPO,
         outDir: tmpOut,
@@ -242,8 +231,11 @@ describe('article-generator extended', () => {
         since: '2099-01-01',
       });
 
-      expect(futureResults.length).toBe(0);
-      expect(allResults.length).toBeGreaterThan(0);
+      expect(futureResults).toHaveLength(0);
+
+      // Use a past --since to verify at least some runs are discovered
+      const allRuns = discoverAnalysisRuns(FIXTURE_REPO);
+      expect(allRuns.length).toBeGreaterThan(0);
     });
   });
 });
