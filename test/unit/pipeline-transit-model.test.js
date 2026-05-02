@@ -27,18 +27,12 @@ const SCRIPT_PATH = path.resolve(
   '../../scripts/aggregator/pipeline-transit-model.js',
 );
 
-// ---------------------------------------------------------------------------
-// Fixture helpers
-// ---------------------------------------------------------------------------
-
-/** Create a synthetic procedure with stage events. */
 function makeProcedure(id, events = []) {
   return { processId: id, events };
 }
 
-/** Generate N synthetic procedures with realistic stage transitions (deterministic). */
 function generateProcedureFixture(count) {
-  const rng = mulberry32(7777); // Fixed seed for deterministic fixtures
+  const rng = mulberry32(7777);
   const procedures = [];
   const baseDate = new Date('2025-01-01');
 
@@ -67,7 +61,6 @@ function generateProcedureFixture(count) {
   return procedures;
 }
 
-/** Generate synthetic voting records. */
 function generateVotingRecords(count) {
   const records = [];
   const baseDate = new Date('2025-06-01');
@@ -92,10 +85,6 @@ describe('pipeline-transit-model', () => {
   afterEach(() => {
     fs.rmSync(tmpDir, { recursive: true, force: true });
   });
-
-  // -------------------------------------------------------------------------
-  // Unit tests: mulberry32 PRNG
-  // -------------------------------------------------------------------------
 
   describe('mulberry32', () => {
     it('should produce deterministic output given same seed', () => {
@@ -123,10 +112,6 @@ describe('pipeline-transit-model', () => {
       }
     });
   });
-
-  // -------------------------------------------------------------------------
-  // Unit tests: classifyEventStage
-  // -------------------------------------------------------------------------
 
   describe('classifyEventStage', () => {
     it('should classify adoption keywords', () => {
@@ -161,15 +146,10 @@ describe('pipeline-transit-model', () => {
     });
 
     it('should not misclassify committee events containing "adopted"', () => {
-      // These are committee-stage events that happen to contain "adopted"
       expect(classifyEventStage('draft report adopted by committee')).toBe('committee');
       expect(classifyEventStage('committee adopted opinion')).toBe('committee');
     });
   });
-
-  // -------------------------------------------------------------------------
-  // Unit tests: inferCurrentStage
-  // -------------------------------------------------------------------------
 
   describe('inferCurrentStage', () => {
     it('should default to committee for empty events', () => {
@@ -216,45 +196,32 @@ describe('pipeline-transit-model', () => {
         { date: '2025-06-01', title: 'Plenary first reading' },
         { date: '2025-09-01', title: 'Final adoption by parliament' },
       ]);
-      // Without asOf: latest event is adoption
       expect(inferCurrentStage(proc)).toBe('adoption');
-      // With asOf before plenary: should be committee
       const asOfBeforePlenary = new Date('2025-04-01').getTime();
       expect(inferCurrentStage(proc, asOfBeforePlenary)).toBe('committee');
-      // With asOf after plenary but before adoption: should be plenary
       const asOfBeforeAdoption = new Date('2025-07-01').getTime();
       expect(inferCurrentStage(proc, asOfBeforeAdoption)).toBe('plenary');
     });
   });
 
-  // -------------------------------------------------------------------------
-  // Unit tests: extractTransitionDurations — stage-entry tracking
-  // -------------------------------------------------------------------------
-
   describe('extractTransitionDurations', () => {
     it('should measure full time in stage across multiple same-stage events', () => {
-      // A procedure with multiple committee events before advancing to plenary.
-      // The committee duration should reflect the entire time from first committee
-      // event to the plenary event, not just the last committee→plenary gap.
       const proc = makeProcedure('test', [
-        { date: '2025-01-01', title: 'Committee referral' },           // +0 days
-        { date: '2025-02-01', title: 'Rapporteur appointed' },          // +31 days (still committee)
-        { date: '2025-04-01', title: 'Committee vote - draft report adopted' }, // +90 days (still committee)
-        { date: '2025-07-01', title: 'Plenary first reading' },         // +181 days (committee→plenary transition)
+        { date: '2025-01-01', title: 'Committee referral' },
+        { date: '2025-02-01', title: 'Rapporteur appointed' },
+        { date: '2025-04-01', title: 'Committee vote - draft report adopted' },
+        { date: '2025-07-01', title: 'Plenary first reading' },
       ]);
 
       const asOf = new Date('2026-01-01').getTime();
       const durations = extractTransitionDurations([proc], [], asOf);
 
-      // Committee should have one duration entry covering the full time:
-      // from 2025-01-01 (committee entry) to 2025-07-01 (plenary = stage change) ≈ 181 days
       expect(durations.committee).toHaveLength(1);
       expect(durations.committee[0].days).toBeGreaterThanOrEqual(180);
       expect(durations.committee[0].days).toBeLessThanOrEqual(182);
     });
 
     it('should not record duration for same-stage transitions', () => {
-      // All events are committee — no stage change, no duration recorded
       const proc = makeProcedure('test', [
         { date: '2025-01-01', title: 'Committee referral' },
         { date: '2025-02-01', title: 'Rapporteur appointed' },
@@ -278,24 +245,17 @@ describe('pipeline-transit-model', () => {
       const asOf = new Date('2026-01-01').getTime();
       const durations = extractTransitionDurations([proc], [], asOf);
 
-      // Committee→plenary: ~90 days attributed to committee
       expect(durations.committee).toHaveLength(1);
       expect(durations.committee[0].days).toBeGreaterThanOrEqual(89);
       expect(durations.committee[0].days).toBeLessThanOrEqual(91);
 
-      // Plenary→trilogue: ~61 days attributed to plenary
       expect(durations.plenary).toHaveLength(1);
       expect(durations.plenary[0].days).toBeGreaterThanOrEqual(60);
       expect(durations.plenary[0].days).toBeLessThanOrEqual(62);
 
-      // No durations recorded under trilogue (it's the final stage reached)
       expect(durations.trilogue).toHaveLength(0);
     });
   });
-
-  // -------------------------------------------------------------------------
-  // Unit tests: monteCarloStage
-  // -------------------------------------------------------------------------
 
   describe('monteCarloStage', () => {
     it('should return null when samples < MIN_SAMPLE_SIZE', () => {
@@ -338,10 +298,6 @@ describe('pipeline-transit-model', () => {
     });
   });
 
-  // -------------------------------------------------------------------------
-  // Unit tests: computeTransitModel — empty input → base-rate fallback
-  // -------------------------------------------------------------------------
-
   describe('computeTransitModel — empty input fallback', () => {
     it('should return empty result for empty procedures array', () => {
       const result = computeTransitModel([], [], 42);
@@ -369,14 +325,10 @@ describe('pipeline-transit-model', () => {
       const result = computeTransitModel(procedures, [], 42);
       const entry = result['2025/0001(COD)'];
 
-      // Output matches documented schema: { stage, remainingStages: {...}, methodologyVersion }
       expect(Object.keys(entry).sort()).toEqual(
         ['methodologyVersion', 'remainingStages', 'stage'].sort(),
       );
-      // remainingStages should contain priors for all stages from current onward
-      // (this procedure defaults to committee = index 0, so all 4 stages are included)
       expect(Object.keys(entry.remainingStages).sort()).toEqual([...STAGES].sort());
-      // Each stage entry has { p10Days, p50Days, p90Days, sampleSize }
       for (const stageData of Object.values(entry.remainingStages)) {
         expect(Object.keys(stageData).sort()).toEqual(
           ['p10Days', 'p50Days', 'p90Days', 'sampleSize'].sort(),
@@ -384,10 +336,6 @@ describe('pipeline-transit-model', () => {
       }
     });
   });
-
-  // -------------------------------------------------------------------------
-  // Unit tests: computeTransitModel — happy path with 50 procedures
-  // -------------------------------------------------------------------------
 
   describe('computeTransitModel — happy path with 50-procedure fixture', () => {
     it('should produce valid forecasts for 50 procedures', () => {
@@ -403,7 +351,6 @@ describe('pipeline-transit-model', () => {
         expect(entry.methodologyVersion).toBe(METHODOLOGY_VERSION);
         expect(entry.remainingStages).toBeDefined();
 
-        // remainingStages should contain current stage onward
         const stageIdx = STAGES.indexOf(entry.stage);
         for (let i = stageIdx; i < STAGES.length; i++) {
           const stageName = STAGES[i];
@@ -417,9 +364,7 @@ describe('pipeline-transit-model', () => {
     });
 
     it('should produce stage-conditional priors (different stages have different distributions)', () => {
-      // Create procedures at varying stages for full coverage
       const procedures = generateProcedureFixture(50);
-      // Add some procedures still in committee stage (fewer events)
       for (let i = 0; i < 10; i++) {
         procedures.push(makeProcedure(`2025/C${i}(COD)`, [
           { date: '2025-03-01', title: 'Committee referral' },
@@ -429,7 +374,6 @@ describe('pipeline-transit-model', () => {
       const votingRecords = generateVotingRecords(20);
       const result = computeTransitModel(procedures, votingRecords, 42);
 
-      // Procedures in committee should produce priors for all remaining stages
       const committeeEntry = result['2025/C0(COD)'];
       expect(committeeEntry).toBeDefined();
       expect(committeeEntry.stage).toBe('committee');
@@ -438,14 +382,9 @@ describe('pipeline-transit-model', () => {
       expect(committeeEntry.remainingStages.trilogue).toBeDefined();
       expect(committeeEntry.remainingStages.adoption).toBeDefined();
 
-      // Base-rate committee P50 should be larger than base-rate adoption P50
       expect(BASE_RATE_PRIORS.committee.p50Days).toBeGreaterThan(BASE_RATE_PRIORS.adoption.p50Days);
     });
   });
-
-  // -------------------------------------------------------------------------
-  // Unit tests: seed reproducibility
-  // -------------------------------------------------------------------------
 
   describe('seed reproducibility', () => {
     it('should produce identical output with same seed', () => {
@@ -459,23 +398,17 @@ describe('pipeline-transit-model', () => {
     });
 
     it('should produce different RNG sequences with different seeds', () => {
-      // Assert divergence at the PRNG level (not the converged percentile level)
       const rng1 = mulberry32(111);
       const rng2 = mulberry32(222);
       const seq1 = Array.from({ length: 20 }, () => rng1());
       const seq2 = Array.from({ length: 20 }, () => rng2());
       expect(seq1).not.toEqual(seq2);
 
-      // Also verify per-procedure seed derivation produces distinct seeds
       const s1 = deriveProcedureSeed(111, '2025/0001(COD)');
       const s2 = deriveProcedureSeed(222, '2025/0001(COD)');
       expect(s1).not.toBe(s2);
     });
   });
-
-  // -------------------------------------------------------------------------
-  // Unit tests: parseArgs
-  // -------------------------------------------------------------------------
 
   describe('parseArgs', () => {
     it('should parse all CLI flags', () => {
@@ -498,11 +431,48 @@ describe('pipeline-transit-model', () => {
       expect(args.seed).toBeNull();
       expect(args.asOf).toBeNull();
     });
-  });
 
-  // -------------------------------------------------------------------------
-  // Unit tests: deriveProcedureSeed
-  // -------------------------------------------------------------------------
+    it('should handle --help flag by calling process.exit(0)', () => {
+      const exitSpy = vi.spyOn(process, 'exit').mockImplementation(() => { throw new Error('EXIT_0'); });
+      const stdoutSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+      try {
+        expect(() => parseArgs(['--help'])).toThrow('EXIT_0');
+        expect(exitSpy).toHaveBeenCalledWith(0);
+        expect(stdoutSpy).toHaveBeenCalled();
+      } finally {
+        exitSpy.mockRestore();
+        stdoutSpy.mockRestore();
+      }
+    });
+
+    it('should handle -h flag by calling process.exit(0)', () => {
+      const exitSpy = vi.spyOn(process, 'exit').mockImplementation(() => { throw new Error('EXIT_0'); });
+      const stdoutSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+      try {
+        expect(() => parseArgs(['-h'])).toThrow('EXIT_0');
+        expect(exitSpy).toHaveBeenCalledWith(0);
+      } finally {
+        exitSpy.mockRestore();
+        stdoutSpy.mockRestore();
+      }
+    });
+
+    it('should reject invalid --as-of date by calling process.exit(1)', () => {
+      const exitSpy = vi.spyOn(process, 'exit').mockImplementation(() => { throw new Error('EXIT_1'); });
+      const stderrSpy = vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
+      try {
+        expect(() => parseArgs([
+          '--in', 'a.json', '--voting', 'b.json', '--out', 'c.json',
+          '--as-of', 'not-a-valid-date',
+        ])).toThrow('EXIT_1');
+        expect(exitSpy).toHaveBeenCalledWith(1);
+        expect(stderrSpy).toHaveBeenCalledWith(expect.stringContaining('--as-of must be a valid ISO date'));
+      } finally {
+        exitSpy.mockRestore();
+        stderrSpy.mockRestore();
+      }
+    });
+  });
 
   describe('deriveProcedureSeed', () => {
     it('should produce same derived seed for same inputs', () => {
@@ -523,10 +493,6 @@ describe('pipeline-transit-model', () => {
       expect(s1).not.toBe(s2);
     });
   });
-
-  // -------------------------------------------------------------------------
-  // Integration test: CLI end-to-end
-  // -------------------------------------------------------------------------
 
   describe('CLI integration', () => {
     it('should produce valid JSON output via CLI', () => {
@@ -696,6 +662,213 @@ describe('pipeline-transit-model', () => {
       expect(result.status).toBe(0);
       const output = JSON.parse(fs.readFileSync(outFile, 'utf8'));
       expect(Object.keys(output).length).toBe(5);
+    });
+
+    it('should accept procedures in { items: [...] } envelope', () => {
+      const procedures = generateProcedureFixture(3);
+      const votingRecords = generateVotingRecords(2);
+
+      const procFile = path.join(tmpDir, 'items-proc.json');
+      const votingFile = path.join(tmpDir, 'items-votes.json');
+      const outFile = path.join(tmpDir, 'items-out.json');
+
+      fs.writeFileSync(procFile, JSON.stringify({ items: procedures }));
+      fs.writeFileSync(votingFile, JSON.stringify(votingRecords));
+
+      const result = spawnSync('node', [
+        SCRIPT_PATH, '--in', procFile, '--voting', votingFile,
+        '--out', outFile, '--seed', '42',
+      ], { encoding: 'utf8' });
+
+      expect(result.status).toBe(0);
+      const output = JSON.parse(fs.readFileSync(outFile, 'utf8'));
+      expect(Object.keys(output).length).toBe(3);
+    });
+
+    it('should accept procedures in { procedures: [...] } envelope', () => {
+      const procedures = generateProcedureFixture(3);
+      const votingRecords = generateVotingRecords(2);
+
+      const procFile = path.join(tmpDir, 'procs-proc.json');
+      const votingFile = path.join(tmpDir, 'procs-votes.json');
+      const outFile = path.join(tmpDir, 'procs-out.json');
+
+      fs.writeFileSync(procFile, JSON.stringify({ procedures }));
+      fs.writeFileSync(votingFile, JSON.stringify(votingRecords));
+
+      const result = spawnSync('node', [
+        SCRIPT_PATH, '--in', procFile, '--voting', votingFile,
+        '--out', outFile, '--seed', '42',
+      ], { encoding: 'utf8' });
+
+      expect(result.status).toBe(0);
+      const output = JSON.parse(fs.readFileSync(outFile, 'utf8'));
+      expect(Object.keys(output).length).toBe(3);
+    });
+
+    it('should accept voting records in { items: [...] } envelope', () => {
+      const procedures = generateProcedureFixture(3);
+      const votingRecords = generateVotingRecords(2);
+
+      const procFile = path.join(tmpDir, 'vr-items-proc.json');
+      const votingFile = path.join(tmpDir, 'vr-items-votes.json');
+      const outFile = path.join(tmpDir, 'vr-items-out.json');
+
+      fs.writeFileSync(procFile, JSON.stringify(procedures));
+      fs.writeFileSync(votingFile, JSON.stringify({ items: votingRecords }));
+
+      const result = spawnSync('node', [
+        SCRIPT_PATH, '--in', procFile, '--voting', votingFile,
+        '--out', outFile, '--seed', '42',
+      ], { encoding: 'utf8' });
+
+      expect(result.status).toBe(0);
+      const output = JSON.parse(fs.readFileSync(outFile, 'utf8'));
+      expect(Object.keys(output).length).toBe(3);
+    });
+
+    it('should accept voting records in { records: [...] } envelope', () => {
+      const procedures = generateProcedureFixture(3);
+      const votingRecords = generateVotingRecords(2);
+
+      const procFile = path.join(tmpDir, 'vr-rec-proc.json');
+      const votingFile = path.join(tmpDir, 'vr-rec-votes.json');
+      const outFile = path.join(tmpDir, 'vr-rec-out.json');
+
+      fs.writeFileSync(procFile, JSON.stringify(procedures));
+      fs.writeFileSync(votingFile, JSON.stringify({ records: votingRecords }));
+
+      const result = spawnSync('node', [
+        SCRIPT_PATH, '--in', procFile, '--voting', votingFile,
+        '--out', outFile, '--seed', '42',
+      ], { encoding: 'utf8' });
+
+      expect(result.status).toBe(0);
+      const output = JSON.parse(fs.readFileSync(outFile, 'utf8'));
+      expect(Object.keys(output).length).toBe(3);
+    });
+
+    it('should accept voting records in { data: [...] } envelope', () => {
+      const procedures = generateProcedureFixture(3);
+      const votingRecords = generateVotingRecords(2);
+
+      const procFile = path.join(tmpDir, 'vr-data-proc.json');
+      const votingFile = path.join(tmpDir, 'vr-data-votes.json');
+      const outFile = path.join(tmpDir, 'vr-data-out.json');
+
+      fs.writeFileSync(procFile, JSON.stringify(procedures));
+      fs.writeFileSync(votingFile, JSON.stringify({ data: votingRecords }));
+
+      const result = spawnSync('node', [
+        SCRIPT_PATH, '--in', procFile, '--voting', votingFile,
+        '--out', outFile, '--seed', '42',
+      ], { encoding: 'utf8' });
+
+      expect(result.status).toBe(0);
+      const output = JSON.parse(fs.readFileSync(outFile, 'utf8'));
+      expect(Object.keys(output).length).toBe(3);
+    });
+
+    it('should show help and exit 0 with --help flag', () => {
+      const result = spawnSync('node', [SCRIPT_PATH, '--help'], { encoding: 'utf8' });
+      expect(result.status).toBe(0);
+      expect(result.stdout).toContain('Usage:');
+      expect(result.stdout).toContain('--in');
+      expect(result.stdout).toContain('--help');
+    });
+
+    it('should show help and exit 0 with -h flag', () => {
+      const result = spawnSync('node', [SCRIPT_PATH, '-h'], { encoding: 'utf8' });
+      expect(result.status).toBe(0);
+      expect(result.stdout).toContain('Usage:');
+    });
+
+    it('should exit with error for invalid --as-of date', () => {
+      const procFile = path.join(tmpDir, 'asof-proc.json');
+      const votingFile = path.join(tmpDir, 'asof-votes.json');
+      fs.writeFileSync(procFile, '[]');
+      fs.writeFileSync(votingFile, '[]');
+
+      const result = spawnSync('node', [
+        SCRIPT_PATH,
+        '--in', procFile,
+        '--voting', votingFile,
+        '--out', path.join(tmpDir, 'asof-out.json'),
+        '--as-of', 'not-a-date',
+      ], { encoding: 'utf8' });
+
+      expect(result.status).toBe(1);
+      expect(result.stderr).toContain('--as-of must be a valid ISO date');
+    });
+
+    it('should exit with error when procedures file contains a known key with a non-array value', () => {
+      const procFile = path.join(tmpDir, 'bad-proc.json');
+      const votingFile = path.join(tmpDir, 'bad-votes.json');
+      fs.writeFileSync(procFile, JSON.stringify({ data: 'not-an-array' }));
+      fs.writeFileSync(votingFile, '[]');
+
+      const result = spawnSync('node', [
+        SCRIPT_PATH,
+        '--in', procFile,
+        '--voting', votingFile,
+        '--out', path.join(tmpDir, 'bad-out.json'),
+      ], { encoding: 'utf8' });
+
+      expect(result.status).toBe(1);
+      expect(result.stderr).toContain('procedures file does not contain a recognized array');
+    });
+
+    it('should exit with error when voting records file contains a known key with a non-array value', () => {
+      const procedures = generateProcedureFixture(2);
+      const procFile = path.join(tmpDir, 'bad-vr-proc.json');
+      const votingFile = path.join(tmpDir, 'bad-vr-votes.json');
+      fs.writeFileSync(procFile, JSON.stringify(procedures));
+      fs.writeFileSync(votingFile, JSON.stringify({ votes: 'not-an-array' }));
+
+      const result = spawnSync('node', [
+        SCRIPT_PATH,
+        '--in', procFile,
+        '--voting', votingFile,
+        '--out', path.join(tmpDir, 'bad-vr-out.json'),
+      ], { encoding: 'utf8' });
+
+      expect(result.status).toBe(1);
+      expect(result.stderr).toContain('voting records file does not contain a recognized array');
+    });
+
+    it('should exit with error when procedures file is invalid JSON', () => {
+      const procFile = path.join(tmpDir, 'invalid-json-proc.json');
+      const votingFile = path.join(tmpDir, 'invalid-json-votes.json');
+      fs.writeFileSync(procFile, 'not valid json {{{');
+      fs.writeFileSync(votingFile, '[]');
+
+      const result = spawnSync('node', [
+        SCRIPT_PATH,
+        '--in', procFile,
+        '--voting', votingFile,
+        '--out', path.join(tmpDir, 'invalid-json-out.json'),
+      ], { encoding: 'utf8' });
+
+      expect(result.status).toBe(1);
+      expect(result.stderr).toContain('Error reading procedures file');
+    });
+
+    it('should exit with error when voting records file is invalid JSON', () => {
+      const procedures = generateProcedureFixture(2);
+      const procFile = path.join(tmpDir, 'valid-proc.json');
+      const votingFile = path.join(tmpDir, 'invalid-vr.json');
+      fs.writeFileSync(procFile, JSON.stringify(procedures));
+      fs.writeFileSync(votingFile, 'bad json ###');
+
+      const result = spawnSync('node', [
+        SCRIPT_PATH,
+        '--in', procFile,
+        '--voting', votingFile,
+        '--out', path.join(tmpDir, 'invalid-vr-out.json'),
+      ], { encoding: 'utf8' });
+
+      expect(result.status).toBe(1);
+      expect(result.stderr).toContain('Error reading voting records file');
     });
   });
 });
