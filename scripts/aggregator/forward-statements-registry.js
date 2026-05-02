@@ -279,12 +279,16 @@ export function readEntries(opts) {
   return results;
 }
 
-/** Statuses that close out an expired forward statement. */
-const RESOLVED_STATUSES = ['resolved', 'stale', 'extended'];
+/** Statuses that close out an expired forward statement (all terminal states). */
+const RESOLVED_STATUSES = [
+  'implemented', 'superseded', 'abandoned',
+  'resolved', 'stale', 'extended',
+];
 
 /**
  * Return forward-statement entries whose `expectedHorizon` is before `today`
- * and whose latest status is NOT one of `resolved | stale | extended`.
+ * and whose latest status is NOT a terminal state (implemented, superseded,
+ * abandoned, resolved, stale, or extended).
  * These are "expired unresolved" entries that Stage B must close out.
  *
  * @param {object} [opts] - Options
@@ -486,7 +490,7 @@ export function cli(argv) {
         '',
         'Commands:',
         '  append  [--file <path>]  Append entries from a JSON array file (or stdin)',
-        '  read    [--status open|implemented|superseded|abandoned]',
+        '  read    [--status open|implemented|superseded|abandoned|resolved|stale|extended]',
         '          [--horizon-from YYYY-MM-DD] [--horizon-to YYYY-MM-DD] [--electoral-mode]',
         '                           Read and print matching entries as JSON array',
         '  update  --id <id> --status <status> [--evidence <ref>] [--date YYYY-MM-DD]',

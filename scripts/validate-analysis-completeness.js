@@ -961,7 +961,7 @@ function main() {
 
   // ── Expired-unresolved forward-statements gate (§9.2) ───────────────────
   // When >2 forward statements have expired (expectedHorizon < evaluation date)
-  // without being marked resolved|stale|extended, Stage C turns RED. ≤2 expired
+  // without a terminal status, Stage C turns RED. ≤2 expired
   // entries emit a warning but do not block.
   // Only runs for article types that manage forward statements (same logic as
   // validateForwardStatementsRegistryCoverage) so retrospective/unrelated types
@@ -1000,7 +1000,7 @@ function main() {
       });
       process.stderr.write(
         `RED forward-registry:expired-unresolved — ${expiredUnresolved.length} expired ` +
-          `carry-forward statements without status=resolved|stale|extended: ${ids}\n`,
+          `carry-forward statements without a terminal status (status=open): ${ids}\n`,
       );
     } else {
       mergeSyntheticResult(results, {

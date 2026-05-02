@@ -565,15 +565,15 @@ describe('forward-statements-registry', () => {
       expect(result).toHaveLength(0);
     });
 
-    it('should return expired entries that are not resolved/stale/extended', () => {
+    it('should return expired entries that are not in a terminal state', () => {
       appendEntries([
         makeEntry({ id: 'expired-open', expectedHorizon: '2026-04-01', status: 'open' }),
         makeEntry({ id: 'expired-implemented', expectedHorizon: '2026-03-15', status: 'implemented' }),
         makeEntry({ id: 'not-expired', expectedHorizon: '2026-06-01', status: 'open' }),
       ], tmpDir);
       const result = readExpiredUnresolved({ today: '2026-05-02', registryDir: tmpDir });
-      expect(result).toHaveLength(2);
-      expect(result.map((e) => e.id).sort()).toEqual(['expired-implemented', 'expired-open']);
+      expect(result).toHaveLength(1);
+      expect(result[0].id).toBe('expired-open');
     });
 
     it('should exclude entries with status resolved, stale, or extended', () => {
