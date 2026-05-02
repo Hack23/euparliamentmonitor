@@ -54,13 +54,27 @@ network:
 # Sandbox — `keepalive-interval: 300` overrides the gateway default of
 # 1500s (25 min) so the MCP gateway pings every HTTP MCP backend every 5
 # minutes. This keeps EP/WB/memory/sequential-thinking sessions warm
-# during the 45-minute Stage B/C/D window. See upstream
+# during the 60-minute Stage A/B/C/D window. See upstream
 # `reference/mcp-gateway.md` §4.1.3.5 for the full keepalive contract.
+# Note: keepalive-interval keeps backend sessions warm; the agent ↔
+# gateway streamable-HTTP session lifetime is set separately by
+# `engine.mcp.session-timeout: 55m` (gh-aw v0.71.3+, see §13 below).
 sandbox:
   agent: awf
   mcp:
     port: 8080
     keepalive-interval: 300
+
+# Engine — gh-aw v0.71.3+ supports `engine.mcp.session-timeout` (Go
+# duration string, ≥ 5m). Every unified news workflow sets `55m` so the
+# safeoutputs HTTP session outlasts the 60-min `timeout-minutes` cap
+# with a 5-min margin, superseding the prior ~28–30 min hard TTL.
+engine:
+  id: copilot
+  model: claude-sonnet-4.6
+  mcp:
+    session-timeout: 55m
+  max-continuations: 1
 
 tools:
   timeout: 300                # per-tool-call cap (bash, MCP, github, edit, web-fetch)

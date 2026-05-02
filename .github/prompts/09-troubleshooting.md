@@ -61,7 +61,7 @@ inside the workflow `.md`.
 
 | Symptom | Root cause | Fix |
 |---------|-----------|-----|
-| `Streamable HTTP error: session not found` / `tool call failed: session not found` (HTTP 404 from `routed:safeoutputs`) on `safeoutputs___create_pull_request` at end-of-run | safeoutputs MCP HTTP session (`localhost:3001`) reaped after ~28–30 min of no safeoutputs calls, OR killed earlier by a banned keep-alive pattern. See [§5a](#5a--safeoutputs-session-not-found--extended-context) for evidence and levers. | You cannot recover mid-run. **Hard limit: total wall-clock from agent start to the single PR call < 25 minutes; aim ≤ 22 minutes.** Surface `SINGLE_PR_ATTESTATION` early. Do NOT add a keep-alive pattern. |
+| `Streamable HTTP error: session not found` / `tool call failed: session not found` (HTTP 404 from `routed:safeoutputs`) on `safeoutputs___create_pull_request` at end-of-run | safeoutputs MCP HTTP session (`localhost:3001`) reaped after the per-workflow `engine.mcp.session-timeout` (default 55m for unified news workflows, gh-aw v0.71.3+), OR killed earlier by a banned keep-alive pattern. **Historical context:** before v0.71.3 the upstream gateway hard-coded ~28–30 min TTL — the original cause of the failure family below. See [§5a](#5a--safeoutputs-session-not-found--extended-context) for evidence and levers. | You cannot recover mid-run. **Hard limit: total wall-clock from agent start to the single PR call ≤ 45 min (target ≤ 42 min) — well within the 55-min `engine.mcp.session-timeout` and the 60-min `timeout-minutes` cap.** Surface `SINGLE_PR_ATTESTATION` early. Do NOT add a keep-alive pattern. If you need a longer session, raise `engine.mcp.session-timeout` (≥ 5m, no upper bound) rather than working around the limit. |
 | `container awf-api-proxy is unhealthy` | Transient AWF sandbox infra flake | Re-run the workflow; not a config bug. |
 | **Engine Failure** — `copilot engine terminated unexpectedly` (agent job).<br>Fingerprint: `exitCode: 1`, `stdout: undefined`, `stderr: undefined`, agent-job duration < 3 min, MCP gateway healthy, post-step prints `No token usage data found, skipping summary`. | Transient gh-aw sandbox cold-start flake — Copilot CLI exits between MCP gateway init and first inference call. **Distinct fingerprint** from the `parse_error` flake but **same root-cause family**. | Confirm `lint:prompts` + `shell-safety` are green, then re-run the workflow once. Escalate only after 3 consecutive same-fingerprint runs — see [unified maintainer triage rule](../agents/agentic-workflows.agent.md#maintainer-triage--transient-gh-aw-sandbox-flakes). Forensic example: [run 25072577594](https://github.com/Hack23/euparliamentmonitor/actions/runs/25072577594). |
 | `Expected ',' or '}' after property value in JSON` in Copilot `edit` | `old_str`/`new_str` > ~30 lines / ~5 KB | Regenerate via TS generator, split into ≤ 20-line edits. **Do NOT fall back to `cat > file << EOF` heredocs** — see next row. Prefer the native `create` / `Write` file tool (e.g. the Copilot CLI `Create <path>` action that successfully wrote artifacts in [run 24805100070](https://github.com/Hack23/euparliamentmonitor/actions/runs/24805100070)). |
@@ -73,27 +73,29 @@ inside the workflow `.md`.
 
 The `session not found` row above is the most load-bearing entry in §5. The
 **preventive rules and time budget are authoritative in
-[`02-analysis-protocol.md` §3](02-analysis-protocol.md)** (22 / ≤25 min split,
-B1→B2 tripwire at minute 16, single-PR deadline at minute 22). The
-**post-run recovery path** (host-side PAT fallback) is authoritative in
-[`06-pr-and-safe-outputs.md` §4a](06-pr-and-safe-outputs.md). Do NOT
-re-state those rules here — link to them.
+[`02-analysis-protocol.md` §3](02-analysis-protocol.md)** (per-family
+B1→B2 / Stage-C-exit / PR-call tripwires; standard slugs: 22 / 36 / ≤45;
+electoral: 28 / 42 / ≤47). The **post-run recovery path** (host-side PAT
+fallback) is authoritative in [`06-pr-and-safe-outputs.md` §4a](06-pr-and-safe-outputs.md).
+Do NOT re-state those rules here — link to them.
 
 **Two known triggers** (see 02 §3 for the time budget that prevents both):
 
 - **(a) Banned keep-alive / heartbeat pattern** — lint-banned by
   `scripts/lint-prompts.js`; never reintroduce.
-- **(b) Pure idle ≥ ~28–30 min** — agent activity on EP MCP, bash, `create`,
-  or `edit` does **not** refresh the safeoutputs session.
-  `sandbox.mcp.keepalive-interval` does **not** help — it pings HTTP MCP
-  backends (gateway → backend), not the agent ↔ gateway streamable-HTTP
-  session that emits `session not found`.
+- **(b) Pure idle past `engine.mcp.session-timeout`** — agent activity
+  on EP MCP, bash, `create`, or `edit` does **not** refresh the
+  safeoutputs session. `sandbox.mcp.keepalive-interval` does **not**
+  help — it pings HTTP MCP backends (gateway → backend), not the
+  agent ↔ gateway streamable-HTTP session that emits `session not
+  found`. Per-workflow `engine.mcp.session-timeout` (gh-aw v0.71.3+)
+  is the correct lever — every unified news workflow sets it to `55m`.
 
 **Forensic runs** (kept here because the link economy is unique):
 
 - [Run 24818921747](https://github.com/Hack23/euparliamentmonitor/actions/runs/24818921747) (news-propositions-analysis): ~28 min Stage B → end-of-run PR call failed.
 - [Run 24819497608](https://github.com/Hack23/euparliamentmonitor/actions/runs/24819497608) (news-motions-analysis): connect 06:01:36, last SSE 06:06:41, PR call 06:35:09 → HTTP 404 every retry.
-- [Run 24963129839](https://github.com/Hack23/euparliamentmonitor/actions/runs/24963129839) (news-week-in-review): elapsed-time tripwire fired at minute 28; PR landed at minute 29:13 → `session not found`. Motivated the uniform 22 / ≤25 budget.
+- [Run 24963129839](https://github.com/Hack23/euparliamentmonitor/actions/runs/24963129839) (news-week-in-review): elapsed-time tripwire fired at minute 28; PR landed at minute 29:13 → `session not found`. Motivated the original 22 / ≤25 budget under the old 45-min schedule; the v0.71.3 refactor supersedes that schedule with a 60-min cap + `engine.mcp.session-timeout: 55m`.
 
 **Where to find logs** for your own run — Workflow run → Artifacts → `agent.zip`:
 

@@ -119,7 +119,7 @@ safe-outputs:
 
 engine:
   id: copilot
-  model: claude-opus-4.7
+  model: claude-sonnet-4.6
 ---
 ```
 

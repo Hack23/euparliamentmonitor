@@ -292,8 +292,8 @@ real sandbox-setup or workflow-content regression.
 
 **This agent MUST follow the AI-First Quality Principle for ALL workflow outputs:**
 
-1. **Mandatory 2-Pass Iterative Improvement**: Every workflow file MUST go through at least 2 complete passes. Pass 1 creates the initial workflow. Pass 2 reviews the ENTIRE workflow — verify time budgets enforce ≥45 min active work (60-min workflows), verify 2-pass analysis/article phases are specified, verify quality gates are present, verify security settings.
+1. **Mandatory 2-Pass Iterative Improvement**: Every workflow file MUST go through at least 2 complete passes. Pass 1 creates the initial workflow. Pass 2 reviews the ENTIRE workflow — verify `timeout-minutes: 60` and target completion ≤ minute 45 (per `src/config/article-horizons.ts` stageBudgets), verify 2-pass analysis/article phases are specified, verify quality gates are present, verify security settings.
 
-2. **Time Budget Enforcement**: All news workflows MUST specify time budgets that enforce the Iterative Improvement Protocol from [`.github/prompts/README.md`](../prompts/README.md) (prompts library index). Analysis phase: ≥20 min (2-pass). Article phase: ≥15 min (2-pass). Total active work: ≥45 min.
+2. **Time Budget Enforcement**: All news workflows MUST specify time budgets that enforce the Iterative Improvement Protocol from [`.github/prompts/README.md`](../prompts/README.md) (prompts library index). Analysis phase: ≥22 min (2-pass, per-slug stageBudgets.B). Article phase ≤ 2 min (deterministic). Total active work: ≤ 45 min targeted, hard cap 60 min.
 
 3. **No Early Completion**: When creating or debugging workflows, use the FULL allocated time to verify every aspect — security, permissions, time budgets, quality gates, MCP integration, safe outputs.

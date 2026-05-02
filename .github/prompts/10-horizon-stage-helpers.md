@@ -102,9 +102,13 @@ Stage C MUST consume `MANDATORY_ARTIFACTS` from §1 and check each entry:
 - Line count ≥ floor from `reference-quality-thresholds.json` for this slug.
 - Pass-2 quality self-audit checkboxes ticked in §N of each artifact.
 
-Stage C tripwire-clamps at **minute 22** of the 45-minute budget. If a
-mandatory artifact is missing or short, the agent restarts that single
-artifact's Pass-2 only — do not retry the entire run.
+Stage C tripwire-clamps at the slug-specific minute mark in
+`src/config/article-horizons.ts` (`stageBudgets`) — minute 36 for
+standard prospective/retrospective slugs, 38–39 for long-horizon
+prospective/retrospective slugs, and 42 for electoral-overlay slugs
+within the 60-minute `timeout-minutes` cap. If a mandatory artifact is
+missing or short, the agent restarts that single artifact's Pass-2
+only — do not retry the entire run.
 
 When `ELECTORAL_OVERLAY === true`, Stage C also enforces the electoral
 overlay gate:
@@ -127,8 +131,11 @@ The aggregator picks up the new artifact-order sections (`forward-projection`,
 ## 7 · Stage-E Single PR
 
 Identical to existing horizons. The PR call (`safeoutputs___create_pull_request`)
-must land **by minute ≤ 28** of the 45-minute budget; target minute ≤ 25.
-The unified `news-<type>.md` rule still holds: **exactly one PR per run**.
+must land **by minute ≤ 45** of the 60-minute `timeout-minutes` cap;
+target minute ≤ 42 (electoral-overlay slugs may extend to ≤ 47). The
+55-min `engine.mcp.session-timeout` (gh-aw v0.71.3+) keeps the
+safeoutputs HTTP session alive for the full run. The unified
+`news-<type>.md` rule still holds: **exactly one PR per run**.
 
 ## 8 · Recess Mode for Long Horizons
 

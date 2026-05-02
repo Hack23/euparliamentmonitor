@@ -145,7 +145,7 @@ safe-outputs:
 
 engine:
   id: copilot
-  model: claude-opus-4.7
+  model: claude-sonnet-4.6
 ---
 # Workflow Title
 
@@ -382,7 +382,7 @@ const status = get_copilot_job_status({
 | `claude` | Anthropic | Complex analysis, long context |
 | `codex` | OpenAI | Code-focused tasks |
 
-> Note: In this repository's gh-aw workflows, `engine.id` is always set to `copilot`. To run Claude, use a Claude model via the `model` field (for example, `model: claude-opus-4.7`) rather than configuring `engine.id: claude`.
+> Note: In this repository's gh-aw workflows, `engine.id` is always set to `copilot`. To run Claude, use a Claude model via the `model` field (for example, `model: claude-sonnet-4.6`) rather than configuring `engine.id: claude`.
 
 ### Agent Selection Guide
 
@@ -412,9 +412,9 @@ steps:
 
 ## EU Parliament Monitor Workflows
 
-This project uses gh-aw for **9 automated news workflows** in `.github/workflows/*.md`: 8 unified article workflows + 1 translation helper. Each unified workflow runs Stages A → E in a single 45-min session and produces exactly one PR containing both analysis artifacts and the rendered article HTML.
+This project uses gh-aw for **9 automated news workflows** in `.github/workflows/*.md`: 8 unified article workflows + 1 translation helper. Each unified workflow runs Stages A → E in a single 60-min session and produces exactly one PR containing both analysis artifacts and the rendered article HTML.
 
-**Unified article workflows** (one per article type, all `timeout-minutes: 45`):
+**Unified article workflows** (one per article type, all `timeout-minutes: 60`):
 - `news-breaking.md` — Breaking EP news (every 6 h)
 - `news-week-in-review.md` — Weekly parliament review (Sat 09:00 UTC)
 - `news-month-in-review.md` — Monthly parliament review (28th 10:00 UTC)
