@@ -133,7 +133,7 @@ The aggregator picks up the new artifact-order sections (`forward-projection`,
 Identical to existing horizons. The PR call (`safeoutputs___create_pull_request`)
 must land **by minute ≤ 45** of the 60-minute `timeout-minutes` cap;
 target minute ≤ 42 (electoral-overlay slugs may extend to ≤ 47). The
-55-min `engine.mcp.session-timeout` (gh-aw v0.71.3+) keeps the
+65-min `engine.mcp.session-timeout` (gh-aw v0.71.3+) keeps the
 safeoutputs HTTP session alive for the full run. The unified
 `news-<type>.md` rule still holds: **exactly one PR per run**.
 

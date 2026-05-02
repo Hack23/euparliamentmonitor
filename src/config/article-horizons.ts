@@ -107,7 +107,7 @@ export interface DataWindowConfig {
  * leaving a 15-minute buffer for sandbox setup, MCP gateway boot, the
  * deterministic article render, and the safe-output `create_pull_request`
  * call. The MCP gateway session timeout (`engine.mcp.session-timeout`,
- * gh-aw v0.71.3+) is set to `55m` per workflow so the safeoutputs HTTP
+ * gh-aw v0.71.3+) is set to `65m` per workflow so the safeoutputs HTTP
  * session stays alive for the full duration — superseding the previous
  * 28–30 min safeoutputs TTL constraint that gated the 45-min cap. */
 export interface StageBudgetConfig {
@@ -181,7 +181,7 @@ const RETROSPECTIVE_BUDGETS: StageBudgetConfig = { A: 4, B: 22, C: 4, D: 2, E: 2
  *  Stage B (28 min) for the larger Family-D + electoral-overlay
  *  artifact set (mandate-scorecard, seat-projection, term-arc, etc.)
  *  while keeping the same Stage C/D/E budgets. PR-call still lands by
- *  minute ~45 inside the 60-min cap and 55-min MCP session window. */
+ *  minute ~45 inside the 60-min cap and 65-min MCP session window. */
 const ELECTORAL_BUDGETS: StageBudgetConfig = { A: 5, B: 28, C: 4, D: 2, E: 2 };
 
 /** Standard EP MCP feeds reused across horizons. */

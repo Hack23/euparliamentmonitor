@@ -504,7 +504,7 @@ graph TD
 | `news-month-in-review.md` | month-in-review | 28th of month 10:00 UTC | Monthly retrospective |
 | `news-breaking.md` | breaking | Every 6 hours | Real-time EP feed events |
 
-> Each `news-<type>.md` runs the full Stage A→E protocol in one ~60-minute session and produces exactly one PR with both analysis artifacts and the rendered article HTML. The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were **deleted** in the April-2026 aggregator-pipeline migration (the prior legacy single-job `news-<type>.md` were briefly replaced by split pairs in 2025 because those exceeded the safeoutputs MCP TTL — the unified workflows now use `engine.mcp.session-timeout: 55m` (gh-aw v0.71.3+) to keep the safeoutputs HTTP session alive for the full run, with the PR call landing by minute ≤ 45 of the 60-min `timeout-minutes` cap).
+> Each `news-<type>.md` runs the full Stage A→E protocol in one ~60-minute session and produces exactly one PR with both analysis artifacts and the rendered article HTML. The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were **deleted** in the April-2026 aggregator-pipeline migration (the prior legacy single-job `news-<type>.md` were briefly replaced by split pairs in 2025 because those exceeded the safeoutputs MCP TTL — the unified workflows now use `engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+) to keep the safeoutputs HTTP session alive for the full run, with the PR call landing by minute ≤ 45 of the 60-min `timeout-minutes` cap).
 
 #### Translation Workflow
 

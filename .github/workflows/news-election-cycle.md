@@ -33,7 +33,7 @@ permissions:
 #
 #   2. **Single safe-output `create_pull_request` call by minute ≤ 45.**
 #      The MCP gateway session lifetime is set per workflow via
-#      `engine.mcp.session-timeout: 55m` (gh-aw v0.71.3+) so the
+#      `engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+) so the
 #      safeoutputs HTTP session outlasts the full run — superseding the
 #      previous ~28–30 min hard TTL that capped the old 45-minute
 #      schedule. See `.github/prompts/02-analysis-protocol.md` §3 for
@@ -233,12 +233,12 @@ engine:
   model: claude-sonnet-4.6
   mcp:
     # gh-aw v0.71.3+: per-workflow MCP gateway session lifetime.
-    # Set to 55m so the safeoutputs HTTP session outlasts the
+    # Set to 65m so the safeoutputs HTTP session outlasts the
     # 60-minute `timeout-minutes` cap with a 5-minute margin —
     # superseding the previous ~28–30 min hard TTL that capped the
     # old 45-minute schedule. Min 5m, no upper bound; format is a
     # Go duration string (kebab-case key only).
-    session-timeout: 55m
+    session-timeout: 65m
   # max-continuations: 1 tells gh-aw NOT to enable autopilot mode — when this
   # equals 1 the compiler omits --autopilot from the Copilot CLI invocation so
   # the agent runs exactly once with no restarts.  Within-session runaway
@@ -282,12 +282,12 @@ prose pass.
 | Stage D budget | ≤ 2 min (deterministic) |
 | Stage E budget (commit + single PR) | ≤ 2 min |
 | **Stage C exit tripwire** | **minute 36 elapsed** (long-horizon: 39; electoral: 42) — the **decision threshold** for forcing `GATE_RESULT=ANALYSIS_ONLY` and (if late) skipping Stage D so the run can still reach the PR call. Per-slug stage ceilings live in `src/config/article-horizons.ts`; the tripwire backstops any per-stage overrun. **Note:** Stage D + E run *after* this tripwire, between the Stage C exit and the PR-call deadline. |
-| **Hard PR-call deadline** | **minute ≤ 45 elapsed** (target ≤ 42) — deadline for the single safe-outputs `create_pull_request` call. Backed by `engine.mcp.session-timeout: 55m` (gh-aw v0.71.3+) which keeps the safeoutputs HTTP session alive for the full 60-min cap. |
+| **Hard PR-call deadline** | **minute ≤ 45 elapsed** (target ≤ 42) — deadline for the single safe-outputs `create_pull_request` call. Backed by `engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+) which keeps the safeoutputs HTTP session alive for the full 60-min cap. |
 | Hard safety cap | 60-min `timeout-minutes` |
 | PR rule | **Exactly one** `[news]` PR at end of run |
 
 > **⏱️ MCP session lifetime (gh-aw v0.71.3+)**: This workflow sets
-> `engine.mcp.session-timeout: 55m`, which keeps the safeoutputs HTTP
+> `engine.mcp.session-timeout: 65m`, which keeps the safeoutputs HTTP
 > session on `localhost:3001` alive for 55 minutes — outlasting the
 > 60-min `timeout-minutes` cap with a 5-min margin. The previous
 > ~28–30 min hard TTL (which capped the old 45-min schedule and bit
@@ -473,7 +473,7 @@ STAGE_C_GATE: RED articleType=${ARTICLE_TYPE_SLUG} missing=<N> short=<N> placeho
 > Then skip Pass 3 and **all** Stage D render attempts and proceed
 > straight to Stage E. Shipping ANALYSIS_ONLY at the tripwire is
 > strictly better than blowing the 60-min `timeout-minutes` cap.
-> The 55-min `engine.mcp.session-timeout` (gh-aw v0.71.3+) keeps the
+> The 65-min `engine.mcp.session-timeout` (gh-aw v0.71.3+) keeps the
 > safeoutputs HTTP session alive for the full run, but the workflow
 > still hard-caps at 60 minutes. See [`09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5
 > for run #24963129839 (`session not found` at minute 29 under the

@@ -206,7 +206,7 @@ from 45 min in the gh-aw v0.71.3 refactor) with all stages targeted to
 complete by **minute ≤ 45**, leaving a 15-minute buffer for sandbox
 setup, MCP gateway boot, deterministic article render, and git push.
 The MCP gateway session lifetime is set per workflow via
-`engine.mcp.session-timeout: 55m` (gh-aw v0.71.3+), so the safeoutputs
+`engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+), so the safeoutputs
 HTTP session outlasts the full run — superseding the previous ~28–30
 min hard TTL that capped the old 45-minute schedule. Unused budget is
 NOT redistributed — the agent exits cleanly after shipping the PR.
@@ -262,7 +262,7 @@ invalid schema` line listing each invalid field.
 
 > **Why widen the budget?** gh-aw v0.71.3 introduced the per-workflow
 > `engine.mcp.session-timeout` knob (Go duration, ≥ 5m). Setting it to
-> `55m` removes the prior ~28–30 min safeoutputs MCP HTTP session TTL
+> `65m` removes the prior ~28–30 min safeoutputs MCP HTTP session TTL
 > ceiling — the constraint that originally forced the 22 / ≤25 budget
 > after run [#24963129839](https://github.com/Hack23/euparliamentmonitor/actions/runs/24963129839)
 > (`news-week-in-review`, Stage B suffered two context compactions, the
@@ -288,7 +288,7 @@ that motivated the explicit ceilings):
    GREEN. This guarantees Stage D + E retain budget before the PR call.
 3. **safe-outputs `create_pull_request` deadline** — must land by the
    per-workflow PR-call deadline above (≤ minute 45 for standard slugs;
-   ≤ minute 47 for electoral). The 55-min `engine.mcp.session-timeout`
+   ≤ minute 47 for electoral). The 65-min `engine.mcp.session-timeout`
    keeps the safeoutputs HTTP session alive for the full run, so the
    PR-call deadline is now governed solely by `timeout-minutes` and
    Stage E budget rather than by the underlying MCP session TTL.

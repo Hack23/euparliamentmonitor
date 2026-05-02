@@ -199,12 +199,12 @@ engine:
   model: claude-sonnet-4.6
   mcp:
     # gh-aw v0.71.3+: per-workflow MCP gateway session lifetime.
-    # Set to 55m so the safeoutputs HTTP session outlasts the
+    # Set to 65m so the safeoutputs HTTP session outlasts the
     # 60-minute `timeout-minutes` cap with a 5-minute margin —
     # superseding the previous ~28–30 min hard TTL that capped the
     # old 45-minute schedule. Min 5m, no upper bound; format is a
     # Go duration string (kebab-case key only).
-    session-timeout: 55m
+    session-timeout: 65m
   # max-continuations: 3 enables autopilot mode (--autopilot --max-autopilot-continues 3
   # in the compiled lock) so the agent can restart up to 3 times. Translate needs
   # multiple passes to cover all 14 languages within the single job budget.
@@ -222,7 +222,7 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 >
 > This means interim `git commit` usage does **not** make changes disappear from safeoutputs by itself: committed-since-base changes are still included in the next successful snapshot. The real risk is waiting too long between successful calls, because the PR only contains whatever was captured by the **latest** successful snapshot. Note also that a subsequent `git reset` (e.g. `git reset --mixed`) can remove commits from future snapshots — so if you ever commit, always **flush first, reset second**.
 >
-> MCP gateway keepalive is enabled in frontmatter (`sandbox.mcp.keepalive-interval: 300`) to prevent idle session expiry during long runs. Combined with `safe-outputs.create-pull-request.max: 10` (the gh-aw schema maximum), you can safely do up to 10 flushes per run, and the session stays alive for the whole 60-minute budget (`engine.mcp.session-timeout: 55m`) even while you are translating.
+> MCP gateway keepalive is enabled in frontmatter (`sandbox.mcp.keepalive-interval: 300`) to prevent idle session expiry during long runs. Combined with `safe-outputs.create-pull-request.max: 10` (the gh-aw schema maximum), you can safely do up to 10 flushes per run, and the session stays alive for the whole 60-minute budget (`engine.mcp.session-timeout: 65m`) even while you are translating.
 
 ## 🚫 NEVER CREATE A ZERO-TRANSLATION PR (PRIMARY CONTRACT)
 
@@ -266,7 +266,7 @@ Mandatory ordering contract:
 
 **Mandatory policy (60-minute budget):**
 - **Do NOT call `safeoutputs___create_pull_request` before at least 3 translated HTML files are on disk and lint-clean.** Placeholder baselines create empty PRs (PR #1346).
-- First productive flush = minute ~12–18 (after the first 3 translations). Subsequent flushes every 3 completed files. Final flush at end of Step 5 with the quality-scored title/body — must complete by minute ≤ 45 of the 60-min `timeout-minutes` cap. The MCP gateway session lifetime is `engine.mcp.session-timeout: 55m` (gh-aw v0.71.3+), so the safeoutputs HTTP session stays alive for the full run.
+- First productive flush = minute ~12–18 (after the first 3 translations). Subsequent flushes every 3 completed files. Final flush at end of Step 5 with the quality-scored title/body — must complete by minute ≤ 45 of the 60-min `timeout-minutes` cap. The MCP gateway session lifetime is `engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+), so the safeoutputs HTTP session stays alive for the full run.
 - Budget: ~5 calls for a single-article 13-language run (flushes #1–#5: first at 3 files, then at 6/9/12, then final at 13) — well below the `safe-outputs.create-pull-request.max: 10` schema cap.
 - Do not introduce extra heartbeat-only tool calls between flushes. Keepalive is already configured.
 - If any `safeoutputs___create_pull_request` call returns `"session not found"`,
@@ -400,7 +400,7 @@ sv (Swedish), da (Danish), no (Norwegian), fi (Finnish), de (German), fr (French
 - Files failing these checks are **automatically REMOVED** from the PR and the agent is told to re-translate them
 - Per-language quality scores are included in the PR description and analysis summary
 
-## ⏱️ Time Budget (60 minutes — hard cap; `engine.mcp.session-timeout: 55m` keeps safeoutputs MCP session alive for the full run)
+## ⏱️ Time Budget (60 minutes — hard cap; `engine.mcp.session-timeout: 65m` keeps safeoutputs MCP session alive for the full run)
 
 | Minutes | Action |
 |---------|--------|
@@ -411,7 +411,7 @@ sv (Swedish), da (Danish), no (Norwegian), fi (Finnish), de (German), fr (French
 | 14–40 | **AI TRANSLATION continues** (files 4–N). **Flush safeoutputs after every additional 3 files** — calls #2, #3, #4 at completion counts 6, 9, 12. Each flush refreshes the safeoutputs session timer. |
 | 40–43 | Validate translations (Step 4) — reject untranslated copies |
 | 43–44 | **Write quality-scored summary** (Step 4c) — MANDATORY, no placeholders |
-| 44–45 | **Final `safeoutputs___create_pull_request`** with quality scores (Step 5). MUST land by minute ≤ 45 of the 60-min `timeout-minutes` cap. With `engine.mcp.session-timeout: 55m` (gh-aw v0.71.3+) the safeoutputs HTTP session stays alive for the full run. |
+| 44–45 | **Final `safeoutputs___create_pull_request`** with quality scores (Step 5). MUST land by minute ≤ 45 of the 60-min `timeout-minutes` cap. With `engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+) the safeoutputs HTTP session stays alive for the full run. |
 | 45–60 | Buffer for retry, npm steps, git push and graceful exit |
 
 > **Per-run article-type scope**: One article type per run only. A 60-minute budget covers all 13 target languages comfortably depending on article length. If `article_types` input names multiple types, run them in separate workflow invocations rather than chaining them in a single run.

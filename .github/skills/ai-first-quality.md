@@ -42,7 +42,7 @@ Every piece of content MUST go through at least **2 complete passes**:
 ### Rule 2: No Early Completion
 
 - If the time budget says "20 minutes for analysis," you MUST work for the FULL 20 minutes.
-- Every article-generating workflow has a 60-minute workflow timeout, but the single safe-outputs PR call must still happen on time (target minute ≤ 42, hard deadline minute ≤ 45). Treat minute 0 through ≤ 45 as the full pre-PR execution window: all substantive AI work (Stage A data collection, Stage B 2-pass analysis), Stage C completeness gate, Stage D deterministic render (`npm run generate-article`, ≤ 2 min), validators, and push/snapshot preparation must all complete inside that window so the PR call lands before the per-workflow `engine.mcp.session-timeout` (55m for unified news workflows, gh-aw v0.71.3+) expires.
+- Every article-generating workflow has a 60-minute workflow timeout, but the single safe-outputs PR call must still happen on time (target minute ≤ 42, hard deadline minute ≤ 45). Treat minute 0 through ≤ 45 as the full pre-PR execution window: all substantive AI work (Stage A data collection, Stage B 2-pass analysis), Stage C completeness gate, Stage D deterministic render (`npm run generate-article`, ≤ 2 min), validators, and push/snapshot preparation must all complete inside that window so the PR call lands before the per-workflow `engine.mcp.session-timeout` (65m for unified news workflows, gh-aw v0.71.3+) expires.
 - The remaining workflow time after the PR call is operational slack for GitHub Actions/job overhead and completion, not extra drafting time and not a period in which required pre-PR steps can be deferred.
 - Finishing the pre-PR work early = rushed = low quality = VIOLATION.
 - If you finish Pass 2 early, do a **Pass 3** — there is ALWAYS more depth to add.
@@ -154,7 +154,7 @@ will not warn when all artifacts are strictly above their floors.
 | **`news-translate.md`** (multi-call flush) | 60 min | Until final flush ≤ 45 min | N/A — translation only | N/A | First productive flush at ~minute 14 (≥ 3 translated HTML files), periodic flushes every +3 files, final flush ≤ minute 45 |
 | **Analysis-only run** (newsworthiness gate fails inside a unified `news-<type>.md`) | 60 min | Until minute ≤ 45 (4-pass) | ≤ 5 min | Pass 1 + Pass 2 (≥ 18 min) **+ Pass 3 (cross-run diff, ≥ 4 min) + Pass 4 (forward monitoring, ≥ 4 min)** | N/A — no article rendered; PR contains analysis artifacts only |
 
-> **Analysis-only runs MUST NOT short-circuit**. When the newsworthiness gate fails, the time saved by skipping article generation MUST be reinvested into Pass 3 (cross-run diff) and Pass 4 (forward monitoring extension). See § Mandatory Analysis-Only 4-Pass Protocol in this skill. Early exit before the safe-outputs PR call (minute ≤ 28) is a VIOLATION. Reference incident: PR #1223 / run 24541203743 (19-minute agent run).
+> **Analysis-only runs MUST NOT short-circuit**. When the newsworthiness gate fails, the time saved by skipping article generation MUST be reinvested into Pass 3 (cross-run diff) and Pass 4 (forward monitoring extension). See § Mandatory Analysis-Only 4-Pass Protocol in this skill. Early exit before the safe-outputs PR call (minute ≤ 45) is a VIOLATION. Reference incident: PR #1223 / run 24541203743 (19-minute agent run).
 
 ## Mandatory Analysis-Only 4-Pass Protocol
 

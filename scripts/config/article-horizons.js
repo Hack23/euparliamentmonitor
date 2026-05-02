@@ -72,7 +72,7 @@ const RETROSPECTIVE_BUDGETS = { A: 4, B: 22, C: 4, D: 2, E: 2 };
  *  Stage B (28 min) for the larger Family-D + electoral-overlay
  *  artifact set (mandate-scorecard, seat-projection, term-arc, etc.)
  *  while keeping the same Stage C/D/E budgets. PR-call still lands by
- *  minute ~45 inside the 60-min cap and 55-min MCP session window. */
+ *  minute ~45 inside the 60-min cap and 65-min MCP session window. */
 const ELECTORAL_BUDGETS = { A: 5, B: 28, C: 4, D: 2, E: 2 };
 /** Standard EP MCP feeds reused across horizons. */
 const STANDARD_FEEDS = [
