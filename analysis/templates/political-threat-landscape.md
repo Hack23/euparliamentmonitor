@@ -56,6 +56,49 @@ graph TD
 
 **Scoring methodology:** See [`political-threat-framework.md`](../methodologies/political-threat-framework.md) for dimension definitions.
 
+### Severity-Coded 6D Fan-Out
+
+The fan-out below puts each dimension on its own coloured node (heat-mapped to
+its score band) so a reader can read the threat profile at a glance — green for
+0–1, yellow for 2, orange for 3, red for 4–5. Replace the per-dimension fill
+to match the actual scores.
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+flowchart LR
+    EP["🏛️ EP Democratic<br/>Integrity<br/>aggregate {x.x}/5"]
+    EP --> D1["🔒 Institutional<br/>Capture · {n}/5"]
+    EP --> D2["⚙️ Procedural<br/>Manipulation · {n}/5"]
+    EP --> D3["💥 Coalition<br/>Fracture · {n}/5"]
+    EP --> D4["📉 Accountability<br/>Erosion · {n}/5"]
+    EP --> D5["📡 Information<br/>Distortion · {n}/5"]
+    EP --> D6["🌍 External<br/>Interference · {n}/5"]
+    D1 --> T1["🟢/🟡/🟠/🔴<br/>top named threat"]
+    D2 --> T2["🟢/🟡/🟠/🔴<br/>top named threat"]
+    D3 --> T3["🟢/🟡/🟠/🔴<br/>top named threat"]
+    D4 --> T4["🟢/🟡/🟠/🔴<br/>top named threat"]
+    D5 --> T5["🟢/🟡/🟠/🔴<br/>top named threat"]
+    D6 --> T6["🟢/🟡/🟠/🔴<br/>top named threat"]
+
+    style EP fill:#1565C0,color:#ffffff,stroke:#0A3F7F,stroke-width:2px
+    style D1 fill:#2E7D32,color:#ffffff
+    style D2 fill:#FFC107,color:#000000
+    style D3 fill:#FF9800,color:#000000
+    style D4 fill:#D32F2F,color:#ffffff
+    style D5 fill:#FFC107,color:#000000
+    style D6 fill:#2E7D32,color:#ffffff
+    style T1 fill:#388E3C,color:#ffffff
+    style T2 fill:#FFC107,color:#000000
+    style T3 fill:#FF9800,color:#000000
+    style T4 fill:#D32F2F,color:#ffffff
+    style T5 fill:#FFC107,color:#000000
+    style T6 fill:#388E3C,color:#ffffff
+```
+
+> **AI Agent:** Re-colour each `style D{i}` and `style T{i}` line to match the
+> actual score for that dimension: 0–1 → `#388E3C`/`#2E7D32` (green),
+> 2 → `#FFC107` (yellow), 3 → `#FF9800` (orange), 4–5 → `#D32F2F` (red).
+
 ---
 
 ## 2️⃣ Top Named Threats
