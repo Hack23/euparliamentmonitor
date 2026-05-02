@@ -960,10 +960,17 @@ function main() {
   mergeSyntheticResult(results, forwardRegistryResult);
 
   // ── Expired-unresolved forward-statements gate (§9.2) ───────────────────
-  // When >2 forward statements have expired (horizonEnd < today) without being
-  // marked resolved|stale|extended, Stage C turns RED. ≤2 expired entries emit
-  // a warning but do not block.
+  // When >2 forward statements have expired (expectedHorizon < evaluation date)
+  // without being marked resolved|stale|extended, Stage C turns RED. ≤2 expired
+  // entries emit a warning but do not block.
+  // Use manifest.runDate (or date extracted from runDir path) for deterministic
+  // evaluation so re-validating historical runs produces stable results.
+  const gateDate =
+    manifest.runDate ||
+    (runDir.match(/analysis\/daily\/(\d{4}-\d{2}-\d{2})\//) || [])[1] ||
+    new Date().toISOString().slice(0, 10);
   const expiredUnresolved = readExpiredUnresolved({
+    today: gateDate,
     registryDir: path.join(ROOT, 'analysis/forward-statements'),
   });
   if (expiredUnresolved.length > 0) {
@@ -984,6 +991,16 @@ function main() {
           `carry-forward statements without status=resolved|stale|extended: ${ids}\n`,
       );
     } else {
+      mergeSyntheticResult(results, {
+        relativePath: 'forward-statements-registry',
+        exists: true,
+        lines: 0,
+        minLines: 0,
+        issues: [],
+        warnings: [`forward-registry:expired-unresolved(${expiredUnresolved.length})`],
+        mermaid: false,
+        placeholders: [],
+      });
       process.stderr.write(
         `WARN forward-registry:expired-unresolved — ${expiredUnresolved.length} expired ` +
           `carry-forward statement(s) need close-out: ${ids}\n`,

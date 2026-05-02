@@ -17,7 +17,7 @@
  *     originatingDate:     string  — YYYY-MM-DD
  *     statement:           string  — The forward-looking statement text
  *     expectedHorizon:     string  — YYYY-MM-DD or ISO week (e.g. "2026-W18")
- *     status:              "open" | "implemented" | "superseded" | "abandoned"
+ *     status:              "open" | "implemented" | "superseded" | "abandoned" | "resolved" | "stale" | "extended"
  *     lastObservedDate:    string  — YYYY-MM-DD of last run that touched this entry
  *     evidenceRefs:        string[] — EP document IDs or procedure IDs supporting the claim
  *   }
@@ -301,7 +301,11 @@ export function readExpiredUnresolved(opts) {
     let horizon;
     try {
       horizon = normaliseHorizon(/** @type {string} */ (entry.expectedHorizon));
-    } catch {
+    } catch (error) {
+      process.stderr.write(
+        `Skipping forward-statement entry "${entry.id}" with invalid expectedHorizon ` +
+          `"${entry.expectedHorizon}": ${error instanceof Error ? error.message : String(error)}\n`,
+      );
       continue;
     }
     if (horizon >= today) continue;
