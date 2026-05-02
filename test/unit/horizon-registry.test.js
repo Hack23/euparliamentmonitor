@@ -52,7 +52,7 @@ describe('article-horizons registry — drift guard', () => {
     }
   });
 
-  it('stage budgets sum to ≤ 45 minutes (gh-aw cap)', () => {
+  it('stage budgets sum to ≤ 50 minutes (60-min `timeout-minutes` cap with ≥10-min sandbox/render/PR buffer)', () => {
     for (const cfg of Object.values(ARTICLE_HORIZONS)) {
       const total =
         cfg.stageBudgets.A +
@@ -62,8 +62,8 @@ describe('article-horizons registry — drift guard', () => {
         cfg.stageBudgets.E;
       expect(
         total,
-        `Stage-budget sum for slug=${cfg.slug} is ${total} (> 45)`
-      ).toBeLessThanOrEqual(45);
+        `Stage-budget sum for slug=${cfg.slug} is ${total} (> 50)`
+      ).toBeLessThanOrEqual(50);
     }
   });
 

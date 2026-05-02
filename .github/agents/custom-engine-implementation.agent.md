@@ -13,7 +13,7 @@ This agent helps configure **AI engines** in GitHub Agentic Workflows (gh-aw) ma
 | Engine | Provider | Frontmatter | Best For |
 |--------|----------|-------------|----------|
 | Copilot | GitHub | `engine: { id: copilot }` (default) | General tasks, best GitHub integration |
-| Claude | Anthropic | `engine: { id: copilot, model: claude-opus-4.7 }` | Complex analysis, long context, deep reasoning |
+| Claude | Anthropic | `engine: { id: copilot, model: claude-sonnet-4.6 }` | Complex analysis, long context, deep reasoning |
 | Codex | OpenAI | `engine: { id: codex }` | Code-focused tasks, structured output |
 
 ## Engine Configuration
@@ -34,7 +34,7 @@ Instructions for the Copilot agent...
 ---
 engine:
   id: copilot
-  model: claude-opus-4.7
+  model: claude-sonnet-4.6
 timeout-minutes: 15
 ---
 # My Workflow
@@ -65,14 +65,14 @@ Instructions for Codex...
 
 ## EU Parliament Monitor Usage
 
-This project's gh-aw workflows primarily use **Copilot with Claude model** (`engine: { id: copilot, model: claude-opus-4.7 }`) for news generation tasks.
+This project's gh-aw workflows primarily use **Copilot with Claude model** (`engine: { id: copilot, model: claude-sonnet-4.6 }`) for news generation tasks.
 
 ### Example: News Generation
 ```markdown
 ---
 engine:
   id: copilot
-  model: claude-opus-4.7
+  model: claude-sonnet-4.6
 timeout-minutes: 60
 on:
   schedule:

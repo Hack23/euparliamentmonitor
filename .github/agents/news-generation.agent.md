@@ -85,25 +85,35 @@ Per-artifact line floors live in [`reference-quality-thresholds.json`](../../ana
 ## Shared Stage Contract (inherited by every importing workflow)
 
 Every article-generating workflow is a single unified `news-<type>.md` that
-runs Stages A → B → C → D → E in one session (`timeout-minutes: 45`,
-active-work budget 22–27 min before the single safe-outputs
-`create_pull_request` call — must land by minute ≤ 28 to stay inside the
-~28–30 min safeoutputs MCP session TTL):
+runs Stages A → B → C → D → E in one session (`timeout-minutes: 60`,
+target completion ≤ minute 45 — leaving a 15-min sandbox/render/PR
+buffer). The MCP gateway session lifetime is set per workflow via
+`engine.mcp.session-timeout: 55m` (gh-aw v0.71.3+), so the safeoutputs
+HTTP session outlasts the full run — superseding the previous
+~28–30 min hard TTL that capped the old 45-minute schedule:
 
 ```
-Stage A · Data Collection (≤ 4 min)
-  → Stage B1 · Analysis Artifacts — Pass 1 (minutes 4–16, ≤ 12 min)
-      HARD TRIPWIRE at minute 16 → begin Pass 2 even if Pass 1 is incomplete
-    → Stage B2 · Pass 2 — Read-back & Rewrite (minutes 16–20, ≥ 4 min)
+Stage A · Data Collection (≤ 4–5 min, per `article-horizons.ts`)
+  → Stage B1 · Analysis Artifacts — Pass 1 (Stage-A end → per-family B1→B2 tripwire,
+       e.g. minute 22 for standard slugs)
+      HARD TRIPWIRE at the per-family minute mark → begin Pass 2 even if Pass 1 is incomplete
+    → Stage B2 · Pass 2 — Read-back & Rewrite (B1→B2 tripwire → Stage-C exit − 4 min,
+        ≥ 10 min for standard slugs)
         log pass2.{startedAt, endedAt, rewriteCount} to manifest.json
-      → Stage C · Completeness Gate — BLOCKING (minutes 20–22, ≤ 2 min;
+      → Stage C · Completeness Gate — BLOCKING (last 4 min before Stage-C exit
+          tripwire, e.g. minute 32–36 for standard slugs;
           agent-side + npm run validate-analysis)
           (Stage C warns if pass2.rewriteCount === 0 and any artifact is at its floor)
         → Stage D · Deterministic Article Render
             (npm run generate-article -- --run "${ANALYSIS_DIR}")
           → Stage E · Single PR call (safeoutputs___create_pull_request,
-              exactly once, at end of run, by minute ≤ 28)
+              exactly once, at end of run, by minute ≤ 45)
 ```
+
+Per-slug stage budgets and tripwires are authoritative in
+`src/config/article-horizons.ts` (`stageBudgets`); see the per-family
+table in [`.github/prompts/02-analysis-protocol.md` §3](../prompts/02-analysis-protocol.md#3--minimum-analysis-time)
+for the standard / long-horizon / electoral-overlay rows.
 
 The split `news-<type>-analysis.md` + `news-<type>-article.md` families, the
 manual `news-article-generator.md` helper, and `news-translate-reconciler.yml`

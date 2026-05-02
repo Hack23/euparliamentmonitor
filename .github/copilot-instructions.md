@@ -16,9 +16,9 @@
 
 - **Stack**: Node.js 25, TypeScript 6, HTML5/CSS3, Vitest, Playwright, ESLint
 - **License**: Apache-2.0 | **Deployment**: AWS S3/CloudFront (primary) with GitHub Pages as fallback/runbook
-- **Data**: European Parliament MCP Server (`european-parliament-mcp-server@1.2.19`)
+- **Data**: European Parliament MCP Server (`european-parliament-mcp-server@1.2.20`)
 - **Languages**: EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH
-- **Agentic Workflows**: 9 gh-aw markdown workflows for automated news generation — 8 unified `news-<type>.md` workflows (run Stages A → E in one 45-min session, single PR) plus the `news-translate.md` 14-language helper (manual, multi-call flush, exempt from single-PR rule)
+- **Agentic Workflows**: 9 gh-aw markdown workflows for automated news generation — 8 unified `news-<type>.md` workflows (run Stages A → E in one 60-min session with `engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+), single PR) plus the `news-translate.md` 14-language helper (manual, multi-call flush, exempt from single-PR rule)
 - **Security**: ISO 27001, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA
 
 ## 🤖 Available Agents
@@ -54,7 +54,7 @@ npm run build         # TypeScript compilation
 
 This project uses **gh-aw markdown workflows** in `.github/workflows/*.md` for automated news generation. These are compiled to `.lock.yml` files and run AI agents (Copilot/Claude/Codex) in sandboxed GitHub Actions with safe outputs.
 
-**Workflow files** (8 unified article workflows + 1 translation helper = 9 files): for each news type / canonical `ARTICLE_TYPE_SLUG` (`breaking`, `week-in-review`, `month-in-review`, `week-ahead`, `month-ahead`, `committee-reports`, `motions`, `propositions`) there is a single unified `news-<type>.md` (`timeout-minutes: 45`) that runs Stages A → E in one session and produces exactly one PR containing both analysis artifacts and the rendered article HTML. The PR call (`safeoutputs___create_pull_request`) must land by minute ≤ 28 to stay inside the safeoutputs MCP session TTL (~28–30 min). Helper workflow: `news-translate.md` (14-language translation, `workflow_dispatch:` only, exempt from single-PR rule). The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were removed in the April-2026 aggregator-pipeline migration — see [`.github/workflows/README.md`](./workflows/README.md).
+**Workflow files** (8 unified article workflows + 1 translation helper = 9 files): for each news type / canonical `ARTICLE_TYPE_SLUG` (`breaking`, `week-in-review`, `month-in-review`, `week-ahead`, `month-ahead`, `committee-reports`, `motions`, `propositions`) there is a single unified `news-<type>.md` (`timeout-minutes: 60`) that runs Stages A → E in one session and produces exactly one PR containing both analysis artifacts and the rendered article HTML. The PR call (`safeoutputs___create_pull_request`) must land by minute ≤ 45 (target ≤ 42 for standard slugs, ≤ 47 for electoral). Per-workflow MCP session lifetime is set via `engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+) — superseding the previous ~28–30 min hard TTL that capped the old 45-minute schedule. Helper workflow: `news-translate.md` (14-language translation, `workflow_dispatch:` only, exempt from single-PR rule). The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were removed in the April-2026 aggregator-pipeline migration — see [`.github/workflows/README.md`](./workflows/README.md).
 
 **Key concepts**: Safe outputs (create-pull-request with constraints), AWF firewall (Squid proxy allowlist), 5-layer security model, JSONL artifacts, lock file compilation.
 
@@ -89,8 +89,8 @@ Every article-generating workflow produces a **39-template analysis artifact set
 - **One pass is NEVER sufficient.** Pass 2 is where quality is achieved.
 
 **Time Budget Enforcement**:
-- 45-minute unified `news-<type>.md` workflows → active work continues until the safe-outputs PR call (target minute ≤ 25, hard deadline minute ≤ 28); do NOT exit early
-- `news-translate.md` (45 min, multi-call flush) → first productive flush at ~minute 14, periodic flushes every +3 translated files, final flush by minute ≤ 28
+- 60-minute unified `news-<type>.md` workflows → active work continues until the safe-outputs PR call (target minute ≤ 42, hard deadline minute ≤ 45 for standard slugs; per-slug values authoritative in `src/config/article-horizons.ts`); do NOT exit early
+- `news-translate.md` (60 min, multi-call flush) → first productive flush at ~minute 14, periodic flushes every +3 translated files, final flush by minute ≤ 45
 - If you finish early, go back and improve. There is ALWAYS more depth to add.
 
 **Quality Gates**: ≥80 words/SWOT item, ≥150 words/stakeholder perspective, ≥60% prose ratio, ≥1 Chart.js visualization, zero `[AI_ANALYSIS_REQUIRED]` markers, **IMF** economic context data — IMF is the **sole authoritative source** for every economic / fiscal / monetary / trade / FDI / exchange-rate / banking-soundness claim in policy articles.

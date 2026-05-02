@@ -96,7 +96,7 @@ unavailable" message is rejected. Include the output of
 ```
 MCP CONNECTIVITY DIAGNOSTIC — {workflow-name}
 Timestamp: {ISO-8601 UTC}
-MCP Server: european-parliament-mcp-server@1.2.19
+MCP Server: european-parliament-mcp-server@1.2.20
 AWF Firewall Check: {stdout from scripts/awf-firewall-diagnostic.sh}
 MCP Health Gate:
   get_server_health: {PASS/FAIL}
@@ -172,7 +172,7 @@ Notes on the schema:
 
 ## 7 · Exception — `news-translate.md`
 
-Translation workflows translate one file at a time within a 45-minute hard
+Translation workflows translate one file at a time within a 60-minute hard
 cap and up to 13 target languages. Losing all translations after the first
 flush is unacceptable. `news-translate.md` (and only it) uses the repeated-
 flush pattern: each `safeoutputs___create_pull_request` call overwrites the

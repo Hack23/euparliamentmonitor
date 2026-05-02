@@ -90,7 +90,7 @@ Natural language instructions for the AI agent...
 | `tools` | MCP servers and tool access (github, web-fetch, filesystem) |
 | `safe-outputs` | Gated write operations with constraints |
 | `timeout-minutes` | Maximum execution time |
-| `engine` | AI engine configuration. In this repo, Claude is selected via `engine: { id: copilot, model: claude-opus-4.7 }` (that is, `id` is `copilot` and the `model` field chooses the Claude variant). |
+| `engine` | AI engine configuration. In this repo, Claude is selected via `engine: { id: copilot, model: claude-sonnet-4.6 }` (that is, `id` is `copilot` and the `model` field chooses the Claude variant). |
 
 ## Safe Output Types
 
@@ -189,7 +189,7 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.19", "--timeout", "90000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.20", "--timeout", "90000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
     allowed: ["*"]
@@ -233,7 +233,7 @@ safe-outputs:
 
 engine:
   id: copilot
-  model: claude-opus-4.7
+  model: claude-sonnet-4.6
 ---
 # EU Parliament News Generator
 Fetch latest EP activity and generate multi-language articles...

@@ -30,7 +30,7 @@ This directory contains GitHub Actions workflows for the EU Parliament Monitor p
 The project uses **agentic workflow markdown files** (`.md`) that are compiled to `.lock.yml` files via `gh aw compile --validate`. Each news workflow generates a specific type of EU Parliament article using the European Parliament MCP server as the primary data source, with **IMF native REST-client enrichment as the sole authoritative source for economic context** and World Bank MCP enrichment **only for non-economic domains** (health, education, social, environment, demographics, defence, agriculture, innovation, governance). The World Bank is mounted as an MCP server; IMF data is fetched via a native TypeScript REST client — there is no IMF MCP mount in the workflow frontmatter.
 
 > **Unified single-PR architecture (canonical):** each article type is
-> served by a **single** unified workflow (`news-<type>.md`, 45-min timeout)
+> served by a **single** unified workflow (`news-<type>.md`, 60-min timeout)
 > that runs Stages A → E in one session and produces exactly one PR
 > containing both the analysis artifacts and the rendered article HTML.
 > Analysis artifacts live in the deterministic folder
@@ -139,7 +139,7 @@ Key rules (enforced by [`scripts/lint-prompts.js`](../../scripts/lint-prompts.js
 Rationale and exceptions: [`06-pr-and-safe-outputs.md`](../prompts/06-pr-and-safe-outputs.md).
 
 #### Common features across all news workflows
-- Uses `european-parliament-mcp-server@1.2.19` as primary data source
+- Uses `european-parliament-mcp-server@1.2.20` as primary data source
 - Mandatory date context establishment via `date -u` command
 - Supports 14 languages: en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh
 - HTML validation and quality checks before PR creation

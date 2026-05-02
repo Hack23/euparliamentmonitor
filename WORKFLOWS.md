@@ -223,7 +223,7 @@ flowchart TB
 
 ### 1. Agentic News Workflows (×10)
 
-**🎯 Purpose:** AI-powered generation of multi-language news articles about European Parliament activities using GitHub Copilot with the `claude-opus-4.7` model
+**🎯 Purpose:** AI-powered generation of multi-language news articles about European Parliament activities using GitHub Copilot with the `claude-sonnet-4.6` model
 **📁 Architecture:** 9 markdown source files (8 unified `news-<type>.md` + 1 `news-translate.md` helper) compiled to 9 `.lock.yml` files via `gh aw compile` (GitHub Agentic Workflows CLI)
 **🌐 Languages:** 14 (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh)
 
@@ -231,32 +231,32 @@ flowchart TB
 
 | 🤖 Workflow | 📄 File | 📅 Schedule | ⏱️ Timeout |
 |---|---|---|---|
-| 🔮 **EU Parliament Week Ahead** | `news-week-ahead.lock.yml` | Friday 07:00 UTC | 45 min |
-| 📋 **EU Parliament Week in Review** | `news-week-in-review.lock.yml` | Saturday 09:00 UTC | 45 min |
-| 🗳️ **EU Parliament Plenary Votes & Resolutions** | `news-motions.lock.yml` | Weekdays (Mon–Fri) 06:00 UTC | 45 min |
-| ⚖️ **EU Parliament Legislative Procedures** | `news-propositions.lock.yml` | Weekdays (Mon–Fri) 05:00 UTC | 45 min |
-| 🏛️ **EU Parliament Committee Activity** | `news-committee-reports.lock.yml` | Weekdays (Mon–Fri) 04:00 UTC | 45 min |
-| 📊 **EU Parliament Month Ahead** | `news-month-ahead.lock.yml` | 1st of month 08:00 UTC | 45 min |
-| 📈 **EU Parliament Month in Review** | `news-month-in-review.lock.yml` | 28th of month 10:00 UTC | 45 min |
-| 🚨 **EU Parliament Breaking News** | `news-breaking.lock.yml` | Every 6 hours (`0 */6 * * *`) | 45 min |
-| 🌐 **Translate Articles** | `news-translate.lock.yml` | Weekdays 09:00/12:00/15:00 UTC; Sat 15:00; 1st & 28th 15:00 | 45 min |
+| 🔮 **EU Parliament Week Ahead** | `news-week-ahead.lock.yml` | Friday 07:00 UTC | 60 min |
+| 📋 **EU Parliament Week in Review** | `news-week-in-review.lock.yml` | Saturday 09:00 UTC | 60 min |
+| 🗳️ **EU Parliament Plenary Votes & Resolutions** | `news-motions.lock.yml` | Weekdays (Mon–Fri) 06:00 UTC | 60 min |
+| ⚖️ **EU Parliament Legislative Procedures** | `news-propositions.lock.yml` | Weekdays (Mon–Fri) 05:00 UTC | 60 min |
+| 🏛️ **EU Parliament Committee Activity** | `news-committee-reports.lock.yml` | Weekdays (Mon–Fri) 04:00 UTC | 60 min |
+| 📊 **EU Parliament Month Ahead** | `news-month-ahead.lock.yml` | 1st of month 08:00 UTC | 60 min |
+| 📈 **EU Parliament Month in Review** | `news-month-in-review.lock.yml` | 28th of month 10:00 UTC | 60 min |
+| 🚨 **EU Parliament Breaking News** | `news-breaking.lock.yml` | Every 6 hours (`0 */6 * * *`) | 60 min |
+| 🌐 **Translate Articles** | `news-translate.lock.yml` | Weekdays 09:00/12:00/15:00 UTC; Sat 15:00; 1st & 28th 15:00 | 60 min |
 
-> Each `news-<type>.md` workflow runs **Stages A → B → C → D → E in one 45-minute session** and produces **exactly one PR** containing both analysis artifacts and rendered article HTML. The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were **deleted** in the April-2026 aggregator-pipeline migration. The `news-translate.md` helper (manual dispatch only) is the sole exemption from the single-PR rule.
+> Each `news-<type>.md` workflow runs **Stages A → B → C → D → E in one 60-minute session** and produces **exactly one PR** containing both analysis artifacts and rendered article HTML. The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were **deleted** in the April-2026 aggregator-pipeline migration. The `news-translate.md` helper (manual dispatch only) is the sole exemption from the single-PR rule.
 
 #### Agentic Workflow Architecture
 
-All 9 agentic workflows share a common architecture (8 unified `news-<type>.md` produce English articles in single 45-min sessions; the manual `news-translate` helper then generates the remaining 13 languages):
+All 9 agentic workflows share a common architecture (8 unified `news-<type>.md` produce English articles in single 60-min sessions; the manual `news-translate` helper then generates the remaining 13 languages):
 
 ```mermaid
 graph TD
     A[🕐 Schedule / Manual Trigger] --> B[🔑 Activation Job]
     B --> C{Conditions Met?}
-    C -->|✅ Yes| D[🤖 Agent Job<br/>GitHub Copilot + claude-opus-4.7]
+    C -->|✅ Yes| D[🤖 Agent Job<br/>GitHub Copilot + claude-sonnet-4.6]
     C -->|❌ No| E[⏭️ Skip]
     D --> F[📥 Checkout Repository]
     F --> G[⚙️ Setup Node.js 25]
     G --> H[📦 Install Dependencies]
-    H --> I[🔗 Install EP MCP Server v1.2.19+]
+    H --> I[🔗 Install EP MCP Server v1.2.20+]
     I --> J1[🔬 Analysis Stage<br/>Political Intelligence Pipeline<br/>--analysis flag]
     J1 --> J1a[📊 Classification: significance, impact-matrix, actors, forces]
     J1 --> J1b[🛡️ Threat Assessment: Political Threat Landscape,<br/>actor-threats, disruption]
@@ -291,14 +291,14 @@ graph TD
 |----------|-------|
 | **Source format** | Markdown (`.md`) compiled by `gh aw compile` |
 | **Lock format** | YAML (`.lock.yml`) — auto-generated, do not edit directly |
-| **AI Model** | `claude-opus-4.7` via GitHub Copilot CLI |
+| **AI Model** | `claude-sonnet-4.6` via GitHub Copilot CLI |
 | **Top-level permissions** | `{}` (empty — no default permissions) |
 | **Activation job permissions** | `contents: read` |
 | **Agent job permissions** | `contents: write`, `pull-requests: write`, `issues: write`, `models: read` |
 | **Concurrency group** | `gh-aw-${{ github.workflow }}` |
 | **Node.js version** | 25 |
-| **EP MCP Server** | `european-parliament-mcp-server@1.2.19` (globally installed via `scripts/mcp-setup.sh`, MCP gateway `EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament`) |
-| **Data sources** | European Parliament MCP Server `v1.2.19+` (primary, 60+ tools — sliding + fixed-window feeds + analytical), IMF REST SDMX 3.0 (native fetch in `src/mcp/imf-mcp-client.ts`, **primary economic source** — WEO+FM+IFS+BOP+ER+PCPS+GFSR+EREO+FSI+GFS+DOT), World Bank Open Data MCP (non-economic only — WDI social/health/education/environment/governance). Economic-context enforcement is editorial at the Stage-C completeness review against [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md) and the per-artifact line floors in [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json) — the runtime `articlePolicyHas*` gates were purged in April-2026 |
+| **EP MCP Server** | `european-parliament-mcp-server@1.2.20` (globally installed via `scripts/mcp-setup.sh`, MCP gateway `EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament`) |
+| **Data sources** | European Parliament MCP Server `v1.2.20+` (primary, 60+ tools — sliding + fixed-window feeds + analytical), IMF REST SDMX 3.0 (native fetch in `src/mcp/imf-mcp-client.ts`, **primary economic source** — WEO+FM+IFS+BOP+ER+PCPS+GFSR+EREO+FSI+GFS+DOT), World Bank Open Data MCP (non-economic only — WDI social/health/education/environment/governance). Economic-context enforcement is editorial at the Stage-C completeness review against [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md) and the per-artifact line floors in [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json) — the runtime `articlePolicyHas*` gates were purged in April-2026 |
 | **Analysis stage** | `--analysis` flag enables 18-method political intelligence pipeline before article generation |
 | **Analysis output** | `analysis/daily/{date}/` for cross-article artifacts (for example shared synthesis outputs), plus `analysis/daily/{date}/{article-type}/` for article-type-scoped classification, threat-assessment, risk-scoring, and data (EP feeds, World Bank, IMF, OSINT) artifacts committed to PR. Article-type scoping prevents merge conflicts between concurrent workflows. |
 
@@ -504,7 +504,7 @@ graph TD
 | `news-month-in-review.md` | month-in-review | 28th of month 10:00 UTC | Monthly retrospective |
 | `news-breaking.md` | breaking | Every 6 hours | Real-time EP feed events |
 
-> Each `news-<type>.md` runs the full Stage A→E protocol in one ~45-minute session and produces exactly one PR with both analysis artifacts and the rendered article HTML. The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were **deleted** in the April-2026 aggregator-pipeline migration (the prior legacy single-job `news-<type>.md` were briefly replaced by split pairs in 2025 because those exceeded the safeoutputs MCP TTL — the unified workflows now stay within the TTL by deferring the PR call to minute ≤ 28).
+> Each `news-<type>.md` runs the full Stage A→E protocol in one ~60-minute session and produces exactly one PR with both analysis artifacts and the rendered article HTML. The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were **deleted** in the April-2026 aggregator-pipeline migration (the prior legacy single-job `news-<type>.md` were briefly replaced by split pairs in 2025 because those exceeded the safeoutputs MCP TTL — the unified workflows now use `engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+) to keep the safeoutputs HTTP session alive for the full run, with the PR call landing by minute ≤ 45 of the 60-min `timeout-minutes` cap).
 
 #### Translation Workflow
 
@@ -1888,7 +1888,7 @@ The following diagram shows the complete intelligence cycle from EP data collect
 
 ```mermaid
 flowchart TD
-    subgraph Collection["📡 COLLECTION<br/>(EP MCP Server v1.2.19+)"]
+    subgraph Collection["📡 COLLECTION<br/>(EP MCP Server v1.2.20+)"]
         direction TB
         C1["🗳️ Votes &<br/>Adopted Texts"]
         C2["📜 Legislative<br/>Procedures"]
@@ -2016,11 +2016,11 @@ flowchart LR
     end
 
     subgraph "🔌 MCP Layer"
-        MCP["EP MCP Server<br/>v1.2.19+<br/>(120s timeout;<br/>60+ tools, sliding + fixed-window feeds)"]
+        MCP["EP MCP Server<br/>v1.2.20+<br/>(120s timeout;<br/>60+ tools, sliding + fixed-window feeds)"]
     end
 
     subgraph "🤖 Agent Layer"
-        Agent["GitHub Copilot<br/>claude-opus-4.7"]
+        Agent["GitHub Copilot<br/>claude-sonnet-4.6"]
         Analyze["Analysis Pipeline<br/>11 methodology assets<br/>39 templates"]
     end
 
