@@ -7,7 +7,7 @@
  */
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { WorldBankMCPClient, closeWBMCPClient } from '../../scripts/mcp/wb-mcp-client.js';
+import { WorldBankMCPClient, closeWBMCPClient, getWBMCPClient } from '../../scripts/mcp/wb-mcp-client.js';
 import { mockConsole } from '../helpers/test-utils.js';
 
 describe('wb-mcp-client', () => {
@@ -98,6 +98,85 @@ describe('wb-mcp-client', () => {
       await closeWBMCPClient();
       await closeWBMCPClient();
       // Should not throw
+    });
+  });
+
+  describe('getWBMCPClient singleton creation', () => {
+    beforeEach(async () => {
+      // Always start with a clean singleton state
+      await closeWBMCPClient();
+    });
+
+    afterEach(async () => {
+      await closeWBMCPClient();
+    });
+
+    it('should create a new client when none exists (connect succeeds)', async () => {
+      // Arrange: mock connect to succeed immediately
+      vi.spyOn(WorldBankMCPClient.prototype, 'connect').mockResolvedValue(undefined);
+
+      // Act
+      const client = await getWBMCPClient({ maxConnectionAttempts: 1, connectionRetryDelay: 0 });
+
+      // Assert
+      expect(client).toBeInstanceOf(WorldBankMCPClient);
+      expect(WorldBankMCPClient.prototype.connect).toHaveBeenCalledTimes(1);
+    });
+
+    it('should return the same instance on subsequent calls (singleton behaviour)', async () => {
+      // Arrange
+      vi.spyOn(WorldBankMCPClient.prototype, 'connect').mockResolvedValue(undefined);
+
+      // Act
+      const first = await getWBMCPClient({ maxConnectionAttempts: 1, connectionRetryDelay: 0 });
+      const second = await getWBMCPClient({ maxConnectionAttempts: 1, connectionRetryDelay: 0 });
+
+      // Assert: same object reference, connect only called once
+      expect(first).toBe(second);
+      expect(WorldBankMCPClient.prototype.connect).toHaveBeenCalledTimes(1);
+    });
+
+    it('should propagate and reset singleton when connect throws', async () => {
+      // Arrange
+      vi.spyOn(WorldBankMCPClient.prototype, 'connect').mockRejectedValue(
+        new Error('Connection failed')
+      );
+
+      // Act & Assert: should throw and reset
+      await expect(
+        getWBMCPClient({ maxConnectionAttempts: 1, connectionRetryDelay: 0 })
+      ).rejects.toThrow('Connection failed');
+
+      // After failure, a new call should attempt a fresh connect
+      vi.spyOn(WorldBankMCPClient.prototype, 'connect').mockResolvedValue(undefined);
+      const recovered = await getWBMCPClient({ maxConnectionAttempts: 1, connectionRetryDelay: 0 });
+      expect(recovered).toBeInstanceOf(WorldBankMCPClient);
+    });
+
+    it('should apply default maxConnectionAttempts when not provided', async () => {
+      // Arrange
+      vi.spyOn(WorldBankMCPClient.prototype, 'connect').mockResolvedValue(undefined);
+
+      // Act
+      const client = await getWBMCPClient({});
+
+      // Assert: client created without error
+      expect(client).toBeInstanceOf(WorldBankMCPClient);
+    });
+
+    it('should close singleton and allow re-creation after closeWBMCPClient', async () => {
+      // Arrange
+      vi.spyOn(WorldBankMCPClient.prototype, 'connect').mockResolvedValue(undefined);
+
+      // Act: create, close, re-create
+      const first = await getWBMCPClient({ maxConnectionAttempts: 1, connectionRetryDelay: 0 });
+      await closeWBMCPClient();
+      const second = await getWBMCPClient({ maxConnectionAttempts: 1, connectionRetryDelay: 0 });
+
+      // Assert: second creation produced a fresh instance
+      expect(second).toBeInstanceOf(WorldBankMCPClient);
+      // connect called twice (once for each creation)
+      expect(WorldBankMCPClient.prototype.connect).toHaveBeenCalledTimes(2);
     });
   });
 
