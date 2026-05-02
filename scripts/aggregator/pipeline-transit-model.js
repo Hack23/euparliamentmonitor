@@ -128,7 +128,7 @@ export function deriveProcedureSeed(baseSeed, processId) {
  * committee events containing generic "adopted" keywords as final adoption.
  *
  * @param {object} proc - Procedure object from procedures-feed
- * @returns {string|null} One of STAGES or null if indeterminate
+ * @returns {string} One of STAGES (defaults to 'committee' if indeterminate)
  */
 export function inferCurrentStage(proc) {
   const events = proc.events || proc.stages || [];
@@ -212,6 +212,9 @@ export function extractTransitionDurations(procedures, votingRecords, asOf) {
 
       const daysDiff = Math.max(1, Math.round((curr.date - prev.date) / (24 * 60 * 60 * 1000)));
 
+      // Skip events that are in the future relative to asOf (point-in-time snapshot)
+      if (curr.date.getTime() > refTime) continue;
+
       // Age-weighting: events within trailing 24 months get higher weight
       const ageMs = refTime - curr.date.getTime();
       const weight = ageMs <= RECENT_WINDOW_MS ? RECENT_WEIGHT : ageMs <= 2 * RECENT_WINDOW_MS ? OLDER_WEIGHT : STALE_WEIGHT;
@@ -228,6 +231,9 @@ export function extractTransitionDurations(procedures, votingRecords, asOf) {
     if (!vote.date && !vote.timestamp) continue;
     const voteDate = new Date(vote.date || vote.timestamp);
     if (isNaN(voteDate.getTime())) continue;
+
+    // Skip votes in the future relative to asOf (point-in-time snapshot)
+    if (voteDate.getTime() > refTime) continue;
 
     const ageMs = refTime - voteDate.getTime();
     const weight = ageMs <= RECENT_WINDOW_MS ? RECENT_WEIGHT : ageMs <= 2 * RECENT_WINDOW_MS ? OLDER_WEIGHT : STALE_WEIGHT;
@@ -381,8 +387,9 @@ export function computeTransitModel(procedures, votingRecords, seed, asOf) {
 
   const output = {};
 
-  for (const proc of procedures) {
-    const processId = proc.processId || proc.id || proc.reference || 'unknown';
+  for (let idx = 0; idx < procedures.length; idx++) {
+    const proc = procedures[idx];
+    const processId = proc.processId || proc.id || proc.reference || `unknown_${idx}`;
     const currentStage = inferCurrentStage(proc);
     const stageIdx = STAGES.indexOf(currentStage);
 
