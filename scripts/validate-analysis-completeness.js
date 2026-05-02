@@ -993,15 +993,13 @@ function main() {
         exists: true,
         lines: 0,
         minLines: 0,
-        issues: [`forward-registry:expired-unresolved(${expiredUnresolved.length})`],
+        issues: [
+          `forward-registry:expired-unresolved(${expiredUnresolved.length}) ids=${ids}`,
+        ],
         warnings: [],
         mermaid: false,
         placeholders: [],
       });
-      process.stderr.write(
-        `RED forward-registry:expired-unresolved — ${expiredUnresolved.length} expired ` +
-          `carry-forward statements without a terminal status: ${ids}\n`,
-      );
     } else {
       mergeSyntheticResult(results, {
         relativePath: 'forward-statements-registry',
@@ -1009,14 +1007,12 @@ function main() {
         lines: 0,
         minLines: 0,
         issues: [],
-        warnings: [`forward-registry:expired-unresolved(${expiredUnresolved.length})`],
+        warnings: [
+          `forward-registry:expired-unresolved(${expiredUnresolved.length}) ids=${ids}`,
+        ],
         mermaid: false,
         placeholders: [],
       });
-      process.stderr.write(
-        `WARN forward-registry:expired-unresolved — ${expiredUnresolved.length} expired ` +
-          `carry-forward statement(s) need close-out: ${ids}\n`,
-      );
     }
   }
 
