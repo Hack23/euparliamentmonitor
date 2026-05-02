@@ -237,12 +237,12 @@ analytic neutrality preserved.
 - [`../methodologies/political-style-guide.md`](../methodologies/political-style-guide.md) — Economist tone
 - [`../methodologies/osint-tradecraft-standards.md`](../methodologies/osint-tradecraft-standards.md) — every claim graded
 
-## 📐 Mandatory long-form diagrams (≥3)
+## 📐 Recommended long-form diagrams
 
-Stage-C requires `deep-analysis.md` to ship at least **three** color-coded
-Mermaid diagrams in addition to the in-section structural diagram. The three
-templates below are the minimum baseline — extend, do not replace — and every
-diagram MUST inherit the canonical universal init block from
+The following three color-coded Mermaid diagrams are **recommended** for
+`deep-analysis.md` artifacts to convey structural arguments visually. They are
+a best-practice baseline — extend, do not replace — and every diagram MUST
+inherit the canonical universal init block from
 [`political-style-guide.md` §Standard universal init block](../methodologies/political-style-guide.md).
 
 ### Diagram 1 — Argument arc (executive → forward)
