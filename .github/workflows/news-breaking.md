@@ -281,14 +281,14 @@ prose pass.
 | Stage C budget (gate + optional Pass 3) | ≤ 4 min |
 | Stage D budget | ≤ 2 min (deterministic) |
 | Stage E budget (commit + single PR) | ≤ 2 min |
-| **Stage C exit tripwire** | **minute 36 elapsed** (long-horizon: 39; electoral: 42) — the **decision threshold** for forcing `GATE_RESULT=ANALYSIS_ONLY` and (if late) skipping Stage D so the run can still reach the PR call. Per-slug stage ceilings live in `src/config/article-horizons.ts`; the tripwire backstops any per-stage overrun. **Note:** Stage D + E run *after* this tripwire, between the Stage C exit and the PR-call deadline. |
+| **Stage C exit tripwire** | **minute 36 elapsed** (long-horizon prospective: 39; long-horizon retrospective: 38; electoral: 42) — the **decision threshold** for forcing `GATE_RESULT=ANALYSIS_ONLY` and (if late) skipping Stage D so the run can still reach the PR call. Per-slug stage ceilings live in `src/config/article-horizons.ts`; the tripwire backstops any per-stage overrun. **Note:** Stage D + E run *after* this tripwire, between the Stage C exit and the PR-call deadline. |
 | **Hard PR-call deadline** | **minute ≤ 45 elapsed** (target ≤ 42) — deadline for the single safe-outputs `create_pull_request` call. Backed by `engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+) which keeps the safeoutputs HTTP session alive for the full 60-min cap. |
 | Hard safety cap | 60-min `timeout-minutes` |
 | PR rule | **Exactly one** `[news]` PR at end of run |
 
 > **⏱️ MCP session lifetime (gh-aw v0.71.3+)**: This workflow sets
 > `engine.mcp.session-timeout: 65m`, which keeps the safeoutputs HTTP
-> session on `localhost:3001` alive for 55 minutes — outlasting the
+> session on `localhost:3001` alive for 65 minutes — outlasting the
 > 60-min `timeout-minutes` cap with a 5-min margin. The previous
 > ~28–30 min hard TTL (which capped the old 45-min schedule and bit
 > run #24963129839) no longer applies. The Stage C exit tripwire
@@ -419,8 +419,8 @@ STAGE_C_GATE: RED articleType=${ARTICLE_TYPE_SLUG} missing=<N> short=<N> placeho
 > **Look up the slug-specific Stage C exit tripwire in
 > `src/config/article-horizons.ts`** — short/mid prospective &
 > retrospective slugs trip at **minute 36**, long-horizon
-> prospective/retrospective slugs at **minute 39**, electoral-overlay
-> slugs at **minute 42**. **If `ELAPSED_MIN ≥ tripwire`, immediately
+> prospective slugs at **minute 39**, long-horizon retrospective
+> slugs at **minute 38**, electoral-overlay slugs at **minute 42**. **If `ELAPSED_MIN ≥ tripwire`, immediately
 > set `GATE_RESULT=ANALYSIS_ONLY` — even if Stage C has just emitted
 > GREEN.** Stage D + E need ≥ 4 min of budget before the PR-call
 > deadline at minute ≤ 45. Emit the gate line as a single unbroken

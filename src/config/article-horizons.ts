@@ -167,9 +167,9 @@ export interface ArticleHorizonConfig {
 }
 
 /** Stage budgets shared by the four short/mid prospective horizons.
- *  Sum 35 — completes by minute ~35 within the 60-min cap; Pass 1 ends
- *  at minute ~22 (Stage A end + ~12 min B1), Pass 2 occupies minute
- *  22→32, Stage C at 32→36, Stage D 36→38, Stage E 38→40. */
+ *  Sum 35 (A=5, B=22, C=4, D=2, E=2). Per-family B1→B2,
+ *  Stage C exit, and PR-call tripwires are defined in
+ *  `.github/prompts/02-analysis-protocol.md` §3. */
 const PROSPECTIVE_BUDGETS: StageBudgetConfig = { A: 5, B: 22, C: 4, D: 2, E: 2 };
 
 /** Stage budgets shared by retrospective horizons. Sum 34 — same shape

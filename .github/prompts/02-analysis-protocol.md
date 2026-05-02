@@ -269,7 +269,7 @@ invalid schema` line listing each invalid field.
 > elapsed-time tripwire fired at minute 28, and the single
 > `safeoutputs___create_pull_request` call landed at minute 29 →
 > `session not found` HTTP 404 → zero safe outputs shipped). With the
-> session now alive for 55 min, the workflow can safely use the full
+> session now alive for 65 min, the workflow can safely use the full
 > 60-min `timeout-minutes` cap and target minute ≤ 45 for the PR call,
 > giving Pass 2 a ≥ 10-min absolute window (vs the prior 4-min floor)
 > for genuine read-back-and-rewrite quality work.
