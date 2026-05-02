@@ -14,12 +14,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-3.2-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--25-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.3-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--02-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 3.2 | **📅 Last Updated:** 2026-04-25 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 3.3 | **📅 Last Updated:** 2026-05-02 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -107,6 +107,119 @@ Templates are **not** standalone outputs. They form a **composable intelligence 
 > 🌍 **EU multi‑national extension over Riksdagsmonitor.** Where Riksdagsmonitor templates ([`Article-Generation.md`](https://github.com/Hack23/riksdagsmonitor/blob/main/Article-Generation.md), [`templates/README.md`](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/templates/README.md)) are sized for one parliament, EUPM templates carry mandatory EU‑27 member‑state cluster tags ({Northern, Western, Southern, Central‑Eastern}), explicit citizen‑segment translation blocks, and dual‑Mermaid pipelines (one institutional, one cross‑cluster). v2.0 templates (`impact-matrix`, `forces-analysis`, `actor-mapping`) demonstrate the pattern.
 
 > 🎨 **Mermaid is rendered same‑origin.** All diagrams ship via the vendored bundle `js/vendor/mermaid/mermaid.esm.min.mjs` (copied by `npm run copy-vendor`, deployed to S3/CloudFront as `text/javascript`). No external CDN — `script-src 'self'` is the contract. If your template uses a quadrant chart, use the **dedicated quadrant init block** ([`political-style-guide.md §Standard Mermaid init blocks`](../methodologies/political-style-guide.md)); for every other diagram type use the **universal init block**.
+
+---
+
+## 🎨 Mermaid Authoring Standard
+
+Every diagram across the 59 templates inherits the canonical ISMS palette
+defined in [`political-style-guide.md §Standard universal init block`](../methodologies/political-style-guide.md). The
+two **only** init blocks allowed are:
+
+1. **Universal init block** — required for `graph`, `flowchart`, `mindmap`, `sequenceDiagram`, `gantt`, `pie`, `stateDiagram`, `classDiagram`, `erDiagram`, `gitGraph`, `timeline`, `journey`, `xychart-beta`, `C4Context`, `block-beta`, `sankey-beta`. Sets `primaryColor`, `pie1`–`pie12`, `git0`–`git3`, `cScale0`–`cScale7`, and the `xyChart.plotColorPalette` so every diagram type inherits the same heat-map.
+2. **Quadrant init block** — required **only** for `quadrantChart`. Sets `quadrant1Fill`–`quadrant4Fill` plus quadrant-specific font sizes.
+
+Mixing the two snippets is rejected by the style guide. Bootstrap-era one-off
+overrides (`#0d6efd` / `#28a745` / `#dc3545`) remain valid only as
+per-node `style …` directives layered **on top** of the canonical init block.
+
+### Canonical 12-colour palette
+
+| Token | Hex | Use |
+|:-:|---|---|
+| 🔵 `pie1` / `git0` / `cScale0` | `#1565C0` | Primary institution / Council / Manage Closely |
+| 🟢 `pie2` / `git1` / `cScale1` | `#2E7D32` | Stable / Pro-integration opportunity / Low risk |
+| 🟠 `pie3` / `git2` / `cScale2` | `#FF9800` | Monitor / Stagnation / Medium risk |
+| 🔴 `pie4` / `git3` / `cScale3` | `#D32F2F` | Critical risk / Sovereignist risk / Failed |
+| 🟡 `pie5` / `cScale4` | `#FFC107` | Warning / Caution / Recess |
+| 🟣 `pie6` / `cScale5` | `#7B1FA2` | Crystallisation / SAT / Diamond Capability |
+| ⚪ `pie7` / `cScale6` | `#9E9E9E` | Confidence ledger / Method note |
+| 🔷 `pie8` / `cScale7` | `#0288D1` | Secondary institution / Supporting actor |
+| 🟩 `pie9` | `#388E3C` | Delivered / Stable adopt |
+| 🟧 `pie10` | `#F57C00` | Medium-orange / In-progress |
+| 🩸 `pie11` | `#C62828` | Hard-fail / RED gate |
+| 🟨 `pie12` | `#FBC02D` | Mid-yellow / Slippage |
+
+### Per-diagram-type recommendation
+
+| Mermaid type | When to choose | Example template |
+|---|---|---|
+| `flowchart` / `graph` | Procedural chains, decision trees, fan-outs | `political-threat-landscape.md`, `commission-wp-alignment.md`, `consequence-trees.md` |
+| `quadrantChart` | Power × Interest, Likelihood × Impact, Cohesion × Cohesion-trend | `actor-mapping.md`, `forces-analysis.md`, `stakeholder-map.md` |
+| `timeline` | Term arc, trio rotation, electoral cycle | `term-arc.md`, `presidency-trio-context.md`, `deep-analysis.md` |
+| `gantt` | Calendar projection, plenary/committee weeks, trilogue windows | `parliamentary-calendar-projection.md`, `session-baseline.md` |
+| `xychart-beta` | Time-series, cohesion trajectory, seat projection | `seat-projection.md`, `term-arc.md`, `deep-analysis.md` |
+| `pie` | Coalition arithmetic, group share, vote breakdown | `voting-patterns.md`, `coalition-mathematics.md` |
+| `gitGraph` | Scenario branch divergence, regime-change tripwires | `forward-projection.md`, `scenario-forecast.md` |
+| `sankey-beta` | Pipeline flow, stage occupancy | `legislative-pipeline-forecast.md` |
+| `mindmap` | Six-dimension fan-out, PESTLE, OSINT discipline view | `pestle-analysis.md`, `political-threat-landscape.md` |
+| `sequenceDiagram` | Workflow audit, agent-to-tool interaction | `workflow-audit.md`, README §Template Usage Flow |
+
+### Sweep results (v3.3)
+
+| Template | Diagram type(s) | Init block | Notes |
+|---|---|---|---|
+| `actor-mapping.md` | quadrantChart + flowchart | quadrant + universal | Power × Interest |
+| `actor-threat-profiles.md` | flowchart | universal | Diamond Model + ICO |
+| `analysis-index.md` | flowchart | universal | Provenance map |
+| `coalition-dynamics.md` | flowchart + xychart | universal | Cohesion trajectory |
+| `coalition-mathematics.md` | pie + flowchart | universal | Bloc arithmetic |
+| `commission-wp-alignment.md` | flowchart LR (new v3.3) | universal | CWP → rapporteur → adoption |
+| `comparative-international.md` | flowchart | universal | Cross-jurisdiction |
+| `consequence-trees.md` | flowchart TD | universal (added v3.3) | Cascade tree |
+| `cross-reference-map.md` | flowchart | universal | Provenance |
+| `cross-run-diff.md` | flowchart | universal | Drift detection |
+| `cross-session-intelligence.md` | timeline | universal | Inter-session arc |
+| `data-download-manifest.md` | flowchart LR (new v3.3) | universal | MCP → checksum |
+| `deep-analysis.md` | flowchart + timeline + xychart (3 new v3.3) | universal | Long-form trio |
+| `devils-advocate-analysis.md` | flowchart | universal | Counter-thesis |
+| `economic-context.md` | flowchart + xychart | universal | IMF macro |
+| `executive-brief.md` | graph LR | universal (added v3.3) | Risk snapshot |
+| `forces-analysis.md` | quadrantChart + flowchart | quadrant + universal | Driver vs blocker |
+| `forward-indicators.md` | flowchart | universal | Indicator dashboard |
+| `forward-projection.md` | gitGraph | universal (added v3.3) | Scenario branches |
+| `historical-baseline.md` | xychart + flowchart | universal | Historical anchor |
+| `historical-parallels.md` | flowchart | universal | Comparative case |
+| `imf-vintage-audit.md` | flowchart LR (new v3.3) | universal | SDMX vintage chain |
+| `impact-matrix.md` | flowchart + xychart | universal | Multi-axis impact |
+| `implementation-feasibility.md` | flowchart | universal | Implementation chain |
+| `intelligence-assessment.md` | graph LR | universal | Key judgments |
+| `legislative-disruption.md` | flowchart | universal | Disruption chain |
+| `legislative-pipeline-forecast.md` | sankey-beta | universal (added v3.3) | Stage flow |
+| `legislative-velocity-risk.md` | flowchart LR | universal (added v3.3) | Bottleneck path |
+| `mandate-fulfilment-scorecard.md` | flowchart LR | universal (added v3.3) | Defection flow |
+| `mcp-reliability-audit.md` | flowchart | universal | Reliability map |
+| `media-framing-analysis.md` | flowchart | universal | Narrative frame |
+| `methodology-reflection.md` | flowchart | universal | Pipeline self-audit |
+| `parliamentary-calendar-projection.md` | gantt (new v3.3) | universal | Walk-forward calendar |
+| `per-file-political-intelligence.md` | flowchart + quadrant + others | both | Per-document |
+| `pestle-analysis.md` | flowchart | universal | PESTLE 6-axis |
+| `political-capital-risk.md` | flowchart | universal | 5×5 heat-map |
+| `political-classification.md` | flowchart LR | universal | 7-dimension fan-out |
+| `political-threat-landscape.md` | graph TD + flowchart LR (new v3.3) | universal | 6D + severity fan-out |
+| `presidency-trio-context.md` | timeline + flowchart (2 new v3.3) | universal | Trio rotation |
+| `quantitative-swot.md` | flowchart | universal | Quantified SWOT |
+| `reference-analysis-quality.md` | flowchart | universal | Quality lens |
+| `risk-assessment.md` | quadrantChart + flowchart | quadrant + universal | 5×5 L×I |
+| `risk-matrix.md` | quadrantChart | quadrant | Heat-map matrix |
+| `scenario-forecast.md` | gitGraph + xychart | universal | Scenario tree |
+| `seat-projection.md` | xychart-beta | universal (added v3.3) | Seat trajectory |
+| `session-baseline.md` | gantt | universal | Plenary calendar |
+| `significance-classification.md` | flowchart | universal | 7-dimension cls |
+| `significance-scoring.md` | flowchart + pie | universal | Score → publish/hold |
+| `stakeholder-impact.md` | flowchart | universal | 7-lens cascade |
+| `stakeholder-map.md` | quadrantChart | quadrant | Power × Interest |
+| `swot-analysis.md` | quadrantChart + TOWS flowchart | quadrant + universal | SWOT/TOWS |
+| `synthesis-summary.md` | graph TD + graph LR + flowchart | universal | Dashboard |
+| `term-arc.md` | timeline + xychart | universal (added v3.3) | EP term progress |
+| `threat-analysis.md` | flowchart | universal | 5-framework integrated |
+| `threat-model.md` | flowchart | universal | Software/political |
+| `voter-segmentation.md` | flowchart + pie | universal | Segment map |
+| `voting-patterns.md` | flowchart | universal | Coalition arithmetic |
+| `wildcards-blackswans.md` | flowchart | universal | Black-swan map |
+| `workflow-audit.md` | flowchart + sequenceDiagram | universal | 6-phase audit |
+
+> **Drift-guard (v3.3):** if a future contributor adds a new `analysis/templates/*.md` template, the Stage-C validator continues to require ≥1 mermaid block for any artifact path under `intelligence/`, `classification/`, `risk-scoring/`, or `threat-assessment/`. Run `npm test -- test/unit/analysis-templates-referenced.test.js` to confirm the new template is referenced from `.github/prompts/` or `.github/agents/`.
 
 ---
 
@@ -324,6 +437,48 @@ These six templates codify the reusable EP-domain methodologies — every downlo
 | F6 | [🔍 per-file-political-intelligence](per-file-political-intelligence.md) | The **most-used** template: every downloaded EP data file receives a per-file `.analysis.md` applying classification + SWOT + risk + threat + significance in one pass. |
 
 > Artifact catalogue: [`../methodologies/artifact-catalog.md`](../methodologies/artifact-catalog.md) maps every `analysis/daily/<run>/…` path to one of these six framework templates **or** one of the 25 per-artifact templates below **or** one of the 14 agentic-workflow templates listed in the master catalogue above. The README + `analysis-index.md` are the only two `.md` files in this directory not subject to the drift-guard test `test/unit/analysis-templates-referenced.test.js`, which enforces that every other template is referenced by basename under `.github/prompts/` or `.github/agents/`.
+
+---
+
+## 🧾 Template ↔ Article Section Cross-Reference
+
+This table maps every template basename to the canonical aggregator section in
+which the corresponding artifact is rendered (see [`src/aggregator/artifact-order.ts`](../../src/aggregator/artifact-order.ts) and the matching
+table in [`Article-Generation.md` §Templates and Artifact-to-Article Mapping](../../Article-Generation.md)). The aggregator never
+renders templates directly — it renders the artifacts produced **from** them — so
+the order below is the order in which the corresponding artifact appears in the
+final article.
+
+| Aggregator section (id → title) | Templates (in render order) |
+|---|---|
+| `executive-brief` → Executive Brief | [executive-brief](executive-brief.md) |
+| `synthesis` → Synthesis Summary | [synthesis-summary](synthesis-summary.md) |
+| `significance` → Significance | [significance-classification](significance-classification.md) · [significance-scoring](significance-scoring.md) |
+| `actors-forces` → Actors & Forces | [actor-mapping](actor-mapping.md) · [forces-analysis](forces-analysis.md) · [impact-matrix](impact-matrix.md) |
+| `coalitions-voting` → Coalitions & Voting | [coalition-dynamics](coalition-dynamics.md) · [coalition-mathematics](coalition-mathematics.md) · [voting-patterns](voting-patterns.md) |
+| `stakeholder-map` → Stakeholder Map | [stakeholder-map](stakeholder-map.md) · [stakeholder-impact](stakeholder-impact.md) |
+| `pestle-context` → PESTLE & Context | [pestle-analysis](pestle-analysis.md) · [historical-baseline](historical-baseline.md) |
+| `economic-context` → Economic Context | [economic-context](economic-context.md) · [imf-vintage-audit](imf-vintage-audit.md) |
+| `risk` → Risk Assessment | [risk-matrix](risk-matrix.md) · [risk-assessment](risk-assessment.md) · [quantitative-swot](quantitative-swot.md) · [swot-analysis](swot-analysis.md) · [political-capital-risk](political-capital-risk.md) · [legislative-velocity-risk](legislative-velocity-risk.md) |
+| `threat` → Threat Landscape | [political-threat-landscape](political-threat-landscape.md) · [threat-model](threat-model.md) · [threat-analysis](threat-analysis.md) · [actor-threat-profiles](actor-threat-profiles.md) · [consequence-trees](consequence-trees.md) · [legislative-disruption](legislative-disruption.md) |
+| `scenarios` → Scenarios & Wildcards | [scenario-forecast](scenario-forecast.md) · [wildcards-blackswans](wildcards-blackswans.md) · [devils-advocate-analysis](devils-advocate-analysis.md) |
+| `forward-projection` → Forward Projection | [forward-projection](forward-projection.md) · [legislative-pipeline-forecast](legislative-pipeline-forecast.md) · [parliamentary-calendar-projection](parliamentary-calendar-projection.md) · [forward-indicators](forward-indicators.md) |
+| `electoral-arc` → Electoral Arc & Mandate | [term-arc](term-arc.md) · [seat-projection](seat-projection.md) · [mandate-fulfilment-scorecard](mandate-fulfilment-scorecard.md) · [presidency-trio-context](presidency-trio-context.md) · [commission-wp-alignment](commission-wp-alignment.md) |
+| `continuity` → Cross-Run Continuity | [cross-run-diff](cross-run-diff.md) · [cross-session-intelligence](cross-session-intelligence.md) · [session-baseline](session-baseline.md) |
+| `deep-analysis` → Deep Analysis | [deep-analysis](deep-analysis.md) |
+| `documents` → Document Analysis | [per-file-political-intelligence](per-file-political-intelligence.md) · [political-classification](political-classification.md) |
+| `extended-intel` → Extended Intelligence | All [`extended/`](#-per-artifact-templates-25--one-per-mandatory-artifact-under-analysisdailyrun) templates not consumed elsewhere — including [historical-parallels](historical-parallels.md) · [comparative-international](comparative-international.md) · [voter-segmentation](voter-segmentation.md) · [intelligence-assessment](intelligence-assessment.md) · [implementation-feasibility](implementation-feasibility.md) · [media-framing-analysis](media-framing-analysis.md) · [devils-advocate-analysis](devils-advocate-analysis.md) |
+| `mcp-reliability` → MCP Reliability Audit | [mcp-reliability-audit](mcp-reliability-audit.md) |
+| `quality-reflection` → Analytical Quality & Reflection | [analysis-index](analysis-index.md) · [reference-analysis-quality](reference-analysis-quality.md) · [workflow-audit](workflow-audit.md) · [methodology-reflection](methodology-reflection.md) |
+| `aggregator-tradecraft-references` → Tradecraft References | (rendered from [`osint-tradecraft-standards.md`](../methodologies/osint-tradecraft-standards.md)) |
+| `aggregator-analysis-index` → Analysis Index | (rendered from `manifest.json` + `analysis-index.md`) |
+| `data-download-manifest` → Provenance appendix | [data-download-manifest](data-download-manifest.md) · [cross-reference-map](cross-reference-map.md) |
+
+> **Note:** templates that map to a section gated by article-type
+> (`forward-projection`, `electoral-arc`, `extended-intel`) are silently
+> skipped if the corresponding artifact is not produced for that run — the
+> aggregator never errors on missing artifacts. The artifact horizon
+> requirements live in [`src/config/article-horizons.ts`](../../src/config/article-horizons.ts).
 
 ---
 
@@ -952,10 +1107,10 @@ Each article type should produce unique analytical sections in its synthesis tha
 | **Document ID** | `TMPL-README-001` |
 | **Title** | Analysis Templates — Directory Documentation |
 | **Owner** | CEO |
-| **Version** | 3.2 |
+| **Version** | 3.3 |
 | **Classification** | Public |
 | **Created** | 2026-03-30 |
-| **Last Updated** | 2026-04-25 |
+| **Last Updated** | 2026-05-02 |
 | **Review Cycle** | Quarterly |
 | **Next Review** | 2026-07-31 |
 | **Organisation** | Hack23 AB (Org.nr 5595347807) |
@@ -965,6 +1120,7 @@ Each article type should produce unique analytical sections in its synthesis tha
 
 | Version | Date | Changes |
 |:-------:|------|---------|
+| **3.3** | 2026-05-02 | **Mermaid normalisation sweep across all 59 templates.** Added the canonical universal init block (with `pie1`–`pie12`, `git0`–`git3`, `cScale0`–`cScale7`, and the `xyChart` palette) to the 9 mermaid blocks that previously used `theme:default` or no init at all (`consequence-trees.md`, `executive-brief.md`, `forward-projection.md`, `legislative-pipeline-forecast.md`, `legislative-velocity-risk.md`, `mandate-fulfilment-scorecard.md`, `seat-projection.md`, `term-arc.md` ×2). Added new color-coded mermaid diagrams to the 6 templates that previously had none — `deep-analysis.md` (3 diagrams to satisfy Stage-C floor), `commission-wp-alignment.md`, `parliamentary-calendar-projection.md`, `presidency-trio-context.md` (2 diagrams), `imf-vintage-audit.md`, `data-download-manifest.md`. Added a severity-coded 6-dimension fan-out diagram to `political-threat-landscape.md`. Added a new `🎨 Mermaid Authoring Standard` section linking to the canonical init blocks in `political-style-guide.md`. Added a `Template ↔ Article Section` cross-reference table mirroring the order in `src/aggregator/artifact-order.ts` and `Article-Generation.md` §"Templates and Artifact-to-Article Mapping". No line-floors changed; no template was renamed. |
 | **3.2** | 2026-04-25 | Coherent v3.2 release across `analysis/methodologies/` + `analysis/templates/`. Headline corrected from “39 templates” to “51 templates” (8 split-family + 31 per-artifact + 12 extended). Cross-references between every template and its controlling `### section` in `per-artifact-methodologies.md` verified bidirectional. Stage-C validator status corrected — `npm run validate-analysis` (`scripts/validate-analysis-completeness.js`) is the active completeness gate; only the duplicate `src/utils/validate-analysis-completeness.ts` was purged. Badge dates and Next-Review aligned with methodology release. No template line-floor was lowered. |
 | **3.1** | 2026-04-06 | Cross-session intelligence & quality gate enhancements across all 8 templates — see details below |
 | **3.0** | 2026-03-31 | Initial master README consolidating all 8 templates with ISMS alignment |

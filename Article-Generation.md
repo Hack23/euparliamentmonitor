@@ -246,32 +246,37 @@ flowchart TB
 
 ## 🧾 Templates and Artifact-to-Article Mapping
 
-The template index is `analysis/templates/README.md`. It describes the structured Markdown templates that agents fill with actual EP evidence. Templates are not rendered directly; completed artifacts are.
+The template index is [`analysis/templates/README.md`](./analysis/templates/README.md). It describes the structured Markdown templates that agents fill with actual EP evidence. **Templates are not rendered directly** — completed artifacts (the files agents author **from** the templates and commit under `analysis/daily/<date>/<run>/…`) are what reach the rendered article.
 
-The aggregator maps artifact paths to rendered article sections via `src/aggregator/artifact-order.ts`:
+The aggregator maps artifact paths to rendered article sections via `src/aggregator/artifact-order.ts`. The table below enumerates **every one of the 59 templates** by basename, in the order in which the corresponding artifact is rendered. Templates marked *(long-horizon)* or *(extended)* are silently skipped if the run does not produce them — see [`src/config/article-horizons.ts`](./src/config/article-horizons.ts).
 
-| Rendered article section | Primary artifact inputs |
-|---|---|
-| Executive Brief | `executive-brief.md` (preferred) or `extended/executive-brief.md` fallback |
-| Synthesis Summary | `intelligence/synthesis-summary.md` |
-| Significance | `classification/significance-classification.md`, `intelligence/significance-scoring.md` |
-| Actors & Forces | `classification/actor-mapping.md`, `classification/forces-analysis.md`, `classification/impact-matrix.md` |
-| Coalitions & Voting | `intelligence/coalition-dynamics.md`, `intelligence/voting-patterns.md`, `existing/voting-patterns.md` |
-| Stakeholder Map | `intelligence/stakeholder-map.md`, `existing/stakeholder-impact.md` |
-| PESTLE & Context | `intelligence/pestle-analysis.md`, `intelligence/historical-baseline.md` |
-| Economic Context | `intelligence/economic-context.md` |
-| Risk Assessment | `risk-scoring/risk-matrix.md`, `risk-scoring/quantitative-swot.md`, political capital / velocity risk files |
-| Threat Landscape | `intelligence/political-threat-landscape.md`, `intelligence/threat-model.md`, all `threat-assessment/*.md` |
-| Scenarios & Wildcards | `intelligence/scenario-forecast.md`, `intelligence/wildcards-blackswans.md` |
-| Cross-Run Continuity | `intelligence/cross-run-diff.md`, cross-session and baseline files |
-| Deep Analysis | `existing/deep-analysis.md` |
-| Document Analysis | `documents/document-analysis-index.md`, `documents/**/*.md` |
-| Extended Intelligence | all remaining `extended/*.md` |
-| MCP Reliability Audit | `intelligence/mcp-reliability-audit.md` |
-| Analytical Quality & Reflection | `intelligence/reference-analysis-quality.md`, `intelligence/workflow-audit.md`, `intelligence/methodology-reflection.md` |
-| Supplementary Intelligence | Any discovered Markdown not consumed by a canonical section. |
-| Tradecraft References | Auto-generated appendix linking methodology and template files. |
-| Analysis Index | Auto-generated appendix listing every included artifact and source path. |
+| # | Rendered article section (id → title) | Template basenames (in order) | Notes |
+|--:|---|---|---|
+| 1 | `executive-brief` → Executive Brief | [`executive-brief.md`](./analysis/templates/executive-brief.md) | Run-root or `extended/` fallback. BLUF + 3 decisions + 60-second read. |
+| 2 | `synthesis` → Synthesis Summary | [`synthesis-summary.md`](./analysis/templates/synthesis-summary.md) | Editorial spine; cites every other artifact. |
+| 3 | `significance` → Significance | [`significance-classification.md`](./analysis/templates/significance-classification.md) · [`significance-scoring.md`](./analysis/templates/significance-scoring.md) | 7-dimension classification + 5-dimension composite score → publish/hold/skip. |
+| 4 | `actors-forces` → Actors & Forces | [`actor-mapping.md`](./analysis/templates/actor-mapping.md) · [`forces-analysis.md`](./analysis/templates/forces-analysis.md) · [`impact-matrix.md`](./analysis/templates/impact-matrix.md) | Power × Interest quadrants + driver-vs-blocker fan-out. |
+| 5 | `coalitions-voting` → Coalitions & Voting | [`coalition-dynamics.md`](./analysis/templates/coalition-dynamics.md) · [`coalition-mathematics.md`](./analysis/templates/coalition-mathematics.md) · [`voting-patterns.md`](./analysis/templates/voting-patterns.md) | Group icons mandatory: 🔵 EPP / 🔴 S&D / 🟡 RE / 🟢 Greens / 🟠 ECR / 🟣 Left / ⚪ NI. |
+| 6 | `stakeholder-map` → Stakeholder Map | [`stakeholder-map.md`](./analysis/templates/stakeholder-map.md) · [`stakeholder-impact.md`](./analysis/templates/stakeholder-impact.md) | 7-lens institutional cascade. |
+| 7 | `pestle-context` → PESTLE & Context | [`pestle-analysis.md`](./analysis/templates/pestle-analysis.md) · [`historical-baseline.md`](./analysis/templates/historical-baseline.md) | PESTLE 6-axis + historical anchor. |
+| 8 | `economic-context` → Economic Context | [`economic-context.md`](./analysis/templates/economic-context.md) · [`imf-vintage-audit.md`](./analysis/templates/imf-vintage-audit.md) *(optional)* | IMF authoritative; vintage audit when SDMX vintage drifts. |
+| 9 | `risk` → Risk Assessment | [`risk-matrix.md`](./analysis/templates/risk-matrix.md) · [`risk-assessment.md`](./analysis/templates/risk-assessment.md) · [`quantitative-swot.md`](./analysis/templates/quantitative-swot.md) · [`swot-analysis.md`](./analysis/templates/swot-analysis.md) · [`political-capital-risk.md`](./analysis/templates/political-capital-risk.md) · [`legislative-velocity-risk.md`](./analysis/templates/legislative-velocity-risk.md) | 5×5 heat-map: 🟢 low → 🟡 med → 🔴 critical. |
+| 10 | `threat` → Threat Landscape | [`political-threat-landscape.md`](./analysis/templates/political-threat-landscape.md) · [`threat-model.md`](./analysis/templates/threat-model.md) · [`threat-analysis.md`](./analysis/templates/threat-analysis.md) · [`actor-threat-profiles.md`](./analysis/templates/actor-threat-profiles.md) · [`consequence-trees.md`](./analysis/templates/consequence-trees.md) · [`legislative-disruption.md`](./analysis/templates/legislative-disruption.md) | 5-framework integrated (Political Threat Landscape 6D + Attack Trees + Kill Chain + Diamond + ICO). **STRIDE rejected.** |
+| 11 | `scenarios` → Scenarios & Wildcards | [`scenario-forecast.md`](./analysis/templates/scenario-forecast.md) · [`wildcards-blackswans.md`](./analysis/templates/wildcards-blackswans.md) · [`devils-advocate-analysis.md`](./analysis/templates/devils-advocate-analysis.md) *(extended)* | Tree of S1/S2/S3 + black-swan tripwires + counter-thesis. |
+| 12 | `forward-projection` → Forward Projection *(prospective ≥7d)* | [`forward-projection.md`](./analysis/templates/forward-projection.md) · [`legislative-pipeline-forecast.md`](./analysis/templates/legislative-pipeline-forecast.md) *(long-horizon)* · [`parliamentary-calendar-projection.md`](./analysis/templates/parliamentary-calendar-projection.md) *(long-horizon)* · [`forward-indicators.md`](./analysis/templates/forward-indicators.md) *(extended)* | gitGraph + sankey + gantt — prospective horizons only. |
+| 13 | `electoral-arc` → Electoral Arc & Mandate *(long-horizon)* | [`term-arc.md`](./analysis/templates/term-arc.md) · [`seat-projection.md`](./analysis/templates/seat-projection.md) · [`mandate-fulfilment-scorecard.md`](./analysis/templates/mandate-fulfilment-scorecard.md) · [`presidency-trio-context.md`](./analysis/templates/presidency-trio-context.md) · [`commission-wp-alignment.md`](./analysis/templates/commission-wp-alignment.md) | `quarter-ahead+`, `term-outlook`, `election-cycle`. |
+| 14 | `continuity` → Cross-Run Continuity | [`cross-run-diff.md`](./analysis/templates/cross-run-diff.md) · [`cross-session-intelligence.md`](./analysis/templates/cross-session-intelligence.md) · [`session-baseline.md`](./analysis/templates/session-baseline.md) | Drift detection + session baseline gantt. |
+| 15 | `deep-analysis` → Deep Analysis | [`deep-analysis.md`](./analysis/templates/deep-analysis.md) | Long-form 4 000–10 000 word Economist-style prose. |
+| 16 | `documents` → Document Analysis | [`per-file-political-intelligence.md`](./analysis/templates/per-file-political-intelligence.md) · [`political-classification.md`](./analysis/templates/political-classification.md) | Per-file analysis (the most-used template). |
+| 17 | `extended-intel` → Extended Intelligence | All [`extended/*.md`](./analysis/templates/) not consumed above — including [`historical-parallels.md`](./analysis/templates/historical-parallels.md) · [`comparative-international.md`](./analysis/templates/comparative-international.md) · [`voter-segmentation.md`](./analysis/templates/voter-segmentation.md) · [`intelligence-assessment.md`](./analysis/templates/intelligence-assessment.md) · [`implementation-feasibility.md`](./analysis/templates/implementation-feasibility.md) · [`media-framing-analysis.md`](./analysis/templates/media-framing-analysis.md) · [`devils-advocate-analysis.md`](./analysis/templates/devils-advocate-analysis.md) | Catch-all for `extended/` directory; optional long-form, crisis, breaking-deep depth. |
+| 18 | `mcp-reliability` → MCP Reliability Audit | [`mcp-reliability-audit.md`](./analysis/templates/mcp-reliability-audit.md) | Per-tool retry/fallback dashboard. |
+| 19 | `quality-reflection` → Analytical Quality & Reflection | [`analysis-index.md`](./analysis/templates/analysis-index.md) · [`reference-analysis-quality.md`](./analysis/templates/reference-analysis-quality.md) · [`workflow-audit.md`](./analysis/templates/workflow-audit.md) · [`methodology-reflection.md`](./analysis/templates/methodology-reflection.md) | Always last — Step 10.5 of the AI-driven analysis guide. |
+| 20 | `aggregator-tradecraft-references` → Tradecraft References | (auto-generated from [`osint-tradecraft-standards.md`](./analysis/methodologies/osint-tradecraft-standards.md)) | Appendix linking methodology + template files. |
+| 21 | `aggregator-analysis-index` → Analysis Index | (auto-generated from `manifest.json` + [`analysis-index.md`](./analysis/templates/analysis-index.md)) | Lists every included artifact and source path. |
+| 22 | `data-download-manifest` → Provenance Appendix | [`data-download-manifest.md`](./analysis/templates/data-download-manifest.md) · [`cross-reference-map.md`](./analysis/templates/cross-reference-map.md) | GDPR Art. 30 audit trail. |
+| 23 | Supplementary Intelligence | Any discovered Markdown not consumed above | Catch-all so nothing is silently dropped. |
+
+The aggregator never renders templates directly — it renders only artifacts written **from** them, and the order above is the order in which the corresponding *artifacts* appear in the rendered article. Templates marked *(long-horizon)* / *(electoral)* / *(extended)* are silently skipped if the run did not produce them. This list is matched 1:1 with the artifact-claim sets in [`src/aggregator/artifact-order.ts`](./src/aggregator/artifact-order.ts) (the byte-equality test `test/unit/aggregator-determinism.test.js` enforces that the rendered output stays identical run-over-run).
 
 Because `aggregateAnalysisRun()` merges manifest-declared files with discovered Markdown, any extra Markdown in a valid run directory can still be rendered. For current examples such as `analysis/daily/2026-04-24/motions/`, extra Markdown that is not claimed by a canonical section lands under **Supplementary Intelligence** unless `artifact-order.ts` claims it explicitly.
 
