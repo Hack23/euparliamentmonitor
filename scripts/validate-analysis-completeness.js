@@ -965,9 +965,10 @@ function main() {
   // entries emit a warning but do not block.
   // Use manifest.runDate (or date extracted from runDir path) for deterministic
   // evaluation so re-validating historical runs produces stable results.
+  const runDirPosix = runDir.split(path.sep).join('/');
   const gateDate =
     manifest.runDate ||
-    (runDir.match(/analysis\/daily\/(\d{4}-\d{2}-\d{2})\//) || [])[1] ||
+    (runDirPosix.match(/analysis\/daily\/(\d{4}-\d{2}-\d{2})\//) || [])[1] ||
     new Date().toISOString().slice(0, 10);
   const expiredUnresolved = readExpiredUnresolved({
     today: gateDate,

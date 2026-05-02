@@ -599,16 +599,25 @@ describe('forward-statements-registry', () => {
     });
 
     it('should skip entries with missing or invalid expectedHorizon and log warnings', () => {
-      // Write raw JSONL directly to bypass appendEntries validation
-      const shard = path.join(tmpDir, '2026-04.jsonl');
-      fs.mkdirSync(tmpDir, { recursive: true });
-      const noHorizon = JSON.stringify({ id: 'no-horizon', topic: 'test', originatingRunId: 'r1', originatingDate: '2026-04-01', statement: 's', status: 'open', evidenceRefs: [] });
-      const badHorizon = JSON.stringify({ id: 'bad-horizon', topic: 'test', originatingRunId: 'r1', originatingDate: '2026-04-01', statement: 's', expectedHorizon: 'soon', status: 'open', evidenceRefs: [] });
-      const validExpired = JSON.stringify({ id: 'valid-expired', topic: 'test', originatingRunId: 'r1', originatingDate: '2026-04-01', statement: 's', expectedHorizon: '2026-04-01', status: 'open', evidenceRefs: [] });
-      fs.writeFileSync(shard, `${noHorizon}\n${badHorizon}\n${validExpired}\n`, 'utf8');
-      const result = readExpiredUnresolved({ today: '2026-05-02', registryDir: tmpDir });
-      expect(result).toHaveLength(1);
-      expect(result[0].id).toBe('valid-expired');
+      const stderrSpy = vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
+      try {
+        // Write raw JSONL directly to bypass appendEntries validation
+        const shard = path.join(tmpDir, '2026-04.jsonl');
+        fs.mkdirSync(tmpDir, { recursive: true });
+        const noHorizon = JSON.stringify({ id: 'no-horizon', topic: 'test', originatingRunId: 'r1', originatingDate: '2026-04-01', statement: 's', status: 'open', evidenceRefs: [] });
+        const badHorizon = JSON.stringify({ id: 'bad-horizon', topic: 'test', originatingRunId: 'r1', originatingDate: '2026-04-01', statement: 's', expectedHorizon: 'soon', status: 'open', evidenceRefs: [] });
+        const validExpired = JSON.stringify({ id: 'valid-expired', topic: 'test', originatingRunId: 'r1', originatingDate: '2026-04-01', statement: 's', expectedHorizon: '2026-04-01', status: 'open', evidenceRefs: [] });
+        fs.writeFileSync(shard, `${noHorizon}\n${badHorizon}\n${validExpired}\n`, 'utf8');
+        const result = readExpiredUnresolved({ today: '2026-05-02', registryDir: tmpDir });
+        expect(result).toHaveLength(1);
+        expect(result[0].id).toBe('valid-expired');
+        // Verify warnings were emitted for missing and invalid horizons
+        const warnings = stderrSpy.mock.calls.map((c) => String(c[0]));
+        expect(warnings.some((w) => w.includes('no-horizon') && w.includes('missing'))).toBe(true);
+        expect(warnings.some((w) => w.includes('bad-horizon') && w.includes('invalid'))).toBe(true);
+      } finally {
+        stderrSpy.mockRestore();
+      }
     });
 
     it('should use today UTC when no today option provided', () => {

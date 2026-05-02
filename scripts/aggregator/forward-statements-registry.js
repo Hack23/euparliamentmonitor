@@ -297,7 +297,12 @@ export function readExpiredUnresolved(opts) {
   const all = readEntries({ registryDir: opts?.registryDir });
   const expired = [];
   for (const entry of all) {
-    if (typeof entry.expectedHorizon !== 'string') continue;
+    if (typeof entry.expectedHorizon !== 'string') {
+      process.stderr.write(
+        `Skipping forward-statement entry "${entry.id}" with missing expectedHorizon\n`,
+      );
+      continue;
+    }
     let horizon;
     try {
       horizon = normaliseHorizon(/** @type {string} */ (entry.expectedHorizon));
