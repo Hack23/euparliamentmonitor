@@ -34,6 +34,7 @@ describe('theme-toggle icon parity', () => {
     const html = createThemeToggleButton('Toggle theme');
     const moonMatch = html.match(/<svg[^>]*theme-toggle__svg--light[^>]*>[\s\S]*?<\/svg>/);
     expect(moonMatch, 'button must contain a moon SVG').not.toBeNull();
+    if (!moonMatch) throw new Error('moon SVG not found');
     const buttonMoon = innerSvg(moonMatch[0]);
     const iconMoon = innerSvg(icon('moon'));
     expect(buttonMoon).toBe(iconMoon);
@@ -43,6 +44,7 @@ describe('theme-toggle icon parity', () => {
     const html = createThemeToggleButton('Toggle theme');
     const sunMatch = html.match(/<svg[^>]*theme-toggle__svg--dark[^>]*>[\s\S]*?<\/svg>/);
     expect(sunMatch, 'button must contain a sun SVG').not.toBeNull();
+    if (!sunMatch) throw new Error('sun SVG not found');
     const buttonSun = innerSvg(sunMatch[0]);
     const iconSun = innerSvg(icon('sun'));
     expect(buttonSun).toBe(iconSun);
@@ -64,5 +66,11 @@ describe('theme-toggle icon parity', () => {
     const html = createThemeToggleButton('Växla mörkt/ljust tema');
     expect(html).toContain('aria-label="Växla mörkt/ljust tema"');
     expect(html).toContain('title="Växla mörkt/ljust tema"');
+  });
+
+  it('escapes special characters in ariaLabel to prevent attribute injection', () => {
+    const html = createThemeToggleButton('a "label" with <html> & entities');
+    expect(html).toContain('aria-label="a &quot;label&quot; with &lt;html&gt; &amp; entities"');
+    expect(html).toContain('title="a &quot;label&quot; with &lt;html&gt; &amp; entities"');
   });
 });

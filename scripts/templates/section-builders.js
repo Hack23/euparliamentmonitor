@@ -275,7 +275,7 @@ export function buildSiteHeader(options) {
     const becomeSponsorLabel = escapeHTML(getLocalizedString(HEADER_CTA_BECOME_SPONSOR_LABELS, lang));
     const securityLabel = escapeHTML(getLocalizedString(HEADER_CTA_SECURITY_LABELS, lang));
     const safeTitle = escapeHTML(siteTitle);
-    const cta = (extraClass, href, iconName, label) => `<a class="site-header__cta${extraClass ? ` ${extraClass}` : ''}" href="${href}" rel="noopener" aria-label="${label}" title="${label}">${icon(iconName)}<span class="site-header__cta-label">${label}</span></a>`;
+    const cta = (extraClass, href, iconName, label) => `<a class="site-header__cta${extraClass ? ` ${extraClass}` : ''}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${label}" title="${label}">${icon(iconName)}<span class="site-header__cta-label">${label}</span></a>`;
     return `<header class="site-header" role="banner">
     <div class="site-header__inner site-header__inner--stacked">
       <a href="${escapeHTML(homeHref)}" class="site-header__brand" aria-label="${safeTitle}">
@@ -386,7 +386,7 @@ export function buildSiteFooter(options) {
     const safeBuildTime = escapeHTML(BUILD_TIME);
     const buildLine = `v${escapeHTML(APP_VERSION)} · ` +
         `<a href="https://github.com/Hack23/euparliamentmonitor/commit/${safeBuildId}" ` +
-        `class="footer-build" title="${buildLabel} ${safeBuildShort}" rel="noopener">` +
+        `class="footer-build" title="${buildLabel} ${safeBuildShort}" target="_blank" rel="noopener noreferrer">` +
         `<code>${safeBuildShort}</code></a> · ` +
         `<span class="footer-build-deployed">${deployedLabel}</span> ` +
         `<time class="footer-build-time" datetime="${safeBuildTime}" data-relative-time>${safeBuildTime}</time>`;
@@ -408,14 +408,14 @@ export function buildSiteFooter(options) {
           <li><a href="${sitemapHref}">${icon('sitemap')}<span>${sitemapLabel}</span></a></li>
           <li><a href="${apiDocsHref}">${icon('book')}<span>${apiDocsLabel}</span></a></li>
           <li><a href="${pathPrefix}rss.xml">${icon('rss')}<span>${rssLabel}</span></a></li>
-          <li><a href="https://hack23.com/euparliamentmonitor.html" rel="noopener">${icon('external')}<span>EU Parliament Monitor by Hack23</span></a></li>
-          <li><a href="https://hack23.com/euparliamentmonitor-features.html" rel="noopener">${icon('external')}<span>EU Parliament Monitor Features</span></a></li>
-          <li><a href="https://hack23.com/cia-features.html" rel="noopener">${icon('external')}<span>CIA Platform</span></a></li>
-          <li><a href="https://www.riksdagen.se/" rel="noopener">${icon('external')}<span>Sveriges Riksdag</span></a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor" rel="noopener">${icon('github')}<span>${githubLabel}</span></a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor/issues" rel="noopener">${icon('external')}<span>${reportIssuesLabel}</span></a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE" rel="noopener">${icon('book')}<span>${licenseLabel}</span></a></li>
-          <li><a href="https://www.europarl.europa.eu/" rel="noopener">${icon('external')}<span>${europarlLabel}</span></a></li>
+          <li><a href="https://hack23.com/euparliamentmonitor.html" target="_blank" rel="noopener noreferrer">${icon('external')}<span>EU Parliament Monitor by Hack23</span></a></li>
+          <li><a href="https://hack23.com/euparliamentmonitor-features.html" target="_blank" rel="noopener noreferrer">${icon('external')}<span>EU Parliament Monitor Features</span></a></li>
+          <li><a href="https://hack23.com/cia-features.html" target="_blank" rel="noopener noreferrer">${icon('external')}<span>CIA Platform</span></a></li>
+          <li><a href="https://www.riksdagen.se/" target="_blank" rel="noopener noreferrer">${icon('external')}<span>Sveriges Riksdag</span></a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor" target="_blank" rel="noopener noreferrer">${icon('github')}<span>${githubLabel}</span></a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor/issues" target="_blank" rel="noopener noreferrer">${icon('external')}<span>${reportIssuesLabel}</span></a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">${icon('book')}<span>${licenseLabel}</span></a></li>
+          <li><a href="https://www.europarl.europa.eu/" target="_blank" rel="noopener noreferrer">${icon('external')}<span>${europarlLabel}</span></a></li>
         </ul>
       </div>
       <div class="footer-section">
@@ -427,18 +427,18 @@ export function buildSiteFooter(options) {
           <a href="https://github.com/Hack23/euparliamentmonitor/attestations" aria-label="SLSA Level 3"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
         </div>
         <ul>
-          <li><a href="https://hack23.com" rel="noopener">${icon('external')}<span>Hack23.com</span></a></li>
-          <li><a href="https://github.com/sponsors/Hack23" rel="noopener">${icon('heart')}<span>Sponsor Hack23 on GitHub</span></a></li>
-          <li><a href="https://www.linkedin.com/company/hack23" rel="noopener">${icon('linkedin')}<span>${linkedinLabel}</span></a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC" rel="noopener">${icon(ICON_SECURITY)}<span>Public ISMS</span></a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md" rel="noopener">${icon(ICON_SECURITY)}<span>${securityLabel}</span></a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md" rel="noopener">${icon(ICON_SECURITY)}<span>Secure Development Policy</span></a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md" rel="noopener">${icon('book')}<span>Open Source Policy</span></a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md" rel="noopener">${icon('book')}<span>AI Policy</span></a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md" rel="noopener">${icon(ICON_SECURITY)}<span>Access Control Policy</span></a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md" rel="noopener">${icon(ICON_SECURITY)}<span>Cryptography Policy</span></a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md" rel="noopener">${icon(ICON_SECURITY)}<span>Security Policy</span></a></li>
-          <li><a href="https://hack23.com/privacy.html" rel="noopener">${icon(ICON_SECURITY)}<span>Privacy Policy</span></a></li>
+          <li><a href="https://hack23.com" target="_blank" rel="noopener noreferrer">${icon('external')}<span>Hack23.com</span></a></li>
+          <li><a href="https://github.com/sponsors/Hack23" target="_blank" rel="noopener noreferrer">${icon('heart')}<span>Sponsor Hack23 on GitHub</span></a></li>
+          <li><a href="https://www.linkedin.com/company/hack23" target="_blank" rel="noopener noreferrer">${icon('linkedin')}<span>${linkedinLabel}</span></a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC" target="_blank" rel="noopener noreferrer">${icon(ICON_SECURITY)}<span>Public ISMS</span></a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md" target="_blank" rel="noopener noreferrer">${icon(ICON_SECURITY)}<span>${securityLabel}</span></a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md" target="_blank" rel="noopener noreferrer">${icon(ICON_SECURITY)}<span>Secure Development Policy</span></a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md" target="_blank" rel="noopener noreferrer">${icon('book')}<span>Open Source Policy</span></a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md" target="_blank" rel="noopener noreferrer">${icon('book')}<span>AI Policy</span></a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md" target="_blank" rel="noopener noreferrer">${icon(ICON_SECURITY)}<span>Access Control Policy</span></a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md" target="_blank" rel="noopener noreferrer">${icon(ICON_SECURITY)}<span>Cryptography Policy</span></a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer">${icon(ICON_SECURITY)}<span>Security Policy</span></a></li>
+          <li><a href="https://hack23.com/privacy.html" target="_blank" rel="noopener noreferrer">${icon(ICON_SECURITY)}<span>Privacy Policy</span></a></li>
           <li><a href="mailto:james@hack23.com">${icon('mail')}<span>${contactLabel}</span></a></li>
         </ul>
       </div>
@@ -450,8 +450,8 @@ export function buildSiteFooter(options) {
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2008-${year} <a href="https://hack23.com" rel="noopener">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | ${buildLine}</p>
-      <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> ${disclaimerText} <a href="https://github.com/Hack23/euparliamentmonitor/issues" rel="noopener">${reportIssuesLabel}</a>.</p>
+      <p>&copy; 2008-${year} <a href="https://hack23.com" target="_blank" rel="noopener noreferrer">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | ${buildLine}</p>
+      <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> ${disclaimerText} <a href="https://github.com/Hack23/euparliamentmonitor/issues" target="_blank" rel="noopener noreferrer">${reportIssuesLabel}</a>.</p>
     </div>
   </footer>`;
 }

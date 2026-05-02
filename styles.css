@@ -200,9 +200,10 @@ img {
  * The `:has()` selector is supported in all evergreen browsers
  * (Chrome/Edge ≥105, Safari ≥15.4, Firefox ≥121). On older engines
  * `:has()` is ignored — both the SVG glyphs and the emoji fall-back
- * would then render, which is harmless visually (they sit on top of
- * each other in the same flex centre); the SVG path uses
- * `currentColor`, so the user still sees a moon/sun in the right tint.
+ * would then render side-by-side inside the inline-flex container,
+ * which is an acceptable degraded appearance (the button is slightly
+ * wider). The SVG path uses `currentColor`, so the user still sees a
+ * moon/sun in the right tint alongside the emoji duplicate.
  * Anyone targeting older browsers can additionally hide the emoji by
  * overriding `.theme-toggle__emoji { display: none; }`. */
 .theme-toggle:has(svg.theme-toggle__svg) .theme-toggle__emoji {
