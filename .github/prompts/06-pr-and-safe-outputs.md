@@ -172,7 +172,7 @@ Notes on the schema:
 
 ## 7 · Exception — `news-translate.md`
 
-Translation workflows translate one file at a time within a 45-minute hard
+Translation workflows translate one file at a time within a 60-minute hard
 cap and up to 13 target languages. Losing all translations after the first
 flush is unacceptable. `news-translate.md` (and only it) uses the repeated-
 flush pattern: each `safeoutputs___create_pull_request` call overwrites the

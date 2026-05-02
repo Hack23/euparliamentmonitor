@@ -165,7 +165,7 @@ The following capabilities have already been delivered and are documented in [WO
 ### 0.2 Agentic News Workflows — ✅ COMPLETED
 
 **Status:** 10 agentic news workflows compiled via `gh-aw` (GitHub Agentic Workflows v0.57.0) are in production.  
-**Engine:** GitHub Copilot CLI with `claude-opus-4.7` model  
+**Engine:** GitHub Copilot CLI with `claude-sonnet-4.6` model  
 **Data Source:** `european-parliament-mcp-server` via MCP protocol  
 **Coverage:** 14 languages (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH)
 
@@ -1102,7 +1102,7 @@ gantt
 ```mermaid
 flowchart LR
     subgraph "2026"
-        T1["claude-opus-4.7<br/>GitHub Copilot<br/>EP MCP Server"]
+        T1["claude-sonnet-4.6<br/>GitHub Copilot<br/>EP MCP Server"]
     end
 
     subgraph "2027-2029"

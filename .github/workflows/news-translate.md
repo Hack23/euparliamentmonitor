@@ -37,7 +37,7 @@ permissions:
   discussions: read
   security-events: read
 
-timeout-minutes: 45
+timeout-minutes: 60
 
 features:
   mcp-gateway: true
@@ -49,7 +49,7 @@ sandbox:
     # `keepalive-interval` (seconds) for HTTP MCP backends — see upstream
     # reference/mcp-gateway.md §4.1.3.5. Gateway default is 1500 (25 min);
     # we override to 300 so the gateway pings each backend every 5 minutes.
-    # This keeps backend HTTP sessions warm during the 45-minute multi-call
+    # This keeps backend HTTP sessions warm during the 60-minute multi-call
     # flush window without triggering EP-side rate limits.
     keepalive-interval: 300
 
@@ -196,7 +196,15 @@ post-steps:
 
 engine:
   id: copilot
-  model: claude-opus-4.7
+  model: claude-sonnet-4.6
+  mcp:
+    # gh-aw v0.71.3+: per-workflow MCP gateway session lifetime.
+    # Set to 65m so the safeoutputs HTTP session outlasts the
+    # 60-minute `timeout-minutes` cap with a 5-minute margin —
+    # superseding the previous ~28–30 min hard TTL that capped the
+    # old 45-minute schedule. Min 5m, no upper bound; format is a
+    # Go duration string (kebab-case key only).
+    session-timeout: 65m
   # max-continuations: 3 enables autopilot mode (--autopilot --max-autopilot-continues 3
   # in the compiled lock) so the agent can restart up to 3 times. Translate needs
   # multiple passes to cover all 14 languages within the single job budget.
@@ -214,7 +222,7 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 >
 > This means interim `git commit` usage does **not** make changes disappear from safeoutputs by itself: committed-since-base changes are still included in the next successful snapshot. The real risk is waiting too long between successful calls, because the PR only contains whatever was captured by the **latest** successful snapshot. Note also that a subsequent `git reset` (e.g. `git reset --mixed`) can remove commits from future snapshots — so if you ever commit, always **flush first, reset second**.
 >
-> MCP gateway keepalive is enabled in frontmatter (`sandbox.mcp.keepalive-interval: 300`) to prevent idle session expiry during long runs. Combined with `safe-outputs.create-pull-request.max: 10` (the gh-aw schema maximum), you can safely do up to 10 flushes per run, and the session stays alive for the whole 45-minute budget even while you are translating.
+> MCP gateway keepalive is enabled in frontmatter (`sandbox.mcp.keepalive-interval: 300`) to prevent idle session expiry during long runs. Combined with `safe-outputs.create-pull-request.max: 10` (the gh-aw schema maximum), you can safely do up to 10 flushes per run, and the session stays alive for the whole 60-minute budget (`engine.mcp.session-timeout: 65m`) even while you are translating.
 
 ## 🚫 NEVER CREATE A ZERO-TRANSLATION PR (PRIMARY CONTRACT)
 
@@ -256,9 +264,9 @@ Mandatory ordering contract:
 > `sandbox.mcp.keepalive-interval: 300`. Do **not** use
 > `safeoutputs___push_repo_memory` heartbeat patterns.
 
-**Mandatory policy (45-minute budget):**
+**Mandatory policy (60-minute budget):**
 - **Do NOT call `safeoutputs___create_pull_request` before at least 3 translated HTML files are on disk and lint-clean.** Placeholder baselines create empty PRs (PR #1346).
-- First productive flush = minute ~12–18 (after the first 3 translations). Subsequent flushes every 3 completed files. Final flush at end of Step 5 with the quality-scored title/body — must complete by minute ≤ 28 to stay inside the safeoutputs MCP session TTL (~28–30 min).
+- First productive flush = minute ~12–18 (after the first 3 translations). Subsequent flushes every 3 completed files. Final flush at end of Step 5 with the quality-scored title/body — must complete by minute ≤ 45 of the 60-min `timeout-minutes` cap. The MCP gateway session lifetime is `engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+), so the safeoutputs HTTP session stays alive for the full run.
 - Budget: ~5 calls for a single-article 13-language run (flushes #1–#5: first at 3 files, then at 6/9/12, then final at 13) — well below the `safe-outputs.create-pull-request.max: 10` schema cap.
 - Do not introduce extra heartbeat-only tool calls between flushes. Keepalive is already configured.
 - If any `safeoutputs___create_pull_request` call returns `"session not found"`,
@@ -392,7 +400,7 @@ sv (Swedish), da (Danish), no (Norwegian), fi (Finnish), de (German), fr (French
 - Files failing these checks are **automatically REMOVED** from the PR and the agent is told to re-translate them
 - Per-language quality scores are included in the PR description and analysis summary
 
-## ⏱️ Time Budget (45 minutes — hard cap; safeoutputs MCP TTL ~28–30 min)
+## ⏱️ Time Budget (60 minutes — hard cap; `engine.mcp.session-timeout: 65m` keeps safeoutputs MCP session alive for the full run)
 
 | Minutes | Action |
 |---------|--------|
@@ -400,15 +408,15 @@ sv (Swedish), da (Danish), no (Norwegian), fi (Finnish), de (German), fr (French
 | 2–5 | Generate article HTML files (Step 3) — NO safeoutputs call yet |
 | 5–14 | **First 3 translations** (Step 3b, files 1–3). Translate ALL sections, HTMLHint-clean each. NO safeoutputs call yet |
 | 14 | **FIRST PRODUCTIVE FLUSH** — `safeoutputs___create_pull_request` call #1. PR is created here, already containing 3 real translations. Never before this point. |
-| 14–25 | **AI TRANSLATION continues** (files 4–N). **Flush safeoutputs after every additional 3 files** — calls #2, #3, #4 at completion counts 6, 9, 12. Each flush refreshes the safeoutputs session timer. |
-| 25–27 | Validate translations (Step 4) — reject untranslated copies |
-| 27–28 | **Write quality-scored summary** (Step 4c) — MANDATORY, no placeholders |
-| 28 | **Final `safeoutputs___create_pull_request`** with quality scores (Step 5). MUST land by minute ≤ 28 — past minute 30 the safeoutputs session is reaped and the PR call returns `session not found`. |
-| 28–45 | Buffer for retry, npm steps, git push and graceful exit |
+| 14–40 | **AI TRANSLATION continues** (files 4–N). **Flush safeoutputs after every additional 3 files** — calls #2, #3, #4 at completion counts 6, 9, 12. Each flush refreshes the safeoutputs session timer. |
+| 40–43 | Validate translations (Step 4) — reject untranslated copies |
+| 43–44 | **Write quality-scored summary** (Step 4c) — MANDATORY, no placeholders |
+| 44–45 | **Final `safeoutputs___create_pull_request`** with quality scores (Step 5). MUST land by minute ≤ 45 of the 60-min `timeout-minutes` cap. With `engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+) the safeoutputs HTTP session stays alive for the full run. |
+| 45–60 | Buffer for retry, npm steps, git push and graceful exit |
 
-> **Per-run article-type scope**: One article type per run only. A 45-minute budget covers ~9–13 of the 13 target languages depending on article length. If `article_types` input names multiple types, run them in separate workflow invocations rather than chaining them in a single run.
+> **Per-run article-type scope**: One article type per run only. A 60-minute budget covers all 13 target languages comfortably depending on article length. If `article_types` input names multiple types, run them in separate workflow invocations rather than chaining them in a single run.
 
-> **TRANSLATION IS THE PRIORITY**: Spend ≥ 18 minutes translating (minute 5–25 of the 45-min cap). Every file MUST have its title, h1, description, and body text fully translated — just changing the lang attribute is NOT a translation. Files that are untranslated copies of English will be automatically REJECTED in Step 4.
+> **TRANSLATION IS THE PRIORITY**: Spend ≥ 30 minutes translating (minute 5–35 of the 60-min cap). Every file MUST have its title, h1, description, and body text fully translated — just changing the lang attribute is NOT a translation. Files that are untranslated copies of English will be automatically REJECTED in Step 4.
 
 > **QUALITY SUMMARY IS MANDATORY**: Step 4c summary.md MUST contain per-language quality scores and a coverage matrix. Placeholders like "_(to be filled)_" are NEVER acceptable. If you run out of time, write what you have — but NEVER leave the template empty.
 
