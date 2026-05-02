@@ -303,6 +303,7 @@ prose pass.
 - Long-horizon stage helpers: see [`.github/prompts/10-horizon-stage-helpers.md`](../prompts/10-horizon-stage-helpers.md) for the registry-driven Stage-A/B/C contract.
 - Economic context (**IMF only** for macro/fiscal/monetary/trade) is mandatory — monthly articles always touch macro/policy.
 - Mine prior-run forward statements (per `01-data-collection.md` §8).
+- **`intelligence/forward-projection.md` is mandatory** (§9.4): produce a WEP-banded probability table, structural-break tripwires, and reference-class table scoped to the 30-day horizon. Floor: 120 lines.
 - **Seed synthesis from forward-statements registry** (per `01-data-collection.md` §8a): read open items from `analysis/forward-statements/` before Stage B.
 - **Multi-day foreseen activities fan-out** (per `01-data-collection.md` §8b): for each plenary session in the next 30 days, call `get_meeting_foreseen_activities` for all session days (Mon–Thu for Strasbourg, Wed–Thu for Brussels mini-sessions).
 

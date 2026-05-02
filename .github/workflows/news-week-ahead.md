@@ -303,6 +303,7 @@ prose pass.
 - Long-horizon stage helpers: see [`.github/prompts/10-horizon-stage-helpers.md`](../prompts/10-horizon-stage-helpers.md) for the registry-driven Stage-A/B/C contract.
 - Mine prior-run forward statements (per `01-data-collection.md` §8) and carry ≥ 3 forward statements forward with status updates.
 - Include `intelligence/scenario-forecast.md` in the analysis set; render probability-labelled scenario cards.
+- **`intelligence/forward-projection.md` is mandatory** (§9.4): produce a WEP-banded probability table, structural-break tripwires, and reference-class table scoped to the 7-day horizon. Floor: 80 lines.
 - **Seed synthesis from forward-statements registry** (per `01-data-collection.md` §8a): read open items from `analysis/forward-statements/` before Stage B.
 - **Multi-day foreseen activities fan-out** (per `01-data-collection.md` §8b): call `get_meeting_foreseen_activities` for each of the 4 session days, not just day 1.
 - **Monday urgency motion sweep** (per `01-data-collection.md` §8c): when running on a Monday, poll `get_adopted_texts_feed` + `get_procedures_feed` for Rule 132 urgency motions.

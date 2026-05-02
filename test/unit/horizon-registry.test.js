@@ -157,6 +157,19 @@ describe('article-horizons registry — drift guard', () => {
     }
   });
 
+  it('week-ahead and month-ahead include forward-projection.md as mandatory (§9.4)', () => {
+    const weekAhead = getHorizonConfig('week-ahead');
+    const monthAhead = getHorizonConfig('month-ahead');
+    expect(
+      weekAhead?.mandatoryArtifacts,
+      'week-ahead mandatoryArtifacts must include forward-projection.md',
+    ).toContainEqual('intelligence/forward-projection.md');
+    expect(
+      monthAhead?.mandatoryArtifacts,
+      'month-ahead mandatoryArtifacts must include forward-projection.md',
+    ).toContainEqual('intelligence/forward-projection.md');
+  });
+
   it('every news-*.md workflow (except news-translate.md) references 10-horizon-stage-helpers.md', () => {
     const workflowDir = path.resolve(
       path.dirname(fileURLToPath(import.meta.url)),
