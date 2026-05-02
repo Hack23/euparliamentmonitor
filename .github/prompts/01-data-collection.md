@@ -347,8 +347,8 @@ After Stage B, for each open item in `data/forward-statements-open.json`:
 - If carried forward unchanged: update `lastObservedDate` by re-running the registry update with `--status open`
 
 **Expired carry-forward close-out (§9.2 quality gate):** When a forward statement's
-`expectedHorizon` has passed (i.e. `now > horizonEnd`), the agent MUST close it
-out with a status update row containing `evidence`. Stage C turns RED if >2
+`expectedHorizon` has passed (i.e. `now > expectedHorizon`), the agent MUST close it
+out with a status update row containing `evidenceRefs`. Stage C turns RED if >2
 expired statements remain unresolved. For each expired item, append a JSONL row:
 - `status: 'resolved'` — prediction confirmed by EP data (cite evidence)
 - `status: 'stale'` — horizon passed without resolution; mark as withdrawn
