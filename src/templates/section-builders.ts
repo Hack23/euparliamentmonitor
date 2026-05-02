@@ -42,6 +42,14 @@ import {
   THEME_TOGGLE_LABELS,
   BUILD_INFO_COMMIT_LABELS,
   BUILD_INFO_DEPLOYED_LABELS,
+  HEADER_CTA_SPONSOR_LABELS,
+  HEADER_CTA_BECOME_SPONSOR_LABELS,
+  HEADER_CTA_SECURITY_LABELS,
+  FOOTER_NEWS_LABELS,
+  FOOTER_DASHBOARD_LABELS,
+  FOOTER_ANALYSIS_REPORTS_LABELS,
+  FOOTER_API_DOCS_LABELS,
+  FOOTER_COMPANY_TAGLINE_LABELS,
 } from '../constants/languages.js';
 import {
   APP_VERSION,
@@ -50,7 +58,7 @@ import {
   BUILD_TIME,
   createThemeToggleButton,
 } from '../constants/config.js';
-import { icon } from './icons.js';
+import { icon, type IconName } from './icons.js';
 import { stripScriptBlocks, stripHtmlTags } from '../utils/html-sanitize.js';
 
 // ─── New section builder interfaces ─────────────────────────────────────────
@@ -370,6 +378,9 @@ export function buildKeyFiguresBar(figures: ReadonlyArray<KeyFigure>, lang: Lang
 
 /* ─── Shared site header/footer builders ─────────────────────────── */
 
+/** Icon name used for security/transparency links across the chrome. */
+const ICON_SECURITY: IconName = 'shield-star';
+
 /**
  * Options for building the shared site header.
  */
@@ -398,8 +409,14 @@ export interface SiteHeaderOptions {
 export function buildSiteHeader(options: SiteHeaderOptions): string {
   const { lang, pathPrefix, homeHref, siteTitle, languageSwitcherHtml } = options;
   const headerSubtitle = escapeHTML(getLocalizedString(HEADER_SUBTITLE_LABELS, lang));
-  const themeToggleLabel = escapeHTML(getLocalizedString(THEME_TOGGLE_LABELS, lang));
+  const themeToggleLabel = getLocalizedString(THEME_TOGGLE_LABELS, lang);
+  const sponsorLabel = escapeHTML(getLocalizedString(HEADER_CTA_SPONSOR_LABELS, lang));
+  const becomeSponsorLabel = escapeHTML(getLocalizedString(HEADER_CTA_BECOME_SPONSOR_LABELS, lang));
+  const securityLabel = escapeHTML(getLocalizedString(HEADER_CTA_SECURITY_LABELS, lang));
   const safeTitle = escapeHTML(siteTitle);
+
+  const cta = (extraClass: string, href: string, iconName: IconName, label: string): string =>
+    `<a class="site-header__cta${extraClass ? ` ${extraClass}` : ''}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${label}" title="${label}">${icon(iconName)}<span class="site-header__cta-label">${label}</span></a>`;
 
   return `<header class="site-header" role="banner">
     <div class="site-header__inner site-header__inner--stacked">
@@ -414,9 +431,9 @@ export function buildSiteHeader(options: SiteHeaderOptions): string {
         </span>
       </a>
       <div class="site-header__actions">
-        <a class="site-header__cta site-header__cta--sponsor" href="https://github.com/sponsors/Hack23">${icon('sponsor')}<span class="emoji" aria-hidden="true">💖</span> Sponsor Hack23</a>
-        <a class="site-header__cta" href="https://www.hack23.com">Become a sponsor</a>
-        <a class="site-header__cta site-header__cta--security" href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md">${icon('security')}<span class="emoji" aria-hidden="true">🔐</span> Commitment to Transparency and Security</a>
+        ${cta('site-header__cta--sponsor', 'https://github.com/sponsors/Hack23', 'heart', sponsorLabel)}
+        ${cta('', 'https://www.hack23.com', 'sponsor', becomeSponsorLabel)}
+        ${cta('site-header__cta--security', 'https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md', ICON_SECURITY, securityLabel)}
         ${createThemeToggleButton(themeToggleLabel)}
       </div>
       <nav class="site-header__langs" role="navigation" aria-label="Language selection">
@@ -515,6 +532,11 @@ export function buildSiteFooter(options: SiteFooterOptions): string {
   const contactLabel = escapeHTML(getLocalizedString(FOOTER_CONTACT_LABELS, lang));
   const disclaimerText = escapeHTML(getLocalizedString(FOOTER_DISCLAIMER_LABELS, lang));
   const reportIssuesLabel = escapeHTML(getLocalizedString(FOOTER_REPORT_ISSUES_LABELS, lang));
+  const newsLabel = escapeHTML(getLocalizedString(FOOTER_NEWS_LABELS, lang));
+  const dashboardLabel = escapeHTML(getLocalizedString(FOOTER_DASHBOARD_LABELS, lang));
+  const analysisReportsLabel = escapeHTML(getLocalizedString(FOOTER_ANALYSIS_REPORTS_LABELS, lang));
+  const apiDocsLabel = escapeHTML(getLocalizedString(FOOTER_API_DOCS_LABELS, lang));
+  const companyTagline = escapeHTML(getLocalizedString(FOOTER_COMPANY_TAGLINE_LABELS, lang));
   const homeHref = `${pathPrefix}${lang === 'en' ? 'index.html' : `index-${lang}.html`}`;
   const sitemapHref = `${pathPrefix}${lang === 'en' ? 'sitemap.html' : `sitemap_${lang}.html`}`;
   const politicalIntelligenceHref = `${pathPrefix}${lang === 'en' ? 'political-intelligence.html' : `political-intelligence_${lang}.html`}`;
@@ -536,7 +558,7 @@ export function buildSiteFooter(options: SiteFooterOptions): string {
   const buildLine =
     `v${escapeHTML(APP_VERSION)} · ` +
     `<a href="https://github.com/Hack23/euparliamentmonitor/commit/${safeBuildId}" ` +
-    `class="footer-build" title="${buildLabel} ${safeBuildShort}" rel="noopener">` +
+    `class="footer-build" title="${buildLabel} ${safeBuildShort}" target="_blank" rel="noopener noreferrer">` +
     `<code>${safeBuildShort}</code></a> · ` +
     `<span class="footer-build-deployed">${deployedLabel}</span> ` +
     `<time class="footer-build-time" datetime="${safeBuildTime}" data-relative-time>${safeBuildTime}</time>`;
@@ -546,27 +568,27 @@ export function buildSiteFooter(options: SiteFooterOptions): string {
       <div class="footer-section">
         <h3>${aboutHeading}</h3>
         <p>${aboutText}</p>${articlesLine}
-        <p class="footer-company-summary">Swedish cybersecurity consultancy specializing in political transparency and open-source intelligence.</p>
+        <p class="footer-company-summary">${companyTagline}</p>
       </div>
       <div class="footer-section">
         <h3>${quickLinksHeading}</h3>
         <ul>
-          <li><a href="${homeHref}">${homeLabel}</a></li>
-          <li><a href="${homeHref}#main">News</a></li>
-          <li><a href="${analysisDocsHref}">📊 Analysis &amp; Reports</a></li>
-          <li><a href="${pathPrefix}docs/index.html">Dashboard</a></li>
-          <li><a href="${politicalIntelligenceHref}">${icon('pi')}<span class="emoji" aria-hidden="true">🧠</span> ${politicalIntelligenceLabel}</a></li>
-          <li><a href="${sitemapHref}">${icon('sitemap')}<span class="emoji" aria-hidden="true">🗺️</span> ${sitemapLabel}</a></li>
-          <li><a href="${apiDocsHref}">📚 API Documentation (TypeDoc)</a></li>
-          <li><a href="${pathPrefix}rss.xml">${icon('rss')}${rssLabel}</a></li>
-          <li><a href="https://hack23.com/euparliamentmonitor.html">EU Parliament Monitor by Hack23</a></li>
-          <li><a href="https://hack23.com/euparliamentmonitor-features.html">EU Parliament Monitor Features</a></li>
-          <li><a href="https://hack23.com/cia-features.html">CIA Platform</a></li>
-          <li><a href="https://www.riksdagen.se/">Sveriges Riksdag</a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor">${icon('github')}${githubLabel}</a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor/issues">${reportIssuesLabel}</a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE">${licenseLabel}</a></li>
-          <li><a href="https://www.europarl.europa.eu/">${europarlLabel}</a></li>
+          <li><a href="${homeHref}">${icon('home')}<span>${homeLabel}</span></a></li>
+          <li><a href="${homeHref}#main">${icon('news')}<span>${newsLabel}</span></a></li>
+          <li><a href="${analysisDocsHref}">${icon('analysis')}<span>${analysisReportsLabel}</span></a></li>
+          <li><a href="${pathPrefix}docs/index.html">${icon('dashboard')}<span>${dashboardLabel}</span></a></li>
+          <li><a href="${politicalIntelligenceHref}">${icon('pi')}<span>${politicalIntelligenceLabel}</span></a></li>
+          <li><a href="${sitemapHref}">${icon('sitemap')}<span>${sitemapLabel}</span></a></li>
+          <li><a href="${apiDocsHref}">${icon('book')}<span>${apiDocsLabel}</span></a></li>
+          <li><a href="${pathPrefix}rss.xml">${icon('rss')}<span>${rssLabel}</span></a></li>
+          <li><a href="https://hack23.com/euparliamentmonitor.html" target="_blank" rel="noopener noreferrer">${icon('external')}<span>EU Parliament Monitor by Hack23</span></a></li>
+          <li><a href="https://hack23.com/euparliamentmonitor-features.html" target="_blank" rel="noopener noreferrer">${icon('external')}<span>EU Parliament Monitor Features</span></a></li>
+          <li><a href="https://hack23.com/cia-features.html" target="_blank" rel="noopener noreferrer">${icon('external')}<span>CIA Platform</span></a></li>
+          <li><a href="https://www.riksdagen.se/" target="_blank" rel="noopener noreferrer">${icon('external')}<span>Sveriges Riksdag</span></a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor" target="_blank" rel="noopener noreferrer">${icon('github')}<span>${githubLabel}</span></a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor/issues" target="_blank" rel="noopener noreferrer">${icon('external')}<span>${reportIssuesLabel}</span></a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">${icon('book')}<span>${licenseLabel}</span></a></li>
+          <li><a href="https://www.europarl.europa.eu/" target="_blank" rel="noopener noreferrer">${icon('external')}<span>${europarlLabel}</span></a></li>
         </ul>
       </div>
       <div class="footer-section">
@@ -578,31 +600,31 @@ export function buildSiteFooter(options: SiteFooterOptions): string {
           <a href="https://github.com/Hack23/euparliamentmonitor/attestations" aria-label="SLSA Level 3"><img src="https://slsa.dev/images/gh-badge-level3.svg" alt="SLSA Level 3"></a>
         </div>
         <ul>
-          <li><a href="https://hack23.com">Hack23.com</a></li>
-          <li><a href="https://github.com/sponsors/Hack23">Sponsor Hack23 on GitHub</a></li>
-          <li><a href="https://www.linkedin.com/company/hack23">${linkedinLabel}</a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC">Public ISMS</a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md">${securityLabel}</a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md">Secure Development Policy</a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md">Open Source Policy</a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md">AI Policy</a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md">Access Control Policy</a></li>
-          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md">Cryptography Policy</a></li>
-          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md">Security Policy</a></li>
-          <li><a href="https://hack23.com/privacy.html">Privacy Policy</a></li>
-          <li><a href="mailto:james@hack23.com">Contact Us / ${contactLabel}</a></li>
+          <li><a href="https://hack23.com" target="_blank" rel="noopener noreferrer">${icon('external')}<span>Hack23.com</span></a></li>
+          <li><a href="https://github.com/sponsors/Hack23" target="_blank" rel="noopener noreferrer">${icon('heart')}<span>Sponsor Hack23 on GitHub</span></a></li>
+          <li><a href="https://www.linkedin.com/company/hack23" target="_blank" rel="noopener noreferrer">${icon('linkedin')}<span>${linkedinLabel}</span></a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC" target="_blank" rel="noopener noreferrer">${icon(ICON_SECURITY)}<span>Public ISMS</span></a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md" target="_blank" rel="noopener noreferrer">${icon(ICON_SECURITY)}<span>${securityLabel}</span></a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md" target="_blank" rel="noopener noreferrer">${icon(ICON_SECURITY)}<span>Secure Development Policy</span></a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Open_Source_Policy.md" target="_blank" rel="noopener noreferrer">${icon('book')}<span>Open Source Policy</span></a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md" target="_blank" rel="noopener noreferrer">${icon('book')}<span>AI Policy</span></a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Access_Control_Policy.md" target="_blank" rel="noopener noreferrer">${icon(ICON_SECURITY)}<span>Access Control Policy</span></a></li>
+          <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md" target="_blank" rel="noopener noreferrer">${icon(ICON_SECURITY)}<span>Cryptography Policy</span></a></li>
+          <li><a href="https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer">${icon(ICON_SECURITY)}<span>Security Policy</span></a></li>
+          <li><a href="https://hack23.com/privacy.html" target="_blank" rel="noopener noreferrer">${icon(ICON_SECURITY)}<span>Privacy Policy</span></a></li>
+          <li><a href="mailto:james@hack23.com">${icon('mail')}<span>${contactLabel}</span></a></li>
         </ul>
       </div>
       <div class="footer-section">
-        <h3>${languagesHeading}</h3>
+        <h3>${icon('lang')} ${languagesHeading}</h3>
         <div class="language-grid">
           ${langGrid}
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2008-${year} <a href="https://hack23.com">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | ${buildLine}</p>
-      <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> ${disclaimerText} <a href="https://github.com/Hack23/euparliamentmonitor/issues">${reportIssuesLabel}</a>.</p>
+      <p>&copy; 2008-${year} <a href="https://hack23.com" target="_blank" rel="noopener noreferrer">Hack23 AB</a> (Org.nr 5595347807) | Gothenburg, Sweden | ${buildLine}</p>
+      <p class="footer-disclaimer"><span aria-hidden="true">⚠️</span> ${disclaimerText} <a href="https://github.com/Hack23/euparliamentmonitor/issues" target="_blank" rel="noopener noreferrer">${reportIssuesLabel}</a>.</p>
     </div>
   </footer>`;
 }

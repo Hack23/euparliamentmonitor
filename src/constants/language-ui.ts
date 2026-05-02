@@ -30,20 +30,20 @@ export const PAGE_TITLES: LanguageMap = {
 
 /** Page descriptions per language */
 export const PAGE_DESCRIPTIONS: LanguageMap = {
-  en: 'Latest news and analysis about European Parliament activities',
-  sv: 'Senaste nyheterna och analyser om Europaparlamentets verksamhet',
-  da: 'Seneste nyheder og analyser om Europa-Parlamentets aktiviteter',
-  no: 'Siste nytt og analyser om Europaparlamentets aktiviteter',
-  fi: 'Viimeisimmät uutiset ja analyysit Euroopan parlamentin toiminnasta',
-  de: 'Neueste Nachrichten und Analysen zu den Aktivitäten des Europäischen Parlaments',
-  fr: 'Dernières nouvelles et analyses sur les activités du Parlement européen',
-  es: 'Últimas noticias y análisis sobre las actividades del Parlamento Europeo',
-  nl: 'Laatste nieuws en analyses over activiteiten van het Europees Parlement',
-  ar: 'آخر الأخبار والتحليلات حول أنشطة البرلمان الأوروبي',
-  he: 'חדשות ואנליזות עדכניות על פעילויות הפרלמנט האירופי',
-  ja: '欧州議会活動に関する最新ニュースと分析',
-  ko: '유럽 의회 활동에 관한 최신 뉴스 및 분석',
-  zh: '关于欧洲议会活动的最新新闻和分析',
+  en: 'Open political intelligence on the European Parliament — votes, motions, committee work, and legislative pipeline, distilled daily from official EP open data and made readable across 14 languages.',
+  sv: 'Öppen politisk underrättelseplattform om Europaparlamentet — omröstningar, motioner, utskottsarbete och lagstiftningsflödet, sammanfattat dagligen från Europaparlamentets öppna data på 14 språk.',
+  da: 'Åben politisk efterretning om Europa-Parlamentet — afstemninger, beslutningsforslag, udvalgsarbejde og lovgivningspipelinen, sammenfattet dagligt fra EP\u2019s åbne data på 14 sprog.',
+  no: 'Åpen politisk etterretning om Europaparlamentet — avstemninger, forslag, komitéarbeid og lovgivningsløpet, sammenfattet daglig fra EPs åpne data på 14 språk.',
+  fi: 'Avoin poliittinen tiedustelutieto Euroopan parlamentista — äänestykset, esitykset, valiokuntatyö ja lainsäädäntöputki, päivittäin tiivistettynä Euroopan parlamentin avoimesta datasta 14 kielellä.',
+  de: 'Offene politische Aufklärung zum Europäischen Parlament — Abstimmungen, Anträge, Ausschussarbeit und legislative Pipeline, täglich aus den offenen Daten des EP destilliert und in 14 Sprachen lesbar gemacht.',
+  fr: 'Renseignement politique ouvert sur le Parlement européen — votes, motions, travaux en commission et pipeline législatif, synthétisés chaque jour à partir des données ouvertes du PE et accessibles dans 14 langues.',
+  es: 'Inteligencia política abierta sobre el Parlamento Europeo — votaciones, mociones, trabajo en comisión y la cadena legislativa, sintetizada a diario a partir de los datos abiertos del PE y disponible en 14 idiomas.',
+  nl: 'Open politieke inlichtingen over het Europees Parlement — stemmingen, moties, commissiewerk en de wetgevingspijplijn, dagelijks samengevat uit de open data van het EP en leesbaar in 14 talen.',
+  ar: 'استخبارات سياسية مفتوحة عن البرلمان الأوروبي — التصويتات والاقتراحات وعمل اللجان وخط التشريع، تُلخَّص يوميًا من بيانات البرلمان الأوروبي المفتوحة وتُتاح بأربع عشرة لغة.',
+  he: 'מודיעין פוליטי פתוח על הפרלמנט האירופי — הצבעות, הצעות, עבודת ועדות וצינור החקיקה, מזוקק מדי יום מהמידע הפתוח של הפרלמנט האירופי ונגיש ב-14 שפות.',
+  ja: '欧州議会に関するオープンな政治インテリジェンス — 採決、動議、委員会作業、立法パイプラインを欧州議会のオープンデータから日次で抽出し、14言語で公開。',
+  ko: '유럽 의회에 대한 공개 정치 인텔리전스 — 표결, 동의안, 위원회 활동, 입법 파이프라인을 유럽 의회 공개 데이터에서 매일 정제하여 14개 언어로 제공.',
+  zh: '关于欧洲议会的开放政治情报 — 表决、动议、委员会工作与立法流程，每日从欧洲议会开放数据中提炼，并以 14 种语言呈现。',
 };
 
 /** Section headings per language */
@@ -2290,4 +2290,155 @@ export const BUILD_INFO_DEPLOYED_LABELS: LanguageMap = {
   ja: 'デプロイ済み',
   ko: '배포됨',
   zh: '已部署',
+};
+
+/* ─── Header CTAs (Sponsor / Become a sponsor / Security commitment) ── */
+
+/** Sponsor CTA in the sticky site header. */
+export const HEADER_CTA_SPONSOR_LABELS: LanguageMap = {
+  en: 'Sponsor Hack23',
+  sv: 'Sponsra Hack23',
+  da: 'Støt Hack23',
+  no: 'Støtt Hack23',
+  fi: 'Tue Hack23:a',
+  de: 'Hack23 unterstützen',
+  fr: 'Soutenir Hack23',
+  es: 'Patrocinar Hack23',
+  nl: 'Sponsor Hack23',
+  ar: 'ادعم Hack23',
+  he: 'תמכו ב-Hack23',
+  ja: 'Hack23 をスポンサー',
+  ko: 'Hack23 후원',
+  zh: '赞助 Hack23',
+};
+
+/** "Become a sponsor" / corporate-sponsor CTA. */
+export const HEADER_CTA_BECOME_SPONSOR_LABELS: LanguageMap = {
+  en: 'Become a sponsor',
+  sv: 'Bli sponsor',
+  da: 'Bliv sponsor',
+  no: 'Bli sponsor',
+  fi: 'Ryhdy tukijaksi',
+  de: 'Sponsor werden',
+  fr: 'Devenir sponsor',
+  es: 'Hazte patrocinador',
+  nl: 'Word sponsor',
+  ar: 'كن راعيًا',
+  he: 'הצטרפו כספונסר',
+  ja: 'スポンサーになる',
+  ko: '스폰서 되기',
+  zh: '成为赞助人',
+};
+
+/** "Commitment to Transparency and Security" CTA. */
+export const HEADER_CTA_SECURITY_LABELS: LanguageMap = {
+  en: 'Transparency \u0026 Security',
+  sv: 'Transparens \u0026 säkerhet',
+  da: 'Gennemsigtighed \u0026 sikkerhed',
+  no: 'Åpenhet \u0026 sikkerhet',
+  fi: 'Avoimuus \u0026 turvallisuus',
+  de: 'Transparenz \u0026 Sicherheit',
+  fr: 'Transparence \u0026 sécurité',
+  es: 'Transparencia y seguridad',
+  nl: 'Transparantie \u0026 beveiliging',
+  ar: 'الشفافية والأمان',
+  he: 'שקיפות ואבטחה',
+  ja: '透明性とセキュリティ',
+  ko: '투명성 및 보안',
+  zh: '透明度与安全',
+};
+
+/* ─── Footer Quick Links — additional localized labels ─────────────── */
+
+/** "News" navigation label. */
+export const FOOTER_NEWS_LABELS: LanguageMap = {
+  en: 'News',
+  sv: 'Nyheter',
+  da: 'Nyheder',
+  no: 'Nyheter',
+  fi: 'Uutiset',
+  de: 'Nachrichten',
+  fr: 'Actualités',
+  es: 'Noticias',
+  nl: 'Nieuws',
+  ar: 'الأخبار',
+  he: 'חדשות',
+  ja: 'ニュース',
+  ko: '뉴스',
+  zh: '新闻',
+};
+
+/** "Dashboard" navigation label. */
+export const FOOTER_DASHBOARD_LABELS: LanguageMap = {
+  en: 'Dashboard',
+  sv: 'Översiktspanel',
+  da: 'Dashboard',
+  no: 'Dashbord',
+  fi: 'Hallintapaneeli',
+  de: 'Dashboard',
+  fr: 'Tableau de bord',
+  es: 'Panel',
+  nl: 'Dashboard',
+  ar: 'لوحة التحكم',
+  he: 'לוח בקרה',
+  ja: 'ダッシュボード',
+  ko: '대시보드',
+  zh: '仪表板',
+};
+
+/** Shared Scandinavian "Analysis & Reports" label (sv/da/no). */
+const ANALYSIS_REPORTS_NORDIC = 'Analyser \u0026 rapporter';
+
+/** "Analysis & Reports" navigation label. */
+export const FOOTER_ANALYSIS_REPORTS_LABELS: LanguageMap = {
+  en: 'Analysis \u0026 Reports',
+  sv: ANALYSIS_REPORTS_NORDIC,
+  da: ANALYSIS_REPORTS_NORDIC,
+  no: ANALYSIS_REPORTS_NORDIC,
+  fi: 'Analyysit \u0026 raportit',
+  de: 'Analysen \u0026 Berichte',
+  fr: 'Analyses \u0026 rapports',
+  es: 'Análisis e informes',
+  nl: 'Analyses \u0026 rapporten',
+  ar: 'التحليلات والتقارير',
+  he: 'ניתוחים ודוחות',
+  ja: '分析とレポート',
+  ko: '분석 및 보고서',
+  zh: '分析与报告',
+};
+
+/** "API Documentation" navigation label. */
+export const FOOTER_API_DOCS_LABELS: LanguageMap = {
+  en: 'API Documentation',
+  sv: 'API-dokumentation',
+  da: 'API-dokumentation',
+  no: 'API-dokumentasjon',
+  fi: 'API-dokumentaatio',
+  de: 'API-Dokumentation',
+  fr: 'Documentation API',
+  es: 'Documentación de la API',
+  nl: 'API-documentatie',
+  ar: 'وثائق واجهة البرمجة',
+  he: 'תיעוד API',
+  ja: 'API ドキュメント',
+  ko: 'API 문서',
+  zh: 'API 文档',
+};
+
+/** Short company tagline shown under the About paragraph in the footer. */
+export const FOOTER_COMPANY_TAGLINE_LABELS: LanguageMap = {
+  en: 'Swedish cybersecurity consultancy specialising in political transparency and open-source intelligence.',
+  sv: 'Svensk cybersäkerhetskonsult specialiserad på politisk transparens och öppen källkodsintelligens.',
+  da: 'Svensk cybersikkerhedskonsulent specialiseret i politisk gennemsigtighed og open source-efterretning.',
+  no: 'Svensk cybersikkerhetskonsulent spesialisert på politisk åpenhet og open source-etterretning.',
+  fi: 'Ruotsalainen kyberturvallisuuskonsultti, joka erikoistuu poliittiseen avoimuuteen ja avoimen lähdekoodin tiedusteluun.',
+  de: 'Schwedische Cybersicherheitsberatung mit Schwerpunkt auf politischer Transparenz und Open-Source-Aufklärung.',
+  fr: 'Cabinet suédois de cybersécurité spécialisé dans la transparence politique et le renseignement open source.',
+  es: 'Consultora sueca de ciberseguridad especializada en transparencia política e inteligencia de fuentes abiertas.',
+  nl: 'Zweeds cybersecurity-adviesbureau gespecialiseerd in politieke transparantie en open source intelligence.',
+  ar: 'شركة استشارات أمن سيبراني سويدية متخصصة في الشفافية السياسية والاستخبارات مفتوحة المصدر.',
+  he: 'חברת ייעוץ סייבר שוודית המתמחה בשקיפות פוליטית ומודיעין ממקורות גלויים.',
+  ja: '政治的透明性とオープンソース・インテリジェンスを専門とするスウェーデンのサイバーセキュリティ・コンサルティング。',
+  ko: '정치적 투명성과 오픈소스 인텔리전스를 전문으로 하는 스웨덴 사이버보안 컨설팅 회사.',
+  zh: '一家专注于政治透明度与开源情报的瑞典网络安全咨询机构。',
 };

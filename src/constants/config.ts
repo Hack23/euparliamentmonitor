@@ -123,13 +123,35 @@ export const MERMAID_VERSION: string = (() => {
 
 /**
  * Generate theme toggle HTML button markup with a localized aria-label.
- * Renders a moon (light→dark) and sun (dark→light) icon; CSS controls visibility.
+ * Renders a moon (light→dark) and sun (dark→light) icon as crisp inline
+ * SVGs (with `currentColor`) so the icon renders identically across
+ * platforms — emoji rendering varies wildly between OSes. The legacy
+ * emoji `<span>`s remain as a low-priority fallback for environments
+ * where SVG is suppressed or stylesheets fail to load.
+ *
+ * The button announces its current state via `aria-pressed` so screen
+ * readers describe it as a toggle rather than a generic action button.
  *
  * @param ariaLabel - Localized accessible label for the theme toggle button
  * @returns HTML string for the theme toggle button
  */
 export function createThemeToggleButton(ariaLabel: string): string {
-  return `<button type="button" class="theme-toggle" aria-label="${ariaLabel}"><span class="theme-toggle__icon--light" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark" aria-hidden="true">☀️</span></button>`;
+  // Inline SVG icons — duplicated rather than imported from
+  // `../templates/icons.js` to keep `constants/` free of template-layer
+  // imports (config is depended on from many call sites). Path data is
+  // identical to the `moon` / `sun` entries in `templates/icons.ts`.
+  const moonSvg =
+    '<svg class="icon icon-inline theme-toggle__svg theme-toggle__svg--light" width="20" height="20" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path d="M21 13a9 9 0 1 1-10-10 7 7 0 0 0 10 10Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>';
+  const sunSvg =
+    '<svg class="icon icon-inline theme-toggle__svg theme-toggle__svg--dark" width="20" height="20" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>';
+  // Defensive attribute escaping — callers already pre-escape, but this
+  // function is public so we guard against injection regardless.
+  const safeLabel = ariaLabel
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+  return `<button type="button" class="theme-toggle" aria-label="${safeLabel}" aria-pressed="false" title="${safeLabel}">${moonSvg}${sunSvg}<span class="theme-toggle__icon--light theme-toggle__emoji" aria-hidden="true">🌙</span><span class="theme-toggle__icon--dark theme-toggle__emoji" aria-hidden="true">☀️</span></button>`;
 }
 
 /**
@@ -149,6 +171,14 @@ export const THEME_TOGGLE_SCRIPT_CONTENT = `
     }
     var btn=document.querySelector('.theme-toggle');
     if(!btn)return;
+    function syncPressed(){
+      var cur=docEl.getAttribute('data-theme');
+      if(!cur){
+        cur=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
+      }
+      btn.setAttribute('aria-pressed',cur==='dark'?'true':'false');
+    }
+    syncPressed();
     btn.addEventListener('click',function(){
       var cur=docEl.getAttribute('data-theme');
       if(!cur){
@@ -157,7 +187,12 @@ export const THEME_TOGGLE_SCRIPT_CONTENT = `
       var next=cur==='dark'?'light':'dark';
       docEl.setAttribute('data-theme',next);
       localStorage.setItem('ep-theme',next);
+      btn.setAttribute('aria-pressed',next==='dark'?'true':'false');
     });
+    if(window.matchMedia){
+      var mq=window.matchMedia('(prefers-color-scheme: dark)');
+      if(mq.addEventListener){mq.addEventListener('change',syncPressed);}
+    }
   })();
   `;
 
