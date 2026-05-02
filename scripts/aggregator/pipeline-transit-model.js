@@ -36,7 +36,7 @@ import process from 'node:process';
 /** Methodology version tag included in every output record. */
 export const METHODOLOGY_VERSION = '1.0.0';
 
-/** Number of Monte-Carlo simulation iterations per procedure. */
+/** Number of Monte-Carlo simulation iterations per stage. */
 export const MC_ITERATIONS = 10_000;
 
 /** Minimum historical sample size before base-rate fallback fires. */
@@ -126,11 +126,14 @@ export function deriveProcedureSeed(baseSeed, processId) {
  * Infer the current stage of a procedure from its event timeline.
  * Uses classifyEventStage on the most recent event to avoid misclassifying
  * committee events containing generic "adopted" keywords as final adoption.
+ * When `asOf` is provided, only events with date ≤ asOf are considered,
+ * ensuring the snapshot is internally consistent with point-in-time cuts.
  *
  * @param {object} proc - Procedure object from procedures-feed
+ * @param {number|null} [asOf=null] - Optional reference timestamp (ms); events after this are ignored
  * @returns {string} One of STAGES (defaults to 'committee' if indeterminate)
  */
-export function inferCurrentStage(proc) {
+export function inferCurrentStage(proc, asOf) {
   const events = proc.events || proc.stages || [];
   if (!Array.isArray(events) || events.length === 0) {
     return 'committee'; // default: assume earliest stage
@@ -144,6 +147,8 @@ export function inferCurrentStage(proc) {
       text: (e.title || e.description || e.type || '').toLowerCase(),
     }))
     .filter((e) => !isNaN(e.date.getTime()))
+    // When asOf is provided, exclude events after the reference date
+    .filter((e) => asOf == null || e.date.getTime() <= asOf)
     .sort((a, b) => a.date - b.date);
 
   // Walk backward from the most recent event
@@ -194,35 +199,46 @@ export function extractTransitionDurations(procedures, votingRecords, asOf) {
 
     if (sorted.length < 2) continue;
 
-    // Classify each event's stage
-    const classified = sorted.map((e) => ({
-      ...e,
-      stage: classifyEventStage(e.text),
-    }));
+    // Classify each event's stage, filtering out events after asOf
+    const classified = sorted
+      .filter((e) => e.date.getTime() <= refTime) // Point-in-time cut
+      .map((e) => ({
+        ...e,
+        stage: classifyEventStage(e.text),
+      }));
 
-    // Only record transitions where the stage actually changes.
-    // Attribute duration to the SOURCE stage (time spent there before advancing).
+    if (classified.length < 2) continue;
+
+    // Track stage entry: when the procedure *entered* the current stage.
+    // Only emit a duration when the stage changes, using the entry timestamp
+    // as the start of the interval to capture full time in stage.
+    let currentStage = classified[0].stage;
+    let stageEntryDate = classified[0].date;
+
     for (let i = 1; i < classified.length; i++) {
-      const prev = classified[i - 1];
       const curr = classified[i];
+      if (!curr.stage) continue;
 
-      // Both events must be classifiable and represent different stages
-      if (!prev.stage || !curr.stage) continue;
-      if (prev.stage === curr.stage) continue;
+      if (curr.stage === currentStage) {
+        // Same stage — do not update entry date; we want the full time in stage
+        continue;
+      }
 
-      const daysDiff = Math.max(1, Math.round((curr.date - prev.date) / (24 * 60 * 60 * 1000)));
-
-      // Skip events that are in the future relative to asOf (point-in-time snapshot)
-      if (curr.date.getTime() > refTime) continue;
+      // Stage changed: emit duration for the *source* stage
+      const daysDiff = Math.max(1, Math.round((curr.date - stageEntryDate) / (24 * 60 * 60 * 1000)));
 
       // Age-weighting: events within trailing 24 months get higher weight
       const ageMs = refTime - curr.date.getTime();
       const weight = ageMs <= RECENT_WINDOW_MS ? RECENT_WEIGHT : ageMs <= 2 * RECENT_WINDOW_MS ? OLDER_WEIGHT : STALE_WEIGHT;
 
-      // Duration is attributed to the source stage
-      if (daysDiff > 0 && daysDiff < MAX_STAGE_DURATION_DAYS) {
-        durations[prev.stage].push({ days: daysDiff, weight });
+      // Duration is attributed to the source stage (time spent there before advancing)
+      if (daysDiff > 0 && daysDiff < MAX_STAGE_DURATION_DAYS && currentStage) {
+        durations[currentStage].push({ days: daysDiff, weight });
       }
+
+      // Update tracking for the new stage
+      currentStage = curr.stage;
+      stageEntryDate = curr.date;
     }
   }
 
@@ -390,7 +406,7 @@ export function computeTransitModel(procedures, votingRecords, seed, asOf) {
   for (let idx = 0; idx < procedures.length; idx++) {
     const proc = procedures[idx];
     const processId = proc.processId || proc.id || proc.reference || `unknown_${idx}`;
-    const currentStage = inferCurrentStage(proc);
+    const currentStage = inferCurrentStage(proc, refTime);
     const stageIdx = STAGES.indexOf(currentStage);
 
     // Build remaining stages object: priors for current stage and all downstream

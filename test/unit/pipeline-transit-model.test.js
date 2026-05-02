@@ -208,6 +208,89 @@ describe('pipeline-transit-model', () => {
       ]);
       expect(inferCurrentStage(proc)).toBe('plenary');
     });
+
+    it('should respect asOf and ignore future events', () => {
+      const proc = makeProcedure('test', [
+        { date: '2025-01-01', title: 'Committee referral' },
+        { date: '2025-03-01', title: 'Committee vote - draft report adopted' },
+        { date: '2025-06-01', title: 'Plenary first reading' },
+        { date: '2025-09-01', title: 'Final adoption by parliament' },
+      ]);
+      // Without asOf: latest event is adoption
+      expect(inferCurrentStage(proc)).toBe('adoption');
+      // With asOf before plenary: should be committee
+      const asOfBeforePlenary = new Date('2025-04-01').getTime();
+      expect(inferCurrentStage(proc, asOfBeforePlenary)).toBe('committee');
+      // With asOf after plenary but before adoption: should be plenary
+      const asOfBeforeAdoption = new Date('2025-07-01').getTime();
+      expect(inferCurrentStage(proc, asOfBeforeAdoption)).toBe('plenary');
+    });
+  });
+
+  // -------------------------------------------------------------------------
+  // Unit tests: extractTransitionDurations — stage-entry tracking
+  // -------------------------------------------------------------------------
+
+  describe('extractTransitionDurations', () => {
+    it('should measure full time in stage across multiple same-stage events', () => {
+      // A procedure with multiple committee events before advancing to plenary.
+      // The committee duration should reflect the entire time from first committee
+      // event to the plenary event, not just the last committee→plenary gap.
+      const proc = makeProcedure('test', [
+        { date: '2025-01-01', title: 'Committee referral' },           // +0 days
+        { date: '2025-02-01', title: 'Rapporteur appointed' },          // +31 days (still committee)
+        { date: '2025-04-01', title: 'Committee vote - draft report adopted' }, // +90 days (still committee)
+        { date: '2025-07-01', title: 'Plenary first reading' },         // +181 days (committee→plenary transition)
+      ]);
+
+      const asOf = new Date('2026-01-01').getTime();
+      const durations = extractTransitionDurations([proc], [], asOf);
+
+      // Committee should have one duration entry covering the full time:
+      // from 2025-01-01 (committee entry) to 2025-07-01 (plenary = stage change) ≈ 181 days
+      expect(durations.committee).toHaveLength(1);
+      expect(durations.committee[0].days).toBeGreaterThanOrEqual(180);
+      expect(durations.committee[0].days).toBeLessThanOrEqual(182);
+    });
+
+    it('should not record duration for same-stage transitions', () => {
+      // All events are committee — no stage change, no duration recorded
+      const proc = makeProcedure('test', [
+        { date: '2025-01-01', title: 'Committee referral' },
+        { date: '2025-02-01', title: 'Rapporteur appointed' },
+        { date: '2025-03-01', title: 'Committee hearing' },
+      ]);
+
+      const asOf = new Date('2026-01-01').getTime();
+      const durations = extractTransitionDurations([proc], [], asOf);
+
+      expect(durations.committee).toHaveLength(0);
+      expect(durations.plenary).toHaveLength(0);
+    });
+
+    it('should attribute duration to source stage (not destination)', () => {
+      const proc = makeProcedure('test', [
+        { date: '2025-01-01', title: 'Committee referral' },
+        { date: '2025-04-01', title: 'Plenary first reading' },
+        { date: '2025-06-01', title: 'Trilogue started' },
+      ]);
+
+      const asOf = new Date('2026-01-01').getTime();
+      const durations = extractTransitionDurations([proc], [], asOf);
+
+      // Committee→plenary: ~90 days attributed to committee
+      expect(durations.committee).toHaveLength(1);
+      expect(durations.committee[0].days).toBeGreaterThanOrEqual(89);
+      expect(durations.committee[0].days).toBeLessThanOrEqual(91);
+
+      // Plenary→trilogue: ~61 days attributed to plenary
+      expect(durations.plenary).toHaveLength(1);
+      expect(durations.plenary[0].days).toBeGreaterThanOrEqual(60);
+      expect(durations.plenary[0].days).toBeLessThanOrEqual(62);
+
+      // No durations recorded under trilogue (it's the final stage reached)
+      expect(durations.trilogue).toHaveLength(0);
+    });
   });
 
   // -------------------------------------------------------------------------
