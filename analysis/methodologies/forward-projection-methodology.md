@@ -40,7 +40,7 @@
 
 ## 🎯 Purpose
 
-Replace ad-hoc "what's coming up" prose with a **horizon-conditional, evidence-anchored forecasting protocol**. Every prospective horizon ≥ 90 days produces a `forward-projection.md` artifact whose probability claims are calibrated against:
+Replace ad-hoc "what's coming up" prose with a **horizon-conditional, evidence-anchored forecasting protocol**. Every prospective horizon ≥ 7 days produces a `forward-projection.md` artifact whose probability claims are calibrated against:
 
 1. **Reference-class base-rates** (Tetlock outside view) drawn from `historical-baseline.md`.
 2. **WEP decay tables** (§3) — bands tighten as the horizon shrinks.
@@ -153,7 +153,7 @@ Stage C raises a **🔴 RED** when the run carries > 2 unresolved expired statem
 
 | Artifact | Owner | Required by |
 |---|---|---|
-| `intelligence/forward-projection.md` | This methodology | `quarter-ahead`, `year-ahead`, `term-outlook`, `election-cycle`, `quarter-in-review` (optional) |
+| `intelligence/forward-projection.md` | This methodology | `week-ahead`, `month-ahead`, `quarter-ahead`, `year-ahead`, `term-outlook`, `election-cycle`, `quarter-in-review` (optional) |
 | `intelligence/legislative-pipeline-forecast.md` | This methodology + transit priors | `quarter-ahead`, `year-ahead`, `quarter-in-review`, `year-in-review` |
 | `intelligence/parliamentary-calendar-projection.md` | This methodology | `quarter-ahead`, `year-ahead`, `term-outlook` |
 | `extended/forward-indicators.md` | Extended layer (per [`strategic-extensions-methodology.md`](strategic-extensions-methodology.md)) | `quarter-ahead+`, `term-outlook`, `election-cycle` |

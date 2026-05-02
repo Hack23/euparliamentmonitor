@@ -106,7 +106,7 @@ For article types with `dataWindow.days ≥ 90` (per
 
 | Artifact | Required for | Stage C threshold source |
 |----------|-------------|--------------------------|
-| `intelligence/forward-projection.md` | All prospective ≥ 90d | See `analysis/methodologies/reference-quality-thresholds.json` |
+| `intelligence/forward-projection.md` | All prospective ≥ 7d (week-ahead, month-ahead, quarter-ahead+) | See `analysis/methodologies/reference-quality-thresholds.json` |
 | `intelligence/legislative-pipeline-forecast.md` | All prospective ≥ 90d | See `analysis/methodologies/reference-quality-thresholds.json` |
 | `intelligence/parliamentary-calendar-projection.md` | All prospective ≥ 90d | See `analysis/methodologies/reference-quality-thresholds.json` |
 | `extended/forward-indicators.md` | All ≥ 90d (promoted from optional) | See `analysis/methodologies/reference-quality-thresholds.json` |

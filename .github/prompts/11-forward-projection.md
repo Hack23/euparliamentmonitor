@@ -4,9 +4,9 @@
 # 11 — Forward Projection (Stage-B prompt)
 
 **Summary:** Apply this prompt during Stage B of any prospective horizon
-≥ quarter (`quarter-ahead`, `year-ahead`, `term-outlook`, `election-cycle`,
-optionally `quarter-in-review`/`year-in-review` when carry-forward review of
-prior projections is required). Wraps
+≥ 7 days (`week-ahead`, `month-ahead`, `quarter-ahead`, `year-ahead`,
+`term-outlook`, `election-cycle`, optionally `quarter-in-review`/`year-in-review`
+when carry-forward review of prior projections is required). Wraps
 [`forward-projection-methodology.md`](../../analysis/methodologies/forward-projection-methodology.md)
 with the quality gates Stage C will check.
 
@@ -17,11 +17,11 @@ This prompt is *imported by* [`10-horizon-stage-helpers.md`](10-horizon-stage-he
 Produce or update these artifacts under
 `analysis/daily/${DATE}/${SLUG}/intelligence/`:
 
-- [`forward-projection.md`](../../analysis/templates/forward-projection.md) — master forward-projection artifact.
-- [`legislative-pipeline-forecast.md`](../../analysis/templates/legislative-pipeline-forecast.md) — per-procedure transit-time forecast.
-- [`parliamentary-calendar-projection.md`](../../analysis/templates/parliamentary-calendar-projection.md) — walk-forward calendar.
-- [`presidency-trio-context.md`](../../analysis/templates/presidency-trio-context.md) — Trio overlay.
-- [`commission-wp-alignment.md`](../../analysis/templates/commission-wp-alignment.md) — Commission Work Programme alignment.
+- [`forward-projection.md`](../../analysis/templates/forward-projection.md) — master forward-projection artifact (mandatory for all prospective ≥7d).
+- [`legislative-pipeline-forecast.md`](../../analysis/templates/legislative-pipeline-forecast.md) — per-procedure transit-time forecast (≥90d horizons only).
+- [`parliamentary-calendar-projection.md`](../../analysis/templates/parliamentary-calendar-projection.md) — walk-forward calendar (≥90d horizons only).
+- [`presidency-trio-context.md`](../../analysis/templates/presidency-trio-context.md) — Trio overlay (≥90d horizons only).
+- [`commission-wp-alignment.md`](../../analysis/templates/commission-wp-alignment.md) — Commission Work Programme alignment (≥90d horizons only).
 
 ## 2 · Quality Gates (Stage-C will fail-fast on these)
 

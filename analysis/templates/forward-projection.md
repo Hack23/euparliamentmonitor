@@ -3,13 +3,13 @@
 
 # 🔭 Forward Projection Template
 
-**Template Purpose:** Master forward-projection artifact for prospective horizons ≥ 90 days. Provides WEP-banded probability tables, structural-break tripwires, reference-class table, and Mermaid timeline-with-branches.
+**Template Purpose:** Master forward-projection artifact for all prospective horizons ≥ 7 days. Provides WEP-banded probability tables, structural-break tripwires, reference-class table, and Mermaid timeline-with-branches.
 
 **Methodology:** [forward-projection-methodology.md](../methodologies/forward-projection-methodology.md)
 
-**Min Lines:** 280 (`quarter-ahead`), 340 (`year-ahead`), 360 (`term-outlook`), 400 (`election-cycle`)
+**Min Lines:** 80 (`week-ahead`), 120 (`month-ahead`), 280 (`quarter-ahead`), 340 (`year-ahead`), 360 (`term-outlook`), 400 (`election-cycle`)
 
-**Required by:** `quarter-ahead`, `year-ahead`, `term-outlook`, `election-cycle`. Optional for `quarter-in-review` (carry-forward review of prior projections).
+**Required by:** `week-ahead`, `month-ahead`, `quarter-ahead`, `year-ahead`, `term-outlook`, `election-cycle`. Optional for `quarter-in-review` (carry-forward review of prior projections).
 
 ---
 

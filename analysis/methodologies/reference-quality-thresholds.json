@@ -1,7 +1,8 @@
 {
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Per-artifact minimum line-count floors used by scripts/validate-analysis-completeness.js to enforce Rule 22 (Per-Artifact Depth Floors) of analysis/methodologies/ai-driven-analysis-guide.md. Values are derived from the Run 184 reference benchmark (analysis/daily/2026-04-18/breaking-run184/) minus a 10% tolerance, rounded down to the nearest 5 lines. A file below its threshold MUST trigger Pass 2; it MUST NOT be shipped with a note. When an articleType × relativePath entry is absent the validator falls back to the CLI --min-lines flag (DEFAULT_MIN_LINES = 30). When a per-artifact entry is present the effective floor is max(perArtifact, --min-lines), so --min-lines can raise but never lower a configured floor.",
   "schemaChangelog": {
+    "1.3.0": "Additive: forward-projection.md line floors added for week-ahead (80) and month-ahead (120) to match §9.4 stronger Stage-C gate.",
     "1.2.0": "Additive: introduce thresholds for the four new long-horizon and electoral article types (quarter-ahead, quarter-in-review, year-ahead, year-in-review, term-outlook, election-cycle). Adds line floors for the eight new analysis artifacts (forward-projection, legislative-pipeline-forecast, parliamentary-calendar-projection, term-arc, seat-projection, mandate-fulfilment-scorecard, presidency-trio-context, commission-wp-alignment).",
     "1.1.0": "Additive: manifest.json now supports artifactSources record keyed by relativePath. Values are \"fresh\" or \"carry-forward-from:<runId>\". scripts/aggregator/prior-run-diff.js emits the prior-run merge plan; Stage B (workflow/agent) writes artifactSources to manifest.json from that plan when ENABLE_PRIOR_RUN_MERGE=true. Stage C validates all artifacts regardless of source value.",
     "1.0.0": "Initial release."
@@ -12,6 +13,7 @@
       "executive-brief.md",
       "intelligence/synthesis-summary.md",
       "intelligence/scenario-forecast.md",
+      "intelligence/forward-projection.md",
       "intelligence/threat-model.md",
       "intelligence/cross-run-diff.md",
       "intelligence/political-threat-landscape.md",
@@ -25,6 +27,7 @@
       "executive-brief.md",
       "intelligence/synthesis-summary.md",
       "intelligence/scenario-forecast.md",
+      "intelligence/forward-projection.md",
       "intelligence/threat-model.md",
       "intelligence/cross-run-diff.md",
       "intelligence/political-threat-landscape.md",
@@ -246,6 +249,7 @@
       "intelligence/wildcards-blackswans.md": 180,
       "intelligence/mcp-reliability-audit.md": 200,
       "intelligence/reference-analysis-quality.md": 140,
+      "intelligence/forward-projection.md": 80,
       "risk-scoring/risk-matrix.md": 100,
       "risk-scoring/quantitative-swot.md": 100,
       "intelligence/methodology-reflection.md": 180
@@ -263,6 +267,7 @@
       "intelligence/wildcards-blackswans.md": 200,
       "intelligence/mcp-reliability-audit.md": 200,
       "intelligence/reference-analysis-quality.md": 140,
+      "intelligence/forward-projection.md": 120,
       "risk-scoring/risk-matrix.md": 120,
       "risk-scoring/quantitative-swot.md": 120,
       "intelligence/methodology-reflection.md": 180
