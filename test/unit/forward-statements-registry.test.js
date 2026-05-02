@@ -460,6 +460,219 @@ describe('forward-statements-registry', () => {
       );
       expect(fs.existsSync(shard)).toBe(true);
     });
+
+    it('should print usage and exit 0 for --help flag', () => {
+      const result = spawnSync(
+        process.execPath,
+        [REGISTRY_SCRIPT, '--help'],
+        { cwd: tmpDir, encoding: 'utf8' },
+      );
+      expect(result.status).toBe(0);
+      expect(result.stdout).toContain('Usage:');
+      expect(result.stdout).toContain('Commands:');
+    });
+
+    it('should print usage and exit 0 for -h flag', () => {
+      const result = spawnSync(
+        process.execPath,
+        [REGISTRY_SCRIPT, '-h'],
+        { cwd: tmpDir, encoding: 'utf8' },
+      );
+      expect(result.status).toBe(0);
+      expect(result.stdout).toContain('Usage:');
+    });
+
+    it('should print usage and exit 0 when no command given', () => {
+      // No subcommand = same path as --help (first arg is undefined)
+      const result = spawnSync(
+        process.execPath,
+        [REGISTRY_SCRIPT],
+        { cwd: tmpDir, encoding: 'utf8' },
+      );
+      // The script prints usage and exits 0 for no-command case
+      expect(result.status).toBe(0);
+      expect(result.stdout).toContain('Usage:');
+    });
+
+    it('should append JSON entries from --file flag', () => {
+      const entry = makeEntry({ id: 'file-entry' });
+      const entryFile = path.join(tmpDir, 'entries.json');
+      fs.writeFileSync(entryFile, JSON.stringify([entry]), 'utf8');
+
+      const result = spawnSync(
+        process.execPath,
+        [REGISTRY_SCRIPT, 'append', '--file', entryFile],
+        { cwd: tmpDir, encoding: 'utf8' },
+      );
+
+      expect(result.status).toBe(0);
+      expect(result.stdout).toMatch(/"written": 1/);
+    });
+
+    it('should append a single entry (not array) from --file flag', () => {
+      const entry = makeEntry({ id: 'single-entry' });
+      const entryFile = path.join(tmpDir, 'single.json');
+      fs.writeFileSync(entryFile, JSON.stringify(entry), 'utf8');
+
+      const result = spawnSync(
+        process.execPath,
+        [REGISTRY_SCRIPT, 'append', '--file', entryFile],
+        { cwd: tmpDir, encoding: 'utf8' },
+      );
+
+      expect(result.status).toBe(0);
+      expect(result.stdout).toMatch(/"written": 1/);
+    });
+
+    it('should exit 1 when appending invalid entries', () => {
+      const invalidEntry = { topic: '' }; // missing required fields
+      const entryFile = path.join(tmpDir, 'invalid.json');
+      fs.writeFileSync(entryFile, JSON.stringify([invalidEntry]), 'utf8');
+
+      const result = spawnSync(
+        process.execPath,
+        [REGISTRY_SCRIPT, 'append', '--file', entryFile],
+        { cwd: tmpDir, encoding: 'utf8' },
+      );
+
+      expect(result.status).toBe(1);
+      expect(result.stdout).toMatch(/"errors"/);
+    });
+
+    it('should read entries with no filters and output JSON array', () => {
+      // First append an entry
+      const entry = makeEntry({ id: 'read-test' });
+      const entryFile = path.join(tmpDir, 'read-entries.json');
+      fs.writeFileSync(entryFile, JSON.stringify([entry]), 'utf8');
+      spawnSync(process.execPath, [REGISTRY_SCRIPT, 'append', '--file', entryFile], { cwd: tmpDir, encoding: 'utf8' });
+
+      const result = spawnSync(
+        process.execPath,
+        [REGISTRY_SCRIPT, 'read'],
+        { cwd: tmpDir, encoding: 'utf8' },
+      );
+
+      expect(result.status).toBe(0);
+      const parsed = JSON.parse(result.stdout);
+      expect(Array.isArray(parsed)).toBe(true);
+      expect(parsed.length).toBeGreaterThanOrEqual(1);
+    });
+
+    it('should read entries with --status filter', () => {
+      const entry = makeEntry({ id: 'status-filter-test', status: 'open' });
+      const entryFile = path.join(tmpDir, 'status-entries.json');
+      fs.writeFileSync(entryFile, JSON.stringify([entry]), 'utf8');
+      spawnSync(process.execPath, [REGISTRY_SCRIPT, 'append', '--file', entryFile], { cwd: tmpDir, encoding: 'utf8' });
+
+      const result = spawnSync(
+        process.execPath,
+        [REGISTRY_SCRIPT, 'read', '--status', 'open'],
+        { cwd: tmpDir, encoding: 'utf8' },
+      );
+
+      expect(result.status).toBe(0);
+      const parsed = JSON.parse(result.stdout);
+      expect(parsed.every((e) => e.status === 'open')).toBe(true);
+    });
+
+    it('should read entries with --horizon-from and --horizon-to filters', () => {
+      const entry = makeEntry({ id: 'horizon-filter-test', expectedHorizon: '2026-06-15' });
+      const entryFile = path.join(tmpDir, 'horizon-entries.json');
+      fs.writeFileSync(entryFile, JSON.stringify([entry]), 'utf8');
+      spawnSync(process.execPath, [REGISTRY_SCRIPT, 'append', '--file', entryFile], { cwd: tmpDir, encoding: 'utf8' });
+
+      const result = spawnSync(
+        process.execPath,
+        [REGISTRY_SCRIPT, 'read', '--horizon-from', '2026-06-01', '--horizon-to', '2026-12-31'],
+        { cwd: tmpDir, encoding: 'utf8' },
+      );
+
+      expect(result.status).toBe(0);
+      const parsed = JSON.parse(result.stdout);
+      expect(Array.isArray(parsed)).toBe(true);
+    });
+
+    it('should read entries with --electoral-mode filter', () => {
+      const entry = makeEntry({ id: 'electoral-test', category: 'electoral' });
+      const entryFile = path.join(tmpDir, 'electoral-entries.json');
+      fs.writeFileSync(entryFile, JSON.stringify([entry]), 'utf8');
+      spawnSync(process.execPath, [REGISTRY_SCRIPT, 'append', '--file', entryFile], { cwd: tmpDir, encoding: 'utf8' });
+
+      const result = spawnSync(
+        process.execPath,
+        [REGISTRY_SCRIPT, 'read', '--electoral-mode'],
+        { cwd: tmpDir, encoding: 'utf8' },
+      );
+
+      expect(result.status).toBe(0);
+      const parsed = JSON.parse(result.stdout);
+      expect(Array.isArray(parsed)).toBe(true);
+    });
+
+    it('should update an existing entry and exit 0', () => {
+      // Append entry first
+      const entry = makeEntry({ id: 'update-target' });
+      const entryFile = path.join(tmpDir, 'update-entries.json');
+      fs.writeFileSync(entryFile, JSON.stringify([entry]), 'utf8');
+      spawnSync(process.execPath, [REGISTRY_SCRIPT, 'append', '--file', entryFile], { cwd: tmpDir, encoding: 'utf8' });
+
+      const result = spawnSync(
+        process.execPath,
+        [REGISTRY_SCRIPT, 'update', '--id', 'update-target', '--status', 'resolved', '--evidence', 'A-10-2026-0099', '--date', '2026-05-01'],
+        { cwd: tmpDir, encoding: 'utf8' },
+      );
+
+      expect(result.status).toBe(0);
+      const parsed = JSON.parse(result.stdout);
+      expect(parsed.updated).toBe(true);
+    });
+
+    it('should exit 2 when update is missing --id or --status', () => {
+      const result = spawnSync(
+        process.execPath,
+        [REGISTRY_SCRIPT, 'update', '--id', 'some-id'],
+        { cwd: tmpDir, encoding: 'utf8' },
+      );
+      expect(result.status).toBe(2);
+      expect(result.stderr).toContain('update requires --id and --status');
+    });
+
+    it('should exit 1 when update target id not found', () => {
+      const result = spawnSync(
+        process.execPath,
+        [REGISTRY_SCRIPT, 'update', '--id', 'nonexistent-id', '--status', 'resolved'],
+        { cwd: tmpDir, encoding: 'utf8' },
+      );
+      expect(result.status).toBe(1);
+      const parsed = JSON.parse(result.stdout);
+      expect(parsed.updated).toBe(false);
+    });
+
+    it('should print summary and exit 0', () => {
+      const entry = makeEntry({ id: 'summary-test' });
+      const entryFile = path.join(tmpDir, 'summary-entries.json');
+      fs.writeFileSync(entryFile, JSON.stringify([entry]), 'utf8');
+      spawnSync(process.execPath, [REGISTRY_SCRIPT, 'append', '--file', entryFile], { cwd: tmpDir, encoding: 'utf8' });
+
+      const result = spawnSync(
+        process.execPath,
+        [REGISTRY_SCRIPT, 'summary'],
+        { cwd: tmpDir, encoding: 'utf8' },
+      );
+
+      expect(result.status).toBe(0);
+      expect(result.stdout).toContain('Forward-Statements Registry Summary');
+    });
+
+    it('should exit 2 with error message for unknown command', () => {
+      const result = spawnSync(
+        process.execPath,
+        [REGISTRY_SCRIPT, 'unknown-cmd'],
+        { cwd: tmpDir, encoding: 'utf8' },
+      );
+      expect(result.status).toBe(2);
+      expect(result.stderr).toContain('Unknown command: unknown-cmd');
+    });
   });
 
   // -------------------------------------------------------------------------
