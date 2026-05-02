@@ -60,6 +60,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 import { getHorizonConfig } from './config/article-horizons.js';
+import { readExpiredUnresolved } from './aggregator/forward-statements-registry.js';
 
 const ROOT = process.cwd();
 const DEFAULT_MIN_LINES = 30;
@@ -957,6 +958,36 @@ function main() {
 
   const forwardRegistryResult = validateForwardStatementsRegistryCoverage(runDir, articleType);
   mergeSyntheticResult(results, forwardRegistryResult);
+
+  // ── Expired-unresolved forward-statements gate (§9.2) ───────────────────
+  // When >2 forward statements have expired (horizonEnd < today) without being
+  // marked resolved|stale|extended, Stage C turns RED. ≤2 expired entries emit
+  // a warning but do not block.
+  const expiredUnresolved = readExpiredUnresolved();
+  if (expiredUnresolved.length > 0) {
+    const ids = expiredUnresolved.map((e) => e.id).join(', ');
+    if (expiredUnresolved.length > 2) {
+      mergeSyntheticResult(results, {
+        relativePath: 'forward-statements-registry',
+        exists: true,
+        lines: 0,
+        minLines: 0,
+        issues: [`forward-registry:expired-unresolved(${expiredUnresolved.length})`],
+        warnings: [],
+        mermaid: false,
+        placeholders: [],
+      });
+      process.stderr.write(
+        `RED forward-registry:expired-unresolved — ${expiredUnresolved.length} expired ` +
+          `carry-forward statements without status=resolved|stale|extended: ${ids}\n`,
+      );
+    } else {
+      process.stderr.write(
+        `WARN forward-registry:expired-unresolved — ${expiredUnresolved.length} expired ` +
+          `carry-forward statement(s) need close-out: ${ids}\n`,
+      );
+    }
+  }
 
   // ── Long-horizon scenario-count gate ─────────────────────────────────────
   // For term-outlook and election-cycle article types, scenario-forecast.md

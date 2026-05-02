@@ -14,6 +14,7 @@ import {
   validateEntry,
   appendEntries,
   readEntries,
+  readExpiredUnresolved,
   updateEntry,
   buildSummary,
   normaliseHorizon,
@@ -543,6 +544,80 @@ describe('forward-statements-registry', () => {
       expect(isMondayRun('2026-04-27')).toBe(true);
       expect(isMondayRun('2026-04-28')).toBe(false);
       expect(isMondayRun('2026-04-29')).toBe(false);
+    });
+  });
+
+  // -------------------------------------------------------------------------
+  // readExpiredUnresolved
+  // -------------------------------------------------------------------------
+  describe('readExpiredUnresolved', () => {
+    it('should return empty array when no entries exist', () => {
+      const result = readExpiredUnresolved({ today: '2026-05-02', registryDir: tmpDir });
+      expect(result).toHaveLength(0);
+    });
+
+    it('should return empty array when all entries have future horizons', () => {
+      appendEntries([
+        makeEntry({ id: 'future-1', expectedHorizon: '2026-06-15', status: 'open' }),
+        makeEntry({ id: 'future-2', expectedHorizon: '2026-07-01', status: 'open' }),
+      ], tmpDir);
+      const result = readExpiredUnresolved({ today: '2026-05-02', registryDir: tmpDir });
+      expect(result).toHaveLength(0);
+    });
+
+    it('should return expired entries that are not resolved/stale/extended', () => {
+      appendEntries([
+        makeEntry({ id: 'expired-open', expectedHorizon: '2026-04-01', status: 'open' }),
+        makeEntry({ id: 'expired-implemented', expectedHorizon: '2026-03-15', status: 'implemented' }),
+        makeEntry({ id: 'not-expired', expectedHorizon: '2026-06-01', status: 'open' }),
+      ], tmpDir);
+      const result = readExpiredUnresolved({ today: '2026-05-02', registryDir: tmpDir });
+      expect(result).toHaveLength(2);
+      expect(result.map((e) => e.id).sort()).toEqual(['expired-implemented', 'expired-open']);
+    });
+
+    it('should exclude entries with status resolved, stale, or extended', () => {
+      appendEntries([
+        makeEntry({ id: 'resolved-one', expectedHorizon: '2026-03-01', status: 'resolved' }),
+        makeEntry({ id: 'stale-one', expectedHorizon: '2026-02-01', status: 'stale' }),
+        makeEntry({ id: 'extended-one', expectedHorizon: '2026-01-01', status: 'extended' }),
+        makeEntry({ id: 'open-expired', expectedHorizon: '2026-04-01', status: 'open' }),
+      ], tmpDir);
+      const result = readExpiredUnresolved({ today: '2026-05-02', registryDir: tmpDir });
+      expect(result).toHaveLength(1);
+      expect(result[0].id).toBe('open-expired');
+    });
+
+    it('should handle ISO week horizons correctly', () => {
+      // 2026-W10 = Monday 2026-03-02
+      appendEntries([
+        makeEntry({ id: 'week-expired', expectedHorizon: '2026-W10', status: 'open' }),
+      ], tmpDir);
+      const result = readExpiredUnresolved({ today: '2026-05-02', registryDir: tmpDir });
+      expect(result).toHaveLength(1);
+      expect(result[0].id).toBe('week-expired');
+    });
+
+    it('should skip entries with missing or invalid expectedHorizon', () => {
+      const noHorizon = makeEntry({ id: 'no-horizon', status: 'open' });
+      delete noHorizon.expectedHorizon;
+      appendEntries([
+        noHorizon,
+        makeEntry({ id: 'bad-horizon', expectedHorizon: 'soon', status: 'open' }),
+        makeEntry({ id: 'valid-expired', expectedHorizon: '2026-04-01', status: 'open' }),
+      ], tmpDir);
+      const result = readExpiredUnresolved({ today: '2026-05-02', registryDir: tmpDir });
+      expect(result).toHaveLength(1);
+      expect(result[0].id).toBe('valid-expired');
+    });
+
+    it('should use today UTC when no today option provided', () => {
+      // An entry far in the past should always be expired
+      appendEntries([
+        makeEntry({ id: 'old-one', expectedHorizon: '2020-01-01', status: 'open' }),
+      ], tmpDir);
+      const result = readExpiredUnresolved({ registryDir: tmpDir });
+      expect(result).toHaveLength(1);
     });
   });
 });
