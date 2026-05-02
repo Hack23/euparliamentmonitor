@@ -10,7 +10,7 @@
  *
  *   1. The page loads successfully (HTTP 200)
  *   2. The page heading `#pi-heading` is visible
- *   3. The daily-runs section (`.pi-daily-section`) exists
+ *   3. The daily-runs section (`.pi-date-group`) exists
  *   4. The hreflang alternates reference every other language variant
  *   5. Localized UI title for each of the 6 new horizons is non-empty
  *      when resolved via `getRunTypeInfo` (validates the title table
@@ -67,9 +67,9 @@ for (const { lang, path: pagePath } of PI_PAGES) {
 
     test('daily-runs section exists in the page', async ({ page }) => {
       await page.goto(pagePath);
-      const dailySection = page.locator('.pi-daily-section');
+      const dailySection = page.locator('.pi-date-group');
       const count = await dailySection.count();
-      expect(count, 'at least one .pi-daily-section should exist').toBeGreaterThan(0);
+      expect(count, 'at least one .pi-date-group should exist').toBeGreaterThan(0);
     });
 
     test('hreflang alternates include English canonical', async ({ page }) => {
