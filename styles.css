@@ -148,26 +148,35 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   font-size: 1.1rem;
   cursor: pointer;
   transition:
     background var(--transition),
-    transform var(--transition);
+    border-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
   flex-shrink: 0;
   line-height: 1;
   font-family: var(--font-sans);
+  position: relative;
 }
 
 .theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.22);
-  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.24);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: scale(1.08) rotate(-12deg);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.06);
+}
+
+.theme-toggle:active {
+  transform: scale(0.96) rotate(0);
 }
 
 .theme-toggle:focus-visible {
@@ -175,30 +184,56 @@ img {
   outline-offset: 2px;
 }
 
+/* Hide both icon variants by default; rules below show exactly one. */
 .theme-toggle__icon--light,
-.theme-toggle__icon--dark {
+.theme-toggle__icon--dark,
+.theme-toggle__svg--light,
+.theme-toggle__svg--dark {
   display: none;
 }
 
-/* Show moon (switch-to-dark) when in light mode */
-html:not([data-theme='dark']) .theme-toggle__icon--light {
+/* Emoji glyphs are a fallback only when the SVG is unavailable
+ * (no SVG support / blocked). When the SVG is present they remain hidden. */
+.theme-toggle:has(svg.theme-toggle__svg) .theme-toggle__emoji {
+  display: none !important;
+}
+
+/* SVG glyphs use currentColor so they pick up the header foreground. */
+.theme-toggle__svg {
+  display: none;
+  pointer-events: none;
+  transition:
+    transform var(--transition),
+    opacity var(--transition);
+}
+
+/* Light theme (no preference saved + system = light, OR explicit light)
+ * → show MOON glyph (click to switch to dark). */
+html:not([data-theme='dark']) .theme-toggle__icon--light,
+html:not([data-theme='dark']) .theme-toggle__svg--light {
   display: inline;
 }
-html[data-theme='dark'] .theme-toggle__icon--dark {
+/* Dark theme (explicit) → show SUN glyph (click to switch to light). */
+html[data-theme='dark'] .theme-toggle__icon--dark,
+html[data-theme='dark'] .theme-toggle__svg--dark {
   display: inline;
 }
 @media (prefers-color-scheme: dark) {
-  html:not([data-theme='light']) .theme-toggle__icon--light {
+  html:not([data-theme='light']) .theme-toggle__icon--light,
+  html:not([data-theme='light']) .theme-toggle__svg--light {
     display: none;
   }
-  html:not([data-theme='light']) .theme-toggle__icon--dark {
+  html:not([data-theme='light']) .theme-toggle__icon--dark,
+  html:not([data-theme='light']) .theme-toggle__svg--dark {
     display: inline;
   }
 }
-html[data-theme='light'] .theme-toggle__icon--light {
+html[data-theme='light'] .theme-toggle__icon--light,
+html[data-theme='light'] .theme-toggle__svg--light {
   display: inline;
 }
-html[data-theme='light'] .theme-toggle__icon--dark {
+html[data-theme='light'] .theme-toggle__icon--dark,
+html[data-theme='light'] .theme-toggle__svg--dark {
   display: none;
 }
 
@@ -7324,4 +7359,107 @@ html[data-theme='dark'] .ep-offline-hero__title {
 [dir='rtl'] .ep-update-toast {
   border-inline-start: 1px solid rgba(0, 51, 153, 0.18);
   border-inline-end: 4px solid #003399;
+}
+
+/* ─── Theme transition polish (UI/UX) ────────────────────────────── */
+/*
+ * Smooth color transitions when the user toggles dark/light mode so the
+ * page doesn't snap between palettes. Honours `prefers-reduced-motion`.
+ *
+ * Applied only to a small allowlist of properties to avoid touching
+ * layout/paint-heavy properties that could cause jank on theme switch.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  body,
+  .site-header,
+  .site-footer,
+  .article-body,
+  .article-toc-container,
+  .article-toc-details,
+  .article-hero,
+  .key-figures-bar,
+  .key-figure-card,
+  .timeline-section,
+  .timeline-item,
+  .article-quality-score {
+    transition:
+      background-color 0.28s ease,
+      color 0.28s ease,
+      border-color 0.28s ease,
+      box-shadow 0.28s ease;
+  }
+}
+
+/* Footer Quick Links polish — give the SVG icons a consistent gutter
+ * and align the label text correctly across LTR/RTL. The icon is laid
+ * out with flex (logical inline-start margin) so RTL languages mirror. */
+.site-footer .footer-section ul li {
+  margin-bottom: 6px;
+}
+
+.site-footer .footer-section ul a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.4;
+}
+
+.site-footer .footer-section ul a .icon-inline {
+  flex: 0 0 auto;
+  opacity: 0.85;
+  transition: opacity var(--transition);
+}
+
+.site-footer .footer-section ul a:hover .icon-inline {
+  opacity: 1;
+}
+
+/* Footer Languages heading — keep the inline globe icon aligned with the
+ * heading text and inherit the heading color via currentColor. */
+.site-footer .footer-section h3 .icon-inline {
+  vertical-align: -3px;
+  margin-inline-end: 6px;
+  opacity: 0.9;
+}
+
+/* Header CTA labels — the label span lets the icon stay flush with the
+ * border on narrow viewports while the text gets ellipsised when it
+ * doesn't fit, instead of wrapping awkwardly. */
+.site-header__cta {
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.site-header__cta .icon-inline {
+  flex: 0 0 auto;
+}
+
+.site-header__cta-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 16ch;
+}
+
+@media (max-width: 640px) {
+  /* On very narrow screens collapse CTAs to icon-only and surface the
+   * full label via the existing aria-label / title attributes. */
+  .site-header__cta-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .site-header__cta {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
 }

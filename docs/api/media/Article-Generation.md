@@ -552,7 +552,7 @@ Dark mode is supported in two ways:
 1. system preference via `@media (prefers-color-scheme: dark)` when no explicit `data-theme="light"` is set;
 2. manual theme via `html[data-theme='dark']`.
 
-The theme toggle is emitted by `createThemeToggleButton()` and persisted by the theme script / runtime through `localStorage` key `ep-theme`.
+The theme toggle is emitted by `createThemeToggleButton()` and persisted by the theme script / runtime through `localStorage` key `ep-theme`. The button renders crisp inline-SVG sun and moon glyphs (with emoji `<span>`s preserved as a fallback for environments without SVG support), exposes `aria-pressed` so screen readers announce the current state, and stays in sync with the system colour scheme via `matchMedia('(prefers-color-scheme: dark)')` change events. Theme switches animate with a short colour transition on `body`, header, footer, article body, hero, and article-quality elements; the transition is suppressed under `prefers-reduced-motion: reduce`.
 
 ### Header and language switcher
 
@@ -565,7 +565,7 @@ The theme toggle is emitted by `createThemeToggleButton()` and persisted by the 
 - `.site-header__langs`
 - `.lang-link` and `.lang-link.active`
 
-The header is sticky, keyboard-accessible, and responsive.
+The header is sticky, keyboard-accessible, and responsive. The action area carries three primary CTAs — Sponsor (`HEADER_CTA_SPONSOR_LABELS`), Become a sponsor (`HEADER_CTA_BECOME_SPONSOR_LABELS`), and Transparency \u0026 Security (`HEADER_CTA_SECURITY_LABELS`) — all rendered with inline SVG icons from `src/templates/icons.ts` (`heart`, `sponsor`, `shield-star`) and fully localised across the 14 supported languages. On viewports under 640px each CTA collapses to an icon-only round button while the full label remains accessible via `aria-label` / `title`.
 
 ### Article body and TOC
 
