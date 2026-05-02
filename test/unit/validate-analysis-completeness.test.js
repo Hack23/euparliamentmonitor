@@ -756,6 +756,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
       path.join(runDir, 'manifest.json'),
       JSON.stringify({
         articleType: 'week-ahead',
+        runDate: '2026-05-01',
         files: {
           classification: WEEK_AHEAD_MANDATORY.filter((a) => a.startsWith('classification/')),
           'risk-scoring': WEEK_AHEAD_MANDATORY.filter((a) => a.startsWith('risk-scoring/')),
@@ -908,6 +909,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
       path.join(runDir, 'manifest.json'),
       JSON.stringify({
         articleType: 'month-ahead',
+        runDate: '2026-05-01',
         files: {
           classification: MONTH_AHEAD_MANDATORY.filter((a) => a.startsWith('classification/')),
           'risk-scoring': MONTH_AHEAD_MANDATORY.filter((a) => a.startsWith('risk-scoring/')),
@@ -963,6 +965,26 @@ describe('scripts/validate-analysis-completeness.js', () => {
       'utf8',
     );
     // Use production thresholds to pick up the month-ahead forward-projection floor
+    const prodThresholds = path.resolve(
+      path.dirname(fileURLToPath(import.meta.url)),
+      '../../analysis/methodologies/reference-quality-thresholds.json',
+    );
+    const result = run(runDir, ['--thresholds', prodThresholds]);
+    expect(result.code).toBe(1);
+    expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
+    expect(result.stderr).toMatch(/short/);
+  });
+
+  it('returns RED for week-ahead when forward-projection.md is below floor (§9.4)', () => {
+    writeWeekAheadManifest();
+    writeAllWeekAheadArtifacts();
+    // Overwrite with a too-short file (floor is 80 for week-ahead in production thresholds)
+    fs.writeFileSync(
+      path.join(runDir, 'intelligence/forward-projection.md'),
+      makeArtifact(20, { mermaid: true, wep: true, admiralty: true }),
+      'utf8',
+    );
+    // Use production thresholds to pick up the week-ahead forward-projection floor
     const prodThresholds = path.resolve(
       path.dirname(fileURLToPath(import.meta.url)),
       '../../analysis/methodologies/reference-quality-thresholds.json',
