@@ -1,0 +1,94 @@
+# Election-imminent auto-trigger for news-election-cycle workflow.
+#
+# Implements §6 of the Look-Ahead plan: dispatches news-election-cycle.md
+# at increasing frequency as election day approaches.
+#
+# Tier schedule:
+#   NONE  (d > 180)  — no dispatch (annual cron on Dec 1 + manual only)
+#   T-180 (180 ≥ d > 90) — weekly: Monday 08:00 UTC
+#   T-90  (90 ≥ d > 30)  — twice-weekly: Monday & Thursday 08:00 UTC
+#   T-30  (d ≤ 30)       — daily: 08:00 UTC
+#
+# Design choice: Option 2 (separate scheduler workflow) to keep the gh-aw
+# news-election-cycle.md workflow slim. The tier check uses the existing
+# getElectionCalendarContext() helper from scripts/mcp/ep-mcp-client.js.
+#
+# Hysteresis: The tier function uses Math.ceil for positive daysToElection,
+# which rounds toward the farther tier (down, never up) on date boundaries.
+
+name: "Election Imminent Scheduler"
+
+on:
+  schedule:
+    # Run daily at 08:00 UTC — the script decides whether to dispatch
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+    inputs:
+      force_dispatch:
+        description: "Force dispatch regardless of tier/day-of-week"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  actions: write  # Required to trigger workflow_dispatch on another workflow
+
+concurrency:
+  group: election-imminent-scheduler
+  cancel-in-progress: true
+
+jobs:
+  check-and-dispatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      tier: ${{ steps.check.outputs.tier }}
+      days_to_election: ${{ steps.check.outputs.days_to_election }}
+      should_dispatch: ${{ steps.check.outputs.should_dispatch }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/check-election-tier.js
+            scripts/mcp/ep-mcp-client.js
+            scripts/constants/config.js
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "25"
+
+      - name: Check election tier
+        id: check
+        run: node scripts/check-election-tier.js
+
+      - name: Dispatch news-election-cycle
+        if: steps.check.outputs.should_dispatch == 'true' || inputs.force_dispatch == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'news-election-cycle.lock.yml',
+              ref: 'main',
+              inputs: {
+                force_generation: 'true'
+              }
+            });
+            console.log('✅ Dispatched news-election-cycle workflow');
+            console.log(`   Tier: ${{ steps.check.outputs.tier }}`);
+            console.log(`   Days to election: ${{ steps.check.outputs.days_to_election }}`);
+
+      - name: Skip dispatch (tier does not require run today)
+        if: steps.check.outputs.should_dispatch != 'true' && inputs.force_dispatch != 'true'
+        run: |
+          echo "ℹ️  No dispatch needed"
+          echo "   Tier: ${{ steps.check.outputs.tier }}"
+          echo "   Days to election: ${{ steps.check.outputs.days_to_election }}"
+          echo "   Current day does not match tier schedule"
