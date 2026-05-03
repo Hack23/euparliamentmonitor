@@ -1527,8 +1527,8 @@ already secured)
 
 **Existing Controls:**
 
-- ✅ `.github/workflows/compile-agentic-workflows.yml` validates `GH_AW_VERSION=v0.71.3` pin on every PR
-- ✅ Compile job is a required status check on `main` via branch protection
+- ✅ `.github/workflows/compile-agentic-workflows.yml` validates `GH_AW_VERSION=v0.71.3` pin (manual `workflow_dispatch` — run before merging agentic-workflow changes)
+- ✅ Branch protection prevents merge when compile check fails (when manually triggered)
 - ✅ `.lock.yml` MUST match `{{#runtime-import}}` directive in the source `.md`
 - ✅ Branch protection prevents merge when compile check fails
 - ✅ `actions-lock.json` tracked in VCS for supply-chain auditability

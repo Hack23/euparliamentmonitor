@@ -458,7 +458,7 @@ For **critical static-site availability (primary S3/CloudFront or GitHub Pages f
 **Sustained Operations:**
 1. ✅ Verify all 14 language versions are serving correctly (1,894 HTML articles in `news/`)
 2. 🧪 Run full test suite (`npm run lint && npm run test`) — 3,061+ Vitest tests across 52 test files
-3. 📰 Re-run affected agentic workflows to regenerate news + indexes + sitemap (`npm run build` / `npm run generate-article:all` / `npm run generate-news-indexes`)
+3. 📰 Re-run affected agentic workflows to regenerate news + indexes + sitemap (`npm run build` / `npm run generate-article:all` / `npm run generate-news-indexes` / `npm run generate-sitemap`)
 4. 🔍 Validate E2E tests pass (`npm run test:e2e`) — Playwright + axe-core WCAG 2.1 AA
 5. 📋 Document incident and lessons learned in GitHub Issue
 

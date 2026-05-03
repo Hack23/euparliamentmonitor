@@ -691,7 +691,7 @@ analysis/daily/2026-04-20/
 └── monthly-review/                     ← 28th of month only
 ```
 
-> **🚨 Isolation Rule**: Each workflow writes ONLY to its own `{article-type-slug}-run<NN>/` subdirectory under `analysis/daily/<YYYY-MM-DD>/`. Cross-workflow overwrites are prohibited. The 14 unified `news-<type>.md` workflows each author their full Stage-B artifact set (39-template methodology) inside their own run directory; there is no shared cross-workflow synthesis step under the post-April-2026 aggregator pipeline (the legacy `news-weekly-review-analysis.md` / `news-monthly-review-analysis.md` aggregators were deleted in the migration).
+> **🚨 Isolation Rule**: Each workflow writes ONLY to its own subdirectory under `analysis/daily/<YYYY-MM-DD>/`. Directory names are typically the article-type slug (e.g. `breaking/`, `week-ahead/`) but may carry a `-run<NN>` or other suffix when multiple runs occur on the same date. Run discovery keys off `manifest.json` presence, not directory-name convention. Cross-workflow overwrites are prohibited. The 14 unified `news-<type>.md` workflows each author their full Stage-B artifact set (39-template methodology) inside their own run directory; there is no shared cross-workflow synthesis step under the post-April-2026 aggregator pipeline (the legacy `news-weekly-review-analysis.md` / `news-monthly-review-analysis.md` aggregators were deleted in the migration).
 
 ---
 
