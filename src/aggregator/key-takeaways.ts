@@ -223,10 +223,7 @@ export function dedupeTakeaways(candidates: readonly Takeaway[]): Takeaway[] {
  * @returns Ordered candidate list (may exceed {@link MAX_TAKEAWAYS}; caller
  *          should call {@link dedupeTakeaways} before rendering)
  */
-export function harvestCandidates(
-  runDir: string,
-  sources: readonly string[]
-): Takeaway[] {
+export function harvestCandidates(runDir: string, sources: readonly string[]): Takeaway[] {
   const candidates: Takeaway[] = [];
   for (const rel of sources) {
     const abs = path.join(runDir, rel);
