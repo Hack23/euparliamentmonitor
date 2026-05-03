@@ -56,24 +56,27 @@ network:
 # minutes. This keeps EP/WB/memory/sequential-thinking sessions warm
 # during the 60-minute Stage A/B/C/D window. See upstream
 # `reference/mcp-gateway.md` §4.1.3.5 for the full keepalive contract.
-# Note: keepalive-interval keeps backend sessions warm; the agent ↔
-# gateway streamable-HTTP session lifetime is set separately by
-# `engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+, see §13 below).
+# Note: keepalive-interval keeps backend sessions warm. The agent ↔
+# gateway streamable-HTTP session lifetime cannot currently be configured
+# from frontmatter — `engine.mcp.session-timeout` is advertised by the
+# gh-aw v0.71.3 compiler but the bundled gateway image
+# `ghcr.io/github/gh-aw-mcpg:v0.3.1` rejects the field with
+# `additionalProperties 'sessionTimeout' not allowed` (run #25275823699
+# fingerprint). Until upstream ships a compatible gateway image, do NOT
+# set `engine.mcp.session-timeout`. The workflow's 60-min `timeout-minutes`
+# cap and the PR-call deadline at minute ≤ 45 remain authoritative.
 sandbox:
   agent: awf
   mcp:
     port: 8080
     keepalive-interval: 300
 
-# Engine — gh-aw v0.71.3+ supports `engine.mcp.session-timeout` (Go
-# duration string, ≥ 5m). Every unified news workflow sets `65m` so the
-# safeoutputs HTTP session outlasts the 60-min `timeout-minutes` cap
-# with a 5-min margin, superseding the prior ~28–30 min hard TTL.
+# Engine — `engine.mcp.session-timeout` is intentionally NOT set; see the
+# comment block above. Without it, the gateway uses its upstream default
+# session lifetime; backend sessions are kept warm by keepalive-interval.
 engine:
   id: copilot
   model: claude-sonnet-4.6
-  mcp:
-    session-timeout: 65m
   max-continuations: 1
 
 tools:
