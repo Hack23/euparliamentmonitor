@@ -155,6 +155,8 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Quality signals.** Every power score cites a source (MEP influence index, committee role, group seat share); every alignment score cites a roll-call, speech, or public position.
 
+> 📎 **Worked example:** [`examples/stakeholder-map-good-output.md`](examples/stakeholder-map-good-output.md) — illustrative 14-actor roster with cited power/alignment scores, four ≥150-word quadrant narratives, and a movement-since-prior-period table.
+
 ---
 
 ### scenario-forecast
@@ -175,6 +177,8 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 **Depth floor (breaking):** 280 lines.
 
 **Quality signals.** Probabilities sum to 100%; each scenario names at least one procedure ID, date, or named actor; no scenario is described in bullet points alone. **Source-grade × Estimative-language discipline (tradecraft):** each scenario's probability is expressed as a WEP band ([`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)) with explicit time horizon (§3.4); primary SAT is Scenario Analysis with a mandatory Pre-Mortem (§4 techniques 9 + 8); every indicator cites its source with an Admiralty grade (§2).
+
+> 📎 **Worked example:** [`examples/scenario-forecast-good-output.md`](examples/scenario-forecast-good-output.md) — three scenarios with WEP bands separated from confidence labels, dated indicators, a named Pre-Mortem scenario, and a cross-scenario sensitivity flip.
 
 ---
 
@@ -603,6 +607,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 **Quality signals.** Every score matches `L × I`; every monitoring trigger is time-bounded. **Source-grade × Estimative-language discipline (tradecraft):** each risk narrative reports the residual likelihood as a WEP band ([`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)) with time horizon (§3.4); evidence backing the L and I scores carries an Admiralty grade (§2); ACH (§4 technique 6) is used when multiple competing risks share the same monitoring triggers.
 
+> 📎 **Worked example:** [`examples/risk-assessment-good-output.md`](examples/risk-assessment-good-output.md) — illustrative 5-risk register with WEP-banded Likelihood, dated trigger events, named mitigation owners, and pre/post-mitigation residual scoring.
+
 ---
 
 ### quantitative-swot
@@ -620,6 +626,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 **Depth floor (breaking):** 140 lines.
 
 **Quality signals.** Every SWOT item has an evidence citation; no quadrant has fewer than 3 items; TOWS strategies name specific actors and timelines.
+
+> 📎 **Worked example:** [`examples/swot-good-output.md`](examples/swot-good-output.md) — illustrative excerpt showing ≥80-word cells with evidence + confidence labels and four TOWS pairs with dated triggers and named owners.
 
 ---
 

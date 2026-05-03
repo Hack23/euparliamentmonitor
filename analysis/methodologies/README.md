@@ -991,6 +991,14 @@ flowchart TD
 
 ## 📝 Changelog
 
+### v3.3 (2026-05-03)
+
+| Document | Change | Rationale |
+|----------|--------|-----------|
+| `examples/` (new directory) | Added four worked "good-output" excerpts under [`examples/`](examples/) — SWOT, stakeholder map, risk assessment, scenario forecast — each cross-linked to its companion methodology section and template, with a Pass-2 checklist that mirrors the methodology's quality-signal language. | Closes the issue's "worked example" deliverable; gives an AI agent a concrete, evidence-dense reference to diff Pass-1 drafts against during Pass-2 read-back. |
+| `test/unit/methodology-catalog.test.js` (new test) | Drift-guard asserts the three-way match between [`artifact-catalog.md`](artifact-catalog.md), [`reference-quality-thresholds.json`](reference-quality-thresholds.json), [`per-artifact-methodologies.md`](per-artifact-methodologies.md), and `analysis/templates/`. Five assertions: catalog parses, every template link resolves, every methodology link resolves, every `per-artifact-methodologies.md#anchor` resolves to a real `### section`, and every numeric `breaking` floor in the catalog has a row in the threshold registry. | Promotes the catalog ↔ thresholds ↔ templates ↔ per-artifact-methodologies invariant from a manual review item to a CI-enforced contract; future drift fails fast in unit tests rather than during a 60-minute agentic run. |
+| `examples/README.md` (new) | Index + anti-patterns + "how to add a new example" pointer. | Makes the examples directory self-documenting and discoverable from this index. |
+
 ### v3.2 (2026-04-25)
 
 | Document | Change | Rationale |
