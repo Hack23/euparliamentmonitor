@@ -45,6 +45,7 @@ export function buildMarkdownIt() {
     md.use(deflist);
     installMermaidFence(md);
     installTableWrapper(md);
+    installImageLazyLoading(md);
     return md;
 }
 /**
@@ -125,6 +126,25 @@ function installTableWrapper(md) {
         ((tokens, idx, opts, _env, self) => self.renderToken(tokens, idx, opts));
     md.renderer.rules.table_open = (tokens, idx, opts, env, self) => `<div class="table-scroll" role="region" tabindex="0">${defaultOpen(tokens, idx, opts, env, self)}`;
     md.renderer.rules.table_close = (tokens, idx, opts, env, self) => `${defaultClose(tokens, idx, opts, env, self)}</div>`;
+}
+/**
+ * Add `loading="lazy"` and `decoding="async"` to every `<img>` rendered
+ * from Markdown syntax. Improves LCP/performance by deferring off-screen
+ * images and allowing async decode without blocking the main thread.
+ *
+ * @param md - MarkdownIt instance to patch in-place
+ */
+function installImageLazyLoading(md) {
+    const defaultImage = md.renderer.rules.image ??
+        ((tokens, idx, opts, _env, self) => self.renderToken(tokens, idx, opts));
+    md.renderer.rules.image = (tokens, idx, opts, env, self) => {
+        const token = tokens[idx];
+        if (token) {
+            token.attrSet('loading', 'lazy');
+            token.attrSet('decoding', 'async');
+        }
+        return defaultImage(tokens, idx, opts, env, self);
+    };
 }
 /**
  * Render aggregated Markdown into a sanitised HTML body fragment.

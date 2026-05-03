@@ -109,4 +109,21 @@ describe('renderMarkdown', () => {
     expect(html).toContain('<section class="analysis-panel">');
     expect(html).toContain('Run &lt;N&gt; Validation Against Remediation');
   });
+
+  it('adds loading="lazy" and decoding="async" to images', () => {
+    const md = '![Alt text](image.png)';
+    const { html } = renderMarkdown(md);
+    expect(html).toContain('loading="lazy"');
+    expect(html).toContain('decoding="async"');
+    expect(html).toContain('alt="Alt text"');
+  });
+
+  it('adds lazy loading to multiple images', () => {
+    const md = '![First](a.jpg)\n\n![Second](b.jpg)';
+    const { html } = renderMarkdown(md);
+    const lazyMatches = html.match(/loading="lazy"/g);
+    expect(lazyMatches).toHaveLength(2);
+    const asyncMatches = html.match(/decoding="async"/g);
+    expect(asyncMatches).toHaveLength(2);
+  });
 });
