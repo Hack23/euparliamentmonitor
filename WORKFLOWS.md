@@ -16,8 +16,8 @@
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.1 | **📅 Last Updated:** 2026-04-20 (UTC) | **📦 Release:** v0.8.40  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20
+**📋 Document Owner:** CEO | **📄 Version:** 4.2 | **📅 Last Updated:** 2026-05-03 (UTC) | **📦 Release:** v0.8.54  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03
 
 ---
 
@@ -125,7 +125,7 @@ EU Parliament Monitor employs a comprehensive suite of **GitHub Actions workflow
 | 8 | **Deploy S3** | Production deployment to AWS S3 + CloudFront (OIDC, egress: block) | Push to main | Infrastructure as Code |
 | 9 | **REUSE Compliance** | License and copyright verification (REUSE 3.3) | On PR/push + weekly Monday | Open Source Policy |
 | 10 | **SLSA Provenance** | Build provenance attestation (integrated in release.yml) | On release + manual | Supply chain security (SLSA L3) |
-| 11 | **Compile Agentic Workflows** | Compile `.md` → `.lock.yml` via gh-aw CLI (pinned `GH_AW_VERSION: v0.69.3`) | Manual dispatch | Automation governance |
+| 11 | **Compile Agentic Workflows** | Compile `.md` → `.lock.yml` via gh-aw CLI (pinned `GH_AW_VERSION: v0.71.3`) | Manual dispatch | Automation governance |
 | 12 | **Agentics Maintenance** | Housekeeping for agentic workflows (stale lock cleanup, health probes) | Scheduled | Automation governance |
 | 13 | **Labeler** | Automatic PR labeling | On pull_request_target | Workflow governance |
 | 14 | **Setup Labels** | Repository label management | Manual dispatch | Repository governance |
@@ -365,13 +365,13 @@ imports:
   `mcp-servers:` block (EP, World Bank, IMF, MCP Gateway mounts). Editing it
   propagates to every importing workflow on next compile.
 - `.github/agents/news-generation.agent.md` contributes **body-only** content
-  (confirmed against gh-aw v0.69.3, 2026-04-21: imported agent frontmatter is
+  (confirmed against gh-aw v0.71.3, 2026-04-21: imported agent frontmatter is
   not merged into workflow frontmatter). It appends the canonical Required
   Reading order and the 5-stage Stage Contract to every importing prompt.
 - Both files are tracked; any change triggers a recompile of every importing
   `.lock.yml` by [`compile-agentic-workflows.yml`](.github/workflows/compile-agentic-workflows.yml).
 
-#### safeoutputs semantics (gh-aw v0.69.3)
+#### safeoutputs semantics (gh-aw v0.71.3)
 
 Every `news-*.md` declares:
 
@@ -481,7 +481,7 @@ flowchart LR
 
 ### 1b. Agentic News Workflows (gh-aw)
 
-**📄 Files:** `.github/workflows/news-*.md` (9 content workflows + 1 translation workflow)
+**📄 Files:** `.github/workflows/news-*.md` (14 content workflows + 1 translation workflow)
 **🎯 Purpose:** AI-powered news article generation using GitHub Agentic Workflows (gh-aw) with European Parliament MCP Server data
 **⏰ Schedule:** Various (see table below)
 
@@ -617,16 +617,22 @@ Every key EP document featured in the deep-analysis section must include structu
 
 Each scheduled content workflow includes a tailored intelligence module beyond the shared framework:
 
-| Workflow Pair | Module | Focus |
-|---------------|--------|-------|
-| `news-week-ahead-{analysis,article}.md` | 🔭 Strategic Preview Analysis | What to watch, coalitions under stress, legislative inflection points, geopolitical triggers |
-| `news-month-ahead-{analysis,article}.md` | 📈 Long-Term Trend Context | Term trajectory, policy momentum, coalition evolution, EU external context |
-| `news-breaking-{analysis,article}.md` | ⚡ Rapid Stakeholder Impact Assessment | Immediate winners/losers, market/policy signals, next 24–48 hour tracking |
-| `news-committee-reports-{analysis,article}.md` | 🏛️ Committee Power Dynamics Analysis | Rapporteur influence, shadow rapporteur positions, amendment landscape, trilogue implications |
-| `news-propositions-{analysis,article}.md` | 🗓️ Legislative Pipeline Intelligence | Passage probability, amendment expectations, timeline forecast, blocking coalitions |
-| `news-motions-{analysis,article}.md` | 🗳️ Voting Pattern Intelligence | Coalition map, abstention analysis, cross-party defections, margin analysis |
-| `news-weekly-review-{analysis,article}.md` | 📊 Week-in-Context Analysis | Parliamentary landscape shift, promises vs. delivery, surprise developments |
-| `news-monthly-review-{analysis,article}.md` | 🗺️ Monthly Trend Synthesis | Legislative productivity, coalition stability index, policy trajectory, emerging themes |
+| Workflow | Module | Focus |
+|----------|--------|-------|
+| `news-week-ahead.md` | 🔭 Strategic Preview Analysis | What to watch, coalitions under stress, legislative inflection points, geopolitical triggers |
+| `news-month-ahead.md` | 📈 Long-Term Trend Context | Term trajectory, policy momentum, coalition evolution, EU external context |
+| `news-quarter-ahead.md` | 🧭 Quarterly Outlook | Coalition stability projection, policy momentum, blocking coalitions |
+| `news-year-ahead.md` | 🔮 Annual Forward Projection | Multi-quarter trajectory, electoral pressure, partisan/coalition shifts |
+| `news-term-outlook.md` | 🏛️ Term-Length Strategic Outlook | Multi-year coalition viability, mandate-fulfillment trajectory |
+| `news-election-cycle.md` | 🗳️ Electoral-Cycle Intelligence | Cycle-position drivers, group-volatility forecast |
+| `news-breaking.md` | ⚡ Rapid Stakeholder Impact Assessment | Immediate winners/losers, market/policy signals, next 24–48 hour tracking |
+| `news-committee-reports.md` | 🏛️ Committee Power Dynamics Analysis | Rapporteur influence, shadow rapporteur positions, amendment landscape, trilogue implications |
+| `news-propositions.md` | 🗓️ Legislative Pipeline Intelligence | Passage probability, amendment expectations, timeline forecast, blocking coalitions |
+| `news-motions.md` | 🗳️ Voting Pattern Intelligence | Coalition map, abstention analysis, cross-party defections, margin analysis |
+| `news-week-in-review.md` | 📊 Week-in-Context Analysis | Parliamentary landscape shift, promises vs. delivery, surprise developments |
+| `news-month-in-review.md` | 🗺️ Monthly Trend Synthesis | Legislative productivity, coalition stability index, policy trajectory, emerging themes |
+| `news-quarter-in-review.md` | 📚 Quarterly Retrospective | Coalition stability index, productivity benchmarks |
+| `news-year-in-review.md` | 📆 Annual Retrospective | Year-long trend confirmation, accountability ledger |
 
 The translation workflow has its own fidelity module:
 
@@ -1109,18 +1115,18 @@ created during the build step and attached to the immutable GitHub Release in a 
 ### 11. Compile Agentic Workflows
 
 **📄 File:** `.github/workflows/compile-agentic-workflows.yml`  
-**🎯 Purpose:** Compile agentic workflow markdown source files (`.md`) into executable lock files (`.lock.yml`) using the `gh-aw` CLI (pinned `GH_AW_VERSION: v0.69.3`)  
+**🎯 Purpose:** Compile agentic workflow markdown source files (`.md`) into executable lock files (`.lock.yml`) using the `gh-aw` CLI (pinned `GH_AW_VERSION: v0.71.3`)  
 **⏰ Trigger:** Manual dispatch only (`workflow_dispatch`)  
 **📊 Status:** [![Compile Agentic Workflows](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml)
 
-> **Version pin contract**: `GH_AW_VERSION: v0.69.3` is a repository-level environment pin in `compile-agentic-workflows.yml`. Bumping this pin requires re-compilation of all 10 `.lock.yml` files, a full PR review, and successful `gh aw compile --validate` across the workflow set. Any `.md` → `.lock.yml` drift is detected by `agentics-maintenance.yml`.
+> **Version pin contract**: `GH_AW_VERSION: v0.71.3` is a repository-level environment pin in `compile-agentic-workflows.yml`. Bumping this pin requires re-compilation of all 15 `.lock.yml` files, a full PR review, and successful `gh aw compile --validate` across the workflow set. Any `.md` → `.lock.yml` drift is detected by `agentics-maintenance.yml`.
 
 #### Compilation Pipeline
 
 ```mermaid
 graph LR
     A[Manual Trigger] --> B[Checkout Repository]
-    B --> C["Install gh-aw CLI<br/>(pinned v0.69.3)"]
+    B --> C["Install gh-aw CLI<br/>(pinned v0.71.3)"]
     C --> D["Run gh aw compile --validate<br/>Validates frontmatter + safe-outputs"]
     D --> E["Commit & Push<br/>.lock.yml Files"]
 
@@ -1147,7 +1153,7 @@ graph LR
 | Control | Implementation | ISMS Reference |
 |---------|----------------|----------------|
 | **Manual Trigger Only** | `workflow_dispatch` — no automatic runs | Change control |
-| **Version Pin** | `GH_AW_VERSION: v0.69.3` pinned at workflow env | Supply chain integrity |
+| **Version Pin** | `GH_AW_VERSION: v0.71.3` pinned at workflow env | Supply chain integrity |
 | **Token Fallback** | `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` with `GITHUB_TOKEN` fallback | Credential management |
 | **Write Permissions** | `contents: write`, `pull-requests: write`, `actions: write`, `issues: write` | Least privilege for compilation |
 
@@ -1209,7 +1215,7 @@ graph LR
 ### 15. Agentics Maintenance
 
 **📄 File:** `.github/workflows/agentics-maintenance.yml`  
-**🎯 Purpose:** Housekeeping for the agentic workflow fleet — detect `.md` ↔ `.lock.yml` drift, probe MCP gateway health, prune stale analysis artifacts, verify `GH_AW_VERSION: v0.69.3` is in effect.  
+**🎯 Purpose:** Housekeeping for the agentic workflow fleet — detect `.md` ↔ `.lock.yml` drift, probe MCP gateway health, prune stale analysis artifacts, verify `GH_AW_VERSION: v0.71.3` is in effect.  
 **⏰ Trigger:** Scheduled (weekly) + manual dispatch  
 
 #### Security Controls
@@ -2139,6 +2145,12 @@ See [FUTURE_WORKFLOWS.md](FUTURE_WORKFLOWS.md) for:
 **📞 Questions?** Contact: [Security Team](mailto:security@hack23.com)  
 **🔐 Security Issues?** See [SECURITY.md](SECURITY.md) for vulnerability disclosure
 
+### 🔗 Related ISMS-PUBLIC Policies
+
+- [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
+- [Change Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Change_Management.md)
+- [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
+
 ---
 
-*Last updated: 2026-04-20 by Documentation Architect / DevOps Engineer (EU Parliament Monitor v0.8.40)*
+*Last updated: 2026-05-03 by Documentation Architect / DevOps Engineer (EU Parliament Monitor v0.8.54)*
