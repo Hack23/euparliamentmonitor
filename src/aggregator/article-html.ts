@@ -45,6 +45,12 @@ import {
 import { READER_GUIDE_SECTION_ID } from './reader-guide-constants.js';
 import { READER_GUIDE_TITLE_LABELS } from './reader-intelligence-guide.js';
 
+/** Publisher organization name used in JSON-LD, meta tags. */
+const PUBLISHER_NAME = 'Hack23 AB';
+
+/** Site name used across meta tags and structured data. */
+const SITE_NAME = 'EU Parliament Monitor';
+
 /** One entry in the article-level TOC sidebar (mirrors `TocSection`). */
 export interface ArticleTocEntry {
   /** Fragment identifier — must match the `id="…"` on the rendered H2. */
@@ -202,7 +208,7 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   const safeLang = ALL_LANGUAGES.includes(options.lang) ? options.lang : ('en' as LanguageCode);
   const dir = getTextDirection(safeLang);
   const siteTitle =
-    getLocalizedString(PAGE_TITLES, safeLang).split(' - ')[0] ?? 'EU Parliament Monitor';
+    getLocalizedString(PAGE_TITLES, safeLang).split(' - ')[0] ?? SITE_NAME;
   const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, safeLang);
   const canonicalUrl = `${BASE_URL}/news/${getArticleFilename(options.articleSlug, safeLang)}`;
   const indexHref = safeLang === 'en' ? '../index.html' : `../index-${safeLang}.html`;
@@ -219,14 +225,21 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
     headline: options.title,
     description: options.description,
     datePublished: options.date,
+    dateModified: options.date,
     inLanguage: safeLang,
     url: canonicalUrl,
-    author: { '@type': 'Organization', name: 'Hack23 AB', url: 'https://hack23.com' },
-    publisher: { '@type': 'Organization', name: 'Hack23 AB', url: 'https://hack23.com' },
+    image: `${BASE_URL}/images/og-image.jpg`,
+    author: { '@type': 'Organization', name: PUBLISHER_NAME, url: 'https://hack23.com' },
+    publisher: {
+      '@type': 'Organization',
+      name: PUBLISHER_NAME,
+      url: 'https://hack23.com',
+      logo: { '@type': 'ImageObject', url: `${BASE_URL}/images/apple-touch-icon.png` },
+    },
     articleSection: options.articleType,
     isPartOf: {
       '@type': 'WebSite',
-      name: 'EU Parliament Monitor',
+      name: SITE_NAME,
       url: BASE_URL,
     },
     ...(options.isBasedOn && options.isBasedOn.length > 0
@@ -235,7 +248,34 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
         }
       : {}),
   };
-  const jsonLdString = JSON.stringify(jsonLd).replace(/</g, '\\u003c');
+
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: SITE_NAME,
+        item: BASE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: options.articleType.replace(/-/g, ' '),
+        item: `${BASE_URL}/news/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: options.title,
+        item: canonicalUrl,
+      },
+    ],
+  };
+
+  const structuredData = [jsonLd, breadcrumbLd];
+  const jsonLdString = JSON.stringify(structuredData).replace(/</g, '\\u003c');
 
   const pageTitle = `${options.title} — ${siteTitle}`;
   const header = buildSiteHeader({
@@ -257,8 +297,8 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   <title>${escapeHTML(pageTitle)}</title>
   <meta name="description" content="${escapeHTML(options.description)}">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="author" content="Hack23 AB">
-  <meta name="publisher" content="Hack23 AB">
+  <meta name="author" content="${PUBLISHER_NAME}">
+  <meta name="publisher" content="${PUBLISHER_NAME}">
   <meta name="date" content="${options.date}">
   <meta name="article:published_time" content="${options.date}">
   <link rel="canonical" href="${canonicalUrl}">

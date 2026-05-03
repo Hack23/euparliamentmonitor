@@ -112,6 +112,30 @@ jobs:
           role-session-name: githubworkflowrolesessiont2
           aws-region: ${{ env.AWS_REGION }}
       
+      - name: Pre-compress static output (gzip + brotli)
+        run: |
+          # Install brotli if not available
+          sudo apt-get install -y brotli >/dev/null 2>&1 || true
+
+          echo "🗜️ Pre-compressing HTML, CSS, JS, JSON, XML files..."
+          compressed=0
+          for ext in html css js mjs json xml svg txt webmanifest; do
+            for f in $(find . -name "*.${ext}" \
+              -not -path "./node_modules/*" \
+              -not -path "./.git/*" \
+              -not -path "./scripts/*" \
+              -not -path "./src/*" \
+              -not -path "./test/*" \
+              -not -path "./e2e/*" \
+              -not -path "./builds/*" \
+              -not -path "./analysis/*" \
+              2>/dev/null); do
+              gzip -9 -k -f "$f" 2>/dev/null && compressed=$((compressed + 1))
+              brotli -9 -k -f "$f" 2>/dev/null
+            done
+          done
+          echo "✅ Pre-compressed $compressed files (.gz + .br)"
+
       - name: Deploy to S3 with cache headers
         run: |
           BUCKET="s3://${{ env.S3_BUCKET_NAME }}"

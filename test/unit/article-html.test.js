@@ -247,3 +247,53 @@ describe('buildArticleToc', () => {
     expect(de).toContain('Inhaltsverzeichnis');
   });
 });
+
+describe('wrapArticleHtml structured data enhancements', () => {
+  const baseOptions = {
+    lang: 'en',
+    articleSlug: '2026-01-15-breaking',
+    body: '<h1>Test Article</h1><p>Body content.</p>',
+    title: 'Test Article',
+    description: 'Short description of the test article.',
+    date: '2026-01-15',
+    articleType: 'breaking',
+  };
+
+  it('emits dateModified in JSON-LD', () => {
+    const html = wrapArticleHtml(baseOptions);
+    expect(html).toContain('"dateModified"');
+  });
+
+  it('emits image field in JSON-LD', () => {
+    const html = wrapArticleHtml(baseOptions);
+    expect(html).toContain('"image"');
+    expect(html).toContain('og-image.jpg');
+  });
+
+  it('emits publisher with logo in JSON-LD', () => {
+    const html = wrapArticleHtml(baseOptions);
+    expect(html).toContain('"logo"');
+    expect(html).toContain('"ImageObject"');
+  });
+
+  it('emits BreadcrumbList JSON-LD alongside NewsArticle', () => {
+    const html = wrapArticleHtml(baseOptions);
+    expect(html).toContain('"BreadcrumbList"');
+    expect(html).toContain('"ListItem"');
+  });
+
+  it('BreadcrumbList has 3 items: home, news section, article', () => {
+    const html = wrapArticleHtml(baseOptions);
+    const ldMatch = html.match(
+      /<script type="application\/ld\+json">([\s\S]*?)<\/script>/
+    );
+    expect(ldMatch).not.toBeNull();
+    const data = JSON.parse(ldMatch[1]);
+    expect(Array.isArray(data)).toBe(true);
+    const breadcrumb = data.find((d) => d['@type'] === 'BreadcrumbList');
+    expect(breadcrumb).toBeDefined();
+    expect(breadcrumb.itemListElement).toHaveLength(3);
+    expect(breadcrumb.itemListElement[0].position).toBe(1);
+    expect(breadcrumb.itemListElement[2].position).toBe(3);
+  });
+});

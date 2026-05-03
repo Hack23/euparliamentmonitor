@@ -341,12 +341,19 @@ function writeLanguageVariant(lang, slug, aggregated, englishHtml, chromeOptions
     bodyHtml = stripInlineReaderGuide(bodyHtml);
     const guideHtml = buildReaderIntelligenceGuideHtml(lang, aggregated.sectionToc, aggregated.includedArtifacts);
     if (guideHtml) {
-        // Prepend the guide to the body so it always appears at the top of
-        // the rendered content, immediately after the chrome header. The
-        // article chrome in wrapArticleHtml wraps the body in an <article>
-        // with its own <header>/<h1>, so prepending here is deterministic
-        // and avoids fragile in-body heading searches.
-        bodyHtml = guideHtml + '\n' + bodyHtml;
+        // The rendered bodyHtml starts with an <h1> produced by the markdown
+        // `# ${documentTitle}` header in analysis-aggregator.ts. Insert the
+        // guide immediately after that </h1> so the <h2> inside the guide
+        // sits below the article headline, preserving a valid heading outline.
+        // Fallback: prepend if no <h1> is found (shouldn't happen in practice).
+        const h1End = bodyHtml.indexOf('</h1>');
+        if (h1End !== -1) {
+            const insertPos = h1End + '</h1>'.length;
+            bodyHtml = bodyHtml.slice(0, insertPos) + '\n' + guideHtml + '\n' + bodyHtml.slice(insertPos);
+        }
+        else {
+            bodyHtml = guideHtml + '\n' + bodyHtml;
+        }
     }
     // When a per-language translated source exists, prefer a summary derived
     // from it so the `<meta description>` matches the visible prose. The
