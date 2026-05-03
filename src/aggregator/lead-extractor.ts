@@ -48,15 +48,6 @@ const PREFERRED_HEADINGS = [
 ];
 
 /**
- * Extract the strongest lead paragraph from a Markdown body. Pure helper;
- * surfaced for unit testing.
- *
- * @param markdown - Artifact Markdown (front-matter / banners ignored via
- *                   heading-aware scanning rather than full cleaning)
- * @returns First non-empty paragraph under a preferred heading, or the
- *          first non-empty paragraph anywhere in the body, or `''`
- */
-/**
  * One scanned section produced by {@link splitSections}.
  */
 interface MarkdownSection {
@@ -120,6 +111,8 @@ function classifyParagraphLine(trimmed: string): 'flush' | 'skip' | 'append' {
   if (/^[-*+]\s+/.test(trimmed)) return 'skip';
   if (/^\d+\.\s+/.test(trimmed)) return 'skip';
   if (/^(>|<|!?\[)/.test(trimmed)) return 'flush';
+  // Artifact metadata key-value lines (e.g. "**Run:** …", "** IMF requirement:** …").
+  if (/^\*\*\s*[A-Za-z][^*]+:\*\*/.test(trimmed)) return 'skip';
   return 'append';
 }
 

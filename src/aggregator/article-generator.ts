@@ -27,10 +27,7 @@ import {
   type AggregatedRun,
 } from './analysis-aggregator.js';
 import type { Manifest } from './manifest/index.js';
-import {
-  latestGateResult as _latestGateResult,
-  resolveRunId as _resolveRunId,
-} from './manifest/index.js';
+import { resolveRunId as _resolveRunId } from './manifest/index.js';
 import {
   resolveArticleMetadata,
   extractStrongProseLine,

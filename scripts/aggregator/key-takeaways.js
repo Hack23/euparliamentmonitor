@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 /**
  * @module Aggregator/KeyTakeaways
- * @description Deterministic 5–7 bullet "Key takeaways" synthesiser.
+ * @description Deterministic 3–7 bullet "Key takeaways" synthesiser.
  *
  * Reads the strongest evidence-bearing bullets from
  * `intelligence/synthesis-summary.md` (and, when present, from an
@@ -206,7 +206,7 @@ export function buildKeyTakeaways(options) {
     return [
         `<h2 id="${KEY_TAKEAWAYS_SECTION_ID}">${KEY_TAKEAWAYS_SECTION_TITLE}</h2>`,
         '',
-        'A deterministic 5–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.',
+        'A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.',
         '',
         ...bullets,
         '',

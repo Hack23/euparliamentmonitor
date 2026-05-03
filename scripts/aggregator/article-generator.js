@@ -20,7 +20,7 @@ import fs from 'fs';
 import path from 'path';
 import { pathToFileURL } from 'url';
 import { aggregateAnalysisRun, resolveArticleTypeFromManifest, } from './analysis-aggregator.js';
-import { resolveRunId as _resolveRunId, } from './manifest/index.js';
+import { resolveRunId as _resolveRunId } from './manifest/index.js';
 import { resolveArticleMetadata, extractStrongProseLine, } from './article-metadata.js';
 import { buildArticleMeta, serializeArticleMeta } from './article-meta.js';
 import { renderMarkdown } from './markdown-renderer.js';

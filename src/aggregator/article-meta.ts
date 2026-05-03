@@ -23,10 +23,14 @@
 
 import fs from 'fs';
 import path from 'path';
-import { extractExecutiveLead } from './lead-extractor.js';
+import {
+  extractExecutiveLead,
+  extractLeadParagraph,
+  trimToLeadSentence,
+} from './lead-extractor.js';
 import {
   buildKeyTakeaways as _buildKeyTakeaways,
-  dedupeTakeaways,
+  jaccardSimilarity,
   extractStrongBullets,
   harvestCandidates,
   MAX_TAKEAWAYS,
@@ -88,6 +92,115 @@ export interface BuildArticleMetaOptions {
 /** Hard cap on how many entries each list field carries. */
 const MAX_LIST_ENTRIES = 8;
 
+/** Regex matching a YYYY-MM-DD date, month-year, or Qn YYYY pattern. */
+const DATE_TRIGGER_RE =
+  /\b(\d{4}-\d{2}-\d{2}|Q[1-4]\s+\d{4}|(?:Jan(?:uary)?|Feb(?:ruary)?|Mar(?:ch)?|Apr(?:il)?|May|Jun(?:e)?|Jul(?:y)?|Aug(?:ust)?|Sep(?:tember)?|Oct(?:ober)?|Nov(?:ember)?|Dec(?:ember)?)\s+\d{4})\b/i;
+
+/** Headings in economic-context artifacts that contain macro prose. */
+const MACRO_PREFERRED_HEADINGS = [
+  'judgement',
+  'judgment',
+  'imf weo',
+  'imf baseline',
+  'salient economic',
+  'macro',
+  'eurozone macro',
+];
+
+/**
+ * De-duplicate candidates using Jaccard similarity, capped at `maxItems`.
+ * Unlike `dedupeTakeaways` from key-takeaways.ts, this helper does
+ * not impose the `MAX_TAKEAWAYS` ceiling — callers provide their own cap.
+ *
+ * @param candidates - Ordered list of bullet body strings
+ * @param maxItems - Maximum number of de-duplicated items to return
+ * @returns De-duplicated list capped at `maxItems`
+ */
+function dedupeItems(candidates: readonly string[], maxItems: number): string[] {
+  const THRESHOLD = 0.7;
+  const out: string[] = [];
+  for (const candidate of candidates) {
+    if (out.length >= maxItems) break;
+    const isDuplicate = out.some((existing) => jaccardSimilarity(existing, candidate) >= THRESHOLD);
+    if (!isDuplicate) out.push(candidate);
+  }
+  return out;
+}
+
+/**
+ * Extract a macro-context lead from an economic-context artifact, targeting
+ * IMF / Judgement headings. Falls back to the first prose paragraph after
+ * skipping metadata-style preamble lines.
+ *
+ * @param markdown - Raw artifact Markdown
+ * @returns Trimmed lead sentence, or `''`
+ */
+function extractMacroLeadParagraph(markdown: string): string {
+  // Try to find a macro-specific preferred section first.
+  const lines = markdown.split(/\r?\n/);
+  let heading = '';
+  let buffer: string[] = [];
+  let inFence = false;
+
+  const tryExtract = (buf: string[]): string => {
+    for (const rawLine of buf) {
+      const trimmed = (rawLine ?? '').trim();
+      if (trimmed === '' || /^[-*+]\s+/.test(trimmed) || /^\d+\.\s+/.test(trimmed)) continue;
+      if (/^(>|<|!?\[)/.test(trimmed)) continue;
+      if (/^\*\*\s*[A-Za-z][^*]+:\*\*/.test(trimmed)) continue;
+      if (/^\|/.test(trimmed)) continue; // skip table rows
+      if (/^-{2,}$/.test(trimmed)) continue; // skip horizontal rules
+      return trimmed;
+    }
+    return '';
+  };
+
+  for (const rawLine of lines) {
+    const line = rawLine ?? '';
+    if (/^```/.test(line)) {
+      inFence = !inFence;
+      continue;
+    }
+    if (inFence) continue;
+    const headingMatch = /^(#{1,6})\s+(.*)$/.exec(line);
+    if (headingMatch) {
+      const prev = tryExtract(buffer);
+      if (
+        prev &&
+        MACRO_PREFERRED_HEADINGS.some((h) =>
+          heading
+            .toLowerCase()
+            .replace(/[^\p{L}\p{N}\s]+/gu, ' ')
+            .trim()
+            .includes(h)
+        )
+      ) {
+        return prev;
+      }
+      heading = (headingMatch[2] ?? '').trim();
+      buffer = [];
+      continue;
+    }
+    buffer.push(line);
+  }
+  // Flush last section.
+  const lastPrev = tryExtract(buffer);
+  if (
+    lastPrev &&
+    MACRO_PREFERRED_HEADINGS.some((h) =>
+      heading
+        .toLowerCase()
+        .replace(/[^\p{L}\p{N}\s]+/gu, ' ')
+        .trim()
+        .includes(h)
+    )
+  ) {
+    return lastPrev;
+  }
+  // Final fallback: use the generic extractor result (lazy, avoids double parse in the common path).
+  return extractLeadParagraph(markdown);
+}
+
 /**
  * Mine top political risks from `risk-scoring/risk-matrix.md` (or its
  * historic variants under the same directory). Falls back to the first
@@ -130,9 +243,9 @@ export function extractKeyDates(runDir: string): string[] {
     'intelligence/scenario-forecast.md',
   ];
   const candidates = harvestCandidates(runDir, sources);
-  return dedupeTakeaways(candidates)
-    .slice(0, MAX_LIST_ENTRIES)
-    .map((t) => t.body);
+  // Filter for bullets that contain an explicit date trigger, then dedupe.
+  const dated = candidates.filter((t) => DATE_TRIGGER_RE.test(t.body)).map((t) => t.body);
+  return dedupeItems(dated, MAX_LIST_ENTRIES);
 }
 
 /**
@@ -169,7 +282,11 @@ export function extractKeyActors(runDir: string): string[] {
  * @returns IMF-backed macro hook, or `''`
  */
 export function extractMacroContext(runDir: string): string {
-  return extractExecutiveLead(runDir, ['intelligence/economic-context.md']);
+  const abs = path.join(runDir, 'intelligence/economic-context.md');
+  if (!fs.existsSync(abs)) return '';
+  const markdown = fs.readFileSync(abs, 'utf8');
+  const paragraph = extractMacroLeadParagraph(markdown);
+  return trimToLeadSentence(paragraph);
 }
 
 /**
@@ -187,9 +304,10 @@ export function extractKeyTakeaways(runDir: string): string[] {
     'executive-brief.md',
   ];
   const candidates = harvestCandidates(runDir, sources);
-  const selected = dedupeTakeaways(candidates);
+  const bodies = candidates.map((t) => t.body);
+  const selected = dedupeItems(bodies, MAX_TAKEAWAYS);
   if (selected.length < MIN_TAKEAWAYS) return [];
-  return selected.slice(0, MAX_TAKEAWAYS).map((t) => t.body);
+  return selected;
 }
 
 /**

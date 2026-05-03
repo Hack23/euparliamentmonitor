@@ -2,7 +2,7 @@
   "date": "2026-04-24",
   "articleType": "breaking",
   "runId": "breaking-run-1777011267",
-  "gateResult": "GREEN",
+  "gateResult": "ANALYSIS_ONLY",
   "slug": "2026-04-24-breaking",
   "articlePath": "analysis/daily/2026-04-24/breaking/article.md",
   "topFinding": "Within today's six-hour breaking-news probe window, **no material EP10 breaking event surfaced from the operational feed set.** The `get_adopted_texts_feed` returns an 18-item mixed-vintage backfill (oldest `TA-9-2024-0004` from EP9, newest `TA-10-2025-0314`), `get_events_feed` is **unavailable** on the upstream…",
@@ -17,13 +17,9 @@
   ],
   "topRisks": [],
   "keyDates": [
-    "**WEP:** likely (55–80%).",
-    "**Admiralty:** B2.",
     "**Triggers to confirm:** next run (2026-04-25) returns `events_feed: DEGRADED` and no fresh `adopted_texts` items.",
-    "**WEP:** roughly even (40–60%).",
-    "**Triggers:** `get_server_health` shows a warm `availabilityLevel` and at least one `events_feed` entry within 12 h.",
-    "**WEP:** unlikely (20–40%).",
-    "**Triggers:** `get_adopted_texts_feed` next probe shows an item dated 2026-04-24."
+    "**Triggers:** `get_adopted_texts_feed` next probe shows an item dated 2026-04-24.",
+    "**For breaking-news automation:** every next run through 2026-05-01 should treat feed-freshness as a first-class gate; if `events_feed` is DEGRADED for a third consecutive run, do not falsely label a low-signal day as newsworthy."
   ],
   "keyActors": [
     "**Seats / share:** 188 / 26.1% of 720",
@@ -35,7 +31,7 @@
     "**Breaking-window read:** defaults to centrist-coalition vote-with pattern",
     "**Seats / share:** 136 / 18.9% of 720"
   ],
-  "macroContext": "**Run:** breaking-run-1777010760",
+  "macroContext": "Economic context is a **stable background field**, not a driver of today's low-signal breaking classification.",
   "sources": [
     "intelligence/coalition-dynamics.md",
     "intelligence/economic-context.md",

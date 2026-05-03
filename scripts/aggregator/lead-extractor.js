@@ -99,6 +99,9 @@ function classifyParagraphLine(trimmed) {
         return 'skip';
     if (/^(>|<|!?\[)/.test(trimmed))
         return 'flush';
+    // Artifact metadata key-value lines (e.g. "**Run:** …", "** IMF requirement:** …").
+    if (/^\*\*\s*[A-Za-z][^*]+:\*\*/.test(trimmed))
+        return 'skip';
     return 'append';
 }
 /**

@@ -3,7 +3,7 @@
 
 /**
  * @module Aggregator/KeyTakeaways
- * @description Deterministic 5–7 bullet "Key takeaways" synthesiser.
+ * @description Deterministic 3–7 bullet "Key takeaways" synthesiser.
  *
  * Reads the strongest evidence-bearing bullets from
  * `intelligence/synthesis-summary.md` (and, when present, from an
@@ -74,15 +74,6 @@ const PREFERRED_HEADINGS = [
   'bottom line up front',
 ];
 
-/**
- * Extract the strongest top-level bullets from one cleaned Markdown body.
- * Pure helper; surfaced for unit testing.
- *
- * @param markdown - Raw artifact Markdown (front-matter and banners may
- *                   be present; the function ignores them via heading-aware
- *                   scanning rather than full cleaning)
- * @returns Ordered list of bullet bodies (trimmed, without leading `- `)
- */
 /**
  * Mutable state used by {@link extractStrongBullets} as it scans a single
  * Markdown body. Extracted so the line-level handlers stay focused.
@@ -252,7 +243,7 @@ export function buildKeyTakeaways(options: BuildKeyTakeawaysOptions): string {
   return [
     `<h2 id="${KEY_TAKEAWAYS_SECTION_ID}">${KEY_TAKEAWAYS_SECTION_TITLE}</h2>`,
     '',
-    'A deterministic 5–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.',
+    'A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.',
     '',
     ...bullets,
     '',
