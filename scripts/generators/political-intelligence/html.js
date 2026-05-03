@@ -347,11 +347,6 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
         url: BASE_URL,
         inLanguage: safeLang,
         publisher: { '@id': `${BASE_URL}/#organization` },
-        potentialAction: {
-            '@type': 'SearchAction',
-            target: { '@type': 'EntryPoint', urlTemplate: `${BASE_URL}/?q={search_term_string}` },
-            'query-input': 'required name=search_term_string',
-        },
     }).replace(/</g, '\\u003c');
     const organizationJsonLd = JSON.stringify({
         '@context': SCHEMA_ORG,

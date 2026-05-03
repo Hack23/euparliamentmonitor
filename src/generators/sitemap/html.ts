@@ -298,7 +298,7 @@ ${items}
     },
     mainEntity: {
       '@type': 'ItemList',
-      numberOfItems: articleInfos.length,
+      numberOfItems: Math.min(articleInfos.length, 50),
       name: sections.news,
       itemListElement: articleInfos.slice(0, 50).map((info, idx) => ({
         '@type': 'ListItem',
@@ -318,11 +318,6 @@ ${items}
     url: BASE_URL,
     inLanguage: lang,
     publisher: { '@id': `${BASE_URL}/#organization` },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: { '@type': 'EntryPoint', urlTemplate: `${BASE_URL}/?q={search_term_string}` },
-      'query-input': 'required name=search_term_string',
-    },
   }).replace(/</g, '\\u003c');
 
   const organizationJsonLd = JSON.stringify({

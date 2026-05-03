@@ -160,7 +160,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
     const seo = getNewsIndexSeo(lang);
     const canonicalUrl = `${BASE_URL}/${selfHref}`;
     const ogImage = `${BASE_URL}/images/og-image.jpg`;
-    // Structured data: WebSite + SearchAction, Organization with logo,
+    // Structured data: WebSite, Organization with logo,
     // CollectionPage with BreadcrumbList, and FAQPage. Each block is a
     // separate <script type="application/ld+json"> with literal `<` chars
     // escaped to `\u003c` so the JSON cannot prematurely close the tag.
@@ -171,11 +171,6 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
         url: BASE_URL,
         inLanguage: lang,
         publisher: { '@id': `${BASE_URL}/#organization` },
-        potentialAction: {
-            '@type': 'SearchAction',
-            target: { '@type': 'EntryPoint', urlTemplate: `${BASE_URL}/?q={search_term_string}` },
-            'query-input': 'required name=search_term_string',
-        },
     }).replace(/</g, '\\u003c');
     const organizationJsonLd = JSON.stringify({
         '@context': SCHEMA_ORG,
@@ -204,7 +199,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
         },
         mainEntity: {
             '@type': 'ItemList',
-            numberOfItems: articles.length,
+            numberOfItems: Math.min(articles.length, 50),
             itemListElement: articles.slice(0, 50).map((a, idx) => ({
                 '@type': 'ListItem',
                 position: idx + 1,
