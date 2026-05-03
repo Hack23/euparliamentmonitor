@@ -42,6 +42,8 @@ import {
   buildSiteHeader,
   buildPageBanner,
 } from '../templates/section-builders.js';
+import { READER_GUIDE_SECTION_ID } from './analysis-aggregator.js';
+import { READER_GUIDE_TITLE_LABELS } from './reader-intelligence-guide.js';
 
 /** One entry in the article-level TOC sidebar (mirrors `TocSection`). */
 export interface ArticleTocEntry {
@@ -165,7 +167,14 @@ export function buildArticleToc(entries: readonly ArticleTocEntry[], lang: Langu
   if (entries.length === 0) return '';
   const label = escapeHTML(getLocalizedString(TOC_ARIA_LABELS, lang));
   const items = entries
-    .map((e) => `        <li><a href="#${escapeHTML(e.id)}">${escapeHTML(e.title)}</a></li>`)
+    .map((e) => {
+      // Translate the Reader Intelligence Guide title into the target language
+      const displayTitle =
+        e.id === READER_GUIDE_SECTION_ID
+          ? getLocalizedString(READER_GUIDE_TITLE_LABELS, lang)
+          : e.title;
+      return `        <li><a href="#${escapeHTML(e.id)}">${escapeHTML(displayTitle)}</a></li>`;
+    })
     .join('\n');
   return [
     `  <aside class="article-toc-container" aria-label="${label}">`,

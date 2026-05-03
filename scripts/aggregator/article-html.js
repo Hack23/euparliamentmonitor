@@ -23,6 +23,8 @@ import { buildHeadFreshnessTags } from '../constants/build-info-meta.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, SKIP_LINK_TEXTS, TOC_ARIA_LABELS, UPDATE_AVAILABLE_LABELS, UPDATE_REFRESH_CTA_LABELS, UPDATE_DISMISS_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { escapeHTML } from '../utils/file-utils.js';
 import { buildSiteFooter, buildSiteHeader, buildPageBanner, } from '../templates/section-builders.js';
+import { READER_GUIDE_SECTION_ID } from './analysis-aggregator.js';
+import { READER_GUIDE_TITLE_LABELS } from './reader-intelligence-guide.js';
 /**
  * Build the canonical filename for an article in a given language. English
  * uses the bare stem (`2026-01-15-breaking-en.html`); other languages share
@@ -85,7 +87,13 @@ export function buildArticleToc(entries, lang) {
         return '';
     const label = escapeHTML(getLocalizedString(TOC_ARIA_LABELS, lang));
     const items = entries
-        .map((e) => `        <li><a href="#${escapeHTML(e.id)}">${escapeHTML(e.title)}</a></li>`)
+        .map((e) => {
+        // Translate the Reader Intelligence Guide title into the target language
+        const displayTitle = e.id === READER_GUIDE_SECTION_ID
+            ? getLocalizedString(READER_GUIDE_TITLE_LABELS, lang)
+            : e.title;
+        return `        <li><a href="#${escapeHTML(e.id)}">${escapeHTML(displayTitle)}</a></li>`;
+    })
         .join('\n');
     return [
         `  <aside class="article-toc-container" aria-label="${label}">`,

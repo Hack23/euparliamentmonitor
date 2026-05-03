@@ -35,6 +35,10 @@ import {
 } from './article-metadata.js';
 import { renderMarkdown } from './markdown-renderer.js';
 import { wrapArticleHtml, getArticleFilename } from './article-html.js';
+import {
+  buildReaderIntelligenceGuideHtml,
+  stripInlineReaderGuide,
+} from './reader-intelligence-guide.js';
 import { ALL_LANGUAGES } from '../constants/language-core.js';
 import type { LanguageCode } from '../types/index.js';
 import { blobUrl } from './infra/github-urls.js';
@@ -467,6 +471,17 @@ function writeLanguageVariant(
   if (lang !== 'en' && fs.existsSync(langMdAbs)) {
     metaSource = fs.readFileSync(langMdAbs, 'utf8');
     bodyHtml = renderMarkdown(metaSource).html;
+  }
+  // Strip any AI-authored inline Reader Intelligence Guide and inject the
+  // renderer-owned, language-aware version so exactly one guide appears.
+  bodyHtml = stripInlineReaderGuide(bodyHtml);
+  const guideHtml = buildReaderIntelligenceGuideHtml(
+    lang,
+    aggregated.sectionToc,
+    aggregated.includedArtifacts
+  );
+  if (guideHtml) {
+    bodyHtml = guideHtml + '\n' + bodyHtml;
   }
   // When a per-language translated source exists, prefer a summary derived
   // from it so the `<meta description>` matches the visible prose. The
