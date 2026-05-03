@@ -61,7 +61,8 @@ inside the workflow `.md`.
 
 | Symptom | Root cause | Fix |
 |---------|-----------|-----|
-| `Streamable HTTP error: session not found` / `tool call failed: session not found` (HTTP 404 from `routed:safeoutputs`) on `safeoutputs___create_pull_request` at end-of-run | safeoutputs MCP HTTP session (`localhost:3001`) reaped after the per-workflow `engine.mcp.session-timeout` (default 65m for unified news workflows, gh-aw v0.71.3+), OR killed earlier by a banned keep-alive pattern. **Historical context:** before v0.71.3 the upstream gateway hard-coded ~28–30 min TTL — the original cause of the failure family below. See [§5a](#5a--safeoutputs-session-not-found--extended-context) for evidence and levers. | You cannot recover mid-run. **Hard limit: total wall-clock from agent start to the single PR call ≤ 45 min (target ≤ 42 min) — well within the 65-min `engine.mcp.session-timeout` and the 60-min `timeout-minutes` cap.** Surface `SINGLE_PR_ATTESTATION` early. Do NOT add a keep-alive pattern. If you need a longer session, raise `engine.mcp.session-timeout` (≥ 5m, no upper bound) rather than working around the limit. |
+| `Streamable HTTP error: session not found` / `tool call failed: session not found` (HTTP 404 from `routed:safeoutputs`) on `safeoutputs___create_pull_request` at end-of-run | safeoutputs MCP HTTP session (`localhost:3001`) reaped after the upstream gateway default session lifetime, OR killed earlier by a banned keep-alive pattern. **Note:** the per-workflow `engine.mcp.session-timeout` knob advertised in gh-aw v0.71.3 is currently non-functional — the bundled gateway image v0.3.1 rejects the field (see next row, run #25275823699 fingerprint), so workflows cannot extend the session lifetime from frontmatter. See [§5a](#5a--safeoutputs-session-not-found--extended-context) for evidence and levers. | You cannot recover mid-run. **Hard limit: total wall-clock from agent start to the single PR call ≤ 45 min (target ≤ 42 min) — well within the 60-min `timeout-minutes` cap.** Surface `SINGLE_PR_ATTESTATION` early. Do NOT add a keep-alive pattern. |
+| **MCP gateway schema validation failure** — `additionalProperties 'sessionTimeout' not allowed` from gateway v0.3.1, agent job exits at minute ≤ 2 with no inference. Fingerprint: `config:validation_schema Schema validation failed`, `failed to load config: Configuration validation error (MCP Gateway version: v0.3.1)`. Run #25275823699 example. | gh-aw v0.71.3 compiler bug — the `engine.mcp.session-timeout` field is advertised in the v0.71.3 release notes but the bundled gateway image `ghcr.io/github/gh-aw-mcpg:v0.3.1` references the v0.71.1 schema which does not include `sessionTimeout`. | Remove `engine.mcp.session-timeout` from frontmatter (already done in this repo as of run #25275823699 fix). Recompile lock files with `gh aw compile`. The MCP gateway falls back to its upstream default session lifetime; `sandbox.mcp.keepalive-interval: 300` keeps backends warm. |
 | `container awf-api-proxy is unhealthy` | Transient AWF sandbox infra flake | Re-run the workflow; not a config bug. |
 | **Engine Failure** — `copilot engine terminated unexpectedly` (agent job).<br>Fingerprint: `exitCode: 1`, `stdout: undefined`, `stderr: undefined`, agent-job duration < 3 min, MCP gateway healthy, post-step prints `No token usage data found, skipping summary`. | Transient gh-aw sandbox cold-start flake — Copilot CLI exits between MCP gateway init and first inference call. **Distinct fingerprint** from the `parse_error` flake but **same root-cause family**. | Confirm `lint:prompts` + `shell-safety` are green, then re-run the workflow once. Escalate only after 3 consecutive same-fingerprint runs — see [unified maintainer triage rule](../agents/agentic-workflows.agent.md#maintainer-triage--transient-gh-aw-sandbox-flakes). Forensic example: [run 25072577594](https://github.com/Hack23/euparliamentmonitor/actions/runs/25072577594). |
 | `Expected ',' or '}' after property value in JSON` in Copilot `edit` | `old_str`/`new_str` > ~30 lines / ~5 KB | Regenerate via TS generator, split into ≤ 20-line edits. **Do NOT fall back to `cat > file << EOF` heredocs** — see next row. Prefer the native `create` / `Write` file tool (e.g. the Copilot CLI `Create <path>` action that successfully wrote artifacts in [run 24805100070](https://github.com/Hack23/euparliamentmonitor/actions/runs/24805100070)). |
@@ -83,19 +84,23 @@ Do NOT re-state those rules here — link to them.
 
 - **(a) Banned keep-alive / heartbeat pattern** — lint-banned by
   `scripts/lint-prompts.js`; never reintroduce.
-- **(b) Pure idle past `engine.mcp.session-timeout`** — agent activity
-  on EP MCP, bash, `create`, or `edit` does **not** refresh the
-  safeoutputs session. `sandbox.mcp.keepalive-interval` does **not**
-  help — it pings HTTP MCP backends (gateway → backend), not the
-  agent ↔ gateway streamable-HTTP session that emits `session not
-  found`. Per-workflow `engine.mcp.session-timeout` (gh-aw v0.71.3+)
-  is the correct lever — every unified news workflow sets it to `65m`.
+- **(b) Pure idle past upstream gateway default session lifetime** —
+  agent activity on EP MCP, bash, `create`, or `edit` does **not**
+  refresh the safeoutputs session. `sandbox.mcp.keepalive-interval`
+  does **not** help — it pings HTTP MCP backends (gateway → backend),
+  not the agent ↔ gateway streamable-HTTP session that emits `session
+  not found`. The per-workflow `engine.mcp.session-timeout` knob
+  advertised in gh-aw v0.71.3 is currently non-functional (bundled
+  gateway image v0.3.1 rejects the field — see §5 row, run
+  #25275823699), so the only effective lever is the time-budget
+  discipline in 02 §3 (PR call by minute ≤ 45).
 
 **Forensic runs** (kept here because the link economy is unique):
 
 - [Run 24818921747](https://github.com/Hack23/euparliamentmonitor/actions/runs/24818921747) (news-propositions-analysis): ~28 min Stage B → end-of-run PR call failed.
 - [Run 24819497608](https://github.com/Hack23/euparliamentmonitor/actions/runs/24819497608) (news-motions-analysis): connect 06:01:36, last SSE 06:06:41, PR call 06:35:09 → HTTP 404 every retry.
-- [Run 24963129839](https://github.com/Hack23/euparliamentmonitor/actions/runs/24963129839) (news-week-in-review): elapsed-time tripwire fired at minute 28; PR landed at minute 29:13 → `session not found`. Motivated the original 22 / ≤25 budget under the old 45-min schedule; the v0.71.3 refactor supersedes that schedule with a 60-min cap + `engine.mcp.session-timeout: 65m`.
+- [Run 24963129839](https://github.com/Hack23/euparliamentmonitor/actions/runs/24963129839) (news-week-in-review): elapsed-time tripwire fired at minute 28; PR landed at minute 29:13 → `session not found`. Motivated the original 22 / ≤25 budget under the old 45-min schedule; the v0.71.3 refactor supersedes that schedule with a 60-min `timeout-minutes` cap (the planned `engine.mcp.session-timeout: 65m` extension is currently non-functional, see §5 row).
+- [Run 25275823699](https://github.com/Hack23/euparliamentmonitor/actions/runs/25275823699) (news-year-ahead): gateway v0.3.1 rejected `sessionTimeout` at config validation; agent job exited at minute ≤ 2. Fix: removed `engine.mcp.session-timeout: 65m` from all news-*.md frontmatter and recompiled lock files.
 
 **Where to find logs** for your own run — Workflow run → Artifacts → `agent.zip`:
 
