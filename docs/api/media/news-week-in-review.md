@@ -277,8 +277,8 @@ prose pass.
 > rejects it (`additionalProperties 'sessionTimeout' not
 > allowed`, run #25275823699 fingerprint). The MCP gateway uses
 > the upstream default session lifetime; the workflow's
-> The MCP gateway pings backends at the upstream default interval every
-> minutes so EP / IMF / world-bank / memory sessions stay warm
+> The MCP gateway pings backends at the upstream default interval so
+> EP / IMF / world-bank / memory sessions stay warm
 > across the 60-min run. The Stage C exit tripwire still fires
 > at the slug-specific elapsed-minute mark in
 > `src/config/article-horizons.ts` so Stage D + E retain enough
