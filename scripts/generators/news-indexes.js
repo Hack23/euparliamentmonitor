@@ -178,7 +178,12 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
         '@id': `${BASE_URL}/#organization`,
         name: 'Hack23 AB',
         url: 'https://hack23.com',
-        logo: { '@type': 'ImageObject', url: 'https://hack23.com/icon-192.png', width: 192, height: 192 },
+        logo: {
+            '@type': 'ImageObject',
+            url: 'https://hack23.com/icon-192.png',
+            width: 192,
+            height: 192,
+        },
         sameAs: ['https://github.com/Hack23', 'https://hack23.com'],
     }).replace(/</g, '\\u003c');
     const collectionPageJsonLd = JSON.stringify({
