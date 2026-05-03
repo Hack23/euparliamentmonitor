@@ -431,14 +431,14 @@ export function buildSiteHeader(options: SiteHeaderOptions): string {
       ? options.politicalIntelligenceHref
       : defaultPiHref;
   // Only allow same-origin relative URLs or https: scheme to prevent javascript:/data: injection.
-  // Reject protocol-relative URLs (//...) and backslash variants (\\...) that browsers may resolve externally.
+  // Reject protocol-relative URLs (//...) and backslash variants that browsers normalize to external navigation.
   const isSafeHref =
     rawPiHref.length === 0 ||
-    (rawPiHref.startsWith('/') && !rawPiHref.startsWith('//') && !rawPiHref.startsWith('/\\')) ||
+    (rawPiHref.startsWith('/') && !rawPiHref.startsWith('//') && rawPiHref[1] !== '\\') ||
     rawPiHref.startsWith('./') ||
     rawPiHref.startsWith('../') ||
     rawPiHref.startsWith('https://') ||
-    (!rawPiHref.includes(':') && !rawPiHref.startsWith('//') && !rawPiHref.startsWith('\\\\'));
+    (!rawPiHref.includes(':') && !rawPiHref.startsWith('//') && !rawPiHref.startsWith('\\'));
   const piHref = isSafeHref ? rawPiHref : defaultPiHref;
 
   const cta = (extraClass: string, href: string, iconName: IconName, label: string): string =>

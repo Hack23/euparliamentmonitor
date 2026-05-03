@@ -98,4 +98,12 @@ describe('buildSiteHeader', () => {
     });
     expect(html).toContain('href="/pages/political-intelligence.html"');
   });
+
+  it('should reject backslash-prefixed URLs that browsers normalize to protocol-relative', async () => {
+    const html = await renderHeader('en', {
+      politicalIntelligenceHref: '\\\\evil.example',
+    });
+    expect(html).not.toContain('evil.example');
+    expect(html).toContain('political-intelligence.html');
+  });
 });
