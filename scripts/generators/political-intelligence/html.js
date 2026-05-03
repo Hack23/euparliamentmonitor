@@ -246,6 +246,7 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
         homeHref: indexHref,
         siteTitle,
         languageSwitcherHtml: langSwitcher,
+        politicalIntelligenceHref: '',
     });
     // Methodologies, templates & reference cards.
     // Descriptions are sourced from the curated per-file, per-language table

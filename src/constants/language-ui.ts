@@ -2425,6 +2425,42 @@ export const FOOTER_API_DOCS_LABELS: LanguageMap = {
   zh: 'API 文档',
 };
 
+/** Aria-label for the language switcher `<nav>` in the site header. */
+export const LANGUAGE_SELECTION_ARIA_LABELS: LanguageMap = {
+  en: 'Language selection',
+  sv: 'Språkval',
+  da: 'Sprogvalg',
+  no: 'Språkvalg',
+  fi: 'Kielivalinta',
+  de: 'Sprachauswahl',
+  fr: 'Sélection de la langue',
+  es: 'Selección de idioma',
+  nl: 'Taalkeuze',
+  ar: 'اختيار اللغة',
+  he: 'בחירת שפה',
+  ja: '言語選択',
+  ko: '언어 선택',
+  zh: '语言选择',
+};
+
+/** Aria-label for the cluster of project trust / quality badges in the footer. */
+export const FOOTER_TRUST_BADGES_ARIA_LABELS: LanguageMap = {
+  en: 'Project trust badges',
+  sv: 'Projektets förtroendebadges',
+  da: 'Projektets tillidsbadges',
+  no: 'Prosjektets tillitsbadges',
+  fi: 'Projektin luottamusmerkit',
+  de: 'Projekt-Vertrauensabzeichen',
+  fr: 'Badges de confiance du projet',
+  es: 'Insignias de confianza del proyecto',
+  nl: 'Vertrouwensbadges van het project',
+  ar: 'شارات الثقة بالمشروع',
+  he: 'תגי אמון של הפרויקט',
+  ja: 'プロジェクトの信頼バッジ',
+  ko: '프로젝트 신뢰 배지',
+  zh: '项目信任徽章',
+};
+
 /** Short company tagline shown under the About paragraph in the footer. */
 export const FOOTER_COMPANY_TAGLINE_LABELS: LanguageMap = {
   en: 'Swedish cybersecurity consultancy specialising in political transparency and open-source intelligence.',

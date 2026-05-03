@@ -24,6 +24,8 @@ import {
   FOOTER_DISCLAIMER_LABELS,
   FOOTER_REPORT_ISSUES_LABELS,
   FOOTER_ARTICLES_AVAILABLE_LABELS,
+  LANGUAGE_SELECTION_ARIA_LABELS,
+  FOOTER_TRUST_BADGES_ARIA_LABELS,
 } from '../../../scripts/constants/languages.js';
 
 /** All footer LanguageMap constants under test */
@@ -40,6 +42,8 @@ const FOOTER_LABEL_MAPS = [
   { name: 'FOOTER_DISCLAIMER_LABELS', map: FOOTER_DISCLAIMER_LABELS },
   { name: 'FOOTER_REPORT_ISSUES_LABELS', map: FOOTER_REPORT_ISSUES_LABELS },
   { name: 'FOOTER_ARTICLES_AVAILABLE_LABELS', map: FOOTER_ARTICLES_AVAILABLE_LABELS },
+  { name: 'LANGUAGE_SELECTION_ARIA_LABELS', map: LANGUAGE_SELECTION_ARIA_LABELS },
+  { name: 'FOOTER_TRUST_BADGES_ARIA_LABELS', map: FOOTER_TRUST_BADGES_ARIA_LABELS },
 ];
 
 describe('constants/footer-labels', () => {
@@ -128,6 +132,26 @@ describe('constants/footer-labels', () => {
       expect(html).toContain('href="index.html"');
       expect(html).toContain('href="sitemap.html"');
       expect(html).toContain('href="rss.xml"');
+    });
+
+    it('should include all Hack23 ecosystem cross-links', async () => {
+      const mod = await import('../../../scripts/templates/section-builders.js');
+      const html = mod.buildSiteFooter({ lang: 'en', pathPrefix: '' });
+      expect(html).toContain('https://github.com/Hack23/cia');
+      expect(html).toContain('https://github.com/Hack23/riksdagsmonitor');
+      expect(html).toContain('https://github.com/Hack23/European-Parliament-MCP-Server');
+      expect(html).toContain('https://github.com/Hack23/cia-compliance-manager');
+      expect(html).toContain('https://github.com/Hack23/homepage');
+      expect(html).toContain('https://github.com/Hack23/blacktrigram');
+      expect(html).toContain('https://github.com/Hack23/ISMS-PUBLIC');
+    });
+
+    it('should localize the trust-badges aria-label', async () => {
+      const mod = await import('../../../scripts/templates/section-builders.js');
+      const en = mod.buildSiteFooter({ lang: 'en', pathPrefix: '' });
+      expect(en).toContain('aria-label="Project trust badges"');
+      const de = mod.buildSiteFooter({ lang: 'de', pathPrefix: '' });
+      expect(de).toContain('aria-label="Projekt-Vertrauensabzeichen"');
     });
   });
 });
