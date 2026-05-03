@@ -265,7 +265,12 @@ export function generateIndexHTML(
     breadcrumb: {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: seo.breadcrumbHome, item: BASE_URL },
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: seo.breadcrumbHome,
+          item: `${BASE_URL}/${selfHref}`,
+        },
         { '@type': 'ListItem', position: 2, name: seo.breadcrumbCurrent, item: canonicalUrl },
       ],
     },
@@ -284,7 +289,7 @@ export function generateIndexHTML(
   const faqJsonLd = JSON.stringify({
     '@context': SCHEMA_ORG,
     '@type': 'FAQPage',
-    inLanguage: lang,
+    inLanguage: seo.faqLanguage,
     mainEntity: seo.faqs.map((f) => ({
       '@type': 'Question',
       name: f.q,

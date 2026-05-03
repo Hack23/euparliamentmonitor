@@ -356,7 +356,7 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
     const faqJsonLd = JSON.stringify({
         '@context': SCHEMA_ORG,
         '@type': 'FAQPage',
-        inLanguage: safeLang,
+        inLanguage: seo.faqLanguage,
         mainEntity: seo.faqs.map((f) => ({
             '@type': 'Question',
             name: f.q,

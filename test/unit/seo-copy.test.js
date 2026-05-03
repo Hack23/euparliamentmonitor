@@ -26,6 +26,7 @@ describe('seo-copy', () => {
         expect(copy.breadcrumbCurrent.length).toBeGreaterThan(0);
         expect(copy.breadcrumbAriaLabel.length).toBeGreaterThan(0);
         expect(copy.faqHeading.length).toBeGreaterThan(0);
+        expect(copy.faqLanguage.length).toBeGreaterThan(0);
         expect(copy.faqs.length).toBeGreaterThanOrEqual(5);
         for (const faq of copy.faqs) {
           expect(faq.q.length).toBeGreaterThan(0);
@@ -39,6 +40,7 @@ describe('seo-copy', () => {
         const fallback = getter('xx');
         const en = getter('en');
         expect(fallback.faqHeading).toBe(en.faqHeading);
+        expect(fallback.faqLanguage).toBe('en');
         expect(fallback.faqs.length).toBe(en.faqs.length);
       });
     });
@@ -54,5 +56,11 @@ describe('seo-copy', () => {
     expect(getNewsIndexSeo('de').breadcrumbHome).not.toBe(getNewsIndexSeo('en').breadcrumbHome);
     expect(getNewsIndexSeo('ja').breadcrumbHome).not.toBe(getNewsIndexSeo('en').breadcrumbHome);
   });
-});
 
+  it('labels fallback English FAQ bodies with English structured-data language', () => {
+    for (const [, getter] of getters) {
+      expect(getter('sv').faqLanguage).toBe('en');
+      expect(getter('ar').faqLanguage).toBe('en');
+    }
+  });
+});

@@ -534,6 +534,20 @@ describe('generate-news-indexes', () => {
 
       expect(html).not.toContain('class="filter-toolbar"');
     });
+
+    it('should point localized JSON-LD breadcrumbs at the localized index page', () => {
+      const html = generateIndexHTML('sv', []);
+
+      expect(html).toContain(
+        '"@type":"ListItem","position":1,"name":"Hem","item":"https://euparliamentmonitor.com/index-sv.html"'
+      );
+    });
+
+    it('should label fallback English FAQ structured data as English', () => {
+      const html = generateIndexHTML('sv', []);
+
+      expect(html).toContain('"@type":"FAQPage","inLanguage":"en"');
+    });
   });
 });
 

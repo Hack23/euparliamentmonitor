@@ -408,7 +408,7 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
   const faqJsonLd = JSON.stringify({
     '@context': SCHEMA_ORG,
     '@type': 'FAQPage',
-    inLanguage: safeLang,
+    inLanguage: seo.faqLanguage,
     mainEntity: seo.faqs.map((f) => ({
       '@type': 'Question',
       name: f.q,

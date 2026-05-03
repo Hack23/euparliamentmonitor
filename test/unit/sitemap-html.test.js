@@ -113,6 +113,11 @@ describe('generateSitemapHTML', () => {
     expect(html).toContain('hack23.com/icon-192.png');
   });
 
+  it('labels fallback English FAQ structured data as English on localized sitemaps', () => {
+    const html = generateSitemapHTML('sv', [fixtureArticle], false);
+    expect(html).toContain('"@type":"FAQPage","inLanguage":"en"');
+  });
+
   it('emits keywords/robots/author meta tags and a visible FAQ section', () => {
     const html = generateSitemapHTML('en', [fixtureArticle], false);
     expect(html).toMatch(/<meta name="keywords" content="[^"]+"/);

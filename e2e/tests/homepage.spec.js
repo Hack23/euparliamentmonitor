@@ -30,7 +30,7 @@ test.describe('Homepage', () => {
     await page.goto('/');
 
     // Verify navigation exists (conditional check)
-    const nav = page.locator('nav');
+    const nav = page.getByRole('navigation').first();
     const navCount = await nav.count();
 
     if (navCount > 0) {

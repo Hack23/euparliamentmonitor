@@ -338,7 +338,7 @@ ${items}
   const faqJsonLd = JSON.stringify({
     '@context': SCHEMA_ORG,
     '@type': 'FAQPage',
-    inLanguage: lang,
+    inLanguage: seo.faqLanguage,
     mainEntity: seo.faqs.map((f) => ({
       '@type': 'Question',
       name: f.q,

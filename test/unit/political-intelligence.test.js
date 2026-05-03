@@ -216,6 +216,7 @@ describe('political-intelligence generator', () => {
       expect(html).toContain('<script type="application/ld+json">');
       expect(html).toContain('"@type":"CollectionPage"');
       expect(html).toContain('"@type":"BreadcrumbList"');
+      expect(html).toContain('"@type":"FAQPage","inLanguage":"en"');
 
       // SEO open-graph / twitter
       expect(html).toContain('<meta property="og:type" content="website">');

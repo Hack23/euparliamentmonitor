@@ -15,6 +15,7 @@ const NEWS_INDEX_EN = {
     breadcrumbCurrent: 'News',
     breadcrumbAriaLabel: 'Breadcrumb',
     faqHeading: 'Frequently asked questions',
+    faqLanguage: 'en',
     faqs: [
         {
             q: 'What is EU Parliament Monitor?',
@@ -49,6 +50,7 @@ const SITEMAP_EN = {
     breadcrumbCurrent: 'Sitemap',
     breadcrumbAriaLabel: 'Breadcrumb',
     faqHeading: 'About this sitemap',
+    faqLanguage: 'en',
     faqs: [
         {
             q: 'What is on this page?',
@@ -79,6 +81,7 @@ const PI_EN = {
     breadcrumbCurrent: 'Political Intelligence',
     breadcrumbAriaLabel: 'Breadcrumb',
     faqHeading: 'About political intelligence runs',
+    faqLanguage: 'en',
     faqs: [
         {
             q: 'What is a political intelligence run?',
@@ -347,7 +350,7 @@ const PI_OVERLAYS = {
         faqHeading: '关于分析运行',
     },
 };
-function applyOverlay(base, overlay) {
+function applyOverlay(base, overlay, lang) {
     if (!overlay)
         return base;
     return {
@@ -357,6 +360,7 @@ function applyOverlay(base, overlay) {
         breadcrumbCurrent: overlay.breadcrumbCurrent ?? base.breadcrumbCurrent,
         breadcrumbAriaLabel: overlay.breadcrumbAriaLabel ?? base.breadcrumbAriaLabel,
         faqHeading: overlay.faqHeading ?? base.faqHeading,
+        faqLanguage: overlay.faqLanguage ?? (overlay.faqs ? lang : base.faqLanguage),
         faqs: overlay.faqs ?? base.faqs,
     };
 }
@@ -368,7 +372,7 @@ function applyOverlay(base, overlay) {
 export function getNewsIndexSeo(lang) {
     if (lang === 'en')
         return NEWS_INDEX_EN;
-    return applyOverlay(NEWS_INDEX_EN, NEWS_INDEX_OVERLAYS[lang]);
+    return applyOverlay(NEWS_INDEX_EN, NEWS_INDEX_OVERLAYS[lang], lang);
 }
 /**
  * Returns SEO copy for the sitemap page. Falls back to English.
@@ -378,7 +382,7 @@ export function getNewsIndexSeo(lang) {
 export function getSitemapSeo(lang) {
     if (lang === 'en')
         return SITEMAP_EN;
-    return applyOverlay(SITEMAP_EN, SITEMAP_OVERLAYS[lang]);
+    return applyOverlay(SITEMAP_EN, SITEMAP_OVERLAYS[lang], lang);
 }
 /**
  * Returns SEO copy for the political-intelligence page. Falls back to English.
@@ -388,6 +392,6 @@ export function getSitemapSeo(lang) {
 export function getPoliticalIntelligenceSeo(lang) {
     if (lang === 'en')
         return PI_EN;
-    return applyOverlay(PI_EN, PI_OVERLAYS[lang]);
+    return applyOverlay(PI_EN, PI_OVERLAYS[lang], lang);
 }
 //# sourceMappingURL=seo-copy.js.map

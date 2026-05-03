@@ -28,6 +28,7 @@ export interface PageSeoCopy {
   readonly breadcrumbCurrent: string;
   readonly breadcrumbAriaLabel: string;
   readonly faqHeading: string;
+  readonly faqLanguage: string;
   readonly faqs: ReadonlyArray<FaqPair>;
 }
 
@@ -45,6 +46,7 @@ const NEWS_INDEX_EN: PageSeoCopy = {
   breadcrumbCurrent: 'News',
   breadcrumbAriaLabel: 'Breadcrumb',
   faqHeading: 'Frequently asked questions',
+  faqLanguage: 'en',
   faqs: [
     {
       q: 'What is EU Parliament Monitor?',
@@ -81,6 +83,7 @@ const SITEMAP_EN: PageSeoCopy = {
   breadcrumbCurrent: 'Sitemap',
   breadcrumbAriaLabel: 'Breadcrumb',
   faqHeading: 'About this sitemap',
+  faqLanguage: 'en',
   faqs: [
     {
       q: 'What is on this page?',
@@ -113,6 +116,7 @@ const PI_EN: PageSeoCopy = {
   breadcrumbCurrent: 'Political Intelligence',
   breadcrumbAriaLabel: 'Breadcrumb',
   faqHeading: 'About political intelligence runs',
+  faqLanguage: 'en',
   faqs: [
     {
       q: 'What is a political intelligence run?',
@@ -399,7 +403,7 @@ const PI_OVERLAYS: Record<string, Overlay> = {
   },
 };
 
-function applyOverlay(base: PageSeoCopy, overlay: Overlay | undefined): PageSeoCopy {
+function applyOverlay(base: PageSeoCopy, overlay: Overlay | undefined, lang: string): PageSeoCopy {
   if (!overlay) return base;
   return {
     keywords: overlay.keywords ?? base.keywords,
@@ -408,6 +412,7 @@ function applyOverlay(base: PageSeoCopy, overlay: Overlay | undefined): PageSeoC
     breadcrumbCurrent: overlay.breadcrumbCurrent ?? base.breadcrumbCurrent,
     breadcrumbAriaLabel: overlay.breadcrumbAriaLabel ?? base.breadcrumbAriaLabel,
     faqHeading: overlay.faqHeading ?? base.faqHeading,
+    faqLanguage: overlay.faqLanguage ?? (overlay.faqs ? lang : base.faqLanguage),
     faqs: overlay.faqs ?? base.faqs,
   };
 }
@@ -419,7 +424,7 @@ function applyOverlay(base: PageSeoCopy, overlay: Overlay | undefined): PageSeoC
  */
 export function getNewsIndexSeo(lang: string): PageSeoCopy {
   if (lang === 'en') return NEWS_INDEX_EN;
-  return applyOverlay(NEWS_INDEX_EN, NEWS_INDEX_OVERLAYS[lang]);
+  return applyOverlay(NEWS_INDEX_EN, NEWS_INDEX_OVERLAYS[lang], lang);
 }
 
 /**
@@ -429,7 +434,7 @@ export function getNewsIndexSeo(lang: string): PageSeoCopy {
  */
 export function getSitemapSeo(lang: string): PageSeoCopy {
   if (lang === 'en') return SITEMAP_EN;
-  return applyOverlay(SITEMAP_EN, SITEMAP_OVERLAYS[lang]);
+  return applyOverlay(SITEMAP_EN, SITEMAP_OVERLAYS[lang], lang);
 }
 
 /**
@@ -439,5 +444,5 @@ export function getSitemapSeo(lang: string): PageSeoCopy {
  */
 export function getPoliticalIntelligenceSeo(lang: string): PageSeoCopy {
   if (lang === 'en') return PI_EN;
-  return applyOverlay(PI_EN, PI_OVERLAYS[lang]);
+  return applyOverlay(PI_EN, PI_OVERLAYS[lang], lang);
 }
