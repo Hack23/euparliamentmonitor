@@ -464,6 +464,21 @@ npm run build:check
 npm run generate-article -- --run analysis/daily/YYYY-MM-DD/article-type
 ```
 
+## 🧩 Adding a new analysis template
+
+Analysis templates live under [`analysis/templates/`](analysis/templates/README.md). Every template is the AI's contract for one artifact under `analysis/daily/<date>/<run>/…`. To add a new template:
+
+1. **Pick the artifact name** — it must match the `analysis/daily/<run>/…` filename you want the AI to produce (e.g. `risk-cascade.md`).
+2. **Add the methodology section** — open [`analysis/methodologies/per-artifact-methodologies.md`](analysis/methodologies/per-artifact-methodologies.md) and add a `### risk-cascade` section describing construction rules, required H2s, and quality signals.
+3. **Add the catalog row** — append a row to [`analysis/methodologies/artifact-catalog.md`](analysis/methodologies/artifact-catalog.md) under the right group (intelligence / classification / risk-scoring / threat-assessment / extended) so the script can resolve methodology + Mermaid type.
+4. **Add the depth floor** — add a key under each relevant `articleType` in [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json) (the breaking floor is the one printed in the front-matter).
+5. **Drop the template** — create `analysis/templates/risk-cascade.md` with the SPDX header pair, your title, and at least one section. The body can be minimal at first.
+6. **Run the sync** — `npm run sync:templates`. The script injects the canonical `ANALYSIS-TEMPLATE-FRONTMATTER:v1` and `AI-INSTRUCTIONS:v1` blocks. Re-run with `--check` for CI.
+7. **Reference the template** — link to it from at least one prompt under `.github/prompts/` or one agent under `.github/agents/` (otherwise [`test/unit/analysis-templates-referenced.test.js`](test/unit/analysis-templates-referenced.test.js) fails).
+8. **Run the drift-guard** — `npx vitest run test/unit/template-structure.test.js`.
+
+Shared chunks live in [`analysis/templates/_partials/`](analysis/templates/_partials/README.md) — link to them from your template instead of duplicating the citation pattern, evidence table, IMF callout, or quality checklist.
+
 ## 💻 IDE Setup
 
 **VS Code Extensions**:
