@@ -33,6 +33,19 @@ import {
   type Manifest,
   type ManifestFiles,
 } from './manifest/index.js';
+import type { TocSection, IncludedArtifact } from './reader-guide-constants.js';
+import {
+  READER_GUIDE_SECTION_ID,
+  READER_GUIDE_SECTION_IDS,
+  READER_GUIDE_SECTION_TITLE,
+} from './reader-guide-constants.js';
+
+export type { TocSection, IncludedArtifact } from './reader-guide-constants.js';
+export {
+  READER_GUIDE_SECTION_ID,
+  READER_GUIDE_SECTION_IDS,
+  READER_GUIDE_SECTION_TITLE,
+} from './reader-guide-constants.js';
 
 /** Result of {@link aggregateAnalysisRun}. */
 export interface AggregatedRun {
@@ -57,30 +70,6 @@ export interface AggregatedRun {
    */
   readonly sectionToc: readonly TocSection[];
 }
-
-/** One entry in the article-level table of contents (H2 level). */
-export interface TocSection {
-  /** Fragment identifier — matches the `id="…"` on the rendered H2. */
-  readonly id: string;
-  /** Display title shown in the sidebar nav. */
-  readonly title: string;
-}
-
-/** Metadata for one artifact included in the aggregate. */
-export interface IncludedArtifact {
-  /** Path relative to the run dir. */
-  readonly runRelPath: string;
-  /** Path relative to the repo root. */
-  readonly repoRelPath: string;
-  /** Id of the section this artifact belongs to. */
-  readonly sectionId: string;
-}
-
-/** Id of the generated reader guide section. */
-export const READER_GUIDE_SECTION_ID = 'reader-intelligence-guide';
-
-/** Display title of the generated reader guide section. */
-export const READER_GUIDE_SECTION_TITLE = 'Reader Intelligence Guide';
 
 /** Options for {@link aggregateAnalysisRun}. */
 export interface AggregateOptions {
@@ -353,8 +342,13 @@ export function renderAnalysisIndex(
   ].join('\n');
 }
 
-/** Reader-guide copy for high-value intelligence sections. */
-const READER_GUIDE_VALUES: Readonly<Record<string, { need: string; value: string }>> = {
+/**
+ * English-only reader-guide copy for the Markdown guide embedded in the
+ * aggregated source document. Section membership is gated by
+ * `READER_GUIDE_SECTION_IDS` (imported from `reader-guide-constants.ts`)
+ * so both renderers stay in sync automatically.
+ */
+const READER_GUIDE_EN: Readonly<Record<string, { need: string; value: string }>> = {
   'section-executive-brief': {
     need: 'BLUF and editorial decisions',
     value:
@@ -395,6 +389,10 @@ const READER_GUIDE_VALUES: Readonly<Record<string, { need: string; value: string
  * artifact sections. It gives readers a Riksdagsmonitor-style navigation layer
  * without requiring agents to hand-author another artifact.
  *
+ * Section membership is checked against `READER_GUIDE_SECTION_IDS` (the
+ * canonical list shared with the HTML renderer in `reader-intelligence-guide.ts`)
+ * to prevent drift between the two renderers.
+ *
  * @param sections - Emitted section TOC entries, in document order
  * @param included - Included artifacts, used to name each section's source
  * @returns Markdown block containing the guide table
@@ -405,7 +403,9 @@ export function renderReaderIntelligenceGuide(
 ): string {
   const rows = sections
     .map((section) => {
-      const copy = Object.getOwnPropertyDescriptor(READER_GUIDE_VALUES, section.id)?.value as
+      // Guard: only include sections whose IDs are in the canonical list
+      if (!READER_GUIDE_SECTION_IDS.includes(section.id)) return '';
+      const copy = Object.getOwnPropertyDescriptor(READER_GUIDE_EN, section.id)?.value as
         | { need: string; value: string }
         | undefined;
       if (!copy) return '';

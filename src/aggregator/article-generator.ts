@@ -35,6 +35,10 @@ import {
 } from './article-metadata.js';
 import { renderMarkdown } from './markdown-renderer.js';
 import { wrapArticleHtml, getArticleFilename } from './article-html.js';
+import {
+  buildReaderIntelligenceGuideHtml,
+  stripInlineReaderGuide,
+} from './reader-intelligence-guide.js';
 import { ALL_LANGUAGES } from '../constants/language-core.js';
 import type { LanguageCode } from '../types/index.js';
 import { blobUrl } from './infra/github-urls.js';
@@ -467,6 +471,28 @@ function writeLanguageVariant(
   if (lang !== 'en' && fs.existsSync(langMdAbs)) {
     metaSource = fs.readFileSync(langMdAbs, 'utf8');
     bodyHtml = renderMarkdown(metaSource).html;
+  }
+  // Strip any AI-authored inline Reader Intelligence Guide and inject the
+  // renderer-owned, language-aware version so exactly one guide appears.
+  bodyHtml = stripInlineReaderGuide(bodyHtml);
+  const guideHtml = buildReaderIntelligenceGuideHtml(
+    lang,
+    aggregated.sectionToc,
+    aggregated.includedArtifacts
+  );
+  if (guideHtml) {
+    // The rendered bodyHtml starts with an <h1> produced by the markdown
+    // `# ${documentTitle}` header in analysis-aggregator.ts. Insert the
+    // guide immediately after that </h1> so the <h2> inside the guide
+    // sits below the article headline, preserving a valid heading outline.
+    // Fallback: prepend if no <h1> is found (shouldn't happen in practice).
+    const h1End = bodyHtml.indexOf('</h1>');
+    if (h1End !== -1) {
+      const insertPos = h1End + '</h1>'.length;
+      bodyHtml = bodyHtml.slice(0, insertPos) + '\n' + guideHtml + '\n' + bodyHtml.slice(insertPos);
+    } else {
+      bodyHtml = guideHtml + '\n' + bodyHtml;
+    }
   }
   // When a per-language translated source exists, prefer a summary derived
   // from it so the `<meta description>` matches the visible prose. The
