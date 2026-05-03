@@ -410,9 +410,9 @@ export function buildReaderIntelligenceGuideHtml(lang, sections, included) {
     const colValue = getLocalizedString(READER_GUIDE_COL_VALUE_LABELS, lang);
     const colSource = getLocalizedString(READER_GUIDE_COL_SOURCE_LABELS, lang);
     return `<section id="${READER_GUIDE_SECTION_ID}" data-component="reader-intelligence-guide" aria-label="${escapeHTML(title)}"${dir === 'rtl' ? ' dir="rtl"' : ''}>
-<h2>${escapeHTML(title)}</h2>
+<h2 id="${READER_GUIDE_SECTION_ID}-heading">${escapeHTML(title)}</h2>
 <p>${escapeHTML(intro)}</p>
-<div class="table-scroll" role="region" tabindex="0">
+<div class="table-scroll" role="region" tabindex="0" aria-labelledby="${READER_GUIDE_SECTION_ID}-heading">
 <table>
 <caption class="sr-only">${escapeHTML(title)}</caption>
 <thead><tr><th scope="col">${escapeHTML(colNeed)}</th><th scope="col">${escapeHTML(colValue)}</th><th scope="col">${escapeHTML(colSource)}</th></tr></thead>

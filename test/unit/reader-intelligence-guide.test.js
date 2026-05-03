@@ -133,6 +133,12 @@ describe('reader-intelligence-guide', () => {
       expect(html).toContain('tabindex="0"');
     });
 
+    it('gives the table-scroll region an accessible name via aria-labelledby', () => {
+      const html = buildReaderIntelligenceGuideHtml('en', sampleSections, sampleIncluded);
+      expect(html).toContain('aria-labelledby="reader-intelligence-guide-heading"');
+      expect(html).toContain('id="reader-intelligence-guide-heading"');
+    });
+
     it('adds scope="col" to all table header cells for screen-reader nav', () => {
       const html = buildReaderIntelligenceGuideHtml('en', sampleSections, sampleIncluded);
       const thMatches = html.match(/<th scope="col">/g);
