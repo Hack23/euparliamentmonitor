@@ -15,11 +15,8 @@ import { ARTIFACT_SECTIONS, MANIFEST_SECTION_ID, MANIFEST_SECTION_TITLE, SUPPLEM
 import { cleanArtifact, githubBlobUrl } from './clean-artifact.js';
 import { treeUrl } from './infra/github-urls.js';
 import { flattenManifestFiles as _flattenManifestFiles, latestGateResult as _latestGateResult, resolveArticleType as _resolveArticleType, resolveRunId as _resolveRunId, } from './manifest/index.js';
-import { READER_GUIDE_SECTION_IDS } from './reader-intelligence-guide.js';
-/** Id of the generated reader guide section. */
-export const READER_GUIDE_SECTION_ID = 'reader-intelligence-guide';
-/** Display title of the generated reader guide section. */
-export const READER_GUIDE_SECTION_TITLE = 'Reader Intelligence Guide';
+import { READER_GUIDE_SECTION_ID, READER_GUIDE_SECTION_IDS, READER_GUIDE_SECTION_TITLE, } from './reader-guide-constants.js';
+export { READER_GUIDE_SECTION_ID, READER_GUIDE_SECTION_IDS, READER_GUIDE_SECTION_TITLE, } from './reader-guide-constants.js';
 /**
  * Normalise `manifest.files` into a flat list of `runRelPath` strings.
  *

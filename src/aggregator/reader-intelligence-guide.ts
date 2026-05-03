@@ -15,8 +15,15 @@
 import type { LanguageCode, LanguageMap } from '../types/index.js';
 import { getLocalizedString, getTextDirection } from '../constants/language-core.js';
 import { escapeHTML } from '../utils/file-utils.js';
-import type { TocSection, IncludedArtifact } from './analysis-aggregator.js';
-import { READER_GUIDE_SECTION_ID } from './analysis-aggregator.js';
+import type { TocSection, IncludedArtifact } from './reader-guide-constants.js';
+import { READER_GUIDE_SECTION_ID } from './reader-guide-constants.js';
+
+export type { TocSection, IncludedArtifact } from './reader-guide-constants.js';
+export {
+  READER_GUIDE_SECTION_ID,
+  READER_GUIDE_SECTION_IDS,
+  READER_GUIDE_SECTION_TITLE,
+} from './reader-guide-constants.js';
 
 /* ─── Translated labels ─────────────────────────────────────────── */
 
@@ -117,22 +124,6 @@ interface GuideRowData {
   readonly need: LanguageMap;
   readonly value: LanguageMap;
 }
-
-/**
- * Canonical ordered list of section IDs that appear in the Reader Intelligence
- * Guide. Exported so `analysis-aggregator.ts` can drive its English Markdown
- * guide from the same source of truth, avoiding drift between the two renderers.
- */
-export const READER_GUIDE_SECTION_IDS: readonly string[] = [
-  'section-executive-brief',
-  'section-synthesis',
-  'section-significance',
-  'section-coalitions-voting',
-  'section-stakeholder-map',
-  'section-economic-context',
-  'section-scenarios',
-  'section-risk',
-] as const;
 
 const READER_GUIDE_ROWS: Readonly<Record<string, GuideRowData>> = {
   'section-executive-brief': {

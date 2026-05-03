@@ -33,7 +33,19 @@ import {
   type Manifest,
   type ManifestFiles,
 } from './manifest/index.js';
-import { READER_GUIDE_SECTION_IDS } from './reader-intelligence-guide.js';
+import type { TocSection, IncludedArtifact } from './reader-guide-constants.js';
+import {
+  READER_GUIDE_SECTION_ID,
+  READER_GUIDE_SECTION_IDS,
+  READER_GUIDE_SECTION_TITLE,
+} from './reader-guide-constants.js';
+
+export type { TocSection, IncludedArtifact } from './reader-guide-constants.js';
+export {
+  READER_GUIDE_SECTION_ID,
+  READER_GUIDE_SECTION_IDS,
+  READER_GUIDE_SECTION_TITLE,
+} from './reader-guide-constants.js';
 
 /** Result of {@link aggregateAnalysisRun}. */
 export interface AggregatedRun {
@@ -58,30 +70,6 @@ export interface AggregatedRun {
    */
   readonly sectionToc: readonly TocSection[];
 }
-
-/** One entry in the article-level table of contents (H2 level). */
-export interface TocSection {
-  /** Fragment identifier — matches the `id="…"` on the rendered H2. */
-  readonly id: string;
-  /** Display title shown in the sidebar nav. */
-  readonly title: string;
-}
-
-/** Metadata for one artifact included in the aggregate. */
-export interface IncludedArtifact {
-  /** Path relative to the run dir. */
-  readonly runRelPath: string;
-  /** Path relative to the repo root. */
-  readonly repoRelPath: string;
-  /** Id of the section this artifact belongs to. */
-  readonly sectionId: string;
-}
-
-/** Id of the generated reader guide section. */
-export const READER_GUIDE_SECTION_ID = 'reader-intelligence-guide';
-
-/** Display title of the generated reader guide section. */
-export const READER_GUIDE_SECTION_TITLE = 'Reader Intelligence Guide';
 
 /** Options for {@link aggregateAnalysisRun}. */
 export interface AggregateOptions {
