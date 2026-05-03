@@ -49,7 +49,7 @@ describe('scripts/lint-prompts.js', () => {
     writeWorkflow(
       'news-example.md',
       '# Title\n\n' +
-        'imports:\n  - .github/agents/news-generation.agent.md\n\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n  - shared/mcp/news-mcp-servers.md\n\n' +
         'Call safeoutputs___create_pull_request at the end.\n',
     );
     const result = runLint(tmpDir);
@@ -115,7 +115,7 @@ describe('scripts/lint-prompts.js', () => {
         'The aggregator modules live under `src/aggregator/**` ' +
         '(artifact-order, clean-artifact, analysis-aggregator, ' +
         'markdown-renderer, article-html, article-generator).\n' +
-        'imports:\n  - .github/agents/news-generation.agent.md\n',
+        'imports:\n  - .github/agents/news-generation.agent.md\n  - shared/mcp/news-mcp-servers.md\n',
     );
     const result = runLint(tmpDir);
     expect(result.code).toBe(0);
@@ -126,7 +126,7 @@ describe('scripts/lint-prompts.js', () => {
       'news-ok-indexes.md',
       '# Title\nCall safeoutputs___create_pull_request once.\n' +
         'npm run generate-news-indexes is the prebuild hook.\n' +
-        'imports:\n  - .github/agents/news-generation.agent.md\n',
+        'imports:\n  - .github/agents/news-generation.agent.md\n  - shared/mcp/news-mcp-servers.md\n',
     );
     const result = runLint(tmpDir);
     expect(result.code).toBe(0);
@@ -171,6 +171,7 @@ describe('scripts/lint-prompts.js', () => {
       '# Title\n' +
         'imports:\n' +
         '  - .github/agents/news-generation.agent.md\n' +
+        '  - shared/mcp/news-mcp-servers.md\n' +
         'Call safeoutputs___create_pull_request once.\n',
     );
     const result = runLint(tmpDir);
@@ -181,6 +182,7 @@ describe('scripts/lint-prompts.js', () => {
     writeWorkflow(
       'news-direct-refs.md',
       '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n  - shared/mcp/news-mcp-servers.md\n' +
         'See analysis/methodologies/ai-driven-analysis-guide.md and 03-analysis-completeness-gate.md.\n' +
         'Call safeoutputs___create_pull_request once.\n',
     );
@@ -222,6 +224,7 @@ describe('scripts/lint-prompts.js', () => {
     writeWorkflow(
       'news-breaking-article.md',
       '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n  - shared/mcp/news-mcp-servers.md\n' +
         'Reads analysis from main; checks 03-analysis-completeness-gate.md result.\n' +
         'Call safeoutputs___create_pull_request once.\n',
     );
@@ -303,11 +306,81 @@ describe('scripts/lint-prompts.js', () => {
     writeWorkflow(
       'news-good-imf-primary.md',
       '# Title\n' +
-        'imports:\n  - .github/agents/news-generation.agent.md\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n  - shared/mcp/news-mcp-servers.md\n' +
         'Economic context: IMF is the sole authoritative source. ' +
         'World Bank is for non-economic domains ' +
         '(governance WGI, demographics, defence-spending).\n' +
         'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(0);
+  });
+
+  // ── Rule 5: canonical prompt import order ──────────────────────────
+
+  it('flags a workflow missing the canonical import set', () => {
+    // Missing shared/mcp/news-mcp-servers.md
+    writeWorkflow(
+      'news-no-mcp-import.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain('missing canonical import');
+    expect(result.stderr).toContain('news-mcp-servers.md');
+  });
+
+  it('flags canonical imports in wrong order', () => {
+    writeWorkflow(
+      'news-wrong-order.md',
+      '# Title\n' +
+        'imports:\n' +
+        '  - shared/mcp/news-mcp-servers.md\n' +
+        '  - .github/agents/news-generation.agent.md\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain('out of order');
+  });
+
+  it('ignores canonical import paths mentioned only outside the imports block', () => {
+    writeWorkflow(
+      'news-prose-only-imports.md',
+      '# Title\n' +
+        'imports:\n  - .github/prompts/00-scope-and-ground-rules.md\n' +
+        'Commentary mentions .github/agents/news-generation.agent.md and ' +
+        'shared/mcp/news-mcp-servers.md, but those paths are not imported.\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain('missing canonical import');
+  });
+
+  it('accepts workflows with both canonical imports in correct order', () => {
+    writeWorkflow(
+      'news-correct-imports.md',
+      '# Title\n' +
+        'imports:\n' +
+        '  - .github/agents/news-generation.agent.md\n' +
+        '  - shared/mcp/news-mcp-servers.md\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(0);
+  });
+
+  it('exempts news-translate.md from canonical import rule', () => {
+    writeWorkflow(
+      'news-translate.md',
+      '# Title\n' +
+        'imports:\n  - shared/mcp/news-mcp-servers.md\n' +
+        'Multi-call flush pattern. ' +
+        'safeoutputs___create_pull_request at min 14.\n' +
+        'safeoutputs___create_pull_request at min 45.\n',
     );
     const result = runLint(tmpDir);
     expect(result.code).toBe(0);

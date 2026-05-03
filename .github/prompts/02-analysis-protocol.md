@@ -327,6 +327,38 @@ analysis before the aggregator writes `${ANALYSIS_DIR}/article.md` and `news/**`
 - Confidence level (🟢/🟡/🔴) on every aggregate finding.
 - Cross-references between artifacts.
 
+### Pass 2 Explicit Checklist (what Pass 2 MUST do)
+
+Pass 2 is NOT optional — it is the phase where quality is achieved. The
+agent MUST execute every item below during Pass 2:
+
+1. **Re-read every artifact end-to-end** — do not skim. Read the full text
+   of every file written in Pass 1 to identify shallow, generic, or
+   placeholder content.
+2. **Fill all placeholder markers** — search for `[AI_ANALYSIS_REQUIRED]`,
+   `[TBD]`, `TODO:`, `PLACEHOLDER`, `INSERT`, and replace with substantive
+   political-intelligence content.
+3. **Cite evidence in every paragraph** — each analytical paragraph must
+   reference a specific data source (EP MCP feed result, IMF indicator,
+   committee vote outcome, MEP statement). Generic claims without evidence
+   are rewritten.
+4. **Deduplicate cross-artifact content** — if the same finding appears in
+   `pestle-analysis.md` and `synthesis-summary.md`, the synthesis must cite
+   the PESTLE file and add value (not repeat it).
+5. **Expand SWOT items** — every SWOT item must be ≥ 80 words with
+   specific actors, dates, and measurable impacts. One-liners are rewritten.
+6. **Expand stakeholder perspectives** — every stakeholder entry must be
+   ≥ 150 words with position rationale, coalition alignment, and
+   influence-pathway analysis. Shallow entries are rewritten.
+7. **Verify IMF data context** — economic/fiscal/monetary claims MUST cite
+   IMF as the sole authoritative source (not World Bank for economic
+   indicators). Cross-check that indicator codes and vintage dates are
+   present.
+8. **Lift forward-looking analysis** — scenario forecasts, forward
+   projections, and risk matrices must contain horizon-specific probability
+   bands (WEP decay), structural-break triggers, and at least one
+   quantified outcome per scenario branch.
+
 ### Pass-2 Readback Rules for Long-Horizon Scenarios (≥90-day horizons)
 
 When the article type has a data window ≥ 90 days (per

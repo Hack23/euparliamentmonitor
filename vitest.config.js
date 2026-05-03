@@ -18,12 +18,14 @@ export default defineConfig({
       reporter: ['text', 'json', 'html', 'lcov'],
       reportsDirectory: './builds/coverage',
       
-      // Coverage thresholds
+      // Coverage thresholds — raised from 80/80/75/80 per issue #1600.
+      // Target: lines ≥92, branches ≥84 once all test-spine tests land.
+      // Current intermediate targets (above measured baseline):
       thresholds: {
-        lines: 80,
-        functions: 80,
-        branches: 75,
-        statements: 80,
+        lines: 88,
+        functions: 88,
+        branches: 78,
+        statements: 88,
       },
       
       // Files to include in coverage - cover compiled JS from TypeScript
