@@ -420,6 +420,11 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   border-color: rgba(230, 184, 0, 0.48);
 }
 
+.site-header__cta--pi {
+  background: rgba(0, 51, 153, 0.22);
+  border-color: rgba(0, 51, 153, 0.55);
+}
+
 /* Language switcher — inline in header, single row */
 .site-header__langs {
   display: flex;
