@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.4-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.5-555?style=for-the-badge" alt="Version"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--03-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
@@ -1204,7 +1204,7 @@ graph LR
 | **Vitest**        | Version          | Latest stable   | ✅ 4.1.4         |
 | **Playwright**    | Version          | Latest stable   | ✅ 1.59.1        |
 | **gh-aw**         | Pinned runtime   | Known-good      | ✅ v0.71.3       |
-| **EP MCP Server** | Version          | Latest release  | ✅ 1.2.13        |
+| **EP MCP Server** | Version          | Latest release  | ✅ 1.2.20        |
 | **Dependencies**  | Vulnerabilities  | 0 critical/high | ✅ 0             |
 | **Test Coverage** | Tests / files    | 3,000+ / 50+    | ✅ 3,061+ / 52   |
 | **Build Time**    | CI/CD duration   | <10 min         | ✅ 6 min         |
