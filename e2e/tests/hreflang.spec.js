@@ -24,6 +24,13 @@ function toPathname(href) {
 }
 
 test.describe('Hreflang Link Graph', () => {
+  test('all political-intelligence hreflang targets resolve', async ({ page }) => {
+    for (const { lang, path } of PI_PAGES) {
+      const response = await page.goto(path);
+      expect(response.status(), `${lang} hreflang target ${path} returned ${response.status()}`).toBe(200);
+    }
+  });
+
   for (const { lang, path: pagePath } of PI_PAGES) {
     test(`${lang}: page has full 14-language hreflang set + x-default`, async ({ page }) => {
       const response = await page.goto(pagePath);
@@ -61,15 +68,6 @@ test.describe('Hreflang Link Graph', () => {
         expect(toPathname(alternate.href), `${lang} page: hreflang '${expectedLang}' has wrong target`).toBe(
           expectedPath,
         );
-
-        const altStatus = await page.evaluate(async (path) => {
-          const response = await fetch(path);
-          return response.status;
-        }, expectedPath);
-        expect(
-          altStatus,
-          `${lang} page: hreflang '${expectedLang}' points to ${expectedPath} which returned ${altStatus}`,
-        ).toBe(200);
       }
 
       const defaultAlternate = alternates.find((link) => link.hreflang === 'x-default');
