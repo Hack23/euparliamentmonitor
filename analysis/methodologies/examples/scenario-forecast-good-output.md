@@ -137,7 +137,7 @@ flowchart TD
 - [x] Each scenario has a confidence label (High / Moderate / Low) separately from the WEP band.
 - [x] Each scenario narrative ≥150 words and names ≥1 procedure ID, MEP, and date.
 - [x] Each scenario has ≥3 dated early-warning indicators and ≥2 dated trigger events.
-- [x] Every EWI indicator cites its source with an Admiralty grade (e.g. A-1, B-2).
+- [x] Every early-warning indicator cites its source with an Admiralty grade (e.g. A-1, B-2).
 - [x] Cross-scenario sensitivity names a single flippable variable with explicit re-weighted probabilities.
 - [x] Mermaid `flowchart TD` branches from baseline through scenarios into both early-warning indicators and trigger events (purple nodes).
 - [x] Monitoring plan has a calendar and an owner per check.

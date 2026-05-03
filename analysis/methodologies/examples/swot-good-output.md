@@ -137,7 +137,7 @@ quadrantChart
 - [x] Probabilities, where used, are bracketed against a Words-of-Estimative-Probability band; numerical ranges (e.g. 78 → 41 votes) carry a `*illustrative*` marker.
 - [x] TOWS pairs are paired strategies with a trigger date and a named owner — not aspirational paragraphs.
 - [x] No soft phrases ("rich", "comprehensive", "strong"); every claim is anchored.
-- [x] Mandatory Mermaid `quadrantChart` with Internal/External × Negative/Positive axes, all 12 items plotted.
+- [x] Mandatory Mermaid `quadrantChart` with Internal/External × Negative/Positive axes; all items from all four quadrants plotted.
 - [x] Cross-quadrant interference: identifies S↔O reinforcement and W↔T amplification with net-effect reasoning.
 - [x] Scenario bridge: each SWOT configuration maps to a named scenario in `scenario-forecast.md`.
 - [x] Length: this excerpt is ~148 lines; production artifacts must reach ≥140 lines (the `breaking` threshold in `reference-quality-thresholds.json`). This excerpt satisfies the threshold; production runs extend with additional items or deeper TOWS narratives.

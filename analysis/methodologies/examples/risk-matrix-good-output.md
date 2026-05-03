@@ -164,7 +164,7 @@ quadrantChart
 - [x] Each risk has a named mitigation owner and a residual-risk re-score.
 - [x] Confidence labels (High/Moderate/Low) on every risk.
 - [x] Mermaid `quadrantChart` shows all risks with explicit coordinates.
-- [x] Trend vs. prior run — explicit baseline note; delta available after first re-score run.
+- [x] Trend vs. prior run — explicit baseline note for first runs; delta table comparing prior and current scores for subsequent runs.
 - [x] Accept / Prepare / Monitor decision per risk with rationale.
 - [x] Length: ≥150 lines (matches `breaking` threshold of 150).
 
