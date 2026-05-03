@@ -12,7 +12,8 @@
 
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import { PROJECT_ROOT, APP_VERSION, NEWS_DIR } from '../constants/config.js';
+import { PROJECT_ROOT, APP_VERSION, NEWS_DIR, BASE_URL } from '../constants/config.js';
+import { getNewsIndexSeo } from './seo-copy.js';
 import { buildHeadFreshnessTags } from '../constants/build-info-meta.js';
 import {
   ALL_LANGUAGES,
@@ -62,6 +63,9 @@ import type {
 export function getIndexFilename(lang: string): string {
   return lang === 'en' ? 'index.html' : `index-${lang}.html`;
 }
+
+const SCHEMA_ORG = 'https://schema.org';
+const SITE_NAME = 'EU Parliament Monitor';
 
 /**
  * Build the compact language switcher nav HTML.
@@ -217,7 +221,105 @@ export function generateIndexHTML(
           .join('\n          ')
       : '';
 
-  const canonicalUrl = `https://hack23.github.io/euparliamentmonitor/${selfHref}`;
+  const seo = getNewsIndexSeo(lang);
+  const canonicalUrl = `${BASE_URL}/${selfHref}`;
+  const ogImage = `${BASE_URL}/images/og-image.jpg`;
+
+  // Structured data: WebSite, Organization with logo,
+  // CollectionPage with BreadcrumbList, and FAQPage. Each block is a
+  // separate <script type="application/ld+json"> with literal `<` chars
+  // escaped to `\u003c` so the JSON cannot prematurely close the tag.
+  const websiteJsonLd = JSON.stringify({
+    '@context': SCHEMA_ORG,
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: BASE_URL,
+    inLanguage: lang,
+    publisher: { '@id': `${BASE_URL}/#organization` },
+  }).replace(/</g, '\\u003c');
+
+  const organizationJsonLd = JSON.stringify({
+    '@context': SCHEMA_ORG,
+    '@type': 'Organization',
+    '@id': `${BASE_URL}/#organization`,
+    name: 'Hack23 AB',
+    url: 'https://hack23.com',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://hack23.com/icon-192.png',
+      width: 192,
+      height: 192,
+    },
+    sameAs: ['https://github.com/Hack23', 'https://hack23.com'],
+  }).replace(/</g, '\\u003c');
+
+  const collectionPageJsonLd = JSON.stringify({
+    '@context': SCHEMA_ORG,
+    '@type': 'CollectionPage',
+    name: heroTitle,
+    description,
+    url: canonicalUrl,
+    inLanguage: lang,
+    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: BASE_URL },
+    publisher: { '@id': `${BASE_URL}/#organization` },
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: seo.breadcrumbHome,
+          item: `${BASE_URL}/${selfHref}`,
+        },
+        { '@type': 'ListItem', position: 2, name: seo.breadcrumbCurrent, item: canonicalUrl },
+      ],
+    },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: Math.min(articles.length, 50),
+      itemListElement: articles.slice(0, 50).map((a, idx) => ({
+        '@type': 'ListItem',
+        position: idx + 1,
+        url: `${BASE_URL}/news/${a.filename}`,
+        name: metaMap.get(a.filename)?.title ?? formatSlug(a.slug),
+      })),
+    },
+  }).replace(/</g, '\\u003c');
+
+  const faqJsonLd = JSON.stringify({
+    '@context': SCHEMA_ORG,
+    '@type': 'FAQPage',
+    inLanguage: seo.faqLanguage,
+    mainEntity: seo.faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  }).replace(/</g, '\\u003c');
+
+  // Visible breadcrumb — string-equal labels with the BreadcrumbList JSON-LD.
+  const breadcrumbHtml = `<nav class="breadcrumb" aria-label="${escapeHTML(seo.breadcrumbAriaLabel)}">
+    <ol class="breadcrumb__list">
+      <li class="breadcrumb__item"><a href="${selfHref}">${escapeHTML(seo.breadcrumbHome)}</a></li>
+      <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">${escapeHTML(seo.breadcrumbCurrent)}</li>
+    </ol>
+  </nav>`;
+
+  // Visible FAQ — Q/A bodies are byte-equivalent to the FAQPage JSON-LD.
+  const faqHtml = `<section class="page-faq" aria-labelledby="page-faq-heading">
+    <h2 id="page-faq-heading"><span aria-hidden="true">❓</span> ${escapeHTML(seo.faqHeading)}</h2>
+    <div class="page-faq__list">
+      ${seo.faqs
+        .map(
+          (f) => `<details class="page-faq__item">
+        <summary>${escapeHTML(f.q)}</summary>
+        <p>${escapeHTML(f.a)}</p>
+      </details>`
+        )
+        .join('\n      ')}
+    </div>
+  </section>`;
+
   const header = buildSiteHeader({
     lang: lang as LanguageCode,
     pathPrefix: '',
@@ -236,6 +338,11 @@ export function generateIndexHTML(
   <meta name="generator" content="EU Parliament Monitor v${escapeHTML(APP_VERSION)}">
   <title>${title}</title>
   <meta name="description" content="${description}">
+  <meta name="keywords" content="${escapeHTML(seo.keywords)}">
+  <meta name="author" content="Hack23 AB">
+  <meta name="publisher" content="Hack23 AB">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta http-equiv="Content-Language" content="${lang}">
   <link rel="canonical" href="${canonicalUrl}">
   <meta property="og:type" content="website">
   <meta property="og:title" content="${heroTitle}">
@@ -243,15 +350,15 @@ export function generateIndexHTML(
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="${lang}">
-  <meta property="og:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
+  <meta property="og:image" content="${ogImage}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence">
+  <meta property="og:image:alt" content="${escapeHTML(seo.ogImageAlt)}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${heroTitle}">
   <meta name="twitter:description" content="${description}">
-  <meta name="twitter:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
-  <meta name="twitter:image:alt" content="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence">
+  <meta name="twitter:image" content="${ogImage}">
+  <meta name="twitter:image:alt" content="${escapeHTML(seo.ogImageAlt)}">
   ${buildHreflangTags()}
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -266,11 +373,17 @@ export function generateIndexHTML(
   <meta name="ep-i18n-update-cta" content="${escapeHTML(getLocalizedString(UPDATE_REFRESH_CTA_LABELS, lang))}">
   <meta name="ep-i18n-dismiss" content="${escapeHTML(getLocalizedString(UPDATE_DISMISS_LABELS, lang))}">
 ${buildHeadFreshnessTags('')}
+  <script type="application/ld+json">${websiteJsonLd}</script>
+  <script type="application/ld+json">${organizationJsonLd}</script>
+  <script type="application/ld+json">${collectionPageJsonLd}</script>
+  <script type="application/ld+json">${faqJsonLd}</script>
 </head>
 <body>
   <a href="#main" class="skip-link">${skipLinkText}</a>
 
   ${header}
+
+  ${breadcrumbHtml}
 
   <section class="hero">
     <div class="hero__inner">
@@ -315,6 +428,8 @@ ${buildHeadFreshnessTags('')}
       <li><strong>${escapeHTML(ai.featureData)}</strong> &mdash; ${escapeHTML(ai.featureDataDesc)}</li>
     </ul>
   </section>
+
+  ${faqHtml}
 
   ${buildSiteFooter({ lang: lang as LanguageCode, pathPrefix: '', articleCount: articles.length })}
 
