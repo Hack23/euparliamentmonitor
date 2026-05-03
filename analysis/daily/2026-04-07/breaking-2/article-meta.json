@@ -1,0 +1,27 @@
+{
+  "date": "2026-04-07",
+  "articleType": "breaking",
+  "runId": "24097229534",
+  "gateResult": "PENDING",
+  "slug": "2026-04-07-breaking-24097229534",
+  "articlePath": "analysis/daily/2026-04-07/breaking-2/article.md",
+  "topFinding": "",
+  "keyTakeaways": [],
+  "topRisks": [
+    "🟢 LOW: Score 1-4",
+    "🟡 MEDIUM: Score 5-12",
+    "🔴 HIGH: Score 13-19",
+    "⚫ CRITICAL: Score 20-25",
+    "EP Open Data Portal feeds: status tracking across 8 endpoints",
+    "Early warning system: stability 84/100, 3 warnings",
+    "Precomputed stats: 935 procedures, 114 projected acts, MWC 3",
+    "Adopted texts: TA-10-2026-0030 (recovery signal), 0092, 0094, 0096, 0097"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

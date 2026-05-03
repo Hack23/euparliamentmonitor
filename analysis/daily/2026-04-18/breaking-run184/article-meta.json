@@ -1,0 +1,43 @@
+{
+  "date": "2026-04-18",
+  "articleType": "breaking",
+  "runId": "184",
+  "gateResult": "PENDING",
+  "slug": "2026-04-18-breaking-184",
+  "articlePath": "analysis/daily/2026-04-18/breaking-run184/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "EPP Group official website (group.epp.eu) for whipping communications",
+    "EPP President Weber's public statements (European Parliament website)",
+    "German CDU MEP social media activity patterns as EPP proxy",
+    "S&D-EPP joint committee statements as grand coalition alignment signals",
+    "Workflow started: April 18, 2026 07:16:59 UTC",
+    "**Pass 1** (analysis generation — classification, SWOT, synthesis, coalition, cross-run) completed: April 18, 2026 07:50 UTC (~33 min)",
+    "**Pass 2** (mandatory read-back + improvement: MCP reliability audit + 7 deep-intelligence artifacts): April 18, 2026 08:45 UTC"
+  ],
+  "topRisks": [],
+  "keyDates": [
+    "[ ] Commission housing response published with explicit Q4 2026 legislative",
+    "[ ] Commission housing response published without Q4 2026 legislative commitment"
+  ],
+  "keyActors": [
+    "Herfindahl-Hirschman Index: sum of squared seat share percentages",
+    "EPP: 26² = 676; S&D: 19² = 361; ECR: 11² = 121; PfE: 12² = 144; Renew: 11² = 121; Greens: 7² = 49; Left: 6² = 36; NI: 4² = 16; ESN: 3² = 9",
+    "HHI = 1533; ENP = 10000/1533 ≈ **6.52**",
+    "Whether proposed voting coalitions have majority support (361+ votes needed)",
+    "Whether EPP is the swing vote in any coalition configuration",
+    "Whether EPP voting discipline is above or below its historical ~85% average",
+    "EPP Group website (group.epp.eu/press) publishes regular statements on key legislative positions",
+    "Manfred Weber (EPP President) Twitter/X posts typically telegraph EPP voting intentions 48–72 hours before plenary votes"
+  ],
+  "macroContext": "(0.5%).",
+  "sources": [
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

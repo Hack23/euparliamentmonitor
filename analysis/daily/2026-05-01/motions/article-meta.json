@@ -1,0 +1,50 @@
+{
+  "date": "2026-05-01",
+  "articleType": "motions",
+  "runId": "motions-run-1777618418",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-05-01-motions",
+  "articlePath": "analysis/daily/2026-05-01/motions/article.md",
+  "topFinding": "The European Parliament's April 2026 plenary session (28–30 April, Strasbourg) delivered a dense legislative harvest spanning immunity law, digital regulation, geopolitical crisis response, and budget oversight.",
+  "keyTakeaways": [
+    "`classification/actor-mapping.md`: ECR group internal power split identified (PiS-Polish 20/81 MEPs vs. institutional ECR)",
+    "`classification/forces-analysis.md`: National interest divergence force identified as structural feature of ECR's composition",
+    "`threat-assessment/political-threat-landscape.md`: T-01 (ECR fragmentation) rated 🔴 CRITICAL likelihood × impact",
+    "`risk-scoring/political-capital-risk.md`: ECR net -5 political capital this week (largest single-actor loss)",
+    "`intelligence/coalition-dynamics.md`: ECR cohesion estimated at 65% on Jaki vs. 74% average",
+    "`classification/significance-classification.md`: DMA motion TIER 2 significance",
+    "`classification/impact-matrix.md`: DMA carries 🔴 CRITICAL near-term economic impact"
+  ],
+  "topRisks": [
+    "ECR official group statement on the waiver (issued / not issued)",
+    "Polish ECR delegation attendance on next plenary votes",
+    "EPP backroom communication to ECR leadership",
+    "USTR Federal Register notice of 301 investigation",
+    "White House statement naming DMA as trade barrier",
+    "Commission spokesperson response to any US statement",
+    "Vote margin on Ukraine-related motions in next 3 plenary sessions",
+    "Hungarian government statement after the vote"
+  ],
+  "keyDates": [
+    "Budget breakdown: 2027 budget not agreed; provisional 12ths regime triggered from January 2027",
+    "Budget deal reached October 2026 — relief for Cohesion and Horizon programmes"
+  ],
+  "keyActors": [
+    "Requires all three groups to cooperate simultaneously",
+    "EPP cannot govern alone or with ECR alone",
+    "S&D cannot govern without EPP (too far from majority on the left side)",
+    "Renew is the pivot — its 77 seats are mathematically necessary in almost every configuration"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

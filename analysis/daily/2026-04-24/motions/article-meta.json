@@ -1,0 +1,42 @@
+{
+  "date": "2026-04-24",
+  "articleType": "motions-runmotions-run-1777010709",
+  "runId": "394ceb8d-0788-4530-b2ef-4489a56475b4",
+  "gateResult": "PENDING",
+  "slug": "2026-04-24-motions-runmotions-run-1777010709",
+  "articlePath": "analysis/daily/2026-04-24/motions/article.md",
+  "topFinding": "Headline judgement (WEP: LIKELY, ~65-80%, 6-month horizon): The March 2026 plenary cluster marks a structural reorientation of the Parliament's agenda from pure legislative throughput toward a hybrid rule-of-law + economic-sovereignty posture, driven by the combined pressure of Trump-II tariffs, the Braun immunity…",
+  "keyTakeaways": [
+    "**Housing** (TA-10-2026-0064, 2026-03-10) — A cross-group demand for",
+    "**Combating corruption** (TA-10-2026-0094, 2026-03-26) — Cross-group",
+    "**US tariff response** (TA-10-2026-0096, 2026-03-26) — Regulation",
+    "**SRMR3** (TA-10-2026-0092, 2026-03-26) — Banking-union completion",
+    "**Copyright × generative AI** (TA-10-2026-0066, 2026-03-10)",
+    "**ECB VP** (TA-10-2026-0060, 2026-03-10) — Parliament opinion on",
+    "**HDV emission credits 2025-2029** (TA-10-2026-0084, 2026-03-12)"
+  ],
+  "topRisks": [],
+  "keyDates": [
+    "2026-05-12: Rapporteur appointment for anti-corruption directive",
+    "2026-05-26: Commission Work Programme 2027 teaser on housing path.",
+    "2026-06-10: ECON vote on CMU omnibus — tells us whether the",
+    "2026-06-15: Georgia Dream election response resolution (urgency"
+  ],
+  "keyActors": [
+    "**EMPL committee chair** — Dennis Radtke (EPP, DE) — co-lead on",
+    "**ECON committee chair** — Aurore Lalucq (S&D, FR) — co-lead on",
+    "**LIBE shadow rapporteur slate (corruption)** — a JURI-LIBE joint",
+    "**JURI rapporteur (Braun waiver)** — JURI immunity reports are",
+    "**INTA lead (US tariffs)** — Bernd Lange (S&D, DE) as INTA chair.",
+    "**ECON rapporteur (SRMR3)** — ECON ordinary-legislative rapporteur",
+    "**AFET urgency rapporteur (Georgia)** — DDLH subcommittee's",
+    "**JURI / CULT AI-copyright lead** — Axel Voss (EPP, DE) is the"
+  ],
+  "macroContext": "Source confidence note: World Bank and IMF MCP probes timed out during this run (see mcp-reliability-audit.md when produced).",
+  "sources": [
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md"
+  ]
+}

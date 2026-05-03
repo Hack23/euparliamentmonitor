@@ -1,0 +1,28 @@
+{
+  "date": "2026-04-06",
+  "articleType": "committee-reports",
+  "runId": "7de43851-7add-4544-bc46-9d67a82117ca",
+  "gateResult": "PENDING",
+  "slug": "2026-04-06-committee-reports",
+  "articlePath": "analysis/daily/2026-04-06/committee-reports/article.md",
+  "topFinding": "",
+  "keyTakeaways": [],
+  "topRisks": [
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:",
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

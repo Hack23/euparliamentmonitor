@@ -1,0 +1,27 @@
+{
+  "date": "2026-04-19",
+  "articleType": "breaking",
+  "runId": "187",
+  "gateResult": "PENDING",
+  "slug": "2026-04-19-breaking-187",
+  "articlePath": "analysis/daily/2026-04-19/breaking-run187/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [
+    "**ECR-PfE (similarity 0.96)**: Size-based proxy suggests strongest pairing signal. Combined: ~165 seats = 23.2% — a strong opposition bloc if unified.",
+    "**Renew-ECR (0.95)**: Unusual pairing signal — size similarity high. On specific trade/digital votes, Renew and ECR have historically found common ground on market-oriented provisions.",
+    "EPP-S&D pair: sizeSimilarityScore 0 (data gap due to EPP API issue)",
+    "S&D-Renew: 0.57 — below the 0.50 threshold algorithmically, but institutionally these groups form the functional Grand Centre with EPP",
+    "EPP: Divided. Export-oriented German, Italian MEPs likely FOR. Central European, Baltic MEPs likely AGAINST.",
+    "S&D: Predominantly FOR (WTO multilateralism, social standards)",
+    "Renew: Predominantly FOR (free trade orientation)",
+    "Greens/EFA: Likely ABSTAIN or SPLIT (human rights vs. trade cooperation)"
+  ],
+  "macroContext": "",
+  "sources": [
+    "intelligence/coalition-dynamics.md",
+    "intelligence/synthesis-summary.md"
+  ]
+}

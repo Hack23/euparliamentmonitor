@@ -1,0 +1,51 @@
+{
+  "date": "2026-04-29",
+  "articleType": "month-ahead",
+  "runId": "month-ahead-run-1777445122",
+  "gateResult": "GREEN",
+  "slug": "2026-04-29-month-ahead",
+  "articlePath": "analysis/daily/2026-04-29/month-ahead/article.md",
+  "topFinding": "The EU Parliament enters May 2026 operationally effective but politically stressed.",
+  "keyTakeaways": [
+    "May session completes without major disruption",
+    "Budget 2027 negotiations progress to trilogue stage",
+    "US tariff response calibrated, not escalated",
+    "CID makes steady committee progress",
+    "US announcement of automotive tariffs > 15% in the May 1-10 window",
+    "EU countermeasures activation (TER) that US reads as escalation",
+    "German automotive industry lobbying EPP against retaliation"
+  ],
+  "topRisks": [
+    "🔴 Critical (16-25)",
+    "🟠 High (10-15)",
+    "🟡 Medium (5-9)",
+    "🟢 Low (1-4)",
+    "Trump administration has signalled automotive tariffs repeatedly",
+    "US Section 232 national security justification already invoked for steel/aluminium",
+    "Midterm political dynamics in US create incentive to show \"toughness\" on trade",
+    "EU automotive sector: €60 bn annual US exports; 14 million jobs in EU automotive ecosystem"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "**EPP ↔ S&D:** Budget 2027 baseline; Ukraine support; institutional reform",
+    "**EPP ↔ Renew:** Trade response; fiscal governance; digital regulation",
+    "**S&D ↔ Greens/EFA:** Climate ambition; social rights; workers' rights",
+    "**INTA ↔ Commission DG Trade:** US tariff response coordination",
+    "**EPP ↔ S&D:** Fiscal stimulus intensity; welfare state spending in Budget 2027",
+    "**EPP ↔ Greens/EFA:** CID ambition level; sectoral emissions targets",
+    "**Renew ↔ Left:** Economic liberalism vs. social protectionism",
+    "**ECR ↔ PfE:** Competitive far-right space (tactical cooperation but strategic competition)"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

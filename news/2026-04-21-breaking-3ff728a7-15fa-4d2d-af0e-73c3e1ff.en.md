@@ -11,6 +11,18 @@ layout: article
 ---
 # Breaking — 2026-04-21
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **TA-0087 and TA-0088**: Two separate immunity waiver requests for Grzegorz Braun (ECR/PL), a far-right MEP with a documented record of extreme statements. The dual waiver suggests multiple separate criminal proceedings. This is significant for ECR group management — Braun's continued presence creates political costs for the group's aspirations to institutional responsibility.
+- **TA-0089**: Immunity waiver for Nikos Pappas (S&D/GR), a Greek MEP, involving Greek criminal proceedings. The adoption of an S&D immunity waiver on the same day as two ECR waivers creates a "both sides" optics that may have facilitated an easier vote.
+- **TA-0095**: Extension of child sexual abuse regulation (CSAR) — highly politically sensitive, Council-Parliament dynamics ongoing.
+- **TA-0099**: UN Convention on Judicial Sales of Ships — technical maritime law ratification.
+- **TA-0100**: EU-Lebanon S&T cooperation agreement — geopolitically relevant amid Lebanon reconstruction context.
+- **TA-0102, TA-0103**: EGF mobilisations for Belgian workers — social policy application.
+- **TA-0104**: Global Gateway assessment — strategic communications value; links EU external investment strategy to trade policy narrative.
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

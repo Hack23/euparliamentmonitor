@@ -151,6 +151,18 @@ The **DOMINANT_GROUP_RISK** flagged by the EP early warning system reflects EPP'
 *Data sources: EP Open Data Portal (data.europarl.europa.eu) | EP API v2 | Political landscape: current MEP roster*  
 *Generated: 2026-04-28T00:50:00Z*
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- 719 MEPs across 9 political groups
+- EPP: 185 (25.7%) — dominant group, governing coalition anchor
+- S&D: 135 (18.8%) — centre-left, key coalition partner
+- PfE: 85 (11.8%) — nationalist right, issue-by-issue cooperation
+- ECR: 81 (11.3%) — conservative Eurosceptics, tactical trade allies
+- Renew: 77 (10.7%) — liberal centre, critical swing votes
+- Greens/EFA: 53 (7.4%) — progressive, climate/rule-of-law focus
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -3251,7 +3263,7 @@ Currently elevated fragility signals in EU Parliament system:
 
 **Attribution:** European Parliament Open Data Portal (data.europarl.europa.eu) — CC BY 4.0
 
-<h2 id="section-forward-projection">Forward Projection</h2>
+<h2 id="section-forward-projection">What to Watch</h2>
 
 ### Forward Indicators
 

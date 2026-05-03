@@ -1,0 +1,28 @@
+{
+  "date": "2026-04-07",
+  "articleType": "motions",
+  "runId": "2188e763-6b62-4b96-a650-76749ba22e0f",
+  "gateResult": "PENDING",
+  "slug": "2026-04-07-motions",
+  "articlePath": "analysis/daily/2026-04-07/motions/article.md",
+  "topFinding": "",
+  "keyTakeaways": [],
+  "topRisks": [
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:",
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

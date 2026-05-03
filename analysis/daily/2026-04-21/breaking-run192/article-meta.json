@@ -1,0 +1,38 @@
+{
+  "date": "2026-04-21",
+  "articleType": "breaking",
+  "runId": "192",
+  "gateResult": "PENDING",
+  "slug": "2026-04-21-breaking-192",
+  "articlePath": "analysis/daily/2026-04-21/breaking-run192/article.md",
+  "topFinding": "Date: 2026-04-21 | Run: 192 | Mode: ANALYSIS_ONLY | Series Run: 14",
+  "keyTakeaways": [
+    "**Formal legislative record completion**: The 18 March 26 texts need to be formally notified to the Council via EP Secretary-General process — expected to occur in the April 27-30 window regardless of API content availability",
+    "**Post-recess political statements**: Group coordinators will seek speaking time on EU strategic priorities — defence, US tariffs, housing",
+    "**European Defence Industrial Strategy (EDIS) instruments**: EPP has been preparing defence procurement framework debates since before Easter",
+    "**Commission accountability**: Multiple oral questions to Commission anticipated on housing, industrial policy, and US trade response",
+    "**S&D**: Most vocal on housing affordability as generational inequality issue",
+    "**Renew**: Supports housing market liberalization but recognizes political pressure",
+    "**Greens/EFA**: Emphasizes energy efficiency and social housing components"
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [
+    "Digital Omnibus on AI (TA-0098, rapporteur Kokalari/EPP) — implementing legislation acceleration",
+    "European Defence Industrial Strategy (EDIS) — EPP's defence manufacturing agenda",
+    "Clean Industrial Deal framework — EPP needs to show green credibility post-recess",
+    "Internal discipline management: 185 seats require constant coordination across 12+ national parties",
+    "Housing Initiative: If Commission fails to deliver today, S&D will call for urgent Commission oral question in April 28 plenary — a high-visibility accountability move",
+    "Banking Union formal notification to Council (procedural step in April 27-30 window)",
+    "Ukraine Facility amendment implementation (TA-0036 was February 11 — S&D supported)",
+    "Trade: Monitoring USTR window; if Section 301 issued, Lange (INTA chair) will lead EP response"
+  ],
+  "macroContext": "",
+  "sources": [
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

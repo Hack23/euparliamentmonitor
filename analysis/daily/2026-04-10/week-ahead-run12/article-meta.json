@@ -1,0 +1,28 @@
+{
+  "date": "2026-04-10",
+  "articleType": "week-ahead",
+  "runId": "12",
+  "gateResult": "PENDING",
+  "slug": "2026-04-10-week-ahead",
+  "articlePath": "analysis/daily/2026-04-10/week-ahead-run12/article.md",
+  "topFinding": "",
+  "keyTakeaways": [],
+  "topRisks": [
+    "**Score**: 0.8/5",
+    "**Confidence**: medium",
+    "**Trend**: stable",
+    "**Evidence**:",
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "date": "2026-04-14",
+  "articleType": "propositions",
+  "runId": "68d9a632-9043-4f92-8e7c-ff5d558e91a5",
+  "gateResult": "PENDING",
+  "slug": "2026-04-14-propositions",
+  "articlePath": "analysis/daily/2026-04-14/propositions-run42/article.md",
+  "topFinding": "",
+  "keyTakeaways": [],
+  "topRisks": [
+    "Scenario A (Likely, 50%): Commission deploys limited tariff adjustments; US-EU negotiate 90-day pause",
+    "Scenario B (Possible, 30%): Full countermeasures deployed; escalatory spiral through Q2",
+    "Scenario C (Unlikely, 20%): Last-minute bilateral deal avoids countermeasures entirely"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "risk-scoring/risk-matrix.md"
+  ]
+}

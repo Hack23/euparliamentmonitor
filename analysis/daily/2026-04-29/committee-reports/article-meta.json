@@ -1,0 +1,46 @@
+{
+  "date": "2026-04-29",
+  "articleType": "committee-reports",
+  "runId": "committee-reports",
+  "gateResult": "PENDING",
+  "slug": "2026-04-29-committee-reports",
+  "articlePath": "analysis/daily/2026-04-29/committee-reports/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "Establishing red lines on minimum expenditure levels for cohesion, CAP, and defence",
+    "Positioning itself as a co-architect of budget architecture, not merely a consent-giving body",
+    "Signalling to member states that Parliament will use consent procedure leverage (majority required for final adoption) aggressively",
+    "TRAN opinion (Jan 27): Transport spending priorities, likely linked to the GHG transport accounting regulation also adopted this week",
+    "AFET opinion (Jan 28): External action priorities — geopolitical context of Ukraine, Western Balkans, and near-neighbourhood",
+    "ITRE opinion (Feb 25): Industrial/energy competitiveness — Draghi report follow-through",
+    "AGRI opinion (Feb 24): CAP appropriation protection"
+  ],
+  "topRisks": [
+    "5–9: LOW | 10–14: MEDIUM | 15–19: HIGH | 20–25: CRITICAL"
+  ],
+  "keyDates": [
+    "US-EU trade war escalates post-Q2 2026, creating economic uncertainty that constrains fiscal ambition",
+    "Germany's new government (CDU-led since Feb 2025) insists on MFF envelope discipline",
+    "Commission's delegated acts on specific methodologies delayed beyond Q1 2027",
+    "TRAN committee launches implementation review hearing Q3 2026"
+  ],
+  "keyActors": [
+    "**Parliament coalition** (EPP + S&D + Renew + Greens): Pro-higher ceiling (~450 MEPs)",
+    "**Council frugal bloc** (DE + NL + SE + AT + DK + FI): Against ceiling expansion",
+    "**Council cohesion bloc** (PL + HU + CZ + RO + SK + BG + HR): Pro-cohesion allocation",
+    "**Broker position**: Commission balances both blocs; France and Italy as swing states",
+    "**EU industry** (BusinessEurope): Prefers WTO-compatible, predictable conditionality",
+    "**Development NGOs**: Prefer automatic, strict withdrawal for violations",
+    "**Beneficiary governments**: Oppose conditionality enhancements retroactively",
+    "**Commission (DG Trade)**: Implementing acts timeline will determine actual impact"
+  ],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

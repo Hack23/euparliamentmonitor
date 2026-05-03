@@ -11,6 +11,18 @@ layout: article
 ---
 # Month In Review — 2026-04-19
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- `analysis/daily/2026-03-26/breaking-run163/intelligence/deep-analysis.md` — first-pass capture of the mega-session, political group vote tallies
+- `analysis/daily/2026-03-26/breaking-run177/intelligence/coalition-dynamics.md` — grand-coalition persistence analysis
+- `analysis/daily/2026-03-26/breaking-run179/intelligence/threat-model.md` — Anti-Corruption Directive enforcement threat surface
+- `analysis/daily/2026-03-26/breaking-run180/intelligence/scenario-forecast.md` — BRRD3 implementation scenarios
+- `analysis/daily/2026-03-26/breaking-run181/intelligence/stakeholder-map.md` — banking sector stakeholder positions
+- `analysis/daily/2026-03-26/breaking-run182/intelligence/wildcards-blackswans.md` — CSAM legal challenge wildcards
+- `analysis/daily/2026-03-26/breaking-run183/intelligence/economic-context.md` — German recession coupling
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

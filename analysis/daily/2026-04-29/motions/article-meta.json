@@ -1,0 +1,43 @@
+{
+  "date": "2026-04-29",
+  "articleType": "motions",
+  "runId": "motions-run-1777445455",
+  "gateResult": "PENDING",
+  "slug": "2026-04-29-motions",
+  "articlePath": "analysis/daily/2026-04-29/motions/article.md",
+  "topFinding": "Almost Certainly (A1, confidence HIGH): The April 28, 2026 Strasbourg plenary session marked a significant week for the EP, delivering 17 adopted texts across budget, justice, environment, trade, and institutional domains.",
+  "keyTakeaways": [
+    "Committee composition and positions (PRIV, BUDG, ENVI, PECH, JURI)",
+    "Historical voting alignments from comparable motions",
+    "Political group stated positions from debates"
+  ],
+  "topRisks": [
+    "🔴 CRITICAL: 15–25",
+    "🟠 HIGH: 10–14",
+    "🟡 MEDIUM: 5–9",
+    "🟢 LOW: 1–4"
+  ],
+  "keyDates": [
+    "Commission communication date (target: Q3 2026)",
+    "WTO 14th Ministerial Conference outcomes (Yaoundé, March 2026 — already occurred)"
+  ],
+  "keyActors": [
+    "**Primary actors:** Directly involved in or affected by April 28 decisions",
+    "**Secondary actors:** Indirectly affected; policy implementation stakeholders",
+    "**External actors:** Outside EU institutions but affecting/affected by decisions",
+    "Close relationship with Jarosław Kaczyński (PiS leader; ECR affiliation)",
+    "PKN Orlen board under Obajtek included multiple PiS-connected directors",
+    "Orlen also acquired Energa, Lotos, and PGNiG under Obajtek, creating Poland's largest corporate conglomerate",
+    "Polska Press editorial policy changed significantly post-acquisition, with political content aligned with PiS government",
+    "Key ally of Jarosław Kaczyński; PiS party's international spokesperson"
+  ],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

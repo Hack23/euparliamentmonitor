@@ -11,6 +11,18 @@ layout: article
 ---
 # Propositions — 2026-04-24
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- 2024: 676 procedures / 72 legislative acts adopted
+- 2025: 923 procedures / 78 legislative acts adopted (+36.5% procedures)
+- Detailed per-file evidence: `../data/collection-summary.json`
+- Upstream indexing lag: `mcp-reliability-audit.md §3 Defects #1, #3`
+- Coalition-arithmetic deep-dive: `scenario-forecast.md §2`, `pestle-analysis.md §P`
+- Risk decomposition: `../risk-scoring/risk-matrix.md`, `../risk-scoring/quantitative-swot.md`
+- Devil's-advocate pass: `wildcards-blackswans.md §Counter-scenarios`
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

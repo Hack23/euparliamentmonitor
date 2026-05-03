@@ -1,0 +1,26 @@
+{
+  "date": "2026-04-15",
+  "articleType": "propositions",
+  "runId": "56d5a875-0b05-4753-8aca-36b9af05c1e2",
+  "gateResult": "PENDING",
+  "slug": "2026-04-15-propositions",
+  "articlePath": "analysis/daily/2026-04-15/propositions-run43/article.md",
+  "topFinding": "",
+  "keyTakeaways": [],
+  "topRisks": [
+    "**Likelihood**: MEDIUM (0.55) — US-EU negotiations ongoing but positions hardening",
+    "**Impact**: CRITICAL (0.92) — €700B+ trade relationship, auto/agri sectors, consumer prices",
+    "**Velocity**: FAST — tariffs activate today (April 15), retaliation cycles measured in weeks",
+    "**Mitigation**: Parliament adopted TA-10-2026-0096 + Mercosur safeguard TA-10-2026-0030; Commission managing escalation ladder",
+    "**Confidence**: 🟢 HIGH",
+    "**Likelihood**: LOW (0.30) — Council has political commitment but technical objections from DE savings banks",
+    "**Impact**: HIGH (0.78) — Would undermine Banking Union completion, EDIS progress, financial stability architecture",
+    "**Velocity**: SLOW — 24-month transposition provides negotiation runway"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "risk-scoring/risk-matrix.md"
+  ]
+}

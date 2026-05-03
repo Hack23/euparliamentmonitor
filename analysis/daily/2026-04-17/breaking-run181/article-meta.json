@@ -1,0 +1,39 @@
+{
+  "date": "2026-04-17",
+  "articleType": "breaking",
+  "runId": "181",
+  "gateResult": "PENDING",
+  "slug": "2026-04-17-breaking-181",
+  "articlePath": "analysis/daily/2026-04-17/breaking-run181/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**Social innovation** (housing resolution — cross-party, citizen-responsive)",
+    "**Regulatory rollback** (Better Law-Making — EPP deregulatory agenda)",
+    "**Geopolitical positioning** (EU-Canada, WTO Yaoundé — multilateral rules champion)",
+    "**Democratic resilience** (Braun immunity — rule-of-law norms)",
+    "**Strategic autonomy** (enlargement strategy — geopolitical security buffer)"
+  ],
+  "topRisks": [
+    "KTM-Austria application (TA-10-2026-0037): Motorbike manufacturer. The EGF was designed for auto and steel. If motorcycle manufacturers are already filing, structural broadening of displacement is occurring earlier than modelled.",
+    "Tupperware-Belgium application (TA-10-2026-0038): Consumer goods. Not a traditionally \"heavy industry\" sector. Signals spillover to consumer/retail value chains.",
+    "Audi-Belgium application (TA-10-2026-0103): Classic EGF use case, but scale of co-workers affected signals that ICE displacement is early-stage wave 1 (not isolated incident).",
+    "Three applications in Q1 2026 alone vs. average of 5-8 per year 2015-2023 suggests an inflection point.",
+    "**Total risks assessed**: 10",
+    "**Critical (≥16)**: 1 (EGF underfunding)",
+    "**High (10-15)**: 2 (US tariffs, WTO failure)",
+    "**Medium (5-9)**: 5 (Defence, CSRD/REACH, Braun, Coalition, Rule-of-law)"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "EP8 (2014-2019): 3.2 effective parties (pre-Brexit, pre-ECR surge)",
+    "EP9 (2019-2024): 3.8 effective parties (ECR strengthening, Identity group growth)",
+    "EP10 (2024-present): 4.04 effective parties (post-2024 election fragmentation)"
+  ],
+  "macroContext": "",
+  "sources": [
+    "intelligence/coalition-dynamics.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "date": "2026-04-30",
+  "articleType": "breaking",
+  "runId": "breaking-run-1777532537",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-04-30-breaking",
+  "articlePath": "analysis/daily/2026-04-30/breaking/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "EPP: 185 seats (25.7%) — dominant centre-right",
+    "S&D: 135 seats (18.8%) — main left anchor",
+    "PfE: 85 seats (11.8%) — right populist",
+    "ECR: 81 seats (11.3%) — conservative nationalist",
+    "Renew: 77 seats (10.7%) — liberal centrist",
+    "Greens/EFA: 53 seats (7.4%) — green-progressive",
+    "The Left: 46 seats (6.4%) — radical left"
+  ],
+  "topRisks": [],
+  "keyDates": [
+    "Commission tables a proposal reflecting EP interim report priorities (Q3 2026)",
+    "Commission MFF proposal (Q3 2026) — does it cite EP interim report?",
+    "European Council summit (expected Dec 2026) fails to reach unanimity",
+    "No \"bridging package\" political deal emerges by Q4 2027"
+  ],
+  "keyActors": [
+    "S&D + Renew + Greens + The Left: ~311 seats — insufficient for majority",
+    "S&D + Renew + Greens + The Left + EPP moderate wing: ~370+ (if EPP moderates join) — marginal majority",
+    "EPP + S&D majority (no Greens/Left): ~320 — insufficient",
+    "No single bloc can carry the MFF vote — requires 5+ group coalition",
+    "EPP must maintain its centre-right identity while building bridges to S&D and Renew",
+    "PfE (85 seats) holds meaningful leverage as a swing factor if EPP-S&D-Renew coalition falls short on specific provisions"
+  ],
+  "macroContext": "The April 28–30 EP plenary session's fiscal decisions — particularly the 2027 Budget Guidelines and MFF 2028-2034 interim report debate — occur within a specific macroeconomic context that shapes their political feasibility and strategic implications.",
+  "sources": [
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

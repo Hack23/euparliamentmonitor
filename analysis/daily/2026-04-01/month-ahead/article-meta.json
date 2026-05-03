@@ -1,0 +1,28 @@
+{
+  "date": "2026-04-01",
+  "articleType": "month-ahead",
+  "runId": "7f928e7c-85fd-4f76-890b-f362622c3f42",
+  "gateResult": "PENDING",
+  "slug": "2026-04-01-month-ahead",
+  "articlePath": "analysis/daily/2026-04-01/month-ahead/article.md",
+  "topFinding": "",
+  "keyTakeaways": [],
+  "topRisks": [
+    "**Score**: 4.0/5",
+    "**Confidence**: medium",
+    "**Trend**: improving",
+    "**Evidence**:",
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "date": "2026-04-04",
+  "articleType": "week-in-review",
+  "runId": "e92a23d1-ea51-4917-b351-16f1f93fd4a3",
+  "gateResult": "PENDING",
+  "slug": "2026-04-04-week-in-review",
+  "articlePath": "analysis/daily/2026-04-04/week-in-review/article.md",
+  "topFinding": "",
+  "keyTakeaways": [],
+  "topRisks": [
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:",
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

@@ -11,6 +11,18 @@ layout: article
 ---
 # Breaking — 2026-04-16
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **DEGRADED MODE**: Activated due to server health check showing 0/13 operational feeds at cold start. Skipped `today` timeframe, went directly to `one-week` for all feeds. Skipped analytical tools (voting anomalies, political landscape, early warning system) to conserve timeout budget.
+- **Sequential thinking**: 4-step reasoning chain used for significance scoring, risk assessment, and SWOT analysis.
+- **Cross-reference with Run 176**: Prior run synthesis read and incorporated to avoid duplication and establish temporal trajectory.
+- **Monitor**: Any emergency session requests from Conference of Presidents
+- **Monitor**: US tariff announcements that could trigger Commission escalation response
+- **Monitor**: INTA coordinator informal communications
+- **Probability of breaking news**: 10% (inter-session continues, no scheduled events)
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

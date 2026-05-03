@@ -66,6 +66,18 @@ The European Parliament enters May 2026 with a single full Strasbourg plenary se
 
 *Generated: 2026-05-01 | Analysis dir: analysis/daily/2026-05-01/month-ahead/*
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- 4-6 major legislative dossiers voted
+- 2-3 geopolitical resolutions (Ukraine, neighbourhood)
+- Budget 2027 resolution establishing negotiating mandate
+- 1-2 international agreements (consent procedure)
+- Committee agendas published by ~May 7
+- Commission presenting DMA enforcement action plan
+- Council Presidency (Poland) engaging EP on budget
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
