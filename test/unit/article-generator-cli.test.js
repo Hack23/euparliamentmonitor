@@ -157,10 +157,13 @@ describe('generateArticle (end-to-end fixture)', () => {
 
   afterEach(() => {
     fs.rmSync(tmpOut, { recursive: true, force: true });
-    // Clean up the article.md written into the fixture run directory so the
-    // fixture remains pristine for subsequent test runs.
+    // Clean up the article.md and article-meta.json written into the
+    // fixture run directory so the fixture remains pristine for subsequent
+    // test runs.
     const runArticleMd = path.join(FIXTURE_RUN, 'article.md');
     if (fs.existsSync(runArticleMd)) fs.unlinkSync(runArticleMd);
+    const runArticleMeta = path.join(FIXTURE_RUN, 'article-meta.json');
+    if (fs.existsSync(runArticleMeta)) fs.unlinkSync(runArticleMeta);
   });
 
   it('writes article.md to the run directory (riksdagsmonitor pattern)', () => {

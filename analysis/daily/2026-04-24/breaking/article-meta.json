@@ -1,0 +1,42 @@
+{
+  "date": "2026-04-24",
+  "articleType": "breaking",
+  "runId": "breaking-run-1777011267",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-04-24-breaking",
+  "articlePath": "analysis/daily/2026-04-24/breaking/article.md",
+  "topFinding": "Within today's six-hour breaking-news probe window, no material EP10 breaking event surfaced from the operational feed set.",
+  "keyTakeaways": [
+    "`data/events-feed.json` — `status:\"unavailable\", reason:\"EP API returned an error-in-body response for get_events_feed — the upstream enrichment step may have failed.\"`",
+    "`data/procedures-feed-preview.json` — preview leads with `1972-0003` and `1980-0013` identifiers; a fresh-breaking feed would lead with `2026` identifiers.",
+    "Prior-run manifest `analysis/daily/2026-04-23/breaking-run-1776928781/manifest.json` — history entry labelled \"Day 12 outage\".",
+    "`data/adopted-texts-feed.json` — itemCount=18 with identifiers spanning `TA-9-2024` (EP9), `TA-10-2024` (early EP10), and `TA-10-2025-0302..0314` (mid-EP10).",
+    "No `TA-10-2026-*` identifier present.",
+    "MCP server returned payload larger than 32 MB forcing file-mode response (`agentInstructions` field present, `payloadPath` provided).",
+    "No `delta` field surfaced in the schema."
+  ],
+  "topRisks": [],
+  "keyDates": [
+    "**Triggers to confirm:** next run (2026-04-25) returns `events_feed: DEGRADED` and no fresh `adopted_texts` items.",
+    "**Triggers:** `get_adopted_texts_feed` next probe shows an item dated 2026-04-24.",
+    "**For breaking-news automation:** every next run through 2026-05-01 should treat feed-freshness as a first-class gate; if `events_feed` is DEGRADED for a third consecutive run, do not falsely label a low-signal day as newsworthy."
+  ],
+  "keyActors": [
+    "**Seats / share:** 188 / 26.1% of 720",
+    "**Political stance:** centre-right, pro-integration, fiscally conservative",
+    "**Primary coalition vector (EP10 default):** core centrist pair-block (EPP/S&D/Renew)",
+    "**Position vis-à-vis 2026-04-24 breaking window:** no fresh public-statement probe available (press-release scraping is out of MCP gateway scope).",
+    "**Key committees (likely leads):** ENVI, INTA, IMCO (rapporteur-heavy)",
+    "**Cohesion proxy:** historically high (>85% median)",
+    "**Breaking-window read:** defaults to centrist-coalition vote-with pattern",
+    "**Seats / share:** 136 / 18.9% of 720"
+  ],
+  "macroContext": "Economic context is a stable background field, not a driver of today's low-signal breaking classification.",
+  "sources": [
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md"
+  ]
+}
