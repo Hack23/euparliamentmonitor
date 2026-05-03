@@ -55,8 +55,8 @@ test.describe('Structured Data (JSON-LD)', () => {
         let parsed;
         try {
           parsed = JSON.parse(raw);
-        } catch {
-          expect.fail(`${code}: JSON-LD script tag ${i} contains invalid JSON`);
+        } catch (err) {
+          expect.fail(`${code}: JSON-LD script tag ${i} contains invalid JSON: ${err.message}`);
         }
 
         // JSON-LD may be a single object or an array

@@ -56,6 +56,7 @@ describe('aggregator-article-meta', () => {
     });
 
     it('truncates titles that exceed the limit', () => {
+      // 200 chars exceeds any reasonable title limit — verify truncation occurs
       const longTitle = 'A'.repeat(200);
       const result = truncateTitle(longTitle);
       expect(result.length).toBeLessThan(200);
@@ -69,6 +70,7 @@ describe('aggregator-article-meta', () => {
     });
 
     it('truncates long descriptions at word boundary', () => {
+      // 100 words far exceeds the ~160-char description limit
       const words = Array(100).fill('word').join(' ');
       const result = truncateDescription(words);
       expect(result.length).toBeLessThanOrEqual(320);
