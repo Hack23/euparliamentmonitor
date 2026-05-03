@@ -211,7 +211,7 @@ gh-aw v0.71.3 compiler emits `sessionTimeout` but the bundled gateway
 image `ghcr.io/github/gh-aw-mcpg:v0.3.1` rejects it with
 `additionalProperties 'sessionTimeout' not allowed`, run #25275823699
 fingerprint). Backend MCP sessions are kept warm by
-The MCP gateway uses its upstream default ping interval. The agent must
+The MCP gateway uses its upstream default keepalive. The agent must
 therefore land the single safe-outputs PR call within the 60-min
 `timeout-minutes` cap regardless. Unused budget is NOT redistributed —
 the agent exits cleanly after shipping the PR. Long-horizon or
@@ -271,7 +271,7 @@ invalid schema` line listing each invalid field.
 > is currently non-functional — the bundled gateway image v0.3.1
 > rejects the field (run #25275823699). The MCP gateway falls back to
 > its upstream default session lifetime, and
-> The MCP gateway default ping interval keeps backend sessions warm.
+> The MCP gateway default keepalive keeps backend sessions warm.
 > The 60-min `timeout-minutes` cap (vs the prior 45-min schedule) is
 > what gives Pass 2 a ≥ 10-min absolute window (vs the prior 4-min
 > floor) for genuine read-back-and-rewrite quality work — see run
@@ -298,7 +298,7 @@ that motivated the explicit ceilings):
    per-workflow PR-call deadline above (≤ minute 45 for standard slugs;
    ≤ minute 47 for electoral). The MCP gateway uses its upstream
    default session lifetime (`engine.mcp.session-timeout` is currently
-   non-functional, see preceding note); the gateway's default ping interval
+   non-functional, see preceding note); the gateway's default keepalive
    keeps backends warm. The PR-call deadline is governed by
    `timeout-minutes` and Stage E budget.
 
@@ -326,6 +326,38 @@ analysis before the aggregator writes `${ANALYSIS_DIR}/article.md` and `news/**`
 - Evidence citations in ≥ 80 % of paragraphs.
 - Confidence level (🟢/🟡/🔴) on every aggregate finding.
 - Cross-references between artifacts.
+
+### Pass 2 Explicit Checklist (what Pass 2 MUST do)
+
+Pass 2 is NOT optional — it is the phase where quality is achieved. The
+agent MUST execute every item below during Pass 2:
+
+1. **Re-read every artifact end-to-end** — do not skim. Read the full text
+   of every file written in Pass 1 to identify shallow, generic, or
+   placeholder content.
+2. **Fill all placeholder markers** — search for `[AI_ANALYSIS_REQUIRED]`,
+   `[TBD]`, `TODO:`, `PLACEHOLDER`, `INSERT`, and replace with substantive
+   political-intelligence content.
+3. **Cite evidence in every paragraph** — each analytical paragraph must
+   reference a specific data source (EP MCP feed result, IMF indicator,
+   committee vote outcome, MEP statement). Generic claims without evidence
+   are rewritten.
+4. **Deduplicate cross-artifact content** — if the same finding appears in
+   `pestle-analysis.md` and `synthesis-summary.md`, the synthesis must cite
+   the PESTLE file and add value (not repeat it).
+5. **Expand SWOT items** — every SWOT item must be ≥ 80 words with
+   specific actors, dates, and measurable impacts. One-liners are rewritten.
+6. **Expand stakeholder perspectives** — every stakeholder entry must be
+   ≥ 150 words with position rationale, coalition alignment, and
+   influence-pathway analysis. Shallow entries are rewritten.
+7. **Verify IMF data context** — economic/fiscal/monetary claims MUST cite
+   IMF as the sole authoritative source (not World Bank for economic
+   indicators). Cross-check that indicator codes and vintage dates are
+   present.
+8. **Lift forward-looking analysis** — scenario forecasts, forward
+   projections, and risk matrices must contain horizon-specific probability
+   bands (WEP decay), structural-break triggers, and at least one
+   quantified outcome per scenario branch.
 
 ### Pass-2 Readback Rules for Long-Horizon Scenarios (≥90-day horizons)
 
@@ -435,7 +467,7 @@ then ship the single combined PR (see
 - Keep every analysis artifact and manifest update on disk in real time; do not
   defer writes until stage end.
 - Do **not** use per-phase repo-memory checkpoint or heartbeat patterns.
-- Rely on the MCP gateway default ping behavior
+- Rely on the MCP gateway default keepalive behavior
   plus the single end-of-run PR snapshot in
   [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md).
 

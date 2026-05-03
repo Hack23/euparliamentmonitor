@@ -1,6 +1,6 @@
 {
   "name": "euparliamentmonitor",
-  "version": "0.8.54",
+  "version": "0.8.55",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
   "main": "scripts/index.js",
@@ -55,6 +55,8 @@
     "build:check-tests": "tsc --project tsconfig.test.json --noEmit",
     "copy-vendor": "node scripts/copy-vendor.js",
     "validate-analysis": "node scripts/validate-analysis-completeness.js",
+    "sync:templates": "node scripts/templates/sync-template-frontmatter.js",
+    "sync:templates:check": "node scripts/templates/sync-template-frontmatter.js --check",
     "prior-run-diff": "node scripts/aggregator/prior-run-diff.js",
     "generate-article": "node scripts/aggregator/article-generator.js",
     "generate-article:all": "node scripts/aggregator/article-generator.js --all",

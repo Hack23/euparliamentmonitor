@@ -16,7 +16,7 @@
   <a href="#"><img src="https://img.shields.io/badge/Review-Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:** 2026-04-20 (UTC) | **📦 Release:** v0.8.40  
+**📋 Document Owner:** CEO | **📄 Version:** 2.3 | **📅 Last Updated:** 2026-05-03 (UTC) | **📦 Release:** v0.8.54  
 **🔄 Review Cycle:** Annual (with quarterly delta scans) | **⏰ Next Review:** 2027-04-20
 **🏷️ Classification:** Public (Static Site European Parliament Intelligence Platform)
 
@@ -156,7 +156,7 @@ mindmap
       IMF SDMX 3.0 REST
         Native fetch client
         Monthly WEO+FM forecasts
-      gh-aw v0.69.0
+      gh-aw v0.71.3
         Pinned in compile workflow
       News Generation
         5-stage pipeline
@@ -180,7 +180,7 @@ mindmap
 | **🇪🇺 EP MCP Server**   | 1.2.13 (pinned, 2026-04-23) | Hack23-maintained; tracks EP Open Data API | Active development | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **🌍 World Bank MCP**   | 1.0.1 (optional dep)     | Biannual WDI refresh            | Active             | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
 | **💱 IMF SDMX 3.0 REST**| Native fetch client      | IMF-managed public API          | N/A (External API) | [![Low](https://img.shields.io/badge/Complexity-Low-lightgreen?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)   |
-| **🤖 gh-aw CLI**        | v0.69.0 (pinned `GH_AW_VERSION`) | Active development        | Active             | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
+| **🤖 gh-aw CLI**        | v0.71.3 (pinned `GH_AW_VERSION`) | Active development        | Active             | [![Medium](https://img.shields.io/badge/Complexity-Medium-yellow?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md) |
 | **☁️ AWS S3**           | Platform (Primary hosting)| Ongoing                         | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 | **🌐 AWS CloudFront**   | Platform (Primary CDN)    | Ongoing                         | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
 | **📦 GitHub Pages**     | Alternative platform (fallback) | Ongoing                    | N/A (Platform)     | [![None](https://img.shields.io/badge/Complexity-None-lightgrey?style=flat-square)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)  |
@@ -343,7 +343,7 @@ flowchart TB
 | **EP MCP Server** | EU Parliament data (pinned 1.2.13) | 🟡 Moderate | Monitor Hack23/european-parliament-mcp releases; 1.2.11 (2026-04-20) fixes #377/#378 (fixed-window feed options + uniform unavailable envelope); 1.2.13 (2026-04-23) adds non-retryable UPSTREAM_404 for get_procedures, fixes search_documents envelope, enriches track_legislation timeline, improves get_procedures_feed error classification |
 | **World Bank MCP** | Optional macro/WDI data (1.0.1) | 🟢 Low | Biannual WDI refresh cadence; optionalDependency |
 | **IMF SDMX 3.0 REST** | Native fetch client (WEO/FM forecasts) | 🟡 Moderate | No npm dep — depends on IMF API contract stability; monitored via integration tests |
-| **gh-aw CLI** | Agentic workflow compiler (pinned v0.69.0) | 🟡 Moderate | Review pin per workflow change; changes require re-compile of all .lock.yml |
+| **gh-aw CLI** | Agentic workflow compiler (pinned v0.71.3) | 🟡 Moderate | Review pin per workflow change; changes require re-compile of all .lock.yml |
 | **Prettier** | Code formatting (3.8.3) | 🟢 Low | Dependabot auto-updates |
 | **Husky** | Git hooks (9.1.7) | 🟢 Low | Dependabot auto-updates |
 | **jscpd** | Duplicate detection (4.0.9) | 🟢 Low | Dependabot auto-updates |
@@ -576,7 +576,7 @@ Each agentic workflow emits analysis artifacts (classification, threat-assessmen
 
 ### 🤖 gh-aw Agentic Workflow EOL
 
-Agentic workflows in `.github/workflows/news-*.md` are compiled to `.lock.yml` via `gh aw compile --validate` with pinned `GH_AW_VERSION: v0.69.0`. Workflow EOL triggers:
+Agentic workflows in `.github/workflows/news-*.md` are compiled to `.lock.yml` via `gh aw compile --validate` with pinned `GH_AW_VERSION: v0.71.3`. Workflow EOL triggers:
 
 | Trigger | Response |
 |---------|---------|
@@ -716,6 +716,12 @@ Should EOL conditions trigger migration, the successor platform will maintain **
 - [☕ Node.js EOL Dates](https://endoflife.date/nodejs) — Node.js runtime lifecycle tracking
 - [📝 TypeScript Releases](https://endoflife.date/typescript) — TypeScript lifecycle
 - [📦 endoflife.date](https://endoflife.date/) — General technology end-of-life tracking
+
+### 🔗 Related ISMS-PUBLIC Policies
+
+- [Asset Register](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Asset_Register.md)
+- [Change Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Change_Management.md)
+- [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
 
 ---
 

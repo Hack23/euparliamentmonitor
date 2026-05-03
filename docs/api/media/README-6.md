@@ -108,6 +108,8 @@ Templates are **not** standalone outputs. They form a **composable intelligence 
 
 > 🎨 **Mermaid is rendered same‑origin.** All diagrams ship via the vendored bundle `js/vendor/mermaid/mermaid.esm.min.mjs` (copied by `npm run copy-vendor`, deployed to S3/CloudFront as `text/javascript`). No external CDN — `script-src 'self'` is the contract. If your template uses a quadrant chart, use the **dedicated quadrant init block** ([`political-style-guide.md §Standard Mermaid init blocks`](../methodologies/political-style-guide.md)); for every other diagram type use the **universal init block**.
 
+> 🧩 **v3.4 sync (2026-05-03) — canonical front-matter + AI-instructions blocks.** Every template under `analysis/templates/` now carries two machine-readable HTML-comment blocks immediately after the SPDX headers: an `ANALYSIS-TEMPLATE-FRONTMATTER:v1` block (artifact ID, methodology link, catalog link, depth-floor for `breaking`, mandatory Mermaid type, partials directory) and an `AI-INSTRUCTIONS:v1` block (Pass-1/Pass-2 contract, evidence rules, no-placeholder rule, estimative-language contract). Run `npm run sync:templates` to regenerate after changing the methodology library (script: [`scripts/templates/sync-template-frontmatter.js`](../../scripts/templates/sync-template-frontmatter.js); CI mode: `npm run sync:templates:check`; drift-guard: [`test/unit/template-structure.test.js`](../../test/unit/template-structure.test.js)). Shared chunks live in [`_partials/`](_partials/README.md) — `ai-instructions.md`, `quality-checklist.md`, `citation-pattern.md`, `evidence-table.md`, `imf-callout.md`. Templates link to partials by relative path; there is no inlining build step.
+
 ---
 
 ## 🎨 Mermaid Authoring Standard

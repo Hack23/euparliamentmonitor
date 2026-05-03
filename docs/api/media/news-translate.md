@@ -217,7 +217,7 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 Mandatory ordering contract:
 
 1. **NEVER call `safeoutputs___create_pull_request` before at least one translated HTML file exists under `news/`**. An empty `summary.md` placeholder is NOT a translation and NOT enough. If the agent dies before producing any translations, no PR should be opened — that is the correct, resource-conserving outcome.
-2. **First productive flush (safeoutputs call #1)**: happens only after **≥3 non-English HTML files** in `news/` are fully translated and HTMLHint-clean. With the MCP keepalive this typically lands at minute 12–18. This is both the initial PR creation AND the first data checkpoint — one call, real value, no empty placeholder.
+2. **First productive flush (safeoutputs call #1)**: happens only after **≥3 non-English HTML files** in `news/` are fully translated and HTMLHint-clean. This typically lands at minute 12–18. This is both the initial PR creation AND the first data checkpoint — one call, real value, no empty placeholder.
 3. **Subsequent flushes (calls #2 … #N)**: after every additional **3 completed translations** — flush at counts 6, 9, 12 for a single-article run. Each call snapshots new files into the same PR (same branch → same PR) and refreshes the session timer.
 4. **Final flush (call ≤ max:10)**: at end of Step 5 with the quality-scored title/body. This call carries at most 1–2 files not yet flushed plus the finalised summary.
 
@@ -238,7 +238,7 @@ Mandatory ordering contract:
 
 > **Past failures — re-diagnosed**:
 > - Run #107: only called safeoutputs at the end → 13 lost. **Root cause**: single-call anti-pattern, solved by periodic flushes.
-> - Runs #126, #128, #131: called safeoutputs at min 2 with placeholder, then session expired → 13–21 lost + empty PRs left behind. **Root cause**: empty-baseline first-call wasted the call; keepalive + deferred-first-call prevents both.
+> - Runs #126, #128, #131: called safeoutputs at min 2 with placeholder, then session expired → 13–21 lost + empty PRs left behind. **Root cause**: empty-baseline first-call wasted the call; the deferred-first-call pattern prevents both.
 > - Run #188 (PR #1346): called safeoutputs 6× but `max:1` default rejected 5/6 → 13 lost + empty PR left behind. **Root cause**: two separate bugs — `max:1` default (fixed in previous commit, now `max:10`), and the "empty baseline" anti-pattern (fixed in this commit).
 
 > **📚 Reference**: [README.md](../prompts/README.md) for EP MCP tools and safe outputs.

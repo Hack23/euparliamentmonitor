@@ -16,7 +16,7 @@
   <a href="#"><img src="https://img.shields.io/badge/Review-Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:** 2026-04-20 (UTC) | **🏷️ Platform Release:** v0.8.40  
+**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:** 2026-05-03 (UTC) | **🏷️ Platform Release:** v0.8.54  
 **🔄 Review Cycle:** Annual | **⏰ Next Review:** 2027-04-20  
 **🏷️ Classification:** Public (Open Source European Parliament Intelligence Platform)
 
@@ -46,7 +46,7 @@
 
 ## 🎯 Financial Strategy Overview
 
-EU Parliament Monitor (v0.8.40) achieves **maximum democratic transparency value at near-zero infrastructure cost** through a fully open-source architecture deployed to **AWS S3 + CloudFront** (per [ADR-002](ARCHITECTURE.md)) with GitHub-hosted CI/CD, GitHub Copilot-metered AI inference (`gh aw`), and security tooling. The platform produces 1,894 HTML articles across 14 languages and 8 article types (breaking, week-ahead, week-in-review, month-ahead, month-in-review, committee-reports, motions, propositions) with roughly 3,061 automated tests on each PR. This Financial Security Plan demonstrates how strategic use of free-tier, low-cost platform services, and AI-metered workflow minutes keeps total operating cost below $30/yr while maintaining enterprise-grade security posture aligned with [Hack23 AB ISMS](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md).
+EU Parliament Monitor (v0.8.54) achieves **maximum democratic transparency value at near-zero infrastructure cost** through a fully open-source architecture deployed to **AWS S3 + CloudFront** (per [ADR-002](ARCHITECTURE.md)) with GitHub-hosted CI/CD, GitHub Copilot-metered AI inference (`gh aw`), and security tooling. The platform produces 1,894+ HTML articles across 14 languages and 14 article types (breaking, week-ahead, week-in-review, month-ahead, month-in-review, quarter-ahead, quarter-in-review, year-ahead, year-in-review, term-outlook, election-cycle, committee-reports, motions, propositions) with roughly 3,061 automated tests on each PR. This Financial Security Plan demonstrates how strategic use of free-tier, low-cost platform services, and AI-metered workflow minutes keeps total operating cost below $30/yr while maintaining enterprise-grade security posture aligned with [Hack23 AB ISMS](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md).
 
 ### 🏷️ Business Impact Classification
 
@@ -232,7 +232,7 @@ The platform enforces cost bounds at multiple layers to prevent runaway spend fr
 | **Max patch size (translate)** | `safe-outputs.create-pull-request.max-patch-size: 10240` (KB) in `news-translate.md` | ≤10 MB PR diff | 13-language fan-out requires larger envelope |
 | **AWF Squid firewall allowlist** | Egress proxy restricts outbound HTTP to known hosts | Closed-world network | Prevents data exfil + unbounded API spend |
 | **Docker sandbox** | Each agentic step runs in an isolated rootless container | No host escape | Contains supply-chain compromise blast radius |
-| **Compile-gate** | `.lock.yml` files compiled by `gh aw compile --validate` with pinned `GH_AW_VERSION: v0.69.0` | Reviewed lock file per workflow | Prevents frontmatter drift at runtime |
+| **Compile-gate** | `.lock.yml` files compiled by `gh aw compile --validate` with pinned `GH_AW_VERSION: v0.71.3` | Reviewed lock file per workflow | Prevents frontmatter drift at runtime |
 | **Concurrency limits** | Per-workflow `concurrency` groups in `.github/workflows/` | One active run per type | Blocks parallel duplicate spend |
 
 ### Infrastructure-Level Safeguards (AWS)
@@ -389,6 +389,12 @@ pie title Security Budget Allocation (All Free)
 - [🛡️ CRA Assessment](CRA-ASSESSMENT.md) — Cyber Resilience Act
 
 ---
+
+### 🔗 Related ISMS-PUBLIC Policies
+
+- [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
+- [Asset Register](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Asset_Register.md)
+- [Third Party Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Third_Party_Management.md)
 
 **📋 Document Control:**  
 **✅ Approved by:** James Pether Sörling, CEO  
