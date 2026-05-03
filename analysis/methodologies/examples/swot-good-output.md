@@ -87,6 +87,48 @@ ECR has signalled in `get_speeches` (2026-04-08) intent to table procedural amen
 | W3 × T1 — *Compressed window* + *Hungarian reservation* | Pre-clear the Hungarian reservation in COREPER on 2026-04-17 so the EP rapporteur's office can draft a Trilogue cover-letter same-day. | COREPER 2026-04-17 conclusions. | EP rapporteur, Council Presidency |
 | S3 × T3 — *Industry submissions* + *ECR procedural amendments* | Use industry-council submissions to publicly anchor the procedural risk of delay (jobs, trilogue uncertainty); pressure Patriots votes at the margin. | Joint statement on or before 2026-04-15. | EP rapporteur, EPP comms |
 
+## SWOT quadrant chart (Mermaid)
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+quadrantChart
+  title SWOT map — AI-Act Implementation Regulation (Procedure 2025/0142(COD))
+  x-axis Internal --> External
+  y-axis Negative --> Positive
+  quadrant-1 Opportunities
+  quadrant-2 Strengths
+  quadrant-3 Weaknesses
+  quadrant-4 Threats
+  S1 EPP-S&D concord (4): [0.10, 0.80]
+  S2 Council Trio alignment (3): [0.20, 0.70]
+  S3 Industry submissions (2): [0.30, 0.60]
+  W1 Greens block (4): [0.10, 0.20]
+  W2 Rapporteur trust deficit (3): [0.20, 0.30]
+  W3 Compressed window (3): [0.30, 0.30]
+  O1 Belgian Presidency leverage (4): [0.90, 0.80]
+  O2 Renew pivot if Greens withhold (3): [0.80, 0.70]
+  O3 Public trust window (2): [0.70, 0.60]
+  T1 Hungarian reservation (4): [0.90, 0.20]
+  T2 Recess gap risk (2): [0.70, 0.40]
+  T3 ECR procedural amendments (2): [0.80, 0.40]
+```
+
+## Cross-quadrant interference
+
+| Interaction | Direction | Net effect |
+|---|---|---|
+| S1 (EPP–S&D concord) reinforces O1 (Presidency leverage) | S amplifies O | The concord is the political proof-of-concept the Presidency needs to signal the file is ready; weakening S1 directly deflates O1's value and reduces the closing-session leverage to a procedural artefact without substance. |
+| W1 (Greens block) amplifies T1 (Hungarian reservation) | W amplifies T | If Greens withhold and the HU reservation holds simultaneously, the two vectors combine to a structural majority deficit; the combined cell (L=3 × I=5) is the scenario-B attractor and the Pre-Mortem scenario in `scenario-forecast.md`. |
+| W3 (compressed window) amplifies T3 (ECR procedural amendments) | W amplifies T | ECR's procedural leverage increases proportionally to the tightness of the amendment window; more procedural risk is crowded into fewer working days, which reduces the rapporteur's room to manoeuvre. |
+
+## Scenario bridge
+
+| SWOT configuration | Points to | Rationale |
+|---|---|---|
+| S1 + S2 + S3 all hold, W1 resolves by 2026-04-19 | Scenario A — First-reading adoption (`scenario-forecast.md §Scenario A`) | Base case: concord + Council alignment + industry cover → 361+ votes. |
+| W1 escalates, T1 unresolved, O2 = Renew abstains | Scenario B — Adoption fails (`scenario-forecast.md §Scenario B`) | W1 × T1 interference materialises; Renew pivot removes the backfill and the simple-majority falls short. |
+| W3 + T3 fire simultaneously, W1 and T1 remain ambiguous | Scenario C — Procedural delay (`scenario-forecast.md §Scenario C`) | ECR amendments combined with compressed window force a Bureau referral; core arithmetic ambiguous but not yet decisive. |
+
 ## Quality signals checklist (Pass-2 verification)
 
 - [x] Each quadrant has ≥3 items, each ≥80 words, each with a numeric score and a confidence label.
@@ -95,7 +137,10 @@ ECR has signalled in `get_speeches` (2026-04-08) intent to table procedural amen
 - [x] Probabilities, where used, are bracketed against a Words-of-Estimative-Probability band; numerical ranges (e.g. 78 → 41 votes) carry a `*illustrative*` marker.
 - [x] TOWS pairs are paired strategies with a trigger date and a named owner — not aspirational paragraphs.
 - [x] No soft phrases ("rich", "comprehensive", "strong"); every claim is anchored.
-- [x] Length: this excerpt is ~108 lines; a full production artifact must reach ≥140 lines (the `breaking` threshold in `reference-quality-thresholds.json`). The excerpt demonstrates shape and evidence density; production runs extend with additional items or deeper TOWS narratives.
+- [x] Mandatory Mermaid `quadrantChart` with Internal/External × Negative/Positive axes, all 12 items plotted.
+- [x] Cross-quadrant interference: identifies S↔O reinforcement and W↔T amplification with net-effect reasoning.
+- [x] Scenario bridge: each SWOT configuration maps to a named scenario in `scenario-forecast.md`.
+- [x] Length: this excerpt is ~148 lines; production artifacts must reach ≥140 lines (the `breaking` threshold in `reference-quality-thresholds.json`). This excerpt satisfies the threshold; production runs extend with additional items or deeper TOWS narratives.
 
 ## Why this is a "good" output
 

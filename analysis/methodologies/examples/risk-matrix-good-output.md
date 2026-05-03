@@ -31,6 +31,7 @@ Bands map to [`osint-tradecraft-standards.md`](../osint-tradecraft-standards.md)
 
 - **Likelihood:** 4 / Likely *(Council document 9123/26 dated 2026-03-15; no withdrawal communicated as of 2026-04-09; COREPER 2026-04-17 may resolve)*
 - **Impact:** 4 / Adoption likely fails *(reservation provides ECR a procedural rationale to oppose; pulls 41 votes into deficit)*
+- **Score (L×I):** 16 — Category: Institutional
 - **Trigger event(s):**
   - 2026-04-17 COREPER outcome — explicit withdrawal lowers Likelihood to 2.
   - 2026-04-19 ITRE shadow meeting — silence on Article 12.4 keeps Likelihood at 4.
@@ -47,6 +48,7 @@ Bands map to [`osint-tradecraft-standards.md`](../osint-tradecraft-standards.md)
 
 - **Likelihood:** 3 / Roughly even *(group whip not yet declared; Reintke speech 2026-03-12 signals dissatisfaction)*
 - **Impact:** 4 / Adoption likely fails *(53 *illustrative* seats withheld → 27-vote deficit even with Renew backfill)*
+- **Score (L×I):** 12 — Category: Coalition
 - **Trigger event(s):**
   - 2026-04-19 Greens group meeting — public whip line announcement.
   - 2026-04-21 ITRE shadow concord — three-of-seven Greens amendments adopted lowers Likelihood to 1.
@@ -63,6 +65,7 @@ Bands map to [`osint-tradecraft-standards.md`](../osint-tradecraft-standards.md)
 
 - **Likelihood:** 2 / Unlikely *(Procaccini speech 2026-04-08 signals intent but no amendment text filed)*
 - **Impact:** 3 / Adoption at risk *(slippage into May plenary delays trilogue start, raising trilogue-failure probability)*
+- **Score (L×I):** 6 — Category: Coalition
 - **Trigger event(s):**
   - 2026-04-15 amendment deadline — filing of procedural amendments.
   - Plenary President's order-of-voting decision 2026-04-22.
@@ -79,6 +82,7 @@ Bands map to [`osint-tradecraft-standards.md`](../osint-tradecraft-standards.md)
 
 - **Likelihood:** 2 / Unlikely *(11 of 14 papers favour adoption as of 2026-04-01)*
 - **Impact:** 2 / Minor delay *(loss of public-cover air support; not vote-arithmetic decisive)*
+- **Score (L×I):** 4 — Category: External
 - **Trigger event(s):**
   - 2026-04-12 industry-coalition steering meeting — fragmentation watchpoint.
   - Public press release from any of the 14 associations 2026-04-15 to 2026-04-22.
@@ -95,6 +99,7 @@ Bands map to [`osint-tradecraft-standards.md`](../osint-tradecraft-standards.md)
 
 - **Likelihood:** 2 / Unlikely *(Hayer's group has not publicly conditioned the vote)*
 - **Impact:** 5 / Adoption fails + downstream harm *(102 *illustrative* seats abstaining is a structural majority break)*
+- **Score (L×I):** 10 — Category: Coalition
 - **Trigger event(s):**
   - 2026-04-19 Renew group meeting — whip-line announcement.
   - 2026-04-22 plenary opening intervention by Hayer.
@@ -136,14 +141,31 @@ quadrantChart
 | R4 | Twice weekly | EPP comms |
 | R5 | Daily after 2026-04-19 group meeting | EP rapporteur office |
 
+## Trend vs. prior run
+
+*No prior structured risk-matrix run exists for Procedure 2025/0142(COD) at the analysis cut (2026-04-09).* All five scores are initial baseline entries. A delta comparison will be available at the next run (recommended: within 48 hours of each trigger-event date; at minimum, after the COREPER 2026-04-17 outcome and the 2026-04-19 group meetings).
+
+## Accept / Prepare / Monitor decisions
+
+| Risk | Score | Decision | Rationale |
+|---|---|---|---|
+| R1 HU reservation | 16 | **Monitor (daily)** | Critical zone (L=4 × I=4); COREPER 2026-04-17 is the de-escalation gate; any hardening flips scenario weights immediately. |
+| R2 Greens block | 12 | **Monitor (daily)** | Elevated zone; Greens whip-line not yet public — any movement re-weights the entire scenario set toward Scenario B. |
+| R3 ECR delay | 6 | **Prepare** | Watch zone (L=2 × I=3); a single deadline event (2026-04-15 amendment register) resolves the uncertainty in one check. |
+| R4 Industry split | 4 | **Accept** | Low zone; not vote-arithmetic decisive; monitoring fortnightly via `get_committee_documents` is sufficient. |
+| R5 Renew pivot | 10 | **Monitor (daily after 2026-04-19)** | Elevated zone; high-impact tail risk even at current low Likelihood; Hayer's 2026-04-19 group meeting is the single key re-scoring event. |
+
 ## Quality signals checklist (Pass-2)
 
 - [x] ≥5 risks, each named (no "general procedural risk").
 - [x] Likelihood and Impact are integers 1–5, each with a written justification.
+- [x] Each risk has a Score (L×I) and a category (Coalition / Policy / Institutional / External / Data).
 - [x] Each risk has ≥2 dated trigger events and ≥3 dated indicators.
 - [x] Each risk has a named mitigation owner and a residual-risk re-score.
 - [x] Confidence labels (High/Moderate/Low) on every risk.
 - [x] Mermaid `quadrantChart` shows all risks with explicit coordinates.
+- [x] Trend vs. prior run — explicit baseline note; delta available after first re-score run.
+- [x] Accept / Prepare / Monitor decision per risk with rationale.
 - [x] Length: ≥150 lines (matches `breaking` threshold of 150).
 
 ## Why this is a "good" output

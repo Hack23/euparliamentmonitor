@@ -36,9 +36,9 @@
 
   The Belgian Trio Presidency uses the closing weeks (2026-04-23 to 2026-06-30) to open trilogue under the same Council mandate that built the EP draft, materially raising 2026-Q3 trilogue-completion probability.
 - **Early-warning indicators (≥3, dated).**
-  1. **2026-04-15** — EP amendment register: ≤12 contested amendments going into plenary.
-  2. **2026-04-17** — COREPER outcome: explicit withdrawal or narrowing of Hungarian reservation on Article 12.4.
-  3. **2026-04-19** — Renew group meeting: positive whip line announced publicly within 24 hours.
+  1. **2026-04-15** — EP amendment register: ≤12 contested amendments going into plenary. (EP MCP `get_plenary_session_documents`; Admiralty A-1)
+  2. **2026-04-17** — COREPER outcome: explicit withdrawal or narrowing of Hungarian reservation on Article 12.4. (Council press release via `get_external_documents`; Admiralty B-2)
+  3. **2026-04-19** — Renew group meeting: positive whip line announced publicly within 24 hours. (EP group press service via `get_speeches`; Admiralty B-2)
 - **Trigger events (≥2, date-bounded).**
   - **2026-04-21** ITRE shadow concord meeting — three-of-seven Greens amendments adopted.
   - **2026-04-22** plenary debate — Reintke and Hayer interventions consistent with positive whip lines.
@@ -51,9 +51,9 @@
 - **Confidence in scoring:** Moderate.
 - **Narrative (≥150 words).** The principal off-ramp: Greens shadow Reintke escalates dissatisfaction on Article 12.4 between 2026-04-12 and 2026-04-19 because the S&D shadow's concession is judged inadequate, prompting the Greens group to whip for "vote against" on Article 12.4 with a free vote on the rest. Patriots and ECR exploit the opening to whip for "vote against" on the file as a whole, citing the Hungarian Council reservation as a procedural rationale. Renew, finding itself the swing group, pivots to abstention rather than back-fill the deficit, citing whip-line conflict. The vote on 2026-04-23 fails to reach 361 in favour by `~22 votes *illustrative*` and the file is referred back to ITRE for re-drafting, slipping the Council mandate window past the Belgian Presidency end-date of 2026-06-30.
 - **Early-warning indicators (≥3, dated).**
-  1. **2026-04-15** — EP amendment register: ≥7 Greens amendments to Article 12.4 not absorbed by S&D shadow.
-  2. **2026-04-17** — COREPER outcome: Hungarian reservation unchanged or hardened.
-  3. **2026-04-19** — Greens group meeting: whip-against on Article 12.4 announced publicly.
+  1. **2026-04-15** — EP amendment register: ≥7 Greens amendments to Article 12.4 not absorbed by S&D shadow. (EP MCP `get_plenary_session_documents`; Admiralty A-1)
+  2. **2026-04-17** — COREPER outcome: Hungarian reservation unchanged or hardened. (Council press release via `get_external_documents`; Admiralty B-2)
+  3. **2026-04-19** — Greens group meeting: whip-against on Article 12.4 announced publicly. (Greens group press service via `get_speeches`; Admiralty B-2)
 - **Trigger events (≥2, date-bounded).**
   - **2026-04-21** ITRE shadow concord meeting — Greens shadow walks out or refuses joint communiqué.
   - **2026-04-22** plenary debate — Hayer signals abstention or conditions vote on a re-opening of Articles 4–7.
@@ -66,9 +66,9 @@
 - **Confidence in scoring:** Low (intent signalled, but no concrete amendment text filed at the analysis cut).
 - **Narrative (≥150 words).** The tail-risk path: ECR files procedural amendments at the 2026-04-15 deadline that, even if defeated, force the plenary President into a 2026-04-22 ruling on order-of-voting. The Hungarian reservation has not cleared in COREPER on 2026-04-17 and Greens are noisy but not yet whipping against. The Bureau, weighing the procedural complexity and the Easter-recess overhang, agrees to refer the file back to committee for one further round and reschedules the vote to the 2026-05-19 plenary. Net effect: trilogue start slips by four weeks, but the file is not killed.
 - **Early-warning indicators (≥3, dated).**
-  1. **2026-04-15** — EP amendment register: ≥3 ECR procedural amendments filed.
-  2. **2026-04-21** EP Bureau scheduling note — language about "order of voting under review".
-  3. **2026-04-22** plenary opening — President signals possible referral.
+  1. **2026-04-15** — EP amendment register: ≥3 ECR procedural amendments filed. (EP MCP `get_plenary_session_documents`; Admiralty A-1)
+  2. **2026-04-21** EP Bureau scheduling note — language about "order of voting under review". (EP Bureau minutes via `get_plenary_session_documents`; Admiralty A-2)
+  3. **2026-04-22** plenary opening — President signals possible referral. (EP MCP `get_speeches` plenary debate; Admiralty A-2)
 - **Trigger events (≥2, date-bounded).**
   - **2026-04-21** Bureau decision — referral to committee or postponement to May.
   - **2026-04-23** plenary order-paper — file removed from voting list.
@@ -97,20 +97,27 @@ flowchart TD
   A --> A1["EWI: ≤12 contested amendments by 2026-04-15"]:::ind
   A --> A2["EWI: HU reservation cleared at COREPER 2026-04-17"]:::ind
   A --> A3["EWI: Renew positive whip 2026-04-19"]:::ind
+  A --> A_T1["Trigger: ITRE shadow concord 2026-04-21"]:::trig
+  A --> A_T2["Trigger: Reintke+Hayer positive debate 2026-04-22"]:::trig
 
   B --> B1["EWI: ≥7 Greens amendments unabsorbed 2026-04-15"]:::ind
   B --> B2["EWI: HU reservation hardens 2026-04-17"]:::ind
   B --> B3["EWI: Greens whip-against 2026-04-19"]:::ind
+  B --> B_T1["Trigger: Greens walks out of ITRE 2026-04-21"]:::trig
+  B --> B_T2["Trigger: Hayer signals abstention 2026-04-22"]:::trig
 
   C --> C1["EWI: ≥3 ECR procedural amendments 2026-04-15"]:::ind
   C --> C2["EWI: Bureau scheduling review 2026-04-21"]:::ind
   C --> C3["EWI: file removed from order paper 2026-04-22"]:::ind
+  C --> C_T1["Trigger: Bureau postponement decision 2026-04-21"]:::trig
+  C --> C_T2["Trigger: File removed from order paper 2026-04-23"]:::trig
 
   classDef base fill:#1565C0,stroke:#0D47A1,color:#fff;
   classDef win fill:#2E7D32,stroke:#1B5E20,color:#fff;
   classDef loss fill:#D32F2F,stroke:#7F0000,color:#fff;
   classDef watch fill:#FF9800,stroke:#7F4F00,color:#000;
   classDef ind fill:#FFC107,stroke:#7F6000,color:#000;
+  classDef trig fill:#7B1FA2,stroke:#4A0072,color:#fff;
 ```
 
 ## Monitoring plan
@@ -130,11 +137,12 @@ flowchart TD
 - [x] Each scenario has a confidence label (High / Moderate / Low) separately from the WEP band.
 - [x] Each scenario narrative ≥150 words and names ≥1 procedure ID, MEP, and date.
 - [x] Each scenario has ≥3 dated early-warning indicators and ≥2 dated trigger events.
+- [x] Every EWI indicator cites its source with an Admiralty grade (e.g. A-1, B-2).
 - [x] Cross-scenario sensitivity names a single flippable variable with explicit re-weighted probabilities.
-- [x] Mermaid `flowchart TD` branches from baseline through scenarios to indicators.
+- [x] Mermaid `flowchart TD` branches from baseline through scenarios into both early-warning indicators and trigger events (purple nodes).
 - [x] Monitoring plan has a calendar and an owner per check.
 - [x] Pre-Mortem applied as a primary SAT in at least one scenario.
-- [x] Length: this excerpt is ~146 lines; a full production artifact must reach ≥280 lines (the `breaking` threshold in `reference-quality-thresholds.json`). Production runs extend with additional scenarios, deeper narratives, and expanded monitoring cadences.
+- [x] Length: this excerpt is ~160 lines; a full production artifact must reach ≥280 lines (the `breaking` threshold in `reference-quality-thresholds.json`). Production runs extend with additional scenarios, deeper narratives, and expanded monitoring cadences.
 
 ## Why this is a "good" output
 
