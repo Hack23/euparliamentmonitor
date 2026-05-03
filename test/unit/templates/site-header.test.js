@@ -83,4 +83,19 @@ describe('buildSiteHeader', () => {
     expect(html).not.toContain('data:');
     expect(html).toContain('political-intelligence.html');
   });
+
+  it('should reject protocol-relative URL (//evil.example) and fall back to default', async () => {
+    const html = await renderHeader('en', {
+      politicalIntelligenceHref: '//evil.example/phish',
+    });
+    expect(html).not.toContain('//evil.example');
+    expect(html).toContain('political-intelligence.html');
+  });
+
+  it('should allow a safe single-slash relative path', async () => {
+    const html = await renderHeader('en', {
+      politicalIntelligenceHref: '/pages/political-intelligence.html',
+    });
+    expect(html).toContain('href="/pages/political-intelligence.html"');
+  });
 });

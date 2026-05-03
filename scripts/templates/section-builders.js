@@ -281,15 +281,15 @@ export function buildSiteHeader(options) {
     const rawPiHref = typeof options.politicalIntelligenceHref === 'string'
         ? options.politicalIntelligenceHref
         : defaultPiHref;
-    // Only allow relative URLs or https: scheme to prevent javascript:/data: injection.
-    const piHref = rawPiHref.length === 0 ||
-        rawPiHref.startsWith('/') ||
+    // Only allow same-origin relative URLs or https: scheme to prevent javascript:/data: injection.
+    // Reject protocol-relative URLs (//...) and backslash variants (\\...) that browsers may resolve externally.
+    const isSafeHref = rawPiHref.length === 0 ||
+        (rawPiHref.startsWith('/') && !rawPiHref.startsWith('//') && !rawPiHref.startsWith('/\\')) ||
         rawPiHref.startsWith('./') ||
         rawPiHref.startsWith('../') ||
         rawPiHref.startsWith('https://') ||
-        !rawPiHref.includes(':')
-        ? rawPiHref
-        : defaultPiHref;
+        (!rawPiHref.includes(':') && !rawPiHref.startsWith('//') && !rawPiHref.startsWith('\\\\'));
+    const piHref = isSafeHref ? rawPiHref : defaultPiHref;
     const cta = (extraClass, href, iconName, label) => `<a class="site-header__cta${extraClass ? ` ${extraClass}` : ''}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${label}" title="${label}">${icon(iconName)}<span class="site-header__cta-label">${label}</span></a>`;
     // Internal CTA — same visual style but no target="_blank" since this is a same-site nav entry.
     const piCta = piHref.length > 0
