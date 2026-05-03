@@ -74,6 +74,13 @@ const REMOVED_PATH_PATTERNS = [
   /src\/aggregator\/legacy-/,
 ];
 
+// Documents that legitimately enumerate retired workflow filenames for
+// audit / index purposes — exempt from the "removed reference" rule.
+const REMOVED_REFERENCE_EXEMPTIONS = new Set([
+  'docs/isms-doc-delta-2026-05.md',
+  'docs/isms-doc-index.md',
+]);
+
 function readFileOrFail(relPath) {
   const abs = path.resolve(ROOT, relPath);
   if (!fs.existsSync(abs)) {
@@ -113,10 +120,7 @@ function lintIsmsPublicReference(doc, content) {
 
 function lintRemovedReferences(doc, content) {
   const violations = [];
-  // Strip self-references — the lint script's own description and the
-  // delta audit / index legitimately enumerate retired workflow filenames
-  // for documentation purposes.
-  if (doc === 'docs/isms-doc-delta-2026-05.md' || doc === 'docs/isms-doc-index.md') {
+  if (REMOVED_REFERENCE_EXEMPTIONS.has(doc)) {
     return [];
   }
   for (const re of REMOVED_WORKFLOW_PATTERNS) {
