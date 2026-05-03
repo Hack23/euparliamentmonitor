@@ -147,6 +147,55 @@ test.describe('Article SEO Metadata', () => {
     expect(() => JSON.parse(scriptContent)).not.toThrow();
   });
 
+  test('should have JSON-LD with NewsArticle and BreadcrumbList types', async ({ page }) => {
+    await page.goto(ARTICLE_PATH);
+
+    const jsonLd = page.locator('script[type="application/ld+json"]');
+    const scriptContent = await jsonLd.first().textContent();
+    const data = JSON.parse(scriptContent);
+
+    // Structured data is an array with NewsArticle and BreadcrumbList
+    expect(Array.isArray(data)).toBe(true);
+    const types = data.map((d) => d['@type']);
+    expect(types).toContain('NewsArticle');
+    expect(types).toContain('BreadcrumbList');
+  });
+
+  test('should have NewsArticle with required fields', async ({ page }) => {
+    await page.goto(ARTICLE_PATH);
+
+    const jsonLd = page.locator('script[type="application/ld+json"]');
+    const scriptContent = await jsonLd.first().textContent();
+    const data = JSON.parse(scriptContent);
+    const article = data.find((d) => d['@type'] === 'NewsArticle');
+
+    expect(article.headline).toBeTruthy();
+    expect(article.datePublished).toBeTruthy();
+    expect(article.dateModified).toBeTruthy();
+    expect(article.inLanguage).toBeTruthy();
+    expect(article.image).toBeTruthy();
+    expect(article.author).toBeTruthy();
+    expect(article.author['@type']).toBe('Organization');
+    expect(article.publisher).toBeTruthy();
+    expect(article.publisher.logo).toBeTruthy();
+    expect(article.publisher.logo['@type']).toBe('ImageObject');
+  });
+
+  test('should have BreadcrumbList with 3 items', async ({ page }) => {
+    await page.goto(ARTICLE_PATH);
+
+    const jsonLd = page.locator('script[type="application/ld+json"]');
+    const scriptContent = await jsonLd.first().textContent();
+    const data = JSON.parse(scriptContent);
+    const breadcrumb = data.find((d) => d['@type'] === 'BreadcrumbList');
+
+    expect(breadcrumb).toBeTruthy();
+    expect(breadcrumb.itemListElement).toHaveLength(3);
+    expect(breadcrumb.itemListElement[0].position).toBe(1);
+    expect(breadcrumb.itemListElement[1].position).toBe(2);
+    expect(breadcrumb.itemListElement[2].position).toBe(3);
+  });
+
   test('should have page title with site name', async ({ page }) => {
     await page.goto(ARTICLE_PATH);
 
