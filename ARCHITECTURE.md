@@ -549,42 +549,54 @@ C4Component
 ```mermaid
 sequenceDiagram
     autonumber
-    participant CLI as CLI Interface
-    participant Gen as Article Generator
-    participant MCP as MCP Client
-    participant EPMCP as EP MCP Server
-    participant Tmpl as HTML Template
-    participant Meta as Metadata Manager
-    participant FS as File System Writer
-    
-    CLI->>Gen: generate(type, languages)
-    Gen->>MCP: fetchEPData(type)
-    MCP->>EPMCP: query(endpoint, params)
-    EPMCP-->>MCP: return EP data
-    MCP-->>Gen: return parsed EP data
-    
-    loop For each language (sequential)
-        Gen->>Tmpl: renderHTML(epData, lang)
-        Note over Gen,Tmpl: Current: placeholder English content<br/>Future (ADR-004): native LLM generation per language
-        Tmpl-->>Gen: return HTML
-        Gen->>FS: writeFile(path, html)
-        Gen->>Meta: recordGeneration(article, lang)
+    participant CLI as article-generator CLI
+    participant AGG as analysis-aggregator
+    participant AO as artifact-order
+    participant CA as clean-artifact
+    participant MR as markdown-renderer
+    participant AH as article-html
+    participant AM as article-metadata
+    participant FS as File System
+
+    CLI->>AGG: aggregateAnalysisRun(runDir)
+    AGG->>AGG: read manifest.json → resolveArticleType()
+    AGG->>AO: get ARTIFACT_SECTIONS (19 canonical sections)
+    loop For each section in ARTIFACT_SECTIONS
+        AGG->>CA: cleanArtifact(rawMd) — strip SPDX/banners
+        CA-->>AGG: cleaned Markdown
     end
-    
-    Meta->>FS: writeMetadata(json)
-    Gen-->>CLI: generation complete
+    AGG-->>CLI: AggregatedRun { markdown, sectionToc, includedArtifacts }
+
+    CLI->>AM: resolveArticleMetadata(manifest) — 5-tier resolver
+    AM-->>CLI: ResolvedMetadata { title, description }
+
+    CLI->>MR: renderMarkdown(aggregatedMarkdown)
+    MR-->>CLI: RenderedMarkdown { html, toc, mermaidCount }
+
+    loop For each language (14 languages)
+        CLI->>AH: wrapArticleHtml(body, lang, toc, metadata)
+        AH-->>CLI: complete HTML5 document
+        CLI->>FS: writeFileSync(news/<slug>-<lang>.html)
+    end
+
+    CLI->>FS: writeFileSync(news/<slug>.en.md)
+    CLI->>FS: writeFileSync(analysis/daily/<date>/<type>/article.md)
+    CLI->>FS: writeFileSync(analysis/daily/<date>/<type>/article-meta.json)
+    CLI-->>CLI: GenerateResult
 ```
 
 ### Component Collaboration Patterns
 
-| Pattern | Components Involved | Purpose | Error Handling |
+| Pattern | Components Involved | Purpose | Implementation |
 |---------|---------------------|---------|----------------|
-| **Cache-Aside (Planned)** | MCP Client → LRU Cache → EP MCP Server | Reduce API calls, improve performance | Planned: cache miss triggers fresh fetch; current: direct calls to EP MCP Server |
-| **MCP Connection Retry with Backoff (Current)** | MCP Client → EP MCP Server | Handle transient MCP connection failures | Connection attempts retried with backoff; individual MCP requests use a fixed timeout and are not retried |
-| **Validation Pipeline (Planned)** | Content Validator → Article Generator | Ensure content quality | Planned: failed validation triggers regeneration (max 2 attempts); current: single-pass generation without regeneration loop |
-| **Sequential Multi-Language** | Article Generator → HTML Template (per language) | Content generation per language | Current: failure in one language aborts remaining languages; Planned: per-language failures logged while other languages still generate; parallel generation planned (ADR-004) |
-| **Template Method** | Article Generator → HTML Template → File System Writer | Consistent HTML generation | Template errors logged and propagated to prevent partial writes |
-| **Metadata Aggregation** | Metadata Manager → File System Writer | Track generation history | Current: metadata written synchronously via writeFileSync; failures throw and fail the run. Planned: non-blocking, best-effort writes |
+| **Manifest-Driven Aggregation** | article-generator.ts → manifest/reader.ts → analysis-aggregator.ts | Discover and aggregate analysis artifacts in canonical order | Reads `manifest.json` from run dir; resolves `articleType` (3-variant schema); filters to `.md` artifacts; emits Provenance block |
+| **19-Section Canonical Order** | artifact-order.ts → analysis-aggregator.ts | Deterministic article structure matching intelligence-product layout | `ARTIFACT_SECTIONS` defines section IDs, titles, and artifact paths; unmatched artifacts go to "Supplementary Intelligence" bucket |
+| **5-Tier Metadata Resolution** | article-metadata.ts | Resolve `<title>` and `<meta description>` from multiple sources | manifest override → first-artifact H1 → aggregated H1 → first strong prose line → localized template fallback |
+| **Key Takeaways Extraction** | key-takeaways.ts → analysis-aggregator.ts | Auto-extract 3–7 bullet key takeaways | Harvests from `intelligence/synthesis-summary.md` + `intelligence/intelligence-assessment.md`; inserted after Executive Brief |
+| **MCP Connection Retry with Backoff** | mcp-retry.ts → mcp-connection.ts → ep-mcp-client.ts | Handle transient MCP connection failures | `callToolWithRetry()` with exponential backoff; `safeCallTool()` catches errors and returns typed fallback payloads |
+| **Three-State Voting Fallback** | ep-mcp-client.ts → ep-open-data-client.ts | Ensure voting data availability | (a) MCP has data → use it · (b) MCP empty → query EP Open Data `/api/v2/decision` · (c) both empty → unavailability marker |
+| **Reader Intelligence Guide** | reader-intelligence-guide.ts → article-generator.ts | Prepend methodology transparency panel | Collapsible HTML panel prepended to article body; provides tradecraft context to readers |
+| **Run Discovery & Collision Grouping** | runs/discover.ts → runs/grouping.ts → article-generator.ts | Batch mode (`--all`) discovers all valid runs | Walks `analysis/daily/**\/manifest.json`; groups by date+type for collision detection; renders each independently |
 
 ---
 
@@ -796,50 +808,75 @@ src/                                   → scripts/                          (ts
 │   ├── language-ui.ts                 Per-language UI strings
 │   └── languages.ts                   Language metadata (name, flag, direction)
 ├── mcp/                               → mcp/
-│   ├── ep-mcp-client.ts               EP MCP stdio client; feed option types (no canonical EP_MCP_TOOLS export yet)
-│   ├── wb-mcp-client.ts               World Bank MCP client; exports WORLD_BANK_MCP_TOOLS
-│   ├── imf-mcp-client.ts              IMFMCPClient class (native fetch/SDMX 3.0); exports IMF_MCP_TOOLS
-│   ├── mcp-connection.ts              Connection lifecycle
-│   ├── mcp-health.ts                  Health probes
-│   └── mcp-retry.ts                   Exponential backoff retry
+│   ├── ep-mcp-client.ts               EP MCP stdio client (60+ tools); exports EP_MCP_TOOLS; safeCallTool + callToolWithRetry
+│   ├── ep-open-data-client.ts         EP Open Data Portal fallback (getVotingRecordsWithFallback three-state)
+│   ├── wb-mcp-client.ts               World Bank MCP client; exports WORLD_BANK_MCP_TOOLS (7 tools)
+│   ├── imf-mcp-client.ts              IMFMCPClient class (native fetch to SDMX 3.0); exports IMF_MCP_TOOLS (5 tools)
+│   ├── mcp-connection.ts              Base JSON-RPC 2.0 transport (stdio + HTTP gateway modes)
+│   ├── mcp-health.ts                  Health probes for MCP backends
+│   ├── mcp-retry.ts                   Exponential backoff retry with jitter
+│   ├── pending-documents.ts           Pending-document tracking for reprobe/escalation
+│   └── procedure-seen-cache.ts        Dedup cache for legislative procedures across runs
 ├── templates/                         → templates/
-│   ├── article-template.ts            HTML5 article shell (SEO, JSON-LD, Open Graph)
-│   └── section-builders.ts            buildSiteFooter (single source of truth, 14-lang), stakeholder grid
-├── aggregator/                        → aggregator/  ⭐ April-2026 deterministic article renderer
-│   ├── article-generator.ts           Entry point CLI (`npm run generate-article`)
-│   ├── analysis-aggregator.ts         aggregateAnalysisRun() — manifest discovery, .md filter, Provenance & Audit at END
-│   ├── artifact-order.ts              ARTIFACT_SECTIONS — canonical 19-section order
-│   ├── clean-artifact.ts              Strips SPDX/banner/provenance front matter
-│   ├── markdown-renderer.ts           markdown-it + plugin allowlist (anchor, footnote, attrs, deflist)
-│   ├── article-html.ts                HTML5 wrapper: header, language switcher, TOC sidebar, JSON-LD, hreflang
-│   └── article-metadata.ts            5-tier editorial-highlight resolver for <title> / <meta description>
-├── generators/                        → generators/  (post-aggregator-migration: only indexes & sitemap remain)
-│   ├── news-indexes.ts                Per-language index pages
-│   └── sitemap.ts                     XML sitemap generator + per-language sitemap_<lang>.html
+│   ├── icons.ts                       SVG icon library (moon, sun, link, etc.)
+│   └── section-builders.ts            buildSiteHeader, buildSiteFooter (single source of truth, 14-lang), buildPageBanner
+├── aggregator/                        → aggregator/  ⭐ Deterministic article renderer
+│   ├── article-generator.ts           Entry point CLI (`npm run generate-article -- --run <dir>` or `--all`)
+│   ├── analysis-aggregator.ts         aggregateAnalysisRun() — manifest discovery, .md filter, Provenance & Audit block
+│   ├── artifact-order.ts              ARTIFACT_SECTIONS — canonical 19-section order (executive-brief → quality-reflection)
+│   ├── clean-artifact.ts              Strips SPDX/banner/provenance front matter from artifacts before merge
+│   ├── markdown-renderer.ts           markdown-it + plugin allowlist (anchor, footnote, attrs, deflist); mermaid fence→<pre>
+│   ├── article-html.ts                HTML5 wrapper: site header, language switcher, TOC sidebar, JSON-LD NewsArticle, hreflang
+│   ├── article-metadata.ts            5-tier editorial-highlight resolver for <title> / <meta description>
+│   ├── article-meta.ts                buildArticleMeta() — deterministic article-meta.json output
+│   ├── key-takeaways.ts               buildKeyTakeaways() — 3–7 bullet extraction from synthesis-summary + intelligence-assessment
+│   ├── lead-extractor.ts              trimToLeadSentence() — plain-text SEO lead for meta description
+│   ├── reader-intelligence-guide.ts   Reader Guide HTML overlay (collapsible methodology panel)
+│   ├── reader-guide-constants.ts      Section IDs and titles for the Reader Guide
+│   ├── cli/                           CLI argument parsing (parse.ts)
+│   ├── manifest/                      manifest.json schema (types.ts), reader (reader.ts), resolver (resolver.ts), manifest-writer.ts
+│   ├── runs/                          Run discovery (discover.ts) + collision grouping (grouping.ts)
+│   ├── slug/                          Article URL slug generation (slug.ts)
+│   └── infra/                         GitHub URL helpers (github-urls.ts)
+├── generators/                        → generators/
+│   ├── news-indexes.ts                Per-language news index pages (news/index-<lang>.html)
+│   ├── sitemap.ts                     Orchestrator: writes sitemap.xml, rss.xml, 14 sitemap_<lang>.html, 14 political-intelligence pages
+│   ├── sitemap/                       Sitemap sub-modules: xml.ts, html.ts, rss.ts, xml-utils.ts, copy.ts
+│   ├── political-intelligence.ts      Political Intelligence Hub generator entry point
+│   ├── political-intelligence/        Sub-modules: html.ts, data.ts, copy.ts, icons.ts, markdown.ts, types.ts
+│   ├── political-intelligence-descriptions.ts  Per-language methodology descriptions
+│   └── seo-copy.ts                    SEO meta tag copy tables (14 languages)
 ├── types/                             → types/
 │   ├── analysis.ts, common.ts, generation.ts, imf.ts, intelligence.ts, mcp.ts,
 │   │   parliament.ts, political-classification.ts, political-risk.ts,
 │   │   political-threats.ts, quality.ts, significance.ts, stakeholder.ts,
 │   │   visualization.ts, world-bank.ts, index.ts
 └── utils/                             → utils/
-    ├── article-category.ts, article-quality-scorer.ts, content-metadata.ts,
-    ├── file-utils.ts, html-sanitize.ts, imf-data.ts,
-    ├── intelligence-analysis.ts, intelligence-index.ts, metadata-utils.ts,
-    ├── news-metadata.ts, political-classification.ts,
-    ├── political-risk-assessment.ts, political-threat-assessment.ts,
-    ├── significance-scoring.ts, world-bank-data.ts
-    (content-validator.ts, validate-articles.ts, validate-analysis-completeness.ts
-     PURGED in April-2026 — replaced by Stage-C agent-side review)
+    ├── article-category.ts            ArticleCategory enum helpers and slug mapping
+    ├── content-metadata.ts            Content metadata extraction from HTML/Markdown
+    ├── copy-test-reports.ts           Copies test report artifacts to docs/
+    ├── file-utils.ts                  escapeHTML, file I/O helpers, path utilities
+    ├── generate-docs-index.ts         Generates docs/ index page
+    ├── html-sanitize.ts               HTML sanitization for safe output
+    ├── intelligence-index.ts          Intelligence document index builder
+    ├── metadata-utils.ts              Shared metadata transformation utilities
+    ├── news-metadata.ts               Article metadata aggregation (articles-metadata.json)
+    └── validate-ep-api.ts             EP API endpoint validation script
 ```
 
 **Key build / generation commands:**
 - `npm run build` — Runs `tsc` (TypeScript compilation `src/` → `scripts/`)
 - `npm run lint` — ESLint on `src/`
-- `npm run generate-news` — Orchestrates strategies via the pipeline
+- `npm run generate-article -- --run <dir>` — Renders a single analysis run to 14-language HTML
+- `npm run generate-article:all` — Batch-renders every discoverable analysis run
 - `npm run generate-news-indexes` — Executes `scripts/generators/news-indexes.js` (prebuild hook)
-- `npm run generate-sitemap` — Executes `scripts/generators/sitemap.js` (prebuild hook)
-- `npm run copy-vendor` — Vendors `chart.js` and `d3` assets into `js/vendor/`
-- `npm run test` / `test:unit` / `test:integration` / `test:e2e` / `test:coverage` — Test suite (52 test files, 3061+ passing tests)
+- `npm run generate-sitemap` — Executes `scripts/generators/sitemap.js` (prebuild hook — also generates political-intelligence pages)
+- `npm run copy-vendor` — Vendors `chart.js`, `d3`, and `mermaid` ESM bundles into `js/vendor/`
+- `npm run validate-analysis` — Stage-C completeness validation against reference-quality-thresholds.json
+- `npm run sync:templates` — Syncs ANALYSIS-TEMPLATE-FRONTMATTER:v1 blocks into analysis templates
+- `npm run prior-run-diff` — Generates carry-forward plan for re-run improvement
+- `npm run lint:prompts` — Validates gh-aw workflow prompt imports and banned patterns
+- `npm run test` / `test:unit` / `test:integration` / `test:e2e` / `test:coverage` — Test suite
 
 **TypeScript configuration** (`tsconfig.json`):
 - `target: ES2025`, `module: NodeNext`, `strict: true`, `rootDir: ./src`, `outDir: ./scripts`, `"type": "module"` in package.json
@@ -847,50 +884,50 @@ src/                                   → scripts/                          (ts
 **Runtime JS (browser)**:
 - `js/index-runtime.js` — Index page filter + theme toggle
 - `js/article-runtime.js` — Reading progress + theme toggle
-- External scripts only (no inline scripts — CSP-ready)
-- `js/vendor/` — Vendored Chart.js (4.5.1) and D3 (7.9.0)
-
-**TypeScript configuration** (`tsconfig.json`):
-- `target: ES2025` — Modern JavaScript output
-- `module: NodeNext` — Node.js native ESM resolution
-- `strict: true` — Full strict mode enabled
-- `rootDir: ./src` — TypeScript source root
-- `outDir: ./scripts` — Compiled JavaScript output
+- `js/mermaid-init.js` — Lazy Mermaid diagram rendering
+- External scripts only (no inline scripts — CSP `script-src 'self'`)
+- `js/vendor/` — Vendored Chart.js, D3, and Mermaid ESM bundles
 
 ---
 
 ## 🔄 Data Flow
 
-### News Generation Flow
+### News Generation Flow (End-to-End)
 
 ```mermaid
 sequenceDiagram
-    participant GHA as GitHub Actions
-    participant CLI as CLI Interface
-    participant Gen as Article Generator
-    participant MCP as MCP Client
-    participant EP as EP MCP Server
-    participant TPL as Template Engine
+    participant GHA as GitHub Actions (gh-aw)
+    participant Agent as Copilot Agent (Claude Opus 4.7)
+    participant MCP as EP MCP Client
+    participant EP as EP MCP Server (stdio)
+    participant IMF as IMF SDMX 3.0 (HTTPS)
     participant FS as File System
+    participant AGG as Aggregator CLI
 
-    GHA->>CLI: Trigger daily workflow
-    CLI->>Gen: generate-news --types=week-ahead --languages=all
-    Gen->>MCP: getPlenarySessions
-    Note over MCP,EP: MCP client spawns EP MCP Server as local process via stdio JSON-RPC
-    MCP->>EP: JSON-RPC request via stdio
-    EP-->>MCP: EP data as JSON-RPC response
-    MCP-->>Gen: Parsed EP data with basic shape checks
+    GHA->>Agent: Start agentic workflow (news-<type>.md)
+    Note over GHA,Agent: Stage A — Data Collection (~5 min)
+    Agent->>MCP: Call EP tools (get_plenary_sessions, get_voting_records, etc.)
+    MCP->>EP: JSON-RPC via stdio
+    EP-->>MCP: EP data response
+    MCP-->>Agent: Structured data
+    Agent->>IMF: fetch() SDMX 3.0 (WEO, FM, IFS)
+    IMF-->>Agent: Economic context data
 
-    loop For each language sequentially
-        Gen->>TPL: Render HTML with EP data and language
-        Note over Gen,TPL: Placeholder English body content - native per-language LLM generation planned
-        TPL-->>Gen: HTML output
-        Gen->>FS: Write article file
-    end
+    Note over Agent,FS: Stage B — Analysis (2-pass, ~22 min)
+    Agent->>FS: Write analysis artifacts (intelligence/, classification/, risk-scoring/, extended/)
+    Agent->>FS: Write manifest.json
 
-    Gen->>FS: Write metadata.json via writeFileSync
-    GHA->>GHA: Commit and push changes
-    GHA->>GHA: Deploy to S3 + invalidate CloudFront
+    Note over Agent,FS: Stage C — Completeness Gate (~4 min)
+    Agent->>FS: Read artifacts + grade against reference-quality-thresholds.json
+
+    Note over Agent,AGG: Stage D — Article Rendering (~2 min)
+    Agent->>AGG: npm run generate-article -- --run analysis/daily/<date>/<type>
+    AGG->>FS: Read manifest.json + all .md artifacts
+    AGG->>FS: Write 14 HTML files + article.md + article-meta.json
+
+    Note over Agent,GHA: Stage E — Single PR (~2 min)
+    Agent->>GHA: safeoutputs create_pull_request (max: 1)
+    GHA->>GHA: Deploy to S3 + CloudFront invalidation on merge
 ```
 
 ### User Request Flow

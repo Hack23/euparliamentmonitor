@@ -1164,10 +1164,10 @@ flowchart TB
     end
 
     subgraph "Template Layer"
-        TEMPLATE_ENGINE["Template Module<br/>src/templates/article-template.ts"]
-        TEMPLATE_WEEK["Article Template<br/>(TS-based)"]
-        TEMPLATE_COMMITTEE["Committee Reports Template<br/>(TS-based)"]
-        LANGUAGE_PROCESSOR["Multi-Language<br/>Processor"]
+        TEMPLATE_ENGINE["Aggregator Pipeline<br/>src/aggregator/article-html.ts"]
+        TEMPLATE_WEEK["Article Renderer<br/>(markdown-it + plugins)"]
+        TEMPLATE_COMMITTEE["Artifact Aggregator<br/>(analysis-aggregator.ts)"]
+        LANGUAGE_PROCESSOR["Multi-Language<br/>14-language HTML Output"]
     end
 
     subgraph "Output Layer"
@@ -1627,7 +1627,7 @@ Planned enhancement: responses from the European Parliament API will be validate
 
 ### HTML Sanitization Requirements (Planned)
 
-> **Note**: HTML sanitization via DOMPurify is a planned security enhancement. The current generator (`src/templates/article-template.ts`) produces HTML from EP API data. The configuration below documents the intended future implementation.
+> **Note**: HTML sanitization is handled by the aggregator pipeline. The current generator (`src/aggregator/article-html.ts`) produces HTML from pre-rendered Markdown artifacts via `markdown-it` with an explicit plugin allowlist. The `clean-artifact.ts` module strips SPDX/banner front matter. All dynamic content is escaped via `escapeHTML()` from `src/utils/file-utils.ts`. The configuration below documents additional future hardening.
 
 **Planned DOMPurify Configuration:**
 

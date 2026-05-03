@@ -684,18 +684,18 @@ persistent infrastructure.
 ```mermaid
 graph TB
     subgraph "GitHub Actions Runner (Ubuntu Latest)"
-        subgraph "News Generation Container"
-            CLI[📝 generate-news-enhanced.ts<br/>TypeScript CLI Script]
-            TEMPLATE[🎨 article-template.ts<br/>HTML Generator]
+        subgraph "Article Generation Container"
+            CLI[📝 article-generator.ts<br/>TypeScript CLI (npm run generate-article)]
+            AGG[🧩 analysis-aggregator.ts<br/>Artifact Aggregator]
             CLIENT[🔌 ep-mcp-client.ts<br/>MCP Client Library]
         end
 
         subgraph "Index Generation Container"
-            IDX[📋 generate-news-indexes.ts<br/>Index Generator]
+            IDX[📋 news-indexes.ts<br/>Index Generator]
         end
 
         subgraph "Sitemap Generation Container"
-            SITE[🗺️ generate-sitemap.ts<br/>Sitemap Generator]
+            SITE[🗺️ sitemap.ts<br/>Sitemap + Political Intelligence Generator]
         end
 
         subgraph "European Parliament MCP Server"
@@ -1155,7 +1155,7 @@ also emitted in every generated article page.
 
 **Implemented Security Meta Tags:**
 
-- `Content-Security-Policy` - Emitted in every article page via `src/templates/article-template.ts:377-399` as a `<meta http-equiv>` tag (**not** a CloudFront response-headers policy):
+- `Content-Security-Policy` - Emitted in every article page via `src/aggregator/article-html.ts` as a `<meta http-equiv>` tag (**not** a CloudFront response-headers policy):
 
 ```html
 <meta http-equiv="Content-Security-Policy"
@@ -1652,7 +1652,7 @@ Every workflow execution creates a tracked session with comprehensive metadata:
 **Implementation:**
 
 ```yaml
-# .github/workflows/generate-news.yml
+# .github/workflows/news-breaking.lock.yml (compiled from news-breaking.md)
 env:
   RUN_ID: ${{ github.run_id }}
   ACTOR: ${{ github.actor }}
@@ -1796,7 +1796,7 @@ Our system monitors several categories of security events:
 **Implementation:**
 
 ```yaml
-# .github/workflows/generate-news.yml
+# .github/workflows/news-breaking.lock.yml (example — all news-*.lock.yml follow this pattern)
 - name: Monitor Build Security
   if: failure()
   run: |
@@ -2001,7 +2001,7 @@ EU Parliament Monitor manages configuration as code, ensuring all infrastructure
 | **TypeScript Configuration** | `tsconfig.json` (strict mode) | `tsc --noEmit` type checking | PR review |
 | **ESLint Rules** | `eslint.config.js` | `npm run lint` | PR review |
 | **Dependabot Config** | `.github/dependabot.yml` | GitHub validation | PR review |
-| **Content Security Policy** | `article-template.ts` | E2E tests verify CSP headers | PR review + automated tests |
+| **Content Security Policy** | `article-html.ts` | E2E tests verify CSP headers | PR review + automated tests |
 | **Branch Protection** | GitHub Repository Settings | GitHub API audit | Admin-only changes |
 | **MCP Server Config** | `.github/copilot-mcp.json` | Schema validation | PR review |
 
@@ -2342,13 +2342,9 @@ flowchart TD
 1. **🔄 Automatic Retry**:
 
    ```yaml
-   # .github/workflows/generate-news.yml
-   - name: Generate News with Retry
-     uses: nick-fields/retry@v2
-     with:
-       timeout_minutes: 10
-       max_attempts: 3
-       command: npm run generate-news
+   # Agentic workflows use gh-aw safe-outputs with single PR per run
+   # Retry is handled at the MCP client level via callToolWithRetry()
+   # and at the workflow level via manual re-dispatch
    ```
 
 2. **💾 Dependency Caching**:
@@ -2374,19 +2370,19 @@ flowchart TD
 
 **Deployment Resilience:**
 
-- **Atomic Deployments**: GitHub Pages deploys all files or none
-- **Rollback Capability**: Revert commit + re-deploy previous version
-- **Zero-Downtime**: Old content served until new deployment completes
-- **Immutable URLs**: Assets never change once deployed
+- **Atomic Deployments**: S3 sync + CloudFront invalidation deploys all files atomically
+- **Rollback Capability**: Revert commit + re-deploy previous version via `deploy-s3.yml`
+- **Zero-Downtime**: Old content served from CloudFront cache until invalidation completes
+- **Immutable URLs**: Versioned vendor assets never change once deployed
 
 ### Operational Readiness Procedures
 
 **Runbooks:**
 
 1. **[RUNBOOK-001] Build Failure Response**:
-   - Check GitHub Actions logs
-   - Review error messages
-   - Test locally: `npm run generate-news`
+   - Check GitHub Actions logs for the failed `news-*.lock.yml` workflow
+   - Review error messages in agentic workflow output
+   - Test locally: `npm run generate-article -- --run <dir>`
    - Fix issue → commit → push
    - Or: manual trigger via `workflow_dispatch`
 
@@ -2717,7 +2713,7 @@ EU Parliament Monitor implements comprehensive application-level security contro
 - ✅ **HTML Entity Encoding**: All European Parliament data HTML-encoded before insertion
 - ✅ **CSP Hash-Based Script Allowlisting**: Inline scripts allowed only via SHA-256 hash
 - ✅ **No Dynamic Script Generation**: All content is static HTML, no runtime script evaluation
-- ✅ **Template Escaping**: `article-template.ts` uses safe template patterns
+- ✅ **Template Escaping**: `article-html.ts` uses safe template patterns with `escapeHTML()` for all dynamic content
 - ✅ **Multi-Language Safety**: Content validators check all 14 language variants for XSS vectors
 
 ### Content Integrity Verification
