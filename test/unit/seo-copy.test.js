@@ -57,10 +57,12 @@ describe('seo-copy', () => {
     expect(getNewsIndexSeo('ja').breadcrumbHome).not.toBe(getNewsIndexSeo('en').breadcrumbHome);
   });
 
-  it('labels fallback English FAQ bodies with English structured-data language', () => {
-    for (const [, getter] of getters) {
-      expect(getter('sv').faqLanguage).toBe('en');
-      expect(getter('ar').faqLanguage).toBe('en');
+  it.each(ALL_LANGUAGES.filter((lang) => lang !== 'en'))(
+    'labels fallback English FAQ bodies with English structured-data language for %s',
+    (lang) => {
+      for (const [, getter] of getters) {
+        expect(getter(lang).faqLanguage).toBe('en');
+      }
     }
-  });
+  );
 });

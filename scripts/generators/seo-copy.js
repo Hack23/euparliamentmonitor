@@ -353,6 +353,7 @@ const PI_OVERLAYS = {
 function applyOverlay(base, overlay, lang) {
     if (!overlay)
         return base;
+    const hasLocalizedFaqs = overlay.faqs !== undefined;
     return {
         keywords: overlay.keywords ?? base.keywords,
         ogImageAlt: overlay.ogImageAlt ?? base.ogImageAlt,
@@ -360,7 +361,7 @@ function applyOverlay(base, overlay, lang) {
         breadcrumbCurrent: overlay.breadcrumbCurrent ?? base.breadcrumbCurrent,
         breadcrumbAriaLabel: overlay.breadcrumbAriaLabel ?? base.breadcrumbAriaLabel,
         faqHeading: overlay.faqHeading ?? base.faqHeading,
-        faqLanguage: overlay.faqLanguage ?? (overlay.faqs ? lang : base.faqLanguage),
+        faqLanguage: overlay.faqLanguage ?? (hasLocalizedFaqs ? lang : base.faqLanguage),
         faqs: overlay.faqs ?? base.faqs,
     };
 }

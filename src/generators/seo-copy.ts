@@ -405,6 +405,7 @@ const PI_OVERLAYS: Record<string, Overlay> = {
 
 function applyOverlay(base: PageSeoCopy, overlay: Overlay | undefined, lang: string): PageSeoCopy {
   if (!overlay) return base;
+  const hasLocalizedFaqs = overlay.faqs !== undefined;
   return {
     keywords: overlay.keywords ?? base.keywords,
     ogImageAlt: overlay.ogImageAlt ?? base.ogImageAlt,
@@ -412,7 +413,7 @@ function applyOverlay(base: PageSeoCopy, overlay: Overlay | undefined, lang: str
     breadcrumbCurrent: overlay.breadcrumbCurrent ?? base.breadcrumbCurrent,
     breadcrumbAriaLabel: overlay.breadcrumbAriaLabel ?? base.breadcrumbAriaLabel,
     faqHeading: overlay.faqHeading ?? base.faqHeading,
-    faqLanguage: overlay.faqLanguage ?? (overlay.faqs ? lang : base.faqLanguage),
+    faqLanguage: overlay.faqLanguage ?? (hasLocalizedFaqs ? lang : base.faqLanguage),
     faqs: overlay.faqs ?? base.faqs,
   };
 }
