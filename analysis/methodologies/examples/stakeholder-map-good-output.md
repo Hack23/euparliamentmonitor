@@ -9,7 +9,7 @@
 > **Illustrative excerpt only.** The map below is anchored to a real
 > 2026-Q1 EP run on AI-Act implementation, but power scores, alignment
 > values, and seat counts are rounded for teaching. Do not republish.
-> All figures carry an `*illustrative*` marker.
+> All numeric power scores, alignment values, and seat counts in this example are *illustrative*; do not republish as factual.
 
 ## Issue frame
 

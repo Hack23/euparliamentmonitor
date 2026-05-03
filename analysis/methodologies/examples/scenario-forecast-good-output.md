@@ -91,7 +91,7 @@ The single variable whose movement flips probability weights:
 flowchart TD
   baseline["Baseline (2026-04-09):<br/>EPP-S&D concord holds; HU reservation pending"]:::base
   baseline --> A["Scenario A — Adoption<br/>P = 55% (Likely)"]:::win
-  baseline --> B["Scenario B — Failure<br/>P = 30% (Roughly even, low end)"]:::loss
+  baseline --> B["Scenario B — Failure<br/>P = 30% (Unlikely)"]:::loss
   baseline --> C["Scenario C — Delay<br/>P = 15% (Unlikely, low end)"]:::watch
 
   A --> A1["EWI: ≤12 contested amendments by 2026-04-15"]:::ind

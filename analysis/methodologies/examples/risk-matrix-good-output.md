@@ -82,7 +82,10 @@ Bands map to [`osint-tradecraft-standards.md`](../osint-tradecraft-standards.md)
 - **Trigger event(s):**
   - 2026-04-12 industry-coalition steering meeting — fragmentation watchpoint.
   - Public press release from any of the 14 associations 2026-04-15 to 2026-04-22.
-- **Indicators:** `get_committee_documents` weekly update; press monitoring of EU-level associations (Admiralty grade C-3 typical).
+- **Indicators (≥3, dated):**
+  1. `get_committee_documents` weekly update through 2026-04-22 — search for industry-coalition position documents.
+  2. Press monitoring of EU-level association websites 2026-04-12 to 2026-04-22 (Admiralty grade C-3 typical).
+  3. Politico Pro / ENDS Europe brief 2026-04-14 (graded B-3) — industry coalition cohesion signal.
 - **Mitigation owner:** EP rapporteur, EPP comms.
 - **Mitigation:** Joint statement signed by ≥11 associations targeting 2026-04-15.
 - **Residual risk after mitigation:** Likelihood 1 / Impact 1.
@@ -95,7 +98,10 @@ Bands map to [`osint-tradecraft-standards.md`](../osint-tradecraft-standards.md)
 - **Trigger event(s):**
   - 2026-04-19 Renew group meeting — whip-line announcement.
   - 2026-04-22 plenary opening intervention by Hayer.
-- **Indicators:** `get_speeches` Hayer 2026-04-12 to 2026-04-22; Renew public statements.
+- **Indicators (≥3, dated):**
+  1. `get_speeches` Hayer 2026-04-12 to 2026-04-22 — tone shift from positive to conditional.
+  2. Renew group public statements 2026-04-14 to 2026-04-19 — any published conditions on the whip line.
+  3. `analyze_voting_patterns` Renew cohesion data 2026-04-20 — cross-check for pending rebel signals.
 - **Mitigation owner:** EPP rapporteur, S&D shadow.
 - **Mitigation:** Maintain EPP-S&D-Renew joint amendment AM-118 unaltered through 2026-04-21; refuse re-opening of Articles 4–7.
 - **Residual risk after mitigation:** Likelihood 1 / Impact 5 → cell still high-impact, monitor closely.
