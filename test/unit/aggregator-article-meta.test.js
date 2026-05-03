@@ -175,7 +175,7 @@ describe('buildArticleMeta', () => {
     }
   });
 
-  it('serializeArticleMeta produces stable, sorted-key JSON with a trailing newline', () => {
+  it('serializeArticleMeta produces stable, insertion-order JSON with a trailing newline', () => {
     const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-meta-'));
     const run = makeFixture(repo);
     try {

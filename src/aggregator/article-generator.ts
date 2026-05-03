@@ -483,6 +483,10 @@ function writeLanguageVariant(
   // Strip any AI-authored inline Reader Intelligence Guide and inject the
   // renderer-owned, language-aware version so exactly one guide appears.
   bodyHtml = stripInlineReaderGuide(bodyHtml);
+  // The article chrome (wrapArticleHtml) renders its own <h1> in the hero
+  // header. Strip the in-body <h1> emitted from the Markdown `# Title` to
+  // avoid a duplicate H1 and broken heading hierarchy (H2 preceding H1).
+  bodyHtml = bodyHtml.replace(/<h1[^>]*>[\s\S]*?<\/h1>\s*/, '');
   const guideHtml = buildReaderIntelligenceGuideHtml(
     lang,
     aggregated.sectionToc,

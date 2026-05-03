@@ -154,9 +154,18 @@ describe('article-generation pipeline — determinism', () => {
 
     generateArticle(cli);
     const first = hashTree(tmpA);
+    const articleMeta = path.join(isolatedRun, 'article-meta.json');
+    const articleMetaHashFirst = crypto
+      .createHash('sha256')
+      .update(fs.readFileSync(articleMeta))
+      .digest('hex');
 
     generateArticle({ ...cli, outDir: tmpB });
     const second = hashTree(tmpB);
+    const articleMetaHashSecond = crypto
+      .createHash('sha256')
+      .update(fs.readFileSync(articleMeta))
+      .digest('hex');
 
     expect(Object.keys(first).sort()).toEqual(Object.keys(second).sort());
     // Verify we actually emitted the expected file count: 1 source .md
@@ -166,6 +175,7 @@ describe('article-generation pipeline — determinism', () => {
     for (const key of Object.keys(first)) {
       expect(second[key]).toBe(first[key]);
     }
+    expect(articleMetaHashSecond).toBe(articleMetaHashFirst);
   });
 
   it('produces byte-identical output in --markdown-only mode', () => {
@@ -180,13 +190,24 @@ describe('article-generation pipeline — determinism', () => {
 
     generateArticle(cli);
     const first = hashTree(tmpA);
+    const articleMeta = path.join(isolatedRun, 'article-meta.json');
+    const articleMetaHashFirst = crypto
+      .createHash('sha256')
+      .update(fs.readFileSync(articleMeta))
+      .digest('hex');
+
     generateArticle({ ...cli, outDir: tmpB });
     const second = hashTree(tmpB);
+    const articleMetaHashSecond = crypto
+      .createHash('sha256')
+      .update(fs.readFileSync(articleMeta))
+      .digest('hex');
 
     // markdown-only: no HTML files emitted
     expect(Object.keys(first).every((k) => !k.endsWith('.html'))).toBe(true);
     for (const key of Object.keys(first)) {
       expect(second[key]).toBe(first[key]);
     }
+    expect(articleMetaHashSecond).toBe(articleMetaHashFirst);
   });
 });

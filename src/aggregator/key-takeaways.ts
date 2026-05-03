@@ -60,8 +60,6 @@ export interface BuildKeyTakeawaysOptions {
 const DEFAULT_SOURCES: readonly string[] = [
   'intelligence/synthesis-summary.md',
   'intelligence/intelligence-assessment.md',
-  'extended/executive-brief.md',
-  'executive-brief.md',
 ];
 
 /** H2 headings under which "headline" bullets are typically authored. */
@@ -162,7 +160,7 @@ export function extractStrongBullets(markdown: string): string[] {
  *
  * @param a - First bullet body
  * @param b - Second bullet body
- * @returns Similarity in `[0, 1]` (1 = identical word multisets)
+ * @returns Similarity in `[0, 1]` (1 = identical word sets)
  */
 export function jaccardSimilarity(a: string, b: string): number {
   const tokenise = (s: string): Set<string> =>
