@@ -86,18 +86,40 @@ describe('generateSitemapHTML', () => {
 
   it('embeds JSON-LD CollectionPage with the article count', () => {
     const html = generateSitemapHTML('en', [fixtureArticle], false);
-    const jsonLdBlock = html.match(
-      /<script type="application\/ld\+json">([\s\S]+?)<\/script>/
+    const jsonLdBlocks = [
+      ...html.matchAll(/<script type="application\/ld\+json">([\s\S]+?)<\/script>/g),
+    ];
+    expect(jsonLdBlocks.length).toBeGreaterThanOrEqual(3);
+    // Find the CollectionPage block specifically — multiple JSON-LD
+    // blocks are emitted (WebSite, Organization, CollectionPage, FAQPage).
+    const collectionPageBlock = jsonLdBlocks.find((m) =>
+      m[1].includes('"@type":"CollectionPage"')
     );
-    expect(jsonLdBlock).toBeTruthy();
-    // The `<` inside JSON-LD must be escaped as `\u003c` to avoid
-    // breaking out of the script element. We can't JSON.parse the raw
-    // value because it would have unescaped slashes; instead, verify
-    // the exact CSP-hardened replacement and a key marker.
-    const raw = jsonLdBlock[1];
+    expect(collectionPageBlock).toBeTruthy();
+    const raw = collectionPageBlock[1];
     expect(raw).not.toContain('</');
     expect(raw).toContain('"@type":"CollectionPage"');
     expect(raw).toContain('"numberOfItems":1');
+  });
+
+  it('embeds the four expected JSON-LD blocks (WebSite/Organization/CollectionPage/FAQPage)', () => {
+    const html = generateSitemapHTML('en', [fixtureArticle], false);
+    expect(html).toContain('"@type":"WebSite"');
+    expect(html).toContain('"@type":"Organization"');
+    expect(html).toContain('"@type":"CollectionPage"');
+    expect(html).toContain('"@type":"FAQPage"');
+    // Organization MUST carry a logo for Google rich-result eligibility
+    expect(html).toContain('"logo"');
+    expect(html).toContain('hack23.com/icon-192.png');
+  });
+
+  it('emits keywords/robots/author meta tags and a visible FAQ section', () => {
+    const html = generateSitemapHTML('en', [fixtureArticle], false);
+    expect(html).toMatch(/<meta name="keywords" content="[^"]+"/);
+    expect(html).toMatch(/<meta name="robots" content="index, follow/);
+    expect(html).toMatch(/<meta name="author" content="Hack23 AB"/);
+    expect(html).toContain('class="page-faq"');
+    expect(html).toContain('<details');
   });
 
   it('escapes `<` inside JSON-LD as \\u003c', () => {

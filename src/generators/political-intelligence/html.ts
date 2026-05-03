@@ -45,6 +45,7 @@ import {
 } from '../political-intelligence-descriptions.js';
 import { pickDocumentIcon } from './icons.js';
 import { getPICopy, type PICopy } from './copy.js';
+import { getPoliticalIntelligenceSeo } from '../seo-copy.js';
 import type { PIDocument, PIDailyDateGroup, PIDailyRun, PIPageData } from './types.js';
 
 /**
@@ -88,6 +89,9 @@ function githubTreeUrl(relPath: string): string {
 export function getPoliticalIntelligenceFilename(lang: string): string {
   return lang === 'en' ? 'political-intelligence.html' : `political-intelligence_${lang}.html`;
 }
+
+const SCHEMA_ORG = 'https://schema.org';
+const SITE_NAME = 'EU Parliament Monitor';
 
 /**
  * Render a single document card (used for methodologies, templates, references).
@@ -313,13 +317,22 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
     : '';
 
   // JSON-LD structured data (CollectionPage with BreadcrumbList + publisher)
+  const seo = getPoliticalIntelligenceSeo(safeLang);
+  const ogImage = `${BASE_URL}/images/og-image.jpg`;
   const publisher = {
     '@type': 'Organization',
+    '@id': `${BASE_URL}/#organization`,
     name: 'Hack23 AB',
     url: 'https://hack23.com',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://hack23.com/icon-192.png',
+      width: 192,
+      height: 192,
+    },
   };
   const jsonLd = {
-    '@context': 'https://schema.org',
+    '@context': SCHEMA_ORG,
     '@type': 'CollectionPage',
     name: copy.title,
     url: canonicalUrl,
@@ -329,7 +342,7 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
     publisher,
     isPartOf: {
       '@type': 'WebSite',
-      name: 'EU Parliament Monitor',
+      name: SITE_NAME,
       url: BASE_URL,
       publisher,
     },
@@ -377,6 +390,51 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
   };
   const jsonLdString = JSON.stringify(jsonLd).replace(/</g, '\\u003c');
 
+  const websiteJsonLd = JSON.stringify({
+    '@context': SCHEMA_ORG,
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: BASE_URL,
+    inLanguage: safeLang,
+    publisher: { '@id': `${BASE_URL}/#organization` },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: { '@type': 'EntryPoint', urlTemplate: `${BASE_URL}/?q={search_term_string}` },
+      'query-input': 'required name=search_term_string',
+    },
+  }).replace(/</g, '\\u003c');
+
+  const organizationJsonLd = JSON.stringify({
+    '@context': SCHEMA_ORG,
+    ...publisher,
+    sameAs: ['https://github.com/Hack23', 'https://hack23.com'],
+  }).replace(/</g, '\\u003c');
+
+  const faqJsonLd = JSON.stringify({
+    '@context': SCHEMA_ORG,
+    '@type': 'FAQPage',
+    inLanguage: safeLang,
+    mainEntity: seo.faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  }).replace(/</g, '\\u003c');
+
+  const faqHtml = `<section class="page-faq" aria-labelledby="pi-faq-heading">
+      <h2 id="pi-faq-heading"><span aria-hidden="true">❓</span> ${escapeHTML(seo.faqHeading)}</h2>
+      <div class="page-faq__list">
+        ${seo.faqs
+          .map(
+            (f) => `<details class="page-faq__item">
+          <summary>${escapeHTML(f.q)}</summary>
+          <p>${escapeHTML(f.a)}</p>
+        </details>`
+          )
+          .join('\n        ')}
+      </div>
+    </section>`;
+
   return `<!DOCTYPE html>
 <html lang="${safeLang}" dir="${dir}">
 <head>
@@ -399,14 +457,14 @@ ${hreflangLinks}
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="${safeLang}">
-  <meta property="og:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
+  <meta property="og:image" content="${ogImage}">
   <meta property="og:image:alt" content="${escapeHTML(copy.title)} — EU Parliament Monitor">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHTML(copy.title)}">
   <meta name="twitter:description" content="${escapeHTML(description)}">
-  <meta name="twitter:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
+  <meta name="twitter:image" content="${ogImage}">
   <meta name="twitter:image:alt" content="${escapeHTML(copy.title)} — EU Parliament Monitor">
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -420,7 +478,10 @@ ${hreflangLinks}
   <meta name="ep-i18n-update-cta" content="${escapeHTML(getLocalizedString(UPDATE_REFRESH_CTA_LABELS, lang))}">
   <meta name="ep-i18n-dismiss" content="${escapeHTML(getLocalizedString(UPDATE_DISMISS_LABELS, lang))}">
 ${buildHeadFreshnessTags('')}
+  <script type="application/ld+json">${websiteJsonLd}</script>
+  <script type="application/ld+json">${organizationJsonLd}</script>
   <script type="application/ld+json">${jsonLdString}</script>
+  <script type="application/ld+json">${faqJsonLd}</script>
 </head>
 <body>
   <a href="#main" class="skip-link">${escapeHTML(skipLinkText)}</a>
@@ -495,6 +556,8 @@ ${referenceList}
       <p class="section-description">${escapeHTML(copy.dailyDescription)}</p>
 ${dailyBody}
     </section>
+
+    ${faqHtml}
   </main>
 
   ${buildSiteFooter({ lang: safeLang, pathPrefix: '' })}${THEME_TOGGLE_SCRIPT}

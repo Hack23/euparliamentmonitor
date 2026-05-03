@@ -502,16 +502,17 @@ describe('generate-sitemap', () => {
 
       // Malicious title must be escaped in the sitemap article list
       expect(html).toContain('&lt;script&gt;');
-      // The only <script> tags should be (1) the JSON-LD structured data,
-      // (2) the theme toggle, and (3) the same-origin PWA register script —
-      // never from the untrusted article title.
+      // The <script> tags should be (1-4) the four JSON-LD structured-
+      // data blocks (WebSite, Organization, CollectionPage, FAQPage),
+      // (5) the theme toggle, and (6) the same-origin PWA register script
+      // — never from the untrusted article title.
       const scriptTags = html.match(/<script\b[^>]*>/gi) || [];
-      expect(scriptTags.length).toBe(3);
+      expect(scriptTags.length).toBe(6);
 
       const jsonLdScripts = scriptTags.filter((tag) =>
         /\btype="application\/ld\+json"/i.test(tag)
       );
-      expect(jsonLdScripts.length).toBe(1);
+      expect(jsonLdScripts.length).toBe(4);
 
       // Non-JSON-LD scripts: theme toggle (inline) + pwa-register (same-origin src)
       const nonJsonLdScripts = scriptTags.filter(
