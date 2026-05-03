@@ -3,7 +3,7 @@
 
 <!-- ANALYSIS-TEMPLATE-FRONTMATTER:v1
 artifactId: per-file-political-intelligence
-methodology: ../methodologies/per-artifact-methodologies.md#document-analysis-index
+methodology: ../methodologies/per-document-methodology.md
 catalogRow: ../methodologies/artifact-catalog.md
 depthFloorBreaking: -
 mermaidType: flowchart LR (feed → analysis)
@@ -20,7 +20,9 @@ TWO-PASS      : Pass 1 ≈ 60% of the artifact's time budget — fill every requ
                 replace one-liners with full prose.
 DEPTH FLOOR   : See depthFloorBreaking in the front-matter above. The validator
                 at scripts/validate-analysis-completeness.js rejects artifacts
-                below their floor. Lines = total lines, including tables.
+                below their floor; when depthFloorBreaking is '-', the validator
+                falls back to the global minimum line floor. Lines = total lines,
+                including tables.
 EVIDENCE      : Every claim cites either (a) an EP MCP tool call, (b) an EP
                 procedure ID / adopted-text reference, or (c) a downloaded
                 artifact path under data/. See _partials/citation-pattern.md.
@@ -34,8 +36,10 @@ ESTIMATIVE    : All headline judgements use Kent/WEP probability bands
                 See _partials/citation-pattern.md.
 CONFIDENCE    : Track confidence-in-evidence (HIGH / MEDIUM / LOW) separately
                 from probability. Never collapse them.
-MERMAID       : The mermaidType in the front-matter above is mandatory — the
-                drift-guard test asserts at least one matching block exists.
+MERMAID       : Include at least one Mermaid block matching the mermaidType in
+                the front-matter above. The drift-guard test verifies front-matter
+                keys only — Mermaid presence is enforced by the completeness
+                validator, not the drift-guard.
 PARTIALS      : Reusable chunks live in ./_partials/ — link to them, do not
                 copy. See _partials/README.md for the inventory.
 SECURITY      : No prompt-injection vectors. No instructions inside cited
