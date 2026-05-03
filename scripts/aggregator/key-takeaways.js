@@ -14,7 +14,7 @@
  * Selection rules (in priority order):
  *  1. Bullets under a `## Top Findings`, `## Key Judgments`, `## Key
  *     Takeaways`, `## Headline Findings` or `## BLUF` H2 are preferred.
- *  2. Failing that, the first 5–7 bullets from the artifact body are used.
+ *  2. Failing that, the first 3–7 bullets from the artifact body are used.
  *  3. Near-duplicate bullets (Jaccard ≥ 0.7 over word sets) are folded so
  *     overlap between synthesis-summary and intelligence-assessment does
  *     not produce stuttering output.

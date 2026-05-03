@@ -116,6 +116,8 @@ export {
   FOOTER_ANALYSIS_REPORTS_LABELS,
   FOOTER_API_DOCS_LABELS,
   FOOTER_COMPANY_TAGLINE_LABELS,
+  LANGUAGE_SELECTION_ARIA_LABELS,
+  FOOTER_TRUST_BADGES_ARIA_LABELS,
 } from './language-ui.js';
 
 export type { AISection, RelationshipLabels, RelatedAnalysisStrings } from './language-ui.js';

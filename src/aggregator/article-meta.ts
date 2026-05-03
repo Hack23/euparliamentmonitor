@@ -11,7 +11,7 @@
  * The file is a pure function of the run inputs:
  *   - `manifest.json`     → article type, date, run id, gate result
  *   - `executive-brief.md`/`synthesis-summary.md` → top finding (lead)
- *   - `intelligence/synthesis-summary.md`         → key takeaways (5–7 bullets)
+ *   - `intelligence/synthesis-summary.md`         → key takeaways (3–7 bullets)
  *   - `risk-scoring/risk-matrix.md` (if present)  → top risks
  *   - `intelligence/parliamentary-calendar-projection.md` /
  *     `extended/forward-indicators.md`            → key dates / what to watch
@@ -290,7 +290,7 @@ export function extractMacroContext(runDir: string): string {
 }
 
 /**
- * Resolve the deterministic 5–7 key-takeaway bullets used in both the
+ * Resolve the deterministic 3–7 key-takeaway bullets used in both the
  * Markdown article body and `article-meta.json`.
  *
  * @param runDir - Absolute path to the analysis run directory
@@ -374,8 +374,9 @@ function computeSources(runDir: string): string[] {
 }
 
 /**
- * Serialise an {@link ArticleMeta} as a stable, sorted-key JSON string with
- * a trailing newline. Determinism guarantee: same input → same bytes.
+ * Serialise an {@link ArticleMeta} as a stable JSON string with a trailing
+ * newline. Keys are emitted in declaration order (insertion-order, matching
+ * the interface layout). Determinism guarantee: same input → same bytes.
  *
  * @param meta - Article meta record
  * @returns JSON string ready to be written next to `article.md`

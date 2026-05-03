@@ -549,7 +549,7 @@ export function aggregateAnalysisRun(options) {
     const tradecraft = renderTradecraftAppendix(tradecraftFiles);
     const analysisIndex = renderAnalysisIndex(includedArtifacts, manifestRelPath);
     const readerGuide = renderReaderIntelligenceGuide(emittedSections, includedArtifacts);
-    // Deterministic 5–7 bullet "Key takeaways" block, harvested from the
+    // Deterministic 3–7 bullet "Key takeaways" block, harvested from the
     // synthesis-summary / intelligence-assessment artifacts. Placed
     // immediately after the Executive Brief so the reader gets the BLUF
     // followed by a digest of the strongest findings before being handed

@@ -291,6 +291,7 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
     homeHref: indexHref,
     siteTitle,
     languageSwitcherHtml: langSwitcher,
+    politicalIntelligenceHref: '',
   });
 
   // Methodologies, templates & reference cards.

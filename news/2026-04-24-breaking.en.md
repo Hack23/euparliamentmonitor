@@ -13,7 +13,7 @@ layout: article
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
-A deterministic 5–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
 
 - `data/events-feed.json` — `status:"unavailable", reason:"EP API returned an error-in-body response for get_events_feed — the upstream enrichment step may have failed."`
 - `data/procedures-feed-preview.json` — preview leads with `1972-0003` and `1980-0013` identifiers; a fresh-breaking feed would lead with `2026` identifiers.

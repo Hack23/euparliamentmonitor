@@ -26,6 +26,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { stripInlineMarkdown } from './article-metadata.js';
 
 /** Hard cap on the returned lead length. */
 export const MAX_LEAD_CHARS = 320;
@@ -171,7 +172,9 @@ export function extractLeadParagraph(markdown: string): string {
  * @returns Trimmed lead, never longer than {@link MAX_LEAD_CHARS}
  */
 export function trimToLeadSentence(paragraph: string): string {
-  const cleaned = paragraph.replace(/\s+/g, ' ').trim();
+  // Strip inline Markdown (bold, italic, links, code) so the emitted lead
+  // is plain text suitable for SEO/structured-data consumption.
+  const cleaned = stripInlineMarkdown(paragraph).replace(/\s+/g, ' ').trim();
   if (cleaned.length === 0) return '';
   const sentenceMatch = /^(.*?[.!?])\s/.exec(cleaned);
   const sentence = sentenceMatch?.[1] ?? cleaned;

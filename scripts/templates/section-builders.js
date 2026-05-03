@@ -7,7 +7,7 @@
  * timeline sections, comparison tables, and key figures bars.
  */
 import { escapeHTML } from '../utils/file-utils.js';
-import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, getLocalizedString, TOC_ARIA_LABELS, TIMELINE_HEADINGS, COMPARISON_BEFORE_LABELS, COMPARISON_AFTER_LABELS, KEY_FIGURES_HEADINGS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, FOOTER_HOME_LABELS, FOOTER_SITEMAP_LABELS, FOOTER_RSS_LABELS, FOOTER_GITHUB_REPO_LABELS, FOOTER_LICENSE_LABELS, FOOTER_EUROPARL_LABELS, FOOTER_LINKEDIN_LABELS, FOOTER_SECURITY_POLICY_LABELS, FOOTER_CONTACT_LABELS, FOOTER_DISCLAIMER_LABELS, FOOTER_REPORT_ISSUES_LABELS, FOOTER_ARTICLES_AVAILABLE_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, BUILD_INFO_COMMIT_LABELS, BUILD_INFO_DEPLOYED_LABELS, HEADER_CTA_SPONSOR_LABELS, HEADER_CTA_BECOME_SPONSOR_LABELS, HEADER_CTA_SECURITY_LABELS, FOOTER_NEWS_LABELS, FOOTER_DASHBOARD_LABELS, FOOTER_ANALYSIS_REPORTS_LABELS, FOOTER_API_DOCS_LABELS, FOOTER_COMPANY_TAGLINE_LABELS, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, getLocalizedString, TOC_ARIA_LABELS, TIMELINE_HEADINGS, COMPARISON_BEFORE_LABELS, COMPARISON_AFTER_LABELS, KEY_FIGURES_HEADINGS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, FOOTER_HOME_LABELS, FOOTER_SITEMAP_LABELS, FOOTER_RSS_LABELS, FOOTER_GITHUB_REPO_LABELS, FOOTER_LICENSE_LABELS, FOOTER_EUROPARL_LABELS, FOOTER_LINKEDIN_LABELS, FOOTER_SECURITY_POLICY_LABELS, FOOTER_CONTACT_LABELS, FOOTER_DISCLAIMER_LABELS, FOOTER_REPORT_ISSUES_LABELS, FOOTER_ARTICLES_AVAILABLE_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, BUILD_INFO_COMMIT_LABELS, BUILD_INFO_DEPLOYED_LABELS, HEADER_CTA_SPONSOR_LABELS, HEADER_CTA_BECOME_SPONSOR_LABELS, HEADER_CTA_SECURITY_LABELS, FOOTER_NEWS_LABELS, FOOTER_DASHBOARD_LABELS, FOOTER_ANALYSIS_REPORTS_LABELS, FOOTER_API_DOCS_LABELS, FOOTER_COMPANY_TAGLINE_LABELS, LANGUAGE_SELECTION_ARIA_LABELS, FOOTER_TRUST_BADGES_ARIA_LABELS, } from '../constants/languages.js';
 import { APP_VERSION, BUILD_ID, BUILD_SHORT, BUILD_TIME, createThemeToggleButton, } from '../constants/config.js';
 import { icon } from './icons.js';
 import { stripScriptBlocks, stripHtmlTags } from '../utils/html-sanitize.js';
@@ -274,8 +274,27 @@ export function buildSiteHeader(options) {
     const sponsorLabel = escapeHTML(getLocalizedString(HEADER_CTA_SPONSOR_LABELS, lang));
     const becomeSponsorLabel = escapeHTML(getLocalizedString(HEADER_CTA_BECOME_SPONSOR_LABELS, lang));
     const securityLabel = escapeHTML(getLocalizedString(HEADER_CTA_SECURITY_LABELS, lang));
+    const piLabel = escapeHTML(getLocalizedString(FOOTER_POLITICAL_INTELLIGENCE_LABELS, lang));
+    const langSelectionLabel = escapeHTML(getLocalizedString(LANGUAGE_SELECTION_ARIA_LABELS, lang));
     const safeTitle = escapeHTML(siteTitle);
+    const defaultPiHref = `${pathPrefix}${lang === 'en' ? 'political-intelligence.html' : `political-intelligence_${lang}.html`}`;
+    const rawPiHref = typeof options.politicalIntelligenceHref === 'string'
+        ? options.politicalIntelligenceHref
+        : defaultPiHref;
+    // Only allow same-origin relative URLs or https: scheme to prevent javascript:/data: injection.
+    // Reject protocol-relative URLs (//...) and backslash variants that browsers normalize to external navigation.
+    const isSafeHref = rawPiHref.length === 0 ||
+        (rawPiHref.startsWith('/') && !rawPiHref.startsWith('//') && rawPiHref[1] !== '\\') ||
+        rawPiHref.startsWith('./') ||
+        rawPiHref.startsWith('../') ||
+        rawPiHref.startsWith('https://') ||
+        (!rawPiHref.includes(':') && !rawPiHref.startsWith('//') && !rawPiHref.startsWith('\\'));
+    const piHref = isSafeHref ? rawPiHref : defaultPiHref;
     const cta = (extraClass, href, iconName, label) => `<a class="site-header__cta${extraClass ? ` ${extraClass}` : ''}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${label}" title="${label}">${icon(iconName)}<span class="site-header__cta-label">${label}</span></a>`;
+    // Internal CTA — same visual style but no target="_blank" since this is a same-site nav entry.
+    const piCta = piHref.length > 0
+        ? `<a class="site-header__cta site-header__cta--pi" href="${escapeHTML(piHref)}" aria-label="${piLabel}" title="${piLabel}">${icon('pi')}<span class="site-header__cta-label">${piLabel}</span></a>\n        `
+        : '';
     return `<header class="site-header" role="banner">
     <div class="site-header__inner site-header__inner--stacked">
       <a href="${escapeHTML(homeHref)}" class="site-header__brand" aria-label="${safeTitle}">
@@ -289,12 +308,12 @@ export function buildSiteHeader(options) {
         </span>
       </a>
       <div class="site-header__actions">
-        ${cta('site-header__cta--sponsor', 'https://github.com/sponsors/Hack23', 'heart', sponsorLabel)}
+        ${piCta}${cta('site-header__cta--sponsor', 'https://github.com/sponsors/Hack23', 'heart', sponsorLabel)}
         ${cta('', 'https://www.hack23.com', 'sponsor', becomeSponsorLabel)}
         ${cta('site-header__cta--security', 'https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md', ICON_SECURITY, securityLabel)}
         ${createThemeToggleButton(themeToggleLabel)}
       </div>
-      <nav class="site-header__langs" role="navigation" aria-label="Language selection">
+      <nav class="site-header__langs" role="navigation" aria-label="${langSelectionLabel}">
         ${languageSwitcherHtml}
       </nav>
     </div>
@@ -420,7 +439,7 @@ export function buildSiteFooter(options) {
       </div>
       <div class="footer-section">
         <h3>${builtByHeading}</h3>
-        <div class="footer-badges" aria-label="Project trust badges">
+        <div class="footer-badges" aria-label="${escapeHTML(getLocalizedString(FOOTER_TRUST_BADGES_ARIA_LABELS, lang))}">
           <a href="https://www.npmjs.com/package/euparliamentmonitor" aria-label="npm package version"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
           <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor" aria-label="OpenSSF Scorecard"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
           <a href="https://www.bestpractices.dev/projects/12068" aria-label="OpenSSF Best Practices"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"></a>
@@ -430,6 +449,12 @@ export function buildSiteFooter(options) {
           <li><a href="https://hack23.com" target="_blank" rel="noopener noreferrer">${icon('external')}<span>Hack23.com</span></a></li>
           <li><a href="https://github.com/sponsors/Hack23" target="_blank" rel="noopener noreferrer">${icon('heart')}<span>Sponsor Hack23 on GitHub</span></a></li>
           <li><a href="https://www.linkedin.com/company/hack23" target="_blank" rel="noopener noreferrer">${icon('linkedin')}<span>${linkedinLabel}</span></a></li>
+          <li><a href="https://github.com/Hack23/cia" target="_blank" rel="noopener noreferrer">${icon('github')}<span>Citizen Intelligence Agency</span></a></li>
+          <li><a href="https://github.com/Hack23/riksdagsmonitor" target="_blank" rel="noopener noreferrer">${icon('github')}<span>Riksdagsmonitor</span></a></li>
+          <li><a href="https://github.com/Hack23/European-Parliament-MCP-Server" target="_blank" rel="noopener noreferrer">${icon('github')}<span>European Parliament MCP Server</span></a></li>
+          <li><a href="https://github.com/Hack23/cia-compliance-manager" target="_blank" rel="noopener noreferrer">${icon('github')}<span>CIA Compliance Manager</span></a></li>
+          <li><a href="https://github.com/Hack23/homepage" target="_blank" rel="noopener noreferrer">${icon('github')}<span>Hack23 Homepage</span></a></li>
+          <li><a href="https://github.com/Hack23/blacktrigram" target="_blank" rel="noopener noreferrer">${icon('github')}<span>Black Trigram</span></a></li>
           <li><a href="https://github.com/Hack23/ISMS-PUBLIC" target="_blank" rel="noopener noreferrer">${icon(ICON_SECURITY)}<span>Public ISMS</span></a></li>
           <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md" target="_blank" rel="noopener noreferrer">${icon(ICON_SECURITY)}<span>${securityLabel}</span></a></li>
           <li><a href="https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md" target="_blank" rel="noopener noreferrer">${icon(ICON_SECURITY)}<span>Secure Development Policy</span></a></li>
