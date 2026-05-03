@@ -37,7 +37,7 @@ permissions:
 #      (ghcr.io/github/gh-aw-mcpg:v0.3.1, shipped with gh-aw v0.71.3)
 #      currently rejects `engine.mcp.session-timeout` (schema bug — the
 #      field is advertised by the v0.71.3 compiler but absent from the
-#      gateway schema), so we do not set it here. The `sandbox.mcp.keepalive-interval: 300` ping keeps backends warm. See
+#      gateway schema), so we do not set it here. See
 #      `.github/prompts/02-analysis-protocol.md` §3 for stage budgets.
 timeout-minutes: 60
 
@@ -48,16 +48,6 @@ sandbox:
   agent: awf
   mcp:
     port: 8080
-    # `keepalive-interval` (seconds) for HTTP MCP backends — see upstream
-    # reference/mcp-gateway.md §4.1.3.5. Gateway default is 1500 (25 min);
-    # we override to 300 so the gateway pings each backend (european-parliament,
-    # world-bank, memory, sequential-thinking) every 5 minutes. This keeps
-    # backend HTTP sessions warm during the 60-minute Stage B/C/D window
-    # without triggering EP-side rate limits. Setting to -1 would disable
-    # pings; 0/unset would silently default to 1500 — both unsafe for
-    # long-running news runs that can idle on MCP for 10+ minutes during
-    # Stage B Pass 2 prose review.
-    keepalive-interval: 300
 
 imports:
   - .github/agents/news-generation.agent.md
@@ -275,7 +265,7 @@ prose pass.
 | Stage D budget | ≤ 2 min (deterministic) |
 | Stage E budget (commit + single PR) | ≤ 2 min |
 | **Stage C exit tripwire** | **minute 38 elapsed** (standard: 36; long-horizon prospective: 39; long-horizon retrospective: 38; electoral: 42) — the **decision threshold** for forcing `GATE_RESULT=ANALYSIS_ONLY` and (if late) skipping Stage D so the run can still reach the PR call. Per-slug stage ceilings live in `src/config/article-horizons.ts`; the tripwire backstops any per-stage overrun. **Note:** Stage D + E run *after* this tripwire, between the Stage C exit and the PR-call deadline. |
-| **Hard PR-call deadline** | **minute ≤ 45 elapsed** (target ≤ 42) — deadline for the single safe-outputs `create_pull_request` call. The `sandbox.mcp.keepalive-interval: 300` setting pings backends every 5 minutes to prevent idle session expiry. Note: `engine.mcp.session-timeout` is intentionally NOT set — gh-aw v0.71.3 advertises this field but the bundled gateway image (v0.3.1) rejects it; the agent must finish within the 60-min `timeout-minutes` cap regardless. |
+| **Hard PR-call deadline** | **minute ≤ 45 elapsed** (target ≤ 42) — deadline for the single safe-outputs `create_pull_request` call. Note: `engine.mcp.session-timeout` is intentionally NOT set — gh-aw v0.71.3 advertises this field but the bundled gateway image (v0.3.1) rejects it; the agent must finish within the 60-min `timeout-minutes` cap regardless. |
 | Hard safety cap | 60-min `timeout-minutes` |
 | PR rule | **Exactly one** `[news]` PR at end of run |
 
@@ -285,7 +275,7 @@ prose pass.
 > rejects it (`additionalProperties 'sessionTimeout' not
 > allowed`, run #25275823699 fingerprint). The MCP gateway uses
 > the upstream default session lifetime; the workflow's
-> `sandbox.mcp.keepalive-interval: 300` pings backends every 5
+> The MCP gateway pings backends at the upstream default interval every
 > minutes so EP / IMF / world-bank / memory sessions stay warm
 > across the 60-min run. The Stage C exit tripwire still fires
 > at the slug-specific elapsed-minute mark in
