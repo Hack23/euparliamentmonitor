@@ -207,8 +207,7 @@ export function buildArticleToc(entries: readonly ArticleTocEntry[], lang: Langu
 export function wrapArticleHtml(options: WrapArticleOptions): string {
   const safeLang = ALL_LANGUAGES.includes(options.lang) ? options.lang : ('en' as LanguageCode);
   const dir = getTextDirection(safeLang);
-  const siteTitle =
-    getLocalizedString(PAGE_TITLES, safeLang).split(' - ')[0] ?? SITE_NAME;
+  const siteTitle = getLocalizedString(PAGE_TITLES, safeLang).split(' - ')[0] ?? SITE_NAME;
   const skipLinkText = getLocalizedString(SKIP_LINK_TEXTS, safeLang);
   const canonicalUrl = `${BASE_URL}/news/${getArticleFilename(options.articleSlug, safeLang)}`;
   const indexHref = safeLang === 'en' ? '../index.html' : `../index-${safeLang}.html`;
