@@ -24,7 +24,7 @@ This directory holds **illustrative "good output" excerpts** that show what an E
 
 1. **Read once at the start of a Stage-B writing session** — they re-anchor the agent on what "good" looks like before Pass 1 begins.
 2. **Diff against your draft during Pass 2** — if the example shows three indicators per scenario and your draft has one, you have a Pass-2 task.
-3. **Do not copy verbatim** — every artifact in `analysis/daily/<date>/<slug>/` must use **fresh** evidence sourced via the European Parliament MCP, IMF, and (for non-economic indicators only) World Bank tools.
+3. **Do not copy verbatim** — every artifact in `analysis/daily/<date>/<slug>/` must use **fresh** evidence sourced via the European Parliament MCP tools. Economic-context claims additionally require IMF data (primary) and, for non-economic indicators, World Bank data where relevant. Not every artifact type uses IMF or World Bank sources.
 
 ## Anti-patterns these examples deliberately reject
 
@@ -32,7 +32,7 @@ This directory holds **illustrative "good output" excerpts** that show what an E
 - **Soft language** — phrases like "could potentially", "may possibly", "broadly speaking" are replaced with WEP bands ("Likely", "Roughly even chance") and explicit confidence levels (High / Moderate / Low).
 - **Unnamed actors** — every stake, every coalition pair, every threat names the specific MEP, group, committee, or DG involved.
 - **Dateless triggers** — every monitoring trigger and indicator has a calendar date or named procedural milestone.
-- **Single-source claims** — every probability claim cites at least two corroborating sources, graded on the Admiralty scale where external.
+- **Unsupported probability claims** — probability estimates that are not grounded in cited evidence (vote arithmetic, committee records, coalition math) and not expressed with a WEP band. Single-source scoring is permitted where only one MCP data source is available, provided the source is cited and the confidence label is set to Low or Moderate accordingly.
 
 ## Adding a new example
 

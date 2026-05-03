@@ -47,7 +47,7 @@
 
 ### Scenario B — Adoption fails on Greens-Patriots blocking minority
 
-- **Probability:** 30% — `Roughly even chance (35–55%)` over 14 days, weighted toward the lower end.
+- **Probability:** 30% — `Unlikely (20–45%)` over 14 days, weighted toward the lower end.
 - **Confidence in scoring:** Moderate.
 - **Narrative (≥150 words).** The principal off-ramp: Greens shadow Reintke escalates dissatisfaction on Article 12.4 between 2026-04-12 and 2026-04-19 because the S&D shadow's concession is judged inadequate, prompting the Greens group to whip for "vote against" on Article 12.4 with a free vote on the rest. Patriots and ECR exploit the opening to whip for "vote against" on the file as a whole, citing the Hungarian Council reservation as a procedural rationale. Renew, finding itself the swing group, pivots to abstention rather than back-fill the deficit, citing whip-line conflict. The vote on 2026-04-23 fails to reach 361 in favour by `~22 votes *illustrative*` and the file is referred back to ITRE for re-drafting, slipping the Council mandate window past the Belgian Presidency end-date of 2026-06-30.
 - **Early-warning indicators (≥3, dated).**

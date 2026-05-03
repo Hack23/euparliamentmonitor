@@ -120,9 +120,10 @@ describe('analysis/methodologies — three-way drift-guard', () => {
   it('catalog parser found the expected number of artifact rows', () => {
     // The catalog currently declares ~56 artifact rows across its sections
     // (27 intelligence + 4 classification + 4 risk + 5 threat + 1 documents
-    // + 2 existing + 13 extended). A broken parser that skips an entire
-    // section must fail this check.
-    expect(rows.length).toBeGreaterThanOrEqual(50);
+    // + 2 existing + 13 extended). The floor is set at 54 so a broken parser
+    // that silently drops any single section (the smallest has 4 rows) still
+    // fails this assertion.
+    expect(rows.length).toBeGreaterThanOrEqual(54);
   });
 
   it('every catalog template link resolves to a real file in analysis/templates/', () => {
