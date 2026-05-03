@@ -27,6 +27,7 @@ import {
   getArtifactInfo,
   getRunTypeInfo,
 } from '../../scripts/generators/political-intelligence-descriptions.js';
+import { getPoliticalIntelligenceSeo } from '../../scripts/generators/seo-copy.js';
 import { createTempDir, cleanupTempDir } from '../helpers/test-utils.js';
 
 describe('political-intelligence generator', () => {
@@ -197,6 +198,7 @@ describe('political-intelligence generator', () => {
     it('renders a complete HTML document with canonical, hreflang alternates, JSON-LD and footer cross-links', () => {
       const data = collectPoliticalIntelligenceData(tempDir);
       const html = generatePoliticalIntelligenceHTML('sv', data);
+      const seo = getPoliticalIntelligenceSeo('sv');
 
       // Baseline structure
       expect(html.startsWith('<!DOCTYPE html>')).toBe(true);
@@ -216,6 +218,12 @@ describe('political-intelligence generator', () => {
       expect(html).toContain('<script type="application/ld+json">');
       expect(html).toContain('"@type":"CollectionPage"');
       expect(html).toContain('"@type":"BreadcrumbList"');
+      expect(html).toContain(
+        `"@type":"ListItem","position":1,"name":"${seo.breadcrumbHome}","item":"https://euparliamentmonitor.com/index-sv.html"`
+      );
+      expect(html).toContain(
+        `<nav class="breadcrumb" aria-label="${seo.breadcrumbAriaLabel}">`
+      );
       expect(html).toContain('"@type":"FAQPage","inLanguage":"en"');
 
       // SEO open-graph / twitter
@@ -262,7 +270,9 @@ describe('political-intelligence generator', () => {
       expect(html).toContain('<meta name="author" content="Hack23 AB">');
       expect(html).toContain('<meta name="publisher" content="Hack23 AB">');
       expect(html).toContain('og:image:alt');
+      expect(html).toContain(`<meta property="og:image:alt" content="${seo.ogImageAlt}">`);
       expect(html).toContain('<meta name="twitter:image"');
+      expect(html).toContain(`<meta name="twitter:image:alt" content="${seo.ogImageAlt}">`);
       expect(html).toContain('<meta http-equiv="Content-Language" content="sv">');
       // SEO: per-language keywords (Swedish page must ship Swedish terms,
       // not a hard-coded English list). This is the fix that replaces the

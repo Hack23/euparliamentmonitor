@@ -300,8 +300,13 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
         breadcrumb: {
             '@type': 'BreadcrumbList',
             itemListElement: [
-                { '@type': 'ListItem', position: 1, name: copy.home, item: `${BASE_URL}/${indexHref}` },
-                { '@type': 'ListItem', position: 2, name: copy.breadcrumbCurrent, item: canonicalUrl },
+                {
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: seo.breadcrumbHome,
+                    item: `${BASE_URL}/${indexHref}`,
+                },
+                { '@type': 'ListItem', position: 2, name: seo.breadcrumbCurrent, item: canonicalUrl },
             ],
         },
         mainEntity: {
@@ -397,14 +402,14 @@ ${hreflangLinks}
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="${safeLang}">
   <meta property="og:image" content="${ogImage}">
-  <meta property="og:image:alt" content="${escapeHTML(copy.title)} — EU Parliament Monitor">
+  <meta property="og:image:alt" content="${escapeHTML(seo.ogImageAlt)}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHTML(copy.title)}">
   <meta name="twitter:description" content="${escapeHTML(description)}">
   <meta name="twitter:image" content="${ogImage}">
-  <meta name="twitter:image:alt" content="${escapeHTML(copy.title)} — EU Parliament Monitor">
+  <meta name="twitter:image:alt" content="${escapeHTML(seo.ogImageAlt)}">
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
@@ -458,11 +463,11 @@ ${buildHeadFreshnessTags('')}
       </dl>
     </section>
 
-    <nav class="breadcrumb" aria-label="${escapeHTML(copy.breadcrumbLabel)}">
+    <nav class="breadcrumb" aria-label="${escapeHTML(seo.breadcrumbAriaLabel)}">
       <ol>
-        <li><a href="${indexHref}">${escapeHTML(copy.home)}</a></li>
+        <li><a href="${indexHref}">${escapeHTML(seo.breadcrumbHome)}</a></li>
         <li><a href="${sitemapHref}">${escapeHTML(getLocalizedString(FOOTER_SITEMAP_LABELS, safeLang))}</a></li>
-        <li aria-current="page">${escapeHTML(copy.breadcrumbCurrent)}</li>
+        <li aria-current="page">${escapeHTML(seo.breadcrumbCurrent)}</li>
       </ol>
     </nav>
 ${sourceNote}
