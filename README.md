@@ -141,7 +141,7 @@ v1.2.20 for accessing real EU Parliament data via the Model Context Protocol.
 - **MCP Server Status**: ✅ Fully operational — 60+ EP data tools available
   (feeds, direct lookups, analytical tools, intelligence correlation)
 - **Agentic Workflows**: 15 unified gh-aw markdown workflows — 14 article types (`news-<type>.md`, Stages A → B → C → D → E in one session) + `news-translate.md` (14-language flush translation) — compiled with
-  `gh-aw v0.69.3` (pin in `.github/workflows/compile-agentic-workflows.yml`) to `.lock.yml` for automated news generation with AI-driven political
+  `gh-aw v0.71.3` (pin in `.github/workflows/compile-agentic-workflows.yml`) to `.lock.yml` for automated news generation with AI-driven political
   intelligence analysis. See [`.github/workflows/README.md`](.github/workflows/README.md).
 - **Analysis-Artifact-Driven Article Pipeline**: Agents author the full
   Stage-B analysis-artifact set (`analysis/daily/<date>/<slug>/`, 39
