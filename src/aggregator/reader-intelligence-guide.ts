@@ -44,7 +44,7 @@ export const READER_GUIDE_INTRO_LABELS: LanguageMap = {
   sv: 'Använd denna guide för att läsa artikeln som en politisk underrättelseprodukt snarare än en rå artefaktsamling. Högvärda läsarperspektiv visas först; teknisk härkomst finns tillgänglig i granskningsbilagorna.',
   da: 'Brug denne guide til at læse artiklen som et politisk efterretningsprodukt snarere end en rå artefaktsamling. Læserperspektiver med høj værdi vises først; teknisk oprindelse forbliver tilgængelig i revisionsbilagene.',
   no: 'Bruk denne guiden til å lese artikkelen som et politisk etterretningsprodukt i stedet for en rå artefaktsamling. Leserperspektiver med høy verdi vises først; teknisk opprinnelse er tilgjengelig i revisjonsvedleggene.',
-  fi: 'Käytä tätä opasta artikkelin lukemiseen poliittisena tiedustelutuotteena raa\'an artefaktikokoelman sijaan. Arvokkaita lukijanäkökulmia esitetään ensin; tekninen alkuperä on saatavilla tarkastusliitteissä.',
+  fi: "Käytä tätä opasta artikkelin lukemiseen poliittisena tiedustelutuotteena raa'an artefaktikokoelman sijaan. Arvokkaita lukijanäkökulmia esitetään ensin; tekninen alkuperä on saatavilla tarkastusliitteissä.",
   de: 'Nutzen Sie diesen Leitfaden, um den Artikel als politisches Nachrichtendienstprodukt statt als bloße Artefaktsammlung zu lesen. Hochwertige Leserperspektiven erscheinen zuerst; technische Herkunft bleibt in den Prüfanhängen verfügbar.',
   fr: "Utilisez ce guide pour lire l'article comme un produit de renseignement politique plutôt qu'un simple recueil d'artefacts. Les perspectives de lecture à haute valeur apparaissent en premier ; la provenance technique reste disponible dans les annexes d'audit.",
   es: 'Use esta guía para leer el artículo como un producto de inteligencia política en lugar de una colección de artefactos sin procesar. Las perspectivas de lectura de alto valor aparecen primero; la procedencia técnica permanece disponible en los apéndices de auditoría.',
@@ -118,6 +118,22 @@ interface GuideRowData {
   readonly value: LanguageMap;
 }
 
+/**
+ * Canonical ordered list of section IDs that appear in the Reader Intelligence
+ * Guide. Exported so `analysis-aggregator.ts` can drive its English Markdown
+ * guide from the same source of truth, avoiding drift between the two renderers.
+ */
+export const READER_GUIDE_SECTION_IDS: readonly string[] = [
+  'section-executive-brief',
+  'section-synthesis',
+  'section-significance',
+  'section-coalitions-voting',
+  'section-stakeholder-map',
+  'section-economic-context',
+  'section-scenarios',
+  'section-risk',
+] as const;
+
 const READER_GUIDE_ROWS: Readonly<Record<string, GuideRowData>> = {
   'section-executive-brief': {
     need: {
@@ -179,7 +195,7 @@ const READER_GUIDE_ROWS: Readonly<Record<string, GuideRowData>> = {
       de: 'die führende politische Lesart, die Fakten, Akteure, Risiken und Vertrauen verbindet',
       fr: 'la lecture politique principale qui relie faits, acteurs, risques et confiance',
       es: 'la lectura política principal que conecta hechos, actores, riesgos y confianza',
-      nl: 'de leidende politieke lezing die feiten, actoren, risico\'s en vertrouwen verbindt',
+      nl: "de leidende politieke lezing die feiten, actoren, risico's en vertrouwen verbindt",
       ar: 'القراءة السياسية الرائدة التي تربط الحقائق والفاعلين والمخاطر والثقة',
       he: 'הקריאה הפוליטית המובילה שמחברת עובדות, שחקנים, סיכונים ואמון',
       ja: '事実、アクター、リスク、信頼を結びつける主要な政治的解釈',
@@ -245,7 +261,7 @@ const READER_GUIDE_ROWS: Readonly<Record<string, GuideRowData>> = {
       no: 'politisk gruppetilpasning, avstemningsbevis og koalisjonstrykpunkter',
       fi: 'poliittisen ryhmän linjaus, äänestystodisteet ja koalition painepisteet',
       de: 'politische Gruppenausrichtung, Abstimmungsnachweise und Koalitionsdruckpunkte',
-      fr: "alignement des groupes politiques, preuves de vote et points de pression de la coalition",
+      fr: 'alignement des groupes politiques, preuves de vote et points de pression de la coalition',
       es: 'alineamiento de grupos políticos, evidencia de votación y puntos de presión de la coalición',
       nl: 'politieke groepsafstemming, stembewijzen en coalitiepressuurpunten',
       ar: 'توافق المجموعات السياسية وأدلة التصويت ونقاط ضغط التحالف',
@@ -279,7 +295,7 @@ const READER_GUIDE_ROWS: Readonly<Record<string, GuideRowData>> = {
       no: 'hvem som vinner, hvem som taper, og hvilke institusjoner eller borgere som merker politikkeffekten',
       fi: 'kuka voittaa, kuka häviää, ja mitkä instituutiot tai kansalaiset tuntevat politiikan vaikutuksen',
       de: 'wer gewinnt, wer verliert, und welche Institutionen oder Bürger die Politikwirkung spüren',
-      fr: 'qui gagne, qui perd, et quelles institutions ou citoyens ressentent l\'effet de la politique',
+      fr: "qui gagne, qui perd, et quelles institutions ou citoyens ressentent l'effet de la politique",
       es: 'quién gana, quién pierde, y qué instituciones o ciudadanos sienten el efecto de la política',
       nl: 'wie wint, wie verliest, en welke instellingen of burgers het beleidseffect voelen',
       ar: 'من يكسب، من يخسر، وأي مؤسسات أو مواطنين يشعرون بتأثير السياسة',
@@ -381,7 +397,7 @@ const READER_GUIDE_ROWS: Readonly<Record<string, GuideRowData>> = {
       no: 'politikk-, institusjons-, koalisjons-, kommunikasjons- og gjennomføringsrisikoregister',
       fi: 'politiikka-, instituutio-, koalitio-, viestintä- ja toteutusriskien rekisteri',
       de: 'Risikoverzeichnis für Politik, Institutionen, Koalitionen, Kommunikation und Umsetzung',
-      fr: "registre des risques politiques, institutionnels, de coalition, de communication et de mise en œuvre",
+      fr: 'registre des risques politiques, institutionnels, de coalition, de communication et de mise en œuvre',
       es: 'registro de riesgos políticos, institucionales, de coalición, de comunicación y de implementación',
       nl: 'risicoregister voor beleid, instellingen, coalities, communicatie en implementatie',
       ar: 'سجل مخاطر السياسات والمؤسسات والتحالفات والاتصالات والتنفيذ',
@@ -442,7 +458,8 @@ export function buildReaderIntelligenceGuideHtml(
 <p>${escapeHTML(intro)}</p>
 <div class="table-scroll" role="region" tabindex="0">
 <table>
-<thead><tr><th>${escapeHTML(colNeed)}</th><th>${escapeHTML(colValue)}</th><th>${escapeHTML(colSource)}</th></tr></thead>
+<caption class="sr-only">${escapeHTML(title)}</caption>
+<thead><tr><th scope="col">${escapeHTML(colNeed)}</th><th scope="col">${escapeHTML(colValue)}</th><th scope="col">${escapeHTML(colSource)}</th></tr></thead>
 <tbody>
 ${rows.join('\n')}
 </tbody>

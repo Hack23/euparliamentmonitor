@@ -15,6 +15,7 @@ import { ARTIFACT_SECTIONS, MANIFEST_SECTION_ID, MANIFEST_SECTION_TITLE, SUPPLEM
 import { cleanArtifact, githubBlobUrl } from './clean-artifact.js';
 import { treeUrl } from './infra/github-urls.js';
 import { flattenManifestFiles as _flattenManifestFiles, latestGateResult as _latestGateResult, resolveArticleType as _resolveArticleType, resolveRunId as _resolveRunId, } from './manifest/index.js';
+import { READER_GUIDE_SECTION_IDS } from './reader-intelligence-guide.js';
 /** Id of the generated reader guide section. */
 export const READER_GUIDE_SECTION_ID = 'reader-intelligence-guide';
 /** Display title of the generated reader guide section. */
@@ -258,8 +259,13 @@ export function renderAnalysisIndex(included, manifestRelPath) {
         '',
     ].join('\n');
 }
-/** Reader-guide copy for high-value intelligence sections. */
-const READER_GUIDE_VALUES = {
+/**
+ * English-only reader-guide copy for the Markdown guide embedded in the
+ * aggregated source document. Section membership is gated by
+ * `READER_GUIDE_SECTION_IDS` (imported from `reader-intelligence-guide.ts`)
+ * so both renderers stay in sync automatically.
+ */
+const READER_GUIDE_EN = {
     'section-executive-brief': {
         need: 'BLUF and editorial decisions',
         value: 'fast answer to what happened, why it matters, who is accountable, and the next dated trigger',
@@ -298,6 +304,10 @@ const READER_GUIDE_VALUES = {
  * artifact sections. It gives readers a Riksdagsmonitor-style navigation layer
  * without requiring agents to hand-author another artifact.
  *
+ * Section membership is checked against `READER_GUIDE_SECTION_IDS` (the
+ * canonical list shared with the HTML renderer in `reader-intelligence-guide.ts`)
+ * to prevent drift between the two renderers.
+ *
  * @param sections - Emitted section TOC entries, in document order
  * @param included - Included artifacts, used to name each section's source
  * @returns Markdown block containing the guide table
@@ -305,7 +315,10 @@ const READER_GUIDE_VALUES = {
 export function renderReaderIntelligenceGuide(sections, included) {
     const rows = sections
         .map((section) => {
-        const copy = Object.getOwnPropertyDescriptor(READER_GUIDE_VALUES, section.id)?.value;
+        // Guard: only include sections whose IDs are in the canonical list
+        if (!READER_GUIDE_SECTION_IDS.includes(section.id))
+            return '';
+        const copy = Object.getOwnPropertyDescriptor(READER_GUIDE_EN, section.id)?.value;
         if (!copy)
             return '';
         const source = included.find((artifact) => artifact.sectionId === section.id)?.runRelPath;

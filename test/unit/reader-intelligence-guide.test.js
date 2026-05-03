@@ -67,13 +67,15 @@ describe('reader-intelligence-guide', () => {
     it('renders translated introduction text for all 14 languages', () => {
       for (const lang of ALL_LANGUAGES) {
         const html = buildReaderIntelligenceGuideHtml(lang, sampleSections, sampleIncluded);
-        // The intro text is HTML-escaped, so check that the guide is non-empty
-        // and contains the <p> element (intro may have escaped characters)
-        expect(html).toContain('<p>');
-        // Check at least the first 20 chars of the intro are present (before any escaping issues)
-        const introStart = READER_GUIDE_INTRO_LABELS[lang].slice(0, 20);
-        // HTML escaping only affects &, <, >, ", ' — check partial match
-        expect(html.length).toBeGreaterThan(100);
+        // The intro text is HTML-escaped; apply the same escaping to compare correctly
+        const rawIntro = READER_GUIDE_INTRO_LABELS[lang];
+        const escapedIntro = rawIntro
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+        expect(html).toContain(`<p>${escapedIntro}</p>`);
       }
     });
 
@@ -129,6 +131,17 @@ describe('reader-intelligence-guide', () => {
       expect(html).toContain('class="table-scroll"');
       expect(html).toContain('role="region"');
       expect(html).toContain('tabindex="0"');
+    });
+
+    it('adds scope="col" to all table header cells for screen-reader nav', () => {
+      const html = buildReaderIntelligenceGuideHtml('en', sampleSections, sampleIncluded);
+      const thMatches = html.match(/<th scope="col">/g);
+      expect(thMatches).toHaveLength(3);
+    });
+
+    it('adds a sr-only <caption> that matches the guide title', () => {
+      const html = buildReaderIntelligenceGuideHtml('en', sampleSections, sampleIncluded);
+      expect(html).toContain('<caption class="sr-only">Reader Intelligence Guide</caption>');
     });
   });
 
