@@ -11,15 +11,15 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.2-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.3-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--03-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
   <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:**
-2026-04-20 (UTC) | **📦 Release:** v0.8.40  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20
+**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:**
+2026-05-03 (UTC) | **📦 Release:** v0.8.54  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03
 
 ---
 
@@ -176,7 +176,7 @@ architecture.
 - **TypeScript Source**: All source in `src/` written in TypeScript 6.0.3 (strict, ESM, `"type": "module"`), compiled via `tsc` — `rootDir: ./src`, `outDir: ./scripts`, `target: ES2025`, `module: NodeNext`
 - **Multi-Language Support**: Generates content in 14 languages (`en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh`), defined in `src/constants/language-core.ts::ALL_LANGUAGES`
 - **Article Types**: 8 production content types (`breaking`, `committee-reports`, `month-ahead`, `month-in-review`, `motions`, `propositions`, `week-ahead`, `week-in-review`) — each type is a slug, not a strategy module; the aggregator renders the same canonical artifact order for every type and per-type content differences are carried by the Stage-B artifacts themselves
-- **Agentic Workflows**: 15 unified gh-aw markdown workflows — 14 `news-<type>.md` article types (Stages A → B → C → D → E in one session, active-work budget 22–28 min before the single safe-outputs `create_pull_request` call, 60-min `timeout-minutes` cap, `engine.mcp.session-timeout: 65m`) + `news-translate.md` (14-language flush translation, exempt from the single-PR rule) — compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.69.0`)
+- **Agentic Workflows**: 15 unified gh-aw markdown workflows — 14 `news-<type>.md` article types (Stages A → B → C → D → E in one session, active-work budget 22–28 min before the single safe-outputs `create_pull_request` call, 60-min `timeout-minutes` cap, `engine.mcp.session-timeout: 65m`) + `news-translate.md` (14-language flush translation, exempt from the single-PR rule) — compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.71.3`)
 - **Analysis-Artifact-Driven Article Pipeline**: Agents author the full Stage-B artifact set under `analysis/daily/<date>/<slug>-run<NN>/` and commit it. The deterministic aggregator (`src/aggregator/**`, invoked via `npm run generate-article -- --run <analysis-run-dir>` for a single run or `npm run generate-article:all` for batch regen) walks `manifest.json`, cleans each artifact, and emits the final HTML with the shared site chrome (stacked header + embedded 14-language switcher + TOC sidebar + footer stats) and 14-language hreflang entries. There is no AI-authored HTML step, no strategies, no builders, no section-builders
 - **Economic Data (IMF-primary, Wave-4 strict default editorial)**: IMF REST is the **primary** source for every economic claim in `intelligence/economic-context.md`; World Bank MCP provides complementary non-economic context only. Enforcement is editorial at the Stage-C completeness review — the legacy runtime gates (`articlePolicyHasEconomicContext`, `articlePolicyHasIMFEconomicEvidence`, `isWave3IMFStrictEnabled`) in `src/utils/content-validator.ts` were purged in April-2026; the Stage-C reviewer applies the IMF-required-for-policy rule directly over the committed artifact
 - **Quality-Through-Artifact Principle**: Mandatory 2-pass iterative improvement during Stage B (~60% pass 1, ~40% pass 2); ≥ 80 words/SWOT item, ≥ 150 words/stakeholder perspective, ≥ 1 Mermaid or Chart.js visualisation per core artifact, 0 `[AI_ANALYSIS_REQUIRED]` sentinel markers in any committed file (enforced at Stage-C agent-side review against `reference-quality-thresholds.json`)
@@ -380,7 +380,7 @@ C4Container
 
 | 🧱 Container | ⚙️ Technology | 🎯 Purpose | 🔄 Data flow |
 |---|---|---|---|
-| 🤖 **gh-aw Orchestrator** | Claude Opus 4.7 + gh-aw v0.69.0+ | Runs 9 agentic workflows; produces analysis artifacts | Triggers via cron / manual; commits one PR per run |
+| 🤖 **gh-aw Orchestrator** | Claude Opus 4.7 + gh-aw v0.71.3 | Runs 15 agentic workflows (14 article + 1 translate); produces analysis artifacts | Triggers via cron / manual; commits one PR per article run |
 | 📚 **Prompt / Methodology / Template libraries** | Markdown + JSON | Bounded-context prompts (10), methodologies (17), templates (51) | Read by every agentic workflow at start-of-session |
 | 🧠 **Analysis Runs** | Markdown + JSON | Per-run intelligence tree under `analysis/daily/<date>/<type>/` | Written by Stage B agents; consumed by Stage C and aggregator |
 | 🟢 **Aggregator (5 modules)** | TypeScript | Reads `manifest.json` and Markdown artifacts; renders 14-language HTML deterministically | `npm run generate-article -- --run <dir>` |
@@ -672,7 +672,7 @@ Plus: `news-translate.md` (14-language translation helper, manual dispatch only)
 
 ### Agentic Workflows (gh-aw)
 
-All 15 news workflows are **markdown source files compiled to YAML** (`.md` → `.lock.yml`) via the GitHub Agentic Workflows CLI (`gh aw compile --validate`) with pinned `GH_AW_VERSION: v0.69.0` in `.github/workflows/compile-agentic-workflows.yml`. See [WORKFLOWS.md](WORKFLOWS.md) for the full surface.
+All 15 news workflows are **markdown source files compiled to YAML** (`.md` → `.lock.yml`) via the GitHub Agentic Workflows CLI (`gh aw compile --validate`) with pinned `GH_AW_VERSION: v0.71.3` in `.github/workflows/compile-agentic-workflows.yml`. See [WORKFLOWS.md](WORKFLOWS.md) for the full surface.
 
 **5-layer security model**:
 1. **AWF Squid firewall allowlist** — egress HTTP allowlist per workflow
@@ -725,7 +725,7 @@ All 15 news workflows are **markdown source files compiled to YAML** (`.md` → 
 | **TypeDoc** | 0.28.19 | 0.28.0 | N/A | Major within 60 days |
 | **european-parliament-mcp-server** | 1.2.13 (pinned) | 1.2.13 | Per upstream | Track releases; 1.2.11 (2026-04-20) fixes #377/#378 (fixed-window feeds, uniform unavailable envelope); 1.2.13 (2026-04-23) adds non-retryable UPSTREAM_404 for get_procedures, fixes search_documents envelope, enriches track_legislation timeline, improves get_procedures_feed error classification |
 | **worldbank-mcp** | 1.0.1 (optional) | 1.0.0 | Per upstream | Biannual WDI refresh cadence |
-| **gh-aw CLI** | v0.69.0 (pinned `GH_AW_VERSION`) | v0.69.0 | Per upstream | Workflow-level pin in `compile-agentic-workflows.yml` |
+| **gh-aw CLI** | v0.71.3 (pinned `GH_AW_VERSION`) | v0.71.3 | Per upstream | Workflow-level pin in `compile-agentic-workflows.yml` |
 
 ### Dependency Management
 
@@ -1646,7 +1646,7 @@ Non-functional requirements define system qualities that are not directly relate
 - **[Future Architecture](FUTURE_ARCHITECTURE.md)** - Architectural evolution
   roadmap
 - **[Data Model](DATA_MODEL.md)** - Data structures and EP/IMF/WB contracts
-- **[Workflows](WORKFLOWS.md)** - All 9 gh-aw + ~15 standard workflows, AI-First 2-pass enforcement
+- **[Workflows](WORKFLOWS.md)** - All 15 agentic + ~15 standard workflows, AI-First 2-pass enforcement
 - **[End-of-Life Strategy](End-of-Life-Strategy.md)** - Technology lifecycle & EOL planning
 - **[Flowcharts](FLOWCHART.md)** - Detailed process workflows
 - **[State Diagrams](STATEDIAGRAM.md)** - System state transitions
@@ -1654,14 +1654,22 @@ Non-functional requirements define system qualities that are not directly relate
 - **[SWOT Analysis](SWOT.md)** - Strategic analysis and positioning
 - **[README.md](README.md)** - Getting started guide and features overview
 
+### 🔗 Related ISMS-PUBLIC Policies
+
+- [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
+- [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
+- [Network Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Network_Security_Policy.md)
+- [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md)
+- [CLASSIFICATION](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md)
+
 ---
 
 <div class="architecture-footer">
 
 **Document Status:** Living Document  
-**Last Updated:** 2026-04-20  
-**Next Review:** 2026-07-20  
-**Project Release:** v0.8.40  
+**Last Updated:** 2026-05-03  
+**Next Review:** 2026-08-03  
+**Project Release:** v0.8.54  
 **Owner:** CEO
 
 This architecture documentation follows the [C4 model](https://c4model.com/)

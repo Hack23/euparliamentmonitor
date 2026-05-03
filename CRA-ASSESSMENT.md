@@ -16,8 +16,8 @@
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:** 2026-04-20 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20  
+**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:** 2026-05-03 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03  
 **🏛️ Process Reference:** [CRA Conformity Assessment Process](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md)
 
 ---
@@ -74,12 +74,12 @@ As a static site generating multi-language news articles from European Parliamen
 | 📋 **Attribute** | 📊 **Value** |
 |------------------|-------------|
 | **Product Name** | euparliamentmonitor (npm package + static site) |
-| **Version** | v0.8.40 (2026-04-20) |
+| **Version** | v0.8.54 (2026-05-03) |
 | **Repository** | [github.com/Hack23/euparliamentmonitor](https://github.com/Hack23/euparliamentmonitor) |
 | **Homepage** | [euparliamentmonitor.com](https://euparliamentmonitor.com) |
 | **Security Contact** | security@hack23.com |
 | **License** | Apache-2.0 |
-| **Purpose** | Multi-language European Parliament transparency platform — 1894 HTML articles / 14 languages / 8 article types / 18 gh-aw workflows (8 split-pair + generator + translator) / 3061+ tests / 52 test files |
+| **Purpose** | Multi-language European Parliament transparency platform — 1894+ HTML articles / 14 languages / 14 article types / 15 unified gh-aw workflows (14 `news-<type>.md` + `news-translate.md`) / 3061+ tests / 52 test files |
 | **Technology Stack** | Node.js 25, TypeScript 6.0.3, ESM, HTML5/CSS3, Vitest, Playwright |
 | **Deployment Model** | npm (provenance + SLSA L3), AWS S3 + CloudFront primary, GitHub Pages fallback |
 | **Data Sources** | European Parliament MCP Server 1.2.13 (public open data) |
@@ -294,7 +294,7 @@ Supplementary evidence map aligning each Annex I Part I essential cybersecurity 
 - **Attack surface minimization** ← static content only; no AI-authored HTML step (aggregator eliminates the template-prose-leak class of defects); AWF Squid firewall egress allowlist; Docker sandbox for agentic workflows
 - **Impact mitigation** ← OIDC federation (no long-lived keys on GitHub→AWS or GitHub→npm); `max-patch-size` caps; safe-outputs scoped to PR only
 - **Logging** ← JSONL agent stdio audit trail; AWS CloudTrail; GitHub audit log; CodeQL findings persisted as security alerts
-- **Remediation** ← Dependabot auto-PRs for vulnerable deps; pinned `GH_AW_VERSION=v0.69.0` with documented bump procedure; rollback via git revert (BCP Scenario 11)
+- **Remediation** ← Dependabot auto-PRs for vulnerable deps; pinned `GH_AW_VERSION=v0.71.3` with documented bump procedure; rollback via git revert (BCP Scenario 11)
 
 ### Part II: Vulnerability Handling Requirements
 
@@ -793,7 +793,7 @@ CRA assessment updated when changes constitute "substantial modification" under 
 **✅ Approved by:** James Pether Sörling, CEO  
 **📤 Distribution:** Public  
 **🏷️ Classification:** [![Confidentiality: Public](https://img.shields.io/badge/C-Public-lightgrey?style=flat-square&logo=shield&logoColor=black)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#confidentiality-levels) [![Integrity: Moderate](https://img.shields.io/badge/I-Moderate-yellow?style=flat-square&logo=check-circle&logoColor=black)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#integrity-levels) [![Availability: Standard](https://img.shields.io/badge/A-Standard-lightgreen?style=flat-square&logo=server&logoColor=white)](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CLASSIFICATION.md#availability-levels)  
-**📅 Effective Date:** 2026-04-20  
+**📅 Effective Date:** 2026-05-03  
 **🔄 CRA Alignment:** Self-assessment per CRA Module A — supports CRA Annex V technical documentation and Annex I essential requirements  
 **🏛️ ISMS Integration:** Comprehensive alignment with [Hack23 ISMS Public Framework](https://github.com/Hack23/ISMS-PUBLIC)  
 **🏛️ Process Reference:** [CRA Conformity Assessment Process](https://github.com/Hack23/ISMS-PUBLIC/blob/main/CRA_Conformity_Assessment_Process.md)  

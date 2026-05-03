@@ -16,7 +16,7 @@
   <a href="#"><img src="https://img.shields.io/badge/Review-Semi_Annual-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:** 2026-04-20 (UTC) | **🏷️ Platform Release:** v0.8.40  
+**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:** 2026-05-03 (UTC) | **🏷️ Platform Release:** v0.8.54  
 **🔄 Review Cycle:** Semi-Annual | **⏰ Next Review:** 2026-10-20
 
 ---
@@ -359,10 +359,10 @@ flowchart TD
 
 | 📋 **Aspect** | 📊 **Detail** |
 |---------------|--------------|
-| **Impact** | All 10 agentic news workflows blocked (breaking, weekly/monthly reviews, week/month-ahead, committee-reports, motions, propositions, article-generator multi-type, translate fan-out); deployment paused |
+| **Impact** | All 15 agentic news workflows blocked (breaking, week-ahead/in-review, month-ahead/in-review, quarter-ahead/in-review, year-ahead/in-review, term-outlook, election-cycle, committee-reports, motions, propositions, translate fan-out); deployment paused |
 | **Probability** | Low |
 | **Recovery** | Manual local runs possible via `npm run generate-news` + `npm run generate-news-indexes`; push generated artifacts directly to `main` for `deploy-s3.yml` to pick up when runners recover |
-| **Mitigation** | 10 agentic workflows compiled into deterministic `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.69.0`) — locally reproducible; static build fully scriptable |
+| **Mitigation** | 15 agentic workflows compiled into deterministic `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.71.3`) — locally reproducible; static build fully scriptable |
 
 ### Scenario 9: Copilot / Claude / Codex Quota Exhaustion
 
@@ -382,7 +382,7 @@ flowchart TD
 | **Recovery** | Activate GitHub Pages fallback per [`runbooks/github-pages-failover.md`](runbooks/github-pages-failover.md); repoint DNS CNAME if extended |
 | **Mitigation** | Static artifacts in `main` are host-agnostic; GitHub Pages deploy path preserved; identical content served |
 
-### Scenario 11: gh-aw Toolchain Break (v0.69.0 Incompatibility)
+### Scenario 11: gh-aw Toolchain Break (v0.71.3 Incompatibility)
 
 | 📋 **Aspect** | 📊 **Detail** |
 |---------------|--------------|
@@ -485,7 +485,7 @@ For **critical static-site availability (primary S3/CloudFront or GitHub Pages f
 | **World Bank MCP (`worldbank-mcp@1.0.1`)** | Biannual WDI data — **non-economic indicators** (health, education, social, environment, demographics, defence, agriculture, innovation, governance) | Medium | Article continues without WB cross-refs; non-economic claims relax to "data unavailable for current vintage" with explicit caveat | N/A (graceful degrade) |
 | **IMF REST (SDMX 3.0, native `IMFMCPClient`)** | WEO + FM forecasts (sole authoritative economic source) | High | Cached `cache/imf/*.json` reused on transient outage; if no cache and live IMF down, Stage-C blocks article (`imf-cache:missing`); `IMF_API_TIMEOUT_MS` configurable. | Defer article to next run |
 | **npm Registry**            | Dependency + Publish  | High            | GitHub Packages mirror; npm cache + `npm ci`; SLSA 3 attestations verifiable | 2 hours |
-| **gh-aw toolchain (v0.69.0)** | Agentic workflow compiler | High         | Pinned version; rollback via git; sibling repos as cross-reference | 4 hours |
+| **gh-aw toolchain (v0.71.3)** | Agentic workflow compiler | High         | Pinned version; rollback via git; sibling repos as cross-reference | 4 hours |
 | **GitHub Dependabot**       | Security Scanning     | Medium          | Manual `npm audit`; CodeQL          | Low priority |
 | **GitHub CodeQL**           | SAST Scanning         | Medium          | ESLint security plugin fallback    | Low priority |
 
@@ -696,6 +696,13 @@ gantt
 - [📦 End-of-Life Strategy](End-of-Life-Strategy.md) — Technology lifecycle
 - [💰 Financial Security Plan](FinancialSecurityPlan.md) — Cost analysis
 - [🎯 Threat Model](THREAT_MODEL.md) — STRIDE threat analysis
+
+### 🔗 Related ISMS-PUBLIC Policies
+
+- [Business Continuity Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Business_Continuity_Plan.md)
+- [Disaster Recovery Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Disaster_Recovery_Plan.md)
+- [Backup Recovery Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Backup_Recovery_Policy.md)
+- [Incident Response Plan](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Incident_Response_Plan.md)
 
 ---
 

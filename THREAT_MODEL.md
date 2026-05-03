@@ -11,15 +11,15 @@
 
 <p align="center">
   <a><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a><img src="https://img.shields.io/badge/Version-2.1-555?style=for-the-badge" alt="Version"/></a>
-  <a><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a><img src="https://img.shields.io/badge/Version-2.2-555?style=for-the-badge" alt="Version"/></a>
+  <a><img src="https://img.shields.io/badge/Effective-2026--05--03-success?style=for-the-badge" alt="Effective Date"/></a>
   <a><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
   <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 2.1 | **📅 Last Updated:**
-2026-04-20 (UTC)  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20  
+**📋 Document Owner:** CEO | **📄 Version:** 2.2 | **📅 Last Updated:**
+2026-05-03 (UTC)  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -409,7 +409,7 @@ Each row identifies the most-relevant threat IDs (current catalog T-001…T-028)
 | **TB-1** Reader↔CloudFront | — · TLS server cert | T-009 · integrity via Git-backed deploy | — · CloudFront + GitHub audit logs | — · no PII, public content | T-004 · CloudFront edge + failover | — · static content, no auth |
 | **TB-2** CloudFront↔S3 | T-011 · OAC signed requests | T-020 · S3 versioning + object lock | — · S3 access logs | — · private bucket, no listing | T-004 · S3 regional redundancy | — · least-privilege IAM |
 | **TB-3** Runner↔AWF↔Internet | T-007 · TLS pinning via allowlist | T-013, T-023 · schema validation + sanitize | — · JSONL stdio audit | T-010 · no secrets in egress | T-007, T-023 · OR-gate + fallback envelope | T-023 · Docker sandbox |
-| **TB-4** Container↔MCP | T-006 · localhost stdio only | T-023 · tool-list drift tests (IMF+WB) | — · JSONL stdio audit | — · local-only, no network | T-006 · MCP restart + fallback | T-024, T-028 · compile-gate + v0.69.0 pin |
+| **TB-4** Container↔MCP | T-006 · localhost stdio only | T-023 · tool-list drift tests (IMF+WB) | — · JSONL stdio audit | — · local-only, no network | T-006 · MCP restart + fallback | T-024, T-028 · compile-gate + v0.71.3 pin |
 | **TB-5** Container↔LLM | — · tenant-scoped tokens | T-021, T-022 · validator gate + 2-pass review | — · JSONL prompt/response log | T-010, T-021 · prompt-scrub + AWF | T-028 · engine-switch fallback | T-021, T-025 · safe-outputs + patch-size cap |
 | **TB-6** Maintainer↔GitHub | T-015 · 2FA + signed commits | T-005 · required reviews + branch protection | — · GitHub audit log | T-010 · GitHub secret scanning | — · GitHub SOC 2 | T-005, T-015 · CODEOWNERS |
 | **TB-7** Release↔npm | T-011 · OIDC subject claims | T-002, T-012 · provenance + gh-advisory gate | — · npm audit log | — · public package | T-019 · npm registry redundancy | T-026 · least-privilege publish scope |
@@ -866,7 +866,7 @@ Following [Hack23 AB Risk-Centric Threat Modeling](https://github.com/Hack23/ISM
 | **T-025** | Max-Patch-Size Bypass | 1 | 3 | 3 | 🟢 Low | Accept |
 | **T-026** | AWS / npm OIDC Policy Bypass | 1 | 4 | 4 | 🟡 Low-Medium | Monitor |
 | **T-027** | Translation Pipeline Weaponization | 2 | 4 | **8** | 🟠 **Medium** | Reduce |
-| **T-028** | gh-aw Toolchain Break (v0.69.0 pin) | 2 | 2 | 4 | 🟡 Low-Medium | Monitor |
+| **T-028** | gh-aw Toolchain Break (v0.71.3 pin) | 2 | 2 | 4 | 🟡 Low-Medium | Monitor |
 
 ### **🎯 Risk Distribution Summary**
 
@@ -1527,7 +1527,7 @@ already secured)
 
 **Existing Controls:**
 
-- ✅ `.github/workflows/compile-agentic-workflows.yml` validates `GH_AW_VERSION=v0.69.0` pin on every PR
+- ✅ `.github/workflows/compile-agentic-workflows.yml` validates `GH_AW_VERSION=v0.71.3` pin on every PR
 - ✅ Compile job is a required status check on `main` via branch protection
 - ✅ `.lock.yml` MUST match `{{#runtime-import}}` directive in the source `.md`
 - ✅ Branch protection prevents merge when compile check fails
@@ -1626,7 +1626,7 @@ already secured)
 
 ---
 
-### Threat T-028: gh-aw Toolchain Break (v0.69.0 pin)
+### Threat T-028: gh-aw Toolchain Break (v0.71.3 pin)
 
 | Attribute           | Value                                                              |
 | ------------------- | ------------------------------------------------------------------ |
@@ -1639,11 +1639,11 @@ already secured)
 | **Risk Score**      | Low-Medium (4/25)                                                  |
 | **Priority**        | P3                                                                 |
 
-**Description:** An upstream breaking change to gh-aw renders the compiled `.lock.yml` artifacts unexecutable (e.g., schema change, runtime-import signature change, executor removal), halting the 9 agentic workflows until recompile + manual bump.
+**Description:** An upstream breaking change to gh-aw renders the compiled `.lock.yml` artifacts unexecutable (e.g., schema change, runtime-import signature change, executor removal), halting the 15 agentic workflows (14 article + 1 translate) until recompile + manual bump.
 
 **Existing Controls:**
 
-- ✅ `GH_AW_VERSION: v0.69.0` pinned in `.github/workflows/compile-agentic-workflows.yml`
+- ✅ `GH_AW_VERSION: v0.71.3` pinned in `.github/workflows/compile-agentic-workflows.yml`
 - ✅ `actions-lock.json` tracked in VCS
 - ✅ BCP Scenario 11 documents git-revert rollback procedure if bump fails
 - ✅ Drift detection via CI compile job on every PR (catches incompatible bumps early)
@@ -2595,8 +2595,15 @@ requirements (5-strategy integration, ENISA TL 2024, Kill Chain, Quantitative Ri
 
 1. **Q3 2026:** Implement T-003, T-007, T-013 mitigations (automated fact-checking, API monitoring, cross-reference validation)
 2. **Q3 2026:** Advance to Maturity Level 3 (Democratic Analysis Excellence)
-3. **2026-07-20:** Conduct next quarterly threat model review
-4. **2027-04-20:** Annual comprehensive threat model update
+3. **2026-08-03:** Conduct next quarterly threat model review
+4. **2027-05-03:** Annual comprehensive threat model update
+
+### 🔗 Related ISMS-PUBLIC Policies
+
+- [Threat Modeling Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Threat_Modeling.md)
+- [Risk Assessment Methodology](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Risk_Assessment_Methodology.md)
+- [Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md)
+- [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
 
 ---
 

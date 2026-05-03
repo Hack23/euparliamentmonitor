@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.2-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.3-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--03-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:**
-2026-04-20 (UTC) | **🏷️ Platform Release:** v0.8.40  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20  
+**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:**
+2026-05-03 (UTC) | **🏷️ Platform Release:** v0.8.54  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -1465,9 +1465,14 @@ Per
 
 **Document Classification**: Public  
 **ISMS Compliance**: ISO 27001:2022, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA aligned  
-**Technology Stack**: Node.js 25, TypeScript 6.0.3, gh-aw v0.69.0, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.2.13, WB MCP 1.0.1, IMF REST SDMX 3.0  
+**Technology Stack**: Node.js 25, TypeScript 6.0.3, gh-aw v0.71.3, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.2.20, WB MCP 1.0.1, IMF REST SDMX 3.0  
 **Architecture Pattern**: Static Site Generator with Agentic AI-First Authoring and Zero Runtime Dependencies  
-**Review Status**: Active, next review 2026-07-20
+**Review Status**: Active, next review 2026-08-03
+
+### 🔗 Related ISMS-PUBLIC Policies
+
+- [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
+- [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
 
 ---
 

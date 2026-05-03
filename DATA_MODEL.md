@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.2-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.3-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--03-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:**
-2026-04-20 (UTC) | **📦 Release:** v0.8.40  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20
+**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:**
+2026-05-03 (UTC) | **📦 Release:** v0.8.54  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03
 
 ---
 
@@ -641,7 +641,7 @@ export interface AnalysisManifest {
   generatedAt: string;                  // ISO 8601 UTC
   sourceCommit: string;                 // Git SHA of source code
   epMcpVersion: "1.2.13";               // Pinned EP MCP Server version
-  ghAwVersion: "v0.69.0";               // Pinned gh-aw CLI
+  ghAwVersion: "v0.71.3";               // Pinned gh-aw CLI
   files: AnalysisRunFiles;              // Emitted artifact catalogue
   qualityReport: QualityReport;         // AI-First 2-pass metrics
   dataSourcesUsed: Array<"EP" | "WB" | "IMF">;
@@ -685,7 +685,7 @@ analysis/daily/2026-04-20/
 └── monthly-review/                     ← 28th of month only
 ```
 
-> **🚨 Isolation Rule**: Each workflow writes ONLY to its own `{article-type-slug}/` subdirectory. Cross-workflow overwrites are prohibited. The `ai-*.md` synthesis files at the date root aggregate across all workflows and are authored by the `news-weekly-review-analysis.md` / `news-monthly-review-analysis.md` workflows.
+> **🚨 Isolation Rule**: Each workflow writes ONLY to its own `{article-type-slug}-run<NN>/` subdirectory under `analysis/daily/<YYYY-MM-DD>/`. Cross-workflow overwrites are prohibited. The 14 unified `news-<type>.md` workflows each author their full Stage-B artifact set (39-template methodology) inside their own run directory; there is no shared cross-workflow synthesis step under the post-April-2026 aggregator pipeline (the legacy `news-weekly-review-analysis.md` / `news-monthly-review-analysis.md` aggregators were deleted in the migration).
 
 ---
 
@@ -1548,6 +1548,7 @@ timeline
 |---------|--------------|-------------|----------------|
 | **v1.0** | 2026-02-01 | Initial release, basic article generation | 1 (Main ER diagram) |
 | **v1.1** | 2026-03-19 | Multi-language support, MCP integration, ISMS alignment | 4 (MEP, MCP, Multi-language, Sitemap models) + 1 (EP data flow) |
+| **v1.3** | 2026-05-03 | Refresh for v0.8.54 + Look-Ahead epic completion: 14 article types (added `quarter-ahead`, `quarter-in-review`, `year-ahead`, `year-in-review`, `term-outlook`, `election-cycle`), 15 unified gh-aw workflows (14 `news-<type>.md` + `news-translate.md`), centralised horizon registry in `src/config/article-horizons.ts` (ADR-007), `ghAwVersion` pinned to `v0.71.3`, isolation rule restated for the post-aggregator pipeline | Schema unchanged — taxonomic refresh |
 | **v1.2** | 2026-04-20 | TypeScript type system coverage, FeedBaseOptions vs FixedWindowFeedOptions split (EP MCP v1.2.13), IMF/WB dual economic context, AnalysisManifest schema, 8 article types correctly enumerated, 14 languages from `language-core.ts::ALL_LANGUAGES`, `buildSiteFooter()` single source of truth, reference quality thresholds | Same set — content updates |
 | **v2.0** | 2026-Q4 (Planned) | Real-time updates, expanded intelligence types | TBD |
 
@@ -1733,9 +1734,16 @@ const sourceHash = crypto.createHash('sha256')
 - [European Parliament Open Data Portal](https://data.europarl.europa.eu)
 - [MCP Protocol Specification](https://modelcontextprotocol.io)
 
+### 🔗 Related ISMS-PUBLIC Policies
+
+- [Data Classification Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Data_Classification_Policy.md)
+- [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
+- [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
+- [Backup Recovery Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Backup_Recovery_Policy.md)
+
 ---
 
 **Document Status**: Active  
-**Last Updated**: 2026-04-20 (EU Parliament Monitor v0.8.40)  
-**Next Review**: 2026-07-20  
+**Last Updated**: 2026-05-03 (EU Parliament Monitor v0.8.54)  
+**Next Review**: 2026-08-03  
 **Owner**: Development Team, Hack23 AB

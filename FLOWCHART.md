@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.2-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.3-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--03-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:**
-2026-04-20 (UTC) | **🏷️ Platform Release:** v0.8.40  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20
+**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:**
+2026-05-03 (UTC) | **🏷️ Platform Release:** v0.8.54  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03
 
 ---
 
@@ -106,7 +106,7 @@ This document aligns with Hack23's Information Security Management System (ISMS)
 
 ## 🔐 News Generation Security Flow
 
-The end-to-end agentic news generation flow spans gh-aw runtime, Stage A→E protocol, AI-First 2-pass analysis, Stage-C completeness gate, and safe-output PR creation. The **9 news workflows** — 8 article-generating (`news-breaking`, `news-week-in-review`, `news-month-in-review`, `news-week-ahead`, `news-month-ahead`, `news-committee-reports`, `news-motions`, `news-propositions`) + the manual `news-translate` helper — all share this spine.
+The end-to-end agentic news generation flow spans gh-aw runtime, Stage A→E protocol, AI-First 2-pass analysis, Stage-C completeness gate, and safe-output PR creation. The **15 news workflows** — 14 article-generating (`news-breaking`, `news-week-ahead`, `news-week-in-review`, `news-month-ahead`, `news-month-in-review`, `news-quarter-ahead`, `news-quarter-in-review`, `news-year-ahead`, `news-year-in-review`, `news-term-outlook`, `news-election-cycle`, `news-committee-reports`, `news-motions`, `news-propositions`) + the manual `news-translate` helper — all share this spine. Per-slug stage budgets and the minute ≤ 45 PR call deadline are sourced from `src/config/article-horizons.ts` `stageBudgets`.
 
 ```mermaid
 flowchart TD
@@ -176,7 +176,7 @@ flowchart TD
     class SafeOutput,PR,Merge,Deploy outputNode
 ```
 
-> **Note — gh-aw compile is out-of-band:** The `.lock.yml` artifacts executed above are pre-compiled and committed to the repository. Compilation (`gh aw compile --validate` pinned to `GH_AW_VERSION: v0.69.0`) runs in the **separate `.github/workflows/compile-agentic-workflows.yml` workflow** (manual `workflow_dispatch` only) and is **not** part of any scheduled news-generation run. Scheduled news workflows invoke only the already-committed lock files; agent-authored `.md` edits require a dedicated compile PR before they take effect.
+> **Note — gh-aw compile is out-of-band:** The `.lock.yml` artifacts executed above are pre-compiled and committed to the repository. Compilation (`gh aw compile --validate` pinned to `GH_AW_VERSION: v0.71.3`) runs in the **separate `.github/workflows/compile-agentic-workflows.yml` workflow** (manual `workflow_dispatch` only) and is **not** part of any scheduled news-generation run. Scheduled news workflows invoke only the already-committed lock files; agent-authored `.md` edits require a dedicated compile PR before they take effect.
 
 **Workflow & Aggregator References:**
 - 🤖 Agentic `.md` sources: [`.github/workflows/news-*.md`](.github/workflows/)
@@ -1302,10 +1302,16 @@ flowchart TD
 - [Sigstore](https://www.sigstore.dev/) - Artifact signing
 - [SPDX](https://spdx.dev/) - Software bill of materials
 
+### 🔗 Related ISMS-PUBLIC Policies
+
+- [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
+- [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
+- [Vulnerability Management](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md)
+
 ---
 
 **Document Status**: Active  
-**Next Review**: 2026-07-20  
+**Next Review**: 2026-08-03  
 **Owner**: Development Team, Hack23 AB  
 **Classification**: Public  
-**Version**: 1.2
+**Version**: 1.3

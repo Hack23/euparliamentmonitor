@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.2-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.4-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--03-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:**
-2026-04-20 (UTC) | **🏷️ Platform Release:** v0.8.40  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-20  
+**📋 Document Owner:** CEO | **📄 Version:** 1.4 | **📅 Last Updated:**
+2026-05-03 (UTC) | **🏷️ Platform Release:** v0.8.54  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
 
@@ -112,7 +112,7 @@ capabilities.
 
 ```mermaid
 mindmap
-  root((EU Parliament<br/>Monitor v0.8.40))
+  root((EU Parliament<br/>Monitor v0.8.54))
     Mission
       Democratic Transparency
         Public Information
@@ -128,7 +128,7 @@ mindmap
         Cultural Adaptation
       AI-First Intelligence
         2-Pass Quality Gate
-        Agentic Workflows (gh-aw v0.69.0)
+        Agentic Workflows (gh-aw v0.71.3)
         AI Writes All Analysis
         Validator Gate Pre-Publish
 
@@ -387,7 +387,7 @@ Technology stack, infrastructure, and development practices.
 
 ```mermaid
 mindmap
-  root((Technical<br/>Architecture v0.8.40))
+  root((Technical<br/>Architecture v0.8.54))
     Runtime Environment
       Node.js 25
         ES Modules
@@ -468,7 +468,7 @@ mindmap
             setup-labels
             test-and-report
           gh aw compile --validate
-          GH_AW_VERSION v0.69.0 (pinned)
+          GH_AW_VERSION v0.71.3 (pinned)
         Hosting (fallback)
           GitHub Pages
           HTTPS/SSL
@@ -1203,7 +1203,7 @@ graph LR
 | **TypeScript**    | Version          | Latest stable   | ✅ 6.0.3         |
 | **Vitest**        | Version          | Latest stable   | ✅ 4.1.4         |
 | **Playwright**    | Version          | Latest stable   | ✅ 1.59.1        |
-| **gh-aw**         | Pinned runtime   | Known-good      | ✅ v0.69.0       |
+| **gh-aw**         | Pinned runtime   | Known-good      | ✅ v0.71.3       |
 | **EP MCP Server** | Version          | Latest release  | ✅ 1.2.13        |
 | **Dependencies**  | Vulnerabilities  | 0 critical/high | ✅ 0             |
 | **Test Coverage** | Tests / files    | 3,000+ / 50+    | ✅ 3,061+ / 52   |
@@ -1281,9 +1281,10 @@ graph TB
 
 | Version | Date       | Author | Changes                                                           |
 | ------- | ---------- | ------ | ----------------------------------------------------------------- |
+| 1.5     | 2026-05-03 | CEO    | Refresh for v0.8.54: gh-aw pin bumped to `v0.71.3`, EP MCP `1.2.20`, all metadata aligned with current `package.json` and `.github/workflows/compile-agentic-workflows.yml`; ISMS-PUBLIC policy footer added |
 | 1.4     | 2026-05-02 | CEO    | Look-Ahead epic refresh: 14 article types (added `quarter-ahead`, `year-ahead`, `term-outlook`, `election-cycle`, `quarter-in-review`, `year-in-review`), 15 unified gh-aw workflows (14 `news-<type>.md` + `news-translate.md`), centralised horizon registry in `src/config/article-horizons.ts` (ADR-007), 8 new analysis artifacts governed by `forward-projection-methodology.md` + `electoral-cycle-methodology.md` |
-| 1.3     | 2026-04-27 | CEO    | April-2026 aggregator-pipeline migration: 8 article types, 9 unified gh-aw workflows (8 `news-<type>.md` + `news-translate.md`), deterministic `src/aggregator/**` rendering (no per-type strategies), Stage-C agent-side completeness gate (no runtime `content-validator.ts`), EP MCP `v1.2.20+` (60+ tools, voting fallback to EP Open Data Portal), IMF SDMX 3.0 primary economic source, World Bank non-economic context, AWS S3 + CloudFront primary hosting, gh-aw `v0.69.0` pinned |
-| 1.2     | 2026-04-20 | CEO    | Refreshed for v0.8.40: 8 article types, 9 strategies (1 generic + 8 type-specific), 5-stage pipeline, 10 agentic + 14 infra workflows, dual economic data (EP MCP 1.2.13 + WB MCP 1.0.1 + IMF REST SDMX 3.0), AI-First quality gates, 3061+ tests, AWS S3 + CloudFront primary hosting, gh-aw v0.69.0 pinned |
+| 1.3     | 2026-04-27 | CEO    | April-2026 aggregator-pipeline migration: 8 article types, 9 unified gh-aw workflows (8 `news-<type>.md` + `news-translate.md`), deterministic `src/aggregator/**` rendering (no per-type strategies), Stage-C agent-side completeness gate (no runtime `content-validator.ts`), EP MCP `v1.2.20+` (60+ tools, voting fallback to EP Open Data Portal), IMF SDMX 3.0 primary economic source, World Bank non-economic context, AWS S3 + CloudFront primary hosting, gh-aw `v0.71.3` pinned |
+| 1.2     | 2026-04-20 | CEO    | Refreshed for v0.8.40: 8 article types, 9 strategies (1 generic + 8 type-specific), 5-stage pipeline, 10 agentic + 14 infra workflows, dual economic data (EP MCP 1.2.13 + WB MCP 1.0.1 + IMF REST SDMX 3.0), AI-First quality gates, 3061+ tests, AWS S3 + CloudFront primary hosting, gh-aw v0.71.3 pinned |
 | 1.1     | 2026-02-24 | CEO    | Updated review date and verified current state accuracy            |
 | 1.0     | 2025-02-17 | CEO    | Initial mindmap documentation with comprehensive conceptual views |
 
@@ -1293,9 +1294,14 @@ graph TB
 
 **Document Classification**: Public  
 **ISMS Compliance**: ISO 27001:2022, NIST CSF 2.0, CIS Controls v8.1, GDPR, NIS2, EU CRA aligned  
-**Technology Stack**: Node.js 25, TypeScript 6.0.3, Vitest 4.1.4, Playwright 1.59.1, gh-aw v0.69.0, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.2.13, WB MCP 1.0.1, IMF REST SDMX 3.0  
+
+### 🔗 Related ISMS-PUBLIC Policies
+
+- [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
+- [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
+**Technology Stack**: Node.js 25, TypeScript 6.0.3, Vitest 4.1.4, Playwright 1.59.1, gh-aw v0.71.3, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.2.20, WB MCP 1.0.1, IMF REST SDMX 3.0  
 **Architecture Pattern**: Static Site Generator with Agentic AI-First Authoring and Zero Runtime Dependencies  
-**Review Status**: Active, next review 2026-07-20
+**Review Status**: Active, next review 2026-08-03
 
 ---
 
