@@ -162,11 +162,11 @@ jobs:
           )
 
           # ─── Pass 1: HTML files (short cache, ~1hr) ───────────────────────
-          # --checksum instead of --size-only: HTML files are not fingerprinted
-          # and small edits often don't change file size, so we need content
-          # comparison to avoid serving stale pages after CloudFront invalidation.
+          # --checksum-algorithm SHA256 instead of --size-only: HTML files are not
+          # fingerprinted and small edits often don't change file size, so we need
+          # content comparison to avoid serving stale pages after CloudFront invalidation.
           aws s3 sync "$SRC" "$BUCKET" \
-            --checksum-mode ENABLED \
+            --checksum-algorithm SHA256 \
             --no-progress \
             --exclude '*' --include '*.html' \
             --cache-control 'public, max-age=3600, must-revalidate' \
@@ -195,10 +195,11 @@ jobs:
           echo "✅ Pass 2/6: Static assets synced"
 
           # ─── Pass 3: JSON metadata (medium cache, ~24hr) ──────────────────
-          # --checksum for correctness — articles-metadata.json and build-info.json
-          # are regenerated every deploy; content may change without size change.
+          # --checksum-algorithm SHA256 for correctness — articles-metadata.json and
+          # build-info.json are regenerated every deploy; content may change without
+          # size change.
           aws s3 sync "$SRC" "$BUCKET" \
-            --checksum-mode ENABLED \
+            --checksum-algorithm SHA256 \
             --no-progress \
             --exclude '*' --include '*.json' \
             --cache-control 'public, max-age=86400' \
@@ -209,7 +210,7 @@ jobs:
 
           # ─── Pass 4: XML sitemaps/RSS (medium cache, ~24hr) ─────────────────
           aws s3 sync "$SRC" "$BUCKET" \
-            --checksum-mode ENABLED \
+            --checksum-algorithm SHA256 \
             --no-progress \
             --exclude '*' --include '*.xml' \
             --cache-control 'public, max-age=86400' \
@@ -220,7 +221,7 @@ jobs:
 
           # ─── Pass 5: Plain text files (medium cache, ~24hr) ─────────────────
           aws s3 sync "$SRC" "$BUCKET" \
-            --checksum-mode ENABLED \
+            --checksum-algorithm SHA256 \
             --no-progress \
             --exclude '*' \
             --include '*.txt' --include '.nojekyll' \
@@ -234,7 +235,7 @@ jobs:
           # Separate pass to serve correct application/manifest+json content-type
           # required for PWA install prompts and browser manifest parsing.
           aws s3 sync "$SRC" "$BUCKET" \
-            --checksum-mode ENABLED \
+            --checksum-algorithm SHA256 \
             --no-progress \
             --exclude '*' --include '*.webmanifest' \
             --cache-control 'public, max-age=86400' \
