@@ -159,7 +159,7 @@ uniformly across all 9 article + translate workflows:
 |---|---|---|
 | Per-tool-call cap | `tools.timeout: 300` (5 min) | upstream `reference/tools.md` |
 | MCP server boot budget | `tools.startup-timeout: 90` | upstream `reference/tools.md` |
-| MCP gateway keepalive | `sandbox.mcp.keepalive-interval: 300` (overrides 1500 s default) | upstream `reference/mcp-gateway.md` §4.1.3.5 |
+| MCP gateway keepalive | upstream default (no override needed) | upstream `reference/mcp-gateway.md` §4.1.3.5 |
 | Cache memory (resume on failure) | `tools.cache-memory: { key: news-<type>-…, retention-days: 7 }` | upstream `reference/cache-memory.md` |
 | Repo memory (long-term) | `tools.repo-memory: memory/news-generation` | upstream `reference/repo-memory.md` |
 | Web fallback | `tools.web-fetch:` | upstream `reference/tools.md` |

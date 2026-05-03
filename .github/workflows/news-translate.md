@@ -46,12 +46,6 @@ sandbox:
   agent: awf
   mcp:
     port: 8080
-    # `keepalive-interval` (seconds) for HTTP MCP backends — see upstream
-    # reference/mcp-gateway.md §4.1.3.5. Gateway default is 1500 (25 min);
-    # we override to 300 so the gateway pings each backend every 5 minutes.
-    # This keeps backend HTTP sessions warm during the 60-minute multi-call
-    # flush window without triggering EP-side rate limits.
-    keepalive-interval: 300
 
 imports:
   - shared/mcp/news-mcp-servers.md
@@ -214,7 +208,7 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 >
 > This means interim `git commit` usage does **not** make changes disappear from safeoutputs by itself: committed-since-base changes are still included in the next successful snapshot. The real risk is waiting too long between successful calls, because the PR only contains whatever was captured by the **latest** successful snapshot. Note also that a subsequent `git reset` (e.g. `git reset --mixed`) can remove commits from future snapshots — so if you ever commit, always **flush first, reset second**.
 >
-> MCP gateway keepalive is enabled in frontmatter (`sandbox.mcp.keepalive-interval: 300`) to prevent idle session expiry during long runs — the gateway pings each backend every 5 minutes so safeoutputs stays warm. Combined with `safe-outputs.create-pull-request.max: 10` (the gh-aw schema maximum), you can safely do up to 10 flushes per run within the 60-minute `timeout-minutes` cap. (`engine.mcp.session-timeout` is intentionally NOT set — gh-aw v0.71.3 advertises the field but the bundled gateway image v0.3.1 rejects it, see workflow comment.)
+> The MCP gateway uses its upstream default ping interval to prevent idle session expiry during long runs — it pings each backend periodically so safeoutputs stays warm. Combined with `safe-outputs.create-pull-request.max: 10` (the gh-aw schema maximum), you can safely do up to 10 flushes per run within the 60-minute `timeout-minutes` cap. (`engine.mcp.session-timeout` is intentionally NOT set — gh-aw v0.71.3 advertises the field but the bundled gateway image v0.3.1 rejects it, see workflow comment.)
 
 ## 🚫 NEVER CREATE A ZERO-TRANSLATION PR (PRIMARY CONTRACT)
 
@@ -223,7 +217,7 @@ You are the **Translation Agent**. Your ONLY job: take existing English articles
 Mandatory ordering contract:
 
 1. **NEVER call `safeoutputs___create_pull_request` before at least one translated HTML file exists under `news/`**. An empty `summary.md` placeholder is NOT a translation and NOT enough. If the agent dies before producing any translations, no PR should be opened — that is the correct, resource-conserving outcome.
-2. **First productive flush (safeoutputs call #1)**: happens only after **≥3 non-English HTML files** in `news/` are fully translated and HTMLHint-clean. With the MCP keepalive this typically lands at minute 12–18. This is both the initial PR creation AND the first data checkpoint — one call, real value, no empty placeholder.
+2. **First productive flush (safeoutputs call #1)**: happens only after **≥3 non-English HTML files** in `news/` are fully translated and HTMLHint-clean. This typically lands at minute 12–18. This is both the initial PR creation AND the first data checkpoint — one call, real value, no empty placeholder.
 3. **Subsequent flushes (calls #2 … #N)**: after every additional **3 completed translations** — flush at counts 6, 9, 12 for a single-article run. Each call snapshots new files into the same PR (same branch → same PR) and refreshes the session timer.
 4. **Final flush (call ≤ max:10)**: at end of Step 5 with the quality-scored title/body. This call carries at most 1–2 files not yet flushed plus the finalised summary.
 
@@ -231,7 +225,7 @@ Mandatory ordering contract:
 > - **No wasted AI spend**: if the run dies before translation #1 completes, no PR is opened, no reviewer is paged, no branch is leased, no 14-day expiry timer starts.
 > - **No zero-translation PRs**: the very first PR snapshot already contains ≥3 real translations.
 > - **Bounded data loss**: at any flush failure after the first, at most 2 translated files are in the unflushed window.
-> - **Session safety**: `sandbox.mcp.keepalive-interval: 300` keeps the MCP session alive during the ~20-minute pre-flush translation window — you do NOT need an empty placeholder call at minute 2 to "warm up" the session.
+> - **Session safety**: The MCP gateway default ping interval keeps the session alive during the ~20-minute pre-flush translation window — you do NOT need an empty placeholder call at minute 2 to "warm up" the session.
 
 ## 🔁 Execution Order
 
@@ -244,7 +238,7 @@ Mandatory ordering contract:
 
 > **Past failures — re-diagnosed**:
 > - Run #107: only called safeoutputs at the end → 13 lost. **Root cause**: single-call anti-pattern, solved by periodic flushes.
-> - Runs #126, #128, #131: called safeoutputs at min 2 with placeholder, then session expired → 13–21 lost + empty PRs left behind. **Root cause**: empty-baseline first-call wasted the call; keepalive + deferred-first-call prevents both.
+> - Runs #126, #128, #131: called safeoutputs at min 2 with placeholder, then session expired → 13–21 lost + empty PRs left behind. **Root cause**: empty-baseline first-call wasted the call; the deferred-first-call pattern prevents both.
 > - Run #188 (PR #1346): called safeoutputs 6× but `max:1` default rejected 5/6 → 13 lost + empty PR left behind. **Root cause**: two separate bugs — `max:1` default (fixed in previous commit, now `max:10`), and the "empty baseline" anti-pattern (fixed in this commit).
 
 > **📚 Reference**: [README.md](../prompts/README.md) for EP MCP tools and safe outputs.
@@ -253,12 +247,12 @@ Mandatory ordering contract:
 ## 🔁 MCP Gateway Keepalive + Flush Policy (NON-NEGOTIABLE)
 
 > **⚠️ CRITICAL**: Session reliability is now handled at workflow level with
-> `sandbox.mcp.keepalive-interval: 300`. Do **not** use
+> the MCP gateway default ping interval. Do **not** use
 > `safeoutputs___push_repo_memory` heartbeat patterns.
 
 **Mandatory policy (60-minute budget):**
 - **Do NOT call `safeoutputs___create_pull_request` before at least 3 translated HTML files are on disk and lint-clean.** Placeholder baselines create empty PRs (PR #1346).
-- First productive flush = minute ~12–18 (after the first 3 translations). Subsequent flushes every 3 completed files. Final flush at end of Step 5 with the quality-scored title/body — must complete by minute ≤ 45 of the 60-min `timeout-minutes` cap. The MCP gateway uses upstream default session lifetime (`engine.mcp.session-timeout` is not set — gh-aw v0.71.3 / gateway-v0.3.1 schema bug); `sandbox.mcp.keepalive-interval: 300` keeps backends pinged every 5 min throughout the run.
+- First productive flush = minute ~12–18 (after the first 3 translations). Subsequent flushes every 3 completed files. Final flush at end of Step 5 with the quality-scored title/body — must complete by minute ≤ 45 of the 60-min `timeout-minutes` cap. The MCP gateway uses upstream default session lifetime (`engine.mcp.session-timeout` is not set — gh-aw v0.71.3 / gateway-v0.3.1 schema bug); the MCP gateway default ping interval keeps backends active throughout the run.
 - Budget: ~5 calls for a single-article 13-language run (flushes #1–#5: first at 3 files, then at 6/9/12, then final at 13) — well below the `safe-outputs.create-pull-request.max: 10` schema cap.
 - Do not introduce extra heartbeat-only tool calls between flushes. Keepalive is already configured.
 - If any `safeoutputs___create_pull_request` call returns `"session not found"`,
@@ -392,7 +386,7 @@ sv (Swedish), da (Danish), no (Norwegian), fi (Finnish), de (German), fr (French
 - Files failing these checks are **automatically REMOVED** from the PR and the agent is told to re-translate them
 - Per-language quality scores are included in the PR description and analysis summary
 
-## ⏱️ Time Budget (60 minutes — hard cap; `sandbox.mcp.keepalive-interval: 300` keeps MCP backends warm)
+## ⏱️ Time Budget (60 minutes — hard cap)
 
 | Minutes | Action |
 |---------|--------|
@@ -403,7 +397,7 @@ sv (Swedish), da (Danish), no (Norwegian), fi (Finnish), de (German), fr (French
 | 14–40 | **AI TRANSLATION continues** (files 4–N). **Flush safeoutputs after every additional 3 files** — calls #2, #3, #4 at completion counts 6, 9, 12. Each flush refreshes the safeoutputs session timer. |
 | 40–43 | Validate translations (Step 4) — reject untranslated copies |
 | 43–44 | **Write quality-scored summary** (Step 4c) — MANDATORY, no placeholders |
-| 44–45 | **Final `safeoutputs___create_pull_request`** with quality scores (Step 5). MUST land by minute ≤ 45 of the 60-min `timeout-minutes` cap. The MCP gateway uses upstream default session lifetime; `sandbox.mcp.keepalive-interval: 300` keeps backends pinged across the run. |
+| 44–45 | **Final `safeoutputs___create_pull_request`** with quality scores (Step 5). MUST land by minute ≤ 45 of the 60-min `timeout-minutes` cap. The MCP gateway uses upstream default session lifetime and ping interval. |
 | 45–60 | Buffer for retry, npm steps, git push and graceful exit |
 
 > **Per-run article-type scope**: One article type per run only. A 60-minute budget covers all 13 target languages comfortably depending on article length. If `article_types` input names multiple types, run them in separate workflow invocations rather than chaining them in a single run.
@@ -539,7 +533,7 @@ safeoutputs___create_pull_request({
 
 > **If this first call returns `"No changes to commit - no commits found"`**: something went wrong in Step 3b — verify that the translated HTML files actually exist and differ from the English source. Do NOT fall back to a placeholder baseline just to make the call succeed. Fix the underlying translation or let the run end PR-less.
 >
-> **If this first call returns `"session not found"`**: the MCP session expired during translation. This should be extremely rare given `sandbox.mcp.keepalive-interval: 300`. If it happens, write a short note to `${ANALYSIS_DIR}/summary.md` and end the run — the next manual run will pick up the work. No PR is created — the 3 translated files are lost for this run but the run also didn't produce a misleading empty PR.
+> **If this first call returns `"session not found"`**: the MCP session expired during translation. This should be extremely rare given the MCP gateway default ping interval. If it happens, write a short note to `${ANALYSIS_DIR}/summary.md` and end the run — the next manual run will pick up the work. No PR is created — the 3 translated files are lost for this run but the run also didn't produce a misleading empty PR.
 
 > **Branch and PR identity — ONE PR PER ARTICLE DATE**: All flushes — and **all future manual runs for the same `ARTICLE_DATE`** — use the same `head: news/translate-${ARTICLE_DATE}`. safeoutputs tracks "create or update the PR for this head branch", so:
 >
