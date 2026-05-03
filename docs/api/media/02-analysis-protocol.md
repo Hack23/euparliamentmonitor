@@ -205,14 +205,19 @@ All workflows enforce a hard **60-minute** `timeout-minutes` cap (raised
 from 45 min in the gh-aw v0.71.3 refactor) with all stages targeted to
 complete by **minute ≤ 45**, leaving a 15-minute buffer for sandbox
 setup, MCP gateway boot, deterministic article render, and git push.
-The MCP gateway session lifetime is set per workflow via
-`engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+), so the safeoutputs
-HTTP session outlasts the full run — superseding the previous ~28–30
-min hard TTL that capped the old 45-minute schedule. Unused budget is
-NOT redistributed — the agent exits cleanly after shipping the PR.
-Long-horizon or deep-analysis workflows get extended B1 windows because
-they produce additional mandatory artifacts (see §1b Family-D +
-forward-projection set). Always verify the exact slug budget in
+The MCP gateway uses its upstream default session lifetime (the
+advertised `engine.mcp.session-timeout` field is currently broken: the
+gh-aw v0.71.3 compiler emits `sessionTimeout` but the bundled gateway
+image `ghcr.io/github/gh-aw-mcpg:v0.3.1` rejects it with
+`additionalProperties 'sessionTimeout' not allowed`, run #25275823699
+fingerprint). Backend MCP sessions are kept warm by
+`sandbox.mcp.keepalive-interval: 300` (5-minute pings). The agent must
+therefore land the single safe-outputs PR call within the 60-min
+`timeout-minutes` cap regardless. Unused budget is NOT redistributed —
+the agent exits cleanly after shipping the PR. Long-horizon or
+deep-analysis workflows get extended B1 windows because they produce
+additional mandatory artifacts (see §1b Family-D + forward-projection
+set). Always verify the exact slug budget in
 `src/config/article-horizons.ts` before treating a grouped example as exact.
 
 ### Stage B Sub-stage Budget (Pass 1 / Pass 2 split)
@@ -260,19 +265,22 @@ block is missing/malformed) and any artifact sits exactly at its floor line
 count; malformed schema additionally produces a `WARN manifest.pass2
 invalid schema` line listing each invalid field.
 
-> **Why widen the budget?** gh-aw v0.71.3 introduced the per-workflow
-> `engine.mcp.session-timeout` knob (Go duration, ≥ 5m). Setting it to
-> `65m` removes the prior ~28–30 min safeoutputs MCP HTTP session TTL
-> ceiling — the constraint that originally forced the 22 / ≤25 budget
-> after run [#24963129839](https://github.com/Hack23/euparliamentmonitor/actions/runs/24963129839)
+> **Why widen the budget?** gh-aw v0.71.3 raised the workflow
+> `timeout-minutes` cap from 45 to 60 minutes. Note that the
+> per-workflow `engine.mcp.session-timeout` knob advertised in v0.71.3
+> is currently non-functional — the bundled gateway image v0.3.1
+> rejects the field (run #25275823699). The MCP gateway falls back to
+> its upstream default session lifetime, and
+> `sandbox.mcp.keepalive-interval: 300` keeps backend sessions warm.
+> The 60-min `timeout-minutes` cap (vs the prior 45-min schedule) is
+> what gives Pass 2 a ≥ 10-min absolute window (vs the prior 4-min
+> floor) for genuine read-back-and-rewrite quality work — see run
+> [#24963129839](https://github.com/Hack23/euparliamentmonitor/actions/runs/24963129839)
 > (`news-week-in-review`, Stage B suffered two context compactions, the
-> elapsed-time tripwire fired at minute 28, and the single
+> elapsed-time tripwire fired at minute 28, single
 > `safeoutputs___create_pull_request` call landed at minute 29 →
-> `session not found` HTTP 404 → zero safe outputs shipped). With the
-> session now alive for 65 min, the workflow can safely use the full
-> 60-min `timeout-minutes` cap and target minute ≤ 45 for the PR call,
-> giving Pass 2 a ≥ 10-min absolute window (vs the prior 4-min floor)
-> for genuine read-back-and-rewrite quality work.
+> `session not found` HTTP 404 → zero safe outputs shipped) for the
+> historical motivation behind the explicit ceilings.
 
 The schedule is built around **three distinct deadlines** in every unified
 news workflow (see #1444 and run #24963129839 for the original rationale
@@ -288,10 +296,11 @@ that motivated the explicit ceilings):
    GREEN. This guarantees Stage D + E retain budget before the PR call.
 3. **safe-outputs `create_pull_request` deadline** — must land by the
    per-workflow PR-call deadline above (≤ minute 45 for standard slugs;
-   ≤ minute 47 for electoral). The 65-min `engine.mcp.session-timeout`
-   keeps the safeoutputs HTTP session alive for the full run, so the
-   PR-call deadline is now governed solely by `timeout-minutes` and
-   Stage E budget rather than by the underlying MCP session TTL.
+   ≤ minute 47 for electoral). The MCP gateway uses its upstream
+   default session lifetime (`engine.mcp.session-timeout` is currently
+   non-functional, see preceding note); `keepalive-interval: 300`
+   keeps backends warm. The PR-call deadline is governed by
+   `timeout-minutes` and Stage E budget.
 
 Per-slug values live in `src/config/article-horizons.ts`
 (`stageBudgets`) — see [`09-troubleshooting.md`](09-troubleshooting.md) §5

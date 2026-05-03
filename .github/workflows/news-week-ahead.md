@@ -32,12 +32,13 @@ permissions:
 #      Workflow-Parameters table below.
 #
 #   2. **Single safe-output `create_pull_request` call by minute ≤ 45.**
-#      The MCP gateway session lifetime is set per workflow via
-#      `engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+) so the
-#      safeoutputs HTTP session outlasts the full run — superseding the
-#      previous ~28–30 min hard TTL that capped the old 45-minute
-#      schedule. See `.github/prompts/02-analysis-protocol.md` §3 for
-#      the per-family stage budget table and tripwires.
+#      The agent must complete the analysis and ship the PR within the
+#      60-minute `timeout-minutes` cap. The bundled MCP gateway image
+#      (ghcr.io/github/gh-aw-mcpg:v0.3.1, shipped with gh-aw v0.71.3)
+#      currently rejects `engine.mcp.session-timeout` (schema bug — the
+#      field is advertised by the v0.71.3 compiler but absent from the
+#      gateway schema), so we do not set it here. The `sandbox.mcp.keepalive-interval: 300` ping keeps backends warm. See
+#      `.github/prompts/02-analysis-protocol.md` §3 for stage budgets.
 timeout-minutes: 60
 
 features:
@@ -231,14 +232,6 @@ jobs:
 engine:
   id: copilot
   model: claude-sonnet-4.6
-  mcp:
-    # gh-aw v0.71.3+: per-workflow MCP gateway session lifetime.
-    # Set to 65m so the safeoutputs HTTP session outlasts the
-    # 60-minute `timeout-minutes` cap with a 5-minute margin —
-    # superseding the previous ~28–30 min hard TTL that capped the
-    # old 45-minute schedule. Min 5m, no upper bound; format is a
-    # Go duration string (kebab-case key only).
-    session-timeout: 65m
   # max-continuations: 1 tells gh-aw NOT to enable autopilot mode — when this
   # equals 1 the compiler omits --autopilot from the Copilot CLI invocation so
   # the agent runs exactly once with no restarts.  Within-session runaway
@@ -282,21 +275,24 @@ prose pass.
 | Stage D budget | ≤ 2 min (deterministic) |
 | Stage E budget (commit + single PR) | ≤ 2 min |
 | **Stage C exit tripwire** | **minute 36 elapsed** (long-horizon prospective: 39; long-horizon retrospective: 38; electoral: 42) — the **decision threshold** for forcing `GATE_RESULT=ANALYSIS_ONLY` and (if late) skipping Stage D so the run can still reach the PR call. Per-slug stage ceilings live in `src/config/article-horizons.ts`; the tripwire backstops any per-stage overrun. **Note:** Stage D + E run *after* this tripwire, between the Stage C exit and the PR-call deadline. |
-| **Hard PR-call deadline** | **minute ≤ 45 elapsed** (target ≤ 42) — deadline for the single safe-outputs `create_pull_request` call. Backed by `engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+) which keeps the safeoutputs HTTP session alive for the full 60-min cap. |
+| **Hard PR-call deadline** | **minute ≤ 45 elapsed** (target ≤ 42) — deadline for the single safe-outputs `create_pull_request` call. The `sandbox.mcp.keepalive-interval: 300` setting pings backends every 5 minutes to prevent idle session expiry. Note: `engine.mcp.session-timeout` is intentionally NOT set — gh-aw v0.71.3 advertises this field but the bundled gateway image (v0.3.1) rejects it; the agent must finish within the 60-min `timeout-minutes` cap regardless. |
 | Hard safety cap | 60-min `timeout-minutes` |
 | PR rule | **Exactly one** `[news]` PR at end of run |
 
-> **⏱️ MCP session lifetime (gh-aw v0.71.3+)**: This workflow sets
-> `engine.mcp.session-timeout: 65m`, which keeps the safeoutputs HTTP
-> session on `localhost:3001` alive for 65 minutes — outlasting the
-> 60-min `timeout-minutes` cap with a 5-min margin. The previous
-> ~28–30 min hard TTL (which capped the old 45-min schedule and bit
-> run #24963129839) no longer applies. The Stage C exit tripwire
-> still fires at the slug-specific elapsed-minute mark in
+> **⏱️ MCP session lifetime**: `engine.mcp.session-timeout` is
+> NOT set — the gh-aw v0.71.3 compiler advertises the field but
+> the bundled gateway image `ghcr.io/github/gh-aw-mcpg:v0.3.1`
+> rejects it (`additionalProperties 'sessionTimeout' not
+> allowed`, run #25275823699 fingerprint). The MCP gateway uses
+> the upstream default session lifetime; the workflow's
+> `sandbox.mcp.keepalive-interval: 300` pings backends every 5
+> minutes so EP / IMF / world-bank / memory sessions stay warm
+> across the 60-min run. The Stage C exit tripwire still fires
+> at the slug-specific elapsed-minute mark in
 > `src/config/article-horizons.ts` so Stage D + E retain enough
 > budget to land the single PR call by minute ≤ 45. See
-> [`09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5 for
-> the historical context.
+> [`09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5
+> for run #24963129839 historical context.
 
 ## 🎯 Article-Type Specifics
 
@@ -485,9 +481,10 @@ STAGE_C_GATE: RED articleType=${ARTICLE_TYPE_SLUG} missing=<N> short=<N> placeho
 > Then skip Pass 3 and **all** Stage D render attempts and proceed
 > straight to Stage E. Shipping ANALYSIS_ONLY at the tripwire is
 > strictly better than blowing the 60-min `timeout-minutes` cap.
-> The 65-min `engine.mcp.session-timeout` (gh-aw v0.71.3+) keeps the
-> safeoutputs HTTP session alive for the full run, but the workflow
-> still hard-caps at 60 minutes. See [`09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5
+> The MCP gateway uses upstream default session lifetime
+> (`engine.mcp.session-timeout` is not set due to an upstream
+> gh-aw v0.71.3 / gateway-v0.3.1 schema bug — see frontmatter
+> comment); the workflow hard-caps at 60 minutes regardless. See [`09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5
 > for run #24963129839 (`session not found` at minute 29 under the
 > old 45-min schedule) — historical context for the new design.
 
