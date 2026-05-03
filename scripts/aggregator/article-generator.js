@@ -20,7 +20,9 @@ import fs from 'fs';
 import path from 'path';
 import { pathToFileURL } from 'url';
 import { aggregateAnalysisRun, resolveArticleTypeFromManifest, } from './analysis-aggregator.js';
+import { resolveRunId as _resolveRunId } from './manifest/index.js';
 import { resolveArticleMetadata, extractStrongProseLine, } from './article-metadata.js';
+import { buildArticleMeta, serializeArticleMeta } from './article-meta.js';
 import { renderMarkdown } from './markdown-renderer.js';
 import { wrapArticleHtml, getArticleFilename } from './article-html.js';
 import { buildReaderIntelligenceGuideHtml, stripInlineReaderGuide, } from './reader-intelligence-guide.js';
@@ -468,6 +470,25 @@ export function generateArticle(opts, runSuffix, articleCountOverride) {
         .relative(opts.repoRoot, runArticleMdAbs)
         .split(path.sep)
         .join('/');
+    // Emit `article-meta.json` next to `article.md` — a deterministic
+    // structured-data sidecar consumed by HTML SEO, news indexes, and RSS.
+    // Same artifact bytes in → same JSON bytes out (asserted by the
+    // determinism test).
+    const runArticleMetaAbs = path.join(opts.runDir, 'article-meta.json');
+    const articleMeta = buildArticleMeta({
+        runDir: opts.runDir,
+        repoRoot: opts.repoRoot,
+        date: aggregated.date,
+        articleType: aggregated.articleType,
+        runId: readManifestRunId(opts.runDir, path.basename(opts.runDir)),
+        gateResult: aggregated.gateResult,
+        slug,
+    });
+    fs.writeFileSync(runArticleMetaAbs, serializeArticleMeta(articleMeta), 'utf8');
+    const runArticleMetaRelPath = path
+        .relative(opts.repoRoot, runArticleMetaAbs)
+        .split(path.sep)
+        .join('/');
     // Also write source Markdown under <outDir>/<slug>.en.md for search
     // indexing and backwards compatibility with existing news-index scripts.
     ensureDir(opts.outDir);
@@ -492,6 +513,7 @@ export function generateArticle(opts, runSuffix, articleCountOverride) {
     return {
         sourceMarkdownRelPath: runArticleMdRelPath,
         runArticleMdRelPath,
+        runArticleMetaRelPath,
         writtenFiles: written,
         aggregated,
     };
@@ -548,6 +570,29 @@ export function generateAllArticles(opts) {
         results.push(generateArticle(runOpts, suffix, articleCountOverride));
     }
     return results;
+}
+/**
+ * Read the run identifier from `manifest.json`, falling back to the
+ * directory basename when the manifest is missing or unparsable. Wraps
+ * the canonical resolver from `aggregator/manifest/index.ts` so callers
+ * outside the aggregator core (here, the article-meta sidecar emitter)
+ * stay decoupled from the internal manifest schema.
+ *
+ * @param runDir - Absolute run directory path
+ * @param defaultRunId - Fall-back run id (typically the directory basename)
+ * @returns Resolved run id, never empty
+ */
+function readManifestRunId(runDir, defaultRunId) {
+    const manifestPath = path.join(runDir, 'manifest.json');
+    if (!fs.existsSync(manifestPath))
+        return defaultRunId;
+    try {
+        const parsed = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+        return _resolveRunId(parsed, defaultRunId);
+    }
+    catch {
+        return defaultRunId;
+    }
 }
 /**
  * Read the raw manifest.json from a run directory and return the subset

@@ -2,178 +2,226 @@
 // SPDX-License-Identifier: Apache-2.0
 
 /**
- * Tests for article-metadata resolution logic.
- *
- * Validates that `resolveArticleMetadata` produces deterministic, well-formed
- * metadata objects from analysis-run inputs. Covers title derivation,
- * description extraction, date formatting, and slug handling.
+ * Unit tests for `src/aggregator/article-meta` — the deterministic
+ * `article-meta.json` sidecar emitter.
  */
 
 import { describe, it, expect } from 'vitest';
+import fs from 'fs';
+import os from 'os';
+import path from 'path';
 import {
-  resolveArticleMetadata,
-  humanizeSlug,
-  extractFirstH1,
-  truncateTitle,
-  truncateDescription,
-  shouldSkipDescriptionLine,
-  stripInlineMarkdown,
-  deriveWeekRange,
-  deriveMonthLabel,
-  deriveQuarterLabel,
-  deriveYearLabel,
-} from '../../scripts/aggregator/article-metadata.js';
+  buildArticleMeta,
+  extractKeyActors,
+  extractKeyDates,
+  extractKeyTakeaways,
+  extractMacroContext,
+  extractTopRisks,
+  serializeArticleMeta,
+} from '../../scripts/aggregator/article-meta.js';
 
-describe('aggregator-article-meta', () => {
-  describe('humanizeSlug', () => {
-    it('converts kebab-case slug to title case', () => {
-      expect(humanizeSlug('week-ahead')).toBe('Week Ahead');
-      expect(humanizeSlug('month-in-review')).toBe('Month In Review');
-      expect(humanizeSlug('breaking')).toBe('Breaking');
-    });
+/**
+ * Lay down a minimal-but-realistic analysis run on disk so the meta
+ * builders have content to harvest from. Returns the absolute run dir.
+ */
+function makeFixture(repo) {
+  const run = path.join(repo, 'analysis', 'daily', '2026-04-24', 'breaking');
+  fs.mkdirSync(path.join(run, 'intelligence'), { recursive: true });
+  fs.mkdirSync(path.join(run, 'classification'), { recursive: true });
+  fs.mkdirSync(path.join(run, 'risk-scoring'), { recursive: true });
+  fs.mkdirSync(path.join(run, 'extended'), { recursive: true });
 
-    it('handles empty or undefined input gracefully', () => {
-      expect(humanizeSlug('')).toBe('');
-    });
+  fs.writeFileSync(
+    path.join(run, 'executive-brief.md'),
+    '# Brief\n\n## BLUF\n\nThe European Parliament finalises trade defence today.\n'
+  );
+  fs.writeFileSync(
+    path.join(run, 'intelligence', 'synthesis-summary.md'),
+    [
+      '## Top Findings',
+      '- Trade defence is operative across the Union.',
+      '- Banking union closes BRRD3 SRMR3 DGSD2 reforms.',
+      '- Digital omnibus eases AI Act compliance for SMEs.',
+      '- Energy package returns to Strasbourg agenda.',
+    ].join('\n')
+  );
+  fs.writeFileSync(
+    path.join(run, 'risk-scoring', 'risk-matrix.md'),
+    [
+      '## Risk Register',
+      '- Coalition fracture risk MEDIUM in JURI committee',
+      '- Implementation slippage HIGH on trade defence rollout',
+    ].join('\n')
+  );
+  fs.writeFileSync(
+    path.join(run, 'intelligence', 'parliamentary-calendar-projection.md'),
+    [
+      '## Calendar',
+      '- 2026-05-12 Plenary vote on banking union',
+      '- 2026-05-20 ECON committee hearing on AI Act',
+    ].join('\n')
+  );
+  fs.writeFileSync(
+    path.join(run, 'classification', 'actor-mapping.md'),
+    [
+      '## Actor Mapping',
+      '- EPP delivers grand-coalition swing on trade defence.',
+      '- S&D anchors banking union centrist majority.',
+    ].join('\n')
+  );
+  fs.writeFileSync(
+    path.join(run, 'intelligence', 'economic-context.md'),
+    [
+      '## IMF Macro Context',
+      'IMF projects euro area growth at 1.4 percent for 2026.',
+    ].join('\n')
+  );
+  return run;
+}
+
+describe('article-meta — extractors', () => {
+  it('extractTopRisks pulls bullets from risk-scoring/risk-matrix.md', () => {
+    const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-meta-'));
+    const run = makeFixture(repo);
+    try {
+      const out = extractTopRisks(run);
+      expect(out.length).toBeGreaterThan(0);
+      expect(out[0]).toMatch(/Coalition fracture/);
+    } finally {
+      fs.rmSync(repo, { recursive: true, force: true });
+    }
   });
 
-  describe('extractFirstH1', () => {
-    it('extracts the first H1 from markdown', () => {
-      const md = '# EU Parliament Week Ahead\n\nSome content here.';
-      expect(extractFirstH1(md)).toBe('EU Parliament Week Ahead');
-    });
-
-    it('returns empty string when no H1 is present', () => {
-      const md = '## Subtitle only\n\nNo heading-1 present.';
-      expect(extractFirstH1(md)).toBe('');
-    });
+  it('extractKeyDates pulls dated bullets from the parliamentary calendar', () => {
+    const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-meta-'));
+    const run = makeFixture(repo);
+    try {
+      const out = extractKeyDates(run);
+      expect(out).toEqual(
+        expect.arrayContaining([expect.stringMatching(/2026-05-12/)])
+      );
+    } finally {
+      fs.rmSync(repo, { recursive: true, force: true });
+    }
   });
 
-  describe('truncateTitle', () => {
-    it('does not truncate short titles', () => {
-      const title = 'Short Title';
-      expect(truncateTitle(title)).toBe(title);
-    });
-
-    it('truncates titles that exceed the limit', () => {
-      // 200 chars exceeds any reasonable title limit — verify truncation occurs
-      const longTitle = 'A'.repeat(200);
-      const result = truncateTitle(longTitle);
-      expect(result.length).toBeLessThan(200);
-    });
+  it('extractKeyActors pulls bullets from classification/actor-mapping.md', () => {
+    const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-meta-'));
+    const run = makeFixture(repo);
+    try {
+      const out = extractKeyActors(run);
+      expect(out[0]).toMatch(/EPP/);
+    } finally {
+      fs.rmSync(repo, { recursive: true, force: true });
+    }
   });
 
-  describe('truncateDescription', () => {
-    it('does not truncate short descriptions', () => {
-      const desc = 'A short description.';
-      expect(truncateDescription(desc)).toBe(desc);
-    });
-
-    it('truncates long descriptions at word boundary', () => {
-      // 100 words far exceeds the ~160-char description limit
-      const words = Array(100).fill('word').join(' ');
-      const result = truncateDescription(words);
-      expect(result.length).toBeLessThanOrEqual(320);
-    });
+  it('extractMacroContext pulls IMF-flavoured paragraph from economic-context.md', () => {
+    const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-meta-'));
+    const run = makeFixture(repo);
+    try {
+      const out = extractMacroContext(run);
+      expect(out).toMatch(/IMF projects/);
+    } finally {
+      fs.rmSync(repo, { recursive: true, force: true });
+    }
   });
 
-  describe('shouldSkipDescriptionLine', () => {
-    it('skips empty lines', () => {
-      expect(shouldSkipDescriptionLine('')).toBe(true);
-    });
-
-    it('skips markdown headings', () => {
-      expect(shouldSkipDescriptionLine('# Title')).toBe(true);
-      expect(shouldSkipDescriptionLine('## Subtitle')).toBe(true);
-    });
-
-    it('skips mermaid blocks', () => {
-      expect(shouldSkipDescriptionLine('```mermaid')).toBe(true);
-    });
-
-    it('accepts normal prose lines', () => {
-      expect(shouldSkipDescriptionLine('The European Parliament voted on...')).toBe(false);
-    });
+  it('extractKeyTakeaways respects MIN_TAKEAWAYS floor', () => {
+    const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-meta-'));
+    const run = makeFixture(repo);
+    try {
+      const out = extractKeyTakeaways(run);
+      expect(out.length).toBeGreaterThanOrEqual(3);
+      expect(out.length).toBeLessThanOrEqual(7);
+    } finally {
+      fs.rmSync(repo, { recursive: true, force: true });
+    }
   });
+});
 
-  describe('stripInlineMarkdown', () => {
-    it('removes bold markers', () => {
-      expect(stripInlineMarkdown('**bold text**')).toBe('bold text');
-    });
-
-    it('removes italic markers', () => {
-      expect(stripInlineMarkdown('*italic*')).toBe('italic');
-    });
-
-    it('removes inline code', () => {
-      expect(stripInlineMarkdown('use `const`')).toBe('use const');
-    });
-  });
-
-  describe('date derivation helpers', () => {
-    it('deriveWeekRange returns an object with start and end', () => {
-      const result = deriveWeekRange('2026-05-01');
-      expect(result).toBeTruthy();
-      expect(result).toHaveProperty('start');
-      expect(result).toHaveProperty('end');
-    });
-
-    it('deriveMonthLabel returns a month string', () => {
-      const result = deriveMonthLabel('2026-05-01');
-      expect(result).toBeTruthy();
-      expect(typeof result).toBe('string');
-    });
-
-    it('deriveQuarterLabel returns a quarter string', () => {
-      const result = deriveQuarterLabel('2026-05-01');
-      expect(result).toBeTruthy();
-      expect(result).toContain('Q');
-    });
-
-    it('deriveYearLabel returns a year string', () => {
-      const result = deriveYearLabel('2026-05-01');
-      expect(result).toBeTruthy();
-      expect(result).toContain('2026');
-    });
-  });
-
-  describe('resolveArticleMetadata', () => {
-    it('produces per-language metadata with title and description', () => {
-      const meta = resolveArticleMetadata({
+describe('buildArticleMeta', () => {
+  it('produces a fully populated meta record with deterministic source list', () => {
+    const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-meta-'));
+    const run = makeFixture(repo);
+    try {
+      const meta = buildArticleMeta({
+        runDir: run,
+        repoRoot: repo,
+        date: '2026-04-24',
         articleType: 'breaking',
-        date: '2026-05-01',
-        markdown: '# Breaking: Key Vote\n\nThe EP voted today on...',
+        runId: 'breaking-2026-04-24',
+        gateResult: 'GREEN',
+        slug: '2026-04-24-breaking',
       });
+      expect(meta.date).toBe('2026-04-24');
+      expect(meta.articleType).toBe('breaking');
+      expect(meta.slug).toBe('2026-04-24-breaking');
+      expect(meta.articlePath).toBe(
+        'analysis/daily/2026-04-24/breaking/article.md'
+      );
+      expect(meta.topFinding).toMatch(/trade defence/i);
+      expect(meta.keyTakeaways.length).toBeGreaterThanOrEqual(3);
+      expect(meta.topRisks.length).toBeGreaterThan(0);
+      expect(meta.keyDates.length).toBeGreaterThan(0);
+      expect(meta.keyActors[0]).toMatch(/EPP/);
+      expect(meta.macroContext).toMatch(/IMF/);
+      // sources is sorted alphabetically and only includes existing files
+      expect(meta.sources).toEqual([...meta.sources].sort());
+      expect(meta.sources).toContain('intelligence/synthesis-summary.md');
+      expect(meta.sources).not.toContain('extended/forward-indicators.md');
+    } finally {
+      fs.rmSync(repo, { recursive: true, force: true });
+    }
+  });
 
-      // Returns a map keyed by language code
-      expect(meta).toHaveProperty('en');
-      expect(meta.en).toHaveProperty('title');
-      expect(meta.en).toHaveProperty('description');
-      expect(meta.en.title.length).toBeGreaterThan(0);
-    });
-
-    it('returns deterministic results for same inputs', () => {
-      const opts = {
-        articleType: 'week-ahead',
-        date: '2026-05-01',
-        markdown: '# Week Ahead: Plenary Session\n\nKey items on the agenda.',
-      };
-
-      const meta1 = resolveArticleMetadata(opts);
-      const meta2 = resolveArticleMetadata(opts);
-
-      expect(meta1).toEqual(meta2);
-    });
-
-    it('produces entries for all 14 languages', () => {
-      const meta = resolveArticleMetadata({
+  it('serializeArticleMeta produces stable, insertion-order JSON with a trailing newline', () => {
+    const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-meta-'));
+    const run = makeFixture(repo);
+    try {
+      const meta = buildArticleMeta({
+        runDir: run,
+        repoRoot: repo,
+        date: '2026-04-24',
         articleType: 'breaking',
-        date: '2026-05-01',
-        markdown: '# Breaking News\n\nContent here.',
+        runId: 'breaking-2026-04-24',
+        gateResult: 'GREEN',
+        slug: '2026-04-24-breaking',
       });
+      const a = serializeArticleMeta(meta);
+      const b = serializeArticleMeta(meta);
+      expect(a).toBe(b);
+      expect(a.endsWith('\n')).toBe(true);
+      // Round-trip parses cleanly
+      expect(JSON.parse(a)).toEqual(meta);
+    } finally {
+      fs.rmSync(repo, { recursive: true, force: true });
+    }
+  });
 
-      const langs = Object.keys(meta);
-      expect(langs.length).toBe(14);
-    });
+  it('returns empty arrays when artifacts are absent (graceful degradation)', () => {
+    const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-meta-'));
+    const run = path.join(repo, 'analysis', 'daily', '2026-04-24', 'empty-run');
+    fs.mkdirSync(run, { recursive: true });
+    try {
+      const meta = buildArticleMeta({
+        runDir: run,
+        repoRoot: repo,
+        date: '2026-04-24',
+        articleType: 'breaking',
+        runId: 'empty-run',
+        gateResult: 'PENDING',
+        slug: '2026-04-24-empty',
+      });
+      expect(meta.keyTakeaways).toEqual([]);
+      expect(meta.topRisks).toEqual([]);
+      expect(meta.keyDates).toEqual([]);
+      expect(meta.keyActors).toEqual([]);
+      expect(meta.topFinding).toBe('');
+      expect(meta.macroContext).toBe('');
+      expect(meta.sources).toEqual([]);
+    } finally {
+      fs.rmSync(repo, { recursive: true, force: true });
+    }
   });
 });

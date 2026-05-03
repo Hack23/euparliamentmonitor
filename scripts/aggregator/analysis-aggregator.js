@@ -14,6 +14,7 @@ import path from 'path';
 import { ARTIFACT_SECTIONS, MANIFEST_SECTION_ID, MANIFEST_SECTION_TITLE, SUPPLEMENTARY_SECTION_ID, SUPPLEMENTARY_SECTION_TITLE, TRADECRAFT_SECTION_ID, TRADECRAFT_SECTION_TITLE, } from './artifact-order.js';
 import { cleanArtifact, githubBlobUrl } from './clean-artifact.js';
 import { treeUrl } from './infra/github-urls.js';
+import { buildKeyTakeaways, KEY_TAKEAWAYS_SECTION_ID, KEY_TAKEAWAYS_SECTION_TITLE, } from './key-takeaways.js';
 import { flattenManifestFiles as _flattenManifestFiles, latestGateResult as _latestGateResult, resolveArticleType as _resolveArticleType, resolveRunId as _resolveRunId, } from './manifest/index.js';
 import { READER_GUIDE_SECTION_ID, READER_GUIDE_SECTION_IDS, READER_GUIDE_SECTION_TITLE, } from './reader-guide-constants.js';
 export { READER_GUIDE_SECTION_ID, READER_GUIDE_SECTION_IDS, READER_GUIDE_SECTION_TITLE, } from './reader-guide-constants.js';
@@ -548,16 +549,29 @@ export function aggregateAnalysisRun(options) {
     const tradecraft = renderTradecraftAppendix(tradecraftFiles);
     const analysisIndex = renderAnalysisIndex(includedArtifacts, manifestRelPath);
     const readerGuide = renderReaderIntelligenceGuide(emittedSections, includedArtifacts);
+    // Deterministic 3–7 bullet "Key takeaways" block, harvested from the
+    // synthesis-summary / intelligence-assessment artifacts. Placed
+    // immediately after the Executive Brief so the reader gets the BLUF
+    // followed by a digest of the strongest findings before being handed
+    // off to the Reader Intelligence Guide and the deeper sections.
+    const keyTakeaways = buildKeyTakeaways({ runDir });
     // TOC ordering reflects the rendered document:
     // Executive Brief (already first in emittedSections via appendSection) →
-    // Reader Intelligence Guide (inserted at position 1, after Exec Brief) →
-    // remaining sections → audit appendices.
+    // Key Takeaways (inserted right after the brief when present) →
+    // Reader Intelligence Guide → remaining sections → audit appendices.
+    let postBriefIdx = emittedSections.length > 0 &&
+        emittedSections[0]?.id === namespacedSectionId(execBriefSection?.id ?? '')
+        ? 1
+        : 0;
+    if (keyTakeaways) {
+        emittedSections.splice(postBriefIdx, 0, {
+            id: KEY_TAKEAWAYS_SECTION_ID,
+            title: KEY_TAKEAWAYS_SECTION_TITLE,
+        });
+        postBriefIdx += 1;
+    }
     if (readerGuide) {
-        const insertIdx = emittedSections.length > 0 &&
-            emittedSections[0]?.id === namespacedSectionId(execBriefSection?.id ?? '')
-            ? 1
-            : 0;
-        emittedSections.splice(insertIdx, 0, {
+        emittedSections.splice(postBriefIdx, 0, {
             id: READER_GUIDE_SECTION_ID,
             title: READER_GUIDE_SECTION_TITLE,
         });
@@ -568,6 +582,8 @@ export function aggregateAnalysisRun(options) {
         `# ${documentTitle}`,
         '',
         ...execBriefMarkdown,
+        '',
+        keyTakeaways,
         '',
         readerGuide,
         '',

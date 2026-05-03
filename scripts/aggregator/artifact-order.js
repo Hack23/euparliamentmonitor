@@ -101,7 +101,7 @@ export const ARTIFACT_SECTIONS = [
     },
     {
         id: 'forward-projection',
-        title: 'Forward Projection',
+        title: 'What to Watch',
         artifacts: [
             'intelligence/forward-projection.md',
             'intelligence/legislative-pipeline-forecast.md',
