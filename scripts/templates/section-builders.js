@@ -277,13 +277,23 @@ export function buildSiteHeader(options) {
     const piLabel = escapeHTML(getLocalizedString(FOOTER_POLITICAL_INTELLIGENCE_LABELS, lang));
     const langSelectionLabel = escapeHTML(getLocalizedString(LANGUAGE_SELECTION_ARIA_LABELS, lang));
     const safeTitle = escapeHTML(siteTitle);
-    const piHref = typeof options.politicalIntelligenceHref === 'string'
+    const defaultPiHref = `${pathPrefix}${lang === 'en' ? 'political-intelligence.html' : `political-intelligence_${lang}.html`}`;
+    const rawPiHref = typeof options.politicalIntelligenceHref === 'string'
         ? options.politicalIntelligenceHref
-        : `${pathPrefix}${lang === 'en' ? 'political-intelligence.html' : `political-intelligence_${lang}.html`}`;
+        : defaultPiHref;
+    // Only allow relative URLs or https: scheme to prevent javascript:/data: injection.
+    const piHref = rawPiHref.length === 0 ||
+        rawPiHref.startsWith('/') ||
+        rawPiHref.startsWith('./') ||
+        rawPiHref.startsWith('../') ||
+        rawPiHref.startsWith('https://') ||
+        !rawPiHref.includes(':')
+        ? rawPiHref
+        : defaultPiHref;
     const cta = (extraClass, href, iconName, label) => `<a class="site-header__cta${extraClass ? ` ${extraClass}` : ''}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${label}" title="${label}">${icon(iconName)}<span class="site-header__cta-label">${label}</span></a>`;
     // Internal CTA — same visual style but no target="_blank" since this is a same-site nav entry.
     const piCta = piHref.length > 0
-        ? `<a class="site-header__cta site-header__cta--pi" href="${escapeHTML(piHref)}" aria-label="${piLabel}" title="${piLabel}">${icon('pi')}<span class="site-header__cta-label">${piLabel}</span></a>`
+        ? `<a class="site-header__cta site-header__cta--pi" href="${escapeHTML(piHref)}" aria-label="${piLabel}" title="${piLabel}">${icon('pi')}<span class="site-header__cta-label">${piLabel}</span></a>\n        `
         : '';
     return `<header class="site-header" role="banner">
     <div class="site-header__inner site-header__inner--stacked">
@@ -298,8 +308,7 @@ export function buildSiteHeader(options) {
         </span>
       </a>
       <div class="site-header__actions">
-        ${piCta}
-        ${cta('site-header__cta--sponsor', 'https://github.com/sponsors/Hack23', 'heart', sponsorLabel)}
+        ${piCta}${cta('site-header__cta--sponsor', 'https://github.com/sponsors/Hack23', 'heart', sponsorLabel)}
         ${cta('', 'https://www.hack23.com', 'sponsor', becomeSponsorLabel)}
         ${cta('site-header__cta--security', 'https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md', ICON_SECURITY, securityLabel)}
         ${createThemeToggleButton(themeToggleLabel)}
