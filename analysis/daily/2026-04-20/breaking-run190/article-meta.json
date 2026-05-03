@@ -1,0 +1,41 @@
+{
+  "date": "2026-04-20",
+  "articleType": "breaking",
+  "runId": "190",
+  "gateResult": "PENDING",
+  "slug": "2026-04-20-breaking-190",
+  "articlePath": "analysis/daily/2026-04-20/breaking-run190/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [],
+  "topRisks": [
+    "If filed: Activate emergency monitoring mode, draft ANALYSIS_ONLY brief within 2 hours of filing",
+    "If NOT filed by April 24: Draft \"deterrence achieved\" analysis, reduce threat to T3 status",
+    "Update probability estimate based on April 21-22 absence/presence of Section 301 language",
+    "Inconsistent intelligence products across consecutive runs",
+    "Need for multi-run stability verification before publishing content analysis",
+    "Extended metadata-only analytical mode beyond April 26",
+    "USTR Section 301 → EPP trade position conflict",
+    "Climate agenda confrontation (Greens/Left vs EPP)"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "**BRRD3/SRMR3:** Supported (Banking Union completion aligns with CDU/CSU mainstream position)",
+    "**TA-0096 (US TRQ):** Internally divided (center supports proportionality; conservative wing",
+    "**Anti-Corruption:** Supported (EPP had to after Qatargate scandal implicated non-EPP MEPs)",
+    "**BRRD3/SRMR3:** Strongly supported (Banking Union completion is core S&D economic agenda)",
+    "**TA-0096:** Supported but wants faster and stronger retaliation than EPP",
+    "**Anti-Corruption:** Strongly supported (S&D has emphasized rule of law agenda throughout EP10)",
+    "**Climate:** Will push for post-recess climate agenda acceleration",
+    "**BRRD3/SRMR3:** Supported (liberal economic agenda favors Banking Union completion)"
+  ],
+  "macroContext": "The European Parliament's legislative activities in March 2026 — particularly the Banking Union",
+  "sources": [
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

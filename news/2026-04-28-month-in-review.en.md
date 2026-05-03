@@ -187,6 +187,18 @@ This pace reflects EP10's distinct operating mode: a front-loaded legislative ag
 
 *Produced by: EU Parliament Monitor agentic analysis pipeline | Run: 2026-04-28-month-in-review | Confidence: 🟢 HIGH (political/legislative) / 🟡 MEDIUM (economic/financial)*
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **104 adopted texts (TA-10-2026-0001 through TA-10-2026-0104)** confirmed in the EP Open Data Portal
+- **10 significant plenary session days** producing landmark votes across Jan 20–22, Feb 10–12, Feb 24, Mar 10–12, Mar 26
+- **Subject diversity**: defence (PESC/EXT), banking/finance (PECO/UEM), AI/tech (INFQ/TECN/RDT), employment/social (EMPL/SOCI), environment (ENV/POLL), institutional (INST), trade (PCOM/TDCC), migration (IMMI/FRON), human rights (DDLH/PESC)
+- **Political consensus pattern**: Core EPP+S&D+Renew coalition (397/719 seats) held on all major legislative texts; ECR joined on defence and trade; Left/Greens split on defence and AI simplification; PfE divided internally
+- **Majority threshold**: 361/719 seats
+- **Core pro-EU majority** (EPP+S&D+Renew): ~397 seats — sufficient for non-defence legislation
+- **Defence supermajority** (EPP+S&D+Renew+ECR): ~478 seats — cross-partisan security consensus
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

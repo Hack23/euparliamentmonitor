@@ -1,0 +1,55 @@
+{
+  "date": "2026-05-01",
+  "articleType": "breaking",
+  "runId": "breaking-run-1777638113",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-05-01-breaking",
+  "articlePath": "analysis/daily/2026-05-01/breaking/article.md",
+  "topFinding": "The European Parliament's April Strasbourg plenary (28–30 April 2026) delivered nine major legislative and political actions in three days, dominated by a landmark Ukraine accountability resolution demanding international justice for Russian attacks on civilians, a democratic resilience package for Armenia, and…",
+  "keyTakeaways": [
+    "**International rule of law:** Accountability for the crime of aggression; ICC warrant enforcement; special tribunal",
+    "**Democratic rule of law:** Armenia's protection from authoritarian pressure; EU enlargement as democratic anchor",
+    "**Digital rule of law:** Platform criminal liability for cyberbullying; ending effective impunity for coordinated online harassment",
+    "Ukraine reconstruction funding",
+    "Defence spending increase",
+    "Green transition maintenance",
+    "Agricultural support"
+  ],
+  "topRisks": [
+    "R-07: DMA Council failure elevated from POSSIBLE to LIKELY based on analysis of EPP business wing fragmentation",
+    "R-08: New risk added from Run 2 DMA text analysis; USTR 2025 report is explicit evidence",
+    "R-09: New risk from Budget 2027 guidelines analysis; fiscal hawk coalition in Council provides evidence base",
+    "R-10: New risk from Armenia analysis; Venice Commission track record on Georgia provides precedent"
+  ],
+  "keyDates": [
+    "**30-day window:** Immediate institutional follow-up (May 2026)",
+    "**60-day window:** European Council and Commission responses (June 2026)",
+    "**90-day window:** Legislative pathway indicators (July 2026)",
+    "**6-month window:** Structural outcome signals (October 2026)",
+    "June 2026 European Council conclusions on special tribunal: POSITIVE signal if France + Germany explicitly endorse",
+    "Commission DMA fine >€500m announced by August 2026: POSITIVE"
+  ],
+  "keyActors": [
+    "**Role:** Dominant coalition anchor; principal sponsor of Ukraine accountability resolution",
+    "**Interests:** Maintain Western security consensus, ensure rule-of-law conditionality in all EP actions, shape MFF 2027 framework to favour economic modernisation over welfare transfers",
+    "**Power:** Floor majority anchor; Committee chair dominance (AFET, BUDG, ECON); President Metsola (EPP)",
+    "**Position (Ukraine):** Strongly pro-accountability, supports ICC and special tribunal; demands continued military aid",
+    "**Position (Armenia):** Supports candidate status assessment with Copenhagen criteria conditions",
+    "**Position (Budget 2027):** Seeks defence flexibility and strategic investment increases",
+    "**Vulnerability:** Internal tensions between fiscal hawks (Germany, Netherlands MEPs) and spenders (Southern/Eastern Europe MEPs)",
+    "**WEP:** HIGHLY LIKELY (85%) to continue leading Ukraine accountability agenda in June European Council"
+  ],
+  "macroContext": "🔴 DEGRADED MODE: IMF SDMX 3.0 probe was in progress at time of analysis.",
+  "sources": [
+    "executive-brief.md",
+    "extended/executive-brief.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

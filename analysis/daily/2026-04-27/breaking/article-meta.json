@@ -1,0 +1,52 @@
+{
+  "date": "2026-04-27",
+  "articleType": "breaking",
+  "runId": "breaking-run1777273481",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-04-27-breaking",
+  "articlePath": "analysis/daily/2026-04-27/breaking/article.md",
+  "topFinding": "Date: 2026-04-27 | Type: Breaking News | Run: breaking-2026-04-27 | Confidence: 🟡 MEDIUM-HIGH (B2)",
+  "keyTakeaways": [
+    "TA-10-2026-0096 adopted March 26, 2026 (Source: EP Open Data Portal, A1)",
+    "TA-10-2026-0078 (\"EU-Canada cooperation amid threats to Canada's sovereignty\") adopted March 11, 2026 — Canada-EU alignment forming (A1)",
+    "TA-10-2026-0008 (Request for CJEU opinion on EU-Mercosur EMPA/ITA compatibility) adopted January 21, 2026 — EP seeking judicial review of trade agreements (A1)",
+    "EU early warning system: DOMINANT_GROUP_RISK (EPP 19x smallest group) creates leverage for EPP leadership to moderate or escalate trade posture (C3)",
+    "TA-10-2026-0092 adopted March 26 (A1): early intervention thresholds codified in regulation",
+    "TA-10-2026-0034 (\"ECB Annual Report 2025\") adopted February 10, 2026 (A1): ECB flagging systemic banking sector vulnerabilities",
+    "TA-10-2026-0060 (\"Appointment of ECB Vice-President\") adopted March 10, 2026 (A1): ECB leadership transition ongoing"
+  ],
+  "topRisks": [
+    "EU-Canada solidarity (TA-10-2026-0078) creates multilateral opposition coalition",
+    "WTO Ministerial Conference (TA-10-2026-0086) reinforces rules-based framework",
+    "Commission maintaining diplomatic channels despite tariff measures",
+    "US tech sector lobbying Washington for de-escalation (economic mutual interest)",
+    "EPP leadership (Weber) committed to governing coalition",
+    "S&D and Renew incentivized to maintain Commission majority",
+    "PfE's EU-US divergence limits its attractiveness as EPP partner on most issues",
+    "April plenary agenda items appear broadly coalition-compatible"
+  ],
+  "keyDates": [
+    "**EPP vote discipline**: Track EPP defections on Green Deal votes in May-June 2026 plenary",
+    "AI Act Office staffing completion (full staff by Q3 2026?)"
+  ],
+  "keyActors": [
+    "**EPP (European People's Party)**: The largest group — centre-right. Their leader Manfred Weber (Germany) steers a careful path between pro-business US trade compromise and political pressure to respond firmly to Trump.",
+    "**S&D (Socialists and Democrats)**: Second largest — centre-left. Solidly pro-EU, pro-trade-defense, strong on social rights and anti-corruption.",
+    "**Renew Europe**: Liberal centrist. Sometimes torn between free-market instincts and pragmatic EU solidarity.",
+    "**PfE (Patriots for Europe)**: The far-right group led by Viktor Orbán (Hungary). Politically aligned with Trump; opposes EU confrontation with US.",
+    "**ECR (European Conservatives and Reformists)**: Right-wing conservatives. Home to Giorgia Meloni's Fratelli d'Italia and Poland's current Law & Justice successor.",
+    "**Commission (von der Leyen)**: Proposes EU trade responses; implements laws. Key player in US tariff negotiations.",
+    "**US Trump Administration**: External actor whose trade and foreign policies are directly driving EU legislative responses.",
+    "**Georgia (Georgian Dream government)**: Authoritarian drift under Bidzina Ivanishvili's Georgian Dream party; imprisoning opposition politicians."
+  ],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

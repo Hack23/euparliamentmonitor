@@ -1,0 +1,53 @@
+{
+  "date": "2026-04-28",
+  "articleType": "motions",
+  "runId": "motions-run-1777359929",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-04-28-motions",
+  "articlePath": "analysis/daily/2026-04-28/motions/article.md",
+  "topFinding": "The European Parliament has entered its most legislatively productive phase of the EP10 term, with 567 roll-call votes recorded in 2026 alone — a 35% surge over 2025.",
+  "keyTakeaways": [
+    "**DGSD2**: Harmonises cross-border deposit protection and simplifies payouts; reduces depositor uncertainty in stress scenarios",
+    "**BRRD3**: Updates bail-in hierarchy and early intervention triggers; adds climate-related stress testing obligations",
+    "**SRMR3**: Reforms the Single Resolution Board's governance and expands resolution tools to cover crypto-asset issuers",
+    "Suspends AI Act compliance reporting obligations for SMEs for 24 months",
+    "Simplifies conformity assessment for General-Purpose AI (GPAI) providers below €20M revenue",
+    "Creates a single EU AI liability framework to replace divergent national implementations",
+    "Public officials bribery (minimum 5-year custodial sentences)"
+  ],
+  "topRisks": [
+    "Enhanced monitoring of COREPER II meeting calendar (primary leading indicator)",
+    "S&D group leveraging bilateral Polish opposition contacts",
+    "Commission activating the 12-week rule for formal Council response",
+    "Coalition of pro-ANTICORR member states (France, Germany, Spain, Netherlands) maintaining pressure",
+    "EU countermeasure toolkit's negotiated-suspension pathway provides a de-escalation route",
+    "USTR-Commission technical channel communication ongoing",
+    "NATO burden-sharing talks running in parallel (US value in keeping EU economically stable)",
+    "Commission implementing measures (scheduled Q4 2026) will absorb much S&D concern at the delegated-legislation level"
+  ],
+  "keyDates": [
+    "EDPS formal opinion on AI liability provisions (expected July 2026)"
+  ],
+  "keyActors": [
+    "Dombrovskis ↔ EPP: Direct political affiliation; EPP trusts Commission on this file",
+    "Lalucq ↔ S&D ECON: SRMR3 rapporteur commands S&D mandate",
+    "ECB ↔ SSM: Supervisory board provides technical testimony that shaped Article-by-article amendments",
+    "Bundesrat/German Sparkassen ↔ Council: Sparkassen lobbied against DGSD2 harmonisation; BRD government managed but not eliminated pressure",
+    "ECR ↔ SRM framework: ECR's Italian delegation abstained on SRMR3 final vote (inferred); potential blocking minority concern if Council procedure triggers re-opening",
+    "Pieper ↔ DIGITALEUROPE: SME exemption design co-developed",
+    "Virkkunen ↔ EPP/ECR: Cross-party technology coalition built around her personal credibility",
+    "van Sparrentak ↔ S&D leadership: Delivered AI workplace monitoring carve-out that allowed S&D abstention (not opposition)"
+  ],
+  "macroContext": "Source: IMF World Economic Outlook April 2026 (forecast data); IMF Fiscal Monitor April 2026.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

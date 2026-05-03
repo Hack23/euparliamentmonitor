@@ -11,6 +11,18 @@ layout: article
 ---
 # Breaking — 2026-04-20
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- Zero adopted texts dated today (April 20)
+- Zero events from today's EP feeds
+- Zero procedures updated today
+- Parliament in Easter recess — no plenary or committee activity
+- All primary feeds (events, procedures, documents) in DEGRADED MODE
+- **Metadata layer**: Regression reversed. Count restored from 100 (Run 190 low) to 104 (Run 191). 🟢 HIGH CONFIDENCE.
+- **Content layer**: Unchanged. 100% 404 rate on all March 26 texts; 100% 404 rate on the four newly-indexed January/February texts. 🟢 HIGH CONFIDENCE.
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

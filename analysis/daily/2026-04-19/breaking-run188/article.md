@@ -11,6 +11,18 @@ layout: article
 ---
 # Breaking — 2026-04-19
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- Query the metadata layer for immediate title confirmation on new texts
+- Query the content layer to confirm full accessibility
+- Track restoration progress with dual-metric monitoring
+- API content restores before Parliament returns (enabling pre-plenary analysis)
+- USTR Section 301 window (April 21-24) generates emergency parliamentary response
+- German Bundesrat Banking Union signals (April 23-25) create implementation friction
+- USTR Section 301 window (April 21-24): Probability 25%, Impact HIGH — most acute near-term threat
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

@@ -1,0 +1,36 @@
+{
+  "date": "2026-04-16",
+  "articleType": "breaking",
+  "runId": "177",
+  "gateResult": "PENDING",
+  "slug": "2026-04-16-breaking-177",
+  "articlePath": "analysis/daily/2026-04-16/breaking-run177/article.md",
+  "topFinding": "This analysis-only run (Run 177) was conducted on 16 April 2026, the second day of the European Parliament's inter-session period (April 14-26), at T+2 since tariff countermeasures activation.",
+  "keyTakeaways": [
+    "**DEGRADED MODE**: Activated due to server health check showing 0/13 operational feeds at cold start. Skipped `today` timeframe, went directly to `one-week` for all feeds. Skipped analytical tools (voting anomalies, political landscape, early warning system) to conserve timeout budget.",
+    "**Sequential thinking**: 4-step reasoning chain used for significance scoring, risk assessment, and SWOT analysis.",
+    "**Cross-reference with Run 176**: Prior run synthesis read and incorporated to avoid duplication and establish temporal trajectory.",
+    "**Monitor**: Any emergency session requests from Conference of Presidents",
+    "**Monitor**: US tariff announcements that could trigger Commission escalation response",
+    "**Monitor**: INTA coordinator informal communications",
+    "**Probability of breaking news**: 10% (inter-session continues, no scheduled events)"
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [
+    "Tariff impacts are distributed relatively evenly across member states",
+    "The Commission provides adequate briefing to group coordinators before April 27",
+    "National delegations within Renew and ECR do not receive strong domestic pressure to defect",
+    "**Renew fracture line**: FDP (Germany) opposes escalation due to automotive sector exposure; VVD (Netherlands) supports trade defence due to port/logistics exposure",
+    "**ECR fracture line**: PiS (Poland) supports agricultural protection; FdI (Italy) hedges between industrial protection and free trade rhetoric",
+    "Trade-specific votes (tariff rates, exemption criteria)",
+    "EGF budget votes (distributional politics)",
+    "Any votes linking trade to migration or rule of law conditionality"
+  ],
+  "macroContext": "",
+  "sources": [
+    "intelligence/coalition-dynamics.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

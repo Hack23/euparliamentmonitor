@@ -11,6 +11,18 @@ layout: article
 ---
 # Motions — 2026-04-20
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **Speed**: 104 adopted texts in 12 sitting days = 8.7 texts/day average (EP9 average: 5.2)
+- **Scope**: Simultaneous action across all major policy domains
+- **Coherence**: Individual texts form interconnected policy packages, not isolated acts
+- **Consensus**: Grand Centre + ECR on defence/trade creates supermajority (470+ seats)
+- **HIGH**: Multiple independent sources confirm; strong evidence base; low ambiguity
+- **MEDIUM-HIGH**: Multiple sources largely confirm; minor gaps or ambiguities
+- **MEDIUM**: Available evidence supports assessment but gaps exist
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

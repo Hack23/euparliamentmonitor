@@ -1,0 +1,26 @@
+{
+  "date": "2026-04-14",
+  "articleType": "breaking",
+  "runId": "170",
+  "gateResult": "PENDING",
+  "slug": "2026-04-14-breaking-170",
+  "articlePath": "analysis/daily/2026-04-14/breaking-run170/article.md",
+  "topFinding": "",
+  "keyTakeaways": [],
+  "topRisks": [
+    "**Likelihood**: 1 (Very Low) to 5 (Almost Certain)",
+    "**Impact**: 1 (Negligible) to 5 (Catastrophic)",
+    "**Risk Score** = Likelihood x Impact (max 25)",
+    "CRITICAL (21-25): 1 (R1 — US tariff escalation)",
+    "HIGH (11-15): 2 (R2, R3 — gridlock and fragmentation)",
+    "MODERATE (6-10): 3 (R4, R5, R6 — banking, oversight, EPP isolation)",
+    "LOW (1-5): 2 (R7, R8 — capacity and attendance)",
+    "Commission has explicit parliamentary mandate"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "risk-scoring/risk-matrix.md"
+  ]
+}

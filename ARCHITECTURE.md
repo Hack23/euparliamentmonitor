@@ -175,7 +175,7 @@ architecture.
   execution; one pinned production dependency (`european-parliament-mcp-server@1.2.20`) plus one optional dependency (`worldbank-mcp@1.0.1`) used only at build time; `markdown-it` + plugins (`markdown-it-anchor`, `markdown-it-footnote`, `markdown-it-attrs`, `markdown-it-deflist`) vendored in the aggregator for deterministic artifact rendering
 - **TypeScript Source**: All source in `src/` written in TypeScript 6.0.3 (strict, ESM, `"type": "module"`), compiled via `tsc` — `rootDir: ./src`, `outDir: ./scripts`, `target: ES2025`, `module: NodeNext`
 - **Multi-Language Support**: Generates content in 14 languages (`en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh`), defined in `src/constants/language-core.ts::ALL_LANGUAGES`
-- **Article Types**: 8 production content types (`breaking`, `committee-reports`, `month-ahead`, `month-in-review`, `motions`, `propositions`, `week-ahead`, `week-in-review`) — each type is a slug, not a strategy module; the aggregator renders the same canonical artifact order for every type and per-type content differences are carried by the Stage-B artifacts themselves
+- **Article Types**: 14 production content types (`breaking`, `committee-reports`, `election-cycle`, `month-ahead`, `month-in-review`, `motions`, `propositions`, `quarter-ahead`, `quarter-in-review`, `term-outlook`, `week-ahead`, `week-in-review`, `year-ahead`, `year-in-review`) — each type is a slug, not a strategy module; the aggregator renders the same canonical artifact order for every type and per-type content differences are carried by the Stage-B artifacts themselves
 - **Agentic Workflows**: 15 unified gh-aw markdown workflows — 14 `news-<type>.md` article types (Stages A → B → C → D → E in one session, active-work budget 22–28 min before the single safe-outputs `create_pull_request` call, 60-min `timeout-minutes` cap, `engine.mcp.session-timeout: 65m`) + `news-translate.md` (14-language flush translation, exempt from the single-PR rule) — compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.71.3`)
 - **Analysis-Artifact-Driven Article Pipeline**: Agents author the full Stage-B artifact set under `analysis/daily/<date>/<slug>-run<NN>/` and commit it. The deterministic aggregator (`src/aggregator/**`, invoked via `npm run generate-article -- --run <analysis-run-dir>` for a single run or `npm run generate-article:all` for batch regen) walks `manifest.json`, cleans each artifact, and emits the final HTML with the shared site chrome (stacked header + embedded 14-language switcher + TOC sidebar + footer stats) and 14-language hreflang entries. There is no AI-authored HTML step, no strategies, no builders, no section-builders
 - **Economic Data (IMF-primary, Wave-4 strict default editorial)**: IMF REST is the **primary** source for every economic claim in `intelligence/economic-context.md`; World Bank MCP provides complementary non-economic context only. Enforcement is editorial at the Stage-C completeness review — the legacy runtime gates (`articlePolicyHasEconomicContext`, `articlePolicyHasIMFEconomicEvidence`, `isWave3IMFStrictEnabled`) in `src/utils/content-validator.ts` were purged in April-2026; the Stage-C reviewer applies the IMF-required-for-policy rule directly over the committed artifact
@@ -334,7 +334,7 @@ C4Container
     }
 
     Container_Boundary(github_infra, "GitHub Infrastructure") {
-        Container(actions, "GitHub Actions", "CI/CD + gh-aw runtime", "9 news + ~15 standard workflows; SHA-pinned actions; OpenSSF Scorecard")
+        Container(actions, "GitHub Actions", "CI/CD + gh-aw runtime", "15 news + ~15 standard workflows; SHA-pinned actions; OpenSSF Scorecard")
         ContainerDb(repo, "Git Repository", "Version control", "Source + analysis runs + generated content; SLSA L3 provenance")
     }
 
@@ -389,7 +389,7 @@ C4Container
 | ⚖️ **Stage-C Review** | Editorial agent + JSON thresholds | Per-artifact line floors + tradecraft signals (Admiralty / WEP / ICD-203) | Replaces the purged `content-validator.ts` runtime gate |
 | 🌐 **News Indexes & Sitemap** | TypeScript | 14-language index pages, sitemap.xml, hreflang alternates | `npm run prebuild` |
 | 📦 **Static Site Output** | HTML / CSS / JS / JSON / Markdown | Public deliverable: news pages + `article.md` source per run | Committed to `main`, deployed to S3 |
-| 🚀 **GitHub Actions** | CI/CD + gh-aw | 9 news + ~15 standard workflows | Daily news + on-PR validation |
+| 🚀 **GitHub Actions** | CI/CD + gh-aw | 15 news + ~15 standard workflows | Daily news + on-PR validation |
 | ☁️ **CloudFront + S3** | CDN / object storage | Primary hosting via OIDC `GithubWorkFlowRole` | HTTPS + immutable asset cache |
 
 ### Security Responsibilities per Container

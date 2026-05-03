@@ -1,0 +1,48 @@
+{
+  "date": "2026-04-20",
+  "articleType": "breaking",
+  "runId": "191",
+  "gateResult": "PENDING",
+  "slug": "2026-04-20-breaking-191",
+  "articlePath": "analysis/daily/2026-04-20/breaking-run191/article.md",
+  "topFinding": "Date: Monday 2026-04-20 (EP Easter recess Day 8 of 13; Easter Sunday was April 5) Run ID: 191 Mode: ANALYSIS_ONLY — Parliament in Easter recess (Day 8), no breaking news threshold met Significance Score: 16/50 (threshold: 20/50 for article generation) Composite Risk: 16/50 (↑ from 15/50 in Run 190)",
+  "keyTakeaways": [
+    "Zero adopted texts dated today (April 20)",
+    "Zero events from today's EP feeds",
+    "Zero procedures updated today",
+    "Parliament in Easter recess — no plenary or committee activity",
+    "All primary feeds (events, procedures, documents) in DEGRADED MODE",
+    "**Metadata layer**: Regression reversed. Count restored from 100 (Run 190 low) to 104 (Run 191). 🟢 HIGH CONFIDENCE.",
+    "**Content layer**: Unchanged. 100% 404 rate on all March 26 texts; 100% 404 rate on the four newly-indexed January/February texts. 🟢 HIGH CONFIDENCE."
+  ],
+  "topRisks": [
+    "Smooth Return (full content by April 26): **50%** ↑ (was 40% in Run 190)",
+    "Partial Restore (Tier-1 index only by April 26): **25%** ↓ (was 28%)",
+    "Prolonged Degradation (still blocked April 27+): **25%** ↓ (was 32%)",
+    "Three independent analytical frameworks applied (trade policy precedents, current US-EU relations, digital regulation exposure) converged on 20% in Run 190; Run 191 revises this to **18%** (–2pp) based on the EU-China dual-track strategy observation (see `intelligence/scenario-forecast.md` Scenario B for full rationale)",
+    "The Digital Single Market legislative package (AI Act, DMA, DSA) remains the primary exposure vector",
+    "There is no reliable open-source signal confirming or denying USTR intent for this cycle",
+    "The EU's dual-track China strategy (TA-10-2026-0096 + TA-10-2026-0101) may actually REDUCE Section 301 probability by demonstrating EU strategic trade autonomy rather than dependence on WTO-challenged practices",
+    "**First order**: EUR/USD depreciation (0.5-2%), European equity market sell-off (1-3%)"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "EPP vs all others: 0.00 — EPP dominance creates asymmetric size ratios precluding similarity signaling",
+    "S&D↔ESN: 0.20 — Ideological and size incompatibility",
+    "S&D↔NI: 0.22 — Low but not zero; occasional constructive abstention possible",
+    "**Probability of meaningful coalition fracture at April 28-30**: 5%",
+    "**Probability of cross-coalition issue-specific cooperation (Renew+ECR on trade)**: 25%",
+    "**Probability of Green overture success on climate amendments**: 15%",
+    "**Expected coalition stability score**: 84/100 (unchanged from prior runs)"
+  ],
+  "macroContext": "The European Union's macroeconomic environment in early 2026 provides the context for interpreting the March 26 legislative package's economic implications and the forward risk landscape.",
+  "sources": [
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

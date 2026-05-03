@@ -1,0 +1,38 @@
+{
+  "date": "2026-04-27",
+  "articleType": "motions",
+  "runId": "motions-run-1777278029",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-04-27-motions",
+  "articlePath": "analysis/daily/2026-04-27/motions/article.md",
+  "topFinding": "The European Parliament convenes its April 2026 full Strasbourg plenary (27–30 April) at a moment of intensifying geopolitical and institutional pressure.",
+  "keyTakeaways": [
+    "Final vote margins (affected by ECR fragmentation)",
+    "Amendment outcomes on AI Omnibus (regulatory posture implications)",
+    "Text language on defence procurement (autonomy vs. NATO-first)",
+    "Motions on European Defence Fund allocation and SAFE instrument implementation",
+    "Expected coalition: EPP + S&D + ECR partial alignment; PfE split; Left/Greens opposed",
+    "**Assessment:** Passes with ~450-480 votes if EPP-S&D-ECR align",
+    "Follow-on motion on EU response to US reciprocal tariffs (extension of March 26 framework)"
+  ],
+  "topRisks": [],
+  "keyDates": [
+    "Von der Leyen Commission enters Q2 2026 with maximum legislative credibility"
+  ],
+  "keyActors": [
+    "Defence/security: collective security spending, threat deterrence",
+    "Trade: prices, employment in export sectors",
+    "Ukraine: solidarity costs vs. regional security dividend",
+    "AI: digital rights, labour market impact",
+    "Banking: savings protection, financial stability"
+  ],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

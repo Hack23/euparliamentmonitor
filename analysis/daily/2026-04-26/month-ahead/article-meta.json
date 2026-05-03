@@ -1,0 +1,42 @@
+{
+  "date": "2026-04-26",
+  "articleType": "month-ahead",
+  "runId": "month-ahead",
+  "gateResult": "PENDING",
+  "slug": "2026-04-26-month-ahead",
+  "articlePath": "analysis/daily/2026-04-26/month-ahead/article.md",
+  "topFinding": "The European Parliament enters its most consequential 30-day window since the start of EP10 year 2.",
+  "keyTakeaways": [
+    "Absolute majority threshold: 361 seats",
+    "EPP alone: 185 (49% of threshold)",
+    "EPP + S&D: 320 (below threshold — grand coalition insufficient)",
+    "EPP + S&D + Renew: 396 (✅ traditional \"grand coalition\" formula)",
+    "EPP + ECR + PfE: 348 (below threshold — right-wing bloc needs ESN or NI)",
+    "EPP + ECR + PfE + ESN: 376 (✅ far-right coalition viable on specific files)",
+    "**Minimum winning coalition requires 3 groups from different blocs**"
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [
+    "**Combined seats:** 396 (55.1% — above 361 majority threshold)",
+    "**Historical use:** Environmental legislation, rule of law, foreign policy",
+    "**Sustainability April–May 2026:** 🟡 MEDIUM (under pressure from EPP's right-wing drift)",
+    "**Key test:** Whether EPP accepts S&D's worker rights and social conditionality in Clean Industrial Deal",
+    "**Probability of forming on any given plenary vote:** 55–65%",
+    "**Combined seats:** 340 (below majority — needs +21 from PfE or NI)",
+    "**With PfE:** 424 (59% — viable)",
+    "**Historical use:** Migration enforcement, deregulation, anti-Green Deal votes"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

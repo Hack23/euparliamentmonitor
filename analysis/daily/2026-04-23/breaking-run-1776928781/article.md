@@ -11,6 +11,18 @@ layout: article
 ---
 # Breaking — 2026-04-23
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **TA-0087 and TA-0088 — Grzegorz Braun (ECR/PL)**: Dual immunity waivers for the Polish far-right MEP signal multiple separate criminal proceedings. The ECR group's political management problem persists into the April 27 plenary week.
+- **TA-0089 — Nikos Pappas (S&D/GR)**: Greek criminal proceedings. Cross-partisan "both-sides" framing.
+- **114 legislative acts adopted** (partial year, Jan–March) — 46.2% increase over 2025 full year rate
+- **567 roll-call votes** (partial year) vs 420 for all of 2025 — indicating accelerating legislative pace
+- **2,363 committee meetings** tracked — 43.8% committee-to-plenary ratio (highest in EP10)
+- **EPP stability**: 185 seats (~25.7%), largest group by ~50 seats over S&D
+- **Grand Centre coalition** (EPP + S&D + Renew): ~396 seats vs. 361 majority threshold — provides 35-seat buffer
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

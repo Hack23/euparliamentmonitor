@@ -98,6 +98,18 @@ The EP's adoption of tariff quota adjustments (TA-10-2026-0096) is a reactive me
 
 *EP Committee Reports | Analysis Week 2026-04-27 | OSINT — Public Data Only*
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **US tariff action** is the primary external shock; EP INTA has already pre-positioned countermeasure authorization (TA-10-2026-0096)
+- **EU-Mercosur CJEU referral** represents a rare EP assertion of treaty-interpretation authority to constrain Commission trade negotiations
+- **Agricultural safeguard** (TA-10-2026-0030) reflects the internal EU political economy — agricultural constituencies have veto leverage in the EP despite representing a small economic share
+- **Managed escalation** (US tariffs expand but EU countermeasures credible; trade volumes reduced -5-8%): Roughly Even (40-50%)
+- **Negotiated de-escalation** (bilateral deal within 6 months; minimal GDP impact): Unlikely to Roughly Even (30-45%)
+- **Full trade war** (comprehensive tariffs, EU GDP -1.5-2.0%, political crisis): Unlikely (15-25%)
+- Lithuania broadcaster concern (LIBE/CULT)
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

@@ -1,0 +1,42 @@
+{
+  "date": "2026-05-01",
+  "articleType": "month-ahead",
+  "runId": "month-ahead-run-1777624891",
+  "gateResult": "PENDING",
+  "slug": "2026-05-01-month-ahead",
+  "articlePath": "analysis/daily/2026-05-01/month-ahead/article.md",
+  "topFinding": "The European Parliament enters May 2026 with a single full Strasbourg plenary session (18–21 May) against a backdrop of accelerating legislative momentum: EP10 has already adopted 51 texts in 2026 (Q1 through early-Q2), surpassing 2025's pace by 46%.",
+  "keyTakeaways": [
+    "4-6 major legislative dossiers voted",
+    "2-3 geopolitical resolutions (Ukraine, neighbourhood)",
+    "Budget 2027 resolution establishing negotiating mandate",
+    "1-2 international agreements (consent procedure)",
+    "Committee agendas published by ~May 7",
+    "Commission presenting DMA enforcement action plan",
+    "Council Presidency (Poland) engaging EP on budget"
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [
+    "Lead on Clean Industrial Deal; EPP rapporteurs on key competitiveness legislation",
+    "Budget enlargement: EPP-aligned member states (Poland, Romania, Czech Republic) as net beneficiaries",
+    "Defence spending: EPP supports SAFE/ReArm; seeks credit for defence budgetary increases",
+    "Digital regulation: Moderate DMA enforcement; avoid overreach that damages European tech ecosystem",
+    "Migration: Seeking strict 'safe third country' application (TA-10-2026-0026 follow-up)",
+    "Clean Industrial Deal: Requires strong social conditions (just transition, job guarantees)",
+    "2027 budget: Social cohesion funds protection; resist austerity cuts to structural funds",
+    "Housing crisis: Follow-on to March resolution (TA-10-2026-0064); building legislative momentum"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

@@ -163,6 +163,18 @@ Based on the procedures feed pattern and Council responses received April 22, th
 
 *Data sources: EP Open Data Portal (data.europarl.europa.eu) | Analysis date: 2026-04-28 | Run ID: propositions-run-1777356258*
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **Level 2 delegated acts**: ~15 regulatory technical standards (RTS) from EBA under SRMR3/BRRD3
+- **Level 3 guidelines**: EBA consultation papers on bail-in sequencing and liquidation planning
+- **Supervisory convergence**: ECB-SSM supervisory manual updates within 18 months
+- **Timeline**: Full transposition deadline for member states — 24 months (circa March 2028)
+- **Track A — Accelerated processing**: Nationals of designated safe countries face 4-week processing (vs. standard 6–12 months) with limited appeal rights
+- **Track B — Third-country returns**: Return to designated safe third countries possible even without prior residence, if "connection" criteria met
+- **Tier 1 — High-risk AI** (medical, judicial, infrastructure): Full AI Act compliance burden retained
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

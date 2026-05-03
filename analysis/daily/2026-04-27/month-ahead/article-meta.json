@@ -1,0 +1,49 @@
+{
+  "date": "2026-04-27",
+  "articleType": "month-ahead",
+  "runId": "month-ahead-run-1777304697",
+  "gateResult": "PENDING",
+  "slug": "2026-04-27-month-ahead",
+  "articlePath": "analysis/daily/2026-04-27/month-ahead/article.md",
+  "topFinding": "The European Parliament is now in session — the April 27–30 Strasbourg plenary opened today as the first full legislative week after the March 26 vote on US tariff countermeasures.",
+  "keyTakeaways": [
+    "Commission: targeted, reversible countermeasures",
+    "Council: broader scope, higher tariff rates on specific US goods",
+    "EP (INTA position): conditional suspension mechanism with escalation triggers",
+    "*Western EPP faction (Germany CDU/CSU, Netherlands VVD, Nordic members):* Support for Green Deal",
+    "*Eastern EPP faction (Poland PO, Czech ODS, Romanian PNL):* Insist on nuclear and gas transitional",
+    "EPP + S&D + Renew with social conditionality: 397 seats — viable",
+    "EPP + ECR + Renew without conditionality: 343 seats — below majority (needs 18 more)"
+  ],
+  "topRisks": [
+    "Buffer: 36 seats above threshold (397 vs. 361)",
+    "Stress point: CID social conditionality requirement (S&D red line)",
+    "EPP fracture probability: 25–30% on CID specifically",
+    "Grand coalition preservation probability overall: 70–75%",
+    "Eastern faction (PL+CZ+RO+SK) = ~60 EPP MEPs",
+    "These MEPs face direct national party pressure on energy mix provisions",
+    "EPP leadership must contain, not suppress, this faction",
+    "Containment probability: 60–70%"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "CID: Internal split; leadership must manage eastern faction's energy mix demands",
+    "EU-US tariffs: Pro-targeted retaliation (German/French industry interest)",
+    "SRMR3: Conditional support pending Council-EP gap resolution",
+    "Migration: Pro-enforcement (core electoral base); careful not to enable PfE",
+    "CID: Support framework with mandatory minimum social conditionality provisions",
+    "EU-US tariffs: Support proportionate retaliation; concerned about retaliatory impact on workers",
+    "SRMR3: Strong support; authored key worker protection provisions",
+    "Migration: Oppose EPP-right coordination; emphasises legal pathways"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/political-risk.md"
+  ]
+}

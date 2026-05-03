@@ -1,0 +1,56 @@
+{
+  "date": "2026-04-29",
+  "articleType": "month-in-review",
+  "runId": "month-in-review-run-1777448086",
+  "gateResult": "PENDING",
+  "slug": "2026-04-29-month-in-review",
+  "articlePath": "analysis/daily/2026-04-29/month-in-review/article.md",
+  "topFinding": "The EU Parliament in April 2026 delivered a historically dense legislative agenda — including 2027 Budget Guidelines, a US tariff defense package, a landmark housing framework, and continued Ukraine solidarity — all under record coalition fragmentation.",
+  "keyTakeaways": [
+    "The structural fragmentation (ENP 6.59) exceeds all prior terms",
+    "The legislative output acceleration (+46%) is historically anomalous for Year 2 of a term",
+    "The multi-front crisis agenda is more complex than EP9 (which had COVID + climate but not simultaneous trade confrontation)",
+    "**Parliament stability:** 84/100 (EP early warning system)",
+    "**Effective parties:** 6.59 (historically high; regime change from <5 in 2004)",
+    "**Majority threshold:** 361 seats",
+    "**EPP coalition surface:** Can reach majority with S&D+Renew (396), S&D+Renew+Greens (449), ECR+Renew (441)"
+  ],
+  "topRisks": [
+    "German auto sector contraction (−1.5% GDP shock)",
+    "EU budget revenue shortfall requiring rectification",
+    "Commission activates emergency trade defense instruments",
+    "EP called for emergency INTA/ECON sessions",
+    "EPP-ECR-PfE coalition fragmentation as protectionist vs. free-trade EPP factions diverge",
+    "Commission's calibrated response to initial US tariffs (TA-10-2026-0096 was proportionate)",
+    "WTO dispute resolution mechanism provides procedural buffer",
+    "G7 diplomatic channels (Germany, France influence)"
+  ],
+  "keyDates": [
+    "Euro Area growth: ~1.1% (IMF WEO April 2026 forecast) — fragile recovery",
+    "IMF WEO April 2026 forecast holds: Euro Area growth ~1.1%",
+    "2027 Budget negotiations conclude by October 2026 (normal timeline)",
+    "IMF WEO April 2026 forecast provides insufficient buffer — actual growth could go negative"
+  ],
+  "keyActors": [
+    "**Power type:** Formal (official institutional role), Informal (influence without formal authority), Technical (specialized expertise), External (non-EP actors)",
+    "**Disposition:** Pro-EU deepening, Status quo, EU reform/sovereignty, Anti-EU",
+    "**Activity level in period:** Active (key vote/text sponsor), Reactive (responded to others), Passive (low profile)",
+    "**Power:** Formal, 185 seats (25.7%), essential for all majorities",
+    "**Key figures:** Manfred Weber (Group President, DE, CSU)",
+    "**Disposition:** Status quo / pro-EU on institutional questions; sovereignty-conscious on social policy",
+    "**Period activity:** ACTIVE — sponsored or co-sponsored Budget Guidelines, Budget texts",
+    "**Leverage:** Coalition kingmaker; 19x largest group vs. smallest (ESN)"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

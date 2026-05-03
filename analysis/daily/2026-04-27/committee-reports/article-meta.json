@@ -1,0 +1,46 @@
+{
+  "date": "2026-04-27",
+  "articleType": "committee-reports",
+  "runId": "committee-reports-run-1777275816",
+  "gateResult": "PENDING",
+  "slug": "2026-04-27-committee-reports",
+  "articlePath": "analysis/daily/2026-04-27/committee-reports/article.md",
+  "topFinding": "The European Parliament's legislative committees delivered substantial output in Q1 2026, adopting texts across trade defence (US tariffs, EU-Mercosur), digital governance (AI copyright), monetary oversight (ECB annual report, appointments), housing rights, and electoral reform.",
+  "keyTakeaways": [
+    "**US tariff action** is the primary external shock; EP INTA has already pre-positioned countermeasure authorization (TA-10-2026-0096)",
+    "**EU-Mercosur CJEU referral** represents a rare EP assertion of treaty-interpretation authority to constrain Commission trade negotiations",
+    "**Agricultural safeguard** (TA-10-2026-0030) reflects the internal EU political economy — agricultural constituencies have veto leverage in the EP despite representing a small economic share",
+    "**Managed escalation** (US tariffs expand but EU countermeasures credible; trade volumes reduced -5-8%): Roughly Even (40-50%)",
+    "**Negotiated de-escalation** (bilateral deal within 6 months; minimal GDP impact): Unlikely to Roughly Even (30-45%)",
+    "**Full trade war** (comprehensive tariffs, EU GDP -1.5-2.0%, political crisis): Unlikely (15-25%)",
+    "Lithuania broadcaster concern (LIBE/CULT)"
+  ],
+  "topRisks": [
+    "INTA reports become harder to pass; EP positions in trade negotiations are weakened",
+    "Commission faces reduced EP support for trade deal ratifications",
+    "AGRI committee gains leverage as agricultural trade becomes the fracture line"
+  ],
+  "keyDates": [
+    "ECB holds rates steady at May 2026 governing council meeting"
+  ],
+  "keyActors": [
+    "*US tariffs:* Supports countermeasures but prefers negotiated resolution",
+    "*AI copyright:* Split — pro-innovation wing vs. content industry protection",
+    "*ECB oversight:* Institutionalist, supports ECB independence",
+    "*EU-Mercosur:* Divided between market-access advocates (industry) and agricultural protectionists",
+    "*US tariffs:* Supports strong countermeasures, protects industrial workers",
+    "*AI copyright:* Strong creator protection, opposes broad TDM exemptions",
+    "*Housing:* Central champion of TA-10-2026-0064, social housing investment",
+    "*Subcontracting:* Authored or co-authored TA-10-2026-0050 on workers' rights"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "executive-brief.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

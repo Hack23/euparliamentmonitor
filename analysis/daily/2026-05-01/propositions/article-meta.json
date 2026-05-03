@@ -1,0 +1,45 @@
+{
+  "date": "2026-05-01",
+  "articleType": "propositions",
+  "runId": "propositions-run-1777615486",
+  "gateResult": "PENDING",
+  "slug": "2026-05-01-propositions",
+  "articlePath": "analysis/daily/2026-05-01/propositions/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "Opened formal non-compliance investigations against 4 of 5 designated gatekeepers",
+    "Issued 2 preliminary findings of non-compliance",
+    "**Adopted zero final non-compliance decisions with financial penalties**"
+  ],
+  "topRisks": [
+    "EEAS East StratCom Task Force monitoring",
+    "DSA transparency requirements on Very Large Platforms",
+    "EP Services cybersecurity awareness",
+    "DMA Article 39: fast-track procedures for preliminary rulings",
+    "Commission can request interim measures order from CJEU",
+    "Parallel competition enforcement under Article 102 TFEU",
+    "Commission 6-month transposition progress review",
+    "GRECO monitoring reports (external validation)"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "**Apple:** Under formal investigation regarding App Store interoperability and browser default settings. The EP resolution likely demands interim measures pending final decision.",
+    "**Alphabet/Google:** Investigations cover Google Search self-preferencing, Google Play dominance, and YouTube recommendation algorithms. The resolution may call for specific data access requirements.",
+    "**Meta:** The data combination across platforms (Facebook + Instagram + WhatsApp) is the highest-profile DMA compliance issue. The privacy-competition intersection is particularly contentious given parallel GDPR proceedings.",
+    "**ByteDance/TikTok:** Gatekeeper designation is newer (2024) and enforcement is nascent; the EP may push for acceleration.",
+    "**Microsoft:** Less exposed to DMA enforcement than consumer platforms; Bing AI integration is a potential future investigation target.",
+    "**Transparency International EU:** Major beneficiary of the Anti-Corruption Regulation's signing. The organisation's 2025 Corruption Perceptions Index highlighted five EU member states (Hungary, Bulgaria, Romania, Slovakia, Malta) as areas of concern; the regulation provides the Commission with new tools to pursue these.",
+    "**Amnesty International / Human Rights Watch:** Both organisations provided evidence submissions to MEPs regarding Russia's conduct in Ukraine ahead of the urgency resolution. Their documentation of attacks on civilian infrastructure (hospitals, schools, energy facilities) feeds directly into the resolution's accountability demands.",
+    "**Global response to Haiti:** UNHCR and IOM data on Haiti's internally displaced persons (estimated 700,000 as of March 2026, up from 400,000 in 2024) underpins the urgency resolution on trafficking and exploitation by criminal gangs."
+  ],
+  "macroContext": "---",
+  "sources": [
+    "executive-brief.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

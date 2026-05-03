@@ -1,0 +1,54 @@
+{
+  "date": "2026-04-23",
+  "articleType": "breaking",
+  "runId": "breaking-run-1776928781",
+  "gateResult": "PENDING",
+  "slug": "2026-04-23-breaking",
+  "articlePath": "analysis/daily/2026-04-23/breaking-run-1776928781/article.md",
+  "topFinding": "The March 26, 2026 plenary session, adopted exactly one week before President Trump's April 2 tariff proclamations, has undergone a dramatic retrospective reframing during the Easter recess.",
+  "keyTakeaways": [
+    "**TA-0087 and TA-0088 — Grzegorz Braun (ECR/PL)**: Dual immunity waivers for the Polish far-right MEP signal multiple separate criminal proceedings. The ECR group's political management problem persists into the April 27 plenary week.",
+    "**TA-0089 — Nikos Pappas (S&D/GR)**: Greek criminal proceedings. Cross-partisan \"both-sides\" framing.",
+    "**114 legislative acts adopted** (partial year, Jan–March) — 46.2% increase over 2025 full year rate",
+    "**567 roll-call votes** (partial year) vs 420 for all of 2025 — indicating accelerating legislative pace",
+    "**2,363 committee meetings** tracked — 43.8% committee-to-plenary ratio (highest in EP10)",
+    "**EPP stability**: 185 seats (~25.7%), largest group by ~50 seats over S&D",
+    "**Grand Centre coalition** (EPP + S&D + Renew): ~396 seats vs. 361 majority threshold — provides 35-seat buffer"
+  ],
+  "topRisks": [
+    "Direct GDP impact: -0.9pp EU-wide in escalation scenario",
+    "German auto sector: €65B annual export revenue at risk; 800K direct jobs",
+    "Pharmaceutical sector: €85B export revenue at risk",
+    "Net 12-month GDP loss estimate: €120-160B across EU27",
+    "White House USTR statements (daily tracking required after June 15)",
+    "EU Commission Sefcovic-USTR meeting calendar",
+    "G7 communique language (G7 summit May/June)",
+    "EPP plenary group meeting results (April 27 morning, pre-plenary)"
+  ],
+  "keyDates": [
+    "September-December 2026: Sectoral mini-deals replace comprehensive approach",
+    "August 2026: WTO dispute settlement initiated",
+    "Q3-Q4 2026: Tariff cycle with escalation risk"
+  ],
+  "keyActors": [
+    "**Von der Leyen**: Commission President — trade negotiation orchestrator",
+    "**Metsola**: EP President — institutional face, plenary manager",
+    "**Lange (INTA)**: Trade architecture lead, March 26 rapporteur",
+    "**Šefčovič**: Trade Commissioner — US truce negotiator",
+    "**Tinagli (ECON)**: Banking union completion lead",
+    "**EPP (185 seats)**: Grand Centre anchor, German industrial interests",
+    "**S&D (135 seats)**: Social dimension, workers' rights integration",
+    "**Renew (76 seats)**: Digital/competitiveness framing, French strategic autonomy"
+  ],
+  "macroContext": "France's GDP reached €3.16 trillion in 2024 (World Bank data confirmed), suggesting approximately 3-4% nominal growth from €3.06T in 2023 (growth partially driven by inflation; real growth lower).",
+  "sources": [
+    "classification/actor-mapping.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

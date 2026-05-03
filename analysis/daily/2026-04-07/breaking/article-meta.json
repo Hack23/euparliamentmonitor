@@ -1,0 +1,28 @@
+{
+  "date": "2026-04-07",
+  "articleType": "breaking",
+  "runId": "d9f79a7a-aa2f-4a35-aa13-d6df91d7b296",
+  "gateResult": "PENDING",
+  "slug": "2026-04-07-breaking-d9f79a7a-aa2f-4a35-aa13-d6df91d7",
+  "articlePath": "analysis/daily/2026-04-07/breaking/article.md",
+  "topFinding": "",
+  "keyTakeaways": [],
+  "topRisks": [
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:",
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

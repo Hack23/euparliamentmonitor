@@ -419,10 +419,10 @@ public security evidence.
 - **S11: Triple Supply-Chain Attestation** — SLSA Level 3 build attestations + npm provenance + OpenSSF Scorecard + [OpenSSF Best Practices #12068](https://www.bestpractices.dev/projects/12068). *Impact: 9/10.*
 - **S12: Test Depth** — 3,061+ tests across 52 files: Vitest 4.1.4 (unit+integration), Playwright 1.59.1 + @axe-core/playwright (WCAG 2.1 AA E2E), HTMLHint, ESLint 10.2.1 + sonarjs + security + jsdoc plugins. *Impact: 8/10.*
 - **S13: Dual Economic-Context Surfaces** — IMF SDMX 3.0 REST (primary economic source: WEO + Fiscal Monitor + IFS + BOP + ER + PCPS) + World Bank Open Data MCP (non-economic context). Stage-C completeness review enforces IMF citation for policy articles, with WB satisfying as fallback when IMF is unavailable for a topic. *Impact: 7/10.*
-- **S14: Hardened Agentic Pipeline** — 9 gh-aw agentic workflows (8 unified `news-<type>.md` + manual `news-translate.md`) with 5-layer security: AWF Squid firewall egress allowlist, Docker sandbox, safe-outputs caps, JSONL stdio audit, lock-file compile-gate pinned to `v0.69.0`. *Impact: 9/10.*
+- **S14: Hardened Agentic Pipeline** — 15 gh-aw agentic workflows (14 unified `news-<type>.md` + manual `news-translate.md`) with 5-layer security: AWF Squid firewall egress allowlist, Docker sandbox, safe-outputs caps, JSONL stdio audit, lock-file compile-gate pinned to `v0.71.3`. *Impact: 9/10.*
 - **S15: Typed Public npm API** — `scripts/**/*.d.ts` declarations enable downstream reuse by other civic-tech projects; positions the package as reusable infrastructure. *Impact: 6/10.*
 - **S16: AWS Primary + GitHub Pages Fallback** — AWS S3+CloudFront primary distribution with OIDC federation (no long-lived keys) + documented GitHub Pages fallback runbook for BCP. *Impact: 8/10.*
-- **S17: Canonical MCP Tool-List Drift Tests** — `IMF_MCP_TOOLS` and `WORLD_BANK_MCP_TOOLS` asserted in `test/integration/mcp/*` detect upstream API drift at CI time. *Residual gap: EP MCP client lacks canonical `EP_MCP_TOOLS` list (tracked in Weaknesses).* *Impact: 7/10.*
+- **S17: Canonical MCP Tool-List Drift Tests** — `EP_MCP_TOOLS`, `IMF_MCP_TOOLS` and `WORLD_BANK_MCP_TOOLS` asserted in `test/integration/mcp/*` detect upstream API drift at CI time. All three MCP clients export canonical tool lists. *Impact: 8/10.*
 
 ---
 
@@ -681,7 +681,7 @@ builds | 50-70% |
 - **W12: Bus Factor 1–2 at Hack23** — no external community contributors yet; knowledge concentration remains in a small Hack23 team. *Risk: 🔴 High (long-term).*
 - **W13: Monolingual Source-of-Truth** — English is the sole authoritative source; 13 translation targets pass the pre-translation validator gate but are not line-by-line human reviewed, creating potential for drift across locales. *Risk: 🟡 Medium.*
 - **W14: EP Fixed-Window Feed Limitations** — EP MCP fixed-window feeds (7 tools) offer no timeframe filtering — pagination only; constrains historical-query precision. *Risk: 🟢 Low.*
-- **W15: Missing EP MCP Canonical Tool-List Export** — the EP MCP client does not yet export a canonical `EP_MCP_TOOLS` list, so the drift-test coverage available for IMF+WB is not yet available for EP. *Risk: 🟡 Medium — tracked in CRA gap table row 13.*
+- **W15: ~~Missing EP MCP Canonical Tool-List Export~~ (Resolved)** — `EP_MCP_TOOLS` is now exported from `src/mcp/ep-mcp-client.ts` (60+ tools) and drift-guarded by `test/integration/mcp/ep-mcp.test.js`. *Risk: ✅ Resolved.*
 
 ---
 

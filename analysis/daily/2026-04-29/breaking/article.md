@@ -185,6 +185,18 @@ Parliament adopted updated legislation for the EU's **Generalised Scheme of Pref
 
 *EU Parliament Monitor | Executive Brief | 2026-04-29 (final)*
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- Defence cooperation programme costs (minimum €100bn envelope)
+- Industrial policy transition costs (green economy, digital transformation)
+- Migration management infrastructure
+- Neighbourhood and enlargement pre-accession funding (with Ukraine and Western Balkans in pipeline)
+- Rural development and cohesion modernisation
+- **Net contributor bloc** (Germany, Netherlands, Austria, Sweden, Denmark) will resist significant budget expansion, particularly after running national fiscal consolidation programmes
+- **France** in an unusual position — under fiscal pressure but also seeking influence over new strategic autonomy and defence envelopes
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -4218,7 +4230,7 @@ This artifact will be updated in subsequent runs to track whether any black swan
 
 *EU Parliament Monitor | Wildcards and Black Swans | 2026-04-29*
 
-<h2 id="section-forward-projection">Forward Projection</h2>
+<h2 id="section-forward-projection">What to Watch</h2>
 
 ### Forward Indicators
 

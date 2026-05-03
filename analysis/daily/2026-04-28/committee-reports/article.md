@@ -74,6 +74,17 @@ For trade legislation (Mercosur safeguard), the historically unusual alignment i
 
 *Sources: EP Open Data Portal via european-parliament-mcp-server@1.2.15; EP adopted texts feed (133 items, 120 EP10-term); legislative procedure timeline data.*
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **Grand coalition (EPP 185 + S&D 135 + Renew 77 = 397):** Exceeds majority by 36 seats — sufficient for most legislation but fragile on contentious files.
+- **Conservative right coalition (EPP 185 + ECR 81 + PfE 85 = 351):** Below majority; requires additional support, typically NI or individual defectors.
+- **Hard right bloc (PfE 85 + ECR 81 + ESN 27 = 193):** Strong blocking minority on sensitive constitutional/migration files.
+- 🟢 HIGH confidence: Legislative completions data (OJ-published procedures) — primary source EP Open Data Portal
+- 🟡 MEDIUM confidence: Trilogue outcome predictions — based on committee mandate analysis and inter-institutional precedent
+- 🔴 LOW confidence: Voting patterns — EP roll-call data delayed 4–6 weeks; quantitative coalition analysis not possible from available data
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

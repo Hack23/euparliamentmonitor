@@ -211,7 +211,7 @@ gh-aw v0.71.3 compiler emits `sessionTimeout` but the bundled gateway
 image `ghcr.io/github/gh-aw-mcpg:v0.3.1` rejects it with
 `additionalProperties 'sessionTimeout' not allowed`, run #25275823699
 fingerprint). Backend MCP sessions are kept warm by
-`sandbox.mcp.keepalive-interval: 300` (5-minute pings). The agent must
+The MCP gateway uses its upstream default keepalive. The agent must
 therefore land the single safe-outputs PR call within the 60-min
 `timeout-minutes` cap regardless. Unused budget is NOT redistributed —
 the agent exits cleanly after shipping the PR. Long-horizon or
@@ -271,7 +271,7 @@ invalid schema` line listing each invalid field.
 > is currently non-functional — the bundled gateway image v0.3.1
 > rejects the field (run #25275823699). The MCP gateway falls back to
 > its upstream default session lifetime, and
-> `sandbox.mcp.keepalive-interval: 300` keeps backend sessions warm.
+> The MCP gateway default keepalive keeps backend sessions warm.
 > The 60-min `timeout-minutes` cap (vs the prior 45-min schedule) is
 > what gives Pass 2 a ≥ 10-min absolute window (vs the prior 4-min
 > floor) for genuine read-back-and-rewrite quality work — see run
@@ -298,7 +298,7 @@ that motivated the explicit ceilings):
    per-workflow PR-call deadline above (≤ minute 45 for standard slugs;
    ≤ minute 47 for electoral). The MCP gateway uses its upstream
    default session lifetime (`engine.mcp.session-timeout` is currently
-   non-functional, see preceding note); `keepalive-interval: 300`
+   non-functional, see preceding note); the gateway's default keepalive
    keeps backends warm. The PR-call deadline is governed by
    `timeout-minutes` and Stage E budget.
 
@@ -467,7 +467,7 @@ then ship the single combined PR (see
 - Keep every analysis artifact and manifest update on disk in real time; do not
   defer writes until stage end.
 - Do **not** use per-phase repo-memory checkpoint or heartbeat patterns.
-- Rely on workflow-level MCP gateway keepalive (`sandbox.mcp.keepalive-interval`)
+- Rely on the MCP gateway default keepalive behavior
   plus the single end-of-run PR snapshot in
   [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md).
 

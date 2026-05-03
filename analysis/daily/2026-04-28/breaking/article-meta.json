@@ -1,0 +1,54 @@
+{
+  "date": "2026-04-28",
+  "articleType": "breaking",
+  "runId": "breaking-run1777360024",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-04-28-breaking",
+  "articlePath": "analysis/daily/2026-04-28/breaking/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "719 MEPs across 9 political groups",
+    "EPP: 185 (25.7%) — dominant group, governing coalition anchor",
+    "S&D: 135 (18.8%) — centre-left, key coalition partner",
+    "PfE: 85 (11.8%) — nationalist right, issue-by-issue cooperation",
+    "ECR: 81 (11.3%) — conservative Eurosceptics, tactical trade allies",
+    "Renew: 77 (10.7%) — liberal centre, critical swing votes",
+    "Greens/EFA: 53 (7.4%) — progressive, climate/rule-of-law focus"
+  ],
+  "topRisks": [
+    "R-01: US-EU trade war escalation",
+    "R-02: Russian disinformation",
+    "R-04: Rule of law backsliding",
+    "R-03: Coalition fracture",
+    "R-07: CBAM challenge",
+    "R-10: Hungarian veto cascade",
+    "R-08: Ukraine aid fatigue",
+    "R-09: Bank stress"
+  ],
+  "keyDates": [
+    "WEP 70-80%: Coalition maintains majority through June 2026 plenary sessions",
+    "WTO Dispute Settlement Body case filing (expected Q2 2026)",
+    "G7 summit trade communique language (June 2026)",
+    "EU GDP growth: 1.4-1.8% (within IMF WEO April 2026 baseline)",
+    "Trump executive order expanding Section 232 to automobiles (pending threat as of April 2026)"
+  ],
+  "keyActors": [
+    "**EPP + S&D + Renew = 397 seats** (majority: 361 required) — grand coalition viable",
+    "**EPP alone = 185** (far below threshold — needs partners)",
+    "**Conservative bloc (EPP+ECR+PfE+ESN) = 378** — has majority but rarely cohesive",
+    "**Progressive bloc (S&D+Renew+Greens+Left) = 311** — minority, needs EPP cooperation"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

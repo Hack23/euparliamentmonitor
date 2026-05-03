@@ -1,0 +1,37 @@
+{
+  "date": "2026-04-21",
+  "articleType": "breaking",
+  "runId": "3ff728a7-15fa-4d2d-af0e-73c3e1ffb70e",
+  "gateResult": "PENDING",
+  "slug": "2026-04-21-breaking-3ff728a7-15fa-4d2d-af0e-73c3e1ff",
+  "articlePath": "analysis/daily/2026-04-21/breaking-run193/article.md",
+  "topFinding": "The March 26, 2026 plenary session has emerged from 26 days of data obscurity as Parliament's most consequential single-session legislative output of Q1 2026.",
+  "keyTakeaways": [
+    "**TA-0087 and TA-0088**: Two separate immunity waiver requests for Grzegorz Braun (ECR/PL), a far-right MEP with a documented record of extreme statements. The dual waiver suggests multiple separate criminal proceedings. This is significant for ECR group management — Braun's continued presence creates political costs for the group's aspirations to institutional responsibility.",
+    "**TA-0089**: Immunity waiver for Nikos Pappas (S&D/GR), a Greek MEP, involving Greek criminal proceedings. The adoption of an S&D immunity waiver on the same day as two ECR waivers creates a \"both sides\" optics that may have facilitated an easier vote.",
+    "**TA-0095**: Extension of child sexual abuse regulation (CSAR) — highly politically sensitive, Council-Parliament dynamics ongoing.",
+    "**TA-0099**: UN Convention on Judicial Sales of Ships — technical maritime law ratification.",
+    "**TA-0100**: EU-Lebanon S&T cooperation agreement — geopolitically relevant amid Lebanon reconstruction context.",
+    "**TA-0102, TA-0103**: EGF mobilisations for Belgian workers — social policy application.",
+    "**TA-0104**: Global Gateway assessment — strategic communications value; links EU external investment strategy to trade policy narrative."
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [
+    "EPP: ~180 seats (API returns 0 due to PPE/EPP acronym mismatch — analytical workaround applied)",
+    "S&D: 135 seats",
+    "Renew: 77 seats",
+    "**Total Grand Centre: ~392 seats**",
+    "**Required majority: 361 seats (50%+1 of 720)**",
+    "**Coalition buffer: +31 seats (8.6% margin)**",
+    "Total seats: 720",
+    "ENP calculation: 1 / Σ(seat_share_i²)"
+  ],
+  "macroContext": "",
+  "sources": [
+    "intelligence/coalition-dynamics.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md"
+  ]
+}

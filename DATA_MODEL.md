@@ -411,15 +411,21 @@ erDiagram
 
 **File Location**: `src/types/index.ts` (`ArticleCategory` enum + `ARTICLE_TYPES` catalogue in `src/constants/language-articles.ts`)
 
-EU Parliament Monitor ships **8 production article types**, each driven by a single unified `news-<type>.md` agentic workflow (Stages A→E in one ~45-min session). HTML is rendered deterministically by `src/aggregator/article-generator.ts` from committed Stage-B analysis artifacts — there are no per-type strategy modules in the post-April-2026 pipeline.
+EU Parliament Monitor ships **14 production article types**, each driven by a single unified `news-<type>.md` agentic workflow (Stages A→E in one ~60-min session). HTML is rendered deterministically by `src/aggregator/article-generator.ts` from committed Stage-B analysis artifacts — there are no per-type strategy modules in the post-April-2026 pipeline.
 
 | 🏷️ Code | 👁️ Perspective | 🤖 gh-aw Workflow | 📅 Cadence |
 |---------|----------------|-------------------|------------|
-| 🚨 `breaking` | real-time | `news-breaking.md` | every 6h |
+| 🚨 `breaking` | real-time | `news-breaking.md` | every 4h |
 | 🔮 `week-ahead` | prospective | `news-week-ahead.md` | Fri 07:00 UTC |
 | 📋 `week-in-review` | retrospective | `news-week-in-review.md` | Sat 09:00 UTC |
 | 📊 `month-ahead` | prospective | `news-month-ahead.md` | 1st 08:00 UTC |
 | 📈 `month-in-review` | retrospective | `news-month-in-review.md` | 28th 10:00 UTC |
+| 🌐 `quarter-ahead` | prospective | `news-quarter-ahead.md` | 1st 06:00 UTC |
+| 📚 `quarter-in-review` | retrospective | `news-quarter-in-review.md` | 5th 08:00 UTC |
+| 🛰️ `year-ahead` | prospective | `news-year-ahead.md` | Quarterly (Jan/Apr/Jul/Oct) |
+| 📜 `year-in-review` | retrospective | `news-year-in-review.md` | Annual (15 Jan) |
+| 🗓️ `term-outlook` | prospective | `news-term-outlook.md` | Semi-annual (1 Jan & 1 Jul) |
+| 🗳️ `election-cycle` | prospective | `news-election-cycle.md` | Annual + imminent triggers |
 | 🏛️ `committee-reports` | analytical | `news-committee-reports.md` | Mon–Fri 04:00 UTC |
 | 🗳️ `motions` | analytical | `news-motions.md` | Mon–Fri 06:00 UTC |
 | ⚖️ `propositions` | analytical | `news-propositions.md` | Mon–Fri 05:00 UTC |
