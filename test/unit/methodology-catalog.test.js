@@ -93,7 +93,7 @@ function loadPerArtifactSections() {
   const text = fs.readFileSync(PER_ARTIFACT, 'utf8');
   const sections = new Set();
   for (const raw of text.split(/\r?\n/)) {
-    const m = raw.match(/^###\s+([a-z][a-z0-9_-]*)\s*$/i);
+    const m = raw.match(/^###\s+([a-zA-Z][a-zA-Z0-9_-]*)\s*$/);
     if (m) sections.add(m[1].toLowerCase());
   }
   return sections;

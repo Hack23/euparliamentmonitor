@@ -30,7 +30,11 @@
 
 - **Probability:** 55% — `Likely (55–80%)` over 14 days.
 - **Confidence in scoring:** Moderate (multiple independent EP MCP sources agree on direction; magnitude depends on Renew whip).
-- **Narrative (≥150 words).** The base-case path: the EPP-S&D shadow concord holds, Renew confirms a positive whip line at its 2026-04-19 group meeting, and the Hungarian Council reservation on Article 12.4 is cleared in COREPER on 2026-04-17. Greens shadow Reintke accepts a narrow concession on three of seven amendments to Article 12.4, keeping at least 70% of Greens cohesion. ECR procedural amendments fail to delay the order of voting because the EP rapporteur pre-clears with the Bureau on 2026-04-21. The vote on 2026-04-23 carries with `~390/720 *illustrative*` votes in favour — comfortably above the simple-majority threshold of 361. The Belgian Trio Presidency uses the closing weeks (2026-04-23 to 2026-06-30) to open trilogue under the same Council mandate that built the EP draft, materially raising 2026-Q3 trilogue-completion probability.
+- **Narrative (≥150 words).** The base-case path: the EPP-S&D shadow concord holds, Renew confirms a positive whip line at its 2026-04-19 group meeting, and the Hungarian Council reservation on Article 12.4 is cleared in COREPER on 2026-04-17. Greens shadow Reintke accepts a narrow concession on three of seven amendments to Article 12.4, keeping at least 70% of Greens cohesion.
+
+  ECR procedural amendments fail to delay the order of voting because the EP rapporteur pre-clears with the Bureau on 2026-04-21. The vote on 2026-04-23 carries with `~390/720 *illustrative*` votes in favour — comfortably above the simple-majority threshold of 361.
+
+  The Belgian Trio Presidency uses the closing weeks (2026-04-23 to 2026-06-30) to open trilogue under the same Council mandate that built the EP draft, materially raising 2026-Q3 trilogue-completion probability.
 - **Early-warning indicators (≥3, dated).**
   1. **2026-04-15** — EP amendment register: ≤12 contested amendments going into plenary.
   2. **2026-04-17** — COREPER outcome: explicit withdrawal or narrowing of Hungarian reservation on Article 12.4.

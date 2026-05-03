@@ -19,7 +19,7 @@
 
 | # | Actor | Role | Power (0–10) | Alignment (-5…+5) | Score citation |
 |---|---|---:|---:|---:|---|
-| 1 | Manfred Weber (EPP) | EPP group chair | 9 | +4 | `assess_mep_influence` rank 3, file co-rapporteur seniority *illustrative* |
+| 1 | Manfred Weber (EPP) | EPP group chair | 9 | +4 | `assess_mep_influence` rank 3; co-signer of joint amendment AM-118 *illustrative* |
 | 2 | Iratxe García Pérez (S&D) | S&D group chair | 8 | +3 | `assess_mep_influence` rank 6 *illustrative* |
 | 3 | Valérie Hayer (Renew) | Renew chair | 7 | +2 | `assess_mep_influence` rank 14 *illustrative* |
 | 4 | Terry Reintke (Greens) | Greens co-chair, file shadow | 6 | -1 | Co-chair role + plenary speech 2026-03-12 narrowing AI scope |
