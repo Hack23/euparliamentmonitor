@@ -72,6 +72,15 @@ const ANALYSIS_ANCHOR_GUIDE = 'analysis/methodologies/ai-driven-analysis-guide.m
 const ANALYSIS_ANCHOR_GATE = '03-analysis-completeness-gate.md';
 const NEWS_GENERATION_IMPORT = '.github/agents/news-generation.agent.md';
 
+// Rule 5: Canonical prompt import set. Every article-generating workflow
+// (all news-*.md except news-translate.md) must import the news-generation
+// agent AND the shared MCP servers component in canonical order.
+const CANONICAL_IMPORTS = [
+  '.github/agents/news-generation.agent.md',
+  'shared/mcp/news-mcp-servers.md',
+];
+const EXEMPT_FROM_CANONICAL_IMPORTS = new Set(['news-translate.md']);
+
 const FORBIDDEN_PHRASES = [
   /\bcheckpoint\s+pr\b/i,
   /\bcheckpoint-pr\b/i,
@@ -210,6 +219,26 @@ function lintFile(filePath, fileName) {
           `missing completeness-gate anchor: must either import '${NEWS_GENERATION_IMPORT}' or reference '${ANALYSIS_ANCHOR_GATE}'. See .github/prompts/README.md § Analysis Artifact Integration.`,
         );
       }
+    }
+  }
+
+  // Rule 5: canonical prompt import order.
+  // Article-generating workflows must import CANONICAL_IMPORTS in order.
+  if (!EXEMPT_FROM_CANONICAL_IMPORTS.has(fileName)) {
+    for (const expected of CANONICAL_IMPORTS) {
+      if (!content.includes(expected)) {
+        violations.push(
+          `missing canonical import '${expected}' — every article-generating news-*.md must import the canonical set: ${CANONICAL_IMPORTS.join(', ')}. See .github/agents/news-generation.agent.md.`,
+        );
+      }
+    }
+    // Check order: news-generation.agent.md must appear before news-mcp-servers.md
+    const agentIdx = content.indexOf(CANONICAL_IMPORTS[0]);
+    const mcpIdx = content.indexOf(CANONICAL_IMPORTS[1]);
+    if (agentIdx !== -1 && mcpIdx !== -1 && agentIdx > mcpIdx) {
+      violations.push(
+        `canonical imports out of order: '${CANONICAL_IMPORTS[0]}' must appear before '${CANONICAL_IMPORTS[1]}'. See .github/agents/news-generation.agent.md.`,
+      );
     }
   }
 

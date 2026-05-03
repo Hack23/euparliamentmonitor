@@ -157,6 +157,53 @@ All pull requests must pass these checks:
 3. **HTML validation**: Pass htmlhint checks
 4. **npm audit**: No high/critical vulnerabilities
 
+## Quality Gates — Test Coverage & Agentic Workflows
+
+### Coverage Thresholds (`vitest.config.js`)
+
+| Metric | Threshold | Target |
+|--------|:---------:|:------:|
+| Lines | ≥ 88% | 92% |
+| Functions | ≥ 88% | 92% |
+| Branches | ≥ 78% | 84% |
+| Statements | ≥ 88% | 92% |
+
+### Agentic Workflow Lint Rules (`scripts/lint-prompts.js`)
+
+Every `news-*.md` gh-aw workflow must pass the following structural assertions:
+
+1. **Single-PR rule**: `safeoutputs___create_pull_request` appears at most once
+   (`news-translate.md` exempt).
+2. **Forbidden phrases**: No `checkpoint pr`, `keep-alive`, `keepalive`,
+   `heartbeat`, `progressive safe output`, or references to purged modules.
+3. **No push_repo_memory**: `safeoutputs___push_repo_memory` is banned
+   (`news-translate.md` exempt).
+4. **Analysis-awareness**: Must reference the analysis guide + completeness
+   gate anchors, or import `.github/agents/news-generation.agent.md`.
+5. **Canonical imports**: Must import `.github/agents/news-generation.agent.md`
+   AND `shared/mcp/news-mcp-servers.md` in canonical order
+   (`news-translate.md` exempt).
+
+### Stage A→E Discipline
+
+All article-generating workflows follow the fixed stage order:
+
+| Stage | Purpose | Budget (standard slugs) |
+|-------|---------|:-----------------------:|
+| **A** | Data collection (EP MCP + IMF) | ≤ 5 min |
+| **B** | Analysis (Pass 1 + Pass 2) | ≤ 22 min |
+| **C** | Completeness gate | ≤ 4 min |
+| **D** | Deterministic article render | ≤ 2 min |
+| **E** | Single-PR safe-output | ≤ 2 min |
+
+**Source of truth**: `src/config/article-horizons.ts` (per-slug budgets).
+
+### Mandatory 2-Pass Improvement
+
+- **Pass 1** (~60% of Stage B time): Write all mandatory artifacts
+- **Pass 2** (~40% of Stage B time): Read-back every file, expand shallow
+  sections, add evidence citations, fill placeholders, verify IMF data
+
 ---
 
-**Last Updated**: 2026-02-16 **Version**: 1.0.0
+**Last Updated**: 2026-05-03 **Version**: 2.0.0
