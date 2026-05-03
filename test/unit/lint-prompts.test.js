@@ -346,6 +346,20 @@ describe('scripts/lint-prompts.js', () => {
     expect(result.stderr).toContain('out of order');
   });
 
+  it('ignores canonical import paths mentioned only outside the imports block', () => {
+    writeWorkflow(
+      'news-prose-only-imports.md',
+      '# Title\n' +
+        'imports:\n  - .github/prompts/00-scope-and-ground-rules.md\n' +
+        'Commentary mentions .github/agents/news-generation.agent.md and ' +
+        'shared/mcp/news-mcp-servers.md, but those paths are not imported.\n' +
+        'Call safeoutputs___create_pull_request once.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr).toContain('missing canonical import');
+  });
+
   it('accepts workflows with both canonical imports in correct order', () => {
     writeWorkflow(
       'news-correct-imports.md',

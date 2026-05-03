@@ -3,6 +3,8 @@
 
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
+import { getPoliticalIntelligenceFilename } from '../../scripts/generators/political-intelligence.js';
 
 /**
  * Structured Data (JSON-LD) E2E Tests
@@ -12,27 +14,35 @@ import AxeBuilder from '@axe-core/playwright';
  * BreadcrumbList, and FAQPage schemas (the actual types these pages emit).
  */
 
-const LANGUAGES = [
-  { code: 'en', suffix: '' },
-  { code: 'sv', suffix: '_sv' },
-  { code: 'da', suffix: '_da' },
-  { code: 'no', suffix: '_no' },
-  { code: 'fi', suffix: '_fi' },
-  { code: 'de', suffix: '_de' },
-  { code: 'fr', suffix: '_fr' },
-  { code: 'es', suffix: '_es' },
-  { code: 'nl', suffix: '_nl' },
-  { code: 'ar', suffix: '_ar' },
-  { code: 'he', suffix: '_he' },
-  { code: 'ja', suffix: '_ja' },
-  { code: 'ko', suffix: '_ko' },
-  { code: 'zh', suffix: '_zh' },
-];
+const PI_PAGES = ALL_LANGUAGES.map((lang) => ({
+  lang,
+  path: `/${getPoliticalIntelligenceFilename(lang)}`,
+}));
+
+function collectJsonLdTypes(value, types = []) {
+  if (!value || typeof value !== 'object') return types;
+
+  if (Object.prototype.hasOwnProperty.call(value, '@type')) {
+    const typeValue = value['@type'];
+    if (Array.isArray(typeValue)) {
+      types.push(...typeValue);
+    } else {
+      types.push(typeValue);
+    }
+  }
+
+  for (const child of Object.values(value)) {
+    if (child && typeof child === 'object') {
+      collectJsonLdTypes(child, types);
+    }
+  }
+
+  return types;
+}
 
 test.describe('Structured Data (JSON-LD)', () => {
-  for (const { code, suffix } of LANGUAGES) {
-    test(`${code}: has valid JSON-LD structured data`, async ({ page }) => {
-      const pagePath = `/political-intelligence${suffix}.html`;
+  for (const { lang, path: pagePath } of PI_PAGES) {
+    test(`${lang}: has valid JSON-LD structured data`, async ({ page }) => {
       const response = await page.goto(pagePath);
 
       // A missing page is a regression — fail, don't skip
@@ -43,20 +53,20 @@ test.describe('Structured Data (JSON-LD)', () => {
       const count = await jsonLdScripts.count();
 
       // Must have at least one JSON-LD block
-      expect(count, `${code}: expected ≥1 JSON-LD script tag`).toBeGreaterThanOrEqual(1);
+      expect(count, `${lang}: expected ≥1 JSON-LD script tag`).toBeGreaterThanOrEqual(1);
 
       // Collect all @type values across all JSON-LD blocks
       const allTypes = [];
 
       for (let i = 0; i < count; i++) {
         const raw = await jsonLdScripts.nth(i).textContent();
-        expect(raw, `${code}: JSON-LD script tag ${i} is empty`).toBeTruthy();
+        expect(raw, `${lang}: JSON-LD script tag ${i} is empty`).toBeTruthy();
 
         let parsed;
         try {
           parsed = JSON.parse(raw);
         } catch (err) {
-          expect.fail(`${code}: JSON-LD script tag ${i} contains invalid JSON: ${err.message}`);
+          expect.fail(`${lang}: JSON-LD script tag ${i} contains invalid JSON: ${err.message}`);
         }
 
         // JSON-LD may be a single object or an array
@@ -64,28 +74,34 @@ test.describe('Structured Data (JSON-LD)', () => {
 
         for (const item of items) {
           expect(item).toHaveProperty('@type');
-          allTypes.push(item['@type']);
+          collectJsonLdTypes(item, allTypes);
         }
       }
 
       // Political-intelligence pages emit CollectionPage + BreadcrumbList + FAQPage
       expect(
         allTypes.includes('CollectionPage'),
-        `${code}: missing CollectionPage in JSON-LD, found: ${allTypes.join(', ')}`,
+        `${lang}: missing CollectionPage in JSON-LD, found: ${allTypes.join(', ')}`,
+      ).toBe(true);
+
+      expect(
+        allTypes.includes('BreadcrumbList'),
+        `${lang}: missing BreadcrumbList in JSON-LD, found: ${allTypes.join(', ')}`,
       ).toBe(true);
 
       expect(
         allTypes.includes('FAQPage'),
-        `${code}: missing FAQPage in JSON-LD, found: ${allTypes.join(', ')}`,
+        `${lang}: missing FAQPage in JSON-LD, found: ${allTypes.join(', ')}`,
       ).toBe(true);
     });
-  }
 
-  test('accessibility: no WCAG violations on structured-data pages', async ({ page }) => {
-    await page.goto('/political-intelligence.html');
-    const accessibilityScanResults = await new AxeBuilder({ page })
-      .withTags(['wcag2a', 'wcag2aa'])
-      .analyze();
-    expect(accessibilityScanResults.violations).toEqual([]);
-  });
+    test(`${lang}: accessibility has no WCAG violations`, async ({ page }) => {
+      await page.goto(pagePath);
+      await page.waitForLoadState('networkidle');
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .withTags(['wcag2a', 'wcag2aa'])
+        .analyze();
+      expect(accessibilityScanResults.violations).toEqual([]);
+    });
+  }
 });

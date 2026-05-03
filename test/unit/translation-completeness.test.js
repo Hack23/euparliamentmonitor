@@ -34,6 +34,22 @@ function collectLabelMaps() {
   return maps;
 }
 
+function collectEmptyStringPaths(value, path) {
+  if (typeof value === 'string') {
+    return value.trim().length === 0 ? [path] : [];
+  }
+
+  if (!value || typeof value !== 'object') {
+    return [];
+  }
+
+  if (Array.isArray(value)) {
+    return value.flatMap((entry, index) => collectEmptyStringPaths(entry, `${path}[${index}]`));
+  }
+
+  return Object.entries(value).flatMap(([key, entry]) => collectEmptyStringPaths(entry, `${path}.${key}`));
+}
+
 describe('translation-completeness', () => {
   const labelMaps = collectLabelMaps();
 
@@ -66,18 +82,13 @@ describe('translation-completeness', () => {
       ).toHaveLength(0);
     });
 
-    it('has no empty-string values (English fallthrough)', () => {
+    it('has no empty-string values at any nested translation path (English fallthrough)', () => {
+      const emptyPaths = [];
       for (const lang of ALL_LANGUAGES) {
-        const entry = value[lang];
-        if (typeof entry === 'string') {
-          expect(
-            entry.trim().length,
-            `${name}['${lang}'] is empty`,
-          ).toBeGreaterThan(0);
-        }
-        // Objects (like ARTICLE_TYPE_LABELS.en = { ... }) are allowed — they
-        // carry nested keys. We only check flat-string maps here.
+        emptyPaths.push(...collectEmptyStringPaths(value[lang], `${name}.${lang}`));
       }
+
+      expect(emptyPaths, `Empty translation string(s): ${emptyPaths.join(', ')}`).toHaveLength(0);
     });
   });
 });

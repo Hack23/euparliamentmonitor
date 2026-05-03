@@ -3,6 +3,8 @@
 
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
+import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
+import { getPoliticalIntelligenceFilename } from '../../scripts/generators/political-intelligence.js';
 
 /**
  * Hreflang E2E Tests
@@ -12,30 +14,18 @@ import AxeBuilder from '@axe-core/playwright';
  * x-default, ensuring search engines can discover all language variants.
  */
 
-const ALL_LANGUAGES = ['en', 'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh'];
+const PI_PAGES = ALL_LANGUAGES.map((lang) => ({
+  lang,
+  path: `/${getPoliticalIntelligenceFilename(lang)}`,
+}));
 
-const LANG_SUFFIXES = {
-  en: '',
-  sv: '_sv',
-  da: '_da',
-  no: '_no',
-  fi: '_fi',
-  de: '_de',
-  fr: '_fr',
-  es: '_es',
-  nl: '_nl',
-  ar: '_ar',
-  he: '_he',
-  ja: '_ja',
-  ko: '_ko',
-  zh: '_zh',
-};
+function toPathname(href) {
+  return new URL(href, 'http://localhost:8080').pathname;
+}
 
 test.describe('Hreflang Link Graph', () => {
-  for (const lang of ALL_LANGUAGES) {
+  for (const { lang, path: pagePath } of PI_PAGES) {
     test(`${lang}: page has full 14-language hreflang set + x-default`, async ({ page }) => {
-      const suffix = LANG_SUFFIXES[lang];
-      const pagePath = `/political-intelligence${suffix}.html`;
       const response = await page.goto(pagePath);
 
       // A missing page is a regression — fail, don't skip
@@ -43,17 +33,18 @@ test.describe('Hreflang Link Graph', () => {
 
       // Collect all hreflang link elements
       const hreflangLinks = page.locator('link[rel="alternate"][hreflang]');
-      const count = await hreflangLinks.count();
+      const alternates = await hreflangLinks.evaluateAll((links) =>
+        links.map((link) => ({
+          hreflang: link.getAttribute('hreflang'),
+          href: link.getAttribute('href'),
+        })),
+      );
 
       // Should have 14 languages + x-default = 15 total
-      expect(count, `${lang} page: expected 15 hreflang links (14 langs + x-default)`).toBeGreaterThanOrEqual(15);
+      expect(alternates, `${lang} page: expected 15 hreflang links (14 langs + x-default)`).toHaveLength(15);
 
       // Extract all hreflang values
-      const hreflangs = [];
-      for (let i = 0; i < count; i++) {
-        const hreflang = await hreflangLinks.nth(i).getAttribute('hreflang');
-        hreflangs.push(hreflang);
-      }
+      const hreflangs = alternates.map((link) => link.hreflang);
 
       // Verify x-default is present
       expect(hreflangs, `${lang} page: missing x-default hreflang`).toContain('x-default');
@@ -63,48 +54,38 @@ test.describe('Hreflang Link Graph', () => {
         expect(hreflangs, `${lang} page: missing hreflang for '${expectedLang}'`).toContain(expectedLang);
       }
 
-      // Verify each hreflang link has a non-empty href
-      for (let i = 0; i < count; i++) {
-        const href = await hreflangLinks.nth(i).getAttribute('href');
-        expect(href, `${lang} page: hreflang link ${i} has empty href`).toBeTruthy();
+      for (const expectedLang of ALL_LANGUAGES) {
+        const expectedPath = `/${getPoliticalIntelligenceFilename(expectedLang)}`;
+        const alternate = alternates.find((link) => link.hreflang === expectedLang);
+        expect(alternate?.href, `${lang} page: hreflang '${expectedLang}' has empty href`).toBeTruthy();
+        expect(toPathname(alternate.href), `${lang} page: hreflang '${expectedLang}' has wrong target`).toBe(
+          expectedPath,
+        );
+
+        const altStatus = await page.evaluate(async (path) => {
+          const response = await fetch(path);
+          return response.status;
+        }, expectedPath);
+        expect(
+          altStatus,
+          `${lang} page: hreflang '${expectedLang}' points to ${expectedPath} which returned ${altStatus}`,
+        ).toBe(200);
       }
+
+      const defaultAlternate = alternates.find((link) => link.hreflang === 'x-default');
+      expect(defaultAlternate?.href, `${lang} page: x-default has empty href`).toBeTruthy();
+      expect(toPathname(defaultAlternate.href), `${lang} page: x-default has wrong target`).toBe(
+        '/political-intelligence.html',
+      );
+    });
+
+    test(`${lang}: accessibility has no WCAG violations`, async ({ page }) => {
+      await page.goto(pagePath);
+      await page.waitForLoadState('networkidle');
+      const accessibilityScanResults = await new AxeBuilder({ page })
+        .withTags(['wcag2a', 'wcag2aa'])
+        .analyze();
+      expect(accessibilityScanResults.violations).toEqual([]);
     });
   }
-
-  test('hreflang links point to accessible pages', async ({ page }) => {
-    const response = await page.goto('/political-intelligence.html');
-    expect(response.status()).toBe(200);
-
-    const hreflangLinks = page.locator('link[rel="alternate"][hreflang]');
-    const count = await hreflangLinks.count();
-
-    // Navigate to each alternate link and verify it loads (200)
-    for (let i = 0; i < count; i++) {
-      const hreflang = await hreflangLinks.nth(i).getAttribute('hreflang');
-      const href = await hreflangLinks.nth(i).getAttribute('href');
-
-      if (hreflang === 'x-default') continue;
-
-      // Extract relative path from href (may be absolute URL)
-      let relativePath = href;
-      if (href.startsWith('http')) {
-        const url = new URL(href);
-        relativePath = url.pathname;
-      }
-
-      const altResponse = await page.goto(relativePath);
-      expect(
-        altResponse.status(),
-        `hreflang '${hreflang}' points to ${relativePath} which returned ${altResponse.status()}`,
-      ).toBe(200);
-    }
-  });
-
-  test('accessibility: no WCAG violations on hreflang pages', async ({ page }) => {
-    await page.goto('/political-intelligence.html');
-    const accessibilityScanResults = await new AxeBuilder({ page })
-      .withTags(['wcag2a', 'wcag2aa'])
-      .analyze();
-    expect(accessibilityScanResults.violations).toEqual([]);
-  });
 });
