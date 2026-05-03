@@ -42,7 +42,7 @@ import {
   buildSiteHeader,
   buildPageBanner,
 } from '../templates/section-builders.js';
-import { READER_GUIDE_SECTION_ID } from './analysis-aggregator.js';
+import { READER_GUIDE_SECTION_ID } from './reader-guide-constants.js';
 import { READER_GUIDE_TITLE_LABELS } from './reader-intelligence-guide.js';
 
 /** One entry in the article-level TOC sidebar (mirrors `TocSection`). */

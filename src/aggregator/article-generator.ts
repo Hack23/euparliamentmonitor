@@ -481,16 +481,12 @@ function writeLanguageVariant(
     aggregated.includedArtifacts
   );
   if (guideHtml) {
-    // Insert after the first <h1>…</h1> so the guide sits below the article
-    // headline but above the body sections, preserving heading hierarchy.
-    const h1End = bodyHtml.indexOf('</h1>');
-    if (h1End !== -1) {
-      const insertPos = h1End + '</h1>'.length;
-      bodyHtml = bodyHtml.slice(0, insertPos) + '\n' + guideHtml + '\n' + bodyHtml.slice(insertPos);
-    } else {
-      // Fallback: no <h1> found — prepend (shouldn't happen in practice)
-      bodyHtml = guideHtml + '\n' + bodyHtml;
-    }
+    // Prepend the guide to the body so it always appears at the top of
+    // the rendered content, immediately after the chrome header. The
+    // article chrome in wrapArticleHtml wraps the body in an <article>
+    // with its own <header>/<h1>, so prepending here is deterministic
+    // and avoids fragile in-body heading searches.
+    bodyHtml = guideHtml + '\n' + bodyHtml;
   }
   // When a per-language translated source exists, prefer a summary derived
   // from it so the `<meta description>` matches the visible prose. The

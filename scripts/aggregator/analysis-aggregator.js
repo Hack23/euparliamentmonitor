@@ -259,7 +259,7 @@ export function renderAnalysisIndex(included, manifestRelPath) {
 /**
  * English-only reader-guide copy for the Markdown guide embedded in the
  * aggregated source document. Section membership is gated by
- * `READER_GUIDE_SECTION_IDS` (imported from `reader-intelligence-guide.ts`)
+ * `READER_GUIDE_SECTION_IDS` (imported from `reader-guide-constants.ts`)
  * so both renderers stay in sync automatically.
  */
 const READER_GUIDE_EN = {
