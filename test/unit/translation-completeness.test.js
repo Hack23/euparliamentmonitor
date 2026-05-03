@@ -37,8 +37,10 @@ function collectLabelMaps() {
 describe('translation-completeness', () => {
   const labelMaps = collectLabelMaps();
 
-  it('discovers at least 10 label maps in language-ui.js', () => {
-    expect(labelMaps.length).toBeGreaterThanOrEqual(10);
+  it('discovers the expected number of label maps in language-ui.js (tight sentinel)', () => {
+    // language-ui.js currently exports 96 consts; at least ~30 are per-language
+    // label maps. Lock against a tight lower bound to detect accidental removals.
+    expect(labelMaps.length).toBeGreaterThanOrEqual(25);
   });
 
   it(`ALL_LANGUAGES has exactly ${EXPECTED_LANG_COUNT} entries`, () => {

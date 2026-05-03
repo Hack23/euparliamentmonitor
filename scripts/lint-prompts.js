@@ -152,6 +152,34 @@ function countOccurrences(text, needle) {
   return count;
 }
 
+/**
+ * Extract the ordered list of import paths from the `imports:` YAML block.
+ * Returns an array of path strings in their declaration order.
+ * Falls back to empty array if no imports block is found.
+ */
+function extractImportsList(content) {
+  const imports = [];
+  const lines = content.split('\n');
+  let inImports = false;
+  for (const line of lines) {
+    if (/^imports:\s*$/.test(line)) {
+      inImports = true;
+      continue;
+    }
+    if (inImports) {
+      // YAML list item under imports:
+      const match = line.match(/^\s+-\s+(.+)/);
+      if (match) {
+        imports.push(match[1].trim());
+      } else if (/^\S/.test(line) && line.trim() !== '') {
+        // Hit another top-level key — stop parsing
+        break;
+      }
+    }
+  }
+  return imports;
+}
+
 function lintFile(filePath, fileName) {
   const content = fs.readFileSync(filePath, 'utf8');
   const violations = [];
@@ -224,17 +252,19 @@ function lintFile(filePath, fileName) {
 
   // Rule 5: canonical prompt import order.
   // Article-generating workflows must import CANONICAL_IMPORTS in order.
+  // Parse the actual imports: block rather than searching raw text.
   if (!EXEMPT_FROM_CANONICAL_IMPORTS.has(fileName)) {
+    const importsBlock = extractImportsList(content);
     for (const expected of CANONICAL_IMPORTS) {
-      if (!content.includes(expected)) {
+      if (!importsBlock.includes(expected)) {
         violations.push(
           `missing canonical import '${expected}' — every article-generating news-*.md must import the canonical set: ${CANONICAL_IMPORTS.join(', ')}. See .github/agents/news-generation.agent.md.`,
         );
       }
     }
     // Check order: news-generation.agent.md must appear before news-mcp-servers.md
-    const agentIdx = content.indexOf(CANONICAL_IMPORTS[0]);
-    const mcpIdx = content.indexOf(CANONICAL_IMPORTS[1]);
+    const agentIdx = importsBlock.indexOf(CANONICAL_IMPORTS[0]);
+    const mcpIdx = importsBlock.indexOf(CANONICAL_IMPORTS[1]);
     if (agentIdx !== -1 && mcpIdx !== -1 && agentIdx > mcpIdx) {
       violations.push(
         `canonical imports out of order: '${CANONICAL_IMPORTS[0]}' must appear before '${CANONICAL_IMPORTS[1]}'. See .github/agents/news-generation.agent.md.`,
