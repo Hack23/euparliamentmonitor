@@ -28,11 +28,16 @@ import {
 } from './analysis-aggregator.js';
 import type { Manifest } from './manifest/index.js';
 import {
+  latestGateResult as _latestGateResult,
+  resolveRunId as _resolveRunId,
+} from './manifest/index.js';
+import {
   resolveArticleMetadata,
   extractStrongProseLine,
   type MetadataManifest,
   type ResolvedMetadata,
 } from './article-metadata.js';
+import { buildArticleMeta, serializeArticleMeta } from './article-meta.js';
 import { renderMarkdown } from './markdown-renderer.js';
 import { wrapArticleHtml, getArticleFilename } from './article-html.js';
 import {
@@ -97,6 +102,12 @@ export interface GenerateResult {
    * the artifacts that produced it (riksdagsmonitor pattern).
    */
   readonly runArticleMdRelPath: string;
+  /**
+   * Repo-relative path of the `article-meta.json` sidecar written next to
+   * `article.md` — structured data consumed by HTML SEO, news indexes,
+   * and RSS rendering. Always emitted, deterministic.
+   */
+  readonly runArticleMetaRelPath: string;
   /** Filenames written under `outDir`, relative to `outDir`. */
   readonly writtenFiles: readonly string[];
   /** Metadata from {@link aggregateAnalysisRun}. */
@@ -630,6 +641,26 @@ export function generateArticle(
     .split(path.sep)
     .join('/');
 
+  // Emit `article-meta.json` next to `article.md` — a deterministic
+  // structured-data sidecar consumed by HTML SEO, news indexes, and RSS.
+  // Same artifact bytes in → same JSON bytes out (asserted by the
+  // determinism test).
+  const runArticleMetaAbs = path.join(opts.runDir, 'article-meta.json');
+  const articleMeta = buildArticleMeta({
+    runDir: opts.runDir,
+    repoRoot: opts.repoRoot,
+    date: aggregated.date,
+    articleType: aggregated.articleType,
+    runId: readManifestRunId(opts.runDir, path.basename(opts.runDir)),
+    gateResult: aggregated.gateResult,
+    slug,
+  });
+  fs.writeFileSync(runArticleMetaAbs, serializeArticleMeta(articleMeta), 'utf8');
+  const runArticleMetaRelPath = path
+    .relative(opts.repoRoot, runArticleMetaAbs)
+    .split(path.sep)
+    .join('/');
+
   // Also write source Markdown under <outDir>/<slug>.en.md for search
   // indexing and backwards compatibility with existing news-index scripts.
   ensureDir(opts.outDir);
@@ -662,6 +693,7 @@ export function generateArticle(
   return {
     sourceMarkdownRelPath: runArticleMdRelPath,
     runArticleMdRelPath,
+    runArticleMetaRelPath,
     writtenFiles: written,
     aggregated,
   };
@@ -731,6 +763,28 @@ export function generateAllArticles(opts: CliOptions): GenerateResult[] {
     results.push(generateArticle(runOpts, suffix, articleCountOverride));
   }
   return results;
+}
+
+/**
+ * Read the run identifier from `manifest.json`, falling back to the
+ * directory basename when the manifest is missing or unparsable. Wraps
+ * the canonical resolver from `aggregator/manifest/index.ts` so callers
+ * outside the aggregator core (here, the article-meta sidecar emitter)
+ * stay decoupled from the internal manifest schema.
+ *
+ * @param runDir - Absolute run directory path
+ * @param defaultRunId - Fall-back run id (typically the directory basename)
+ * @returns Resolved run id, never empty
+ */
+function readManifestRunId(runDir: string, defaultRunId: string): string {
+  const manifestPath = path.join(runDir, 'manifest.json');
+  if (!fs.existsSync(manifestPath)) return defaultRunId;
+  try {
+    const parsed = JSON.parse(fs.readFileSync(manifestPath, 'utf8')) as Manifest;
+    return _resolveRunId(parsed, defaultRunId);
+  } catch {
+    return defaultRunId;
+  }
 }
 
 /**

@@ -110,9 +110,14 @@ describe('article-generation pipeline — determinism', () => {
 
     // Snapshot run-dir article.md too — it's written into the run dir
     const articleMd = path.join(isolatedRun, 'article.md');
+    const articleMeta = path.join(isolatedRun, 'article-meta.json');
     const articleMdHashFirst = crypto
       .createHash('sha256')
       .update(fs.readFileSync(articleMd))
+      .digest('hex');
+    const articleMetaHashFirst = crypto
+      .createHash('sha256')
+      .update(fs.readFileSync(articleMeta))
       .digest('hex');
 
     // Second run, fresh out dir
@@ -122,12 +127,19 @@ describe('article-generation pipeline — determinism', () => {
       .createHash('sha256')
       .update(fs.readFileSync(articleMd))
       .digest('hex');
+    const articleMetaHashSecond = crypto
+      .createHash('sha256')
+      .update(fs.readFileSync(articleMeta))
+      .digest('hex');
 
     expect(Object.keys(first).sort()).toEqual(Object.keys(second).sort());
     for (const key of Object.keys(first)) {
       expect(second[key]).toBe(first[key]);
     }
     expect(articleMdHashSecond).toBe(articleMdHashFirst);
+    // article-meta.json is a deterministic sidecar; same artifact bytes in
+    // → same JSON bytes out across consecutive invocations.
+    expect(articleMetaHashSecond).toBe(articleMetaHashFirst);
   });
 
   it('produces byte-identical output across two consecutive runs (all 14 languages)', () => {

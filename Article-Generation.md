@@ -354,13 +354,16 @@ The aggregator package is split into seven bounded contexts under `src/aggregato
 
 | File / Module | Responsibility |
 |---|---|
-| `src/aggregator/article-generator.ts` | CLI entry point; parses flags; runs aggregation; resolves metadata; writes `article.md` to the run directory AND `news/<slug>.en.md`; renders 14 HTML variants; passes `isBasedOn` source artifact URLs to the HTML chrome. Re-exports `buildArticleSlug`, `sanitizeRunSuffix`, `discoverAnalysisRuns`, `groupRunsForCollision`, `DiscoveredRun` from `slug/` and `runs/` for back-compat. |
-| `src/aggregator/analysis-aggregator.ts` | Reads run directory and `manifest.json`; flattens manifest files; discovers additional Markdown (excluding `article.md`, translated variants, `README.md`, and `pass1/`); orders sections; adds provenance, tradecraft, and analysis-index appendices. Re-exports `AnalysisManifest`, `flattenManifestFiles`, `latestGateResult`, `resolveArticleTypeFromManifest` from `manifest/` for back-compat. Exports `guessDateFromRunDir` for testability. |
-| `src/aggregator/artifact-order.ts` | Defines the canonical section order and artifact path claims. |
+| `src/aggregator/article-generator.ts` | CLI entry point; parses flags; runs aggregation; resolves metadata; writes `article.md` to the run directory AND `news/<slug>.en.md`; **emits the deterministic `article-meta.json` sidecar next to `article.md`**; renders 14 HTML variants; passes `isBasedOn` source artifact URLs to the HTML chrome. Re-exports `buildArticleSlug`, `sanitizeRunSuffix`, `discoverAnalysisRuns`, `groupRunsForCollision`, `DiscoveredRun` from `slug/` and `runs/` for back-compat. |
+| `src/aggregator/analysis-aggregator.ts` | Reads run directory and `manifest.json`; flattens manifest files; discovers additional Markdown (excluding `article.md`, translated variants, `README.md`, and `pass1/`); orders sections; **inserts the deterministic Key Takeaways block immediately after the Executive Brief**; adds provenance, tradecraft, and analysis-index appendices. Re-exports `AnalysisManifest`, `flattenManifestFiles`, `latestGateResult`, `resolveArticleTypeFromManifest` from `manifest/` for back-compat. Exports `guessDateFromRunDir` for testability. |
+| `src/aggregator/artifact-order.ts` | Defines the canonical section order and artifact path claims. The forward-projection bucket renders under the **`What to Watch`** title so readers see dated triggers as a forward-looking lens rather than buried "extended intel". |
 | `src/aggregator/clean-artifact.ts` | Strips front matter, banners, H1s, SPDX tags, artifact-metadata preambles (`**Run:**`, `**Window:**`, etc.), demotes headings, rewrites links, deduplicates Mermaid bodies. Re-exports `githubBlobUrl`/`githubRawUrl` from `infra/` for back-compat. |
 | `src/aggregator/markdown-renderer.ts` | Configures `markdown-it`, headings, footnotes, attrs, definition lists, table wrappers, and Mermaid fence rendering. |
 | `src/aggregator/article-html.ts` | Wraps rendered body in full HTML5 document, metadata, JSON-LD (with `isBasedOn` provenance list), hreflang links, header, language switcher, TOC, footer, theme toggle. |
 | `src/aggregator/article-metadata.ts` | Resolves title and description through the 5-tier editorial-highlight ladder. |
+| `src/aggregator/lead-extractor.ts` | **NEW** — pure module that distils a one-sentence executive lead from `executive-brief.md` (preferred) → `intelligence/synthesis-summary.md` → fallback paragraph. Caps at 320 chars with ellipsis. Pure and unit-tested. |
+| `src/aggregator/key-takeaways.ts` | **NEW** — deterministic 5–7 bullet "Key Takeaways" synthesiser harvesting `## Top Findings` / `## Key Judgments` / `## BLUF` from `intelligence/synthesis-summary.md` and `intelligence/intelligence-assessment.md`. Folds near-duplicates with a Jaccard-≥-0.7 dedupe pass so overlapping artifacts do not stutter. Returns `''` below the 3-bullet floor so the section is simply omitted. |
+| `src/aggregator/article-meta.ts` | **NEW** — emits the structured `article-meta.json` sidecar next to `article.md`. Contains top finding, key takeaways, key actors, key dates, top risks, IMF macro context, and a sorted source-artifact list consumed by HTML SEO/structured-data and news indexes. Same artifact bytes in → same JSON bytes out (asserted by the determinism test). |
 | `src/aggregator/infra/github-urls.ts` | **Single source of truth** for the `Hack23/euparliamentmonitor` repo slug and helpers (`blobUrl`, `rawUrl`, `treeUrl`). Eliminates the previous duplication between `clean-artifact.ts` and `article-generator.ts`. |
 | `src/aggregator/manifest/{types,reader,resolver,index}.ts` | Canonical `Manifest` schema covering all three historic schema variants (`articleType`, plural `articleTypes[]`, very-legacy `runType`). Exports `readManifest`, `parseManifest`, `resolveArticleType`, `resolveDate`, `resolveRunId`, `latestGateResult`, `flattenManifestFiles`, `UNKNOWN_ARTICLE_TYPE`. |
 | `src/aggregator/runs/{discover,grouping,index}.ts` | Filesystem walk of `analysis/daily/<date>/` plus `(date, articleType)` collision grouping. Exports `discoverAnalysisRuns`, `readRunCandidate`, `dateFromPath`, `groupRunsForCollision`, `collisionKey`, `DiscoveredRun`. |
@@ -380,7 +383,10 @@ The aggregator package is split into seven bounded contexts under `src/aggregato
 | `test/unit/runs.test.js` | 19 tests — discovery walk, legacy schema tolerance, malformed-JSON skip, sort order, no-descend-into-nested-manifest, collision grouping, insertion-order preservation. |
 | `test/unit/slug.test.js` | 21 tests — pure naming functions plus a filename-safety round-trip property check. |
 | `test/unit/cli-parse.test.js` | 21 tests — every flag form (`--flag value`, `--flag=value`, aliases like `--analysis-dir`/`--language`/`--output`), `--help` short-circuit (no `process.exit` spy required), every error branch. |
-| `test/unit/aggregator-determinism.test.js` | 3 tests — byte-equality of every output file across two consecutive runs in English-only, all-14-languages, and `--markdown-only` modes. **This is the safety net that protects the byte-output contract.** |
+| `test/unit/aggregator-determinism.test.js` | 3 tests — byte-equality of every output file across two consecutive runs in English-only, all-14-languages, and `--markdown-only` modes. **Now also asserts byte-equality of `article-meta.json`.** This is the safety net that protects the byte-output contract. |
+| `test/unit/aggregator-key-takeaways.test.js` | **NEW** — 14 tests covering bullet harvesting (`## Top Findings` / `## Key Judgments` / `## BLUF`), Jaccard near-duplicate dedupe, MIN/MAX bounds, and the rendered Markdown block. |
+| `test/unit/aggregator-lead.test.js` | **NEW** — 10 tests covering the executive-lead extractor: preferred-heading scanning, fallback paragraph, code-fence handling, and the sentence-trim cap. |
+| `test/unit/aggregator-article-meta.test.js` | **NEW** — 9 tests covering the structured `article-meta.json` sidecar: every per-field extractor (top finding, key takeaways, top risks, key dates, key actors, IMF macro context), graceful degradation when artifacts are missing, and stable sorted-key JSON serialisation. |
 
 ### CLI contract
 
@@ -439,6 +445,47 @@ analysis/daily/2026-04-24/breaking/
 - `npm run generate-article:all` regenerates every `article.md` across all historical runs in a single deterministic pass, making bulk rebuilds and backports straightforward.
 
 **Aggregator exclusion:** `collectRunArtifacts()` in `analysis-aggregator.ts` skips `article.md` and any per-language translated variants (e.g. `article.sv.md`) so the aggregator never recurses into its own output on subsequent runs. The `pass1/` snapshot directory is also excluded.
+
+### 📄 `article-meta.json` sidecar
+
+Every `npm run generate-article` invocation also writes a deterministic `article-meta.json` next to `article.md`:
+
+```
+analysis/daily/2026-04-24/breaking/
+├── article.md                ← canonical aggregated Markdown
+└── article-meta.json         ← structured-data sidecar (NEW)
+```
+
+The sidecar is a pure function of the on-disk artifacts plus the resolved manifest fields — same artifact bytes in → same JSON bytes out (asserted by the determinism test):
+
+| Field | Source artifact(s) | Purpose |
+|---|---|---|
+| `topFinding` | `executive-brief.md` → `intelligence/synthesis-summary.md` | One-sentence executive lead used as the SEO description and the structured-data `description` |
+| `keyTakeaways` | `intelligence/synthesis-summary.md`, `intelligence/intelligence-assessment.md` | 3–7 deterministic bullets, also rendered as the **Key Takeaways** H2 right after the Executive Brief in `article.md` |
+| `topRisks` | `risk-scoring/risk-matrix.md` (→ `political-risk.md`, `quantitative-swot.md`) | Top political-risk bullets for SEO/structured data |
+| `keyDates` | `intelligence/parliamentary-calendar-projection.md`, `extended/forward-indicators.md`, `intelligence/scenario-forecast.md` | Forward-looking dated triggers for the news/RSS layer |
+| `keyActors` | `classification/actor-mapping.md` → `intelligence/stakeholder-map.md` | Top political actors for `mentions` / `about` enrichment |
+| `macroContext` | `intelligence/economic-context.md` | One-sentence IMF / WorldBank macro hook surfaced as a sidebar callout in HTML |
+| `sources` | Filesystem walk of the canonical artifact list | Sorted run-relative paths consumed by JSON-LD `isBasedOn` |
+
+The sidecar is consumed by the HTML SEO/structured-data layer, the news-index generators, and the RSS feed builder — none of those layers re-parses `article.md` or walks the run directory directly.
+
+### 🧱 Article skeleton (post-aggregator-uplift)
+
+The aggregated `article.md` follows a fixed deterministic skeleton:
+
+1. **`# {humanize(articleType)} — {date}`** (document title)
+2. **Executive Brief** (`<h2 id="section-executive-brief">`) — BLUF up front
+3. **Key Takeaways** (`<h2 id="section-key-takeaways">`) — 3–7 deterministic bullets harvested from synthesis-summary / intelligence-assessment, **only emitted when ≥3 strong bullets are available**
+4. **Reader Intelligence Guide** (`<h2 id="reader-intelligence-guide">`) — Riksdagsmonitor-style navigation table that maps reader needs to artifacts
+5. **Synthesis / Significance / Coalitions / Stakeholder Map / Economic Context** (canonical analysis sections, in the order declared by `artifact-order.ts`)
+6. **What to Watch** (`<h2 id="section-forward-projection">`) — forward-projection bucket (legislative-pipeline-forecast, parliamentary-calendar-projection, forward-indicators) so dated triggers live in their own forward-looking lens rather than under "extended intel"
+7. **Risk Assessment / SWOT / Scenarios** (the remaining canonical analysis sections)
+8. **Provenance** blockquote — article type, date, run id, gate, manifest link
+9. **Tradecraft Appendix** (methodologies + templates)
+10. **Analysis Index** (every artifact, with section + path columns)
+
+The TOC entries emitted in `aggregateAnalysisRun(...).sectionToc` mirror the order above 1:1 — when Key Takeaways or the Reader Intelligence Guide is suppressed for a sparse run, both the H2 and the TOC entry are dropped together.
 
 ---
 

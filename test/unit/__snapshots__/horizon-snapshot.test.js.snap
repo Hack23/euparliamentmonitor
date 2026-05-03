@@ -3,6 +3,14 @@
 exports[`horizon: election-cycle > matches the markdown snapshot (golden — regenerate with --update-snapshots) 1`] = `
 "# Election Cycle — 2026-01-15
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 5–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- EPP vote-share delta: +2.3 % from 2024 election baseline — mandate over-performance.
+- S&D defection rate: 6.2 % on average (low) — strong internal cohesion.
+- Renew mandate fulfilment: 61 % (below 68 % mid-term benchmark) — risk of seat erosion.
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -166,6 +174,14 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 exports[`horizon: quarter-ahead > matches the markdown snapshot (golden — regenerate with --update-snapshots) 1`] = `
 "# Quarter Ahead — 2026-01-15
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 5–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **Trade defence trigger risk**: Medium — US tariff escalation could activate emergency trade instruments.
+- **Coalition fragility on AI Act**: Low — EPP/S&D/Renew centrist block holds on delegated-act methodology.
+- **CBAM phase-in timeline**: Low — Council and EP alignment confirmed for Q2 start.
 
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
@@ -628,6 +644,14 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 exports[`horizon: year-ahead > matches the markdown snapshot (golden — regenerate with --update-snapshots) 1`] = `
 "# Year Ahead — 2026-01-15
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 5–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **Presidency transition (July)**: Polish-to-Danish handover introduces 6-week agenda discontinuity.
+- **AI Act delegation window**: Three delegated acts due by September — EP scrutiny rights activated.
+- **Defence Fund**: Disbursement conditionality debate likely to resurface in Q3 budget discussions.
 
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 

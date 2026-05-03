@@ -37,6 +37,8 @@ describe('article-generator extended', () => {
     fs.rmSync(tmpOut, { recursive: true, force: true });
     const runArticleMd = path.join(FIXTURE_RUN, 'article.md');
     if (fs.existsSync(runArticleMd)) fs.unlinkSync(runArticleMd);
+    const runArticleMeta = path.join(FIXTURE_RUN, 'article-meta.json');
+    if (fs.existsSync(runArticleMeta)) fs.unlinkSync(runArticleMeta);
   });
 
   describe('parseCliArgs edge cases', () => {
