@@ -341,11 +341,11 @@ Tracking delta to **CRA full-compliance deadline (2027-12-11)**. All Article 24 
 | 6 | npm provenance + SLSA L3 | ✅ Complete | [`release.yml`](https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/release.yml) | — | — |
 | 7 | Branch protection + required reviews | ✅ Complete | GitHub repository settings | — | — |
 | 8 | CodeQL + Dependabot + Scorecards + gh-advisory-database | ✅ Complete | [`.github/workflows/`](https://github.com/Hack23/euparliamentmonitor/tree/main/.github/workflows) | — | — |
-| 9 | CSP + HSTS + security headers (per-article meta tag) | ✅ Complete | `src/templates/article-template.ts:377-399` | Consider CloudFront response-headers policy as defense-in-depth layer | 2027-Q2 |
+| 9 | CSP + HSTS + security headers (per-article meta tag) | ✅ Complete | `src/aggregator/article-html.ts` | Consider CloudFront response-headers policy as defense-in-depth layer | 2027-Q2 |
 | 10 | Threat Model + Risk Assessment | ✅ Complete | [`THREAT_MODEL.md`](THREAT_MODEL.md) v2.1 | — | — |
 | 11 | BCP + incident response | ✅ Complete | [`BCPPlan.md`](BCPPlan.md) v2.1 | — | — |
 | 12 | SPDX licensing | ✅ Complete | [`REUSE.toml`](REUSE.toml) + [`.github/workflows/reuse.yml`](https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/reuse.yml) | — | — |
-| 13 | EP MCP canonical tool-list drift test | Gap | IMF + WB only — EP MCP client does not yet export `EP_MCP_TOOLS` | Add `EP_MCP_TOOLS` export + integration test in `test/integration/mcp/` | 2026-Q3 |
+| 13 | EP MCP canonical tool-list drift test | ✅ Complete | `src/mcp/ep-mcp-client.ts` exports `EP_MCP_TOOLS` (60+ tools); drift-guarded by `test/integration/mcp/ep-mcp.test.js` | — | — |
 | 14 | Security advisories auto-subscribe monitoring | Partial | Dependabot monitors npm advisories | Extend monitoring to upstream EP MCP repository (`european-parliament-mcp-server`) via repo watching + advisory feed | 2026-Q4 |
 
 ---

@@ -191,7 +191,7 @@ All 14 language versions should meet the same performance targets:
 | **Lint time**       | <30s   | `npm run lint`          |
 | **Unit test time**  | <60s   | `npm run test`          |
 | **E2E test time**   | <5 min | `npm run test:e2e`      |
-| **News generation** | <5 min | `npm run generate-news` |
+| **News generation** | <5 min | `npm run generate-article:all` |
 
 ---
 

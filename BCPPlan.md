@@ -361,7 +361,7 @@ flowchart TD
 |---------------|--------------|
 | **Impact** | All 15 agentic news workflows blocked (breaking, week-ahead/in-review, month-ahead/in-review, quarter-ahead/in-review, year-ahead/in-review, term-outlook, election-cycle, committee-reports, motions, propositions, translate fan-out); deployment paused |
 | **Probability** | Low |
-| **Recovery** | Manual local runs possible via `npm run generate-news` + `npm run generate-news-indexes`; push generated artifacts directly to `main` for `deploy-s3.yml` to pick up when runners recover |
+| **Recovery** | Manual local runs possible via `npm run generate-article:all` + `npm run generate-news-indexes`; push generated artifacts directly to `main` for `deploy-s3.yml` to pick up when runners recover |
 | **Mitigation** | 15 agentic workflows compiled into deterministic `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.71.3`) — locally reproducible; static build fully scriptable |
 
 ### Scenario 9: Copilot / Claude / Codex Quota Exhaustion
@@ -458,7 +458,7 @@ For **critical static-site availability (primary S3/CloudFront or GitHub Pages f
 **Sustained Operations:**
 1. ✅ Verify all 14 language versions are serving correctly (1,894 HTML articles in `news/`)
 2. 🧪 Run full test suite (`npm run lint && npm run test`) — 3,061+ Vitest tests across 52 test files
-3. 📰 Re-run affected agentic workflows to regenerate news + indexes + sitemap (`npm run build` / `npm run generate-news` / `npm run generate-news-indexes`)
+3. 📰 Re-run affected agentic workflows to regenerate news + indexes + sitemap (`npm run build` / `npm run generate-article:all` / `npm run generate-news-indexes`)
 4. 🔍 Validate E2E tests pass (`npm run test:e2e`) — Playwright + axe-core WCAG 2.1 AA
 5. 📋 Document incident and lessons learned in GitHub Issue
 
