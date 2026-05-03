@@ -1,0 +1,48 @@
+{
+  "date": "2026-04-19",
+  "articleType": "breaking",
+  "runId": "188",
+  "gateResult": "PENDING",
+  "slug": "2026-04-19-breaking-188",
+  "articlePath": "analysis/daily/2026-04-19/breaking-run188/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "Query the metadata layer for immediate title confirmation on new texts",
+    "Query the content layer to confirm full accessibility",
+    "Track restoration progress with dual-metric monitoring",
+    "API content restores before Parliament returns (enabling pre-plenary analysis)",
+    "USTR Section 301 window (April 21-24) generates emergency parliamentary response",
+    "German Bundesrat Banking Union signals (April 23-25) create implementation friction",
+    "USTR Section 301 window (April 21-24): Probability 25%, Impact HIGH — most acute near-term threat"
+  ],
+  "topRisks": [
+    "Member states with ongoing rule-of-law proceedings (Hungary, recently Poland) may invoke the subsidiarity principle through the Council",
+    "Business associations representing defence/infrastructure contractors who face new compliance burdens",
+    "Member state governments concerned about the EU's competence in criminal law under Article 83(2) TFEU",
+    "**Stability score: 84/100** — series high",
+    "**Grand Coalition viability: 60% of seats** (top-2 groups, EPP+S&D)",
+    "**Critical warnings: 0**",
+    "**High warnings: 1** (EPP dominance ratio at 19x smallest group — structural, not behavioral)"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "**Combined seats**: ~399 (est.)",
+    "**% of parliament**: ~55.4%",
+    "**Majority threshold**: 360 required (simple majority of 720)",
+    "**Status**: STABLE — maintained throughout 10-run Easter Recess monitoring series",
+    "**Assessment**: 🟢 HIGH confidence in stability",
+    "**Combined seats**: 165",
+    "**% of parliament**: 22.9%",
+    "**Status**: Size-similar (sizeSimilarityScore: 0.96) — potential coordination"
+  ],
+  "macroContext": "The March 26 legislative package operates against the following EU macroeconomic backdrop (all data World Bank World Development Indicators 2024 release, indicator codes in brackets):",
+  "sources": [
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

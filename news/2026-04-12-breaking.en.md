@@ -11,6 +11,18 @@ layout: article
 ---
 # Breaking — 2026-04-12
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- April 8 analysis: Banking Union adoption details, anti-corruption passage
+- April 9 analysis: Renew-ECR convergence pattern (0.95 cohesion), three-pole dynamics
+- April 10 analysis: Committee restart preview, tariff deadline
+- April 11 analysis: PESTLE macro scan, API outage pattern
+- April 12 (Runs 161-162): Continued API unavailability, pattern tracking
+- US tariff deadline monitoring (CRITICAL — T-3)
+- Post-recess committee scheduling intelligence
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

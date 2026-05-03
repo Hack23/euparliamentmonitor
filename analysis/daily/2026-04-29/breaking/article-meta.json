@@ -1,0 +1,52 @@
+{
+  "date": "2026-04-29",
+  "articleType": "breaking",
+  "runId": "breaking-run-1777424088",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-04-29-breaking",
+  "articlePath": "analysis/daily/2026-04-29/breaking/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "Defence cooperation programme costs (minimum €100bn envelope)",
+    "Industrial policy transition costs (green economy, digital transformation)",
+    "Migration management infrastructure",
+    "Neighbourhood and enlargement pre-accession funding (with Ukraine and Western Balkans in pipeline)",
+    "Rural development and cohesion modernisation",
+    "**Net contributor bloc** (Germany, Netherlands, Austria, Sweden, Denmark) will resist significant budget expansion, particularly after running national fiscal consolidation programmes",
+    "**France** in an unusual position — under fiscal pressure but also seeking influence over new strategic autonomy and defence envelopes"
+  ],
+  "topRisks": [
+    "**Magnitude** (1–10): Scale of impact if factor fully realises",
+    "**Probability** (1–10): Likelihood factor activates significantly in 12 months",
+    "**Duration** (1–10): Persistence over time (1=weeks, 10=decade+)",
+    "**Weighted Score** = (Magnitude × Probability × Duration) / 100",
+    "Use large pro-EU majority (S1) to cement CBAM/ETS own resources framework (O2) through binding Parliament positions",
+    "Use MFF baseline (S3) to engage Germany's defence-interest shift (O1) in bilateral rapporteur diplomacy",
+    "Parliament majority (S1) must maintain unified MFF position under Council downward pressure (T1)",
+    "Accountability norm (S4) should be actively communicated to counter far-right victimhood narratives (T2)"
+  ],
+  "keyDates": [
+    "Commission MFF proposal published: Q2–Q3 2026",
+    "European Council summit on MFF fails to reach agreement in Q4 2026 or Q1 2027",
+    "Commission announces study on revised legal basis by Q3 2026",
+    "Polish Sejm legislative agenda Q3 2026 (discriminates between Scenarios 4 and 6)"
+  ],
+  "keyActors": [
+    "MFF interim report: EPP + S&D + Renew + Greens (550 seats, 76%) — strong majority",
+    "Immunity waivers: EPP + S&D + Renew + Greens + Left — supermajority",
+    "Consent legislation: EPP (split) + S&D + Renew + Greens + Left — majority, some ECR/PfE dissent"
+  ],
+  "macroContext": "Per IMF World Economic Outlook April 2026:",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

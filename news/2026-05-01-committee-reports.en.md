@@ -219,6 +219,18 @@ unavailable via EP API for most recent TA texts (indexed but not yet enriched).
 
 *Admiralty: B2 — Source reliability: B (mostly reliable). Information credibility: 2 (probably true).*
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- TA-10-2026-0161: Russia/Ukraine accountability — calls for a Special Tribunal for crimes
+- TA-10-2026-0162: Armenia democratic resilience — welcomes progress, conditions EU support
+- TA-10-2026-0151: Haiti trafficking — DEVE initiative condemning criminal cartel control
+- **EPP + S&D + Renew** (397 seats, 55.2%) — functional majority on DMA enforcement,
+- **EPP + S&D + ECR** (401 seats, 55.8%) — immunity procedures, LIBE security dossiers
+- **Broad consensus (520+ estimated)** — dogs/cats welfare (cross-spectrum animal welfare)
+- **Progressive bloc (EPP+S&D+Renew+Greens)** (450 seats, 62.6%) — Ukraine/Armenia/Haiti
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

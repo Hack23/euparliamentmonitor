@@ -202,6 +202,18 @@ EPP coalition fractures on CID/EDIS votes, requiring vote postponement; Ukraine 
 
 **Context for briefing consumers:** The month-ahead intelligence window covers April 30 – May 29, 2026. The next scheduled Strasbourg session (May 18-21) is the principal legislative event. Subsequent mini-session in Brussels is expected late May. Monitoring recommendations: track May provisional agenda publication (ETA: May 7-8), Budget 2027 ECOFIN signals, and ECB pre-meeting communications (May 28 Governing Council).
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **Economic:** IMF projects EU GDP growth at 1.3% — positive but fragile. A trade shock could reduce this to 0.5-0.9% (Economic Context analysis).
+- **Political:** PfE/ECR support for trade confrontation clashes with their ideological US-alignment, creating unusual coalition dynamics (Coalition Dynamics analysis).
+- **Industrial:** CID implementation becomes more urgent if trade shock materialises, but also more politically contested if US views it as EU industrial protectionism (PESTLE analysis).
+- FS-2026-005 (Budget 2027 trilogue) upgraded to 🟢 HIGH confidence following April 28 guidelines adoption
+- FS-2026-007 (ECB rate cut) remains 🟡 MEDIUM confidence — EU inflation at 2.0% is supportive but geopolitical uncertainty persists
+- FS-2026-004 (US-EU automotive) remains 🟡 MEDIUM — managed confrontation with escalation risk
+- FS-2026-006 (CID implementing legislation) remains 🟡 MEDIUM — committee work ongoing, timeline plausible
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

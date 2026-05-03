@@ -1,0 +1,41 @@
+{
+  "date": "2026-04-20",
+  "articleType": "motions",
+  "runId": "motions-run46",
+  "gateResult": "PENDING",
+  "slug": "2026-04-20-motions",
+  "articlePath": "analysis/daily/2026-04-20/motions-run46/article.md",
+  "topFinding": "| Field | Value | |-------|-------| | Document Type | Master Synthesis | | Period | Q1 2026 (January–March) | | Parliament Term | EP10 (2024–2029) | | Run ID | motions-run46 | | Confidence Level | HIGH (multiple corroborating sources) | | Last Updated | 2026-04-20 |",
+  "keyTakeaways": [
+    "**Speed**: 104 adopted texts in 12 sitting days = 8.7 texts/day average (EP9 average: 5.2)",
+    "**Scope**: Simultaneous action across all major policy domains",
+    "**Coherence**: Individual texts form interconnected policy packages, not isolated acts",
+    "**Consensus**: Grand Centre + ECR on defence/trade creates supermajority (470+ seats)",
+    "**HIGH**: Multiple independent sources confirm; strong evidence base; low ambiguity",
+    "**MEDIUM-HIGH**: Multiple sources largely confirm; minor gaps or ambiguities",
+    "**MEDIUM**: Available evidence supports assessment but gaps exist"
+  ],
+  "topRisks": [
+    "🔴 CRITICAL (20-25): 0 risks",
+    "🟠 HIGH (15-19): 2 risks (US trade escalation + Hungary enlargement veto)",
+    "🟡 MEDIUM (10-14): 1 risk (Housing delivery gap)",
+    "🟢 LOW (5-9): 4 risks (Grand Centre fracture, defence backlash, China coherence, API)",
+    "⚪ MINIMAL (1-4): 0 identified"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "**Hungary on enlargement (TA-0077)**: Unanimity requirement gives single-actor veto",
+    "**Germany on trade escalation (TA-0096)**: Largest economy can politically block Commission implementation",
+    "**USTR on timeline**: US executive action pre-empts EP deliberative process during recess"
+  ],
+  "macroContext": "The European Parliament's record Q1 2026 legislative output — 567 roll-call votes, 180 resolutions, 114 legislative acts — is not occurring in an economic vacuum.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "date": "2026-04-18",
+  "articleType": "breaking",
+  "runId": "185",
+  "gateResult": "PENDING",
+  "slug": "2026-04-18-breaking-185",
+  "articlePath": "analysis/daily/2026-04-18/breaking-run185/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "EPP: memberCount=0 (anomaly — estimated ~187 based on 720 total - 533 known)",
+    "S&D: 135 seats",
+    "Renew: 77 seats",
+    "Greens/EFA: 53 seats",
+    "The Left: 46 seats",
+    "ECR-PfE: 0.96 score (near-identical size; watch for right bloc coordination on trade/migration)",
+    "Renew-ECR: 0.95 score (size artifact, NOT a political alliance — fundamentally different positions on EU integration)"
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [
+    "No EPP-S&D public disagreements during Easter recess",
+    "No group communication about coalition revision",
+    "No parliamentary motion filed in recess period"
+  ],
+  "macroContext": "The European Parliament's April 28-30 plenary operates in a challenging economic environment.",
+  "sources": [
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md"
+  ]
+}

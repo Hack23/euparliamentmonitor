@@ -90,6 +90,18 @@ The **fragmentation index (HIGH, ENP=6.57)** means no text can pass on ideologic
 **Data Sources:** EP Open Data Portal (adopted texts feed), World Bank (economic indicators), EP political group composition (real-time MEP records)
 **Confidence Legend:** 🟢 High (corroborated, multiple sources) | 🟡 Medium (single source or inference) | 🔴 Low/Alert (contested or uncertain)
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **22 significant adopted texts** from March 10–26, 2026 in the core window
+- **4 plenary session days** producing landmark votes
+- **Subject diversity**: defence (PESC), banking (UEM/PECO), AI/tech (INFQ/TECN), employment (EMPL), environment (ENV/POLL), institutional (INST), trade (PCOM)
+- **Political consensus**: Core EPP+S&D+Renew coalition held on all major texts; ECR joined on defence; Left/Greens dissented on defence and AI Act simplification
+- The "defence carve-out" under Article 346 TFEU, which has allowed member states to exclude defence procurement from internal market rules since 1957, is being progressively narrowed by political will if not yet formal treaty amendment
+- The "flagship projects" model mirrors the Important Projects of Common European Interest (IPCEI) framework used for microchips, batteries, and hydrogen — a proven model for state-aid-compliant European industrial champions
+- The EU-Canada defence cooperation text creates the first bilateral defence-specific framework at EU level, with implications for NATO integration and Atlantic partnerships
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

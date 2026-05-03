@@ -1,0 +1,25 @@
+{
+  "date": "2026-04-17",
+  "articleType": "week-ahead",
+  "runId": "cf7e8cd5-3b34-4755-b9ae-ae3b729cd12f",
+  "gateResult": "PENDING",
+  "slug": "2026-04-17-week-ahead",
+  "articlePath": "analysis/daily/2026-04-17/week-ahead-run14/article.md",
+  "topFinding": "📅 Week of: 2026-04-27 to 2026-04-30 (Strasbourg Plenary) 📊 Overall Assessment: Critical 🔍 Items Tracked: 4 plenary sessions | 3+ major legislative items | EP API in Easter recess degraded mode",
+  "keyTakeaways": [
+    "Standard legislative majority: 361 seats (50%+1 of 720)",
+    "EPP-S&D-Renew alone: 396 seats (sufficient but thin; requires 91%+ participation rate)",
+    "EPP-S&D-Renew + ECR: ~475 seats (comfortable; can absorb 20%+ defection)",
+    "EPP-ECR-PfE alone: 348 seats (insufficient; needs additional groups)",
+    "European Parliament Open Data Portal: MTG-PL-2026-04-27 through MTG-PL-2026-04-30 (session IDs confirmed)",
+    "EP MCP analyze_coalition_dynamics: Renew-ECR cohesion 0.95, coalition pair analysis",
+    "EP MCP get_all_generated_stats: 2026 legislative output (114 acts, +46% vs 2025)"
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "intelligence/synthesis-summary.md"
+  ]
+}

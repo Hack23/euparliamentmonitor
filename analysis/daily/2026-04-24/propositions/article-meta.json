@@ -1,0 +1,48 @@
+{
+  "date": "2026-04-24",
+  "articleType": "propositions",
+  "runId": "propositions-run-1777009560",
+  "gateResult": "PENDING",
+  "slug": "2026-04-24-propositions",
+  "articlePath": "analysis/daily/2026-04-24/propositions/article.md",
+  "topFinding": "BLUF (ICD-203): Over the past 30 days the European Parliament has indexed 104 adopted-text records for 2026 (TA-10-2026-0001 … TA-10-2026-0104) on the Open Data Portal, but zero body contents were retrievable during this run.",
+  "keyTakeaways": [
+    "2024: 676 procedures / 72 legislative acts adopted",
+    "2025: 923 procedures / 78 legislative acts adopted (+36.5% procedures)",
+    "Detailed per-file evidence: `../data/collection-summary.json`",
+    "Upstream indexing lag: `mcp-reliability-audit.md §3 Defects #1, #3`",
+    "Coalition-arithmetic deep-dive: `scenario-forecast.md §2`, `pestle-analysis.md §P`",
+    "Risk decomposition: `../risk-scoring/risk-matrix.md`, `../risk-scoring/quantitative-swot.md`",
+    "Devil's-advocate pass: `wildcards-blackswans.md §Counter-scenarios`"
+  ],
+  "topRisks": [
+    "Workflow runtime owns R1: verify `SINGLE_PR_ATTESTATION` elapsed",
+    "Analysis owns R4: carry the size-similarity-proxy caveat into",
+    "Public-trust owns R5: ensure confidence + WEP + Admiralty travel",
+    "CJEU jurisprudence on DSA enforcement (Q2 2026)",
+    "Enlargement unanimity tests in Council",
+    "ECB policy-path divergence from Fed",
+    "R1 (TTL): flat",
+    "R2 (body content): ↑ (new defect this run)"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "**Influence**: 10 / 10 (largest group, pivotal in every majority)",
+    "**Interest**: 10 / 10 (owns Commission presidency, rapporteur pool)",
+    "**Stance**: EDIS supportive, Clean Industrial Deal cautious, Green-",
+    "**Coalition behaviour**: **dual-option bargainer** — can form",
+    "**Counter**: The Left, Greens/EFA on environmental files; ESN/PfE",
+    "**WEP forecast**: HIGHLY LIKELY (80–95%) EPP anchors ≥ 80% of 2026",
+    "**Influence**: 8 / 10 (second-largest, guaranteed seat at every",
+    "**Interest**: 10 / 10 (owns social-pillar files, CAP conditionality,"
+  ],
+  "macroContext": "IMF requirement: This artifact uses World Bank indicators (Germany + France bilaterals) after attempted Eurozone aggregates (EUU, EMU) failed to resolve in the current World Bank MCP deployment (worldbank-mcp@1.0.1).",
+  "sources": [
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

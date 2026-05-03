@@ -1,0 +1,35 @@
+{
+  "date": "2026-04-12",
+  "articleType": "breaking",
+  "runId": "163",
+  "gateResult": "PENDING",
+  "slug": "2026-04-12-breaking",
+  "articlePath": "analysis/daily/2026-04-12/breaking-run163/article.md",
+  "topFinding": "This analysis consolidates findings from Run 163's five analysis categories (classification, threat assessment, risk scoring, intelligence, documents) based on EP MCP precomputed statistics (264KB) and cross-run editorial memory spanning April 8-12 (12 prior workflow runs).",
+  "keyTakeaways": [
+    "April 8 analysis: Banking Union adoption details, anti-corruption passage",
+    "April 9 analysis: Renew-ECR convergence pattern (0.95 cohesion), three-pole dynamics",
+    "April 10 analysis: Committee restart preview, tariff deadline",
+    "April 11 analysis: PESTLE macro scan, API outage pattern",
+    "April 12 (Runs 161-162): Continued API unavailability, pattern tracking",
+    "US tariff deadline monitoring (CRITICAL — T-3)",
+    "Post-recess committee scheduling intelligence"
+  ],
+  "topRisks": [
+    "**Likelihood**: 4/5 (Very Likely) — 🟢 High confidence",
+    "**Impact**: 5/5 (Critical) — trade policy, market stability, EU credibility",
+    "**Risk Score**: 20/25",
+    "**Owner**: INTA Committee + Plenary",
+    "**Mitigation**: Emergency committee session April 14, fast-track procedure",
+    "**Residual Risk**: HIGH — only 1 working day before deadline",
+    "**Likelihood**: 4/5 (Likely) — 🟢 High confidence",
+    "**Impact**: 4/5 (Major) — legislative paralysis, institutional credibility"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

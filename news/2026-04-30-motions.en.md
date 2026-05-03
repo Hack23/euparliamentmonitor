@@ -11,6 +11,18 @@ layout: article
 ---
 # Motions — 2026-04-30
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **Defence and security**: Post-ReArm Europe debate context — EP likely pushed for continued elevated defence spending.
+- **Cohesion and competitiveness**: EPP and S&D negotiated balance between regional cohesion funds and industrial competitiveness.
+- **Climate transition**: Greens/EFA and The Left pushed to maintain climate spending floors.
+- **Digital transition**: Renew Europe's signature agenda.
+- EPP: 185 (25.7%) — largest group, anchors any working majority
+- S&D: 135 (18.8%) — essential coalition partner
+- PfE: 85 (11.8%) — largest right-populist group
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

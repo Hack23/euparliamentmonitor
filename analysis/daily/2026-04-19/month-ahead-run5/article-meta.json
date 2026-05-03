@@ -1,0 +1,44 @@
+{
+  "date": "2026-04-19",
+  "articleType": "month-ahead",
+  "runId": "month-ahead-run5",
+  "gateResult": "PENDING",
+  "slug": "2026-04-19-month-ahead",
+  "articlePath": "analysis/daily/2026-04-19/month-ahead-run5/article.md",
+  "topFinding": "European Parliament returns from Easter recess on April 27, 2026 — Day 14 of the recess — to face the densest post-break legislative programme since the Parliament's first post-COVID return in September 2020.",
+  "keyTakeaways": [
+    "**Trade defence**: EPP internal tension between German/Austrian auto MEPs (oppose escalation) and French/southern MEPs (support reciprocity). If USTR imposes Section 301 tariffs, EPP's coherence on any strengthened counter-measures response is questionable.",
+    "**BRRD3 burden-sharing**: S&D wants strong bail-in provisions; EPP wants protection for retail depositors and public-sector banks. Greens want climate risk integration. This is a genuine three-way negotiation.",
+    "**Anti-Corruption enforcement**: PfE and ECR will pressure Council to water down implementation requirements. Grand Centre must hold firm — any dilution would be cited by ECR/PfE as evidence the directive was symbolic.",
+    "HOSTILE to Anti-Corruption enforcement (sovereignty framing)",
+    "HOSTILE to US tariff counter-measures (pro-Trump/free-trade framing)",
+    "DIVIDED on BRRD3 (fiscal hawks want bail-in, nationalists resist centralization)",
+    "UNITED on opposing enlargement conditionality"
+  ],
+  "topRisks": [],
+  "keyDates": [
+    "**Legislative calendar**: BRRD3 slips to Q4 2026; Banking Union Phase-2 effectively delayed to 2027",
+    "**month-ahead-run4 (2026-04-13)** produced a 3-crisis convergence scenario (tariff T-2, banking trilogue, pipeline congestion). Run 5 sees the tariff crisis as *window-dependent* (50% probability of avoidance in 30-day horizon) while the banking challenge has shifted from SRMR3 trilogue to BRRD3 opening.",
+    "**breaking-run184 (2026-04-18)** scenario-forecast tracked a 72-hour horizon with 4 scenarios. Run 5 extends the framework to 30-day horizon — Scenario A is more dominant here (50% vs 40%) because the window allows more de-escalation time.",
+    "**week-in-review-run12 (2026-04-18)** documented the recess-period stability. Run 5 builds on this by adding forward-looking probability weights.",
+    "**week-ahead-run14 (2026-04-17)** flagged April 28 plenary return. Run 5 extends one plenary further (May 5–8) and adds Brussels mini-plenary."
+  ],
+  "keyActors": [
+    "**Trade defence**: German delegation (~28 MEPs, core of EPP Germany contingent) pressured by auto-sector constituents. Sinzig (CDU) and Voss (CDU) previously voiced reservations — watch April 28–30 floor speeches.",
+    "**BRRD3**: German EPP MEPs must reconcile Sparkassen protection with institutional EPP position. Weber leadership will likely push \"tiered implementation\" compromise.",
+    "**Anti-Corruption**: EPP Hungary / EPP Bulgaria face domestic-political pressure from national parties with rule-of-law records. EPP discipline expected to hold, but bare.",
+    "Power positions: 🟢 HIGH confidence (institutional role, seat counts from EP MEP register)",
+    "Interest positions: 🟡 MEDIUM confidence (inferred from manifestos, prior votes, prior run analyses)",
+    "Specific 30-day activities: 🟡 MEDIUM–LOW confidence (forward-looking; dependent on USTR filing decision)",
+    "Coalition-pair implications: 🔴 LOW vote-level confidence (Run 184 defect #2: `memberCount=0` for EPP, Greens/EFA, PfE, ESN)",
+    "EP MCP Server: MEP register, political group composition"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md"
+  ]
+}

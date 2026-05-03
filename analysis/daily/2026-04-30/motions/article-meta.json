@@ -1,0 +1,45 @@
+{
+  "date": "2026-04-30",
+  "articleType": "motions",
+  "runId": "motions-run-1777531962",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-04-30-motions",
+  "articlePath": "analysis/daily/2026-04-30/motions/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**Defence and security**: Post-ReArm Europe debate context — EP likely pushed for continued elevated defence spending.",
+    "**Cohesion and competitiveness**: EPP and S&D negotiated balance between regional cohesion funds and industrial competitiveness.",
+    "**Climate transition**: Greens/EFA and The Left pushed to maintain climate spending floors.",
+    "**Digital transition**: Renew Europe's signature agenda.",
+    "EPP: 185 (25.7%) — largest group, anchors any working majority",
+    "S&D: 135 (18.8%) — essential coalition partner",
+    "PfE: 85 (11.8%) — largest right-populist group"
+  ],
+  "topRisks": [
+    "**Defence spending:** Council majority (northern + Baltic states) wants more; Mediterranean/southern states want fiscal envelope maintained for cohesion",
+    "**Climate spending:** EPP's \"competitiveness first\" shift vs. S&D/Greens' Green Deal continuity",
+    "**ReArm Europe financing:** Whether SAFE bonds or existing MFF headroom funds defence"
+  ],
+  "keyDates": [
+    "Jaki/Obajtek proceedings advance in Polish courts by Q3 2026",
+    "ReArm Europe: SAFE bonds approved by second reading Q3 2026",
+    "ECR/PiS support in Poland polls drops below 25% by Q4 2026",
+    "ECR/ESN political martyrdom narrative achieves 25%+ resonance in Romania/Poland polls by Q3 2026",
+    "EPP internal dissent on future immunity votes visible by Q4 2026",
+    "Budget conciliation: Council-EP gap on defence financing unresolved at October 2026 budget deadline (requires extension)"
+  ],
+  "keyActors": [
+    "Social spending (EPP vs. S&D/Left)",
+    "Climate ambition (EPP vs. Greens)",
+    "Defence spending (EPP leads, S&D follows with conditions)"
+  ],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

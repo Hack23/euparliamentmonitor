@@ -1,0 +1,41 @@
+{
+  "date": "2026-04-28",
+  "articleType": "committee-reports",
+  "runId": "committee-reports-run-1777353028",
+  "gateResult": "PENDING",
+  "slug": "2026-04-28-committee-reports",
+  "articlePath": "analysis/daily/2026-04-28/committee-reports/article.md",
+  "topFinding": "The European Parliament's spring 2026 legislative session is characterised by intensified committee workload across trade, monetary affairs, technology sovereignty, and environmental regulation — driven by external shocks (US tariff threats), Green Deal implementation deadlines, and new EU institutional appointments.",
+  "keyTakeaways": [
+    "**Grand coalition (EPP 185 + S&D 135 + Renew 77 = 397):** Exceeds majority by 36 seats — sufficient for most legislation but fragile on contentious files.",
+    "**Conservative right coalition (EPP 185 + ECR 81 + PfE 85 = 351):** Below majority; requires additional support, typically NI or individual defectors.",
+    "**Hard right bloc (PfE 85 + ECR 81 + ESN 27 = 193):** Strong blocking minority on sensitive constitutional/migration files.",
+    "🟢 HIGH confidence: Legislative completions data (OJ-published procedures) — primary source EP Open Data Portal",
+    "🟡 MEDIUM confidence: Trilogue outcome predictions — based on committee mandate analysis and inter-institutional precedent",
+    "🔴 LOW confidence: Voting patterns — EP roll-call data delayed 4–6 weeks; quantitative coalition analysis not possible from available data"
+  ],
+  "topRisks": [
+    "Probability: 1=Rare (<10%) / 2=Unlikely (10-25%) / 3=Possible (25-50%) / 4=Likely (50-75%) / 5=Almost Certain (>75%)",
+    "Impact: 1=Minimal / 2=Minor / 3=Moderate / 4=Major / 5=Critical",
+    "Risk Score = Probability × Impact (raw)"
+  ],
+  "keyDates": [
+    "First trilogue meeting held 2026-04-13 (positive procedural momentum)",
+    "EP mandate clearly defined (adopted March 2026 with amendments)",
+    "March 2026 EP adoption of countermeasures (TA-10-2026-0096) signals high political temperature",
+    "New ECB leadership (Vice-President confirmed March 2026) with unproven communication style",
+    "Lithuania media crisis (TA-10-2026-0024, January 2026) already tested EP's rapid democracy response capability"
+  ],
+  "keyActors": [],
+  "macroContext": "The single most consequential economic backdrop for EP committee work in April 2026 is the US tariff escalation against EU exports, which began in early 2025 under the second Trump administration and reached a new intensity threshold with the adoption of EP countermeasure legislation in March 2026 (TA-10-2026-0096).",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

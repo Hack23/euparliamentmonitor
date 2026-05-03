@@ -1,0 +1,40 @@
+{
+  "date": "2026-04-19",
+  "articleType": "breaking",
+  "runId": "186",
+  "gateResult": "PENDING",
+  "slug": "2026-04-19-breaking-186",
+  "articlePath": "analysis/daily/2026-04-19/breaking-run186/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**EPP**: memberCount=0 (API anomaly — estimated ~187; 🔴 Low confidence on exact count)",
+    "**S&D**: 135 seats (exact, 🟢 High confidence)",
+    "**Renew**: 77 seats (🟢 High confidence)",
+    "**Greens/EFA**: 53 seats (🟢 High confidence)",
+    "**The Left**: 46 seats (🟢 High confidence)",
+    "EPP + S&D + Renew (centre coalition): ~399 seats (~55.4%) — theoretical majority but vote-specific",
+    "EPP + S&D only: ~322 seats — insufficient without Renew or ECR"
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [
+    "Estimated seats: ~187 + 135 + 77 = **~399 seats** (~55.4% of Parliament)",
+    "Theoretical majority: Yes (38+ seats over threshold)",
+    "Historical cohesion: Variable — high on core EU integration; low on trade, migration, defence",
+    "Fragmentation risk: **HIGH** (see Vector 6 in risk matrix)",
+    "Estimated seats: ~187 + 81 + 84 = **~352 seats** (~48.9%)",
+    "Majority: No — 9 seats short",
+    "Scenario when viable: Could form governing majority if NI or ESN members cross-vote on specific issues",
+    "Historical cohesion: Low — EPP's EU integration commitment conflicts with ECR/PfE's sovereignism on key votes"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

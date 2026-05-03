@@ -1,0 +1,43 @@
+{
+  "date": "2026-05-01",
+  "articleType": "week-ahead",
+  "runId": "week-ahead-run-1777621917",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-05-01-week-ahead",
+  "articlePath": "analysis/daily/2026-05-01/week-ahead/article.md",
+  "topFinding": "The week of 4–8 May 2026 is a committee-intensive work week with no plenary sitting in Brussels or Strasbourg.",
+  "keyTakeaways": [
+    "**FS-2026-05-01-001:** EPP-S&D-Renew EDIS committee coalition — test by ITRE vote late May 2026. Trigger: ITRE committee vote scheduled.",
+    "**FS-2026-05-01-002:** AI Act August 2, 2026 prohibited practices enforcement — implementing acts must be adopted by June 1 or LIBE emergency procedure required.",
+    "**FS-2026-05-01-003:** EDIS rapporteur (ITRE) committee vote — expected May 18-21 plenary session. Pre-clearance during May 4-8 determinative.",
+    "**FS-2026-05-01-004:** US automotive tariff negotiation — formal announcement or 90-day extension decision expected by end of May 2026.",
+    "**FS-2026-05-01-005:** Clean Industrial Deal state aid framework — Commission legislative proposal expected before July 2026 summer recess.",
+    "Budgetary amendments requiring BUDG committee report by June session",
+    "International agreements requiring AFET/DROI ratification procedures"
+  ],
+  "topRisks": [
+    "Current trajectory → probability of materialisation: HIGH (confirmed track; no known corrective action)",
+    "Probability of LIBE intervention preventing crisis: MEDIUM-LOW"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "Defence/EDIS: EPP + ECR + Renew",
+    "Trade/INTA: EPP + Renew + S&D",
+    "AI Act: EPP + Renew (LIBE compromise formula)",
+    "Clean Industrial Deal: EPP + Renew (ECR as swing vote)",
+    "EPP-ECR (ITRE): Defence procurement rules alignment / Green Deal trade-offs",
+    "EPP-Renew (LIBE): AI Act compromise scope",
+    "S&D-Renew (INTA): Trade countermeasures coalition",
+    "EPP-S&D (BUDG): Ukraine financing bipartisan core"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "executive-brief.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

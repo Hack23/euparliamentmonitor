@@ -1,0 +1,43 @@
+{
+  "date": "2026-04-19",
+  "articleType": "month-in-review",
+  "runId": "b391cced-d8f0-4d03-9c19-ec9478557ec6",
+  "gateResult": "PENDING",
+  "slug": "2026-04-19-month-in-review",
+  "articlePath": "analysis/daily/2026-04-19/month-in-review-run5/article.md",
+  "topFinding": "The March 26, 2026 mini-plenary session produced 18 adopted texts — the highest single-session legislative density of EP10's second year.",
+  "keyTakeaways": [
+    "`analysis/daily/2026-03-26/breaking-run163/intelligence/deep-analysis.md` — first-pass capture of the mega-session, political group vote tallies",
+    "`analysis/daily/2026-03-26/breaking-run177/intelligence/coalition-dynamics.md` — grand-coalition persistence analysis",
+    "`analysis/daily/2026-03-26/breaking-run179/intelligence/threat-model.md` — Anti-Corruption Directive enforcement threat surface",
+    "`analysis/daily/2026-03-26/breaking-run180/intelligence/scenario-forecast.md` — BRRD3 implementation scenarios",
+    "`analysis/daily/2026-03-26/breaking-run181/intelligence/stakeholder-map.md` — banking sector stakeholder positions",
+    "`analysis/daily/2026-03-26/breaking-run182/intelligence/wildcards-blackswans.md` — CSAM legal challenge wildcards",
+    "`analysis/daily/2026-03-26/breaking-run183/intelligence/economic-context.md` — German recession coupling"
+  ],
+  "topRisks": [],
+  "keyDates": [
+    "`analysis/daily/2026-03-26/breaking-run180/intelligence/scenario-forecast.md` — BRRD3-focused scenarios; authoritative for banking-sector probability estimates",
+    "`analysis/daily/2026-03-26/breaking-run182/intelligence/wildcards-blackswans.md` — CSAM legal-challenge scenarios feeding the Downside Case",
+    "`analysis/daily/2026-03-26/breaking-run184/intelligence/scenario-forecast.md` — composite scenario set anchoring probability distributions",
+    "`analysis/daily/2026-03-26/breaking-run177/intelligence/coalition-dynamics.md` — coalition-persistence evidence anchoring Base Case",
+    "`analysis/daily/2026-04-11/week-in-review-run12/intelligence/scenario-forecast.md` — pre-recess scenario baseline",
+    "`analysis/daily/2026-03-26/breaking-run183/intelligence/economic-context.md` — German GDP inputs to Stress Case",
+    "Mid-May: German Q1 2026 GDP flash — negative print triggers Stress Case",
+    "Q3 2026: First constitutional-court docket entry on CSAM — triggers Downside Case"
+  ],
+  "keyActors": [
+    "**EPP ↔ S&D**: Transactional cooperation — EPP trades anti-corruption concessions for S&D support on banking reform. This is the core legislative axis of EP10.",
+    "**Renew Europe ↔ EPP**: Conditional alignment — Renew supports banking and AI texts in exchange for EPP support on trade simplification. Fragile on social rights issues.",
+    "**Greens/EFA ↔ S&D**: Environmental and social overlap — natural coalition on anti-corruption and CSAM. Tension on nuclear and gas energy taxonomy.",
+    "**Patriots for Europe ↔ ECR**: Opposition bloc — consolidated anti-federalist position but divergent on economics (Patriots more nationalist-protectionist; ECR more market-liberal)."
+  ],
+  "macroContext": "| Indicator | 2022 | 2023 | 2024 | |---|---|---|---| | GDP Growth Rate | +1.8% | -0.87% | -0.50% | | GDP (USD) | ~$4.07T | ~$4.46T | ~$4.59T | | Unemployment Rate | 3.0% | 3.0% | ~3.2% (est) |",
+  "sources": [
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md"
+  ]
+}

@@ -187,6 +187,18 @@ The April session is the **first accountability checkpoint** for all four domain
 
 **Conclusion:** April 2026 is not a peak legislative moment — it is the pivotal **accountability establishment moment** that determines whether Q1's legislative success translates into Q3-Q4 policy outcomes. The session's intelligence value lies entirely in the signals it sends about institutional follow-through capacity.
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **PESTLE** (Political): Commission delegated acts are the nexus of political-economic power
+- **Stakeholder Map**: Banking industry and tech sector both deploy maximum lobbying at delegated acts phase
+- **Historical Baseline**: Post-peak-output sessions always face implementation accountability challenges
+- **Economic Context**: Banking Union economic stakes are highest in 2026 legislative cycle
+- **Synthesis:** The April session's significance is not what gets voted on — it's what gets *scrutinized* through oral questions and committee hearings on Q1 2026 implementation.
+- **Threat Model**: Coalition fracture requires EPP right-flank defections (>20 MEPs) — historically rare
+- **Historical Baseline**: 87% coalition success rate in Q1 2026 — highest in EP10
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

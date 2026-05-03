@@ -1,0 +1,28 @@
+{
+  "date": "2026-03-28",
+  "articleType": "month-in-review",
+  "runId": "e1c8e9c5-1a6d-4f2c-9cda-312aa19023fe",
+  "gateResult": "PENDING",
+  "slug": "2026-03-28-month-in-review",
+  "articlePath": "analysis/daily/2026-03-28/article.md",
+  "topFinding": "",
+  "keyTakeaways": [],
+  "topRisks": [
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:",
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

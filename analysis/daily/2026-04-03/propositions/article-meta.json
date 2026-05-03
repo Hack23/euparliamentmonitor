@@ -1,0 +1,28 @@
+{
+  "date": "2026-04-03",
+  "articleType": "propositions",
+  "runId": "9be5bca6-de96-4303-80ff-33cb5f24b51b",
+  "gateResult": "PENDING",
+  "slug": "2026-04-03-propositions",
+  "articlePath": "analysis/daily/2026-04-03/propositions/article.md",
+  "topFinding": "",
+  "keyTakeaways": [],
+  "topRisks": [
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:",
+    "**Score**: 0.0/5",
+    "**Confidence**: low",
+    "**Trend**: stable",
+    "**Evidence**:"
+  ],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "classification/actor-mapping.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

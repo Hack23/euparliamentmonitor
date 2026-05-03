@@ -121,6 +121,18 @@ flexibility and complicates borrowing cost assumptions in the Defence Industrial
 *Source: EP Open Data Portal, EP Generated Statistics 2024–2026, IMF WEO April 2026, procedure tracking 2025/0261(COD).*
 *Generated: 2026-04-26 | Run: month-ahead-2026-04-26*
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- Absolute majority threshold: 361 seats
+- EPP alone: 185 (49% of threshold)
+- EPP + S&D: 320 (below threshold — grand coalition insufficient)
+- EPP + S&D + Renew: 396 (✅ traditional "grand coalition" formula)
+- EPP + ECR + PfE: 348 (below threshold — right-wing bloc needs ESN or NI)
+- EPP + ECR + PfE + ESN: 376 (✅ far-right coalition viable on specific files)
+- **Minimum winning coalition requires 3 groups from different blocs**
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

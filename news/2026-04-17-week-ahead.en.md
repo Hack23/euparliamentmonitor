@@ -11,6 +11,18 @@ layout: article
 ---
 # Week Ahead — 2026-04-17
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- Standard legislative majority: 361 seats (50%+1 of 720)
+- EPP-S&D-Renew alone: 396 seats (sufficient but thin; requires 91%+ participation rate)
+- EPP-S&D-Renew + ECR: ~475 seats (comfortable; can absorb 20%+ defection)
+- EPP-ECR-PfE alone: 348 seats (insufficient; needs additional groups)
+- European Parliament Open Data Portal: MTG-PL-2026-04-27 through MTG-PL-2026-04-30 (session IDs confirmed)
+- EP MCP analyze_coalition_dynamics: Renew-ECR cohesion 0.95, coalition pair analysis
+- EP MCP get_all_generated_stats: 2026 legislative output (114 acts, +46% vs 2025)
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

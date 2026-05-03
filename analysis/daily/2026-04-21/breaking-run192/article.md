@@ -11,6 +11,18 @@ layout: article
 ---
 # Breaking — 2026-04-21
 
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **Formal legislative record completion**: The 18 March 26 texts need to be formally notified to the Council via EP Secretary-General process — expected to occur in the April 27-30 window regardless of API content availability
+- **Post-recess political statements**: Group coordinators will seek speaking time on EU strategic priorities — defence, US tariffs, housing
+- **European Defence Industrial Strategy (EDIS) instruments**: EPP has been preparing defence procurement framework debates since before Easter
+- **Commission accountability**: Multiple oral questions to Commission anticipated on housing, industrial policy, and US trade response
+- **S&D**: Most vocal on housing affordability as generational inequality issue
+- **Renew**: Supports housing market liberalization but recognizes political pressure
+- **Greens/EFA**: Emphasizes energy efficiency and social housing components
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.

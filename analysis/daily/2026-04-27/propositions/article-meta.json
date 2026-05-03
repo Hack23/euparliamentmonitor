@@ -1,0 +1,54 @@
+{
+  "date": "2026-04-27",
+  "articleType": "propositions",
+  "runId": "propositions-run-1777271418",
+  "gateResult": "pending",
+  "slug": "2026-04-27-propositions",
+  "articlePath": "analysis/daily/2026-04-27/propositions/article.md",
+  "topFinding": "The week of April 20–27, 2026 marks a pivotal legislative moment for the European Parliament: the SRMR3 bank resolution regulation published in the EU Official Journal on April 20 signals the completion of a multi-year reform cycle for EU financial stability architecture.",
+  "keyTakeaways": [
+    "**Majority threshold:** 361 seats",
+    "**EPP alone:** 185 (51.2% below threshold)",
+    "**EPP + S&D:** 320 seats (11% below threshold)",
+    "**EPP + Renew + Greens/EFA:** 315 (still below)",
+    "**EPP + ECR + PfE:** 351 (still below — requires 1 more group)",
+    "**EPP + S&D + Renew:** 397 ✅ (109 seats above — reliable majority but ideologically complex)",
+    "TA-10-2025-0300 (October 2025 EP position)"
+  ],
+  "topRisks": [
+    "**P:** 4 (55–65%) | **I:** 5 (structural — voids directive)",
+    "**Heat:** 20 🔴 CRITICAL",
+    "**Description:** Hungary invokes Article 83(3) TFEU emergency brake, triggering European Council unanimity requirement. This effectively gives Hungary a single-state veto over EU criminal law harmonization.",
+    "**Mitigation:** Commission narrows scope; EP building cross-party coalition to maximize political pressure on Council; Article 7 TEU escalation threat as leverage.",
+    "**Residual Risk:** Even if Council votes with QMV on the substance, Hungary's procedural options could delay by 12–18 months.",
+    "**P:** 3 (35–45%) | **I:** 4 (major — EU unable to respond to escalating US tariffs)",
+    "**Heat:** 12 🟡 SIGNIFICANT",
+    "**Description:** EP-Council disagreement on scope of Commission delegated authority stalls trilogue. With only Round 1 completed (April 13), 3–4 additional rounds needed. If US escalates tariffs before EU counter-measure regulation adopted, the Commission must use existing TPR regulation (less flexible)."
+  ],
+  "keyDates": [
+    "EP plenary vote on US counter-measure regulation within weeks of Council general approach on tariffs → potential emergency session (July/August 2026)",
+    "Anti-Corruption Directive trilogue begins Q3 2026 on broadly favorable terms",
+    "EP JURI/LIBE trilogue begins Q3 2026 — final text by Q1 2027"
+  ],
+  "keyActors": [
+    "**Position:** SRMR3 — Supportive (co-authored). Anti-Corruption — Supportive (rule-of-law branding). US Tariffs — Divided (free-trade wing vs. protectionist wing; automotive industry MEPs vs. agricultural MEPs).",
+    "**Influence:** 🔴 Critical. As the largest group, EPP shapes the agenda in all three committees (ECON, JURI/LIBE, INTA). EVP Weber's leadership sets the strategic direction.",
+    "**Pressure points:** Internal right flank (Austrian FPÖ-adjacent MEPs; Orbán-adjacent EPP) tensions on anti-corruption enforcement. German automotive industry MEPs (Bavaria delegation) pressing for aggressive US tariff counter-measures. Banking sector MEPs defending national champion bank interests against SRMR3 resolution powers.",
+    "**Key individuals:** Roberta Metsola (President), Manfred Weber (Group leader), Markus Ferber (ECON), Othmar Karas (banking reform champion).",
+    "**Position:** SRMR3 — Supportive (worker/consumer protection angle). Anti-Corruption — Strongly supportive (key coalition driver alongside EPP). US Tariffs — Moderately supportive of counter-measures with social clause conditions (protecting EU workers, not just corporations).",
+    "**Influence:** 🔴 Critical. Required for majority on SRMR3 and Anti-Corruption. Without S&D, EPP cannot reach 361 for either dossier.",
+    "**Pressure points:** Southern European S&D MEPs (Italy, Spain, Greece) concerned about SRMR3 bail-in provisions impacting retail bondholders. S&D social conditions for US tariff counter-measures (e.g., ensuring EU jobs are protected, not just export profits).",
+    "**Key individuals:** Iratxe García Pérez (Group leader), Pedro Silva Pereira (VP), Aurore Lalucq (ECON), Christophe Hansen (INTA)."
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "date": "2026-04-18",
+  "articleType": "breaking",
+  "runId": "183",
+  "gateResult": "PENDING",
+  "slug": "2026-04-18-breaking-183",
+  "articlePath": "analysis/daily/2026-04-18/breaking-run183/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "AI developers are recalculating compliance obligations under the modified AI Act threshold",
+    "Banking supervisors are beginning BRRD3 transposition analysis",
+    "Commission legal services are reviewing US countermeasure implementation options",
+    "Civil society organizations are evaluating challenge strategies",
+    "USTR statement of concern only: 40% (PATH A — diplomatic, preserves options)",
+    "USTR Section 301 investigation announcement: 25% (PATH B — legal process, slow)",
+    "USTR direct tariff retaliation: 5% (PATH C — aggressive, high market impact)"
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [
+    "*Farm to Fork review*? ECR is pro-agricultural deregulation; Renew is mixed (French MEPs split",
+    "*New Pact on Migration*? ECR hardliners oppose burden-sharing; Renew supports managed migration.",
+    "*Rule of Law conditionality on Hungary*? Renew supports conditionality; ECR defends Hungarian",
+    "EPP political group's public communications (website, press releases)",
+    "EPP group leadership positions (Manfred Weber statements)",
+    "Historical EPP positions on comparable texts (inference from prior roll-call votes)",
+    "**EP6 (2004-2009)**: Effective parties approximately 2.8 (EPP-ED and PES dominated)",
+    "**EP7 (2009-2014)**: Approximately 3.2 (Greens and Liberals growing)"
+  ],
+  "macroContext": "",
+  "sources": [
+    "intelligence/coalition-dynamics.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
