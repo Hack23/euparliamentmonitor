@@ -3,7 +3,7 @@
 
 # 📚 Worked Examples — Methodology in Practice
 
-This directory holds **short, illustrative "good output" excerpts** that show what an Economist-grade analysis artifact looks like when the methodology library is followed correctly. Examples are deliberately small — one to two SWOT cells, one stakeholder quadrant narrative, two scenarios — so an AI agent can read them as inline reference without inflating context.
+This directory holds **illustrative "good output" excerpts** that show what an Economist-grade analysis artifact looks like when the methodology library is followed correctly. Each example demonstrates full artifact structure — all four SWOT quadrants with TOWS, all four stakeholder-map quadrant narratives, three complete scenarios — compressed from a production-length artifact to a teaching-length excerpt (~100–150 lines) that an AI agent can read as inline reference without inflating context.
 
 > ⚠️ **Illustrative, not authoritative.** Numbers, MEP names, and procedure
 > IDs in these excerpts are taken from real EP runs but compressed for
@@ -17,7 +17,7 @@ This directory holds **short, illustrative "good output" excerpts** that show wh
 |---|---|---|---|
 | [`swot-good-output.md`](swot-good-output.md) | [`political-swot-framework.md`](../political-swot-framework.md) | [`quantitative-swot.md`](../../templates/quantitative-swot.md) | ≥80 words per quadrant cell, evidence + confidence label on every item, TOWS strategy paired with each cross-quadrant pair |
 | [`stakeholder-map-good-output.md`](stakeholder-map-good-output.md) | [`per-artifact-methodologies.md §stakeholder-map`](../per-artifact-methodologies.md#stakeholder-map) | [`stakeholder-map.md`](../../templates/stakeholder-map.md) | ≥150 words per quadrant narrative, cited power score, cited alignment score, movement-since-prior-period entry |
-| [`risk-assessment-good-output.md`](risk-assessment-good-output.md) | [`political-risk-methodology.md`](../political-risk-methodology.md) | [`risk-matrix.md`](../../templates/risk-matrix.md) | Likelihood × Impact justified per cell, trigger event date-bounded, monitoring cadence stated, residual risk after mitigation |
+| [`risk-matrix-good-output.md`](risk-matrix-good-output.md) | [`political-risk-methodology.md`](../political-risk-methodology.md) | [`risk-matrix.md`](../../templates/risk-matrix.md) | Likelihood × Impact justified per cell, trigger event date-bounded, monitoring cadence stated, residual risk after mitigation |
 | [`scenario-forecast-good-output.md`](scenario-forecast-good-output.md) | [`per-artifact-methodologies.md §scenario-forecast`](../per-artifact-methodologies.md#scenario-forecast) | [`scenario-forecast.md`](../../templates/scenario-forecast.md) | WEP band + horizon per scenario, ≥3 indicators per scenario, probabilities sum to 100, primary SAT named (Pre-Mortem) |
 
 ## How to use these examples

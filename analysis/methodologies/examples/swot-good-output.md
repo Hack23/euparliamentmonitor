@@ -95,7 +95,7 @@ ECR has signalled in `get_speeches` (2026-04-08) intent to table procedural amen
 - [x] Probabilities, where used, are bracketed against a Words-of-Estimative-Probability band; numerical ranges (e.g. 78 → 41 votes) carry a `*illustrative*` marker.
 - [x] TOWS pairs are paired strategies with a trigger date and a named owner — not aspirational paragraphs.
 - [x] No soft phrases ("rich", "comprehensive", "strong"); every claim is anchored.
-- [x] Length: ≥140 lines (matches `breaking` threshold of 140 in `reference-quality-thresholds.json`).
+- [x] Length: this excerpt is ~108 lines; a full production artifact must reach ≥140 lines (the `breaking` threshold in `reference-quality-thresholds.json`). The excerpt demonstrates shape and evidence density; production runs extend with additional items or deeper TOWS narratives.
 
 ## Why this is a "good" output
 

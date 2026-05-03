@@ -607,7 +607,7 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 **Quality signals.** Every score matches `L × I`; every monitoring trigger is time-bounded. **Source-grade × Estimative-language discipline (tradecraft):** each risk narrative reports the residual likelihood as a WEP band ([`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)) with time horizon (§3.4); evidence backing the L and I scores carries an Admiralty grade (§2); ACH (§4 technique 6) is used when multiple competing risks share the same monitoring triggers.
 
-> 📎 **Worked example:** [`examples/risk-assessment-good-output.md`](examples/risk-assessment-good-output.md) — illustrative 5-risk register with WEP-banded Likelihood, dated trigger events, named mitigation owners, and pre/post-mitigation residual scoring.
+> 📎 **Worked example:** [`examples/risk-matrix-good-output.md`](examples/risk-matrix-good-output.md) — illustrative 5-risk register with WEP-banded Likelihood, dated trigger events, named mitigation owners, and pre/post-mitigation residual scoring.
 
 ---
 

@@ -134,7 +134,7 @@ flowchart TD
 - [x] Mermaid `flowchart TD` branches from baseline through scenarios to indicators.
 - [x] Monitoring plan has a calendar and an owner per check.
 - [x] Pre-Mortem applied as a primary SAT in at least one scenario.
-- [x] Length: ≥280 lines (matches `breaking` threshold of 280).
+- [x] Length: this excerpt is ~146 lines; a full production artifact must reach ≥280 lines (the `breaking` threshold in `reference-quality-thresholds.json`). Production runs extend with additional scenarios, deeper narratives, and expanded monitoring cadences.
 
 ## Why this is a "good" output
 

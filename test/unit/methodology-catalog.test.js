@@ -117,12 +117,12 @@ describe('analysis/methodologies — three-way drift-guard', () => {
   const perArtifactSections = loadPerArtifactSections();
   const thresholdArtifacts = loadThresholdArtifacts();
 
-  it('catalog parser found a non-trivial number of artifact rows', () => {
-    // Sanity floor — issue scope cites 39 core + 12 extended = 51.
-    // Catalog includes a few twin entries (e.g. political-threat-landscape
-    // appears in both intelligence/ and threat-assessment/), so the count is
-    // a few rows above the 51 templates.
-    expect(rows.length).toBeGreaterThanOrEqual(40);
+  it('catalog parser found the expected number of artifact rows', () => {
+    // The catalog currently declares ~56 artifact rows across its sections
+    // (27 intelligence + 4 classification + 4 risk + 5 threat + 1 documents
+    // + 2 existing + 13 extended). A broken parser that skips an entire
+    // section must fail this check.
+    expect(rows.length).toBeGreaterThanOrEqual(50);
   });
 
   it('every catalog template link resolves to a real file in analysis/templates/', () => {
@@ -214,6 +214,36 @@ describe('analysis/methodologies — three-way drift-guard', () => {
     expect(
       missing,
       `Catalog ↔ thresholds drift — artifacts with a numeric catalog floor must appear in reference-quality-thresholds.json:\n  ${missing.join('\n  ')}`,
+    ).toEqual([]);
+  });
+
+  it('every threshold artifact path is known to the catalog (reverse check)', () => {
+    // Enforce the invariant in both directions: if reference-quality-thresholds.json
+    // names an artifact, the catalog must declare it. This catches orphaned threshold
+    // rows that survive after catalog pruning or path renames.
+    const catalogArtifacts = new Set(rows.map((r) => r.artifact));
+    // Also accept intelligence/ vs existing/ mirrors (historical layout)
+    const catalogWithMirrors = new Set(catalogArtifacts);
+    for (const art of catalogArtifacts) {
+      if (art.startsWith('existing/')) {
+        catalogWithMirrors.add(art.replace(/^existing\//, 'intelligence/'));
+      }
+      if (art.startsWith('intelligence/')) {
+        catalogWithMirrors.add(art.replace(/^intelligence\//, 'existing/'));
+      }
+    }
+    // executive-brief.md appears at root level in the catalog
+    catalogWithMirrors.add('executive-brief.md');
+
+    const orphaned = [];
+    for (const thresholdPath of thresholdArtifacts) {
+      if (!catalogWithMirrors.has(thresholdPath)) {
+        orphaned.push(thresholdPath);
+      }
+    }
+    expect(
+      orphaned,
+      `Thresholds → catalog drift — these threshold paths are not declared in artifact-catalog.md:\n  ${orphaned.join('\n  ')}`,
     ).toEqual([]);
   });
 });
