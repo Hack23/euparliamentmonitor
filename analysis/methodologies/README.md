@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-3.2-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--25-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.3-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--03-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 3.2 | **📅 Last Updated:** 2026-04-25 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 3.3 | **📅 Last Updated:** 2026-05-03 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -990,6 +990,14 @@ flowchart TD
 ---
 
 ## 📝 Changelog
+
+### v3.3 (2026-05-03)
+
+| Document | Change | Rationale |
+|----------|--------|-----------|
+| `examples/` (new directory) | Added four worked "good-output" excerpts under [`examples/`](examples/) — SWOT, stakeholder map, risk matrix, scenario forecast — each cross-linked to its companion methodology section and template, with a Pass-2 checklist that mirrors the methodology's quality-signal language. | Closes the issue's "worked example" deliverable; gives an AI agent a concrete, evidence-dense reference to diff Pass-1 drafts against during Pass-2 read-back. |
+| `test/unit/methodology-catalog.test.js` (new test) | Drift-guard asserts the four-way match between [`artifact-catalog.md`](artifact-catalog.md), [`reference-quality-thresholds.json`](reference-quality-thresholds.json), [`per-artifact-methodologies.md`](per-artifact-methodologies.md), and `analysis/templates/`. Six assertions: catalog parses ≥54 rows (tight enough to catch any dropped section), every template link resolves, every methodology link resolves, every `per-artifact-methodologies.md#anchor` resolves to a real `### section`, every numeric `breaking` floor in the catalog has a row in the threshold registry, and every threshold path is known to the catalog (reverse check). | Promotes the catalog ↔ thresholds ↔ templates ↔ per-artifact-methodologies invariant from a manual review item to a CI-enforced contract; future drift fails fast in unit tests rather than during a 60-minute agentic run. |
+| `examples/README.md` (new) | Index + anti-patterns + "how to add a new example" pointer. | Makes the examples directory self-documenting and discoverable from this index. |
 
 ### v3.2 (2026-04-25)
 
