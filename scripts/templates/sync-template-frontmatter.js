@@ -269,10 +269,12 @@ const AI_INSTRUCTIONS_REGEX = new RegExp(
 /**
  * Insert (or replace) the canonical blocks immediately after the SPDX
  * headers. The SPDX header pattern in this repo is two HTML comments at the
- * top of every template:
+ * top of every template (showing pattern only, not live tags):
  *
- *     <!-- SPDX-FileCopyrightText: ... -->
- *     <!-- SPDX-License-Identifier: ... -->
+ * // REUSE-IgnoreStart
+ *     <!-- SPDX-FileCopyrightText: 20XX Hack23 AB -->
+ *     <!-- SPDX-License-Identifier: Apache-2.0 -->
+ * // REUSE-IgnoreEnd
  *
  * Returns the rewritten content (idempotent).
  */

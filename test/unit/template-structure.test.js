@@ -70,12 +70,15 @@ describe('analysis/templates structure (drift-guard)', () => {
 
   it('every template has the SPDX header pair', () => {
     const missing = [];
+    // REUSE-IgnoreStart
+    const spdxCopyright = 'SPDX-FileCopyrightText:';
+    const spdxLicense = 'SPDX-License-Identifier:';
+    // REUSE-IgnoreEnd
     for (const basename of templates) {
       const content = fs.readFileSync(path.join(TEMPLATES_DIR, basename), 'utf8');
-      if (
-        !/<!--\s*SPDX-FileCopyrightText:/i.test(content) ||
-        !/<!--\s*SPDX-License-Identifier:/i.test(content)
-      ) {
+      const reCopyright = new RegExp(`<!--\\s*${spdxCopyright}`, 'i');
+      const reLicense = new RegExp(`<!--\\s*${spdxLicense}`, 'i');
+      if (!reCopyright.test(content) || !reLicense.test(content)) {
         missing.push(basename);
       }
     }
