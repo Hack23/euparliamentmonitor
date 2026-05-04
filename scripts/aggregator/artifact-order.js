@@ -1,12 +1,24 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 /**
- * Canonical ordering. Order matches the plan:
- *  1. Executive brief   2. Synthesis   3. Significance   4. Actors & forces
- *  5. Coalitions        6. Stakeholders 7. PESTLE         8. Economic
- *  9. Risk             10. Threat      11. Scenarios     12. Continuity
- * 13. Deep analysis     14. Documents   15. Extended      16. MCP audit
- * 17. Quality & reflection.
+ * Canonical ordering. Order is shaped for a political-intelligence
+ * journalist: news-arc first (story → stakes → forecast), then deep
+ * structural context, then provenance/audit appendices:
+ *
+ *  1. Executive brief   2. Synthesis        3. Significance
+ *  4. Actors & forces   5. Coalitions       6. Stakeholders
+ *  7. Economic          8. Risk             9. Threat
+ * 10. Scenarios        11. Forward (What to Watch)  12. Electoral arc
+ * 13. PESTLE & history 14. Continuity      15. Deep analysis
+ * 16. Documents        17. Extended        18. MCP audit
+ * 19. Quality & reflection.
+ *
+ * Rationale: Stakeholder Map (who is affected) flows directly into
+ * Economic Context (macro stakes) without the structural-frame
+ * detour of PESTLE. Risk → Threat → Scenarios → Forward Projection →
+ * Electoral Arc forms a coherent "consequences and forecast" block.
+ * PESTLE & historical-baseline then opens the deep-context section
+ * for readers who want structural backdrop after the news.
  */
 export const ARTIFACT_SECTIONS = [
     {
@@ -57,11 +69,6 @@ export const ARTIFACT_SECTIONS = [
         id: 'stakeholder-map',
         title: 'Stakeholder Map',
         artifacts: ['intelligence/stakeholder-map.md', 'existing/stakeholder-impact.md'],
-    },
-    {
-        id: 'pestle-context',
-        title: 'PESTLE & Context',
-        artifacts: ['intelligence/pestle-analysis.md', 'intelligence/historical-baseline.md'],
     },
     {
         id: 'economic-context',
@@ -119,6 +126,11 @@ export const ARTIFACT_SECTIONS = [
             'intelligence/presidency-trio-context.md',
             'intelligence/commission-wp-alignment.md',
         ],
+    },
+    {
+        id: 'pestle-context',
+        title: 'PESTLE & Context',
+        artifacts: ['intelligence/pestle-analysis.md', 'intelligence/historical-baseline.md'],
     },
     {
         id: 'continuity',

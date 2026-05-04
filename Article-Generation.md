@@ -472,20 +472,24 @@ The sidecar is consumed by the HTML SEO/structured-data layer, the news-index ge
 
 ### 🧱 Article skeleton (post-aggregator-uplift)
 
-The aggregated `article.md` follows a fixed deterministic skeleton:
+The aggregated `article.md` follows a fixed deterministic skeleton, shaped for a political-intelligence reader (news arc → stakes → forecast → deep context → audit):
 
 1. **`# {humanize(articleType)} — {date}`** (document title)
 2. **Executive Brief** (`<h2 id="section-executive-brief">`) — BLUF up front
 3. **Key Takeaways** (`<h2 id="section-key-takeaways">`) — 3–7 deterministic bullets harvested from synthesis-summary / intelligence-assessment, **only emitted when ≥3 strong bullets are available**
 4. **Reader Intelligence Guide** (`<h2 id="reader-intelligence-guide">`) — Riksdagsmonitor-style navigation table that maps reader needs to artifacts
-5. **Synthesis / Significance / Coalitions / Stakeholder Map / Economic Context** (canonical analysis sections, in the order declared by `artifact-order.ts`)
-6. **What to Watch** (`<h2 id="section-forward-projection">`) — forward-projection bucket (legislative-pipeline-forecast, parliamentary-calendar-projection, forward-indicators) so dated triggers live in their own forward-looking lens rather than under "extended intel"
-7. **Risk Assessment / SWOT / Scenarios** (the remaining canonical analysis sections)
-8. **Provenance** blockquote — article type, date, run id, gate, manifest link
-9. **Tradecraft Appendix** (methodologies + templates)
-10. **Analysis Index** (every artifact, with section + path columns)
+5. **The political story** — `Synthesis Summary` → `Significance` → `Actors & Forces` → `Coalitions & Voting` → `Stakeholder Map` (the cast and how they aligned)
+6. **The stakes** — `Economic Context` (IMF macro stakes) → `Risk Assessment` → `Threat Landscape` → `Scenarios & Wildcards`
+7. **What to Watch** (`<h2 id="section-forward-projection">`) — forward-projection bucket (legislative-pipeline-forecast, parliamentary-calendar-projection, forward-indicators) so dated triggers live in their own forward-looking lens rather than under "extended intel"
+8. **Electoral Arc & Mandate** (`<h2 id="section-electoral-arc">`) — long-horizon term-arc / seat-projection / mandate-fulfilment / presidency-trio / Commission WP alignment (only when those artifacts are present)
+9. **Deep context** — `PESTLE & Context` (politics/economics/sociology/tech/legal/environmental backdrop + historical baseline) → `Cross-Run Continuity` → `Deep Analysis`. PESTLE is structural framing that supports but does not lead the news arc, so it sits after the forward-looking block.
+10. **Document Analysis** and **Extended Intelligence** — per-document evidence and catch-all extras
+11. **MCP Reliability Audit** and **Analytical Quality & Reflection** — provenance and self-audit
+12. **Provenance** blockquote — article type, date, run id, gate, manifest link
+13. **Tradecraft Appendix** (methodologies + templates)
+14. **Analysis Index** (every artifact, with section + path columns)
 
-The TOC entries emitted in `aggregateAnalysisRun(...).sectionToc` mirror the order above 1:1 — when Key Takeaways or the Reader Intelligence Guide is suppressed for a sparse run, both the H2 and the TOC entry are dropped together.
+The canonical machine-readable order lives in [`src/aggregator/artifact-order.ts`](./src/aggregator/artifact-order.ts) (see the doc-comment on `ARTIFACT_SECTIONS`); the prose skeleton above is its journalistic narration. The TOC entries emitted in `aggregateAnalysisRun(...).sectionToc` mirror the order above 1:1 — when Key Takeaways or the Reader Intelligence Guide is suppressed for a sparse run, both the H2 and the TOC entry are dropped together.
 
 ---
 
