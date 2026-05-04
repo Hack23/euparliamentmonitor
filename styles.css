@@ -7454,7 +7454,7 @@ html[data-theme='dark'] .ep-offline-hero__title {
 .site-header__cta-label {
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: clamp(12ch, 12vw, 24ch);
+  max-width: clamp(12ch, 18ch, 24ch);
 }
 
 @media (max-width: 640px) {
@@ -7810,7 +7810,7 @@ body {
 
 .sitemap-list a {
   color: var(--primary);
-  font-weight: 750;
+  font-weight: 700;
 }
 
 .sitemap-category {
@@ -7917,7 +7917,7 @@ body {
   min-height: 44px;
   padding: 0.85rem 1rem;
   cursor: pointer;
-  font-weight: 750;
+  font-weight: 700;
   color: var(--primary);
 }
 
@@ -7925,6 +7925,10 @@ body {
   padding: 0 1rem 1rem;
 }
 
+/* Keep the system dark-mode and explicit dark-mode blocks below in sync.
+ * They intentionally duplicate selectors because the project ships plain CSS
+ * (no preprocessor), and user-selected dark mode must work independently of
+ * `prefers-color-scheme`. */
 @media (prefers-color-scheme: dark) {
   html:not([data-theme='light']) {
     --surface: #171c29;
