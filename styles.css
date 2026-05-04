@@ -7454,7 +7454,7 @@ html[data-theme='dark'] .ep-offline-hero__title {
 .site-header__cta-label {
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: clamp(12ch, 18ch, 24ch);
+  max-width: 24ch;
 }
 
 @media (max-width: 640px) {
@@ -7498,6 +7498,7 @@ html[data-theme='dark'] .ep-offline-hero__title {
   --shadow-glow: 0 18px 54px rgba(0, 51, 153, 0.13);
   --reader-width: 900px;
   --toc-width: 292px;
+  --font-weight-bold: 700;
 }
 
 body {
@@ -7553,7 +7554,7 @@ body {
   padding: 6px 10px;
   border: 1px solid transparent;
   border-radius: 999px;
-  font-size: 0.76rem;
+  font-size: 0.875rem;
 }
 
 .lang-link:hover,
@@ -7662,7 +7663,6 @@ body {
 }
 
 .article-hero h1 {
-  max-width: 13ch;
   font-size: clamp(2.15rem, 6vw, 4rem);
   text-wrap: balance;
 }
@@ -7684,7 +7684,7 @@ body {
   border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border));
   border-radius: 999px;
   background: var(--surface);
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   box-shadow: var(--shadow-sm);
 }
 
@@ -7738,7 +7738,6 @@ body {
 }
 
 .sitemap-hero h1 {
-  max-width: 14ch;
   font-size: clamp(2rem, 5vw, 3.8rem);
   line-height: 1.04;
   letter-spacing: -0.04em;
@@ -7810,7 +7809,7 @@ body {
 
 .sitemap-list a {
   color: var(--primary);
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
 }
 
 .sitemap-category {
@@ -7917,7 +7916,7 @@ body {
   min-height: 44px;
   padding: 0.85rem 1rem;
   cursor: pointer;
-  font-weight: 700;
+  font-weight: var(--font-weight-bold);
   color: var(--primary);
 }
 
