@@ -7498,7 +7498,6 @@ html[data-theme='dark'] .ep-offline-hero__title {
   --shadow-glow: 0 18px 54px rgba(0, 51, 153, 0.13);
   --reader-width: 900px;
   --toc-width: 292px;
-  --font-weight-bold: 700;
 }
 
 body {
@@ -7664,7 +7663,6 @@ body {
 
 .article-hero h1 {
   font-size: clamp(2.15rem, 6vw, 4rem);
-  text-wrap: balance;
 }
 
 .article-dek {
@@ -7684,7 +7682,7 @@ body {
   border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border));
   border-radius: 999px;
   background: var(--surface);
-  font-weight: var(--font-weight-bold);
+  font-weight: 700;
   box-shadow: var(--shadow-sm);
 }
 
@@ -7696,12 +7694,19 @@ body {
   background:
     linear-gradient(90deg, var(--primary-light), color-mix(in srgb, var(--secondary) 13%, var(--surface))),
     var(--surface);
-  text-wrap: balance;
 }
 
 .article-body h3 {
   color: var(--text);
-  text-wrap: balance;
+}
+
+@supports (text-wrap: balance) {
+  .article-hero h1,
+  .article-body h2,
+  .article-body h3,
+  .sitemap-hero h1 {
+    text-wrap: balance;
+  }
 }
 
 .article-body p {
@@ -7741,7 +7746,6 @@ body {
   font-size: clamp(2rem, 5vw, 3.8rem);
   line-height: 1.04;
   letter-spacing: -0.04em;
-  text-wrap: balance;
 }
 
 .sitemap-hero__subtitle {
@@ -7809,7 +7813,7 @@ body {
 
 .sitemap-list a {
   color: var(--primary);
-  font-weight: var(--font-weight-bold);
+  font-weight: 700;
 }
 
 .sitemap-category {
@@ -7916,7 +7920,7 @@ body {
   min-height: 44px;
   padding: 0.85rem 1rem;
   cursor: pointer;
-  font-weight: var(--font-weight-bold);
+  font-weight: 700;
   color: var(--primary);
 }
 
