@@ -166,7 +166,7 @@ The following capabilities have already been delivered and are documented in [WO
 
 **Status:** 15 agentic news workflows compiled via `gh-aw` (GitHub Agentic Workflows ≥ v0.69.3, `engine.mcp.session-timeout: 65m`) are in production.  
 **Engine:** GitHub Copilot CLI with `claude-sonnet-4.6` model  
-**Data Source:** `european-parliament-mcp-server@1.2.20+` via MCP protocol  
+**Data Source:** `european-parliament-mcp-server@1.2.21+` via MCP protocol  
 **Coverage:** 14 languages (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH)  
 **Horizon registry:** [`src/config/article-horizons.ts`](src/config/article-horizons.ts) is the single source of truth for every horizon's data window, cadence, mandatory artifacts, stage budgets and electoral overlay.
 
