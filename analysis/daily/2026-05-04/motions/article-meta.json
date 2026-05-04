@@ -1,0 +1,52 @@
+{
+  "date": "2026-05-04",
+  "articleType": "motions",
+  "runId": "motions-run-1777878822",
+  "gateResult": "PENDING_STAGE_C",
+  "slug": "2026-05-04-motions",
+  "articlePath": "analysis/daily/2026-05-04/motions/article.md",
+  "topFinding": "The European Parliament's April 28–30, 2026 Strasbourg plenary adopted eleven substantive texts spanning digital regulation enforcement, Ukraine accountability, Armenia democratic resilience, and the 2027 budget framework — marking the most legislative-dense three-day session of the EP10 term.",
+  "keyTakeaways": [
+    "**Vote outcome:** Adopted",
+    "**Cross-group coalition:** EPP + S&D + Renew + Greens/EFA (progressive center bloc, ~550 potential votes)",
+    "**Key groups opposing/abstaining:** ECR, PfE, ESN",
+    "**Policy significance:** Calls on Commission to use DMA Article 26 (non-compliance remedies) against platform gatekeepers including Alphabet, Meta, Apple; urges structural remedies not just fines",
+    "**Key content:** EP endorses a special tribunal for Russia's crime of aggression; calls for repurposing frozen Russian sovereign assets for Ukraine reconstruction",
+    "**Coalition dynamics:** EPP + S&D + Renew + Greens/EFA + The Left; PfE divided (Viktor Orbán-aligned MEPs opposed); ECR split with significant defections among Hungarian and Slovak members",
+    "**Strategic framing:** EP reaffirms support for Armenia's European integration trajectory, condemns continued Azerbaijani pressure, and references the Pashinyan government's reform agenda"
+  ],
+  "topRisks": [
+    "DG COMP maintains enforcement discretion; can pace proceedings to avoid trade crisis",
+    "EU-US trade framework talks provide a negotiating channel for de-escalation",
+    "US digital economy firms can partially comply before proceedings escalate",
+    "Fidesz has limited alternatives — ESN would be a political downgrade; NI reduces committee access",
+    "PfE leadership has offered Fidesz tactical flexibility on foreign policy votes (individual vote freedom)",
+    "\"Coalition of the willing\" approach allows tribunal establishment without unanimity (Nuremberg precedent)",
+    "ICC Prosecutor's office deepens Russia-related investigations as parallel track",
+    "Frozen asset interest income (€3–4B/year) can continue under existing G7/EU framework"
+  ],
+  "keyDates": [
+    "Commission Vice-President Vestager's successor at DG COMP announces investigation timeline updates (July–August 2026)",
+    "Apple announces further App Store API changes as partial compliance (June–July 2026)",
+    "Meta opens WhatsApp/Messenger API endpoints to certified third-party services (Q3 2026)",
+    "Core Group summit on Special Tribunal scheduled (Q3 2026)",
+    "EPP + S&D + Renew vote together on the key September 2026 budget first reading"
+  ],
+  "keyActors": [
+    "DMA: Supported enforcement motion — unusual for EPP; reflects Weber's calculation that opposing tech accountability would be politically costly ahead of 2029 elections",
+    "Ukraine: Strong support; EPP has made Ukraine a signature position",
+    "Budget: Will push for defense reorientation within climate/social spending; fiscal conservative but EU institutional loyalist"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
