@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -110,7 +110,14 @@
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -146,12 +153,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">196x</span>
 <span class="cline-any cline-yes">196x</span>
+<span class="cline-any cline-yes">196x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">196x</span>
 <span class="cline-any cline-yes">196x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -162,13 +168,17 @@
 &nbsp;
 /**
  * @module Constants/BuildInfoMeta
- * @description Shared helper that emits the `&lt;head&gt;` freshness tags every
- * generator must include so the PWA layer (`js/pwa-register.js`) can:
+ * @description Shared helper that emits the `&lt;head&gt;` build-identity and PWA
+ * script tags every generator must include.
  *
- *   - Read the embedded build commit SHA + timestamp from `&lt;meta&gt;` tags.
- *   - Load the same-origin service-worker registration script.
- *   - Tell browsers + intermediate proxies to revalidate every navigation
- *     (`Cache-Control: no-cache`, `Pragma: no-cache`).
+ * The `build-id` / `build-time` meta tags are informational only — they
+ * identify which deploy produced the page (useful for debugging / cache
+ * audits) but are **not** consumed by any client-side JavaScript.
+ *
+ * The `pwa-register.js` script tag loads the service-worker registration
+ * and relative-time formatting IIFE. A `?v=&lt;BUILD_SHORT&gt;` query string
+ * is appended so that immutable-cached old versions are automatically
+ * evicted when a new build is deployed.
  *
  * Every value is HTML-escaped — `BUILD_ID`/`BUILD_TIME` are tightly
  * formatted (40-char hex / ISO 8601) but defence-in-depth is cheap.
@@ -179,11 +189,11 @@
  * file with a `defer` attribute.
  */
 &nbsp;
-import { BUILD_ID, BUILD_TIME } from './config.js';
+import { BUILD_ID, BUILD_SHORT, BUILD_TIME } from './config.js';
 import { escapeHTML } from '../utils/file-utils.js';
 &nbsp;
 /**
- * Build the shared freshness/PWA `&lt;head&gt;` block.
+ * Build the shared build-identity + PWA `&lt;head&gt;` block.
  *
  * @param pathPrefix - Asset path prefix (`''` for root pages, `'../'`
  *                     for `news/` pages).
@@ -193,15 +203,14 @@ import { escapeHTML } from '../utils/file-utils.js';
 export function buildHeadFreshnessTags(pathPrefix: string): string {
   const safeBuildId = escapeHTML(BUILD_ID);
   const safeBuildTime = escapeHTML(BUILD_TIME);
+  const safeBuildShort = escapeHTML(BUILD_SHORT);
   // Path prefix is built from controlled string literals (`''` or `'../'`),
   // but escape it anyway to keep the helper safe under future callers.
   const safePrefix = escapeHTML(pathPrefix);
   return [
     `  &lt;meta name="build-id" content="${safeBuildId}"&gt;`,
     `  &lt;meta name="build-time" content="${safeBuildTime}"&gt;`,
-    `  &lt;meta http-equiv="Cache-Control" content="no-cache"&gt;`,
-    `  &lt;meta http-equiv="Pragma" content="no-cache"&gt;`,
-    `  &lt;script src="${safePrefix}js/pwa-register.js" defer&gt;&lt;/script&gt;`,
+    `  &lt;script src="${safePrefix}js/pwa-register.js?v=${safeBuildShort}" defer&gt;&lt;/script&gt;`,
   ].join('\n');
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -211,7 +220,7 @@ export function buildHeadFreshnessTags(pathPrefix: string): string {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-04T09:54:24.410Z
+                at 2026-05-04T23:04:21.021Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
