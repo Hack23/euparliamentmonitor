@@ -1,0 +1,25 @@
+{
+  "date": "2026-05-04",
+  "articleType": "breaking",
+  "runId": "breaking-run-2026-05-04",
+  "gateResult": "GREEN",
+  "slug": "2026-05-04-breaking",
+  "articlePath": "analysis/daily/2026-05-04/breaking/article.md",
+  "topFinding": "The European Parliament's April 28-30 mini-plenary session in Brussels delivered an unusually dense cluster of high-salience resolutions on a single day — April 30, 2026 — signalling coordinated legislative intent across geopolitics, digital regulation, and Eastern Partnership policy.",
+  "keyTakeaways": [
+    "**Patryk Jaki Immunity Waiver (TA-10-2026-0105, April 28):** ECR MEP and former Polish government prosecutor Patryk Jaki's parliamentary immunity was waived — the second high-profile Polish MEP immunity case in weeks following Grzegorz Braun (TA-10-2026-0088, March 26). The Jaki case involves Polish judicial proceedings connected to his political activities. This dual waiver pattern signals intensifying Polish domestic political conflicts spilling into the EP arena.",
+    "**Middle East Crisis Joint Debate (April 29):** A joint debate on EU strategy regarding the Middle East crisis focused on energy price implications and fertilizer availability — a rare economic-security nexus framing. Speakers connected Gaza conflict dynamics to European food supply chains via Egyptian and Jordanian transit disruption.",
+    "**Russia Normalisation Warning (April 29):** Debate on \"Danger of normalising relations with Russia, including its participation in major cultural and sports events\" — signalling EP intent to maintain comprehensive isolation pressure ahead of any potential peace negotiations.",
+    "**Primary sources:** EP Open Data Portal (data.europarl.europa.eu) — real-time adopted texts feed, speeches feed, procedures API",
+    "**Data limitations:** Voting tallies (for/against/abstain) not yet available for April 28-30 votes (EP publishes roll-call data with 2-4 week delay)",
+    "**Confidence on text adoption:** 🟢 High — items confirmed in adopted texts feed",
+    "**Confidence on debate content:** 🟡 Medium — speech text not available via API; debate characterization based on session titles and EP practice"
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [],
+  "macroContext": "",
+  "sources": [
+    "executive-brief.md"
+  ]
+}

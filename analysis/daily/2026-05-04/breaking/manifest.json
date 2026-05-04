@@ -1,0 +1,68 @@
+{
+  "articleType": "breaking",
+  "date": "2026-05-04",
+  "runId": "breaking-run-2026-05-04",
+  "generatedAt": "2026-05-04T07:18:00Z",
+  "gateResult": "GREEN",
+  "history": [
+    {
+      "runAt": "2026-05-04T07:04:24Z",
+      "runId": "breaking-run-2026-05-04",
+      "stageA": { "completedAt": "2026-05-04T07:08:00Z", "durationMinutes": 4 },
+      "stageB": {
+        "completedAt": "2026-05-04T07:18:00Z",
+        "durationMinutes": 10,
+        "pass1CompletedAt": "2026-05-04T07:15:00Z",
+        "pass2StartedAt": "2026-05-04T07:15:00Z",
+        "pass2CompletedAt": "2026-05-04T07:18:00Z",
+        "rewriteCount": 8
+      },
+      "gateResult": "GREEN",
+      "elapsedMinutes": 14
+    }
+  ],
+  "pass2": {
+    "startedAt": "2026-05-04T07:15:00Z",
+    "endedAt": "2026-05-04T07:18:00Z",
+    "rewriteCount": 8
+  },
+  "files": {
+    "executive-brief": "executive-brief.md",
+    "swot-analysis": "swot-analysis.md",
+    "stakeholder-analysis": "stakeholder-analysis.md",
+    "risk-assessment": "risk-assessment.md",
+    "coalition-dynamics": "coalition-dynamics.md",
+    "actor-mapping": "actor-mapping.md",
+    "timeline-analysis": "timeline-analysis.md",
+    "mcp-reliability-audit": "intelligence/mcp-reliability-audit.md",
+    "methodology-reflection": "methodology-reflection.md"
+  },
+  "dataVerification": {
+    "unresolvedProcedureIds": [],
+    "deferredDeepFetches": ["TA-10-2026-0160-fulltext", "TA-10-2026-0161-fulltext", "TA-10-2026-0162-fulltext"],
+    "deferredMepLookups": [],
+    "dataGaps": [
+      "Roll-call vote tallies for April 28-30 (EP 2-4 week publication lag)",
+      "Full adopted text content for TA-10-2026-0160, 0161, 0162 (404 - content not yet available)",
+      "Events feed data (API error)"
+    ]
+  },
+  "keySources": [
+    "EP adopted texts feed (2026)",
+    "EP speeches feed (April 28-30)",
+    "EP political landscape tool",
+    "EP early warning system",
+    "EP coalition dynamics analysis"
+  ],
+  "primaryTopics": [
+    "TA-10-2026-0160 - DMA Enforcement resolution",
+    "TA-10-2026-0161 - Russia/Ukraine accountability resolution",
+    "TA-10-2026-0162 - Armenia democratic resilience",
+    "MFF 2028-2034 interim report debate",
+    "Patryk Jaki immunity waiver",
+    "Middle East energy-food crisis debate"
+  ],
+  "confidenceLevel": "MEDIUM-HIGH",
+  "imfRequirement": "not_required",
+  "totalAnalysisLines": 1122
+}
