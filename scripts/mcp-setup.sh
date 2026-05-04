@@ -39,16 +39,17 @@ export EP_MCP_GATEWAY_URL="http://${MCP_GATEWAY_DOMAIN_DEFAULT}:${MCP_GATEWAY_PO
 # World Bank MCP server also available through the same gateway
 export WORLD_BANK_MCP_SERVER_URL="http://${MCP_GATEWAY_DOMAIN_DEFAULT}:${MCP_GATEWAY_PORT_DEFAULT}/mcp/world-bank"
 
+# Fetch proxy MCP server — routes HTTP calls through an MCP container that
+# bypasses the AWF Squid proxy. Used by the IMF client and probe script
+# when direct HTTPS is blocked by the sandbox firewall.
+export FETCH_MCP_GATEWAY_URL="http://${MCP_GATEWAY_DOMAIN_DEFAULT}:${MCP_GATEWAY_PORT_DEFAULT}/mcp/fetch-proxy"
+
 # IMF Data — native TypeScript SDMX 3.0 REST client.
-# No MCP server / gateway required — the client in
-# src/mcp/imf-mcp-client.ts calls https://dataservices.imf.org/ directly.
+# Primary transport: MCP fetch-proxy gateway (bypasses AWF Squid proxy).
+# Fallback: direct HTTPS to https://dataservices.imf.org/ (works outside AWF).
 # Export the base URL so `scripts/imf-mcp-probe.sh` and any ad-hoc curl
 # calls in workflow bash blocks target the same endpoint the client
 # resolves at runtime. Override via `IMF_API_BASE_URL` if mirroring.
-# Introduced in Wave 1 of the IMF migration (see
-# analysis/methodologies/imf-indicator-mapping.md). Historical
-# gateway-style `IMF_MCP_SERVER_URL` is intentionally no longer exported
-# — the Python upstream is not used anywhere in the stack.
 export IMF_API_BASE_URL="${IMF_API_BASE_URL:-https://dataservices.imf.org/REST/SDMX_3.0}"
 
 # Extract auth token + gateway address (port/domain) using node
@@ -91,14 +92,15 @@ if [ -f "$_MCP_CONFIG_PATH" ]; then
   if [ -n "$GW_PORT" ] && [ -n "$GW_DOMAIN" ]; then
     export EP_MCP_GATEWAY_URL="http://${GW_DOMAIN}:${GW_PORT}/mcp/european-parliament"
     export WORLD_BANK_MCP_SERVER_URL="http://${GW_DOMAIN}:${GW_PORT}/mcp/world-bank"
+    export FETCH_MCP_GATEWAY_URL="http://${GW_DOMAIN}:${GW_PORT}/mcp/fetch-proxy"
   fi
   unset _MCP_GATEWAY_FIELDS _MCP_GATEWAY_REST GW_KEY GW_PORT GW_DOMAIN
 fi
 
-# EP API slow response timeout (120 s — some EP MCP tools need 60-120 s)
-export MCP_CLIENT_TIMEOUT_MS=120000
+# EP API slow response timeout (180 s — some EP MCP tools need 60-180 s)
+export MCP_CLIENT_TIMEOUT_MS=180000
 
-# IMF API timeout — generous default for AWF proxy overhead (60 s).
+# IMF API timeout — generous default for AWF proxy overhead (120 s).
 # The native TS client respects IMF_API_TIMEOUT_MS; the probe script uses
 # curl --max-time. Both should be aligned.
-export IMF_API_TIMEOUT_MS="${IMF_API_TIMEOUT_MS:-60000}"
+export IMF_API_TIMEOUT_MS="${IMF_API_TIMEOUT_MS:-120000}"

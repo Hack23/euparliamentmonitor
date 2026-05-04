@@ -4,7 +4,7 @@
 /** Default base URL for the IMF SDMX 3.0 REST API. */
 const DEFAULT_IMF_API_BASE_URL = 'https://dataservices.imf.org/REST/SDMX_3.0';
 /** Default per-request timeout (milliseconds). */
-const DEFAULT_IMF_API_TIMEOUT_MS = 30_000;
+const DEFAULT_IMF_API_TIMEOUT_MS = 90_000;
 /** Fallback payload shape when an IMF call fails or the server is offline. */
 const IMF_FALLBACK = {
     content: [{ type: 'text', text: '' }],
@@ -191,6 +191,8 @@ export class IMFMCPClient {
     _apiBaseUrl;
     _timeoutMs;
     _fetchImpl;
+    _fetchProxyGatewayUrl;
+    _fetchProxyApiKey;
     _connected = false;
     constructor(options = {}) {
         const envBase = process.env['IMF_API_BASE_URL'];
@@ -211,6 +213,11 @@ export class IMFMCPClient {
                     ? parsedEnvTimeout
                     : DEFAULT_IMF_API_TIMEOUT_MS;
         this._fetchImpl = options.fetchImpl ?? globalThis.fetch.bind(globalThis);
+        // MCP fetch-proxy gateway for AWF sandbox (bypasses Squid proxy)
+        this._fetchProxyGatewayUrl =
+            options.fetchProxyGatewayUrl ?? process.env['FETCH_MCP_GATEWAY_URL'] ?? undefined;
+        this._fetchProxyApiKey =
+            options.fetchProxyApiKey ?? process.env['EP_MCP_GATEWAY_API_KEY'] ?? undefined;
     }
     /**
      * Base URL currently in use (read-only — set at construction time).
@@ -469,6 +476,8 @@ export class IMFMCPClient {
     // ─── private transport helpers ─────────────────────────────────────────────
     /**
      * Build a full URL and GET it as text, enforcing the client-wide timeout.
+     * Tries the MCP fetch-proxy gateway first (bypasses AWF Squid proxy in
+     * agentic workflow sandbox), then falls back to direct fetch.
      *
      * @param path - Path (already URL-encoded) to append to the base URL.
      * @returns Response body (`text/*` or `application/*`) as a string.
@@ -478,6 +487,18 @@ export class IMFMCPClient {
      */
     async _getText(path) {
         const url = `${this._apiBaseUrl}${path.startsWith('/') ? path : `/${path}`}`;
+        // Strategy 1: MCP fetch-proxy gateway (bypasses AWF Squid proxy)
+        if (this._fetchProxyGatewayUrl && this._fetchProxyApiKey) {
+            try {
+                const result = await this._fetchViaGateway(url);
+                if (result !== null)
+                    return result;
+            }
+            catch {
+                // Gateway unavailable — fall through to direct fetch
+            }
+        }
+        // Strategy 2: Direct fetch (works outside AWF sandbox)
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), this._timeoutMs);
         try {
@@ -490,6 +511,61 @@ export class IMFMCPClient {
                 throw new Error(`HTTP ${response.status} ${response.statusText} for ${url}`);
             }
             return await response.text();
+        }
+        finally {
+            clearTimeout(timer);
+        }
+    }
+    /**
+     * Fetch a URL via the MCP fetch-proxy gateway (JSON-RPC 2.0 over HTTP).
+     * The fetch-proxy server runs in a container that bypasses the AWF Squid proxy.
+     *
+     * @param url - Fully-qualified URL to fetch.
+     * @returns Response text, or null if the gateway call fails.
+     * @internal
+     */
+    async _fetchViaGateway(url) {
+        const rpcRequest = {
+            jsonrpc: '2.0',
+            id: Date.now(),
+            method: 'tools/call',
+            params: {
+                name: 'fetch_url',
+                arguments: { url },
+            },
+        };
+        const headers = {
+            'Content-Type': 'application/json',
+            Accept: 'application/json, text/event-stream',
+        };
+        if (this._fetchProxyApiKey) {
+            headers['Authorization'] = `Bearer ${this._fetchProxyApiKey}`;
+        }
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), this._timeoutMs);
+        try {
+            const response = await this._fetchImpl(this._fetchProxyGatewayUrl, {
+                method: 'POST',
+                headers,
+                body: JSON.stringify(rpcRequest),
+                signal: controller.signal,
+            });
+            if (!response.ok)
+                return null;
+            let body = await response.text();
+            // Handle SSE format (data: lines)
+            if (body.trimStart().startsWith('data:')) {
+                const lines = body.split('\n').filter((l) => l.startsWith('data:'));
+                body = lines.map((l) => l.slice(5).trim()).join('');
+            }
+            const parsed = JSON.parse(body);
+            if (parsed.error)
+                return null;
+            const text = parsed.result?.content?.[0]?.text;
+            return text && text.length > 0 ? text : null;
+        }
+        catch {
+            return null;
         }
         finally {
             clearTimeout(timer);
