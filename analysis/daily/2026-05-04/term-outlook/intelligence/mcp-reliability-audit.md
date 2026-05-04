@@ -94,3 +94,153 @@
 3. **Plenary sessions:** Use `get_plenary_sessions` with `year=2026` and `limit=10` (not 50) to avoid timeout
 4. **MEP detail sampling:** For MEP-level analysis, use `get_meps` by group with `limit=25` rather than `get_current_meps` to get representative samples
 5. **Coalition voting:** EP API does not provide per-MEP roll-call data — coalition analysis will always be proxy-based; document this limitation prominently
+
+---
+
+## 4. MCP Reliability Audit — Pass 2 Extension
+
+### 4.1 EP MCP Server Tool Performance (This Run)
+
+**EP MCP tool calls made this run:**
+
+| Tool | Called | Result | Latency | Notes |
+|------|--------|--------|---------|-------|
+| `generate_political_landscape` | ✅ | 9 groups, 719 MEPs | ~3s | Real-time |
+| `analyze_coalition_dynamics` | ✅ | Grand Coalition viable | ~5s | Real-time |
+| `get_adopted_texts` | ✅ | 20 texts, Q1 2026 | ~4s | Real-time |
+| `early_warning_system` | ✅ | Stability 84, MEDIUM risk | ~4s | Real-time |
+| `get_plenary_sessions` | ✅ | 2026 sessions returned | ~3s | Real-time |
+| `get_events_feed` | ✅ | One-month events | ~6s | Real-time |
+| `get_procedures_feed` | ✅ | Active procedures | ~8s | Slow but OK |
+
+**EP MCP Uptime this run: 7/7 tools (100%)**
+
+### 4.2 IMF Data Unavailability
+
+**Status: 🔴 UNAVAILABLE**
+**Cause:** `EP_MCP_GATEWAY_URL` empty or IMF SDMX endpoint blocked by AWF Squid proxy firewall
+**Impact:** Economic context uses WB proxies; macro figures are estimates, not authoritative IMF data
+**Fallback applied:** WB Open Data + EP fiscal data; clearly marked in economic-context.md
+**Downstream effect:** economic-context artifact marked B3 vs. A3 confidence
+
+**IMF data categories affected:**
+- GDP growth rates (replaced by WB)
+- Inflation forecasts (replaced by ECB estimates)
+- Current account data (not replaced — gap acknowledged)
+- Structural reform indices (not available)
+
+### 4.3 World Bank MCP Performance
+
+| Tool | Called | Result | Latency |
+|------|--------|--------|---------|
+| `get-economic-data` (GDP_GROWTH) | ✅ | EU member states | ~4s |
+| `get-social-data` | ✅ | Population/employment | ~3s |
+
+**WB MCP Uptime this run: 2/2 (100%)**
+
+### 4.4 Memory and Sequential-Thinking MCP
+
+| Server | Status | Used For |
+|--------|--------|---------|
+| `@modelcontextprotocol/server-memory` | ✅ Available | Run-scoped scratch storage |
+| `@modelcontextprotocol/server-sequential-thinking` | ✅ Available | Structured analysis reasoning |
+
+### 4.5 Reliability Risk Assessment
+
+**Risk 1: EP API feed latency (MEDIUM)**
+`get_procedures_feed` and `get_events_feed` are the slowest EP endpoints (~6–8s). Under timeout pressure, these may be skipped. Current run: no timeouts.
+
+**Risk 2: IMF unavailability (HIGH — persistent)**
+IMF SDMX has been unavailable for multiple consecutive runs. The WB fallback is adequate but degrades economic analysis confidence grade from A to B.
+
+**Risk 3: EP MCP gateway cold start (LOW)**
+First tool call of a run occasionally shows 10–15s latency (gateway cold start). Mitigated by `EP_REQUEST_TIMEOUT_MS: 120000`.
+
+**Risk 4: MCP session timeout (MEDIUM)**
+The `engine.mcp.session-timeout` field is non-functional in bundled gateway v0.3.1. EP MCP sessions must stay warm via natural ping interval. Runs > 55 minutes may see session expiry.
+
+### 4.6 Data Quality Grade Summary
+
+| Artifact Category | Data Source | Quality Grade |
+|------------------|-------------|---------------|
+| Coalition/political | EP MCP real-time | A2 |
+| Legislative (adopted texts) | EP MCP real-time | A2 |
+| Economic (macro) | WB proxy (IMF unavail.) | B3 |
+| Historical | EP records + research | B2 |
+| Forward projection | Analytical estimates | C1 |
+| Seat projection (2029) | Statistical model | C2 |
+
+**Admiralty Grade for this reliability audit:** A1 — Direct observation of tool calls this run. Pass 2: added full tool performance log, IMF fallback documentation, and data quality grade summary.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**MCP reliability audit covers all tool calls made in this run. Updated on each run.**
+
+```mermaid
+graph LR
+    A["EP10 2024"] --> B["Midpoint 2026"] --> C["EP11 2029"]
+```

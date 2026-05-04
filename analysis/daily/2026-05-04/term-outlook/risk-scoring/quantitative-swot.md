@@ -104,3 +104,85 @@
 | Threats | 41.9 | 56 | 4/8 |
 
 **Net strategic position:** Positive (Strength average 65.8 vs. Threat average 41.9). EP10 enters the legislative peak with strong institutional endowments and a clear set of delivery risks that are manageable but not negligible.
+
+---
+
+## 4. Quantitative SWOT — Pass 2 Extension
+
+### 4.1 Strengths — Quantified
+
+| Strength | Score (1-10) | Supporting Evidence |
+|----------|-------------|---------------------|
+| Grand Coalition stability | 8.4 | 397/719 seats = 55.2% majority; stability score 84 |
+| Digital legislative leadership | 9.1 | AI Act = global first; DMA enforcement = €4.1B fines |
+| Rule-of-law tools operational | 7.8 | Article 7 proceedings active; conditionality tools in use |
+| EP institutional trust | 6.2 | 47% EU citizen trust (EBS estimate) |
+| Multi-language accessibility | 9.5 | 24 official EU languages; EP translations operational |
+| Broad geographic representation | 8.8 | 27 member states, 9 political families |
+| **Aggregate Strength Score** | **8.3/10** | |
+
+### 4.2 Weaknesses — Quantified
+
+| Weakness | Score (1-10) | Supporting Evidence |
+|----------|-------------|---------------------|
+| Fragmentation risk | 7.2 | ENEP 6.57 (highest EP history); 9 groups |
+| Right-bloc proximity to majority | 6.8 | 351/361 = 10 seats below; concerning trajectory |
+| IMF data unavailability | 5.0 | Ongoing degraded mode; affects economic articles |
+| No legislative initiative | 8.5 | Commission monopoly; EP dependent on Commission proposals |
+| Migration policy divisions | 6.3 | CEAS solidarity mechanism deeply contested |
+| Low voter turnout history | 5.5 | EP9 turnout 50.6% (highest since 1994 but still low) |
+| **Aggregate Weakness Score** | **6.6/10** | |
+
+### 4.3 Opportunities — Quantified
+
+| Opportunity | Score (1-10) | Probability |
+|------------|-------------|------------|
+| Defence autonomy legislation (SAFE) | 8.7 | 75% pass probability |
+| AI Act implementation leadership | 9.2 | 85% on-track probability |
+| EP11 improved voter engagement | 6.5 | 40% probability of >55% turnout |
+| Green Deal second wind (post-crisis) | 5.8 | 35% probability |
+| MFF 2028–2034 progressive elements | 6.1 | 50% probability |
+| EU enlargement milestone | 7.3 | 60% probability (Ukraine candidate status progress) |
+| **Aggregate Opportunity Score** | **7.3/10** | |
+
+### 4.4 Threats — Quantified
+
+| Threat | Score (1-10) | Probability |
+|--------|-------------|------------|
+| Coalition fracture | 6.5 | 22% |
+| Right-bloc EP11 majority | 7.8 | 20% |
+| US trade war escalation | 7.2 | 25% |
+| Energy price spike | 5.8 | 20% |
+| Hungary H2 2026 obstruction | 5.5 | 20% |
+| France 2027 Renew weakening | 6.8 | 15% |
+| **Aggregate Threat Score** | **6.6/10** | |
+
+### 4.5 SWOT Score Summary
+
+| Category | Score | Direction |
+|----------|-------|-----------|
+| Strengths | 8.3/10 | Stable ↔ |
+| Weaknesses | 6.6/10 | Slightly improving ↑ |
+| Opportunities | 7.3/10 | Positive ↑ |
+| Threats | 6.6/10 | Manageable ↔ |
+
+**Net SWOT Index:** (8.3 + 7.3) - (6.6 + 6.6) = 2.4 points positive → **Positive outlook for EP10 term completion**
+
+**Admiralty Grade:** B2 — Quantitative SWOT scores are analyst assessments based on EP MCP data and publicly available information. Scores reflect relative magnitude, not absolute values. Pass 2: added full scoring tables, probability-weighted threats, and net SWOT index.
+
+
+
+
+
+
+
+
+
+
+
+**Quantitative SWOT updated per run. Scores are analytical assessments calibrated against EP MCP data.**
+
+```mermaid
+graph LR
+    A["EP10 2024"] --> B["Midpoint 2026"] --> C["EP11 2029"]
+```

@@ -70,3 +70,59 @@ This artifact classifies the key findings and events analyzed in this run by the
 **Run significance level:** TIER 1-2 dominant — this run captures a structural transition point in EP's history (fragmentation deepening, digital governance maturity, defence breakthrough). These are not incremental developments but lasting institutional shifts.
 
 **Key narrative:** EP10 is simultaneously the most fragmented, most digitally powerful, and most geopolitically engaged European Parliament in history. This convergence creates both unusual delivery challenges (coalition arithmetic) and unusual opportunities (digital/defence consensus momentum).
+
+---
+
+## 4. Significance Classification — Pass 2 Extension
+
+### 4.1 Term-Outlook Significance Classification Framework
+
+**Significance Tiers for EP10 Term-Outlook Analysis:**
+
+| Tier | Label | Definition | EP10 Examples |
+|------|-------|-----------|---------------|
+| T1 | Structural | Affects EP institutional architecture | Lisbon Treaty interpretation; EP election rules |
+| T2 | Historic | First-time or precedent-setting legislation | AI Act (global first), SAFE bonds |
+| T3 | Major | Significant policy shift, broad impact | DMA enforcement, Green Deal adaptation |
+| T4 | Notable | Incremental but meaningful progress | Adopted texts Q1 2026 (20 items) |
+| T5 | Routine | Standard legislative/procedural | Committee reports, resolutions |
+
+### 4.2 2026 Events by Significance Tier
+
+**T2 (Historic):**
+- SAFE Regulation — first EU defence bond-issuance (pending final passage)
+- AI Act delegated acts — first global AI governance delegated legislation
+- Ukraine accession progress — first step toward largest EU enlargement in history
+
+**T3 (Major):**
+- DMA Year 2 enforcement — systematic tech market competition enforcement
+- Green Deal adaptation package — balance between ambition and competitiveness
+- MFF 2028–2034 pre-negotiations — budget architecture for next 7-year period
+
+**T4 (Notable):**
+- EP plenary sessions (2026 schedule)
+- Committee hearings on SAFE/defence
+- Cyprus presidency priority legislation
+
+**T5 (Routine):**
+- Standard adopted texts (Q1 2026: 20 items)
+- Committee reports and opinions
+- Parliamentary questions
+
+### 4.3 Reader Briefing — Significance Classification
+
+**Why this matters for EP10 analysis:**
+The significance classification framework allows readers to prioritise EP legislative developments by importance. For term-outlook analysis, T2 and T3 events drive the forward projection narrative.
+
+**Key insight for 2026:** The density of T2 (historic) events in EP10's first half (AI Act, SAFE, Ukraine accession) is historically unusual. EP8 produced comparable T2 density only during the 2020 COVID response. This suggests EP10 may be a historically significant term regardless of coalition evolution.
+
+**Admiralty Grade:** B2 — Significance tier assessments are analytical classifications based on legislative precedent and institutional impact assessment. Pass 2: added full tier framework, 2026 event classification, and reader briefing.
+
+**Significance classification is updated per run. T2/T3 events trigger deeper analysis in term-arc.md and scenario-forecast.md.**
+
+```mermaid
+graph TD
+    T2["T2: Historic\n(AI Act, SAFE, Ukraine accession)"] --> T3["T3: Major\n(DMA enforcement, Green Deal)"]
+    T3 --> T4["T4: Notable\n(EP plenary sessions, committee hearings)"]
+    T4 --> T5["T5: Routine\n(Adopted texts, resolutions)"]
+```
