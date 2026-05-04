@@ -149,4 +149,25 @@ describe('PWA freshness assets', () => {
       options: { scope: './' },
     });
   });
+
+  it('does not contain build-info polling or update toast logic', () => {
+    const pwaRegister = readPwaRegister();
+
+    // No polling / toast / auto-refresh behaviour should remain
+    expect(pwaRegister).not.toContain('showUpdateToast');
+    expect(pwaRegister).not.toContain('build-info.json');
+    expect(pwaRegister).not.toContain('checkBuildInfo');
+    expect(pwaRegister).not.toContain('ep-update-toast');
+    expect(pwaRegister).not.toContain('performRefresh');
+    expect(pwaRegister).not.toContain('location.reload');
+    expect(pwaRegister).not.toContain('setInterval');
+  });
+
+  it('formats relative timestamps using Intl.RelativeTimeFormat', () => {
+    const pwaRegister = readPwaRegister();
+
+    expect(pwaRegister).toContain('Intl.RelativeTimeFormat');
+    expect(pwaRegister).toContain('data-relative-time');
+    expect(pwaRegister).toContain('updateRelativeTimes');
+  });
 });

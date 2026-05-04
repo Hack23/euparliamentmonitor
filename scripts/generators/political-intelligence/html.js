@@ -12,7 +12,7 @@
  * link points at GitHub blob/tree URLs so readers can audit the raw
  * tradecraft behind every published article.
  */
-import { BASE_URL, THEME_TOGGLE_SCRIPT } from '../../constants/config.js';
+import { BASE_URL, BUILD_SHORT, THEME_TOGGLE_SCRIPT } from '../../constants/config.js';
 import { buildHeadFreshnessTags } from '../../constants/build-info-meta.js';
 import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, PAGE_TITLES, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../../constants/languages.js';
 import { FOOTER_SITEMAP_LABELS } from '../../constants/language-ui.js';
@@ -418,7 +418,7 @@ ${hreflangLinks}
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#003399">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=${BUILD_SHORT}">
 ${buildHeadFreshnessTags('')}
   <script type="application/ld+json">${websiteJsonLd}</script>
   <script type="application/ld+json">${organizationJsonLd}</script>

@@ -20,7 +20,7 @@
  * browser and CloudFront caches automatically.
  */
 
-import { BASE_URL, MERMAID_VERSION } from '../constants/config.js';
+import { BASE_URL, BUILD_SHORT, MERMAID_VERSION } from '../constants/config.js';
 import { buildHeadFreshnessTags } from '../constants/build-info-meta.js';
 import {
   ALL_LANGUAGES,
@@ -319,7 +319,7 @@ ${hreflangLinks}
   <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
   <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#003399">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css?v=${BUILD_SHORT}">
 ${buildHeadFreshnessTags('../')}
   <script type="application/ld+json">${jsonLdString}</script>
   <script type="module" src="../js/mermaid-init.js?v=${MERMAID_VERSION}" defer></script>

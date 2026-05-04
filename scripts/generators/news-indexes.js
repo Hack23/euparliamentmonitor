@@ -9,7 +9,7 @@
  */
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import { PROJECT_ROOT, APP_VERSION, NEWS_DIR, BASE_URL } from '../constants/config.js';
+import { PROJECT_ROOT, APP_VERSION, BUILD_SHORT, NEWS_DIR, BASE_URL } from '../constants/config.js';
 import { getNewsIndexSeo } from './seo-copy.js';
 import { buildHeadFreshnessTags } from '../constants/build-info-meta.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, SKIP_LINK_TEXTS, AI_SECTION_CONTENT, FILTER_LABELS, ARTICLE_TYPE_LABELS, HEADER_SUBTITLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
@@ -294,7 +294,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#003399">
   <link rel="alternate" type="application/rss+xml" title="EU Parliament Monitor RSS" href="rss.xml">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=${BUILD_SHORT}">
 ${buildHeadFreshnessTags('')}
   <script type="application/ld+json">${websiteJsonLd}</script>
   <script type="application/ld+json">${organizationJsonLd}</script>

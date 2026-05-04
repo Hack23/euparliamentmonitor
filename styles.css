@@ -7146,6 +7146,17 @@ html[data-theme='dark'] .article-body blockquote {
  * Better line heights, paragraph spacing, and content width constraints.
  */
 
+/* ─── Legacy toast fallback ────────────────────────────────────────── */
+/*
+ * Minimal styles for the old update toast UI. Old cached versions of
+ * pwa-register.js (served with immutable caching) may still inject a
+ * `.ep-update-toast` element. These rules ensure it renders gracefully
+ * (hidden by default) rather than as an unstyled broken banner.
+ * Safe to remove once the versioned `?v=` query param has propagated
+ * (approximately one deploy cycle after this commit).
+ */
+.ep-update-toast { display: none; }
+
 /* ─── Footer build identity line ───────────────────────────────────── */
 
 .footer-build {
