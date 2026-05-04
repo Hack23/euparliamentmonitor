@@ -150,26 +150,32 @@ describe('extractDefaultDescription', () => {
 
 describe('generateArticle (end-to-end fixture)', () => {
   let tmpOut;
+  let tmpRepo;
+  let fixtureRun;
 
   beforeEach(() => {
     tmpOut = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-art-test-'));
+    tmpRepo = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-art-repo-'));
+    fixtureRun = path.join(
+      tmpRepo,
+      'analysis',
+      'daily',
+      '2026-01-15',
+      'breaking-run-test'
+    );
+    fs.mkdirSync(path.dirname(fixtureRun), { recursive: true });
+    fs.cpSync(FIXTURE_RUN, fixtureRun, { recursive: true });
   });
 
   afterEach(() => {
     fs.rmSync(tmpOut, { recursive: true, force: true });
-    // Clean up the article.md and article-meta.json written into the
-    // fixture run directory so the fixture remains pristine for subsequent
-    // test runs.
-    const runArticleMd = path.join(FIXTURE_RUN, 'article.md');
-    if (fs.existsSync(runArticleMd)) fs.unlinkSync(runArticleMd);
-    const runArticleMeta = path.join(FIXTURE_RUN, 'article-meta.json');
-    if (fs.existsSync(runArticleMeta)) fs.unlinkSync(runArticleMeta);
+    fs.rmSync(tmpRepo, { recursive: true, force: true });
   });
 
   it('writes article.md to the run directory (riksdagsmonitor pattern)', () => {
     const result = generateArticle({
-      runDir: FIXTURE_RUN,
-      repoRoot: FIXTURE_REPO,
+      runDir: fixtureRun,
+      repoRoot: tmpRepo,
       outDir: tmpOut,
       langs: ['en'],
       all: false,
@@ -177,7 +183,7 @@ describe('generateArticle (end-to-end fixture)', () => {
     });
 
     // article.md must be written directly into the analysis run directory
-    const runArticleMd = path.join(FIXTURE_RUN, 'article.md');
+    const runArticleMd = path.join(fixtureRun, 'article.md');
     expect(fs.existsSync(runArticleMd)).toBe(true);
     const md = fs.readFileSync(runArticleMd, 'utf8');
     expect(md.startsWith('---\n')).toBe(true);
@@ -194,8 +200,8 @@ describe('generateArticle (end-to-end fixture)', () => {
 
   it('writes source .md plus 14 HTML files and reports determinism', () => {
     const result = generateArticle({
-      runDir: FIXTURE_RUN,
-      repoRoot: FIXTURE_REPO,
+      runDir: fixtureRun,
+      repoRoot: tmpRepo,
       outDir: tmpOut,
       langs: [...ALL_LANGUAGES],
       all: false,
@@ -206,8 +212,9 @@ describe('generateArticle (end-to-end fixture)', () => {
     const mdPath = path.join(tmpOut, '2026-01-15-breaking.en.md');
     expect(fs.existsSync(mdPath)).toBe(true);
     const md = fs.readFileSync(mdPath, 'utf8');
+    const fixtureRunRelPath = path.relative(tmpRepo, fixtureRun).split(path.sep).join('/');
     expect(md.startsWith('---\n')).toBe(true);
-    expect(md).toContain('source_folder: test/fixtures/analysis/2026-01-15/breaking-run-test');
+    expect(md).toContain(`source_folder: ${fixtureRunRelPath}`);
     expect(md).toContain('**Provenance & Audit**');
     expect(md).toContain('Executive Brief');
 
@@ -228,8 +235,8 @@ describe('generateArticle (end-to-end fixture)', () => {
 
   it('supports --markdown-only (no HTML written)', () => {
     const result = generateArticle({
-      runDir: FIXTURE_RUN,
-      repoRoot: FIXTURE_REPO,
+      runDir: fixtureRun,
+      repoRoot: tmpRepo,
       outDir: tmpOut,
       langs: [...ALL_LANGUAGES],
       all: false,
@@ -242,8 +249,8 @@ describe('generateArticle (end-to-end fixture)', () => {
 
   it('is deterministic across runs (byte-identical output)', () => {
     const first = generateArticle({
-      runDir: FIXTURE_RUN,
-      repoRoot: FIXTURE_REPO,
+      runDir: fixtureRun,
+      repoRoot: tmpRepo,
       outDir: tmpOut,
       langs: ['en', 'sv'],
       all: false,
@@ -260,8 +267,8 @@ describe('generateArticle (end-to-end fixture)', () => {
 
     // Rerun
     generateArticle({
-      runDir: FIXTURE_RUN,
-      repoRoot: FIXTURE_REPO,
+      runDir: fixtureRun,
+      repoRoot: tmpRepo,
       outDir: tmpOut,
       langs: ['en', 'sv'],
       all: false,
@@ -282,8 +289,8 @@ describe('generateArticle (end-to-end fixture)', () => {
 
   it('suppresses the redundant ### heading when a single-artifact section title matches', () => {
     generateArticle({
-      runDir: FIXTURE_RUN,
-      repoRoot: FIXTURE_REPO,
+      runDir: fixtureRun,
+      repoRoot: tmpRepo,
       outDir: tmpOut,
       langs: ['en'],
       all: false,
