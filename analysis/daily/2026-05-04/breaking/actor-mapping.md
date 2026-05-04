@@ -133,3 +133,29 @@ graph LR
 - Different case from Jaki but establishes pattern of Polish immunity proceedings reaching EP
 
 The two cases are legally distinct but politically conjoined in EP discourse — both involve Polish national political conflicts playing out in EU parliamentary immunity proceedings.
+
+---
+
+## Extended Actor Mapping (Run 2 Extension)
+
+### Secondary Actor Networks
+
+**Legal Ecosystem Actors:**
+- **CJEU (Court of Justice of the EU):** Adjudicates DMA appeals from Big Tech; any preliminary ruling by CJEU significantly impacts enforcement trajectory
+- **National courts (Germany, France):** National competition authorities' cases can complement or complicate DMA
+- **International Court of Justice:** Adjacent body to STCA; no direct jurisdiction over aggression crime but complementarity matters
+- **ICC Prosecutor's Office:** Direct partner with STCA; ongoing Situation in Ukraine (ICC-01/22) shapes STCA negotiations
+
+**Civil Society Actors:**
+- **AlgorithmWatch, EDRi:** Digital rights organizations; provided input to IMCO committee on DMA resolution; important for enforcement monitoring
+- **Transparency International EU:** Monitors PRIV immunity committee proceedings
+- **Human Rights Watch, Amnesty International:** Provided documentation used in Armenia and Ukraine accountability resolutions
+
+**Corporate Actors:**
+- **DIGITAL EUROPE (industry association):** Represents Big Tech interests in Brussels; primary lobby against stringent DMA enforcement
+- **BUSINESSEUROPE:** Broader industry federation; nuanced position on DMA (supports digital single market but opposes structural remedies)
+- **Apple, Meta, Google, Amazon (directly):** Maintain large Brussels public affairs teams; actively engaged on DMA resolution
+
+**Media/Information Actors:**
+- **Politico Europe:** Primary EP monitoring publication; sets Brussels media agenda
+- **EP Multimedia Centre:** Official EP communications; shapes how session is covered internationally

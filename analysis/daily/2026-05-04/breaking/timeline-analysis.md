@@ -147,3 +147,31 @@ Timeline reconstruction based on:
 - EP procedural conventions (vote days typically follow debate days in mini-plenaries)
 
 Roll-call data, debate transcript text, and full adopted text content are not available via EP Open Data Portal for this period — timeline is reconstructed from available metadata rather than primary text sources.
+
+---
+
+## Extended Timeline Analysis (Run 2 Extension)
+
+### 2026 Critical Path Timeline
+
+**April 30, 2026:** April 28–30 plenary session concludes. Resolutions (DMA, STCA, Armenia) formally adopted.
+
+**May 2026:** EP works preparing May plenary; DG COMP evaluates EP DMA resolution; STCA diplomatic preparation; MFF background analysis continues.
+
+**June 2026 (target):** Commission publishes MFF 2028–2034 proposal. This is the most significant EU institutional event of 2026. EP Budget Committee rapporteur formally designated.
+
+**July–August 2026:** EP recess. Party and group position papers on MFF circulate.
+
+**September 2026:** First EP plenary after summer. First formal EP response to Commission MFF proposal. EPP internal vote on MFF position is the key intelligence indicator.
+
+**October 2026:** First reading of 2027 annual budget in EP. This is a test vote that shows coalition discipline before the MFF mega-negotiation.
+
+**November–December 2026:** EP MFF resolution (first formal EP negotiating position). Council General Affairs Council working groups intensify.
+
+**2027 Q1–Q2:** Council MFF position consolidation. EU Presidency attempts to broker North-South compromise.
+
+**2027 Q3–Q4 (target):** Council-EP informal trilogue on MFF begins. Most demanding negotiation of EP10.
+
+**2028 (target):** MFF 2028–2034 agreement. If achieved on schedule, it validates EP10's April 2026 pre-positioning strategy.
+
+**2029 June:** EP elections. EP10's MFF legacy will be a central campaign issue for all major parties.
