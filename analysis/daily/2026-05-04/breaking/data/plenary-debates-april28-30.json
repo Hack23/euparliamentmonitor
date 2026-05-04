@@ -1,0 +1,54 @@
+{
+  "collection_date": "2026-05-04",
+  "session_dates": ["2026-04-28","2026-04-29","2026-04-30"],
+  "debates": [
+    {
+      "date": "2026-04-28",
+      "title": "Interim report on the proposal for the multiannual financial framework for 2028-2034 (debate)",
+      "significance": "HIGH - First major EP debate on MFF 2028-2034, setting priorities for next 7-year budget cycle covering 2028-2034",
+      "session_ref": "MTG-PL-2026-04-28-PVCRE-ITM-2"
+    },
+    {
+      "date": "2026-04-28",
+      "title": "Ensuring accountability and justice in response to Russia's continued attacks against the civilian population in Ukraine (debate)",
+      "significance": "HIGH - Debate leading to resolution TA-10-2026-0161 adopted April 30",
+      "session_ref": "MTG-PL-2026-04-28-PVCRE-ITM-19"
+    },
+    {
+      "date": "2026-04-28",
+      "title": "The Commission's 2025 Rule of Law report (debate)",
+      "significance": "HIGH - Annual assessment with implications for conditionality and democratic backsliding states",
+      "session_ref": "MTG-PL-2026-04-28-PVCRE-ITM-17"
+    },
+    {
+      "date": "2026-04-28",
+      "title": "Situation of fundamental rights in the European Union in 2024 and 2025 (debate)",
+      "significance": "MEDIUM - Fundamental rights assessment across member states",
+      "session_ref": "MTG-PL-2026-04-28-PVCRE-ITM-15"
+    },
+    {
+      "date": "2026-04-29",
+      "title": "EU strategy in response to the ongoing Middle East crisis, its implications on energy prices and the availability of fertilizers (joint debate)",
+      "significance": "HIGH - Critical nexus of geopolitics, energy security, food supply chains; linked to EU agricultural policy under trade stress",
+      "session_ref": "MTG-PL-2026-04-29-PVCRE-ITM-3"
+    },
+    {
+      "date": "2026-04-29",
+      "title": "Danger of normalising relations with Russia, including its participation in major cultural and sports events (debate)",
+      "significance": "HIGH - Signal of continued EP hawkish stance on Russia isolation",
+      "session_ref": "MTG-PL-2026-04-29-PVCRE-ITM-12"
+    },
+    {
+      "date": "2026-04-29",
+      "title": "Situation in Lebanon: implementation of the ceasefire, support peace efforts and humanitarian access (debate)",
+      "significance": "MEDIUM - Follow-up on Middle East ceasefire implementation",
+      "session_ref": "MTG-PL-2026-04-29-PVCRE-ITM-13"
+    },
+    {
+      "date": "2026-04-29",
+      "title": "The need for targeted criminal provisions and platforms' responsibility to effectively address cyberbullying and online harassment (debate)",
+      "significance": "MEDIUM - Digital legislation follow-on; platform liability implications",
+      "session_ref": "MTG-PL-2026-04-29-PVCRE-ITM-9"
+    }
+  ]
+}
