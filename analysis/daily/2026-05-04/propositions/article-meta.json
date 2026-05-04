@@ -1,0 +1,51 @@
+{
+  "date": "2026-05-04",
+  "articleType": "propositions",
+  "runId": "propositions-run-1777874745",
+  "gateResult": "PENDING",
+  "slug": "2026-05-04-propositions",
+  "articlePath": "analysis/daily/2026-05-04/propositions/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**ETS II + GHG transport** = climate pricing completeness",
+    "**DMA enforcement** = digital regulatory governance",
+    "**Claims Commission** = geopolitical accountability framework",
+    "**GSP Recast** = values-based external trade architecture",
+    "**REACH simplification** = competitiveness safety valve preventing regulatory overload narrative",
+    "Legislative volume: ≥10 acts adopted ✅ (18 acts)",
+    "Geopolitical significance: ≥1 landmark act ✅ (Claims Commission)"
+  ],
+  "topRisks": [
+    "The three 🔴 HIGH risks all involve the EU's dual challenge: being simultaneously the world's most ambitious climate regulator AND enforcing unprecedented digital market rules while managing Eastern European economic stress.",
+    "The IMF Fiscal Monitor October 2025 risk assessment for the EU broadly aligns with this analysis — identifying carbon transition and digital market policy execution as the two primary structural reform execution risks."
+  ],
+  "keyDates": [
+    "DG COMP opens formal DMA non-compliance proceedings against Apple (iOS interoperability) and/or Google (search self-preferencing) by Q4 2026",
+    "Social Climate Fund operational in 7+ member states by Q1 2027; early disbursements reach bottom quintile before ETS II auctions begin",
+    "Council ratifies Claims Commission by Q3 2026",
+    "Ukraine accountability architecture operational — first claims registered by Q4 2026",
+    "ETS II MSR Council approval by Q2 2026"
+  ],
+  "keyActors": [
+    "European Commission (enforcement + implementation authority across all 5 clusters)",
+    "EPP (pivotal: without EPP, no governing majority — all five clusters pass only with EPP support)",
+    "Council Presidency (rotation: Polish presidency Q1 2026 → Danish Q3 2026)",
+    "Apple/Google/Meta (legal challenge leverage on DMA; cannot block legislative adoption)",
+    "Hungarian government (Claims Commission ratification veto potential; cannot block EP vote)",
+    "Environmental NGO coalition (public opinion pressure on ETS II implementation design)",
+    "ESN (25 seats — unable to affect any vote outcome)",
+    "Individual member states on purely EU-competence matters (ETS II, DMA)"
+  ],
+  "macroContext": "The April 2026 legislative package creates three IMF-relevant macroeconomic interaction channels:",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
