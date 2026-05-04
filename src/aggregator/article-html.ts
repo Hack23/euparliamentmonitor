@@ -20,7 +20,7 @@
  * browser and CloudFront caches automatically.
  */
 
-import { BASE_URL, MERMAID_VERSION } from '../constants/config.js';
+import { BASE_URL, BUILD_SHORT, MERMAID_VERSION } from '../constants/config.js';
 import { buildHeadFreshnessTags } from '../constants/build-info-meta.js';
 import {
   ALL_LANGUAGES,
@@ -29,9 +29,6 @@ import {
   PAGE_TITLES,
   SKIP_LINK_TEXTS,
   TOC_ARIA_LABELS,
-  UPDATE_AVAILABLE_LABELS,
-  UPDATE_REFRESH_CTA_LABELS,
-  UPDATE_DISMISS_LABELS,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
@@ -322,10 +319,7 @@ ${hreflangLinks}
   <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
   <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#003399">
-  <link rel="stylesheet" href="../styles.css">
-  <meta name="ep-i18n-update-text" content="${escapeHTML(getLocalizedString(UPDATE_AVAILABLE_LABELS, safeLang))}">
-  <meta name="ep-i18n-update-cta" content="${escapeHTML(getLocalizedString(UPDATE_REFRESH_CTA_LABELS, safeLang))}">
-  <meta name="ep-i18n-dismiss" content="${escapeHTML(getLocalizedString(UPDATE_DISMISS_LABELS, safeLang))}">
+  <link rel="stylesheet" href="../styles.css?v=${BUILD_SHORT}">
 ${buildHeadFreshnessTags('../')}
   <script type="application/ld+json">${jsonLdString}</script>
   <script type="module" src="../js/mermaid-init.js?v=${MERMAID_VERSION}" defer></script>

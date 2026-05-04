@@ -331,8 +331,8 @@ html[data-theme='light'] .theme-toggle__svg--dark {
 }
 
 .site-header__logo--banner {
-  width: 240px;
-  height: 80px;
+  width: 180px;
+  height: 60px;
   border-radius: 4px;
   object-fit: cover;
   object-position: center;
@@ -1057,14 +1057,18 @@ html[data-theme='light'] .theme-toggle__svg--dark {
 }
 
 .footer-section ul li {
-  margin: 6px 0;
+  margin: 8px 0;
 }
 
 .footer-section ul li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   transition: color var(--transition);
   overflow-wrap: anywhere;
+  line-height: 1.45;
 }
 
 .footer-section ul li a:hover {
@@ -6791,7 +6795,19 @@ html[data-theme='dark'] .d3-network-wrapper text {
 
 .article-body p,
 .article-body li {
-  line-height: 1.72;
+  line-height: 1.78;
+  font-size: 1.05rem;
+  letter-spacing: -0.006em;
+}
+
+.article-body p {
+  margin-bottom: 1.15em;
+}
+
+.article-body ul,
+.article-body ol {
+  margin-bottom: 1.15em;
+  padding-inline-start: 1.5em;
 }
 
 .article-body blockquote {
@@ -7124,123 +7140,22 @@ html[data-theme='dark'] .article-body blockquote {
   padding-right: 0;
 }
 
-/* ─── PWA + freshness UI ───────────────────────────────────────────── */
+/* ─── Enhanced Readability ──────────────────────────────────────────── */
 /*
- * Update toast: a polite, dismissible banner shown by js/pwa-register.js
- * when build-info.json signals a newer deploy. Bottom-right on desktop,
- * full-width bottom on narrow viewports. Honours `prefers-reduced-motion`
- * and switches sides under `:dir(rtl)`.
+ * Improved typography and spacing for article content readability.
+ * Better line heights, paragraph spacing, and content width constraints.
  */
-.ep-update-toast {
-  position: fixed;
-  inset-inline-end: 1rem;
-  bottom: 1rem;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  gap: 0.625rem;
-  max-width: min(420px, calc(100vw - 2rem));
-  padding: 0.75rem 0.875rem;
-  background: var(--color-surface, #ffffff);
-  color: var(--color-text, #0b1f3a);
-  border: 1px solid rgba(0, 51, 153, 0.18);
-  border-inline-start: 4px solid #003399;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18), 0 2px 6px rgba(15, 23, 42, 0.08);
-  font-size: 0.95rem;
-  line-height: 1.35;
-  animation: ep-toast-in 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
-}
 
-.ep-update-toast__icon {
-  font-size: 1.1rem;
-  flex: 0 0 auto;
-}
-
-.ep-update-toast__msg {
-  flex: 1 1 auto;
-}
-
-.ep-update-toast__refresh {
-  flex: 0 0 auto;
-  padding: 0.4rem 0.75rem;
-  font: inherit;
-  font-weight: 600;
-  background: #003399;
-  color: #ffffff;
-  border: 1px solid #003399;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.ep-update-toast__refresh:hover,
-.ep-update-toast__refresh:focus-visible {
-  background: #002878;
-  outline: 2px solid #ffcc00;
-  outline-offset: 2px;
-}
-
-.ep-update-toast__dismiss {
-  flex: 0 0 auto;
-  width: 1.75rem;
-  height: 1.75rem;
-  padding: 0;
-  font: inherit;
-  font-size: 1.25rem;
-  line-height: 1;
-  background: transparent;
-  color: inherit;
-  border: 1px solid transparent;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.ep-update-toast__dismiss:hover,
-.ep-update-toast__dismiss:focus-visible {
-  background: rgba(0, 51, 153, 0.08);
-  border-color: rgba(0, 51, 153, 0.25);
-  outline: 2px solid #ffcc00;
-  outline-offset: 2px;
-}
-
-@keyframes ep-toast-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 480px) {
-  .ep-update-toast {
-    inset-inline-start: 0.5rem;
-    inset-inline-end: 0.5rem;
-    bottom: 0.5rem;
-    max-width: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ep-update-toast {
-    animation: none;
-  }
-}
-
-html[data-theme='dark'] .ep-update-toast {
-  background: #142848;
-  color: #e6ecf6;
-  border-color: rgba(168, 207, 255, 0.2);
-  border-inline-start-color: #5fa8ff;
-}
-
-html[data-theme='dark'] .ep-update-toast__refresh {
-  background: #5fa8ff;
-  color: #0b1f3a;
-  border-color: #5fa8ff;
-}
+/* ─── Legacy toast fallback ────────────────────────────────────────── */
+/*
+ * Minimal styles for the old update toast UI. Old cached versions of
+ * pwa-register.js (served with immutable caching) may still inject a
+ * `.ep-update-toast` element. These rules ensure it renders gracefully
+ * (hidden by default) rather than as an unstyled broken banner.
+ * Safe to remove once the versioned `?v=` query param has propagated
+ * (approximately one deploy cycle after this commit).
+ */
+.ep-update-toast { display: none; }
 
 /* ─── Footer build identity line ───────────────────────────────────── */
 
@@ -7372,11 +7287,6 @@ html[data-theme='dark'] .ep-offline-hero__title {
 }
 
 /* ─── RTL adjustments ──────────────────────────────────────────────── */
-
-[dir='rtl'] .ep-update-toast {
-  border-inline-start: 1px solid rgba(0, 51, 153, 0.18);
-  border-inline-end: 4px solid #003399;
-}
 
 /* ─── Theme transition polish (UI/UX) ────────────────────────────── */
 /*

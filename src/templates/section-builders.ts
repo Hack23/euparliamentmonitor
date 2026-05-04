@@ -455,7 +455,7 @@ export function buildSiteHeader(options: SiteHeaderOptions): string {
       <a href="${escapeHTML(homeHref)}" class="site-header__brand" aria-label="${safeTitle}">
         <picture class="site-header__logo-picture">
           <source srcset="${pathPrefix}images/banner.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--banner" src="${pathPrefix}images/banner.jpg" alt="${safeTitle}" width="240" height="80" loading="eager">
+          <img class="site-header__logo site-header__logo--banner" src="${pathPrefix}images/banner.jpg" alt="${safeTitle}" width="180" height="60" loading="eager">
         </picture>
         <span class="site-header__brand-text">
           <span class="site-header__title">${safeTitle}</span>

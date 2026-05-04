@@ -12,7 +12,7 @@
 
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
-import { PROJECT_ROOT, APP_VERSION, NEWS_DIR, BASE_URL } from '../constants/config.js';
+import { PROJECT_ROOT, APP_VERSION, BUILD_SHORT, NEWS_DIR, BASE_URL } from '../constants/config.js';
 import { getNewsIndexSeo } from './seo-copy.js';
 import { buildHeadFreshnessTags } from '../constants/build-info-meta.js';
 import {
@@ -28,9 +28,6 @@ import {
   FILTER_LABELS,
   ARTICLE_TYPE_LABELS,
   HEADER_SUBTITLE_LABELS,
-  UPDATE_AVAILABLE_LABELS,
-  UPDATE_REFRESH_CTA_LABELS,
-  UPDATE_DISMISS_LABELS,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
@@ -368,10 +365,7 @@ export function generateIndexHTML(
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#003399">
   <link rel="alternate" type="application/rss+xml" title="EU Parliament Monitor RSS" href="rss.xml">
-  <link rel="stylesheet" href="styles.css">
-  <meta name="ep-i18n-update-text" content="${escapeHTML(getLocalizedString(UPDATE_AVAILABLE_LABELS, lang))}">
-  <meta name="ep-i18n-update-cta" content="${escapeHTML(getLocalizedString(UPDATE_REFRESH_CTA_LABELS, lang))}">
-  <meta name="ep-i18n-dismiss" content="${escapeHTML(getLocalizedString(UPDATE_DISMISS_LABELS, lang))}">
+  <link rel="stylesheet" href="styles.css?v=${BUILD_SHORT}">
 ${buildHeadFreshnessTags('')}
   <script type="application/ld+json">${websiteJsonLd}</script>
   <script type="application/ld+json">${organizationJsonLd}</script>
