@@ -55,7 +55,7 @@ fi
 
 # Use curl with a short connect timeout so the probe cannot block the
 # workflow. Total per-call budget: 15 s. Three calls → max 45 s wall-clock.
-_WB_CURL_OPTS=(--silent --show-error --fail --max-time 15 --connect-timeout 5 \
+_WB_CURL_OPTS=(--silent --show-error --fail --max-time 60 --connect-timeout 20 \
   -H 'Content-Type: application/json' -H 'Accept: application/json')
 
 # Add the Authorization header only when a key is actually available.

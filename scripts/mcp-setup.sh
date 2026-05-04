@@ -97,3 +97,8 @@ fi
 
 # EP API slow response timeout (120 s — some EP MCP tools need 60-120 s)
 export MCP_CLIENT_TIMEOUT_MS=120000
+
+# IMF API timeout — generous default for AWF proxy overhead (60 s).
+# The native TS client respects IMF_API_TIMEOUT_MS; the probe script uses
+# curl --max-time. Both should be aligned.
+export IMF_API_TIMEOUT_MS="${IMF_API_TIMEOUT_MS:-60000}"

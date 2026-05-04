@@ -74,7 +74,9 @@ network:
     - node
     - data.europarl.europa.eu
     - dataservices.imf.org
+    - "*.imf.org"
     - api.worldbank.org
+    - "*.worldbank.org"
     - "*.europa.eu"
     - hack23.com
     - www.hack23.com

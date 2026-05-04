@@ -51,7 +51,7 @@ _IMF_AUTH_MODE="none"
 _IMF_DATAFLOW_QUERY="dataflow/IMF"
 _IMF_WEO_QUERY="data/WEO/EA+DEU+FRA+ITA.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP.A?startPeriod=2025&endPeriod=2026&format=jsondata"
 
-_IMF_CURL_OPTS=(--silent --show-error --fail --max-time 15 --connect-timeout 5 \
+_IMF_CURL_OPTS=(--silent --show-error --fail --max-time 60 --connect-timeout 20 \
   -H 'Accept: application/json')
 
 # Use the repo-standard Node runtime for JSON escaping instead of adding a jq
