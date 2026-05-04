@@ -125,7 +125,7 @@ describe('imf-mcp-client', () => {
       delete process.env['IMF_API_TIMEOUT_MS'];
       const c = new IMFMCPClient();
       expect(c.getApiBaseUrl()).toBe('https://dataservices.imf.org/REST/SDMX_3.0');
-      expect(c.getTimeoutMs()).toBe(30_000);
+      expect(c.getTimeoutMs()).toBe(90_000);
       expect(c.isConnected()).toBe(false);
     });
 
@@ -155,7 +155,7 @@ describe('imf-mcp-client', () => {
     it('ignores a malformed timeout env var and falls back to the default', () => {
       process.env['IMF_API_TIMEOUT_MS'] = 'not-a-number';
       const c = new IMFMCPClient();
-      expect(c.getTimeoutMs()).toBe(30_000);
+      expect(c.getTimeoutMs()).toBe(90_000);
     });
 
     it('connect() accepts a valid base URL and disconnect() clears it', async () => {

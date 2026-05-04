@@ -74,6 +74,7 @@ network:
     - node
     - data.europarl.europa.eu
     - dataservices.imf.org
+    - imf.org
     - "*.imf.org"
     - api.worldbank.org
     - "*.worldbank.org"
