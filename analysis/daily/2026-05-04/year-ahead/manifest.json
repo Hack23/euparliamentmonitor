@@ -1,0 +1,67 @@
+{
+  "articleType": "year-ahead",
+  "runId": "year-ahead-run-1777854128",
+  "date": "2026-05-04",
+  "analysisDir": "analysis/daily/2026-05-04/year-ahead",
+  "createdAt": "2026-05-04T00:00:00Z",
+  "pass2": {
+    "startedAt": "2026-05-04T00:15:00Z",
+    "endedAt": "2026-05-04T00:22:00Z",
+    "rewriteCount": 5
+  },
+  "artifactStats": {
+    "total": 31,
+    "intelligence": 16,
+    "riskScoring": 4,
+    "classification": 4,
+    "threatAssessment": 4,
+    "root": 2,
+    "data": 1
+  },
+  "mandatoryArtifacts": {
+    "synthesis-summary": true,
+    "pestle-analysis": true,
+    "stakeholder-map": true,
+    "scenario-forecast": true,
+    "forward-projection": true,
+    "legislative-pipeline-forecast": true,
+    "parliamentary-calendar-projection": true,
+    "economic-context": true,
+    "coalition-dynamics": true,
+    "risk-matrix": true,
+    "significance-classification": true,
+    "presidency-trio-context": true,
+    "commission-wp-alignment": true,
+    "executive-brief": true,
+    "methodology-reflection": true
+  },
+  "dataLimitations": [
+    "EP voting data: 4-6 week publication delay; vote counts = 0 for Q1 2026",
+    "Events feed: EP API error; compensated with get_plenary_sessions",
+    "IMF API: not accessible in this run; economic context uses contextual estimates",
+    "World Bank: EU aggregate codes rejected; Germany used as proxy",
+    "Legislative pipeline API: empty response (known data gap)"
+  ],
+  "confidenceDistribution": {
+    "high": 18,
+    "medium": 11,
+    "low": 0
+  },
+  "history": [
+    {
+      "runId": "year-ahead-run-1777854128",
+      "date": "2026-05-04",
+      "stage": "A-B-C-D-E unified",
+      "artifactsCreated": 31,
+      "elapsedMinutes": 22
+    }
+  ],
+  "stageTimings": {
+    "stageA": {"start": 0, "end": 5},
+    "stageB1": {"start": 5, "end": 18},
+    "stageB2": {"start": 18, "end": 22},
+    "stageC": {"planned": 22, "tripwire": 39},
+    "stageD": {"planned": 39},
+    "stageE": {"deadline": 45}
+  }
+}
