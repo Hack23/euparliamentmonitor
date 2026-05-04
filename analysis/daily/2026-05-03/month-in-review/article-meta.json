@@ -1,0 +1,54 @@
+{
+  "date": "2026-05-03",
+  "articleType": "month-in-review",
+  "runId": "month-in-review-run-1777850961",
+  "gateResult": "PENDING",
+  "slug": "2026-05-03-month-in-review",
+  "articlePath": "analysis/daily/2026-05-03/month-in-review/article.md",
+  "topFinding": "April 2026 marked the European Parliament's most legislatively intensive month of EP10's second year, with the Strasbourg and Brussels plenary sessions adopting 11 binding or significant texts in a single week (27–30 April).",
+  "keyTakeaways": [
+    "**Parliament Composition:** 719 MEPs, 9 groups, majority threshold 361",
+    "**EPP** 185 seats (25.7%) — dominant, flexible coalition builder",
+    "**S&D** 135 seats (18.8%) — constructive opposition on most dossiers",
+    "**PfE** 85 seats (11.8%) — nationalist right, government-in-opposition dynamic",
+    "**ECR** 81 seats (11.3%) — internally divided; split on Ukraine and immunity",
+    "**Renew** 77 seats (10.7%) — centre-liberal, coalition-building role",
+    "**Fragmentation Index:** 6.57 (HIGH — minimum 3 groups required for any majority)"
+  ],
+  "topRisks": [
+    "Legislative output per session: 2.11 acts/session (2026 YTD) vs. 1.47 (2025) — **44% increase**",
+    "April 2026 alone: 11 texts in 3 days (28-30 April) — equivalent to 3.7/day vs. monthly average 0.37/day",
+    "Year-to-date (2026 through Q1): 104 projected texts vs. 78 full-year 2025 (+33%)",
+    "Roll-call vote yield: 20.1% (2026) vs. 18.6% (2025) — higher proportion of votes producing legislation",
+    "EPP+S&D+Renew = 397 seats (10% above 361 majority threshold)",
+    "Coalition voted together on: SRMR3, DMA enforcement, Ukraine accountability, budget guidelines, Armenia",
+    "Only one significant defection event (ECR splits on trade retaliation — not within the core coalition)",
+    "Stability score from early warning assessment: 84/100"
+  ],
+  "keyDates": [
+    "Commission DG CONNECT has been conducting investigation since February 2026",
+    "✅ EP would complete SRMR3 in Q1 2026 (banking union agenda, confirmed by March 26 vote)"
+  ],
+  "keyActors": [
+    "Drove SRMR3 banking regulation through (with key proportionality carve-out protecting German Sparkassen)",
+    "Split stance on DMA enforcement: EPP's lead MEP in IMCO aligned with enforcement majority but EPP Business Forum published critical op-ed",
+    "Budget guidelines: Supported 5.2% increase but conditioned on defence reallocation (away from climate funds toward defence)",
+    "Posture: **Pragmatic centrist-right**, managing internal tensions between pro-business wing and Christian-democratic social wing",
+    "Key coalitions: EPP+S&D (cordon sanitaire on PfE/ESN), EPP+ECR (migration, subsidiarity)",
+    "Lead advocate for enhanced depositor protection in SRMR3",
+    "Full support for DMA enforcement (S&D's key legislative achievement from EP9)",
+    "Ukraine accountability resolution co-authored with Renew and Greens"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
