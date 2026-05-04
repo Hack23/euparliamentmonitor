@@ -100,10 +100,6 @@ A deterministic 3–7 bullet synthesis of the strongest evidence-bearing finding
 - Final vote margins (affected by ECR fragmentation)
 - Amendment outcomes on AI Omnibus (regulatory posture implications)
 - Text language on defence procurement (autonomy vs. NATO-first)
-- Motions on European Defence Fund allocation and SAFE instrument implementation
-- Expected coalition: EPP + S&D + ECR partial alignment; PfE split; Left/Greens opposed
-- **Assessment:** Passes with ~450-480 votes if EPP-S&D-ECR align
-- Follow-on motion on EU response to US reciprocal tariffs (extension of March 26 framework)
 
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 

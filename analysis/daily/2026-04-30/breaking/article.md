@@ -828,228 +828,6 @@ This map identifies and analyses the key institutional and political stakeholder
 
 *Source: European Parliament Open Data Portal — group composition, speech metadata, adopted text registry. All MEP analysis in public parliamentary role only. Classification: PUBLIC.*
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### Framework Overview
-
-PESTLE analysis of the European Parliament's April 28–30, 2026 plenary output, examining the Political, Economic, Social, Technological, Legal, and Environmental dimensions of the session's decisions and debates.
-
----
-
-### P — Political
-
-#### Domestic EU Politics
-The April 28 plenary demonstrates the EP10's second-year dynamics: the centre coalition (EPP 185 + S&D 135 + Renew 77 = 397 seats) remains the reliable legislative engine, but is increasingly under pressure from the right-nationalist bloc (PfE 85 + ECR 81 + ESN 27 = 193) which uses every MFF and rule-of-law debate as an opportunity to challenge the pro-European centrist consensus.
-
-**MFF as Political Battleground:** The MFF 2028-2034 interim report debate reveals that the "grand bargain" between large member states (Germany, France, Spain, Poland) and smaller beneficiaries (Central/Eastern Europe, Southern Europe) remains contested. Parliament's interim report sets red lines before the Commission has even tabled its proposal (expected Q3 2026), creating precedent for greater EP agenda-setting in MFF negotiations compared to the 2020 MFF process.
-
-**Rule of Law as Coalition Test:** The Commission's 2025 Rule of Law Report debate tests whether the EPP is willing to apply real budget conditionality against Hungary and Slovakia — member states whose governing parties align with PfE/ECR. EPP's internal divisions between its Brussels-federalist wing and its national conservatives create a ~20-30 seat ambiguity zone.
-
-#### Geopolitical Politics
-- **Ukraine:** Parliament's accountability debate reflects growing frustration with the pace of international accountability mechanisms. The EU's macro-financial assistance to Ukraine (€18.1bn MFA loan package ongoing) and its diplomatic support for ICC proceedings create a multi-layered political commitment Parliament wants to deepen.
-- **Armenia:** The democratic resilience debate signals EU interest in maintaining momentum on the EU-Armenia Comprehensive and Enhanced Partnership Agreement (CEPA). Armenia's strategic reorientation from Russia toward EU/West since 2022 creates both an opportunity and a risk — EP enthusiasm must be balanced against avoiding over-commitment that could destabilise the Armenia-Azerbaijan normalisation track.
-
-**Political Assessment (WEP 75%):** The April 28 plenary will be cited by all major groups as evidence of EP agenda-setting leadership in the MFF pre-negotiation phase. This strengthens Parliament's hand in the forthcoming inter-institutional negotiations.
-
----
-
-### E — Economic
-
-#### Fiscal Architecture
-The 2027 Budget Guidelines (TA-10-2026-0112) encode Parliament's fiscal position at the end of the MFF 2021-2027 cycle. The key economic tensions:
-- **Commitment vs. payment appropriations gap:** Parliament traditionally advocates for higher commitment ceilings; member states prefer tighter payment controls.
-- **Own resources:** EP has consistently pushed for new own resources (digital levy, CBAM revenues, financial transaction tax) to reduce GNI-based contributions. The MFF 2028-2034 debate will revive this.
-- **ReArm Europe:** The €800bn defence package creates pressure for either new own resources or a major reallocation within MFF headings.
-
-#### IMF Macro Context
-- EU GDP growth 2026: 1.2% (below Commission baseline of 1.5%)
-- Euro area inflation: ~2.1% (near-target)
-- EU debt/GDP: ~83% (constraining fiscal space)
-
-The below-baseline growth environment constrains nominal budget increases, forcing prioritisation choices that will dominate MFF negotiations.
-
-**Economic Assessment (WEP 70%):** The moderate growth environment will lead to a more constrained MFF 2028-2034 than Parliament's interim report Red Lines suggest — final agreement likely at €1.1-1.3 trillion in 2025 prices, versus EP aspirations above €1.4 trillion.
-
----
-
-### S — Social
-
-#### Citizens' Agenda
-The April 28 session addressed multiple citizen-facing topics:
-
-**Animal Welfare (TA-10-2026-0115):** The welfare of dogs and cats legislation is a broadly popular measure with citizen support across member states. It reflects Parliament's attention to animal welfare as a social-contract issue beyond economic policy.
-
-**Workers' Rights / Unemployment Funds:** The EGF mobilisation decisions (Tupperware Belgium, Audi Belgium — earlier in 2026) demonstrate Parliament's role in social safety nets. The subcontracting chains text adopted in February 2026 (TA-10-2026-0050) connects to a recurring social theme: protecting workers from gig-economy exploitation.
-
-**Rule of Law and Democracy:** The Commission's 2025 Rule of Law report debate connects to citizens' daily experiences in member states where judicial independence, media freedom, and anti-corruption enforcement are contested. Parliament's debate sends signals to civil society organisations and opposition movements in Hungary, Slovakia, and Poland.
-
-**Social Assessment:** The session's social dimension is primarily indirect — through fiscal policy (budget guidelines affect social spending envelopes) and rule-of-law enforcement (which protects citizens' rights across the EU).
-
----
-
-### T — Technological
-
-#### Digital Policy Dimensions
-**Better Regulation Communication (PVCRE-ITM-13):** The Commission's Better Regulation package has a significant digital component — reducing administrative burden on SMEs, streamlining AI Act implementation guidance, and consolidating digital single market compliance frameworks.
-
-**EU-Iceland PNR Agreement (TA-10-2026-0142):** Passenger Name Record data sharing is a counter-terrorism intelligence tool that relies heavily on data analytics and interoperability between national law enforcement databases. The agreement reflects the EU's continued expansion of its PNR network.
-
-**MFF 2028-2034 Digital Envelope:** Multiple speakers in the MFF interim report debate (per speech metadata from PVCRE-ITM-2) are expected to have addressed the digital competitiveness envelope — investing in cloud infrastructure, AI supercomputers, semiconductor supply chains under the European Chips Act framework.
-
-**Performance-Based Instruments (TA-10-2026-0122):** The transparency text touches on digital public administration — how performance-based EU funding instruments track and report outcomes using digital dashboards and verification systems.
-
-**Technological Assessment:** Technology policy is a cross-cutting thread through the April 28 session rather than the primary focus. The most significant tech policy signal is Parliament's implicit endorsement of the Better Regulation agenda's digital component.
-
----
-
-### L — Legal
-
-#### Legislative Output
-Seven adopted texts create new or amended EU law:
-- TA-10-2026-0112: Budget resolution (legally binding on Commission procedures)
-- TA-10-2026-0119: EIB oversight report (institutional accountability document)
-- TA-10-2026-0122: Performance instruments transparency (non-binding but precedent-setting)
-- TA-10-2026-0105: MEP immunity waiver (individual legal consequence for Patryk Jaki)
-- TA-10-2026-0115: Animal welfare legislation (new EU framework for dogs and cats traceability)
-- TA-10-2026-0142: EU-Iceland PNR Agreement (international law — EU treaty obligation)
-- TA-10-2026-0146: (content TBD — newly published)
-
-#### Rule of Law Architecture
-The Rule of Law report debate reinforces the EU's evolving legal architecture for monitoring and enforcing democratic standards:
-- Article 7 TEU procedures (ongoing: Hungary)
-- EU budget conditionality mechanism (Article 15 Regulation)
-- RRF milestones and conditionality
-- Upcoming MFF 2028-2034 conditionality provisions
-
-**Legal Assessment:** The strongest legal output of the session is the animal welfare legislation and the EU-Iceland PNR agreement — both represent binding legal acts with direct implementation consequences.
-
----
-
-### E — Environmental
-
-#### Climate & Environmental Signals
-The April 28-30 session was not a primary environmental policy session, but environmental crosscurrents are present:
-
-**Budget Guidelines Environmental Component:** Parliament's 2027 budget guidelines traditionally include a mainstreaming climate target (minimum 30% climate-relevant spending). The April 2026 guidelines likely maintain this floor while adapting to the post-Green Deal regulatory consolidation push of the von der Leyen II Commission.
-
-**Better Regulation and Environmental Standards:** The Better Regulation Communication raises the question of whether environmental regulations are subject to the "burden reduction" agenda — a contested point between EPP/ECR (favour deregulation) and Greens/S&D (oppose weakening environmental standards in the name of competitiveness).
-
-**ReArm Europe Environmental Dimension:** Defence spending under ReArm Europe creates environmental considerations — military procurement, energy transition in defence infrastructure, carbon footprint of increased military exercises.
-
-**Environmental Assessment (WEP 65%):** The Better Regulation Communication's treatment of environmental standards will be a significant fault line in the Council-Parliament negotiations over its implementation — Parliament's ENVI committee is likely to table amendments protecting environmental standards from "simplification" that reduces substantive protections.
-
----
-
-### PESTLE Summary Matrix
-
-| Dimension | Key Driver | Significance | Trend |
-|-----------|-----------|--------------|-------|
-| Political | MFF pre-negotiation positioning | 🔴 HIGH | ↗ Increasing EP assertiveness |
-| Economic | Below-baseline growth constraining fiscal space | 🟡 MEDIUM | → Stable uncertainty |
-| Social | Rule of law as citizens' rights guarantor | 🟡 MEDIUM | ↗ Growing EP attention |
-| Technological | Digital competitiveness + PNR security | 🟡 MEDIUM | ↗ Cross-cutting presence |
-| Legal | Animal welfare + PNR agreement + budget resolution | 🟡 MEDIUM | → Normal legislative pace |
-| Environmental | Better regulation vs. environmental standards tension | 🟡 MEDIUM | ↘ Risk of standards erosion |
-
----
-
-*Source: European Parliament Open Data Portal; IMF WEO April 2026 (published); EP speech metadata. Classification: PUBLIC.*
-
-### Historical Baseline
-
-### Purpose
-
-This artifact places the April 28–30, 2026 EP plenary in its broader historical and institutional context, measuring the current outputs against precedents from EP6 (2004–2009), EP7 (2009–2014), EP8 (2014–2019), EP9 (2019–2024), and EP10 (2024–present). It supports the scenario-forecast and threat-model artifacts by grounding probability estimates in historical base rates.
-
----
-
-### Historical Budget Context
-
-#### MFF Negotiation Cycles — Historical Precedents
-
-**MFF 2007–2013 (EP7 baseline):**  
-Agreed at EUCO December 2005; Parliamentary consent delayed by "unacceptable" Council package until May 2006; EP won a mandatory revision clause — the first time Parliament extracted a binding Council commitment during MFF negotiations.
-
-**MFF 2014–2020 (EP8 baseline):**  
-First-ever reduction in real-terms EU budget from 1.12% to 1.0% of GNI. Parliament strongly opposed; won a mid-term review (2016) that introduced more flexibility. Time from Commission proposal (June 2011) to Council agreement (February 2013) = 20 months; EP consent granted May 2013 = 26 months total.
-
-**MFF 2021–2027 (EP9 baseline):**  
-Complicated by Brexit and COVID-19. Council proposed €1,074bn; EP sought €1,324bn; final MFF = €1,074.3bn + €750bn NGEU recovery facility. Parliament won significant concessions on new own resources roadmap. Timeline: Commission proposal (May 2018) → EUCO agreement (July 2020) → EP consent (December 2020) = 31 months.
-
-**MFF 2028–2034 (current — EP10):**  
-EP10 interim report adopted April 28, 2026, ~28 months before MFF end-of-year 2027 start. This is on a fast track relative to MFF 2021–2027. Commission proposal expected Q3 2026 (~14 months before MFF starts). **Historical base rate for MFF negotiations starting from Commission proposal: 20–31 months.** At 14 months lead time, this will be the tightest MFF timeline in EP history.
-
-**Implication:** The tight timeline increases the risk of a provisional/emergency funding bridge in early 2028 if negotiations slip, consistent with T4.1 in the threat model.
-
----
-
-### Historical Rule of Law Context
-
-#### Article 7 Proceedings Precedents
-
-**Hungary (2018–present):**  
-EP triggered Article 7(1) proceedings in September 2018 — the first EP-triggered Article 7 in EU history. As of April 2026, Council has held multiple hearings but has not advanced to Article 7(2) (determination of breach). Duration: ~90 months without final Council determination — demonstrating the structural difficulty of RL enforcement under the unanimity rule.
-
-**Poland (2017–2023):**  
-Commission triggered Article 7(1) against Poland in December 2017. Proceedings were effectively suspended following the October 2023 Polish parliamentary elections and the new Tusk government's commitment to RL restoration. The Poland case demonstrates that democratic change within member states can resolve RL proceedings more effectively than Article 7 enforcement.
-
-**Implication:** The April 28–30 RL debates on Rule of Law 2025 annual report reflect a mature EP position that RL monitoring has become a permanent annual agenda item. The EP has moved from the first Article 7 trigger (exceptional) to systematic annual RL reviews (institutionalised).
-
----
-
-### Historical Ukraine Support Context
-
-#### EP Ukraine Legislative History
-
-**February 2022 onwards:**  
-EP adopted 30+ resolutions on Ukraine in 2022–2025, covering sanctions, humanitarian aid, military support, accountability, and post-war reconstruction.
-
-**Key precedents for accountability:**  
-- June 2022: EP calls for creation of Special Tribunal for Crimes of Aggression — first systematic accountability demand.
-- September 2023: EP calls for the Crimea Platform to expand accountability mechanisms.
-- April 2026: Parliament debates Ukraine accountability — consistent with the structured policy escalation begun in 2022.
-
-**Implication:** The April 28–30 Ukraine accountability debate is not an isolated event but part of a 4-year structured EP policy escalation toward accountability mechanisms.
-
----
-
-### Historical PNR Context
-
-**EU-US PNR Agreement (2012):** First major EU third-country PNR deal. ECJ annulled earlier versions; current version reflects extensive data protection negotiations.  
-**EU-Canada PNR Agreement (2014/2016):** ECJ Opinion 1/15 (2017) found the proposed agreement incompatible with the EU Charter — sent negotiating parties back to re-draft. Final agreement not yet in force as of 2026.  
-**EU-Iceland PNR (adopted April 29, 2026):** Benefits from lessons learned from the Canada case. Iceland's EEA/Schengen membership provides a stronger data protection baseline than Canada, reducing ECJ compatibility risk.
-
----
-
-### Historical Dog/Cat Welfare Context
-
-**2024 EP10 priority:** Animal welfare was a stated EP10 priority in the Political Guidelines. The EU currently has no harmonised companion animal welfare legislation — this is the first horizontal EU text.  
-**Member state variation:** Some member states (Germany, Netherlands) have strict companion animal welfare laws; others have minimal protections. Harmonisation is expected to raise baseline standards across 12 lower-protection member states.
-
----
-
-### Statistical Baseline: EP10 First-Year Activity
-
-Based on available EP statistics data:
-- EP10 (2024–2026 period): Higher fragmentation index (6.57) than EP9 average (~5.2) — measuring effective number of parties
-- EP10 adopted texts rate: Within normal range for a first-year plenary period
-- April 28 plenary: 7 adopted texts in one day — elevated but not exceptional (EP routinely adopts 10–15 texts in a single Strasbourg day)
-
----
-
-### Key Historical Findings
-
-1. **Budget timeline pressure (HIGH risk):** The MFF 2028-2034 timeline is historically tight; provisional funding risk is non-trivial.
-2. **RL enforcement structural limits:** 90 months of Article 7 proceedings without final determination in Hungary confirms that EP resolutions cannot substitute for Council unanimity-dependent enforcement.
-3. **Ukraine support trajectory:** The April 2026 accountability debate follows a predictable and consistent escalation arc — no evidence of EP fatigue on Ukraine.
-4. **PNR architecture maturity:** The Iceland PNR adoption follows a more mature legal architecture than earlier failed EU third-country PNR deals, reducing ECJ annulment risk.
-
----
-
-*Source: EP Open Data Portal activity statistics (2004–2026); ECJ case law references; EP legislative database. Classification: PUBLIC.*
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 ### Macro-Economic Framework
@@ -1814,6 +1592,228 @@ Wildcards are low-probability, high-impact events (WEP 5–25%) that would funda
 ---
 
 *Source: EP Open Data Portal; IMF WEO Q1 2026; analytical projections using SAT wildcards methodology. Classification: PUBLIC.*
+
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### Framework Overview
+
+PESTLE analysis of the European Parliament's April 28–30, 2026 plenary output, examining the Political, Economic, Social, Technological, Legal, and Environmental dimensions of the session's decisions and debates.
+
+---
+
+### P — Political
+
+#### Domestic EU Politics
+The April 28 plenary demonstrates the EP10's second-year dynamics: the centre coalition (EPP 185 + S&D 135 + Renew 77 = 397 seats) remains the reliable legislative engine, but is increasingly under pressure from the right-nationalist bloc (PfE 85 + ECR 81 + ESN 27 = 193) which uses every MFF and rule-of-law debate as an opportunity to challenge the pro-European centrist consensus.
+
+**MFF as Political Battleground:** The MFF 2028-2034 interim report debate reveals that the "grand bargain" between large member states (Germany, France, Spain, Poland) and smaller beneficiaries (Central/Eastern Europe, Southern Europe) remains contested. Parliament's interim report sets red lines before the Commission has even tabled its proposal (expected Q3 2026), creating precedent for greater EP agenda-setting in MFF negotiations compared to the 2020 MFF process.
+
+**Rule of Law as Coalition Test:** The Commission's 2025 Rule of Law Report debate tests whether the EPP is willing to apply real budget conditionality against Hungary and Slovakia — member states whose governing parties align with PfE/ECR. EPP's internal divisions between its Brussels-federalist wing and its national conservatives create a ~20-30 seat ambiguity zone.
+
+#### Geopolitical Politics
+- **Ukraine:** Parliament's accountability debate reflects growing frustration with the pace of international accountability mechanisms. The EU's macro-financial assistance to Ukraine (€18.1bn MFA loan package ongoing) and its diplomatic support for ICC proceedings create a multi-layered political commitment Parliament wants to deepen.
+- **Armenia:** The democratic resilience debate signals EU interest in maintaining momentum on the EU-Armenia Comprehensive and Enhanced Partnership Agreement (CEPA). Armenia's strategic reorientation from Russia toward EU/West since 2022 creates both an opportunity and a risk — EP enthusiasm must be balanced against avoiding over-commitment that could destabilise the Armenia-Azerbaijan normalisation track.
+
+**Political Assessment (WEP 75%):** The April 28 plenary will be cited by all major groups as evidence of EP agenda-setting leadership in the MFF pre-negotiation phase. This strengthens Parliament's hand in the forthcoming inter-institutional negotiations.
+
+---
+
+### E — Economic
+
+#### Fiscal Architecture
+The 2027 Budget Guidelines (TA-10-2026-0112) encode Parliament's fiscal position at the end of the MFF 2021-2027 cycle. The key economic tensions:
+- **Commitment vs. payment appropriations gap:** Parliament traditionally advocates for higher commitment ceilings; member states prefer tighter payment controls.
+- **Own resources:** EP has consistently pushed for new own resources (digital levy, CBAM revenues, financial transaction tax) to reduce GNI-based contributions. The MFF 2028-2034 debate will revive this.
+- **ReArm Europe:** The €800bn defence package creates pressure for either new own resources or a major reallocation within MFF headings.
+
+#### IMF Macro Context
+- EU GDP growth 2026: 1.2% (below Commission baseline of 1.5%)
+- Euro area inflation: ~2.1% (near-target)
+- EU debt/GDP: ~83% (constraining fiscal space)
+
+The below-baseline growth environment constrains nominal budget increases, forcing prioritisation choices that will dominate MFF negotiations.
+
+**Economic Assessment (WEP 70%):** The moderate growth environment will lead to a more constrained MFF 2028-2034 than Parliament's interim report Red Lines suggest — final agreement likely at €1.1-1.3 trillion in 2025 prices, versus EP aspirations above €1.4 trillion.
+
+---
+
+### S — Social
+
+#### Citizens' Agenda
+The April 28 session addressed multiple citizen-facing topics:
+
+**Animal Welfare (TA-10-2026-0115):** The welfare of dogs and cats legislation is a broadly popular measure with citizen support across member states. It reflects Parliament's attention to animal welfare as a social-contract issue beyond economic policy.
+
+**Workers' Rights / Unemployment Funds:** The EGF mobilisation decisions (Tupperware Belgium, Audi Belgium — earlier in 2026) demonstrate Parliament's role in social safety nets. The subcontracting chains text adopted in February 2026 (TA-10-2026-0050) connects to a recurring social theme: protecting workers from gig-economy exploitation.
+
+**Rule of Law and Democracy:** The Commission's 2025 Rule of Law report debate connects to citizens' daily experiences in member states where judicial independence, media freedom, and anti-corruption enforcement are contested. Parliament's debate sends signals to civil society organisations and opposition movements in Hungary, Slovakia, and Poland.
+
+**Social Assessment:** The session's social dimension is primarily indirect — through fiscal policy (budget guidelines affect social spending envelopes) and rule-of-law enforcement (which protects citizens' rights across the EU).
+
+---
+
+### T — Technological
+
+#### Digital Policy Dimensions
+**Better Regulation Communication (PVCRE-ITM-13):** The Commission's Better Regulation package has a significant digital component — reducing administrative burden on SMEs, streamlining AI Act implementation guidance, and consolidating digital single market compliance frameworks.
+
+**EU-Iceland PNR Agreement (TA-10-2026-0142):** Passenger Name Record data sharing is a counter-terrorism intelligence tool that relies heavily on data analytics and interoperability between national law enforcement databases. The agreement reflects the EU's continued expansion of its PNR network.
+
+**MFF 2028-2034 Digital Envelope:** Multiple speakers in the MFF interim report debate (per speech metadata from PVCRE-ITM-2) are expected to have addressed the digital competitiveness envelope — investing in cloud infrastructure, AI supercomputers, semiconductor supply chains under the European Chips Act framework.
+
+**Performance-Based Instruments (TA-10-2026-0122):** The transparency text touches on digital public administration — how performance-based EU funding instruments track and report outcomes using digital dashboards and verification systems.
+
+**Technological Assessment:** Technology policy is a cross-cutting thread through the April 28 session rather than the primary focus. The most significant tech policy signal is Parliament's implicit endorsement of the Better Regulation agenda's digital component.
+
+---
+
+### L — Legal
+
+#### Legislative Output
+Seven adopted texts create new or amended EU law:
+- TA-10-2026-0112: Budget resolution (legally binding on Commission procedures)
+- TA-10-2026-0119: EIB oversight report (institutional accountability document)
+- TA-10-2026-0122: Performance instruments transparency (non-binding but precedent-setting)
+- TA-10-2026-0105: MEP immunity waiver (individual legal consequence for Patryk Jaki)
+- TA-10-2026-0115: Animal welfare legislation (new EU framework for dogs and cats traceability)
+- TA-10-2026-0142: EU-Iceland PNR Agreement (international law — EU treaty obligation)
+- TA-10-2026-0146: (content TBD — newly published)
+
+#### Rule of Law Architecture
+The Rule of Law report debate reinforces the EU's evolving legal architecture for monitoring and enforcing democratic standards:
+- Article 7 TEU procedures (ongoing: Hungary)
+- EU budget conditionality mechanism (Article 15 Regulation)
+- RRF milestones and conditionality
+- Upcoming MFF 2028-2034 conditionality provisions
+
+**Legal Assessment:** The strongest legal output of the session is the animal welfare legislation and the EU-Iceland PNR agreement — both represent binding legal acts with direct implementation consequences.
+
+---
+
+### E — Environmental
+
+#### Climate & Environmental Signals
+The April 28-30 session was not a primary environmental policy session, but environmental crosscurrents are present:
+
+**Budget Guidelines Environmental Component:** Parliament's 2027 budget guidelines traditionally include a mainstreaming climate target (minimum 30% climate-relevant spending). The April 2026 guidelines likely maintain this floor while adapting to the post-Green Deal regulatory consolidation push of the von der Leyen II Commission.
+
+**Better Regulation and Environmental Standards:** The Better Regulation Communication raises the question of whether environmental regulations are subject to the "burden reduction" agenda — a contested point between EPP/ECR (favour deregulation) and Greens/S&D (oppose weakening environmental standards in the name of competitiveness).
+
+**ReArm Europe Environmental Dimension:** Defence spending under ReArm Europe creates environmental considerations — military procurement, energy transition in defence infrastructure, carbon footprint of increased military exercises.
+
+**Environmental Assessment (WEP 65%):** The Better Regulation Communication's treatment of environmental standards will be a significant fault line in the Council-Parliament negotiations over its implementation — Parliament's ENVI committee is likely to table amendments protecting environmental standards from "simplification" that reduces substantive protections.
+
+---
+
+### PESTLE Summary Matrix
+
+| Dimension | Key Driver | Significance | Trend |
+|-----------|-----------|--------------|-------|
+| Political | MFF pre-negotiation positioning | 🔴 HIGH | ↗ Increasing EP assertiveness |
+| Economic | Below-baseline growth constraining fiscal space | 🟡 MEDIUM | → Stable uncertainty |
+| Social | Rule of law as citizens' rights guarantor | 🟡 MEDIUM | ↗ Growing EP attention |
+| Technological | Digital competitiveness + PNR security | 🟡 MEDIUM | ↗ Cross-cutting presence |
+| Legal | Animal welfare + PNR agreement + budget resolution | 🟡 MEDIUM | → Normal legislative pace |
+| Environmental | Better regulation vs. environmental standards tension | 🟡 MEDIUM | ↘ Risk of standards erosion |
+
+---
+
+*Source: European Parliament Open Data Portal; IMF WEO April 2026 (published); EP speech metadata. Classification: PUBLIC.*
+
+### Historical Baseline
+
+### Purpose
+
+This artifact places the April 28–30, 2026 EP plenary in its broader historical and institutional context, measuring the current outputs against precedents from EP6 (2004–2009), EP7 (2009–2014), EP8 (2014–2019), EP9 (2019–2024), and EP10 (2024–present). It supports the scenario-forecast and threat-model artifacts by grounding probability estimates in historical base rates.
+
+---
+
+### Historical Budget Context
+
+#### MFF Negotiation Cycles — Historical Precedents
+
+**MFF 2007–2013 (EP7 baseline):**  
+Agreed at EUCO December 2005; Parliamentary consent delayed by "unacceptable" Council package until May 2006; EP won a mandatory revision clause — the first time Parliament extracted a binding Council commitment during MFF negotiations.
+
+**MFF 2014–2020 (EP8 baseline):**  
+First-ever reduction in real-terms EU budget from 1.12% to 1.0% of GNI. Parliament strongly opposed; won a mid-term review (2016) that introduced more flexibility. Time from Commission proposal (June 2011) to Council agreement (February 2013) = 20 months; EP consent granted May 2013 = 26 months total.
+
+**MFF 2021–2027 (EP9 baseline):**  
+Complicated by Brexit and COVID-19. Council proposed €1,074bn; EP sought €1,324bn; final MFF = €1,074.3bn + €750bn NGEU recovery facility. Parliament won significant concessions on new own resources roadmap. Timeline: Commission proposal (May 2018) → EUCO agreement (July 2020) → EP consent (December 2020) = 31 months.
+
+**MFF 2028–2034 (current — EP10):**  
+EP10 interim report adopted April 28, 2026, ~28 months before MFF end-of-year 2027 start. This is on a fast track relative to MFF 2021–2027. Commission proposal expected Q3 2026 (~14 months before MFF starts). **Historical base rate for MFF negotiations starting from Commission proposal: 20–31 months.** At 14 months lead time, this will be the tightest MFF timeline in EP history.
+
+**Implication:** The tight timeline increases the risk of a provisional/emergency funding bridge in early 2028 if negotiations slip, consistent with T4.1 in the threat model.
+
+---
+
+### Historical Rule of Law Context
+
+#### Article 7 Proceedings Precedents
+
+**Hungary (2018–present):**  
+EP triggered Article 7(1) proceedings in September 2018 — the first EP-triggered Article 7 in EU history. As of April 2026, Council has held multiple hearings but has not advanced to Article 7(2) (determination of breach). Duration: ~90 months without final Council determination — demonstrating the structural difficulty of RL enforcement under the unanimity rule.
+
+**Poland (2017–2023):**  
+Commission triggered Article 7(1) against Poland in December 2017. Proceedings were effectively suspended following the October 2023 Polish parliamentary elections and the new Tusk government's commitment to RL restoration. The Poland case demonstrates that democratic change within member states can resolve RL proceedings more effectively than Article 7 enforcement.
+
+**Implication:** The April 28–30 RL debates on Rule of Law 2025 annual report reflect a mature EP position that RL monitoring has become a permanent annual agenda item. The EP has moved from the first Article 7 trigger (exceptional) to systematic annual RL reviews (institutionalised).
+
+---
+
+### Historical Ukraine Support Context
+
+#### EP Ukraine Legislative History
+
+**February 2022 onwards:**  
+EP adopted 30+ resolutions on Ukraine in 2022–2025, covering sanctions, humanitarian aid, military support, accountability, and post-war reconstruction.
+
+**Key precedents for accountability:**  
+- June 2022: EP calls for creation of Special Tribunal for Crimes of Aggression — first systematic accountability demand.
+- September 2023: EP calls for the Crimea Platform to expand accountability mechanisms.
+- April 2026: Parliament debates Ukraine accountability — consistent with the structured policy escalation begun in 2022.
+
+**Implication:** The April 28–30 Ukraine accountability debate is not an isolated event but part of a 4-year structured EP policy escalation toward accountability mechanisms.
+
+---
+
+### Historical PNR Context
+
+**EU-US PNR Agreement (2012):** First major EU third-country PNR deal. ECJ annulled earlier versions; current version reflects extensive data protection negotiations.  
+**EU-Canada PNR Agreement (2014/2016):** ECJ Opinion 1/15 (2017) found the proposed agreement incompatible with the EU Charter — sent negotiating parties back to re-draft. Final agreement not yet in force as of 2026.  
+**EU-Iceland PNR (adopted April 29, 2026):** Benefits from lessons learned from the Canada case. Iceland's EEA/Schengen membership provides a stronger data protection baseline than Canada, reducing ECJ compatibility risk.
+
+---
+
+### Historical Dog/Cat Welfare Context
+
+**2024 EP10 priority:** Animal welfare was a stated EP10 priority in the Political Guidelines. The EU currently has no harmonised companion animal welfare legislation — this is the first horizontal EU text.  
+**Member state variation:** Some member states (Germany, Netherlands) have strict companion animal welfare laws; others have minimal protections. Harmonisation is expected to raise baseline standards across 12 lower-protection member states.
+
+---
+
+### Statistical Baseline: EP10 First-Year Activity
+
+Based on available EP statistics data:
+- EP10 (2024–2026 period): Higher fragmentation index (6.57) than EP9 average (~5.2) — measuring effective number of parties
+- EP10 adopted texts rate: Within normal range for a first-year plenary period
+- April 28 plenary: 7 adopted texts in one day — elevated but not exceptional (EP routinely adopts 10–15 texts in a single Strasbourg day)
+
+---
+
+### Key Historical Findings
+
+1. **Budget timeline pressure (HIGH risk):** The MFF 2028-2034 timeline is historically tight; provisional funding risk is non-trivial.
+2. **RL enforcement structural limits:** 90 months of Article 7 proceedings without final determination in Hungary confirms that EP resolutions cannot substitute for Council unanimity-dependent enforcement.
+3. **Ukraine support trajectory:** The April 2026 accountability debate follows a predictable and consistent escalation arc — no evidence of EP fatigue on Ukraine.
+4. **PNR architecture maturity:** The Iceland PNR adoption follows a more mature legal architecture than earlier failed EU third-country PNR deals, reducing ECJ annulment risk.
+
+---
+
+*Source: EP Open Data Portal activity statistics (2004–2026); ECJ case law references; EP legislative database. Classification: PUBLIC.*
 
 <h2 id="section-continuity">Cross-Run Continuity</h2>
 
@@ -2602,8 +2602,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/breaking/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-coalitions-voting | [voting-patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/breaking/intelligence/voting-patterns.md) | `intelligence/voting-patterns.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/breaking/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/breaking/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/breaking/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/breaking/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/breaking/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/breaking/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
@@ -2611,6 +2609,8 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/breaking/intelligence/threat-model.md) | `intelligence/threat-model.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/breaking/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/breaking/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/breaking/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/breaking/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-continuity | [cross-run-diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/breaking/intelligence/cross-run-diff.md) | `intelligence/cross-run-diff.md` |
 | section-continuity | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/breaking/intelligence/cross-session-intelligence.md) | `intelligence/cross-session-intelligence.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/breaking/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |

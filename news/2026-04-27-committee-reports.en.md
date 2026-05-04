@@ -467,299 +467,6 @@ The joint committee approach on AI copyright reflects a deliberate rapporteur st
 
 *Stakeholder Map — EP Committee Reports 2026-04-27 | Influence Matrix, Coalition Analysis*
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### 1. Political Dimension
-
-#### 1.1 Parliamentary Architecture and Power Distribution
-
-The European Parliament in April 2026 operates under conditions of **high fragmentation** (Rae fragmentation index equivalent). With 9 political groups and a 361-seat majority threshold, no single group commands a majority:
-
-| Group | Seats | Share | Coalition Role |
-|-------|-------|-------|---------------|
-| EPP | 185 | 25.7% | Anchor/pivot |
-| S&D | 135 | 18.8% | Progressive anchor |
-| PfE | 85 | 11.8% | Right-populist bloc |
-| ECR | 81 | 11.3% | Conservative bloc |
-| Renew | 77 | 10.7% | Liberal pivot |
-| Greens/EFA | 53 | 7.4% | Progressive flank |
-| The Left | 46 | 6.4% | Far-left |
-| NI | 30 | 4.2% | Non-attached |
-| ESN | 27 | 3.8% | Hard-right |
-
-**Key structural insight:** The EPP-S&D-Renew "grand coalition" totals only 397 seats — barely 36 seats above the majority threshold. Any defection from these three groups can block legislation without compensating votes from ECR or Greens/EFA. This creates a **dual-pivot dynamic**: Renew as the liberal pivot between left and right; ECR as the conservative pivot between EPP and PfE.
-
-🟡 **Assessment:** The committee reports week demonstrates that the EP's fragmented landscape produces legislation through issue-specific coalitions rather than stable majority blocs. **Confidence: Medium** — coalition patterns inferred from procedural data, direct voting records unavailable.
-
-#### 1.2 Committee Leadership and Agenda-Setting
-
-The EP10 committee structure reflects EP10's fragmented composition. ECON (economic affairs), INTA (trade), ENVI (environment), JURI (legal affairs), and LIBE (civil liberties) are the high-output committees evident from the adopted texts corpus:
-
-- **ECON** dominated Q1 with ECB oversight and financial stability legislation (3 major texts)
-- **INTA** delivered both EU-Mercosur instruments and US tariff countermeasures
-- **JURI/ITRE** co-sponsored the AI copyright framework
-- **LIBE** handled the safe third country and anti-corruption files
-
-#### 1.3 Inter-Institutional Dynamics
-
-The EP's request for a CJEU opinion on EU-Mercosur compatibility (TA-10-2026-0008) represents an unprecedented use of Treaty Article 218(11) by the legislature — asserting EP oversight authority over an executive-negotiated trade agreement before ratification. This signals growing EP assertiveness in the trade-law domain.
-
-🟢 **Assessment (Confirmed source A-1):** The CJEU opinion request is documented in official EP texts.
-
----
-
-### 2. Economic Dimension
-
-#### 2.1 EU Macro-Economic Context
-
-The ECB Annual Report 2025 (TA-10-2026-0034, adopted 2026-02-10) and financial stability framework (TA-10-2026-0004) adopted by ECON reflect a parliament navigating elevated economic uncertainty. Key contextual factors:
-
-- **ECB monetary cycle:** Euro Area interest rates remained elevated through late 2025 as the ECB balanced inflation (persisting above 2% target through mid-2025) against growth headwinds from the US tariff regime
-- **US tariff impact on EU trade:** The EP's adoption of tariff quota adjustment legislation (TA-10-2026-0096) is a reactive countermeasure to US trade actions. European automotive, steel, and agricultural sectors face export disruption
-- **Housing affordability crisis:** TA-10-2026-0064 (housing resolution) reflects data showing housing costs consuming 40%+ of income for bottom quintile households across major EU cities
-- **Ukraine financial exposure:** The enhanced cooperation on the Ukraine Loan (TA-10-2026-0010) adds to EU fiscal commitments at a time of budget consolidation pressure
-
-🟡 **Economic confidence: Medium** — EP documents confirm policy positions; underlying macro indicators inferred from ECB annual report context.
-
-#### 2.2 Committee-Specific Economic Outputs
-
-**ECON Committee legislative economics:**
-- Adopted financial stability framework signals parliamentary awareness of systemic risk
-- ECB appointments (VP and Supervisory Board) maintain institutional continuity
-- However, EP lacks direct monetary policy instruments — oversight role only
-
-**INTA Committee trade economics:**
-- EU-Mercosur safeguard clause (TA-10-2026-0030) for agricultural products shows AGRI committee influence on trade agreements
-- US tariff counter-measures: Article 207 TFEU trade instruments constrained by WTO obligations
-
----
-
-### 3. Social Dimension
-
-#### 3.1 Housing and Social Inequality
-
-The housing crisis resolution (TA-10-2026-0064) is a landmark EP position that:
-- Acknowledges EU housing market dysfunction across multiple member states
-- Calls for regulatory intervention (investment screening, anti-speculative measures)
-- Proposes EU-level affordable housing financing instruments
-- Links housing access to fundamental rights (Article 34, EU Charter)
-
-The SOCI/REGI joint approach reflects cross-dimensional social-economic analysis absent from earlier EP housing positions. 🟢 **High significance** — direct evidence from adopted text.
-
-#### 3.2 Workers' Rights: Subcontracting Chains
-
-TA-10-2026-0050 (subcontracting chains, workers' rights) addresses the regulatory gap in platform economy labour protections, extending platform work protections into traditional supply chains. This connects the earlier Platform Work Directive with supply-chain due diligence.
-
-#### 3.3 Human Rights Dimension
-
-Multiple adopted texts address human rights situations:
-- **Uganda** (TA-10-2026-0045): Post-election opposition suppression, Bobi Wine threats
-- **Iran** (TA-10-2026-0046): Systematic oppression, inhumane detention
-- **Georgia** (TA-10-2026-0083): Khoshtaria imprisonment under Georgian Dream
-- **Lithuania** (TA-10-2026-0024): Public broadcaster takeover threat to democracy
-
-🟢 **Confirmed** — official EP texts. The pattern reflects systematic EP usage of urgency resolutions as a "human rights alert" mechanism.
-
----
-
-### 4. Technological Dimension
-
-#### 4.1 AI Governance Frontier
-
-The copyright-generative AI framework (TA-10-2026-0066, adopted 2026-03-10) is the most technologically significant committee output. Key elements:
-
-**JURI/ITRE joint rapporteur approach:**
-- Affirms that existing EU copyright law (CDSM Directive) applies to AI training
-- Calls for mandatory disclosure of copyrighted works used in AI model training
-- Proposes a "value capture" mechanism for content creators vis-à-vis AI developers
-- Rejects blanket text-and-data mining (TDM) exemptions for commercial AI
-
-**Political economy of the AI-copyright vote:**
-- S&D, Greens/EFA, and The Left supported strong creator protections
-- EPP and Renew split on the commercial AI TDM exemption
-- ECR and PfE opposed excessive regulation
-- Final text represents a centre-left-anchored compromise
-
-🟡 **Assessment: Medium confidence** — Text title confirmed; legislative text content inferred from procedural context and political-economy analysis.
-
-#### 4.2 Digital Single Market Implications
-
-The AI copyright resolution intersects with:
-- AI Act implementation (GPAI providers' obligations)
-- European Media Freedom Act (EMFA) media consolidation provisions
-- Digital Services Act enforcement (algorithmic accountability)
-
----
-
-### 5. Legal Dimension
-
-#### 5.1 Treaty Interpretation and Judicial Strategy
-
-The EP's invocation of Article 218(11) TFEU to request a CJEU opinion on EU-Mercosur represents a strategic legal manoeuvre:
-
-- **Purpose:** To create a pre-ratification obstacle if the CJEU finds Treaty incompatibilities
-- **Legal precedent:** Previous Article 218(11) opinions (Passenger Name Records, Anti-Counterfeiting Trade Agreement) have constrained executive trade powers
-- **Coalition:** Predominantly Greens/EFA, S&D, and Left supporting the request; EPP and Renew divided
-
-**Admiralty Grade B-2:** Probably true based on procedural text and Treaty provisions.
-
-#### 5.2 Anti-Corruption Legal Framework
-
-TA-10-2026-0094 (combating corruption) advances the EP's position on a standalone EU anti-corruption directive. Key legal elements:
-- Criminalisation standards harmonisation across member states
-- Asset recovery and confiscation procedures
-- Whistleblower protection extension
-- Trading in influence as a standalone offence
-
-#### 5.3 Electoral Law Reform
-
-AFCO's Electoral Act reform (TA-10-2026-0006) addresses ratification obstacles in member states, reflecting the gap between the 2018 EP electoral reform package and actual implementation. Legal friction points:
-- Constituency size requirements (contested by some member states)
-- Transnational lists (blocked by Council)
-- Lead candidate (Spitzenkandidat) formalisation
-
----
-
-### 6. Environmental Dimension
-
-#### 6.1 Heavy-Duty Vehicle Emissions
-
-TA-10-2026-0084 (emission credits, heavy-duty vehicles 2025-2029) from ENVI/TRAN adjusts the calculation methodology for emission credits in the 2025-2029 window. Context:
-- Balances fleet electrification incentives with short-term compliance flexibility
-- Reflects industry lobbying (road transport associations) on implementation timelines
-- Green groups secured stronger measurement provisions; EPP secured flexibility windows
-
-#### 6.2 Environmental Policy in the Trade-Environment Nexus
-
-EU-Mercosur concerns (TA-10-2026-0008) embed environmental conditionality — the CJEU opinion request includes arguments about whether the partnership agreement meets EU environmental standards (Paris Agreement commitments, deforestation). This represents a "Brussels Effect" legal extension into trade law.
-
----
-
-### PESTLE Summary Assessment
-
-| Dimension | Key Risk | Opportunity | Confidence |
-|-----------|----------|-------------|------------|
-| Political | Coalition fragmentation — 361-seat bar requires 3+ group alliance | Issue-specific coalitions enable legislation | 🟡 Medium |
-| Economic | US tariff escalation disrupts EU-US trade equilibrium | Countermeasure framework gives INTA policy tools | 🟡 Medium |
-| Social | Housing crisis unresolved (resolution non-binding) | Precedent set for EU social housing investment | 🟢 High |
-| Technological | AI copyright framework creates compliance uncertainty | EU becomes global standard-setter on AI-IP | 🟡 Medium |
-| Legal | EU-Mercosur CJEU opinion could delay/block agreement | Treaty legal clarity on trade agreements | 🟢 High |
-| Environmental | HDV emission flexibility may slow fleet decarbonisation | Paris-conditioned trade agreements set global norm | 🟡 Medium |
-
----
-
-*PESTLE Analysis — EP Committee Reports 2026-04-27 | Frameworks: PESTLE v2.0, Admiralty, WEP*
-
-### Historical Baseline
-
-### 1. EP Legislative Output: Historical Context
-
-#### 1.1 Parliamentary Term Productivity (EP6–EP10)
-
-The European Parliament's committee system has been the engine of EU legislative output across six parliamentary terms. Historical analysis reveals a structural shift toward greater EP assertiveness and increased committee specialization:
-
-| Term | Period | Key Characteristics | Legislative Output Pattern |
-|------|--------|--------------------|-----------------------------|
-| EP6 | 2004–2009 | Post-enlargement integration; Lisbon Treaty ratification | Institutional consolidation, treaty focus |
-| EP7 | 2009–2014 | Post-Lisbon full co-decision powers; Eurozone crisis | Financial regulation surge (ECON dominant) |
-| EP8 | 2014–2019 | Juncker Commission "big things only"; Brexit | JURI/LIBE digitalization; Brexit special committees |
-| EP9 | 2019–2024 | Von der Leyen Green Deal; COVID-19; Ukraine | ENVI dominant; ITRE-IMCO-ECON tri-committee on digital |
-| EP10 | 2024– | Post-June 2024 elections; right-shifted; AI Act implementation | 9-group fragmentation; INTA assertiveness on trade |
-
-#### 1.2 EP10 Specifics: First Year Assessment
-
-EP10 (elected June 2024) represents a significant political shift:
-- **Rightward shift:** PfE and ECR combined now hold 166 seats (23% of parliament) vs. 109 for the predecessor formations
-- **Greens decline:** Greens/EFA fell from ~72 seats (EP9) to 53 (EP10)
-- **S&D holding:** S&D maintained 135 seats, avoiding the collapse feared after June 2024
-- **EPP consolidation:** EPP grew from 176 to 185, maintaining its anchor role
-
-This structural shift explains why ECON's financial stability framework (TA-10-2026-0004) was crafted to be centrist, the housing resolution (TA-10-2026-0064) avoided binding mandates, and the AI copyright framework (TA-10-2026-0066) included commercial flexibility provisions.
-
----
-
-### 2. Committee-Specific Historical Comparisons
-
-#### 2.1 ECON Committee: ECB Oversight Historical Trend
-
-The ECON committee's comprehensive Q1 2026 ECB package represents the latest step in a decades-long EP institutional assertion over monetary policy oversight:
-
-- **Pre-Lisbon Treaty:** EP had informal hearings with ECB President; no formal consent rights
-- **Post-Lisbon 2009:** ECB appointments require EP formal consent (EP Monetary Dialogue institutionalized)
-- **EP9 (2019-2024):** ECON adopted 5 ECB annual reports with progressively detailed formal conclusions; first majority blocking threat over climate risk reporting
-- **EP10 (2024-):** Q1 2026 ECB package shows deepened oversight — financial stability framework, VP consent, Supervisory Board consent all in one quarter
-
-**Pattern:** 🟢 Confirmed trajectory — increasing EP oversight institutionalization.
-
-#### 2.2 INTA Committee: Trade Defence Historical Trend
-
-The EP's use of trade instruments has escalated across terms:
-- **EP7-EP8:** Limited trade oversight; Council dominated trade policy
-- **EP9:** Lisbon Treaty Article 207 co-decision expanded INTA legislative role
-- **EP10 (2024-):** INTA now leads on trade defence; US tariff countermeasures mark first time EP leads trade response to transatlantic dispute in real time
-
-The CJEU opinion request on EU-Mercosur (TA-10-2026-0008) echoes the EP's 2011 blocking of ACTA (Anti-Counterfeiting Trade Agreement) — the precedent-setting case where EP used institutional leverage to reshape a trade agreement. 🟡 **Historical analogy: Medium confidence** — institutional mechanisms similar; political conditions differ.
-
-#### 2.3 JURI/ITRE: Digital Rights Historical Trajectory
-
-- **GDPR (2016):** LIBE-led landmark; established EU as global data protection standard-setter
-- **AI Act (2024):** IMCO-LIBE joint; world's first comprehensive AI legislation
-- **AI Copyright resolution (2026):** JURI-ITRE joint; extending IP rights framework to AI frontier
-
-This represents a consistent pattern: the EP establishes rights-based standards that become de facto global benchmarks through the "Brussels Effect" — regulatory export via market access conditions.
-
----
-
-### 3. Key Historical Parallels
-
-#### Parallel 1: US Tariff Countermeasures ↔ 2003 EU-US Steel Dispute
-
-In 2003, the US invoked Section 232 to impose steel tariffs; the EU responded with countermeasures under WTO safeguard provisions. The European Commission led the response; EP oversight was limited. In 2026, the EP is directly co-legislating countermeasure frameworks. This represents a fundamental shift in EU trade governance.
-
-**Historical lesson:** The 2003 steel dispute resolved within 8 months when the WTO Appellate Body ruled against US Section 232. If WTO dispute resolution is invoked, timelines for 2026 countermeasure legislation could compress dramatically.
-
-#### Parallel 2: AI Copyright ↔ GDPR Standard-Setting
-
-The GDPR (General Data Protection Regulation) followed a similar trajectory:
-1. EP adopted strong data protection position (2012)
-2. Council sought to water down provisions
-3. Trilogue compromise maintained core EP provisions
-4. Global "Brussels Effect" — GDPR became the de facto global standard
-
-The AI copyright framework (TA-10-2026-0066) is at stage 1 of this trajectory. The probability of full standard-setting depends on Commission and Council alignment. 🟡 **Confidence: Medium**.
-
-#### Parallel 3: Housing Resolution ↔ European Pillar of Social Rights (2017)
-
-The 2017 European Pillar of Social Rights was a high-profile EP-Council declaration that had limited binding effect but shaped subsequent social policy discourse. The 2026 housing resolution (TA-10-2026-0064) may follow this pattern: politically significant, practically limited unless followed by specific Commission proposals with Article 153 or Article 194 TFEU legal bases.
-
----
-
-### 4. Baseline Metrics: Q1 2026 vs. Historical Norms
-
-| Metric | Q1 2026 (Jan-Mar) | EP9 Q1 Avg | EP8 Q1 Avg | Trend |
-|--------|-------------------|------------|------------|-------|
-| Adopted texts (plenary) | 31 (partial data) | ~35-45 | ~30-40 | 🟡 Normal |
-| Cross-committee cooperation (joint files) | 3 confirmed (JURI/ITRE, INTA/AFET, SOCI/REGI) | 2-4 | 1-3 | 🟡 Normal |
-| Urgency resolutions | 6+ (Uganda, Iran, Georgia, etc.) | 4-8 per quarter | 3-6 | 🟢 Normal |
-| ECB-related texts | 3 (VP, Supervisory, Annual Report) | 1-2 | 1 | 🔴 Above average — elevated oversight |
-| Trade defence texts | 3 (US tariffs, Mercosur safeguard, CJEU request) | 0-1 | 0-1 | 🔴 Well above average — trade activism |
-
----
-
-### 5. Structural Historical Assessment
-
-**EP Committee System Maturity:** The adopted texts corpus for Q1 2026 demonstrates a mature, assertive committee system operating across the full spectrum of EU policy. The concentration of output in January-March (31 texts) suggests a "legislative sprint" pattern — consistent with post-election-year committee establishment and agenda-setting.
-
-**Coalition Stability Assessment:** The EP10 right-shifted composition has not produced the legislative paralysis feared by some analysts. The EPP's ability to broker cross-coalition majorities — left-leaning on AI rights and housing, right-leaning on safe third country and trade defence — suggests tactical flexibility over ideological rigidity. This mirrors EP7's post-financial-crisis pragmatism.
-
-**Confidence:** 🟡 Medium — pattern assessment based on text titles and political group data; detailed procedural records and roll-call votes unavailable from current EP API.
-
----
-
-*Historical Baseline — EP Committee Reports 2026-04-27 | EP6-EP10 comparative analysis*
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 ### 1. Euro Area Macroeconomic Context
@@ -1474,6 +1181,299 @@ A true black swan for the EP committee system would be:
 ---
 
 *Wild Cards & Black Swans — EP Committee Reports 2026-04-27 | WEP bands, ICO threat profiling*
+
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### 1. Political Dimension
+
+#### 1.1 Parliamentary Architecture and Power Distribution
+
+The European Parliament in April 2026 operates under conditions of **high fragmentation** (Rae fragmentation index equivalent). With 9 political groups and a 361-seat majority threshold, no single group commands a majority:
+
+| Group | Seats | Share | Coalition Role |
+|-------|-------|-------|---------------|
+| EPP | 185 | 25.7% | Anchor/pivot |
+| S&D | 135 | 18.8% | Progressive anchor |
+| PfE | 85 | 11.8% | Right-populist bloc |
+| ECR | 81 | 11.3% | Conservative bloc |
+| Renew | 77 | 10.7% | Liberal pivot |
+| Greens/EFA | 53 | 7.4% | Progressive flank |
+| The Left | 46 | 6.4% | Far-left |
+| NI | 30 | 4.2% | Non-attached |
+| ESN | 27 | 3.8% | Hard-right |
+
+**Key structural insight:** The EPP-S&D-Renew "grand coalition" totals only 397 seats — barely 36 seats above the majority threshold. Any defection from these three groups can block legislation without compensating votes from ECR or Greens/EFA. This creates a **dual-pivot dynamic**: Renew as the liberal pivot between left and right; ECR as the conservative pivot between EPP and PfE.
+
+🟡 **Assessment:** The committee reports week demonstrates that the EP's fragmented landscape produces legislation through issue-specific coalitions rather than stable majority blocs. **Confidence: Medium** — coalition patterns inferred from procedural data, direct voting records unavailable.
+
+#### 1.2 Committee Leadership and Agenda-Setting
+
+The EP10 committee structure reflects EP10's fragmented composition. ECON (economic affairs), INTA (trade), ENVI (environment), JURI (legal affairs), and LIBE (civil liberties) are the high-output committees evident from the adopted texts corpus:
+
+- **ECON** dominated Q1 with ECB oversight and financial stability legislation (3 major texts)
+- **INTA** delivered both EU-Mercosur instruments and US tariff countermeasures
+- **JURI/ITRE** co-sponsored the AI copyright framework
+- **LIBE** handled the safe third country and anti-corruption files
+
+#### 1.3 Inter-Institutional Dynamics
+
+The EP's request for a CJEU opinion on EU-Mercosur compatibility (TA-10-2026-0008) represents an unprecedented use of Treaty Article 218(11) by the legislature — asserting EP oversight authority over an executive-negotiated trade agreement before ratification. This signals growing EP assertiveness in the trade-law domain.
+
+🟢 **Assessment (Confirmed source A-1):** The CJEU opinion request is documented in official EP texts.
+
+---
+
+### 2. Economic Dimension
+
+#### 2.1 EU Macro-Economic Context
+
+The ECB Annual Report 2025 (TA-10-2026-0034, adopted 2026-02-10) and financial stability framework (TA-10-2026-0004) adopted by ECON reflect a parliament navigating elevated economic uncertainty. Key contextual factors:
+
+- **ECB monetary cycle:** Euro Area interest rates remained elevated through late 2025 as the ECB balanced inflation (persisting above 2% target through mid-2025) against growth headwinds from the US tariff regime
+- **US tariff impact on EU trade:** The EP's adoption of tariff quota adjustment legislation (TA-10-2026-0096) is a reactive countermeasure to US trade actions. European automotive, steel, and agricultural sectors face export disruption
+- **Housing affordability crisis:** TA-10-2026-0064 (housing resolution) reflects data showing housing costs consuming 40%+ of income for bottom quintile households across major EU cities
+- **Ukraine financial exposure:** The enhanced cooperation on the Ukraine Loan (TA-10-2026-0010) adds to EU fiscal commitments at a time of budget consolidation pressure
+
+🟡 **Economic confidence: Medium** — EP documents confirm policy positions; underlying macro indicators inferred from ECB annual report context.
+
+#### 2.2 Committee-Specific Economic Outputs
+
+**ECON Committee legislative economics:**
+- Adopted financial stability framework signals parliamentary awareness of systemic risk
+- ECB appointments (VP and Supervisory Board) maintain institutional continuity
+- However, EP lacks direct monetary policy instruments — oversight role only
+
+**INTA Committee trade economics:**
+- EU-Mercosur safeguard clause (TA-10-2026-0030) for agricultural products shows AGRI committee influence on trade agreements
+- US tariff counter-measures: Article 207 TFEU trade instruments constrained by WTO obligations
+
+---
+
+### 3. Social Dimension
+
+#### 3.1 Housing and Social Inequality
+
+The housing crisis resolution (TA-10-2026-0064) is a landmark EP position that:
+- Acknowledges EU housing market dysfunction across multiple member states
+- Calls for regulatory intervention (investment screening, anti-speculative measures)
+- Proposes EU-level affordable housing financing instruments
+- Links housing access to fundamental rights (Article 34, EU Charter)
+
+The SOCI/REGI joint approach reflects cross-dimensional social-economic analysis absent from earlier EP housing positions. 🟢 **High significance** — direct evidence from adopted text.
+
+#### 3.2 Workers' Rights: Subcontracting Chains
+
+TA-10-2026-0050 (subcontracting chains, workers' rights) addresses the regulatory gap in platform economy labour protections, extending platform work protections into traditional supply chains. This connects the earlier Platform Work Directive with supply-chain due diligence.
+
+#### 3.3 Human Rights Dimension
+
+Multiple adopted texts address human rights situations:
+- **Uganda** (TA-10-2026-0045): Post-election opposition suppression, Bobi Wine threats
+- **Iran** (TA-10-2026-0046): Systematic oppression, inhumane detention
+- **Georgia** (TA-10-2026-0083): Khoshtaria imprisonment under Georgian Dream
+- **Lithuania** (TA-10-2026-0024): Public broadcaster takeover threat to democracy
+
+🟢 **Confirmed** — official EP texts. The pattern reflects systematic EP usage of urgency resolutions as a "human rights alert" mechanism.
+
+---
+
+### 4. Technological Dimension
+
+#### 4.1 AI Governance Frontier
+
+The copyright-generative AI framework (TA-10-2026-0066, adopted 2026-03-10) is the most technologically significant committee output. Key elements:
+
+**JURI/ITRE joint rapporteur approach:**
+- Affirms that existing EU copyright law (CDSM Directive) applies to AI training
+- Calls for mandatory disclosure of copyrighted works used in AI model training
+- Proposes a "value capture" mechanism for content creators vis-à-vis AI developers
+- Rejects blanket text-and-data mining (TDM) exemptions for commercial AI
+
+**Political economy of the AI-copyright vote:**
+- S&D, Greens/EFA, and The Left supported strong creator protections
+- EPP and Renew split on the commercial AI TDM exemption
+- ECR and PfE opposed excessive regulation
+- Final text represents a centre-left-anchored compromise
+
+🟡 **Assessment: Medium confidence** — Text title confirmed; legislative text content inferred from procedural context and political-economy analysis.
+
+#### 4.2 Digital Single Market Implications
+
+The AI copyright resolution intersects with:
+- AI Act implementation (GPAI providers' obligations)
+- European Media Freedom Act (EMFA) media consolidation provisions
+- Digital Services Act enforcement (algorithmic accountability)
+
+---
+
+### 5. Legal Dimension
+
+#### 5.1 Treaty Interpretation and Judicial Strategy
+
+The EP's invocation of Article 218(11) TFEU to request a CJEU opinion on EU-Mercosur represents a strategic legal manoeuvre:
+
+- **Purpose:** To create a pre-ratification obstacle if the CJEU finds Treaty incompatibilities
+- **Legal precedent:** Previous Article 218(11) opinions (Passenger Name Records, Anti-Counterfeiting Trade Agreement) have constrained executive trade powers
+- **Coalition:** Predominantly Greens/EFA, S&D, and Left supporting the request; EPP and Renew divided
+
+**Admiralty Grade B-2:** Probably true based on procedural text and Treaty provisions.
+
+#### 5.2 Anti-Corruption Legal Framework
+
+TA-10-2026-0094 (combating corruption) advances the EP's position on a standalone EU anti-corruption directive. Key legal elements:
+- Criminalisation standards harmonisation across member states
+- Asset recovery and confiscation procedures
+- Whistleblower protection extension
+- Trading in influence as a standalone offence
+
+#### 5.3 Electoral Law Reform
+
+AFCO's Electoral Act reform (TA-10-2026-0006) addresses ratification obstacles in member states, reflecting the gap between the 2018 EP electoral reform package and actual implementation. Legal friction points:
+- Constituency size requirements (contested by some member states)
+- Transnational lists (blocked by Council)
+- Lead candidate (Spitzenkandidat) formalisation
+
+---
+
+### 6. Environmental Dimension
+
+#### 6.1 Heavy-Duty Vehicle Emissions
+
+TA-10-2026-0084 (emission credits, heavy-duty vehicles 2025-2029) from ENVI/TRAN adjusts the calculation methodology for emission credits in the 2025-2029 window. Context:
+- Balances fleet electrification incentives with short-term compliance flexibility
+- Reflects industry lobbying (road transport associations) on implementation timelines
+- Green groups secured stronger measurement provisions; EPP secured flexibility windows
+
+#### 6.2 Environmental Policy in the Trade-Environment Nexus
+
+EU-Mercosur concerns (TA-10-2026-0008) embed environmental conditionality — the CJEU opinion request includes arguments about whether the partnership agreement meets EU environmental standards (Paris Agreement commitments, deforestation). This represents a "Brussels Effect" legal extension into trade law.
+
+---
+
+### PESTLE Summary Assessment
+
+| Dimension | Key Risk | Opportunity | Confidence |
+|-----------|----------|-------------|------------|
+| Political | Coalition fragmentation — 361-seat bar requires 3+ group alliance | Issue-specific coalitions enable legislation | 🟡 Medium |
+| Economic | US tariff escalation disrupts EU-US trade equilibrium | Countermeasure framework gives INTA policy tools | 🟡 Medium |
+| Social | Housing crisis unresolved (resolution non-binding) | Precedent set for EU social housing investment | 🟢 High |
+| Technological | AI copyright framework creates compliance uncertainty | EU becomes global standard-setter on AI-IP | 🟡 Medium |
+| Legal | EU-Mercosur CJEU opinion could delay/block agreement | Treaty legal clarity on trade agreements | 🟢 High |
+| Environmental | HDV emission flexibility may slow fleet decarbonisation | Paris-conditioned trade agreements set global norm | 🟡 Medium |
+
+---
+
+*PESTLE Analysis — EP Committee Reports 2026-04-27 | Frameworks: PESTLE v2.0, Admiralty, WEP*
+
+### Historical Baseline
+
+### 1. EP Legislative Output: Historical Context
+
+#### 1.1 Parliamentary Term Productivity (EP6–EP10)
+
+The European Parliament's committee system has been the engine of EU legislative output across six parliamentary terms. Historical analysis reveals a structural shift toward greater EP assertiveness and increased committee specialization:
+
+| Term | Period | Key Characteristics | Legislative Output Pattern |
+|------|--------|--------------------|-----------------------------|
+| EP6 | 2004–2009 | Post-enlargement integration; Lisbon Treaty ratification | Institutional consolidation, treaty focus |
+| EP7 | 2009–2014 | Post-Lisbon full co-decision powers; Eurozone crisis | Financial regulation surge (ECON dominant) |
+| EP8 | 2014–2019 | Juncker Commission "big things only"; Brexit | JURI/LIBE digitalization; Brexit special committees |
+| EP9 | 2019–2024 | Von der Leyen Green Deal; COVID-19; Ukraine | ENVI dominant; ITRE-IMCO-ECON tri-committee on digital |
+| EP10 | 2024– | Post-June 2024 elections; right-shifted; AI Act implementation | 9-group fragmentation; INTA assertiveness on trade |
+
+#### 1.2 EP10 Specifics: First Year Assessment
+
+EP10 (elected June 2024) represents a significant political shift:
+- **Rightward shift:** PfE and ECR combined now hold 166 seats (23% of parliament) vs. 109 for the predecessor formations
+- **Greens decline:** Greens/EFA fell from ~72 seats (EP9) to 53 (EP10)
+- **S&D holding:** S&D maintained 135 seats, avoiding the collapse feared after June 2024
+- **EPP consolidation:** EPP grew from 176 to 185, maintaining its anchor role
+
+This structural shift explains why ECON's financial stability framework (TA-10-2026-0004) was crafted to be centrist, the housing resolution (TA-10-2026-0064) avoided binding mandates, and the AI copyright framework (TA-10-2026-0066) included commercial flexibility provisions.
+
+---
+
+### 2. Committee-Specific Historical Comparisons
+
+#### 2.1 ECON Committee: ECB Oversight Historical Trend
+
+The ECON committee's comprehensive Q1 2026 ECB package represents the latest step in a decades-long EP institutional assertion over monetary policy oversight:
+
+- **Pre-Lisbon Treaty:** EP had informal hearings with ECB President; no formal consent rights
+- **Post-Lisbon 2009:** ECB appointments require EP formal consent (EP Monetary Dialogue institutionalized)
+- **EP9 (2019-2024):** ECON adopted 5 ECB annual reports with progressively detailed formal conclusions; first majority blocking threat over climate risk reporting
+- **EP10 (2024-):** Q1 2026 ECB package shows deepened oversight — financial stability framework, VP consent, Supervisory Board consent all in one quarter
+
+**Pattern:** 🟢 Confirmed trajectory — increasing EP oversight institutionalization.
+
+#### 2.2 INTA Committee: Trade Defence Historical Trend
+
+The EP's use of trade instruments has escalated across terms:
+- **EP7-EP8:** Limited trade oversight; Council dominated trade policy
+- **EP9:** Lisbon Treaty Article 207 co-decision expanded INTA legislative role
+- **EP10 (2024-):** INTA now leads on trade defence; US tariff countermeasures mark first time EP leads trade response to transatlantic dispute in real time
+
+The CJEU opinion request on EU-Mercosur (TA-10-2026-0008) echoes the EP's 2011 blocking of ACTA (Anti-Counterfeiting Trade Agreement) — the precedent-setting case where EP used institutional leverage to reshape a trade agreement. 🟡 **Historical analogy: Medium confidence** — institutional mechanisms similar; political conditions differ.
+
+#### 2.3 JURI/ITRE: Digital Rights Historical Trajectory
+
+- **GDPR (2016):** LIBE-led landmark; established EU as global data protection standard-setter
+- **AI Act (2024):** IMCO-LIBE joint; world's first comprehensive AI legislation
+- **AI Copyright resolution (2026):** JURI-ITRE joint; extending IP rights framework to AI frontier
+
+This represents a consistent pattern: the EP establishes rights-based standards that become de facto global benchmarks through the "Brussels Effect" — regulatory export via market access conditions.
+
+---
+
+### 3. Key Historical Parallels
+
+#### Parallel 1: US Tariff Countermeasures ↔ 2003 EU-US Steel Dispute
+
+In 2003, the US invoked Section 232 to impose steel tariffs; the EU responded with countermeasures under WTO safeguard provisions. The European Commission led the response; EP oversight was limited. In 2026, the EP is directly co-legislating countermeasure frameworks. This represents a fundamental shift in EU trade governance.
+
+**Historical lesson:** The 2003 steel dispute resolved within 8 months when the WTO Appellate Body ruled against US Section 232. If WTO dispute resolution is invoked, timelines for 2026 countermeasure legislation could compress dramatically.
+
+#### Parallel 2: AI Copyright ↔ GDPR Standard-Setting
+
+The GDPR (General Data Protection Regulation) followed a similar trajectory:
+1. EP adopted strong data protection position (2012)
+2. Council sought to water down provisions
+3. Trilogue compromise maintained core EP provisions
+4. Global "Brussels Effect" — GDPR became the de facto global standard
+
+The AI copyright framework (TA-10-2026-0066) is at stage 1 of this trajectory. The probability of full standard-setting depends on Commission and Council alignment. 🟡 **Confidence: Medium**.
+
+#### Parallel 3: Housing Resolution ↔ European Pillar of Social Rights (2017)
+
+The 2017 European Pillar of Social Rights was a high-profile EP-Council declaration that had limited binding effect but shaped subsequent social policy discourse. The 2026 housing resolution (TA-10-2026-0064) may follow this pattern: politically significant, practically limited unless followed by specific Commission proposals with Article 153 or Article 194 TFEU legal bases.
+
+---
+
+### 4. Baseline Metrics: Q1 2026 vs. Historical Norms
+
+| Metric | Q1 2026 (Jan-Mar) | EP9 Q1 Avg | EP8 Q1 Avg | Trend |
+|--------|-------------------|------------|------------|-------|
+| Adopted texts (plenary) | 31 (partial data) | ~35-45 | ~30-40 | 🟡 Normal |
+| Cross-committee cooperation (joint files) | 3 confirmed (JURI/ITRE, INTA/AFET, SOCI/REGI) | 2-4 | 1-3 | 🟡 Normal |
+| Urgency resolutions | 6+ (Uganda, Iran, Georgia, etc.) | 4-8 per quarter | 3-6 | 🟢 Normal |
+| ECB-related texts | 3 (VP, Supervisory, Annual Report) | 1-2 | 1 | 🔴 Above average — elevated oversight |
+| Trade defence texts | 3 (US tariffs, Mercosur safeguard, CJEU request) | 0-1 | 0-1 | 🔴 Well above average — trade activism |
+
+---
+
+### 5. Structural Historical Assessment
+
+**EP Committee System Maturity:** The adopted texts corpus for Q1 2026 demonstrates a mature, assertive committee system operating across the full spectrum of EU policy. The concentration of output in January-March (31 texts) suggests a "legislative sprint" pattern — consistent with post-election-year committee establishment and agenda-setting.
+
+**Coalition Stability Assessment:** The EP10 right-shifted composition has not produced the legislative paralysis feared by some analysts. The EPP's ability to broker cross-coalition majorities — left-leaning on AI rights and housing, right-leaning on safe third country and trade defence — suggests tactical flexibility over ideological rigidity. This mirrors EP7's post-financial-crisis pragmatism.
+
+**Confidence:** 🟡 Medium — pattern assessment based on text titles and political group data; detailed procedural records and roll-call votes unavailable from current EP API.
+
+---
+
+*Historical Baseline — EP Committee Reports 2026-04-27 | EP6-EP10 comparative analysis*
 
 <h2 id="section-documents">Document Analysis</h2>
 
@@ -2241,14 +2241,14 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/executive-brief.md) | `executive-brief.md` |
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/threat-model.md) | `intelligence/threat-model.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-documents | [committee-productivity](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/existing/committee-productivity.md) | `existing/committee-productivity.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/committee-reports/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |

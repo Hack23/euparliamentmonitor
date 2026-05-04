@@ -419,107 +419,6 @@ quadrantChart
     Greens: [0.75, 0.5]
 ```
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### P — Political
-
-The European Parliament returns April 27 to a political environment defined by three active tensions:
-
-**EPP-S&D Grand Coalition**: The coalition that delivered the March 26 legislative sprint faces its first post-sprint test on April 28. The coalition has demonstrated legislative capacity but not yet demonstrated resilience under external pressure (housing confrontation) or multi-crisis conditions. The political test of April 28 is as important as the legislative output.
-
-**Right Bloc Activation**: ECR and PfE (combined 165 seats) are watching the EPP's post-recess positioning closely. If EPP shows coalition strain on housing or trade, ECR/PfE may attempt to position themselves as an alternative majority pathway on specific votes — particularly trade policy where ECR has more credible national sovereignty arguments than on social policy.
-
-**Commission-Parliament Dynamics**: The housing response decision will define the Von der Leyen Commission's relationship with Parliament for the remainder of the term. A weak response signals Commission autonomy preferences; a strong response signals responsiveness to EP mandate. Both have long-term institutional consequences.
-
-### E — Economic
-
-Already covered in detail in `intelligence/economic-context.md`. Key political-economic intersections:
-- German economic weakness (-0.50% GDP 2024) increases pressure on German MEPs across all groups to avoid trade escalation
-- Banking Union completion creates immediate stakeholder pressure from German Landesbanken on BRRD3 implementation
-- Housing affordability crisis is a domestic electoral issue in France, Germany, Netherlands, Spain — creating cross-party constituent pressure on MEPs
-
-### S — Social
-
-**Housing crisis visibility**: Housing affordability has become the defining social justice issue of the mid-2020s in Europe. EP's Housing Initiative adoption reflects political responsiveness to this. Commission response will be watched by housing activists, trade unions, and young voters — groups that traditionally lean S&D and Greens.
-
-**Post-Easter social mood**: The Easter period traditionally sees an uptick in public attention to political developments as citizens return from holidays. April 28-30 plenary coverage is likely to receive above-average media attention compared to other spring sessions.
-
-### T — Technological
-
-**AI Act Implementation**: The March 26 plenary likely included AI Act implementation measures among TA-10-2026-0099-0104. The USTR Section 301 risk is specifically tied to EU AI regulation requirements on US AI companies — a direct technology-policy nexus.
-
-**EP Digital Infrastructure**: The EP's API maintenance during Easter recess is itself a technology dimension. The staged-release mechanism for TA-10-2026-0099-0104 reflects deliberate data publication sequencing — a technology policy (open data governance) intersecting with legislative transparency.
-
-### L — Legal
-
-**BRRD3 Implementation Timeline**: Member states typically have 18 months to transpose EP Directives. BRRD3 (adopted March 26, 2026) requires national implementation by approximately September 2027. German constitutional review may compress this timeline or create implementation asymmetry.
-
-**Article 225 TFEU Precedent**: The Housing Initiative creates legal precedent for EP's use of its legislative initiative mandate. If Commission responds inadequately, EP may escalate to a formal infringement procedure under Article 265 TFEU (action for failure to act). This legal escalation pathway would be unprecedented for housing policy.
-
-**TA-10-2026-0099-0104 Legal Status**: "Adopted texts" have legal force as EP positions. Their content is legally binding on EP's legislative positions regardless of API accessibility. The staged-release mechanism affects monitoring capacity, not legal validity.
-
-### E — Environmental
-
-**Critical Minerals Strategy**: Among the likely contents of TA-10-2026-0099-0104 (based on structural inference) is energy/minerals strategy legislation. European critical minerals independence is a key environmental/security priority. The transition to renewable energy requires secure mineral supply chains — lithium, cobalt, rare earths — that European industry is currently dependent on Chinese suppliers for.
-
-**Green Deal Implementation**: April 28-30 plenary may include Green Deal follow-up votes. The Greens/EFA (53 seats) will use the post-recess session to press for Green Deal implementation acceleration.
-
-### Historical Baseline
-
-### Easter Recess Historical Context (EP10 and Prior Terms)
-
-#### Comparative Recess Durations
-
-| Year | Easter Recess Start | Return Date | Duration | Post-Recess First Major Vote |
-|------|--------------------|-----------|---------|-----------------------------|
-| 2026 | April 14 | April 27 | 13 days | April 28-30 Strasbourg |
-| 2025 | April 14 | April 27 | 13 days | April 28-30 Strasbourg |
-| 2024 | March 25 | April 20 | 26 days | April 22-25 Strasbourg |
-| 2023 | April 3 | April 17 | 14 days | April 17-20 Strasbourg |
-
-The 2026 Easter recess duration (13 days) is consistent with the EP's standard Easter break pattern. The 2024 election year (26-day break) was anomalous due to the pre-election schedule freeze.
-
-#### API Maintenance Historical Pattern
-
-The EP Open Data Portal has historically undergone maintenance during parliamentary recesses. The 2026 Easter maintenance followed a three-tier recovery pattern documented for the first time across this recess monitoring series:
-- **Tier 1** (static data: adopted texts index, MEP composition): Restored within 24-48 hours of recess start
-- **Tier 2** (event-based data: events feed, procedures feed): Restored 3-5 days into recess
-- **Tier 3** (enriched content: full document text, parliamentary questions, committee documents): Restored 7-10 days into recess, typically before Parliament's return
-
-This tiered recovery model, first documented in Run 184 and validated by Run 185, provides a predictive framework for future Easter recess monitoring.
-
-#### Banking Union Legislative History
-
-The March 26, 2026 Banking Union trilogy (DGSD2/BRRD3/SRMR3) adoption represents the culmination of a 16-year legislative effort:
-- **2010**: First Banking Union proposals post-global financial crisis
-- **2014**: BRRD1 and SRMR1 adopted (original framework)
-- **2015-2019**: BRRD2 and SRMR2 (amendments; German BRRD2 transposition delayed 14 months)
-- **2023**: Commission proposal for DGSD2/BRRD3/SRMR3 (EP10 term)
-- **2025**: Trilogue negotiations completed
-- **2026-03-26**: EP adoption (TA-10-2026-0090, 0092, 0093)
-
-**German implementation precedent**: BRRD2 transposition was delayed 14 months (2015-2016) due to Bundesrat objections on Landesbanken scope. This is the primary evidence base for the BRRD3 Bundesrat resistance risk in the current run.
-
-#### EP Legislative Initiative Mandate History
-
-The Housing Initiative (TA-10-2026-0091) marks one of the most assertive EP uses of its legislative initiative mandate under Article 225 TFEU. Historical precedents:
-- **2019**: EP used Article 225 mandate on minimum wage (led to 2022 Directive)
-- **2021**: EP used mandate on due diligence (led to 2024 Directive)
-- **2025**: EP housing initiative (current case)
-
-In both 2019 and 2021 cases, Commission initially responded with consultation documents before upgrading to legislative proposals after EP pressure. This historical pattern is factored into the 55% probability of inadequate initial response in the current risk assessment.
-
-### Precomputed Statistics Context (Historical EP Activity)
-
-From `get_all_generated_stats` (EP10 2024-2026):
-- 2024: 567 roll-call votes, 6,147 parliamentary questions, 2,363 committee meetings
-- Q1 2026: 104 adopted texts (confirmed), 567 roll-call votes, 6,147 questions — highest Q1 in EP10
-- March 26 plenary: 15 adopted texts (confirmed) — highest single-session output in EP10
-
-These statistics provide the baseline against which post-recess activity will be measured. The Q1 2026 record output creates expectations for the Q2 agenda.
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 ### Economic Backdrop for Post-Recess EP Legislative Agenda
@@ -784,6 +683,107 @@ The most actionable insights from this wildcard analysis:
 - Wild Card 2 (leadership crisis) has the highest narrative disruption potential — monitor EP transparency register and press bureau activity
 - All four Schwartz wild cards share a common feature: they would be *resolved* rather than exacerbated by the post-recess agenda if the coalition holds
 - System resilience is a function of coalition coherence — the primary risk identified across all seven runs (179-185) remains coalition dynamics
+
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### P — Political
+
+The European Parliament returns April 27 to a political environment defined by three active tensions:
+
+**EPP-S&D Grand Coalition**: The coalition that delivered the March 26 legislative sprint faces its first post-sprint test on April 28. The coalition has demonstrated legislative capacity but not yet demonstrated resilience under external pressure (housing confrontation) or multi-crisis conditions. The political test of April 28 is as important as the legislative output.
+
+**Right Bloc Activation**: ECR and PfE (combined 165 seats) are watching the EPP's post-recess positioning closely. If EPP shows coalition strain on housing or trade, ECR/PfE may attempt to position themselves as an alternative majority pathway on specific votes — particularly trade policy where ECR has more credible national sovereignty arguments than on social policy.
+
+**Commission-Parliament Dynamics**: The housing response decision will define the Von der Leyen Commission's relationship with Parliament for the remainder of the term. A weak response signals Commission autonomy preferences; a strong response signals responsiveness to EP mandate. Both have long-term institutional consequences.
+
+### E — Economic
+
+Already covered in detail in `intelligence/economic-context.md`. Key political-economic intersections:
+- German economic weakness (-0.50% GDP 2024) increases pressure on German MEPs across all groups to avoid trade escalation
+- Banking Union completion creates immediate stakeholder pressure from German Landesbanken on BRRD3 implementation
+- Housing affordability crisis is a domestic electoral issue in France, Germany, Netherlands, Spain — creating cross-party constituent pressure on MEPs
+
+### S — Social
+
+**Housing crisis visibility**: Housing affordability has become the defining social justice issue of the mid-2020s in Europe. EP's Housing Initiative adoption reflects political responsiveness to this. Commission response will be watched by housing activists, trade unions, and young voters — groups that traditionally lean S&D and Greens.
+
+**Post-Easter social mood**: The Easter period traditionally sees an uptick in public attention to political developments as citizens return from holidays. April 28-30 plenary coverage is likely to receive above-average media attention compared to other spring sessions.
+
+### T — Technological
+
+**AI Act Implementation**: The March 26 plenary likely included AI Act implementation measures among TA-10-2026-0099-0104. The USTR Section 301 risk is specifically tied to EU AI regulation requirements on US AI companies — a direct technology-policy nexus.
+
+**EP Digital Infrastructure**: The EP's API maintenance during Easter recess is itself a technology dimension. The staged-release mechanism for TA-10-2026-0099-0104 reflects deliberate data publication sequencing — a technology policy (open data governance) intersecting with legislative transparency.
+
+### L — Legal
+
+**BRRD3 Implementation Timeline**: Member states typically have 18 months to transpose EP Directives. BRRD3 (adopted March 26, 2026) requires national implementation by approximately September 2027. German constitutional review may compress this timeline or create implementation asymmetry.
+
+**Article 225 TFEU Precedent**: The Housing Initiative creates legal precedent for EP's use of its legislative initiative mandate. If Commission responds inadequately, EP may escalate to a formal infringement procedure under Article 265 TFEU (action for failure to act). This legal escalation pathway would be unprecedented for housing policy.
+
+**TA-10-2026-0099-0104 Legal Status**: "Adopted texts" have legal force as EP positions. Their content is legally binding on EP's legislative positions regardless of API accessibility. The staged-release mechanism affects monitoring capacity, not legal validity.
+
+### E — Environmental
+
+**Critical Minerals Strategy**: Among the likely contents of TA-10-2026-0099-0104 (based on structural inference) is energy/minerals strategy legislation. European critical minerals independence is a key environmental/security priority. The transition to renewable energy requires secure mineral supply chains — lithium, cobalt, rare earths — that European industry is currently dependent on Chinese suppliers for.
+
+**Green Deal Implementation**: April 28-30 plenary may include Green Deal follow-up votes. The Greens/EFA (53 seats) will use the post-recess session to press for Green Deal implementation acceleration.
+
+### Historical Baseline
+
+### Easter Recess Historical Context (EP10 and Prior Terms)
+
+#### Comparative Recess Durations
+
+| Year | Easter Recess Start | Return Date | Duration | Post-Recess First Major Vote |
+|------|--------------------|-----------|---------|-----------------------------|
+| 2026 | April 14 | April 27 | 13 days | April 28-30 Strasbourg |
+| 2025 | April 14 | April 27 | 13 days | April 28-30 Strasbourg |
+| 2024 | March 25 | April 20 | 26 days | April 22-25 Strasbourg |
+| 2023 | April 3 | April 17 | 14 days | April 17-20 Strasbourg |
+
+The 2026 Easter recess duration (13 days) is consistent with the EP's standard Easter break pattern. The 2024 election year (26-day break) was anomalous due to the pre-election schedule freeze.
+
+#### API Maintenance Historical Pattern
+
+The EP Open Data Portal has historically undergone maintenance during parliamentary recesses. The 2026 Easter maintenance followed a three-tier recovery pattern documented for the first time across this recess monitoring series:
+- **Tier 1** (static data: adopted texts index, MEP composition): Restored within 24-48 hours of recess start
+- **Tier 2** (event-based data: events feed, procedures feed): Restored 3-5 days into recess
+- **Tier 3** (enriched content: full document text, parliamentary questions, committee documents): Restored 7-10 days into recess, typically before Parliament's return
+
+This tiered recovery model, first documented in Run 184 and validated by Run 185, provides a predictive framework for future Easter recess monitoring.
+
+#### Banking Union Legislative History
+
+The March 26, 2026 Banking Union trilogy (DGSD2/BRRD3/SRMR3) adoption represents the culmination of a 16-year legislative effort:
+- **2010**: First Banking Union proposals post-global financial crisis
+- **2014**: BRRD1 and SRMR1 adopted (original framework)
+- **2015-2019**: BRRD2 and SRMR2 (amendments; German BRRD2 transposition delayed 14 months)
+- **2023**: Commission proposal for DGSD2/BRRD3/SRMR3 (EP10 term)
+- **2025**: Trilogue negotiations completed
+- **2026-03-26**: EP adoption (TA-10-2026-0090, 0092, 0093)
+
+**German implementation precedent**: BRRD2 transposition was delayed 14 months (2015-2016) due to Bundesrat objections on Landesbanken scope. This is the primary evidence base for the BRRD3 Bundesrat resistance risk in the current run.
+
+#### EP Legislative Initiative Mandate History
+
+The Housing Initiative (TA-10-2026-0091) marks one of the most assertive EP uses of its legislative initiative mandate under Article 225 TFEU. Historical precedents:
+- **2019**: EP used Article 225 mandate on minimum wage (led to 2022 Directive)
+- **2021**: EP used mandate on due diligence (led to 2024 Directive)
+- **2025**: EP housing initiative (current case)
+
+In both 2019 and 2021 cases, Commission initially responded with consultation documents before upgrading to legislative proposals after EP pressure. This historical pattern is factored into the 55% probability of inadequate initial response in the current risk assessment.
+
+### Precomputed Statistics Context (Historical EP Activity)
+
+From `get_all_generated_stats` (EP10 2024-2026):
+- 2024: 567 roll-call votes, 6,147 parliamentary questions, 2,363 committee meetings
+- Q1 2026: 104 adopted texts (confirmed), 567 roll-call votes, 6,147 questions — highest Q1 in EP10
+- March 26 plenary: 15 adopted texts (confirmed) — highest single-session output in EP10
+
+These statistics provide the baseline against which post-recess activity will be measured. The Q1 2026 record output creates expectations for the Q2 agenda.
 
 <h2 id="section-continuity">Cross-Run Continuity</h2>
 
@@ -1374,12 +1374,12 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/threat-model.md) | `intelligence/threat-model.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-continuity | [cross-run-diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/cross-run-diff.md) | `intelligence/cross-run-diff.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |

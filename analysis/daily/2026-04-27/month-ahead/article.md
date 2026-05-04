@@ -909,346 +909,6 @@ POWER   │
 *Source: EP MCP generate_political_landscape, analyze_coalition_dynamics. EP MCP group data as of April 27, 2026.*
 *Generated: 2026-04-27 | SPDX: Apache-2.0*
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### PESTLE Overview
-
-| Dimension | Direction | Magnitude | Risk Level | Key Driver |
-|-----------|-----------|-----------|-----------|-----------|
-| Political | ↗️ Increasing complexity | HIGH | 🟡 MEDIUM | EPP dual-track test; CID coalition fragility |
-| Economic | ↘️ Deteriorating | MEDIUM-HIGH | 🟡 MEDIUM | Germany contraction; US tariff impact |
-| Social | → Stable | LOW | 🟢 LOW | Labour market resilience; EU Talent Pool active |
-| Technological | ↗️ Accelerating | MEDIUM | 🟡 MEDIUM | AI Act implementation; CID digital provisions |
-| Legal | ↘️ Complexity rising | MEDIUM | 🟡 MEDIUM | SRMR3 Council gap; CJEU-Mercosur; TTIP precedent |
-| Environmental | ↘️ Under pressure | MEDIUM | 🟡 MEDIUM | CID negotiation stress; green transition costs |
-
----
-
-### P — Political
-
-#### Current state
-The European Parliament is in an active coalition management phase. The April 27–30 plenary session
-is the highest-stakes political event of the 30-day window: it exposes the grand coalition's
-resilience (or fragility) under real voting pressure across 20+ votes in 4 days.
-
-**EPP's political dilemma:** EPP holds 185 seats (25.7%) and is the indispensable pivot in every
-viable majority configuration. Its dual-track strategy — grand coalition on foreign/security/trade,
-right-leaning on migration/sovereignty — worked in Year 1 when legislative files could be
-sequenced. Year 2 compresses this: CID, trade retaliation, SRMR3, and migration enforcement all
-require attention in April–May 2026, forcing EPP to signal coalition preferences simultaneously.
-
-**PfE and ESN's strategic calculation:** With 85+27=112 seats combined, the far right has enough
-critical mass to deny EPP a grand coalition majority on procedural questions. While they cannot
-govern, they can obstruct — and obstruction has electoral value by demonstrating the grand coalition's
-dependency on EPP's cooperation with the left.
-
-**Three political pressure points in the 30-day window:**
-1. CID committee vote (May — committee stage) — EPP internal management test
-2. April 27–30 plenary votes — first live coalition test of Year 2
-3. ECB Vice-President May hearing — EP-ECB accountability assertion
-
-#### Political Risk Assessment: 🟡 MEDIUM
-The grand coalition maintains structural viability (397 seats, +36 buffer) but faces its first
-major domestic competitiveness test in CID. The risk is not coalition collapse but coalition
-fracturing on this specific file, which would have demonstration effects for subsequent files.
-
----
-
-### E — Economic
-
-#### Current state
-The EU's economic environment is structurally constrained by three simultaneous pressures:
-
-**1. Germany contraction (third consecutive year):** GDP growth -0.9% (2023), -0.5% (2024),
-stagnation in 2025. German industry — Europe's largest manufacturing cluster — is experiencing
-structural adjustment to post-gas-dependency energy costs, Chinese manufacturing competition,
-and now US tariff pressure. This creates direct political pressure on CDU/CSU MEPs within EPP.
-
-**2. US tariff impact:** EU exports of approximately €35bn (steel, aluminium, industrial goods)
-now subject to elevated US tariffs. IMF estimates -0.3pp EU GDP impact. Automotive sector
-(€50bn/year exports) is currently exempt but at risk if escalation occurs.
-
-**3. ECB easing vs. Fed divergence:** ECB has cut rates 5 times (4.00% → ~2.50%); Fed holds at
-4.5%+. Euro appreciation pressure (~€/$ 1.15–1.20) compounds export competitiveness challenges.
-
-**Positive factor:** Eurozone unemployment remains at ~6% (Germany at 3.7%), indicating labour
-market resilience despite GDP contraction. Kurzarbeit in Germany defers unemployment shock.
-
-#### Economic Risk Assessment: 🟡 MEDIUM
-Core risk is not immediate recession but multi-year competitiveness erosion. The EU's legislative
-response (CID, SRMR3, tariff retaliation) is structurally correct but procedurally slow
-if CID is delayed by coalition management failures, the competitiveness intervention arrives 2–3
-years late for affected German industrial firms.
-
----
-
-### S — Social
-
-#### Current state
-EU social indicators remain broadly positive despite economic headwinds:
-- Labour market: unemployment declining across most member states; youth unemployment below 15%
-  in most western member states (significant improvement from 2012–2015 era)
-- EU Talent Pool (TA-10-2026-0058, March 10) — active legal framework for skills matching
-  across member states; addresses medium-term structural labour shortage in digital/green sectors
-- Housing crisis resolution (TA-10-2026-0064) — non-binding but signals EP's awareness of
-  housing affordability as core electoral concern for GenZ/Millennial voters
-- Kurzarbeit deferred adjustment: ~320,000 German workers on short-time work schemes; if recession
-  extends to Q4 2026, unemployment spike may follow
-
-**Migration as social fault line:** The February 2026 migration files (TA-10-2026-0025/0026)
-represent EP's response to political pressure from member states with high migration exposure.
-The social dimension of migration policy (integration, labour market access, asylum processing)
-remains contested; the EP's legislative approach has been enforcement-first with humanitarian
-safeguards.
-
-#### Social Risk Assessment: 🟢 LOW (short-term), 🟡 MEDIUM (6–12 month horizon)
-Core risk is the Kurzarbeit cliff (Q4 2026) and housing affordability (structural, not episodic).
-Neither is acute in the 30-day window.
-
----
-
-### T — Technological
-
-#### Current state
-Technology policy is the EU's most forward-moving legislative domain in EP10:
-
-**AI Act implementation:** Passed in EP9, in implementation phase in EP10. EP's AI Office is
-operationalising the Prohibited Practices provisions (February 2025 effective date passed) and
-preparing for High-Risk AI Systems requirements (August 2026). ITRE committee monitoring function.
-
-**AI/Copyright resolution (TA-10-2026-0066, March 10):** Non-binding resolution establishing EP's
-position on AI-generated content, training data rights, and creative sector compensation. Sets
-stage for Q3 2026 Commission proposal on AI content regulation.
-
-**CID digital provisions:** The Clean Industrial Deal contains cross-cutting digital provisions
-(industrial data sharing, digital product passport for circular economy). These create linkage
-between ITRE (CID) and IMCO (digital internal market) committee mandates — a known source of
-inter-committee tension.
-
-**Quantum computing and encryption:** Emerging in STOA (Science and Technology Options Assessment)
-work programme. Not yet on legislative agenda but appearing in committee requests for Commission
-proposals by 2027.
-
-#### Technology Risk Assessment: 🟡 MEDIUM
-Primary risk is AI Act implementation timeline — if Commission fails to stand up the AI Office
-technical capacity before August 2026 High-Risk provisions take effect, EP will conduct hearings
-that create political pressure but no legal remedy. Secondary risk is CID digital provisions
-creating inter-committee gridlock.
-
----
-
-### L — Legal
-
-#### Current state
-The EU's legal environment features several high-complexity proceedings with EP relevance:
-
-**CJEU-Mercosur proceedings:** EU-Mercosur trade agreement has been challenged before the Court of
-Justice on environmental grounds. CJEU advisory opinion expected in Q3–Q4 2026. If the opinion
-finds that the agreement requires unanimous Council ratification (vs. qualified majority), the
-entire Mercosur ratification schedule is at risk — and with it, the Commission's trade agenda
-credibility.
-
-**SRMR3 Council gap:** Germany and Austria have formally registered objections to SRF contribution
-rate changes. If Council raises a blocking minority in second reading, SRMR3 returns to trilogue
-— potentially a 6-month delay affecting EU banking union completeness.
-
-**EU electoral framework:** EP's proposed amendments to the EU Act on direct elections (updated
-EU Electoral Act) are in inter-institutional consultation. The EP insists on binding voting
-accessibility requirements; some member states object on constitutional grounds.
-
-**GDPR enforcement gaps:** EC Commissioner hearing in March flagged continued member-state-level
-GDPR enforcement disparities. EP LIBE committee has scheduled follow-up hearings in May.
-
-#### Legal Risk Assessment: 🟡 MEDIUM
-Primary risk is CJEU-Mercosur opinion (external to EP; unpredictable timeline) and SRMR3 Council
-second reading. Neither blocks the April–May 2026 plenary agenda but creates background complexity.
-
----
-
-### E — Environmental
-
-#### Current state
-Environmental policy is in an "implementation stress" phase — major legislation passed (EU Green
-Deal, ETS reform, Nature Restoration Law) but implementation facing political pressure:
-
-**CID environmental dimension:** The Clean Industrial Deal is simultaneously EP's competitiveness
-response AND its environmental policy for the second legislative period. If CID passes with weakened
-decarbonisation timelines (eastern EPP faction concession), it effectively dilutes the Green Deal
-without formally reopening it. Greens/EFA will oppose this weakening.
-
-**HDV emissions adjustment (passed Q1 2026):** Adjusted heavy-duty vehicle emissions timeline
-transitional provision for truck/bus manufacturers. ACEA (European Automobile Manufacturers
-Association) lobbied successfully for 2-year timeline extension. Environmental NGOs filed complaints
-but cannot block EP legislation.
-
-**Nature Restoration Law implementation:** In national implementation phase; member states' plans
-due by August 2026. EP's ENVI committee monitoring function active. Poland and Hungary are behind
-schedule — potential Commission infringement proceedings.
-
-#### Environmental Risk Assessment: 🟡 MEDIUM
-The month's central environmental risk is CID's energy mix provisions: if nuclear and gas are
-codified as "clean" investments, it unlocks funding flows inconsistent with Paris Agreement
-pathways. This is a structural risk to EU climate credibility, not an acute 30-day risk.
-
----
-
-### PESTLE Net Assessment
-
-**Dominant forces (next 30 days):**
-1. **Political** — Coalition management under CID and trade pressure is the primary driver of
-   all legislative outcomes
-2. **Economic** — German contraction and tariff exposure create urgency for both CID and trade
-   retaliation; also constrain EPP's freedom of manoeuvre
-3. **Legal** — SRMR3 Council gap and CJEU-Mercosur are slow-burn risks that could materialise
-   in Q3 2026
-
-**Relative stability (next 30 days):**
-- Social and environmental dimensions are structurally important but not acutely risk-generating
-  within the 30-day window
-- Technological dimension is moving fast but EP's legislative response is adequate for the horizon
-
----
-
-*Source: EP MCP tools (generate_political_landscape, get_adopted_texts), WB API, IMF WEO April 2026, prior run analysis.*
-*Generated: 2026-04-27 | SPDX: Apache-2.0*
-
-### Historical Baseline
-
-### EP10 Year 2 Structural Context
-
-#### Parliamentary Term Framework
-- **EP10 opened:** July 2024
-- **Current position:** Year 2, Month 10 (April 2026)
-- **Key milestone:** First major legislative packages nearing completion; CID is the flagship file
-- **Historical precedent:** EP7–EP10 Year 2 records show peak legislative output in Q2 (April–June)
-
-#### EP10 Year 1 Legislative Milestones (Recap for Baseline)
-EP10's first year produced a concentrated legislative agenda driven by the new Commission's
-competitiveness and security mandate:
-
-| Adopted Text | Vote Date | Significance |
-|-------------|-----------|-------------|
-| Ukraine emergency loan (TA-10-2026-0010) | Jan 21, 2026 | Solidarity signal; EPP+S&D+Renew grand coalition proved functional |
-| Migration: safe countries list (TA-10-2026-0025) | Feb 10, 2026 | First major test of EPP-right alignment — passed with ECR support |
-| Migration: safe third countries (TA-10-2026-0026) | Feb 10, 2026 | Companion file; S&D abstained (not opposed) |
-| AI/copyright resolution (TA-10-2026-0066) | Mar 10, 2026 | Cross-cutting; Greens/EFA joined grand coalition |
-| Housing crisis resolution (TA-10-2026-0064) | Mar 10, 2026 | S&D + Greens initiative endorsed by EPP |
-| Defence single market (TA-10-2026-0079) | Mar 11, 2026 | EPP flagship; ECR joined grand coalition on security file |
-| EU enlargement strategy (TA-10-2026-0077) | Mar 11, 2026 | Pro-Ukraine signal; PfE opposed but lacked blocking power |
-| ECB VP confirmation (TA-10-2026-0033) | Mar 10, 2026 | Institutional; EPP-S&D-Renew alignment |
-| SRMR3 banking reform (TA-10-2026-0092) | Mar 26, 2026 | Financial; grand coalition with some ECR cross-votes |
-| US tariff adjustment (TA-10-2026-0096) | Mar 26, 2026 | Trade; broadest coalition (EPP+S&D+Renew+Greens) |
-
-**Key insight from Year 1 pattern:** The grand coalition has proven robust on foreign policy,
-security, financial regulation, and enlargement files. It has shown strain (abstentions, narrower
-margins) on migration and social policy files. The CID is the first major domestic economic
-competitiveness file — it will determine whether the Year 1 coalition pattern extends or fractures.
-
----
-
-### EP Legislative Cycle: Historical Comparison (EP7–EP10)
-
-#### Year 2 Activity Patterns
-Analysis of EP7–EP10 Year 2 data shows consistent patterns:
-
-**Pattern 1: Coalition consolidation or fracture becomes visible in Year 2**
-- EP7 Year 2 (2012): Euro crisis created grand coalition consolidation; ESM and TSCG ratification
-  secured with 400+ vote margins
-- EP8 Year 2 (2015): Brexit referendum preparations created temporary UK isolation; JCPOA approval
-  split EPP internally (first documented EPP internal fracture in EP8)
-- EP9 Year 2 (2020): COVID emergency legislation unified EP in largest ever grand coalition margins
-  (500+ votes on emergency measures); later, Green Deal negotiations showed first S&D-Renew-Greens
-  vs. EPP-ECR tension
-- **EP10 Year 2 trajectory:** Beginning to show split-coalition pattern (CID, migration) alongside
-  grand coalition on external files — consistent with EP8/EP9 mixed Year 2 patterns
-
-**Pattern 2: Major external shocks in Year 2 become defining institutional events**
-- EP7: Euro crisis → structural fiscal reform
-- EP9: COVID → NextGenEU (first ever EU joint borrowing)
-- EP10: US tariffs + Ukraine → CID + defence single market (already confirmed)
-
-**Pattern 3: Commission-EP relationship recalibrates in Year 2**
-The European Commission's first-year honeymoon with EP (which approved the Commission by definition)
-typically gives way to the first significant parliamentary challenges in Year 2. EP10 is following
-this pattern: ECON committee's structured dialogue with Commission on fiscal frameworks, ITRE's
-amendments to CID that constrain Commission's flexibility, and the EP's insistence on binding
-implementation timelines are all consistent with Year 2 re-assertion of parliamentary sovereignty.
-
----
-
-### Precedent Analysis: Relevant Historical Cases
-
-#### Case 1: CID Parallel — EU's 2009 Climate Package
-The 2009 EU Climate and Energy Package (Fit-for-20) provides the closest legislative precedent for
-the CID. Key comparison:
-
-| Dimension | 2009 Climate Package | 2026 CID (Projected) |
-|-----------|---------------------|---------------------|
-| Coalition | EPP + S&D + Greens | EPP + S&D + Renew (+ Greens?) |
-| EPP internal split | Yes — eastern members resisted binding targets | Yes — energy mix provisions |
-| Council alignment | Strong (Polish/Czech objections resolved) | Medium (energy mix still contested) |
-| External pressure | Global financial crisis created urgency | US tariffs + competitiveness crisis |
-| Outcome | Passed with ~50-vote margin | TBD — WEP 55% narrow pass |
-
-**Lesson:** The 2009 package succeeded because EPP leadership agreed to a transitional flexibility
-mechanism for eastern member states (phase-in periods for ETS). If EP10 EPP leadership can assemble
-a similar transition architecture for CID's energy provisions, the eastern faction can be brought
-on board without S&D concessions.
-
-#### Case 2: Trade Precedent — TTIP Collapse (2016)
-The Transatlantic Trade and Investment Partnership (TTIP) failure provides institutional memory on
-EU-US trade negotiations that EP actors explicitly reference. Key lesson for current trilogue:
-- EP's insistence on ISDS (investor-state dispute settlement) removal was non-negotiable
-- Commission underestimated EP's democratisation demands
-- US negotiators did not adjust for EP autonomy (different from US Congress/Senate dynamic)
-- Result: TTIP collapse, long-term trade relationship damage
-
-**2026 parallel:** The EU-US tariff trilogue must accommodate EP's insistence on an automatic
-trigger mechanism (vs. Council's preference for political decision). If the US/Commission propose
-a purely executive mechanism, EP will invoke TTIP memory — rejection is politically available.
-
-#### Case 3: SRMR1/2 Precedent — Banking Union architecture (2013–2016)
-SRMR3's predecessors (SRMR1 and SRMR2) established the template for the current reform. SRMR1
-(2014) created the SRM; SRMR2 (2019) extended bail-in scope. EP's role in both was to strengthen
-depositor protection provisions against Council's more bank-friendly position.
-
-**2026 SRMR3 context:** The Council's main objection to SRMR3 is SRF contribution rate
-recalibration (Germany and Austria are concerned about contribution level increases for their
-domestic banking sectors). EP's history in SRMR1/2 suggests it will hold firm on SRF adequacy
-provisions — creating a genuine Council-EP gap that may require trilogue resolution.
-
----
-
-### EP10 Institutional Context: Key Appointment Milestones
-
-The March 2026 wave of confirmations (ECB VP, SRMR3, defence single market) represents EP10's
-first major institutional consolidation moment. For context:
-
-- **March 10 cluster:** 7 legislative/institutional items voted in a single Strasbourg session
-  unusual for the breadth of coverage. Signals EP's processing capacity when coalition is aligned.
-- **ECB Vice-President confirmation:** EP asserted substantive scrutiny (committee hearings,
-  written questions, plenary debate) before the March 10 vote, establishing a precedent for
-  enhanced ECB-EP accountability. The May Monetary Policy Dialogue will test whether this
-  precedent holds or reverts to ceremonial exchange.
-
----
-
-### Historical Legislative Productivity: EP10 Year 2 Benchmark
-
-EP typical Year 2 legislative output (adopted texts, plenary sessions):
-- EP10 target: ~18–22 plenary sessions/year (Strasbourg 12 + Brussels 6 + extraordinary up to 4)
-- Year 2 Q1 output (Jan–Mar 2026): 10+ adopted texts (based on TA-10-2026-XXXX series reaching 0096)
-- **Assessment:** EP10 Year 2 is tracking at or above EP9 Year 2 productivity — notable given
-  external shock environment (tariffs, Ukraine). Coalition coherence has been maintained above
-  historical average for Year 2.
-
----
-
-*Source: EP MCP get_adopted_texts (year:2026), generate_political_landscape. Historical comparisons from published EP institutional records and prior run analysis.*
-*Generated: 2026-04-27 | SPDX: Apache-2.0*
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 ** IMF requirement:** IMF primary for macro/fiscal/monetary/trade; WB for social/development indicators
@@ -2258,6 +1918,346 @@ For each wildcard, the following monitoring signals should be observed before Ma
 *Source: Prior run analysis, historical pattern assessment, IMF WEO April 2026 risk factors.*
 *Generated: 2026-04-27 | SPDX: Apache-2.0*
 
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### PESTLE Overview
+
+| Dimension | Direction | Magnitude | Risk Level | Key Driver |
+|-----------|-----------|-----------|-----------|-----------|
+| Political | ↗️ Increasing complexity | HIGH | 🟡 MEDIUM | EPP dual-track test; CID coalition fragility |
+| Economic | ↘️ Deteriorating | MEDIUM-HIGH | 🟡 MEDIUM | Germany contraction; US tariff impact |
+| Social | → Stable | LOW | 🟢 LOW | Labour market resilience; EU Talent Pool active |
+| Technological | ↗️ Accelerating | MEDIUM | 🟡 MEDIUM | AI Act implementation; CID digital provisions |
+| Legal | ↘️ Complexity rising | MEDIUM | 🟡 MEDIUM | SRMR3 Council gap; CJEU-Mercosur; TTIP precedent |
+| Environmental | ↘️ Under pressure | MEDIUM | 🟡 MEDIUM | CID negotiation stress; green transition costs |
+
+---
+
+### P — Political
+
+#### Current state
+The European Parliament is in an active coalition management phase. The April 27–30 plenary session
+is the highest-stakes political event of the 30-day window: it exposes the grand coalition's
+resilience (or fragility) under real voting pressure across 20+ votes in 4 days.
+
+**EPP's political dilemma:** EPP holds 185 seats (25.7%) and is the indispensable pivot in every
+viable majority configuration. Its dual-track strategy — grand coalition on foreign/security/trade,
+right-leaning on migration/sovereignty — worked in Year 1 when legislative files could be
+sequenced. Year 2 compresses this: CID, trade retaliation, SRMR3, and migration enforcement all
+require attention in April–May 2026, forcing EPP to signal coalition preferences simultaneously.
+
+**PfE and ESN's strategic calculation:** With 85+27=112 seats combined, the far right has enough
+critical mass to deny EPP a grand coalition majority on procedural questions. While they cannot
+govern, they can obstruct — and obstruction has electoral value by demonstrating the grand coalition's
+dependency on EPP's cooperation with the left.
+
+**Three political pressure points in the 30-day window:**
+1. CID committee vote (May — committee stage) — EPP internal management test
+2. April 27–30 plenary votes — first live coalition test of Year 2
+3. ECB Vice-President May hearing — EP-ECB accountability assertion
+
+#### Political Risk Assessment: 🟡 MEDIUM
+The grand coalition maintains structural viability (397 seats, +36 buffer) but faces its first
+major domestic competitiveness test in CID. The risk is not coalition collapse but coalition
+fracturing on this specific file, which would have demonstration effects for subsequent files.
+
+---
+
+### E — Economic
+
+#### Current state
+The EU's economic environment is structurally constrained by three simultaneous pressures:
+
+**1. Germany contraction (third consecutive year):** GDP growth -0.9% (2023), -0.5% (2024),
+stagnation in 2025. German industry — Europe's largest manufacturing cluster — is experiencing
+structural adjustment to post-gas-dependency energy costs, Chinese manufacturing competition,
+and now US tariff pressure. This creates direct political pressure on CDU/CSU MEPs within EPP.
+
+**2. US tariff impact:** EU exports of approximately €35bn (steel, aluminium, industrial goods)
+now subject to elevated US tariffs. IMF estimates -0.3pp EU GDP impact. Automotive sector
+(€50bn/year exports) is currently exempt but at risk if escalation occurs.
+
+**3. ECB easing vs. Fed divergence:** ECB has cut rates 5 times (4.00% → ~2.50%); Fed holds at
+4.5%+. Euro appreciation pressure (~€/$ 1.15–1.20) compounds export competitiveness challenges.
+
+**Positive factor:** Eurozone unemployment remains at ~6% (Germany at 3.7%), indicating labour
+market resilience despite GDP contraction. Kurzarbeit in Germany defers unemployment shock.
+
+#### Economic Risk Assessment: 🟡 MEDIUM
+Core risk is not immediate recession but multi-year competitiveness erosion. The EU's legislative
+response (CID, SRMR3, tariff retaliation) is structurally correct but procedurally slow
+if CID is delayed by coalition management failures, the competitiveness intervention arrives 2–3
+years late for affected German industrial firms.
+
+---
+
+### S — Social
+
+#### Current state
+EU social indicators remain broadly positive despite economic headwinds:
+- Labour market: unemployment declining across most member states; youth unemployment below 15%
+  in most western member states (significant improvement from 2012–2015 era)
+- EU Talent Pool (TA-10-2026-0058, March 10) — active legal framework for skills matching
+  across member states; addresses medium-term structural labour shortage in digital/green sectors
+- Housing crisis resolution (TA-10-2026-0064) — non-binding but signals EP's awareness of
+  housing affordability as core electoral concern for GenZ/Millennial voters
+- Kurzarbeit deferred adjustment: ~320,000 German workers on short-time work schemes; if recession
+  extends to Q4 2026, unemployment spike may follow
+
+**Migration as social fault line:** The February 2026 migration files (TA-10-2026-0025/0026)
+represent EP's response to political pressure from member states with high migration exposure.
+The social dimension of migration policy (integration, labour market access, asylum processing)
+remains contested; the EP's legislative approach has been enforcement-first with humanitarian
+safeguards.
+
+#### Social Risk Assessment: 🟢 LOW (short-term), 🟡 MEDIUM (6–12 month horizon)
+Core risk is the Kurzarbeit cliff (Q4 2026) and housing affordability (structural, not episodic).
+Neither is acute in the 30-day window.
+
+---
+
+### T — Technological
+
+#### Current state
+Technology policy is the EU's most forward-moving legislative domain in EP10:
+
+**AI Act implementation:** Passed in EP9, in implementation phase in EP10. EP's AI Office is
+operationalising the Prohibited Practices provisions (February 2025 effective date passed) and
+preparing for High-Risk AI Systems requirements (August 2026). ITRE committee monitoring function.
+
+**AI/Copyright resolution (TA-10-2026-0066, March 10):** Non-binding resolution establishing EP's
+position on AI-generated content, training data rights, and creative sector compensation. Sets
+stage for Q3 2026 Commission proposal on AI content regulation.
+
+**CID digital provisions:** The Clean Industrial Deal contains cross-cutting digital provisions
+(industrial data sharing, digital product passport for circular economy). These create linkage
+between ITRE (CID) and IMCO (digital internal market) committee mandates — a known source of
+inter-committee tension.
+
+**Quantum computing and encryption:** Emerging in STOA (Science and Technology Options Assessment)
+work programme. Not yet on legislative agenda but appearing in committee requests for Commission
+proposals by 2027.
+
+#### Technology Risk Assessment: 🟡 MEDIUM
+Primary risk is AI Act implementation timeline — if Commission fails to stand up the AI Office
+technical capacity before August 2026 High-Risk provisions take effect, EP will conduct hearings
+that create political pressure but no legal remedy. Secondary risk is CID digital provisions
+creating inter-committee gridlock.
+
+---
+
+### L — Legal
+
+#### Current state
+The EU's legal environment features several high-complexity proceedings with EP relevance:
+
+**CJEU-Mercosur proceedings:** EU-Mercosur trade agreement has been challenged before the Court of
+Justice on environmental grounds. CJEU advisory opinion expected in Q3–Q4 2026. If the opinion
+finds that the agreement requires unanimous Council ratification (vs. qualified majority), the
+entire Mercosur ratification schedule is at risk — and with it, the Commission's trade agenda
+credibility.
+
+**SRMR3 Council gap:** Germany and Austria have formally registered objections to SRF contribution
+rate changes. If Council raises a blocking minority in second reading, SRMR3 returns to trilogue
+— potentially a 6-month delay affecting EU banking union completeness.
+
+**EU electoral framework:** EP's proposed amendments to the EU Act on direct elections (updated
+EU Electoral Act) are in inter-institutional consultation. The EP insists on binding voting
+accessibility requirements; some member states object on constitutional grounds.
+
+**GDPR enforcement gaps:** EC Commissioner hearing in March flagged continued member-state-level
+GDPR enforcement disparities. EP LIBE committee has scheduled follow-up hearings in May.
+
+#### Legal Risk Assessment: 🟡 MEDIUM
+Primary risk is CJEU-Mercosur opinion (external to EP; unpredictable timeline) and SRMR3 Council
+second reading. Neither blocks the April–May 2026 plenary agenda but creates background complexity.
+
+---
+
+### E — Environmental
+
+#### Current state
+Environmental policy is in an "implementation stress" phase — major legislation passed (EU Green
+Deal, ETS reform, Nature Restoration Law) but implementation facing political pressure:
+
+**CID environmental dimension:** The Clean Industrial Deal is simultaneously EP's competitiveness
+response AND its environmental policy for the second legislative period. If CID passes with weakened
+decarbonisation timelines (eastern EPP faction concession), it effectively dilutes the Green Deal
+without formally reopening it. Greens/EFA will oppose this weakening.
+
+**HDV emissions adjustment (passed Q1 2026):** Adjusted heavy-duty vehicle emissions timeline
+transitional provision for truck/bus manufacturers. ACEA (European Automobile Manufacturers
+Association) lobbied successfully for 2-year timeline extension. Environmental NGOs filed complaints
+but cannot block EP legislation.
+
+**Nature Restoration Law implementation:** In national implementation phase; member states' plans
+due by August 2026. EP's ENVI committee monitoring function active. Poland and Hungary are behind
+schedule — potential Commission infringement proceedings.
+
+#### Environmental Risk Assessment: 🟡 MEDIUM
+The month's central environmental risk is CID's energy mix provisions: if nuclear and gas are
+codified as "clean" investments, it unlocks funding flows inconsistent with Paris Agreement
+pathways. This is a structural risk to EU climate credibility, not an acute 30-day risk.
+
+---
+
+### PESTLE Net Assessment
+
+**Dominant forces (next 30 days):**
+1. **Political** — Coalition management under CID and trade pressure is the primary driver of
+   all legislative outcomes
+2. **Economic** — German contraction and tariff exposure create urgency for both CID and trade
+   retaliation; also constrain EPP's freedom of manoeuvre
+3. **Legal** — SRMR3 Council gap and CJEU-Mercosur are slow-burn risks that could materialise
+   in Q3 2026
+
+**Relative stability (next 30 days):**
+- Social and environmental dimensions are structurally important but not acutely risk-generating
+  within the 30-day window
+- Technological dimension is moving fast but EP's legislative response is adequate for the horizon
+
+---
+
+*Source: EP MCP tools (generate_political_landscape, get_adopted_texts), WB API, IMF WEO April 2026, prior run analysis.*
+*Generated: 2026-04-27 | SPDX: Apache-2.0*
+
+### Historical Baseline
+
+### EP10 Year 2 Structural Context
+
+#### Parliamentary Term Framework
+- **EP10 opened:** July 2024
+- **Current position:** Year 2, Month 10 (April 2026)
+- **Key milestone:** First major legislative packages nearing completion; CID is the flagship file
+- **Historical precedent:** EP7–EP10 Year 2 records show peak legislative output in Q2 (April–June)
+
+#### EP10 Year 1 Legislative Milestones (Recap for Baseline)
+EP10's first year produced a concentrated legislative agenda driven by the new Commission's
+competitiveness and security mandate:
+
+| Adopted Text | Vote Date | Significance |
+|-------------|-----------|-------------|
+| Ukraine emergency loan (TA-10-2026-0010) | Jan 21, 2026 | Solidarity signal; EPP+S&D+Renew grand coalition proved functional |
+| Migration: safe countries list (TA-10-2026-0025) | Feb 10, 2026 | First major test of EPP-right alignment — passed with ECR support |
+| Migration: safe third countries (TA-10-2026-0026) | Feb 10, 2026 | Companion file; S&D abstained (not opposed) |
+| AI/copyright resolution (TA-10-2026-0066) | Mar 10, 2026 | Cross-cutting; Greens/EFA joined grand coalition |
+| Housing crisis resolution (TA-10-2026-0064) | Mar 10, 2026 | S&D + Greens initiative endorsed by EPP |
+| Defence single market (TA-10-2026-0079) | Mar 11, 2026 | EPP flagship; ECR joined grand coalition on security file |
+| EU enlargement strategy (TA-10-2026-0077) | Mar 11, 2026 | Pro-Ukraine signal; PfE opposed but lacked blocking power |
+| ECB VP confirmation (TA-10-2026-0033) | Mar 10, 2026 | Institutional; EPP-S&D-Renew alignment |
+| SRMR3 banking reform (TA-10-2026-0092) | Mar 26, 2026 | Financial; grand coalition with some ECR cross-votes |
+| US tariff adjustment (TA-10-2026-0096) | Mar 26, 2026 | Trade; broadest coalition (EPP+S&D+Renew+Greens) |
+
+**Key insight from Year 1 pattern:** The grand coalition has proven robust on foreign policy,
+security, financial regulation, and enlargement files. It has shown strain (abstentions, narrower
+margins) on migration and social policy files. The CID is the first major domestic economic
+competitiveness file — it will determine whether the Year 1 coalition pattern extends or fractures.
+
+---
+
+### EP Legislative Cycle: Historical Comparison (EP7–EP10)
+
+#### Year 2 Activity Patterns
+Analysis of EP7–EP10 Year 2 data shows consistent patterns:
+
+**Pattern 1: Coalition consolidation or fracture becomes visible in Year 2**
+- EP7 Year 2 (2012): Euro crisis created grand coalition consolidation; ESM and TSCG ratification
+  secured with 400+ vote margins
+- EP8 Year 2 (2015): Brexit referendum preparations created temporary UK isolation; JCPOA approval
+  split EPP internally (first documented EPP internal fracture in EP8)
+- EP9 Year 2 (2020): COVID emergency legislation unified EP in largest ever grand coalition margins
+  (500+ votes on emergency measures); later, Green Deal negotiations showed first S&D-Renew-Greens
+  vs. EPP-ECR tension
+- **EP10 Year 2 trajectory:** Beginning to show split-coalition pattern (CID, migration) alongside
+  grand coalition on external files — consistent with EP8/EP9 mixed Year 2 patterns
+
+**Pattern 2: Major external shocks in Year 2 become defining institutional events**
+- EP7: Euro crisis → structural fiscal reform
+- EP9: COVID → NextGenEU (first ever EU joint borrowing)
+- EP10: US tariffs + Ukraine → CID + defence single market (already confirmed)
+
+**Pattern 3: Commission-EP relationship recalibrates in Year 2**
+The European Commission's first-year honeymoon with EP (which approved the Commission by definition)
+typically gives way to the first significant parliamentary challenges in Year 2. EP10 is following
+this pattern: ECON committee's structured dialogue with Commission on fiscal frameworks, ITRE's
+amendments to CID that constrain Commission's flexibility, and the EP's insistence on binding
+implementation timelines are all consistent with Year 2 re-assertion of parliamentary sovereignty.
+
+---
+
+### Precedent Analysis: Relevant Historical Cases
+
+#### Case 1: CID Parallel — EU's 2009 Climate Package
+The 2009 EU Climate and Energy Package (Fit-for-20) provides the closest legislative precedent for
+the CID. Key comparison:
+
+| Dimension | 2009 Climate Package | 2026 CID (Projected) |
+|-----------|---------------------|---------------------|
+| Coalition | EPP + S&D + Greens | EPP + S&D + Renew (+ Greens?) |
+| EPP internal split | Yes — eastern members resisted binding targets | Yes — energy mix provisions |
+| Council alignment | Strong (Polish/Czech objections resolved) | Medium (energy mix still contested) |
+| External pressure | Global financial crisis created urgency | US tariffs + competitiveness crisis |
+| Outcome | Passed with ~50-vote margin | TBD — WEP 55% narrow pass |
+
+**Lesson:** The 2009 package succeeded because EPP leadership agreed to a transitional flexibility
+mechanism for eastern member states (phase-in periods for ETS). If EP10 EPP leadership can assemble
+a similar transition architecture for CID's energy provisions, the eastern faction can be brought
+on board without S&D concessions.
+
+#### Case 2: Trade Precedent — TTIP Collapse (2016)
+The Transatlantic Trade and Investment Partnership (TTIP) failure provides institutional memory on
+EU-US trade negotiations that EP actors explicitly reference. Key lesson for current trilogue:
+- EP's insistence on ISDS (investor-state dispute settlement) removal was non-negotiable
+- Commission underestimated EP's democratisation demands
+- US negotiators did not adjust for EP autonomy (different from US Congress/Senate dynamic)
+- Result: TTIP collapse, long-term trade relationship damage
+
+**2026 parallel:** The EU-US tariff trilogue must accommodate EP's insistence on an automatic
+trigger mechanism (vs. Council's preference for political decision). If the US/Commission propose
+a purely executive mechanism, EP will invoke TTIP memory — rejection is politically available.
+
+#### Case 3: SRMR1/2 Precedent — Banking Union architecture (2013–2016)
+SRMR3's predecessors (SRMR1 and SRMR2) established the template for the current reform. SRMR1
+(2014) created the SRM; SRMR2 (2019) extended bail-in scope. EP's role in both was to strengthen
+depositor protection provisions against Council's more bank-friendly position.
+
+**2026 SRMR3 context:** The Council's main objection to SRMR3 is SRF contribution rate
+recalibration (Germany and Austria are concerned about contribution level increases for their
+domestic banking sectors). EP's history in SRMR1/2 suggests it will hold firm on SRF adequacy
+provisions — creating a genuine Council-EP gap that may require trilogue resolution.
+
+---
+
+### EP10 Institutional Context: Key Appointment Milestones
+
+The March 2026 wave of confirmations (ECB VP, SRMR3, defence single market) represents EP10's
+first major institutional consolidation moment. For context:
+
+- **March 10 cluster:** 7 legislative/institutional items voted in a single Strasbourg session
+  unusual for the breadth of coverage. Signals EP's processing capacity when coalition is aligned.
+- **ECB Vice-President confirmation:** EP asserted substantive scrutiny (committee hearings,
+  written questions, plenary debate) before the March 10 vote, establishing a precedent for
+  enhanced ECB-EP accountability. The May Monetary Policy Dialogue will test whether this
+  precedent holds or reverts to ceremonial exchange.
+
+---
+
+### Historical Legislative Productivity: EP10 Year 2 Benchmark
+
+EP typical Year 2 legislative output (adopted texts, plenary sessions):
+- EP10 target: ~18–22 plenary sessions/year (Strasbourg 12 + Brussels 6 + extraordinary up to 4)
+- Year 2 Q1 output (Jan–Mar 2026): 10+ adopted texts (based on TA-10-2026-XXXX series reaching 0096)
+- **Assessment:** EP10 Year 2 is tracking at or above EP9 Year 2 productivity — notable given
+  external shock environment (tariffs, Ukraine). Coalition coherence has been maintained above
+  historical average for Year 2.
+
+---
+
+*Source: EP MCP get_adopted_texts (year:2026), generate_political_landscape. Historical comparisons from published EP institutional records and prior run analysis.*
+*Generated: 2026-04-27 | SPDX: Apache-2.0*
+
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
 
 **Reference:**.github/prompts/07-mcp-reference.md §11 triage table (mandatory before filing issues)
@@ -2764,8 +2764,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-actors-forces | [stakeholder-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/classification/stakeholder-classification.md) | `classification/stakeholder-classification.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [political-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/political-risk.md) | `risk-scoring/political-risk.md` |
 | section-risk | [legislative-risk](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/risk-scoring/legislative-risk.md) | `risk-scoring/legislative-risk.md` |
@@ -2779,6 +2777,8 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/threat-assessment/threat-landscape.md) | `threat-assessment/threat-landscape.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-ahead/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
