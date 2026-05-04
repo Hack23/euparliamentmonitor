@@ -194,8 +194,6 @@ A deterministic 3–7 bullet synthesis of the strongest evidence-bearing finding
 - **FS-2026-05-01-003:** EDIS rapporteur (ITRE) committee vote — expected May 18-21 plenary session. Pre-clearance during May 4-8 determinative.
 - **FS-2026-05-01-004:** US automotive tariff negotiation — formal announcement or 90-day extension decision expected by end of May 2026.
 - **FS-2026-05-01-005:** Clean Industrial Deal state aid framework — Commission legislative proposal expected before July 2026 summer recess.
-- Budgetary amendments requiring BUDG committee report by June session
-- International agreements requiring AFET/DROI ratification procedures
 
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
@@ -589,329 +587,6 @@ The following forward statements are written into this run's registry and should
 | US Admin | N/A | 🟡 WATCH | 🟡 CONDITIONAL | 🔴 DRIVER |
 
 ---
-
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### Executive Summary
-
-The week of 4–8 May 2026 operates in a high-complexity PESTLE environment where **defence rearmament**, **industrial competitiveness**, and **digital governance** forces are converging simultaneously with unusual intensity. The political environment is characterised by unprecedented fragmentation (6.57 ENP); the economic environment by transatlantic trade stress and industrial transition costs; the social environment by populist-eurosceptic pressure on migration and cultural issues; the technological environment by AI Act enforcement gaps and dual-use technology proliferation; the legal environment by EDIS procurement rule implementation and AI Act entering force; and the environmental environment by Green Deal deceleration pressure. All six PESTLE dimensions are simultaneously at elevated stress levels — a rare convergence that increases systemic legislative risk.
-
----
-
-### P — Political Dimension
-
-#### P1: Fragmentation Dynamics
-**Status:** 🔴 HIGH STRESS
-
-The EU Parliament is operating at its highest recorded fragmentation level (ENP 6.57). The structural consequence is that **no two-group majority is possible** — every legislative majority requires ≥3 political groups. This week's committee work must anticipate the coalition arithmetic for the May 18–21 plenary:
-- **EPP + S&D + Renew** (397 seats, 36 above threshold): The "von der Leyen coalition" — most reliable for centre-ground legislation but unstable on cultural files
-- **EPP + ECR + Renew** (343 seats, 18 below threshold): Insufficient; requires NI or other supplementation
-- **EPP + ECR + PfE** (351 seats, 10 below threshold): Far-right alignment; toxic for S&D support on any file
-
-**Tactical implication:** Rapporteurs on contested files are maximising compromise proposals that can attract the widest possible coalition. File-specific ad hoc majorities are the norm rather than the exception in EP10.
-
-#### P2: EPP Dominant Group Risk
-**Status:** 🟡 MEDIUM CONCERN
-
-EPP (185 seats) is 19× the size of ESN (27 seats) — the largest dominance ratio in EP history. While EPP cannot pass legislation unilaterally, it controls committee chair positions, rapporteur assignments, and Conference of Presidents agenda-setting. This structural advantage means EPP's policy priorities (competitiveness-first, controlled Green Deal deceleration, rearmament support) will dominate this week's committee agenda regardless of formal coalition arithmetic.
-
-#### P3: Right-of-Centre Coalition Dominance
-**Status:** 🟡 MEDIUM RISK
-
-The right bloc (EPP + PfE + ECR + ESN) holds 52.3% of structural seat share — a structural majority if aligned. However, this coalition is ideologically incoherent: EPP's pro-European orientation is fundamentally incompatible with ESN's anti-EU euroscepticism. The operational "right bloc" for EP legislation is EPP + ECR (and sometimes Renew) on specific files, not a unified right coalition.
-
-#### P4: External Political Pressures
-**Status:** 🟡 MEDIUM RISK
-- US Presidential administration's transactional approach to EU relations creates instability in INTA and AFET committee deliberations
-- Ukraine war status and Russian hybrid warfare threats elevate security committee urgency
-- Israeli-Palestinian conflict MEP resolutions creating cross-group alliance complications
-- Populist electoral gains in France, Italy creating EPP political management challenges
-
----
-
-### E — Economic Dimension
-
-#### E1: Industrial Competitiveness Pressure
-**Status:** 🔴 HIGH CONCERN
-
-EU industrial competitiveness concerns (Draghi Report findings) are driving ITRE committee legislative urgency. Key metrics:
-- EU manufacturing output: stagnant for 18 months
-- Clean tech investment gap vs. US IRA + China subsidies: estimated €250–400bn annually
-- Energy costs: EU industrial electricity prices remain 2–3× US levels despite normalisation from 2022 peaks
-- R&D investment gap: EU at 2.2% of GDP vs. US 3.5%, China 2.6%
-
-#### E2: Trade Policy Uncertainty
-**Status:** 🔴 HIGH CONCERN
-EU-US tariff tensions (Section 232 + automotive threats) inject significant economic uncertainty into INTA and ITRE work. Estimated EU economic exposure: €130bn in export value at various tariff risk levels (see economic-context.md for full analysis).
-
-#### E3: Defence Spending Fiscal Pressure
-**Status:** 🟡 MEDIUM CONCERN
-NATO 2% GDP commitments require €85–120bn additional EU-wide defence spending — creating structural tension with fiscal consolidation commitments and Clean Industrial Deal investment priorities. BUDG committee trade-off analysis is live this week.
-
-#### E4: ECB Monetary Backdrop
-**Status:** 🟡 LOW-MEDIUM CONCERN
-Post-normalisation monetary conditions (estimated 2.25–2.75% deposit rate) create higher financing costs for all investment-related legislative instruments. EIB mandate expansion being discussed to compensate.
-
----
-
-### S — Social Dimension
-
-#### S1: Migration and Asylum Policy Pressure
-**Status:** 🟡 MEDIUM CONCERN
-Post-Pact on Migration and Asylum implementation is encountering member state resistance. LIBE committee monitoring national implementation — several eastern member states (Poland, Hungary) face compliance proceedings. Public opinion in several member states shows migration as top concern — creating electoral pressure on EPP members from right-of-centre electorates.
-
-#### S2: Social Standards vs. Competitiveness
-**Status:** 🟡 MEDIUM CONCERN
-The Clean Industrial Deal debates intersect with workers' rights frameworks (Platform Work Directive, Corporate Sustainability Due Diligence Directive implementation). S&D is pushing for mandatory social standards in ITRE files; EPP is resisting as "unnecessary burden." This creates a structural tension that will be visible in committee amendments this week.
-
-#### S3: Energy Poverty and Cost of Living
-**Status:** 🟡 MEDIUM CONCERN
-Elevated energy costs and housing affordability concerns across EU member states are creating social pressure on MEPs from all groups. ENVI and ITRE committees face trade-offs between green transition speed and cost burden on low-income households.
-
----
-
-### T — Technological Dimension
-
-#### T1: AI Act Implementation Critical Path
-**Status:** 🔴 HIGH URGENCY
-
-The AI Act's prohibited practices prohibition enters force August 2026 (~90 days from reporting date). Key implementation gaps:
-- AI Office governance structure: partially established but not fully operational
-- Prohibited practices definitional scope: implementing acts not adopted
-- Fundamental rights impact assessment methodology: guidelines not published
-- Cross-border enforcement jurisdiction: unresolved for multi-country deployments
-- High-risk AI system certification bodies: only ~30% of required bodies designated nationally
-
-LIBE and ITRE committee work this week is directly relevant to the August enforcement deadline credibility.
-
-#### T2: Dual-Use Technology and Defence
-**Status:** 🟡 MEDIUM CONCERN
-EDIS and the European Defence Fund are driving demand for dual-use technology frameworks that balance civilian innovation with defence application. The EU Dual-Use Regulation implementation intersects with export control frameworks, chip export restrictions, and space technology governance — all active in ITRE and AFET committees.
-
-#### T3: Digital Infrastructure Sovereignty
-**Status:** 🟡 MEDIUM CONCERN
-European digital infrastructure sovereignty (cloud, semiconductor, quantum) — advanced by the EU Chips Act and European Cloud Initiative — is at implementation phase. ITRE committee is monitoring implementation progress and calibrating additional instruments.
-
----
-
-### L — Legal Dimension
-
-#### L1: EDIS Procurement Rules Legal Framework
-**Status:** 🟡 HIGH LEGAL COMPLEXITY
-
-The European Defence Industrial Strategy creates novel legal frameworks:
-- EU defence procurement preferences (departing from WTO GPA principles)
-- Third-country exclusion clauses vs. international commitments
-- Joint procurement legal personality requirements (new Treaty interpretation needed)
-- CFSP/TFEU legal basis mixing in single instruments
-
-The legality of key EDIS provisions is being scrutinised by Legal Affairs (JURI) committee. Any substantial JURI opinion against procurement exclusivity provisions could reshape the committee majority's positions.
-
-#### L2: AI Act — Implementing Acts Timeline
-**Status:** 🔴 HIGH LEGAL URGENCY
-Multiple AI Act implementing acts remain unadopted as of May 2026. The Commission has published draft implementing acts but consultation periods are ongoing. EP's right to scrutiny (Article 46(3) AI Act) creates a legislative window for LIBE/ITRE to reject or amend draft implementing acts — a procedural power that is underutilised but significant.
-
-#### L3: Trade Defence Legal Architecture
-**Status:** 🟡 MEDIUM CONCERN
-EU trade defence instruments (Anti-Dumping, Anti-Subsidy, WTO dispute resolution) are being stress-tested by the US tariff situation. The legal basis for EU countermeasures — and their proportionality to WTO norms — is under legal review in JURI/INTA coordination.
-
----
-
-### E — Environmental Dimension
-
-#### En1: Green Deal Deceleration Risk
-**Status:** 🔴 HIGH CONCERN
-
-The Green Deal legislative acquis faces deceleration pressure from EPP-ECR coalition:
-- Nature Restoration Law implementation: contested in multiple member states
-- ETS Phase 4 + CBAM interaction: revenue allocation still unresolved
-- Clean Air Zone requirements: resistance from automotive sector MEPs
-- Pesticide reduction targets: ENVI committee majority fragile
-
-The risk is not formal Green Deal repeal but incremental revision through implementing acts — the "Green Deal in name only" scenario if EPP manages to slow all implementing legislation.
-
-#### En2: Climate Finance and Just Transition
-**Status:** 🟡 MEDIUM CONCERN
-The Social Climate Fund (linked to ETS extension to buildings and road transport) is entering implementation phase. BUDG and ENVI committees are examining disbursement frameworks. Distributional concerns (burden on low-income households) create social-environmental trade-off.
-
-#### En3: Biodiversity Framework Implementation
-**Status:** 🟡 LOW-MEDIUM CONCERN
-EU Biodiversity Strategy 2030 targets are increasingly off-track. ENVI committee monitoring is flagging significant gaps between commitments and national implementation. However, this is lower priority for the week's committee agenda relative to industrial and defence files.
-
----
-
-### PESTLE Summary Matrix
-
-| Dimension | Stress Level | Primary Driver | EP Legislative Response |
-|-----------|-------------|---------------|------------------------|
-| Political | 🔴 HIGH | Fragmentation; right-shift | Coalition management; flexible majorities |
-| Economic | 🔴 HIGH | Tariffs; competitiveness gap | INTA/ITRE legislative instruments |
-| Social | 🟡 MEDIUM | Migration; cost of living | LIBE; EMPL committee monitoring |
-| Technological | 🔴 HIGH | AI Act deadline; dual-use | LIBE/ITRE enforcement architecture |
-| Legal | 🟡 HIGH | EDIS novel law; AI implementing acts | JURI scrutiny; EP oversight |
-| Environmental | 🔴 HIGH | Green Deal deceleration | ENVI baseline defence; ITRE trade-offs |
-
-**Overall PESTLE Risk:** 🔴 HIGH — Simultaneous elevation across all dimensions is unusual and indicates a period of compressed legislative urgency.
-
----
-
-*PESTLE Analysis | Week-Ahead 2026-05-04 to 2026-05-08 | EU Parliament Monitor*
-*Data: EP Open Data Portal | Analysis: 2026-05-01*
-
----
-
-### PESTLE Summary Matrix (Extended)
-
-| Dimension | Key Factors | Stress Level | Primary Dossier Impact |
-|-----------|-------------|-------------|------------------------|
-| Political | 6.57 ENP fragmentation, EPP grand coalition strain, AI Act enforcement gap | 🔴 HIGH | ALL |
-| Economic | 1.8% EU GDP growth, defence 2% target, tariff threat | 🟡 MEDIUM | EDIS, Clean Industrial Deal |
-| Social | Public AI anxiety, defence consensus shift post-Ukraine | 🟡 MEDIUM | AI Act, EDIS |
-| Technological | AI Act definitional ambiguity, quantum/cyber threat | 🟡 MEDIUM | AI Act, LIBE |
-| Legal | Treaty basis risk for EDIS, WTO compliance for tariffs | 🔴 HIGH | EDIS, INTA |
-| Environmental | Clean Industrial Deal vs. emissions targets tension | 🟡 MEDIUM | Clean Industrial Deal, ECON |
-
-**Cross-PESTLE interaction:** The Political (fragmentation) and Legal (Treaty basis) dimensions are mutually reinforcing — fragmentation makes it harder to resolve legal challenges because compromises required for coalition management may create new legal vulnerabilities. This is the most dangerous PESTLE interaction for the week.
-
-#### PESTLE Scenario Interaction
-
-**If Political stress resolves (coalition pre-cleared):** Legal and Economic stress remain but are manageable. PESTLE composite risk drops from HIGH to MEDIUM.
-
-**If Political stress escalates (coalition fails in committee):** All other PESTLE dimensions escalate simultaneously. Legal challenges become EPP's fallback argument for delay. Economic policy stalls. Social anxiety about EP governance effectiveness increases.
-
-**The week of May 4-8 is thus a PESTLE bifurcation point:** The coalition management quality of this single committee week will determine whether the PESTLE composite stress for the entire summer legislative session remains at MEDIUM or escalates to HIGH.
-
-#### PESTLE-driven Priority Ranking for EP Leadership
-
-1. **Political:** Resolve EPP-Renew-S&D coalition positions on EDIS (must happen this week)
-2. **Legal:** Clarify Treaty basis for EDIS supranational procurement provisions (JURI must be engaged)
-3. **Technological:** Secure Commission commitment on AI Act implementing acts timetable (LIBE urgent communication)
-4. **Economic:** Pre-position INTA contingency response to US automotive tariff decision
-5. **Environmental:** Reconcile Clean Industrial Deal state aid with Green Deal emissions trajectory (ENVI-ECON-ITRE joint work)
-6. **Social:** Public messaging that EP committee week is making substantive progress on defence and AI governance
-
-### Historical Baseline
-
-### 1. Historical Context: EP10 Year 2 Characteristics
-
-The European Parliament in May 2026 is in the **second year of its tenth term (EP10: 2024–2029)**. Year 2 of each parliamentary term has historically shown the following patterns:
-
-| Indicator | EP6 Yr2 | EP7 Yr2 | EP8 Yr2 | EP9 Yr2 | EP10 Yr2 (current) |
-|-----------|---------|---------|---------|---------|---------------------|
-| Legislative Acts | 82 | 95 | 89 | 104 | 114 (proj) |
-| Plenary Sessions | 52 | 55 | 53 | 56 | 54 |
-| Committee Meetings | 1,820 | 1,950 | 2,100 | 2,280 | 2,363 |
-| Roll-Call Votes | 380 | 412 | 445 | 520 | 567 |
-| Parliamentary Questions | 3,200 | 4,100 | 4,800 | 5,900 | 6,147 |
-
-**Key Pattern:** EP10 Year 2 is tracking above all prior term Year 2 records across every metric, reflecting increasing parliamentary activism, growing legislative complexity, and the structural shift from biparty (EPP-S&D) to multiparty coalition governance.
-
-🟢 **Confidence: HIGH** — Based on precomputed EP Open Data statistics with full historical coverage.
-
----
-
-### 2. May Committee Weeks: Historical Pattern Analysis
-
-**Pattern identification:** May in even years (mid-term) has historically been characterised by:
-- Accelerated committee reporting schedules (June plenary deadline pressure)
-- Trilogue intensification on carryover files from Q1
-- Commission delegated act deadline monitoring
-- Budget revision requests from member states
-
-**Comparable prior May weeks (similar committee-week structure):**
-
-**May 2022 (EP9 Year 3):** Committee work week preceding the May 23–26 plenary. Key files: REPowerEU, Digital Services Act trilogue, Corporate Sustainability Reporting Directive. Political dynamics: S&D-Renew-EPP coalition on digital; EPP-ECR alignment on energy security exemptions from REPowerEU.
-
-**May 2020 (EP9 Year 1):** COVID-19 emergency response. Recovery fund pre-negotiations. LIBE on cross-border health surveillance. Unusual: emergency committee procedures used for first time post-Treaty of Lisbon.
-
-**May 2018 (EP8 Year 4):** Pre-election year; high legislative urgency. GDPR implementation preparation. Copyright Directive trilogue. LIBE-S&D-Greens/EFA alignment on fundamental rights.
-
-**Structural comparison with May 2026:**
-EP10 May 2026 most closely resembles EP9 May 2022 in terms of: legislative output trajectory (+12% above equivalent EP9 period), committee workload, geopolitical stress (external security pressure driving institutional coordination), and coalition instability risk (3-party minimum for any majority).
-
-🟡 **Confidence: MEDIUM** — Historical pattern analysis reliable; EP10 specifics inferred from trajectory data.
-
----
-
-### 3. April–May Plenary Transition: Historical Significance
-
-The April–May inter-plenary period carries distinctive features in the EP annual cycle:
-
-**Budget Cycle Position:** Late April through mid-May sits at the transition between the Commission's Spring Fiscal Package (European Semester) and EP's own-initiative reports on fiscal governance. This timing means BUDG committee work in early May is often linked to Stability and Convergence Programme assessments.
-
-**Post-Easter Acceleration:** The period follows the Easter recess (typically late March/April) with accelerated legislative urgency. Committees use early May to catch up on files delayed by the recess.
-
-**Pre-Summer Urgency:** The June plenary is typically the last full legislative session before the July recess. May committee weeks are therefore the last significant pipeline push before the legislative year's effective close.
-
-**Historical Output:** April-May transitions in prior terms produced 18–24 committee reports per week on average during active work weeks, with 3–5 key vote endorsements at plenary.
-
-🟢 **Confidence: HIGH** — Pattern based on established EP institutional practice across multiple terms.
-
----
-
-### 4. Political Fragmentation Historical Trajectory
-
-**Effective Number of Parties (ENP) — Historical:**
-
-| Year | ENP | Majority Structure |
-|------|-----|-------------------|
-| 2004 (EP6) | 3.8 | EPP-S&D bilateral possible |
-| 2009 (EP7) | 4.1 | EPP-S&D dominant, Renew supplementary |
-| 2014 (EP8) | 4.6 | EPP-S&D still sufficient for most votes |
-| 2019 (EP9) | 5.9 | EPP-S&D below 50%; requires 3-group coalitions |
-| 2024 (EP10 Y1) | 6.4 | Right-populist surge; new fragmentation record |
-| 2026 (EP10 Y2) | 6.57 | All-time high ENP; multiparty minimum coalition |
-
-**Interpretation:** The current fragmentation level (6.57) is a structural break from the EP's historical post-Lisbon Treaty patterns. For the first time in the Parliament's history, the top two groups (EPP and S&D) cannot command a majority — requiring all legislation to pass through multiparty coalition building. This week's committee work occurs in this unprecedented fragmentation context.
-
-**Coalition mathematics implications:**
-- Every majority coalition requires ≥3 groups
-- Minimum winning coalition: EPP + S&D + Renew (397 seats; 36 above threshold)
-- Alternative: EPP + ECR + PfE (351 seats; 10 below threshold — insufficient)
-- Progressive bloc (S&D + Renew + Greens/EFA + The Left): 311 seats — insufficient
-
-🟢 **Confidence: HIGH** — Mathematical analysis of current seat data; trajectory from precomputed historical statistics.
-
----
-
-### 5. Regulatory Calendar Historical Context
-
-**Key legislative anniversaries in May 2026:**
-- 2 years since AI Act adoption (signed 2024-07-12; prohibitions entering force August 2026)
-- 3 years since first EDIS preliminary framework discussions
-- 5 years since initial Clean Industrial Deal conceptual papers
-- 10 years since CETA provisional application (significance: transatlantic trade law precedents)
-
-**GDPR as institutional template:** The May 2018 GDPR implementation provides the most direct historical analogue for the AI Act's current enforcement preparation phase. GDPR experienced: delayed national implementation (12 of 27 member states missed May 25, 2018 deadline); enforcement disparity (Ireland/Luxembourg DPAs overwhelmed); and 2-year practical uncertainty period before enforcement stabilised. The AI Act faces structurally similar institutional readiness gaps.
-
-🟡 **Confidence: MEDIUM** — GDPR comparison is analytical assessment; AI Act enforcement readiness inferred from public sources.
-
----
-
-*Historical Baseline | Week-Ahead 2026-05-04 to 2026-05-08 | EU Parliament Monitor*
-*Data: EP Open Data Portal precomputed statistics | Analysis: 2026-05-01*
-
----
-
-### Extended Historical Context: May Committee Weeks
-
-#### Historical Pattern: EP May Non-Plenary Weeks
-
-Analysis of EP institutional calendars from EP8 (2014-2019), EP9 (2019-2024), and EP10 (2024-present) reveals a consistent pattern for May committee weeks (the first committee week after the spring recess):
-
-**EP8 May 2017 (Comparable period):** GDPR final committee vote preparation; AI/data policy not yet a primary concern. Coalition dynamics: EPP-S&D grand coalition was functional; ENP approximately 5.2.
-
-**EP9 May 2020 (COVID disruption — not comparable):** Remote committee sessions; emergency legislative procedures activated. Not a valid baseline.
-
-**EP9 May 2021 (Post-COVID return to normal):** Digital Markets Act rapporteur consultations; ENP approximately 5.8. EP9 Year 2 showed similar legislative acceleration pattern to EP10 Year 2.
-
-**EP10 May 2026 (Current):** EDIS + Clean Industrial Deal + AI Act simultaneously active; ENP 6.57 — record high. The combination of defence urgency, AI governance urgency, and economic policy urgency in a single committee week is historically unprecedented in the post-2004 enlarged EU Parliament.
-
-**Key historical finding:** The closest analog is EP9 May 2021 (post-COVID acceleration with multiple simultaneous digital economy dossiers). In that period, the EP managed to advance 4 major files simultaneously through effective trilateral coordination between EPP, Renew, and S&D — but the fragmentation level was lower (ENP 5.8 vs 6.57) and the external shock environment was less intense.
-
-**Fragmentation trajectory inflection:** The 6.57 ENP represents a structural break from the 4.8-5.5 ENP range that characterised EP8 and EP9. Historical precedent offers limited guidance for operating at this fragmentation level.
 
 <h2 id="section-economic-context">Economic Context</h2>
 
@@ -1845,6 +1520,329 @@ The combination of WC-01 (EPP fracture) and WC-04 (AI incident) would constitute
 
 **Final note:** All wild card probabilities in this analysis are structured estimates with approximately plus or minus 10 percentage point uncertainty. The analytical purpose is decision-relevant categorisation, not precise prediction.
 
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### Executive Summary
+
+The week of 4–8 May 2026 operates in a high-complexity PESTLE environment where **defence rearmament**, **industrial competitiveness**, and **digital governance** forces are converging simultaneously with unusual intensity. The political environment is characterised by unprecedented fragmentation (6.57 ENP); the economic environment by transatlantic trade stress and industrial transition costs; the social environment by populist-eurosceptic pressure on migration and cultural issues; the technological environment by AI Act enforcement gaps and dual-use technology proliferation; the legal environment by EDIS procurement rule implementation and AI Act entering force; and the environmental environment by Green Deal deceleration pressure. All six PESTLE dimensions are simultaneously at elevated stress levels — a rare convergence that increases systemic legislative risk.
+
+---
+
+### P — Political Dimension
+
+#### P1: Fragmentation Dynamics
+**Status:** 🔴 HIGH STRESS
+
+The EU Parliament is operating at its highest recorded fragmentation level (ENP 6.57). The structural consequence is that **no two-group majority is possible** — every legislative majority requires ≥3 political groups. This week's committee work must anticipate the coalition arithmetic for the May 18–21 plenary:
+- **EPP + S&D + Renew** (397 seats, 36 above threshold): The "von der Leyen coalition" — most reliable for centre-ground legislation but unstable on cultural files
+- **EPP + ECR + Renew** (343 seats, 18 below threshold): Insufficient; requires NI or other supplementation
+- **EPP + ECR + PfE** (351 seats, 10 below threshold): Far-right alignment; toxic for S&D support on any file
+
+**Tactical implication:** Rapporteurs on contested files are maximising compromise proposals that can attract the widest possible coalition. File-specific ad hoc majorities are the norm rather than the exception in EP10.
+
+#### P2: EPP Dominant Group Risk
+**Status:** 🟡 MEDIUM CONCERN
+
+EPP (185 seats) is 19× the size of ESN (27 seats) — the largest dominance ratio in EP history. While EPP cannot pass legislation unilaterally, it controls committee chair positions, rapporteur assignments, and Conference of Presidents agenda-setting. This structural advantage means EPP's policy priorities (competitiveness-first, controlled Green Deal deceleration, rearmament support) will dominate this week's committee agenda regardless of formal coalition arithmetic.
+
+#### P3: Right-of-Centre Coalition Dominance
+**Status:** 🟡 MEDIUM RISK
+
+The right bloc (EPP + PfE + ECR + ESN) holds 52.3% of structural seat share — a structural majority if aligned. However, this coalition is ideologically incoherent: EPP's pro-European orientation is fundamentally incompatible with ESN's anti-EU euroscepticism. The operational "right bloc" for EP legislation is EPP + ECR (and sometimes Renew) on specific files, not a unified right coalition.
+
+#### P4: External Political Pressures
+**Status:** 🟡 MEDIUM RISK
+- US Presidential administration's transactional approach to EU relations creates instability in INTA and AFET committee deliberations
+- Ukraine war status and Russian hybrid warfare threats elevate security committee urgency
+- Israeli-Palestinian conflict MEP resolutions creating cross-group alliance complications
+- Populist electoral gains in France, Italy creating EPP political management challenges
+
+---
+
+### E — Economic Dimension
+
+#### E1: Industrial Competitiveness Pressure
+**Status:** 🔴 HIGH CONCERN
+
+EU industrial competitiveness concerns (Draghi Report findings) are driving ITRE committee legislative urgency. Key metrics:
+- EU manufacturing output: stagnant for 18 months
+- Clean tech investment gap vs. US IRA + China subsidies: estimated €250–400bn annually
+- Energy costs: EU industrial electricity prices remain 2–3× US levels despite normalisation from 2022 peaks
+- R&D investment gap: EU at 2.2% of GDP vs. US 3.5%, China 2.6%
+
+#### E2: Trade Policy Uncertainty
+**Status:** 🔴 HIGH CONCERN
+EU-US tariff tensions (Section 232 + automotive threats) inject significant economic uncertainty into INTA and ITRE work. Estimated EU economic exposure: €130bn in export value at various tariff risk levels (see economic-context.md for full analysis).
+
+#### E3: Defence Spending Fiscal Pressure
+**Status:** 🟡 MEDIUM CONCERN
+NATO 2% GDP commitments require €85–120bn additional EU-wide defence spending — creating structural tension with fiscal consolidation commitments and Clean Industrial Deal investment priorities. BUDG committee trade-off analysis is live this week.
+
+#### E4: ECB Monetary Backdrop
+**Status:** 🟡 LOW-MEDIUM CONCERN
+Post-normalisation monetary conditions (estimated 2.25–2.75% deposit rate) create higher financing costs for all investment-related legislative instruments. EIB mandate expansion being discussed to compensate.
+
+---
+
+### S — Social Dimension
+
+#### S1: Migration and Asylum Policy Pressure
+**Status:** 🟡 MEDIUM CONCERN
+Post-Pact on Migration and Asylum implementation is encountering member state resistance. LIBE committee monitoring national implementation — several eastern member states (Poland, Hungary) face compliance proceedings. Public opinion in several member states shows migration as top concern — creating electoral pressure on EPP members from right-of-centre electorates.
+
+#### S2: Social Standards vs. Competitiveness
+**Status:** 🟡 MEDIUM CONCERN
+The Clean Industrial Deal debates intersect with workers' rights frameworks (Platform Work Directive, Corporate Sustainability Due Diligence Directive implementation). S&D is pushing for mandatory social standards in ITRE files; EPP is resisting as "unnecessary burden." This creates a structural tension that will be visible in committee amendments this week.
+
+#### S3: Energy Poverty and Cost of Living
+**Status:** 🟡 MEDIUM CONCERN
+Elevated energy costs and housing affordability concerns across EU member states are creating social pressure on MEPs from all groups. ENVI and ITRE committees face trade-offs between green transition speed and cost burden on low-income households.
+
+---
+
+### T — Technological Dimension
+
+#### T1: AI Act Implementation Critical Path
+**Status:** 🔴 HIGH URGENCY
+
+The AI Act's prohibited practices prohibition enters force August 2026 (~90 days from reporting date). Key implementation gaps:
+- AI Office governance structure: partially established but not fully operational
+- Prohibited practices definitional scope: implementing acts not adopted
+- Fundamental rights impact assessment methodology: guidelines not published
+- Cross-border enforcement jurisdiction: unresolved for multi-country deployments
+- High-risk AI system certification bodies: only ~30% of required bodies designated nationally
+
+LIBE and ITRE committee work this week is directly relevant to the August enforcement deadline credibility.
+
+#### T2: Dual-Use Technology and Defence
+**Status:** 🟡 MEDIUM CONCERN
+EDIS and the European Defence Fund are driving demand for dual-use technology frameworks that balance civilian innovation with defence application. The EU Dual-Use Regulation implementation intersects with export control frameworks, chip export restrictions, and space technology governance — all active in ITRE and AFET committees.
+
+#### T3: Digital Infrastructure Sovereignty
+**Status:** 🟡 MEDIUM CONCERN
+European digital infrastructure sovereignty (cloud, semiconductor, quantum) — advanced by the EU Chips Act and European Cloud Initiative — is at implementation phase. ITRE committee is monitoring implementation progress and calibrating additional instruments.
+
+---
+
+### L — Legal Dimension
+
+#### L1: EDIS Procurement Rules Legal Framework
+**Status:** 🟡 HIGH LEGAL COMPLEXITY
+
+The European Defence Industrial Strategy creates novel legal frameworks:
+- EU defence procurement preferences (departing from WTO GPA principles)
+- Third-country exclusion clauses vs. international commitments
+- Joint procurement legal personality requirements (new Treaty interpretation needed)
+- CFSP/TFEU legal basis mixing in single instruments
+
+The legality of key EDIS provisions is being scrutinised by Legal Affairs (JURI) committee. Any substantial JURI opinion against procurement exclusivity provisions could reshape the committee majority's positions.
+
+#### L2: AI Act — Implementing Acts Timeline
+**Status:** 🔴 HIGH LEGAL URGENCY
+Multiple AI Act implementing acts remain unadopted as of May 2026. The Commission has published draft implementing acts but consultation periods are ongoing. EP's right to scrutiny (Article 46(3) AI Act) creates a legislative window for LIBE/ITRE to reject or amend draft implementing acts — a procedural power that is underutilised but significant.
+
+#### L3: Trade Defence Legal Architecture
+**Status:** 🟡 MEDIUM CONCERN
+EU trade defence instruments (Anti-Dumping, Anti-Subsidy, WTO dispute resolution) are being stress-tested by the US tariff situation. The legal basis for EU countermeasures — and their proportionality to WTO norms — is under legal review in JURI/INTA coordination.
+
+---
+
+### E — Environmental Dimension
+
+#### En1: Green Deal Deceleration Risk
+**Status:** 🔴 HIGH CONCERN
+
+The Green Deal legislative acquis faces deceleration pressure from EPP-ECR coalition:
+- Nature Restoration Law implementation: contested in multiple member states
+- ETS Phase 4 + CBAM interaction: revenue allocation still unresolved
+- Clean Air Zone requirements: resistance from automotive sector MEPs
+- Pesticide reduction targets: ENVI committee majority fragile
+
+The risk is not formal Green Deal repeal but incremental revision through implementing acts — the "Green Deal in name only" scenario if EPP manages to slow all implementing legislation.
+
+#### En2: Climate Finance and Just Transition
+**Status:** 🟡 MEDIUM CONCERN
+The Social Climate Fund (linked to ETS extension to buildings and road transport) is entering implementation phase. BUDG and ENVI committees are examining disbursement frameworks. Distributional concerns (burden on low-income households) create social-environmental trade-off.
+
+#### En3: Biodiversity Framework Implementation
+**Status:** 🟡 LOW-MEDIUM CONCERN
+EU Biodiversity Strategy 2030 targets are increasingly off-track. ENVI committee monitoring is flagging significant gaps between commitments and national implementation. However, this is lower priority for the week's committee agenda relative to industrial and defence files.
+
+---
+
+### PESTLE Summary Matrix
+
+| Dimension | Stress Level | Primary Driver | EP Legislative Response |
+|-----------|-------------|---------------|------------------------|
+| Political | 🔴 HIGH | Fragmentation; right-shift | Coalition management; flexible majorities |
+| Economic | 🔴 HIGH | Tariffs; competitiveness gap | INTA/ITRE legislative instruments |
+| Social | 🟡 MEDIUM | Migration; cost of living | LIBE; EMPL committee monitoring |
+| Technological | 🔴 HIGH | AI Act deadline; dual-use | LIBE/ITRE enforcement architecture |
+| Legal | 🟡 HIGH | EDIS novel law; AI implementing acts | JURI scrutiny; EP oversight |
+| Environmental | 🔴 HIGH | Green Deal deceleration | ENVI baseline defence; ITRE trade-offs |
+
+**Overall PESTLE Risk:** 🔴 HIGH — Simultaneous elevation across all dimensions is unusual and indicates a period of compressed legislative urgency.
+
+---
+
+*PESTLE Analysis | Week-Ahead 2026-05-04 to 2026-05-08 | EU Parliament Monitor*
+*Data: EP Open Data Portal | Analysis: 2026-05-01*
+
+---
+
+### PESTLE Summary Matrix (Extended)
+
+| Dimension | Key Factors | Stress Level | Primary Dossier Impact |
+|-----------|-------------|-------------|------------------------|
+| Political | 6.57 ENP fragmentation, EPP grand coalition strain, AI Act enforcement gap | 🔴 HIGH | ALL |
+| Economic | 1.8% EU GDP growth, defence 2% target, tariff threat | 🟡 MEDIUM | EDIS, Clean Industrial Deal |
+| Social | Public AI anxiety, defence consensus shift post-Ukraine | 🟡 MEDIUM | AI Act, EDIS |
+| Technological | AI Act definitional ambiguity, quantum/cyber threat | 🟡 MEDIUM | AI Act, LIBE |
+| Legal | Treaty basis risk for EDIS, WTO compliance for tariffs | 🔴 HIGH | EDIS, INTA |
+| Environmental | Clean Industrial Deal vs. emissions targets tension | 🟡 MEDIUM | Clean Industrial Deal, ECON |
+
+**Cross-PESTLE interaction:** The Political (fragmentation) and Legal (Treaty basis) dimensions are mutually reinforcing — fragmentation makes it harder to resolve legal challenges because compromises required for coalition management may create new legal vulnerabilities. This is the most dangerous PESTLE interaction for the week.
+
+#### PESTLE Scenario Interaction
+
+**If Political stress resolves (coalition pre-cleared):** Legal and Economic stress remain but are manageable. PESTLE composite risk drops from HIGH to MEDIUM.
+
+**If Political stress escalates (coalition fails in committee):** All other PESTLE dimensions escalate simultaneously. Legal challenges become EPP's fallback argument for delay. Economic policy stalls. Social anxiety about EP governance effectiveness increases.
+
+**The week of May 4-8 is thus a PESTLE bifurcation point:** The coalition management quality of this single committee week will determine whether the PESTLE composite stress for the entire summer legislative session remains at MEDIUM or escalates to HIGH.
+
+#### PESTLE-driven Priority Ranking for EP Leadership
+
+1. **Political:** Resolve EPP-Renew-S&D coalition positions on EDIS (must happen this week)
+2. **Legal:** Clarify Treaty basis for EDIS supranational procurement provisions (JURI must be engaged)
+3. **Technological:** Secure Commission commitment on AI Act implementing acts timetable (LIBE urgent communication)
+4. **Economic:** Pre-position INTA contingency response to US automotive tariff decision
+5. **Environmental:** Reconcile Clean Industrial Deal state aid with Green Deal emissions trajectory (ENVI-ECON-ITRE joint work)
+6. **Social:** Public messaging that EP committee week is making substantive progress on defence and AI governance
+
+### Historical Baseline
+
+### 1. Historical Context: EP10 Year 2 Characteristics
+
+The European Parliament in May 2026 is in the **second year of its tenth term (EP10: 2024–2029)**. Year 2 of each parliamentary term has historically shown the following patterns:
+
+| Indicator | EP6 Yr2 | EP7 Yr2 | EP8 Yr2 | EP9 Yr2 | EP10 Yr2 (current) |
+|-----------|---------|---------|---------|---------|---------------------|
+| Legislative Acts | 82 | 95 | 89 | 104 | 114 (proj) |
+| Plenary Sessions | 52 | 55 | 53 | 56 | 54 |
+| Committee Meetings | 1,820 | 1,950 | 2,100 | 2,280 | 2,363 |
+| Roll-Call Votes | 380 | 412 | 445 | 520 | 567 |
+| Parliamentary Questions | 3,200 | 4,100 | 4,800 | 5,900 | 6,147 |
+
+**Key Pattern:** EP10 Year 2 is tracking above all prior term Year 2 records across every metric, reflecting increasing parliamentary activism, growing legislative complexity, and the structural shift from biparty (EPP-S&D) to multiparty coalition governance.
+
+🟢 **Confidence: HIGH** — Based on precomputed EP Open Data statistics with full historical coverage.
+
+---
+
+### 2. May Committee Weeks: Historical Pattern Analysis
+
+**Pattern identification:** May in even years (mid-term) has historically been characterised by:
+- Accelerated committee reporting schedules (June plenary deadline pressure)
+- Trilogue intensification on carryover files from Q1
+- Commission delegated act deadline monitoring
+- Budget revision requests from member states
+
+**Comparable prior May weeks (similar committee-week structure):**
+
+**May 2022 (EP9 Year 3):** Committee work week preceding the May 23–26 plenary. Key files: REPowerEU, Digital Services Act trilogue, Corporate Sustainability Reporting Directive. Political dynamics: S&D-Renew-EPP coalition on digital; EPP-ECR alignment on energy security exemptions from REPowerEU.
+
+**May 2020 (EP9 Year 1):** COVID-19 emergency response. Recovery fund pre-negotiations. LIBE on cross-border health surveillance. Unusual: emergency committee procedures used for first time post-Treaty of Lisbon.
+
+**May 2018 (EP8 Year 4):** Pre-election year; high legislative urgency. GDPR implementation preparation. Copyright Directive trilogue. LIBE-S&D-Greens/EFA alignment on fundamental rights.
+
+**Structural comparison with May 2026:**
+EP10 May 2026 most closely resembles EP9 May 2022 in terms of: legislative output trajectory (+12% above equivalent EP9 period), committee workload, geopolitical stress (external security pressure driving institutional coordination), and coalition instability risk (3-party minimum for any majority).
+
+🟡 **Confidence: MEDIUM** — Historical pattern analysis reliable; EP10 specifics inferred from trajectory data.
+
+---
+
+### 3. April–May Plenary Transition: Historical Significance
+
+The April–May inter-plenary period carries distinctive features in the EP annual cycle:
+
+**Budget Cycle Position:** Late April through mid-May sits at the transition between the Commission's Spring Fiscal Package (European Semester) and EP's own-initiative reports on fiscal governance. This timing means BUDG committee work in early May is often linked to Stability and Convergence Programme assessments.
+
+**Post-Easter Acceleration:** The period follows the Easter recess (typically late March/April) with accelerated legislative urgency. Committees use early May to catch up on files delayed by the recess.
+
+**Pre-Summer Urgency:** The June plenary is typically the last full legislative session before the July recess. May committee weeks are therefore the last significant pipeline push before the legislative year's effective close.
+
+**Historical Output:** April-May transitions in prior terms produced 18–24 committee reports per week on average during active work weeks, with 3–5 key vote endorsements at plenary.
+
+🟢 **Confidence: HIGH** — Pattern based on established EP institutional practice across multiple terms.
+
+---
+
+### 4. Political Fragmentation Historical Trajectory
+
+**Effective Number of Parties (ENP) — Historical:**
+
+| Year | ENP | Majority Structure |
+|------|-----|-------------------|
+| 2004 (EP6) | 3.8 | EPP-S&D bilateral possible |
+| 2009 (EP7) | 4.1 | EPP-S&D dominant, Renew supplementary |
+| 2014 (EP8) | 4.6 | EPP-S&D still sufficient for most votes |
+| 2019 (EP9) | 5.9 | EPP-S&D below 50%; requires 3-group coalitions |
+| 2024 (EP10 Y1) | 6.4 | Right-populist surge; new fragmentation record |
+| 2026 (EP10 Y2) | 6.57 | All-time high ENP; multiparty minimum coalition |
+
+**Interpretation:** The current fragmentation level (6.57) is a structural break from the EP's historical post-Lisbon Treaty patterns. For the first time in the Parliament's history, the top two groups (EPP and S&D) cannot command a majority — requiring all legislation to pass through multiparty coalition building. This week's committee work occurs in this unprecedented fragmentation context.
+
+**Coalition mathematics implications:**
+- Every majority coalition requires ≥3 groups
+- Minimum winning coalition: EPP + S&D + Renew (397 seats; 36 above threshold)
+- Alternative: EPP + ECR + PfE (351 seats; 10 below threshold — insufficient)
+- Progressive bloc (S&D + Renew + Greens/EFA + The Left): 311 seats — insufficient
+
+🟢 **Confidence: HIGH** — Mathematical analysis of current seat data; trajectory from precomputed historical statistics.
+
+---
+
+### 5. Regulatory Calendar Historical Context
+
+**Key legislative anniversaries in May 2026:**
+- 2 years since AI Act adoption (signed 2024-07-12; prohibitions entering force August 2026)
+- 3 years since first EDIS preliminary framework discussions
+- 5 years since initial Clean Industrial Deal conceptual papers
+- 10 years since CETA provisional application (significance: transatlantic trade law precedents)
+
+**GDPR as institutional template:** The May 2018 GDPR implementation provides the most direct historical analogue for the AI Act's current enforcement preparation phase. GDPR experienced: delayed national implementation (12 of 27 member states missed May 25, 2018 deadline); enforcement disparity (Ireland/Luxembourg DPAs overwhelmed); and 2-year practical uncertainty period before enforcement stabilised. The AI Act faces structurally similar institutional readiness gaps.
+
+🟡 **Confidence: MEDIUM** — GDPR comparison is analytical assessment; AI Act enforcement readiness inferred from public sources.
+
+---
+
+*Historical Baseline | Week-Ahead 2026-05-04 to 2026-05-08 | EU Parliament Monitor*
+*Data: EP Open Data Portal precomputed statistics | Analysis: 2026-05-01*
+
+---
+
+### Extended Historical Context: May Committee Weeks
+
+#### Historical Pattern: EP May Non-Plenary Weeks
+
+Analysis of EP institutional calendars from EP8 (2014-2019), EP9 (2019-2024), and EP10 (2024-present) reveals a consistent pattern for May committee weeks (the first committee week after the spring recess):
+
+**EP8 May 2017 (Comparable period):** GDPR final committee vote preparation; AI/data policy not yet a primary concern. Coalition dynamics: EPP-S&D grand coalition was functional; ENP approximately 5.2.
+
+**EP9 May 2020 (COVID disruption — not comparable):** Remote committee sessions; emergency legislative procedures activated. Not a valid baseline.
+
+**EP9 May 2021 (Post-COVID return to normal):** Digital Markets Act rapporteur consultations; ENP approximately 5.8. EP9 Year 2 showed similar legislative acceleration pattern to EP10 Year 2.
+
+**EP10 May 2026 (Current):** EDIS + Clean Industrial Deal + AI Act simultaneously active; ENP 6.57 — record high. The combination of defence urgency, AI governance urgency, and economic policy urgency in a single committee week is historically unprecedented in the post-2004 enlarged EU Parliament.
+
+**Key historical finding:** The closest analog is EP9 May 2021 (post-COVID acceleration with multiple simultaneous digital economy dossiers). In that period, the EP managed to advance 4 major files simultaneously through effective trilateral coordination between EPP, Renew, and S&D — but the fragmentation level was lower (ENP 5.8 vs 6.57) and the external shock environment was less intense.
+
+**Fragmentation trajectory inflection:** The 6.57 ENP represents a structural break from the 4.8-5.5 ENP range that characterised EP8 and EP9. Historical precedent offers limited guidance for operating at this fragmentation level.
+
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
 
 ### Overview
@@ -2609,14 +2607,14 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/week-ahead/executive-brief.md) | `executive-brief.md` |
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/week-ahead/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/week-ahead/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/week-ahead/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/week-ahead/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/week-ahead/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/week-ahead/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/week-ahead/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/week-ahead/intelligence/threat-model.md) | `intelligence/threat-model.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/week-ahead/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/week-ahead/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/week-ahead/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/week-ahead/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/week-ahead/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/week-ahead/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/week-ahead/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |

@@ -1195,331 +1195,6 @@ LOW INFLUENCE  │  NGOs / Civil │  NI (30) / ESN (27)
 
 *Stakeholder methodology: analysis/methodologies/per-artifact-methodologies.md §stakeholder-map*
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### P — Political
-
-#### European Parliament Internal Politics
-
-**Coalition Configuration (EP10):**
-- EPP-led flexible majority system: No permanent grand coalition; EPP (185) seeks shifting alliances
-- "Double supermajority" arithmetic: EPP+S&D+Renew = 397 seats (55.2%) — achievable for European mainstream legislation
-- Right-wing arithmetic: EPP+ECR+PfE = 351 seats (48.8%) — below threshold; requires NI/ESN supplements (politically costly)
-- Progressive bloc: S&D+Renew+Greens+Left = 311 seats (43.2%) — insufficient alone
-
-**Political temperature May 2026:**
-- 🟡 ELEVATED: Budget politics heating up with guidelines just adopted
-- 🟡 ELEVATED: Digital/AI regulatory space contested between tech-friendly and precautionary camps
-- 🟢 STABLE: Ukraine solidarity holding despite PfE resistance
-- 🔴 HIGH TENSION: Migration dossiers; 'safe third country' resolution reflects rightward tilt
-
-**External Political Context:**
-- US Trump administration: Tariff policies + NATO pressure shaping EP's geopolitical posture
-- Russia-Ukraine war: Continuing conflict maintains EP's security focus
-- Enlargement: Western Balkans, Ukraine candidacy progressing; EP oversight role
-- Hungary: Orbán government friction with EU institutions; PfE bloc's internal divisions on Ukraine
-
-**Political Confidence:** 🟢 HIGH (structural factors well-documented from EP data)
-
----
-
-### E — Economic
-
-**⚠️ IMF Data Limitation:** IMF MCP probe returned empty in this run context. Economic analysis draws on EP documents, ECB reports (TA-10-2026-0034), and available historical projections. The IMF April 2026 WEO was not accessible; figures below are estimates.
-
-#### Eurozone Macroeconomic Context
-
-**Growth Environment:**
-- Eurozone GDP growth estimated 1.2-1.5% for 2026 (subdued vs potential)
-- Post-energy-crisis recovery uneven across member states
-- Germany: Structural competitiveness challenges; automotive transition pressures
-- Southern Europe: Stronger tourism recovery; fiscal consolidation ongoing
-- Eastern Europe: Ukraine-adjacent economic disruption; defence spending boost
-
-**Key Economic Policy Drivers for EP:**
-- **Clean Industrial Deal**: EP's legislative response to US IRA and EU competitiveness gap; targeting green industrial transformation
-- **Budget 2027**: With guidelines adopted, Parliament is now negotiating from a position of fiscal ambition vs Council's austerity instincts
-- **Trade tensions (US tariffs)**: Counter-tariff measures (TA-10-2026-0096) signal EP support for Commission's trade defensive stance
-- **Financial stability (SRMR3)**: Banking resolution framework update (TA-10-2026-0092) completed March; systemic banking stability improved in regulatory clarity
-- **ECB monetary policy**: Rate normalization underway (ECB VP appointment TA-10-2026-0060); EP scrutiny role through ECON committee
-
-**Housing Economic Dimension:**
-- Affordability crisis affecting 30-40% of EU urban population (estimated)
-- EP resolution (TA-10-2026-0064) created political pressure for legislative action
-- Cost of construction inputs remains elevated; interest rate normalization helping gradually
-
-**Economic Confidence:** 🟡 MEDIUM (structural trends clear; specific 2026 IMF data unavailable)
-
----
-
-### S — Social
-
-**Demographics and Social Cohesion:**
-- EU population 446mn; urbanization continuing (75%+ urban)
-- Housing crisis: Acute in major cities; young adults disproportionately affected
-- Migration: Politically polarizing; EP's 'safe third country' adoption reflects public opinion pressure
-- Labour market: Generally tight in core EU; industrial transition creating anxiety in manufacturing sectors
-- Women's rights: EP resolution on CSW70 (TA-10-2026-0051) reflects continuing gender equality agenda
-
-**Social Tensions in EP Context:**
-- North-South solidarity tension (fiscal transfers in structural funds)
-- East-West migration flows and national identity politics
-- Intergenerational: Climate ambition vs economic security trade-off
-- Platform workers: Subcontracting resolution (TA-10-2026-0050) part of broader gig economy regulation
-
-**Public opinion toward EU institutions:**
-- Post-2024 election: Parliament legitimacy stable but fragile after rightward shift
-- Eurosceptic parties (PfE, ECR, ESN) represent ~27% of seats — visible dissent
-- Trust in EU Parliament: Eurobarometer trends suggest moderate trust; legislative output volume maintaining credibility
-
-**Social Confidence:** 🟡 MEDIUM
-
----
-
-### T — Technological
-
-**AI Act Implementation (CRITICAL PATHWAY):**
-- AI Act entered into force August 2024 (EP9 adoption)
-- Prohibited AI practices ban: 2 February 2025 (elapsed)
-- GPAI model rules: August 2025 (elapsed)
-- High-risk AI systems: August 2026 ← **IMMINENT DEADLINE**
-- General applications: 2027
-
-**May 2026 technology policy vectors:**
-- AI Act implementation acts: High-risk classification rules; EP scrutiny ongoing
-- DMA enforcement: Google, Apple, Meta, Amazon gatekeeper compliance; EP resolution (TA-10-2026-0160) demands action
-- Digital sovereignty (TA-10-2026-0022): Cloud, semiconductor supply chain, 5G/6G infrastructure
-- GenAI copyright (TA-10-2026-0066): Resolution adopted March; Commission action expected
-- Cybersecurity: NIS2 implementation; EU Cyber Resilience Act coming into force
-
-**Emerging Technology Risks:**
-- Autonomous weapons (drones): Resolution (TA-10-2026-0020) reflects EP's growing awareness
-- AI-generated disinformation: EP elections fresh in institutional memory; monitoring mechanisms
-- Quantum computing: Long-term policy horizon but funding priorities emerging
-
-**Technology Confidence:** 🟢 HIGH (AI Act timeline firmly documented)
-
----
-
-### L — Legal
-
-**Legislative Procedures in Pipeline:**
-
-| Type | Count (2026 YTD) | Notable items |
-|------|-----------------|---------------|
-| Regulation (COD) | ~45 est. | SRMR3, Clean Industrial Deal instruments |
-| Directive (COD) | ~20 est. | Workers rights, environmental directives |
-| Own-initiative (INI) | ~25 est. | Non-binding; political agenda-setting |
-| Consultation (CNS) | ~10 est. | Advisory opinions |
-| Consent (AVC) | ~5 est. | International agreements |
-
-**Key Legal Developments:**
-- **EU-Mercosur treaty opinion**: EP requested Court of Justice opinion on compatibility (TA-10-2026-0008); outcome pending — could halt or reshape trade deal ratification
-- **SRMR3**: Banking resolution regulation update (TA-10-2026-0092) — strengthened early intervention tools for banking crisis management
-- **Immunity waiver precedents**: Jaki (Poland, TA-10-2026-0105) — EP Rule 9 procedures normalizing
-- **Electoral Act reform**: EP adopting reform (TA-10-2026-0006); ratification in member states required
-
-**Legal Risk Assessment:**
-- 🟡 EU-Mercosur court opinion: If negative, blocks major trade deal
-- 🟢 SRMR3: Legal clarity improved; banking stability enhanced
-- 🟡 AI Act compliance: High-risk systems deadline August 2026 creates legal uncertainty for industry
-
-**Legal Confidence:** 🟢 HIGH
-
----
-
-### E₂ — Environmental
-
-**Green Deal Status in EP10:**
-- Green Deal pace has slowed under EP10's rightward composition
-- Clean Industrial Deal: Industry-first framing vs EP9's climate-first framing
-- Carbon border adjustment (CBAM): Implementation proceeding; compliance burden building
-- Emissions trading (ETS): Phase 4 reforms; aviation, maritime added
-- Fit for 55 package: Most legislation completed in EP9; implementation phase
-- Nature Restoration Law: Adopted EP9; implementation contested by ECR/PfE
-
-**Environmental Dossiers for May 2026:**
-- Clean Industrial Deal green conditionality: Key contested element in EP10 politics
-- Vehicle emissions: TA-10-2026-0084 (heavy-duty vehicle credits) — technical adjustment
-- Climate finance: Budget lines for climate action in 2027 budget guidelines
-
-**Climate Policy Trajectory:**
-- 🟡 RISK: Clean Industrial Deal delays or weakens green conditionality
-- 🟢 STABLE: Core Fit for 55 legislation locked in; cannot be rolled back in EP10
-- 🟡 WATCH: Carbon budget alignment with 2030 targets; member state implementation gaps
-
-**Environmental Confidence:** 🟡 MEDIUM
-
----
-
-### PESTLE Summary Scorecard
-
-| Factor | Intensity | Trajectory | EP10 Resilience |
-|--------|-----------|------------|-----------------|
-| Political | 🔴 HIGH | Complex (dual coalition strategy) | 🟡 Moderate |
-| Economic | 🟡 MEDIUM | Subdued growth; industrial pivot | 🟢 Strong (budget leverage) |
-| Social | 🟡 MEDIUM | Housing+migration polarizing | 🟡 Moderate |
-| Technological | 🔴 HIGH | AI Act deadlines acute; DMA enforcement | 🟢 Strong (EP leadership) |
-| Legal | 🟡 MEDIUM | Heavy pipeline; Mercosur risk | 🟢 Strong (rules-based) |
-| Environmental | 🟡 MEDIUM | Slowing vs EP9 pace; implementation | 🟡 Moderate |
-
----
-
-*PESTLE framework: analysis/methodologies/per-artifact-methodologies.md §pestle-analysis*
-
-### Historical Baseline
-
-### EP Term Comparison Overview
-
-#### EP Plenary Session Activity by Term
-
-| Term | Period | Total Sessions | Avg/Year | Trend |
-|------|--------|---------------|---------|-------|
-| EP6 | 2004-2009 | ~120 sessions | ~24/year | Baseline |
-| EP7 | 2009-2014 | ~125 sessions | ~25/year | +4% |
-| EP8 | 2014-2019 | ~130 sessions | ~26/year | +4% |
-| EP9 | 2019-2024 | ~132 sessions | ~26.4/year | +2% |
-| EP10 | 2024-2026 | High legislative pace | Proj. 28+/year | 🟡 ELEVATED |
-
-*Note: Exact figures from EP generated stats; session counts include mini-sessions.*
-
-#### Legislative Acts Trend
-
-The EP statistics (EP Open Data Portal) reveal a long-term trend:
-- **2025 was a peak year** for EP legislative activity in EP10
-- EP10 overall: High pace set by 2024 post-election agenda-setting; 2025 maintaining pace
-- May sessions historically: Among the most legislatively productive months (end of spring work programme)
-
-#### May Session Historical Pattern
-
-**Typical May plenary characteristics (historical baseline):**
-- 4-day Strasbourg full session (week 3 of month)
-- High vote count: Average 15-25 legislative items voted
-- End-of-term urgency (in final year): Higher output and potentially controversial dossiers
-- Budget discussions: May typically sees first substantive budget debate
-
-**Historical May milestones (analogues for 2026):**
-- May 2019 (EP8 final month): Intensive vote week before elections; EP confirmed interinstitutional identity legislation
-- May 2024 (EP9 final month): Last session before elections; historic number of votes in compressed calendar
-- May 2023 (EP9): Major AI Act committee vote (June 2023 following); preliminary debate month
-
-#### EP10 Specific Context
-
-**EP10 launched July 2024:**
-- New coalition arithmetic (EPP+S&D+Renew = 397)
-- Von der Leyen II Commission confirmed October 2024
-- Major legislative programme: Green Deal 2.0, Defence Industrial Strategy, Digital Markets enforcement
-- First year: Institutional setup and confirmation; second year (2025-2026) = peak productivity window
-
-**EP10 second year markers (2025-2026):**
-- 2025: Delivered 100+ adopted texts (estimate; confirms high pace)
-- Q1 2026: Aggressive legislative spring; April 28-30 session produced 38+ texts (based on EP API data)
-- May 2026 (this month): Mid-EP10 critical juncture — decisions now set precedents for EP11 (2029)
-
----
-
-### Vote Counts: Historical Context
-
-#### Roll-Call Vote Activity Trend
-
-*Note: Individual vote data unavailable for recent period (4-6 week delay); historical context from EP stats*
-
-EP8 (2014-2019):
-- Approximately 3,000-4,000 roll-call votes per term
-- Contentious: TTIP (US-EU trade), GDPR, copyright reform
-
-EP9 (2019-2024):
-- COVID emergency measures: Extraordinary vote procedures
-- Green Deal legislative package: Highest volume of major legislation since Single Market
-- Migration pact: Significant procedural votes on New Pact on Migration
-
-EP10 Q1 2026:
-- Safe Third Country resolution (TA-10-2026-0026): Passed with right-wing majority — precedent-setting
-- April 28-30 plenary: 38+ texts adopted (EP API data)
-- Trend: High legislative productivity continued into 2026
-
----
-
-### Committee Activity Historical Trend
-
-#### Key Committee Comparisons
-
-**AFET (Foreign Affairs):**
-- EP9: Unprecedented volume of Ukraine resolutions (2022-2024)
-- EP10: Maintaining geopolitical focus; ReArm EU oversight added
-- May 2026 expectation: Ukraine accountability + neighbourhood/enlargement dossiers
-
-**ENVI (Environment):**
-- EP8: Climate package
-- EP9: Green Deal — highest ENVI output in EP history; Fit for 55 package
-- EP10: "Omnibus" simplification vs Green Deal defence; Nature Restoration Law contested
-- May 2026 expectation: Post-omnibus consolidation; implementation watching
-
-**ITRE (Industry, Research):**
-- EP8: Digital Single Market
-- EP9: AI Act, DMA, DSA — landmark digital legislation
-- EP10: DMA enforcement + Clean Industrial Deal = defining mandate
-- May 2026 expectation: ITRE at centre of legislative programme
-
-**ECON (Economic):**
-- EP9: Capital Markets Union, Banking Union updates
-- EP10: Budget 2027, green finance taxonomy, digital euro
-- May 2026 expectation: Budget committee active; digital euro second reading
-
----
-
-### Historical Coalition Patterns
-
-#### Voting Mathematics Historical Context
-
-**Grand Coalition (EPP+S&D) — historical norm:**
-- EP7-EP8: Grand coalition consistently reached majority (larger groups)
-- EP9: EPP+S&D = 349/705 (49.5% — barely insufficient; needed Renew for majority)
-- EP10: EPP+S&D = 320/719 (44.5% — 41 seats short of majority; structurally dependent on Renew)
-
-**Trend: Declining centre-left/right hegemony**
-- EP6: EPP+S&D = ~55% of seats
-- EP7: EPP+S&D = ~50% of seats
-- EP8: EPP+S&D = ~47% of seats
-- EP9: EPP+S&D = ~49.5% of seats
-- EP10: EPP+S&D = ~44.5% of seats — LOWEST COMBINED SHARE EVER
-
-**Implication for May 2026:** The structural dependence on Renew for any majority is historically unprecedented and creates ongoing coalition management complexity.
-
-#### Right-Wing Growth Trend
-
-EP term after EP term, the combined far-right/sovereignist share has grown:
-- EP6-EP7: ~15% combined
-- EP8: ~18% combined
-- EP9: ~22% combined (ID + ECR)
-- EP10: ~27% combined (PfE + ECR + ESN = 193/719 = 26.8%)
-
-**Implication:** EPP's dual coalition strategy (mainstream + right) reflects structural reality. May 2026 will likely show this dual strategy operating simultaneously.
-
----
-
-### Data Quality Notes
-
-**Available with HIGH confidence:**
-- Group composition (current and historical) — EP API direct data
-- Session counts by year — EP generated statistics
-- Recent adopted texts list — EP API
-
-**Available with MEDIUM confidence:**
-- Vote counts by term — EP stats aggregate; individual details may vary
-- Committee output comparisons — narrative from EP documentation
-
-**NOT available this run:**
-- Individual MEP voting records for recent votes (API delay)
-- Detailed committee vote records for Q1 2026
-
----
-
-*Historical baseline methodology: analysis/methodologies/per-artifact-methodologies.md §historical-baseline*  
-*Source: European Parliament Open Data Portal — generated statistics 2004-2026*
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 ### IMF Data Availability Notice
@@ -2590,6 +2265,331 @@ A sudden geopolitical development (e.g., significant escalation in Ukraine, Russ
 
 *Wildcards methodology: analysis/methodologies/per-artifact-methodologies.md §wildcards-blackswans*
 
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### P — Political
+
+#### European Parliament Internal Politics
+
+**Coalition Configuration (EP10):**
+- EPP-led flexible majority system: No permanent grand coalition; EPP (185) seeks shifting alliances
+- "Double supermajority" arithmetic: EPP+S&D+Renew = 397 seats (55.2%) — achievable for European mainstream legislation
+- Right-wing arithmetic: EPP+ECR+PfE = 351 seats (48.8%) — below threshold; requires NI/ESN supplements (politically costly)
+- Progressive bloc: S&D+Renew+Greens+Left = 311 seats (43.2%) — insufficient alone
+
+**Political temperature May 2026:**
+- 🟡 ELEVATED: Budget politics heating up with guidelines just adopted
+- 🟡 ELEVATED: Digital/AI regulatory space contested between tech-friendly and precautionary camps
+- 🟢 STABLE: Ukraine solidarity holding despite PfE resistance
+- 🔴 HIGH TENSION: Migration dossiers; 'safe third country' resolution reflects rightward tilt
+
+**External Political Context:**
+- US Trump administration: Tariff policies + NATO pressure shaping EP's geopolitical posture
+- Russia-Ukraine war: Continuing conflict maintains EP's security focus
+- Enlargement: Western Balkans, Ukraine candidacy progressing; EP oversight role
+- Hungary: Orbán government friction with EU institutions; PfE bloc's internal divisions on Ukraine
+
+**Political Confidence:** 🟢 HIGH (structural factors well-documented from EP data)
+
+---
+
+### E — Economic
+
+**⚠️ IMF Data Limitation:** IMF MCP probe returned empty in this run context. Economic analysis draws on EP documents, ECB reports (TA-10-2026-0034), and available historical projections. The IMF April 2026 WEO was not accessible; figures below are estimates.
+
+#### Eurozone Macroeconomic Context
+
+**Growth Environment:**
+- Eurozone GDP growth estimated 1.2-1.5% for 2026 (subdued vs potential)
+- Post-energy-crisis recovery uneven across member states
+- Germany: Structural competitiveness challenges; automotive transition pressures
+- Southern Europe: Stronger tourism recovery; fiscal consolidation ongoing
+- Eastern Europe: Ukraine-adjacent economic disruption; defence spending boost
+
+**Key Economic Policy Drivers for EP:**
+- **Clean Industrial Deal**: EP's legislative response to US IRA and EU competitiveness gap; targeting green industrial transformation
+- **Budget 2027**: With guidelines adopted, Parliament is now negotiating from a position of fiscal ambition vs Council's austerity instincts
+- **Trade tensions (US tariffs)**: Counter-tariff measures (TA-10-2026-0096) signal EP support for Commission's trade defensive stance
+- **Financial stability (SRMR3)**: Banking resolution framework update (TA-10-2026-0092) completed March; systemic banking stability improved in regulatory clarity
+- **ECB monetary policy**: Rate normalization underway (ECB VP appointment TA-10-2026-0060); EP scrutiny role through ECON committee
+
+**Housing Economic Dimension:**
+- Affordability crisis affecting 30-40% of EU urban population (estimated)
+- EP resolution (TA-10-2026-0064) created political pressure for legislative action
+- Cost of construction inputs remains elevated; interest rate normalization helping gradually
+
+**Economic Confidence:** 🟡 MEDIUM (structural trends clear; specific 2026 IMF data unavailable)
+
+---
+
+### S — Social
+
+**Demographics and Social Cohesion:**
+- EU population 446mn; urbanization continuing (75%+ urban)
+- Housing crisis: Acute in major cities; young adults disproportionately affected
+- Migration: Politically polarizing; EP's 'safe third country' adoption reflects public opinion pressure
+- Labour market: Generally tight in core EU; industrial transition creating anxiety in manufacturing sectors
+- Women's rights: EP resolution on CSW70 (TA-10-2026-0051) reflects continuing gender equality agenda
+
+**Social Tensions in EP Context:**
+- North-South solidarity tension (fiscal transfers in structural funds)
+- East-West migration flows and national identity politics
+- Intergenerational: Climate ambition vs economic security trade-off
+- Platform workers: Subcontracting resolution (TA-10-2026-0050) part of broader gig economy regulation
+
+**Public opinion toward EU institutions:**
+- Post-2024 election: Parliament legitimacy stable but fragile after rightward shift
+- Eurosceptic parties (PfE, ECR, ESN) represent ~27% of seats — visible dissent
+- Trust in EU Parliament: Eurobarometer trends suggest moderate trust; legislative output volume maintaining credibility
+
+**Social Confidence:** 🟡 MEDIUM
+
+---
+
+### T — Technological
+
+**AI Act Implementation (CRITICAL PATHWAY):**
+- AI Act entered into force August 2024 (EP9 adoption)
+- Prohibited AI practices ban: 2 February 2025 (elapsed)
+- GPAI model rules: August 2025 (elapsed)
+- High-risk AI systems: August 2026 ← **IMMINENT DEADLINE**
+- General applications: 2027
+
+**May 2026 technology policy vectors:**
+- AI Act implementation acts: High-risk classification rules; EP scrutiny ongoing
+- DMA enforcement: Google, Apple, Meta, Amazon gatekeeper compliance; EP resolution (TA-10-2026-0160) demands action
+- Digital sovereignty (TA-10-2026-0022): Cloud, semiconductor supply chain, 5G/6G infrastructure
+- GenAI copyright (TA-10-2026-0066): Resolution adopted March; Commission action expected
+- Cybersecurity: NIS2 implementation; EU Cyber Resilience Act coming into force
+
+**Emerging Technology Risks:**
+- Autonomous weapons (drones): Resolution (TA-10-2026-0020) reflects EP's growing awareness
+- AI-generated disinformation: EP elections fresh in institutional memory; monitoring mechanisms
+- Quantum computing: Long-term policy horizon but funding priorities emerging
+
+**Technology Confidence:** 🟢 HIGH (AI Act timeline firmly documented)
+
+---
+
+### L — Legal
+
+**Legislative Procedures in Pipeline:**
+
+| Type | Count (2026 YTD) | Notable items |
+|------|-----------------|---------------|
+| Regulation (COD) | ~45 est. | SRMR3, Clean Industrial Deal instruments |
+| Directive (COD) | ~20 est. | Workers rights, environmental directives |
+| Own-initiative (INI) | ~25 est. | Non-binding; political agenda-setting |
+| Consultation (CNS) | ~10 est. | Advisory opinions |
+| Consent (AVC) | ~5 est. | International agreements |
+
+**Key Legal Developments:**
+- **EU-Mercosur treaty opinion**: EP requested Court of Justice opinion on compatibility (TA-10-2026-0008); outcome pending — could halt or reshape trade deal ratification
+- **SRMR3**: Banking resolution regulation update (TA-10-2026-0092) — strengthened early intervention tools for banking crisis management
+- **Immunity waiver precedents**: Jaki (Poland, TA-10-2026-0105) — EP Rule 9 procedures normalizing
+- **Electoral Act reform**: EP adopting reform (TA-10-2026-0006); ratification in member states required
+
+**Legal Risk Assessment:**
+- 🟡 EU-Mercosur court opinion: If negative, blocks major trade deal
+- 🟢 SRMR3: Legal clarity improved; banking stability enhanced
+- 🟡 AI Act compliance: High-risk systems deadline August 2026 creates legal uncertainty for industry
+
+**Legal Confidence:** 🟢 HIGH
+
+---
+
+### E₂ — Environmental
+
+**Green Deal Status in EP10:**
+- Green Deal pace has slowed under EP10's rightward composition
+- Clean Industrial Deal: Industry-first framing vs EP9's climate-first framing
+- Carbon border adjustment (CBAM): Implementation proceeding; compliance burden building
+- Emissions trading (ETS): Phase 4 reforms; aviation, maritime added
+- Fit for 55 package: Most legislation completed in EP9; implementation phase
+- Nature Restoration Law: Adopted EP9; implementation contested by ECR/PfE
+
+**Environmental Dossiers for May 2026:**
+- Clean Industrial Deal green conditionality: Key contested element in EP10 politics
+- Vehicle emissions: TA-10-2026-0084 (heavy-duty vehicle credits) — technical adjustment
+- Climate finance: Budget lines for climate action in 2027 budget guidelines
+
+**Climate Policy Trajectory:**
+- 🟡 RISK: Clean Industrial Deal delays or weakens green conditionality
+- 🟢 STABLE: Core Fit for 55 legislation locked in; cannot be rolled back in EP10
+- 🟡 WATCH: Carbon budget alignment with 2030 targets; member state implementation gaps
+
+**Environmental Confidence:** 🟡 MEDIUM
+
+---
+
+### PESTLE Summary Scorecard
+
+| Factor | Intensity | Trajectory | EP10 Resilience |
+|--------|-----------|------------|-----------------|
+| Political | 🔴 HIGH | Complex (dual coalition strategy) | 🟡 Moderate |
+| Economic | 🟡 MEDIUM | Subdued growth; industrial pivot | 🟢 Strong (budget leverage) |
+| Social | 🟡 MEDIUM | Housing+migration polarizing | 🟡 Moderate |
+| Technological | 🔴 HIGH | AI Act deadlines acute; DMA enforcement | 🟢 Strong (EP leadership) |
+| Legal | 🟡 MEDIUM | Heavy pipeline; Mercosur risk | 🟢 Strong (rules-based) |
+| Environmental | 🟡 MEDIUM | Slowing vs EP9 pace; implementation | 🟡 Moderate |
+
+---
+
+*PESTLE framework: analysis/methodologies/per-artifact-methodologies.md §pestle-analysis*
+
+### Historical Baseline
+
+### EP Term Comparison Overview
+
+#### EP Plenary Session Activity by Term
+
+| Term | Period | Total Sessions | Avg/Year | Trend |
+|------|--------|---------------|---------|-------|
+| EP6 | 2004-2009 | ~120 sessions | ~24/year | Baseline |
+| EP7 | 2009-2014 | ~125 sessions | ~25/year | +4% |
+| EP8 | 2014-2019 | ~130 sessions | ~26/year | +4% |
+| EP9 | 2019-2024 | ~132 sessions | ~26.4/year | +2% |
+| EP10 | 2024-2026 | High legislative pace | Proj. 28+/year | 🟡 ELEVATED |
+
+*Note: Exact figures from EP generated stats; session counts include mini-sessions.*
+
+#### Legislative Acts Trend
+
+The EP statistics (EP Open Data Portal) reveal a long-term trend:
+- **2025 was a peak year** for EP legislative activity in EP10
+- EP10 overall: High pace set by 2024 post-election agenda-setting; 2025 maintaining pace
+- May sessions historically: Among the most legislatively productive months (end of spring work programme)
+
+#### May Session Historical Pattern
+
+**Typical May plenary characteristics (historical baseline):**
+- 4-day Strasbourg full session (week 3 of month)
+- High vote count: Average 15-25 legislative items voted
+- End-of-term urgency (in final year): Higher output and potentially controversial dossiers
+- Budget discussions: May typically sees first substantive budget debate
+
+**Historical May milestones (analogues for 2026):**
+- May 2019 (EP8 final month): Intensive vote week before elections; EP confirmed interinstitutional identity legislation
+- May 2024 (EP9 final month): Last session before elections; historic number of votes in compressed calendar
+- May 2023 (EP9): Major AI Act committee vote (June 2023 following); preliminary debate month
+
+#### EP10 Specific Context
+
+**EP10 launched July 2024:**
+- New coalition arithmetic (EPP+S&D+Renew = 397)
+- Von der Leyen II Commission confirmed October 2024
+- Major legislative programme: Green Deal 2.0, Defence Industrial Strategy, Digital Markets enforcement
+- First year: Institutional setup and confirmation; second year (2025-2026) = peak productivity window
+
+**EP10 second year markers (2025-2026):**
+- 2025: Delivered 100+ adopted texts (estimate; confirms high pace)
+- Q1 2026: Aggressive legislative spring; April 28-30 session produced 38+ texts (based on EP API data)
+- May 2026 (this month): Mid-EP10 critical juncture — decisions now set precedents for EP11 (2029)
+
+---
+
+### Vote Counts: Historical Context
+
+#### Roll-Call Vote Activity Trend
+
+*Note: Individual vote data unavailable for recent period (4-6 week delay); historical context from EP stats*
+
+EP8 (2014-2019):
+- Approximately 3,000-4,000 roll-call votes per term
+- Contentious: TTIP (US-EU trade), GDPR, copyright reform
+
+EP9 (2019-2024):
+- COVID emergency measures: Extraordinary vote procedures
+- Green Deal legislative package: Highest volume of major legislation since Single Market
+- Migration pact: Significant procedural votes on New Pact on Migration
+
+EP10 Q1 2026:
+- Safe Third Country resolution (TA-10-2026-0026): Passed with right-wing majority — precedent-setting
+- April 28-30 plenary: 38+ texts adopted (EP API data)
+- Trend: High legislative productivity continued into 2026
+
+---
+
+### Committee Activity Historical Trend
+
+#### Key Committee Comparisons
+
+**AFET (Foreign Affairs):**
+- EP9: Unprecedented volume of Ukraine resolutions (2022-2024)
+- EP10: Maintaining geopolitical focus; ReArm EU oversight added
+- May 2026 expectation: Ukraine accountability + neighbourhood/enlargement dossiers
+
+**ENVI (Environment):**
+- EP8: Climate package
+- EP9: Green Deal — highest ENVI output in EP history; Fit for 55 package
+- EP10: "Omnibus" simplification vs Green Deal defence; Nature Restoration Law contested
+- May 2026 expectation: Post-omnibus consolidation; implementation watching
+
+**ITRE (Industry, Research):**
+- EP8: Digital Single Market
+- EP9: AI Act, DMA, DSA — landmark digital legislation
+- EP10: DMA enforcement + Clean Industrial Deal = defining mandate
+- May 2026 expectation: ITRE at centre of legislative programme
+
+**ECON (Economic):**
+- EP9: Capital Markets Union, Banking Union updates
+- EP10: Budget 2027, green finance taxonomy, digital euro
+- May 2026 expectation: Budget committee active; digital euro second reading
+
+---
+
+### Historical Coalition Patterns
+
+#### Voting Mathematics Historical Context
+
+**Grand Coalition (EPP+S&D) — historical norm:**
+- EP7-EP8: Grand coalition consistently reached majority (larger groups)
+- EP9: EPP+S&D = 349/705 (49.5% — barely insufficient; needed Renew for majority)
+- EP10: EPP+S&D = 320/719 (44.5% — 41 seats short of majority; structurally dependent on Renew)
+
+**Trend: Declining centre-left/right hegemony**
+- EP6: EPP+S&D = ~55% of seats
+- EP7: EPP+S&D = ~50% of seats
+- EP8: EPP+S&D = ~47% of seats
+- EP9: EPP+S&D = ~49.5% of seats
+- EP10: EPP+S&D = ~44.5% of seats — LOWEST COMBINED SHARE EVER
+
+**Implication for May 2026:** The structural dependence on Renew for any majority is historically unprecedented and creates ongoing coalition management complexity.
+
+#### Right-Wing Growth Trend
+
+EP term after EP term, the combined far-right/sovereignist share has grown:
+- EP6-EP7: ~15% combined
+- EP8: ~18% combined
+- EP9: ~22% combined (ID + ECR)
+- EP10: ~27% combined (PfE + ECR + ESN = 193/719 = 26.8%)
+
+**Implication:** EPP's dual coalition strategy (mainstream + right) reflects structural reality. May 2026 will likely show this dual strategy operating simultaneously.
+
+---
+
+### Data Quality Notes
+
+**Available with HIGH confidence:**
+- Group composition (current and historical) — EP API direct data
+- Session counts by year — EP generated statistics
+- Recent adopted texts list — EP API
+
+**Available with MEDIUM confidence:**
+- Vote counts by term — EP stats aggregate; individual details may vary
+- Committee output comparisons — narrative from EP documentation
+
+**NOT available this run:**
+- Individual MEP voting records for recent votes (API delay)
+- Detailed committee vote records for Q1 2026
+
+---
+
+*Historical baseline methodology: analysis/methodologies/per-artifact-methodologies.md §historical-baseline*  
+*Source: European Parliament Open Data Portal — generated statistics 2004-2026*
+
 <h2 id="section-deep-analysis">Deep Analysis</h2>
 
 ### Strategic Depth Analysis
@@ -2937,8 +2937,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/month-ahead/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-coalitions-voting | [voting-patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/month-ahead/existing/voting-patterns.md) | `existing/voting-patterns.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/month-ahead/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/month-ahead/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/month-ahead/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/month-ahead/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/month-ahead/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/month-ahead/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
@@ -2951,6 +2949,8 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/month-ahead/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/month-ahead/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/month-ahead/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/month-ahead/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/month-ahead/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/month-ahead/existing/deep-analysis.md) | `existing/deep-analysis.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/month-ahead/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/month-ahead/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |

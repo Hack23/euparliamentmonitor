@@ -510,562 +510,6 @@ The retrospective-vs-forward salience shift reinforces two findings:
 *Analysis generated: April 18, 2026 | Run 12 | Week-in-review workflow | Reference-quality retrofit*
 *Aggregate stakeholder-signal confidence: 🟡 Medium (constrained by EPP `memberCount=0` data gap)*
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-![Framework](https://img.shields.io/badge/Framework-PESTLE_6--Dimension-blue?style=flat-square)
-![Confidence](https://img.shields.io/badge/Aggregate_Confidence-MEDIUM-yellow?style=flat-square)
-![Scope](https://img.shields.io/badge/Scope-EP10_Q1_Close_+_Recess-green?style=flat-square)
-
-> **Purpose**: Systematic macro-environmental scan across the six PESTLE dimensions as
-> applied specifically to the EP10 Q1-close retrospective and the April 14–26 Easter
-> recess forward window. This scan *deepens* the SWOT in `deep-analysis.md` by surfacing
-> structural forces not captured in the legislative-achievements inventory. PESTLE
-> findings feed directly into `scenario-forecast.md` and `threat-model.md`.
-
----
-
-### Summary Heat Map
-
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-pie title PESTLE Pressure Distribution — Week of April 11-18, 2026
-    "Political (high)" : 28
-    "Economic (high)" : 24
-    "Legal (medium-high)" : 20
-    "Social (medium)" : 12
-    "Technological (medium)" : 10
-    "Environmental (low)" : 6
-```
-
-| Dimension | Pressure Level | Dominant Driver | Direction | Confidence |
-|-----------|:--------------:|-----------------|:---------:|:----------:|
-| Political | 🔴 HIGH | Pre-recess EPP-S&D-Renew discipline holding despite 5 contested files | Stable-tense | 🟡 Medium |
-| Economic | 🔴 HIGH | German contraction (−0.50%/2024) vs Polish outperformance (2.9%/2024) divergence | Deteriorating (DE) / Stable (PL) | 🟢 High |
-| Legal | 🟠 MEDIUM-HIGH | Article 83 TFEU precedent (Anti-Corruption) + pending ECJ Article 263 challenges | Activating | 🟡 Medium |
-| Social | 🟡 MEDIUM | Housing salience rising; anti-corruption civic welcome | Rising | 🟡 Medium |
-| Technological | 🟡 MEDIUM | AI Act threshold modification + EUCS cloud-sovereignty debate latent | Stable-unsettling | 🟡 Medium |
-| Environmental | 🟢 LOW | Spring demand trough; Climate Law trajectory on track | Stable | 🟢 High |
-
----
-
-### 🔴 P — Political
-
-#### P1. UPSTREAM_404 six-text opacity as political opportunity (HIGH pressure, novel)
-
-The TA-10-2026-0099–0104 content gap is not merely a data-quality issue: it is a
-*political-economy event*. Six adopted texts from a session around April 7–10 remain
-opaque through Easter recess. Political groups that wish to manage narrative around
-those texts have a 7–10 day window of reduced scrutiny. Evidence: the adopted-texts
-feed confirms 159 items including TA-10-2026-0099–0104 (per `manifest.json`
-§dataQuality), while the individual-text endpoint returns UPSTREAM_404. Observable
-proxies during recess: national-press language about "a quiet April session" in DE,
-FR, IT outlets; political-group press releases referring to specific items without
-TA-numbers; early leaks from rapporteurs to specialist press (Euractiv, Politico
-Europe).
-
-**Intelligence implication**: Article 28 plenary's opening hour may surface an
-already-adopted-but-unknown text as political ammunition. Probability the six texts
-are substantively political rather than routine-consent: 45% (🟡 Medium).
-
-#### P2. EP10 Year-2 coalition discipline peak (HIGH pressure, stable)
-
-The EPP-S&D-Renew core produced 104 adopted texts in Q1 2026 (vs EP8's 62 in Q1 2016
-and EP9's 48 in Q1 2021 — see `historical-baseline.md` §Legislative Output). Sustaining
-this tempo post-recess requires continued Weber–García Pérez (EPP President + S&D
-leader) coordination. Observable proxies: EPP.eu and socialistsanddemocrats.eu press
-releases during April 21–27; social-media cadence of group coordinators; appearance
-of joint EPP-S&D tribune pieces in Le Monde, FAZ, La Stampa.
-
-#### P3. Pre-recess EPP-S&D divergence on housing (MEDIUM-HIGH pressure, rising)
-
-TA-10-2026-0091 (Housing Initiative) is the first Q1 file on which the EPP grand-coalition
-partner publicly signalled reluctance. S&D secured adoption but Commission-response
-adequacy (due April 21–26) will determine whether the dossier consolidates the grand
-coalition or fractures it. See `stakeholder-map.md` §12 and `scenario-forecast.md`
-§Scenario B.
-
-#### P4. Polish delegation on Anti-Corruption Directive (MEDIUM pressure)
-
-TA-10-2026-0094's Article 83 TFEU criminal-law-competence activation creates acute
-Polish political resonance. Tusk's KO-led government sees early transposition as
-domestic-political utility vs PiS/ECR framing it as EU overreach. Delegation-level
-split likely to surface at April 28 plenary's anti-corruption follow-up debate.
-
-#### P5. US political calendar constraint (MEDIUM pressure)
-
-The USTR operates on a fiscal-year filing cadence. The April 22–26 window sits before
-a May 3 US statutory notification deadline for Section 301 tariff categories
-constraining US flexibility to delay a filing. EU counter-posture must be ready by
-April 24 irrespective of EP recess status.
-
----
-
-### 🔴 E — Economic
-
-#### E1. German contraction persistence (HIGH pressure, deteriorating)
-
-Germany recorded GDP growth of −0.87% in 2023 and −0.50% in 2024 (World Bank NY.GDP.MKTP.KD.ZG
-via `manifest.json` §worldBankDE). Two consecutive annual contractions are the
-longest German recession since 2002–2003. The automotive sector (BMW, Mercedes, VW,
-~4% of German GDP) is directly exposed to the US tariff regime that went T+0 April
-14. This macro backdrop creates structural incentive for German federal politicians
-to resist BRRD3 bail-in intensification — the political-economic coupling captured
-in `threat-model.md` §T1. See `economic-context.md` §Germany for full profile.
-
-#### E2. Italian positive quarter + cooperative-banking exposure (MEDIUM-HIGH pressure)
-
-Italy recorded 0.69% GDP growth in 2024 (World Bank). The growth is modest but
-positive — a Meloni-government political asset. However, Italian
-Banche-Popolari/BCC cooperative sector carries BRRD3 transposition sensitivity
-similar to German Sparkassen albeit at ~25% retail share vs German ~40%. Secondary
-transposition-delay risk.
-
-#### E3. Divergent EU economic geography (HIGH pressure, structural)
-
-The DE-PL divergence (−0.50% vs 2.9% 2024 GDP growth) is the widest intra-EU-North
-spread of the post-pandemic period. Economic divergence is the structural driver
-behind political-group fragmentation documented in `historical-baseline.md`
-§Coalition Dynamics — member states with weak growth resist implementation-cost-
-heavy directives, while strong-growth states push for tempo.
-
-#### E4. Trade-defence economic signalling (MEDIUM-HIGH pressure)
-
-TA-10-2026-0096 pre-authorises €9.6bn countermeasures. Market participants price
-activation-probability daily via DAX / CAC40 / FTSE-MIB volatility and BTP-Bund
-spread. See `economic-context.md` §Indicator Watch.
-
-#### E5. ECB-US Fed divergence risk (MEDIUM pressure)
-
-ECB Governing Council met April 17 (last pre-plenary). Divergent tariff-induced
-inflation dynamics in US vs EU create a potential policy-coordination gap that
-could amplify exchange-rate volatility during the recess window.
-
----
-
-### 🟠 L — Legal
-
-#### L1. Article 83 TFEU criminal-law-competence activation (HIGH structural-novelty)
-
-TA-10-2026-0094 (Anti-Corruption Directive) is EP10's first sustained use of Article
-83 TFEU to harmonise criminal sanctions across all 27 member states. This creates a
-**precedent-competence signal**: if the Commission pursues further Article 83
-initiatives (environmental crime, corporate criminality, gender-based violence)
-Parliament has now demonstrated a willingness to legislate at this level. Constitutional
-challenge risk exists in member states with strong criminal-law sovereignty traditions
-(Germany, Denmark, Poland — see `threat-model.md` §T4). 🟡 Medium confidence on
-challenge probability.
-
-#### L2. BRRD3/DGSD2/SRMR3 transposition deadlines (HIGH implementation pressure)
-
-The Banking Union trilogy carries 18-month transposition deadlines running approximately
-to September 2027. National transposition-law drafting in member-state finance
-ministries begins during this recess — the political-economic coupling (E1 + P3)
-is strongest in Germany.
-
-#### L3. Pending ECJ Article 263 windows (MEDIUM-HIGH pressure)
-
-Multiple Q1 2026 adopted texts create Article 263 TFEU 2-month annulment windows. The
-Digital Omnibus (TA-10-2026-0098) is the most prominent civil-society-challenge
-target; TA-10-2026-0094 (Anti-Corruption) is the most prominent member-state-challenge
-target. Expect filings May–June 2026.
-
-#### L4. TA-10-2026-0099–0104 legal-status unknown (procedural pressure)
-
-Six texts with unknown subject-matter may carry legal consequences Parliament and
-observers cannot assess during recess. This ambiguity itself creates institutional-
-transparency risk.
-
----
-
-### 🟡 T — Technological
-
-#### T1. EP API Tier-2/3 degradation during recess (MEDIUM pressure, self-resolving)
-
-Easter API maintenance cycle affects Tier-2 (events_feed, procedures_feed) and Tier-3
-(individual adopted-text content endpoints) from approximately April 14 to April
-25–27. Tier-1 (meps_feed, adopted_texts_feed) continues operating. This is the
-direct cause of the TA-10-2026-0099–0104 opacity (P1) and must be stated as a
-data-quality caveat in any article passage quoting Q1 statistics. See `manifest.json`
-§dataQuality.
-
-#### T2. AI Act threshold enforcement readiness (MEDIUM pressure)
-
-TA-10-2026-0098 Digital Omnibus AI high-risk threshold modification requires
-member-state supervisory authorities (AI Office, national DPAs) to recalibrate
-enforcement templates. A 2–4 month capacity-building gap creates enforcement
-unpredictability.
-
-#### T3. Cloud-sovereignty / EUCS background (LOW-MEDIUM pressure)
-
-ITRE/ECON committee activity on EUCS continues at staff level; no plenary agenda
-item imminent. Long-running dossier.
-
----
-
-### 🟡 S — Social
-
-#### S1. Housing affordability political salience (MEDIUM-HIGH pressure, rising)
-
-Housing costs remain top-3 voter concern in Eurobarometer winter 2025–26. TA-10-2026-0091
-adoption and the April 21–26 Commission-response deadline make housing the week's
-most publicly visible EP-Commission interaction. Civil-society (Housing Europe,
-EAPN, national tenant unions) mobilisation plans ready for post-response media
-cycle.
-
-#### S2. Anti-corruption civic welcome (MEDIUM pressure)
-
-TA-10-2026-0094 generated broad civil-society welcome (Transparency International
-EU, Civil Liberties Union) but limited street-mobilisation energy. Expect NGO
-submissions to national transposition consultations.
-
-#### S3. EU Talent Pool / legal-migration framing (MEDIUM pressure)
-
-TA-10-2026-0095 (EU Talent Pool) enters a sensitive political environment. National
-right-wing parties (PfE, ESN, parts of ECR) have already indicated framing as
-"migration-liberalisation by stealth." S&D and Renew framing as "skills-matching
-for labour-market functioning." Public-opinion cross-pressure.
-
-#### S4. Civil-society digital rights mobilisation (MEDIUM pressure)
-
-EDRi / Access Now / noyb / La Quadrature du Net coordinating comms cycles for
-Article 263 challenge filings. Media amplification (FAZ, Le Monde, De Volkskrant)
-building since April 10.
-
----
-
-### 🟢 En — Environmental
-
-#### En1. Spring energy-demand trough (LOW pressure)
-
-April is the European shoulder season between winter heating and summer cooling.
-Gas-storage at historically high levels after mild 2025-26 winter. No energy-crisis
-agenda pressure for April 28–30.
-
-#### En2. Climate Law -55% GHG trajectory on track (LOW pressure)
-
-Latest EEA March 2026 report confirms 2030 compliance trajectory. No imminent
-Commission enforcement action.
-
-#### En3. Critical-minerals permitting latent (LOW pressure)
-
-Long-running dossier; not April 28 material.
-
----
-
-### Cross-Dimensional Coupling Analysis
-
-These couplings are where scenario risk concentrates and directly feed
-`scenario-forecast.md`:
-
-| # | Coupling | Mechanism | Amplification |
-|---|----------|-----------|:-------------:|
-| C1 | **E1 + E2 + P3** | DE contraction + IT cooperative-bank sensitivity + EPP political constraint → BRRD3 transposition friction in two largest Eurozone economies | 🔴 Strong |
-| C2 | **P3 + S1 + L2** | EPP-S&D divergence + housing salience + legislative-implementation deadlines → Commission under multi-front pressure during recess | 🔴 Strong |
-| C3 | **P5 + E4** | US statutory filing deadline + pre-authorised EU countermeasure → forced binary decision by April 24 | 🟠 Moderate |
-| C4 | **L1 + P4** | Article 83 TFEU precedent + Polish PiS-KO political divergence → constitutional-challenge probability | 🟠 Moderate |
-| C5 | **L3 + S4 + T2** | Article 263 windows + civil-society mobilisation + AI enforcement gap → EP political vulnerability on digital dossier | 🟠 Moderate |
-| C6 | **T1 + P1** | EP API opacity + six-text unknown content → narrative-management opportunity for political groups | 🟡 Light |
-
-The C1 + C2 pair is the scenario most capable of reshaping the April 28 plenary
-agenda from its planned substance toward emergency-coalition-management mode. See
-`threat-model.md` §T1 and `stakeholder-map.md` §7 (Sparkassen Association) for the
-adversary-capability mapping.
-
----
-
-### Intelligence Implications
-
-1. **Recess is not politically dormant.** Four live processes run in parallel during
-   April 14–26: Commission housing-response drafting, member-state BRRD3
-   transposition-analysis, USTR Section 301 calendar, EP political-group
-   pre-plenary coordination. Article prose should frame the recess as "strategic
-   theatre," not silence.
-2. **Q1 retrospective and Q2 forecast must be coupled.** The record Q1 output
-   (`deep-analysis.md` §Strength 1; `historical-baseline.md` §Legislative Output) is
-   the *political capital* available to EP10 leadership to absorb Q2 stresses.
-   Treating Q1 as concluded and Q2 as separate is an analytical error.
-3. **Economic geography is the silent coalition-shaper.** The DE-PL growth
-   divergence (E3) explains more variance in member-state transposition appetite than
-   party-political positioning does. `economic-context.md` §Coupling Matrix makes
-   this explicit.
-4. **Article 83 TFEU precedent is the week's most underweighted story.** Legal
-   commentary on TA-10-2026-0094 has focused on substantive anti-corruption content;
-   L1's precedent-competence consequence is more consequential for EP10's second
-   half.
-5. **Environmental dimension provides political bandwidth.** Low environmental
-   pressure (unlike spring 2022–23 energy crisis or 2024 farmer protests) gives EP10
-   the rhetorical space to concentrate on the complex trade + banking + housing
-   triangle at April 28–30.
-
----
-
-*Framework: PESTLE Macro-Environmental Scan per `analysis/methodologies/political-threat-framework.md`*
-*Cross-references: `scenario-forecast.md` (scenario axes derived from C1, C2, C3); `threat-model.md` (T1 derived from C1); `stakeholder-map.md` (position matrix derived from P-dimension analyses)*
-*Next review: Run 13 (post-April-27) — re-scan after Commission housing response and USTR week resolve C2 and C3*
-*Analysis generated: April 18, 2026 | Run 12 | Week-in-review workflow | Reference-quality retrofit*
-
-### Historical Baseline
-
-![Framework](https://img.shields.io/badge/Framework-Rule_17_Historical_Baselines-blue?style=flat-square)
-![Baselines](https://img.shields.io/badge/Compared_Terms-EP8_EP9_EP10-green?style=flat-square)
-![Confidence](https://img.shields.io/badge/Confidence-HIGH-brightgreen?style=flat-square)
-
-> **Purpose**: Situate EP10 Q1 2026's record legislative output against the equivalent
-> Year-2 Q1 points in EP8 (Q1 2016) and EP9 (Q1 2021) to determine whether Run 12's
-> observations represent a historical outlier, a return to precedent, or a genuinely
-> novel political phenomenon. Historical baselines guard against recency bias in
-> the retrospective portion of the week-in-review article. Per ai-driven-analysis-
-> guide Rule 17.
-
----
-
-### Comparative Calendar Point
-
-| Term | Current Equivalent Date | Years Into Mandate | Political Context |
-|------|------------------------|:------------------:|-------------------|
-| EP8 | Q1 2016 (Jan–Apr) | Year 2 | Post-refugee-crisis consolidation; Brexit referendum imminent (June 2016); US-EU TTIP fading |
-| EP9 | Q1 2021 (Jan–Apr) | Year 2 | COVID recovery; NextGenerationEU ramp-up; Brexit transition complete; Biden early presidency |
-| **EP10** | **Q1 2026 (Jan–Apr)** | **Year 2** | Post-Brexit full-term; US Trump-2 tariff-T+0; Easter recess; first Banking Union completion; first sustained Article 83 TFEU use |
-
-All three terms hit comparable Year-2 consolidation points with significant external
-shocks (Brexit referendum / COVID / US tariffs). This structural similarity is the
-precondition for Rule-17 comparability.
-
----
-
-### Legislative Output Comparison (Q1 Year-2)
-
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-pie title Adopted Texts — Q1 Year-2 (Comparative)
-    "EP8 Q1 2016" : 62
-    "EP9 Q1 2021" : 48
-    "EP10 Q1 2026" : 104
-```
-
-| Metric | EP8 Q1 2016 | EP9 Q1 2021 | EP10 Q1 2026 | EP10 vs historical peak |
-|--------|:-----------:|:-----------:|:------------:|:-----------------------:|
-| Total adopted texts Q1 | 62 | 48 | **104** | **+68% vs EP8** |
-| Roll-call votes Q1 | ~420 | ~380 | **567** | **+35% vs EP8** |
-| Committee meetings Q1 | ~1,850 | ~1,720 | **2,363** | **+28% vs EP8** |
-| Parliamentary questions Q1 | ~4,700 | ~5,100 | **6,147** | **+31% vs EP8** |
-| Banking-Union-type package completions | 0 | 0 | **1 (Phase-2 complete)** | 🔷 novel |
-| Co-decision procedures concluded Q1 | 24 | 17 | **~39** | **+63% vs EP8** |
-| Initiative reports adopted Q1 | 8 | 12 | **~17** | **+42% vs EP9** |
-| Plenary sessions in Q1 | 5 | 6 (incl. COVID-remote) | 6 | +0% vs EP9 |
-| Average adopted texts per plenary | ~12 | ~8 | **~17** | **+42% vs EP8** |
-
-**Interpretation**: EP10 Q1 2026 is **the most legislatively productive Year-2 Q1 in
-the post-Lisbon history of the European Parliament**. The 104-text output is +68% vs
-EP8's record and +117% vs EP9's COVID-constrained period. The per-plenary productivity
-(+42% vs EP8) confirms this is not a calendar artefact but genuine throughput
-improvement. See `deep-analysis.md` §Strength 1 for the political-coalition-discipline
-explanation.
-
-Of the 104 texts, TA-10-2026-0090 through 0104 (15 texts) were adopted in the March
-26 mega-sitting plus the subsequent April 7–10 sitting, concentrating ~14% of Q1
-output in the final 4 weeks — the "March sprint" pattern documented in `deep-analysis.md`
-§Thread 2.
-
----
-
-### Coalition Dynamics Comparison
-
-| Coalition Metric | EP8 Q1 2016 | EP9 Q1 2021 | EP10 Q1 2026 | Trend |
-|------------------|:-----------:|:-----------:|:------------:|:-----:|
-| Grand-coalition vote frequency | 78% | 68% | ~72% (est.) | Partial recovery vs EP9 |
-| Cross-party coalition frequency | 15% | 24% | ~26% (est.) | Still elevated |
-| Political-group fragmentation (Effective Number of Parties) | 5.8 | 6.8 | ~6.5 (est.) | Stable-high |
-| Grand-coalition dominance in co-decision | 82% | 71% | ~75% (est.) | Partial recovery |
-| Political groups with ≥5% seat share | 7 | 7 | **8** (incl. PfE, ESN) | Increased |
-
-**Interpretation**: EP10's Q1 coalition behaviour resembles EP9 (fragmented,
-cross-party-fluid) rather than EP8's more cohesive grand-coalition dominance.
-Critically, EP10 has **more political groups** operating above the 5% seat-share
-threshold (8 vs 7 in EP8/EP9), consistent with the 2024 election's fragmentation
-outcome. That fragmentation has been *absorbed* during Q1 2026 rather than hindering
-throughput — a structural finding of note.
-
-*Data-quality note: EP10 coalition figures marked "est." reflect the persistent
-EPP `memberCount=0` gap documented in `manifest.json` §dataQuality. These are
-calibrated estimates based on 7 of 8 groups' data plus historical trajectory
-extrapolation.*
-
----
-
-### External-Shock Response Pattern Comparison
-
-#### EP8 Q1 2016 — Brexit pre-referendum
-
-- **Shock**: UK referendum announced February 2016, vote 23 June 2016.
-- **EP response**: Defensive, unity-focused; limited concrete legislative response
-  before the June vote; institutional-rhetoric dominant.
-- **Coalition behaviour**: Grand coalition held with performative unity speeches;
-  limited substantive cross-party cooperation.
-- **Preparedness score**: 🟡 Medium — reactive rather than anticipatory.
-
-#### EP9 Q1 2021 — COVID recovery consolidation
-
-- **Shock**: COVID third wave peak; NGEU disbursement politics; rule-of-law
-  conditionality regulation entering force April 21, 2021.
-- **EP response**: Accelerated legislative activity concentrated on Recovery and
-  Resilience Facility oversight; budgetary-conditionality mechanism.
-- **Coalition behaviour**: Grand coalition held with crisis-driven consolidation;
-  Hungary/Poland-aligned ECR dissent on conditionality.
-- **Preparedness score**: 🟢 High — pre-crisis procedural innovation (remote voting)
-  and fiscal-coordination tools.
-
-#### EP10 Q1 2026 — US trade shock + Banking Union implementation
-
-- **Shock**: US tariffs T+0 April 14; Section 301 watch April 22–26; Banking Union
-  implementation-phase begins.
-- **EP response**: **Pre-authorised countermeasure mechanism** (TA-10-2026-0096);
-  accelerated Banking Union completion (Phase-2 closed before transposition window
-  opens); deep-intelligence-accumulation across 7 recess-monitoring runs (179–184
-  + Run 12).
-- **Coalition behaviour (forecast per `scenario-forecast.md`)**: Grand coalition
-  expected to hold on trade-response but with meaningful internal stress on banking
-  transposition.
-- **Preparedness score**: 🟢 **HIGH — higher than either precedent**. The pre-
-  authorised countermeasure is a procedural innovation of comparable significance
-  to EP9's remote-voting innovation.
-
----
-
-### Structural Novelty — Three Ways EP10 Q1 Differs
-
-Beyond quantitative output, EP10 Q1 2026 carries three structural features unprecedented
-in EP8 / EP9 Year-2 Q1:
-
-#### 1. First Banking-Union architecture completion (14-year project closure)
-
-Banking Union as a political project began with the 2012 Draghi "whatever it takes"
-moment and the June 2012 Euro-area summit. EP6 (2013) began Phase-1 (SSM, SRM, first
-BRRD). EP7 (2014) continued. EP8 (2016) and EP9 (2021) held Phase-1 status quo
-without closing Phase-2. **EP10 Q1 2026 completed Phase-2** via DGSD2 + BRRD3 + SRMR3
-adopted March 26. No predecessor parliament closed a comparable 14-year multi-term
-architectural project during a Year-2 Q1.
-
-#### 2. First sustained Article 83 TFEU use (criminal-law competence precedent)
-
-EP9 passed Anti-Money-Laundering 4 / 5 / 6 packages using overlapping competence
-bases. EP8 passed Victims of Terrorism and Cybercrime Directives but without
-articulating Article 83 as the sustained-basis framework. **EP10 Q1 2026's TA-10-
-2026-0094 Anti-Corruption Directive is the first EP10-term text explicitly grounded
-in Article 83 TFEU as a freestanding competence-basis for harmonised minimum
-criminal sanctions** — a precedent for further EP10 / EP11 criminal-law
-harmonisation. See `pestle-analysis.md` §L1.
-
-#### 3. First post-Brexit full-term parliament operating at 104-text Q1 throughput
-
-EP9 Q1 2021 was the first full-term post-Brexit Q1 but produced only 48 texts,
-constrained by COVID remote-working. **EP10 Q1 2026 is the first post-Brexit
-parliament to demonstrate throughput exceeding pre-Brexit EP8 levels by 68%**
-establishing that the 705-seat-post-UK-departure parliament (720 seats in EP10)
-can out-produce the 751-seat pre-Brexit parliament.
-
-```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
-graph LR
-    EP8["EP8 Q1 2016<br/>62 texts<br/>Pre-Brexit 751 seats<br/>Reactive shock-response"] --> EP9
-    EP9["EP9 Q1 2021<br/>48 texts<br/>COVID-constrained<br/>705 seats post-Brexit"] --> EP10
-    EP10["EP10 Q1 2026<br/>104 texts<br/>720 seats<br/>Preparedness innovation<br/>3 structural novelties"]
-
-    style EP8 fill:#95a5a6,color:#fff
-    style EP9 fill:#1565c0,color:#fff
-    style EP10 fill:#2e7d32,color:#fff
-```
-
----
-
-### Risk Profile Comparison
-
-| Risk Dimension | EP8 Q1 2016 | EP9 Q1 2021 | EP10 Q1 2026 |
-|----------------|-------------|-------------|--------------|
-| Dominant external risk | Brexit referendum | COVID recovery collapse | US-EU trade escalation |
-| Dominant internal risk | Migration-coalition stress | Rule-of-law conditionality dispute | BRRD3 transposition + Housing confrontation |
-| Coalition-integrity risk | LOW | MEDIUM | MEDIUM-HIGH |
-| Trust-in-institutions risk | MEDIUM (Euroscepticism rising) | LOW (crisis-driven unity) | MEDIUM (multi-front pressures) |
-| Legislative-output risk | LOW (predictable) | HIGH (COVID disruption) | LOW (throughput confirmed) |
-
-**Interpretation**: EP10's aggregate risk profile is closest to EP8's — dominated by
-one large external event (Brexit / Section 301 analog) — but with materially greater
-institutional preparedness. Unlike EP9's crisis-driven coalition-solidifying effect,
-EP10's pressures are multi-front and subtract rather than add to coalition cohesion.
-
----
-
-### Forward-Looking Implications for EP10 Q2 2026
-
-#### Derived from EP8 (Brexit pre-referendum)
-
-1. **External shocks benefit from prior legislative completion** — EP8's limited
-   pre-June 2016 output created perceived institutional paralysis. EP10's Q1 sprint
-   avoids this. Policy implication: preserve pace.
-2. **Coalition discipline pays under external pressure** — grand coalitions that
-   held on procedural votes during crises maintained credibility even when
-   substantive outcomes were contested.
-
-#### Derived from EP9 (COVID recovery)
-
-1. **Crisis creates coalition-solidifying opportunities** — the Recovery Facility
-   conditionality enforcement mechanism (entered force April 21, 2021) consolidated
-   EPP–S&D–Renew alignment. EP10's Banking Union completion and trade-countermeasure
-   authorisation serve similar coalition-solidifying functions.
-2. **Procedural innovation matters** — EP9's remote-voting innovation preserved
-   institutional functionality; EP10's pre-authorised countermeasure mechanism is a
-   structural innovation of comparable significance.
-
-#### Novel in EP10
-
-- **The "implementation phase" is the next test** — EP8 and EP9 never reached a
-  comparable Banking Union-completion → transposition-phase transition in Year-2 Q2.
-  See `threat-model.md` §T1 for the framework.
-- **Article 83 TFEU precedent invites Commission Year-2 H2 activity** — probability
-  of a second Article 83 initiative (environmental crime or corporate liability)
-  in EP10 H2 2026: ~55%.
-
----
-
-### Analytical Framework Novelty (Run 12 in the week-in-review context)
-
-This Run 12 is **the first reference-quality week-in-review run** in the EP10 series.
-Comparative precedent:
-
-| Element | EP8 WiR precedent | EP9 WiR precedent | Novel in EP10 Run 12 |
-|---------|:-----------------:|:-----------------:|:--------------------:|
-| SWOT analysis in WiR | ✓ | ✓ | No |
-| PESTLE scan in WiR | — | ✓ | No |
-| Stakeholder Mendelow in WiR | — | ✓ | No |
-| Shell scenario forecast in WiR | — | — | **✓ First** |
-| Diamond Model + Attack Trees in WiR | — | — | **✓ First** |
-| Historical Baseline per Rule 17 | — | — | **✓ First systematic** |
-| Integrated 8-artifact intelligence stack | — | — | **✓ First in WiR** |
-
----
-
-### Confidence Assessment
-
-- **🟢 HIGH confidence** in quantitative output comparisons — EP Open Data Portal
-  pre-computed stats (`get_all_generated_stats` MCP) provide reliable baselines for
-  EP8/EP9 values.
-- **🟡 MEDIUM confidence** in coalition-dynamics comparisons — EP10 data partially
-  compromised by MCP EPP `memberCount=0` gap.
-- **🟡 MEDIUM confidence** in risk-profile comparative judgments — inherent to
-  political-comparative assessment.
-- **🟢 HIGH confidence** in structural-novelty claims (Banking Union completion,
-  Article 83 precedent, post-Brexit throughput) — verifiable against EP Open Data
-  Portal document registries.
-
----
-
-*Framework: Rule 17 (Comparative Analysis Against Historical Baselines) per `analysis/methodologies/ai-driven-analysis-guide.md` v4.2+*
-*Data source: EP Open Data Portal pre-computed stats 2004–2026 via `get_all_generated_stats`; cross-reference with `adopted_texts` feed*
-*Cross-references: `deep-analysis.md` §Strength 1 (coalition discipline); `pestle-analysis.md` §L1 (Article 83 precedent); `threat-model.md` §T1 (transposition-phase Q2 pivot)*
-*Analysis generated: April 18, 2026 | Run 12 | Week-in-review workflow | Reference-quality retrofit*
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 ![Framework](https://img.shields.io/badge/Framework-WB_Indicator_Mapping-blue?style=flat-square)
@@ -2494,6 +1938,562 @@ probability above the product of independents:
 *Analysis generated: April 18, 2026 | Run 12 | Week-in-review workflow | Reference-quality retrofit*
 *Aggregate confidence: 🔴 LOW on individual wildcard probabilities (by design); 🟡 Medium on relative ranking*
 
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+![Framework](https://img.shields.io/badge/Framework-PESTLE_6--Dimension-blue?style=flat-square)
+![Confidence](https://img.shields.io/badge/Aggregate_Confidence-MEDIUM-yellow?style=flat-square)
+![Scope](https://img.shields.io/badge/Scope-EP10_Q1_Close_+_Recess-green?style=flat-square)
+
+> **Purpose**: Systematic macro-environmental scan across the six PESTLE dimensions as
+> applied specifically to the EP10 Q1-close retrospective and the April 14–26 Easter
+> recess forward window. This scan *deepens* the SWOT in `deep-analysis.md` by surfacing
+> structural forces not captured in the legislative-achievements inventory. PESTLE
+> findings feed directly into `scenario-forecast.md` and `threat-model.md`.
+
+---
+
+### Summary Heat Map
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+pie title PESTLE Pressure Distribution — Week of April 11-18, 2026
+    "Political (high)" : 28
+    "Economic (high)" : 24
+    "Legal (medium-high)" : 20
+    "Social (medium)" : 12
+    "Technological (medium)" : 10
+    "Environmental (low)" : 6
+```
+
+| Dimension | Pressure Level | Dominant Driver | Direction | Confidence |
+|-----------|:--------------:|-----------------|:---------:|:----------:|
+| Political | 🔴 HIGH | Pre-recess EPP-S&D-Renew discipline holding despite 5 contested files | Stable-tense | 🟡 Medium |
+| Economic | 🔴 HIGH | German contraction (−0.50%/2024) vs Polish outperformance (2.9%/2024) divergence | Deteriorating (DE) / Stable (PL) | 🟢 High |
+| Legal | 🟠 MEDIUM-HIGH | Article 83 TFEU precedent (Anti-Corruption) + pending ECJ Article 263 challenges | Activating | 🟡 Medium |
+| Social | 🟡 MEDIUM | Housing salience rising; anti-corruption civic welcome | Rising | 🟡 Medium |
+| Technological | 🟡 MEDIUM | AI Act threshold modification + EUCS cloud-sovereignty debate latent | Stable-unsettling | 🟡 Medium |
+| Environmental | 🟢 LOW | Spring demand trough; Climate Law trajectory on track | Stable | 🟢 High |
+
+---
+
+### 🔴 P — Political
+
+#### P1. UPSTREAM_404 six-text opacity as political opportunity (HIGH pressure, novel)
+
+The TA-10-2026-0099–0104 content gap is not merely a data-quality issue: it is a
+*political-economy event*. Six adopted texts from a session around April 7–10 remain
+opaque through Easter recess. Political groups that wish to manage narrative around
+those texts have a 7–10 day window of reduced scrutiny. Evidence: the adopted-texts
+feed confirms 159 items including TA-10-2026-0099–0104 (per `manifest.json`
+§dataQuality), while the individual-text endpoint returns UPSTREAM_404. Observable
+proxies during recess: national-press language about "a quiet April session" in DE,
+FR, IT outlets; political-group press releases referring to specific items without
+TA-numbers; early leaks from rapporteurs to specialist press (Euractiv, Politico
+Europe).
+
+**Intelligence implication**: Article 28 plenary's opening hour may surface an
+already-adopted-but-unknown text as political ammunition. Probability the six texts
+are substantively political rather than routine-consent: 45% (🟡 Medium).
+
+#### P2. EP10 Year-2 coalition discipline peak (HIGH pressure, stable)
+
+The EPP-S&D-Renew core produced 104 adopted texts in Q1 2026 (vs EP8's 62 in Q1 2016
+and EP9's 48 in Q1 2021 — see `historical-baseline.md` §Legislative Output). Sustaining
+this tempo post-recess requires continued Weber–García Pérez (EPP President + S&D
+leader) coordination. Observable proxies: EPP.eu and socialistsanddemocrats.eu press
+releases during April 21–27; social-media cadence of group coordinators; appearance
+of joint EPP-S&D tribune pieces in Le Monde, FAZ, La Stampa.
+
+#### P3. Pre-recess EPP-S&D divergence on housing (MEDIUM-HIGH pressure, rising)
+
+TA-10-2026-0091 (Housing Initiative) is the first Q1 file on which the EPP grand-coalition
+partner publicly signalled reluctance. S&D secured adoption but Commission-response
+adequacy (due April 21–26) will determine whether the dossier consolidates the grand
+coalition or fractures it. See `stakeholder-map.md` §12 and `scenario-forecast.md`
+§Scenario B.
+
+#### P4. Polish delegation on Anti-Corruption Directive (MEDIUM pressure)
+
+TA-10-2026-0094's Article 83 TFEU criminal-law-competence activation creates acute
+Polish political resonance. Tusk's KO-led government sees early transposition as
+domestic-political utility vs PiS/ECR framing it as EU overreach. Delegation-level
+split likely to surface at April 28 plenary's anti-corruption follow-up debate.
+
+#### P5. US political calendar constraint (MEDIUM pressure)
+
+The USTR operates on a fiscal-year filing cadence. The April 22–26 window sits before
+a May 3 US statutory notification deadline for Section 301 tariff categories
+constraining US flexibility to delay a filing. EU counter-posture must be ready by
+April 24 irrespective of EP recess status.
+
+---
+
+### 🔴 E — Economic
+
+#### E1. German contraction persistence (HIGH pressure, deteriorating)
+
+Germany recorded GDP growth of −0.87% in 2023 and −0.50% in 2024 (World Bank NY.GDP.MKTP.KD.ZG
+via `manifest.json` §worldBankDE). Two consecutive annual contractions are the
+longest German recession since 2002–2003. The automotive sector (BMW, Mercedes, VW,
+~4% of German GDP) is directly exposed to the US tariff regime that went T+0 April
+14. This macro backdrop creates structural incentive for German federal politicians
+to resist BRRD3 bail-in intensification — the political-economic coupling captured
+in `threat-model.md` §T1. See `economic-context.md` §Germany for full profile.
+
+#### E2. Italian positive quarter + cooperative-banking exposure (MEDIUM-HIGH pressure)
+
+Italy recorded 0.69% GDP growth in 2024 (World Bank). The growth is modest but
+positive — a Meloni-government political asset. However, Italian
+Banche-Popolari/BCC cooperative sector carries BRRD3 transposition sensitivity
+similar to German Sparkassen albeit at ~25% retail share vs German ~40%. Secondary
+transposition-delay risk.
+
+#### E3. Divergent EU economic geography (HIGH pressure, structural)
+
+The DE-PL divergence (−0.50% vs 2.9% 2024 GDP growth) is the widest intra-EU-North
+spread of the post-pandemic period. Economic divergence is the structural driver
+behind political-group fragmentation documented in `historical-baseline.md`
+§Coalition Dynamics — member states with weak growth resist implementation-cost-
+heavy directives, while strong-growth states push for tempo.
+
+#### E4. Trade-defence economic signalling (MEDIUM-HIGH pressure)
+
+TA-10-2026-0096 pre-authorises €9.6bn countermeasures. Market participants price
+activation-probability daily via DAX / CAC40 / FTSE-MIB volatility and BTP-Bund
+spread. See `economic-context.md` §Indicator Watch.
+
+#### E5. ECB-US Fed divergence risk (MEDIUM pressure)
+
+ECB Governing Council met April 17 (last pre-plenary). Divergent tariff-induced
+inflation dynamics in US vs EU create a potential policy-coordination gap that
+could amplify exchange-rate volatility during the recess window.
+
+---
+
+### 🟠 L — Legal
+
+#### L1. Article 83 TFEU criminal-law-competence activation (HIGH structural-novelty)
+
+TA-10-2026-0094 (Anti-Corruption Directive) is EP10's first sustained use of Article
+83 TFEU to harmonise criminal sanctions across all 27 member states. This creates a
+**precedent-competence signal**: if the Commission pursues further Article 83
+initiatives (environmental crime, corporate criminality, gender-based violence)
+Parliament has now demonstrated a willingness to legislate at this level. Constitutional
+challenge risk exists in member states with strong criminal-law sovereignty traditions
+(Germany, Denmark, Poland — see `threat-model.md` §T4). 🟡 Medium confidence on
+challenge probability.
+
+#### L2. BRRD3/DGSD2/SRMR3 transposition deadlines (HIGH implementation pressure)
+
+The Banking Union trilogy carries 18-month transposition deadlines running approximately
+to September 2027. National transposition-law drafting in member-state finance
+ministries begins during this recess — the political-economic coupling (E1 + P3)
+is strongest in Germany.
+
+#### L3. Pending ECJ Article 263 windows (MEDIUM-HIGH pressure)
+
+Multiple Q1 2026 adopted texts create Article 263 TFEU 2-month annulment windows. The
+Digital Omnibus (TA-10-2026-0098) is the most prominent civil-society-challenge
+target; TA-10-2026-0094 (Anti-Corruption) is the most prominent member-state-challenge
+target. Expect filings May–June 2026.
+
+#### L4. TA-10-2026-0099–0104 legal-status unknown (procedural pressure)
+
+Six texts with unknown subject-matter may carry legal consequences Parliament and
+observers cannot assess during recess. This ambiguity itself creates institutional-
+transparency risk.
+
+---
+
+### 🟡 T — Technological
+
+#### T1. EP API Tier-2/3 degradation during recess (MEDIUM pressure, self-resolving)
+
+Easter API maintenance cycle affects Tier-2 (events_feed, procedures_feed) and Tier-3
+(individual adopted-text content endpoints) from approximately April 14 to April
+25–27. Tier-1 (meps_feed, adopted_texts_feed) continues operating. This is the
+direct cause of the TA-10-2026-0099–0104 opacity (P1) and must be stated as a
+data-quality caveat in any article passage quoting Q1 statistics. See `manifest.json`
+§dataQuality.
+
+#### T2. AI Act threshold enforcement readiness (MEDIUM pressure)
+
+TA-10-2026-0098 Digital Omnibus AI high-risk threshold modification requires
+member-state supervisory authorities (AI Office, national DPAs) to recalibrate
+enforcement templates. A 2–4 month capacity-building gap creates enforcement
+unpredictability.
+
+#### T3. Cloud-sovereignty / EUCS background (LOW-MEDIUM pressure)
+
+ITRE/ECON committee activity on EUCS continues at staff level; no plenary agenda
+item imminent. Long-running dossier.
+
+---
+
+### 🟡 S — Social
+
+#### S1. Housing affordability political salience (MEDIUM-HIGH pressure, rising)
+
+Housing costs remain top-3 voter concern in Eurobarometer winter 2025–26. TA-10-2026-0091
+adoption and the April 21–26 Commission-response deadline make housing the week's
+most publicly visible EP-Commission interaction. Civil-society (Housing Europe,
+EAPN, national tenant unions) mobilisation plans ready for post-response media
+cycle.
+
+#### S2. Anti-corruption civic welcome (MEDIUM pressure)
+
+TA-10-2026-0094 generated broad civil-society welcome (Transparency International
+EU, Civil Liberties Union) but limited street-mobilisation energy. Expect NGO
+submissions to national transposition consultations.
+
+#### S3. EU Talent Pool / legal-migration framing (MEDIUM pressure)
+
+TA-10-2026-0095 (EU Talent Pool) enters a sensitive political environment. National
+right-wing parties (PfE, ESN, parts of ECR) have already indicated framing as
+"migration-liberalisation by stealth." S&D and Renew framing as "skills-matching
+for labour-market functioning." Public-opinion cross-pressure.
+
+#### S4. Civil-society digital rights mobilisation (MEDIUM pressure)
+
+EDRi / Access Now / noyb / La Quadrature du Net coordinating comms cycles for
+Article 263 challenge filings. Media amplification (FAZ, Le Monde, De Volkskrant)
+building since April 10.
+
+---
+
+### 🟢 En — Environmental
+
+#### En1. Spring energy-demand trough (LOW pressure)
+
+April is the European shoulder season between winter heating and summer cooling.
+Gas-storage at historically high levels after mild 2025-26 winter. No energy-crisis
+agenda pressure for April 28–30.
+
+#### En2. Climate Law -55% GHG trajectory on track (LOW pressure)
+
+Latest EEA March 2026 report confirms 2030 compliance trajectory. No imminent
+Commission enforcement action.
+
+#### En3. Critical-minerals permitting latent (LOW pressure)
+
+Long-running dossier; not April 28 material.
+
+---
+
+### Cross-Dimensional Coupling Analysis
+
+These couplings are where scenario risk concentrates and directly feed
+`scenario-forecast.md`:
+
+| # | Coupling | Mechanism | Amplification |
+|---|----------|-----------|:-------------:|
+| C1 | **E1 + E2 + P3** | DE contraction + IT cooperative-bank sensitivity + EPP political constraint → BRRD3 transposition friction in two largest Eurozone economies | 🔴 Strong |
+| C2 | **P3 + S1 + L2** | EPP-S&D divergence + housing salience + legislative-implementation deadlines → Commission under multi-front pressure during recess | 🔴 Strong |
+| C3 | **P5 + E4** | US statutory filing deadline + pre-authorised EU countermeasure → forced binary decision by April 24 | 🟠 Moderate |
+| C4 | **L1 + P4** | Article 83 TFEU precedent + Polish PiS-KO political divergence → constitutional-challenge probability | 🟠 Moderate |
+| C5 | **L3 + S4 + T2** | Article 263 windows + civil-society mobilisation + AI enforcement gap → EP political vulnerability on digital dossier | 🟠 Moderate |
+| C6 | **T1 + P1** | EP API opacity + six-text unknown content → narrative-management opportunity for political groups | 🟡 Light |
+
+The C1 + C2 pair is the scenario most capable of reshaping the April 28 plenary
+agenda from its planned substance toward emergency-coalition-management mode. See
+`threat-model.md` §T1 and `stakeholder-map.md` §7 (Sparkassen Association) for the
+adversary-capability mapping.
+
+---
+
+### Intelligence Implications
+
+1. **Recess is not politically dormant.** Four live processes run in parallel during
+   April 14–26: Commission housing-response drafting, member-state BRRD3
+   transposition-analysis, USTR Section 301 calendar, EP political-group
+   pre-plenary coordination. Article prose should frame the recess as "strategic
+   theatre," not silence.
+2. **Q1 retrospective and Q2 forecast must be coupled.** The record Q1 output
+   (`deep-analysis.md` §Strength 1; `historical-baseline.md` §Legislative Output) is
+   the *political capital* available to EP10 leadership to absorb Q2 stresses.
+   Treating Q1 as concluded and Q2 as separate is an analytical error.
+3. **Economic geography is the silent coalition-shaper.** The DE-PL growth
+   divergence (E3) explains more variance in member-state transposition appetite than
+   party-political positioning does. `economic-context.md` §Coupling Matrix makes
+   this explicit.
+4. **Article 83 TFEU precedent is the week's most underweighted story.** Legal
+   commentary on TA-10-2026-0094 has focused on substantive anti-corruption content;
+   L1's precedent-competence consequence is more consequential for EP10's second
+   half.
+5. **Environmental dimension provides political bandwidth.** Low environmental
+   pressure (unlike spring 2022–23 energy crisis or 2024 farmer protests) gives EP10
+   the rhetorical space to concentrate on the complex trade + banking + housing
+   triangle at April 28–30.
+
+---
+
+*Framework: PESTLE Macro-Environmental Scan per `analysis/methodologies/political-threat-framework.md`*
+*Cross-references: `scenario-forecast.md` (scenario axes derived from C1, C2, C3); `threat-model.md` (T1 derived from C1); `stakeholder-map.md` (position matrix derived from P-dimension analyses)*
+*Next review: Run 13 (post-April-27) — re-scan after Commission housing response and USTR week resolve C2 and C3*
+*Analysis generated: April 18, 2026 | Run 12 | Week-in-review workflow | Reference-quality retrofit*
+
+### Historical Baseline
+
+![Framework](https://img.shields.io/badge/Framework-Rule_17_Historical_Baselines-blue?style=flat-square)
+![Baselines](https://img.shields.io/badge/Compared_Terms-EP8_EP9_EP10-green?style=flat-square)
+![Confidence](https://img.shields.io/badge/Confidence-HIGH-brightgreen?style=flat-square)
+
+> **Purpose**: Situate EP10 Q1 2026's record legislative output against the equivalent
+> Year-2 Q1 points in EP8 (Q1 2016) and EP9 (Q1 2021) to determine whether Run 12's
+> observations represent a historical outlier, a return to precedent, or a genuinely
+> novel political phenomenon. Historical baselines guard against recency bias in
+> the retrospective portion of the week-in-review article. Per ai-driven-analysis-
+> guide Rule 17.
+
+---
+
+### Comparative Calendar Point
+
+| Term | Current Equivalent Date | Years Into Mandate | Political Context |
+|------|------------------------|:------------------:|-------------------|
+| EP8 | Q1 2016 (Jan–Apr) | Year 2 | Post-refugee-crisis consolidation; Brexit referendum imminent (June 2016); US-EU TTIP fading |
+| EP9 | Q1 2021 (Jan–Apr) | Year 2 | COVID recovery; NextGenerationEU ramp-up; Brexit transition complete; Biden early presidency |
+| **EP10** | **Q1 2026 (Jan–Apr)** | **Year 2** | Post-Brexit full-term; US Trump-2 tariff-T+0; Easter recess; first Banking Union completion; first sustained Article 83 TFEU use |
+
+All three terms hit comparable Year-2 consolidation points with significant external
+shocks (Brexit referendum / COVID / US tariffs). This structural similarity is the
+precondition for Rule-17 comparability.
+
+---
+
+### Legislative Output Comparison (Q1 Year-2)
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+pie title Adopted Texts — Q1 Year-2 (Comparative)
+    "EP8 Q1 2016" : 62
+    "EP9 Q1 2021" : 48
+    "EP10 Q1 2026" : 104
+```
+
+| Metric | EP8 Q1 2016 | EP9 Q1 2021 | EP10 Q1 2026 | EP10 vs historical peak |
+|--------|:-----------:|:-----------:|:------------:|:-----------------------:|
+| Total adopted texts Q1 | 62 | 48 | **104** | **+68% vs EP8** |
+| Roll-call votes Q1 | ~420 | ~380 | **567** | **+35% vs EP8** |
+| Committee meetings Q1 | ~1,850 | ~1,720 | **2,363** | **+28% vs EP8** |
+| Parliamentary questions Q1 | ~4,700 | ~5,100 | **6,147** | **+31% vs EP8** |
+| Banking-Union-type package completions | 0 | 0 | **1 (Phase-2 complete)** | 🔷 novel |
+| Co-decision procedures concluded Q1 | 24 | 17 | **~39** | **+63% vs EP8** |
+| Initiative reports adopted Q1 | 8 | 12 | **~17** | **+42% vs EP9** |
+| Plenary sessions in Q1 | 5 | 6 (incl. COVID-remote) | 6 | +0% vs EP9 |
+| Average adopted texts per plenary | ~12 | ~8 | **~17** | **+42% vs EP8** |
+
+**Interpretation**: EP10 Q1 2026 is **the most legislatively productive Year-2 Q1 in
+the post-Lisbon history of the European Parliament**. The 104-text output is +68% vs
+EP8's record and +117% vs EP9's COVID-constrained period. The per-plenary productivity
+(+42% vs EP8) confirms this is not a calendar artefact but genuine throughput
+improvement. See `deep-analysis.md` §Strength 1 for the political-coalition-discipline
+explanation.
+
+Of the 104 texts, TA-10-2026-0090 through 0104 (15 texts) were adopted in the March
+26 mega-sitting plus the subsequent April 7–10 sitting, concentrating ~14% of Q1
+output in the final 4 weeks — the "March sprint" pattern documented in `deep-analysis.md`
+§Thread 2.
+
+---
+
+### Coalition Dynamics Comparison
+
+| Coalition Metric | EP8 Q1 2016 | EP9 Q1 2021 | EP10 Q1 2026 | Trend |
+|------------------|:-----------:|:-----------:|:------------:|:-----:|
+| Grand-coalition vote frequency | 78% | 68% | ~72% (est.) | Partial recovery vs EP9 |
+| Cross-party coalition frequency | 15% | 24% | ~26% (est.) | Still elevated |
+| Political-group fragmentation (Effective Number of Parties) | 5.8 | 6.8 | ~6.5 (est.) | Stable-high |
+| Grand-coalition dominance in co-decision | 82% | 71% | ~75% (est.) | Partial recovery |
+| Political groups with ≥5% seat share | 7 | 7 | **8** (incl. PfE, ESN) | Increased |
+
+**Interpretation**: EP10's Q1 coalition behaviour resembles EP9 (fragmented,
+cross-party-fluid) rather than EP8's more cohesive grand-coalition dominance.
+Critically, EP10 has **more political groups** operating above the 5% seat-share
+threshold (8 vs 7 in EP8/EP9), consistent with the 2024 election's fragmentation
+outcome. That fragmentation has been *absorbed* during Q1 2026 rather than hindering
+throughput — a structural finding of note.
+
+*Data-quality note: EP10 coalition figures marked "est." reflect the persistent
+EPP `memberCount=0` gap documented in `manifest.json` §dataQuality. These are
+calibrated estimates based on 7 of 8 groups' data plus historical trajectory
+extrapolation.*
+
+---
+
+### External-Shock Response Pattern Comparison
+
+#### EP8 Q1 2016 — Brexit pre-referendum
+
+- **Shock**: UK referendum announced February 2016, vote 23 June 2016.
+- **EP response**: Defensive, unity-focused; limited concrete legislative response
+  before the June vote; institutional-rhetoric dominant.
+- **Coalition behaviour**: Grand coalition held with performative unity speeches;
+  limited substantive cross-party cooperation.
+- **Preparedness score**: 🟡 Medium — reactive rather than anticipatory.
+
+#### EP9 Q1 2021 — COVID recovery consolidation
+
+- **Shock**: COVID third wave peak; NGEU disbursement politics; rule-of-law
+  conditionality regulation entering force April 21, 2021.
+- **EP response**: Accelerated legislative activity concentrated on Recovery and
+  Resilience Facility oversight; budgetary-conditionality mechanism.
+- **Coalition behaviour**: Grand coalition held with crisis-driven consolidation;
+  Hungary/Poland-aligned ECR dissent on conditionality.
+- **Preparedness score**: 🟢 High — pre-crisis procedural innovation (remote voting)
+  and fiscal-coordination tools.
+
+#### EP10 Q1 2026 — US trade shock + Banking Union implementation
+
+- **Shock**: US tariffs T+0 April 14; Section 301 watch April 22–26; Banking Union
+  implementation-phase begins.
+- **EP response**: **Pre-authorised countermeasure mechanism** (TA-10-2026-0096);
+  accelerated Banking Union completion (Phase-2 closed before transposition window
+  opens); deep-intelligence-accumulation across 7 recess-monitoring runs (179–184
+  + Run 12).
+- **Coalition behaviour (forecast per `scenario-forecast.md`)**: Grand coalition
+  expected to hold on trade-response but with meaningful internal stress on banking
+  transposition.
+- **Preparedness score**: 🟢 **HIGH — higher than either precedent**. The pre-
+  authorised countermeasure is a procedural innovation of comparable significance
+  to EP9's remote-voting innovation.
+
+---
+
+### Structural Novelty — Three Ways EP10 Q1 Differs
+
+Beyond quantitative output, EP10 Q1 2026 carries three structural features unprecedented
+in EP8 / EP9 Year-2 Q1:
+
+#### 1. First Banking-Union architecture completion (14-year project closure)
+
+Banking Union as a political project began with the 2012 Draghi "whatever it takes"
+moment and the June 2012 Euro-area summit. EP6 (2013) began Phase-1 (SSM, SRM, first
+BRRD). EP7 (2014) continued. EP8 (2016) and EP9 (2021) held Phase-1 status quo
+without closing Phase-2. **EP10 Q1 2026 completed Phase-2** via DGSD2 + BRRD3 + SRMR3
+adopted March 26. No predecessor parliament closed a comparable 14-year multi-term
+architectural project during a Year-2 Q1.
+
+#### 2. First sustained Article 83 TFEU use (criminal-law competence precedent)
+
+EP9 passed Anti-Money-Laundering 4 / 5 / 6 packages using overlapping competence
+bases. EP8 passed Victims of Terrorism and Cybercrime Directives but without
+articulating Article 83 as the sustained-basis framework. **EP10 Q1 2026's TA-10-
+2026-0094 Anti-Corruption Directive is the first EP10-term text explicitly grounded
+in Article 83 TFEU as a freestanding competence-basis for harmonised minimum
+criminal sanctions** — a precedent for further EP10 / EP11 criminal-law
+harmonisation. See `pestle-analysis.md` §L1.
+
+#### 3. First post-Brexit full-term parliament operating at 104-text Q1 throughput
+
+EP9 Q1 2021 was the first full-term post-Brexit Q1 but produced only 48 texts,
+constrained by COVID remote-working. **EP10 Q1 2026 is the first post-Brexit
+parliament to demonstrate throughput exceeding pre-Brexit EP8 levels by 68%**
+establishing that the 705-seat-post-UK-departure parliament (720 seats in EP10)
+can out-produce the 751-seat pre-Brexit parliament.
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","secondaryBorderColor":"#0F3F00","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","tertiaryBorderColor":"#7F4F00","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","noteBorderColor":"#7F6000","errorBkgColor":"#D32F2F","errorTextColor":"#ffffff","fontFamily":"Inter, Helvetica, Arial, sans-serif","pie1":"#1565C0","pie2":"#2E7D32","pie3":"#FF9800","pie4":"#D32F2F","pie5":"#FFC107","pie6":"#7B1FA2","pie7":"#9E9E9E","pie8":"#0288D1","pie9":"#388E3C","pie10":"#F57C00","pie11":"#C62828","pie12":"#FBC02D","pieTitleTextSize":"18px","pieSectionTextSize":"14px","pieLegendTextSize":"13px","pieStrokeColor":"#1e1e1e","pieOuterStrokeColor":"#1e1e1e","git0":"#1565C0","git1":"#2E7D32","git2":"#FF9800","git3":"#D32F2F","gitBranchLabel0":"#ffffff","gitBranchLabel1":"#ffffff","gitBranchLabel2":"#000000","gitBranchLabel3":"#ffffff","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1","xyChart":{"backgroundColor":"#1e1e1e","plotColorPalette":"#1565C0,#2E7D32,#FF9800,#D32F2F,#FFC107,#7B1FA2,#9E9E9E"}}}}%%
+graph LR
+    EP8["EP8 Q1 2016<br/>62 texts<br/>Pre-Brexit 751 seats<br/>Reactive shock-response"] --> EP9
+    EP9["EP9 Q1 2021<br/>48 texts<br/>COVID-constrained<br/>705 seats post-Brexit"] --> EP10
+    EP10["EP10 Q1 2026<br/>104 texts<br/>720 seats<br/>Preparedness innovation<br/>3 structural novelties"]
+
+    style EP8 fill:#95a5a6,color:#fff
+    style EP9 fill:#1565c0,color:#fff
+    style EP10 fill:#2e7d32,color:#fff
+```
+
+---
+
+### Risk Profile Comparison
+
+| Risk Dimension | EP8 Q1 2016 | EP9 Q1 2021 | EP10 Q1 2026 |
+|----------------|-------------|-------------|--------------|
+| Dominant external risk | Brexit referendum | COVID recovery collapse | US-EU trade escalation |
+| Dominant internal risk | Migration-coalition stress | Rule-of-law conditionality dispute | BRRD3 transposition + Housing confrontation |
+| Coalition-integrity risk | LOW | MEDIUM | MEDIUM-HIGH |
+| Trust-in-institutions risk | MEDIUM (Euroscepticism rising) | LOW (crisis-driven unity) | MEDIUM (multi-front pressures) |
+| Legislative-output risk | LOW (predictable) | HIGH (COVID disruption) | LOW (throughput confirmed) |
+
+**Interpretation**: EP10's aggregate risk profile is closest to EP8's — dominated by
+one large external event (Brexit / Section 301 analog) — but with materially greater
+institutional preparedness. Unlike EP9's crisis-driven coalition-solidifying effect,
+EP10's pressures are multi-front and subtract rather than add to coalition cohesion.
+
+---
+
+### Forward-Looking Implications for EP10 Q2 2026
+
+#### Derived from EP8 (Brexit pre-referendum)
+
+1. **External shocks benefit from prior legislative completion** — EP8's limited
+   pre-June 2016 output created perceived institutional paralysis. EP10's Q1 sprint
+   avoids this. Policy implication: preserve pace.
+2. **Coalition discipline pays under external pressure** — grand coalitions that
+   held on procedural votes during crises maintained credibility even when
+   substantive outcomes were contested.
+
+#### Derived from EP9 (COVID recovery)
+
+1. **Crisis creates coalition-solidifying opportunities** — the Recovery Facility
+   conditionality enforcement mechanism (entered force April 21, 2021) consolidated
+   EPP–S&D–Renew alignment. EP10's Banking Union completion and trade-countermeasure
+   authorisation serve similar coalition-solidifying functions.
+2. **Procedural innovation matters** — EP9's remote-voting innovation preserved
+   institutional functionality; EP10's pre-authorised countermeasure mechanism is a
+   structural innovation of comparable significance.
+
+#### Novel in EP10
+
+- **The "implementation phase" is the next test** — EP8 and EP9 never reached a
+  comparable Banking Union-completion → transposition-phase transition in Year-2 Q2.
+  See `threat-model.md` §T1 for the framework.
+- **Article 83 TFEU precedent invites Commission Year-2 H2 activity** — probability
+  of a second Article 83 initiative (environmental crime or corporate liability)
+  in EP10 H2 2026: ~55%.
+
+---
+
+### Analytical Framework Novelty (Run 12 in the week-in-review context)
+
+This Run 12 is **the first reference-quality week-in-review run** in the EP10 series.
+Comparative precedent:
+
+| Element | EP8 WiR precedent | EP9 WiR precedent | Novel in EP10 Run 12 |
+|---------|:-----------------:|:-----------------:|:--------------------:|
+| SWOT analysis in WiR | ✓ | ✓ | No |
+| PESTLE scan in WiR | — | ✓ | No |
+| Stakeholder Mendelow in WiR | — | ✓ | No |
+| Shell scenario forecast in WiR | — | — | **✓ First** |
+| Diamond Model + Attack Trees in WiR | — | — | **✓ First** |
+| Historical Baseline per Rule 17 | — | — | **✓ First systematic** |
+| Integrated 8-artifact intelligence stack | — | — | **✓ First in WiR** |
+
+---
+
+### Confidence Assessment
+
+- **🟢 HIGH confidence** in quantitative output comparisons — EP Open Data Portal
+  pre-computed stats (`get_all_generated_stats` MCP) provide reliable baselines for
+  EP8/EP9 values.
+- **🟡 MEDIUM confidence** in coalition-dynamics comparisons — EP10 data partially
+  compromised by MCP EPP `memberCount=0` gap.
+- **🟡 MEDIUM confidence** in risk-profile comparative judgments — inherent to
+  political-comparative assessment.
+- **🟢 HIGH confidence** in structural-novelty claims (Banking Union completion,
+  Article 83 precedent, post-Brexit throughput) — verifiable against EP Open Data
+  Portal document registries.
+
+---
+
+*Framework: Rule 17 (Comparative Analysis Against Historical Baselines) per `analysis/methodologies/ai-driven-analysis-guide.md` v4.2+*
+*Data source: EP Open Data Portal pre-computed stats 2004–2026 via `get_all_generated_stats`; cross-reference with `adopted_texts` feed*
+*Cross-references: `deep-analysis.md` §Strength 1 (coalition discipline); `pestle-analysis.md` §L1 (Article 83 precedent); `threat-model.md` §T1 (transposition-phase Q2 pivot)*
+*Analysis generated: April 18, 2026 | Run 12 | Week-in-review workflow | Reference-quality retrofit*
+
 <h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
 ### Analysis Index
@@ -2952,12 +2952,12 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-significance | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/significance-scoring.md) | `intelligence/significance-scoring.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/threat-model.md) | `intelligence/threat-model.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-supplementary-intelligence | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/week-in-review-run12/intelligence/deep-analysis.md) | `intelligence/deep-analysis.md` |
 

@@ -74,17 +74,6 @@ For trade legislation (Mercosur safeguard), the historically unusual alignment i
 
 *Sources: EP Open Data Portal via european-parliament-mcp-server@1.2.15; EP adopted texts feed (133 items, 120 EP10-term); legislative procedure timeline data.*
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- **Grand coalition (EPP 185 + S&D 135 + Renew 77 = 397):** Exceeds majority by 36 seats — sufficient for most legislation but fragile on contentious files.
-- **Conservative right coalition (EPP 185 + ECR 81 + PfE 85 = 351):** Below majority; requires additional support, typically NI or individual defectors.
-- **Hard right bloc (PfE 85 + ECR 81 + ESN 27 = 193):** Strong blocking minority on sensitive constitutional/migration files.
-- 🟢 HIGH confidence: Legislative completions data (OJ-published procedures) — primary source EP Open Data Portal
-- 🟡 MEDIUM confidence: Trilogue outcome predictions — based on committee mandate analysis and inter-institutional precedent
-- 🔴 LOW confidence: Voting patterns — EP roll-call data delayed 4–6 weeks; quantitative coalition analysis not possible from available data
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -567,138 +556,6 @@ Representing 22 million EU farmers and 22,000 agricultural cooperatives, Copa-Co
 3. ECB monetary policy forward guidance under tariff-shock scenario: ECON committee members have formal access to ECB governors via monetary dialogue but informal communication channels are opaque — creating asymmetric information about ECB intentions between ECON insiders and outsiders.
 
 *Sources: EP Open Data Portal (committee and group data); EP institutional records; published MEP mandates and committee work programme; European Parliament Research Service analysis framework.*
-
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### Political (P)
-
-**Parliamentary Balance:** The EP10's multi-coalition arithmetic (EPP 185 + S&D 135 + Renew 77 = 397 for mainstream majority; threshold 361) creates a structurally stable legislative centre that is nonetheless subject to issue-specific fragmentation. On trade files (INTA committee), the EPP is internally divided between pro-Mercosur free trade MEPs (Central Europe, Netherlands) and agricultural protection MEPs (France, Ireland, Poland). This internal EPP division is the primary political variable for the Mercosur trilogue outcome.
-
-**Inter-Institutional Dynamics:** The EP's relationship with the Council (majority of agricultural ministers opposing broad safeguard triggers) and the Commission (strategically positioned as Mercosur champion) creates a classic three-way negotiation where the EP holds strong committee mandate leverage but faces a unified Council-Commission front on procedural details. The European Parliament's institutional self-confidence is HIGH in EP10 relative to EP9, reflected in the three ECB governance consent procedures exercised in rapid succession.
-
-**National Political Context:** The German coalition government's complex position on Mercosur (foreign minister supports; agriculture minister opposes; Chancellor mediating) directly reflects into the voting patterns of German EPP, S&D, and Greens/EFA MEPs on the INTA committee. French Renew and EPP MEPs are uniformly protectionist on agricultural safeguards. Polish ECR MEPs support strong safeguard triggers from an agricultural competition angle. This geographic coalition cuts across EP political group lines.
-
-**Confidence:** 🟡 MEDIUM — Based on committee mandate analysis and observed plenary voting patterns from available data; detailed group-level analysis constrained by absence of roll-call voting data.
-
-### Economic (E)
-
-**US Tariff Shock:** The second Trump administration's tariff policy (25–100% on various EU goods categories, implemented in waves through 2025–2026) represents the dominant external economic shock affecting EP committee priorities. The INTA committee is managing both defensive countermeasures (implemented) and offensive trade negotiations (Mercosur) simultaneously — an historically unusual dual burden.
-
-**ECB Policy Uncertainty:** The appointment of a new ECB Vice-President in March 2026 coincides with elevated monetary policy uncertainty: residual inflation from tariff pass-through (upside risk) versus growth slowdown from export compression (downside risk). ECON committee's May 2026 monetary dialogue will be the first formal EP-ECB exchange under the new leadership configuration.
-
-**Housing Market Stress:** The housing resolution (March 2026) reflects a real and politically salient deterioration in EU housing affordability. This creates a new "economic welfare" front for multiple committees — ECON (financing), REGI (cohesion funds), EMPL (labour mobility), JURI (property rights) — that will demand committee capacity through 2026.
-
-**Confidence:** 🟡 MEDIUM — macroeconomic projections (IMF WEO April 2026 cited without live probe); housing data from published institutional sources.
-
-### Social (S)
-
-**Agricultural Communities:** The Mercosur safeguard file has a direct social dimension — beef, poultry, and sugar farming communities in France, Ireland, Germany, and Poland face competitive pressure from South American imports. EU rural community organisations (Copa-Cogeca, national farm lobbies) have sustained a five-year pressure campaign on EP INTA MEPs that directly shaped the committee mandate's safeguard trigger provisions.
-
-**Housing and Urban Inequality:** The housing crisis resolution reflects deepening urban-rural inequality within the EU. Young workers in Amsterdam, Berlin, Paris, and Dublin facing rental costs of 40%+ of income represent a politically activated demographic that has driven housing up the EP10 agenda beyond where it was in EP9. Social housing NGOs and tenant advocacy groups are now recognised EP lobby actors engaging EMPL and JURI committees.
-
-**Migration Policy Completion:** The Safe Third Country update (LIBE, completed February 2026) completed the social contract element of the migration pact — defining the legal framework for asylum seekers arriving via non-EU countries. Social cohesion implications are contested: member states with high arrival volumes (Greece, Italy, Hungary) vs. those pressing for enhanced returns (Denmark, Austria, Netherlands).
-
-**Confidence:** 🟡 MEDIUM — Qualitative social assessment based on committee mandate content and adopted text subjects.
-
-### Technological (T)
-
-**Digital Sovereignty Package:** The three digital adopted texts (tech sovereignty TA-10-2026-0022, copyright/AI TA-10-2026-0066, better law-making TA-10-2026-0063) form the opening moves of EP10's digital legislative agenda. The tech sovereignty resolution signals EP support for European cloud infrastructure investment, semiconductor manufacturing capacity (ITRE committee's European Chips Act successor), and platform interoperability rules.
-
-**Copyright and AI Tension:** The copyright/AI resolution (JURI committee, March 2026) establishes EP's position that generative AI training on EU-copyrighted works requires transparency and opt-out mechanisms. This directly challenges the operational models of major US AI companies (OpenAI, Google, Meta) and creates an AI regulatory environment more restrictive than the US but aligned with EP10's industrial policy ambitions.
-
-**Committee Technological Literacy Gap:** A persistent structural challenge for ITRE and JURI committees is that MEPs with technology expertise are heavily outnumbered by generalists making technology-consequential decisions. The Better Law-Making report's call for enhanced ex-ante impact assessment could partially address this by requiring technology impact sections in Commission proposals.
-
-**Confidence:** 🟢 HIGH — Digital agenda is well-documented through adopted texts and committee work programmes.
-
-### Legal (L)
-
-**EU-Mercosur Legal Architecture:** The legal structure of the Mercosur bilateral safeguard is technically complex — it must be compatible with WTO Agreement on Safeguards provisions, the EP-Commission-Council trilateral relationship, and the overall EU-Mercosur Partnership Agreement framework. INTA committee counsel flagged in the mandate that the automatic trigger mechanism requires careful legal drafting to avoid WTO dispute exposure.
-
-**Electoral Act Reform (TA-10-2026-0006):** The Electoral Act reform resolution (January 2026) identified ratification obstacles in member states — particularly those with constitutional requirements for national parliament approval of EU electoral law changes. AFCO committee is now tracking implementation in each of the 27 member states. Legal challenges from Hungary and Poland are anticipated.
-
-**Measuring Instruments Directive:** The completed IMCO procedure (2024/0311, published OJ March 2026) updates the legal framework for measuring instruments (scales, meters, gauges) — a technical but commercially significant harmonisation measure affecting €30+ billion of EU single market trade annually. IMCO delivered this in 18 months from proposal to publication, a benchmark of efficient committee procedure.
-
-**Confidence:** 🟢 HIGH — Legal timeline data from EP procedure tracking; legal analysis from committee mandate documents.
-
-### Environmental (E)
-
-**Green Deal Implementation Phase:** The ENVI committee's current work is predominantly in the **implementation regulation** phase of the Green Deal — setting technical standards, monitoring mechanisms, and enforcement rules for targets already legislated under the Climate Law and Fit for 55 package. The heavy-duty vehicles emissions calculation (TA-10-2026-0084, March 2026) exemplifies this: legally uncontested in principle, technically detailed in practice.
-
-**Nature Restoration Law Implementation:** Although not in the immediate data window, ENVI is managing the implementation of the Nature Restoration Law (adopted EP9/early EP10) — the most contested Green Deal element. Implementation monitoring reports are expected from the Commission in Q3 2026, which will trigger ENVI committee scrutiny activity.
-
-**Agriculture-Environment Interface:** The Mercosur agricultural safeguard intersects with environmental commitments through the deforestation-free supply chain requirement — a key condition the EP successfully inserted into the Mercosur partnership framework. ENVI committee has formally requested joint hearings with INTA on the deforestation monitoring provisions, creating a cross-committee coordination requirement.
-
-**Confidence:** 🟡 MEDIUM — Based on adopted text subjects and committee workload analysis; forward-looking elements are analytical projections.
-
-### PESTLE Summary Table
-
-| Dimension | Current Stress Level | Trend | Key Variable |
-|-----------|---------------------|-------|-------------|
-| Political | 🟡 MEDIUM | → Stable | EPP internal division on Mercosur |
-| Economic | 🔴 HIGH | ↗ Rising | US tariff shock + ECB uncertainty |
-| Social | 🟡 MEDIUM | ↗ Rising | Housing affordability + migration completion |
-| Technological | 🟡 MEDIUM | → Stable | Copyright/AI position establishing |
-| Legal | 🟢 LOW | → Stable | Mercosur WTO compatibility risk |
-| Environmental | 🟡 MEDIUM | → Stable | ENVI implementation phase workload |
-
-### Historical Baseline
-
-### EP10 Legislative Trajectory (2024–2026)
-
-The tenth European Parliament, constituted after the June 2024 elections, began its legislative work in September 2024 following the re-election of Commission President von der Leyen and the appointment of the new Commission College. The EP10's first 18 months (September 2024 – April 2026) represent an unusually intense constitutional and legislative startup phase driven by three factors: elevated geopolitical risk (Ukraine war continuation), US political realignment under the second Trump administration (from January 2025), and Green Deal implementation pressure.
-
-#### Comparative Legislative Output
-
-By comparison with EP9 at the same phase of the parliamentary term (Q2 2021, 18 months in):
-- **EP9 Q2 2021:** ~40 adopted texts in first 18 months; dominated by COVID recovery legislation and Digital Services Act committee work
-- **EP10 Q2 2026:** ~96 adopted texts in approximately 20 months (extrapolating from 30 items fetched representing partial 2026 output plus estimated 2025 base); qualitatively dominated by trade, security, and digital themes
-
-This represents a **40% productivity increase** in adopted texts — consistent with the more assertive inter-institutional posture of the EP10 under President Roberta Metsola.
-
-### Committee System Historical Context
-
-#### ECON Committee: 2019–2026 Arc
-
-The ECON committee's relationship with the ECB has evolved through three phases:
-1. **2019–2021 (QE expansion):** ECON broadly endorsed ECB emergency asset purchase programmes while seeking accountability commitments
-2. **2022–2023 (Rate hiking cycle):** ECON became more assertive, with critical resolutions on inflation management and distributional impacts of rate rises
-3. **2024–2026 (Normalization + new uncertainty):** ECON returned to constructive oversight mode during the rate-cutting cycle (2024), but US tariff shock risks re-energising the critical posture. The three governance appointments in Q1 2026 suggest ECON is actively using its consent powers to shape ECB leadership composition.
-
-#### INTA Committee: Trade as Geopolitical Instrument
-
-The INTA committee's evolution reflects the EU's shift from a rule-based multilateral trade framework to a more geopolitically conditional approach:
-- **EU-Mercosur (ongoing since 2019):** Originally blocked by EP10 predecessor on environmental/deforestation grounds (2023–2024). The bilateral safeguard clause (2025/0261) represents a compromise pathway allowing the trade agreement to proceed with agricultural protections — a major shift from the EP9 rejection posture.
-- **US tariffs (2025–2026):** INTA moved rapidly to support countermeasure legislation, with a plenary mandate adopted within weeks of US tariff announcement — faster than comparable responses in 2018–2019.
-
-#### ENVI Committee: Green Deal Phase Transition
-
-ENVI's legislative output in 2026 reflects the transition from **framework legislation** (targets, standards) to **implementation regulation** (technical rules, monitoring, enforcement):
-- Heavy-duty vehicles emissions calculation (TA-10-2026-0084) — technical implementation
-- Ongoing work on Sustainable Aviation Fuel mandates, Carbon Border Adjustment Mechanism adjustments
-- This technical phase typically generates fewer high-profile votes but more intensive trilogue work
-
-#### LIBE Committee: Migration Law Completion
-
-The Safe Third Country Concept update (2025/0132, LIBE committee) completed in February 2026 represents the final major element of the Migration and Asylum Pact implementation — a five-year legislative programme from the EP9 that LIBE completed in EP10's first year. LIBE is now expected to pivot to AI surveillance regulation, biometric data rules, and criminal justice cooperation.
-
-### Historical Analogue: EP7's Trade-Digital Convergence (2013–2014)
-
-The current convergence of trade, digital, and institutional governance files finds its closest historical analogue in the final year of EP7 (2013–2014), when INTA was simultaneously processing TTIP negotiating mandate, ITRE was working on the NIS Directive (first EU cybersecurity framework), and JURI was completing the data protection regulation committee stage. EP7's response was to create an ad hoc Digital Agenda Working Group that coordinated across committee boundaries — a mechanism EP10 has not yet formalized but which current legislative pressure may require.
-
-**Historical WEP baseline:** 🟡 MEDIUM — cross-committee coordination mechanisms tend to emerge at the legislative intensity level currently observed; 55–65% probability that EP10 will create a formal inter-committee coordination structure for digital/trade/security policy convergence by end of 2026.
-
-### Benchmarks for Quality Assessment
-
-| Metric | EP10 (April 2026) | EP9 (April 2021) | EP8 (April 2019) |
-|--------|------------------|-----------------|-----------------|
-| Adopted texts (approx. 20 months) | ~96 | ~68 | ~55 |
-| Active HIGH-workload committees | 3+ simultaneously | 2 typically | 1–2 |
-| Open trilogues (major files) | 2–3 | 4–5 | 3–4 |
-| Constitutional governance files | 2 (ECB appointments) | 1 | 0 |
-
-*Sources: EP Open Data Portal adopted texts dataset; EP legislative observatory historical records; EP10 political landscape data.*
 
 <h2 id="section-economic-context">Economic Context</h2>
 
@@ -1604,6 +1461,138 @@ Compound probability: ~0.07 × 0.06 = ~0.4% — very low, but the impact would b
 
 *Sources: Intelligence methodology — Nassim Nicholas Taleb, "The Black Swan" (2007); CIA Uncertainty Estimate standard; historical precedent from EP institutional records; threat landscape assessment from analysis/daily/2026-04-28.*
 
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### Political (P)
+
+**Parliamentary Balance:** The EP10's multi-coalition arithmetic (EPP 185 + S&D 135 + Renew 77 = 397 for mainstream majority; threshold 361) creates a structurally stable legislative centre that is nonetheless subject to issue-specific fragmentation. On trade files (INTA committee), the EPP is internally divided between pro-Mercosur free trade MEPs (Central Europe, Netherlands) and agricultural protection MEPs (France, Ireland, Poland). This internal EPP division is the primary political variable for the Mercosur trilogue outcome.
+
+**Inter-Institutional Dynamics:** The EP's relationship with the Council (majority of agricultural ministers opposing broad safeguard triggers) and the Commission (strategically positioned as Mercosur champion) creates a classic three-way negotiation where the EP holds strong committee mandate leverage but faces a unified Council-Commission front on procedural details. The European Parliament's institutional self-confidence is HIGH in EP10 relative to EP9, reflected in the three ECB governance consent procedures exercised in rapid succession.
+
+**National Political Context:** The German coalition government's complex position on Mercosur (foreign minister supports; agriculture minister opposes; Chancellor mediating) directly reflects into the voting patterns of German EPP, S&D, and Greens/EFA MEPs on the INTA committee. French Renew and EPP MEPs are uniformly protectionist on agricultural safeguards. Polish ECR MEPs support strong safeguard triggers from an agricultural competition angle. This geographic coalition cuts across EP political group lines.
+
+**Confidence:** 🟡 MEDIUM — Based on committee mandate analysis and observed plenary voting patterns from available data; detailed group-level analysis constrained by absence of roll-call voting data.
+
+### Economic (E)
+
+**US Tariff Shock:** The second Trump administration's tariff policy (25–100% on various EU goods categories, implemented in waves through 2025–2026) represents the dominant external economic shock affecting EP committee priorities. The INTA committee is managing both defensive countermeasures (implemented) and offensive trade negotiations (Mercosur) simultaneously — an historically unusual dual burden.
+
+**ECB Policy Uncertainty:** The appointment of a new ECB Vice-President in March 2026 coincides with elevated monetary policy uncertainty: residual inflation from tariff pass-through (upside risk) versus growth slowdown from export compression (downside risk). ECON committee's May 2026 monetary dialogue will be the first formal EP-ECB exchange under the new leadership configuration.
+
+**Housing Market Stress:** The housing resolution (March 2026) reflects a real and politically salient deterioration in EU housing affordability. This creates a new "economic welfare" front for multiple committees — ECON (financing), REGI (cohesion funds), EMPL (labour mobility), JURI (property rights) — that will demand committee capacity through 2026.
+
+**Confidence:** 🟡 MEDIUM — macroeconomic projections (IMF WEO April 2026 cited without live probe); housing data from published institutional sources.
+
+### Social (S)
+
+**Agricultural Communities:** The Mercosur safeguard file has a direct social dimension — beef, poultry, and sugar farming communities in France, Ireland, Germany, and Poland face competitive pressure from South American imports. EU rural community organisations (Copa-Cogeca, national farm lobbies) have sustained a five-year pressure campaign on EP INTA MEPs that directly shaped the committee mandate's safeguard trigger provisions.
+
+**Housing and Urban Inequality:** The housing crisis resolution reflects deepening urban-rural inequality within the EU. Young workers in Amsterdam, Berlin, Paris, and Dublin facing rental costs of 40%+ of income represent a politically activated demographic that has driven housing up the EP10 agenda beyond where it was in EP9. Social housing NGOs and tenant advocacy groups are now recognised EP lobby actors engaging EMPL and JURI committees.
+
+**Migration Policy Completion:** The Safe Third Country update (LIBE, completed February 2026) completed the social contract element of the migration pact — defining the legal framework for asylum seekers arriving via non-EU countries. Social cohesion implications are contested: member states with high arrival volumes (Greece, Italy, Hungary) vs. those pressing for enhanced returns (Denmark, Austria, Netherlands).
+
+**Confidence:** 🟡 MEDIUM — Qualitative social assessment based on committee mandate content and adopted text subjects.
+
+### Technological (T)
+
+**Digital Sovereignty Package:** The three digital adopted texts (tech sovereignty TA-10-2026-0022, copyright/AI TA-10-2026-0066, better law-making TA-10-2026-0063) form the opening moves of EP10's digital legislative agenda. The tech sovereignty resolution signals EP support for European cloud infrastructure investment, semiconductor manufacturing capacity (ITRE committee's European Chips Act successor), and platform interoperability rules.
+
+**Copyright and AI Tension:** The copyright/AI resolution (JURI committee, March 2026) establishes EP's position that generative AI training on EU-copyrighted works requires transparency and opt-out mechanisms. This directly challenges the operational models of major US AI companies (OpenAI, Google, Meta) and creates an AI regulatory environment more restrictive than the US but aligned with EP10's industrial policy ambitions.
+
+**Committee Technological Literacy Gap:** A persistent structural challenge for ITRE and JURI committees is that MEPs with technology expertise are heavily outnumbered by generalists making technology-consequential decisions. The Better Law-Making report's call for enhanced ex-ante impact assessment could partially address this by requiring technology impact sections in Commission proposals.
+
+**Confidence:** 🟢 HIGH — Digital agenda is well-documented through adopted texts and committee work programmes.
+
+### Legal (L)
+
+**EU-Mercosur Legal Architecture:** The legal structure of the Mercosur bilateral safeguard is technically complex — it must be compatible with WTO Agreement on Safeguards provisions, the EP-Commission-Council trilateral relationship, and the overall EU-Mercosur Partnership Agreement framework. INTA committee counsel flagged in the mandate that the automatic trigger mechanism requires careful legal drafting to avoid WTO dispute exposure.
+
+**Electoral Act Reform (TA-10-2026-0006):** The Electoral Act reform resolution (January 2026) identified ratification obstacles in member states — particularly those with constitutional requirements for national parliament approval of EU electoral law changes. AFCO committee is now tracking implementation in each of the 27 member states. Legal challenges from Hungary and Poland are anticipated.
+
+**Measuring Instruments Directive:** The completed IMCO procedure (2024/0311, published OJ March 2026) updates the legal framework for measuring instruments (scales, meters, gauges) — a technical but commercially significant harmonisation measure affecting €30+ billion of EU single market trade annually. IMCO delivered this in 18 months from proposal to publication, a benchmark of efficient committee procedure.
+
+**Confidence:** 🟢 HIGH — Legal timeline data from EP procedure tracking; legal analysis from committee mandate documents.
+
+### Environmental (E)
+
+**Green Deal Implementation Phase:** The ENVI committee's current work is predominantly in the **implementation regulation** phase of the Green Deal — setting technical standards, monitoring mechanisms, and enforcement rules for targets already legislated under the Climate Law and Fit for 55 package. The heavy-duty vehicles emissions calculation (TA-10-2026-0084, March 2026) exemplifies this: legally uncontested in principle, technically detailed in practice.
+
+**Nature Restoration Law Implementation:** Although not in the immediate data window, ENVI is managing the implementation of the Nature Restoration Law (adopted EP9/early EP10) — the most contested Green Deal element. Implementation monitoring reports are expected from the Commission in Q3 2026, which will trigger ENVI committee scrutiny activity.
+
+**Agriculture-Environment Interface:** The Mercosur agricultural safeguard intersects with environmental commitments through the deforestation-free supply chain requirement — a key condition the EP successfully inserted into the Mercosur partnership framework. ENVI committee has formally requested joint hearings with INTA on the deforestation monitoring provisions, creating a cross-committee coordination requirement.
+
+**Confidence:** 🟡 MEDIUM — Based on adopted text subjects and committee workload analysis; forward-looking elements are analytical projections.
+
+### PESTLE Summary Table
+
+| Dimension | Current Stress Level | Trend | Key Variable |
+|-----------|---------------------|-------|-------------|
+| Political | 🟡 MEDIUM | → Stable | EPP internal division on Mercosur |
+| Economic | 🔴 HIGH | ↗ Rising | US tariff shock + ECB uncertainty |
+| Social | 🟡 MEDIUM | ↗ Rising | Housing affordability + migration completion |
+| Technological | 🟡 MEDIUM | → Stable | Copyright/AI position establishing |
+| Legal | 🟢 LOW | → Stable | Mercosur WTO compatibility risk |
+| Environmental | 🟡 MEDIUM | → Stable | ENVI implementation phase workload |
+
+### Historical Baseline
+
+### EP10 Legislative Trajectory (2024–2026)
+
+The tenth European Parliament, constituted after the June 2024 elections, began its legislative work in September 2024 following the re-election of Commission President von der Leyen and the appointment of the new Commission College. The EP10's first 18 months (September 2024 – April 2026) represent an unusually intense constitutional and legislative startup phase driven by three factors: elevated geopolitical risk (Ukraine war continuation), US political realignment under the second Trump administration (from January 2025), and Green Deal implementation pressure.
+
+#### Comparative Legislative Output
+
+By comparison with EP9 at the same phase of the parliamentary term (Q2 2021, 18 months in):
+- **EP9 Q2 2021:** ~40 adopted texts in first 18 months; dominated by COVID recovery legislation and Digital Services Act committee work
+- **EP10 Q2 2026:** ~96 adopted texts in approximately 20 months (extrapolating from 30 items fetched representing partial 2026 output plus estimated 2025 base); qualitatively dominated by trade, security, and digital themes
+
+This represents a **40% productivity increase** in adopted texts — consistent with the more assertive inter-institutional posture of the EP10 under President Roberta Metsola.
+
+### Committee System Historical Context
+
+#### ECON Committee: 2019–2026 Arc
+
+The ECON committee's relationship with the ECB has evolved through three phases:
+1. **2019–2021 (QE expansion):** ECON broadly endorsed ECB emergency asset purchase programmes while seeking accountability commitments
+2. **2022–2023 (Rate hiking cycle):** ECON became more assertive, with critical resolutions on inflation management and distributional impacts of rate rises
+3. **2024–2026 (Normalization + new uncertainty):** ECON returned to constructive oversight mode during the rate-cutting cycle (2024), but US tariff shock risks re-energising the critical posture. The three governance appointments in Q1 2026 suggest ECON is actively using its consent powers to shape ECB leadership composition.
+
+#### INTA Committee: Trade as Geopolitical Instrument
+
+The INTA committee's evolution reflects the EU's shift from a rule-based multilateral trade framework to a more geopolitically conditional approach:
+- **EU-Mercosur (ongoing since 2019):** Originally blocked by EP10 predecessor on environmental/deforestation grounds (2023–2024). The bilateral safeguard clause (2025/0261) represents a compromise pathway allowing the trade agreement to proceed with agricultural protections — a major shift from the EP9 rejection posture.
+- **US tariffs (2025–2026):** INTA moved rapidly to support countermeasure legislation, with a plenary mandate adopted within weeks of US tariff announcement — faster than comparable responses in 2018–2019.
+
+#### ENVI Committee: Green Deal Phase Transition
+
+ENVI's legislative output in 2026 reflects the transition from **framework legislation** (targets, standards) to **implementation regulation** (technical rules, monitoring, enforcement):
+- Heavy-duty vehicles emissions calculation (TA-10-2026-0084) — technical implementation
+- Ongoing work on Sustainable Aviation Fuel mandates, Carbon Border Adjustment Mechanism adjustments
+- This technical phase typically generates fewer high-profile votes but more intensive trilogue work
+
+#### LIBE Committee: Migration Law Completion
+
+The Safe Third Country Concept update (2025/0132, LIBE committee) completed in February 2026 represents the final major element of the Migration and Asylum Pact implementation — a five-year legislative programme from the EP9 that LIBE completed in EP10's first year. LIBE is now expected to pivot to AI surveillance regulation, biometric data rules, and criminal justice cooperation.
+
+### Historical Analogue: EP7's Trade-Digital Convergence (2013–2014)
+
+The current convergence of trade, digital, and institutional governance files finds its closest historical analogue in the final year of EP7 (2013–2014), when INTA was simultaneously processing TTIP negotiating mandate, ITRE was working on the NIS Directive (first EU cybersecurity framework), and JURI was completing the data protection regulation committee stage. EP7's response was to create an ad hoc Digital Agenda Working Group that coordinated across committee boundaries — a mechanism EP10 has not yet formalized but which current legislative pressure may require.
+
+**Historical WEP baseline:** 🟡 MEDIUM — cross-committee coordination mechanisms tend to emerge at the legislative intensity level currently observed; 55–65% probability that EP10 will create a formal inter-committee coordination structure for digital/trade/security policy convergence by end of 2026.
+
+### Benchmarks for Quality Assessment
+
+| Metric | EP10 (April 2026) | EP9 (April 2021) | EP8 (April 2019) |
+|--------|------------------|-----------------|-----------------|
+| Adopted texts (approx. 20 months) | ~96 | ~68 | ~55 |
+| Active HIGH-workload committees | 3+ simultaneously | 2 typically | 1–2 |
+| Open trilogues (major files) | 2–3 | 4–5 | 3–4 |
+| Constitutional governance files | 2 (ECB appointments) | 1 | 0 |
+
+*Sources: EP Open Data Portal adopted texts dataset; EP legislative observatory historical records; EP10 political landscape data.*
+
 <h2 id="section-documents">Document Analysis</h2>
 
 ### Committee Productivity
@@ -2266,8 +2255,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/committee-reports/classification/forces-analysis.md) | `classification/forces-analysis.md` |
 | section-actors-forces | [impact-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/committee-reports/classification/impact-matrix.md) | `classification/impact-matrix.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/committee-reports/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/committee-reports/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/committee-reports/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/committee-reports/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/committee-reports/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/committee-reports/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
@@ -2279,6 +2266,8 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [legislative-disruption](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/committee-reports/threat-assessment/legislative-disruption.md) | `threat-assessment/legislative-disruption.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/committee-reports/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/committee-reports/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/committee-reports/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/committee-reports/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-documents | [committee-productivity](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/committee-reports/existing/committee-productivity.md) | `existing/committee-productivity.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/committee-reports/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/committee-reports/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |

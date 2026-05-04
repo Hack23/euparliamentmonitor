@@ -114,14 +114,6 @@ This brief draws from EP open data feeds, legislative tracking, political landsc
 
 **Overall assessment confidence: B/2** — Cross-corroborated through multiple data sources; assessments are analyst projections subject to revision.
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- Opened formal non-compliance investigations against 4 of 5 designated gatekeepers
-- Issued 2 preliminary findings of non-compliance
-- **Adopted zero final non-compliance decisions with financial penalties**
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -430,274 +422,6 @@ The urgency resolution sends a clear signal that the Parliament will use its scr
 | Tech platforms (DMA) | 🟡 Significant | Defensive/resistant | 20% |
 | Civil society (TI, AI, HRW) | 🟢 Moderate | Strongly supportive | 95% |
 | National governments (Council) | 🔴 Critical | Varied (co-legislators) | Variable |
-
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### POLITICAL
-
-#### P1: Anti-Corruption Regulation — Governance Architecture Shift
-
-The signing of the Anti-Corruption Regulation on April 29 signals a structural shift in EU governance competences. By establishing minimum criminal standards, the EU moves from "soft coordination" (GRECO recommendations, rule-of-law reports) to "hard law" enforcement tools. This is politically sensitive: Article 83(1) TFEU, which provides the legal base, allows the EU to approximate criminal offences in limited areas including corruption. The Article 83 "emergency brake" (any member state can request Council suspension of a measure on fundamental justice system grounds) was not invoked, indicating political consensus — itself a signal that the legislation was carefully calibrated to avoid triggering backlash from Hungary or Slovakia.
-
-Political sustainability of the regulation depends on Commission enforcement will. The political economy of enforcement is complicated by the fact that the countries with lowest CPI scores (Hungary, Bulgaria) are also the largest net recipients of EU structural funds — creating a perverse dynamic where the Commission simultaneously funds these economies and is asked to pursue corruption prosecutions.
-
-#### P2: Coalition Dynamics After April 30
-
-The voting patterns across the April 28–30 session reveal the ongoing stability of the "Grand Centre" coalition (EPP + S&D + Renew) while highlighting growing PfE influence at the margins. The 397-seat core coalition (EPP 185 + S&D 135 + Renew 77) remains well above the 361-seat majority threshold but faces internal tensions on:
-
-- Digital regulation (Renew liberalism vs. EPP's industrial policy instincts)
-- Agricultural policy (EPP farm protectionism vs. S&D environmental demands)
-- Defence spending (broad consensus) vs. social budget cuts (EPP-led)
-
-The 9-group fragmentation (effective parties = 6.57) means committee rapporteurships are increasingly contested. S&D's success in steering anti-corruption legislation through reflects deft coalition-building rather than any single group's dominance.
-
-#### P3: EP-Commission Accountability Pressure
-
-The DMA urgency resolution demonstrates the Parliament's growing willingness to use political pressure mechanisms against the Commission. With the 2026 mid-term review of the Leyen Commission scheduled for Q3, the DMA resolution is also a broader signal that the Parliament intends to hold the Executive accountable across multiple regulatory fronts. The threat of a no-confidence motion remains remote (requires two-thirds majority) but the political cost of parliamentary criticism is real in terms of Commission political capital.
-
----
-
-### ECONOMIC
-
-#### E1: Banking Union and Capital Markets Implications
-
-SRMR3's entry into force is estimated to reduce EU banking resolution uncertainty costs by approximately 15–20 basis points in average bank funding spreads, according to ECB Financial Stability Board analysis (Q1 2026). This translates to several hundred million euros annually in reduced funding costs across EU banking sector. More importantly, SRMR3 provides the legal architecture for the proposed Savings and Investments Union (SIU) — the Commission's flagship 2026 initiative to redirect EUR 8.7 trillion in household savings toward EU capital markets.
-
-**IMF Macro Context:** IMF World Economic Outlook (April 2026) projects EU GDP growth at 1.7% in 2026, recovering from 1.3% in 2025. The projection is conditional on no escalation of EU-US tariff disputes (which added ~0.2 percentage points of drag in 2025) and continued ECB policy normalisation. The IMF notes that completing banking union integration could add 0.3–0.5 percentage points of medium-term growth potential. SRMR3 is therefore macroeconomically significant beyond the institutional mechanics.
-
-**IMF Fiscal Monitor (2026):** EU fiscal consolidation continues across most member states, but at differentiated pace. France remains under Excessive Deficit Procedure; Italy's debt-to-GDP ratio at ~148% remains concerning. The Budget 2027 guidelines adopted on April 28 must navigate these constraints while funding expanded defence commitments (generally assessed as growth-neutral to mildly positive for industrial output), digital transition, and climate investment.
-
-#### E2: Digital Market Concentration and Regulatory Economics
-
-The EU digital economy segment (estimated at 4.5% of EU GDP as of 2025, ECB) is directly affected by DMA enforcement outcomes. The five designated gatekeepers represent a combined EU market capitalisation impact of approximately EUR 6.8 trillion (US-listed, Euro-equivalent). Strong DMA enforcement could have countervailing effects: reducing monopoly rents (economically positive, improving market contestability) while potentially deterring some platform investment in EU markets (economically negative if platforms reduce EU-specific R&D or service investment).
-
-#### E3: Anti-Corruption Regulation and FDI Quality
-
-Economists at the IMF and World Bank have long documented the correlation between perceived corruption levels and FDI quality and volume. The Anti-Corruption Regulation, to the extent it reduces corruption indices in affected member states, should over a 5–10 year horizon improve FDI attractiveness. The direct economic costs are compliance costs for public sector entities (new procurement documentation, conflict-of-interest disclosures) — estimated at 0.03–0.05% of GDP per year in affected states.
-
----
-
-### SOCIAL
-
-#### S1: Animal Welfare — Dogs and Cats Regulation
-
-The Dogs and Cats Welfare Regulation addresses a consumer protection and social concern that has grown in political salience since the COVID-19 pandemic. During 2020–2022, demand for companion animals increased dramatically across the EU, driving expansion of illegal puppy farms particularly in Romania, Hungary, and the Czech Republic. The EP report from AGRI committee estimated 7 million companion animals are traded annually in the EU, with 15–20% coming through channels that would be prohibited under the new regulation.
-
-**Social impact assessment:** The regulation will likely reduce the annual incidence of disease transmission through pet trade (estimated 8,000–12,000 cases of parvovirus, brucellosis, and other pet-transmitted conditions annually, according to EFSA 2024 data) and address the animal cruelty concerns that drove a 1.4 million-signature ECI (European Citizens' Initiative) in 2021.
-
-#### S2: Anti-Corruption and Social Trust
-
-Social trust in EU institutions correlates with perceived government accountability. Eurobarometer 2025 Q4 showed only 37% of EU citizens "tend to trust" the EU generally (up from 33% in 2022 but below the 46% pre-pandemic baseline). Anti-corruption enforcement, if visible and effective, has measurable positive effects on institutional trust indices over 3–5 year horizons, based on OECD trust research.
-
-#### S3: Ukraine Conflict Social Costs and EU Response
-
-The April 30 urgency resolution on Ukraine accountability reflects ongoing social pressure in several member states with large Ukrainian refugee populations. Poland (hosting ~1.5 million Ukrainian refugees), Germany (~1.2 million), and Czech Republic (~350,000) all have electorates with direct humanitarian stakes in the conflict's resolution. The resolution's emphasis on civilian infrastructure protection resonates with populations that have experienced civilian casualty reporting from Ukrainian media.
-
----
-
-### TECHNOLOGICAL
-
-#### T1: Digital Markets Act Technology Impact Vectors
-
-The DMA's core technology impacts concentrate on three areas:
-1. **Interoperability mandates:** Messaging platforms (WhatsApp, iMessage) must provide basic interoperability with competing messaging services. Technical implementation challenges are substantial — end-to-end encryption interoperability requires new cryptographic key management architectures.
-2. **Data portability and access:** Gatekeeper platforms must provide third-party access to data generated by end users, subject to privacy constraints. This creates new data brokerage dynamics and potentially enables new entrant competition.
-3. **Algorithmic transparency:** Search results and content ranking must disclose parameters. The technical implementation of "explainability" for recommendation algorithms remains an active area of AI research with no settled solutions.
-
-The urgency resolution may implicitly target AI platform designation — several MEPs have publicly advocated for extending gatekeeper designation to large language model providers (GPT-5, Gemini 2.0, Claude 4) that increasingly mediate information access.
-
-#### T2: Banking Union Technology Infrastructure
-
-SRMR3 implementation requires technical upgrades to resolution authorities' systems, particularly for real-time liquidity monitoring and bail-in instrument valuation. The EBA is developing standardised reporting templates (COREP/FINREP extensions) that will require significant IT infrastructure investment at major EU banks — estimated EUR 800 million to EUR 1.2 billion industry-wide over 2026–2028.
-
-#### T3: Anti-Corruption Regulation Technology Tools
-
-The regulation's asset recovery provisions contemplate use of beneficial ownership registries and financial intelligence analysis. EU-wide beneficial ownership data, required under the 4th and 5th Anti-Money Laundering Directives, remains incomplete due to continued exemptions and implementation gaps. The new Anti-Corruption Regulation creates additional demand for full beneficial ownership registry completion — a major database infrastructure challenge across 27 member state justice ministries.
-
----
-
-### LEGAL
-
-#### L1: New Binding EU Legal Acts (April 2026)
-
-- **Anti-Corruption Regulation (2026/XXX):** Minimum criminal standards; member state transposition required within 18 months. Direct effect on elements; criminal sanctions are national competence.
-- **SRMR3:** Directly applicable regulation; entry into force April 20, 2026.
-- **Dogs and Cats Welfare Regulation:** EP position adopted April 29 post-trilogue; formal Council adoption expected within 4–6 weeks; entry into force after OJ publication.
-
-#### L2: EU-US Trade Law Tensions Around DMA
-
-The DMA urgency resolution has direct international trade law dimensions. US trade officials have characterised the DMA as inconsistent with WTO non-discrimination principles, arguing it targets US firms. The EU's position is that the DMA is non-discriminatory (criteria-based) and that the dominant platforms happen to be US-incorporated. A formal WTO dispute settlement case has not been initiated but the threat has been used in diplomatic negotiations.
-
-#### L3: MEP Immunity — Jaki Waiver
-
-The Patryk Jaki immunity waiver establishes a procedural precedent for handling waiver requests in the current parliamentary term. Under EP Rules of Procedure Rule 8, immunity waivers are processed by the PRIV committee and voted in plenary. The Jaki case (Polish criminal proceedings) was approved, consistent with the EP's consistent practice of not claiming fumus persecutionis (political prosecution) in cases where proceedings are at early investigative stage and were initiated before the subject's EP mandate.
-
----
-
-### ENVIRONMENTAL
-
-#### E1: Budget 2027 — Climate Investment Governance
-
-The April 28 Budget 2027 guidelines are critical for EU climate policy financing. The current Multiannual Financial Framework (MFF 2021–2027) includes a 30% climate mainstreaming target. With only one MFF year remaining, the extent to which actual climate expenditure meets the 30% target is contested — the European Court of Auditors' 2025 special report found systematic overreporting of climate-labelled spending.
-
-The 2027 budget guidelines will inform the Commission's September 2026 draft budget and ultimately the new MFF for 2028–2034. Parliamentary positions on climate investment floor percentages (Greens/EFA want 50%, EPP wants maintain at 30%) will shape these negotiations.
-
-#### E2: Ukraine War and Environmental Damage
-
-The April 30 accountability resolution implicitly references environmental damage from conflict. The UN Environment Programme (UNEP) 2025 Ukraine Environmental Impact Assessment estimated contamination of approximately 170,000 hectares of agricultural land from unexploded ordnance and toxic industrial chemicals. The Kakhovka dam destruction (June 2023) caused irreversible ecosystem damage to the Black Sea delta. EU accountability mechanisms for environmental reparations under international law are underdeveloped; this resolution may catalyse EU-level legal innovation.
-
-#### E3: Pet Trade and Biodiversity
-
-The Dogs and Cats Welfare Regulation has a secondary environmental dimension: the exotic pet trade, while not directly addressed by this regulation (which focuses on domesticated companion animals), exists on a continuum with regulated markets. Strengthening EU companion animal market integrity may have marginal positive spillover effects on enforcement against illegal wildlife trade (CITES-regulated species) by improving customs and veterinary documentation systems.
-
-### Historical Baseline
-
-### 1. ANTI-CORRUPTION REGULATION: HISTORICAL BASELINE
-
-#### 1.1 EU Anti-Corruption Legislative History
-
-The signing of the Anti-Corruption Regulation on April 29, 2026 represents the culmination of a 25-year effort to establish EU-level anti-corruption criminal standards.
-
-**Key milestones:**
-
-| Year | Development | Significance |
-|------|-------------|-------------|
-| 1997 | Convention against Corruption involving Officials (Protocol) | First EU-level anti-corruption instrument; civil servants focus |
-| 2003 | Framework Decision on Combating Corruption in the Private Sector (2003/568/JHA) | First private sector minimum standards; weak enforcement |
-| 2007 | Treaty of Lisbon — Article 83(1) TFEU | Enabled EU criminal minimum standards via ordinary legislative procedure |
-| 2011 | Anti-Corruption Report mechanism established | Annual reporting; no enforcement powers |
-| 2014 | First EU Anti-Corruption Report (Malmström Report) | Estimated EUR 120 billion annual cost of corruption in EU; political baseline |
-| 2017 | CJEU Taricco judgment (C-42/17) | Clarified EU primacy in protecting EU financial interests via criminal law |
-| 2019 | EPPO established | First operational EU-level prosecutor; limited to EU budget fraud |
-| 2022 | QatarGate MEP corruption scandal | Political catalyst for stronger EP-level demand for anti-corruption legislation |
-| 2023 | Commission proposal for Anti-Corruption Regulation (2023/0135) | Formal legislative initiative |
-| 2025 | Trilogue completed | EPP-S&D-Renew compromise on private sector liability thresholds |
-| April 29, 2026 | Regulation signed | **First dedicated EU criminal anti-corruption framework** |
-
-**Historical significance:** The 2022 QatarGate scandal — in which MEPs were accused of taking cash payments from Qatari and Moroccan officials — was the immediate political catalyst that gave S&D the leverage to push the Commission's proposal through trilogue negotiations in under 30 months (fast by EU standards). The QatarGate proceedings themselves continue; several MEPs remain under Belgian criminal investigation.
-
-#### 1.2 Comparative Precedents: EPPO as Institutional Parallel
-
-The EPPO (European Public Prosecutor's Office) represents the most direct predecessor institution. EPPO became operational in June 2021, initially with 22 participating member states. Its first years established key precedents:
-- Annual cases initiated: 929 (2021), 1,117 (2022), 1,354 (2023), 1,589 (2024) — consistent growth
-- Estimated financial damage in open investigations (2024): EUR 15.6 billion
-- Conviction rate in closed cases: 78% (comparable to national prosecutors)
-
-The Anti-Corruption Regulation's implementation will likely leverage EPPO infrastructure, but the EPPO's mandate will need extension to cover the Regulation's broader remit beyond EU budget fraud.
-
----
-
-### 2. BANKING UNION HISTORICAL BASELINE
-
-#### 2.1 Banking Union Architecture Timeline
-
-SRMR3's entry into force completes the third major pillar of the Banking Union, initiated in response to the 2010–2013 Eurozone debt crisis.
-
-| Year | Pillar | Development |
-|------|--------|-------------|
-| 2012 | Supervision (SSM) | Council agreement on Single Supervisory Mechanism under ECB |
-| 2013 | SSM Regulation | ECB assumed supervisory responsibility for significant institutions |
-| 2014 | Resolution (SRM) | Single Resolution Mechanism Regulation (SRMR1) |
-| 2015 | Deposit Insurance | Deposit Guarantee Schemes Directive revised (DGS2); EDIS negotiations begin (stalled) |
-| 2019 | MREL harmonisation | BRRD2 and SRMR2 — improved Minimum Requirements for Eligible Liabilities |
-| 2022 | Crisis management package | Commission proposal for SRMR3 and BRRD3 |
-| 2024 | Trilogue completion | SRMR3 and BRRD3 agreed |
-| April 20, 2026 | SRMR3 in force | **Banking Union resolution pillar completion** |
-
-**Historical banking crises resolved under the SRM:**
-- Banco Popular (Spain, 2017) — First SRM resolution; EUR 1.3 billion SRF contingent commitment not drawn; write-down of Additional Tier 1 instruments
-- Sberbank Europe (Austria/Croatia, 2022) — Resolution authority used to protect Croatian depositors; complex cross-border case
-- Banca Carige (Italy, 2023) — Italian Resolution Authority used national tools consistent with BRRD; SRF not required
-
-**SRMR3's resolution improvement:** The Sberbank Europe case revealed the difficulty of coordinating resolution between Austrian and Croatian authorities under the SRMR1/BRRD1 framework. SRMR3 directly addresses the cross-border recognition gaps exposed by this case.
-
-#### 2.2 EDIS Historical Stall
-
-EDIS (European Deposit Insurance Scheme) was proposed by the Commission in November 2015. As of April 2026 — more than 10 years after the proposal — EDIS remains unimplemented. Key blocking dynamics:
-- Germany: Bundesbank and Bundesverfassungsgericht concerns about moral hazard (bailing out banks in member states with weaker supervisory standards)
-- Netherlands: "First ensure banking sector balance sheet cleanup before sharing deposits"
-- Italy: Concerns that EDIS could be used to trigger resolutions of Italian banks on political grounds
-
-This represents one of the longest-stalled legislative proposals in EU history — the standard "stuck" status, comparable to the Statute for a European Company (proposed 1970, adopted 2001) and the Energy Tax Directive (proposed 1997, still partially stalled).
-
----
-
-### 3. DIGITAL MARKETS ACT HISTORICAL BASELINE
-
-#### 3.1 EU Competition Law: From Microsoft to DMA
-
-The DMA's enforcement crisis occurs in the context of a 25-year history of EU competition enforcement against dominant digital platforms.
-
-| Year | Case | Outcome |
-|------|------|---------|
-| 2004 | Microsoft I (Windows) | EUR 497 million fine; interoperability remedies |
-| 2009 | Microsoft II (IE tying) | EUR 561 million fine |
-| 2017 | Google Shopping | EUR 2.4 billion fine |
-| 2018 | Google Android | EUR 4.3 billion fine |
-| 2019 | Google AdSense | EUR 1.5 billion fine |
-| 2021 | Amazon Marketplace | EUR 1.1 billion fine |
-| 2022 | DMA enters into force | New ex-ante regulatory framework |
-| 2023 | Gatekeeper designations | 5 platforms: Apple, Alphabet, Meta, Microsoft, ByteDance |
-| 2024 | Formal investigations opened | 4 of 5 gatekeepers under formal proceedings |
-| April 2026 | 0 formal decisions | EP urgency resolution adopted |
-
-**Key observation:** Enforcement speed under the DMA has been slower than under traditional competition law (ex-post). The DMA was designed to be faster, but the Commission has not yet demonstrated faster decision-making in practice.
-
----
-
-### 4. UKRAINE: HISTORICAL ACCOUNTABILITY PRECEDENTS
-
-#### 4.1 International Criminal Accountability: From Nuremberg to ICC
-
-The EP's April 30 urgency resolution on Ukraine accountability situates itself in a long tradition of international criminal accountability that the EU has institutionally supported.
-
-| Year | Development | EU Role |
-|------|-------------|---------|
-| 1945–1946 | Nuremberg Trials | Post-WWII foundation of international criminal law |
-| 1998 | Rome Statute (ICC) | All EU member states are parties |
-| 2022 | ICC investigation on Ukraine | EU supported via EUR 7.25 million supplemental funding |
-| 2023 | ICC arrest warrant: Putin and Lvova-Belova | First warrants; EU political support |
-| 2024 | EU-ICC joint investigation team | Direct EU institutional engagement |
-| 2025 | Additional ICC warrants (military commanders) | EP called for additional warrants in resolution |
-| April 2026 | EP urgency resolution on civilian infrastructure | Ongoing accountability demand |
-
-**Historical significance:** The EP urgency resolutions on Ukraine (7 since 2022) collectively represent the most sustained parliamentary-level accountability demand in EU history for an ongoing conflict.
-
----
-
-### 5. DOGS AND CATS WELFARE: HISTORICAL BASELINE
-
-#### 5.1 EU Animal Welfare Legislative History
-
-The post-trilogue position adopted April 29, 2026 builds on:
-
-| Year | Instrument | Scope |
-|------|-----------|-------|
-| 1974 | European Convention for the Protection of Pet Animals (Council of Europe) | Companion animals generally |
-| 1997 | Amsterdam Treaty Protocol on Animal Sentience | First EU treaty recognition of animal welfare |
-| 2004 | Animal Health Code (Directive 2004/68/EC) | Import restrictions; disease control |
-| 2021 | European Citizens' Initiative (1.4M signatures) | "End the Cage Age" — related but separate |
-| 2021 | Commission Animal Welfare Strategy | Farm and companion animals; included dogs/cats |
-| 2023 | Commission proposal for Dogs & Cats Regulation | First dedicated EU instrument |
-| April 29, 2026 | EP position post-trilogue | **Final EP legislative step** |
-
-This regulation is notable for being driven partly by a major consumer-led political movement (the 2021 ECI on cage-free farming created political momentum for broader animal welfare legislation) and by documented welfare failures in the pet trade market.
-
----
-
-### HISTORICAL ASSESSMENT
-
-The April 28–30 plenary outputs are historically significant across three distinct legislative domains:
-
-1. **Anti-Corruption Regulation:** Represents EU governance evolution consistent with the post-QatarGate political moment — a crisis-driven acceleration of institutional reform (as seen with the Banking Union post-2012 Eurozone crisis and the NextGenerationEU post-COVID).
-
-2. **SRMR3:** Represents the "long completion" pattern in EU institutional integration — the Banking Union's third pillar took 12 years to complete, consistent with EDIS (still incomplete) and the Capital Markets Union (proposed 2015, partially complete).
-
-3. **DMA urgency resolution:** Represents a classic EP accountability-assertion moment — the Parliament using urgency procedures to express institutional displeasure without triggering the nuclear option of no-confidence, consistent with similar urgency resolutions on migration (2023), AI safety (2024), and climate action (2022, 2023, 2025).
-
-**Admiralty Grade: A/1** — Historical timeline data is well-established from official EU sources; analytical interpretation is analyst judgment.
 
 <h2 id="section-economic-context">Economic Context</h2>
 
@@ -1522,6 +1246,274 @@ Following the EP's post-trilogue position adoption on April 29, formal Council s
 
 **Admiralty Grade: B/3** — Wild card scenarios by definition have weak evidence bases; probability estimates are structurally uncertain. Source materials for framing are well-established (legal, institutional, technological context) but scenario outcomes are analyst extrapolations.
 
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### POLITICAL
+
+#### P1: Anti-Corruption Regulation — Governance Architecture Shift
+
+The signing of the Anti-Corruption Regulation on April 29 signals a structural shift in EU governance competences. By establishing minimum criminal standards, the EU moves from "soft coordination" (GRECO recommendations, rule-of-law reports) to "hard law" enforcement tools. This is politically sensitive: Article 83(1) TFEU, which provides the legal base, allows the EU to approximate criminal offences in limited areas including corruption. The Article 83 "emergency brake" (any member state can request Council suspension of a measure on fundamental justice system grounds) was not invoked, indicating political consensus — itself a signal that the legislation was carefully calibrated to avoid triggering backlash from Hungary or Slovakia.
+
+Political sustainability of the regulation depends on Commission enforcement will. The political economy of enforcement is complicated by the fact that the countries with lowest CPI scores (Hungary, Bulgaria) are also the largest net recipients of EU structural funds — creating a perverse dynamic where the Commission simultaneously funds these economies and is asked to pursue corruption prosecutions.
+
+#### P2: Coalition Dynamics After April 30
+
+The voting patterns across the April 28–30 session reveal the ongoing stability of the "Grand Centre" coalition (EPP + S&D + Renew) while highlighting growing PfE influence at the margins. The 397-seat core coalition (EPP 185 + S&D 135 + Renew 77) remains well above the 361-seat majority threshold but faces internal tensions on:
+
+- Digital regulation (Renew liberalism vs. EPP's industrial policy instincts)
+- Agricultural policy (EPP farm protectionism vs. S&D environmental demands)
+- Defence spending (broad consensus) vs. social budget cuts (EPP-led)
+
+The 9-group fragmentation (effective parties = 6.57) means committee rapporteurships are increasingly contested. S&D's success in steering anti-corruption legislation through reflects deft coalition-building rather than any single group's dominance.
+
+#### P3: EP-Commission Accountability Pressure
+
+The DMA urgency resolution demonstrates the Parliament's growing willingness to use political pressure mechanisms against the Commission. With the 2026 mid-term review of the Leyen Commission scheduled for Q3, the DMA resolution is also a broader signal that the Parliament intends to hold the Executive accountable across multiple regulatory fronts. The threat of a no-confidence motion remains remote (requires two-thirds majority) but the political cost of parliamentary criticism is real in terms of Commission political capital.
+
+---
+
+### ECONOMIC
+
+#### E1: Banking Union and Capital Markets Implications
+
+SRMR3's entry into force is estimated to reduce EU banking resolution uncertainty costs by approximately 15–20 basis points in average bank funding spreads, according to ECB Financial Stability Board analysis (Q1 2026). This translates to several hundred million euros annually in reduced funding costs across EU banking sector. More importantly, SRMR3 provides the legal architecture for the proposed Savings and Investments Union (SIU) — the Commission's flagship 2026 initiative to redirect EUR 8.7 trillion in household savings toward EU capital markets.
+
+**IMF Macro Context:** IMF World Economic Outlook (April 2026) projects EU GDP growth at 1.7% in 2026, recovering from 1.3% in 2025. The projection is conditional on no escalation of EU-US tariff disputes (which added ~0.2 percentage points of drag in 2025) and continued ECB policy normalisation. The IMF notes that completing banking union integration could add 0.3–0.5 percentage points of medium-term growth potential. SRMR3 is therefore macroeconomically significant beyond the institutional mechanics.
+
+**IMF Fiscal Monitor (2026):** EU fiscal consolidation continues across most member states, but at differentiated pace. France remains under Excessive Deficit Procedure; Italy's debt-to-GDP ratio at ~148% remains concerning. The Budget 2027 guidelines adopted on April 28 must navigate these constraints while funding expanded defence commitments (generally assessed as growth-neutral to mildly positive for industrial output), digital transition, and climate investment.
+
+#### E2: Digital Market Concentration and Regulatory Economics
+
+The EU digital economy segment (estimated at 4.5% of EU GDP as of 2025, ECB) is directly affected by DMA enforcement outcomes. The five designated gatekeepers represent a combined EU market capitalisation impact of approximately EUR 6.8 trillion (US-listed, Euro-equivalent). Strong DMA enforcement could have countervailing effects: reducing monopoly rents (economically positive, improving market contestability) while potentially deterring some platform investment in EU markets (economically negative if platforms reduce EU-specific R&D or service investment).
+
+#### E3: Anti-Corruption Regulation and FDI Quality
+
+Economists at the IMF and World Bank have long documented the correlation between perceived corruption levels and FDI quality and volume. The Anti-Corruption Regulation, to the extent it reduces corruption indices in affected member states, should over a 5–10 year horizon improve FDI attractiveness. The direct economic costs are compliance costs for public sector entities (new procurement documentation, conflict-of-interest disclosures) — estimated at 0.03–0.05% of GDP per year in affected states.
+
+---
+
+### SOCIAL
+
+#### S1: Animal Welfare — Dogs and Cats Regulation
+
+The Dogs and Cats Welfare Regulation addresses a consumer protection and social concern that has grown in political salience since the COVID-19 pandemic. During 2020–2022, demand for companion animals increased dramatically across the EU, driving expansion of illegal puppy farms particularly in Romania, Hungary, and the Czech Republic. The EP report from AGRI committee estimated 7 million companion animals are traded annually in the EU, with 15–20% coming through channels that would be prohibited under the new regulation.
+
+**Social impact assessment:** The regulation will likely reduce the annual incidence of disease transmission through pet trade (estimated 8,000–12,000 cases of parvovirus, brucellosis, and other pet-transmitted conditions annually, according to EFSA 2024 data) and address the animal cruelty concerns that drove a 1.4 million-signature ECI (European Citizens' Initiative) in 2021.
+
+#### S2: Anti-Corruption and Social Trust
+
+Social trust in EU institutions correlates with perceived government accountability. Eurobarometer 2025 Q4 showed only 37% of EU citizens "tend to trust" the EU generally (up from 33% in 2022 but below the 46% pre-pandemic baseline). Anti-corruption enforcement, if visible and effective, has measurable positive effects on institutional trust indices over 3–5 year horizons, based on OECD trust research.
+
+#### S3: Ukraine Conflict Social Costs and EU Response
+
+The April 30 urgency resolution on Ukraine accountability reflects ongoing social pressure in several member states with large Ukrainian refugee populations. Poland (hosting ~1.5 million Ukrainian refugees), Germany (~1.2 million), and Czech Republic (~350,000) all have electorates with direct humanitarian stakes in the conflict's resolution. The resolution's emphasis on civilian infrastructure protection resonates with populations that have experienced civilian casualty reporting from Ukrainian media.
+
+---
+
+### TECHNOLOGICAL
+
+#### T1: Digital Markets Act Technology Impact Vectors
+
+The DMA's core technology impacts concentrate on three areas:
+1. **Interoperability mandates:** Messaging platforms (WhatsApp, iMessage) must provide basic interoperability with competing messaging services. Technical implementation challenges are substantial — end-to-end encryption interoperability requires new cryptographic key management architectures.
+2. **Data portability and access:** Gatekeeper platforms must provide third-party access to data generated by end users, subject to privacy constraints. This creates new data brokerage dynamics and potentially enables new entrant competition.
+3. **Algorithmic transparency:** Search results and content ranking must disclose parameters. The technical implementation of "explainability" for recommendation algorithms remains an active area of AI research with no settled solutions.
+
+The urgency resolution may implicitly target AI platform designation — several MEPs have publicly advocated for extending gatekeeper designation to large language model providers (GPT-5, Gemini 2.0, Claude 4) that increasingly mediate information access.
+
+#### T2: Banking Union Technology Infrastructure
+
+SRMR3 implementation requires technical upgrades to resolution authorities' systems, particularly for real-time liquidity monitoring and bail-in instrument valuation. The EBA is developing standardised reporting templates (COREP/FINREP extensions) that will require significant IT infrastructure investment at major EU banks — estimated EUR 800 million to EUR 1.2 billion industry-wide over 2026–2028.
+
+#### T3: Anti-Corruption Regulation Technology Tools
+
+The regulation's asset recovery provisions contemplate use of beneficial ownership registries and financial intelligence analysis. EU-wide beneficial ownership data, required under the 4th and 5th Anti-Money Laundering Directives, remains incomplete due to continued exemptions and implementation gaps. The new Anti-Corruption Regulation creates additional demand for full beneficial ownership registry completion — a major database infrastructure challenge across 27 member state justice ministries.
+
+---
+
+### LEGAL
+
+#### L1: New Binding EU Legal Acts (April 2026)
+
+- **Anti-Corruption Regulation (2026/XXX):** Minimum criminal standards; member state transposition required within 18 months. Direct effect on elements; criminal sanctions are national competence.
+- **SRMR3:** Directly applicable regulation; entry into force April 20, 2026.
+- **Dogs and Cats Welfare Regulation:** EP position adopted April 29 post-trilogue; formal Council adoption expected within 4–6 weeks; entry into force after OJ publication.
+
+#### L2: EU-US Trade Law Tensions Around DMA
+
+The DMA urgency resolution has direct international trade law dimensions. US trade officials have characterised the DMA as inconsistent with WTO non-discrimination principles, arguing it targets US firms. The EU's position is that the DMA is non-discriminatory (criteria-based) and that the dominant platforms happen to be US-incorporated. A formal WTO dispute settlement case has not been initiated but the threat has been used in diplomatic negotiations.
+
+#### L3: MEP Immunity — Jaki Waiver
+
+The Patryk Jaki immunity waiver establishes a procedural precedent for handling waiver requests in the current parliamentary term. Under EP Rules of Procedure Rule 8, immunity waivers are processed by the PRIV committee and voted in plenary. The Jaki case (Polish criminal proceedings) was approved, consistent with the EP's consistent practice of not claiming fumus persecutionis (political prosecution) in cases where proceedings are at early investigative stage and were initiated before the subject's EP mandate.
+
+---
+
+### ENVIRONMENTAL
+
+#### E1: Budget 2027 — Climate Investment Governance
+
+The April 28 Budget 2027 guidelines are critical for EU climate policy financing. The current Multiannual Financial Framework (MFF 2021–2027) includes a 30% climate mainstreaming target. With only one MFF year remaining, the extent to which actual climate expenditure meets the 30% target is contested — the European Court of Auditors' 2025 special report found systematic overreporting of climate-labelled spending.
+
+The 2027 budget guidelines will inform the Commission's September 2026 draft budget and ultimately the new MFF for 2028–2034. Parliamentary positions on climate investment floor percentages (Greens/EFA want 50%, EPP wants maintain at 30%) will shape these negotiations.
+
+#### E2: Ukraine War and Environmental Damage
+
+The April 30 accountability resolution implicitly references environmental damage from conflict. The UN Environment Programme (UNEP) 2025 Ukraine Environmental Impact Assessment estimated contamination of approximately 170,000 hectares of agricultural land from unexploded ordnance and toxic industrial chemicals. The Kakhovka dam destruction (June 2023) caused irreversible ecosystem damage to the Black Sea delta. EU accountability mechanisms for environmental reparations under international law are underdeveloped; this resolution may catalyse EU-level legal innovation.
+
+#### E3: Pet Trade and Biodiversity
+
+The Dogs and Cats Welfare Regulation has a secondary environmental dimension: the exotic pet trade, while not directly addressed by this regulation (which focuses on domesticated companion animals), exists on a continuum with regulated markets. Strengthening EU companion animal market integrity may have marginal positive spillover effects on enforcement against illegal wildlife trade (CITES-regulated species) by improving customs and veterinary documentation systems.
+
+### Historical Baseline
+
+### 1. ANTI-CORRUPTION REGULATION: HISTORICAL BASELINE
+
+#### 1.1 EU Anti-Corruption Legislative History
+
+The signing of the Anti-Corruption Regulation on April 29, 2026 represents the culmination of a 25-year effort to establish EU-level anti-corruption criminal standards.
+
+**Key milestones:**
+
+| Year | Development | Significance |
+|------|-------------|-------------|
+| 1997 | Convention against Corruption involving Officials (Protocol) | First EU-level anti-corruption instrument; civil servants focus |
+| 2003 | Framework Decision on Combating Corruption in the Private Sector (2003/568/JHA) | First private sector minimum standards; weak enforcement |
+| 2007 | Treaty of Lisbon — Article 83(1) TFEU | Enabled EU criminal minimum standards via ordinary legislative procedure |
+| 2011 | Anti-Corruption Report mechanism established | Annual reporting; no enforcement powers |
+| 2014 | First EU Anti-Corruption Report (Malmström Report) | Estimated EUR 120 billion annual cost of corruption in EU; political baseline |
+| 2017 | CJEU Taricco judgment (C-42/17) | Clarified EU primacy in protecting EU financial interests via criminal law |
+| 2019 | EPPO established | First operational EU-level prosecutor; limited to EU budget fraud |
+| 2022 | QatarGate MEP corruption scandal | Political catalyst for stronger EP-level demand for anti-corruption legislation |
+| 2023 | Commission proposal for Anti-Corruption Regulation (2023/0135) | Formal legislative initiative |
+| 2025 | Trilogue completed | EPP-S&D-Renew compromise on private sector liability thresholds |
+| April 29, 2026 | Regulation signed | **First dedicated EU criminal anti-corruption framework** |
+
+**Historical significance:** The 2022 QatarGate scandal — in which MEPs were accused of taking cash payments from Qatari and Moroccan officials — was the immediate political catalyst that gave S&D the leverage to push the Commission's proposal through trilogue negotiations in under 30 months (fast by EU standards). The QatarGate proceedings themselves continue; several MEPs remain under Belgian criminal investigation.
+
+#### 1.2 Comparative Precedents: EPPO as Institutional Parallel
+
+The EPPO (European Public Prosecutor's Office) represents the most direct predecessor institution. EPPO became operational in June 2021, initially with 22 participating member states. Its first years established key precedents:
+- Annual cases initiated: 929 (2021), 1,117 (2022), 1,354 (2023), 1,589 (2024) — consistent growth
+- Estimated financial damage in open investigations (2024): EUR 15.6 billion
+- Conviction rate in closed cases: 78% (comparable to national prosecutors)
+
+The Anti-Corruption Regulation's implementation will likely leverage EPPO infrastructure, but the EPPO's mandate will need extension to cover the Regulation's broader remit beyond EU budget fraud.
+
+---
+
+### 2. BANKING UNION HISTORICAL BASELINE
+
+#### 2.1 Banking Union Architecture Timeline
+
+SRMR3's entry into force completes the third major pillar of the Banking Union, initiated in response to the 2010–2013 Eurozone debt crisis.
+
+| Year | Pillar | Development |
+|------|--------|-------------|
+| 2012 | Supervision (SSM) | Council agreement on Single Supervisory Mechanism under ECB |
+| 2013 | SSM Regulation | ECB assumed supervisory responsibility for significant institutions |
+| 2014 | Resolution (SRM) | Single Resolution Mechanism Regulation (SRMR1) |
+| 2015 | Deposit Insurance | Deposit Guarantee Schemes Directive revised (DGS2); EDIS negotiations begin (stalled) |
+| 2019 | MREL harmonisation | BRRD2 and SRMR2 — improved Minimum Requirements for Eligible Liabilities |
+| 2022 | Crisis management package | Commission proposal for SRMR3 and BRRD3 |
+| 2024 | Trilogue completion | SRMR3 and BRRD3 agreed |
+| April 20, 2026 | SRMR3 in force | **Banking Union resolution pillar completion** |
+
+**Historical banking crises resolved under the SRM:**
+- Banco Popular (Spain, 2017) — First SRM resolution; EUR 1.3 billion SRF contingent commitment not drawn; write-down of Additional Tier 1 instruments
+- Sberbank Europe (Austria/Croatia, 2022) — Resolution authority used to protect Croatian depositors; complex cross-border case
+- Banca Carige (Italy, 2023) — Italian Resolution Authority used national tools consistent with BRRD; SRF not required
+
+**SRMR3's resolution improvement:** The Sberbank Europe case revealed the difficulty of coordinating resolution between Austrian and Croatian authorities under the SRMR1/BRRD1 framework. SRMR3 directly addresses the cross-border recognition gaps exposed by this case.
+
+#### 2.2 EDIS Historical Stall
+
+EDIS (European Deposit Insurance Scheme) was proposed by the Commission in November 2015. As of April 2026 — more than 10 years after the proposal — EDIS remains unimplemented. Key blocking dynamics:
+- Germany: Bundesbank and Bundesverfassungsgericht concerns about moral hazard (bailing out banks in member states with weaker supervisory standards)
+- Netherlands: "First ensure banking sector balance sheet cleanup before sharing deposits"
+- Italy: Concerns that EDIS could be used to trigger resolutions of Italian banks on political grounds
+
+This represents one of the longest-stalled legislative proposals in EU history — the standard "stuck" status, comparable to the Statute for a European Company (proposed 1970, adopted 2001) and the Energy Tax Directive (proposed 1997, still partially stalled).
+
+---
+
+### 3. DIGITAL MARKETS ACT HISTORICAL BASELINE
+
+#### 3.1 EU Competition Law: From Microsoft to DMA
+
+The DMA's enforcement crisis occurs in the context of a 25-year history of EU competition enforcement against dominant digital platforms.
+
+| Year | Case | Outcome |
+|------|------|---------|
+| 2004 | Microsoft I (Windows) | EUR 497 million fine; interoperability remedies |
+| 2009 | Microsoft II (IE tying) | EUR 561 million fine |
+| 2017 | Google Shopping | EUR 2.4 billion fine |
+| 2018 | Google Android | EUR 4.3 billion fine |
+| 2019 | Google AdSense | EUR 1.5 billion fine |
+| 2021 | Amazon Marketplace | EUR 1.1 billion fine |
+| 2022 | DMA enters into force | New ex-ante regulatory framework |
+| 2023 | Gatekeeper designations | 5 platforms: Apple, Alphabet, Meta, Microsoft, ByteDance |
+| 2024 | Formal investigations opened | 4 of 5 gatekeepers under formal proceedings |
+| April 2026 | 0 formal decisions | EP urgency resolution adopted |
+
+**Key observation:** Enforcement speed under the DMA has been slower than under traditional competition law (ex-post). The DMA was designed to be faster, but the Commission has not yet demonstrated faster decision-making in practice.
+
+---
+
+### 4. UKRAINE: HISTORICAL ACCOUNTABILITY PRECEDENTS
+
+#### 4.1 International Criminal Accountability: From Nuremberg to ICC
+
+The EP's April 30 urgency resolution on Ukraine accountability situates itself in a long tradition of international criminal accountability that the EU has institutionally supported.
+
+| Year | Development | EU Role |
+|------|-------------|---------|
+| 1945–1946 | Nuremberg Trials | Post-WWII foundation of international criminal law |
+| 1998 | Rome Statute (ICC) | All EU member states are parties |
+| 2022 | ICC investigation on Ukraine | EU supported via EUR 7.25 million supplemental funding |
+| 2023 | ICC arrest warrant: Putin and Lvova-Belova | First warrants; EU political support |
+| 2024 | EU-ICC joint investigation team | Direct EU institutional engagement |
+| 2025 | Additional ICC warrants (military commanders) | EP called for additional warrants in resolution |
+| April 2026 | EP urgency resolution on civilian infrastructure | Ongoing accountability demand |
+
+**Historical significance:** The EP urgency resolutions on Ukraine (7 since 2022) collectively represent the most sustained parliamentary-level accountability demand in EU history for an ongoing conflict.
+
+---
+
+### 5. DOGS AND CATS WELFARE: HISTORICAL BASELINE
+
+#### 5.1 EU Animal Welfare Legislative History
+
+The post-trilogue position adopted April 29, 2026 builds on:
+
+| Year | Instrument | Scope |
+|------|-----------|-------|
+| 1974 | European Convention for the Protection of Pet Animals (Council of Europe) | Companion animals generally |
+| 1997 | Amsterdam Treaty Protocol on Animal Sentience | First EU treaty recognition of animal welfare |
+| 2004 | Animal Health Code (Directive 2004/68/EC) | Import restrictions; disease control |
+| 2021 | European Citizens' Initiative (1.4M signatures) | "End the Cage Age" — related but separate |
+| 2021 | Commission Animal Welfare Strategy | Farm and companion animals; included dogs/cats |
+| 2023 | Commission proposal for Dogs & Cats Regulation | First dedicated EU instrument |
+| April 29, 2026 | EP position post-trilogue | **Final EP legislative step** |
+
+This regulation is notable for being driven partly by a major consumer-led political movement (the 2021 ECI on cage-free farming created political momentum for broader animal welfare legislation) and by documented welfare failures in the pet trade market.
+
+---
+
+### HISTORICAL ASSESSMENT
+
+The April 28–30 plenary outputs are historically significant across three distinct legislative domains:
+
+1. **Anti-Corruption Regulation:** Represents EU governance evolution consistent with the post-QatarGate political moment — a crisis-driven acceleration of institutional reform (as seen with the Banking Union post-2012 Eurozone crisis and the NextGenerationEU post-COVID).
+
+2. **SRMR3:** Represents the "long completion" pattern in EU institutional integration — the Banking Union's third pillar took 12 years to complete, consistent with EDIS (still incomplete) and the Capital Markets Union (proposed 2015, partially complete).
+
+3. **DMA urgency resolution:** Represents a classic EP accountability-assertion moment — the Parliament using urgency procedures to express institutional displeasure without triggering the nuclear option of no-confidence, consistent with similar urgency resolutions on migration (2023), AI safety (2024), and climate action (2022, 2023, 2025).
+
+**Admiralty Grade: A/1** — Historical timeline data is well-established from official EU sources; analytical interpretation is analyst judgment.
+
 <h2 id="section-continuity">Cross-Run Continuity</h2>
 
 ### Pipeline Health
@@ -2331,14 +2323,14 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/propositions/executive-brief.md) | `executive-brief.md` |
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/propositions/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/propositions/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/propositions/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/propositions/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/propositions/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/propositions/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/propositions/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/propositions/intelligence/threat-model.md) | `intelligence/threat-model.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/propositions/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/propositions/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/propositions/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/propositions/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-continuity | [pipeline-health](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/propositions/existing/pipeline-health.md) | `existing/pipeline-health.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/propositions/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/propositions/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
