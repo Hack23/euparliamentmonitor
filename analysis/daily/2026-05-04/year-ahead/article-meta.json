@@ -1,0 +1,56 @@
+{
+  "date": "2026-05-04",
+  "articleType": "year-ahead",
+  "runId": "year-ahead-run-1777854128",
+  "gateResult": "PENDING",
+  "slug": "2026-05-04-year-ahead",
+  "articlePath": "analysis/daily/2026-05-04/year-ahead/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**May 2026:** 18–21 May (Strasbourg, full 4-day)",
+    "**July 2026:** 6–9 July (Strasbourg, full 4-day — summer session, reduced attendance expected)",
+    "**September 2026:** 14–17 September (Strasbourg, return from summer recess)",
+    "**November 2026:** 11–12 November (Brussels, mini-session), 23–26 November (Strasbourg, full 4-day)",
+    "**December 2026:** Not confirmed in dataset (typically 1 session, budget finalization)",
+    "**January–May 2027:** Estimated 10–12 further plenary sessions (historical pattern: 4 per month exc. August)",
+    "**Grand Coalition (EPP+S&D):** 320 seats — BELOW majority. Requires Renew (+77) = 397 → **viable supermajority** for institutional reform, treaty matters."
+  ],
+  "topRisks": [
+    "Risk framework: political-risk-methodology.md",
+    "Evidence base: EP adopted texts 2026, political landscape data, coalition dynamics analysis",
+    "Economic data: World Bank (Germany), IMF contextual"
+  ],
+  "keyDates": [
+    "European Defence Fund: Commission proposal expected May 2026 — first EP reading June–July",
+    "AI Act GPAI: Full compliance deadline November 2026 approaching — EP hearing with Commission",
+    "AI Act high-risk systems: Conformity assessment reports expected August 2026 — October review",
+    "January–April 2026: 16 weeks of committee meetings completed",
+    "May 2026: 4 weeks remaining in Q2",
+    "July 2026: Last 2 weeks before August recess",
+    "September–December 2026: 16 weeks peak committee activity",
+    "Expected output: 4–6 reports, Q3–Q4 2026"
+  ],
+  "keyActors": [
+    "**Role:** Agenda-setting, interinstitutional representation, procedural authority",
+    "**Capital:** High — reappointed 2024, internationally credible",
+    "**Key decisions next 12 months:** Handling of PfE procedural provocations; managing cordon sanitaire questions",
+    "**Role:** Coordinates 136-seat group across 27 nationalities",
+    "**Key challenge:** Holding S&D together on migration vs. maintaining progressive base",
+    "**Role:** Managing French Renew delegation under Le Pen domestic pressure",
+    "**Key challenge:** French delegation coherence; trade-off between European and national positions"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/legislative-pipeline-forecast.md",
+    "intelligence/parliamentary-calendar-projection.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
