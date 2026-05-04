@@ -1,494 +1,494 @@
-<testsuites id="" name="" tests="235" failures="0" skipped="0" errors="0" time="838.81344">
-<testsuite name="tests/accessibility.spec.js" timestamp="2026-05-03T23:12:38.080Z" hostname="chromium" tests="27" failures="0" skipped="0" time="87.164" errors="0">
-<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › sv index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.557">
+<testsuites id="" name="" tests="235" failures="0" skipped="0" errors="0" time="893.769001">
+<testsuite name="tests/accessibility.spec.js" timestamp="2026-05-04T09:54:37.747Z" hostname="chromium" tests="27" failures="0" skipped="0" time="89.137" errors="0">
+<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › sv index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.765">
 </testcase>
-<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › da index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.284">
+<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › da index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.5">
 </testcase>
-<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › no index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.16">
+<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › no index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.214">
 </testcase>
-<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › fi index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.122">
+<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › fi index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.202">
 </testcase>
-<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › de index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="4.997">
+<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › de index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.149">
 </testcase>
-<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › fr index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="4.99">
+<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › fr index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.126">
 </testcase>
-<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › es index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.02">
+<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › es index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.14">
 </testcase>
-<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › nl index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.055">
+<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › nl index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.088">
 </testcase>
-<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › ar index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="3.312">
+<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › ar index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="3.373">
 </testcase>
-<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › he index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.117">
+<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › he index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.197">
 </testcase>
-<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › ja index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.033">
+<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › ja index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.29">
 </testcase>
-<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › ko index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.063">
+<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › ko index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.229">
 </testcase>
-<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › zh index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.059">
+<testcase name="Multi-language index accessibility (WCAG 2.1 AA) › zh index page should be WCAG 2.1 AA compliant" classname="tests/accessibility.spec.js" time="5.144">
 </testcase>
-<testcase name="Accessibility › homepage should be accessible" classname="tests/accessibility.spec.js" time="5.083">
+<testcase name="Accessibility › homepage should be accessible" classname="tests/accessibility.spec.js" time="5.109">
 </testcase>
-<testcase name="Accessibility › article page should be accessible" classname="tests/accessibility.spec.js" time="0.638">
+<testcase name="Accessibility › article page should be accessible" classname="tests/accessibility.spec.js" time="0.616">
 </testcase>
-<testcase name="Accessibility › should have proper heading hierarchy" classname="tests/accessibility.spec.js" time="2.739">
+<testcase name="Accessibility › should have proper heading hierarchy" classname="tests/accessibility.spec.js" time="2.933">
 </testcase>
-<testcase name="Accessibility › should have alt text for images" classname="tests/accessibility.spec.js" time="0.645">
+<testcase name="Accessibility › should have alt text for images" classname="tests/accessibility.spec.js" time="0.652">
 </testcase>
-<testcase name="Accessibility › should be keyboard navigable" classname="tests/accessibility.spec.js" time="0.714">
+<testcase name="Accessibility › should be keyboard navigable" classname="tests/accessibility.spec.js" time="0.732">
 </testcase>
-<testcase name="Accessibility › should activate links with Enter key" classname="tests/accessibility.spec.js" time="0.755">
+<testcase name="Accessibility › should activate links with Enter key" classname="tests/accessibility.spec.js" time="0.714">
 </testcase>
-<testcase name="Accessibility › should have sufficient color contrast" classname="tests/accessibility.spec.js" time="4.251">
+<testcase name="Accessibility › should have sufficient color contrast" classname="tests/accessibility.spec.js" time="4.351">
 </testcase>
-<testcase name="Accessibility › should have proper ARIA landmarks" classname="tests/accessibility.spec.js" time="0.607">
+<testcase name="Accessibility › should have proper ARIA landmarks" classname="tests/accessibility.spec.js" time="0.561">
 </testcase>
-<testcase name="Accessibility › should have proper link text" classname="tests/accessibility.spec.js" time="3.165">
+<testcase name="Accessibility › should have proper link text" classname="tests/accessibility.spec.js" time="3.288">
 </testcase>
-<testcase name="Accessibility › should have skip navigation link" classname="tests/accessibility.spec.js" time="0.785">
+<testcase name="Accessibility › should have skip navigation link" classname="tests/accessibility.spec.js" time="0.645">
 </testcase>
-<testcase name="Accessibility › should have proper page title" classname="tests/accessibility.spec.js" time="0.576">
+<testcase name="Accessibility › should have proper page title" classname="tests/accessibility.spec.js" time="0.643">
 </testcase>
-<testcase name="Accessibility › should have language attribute" classname="tests/accessibility.spec.js" time="0.641">
+<testcase name="Accessibility › should have language attribute" classname="tests/accessibility.spec.js" time="0.647">
 </testcase>
-<testcase name="Accessibility › should support text zoom" classname="tests/accessibility.spec.js" time="1.183">
+<testcase name="Accessibility › should support text zoom" classname="tests/accessibility.spec.js" time="1.21">
 </testcase>
-<testcase name="Accessibility › should have proper form labels if forms exist" classname="tests/accessibility.spec.js" time="0.613">
+<testcase name="Accessibility › should have proper form labels if forms exist" classname="tests/accessibility.spec.js" time="0.619">
 </testcase>
 </testsuite>
-<testsuite name="tests/homepage.spec.js" timestamp="2026-05-03T23:12:38.080Z" hostname="chromium" tests="6" failures="0" skipped="0" time="3.662" errors="0">
-<testcase name="Homepage › should load successfully" classname="tests/homepage.spec.js" time="0.607">
+<testsuite name="tests/homepage.spec.js" timestamp="2026-05-04T09:54:37.747Z" hostname="chromium" tests="6" failures="0" skipped="0" time="3.735" errors="0">
+<testcase name="Homepage › should load successfully" classname="tests/homepage.spec.js" time="0.616">
 </testcase>
-<testcase name="Homepage › should display navigation menu" classname="tests/homepage.spec.js" time="0.645">
+<testcase name="Homepage › should display navigation menu" classname="tests/homepage.spec.js" time="0.666">
 </testcase>
-<testcase name="Homepage › should display recent articles" classname="tests/homepage.spec.js" time="0.617">
+<testcase name="Homepage › should display recent articles" classname="tests/homepage.spec.js" time="0.609">
 </testcase>
 <testcase name="Homepage › should have working sitemap link" classname="tests/homepage.spec.js" time="0.594">
 </testcase>
-<testcase name="Homepage › should have proper HTML structure" classname="tests/homepage.spec.js" time="0.6">
+<testcase name="Homepage › should have proper HTML structure" classname="tests/homepage.spec.js" time="0.625">
 </testcase>
-<testcase name="Homepage › should have SEO meta tags" classname="tests/homepage.spec.js" time="0.599">
+<testcase name="Homepage › should have SEO meta tags" classname="tests/homepage.spec.js" time="0.625">
 </testcase>
 </testsuite>
-<testsuite name="tests/horizon-nav.spec.js" timestamp="2026-05-03T23:12:38.080Z" hostname="chromium" tests="70" failures="0" skipped="0" time="252.931" errors="0">
-<testcase name="PI structure — en (/political-intelligence.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.814">
+<testsuite name="tests/horizon-nav.spec.js" timestamp="2026-05-04T09:54:37.747Z" hostname="chromium" tests="70" failures="0" skipped="0" time="269.065" errors="0">
+<testcase name="PI structure — en (/political-intelligence.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.983">
 </testcase>
-<testcase name="PI structure — en (/political-intelligence.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.686">
+<testcase name="PI structure — en (/political-intelligence.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.946">
 </testcase>
-<testcase name="PI structure — en (/political-intelligence.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="0.942">
+<testcase name="PI structure — en (/political-intelligence.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="1.095">
 </testcase>
-<testcase name="PI structure — en (/political-intelligence.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.605">
+<testcase name="PI structure — en (/political-intelligence.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.955">
 </testcase>
-<testcase name="PI structure — en (/political-intelligence.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.034">
+<testcase name="PI structure — en (/political-intelligence.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.174">
 </testcase>
-<testcase name="PI structure — sv (/political-intelligence_sv.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.7">
+<testcase name="PI structure — sv (/political-intelligence_sv.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.927">
 </testcase>
-<testcase name="PI structure — sv (/political-intelligence_sv.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.768">
+<testcase name="PI structure — sv (/political-intelligence_sv.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.901">
 </testcase>
-<testcase name="PI structure — sv (/political-intelligence_sv.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="0.931">
+<testcase name="PI structure — sv (/political-intelligence_sv.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="1.122">
 </testcase>
-<testcase name="PI structure — sv (/political-intelligence_sv.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.686">
+<testcase name="PI structure — sv (/political-intelligence_sv.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.91">
 </testcase>
-<testcase name="PI structure — sv (/political-intelligence_sv.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.132">
+<testcase name="PI structure — sv (/political-intelligence_sv.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.369">
 </testcase>
-<testcase name="PI structure — da (/political-intelligence_da.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.769">
+<testcase name="PI structure — da (/political-intelligence_da.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.892">
 </testcase>
-<testcase name="PI structure — da (/political-intelligence_da.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.714">
+<testcase name="PI structure — da (/political-intelligence_da.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.894">
 </testcase>
-<testcase name="PI structure — da (/political-intelligence_da.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="0.953">
+<testcase name="PI structure — da (/political-intelligence_da.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="1.08">
 </testcase>
-<testcase name="PI structure — da (/political-intelligence_da.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.472">
+<testcase name="PI structure — da (/political-intelligence_da.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.905">
 </testcase>
-<testcase name="PI structure — da (/political-intelligence_da.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.003">
+<testcase name="PI structure — da (/political-intelligence_da.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.101">
 </testcase>
-<testcase name="PI structure — no (/political-intelligence_no.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.75">
+<testcase name="PI structure — no (/political-intelligence_no.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.927">
 </testcase>
-<testcase name="PI structure — no (/political-intelligence_no.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.744">
+<testcase name="PI structure — no (/political-intelligence_no.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.872">
 </testcase>
-<testcase name="PI structure — no (/political-intelligence_no.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="0.952">
+<testcase name="PI structure — no (/political-intelligence_no.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="1.117">
 </testcase>
-<testcase name="PI structure — no (/political-intelligence_no.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.565">
+<testcase name="PI structure — no (/political-intelligence_no.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="15.036">
 </testcase>
-<testcase name="PI structure — no (/political-intelligence_no.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="0.969">
+<testcase name="PI structure — no (/political-intelligence_no.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.116">
 </testcase>
-<testcase name="PI structure — fi (/political-intelligence_fi.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.779">
+<testcase name="PI structure — fi (/political-intelligence_fi.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.842">
 </testcase>
-<testcase name="PI structure — fi (/political-intelligence_fi.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.757">
+<testcase name="PI structure — fi (/political-intelligence_fi.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.881">
 </testcase>
-<testcase name="PI structure — fi (/political-intelligence_fi.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="0.861">
+<testcase name="PI structure — fi (/political-intelligence_fi.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="1.053">
 </testcase>
-<testcase name="PI structure — fi (/political-intelligence_fi.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.462">
+<testcase name="PI structure — fi (/political-intelligence_fi.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="15.034">
 </testcase>
-<testcase name="PI structure — fi (/political-intelligence_fi.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.047">
+<testcase name="PI structure — fi (/political-intelligence_fi.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.163">
 </testcase>
-<testcase name="PI structure — de (/political-intelligence_de.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.774">
+<testcase name="PI structure — de (/political-intelligence_de.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.857">
 </testcase>
-<testcase name="PI structure — de (/political-intelligence_de.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.767">
+<testcase name="PI structure — de (/political-intelligence_de.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.92">
 </testcase>
-<testcase name="PI structure — de (/political-intelligence_de.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="0.923">
+<testcase name="PI structure — de (/political-intelligence_de.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="1.025">
 </testcase>
-<testcase name="PI structure — de (/political-intelligence_de.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.42">
+<testcase name="PI structure — de (/political-intelligence_de.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="15.062">
 </testcase>
-<testcase name="PI structure — de (/political-intelligence_de.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.133">
+<testcase name="PI structure — de (/political-intelligence_de.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.275">
 </testcase>
-<testcase name="PI structure — fr (/political-intelligence_fr.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.773">
+<testcase name="PI structure — fr (/political-intelligence_fr.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.895">
 </testcase>
-<testcase name="PI structure — fr (/political-intelligence_fr.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.746">
+<testcase name="PI structure — fr (/political-intelligence_fr.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.888">
 </testcase>
-<testcase name="PI structure — fr (/political-intelligence_fr.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="0.96">
+<testcase name="PI structure — fr (/political-intelligence_fr.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="1.065">
 </testcase>
-<testcase name="PI structure — fr (/political-intelligence_fr.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.375">
+<testcase name="PI structure — fr (/political-intelligence_fr.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="15.303">
 </testcase>
-<testcase name="PI structure — fr (/political-intelligence_fr.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="0.96">
+<testcase name="PI structure — fr (/political-intelligence_fr.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.248">
 </testcase>
-<testcase name="PI structure — es (/political-intelligence_es.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.805">
+<testcase name="PI structure — es (/political-intelligence_es.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.913">
 </testcase>
-<testcase name="PI structure — es (/political-intelligence_es.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.798">
+<testcase name="PI structure — es (/political-intelligence_es.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.896">
 </testcase>
-<testcase name="PI structure — es (/political-intelligence_es.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="0.881">
+<testcase name="PI structure — es (/political-intelligence_es.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="1.084">
 </testcase>
-<testcase name="PI structure — es (/political-intelligence_es.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.403">
+<testcase name="PI structure — es (/political-intelligence_es.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="15.222">
 </testcase>
-<testcase name="PI structure — es (/political-intelligence_es.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="0.939">
+<testcase name="PI structure — es (/political-intelligence_es.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.158">
 </testcase>
-<testcase name="PI structure — nl (/political-intelligence_nl.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.772">
+<testcase name="PI structure — nl (/political-intelligence_nl.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.879">
 </testcase>
-<testcase name="PI structure — nl (/political-intelligence_nl.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.807">
+<testcase name="PI structure — nl (/political-intelligence_nl.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.911">
 </testcase>
-<testcase name="PI structure — nl (/political-intelligence_nl.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="0.949">
+<testcase name="PI structure — nl (/political-intelligence_nl.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="1.116">
 </testcase>
-<testcase name="PI structure — nl (/political-intelligence_nl.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.665">
+<testcase name="PI structure — nl (/political-intelligence_nl.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="15.377">
 </testcase>
-<testcase name="PI structure — nl (/political-intelligence_nl.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.164">
+<testcase name="PI structure — nl (/political-intelligence_nl.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.458">
 </testcase>
-<testcase name="PI structure — ar (/political-intelligence_ar.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.848">
+<testcase name="PI structure — ar (/political-intelligence_ar.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.946">
 </testcase>
-<testcase name="PI structure — ar (/political-intelligence_ar.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.807">
+<testcase name="PI structure — ar (/political-intelligence_ar.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.957">
 </testcase>
-<testcase name="PI structure — ar (/political-intelligence_ar.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="0.982">
+<testcase name="PI structure — ar (/political-intelligence_ar.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="1.098">
 </testcase>
-<testcase name="PI structure — ar (/political-intelligence_ar.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.079">
+<testcase name="PI structure — ar (/political-intelligence_ar.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.723">
 </testcase>
-<testcase name="PI structure — ar (/political-intelligence_ar.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.068">
+<testcase name="PI structure — ar (/political-intelligence_ar.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.171">
 </testcase>
-<testcase name="PI structure — he (/political-intelligence_he.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.797">
+<testcase name="PI structure — he (/political-intelligence_he.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.894">
 </testcase>
-<testcase name="PI structure — he (/political-intelligence_he.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.802">
+<testcase name="PI structure — he (/political-intelligence_he.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.895">
 </testcase>
-<testcase name="PI structure — he (/political-intelligence_he.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="0.964">
+<testcase name="PI structure — he (/political-intelligence_he.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="1.099">
 </testcase>
-<testcase name="PI structure — he (/political-intelligence_he.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.537">
+<testcase name="PI structure — he (/political-intelligence_he.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="15.122">
 </testcase>
-<testcase name="PI structure — he (/political-intelligence_he.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.014">
+<testcase name="PI structure — he (/political-intelligence_he.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.384">
 </testcase>
-<testcase name="PI structure — ja (/political-intelligence_ja.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.826">
+<testcase name="PI structure — ja (/political-intelligence_ja.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.942">
 </testcase>
-<testcase name="PI structure — ja (/political-intelligence_ja.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.766">
+<testcase name="PI structure — ja (/political-intelligence_ja.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.95">
 </testcase>
-<testcase name="PI structure — ja (/political-intelligence_ja.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="0.993">
+<testcase name="PI structure — ja (/political-intelligence_ja.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="1.135">
 </testcase>
-<testcase name="PI structure — ja (/political-intelligence_ja.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.722">
+<testcase name="PI structure — ja (/political-intelligence_ja.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="15.276">
 </testcase>
-<testcase name="PI structure — ja (/political-intelligence_ja.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.118">
+<testcase name="PI structure — ja (/political-intelligence_ja.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.145">
 </testcase>
-<testcase name="PI structure — ko (/political-intelligence_ko.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.808">
+<testcase name="PI structure — ko (/political-intelligence_ko.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.928">
 </testcase>
-<testcase name="PI structure — ko (/political-intelligence_ko.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.721">
+<testcase name="PI structure — ko (/political-intelligence_ko.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.897">
 </testcase>
-<testcase name="PI structure — ko (/political-intelligence_ko.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="0.948">
+<testcase name="PI structure — ko (/political-intelligence_ko.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="1.17">
 </testcase>
-<testcase name="PI structure — ko (/political-intelligence_ko.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.719">
+<testcase name="PI structure — ko (/political-intelligence_ko.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="15.061">
 </testcase>
-<testcase name="PI structure — ko (/political-intelligence_ko.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.071">
+<testcase name="PI structure — ko (/political-intelligence_ko.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.213">
 </testcase>
-<testcase name="PI structure — zh (/political-intelligence_zh.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.975">
+<testcase name="PI structure — zh (/political-intelligence_zh.html) › page loads (HTTP 200) and PI heading is visible" classname="tests/horizon-nav.spec.js" time="0.889">
 </testcase>
-<testcase name="PI structure — zh (/political-intelligence_zh.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.805">
+<testcase name="PI structure — zh (/political-intelligence_zh.html) › daily-runs section exists in the page" classname="tests/horizon-nav.spec.js" time="0.985">
 </testcase>
-<testcase name="PI structure — zh (/political-intelligence_zh.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="0.957">
+<testcase name="PI structure — zh (/political-intelligence_zh.html) › hreflang alternates cover all 14 language variants" classname="tests/horizon-nav.spec.js" time="1.11">
 </testcase>
-<testcase name="PI structure — zh (/political-intelligence_zh.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.466">
+<testcase name="PI structure — zh (/political-intelligence_zh.html) › passes WCAG 2.1 AA accessibility scan" classname="tests/horizon-nav.spec.js" time="14.972">
 </testcase>
-<testcase name="PI structure — zh (/political-intelligence_zh.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.029">
+<testcase name="PI structure — zh (/political-intelligence_zh.html) › all rendered run-card slugs resolve to a localised title" classname="tests/horizon-nav.spec.js" time="1.256">
 </testcase>
 </testsuite>
-<testsuite name="tests/hreflang.spec.js" timestamp="2026-05-03T23:12:38.080Z" hostname="chromium" tests="29" failures="0" skipped="0" time="218.092" errors="0">
-<testcase name="Hreflang Link Graph › all political-intelligence hreflang targets resolve" classname="tests/hreflang.spec.js" time="3.943">
+<testsuite name="tests/hreflang.spec.js" timestamp="2026-05-04T09:54:37.747Z" hostname="chromium" tests="29" failures="0" skipped="0" time="236.162" errors="0">
+<testcase name="Hreflang Link Graph › all political-intelligence hreflang targets resolve" classname="tests/hreflang.spec.js" time="5.409">
 </testcase>
-<testcase name="Hreflang Link Graph › en: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.79">
+<testcase name="Hreflang Link Graph › en: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.983">
 </testcase>
-<testcase name="Hreflang Link Graph › en: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="14.463">
+<testcase name="Hreflang Link Graph › en: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="15.359">
 </testcase>
-<testcase name="Hreflang Link Graph › sv: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.79">
+<testcase name="Hreflang Link Graph › sv: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.948">
 </testcase>
-<testcase name="Hreflang Link Graph › sv: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="14.544">
+<testcase name="Hreflang Link Graph › sv: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="16.108">
 </testcase>
-<testcase name="Hreflang Link Graph › da: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.927">
+<testcase name="Hreflang Link Graph › da: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="1.048">
 </testcase>
-<testcase name="Hreflang Link Graph › da: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="14.442">
+<testcase name="Hreflang Link Graph › da: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="15.292">
 </testcase>
-<testcase name="Hreflang Link Graph › no: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.812">
+<testcase name="Hreflang Link Graph › no: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.92">
 </testcase>
-<testcase name="Hreflang Link Graph › no: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="14.278">
+<testcase name="Hreflang Link Graph › no: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="15.533">
 </testcase>
-<testcase name="Hreflang Link Graph › fi: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.779">
+<testcase name="Hreflang Link Graph › fi: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.925">
 </testcase>
-<testcase name="Hreflang Link Graph › fi: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="14.475">
+<testcase name="Hreflang Link Graph › fi: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="15.41">
 </testcase>
-<testcase name="Hreflang Link Graph › de: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.912">
+<testcase name="Hreflang Link Graph › de: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.967">
 </testcase>
-<testcase name="Hreflang Link Graph › de: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="14.495">
+<testcase name="Hreflang Link Graph › de: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="15.57">
 </testcase>
-<testcase name="Hreflang Link Graph › fr: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.789">
+<testcase name="Hreflang Link Graph › fr: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.968">
 </testcase>
-<testcase name="Hreflang Link Graph › fr: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="14.445">
+<testcase name="Hreflang Link Graph › fr: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="15.588">
 </testcase>
-<testcase name="Hreflang Link Graph › es: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.801">
+<testcase name="Hreflang Link Graph › es: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.947">
 </testcase>
-<testcase name="Hreflang Link Graph › es: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="14.56">
+<testcase name="Hreflang Link Graph › es: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="15.321">
 </testcase>
-<testcase name="Hreflang Link Graph › nl: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.781">
+<testcase name="Hreflang Link Graph › nl: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.941">
 </testcase>
-<testcase name="Hreflang Link Graph › nl: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="14.536">
+<testcase name="Hreflang Link Graph › nl: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="15.57">
 </testcase>
-<testcase name="Hreflang Link Graph › ar: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.869">
+<testcase name="Hreflang Link Graph › ar: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="1.135">
 </testcase>
-<testcase name="Hreflang Link Graph › ar: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="13.812">
+<testcase name="Hreflang Link Graph › ar: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="14.993">
 </testcase>
-<testcase name="Hreflang Link Graph › he: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="1.046">
+<testcase name="Hreflang Link Graph › he: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="1.051">
 </testcase>
-<testcase name="Hreflang Link Graph › he: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="14.516">
+<testcase name="Hreflang Link Graph › he: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="15.762">
 </testcase>
-<testcase name="Hreflang Link Graph › ja: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.851">
+<testcase name="Hreflang Link Graph › ja: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.983">
 </testcase>
-<testcase name="Hreflang Link Graph › ja: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="14.667">
+<testcase name="Hreflang Link Graph › ja: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="15.436">
 </testcase>
-<testcase name="Hreflang Link Graph › ko: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.875">
+<testcase name="Hreflang Link Graph › ko: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="1.036">
 </testcase>
-<testcase name="Hreflang Link Graph › ko: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="14.48">
+<testcase name="Hreflang Link Graph › ko: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="15.631">
 </testcase>
-<testcase name="Hreflang Link Graph › zh: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.819">
+<testcase name="Hreflang Link Graph › zh: page has full 14-language hreflang set + x-default" classname="tests/hreflang.spec.js" time="0.875">
 </testcase>
-<testcase name="Hreflang Link Graph › zh: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="14.595">
-</testcase>
-</testsuite>
-<testsuite name="tests/multi-language.spec.js" timestamp="2026-05-03T23:12:38.080Z" hostname="chromium" tests="21" failures="0" skipped="0" time="16.373" errors="0">
-<testcase name="Multi-Language Support › should load English version" classname="tests/multi-language.spec.js" time="0.629">
-</testcase>
-<testcase name="Multi-Language Support › should load German version" classname="tests/multi-language.spec.js" time="0.606">
-</testcase>
-<testcase name="Multi-Language Support › should load French version" classname="tests/multi-language.spec.js" time="0.611">
-</testcase>
-<testcase name="Multi-Language Support › should load Spanish version" classname="tests/multi-language.spec.js" time="0.625">
-</testcase>
-<testcase name="Multi-Language Support › should load Swedish version" classname="tests/multi-language.spec.js" time="0.657">
-</testcase>
-<testcase name="Multi-Language Support › should load Danish version" classname="tests/multi-language.spec.js" time="0.604">
-</testcase>
-<testcase name="Multi-Language Support › should load Norwegian version" classname="tests/multi-language.spec.js" time="0.593">
-</testcase>
-<testcase name="Multi-Language Support › should load Finnish version" classname="tests/multi-language.spec.js" time="0.62">
-</testcase>
-<testcase name="Multi-Language Support › should load Dutch version" classname="tests/multi-language.spec.js" time="0.621">
-</testcase>
-<testcase name="Multi-Language Support › should load Arabic version with RTL direction" classname="tests/multi-language.spec.js" time="0.689">
-</testcase>
-<testcase name="Multi-Language Support › should load Hebrew version with RTL direction" classname="tests/multi-language.spec.js" time="0.638">
-</testcase>
-<testcase name="Multi-Language Support › should load Japanese version" classname="tests/multi-language.spec.js" time="0.747">
-</testcase>
-<testcase name="Multi-Language Support › should load Korean version" classname="tests/multi-language.spec.js" time="0.649">
-</testcase>
-<testcase name="Multi-Language Support › should load Chinese version" classname="tests/multi-language.spec.js" time="0.642">
-</testcase>
-<testcase name="Multi-Language Support › should switch between languages" classname="tests/multi-language.spec.js" time="0.911">
-</testcase>
-<testcase name="Multi-Language Support › should have consistent structure across languages" classname="tests/multi-language.spec.js" time="1.543">
-</testcase>
-<testcase name="Multi-Language Support › should have language-specific meta tags" classname="tests/multi-language.spec.js" time="0.616">
-</testcase>
-<testcase name="Multi-Language Support › should maintain navigation in selected language" classname="tests/multi-language.spec.js" time="0.607">
-</testcase>
-<testcase name="Multi-Language Support › should have proper charset encoding for all languages" classname="tests/multi-language.spec.js" time="1.776">
-</testcase>
-<testcase name="Multi-Language Support › should display articles in language-specific format" classname="tests/multi-language.spec.js" time="1.352">
-</testcase>
-<testcase name="Multi-Language Support › should have correct language in alternate links" classname="tests/multi-language.spec.js" time="0.637">
+<testcase name="Hreflang Link Graph › zh: accessibility has no WCAG violations" classname="tests/hreflang.spec.js" time="15.453">
 </testcase>
 </testsuite>
-<testsuite name="tests/navigation.spec.js" timestamp="2026-05-03T23:12:38.080Z" hostname="chromium" tests="10" failures="0" skipped="0" time="7.617" errors="0">
-<testcase name="Navigation › should have functional navigation menu" classname="tests/navigation.spec.js" time="0.556">
+<testsuite name="tests/multi-language.spec.js" timestamp="2026-05-04T09:54:37.747Z" hostname="chromium" tests="21" failures="0" skipped="0" time="17.002" errors="0">
+<testcase name="Multi-Language Support › should load English version" classname="tests/multi-language.spec.js" time="0.647">
 </testcase>
-<testcase name="Navigation › should navigate to different sections" classname="tests/navigation.spec.js" time="0.831">
+<testcase name="Multi-Language Support › should load German version" classname="tests/multi-language.spec.js" time="0.63">
 </testcase>
-<testcase name="Navigation › should maintain navigation state across pages" classname="tests/navigation.spec.js" time="0.623">
+<testcase name="Multi-Language Support › should load French version" classname="tests/multi-language.spec.js" time="0.639">
 </testcase>
-<testcase name="Navigation › should have working home link" classname="tests/navigation.spec.js" time="0.599">
+<testcase name="Multi-Language Support › should load Spanish version" classname="tests/multi-language.spec.js" time="0.615">
 </testcase>
-<testcase name="Navigation › should support browser back button" classname="tests/navigation.spec.js" time="0.648">
+<testcase name="Multi-Language Support › should load Swedish version" classname="tests/multi-language.spec.js" time="0.629">
 </testcase>
-<testcase name="Navigation › should support browser forward button" classname="tests/navigation.spec.js" time="0.603">
+<testcase name="Multi-Language Support › should load Danish version" classname="tests/multi-language.spec.js" time="0.686">
 </testcase>
-<testcase name="Navigation › should have accessible skip links" classname="tests/navigation.spec.js" time="0.552">
+<testcase name="Multi-Language Support › should load Norwegian version" classname="tests/multi-language.spec.js" time="0.613">
 </testcase>
-<testcase name="Navigation › should have proper link focus states" classname="tests/navigation.spec.js" time="0.641">
+<testcase name="Multi-Language Support › should load Finnish version" classname="tests/multi-language.spec.js" time="0.637">
 </testcase>
-<testcase name="Navigation › should have working external links" classname="tests/navigation.spec.js" time="0.637">
+<testcase name="Multi-Language Support › should load Dutch version" classname="tests/multi-language.spec.js" time="0.725">
 </testcase>
-<testcase name="Navigation › should not have broken internal links" classname="tests/navigation.spec.js" time="1.927">
+<testcase name="Multi-Language Support › should load Arabic version with RTL direction" classname="tests/multi-language.spec.js" time="0.702">
 </testcase>
-</testsuite>
-<testsuite name="tests/news-browsing.spec.js" timestamp="2026-05-03T23:12:38.080Z" hostname="chromium" tests="5" failures="0" skipped="0" time="3.268" errors="0">
-<testcase name="News Browsing › should open and display article" classname="tests/news-browsing.spec.js" time="0.612">
+<testcase name="Multi-Language Support › should load Hebrew version with RTL direction" classname="tests/multi-language.spec.js" time="0.669">
 </testcase>
-<testcase name="News Browsing › should navigate back to homepage" classname="tests/news-browsing.spec.js" time="0.614">
+<testcase name="Multi-Language Support › should load Japanese version" classname="tests/multi-language.spec.js" time="0.726">
 </testcase>
-<testcase name="News Browsing › should display article metadata" classname="tests/news-browsing.spec.js" time="0.611">
+<testcase name="Multi-Language Support › should load Korean version" classname="tests/multi-language.spec.js" time="0.672">
 </testcase>
-<testcase name="News Browsing › should have working internal links" classname="tests/news-browsing.spec.js" time="0.805">
+<testcase name="Multi-Language Support › should load Chinese version" classname="tests/multi-language.spec.js" time="0.673">
 </testcase>
-<testcase name="News Browsing › should display article content" classname="tests/news-browsing.spec.js" time="0.626">
+<testcase name="Multi-Language Support › should switch between languages" classname="tests/multi-language.spec.js" time="0.94">
 </testcase>
-</testsuite>
-<testsuite name="tests/responsive.spec.js" timestamp="2026-05-03T23:12:38.080Z" hostname="chromium" tests="16" failures="0" skipped="0" time="12.192" errors="0">
-<testcase name="Responsive Design › should keep hero text above a full-width banner across viewports" classname="tests/responsive.spec.js" time="1.062">
+<testcase name="Multi-Language Support › should have consistent structure across languages" classname="tests/multi-language.spec.js" time="1.685">
 </testcase>
-<testcase name="Responsive Design › should render correctly on Mobile Portrait" classname="tests/responsive.spec.js" time="0.474">
+<testcase name="Multi-Language Support › should have language-specific meta tags" classname="tests/multi-language.spec.js" time="0.635">
 </testcase>
-<testcase name="Responsive Design › should render correctly on Tablet Portrait" classname="tests/responsive.spec.js" time="0.52">
+<testcase name="Multi-Language Support › should maintain navigation in selected language" classname="tests/multi-language.spec.js" time="0.621">
 </testcase>
-<testcase name="Responsive Design › should render correctly on Desktop" classname="tests/responsive.spec.js" time="0.819">
+<testcase name="Multi-Language Support › should have proper charset encoding for all languages" classname="tests/multi-language.spec.js" time="1.821">
 </testcase>
-<testcase name="Responsive Design › should have responsive meta viewport tag" classname="tests/responsive.spec.js" time="0.625">
+<testcase name="Multi-Language Support › should display articles in language-specific format" classname="tests/multi-language.spec.js" time="1.404">
 </testcase>
-<testcase name="Responsive Design › should adapt layout for different screen sizes" classname="tests/responsive.spec.js" time="0.67">
-</testcase>
-<testcase name="Responsive Design › should have touch-friendly tap targets on mobile" classname="tests/responsive.spec.js" time="0.464">
-</testcase>
-<testcase name="Responsive Design › should not have horizontal scroll on mobile" classname="tests/responsive.spec.js" time="0.385">
-</testcase>
-<testcase name="Responsive Design › should display readable text on mobile" classname="tests/responsive.spec.js" time="0.441">
-</testcase>
-<testcase name="Responsive Design › should stack content on mobile" classname="tests/responsive.spec.js" time="0.817">
-</testcase>
-<testcase name="Responsive Design › should maintain functionality across viewports" classname="tests/responsive.spec.js" time="1.251">
-</testcase>
-<testcase name="Responsive Design › should have responsive images" classname="tests/responsive.spec.js" time="0.673">
-</testcase>
-<testcase name="Responsive Design › should hide or show elements based on viewport" classname="tests/responsive.spec.js" time="1.153">
-</testcase>
-<testcase name="Responsive Design › should support landscape orientation on mobile" classname="tests/responsive.spec.js" time="0.951">
-</testcase>
-<testcase name="Responsive Design › should have readable line lengths on desktop" classname="tests/responsive.spec.js" time="0.752">
-</testcase>
-<testcase name="Responsive Design › should support text resizing without breaking layout" classname="tests/responsive.spec.js" time="1.135">
+<testcase name="Multi-Language Support › should have correct language in alternate links" classname="tests/multi-language.spec.js" time="0.633">
 </testcase>
 </testsuite>
-<testsuite name="tests/rss-feed.spec.js" timestamp="2026-05-03T23:12:38.080Z" hostname="chromium" tests="10" failures="0" skipped="0" time="3.15" errors="0">
-<testcase name="RSS Feed › should load rss.xml successfully" classname="tests/rss-feed.spec.js" time="0.323">
+<testsuite name="tests/navigation.spec.js" timestamp="2026-05-04T09:54:37.747Z" hostname="chromium" tests="10" failures="0" skipped="0" time="8.017" errors="0">
+<testcase name="Navigation › should have functional navigation menu" classname="tests/navigation.spec.js" time="0.62">
+</testcase>
+<testcase name="Navigation › should navigate to different sections" classname="tests/navigation.spec.js" time="0.955">
+</testcase>
+<testcase name="Navigation › should maintain navigation state across pages" classname="tests/navigation.spec.js" time="0.639">
+</testcase>
+<testcase name="Navigation › should have working home link" classname="tests/navigation.spec.js" time="0.624">
+</testcase>
+<testcase name="Navigation › should support browser back button" classname="tests/navigation.spec.js" time="0.621">
+</testcase>
+<testcase name="Navigation › should support browser forward button" classname="tests/navigation.spec.js" time="0.62">
+</testcase>
+<testcase name="Navigation › should have accessible skip links" classname="tests/navigation.spec.js" time="0.622">
+</testcase>
+<testcase name="Navigation › should have proper link focus states" classname="tests/navigation.spec.js" time="0.668">
+</testcase>
+<testcase name="Navigation › should have working external links" classname="tests/navigation.spec.js" time="0.626">
+</testcase>
+<testcase name="Navigation › should not have broken internal links" classname="tests/navigation.spec.js" time="2.022">
+</testcase>
+</testsuite>
+<testsuite name="tests/news-browsing.spec.js" timestamp="2026-05-04T09:54:37.747Z" hostname="chromium" tests="5" failures="0" skipped="0" time="3.256" errors="0">
+<testcase name="News Browsing › should open and display article" classname="tests/news-browsing.spec.js" time="0.631">
+</testcase>
+<testcase name="News Browsing › should navigate back to homepage" classname="tests/news-browsing.spec.js" time="0.598">
+</testcase>
+<testcase name="News Browsing › should display article metadata" classname="tests/news-browsing.spec.js" time="0.637">
+</testcase>
+<testcase name="News Browsing › should have working internal links" classname="tests/news-browsing.spec.js" time="0.778">
+</testcase>
+<testcase name="News Browsing › should display article content" classname="tests/news-browsing.spec.js" time="0.612">
+</testcase>
+</testsuite>
+<testsuite name="tests/responsive.spec.js" timestamp="2026-05-04T09:54:37.747Z" hostname="chromium" tests="16" failures="0" skipped="0" time="13.165" errors="0">
+<testcase name="Responsive Design › should keep hero text above a full-width banner across viewports" classname="tests/responsive.spec.js" time="1.135">
+</testcase>
+<testcase name="Responsive Design › should render correctly on Mobile Portrait" classname="tests/responsive.spec.js" time="0.488">
+</testcase>
+<testcase name="Responsive Design › should render correctly on Tablet Portrait" classname="tests/responsive.spec.js" time="0.506">
+</testcase>
+<testcase name="Responsive Design › should render correctly on Desktop" classname="tests/responsive.spec.js" time="0.879">
+</testcase>
+<testcase name="Responsive Design › should have responsive meta viewport tag" classname="tests/responsive.spec.js" time="0.632">
+</testcase>
+<testcase name="Responsive Design › should adapt layout for different screen sizes" classname="tests/responsive.spec.js" time="0.638">
+</testcase>
+<testcase name="Responsive Design › should have touch-friendly tap targets on mobile" classname="tests/responsive.spec.js" time="0.498">
+</testcase>
+<testcase name="Responsive Design › should not have horizontal scroll on mobile" classname="tests/responsive.spec.js" time="0.458">
+</testcase>
+<testcase name="Responsive Design › should display readable text on mobile" classname="tests/responsive.spec.js" time="0.624">
+</testcase>
+<testcase name="Responsive Design › should stack content on mobile" classname="tests/responsive.spec.js" time="1.063">
+</testcase>
+<testcase name="Responsive Design › should maintain functionality across viewports" classname="tests/responsive.spec.js" time="1.321">
+</testcase>
+<testcase name="Responsive Design › should have responsive images" classname="tests/responsive.spec.js" time="0.604">
+</testcase>
+<testcase name="Responsive Design › should hide or show elements based on viewport" classname="tests/responsive.spec.js" time="1.228">
+</testcase>
+<testcase name="Responsive Design › should support landscape orientation on mobile" classname="tests/responsive.spec.js" time="1.114">
+</testcase>
+<testcase name="Responsive Design › should have readable line lengths on desktop" classname="tests/responsive.spec.js" time="0.838">
+</testcase>
+<testcase name="Responsive Design › should support text resizing without breaking layout" classname="tests/responsive.spec.js" time="1.139">
+</testcase>
+</testsuite>
+<testsuite name="tests/rss-feed.spec.js" timestamp="2026-05-04T09:54:37.747Z" hostname="chromium" tests="10" failures="0" skipped="0" time="3.169" errors="0">
+<testcase name="RSS Feed › should load rss.xml successfully" classname="tests/rss-feed.spec.js" time="0.329">
 </testcase>
 <testcase name="RSS Feed › should be valid RSS 2.0 with required root element" classname="tests/rss-feed.spec.js" time="0.316">
 </testcase>
-<testcase name="RSS Feed › should have required channel metadata" classname="tests/rss-feed.spec.js" time="0.313">
+<testcase name="RSS Feed › should have required channel metadata" classname="tests/rss-feed.spec.js" time="0.315">
 </testcase>
-<testcase name="RSS Feed › should declare Dublin Core namespace for language tags" classname="tests/rss-feed.spec.js" time="0.311">
+<testcase name="RSS Feed › should declare Dublin Core namespace for language tags" classname="tests/rss-feed.spec.js" time="0.31">
 </testcase>
-<testcase name="RSS Feed › should have at least one item" classname="tests/rss-feed.spec.js" time="0.311">
+<testcase name="RSS Feed › should have at least one item" classname="tests/rss-feed.spec.js" time="0.312">
 </testcase>
 <testcase name="RSS Feed › should have items with required elements" classname="tests/rss-feed.spec.js" time="0.313">
 </testcase>
-<testcase name="RSS Feed › should include dc:language tags on items" classname="tests/rss-feed.spec.js" time="0.312">
+<testcase name="RSS Feed › should include dc:language tags on items" classname="tests/rss-feed.spec.js" time="0.313">
 </testcase>
-<testcase name="RSS Feed › should contain articles in multiple languages" classname="tests/rss-feed.spec.js" time="0.313">
+<testcase name="RSS Feed › should contain articles in multiple languages" classname="tests/rss-feed.spec.js" time="0.311">
 </testcase>
-<testcase name="RSS Feed › should have atom self-link with correct URL" classname="tests/rss-feed.spec.js" time="0.32">
+<testcase name="RSS Feed › should have atom self-link with correct URL" classname="tests/rss-feed.spec.js" time="0.34">
 </testcase>
-<testcase name="RSS Feed › should have lastBuildDate element" classname="tests/rss-feed.spec.js" time="0.318">
+<testcase name="RSS Feed › should have lastBuildDate element" classname="tests/rss-feed.spec.js" time="0.31">
 </testcase>
 </testsuite>
-<testsuite name="tests/sitemap.spec.js" timestamp="2026-05-03T23:12:38.080Z" hostname="chromium" tests="13" failures="0" skipped="0" time="12.72" errors="0">
-<testcase name="Sitemap XML › should load sitemap.xml when available" classname="tests/sitemap.spec.js" time="0.315">
+<testsuite name="tests/sitemap.spec.js" timestamp="2026-05-04T09:54:37.747Z" hostname="chromium" tests="13" failures="0" skipped="0" time="15.205" errors="0">
+<testcase name="Sitemap XML › should load sitemap.xml when available" classname="tests/sitemap.spec.js" time="0.32">
 </testcase>
-<testcase name="Sitemap XML › should have valid urlset structure" classname="tests/sitemap.spec.js" time="0.324">
+<testcase name="Sitemap XML › should have valid urlset structure" classname="tests/sitemap.spec.js" time="0.318">
 </testcase>
-<testcase name="Sitemap XML › should contain article URLs" classname="tests/sitemap.spec.js" time="0.322">
+<testcase name="Sitemap XML › should contain article URLs" classname="tests/sitemap.spec.js" time="0.319">
 </testcase>
 <testcase name="Sitemap XML › should contain more than 50 URLs" classname="tests/sitemap.spec.js" time="0.319">
 </testcase>
-<testcase name="Sitemap XML › should include rss.xml in sitemap" classname="tests/sitemap.spec.js" time="0.317">
+<testcase name="Sitemap XML › should include rss.xml in sitemap" classname="tests/sitemap.spec.js" time="0.315">
 </testcase>
-<testcase name="Sitemap HTML Pages › English sitemap HTML should load successfully" classname="tests/sitemap.spec.js" time="0.59">
+<testcase name="Sitemap HTML Pages › English sitemap HTML should load successfully" classname="tests/sitemap.spec.js" time="0.719">
 </testcase>
-<testcase name="Sitemap HTML Pages › English sitemap HTML should have article links" classname="tests/sitemap.spec.js" time="0.64">
+<testcase name="Sitemap HTML Pages › English sitemap HTML should have article links" classname="tests/sitemap.spec.js" time="0.693">
 </testcase>
-<testcase name="Sitemap HTML Pages › English sitemap HTML should have language navigation" classname="tests/sitemap.spec.js" time="0.593">
+<testcase name="Sitemap HTML Pages › English sitemap HTML should have language navigation" classname="tests/sitemap.spec.js" time="0.682">
 </testcase>
-<testcase name="Sitemap HTML Pages › English sitemap HTML should be accessible (WCAG 2.1 AA)" classname="tests/sitemap.spec.js" time="3.976">
+<testcase name="Sitemap HTML Pages › English sitemap HTML should be accessible (WCAG 2.1 AA)" classname="tests/sitemap.spec.js" time="4.189">
 </testcase>
-<testcase name="Sitemap HTML Pages › all 14 language sitemap HTML pages should load" classname="tests/sitemap.spec.js" time="2.068">
+<testcase name="Sitemap HTML Pages › all 14 language sitemap HTML pages should load" classname="tests/sitemap.spec.js" time="3.069">
 </testcase>
-<testcase name="Sitemap HTML Pages › language sitemap pages should have correct lang attribute" classname="tests/sitemap.spec.js" time="2.071">
+<testcase name="Sitemap HTML Pages › language sitemap pages should have correct lang attribute" classname="tests/sitemap.spec.js" time="2.807">
 </testcase>
-<testcase name="Sitemap HTML Pages › Arabic sitemap should have RTL direction" classname="tests/sitemap.spec.js" time="0.608">
+<testcase name="Sitemap HTML Pages › Arabic sitemap should have RTL direction" classname="tests/sitemap.spec.js" time="0.733">
 </testcase>
-<testcase name="Sitemap HTML Pages › Hebrew sitemap should have RTL direction" classname="tests/sitemap.spec.js" time="0.577">
+<testcase name="Sitemap HTML Pages › Hebrew sitemap should have RTL direction" classname="tests/sitemap.spec.js" time="0.722">
 </testcase>
 </testsuite>
-<testsuite name="tests/structured-data.spec.js" timestamp="2026-05-03T23:12:38.080Z" hostname="chromium" tests="28" failures="0" skipped="0" time="213.98" errors="0">
-<testcase name="Structured Data (JSON-LD) › en: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="0.844">
+<testsuite name="tests/structured-data.spec.js" timestamp="2026-05-04T09:54:37.747Z" hostname="chromium" tests="28" failures="0" skipped="0" time="230.333" errors="0">
+<testcase name="Structured Data (JSON-LD) › en: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="1.026">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › en: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="14.46">
+<testcase name="Structured Data (JSON-LD) › en: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="15.578">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › sv: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="1.067">
+<testcase name="Structured Data (JSON-LD) › sv: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="0.936">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › sv: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="14.408">
+<testcase name="Structured Data (JSON-LD) › sv: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="15.749">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › da: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="0.814">
+<testcase name="Structured Data (JSON-LD) › da: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="1.016">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › da: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="14.482">
+<testcase name="Structured Data (JSON-LD) › da: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="15.547">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › no: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="0.83">
+<testcase name="Structured Data (JSON-LD) › no: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="0.996">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › no: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="14.315">
+<testcase name="Structured Data (JSON-LD) › no: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="15.474">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › fi: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="0.864">
+<testcase name="Structured Data (JSON-LD) › fi: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="0.989">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › fi: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="14.315">
+<testcase name="Structured Data (JSON-LD) › fi: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="15.672">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › de: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="0.839">
+<testcase name="Structured Data (JSON-LD) › de: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="1.002">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › de: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="14.375">
+<testcase name="Structured Data (JSON-LD) › de: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="15.763">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › fr: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="0.813">
+<testcase name="Structured Data (JSON-LD) › fr: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="1.341">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › fr: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="14.405">
+<testcase name="Structured Data (JSON-LD) › fr: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="15.581">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › es: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="0.867">
+<testcase name="Structured Data (JSON-LD) › es: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="1.002">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › es: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="14.354">
+<testcase name="Structured Data (JSON-LD) › es: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="15.148">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › nl: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="0.82">
+<testcase name="Structured Data (JSON-LD) › nl: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="0.996">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › nl: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="14.369">
+<testcase name="Structured Data (JSON-LD) › nl: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="15.093">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › ar: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="1.043">
+<testcase name="Structured Data (JSON-LD) › ar: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="0.962">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › ar: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="13.777">
+<testcase name="Structured Data (JSON-LD) › ar: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="14.691">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › he: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="0.802">
+<testcase name="Structured Data (JSON-LD) › he: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="0.992">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › he: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="14.561">
+<testcase name="Structured Data (JSON-LD) › he: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="15.403">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › ja: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="1.045">
+<testcase name="Structured Data (JSON-LD) › ja: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="1.043">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › ja: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="14.581">
+<testcase name="Structured Data (JSON-LD) › ja: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="15.572">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › ko: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="0.888">
+<testcase name="Structured Data (JSON-LD) › ko: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="1.033">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › ko: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="14.621">
+<testcase name="Structured Data (JSON-LD) › ko: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="15.512">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › zh: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="0.817">
+<testcase name="Structured Data (JSON-LD) › zh: has valid JSON-LD structured data" classname="tests/structured-data.spec.js" time="1.014">
 </testcase>
-<testcase name="Structured Data (JSON-LD) › zh: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="14.604">
+<testcase name="Structured Data (JSON-LD) › zh: accessibility has no WCAG violations" classname="tests/structured-data.spec.js" time="15.202">
 </testcase>
 </testsuite>
 </testsuites>
