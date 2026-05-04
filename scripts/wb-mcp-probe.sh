@@ -53,9 +53,10 @@ else
   _WB_MCP_PROBE_KEY=""
 fi
 
-# Use curl with a short connect timeout so the probe cannot block the
-# workflow. Total per-call budget: 15 s. Three calls → max 45 s wall-clock.
-_WB_CURL_OPTS=(--silent --show-error --fail --max-time 15 --connect-timeout 5 \
+# Use curl with a generous timeout to tolerate AWF Squid proxy overhead.
+# Total per-call budget: 60 s. Three calls → max 180 s wall-clock.
+# The probe is non-blocking (always exits 0) so Stage A continues regardless.
+_WB_CURL_OPTS=(--silent --show-error --fail --max-time 60 --connect-timeout 20 \
   -H 'Content-Type: application/json' -H 'Accept: application/json')
 
 # Add the Authorization header only when a key is actually available.
