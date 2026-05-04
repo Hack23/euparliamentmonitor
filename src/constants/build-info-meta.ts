@@ -8,8 +8,6 @@
  *
  *   - Read the embedded build commit SHA + timestamp from `<meta>` tags.
  *   - Load the same-origin service-worker registration script.
- *   - Tell browsers + intermediate proxies to revalidate every navigation
- *     (`Cache-Control: no-cache`, `Pragma: no-cache`).
  *
  * Every value is HTML-escaped — `BUILD_ID`/`BUILD_TIME` are tightly
  * formatted (40-char hex / ISO 8601) but defence-in-depth is cheap.
@@ -40,8 +38,6 @@ export function buildHeadFreshnessTags(pathPrefix: string): string {
   return [
     `  <meta name="build-id" content="${safeBuildId}">`,
     `  <meta name="build-time" content="${safeBuildTime}">`,
-    `  <meta http-equiv="Cache-Control" content="no-cache">`,
-    `  <meta http-equiv="Pragma" content="no-cache">`,
     `  <script src="${safePrefix}js/pwa-register.js" defer></script>`,
   ].join('\n');
 }

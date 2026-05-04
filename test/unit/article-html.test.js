@@ -172,7 +172,7 @@ describe('wrapArticleHtml', () => {
     expect(html).toContain('../images/banner.webp');
     expect(html).toContain('../images/banner.jpg');
     expect(html).toContain('site-header__logo--banner');
-    expect(html).toContain('width="240" height="80"');
+    expect(html).toContain('width="180" height="60"');
   });
 
   it('surfaces the footer-stats line when articleCount is provided', () => {
