@@ -101,7 +101,7 @@ planning and resource allocation.
 - **Aggregator pipeline**: deterministic Markdown→HTML rendering via `src/aggregator/**` (5 modules) — no per-type strategies, no AI-authored HTML, no runtime content-validator
 - **3061+ automated tests** across **52 test files** (Vitest 4.1.4 + Playwright 1.59.1 + @axe-core/playwright 4.11.2)
 - **Stack**: Node 25, TypeScript 6.0.3 strict mode, ESM-only, Apache-2.0 license
-- **Data sources**: `european-parliament-mcp-server@1.2.20+` (60+ tools, primary EP data) + `worldbank-mcp` (non-economic context) + IMF SDMX 3.0 REST (primary economic source)
+- **Data sources**: `european-parliament-mcp-server@1.2.21+` (60+ tools, primary EP data) + `worldbank-mcp` (non-economic context) + IMF SDMX 3.0 REST (primary economic source)
 - **Delivery**: AWS S3 + CloudFront (OIDC-based, no long-lived secrets) primary; GitHub Pages fallback runbook
 - **Supply chain**: npm provenance + SLSA L3 + OpenSSF Scorecard + OpenSSF Best Practices badge #12068
 
@@ -1488,7 +1488,7 @@ Comprehensive view of strategic position.
 
 | Version | Date       | Author | Changes                                                       |
 | ------- | ---------- | ------ | ------------------------------------------------------------- |
-| 1.2     | 2026-05-03 | CEO    | v0.8.54 Look-Ahead epic refresh: expanded to 14 article types (added quarter-ahead, quarter-in-review, year-ahead, year-in-review, term-outlook, election-cycle), 15 unified gh-aw workflows (14 article + translate), gh-aw pin v0.71.3, EP MCP 1.2.20, ISMS-PUBLIC policy footer added |
+| 1.2     | 2026-05-03 | CEO    | v0.8.54 Look-Ahead epic refresh: expanded to 14 article types (added quarter-ahead, quarter-in-review, year-ahead, year-in-review, term-outlook, election-cycle), 15 unified gh-aw workflows (14 article + translate), gh-aw pin v0.71.3, EP MCP 1.2.21, ISMS-PUBLIC policy footer added |
 | 1.1     | 2026-04-20 | CEO    | v0.8.40 state refresh: 1894 articles / 14 languages / 8 article types / 3061+ tests / 52 test files / dual economic context (WB+IMF) / AWS S3+CloudFront primary delivery / SLSA L3 + npm provenance / gh-aw 5-layer security model |
 | 1.0     | 2025-02-17 | CEO    | Initial SWOT analysis with comprehensive strategic assessment |
 
