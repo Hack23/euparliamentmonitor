@@ -8,7 +8,10 @@
     {
       "runAt": "2026-05-04T07:04:24Z",
       "runId": "breaking-run-2026-05-04",
-      "stageA": { "completedAt": "2026-05-04T07:08:00Z", "durationMinutes": 4 },
+      "stageA": {
+        "completedAt": "2026-05-04T07:08:00Z",
+        "durationMinutes": 4
+      },
       "stageB": {
         "completedAt": "2026-05-04T07:18:00Z",
         "durationMinutes": 10,
@@ -19,6 +22,14 @@
       },
       "gateResult": "GREEN",
       "elapsedMinutes": 14
+    },
+    {
+      "runAt": "2026-05-04T18:33:15Z",
+      "runId": "breaking-run-1777919595",
+      "gateResult": "ANALYSIS_ONLY",
+      "elapsedMinutes": 36,
+      "rewriteCount": 22,
+      "note": "Re-run/extend: 20+ artifacts created/extended across intelligence/, extended/, risk-scoring/"
     }
   ],
   "pass2": {
@@ -39,7 +50,11 @@
   },
   "dataVerification": {
     "unresolvedProcedureIds": [],
-    "deferredDeepFetches": ["TA-10-2026-0160-fulltext", "TA-10-2026-0161-fulltext", "TA-10-2026-0162-fulltext"],
+    "deferredDeepFetches": [
+      "TA-10-2026-0160-fulltext",
+      "TA-10-2026-0161-fulltext",
+      "TA-10-2026-0162-fulltext"
+    ],
     "deferredMepLookups": [],
     "dataGaps": [
       "Roll-call vote tallies for April 28-30 (EP 2-4 week publication lag)",

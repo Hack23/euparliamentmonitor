@@ -113,3 +113,21 @@ The MFF 2028-2034 debate opened with already visible tensions between enlargemen
 | Eastern Partnership | Armenia partnership fast-track possible | Georgia, Moldova follow-on dynamics |
 | Budgetary | 2027 estimates adopted; MFF process opens | Enlargement vs. cohesion conflict defines EP coalition map |
 | Rule of Law | Polish immunity cases test JURI impartiality | Broader pattern may spread to other member states |
+
+---
+
+## Extended SWOT Synthesis (Run 2 Extension)
+
+### Strengths Integration
+The pro-EU governing coalition's demonstrated coherence on the April 28–30 session provides empirical validation of the theoretical 397-seat majority. Ukraine solidarity (STCA), digital enforcement assertiveness (DMA), and orderly budget pre-positioning each required cross-group consensus. The fact that all three were achieved simultaneously in a single plenary week represents an unusual concentration of institutional strength.
+
+The Brussels Effect on digital regulation remains EP10's most globally significant strength. DMA enforcement pressure from the world's largest democratic parliament is a qualitatively different signal than national regulatory action.
+
+### Weaknesses Integration
+The 36-seat coalition arithmetic floor creates a structural fragility that domestic observers systematically underestimate. The median German press article describes the pro-EU coalition as "dominant"; the reality is one defection cascade away from a formal minority parliament.
+
+### Opportunities Integration
+The MFF 2028–2034 negotiation cycle is EP10's once-in-seven-years opportunity to reshape EU spending priorities. The window for pre-positioning closes when the Commission proposal arrives (June 2026). EP10 is using this window effectively.
+
+### Threats Integration
+The Hard-Right bloc (PfE+ECR+ESN+NI = 223 seats) is 17 seats short of a formal blocking minority. If any 17 currently pro-EU MEPs shift — through election results, party changes, or deaths — the Hard Right gains blocking minority power. This is a low-probability but high-impact structural threat that grows as EP11 elections approach.

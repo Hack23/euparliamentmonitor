@@ -148,3 +148,27 @@ IMPACT   |               |                |                 |
 | External actor responses | 🟡 MEDIUM | Inferred from past behaviour and structural interests |
 | Economic implications (energy, DMA) | 🔴 LOW-MEDIUM | No IMF/WB quantitative data available for April 2026 period |
 | MFF negotiations forecast | 🟢 HIGH structural confidence | Pattern from prior MFF negotiations |
+
+---
+
+## Extended Risk Assessment (Run 2 Extension)
+
+### Risk Interaction Matrix
+
+The risks identified in this assessment do not operate independently. Key interactions:
+
+**R-DMA + R-MFF:** If Commission delays DMA enforcement, EP may use MFF budget leverage to extract enforcement commitments — the two risks are linked via institutional bargaining. A DMA enforcement announcement by September 2026 significantly reduces coalition tension on MFF.
+
+**R-STCA + R-Hungary/Slovakia:** Hungarian veto risk on STCA (if brought to Council for EU formal support) creates a recursive institutional problem — the more the EP endorses STCA, the more Budapest has incentive to block any Council alignment, which makes the EP's endorsement appear toothless.
+
+**R-EPP Fracture + R-Coalition Stability:** The EPP's internal digital regulation fracture (~55 MEP deviation on DMA) is the same MEP population that will face the most difficult MFF vote. These risks compound if EPP leadership cannot manage both simultaneously.
+
+### Residual Risk After Mitigation
+
+Even with all stated mitigations implemented, the following residual risks remain:
+
+1. **Roll-call data asymmetry:** Any analysis run before May 28 cannot verify actual coalition vote composition for April 28–30. This is structural — no mitigation available until EP publishes data.
+
+2. **Russian information operations:** Assessment difficulty HIGH. Cannot quantify impact on coalition stability from hybrid warfare targeting MEPs.
+
+3. **US trade retaliation on DMA:** Probability assessment depends on US trade policy trajectory under Trump administration; assessment made with significant uncertainty.

@@ -126,3 +126,31 @@ The grand coalition viability (EPP + S&D at 320 seats — 89 short of majority) 
 3. 🟢 SMALL_GROUP_QUORUM_RISK (LOW severity): Some groups may struggle with quorum in certain committee configurations
 
 **Assessment:** No imminent coalition fracture risk identified. The April 28-30 session results are consistent with expected coalition behaviour. The primary structural uncertainty is the long-term MFF process.
+
+---
+
+## Extended Coalition Dynamics (Run 2 Extension)
+
+### Cross-Group Voting Pattern Deep Analysis
+
+The April 28–30 session's three major resolutions (DMA, STCA, Armenia) represent three distinct coalition configurations:
+
+**Configuration 1 (DMA — Digital Governance):** EPP-digital + S&D + Renew + Greens AGAINST EPP-conservatives + PfE + ESN + NI-opposition
+This configuration reflects a PRO-REGULATION vs MARKET-FREEDOM axis. This axis cuts differently from the traditional LEFT-RIGHT axis; EPP's internal fracture is most visible here.
+
+**Configuration 2 (STCA — Geopolitical):** EPP + S&D + Renew + Greens + Left + ECR-Poland AGAINST PfE + ESN + ECR-Italy + NI-Russian-aligned
+This configuration reflects the EU's sharpest cleavage: ATLANTICIST vs EURASIANIST. EPP's near-unity here contrasts with its digital regulation fracture — geopolitical solidarity transcends market-regulation ideology for EPP.
+
+**Configuration 3 (Armenia — EaP Solidarity):** Broadest coalition; even some ECR Italy votes FOR (democratic resilience narrative appeals to conservative EU enlargement supporters)
+This configuration reflects EaP EXPANSION vs SPHERE-OF-INFLUENCE CAUTION. Broader coalition than Ukraine votes because Armenia is not a direct military confrontation with Russia.
+
+### Dynamic Assessment: Coalition Stability by Configuration
+| Configuration | Coalition | Stability | Vulnerability |
+|--------------|---------|---------|--------------|
+| Digital Governance | EPP(partial)+S&D+Renew+Greens | MEDIUM | EPP digital conservatives |
+| Geopolitical (Ukraine) | EPP+S&D+Renew+Greens+Left+ECR-PL | HIGH | War fatigue, ECR Italy |
+| EaP Solidarity | Broadest | HIGHEST | Low relevance limits testing |
+| Budget/MFF | EPP+S&D+Renew(partial) | LOW-MEDIUM | Greatest fracture risk |
+
+### Long-Term Coalition Architecture
+The four configurations above will all be active simultaneously during the MFF 2028–2034 negotiations. The challenge for EPP leadership is maintaining coherence across all four when they pull in different directions simultaneously — different MFF spending priorities (defence vs digital vs cohesion) will activate different coalition fractures at once.

@@ -147,3 +147,24 @@ The EUMA (EU Monitoring Mission in Armenia) — deployed since 2023 along the Ar
 | Ukraine | ✅ Directly beneficial | Neutral | Indirectly supportive | 🔴 Enlargement critical |
 | US Tech | Neutral | 🔴 Direct threat | Neutral | Neutral |
 | Armenia Gov | Neutral | Neutral | ✅ Directly beneficial | Neutral |
+
+---
+
+## Extended Stakeholder Perspectives (Run 2 Extension)
+
+### Renew Europe Group — Detailed Position
+Renew (77 seats) is the pivotal group in the April 28–30 session outcomes. As the decisive swing group in the governing coalition, Renew's position on each resolution defined the coalition's effective majority margin.
+
+**DMA Enforcement:** Renew is ideologically committed to competitive markets and tech regulation. The group's liberal economic wing (German FDP-aligned MEPs) initially sought to moderate enforcement language; the final compromise preserved the enforcement demands while adding language about "proportionate" application — a Renew-authored qualifier. Net position: SUPPORTIVE with qualification.
+
+**Ukraine STCA:** Renew's Atlantic-liberal wing strongly supports international accountability; Baltic and Nordic Renew MEPs are among the most hawkish on Russia. No significant internal dissent expected.
+
+**MFF:** Renew's most important and fractious debate will be on MFF scale. French Macronist Renew MEPs support budget expansion; German FDP-aligned Renew MEPs resist. This fault line will dominate Renew internal politics for 18 months.
+
+### DG COMP (European Commission) — Response Assessment
+The Commission's Competition Directorate-General is the primary implementing body for the EP's DMA enforcement demands. DG COMP's institutional instinct is to prefer:
+1. Negotiated behavioral remedies over structural remedies
+2. Bilateral compliance agreements over adversarial proceedings
+3. Commission-led enforcement narrative over parliamentary accountability narrative
+
+The EP resolution creates political pressure that DG COMP cannot ignore but will resist implementing on EP's preferred timeline. Expect DG COMP to announce 1–2 formal proceedings before the September 2026 EP vote on MFF first reading — using enforcement announcements as political currency in the budget negotiation.
