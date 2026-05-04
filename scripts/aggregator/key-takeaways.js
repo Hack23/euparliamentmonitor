@@ -36,8 +36,6 @@ export const KEY_TAKEAWAYS_SECTION_TITLE = 'Key Takeaways';
 const DEFAULT_SOURCES = [
     'intelligence/synthesis-summary.md',
     'intelligence/intelligence-assessment.md',
-    'extended/executive-brief.md',
-    'executive-brief.md',
 ];
 /** H2 headings under which "headline" bullets are typically authored. */
 const PREFERRED_HEADINGS = [
@@ -127,7 +125,7 @@ export function extractStrongBullets(markdown) {
  *
  * @param a - First bullet body
  * @param b - Second bullet body
- * @returns Similarity in `[0, 1]` (1 = identical word multisets)
+ * @returns Similarity in `[0, 1]` (1 = identical word sets)
  */
 export function jaccardSimilarity(a, b) {
     const tokenise = (s) => new Set(s
