@@ -1,0 +1,121 @@
+{
+  "articleType": "term-outlook",
+  "runId": "term-outlook-run-1777895963",
+  "date": "2026-05-04",
+  "analysisDir": "analysis/daily/2026-05-04/term-outlook",
+  "horizonDays": 1825,
+  "electoralOverlay": true,
+  "imfAvailable": false,
+  "imfProbeFile": "analysis/daily/2026-05-04/term-outlook/cache/imf/probe-summary.json",
+  "history": [
+    {
+      "runId": "term-outlook-run-1777895963",
+      "startedAt": "2026-05-04T11:59:23.000Z",
+      "pass1": {
+        "startedAt": "2026-05-04T12:10:00.000Z"
+      },
+      "pass2": {
+        "startedAt": null,
+        "endedAt": null,
+        "rewriteCount": 0
+      }
+    }
+  ],
+  "files": {
+    "classification/actor-mapping.md": {
+      "status": "produced"
+    },
+    "classification/forces-analysis.md": {
+      "status": "produced"
+    },
+    "classification/impact-matrix.md": {
+      "status": "produced"
+    },
+    "classification/significance-classification.md": {
+      "status": "produced"
+    },
+    "executive-brief.md": {
+      "status": "produced"
+    },
+    "extended/comparative-international.md": {
+      "status": "produced"
+    },
+    "extended/forward-indicators.md": {
+      "status": "produced"
+    },
+    "extended/historical-parallels.md": {
+      "status": "produced"
+    },
+    "intelligence/analysis-index.md": {
+      "status": "produced"
+    },
+    "intelligence/coalition-dynamics.md": {
+      "status": "produced"
+    },
+    "intelligence/commission-wp-alignment.md": {
+      "status": "produced"
+    },
+    "intelligence/economic-context.md": {
+      "status": "produced"
+    },
+    "intelligence/forward-projection.md": {
+      "status": "produced"
+    },
+    "intelligence/historical-baseline.md": {
+      "status": "produced"
+    },
+    "intelligence/mandate-fulfilment-scorecard.md": {
+      "status": "produced"
+    },
+    "intelligence/mcp-reliability-audit.md": {
+      "status": "produced"
+    },
+    "intelligence/methodology-reflection.md": {
+      "status": "produced"
+    },
+    "intelligence/pestle-analysis.md": {
+      "status": "produced"
+    },
+    "intelligence/presidency-trio-context.md": {
+      "status": "produced"
+    },
+    "intelligence/scenario-forecast.md": {
+      "status": "produced"
+    },
+    "intelligence/seat-projection.md": {
+      "status": "produced"
+    },
+    "intelligence/stakeholder-map.md": {
+      "status": "produced"
+    },
+    "intelligence/synthesis-summary.md": {
+      "status": "produced"
+    },
+    "intelligence/term-arc.md": {
+      "status": "produced"
+    },
+    "intelligence/threat-model.md": {
+      "status": "produced"
+    },
+    "intelligence/wildcards-blackswans.md": {
+      "status": "produced"
+    },
+    "risk-scoring/quantitative-swot.md": {
+      "status": "produced"
+    },
+    "risk-scoring/risk-matrix.md": {
+      "status": "produced"
+    }
+  },
+  "dataVerification": {
+    "deferredDeepFetches": [],
+    "deferredMepLookups": [],
+    "unresolvedProcedureIds": []
+  },
+  "gateResult": "ANALYSIS_ONLY",
+  "gateReason": "Stage B hard ceiling exceeded; Stage C RED (artifacts short); IMF unavailable",
+  "artifactCount": 28,
+  "pass2": {
+    "rewriteCount": 0
+  }
+}

@@ -51,11 +51,13 @@ esac
 # Validate slug against the closed article-type allow-list.
 case "$SLUG" in
   breaking|committee-reports|propositions|motions|\
-week-ahead|month-ahead|week-in-review|month-in-review) : ;;
+week-ahead|month-ahead|week-in-review|month-in-review|\
+term-outlook) : ;;
   *)
     echo "error: unknown article-type slug: $SLUG" >&2
     echo "       allowed: breaking, committee-reports, propositions, motions," >&2
-    echo "                week-ahead, month-ahead, week-in-review, month-in-review" >&2
+    echo "                week-ahead, month-ahead, week-in-review, month-in-review," >&2
+    echo "                term-outlook" >&2
     exit 2
     ;;
 esac
