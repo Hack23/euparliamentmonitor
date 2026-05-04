@@ -156,7 +156,13 @@ describe('generateArticle (end-to-end fixture)', () => {
   beforeEach(() => {
     tmpOut = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-art-test-'));
     tmpRepo = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-art-repo-'));
-    fixtureRun = path.join(tmpRepo, 'analysis', '2026-01-15', 'breaking-run-test');
+    fixtureRun = path.join(
+      tmpRepo,
+      'analysis',
+      'daily',
+      '2026-01-15',
+      'breaking-run-test'
+    );
     fs.mkdirSync(path.dirname(fixtureRun), { recursive: true });
     fs.cpSync(FIXTURE_RUN, fixtureRun, { recursive: true });
   });

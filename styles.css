@@ -8072,6 +8072,7 @@ html[data-theme='dark'] .article-body h2 {
 
 @media (max-width: 960px) {
   .article-main {
+    grid-template-columns: minmax(0, 1fr);
     gap: 18px;
   }
 
