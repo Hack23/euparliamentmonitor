@@ -101,9 +101,9 @@ tools:
   repo-memory:
     branch-name: memory/news-generation
     allowed-extensions: [".md", ".json"]
-    max-file-size: 51200
+    max-file-size: 102400
     max-file-count: 50
-    max-patch-size: 51200
+    max-patch-size: 102400
 
 safe-outputs:
   threat-detection:
