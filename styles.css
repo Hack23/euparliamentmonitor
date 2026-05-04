@@ -7689,8 +7689,11 @@ body {
 .article-body h2 {
   margin-top: clamp(2rem, 4vw, 3rem);
   padding: 0.82rem 1rem;
-  border-inline-start: 0.45rem solid var(--primary);
+  border-left: 0;
+  border-right: 0;
   border-color: color-mix(in srgb, var(--primary) 20%, var(--border));
+  border-inline-start: 0.45rem solid var(--primary);
+  border-inline-start-color: var(--primary);
   background:
     linear-gradient(90deg, var(--primary-light), color-mix(in srgb, var(--secondary) 13%, var(--surface))),
     var(--surface);
@@ -7719,7 +7722,9 @@ body {
 }
 
 .article-body blockquote {
-  border-inline-start-width: 0.35rem;
+  border-left: 0;
+  border-right: 0;
+  border-inline-start: 0.35rem solid var(--primary);
   background: color-mix(in srgb, var(--primary-light) 68%, var(--surface));
 }
 
@@ -8002,6 +8007,13 @@ html[data-theme='dark'] body {
     background: color-mix(in srgb, var(--surface) 92%, var(--primary-light));
     border-color: rgba(255, 255, 255, 0.1);
   }
+
+  html:not([data-theme='light']) .article-body h2 {
+    border-left: 0;
+    border-right: 0;
+    border-color: rgba(255, 255, 255, 0.14);
+    border-inline-start: 0.45rem solid var(--primary);
+  }
 }
 
 html[data-theme='dark'] .article-toc-container,
@@ -8034,6 +8046,13 @@ html[data-theme='dark'] .page-faq__item,
 html[data-theme='dark'] .article-source-md a {
   background: color-mix(in srgb, var(--surface) 92%, var(--primary-light));
   border-color: rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme='dark'] .article-body h2 {
+  border-left: 0;
+  border-right: 0;
+  border-color: rgba(255, 255, 255, 0.14);
+  border-inline-start: 0.45rem solid var(--primary);
 }
 
 @media (max-width: 1024px) {
