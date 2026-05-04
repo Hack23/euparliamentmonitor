@@ -206,8 +206,9 @@ describe('generateArticle (end-to-end fixture)', () => {
     const mdPath = path.join(tmpOut, '2026-01-15-breaking.en.md');
     expect(fs.existsSync(mdPath)).toBe(true);
     const md = fs.readFileSync(mdPath, 'utf8');
+    const fixtureRunRelPath = path.relative(tmpRepo, fixtureRun).split(path.sep).join('/');
     expect(md.startsWith('---\n')).toBe(true);
-    expect(md).toContain('source_folder: analysis/2026-01-15/breaking-run-test');
+    expect(md).toContain(`source_folder: ${fixtureRunRelPath}`);
     expect(md).toContain('**Provenance & Audit**');
     expect(md).toContain('Executive Brief');
 

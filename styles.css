@@ -7689,6 +7689,8 @@ body {
 .article-body h2 {
   margin-top: clamp(2rem, 4vw, 3rem);
   padding: 0.82rem 1rem;
+  /* Reset older physical borders before applying the logical accent so RTL
+   * articles do not render both left and right heading rails. */
   border-left: 0;
   border-right: 0;
   border-color: color-mix(in srgb, var(--primary) 20%, var(--border));
@@ -7722,6 +7724,8 @@ body {
 }
 
 .article-body blockquote {
+  /* Reset the earlier physical left border; the logical border below mirrors
+   * to the right side for Arabic/Hebrew article pages. */
   border-left: 0;
   border-right: 0;
   border-inline-start: 0.35rem solid var(--primary);
