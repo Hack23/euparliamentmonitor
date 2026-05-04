@@ -219,18 +219,6 @@ unavailable via EP API for most recent TA texts (indexed but not yet enriched).
 
 *Admiralty: B2 — Source reliability: B (mostly reliable). Information credibility: 2 (probably true).*
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- TA-10-2026-0161: Russia/Ukraine accountability — calls for a Special Tribunal for crimes
-- TA-10-2026-0162: Armenia democratic resilience — welcomes progress, conditions EU support
-- TA-10-2026-0151: Haiti trafficking — DEVE initiative condemning criminal cartel control
-- **EPP + S&D + Renew** (397 seats, 55.2%) — functional majority on DMA enforcement,
-- **EPP + S&D + ECR** (401 seats, 55.8%) — immunity procedures, LIBE security dossiers
-- **Broad consensus (520+ estimated)** — dogs/cats welfare (cross-spectrum animal welfare)
-- **Progressive bloc (EPP+S&D+Renew+Greens)** (450 seats, 62.6%) — Ukraine/Armenia/Haiti
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -703,482 +691,6 @@ stronger anti-corruption provisions in EIB off-balance-sheet financing governanc
 ---
 
 *Analysis date: 2026-05-01 | EP MCP v1.2.18 | Stakeholder intelligence from EP Open Data*
-
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### Week of 24–30 April 2026
-
-**Classification:** Public | **Confidence:** 🟢 HIGH | **Produced:** 2026-05-01
-
----
-
-### 🧩 PESTLE FRAMEWORK OVERVIEW
-
-```mermaid
-mindmap
-  root((PESTLE Analysis\nApril 2026 EP Committee Reports))
-    POLITICAL
-      EPP-led flexible majority
-      Right-of-centre arithmetic
-      Immunity waiver precedent
-      Coalition fragility signals
-      Ukraine accountability push
-    ECONOMIC
-      IMF 1.9% EU growth 2026
-      EIB €92bn investment
-      DMA platform economy €450bn
-      2027 budget defence uplift +8%
-      Green transition investment gap
-    SOCIAL
-      Animal welfare consensus 520+ votes
-      Public mandate for pet regulation
-      Anti-trafficking condemnation
-      Post-COVID travel normalisation PNR
-    TECHNOLOGICAL
-      DMA gatekeeper compliance
-      AI Act monitoring precedent
-      EAR digital register 2030
-      Digital services enforcement
-    LEGAL
-      DMA enforcement treaty gap
-      Immunity waiver rule of law
-      Iceland PNR Schengen integration
-      Ukraine accountability tribunal
-      EIB oversight legal framework
-    ENVIRONMENTAL
-      Green transition +6% budget
-      EIB 62% climate action share
-      Animal welfare ecosystem impact
-      Dogs/cats welfare framework
-```
-
----
-
-### 🏛️ POLITICAL DIMENSION
-
-#### P1: Coalition Architecture Under Sustained Pressure
-**Confidence:** 🟡 MEDIUM | **Impact:** HIGH
-
-EP10's coalition arithmetic (EPP 185 seats + S&D 135 = 320, short of 361 majority)
-forces every vote to rely on a third partner. The April 28–30 plenary session
-demonstrated three distinct coalition configurations in operation simultaneously:
-
-- **EPP-S&D-Renew coalition** (used for DMA resolution, animal welfare, EIB control):
-  The centrist "grand-plus-one" coalition totals ~397 seats, well above 361.
-  Stable on digital regulation, institutional oversight, and welfare dossiers.
-
-- **EPP-ECR alliance** (used for defence budget uplift, Iceland PNR):
-  Right-to-centre alliance totals ~266 + ECR 81 = 347 seats — marginal majority
-  only if abstentions are counted strategically. Used on security/defence.
-
-- **Consensus mode** (used for animal welfare final vote, Ukraine accountability):
-  Broad cross-spectrum support (EPP+S&D+Renew+Greens+ECR partial) for politically
-  uncontroversial or strongly public-opinion-backed measures. Animal welfare achieved
-  this threshold — Ukraine accountability also found broad support.
-
-**Assessment**: The three-mode coalition pattern is EP10's defining political feature.
-No single mode is stable across all dossier types. This complexity is increasing as
-EP10 enters Year 2, when committee rapporteurs press for the most ambitious provisions
-of their dossiers and coalition management becomes more demanding.
-
-#### P2: Immunity Waiver — Rule of Law Signal
-**Confidence:** 🟢 HIGH | **Impact:** MEDIUM-HIGH
-
-The waiver of immunity for MEP Patryk Jaki (ECR, Poland) on April 28, 2026 is a
-significant rule-of-law data point. EP immunity waivers are relatively rare — typically
-2–4 per year — and each has implicit political signalling for the group involved.
-For ECR, the Jaki case tests whether Poland's new pro-EU government (in office since
-December 2023) will pursue rule-of-law restoration through judicial action against
-prominent ECR figures with alleged pre-election misconduct.
-
-**Political calculation**: EPP agreed to the waiver despite Jaki being a vocal EPP critic.
-This is consistent with EPP's "rule of law first" positioning in EU-Poland relations —
-supporting judicial independence even when it targets political opponents. S&D and Greens
-voted consistently for the waiver.
-
-**Forward implication**: If Polish courts proceed with Jaki, ECR group cohesion may face
-a test. ECR's Polish MEPs (13 of 81 ECR seats) could fracture around different positions
-on the case's legitimacy.
-
-#### P3: Ukraine Accountability — Geopolitical Consensus Building
-**Confidence:** 🟢 HIGH | **Impact:** HIGH
-
-The Ukraine accountability tribunal resolution (TA-10-2026-0161) secured a broad
-coalition because it defines a legal framework for crimes committed before the ceasefire
-rather than taking a position on current hostilities. This framing allowed ECR to support
-accountability language while maintaining their nuanced position on the conflict itself.
-PfE was more divided — their pro-Russia faction abstained while their anti-corruption
-wing supported accountability.
-
----
-
-### 💰 ECONOMIC DIMENSION
-
-#### E1: 2027 Budget — Competitiveness vs. Cohesion Trade-Off
-**Confidence:** 🟢 HIGH | **Impact:** VERY HIGH
-
-The 2027 Budget Guidelines (TA-10-2026-0112) establish EP's position for the annual
-budget trilogue. The economic architecture is:
-
-- **Defence uplift (+8%)**: Justified by IMF analysis showing EU member states' defence
-  investment below NATO 2% targets. EP's BUDG is now aligning budgetary allocations
-  with the European Defence Industrial Strategy's demand signals.
-- **Green transition (+6%)**: Justified by IMF's €800 bn/year EU climate investment
-  gap estimate. But operationally: this +6% is directed at the Just Transition Fund
-  and InvestEU climate window, not new headline programmes.
-- **Cohesion protection**: Defend against Council's expected €3–5 bn cohesion fund cut.
-  Economic rationale: IMF 1.2× GDP multiplier on cohesion in lagging regions.
-
-**Risk**: The EPP-ECR defence alignment on the +8% uplift is structurally fragile —
-ECR has signalled it will demand cohesion ring-fencing in return. If the ECR condition
-is not met in trilogue, the EPP-ECR budget alliance collapses, forcing EPP back to the
-EPP-S&D-Renew centrist coalition with different expenditure priorities (less defence,
-more social/green).
-
-#### E2: EIB Investment Programme — Control vs. Ambition Tension
-**Confidence:** 🟡 MEDIUM | **Impact:** MEDIUM
-
-The annual EIB control report (TA-10-2026-0119) operates in the context of EIB expanding
-to €92 bn financing in 2025 — the largest in its history. Parliament's oversight function
-is being stretched: the scale and complexity of EIB operations has grown faster than
-Parliament's committee capacity to scrutinise them. The discharge report flagged:
-- 3 specific project failures where EIB due diligence was inadequate
-- 2 instances of off-balance-sheet financing structures that were not disclosed to Parliament
-- Growing extra-EU operations (21% of portfolio) with reduced EP oversight reach
-
-**IMF relevance**: The IMF's external debt analysis for developing countries receiving
-EIB loans (notably in Western Balkans) has raised debt sustainability concerns in
-2 recipient states. Parliament's resolution requested EIB to integrate IMF Article IV
-recommendations into project due diligence — a novel oversight linkage.
-
----
-
-### 🌍 SOCIAL DIMENSION
-
-#### S1: Animal Welfare — Societal Mandate Crystallised
-**Confidence:** 🟢 HIGH | **Impact:** MEDIUM
-
-The 520+ vote majority on the Dogs and Cats Regulation reflects a genuine, consistent
-societal mandate that has been building since the COVID pandemic triggered an EU-wide
-"puppy boom" (companion animal registrations increased 40% in 2020–2021) followed by
-a surge in abandonment cases (2022–2023). The regulation's social underpinnings:
-
-- **Online sales regulation**: The largest single driver of illegal breeding was pandemic-era
-  online platforms where unverified breeders sold animals without welfare guarantees.
-  The regulation mandates platform verification of EAR registration numbers — connecting
-  the digital single market (IMCO's domain) with animal welfare (ENVI's domain).
-- **Stray population management**: An estimated 100 million stray dogs and cats in the EU
-  (disproportionately in CEE/SEE member states) create public health and animal welfare
-  challenges. The regulation's spay/neuter support provisions target this dimension.
-- **Cross-spectrum support**: Animal welfare has proven to be one of the few genuinely
-  cross-partisan issues in EP10, supported by EPP, S&D, Greens, Renew, and ECR MEPs
-  from electoral districts with high pet ownership rates.
-
-#### S2: Anti-Human Trafficking — Haiti Resolution Context
-**Confidence:** 🟢 HIGH | **Impact:** MEDIUM
-
-The DROI resolution on Haiti (TA-10-2026-0151) condemning trafficking networks linked
-to gang violence addresses a humanitarian crisis with direct EU connectivity:
-- An estimated 12,000 Haitian nationals resided legally in EU member states in 2025
-- Haitian diaspora remittances from EU: €380 mn/year (World Bank data)
-- EU Frontex intelligence sharing with Caribbean partners on trafficking routes
-
-The resolution has symbolic-and-legal significance: it triggers the EU's anti-trafficking
-action framework (2022 Anti-Trafficking Directive) to include non-Mediterranean routes,
-and requests the Commission to engage with CARICOM on capacity building.
-
----
-
-### 🔬 TECHNOLOGICAL DIMENSION
-
-#### T1: DMA — From Legislation to Enforcement Technology
-**Confidence:** 🟡 MEDIUM | **Impact:** VERY HIGH
-
-The IMCO enforcement resolution (TA-10-2026-0160) has a technological dimension beyond
-its legal-institutional framing. The compliance mechanisms being requested include:
-- **Algorithmic audit requirements**: Parliament is requesting that gatekeeper audits
-  include technical assessment of ranking, recommendation, and advertising algorithms
-  — not just commercial behaviour.
-- **Interoperability testing**: IMCO wants quarterly reports to include technical
-  interoperability test results (specifically WhatsApp-to-third-party messaging
-  interoperability progress under DMA Article 7).
-- **API access monitoring**: The resolution requests that DG COMP publish quarterly
-  data on gatekeeper API access compliance — transforming what was a legal process
-  into a transparent data-based accountability mechanism.
-
-#### T2: EAR Register — Digital Identity for Companion Animals
-**Confidence:** 🟢 HIGH | **Impact:** LOW-MEDIUM (technical but important)
-
-The European Animal Register (EAR) by 2030 represents a significant digital governance
-undertaking: an EU-wide mandatory registry for all cats and dogs, integrated with
-member-state veterinary authorities, connected to IPEX (the EU inter-parliamentary
-exchange network) for border crossing verification, and interoperable with commercial
-platforms for sales verification. Technical complexity:
-- Estimated 170 million animals to register by 2030 (dogs + cats)
-- Integration with 27 national veterinary authority databases
-- GDPR compliance for owner data (pseudonymisation required)
-- API standard for commercial platform integration
-
----
-
-### ⚖️ LEGAL DIMENSION
-
-#### L1: DMA — Treaty Competence Boundary
-**Confidence:** 🟡 MEDIUM | **Impact:** HIGH
-
-IMCO's enforcement resolution probes the boundary of Parliament's treaty competence
-in competition policy. Article 103 TFEU gives the Council (not Parliament) the primary
-legislative competence for competition rules. The DMA, passed as a single market
-regulation under Articles 114, created a novel legal architecture where competition-style
-gatekeeper designations and obligations are supervised by the Commission under Article 114
-jurisdiction — different from Article 103 competition law, where Parliament has only a
-consultative role.
-
-**Legal implication**: Parliament's claim to quarterly reports and committee oversight
-is legally grounded in Article 114 supervision (single market law), not competition law —
-a distinction that DG COMP will almost certainly invoke when Parliament presses for
-information beyond what the DMA text explicitly mandates. IMCO will need to build its
-claim through the Framework Agreement on relations between EP and Commission.
-
-#### L2: Iceland PNR — Schengen Area Legal Architecture
-**Confidence:** 🟢 HIGH | **Impact:** MEDIUM
-
-The Iceland PNR Agreement (TA-10-2026-0142) completes the EU's Passenger Name Record
-framework for all Schengen-associated third countries. Iceland joined Switzerland (2019)
-and Norway (2022) in having PNR agreements with the EU. Legal significance:
-- The agreement must comply with the CJEU's Opinion 1/15 (2017) on the Canada PNR agreement
-  which imposed strict data minimisation and purpose limitation requirements
-- LIBE confirmed that the Iceland agreement integrates all Opinion 1/15 requirements
-  into its data governance provisions
-- The agreement creates a surveillance legal architecture across the Schengen area
-  that will be a template for forthcoming agreements with other associated states
-
----
-
-### 🌱 ENVIRONMENTAL DIMENSION
-
-#### En1: Budget Green Transition Investment
-**Confidence:** 🟡 MEDIUM | **Impact:** HIGH
-
-The 2027 Budget Guidelines' +6% green transition allocation operates in the context
-of the EU's legally binding climate target (55% net emissions reduction by 2030 vs 1990,
-per the European Climate Law). Current EU emissions trajectory (IMF/EEA data):
-- 2024 emissions: approximately -31% vs 1990 baseline
-- Required annual reduction rate to meet 2030 target: approximately -3.5% per year
-- Actual 2024–2025 annual reduction rate: approximately -2.8% per year
-
-**Budget gap analysis**: The +6% green allocation in the 2027 guidelines provides
-approximately €2.4 bn additional, but the IMF estimates the EU needs €800 bn/year in
-total public and private climate investment. The €2.4 bn is catalytic rather than
-gap-filling — primarily targeting leverage mechanisms (EIB co-financing, InvestEU blended
-finance) rather than direct expenditure.
-
-#### En2: Animal Welfare — Environmental Pathway
-**Confidence:** 🟡 MEDIUM | **Impact:** LOW-MEDIUM
-
-The companion animal regulation has an environmental dimension that was not the primary
-focus but is analytically significant:
-- **Stray population disease vectors**: Large stray populations create biodiversity
-  pressure on native wildlife. The regulation's spay/neuter support addresses this.
-- **Companion animal industry carbon footprint**: The EU companion animal food sector
-  (estimated €18 bn) has a significant environmental footprint, with premium pet food
-  accounting for disproportionate protein-intensive ingredients. The regulation does not
-  directly address this — but ENVI has flagged it as a next-generation dossier.
-- **Breeding practices and genetic diversity**: The 20-litter cap targets overbreeding
-  that creates welfare issues but also reduces genetic diversity in breed populations —
-  an animal biodiversity concern the regulation partially addresses.
-
----
-
-### 📈 PESTLE RISK AGGREGATION
-
-| Dimension | Current Risk Level | Trajectory | Top Risk Item |
-|-----------|-------------------|------------|---------------|
-| Political | 🟡 MEDIUM | ↑ Increasing | Coalition fragility on budget |
-| Economic | 🟡 MEDIUM | → Stable | EIB oversight gap |
-| Social | 🟢 LOW | → Stable | Welfare consensus holding |
-| Technological | 🟡 MEDIUM | ↑ Increasing | DMA enforcement complexity |
-| Legal | 🟡 MEDIUM | → Stable | DMA treaty competence boundary |
-| Environmental | 🟡 MEDIUM | → Stable | Green investment gap vs. target |
-
-**Overall PESTLE risk level: 🟡 MEDIUM** — No single dimension is currently in high-risk
-territory, but the political and technological dimensions show increasing risk trajectories
-that warrant monitoring over the next 2–3 months.
-
----
-
-*Analysis date: 2026-05-01 | EP MCP v1.2.18 | IMF WEO April 2026*
-
-### Historical Baseline
-
-### Week of 24–30 April 2026
-
-**Classification:** Public | **Produced:** 2026-05-01
-
----
-
-### 📅 PARLIAMENTARY TERM CONTEXT: EP10 (2024–2029)
-
-#### Composition at Analysis Date (May 2026)
-| Group | Seats | Share | Change vs. EP9 |
-|-------|-------|-------|----------------|
-| EPP (European People's Party) | 185 | 25.7% | -3 (from 188) |
-| S&D (Socialists and Democrats) | 135 | 18.8% | -1 (from 136) |
-| PfE (Patriots for Europe) | 85 | 11.8% | New group (replaced ID) |
-| ECR (European Conservatives) | 81 | 11.3% | +3 (from 78) |
-| Renew Europe | 77 | 10.7% | -1 (from 76 at start) |
-| Greens/EFA | 53 | 7.4% | = (stabilised after election losses) |
-| The Left (GUE/NGL) | 46 | 6.4% | = |
-| ESN (Europe of Sovereign Nations) | 27 | 3.8% | New group |
-| NI (Non-Attached) | 30 | 4.2% | Reduced (some joined PfE/ESN) |
-| **Total** | **719** | **100%** | — |
-
-#### EP10 Legislative Calendar — Year 2 Context
-
-EP10 entered its second full legislative year (January–December 2026) with fully
-constituted committee leadership following the November 2025 mid-term reassignments.
-Key structural features of EP10 Year 2 that shape the committee landscape:
-
-**Structural shift 1 — Right-of-centre majority logic:** The combined ECR+PfE+ESN bloc
-(135 seats, 18.8%) gives the right-nationalist groups blocking minority status on many
-dossiers, forcing EPP to choose between (a) broad centrist coalition with S&D and Renew
-or (b) selective right-expansion with ECR on defence/security dossiers. This arithmetic
-is observed in the week's voting patterns.
-
-**Structural shift 2 — Grand coalition erosion:** EPP+S&D combined now hold only 320
-seats (44.5% of 719), below the 361-seat majority threshold. Every vote requires a
-third partner — the minimum winning coalition size increased from 2 groups (2004) to
-3 groups (2026), the most complex coalition arithmetic in Parliament's history.
-
-**Structural shift 3 — DMA/AI Act implementation phase:** The Commission's 2026
-legislative calendar is dominated by implementation acts and delegated regulations
-rather than headline legislation, creating heavier IMCO/ITRE committee workloads
-than typical for year-2 periods.
-
----
-
-### 📊 HISTORICAL COMMITTEE PRODUCTIVITY DATA
-
-#### Committee Meetings Trend: EP6–EP10
-
-| Year | Committee Meetings | YoY Change | Notes |
-|------|--------------------|------------|-------|
-| 2004 | ~800 | — | EP6 start |
-| 2009 | ~1,100 | +37.5% | Post-Lisbon Treaty baseline |
-| 2014 | ~1,380 | +25.5% | EP8 start, increased legislative role |
-| 2019 | ~1,450 | +5.1% | EP9 start, election year |
-| 2020 | ~1,290 | -11.0% | COVID disruption, hybrid working |
-| 2021 | ~1,520 | +17.8% | Post-COVID recovery |
-| 2022 | ~1,680 | +10.5% | Green Deal peak legislative load |
-| 2023 | ~1,750 | +4.2% | End-of-EP9-term legislative sprint |
-| 2024 | 1,680 | -4.0% | EP10 election transition year |
-| 2025 | 1,980 | +17.9% | EP10 ramp-up |
-| **2026 (proj.)** | **2,363** | **+19.3%** | **Record — EP10 Year 2 peak** |
-
-#### Legislative Acts Adopted Trend (EP8–EP10)
-
-| Year | Legislative Acts | Notes |
-|------|-----------------|-------|
-| 2019 | ~80 | Election year |
-| 2020 | ~65 | COVID disruption |
-| 2021 | ~88 | Recovery year |
-| 2022 | ~105 | Green Deal surge |
-| 2023 | 148 | EP9 all-time peak |
-| 2024 | 72 | EP10 election year (-51.4% vs. 2023) |
-| 2025 | 78 | EP10 ramp-up (+8.3% vs. 2024) |
-| **2026 (proj.)** | **114** | **+46.2% vs. 2025; second-highest ever** |
-
-#### Key Benchmarks for Context
-
-The 46.2% YoY increase in legislative acts (2025→2026) is the largest single-year
-percentage increase since the Lisbon Treaty came into force in 2009. Context factors:
-- The Clean Industrial Deal (Commission package announced January 2026) triggered
-  co-decision procedures across ITRE, ENVI, IMCO, and EMPL simultaneously.
-- The European Defence Industrial Strategy (EDIS) generated its first binding co-decision
-  procedure through ITRE/AFET in Q1 2026.
-- The post-2024 right-of-centre realignment has, paradoxically, accelerated certain
-  dossiers: ECR and PfE have blocked Green Deal revisions but supported competitiveness
-  deregulation packages, creating unexpected legislative convergence zones.
-
----
-
-### 🔬 COMMITTEE-SPECIFIC HISTORICAL BASELINES
-
-#### ENVI — Historical Context for Animal Welfare Regulation
-The Dogs and Cats Welfare and Traceability Regulation (TA-10-2026-0115) completed a
-3-year legislative journey that began with the Commission's 2023 proposal on companion
-animal welfare. Key milestones:
-- **2023 Q3**: Commission proposal published; ENVI designated as lead committee
-- **2024 Q1**: ENVI rapporteur (S&D, Italy) appointed; hearings on stray animal data
-- **2024 Q3**: Broad agreement at committee level; 18 amendments consolidated
-- **2025 Q2**: First reading position adopted by committee; Council negotiations opened
-- **2025 Q4**: Trilogue concluded; Council agreed to ENVI's 20-litter/year cap and EAR timeline
-- **2026 Q2**: Final plenary adoption (TA-10-2026-0115, April 28, 2026)
-
-This is a textbook illustration of the ordinary legislative procedure (OLP) running
-approximately 36 months from Commission proposal to final adoption — close to the EP10
-average of 34 months for complex single-market regulations.
-
-#### BUDG — Historical Context for Budget Guidelines Timeline
-The passage of 2027 Budget Guidelines in late April 2026 is notably early in the budget
-cycle compared to prior years:
-- **2025 cycle**: Budget guidelines adopted June 2025 (2 months later)
-- **2024 cycle**: Budget guidelines adopted May 2024 (election-year rush)
-- **2023 cycle**: Budget guidelines adopted June 2023
-- **2026 cycle**: Budget guidelines adopted April 28, 2026 (earliest since 2020)
-
-The early adoption reflects BUDG chair's explicit strategy of strengthening Parliament's
-position in the Council-Parliament-Commission trilogue. The 2027 Multiannual Financial
-Framework (MFF) mid-term review is running concurrently, giving BUDG unusual leverage:
-the 2027 annual budget must be consistent with any MFF revision, creating linkage.
-
-#### IMCO — Historical Context for DMA Oversight Role
-IMCO's DMA enforcement resolution (TA-10-2026-0160) follows a pattern established in
-the GDPR era:
-- **GDPR (2018–2020)**: LIBE built oversight function through parliamentary questions
-  and resolutions before securing formal information rights from data protection authorities
-- **DSA (2023–2025)**: IMCO established itself as the primary monitoring committee for
-  Digital Services Act enforcement, securing quarterly briefings from DG CONNECT
-- **DMA (2024–2026)**: IMCO now repeating this pattern with DG COMP
-  The institutional mechanism being built is a Committee Liaison Agreement (CLA) with
-  the relevant Commission DG — a quasi-legislative instrument that does not require
-  plenary ratification.
-
----
-
-### 📈 EP10 YEAR 2 COMPARATIVE POSITION
-
-Relative to historical EP term year-2 benchmarks:
-- EP8 Year 2 (2016): 108 legislative acts, 1,580 committee meetings
-- EP9 Year 2 (2021): 88 acts, 1,520 meetings
-- **EP10 Year 2 (2026 proj.): 114 acts, 2,363 meetings**
-
-EP10 Year 2 is tracking to be the most productive second year of any parliamentary term
-in the institution's history on both committee meeting volume and legislative act count.
-This confirms the productivity acceleration narrative but also raises the question of
-capacity: with 2,363 projected committee meetings, MEPs are averaging approximately
-3.3 committee meetings per day on working days — a substantial time burden that
-committee chairs have flagged as a scheduling challenge.
-
----
-
-*Data: European Parliament Open Data Portal, generated statistics 2004–2026 | EP MCP v1.2.18*
-
----
-### 📊 Legislative Productivity Trend
-
-```mermaid
-%%{init: {"theme":"dark"}}%%
-xychart-beta
-  title "EP Legislative Acts by Year (2019-2026 projected)"
-  x-axis ["2019","2020","2021","2022","2023","2024","2025","2026P"]
-  y-axis "Legislative Acts" 0 --> 160
-  bar [80, 65, 88, 105, 148, 72, 78, 114]
-```
-
-*Tradecraft: Source reliability B (historical EP statistics); Admiralty: B2*
 
 <h2 id="section-economic-context">Economic Context</h2>
 
@@ -2420,6 +1932,482 @@ near-term probability and W4 (budget collapse) has the highest impact if realise
 
 *Admiralty: B2 — Source reliability: B (mostly reliable). Information credibility: 2 (probably true).*
 
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### Week of 24–30 April 2026
+
+**Classification:** Public | **Confidence:** 🟢 HIGH | **Produced:** 2026-05-01
+
+---
+
+### 🧩 PESTLE FRAMEWORK OVERVIEW
+
+```mermaid
+mindmap
+  root((PESTLE Analysis\nApril 2026 EP Committee Reports))
+    POLITICAL
+      EPP-led flexible majority
+      Right-of-centre arithmetic
+      Immunity waiver precedent
+      Coalition fragility signals
+      Ukraine accountability push
+    ECONOMIC
+      IMF 1.9% EU growth 2026
+      EIB €92bn investment
+      DMA platform economy €450bn
+      2027 budget defence uplift +8%
+      Green transition investment gap
+    SOCIAL
+      Animal welfare consensus 520+ votes
+      Public mandate for pet regulation
+      Anti-trafficking condemnation
+      Post-COVID travel normalisation PNR
+    TECHNOLOGICAL
+      DMA gatekeeper compliance
+      AI Act monitoring precedent
+      EAR digital register 2030
+      Digital services enforcement
+    LEGAL
+      DMA enforcement treaty gap
+      Immunity waiver rule of law
+      Iceland PNR Schengen integration
+      Ukraine accountability tribunal
+      EIB oversight legal framework
+    ENVIRONMENTAL
+      Green transition +6% budget
+      EIB 62% climate action share
+      Animal welfare ecosystem impact
+      Dogs/cats welfare framework
+```
+
+---
+
+### 🏛️ POLITICAL DIMENSION
+
+#### P1: Coalition Architecture Under Sustained Pressure
+**Confidence:** 🟡 MEDIUM | **Impact:** HIGH
+
+EP10's coalition arithmetic (EPP 185 seats + S&D 135 = 320, short of 361 majority)
+forces every vote to rely on a third partner. The April 28–30 plenary session
+demonstrated three distinct coalition configurations in operation simultaneously:
+
+- **EPP-S&D-Renew coalition** (used for DMA resolution, animal welfare, EIB control):
+  The centrist "grand-plus-one" coalition totals ~397 seats, well above 361.
+  Stable on digital regulation, institutional oversight, and welfare dossiers.
+
+- **EPP-ECR alliance** (used for defence budget uplift, Iceland PNR):
+  Right-to-centre alliance totals ~266 + ECR 81 = 347 seats — marginal majority
+  only if abstentions are counted strategically. Used on security/defence.
+
+- **Consensus mode** (used for animal welfare final vote, Ukraine accountability):
+  Broad cross-spectrum support (EPP+S&D+Renew+Greens+ECR partial) for politically
+  uncontroversial or strongly public-opinion-backed measures. Animal welfare achieved
+  this threshold — Ukraine accountability also found broad support.
+
+**Assessment**: The three-mode coalition pattern is EP10's defining political feature.
+No single mode is stable across all dossier types. This complexity is increasing as
+EP10 enters Year 2, when committee rapporteurs press for the most ambitious provisions
+of their dossiers and coalition management becomes more demanding.
+
+#### P2: Immunity Waiver — Rule of Law Signal
+**Confidence:** 🟢 HIGH | **Impact:** MEDIUM-HIGH
+
+The waiver of immunity for MEP Patryk Jaki (ECR, Poland) on April 28, 2026 is a
+significant rule-of-law data point. EP immunity waivers are relatively rare — typically
+2–4 per year — and each has implicit political signalling for the group involved.
+For ECR, the Jaki case tests whether Poland's new pro-EU government (in office since
+December 2023) will pursue rule-of-law restoration through judicial action against
+prominent ECR figures with alleged pre-election misconduct.
+
+**Political calculation**: EPP agreed to the waiver despite Jaki being a vocal EPP critic.
+This is consistent with EPP's "rule of law first" positioning in EU-Poland relations —
+supporting judicial independence even when it targets political opponents. S&D and Greens
+voted consistently for the waiver.
+
+**Forward implication**: If Polish courts proceed with Jaki, ECR group cohesion may face
+a test. ECR's Polish MEPs (13 of 81 ECR seats) could fracture around different positions
+on the case's legitimacy.
+
+#### P3: Ukraine Accountability — Geopolitical Consensus Building
+**Confidence:** 🟢 HIGH | **Impact:** HIGH
+
+The Ukraine accountability tribunal resolution (TA-10-2026-0161) secured a broad
+coalition because it defines a legal framework for crimes committed before the ceasefire
+rather than taking a position on current hostilities. This framing allowed ECR to support
+accountability language while maintaining their nuanced position on the conflict itself.
+PfE was more divided — their pro-Russia faction abstained while their anti-corruption
+wing supported accountability.
+
+---
+
+### 💰 ECONOMIC DIMENSION
+
+#### E1: 2027 Budget — Competitiveness vs. Cohesion Trade-Off
+**Confidence:** 🟢 HIGH | **Impact:** VERY HIGH
+
+The 2027 Budget Guidelines (TA-10-2026-0112) establish EP's position for the annual
+budget trilogue. The economic architecture is:
+
+- **Defence uplift (+8%)**: Justified by IMF analysis showing EU member states' defence
+  investment below NATO 2% targets. EP's BUDG is now aligning budgetary allocations
+  with the European Defence Industrial Strategy's demand signals.
+- **Green transition (+6%)**: Justified by IMF's €800 bn/year EU climate investment
+  gap estimate. But operationally: this +6% is directed at the Just Transition Fund
+  and InvestEU climate window, not new headline programmes.
+- **Cohesion protection**: Defend against Council's expected €3–5 bn cohesion fund cut.
+  Economic rationale: IMF 1.2× GDP multiplier on cohesion in lagging regions.
+
+**Risk**: The EPP-ECR defence alignment on the +8% uplift is structurally fragile —
+ECR has signalled it will demand cohesion ring-fencing in return. If the ECR condition
+is not met in trilogue, the EPP-ECR budget alliance collapses, forcing EPP back to the
+EPP-S&D-Renew centrist coalition with different expenditure priorities (less defence,
+more social/green).
+
+#### E2: EIB Investment Programme — Control vs. Ambition Tension
+**Confidence:** 🟡 MEDIUM | **Impact:** MEDIUM
+
+The annual EIB control report (TA-10-2026-0119) operates in the context of EIB expanding
+to €92 bn financing in 2025 — the largest in its history. Parliament's oversight function
+is being stretched: the scale and complexity of EIB operations has grown faster than
+Parliament's committee capacity to scrutinise them. The discharge report flagged:
+- 3 specific project failures where EIB due diligence was inadequate
+- 2 instances of off-balance-sheet financing structures that were not disclosed to Parliament
+- Growing extra-EU operations (21% of portfolio) with reduced EP oversight reach
+
+**IMF relevance**: The IMF's external debt analysis for developing countries receiving
+EIB loans (notably in Western Balkans) has raised debt sustainability concerns in
+2 recipient states. Parliament's resolution requested EIB to integrate IMF Article IV
+recommendations into project due diligence — a novel oversight linkage.
+
+---
+
+### 🌍 SOCIAL DIMENSION
+
+#### S1: Animal Welfare — Societal Mandate Crystallised
+**Confidence:** 🟢 HIGH | **Impact:** MEDIUM
+
+The 520+ vote majority on the Dogs and Cats Regulation reflects a genuine, consistent
+societal mandate that has been building since the COVID pandemic triggered an EU-wide
+"puppy boom" (companion animal registrations increased 40% in 2020–2021) followed by
+a surge in abandonment cases (2022–2023). The regulation's social underpinnings:
+
+- **Online sales regulation**: The largest single driver of illegal breeding was pandemic-era
+  online platforms where unverified breeders sold animals without welfare guarantees.
+  The regulation mandates platform verification of EAR registration numbers — connecting
+  the digital single market (IMCO's domain) with animal welfare (ENVI's domain).
+- **Stray population management**: An estimated 100 million stray dogs and cats in the EU
+  (disproportionately in CEE/SEE member states) create public health and animal welfare
+  challenges. The regulation's spay/neuter support provisions target this dimension.
+- **Cross-spectrum support**: Animal welfare has proven to be one of the few genuinely
+  cross-partisan issues in EP10, supported by EPP, S&D, Greens, Renew, and ECR MEPs
+  from electoral districts with high pet ownership rates.
+
+#### S2: Anti-Human Trafficking — Haiti Resolution Context
+**Confidence:** 🟢 HIGH | **Impact:** MEDIUM
+
+The DROI resolution on Haiti (TA-10-2026-0151) condemning trafficking networks linked
+to gang violence addresses a humanitarian crisis with direct EU connectivity:
+- An estimated 12,000 Haitian nationals resided legally in EU member states in 2025
+- Haitian diaspora remittances from EU: €380 mn/year (World Bank data)
+- EU Frontex intelligence sharing with Caribbean partners on trafficking routes
+
+The resolution has symbolic-and-legal significance: it triggers the EU's anti-trafficking
+action framework (2022 Anti-Trafficking Directive) to include non-Mediterranean routes,
+and requests the Commission to engage with CARICOM on capacity building.
+
+---
+
+### 🔬 TECHNOLOGICAL DIMENSION
+
+#### T1: DMA — From Legislation to Enforcement Technology
+**Confidence:** 🟡 MEDIUM | **Impact:** VERY HIGH
+
+The IMCO enforcement resolution (TA-10-2026-0160) has a technological dimension beyond
+its legal-institutional framing. The compliance mechanisms being requested include:
+- **Algorithmic audit requirements**: Parliament is requesting that gatekeeper audits
+  include technical assessment of ranking, recommendation, and advertising algorithms
+  — not just commercial behaviour.
+- **Interoperability testing**: IMCO wants quarterly reports to include technical
+  interoperability test results (specifically WhatsApp-to-third-party messaging
+  interoperability progress under DMA Article 7).
+- **API access monitoring**: The resolution requests that DG COMP publish quarterly
+  data on gatekeeper API access compliance — transforming what was a legal process
+  into a transparent data-based accountability mechanism.
+
+#### T2: EAR Register — Digital Identity for Companion Animals
+**Confidence:** 🟢 HIGH | **Impact:** LOW-MEDIUM (technical but important)
+
+The European Animal Register (EAR) by 2030 represents a significant digital governance
+undertaking: an EU-wide mandatory registry for all cats and dogs, integrated with
+member-state veterinary authorities, connected to IPEX (the EU inter-parliamentary
+exchange network) for border crossing verification, and interoperable with commercial
+platforms for sales verification. Technical complexity:
+- Estimated 170 million animals to register by 2030 (dogs + cats)
+- Integration with 27 national veterinary authority databases
+- GDPR compliance for owner data (pseudonymisation required)
+- API standard for commercial platform integration
+
+---
+
+### ⚖️ LEGAL DIMENSION
+
+#### L1: DMA — Treaty Competence Boundary
+**Confidence:** 🟡 MEDIUM | **Impact:** HIGH
+
+IMCO's enforcement resolution probes the boundary of Parliament's treaty competence
+in competition policy. Article 103 TFEU gives the Council (not Parliament) the primary
+legislative competence for competition rules. The DMA, passed as a single market
+regulation under Articles 114, created a novel legal architecture where competition-style
+gatekeeper designations and obligations are supervised by the Commission under Article 114
+jurisdiction — different from Article 103 competition law, where Parliament has only a
+consultative role.
+
+**Legal implication**: Parliament's claim to quarterly reports and committee oversight
+is legally grounded in Article 114 supervision (single market law), not competition law —
+a distinction that DG COMP will almost certainly invoke when Parliament presses for
+information beyond what the DMA text explicitly mandates. IMCO will need to build its
+claim through the Framework Agreement on relations between EP and Commission.
+
+#### L2: Iceland PNR — Schengen Area Legal Architecture
+**Confidence:** 🟢 HIGH | **Impact:** MEDIUM
+
+The Iceland PNR Agreement (TA-10-2026-0142) completes the EU's Passenger Name Record
+framework for all Schengen-associated third countries. Iceland joined Switzerland (2019)
+and Norway (2022) in having PNR agreements with the EU. Legal significance:
+- The agreement must comply with the CJEU's Opinion 1/15 (2017) on the Canada PNR agreement
+  which imposed strict data minimisation and purpose limitation requirements
+- LIBE confirmed that the Iceland agreement integrates all Opinion 1/15 requirements
+  into its data governance provisions
+- The agreement creates a surveillance legal architecture across the Schengen area
+  that will be a template for forthcoming agreements with other associated states
+
+---
+
+### 🌱 ENVIRONMENTAL DIMENSION
+
+#### En1: Budget Green Transition Investment
+**Confidence:** 🟡 MEDIUM | **Impact:** HIGH
+
+The 2027 Budget Guidelines' +6% green transition allocation operates in the context
+of the EU's legally binding climate target (55% net emissions reduction by 2030 vs 1990,
+per the European Climate Law). Current EU emissions trajectory (IMF/EEA data):
+- 2024 emissions: approximately -31% vs 1990 baseline
+- Required annual reduction rate to meet 2030 target: approximately -3.5% per year
+- Actual 2024–2025 annual reduction rate: approximately -2.8% per year
+
+**Budget gap analysis**: The +6% green allocation in the 2027 guidelines provides
+approximately €2.4 bn additional, but the IMF estimates the EU needs €800 bn/year in
+total public and private climate investment. The €2.4 bn is catalytic rather than
+gap-filling — primarily targeting leverage mechanisms (EIB co-financing, InvestEU blended
+finance) rather than direct expenditure.
+
+#### En2: Animal Welfare — Environmental Pathway
+**Confidence:** 🟡 MEDIUM | **Impact:** LOW-MEDIUM
+
+The companion animal regulation has an environmental dimension that was not the primary
+focus but is analytically significant:
+- **Stray population disease vectors**: Large stray populations create biodiversity
+  pressure on native wildlife. The regulation's spay/neuter support addresses this.
+- **Companion animal industry carbon footprint**: The EU companion animal food sector
+  (estimated €18 bn) has a significant environmental footprint, with premium pet food
+  accounting for disproportionate protein-intensive ingredients. The regulation does not
+  directly address this — but ENVI has flagged it as a next-generation dossier.
+- **Breeding practices and genetic diversity**: The 20-litter cap targets overbreeding
+  that creates welfare issues but also reduces genetic diversity in breed populations —
+  an animal biodiversity concern the regulation partially addresses.
+
+---
+
+### 📈 PESTLE RISK AGGREGATION
+
+| Dimension | Current Risk Level | Trajectory | Top Risk Item |
+|-----------|-------------------|------------|---------------|
+| Political | 🟡 MEDIUM | ↑ Increasing | Coalition fragility on budget |
+| Economic | 🟡 MEDIUM | → Stable | EIB oversight gap |
+| Social | 🟢 LOW | → Stable | Welfare consensus holding |
+| Technological | 🟡 MEDIUM | ↑ Increasing | DMA enforcement complexity |
+| Legal | 🟡 MEDIUM | → Stable | DMA treaty competence boundary |
+| Environmental | 🟡 MEDIUM | → Stable | Green investment gap vs. target |
+
+**Overall PESTLE risk level: 🟡 MEDIUM** — No single dimension is currently in high-risk
+territory, but the political and technological dimensions show increasing risk trajectories
+that warrant monitoring over the next 2–3 months.
+
+---
+
+*Analysis date: 2026-05-01 | EP MCP v1.2.18 | IMF WEO April 2026*
+
+### Historical Baseline
+
+### Week of 24–30 April 2026
+
+**Classification:** Public | **Produced:** 2026-05-01
+
+---
+
+### 📅 PARLIAMENTARY TERM CONTEXT: EP10 (2024–2029)
+
+#### Composition at Analysis Date (May 2026)
+| Group | Seats | Share | Change vs. EP9 |
+|-------|-------|-------|----------------|
+| EPP (European People's Party) | 185 | 25.7% | -3 (from 188) |
+| S&D (Socialists and Democrats) | 135 | 18.8% | -1 (from 136) |
+| PfE (Patriots for Europe) | 85 | 11.8% | New group (replaced ID) |
+| ECR (European Conservatives) | 81 | 11.3% | +3 (from 78) |
+| Renew Europe | 77 | 10.7% | -1 (from 76 at start) |
+| Greens/EFA | 53 | 7.4% | = (stabilised after election losses) |
+| The Left (GUE/NGL) | 46 | 6.4% | = |
+| ESN (Europe of Sovereign Nations) | 27 | 3.8% | New group |
+| NI (Non-Attached) | 30 | 4.2% | Reduced (some joined PfE/ESN) |
+| **Total** | **719** | **100%** | — |
+
+#### EP10 Legislative Calendar — Year 2 Context
+
+EP10 entered its second full legislative year (January–December 2026) with fully
+constituted committee leadership following the November 2025 mid-term reassignments.
+Key structural features of EP10 Year 2 that shape the committee landscape:
+
+**Structural shift 1 — Right-of-centre majority logic:** The combined ECR+PfE+ESN bloc
+(135 seats, 18.8%) gives the right-nationalist groups blocking minority status on many
+dossiers, forcing EPP to choose between (a) broad centrist coalition with S&D and Renew
+or (b) selective right-expansion with ECR on defence/security dossiers. This arithmetic
+is observed in the week's voting patterns.
+
+**Structural shift 2 — Grand coalition erosion:** EPP+S&D combined now hold only 320
+seats (44.5% of 719), below the 361-seat majority threshold. Every vote requires a
+third partner — the minimum winning coalition size increased from 2 groups (2004) to
+3 groups (2026), the most complex coalition arithmetic in Parliament's history.
+
+**Structural shift 3 — DMA/AI Act implementation phase:** The Commission's 2026
+legislative calendar is dominated by implementation acts and delegated regulations
+rather than headline legislation, creating heavier IMCO/ITRE committee workloads
+than typical for year-2 periods.
+
+---
+
+### 📊 HISTORICAL COMMITTEE PRODUCTIVITY DATA
+
+#### Committee Meetings Trend: EP6–EP10
+
+| Year | Committee Meetings | YoY Change | Notes |
+|------|--------------------|------------|-------|
+| 2004 | ~800 | — | EP6 start |
+| 2009 | ~1,100 | +37.5% | Post-Lisbon Treaty baseline |
+| 2014 | ~1,380 | +25.5% | EP8 start, increased legislative role |
+| 2019 | ~1,450 | +5.1% | EP9 start, election year |
+| 2020 | ~1,290 | -11.0% | COVID disruption, hybrid working |
+| 2021 | ~1,520 | +17.8% | Post-COVID recovery |
+| 2022 | ~1,680 | +10.5% | Green Deal peak legislative load |
+| 2023 | ~1,750 | +4.2% | End-of-EP9-term legislative sprint |
+| 2024 | 1,680 | -4.0% | EP10 election transition year |
+| 2025 | 1,980 | +17.9% | EP10 ramp-up |
+| **2026 (proj.)** | **2,363** | **+19.3%** | **Record — EP10 Year 2 peak** |
+
+#### Legislative Acts Adopted Trend (EP8–EP10)
+
+| Year | Legislative Acts | Notes |
+|------|-----------------|-------|
+| 2019 | ~80 | Election year |
+| 2020 | ~65 | COVID disruption |
+| 2021 | ~88 | Recovery year |
+| 2022 | ~105 | Green Deal surge |
+| 2023 | 148 | EP9 all-time peak |
+| 2024 | 72 | EP10 election year (-51.4% vs. 2023) |
+| 2025 | 78 | EP10 ramp-up (+8.3% vs. 2024) |
+| **2026 (proj.)** | **114** | **+46.2% vs. 2025; second-highest ever** |
+
+#### Key Benchmarks for Context
+
+The 46.2% YoY increase in legislative acts (2025→2026) is the largest single-year
+percentage increase since the Lisbon Treaty came into force in 2009. Context factors:
+- The Clean Industrial Deal (Commission package announced January 2026) triggered
+  co-decision procedures across ITRE, ENVI, IMCO, and EMPL simultaneously.
+- The European Defence Industrial Strategy (EDIS) generated its first binding co-decision
+  procedure through ITRE/AFET in Q1 2026.
+- The post-2024 right-of-centre realignment has, paradoxically, accelerated certain
+  dossiers: ECR and PfE have blocked Green Deal revisions but supported competitiveness
+  deregulation packages, creating unexpected legislative convergence zones.
+
+---
+
+### 🔬 COMMITTEE-SPECIFIC HISTORICAL BASELINES
+
+#### ENVI — Historical Context for Animal Welfare Regulation
+The Dogs and Cats Welfare and Traceability Regulation (TA-10-2026-0115) completed a
+3-year legislative journey that began with the Commission's 2023 proposal on companion
+animal welfare. Key milestones:
+- **2023 Q3**: Commission proposal published; ENVI designated as lead committee
+- **2024 Q1**: ENVI rapporteur (S&D, Italy) appointed; hearings on stray animal data
+- **2024 Q3**: Broad agreement at committee level; 18 amendments consolidated
+- **2025 Q2**: First reading position adopted by committee; Council negotiations opened
+- **2025 Q4**: Trilogue concluded; Council agreed to ENVI's 20-litter/year cap and EAR timeline
+- **2026 Q2**: Final plenary adoption (TA-10-2026-0115, April 28, 2026)
+
+This is a textbook illustration of the ordinary legislative procedure (OLP) running
+approximately 36 months from Commission proposal to final adoption — close to the EP10
+average of 34 months for complex single-market regulations.
+
+#### BUDG — Historical Context for Budget Guidelines Timeline
+The passage of 2027 Budget Guidelines in late April 2026 is notably early in the budget
+cycle compared to prior years:
+- **2025 cycle**: Budget guidelines adopted June 2025 (2 months later)
+- **2024 cycle**: Budget guidelines adopted May 2024 (election-year rush)
+- **2023 cycle**: Budget guidelines adopted June 2023
+- **2026 cycle**: Budget guidelines adopted April 28, 2026 (earliest since 2020)
+
+The early adoption reflects BUDG chair's explicit strategy of strengthening Parliament's
+position in the Council-Parliament-Commission trilogue. The 2027 Multiannual Financial
+Framework (MFF) mid-term review is running concurrently, giving BUDG unusual leverage:
+the 2027 annual budget must be consistent with any MFF revision, creating linkage.
+
+#### IMCO — Historical Context for DMA Oversight Role
+IMCO's DMA enforcement resolution (TA-10-2026-0160) follows a pattern established in
+the GDPR era:
+- **GDPR (2018–2020)**: LIBE built oversight function through parliamentary questions
+  and resolutions before securing formal information rights from data protection authorities
+- **DSA (2023–2025)**: IMCO established itself as the primary monitoring committee for
+  Digital Services Act enforcement, securing quarterly briefings from DG CONNECT
+- **DMA (2024–2026)**: IMCO now repeating this pattern with DG COMP
+  The institutional mechanism being built is a Committee Liaison Agreement (CLA) with
+  the relevant Commission DG — a quasi-legislative instrument that does not require
+  plenary ratification.
+
+---
+
+### 📈 EP10 YEAR 2 COMPARATIVE POSITION
+
+Relative to historical EP term year-2 benchmarks:
+- EP8 Year 2 (2016): 108 legislative acts, 1,580 committee meetings
+- EP9 Year 2 (2021): 88 acts, 1,520 meetings
+- **EP10 Year 2 (2026 proj.): 114 acts, 2,363 meetings**
+
+EP10 Year 2 is tracking to be the most productive second year of any parliamentary term
+in the institution's history on both committee meeting volume and legislative act count.
+This confirms the productivity acceleration narrative but also raises the question of
+capacity: with 2,363 projected committee meetings, MEPs are averaging approximately
+3.3 committee meetings per day on working days — a substantial time burden that
+committee chairs have flagged as a scheduling challenge.
+
+---
+
+*Data: European Parliament Open Data Portal, generated statistics 2004–2026 | EP MCP v1.2.18*
+
+---
+### 📊 Legislative Productivity Trend
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+xychart-beta
+  title "EP Legislative Acts by Year (2019-2026 projected)"
+  x-axis ["2019","2020","2021","2022","2023","2024","2025","2026P"]
+  y-axis "Legislative Acts" 0 --> 160
+  bar [80, 65, 88, 105, 148, 72, 78, 114]
+```
+
+*Tradecraft: Source reliability B (historical EP statistics); Admiralty: B2*
+
 <h2 id="section-documents">Document Analysis</h2>
 
 ### Committee Productivity
@@ -3430,14 +3418,14 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/committee-reports/executive-brief.md) | `executive-brief.md` |
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/committee-reports/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/committee-reports/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/committee-reports/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/committee-reports/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/committee-reports/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/committee-reports/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/committee-reports/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/committee-reports/intelligence/threat-model.md) | `intelligence/threat-model.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/committee-reports/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/committee-reports/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/committee-reports/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/committee-reports/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-documents | [committee-productivity](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/committee-reports/existing/committee-productivity.md) | `existing/committee-productivity.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/committee-reports/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-01/committee-reports/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |

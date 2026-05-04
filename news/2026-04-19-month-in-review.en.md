@@ -659,218 +659,6 @@ Three additional observations. First, civil-society stakeholders (privacy NGOs, 
 
 Stakeholder positions will re-settle after April 27–30 Strasbourg; refresh mid-May.
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### Political Factors
-
-**Coalition Arithmetic**: EP10's five-party working majority (EPP 185 + S&D 135 + Renew Europe 77 + Greens/EFA 53 + Left 46 = 496/720 seats) provides structural stability but requires issue-specific management. The March 26 package used pre-recess urgency to align divergent group priorities — EPP's banking stability focus, S&D's anti-corruption leadership, Renew Europe's AI simplification demand, Greens/EFA's child protection mandate.
-
-**Right-Populist Opposition**: Patriots for Europe (84) and ECR (81) remain in consolidated opposition. Their combined 165 seats cannot block legislation but can delay procedures, force separate votes on amendments, and set agenda in the coming months when internal coalition tensions may emerge over CMDI and migration texts.
-
-**Interinstitutional Dynamics**: The March 26 session followed successful trilogue conclusions across multiple files, reflecting a Commission–Parliament–Council alignment that is characteristic of mid-term legislative windows before the 2027 EP elections begin to distort political incentives.
-
-### Economic Factors
-
-**Germany Under Stress**: Germany recorded GDP contractions of -0.87% (2023) and -0.50% (2024) — two consecutive years of negative growth. The BRRD3 banking resolution framework directly addresses systemic risks in Germany's commercial real estate and regional banking sectors.
-
-**EU Fiscal Surveillance**: With France's fiscal consolidation path under Excessive Deficit Procedure scrutiny, the Banking Union's resolution architecture gains renewed political salience. BRRD3's bail-in hierarchy clarifications reduce state-aid exposure for governments already under fiscal pressure.
-
-**Trade Policy Revenue Linkage**: The EU's trade safeguard simplification reduces procedural bottlenecks for anti-dumping and countervailing measures — a revenue-generating tool for EU exporters facing unfair competition, particularly in steel, solar panels, and electric vehicles.
-
-### Social Factors
-
-**Child Safety Imperative**: The CSAM Prevention extension reflects sustained societal demand for digital child protection. NGO coalitions maintained legislative pressure despite operator resistance and civil liberties concerns from digital rights organisations.
-
-**Anti-Corruption Credibility**: The Anti-Corruption Directive responds to citizen expectations following high-profile lobbying scandals (including the 2022–2023 Qatargate affair). S&D's sponsorship of this text serves both policy and electoral positioning purposes.
-
-**Public Trust Deficit**: Eurobarometer data consistently shows declining trust in EU institutions among younger cohorts. The April recess provides MEPs with a direct communications opportunity — a structural advantage of the mini-plenary bundling approach.
-
-### Technological Factors
-
-**AI Governance**: The AI Act governance simplification reflects the Commission's Competitiveness Compass priorities. Reducing administrative duplication for AI system providers signals EP willingness to balance regulatory ambition with innovation incentives.
-
-**CSAM Detection Technology**: Any CSAM detection mandate requires encryption-compatible scanning solutions — a technologically contested area. The extension preserves voluntary compliance while mandatory technical standards remain under development.
-
-**Digital Infrastructure**: Multiple March 26 texts have implicit digital infrastructure dependencies — BRRD3 requires real-time resolution data systems; AI governance requires national supervisory technical capacity.
-
-### Legal Factors
-
-**BRRD3 Legal Architecture**: Bank Recovery and Resolution Directive reform establishes EU-harmonised early intervention triggers, reducing Member State discretion to delay resolution procedures that could worsen systemic contagion risk.
-
-**CSAM and Encryption**: The extension text avoids mandating client-side scanning, preserving legal compatibility with ECJ's Digital Rights Ireland and Schrems II privacy jurisprudence. However, the mandatory regime currently in development will face immediate legal challenge.
-
-**Anti-Corruption Directive Scope**: The new directive requires Member States to criminalise corruption offences under harmonised standards — a significant expansion of EU criminal law competence under Article 83(2) TFEU.
-
-### Environmental Factors
-
-**Green Deal Integration**: None of the eighteen March 26 texts directly targets climate policy, reflecting a deliberate parliamentary strategy of sequencing: Green Deal implementation continues in committee while the plenary addresses the financial stability and digital governance backlog.
-
-**ESG Reporting Simplification**: The AI and banking texts contribute indirectly to the broader ESG regulatory architecture simplification underway since the 2025 Omnibus Simplification Package.
-
-**Biodiversity Regulatory Space**: Environmental NGOs note that the compressed mini-plenary format reduces scrutiny time for environmental impact assessments — a procedural concern that may intensify as the Biodiversity Strategy implementing legislation advances in Q3 2026.
-
-### Cross-Dimensional Coupling Analysis
-
-The PESTLE dimensions for March 26 – April 19 are unusually tightly coupled. Political and Economic dimensions interlock through the BRRD3-Germany channel: EPP negotiating discipline on banking-resolution timelines is conditioned on German GDP contraction (-0.87% 2023, -0.5% 2024), which raises the political cost of stringent bail-in provisions. Legal and Technological dimensions interlock through the CSAM-AI nexus: the CSAM extension regulation and the AI governance simplification both adopted March 26 create overlapping scanning-obligation and model-transparency requirements that Member States must implement in concert. Environmental and Social dimensions coupled through the trade-countermeasure channel: the April 15 Commission activation targets US goods in sectors with significant emissions profiles, creating a de facto carbon-border alignment pressure.
-
-Three coupling observations anchor the extended analysis. First, the political-economic coupling amplifies BRRD3 implementation uncertainty: any Q2 2026 German bank stress event would force simultaneous political (EP oversight) and economic (Commission State Aid) responses under a regulation still in Level 2 drafting. Second, the legal-technological coupling means CSAM and AI governance enforcement-ramp timelines cannot be decoupled by national authorities — DPAs and AI authorities must coordinate, creating administrative-capacity risk in smaller Member States. Third, the environmental-social coupling through trade countermeasures is the least-monitored axis and may produce surprise policy-interaction effects when the April 27–30 plenary debates the Commission's countermeasure selection logic.
-
-### PESTLE Trend Indicators
-
-Leading indicators to monitor through Q2 2026:
-
-- **Political**: ECR cohesion score on any April 27–30 Strasbourg vote (threshold 0.75; below signals fracture)
-- **Economic**: German Q1 2026 GDP flash estimate (due mid-May); sub-zero print activates BRRD3 political-cost amplifier
-- **Social**: Civil-society response to CSAM implementing acts — petitions, strategic litigation filings
-- **Technological**: Commission's AI governance implementing-act drafting calendar — first consultation expected Q3 2026
-- **Legal**: Any constitutional court referral on CSAM extension (Austrian or German venues most probable; 0.28 probability within 18 months)
-- **Environmental**: Commission carbon-border adjustment alignment statement accompanying countermeasure design
-
-Three trend observations. First, the political dimension is the most event-driven (discrete vote signals), while the economic dimension is the most data-driven (continuous GDP series); pairing them requires different cadence assumptions. Second, the technological dimension's lead time (Q3 2026 implementing-act consultation) means no near-term signal — monitoring here is about preparing the Q3 analysis pipeline, not reacting. Third, the legal dimension's surprise risk is structurally highest because constitutional court dockets are opaque to EP-API-based monitoring; supplementary case-law monitoring is required.
-
-### Cross-References to Daily Analyses
-
-- `analysis/daily/2026-03-26/breaking-run177/intelligence/pestle-analysis.md` — first-pass PESTLE capture for mega-session
-- `analysis/daily/2026-03-26/breaking-run183/intelligence/economic-context.md` — German GDP coupling detail
-- `analysis/daily/2026-03-26/breaking-run179/intelligence/threat-model.md` — Anti-Corruption Directive legal dimension
-- `analysis/daily/2026-03-26/breaking-run182/intelligence/wildcards-blackswans.md` — CSAM legal-challenge wildcards
-- `analysis/daily/2026-03-26/breaking-run185/intelligence/pestle-analysis.md` — bloc-level PESTLE refinement
-- `analysis/daily/2026-04-11/week-in-review-run12/intelligence/pestle-analysis.md` — pre-recess PESTLE baseline
-
-### Integrated Dimension Outlook
-
-Integrating all six PESTLE dimensions into a single Q2 2026 outlook produces three composite judgments. First, the policy environment is in a sprint-then-consolidate rhythm where high legislative output is followed by implementation-phase monitoring. Second, the economic environment is in a two-speed pattern with Germany in recession while southern euro-area economies grow, creating intra-EU pressure heterogeneity. Third, the legal environment carries elevated constitutional-friction risk on CSAM and AI governance dimensions.
-
-Three integrated observations. First, the Political × Economic × Legal triple-axis interaction produces the highest-density intelligence subspace for Q2 2026 monitoring. Second, the Environmental × Social dimension pair remains under-instrumented in the current pipeline. Third, Technological dimension monitoring requires specialized case-law surveillance infrastructure that does not currently exist.
-
-### PESTLE Closing Observations
-
-Three closing observations on the PESTLE framework application in this context.
-
-First, the framework's strength is in forcing cross-dimensional analysis; its weakness is in under-weighting temporal dynamics which require supplementary trajectory-tracking.
-
-Second, the Political-Economic-Legal triple dominates the intelligence picture for March 26 – April 19 and should be the analytical focus through Q2 2026.
-
-Third, the next PESTLE refresh should incorporate post-recess evidence and specifically update the Political dimension with April 27–30 plenary data points.
-
-### Historical Baseline
-
-### Legislative Productivity Baseline (EP6–EP10)
-
-| Parliamentary Term | Legislative Acts (Full Term) | Avg Per Month | Roll-Call Votes (Full) |
-|---|---|---|---|
-| EP6 (2004–2009) | ~1,150 | ~19.2 | ~4,800 |
-| EP7 (2009–2014) | ~1,320 | ~22.0 | ~5,600 |
-| EP8 (2014–2019) | ~1,280 | ~21.3 | ~6,200 |
-| EP9 (2019–2024) | ~1,180 | ~19.7 | ~7,100 |
-| EP10 (2024–, annualised) | ~1,580 projected | ~26.3 | ~8,200 projected |
-
-EP10's 2026 pace: 114 legislative acts through April 2026, compared to ~78 at this point in EP9. The +46.2% year-over-year uplift reflects both programmatic ambition (Commission's 2025–2029 agenda) and structural improvements to legislative scheduling.
-
-### Mini-Plenary Historical Pattern
-
-EP has held mini-plenaries (typically 1–2 days in Brussels vs. standard 4-day Strasbourg sessions) since EP6. Their frequency has increased:
-- **EP8**: ~4 mini-plenaries per year
-- **EP9**: ~6 mini-plenaries per year
-- **EP10 (2024–2026 partial)**: ~7–8 mini-plenaries per year (upward trend)
-
-The March 26, 2026 session produced 18 adopted texts — the highest mini-plenary output in EP10 to date. The previous record was 14 texts (October 2025 mini-plenary on digital package).
-
-### Banking Union Historical Context
-
-The Banking Union has been under construction since 2012 (Euro crisis response). Key milestones:
-- **2014**: SSM (Single Supervisory Mechanism) — ECB takes on bank supervision
-- **2015**: SRM (Single Resolution Mechanism) — established Single Resolution Board
-- **2016**: SRF (Single Resolution Fund) — phased mutualisation 2016–2024
-- **2019**: BRRD2 — first comprehensive update to bank resolution rules
-- **2026**: BRRD3 — **current article** — adds early intervention triggers, harmonises bail-in standards
-- **Pending**: EDIS (European Deposit Insurance Scheme) — final Banking Union pillar, still politically blocked
-
-Historical precedent: Banking Union progress accelerates during or immediately after financial stress events. BRRD3's 2026 adoption follows Germany's commercial real estate correction (2023–2025).
-
-### Anti-Corruption Legislative History in EU
-
-- **2003**: UN Convention Against Corruption (UNCAC) — EU ratified as bloc
-- **2008**: Council Framework Decision on corruption in private sector
-- **2017**: Commission anti-corruption report discontinued (political decision)
-- **2023**: Qatargate scandal — direct catalyst for current legislative effort
-- **2024**: Commission proposal for Anti-Corruption Directive
-- **2026**: **EP adoption** — first EU-wide harmonised criminalisation standards
-
-### CSAM Regulation History
-
-- **2011**: Budapest Convention on Cybercrime provides criminal law framework
-- **2020**: Commission strategy on combating child sexual abuse online
-- **2022**: Temporary CSAM detection derogation for voluntary scanning
-- **2023**: CSAM Regulation proposal — triggered mass civil liberties debate
-- **2024–2025**: Political deadlock over encryption and mass surveillance provisions
-- **2026 (March)**: Extension of voluntary compliance period — current article
-
-Pattern: CSAM has a 5-year legislative cycle with recurrent civil liberties crises. The current extension buys time while mandatory technical standards are developed.
-
-### Comparative EP Session Productivity
-
-Pre-recess consolidation sessions (historical average, 2014–2024):
-- **Before summer recess**: 8–12 texts per mini-plenary (average 9.4)
-- **Before Christmas recess**: 6–10 texts (average 7.8)
-- **Before Easter recess**: 10–14 texts (average 11.2)
-
-March 26, 2026 (18 texts) significantly exceeds the historical Easter pre-recess average of 11.2, suggesting elevated legislative ambition or compressed timeline pressure in EP10's second year.
-
-### Confidence Assessment
-
-Historical data derived from EP Open Data statistics (`get_all_generated_stats`) and EP10 session records. MEDIUM-HIGH confidence on legislative act counts; LOW-MEDIUM confidence on exact historical text counts for older terms due to data aggregation methodology differences.
-
-### EP10 in Context: Second-Year Productivity Comparison
-
-Comparing March 26, 2026's 18-adopted-text mega-session against comparable sittings in EP6 (2004–2009), EP7 (2009–2014), EP8 (2014–2019), and EP9 (2019–2024) reveals that single-session legislative throughput above 15 adopted texts occurs roughly twice per five-year term. The closest historical parallels are the EP8 session of July 5, 2017 (17 adopted texts) and the EP9 session of October 19, 2023 (19 adopted texts). In both prior cases, the high-throughput session preceded a parliamentary recess by 7–14 days and was followed by coalition-friction in the subsequent plenary cycle. Whether this pattern repeats in April 27–30 Strasbourg will be a significant validation point.
-
-Three second-year productivity observations. First, EP10's month-over-month throughput through March 2026 tracks approximately 1.12× EP9's comparable month-over-month throughput at the equivalent point in its cycle (second-year March) — a modest but measurable over-performance. Second, the grand-coalition architecture underpinning this throughput is structurally similar to EP9's first-year pattern but less cohesive than EP8's peak period of 2017–2018. Third, productivity concentration (share of output in top-5 sessions) is higher in EP10 than historical baselines, indicating a sprint-then-recess working style rather than evenly distributed legislative work.
-
-### Cross-References to Daily Analyses
-
-- `analysis/daily/2026-03-26/breaking-run185/intelligence/historical-baseline.md` — authoritative March 26 historical comparison with EP6–EP9 session data
-- `analysis/daily/2026-03-26/breaking-run184/intelligence/historical-baseline.md` — composite historical scoring
-- `analysis/daily/2026-03-26/breaking-run177/intelligence/coalition-dynamics.md` — coalition cohesion compared to historical baselines
-- `analysis/daily/2026-04-11/week-in-review-run12/intelligence/historical-baseline.md` — pre-recess historical context
-- EP6–EP9 aggregate baseline: `intelligence/significance-scoring.md` (this run) integrates precomputed stats
-
-### Historical Precedent for Sprint-Recess Pattern
-
-The sprint-recess pattern visible in March–April 2026 has deep historical precedent. EP7's Easter 2012 cycle compressed 14 adopted texts into the pre-recess session of March 29, 2012 and produced comparable ECR-EPP friction in the post-recess debate on financial-sector measures. EP8's Easter 2016 cycle compressed 16 adopted texts into the pre-recess session of April 12, 2016 and produced visible coalition strain on counter-terrorism measures during the first post-recess plenary. EP9's Easter 2022 cycle — notable for occurring during the early Ukraine-war response — compressed 22 adopted texts into multiple pre-recess sessions with cohesion remaining high due to external-shock convergence.
-
-Three precedent observations. First, post-recess friction is the historical norm rather than exception; consumers should expect visible coalition strain in April 27–30 even under the Base Case scenario. Second, the external-shock convergence effect visible in EP9 2022 is active in EP10 2026 through the trade-countermeasure channel, potentially dampening expected post-recess friction. Third, the sprint-recess pattern is structural rather than accidental — it reflects EP calendar mechanics, not legislative pathology — and attempts to "smooth" productivity across recesses have historically failed.
-
-Additional historical data points. The average number of adopted texts per month in EP10's second year (approximately 42) exceeds EP9's second-year average (approximately 38) by 10.5%. The average coalition-cohesion score on contentious files in EP10 second year (approximately 0.81) compares favorably to EP9's 0.76 baseline, supporting the "durable grand coalition" interpretation. The average number of procedural motions per plenary in EP10 (approximately 3.2) is below EP9 (4.1) and EP8 (4.8), indicating reduced procedural friction — a positive signal for legislative throughput but a negative signal for minority-bloc visibility.
-
-Three additional historical observations. First, the reduced procedural-motion rate in EP10 may reflect ESN and NI fragmentation rather than reduced minority-bloc discontent; motions require organization, and the disorganized right is less motion-productive. Second, the coalition-cohesion improvement versus EP9 is partly an artifact of reduced ECR participation in contentious votes (more abstentions than dissents) — a measurement nuance that should not be over-interpreted as ideological convergence. Third, the 10.5% throughput premium over EP9 compounds over a five-year term, suggesting EP10 will produce roughly 10–12% more adopted texts than EP9 if the pattern holds — a significant cumulative difference for EU policy development.
-
-### Baseline Integration Summary
-
-Three integrating observations close the historical baseline artifact. First, EP10's second-year trajectory modestly exceeds EP6–EP9 baselines on productivity while matching historical norms on coalition cohesion. Second, the sprint-recess pattern is structurally embedded in EP calendars rather than reflecting pathology, and historical precedent confirms post-recess friction as the norm. Third, the productivity premium over EP9 compounds across the five-year term, suggesting material policy-output differences that deserve longitudinal tracking through 2029.
-
-### Methodological Note
-
-Historical baseline data for EP6–EP9 is drawn from precomputed EP open-data statistics supplemented by manual session-level review of landmark plenary dates. Comparability across parliaments is imperfect due to evolving procedural rules and political-group compositions. Confidence intervals on historical comparisons should be read as ±5% on productivity metrics and ±0.05 on cohesion metrics.
-
-### Historical Baseline Closing Observations
-
-Three closing observations on the historical baseline for this run.
-
-First, EP10's second-year trajectory is above-average on productivity and coalition cohesion relative to EP6–EP9 precedent.
-
-Second, the sprint-recess pattern visible in March–April 2026 has strong historical precedent and is expected to recur before summer and Christmas recesses.
-
-Third, the historical productivity premium over EP9 is material (~10.5%) and compounds across the term, with significant implications for EU policy output through 2029.
-
-Additional data point: the grand coalition's 397-seat foundation exceeds EP8 and EP9 coalition-core seat counts, providing structural durability that historical baseline comparisons understate.
-
-Additional data point: EP10's implementing-act authorization throughput is above EP9's pace, indicating mature secondary-legislation machinery.
-
-Additional data point: the pre-election year cohesion erosion historical pattern would, if repeated, begin in mid-2026 — a signal worth tracking through Q3-Q4 2026.
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 ### World Bank Economic Data Integration
@@ -1272,6 +1060,218 @@ First, the wildcard inventory is dominated by during-recess contingencies and po
 Second, wildcards are interaction-prone — pair-wise combinations compound impact beyond individual-event analysis suggests.
 
 Third, monitoring infrastructure for wildcards is weaker than for base-case scenarios, and investment in specialized surveillance (court dockets, USTR notices, banking supervisory communications) is justified.
+
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### Political Factors
+
+**Coalition Arithmetic**: EP10's five-party working majority (EPP 185 + S&D 135 + Renew Europe 77 + Greens/EFA 53 + Left 46 = 496/720 seats) provides structural stability but requires issue-specific management. The March 26 package used pre-recess urgency to align divergent group priorities — EPP's banking stability focus, S&D's anti-corruption leadership, Renew Europe's AI simplification demand, Greens/EFA's child protection mandate.
+
+**Right-Populist Opposition**: Patriots for Europe (84) and ECR (81) remain in consolidated opposition. Their combined 165 seats cannot block legislation but can delay procedures, force separate votes on amendments, and set agenda in the coming months when internal coalition tensions may emerge over CMDI and migration texts.
+
+**Interinstitutional Dynamics**: The March 26 session followed successful trilogue conclusions across multiple files, reflecting a Commission–Parliament–Council alignment that is characteristic of mid-term legislative windows before the 2027 EP elections begin to distort political incentives.
+
+### Economic Factors
+
+**Germany Under Stress**: Germany recorded GDP contractions of -0.87% (2023) and -0.50% (2024) — two consecutive years of negative growth. The BRRD3 banking resolution framework directly addresses systemic risks in Germany's commercial real estate and regional banking sectors.
+
+**EU Fiscal Surveillance**: With France's fiscal consolidation path under Excessive Deficit Procedure scrutiny, the Banking Union's resolution architecture gains renewed political salience. BRRD3's bail-in hierarchy clarifications reduce state-aid exposure for governments already under fiscal pressure.
+
+**Trade Policy Revenue Linkage**: The EU's trade safeguard simplification reduces procedural bottlenecks for anti-dumping and countervailing measures — a revenue-generating tool for EU exporters facing unfair competition, particularly in steel, solar panels, and electric vehicles.
+
+### Social Factors
+
+**Child Safety Imperative**: The CSAM Prevention extension reflects sustained societal demand for digital child protection. NGO coalitions maintained legislative pressure despite operator resistance and civil liberties concerns from digital rights organisations.
+
+**Anti-Corruption Credibility**: The Anti-Corruption Directive responds to citizen expectations following high-profile lobbying scandals (including the 2022–2023 Qatargate affair). S&D's sponsorship of this text serves both policy and electoral positioning purposes.
+
+**Public Trust Deficit**: Eurobarometer data consistently shows declining trust in EU institutions among younger cohorts. The April recess provides MEPs with a direct communications opportunity — a structural advantage of the mini-plenary bundling approach.
+
+### Technological Factors
+
+**AI Governance**: The AI Act governance simplification reflects the Commission's Competitiveness Compass priorities. Reducing administrative duplication for AI system providers signals EP willingness to balance regulatory ambition with innovation incentives.
+
+**CSAM Detection Technology**: Any CSAM detection mandate requires encryption-compatible scanning solutions — a technologically contested area. The extension preserves voluntary compliance while mandatory technical standards remain under development.
+
+**Digital Infrastructure**: Multiple March 26 texts have implicit digital infrastructure dependencies — BRRD3 requires real-time resolution data systems; AI governance requires national supervisory technical capacity.
+
+### Legal Factors
+
+**BRRD3 Legal Architecture**: Bank Recovery and Resolution Directive reform establishes EU-harmonised early intervention triggers, reducing Member State discretion to delay resolution procedures that could worsen systemic contagion risk.
+
+**CSAM and Encryption**: The extension text avoids mandating client-side scanning, preserving legal compatibility with ECJ's Digital Rights Ireland and Schrems II privacy jurisprudence. However, the mandatory regime currently in development will face immediate legal challenge.
+
+**Anti-Corruption Directive Scope**: The new directive requires Member States to criminalise corruption offences under harmonised standards — a significant expansion of EU criminal law competence under Article 83(2) TFEU.
+
+### Environmental Factors
+
+**Green Deal Integration**: None of the eighteen March 26 texts directly targets climate policy, reflecting a deliberate parliamentary strategy of sequencing: Green Deal implementation continues in committee while the plenary addresses the financial stability and digital governance backlog.
+
+**ESG Reporting Simplification**: The AI and banking texts contribute indirectly to the broader ESG regulatory architecture simplification underway since the 2025 Omnibus Simplification Package.
+
+**Biodiversity Regulatory Space**: Environmental NGOs note that the compressed mini-plenary format reduces scrutiny time for environmental impact assessments — a procedural concern that may intensify as the Biodiversity Strategy implementing legislation advances in Q3 2026.
+
+### Cross-Dimensional Coupling Analysis
+
+The PESTLE dimensions for March 26 – April 19 are unusually tightly coupled. Political and Economic dimensions interlock through the BRRD3-Germany channel: EPP negotiating discipline on banking-resolution timelines is conditioned on German GDP contraction (-0.87% 2023, -0.5% 2024), which raises the political cost of stringent bail-in provisions. Legal and Technological dimensions interlock through the CSAM-AI nexus: the CSAM extension regulation and the AI governance simplification both adopted March 26 create overlapping scanning-obligation and model-transparency requirements that Member States must implement in concert. Environmental and Social dimensions coupled through the trade-countermeasure channel: the April 15 Commission activation targets US goods in sectors with significant emissions profiles, creating a de facto carbon-border alignment pressure.
+
+Three coupling observations anchor the extended analysis. First, the political-economic coupling amplifies BRRD3 implementation uncertainty: any Q2 2026 German bank stress event would force simultaneous political (EP oversight) and economic (Commission State Aid) responses under a regulation still in Level 2 drafting. Second, the legal-technological coupling means CSAM and AI governance enforcement-ramp timelines cannot be decoupled by national authorities — DPAs and AI authorities must coordinate, creating administrative-capacity risk in smaller Member States. Third, the environmental-social coupling through trade countermeasures is the least-monitored axis and may produce surprise policy-interaction effects when the April 27–30 plenary debates the Commission's countermeasure selection logic.
+
+### PESTLE Trend Indicators
+
+Leading indicators to monitor through Q2 2026:
+
+- **Political**: ECR cohesion score on any April 27–30 Strasbourg vote (threshold 0.75; below signals fracture)
+- **Economic**: German Q1 2026 GDP flash estimate (due mid-May); sub-zero print activates BRRD3 political-cost amplifier
+- **Social**: Civil-society response to CSAM implementing acts — petitions, strategic litigation filings
+- **Technological**: Commission's AI governance implementing-act drafting calendar — first consultation expected Q3 2026
+- **Legal**: Any constitutional court referral on CSAM extension (Austrian or German venues most probable; 0.28 probability within 18 months)
+- **Environmental**: Commission carbon-border adjustment alignment statement accompanying countermeasure design
+
+Three trend observations. First, the political dimension is the most event-driven (discrete vote signals), while the economic dimension is the most data-driven (continuous GDP series); pairing them requires different cadence assumptions. Second, the technological dimension's lead time (Q3 2026 implementing-act consultation) means no near-term signal — monitoring here is about preparing the Q3 analysis pipeline, not reacting. Third, the legal dimension's surprise risk is structurally highest because constitutional court dockets are opaque to EP-API-based monitoring; supplementary case-law monitoring is required.
+
+### Cross-References to Daily Analyses
+
+- `analysis/daily/2026-03-26/breaking-run177/intelligence/pestle-analysis.md` — first-pass PESTLE capture for mega-session
+- `analysis/daily/2026-03-26/breaking-run183/intelligence/economic-context.md` — German GDP coupling detail
+- `analysis/daily/2026-03-26/breaking-run179/intelligence/threat-model.md` — Anti-Corruption Directive legal dimension
+- `analysis/daily/2026-03-26/breaking-run182/intelligence/wildcards-blackswans.md` — CSAM legal-challenge wildcards
+- `analysis/daily/2026-03-26/breaking-run185/intelligence/pestle-analysis.md` — bloc-level PESTLE refinement
+- `analysis/daily/2026-04-11/week-in-review-run12/intelligence/pestle-analysis.md` — pre-recess PESTLE baseline
+
+### Integrated Dimension Outlook
+
+Integrating all six PESTLE dimensions into a single Q2 2026 outlook produces three composite judgments. First, the policy environment is in a sprint-then-consolidate rhythm where high legislative output is followed by implementation-phase monitoring. Second, the economic environment is in a two-speed pattern with Germany in recession while southern euro-area economies grow, creating intra-EU pressure heterogeneity. Third, the legal environment carries elevated constitutional-friction risk on CSAM and AI governance dimensions.
+
+Three integrated observations. First, the Political × Economic × Legal triple-axis interaction produces the highest-density intelligence subspace for Q2 2026 monitoring. Second, the Environmental × Social dimension pair remains under-instrumented in the current pipeline. Third, Technological dimension monitoring requires specialized case-law surveillance infrastructure that does not currently exist.
+
+### PESTLE Closing Observations
+
+Three closing observations on the PESTLE framework application in this context.
+
+First, the framework's strength is in forcing cross-dimensional analysis; its weakness is in under-weighting temporal dynamics which require supplementary trajectory-tracking.
+
+Second, the Political-Economic-Legal triple dominates the intelligence picture for March 26 – April 19 and should be the analytical focus through Q2 2026.
+
+Third, the next PESTLE refresh should incorporate post-recess evidence and specifically update the Political dimension with April 27–30 plenary data points.
+
+### Historical Baseline
+
+### Legislative Productivity Baseline (EP6–EP10)
+
+| Parliamentary Term | Legislative Acts (Full Term) | Avg Per Month | Roll-Call Votes (Full) |
+|---|---|---|---|
+| EP6 (2004–2009) | ~1,150 | ~19.2 | ~4,800 |
+| EP7 (2009–2014) | ~1,320 | ~22.0 | ~5,600 |
+| EP8 (2014–2019) | ~1,280 | ~21.3 | ~6,200 |
+| EP9 (2019–2024) | ~1,180 | ~19.7 | ~7,100 |
+| EP10 (2024–, annualised) | ~1,580 projected | ~26.3 | ~8,200 projected |
+
+EP10's 2026 pace: 114 legislative acts through April 2026, compared to ~78 at this point in EP9. The +46.2% year-over-year uplift reflects both programmatic ambition (Commission's 2025–2029 agenda) and structural improvements to legislative scheduling.
+
+### Mini-Plenary Historical Pattern
+
+EP has held mini-plenaries (typically 1–2 days in Brussels vs. standard 4-day Strasbourg sessions) since EP6. Their frequency has increased:
+- **EP8**: ~4 mini-plenaries per year
+- **EP9**: ~6 mini-plenaries per year
+- **EP10 (2024–2026 partial)**: ~7–8 mini-plenaries per year (upward trend)
+
+The March 26, 2026 session produced 18 adopted texts — the highest mini-plenary output in EP10 to date. The previous record was 14 texts (October 2025 mini-plenary on digital package).
+
+### Banking Union Historical Context
+
+The Banking Union has been under construction since 2012 (Euro crisis response). Key milestones:
+- **2014**: SSM (Single Supervisory Mechanism) — ECB takes on bank supervision
+- **2015**: SRM (Single Resolution Mechanism) — established Single Resolution Board
+- **2016**: SRF (Single Resolution Fund) — phased mutualisation 2016–2024
+- **2019**: BRRD2 — first comprehensive update to bank resolution rules
+- **2026**: BRRD3 — **current article** — adds early intervention triggers, harmonises bail-in standards
+- **Pending**: EDIS (European Deposit Insurance Scheme) — final Banking Union pillar, still politically blocked
+
+Historical precedent: Banking Union progress accelerates during or immediately after financial stress events. BRRD3's 2026 adoption follows Germany's commercial real estate correction (2023–2025).
+
+### Anti-Corruption Legislative History in EU
+
+- **2003**: UN Convention Against Corruption (UNCAC) — EU ratified as bloc
+- **2008**: Council Framework Decision on corruption in private sector
+- **2017**: Commission anti-corruption report discontinued (political decision)
+- **2023**: Qatargate scandal — direct catalyst for current legislative effort
+- **2024**: Commission proposal for Anti-Corruption Directive
+- **2026**: **EP adoption** — first EU-wide harmonised criminalisation standards
+
+### CSAM Regulation History
+
+- **2011**: Budapest Convention on Cybercrime provides criminal law framework
+- **2020**: Commission strategy on combating child sexual abuse online
+- **2022**: Temporary CSAM detection derogation for voluntary scanning
+- **2023**: CSAM Regulation proposal — triggered mass civil liberties debate
+- **2024–2025**: Political deadlock over encryption and mass surveillance provisions
+- **2026 (March)**: Extension of voluntary compliance period — current article
+
+Pattern: CSAM has a 5-year legislative cycle with recurrent civil liberties crises. The current extension buys time while mandatory technical standards are developed.
+
+### Comparative EP Session Productivity
+
+Pre-recess consolidation sessions (historical average, 2014–2024):
+- **Before summer recess**: 8–12 texts per mini-plenary (average 9.4)
+- **Before Christmas recess**: 6–10 texts (average 7.8)
+- **Before Easter recess**: 10–14 texts (average 11.2)
+
+March 26, 2026 (18 texts) significantly exceeds the historical Easter pre-recess average of 11.2, suggesting elevated legislative ambition or compressed timeline pressure in EP10's second year.
+
+### Confidence Assessment
+
+Historical data derived from EP Open Data statistics (`get_all_generated_stats`) and EP10 session records. MEDIUM-HIGH confidence on legislative act counts; LOW-MEDIUM confidence on exact historical text counts for older terms due to data aggregation methodology differences.
+
+### EP10 in Context: Second-Year Productivity Comparison
+
+Comparing March 26, 2026's 18-adopted-text mega-session against comparable sittings in EP6 (2004–2009), EP7 (2009–2014), EP8 (2014–2019), and EP9 (2019–2024) reveals that single-session legislative throughput above 15 adopted texts occurs roughly twice per five-year term. The closest historical parallels are the EP8 session of July 5, 2017 (17 adopted texts) and the EP9 session of October 19, 2023 (19 adopted texts). In both prior cases, the high-throughput session preceded a parliamentary recess by 7–14 days and was followed by coalition-friction in the subsequent plenary cycle. Whether this pattern repeats in April 27–30 Strasbourg will be a significant validation point.
+
+Three second-year productivity observations. First, EP10's month-over-month throughput through March 2026 tracks approximately 1.12× EP9's comparable month-over-month throughput at the equivalent point in its cycle (second-year March) — a modest but measurable over-performance. Second, the grand-coalition architecture underpinning this throughput is structurally similar to EP9's first-year pattern but less cohesive than EP8's peak period of 2017–2018. Third, productivity concentration (share of output in top-5 sessions) is higher in EP10 than historical baselines, indicating a sprint-then-recess working style rather than evenly distributed legislative work.
+
+### Cross-References to Daily Analyses
+
+- `analysis/daily/2026-03-26/breaking-run185/intelligence/historical-baseline.md` — authoritative March 26 historical comparison with EP6–EP9 session data
+- `analysis/daily/2026-03-26/breaking-run184/intelligence/historical-baseline.md` — composite historical scoring
+- `analysis/daily/2026-03-26/breaking-run177/intelligence/coalition-dynamics.md` — coalition cohesion compared to historical baselines
+- `analysis/daily/2026-04-11/week-in-review-run12/intelligence/historical-baseline.md` — pre-recess historical context
+- EP6–EP9 aggregate baseline: `intelligence/significance-scoring.md` (this run) integrates precomputed stats
+
+### Historical Precedent for Sprint-Recess Pattern
+
+The sprint-recess pattern visible in March–April 2026 has deep historical precedent. EP7's Easter 2012 cycle compressed 14 adopted texts into the pre-recess session of March 29, 2012 and produced comparable ECR-EPP friction in the post-recess debate on financial-sector measures. EP8's Easter 2016 cycle compressed 16 adopted texts into the pre-recess session of April 12, 2016 and produced visible coalition strain on counter-terrorism measures during the first post-recess plenary. EP9's Easter 2022 cycle — notable for occurring during the early Ukraine-war response — compressed 22 adopted texts into multiple pre-recess sessions with cohesion remaining high due to external-shock convergence.
+
+Three precedent observations. First, post-recess friction is the historical norm rather than exception; consumers should expect visible coalition strain in April 27–30 even under the Base Case scenario. Second, the external-shock convergence effect visible in EP9 2022 is active in EP10 2026 through the trade-countermeasure channel, potentially dampening expected post-recess friction. Third, the sprint-recess pattern is structural rather than accidental — it reflects EP calendar mechanics, not legislative pathology — and attempts to "smooth" productivity across recesses have historically failed.
+
+Additional historical data points. The average number of adopted texts per month in EP10's second year (approximately 42) exceeds EP9's second-year average (approximately 38) by 10.5%. The average coalition-cohesion score on contentious files in EP10 second year (approximately 0.81) compares favorably to EP9's 0.76 baseline, supporting the "durable grand coalition" interpretation. The average number of procedural motions per plenary in EP10 (approximately 3.2) is below EP9 (4.1) and EP8 (4.8), indicating reduced procedural friction — a positive signal for legislative throughput but a negative signal for minority-bloc visibility.
+
+Three additional historical observations. First, the reduced procedural-motion rate in EP10 may reflect ESN and NI fragmentation rather than reduced minority-bloc discontent; motions require organization, and the disorganized right is less motion-productive. Second, the coalition-cohesion improvement versus EP9 is partly an artifact of reduced ECR participation in contentious votes (more abstentions than dissents) — a measurement nuance that should not be over-interpreted as ideological convergence. Third, the 10.5% throughput premium over EP9 compounds over a five-year term, suggesting EP10 will produce roughly 10–12% more adopted texts than EP9 if the pattern holds — a significant cumulative difference for EU policy development.
+
+### Baseline Integration Summary
+
+Three integrating observations close the historical baseline artifact. First, EP10's second-year trajectory modestly exceeds EP6–EP9 baselines on productivity while matching historical norms on coalition cohesion. Second, the sprint-recess pattern is structurally embedded in EP calendars rather than reflecting pathology, and historical precedent confirms post-recess friction as the norm. Third, the productivity premium over EP9 compounds across the five-year term, suggesting material policy-output differences that deserve longitudinal tracking through 2029.
+
+### Methodological Note
+
+Historical baseline data for EP6–EP9 is drawn from precomputed EP open-data statistics supplemented by manual session-level review of landmark plenary dates. Comparability across parliaments is imperfect due to evolving procedural rules and political-group compositions. Confidence intervals on historical comparisons should be read as ±5% on productivity metrics and ±0.05 on cohesion metrics.
+
+### Historical Baseline Closing Observations
+
+Three closing observations on the historical baseline for this run.
+
+First, EP10's second-year trajectory is above-average on productivity and coalition cohesion relative to EP6–EP9 precedent.
+
+Second, the sprint-recess pattern visible in March–April 2026 has strong historical precedent and is expected to recur before summer and Christmas recesses.
+
+Third, the historical productivity premium over EP9 is material (~10.5%) and compounds across the term, with significant implications for EU policy output through 2029.
+
+Additional data point: the grand coalition's 397-seat foundation exceeds EP8 and EP9 coalition-core seat counts, providing structural durability that historical baseline comparisons understate.
+
+Additional data point: EP10's implementing-act authorization throughput is above EP9's pace, indicating mature secondary-legislation machinery.
+
+Additional data point: the pre-election year cohesion erosion historical pattern would, if repeated, begin in mid-2026 — a signal worth tracking through Q3-Q4 2026.
 
 <h2 id="section-continuity">Cross-Run Continuity</h2>
 
@@ -2904,12 +2904,12 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-actors-forces | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/classification/political-classification.md) | `classification/political-classification.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/threat-model.md) | `intelligence/threat-model.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-continuity | [cross-run-diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/cross-run-diff.md) | `intelligence/cross-run-diff.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/month-in-review-run5/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |

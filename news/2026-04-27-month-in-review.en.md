@@ -608,324 +608,6 @@ Ukraine, Moldova, Western Balkans states (Albania, Serbia, North Macedonia, Mont
 | Civil Society | ⭐⭐ | 🟡 Housing/social | 🟡 Mixed |
 | Candidate Countries | ⭐⭐ | ✅ Enlargement | 🟡 Conditional |
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### PESTLE Framework Overview
-
-```mermaid
-mindmap
-  root((EU Parliament\nMarch-April 2026\nPESTLE))
-    P[Political]
-      EPP anchored majority
-      Defence cross-party consensus
-      Enlargement reaffirmed
-      Coalition fragmentation
-    E[Economic]
-      Germany recession
-      Banking union reformed
-      European Semester 2026
-      Defence economy emerging
-    S[Social]
-      Housing crisis pressure
-      Labour migration reform
-      Gender pay gap attention
-      AI social impact
-    T[Technological]
-      AI governance trifecta
-      Defence tech integration
-      Copyright disruption
-      Digital single market
-    L[Legal]
-      Banking union completed
-      CoE AI Convention
-      Anti-corruption framework
-      Insolvency harmonisation
-    En[Environmental]
-      Vehicle emissions credits
-      Water pollutants regulation
-      Defence sustainability tension
-      Green transition funding gap
-```
-
----
-
-### P — Political Factors
-
-#### P1. Coalition Architecture
-The EP10 Parliament operates under extreme fragmentation (ENP=6.57). No single group holds majority or even 30% of seats. The EPP at 25.7% is the largest player but a necessary-yet-insufficient coalition anchor. The productive legislative month of March 2026 is explained by the rare convergence of:
-- **Geopolitical urgency** (Ukraine war, US strategic ambiguity) creating permissive conditions for defence texts that override ideological divisions
-- **Technical consensus** on banking union closure after a decade of German-led resistance
-- **Momentum** from the EP's 2024–2025 institutional agenda
-
-**Confidence:** 🟢 HIGH — coalition arithmetic from real EP MEP data
-
-#### P2. EPP Strategic Positioning
-The EPP's decision to lead on defence integration while also driving the banking union completion reflects a sophisticated strategy: by occupying both the security-right and the regulatory-centre, EPP locks out PfE and ECR from alternative coalition-building while maintaining S&D as an indispensable partner. This is not coincidental — EPP leadership under current President von der Leyen aligned with EP leadership is executing a pre-planned programme.
-
-**Confidence:** 🟡 MEDIUM — inferred from voting coalition patterns and public positioning
-
-#### P3. Sovereignist Right Fragmentation
-PfE (85 seats, 11.82%) and ECR (81 seats, 11.27%) together hold 23% of seats but diverge on defence. ECR's pro-Ukraine/NATO stance aligns with EPP on defence texts; PfE's Eurosceptic nationalism creates a split. This fragmentation of the right-wing opposition is a structural asset for the pro-EU majority in 2026.
-
-**Confidence:** 🟢 HIGH — group composition and positional analysis
-
-#### P4. Enlargement as Political Signal
-Parliament's enlargement strategy text (TA-10-2026-0077) — passed with broad majority support — signals that EP10 maintains the transformative ambition of EU enlargement despite geopolitical complexity and internal reform requirements. However, the text creates political accountability: if Council and Commission fail to advance accession, Parliament's resolutions will increasingly function as political indictments.
-
-**Confidence:** 🟡 MEDIUM
-
----
-
-### E — Economic Factors
-
-#### E1. Asymmetric Growth Trajectories
-The EU's economic geography is fracturing. Germany, the historically dominant engine, contracted -0.87% (2023) and -0.5% (2024). France grew +1.44% (2023) and +1.19% (2024). This divergence undermines the single interest rate/fiscal coordination assumption underpinning the eurozone. The European Semester 2026 (TA-10-2026-0075) operates in this context, requiring coherent fiscal messaging for 28 member economies with divergent cyclical positions.
-
-**Confidence:** 🟢 HIGH — World Bank data, official DE/FR statistics
-
-#### E2. Banking System Stabilisation
-The deposit guarantee and resolution reforms adopted in March 2026 address the residual moral hazard and cross-border resolution weakness in the EU banking architecture. The ECB's rate cycle (2022–2025) created balance sheet stress in bank loan books; the new harmonised rules provide a political backstop. ECB supervisory data (not publicly available) likely shows elevated NPL ratios in some peripheral markets, making the March adoption prudent.
-
-**Confidence:** 🟡 MEDIUM — institutional logic sound; actual bank stress data not disclosed
-
-#### E3. Defence Economy as Structural Shift
-The adoption of a single market for defence and flagship joint projects is, economically, the creation of a new industrial policy sector at EU level. Conservative estimates suggest €30–40B annual procurement inefficiency from current fragmentation. A unified framework will create consolidation pressure on European defence primes (Airbus, Leonardo, KNDS, Rheinmetall), with implications for employment, trade, and technology policy across France, Germany, Italy, Spain, and Poland.
-
-**Confidence:** 🟡 MEDIUM — Commission estimates; private sector response still emerging
-
-#### E4. Housing Market Structural Failure
-The housing crisis resolution (TA-10-2026-0064) acknowledges a structural supply deficit across European cities — identified as a key cost-of-living contributor and social inequality driver. However, without binding EU-level instruments (housing is largely national competence), the resolution is politically but not legally consequential. Key economic pressure: major cities (Amsterdam, Paris, Berlin, Stockholm) face housing cost-to-income ratios at 3–5× historical norms.
-
-**Confidence:** 🟢 HIGH on diagnosis | 🔴 LOW on remedy
-
-#### E5. Trade Environment Deterioration
-The WTO 14th Ministerial positioning (TA-10-2026-0086) and tariff adjustments (China, various) reflect an EU trade policy on the defensive. US trade escalation, China's export surplus in EVs and tech, and multilateral system fragmentation create structural headwinds for EU export competitiveness. IMF WEO April 2026 projects modest global trade recovery (forecast ~3.0–3.5%), but this masks significant fragmentation between aligned and non-aligned trade blocs.
-
-**Confidence:** 🟡 MEDIUM — IMF projections labelled as forecast
-
----
-
-### S — Social Factors
-
-#### S1. Housing Inequality as Political Mobiliser
-Across EU member states, housing costs are the leading reported concern for voters under 40. The EP's housing crisis resolution reflects this political pressure: a parliamentary response to constituent demand even when the legislative toolkit is limited. Social cohesion implications are significant — cities unable to retain essential workers due to housing costs face service quality deterioration feeding political alienation.
-
-**Confidence:** 🟢 HIGH
-
-#### S2. Labour Migration Reform (EU Talent Pool)
-The EU Talent Pool (TA-10-2026-0058) represents a significant shift in EP posture on labour migration: by creating an EU-level mechanism for attracting skilled workers from third countries, the Parliament is recognising that demographic gaps (Germany's working-age population shrinking; labour shortage in healthcare, IT, engineering) cannot be solved by internal EU mobility alone. This positions the EU against the UK's post-Brexit "points-based" system — a direct competitive response.
-
-**Confidence:** 🟢 HIGH
-
-#### S3. Gender Pay Gap — Monitoring without Mandating
-The gender pay and pension gap text (TA-10-2026-0074) adds to an accumulating evidence base but does not create new enforcement mechanisms. The EP's role here is agenda-setting — maintaining political pressure on Commission and Council to act on the pay transparency data that will emerge from the 2023 Pay Transparency Directive.
-
-**Confidence:** 🟡 MEDIUM
-
-#### S4. AI Social Impact
-The copyright/AI text (TA-10-2026-0066) is explicitly about the social distribution of AI economic gains: creators (authors, artists, journalists, coders) vs. AI companies. The Parliament's position reflects an attempt to preserve human creative labour markets against substitution. The outcome will shape AI's social acceptability among key professional communities.
-
-**Confidence:** 🟡 MEDIUM — legislative text; actual enforcement will determine impact
-
----
-
-### T — Technological Factors
-
-#### T1. AI Governance Architecture Completion
-Three AI texts in March 2026 represent the finalisation of a governance architecture that has been under construction since the 2021 AI Act proposal:
-- **Layer 1** (International): Council of Europe Convention — rights-based, non-binding for private sector
-- **Layer 2** (EU sectoral regulation): AI Act — risk-tiered, binding for providers/deployers in EU
-- **Layer 3** (Specific applications): Copyright AI — rights of creators vs. training data
-
-The challenge: these layers were designed sequentially by different bodies and are not internally consistent. Harmonisation is a multi-year judicial and regulatory process.
-
-**Confidence:** 🟢 HIGH on architecture | 🟡 MEDIUM on coherence
-
-#### T2. Defence Technology Integration
-The single market for defence extends beyond procurement to technology: joint development of next-generation military platforms (hypersonics, AI-enabled weapons systems, space-based intelligence) requires a harmonised export control and technology transfer framework. The adopted texts initiate this process but do not complete it.
-
-**Confidence:** 🟡 MEDIUM
-
-#### T3. Green Technology Regulatory Signal
-Vehicle emission credits (TA-10-2026-0084) and water pollutants (TA-10-2026-0093) reflect continued EP commitment to environmental standards, but the credits text suggests regulatory adjustment under industry pressure — a recurrent pattern in EU environmental legislation where phase-in periods are extended post-adoption.
-
-**Confidence:** 🟡 MEDIUM
-
----
-
-### L — Legal Factors
-
-#### L1. Constitutional Dimension of Defence Texts
-Extending the internal market to defence goods requires careful navigation of member state sovereignty under Article 346 TFEU. The adopted texts work within existing treaty limits but push political expectation beyond what treaty law currently guarantees. Any member state court challenge could slow implementation.
-
-**Confidence:** 🟡 MEDIUM
-
-#### L2. Banking Resolution Legal Architecture
-The deposit guarantee and resolution texts build on the Deposit Guarantee Schemes Directive (DGSD), Bank Recovery and Resolution Directive (BRRD), and Single Resolution Mechanism Regulation (SRMR). Legal coherence with existing texts is technically demanding; implementation errors could create legal gaps that sophisticated creditors exploit in future bank resolutions.
-
-**Confidence:** 🟡 MEDIUM
-
-#### L3. Anti-Corruption Framework Legal Gaps
-The anti-corruption text (TA-10-2026-0094) advances harmonised criminal law definitions for corruption, building on the 2023 anti-corruption directive proposal. Effectiveness depends on national courts; the constitutional limits on EU criminal law jurisdiction remain a soft ceiling on enforcement.
-
-**Confidence:** 🟡 MEDIUM
-
-#### L4. EU Insolvency Harmonisation
-The insolvency law harmonisation text (TA-10-2026-0057) advances a long-standing Commission proposal to level the playing field for cross-border business insolvency — historically fragmented by 27 national systems. This is primarily of interest to cross-border creditors, private equity, and restructuring professionals. Long-run economic impact could be significant by improving capital allocation efficiency.
-
-**Confidence:** 🟡 MEDIUM
-
----
-
-### En — Environmental Factors
-
-#### En1. Emissions Regulation Under Industry Pressure
-The vehicle emissions credits text (TA-10-2026-0084) adjusts emission credit calculations for heavy-duty vehicles during the 2025 reporting period. The technical amendment suggests ongoing tension between the EP's climate commitments (net-zero 2050) and industry lobbying for regulatory flexibility. Historical pattern: EU environmental legislation is systematically weakened during implementation phase compared to original ambitions.
-
-**Confidence:** 🟢 HIGH
-
-#### En2. Water Pollutants — New Priority Substances
-The surface water and groundwater pollutants text (TA-10-2026-0093) adds new priority substances to the Water Framework Directive, including pharmaceutical residues and PFAS ("forever chemicals"). This is technically significant for the water treatment industry and has implications for member state infrastructure investment requirements over the next decade.
-
-**Confidence:** 🟢 HIGH
-
-#### En3. Defence vs. Environment Tension
-The rapid expansion of EU defence expenditure and industrial capacity creates a sustainability tension: defence manufacturing is among the highest-carbon industrial processes. The EP has not yet developed a coherent framework reconciling the urgency of defence sovereignty with climate goals. This tension will intensify as defence texts are implemented.
-
-**Confidence:** 🟡 MEDIUM — structural tension; policy resolution unclear
-
----
-
-### PESTLE Summary Matrix
-
-| Factor | Significance | Direction | Confidence |
-|--------|-------------|-----------|------------|
-| Political: Coalition fragmentation | HIGH | → Stable short-term | 🟢 |
-| Political: Defence consensus | CRITICAL | ↗️ Accelerating | 🟢 |
-| Economic: German recession | HIGH | ↘️ Structural concern | 🟢 |
-| Economic: Banking reform | HIGH | ↗️ Reducing systemic risk | 🟡 |
-| Social: Housing crisis | HIGH | ↘️ Worsening | 🟢 |
-| Social: Labour migration | MEDIUM | ↗️ Progressive improvement | 🟢 |
-| Technological: AI governance | HIGH | → Under construction | 🟡 |
-| Technological: Defence tech | HIGH | ↗️ Accelerating | 🟡 |
-| Legal: Defence treaty limits | MEDIUM | → Monitoring required | 🟡 |
-| Legal: Banking architecture | HIGH | ↗️ Improving | 🟡 |
-| Environmental: Emissions | MEDIUM | ↘️ Under pressure | 🟢 |
-| Environmental: Water quality | MEDIUM | ↗️ Improving (new standards) | 🟢 |
-
-### Historical Baseline
-
-### 1. Legislative Productivity in Historical Context
-
-#### 1.1 EP10 Legislative Output (June 2024 – April 2026)
-
-The European Parliament's tenth term (EP10, elected June 2024) has operated for approximately 22 months by April 2026. The March 2026 plenary session — producing 22+ significant adopted texts — represents one of the most productive single-month legislative outputs since EP10's inception.
-
-**Historical Comparison Points:**
-- **EP9 (2019–2024)**: Peak legislative months typically corresponded to end-of-term rushes (Q1 2024) and post-COVID emergency legislation (2020). Monthly averages: 8–12 significant texts per month in normal operation, 20–30 in peak months.
-- **EP8 (2014–2019)**: The Digital Single Market period (2017–2019) was the most productive; the Banking Recovery and Resolution Directive (2014) was EP8's equivalent to EP10's March 2026 banking package.
-- **EP7 (2009–2014)**: Post-financial crisis; the Banking Union's birth. The original Single Supervisory Mechanism Regulation (2013) and BRRD (2014) were foundational. EP10's deposit guarantee reform builds on and completes this edifice.
-
-**Assessment:** March 2026 legislative volume is **above average** for a non-end-of-term month but consistent with the accelerated pace of the EP10's first 18 months, driven by geopolitical urgency (defence, security) and institutional continuity (Von der Leyen II).
-
----
-
-#### 1.2 Analogical Comparisons
-
-**Parallel 1: The 1986 Single European Act acceleration**
-The SEA transformed a stalled common market into a functioning internal market in under 7 years. Key mechanism: qualified majority voting replaced unanimity for internal market legislation. The current defence single-market push is structurally analogous — a political decision to treat a previously exempt domain (defence) under standard internal market rules.
-*Lessons: SEA succeeded because industry lobbied hard for it (cost of fragmentation argument); political leadership (Delors Commission, Kohl/Mitterrand political will) created momentum; implementation took a decade of secondary legislation.*
-
-**Parallel 2: The 2009–2014 Banking Union response**
-The eurozone crisis produced the banking union framework within 36 months of decision-making — historically fast for an institution that typically takes 8–10 years for major constitutional change. EP10's March 2026 banking union completion closes the chapter opened by Lehman Brothers in 2008 — an 18-year institutional arc.
-*Lessons: Crisis-driven integration is faster but creates residual gaps (EDIS never fully implemented); political sustainability depends on Germany's acceptance, which remains incomplete.*
-
-**Parallel 3: GDPR as AI governance template**
-GDPR (adopted 2016, effective 2018) established the "Brussels Effect" — the global export of EU regulatory standards through market access requirements. The AI Act is attempting the same for AI. The March 2026 AI governance texts (Convention + simplification + copyright) suggest the EU is learning from GDPR: start ambitious, calibrate during implementation, but maintain regulatory leadership.
-*Lessons: GDPR's actual enforcement was slower and less uniform than anticipated; AI Act faces the same challenge but in a faster-moving technology landscape.*
-
----
-
-### 2. Political Baseline Comparisons
-
-#### 2.1 Group Composition Historical Trends
-
-| Term | EPP seats | S&D seats | Liberal seats | Far-right seats | Greens seats |
-|------|-----------|-----------|--------------|-----------------|--------------|
-| EP7 (2009) | 265 | 184 | 84 | ~30 | 55 |
-| EP8 (2014) | 221 | 191 | 67 | ~52 | 50 |
-| EP9 (2019) | 182 | 154 | 108 | ~60+74 | 74 |
-| EP10 (2024) | 185 | 135 | 77 | 85+81 | 53 |
-
-**Trend Analysis:**
-- EPP has maintained relative stability at 182–265 seats across four terms, while having shifted right under pressure from its own nationalist wings
-- S&D has declined systematically from 184 (EP7) to 135 (EP10) — a 27% loss over 15 years, reflecting the fragmentation of European social democracy
-- Liberal/centrist group grew dramatically in EP9 (Macron's En Marche joined) but retreated in EP10 (French Renew losses)
-- Far-right representation has grown from ~30 seats (EP7) to ~166 combined PfE+ECR (EP10) — a 5× increase in 15 years
-
-**Historical Significance:** EP10's fragmentation (ENP=6.57) is the highest in the EP's history. The emergence of a numerically comparable right-wing bloc to the S&D (PfE+ECR: 166 seats vs. S&D: 135 seats) changes the coalition calculus fundamentally compared to all previous EP terms.
-
----
-
-#### 2.2 Defence Integration Historical Timeline
-
-| Year | Event | Significance |
-|------|-------|-------------|
-| 1954 | European Defence Community rejected | France rejects first attempt at EU defence integration |
-| 1992 | Maastricht Treaty CFSP | Common Foreign and Security Policy created — intergovernmental |
-| 1999 | ESDP/CSDP created | European Security and Defence Policy; civilian missions |
-| 2009 | Lisbon Treaty Article 42 TEU | Mutual defence clause; structured cooperation (PESCO) |
-| 2017 | PESCO launched | First defence procurement cooperation framework |
-| 2021–22 | Strategic Compass | EU's first defence strategy; Russian invasion accelerant |
-| 2024 | Defence Industrial Strategy | Commission's first integrated defence industrial policy |
-| **2026** | **Single Market for Defence adopted** | **Paradigm shift: defence treated as internal market sector** |
-
-**Historical Conclusion:** The March 2026 adoption is the culmination of a 72-year arc (1954–2026) of failed and partial attempts at European defence integration. Each prior attempt failed due to member state sovereignty concerns; the 2026 texts succeed because Russia's ongoing aggression has created a permissive political environment that overrides historical objections.
-
----
-
-### 3. Banking Union Historical Arc (2008–2026)
-
-| Year | Event |
-|------|-------|
-| 2008 | Lehman Brothers collapse; uncoordinated national bank bail-outs |
-| 2010 | Greek sovereign debt crisis; bank-sovereign doom loop identified |
-| 2012 | Van Rompuy report; banking union proposed |
-| 2013 | Single Supervisory Mechanism Regulation |
-| 2014 | BRRD and SRM Regulation (first pillar completed) |
-| 2015–2023 | EDIS stalled (German opposition) |
-| 2024 | Commission revised proposal for EDIS |
-| **2026-03** | **Deposit guarantee reform + resolution funding (partial completion)** |
-
-**Historical Assessment:** The March 2026 banking union completion is significant but partial. Germany's resistance to full EDIS (deposit mutualisation) has resulted in a compromise framework that is better than the pre-2026 status quo but falls short of the 2012 Van Rompuy ambition. The 18-year implementation arc from crisis to reform reflects the EU's structural preference for incremental progress over comprehensive solutions.
-
----
-
-### 4. AI Governance Historical Context
-
-| Year | Event |
-|------|-------|
-| 2016 | GDPR adopted (AI-neutral) |
-| 2018 | AI Ethics Guidelines (expert group) |
-| 2021 | AI Act proposed by Commission |
-| 2022 | ChatGPT changes public AI discourse |
-| 2023 | AI Act amended for generative AI |
-| 2024 | AI Act adopted (August 2024) |
-| 2025 | First AI Act provisions enter into force |
-| **2026-03** | **CoE AI Convention; AI Act simplification; copyright/AI** |
-
-**Historical Lesson:** The EU's AI governance journey mirrors GDPR's trajectory: proposal to adoption takes 3–5 years; the real battles are in implementation (which the simplification texts are already pre-fighting). The 2022 generative AI disruption forced mid-stream amendments — suggesting the framework will continue to evolve faster than traditional EU legislative cycles.
-
----
-
-### Cross-References
-
-- `intelligence/synthesis-summary.md` §2 for current month's cluster analysis
-- `intelligence/scenario-forecast.md` §2 for analogical forecasting
-- `intelligence/economic-context.md` for economic historical data
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 > **Attribution:** Economic indicator data sourced from World Bank Open Data (CC BY 4.0).
@@ -1761,6 +1443,324 @@ The political conditions in the UK are gradually shifting. UK GDP growth has und
 **Summary Intelligence Assessment:** The current wildcard landscape is unusually dense — multiple moderate-probability, high-impact events cluster around the 2026–2027 horizon. The EU Parliament's March 2026 legislative harvest has created positive forward momentum, but the implementation environment faces structural fragility from German economic weakness, parliamentary fragmentation, and geopolitical volatility. The balance of wildcards is bimodal: some (W-01, W-06, W-07) would strengthen EU integration momentum; others (W-02, W-03, W-04, W-05) would test the resilience of the newly adopted frameworks under stress conditions.
 
 **Confidence:** 🔴 LOW on specific probabilities | 🟢 HIGH on structural logic of each scenario
+
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### PESTLE Framework Overview
+
+```mermaid
+mindmap
+  root((EU Parliament\nMarch-April 2026\nPESTLE))
+    P[Political]
+      EPP anchored majority
+      Defence cross-party consensus
+      Enlargement reaffirmed
+      Coalition fragmentation
+    E[Economic]
+      Germany recession
+      Banking union reformed
+      European Semester 2026
+      Defence economy emerging
+    S[Social]
+      Housing crisis pressure
+      Labour migration reform
+      Gender pay gap attention
+      AI social impact
+    T[Technological]
+      AI governance trifecta
+      Defence tech integration
+      Copyright disruption
+      Digital single market
+    L[Legal]
+      Banking union completed
+      CoE AI Convention
+      Anti-corruption framework
+      Insolvency harmonisation
+    En[Environmental]
+      Vehicle emissions credits
+      Water pollutants regulation
+      Defence sustainability tension
+      Green transition funding gap
+```
+
+---
+
+### P — Political Factors
+
+#### P1. Coalition Architecture
+The EP10 Parliament operates under extreme fragmentation (ENP=6.57). No single group holds majority or even 30% of seats. The EPP at 25.7% is the largest player but a necessary-yet-insufficient coalition anchor. The productive legislative month of March 2026 is explained by the rare convergence of:
+- **Geopolitical urgency** (Ukraine war, US strategic ambiguity) creating permissive conditions for defence texts that override ideological divisions
+- **Technical consensus** on banking union closure after a decade of German-led resistance
+- **Momentum** from the EP's 2024–2025 institutional agenda
+
+**Confidence:** 🟢 HIGH — coalition arithmetic from real EP MEP data
+
+#### P2. EPP Strategic Positioning
+The EPP's decision to lead on defence integration while also driving the banking union completion reflects a sophisticated strategy: by occupying both the security-right and the regulatory-centre, EPP locks out PfE and ECR from alternative coalition-building while maintaining S&D as an indispensable partner. This is not coincidental — EPP leadership under current President von der Leyen aligned with EP leadership is executing a pre-planned programme.
+
+**Confidence:** 🟡 MEDIUM — inferred from voting coalition patterns and public positioning
+
+#### P3. Sovereignist Right Fragmentation
+PfE (85 seats, 11.82%) and ECR (81 seats, 11.27%) together hold 23% of seats but diverge on defence. ECR's pro-Ukraine/NATO stance aligns with EPP on defence texts; PfE's Eurosceptic nationalism creates a split. This fragmentation of the right-wing opposition is a structural asset for the pro-EU majority in 2026.
+
+**Confidence:** 🟢 HIGH — group composition and positional analysis
+
+#### P4. Enlargement as Political Signal
+Parliament's enlargement strategy text (TA-10-2026-0077) — passed with broad majority support — signals that EP10 maintains the transformative ambition of EU enlargement despite geopolitical complexity and internal reform requirements. However, the text creates political accountability: if Council and Commission fail to advance accession, Parliament's resolutions will increasingly function as political indictments.
+
+**Confidence:** 🟡 MEDIUM
+
+---
+
+### E — Economic Factors
+
+#### E1. Asymmetric Growth Trajectories
+The EU's economic geography is fracturing. Germany, the historically dominant engine, contracted -0.87% (2023) and -0.5% (2024). France grew +1.44% (2023) and +1.19% (2024). This divergence undermines the single interest rate/fiscal coordination assumption underpinning the eurozone. The European Semester 2026 (TA-10-2026-0075) operates in this context, requiring coherent fiscal messaging for 28 member economies with divergent cyclical positions.
+
+**Confidence:** 🟢 HIGH — World Bank data, official DE/FR statistics
+
+#### E2. Banking System Stabilisation
+The deposit guarantee and resolution reforms adopted in March 2026 address the residual moral hazard and cross-border resolution weakness in the EU banking architecture. The ECB's rate cycle (2022–2025) created balance sheet stress in bank loan books; the new harmonised rules provide a political backstop. ECB supervisory data (not publicly available) likely shows elevated NPL ratios in some peripheral markets, making the March adoption prudent.
+
+**Confidence:** 🟡 MEDIUM — institutional logic sound; actual bank stress data not disclosed
+
+#### E3. Defence Economy as Structural Shift
+The adoption of a single market for defence and flagship joint projects is, economically, the creation of a new industrial policy sector at EU level. Conservative estimates suggest €30–40B annual procurement inefficiency from current fragmentation. A unified framework will create consolidation pressure on European defence primes (Airbus, Leonardo, KNDS, Rheinmetall), with implications for employment, trade, and technology policy across France, Germany, Italy, Spain, and Poland.
+
+**Confidence:** 🟡 MEDIUM — Commission estimates; private sector response still emerging
+
+#### E4. Housing Market Structural Failure
+The housing crisis resolution (TA-10-2026-0064) acknowledges a structural supply deficit across European cities — identified as a key cost-of-living contributor and social inequality driver. However, without binding EU-level instruments (housing is largely national competence), the resolution is politically but not legally consequential. Key economic pressure: major cities (Amsterdam, Paris, Berlin, Stockholm) face housing cost-to-income ratios at 3–5× historical norms.
+
+**Confidence:** 🟢 HIGH on diagnosis | 🔴 LOW on remedy
+
+#### E5. Trade Environment Deterioration
+The WTO 14th Ministerial positioning (TA-10-2026-0086) and tariff adjustments (China, various) reflect an EU trade policy on the defensive. US trade escalation, China's export surplus in EVs and tech, and multilateral system fragmentation create structural headwinds for EU export competitiveness. IMF WEO April 2026 projects modest global trade recovery (forecast ~3.0–3.5%), but this masks significant fragmentation between aligned and non-aligned trade blocs.
+
+**Confidence:** 🟡 MEDIUM — IMF projections labelled as forecast
+
+---
+
+### S — Social Factors
+
+#### S1. Housing Inequality as Political Mobiliser
+Across EU member states, housing costs are the leading reported concern for voters under 40. The EP's housing crisis resolution reflects this political pressure: a parliamentary response to constituent demand even when the legislative toolkit is limited. Social cohesion implications are significant — cities unable to retain essential workers due to housing costs face service quality deterioration feeding political alienation.
+
+**Confidence:** 🟢 HIGH
+
+#### S2. Labour Migration Reform (EU Talent Pool)
+The EU Talent Pool (TA-10-2026-0058) represents a significant shift in EP posture on labour migration: by creating an EU-level mechanism for attracting skilled workers from third countries, the Parliament is recognising that demographic gaps (Germany's working-age population shrinking; labour shortage in healthcare, IT, engineering) cannot be solved by internal EU mobility alone. This positions the EU against the UK's post-Brexit "points-based" system — a direct competitive response.
+
+**Confidence:** 🟢 HIGH
+
+#### S3. Gender Pay Gap — Monitoring without Mandating
+The gender pay and pension gap text (TA-10-2026-0074) adds to an accumulating evidence base but does not create new enforcement mechanisms. The EP's role here is agenda-setting — maintaining political pressure on Commission and Council to act on the pay transparency data that will emerge from the 2023 Pay Transparency Directive.
+
+**Confidence:** 🟡 MEDIUM
+
+#### S4. AI Social Impact
+The copyright/AI text (TA-10-2026-0066) is explicitly about the social distribution of AI economic gains: creators (authors, artists, journalists, coders) vs. AI companies. The Parliament's position reflects an attempt to preserve human creative labour markets against substitution. The outcome will shape AI's social acceptability among key professional communities.
+
+**Confidence:** 🟡 MEDIUM — legislative text; actual enforcement will determine impact
+
+---
+
+### T — Technological Factors
+
+#### T1. AI Governance Architecture Completion
+Three AI texts in March 2026 represent the finalisation of a governance architecture that has been under construction since the 2021 AI Act proposal:
+- **Layer 1** (International): Council of Europe Convention — rights-based, non-binding for private sector
+- **Layer 2** (EU sectoral regulation): AI Act — risk-tiered, binding for providers/deployers in EU
+- **Layer 3** (Specific applications): Copyright AI — rights of creators vs. training data
+
+The challenge: these layers were designed sequentially by different bodies and are not internally consistent. Harmonisation is a multi-year judicial and regulatory process.
+
+**Confidence:** 🟢 HIGH on architecture | 🟡 MEDIUM on coherence
+
+#### T2. Defence Technology Integration
+The single market for defence extends beyond procurement to technology: joint development of next-generation military platforms (hypersonics, AI-enabled weapons systems, space-based intelligence) requires a harmonised export control and technology transfer framework. The adopted texts initiate this process but do not complete it.
+
+**Confidence:** 🟡 MEDIUM
+
+#### T3. Green Technology Regulatory Signal
+Vehicle emission credits (TA-10-2026-0084) and water pollutants (TA-10-2026-0093) reflect continued EP commitment to environmental standards, but the credits text suggests regulatory adjustment under industry pressure — a recurrent pattern in EU environmental legislation where phase-in periods are extended post-adoption.
+
+**Confidence:** 🟡 MEDIUM
+
+---
+
+### L — Legal Factors
+
+#### L1. Constitutional Dimension of Defence Texts
+Extending the internal market to defence goods requires careful navigation of member state sovereignty under Article 346 TFEU. The adopted texts work within existing treaty limits but push political expectation beyond what treaty law currently guarantees. Any member state court challenge could slow implementation.
+
+**Confidence:** 🟡 MEDIUM
+
+#### L2. Banking Resolution Legal Architecture
+The deposit guarantee and resolution texts build on the Deposit Guarantee Schemes Directive (DGSD), Bank Recovery and Resolution Directive (BRRD), and Single Resolution Mechanism Regulation (SRMR). Legal coherence with existing texts is technically demanding; implementation errors could create legal gaps that sophisticated creditors exploit in future bank resolutions.
+
+**Confidence:** 🟡 MEDIUM
+
+#### L3. Anti-Corruption Framework Legal Gaps
+The anti-corruption text (TA-10-2026-0094) advances harmonised criminal law definitions for corruption, building on the 2023 anti-corruption directive proposal. Effectiveness depends on national courts; the constitutional limits on EU criminal law jurisdiction remain a soft ceiling on enforcement.
+
+**Confidence:** 🟡 MEDIUM
+
+#### L4. EU Insolvency Harmonisation
+The insolvency law harmonisation text (TA-10-2026-0057) advances a long-standing Commission proposal to level the playing field for cross-border business insolvency — historically fragmented by 27 national systems. This is primarily of interest to cross-border creditors, private equity, and restructuring professionals. Long-run economic impact could be significant by improving capital allocation efficiency.
+
+**Confidence:** 🟡 MEDIUM
+
+---
+
+### En — Environmental Factors
+
+#### En1. Emissions Regulation Under Industry Pressure
+The vehicle emissions credits text (TA-10-2026-0084) adjusts emission credit calculations for heavy-duty vehicles during the 2025 reporting period. The technical amendment suggests ongoing tension between the EP's climate commitments (net-zero 2050) and industry lobbying for regulatory flexibility. Historical pattern: EU environmental legislation is systematically weakened during implementation phase compared to original ambitions.
+
+**Confidence:** 🟢 HIGH
+
+#### En2. Water Pollutants — New Priority Substances
+The surface water and groundwater pollutants text (TA-10-2026-0093) adds new priority substances to the Water Framework Directive, including pharmaceutical residues and PFAS ("forever chemicals"). This is technically significant for the water treatment industry and has implications for member state infrastructure investment requirements over the next decade.
+
+**Confidence:** 🟢 HIGH
+
+#### En3. Defence vs. Environment Tension
+The rapid expansion of EU defence expenditure and industrial capacity creates a sustainability tension: defence manufacturing is among the highest-carbon industrial processes. The EP has not yet developed a coherent framework reconciling the urgency of defence sovereignty with climate goals. This tension will intensify as defence texts are implemented.
+
+**Confidence:** 🟡 MEDIUM — structural tension; policy resolution unclear
+
+---
+
+### PESTLE Summary Matrix
+
+| Factor | Significance | Direction | Confidence |
+|--------|-------------|-----------|------------|
+| Political: Coalition fragmentation | HIGH | → Stable short-term | 🟢 |
+| Political: Defence consensus | CRITICAL | ↗️ Accelerating | 🟢 |
+| Economic: German recession | HIGH | ↘️ Structural concern | 🟢 |
+| Economic: Banking reform | HIGH | ↗️ Reducing systemic risk | 🟡 |
+| Social: Housing crisis | HIGH | ↘️ Worsening | 🟢 |
+| Social: Labour migration | MEDIUM | ↗️ Progressive improvement | 🟢 |
+| Technological: AI governance | HIGH | → Under construction | 🟡 |
+| Technological: Defence tech | HIGH | ↗️ Accelerating | 🟡 |
+| Legal: Defence treaty limits | MEDIUM | → Monitoring required | 🟡 |
+| Legal: Banking architecture | HIGH | ↗️ Improving | 🟡 |
+| Environmental: Emissions | MEDIUM | ↘️ Under pressure | 🟢 |
+| Environmental: Water quality | MEDIUM | ↗️ Improving (new standards) | 🟢 |
+
+### Historical Baseline
+
+### 1. Legislative Productivity in Historical Context
+
+#### 1.1 EP10 Legislative Output (June 2024 – April 2026)
+
+The European Parliament's tenth term (EP10, elected June 2024) has operated for approximately 22 months by April 2026. The March 2026 plenary session — producing 22+ significant adopted texts — represents one of the most productive single-month legislative outputs since EP10's inception.
+
+**Historical Comparison Points:**
+- **EP9 (2019–2024)**: Peak legislative months typically corresponded to end-of-term rushes (Q1 2024) and post-COVID emergency legislation (2020). Monthly averages: 8–12 significant texts per month in normal operation, 20–30 in peak months.
+- **EP8 (2014–2019)**: The Digital Single Market period (2017–2019) was the most productive; the Banking Recovery and Resolution Directive (2014) was EP8's equivalent to EP10's March 2026 banking package.
+- **EP7 (2009–2014)**: Post-financial crisis; the Banking Union's birth. The original Single Supervisory Mechanism Regulation (2013) and BRRD (2014) were foundational. EP10's deposit guarantee reform builds on and completes this edifice.
+
+**Assessment:** March 2026 legislative volume is **above average** for a non-end-of-term month but consistent with the accelerated pace of the EP10's first 18 months, driven by geopolitical urgency (defence, security) and institutional continuity (Von der Leyen II).
+
+---
+
+#### 1.2 Analogical Comparisons
+
+**Parallel 1: The 1986 Single European Act acceleration**
+The SEA transformed a stalled common market into a functioning internal market in under 7 years. Key mechanism: qualified majority voting replaced unanimity for internal market legislation. The current defence single-market push is structurally analogous — a political decision to treat a previously exempt domain (defence) under standard internal market rules.
+*Lessons: SEA succeeded because industry lobbied hard for it (cost of fragmentation argument); political leadership (Delors Commission, Kohl/Mitterrand political will) created momentum; implementation took a decade of secondary legislation.*
+
+**Parallel 2: The 2009–2014 Banking Union response**
+The eurozone crisis produced the banking union framework within 36 months of decision-making — historically fast for an institution that typically takes 8–10 years for major constitutional change. EP10's March 2026 banking union completion closes the chapter opened by Lehman Brothers in 2008 — an 18-year institutional arc.
+*Lessons: Crisis-driven integration is faster but creates residual gaps (EDIS never fully implemented); political sustainability depends on Germany's acceptance, which remains incomplete.*
+
+**Parallel 3: GDPR as AI governance template**
+GDPR (adopted 2016, effective 2018) established the "Brussels Effect" — the global export of EU regulatory standards through market access requirements. The AI Act is attempting the same for AI. The March 2026 AI governance texts (Convention + simplification + copyright) suggest the EU is learning from GDPR: start ambitious, calibrate during implementation, but maintain regulatory leadership.
+*Lessons: GDPR's actual enforcement was slower and less uniform than anticipated; AI Act faces the same challenge but in a faster-moving technology landscape.*
+
+---
+
+### 2. Political Baseline Comparisons
+
+#### 2.1 Group Composition Historical Trends
+
+| Term | EPP seats | S&D seats | Liberal seats | Far-right seats | Greens seats |
+|------|-----------|-----------|--------------|-----------------|--------------|
+| EP7 (2009) | 265 | 184 | 84 | ~30 | 55 |
+| EP8 (2014) | 221 | 191 | 67 | ~52 | 50 |
+| EP9 (2019) | 182 | 154 | 108 | ~60+74 | 74 |
+| EP10 (2024) | 185 | 135 | 77 | 85+81 | 53 |
+
+**Trend Analysis:**
+- EPP has maintained relative stability at 182–265 seats across four terms, while having shifted right under pressure from its own nationalist wings
+- S&D has declined systematically from 184 (EP7) to 135 (EP10) — a 27% loss over 15 years, reflecting the fragmentation of European social democracy
+- Liberal/centrist group grew dramatically in EP9 (Macron's En Marche joined) but retreated in EP10 (French Renew losses)
+- Far-right representation has grown from ~30 seats (EP7) to ~166 combined PfE+ECR (EP10) — a 5× increase in 15 years
+
+**Historical Significance:** EP10's fragmentation (ENP=6.57) is the highest in the EP's history. The emergence of a numerically comparable right-wing bloc to the S&D (PfE+ECR: 166 seats vs. S&D: 135 seats) changes the coalition calculus fundamentally compared to all previous EP terms.
+
+---
+
+#### 2.2 Defence Integration Historical Timeline
+
+| Year | Event | Significance |
+|------|-------|-------------|
+| 1954 | European Defence Community rejected | France rejects first attempt at EU defence integration |
+| 1992 | Maastricht Treaty CFSP | Common Foreign and Security Policy created — intergovernmental |
+| 1999 | ESDP/CSDP created | European Security and Defence Policy; civilian missions |
+| 2009 | Lisbon Treaty Article 42 TEU | Mutual defence clause; structured cooperation (PESCO) |
+| 2017 | PESCO launched | First defence procurement cooperation framework |
+| 2021–22 | Strategic Compass | EU's first defence strategy; Russian invasion accelerant |
+| 2024 | Defence Industrial Strategy | Commission's first integrated defence industrial policy |
+| **2026** | **Single Market for Defence adopted** | **Paradigm shift: defence treated as internal market sector** |
+
+**Historical Conclusion:** The March 2026 adoption is the culmination of a 72-year arc (1954–2026) of failed and partial attempts at European defence integration. Each prior attempt failed due to member state sovereignty concerns; the 2026 texts succeed because Russia's ongoing aggression has created a permissive political environment that overrides historical objections.
+
+---
+
+### 3. Banking Union Historical Arc (2008–2026)
+
+| Year | Event |
+|------|-------|
+| 2008 | Lehman Brothers collapse; uncoordinated national bank bail-outs |
+| 2010 | Greek sovereign debt crisis; bank-sovereign doom loop identified |
+| 2012 | Van Rompuy report; banking union proposed |
+| 2013 | Single Supervisory Mechanism Regulation |
+| 2014 | BRRD and SRM Regulation (first pillar completed) |
+| 2015–2023 | EDIS stalled (German opposition) |
+| 2024 | Commission revised proposal for EDIS |
+| **2026-03** | **Deposit guarantee reform + resolution funding (partial completion)** |
+
+**Historical Assessment:** The March 2026 banking union completion is significant but partial. Germany's resistance to full EDIS (deposit mutualisation) has resulted in a compromise framework that is better than the pre-2026 status quo but falls short of the 2012 Van Rompuy ambition. The 18-year implementation arc from crisis to reform reflects the EU's structural preference for incremental progress over comprehensive solutions.
+
+---
+
+### 4. AI Governance Historical Context
+
+| Year | Event |
+|------|-------|
+| 2016 | GDPR adopted (AI-neutral) |
+| 2018 | AI Ethics Guidelines (expert group) |
+| 2021 | AI Act proposed by Commission |
+| 2022 | ChatGPT changes public AI discourse |
+| 2023 | AI Act amended for generative AI |
+| 2024 | AI Act adopted (August 2024) |
+| 2025 | First AI Act provisions enter into force |
+| **2026-03** | **CoE AI Convention; AI Act simplification; copyright/AI** |
+
+**Historical Lesson:** The EU's AI governance journey mirrors GDPR's trajectory: proposal to adoption takes 3–5 years; the real battles are in implementation (which the simplification texts are already pre-fighting). The 2022 generative AI disruption forced mid-stream amendments — suggesting the framework will continue to evolve faster than traditional EU legislative cycles.
+
+---
+
+### Cross-References
+
+- `intelligence/synthesis-summary.md` §2 for current month's cluster analysis
+- `intelligence/scenario-forecast.md` §2 for analogical forecasting
+- `intelligence/economic-context.md` for economic historical data
 
 <h2 id="section-continuity">Cross-Run Continuity</h2>
 
@@ -2746,14 +2746,14 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-coalitions-voting | [voting-patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/voting-patterns.md) | `intelligence/voting-patterns.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/threat-model.md) | `intelligence/threat-model.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-continuity | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/cross-session-intelligence.md) | `intelligence/cross-session-intelligence.md` |
 | section-continuity | [session-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/existing/session-baseline.md) | `existing/session-baseline.md` |
 | section-continuity | [session-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-27/month-in-review/intelligence/session-baseline.md) | `intelligence/session-baseline.md` |

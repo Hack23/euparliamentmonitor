@@ -1434,183 +1434,6 @@ If the directive reaches Council adoption, TI-EU's monitoring work shifts to imp
 
 *Sources: EBF position papers, DIGITALEUROPE survey Q1 2026, ETUC statements, Transparency International EU press releases, World Bank Governance Indicators 2024. No personal data processed.*
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### Political
-
-**P1 — Right-Centre Parliamentary Majority is Durable But Complex**
-EP10's right-leaning political composition (right bloc 52.3%) provides a durable majority for EPP-ECR-Renew coalitions on economic files, but requires active management. The minimum winning coalition of 3 groups means every piece of legislation is a coalition negotiation. EPP President Manfred Weber's strategic positioning as the indispensable pivot between the grand coalition and the right-centre coalition has elevated EPP's institutional leverage. However, this dual-facing strategy creates internal EPP tension as left and right wings pull in opposite directions.
-
-**P2 — PfE's Strategic Isolation**
-The Patriots for Europe group (84 seats, led by RN/Lega/Fidesz) voted against all five major March 26 legislative clusters, confirming a pattern of systematic opposition. This is politically unusual for a group of its size — historically, groups seek coalition leverage on at least some files. PfE's isolation may reflect Orbán's behind-the-scenes veto on any cooperation that could be read as legitimising EU institutional authority.
-
-**P3 — ECR as Decisive Swing Group**
-ECR (79 seats) is the most analytically interesting group. Its composition spans: Giorgia Meloni's governing Italian delegation (FdI), Poland's Zjednoczona Prawica, and smaller Baltic/Nordic conservatives. On some files (AI deregulation, limited migration measures) ECR provides the decisive margin; on others (banking union, anti-corruption) ECR splits internally, with Italian MEPs increasingly aligning with the EPP mainstream.
-
-**P4 — Council-Parliament Tension**
-Hungary and Poland's governments are actively lobbying against the anti-corruption directive through Council channels, creating a Parliament-Council axis of conflict. This is unusual: typically EP and Council negotiate; here the EP has become the proponent of rule-of-law standards against resistant member states.
-
----
-
-### Economic
-
-**E1 — US Tariff Shock and EU Response**
-The Trump administration's steel and aluminium tariffs (applied from January 2026) have triggered the first systematic EU trade countermeasures since the Section 232 episode of 2018. Parliament's adoption of TA-10-2026-0096/0097 provides the Commission with a €26 billion countermeasure toolkit — but also an off-ramp via negotiated tariff suspension.
-
-**Context (IMF WEO April 2026):** IMF projects EU GDP growth at 1.1% for 2026 (forecast), down from 1.4% in 2025, partly attributable to trade uncertainty. Euro Area manufacturing output contracted 1.2% in Q4 2025. These projections informed EP industrial delegations' urgency on the trade countermeasure vote. *Source: IMF WEO April 2026 — forecast/projection.*
-
-**E2 — Banking Sector Stability Baseline**
-The Banking Union trilogy addresses structural fragility at a pivotal moment. Euro Area banks' non-performing loan ratio has crept up to 2.8% (from 1.9% in 2022) as post-COVID forbearance measures expire. DGSD2's harmonised deposit protection reduces bank-run risk; BRRD3's updated bail-in hierarchy reduces taxpayer exposure. This is economically significant for the 2026-2028 period as central banks normalise rates.
-
-**E3 — AI Competitiveness Imperative**
-EU AI investment lagged US and Chinese levels in 2024-2025. AI startups raised €8.7 billion in EU in 2025 vs €42 billion in US and €28 billion in China (approximate figures). The Digital Omnibus's SME relief provisions respond directly to this gap, targeting the regulatory compliance cost burden estimated at €200,000+ per GPAI model for a small provider.
-
-**E4 — Anti-Corruption Economic Benefits**
-World Bank estimates that corruption costs EU economies €120-190 billion annually through procurement fraud, regulatory capture, and reduced FDI. The directive's asset confiscation and declaration provisions target this directly, with specific relevance for Central/Eastern EU member states where corruption indices remain elevated.
-
----
-
-### Social
-
-**S1 — Housing and Poverty Agenda Momentum**
-TA-10-2026-0064 (Housing crisis, March 10) and TA-10-2026-0049 (Anti-poverty strategy, Feb 12) indicate Parliament building social dossier depth before the summer recess. These resolutions set the frame for Commission legislative proposals expected in Q3 2026. The housing crisis resolution was driven by a broad S&D + Renew + Greens coalition, and notably received EPP support — unusual given housing's typically left-of-centre positioning.
-
-**S2 — Worker Protection in AI Context**
-S&D's conditional approach to AI Digital Omnibus (abstentions rather than opposition) reflects internal debate about balancing competitiveness needs against worker protection. The compromise secured surveillance-related carve-outs that protect collective agreements on AI workplace monitoring. This illustrates how coalition negotiations produce substantive policy modifications, not just vote-trading.
-
-**S3 — Gender Agenda: Pay Gap Directive**
-TA-10-2026-0074 (Gender pay and pension gap, March 11) builds on the Pay Transparency Directive implemented from 2024. This resolution, adopted by a broad majority including many ECR members (breaking with PfE's opposition), signals that gender equality has transitioned from contested to mainstream legislative territory in EP10.
-
----
-
-### Technological
-
-**T1 — AI Governance Paradigm Shift**
-The AI Digital Omnibus represents the first major post-AI Act adjustment, signalling that the AI regulatory cycle is now entering an implementation-and-adjustment phase rather than continuing to expand obligations. This is significant for:
-- European AI startups benefiting from SME exemptions
-- Large American AI companies (OpenAI, Google) watching for EU precedents on GPAI liability
-- The upcoming Council of Europe AI Convention (TA-10-2026-0071) — adopted March 11 — creating a trans-European governance layer
-
-**T2 — Digital Infrastructure Sovereignty**
-TA-10-2026-0022 (European technological sovereignty, January 22) adopted earlier in the year frames the policy context for EU cloud, semiconductor, and connectivity investments. The resolution calls for EU strategic autonomy in 5G/6G and quantum computing — politically relevant as US tech giants face increased EU regulatory scrutiny.
-
-**T3 — Space and Defence Technology Convergence**
-Drone and new warfare systems resolution (TA-10-2026-0020, January 22) and the Flagship European Defence Projects resolution (TA-10-2026-0080, March 11) together indicate Parliament supporting the defence-technology industrial integration that the Commission's European Defence Industrial Strategy is pursuing.
-
----
-
-### Legal
-
-**L1 — Criminal Law Harmonisation Precedent**
-The anti-corruption directive marks the most significant criminal law harmonisation since the Directive on combating fraud against EU financial interests (PIF Directive, 2017). It tests the limits of Article 83 TFEU competence against subsidiarity objections — a legal question that may reach the ECJ. Parliament is asserting a broad interpretation of EU criminal law competence that, if upheld, could pave the way for EU-level criminal standards in other areas (tax evasion, environmental crime).
-
-**L2 — EU-Mercosur Legal Challenge**
-The Court of Justice opinion request (TA-10-2026-0008, January 21) on the EU-Mercosur agreement compatibility with EU Treaties is an extraordinary legal instrument. Parliament is pre-emptively testing whether the agreement's institutional structure is lawful before ratification — potentially delaying or blocking ratification. Legal proceedings may take 18-24 months.
-
-**L3 — AI Liability Framework**
-The Digital Omnibus establishes a single EU AI liability standard, potentially pre-empting divergent national implementations. This creates a legal certainty benefit for AI developers but raises concerns about adequate victim compensation for AI-related harms.
-
----
-
-### Environmental
-
-**Env1 — Climate Neutrality Under Political Pressure**
-TA-10-2026-0031 (Framework for achieving climate neutrality, Feb 10) was adopted with EPP mainstream support but against significant right-wing EPP, ECR, and PfE opposition. The framework sets 2040 targets for net zero, with nuclear and carbon capture as compliance pathways. ECR/PfE opposition is seeking a revision procedure — if triggered, this could delay implementation by 12-18 months.
-
-**Env2 — Environmental Law and the Clean Industrial Deal**
-The Clean Industrial Deal, which is the Commission's central legislative proposal for 2026, is creating an alignment between EPP's competitiveness agenda and environmental ambitions — linking decarbonisation to energy cost reduction. Parliament's support for the CID framework is broad but depends on maintaining this competitiveness narrative.
-
-**Env3 — GMO Resolutions: Agricultural Politics**
-The four GMO objection resolutions (TA-10-2026-0041/0042/0043/0044) adopted in February reflect persistent cross-party agricultural coalitions. Farmers' associations have maintained their 2023-24 protest momentum as a lobbying force, keeping GMO and pesticide regulation on the political agenda.
-
----
-
-*Sources: EP adopted texts 2026, EP generated statistics, IMF WEO April 2026 (forecast data labelled), World Bank institutional estimates.*
-
-### Historical Baseline
-
-### 1. Banking Union: Historical Precedents
-
-#### Parallel: Werner Plan (1970) to Euro (1999)
-The Banking Union's 14-year trajectory (2012-2026) mirrors the Werner Plan's 29-year path to the euro. The Werner Report proposed monetary union in 1970; the Maastricht Treaty locked it in 1992; the euro launched in 1999. Both projects proceeded in fits and starts, blocked by member state sovereignty concerns and revived by crisis pressure.
-
-**Key parallel:** The 2012 sovereign debt crisis that launched Banking Union was the equivalent of the 1992 ERM crisis that accelerated the Maastricht timetable. In both cases, market pressure drove political agreement that institutional negotiation alone could not achieve.
-
-**Lesson:** Financial integration projects in the EU require crisis catalysts. The 2024-2025 rising NPL ratios are the current crisis signal — analogous to 1992-era currency instability. The March 26, 2026 votes represent a Maastricht-equivalent moment for the banking sector.
-
-#### Parallel: US Federal Reserve System (1913)
-The Federal Reserve Act of 1913 created the world's first multi-district central banking framework — an analogous institution-building challenge to the Euro Area's Banking Union. The Fed took 60+ years to achieve full integration of its 12 regional districts.
-
-**EU trajectory:** The ECB + SSM (supervision) + SRM (resolution) + DGSD (deposit insurance) architecture now complete mirrors the Fed's four-function model (monetary policy, supervision, resolution, deposit insurance). EU achieved in 13 years what the US achieved in 80.
-
----
-
-### 2. Trade Policy: Historical Precedents
-
-#### Parallel: Section 232 Steel/Aluminium (2018-2021)
-The 2018 Trump administration's Section 232 steel/aluminium tariffs against EU are the direct predecessor to the current situation. In 2018:
-- EU retaliated with €2.8B countermeasures on targeted US goods
-- Tariffs were suspended after negotiated Global Steel Arrangement (2021)
-- Pattern: escalation → targeted retaliation → negotiated resolution
-
-**Lesson:** The current countermeasure toolkit follows the same pattern. Parliament's March 26, 2026 adoption is consistent with the 2018 precedent — which eventually resolved without full-scale trade war.
-
-**Key difference:** The 2026 toolkit is larger (€26B vs €2.8B) and explicitly includes a suspension pathway in the text itself (a lesson learned from 2018's messier resolution process). This institutional memory suggests de-escalation is more structurally prepared than in 2018.
-
-#### Parallel: US-EU Hormone Beef Dispute (1989-2013)
-The 24-year WTO dispute over US hormone-treated beef exports is a cautionary tale for trade escalation. What began as a single-sector dispute consumed decades of bilateral relations and ended only with a permanent market access arrangement.
-
-**Relevance:** The current steel/aluminium dispute has already lasted 8 years (2018-present, with suspension periods). Without a structural resolution, it risks the beef-dispute pattern of recurring crises.
-
----
-
-### 3. AI Regulation: Historical Precedents
-
-#### Parallel: GDPR Consultation and Adoption (2012-2016)
-The General Data Protection Regulation took 4 years to negotiate and immediately faced industry criticism for compliance costs, anti-competitiveness, and SME burdens. By 2020, GDPR was widely regarded as a global standard that companies worldwide comply with — the Brussels Effect in operation.
-
-**Lesson:** The AI Act (2021-2024) + AI Digital Omnibus (2026) is following the same pattern: initial adoption → industry resistance → pragmatic adjustment → eventual global standard-setting. The Omnibus's SME exemptions are structurally identical to GDPR's SME accommodations.
-
-**Timeline prediction:** Based on GDPR precedent, EU AI standards will achieve significant international adoption by 2029-2031.
-
-#### Parallel: Financial Services Regulation Post-2008
-Post-2008 financial regulation (Basel III, MiFID II, AIFMD) was criticised for complexity and competitiveness impact. European financial firms did not flee to Singapore as feared. The European financial services industry remained globally competitive while improving stability.
-
-**Lesson:** AI regulation critics predicting EU AI company flight to the US/UK are repeating arguments that were made (incorrectly) about EU financial regulation. The pragmatic adjustment represented by the Digital Omnibus is consistent with historical EU regulatory maturation.
-
----
-
-### 4. Anti-Corruption: Historical Precedents
-
-#### Parallel: PIF Directive (2017)
-The Protection of Financial Interests Directive (PIF, 2017) established EU criminal law minimum standards for fraud against the EU budget. It was a precedent for Article 83 TFEU criminal law harmonisation — the same legal basis as the anti-corruption directive.
-
-**PIF adoption pattern:** PIF took 6 years from Commission proposal (2012) to adoption (2017). The anti-corruption directive, using the PIF institutional template, moved faster: proposal 2023, EP adoption 2026 (3 years). This acceleration reflects institutional learning.
-
-**Compliance record:** 8 years after PIF adoption, national transposition remains incomplete in 3 member states. This is the realistic template for anti-corruption directive implementation outcomes.
-
-#### Parallel: UNCAC (2005) Global Implementation
-The UN Convention Against Corruption (2005) established similar minimum international standards. 20 years later, implementation quality varies enormously: transparency leaders (Scandinavia, Netherlands) vs low compliance (many developing nations). The EU directive aims to close the EU internal compliance gap — a more tractable problem than global UNCAC compliance.
-
----
-
-### 5. Historical Success Rates for EP-Adopted Legislation
-
-**Statistical baseline (EP6-EP9 data, EP Open Data Portal):**
-- Legislative acts adopted by EP that receive Council final adoption within 12 months: 67%
-- Legislative acts with 12-24 month Council delay: 22%
-- Legislative acts that never receive Council final adoption: 11%
-
-**For contested political files (criminal law, tax, defence):** Council final adoption within 12 months: 34%; 12-24 months: 41%; never adopted: 25%.
-
-**Implication for current cluster:** The anti-corruption directive falls in the "contested political" category. The 25% never-adopted risk is significant. The Banking Union trilogy, as a primarily technical regulatory file, falls in the "standard" category — 67% within-12-months probability.
-
----
-
-*Sources: EP historical legislative database, Academic literature on EU legislative sociology (Costello/Thomson, Thomson et al. Legislative Success in the EU Council), Council adoption tracking, IMF WEO.*
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 ### 1. EU Macroeconomic Baseline (IMF WEO April 2026)
@@ -2608,6 +2431,183 @@ The single most important monitoring indicator across all black swans and wildca
 
 *Methodology note: Black swan probabilities are inherently imprecise; these figures reflect analytical judgment, not quantitative modelling. Sources: political science scenario literature, EP legislative tracker, political group press statements.*
 
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### Political
+
+**P1 — Right-Centre Parliamentary Majority is Durable But Complex**
+EP10's right-leaning political composition (right bloc 52.3%) provides a durable majority for EPP-ECR-Renew coalitions on economic files, but requires active management. The minimum winning coalition of 3 groups means every piece of legislation is a coalition negotiation. EPP President Manfred Weber's strategic positioning as the indispensable pivot between the grand coalition and the right-centre coalition has elevated EPP's institutional leverage. However, this dual-facing strategy creates internal EPP tension as left and right wings pull in opposite directions.
+
+**P2 — PfE's Strategic Isolation**
+The Patriots for Europe group (84 seats, led by RN/Lega/Fidesz) voted against all five major March 26 legislative clusters, confirming a pattern of systematic opposition. This is politically unusual for a group of its size — historically, groups seek coalition leverage on at least some files. PfE's isolation may reflect Orbán's behind-the-scenes veto on any cooperation that could be read as legitimising EU institutional authority.
+
+**P3 — ECR as Decisive Swing Group**
+ECR (79 seats) is the most analytically interesting group. Its composition spans: Giorgia Meloni's governing Italian delegation (FdI), Poland's Zjednoczona Prawica, and smaller Baltic/Nordic conservatives. On some files (AI deregulation, limited migration measures) ECR provides the decisive margin; on others (banking union, anti-corruption) ECR splits internally, with Italian MEPs increasingly aligning with the EPP mainstream.
+
+**P4 — Council-Parliament Tension**
+Hungary and Poland's governments are actively lobbying against the anti-corruption directive through Council channels, creating a Parliament-Council axis of conflict. This is unusual: typically EP and Council negotiate; here the EP has become the proponent of rule-of-law standards against resistant member states.
+
+---
+
+### Economic
+
+**E1 — US Tariff Shock and EU Response**
+The Trump administration's steel and aluminium tariffs (applied from January 2026) have triggered the first systematic EU trade countermeasures since the Section 232 episode of 2018. Parliament's adoption of TA-10-2026-0096/0097 provides the Commission with a €26 billion countermeasure toolkit — but also an off-ramp via negotiated tariff suspension.
+
+**Context (IMF WEO April 2026):** IMF projects EU GDP growth at 1.1% for 2026 (forecast), down from 1.4% in 2025, partly attributable to trade uncertainty. Euro Area manufacturing output contracted 1.2% in Q4 2025. These projections informed EP industrial delegations' urgency on the trade countermeasure vote. *Source: IMF WEO April 2026 — forecast/projection.*
+
+**E2 — Banking Sector Stability Baseline**
+The Banking Union trilogy addresses structural fragility at a pivotal moment. Euro Area banks' non-performing loan ratio has crept up to 2.8% (from 1.9% in 2022) as post-COVID forbearance measures expire. DGSD2's harmonised deposit protection reduces bank-run risk; BRRD3's updated bail-in hierarchy reduces taxpayer exposure. This is economically significant for the 2026-2028 period as central banks normalise rates.
+
+**E3 — AI Competitiveness Imperative**
+EU AI investment lagged US and Chinese levels in 2024-2025. AI startups raised €8.7 billion in EU in 2025 vs €42 billion in US and €28 billion in China (approximate figures). The Digital Omnibus's SME relief provisions respond directly to this gap, targeting the regulatory compliance cost burden estimated at €200,000+ per GPAI model for a small provider.
+
+**E4 — Anti-Corruption Economic Benefits**
+World Bank estimates that corruption costs EU economies €120-190 billion annually through procurement fraud, regulatory capture, and reduced FDI. The directive's asset confiscation and declaration provisions target this directly, with specific relevance for Central/Eastern EU member states where corruption indices remain elevated.
+
+---
+
+### Social
+
+**S1 — Housing and Poverty Agenda Momentum**
+TA-10-2026-0064 (Housing crisis, March 10) and TA-10-2026-0049 (Anti-poverty strategy, Feb 12) indicate Parliament building social dossier depth before the summer recess. These resolutions set the frame for Commission legislative proposals expected in Q3 2026. The housing crisis resolution was driven by a broad S&D + Renew + Greens coalition, and notably received EPP support — unusual given housing's typically left-of-centre positioning.
+
+**S2 — Worker Protection in AI Context**
+S&D's conditional approach to AI Digital Omnibus (abstentions rather than opposition) reflects internal debate about balancing competitiveness needs against worker protection. The compromise secured surveillance-related carve-outs that protect collective agreements on AI workplace monitoring. This illustrates how coalition negotiations produce substantive policy modifications, not just vote-trading.
+
+**S3 — Gender Agenda: Pay Gap Directive**
+TA-10-2026-0074 (Gender pay and pension gap, March 11) builds on the Pay Transparency Directive implemented from 2024. This resolution, adopted by a broad majority including many ECR members (breaking with PfE's opposition), signals that gender equality has transitioned from contested to mainstream legislative territory in EP10.
+
+---
+
+### Technological
+
+**T1 — AI Governance Paradigm Shift**
+The AI Digital Omnibus represents the first major post-AI Act adjustment, signalling that the AI regulatory cycle is now entering an implementation-and-adjustment phase rather than continuing to expand obligations. This is significant for:
+- European AI startups benefiting from SME exemptions
+- Large American AI companies (OpenAI, Google) watching for EU precedents on GPAI liability
+- The upcoming Council of Europe AI Convention (TA-10-2026-0071) — adopted March 11 — creating a trans-European governance layer
+
+**T2 — Digital Infrastructure Sovereignty**
+TA-10-2026-0022 (European technological sovereignty, January 22) adopted earlier in the year frames the policy context for EU cloud, semiconductor, and connectivity investments. The resolution calls for EU strategic autonomy in 5G/6G and quantum computing — politically relevant as US tech giants face increased EU regulatory scrutiny.
+
+**T3 — Space and Defence Technology Convergence**
+Drone and new warfare systems resolution (TA-10-2026-0020, January 22) and the Flagship European Defence Projects resolution (TA-10-2026-0080, March 11) together indicate Parliament supporting the defence-technology industrial integration that the Commission's European Defence Industrial Strategy is pursuing.
+
+---
+
+### Legal
+
+**L1 — Criminal Law Harmonisation Precedent**
+The anti-corruption directive marks the most significant criminal law harmonisation since the Directive on combating fraud against EU financial interests (PIF Directive, 2017). It tests the limits of Article 83 TFEU competence against subsidiarity objections — a legal question that may reach the ECJ. Parliament is asserting a broad interpretation of EU criminal law competence that, if upheld, could pave the way for EU-level criminal standards in other areas (tax evasion, environmental crime).
+
+**L2 — EU-Mercosur Legal Challenge**
+The Court of Justice opinion request (TA-10-2026-0008, January 21) on the EU-Mercosur agreement compatibility with EU Treaties is an extraordinary legal instrument. Parliament is pre-emptively testing whether the agreement's institutional structure is lawful before ratification — potentially delaying or blocking ratification. Legal proceedings may take 18-24 months.
+
+**L3 — AI Liability Framework**
+The Digital Omnibus establishes a single EU AI liability standard, potentially pre-empting divergent national implementations. This creates a legal certainty benefit for AI developers but raises concerns about adequate victim compensation for AI-related harms.
+
+---
+
+### Environmental
+
+**Env1 — Climate Neutrality Under Political Pressure**
+TA-10-2026-0031 (Framework for achieving climate neutrality, Feb 10) was adopted with EPP mainstream support but against significant right-wing EPP, ECR, and PfE opposition. The framework sets 2040 targets for net zero, with nuclear and carbon capture as compliance pathways. ECR/PfE opposition is seeking a revision procedure — if triggered, this could delay implementation by 12-18 months.
+
+**Env2 — Environmental Law and the Clean Industrial Deal**
+The Clean Industrial Deal, which is the Commission's central legislative proposal for 2026, is creating an alignment between EPP's competitiveness agenda and environmental ambitions — linking decarbonisation to energy cost reduction. Parliament's support for the CID framework is broad but depends on maintaining this competitiveness narrative.
+
+**Env3 — GMO Resolutions: Agricultural Politics**
+The four GMO objection resolutions (TA-10-2026-0041/0042/0043/0044) adopted in February reflect persistent cross-party agricultural coalitions. Farmers' associations have maintained their 2023-24 protest momentum as a lobbying force, keeping GMO and pesticide regulation on the political agenda.
+
+---
+
+*Sources: EP adopted texts 2026, EP generated statistics, IMF WEO April 2026 (forecast data labelled), World Bank institutional estimates.*
+
+### Historical Baseline
+
+### 1. Banking Union: Historical Precedents
+
+#### Parallel: Werner Plan (1970) to Euro (1999)
+The Banking Union's 14-year trajectory (2012-2026) mirrors the Werner Plan's 29-year path to the euro. The Werner Report proposed monetary union in 1970; the Maastricht Treaty locked it in 1992; the euro launched in 1999. Both projects proceeded in fits and starts, blocked by member state sovereignty concerns and revived by crisis pressure.
+
+**Key parallel:** The 2012 sovereign debt crisis that launched Banking Union was the equivalent of the 1992 ERM crisis that accelerated the Maastricht timetable. In both cases, market pressure drove political agreement that institutional negotiation alone could not achieve.
+
+**Lesson:** Financial integration projects in the EU require crisis catalysts. The 2024-2025 rising NPL ratios are the current crisis signal — analogous to 1992-era currency instability. The March 26, 2026 votes represent a Maastricht-equivalent moment for the banking sector.
+
+#### Parallel: US Federal Reserve System (1913)
+The Federal Reserve Act of 1913 created the world's first multi-district central banking framework — an analogous institution-building challenge to the Euro Area's Banking Union. The Fed took 60+ years to achieve full integration of its 12 regional districts.
+
+**EU trajectory:** The ECB + SSM (supervision) + SRM (resolution) + DGSD (deposit insurance) architecture now complete mirrors the Fed's four-function model (monetary policy, supervision, resolution, deposit insurance). EU achieved in 13 years what the US achieved in 80.
+
+---
+
+### 2. Trade Policy: Historical Precedents
+
+#### Parallel: Section 232 Steel/Aluminium (2018-2021)
+The 2018 Trump administration's Section 232 steel/aluminium tariffs against EU are the direct predecessor to the current situation. In 2018:
+- EU retaliated with €2.8B countermeasures on targeted US goods
+- Tariffs were suspended after negotiated Global Steel Arrangement (2021)
+- Pattern: escalation → targeted retaliation → negotiated resolution
+
+**Lesson:** The current countermeasure toolkit follows the same pattern. Parliament's March 26, 2026 adoption is consistent with the 2018 precedent — which eventually resolved without full-scale trade war.
+
+**Key difference:** The 2026 toolkit is larger (€26B vs €2.8B) and explicitly includes a suspension pathway in the text itself (a lesson learned from 2018's messier resolution process). This institutional memory suggests de-escalation is more structurally prepared than in 2018.
+
+#### Parallel: US-EU Hormone Beef Dispute (1989-2013)
+The 24-year WTO dispute over US hormone-treated beef exports is a cautionary tale for trade escalation. What began as a single-sector dispute consumed decades of bilateral relations and ended only with a permanent market access arrangement.
+
+**Relevance:** The current steel/aluminium dispute has already lasted 8 years (2018-present, with suspension periods). Without a structural resolution, it risks the beef-dispute pattern of recurring crises.
+
+---
+
+### 3. AI Regulation: Historical Precedents
+
+#### Parallel: GDPR Consultation and Adoption (2012-2016)
+The General Data Protection Regulation took 4 years to negotiate and immediately faced industry criticism for compliance costs, anti-competitiveness, and SME burdens. By 2020, GDPR was widely regarded as a global standard that companies worldwide comply with — the Brussels Effect in operation.
+
+**Lesson:** The AI Act (2021-2024) + AI Digital Omnibus (2026) is following the same pattern: initial adoption → industry resistance → pragmatic adjustment → eventual global standard-setting. The Omnibus's SME exemptions are structurally identical to GDPR's SME accommodations.
+
+**Timeline prediction:** Based on GDPR precedent, EU AI standards will achieve significant international adoption by 2029-2031.
+
+#### Parallel: Financial Services Regulation Post-2008
+Post-2008 financial regulation (Basel III, MiFID II, AIFMD) was criticised for complexity and competitiveness impact. European financial firms did not flee to Singapore as feared. The European financial services industry remained globally competitive while improving stability.
+
+**Lesson:** AI regulation critics predicting EU AI company flight to the US/UK are repeating arguments that were made (incorrectly) about EU financial regulation. The pragmatic adjustment represented by the Digital Omnibus is consistent with historical EU regulatory maturation.
+
+---
+
+### 4. Anti-Corruption: Historical Precedents
+
+#### Parallel: PIF Directive (2017)
+The Protection of Financial Interests Directive (PIF, 2017) established EU criminal law minimum standards for fraud against the EU budget. It was a precedent for Article 83 TFEU criminal law harmonisation — the same legal basis as the anti-corruption directive.
+
+**PIF adoption pattern:** PIF took 6 years from Commission proposal (2012) to adoption (2017). The anti-corruption directive, using the PIF institutional template, moved faster: proposal 2023, EP adoption 2026 (3 years). This acceleration reflects institutional learning.
+
+**Compliance record:** 8 years after PIF adoption, national transposition remains incomplete in 3 member states. This is the realistic template for anti-corruption directive implementation outcomes.
+
+#### Parallel: UNCAC (2005) Global Implementation
+The UN Convention Against Corruption (2005) established similar minimum international standards. 20 years later, implementation quality varies enormously: transparency leaders (Scandinavia, Netherlands) vs low compliance (many developing nations). The EU directive aims to close the EU internal compliance gap — a more tractable problem than global UNCAC compliance.
+
+---
+
+### 5. Historical Success Rates for EP-Adopted Legislation
+
+**Statistical baseline (EP6-EP9 data, EP Open Data Portal):**
+- Legislative acts adopted by EP that receive Council final adoption within 12 months: 67%
+- Legislative acts with 12-24 month Council delay: 22%
+- Legislative acts that never receive Council final adoption: 11%
+
+**For contested political files (criminal law, tax, defence):** Council final adoption within 12 months: 34%; 12-24 months: 41%; never adopted: 25%.
+
+**Implication for current cluster:** The anti-corruption directive falls in the "contested political" category. The 25% never-adopted risk is significant. The Banking Union trilogy, as a primarily technical regulatory file, falls in the "standard" category — 67% within-12-months probability.
+
+---
+
+*Sources: EP historical legislative database, Academic literature on EU legislative sociology (Costello/Thomson, Thomson et al. Legislative Success in the EU Council), Council adoption tracking, IMF WEO.*
+
 <h2 id="section-deep-analysis">Deep Analysis</h2>
 
 ### 1. EP10 Legislative Architecture: Structural Analysis
@@ -2828,8 +2828,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-coalitions-voting | [voting-patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/motions/existing/voting-patterns.md) | `existing/voting-patterns.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/motions/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
 | section-stakeholder-map | [stakeholder-impact](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/motions/existing/stakeholder-impact.md) | `existing/stakeholder-impact.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/motions/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/motions/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/motions/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/motions/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/motions/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
@@ -2839,5 +2837,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [legislative-disruption](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/motions/threat-assessment/legislative-disruption.md) | `threat-assessment/legislative-disruption.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/motions/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/motions/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/motions/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/motions/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-deep-analysis | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/motions/existing/deep-analysis.md) | `existing/deep-analysis.md` |
 

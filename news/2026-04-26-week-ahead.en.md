@@ -606,391 +606,6 @@ quadrantChart
     "EU Citizens": [0.40, 0.82]
 ```
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### 1. Political Dimension
-
-#### 1.1 EP Political Landscape
-
-The European Parliament's 10th term continues under conditions of **HIGH fragmentation** with a multi-coalition majority required for every substantive vote. The EPP (38% of seats in current dataset) is the dominant force but cannot govern alone. The operative grand coalition is EPP+S&D (60 seats combined), sitting precisely at the theoretical majority threshold.
-
-**Key political dynamics for April 27–30:**
-
-- **EPP Strategy:** The EPP under Manfred Weber's leadership enters the April plenary with accumulated legislative capital from Q1 2026 — Banking Union, AI governance, and Defence package all delivered. The party's challenge is preventing coalition fatigue while managing right flank pressure from PfE and ECR on immigration, digital sovereignty, and budget priorities. 🟢 High confidence: EPP will seek to frame the week as "Europe delivers" narrative.
-
-- **S&D Positioning:** Iratxe García Pérez's S&D group will enter the week focused on social dimension — pressing for implementation speed on DGSD2 depositor protection, housing follow-through, and employment policies from the European Semester text (TA-10-2026-0076). S&D faces internal tension between southern members demanding faster social transfers and northern fiscal hawks. 🟡 Medium confidence.
-
-- **PfE and ECR Bloc:** The combined right-populist bloc (PfE 11 + ECR 8 = 19 seats) will probe for procedural opportunities to refer legislation back to committee or extract national carve-outs in defence and digital sovereignty debates. Their greatest leverage point is in AFET/BUDG joint committee work on defence financing. 🟡 Medium confidence.
-
-- **Greens/EFA (10 seats):** Entering the session under pressure after March's climate neutrality framework vote (TA-10-2026-0031), which the Greens backed but with concerns about the 2050 flexibility clauses. They will watch implementation language closely and may table amendments or oral questions on renewable energy transition timelines.
-
-- **Renew Europe (5 seats):** Diminished in EP10, Renew enters the April session as swing-vote arbiter on AI and single market items. Their support was critical for the Digital Omnibus on AI and will be needed again for follow-on tech regulation.
-
-- **The Left (2 seats) and NI (4 seats):** Minor roles but The Left will be vocal on social policy and housing. NI members include highly unpredictable MEPs who may cause procedural surprises.
-
-#### 1.2 External Political Environment
-
-The session takes place amid continuing Russia-Ukraine conflict, US tariff uncertainty post-March EU-US tariff adjustment legislation, and pre-summer geopolitical positioning. The EP's role in the EU-Mercosur Agreement's Court of Justice compatibility request (TA-10-2026-0008) adds a trade law dimension to the political landscape.
-
-**Forward signal:** Hungary's continued institutional friction within the Council creates potential for EP-Council trilogue deadlocks on the autumn legislative docket, which the April session may pre-empt through non-binding resolutions.
-
----
-
-### 2. Economic Dimension
-
-#### 2.1 Eurozone Context
-
-The April 2026 session follows the European Semester's employment and social priorities text (TA-10-2026-0076, adopted March 11). The ECB Vice-President appointment (TA-10-2026-0060) indicates ongoing institutional transition at the ECB. Key economic backdrop factors:
-
-- **Banking Union implementation:** BRRD3/SRMR3/DGSD2 package passed March 26. Financial sector will be watching for Commission delegated acts timelines, particularly on the Single Resolution Mechanism recalibration (SRMR3). 🟢 High impact on eurozone stability. Admiralty Grade B2.
-
-- **US tariff landscape:** The EU-US tariff adjustment legislation (TA-10-2026-0096) reflects ongoing trade friction. EP INTA committee will likely hold follow-up hearings. WTO 14th Ministerial Conference (Yaoundé, late March 2026) outcomes are still being digested.
-
-- **EU Talent Pool (TA-10-2026-0058):** Adopted March 10, this legislation creates a new framework for third-country skilled worker admission. Economic impacts on labour markets, particularly in healthcare, technology, and agriculture, will become more salient through 2026.
-
-#### 2.2 Economic Risk Indicators
-
-| Risk | Probability | Economic Impact | Admr. Grade |
-|------|-------------|----------------|-------------|
-| BRRD3 delegated acts delayed > 6 months | 🟡 40% | Medium — reduces bank resolution clarity | B2 |
-| US tariff escalation beyond March adjustment | 🟡 35% | High — trade flow disruption | C2 |
-| Ukraine financing gap emerges | 🔴 20% | High — sovereign credit impact | B3 |
-| Eurozone inflation resurgence | 🔴 15% | High — ECB rate path disruption | B2 |
-
----
-
-### 3. Social Dimension
-
-#### 3.1 Housing and Poverty
-
-The March 10 housing crisis resolution (TA-10-2026-0064) and anti-poverty strategy text (TA-10-2026-0049, Feb 12) represent the EP's social policy priorities. The April session's social dimension will focus on:
-
-- **Housing implementation:** Pressure on Commission to table a legislative proposal following the resolution. S&D and Greens will ask pointed oral questions about DG REGIO's timeline. 🟡 Medium probability of Commission response this week.
-
-- **Gender pay gap:** The March 11 text on gender pay and pension gap (TA-10-2026-0074) will feed into broader social equality debate. FEMM committee will be active.
-
-- **Just transition:** The January 2026 just transition directive text (TA-10-2026-0003) affects millions of workers in carbon-intensive industries. Trade unions and social partners monitoring EP oversight role.
-
-#### 3.2 Migration and Social Cohesion
-
-The February 2026 safe countries of origin (TA-10-2026-0025) and safe third country concept (TA-10-2026-0026) adoptions mark a legislative watershed in EP immigration policy. The April session will see:
-
-- Right-populist bloc (PfE/ECR) claiming credit and pushing for faster implementation
-- S&D and Greens warning about rule-of-law safeguards
-- Commission response on implementation timelines for LIBE committee
-
-Social cohesion risk: 🟡 Medium. The immigration vote split has deepened the EP's ideological cleavage on migration policy. Any new human rights emergency (conflict displacement, natural disaster) could rapidly escalate parliamentary temperature. 🟡 Medium probability over 7-day window.
-
----
-
-### 4. Technological Dimension
-
-#### 4.1 AI and Digital Governance
-
-April 2026 marks the **post-adoption monitoring phase** for the EU's landmark AI governance architecture:
-
-- **AI Act simplification (TA-10-2026-0098):** The Digital Omnibus on AI, adopted March 26, reduces compliance burdens for SMEs and creates clearer tiering for high-risk AI systems. The Commission must now publish implementing regulations. EP IMCO/LIBE will hold joint hearings.
-
-- **Council of Europe AI Convention (TA-10-2026-0071):** The March 11 ratification of the CoE Framework Convention on AI and Human Rights establishes a multilateral compliance architecture. This is the first binding international AI treaty and has significant geopolitical implications — EP's role in monitoring third-country compliance will grow.
-
-- **Copyright and generative AI (TA-10-2026-0066):** The March 10 text on copyright and generative AI creates a new framework for creative sector protections. Implementation debates ongoing. CULT and JURI committees active.
-
-- **Technological sovereignty (TA-10-2026-0022):** The January 22 text on European technological sovereignty and digital infrastructure sets a strategic agenda for ITRE committee through 2026.
-
-#### 4.2 Technology Risk Matrix
-
-| Technology Domain | Legislative Phase | Risk Level | Key Actor |
-|------------------|------------------|------------|-----------|
-| AI governance | Implementation | 🟡 Medium | IMCO/LIBE |
-| Digital infrastructure | Strategy setting | 🟡 Medium | ITRE |
-| Copyright/GenAI | Early implementation | 🔴 High friction | JURI/CULT |
-| Cybersecurity (NIS2 follow-on) | Monitoring | 🟢 Low | ITRE/LIBE |
-
----
-
-### 5. Legal and Institutional Dimension
-
-#### 5.1 Rule of Law and Institutional Affairs
-
-Key legal developments framing the April session:
-
-- **European Chief Prosecutor appointment (TA-10-2026-0062):** Adopted March 10. The new EPPO leadership will affect anti-corruption enforcement across EU institutions. CONT and LIBE committees have oversight roles.
-
-- **Anti-corruption legislation (TA-10-2026-0094):** Adopted March 26. The EP has now a mandated anti-corruption monitoring function that creates internal institutional accountability pressure.
-
-- **Public access to documents (TA-10-2026-0065):** The March 10 text on document access covers 2022–2024. AFCO committee will monitor implementation.
-
-- **Framework Agreement EP-Commission (TA-10-2026-0069):** The renewed EP-Commission relations framework, adopted March 11, governs information-sharing and committee oversight rights. The April session will test these arrangements in practice.
-
-#### 5.2 EU-Mercosur and International Law
-
-The January 21 request for ECJ opinion on EU-Mercosur compatibility (TA-10-2026-0008) creates a legal uncertainty that will colour INTA committee discussions through 2026. Any preliminary ECJ signal — even informal — would reshape the trade debate.
-
----
-
-### 6. Environmental Dimension
-
-#### 6.1 Climate and Environmental Policy
-
-The EP's environmental legislative slate for early 2026 includes:
-
-- **Framework for achieving climate neutrality (TA-10-2026-0031):** Adopted February 10. The 2050 climate neutrality framework with flexibility clauses. Greens/EFA accepted reluctantly. Post-adoption: scrutiny of Commission's delegation of implementation powers.
-
-- **Surface water and groundwater pollutants (TA-10-2026-0093):** Adopted March 26. New EU water quality framework. ENVI committee will be monitoring transposition.
-
-- **Emission credits for heavy-duty vehicles (TA-10-2026-0084):** March 12 adoption. Transitional emission credits for 2025–2029 affect the automotive sector's decarbonisation trajectory.
-
-- **Fisheries management (TA-10-2026-0067):** March 10 adoption. Covers sensitive species protection and invasive species management.
-
-#### 6.2 Environmental Risk Assessment
-
-| Domain | Legislative Status | Implementation Risk | Political Controversy |
-|--------|-------------------|---------------------|----------------------|
-| Climate neutrality 2050 | Adopted | 🟡 Medium | 🟡 Moderate (EPP flexibility vs Greens ambition) |
-| Water quality | Adopted | 🟢 Low | 🟢 Low |
-| Heavy-duty vehicle emissions | Adopted | 🟡 Medium | 🟡 Moderate (automotive lobby) |
-| Fisheries | Adopted | 🟡 Medium | 🔴 High (coastal state conflicts) |
-
----
-
-### PESTLE Summary Matrix
-
-| Dimension | Intensity | Direction | Confidence |
-|-----------|-----------|-----------|------------|
-| Political | HIGH | Coalition maintenance | 🟡 Medium |
-| Economic | MEDIUM | Implementation phase | 🟢 High |
-| Social | MEDIUM-HIGH | Progressive pressure | 🟡 Medium |
-| Technological | HIGH | Post-adoption monitoring | 🟢 High |
-| Legal | MEDIUM | Institutional consolidation | 🟢 High |
-| Environmental | MEDIUM | Post-adoption scrutiny | 🟡 Medium |
-
-**Overall PESTLE assessment:** The April 27–30 plenary session is primarily a **consolidation and oversight week** following Q1's legislative sprint. The highest political risk is coalition stability; the highest programmatic risk is implementation velocity on the Banking Union package; the highest strategic opportunity is establishing the EU's AI governance leadership through the CoE Convention monitoring role.
-
----
-
-### PESTLE Forward Indicators
-
-The following indicators should trigger a PESTLE reassessment if observed during the April 27–30 session:
-
-| Trigger Event | PESTLE Dimension | Reassessment Priority |
-|--------------|------------------|-----------------------|
-| EPP-PfE joint vote on any immigration item | Political | 🔴 Immediate |
-| US tariff announcement on automotive sector | Economic | 🔴 Immediate |
-| National AI authority enforcement divergence | Technological | 🟡 Within 48h |
-| Russian military incident near NATO border | Political/Legal | 🔴 Immediate |
-| ECB emergency board meeting convened | Economic | 🔴 Immediate |
-| EU member state government collapse | Political | 🟡 Within 24h |
-| New rule-of-law emergency debate | Legal | 🟡 Within 48h |
-
-**PESTLE Confidence Summary:** Political (🟡 Medium — coalition uncertainty), Economic (🟢 High — IMF/ECB data available), Social (🟡 Medium — structural inference), Technological (🟢 High — legislative record complete), Legal (🟢 High — treaty framework clear), Environmental (🟡 Medium — implementation uncertainty).
-
-```mermaid
-quadrantChart
-    title PESTLE Factor Impact vs Certainty
-    x-axis Low Certainty --> High Certainty
-    y-axis Low Impact --> High Impact
-    quadrant-1 Monitor Closely
-    quadrant-2 Manage Proactively
-    quadrant-3 Low Priority
-    quadrant-4 Track Regularly
-    Trade Defense Regulation: [0.72, 0.89]
-    Trilogue Timelines: [0.63, 0.79]
-    AI Act Implementation: [0.70, 0.84]
-    EU Budget Framework: [0.55, 0.71]
-    US Tariff Escalation: [0.41, 0.76]
-    Defence Industrial Base: [0.48, 0.80]
-```
-
-### Historical Baseline
-
-### 1. Prior April Strasbourg Plenaries — Benchmark Data
-
-#### EP10 April 2025 Strasbourg Session
-
-- **Legislative output:** 14 adopted texts in April 2025 sitting
-- **Key items:** AI Liability Directive first reading; European Defence Industry Programme initial framework; Asylum and Migration Management Regulation (first implementation review)
-- **Coalition patterns:** EPP-S&D grand coalition maintained majority; Greens/EFA crossed party lines on energy items
-- **Attendance:** ~680 MEPs present for key votes (estimated 92% of active mandates)
-- **Controversy index:** 3 contested votes (margin <30 seats); 0 failed votes; 2 nominal roll-call procedures
-
-#### EP10 April 2024 Strasbourg Session (first session after EP10 inauguration)
-
-- **Context:** This was the inaugural constitutive session of EP10 (July 2024); April plenaries in the election year were light on substance.
-- **Legislative output:** Mostly administrative (committee composition, EP bureau)
-- **Key items:** Election of EP leadership; committee assignments; coalition negotiations were ongoing
-
-#### EP9 April 2024 Session (pre-election, final substantive session of EP9)
-
-- **Legislative output:** 18 texts in the April 2024 sitting — one of the most productive final sessions in EP history as MEPs rushed to complete the legislative cycle
-- **Key items:** AI Act final vote (historic); Nature Restoration Law implementation; Packaging Regulation; Euro 7 vehicle emissions
-- **Coalition patterns:** Cordon sanitaire held against far-right; EPP broke cordon on Nature Restoration (key signal for EP10 dynamics)
-- **Attendance:** 94% — extremely high for an election-adjacent session
-- **Controversy index:** 5 contested votes; 1 failed vote (Nature Restoration failed once before passing)
-
-#### EP9 April 2022 Strasbourg Session
-
-- **Context:** Ukraine war (entered month 2); energy crisis peak
-- **Legislative output:** 12 adopted texts
-- **Key items:** REPowerEU legislative package early debates; Ukraine solidarity resolution; sanctions package review
-- **Coalition patterns:** Unprecedented consensus across EPP-S&D-Renew-Greens-Left on Ukraine; ECR split (PiS supportive, Orbán-linked elements resistant)
-
----
-
-### 2. Legislative Baseline Benchmarks (EP10 YTD 2026)
-
-#### Monthly Production Rate
-
-Based on the 101 adopted texts retrieved (January–March 2026):
-
-| Month | Texts Adopted | Key Legislation |
-|-------|--------------|----------------|
-| January 2026 | ~28 | Digital infrastructure package; Food security |
-| February 2026 | ~34 | Ukraine Support Loan; Asylum procedures; Anti-fraud |
-| March 2026 | ~39 | Banking Union BRRD3; AI Digital Omnibus; Defence; EPPO; Housing |
-
-**March 2026 was the highest-output month of EP10 so far.** The April session follows this peak output cycle — April sessions typically consolidate and implement rather than initiate new major legislation.
-
-#### Year-on-Year Comparison (EP9 vs EP10 at same point)
-
-At Q1 end in 2022 (EP9 equivalent), the EP had adopted approximately 85 texts. EP10 at Q1 end 2026 shows 101 texts — a 19% productivity increase. This reflects:
-1. The post-COVID efficiency improvements in hybrid meeting procedures
-2. The condensed legislative timeline from Commission's 2026-2030 programme
-3. The urgency created by defence/Ukraine requirements
-
----
-
-### 3. Strasbourg April Plenary Historical Pattern
-
-#### Typical Agenda Structure (Evidence-Based)
-
-Based on EP9/EP10 April sessions, a 4-day Strasbourg plenary in April typically covers:
-
-**Monday afternoon (April 27):**
-- Committee reports on 2–3 items from a major policy area
-- Oral questions to Commission (1–2 batches)
-- Usually: Annual legislation progress review
-
-**Tuesday (April 28):**
-- 4–6 first/second reading votes on legislation
-- Major policy debate (usually the "flagship" item of the session)
-- Oral questions to Council on geopolitical items
-
-**Wednesday (April 29):**
-- Plenary vote on flagship item (if applicable)
-- Budget procedure items (if relevant to cycle)
-- Committee presentations on pending legislation
-
-**Thursday morning (April 30):**
-- Short session: 3–5 remaining votes
-- Adjournment
-
-#### Historical Session Productivity Expectation (April session)
-
-| Metric | EP9 April 2022 | EP9 April 2023 | EP9 April 2024 | Expected EP10 April 2026 |
-|--------|---------------|---------------|---------------|-------------------------|
-| Legislative votes | 8–12 | 10–14 | 14–18 | **10–15** |
-| Oral questions | 4–6 | 4–5 | 3–4 | **3–5** |
-| Urgency debates | 0–1 | 1–2 | 0–1 | **0–2** |
-| Roll-call votes | 3–5 | 4–7 | 5–8 | **4–7** |
-
----
-
-### 4. Forward Statement Baseline (from Prior Runs)
-
-Per the `week-ahead` article type's mandate to carry forward statements with status updates:
-
-#### Forward Statement 1: Banking Union Implementation
-
-**Original statement (March 2026 session analysis):** "The Banking Union legislative package (BRRD3, SRMR3, DGSD2) adopted March 26 will proceed to Commission delegated acts phase in Q2 2026. Monitoring required: scope of depositor protection and resolution timeline."
-
-**Status update as of April 26, 2026:** 🟡 PENDING CONFIRMATION — No Commission communication yet on the delegated acts timeline. The April session's ECON committee agenda will indicate whether hearings have been scheduled.
-
-**Expected next milestone:** Commission delegated acts consultation launch (expected Q2 2026)
-
-#### Forward Statement 2: AI Digital Omnibus
-
-**Original statement (March 2026 session analysis):** "AI Digital Omnibus adopted March 26 creates implementation delegation to Commission. EP IMCO committee retains scrutiny role on AI classification implementing regulations."
-
-**Status update as of April 26, 2026:** 🟡 PENDING — The Omnibus implementing regulation process has a 12-month statutory window. No Commission communication on AI classification rules yet.
-
-**Expected next milestone:** Commission consultation on AI Act implementing regulations (H2 2026)
-
-#### Forward Statement 3: European Defence Flagship Projects
-
-**Original statement (March 2026 session analysis):** "Defence flagship projects regulation adopted March 11 unlocks €15 billion for common procurement. Joint procurement mechanisms require Commission secondary legislation."
-
-**Status update as of April 26, 2026:** 🟡 IN PROGRESS — Commission DG DEFIS began stakeholder consultation in April 2026. The April plenary may see an oral question to Commission on procurement timeline.
-
-**Expected next milestone:** Commission secondary legislation proposal (expected Q3 2026)
-
-#### Forward Statement 4: Asylum Safe-Countries Acceleration
-
-**Original statement (February 2026 session analysis):** "Safe countries/safe third country regulation (February 10) creates fast-track implementation pressure. Council-EP alignment needed for secondary legislation."
-
-**Status update as of April 26, 2026:** 🔴 CONTESTED — PfE-ECR co-tabled a minority view requesting stricter definitions. EPP may face right-flank pressure during April session.
-
-**Expected next milestone:** Council secondary implementing rules (Q2-Q3 2026)
-
----
-
-### 5. Legislative Continuity Assessment
-
-#### Pending Items Entering April Session
-
-Based on the 2026 Q1 legislative record, these items from prior sessions have unresolved elements entering the April plenary:
-
-| Item | Prior Session | Status | April Session Role |
-|------|--------------|--------|-------------------|
-| BRRD3 delegated acts | March 2026 | Commission preparation | Oral question expected |
-| AI Digital Omnibus | March 2026 | Commission preparing | IMCO scrutiny ongoing |
-| Ukraine Support Loan disbursement | February 2026 | Disbursement schedule | Oral question likely |
-| Housing resolution follow-up | March 2026 | Commission to respond | No formal item yet |
-| EPPO appointment confirmation | March 2026 | Confirmed | No further action needed |
-| EU Talent Pool implementation | March 2026 | Commission action needed | No formal item yet |
-
----
-
-### 6. Historical Coalition Stability Metrics
-
-#### EPP-S&D Grand Coalition Resilience (EP10 Baseline)
-
-| Quarter | Joint Votes | Successful Coalitions | Contested (>30-seat margin) | Failed Votes |
-|---------|------------|----------------------|----------------------------|-------------|
-| Q3 2024 | 12 | 10 (83%) | 2 | 0 |
-| Q4 2024 | 18 | 15 (83%) | 3 | 0 |
-| Q1 2025 | 22 | 18 (82%) | 4 | 1 |
-| Q2 2025 | 24 | 20 (83%) | 4 | 0 |
-| Q3–Q4 2025 | 40 | 34 (85%) | 6 | 0 |
-| Q1 2026 | 39 | 34 (87%) | 5 | 0 |
-
-**Trend:** Coalition success rate has improved to 87% in Q1 2026 — the highest in EP10. This reflects the consolidation of working relationships after the difficult EP10 inauguration. The April session enters from a position of coalition strength.
-
-**Historical comparator:** EP9 Q5 (equivalent point) showed a 79% coalition success rate. EP10 is outperforming the EP9 baseline.
-
----
-
-### 7. Key Lessons from Prior April Sessions
-
-1. **Immigration is consistently the stress fracture point** — every April session since 2022 has had at least one contested vote on migration/asylum, with EPP right-flank defections detectable in 3 of 4 sessions.
-
-2. **Post-recess momentum** — The April session following the Easter recess typically sees elevated MEP attendance (>90%) and above-average legislative output. The session is seen as the "return to work" signal.
-
-3. **Commission oral questions** — April sessions consistently feature oral questions to Commission on budget and implementation matters. In 2026, these are most likely to address: Ukraine loan disbursement, Banking Union delegated acts, and AI implementation.
-
-4. **Thursday morning vote quality** — The Thursday final vote typically has 15–25% lower attendance than peak Tuesday/Wednesday. High-stakes items avoid Thursday scheduling.
-
-5. **Media attention cycle** — April sessions in even-numbered years receive above-average media coverage due to proximity to Commission's mid-term programme review.
-
-```mermaid
-xychart-beta
-    title "EP10 Coalition Success Rate by Quarter"
-    x-axis ["Q3 2024","Q4 2024","Q1 2025","Q2 2025","Q3-4 2025","Q1 2026"]
-    y-axis "Success Rate %" 75 --> 95
-    line [83, 83, 82, 83, 85, 87]
-```
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 ### 1. Eurozone Macroeconomic Context
@@ -2156,6 +1771,391 @@ quadrantChart
     Major Electoral Shift: [0.12, 0.70]
 ```
 
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### 1. Political Dimension
+
+#### 1.1 EP Political Landscape
+
+The European Parliament's 10th term continues under conditions of **HIGH fragmentation** with a multi-coalition majority required for every substantive vote. The EPP (38% of seats in current dataset) is the dominant force but cannot govern alone. The operative grand coalition is EPP+S&D (60 seats combined), sitting precisely at the theoretical majority threshold.
+
+**Key political dynamics for April 27–30:**
+
+- **EPP Strategy:** The EPP under Manfred Weber's leadership enters the April plenary with accumulated legislative capital from Q1 2026 — Banking Union, AI governance, and Defence package all delivered. The party's challenge is preventing coalition fatigue while managing right flank pressure from PfE and ECR on immigration, digital sovereignty, and budget priorities. 🟢 High confidence: EPP will seek to frame the week as "Europe delivers" narrative.
+
+- **S&D Positioning:** Iratxe García Pérez's S&D group will enter the week focused on social dimension — pressing for implementation speed on DGSD2 depositor protection, housing follow-through, and employment policies from the European Semester text (TA-10-2026-0076). S&D faces internal tension between southern members demanding faster social transfers and northern fiscal hawks. 🟡 Medium confidence.
+
+- **PfE and ECR Bloc:** The combined right-populist bloc (PfE 11 + ECR 8 = 19 seats) will probe for procedural opportunities to refer legislation back to committee or extract national carve-outs in defence and digital sovereignty debates. Their greatest leverage point is in AFET/BUDG joint committee work on defence financing. 🟡 Medium confidence.
+
+- **Greens/EFA (10 seats):** Entering the session under pressure after March's climate neutrality framework vote (TA-10-2026-0031), which the Greens backed but with concerns about the 2050 flexibility clauses. They will watch implementation language closely and may table amendments or oral questions on renewable energy transition timelines.
+
+- **Renew Europe (5 seats):** Diminished in EP10, Renew enters the April session as swing-vote arbiter on AI and single market items. Their support was critical for the Digital Omnibus on AI and will be needed again for follow-on tech regulation.
+
+- **The Left (2 seats) and NI (4 seats):** Minor roles but The Left will be vocal on social policy and housing. NI members include highly unpredictable MEPs who may cause procedural surprises.
+
+#### 1.2 External Political Environment
+
+The session takes place amid continuing Russia-Ukraine conflict, US tariff uncertainty post-March EU-US tariff adjustment legislation, and pre-summer geopolitical positioning. The EP's role in the EU-Mercosur Agreement's Court of Justice compatibility request (TA-10-2026-0008) adds a trade law dimension to the political landscape.
+
+**Forward signal:** Hungary's continued institutional friction within the Council creates potential for EP-Council trilogue deadlocks on the autumn legislative docket, which the April session may pre-empt through non-binding resolutions.
+
+---
+
+### 2. Economic Dimension
+
+#### 2.1 Eurozone Context
+
+The April 2026 session follows the European Semester's employment and social priorities text (TA-10-2026-0076, adopted March 11). The ECB Vice-President appointment (TA-10-2026-0060) indicates ongoing institutional transition at the ECB. Key economic backdrop factors:
+
+- **Banking Union implementation:** BRRD3/SRMR3/DGSD2 package passed March 26. Financial sector will be watching for Commission delegated acts timelines, particularly on the Single Resolution Mechanism recalibration (SRMR3). 🟢 High impact on eurozone stability. Admiralty Grade B2.
+
+- **US tariff landscape:** The EU-US tariff adjustment legislation (TA-10-2026-0096) reflects ongoing trade friction. EP INTA committee will likely hold follow-up hearings. WTO 14th Ministerial Conference (Yaoundé, late March 2026) outcomes are still being digested.
+
+- **EU Talent Pool (TA-10-2026-0058):** Adopted March 10, this legislation creates a new framework for third-country skilled worker admission. Economic impacts on labour markets, particularly in healthcare, technology, and agriculture, will become more salient through 2026.
+
+#### 2.2 Economic Risk Indicators
+
+| Risk | Probability | Economic Impact | Admr. Grade |
+|------|-------------|----------------|-------------|
+| BRRD3 delegated acts delayed > 6 months | 🟡 40% | Medium — reduces bank resolution clarity | B2 |
+| US tariff escalation beyond March adjustment | 🟡 35% | High — trade flow disruption | C2 |
+| Ukraine financing gap emerges | 🔴 20% | High — sovereign credit impact | B3 |
+| Eurozone inflation resurgence | 🔴 15% | High — ECB rate path disruption | B2 |
+
+---
+
+### 3. Social Dimension
+
+#### 3.1 Housing and Poverty
+
+The March 10 housing crisis resolution (TA-10-2026-0064) and anti-poverty strategy text (TA-10-2026-0049, Feb 12) represent the EP's social policy priorities. The April session's social dimension will focus on:
+
+- **Housing implementation:** Pressure on Commission to table a legislative proposal following the resolution. S&D and Greens will ask pointed oral questions about DG REGIO's timeline. 🟡 Medium probability of Commission response this week.
+
+- **Gender pay gap:** The March 11 text on gender pay and pension gap (TA-10-2026-0074) will feed into broader social equality debate. FEMM committee will be active.
+
+- **Just transition:** The January 2026 just transition directive text (TA-10-2026-0003) affects millions of workers in carbon-intensive industries. Trade unions and social partners monitoring EP oversight role.
+
+#### 3.2 Migration and Social Cohesion
+
+The February 2026 safe countries of origin (TA-10-2026-0025) and safe third country concept (TA-10-2026-0026) adoptions mark a legislative watershed in EP immigration policy. The April session will see:
+
+- Right-populist bloc (PfE/ECR) claiming credit and pushing for faster implementation
+- S&D and Greens warning about rule-of-law safeguards
+- Commission response on implementation timelines for LIBE committee
+
+Social cohesion risk: 🟡 Medium. The immigration vote split has deepened the EP's ideological cleavage on migration policy. Any new human rights emergency (conflict displacement, natural disaster) could rapidly escalate parliamentary temperature. 🟡 Medium probability over 7-day window.
+
+---
+
+### 4. Technological Dimension
+
+#### 4.1 AI and Digital Governance
+
+April 2026 marks the **post-adoption monitoring phase** for the EU's landmark AI governance architecture:
+
+- **AI Act simplification (TA-10-2026-0098):** The Digital Omnibus on AI, adopted March 26, reduces compliance burdens for SMEs and creates clearer tiering for high-risk AI systems. The Commission must now publish implementing regulations. EP IMCO/LIBE will hold joint hearings.
+
+- **Council of Europe AI Convention (TA-10-2026-0071):** The March 11 ratification of the CoE Framework Convention on AI and Human Rights establishes a multilateral compliance architecture. This is the first binding international AI treaty and has significant geopolitical implications — EP's role in monitoring third-country compliance will grow.
+
+- **Copyright and generative AI (TA-10-2026-0066):** The March 10 text on copyright and generative AI creates a new framework for creative sector protections. Implementation debates ongoing. CULT and JURI committees active.
+
+- **Technological sovereignty (TA-10-2026-0022):** The January 22 text on European technological sovereignty and digital infrastructure sets a strategic agenda for ITRE committee through 2026.
+
+#### 4.2 Technology Risk Matrix
+
+| Technology Domain | Legislative Phase | Risk Level | Key Actor |
+|------------------|------------------|------------|-----------|
+| AI governance | Implementation | 🟡 Medium | IMCO/LIBE |
+| Digital infrastructure | Strategy setting | 🟡 Medium | ITRE |
+| Copyright/GenAI | Early implementation | 🔴 High friction | JURI/CULT |
+| Cybersecurity (NIS2 follow-on) | Monitoring | 🟢 Low | ITRE/LIBE |
+
+---
+
+### 5. Legal and Institutional Dimension
+
+#### 5.1 Rule of Law and Institutional Affairs
+
+Key legal developments framing the April session:
+
+- **European Chief Prosecutor appointment (TA-10-2026-0062):** Adopted March 10. The new EPPO leadership will affect anti-corruption enforcement across EU institutions. CONT and LIBE committees have oversight roles.
+
+- **Anti-corruption legislation (TA-10-2026-0094):** Adopted March 26. The EP has now a mandated anti-corruption monitoring function that creates internal institutional accountability pressure.
+
+- **Public access to documents (TA-10-2026-0065):** The March 10 text on document access covers 2022–2024. AFCO committee will monitor implementation.
+
+- **Framework Agreement EP-Commission (TA-10-2026-0069):** The renewed EP-Commission relations framework, adopted March 11, governs information-sharing and committee oversight rights. The April session will test these arrangements in practice.
+
+#### 5.2 EU-Mercosur and International Law
+
+The January 21 request for ECJ opinion on EU-Mercosur compatibility (TA-10-2026-0008) creates a legal uncertainty that will colour INTA committee discussions through 2026. Any preliminary ECJ signal — even informal — would reshape the trade debate.
+
+---
+
+### 6. Environmental Dimension
+
+#### 6.1 Climate and Environmental Policy
+
+The EP's environmental legislative slate for early 2026 includes:
+
+- **Framework for achieving climate neutrality (TA-10-2026-0031):** Adopted February 10. The 2050 climate neutrality framework with flexibility clauses. Greens/EFA accepted reluctantly. Post-adoption: scrutiny of Commission's delegation of implementation powers.
+
+- **Surface water and groundwater pollutants (TA-10-2026-0093):** Adopted March 26. New EU water quality framework. ENVI committee will be monitoring transposition.
+
+- **Emission credits for heavy-duty vehicles (TA-10-2026-0084):** March 12 adoption. Transitional emission credits for 2025–2029 affect the automotive sector's decarbonisation trajectory.
+
+- **Fisheries management (TA-10-2026-0067):** March 10 adoption. Covers sensitive species protection and invasive species management.
+
+#### 6.2 Environmental Risk Assessment
+
+| Domain | Legislative Status | Implementation Risk | Political Controversy |
+|--------|-------------------|---------------------|----------------------|
+| Climate neutrality 2050 | Adopted | 🟡 Medium | 🟡 Moderate (EPP flexibility vs Greens ambition) |
+| Water quality | Adopted | 🟢 Low | 🟢 Low |
+| Heavy-duty vehicle emissions | Adopted | 🟡 Medium | 🟡 Moderate (automotive lobby) |
+| Fisheries | Adopted | 🟡 Medium | 🔴 High (coastal state conflicts) |
+
+---
+
+### PESTLE Summary Matrix
+
+| Dimension | Intensity | Direction | Confidence |
+|-----------|-----------|-----------|------------|
+| Political | HIGH | Coalition maintenance | 🟡 Medium |
+| Economic | MEDIUM | Implementation phase | 🟢 High |
+| Social | MEDIUM-HIGH | Progressive pressure | 🟡 Medium |
+| Technological | HIGH | Post-adoption monitoring | 🟢 High |
+| Legal | MEDIUM | Institutional consolidation | 🟢 High |
+| Environmental | MEDIUM | Post-adoption scrutiny | 🟡 Medium |
+
+**Overall PESTLE assessment:** The April 27–30 plenary session is primarily a **consolidation and oversight week** following Q1's legislative sprint. The highest political risk is coalition stability; the highest programmatic risk is implementation velocity on the Banking Union package; the highest strategic opportunity is establishing the EU's AI governance leadership through the CoE Convention monitoring role.
+
+---
+
+### PESTLE Forward Indicators
+
+The following indicators should trigger a PESTLE reassessment if observed during the April 27–30 session:
+
+| Trigger Event | PESTLE Dimension | Reassessment Priority |
+|--------------|------------------|-----------------------|
+| EPP-PfE joint vote on any immigration item | Political | 🔴 Immediate |
+| US tariff announcement on automotive sector | Economic | 🔴 Immediate |
+| National AI authority enforcement divergence | Technological | 🟡 Within 48h |
+| Russian military incident near NATO border | Political/Legal | 🔴 Immediate |
+| ECB emergency board meeting convened | Economic | 🔴 Immediate |
+| EU member state government collapse | Political | 🟡 Within 24h |
+| New rule-of-law emergency debate | Legal | 🟡 Within 48h |
+
+**PESTLE Confidence Summary:** Political (🟡 Medium — coalition uncertainty), Economic (🟢 High — IMF/ECB data available), Social (🟡 Medium — structural inference), Technological (🟢 High — legislative record complete), Legal (🟢 High — treaty framework clear), Environmental (🟡 Medium — implementation uncertainty).
+
+```mermaid
+quadrantChart
+    title PESTLE Factor Impact vs Certainty
+    x-axis Low Certainty --> High Certainty
+    y-axis Low Impact --> High Impact
+    quadrant-1 Monitor Closely
+    quadrant-2 Manage Proactively
+    quadrant-3 Low Priority
+    quadrant-4 Track Regularly
+    Trade Defense Regulation: [0.72, 0.89]
+    Trilogue Timelines: [0.63, 0.79]
+    AI Act Implementation: [0.70, 0.84]
+    EU Budget Framework: [0.55, 0.71]
+    US Tariff Escalation: [0.41, 0.76]
+    Defence Industrial Base: [0.48, 0.80]
+```
+
+### Historical Baseline
+
+### 1. Prior April Strasbourg Plenaries — Benchmark Data
+
+#### EP10 April 2025 Strasbourg Session
+
+- **Legislative output:** 14 adopted texts in April 2025 sitting
+- **Key items:** AI Liability Directive first reading; European Defence Industry Programme initial framework; Asylum and Migration Management Regulation (first implementation review)
+- **Coalition patterns:** EPP-S&D grand coalition maintained majority; Greens/EFA crossed party lines on energy items
+- **Attendance:** ~680 MEPs present for key votes (estimated 92% of active mandates)
+- **Controversy index:** 3 contested votes (margin <30 seats); 0 failed votes; 2 nominal roll-call procedures
+
+#### EP10 April 2024 Strasbourg Session (first session after EP10 inauguration)
+
+- **Context:** This was the inaugural constitutive session of EP10 (July 2024); April plenaries in the election year were light on substance.
+- **Legislative output:** Mostly administrative (committee composition, EP bureau)
+- **Key items:** Election of EP leadership; committee assignments; coalition negotiations were ongoing
+
+#### EP9 April 2024 Session (pre-election, final substantive session of EP9)
+
+- **Legislative output:** 18 texts in the April 2024 sitting — one of the most productive final sessions in EP history as MEPs rushed to complete the legislative cycle
+- **Key items:** AI Act final vote (historic); Nature Restoration Law implementation; Packaging Regulation; Euro 7 vehicle emissions
+- **Coalition patterns:** Cordon sanitaire held against far-right; EPP broke cordon on Nature Restoration (key signal for EP10 dynamics)
+- **Attendance:** 94% — extremely high for an election-adjacent session
+- **Controversy index:** 5 contested votes; 1 failed vote (Nature Restoration failed once before passing)
+
+#### EP9 April 2022 Strasbourg Session
+
+- **Context:** Ukraine war (entered month 2); energy crisis peak
+- **Legislative output:** 12 adopted texts
+- **Key items:** REPowerEU legislative package early debates; Ukraine solidarity resolution; sanctions package review
+- **Coalition patterns:** Unprecedented consensus across EPP-S&D-Renew-Greens-Left on Ukraine; ECR split (PiS supportive, Orbán-linked elements resistant)
+
+---
+
+### 2. Legislative Baseline Benchmarks (EP10 YTD 2026)
+
+#### Monthly Production Rate
+
+Based on the 101 adopted texts retrieved (January–March 2026):
+
+| Month | Texts Adopted | Key Legislation |
+|-------|--------------|----------------|
+| January 2026 | ~28 | Digital infrastructure package; Food security |
+| February 2026 | ~34 | Ukraine Support Loan; Asylum procedures; Anti-fraud |
+| March 2026 | ~39 | Banking Union BRRD3; AI Digital Omnibus; Defence; EPPO; Housing |
+
+**March 2026 was the highest-output month of EP10 so far.** The April session follows this peak output cycle — April sessions typically consolidate and implement rather than initiate new major legislation.
+
+#### Year-on-Year Comparison (EP9 vs EP10 at same point)
+
+At Q1 end in 2022 (EP9 equivalent), the EP had adopted approximately 85 texts. EP10 at Q1 end 2026 shows 101 texts — a 19% productivity increase. This reflects:
+1. The post-COVID efficiency improvements in hybrid meeting procedures
+2. The condensed legislative timeline from Commission's 2026-2030 programme
+3. The urgency created by defence/Ukraine requirements
+
+---
+
+### 3. Strasbourg April Plenary Historical Pattern
+
+#### Typical Agenda Structure (Evidence-Based)
+
+Based on EP9/EP10 April sessions, a 4-day Strasbourg plenary in April typically covers:
+
+**Monday afternoon (April 27):**
+- Committee reports on 2–3 items from a major policy area
+- Oral questions to Commission (1–2 batches)
+- Usually: Annual legislation progress review
+
+**Tuesday (April 28):**
+- 4–6 first/second reading votes on legislation
+- Major policy debate (usually the "flagship" item of the session)
+- Oral questions to Council on geopolitical items
+
+**Wednesday (April 29):**
+- Plenary vote on flagship item (if applicable)
+- Budget procedure items (if relevant to cycle)
+- Committee presentations on pending legislation
+
+**Thursday morning (April 30):**
+- Short session: 3–5 remaining votes
+- Adjournment
+
+#### Historical Session Productivity Expectation (April session)
+
+| Metric | EP9 April 2022 | EP9 April 2023 | EP9 April 2024 | Expected EP10 April 2026 |
+|--------|---------------|---------------|---------------|-------------------------|
+| Legislative votes | 8–12 | 10–14 | 14–18 | **10–15** |
+| Oral questions | 4–6 | 4–5 | 3–4 | **3–5** |
+| Urgency debates | 0–1 | 1–2 | 0–1 | **0–2** |
+| Roll-call votes | 3–5 | 4–7 | 5–8 | **4–7** |
+
+---
+
+### 4. Forward Statement Baseline (from Prior Runs)
+
+Per the `week-ahead` article type's mandate to carry forward statements with status updates:
+
+#### Forward Statement 1: Banking Union Implementation
+
+**Original statement (March 2026 session analysis):** "The Banking Union legislative package (BRRD3, SRMR3, DGSD2) adopted March 26 will proceed to Commission delegated acts phase in Q2 2026. Monitoring required: scope of depositor protection and resolution timeline."
+
+**Status update as of April 26, 2026:** 🟡 PENDING CONFIRMATION — No Commission communication yet on the delegated acts timeline. The April session's ECON committee agenda will indicate whether hearings have been scheduled.
+
+**Expected next milestone:** Commission delegated acts consultation launch (expected Q2 2026)
+
+#### Forward Statement 2: AI Digital Omnibus
+
+**Original statement (March 2026 session analysis):** "AI Digital Omnibus adopted March 26 creates implementation delegation to Commission. EP IMCO committee retains scrutiny role on AI classification implementing regulations."
+
+**Status update as of April 26, 2026:** 🟡 PENDING — The Omnibus implementing regulation process has a 12-month statutory window. No Commission communication on AI classification rules yet.
+
+**Expected next milestone:** Commission consultation on AI Act implementing regulations (H2 2026)
+
+#### Forward Statement 3: European Defence Flagship Projects
+
+**Original statement (March 2026 session analysis):** "Defence flagship projects regulation adopted March 11 unlocks €15 billion for common procurement. Joint procurement mechanisms require Commission secondary legislation."
+
+**Status update as of April 26, 2026:** 🟡 IN PROGRESS — Commission DG DEFIS began stakeholder consultation in April 2026. The April plenary may see an oral question to Commission on procurement timeline.
+
+**Expected next milestone:** Commission secondary legislation proposal (expected Q3 2026)
+
+#### Forward Statement 4: Asylum Safe-Countries Acceleration
+
+**Original statement (February 2026 session analysis):** "Safe countries/safe third country regulation (February 10) creates fast-track implementation pressure. Council-EP alignment needed for secondary legislation."
+
+**Status update as of April 26, 2026:** 🔴 CONTESTED — PfE-ECR co-tabled a minority view requesting stricter definitions. EPP may face right-flank pressure during April session.
+
+**Expected next milestone:** Council secondary implementing rules (Q2-Q3 2026)
+
+---
+
+### 5. Legislative Continuity Assessment
+
+#### Pending Items Entering April Session
+
+Based on the 2026 Q1 legislative record, these items from prior sessions have unresolved elements entering the April plenary:
+
+| Item | Prior Session | Status | April Session Role |
+|------|--------------|--------|-------------------|
+| BRRD3 delegated acts | March 2026 | Commission preparation | Oral question expected |
+| AI Digital Omnibus | March 2026 | Commission preparing | IMCO scrutiny ongoing |
+| Ukraine Support Loan disbursement | February 2026 | Disbursement schedule | Oral question likely |
+| Housing resolution follow-up | March 2026 | Commission to respond | No formal item yet |
+| EPPO appointment confirmation | March 2026 | Confirmed | No further action needed |
+| EU Talent Pool implementation | March 2026 | Commission action needed | No formal item yet |
+
+---
+
+### 6. Historical Coalition Stability Metrics
+
+#### EPP-S&D Grand Coalition Resilience (EP10 Baseline)
+
+| Quarter | Joint Votes | Successful Coalitions | Contested (>30-seat margin) | Failed Votes |
+|---------|------------|----------------------|----------------------------|-------------|
+| Q3 2024 | 12 | 10 (83%) | 2 | 0 |
+| Q4 2024 | 18 | 15 (83%) | 3 | 0 |
+| Q1 2025 | 22 | 18 (82%) | 4 | 1 |
+| Q2 2025 | 24 | 20 (83%) | 4 | 0 |
+| Q3–Q4 2025 | 40 | 34 (85%) | 6 | 0 |
+| Q1 2026 | 39 | 34 (87%) | 5 | 0 |
+
+**Trend:** Coalition success rate has improved to 87% in Q1 2026 — the highest in EP10. This reflects the consolidation of working relationships after the difficult EP10 inauguration. The April session enters from a position of coalition strength.
+
+**Historical comparator:** EP9 Q5 (equivalent point) showed a 79% coalition success rate. EP10 is outperforming the EP9 baseline.
+
+---
+
+### 7. Key Lessons from Prior April Sessions
+
+1. **Immigration is consistently the stress fracture point** — every April session since 2022 has had at least one contested vote on migration/asylum, with EPP right-flank defections detectable in 3 of 4 sessions.
+
+2. **Post-recess momentum** — The April session following the Easter recess typically sees elevated MEP attendance (>90%) and above-average legislative output. The session is seen as the "return to work" signal.
+
+3. **Commission oral questions** — April sessions consistently feature oral questions to Commission on budget and implementation matters. In 2026, these are most likely to address: Ukraine loan disbursement, Banking Union delegated acts, and AI implementation.
+
+4. **Thursday morning vote quality** — The Thursday final vote typically has 15–25% lower attendance than peak Tuesday/Wednesday. High-stakes items avoid Thursday scheduling.
+
+5. **Media attention cycle** — April sessions in even-numbered years receive above-average media coverage due to proximity to Commission's mid-term programme review.
+
+```mermaid
+xychart-beta
+    title "EP10 Coalition Success Rate by Quarter"
+    x-axis ["Q3 2024","Q4 2024","Q1 2025","Q2 2025","Q3-4 2025","Q1 2026"]
+    y-axis "Success Rate %" 75 --> 95
+    line [83, 83, 82, 83, 85, 87]
+```
+
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
 
 ### 1. Complete Tool Call Log
@@ -3032,14 +3032,14 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/executive-brief.md) | `executive-brief.md` |
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/threat-model.md) | `intelligence/threat-model.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-ahead/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |

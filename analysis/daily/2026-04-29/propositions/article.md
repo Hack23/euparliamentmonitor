@@ -473,183 +473,6 @@ ESN is too small and ideologically extreme to form sustainable coalitions. Its i
 
 *Source: EP Open Data Portal | Run: propositions-run-1777442543 | 2026-04-29*
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### P — Political
-
-**EU-Level Political Dynamics:**
-The April 28 Strasbourg plenary crystallised the fault lines within the 10th European Parliament. The centre-right EPP (185 seats, 25.7%) maintains agenda-setting dominance but is increasingly reliant on selective partnerships with ECR (81), S&D (135), or Renew (77) depending on the issue domain. No stable majority exists without EPP participation, yet EPP's internal diversity — spanning German Christian Democrats, Italian Fratelli-adjacent members, and Polish conservatives — creates recurring discipline problems.
-
-The vote on consent-based rape legislation (TA-10-2026-0120) exemplifies this: EPP's official position was opposed or abstain (per internal group guidance), yet progressive EPP MEPs from Nordic and Western European delegations reportedly joined the S&D/Greens/Left/Renew majority. This intra-EPP tension on social issues mirrors the 2024 European elections result, where EPP gained seats partly by absorbing centre-right voters concerned about immigration and economic competitiveness but did not adopt a socially conservative platform.
-
-**Rule of Law Escalation:**
-The simultaneous processing of five MEP immunity waivers — three Polish (Jaki, Obajtek, Buczek) and one Romanian (Şoşoacă) — is not accidental. The JURI committee has been systematically processing accumulated requests from the previous term. The Jaki, Obajtek, and Buczek cases all relate to Polish domestic judicial proceedings initiated by the post-PiS coalition government led by Donald Tusk. This creates a geopolitical paradox: the Parliament is facilitating judicial proceedings against members affiliated with an EU-friendly government (PiS's successor), while simultaneously monitoring rule-of-law compliance in Hungary and Slovakia under governments it formally criticises.
-
-**Institutional Power Dynamics:**
-The Rule 135 amendment (TA-10-2026-0118) tightening Parliament's oversight of Commission appointments to EU agencies represents an assertion of parliamentary sovereignty. This follows a series of incidents in 2024-2025 where the Commission reportedly failed to adequately consult Parliament before appointing directors to ENISA, ERA, and the EU AI Office. The amendment has procedural teeth: it creates a binding hearing requirement before appointments are confirmed, giving Parliament effective veto capacity.
-
-**Confidence:** 🟡 Medium — Coalition dynamics inferred from structural analysis; vote tallies pending.
-
-### T — Technological
-
-**Digital and AI Policy Landscape:**
-The Council of Europe AI Convention ratification (TA-10-2026-0071, adopted March 2026) established the EU's formal alignment with international AI governance norms. The April 28 session did not include major digital legislation, but the debates reflect an underlying anxiety: the EU AI Act (2024) is entering its implementation phase while AI capabilities are advancing faster than anticipated. The copyright and generative AI adopted text (TA-10-2026-0066, March 2026) opened a policy debate that JURI will need to resolve into binding legislation by Q4 2026.
-
-**Greenhouse Gas Accounting (TA-10-2026-0113):**
-The transport GHG accounting regulation adopted April 28 establishes standardised emissions accounting for transport services — a prerequisite for the EU's carbon border adjustment mechanism (CBAM) to function effectively for transport-intensive goods. This is a technical but strategically important text: it provides the measurement infrastructure for decarbonisation enforcement.
-
-**Biocidal Products Regulation Extension (TA-10-2026-0117):**
-The extension of data protection periods for biocidal products reflects EU regulatory pragmatism: the industry argued that shortened data protection periods were deterring innovation in an economically essential but commercially marginal sector. The compromise extends protection by up to four years for new active substances.
-
-**Confidence:** 🟢 High — Adopted texts provide direct evidence.
-
-### E — Economic
-
-**MFF 2028-2034 — The Structural Fiscal Debate:**
-The interim report on the multiannual financial framework (TA-10-2026-0111) is the dominant economic signal from this session. The EP's position, as expressed in the BUDG committee's draft resolution, calls for a framework of at least €1.1-1.2 trillion (at 2025 prices) — roughly 20% above the 2021-2027 MFF of €1.07 trillion. The Council's austerity wing (Germany, Netherlands, Austria, Sweden) is likely to push for nominal flatness. The gap is approximately €150-200 billion and will be the defining fiscal battle of EP10.
-
-**2027 Budget Guidelines (TA-10-2026-0112):**
-The guidelines for the Commission's 2027 draft budget (Section III — Commission) established three EP priorities:
-1. **Rearmament and defence (↑):** Call for ReArm Europe instrument funding to flow through EU budget; Renew + EPP + ECR alignment
-2. **Green transition (↔):** Maintain climate spending floors from 2024-2027 programming; Greens/EFA + S&D demands
-3. **Social safety net (↔):** European Social Fund Plus (ESF+) baseline protection; S&D + Left red line
-
-**IMF Economic Context (IMF WEO April 2026):**
-Germany's GDP contracted -0.5% in 2024 (following -0.9% in 2023), extending a two-year recession in Europe's largest economy. This fiscal backdrop constrains Germany's historically generous MFF contribution capacity and explains Berlin's push for structural reforms to the EU budget. The EU's aggregate growth outlook (IMF WEO April 2026 projection: ~1.2% for EU27 in 2026) provides a modest but insufficient fiscal base for the ambitious new programmes the EP is demanding. 🔴 **IMF data vintage: WEO April 2026.** All growth/recession figures carry IMF WEO attribution.
-
-**Trade Policy — GSP Reform (TA-10-2026-0114):**
-The generalised scheme of tariff preferences renewal extends EU trade preferences to 67 developing countries. It was adopted with broad support, reflecting a consensus that the EU should maintain trade engagement with Global South partners even as it confronts tariff disputes with the US. The GSP text includes new human rights conditionality provisions — a direct legacy of the 2024 INTA committee work.
-
-**EIB Group Scrutiny (TA-10-2026-0119):**
-Parliament's annual report on the EIB expressed concern that the European Investment Bank was not deploying its €100 billion+ annual financing capacity towards climate-aligned investments at the pace required by the Green Deal. The report called for the EIB to increase the share of climate-aligned lending from the current ~50% to 75% by 2027. This is non-binding but sets political expectations ahead of the EIB's annual budget review.
-
-**Confidence:** 🟡 Medium — Economic data from IMF WEO April 2026 and EP adopted texts. MFF positions are EP-side only; Council positions are not yet formally adopted.
-
-### L — Legal
-
-**Corruption Directive (2023/0135 — enacted March 2026):**
-This is the most significant new legal instrument from the recent period. The EU Corruption Directive (`TA-10-2026-0094`, March 2026) creates:
-- Common definitions of corruption offences across member states
-- Minimum penalties (4-10 years imprisonment for active/passive bribery of public officials)
-- Mandatory asset recovery procedures
-- Whistleblower protection aligned with 2019 Whistleblower Directive
-- EPPO (European Public Prosecutor's Office) jurisdiction for corruption affecting EU funds
-
-The 2028 transposition deadline creates a 2-year window for member states. Compliance risk is highest in Hungary (GRECO ongoing monitoring) and Slovakia (under post-Fico government scrutiny). Poland's transposition is politically complex given the proximity of the Tusk government's anti-corruption agenda to the Directive's requirements — but judicial independence concerns flagged by GRECO remain.
-
-**Consent-Based Rape Legislation (TA-10-2026-0120):**
-This is a non-binding resolution calling on the Commission and Council to adopt minimum EU standards for rape legislation based on consent rather than force/coercion. As a post-Vjosa Osmani precedent (Council of Europe Istanbul Convention), this has strong normative momentum. The legal pathway is complex: criminal law harmonisation requires Article 83 TFEU (serious transnational crime) — rape harmonisation was blocked in 2023 after the Court of Justice ruled it outside the original criminal law directive scope. The April 28 resolution attempts to create a new political mandate for a post-C-608/23 legislative route.
-
-**Dogs & Cats Traceability (TA-10-2026-0115):**
-This is a binding regulation establishing a pan-EU electronic registry for companion animals (dogs and cats), mandatory microchipping requirements, and breeder registration standards. Legal basis: Article 43 TFEU (agriculture and fisheries). This is the first EU-wide instrument directly addressing companion animal welfare — previously regulated only at member-state level.
-
-**Confidence:** 🟢 High — Adopted texts provide definitive legal evidence.
-
-### S — Social
-
-**Animal Welfare as a Social Compact:**
-The dogs and cats welfare regulation reflects changing public attitudes across EU member states. Eurobarometer surveys consistently show >70% of EU citizens support stronger animal welfare laws. The legislative journey — 2023 proposal, AGRI committee adoption 2025, trilogue 2025, plenary April 2026 — took three years but is broadly popular. Opposition came primarily from rural/agricultural MEPs concerned about enforcement costs for small breeders.
-
-**Consent-Based Rape Legislation:**
-The resolution's political framing by S&D, Greens, Left, and feminist MEPs across groups reflects the continued influence of the #MeToo movement and the Istanbul Convention ratification process. The EU's mixed record (not all member states have ratified Istanbul Convention; Poland's 2020 attempt to withdraw was reversed by new government) creates urgency. The April 28 adoption, while non-binding, represents the Parliament's formal position entering any legislative process.
-
-**EGF — Social Safety Net:**
-The European Globalisation Adjustment Fund mobilisation (TA-10-2026-0116) provided support for workers displaced by imminent job displacement — a broadened scope from the 2025 EGF revision. The session approved the framework amendment, not a specific case (unlike earlier EGF approvals for Tupperware/Audi workers). This is an important signal that Parliament is preparing the social safety net infrastructure for anticipated job displacement from green transition and AI automation.
-
-**Ocean Diplomacy and Fishing Communities:**
-The ocean diplomacy resolution (TA-10-2026-0121) addressed the competitive squeeze on EU fishing communities from third-country competitors and highlighted the need for a comprehensive EU maritime strategy that links environmental, economic, and diplomatic considerations. Atlantic fishing communities (Spain, France, Ireland, Portugal) were the primary political constituency behind this resolution.
-
-**Confidence:** 🟡 Medium — Structural analysis of social dynamics; no post-vote MEP statements available.
-
-### E (2) — Environmental
-
-**Transport GHG Accounting (TA-10-2026-0113):**
-This technical regulation establishes standardised methodologies for calculating greenhouse gas emissions from transport services — freight, passenger, multimodal. It is designed to feed into the EU's broader climate accounting architecture and enable the Carbon Border Adjustment Mechanism to cover transport-intensive supply chains. The ENVI committee's rapporteur succeeded in including scope 3 emissions (supply chain) in the accounting framework, a significant win for climate advocates over industry-backed amendments seeking scope 1/2 only.
-
-**EIB Climate Finance Pressure:**
-The annual EIB report's demand for 75% climate alignment by 2027 (up from ~50% current) represents a significant escalation. The EIB's governance structure (member states as shareholders) means this is ultimately a political demand on member state finance ministers as EIB board members. Green transformation investments — offshore wind, hydrogen, electric mobility — are precisely the sectors where private investment is falling short of requirements.
-
-**Dogs & Cats Environmental Nexus:**
-The welfare regulation's traceability provisions also address the illegal wildlife trade — a documented environmental concern where fake pedigree documents and unregulated breeding channels have been used to traffic exotic species alongside companion animals.
-
-**Confidence:** 🟡 Medium — Environmental analysis synthesised from adopted texts and structural analysis.
-
-*Source: EP Open Data Portal | IMF WEO April 2026 | Run: propositions-run-1777442543 | 2026-04-29*
-
-### Historical Baseline
-
-### 1 · MFF Historical Precedents
-
-#### MFF 2021-2027 (Adopted September 2020 — extraordinary European Council)
-The most relevant recent precedent for the April 28 MFF interim report negotiations.
-
-**Key parameters:**
-| Element | Negotiated Outcome | EP Opening | Council Opening |
-|---------|-------------------|-----------|----------------|
-| Total commitment ceiling | €1,074.3B (1.04% GNI) | €1,134B (1.3% GNI) | €1,000B (1.0% GNI) |
-| Recovery Instrument (NGEU) | €750B (off-budget) | N/A (proposed jointly) | Accepted under crisis pressure |
-| Climate tagging | 30% | 30% | 25% |
-| Rule of Law conditionality | Yes (Regulation 2020/2092) | Strong | Weak (Poland/Hungary objections) |
-
-**Implication for 2028-2034:** EP's negotiating pattern is consistent — open high (€1.1-1.2T ambition), accept Council's lower ceiling only with compensatory wins on governance, climate, and social spending floors. The NGEU precedent suggests crisis-driven off-budget instruments are available if Council resists the headline ceiling.
-
-#### MFF 2014-2020 (Adopted December 2013)
-**Total:** €960B (1.00% GNI) — First MFF to be lower in real terms than its predecessor. The austerity era forced EP to accept a lower ceiling in exchange for a mid-term review clause (used to finance refugee and youth employment initiatives in 2016).
-
-**Lesson for 2026-2028 negotiations:** Mid-term review flexibility provisions have become a standard parliamentary tool for securing ambition that cannot be hardcoded into the headline ceiling. Expect EP to push hard for a larger, more automatic mid-term revision mechanism in MFF 2028-2034.
-
-### 2 · Consent-Based Rape Legislation — Historical Context
-
-#### The 2021-2024 Legislative Attempt
-The Commission proposed a directive establishing minimum standards for the definition of sexual violence (including consent-based definition) in February 2022. It was blocked at the Council level in 2023-2024 following CJEU Opinion 1/21 (December 2023) which raised subsidiarity and competence questions.
-
-**CJEU position:** Criminal law minimum standards at EU level require Art. 83(1) or 83(2) TFEU legal base; consent-based rape crosses into general criminal law scope, raising competence questions.
-
-**Outcome:** The Council dropped the criminal law elements and the directive was adopted in a reduced form covering only certain digital/online sexual violence offences.
-
-**April 28 significance:** The non-binding resolution (TA-10-2026-0120) represents EP's signal that it wants a renewed legislative attempt in EP10. The political pressure on the Commission is real, but the CJEU competence barrier remains. The resolution is historically notable because it represents the first EP plenary vote directly addressing consent-based rape definitions since the failed 2022-2024 attempt.
-
-### 3 · GSP Reform — Historical Pattern
-
-#### Previous GSP Regulations
-- **GSP 2012-2023** (Regulation 978/2012): Introduced GSP+, graduated out several countries (China, Thailand, Brazil)
-- **GSP 2023-2034** (Regulation 2023/2878): Added digital/data governance conditionality; first renewal by EP10 predecessors
-
-**Current renewal context:** The April 28 reform is a technical renewal maintaining core architecture while adding new conditionality (climate, digital). Historically, GSP renewals pass with broad support (EPP + S&D + Renew + Greens) because the economic benefits to EU importers are well-distributed.
-
-### 4 · EU Animal Welfare Legislation — Historical Trajectory
-
-The dogs and cats regulation (TA-10-2026-0115) represents the culmination of a legislative journey that began with the 2021 Animal Welfare Strategy. Key milestones:
-- **2021:** Commission publishes Animal Welfare Strategy; EP resolution calls for binding law
-- **2023:** Commission proposal for regulation on dogs and cats (COM/2023/xx)
-- **2024-2025:** AGRI committee scrutiny; amendments on online sales and shelter standards
-- **April 2026:** Plenary adoption
-
-**Historical significance:** This is the first binding EU law specifically on companion animals, closing a legislative gap that existed since 1998 when the Convention on Pet Animals (Council of Europe) was not ratified as EU law. It creates a precedent for further EU-level harmonisation on farm animal welfare (egg-laying hens, farmed fish — expected 2027-2028).
-
-### 5 · MEP Immunity — Jurisprudential Baseline
-
-The five immunity waivers processed on April 28 are consistent with the post-Qatargate parliamentary reform trend. Key precedents:
-- **2023 JURI committee immunity reform:** Tightened criteria for rejecting waiver requests; established presumption of approval for ordinary criminal proceedings
-- **Habeck case precedent (2020):** European Parliament upheld the principle that immunity cannot shield from pre-mandate activities
-- **Current Polish waivers (Jaki, Obajtek, Buczek):** Fall squarely within the "ordinary criminal proceedings with no political motivation by prosecution" category per JURI committee's established criteria
-
-**Pattern:** EP10 is continuing the EP9 pattern of approving immunity waivers except in cases of clear political persecution (typically verified by reference to Council of Europe/Venice Commission standards). The Polish cases relate to pre-mandate acts (corruption, financial irregularities, abuse of power) during PiS governance — JURI's recommendation was predictably positive.
-
-### 6 · European Parliament Plenary Productivity — Historical Benchmarks
-
-| Parliamentary Term | Major Votes/Session (avg) | Major Legislation Adopted/Term |
-|-------------------|--------------------------|-------------------------------|
-| EP8 (2014-2019) | ~12-15 | ~240 legislative acts |
-| EP9 (2019-2024) | ~10-12 | ~220 legislative acts (COVID disruption) |
-| EP10 (2024-2029, first 18 months) | ~14-16 (higher post-reform) | On track for ~250+ if momentum maintained |
-
-The April 28 Strasbourg session with 22 adopted texts is above the recent per-session average, reflecting the BUDG committee's MFF/budget work plus the backlog of committee reports awaiting plenary. This productivity level is consistent with the mid-term surge pattern observed in EP8 and EP9.
-
-*Source: EP Open Data Portal | Historical EP records | JURI committee precedent documents | Run: propositions-run-1777442543 | 2026-04-29*
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 ### 1 · Macroeconomic Backdrop
@@ -1250,6 +1073,183 @@ The Commission could challenge the Rule 135 amendment (TA-10-2026-0118) on separ
 
 *Source: EP Open Data Portal | Structural analysis | Run: propositions-run-1777442543 | 2026-04-29*
 
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### P — Political
+
+**EU-Level Political Dynamics:**
+The April 28 Strasbourg plenary crystallised the fault lines within the 10th European Parliament. The centre-right EPP (185 seats, 25.7%) maintains agenda-setting dominance but is increasingly reliant on selective partnerships with ECR (81), S&D (135), or Renew (77) depending on the issue domain. No stable majority exists without EPP participation, yet EPP's internal diversity — spanning German Christian Democrats, Italian Fratelli-adjacent members, and Polish conservatives — creates recurring discipline problems.
+
+The vote on consent-based rape legislation (TA-10-2026-0120) exemplifies this: EPP's official position was opposed or abstain (per internal group guidance), yet progressive EPP MEPs from Nordic and Western European delegations reportedly joined the S&D/Greens/Left/Renew majority. This intra-EPP tension on social issues mirrors the 2024 European elections result, where EPP gained seats partly by absorbing centre-right voters concerned about immigration and economic competitiveness but did not adopt a socially conservative platform.
+
+**Rule of Law Escalation:**
+The simultaneous processing of five MEP immunity waivers — three Polish (Jaki, Obajtek, Buczek) and one Romanian (Şoşoacă) — is not accidental. The JURI committee has been systematically processing accumulated requests from the previous term. The Jaki, Obajtek, and Buczek cases all relate to Polish domestic judicial proceedings initiated by the post-PiS coalition government led by Donald Tusk. This creates a geopolitical paradox: the Parliament is facilitating judicial proceedings against members affiliated with an EU-friendly government (PiS's successor), while simultaneously monitoring rule-of-law compliance in Hungary and Slovakia under governments it formally criticises.
+
+**Institutional Power Dynamics:**
+The Rule 135 amendment (TA-10-2026-0118) tightening Parliament's oversight of Commission appointments to EU agencies represents an assertion of parliamentary sovereignty. This follows a series of incidents in 2024-2025 where the Commission reportedly failed to adequately consult Parliament before appointing directors to ENISA, ERA, and the EU AI Office. The amendment has procedural teeth: it creates a binding hearing requirement before appointments are confirmed, giving Parliament effective veto capacity.
+
+**Confidence:** 🟡 Medium — Coalition dynamics inferred from structural analysis; vote tallies pending.
+
+### T — Technological
+
+**Digital and AI Policy Landscape:**
+The Council of Europe AI Convention ratification (TA-10-2026-0071, adopted March 2026) established the EU's formal alignment with international AI governance norms. The April 28 session did not include major digital legislation, but the debates reflect an underlying anxiety: the EU AI Act (2024) is entering its implementation phase while AI capabilities are advancing faster than anticipated. The copyright and generative AI adopted text (TA-10-2026-0066, March 2026) opened a policy debate that JURI will need to resolve into binding legislation by Q4 2026.
+
+**Greenhouse Gas Accounting (TA-10-2026-0113):**
+The transport GHG accounting regulation adopted April 28 establishes standardised emissions accounting for transport services — a prerequisite for the EU's carbon border adjustment mechanism (CBAM) to function effectively for transport-intensive goods. This is a technical but strategically important text: it provides the measurement infrastructure for decarbonisation enforcement.
+
+**Biocidal Products Regulation Extension (TA-10-2026-0117):**
+The extension of data protection periods for biocidal products reflects EU regulatory pragmatism: the industry argued that shortened data protection periods were deterring innovation in an economically essential but commercially marginal sector. The compromise extends protection by up to four years for new active substances.
+
+**Confidence:** 🟢 High — Adopted texts provide direct evidence.
+
+### E — Economic
+
+**MFF 2028-2034 — The Structural Fiscal Debate:**
+The interim report on the multiannual financial framework (TA-10-2026-0111) is the dominant economic signal from this session. The EP's position, as expressed in the BUDG committee's draft resolution, calls for a framework of at least €1.1-1.2 trillion (at 2025 prices) — roughly 20% above the 2021-2027 MFF of €1.07 trillion. The Council's austerity wing (Germany, Netherlands, Austria, Sweden) is likely to push for nominal flatness. The gap is approximately €150-200 billion and will be the defining fiscal battle of EP10.
+
+**2027 Budget Guidelines (TA-10-2026-0112):**
+The guidelines for the Commission's 2027 draft budget (Section III — Commission) established three EP priorities:
+1. **Rearmament and defence (↑):** Call for ReArm Europe instrument funding to flow through EU budget; Renew + EPP + ECR alignment
+2. **Green transition (↔):** Maintain climate spending floors from 2024-2027 programming; Greens/EFA + S&D demands
+3. **Social safety net (↔):** European Social Fund Plus (ESF+) baseline protection; S&D + Left red line
+
+**IMF Economic Context (IMF WEO April 2026):**
+Germany's GDP contracted -0.5% in 2024 (following -0.9% in 2023), extending a two-year recession in Europe's largest economy. This fiscal backdrop constrains Germany's historically generous MFF contribution capacity and explains Berlin's push for structural reforms to the EU budget. The EU's aggregate growth outlook (IMF WEO April 2026 projection: ~1.2% for EU27 in 2026) provides a modest but insufficient fiscal base for the ambitious new programmes the EP is demanding. 🔴 **IMF data vintage: WEO April 2026.** All growth/recession figures carry IMF WEO attribution.
+
+**Trade Policy — GSP Reform (TA-10-2026-0114):**
+The generalised scheme of tariff preferences renewal extends EU trade preferences to 67 developing countries. It was adopted with broad support, reflecting a consensus that the EU should maintain trade engagement with Global South partners even as it confronts tariff disputes with the US. The GSP text includes new human rights conditionality provisions — a direct legacy of the 2024 INTA committee work.
+
+**EIB Group Scrutiny (TA-10-2026-0119):**
+Parliament's annual report on the EIB expressed concern that the European Investment Bank was not deploying its €100 billion+ annual financing capacity towards climate-aligned investments at the pace required by the Green Deal. The report called for the EIB to increase the share of climate-aligned lending from the current ~50% to 75% by 2027. This is non-binding but sets political expectations ahead of the EIB's annual budget review.
+
+**Confidence:** 🟡 Medium — Economic data from IMF WEO April 2026 and EP adopted texts. MFF positions are EP-side only; Council positions are not yet formally adopted.
+
+### L — Legal
+
+**Corruption Directive (2023/0135 — enacted March 2026):**
+This is the most significant new legal instrument from the recent period. The EU Corruption Directive (`TA-10-2026-0094`, March 2026) creates:
+- Common definitions of corruption offences across member states
+- Minimum penalties (4-10 years imprisonment for active/passive bribery of public officials)
+- Mandatory asset recovery procedures
+- Whistleblower protection aligned with 2019 Whistleblower Directive
+- EPPO (European Public Prosecutor's Office) jurisdiction for corruption affecting EU funds
+
+The 2028 transposition deadline creates a 2-year window for member states. Compliance risk is highest in Hungary (GRECO ongoing monitoring) and Slovakia (under post-Fico government scrutiny). Poland's transposition is politically complex given the proximity of the Tusk government's anti-corruption agenda to the Directive's requirements — but judicial independence concerns flagged by GRECO remain.
+
+**Consent-Based Rape Legislation (TA-10-2026-0120):**
+This is a non-binding resolution calling on the Commission and Council to adopt minimum EU standards for rape legislation based on consent rather than force/coercion. As a post-Vjosa Osmani precedent (Council of Europe Istanbul Convention), this has strong normative momentum. The legal pathway is complex: criminal law harmonisation requires Article 83 TFEU (serious transnational crime) — rape harmonisation was blocked in 2023 after the Court of Justice ruled it outside the original criminal law directive scope. The April 28 resolution attempts to create a new political mandate for a post-C-608/23 legislative route.
+
+**Dogs & Cats Traceability (TA-10-2026-0115):**
+This is a binding regulation establishing a pan-EU electronic registry for companion animals (dogs and cats), mandatory microchipping requirements, and breeder registration standards. Legal basis: Article 43 TFEU (agriculture and fisheries). This is the first EU-wide instrument directly addressing companion animal welfare — previously regulated only at member-state level.
+
+**Confidence:** 🟢 High — Adopted texts provide definitive legal evidence.
+
+### S — Social
+
+**Animal Welfare as a Social Compact:**
+The dogs and cats welfare regulation reflects changing public attitudes across EU member states. Eurobarometer surveys consistently show >70% of EU citizens support stronger animal welfare laws. The legislative journey — 2023 proposal, AGRI committee adoption 2025, trilogue 2025, plenary April 2026 — took three years but is broadly popular. Opposition came primarily from rural/agricultural MEPs concerned about enforcement costs for small breeders.
+
+**Consent-Based Rape Legislation:**
+The resolution's political framing by S&D, Greens, Left, and feminist MEPs across groups reflects the continued influence of the #MeToo movement and the Istanbul Convention ratification process. The EU's mixed record (not all member states have ratified Istanbul Convention; Poland's 2020 attempt to withdraw was reversed by new government) creates urgency. The April 28 adoption, while non-binding, represents the Parliament's formal position entering any legislative process.
+
+**EGF — Social Safety Net:**
+The European Globalisation Adjustment Fund mobilisation (TA-10-2026-0116) provided support for workers displaced by imminent job displacement — a broadened scope from the 2025 EGF revision. The session approved the framework amendment, not a specific case (unlike earlier EGF approvals for Tupperware/Audi workers). This is an important signal that Parliament is preparing the social safety net infrastructure for anticipated job displacement from green transition and AI automation.
+
+**Ocean Diplomacy and Fishing Communities:**
+The ocean diplomacy resolution (TA-10-2026-0121) addressed the competitive squeeze on EU fishing communities from third-country competitors and highlighted the need for a comprehensive EU maritime strategy that links environmental, economic, and diplomatic considerations. Atlantic fishing communities (Spain, France, Ireland, Portugal) were the primary political constituency behind this resolution.
+
+**Confidence:** 🟡 Medium — Structural analysis of social dynamics; no post-vote MEP statements available.
+
+### E (2) — Environmental
+
+**Transport GHG Accounting (TA-10-2026-0113):**
+This technical regulation establishes standardised methodologies for calculating greenhouse gas emissions from transport services — freight, passenger, multimodal. It is designed to feed into the EU's broader climate accounting architecture and enable the Carbon Border Adjustment Mechanism to cover transport-intensive supply chains. The ENVI committee's rapporteur succeeded in including scope 3 emissions (supply chain) in the accounting framework, a significant win for climate advocates over industry-backed amendments seeking scope 1/2 only.
+
+**EIB Climate Finance Pressure:**
+The annual EIB report's demand for 75% climate alignment by 2027 (up from ~50% current) represents a significant escalation. The EIB's governance structure (member states as shareholders) means this is ultimately a political demand on member state finance ministers as EIB board members. Green transformation investments — offshore wind, hydrogen, electric mobility — are precisely the sectors where private investment is falling short of requirements.
+
+**Dogs & Cats Environmental Nexus:**
+The welfare regulation's traceability provisions also address the illegal wildlife trade — a documented environmental concern where fake pedigree documents and unregulated breeding channels have been used to traffic exotic species alongside companion animals.
+
+**Confidence:** 🟡 Medium — Environmental analysis synthesised from adopted texts and structural analysis.
+
+*Source: EP Open Data Portal | IMF WEO April 2026 | Run: propositions-run-1777442543 | 2026-04-29*
+
+### Historical Baseline
+
+### 1 · MFF Historical Precedents
+
+#### MFF 2021-2027 (Adopted September 2020 — extraordinary European Council)
+The most relevant recent precedent for the April 28 MFF interim report negotiations.
+
+**Key parameters:**
+| Element | Negotiated Outcome | EP Opening | Council Opening |
+|---------|-------------------|-----------|----------------|
+| Total commitment ceiling | €1,074.3B (1.04% GNI) | €1,134B (1.3% GNI) | €1,000B (1.0% GNI) |
+| Recovery Instrument (NGEU) | €750B (off-budget) | N/A (proposed jointly) | Accepted under crisis pressure |
+| Climate tagging | 30% | 30% | 25% |
+| Rule of Law conditionality | Yes (Regulation 2020/2092) | Strong | Weak (Poland/Hungary objections) |
+
+**Implication for 2028-2034:** EP's negotiating pattern is consistent — open high (€1.1-1.2T ambition), accept Council's lower ceiling only with compensatory wins on governance, climate, and social spending floors. The NGEU precedent suggests crisis-driven off-budget instruments are available if Council resists the headline ceiling.
+
+#### MFF 2014-2020 (Adopted December 2013)
+**Total:** €960B (1.00% GNI) — First MFF to be lower in real terms than its predecessor. The austerity era forced EP to accept a lower ceiling in exchange for a mid-term review clause (used to finance refugee and youth employment initiatives in 2016).
+
+**Lesson for 2026-2028 negotiations:** Mid-term review flexibility provisions have become a standard parliamentary tool for securing ambition that cannot be hardcoded into the headline ceiling. Expect EP to push hard for a larger, more automatic mid-term revision mechanism in MFF 2028-2034.
+
+### 2 · Consent-Based Rape Legislation — Historical Context
+
+#### The 2021-2024 Legislative Attempt
+The Commission proposed a directive establishing minimum standards for the definition of sexual violence (including consent-based definition) in February 2022. It was blocked at the Council level in 2023-2024 following CJEU Opinion 1/21 (December 2023) which raised subsidiarity and competence questions.
+
+**CJEU position:** Criminal law minimum standards at EU level require Art. 83(1) or 83(2) TFEU legal base; consent-based rape crosses into general criminal law scope, raising competence questions.
+
+**Outcome:** The Council dropped the criminal law elements and the directive was adopted in a reduced form covering only certain digital/online sexual violence offences.
+
+**April 28 significance:** The non-binding resolution (TA-10-2026-0120) represents EP's signal that it wants a renewed legislative attempt in EP10. The political pressure on the Commission is real, but the CJEU competence barrier remains. The resolution is historically notable because it represents the first EP plenary vote directly addressing consent-based rape definitions since the failed 2022-2024 attempt.
+
+### 3 · GSP Reform — Historical Pattern
+
+#### Previous GSP Regulations
+- **GSP 2012-2023** (Regulation 978/2012): Introduced GSP+, graduated out several countries (China, Thailand, Brazil)
+- **GSP 2023-2034** (Regulation 2023/2878): Added digital/data governance conditionality; first renewal by EP10 predecessors
+
+**Current renewal context:** The April 28 reform is a technical renewal maintaining core architecture while adding new conditionality (climate, digital). Historically, GSP renewals pass with broad support (EPP + S&D + Renew + Greens) because the economic benefits to EU importers are well-distributed.
+
+### 4 · EU Animal Welfare Legislation — Historical Trajectory
+
+The dogs and cats regulation (TA-10-2026-0115) represents the culmination of a legislative journey that began with the 2021 Animal Welfare Strategy. Key milestones:
+- **2021:** Commission publishes Animal Welfare Strategy; EP resolution calls for binding law
+- **2023:** Commission proposal for regulation on dogs and cats (COM/2023/xx)
+- **2024-2025:** AGRI committee scrutiny; amendments on online sales and shelter standards
+- **April 2026:** Plenary adoption
+
+**Historical significance:** This is the first binding EU law specifically on companion animals, closing a legislative gap that existed since 1998 when the Convention on Pet Animals (Council of Europe) was not ratified as EU law. It creates a precedent for further EU-level harmonisation on farm animal welfare (egg-laying hens, farmed fish — expected 2027-2028).
+
+### 5 · MEP Immunity — Jurisprudential Baseline
+
+The five immunity waivers processed on April 28 are consistent with the post-Qatargate parliamentary reform trend. Key precedents:
+- **2023 JURI committee immunity reform:** Tightened criteria for rejecting waiver requests; established presumption of approval for ordinary criminal proceedings
+- **Habeck case precedent (2020):** European Parliament upheld the principle that immunity cannot shield from pre-mandate activities
+- **Current Polish waivers (Jaki, Obajtek, Buczek):** Fall squarely within the "ordinary criminal proceedings with no political motivation by prosecution" category per JURI committee's established criteria
+
+**Pattern:** EP10 is continuing the EP9 pattern of approving immunity waivers except in cases of clear political persecution (typically verified by reference to Council of Europe/Venice Commission standards). The Polish cases relate to pre-mandate acts (corruption, financial irregularities, abuse of power) during PiS governance — JURI's recommendation was predictably positive.
+
+### 6 · European Parliament Plenary Productivity — Historical Benchmarks
+
+| Parliamentary Term | Major Votes/Session (avg) | Major Legislation Adopted/Term |
+|-------------------|--------------------------|-------------------------------|
+| EP8 (2014-2019) | ~12-15 | ~240 legislative acts |
+| EP9 (2019-2024) | ~10-12 | ~220 legislative acts (COVID disruption) |
+| EP10 (2024-2029, first 18 months) | ~14-16 (higher post-reform) | On track for ~250+ if momentum maintained |
+
+The April 28 Strasbourg session with 22 adopted texts is above the recent per-session average, reflecting the BUDG committee's MFF/budget work plus the backlog of committee reports awaiting plenary. This productivity level is consistent with the mid-term surge pattern observed in EP8 and EP9.
+
+*Source: EP Open Data Portal | Historical EP records | JURI committee precedent documents | Run: propositions-run-1777442543 | 2026-04-29*
+
 <h2 id="section-continuity">Cross-Run Continuity</h2>
 
 ### Pipeline Health
@@ -1665,8 +1665,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/propositions/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/propositions/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/propositions/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/propositions/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/propositions/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/propositions/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/propositions/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/propositions/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
@@ -1674,6 +1672,8 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/propositions/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/propositions/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/propositions/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/propositions/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/propositions/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-continuity | [pipeline-health](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/propositions/existing/pipeline-health.md) | `existing/pipeline-health.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/propositions/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/propositions/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |

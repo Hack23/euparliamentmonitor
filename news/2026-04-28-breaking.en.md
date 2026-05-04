@@ -1296,341 +1296,6 @@ This stakeholder map identifies all material actors in the current EU Parliament
 
 **Attribution:** European Parliament Open Data Portal (data.europarl.europa.eu) — CC BY 4.0
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### Overview
-
-Comprehensive PESTLE analysis of the macro-environment shaping EU Parliament legislative activity in Spring 2026. Each dimension is assessed for current state, trend, and implications for parliamentary agenda.
-
----
-
-### P — Political Factors
-
-#### Current Political Environment
-
-**EP10 Governing Coalition:** EPP-S&D-Renew working majority (397/719 seats). Functional but complex. Stability score 84/100.
-
-**Dominant Political Narratives (April 2026):**
-1. **EU Strategic Autonomy:** Reducing dependency on US security umbrella and Chinese supply chains. Drives trade defence, industrial policy, critical minerals legislation.
-2. **Democratic Backsliding Response:** Anti-corruption directive, rule-of-law conditionality, Braun immunity waiver all signal EP commitment to democratic standards.
-3. **Ukraine Solidarity:** Cross-party consensus (EPP to Left) on Ukraine financial and political support. Most stable issue in EP10.
-4. **Transatlantic Realignment:** EU-Canada partnership, EU-UK reset discussions, alternative to US-dominated Western alliance architecture.
-
-**Political Risks:**
-- Hungarian Council blocking (veto threats on rule-of-law, Ukraine, migration)
-- PfE internal divisions on US relations
-- Renew free-trade ideology vs trade defence necessity
-- 2029 EP election positioning beginning to influence MEP behaviour
-
-**Confidence:** HIGH (B-1 source: EP Open Data real-time group composition data)
-
----
-
-### E — Economic Factors
-
-#### Macroeconomic Context
-
-**EU Economic Baseline (IMF WEO April 2026 indicators, where available):**
-- EU/EA GDP growth: Estimated 1.4-1.8% (within IMF WEO baseline range; IMF connectivity not confirmed in this run — flag as MEDIUM confidence)
-- Inflation: Declining toward 2% ECB target after 2022-2024 elevated period
-- ECB Policy Rate: On easing trajectory (appointment of new ECB VP confirmed — TA-10-2026-0060)
-- Banking Union: SRMR3 adopted — systemic risk reduction achieved
-- Trade balance: Under stress from US tariff impacts
-
-**Key Economic Legislative Actions:**
-- TA-10-2026-0096 (Tariff Counter-Response): Potential -0.2 to -0.5% EU exports to US
-- TA-10-2026-0092 (SRMR3): Reduces expected loss on disorderly bank failure by estimated 30-50%
-- TA-10-2026-0004 (Financial Stability): Policy framework for uncertainty management
-- TA-10-2026-0073 (EGF Tupperware Belgium): EUR targeted for displaced workers — globalisation adjustment
-
-**Economic Sector Exposure to US Tariffs:**
-- Automobiles: HIGH (EU-US auto trade ~EUR 30bn)
-- Aerospace: HIGH (Airbus-Boeing interdependency creates mutual deterrence)
-- Agricultural products: MEDIUM (US soy/corn vs EU beef/cheese)
-- Technology/AI: HIGH (EU GAFA regulation triggers US tech sector lobbying)
-
-**Confidence:** MEDIUM (IMF WEO data referenced by estimation; direct IMF MCP connectivity not confirmed)
-
----
-
-### S — Social Factors
-
-#### Social Context
-
-**European Public Opinion Trends:**
-- Support for EU action on US tariffs: High across majority of member states (Eurobarometer data consistently shows EU citizens support reciprocal trade measures)
-- Ukraine solidarity: Robust but showing fatigue in some member states (Hungary, Slovakia, Austria diverging)
-- Anti-corruption sentiment: Very high public priority — all Eurobarometer surveys show corruption among top 3 concerns
-- Democratic values: EP10 elected on record turnout (June 2024, 51%+) — mandate to defend democratic standards
-
-**Demographic Pressures:**
-- Ageing European population increases reliance on stable pension/banking system (SRMR3 directly relevant)
-- Youth unemployment in Southern Europe continues to create social stress
-- Migration pressures from MENA and Sub-Saharan Africa — forces migration/asylum legislative agenda
-
-**Social Impact of Key Actions:**
-- Anti-corruption directive: Directly addresses citizens' top political concern
-- SRMR3: Protects depositors; reduces taxpayer bail-out risk
-- Ukraine loan: Public split between solidarity and "own problems first" narratives
-
-**Confidence:** MEDIUM (social data from Eurobarometer historical patterns; current wave not referenced)
-
----
-
-### T — Technological Factors
-
-#### Technology Policy Context
-
-**Active Technology Dossiers (EP10):**
-- AI Act implementation (Regulation 2024/1689): Entering compliance phase; MEP oversight of Commission implementing acts
-- Digital Markets Act enforcement: GAFA investigations ongoing
-- Cybersecurity legislative framework: NIS2 implementation proceeding
-- Quantum/semiconductor strategic autonomy: Critical raw materials legislation
-
-**Technology-Trade Intersection:**
-- US-EU digital services tax disputes intertwined with tariff conflict
-- EU data protection requirements (GDPR) creating friction with US tech sector
-- Semiconductor supply chain diversification away from Asia increasing EU-US cooperation needs
-
-**Technology Risks:**
-- Russian cyber-interference in EP systems — persistent threat (Admiralty B-2)
-- AI-generated disinformation targeting MEPs and EU institutions
-- Chinese technological dependency in critical sectors (5G, clean energy components)
-
-**Confidence:** MEDIUM (technology legislative status from EP data; threat assessment from open-source intelligence)
-
----
-
-### L — Legal Factors
-
-#### Legal Framework Context
-
-**Active Legal Proceedings and Frameworks:**
-- EU-Mercosur CJEU opinion (TA-10-2026-0008): Compatibility assessment pending — affects EU trade law architecture
-- WTO dispute on US tariffs: Expected filing Q2-Q3 2026
-- Anti-corruption directive: Creates new harmonised criminal law obligations across all 27 MS
-- SRMR3: Amends Resolution Regulation — complex interface with national insolvency law
-- Braun immunity waiver: EP jurisprudence on parliamentary privilege vs judicial cooperation
-
-**Charter of Fundamental Rights Application:**
-- Anti-corruption directive tested against privacy (data retention for financial investigation)
-- Immunity waiver tested against freedom of mandate (Article 9 Protocol 7)
-- Trade countermeasures — proportionality principle of TFEU (Article 207)
-
-**Legal Risks:**
-- WTO non-compliance if EU retaliatory tariffs exceed permissible countermeasure levels
-- ECHR challenges to anti-corruption investigative measures
-- CJEU Mercosur opinion could block a major trade agreement creating institutional crisis
-
-**Confidence:** HIGH (B-1 source: EP adopted text references to procedure types and legal bases)
-
----
-
-### E2 — Environmental Factors
-
-#### Environmental Policy Context
-
-**Active Environmental Dossiers:**
-- European Green Deal implementation: Ongoing across multiple legislative packages
-- HGV Emission Credits (TA-10-2026-0084): Technical adjustment to CO2 reduction schedule for commercial vehicles
-- Climate targets 2030: 55% reduction target from 1990 levels; currently tracking at ~50%
-- EU ETS Phase 4: Carbon price currently around EUR 65-75/tonne
-
-**Environmental-Trade Intersection:**
-- Carbon Border Adjustment Mechanism (CBAM) fully entering into force: Creates EU-US friction point
-- EU deforestation regulation: Supply chain transparency requirements affecting US agricultural imports
-- US withdrawal from Paris Agreement (Trump) vs EU climate leadership narrative
-
-**Environmental Impact of Current Actions:**
-- TA-10-2026-0084 (HGV emission credits): Small delay in commercial vehicle decarbonisation
-- Trade countermeasures: Complex — protects some EU green industries but risks WTO challenge on environmental subsidies
-- Ukraine reconstruction: EU pushing for green reconstruction standards
-
-**Confidence:** MEDIUM (environmental data from EP legislative record; carbon prices approximate)
-
----
-
-### PESTLE Summary Heat Map
-
-| Factor | Significance | Trend | Opportunity | Threat |
-|--------|-------------|-------|-------------|--------|
-| Political | CRITICAL | Volatile | EU autonomy narrative | Coalition fragmentation |
-| Economic | HIGH | Uncertain | Trade defence credibility | US tariff escalation |
-| Social | HIGH | Moderate | Anti-corruption wins | Ukraine fatigue |
-| Technological | MEDIUM | Increasing | AI leadership potential | Cyber threats, dependency |
-| Legal | HIGH | Active | New frameworks | WTO challenges |
-| Environmental | MEDIUM | Ongoing | Green leadership | CBAM friction |
-
----
-
-### Data Sources and Provenance
-
-| Source | Tool | Data Type | Reliability |
-|--------|------|-----------|-------------|
-| EP Open Data Portal | get_adopted_texts | Legislative scope | B-1 |
-| EP Open Data Portal | generate_political_landscape | Political landscape | B-1 |
-| EP Open Data Portal | early_warning_system | Risk factors | B-2 |
-| Eurobarometer (historical) | - | Public opinion patterns | B-3 |
-| IMF WEO (estimated) | - | Economic baseline | C-2 |
-
-**Attribution:** European Parliament Open Data Portal (data.europarl.europa.eu) — CC BY 4.0
-
-### Historical Baseline
-
-### Overview
-
-Historical baseline establishing precedent context for current EU Parliament actions. Each major legislative category is situated in historical EP and EU precedent to assess significance and likely outcomes.
-
----
-
-### 1. Trade Defence — Historical Precedent
-
-#### EU Unilateral Trade Countermeasures: Precedent Analysis
-
-**2018 — EU Response to Trump 1.0 Steel/Aluminum Tariffs:**
-- US imposed 25% steel, 10% aluminium tariffs (June 2018)
-- EU response: Countermeasures on USD 2.8bn US goods (bourbon, motorcycles, citrus)
-- EP role: Resolution demanding Commission negotiate firm trade defence (adopted June 2018 with EPP-S&D-Renew support)
-- Outcome: US suspended EU tariffs in 2021 under Biden "truce"; EU suspended countermeasures
-- Current parallel: TA-10-2026-0096 mirrors this 2018 structure but at larger scale (Trump 2.0 tariffs broader)
-
-**2004 — US Foreign Sales Corporations WTO Retaliation:**
-- WTO authorised EU retaliation against US tax subsidies (EUR 4bn)
-- EU implemented progressive countermeasures escalating monthly
-- Outcome: US reformed FSC legislation under EU pressure — demonstrating countermeasure effectiveness
-
-**Key Historical Lesson:** EU countermeasures work best when they target politically sensitive US sectors (agricultural exports from swing states: bourbon, soy, Harley-Davidson). Historical pattern suggests US responds to targeted political pain more than aggregate trade volume arguments.
-
-**Admiralty:** B-1 (well-documented historical record)
-
----
-
-### 2. Banking Union — Historical Precedent
-
-#### Banking Union Architecture: 25-Year Journey
-
-**2008-2009 — Global Financial Crisis:**
-- No EU-level bank resolution mechanism existed
-- Ad hoc national bail-outs (Ireland EUR 64bn, Germany EUR 150bn+) broke single market discipline
-- Crisis exposed fundamental flaw in eurozone without banking union
-
-**2012 — Banking Union Announcement (Van Rompuy Package):**
-- European Council June 2012: Banking Union as systemic response to sovereign-bank doom loop
-- Single Supervisory Mechanism (SSM) established 2014 (ECB oversight of significant banks)
-- Single Resolution Mechanism (SRM) established 2014 (resolution board operational 2016)
-
-**2014-2026 — Incremental Completion:**
-- SRMR3 (TA-10-2026-0092) represents the final major resolution regulation reform
-- European Deposit Insurance Scheme (EDIS) — still incomplete (political blockage)
-- SRMR3 closes most procedural gaps in resolution mechanism
-
-**Historical Significance of SRMR3:** The most significant banking regulation since 2014 Single Resolution Mechanism. Achieves what was promised in 2012: a functional EU-level bank resolution that protects depositors without automatic taxpayer bail-out.
-
-**Admiralty:** B-1
-
----
-
-### 3. Anti-Corruption — Historical Precedent
-
-#### EU Anti-Corruption Legislative History
-
-**1997 — EU Convention on Corruption (Criminal Law):**
-- First EU anti-corruption criminal law framework
-- Transposition spotty; enforcement weak; member state resistance
-
-**2003 — GRECO Membership:**
-- EU as entity monitored by Council of Europe anti-corruption body
-- Regular evaluations; recommendations often ignored
-
-**2011-2014 — Anti-Corruption Reports:**
-- Commission attempted anti-corruption report mechanism (abandoned 2017)
-- Lack of binding legislation meant reports had no consequence
-
-**2021-2026 — Revived Push (Fit for Justice Package):**
-- Von der Leyen Commission reactivated directive under rule of law agenda
-- TA-10-2026-0094 represents FIRST truly harmonised anti-corruption criminal law directive in EU history
-- Breakthrough over two-decade deadlock
-
-**Historical Lesson:** EU anti-corruption legislation has historically been weak due to member state sovereignty concerns. TA-10-2026-0094 breaks this pattern — if implemented, represents a generational shift in EU criminal law integration.
-
-**Admiralty:** B-1
-
----
-
-### 4. Ukraine Financial Support — Historical Precedent
-
-#### EU Emergency Financial Mechanism History
-
-**2010-2012 — Greece ESM Assistance:**
-- EUR 246bn total Greek bailout (ESM + IMF)
-- Established EU capacity for sovereign financial crisis response
-- Political model for Ukraine extraordinary support
-
-**2022-2024 — Ukraine Macro-Financial Assistance (MFA):**
-- EUR 1.2bn MFA approval 2022
-- EUR 18bn MFA+ 2023
-- EUR 50bn Ukraine Facility 2024-2027
-
-**2026 — Ukraine G7 Loan (TA-10-2026-0010):**
-- Unique structure: Loans backed by profits from immobilised Russian state assets
-- First time EU uses adversary's assets to fund adversary's defeat
-- Historical precedent: Analogous to post-WWII German reparations to France (but reversed logic)
-
-**Historical Significance:** The use of sovereign state assets as collateral for loans to the sovereign's adversary has almost no modern precedent. Closest analogy is Iran asset freeze (post-1979), but without the loan-to-adversary element. This sets important precedent for future EU sanctions/asset-freeze frameworks.
-
-**Admiralty:** B-1
-
----
-
-### 5. Parliamentary Immunity Waivers — Historical Precedent
-
-#### Braun Case in Historical Context
-
-**EP Immunity Waiver History:**
-- EP has a long history of immunity waiver decisions (hundreds since 1979)
-- Most are routine: traffic accidents, civil debt cases
-- Politically significant waivers are rare (est. 5-10 per decade)
-
-**Comparable Cases:**
-- Bruno Gollnisch (FN France, 2005): Waiver for denial of Holocaust — immunity waived
-- Lega Nord Members (2000s): Multiple waivers for various political speech cases
-- Braun (ESN, Poland): Antisemitic disruption of EP plenary with fire extinguisher (Jan 2025)
-
-**Historical Lesson:** EP consistently waives immunity when the alleged offence is clearly beyond the scope of parliamentary mandate. Braun case (criminal disruption of proceedings with physical act) easily meets this threshold — unanimous vote expected.
-
-**Admiralty:** B-1
-
----
-
-### 6. Historical Pattern Analysis
-
-#### EP Voting Coalition Patterns — Long-Term View
-
-**EP5-EP10 Governing Coalition Stability:**
-- EP5 (1999-2004): EPP-S&D grand coalition (moderate cohesion)
-- EP6 (2004-2009): EPP-S&D + Liberals (3-way coalition, stronger)
-- EP7 (2009-2014): EPP dominant, S&D partner
-- EP8 (2014-2019): EPP-S&D-ALDE majority strained by fragmentation
-- EP9 (2019-2024): EPP-S&D-Renew + case-by-case Greens (most complex; highest fragmentation)
-- EP10 (2024-present): EPP-S&D-Renew 397/719 seats (working majority)
-
-**Historical Lesson:** The current 397/719 working majority is structurally similar to EP7-EP8 patterns but with higher fragmentation (ENP 4.4-6.6 vs ENP ~3-4 in EP7). This means more negotiation overhead per legislative act but does not historically preclude passage of major legislation.
-
----
-
-### Data Sources
-
-| Source | Tool | Reliability |
-|--------|------|-------------|
-| EP Open Data Portal | get_adopted_texts | B-1 |
-| EP Open Data Portal | generate_political_landscape | B-1 |
-| Historical EU legislative record | - | B-1 |
-| Academic political science (EU integration literature) | - | B-2 |
-
-**Attribution:** European Parliament Open Data Portal (data.europarl.europa.eu) — CC BY 4.0
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 ### Overview
@@ -3331,6 +2996,341 @@ Forward-looking indicators that signal trajectory of EU Parliament legislative a
 ### Attribution
 
 European Parliament Open Data Portal (data.europarl.europa.eu) — CC BY 4.0
+
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### Overview
+
+Comprehensive PESTLE analysis of the macro-environment shaping EU Parliament legislative activity in Spring 2026. Each dimension is assessed for current state, trend, and implications for parliamentary agenda.
+
+---
+
+### P — Political Factors
+
+#### Current Political Environment
+
+**EP10 Governing Coalition:** EPP-S&D-Renew working majority (397/719 seats). Functional but complex. Stability score 84/100.
+
+**Dominant Political Narratives (April 2026):**
+1. **EU Strategic Autonomy:** Reducing dependency on US security umbrella and Chinese supply chains. Drives trade defence, industrial policy, critical minerals legislation.
+2. **Democratic Backsliding Response:** Anti-corruption directive, rule-of-law conditionality, Braun immunity waiver all signal EP commitment to democratic standards.
+3. **Ukraine Solidarity:** Cross-party consensus (EPP to Left) on Ukraine financial and political support. Most stable issue in EP10.
+4. **Transatlantic Realignment:** EU-Canada partnership, EU-UK reset discussions, alternative to US-dominated Western alliance architecture.
+
+**Political Risks:**
+- Hungarian Council blocking (veto threats on rule-of-law, Ukraine, migration)
+- PfE internal divisions on US relations
+- Renew free-trade ideology vs trade defence necessity
+- 2029 EP election positioning beginning to influence MEP behaviour
+
+**Confidence:** HIGH (B-1 source: EP Open Data real-time group composition data)
+
+---
+
+### E — Economic Factors
+
+#### Macroeconomic Context
+
+**EU Economic Baseline (IMF WEO April 2026 indicators, where available):**
+- EU/EA GDP growth: Estimated 1.4-1.8% (within IMF WEO baseline range; IMF connectivity not confirmed in this run — flag as MEDIUM confidence)
+- Inflation: Declining toward 2% ECB target after 2022-2024 elevated period
+- ECB Policy Rate: On easing trajectory (appointment of new ECB VP confirmed — TA-10-2026-0060)
+- Banking Union: SRMR3 adopted — systemic risk reduction achieved
+- Trade balance: Under stress from US tariff impacts
+
+**Key Economic Legislative Actions:**
+- TA-10-2026-0096 (Tariff Counter-Response): Potential -0.2 to -0.5% EU exports to US
+- TA-10-2026-0092 (SRMR3): Reduces expected loss on disorderly bank failure by estimated 30-50%
+- TA-10-2026-0004 (Financial Stability): Policy framework for uncertainty management
+- TA-10-2026-0073 (EGF Tupperware Belgium): EUR targeted for displaced workers — globalisation adjustment
+
+**Economic Sector Exposure to US Tariffs:**
+- Automobiles: HIGH (EU-US auto trade ~EUR 30bn)
+- Aerospace: HIGH (Airbus-Boeing interdependency creates mutual deterrence)
+- Agricultural products: MEDIUM (US soy/corn vs EU beef/cheese)
+- Technology/AI: HIGH (EU GAFA regulation triggers US tech sector lobbying)
+
+**Confidence:** MEDIUM (IMF WEO data referenced by estimation; direct IMF MCP connectivity not confirmed)
+
+---
+
+### S — Social Factors
+
+#### Social Context
+
+**European Public Opinion Trends:**
+- Support for EU action on US tariffs: High across majority of member states (Eurobarometer data consistently shows EU citizens support reciprocal trade measures)
+- Ukraine solidarity: Robust but showing fatigue in some member states (Hungary, Slovakia, Austria diverging)
+- Anti-corruption sentiment: Very high public priority — all Eurobarometer surveys show corruption among top 3 concerns
+- Democratic values: EP10 elected on record turnout (June 2024, 51%+) — mandate to defend democratic standards
+
+**Demographic Pressures:**
+- Ageing European population increases reliance on stable pension/banking system (SRMR3 directly relevant)
+- Youth unemployment in Southern Europe continues to create social stress
+- Migration pressures from MENA and Sub-Saharan Africa — forces migration/asylum legislative agenda
+
+**Social Impact of Key Actions:**
+- Anti-corruption directive: Directly addresses citizens' top political concern
+- SRMR3: Protects depositors; reduces taxpayer bail-out risk
+- Ukraine loan: Public split between solidarity and "own problems first" narratives
+
+**Confidence:** MEDIUM (social data from Eurobarometer historical patterns; current wave not referenced)
+
+---
+
+### T — Technological Factors
+
+#### Technology Policy Context
+
+**Active Technology Dossiers (EP10):**
+- AI Act implementation (Regulation 2024/1689): Entering compliance phase; MEP oversight of Commission implementing acts
+- Digital Markets Act enforcement: GAFA investigations ongoing
+- Cybersecurity legislative framework: NIS2 implementation proceeding
+- Quantum/semiconductor strategic autonomy: Critical raw materials legislation
+
+**Technology-Trade Intersection:**
+- US-EU digital services tax disputes intertwined with tariff conflict
+- EU data protection requirements (GDPR) creating friction with US tech sector
+- Semiconductor supply chain diversification away from Asia increasing EU-US cooperation needs
+
+**Technology Risks:**
+- Russian cyber-interference in EP systems — persistent threat (Admiralty B-2)
+- AI-generated disinformation targeting MEPs and EU institutions
+- Chinese technological dependency in critical sectors (5G, clean energy components)
+
+**Confidence:** MEDIUM (technology legislative status from EP data; threat assessment from open-source intelligence)
+
+---
+
+### L — Legal Factors
+
+#### Legal Framework Context
+
+**Active Legal Proceedings and Frameworks:**
+- EU-Mercosur CJEU opinion (TA-10-2026-0008): Compatibility assessment pending — affects EU trade law architecture
+- WTO dispute on US tariffs: Expected filing Q2-Q3 2026
+- Anti-corruption directive: Creates new harmonised criminal law obligations across all 27 MS
+- SRMR3: Amends Resolution Regulation — complex interface with national insolvency law
+- Braun immunity waiver: EP jurisprudence on parliamentary privilege vs judicial cooperation
+
+**Charter of Fundamental Rights Application:**
+- Anti-corruption directive tested against privacy (data retention for financial investigation)
+- Immunity waiver tested against freedom of mandate (Article 9 Protocol 7)
+- Trade countermeasures — proportionality principle of TFEU (Article 207)
+
+**Legal Risks:**
+- WTO non-compliance if EU retaliatory tariffs exceed permissible countermeasure levels
+- ECHR challenges to anti-corruption investigative measures
+- CJEU Mercosur opinion could block a major trade agreement creating institutional crisis
+
+**Confidence:** HIGH (B-1 source: EP adopted text references to procedure types and legal bases)
+
+---
+
+### E2 — Environmental Factors
+
+#### Environmental Policy Context
+
+**Active Environmental Dossiers:**
+- European Green Deal implementation: Ongoing across multiple legislative packages
+- HGV Emission Credits (TA-10-2026-0084): Technical adjustment to CO2 reduction schedule for commercial vehicles
+- Climate targets 2030: 55% reduction target from 1990 levels; currently tracking at ~50%
+- EU ETS Phase 4: Carbon price currently around EUR 65-75/tonne
+
+**Environmental-Trade Intersection:**
+- Carbon Border Adjustment Mechanism (CBAM) fully entering into force: Creates EU-US friction point
+- EU deforestation regulation: Supply chain transparency requirements affecting US agricultural imports
+- US withdrawal from Paris Agreement (Trump) vs EU climate leadership narrative
+
+**Environmental Impact of Current Actions:**
+- TA-10-2026-0084 (HGV emission credits): Small delay in commercial vehicle decarbonisation
+- Trade countermeasures: Complex — protects some EU green industries but risks WTO challenge on environmental subsidies
+- Ukraine reconstruction: EU pushing for green reconstruction standards
+
+**Confidence:** MEDIUM (environmental data from EP legislative record; carbon prices approximate)
+
+---
+
+### PESTLE Summary Heat Map
+
+| Factor | Significance | Trend | Opportunity | Threat |
+|--------|-------------|-------|-------------|--------|
+| Political | CRITICAL | Volatile | EU autonomy narrative | Coalition fragmentation |
+| Economic | HIGH | Uncertain | Trade defence credibility | US tariff escalation |
+| Social | HIGH | Moderate | Anti-corruption wins | Ukraine fatigue |
+| Technological | MEDIUM | Increasing | AI leadership potential | Cyber threats, dependency |
+| Legal | HIGH | Active | New frameworks | WTO challenges |
+| Environmental | MEDIUM | Ongoing | Green leadership | CBAM friction |
+
+---
+
+### Data Sources and Provenance
+
+| Source | Tool | Data Type | Reliability |
+|--------|------|-----------|-------------|
+| EP Open Data Portal | get_adopted_texts | Legislative scope | B-1 |
+| EP Open Data Portal | generate_political_landscape | Political landscape | B-1 |
+| EP Open Data Portal | early_warning_system | Risk factors | B-2 |
+| Eurobarometer (historical) | - | Public opinion patterns | B-3 |
+| IMF WEO (estimated) | - | Economic baseline | C-2 |
+
+**Attribution:** European Parliament Open Data Portal (data.europarl.europa.eu) — CC BY 4.0
+
+### Historical Baseline
+
+### Overview
+
+Historical baseline establishing precedent context for current EU Parliament actions. Each major legislative category is situated in historical EP and EU precedent to assess significance and likely outcomes.
+
+---
+
+### 1. Trade Defence — Historical Precedent
+
+#### EU Unilateral Trade Countermeasures: Precedent Analysis
+
+**2018 — EU Response to Trump 1.0 Steel/Aluminum Tariffs:**
+- US imposed 25% steel, 10% aluminium tariffs (June 2018)
+- EU response: Countermeasures on USD 2.8bn US goods (bourbon, motorcycles, citrus)
+- EP role: Resolution demanding Commission negotiate firm trade defence (adopted June 2018 with EPP-S&D-Renew support)
+- Outcome: US suspended EU tariffs in 2021 under Biden "truce"; EU suspended countermeasures
+- Current parallel: TA-10-2026-0096 mirrors this 2018 structure but at larger scale (Trump 2.0 tariffs broader)
+
+**2004 — US Foreign Sales Corporations WTO Retaliation:**
+- WTO authorised EU retaliation against US tax subsidies (EUR 4bn)
+- EU implemented progressive countermeasures escalating monthly
+- Outcome: US reformed FSC legislation under EU pressure — demonstrating countermeasure effectiveness
+
+**Key Historical Lesson:** EU countermeasures work best when they target politically sensitive US sectors (agricultural exports from swing states: bourbon, soy, Harley-Davidson). Historical pattern suggests US responds to targeted political pain more than aggregate trade volume arguments.
+
+**Admiralty:** B-1 (well-documented historical record)
+
+---
+
+### 2. Banking Union — Historical Precedent
+
+#### Banking Union Architecture: 25-Year Journey
+
+**2008-2009 — Global Financial Crisis:**
+- No EU-level bank resolution mechanism existed
+- Ad hoc national bail-outs (Ireland EUR 64bn, Germany EUR 150bn+) broke single market discipline
+- Crisis exposed fundamental flaw in eurozone without banking union
+
+**2012 — Banking Union Announcement (Van Rompuy Package):**
+- European Council June 2012: Banking Union as systemic response to sovereign-bank doom loop
+- Single Supervisory Mechanism (SSM) established 2014 (ECB oversight of significant banks)
+- Single Resolution Mechanism (SRM) established 2014 (resolution board operational 2016)
+
+**2014-2026 — Incremental Completion:**
+- SRMR3 (TA-10-2026-0092) represents the final major resolution regulation reform
+- European Deposit Insurance Scheme (EDIS) — still incomplete (political blockage)
+- SRMR3 closes most procedural gaps in resolution mechanism
+
+**Historical Significance of SRMR3:** The most significant banking regulation since 2014 Single Resolution Mechanism. Achieves what was promised in 2012: a functional EU-level bank resolution that protects depositors without automatic taxpayer bail-out.
+
+**Admiralty:** B-1
+
+---
+
+### 3. Anti-Corruption — Historical Precedent
+
+#### EU Anti-Corruption Legislative History
+
+**1997 — EU Convention on Corruption (Criminal Law):**
+- First EU anti-corruption criminal law framework
+- Transposition spotty; enforcement weak; member state resistance
+
+**2003 — GRECO Membership:**
+- EU as entity monitored by Council of Europe anti-corruption body
+- Regular evaluations; recommendations often ignored
+
+**2011-2014 — Anti-Corruption Reports:**
+- Commission attempted anti-corruption report mechanism (abandoned 2017)
+- Lack of binding legislation meant reports had no consequence
+
+**2021-2026 — Revived Push (Fit for Justice Package):**
+- Von der Leyen Commission reactivated directive under rule of law agenda
+- TA-10-2026-0094 represents FIRST truly harmonised anti-corruption criminal law directive in EU history
+- Breakthrough over two-decade deadlock
+
+**Historical Lesson:** EU anti-corruption legislation has historically been weak due to member state sovereignty concerns. TA-10-2026-0094 breaks this pattern — if implemented, represents a generational shift in EU criminal law integration.
+
+**Admiralty:** B-1
+
+---
+
+### 4. Ukraine Financial Support — Historical Precedent
+
+#### EU Emergency Financial Mechanism History
+
+**2010-2012 — Greece ESM Assistance:**
+- EUR 246bn total Greek bailout (ESM + IMF)
+- Established EU capacity for sovereign financial crisis response
+- Political model for Ukraine extraordinary support
+
+**2022-2024 — Ukraine Macro-Financial Assistance (MFA):**
+- EUR 1.2bn MFA approval 2022
+- EUR 18bn MFA+ 2023
+- EUR 50bn Ukraine Facility 2024-2027
+
+**2026 — Ukraine G7 Loan (TA-10-2026-0010):**
+- Unique structure: Loans backed by profits from immobilised Russian state assets
+- First time EU uses adversary's assets to fund adversary's defeat
+- Historical precedent: Analogous to post-WWII German reparations to France (but reversed logic)
+
+**Historical Significance:** The use of sovereign state assets as collateral for loans to the sovereign's adversary has almost no modern precedent. Closest analogy is Iran asset freeze (post-1979), but without the loan-to-adversary element. This sets important precedent for future EU sanctions/asset-freeze frameworks.
+
+**Admiralty:** B-1
+
+---
+
+### 5. Parliamentary Immunity Waivers — Historical Precedent
+
+#### Braun Case in Historical Context
+
+**EP Immunity Waiver History:**
+- EP has a long history of immunity waiver decisions (hundreds since 1979)
+- Most are routine: traffic accidents, civil debt cases
+- Politically significant waivers are rare (est. 5-10 per decade)
+
+**Comparable Cases:**
+- Bruno Gollnisch (FN France, 2005): Waiver for denial of Holocaust — immunity waived
+- Lega Nord Members (2000s): Multiple waivers for various political speech cases
+- Braun (ESN, Poland): Antisemitic disruption of EP plenary with fire extinguisher (Jan 2025)
+
+**Historical Lesson:** EP consistently waives immunity when the alleged offence is clearly beyond the scope of parliamentary mandate. Braun case (criminal disruption of proceedings with physical act) easily meets this threshold — unanimous vote expected.
+
+**Admiralty:** B-1
+
+---
+
+### 6. Historical Pattern Analysis
+
+#### EP Voting Coalition Patterns — Long-Term View
+
+**EP5-EP10 Governing Coalition Stability:**
+- EP5 (1999-2004): EPP-S&D grand coalition (moderate cohesion)
+- EP6 (2004-2009): EPP-S&D + Liberals (3-way coalition, stronger)
+- EP7 (2009-2014): EPP dominant, S&D partner
+- EP8 (2014-2019): EPP-S&D-ALDE majority strained by fragmentation
+- EP9 (2019-2024): EPP-S&D-Renew + case-by-case Greens (most complex; highest fragmentation)
+- EP10 (2024-present): EPP-S&D-Renew 397/719 seats (working majority)
+
+**Historical Lesson:** The current 397/719 working majority is structurally similar to EP7-EP8 patterns but with higher fragmentation (ENP 4.4-6.6 vs ENP ~3-4 in EP7). This means more negotiation overhead per legislative act but does not historically preclude passage of major legislation.
+
+---
+
+### Data Sources
+
+| Source | Tool | Reliability |
+|--------|------|-------------|
+| EP Open Data Portal | get_adopted_texts | B-1 |
+| EP Open Data Portal | generate_political_landscape | B-1 |
+| Historical EU legislative record | - | B-1 |
+| Academic political science (EU integration literature) | - | B-2 |
+
+**Attribution:** European Parliament Open Data Portal (data.europarl.europa.eu) — CC BY 4.0
 
 <h2 id="section-continuity">Cross-Run Continuity</h2>
 
@@ -5726,8 +5726,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-coalitions-voting | [voting-patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/intelligence/voting-patterns.md) | `intelligence/voting-patterns.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
@@ -5743,6 +5741,8 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
 | section-forward-projection | [forward-indicators](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/extended/forward-indicators.md) | `extended/forward-indicators.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-continuity | [cross-run-diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/intelligence/cross-run-diff.md) | `intelligence/cross-run-diff.md` |
 | section-continuity | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/intelligence/cross-session-intelligence.md) | `intelligence/cross-session-intelligence.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/breaking/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |

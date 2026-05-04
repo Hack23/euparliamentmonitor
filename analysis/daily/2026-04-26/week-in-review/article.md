@@ -545,265 +545,6 @@ graph TD
 **Source reliability:** A (official EP seat data, confirmed by `generate_political_landscape`)
 **Information confidence:** 🟢 HIGH
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### Framework Overview
-
-PESTLE analysis maps the Political, Economic, Social, Technological, Legal, and Environmental dimensions of the week's EP legislative activities and external context. Applied to EP10's second year, this framework reveals how macro-forces are driving the Parliament's accelerating legislative pace.
-
----
-
-### P — Political
-
-#### P1. EP10 Coalition Architecture
-
-The week of April 19–26 operates within EP10's established multi-coalition system. With no two-party majority possible (EPP 25.7% + S&D 18.8% = 44.5%, below the 50% threshold), every major vote requires one of two broad coalitions:
-
-**Coalition A — Centrist/Progressive (≈54.5% theoretical):** EPP + S&D + Renew (10.6%) = 55.1% combined — viable for digital, trade, social, institutional dossiers where EPP breaks from the hard right.
-
-**Coalition B — Right-Wing (≈52.3%):** EPP + ECR (11%) + PfE (11.7%) = 48.4% — insufficient alone but combined with ESN (3.9%) reaches ~52%. Active on migration, defence, deregulation.
-
-**🟡 Political assessment:** No permanent majority exists. The EPP serves as the "pivot party" choosing coalition partners on a dossier-by-dossier basis. This structural centrality gives EPP disproportionate power — a pattern visible in EP9's EPP exploitation of its position between S&D and Greens.
-
-#### P2. US–EU Geopolitical Realignment
-
-The Trump administration's transatlantic policy (tariffs, NATO ambiguity, Ukraine fatigue) is reshaping EP10's political priorities. Historically, EU–US friction under Trump 1.0 (2017–2021) energised European sovereignty proponents across left-right lines. Trump 2.0 shows the same pattern but with greater urgency:
-
-- Defence texts adopted in record time (TA-10-2026-0020, TA-10-2026-0040)
-- Ukraine loan enhanced cooperation (TA-10-2026-0010)
-- EU–Canada solidarity (TA-10-2026-0078)
-
-**Political signal:** The transatlantic fracture is paradoxically increasing EP10's internal cohesion on defence/security — a rare cross-coalition consensus zone.
-
-#### P3. Democracy and Rule of Law Pressures
-
-Three adopted texts address democratic backsliding:
-- **TA-10-2026-0024**: Lithuania public broadcaster takeover attempt — signals EP10's continued vigilance on media freedom
-- **TA-10-2026-0083**: Georgian political prisoners under Georgian Dream — Eastern Partnership democracy monitoring
-- **TA-10-2026-0094**: Anti-corruption directive — binding framework for member state anti-corruption measures
-
-**🔴 Pattern:** EP10 is more assertive on rule-of-law enforcement than EP9, reflecting the post-Orbán/Duda lesson that soft instruments fail. The Grzegorz Braun immunity waiver (TA-10-2026-0088) — stripping a far-right MEP's immunity for antisemitic acts — demonstrates EP's willingness to use institutional powers against internal bad actors.
-
----
-
-### E — Economic
-
-#### E1. German Industrial Recession and EU Response
-
-Germany's consecutive years of GDP contraction (-0.87% in 2023, -0.50% in 2024) are the single most significant economic driver of EP10's legislative agenda. The Clean Industrial Deal — expected to dominate Q2–Q3 2026 plenary — is essentially a politically-mediated industrial rescue package for Germany's automotive and chemical sectors.
-
-**Legislative evidence:**
-- TA-10-2026-0084: Vehicle emissions recalculation (2025–2029) — direct relief for automotive sector
-- EU Competitiveness framework referenced in multiple resolutions
-
-#### E2. Transatlantic Trade War Economics
-
-The customs duty adjustment (TA-10-2026-0096) is the week's key economic-political intersection. Economic modelling suggests:
-- German automotive sector exposure: €5–8bn annually under maximum-tariff scenario
-- EU agricultural exposure to US countermeasures: ~€4bn (primarily Scotch whisky, wine, cheese)
-- Net EU trade balance with US: €155bn surplus (2024) — EU has significant leverage but also significant exposure
-
-#### E3. European Financial Sector Stability
-
-The SRMR3 banking resolution regulation (TA-10-2026-0092) and ECB governance appointments signal the completion of Banking Union architecture post-2008. EP10 is finalising the regulatory framework for early bank intervention and orderly resolution — critical infrastructure given ECB's stress-testing revealed 7 EU banks with inadequate capital buffers in 2025.
-
----
-
-### S — Social
-
-#### S1. Housing as the EU's Defining Social Crisis
-
-The housing crisis resolution (TA-10-2026-0064) addressed the defining social fault line of EP10's term. Key social data:
-- EU home ownership among 25–35 year-olds: declined from 54% (2015) to 41% (2024)
-- Rent-to-disposable-income ratio: >30% in 15 EU capitals (affordability crisis threshold)
-- 96 million EU residents (22% of population) experiencing housing cost overburden
-
-EP10's housing resolution calls for removal of state aid constraints, EIB green housing facility, and national affordable housing targets. Social legitimacy of EP depends on visible action on this issue — it affects every EU citizen's daily life.
-
-#### S2. Worker Rights and Supply Chain Labour Standards
-
-TA-10-2026-0050 on subcontracting chains and worker rights reflects EP10's attempt to close the regulatory gap between formal EU labour law and informal sub-contracting exploitation — a social concern particularly acute in construction, logistics, and food processing sectors employing high proportions of EU migrant workers.
-
-#### S3. UN Women's Commission (TA-10-2026-0051)
-
-EP's recommendation on the UN Commission on the Status of Women demonstrates the Parliament's continued role as normative standard-setter for gender equality — consistent with EP10's progressive-centrist majority on social issues.
-
----
-
-### T — Technological
-
-#### T1. AI and Copyright: The Week's Landmark Technological Text
-
-**TA-10-2026-0066**: "Copyright and generative artificial intelligence — opportunities and challenges" (adopted 2026-03-10) is the EP's first substantive resolution on generative AI's intellectual property implications following the AI Act's adoption in 2024.
-
-**Policy position:**
-- Balanced approach: AI training on copyrighted material requires either licensing or opt-out mechanism
-- Cultural industries coalition (publishers, artists, musicians) successfully argued for remuneration
-- Tech sector (primarily US-based AI companies) faces compliance burden — EU as de facto global standard-setter
-
-**Technological intelligence:** This resolution is a precursor to delegated acts under AI Act. EU's position will influence global AI governance debates at the OECD, UN AI treaty process, and bilateral EU–US AI governance dialogues.
-
-#### T2. European Technological Sovereignty
-
-**TA-10-2026-0022**: "European technological sovereignty and digital infrastructure" (adopted 2026-01-22) maps the strategic framework for reducing EU dependence on non-EU cloud, semiconductor, and digital infrastructure.
-
-**T3. Drones and Warfare Technology**
-
-**TA-10-2026-0020**: Drones and new warfare systems forces EP to engage with dual-use technology governance — previously a member state competence. The resolution establishes EP's normative claim over EU-level defence technology standards, setting the stage for future binding legislation.
-
----
-
-### L — Legal
-
-#### L1. EU–Mercosur Legal Certainty Challenge
-
-EP's request for a Court of Justice opinion on EU-Mercosur compatibility (TA-10-2026-0008) introduces legal uncertainty into the ratification process. This follows the CJEU's Singapore precedent (Opinion 2/15), which clarified the EU-exclusive vs. mixed agreement distinction. A negative opinion could require renegotiation — a strategic tool wielded by EP against unpopular trade deals.
-
-#### L2. Anti-Corruption Directive
-
-TA-10-2026-0094 on combating corruption represents the first EU-level binding anti-corruption framework — previously addressed only through GRECO recommendations and member state law. The directive covers public procurement, beneficial ownership transparency, and whistleblower protection.
-
-**Legal significance:** Applies to all 27 member states, closing the enforcement gap that enabled Qatargate-style lobbying influence in Brussels. Direct response to EP's own 2022–2023 corruption scandal.
-
-#### L3. Sanctions Expansion (TA-10-2026-0015)
-
-The EU Magnitsky Act framework expansion extends individual sanctions for human rights violations — a consolidation of EU soft-power legal tools. This text passed with broad EPP-S&D-Renew-Greens consensus, unusual for foreign policy resolutions.
-
----
-
-### E — Environmental
-
-#### E1. Emissions Calculation Flexibility (TA-10-2026-0084)
-
-Heavy-duty vehicle emissions credits recalculation (2025–2029) reflects the EP10 majority's pragmatic retreat from EP9's Green Deal rigour. Environmental organisations criticised this as weakening the 2019 regulation, but automotive industry (VDA) welcomed it as essential for managing transition costs.
-
-**Environmental tension:** EP10's right-of-centre majority consistently privileges industrial feasibility over emissions ambition — a reversal from EP9's Green Deal coalition.
-
-#### E2. Genetically Modified Organisms
-
-Two GMO authorisation objections (TA-10-2026-0041, TA-10-2026-0043) on soybean and cotton demonstrate EP10 maintains regulatory rigour on GMO approvals despite general deregulatory tendency. GMO policy remains a redline for S&D, Greens, and significant centrist MEPs.
-
-#### E3. Global Gateway and Environmental Dimension
-
-TA-10-2026-0104 on Global Gateway evaluates the EU's €300bn infrastructure investment programme in developing countries. Environmental conditionality — requiring EU-standard sustainability norms in partner country infrastructure — was retained despite industry pressure to relax them.
-
----
-
-### PESTLE Summary Matrix
-
-| Dimension | Key Driver | Political Coalition | Risk Level | Priority |
-|-----------|------------|--------------------|-----------:|---------|
-| Political | Coalition fragmentation + US friction | All groups (defence); EPP + right (migration) | 🔴 High | 1st |
-| Economic | German recession + US tariffs | EPP + S&D + Renew (trade) | 🔴 High | 2nd |
-| Social | Housing crisis | S&D + Renew | 🟡 Medium | 3rd |
-| Technological | AI governance + sovereignty | EPP + Renew | 🟡 Medium | 4th |
-| Legal | Anti-corruption + trade legality | Cross-coalition | 🟡 Medium | 5th |
-| Environmental | Emissions recalculation vs ambition | EPP + ECR vs Greens | 🟡 Medium | 6th |
-
-### Analytical Frameworks Applied
-
-- PESTLE structural decomposition (above)
-- Coalition mapping per dimension
-- Evidence anchoring to EP adopted texts (TA identifiers)
-- Historical comparison to EP9 (Green Deal era) vs EP10 (Competitiveness era)
-
-### Historical Baseline
-
-### 1. EP10 Year 2 in Historical Context
-
-#### 1.1 Legislative Output Benchmarking
-
-The week of 19–26 April 2026 falls squarely in EP10's second year of operation, a phase historically characterised by accelerating legislative throughput as committees exit their establishment phase and rapporteurships solidify. Comparing EP10 Year 2 against prior parliamentary terms:
-
-| Metric | EP8 Y2 (2015) | EP9 Y2 (2020) | EP10 Y2 (2026) | Trend |
-|--------|--------------|--------------|----------------|-------|
-| Proj. Legislative Acts | ~68 | ~54* | 114 | 🔺+68% vs EP9Y2 |
-| Plenary Sessions | 55 | 48* | 54 | Stable |
-| Roll-Call Votes | ~350 | ~280* | 567 | 🔺+102% |
-| Parliamentary Questions | ~3500 | ~4100 | 6147 | 🔺+50% |
-| Committee Meetings | ~1800 | ~1650* | 2363 | 🔺+43% |
-
-*EP9 Year 2 was heavily impacted by COVID-19 lockdowns and remote working adaptations.
-
-**🟡 Interpretation:** EP10 Year 2's legislative output (114 acts through Q1 2026 projection) is historically exceptional. The +46% year-on-year increase from EP10 Year 1 (78 acts) reflects both the post-COVID catch-up effect and the political urgency of the Clean Industrial Deal and defence spending agenda. Roll-call vote counts are particularly elevated (+102% vs EP9 Year 2), suggesting the current Parliament is forcing recorded divisions on contentious dossiers far more frequently than its predecessors.
-
-#### 1.2 The 2009 Structural Break: Lisbon Treaty Effect
-
-The Lisbon Treaty (in force December 2009, first full effect EP7) fundamentally raised EP's co-legislative role. Post-Lisbon parliaments consistently produce 30–40% more legislative acts than pre-Lisbon counterparts. EP10 benefits from 17 years of institutional learning within the Lisbon framework, explaining the high throughput baseline.
-
-**Implication for this week:** When EP adopts texts on EU-Mercosur safeguards or AI copyright, these are co-legislative decisions with real treaty force — not merely resolutions. The 114 legislative acts projected for 2026 carry binding EU law implications.
-
-#### 1.3 The Fragmentation Trend (2004–2026)
-
-| Election Year | Effective Parties (ENP) | Top-2 Seat Share | Grand Coalition? |
-|--------------|------------------------|-----------------|-----------------|
-| 2004 | ~4.1 | 63.9% | ✅ Viable |
-| 2009 | ~4.5 | 59.4% | ✅ Viable |
-| 2014 | ~5.1 | 55.2% | ⚠️ Marginal |
-| 2019 | ~6.0 | 48.3% | ❌ No longer viable |
-| 2024 | ~6.6 | 44.5% | ❌ Not viable |
-
-**🔴 Critical baseline finding:** The 2019 election was a structural inflection point where the traditional EPP–S&D grand coalition lost its majority. EP10 (elected 2024) continues this fragmentation trajectory. Every legislative majority now requires ≥3 groups, typically EPP + S&D + Renew (centrist bloc) or EPP + ECR + PfE (right-wing coalition). This structural reality shapes everything the Parliament does.
-
-### 2. Rightward Political Shift: Historical Pattern
-
-EP10 registers the most rightward political composition since the Parliament's founding. The bipolar index has risen from 0.081 (2004) to 0.232 (2026), reflecting the consolidation of right-wing and Eurosceptic forces.
-
-**Historical comparators:**
-- **ECR growth trajectory**: Founded 2009 from UK Conservatives + Polish PiS; grew from ~60 seats (EP7) to 79 (EP10). Consolidating as the credible conservative alternative to EPP.
-- **PfE emergence**: The successor to the ID group, reconstituted with Rassemblement National + FPÖ + Fidesz. At 84 seats it represents a new right-wing pole that did not exist in this form before 2024.
-- **Greens/EFA decline**: Peaked at 74 seats in EP9 (2019 "Green Wave"), now at 53 (EP10). This reversal mirrors the broader European political tide turning away from climate-prioritisation toward industrial competitiveness.
-
-**Implication for week-in-review:** The rightward shift directly explains the migration hardening (safe countries list, safe third country concept) adopted earlier in 2026, and the resistance to the original Green Deal ambitions evident in the emissions recalculation text for heavy-duty vehicles.
-
-### 3. EU–US Transatlantic Relations: Historical Baseline
-
-The week of April 19–26 occurs amid an EU–US trade tension episode driven by US tariff reimposition under the second Trump administration. Historical parallel:
-
-- **2018–2019 (Trump 1.0)**: US Section 232 steel/aluminium tariffs triggered EU retaliatory measures; EP adopted resolutions condemning tariffs as violation of WTO rules. EU–US trade eventually stabilised after 2021 Biden pause.
-- **2025–2026 (Trump 2.0)**: Broader tariff threats (automotive, digital services) alongside EU Strategic Autonomy push. EP adopted TA-10-2026-0096 adjusting customs duties for US goods — a concrete retaliatory mechanism.
-
-**🟡 Pattern recognition:** Historical evidence suggests EU–US tariff disputes resolve via negotiation within 18–36 months (2018–2019 cycle: 14 months; 1990s Airbus dispute: 20+ years). The current episode is at month ~3 of active EU countermeasures, suggesting the negotiation phase is early.
-
-### 4. Defence Spending: Historical Baseline
-
-NATO 2% GDP target commitments were established in 2014 post-Crimea annexation. As of 2026, only 23 of 27 EU member states meet or approach the 2% target. EP's adopted texts on European Defence Industrial Strategy and EU Strategic Defence Partnerships represent the most substantive parliamentary engagement with defence spending since the Common Foreign and Security Policy (CFSP) was established by Maastricht (1992).
-
-**Baseline trajectory:**
-- 2014: Post-Crimea summit commitment to 2% target (Wales pledge)
-- 2016–2022: Slow progress; Germany at 1.3%, France near 2%
-- 2022: Russia's full-scale invasion of Ukraine triggers step-change
-- 2024–2026: EP10 makes defence spending and European Defence Fund the centrepiece of its strategic agenda. ReArm Europe (€800bn) package represents the largest EU defence spending initiative in history.
-
-### 5. Immigration Policy: Historical Baseline
-
-The EU New Pact on Migration and Asylum (2020–2024) was adopted during EP9. EP10's adoption of safe countries of origin list and safe third country concept in February 2026 represents the operational implementation of that pact, historically notable as:
-- First binding EU-level safe country list (previously fragmented by member state)
-- Safe third country concept codifies refoulement-adjacent mechanisms that NGOs had resisted since Dublin Regulation (1990)
-
-**🔴 Controversy baseline:** Comparable to 2015–2016 EU–Turkey migration deal — politically viable with EPP/ECR/PfE majority but generating legal challenges at CJEU and criticism from UNHCR and human rights organisations.
-
-### 6. Key Historical Comparison: Prior Week-in-Review
-
-**Most recent comparable run**: No prior `analysis/daily/*/week-in-review/` folder found for the days preceding this analysis. This is a first-run baseline for 2026-04-26.
-
-**Forward-looking statements from adjacent runs to cross-reference:**
-- Breaking news runs: `analysis/daily/2026-04-18/breaking/` predicted continued EU-US tariff escalation and defence spending votes. Both confirmed this week.
-- Predicted AI Act implementation tensions in Q2 2026 — confirmed by copyright/AI text.
-
-### 7. Data Confidence and Methodology Notes
-
-| Claim | Evidence Quality | Confidence |
-|-------|-----------------|-----------|
-| Legislative output benchmarks | EP Open Data generated stats | 🟢 High |
-| Fragmentation trend | EP API group composition 2024–2026 | 🟢 High |
-| Political rightward shift | Computed bipolar index 0.081→0.232 | 🟢 High |
-| EU–US trade historical pattern | EP adopted texts + historical record | 🟡 Medium |
-| Defence spending trajectory | Public NATO/EP data | 🟢 High |
-| Migration policy baseline | EP adopted texts 2026 | 🟢 High |
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 ### 1. EU Macroeconomic Environment
@@ -1501,6 +1242,265 @@ This analysis applies both to the EU Parliament's legislative environment as of 
 **Standing forward-looking statements from prior runs to validate:**
 - No prior week-in-review runs to cross-reference. These wildcards establish the forward baseline.
 - Breaking run(s) from April 2026 likely predicted US tariff retaliation (confirmed in TA-10-2026-0096) and AI regulation tensions (confirmed in TA-10-2026-0066).
+
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### Framework Overview
+
+PESTLE analysis maps the Political, Economic, Social, Technological, Legal, and Environmental dimensions of the week's EP legislative activities and external context. Applied to EP10's second year, this framework reveals how macro-forces are driving the Parliament's accelerating legislative pace.
+
+---
+
+### P — Political
+
+#### P1. EP10 Coalition Architecture
+
+The week of April 19–26 operates within EP10's established multi-coalition system. With no two-party majority possible (EPP 25.7% + S&D 18.8% = 44.5%, below the 50% threshold), every major vote requires one of two broad coalitions:
+
+**Coalition A — Centrist/Progressive (≈54.5% theoretical):** EPP + S&D + Renew (10.6%) = 55.1% combined — viable for digital, trade, social, institutional dossiers where EPP breaks from the hard right.
+
+**Coalition B — Right-Wing (≈52.3%):** EPP + ECR (11%) + PfE (11.7%) = 48.4% — insufficient alone but combined with ESN (3.9%) reaches ~52%. Active on migration, defence, deregulation.
+
+**🟡 Political assessment:** No permanent majority exists. The EPP serves as the "pivot party" choosing coalition partners on a dossier-by-dossier basis. This structural centrality gives EPP disproportionate power — a pattern visible in EP9's EPP exploitation of its position between S&D and Greens.
+
+#### P2. US–EU Geopolitical Realignment
+
+The Trump administration's transatlantic policy (tariffs, NATO ambiguity, Ukraine fatigue) is reshaping EP10's political priorities. Historically, EU–US friction under Trump 1.0 (2017–2021) energised European sovereignty proponents across left-right lines. Trump 2.0 shows the same pattern but with greater urgency:
+
+- Defence texts adopted in record time (TA-10-2026-0020, TA-10-2026-0040)
+- Ukraine loan enhanced cooperation (TA-10-2026-0010)
+- EU–Canada solidarity (TA-10-2026-0078)
+
+**Political signal:** The transatlantic fracture is paradoxically increasing EP10's internal cohesion on defence/security — a rare cross-coalition consensus zone.
+
+#### P3. Democracy and Rule of Law Pressures
+
+Three adopted texts address democratic backsliding:
+- **TA-10-2026-0024**: Lithuania public broadcaster takeover attempt — signals EP10's continued vigilance on media freedom
+- **TA-10-2026-0083**: Georgian political prisoners under Georgian Dream — Eastern Partnership democracy monitoring
+- **TA-10-2026-0094**: Anti-corruption directive — binding framework for member state anti-corruption measures
+
+**🔴 Pattern:** EP10 is more assertive on rule-of-law enforcement than EP9, reflecting the post-Orbán/Duda lesson that soft instruments fail. The Grzegorz Braun immunity waiver (TA-10-2026-0088) — stripping a far-right MEP's immunity for antisemitic acts — demonstrates EP's willingness to use institutional powers against internal bad actors.
+
+---
+
+### E — Economic
+
+#### E1. German Industrial Recession and EU Response
+
+Germany's consecutive years of GDP contraction (-0.87% in 2023, -0.50% in 2024) are the single most significant economic driver of EP10's legislative agenda. The Clean Industrial Deal — expected to dominate Q2–Q3 2026 plenary — is essentially a politically-mediated industrial rescue package for Germany's automotive and chemical sectors.
+
+**Legislative evidence:**
+- TA-10-2026-0084: Vehicle emissions recalculation (2025–2029) — direct relief for automotive sector
+- EU Competitiveness framework referenced in multiple resolutions
+
+#### E2. Transatlantic Trade War Economics
+
+The customs duty adjustment (TA-10-2026-0096) is the week's key economic-political intersection. Economic modelling suggests:
+- German automotive sector exposure: €5–8bn annually under maximum-tariff scenario
+- EU agricultural exposure to US countermeasures: ~€4bn (primarily Scotch whisky, wine, cheese)
+- Net EU trade balance with US: €155bn surplus (2024) — EU has significant leverage but also significant exposure
+
+#### E3. European Financial Sector Stability
+
+The SRMR3 banking resolution regulation (TA-10-2026-0092) and ECB governance appointments signal the completion of Banking Union architecture post-2008. EP10 is finalising the regulatory framework for early bank intervention and orderly resolution — critical infrastructure given ECB's stress-testing revealed 7 EU banks with inadequate capital buffers in 2025.
+
+---
+
+### S — Social
+
+#### S1. Housing as the EU's Defining Social Crisis
+
+The housing crisis resolution (TA-10-2026-0064) addressed the defining social fault line of EP10's term. Key social data:
+- EU home ownership among 25–35 year-olds: declined from 54% (2015) to 41% (2024)
+- Rent-to-disposable-income ratio: >30% in 15 EU capitals (affordability crisis threshold)
+- 96 million EU residents (22% of population) experiencing housing cost overburden
+
+EP10's housing resolution calls for removal of state aid constraints, EIB green housing facility, and national affordable housing targets. Social legitimacy of EP depends on visible action on this issue — it affects every EU citizen's daily life.
+
+#### S2. Worker Rights and Supply Chain Labour Standards
+
+TA-10-2026-0050 on subcontracting chains and worker rights reflects EP10's attempt to close the regulatory gap between formal EU labour law and informal sub-contracting exploitation — a social concern particularly acute in construction, logistics, and food processing sectors employing high proportions of EU migrant workers.
+
+#### S3. UN Women's Commission (TA-10-2026-0051)
+
+EP's recommendation on the UN Commission on the Status of Women demonstrates the Parliament's continued role as normative standard-setter for gender equality — consistent with EP10's progressive-centrist majority on social issues.
+
+---
+
+### T — Technological
+
+#### T1. AI and Copyright: The Week's Landmark Technological Text
+
+**TA-10-2026-0066**: "Copyright and generative artificial intelligence — opportunities and challenges" (adopted 2026-03-10) is the EP's first substantive resolution on generative AI's intellectual property implications following the AI Act's adoption in 2024.
+
+**Policy position:**
+- Balanced approach: AI training on copyrighted material requires either licensing or opt-out mechanism
+- Cultural industries coalition (publishers, artists, musicians) successfully argued for remuneration
+- Tech sector (primarily US-based AI companies) faces compliance burden — EU as de facto global standard-setter
+
+**Technological intelligence:** This resolution is a precursor to delegated acts under AI Act. EU's position will influence global AI governance debates at the OECD, UN AI treaty process, and bilateral EU–US AI governance dialogues.
+
+#### T2. European Technological Sovereignty
+
+**TA-10-2026-0022**: "European technological sovereignty and digital infrastructure" (adopted 2026-01-22) maps the strategic framework for reducing EU dependence on non-EU cloud, semiconductor, and digital infrastructure.
+
+**T3. Drones and Warfare Technology**
+
+**TA-10-2026-0020**: Drones and new warfare systems forces EP to engage with dual-use technology governance — previously a member state competence. The resolution establishes EP's normative claim over EU-level defence technology standards, setting the stage for future binding legislation.
+
+---
+
+### L — Legal
+
+#### L1. EU–Mercosur Legal Certainty Challenge
+
+EP's request for a Court of Justice opinion on EU-Mercosur compatibility (TA-10-2026-0008) introduces legal uncertainty into the ratification process. This follows the CJEU's Singapore precedent (Opinion 2/15), which clarified the EU-exclusive vs. mixed agreement distinction. A negative opinion could require renegotiation — a strategic tool wielded by EP against unpopular trade deals.
+
+#### L2. Anti-Corruption Directive
+
+TA-10-2026-0094 on combating corruption represents the first EU-level binding anti-corruption framework — previously addressed only through GRECO recommendations and member state law. The directive covers public procurement, beneficial ownership transparency, and whistleblower protection.
+
+**Legal significance:** Applies to all 27 member states, closing the enforcement gap that enabled Qatargate-style lobbying influence in Brussels. Direct response to EP's own 2022–2023 corruption scandal.
+
+#### L3. Sanctions Expansion (TA-10-2026-0015)
+
+The EU Magnitsky Act framework expansion extends individual sanctions for human rights violations — a consolidation of EU soft-power legal tools. This text passed with broad EPP-S&D-Renew-Greens consensus, unusual for foreign policy resolutions.
+
+---
+
+### E — Environmental
+
+#### E1. Emissions Calculation Flexibility (TA-10-2026-0084)
+
+Heavy-duty vehicle emissions credits recalculation (2025–2029) reflects the EP10 majority's pragmatic retreat from EP9's Green Deal rigour. Environmental organisations criticised this as weakening the 2019 regulation, but automotive industry (VDA) welcomed it as essential for managing transition costs.
+
+**Environmental tension:** EP10's right-of-centre majority consistently privileges industrial feasibility over emissions ambition — a reversal from EP9's Green Deal coalition.
+
+#### E2. Genetically Modified Organisms
+
+Two GMO authorisation objections (TA-10-2026-0041, TA-10-2026-0043) on soybean and cotton demonstrate EP10 maintains regulatory rigour on GMO approvals despite general deregulatory tendency. GMO policy remains a redline for S&D, Greens, and significant centrist MEPs.
+
+#### E3. Global Gateway and Environmental Dimension
+
+TA-10-2026-0104 on Global Gateway evaluates the EU's €300bn infrastructure investment programme in developing countries. Environmental conditionality — requiring EU-standard sustainability norms in partner country infrastructure — was retained despite industry pressure to relax them.
+
+---
+
+### PESTLE Summary Matrix
+
+| Dimension | Key Driver | Political Coalition | Risk Level | Priority |
+|-----------|------------|--------------------|-----------:|---------|
+| Political | Coalition fragmentation + US friction | All groups (defence); EPP + right (migration) | 🔴 High | 1st |
+| Economic | German recession + US tariffs | EPP + S&D + Renew (trade) | 🔴 High | 2nd |
+| Social | Housing crisis | S&D + Renew | 🟡 Medium | 3rd |
+| Technological | AI governance + sovereignty | EPP + Renew | 🟡 Medium | 4th |
+| Legal | Anti-corruption + trade legality | Cross-coalition | 🟡 Medium | 5th |
+| Environmental | Emissions recalculation vs ambition | EPP + ECR vs Greens | 🟡 Medium | 6th |
+
+### Analytical Frameworks Applied
+
+- PESTLE structural decomposition (above)
+- Coalition mapping per dimension
+- Evidence anchoring to EP adopted texts (TA identifiers)
+- Historical comparison to EP9 (Green Deal era) vs EP10 (Competitiveness era)
+
+### Historical Baseline
+
+### 1. EP10 Year 2 in Historical Context
+
+#### 1.1 Legislative Output Benchmarking
+
+The week of 19–26 April 2026 falls squarely in EP10's second year of operation, a phase historically characterised by accelerating legislative throughput as committees exit their establishment phase and rapporteurships solidify. Comparing EP10 Year 2 against prior parliamentary terms:
+
+| Metric | EP8 Y2 (2015) | EP9 Y2 (2020) | EP10 Y2 (2026) | Trend |
+|--------|--------------|--------------|----------------|-------|
+| Proj. Legislative Acts | ~68 | ~54* | 114 | 🔺+68% vs EP9Y2 |
+| Plenary Sessions | 55 | 48* | 54 | Stable |
+| Roll-Call Votes | ~350 | ~280* | 567 | 🔺+102% |
+| Parliamentary Questions | ~3500 | ~4100 | 6147 | 🔺+50% |
+| Committee Meetings | ~1800 | ~1650* | 2363 | 🔺+43% |
+
+*EP9 Year 2 was heavily impacted by COVID-19 lockdowns and remote working adaptations.
+
+**🟡 Interpretation:** EP10 Year 2's legislative output (114 acts through Q1 2026 projection) is historically exceptional. The +46% year-on-year increase from EP10 Year 1 (78 acts) reflects both the post-COVID catch-up effect and the political urgency of the Clean Industrial Deal and defence spending agenda. Roll-call vote counts are particularly elevated (+102% vs EP9 Year 2), suggesting the current Parliament is forcing recorded divisions on contentious dossiers far more frequently than its predecessors.
+
+#### 1.2 The 2009 Structural Break: Lisbon Treaty Effect
+
+The Lisbon Treaty (in force December 2009, first full effect EP7) fundamentally raised EP's co-legislative role. Post-Lisbon parliaments consistently produce 30–40% more legislative acts than pre-Lisbon counterparts. EP10 benefits from 17 years of institutional learning within the Lisbon framework, explaining the high throughput baseline.
+
+**Implication for this week:** When EP adopts texts on EU-Mercosur safeguards or AI copyright, these are co-legislative decisions with real treaty force — not merely resolutions. The 114 legislative acts projected for 2026 carry binding EU law implications.
+
+#### 1.3 The Fragmentation Trend (2004–2026)
+
+| Election Year | Effective Parties (ENP) | Top-2 Seat Share | Grand Coalition? |
+|--------------|------------------------|-----------------|-----------------|
+| 2004 | ~4.1 | 63.9% | ✅ Viable |
+| 2009 | ~4.5 | 59.4% | ✅ Viable |
+| 2014 | ~5.1 | 55.2% | ⚠️ Marginal |
+| 2019 | ~6.0 | 48.3% | ❌ No longer viable |
+| 2024 | ~6.6 | 44.5% | ❌ Not viable |
+
+**🔴 Critical baseline finding:** The 2019 election was a structural inflection point where the traditional EPP–S&D grand coalition lost its majority. EP10 (elected 2024) continues this fragmentation trajectory. Every legislative majority now requires ≥3 groups, typically EPP + S&D + Renew (centrist bloc) or EPP + ECR + PfE (right-wing coalition). This structural reality shapes everything the Parliament does.
+
+### 2. Rightward Political Shift: Historical Pattern
+
+EP10 registers the most rightward political composition since the Parliament's founding. The bipolar index has risen from 0.081 (2004) to 0.232 (2026), reflecting the consolidation of right-wing and Eurosceptic forces.
+
+**Historical comparators:**
+- **ECR growth trajectory**: Founded 2009 from UK Conservatives + Polish PiS; grew from ~60 seats (EP7) to 79 (EP10). Consolidating as the credible conservative alternative to EPP.
+- **PfE emergence**: The successor to the ID group, reconstituted with Rassemblement National + FPÖ + Fidesz. At 84 seats it represents a new right-wing pole that did not exist in this form before 2024.
+- **Greens/EFA decline**: Peaked at 74 seats in EP9 (2019 "Green Wave"), now at 53 (EP10). This reversal mirrors the broader European political tide turning away from climate-prioritisation toward industrial competitiveness.
+
+**Implication for week-in-review:** The rightward shift directly explains the migration hardening (safe countries list, safe third country concept) adopted earlier in 2026, and the resistance to the original Green Deal ambitions evident in the emissions recalculation text for heavy-duty vehicles.
+
+### 3. EU–US Transatlantic Relations: Historical Baseline
+
+The week of April 19–26 occurs amid an EU–US trade tension episode driven by US tariff reimposition under the second Trump administration. Historical parallel:
+
+- **2018–2019 (Trump 1.0)**: US Section 232 steel/aluminium tariffs triggered EU retaliatory measures; EP adopted resolutions condemning tariffs as violation of WTO rules. EU–US trade eventually stabilised after 2021 Biden pause.
+- **2025–2026 (Trump 2.0)**: Broader tariff threats (automotive, digital services) alongside EU Strategic Autonomy push. EP adopted TA-10-2026-0096 adjusting customs duties for US goods — a concrete retaliatory mechanism.
+
+**🟡 Pattern recognition:** Historical evidence suggests EU–US tariff disputes resolve via negotiation within 18–36 months (2018–2019 cycle: 14 months; 1990s Airbus dispute: 20+ years). The current episode is at month ~3 of active EU countermeasures, suggesting the negotiation phase is early.
+
+### 4. Defence Spending: Historical Baseline
+
+NATO 2% GDP target commitments were established in 2014 post-Crimea annexation. As of 2026, only 23 of 27 EU member states meet or approach the 2% target. EP's adopted texts on European Defence Industrial Strategy and EU Strategic Defence Partnerships represent the most substantive parliamentary engagement with defence spending since the Common Foreign and Security Policy (CFSP) was established by Maastricht (1992).
+
+**Baseline trajectory:**
+- 2014: Post-Crimea summit commitment to 2% target (Wales pledge)
+- 2016–2022: Slow progress; Germany at 1.3%, France near 2%
+- 2022: Russia's full-scale invasion of Ukraine triggers step-change
+- 2024–2026: EP10 makes defence spending and European Defence Fund the centrepiece of its strategic agenda. ReArm Europe (€800bn) package represents the largest EU defence spending initiative in history.
+
+### 5. Immigration Policy: Historical Baseline
+
+The EU New Pact on Migration and Asylum (2020–2024) was adopted during EP9. EP10's adoption of safe countries of origin list and safe third country concept in February 2026 represents the operational implementation of that pact, historically notable as:
+- First binding EU-level safe country list (previously fragmented by member state)
+- Safe third country concept codifies refoulement-adjacent mechanisms that NGOs had resisted since Dublin Regulation (1990)
+
+**🔴 Controversy baseline:** Comparable to 2015–2016 EU–Turkey migration deal — politically viable with EPP/ECR/PfE majority but generating legal challenges at CJEU and criticism from UNHCR and human rights organisations.
+
+### 6. Key Historical Comparison: Prior Week-in-Review
+
+**Most recent comparable run**: No prior `analysis/daily/*/week-in-review/` folder found for the days preceding this analysis. This is a first-run baseline for 2026-04-26.
+
+**Forward-looking statements from adjacent runs to cross-reference:**
+- Breaking news runs: `analysis/daily/2026-04-18/breaking/` predicted continued EU-US tariff escalation and defence spending votes. Both confirmed this week.
+- Predicted AI Act implementation tensions in Q2 2026 — confirmed by copyright/AI text.
+
+### 7. Data Confidence and Methodology Notes
+
+| Claim | Evidence Quality | Confidence |
+|-------|-----------------|-----------|
+| Legislative output benchmarks | EP Open Data generated stats | 🟢 High |
+| Fragmentation trend | EP API group composition 2024–2026 | 🟢 High |
+| Political rightward shift | Computed bipolar index 0.081→0.232 | 🟢 High |
+| EU–US trade historical pattern | EP adopted texts + historical record | 🟡 Medium |
+| Defence spending trajectory | Public NATO/EP data | 🟢 High |
+| Migration policy baseline | EP adopted texts 2026 | 🟢 High |
 
 <h2 id="section-continuity">Cross-Run Continuity</h2>
 
@@ -2290,14 +2290,14 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-in-review/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-coalitions-voting | [voting-patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-in-review/intelligence/voting-patterns.md) | `intelligence/voting-patterns.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-in-review/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-in-review/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-in-review/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-in-review/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-in-review/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-in-review/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-in-review/intelligence/threat-model.md) | `intelligence/threat-model.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-in-review/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-in-review/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-in-review/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-in-review/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-continuity | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-in-review/intelligence/cross-session-intelligence.md) | `intelligence/cross-session-intelligence.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-in-review/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-26/week-in-review/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |

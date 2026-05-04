@@ -438,320 +438,6 @@ of shadow-rapporteur amendment posture.
 
 *— Stakeholder Map · extended · 2026-04-24*
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-PESTLE applied to the **EU Parliament legislative-propositions pipeline**
-for the 30 days ending 2026-04-24. Each factor is rated on impact
-(**H/M/L**) and certainty (**🟢 HIGH / 🟡 MED / 🔴 LOW**) and cross-
-referenced to at least one supporting artifact.
-
-### P — Political
-
-#### P.1 Right-bloc consolidation (H, 🟢 HIGH)
-The EP10 right bloc is **locked at 52.3%** with a eurosceptic sub-bloc
-at 15.6%. For propositions, the EPP has **two majorities at its
-disposal**: EPP-S&D-Renew (progressive variant) and EPP-ECR-PfE
-(rightward variant). This **bargaining asymmetry** is the single most
-important political driver of the 2026 propositions pipeline. Cross-
-ref: `stakeholder-map.md §Political groups`, `historical-baseline.md §4`.
-
-#### P.2 Renew swing-group pivot (H, 🟡 MED)
-Renew (76 seats, 10.6%) has become the **pivotal swing group** for
-progressive files. Renew-ECR size similarity = 0.95 (coalition
-dynamics) suggests Renew has operational coalition optionality on
-industrial competitiveness and defence. Cross-ref: `scenario-forecast.md §2.2`.
-
-#### P.3 EPP largest-group fragility (M, 🟡 MED)
-EPP (185 seats) is **-5.5 short of a grand coalition** with S&D.
-Historical baseline: grand coalition surplus was +50 in 2004, crossed
-zero in 2019, and has held at -5 to -5.5 since 2024. Cross-ref:
-`historical-baseline.md §3`.
-
-#### P.4 ESN/PfE behavioural volatility (M, 🔴 LOW)
-Eurosceptic-far-right groups (PfE 84, ESN 28) are the **least
-predictable** on roll-calls. Missing per-MEP voting data in EP API
-means we cannot empirically estimate their cohesion. Cross-ref:
-`threat-model.md §T1`.
-
-### E — Economic
-
-#### E.1 German double-contraction (H, 🟢 HIGH)
-DE GDP growth -0.50% (2024) after -0.87% (2023) anchors EPP-DE
-rapporteurs toward **compliance-cost-minimising propositions**.
-Cross-ref: `economic-context.md §2.1`.
-
-#### E.2 ECB pause-to-cutting cycle (M, 🟡 MED)
-DE CPI 2.26% at the ECB target implies falling financing costs →
-structurally supportive for green-transition and defence-bond
-propositions. Cross-ref: `economic-context.md §4`.
-
-#### E.3 FR growth resilience (M, 🟢 HIGH)
-FR +1.19% (2024) sustains S&D-FR defence of social-pillar propositions.
-Cross-ref: `economic-context.md §2.2`.
-
-#### E.4 EU aggregate data unavailable (L, 🟢 HIGH)
-WB MCP does not resolve EUU/EMU — forces bilateral proxies. Cross-
-ref: `mcp-reliability-audit.md §WB-1`.
-
-### S — Social
-
-#### S.1 Eurosceptic share plateau at 15.6% (M, 🟢 HIGH)
-Post-2024 EP elections, eurosceptic share plateaued. Social base for
-eurosceptic-leaning propositions (migration, enlargement caution) is
-stable but not expanding. Cross-ref: `historical-baseline.md §4`.
-
-#### S.2 MEP stability high (0.95 index) (M, 🟢 HIGH)
-High stability means rapporteurs build institutional memory on files
-— accelerates throughput. Cross-ref: `historical-baseline.md §5`.
-
-#### S.3 Attendance data missing (L, 🟢 HIGH)
-EP API reports `averageAttendance: 0` — per-session attendance is
-not computable. Known upstream defect, no social-base analysis from
-attendance possible this run. Cross-ref: `mcp-reliability-audit.md §EP-1`.
-
-### T — Technological
-
-#### T.1 AI-Act implementing regulations cohort (H, 🟡 MED)
-A substantial share of the 2026 propositions pipeline is
-**implementing acts** spun off the 2024 AI Act. EPP-S&D consensus is
-achievable on technical standards but fragile on risk-tier criteria.
-Cross-ref: `scenario-forecast.md §3`.
-
-#### T.2 Digital Services Act enforcement propositions (M, 🟡 MED)
-DSA implementation is driving procedural volume. 2026 projected
-procedures = 935, of which a non-trivial share are DSA-adjacent.
-Cross-ref: `scenario-forecast.md §3`.
-
-#### T.3 Cyber resilience (CRA) phased rollout (M, 🟢 HIGH)
-EU CRA enters full force in 2027; 2026 propositions include guidance /
-implementing acts for transition. Cross-ref: `pestle-analysis.md §L.2`.
-
-#### T.4 AI-assisted legislative drafting spillover (L, 🔴 LOW)
-Speculative — no EP-published evidence of AI-assisted drafting for
-the 104 TA-10-2026 records. Devil's-advocate observation only.
-
-### L — Legal
-
-#### L.1 QMV bypass attempts in CNS files (H, 🟡 MED)
-5 SYN + 21 CNS procedures (of 50 historical records sampled) are
-consultation-procedure files where EP has weaker co-decision rights.
-On those, Council effectively dictates outcome; EP propositions work
-is hearings + non-binding opinions. Cross-ref: `scenario-forecast.md §4`.
-
-#### L.2 Trilogue calendar pressure (H, 🟢 HIGH)
-EP10 Year-2 is peak trilogue season. 935 projected procedures against
-54 plenary sessions means per-plenary-week trilogue loading is at an
-all-time high. Cross-ref: `historical-baseline.md §2`.
-
-#### L.3 Subsidiarity challenges (M, 🟡 MED)
-National parliaments' subsidiarity reasoned-opinions create friction
-for controversial propositions. Not empirically measurable from EP
-API — inferred from declared commissioner-state disputes.
-
-#### L.4 Data Protection Regulation compliance overhead (L, 🟢 HIGH)
-GDPR compliance adds process friction but no material propositional
-blocking. Background variable.
-
-### E — Environmental
-
-#### E.1 Green Deal pace slowdown (H, 🟢 HIGH)
-Political-balance summary explicitly notes: *"Green Deal pace slowing"*.
-This is a **headline 2026 environmental-factor shift**. Propositions
-that reopen environmental conditionality in CAP, CBAM, or ETS find
-EPP + ECR tailwind. Cross-ref: `scenario-forecast.md §2.3`.
-
-#### E.2 Climate-package implementation residue (H, 🟢 HIGH)
-Fit-for-55 implementing regulations still feeding into the 2026
-propositions pipeline. Estimated 15–25% of the 104 TA-10-2026 items.
-Cross-ref: `synthesis-summary.md §2`.
-
-#### E.3 Biodiversity Strategy fragmentation (M, 🟡 MED)
-Biodiversity Strategy 2030 targets create propositions pressure but
-EPP-ECR resistance on conditional funding. Cross-ref: `threat-model.md §T3`.
-
-### L (Legal-Regulatory, extended)
-
-#### L.5 Enlargement-preparation policy file cohort (M, 🟡 MED)
-UA/MD candidacy triggers a cohort of acquis-alignment propositions.
-Cross-ref: `wildcards-blackswans.md §W2`.
-
-### Cross-factor interactions
-
-- **P.1 × E.1**: right-bloc consolidation + DE contraction = **amplified
-  compliance-cost resistance** on green-transition propositions.
-- **T.1 × L.2**: AI-Act implementing regs + trilogue calendar pressure
-  = **bottleneck risk** on AI-Act technical-standards propositions.
-- **S.2 × L.2**: high MEP stability + peak trilogue season =
-  **accelerated throughput** (+46% YoY projected).
-
-### Summary Scorecard
-
-| Factor | Net direction on propositions H1 2026 | Confidence |
-|--------|:-------------------------------------:|:----------:|
-| Political | ↑ rightward bias | 🟢 |
-| Economic | ↓ compliance-cost appetite | 🟢 |
-| Social | → stable | 🟢 |
-| Technological | ↑ AI/digital throughput | 🟡 |
-| Legal | ↑ trilogue pressure | 🟢 |
-| Environmental | ↓ Green Deal pace | 🟢 |
-
-*— PESTLE · Pass 2 complete · 2026-04-24*
-
-### Factor deep-dives (extension)
-
-#### Political deep-dive: Renew bargaining parity
-Renew's 76 seats put it at 87% of ECR's 79 seats and 90% of PfE's 84
-seats — meaning Renew has operational bargaining parity with either
-rightward anchor on narrow files. The size-similarity coalition
-signal reported by `analyze_coalition_dynamics` (0.95 ECR-Renew, 0.91
-PfE-Renew) formalises this parity.
-
-#### Economic deep-dive: capex-cycle sensitivity
-German manufacturing capex is sensitive to CBAM pricing and ETS
-extension. Any proposition that tightens Phase-IV allocation rules
-pulls the DE EPP delegation toward Scenario-A majorities.
-
-#### Technological deep-dive: cyber-resilience pipeline
-EU CRA transition creates an implementing-act pipeline that peaks in
-2027. 2026 propositions in this family are preparatory rather than
-substantive, so throughput rather than narrative intensity is the
-tracking metric.
-
-#### Environmental deep-dive: Fit-for-55 residual pipeline
-Even as Green Deal pace slows, the Fit-for-55 legislative package
-has ~20 implementing-regulation tails reaching plenary through 2027.
-These sustain environmental-file throughput regardless of political-
-bloc rebalancing.
-
-*— PESTLE · extended · 2026-04-24*
-
-### Historical Baseline
-
-years) against which this month's propositions pipeline is judged.
-
-### 1 · Method
-
-Baseline draws on `european-parliament-get_all_generated_stats`
-(methodology v2.0.0, generated 2026-04-20). Source data is
-precomputed weekly by the EP's own agentic pipeline from the Open
-Data Portal and covers plenary sessions, legislative acts adopted,
-procedures opened, roll-call votes, resolutions, speeches, adopted
-texts, documents, MEP turnover, and declarations.
-
-For each year we compute:
-- **Throughput**: `legislativeActsAdopted`, `procedures`
-- **Intensity**: `legislativeOutputPerSession`, `legislativeOutputPerMEP`
-- **Fragmentation**: `effectiveNumberOfParties` (ENP, Laakso–Taagepera),
-  `herfindahlHirschmanIndex` (HHI), `topTwoGroupsConcentration` (CR₂)
-- **Coalition arithmetic**: `minimumWinningCoalitionSize`,
-  `grandCoalitionSurplusDeficit`
-- **Bloc balance**: `leftBlocShare`, `rightBlocShare`, `euroscepticShare`
-
-### 2 · Throughput Longitudinal (2024 → 2026)
-
-| Year | Term | Acts adopted | Procedures | Plenary sessions | Acts/session | Acts/MEP |
-|------|------|-------------:|-----------:|-----------------:|-------------:|---------:|
-| 2024 | EP9→EP10 transition | 72  | 676  | 50 | 1.44 | 0.100 |
-| 2025 | EP10 Year 1         | 78  | 923  | 53 | 1.47 | 0.108 |
-| 2026 | EP10 Year 2 (proj)  | 114 | 935  | 54 | 2.11 | 0.159 |
-| Δ 2026 vs 2025 | | **+46.2%** | +1.3% | +1.9% | +43.5% | +47.2% |
-
-**Reading**: 2026 is projected to be the **highest** acts-per-session and
-acts-per-MEP year in the full 2004–2026 window. The baseline 2004
-figure (pre-Lisbon) was ≈ 0.92 acts/session. EP10 Year-2 is running at
-**2.3× the 2004 productivity benchmark** on a per-session basis.
-
-### 3 · Fragmentation Longitudinal
-
-| Year | ENP | HHI | CR₂ | Min coalition | GC surplus/deficit |
-|------|----:|----:|----:|:-------------:|-------------------:|
-| 2004 | 4.12 | 0.2348 | 63.9% | 2 groups | surplus |
-| 2014 | 5.32 | ~0.19 | 51.0% | 2 groups | borderline |
-| 2019 | 6.10 | 0.1780 | 47.5% | **3 groups** | **deficit starts** |
-| 2024 | 6.51 | 0.1536 | 45.0% | 3 groups | -5.0 |
-| 2025 | 6.59 | 0.1517 | 44.5% | 3 groups | -5.5 |
-| 2026 | 6.59 | 0.1515 | 44.5% | 3 groups | -5.5 |
-
-**Reading**: the EP crossed a **structural regime change in 2019** when
-CR₂ fell below 50% — no two-group majority has been feasible since.
-For propositions, this means **every non-consensual file requires a
-3-way coalition**. This is the single most important structural
-baseline the propositions workflow tracks.
-
-### 4 · Bloc-Balance Longitudinal
-
-| Year | Left bloc | Centre bloc | Right bloc | Eurosceptic | Bipolar index |
-|------|----------:|------------:|-----------:|------------:|--------------:|
-| 2004 | 42.6% | 18.3% | 39.1% | 5.1% | 0.081 |
-| 2014 | 36.0% | 13.5% | 50.5% | 9.8% | 0.142 |
-| 2024 | 32.7% | 10.7% | 52.1% | 15.2% | 0.229 |
-| 2025 | 32.6% | 10.6% | 52.3% | 15.6% | 0.232 |
-| 2026 | 32.6% | 10.6% | 52.3% | 15.6% | 0.232 |
-
-**Reading**: the right-bloc share crossed 50% in 2014 and has never
-retreated. The eurosceptic sub-bloc tripled from 2004 to 2026
-(5.1% → 15.6%). For propositions, the bloc-balance determines
-**which rapporteur is winnable on which file** — a left-coded file
-(e.g. social-pillar directives) is now structurally harder to pass
-than a right-coded one (e.g. defence, enlargement, industrial
-competitiveness).
-
-### 5 · MEP Stability & Institutional Memory
-
-| Year | MEP turnover | Stability idx | Inst. memory risk |
-|------|-------------:|--------------:|-------------------|
-| 2024 | 405 (56.3%) | 0.438 | HIGH |
-| 2025 |  36 ( 5.0%) | 0.950 | LOW |
-| 2026 |  39 ( 5.4%) | 0.946 | LOW |
-
-**Reading**: 2024 was a once-in-5-year election reset. 2026 stability
-is at the **highest end** of the historical range, which supports
-higher throughput: experienced rapporteurs carry files faster through
-committee stages. This baseline explains the 2026 projected act-count
-spike beyond what raw demand alone would predict.
-
-### 6 · Oversight vs Legislative Balance
-
-| Year | Parl. Qs | MEP oversight intensity (Qs/MEP) | Oversight/legislation balance |
-|------|---------:|---------------------------------:|------------------------------:|
-| 2024 | 2,970 | 4.13 | 41.3 |
-| 2025 | 4,946 | 6.87 | 63.4 |
-| 2026 | 6,147 | 8.56 | 53.9 |
-
-**Reading**: Commission-oversight intensity has nearly doubled since
-2024. For propositions, this signals that MEPs are **instrumenting
-proposition-relevant executive action** more aggressively — which
-correlates with tighter Commission-Parliament feedback loops on
-implementing regulations (a large share of the projected 114 2026 acts).
-
-### 7 · Reference-Benchmark Positioning
-
-The `reference-quality-thresholds.json` benchmark run is
-`analysis/daily/2026-04-18/breaking-run184/` (Easter Saturday reference
-run with 36 artifact floors established). This propositions baseline
-inherits 14 of those floors (see `../intelligence/analysis-index.md §2`).
-
-### 8 · Change Versus Prior Propositions Runs
-
-Most recent same-type run with the canonical folder layout is
-`analysis/daily/2026-04-17/propositions-run45/`. Key deltas to flag:
-- **ENP** unchanged at 6.59 (stable)
-- **Projected 2026 acts** updated from 78 (Run 45 projection) to
-  **114** (current stats pull) — +46% upward revision driven by the
-  Q1 2026 actuals absorbing into the projection model.
-- **Right-bloc share** unchanged at 52.3% (no new group realignment).
-
-### 9 · Limitations
-
-- 2026 figures are **partial-year projections** with Q1 actuals +
-  2021–2025 historical average extrapolation.
-- EP9→EP10 fragmentation reporting methodology changed in 2024;
-  pre-2024 figures use the legacy EP9 group taxonomy.
-
-*— Historical Baseline · Pass 2 complete · 2026-04-24*
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 (Germany + France bilaterals) after attempted Eurozone aggregates
@@ -1651,6 +1337,320 @@ which would push Scenario A probability into HIGHLY LIKELY territory.
 
 *— extension · 2026-04-24*
 
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+PESTLE applied to the **EU Parliament legislative-propositions pipeline**
+for the 30 days ending 2026-04-24. Each factor is rated on impact
+(**H/M/L**) and certainty (**🟢 HIGH / 🟡 MED / 🔴 LOW**) and cross-
+referenced to at least one supporting artifact.
+
+### P — Political
+
+#### P.1 Right-bloc consolidation (H, 🟢 HIGH)
+The EP10 right bloc is **locked at 52.3%** with a eurosceptic sub-bloc
+at 15.6%. For propositions, the EPP has **two majorities at its
+disposal**: EPP-S&D-Renew (progressive variant) and EPP-ECR-PfE
+(rightward variant). This **bargaining asymmetry** is the single most
+important political driver of the 2026 propositions pipeline. Cross-
+ref: `stakeholder-map.md §Political groups`, `historical-baseline.md §4`.
+
+#### P.2 Renew swing-group pivot (H, 🟡 MED)
+Renew (76 seats, 10.6%) has become the **pivotal swing group** for
+progressive files. Renew-ECR size similarity = 0.95 (coalition
+dynamics) suggests Renew has operational coalition optionality on
+industrial competitiveness and defence. Cross-ref: `scenario-forecast.md §2.2`.
+
+#### P.3 EPP largest-group fragility (M, 🟡 MED)
+EPP (185 seats) is **-5.5 short of a grand coalition** with S&D.
+Historical baseline: grand coalition surplus was +50 in 2004, crossed
+zero in 2019, and has held at -5 to -5.5 since 2024. Cross-ref:
+`historical-baseline.md §3`.
+
+#### P.4 ESN/PfE behavioural volatility (M, 🔴 LOW)
+Eurosceptic-far-right groups (PfE 84, ESN 28) are the **least
+predictable** on roll-calls. Missing per-MEP voting data in EP API
+means we cannot empirically estimate their cohesion. Cross-ref:
+`threat-model.md §T1`.
+
+### E — Economic
+
+#### E.1 German double-contraction (H, 🟢 HIGH)
+DE GDP growth -0.50% (2024) after -0.87% (2023) anchors EPP-DE
+rapporteurs toward **compliance-cost-minimising propositions**.
+Cross-ref: `economic-context.md §2.1`.
+
+#### E.2 ECB pause-to-cutting cycle (M, 🟡 MED)
+DE CPI 2.26% at the ECB target implies falling financing costs →
+structurally supportive for green-transition and defence-bond
+propositions. Cross-ref: `economic-context.md §4`.
+
+#### E.3 FR growth resilience (M, 🟢 HIGH)
+FR +1.19% (2024) sustains S&D-FR defence of social-pillar propositions.
+Cross-ref: `economic-context.md §2.2`.
+
+#### E.4 EU aggregate data unavailable (L, 🟢 HIGH)
+WB MCP does not resolve EUU/EMU — forces bilateral proxies. Cross-
+ref: `mcp-reliability-audit.md §WB-1`.
+
+### S — Social
+
+#### S.1 Eurosceptic share plateau at 15.6% (M, 🟢 HIGH)
+Post-2024 EP elections, eurosceptic share plateaued. Social base for
+eurosceptic-leaning propositions (migration, enlargement caution) is
+stable but not expanding. Cross-ref: `historical-baseline.md §4`.
+
+#### S.2 MEP stability high (0.95 index) (M, 🟢 HIGH)
+High stability means rapporteurs build institutional memory on files
+— accelerates throughput. Cross-ref: `historical-baseline.md §5`.
+
+#### S.3 Attendance data missing (L, 🟢 HIGH)
+EP API reports `averageAttendance: 0` — per-session attendance is
+not computable. Known upstream defect, no social-base analysis from
+attendance possible this run. Cross-ref: `mcp-reliability-audit.md §EP-1`.
+
+### T — Technological
+
+#### T.1 AI-Act implementing regulations cohort (H, 🟡 MED)
+A substantial share of the 2026 propositions pipeline is
+**implementing acts** spun off the 2024 AI Act. EPP-S&D consensus is
+achievable on technical standards but fragile on risk-tier criteria.
+Cross-ref: `scenario-forecast.md §3`.
+
+#### T.2 Digital Services Act enforcement propositions (M, 🟡 MED)
+DSA implementation is driving procedural volume. 2026 projected
+procedures = 935, of which a non-trivial share are DSA-adjacent.
+Cross-ref: `scenario-forecast.md §3`.
+
+#### T.3 Cyber resilience (CRA) phased rollout (M, 🟢 HIGH)
+EU CRA enters full force in 2027; 2026 propositions include guidance /
+implementing acts for transition. Cross-ref: `pestle-analysis.md §L.2`.
+
+#### T.4 AI-assisted legislative drafting spillover (L, 🔴 LOW)
+Speculative — no EP-published evidence of AI-assisted drafting for
+the 104 TA-10-2026 records. Devil's-advocate observation only.
+
+### L — Legal
+
+#### L.1 QMV bypass attempts in CNS files (H, 🟡 MED)
+5 SYN + 21 CNS procedures (of 50 historical records sampled) are
+consultation-procedure files where EP has weaker co-decision rights.
+On those, Council effectively dictates outcome; EP propositions work
+is hearings + non-binding opinions. Cross-ref: `scenario-forecast.md §4`.
+
+#### L.2 Trilogue calendar pressure (H, 🟢 HIGH)
+EP10 Year-2 is peak trilogue season. 935 projected procedures against
+54 plenary sessions means per-plenary-week trilogue loading is at an
+all-time high. Cross-ref: `historical-baseline.md §2`.
+
+#### L.3 Subsidiarity challenges (M, 🟡 MED)
+National parliaments' subsidiarity reasoned-opinions create friction
+for controversial propositions. Not empirically measurable from EP
+API — inferred from declared commissioner-state disputes.
+
+#### L.4 Data Protection Regulation compliance overhead (L, 🟢 HIGH)
+GDPR compliance adds process friction but no material propositional
+blocking. Background variable.
+
+### E — Environmental
+
+#### E.1 Green Deal pace slowdown (H, 🟢 HIGH)
+Political-balance summary explicitly notes: *"Green Deal pace slowing"*.
+This is a **headline 2026 environmental-factor shift**. Propositions
+that reopen environmental conditionality in CAP, CBAM, or ETS find
+EPP + ECR tailwind. Cross-ref: `scenario-forecast.md §2.3`.
+
+#### E.2 Climate-package implementation residue (H, 🟢 HIGH)
+Fit-for-55 implementing regulations still feeding into the 2026
+propositions pipeline. Estimated 15–25% of the 104 TA-10-2026 items.
+Cross-ref: `synthesis-summary.md §2`.
+
+#### E.3 Biodiversity Strategy fragmentation (M, 🟡 MED)
+Biodiversity Strategy 2030 targets create propositions pressure but
+EPP-ECR resistance on conditional funding. Cross-ref: `threat-model.md §T3`.
+
+### L (Legal-Regulatory, extended)
+
+#### L.5 Enlargement-preparation policy file cohort (M, 🟡 MED)
+UA/MD candidacy triggers a cohort of acquis-alignment propositions.
+Cross-ref: `wildcards-blackswans.md §W2`.
+
+### Cross-factor interactions
+
+- **P.1 × E.1**: right-bloc consolidation + DE contraction = **amplified
+  compliance-cost resistance** on green-transition propositions.
+- **T.1 × L.2**: AI-Act implementing regs + trilogue calendar pressure
+  = **bottleneck risk** on AI-Act technical-standards propositions.
+- **S.2 × L.2**: high MEP stability + peak trilogue season =
+  **accelerated throughput** (+46% YoY projected).
+
+### Summary Scorecard
+
+| Factor | Net direction on propositions H1 2026 | Confidence |
+|--------|:-------------------------------------:|:----------:|
+| Political | ↑ rightward bias | 🟢 |
+| Economic | ↓ compliance-cost appetite | 🟢 |
+| Social | → stable | 🟢 |
+| Technological | ↑ AI/digital throughput | 🟡 |
+| Legal | ↑ trilogue pressure | 🟢 |
+| Environmental | ↓ Green Deal pace | 🟢 |
+
+*— PESTLE · Pass 2 complete · 2026-04-24*
+
+### Factor deep-dives (extension)
+
+#### Political deep-dive: Renew bargaining parity
+Renew's 76 seats put it at 87% of ECR's 79 seats and 90% of PfE's 84
+seats — meaning Renew has operational bargaining parity with either
+rightward anchor on narrow files. The size-similarity coalition
+signal reported by `analyze_coalition_dynamics` (0.95 ECR-Renew, 0.91
+PfE-Renew) formalises this parity.
+
+#### Economic deep-dive: capex-cycle sensitivity
+German manufacturing capex is sensitive to CBAM pricing and ETS
+extension. Any proposition that tightens Phase-IV allocation rules
+pulls the DE EPP delegation toward Scenario-A majorities.
+
+#### Technological deep-dive: cyber-resilience pipeline
+EU CRA transition creates an implementing-act pipeline that peaks in
+2027. 2026 propositions in this family are preparatory rather than
+substantive, so throughput rather than narrative intensity is the
+tracking metric.
+
+#### Environmental deep-dive: Fit-for-55 residual pipeline
+Even as Green Deal pace slows, the Fit-for-55 legislative package
+has ~20 implementing-regulation tails reaching plenary through 2027.
+These sustain environmental-file throughput regardless of political-
+bloc rebalancing.
+
+*— PESTLE · extended · 2026-04-24*
+
+### Historical Baseline
+
+years) against which this month's propositions pipeline is judged.
+
+### 1 · Method
+
+Baseline draws on `european-parliament-get_all_generated_stats`
+(methodology v2.0.0, generated 2026-04-20). Source data is
+precomputed weekly by the EP's own agentic pipeline from the Open
+Data Portal and covers plenary sessions, legislative acts adopted,
+procedures opened, roll-call votes, resolutions, speeches, adopted
+texts, documents, MEP turnover, and declarations.
+
+For each year we compute:
+- **Throughput**: `legislativeActsAdopted`, `procedures`
+- **Intensity**: `legislativeOutputPerSession`, `legislativeOutputPerMEP`
+- **Fragmentation**: `effectiveNumberOfParties` (ENP, Laakso–Taagepera),
+  `herfindahlHirschmanIndex` (HHI), `topTwoGroupsConcentration` (CR₂)
+- **Coalition arithmetic**: `minimumWinningCoalitionSize`,
+  `grandCoalitionSurplusDeficit`
+- **Bloc balance**: `leftBlocShare`, `rightBlocShare`, `euroscepticShare`
+
+### 2 · Throughput Longitudinal (2024 → 2026)
+
+| Year | Term | Acts adopted | Procedures | Plenary sessions | Acts/session | Acts/MEP |
+|------|------|-------------:|-----------:|-----------------:|-------------:|---------:|
+| 2024 | EP9→EP10 transition | 72  | 676  | 50 | 1.44 | 0.100 |
+| 2025 | EP10 Year 1         | 78  | 923  | 53 | 1.47 | 0.108 |
+| 2026 | EP10 Year 2 (proj)  | 114 | 935  | 54 | 2.11 | 0.159 |
+| Δ 2026 vs 2025 | | **+46.2%** | +1.3% | +1.9% | +43.5% | +47.2% |
+
+**Reading**: 2026 is projected to be the **highest** acts-per-session and
+acts-per-MEP year in the full 2004–2026 window. The baseline 2004
+figure (pre-Lisbon) was ≈ 0.92 acts/session. EP10 Year-2 is running at
+**2.3× the 2004 productivity benchmark** on a per-session basis.
+
+### 3 · Fragmentation Longitudinal
+
+| Year | ENP | HHI | CR₂ | Min coalition | GC surplus/deficit |
+|------|----:|----:|----:|:-------------:|-------------------:|
+| 2004 | 4.12 | 0.2348 | 63.9% | 2 groups | surplus |
+| 2014 | 5.32 | ~0.19 | 51.0% | 2 groups | borderline |
+| 2019 | 6.10 | 0.1780 | 47.5% | **3 groups** | **deficit starts** |
+| 2024 | 6.51 | 0.1536 | 45.0% | 3 groups | -5.0 |
+| 2025 | 6.59 | 0.1517 | 44.5% | 3 groups | -5.5 |
+| 2026 | 6.59 | 0.1515 | 44.5% | 3 groups | -5.5 |
+
+**Reading**: the EP crossed a **structural regime change in 2019** when
+CR₂ fell below 50% — no two-group majority has been feasible since.
+For propositions, this means **every non-consensual file requires a
+3-way coalition**. This is the single most important structural
+baseline the propositions workflow tracks.
+
+### 4 · Bloc-Balance Longitudinal
+
+| Year | Left bloc | Centre bloc | Right bloc | Eurosceptic | Bipolar index |
+|------|----------:|------------:|-----------:|------------:|--------------:|
+| 2004 | 42.6% | 18.3% | 39.1% | 5.1% | 0.081 |
+| 2014 | 36.0% | 13.5% | 50.5% | 9.8% | 0.142 |
+| 2024 | 32.7% | 10.7% | 52.1% | 15.2% | 0.229 |
+| 2025 | 32.6% | 10.6% | 52.3% | 15.6% | 0.232 |
+| 2026 | 32.6% | 10.6% | 52.3% | 15.6% | 0.232 |
+
+**Reading**: the right-bloc share crossed 50% in 2014 and has never
+retreated. The eurosceptic sub-bloc tripled from 2004 to 2026
+(5.1% → 15.6%). For propositions, the bloc-balance determines
+**which rapporteur is winnable on which file** — a left-coded file
+(e.g. social-pillar directives) is now structurally harder to pass
+than a right-coded one (e.g. defence, enlargement, industrial
+competitiveness).
+
+### 5 · MEP Stability & Institutional Memory
+
+| Year | MEP turnover | Stability idx | Inst. memory risk |
+|------|-------------:|--------------:|-------------------|
+| 2024 | 405 (56.3%) | 0.438 | HIGH |
+| 2025 |  36 ( 5.0%) | 0.950 | LOW |
+| 2026 |  39 ( 5.4%) | 0.946 | LOW |
+
+**Reading**: 2024 was a once-in-5-year election reset. 2026 stability
+is at the **highest end** of the historical range, which supports
+higher throughput: experienced rapporteurs carry files faster through
+committee stages. This baseline explains the 2026 projected act-count
+spike beyond what raw demand alone would predict.
+
+### 6 · Oversight vs Legislative Balance
+
+| Year | Parl. Qs | MEP oversight intensity (Qs/MEP) | Oversight/legislation balance |
+|------|---------:|---------------------------------:|------------------------------:|
+| 2024 | 2,970 | 4.13 | 41.3 |
+| 2025 | 4,946 | 6.87 | 63.4 |
+| 2026 | 6,147 | 8.56 | 53.9 |
+
+**Reading**: Commission-oversight intensity has nearly doubled since
+2024. For propositions, this signals that MEPs are **instrumenting
+proposition-relevant executive action** more aggressively — which
+correlates with tighter Commission-Parliament feedback loops on
+implementing regulations (a large share of the projected 114 2026 acts).
+
+### 7 · Reference-Benchmark Positioning
+
+The `reference-quality-thresholds.json` benchmark run is
+`analysis/daily/2026-04-18/breaking-run184/` (Easter Saturday reference
+run with 36 artifact floors established). This propositions baseline
+inherits 14 of those floors (see `../intelligence/analysis-index.md §2`).
+
+### 8 · Change Versus Prior Propositions Runs
+
+Most recent same-type run with the canonical folder layout is
+`analysis/daily/2026-04-17/propositions-run45/`. Key deltas to flag:
+- **ENP** unchanged at 6.59 (stable)
+- **Projected 2026 acts** updated from 78 (Run 45 projection) to
+  **114** (current stats pull) — +46% upward revision driven by the
+  Q1 2026 actuals absorbing into the projection model.
+- **Right-bloc share** unchanged at 52.3% (no new group realignment).
+
+### 9 · Limitations
+
+- 2026 figures are **partial-year projections** with Q1 actuals +
+  2021–2025 historical average extrapolation.
+- EP9→EP10 fragmentation reporting methodology changed in 2024;
+  pre-2024 figures use the legacy EP9 group taxonomy.
+
+*— Historical Baseline · Pass 2 complete · 2026-04-24*
+
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
 
 Stage-A + Stage-B workflow. Defects are rated severity (HIGH/MED/LOW)
@@ -2441,14 +2441,14 @@ Every artifact below was read by the aggregator and contributed to this article.
 |---|---|---|
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/threat-model.md) | `intelligence/threat-model.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/propositions/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |

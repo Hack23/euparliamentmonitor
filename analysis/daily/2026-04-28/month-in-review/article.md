@@ -938,430 +938,6 @@ April update: Germany's fiscal hawkishness on defence spending (based on WB econ
 
 *Stakeholder map supplement produced: 2026-04-28 | Standard: per-artifact-methodologies.md §stakeholder-map | Power-interest matrix (Mermaid)*
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### 1. Political Factors
-
-#### 1.1 Internal Parliamentary Dynamics
-
-The EPP+S&D+Renew coalition (397/719 seats) remains the structural majority of EP10. The March–April 2026 session demonstrated that this coalition can:
-1. **Deliver supermajority outcomes** on defence (adding ECR: 478 seats)
-2. **Navigate progressive dissent** on AI Act simplification (Left/Greens opposed, coalition held)
-3. **Maintain institutional relationships** through EP–Commission Framework Agreement (TA-0069)
-
-Key political risk: EPP internal pressure from right flank (alignment with PfE/ECR on migration and rule-of-law issues) could create coalition friction on social policy dossiers. The adoption of migration texts (safe countries list TA-0025, safe third country TA-0026) with S&D abstentions/reluctant votes signals ongoing tension.
-
-**Early Warning Status:** MEDIUM RISK | Stability score 84/100 | HIGH warning: EPP dominance risk
-
-#### 1.2 Geopolitical Context
-
-Three geopolitical drivers are reshaping EP legislative priorities:
-1. **Russia-Ukraine war** (year 4+): Continued conflict sustains political support for defence integration and Ukraine assistance; "four years of war" resolution (TA-0056) maintains EP's political unity on Ukraine
-2. **US strategic ambiguity**: Post-2025 administration's NATO posture uncertainty accelerates European strategic autonomy agenda; EU-Canada defence cooperation (TA-0078) explicitly responds to Atlantic repositioning
-3. **China strategic competition**: EU-China TRQ modification (TA-0101) and tech sovereignty resolution (TA-0022) reflect managed "de-risking" strategy
-
-**WEP Assessment (🟢):** 75% probability that geopolitical pressure (US uncertainty + Russia war) maintains political support for European defence integration through EP10 term.
-
-#### 1.3 Institutional Reforms
-
-EP–Commission Framework Agreement (TA-0069) updates the constitutional relationship between institutions. European Chief Prosecutor appointment (TA-0062) establishes new anti-corruption enforcement architecture. Electoral Act reform discussion (TA-0006) keeps 2029 EP elections in focus. These institutional texts collectively strengthen the EP's role as a constitutional actor.
-
----
-
-### 2. Economic Factors
-
-#### 2.1 Macroeconomic Baseline
-
-| Factor | Value | Signal | Legislative Response |
-|--------|-------|--------|---------------------|
-| Germany GDP 2024 | -0.50% | 🔴 Recession | Banking union, industrial policy |
-| France GDP 2024 | +1.19% | 🟡 Moderate | Fiscal consolidation (Semester) |
-| Spain unemployment 2024 | 11.4% | 🟡 High | Housing, poverty, workers' rights |
-| Italy unemployment 2024 | 6.5% | 🟢 Improving | Lower social urgency |
-| EU GDP est. 2026 | ~1.2–1.4% | 🟡 Modest | Balanced approach |
-
-#### 2.2 Trade Policy Economics
-
-The EU's calibrated tariff response to US pressure (TA-0096, 0097) reflects a carefully balanced calculation: EU exports to the US (~€500bn annually) make full trade war prohibitively costly; WTO MC14 position (TA-0086) reinforces multilateralism as the preferred framework. EU-Mercosur safeguards (TA-0030) protect European agricultural producers while enabling the broader partnership agreement.
-
-#### 2.3 Defence Industrial Economics
-
-The flagship defence projects framework creates economic incentives for:
-- Cross-border mergers/acquisitions in European defence industry
-- New defence procurement budget lines at EU level
-- Reindustrialisation in areas of industrial decline (automotive → defence equipment)
-
-At 0.3–0.5% EU GDP in additional defence spending, this represents a significant Keynesian stimulus in a recession environment.
-
-#### 2.4 Financial System Economics
-
-Banking union completion (BRRD3/SRMR3/DGSD2) reduces the implicit tail risk premium embedded in European bank valuations — markets price European banks at lower P/B ratios than US peers partly due to resolution uncertainty. Harmonised tools should reduce this discount over time.
-
----
-
-### 3. Social Factors
-
-#### 3.1 Housing and Inequality
-
-Housing crisis resolution (TA-10-2026-0064) directly addresses the most politically salient social issue in most EU member states. Key data points embedded in the EP resolution:
-- EU housing costs increased ~30% above inflation over 2015–2025
-- Young adults (18–34) spending >40% of income on housing in major EU cities
-- Homelessness increased 30% in some member states post-2020
-
-The resolution calls for the Commission's Affordable Housing Initiative (expected May/June 2026), which could include: EU investment frameworks, land use coordination, social housing investment, and affordability benchmarks. Political coalition: S&D+Left+Greens led; Renew conditional; EPP abstained/divided.
-
-#### 3.2 Labour Market and Workers' Rights
-
-Subcontracting chains resolution (TA-0050) and gender pay gap (TA-0074) reflect S&D's agenda on workers' rights. Italy's improving unemployment trajectory (9.5%→6.5%) and Spain's declining-but-high unemployment (14.9%→11.4%) provide contrasting data points for the social policy debate: Southern European member states benefit from EU labour market coordination; Northern European member states are more sceptical of EU-level wage standards.
-
-#### 3.3 Migration and Social Cohesion
-
-Safe countries of origin (TA-0025) and safe third country concept (TA-0026) reflect a political shift toward restrictive migration management that reflects EPP+ECR+PfE majority position on migration. These texts passed against Left/Greens opposition, signalling that EPP is willing to work with right-wing groups on migration against progressive bloc preferences. This coalition asymmetry (EPP+S&D for finance/defence; EPP+ECR+PfE for migration) reflects EP10's political complexity.
-
-#### 3.4 Anti-Poverty Agenda
-
-EU anti-poverty strategy (TA-0049) adds a structural commitment to address the approximately 95 million EU residents at risk of poverty or social exclusion (Eurostat estimates). The resolution aligns with Commission's social fairness pillar but requires binding implementation to move beyond soft law.
-
----
-
-### 4. Technological Factors
-
-#### 4.1 AI Governance Architecture
-
-Three March 2026 texts create a layered AI governance system:
-
-```
-Layer 1 (International): Council of Europe AI Convention (TA-0071)
-  → Human rights / democracy / rule of law principles
-  
-Layer 2 (EU Regulatory): AI Act (pre-existing) + Digital Omnibus simplification (TA-0098)
-  → Risk-based market regulation, SME carve-outs
-  
-Layer 3 (IP/Copyright): Copyright and generative AI (TA-0066)
-  → Creator rights vs. training data use
-```
-
-**Gap Analysis:** No harmonisation mechanism between Layer 1 and Layer 2 as yet. The Convention requires states to "ensure" AI systems "respect" human rights — a standard potentially higher than the AI Act's risk tiers. Layer 3 creates obligations that may conflict with Layer 2's transparency requirements for general-purpose AI systems.
-
-#### 4.2 Digital and Tech Sovereignty
-
-European technological sovereignty resolution (TA-10-2026-0022, January 22) established the political framework. Upcoming: Commission's Digital Decade mid-term review, AI Act implementing acts (Q2 2026), and European Research Area Act (TA-0068, March 10). EU's digital investment gap relative to US/China remains the structural challenge: EU capital markets for tech scale-ups remain fragmented despite Capital Markets Union progress.
-
-#### 4.3 Defence Technology Integration
-
-The intersection of defence industrial integration and AI/digital governance creates a dual-use technology governance challenge: AI systems used in defence procurement are subject to the AI Act's "prohibited" uses for lethal autonomous weapons, but the AI Act's Article 346-style carve-outs for defence applications may create inconsistencies. The European Defence Agency's technology roadmaps will interact with AI Act implementing acts in ways not yet specified.
-
----
-
-### 5. Legal Factors
-
-#### 5.1 Institutional Constitutional Developments
-
-| Text | Legal Significance |
-|------|-------------------|
-| TA-0062 | European Chief Prosecutor appointment — new anti-corruption enforcement architecture |
-| TA-0069 | EP-Commission Framework Agreement — resets institutional power balance |
-| TA-0071 | Council of Europe AI Convention — international treaty; EU member state ratification obligations |
-| TA-0094 | Combating corruption — substantive criminal law standards |
-| TA-0088/0087/0089 | MEP immunity decisions — EP self-governance and accountability |
-
-#### 5.2 Financial Law Completion
-
-BRRD3/SRMR3/DGSD2 complete the second-pillar legal architecture of the banking union. These texts require transposition into national law within 18 months (typical timeline). The legal complexity of the resolution funding arrangements — multiple member state contributions, cross-border recognition, burden-sharing rules — makes implementation the primary challenge, not the political will behind adoption.
-
-#### 5.3 Trade and International Law
-
-Request for CJEU opinion on EU-Mercosur compatibility (TA-0008) is a landmark institutional move — an EP-initiated CJEU advisory opinion on a major trade agreement. If the Court finds incompatibility with the Treaties, the entire EU-Mercosur Partnership Agreement (EMPA) would require renegotiation. This creates legal uncertainty for the EU's largest trade partnership by total trade volume.
-
----
-
-### 6. Environmental Factors
-
-#### 6.1 Climate Neutrality Framework (TA-10-2026-0031)
-
-The Climate Neutrality Framework — building on and operationalising the 2021 European Climate Law — sets implementation targets and monitoring mechanisms for the 55% emissions reduction by 2030 and climate neutrality by 2050. The EP's environmental ambition is constrained by: (a) EPP's preference for technology neutrality vs. Greens' technology mandates; (b) Germany's recession reducing fiscal space for green investment; (c) energy security concerns (post-Russia gas supply) creating pressure for fossil fuel bridge alternatives.
-
-#### 6.2 Water Quality and Biodiversity
-
-Surface water and groundwater pollutants directive (TA-0093) adds new substances to the EU watch list, extending coverage to pharmaceuticals, pesticides, and industrial chemicals. This reflects growing scientific evidence of ecological harm from chemical contamination — a particular concern for Southern European water-scarce regions and Baltic Sea states.
-
-#### 6.3 Heavy-Duty Vehicle Emissions (TA-0084)
-
-Calculation of emission credits for heavy-duty vehicles (2025–2029 reporting periods) addresses a previously unresolved technical detail in the CO₂ standards for trucks, buses, and coaches. This technical clarification ensures the regulatory framework is operable during the EV transition period for commercial vehicles — a sector where EU manufacturers face intense Chinese competition.
-
-#### 6.4 Environmental-Economic Tension
-
-Germany's recession creates political pressure to roll back environmental compliance costs — a risk identified in EPP's approach to the Climate Neutrality Framework and the AI Act simplification. If Berlin uses the recession as political cover for environmental deregulation, S&D and Greens face the challenge of maintaining Green Deal ambition against economic headwinds. This tension is the primary fault line in the EPP+S&D coalition on environmental policy through 2026.
-
----
-
-### 7. PESTLE Summary Matrix
-
-| Dimension | Current State | Trend | EP Legislative Response | Confidence |
-|-----------|--------------|-------|------------------------|------------|
-| Political | Stable coalition, geopolitical stress | → STABLE | Defence, institutional reform | 🟢 HIGH |
-| Economic | Mixed (recession/growth), trade tensions | ↑ Improving slowly | Banking union, European Semester | 🟡 MEDIUM |
-| Social | Housing crisis, inequality | → STABLE (worsening housing) | Housing, poverty, workers | 🟢 HIGH |
-| Technological | AI governance gap, defence tech | ↑ AI governance emerging | AI Convention, Omnibus, ERA | 🟡 MEDIUM |
-| Legal | Constitutional reform, treaty interpretation | ↑ New legal architecture | Banking, AI, trade law | 🟢 HIGH |
-| Environmental | Climate transition, water quality | → STABLE with risk | Climate neutrality, water | 🟡 MEDIUM |
-
----
-
-*Data sources: EP Open Data Portal (adopted texts), World Bank API (macroeconomic indicators), prior-run analysis 2026-04-27*
-
-### PESTLE EXTENDED ANALYSIS — APRIL 2026 DEEP DIVE
-
-#### Political Factor — Coalition Mathematics (Quantified)
-
-The EP10 political configuration as of April 28, 2026:
-
-```mermaid
-pie title EP10 Seat Distribution April 2026
-    "EPP (185)" : 185
-    "S&D (135)" : 135
-    "PfE (85)" : 85
-    "ECR (81)" : 81
-    "Renew (77)" : 77
-    "Greens/EFA (53)" : 53
-    "Left (46)" : 46
-    "NI (30)" : 30
-    "ESN (27)" : 27
-```
-
-**Political Implication:** With majority at 361, EPP+S&D+Renew (397) is the minimum working majority. This creates extreme sensitivity to Renew group defections on any contentious legislation. The far-right bloc (PfE+ECR+ESN=193) is ~27% — unable to block but able to shape debate and public opinion.
-
-#### Economic Factor — Growth Divergence
-
-**Key divergence (April 2026):**
-- Germany: -0.50% (2024) — recession territory
-- France: +1.19% (2024) — moderate growth
-- Southern member states generally positive trajectory
-
-**Economic Policy Implication for EP:**
-The growth divergence creates a fiscal-political fault line. Germany's stagnation reinforces fiscal hawk positions (budget discipline, MFF constraints), while France's moderate growth enables slightly more fiscal expansionism (defence, infrastructure). The EP majority (EPP+S&D+Renew) spans both orientations, creating internal negotiating tension on any spending-related legislation.
-
-#### Social Factor — Democratic Legitimacy
-
-EP turnout data (2024 election) showed improved engagement vs. 2019, but EP10 faces legitimacy challenges:
-- Public perception of EP as distant institution remains a challenge
-- High legislative throughput (567 RCV YTD) demonstrates institutional effectiveness but is invisible to average citizens
-- Social media engagement on EP legislation remains low compared to national parliamentary debates
-
-#### Technology Factor — AI Act Implementation
-
-The EU AI Act (adopted EP9, in force EP10) is the world's first comprehensive AI regulatory framework. April 2026 status:
-- High-risk AI systems: Compliance deadlines approaching August 2026
-- General purpose AI: Codes of practice in development
-- EP ITRE committee: Oversight hearings on AI Act delegated acts
-
-#### Legal Factor — Regulatory Complexity
-
-EP10 has produced 114+ adopted texts YTD 2026, contributing to:
-- Regulatory layering challenges for businesses
-- Compliance burden for SMEs
-- Calls from EPP and Renew for "regulatory simplification agenda" (direct policy implication)
-
-#### Environmental Factor — Climate-Economy Integration
-
-Post-Green Deal consolidation phase:
-- ETS II (buildings and road transport) in implementation
-- Carbon Border Adjustment Mechanism (CBAM) in early operation
-- EP position: Maintain climate ambition while addressing competitiveness concerns (German "Competitiveness Agenda" influence)
-
----
-
-*PESTLE extended analysis produced: 2026-04-28 | Mermaid: pie chart (coalition seats) | Confidence: 🟢 HIGH (political) / 🟡 MEDIUM (economic) / 🟢 HIGH (legal)*
-
-### Historical Baseline
-
-### 1. EP10 vs Prior Parliaments: Comparative Baseline
-
-#### 1.1 Legislative Productivity
-
-| Parliament | Term | Est. Total Adopted Texts | Annual Rate | Key Achievement |
-|-----------|------|--------------------------|-------------|-----------------|
-| EP6 | 2004–2009 | ~750 | ~150/year | Lisbon Treaty; REACH chemicals |
-| EP7 | 2009–2014 | ~900 | ~180/year | Post-GFC financial regulation |
-| EP8 | 2014–2019 | ~1,100 | ~220/year | GDPR; Banking union initial architecture |
-| EP9 | 2019–2024 | ~1,200 | ~240/year | Green Deal; AI Act; COVID recovery |
-| EP10 | 2024–2029 | ~1,500 (est.) | ~300/year (YTD pace) | Defence; Banking union completion |
-
-**EP10 year-to-date (April 2026):** 104 adopted texts in ~4 months = ~312/year annualised pace. This is the highest legislative productivity rate in EP history if maintained.
-
-**Historical context:** The high productivity reflects a post-election honeymoon effect, political pressure to complete EP9 backlog (AI Act, banking union), and geopolitical urgency (Ukraine, US strategic uncertainty).
-
----
-
-#### 1.2 Coalition Evolution: From EP9 to EP10
-
-**EP9 (2019–2024) political landscape:**
-- EPP: ~179 seats
-- S&D: ~147 seats
-- Renew: ~102 seats
-- Greens/EFA: ~72 seats
-- ECR: ~69 seats
-- ID (predecessor to PfE): ~76 seats
-
-**EP9 majority pattern:** EPP+S&D+Renew+Greens ("grand progressive majority") was the dominant coalition for landmark legislation (GDPR implementation, AI Act, Green Deal, NGEU recovery)
-
-**EP10 (2024–2029) political landscape (current):**
-- EPP: 185 seats (+6)
-- S&D: 135 seats (-12)
-- PfE: 85 seats (new, replacing ID)
-- ECR: 81 seats (+12)
-- Renew: 77 seats (-25)
-- Greens/EFA: 53 seats (-19)
-- Left: 46 seats (+1)
-- NI: 30 seats
-- ESN: 27 seats (new)
-
-**EP10 majority pattern:** EPP+S&D+Renew remains the structural majority (397 seats) but without Greens to add a buffer. Right-of-centre blocs (PfE, ECR) are stronger. Greens and Renew both significantly weakened from EP9 highs.
-
-**Political implication:** EP10 is structurally more right-leaning than EP9. The EPP has more flexibility to work with ECR/PfE on issue-specific coalitions where S&D is resistant (migration, deregulation).
-
----
-
-### 2. Thematic Legislative History
-
-#### 2.1 Financial Regulation Arc (EP8–EP10)
-
-**EP8 (2014–2019):** Initial banking union architecture
-- SSM (Single Supervisory Mechanism) established
-- SRM (Single Resolution Mechanism) first version
-- BRRD (Bank Recovery and Resolution) first version
-- CMU (Capital Markets Union) initial package
-
-**EP9 (2019–2024):** COVID recovery + digital finance
-- NGEU (€750bn recovery fund) — unprecedented EU fiscal instrument
-- MiCA (Crypto-asset regulation) — world's first comprehensive crypto framework
-- DORA (Digital Operational Resilience Act) — financial sector cybersecurity
-- CMU second package
-
-**EP10 (2024–present):** Banking union completion
-- BRRD3 — 2026 ✅
-- SRMR3 — 2026 ✅
-- DGSD2 — 2026 ✅
-- CMU third package (pending)
-
-**Historical significance:** The March 2026 banking union completion package closes the institutional gaps identified after the 2012–2013 eurozone sovereign debt crisis. It took 14 years from the initial SSM establishment to the full resolution architecture completion.
-
----
-
-#### 2.2 AI and Digital Governance Arc (EP8–EP10)
-
-**EP8 (2014–2019):** GDPR foundation
-- GDPR (General Data Protection Regulation) — 2018 (applied)
-- ePrivacy Regulation discussions began
-
-**EP9 (2019–2024):** Comprehensive digital governance framework
-- AI Act (passed 2024 — final adoption)
-- Digital Services Act (DSA)
-- Digital Markets Act (DMA)
-- Data Act / Data Governance Act
-- European Chips Act
-- Cyber Resilience Act
-
-**EP10 (2024–present):** AI governance implementation
-- AI Convention (Council of Europe) ratification — 2026 ✅
-- Digital Omnibus simplification — 2026 ✅
-- Copyright and generative AI — 2026 ✅
-- AI Act implementing acts (pending Q2–Q3 2026)
-
-**Historical significance:** The EU has constructed the world's most comprehensive digital governance framework over three parliamentary terms. EP10 inherits implementation responsibility — the real test of whether this framework functions as intended.
-
----
-
-#### 2.3 Defence and Security Arc
-
-**EP8 (2014–2019):** First defence initiatives (post-Russia 2014 Crimea annexation)
-- European Defence Fund (EDF) first discussions
-- CSDP strengthening resolutions
-- Initial defence industrial cooperation (EDIDP)
-
-**EP9 (2019–2024):** Structural defence transformation (post-2022 Russia full invasion)
-- ASAP (Act in Support of Ammunition Production) — emergency text
-- EDIRPA (procurement cooperation) — emergency text
-- EDIP (European Defence Industry Programme) — ongoing
-- Strategic Compass adopted by Council (first EU defence strategy)
-
-**EP10 (2024–present):** Integration and sovereignty
-- Flagship European defence projects — 2026 ✅
-- EU-Canada defence cooperation — 2026 ✅
-- CSDP annual report — 2026 ✅
-- Defence White Paper follow-on legislation (H2 2026 expected)
-
-**Historical significance:** Since Russia's 2014 Crimea annexation and especially since February 2022, each EP has produced more ambitious defence integration than the previous. EP10 is now producing legislation that would have been politically impossible in EP8.
-
----
-
-### 3. Economic Context Historical Comparison
-
-| Indicator | 2015 | 2019 | 2024 | Trend |
-|-----------|------|------|------|-------|
-| EU GDP growth | 2.3% | 1.9% | ~1.0% | ↓ Slowing |
-| Germany GDP growth | 1.7% | 0.6% | -0.5% | ↓↓ Recession |
-| Spain unemployment | 22.1% | 14.1% | 11.4% | ↓ Improving |
-| EU defence spending (% GDP) | 1.3% | 1.5% | 2.1% | ↑ Rising |
-| EU digital investment gap (vs. US) | $100bn | $120bn | $150bn | ↑↑ Widening |
-
-**Historical significance:** Germany's recession is historically anomalous — the EU's largest economy has not had this length of contractionary period since the early 2000s. This economic context shapes the entire EP10 legislative agenda: defence investment as Keynesian stimulus, banking union as stability architecture, digital investment as growth strategy.
-
----
-
-### 4. EP Self-Assessment: Institutional Evolution
-
-#### 4.1 EP's Growing Institutional Power
-
-EP10 has reinforced the Parliament's institutional role:
-- EP-Commission Framework Agreement (TA-0069) — updated power-sharing arrangement
-- European Chief Prosecutor appointment (TA-0062) — new accountability architecture
-- Electoral Act reform (TA-0006) — EP's own composition rules
-- MEP immunity decisions — self-governance transparency
-
-**Historical trajectory:** The EP's institutional power has grown with each treaty (Maastricht → Amsterdam → Nice → Lisbon). EP10's legislative volume and coalition management demonstrate the Parliament is functioning as a co-legislator on equal footing with Council.
-
-#### 4.2 Accountability Mechanisms
-
-The combating corruption resolution (TA-0094) responds to the Qatar-gate scandal of EP9 (2022). EP10 has implemented enhanced integrity measures, but the structural vulnerability — MEPs as targets for foreign influence — remains. The three immunity decisions (TA-0087, 0088, 0089) in a single session reflect ongoing accountability pressures.
-
----
-
-### 5. Historical Baseline Summary
-
-**EP10 in historical context:**
-- Most productive Parliament (legislative output rate) in EU history
-- More right-leaning than EP9 but maintaining mainstream majority
-- Operating under the most severe geopolitical pressure since EP foundation
-- Completing long-delayed institutional architecture (banking union, AI Act implementation)
-- Initiating defence integration that was politically inconceivable 10 years ago
-
-**Key historical departure points:**
-1. European defence industrial integration — breaks with 70-year post-WWII taboo on supranational defence spending
-2. Banking union completion — closes the institutional gap created by 2010–2012 sovereign debt crisis
-3. AI governance framework — EU as de facto global AI regulator (Brussels Effect)
-
----
-
-*Historical data sources: EP institutional records, World Bank historical data, prior analysis runs*
-
-### Historical Timeline
-
-```mermaid
-timeline
-    title EP10 Key Milestones (2024-2026)
-    2024-07 : EP10 constitutive session
-    2024-09 : Von der Leyen Commission approved
-    2025-03 : ReArm Europe proposal
-    2025-06 : AI Act implementation begins
-    2026-03 : SRMR3 (Banking Union) adopted
-    2026-04 : Defence Financing package proceeding
-```
-
-*Historical milestones from EP Open Data Portal and prior analysis runs.*
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 ### ⚠️ Data Quality Notice
@@ -2638,6 +2214,430 @@ pie title Wildcard Probability Distribution (WEP Bands)
 ```
 
 *7 wildcards catalogued with WEP probability bands. See wildcards-blackswans.md §§1–7.*
+
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### 1. Political Factors
+
+#### 1.1 Internal Parliamentary Dynamics
+
+The EPP+S&D+Renew coalition (397/719 seats) remains the structural majority of EP10. The March–April 2026 session demonstrated that this coalition can:
+1. **Deliver supermajority outcomes** on defence (adding ECR: 478 seats)
+2. **Navigate progressive dissent** on AI Act simplification (Left/Greens opposed, coalition held)
+3. **Maintain institutional relationships** through EP–Commission Framework Agreement (TA-0069)
+
+Key political risk: EPP internal pressure from right flank (alignment with PfE/ECR on migration and rule-of-law issues) could create coalition friction on social policy dossiers. The adoption of migration texts (safe countries list TA-0025, safe third country TA-0026) with S&D abstentions/reluctant votes signals ongoing tension.
+
+**Early Warning Status:** MEDIUM RISK | Stability score 84/100 | HIGH warning: EPP dominance risk
+
+#### 1.2 Geopolitical Context
+
+Three geopolitical drivers are reshaping EP legislative priorities:
+1. **Russia-Ukraine war** (year 4+): Continued conflict sustains political support for defence integration and Ukraine assistance; "four years of war" resolution (TA-0056) maintains EP's political unity on Ukraine
+2. **US strategic ambiguity**: Post-2025 administration's NATO posture uncertainty accelerates European strategic autonomy agenda; EU-Canada defence cooperation (TA-0078) explicitly responds to Atlantic repositioning
+3. **China strategic competition**: EU-China TRQ modification (TA-0101) and tech sovereignty resolution (TA-0022) reflect managed "de-risking" strategy
+
+**WEP Assessment (🟢):** 75% probability that geopolitical pressure (US uncertainty + Russia war) maintains political support for European defence integration through EP10 term.
+
+#### 1.3 Institutional Reforms
+
+EP–Commission Framework Agreement (TA-0069) updates the constitutional relationship between institutions. European Chief Prosecutor appointment (TA-0062) establishes new anti-corruption enforcement architecture. Electoral Act reform discussion (TA-0006) keeps 2029 EP elections in focus. These institutional texts collectively strengthen the EP's role as a constitutional actor.
+
+---
+
+### 2. Economic Factors
+
+#### 2.1 Macroeconomic Baseline
+
+| Factor | Value | Signal | Legislative Response |
+|--------|-------|--------|---------------------|
+| Germany GDP 2024 | -0.50% | 🔴 Recession | Banking union, industrial policy |
+| France GDP 2024 | +1.19% | 🟡 Moderate | Fiscal consolidation (Semester) |
+| Spain unemployment 2024 | 11.4% | 🟡 High | Housing, poverty, workers' rights |
+| Italy unemployment 2024 | 6.5% | 🟢 Improving | Lower social urgency |
+| EU GDP est. 2026 | ~1.2–1.4% | 🟡 Modest | Balanced approach |
+
+#### 2.2 Trade Policy Economics
+
+The EU's calibrated tariff response to US pressure (TA-0096, 0097) reflects a carefully balanced calculation: EU exports to the US (~€500bn annually) make full trade war prohibitively costly; WTO MC14 position (TA-0086) reinforces multilateralism as the preferred framework. EU-Mercosur safeguards (TA-0030) protect European agricultural producers while enabling the broader partnership agreement.
+
+#### 2.3 Defence Industrial Economics
+
+The flagship defence projects framework creates economic incentives for:
+- Cross-border mergers/acquisitions in European defence industry
+- New defence procurement budget lines at EU level
+- Reindustrialisation in areas of industrial decline (automotive → defence equipment)
+
+At 0.3–0.5% EU GDP in additional defence spending, this represents a significant Keynesian stimulus in a recession environment.
+
+#### 2.4 Financial System Economics
+
+Banking union completion (BRRD3/SRMR3/DGSD2) reduces the implicit tail risk premium embedded in European bank valuations — markets price European banks at lower P/B ratios than US peers partly due to resolution uncertainty. Harmonised tools should reduce this discount over time.
+
+---
+
+### 3. Social Factors
+
+#### 3.1 Housing and Inequality
+
+Housing crisis resolution (TA-10-2026-0064) directly addresses the most politically salient social issue in most EU member states. Key data points embedded in the EP resolution:
+- EU housing costs increased ~30% above inflation over 2015–2025
+- Young adults (18–34) spending >40% of income on housing in major EU cities
+- Homelessness increased 30% in some member states post-2020
+
+The resolution calls for the Commission's Affordable Housing Initiative (expected May/June 2026), which could include: EU investment frameworks, land use coordination, social housing investment, and affordability benchmarks. Political coalition: S&D+Left+Greens led; Renew conditional; EPP abstained/divided.
+
+#### 3.2 Labour Market and Workers' Rights
+
+Subcontracting chains resolution (TA-0050) and gender pay gap (TA-0074) reflect S&D's agenda on workers' rights. Italy's improving unemployment trajectory (9.5%→6.5%) and Spain's declining-but-high unemployment (14.9%→11.4%) provide contrasting data points for the social policy debate: Southern European member states benefit from EU labour market coordination; Northern European member states are more sceptical of EU-level wage standards.
+
+#### 3.3 Migration and Social Cohesion
+
+Safe countries of origin (TA-0025) and safe third country concept (TA-0026) reflect a political shift toward restrictive migration management that reflects EPP+ECR+PfE majority position on migration. These texts passed against Left/Greens opposition, signalling that EPP is willing to work with right-wing groups on migration against progressive bloc preferences. This coalition asymmetry (EPP+S&D for finance/defence; EPP+ECR+PfE for migration) reflects EP10's political complexity.
+
+#### 3.4 Anti-Poverty Agenda
+
+EU anti-poverty strategy (TA-0049) adds a structural commitment to address the approximately 95 million EU residents at risk of poverty or social exclusion (Eurostat estimates). The resolution aligns with Commission's social fairness pillar but requires binding implementation to move beyond soft law.
+
+---
+
+### 4. Technological Factors
+
+#### 4.1 AI Governance Architecture
+
+Three March 2026 texts create a layered AI governance system:
+
+```
+Layer 1 (International): Council of Europe AI Convention (TA-0071)
+  → Human rights / democracy / rule of law principles
+  
+Layer 2 (EU Regulatory): AI Act (pre-existing) + Digital Omnibus simplification (TA-0098)
+  → Risk-based market regulation, SME carve-outs
+  
+Layer 3 (IP/Copyright): Copyright and generative AI (TA-0066)
+  → Creator rights vs. training data use
+```
+
+**Gap Analysis:** No harmonisation mechanism between Layer 1 and Layer 2 as yet. The Convention requires states to "ensure" AI systems "respect" human rights — a standard potentially higher than the AI Act's risk tiers. Layer 3 creates obligations that may conflict with Layer 2's transparency requirements for general-purpose AI systems.
+
+#### 4.2 Digital and Tech Sovereignty
+
+European technological sovereignty resolution (TA-10-2026-0022, January 22) established the political framework. Upcoming: Commission's Digital Decade mid-term review, AI Act implementing acts (Q2 2026), and European Research Area Act (TA-0068, March 10). EU's digital investment gap relative to US/China remains the structural challenge: EU capital markets for tech scale-ups remain fragmented despite Capital Markets Union progress.
+
+#### 4.3 Defence Technology Integration
+
+The intersection of defence industrial integration and AI/digital governance creates a dual-use technology governance challenge: AI systems used in defence procurement are subject to the AI Act's "prohibited" uses for lethal autonomous weapons, but the AI Act's Article 346-style carve-outs for defence applications may create inconsistencies. The European Defence Agency's technology roadmaps will interact with AI Act implementing acts in ways not yet specified.
+
+---
+
+### 5. Legal Factors
+
+#### 5.1 Institutional Constitutional Developments
+
+| Text | Legal Significance |
+|------|-------------------|
+| TA-0062 | European Chief Prosecutor appointment — new anti-corruption enforcement architecture |
+| TA-0069 | EP-Commission Framework Agreement — resets institutional power balance |
+| TA-0071 | Council of Europe AI Convention — international treaty; EU member state ratification obligations |
+| TA-0094 | Combating corruption — substantive criminal law standards |
+| TA-0088/0087/0089 | MEP immunity decisions — EP self-governance and accountability |
+
+#### 5.2 Financial Law Completion
+
+BRRD3/SRMR3/DGSD2 complete the second-pillar legal architecture of the banking union. These texts require transposition into national law within 18 months (typical timeline). The legal complexity of the resolution funding arrangements — multiple member state contributions, cross-border recognition, burden-sharing rules — makes implementation the primary challenge, not the political will behind adoption.
+
+#### 5.3 Trade and International Law
+
+Request for CJEU opinion on EU-Mercosur compatibility (TA-0008) is a landmark institutional move — an EP-initiated CJEU advisory opinion on a major trade agreement. If the Court finds incompatibility with the Treaties, the entire EU-Mercosur Partnership Agreement (EMPA) would require renegotiation. This creates legal uncertainty for the EU's largest trade partnership by total trade volume.
+
+---
+
+### 6. Environmental Factors
+
+#### 6.1 Climate Neutrality Framework (TA-10-2026-0031)
+
+The Climate Neutrality Framework — building on and operationalising the 2021 European Climate Law — sets implementation targets and monitoring mechanisms for the 55% emissions reduction by 2030 and climate neutrality by 2050. The EP's environmental ambition is constrained by: (a) EPP's preference for technology neutrality vs. Greens' technology mandates; (b) Germany's recession reducing fiscal space for green investment; (c) energy security concerns (post-Russia gas supply) creating pressure for fossil fuel bridge alternatives.
+
+#### 6.2 Water Quality and Biodiversity
+
+Surface water and groundwater pollutants directive (TA-0093) adds new substances to the EU watch list, extending coverage to pharmaceuticals, pesticides, and industrial chemicals. This reflects growing scientific evidence of ecological harm from chemical contamination — a particular concern for Southern European water-scarce regions and Baltic Sea states.
+
+#### 6.3 Heavy-Duty Vehicle Emissions (TA-0084)
+
+Calculation of emission credits for heavy-duty vehicles (2025–2029 reporting periods) addresses a previously unresolved technical detail in the CO₂ standards for trucks, buses, and coaches. This technical clarification ensures the regulatory framework is operable during the EV transition period for commercial vehicles — a sector where EU manufacturers face intense Chinese competition.
+
+#### 6.4 Environmental-Economic Tension
+
+Germany's recession creates political pressure to roll back environmental compliance costs — a risk identified in EPP's approach to the Climate Neutrality Framework and the AI Act simplification. If Berlin uses the recession as political cover for environmental deregulation, S&D and Greens face the challenge of maintaining Green Deal ambition against economic headwinds. This tension is the primary fault line in the EPP+S&D coalition on environmental policy through 2026.
+
+---
+
+### 7. PESTLE Summary Matrix
+
+| Dimension | Current State | Trend | EP Legislative Response | Confidence |
+|-----------|--------------|-------|------------------------|------------|
+| Political | Stable coalition, geopolitical stress | → STABLE | Defence, institutional reform | 🟢 HIGH |
+| Economic | Mixed (recession/growth), trade tensions | ↑ Improving slowly | Banking union, European Semester | 🟡 MEDIUM |
+| Social | Housing crisis, inequality | → STABLE (worsening housing) | Housing, poverty, workers | 🟢 HIGH |
+| Technological | AI governance gap, defence tech | ↑ AI governance emerging | AI Convention, Omnibus, ERA | 🟡 MEDIUM |
+| Legal | Constitutional reform, treaty interpretation | ↑ New legal architecture | Banking, AI, trade law | 🟢 HIGH |
+| Environmental | Climate transition, water quality | → STABLE with risk | Climate neutrality, water | 🟡 MEDIUM |
+
+---
+
+*Data sources: EP Open Data Portal (adopted texts), World Bank API (macroeconomic indicators), prior-run analysis 2026-04-27*
+
+### PESTLE EXTENDED ANALYSIS — APRIL 2026 DEEP DIVE
+
+#### Political Factor — Coalition Mathematics (Quantified)
+
+The EP10 political configuration as of April 28, 2026:
+
+```mermaid
+pie title EP10 Seat Distribution April 2026
+    "EPP (185)" : 185
+    "S&D (135)" : 135
+    "PfE (85)" : 85
+    "ECR (81)" : 81
+    "Renew (77)" : 77
+    "Greens/EFA (53)" : 53
+    "Left (46)" : 46
+    "NI (30)" : 30
+    "ESN (27)" : 27
+```
+
+**Political Implication:** With majority at 361, EPP+S&D+Renew (397) is the minimum working majority. This creates extreme sensitivity to Renew group defections on any contentious legislation. The far-right bloc (PfE+ECR+ESN=193) is ~27% — unable to block but able to shape debate and public opinion.
+
+#### Economic Factor — Growth Divergence
+
+**Key divergence (April 2026):**
+- Germany: -0.50% (2024) — recession territory
+- France: +1.19% (2024) — moderate growth
+- Southern member states generally positive trajectory
+
+**Economic Policy Implication for EP:**
+The growth divergence creates a fiscal-political fault line. Germany's stagnation reinforces fiscal hawk positions (budget discipline, MFF constraints), while France's moderate growth enables slightly more fiscal expansionism (defence, infrastructure). The EP majority (EPP+S&D+Renew) spans both orientations, creating internal negotiating tension on any spending-related legislation.
+
+#### Social Factor — Democratic Legitimacy
+
+EP turnout data (2024 election) showed improved engagement vs. 2019, but EP10 faces legitimacy challenges:
+- Public perception of EP as distant institution remains a challenge
+- High legislative throughput (567 RCV YTD) demonstrates institutional effectiveness but is invisible to average citizens
+- Social media engagement on EP legislation remains low compared to national parliamentary debates
+
+#### Technology Factor — AI Act Implementation
+
+The EU AI Act (adopted EP9, in force EP10) is the world's first comprehensive AI regulatory framework. April 2026 status:
+- High-risk AI systems: Compliance deadlines approaching August 2026
+- General purpose AI: Codes of practice in development
+- EP ITRE committee: Oversight hearings on AI Act delegated acts
+
+#### Legal Factor — Regulatory Complexity
+
+EP10 has produced 114+ adopted texts YTD 2026, contributing to:
+- Regulatory layering challenges for businesses
+- Compliance burden for SMEs
+- Calls from EPP and Renew for "regulatory simplification agenda" (direct policy implication)
+
+#### Environmental Factor — Climate-Economy Integration
+
+Post-Green Deal consolidation phase:
+- ETS II (buildings and road transport) in implementation
+- Carbon Border Adjustment Mechanism (CBAM) in early operation
+- EP position: Maintain climate ambition while addressing competitiveness concerns (German "Competitiveness Agenda" influence)
+
+---
+
+*PESTLE extended analysis produced: 2026-04-28 | Mermaid: pie chart (coalition seats) | Confidence: 🟢 HIGH (political) / 🟡 MEDIUM (economic) / 🟢 HIGH (legal)*
+
+### Historical Baseline
+
+### 1. EP10 vs Prior Parliaments: Comparative Baseline
+
+#### 1.1 Legislative Productivity
+
+| Parliament | Term | Est. Total Adopted Texts | Annual Rate | Key Achievement |
+|-----------|------|--------------------------|-------------|-----------------|
+| EP6 | 2004–2009 | ~750 | ~150/year | Lisbon Treaty; REACH chemicals |
+| EP7 | 2009–2014 | ~900 | ~180/year | Post-GFC financial regulation |
+| EP8 | 2014–2019 | ~1,100 | ~220/year | GDPR; Banking union initial architecture |
+| EP9 | 2019–2024 | ~1,200 | ~240/year | Green Deal; AI Act; COVID recovery |
+| EP10 | 2024–2029 | ~1,500 (est.) | ~300/year (YTD pace) | Defence; Banking union completion |
+
+**EP10 year-to-date (April 2026):** 104 adopted texts in ~4 months = ~312/year annualised pace. This is the highest legislative productivity rate in EP history if maintained.
+
+**Historical context:** The high productivity reflects a post-election honeymoon effect, political pressure to complete EP9 backlog (AI Act, banking union), and geopolitical urgency (Ukraine, US strategic uncertainty).
+
+---
+
+#### 1.2 Coalition Evolution: From EP9 to EP10
+
+**EP9 (2019–2024) political landscape:**
+- EPP: ~179 seats
+- S&D: ~147 seats
+- Renew: ~102 seats
+- Greens/EFA: ~72 seats
+- ECR: ~69 seats
+- ID (predecessor to PfE): ~76 seats
+
+**EP9 majority pattern:** EPP+S&D+Renew+Greens ("grand progressive majority") was the dominant coalition for landmark legislation (GDPR implementation, AI Act, Green Deal, NGEU recovery)
+
+**EP10 (2024–2029) political landscape (current):**
+- EPP: 185 seats (+6)
+- S&D: 135 seats (-12)
+- PfE: 85 seats (new, replacing ID)
+- ECR: 81 seats (+12)
+- Renew: 77 seats (-25)
+- Greens/EFA: 53 seats (-19)
+- Left: 46 seats (+1)
+- NI: 30 seats
+- ESN: 27 seats (new)
+
+**EP10 majority pattern:** EPP+S&D+Renew remains the structural majority (397 seats) but without Greens to add a buffer. Right-of-centre blocs (PfE, ECR) are stronger. Greens and Renew both significantly weakened from EP9 highs.
+
+**Political implication:** EP10 is structurally more right-leaning than EP9. The EPP has more flexibility to work with ECR/PfE on issue-specific coalitions where S&D is resistant (migration, deregulation).
+
+---
+
+### 2. Thematic Legislative History
+
+#### 2.1 Financial Regulation Arc (EP8–EP10)
+
+**EP8 (2014–2019):** Initial banking union architecture
+- SSM (Single Supervisory Mechanism) established
+- SRM (Single Resolution Mechanism) first version
+- BRRD (Bank Recovery and Resolution) first version
+- CMU (Capital Markets Union) initial package
+
+**EP9 (2019–2024):** COVID recovery + digital finance
+- NGEU (€750bn recovery fund) — unprecedented EU fiscal instrument
+- MiCA (Crypto-asset regulation) — world's first comprehensive crypto framework
+- DORA (Digital Operational Resilience Act) — financial sector cybersecurity
+- CMU second package
+
+**EP10 (2024–present):** Banking union completion
+- BRRD3 — 2026 ✅
+- SRMR3 — 2026 ✅
+- DGSD2 — 2026 ✅
+- CMU third package (pending)
+
+**Historical significance:** The March 2026 banking union completion package closes the institutional gaps identified after the 2012–2013 eurozone sovereign debt crisis. It took 14 years from the initial SSM establishment to the full resolution architecture completion.
+
+---
+
+#### 2.2 AI and Digital Governance Arc (EP8–EP10)
+
+**EP8 (2014–2019):** GDPR foundation
+- GDPR (General Data Protection Regulation) — 2018 (applied)
+- ePrivacy Regulation discussions began
+
+**EP9 (2019–2024):** Comprehensive digital governance framework
+- AI Act (passed 2024 — final adoption)
+- Digital Services Act (DSA)
+- Digital Markets Act (DMA)
+- Data Act / Data Governance Act
+- European Chips Act
+- Cyber Resilience Act
+
+**EP10 (2024–present):** AI governance implementation
+- AI Convention (Council of Europe) ratification — 2026 ✅
+- Digital Omnibus simplification — 2026 ✅
+- Copyright and generative AI — 2026 ✅
+- AI Act implementing acts (pending Q2–Q3 2026)
+
+**Historical significance:** The EU has constructed the world's most comprehensive digital governance framework over three parliamentary terms. EP10 inherits implementation responsibility — the real test of whether this framework functions as intended.
+
+---
+
+#### 2.3 Defence and Security Arc
+
+**EP8 (2014–2019):** First defence initiatives (post-Russia 2014 Crimea annexation)
+- European Defence Fund (EDF) first discussions
+- CSDP strengthening resolutions
+- Initial defence industrial cooperation (EDIDP)
+
+**EP9 (2019–2024):** Structural defence transformation (post-2022 Russia full invasion)
+- ASAP (Act in Support of Ammunition Production) — emergency text
+- EDIRPA (procurement cooperation) — emergency text
+- EDIP (European Defence Industry Programme) — ongoing
+- Strategic Compass adopted by Council (first EU defence strategy)
+
+**EP10 (2024–present):** Integration and sovereignty
+- Flagship European defence projects — 2026 ✅
+- EU-Canada defence cooperation — 2026 ✅
+- CSDP annual report — 2026 ✅
+- Defence White Paper follow-on legislation (H2 2026 expected)
+
+**Historical significance:** Since Russia's 2014 Crimea annexation and especially since February 2022, each EP has produced more ambitious defence integration than the previous. EP10 is now producing legislation that would have been politically impossible in EP8.
+
+---
+
+### 3. Economic Context Historical Comparison
+
+| Indicator | 2015 | 2019 | 2024 | Trend |
+|-----------|------|------|------|-------|
+| EU GDP growth | 2.3% | 1.9% | ~1.0% | ↓ Slowing |
+| Germany GDP growth | 1.7% | 0.6% | -0.5% | ↓↓ Recession |
+| Spain unemployment | 22.1% | 14.1% | 11.4% | ↓ Improving |
+| EU defence spending (% GDP) | 1.3% | 1.5% | 2.1% | ↑ Rising |
+| EU digital investment gap (vs. US) | $100bn | $120bn | $150bn | ↑↑ Widening |
+
+**Historical significance:** Germany's recession is historically anomalous — the EU's largest economy has not had this length of contractionary period since the early 2000s. This economic context shapes the entire EP10 legislative agenda: defence investment as Keynesian stimulus, banking union as stability architecture, digital investment as growth strategy.
+
+---
+
+### 4. EP Self-Assessment: Institutional Evolution
+
+#### 4.1 EP's Growing Institutional Power
+
+EP10 has reinforced the Parliament's institutional role:
+- EP-Commission Framework Agreement (TA-0069) — updated power-sharing arrangement
+- European Chief Prosecutor appointment (TA-0062) — new accountability architecture
+- Electoral Act reform (TA-0006) — EP's own composition rules
+- MEP immunity decisions — self-governance transparency
+
+**Historical trajectory:** The EP's institutional power has grown with each treaty (Maastricht → Amsterdam → Nice → Lisbon). EP10's legislative volume and coalition management demonstrate the Parliament is functioning as a co-legislator on equal footing with Council.
+
+#### 4.2 Accountability Mechanisms
+
+The combating corruption resolution (TA-0094) responds to the Qatar-gate scandal of EP9 (2022). EP10 has implemented enhanced integrity measures, but the structural vulnerability — MEPs as targets for foreign influence — remains. The three immunity decisions (TA-0087, 0088, 0089) in a single session reflect ongoing accountability pressures.
+
+---
+
+### 5. Historical Baseline Summary
+
+**EP10 in historical context:**
+- Most productive Parliament (legislative output rate) in EU history
+- More right-leaning than EP9 but maintaining mainstream majority
+- Operating under the most severe geopolitical pressure since EP foundation
+- Completing long-delayed institutional architecture (banking union, AI Act implementation)
+- Initiating defence integration that was politically inconceivable 10 years ago
+
+**Key historical departure points:**
+1. European defence industrial integration — breaks with 70-year post-WWII taboo on supranational defence spending
+2. Banking union completion — closes the institutional gap created by 2010–2012 sovereign debt crisis
+3. AI governance framework — EU as de facto global AI regulator (Brussels Effect)
+
+---
+
+*Historical data sources: EP institutional records, World Bank historical data, prior analysis runs*
+
+### Historical Timeline
+
+```mermaid
+timeline
+    title EP10 Key Milestones (2024-2026)
+    2024-07 : EP10 constitutive session
+    2024-09 : Von der Leyen Commission approved
+    2025-03 : ReArm Europe proposal
+    2025-06 : AI Act implementation begins
+    2026-03 : SRMR3 (Banking Union) adopted
+    2026-04 : Defence Financing package proceeding
+```
+
+*Historical milestones from EP Open Data Portal and prior analysis runs.*
 
 <h2 id="section-continuity">Cross-Run Continuity</h2>
 
@@ -4516,14 +4516,14 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/month-in-review/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-coalitions-voting | [voting-patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/month-in-review/intelligence/voting-patterns.md) | `intelligence/voting-patterns.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/month-in-review/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/month-in-review/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/month-in-review/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/month-in-review/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/month-in-review/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/month-in-review/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/month-in-review/intelligence/threat-model.md) | `intelligence/threat-model.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/month-in-review/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/month-in-review/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/month-in-review/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/month-in-review/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-continuity | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/month-in-review/intelligence/cross-session-intelligence.md) | `intelligence/cross-session-intelligence.md` |
 | section-continuity | [session-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/month-in-review/existing/session-baseline.md) | `existing/session-baseline.md` |
 | section-continuity | [session-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-28/month-in-review/intelligence/session-baseline.md) | `intelligence/session-baseline.md` |

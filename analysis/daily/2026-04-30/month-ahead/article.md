@@ -988,408 +988,6 @@ graph TD
 **Key stakeholder dynamics for May 18-21 (updated):**
 ECB rate cut (expected June) gives ECB Governor Lane a prominent signalling role; EP Economic Affairs Committee (ECON) chair and ECB Parliamentary Hearing track this closely. EPP-S&D-Renew triangle (397 seats = 110% of 361 threshold) remains the super-majority coalition that can pass any priority legislation. The month-ahead window has no confirmed mega-votes requiring broader mobilisation.
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### Executive Summary
-
-The European Parliament enters May 2026 in a complex operating environment. The EPP-led flexible coalition has demonstrated its capacity for legislative output — with 114 acts adopted in 2026 to date, significantly above the 2024-2025 pace — but faces four structural pressure vectors: escalating US-EU trade tensions post-tariff adjustment, the transition from Budget 2027 guidelines to trilogue negotiation, Clean Industrial Deal implementation deadlines, and the persistence of EU economic fragility (Germany's GDP contraction, France's slowing growth). The May 18-21 Strasbourg session will be the central legislative arena for the next 30 days.
-
----
-
-### P — Political
-
-#### EP10 Coalition Architecture (🟢 High Confidence)
-
-The EP's political balance as of April 2026 reflects a stable but structurally complex configuration:
-
-- **EPP** (185 seats, 25.7%): Dominant pivot group, maintains legislative agenda-setting capability. Under Roberta Metsola's leadership, EPP has successfully built flexible majorities across multiple issue domains — defence (with ECR and PfE), green transition (with S&D and Renew on selective items), and budget (with broad coalition).
-- **S&D** (135 seats, 18.8%): Second force, essential for progressive majority construction. Strong on workers' rights (April 30 vote on subcontracting chains TA-10-2026-0050), Ukraine support, and Budget 2027 social floor.
-- **PfE** (85 seats, 11.7%): Largest right-wing group, increasingly assertive on trade defence and strategic autonomy. Internal tensions between pro-Orbán Hungary faction and Italian/French market-sceptic wings present coalition management challenges.
-- **ECR** (81 seats, 11.0%): Strengthened under Meloni-aligned leadership. Pivotal on defence industrial strategy, selective on budget, adversarial on migration and climate.
-- **Renew** (77 seats, 10.7%): Centre-liberal bloc, essential for qualified majority construction. Under pressure from French electoral dynamics; remains crucial for trade defence coordination.
-- **Greens/EFA** (53 seats, 7.4%): Weakened post-2024 but holding coherent position on Clean Industrial Deal and budget social clauses.
-- **The Left** (46 seats, 6.4%): Significant presence; active on workers' rights and trade defence.
-- **NI** (30 seats, 4.2%): Non-attached MEPs, heterogeneous.
-- **ESN** (27 seats, 3.8%): Far-right bloc, generally obstructionist.
-
-**Majority threshold:** 361 seats. Grand coalition (EPP + S&D) = 320 seats — **below majority threshold**. Every legislative majority requires at least 3 groups, confirming the multi-coalition architecture.
-
-#### Key Political Developments — April 2026
-
-1. **Budget 2027 Guidelines Adopted (April 28):** TA-10-2026-0112 signals that the EP has formally opened the trilogue track. The Council position is expected Q3 2026, making the May-June period critical for EP/Commission coordination.
-
-2. **EU-Iceland PNR Data Agreement (April 29):** TA-10-2026-0142 confirms ongoing EP willingness to advance security/justice cooperation with non-EU partners, consistent with the NIS2/GDPR enforcement trend.
-
-3. **Tariff Adjustment for US Goods (March 26):** TA-10-2026-0096 ("Adjustment of customs duties and opening of tariff quotas for the import of certain goods originating in the United States of America") is the most politically significant recent text — it represents EP's formal position in the US-EU trade confrontation, enabling a trade response mechanism while maintaining de-escalation space.
-
-4. **High fragmentation index (6.59 ENP):** The effective number of parties exceeded 6.5 for the first time since EP10 began. This structural characteristic means that EPP's pivoting between right (ECR/PfE on defence/trade) and centre-left (S&D/Renew on budget social floor) is not an anomaly but the defining feature of EP10 governance.
-
-#### May 2026 Political Agenda Projections
-
-- **May 18-21 Strasbourg:** Expected items based on legislative pipeline analysis: (1) INTA committee report on US tariff response framework; (2) ECON second reading on banking reform follow-up; (3) Clean Industrial Deal implementing regulation first reading; (4) LIBE vote on migration management package; (5) Budget 2027 framing debate.
-- **April 30 (ongoing):** 17+ vote items — likely includes second readings, delegated act ratifications, and potentially a resolution on external relations.
-
----
-
-### E — Economic
-
-#### EU Economic Fragility in Context (🟢 High Confidence, IMF WEO April 2026)
-
-**Gross Domestic Product:**
-The EU's largest economy, Germany, contracted by -0.5% in 2024 (World Bank data, confirmed consistent with IMF WEO April 2026 projections which identify continued German industrial fragility as the key downside risk for the eurozone). This is the second consecutive year of negative German GDP growth, a structural challenge linked to energy price normalisation, trade disruption, and delayed green transition investment.
-
-The IMF WEO April 2026 projects EU GDP growth of 1.3% for 2026 — a modest recovery from 2024-2025 weakness, contingent on continued ECB rate normalisation and no further US tariff escalation. This projection is the "forecast" for the current year; it reflects IMF expectations that EU investment picks up as monetary policy eases.
-
-**Inflation and Monetary Policy:**
-France's inflation stood at 2.0% in 2024 — at target — enabling ECB to continue its rate reduction cycle. The ECB's gradual normalisation (multiple 25 bps cuts since 2024) is the primary monetary policy lever, with the next decision expected around June 2026. Forward statement FS-2026-007 (horizon June 12) projects a further 25 bps cut if GDP growth stays below 1.5%.
-
-**Labour Market:**
-Italy's unemployment rate was 6.4% in 2024 (falling from 7.6% in 2023), reflecting southern European labour market recovery. However, youth unemployment and structural mismatches remain elevated, underpinning EP priorities around the Skills for Jobs initiative and Clean Industrial Deal social floor provisions.
-
-**Budget 2027 Framework:**
-The April 28 Budget Guidelines adoption (TA-10-2026-0112) reflects EP's position that Budget 2027 must accommodate both defence spending increases (following the European Defence Industrial Strategy) and social investment (Just Transition Fund, Cohesion Policy). The macroeconomic constraint — EU GDP growth projected at 1.3% while member states face fiscal consolidation under the revised Stability and Growth Pact — creates the central budget tension that will define the May-September trilogue.
-
-**IMF data vintage:** WEO April 2026. All projections labelled as "forecast"/"projection" per editorial policy.
-
----
-
-### S — Social
-
-#### Societal Vectors Affecting EU Parliament May Agenda
-
-**Labour Rights and Supply Chains:** The April 30 vote on addressing subcontracting chains (TA-10-2026-0050 — if passed today) reflects sustained EP attention to workers' rights in complex cross-border supply chains. This connects to S&D/Left alliance on the Clean Industrial Deal social floor provisions.
-
-**AI Act Implementation:** 2026 is year 2 of AI Act implementation under the EP10 monitoring framework. The Act's applicability dates are creating real legislative pressure — GP AI systems compliance began in Q4 2025, and GPAI model transparency requirements are now active. EP's IMCO and LIBE committees are tracking implementation via parliamentary questions (over 6,000 forecast for 2026).
-
-**Agricultural and Rural Communities:** The EP10 fragmentation is partly driven by rural/agricultural constituencies. The May session is likely to include CAP-related items affecting farmers facing competition from third-country imports (US tariffs context) and climate obligations.
-
-**Migration:** LIBE committee work on migration management remains politically contested. PfE and ECR continue to push for border externalisation; S&D and Greens resist. The May session may include a migration-related vote depending on Mediterranean developments.
-
----
-
-### T — Technological
-
-**AI Act Implementation (2026 critical year):** The AI Act's tiered entry-into-force means EP must monitor implementing acts under Art. 73(4) procedures. IMCO committee is the lead body, with regular Commission reporting obligations. Any implementing act misalignment could trigger a resolution.
-
-**Digital Services Act (DSA) Review:** The Commission's DSA evaluation report (due 2025, delayed) is expected in Q2 2026. EP IMCO committee's pre-emptive hearings signal legislative readiness for potential amendments — particularly around algorithmic accountability and large platform obligations.
-
-**Cybersecurity and NIS2:** The NIS2 Directive transposition deadline passed October 2024. By May 2026, member states have had 6 months to demonstrate compliance. EP ITRE/LIBE joint scrutiny of Commission's assessment is likely in Q2 2026 hearings.
-
-**European Defence Industrial Strategy (EDIS):** EDIS requires investment in dual-use technology — semiconductors, drones, satellite communications. EP ITRE/SEDE joint work on EDIS implementing regulations expected to accelerate May-June 2026.
-
----
-
-### L — Legal
-
-**EU Mercosur Compatibility Review:** TA-10-2026-0008 (January 21) requested a CJEU opinion on whether the EU-Mercosur Partnership Agreement and Interim Trade Agreement are compatible with EU Treaties. The CJEU's response timeline (typically 18-24 months) means this stays in legal uncertainty through at least mid-2027.
-
-**EU-US Tariff Legal Framework:** TA-10-2026-0096 (March 26) adjusted customs duties on US goods. The legal basis — Trade Enforcement Regulation and unilateral tariff authority — represents EP's assertion of its role in trade policy retaliation. Any escalation by the US triggering further EU countermeasures would require EP review under Art. 207 TFEU.
-
-**GDPR/AI Act Enforcement:** Post-2024 GDPR enforcement acceleration (record fines in 2023-2025) is creating EP demand for stronger harmonised enforcement under the EDPB. EP LIBE committee has scheduled hearings on cross-border enforcement coordination.
-
----
-
-### E — Environmental
-
-**Clean Industrial Deal (CID) — Critical Legislative Phase:** The CID is the central economic-environmental nexus for EP10. First proposed by the von der Leyen II Commission in Q4 2024, the CID represents the reconciliation of the European Green Deal's climate targets with industrial competitiveness. Key votes expected May-June 2026:
-
-- Binding sectoral decarbonisation targets (steel, chemicals, cement)
-- Carbon Border Adjustment Mechanism (CBAM) implementation monitoring
-- Net-Zero Industry Act amendment on European Critical Raw Materials
-
-**Emission Credits Modification:** TA-10-2026-0084 (March 12) adjusted heavy-duty vehicle emission credit calculation for 2025-2029. This signals ongoing fine-tuning of the Green Deal's transportation chapter, with truck manufacturers having secured more flexibility in the near term.
-
-**Energy Transition and the Budget:** The Budget 2027 guidelines (TA-10-2026-0112) must accommodate Just Transition Fund obligations that EP committed to as part of the Green Deal package. The energy price normalisation (gas prices stabilised post-Ukraine war shock) gives some budget relief but does not eliminate the structural investment gap.
-
----
-
-### PESTLE Summary Matrix
-
-| Dimension | Key Issue | Probability | EP Impact | Confidence |
-|-----------|-----------|-------------|-----------|------------|
-| Political | EPP coalition manages May session | 75% | High | 🟢 |
-| Political | US-EU trade escalation disrupts May agenda | 25% | High | 🟡 |
-| Economic | Budget 2027 trilogue launches on schedule | 80% | High | 🟢 |
-| Economic | ECB rate cut June 2026 | 65% | Medium | 🟡 |
-| Social | Workers' rights/AI Act votes proceed | 85% | Medium | 🟢 |
-| Technological | EDIS regulatory acceleration | 70% | High | 🟢 |
-| Legal | EU-Mercosur CJEU opinion delay | 95% | Low | 🟢 |
-| Environmental | CID implementing votes proceed | 70% | High | 🟡 |
-
----
-
-### PESTLE Force Interaction Diagram
-
-```mermaid
-graph TD
-    P1[Political: EPP Coalition Management] --> E1[Economic: Budget 2027 Progress]
-    P1 --> T1[Technological: EDIS Advances]
-    P2[Political: US-EU Trade Confrontation] --> E2[Economic: GDP Downside Risk]
-    E2 --> P1
-    E1 --> S1[Social: Just Transition Funding]
-    T1 --> L1[Legal: EDIS Regulatory Framework]
-    L1 --> E1
-    ENV1[Environmental: CID Implementation] --> S1
-    ENV1 --> E2
-    P2 --> ENV1
-    S1 --> P1
-    IMF[IMF WEO 1.3% GDP Baseline] --> E1
-    ECB[ECB Rate Path] --> E2
-```
-
----
-
-### PESTLE Cross-Dimensional Stress Test
-
-**Stress Test 1: Trade Shock (P2 triggers E2):**
-If US-EU trade escalation materialises (P2, 25%), the economic impact (E2) creates feedback pressure on coalition management (P1) via German industrial constituencies. The PESTLE cascade: US tariff → German GDP revision downward → CDU/CSU MEPs pressure Weber → EPP coalition tension → Budget 2027 delay. Full cascade probability: approximately 8-12%.
-
-**Stress Test 2: Environmental-Social Tension on CID:**
-If CID environmental standards (ENV1) are weakened to secure right-flank EPP-ECR coalition, this triggers S1 (Just Transition conflict) with ETUC/NGO mobilisation, which feeds back into P1 (EPP facing progressive bloc walkout). This is the "green paradox" scenario — trying to advance CID faster by weakening standards actually slows it by triggering a new coalition crisis.
-
-**Stress Test 3: Technology-Legal Acceleration (EDIS):**
-EDIS regulatory acceleration (T1) requires legal framework (L1) that some member states challenge as overriding national defence competence. If a challenge is filed at CJEU, it creates a Legal delay (L1 negative) while Technological urgency (T1) increases — producing an institutional tension that EP must manage.
-
----
-
-### WEP Assessment — PESTLE Dimension Stability
-
-**Political stability: WEP Likely (70%)** — EPP coalition management succeeds in May
-**Economic outlook: WEP Likely (65%)** — Budget 2027 advances on timeline
-**Social stability: WEP Highly Likely (85%)** — Workers' rights and AI Act proceed
-**Technological: WEP Likely (70%)** — EDIS advances
-**Legal: WEP Almost Certain (95%)** — No major CJEU surprises in 30-day window
-**Environmental: WEP Likely (70%)** — CID committee work advances
-
-**Integrated PESTLE assessment (Admiralty: B2):** The PESTLE environment for May 2026 is characterised by **manageable complexity rather than crisis**. No single PESTLE dimension is in a critical failure state; the main risk is cross-dimensional compound effects at the 10-15% probability range.
-
----
-
-### PESTLE Decision Matrix
-
-| If Political dimension deteriorates | Economic response | Legal response | Environmental impact |
-|------------------------------------|------------------|----------------|---------------------|
-| EPP-S&D split on CID | IMF 1.3% GDP growth at risk from delayed implementation | CID legal basis challenged | CID delay = 1-2 year setback to emission targets |
-| US tariff escalation (Economic D deteriorates) | IMF forecasts revised downward (0.3-0.5pp) | WTO Article 21.5 arbitration risk | Tariff revenue used for US defence offset vs EU green transition |
-
----
-
-### PESTLE Forward Indicators for 30-Day Window
-
-| Dimension | GREEN indicator | AMBER indicator | RED indicator |
-|-----------|----------------|----------------|--------------|
-| Political | EPP-S&D vote together on CID/EDIS | EPP abstentions on CID > 10% | EPP/S&D split vote; majority fails |
-| Economic | IMF GDP forecast stable ≥1.2% | US tariff expansion announced | Full automotive/pharma tariffs enacted |
-| Social | AI Act Stage 2 implementation on schedule | Worker consultation delays | AI Act implementation suspended |
-| Technological | EDIS advances in committee | EDIS scope narrowed | EDIS vote postponed >1 session |
-| Legal | No CJEU emergency rulings on EP procedure | Advisory opinion on CID implementation | CJEU ruling blocks CID methodology |
-| Environmental | CID committee vote proceeds | CID amendment on transport delayed | CID sectoral targets amended out |
-
----
-
-### PESTLE Update — April 30 Plenary Agenda Signals
-
-**Political:** Today's April 30 sitting demonstrates stable institutional functioning. 4 debates + 13 votes = full legislative day. EIB oversight debate signals EP-executive scrutiny posture remains active. Coalition architecture unchanged from morning session signals. 🟡 MEDIUM confidence (session outcome pending).
-
-**Economic (IMF-authorised):** IMF April 2026 WEO: EA growth 1.2%, HICP 2.3%, unemployment 6.1%. ECB expected to cut 25bps in June. SIU/finfluencer regulation debate today (April 30) directly engages capital markets union legal framework — legislative output depends on ECON committee alignment. Financial literacy regulation as consumer protection measure is economically well-timed (retail investor base expanding). 🟢 HIGH confidence IMF data.
-
-**Social:** Consent-based rape legislation debate (April 30) is a landmark social affairs item. Cross-party support from EPP-centre, S&D, Renew, and Greens expected; ECR and PfE likely to oppose. If adopted, constitutes a major EP rights directive. Cross-cutting gender equality agenda links to Rule-of-Law monitoring (LIBE committee). 🟡 MEDIUM confidence.
-
-**Technological:** Ocean diplomacy / fisheries debate touches on precision fishing technology and digital monitoring systems (Blue Economy digital agenda). Satellite monitoring of fishing zones is both an environmental compliance and technology competitiveness issue. Digital fisheries management is a minor but emerging tech-regulation interface. 🟡 MEDIUM confidence.
-
-**Legal:** EP's EIB annual report oversight includes legal compliance assessment under EIB statute and BEI Articles of Agreement. EIB governance reform implications (transparency, ESG reporting, Ukraine reconstruction fund compliance) are active legal analysis areas. No CJEU proceedings directly relevant to April 30 agenda items confirmed. 🟢 HIGH confidence.
-
-**Environmental:** Fisheries and ocean diplomacy debate directly implicates Biodiversity Strategy commitments and Marine Strategy Framework Directive. 30x30 ocean conservation targets are contested between fisheries industry and environmental groups. Renew-Greens alignment on ocean protection likely; ECR-PfE opposition. 🟡 MEDIUM confidence.
-
-**PESTLE re-run quality note:** Six PESTLE dimensions re-assessed against April 30 plenary debate agenda. Political (stable), Economic (IMF primary source confirmed), Social (consent legislation advancing), Technological (fisheries digital monitoring emerging), Legal (EIB audit compliance), Environmental (ocean conservation contested). All dimensions carry 🟡 MEDIUM confidence minimum.
-
-**PESTLE synthesis for month ahead:** The dominant PESTLE force for May 2026 is Political — the three-party coalition architecture (EPP-S&D-Renew) drives every vote requiring a majority. Economic forces (IMF EA growth at 1.2%, trade tensions) are the main exogenous risk. Social and Environmental forces are present but secondary. Legal and Technological forces are procedural and operational. Overall PESTLE balance: Political and Economic are co-drivers; others are modifiers.
-
-*PESTLE confidence: 🟡 MEDIUM — Political and Economic dimensions verified against EP API and IMF data; Social/Technological/Legal/Environmental dimensions derived from agenda analysis and structural assessment.*
-
-### Historical Baseline
-
-### Overview
-
-This analysis establishes the historical baseline for evaluating the current EP10 May 2026 environment. EP10 is in its "peak legislative productivity" phase (year 2 of 5), and the 2026 output metrics are tracking significantly above historical averages. Understanding this baseline is essential for calibrating whether the May 18-21 session represents continuity or disruption.
-
----
-
-### EP Legislative Activity — Multi-Year Benchmark
-
-#### Output Metrics (EP Historical Data)
-
-| Metric | EP10 2025 | EP10 2026 YTD | 2026 Full-Year Forecast | Historical Average (EP7-EP9) |
-|--------|-----------|---------------|------------------------|------------------------------|
-| Plenary sessions | 53 | 54 (full year) | 54 | ~50 |
-| Legislative acts | 78 | 114 | ~130+ | ~98 |
-| Roll-call votes | 420 | 567 | ~640+ | ~410 |
-| Committee meetings | 1,980 | 2,363 | ~2,700 | ~1,800 |
-| Parliamentary questions | 4,947 | 6,147 | ~7,000+ | ~3,800 |
-| Adopted texts | 347 | 104 (Q1 only) | ~400-450 | ~380 |
-| Procedures | 923 | 935 | ~1,050 | ~850 |
-
-**Key observation:** EP10 2026 is on track to be the highest legislative output year since EP9's 2023 peak (148 acts). The 46.2% year-on-year increase in legislative acts (2026 vs. 2025) is historically exceptional — typically EP years 2-3 show 5-15% annual increases.
-
-#### EP10 Structural Characteristics vs. Prior Terms
-
-**Fragmentation trend:** The effective number of parties (ENP) reached 6.59 in EP10 — the highest ever recorded for the European Parliament. Comparative baseline:
-
-| Term | ENP | Minimum Winning Coalition | Grand Coalition Possible? |
-|------|-----|--------------------------|--------------------------|
-| EP6 (2004-2009) | 4.12 | 2 groups | Yes |
-| EP7 (2009-2014) | 4.52 | 2 groups | Yes |
-| EP8 (2014-2019) | 5.18 | 2-3 groups | Marginally |
-| EP9 (2019-2024) | 5.96 | 3 groups | No |
-| **EP10 (2024-present)** | **6.59** | **3 groups** | **No** |
-
-The structural implication for May 2026: **every** legislative majority requires a minimum of 3 political groups, and the EPP-S&D bloc alone (320 seats) falls 41 seats short of the 361 majority threshold. This is historically unprecedented and defines EP10's governance challenge.
-
-**Right-bloc dominance:** The right-centre/right bloc (EPP 25.7% + PfE 11.7% + ECR 11.0% + ESN 3.8%) collectively holds 52.3% of seats — but these groups cannot form a stable legislative coalition because EPP-PfE cooperation is constrained by EPP's institutional commitments to EU integration. The result is EP10's defining characteristic: **EPP pivot dynamics** where EPP forms different coalitions depending on the dossier.
-
----
-
-### Historical Precedent for May Legislative Sessions
-
-#### May Sessions in EP8 and EP9 (Analogous to Current EP10 May 2026)
-
-**EP8 May 2016 (analogous term-year):**
-- Key items: General Data Protection Regulation adopted (milestone vote), EU-Canada CETA consent vote
-- Coalition: EPP + S&D + ALDE = 547 seats (comfortable majority)
-- Contrast with EP10: GDPR vote required centre coalition; CETA required centre-right expansion. Both scenarios are present in EP10's May 2026 in the form of CID (centre coalition) and EDIS (centre-right coalition).
-
-**EP9 May 2021 (analogous term-year):**
-- Key items: Carbon Border Adjustment Mechanism first reading, EU Recovery Plan monitoring votes, Rule of Law conditionality debate
-- Coalition challenges: Renew fragmented on rule of law; ECR growing; PfE (then ID) increasingly assertive
-- Outcome: Progressive majority held on CBAM; rule of law debates created EPP-ECR fracture that characterised EP9 mid-term
-
-**EP10 May 2026 (current):**
-- Key expected items: CID implementation, Budget 2027 framework, EDIS votes, US-EU trade response
-- Coalition architecture more fragmented than either comparison year
-- Legislative output pace suggests institutional momentum — but fragmentation risk is highest in EP history
-
----
-
-### Legislative Velocity Analysis
-
-#### Days-to-Adoption Trends
-
-Based on EP historical data, the average days from first reading to adoption across all procedure types has been:
-
-| Procedure Type | EP8 Average | EP9 Average | EP10 Current Trend |
-|---------------|-------------|-------------|-------------------|
-| Ordinary (COD) | 486 days | 518 days | ~540 days (estimated) |
-| Consultation (CNS) | 312 days | 344 days | ~360 days |
-| Consent (NLE) | 228 days | 245 days | ~260 days |
-
-The slight elongation of procedure timelines in EP10 reflects the fragmentation effect — more coalition-building rounds needed, more committee rapporteur negotiations required.
-
-#### April-May 2026 Legislative Velocity Signals
-
-The April 30 session's 21 foreseen activities (4 debates + 17+ votes) is consistent with a high-velocity plenary day, suggesting the April session is following through on its scheduled commitments. The adopted texts from April 28-29 (Budget Guidelines TA-10-2026-0112, EIB report TA-10-2026-0119, EU-Iceland PNR TA-10-2026-0142) confirm that EP is not in a legislative backlog.
-
----
-
-### Historical Comparison: US-EU Trade Episodes
-
-The March 26 tariff adjustment text (TA-10-2026-0096) fits into a historical pattern of EP trade responses:
-
-| Episode | Year | EP Response | Outcome |
-|---------|------|-------------|---------|
-| Steel/aluminium tariffs (Section 232) | 2018 | EP resolution supporting EU retaliation | Managed: tariffs eventually lifted 2021 |
-| Aircraft subsidies (Airbus/Boeing GATT) | 2020 | EP resolution supporting negotiated settlement | Settlement reached 2021 |
-| Digital services tax dispute | 2022 | EP supported Commission anti-coercion instrument | Ongoing/managed |
-| **Current US tariff confrontation** | 2026 | TA-10-2026-0096 (tariff adjustment mechanism) | In progress |
-
-**Historical pattern:** EP trade responses have consistently favoured: (1) establishing a legal retaliation mechanism; (2) calling for negotiated settlement; (3) maintaining Commission in the lead role. The 2026 response fits this template. Historical success rate of managed settlement: approximately 70% within 2 years.
-
----
-
-### Budget Timeline Precedent
-
-Budget 2027 negotiations follow an established trilogue calendar:
-
-| Year | Guidelines Adoption | Council Position | Trilogue | Adoption |
-|------|--------------------|--------------------|----------|---------|
-| Budget 2025 | April 2024 | September 2024 | Oct-Nov 2024 | December 2024 |
-| Budget 2026 | April 2025 | September 2025 | Oct-Nov 2025 | December 2025 |
-| **Budget 2027** | **April 28, 2026** | **Expected Q3 2026** | **Expected Q4 2026** | **Expected Dec 2026** |
-
-The April 28 guidelines adoption (TA-10-2026-0112) is exactly on the historical precedent timeline. Forward statement FS-2026-005 (Budget 2027 trilogue by September 2026) is therefore 🟢 High confidence.
-
----
-
-### Key Historical Insight for May 2026 Forecast
-
-The most relevant historical analogy for EP10 May 2026 is **EP9 May 2022**: same term-year (year 2), same fragmentation trend, same defence-economy tension (Ukraine war had just triggered EP's security paradigm shift), same legislative acceleration pattern. In May 2022, EP delivered on its planned agenda despite the external shock — suggesting institutional resilience under stress is the baseline expectation for May 2026.
-
-However, EP9 May 2022 benefited from a unified pro-Ukraine/anti-Russia coalition that temporarily suppressed the EPP-ECR-PfE right flank. EP10 May 2026 lacks this unifying external event — the fragmentation is more politically diffuse, and the US-EU trade confrontation creates a less clear-cut coalition response than the Russia-Ukraine binary.
-
-**Confidence in historical baseline: 🟢 High** — EP data is authoritative and multi-year trends are well-established.
-
----
-
-### EP Term Comparison Timeline
-
-```mermaid
-timeline
-    title EP Parliamentary Terms — Legislative Activity Trends
-    section EP7 (2009-2014)
-        2009 : Low activity year 1
-        2011 : Peak legislative output, Fiscal Compact
-        2013 : High output, Banking Union
-    section EP8 (2014-2019)
-        2016 : GDPR, Digital Single Market
-        2018 : Peak output EP8
-        2019 : Final session
-    section EP9 (2019-2024)
-        2020 : Low year 1 (COVID)
-        2021 : Recovery legislation
-        2022 : Ukraine shock — acceleration
-        2023 : Green Deal peak
-    section EP10 (2024-)
-        2024 : Constitution year
-        2025 : Steady acceleration
-        2026 : High velocity (114 acts through April)
-```
-
----
-
-### Historical Analogy Confidence Assessment
-
-| Analogy | Similarity Score | Key Differences | Confidence |
-|---------|----------------|----------------|------------|
-| EP9 May 2022 | 🟢 HIGH (8/10) | Ukraine unifying factor absent in 2026; US confrontation is more diffuse | 🟢 High with caveats |
-| EP8 May 2018 | 🟡 MEDIUM (6/10) | GDPR final push created different urgency; smaller fragmentation ENP | 🟡 Medium |
-| EP7 May 2012 (Fiscal Compact) | 🟡 MEDIUM (5/10) | EU fiscal crisis context more severe; EP less fragmented | 🟡 Medium with caveats |
-
-**Bottom line:** Historical patterns strongly support the Steady-State Scenario 1 as baseline. The EP10 institutional machinery is operating at above-historical-average legislative velocity, which is the strongest structural argument against disruption scenarios.
-
-**Admiralty rating for historical data: A1** — Data sourced from EP's own statistical database (`get_all_generated_stats`); multiple year cross-checks confirm internal consistency. Historical institutional patterns are highly reliable; forward projections based on them carry standard forecast uncertainty.
-
----
-
-### Historical Baseline Cross-Validation — April 30 Update
-
-**Comparison with prior April-May periods (EP10 context):**
-
-| Metric | April 30, 2026 (Current) | Historical April Baseline | Assessment |
-|--------|--------------------------|---------------------------|------------|
-| Active plenary votes today | 13 confirmed | 8-15 typical | 🟢 Within historical range |
-| Active plenary debates | 4 | 3-6 typical | 🟢 Normal legislative load |
-| Group count | 9 | 7-9 (EP9: 7, EP10: 9) | 🟡 Higher fragmentation than EP9 |
-| Majority threshold | 361/719 | 376/751 (EP9) | 🟢 Lower absolute threshold |
-| EPP-S&D combined share | 44.5% | 43-55% (EP8-EP10 range) | 🟡 Below historical grand coalition peak |
-
-**Key historical pattern — May Strasbourg plenary cycle:**
-May Strasbourg sessions historically see higher-than-average vote counts (32-45 items) because committees rush to clear accumulated dossiers before the summer recess. May 2026's session (18-21) falls 5 weeks before the informal June recess; this structural urgency typically elevates both the volume and political salience of agenda items.
-
-**EP10 institutional velocity (updated):** 53 plenary sessions recorded in EP10 to date (EP API `get_all_generated_stats`), consistent with the 2019-2024 EP9 baseline rate. Legislative output metrics indicate a productive term, supporting the Steady-State historical baseline with 🟢 HIGH confidence.
-
-**Historical baseline confidence: 🟢 A1** — EP10 session data from authoritative EP Open Data Portal. Forward extrapolations carry standard forecast uncertainty band.
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 ### BLUF — Economic Context Summary
@@ -2718,6 +2316,408 @@ If W3 fires (+25pp US tariffs): EP would likely invoke trade defence instruments
 
 **Wildcard audit confidence: 🟡 MEDIUM** — Probability estimates are structural (no direct observational basis); updated against April 30 signal sweep. W3 (trade escalation) remains highest-probability wildcard at 20%.
 
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### Executive Summary
+
+The European Parliament enters May 2026 in a complex operating environment. The EPP-led flexible coalition has demonstrated its capacity for legislative output — with 114 acts adopted in 2026 to date, significantly above the 2024-2025 pace — but faces four structural pressure vectors: escalating US-EU trade tensions post-tariff adjustment, the transition from Budget 2027 guidelines to trilogue negotiation, Clean Industrial Deal implementation deadlines, and the persistence of EU economic fragility (Germany's GDP contraction, France's slowing growth). The May 18-21 Strasbourg session will be the central legislative arena for the next 30 days.
+
+---
+
+### P — Political
+
+#### EP10 Coalition Architecture (🟢 High Confidence)
+
+The EP's political balance as of April 2026 reflects a stable but structurally complex configuration:
+
+- **EPP** (185 seats, 25.7%): Dominant pivot group, maintains legislative agenda-setting capability. Under Roberta Metsola's leadership, EPP has successfully built flexible majorities across multiple issue domains — defence (with ECR and PfE), green transition (with S&D and Renew on selective items), and budget (with broad coalition).
+- **S&D** (135 seats, 18.8%): Second force, essential for progressive majority construction. Strong on workers' rights (April 30 vote on subcontracting chains TA-10-2026-0050), Ukraine support, and Budget 2027 social floor.
+- **PfE** (85 seats, 11.7%): Largest right-wing group, increasingly assertive on trade defence and strategic autonomy. Internal tensions between pro-Orbán Hungary faction and Italian/French market-sceptic wings present coalition management challenges.
+- **ECR** (81 seats, 11.0%): Strengthened under Meloni-aligned leadership. Pivotal on defence industrial strategy, selective on budget, adversarial on migration and climate.
+- **Renew** (77 seats, 10.7%): Centre-liberal bloc, essential for qualified majority construction. Under pressure from French electoral dynamics; remains crucial for trade defence coordination.
+- **Greens/EFA** (53 seats, 7.4%): Weakened post-2024 but holding coherent position on Clean Industrial Deal and budget social clauses.
+- **The Left** (46 seats, 6.4%): Significant presence; active on workers' rights and trade defence.
+- **NI** (30 seats, 4.2%): Non-attached MEPs, heterogeneous.
+- **ESN** (27 seats, 3.8%): Far-right bloc, generally obstructionist.
+
+**Majority threshold:** 361 seats. Grand coalition (EPP + S&D) = 320 seats — **below majority threshold**. Every legislative majority requires at least 3 groups, confirming the multi-coalition architecture.
+
+#### Key Political Developments — April 2026
+
+1. **Budget 2027 Guidelines Adopted (April 28):** TA-10-2026-0112 signals that the EP has formally opened the trilogue track. The Council position is expected Q3 2026, making the May-June period critical for EP/Commission coordination.
+
+2. **EU-Iceland PNR Data Agreement (April 29):** TA-10-2026-0142 confirms ongoing EP willingness to advance security/justice cooperation with non-EU partners, consistent with the NIS2/GDPR enforcement trend.
+
+3. **Tariff Adjustment for US Goods (March 26):** TA-10-2026-0096 ("Adjustment of customs duties and opening of tariff quotas for the import of certain goods originating in the United States of America") is the most politically significant recent text — it represents EP's formal position in the US-EU trade confrontation, enabling a trade response mechanism while maintaining de-escalation space.
+
+4. **High fragmentation index (6.59 ENP):** The effective number of parties exceeded 6.5 for the first time since EP10 began. This structural characteristic means that EPP's pivoting between right (ECR/PfE on defence/trade) and centre-left (S&D/Renew on budget social floor) is not an anomaly but the defining feature of EP10 governance.
+
+#### May 2026 Political Agenda Projections
+
+- **May 18-21 Strasbourg:** Expected items based on legislative pipeline analysis: (1) INTA committee report on US tariff response framework; (2) ECON second reading on banking reform follow-up; (3) Clean Industrial Deal implementing regulation first reading; (4) LIBE vote on migration management package; (5) Budget 2027 framing debate.
+- **April 30 (ongoing):** 17+ vote items — likely includes second readings, delegated act ratifications, and potentially a resolution on external relations.
+
+---
+
+### E — Economic
+
+#### EU Economic Fragility in Context (🟢 High Confidence, IMF WEO April 2026)
+
+**Gross Domestic Product:**
+The EU's largest economy, Germany, contracted by -0.5% in 2024 (World Bank data, confirmed consistent with IMF WEO April 2026 projections which identify continued German industrial fragility as the key downside risk for the eurozone). This is the second consecutive year of negative German GDP growth, a structural challenge linked to energy price normalisation, trade disruption, and delayed green transition investment.
+
+The IMF WEO April 2026 projects EU GDP growth of 1.3% for 2026 — a modest recovery from 2024-2025 weakness, contingent on continued ECB rate normalisation and no further US tariff escalation. This projection is the "forecast" for the current year; it reflects IMF expectations that EU investment picks up as monetary policy eases.
+
+**Inflation and Monetary Policy:**
+France's inflation stood at 2.0% in 2024 — at target — enabling ECB to continue its rate reduction cycle. The ECB's gradual normalisation (multiple 25 bps cuts since 2024) is the primary monetary policy lever, with the next decision expected around June 2026. Forward statement FS-2026-007 (horizon June 12) projects a further 25 bps cut if GDP growth stays below 1.5%.
+
+**Labour Market:**
+Italy's unemployment rate was 6.4% in 2024 (falling from 7.6% in 2023), reflecting southern European labour market recovery. However, youth unemployment and structural mismatches remain elevated, underpinning EP priorities around the Skills for Jobs initiative and Clean Industrial Deal social floor provisions.
+
+**Budget 2027 Framework:**
+The April 28 Budget Guidelines adoption (TA-10-2026-0112) reflects EP's position that Budget 2027 must accommodate both defence spending increases (following the European Defence Industrial Strategy) and social investment (Just Transition Fund, Cohesion Policy). The macroeconomic constraint — EU GDP growth projected at 1.3% while member states face fiscal consolidation under the revised Stability and Growth Pact — creates the central budget tension that will define the May-September trilogue.
+
+**IMF data vintage:** WEO April 2026. All projections labelled as "forecast"/"projection" per editorial policy.
+
+---
+
+### S — Social
+
+#### Societal Vectors Affecting EU Parliament May Agenda
+
+**Labour Rights and Supply Chains:** The April 30 vote on addressing subcontracting chains (TA-10-2026-0050 — if passed today) reflects sustained EP attention to workers' rights in complex cross-border supply chains. This connects to S&D/Left alliance on the Clean Industrial Deal social floor provisions.
+
+**AI Act Implementation:** 2026 is year 2 of AI Act implementation under the EP10 monitoring framework. The Act's applicability dates are creating real legislative pressure — GP AI systems compliance began in Q4 2025, and GPAI model transparency requirements are now active. EP's IMCO and LIBE committees are tracking implementation via parliamentary questions (over 6,000 forecast for 2026).
+
+**Agricultural and Rural Communities:** The EP10 fragmentation is partly driven by rural/agricultural constituencies. The May session is likely to include CAP-related items affecting farmers facing competition from third-country imports (US tariffs context) and climate obligations.
+
+**Migration:** LIBE committee work on migration management remains politically contested. PfE and ECR continue to push for border externalisation; S&D and Greens resist. The May session may include a migration-related vote depending on Mediterranean developments.
+
+---
+
+### T — Technological
+
+**AI Act Implementation (2026 critical year):** The AI Act's tiered entry-into-force means EP must monitor implementing acts under Art. 73(4) procedures. IMCO committee is the lead body, with regular Commission reporting obligations. Any implementing act misalignment could trigger a resolution.
+
+**Digital Services Act (DSA) Review:** The Commission's DSA evaluation report (due 2025, delayed) is expected in Q2 2026. EP IMCO committee's pre-emptive hearings signal legislative readiness for potential amendments — particularly around algorithmic accountability and large platform obligations.
+
+**Cybersecurity and NIS2:** The NIS2 Directive transposition deadline passed October 2024. By May 2026, member states have had 6 months to demonstrate compliance. EP ITRE/LIBE joint scrutiny of Commission's assessment is likely in Q2 2026 hearings.
+
+**European Defence Industrial Strategy (EDIS):** EDIS requires investment in dual-use technology — semiconductors, drones, satellite communications. EP ITRE/SEDE joint work on EDIS implementing regulations expected to accelerate May-June 2026.
+
+---
+
+### L — Legal
+
+**EU Mercosur Compatibility Review:** TA-10-2026-0008 (January 21) requested a CJEU opinion on whether the EU-Mercosur Partnership Agreement and Interim Trade Agreement are compatible with EU Treaties. The CJEU's response timeline (typically 18-24 months) means this stays in legal uncertainty through at least mid-2027.
+
+**EU-US Tariff Legal Framework:** TA-10-2026-0096 (March 26) adjusted customs duties on US goods. The legal basis — Trade Enforcement Regulation and unilateral tariff authority — represents EP's assertion of its role in trade policy retaliation. Any escalation by the US triggering further EU countermeasures would require EP review under Art. 207 TFEU.
+
+**GDPR/AI Act Enforcement:** Post-2024 GDPR enforcement acceleration (record fines in 2023-2025) is creating EP demand for stronger harmonised enforcement under the EDPB. EP LIBE committee has scheduled hearings on cross-border enforcement coordination.
+
+---
+
+### E — Environmental
+
+**Clean Industrial Deal (CID) — Critical Legislative Phase:** The CID is the central economic-environmental nexus for EP10. First proposed by the von der Leyen II Commission in Q4 2024, the CID represents the reconciliation of the European Green Deal's climate targets with industrial competitiveness. Key votes expected May-June 2026:
+
+- Binding sectoral decarbonisation targets (steel, chemicals, cement)
+- Carbon Border Adjustment Mechanism (CBAM) implementation monitoring
+- Net-Zero Industry Act amendment on European Critical Raw Materials
+
+**Emission Credits Modification:** TA-10-2026-0084 (March 12) adjusted heavy-duty vehicle emission credit calculation for 2025-2029. This signals ongoing fine-tuning of the Green Deal's transportation chapter, with truck manufacturers having secured more flexibility in the near term.
+
+**Energy Transition and the Budget:** The Budget 2027 guidelines (TA-10-2026-0112) must accommodate Just Transition Fund obligations that EP committed to as part of the Green Deal package. The energy price normalisation (gas prices stabilised post-Ukraine war shock) gives some budget relief but does not eliminate the structural investment gap.
+
+---
+
+### PESTLE Summary Matrix
+
+| Dimension | Key Issue | Probability | EP Impact | Confidence |
+|-----------|-----------|-------------|-----------|------------|
+| Political | EPP coalition manages May session | 75% | High | 🟢 |
+| Political | US-EU trade escalation disrupts May agenda | 25% | High | 🟡 |
+| Economic | Budget 2027 trilogue launches on schedule | 80% | High | 🟢 |
+| Economic | ECB rate cut June 2026 | 65% | Medium | 🟡 |
+| Social | Workers' rights/AI Act votes proceed | 85% | Medium | 🟢 |
+| Technological | EDIS regulatory acceleration | 70% | High | 🟢 |
+| Legal | EU-Mercosur CJEU opinion delay | 95% | Low | 🟢 |
+| Environmental | CID implementing votes proceed | 70% | High | 🟡 |
+
+---
+
+### PESTLE Force Interaction Diagram
+
+```mermaid
+graph TD
+    P1[Political: EPP Coalition Management] --> E1[Economic: Budget 2027 Progress]
+    P1 --> T1[Technological: EDIS Advances]
+    P2[Political: US-EU Trade Confrontation] --> E2[Economic: GDP Downside Risk]
+    E2 --> P1
+    E1 --> S1[Social: Just Transition Funding]
+    T1 --> L1[Legal: EDIS Regulatory Framework]
+    L1 --> E1
+    ENV1[Environmental: CID Implementation] --> S1
+    ENV1 --> E2
+    P2 --> ENV1
+    S1 --> P1
+    IMF[IMF WEO 1.3% GDP Baseline] --> E1
+    ECB[ECB Rate Path] --> E2
+```
+
+---
+
+### PESTLE Cross-Dimensional Stress Test
+
+**Stress Test 1: Trade Shock (P2 triggers E2):**
+If US-EU trade escalation materialises (P2, 25%), the economic impact (E2) creates feedback pressure on coalition management (P1) via German industrial constituencies. The PESTLE cascade: US tariff → German GDP revision downward → CDU/CSU MEPs pressure Weber → EPP coalition tension → Budget 2027 delay. Full cascade probability: approximately 8-12%.
+
+**Stress Test 2: Environmental-Social Tension on CID:**
+If CID environmental standards (ENV1) are weakened to secure right-flank EPP-ECR coalition, this triggers S1 (Just Transition conflict) with ETUC/NGO mobilisation, which feeds back into P1 (EPP facing progressive bloc walkout). This is the "green paradox" scenario — trying to advance CID faster by weakening standards actually slows it by triggering a new coalition crisis.
+
+**Stress Test 3: Technology-Legal Acceleration (EDIS):**
+EDIS regulatory acceleration (T1) requires legal framework (L1) that some member states challenge as overriding national defence competence. If a challenge is filed at CJEU, it creates a Legal delay (L1 negative) while Technological urgency (T1) increases — producing an institutional tension that EP must manage.
+
+---
+
+### WEP Assessment — PESTLE Dimension Stability
+
+**Political stability: WEP Likely (70%)** — EPP coalition management succeeds in May
+**Economic outlook: WEP Likely (65%)** — Budget 2027 advances on timeline
+**Social stability: WEP Highly Likely (85%)** — Workers' rights and AI Act proceed
+**Technological: WEP Likely (70%)** — EDIS advances
+**Legal: WEP Almost Certain (95%)** — No major CJEU surprises in 30-day window
+**Environmental: WEP Likely (70%)** — CID committee work advances
+
+**Integrated PESTLE assessment (Admiralty: B2):** The PESTLE environment for May 2026 is characterised by **manageable complexity rather than crisis**. No single PESTLE dimension is in a critical failure state; the main risk is cross-dimensional compound effects at the 10-15% probability range.
+
+---
+
+### PESTLE Decision Matrix
+
+| If Political dimension deteriorates | Economic response | Legal response | Environmental impact |
+|------------------------------------|------------------|----------------|---------------------|
+| EPP-S&D split on CID | IMF 1.3% GDP growth at risk from delayed implementation | CID legal basis challenged | CID delay = 1-2 year setback to emission targets |
+| US tariff escalation (Economic D deteriorates) | IMF forecasts revised downward (0.3-0.5pp) | WTO Article 21.5 arbitration risk | Tariff revenue used for US defence offset vs EU green transition |
+
+---
+
+### PESTLE Forward Indicators for 30-Day Window
+
+| Dimension | GREEN indicator | AMBER indicator | RED indicator |
+|-----------|----------------|----------------|--------------|
+| Political | EPP-S&D vote together on CID/EDIS | EPP abstentions on CID > 10% | EPP/S&D split vote; majority fails |
+| Economic | IMF GDP forecast stable ≥1.2% | US tariff expansion announced | Full automotive/pharma tariffs enacted |
+| Social | AI Act Stage 2 implementation on schedule | Worker consultation delays | AI Act implementation suspended |
+| Technological | EDIS advances in committee | EDIS scope narrowed | EDIS vote postponed >1 session |
+| Legal | No CJEU emergency rulings on EP procedure | Advisory opinion on CID implementation | CJEU ruling blocks CID methodology |
+| Environmental | CID committee vote proceeds | CID amendment on transport delayed | CID sectoral targets amended out |
+
+---
+
+### PESTLE Update — April 30 Plenary Agenda Signals
+
+**Political:** Today's April 30 sitting demonstrates stable institutional functioning. 4 debates + 13 votes = full legislative day. EIB oversight debate signals EP-executive scrutiny posture remains active. Coalition architecture unchanged from morning session signals. 🟡 MEDIUM confidence (session outcome pending).
+
+**Economic (IMF-authorised):** IMF April 2026 WEO: EA growth 1.2%, HICP 2.3%, unemployment 6.1%. ECB expected to cut 25bps in June. SIU/finfluencer regulation debate today (April 30) directly engages capital markets union legal framework — legislative output depends on ECON committee alignment. Financial literacy regulation as consumer protection measure is economically well-timed (retail investor base expanding). 🟢 HIGH confidence IMF data.
+
+**Social:** Consent-based rape legislation debate (April 30) is a landmark social affairs item. Cross-party support from EPP-centre, S&D, Renew, and Greens expected; ECR and PfE likely to oppose. If adopted, constitutes a major EP rights directive. Cross-cutting gender equality agenda links to Rule-of-Law monitoring (LIBE committee). 🟡 MEDIUM confidence.
+
+**Technological:** Ocean diplomacy / fisheries debate touches on precision fishing technology and digital monitoring systems (Blue Economy digital agenda). Satellite monitoring of fishing zones is both an environmental compliance and technology competitiveness issue. Digital fisheries management is a minor but emerging tech-regulation interface. 🟡 MEDIUM confidence.
+
+**Legal:** EP's EIB annual report oversight includes legal compliance assessment under EIB statute and BEI Articles of Agreement. EIB governance reform implications (transparency, ESG reporting, Ukraine reconstruction fund compliance) are active legal analysis areas. No CJEU proceedings directly relevant to April 30 agenda items confirmed. 🟢 HIGH confidence.
+
+**Environmental:** Fisheries and ocean diplomacy debate directly implicates Biodiversity Strategy commitments and Marine Strategy Framework Directive. 30x30 ocean conservation targets are contested between fisheries industry and environmental groups. Renew-Greens alignment on ocean protection likely; ECR-PfE opposition. 🟡 MEDIUM confidence.
+
+**PESTLE re-run quality note:** Six PESTLE dimensions re-assessed against April 30 plenary debate agenda. Political (stable), Economic (IMF primary source confirmed), Social (consent legislation advancing), Technological (fisheries digital monitoring emerging), Legal (EIB audit compliance), Environmental (ocean conservation contested). All dimensions carry 🟡 MEDIUM confidence minimum.
+
+**PESTLE synthesis for month ahead:** The dominant PESTLE force for May 2026 is Political — the three-party coalition architecture (EPP-S&D-Renew) drives every vote requiring a majority. Economic forces (IMF EA growth at 1.2%, trade tensions) are the main exogenous risk. Social and Environmental forces are present but secondary. Legal and Technological forces are procedural and operational. Overall PESTLE balance: Political and Economic are co-drivers; others are modifiers.
+
+*PESTLE confidence: 🟡 MEDIUM — Political and Economic dimensions verified against EP API and IMF data; Social/Technological/Legal/Environmental dimensions derived from agenda analysis and structural assessment.*
+
+### Historical Baseline
+
+### Overview
+
+This analysis establishes the historical baseline for evaluating the current EP10 May 2026 environment. EP10 is in its "peak legislative productivity" phase (year 2 of 5), and the 2026 output metrics are tracking significantly above historical averages. Understanding this baseline is essential for calibrating whether the May 18-21 session represents continuity or disruption.
+
+---
+
+### EP Legislative Activity — Multi-Year Benchmark
+
+#### Output Metrics (EP Historical Data)
+
+| Metric | EP10 2025 | EP10 2026 YTD | 2026 Full-Year Forecast | Historical Average (EP7-EP9) |
+|--------|-----------|---------------|------------------------|------------------------------|
+| Plenary sessions | 53 | 54 (full year) | 54 | ~50 |
+| Legislative acts | 78 | 114 | ~130+ | ~98 |
+| Roll-call votes | 420 | 567 | ~640+ | ~410 |
+| Committee meetings | 1,980 | 2,363 | ~2,700 | ~1,800 |
+| Parliamentary questions | 4,947 | 6,147 | ~7,000+ | ~3,800 |
+| Adopted texts | 347 | 104 (Q1 only) | ~400-450 | ~380 |
+| Procedures | 923 | 935 | ~1,050 | ~850 |
+
+**Key observation:** EP10 2026 is on track to be the highest legislative output year since EP9's 2023 peak (148 acts). The 46.2% year-on-year increase in legislative acts (2026 vs. 2025) is historically exceptional — typically EP years 2-3 show 5-15% annual increases.
+
+#### EP10 Structural Characteristics vs. Prior Terms
+
+**Fragmentation trend:** The effective number of parties (ENP) reached 6.59 in EP10 — the highest ever recorded for the European Parliament. Comparative baseline:
+
+| Term | ENP | Minimum Winning Coalition | Grand Coalition Possible? |
+|------|-----|--------------------------|--------------------------|
+| EP6 (2004-2009) | 4.12 | 2 groups | Yes |
+| EP7 (2009-2014) | 4.52 | 2 groups | Yes |
+| EP8 (2014-2019) | 5.18 | 2-3 groups | Marginally |
+| EP9 (2019-2024) | 5.96 | 3 groups | No |
+| **EP10 (2024-present)** | **6.59** | **3 groups** | **No** |
+
+The structural implication for May 2026: **every** legislative majority requires a minimum of 3 political groups, and the EPP-S&D bloc alone (320 seats) falls 41 seats short of the 361 majority threshold. This is historically unprecedented and defines EP10's governance challenge.
+
+**Right-bloc dominance:** The right-centre/right bloc (EPP 25.7% + PfE 11.7% + ECR 11.0% + ESN 3.8%) collectively holds 52.3% of seats — but these groups cannot form a stable legislative coalition because EPP-PfE cooperation is constrained by EPP's institutional commitments to EU integration. The result is EP10's defining characteristic: **EPP pivot dynamics** where EPP forms different coalitions depending on the dossier.
+
+---
+
+### Historical Precedent for May Legislative Sessions
+
+#### May Sessions in EP8 and EP9 (Analogous to Current EP10 May 2026)
+
+**EP8 May 2016 (analogous term-year):**
+- Key items: General Data Protection Regulation adopted (milestone vote), EU-Canada CETA consent vote
+- Coalition: EPP + S&D + ALDE = 547 seats (comfortable majority)
+- Contrast with EP10: GDPR vote required centre coalition; CETA required centre-right expansion. Both scenarios are present in EP10's May 2026 in the form of CID (centre coalition) and EDIS (centre-right coalition).
+
+**EP9 May 2021 (analogous term-year):**
+- Key items: Carbon Border Adjustment Mechanism first reading, EU Recovery Plan monitoring votes, Rule of Law conditionality debate
+- Coalition challenges: Renew fragmented on rule of law; ECR growing; PfE (then ID) increasingly assertive
+- Outcome: Progressive majority held on CBAM; rule of law debates created EPP-ECR fracture that characterised EP9 mid-term
+
+**EP10 May 2026 (current):**
+- Key expected items: CID implementation, Budget 2027 framework, EDIS votes, US-EU trade response
+- Coalition architecture more fragmented than either comparison year
+- Legislative output pace suggests institutional momentum — but fragmentation risk is highest in EP history
+
+---
+
+### Legislative Velocity Analysis
+
+#### Days-to-Adoption Trends
+
+Based on EP historical data, the average days from first reading to adoption across all procedure types has been:
+
+| Procedure Type | EP8 Average | EP9 Average | EP10 Current Trend |
+|---------------|-------------|-------------|-------------------|
+| Ordinary (COD) | 486 days | 518 days | ~540 days (estimated) |
+| Consultation (CNS) | 312 days | 344 days | ~360 days |
+| Consent (NLE) | 228 days | 245 days | ~260 days |
+
+The slight elongation of procedure timelines in EP10 reflects the fragmentation effect — more coalition-building rounds needed, more committee rapporteur negotiations required.
+
+#### April-May 2026 Legislative Velocity Signals
+
+The April 30 session's 21 foreseen activities (4 debates + 17+ votes) is consistent with a high-velocity plenary day, suggesting the April session is following through on its scheduled commitments. The adopted texts from April 28-29 (Budget Guidelines TA-10-2026-0112, EIB report TA-10-2026-0119, EU-Iceland PNR TA-10-2026-0142) confirm that EP is not in a legislative backlog.
+
+---
+
+### Historical Comparison: US-EU Trade Episodes
+
+The March 26 tariff adjustment text (TA-10-2026-0096) fits into a historical pattern of EP trade responses:
+
+| Episode | Year | EP Response | Outcome |
+|---------|------|-------------|---------|
+| Steel/aluminium tariffs (Section 232) | 2018 | EP resolution supporting EU retaliation | Managed: tariffs eventually lifted 2021 |
+| Aircraft subsidies (Airbus/Boeing GATT) | 2020 | EP resolution supporting negotiated settlement | Settlement reached 2021 |
+| Digital services tax dispute | 2022 | EP supported Commission anti-coercion instrument | Ongoing/managed |
+| **Current US tariff confrontation** | 2026 | TA-10-2026-0096 (tariff adjustment mechanism) | In progress |
+
+**Historical pattern:** EP trade responses have consistently favoured: (1) establishing a legal retaliation mechanism; (2) calling for negotiated settlement; (3) maintaining Commission in the lead role. The 2026 response fits this template. Historical success rate of managed settlement: approximately 70% within 2 years.
+
+---
+
+### Budget Timeline Precedent
+
+Budget 2027 negotiations follow an established trilogue calendar:
+
+| Year | Guidelines Adoption | Council Position | Trilogue | Adoption |
+|------|--------------------|--------------------|----------|---------|
+| Budget 2025 | April 2024 | September 2024 | Oct-Nov 2024 | December 2024 |
+| Budget 2026 | April 2025 | September 2025 | Oct-Nov 2025 | December 2025 |
+| **Budget 2027** | **April 28, 2026** | **Expected Q3 2026** | **Expected Q4 2026** | **Expected Dec 2026** |
+
+The April 28 guidelines adoption (TA-10-2026-0112) is exactly on the historical precedent timeline. Forward statement FS-2026-005 (Budget 2027 trilogue by September 2026) is therefore 🟢 High confidence.
+
+---
+
+### Key Historical Insight for May 2026 Forecast
+
+The most relevant historical analogy for EP10 May 2026 is **EP9 May 2022**: same term-year (year 2), same fragmentation trend, same defence-economy tension (Ukraine war had just triggered EP's security paradigm shift), same legislative acceleration pattern. In May 2022, EP delivered on its planned agenda despite the external shock — suggesting institutional resilience under stress is the baseline expectation for May 2026.
+
+However, EP9 May 2022 benefited from a unified pro-Ukraine/anti-Russia coalition that temporarily suppressed the EPP-ECR-PfE right flank. EP10 May 2026 lacks this unifying external event — the fragmentation is more politically diffuse, and the US-EU trade confrontation creates a less clear-cut coalition response than the Russia-Ukraine binary.
+
+**Confidence in historical baseline: 🟢 High** — EP data is authoritative and multi-year trends are well-established.
+
+---
+
+### EP Term Comparison Timeline
+
+```mermaid
+timeline
+    title EP Parliamentary Terms — Legislative Activity Trends
+    section EP7 (2009-2014)
+        2009 : Low activity year 1
+        2011 : Peak legislative output, Fiscal Compact
+        2013 : High output, Banking Union
+    section EP8 (2014-2019)
+        2016 : GDPR, Digital Single Market
+        2018 : Peak output EP8
+        2019 : Final session
+    section EP9 (2019-2024)
+        2020 : Low year 1 (COVID)
+        2021 : Recovery legislation
+        2022 : Ukraine shock — acceleration
+        2023 : Green Deal peak
+    section EP10 (2024-)
+        2024 : Constitution year
+        2025 : Steady acceleration
+        2026 : High velocity (114 acts through April)
+```
+
+---
+
+### Historical Analogy Confidence Assessment
+
+| Analogy | Similarity Score | Key Differences | Confidence |
+|---------|----------------|----------------|------------|
+| EP9 May 2022 | 🟢 HIGH (8/10) | Ukraine unifying factor absent in 2026; US confrontation is more diffuse | 🟢 High with caveats |
+| EP8 May 2018 | 🟡 MEDIUM (6/10) | GDPR final push created different urgency; smaller fragmentation ENP | 🟡 Medium |
+| EP7 May 2012 (Fiscal Compact) | 🟡 MEDIUM (5/10) | EU fiscal crisis context more severe; EP less fragmented | 🟡 Medium with caveats |
+
+**Bottom line:** Historical patterns strongly support the Steady-State Scenario 1 as baseline. The EP10 institutional machinery is operating at above-historical-average legislative velocity, which is the strongest structural argument against disruption scenarios.
+
+**Admiralty rating for historical data: A1** — Data sourced from EP's own statistical database (`get_all_generated_stats`); multiple year cross-checks confirm internal consistency. Historical institutional patterns are highly reliable; forward projections based on them carry standard forecast uncertainty.
+
+---
+
+### Historical Baseline Cross-Validation — April 30 Update
+
+**Comparison with prior April-May periods (EP10 context):**
+
+| Metric | April 30, 2026 (Current) | Historical April Baseline | Assessment |
+|--------|--------------------------|---------------------------|------------|
+| Active plenary votes today | 13 confirmed | 8-15 typical | 🟢 Within historical range |
+| Active plenary debates | 4 | 3-6 typical | 🟢 Normal legislative load |
+| Group count | 9 | 7-9 (EP9: 7, EP10: 9) | 🟡 Higher fragmentation than EP9 |
+| Majority threshold | 361/719 | 376/751 (EP9) | 🟢 Lower absolute threshold |
+| EPP-S&D combined share | 44.5% | 43-55% (EP8-EP10 range) | 🟡 Below historical grand coalition peak |
+
+**Key historical pattern — May Strasbourg plenary cycle:**
+May Strasbourg sessions historically see higher-than-average vote counts (32-45 items) because committees rush to clear accumulated dossiers before the summer recess. May 2026's session (18-21) falls 5 weeks before the informal June recess; this structural urgency typically elevates both the volume and political salience of agenda items.
+
+**EP10 institutional velocity (updated):** 53 plenary sessions recorded in EP10 to date (EP API `get_all_generated_stats`), consistent with the 2019-2024 EP9 baseline rate. Legislative output metrics indicate a productive term, supporting the Steady-State historical baseline with 🟢 HIGH confidence.
+
+**Historical baseline confidence: 🟢 A1** — EP10 session data from authoritative EP Open Data Portal. Forward extrapolations carry standard forecast uncertainty band.
+
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
 
 ### Overview
@@ -3595,8 +3595,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/month-ahead/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/month-ahead/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/month-ahead/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/month-ahead/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/month-ahead/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/month-ahead/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/month-ahead/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/month-ahead/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
@@ -3604,6 +3602,8 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/month-ahead/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/month-ahead/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/month-ahead/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/month-ahead/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/month-ahead/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/month-ahead/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/month-ahead/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-30/month-ahead/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
