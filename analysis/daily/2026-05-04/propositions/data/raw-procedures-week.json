@@ -1,0 +1,59 @@
+{
+  "collectedAt": "2026-05-04T06:07:00Z",
+  "dataWindow": "2026-04-27 to 2026-05-04",
+  "source": "European Parliament Open Data Portal",
+  "adoptedTexts2026": {
+    "totalThisWeek": 22,
+    "sessions": [
+      {"id": "MTG-PL-2026-04-27", "date": "2026-04-27", "location": "Strasbourg", "attendanceCount": 610},
+      {"id": "MTG-PL-2026-04-28", "date": "2026-04-28", "location": "Strasbourg", "attendanceCount": 663},
+      {"id": "MTG-PL-2026-04-29", "date": "2026-04-29", "location": "Strasbourg", "attendanceCount": 658},
+      {"id": "MTG-PL-2026-04-30", "date": "2026-04-30", "location": "Strasbourg", "attendanceCount": 599}
+    ],
+    "nextSession": {"id": "MTG-PL-2026-05-18", "date": "2026-05-18", "location": "Strasbourg"},
+    "keyTexts": [
+      {"id": "TA-10-2026-0112", "title": "Guidelines for the 2027 budget - Section III", "dateAdopted": "2026-04-28", "procedureRef": "2025-2246", "subject": "BUDG"},
+      {"id": "TA-10-2026-0113", "title": "Accounting of greenhouse gas emissions of transport services", "dateAdopted": "2026-04-28", "procedureRef": "2023-0266", "subject": "TRAN,ENV"},
+      {"id": "TA-10-2026-0114", "title": "Generalised scheme of tariff preferences", "dateAdopted": "2026-04-28", "procedureRef": "2021-0297", "subject": "PCOM"},
+      {"id": "TA-10-2026-0115", "title": "Welfare of dogs and cats and their traceability", "dateAdopted": "2026-04-28", "procedureRef": "2023-0447", "subject": "AGRI"},
+      {"id": "TA-10-2026-0117", "title": "Amendments to Biocidal Products Regulation", "dateAdopted": "2026-04-28", "procedureRef": "2025-0408", "subject": "ENV"},
+      {"id": "TA-10-2026-0118", "title": "Amendments to Parliament's Rules of Procedure (Rule 135 - agency appointments)", "dateAdopted": "2026-04-28", "procedureRef": "2025-2262", "subject": "INST"},
+      {"id": "TA-10-2026-0119", "title": "Control of the financial activities of the European Investment Bank Group - annual report 2024", "dateAdopted": "2026-04-28", "procedureRef": "2025-2237", "subject": "ECON"},
+      {"id": "TA-10-2026-0122", "title": "Control, transparency and traceability of performance-based instruments", "dateAdopted": "2026-04-28", "procedureRef": "2025-2032", "subject": "BUDG"},
+      {"id": "TA-10-2026-0123", "title": "Enhancing connectivity and cultural heritage in European tourism", "dateAdopted": "2026-04-28", "procedureRef": "2025-2120", "subject": "TRAN"},
+      {"id": "TA-10-2026-0105", "title": "Request for waiver of immunity of Patryk Jaki", "dateAdopted": "2026-04-28", "procedureRef": "2025-2171", "subject": "PRIV"},
+      {"id": "TA-10-2026-0106", "title": "Request for waiver of immunity of Daniel Obajtek", "dateAdopted": "2026-04-28", "procedureRef": "2025-2172", "subject": "PRIV"},
+      {"id": "TA-10-2026-0107", "title": "Request for waiver of immunity of Tomasz Buczek", "dateAdopted": "2026-04-28", "procedureRef": "2025-2193", "subject": "PRIV"},
+      {"id": "TA-10-2026-0108", "title": "Request for waiver of immunity of Diana Iovanovici Şoşoacă", "dateAdopted": "2026-04-28", "procedureRef": "2025-2196", "subject": "PRIV"},
+      {"id": "TA-10-2026-0109", "title": "Request for waiver of immunity of Grzegorz Braun", "dateAdopted": "2026-04-28", "procedureRef": "2025-2241", "subject": "PRIV"},
+      {"id": "TA-10-2026-0124", "title": "Amendment of European Electoral Act - proxy voting during pregnancy", "dateAdopted": "2026-04-29", "procedureRef": "2025-0900", "subject": "INST"},
+      {"id": "TA-10-2026-0138", "title": "Simplification of certain requirements and procedures for chemical products", "dateAdopted": "2026-04-29", "procedureRef": "2025-0531", "subject": "ENV,INDU"},
+      {"id": "TA-10-2026-0139", "title": "Market stability reserve for buildings, road transport and additional sectors", "dateAdopted": "2026-04-29", "procedureRef": "2025-0380", "subject": "ENV,ECON"},
+      {"id": "TA-10-2026-0141", "title": "International Cocoa Agreement", "dateAdopted": "2026-04-29", "procedureRef": "2025-0283", "subject": "PCOM"},
+      {"id": "TA-10-2026-0142", "title": "EU-Iceland PNR data agreement", "dateAdopted": "2026-04-29", "procedureRef": "2025-0156", "subject": "LIBE"},
+      {"id": "TA-10-2026-0154", "title": "Convention Establishing an International Claims Commission for Ukraine", "dateAdopted": "2026-04-30", "procedureRef": "2026-0065", "subject": "AFET"},
+      {"id": "TA-10-2026-0155", "title": "Estimates of revenue and expenditure for the financial year 2027 - Section I - European Parliament", "dateAdopted": "2026-04-30", "procedureRef": "2025-2247", "subject": "BUDG"},
+      {"id": "TA-10-2026-0157", "title": "EU livestock sector sustainable future", "dateAdopted": "2026-04-30", "procedureRef": "2025-2053", "subject": "AGRI"},
+      {"id": "TA-10-2026-0158", "title": "Women's entrepreneurship in rural and island areas", "dateAdopted": "2026-04-30", "procedureRef": "2024-2124", "subject": "REGI"},
+      {"id": "TA-10-2026-0160", "title": "Enforcement of the Digital Markets Act", "dateAdopted": "2026-04-30", "procedureRef": "2026-2596", "subject": "IMCO"},
+      {"id": "TA-10-2026-0161", "title": "Ensuring accountability and justice: Russia's continued attacks against Ukraine's civilian population", "dateAdopted": "2026-04-30", "procedureRef": "2026-2700", "subject": "AFET"},
+      {"id": "TA-10-2026-0162", "title": "Supporting democratic resilience in Armenia", "dateAdopted": "2026-04-30", "procedureRef": "2026-2701", "subject": "AFET"},
+      {"id": "TA-10-2026-0163", "title": "Cyberbullying and online harassment - need for criminal provisions", "dateAdopted": "2026-04-30", "procedureRef": "2026-2693", "subject": "LIBE"}
+    ]
+  },
+  "recentlySignedLegislation": [
+    {"id": "2023-0135", "title": "Combating Corruption Directive", "signed": "2026-04-29", "procedureRef": "2023/0135(COD)"},
+    {"id": "2023-0111", "title": "SRMR3 - Single Resolution Mechanism Regulation 3", "signed": "2026-03-30", "published": "2026-04-20", "procedureRef": "2023/0111(COD)"},
+    {"id": "2024-0311", "title": "Measuring Instruments Directive recast", "signed": "2026-03-11", "published": "2026-03-20", "procedureRef": "2024/0311(COD)"}
+  ],
+  "dischargePackage2024": {
+    "description": "Parliament voted on discharge of EU institutions for 2024 budget execution",
+    "items": [
+      "TA-10-2026-0127: European Council and Council - APPROVED",
+      "TA-10-2026-0128: Court of Justice",
+      "TA-10-2026-0129: Court of Auditors",
+      "TA-10-2026-0132: Committee of the Regions",
+      "TA-10-2026-0134: European Data Protection Supervisor"
+    ]
+  }
+}
