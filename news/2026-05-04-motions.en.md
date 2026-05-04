@@ -1704,305 +1704,6 @@ The overall trajectory: the EP used its April 2026 session to advance a coherent
 
 **Methodology:** Stakeholder impact analysis | ICD 203 source confidence standards | EP Open Data Portal | IMF WEO April 2026
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### Overview
-
-This PESTLE analysis covers the eleven adopted motions from the European Parliament's April 28–30, 2026 Strasbourg plenary session. The analysis applies structured environmental scanning to identify macro-forces shaping the political and legislative context of each text.
-
----
-
-### P — Political
-
-#### Internal EP Politics
-The EP10 coalition dynamics are under significant stress in this session. The EPP (185 seats) — the dominant group — must regularly negotiate with S&D (135) and Renew (77) to achieve the 361-vote majority threshold. No single bloc can form a working majority: the parliamentary fragmentation index of 6.57 effective parties means every consequential vote requires multi-party coalition building.
-
-**Key political observations this week:**
-- The DMA enforcement motion (TA-10-2026-0160) demonstrated the viability of a "digital governance coalition" spanning EPP + S&D + Renew + Greens/EFA, bypassing the right-wing groups. This coalition totals approximately 550 MEPs — well above the threshold.
-- The Ukraine accountability text (TA-10-2026-0161) exposed PfE's internal tensions: the group contains both Fidesz-aligned MEPs (Hungary, strongly opposed) and Polish nationalist MEPs (more ambivalent on Ukraine) alongside Italian League MEPs. This ideological incoherence on foreign policy is a structural vulnerability for the PfE leadership.
-- The Patryk Jaki immunity waiver vote is the most politically sensitive PRIV committee outcome of the term. ECR — Jaki's group — could not protect its own member, revealing the limits of group solidarity when judicial requests arrive from EU member state courts.
-
-#### Member State Political Dynamics
-- **Poland**: The Tusk government's judicial reforms continue to generate confrontations with PiS-aligned ECR MEPs. The Jaki prosecution is part of Warsaw's broader effort to prosecute former Justice Ministry officials for rule-of-law violations under the previous government.
-- **Hungary**: Fidesz MEPs in PfE continue to defy the majority on Ukraine-related texts, maintaining Orbán's foreign policy line of neutrality and blocking support for the Special Tribunal on Russia's crime of aggression.
-- **Armenia**: The EP resolution on Armenia (TA-10-2026-0162) reflects deeper Eastern Partnership differentiation — Yerevan has clearly charted a European path while Baku maintains alignment with Turkey and Russia. The EP is now ahead of the Commission's pace on Armenia integration signalling.
-
----
-
-### E — Economic
-
-#### EU Budget 2027 Context
-The 2027 Budget Guidelines (TA-10-2026-0112) adopted April 28 carry significant macroeconomic implications. The EP's opening position will seek to maintain elevated defense spending (EDIP instrument), continue Ukraine reconstruction financing, and sustain climate transition funding — in direct tension with member state austerity preferences in the Council.
-
-**IMF Context (🟢 authoritative source):**
-- The IMF's April 2026 World Economic Outlook projects EU area GDP growth at 1.2% for 2026, constrained by persistent core inflation (3.1%), sluggish German industrial output, and continued energy price volatility. Defense spending increases — now a formal EU budget priority — add fiscal pressure on member states already running deficits above SGP reference values.
-- The Commission's DMA enforcement framework carries significant economic implications: potential structural remedies against Apple, Alphabet, and Meta could disrupt digital advertising markets and app economies worth an estimated €85 billion annually in the EU.
-
-#### EIB Financial Oversight
-The motion on European Investment Bank Group financial activities (TA-10-2026-0119) reflects the Parliament's tightened oversight posture toward EU financial institutions following the EIB's expanded climate and defense lending mandates. The EP's calls for greater transparency in EIB project selection and reporting align with broader governance trends post-COVID Recovery Fund.
-
----
-
-### S — Social
-
-#### Haiti Trafficking Resolution (TA-10-2026-0151)
-The Parliament's resolution on escalating criminal gang activity in Haiti reflects the EU's response to a humanitarian catastrophe that has created significant migration pressure. The text calls for stronger EU diplomatic engagement and funding for the Kenya-led Multinational Security Support Mission. Social context: over 5.4 million Haitians face acute food insecurity; gangs control approximately 85% of Port-au-Prince.
-
-#### Dog and Cat Welfare Regulation (TA-10-2026-0115)
-The animal welfare regulation — often dismissed as a marginal topic — has significant social resonance across EU member states. Pet ownership surged during COVID-19 and remains elevated; the EU's estimated 200 million dogs and cats under poor traceability conditions generate significant public concern. The regulation's adoption signals the EP's responsiveness to civil society campaigns and petition processes.
-
-#### Gender Equality and Social Rights
-The motion on subcontracting chains and workers' rights (TA-10-2026-0050, adopted earlier in February) established a framework that has been referenced in the April DMA enforcement text as a precedent for platform-worker protections.
-
----
-
-### T — Technological
-
-#### Digital Markets Act — Enforcement Urgency
-The DMA enforcement motion (TA-10-2026-0160) is the most technology-significant text of the week. Since DMA Article 3 gatekeepers were designated in September 2023, the Commission has:
-- Opened non-compliance proceedings against Meta (interoperability obligations) — ongoing
-- Fined Apple €500 million for App Store violations (February 2025)
-- Opened preliminary investigation against Alphabet/Google Shopping (March 2026)
-
-The Parliament's motion calls for structural separation remedies to be considered under Article 26 — a nuclear option not yet invoked. This puts the Commission's DG COMP under significant political pressure to accelerate its timeline.
-
-**Emerging tech developments referenced in parliamentary work this week:**
-- The EU-Iceland PNR data transfer agreement (TA-10-2026-0142) signals the EU's continuation of algorithmic border management systems — politically sensitive following ECJ rulings on data retention
-- Performance-based instrument traceability (TA-10-2026-0122) addresses blockchain and distributed ledger traceability in financial contracts — a technically complex area where the EP has sought to clarify regulatory expectations
-
----
-
-### L — Legal
-
-#### DMA Legal Enforcement Architecture
-The DMA enforcement resolution operates within the legal framework established by Regulation (EU) 2022/1925. Key legal points:
-- **Article 26**: Enables Commission to impose structural remedies (including mandatory divestitures) as a last resort for systematic non-compliance — not yet invoked
-- **Article 30**: Systemic non-compliance finding triggers additional obligations — under consideration for Meta and Apple
-- The EP's resolution does not have binding legal force but creates a record for future judicial review and political accountability
-
-#### Immunity Waiver Legal Basis
-The Patryk Jaki immunity waiver (TA-10-2026-0105) is granted under Article 9 of the Protocol on the Privileges and Immunities of the EU. The PRIV Committee examined whether immunity was invoked to obstruct ongoing judicial proceedings — the standard fumus persecutionis test. The waiver's approval indicates the Committee found no evidence of politically motivated prosecution.
-
-#### EU-Iceland PNR Agreement
-The PNR data transfer agreement (TA-10-2026-0142) builds on the framework established by the Schrems II ruling and the EU-PNR Directive. The agreement ensures Iceland can receive API-PNR data for flights to/from EU member states for counterterrorism and serious crime purposes — legally critical for Schengen border management.
-
-#### Armenia and EU Law
-The Armenia democratic resilience motion (TA-10-2026-0162) references the EU-Armenia Comprehensive and Enhanced Partnership Agreement (CEPA), in force since 2021. The EP is signalling that a future Association Agreement may be appropriate — a step beyond CEPA that would require Treaty changes and ratification by all 27 member states.
-
----
-
-### E (Environment) — Environmental
-
-#### Climate and Budget 2027
-The 2027 Budget Guidelines motion reflects the EP's insistence that climate mainstreaming targets (at least 30% of EU expenditure contributing to climate objectives) be maintained. Following the REPowerEU pivot toward energy security, there has been pressure from EPP and ECR to reduce climate conditionality in the new MFF discussions.
-
-#### Digital Sustainability
-The DMA enforcement motion implicitly addresses the environmental footprint of dominant digital platforms. Platform architecture choices — data center energy consumption, hardware update cycles for operating systems — have climate implications that the EP's digital governance framework is beginning to integrate.
-
-#### Dog and Cat Welfare Traceability
-The animal welfare regulation carries environmental implications through its breeding regulation components: restrictions on mass industrial breeding reduce agricultural waste streams and introduce biodiversity protection elements for companion animal gene pools.
-
----
-
-### Summary Matrix
-
-| PESTLE Factor | Key Forces | Impact Direction | Confidence |
-|---------------|------------|-----------------|-----------|
-| Political | EP fragmentation requires multi-coalition on every text | Cross-issue coalition instability risk | 🟢 HIGH |
-| Economic | IMF 1.2% EU growth; DMA disruption risk; Budget 2027 defense pressure | Mixed — growth constrained, digital economy at risk | 🟢 HIGH |
-| Social | Haiti crisis; pet welfare mandate; worker platform protections | Positive for EP legitimacy signals | 🟡 MEDIUM |
-| Technological | DMA enforcement acceleration; PNR algorithmic border management | Regulatory tightening — gatekeeper disruption risk | 🟢 HIGH |
-| Legal | DMA Article 26 structural remedy; immunity waiver; PNR data law | Enforcement architecture strengthened | 🟢 HIGH |
-| Environmental | Budget 2027 climate mainstreaming under pressure | Risk of regression under EPP-ECR fiscal coalition | 🟡 MEDIUM |
-
-### PESTLE Summary Matrix
-
-```mermaid
-radar
-    title PESTLE Environment Stress Assessment (April 2026)
-    "Political" : 7
-    "Economic" : 5
-    "Social" : 4
-    "Technological" : 8
-    "Legal" : 7
-    "Environmental" : 6
-```
-
-### PESTLE Synthesis
-
-**Highest-stress dimension: Technological (8/10)** — DMA enforcement opens a new phase of EU-US-Big Tech triangular tension. The technical complexity of interoperability requirements, combined with the political complexity of US trade relations, makes this the most operationally volatile policy environment.
-
-**Second-highest: Political and Legal (7/10 each)** — The Ukraine accountability + Armenia policy cluster is creating real political stress between EP ambitions and Council-side constraints. The DMA legal framework is under stress from multiple simultaneous legal challenges.
-
-**Overall PESTLE risk level: 🟡 MEDIUM-HIGH** — Multiple dimensions are simultaneously under pressure. No single dimension is at crisis level; the compound effect of simultaneous stress across 4 dimensions (P, T, L, E) creates systemic fragility.
-
-**Admiralty Grade:** A2 — EP Open Data Portal and IMF WEO are direct, authoritative sources; information is assessed with high confidence.
-
----
-
-**Methodology:** PESTLE macro-environmental scanning | EP Open Data Portal | IMF WEO April 2026 | Confidence: ICD 203 standards
-
-### Extended PESTLE Analysis
-
-#### Political — Deep Dive
-
-**EPP Strategic Positioning**: EPP (185 seats) is executing a post-2024 strategy of selective populism: supporting digital enforcement (DMA) to appeal to urban voters while supporting CAP to retain rural voters. This dual appeal is the defining feature of EP10 EPP strategy.
-
-**S&D Ukraine Premium**: S&D has staked significant credibility on Ukraine support. The ICC/tribunal texts (TA-0157/0158) are partly a signalling mechanism for S&D's Eastern European MEPs (Polish, Czech, Baltic) who face electoral competition from right-wing competitors on Ukraine.
-
-**PfE Isolation Dynamics**: With 84 seats, PfE is the third-largest group but lacks coalition partners on most legislative texts. Its isolation is structurally reinforced by the other groups' refusal to co-sponsor texts with PfE-authored amendments.
-
-#### Economic — IMF WEO Context (Extended)
-
-**EU Growth Trajectory**: IMF WEO April 2026 projects EU GDP growth at 1.2% for 2026, recovering to 1.6% in 2027. This slow recovery context shapes:
-- The EP's demand for aggressive DMA enforcement (capturing digital economy growth requires enforcement parity)
-- The budget priority push (TA-0164) — the EP wants 2027 budget to be counter-cyclical
-- CAP support (TA-0161) — agricultural subsidies are political economy instruments during slow growth
-
-**Digital Economy Premium**: The EU's digital economy underperformance vs. US/China (EU digital share of GDP ~25% vs US ~32%) is the subtext of all DMA enforcement votes. The EP frames enforcement as economic competitiveness, not just regulation.
-
-#### Technological — Digital Single Market Context
-
-The DMA vote (TA-0156) sits within a broader EU digital ecosystem policy where the Parliament plays an oversight rather than enforcement role. The EP's leverage is reputational and agenda-setting: high-margin enforcement demands create pressure on Commission DG COMP to act faster than their internal timetables.
-
-**AI Act Implementation Context**: The AI Act (adopted 2024) is entering implementation phase. The April 28–30 session's DMA focus may reflect EP committees' awareness that AI Act enforcement will test the same regulatory architecture as DMA. Building DMA enforcement credibility now is a rehearsal for AI Act enforcement in 2027.
-
-#### Legal — International Humanitarian Law Developments
-
-TA-0157 (ICC jurisdiction expansion) and TA-0158 (Ukraine special tribunal) represent the EP's most active engagement with international law since the Rohingya genocide resolutions (2017). The legal innovation sought — a special tribunal for crime of aggression — requires:
-1. UN General Assembly resolution (achievable without Security Council)
-2. IGA establishing the tribunal (requires Ukraine + EU + G7 + willing states)
-3. Ratification by ≥30 states for jurisdiction
-
-**Timeline**: The EP resolution is the first step in a multi-year process. Similar initiatives (Extraordinary Chambers in Cambodia, SCSL for Sierra Leone) took 5–10 years. The EP's contribution is to maintain political pressure across multiple parliamentary terms.
-
-**Admiralty Grade:** A2 — EP Open Data Portal and IMF WEO April 2026 (reliable sources); forward PESTLE drivers carry medium-high confidence (information class 2).
-
-### Historical Baseline
-
-### Overview
-
-Historical context analysis for the key themes in the April 28–30, 2026 EP motions. Establishes precedent and trajectory for current legislative actions.
-
----
-
-### DMA Enforcement — Historical Context
-
-#### Precedent: EU Competition Law Enforcement Escalation
-
-The EU has a consistent pattern of progressive enforcement escalation in competition/regulatory law. Historical parallels for the DMA enforcement motion:
-
-**GDPR (2018–2020):** The General Data Protection Regulation was initially seen as likely to be weakly enforced. Meta was fined €1.2 billion in May 2023 — the largest GDPR fine to date. The trajectory from adoption (2018) to major fine (2023) was 5 years. The DMA was adopted in 2022; the EP is now (2026) pushing for structural remedies — the enforcement escalation curve is following the GDPR pattern with a shorter timeline.
-
-**EU State Aid / Competition Enforcement (2004–2010):** The Commission's state aid and competition enforcement against Microsoft (2004 bundling case), Intel (2009 rebates case), and Google (2017–2019 shopping, Android, AdSense cases) established that major US tech firms are not immune to EU enforcement. Each enforcement cycle faced US resistance but ultimately resulted in compliance or structural change.
-
-**Windows Media Player (2004):** The Commission ordered Microsoft to offer a version of Windows without Windows Media Player — a precedent for structural separation remedies in digital platforms. This established that EU competition law can require active unbundling. The DMA's Article 26 structural remedy power builds on this precedent.
-
-**Key historical lesson:** EU tech regulation enforcement follows a consistent escalation pattern — threat → investigation → fine → structural demand. The timeline has compressed over successive generations (GDPR: 5-year lag; DMA: 4-year acceleration compared to GDPR).
-
----
-
-### Ukraine Accountability — Historical Context
-
-#### Precedent: International Criminal Accountability Mechanisms
-
-**Nuremberg (1945–1946):** The first international tribunal for crimes against peace (equivalent to crime of aggression) was established by the four Allied powers without requiring consent of the accused state (Germany). This is the closest historical parallel for what the EP is proposing for Russia.
-
-**Rome Statute (1998) and ICC (2002):** The ICC was created through a multilateral treaty process. Russia is not an ICC state party (withdrew signature in 2016). This limitation means the ICC can arrest Putin only if he travels to a signatory state — hence the proposal for a specialized tribunal.
-
-**Special Tribunal for Lebanon (2007):** Established via UN Security Council Resolution 1757 despite opposition from Lebanon's domestic government. The STL precedent demonstrates that the UN system can create accountability mechanisms even without universal state consent — though Russia's UNSC veto would block this path for a Russia tribunal.
-
-**ICTY (1993) and ICTR (1994):** The Yugoslavia and Rwanda tribunals were established by UN Security Council resolutions under Chapter VII. Russia's presence on the UNSC effectively precludes this mechanism for a Russia tribunal — hence the "coalition of the willing" approach the EP is supporting.
-
-**Key historical lesson:** International accountability mechanisms have been created in increasingly diverse ways (Treaty-based, UNSC Chapter VII, bilateral reinforced cooperation). The EP's support for a Special Tribunal reflects a sophisticated understanding of this historical precedent — a coalition of 40+ states can establish a tribunal without Russia's consent.
-
----
-
-### MEP Immunity Waivers — Historical Baseline
-
-#### Frequency and Pattern in EP10
-
-The April 2026 Jaki waiver is the second immunity waiver of the EP10 term (started 2024). The first was for Grzegorz Braun (ECR, Poland) in March 2026 — also involving a Polish MEP facing domestic criminal proceedings.
-
-**Historical frequency:**
-- EP8 (2014–2019): 12 immunity waiver requests; 9 granted, 3 rejected on fumus persecutionis grounds
-- EP9 (2019–2024): 8 immunity waiver requests; 7 granted, 1 rejected
-- EP10 (2024–present): 2 waivers in first 2 years of term — tracking toward EP8/EP9 frequency
-
-**Pattern analysis:** Both EP10 waivers involve ECR members from Poland. This is consistent with the broader pattern of Polish judicial accountability proceedings targeting former PiS-era officials. As the Tusk government's accountability program continues, additional waiver requests from Polish courts are probable.
-
-**Fumus persecutionis standard:** The PRIV Committee applies a high standard for finding bad-faith prosecution. In European case law, fumus persecutionis requires clear evidence that prosecution is politically motivated — not merely that the accused is a politician. The Jaki and Braun cases both failed this test.
-
----
-
-### EU Budget Annual Cycle — Historical Pattern
-
-**Timeline:**
-- April–May: Parliament adopts budget guidelines
-- May–June: Commission publishes draft budget
-- July–October: Parliament and Council first readings
-- November: Conciliation period
-- December: Final adoption or provisional twelfths
-
-**Historical budget outcomes in EP10 context:**
-- Every EU annual budget since 1988 has been adopted before the end-year deadline (though some required last-minute conciliation in December)
-- The Council-Parliament gap has typically been resolved with 60–70% of Parliament's headline increases and 90% of Council's structural priorities maintained
-- Provisional twelfths have never been required in the post-Maastricht era — the institutional pressure to resolve is very strong
-
-**2027 budget forecast:** The gap between EP guidelines (increase of €8–12B) and expected Council position (maintenance or modest increase) will likely be resolved in the December 2026 conciliation at approximately €4–6B net increase — with defense-security reallocation from cohesion funds being the main political concession.
-
----
-
-### Armenia — EU Relations Historical Timeline
-
-**2004:** Armenia joins ENP (European Neighbourhood Policy)
-**2009:** Eastern Partnership launched — Armenia original member
-**2020:** Nagorno-Karabakh war (44-day war); Azerbaijan recaptures disputed territories; Russia deploys peacekeepers
-**2021:** EU-Armenia CEPA (Comprehensive and Enhanced Partnership Agreement) enters into force
-**2023:** Azerbaijani military operation expels remaining Armenian population from Nagorno-Karabakh; over 100,000 Armenian refugees flee to Armenia proper
-**2024:** Armenia formally suspends participation in CSTO (Collective Security Treaty Organisation) — Russia-led military alliance
-**2024:** EP adopts first resolution explicitly supporting Armenia's EU integration path
-**2025:** Armenia-EU high-level dialogue on Association Agreement framework launched
-**2026 (April 28-30):** Third consecutive EP resolution supporting Armenia's democratic resilience and EU path
-
-**Historical significance:** Armenia's trajectory from Eastern Partnership member to potential Association Agreement candidate in under 2 years is unprecedented in the ENP framework. The comparison to Georgia (which took 12+ years from ENP to Association Agreement) underscores how rapid Armenia's EU pivot has been.
-
----
-
-### Historical Comparison Timeline
-
-```mermaid
-timeline
-    title EU Parliament Major Accountability Milestones
-    2004 : EP9 Bolkestein Directive controversy
-    2011 : EP rejects ACTA (copyright treaty) — landmark institutional assertion
-    2016 : Panama Papers — EP investigative committee established
-    2019 : Von der Leyen EP confirmation — new Commission-Parliament dynamic
-    2021 : EP refuses to ratify China investment agreement — geopolitical assertion
-    2022 : Ukraine war begins — EP unanimous support resolutions begin
-    2023 : EP Qatargate scandal — immunity reform pressure
-    2024 : EP10 elections — PfE enters as third force; DMA/DSA enforcement begins
-    2026 : Ukraine accountability tribunal resolution; DMA enforcement acceleration; Armenia differentiation
-```
-
-### Historical Precedent Assessment
-
-The April 2026 session fits a pattern of EP institutional assertion that has been building since 2011 (ACTA). Each cycle, the EP uses resolutions to stake out positions that initially appear aspirational but gradually become institutionalized policy:
-
-- 2011: ACTA rejection → normative foundation for digital rights advocacy
-- 2021: China investment agreement rejection → precedent for EP geopolitical veto
-- 2026: Ukraine accountability + DMA enforcement → EP as foreign policy and digital regulatory actor
-
-**Historical trajectory: CONSISTENTLY TOWARD GREATER EP INSTITUTIONAL ASSERTION**
-
-The April 2026 session is not unusual — it is part of a 15-year pattern of EP expanding its institutional footprint in areas where Treaty rights are ambiguous (CFSP consultation, enforcement oversight).
-
----
-
-**Methodology:** Historical analysis per political science and international relations frameworks | EP Open Data Portal historical data | Academic sources on DMA, accountability mechanisms, EU budgetary history | Confidence: 🟡 MEDIUM (historical interpretation involves judgment)
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 ### IMF Economic Context (Authoritative Source)
@@ -3937,6 +3638,305 @@ A particularly dangerous convergence scenario involves the simultaneous occurren
 
 **Admiralty Grade:** C3 — Wildcards by definition have limited evidentiary base; probability estimates carry wide uncertainty bands.
 
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### Overview
+
+This PESTLE analysis covers the eleven adopted motions from the European Parliament's April 28–30, 2026 Strasbourg plenary session. The analysis applies structured environmental scanning to identify macro-forces shaping the political and legislative context of each text.
+
+---
+
+### P — Political
+
+#### Internal EP Politics
+The EP10 coalition dynamics are under significant stress in this session. The EPP (185 seats) — the dominant group — must regularly negotiate with S&D (135) and Renew (77) to achieve the 361-vote majority threshold. No single bloc can form a working majority: the parliamentary fragmentation index of 6.57 effective parties means every consequential vote requires multi-party coalition building.
+
+**Key political observations this week:**
+- The DMA enforcement motion (TA-10-2026-0160) demonstrated the viability of a "digital governance coalition" spanning EPP + S&D + Renew + Greens/EFA, bypassing the right-wing groups. This coalition totals approximately 550 MEPs — well above the threshold.
+- The Ukraine accountability text (TA-10-2026-0161) exposed PfE's internal tensions: the group contains both Fidesz-aligned MEPs (Hungary, strongly opposed) and Polish nationalist MEPs (more ambivalent on Ukraine) alongside Italian League MEPs. This ideological incoherence on foreign policy is a structural vulnerability for the PfE leadership.
+- The Patryk Jaki immunity waiver vote is the most politically sensitive PRIV committee outcome of the term. ECR — Jaki's group — could not protect its own member, revealing the limits of group solidarity when judicial requests arrive from EU member state courts.
+
+#### Member State Political Dynamics
+- **Poland**: The Tusk government's judicial reforms continue to generate confrontations with PiS-aligned ECR MEPs. The Jaki prosecution is part of Warsaw's broader effort to prosecute former Justice Ministry officials for rule-of-law violations under the previous government.
+- **Hungary**: Fidesz MEPs in PfE continue to defy the majority on Ukraine-related texts, maintaining Orbán's foreign policy line of neutrality and blocking support for the Special Tribunal on Russia's crime of aggression.
+- **Armenia**: The EP resolution on Armenia (TA-10-2026-0162) reflects deeper Eastern Partnership differentiation — Yerevan has clearly charted a European path while Baku maintains alignment with Turkey and Russia. The EP is now ahead of the Commission's pace on Armenia integration signalling.
+
+---
+
+### E — Economic
+
+#### EU Budget 2027 Context
+The 2027 Budget Guidelines (TA-10-2026-0112) adopted April 28 carry significant macroeconomic implications. The EP's opening position will seek to maintain elevated defense spending (EDIP instrument), continue Ukraine reconstruction financing, and sustain climate transition funding — in direct tension with member state austerity preferences in the Council.
+
+**IMF Context (🟢 authoritative source):**
+- The IMF's April 2026 World Economic Outlook projects EU area GDP growth at 1.2% for 2026, constrained by persistent core inflation (3.1%), sluggish German industrial output, and continued energy price volatility. Defense spending increases — now a formal EU budget priority — add fiscal pressure on member states already running deficits above SGP reference values.
+- The Commission's DMA enforcement framework carries significant economic implications: potential structural remedies against Apple, Alphabet, and Meta could disrupt digital advertising markets and app economies worth an estimated €85 billion annually in the EU.
+
+#### EIB Financial Oversight
+The motion on European Investment Bank Group financial activities (TA-10-2026-0119) reflects the Parliament's tightened oversight posture toward EU financial institutions following the EIB's expanded climate and defense lending mandates. The EP's calls for greater transparency in EIB project selection and reporting align with broader governance trends post-COVID Recovery Fund.
+
+---
+
+### S — Social
+
+#### Haiti Trafficking Resolution (TA-10-2026-0151)
+The Parliament's resolution on escalating criminal gang activity in Haiti reflects the EU's response to a humanitarian catastrophe that has created significant migration pressure. The text calls for stronger EU diplomatic engagement and funding for the Kenya-led Multinational Security Support Mission. Social context: over 5.4 million Haitians face acute food insecurity; gangs control approximately 85% of Port-au-Prince.
+
+#### Dog and Cat Welfare Regulation (TA-10-2026-0115)
+The animal welfare regulation — often dismissed as a marginal topic — has significant social resonance across EU member states. Pet ownership surged during COVID-19 and remains elevated; the EU's estimated 200 million dogs and cats under poor traceability conditions generate significant public concern. The regulation's adoption signals the EP's responsiveness to civil society campaigns and petition processes.
+
+#### Gender Equality and Social Rights
+The motion on subcontracting chains and workers' rights (TA-10-2026-0050, adopted earlier in February) established a framework that has been referenced in the April DMA enforcement text as a precedent for platform-worker protections.
+
+---
+
+### T — Technological
+
+#### Digital Markets Act — Enforcement Urgency
+The DMA enforcement motion (TA-10-2026-0160) is the most technology-significant text of the week. Since DMA Article 3 gatekeepers were designated in September 2023, the Commission has:
+- Opened non-compliance proceedings against Meta (interoperability obligations) — ongoing
+- Fined Apple €500 million for App Store violations (February 2025)
+- Opened preliminary investigation against Alphabet/Google Shopping (March 2026)
+
+The Parliament's motion calls for structural separation remedies to be considered under Article 26 — a nuclear option not yet invoked. This puts the Commission's DG COMP under significant political pressure to accelerate its timeline.
+
+**Emerging tech developments referenced in parliamentary work this week:**
+- The EU-Iceland PNR data transfer agreement (TA-10-2026-0142) signals the EU's continuation of algorithmic border management systems — politically sensitive following ECJ rulings on data retention
+- Performance-based instrument traceability (TA-10-2026-0122) addresses blockchain and distributed ledger traceability in financial contracts — a technically complex area where the EP has sought to clarify regulatory expectations
+
+---
+
+### L — Legal
+
+#### DMA Legal Enforcement Architecture
+The DMA enforcement resolution operates within the legal framework established by Regulation (EU) 2022/1925. Key legal points:
+- **Article 26**: Enables Commission to impose structural remedies (including mandatory divestitures) as a last resort for systematic non-compliance — not yet invoked
+- **Article 30**: Systemic non-compliance finding triggers additional obligations — under consideration for Meta and Apple
+- The EP's resolution does not have binding legal force but creates a record for future judicial review and political accountability
+
+#### Immunity Waiver Legal Basis
+The Patryk Jaki immunity waiver (TA-10-2026-0105) is granted under Article 9 of the Protocol on the Privileges and Immunities of the EU. The PRIV Committee examined whether immunity was invoked to obstruct ongoing judicial proceedings — the standard fumus persecutionis test. The waiver's approval indicates the Committee found no evidence of politically motivated prosecution.
+
+#### EU-Iceland PNR Agreement
+The PNR data transfer agreement (TA-10-2026-0142) builds on the framework established by the Schrems II ruling and the EU-PNR Directive. The agreement ensures Iceland can receive API-PNR data for flights to/from EU member states for counterterrorism and serious crime purposes — legally critical for Schengen border management.
+
+#### Armenia and EU Law
+The Armenia democratic resilience motion (TA-10-2026-0162) references the EU-Armenia Comprehensive and Enhanced Partnership Agreement (CEPA), in force since 2021. The EP is signalling that a future Association Agreement may be appropriate — a step beyond CEPA that would require Treaty changes and ratification by all 27 member states.
+
+---
+
+### E (Environment) — Environmental
+
+#### Climate and Budget 2027
+The 2027 Budget Guidelines motion reflects the EP's insistence that climate mainstreaming targets (at least 30% of EU expenditure contributing to climate objectives) be maintained. Following the REPowerEU pivot toward energy security, there has been pressure from EPP and ECR to reduce climate conditionality in the new MFF discussions.
+
+#### Digital Sustainability
+The DMA enforcement motion implicitly addresses the environmental footprint of dominant digital platforms. Platform architecture choices — data center energy consumption, hardware update cycles for operating systems — have climate implications that the EP's digital governance framework is beginning to integrate.
+
+#### Dog and Cat Welfare Traceability
+The animal welfare regulation carries environmental implications through its breeding regulation components: restrictions on mass industrial breeding reduce agricultural waste streams and introduce biodiversity protection elements for companion animal gene pools.
+
+---
+
+### Summary Matrix
+
+| PESTLE Factor | Key Forces | Impact Direction | Confidence |
+|---------------|------------|-----------------|-----------|
+| Political | EP fragmentation requires multi-coalition on every text | Cross-issue coalition instability risk | 🟢 HIGH |
+| Economic | IMF 1.2% EU growth; DMA disruption risk; Budget 2027 defense pressure | Mixed — growth constrained, digital economy at risk | 🟢 HIGH |
+| Social | Haiti crisis; pet welfare mandate; worker platform protections | Positive for EP legitimacy signals | 🟡 MEDIUM |
+| Technological | DMA enforcement acceleration; PNR algorithmic border management | Regulatory tightening — gatekeeper disruption risk | 🟢 HIGH |
+| Legal | DMA Article 26 structural remedy; immunity waiver; PNR data law | Enforcement architecture strengthened | 🟢 HIGH |
+| Environmental | Budget 2027 climate mainstreaming under pressure | Risk of regression under EPP-ECR fiscal coalition | 🟡 MEDIUM |
+
+### PESTLE Summary Matrix
+
+```mermaid
+radar
+    title PESTLE Environment Stress Assessment (April 2026)
+    "Political" : 7
+    "Economic" : 5
+    "Social" : 4
+    "Technological" : 8
+    "Legal" : 7
+    "Environmental" : 6
+```
+
+### PESTLE Synthesis
+
+**Highest-stress dimension: Technological (8/10)** — DMA enforcement opens a new phase of EU-US-Big Tech triangular tension. The technical complexity of interoperability requirements, combined with the political complexity of US trade relations, makes this the most operationally volatile policy environment.
+
+**Second-highest: Political and Legal (7/10 each)** — The Ukraine accountability + Armenia policy cluster is creating real political stress between EP ambitions and Council-side constraints. The DMA legal framework is under stress from multiple simultaneous legal challenges.
+
+**Overall PESTLE risk level: 🟡 MEDIUM-HIGH** — Multiple dimensions are simultaneously under pressure. No single dimension is at crisis level; the compound effect of simultaneous stress across 4 dimensions (P, T, L, E) creates systemic fragility.
+
+**Admiralty Grade:** A2 — EP Open Data Portal and IMF WEO are direct, authoritative sources; information is assessed with high confidence.
+
+---
+
+**Methodology:** PESTLE macro-environmental scanning | EP Open Data Portal | IMF WEO April 2026 | Confidence: ICD 203 standards
+
+### Extended PESTLE Analysis
+
+#### Political — Deep Dive
+
+**EPP Strategic Positioning**: EPP (185 seats) is executing a post-2024 strategy of selective populism: supporting digital enforcement (DMA) to appeal to urban voters while supporting CAP to retain rural voters. This dual appeal is the defining feature of EP10 EPP strategy.
+
+**S&D Ukraine Premium**: S&D has staked significant credibility on Ukraine support. The ICC/tribunal texts (TA-0157/0158) are partly a signalling mechanism for S&D's Eastern European MEPs (Polish, Czech, Baltic) who face electoral competition from right-wing competitors on Ukraine.
+
+**PfE Isolation Dynamics**: With 84 seats, PfE is the third-largest group but lacks coalition partners on most legislative texts. Its isolation is structurally reinforced by the other groups' refusal to co-sponsor texts with PfE-authored amendments.
+
+#### Economic — IMF WEO Context (Extended)
+
+**EU Growth Trajectory**: IMF WEO April 2026 projects EU GDP growth at 1.2% for 2026, recovering to 1.6% in 2027. This slow recovery context shapes:
+- The EP's demand for aggressive DMA enforcement (capturing digital economy growth requires enforcement parity)
+- The budget priority push (TA-0164) — the EP wants 2027 budget to be counter-cyclical
+- CAP support (TA-0161) — agricultural subsidies are political economy instruments during slow growth
+
+**Digital Economy Premium**: The EU's digital economy underperformance vs. US/China (EU digital share of GDP ~25% vs US ~32%) is the subtext of all DMA enforcement votes. The EP frames enforcement as economic competitiveness, not just regulation.
+
+#### Technological — Digital Single Market Context
+
+The DMA vote (TA-0156) sits within a broader EU digital ecosystem policy where the Parliament plays an oversight rather than enforcement role. The EP's leverage is reputational and agenda-setting: high-margin enforcement demands create pressure on Commission DG COMP to act faster than their internal timetables.
+
+**AI Act Implementation Context**: The AI Act (adopted 2024) is entering implementation phase. The April 28–30 session's DMA focus may reflect EP committees' awareness that AI Act enforcement will test the same regulatory architecture as DMA. Building DMA enforcement credibility now is a rehearsal for AI Act enforcement in 2027.
+
+#### Legal — International Humanitarian Law Developments
+
+TA-0157 (ICC jurisdiction expansion) and TA-0158 (Ukraine special tribunal) represent the EP's most active engagement with international law since the Rohingya genocide resolutions (2017). The legal innovation sought — a special tribunal for crime of aggression — requires:
+1. UN General Assembly resolution (achievable without Security Council)
+2. IGA establishing the tribunal (requires Ukraine + EU + G7 + willing states)
+3. Ratification by ≥30 states for jurisdiction
+
+**Timeline**: The EP resolution is the first step in a multi-year process. Similar initiatives (Extraordinary Chambers in Cambodia, SCSL for Sierra Leone) took 5–10 years. The EP's contribution is to maintain political pressure across multiple parliamentary terms.
+
+**Admiralty Grade:** A2 — EP Open Data Portal and IMF WEO April 2026 (reliable sources); forward PESTLE drivers carry medium-high confidence (information class 2).
+
+### Historical Baseline
+
+### Overview
+
+Historical context analysis for the key themes in the April 28–30, 2026 EP motions. Establishes precedent and trajectory for current legislative actions.
+
+---
+
+### DMA Enforcement — Historical Context
+
+#### Precedent: EU Competition Law Enforcement Escalation
+
+The EU has a consistent pattern of progressive enforcement escalation in competition/regulatory law. Historical parallels for the DMA enforcement motion:
+
+**GDPR (2018–2020):** The General Data Protection Regulation was initially seen as likely to be weakly enforced. Meta was fined €1.2 billion in May 2023 — the largest GDPR fine to date. The trajectory from adoption (2018) to major fine (2023) was 5 years. The DMA was adopted in 2022; the EP is now (2026) pushing for structural remedies — the enforcement escalation curve is following the GDPR pattern with a shorter timeline.
+
+**EU State Aid / Competition Enforcement (2004–2010):** The Commission's state aid and competition enforcement against Microsoft (2004 bundling case), Intel (2009 rebates case), and Google (2017–2019 shopping, Android, AdSense cases) established that major US tech firms are not immune to EU enforcement. Each enforcement cycle faced US resistance but ultimately resulted in compliance or structural change.
+
+**Windows Media Player (2004):** The Commission ordered Microsoft to offer a version of Windows without Windows Media Player — a precedent for structural separation remedies in digital platforms. This established that EU competition law can require active unbundling. The DMA's Article 26 structural remedy power builds on this precedent.
+
+**Key historical lesson:** EU tech regulation enforcement follows a consistent escalation pattern — threat → investigation → fine → structural demand. The timeline has compressed over successive generations (GDPR: 5-year lag; DMA: 4-year acceleration compared to GDPR).
+
+---
+
+### Ukraine Accountability — Historical Context
+
+#### Precedent: International Criminal Accountability Mechanisms
+
+**Nuremberg (1945–1946):** The first international tribunal for crimes against peace (equivalent to crime of aggression) was established by the four Allied powers without requiring consent of the accused state (Germany). This is the closest historical parallel for what the EP is proposing for Russia.
+
+**Rome Statute (1998) and ICC (2002):** The ICC was created through a multilateral treaty process. Russia is not an ICC state party (withdrew signature in 2016). This limitation means the ICC can arrest Putin only if he travels to a signatory state — hence the proposal for a specialized tribunal.
+
+**Special Tribunal for Lebanon (2007):** Established via UN Security Council Resolution 1757 despite opposition from Lebanon's domestic government. The STL precedent demonstrates that the UN system can create accountability mechanisms even without universal state consent — though Russia's UNSC veto would block this path for a Russia tribunal.
+
+**ICTY (1993) and ICTR (1994):** The Yugoslavia and Rwanda tribunals were established by UN Security Council resolutions under Chapter VII. Russia's presence on the UNSC effectively precludes this mechanism for a Russia tribunal — hence the "coalition of the willing" approach the EP is supporting.
+
+**Key historical lesson:** International accountability mechanisms have been created in increasingly diverse ways (Treaty-based, UNSC Chapter VII, bilateral reinforced cooperation). The EP's support for a Special Tribunal reflects a sophisticated understanding of this historical precedent — a coalition of 40+ states can establish a tribunal without Russia's consent.
+
+---
+
+### MEP Immunity Waivers — Historical Baseline
+
+#### Frequency and Pattern in EP10
+
+The April 2026 Jaki waiver is the second immunity waiver of the EP10 term (started 2024). The first was for Grzegorz Braun (ECR, Poland) in March 2026 — also involving a Polish MEP facing domestic criminal proceedings.
+
+**Historical frequency:**
+- EP8 (2014–2019): 12 immunity waiver requests; 9 granted, 3 rejected on fumus persecutionis grounds
+- EP9 (2019–2024): 8 immunity waiver requests; 7 granted, 1 rejected
+- EP10 (2024–present): 2 waivers in first 2 years of term — tracking toward EP8/EP9 frequency
+
+**Pattern analysis:** Both EP10 waivers involve ECR members from Poland. This is consistent with the broader pattern of Polish judicial accountability proceedings targeting former PiS-era officials. As the Tusk government's accountability program continues, additional waiver requests from Polish courts are probable.
+
+**Fumus persecutionis standard:** The PRIV Committee applies a high standard for finding bad-faith prosecution. In European case law, fumus persecutionis requires clear evidence that prosecution is politically motivated — not merely that the accused is a politician. The Jaki and Braun cases both failed this test.
+
+---
+
+### EU Budget Annual Cycle — Historical Pattern
+
+**Timeline:**
+- April–May: Parliament adopts budget guidelines
+- May–June: Commission publishes draft budget
+- July–October: Parliament and Council first readings
+- November: Conciliation period
+- December: Final adoption or provisional twelfths
+
+**Historical budget outcomes in EP10 context:**
+- Every EU annual budget since 1988 has been adopted before the end-year deadline (though some required last-minute conciliation in December)
+- The Council-Parliament gap has typically been resolved with 60–70% of Parliament's headline increases and 90% of Council's structural priorities maintained
+- Provisional twelfths have never been required in the post-Maastricht era — the institutional pressure to resolve is very strong
+
+**2027 budget forecast:** The gap between EP guidelines (increase of €8–12B) and expected Council position (maintenance or modest increase) will likely be resolved in the December 2026 conciliation at approximately €4–6B net increase — with defense-security reallocation from cohesion funds being the main political concession.
+
+---
+
+### Armenia — EU Relations Historical Timeline
+
+**2004:** Armenia joins ENP (European Neighbourhood Policy)
+**2009:** Eastern Partnership launched — Armenia original member
+**2020:** Nagorno-Karabakh war (44-day war); Azerbaijan recaptures disputed territories; Russia deploys peacekeepers
+**2021:** EU-Armenia CEPA (Comprehensive and Enhanced Partnership Agreement) enters into force
+**2023:** Azerbaijani military operation expels remaining Armenian population from Nagorno-Karabakh; over 100,000 Armenian refugees flee to Armenia proper
+**2024:** Armenia formally suspends participation in CSTO (Collective Security Treaty Organisation) — Russia-led military alliance
+**2024:** EP adopts first resolution explicitly supporting Armenia's EU integration path
+**2025:** Armenia-EU high-level dialogue on Association Agreement framework launched
+**2026 (April 28-30):** Third consecutive EP resolution supporting Armenia's democratic resilience and EU path
+
+**Historical significance:** Armenia's trajectory from Eastern Partnership member to potential Association Agreement candidate in under 2 years is unprecedented in the ENP framework. The comparison to Georgia (which took 12+ years from ENP to Association Agreement) underscores how rapid Armenia's EU pivot has been.
+
+---
+
+### Historical Comparison Timeline
+
+```mermaid
+timeline
+    title EU Parliament Major Accountability Milestones
+    2004 : EP9 Bolkestein Directive controversy
+    2011 : EP rejects ACTA (copyright treaty) — landmark institutional assertion
+    2016 : Panama Papers — EP investigative committee established
+    2019 : Von der Leyen EP confirmation — new Commission-Parliament dynamic
+    2021 : EP refuses to ratify China investment agreement — geopolitical assertion
+    2022 : Ukraine war begins — EP unanimous support resolutions begin
+    2023 : EP Qatargate scandal — immunity reform pressure
+    2024 : EP10 elections — PfE enters as third force; DMA/DSA enforcement begins
+    2026 : Ukraine accountability tribunal resolution; DMA enforcement acceleration; Armenia differentiation
+```
+
+### Historical Precedent Assessment
+
+The April 2026 session fits a pattern of EP institutional assertion that has been building since 2011 (ACTA). Each cycle, the EP uses resolutions to stake out positions that initially appear aspirational but gradually become institutionalized policy:
+
+- 2011: ACTA rejection → normative foundation for digital rights advocacy
+- 2021: China investment agreement rejection → precedent for EP geopolitical veto
+- 2026: Ukraine accountability + DMA enforcement → EP as foreign policy and digital regulatory actor
+
+**Historical trajectory: CONSISTENTLY TOWARD GREATER EP INSTITUTIONAL ASSERTION**
+
+The April 2026 session is not unusual — it is part of a 15-year pattern of EP expanding its institutional footprint in areas where Treaty rights are ambiguous (CFSP consultation, enforcement oversight).
+
+---
+
+**Methodology:** Historical analysis per political science and international relations frameworks | EP Open Data Portal historical data | Academic sources on DMA, accountability mechanisms, EU budgetary history | Confidence: 🟡 MEDIUM (historical interpretation involves judgment)
+
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
 
 ### Data Source Reliability Assessment
@@ -4616,8 +4616,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-coalitions-voting | [voting-patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/motions/intelligence/voting-patterns.md) | `intelligence/voting-patterns.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/motions/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
 | section-stakeholder-map | [stakeholder-impact](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/motions/existing/stakeholder-impact.md) | `existing/stakeholder-impact.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/motions/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/motions/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/motions/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/motions/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/motions/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
@@ -4630,6 +4628,8 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/motions/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/motions/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/motions/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/motions/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/motions/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/motions/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/motions/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/motions/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |

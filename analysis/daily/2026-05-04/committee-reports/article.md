@@ -1260,295 +1260,6 @@ quadrantChart
 **Haiti:** Humanitarian consensus across all groups
 **Assessment:** All three resolutions likely passed with comfortable majorities. 🟡 Medium confidence.
 
-<h2 id="section-pestle-context">PESTLE & Context</h2>
-
-### Pestle Analysis
-
-### P — Political
-
-#### DMA Enforcement as Institutional Power Signal
-The adoption of TA-10-2026-0160 (DMA enforcement resolution) is primarily a political act: the EP is using its oversight resolution powers to signal dissatisfaction with Commission enforcement pace and to establish political expectations ahead of possible enforcement actions against major gatekeepers. This is a pattern consistent with EP's assertive role in digital regulation since 2019.
-
-**Key political dynamics:**
-- **EP-Commission tension:** The RSP procedural type (non-binding but politically significant) creates Commission accountability pressure without triggering infringement procedures
-- **EPP-S&D-Renew coalition coherence:** DMA enforcement enjoys broad cross-group support in EP; the absence of visible dissent in the adoption suggests strong centrist consensus on digital regulation
-- **Industrial lobby counterpressure:** Major tech companies maintain significant Brussels lobbying operations; their influence on Commission enforcement pace is a contested political variable
-
-#### Budget 2027: Fiscal Federalism Politics
-The breadth of committee opinions (TRAN, AFET, AGRI, ITRE, FEMM) contributing to BUDG report reveals the structural political economy of EP budget negotiations: every major policy coalition secures representation in budget guidelines before negotiations begin.
-
-**Salience signals:**
-- AFET opinion signals defence spending prioritisation — consistent with post-2022 security environment
-- FEMM opinion signals gender mainstreaming commitment — a progressive coalition priority
-- ITRE opinion signals digital/energy transition investment priorities
-
-#### AFET Triple Resolution: Geopolitical Positioning
-Ukraine, Armenia, and Haiti resolutions in one session demonstrate EP's role as a **geopolitical norm-setter** — adopting resolutions that establish EU political positions even where binding legislative action is not possible.
-
-**Political assessment:** 🟡 Medium confidence that these resolutions reflect genuine cross-group consensus rather than partisan coalition dynamics. Without voting breakdowns, defection patterns are unknown.
-
----
-
-### E — Economic
-
-> ⚠️ **IMF DEGRADED MODE NOTICE:** IMF data unavailable (proxy timeout, probe returned `available: false`). All economic analysis in this section is based on structural/contextual knowledge only. No IMF-sourced statistics are cited. This limitation is recorded per `08-infrastructure.md` degraded-mode protocol.
-
-#### Budget 2027 Guidelines — Structural Economic Context
-The 2027 budget cycle will operate in a European economy shaped by:
-- Post-pandemic fiscal consolidation pressures in southern member states (pre-existing structural)
-- Defence expenditure escalation driven by NATO commitments (structural, 2022-ongoing)
-- Green transition investment requirements under the European Green Deal
-- Digital infrastructure investment gaps identified in Draghi Report (2024)
-
-The BUDG committee guidelines position EP as a champion of investment-oriented budget (over austerity), but the specific fiscal numbers are not available from EP API.
-
-#### EIB Financial Activities 2024
-The EIB Group annual report covers lending that typically exceeds €70–80 billion annually. CONT oversight focuses on:
-- Climate alignment (EIB Climate Bank targets: 50% green lending by 2025)
-- External lending under EU guarantee
-- Investment returns and risk management
-
-**Confidence:** 🔴 Low on specific figures (IMF/EIB data not retrieved); 🟡 Medium on structural analysis.
-
-#### DMA Economic Implications
-DMA enforcement against major gatekeepers has significant economic implications:
-- Platform interoperability requirements affect revenue models
-- Access obligations may redistribute digital advertising revenue
-- Structural remedy risks (e.g., divestiture) carry significant market valuation implications
-- EU enforcement decisions carry precedent for UK/US regulatory approaches
-
----
-
-### S — Sociological
-
-#### Animal Welfare Regulation (TA-10-2026-0115)
-The dogs and cats welfare/traceability regulation reflects sustained public concern about pet welfare and illegal breeding. Sociological drivers:
-- EU pet ownership reached record levels post-pandemic
-- Public pressure on puppy mill imports (organized crime connections documented)
-- National fragmentation in pet traceability approaches driving single-market need for harmonization
-
-**Assessment:** 🟢 High confidence on sociological drivers; regulation text content not fully available from EP API.
-
-#### Ukraine Solidarity Fatigue Management
-The Ukraine accountability resolution (TA-10-2026-0161) exists in a sociological context of potential war fatigue in EU publics. EP continues to adopt strong positions even as public support data shows mixed trends across member states. The resolution serves an internal political function of maintaining EP coalition solidarity on Ukraine.
-
-#### Armenia Minority Rights Context
-The Armenian democratic resilience resolution (TA-10-2026-0162) addresses a population that has experienced mass displacement (2023 Nagorno-Karabakh exodus). EU diaspora communities in France, Germany, and the Netherlands create sociological pressure for EP engagement.
-
----
-
-### T — Technological
-
-#### Digital Markets Act as Technological Governance
-DMA enforcement is fundamentally about **technological market structure**:
-- App store interoperability requirements (Apple, Google)
-- Messaging interoperability mandates (Meta WhatsApp/Messenger)
-- Search ranking non-preferencing requirements (Google)
-- Advertising data restrictions
-
-EP's enforcement pressure signals EP believes the Commission's current enforcement posture is insufficiently responsive to technological compliance failures.
-
-```mermaid
-graph LR
-    DMA["DMA Enforcement\nResolution"] --> G["Gatekeeper Obligations\nInteroperability/Access"]
-    G --> E["Enforcement Actions\nFines/Structural Remedies"]
-    E --> M["Market Structure Change\nPlatform Competition"]
-    M --> I["Innovation Effects\nAmbiguous — EP believes\npro-competitive"]
-```
-
-#### AI Regulatory Context
-The DMA intersects with the EU AI Act (which ITRE co-led). The week's committee output signals continued EP attention to digital governance across multiple regulatory instruments simultaneously.
-
-#### PNR Data Technology
-The Iceland PNR agreement involves:
-- Automated screening of passenger records against terrorism databases
-- Data retention periods and access controls
-- Algorithmic profiling limitations under EU law
-
-LIBE's consent implies satisfactory technological safeguards assessment.
-
----
-
-### L — Legal
-
-#### DMA Enforcement Legal Mechanisms
-The DMA provides for:
-- Fines up to 10% of global annual revenue (or 20% for repeated infringement)
-- Periodic penalty payments
-- Structural remedies (divestiture) in exceptional cases
-- Right of EP/Council to request further market investigation
-
-The RSP resolution likely calls for activation of these mechanisms. Non-compliance by gatekeepers would trigger Article 26 (non-compliance fines) or Article 29 (market investigation) procedures.
-
-#### Iceland PNR — Legal Framework
-The NLE consent procedure confirms:
-- Legal basis: Article 218 TFEU (international agreements on police cooperation)
-- Data protection compatibility: LIBE assessment of adequacy
-- Terrorist offence definition alignment with Framework Decision 2002/475/JHA as amended
-
-**Confidence:** 🟡 Medium — procedural type confirmed, full agreement terms not available from EP API.
-
-#### Ukraine Accountability — International Law
-The AFET resolution on Ukraine (TA-10-2026-0161) operates in the international law framework of:
-- ICC mandate (Article 5 Rome Statute: war crimes, crimes against humanity)
-- Special Tribunal for the crime of aggression (proposed/in development)
-- UN General Assembly resolutions on Ukraine territorial integrity
-- EU sanctions framework (Council Regulation basis)
-
-EP resolutions support this legal architecture but cannot directly trigger ICC proceedings.
-
----
-
-### E2 — Environmental
-
-#### Green Deal Budget Priority
-The ITRE and AGRI committee opinions on the 2027 budget guidelines likely reinforce Green Deal spending commitments. ITRE typically advocates for:
-- Horizon Europe research funding (energy transition)
-- REPowerEU fund continuation
-- Energy infrastructure investment
-
-AGRI's opinion addresses CAP reform financing, including eco-schemes and sustainable agriculture premiums.
-
-#### EIB Climate Alignment 2024
-CONT's EIB oversight covers the bank's Climate Bank Roadmap commitment to align 50% of its lending with climate action and environmental sustainability by 2025. The 2024 annual report would measure progress against this target.
-
-#### DMA Environmental Dimension
-Less directly, DMA enforcement on data centres and hyperscaler energy consumption has environmental implications. The Commission's DMA enforcement unit has not prioritised environmental compliance as a gatekeeper obligation, but energy-intensive platform services fall within EU sustainability reporting requirements.
-
----
-
-### PESTLE Summary Matrix
-
-| Dimension | Key Finding | Confidence | Institutional Actor |
-|-----------|------------|-----------|-------------------|
-| Political | EP-Commission DMA tension; cross-committee budget coalition | 🟡 Medium | ITRE/IMCO, BUDG, AFET |
-| Economic | Degraded mode — no IMF data; structural budget/EIB context only | 🔴 Low | BUDG, CONT |
-| Sociological | Pet welfare public pressure; Ukraine solidarity maintenance | 🟡 Medium | AGRI, AFET |
-| Technological | DMA gatekeeper compliance failures; PNR algorithmic safeguards | 🟡 Medium | ITRE/IMCO, LIBE |
-| Legal | DMA enforcement mechanisms; Iceland PNR adequacy; Ukraine ICC | 🟢 High | ITRE/IMCO, LIBE, AFET |
-| Environmental | Budget Green Deal continuity; EIB climate alignment | 🟡 Medium | BUDG, CONT, ITRE |
-
-### Historical Baseline
-
-### DMA Enforcement — Historical Baseline
-
-#### Precedent 1: GDPR Enforcement Pattern (2018–present)
-GDPR was adopted in 2018 but enforcement was slow to ramp up. The EP consistently passed resolutions criticizing under-enforcement in the first 2–3 years. The DMA follows a similar post-adoption enforcement ramp-up:
-
-| Year | GDPR enforcement state | DMA analog |
-|------|----------------------|------------|
-| Year 1 (2018/2022) | Guidance, minimal fines | DMA enacted |
-| Year 2 (2019/2023) | First procedural decisions | DMA obligations take effect |
-| Year 3 (2020/2024) | First substantive fines (CNIL, etc.) | Commission opens DMA investigations |
-| Year 4 (2021/2025) | Larger fines, structural discussions | Commission DMA proceedings active |
-| Year 5 (2022/2026) | EP starts pushing for more enforcement | This week's enforcement resolution |
-
-**Lesson:** EP enforcement resolutions historically precede, by 6–12 months, an acceleration of Commission enforcement action. The 2026 resolution follows the GDPR pattern.
-
-#### Precedent 2: Digital Services Act Enforcement Pattern (2022–present)
-The DSA, companion to DMA, saw EP pass a similar enforcement-pressure resolution in 2024 following perceived slow implementation by Commission. Commission responded by opening investigations into X/Twitter, Meta. This creates a direct institutional precedent for the current DMA resolution.
-
-#### Precedent 3: Antitrust Google Shopping Case (2017–present)
-The Commission's Google Shopping decision (€2.4bn fine, 2017) was upheld by ECJ in 2024 after 7 years of litigation. This precedent underscores the long timeframes between enforcement action and legal certainty — a reason EP presses for faster DMA implementation.
-
----
-
-### Budget Process — Historical Baseline
-
-#### EP-Council Budget Confrontations
-The EP has historically used budget process to assert institutional position:
-
-| Year | Notable budget confrontation | Outcome |
-|------|----------------------------|---------|
-| 1979 | EP rejects budget (first time) | Provisional twelfths; new negotiation |
-| 1999 | EP rejects Commission; mass resignation | Constitutional reform (Amsterdam) |
-| 2010 | EP-Council MFF conflict | EP delays MFF; extracts political commitments |
-| 2020 | COVID budget package | EP extracted rule-of-law conditionality |
-| 2024 | Defence-climate trade-off in MFF revision | Partial EPP victory on defence envelope |
-| 2026 | Budget 2027 guidelines (this week) | Amendment filed 2026-04-22; resolution text contested |
-
-**Pattern:** EP budget resolutions are often first shots in a multi-month negotiation. The April 2026 guidelines establish EP's opening position for the October-December 2026 conciliation.
-
-#### Committee Opinion Chain Precedent
-The 5-committee opinion chain for 2025-2246(BUI) — TRAN, AFET, AGRI, ITRE, FEMM — reflects the cross-sectoral ambition of the budget initiative. This breadth is unusual and signals EP is treating the budget as a strategic document rather than a line-item exercise. Similar multi-committee opinion chains were seen in the MFF 2021–2027 negotiations.
-
----
-
-### AFET Geopolitical Resolutions — Historical Baseline
-
-#### Ukraine Accountability: Tribunal History
-| Year | Accountability mechanism development |
-|------|-------------------------------------|
-| 2022 | EP calls for ICC referral; Ukraine war crimes investigations open |
-| 2022-2023 | ICC issues arrest warrant for Putin (March 2023) |
-| 2023-2024 | Core Group of States establishes Special Tribunal framework discussions |
-| 2024 | EP adopts multiple resolutions supporting Special Tribunal establishment |
-| 2025 | Special Tribunal negotiations advance; EP continues political support |
-| 2026-04-28 | TA-10-2026-0161: EP reaffirms accountability; signals maintained political will |
-
-**Pattern:** EP resolutions on Ukraine accountability are part of a sustained multi-year political campaign, not isolated events. Each resolution adds to the cumulative record of EP's institutional position.
-
-#### Armenia: Nagorno-Karabakh Historical Context
-| Year | Development |
-|------|------------|
-| 1988-1994 | First Nagorno-Karabakh War |
-| 2020 | Second Nagorno-Karabakh War; ceasefire |
-| 2023-09 | Azerbaijani military operation; Armenian population displacement |
-| 2024 | Armenia-Azerbaijan peace process; delayed |
-| 2025 | Peace agreement progress; EP monitors human rights |
-| 2026-04-28 | TA-10-2026-0162: EP resolution on Armenia situation |
-
-**Pattern:** EP resolutions on South Caucasus are long-term monitoring instruments. The 2026 resolution builds on the post-2023 displacement crisis documentation.
-
----
-
-### LIBE/PNR Historical Baseline
-
-#### EU PNR Agreement Precedents
-| Agreement | Date | Status |
-|-----------|------|--------|
-| EU-US PNR | 2006/2012 | Active; Schrems challenges ongoing |
-| EU-Australia PNR | 2012 | Active |
-| EU-Canada PNR | 2006 | Struck down by CJEU (2017); renegotiated |
-| EU-Iceland PNR (this week) | 2026-04-30 | Consent given; entry into force pending |
-
-**CJEU Canada precedent (Avis 1/15, 2017):** The Court struck down the original EU-Canada PNR agreement as incompatible with Charter fundamental rights. The renegotiation process took until 2024. This precedent:
-- Required all subsequent PNR agreements to include enhanced safeguards
-- Created a LIBE review template that the Iceland agreement must satisfy
-- Established proportionality and necessity requirements for PNR data categories
-
-**Why Iceland is lower risk than Canada:** Iceland is an EEA member with ECHR membership; its data protection law is aligned with GDPR via EEA Agreement. The EU adequacy decision risk is much lower than for third countries.
-
----
-
-### EIB/CONT Historical Baseline
-
-#### CONT Annual Report Pattern
-| Year | EIB annual report notable issues |
-|------|----------------------------------|
-| 2020 | COVID-19 EIB response package (€25bn) oversight |
-| 2021 | Climate bank roadmap implementation review |
-| 2022 | Ukraine reconstruction pre-financing |
-| 2023 | External Lending Mandate expanded; higher-risk countries |
-| 2024 | 2024 activities under review (this week's TA-10-2026-0165) |
-
-**Pattern:** CONT EIB reports have become increasingly focused on climate alignment verification and transparency of external lending. This reflects a shift from pure financial oversight to combined financial/ESG oversight.
-
----
-
-### Committee Productivity Historical Context
-
-#### EP 10th Term Committee Activity
-The 10th Parliament (since July 2024) has operated with a compressed timeline due to:
-- 6-month organizational phase post-election
-- Leadership elections and committee assignment negotiations
-- New political group formation (Patriots for Europe, ESN)
-- Institutional adjustment to new balance
-
-**Historical comparison:** The 9th Parliament's committee productivity in years 1-2 was similar to current pace. Activity accelerates in years 2-4 as rapporteurships mature.
-
-**Implication for this week's data:** The 9 adopted texts in the week of 27 Apr–4 May 2026 represent a slightly below-average weekly pace — the 9th Parliament averaged 12-15 adopted texts per plenary week in its mature phase. This suggests the 10th Parliament is still in the acceleration phase.
-
 <h2 id="section-economic-context">Economic Context</h2>
 
 > ⚠️ **IMF DEGRADED MODE ACTIVE**
@@ -3388,6 +3099,295 @@ This scenario is difficult to model because it requires a gatekeeper to act agai
 | Iceland PNR Challenge | NOYB/civil society press release | 6 months | Any published challenge to new PNR agreement |
 | Budget Provisional Twelfths | October conciliation breakdown | October-December | No joint text by November 30 |
 
+<h2 id="section-pestle-context">PESTLE & Context</h2>
+
+### Pestle Analysis
+
+### P — Political
+
+#### DMA Enforcement as Institutional Power Signal
+The adoption of TA-10-2026-0160 (DMA enforcement resolution) is primarily a political act: the EP is using its oversight resolution powers to signal dissatisfaction with Commission enforcement pace and to establish political expectations ahead of possible enforcement actions against major gatekeepers. This is a pattern consistent with EP's assertive role in digital regulation since 2019.
+
+**Key political dynamics:**
+- **EP-Commission tension:** The RSP procedural type (non-binding but politically significant) creates Commission accountability pressure without triggering infringement procedures
+- **EPP-S&D-Renew coalition coherence:** DMA enforcement enjoys broad cross-group support in EP; the absence of visible dissent in the adoption suggests strong centrist consensus on digital regulation
+- **Industrial lobby counterpressure:** Major tech companies maintain significant Brussels lobbying operations; their influence on Commission enforcement pace is a contested political variable
+
+#### Budget 2027: Fiscal Federalism Politics
+The breadth of committee opinions (TRAN, AFET, AGRI, ITRE, FEMM) contributing to BUDG report reveals the structural political economy of EP budget negotiations: every major policy coalition secures representation in budget guidelines before negotiations begin.
+
+**Salience signals:**
+- AFET opinion signals defence spending prioritisation — consistent with post-2022 security environment
+- FEMM opinion signals gender mainstreaming commitment — a progressive coalition priority
+- ITRE opinion signals digital/energy transition investment priorities
+
+#### AFET Triple Resolution: Geopolitical Positioning
+Ukraine, Armenia, and Haiti resolutions in one session demonstrate EP's role as a **geopolitical norm-setter** — adopting resolutions that establish EU political positions even where binding legislative action is not possible.
+
+**Political assessment:** 🟡 Medium confidence that these resolutions reflect genuine cross-group consensus rather than partisan coalition dynamics. Without voting breakdowns, defection patterns are unknown.
+
+---
+
+### E — Economic
+
+> ⚠️ **IMF DEGRADED MODE NOTICE:** IMF data unavailable (proxy timeout, probe returned `available: false`). All economic analysis in this section is based on structural/contextual knowledge only. No IMF-sourced statistics are cited. This limitation is recorded per `08-infrastructure.md` degraded-mode protocol.
+
+#### Budget 2027 Guidelines — Structural Economic Context
+The 2027 budget cycle will operate in a European economy shaped by:
+- Post-pandemic fiscal consolidation pressures in southern member states (pre-existing structural)
+- Defence expenditure escalation driven by NATO commitments (structural, 2022-ongoing)
+- Green transition investment requirements under the European Green Deal
+- Digital infrastructure investment gaps identified in Draghi Report (2024)
+
+The BUDG committee guidelines position EP as a champion of investment-oriented budget (over austerity), but the specific fiscal numbers are not available from EP API.
+
+#### EIB Financial Activities 2024
+The EIB Group annual report covers lending that typically exceeds €70–80 billion annually. CONT oversight focuses on:
+- Climate alignment (EIB Climate Bank targets: 50% green lending by 2025)
+- External lending under EU guarantee
+- Investment returns and risk management
+
+**Confidence:** 🔴 Low on specific figures (IMF/EIB data not retrieved); 🟡 Medium on structural analysis.
+
+#### DMA Economic Implications
+DMA enforcement against major gatekeepers has significant economic implications:
+- Platform interoperability requirements affect revenue models
+- Access obligations may redistribute digital advertising revenue
+- Structural remedy risks (e.g., divestiture) carry significant market valuation implications
+- EU enforcement decisions carry precedent for UK/US regulatory approaches
+
+---
+
+### S — Sociological
+
+#### Animal Welfare Regulation (TA-10-2026-0115)
+The dogs and cats welfare/traceability regulation reflects sustained public concern about pet welfare and illegal breeding. Sociological drivers:
+- EU pet ownership reached record levels post-pandemic
+- Public pressure on puppy mill imports (organized crime connections documented)
+- National fragmentation in pet traceability approaches driving single-market need for harmonization
+
+**Assessment:** 🟢 High confidence on sociological drivers; regulation text content not fully available from EP API.
+
+#### Ukraine Solidarity Fatigue Management
+The Ukraine accountability resolution (TA-10-2026-0161) exists in a sociological context of potential war fatigue in EU publics. EP continues to adopt strong positions even as public support data shows mixed trends across member states. The resolution serves an internal political function of maintaining EP coalition solidarity on Ukraine.
+
+#### Armenia Minority Rights Context
+The Armenian democratic resilience resolution (TA-10-2026-0162) addresses a population that has experienced mass displacement (2023 Nagorno-Karabakh exodus). EU diaspora communities in France, Germany, and the Netherlands create sociological pressure for EP engagement.
+
+---
+
+### T — Technological
+
+#### Digital Markets Act as Technological Governance
+DMA enforcement is fundamentally about **technological market structure**:
+- App store interoperability requirements (Apple, Google)
+- Messaging interoperability mandates (Meta WhatsApp/Messenger)
+- Search ranking non-preferencing requirements (Google)
+- Advertising data restrictions
+
+EP's enforcement pressure signals EP believes the Commission's current enforcement posture is insufficiently responsive to technological compliance failures.
+
+```mermaid
+graph LR
+    DMA["DMA Enforcement\nResolution"] --> G["Gatekeeper Obligations\nInteroperability/Access"]
+    G --> E["Enforcement Actions\nFines/Structural Remedies"]
+    E --> M["Market Structure Change\nPlatform Competition"]
+    M --> I["Innovation Effects\nAmbiguous — EP believes\npro-competitive"]
+```
+
+#### AI Regulatory Context
+The DMA intersects with the EU AI Act (which ITRE co-led). The week's committee output signals continued EP attention to digital governance across multiple regulatory instruments simultaneously.
+
+#### PNR Data Technology
+The Iceland PNR agreement involves:
+- Automated screening of passenger records against terrorism databases
+- Data retention periods and access controls
+- Algorithmic profiling limitations under EU law
+
+LIBE's consent implies satisfactory technological safeguards assessment.
+
+---
+
+### L — Legal
+
+#### DMA Enforcement Legal Mechanisms
+The DMA provides for:
+- Fines up to 10% of global annual revenue (or 20% for repeated infringement)
+- Periodic penalty payments
+- Structural remedies (divestiture) in exceptional cases
+- Right of EP/Council to request further market investigation
+
+The RSP resolution likely calls for activation of these mechanisms. Non-compliance by gatekeepers would trigger Article 26 (non-compliance fines) or Article 29 (market investigation) procedures.
+
+#### Iceland PNR — Legal Framework
+The NLE consent procedure confirms:
+- Legal basis: Article 218 TFEU (international agreements on police cooperation)
+- Data protection compatibility: LIBE assessment of adequacy
+- Terrorist offence definition alignment with Framework Decision 2002/475/JHA as amended
+
+**Confidence:** 🟡 Medium — procedural type confirmed, full agreement terms not available from EP API.
+
+#### Ukraine Accountability — International Law
+The AFET resolution on Ukraine (TA-10-2026-0161) operates in the international law framework of:
+- ICC mandate (Article 5 Rome Statute: war crimes, crimes against humanity)
+- Special Tribunal for the crime of aggression (proposed/in development)
+- UN General Assembly resolutions on Ukraine territorial integrity
+- EU sanctions framework (Council Regulation basis)
+
+EP resolutions support this legal architecture but cannot directly trigger ICC proceedings.
+
+---
+
+### E2 — Environmental
+
+#### Green Deal Budget Priority
+The ITRE and AGRI committee opinions on the 2027 budget guidelines likely reinforce Green Deal spending commitments. ITRE typically advocates for:
+- Horizon Europe research funding (energy transition)
+- REPowerEU fund continuation
+- Energy infrastructure investment
+
+AGRI's opinion addresses CAP reform financing, including eco-schemes and sustainable agriculture premiums.
+
+#### EIB Climate Alignment 2024
+CONT's EIB oversight covers the bank's Climate Bank Roadmap commitment to align 50% of its lending with climate action and environmental sustainability by 2025. The 2024 annual report would measure progress against this target.
+
+#### DMA Environmental Dimension
+Less directly, DMA enforcement on data centres and hyperscaler energy consumption has environmental implications. The Commission's DMA enforcement unit has not prioritised environmental compliance as a gatekeeper obligation, but energy-intensive platform services fall within EU sustainability reporting requirements.
+
+---
+
+### PESTLE Summary Matrix
+
+| Dimension | Key Finding | Confidence | Institutional Actor |
+|-----------|------------|-----------|-------------------|
+| Political | EP-Commission DMA tension; cross-committee budget coalition | 🟡 Medium | ITRE/IMCO, BUDG, AFET |
+| Economic | Degraded mode — no IMF data; structural budget/EIB context only | 🔴 Low | BUDG, CONT |
+| Sociological | Pet welfare public pressure; Ukraine solidarity maintenance | 🟡 Medium | AGRI, AFET |
+| Technological | DMA gatekeeper compliance failures; PNR algorithmic safeguards | 🟡 Medium | ITRE/IMCO, LIBE |
+| Legal | DMA enforcement mechanisms; Iceland PNR adequacy; Ukraine ICC | 🟢 High | ITRE/IMCO, LIBE, AFET |
+| Environmental | Budget Green Deal continuity; EIB climate alignment | 🟡 Medium | BUDG, CONT, ITRE |
+
+### Historical Baseline
+
+### DMA Enforcement — Historical Baseline
+
+#### Precedent 1: GDPR Enforcement Pattern (2018–present)
+GDPR was adopted in 2018 but enforcement was slow to ramp up. The EP consistently passed resolutions criticizing under-enforcement in the first 2–3 years. The DMA follows a similar post-adoption enforcement ramp-up:
+
+| Year | GDPR enforcement state | DMA analog |
+|------|----------------------|------------|
+| Year 1 (2018/2022) | Guidance, minimal fines | DMA enacted |
+| Year 2 (2019/2023) | First procedural decisions | DMA obligations take effect |
+| Year 3 (2020/2024) | First substantive fines (CNIL, etc.) | Commission opens DMA investigations |
+| Year 4 (2021/2025) | Larger fines, structural discussions | Commission DMA proceedings active |
+| Year 5 (2022/2026) | EP starts pushing for more enforcement | This week's enforcement resolution |
+
+**Lesson:** EP enforcement resolutions historically precede, by 6–12 months, an acceleration of Commission enforcement action. The 2026 resolution follows the GDPR pattern.
+
+#### Precedent 2: Digital Services Act Enforcement Pattern (2022–present)
+The DSA, companion to DMA, saw EP pass a similar enforcement-pressure resolution in 2024 following perceived slow implementation by Commission. Commission responded by opening investigations into X/Twitter, Meta. This creates a direct institutional precedent for the current DMA resolution.
+
+#### Precedent 3: Antitrust Google Shopping Case (2017–present)
+The Commission's Google Shopping decision (€2.4bn fine, 2017) was upheld by ECJ in 2024 after 7 years of litigation. This precedent underscores the long timeframes between enforcement action and legal certainty — a reason EP presses for faster DMA implementation.
+
+---
+
+### Budget Process — Historical Baseline
+
+#### EP-Council Budget Confrontations
+The EP has historically used budget process to assert institutional position:
+
+| Year | Notable budget confrontation | Outcome |
+|------|----------------------------|---------|
+| 1979 | EP rejects budget (first time) | Provisional twelfths; new negotiation |
+| 1999 | EP rejects Commission; mass resignation | Constitutional reform (Amsterdam) |
+| 2010 | EP-Council MFF conflict | EP delays MFF; extracts political commitments |
+| 2020 | COVID budget package | EP extracted rule-of-law conditionality |
+| 2024 | Defence-climate trade-off in MFF revision | Partial EPP victory on defence envelope |
+| 2026 | Budget 2027 guidelines (this week) | Amendment filed 2026-04-22; resolution text contested |
+
+**Pattern:** EP budget resolutions are often first shots in a multi-month negotiation. The April 2026 guidelines establish EP's opening position for the October-December 2026 conciliation.
+
+#### Committee Opinion Chain Precedent
+The 5-committee opinion chain for 2025-2246(BUI) — TRAN, AFET, AGRI, ITRE, FEMM — reflects the cross-sectoral ambition of the budget initiative. This breadth is unusual and signals EP is treating the budget as a strategic document rather than a line-item exercise. Similar multi-committee opinion chains were seen in the MFF 2021–2027 negotiations.
+
+---
+
+### AFET Geopolitical Resolutions — Historical Baseline
+
+#### Ukraine Accountability: Tribunal History
+| Year | Accountability mechanism development |
+|------|-------------------------------------|
+| 2022 | EP calls for ICC referral; Ukraine war crimes investigations open |
+| 2022-2023 | ICC issues arrest warrant for Putin (March 2023) |
+| 2023-2024 | Core Group of States establishes Special Tribunal framework discussions |
+| 2024 | EP adopts multiple resolutions supporting Special Tribunal establishment |
+| 2025 | Special Tribunal negotiations advance; EP continues political support |
+| 2026-04-28 | TA-10-2026-0161: EP reaffirms accountability; signals maintained political will |
+
+**Pattern:** EP resolutions on Ukraine accountability are part of a sustained multi-year political campaign, not isolated events. Each resolution adds to the cumulative record of EP's institutional position.
+
+#### Armenia: Nagorno-Karabakh Historical Context
+| Year | Development |
+|------|------------|
+| 1988-1994 | First Nagorno-Karabakh War |
+| 2020 | Second Nagorno-Karabakh War; ceasefire |
+| 2023-09 | Azerbaijani military operation; Armenian population displacement |
+| 2024 | Armenia-Azerbaijan peace process; delayed |
+| 2025 | Peace agreement progress; EP monitors human rights |
+| 2026-04-28 | TA-10-2026-0162: EP resolution on Armenia situation |
+
+**Pattern:** EP resolutions on South Caucasus are long-term monitoring instruments. The 2026 resolution builds on the post-2023 displacement crisis documentation.
+
+---
+
+### LIBE/PNR Historical Baseline
+
+#### EU PNR Agreement Precedents
+| Agreement | Date | Status |
+|-----------|------|--------|
+| EU-US PNR | 2006/2012 | Active; Schrems challenges ongoing |
+| EU-Australia PNR | 2012 | Active |
+| EU-Canada PNR | 2006 | Struck down by CJEU (2017); renegotiated |
+| EU-Iceland PNR (this week) | 2026-04-30 | Consent given; entry into force pending |
+
+**CJEU Canada precedent (Avis 1/15, 2017):** The Court struck down the original EU-Canada PNR agreement as incompatible with Charter fundamental rights. The renegotiation process took until 2024. This precedent:
+- Required all subsequent PNR agreements to include enhanced safeguards
+- Created a LIBE review template that the Iceland agreement must satisfy
+- Established proportionality and necessity requirements for PNR data categories
+
+**Why Iceland is lower risk than Canada:** Iceland is an EEA member with ECHR membership; its data protection law is aligned with GDPR via EEA Agreement. The EU adequacy decision risk is much lower than for third countries.
+
+---
+
+### EIB/CONT Historical Baseline
+
+#### CONT Annual Report Pattern
+| Year | EIB annual report notable issues |
+|------|----------------------------------|
+| 2020 | COVID-19 EIB response package (€25bn) oversight |
+| 2021 | Climate bank roadmap implementation review |
+| 2022 | Ukraine reconstruction pre-financing |
+| 2023 | External Lending Mandate expanded; higher-risk countries |
+| 2024 | 2024 activities under review (this week's TA-10-2026-0165) |
+
+**Pattern:** CONT EIB reports have become increasingly focused on climate alignment verification and transparency of external lending. This reflects a shift from pure financial oversight to combined financial/ESG oversight.
+
+---
+
+### Committee Productivity Historical Context
+
+#### EP 10th Term Committee Activity
+The 10th Parliament (since July 2024) has operated with a compressed timeline due to:
+- 6-month organizational phase post-election
+- Leadership elections and committee assignment negotiations
+- New political group formation (Patriots for Europe, ESN)
+- Institutional adjustment to new balance
+
+**Historical comparison:** The 9th Parliament's committee productivity in years 1-2 was similar to current pace. Activity accelerates in years 2-4 as rapporteurships mature.
+
+**Implication for this week's data:** The 9 adopted texts in the week of 27 Apr–4 May 2026 represent a slightly below-average weekly pace — the 9th Parliament averaged 12-15 adopted texts per plenary week in its mature phase. This suggests the 10th Parliament is still in the acceleration phase.
+
 <h2 id="section-documents">Document Analysis</h2>
 
 ### Document Analysis Index
@@ -4280,8 +4280,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-actors-forces | [impact-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/classification/impact-matrix.md) | `classification/impact-matrix.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
-| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
-| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
@@ -4294,6 +4292,8 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
+| section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
 | section-documents | [committee-productivity](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/existing/committee-productivity.md) | `existing/committee-productivity.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
