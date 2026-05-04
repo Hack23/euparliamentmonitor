@@ -107,3 +107,164 @@
 | T8 MEP accountability | 40% | Medium | 🟡 6.0 | P3 |
 | T1 Coalition collapse | 15% | Critical | 🟡 7.5 | P2 |
 | T4 Military escalation | 25% | Critical | 🟡 8.75 | P1 |
+
+---
+
+## 6. Threat Mitigation Framework
+
+### T1 — Coalition Collapse Mitigation
+
+**Current status:** Grand Coalition (EPP+S&D+Renew) at 397 seats — 36 seat buffer above 361 majority threshold. This provides resilience.
+
+**Mitigation measures active:**
+- EP Conference of Presidents maintains intergroup dialogue
+- Intergroup shadow negotiation on CID conditionality (ongoing)
+- Metsola-EPP alignment provides procedural stability
+
+**Residual risk:** A simultaneous defection of Renew (French delegation loss post-2027 elections) and 30+ EPP MEPs would bring the Grand Coalition below majority. Probability: 8%.
+
+### T2 — S&D-Renew Fracture Mitigation
+
+**Current status:** S&D and Renew share progressive majority interests but diverge on economic liberalism vs. social protection trade-off.
+
+**Potential fracture dossiers:** CID's social conditionality (S&D wants mandatory; Renew prefers voluntary); housing framework (S&D wants binding; Renew prefers market-led); minimum tax implementation monitoring.
+
+**Mitigation:** EPP can leverage this fracture to extract concessions from both sides — playing kingmaker between S&D and Renew. This is actually a source of EPP strength, not a symmetric threat.
+
+### T3 — Anti-Cordon Erosion Mitigation
+
+**Current institutional defences:**
+1. EP Rules of Procedure committees (AFCO) can investigate procedural abuse
+2. ECHR and CJEU review of EP decisions provides legal checks on democratic backsliding
+3. Transparency and accountability norms mean any EPP-PfE cooperation is immediately public
+4. Civil society organisations (Democracy International, European Movement) maintain pressure
+
+**Monitoring indicators:** Any EPP national party leader explicitly calling for PfE government inclusion at European level; Weber EPP Congress language on PfE.
+
+### T4 — Military Escalation Mitigation
+
+**Current resilience:**
+- EU mutual defence clause (Article 42.7 TEU) creates framework for response
+- EDIS legislation in pipeline; EP support broad
+- NATO commitment maintained despite US uncertainty
+
+**EP's role in escalation scenario:** EP cannot substitute for Council/Commission in security decisions, but can accelerate emergency legislation (supplementary budget, Ukraine facility amendments) within days if needed. Historical precedent: EP passed Ukraine Facility urgency procedures in 2022 within one session.
+
+### T5 — US Trade War Mitigation
+
+EP adopted text TA-10-2026-0096 (tariff quota adjustment for US goods) demonstrates EP's ability to respond legislatively to US trade pressure. INTA committee has standing mandate for trade oversight.
+
+**Mitigation pathway:** EU-US Mutual Framework Agreement negotiation can absorb bilateral tension; EP's role is to set parameters for Commission negotiating mandate.
+
+---
+
+## 7. Systemic Threat Assessment — EP Institutional Resilience
+
+### Resilience Dimensions
+
+| Dimension | Score (1–10) | Basis |
+|-----------|-------------|-------|
+| Coalition arithmetic stability | 8/10 | 36-seat buffer; S&D commitment solid |
+| External shock management | 7/10 | Ukraine precedent strong; energy lessons learned |
+| Democratic legitimacy | 6/10 | 51% turnout in 2024; approval polls moderate |
+| Digital threat resilience | 5/10 | Disinformation pressure increasing; countermeasures developing |
+| Accountability mechanisms | 7/10 | OLAF investigations; Transparency Register; QatarGate reforms |
+| Institutional continuity | 9/10 | No credible dissolution scenario |
+| Rule-of-law environment | 6/10 | Article 7 proceedings ongoing; Hungary compliance incomplete |
+
+**Overall institutional resilience score:** 6.7/10 — MODERATE-HIGH. EP is stable but not immune to disruption.
+
+### Comparison to Historical Benchmark
+
+| Indicator | EP7 (2009–14) | EP8 (2014–19) | EP9 (2019–24) | EP10 (2024–) |
+|-----------|--------------|--------------|--------------|-------------|
+| Coalition stability | 6/10 | 8/10 | 7/10 | 8/10 |
+| Ext. shock exposure | 9/10 (Eurozone) | 6/10 | 8/10 (COVID) | 7/10 (Ukraine) |
+| Legitimacy score | 5/10 (43% turnout) | 6/10 (42.6%) | 7/10 (50.6%) | 8/10 (51%) |
+| Digital threats | 2/10 (emerging) | 5/10 (growing) | 8/10 (QatarGate) | 8/10 |
+| **Overall** | **5.5** | **6.3** | **7.5** | **7.8** |
+
+**Assessment:** EP10 starts with the highest institutional resilience baseline of any term since EP7, boosted by the 2024 turnout success and the robust Ukraine response. The main vulnerability is the digital/disinformation threat vector, which has grown faster than countermeasures.
+
+---
+
+## 8. Counter-Threat Intelligence — Early Warning
+
+### Threat Detection Signals by Type
+
+**Coalition threats:** Monitor Conference of Presidents communiqués; EPP group coordinator meeting outcomes; any S&D-EPP bilateral "framework" announcements.
+
+**Right-bloc threats:** Monitor PfE membership changes; Weber EPP Congress statements; Meloni (ECR) bilateral meeting outcomes with EPP leadership.
+
+**External shock signals:** Energy futures prices; Ukraine front-line news; US Congressional pronouncements on EU tariffs; AI incident reports.
+
+**Institutional integrity threats:** OLAF investigation disclosures; Committee on Petitions activity; EP Bureau decisions on member conduct.
+
+**Cross-reference:** `intelligence/wildcards-blackswans.md` §5 (Signal Detection Protocol), `intelligence/scenario-forecast.md` §8 (Scenario Update Protocol), `risk-scoring/risk-matrix.md` (quantitative risk scores).
+
+**Admiralty Grade:** B2 — Threat assessment draws on EP structural data and historical analysis. Threat probabilities are analyst estimates. Pass 2: added mitigation framework, resilience scoring, and historical benchmark comparison.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**Data freshness:** EP political landscape (real-time), adopted texts (April 2026), early-warning system assessment (May 2026). Threat probabilities are analyst estimates based on structural analysis.
+
+```mermaid
+graph LR
+    A["EP10 2024"] --> B["Midpoint 2026"] --> C["EP11 2029"]
+```
+
+## WEP Assessment
+
+**WEP: Likely** that the Grand Coalition will hold through EP10 without structural fracture. **WEP: Unlikely** that the right bloc (EPP+ECR+PfE) achieves majority before 2029 EP elections. **WEP: Roughly Even** chance that the MFF 2028–2034 negotiations will produce a progressive outcome vs. conservative austerity framework. **WEP: Highly Unlikely** that a single external shock (energy, trade, security) will cause simultaneous coalition collapse and legislative gridlock. **WEP: Almost Certain** that EP10 will produce more digital/AI legislation than any previous EP term.

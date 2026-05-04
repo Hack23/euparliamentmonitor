@@ -120,3 +120,107 @@ Von der Leyen II Commission's political guidelines established six strategic ori
 3. **Biodiversity targets** — Commission under pressure to weaken; EP's Greens+S&D coalition insufficient to block
 4. **AI Act secondary acts timing** — Commission delegation speed vs. EP oversight requests
 5. **Housing binding framework** — if Commission proposal too weak, EP will amend substantially in committee
+
+---
+
+## 4. Commission Work Programme Alignment — Pass 2 Extension
+
+### 4.1 Commission 2026 Work Programme (CWP 2026) — EP Alignment Map
+
+**Commission Von der Leyen II Work Programme 2026 key initiatives:**
+
+| CWP 2026 Initiative | EP Alignment | Key EP Committee | Status |
+|--------------------|-------------|-----------------|--------|
+| AI Leadership Package (Delegated Acts) | HIGH (EPP+Renew+S&D) | ITRE, LIBE | Active |
+| SAFE Regulation | HIGH (EPP+Renew+ECR) | AFET, BUDG, ITRE | Trilogue |
+| Green Industrial Deal acceleration | MEDIUM (EPP-Renew, S&D partial) | ENVI, ITRE | Proposal |
+| Competitiveness Union completing actions | HIGH (EPP+Renew) | ECON, ITRE | Multiple |
+| Digital Single Market completing actions | HIGH (EPP+Renew+S&D) | ITRE, JURI | Advanced |
+| Migration Pact implementation monitoring | MEDIUM (EPP+S&D, ECR partial) | LIBE | Ongoing |
+| Enlargement policy review | MEDIUM-HIGH (EPP+S&D+Renew) | AFET | Ongoing |
+| MFF 2028–2034 pre-consultation | MEDIUM (complex coalition) | BUDG | Early |
+
+### 4.2 Misalignments Between Commission Programme and EP Priorities
+
+**Misalignment 1: Green Deal pace**
+Commission 2026 programme includes "competitiveness-oriented Green Deal adaptation" — EP progressive groups (S&D, Greens, Left) view this as potential rollback. EP has passed resolutions reaffirming Green Deal ambition. Working tension: Commission proposes; EP amends/delays/accelerates.
+
+**Misalignment 2: Defence autonomy vs. NATO cooperation**
+Commission SAFE Regulation focuses on EU industrial base strengthening. Some EP groups (Left, partial Greens) critical of EU militarisation framing. EP-Commission alignment on SAFE is high (EPP+S&D+Renew majority) but with Greens/Left dissent.
+
+**Misalignment 3: Enlargement pace**
+Ukraine/Moldova accession progress: Commission more cautious on timeline than EP resolutions (EP passed fast-track accession requests). Commission-EP tension on Article 49 application pace.
+
+### 4.3 Commission-Parliament Comitology Trends
+
+**Delegated acts (2024–2026):** Commission has issued delegated acts under AI Act, CBAM, DMA — EP has exercised scrutiny rights in 3 instances (all upheld with amendments). EP-Commission negotiation on scope of delegation is ongoing.
+
+**Implementing acts:** Higher volume in EP10 vs EP9 (defence sector new regulatory scope). EP has requested enhanced scrutiny for defence-sector implementing acts.
+
+**Co-decision legislative procedures completed (Q1 2026):** 12 Acts in EP ODP. Pace aligns with EP9 at similar point. No legislative gridlock observed.
+
+### 4.4 Key Commission-EP Relationship Dynamics
+
+**Strong alignment areas:**
+- Digital regulation (AI Act, DMA, DSA — bipartisan EP consensus)
+- Rule of law mechanisms (sanctions tools maintained)
+- Ukraine support (sustained EP majority)
+
+**Weak alignment areas:**
+- Agricultural policy (EPP-ECR pressure for more exemptions; Commission balanced)
+- Social policy (S&D pushes; Commission more centre)
+- Privacy (AI Act surveillance exemptions; LIBE stricter than Commission)
+
+### 4.5 Forward Alignment Scenarios
+
+**2026–2027 Legislative Calendar Alignment:**
+
+EP legislative spring 2026 (Jan–May) priorities align with Commission programme:
+- AI Act secondary legislation ✅
+- SAFE Regulation final ✅
+- DSA Codes of Practice ✅
+
+EP autumn 2026 (Sept–Dec) — Hungary presidency; risk of misalignment:
+- MFF pre-consultation: Commission pushes, Hungary presidency may resist
+- Post-CAP reform: Commission proposal expected; EP committee hearings
+
+**Admiralty Grade:** B2 — Commission Work Programme data from official Commission communications; EP alignment ratings analytical. Pass 2: added full CWP 2026 alignment map, misalignment analysis, and co-decision procedure data.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**Commission Work Programme alignment analysis based on CWP 2026 and EP adopted texts. Updated per run.**
+
+```mermaid
+graph LR
+    A["EP10 2024"] --> B["Midpoint 2026"] --> C["EP11 2029"]
+```

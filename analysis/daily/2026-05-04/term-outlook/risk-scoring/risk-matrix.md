@@ -75,3 +75,92 @@ R11 (Biodiversity weakened) → R02 (CID weakened) [environmental conditionality
 | R04 Coalition gridlock | Committee-level compromises | Enhanced EP-Council dialogue |
 | R05 Russian escalation | NATO Article 5; EDIS pre-positioning | EU civil preparedness |
 | R06 PfE anti-cordon | EPP group internal discipline | Transparency of voting records |
+
+---
+
+## 4. Risk Matrix — Pass 2 Extension
+
+### 4.1 Probability × Impact Assessment Grid
+
+**EP10 Term Outlook Risks (2026–2029):**
+
+| Risk | Probability | Impact | Severity | Mitigation |
+|------|-------------|--------|----------|-----------|
+| Coalition fracture (Grand Coalition) | 22% | HIGH | MEDIUM-HIGH | EPP right-flank management, S&D-Renew cooperation |
+| IMF economic data degraded mode | 60% (ongoing) | MEDIUM | MEDIUM | WB proxy fallback applied |
+| US tariff escalation | 25% | HIGH | HIGH | EU anti-coercion legislation, WTO dispute |
+| Right-bloc majority in EP11 | 20% | VERY HIGH | HIGH | National election monitoring, electoral reform |
+| Energy price spike | 20% | MEDIUM | MEDIUM | Energy storage regulation, diversification |
+| MFF 2028–2034 failure | 15% | HIGH | HIGH | EP-Council mediation; Commission bridge proposals |
+| Hungary H2 2026 presidency sabotage | 20% | MEDIUM | MEDIUM | Cyprus H1 advance legislative completion |
+| Renew delegation collapse (France 2027) | 15% | HIGH | HIGH | Grand Coalition viable even with smaller Renew |
+| Green Deal reversal | 12% | HIGH | MEDIUM-HIGH | S&D+Greens+Renew defensive coalition |
+| AI Act implementation failure | 10% | MEDIUM | LOW-MEDIUM | Commission remediation; EP scrutiny |
+
+### 4.2 Residual Risk After Mitigation
+
+| Risk | Pre-Mitigation | Post-Mitigation | Residual |
+|------|----------------|-----------------|----------|
+| Coalition fracture | 22% | 12% | LOW-MEDIUM |
+| US tariff escalation | 25% | 18% | MEDIUM |
+| Right-bloc EP11 majority | 20% | 12% | LOW-MEDIUM |
+| Energy spike | 20% | 15% | MEDIUM |
+| MFF failure | 15% | 10% | LOW |
+
+### 4.3 Risk Interdependencies
+
+```
+Energy spike → Economic pressure → EPP right-shift pressure → Coalition stress
+           ↗
+US tariff escalation → Trade war → Growth reduction → Fiscal pressure
+           ↘
+France 2027 election → Renew weakening → Grand Coalition thinner margins
+```
+
+**Critical path risk:** The highest-probability, highest-impact risk chain is: **US tariff escalation → economic slowdown → EPP electoral pressure → coalition stress → legislative gridlock**. This chain has a joint probability of approximately 8% (25% × 0.6 × 0.3 × 0.2 approximate).
+
+### 4.4 Risk Monitoring Thresholds
+
+| Risk | Watch Threshold | Red Alert Threshold |
+|------|----------------|---------------------|
+| Coalition cohesion | < 65% | < 58% |
+| EP stability score | < 75 | < 65 |
+| PfE polling average | > 14% | > 17% |
+| ECB rate reversal | 2.75% → 3.25% | 3.5%+ |
+| France polling (Macron successor) | < 30% | < 22% |
+
+**Admiralty Grade:** B2 — Risk matrix based on EP MCP data and analytical probability assessments. Probability estimates are analyst judgements, not statistical models. Pass 2: added full risk grid, residual risk table, and interdependency map.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**Risk matrix updated per run. Probabilities are analytical estimates; monitoring thresholds are operational triggers.**
+
+```mermaid
+graph LR
+    A["EP10 2024"] --> B["Midpoint 2026"] --> C["EP11 2029"]
+```

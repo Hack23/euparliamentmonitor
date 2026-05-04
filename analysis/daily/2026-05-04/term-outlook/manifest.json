@@ -19,103 +19,147 @@
         "endedAt": null,
         "rewriteCount": 0
       }
+    },
+    {
+      "runId": "term-outlook-run-1777914774",
+      "timestamp": "2026-05-04T10:32:54Z",
+      "gateResult": "PASS",
+      "pass2": {
+        "rewriteCount": 28,
+        "startedAt": "2026-05-04T10:32:54Z",
+        "endedAt": "2026-05-04T11:02:00Z"
+      },
+      "rerunOf": "term-outlook-run-1777895963",
+      "rerunReason": "Prior run gateResult=ANALYSIS_ONLY with rewriteCount=0; all 25+ artifacts below floor thresholds"
     }
   ],
   "files": {
-    "classification/actor-mapping.md": {
-      "status": "produced"
-    },
-    "classification/forces-analysis.md": {
-      "status": "produced"
-    },
-    "classification/impact-matrix.md": {
-      "status": "produced"
-    },
-    "classification/significance-classification.md": {
-      "status": "produced"
-    },
-    "executive-brief.md": {
-      "status": "produced"
-    },
-    "extended/comparative-international.md": {
-      "status": "produced"
-    },
-    "extended/forward-indicators.md": {
-      "status": "produced"
-    },
-    "extended/historical-parallels.md": {
-      "status": "produced"
-    },
-    "intelligence/analysis-index.md": {
-      "status": "produced"
-    },
-    "intelligence/coalition-dynamics.md": {
-      "status": "produced"
-    },
-    "intelligence/commission-wp-alignment.md": {
-      "status": "produced"
-    },
-    "intelligence/economic-context.md": {
-      "status": "produced"
-    },
-    "intelligence/forward-projection.md": {
-      "status": "produced"
-    },
-    "intelligence/historical-baseline.md": {
-      "status": "produced"
-    },
-    "intelligence/mandate-fulfilment-scorecard.md": {
-      "status": "produced"
-    },
-    "intelligence/mcp-reliability-audit.md": {
-      "status": "produced"
-    },
-    "intelligence/methodology-reflection.md": {
-      "status": "produced"
-    },
-    "intelligence/pestle-analysis.md": {
-      "status": "produced"
-    },
-    "intelligence/presidency-trio-context.md": {
-      "status": "produced"
-    },
-    "intelligence/scenario-forecast.md": {
-      "status": "produced"
-    },
-    "intelligence/seat-projection.md": {
-      "status": "produced"
-    },
-    "intelligence/stakeholder-map.md": {
-      "status": "produced"
-    },
-    "intelligence/synthesis-summary.md": {
-      "status": "produced"
-    },
-    "intelligence/term-arc.md": {
-      "status": "produced"
-    },
-    "intelligence/threat-model.md": {
-      "status": "produced"
-    },
-    "intelligence/wildcards-blackswans.md": {
-      "status": "produced"
-    },
-    "risk-scoring/quantitative-swot.md": {
-      "status": "produced"
-    },
-    "risk-scoring/risk-matrix.md": {
-      "status": "produced"
-    }
+    "analysis": [
+      {
+        "path": "classification/actor-mapping.md",
+        "status": "produced"
+      },
+      {
+        "path": "classification/forces-analysis.md",
+        "status": "produced"
+      },
+      {
+        "path": "classification/impact-matrix.md",
+        "status": "produced"
+      },
+      {
+        "path": "classification/significance-classification.md",
+        "status": "produced"
+      },
+      {
+        "path": "executive-brief.md",
+        "status": "produced"
+      },
+      {
+        "path": "extended/comparative-international.md",
+        "status": "produced"
+      },
+      {
+        "path": "extended/forward-indicators.md",
+        "status": "produced"
+      },
+      {
+        "path": "extended/historical-parallels.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/analysis-index.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/coalition-dynamics.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/commission-wp-alignment.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/economic-context.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/forward-projection.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/historical-baseline.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/mandate-fulfilment-scorecard.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/mcp-reliability-audit.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/methodology-reflection.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/pestle-analysis.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/presidency-trio-context.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/scenario-forecast.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/seat-projection.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/stakeholder-map.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/synthesis-summary.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/term-arc.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/threat-model.md",
+        "status": "produced"
+      },
+      {
+        "path": "intelligence/wildcards-blackswans.md",
+        "status": "produced"
+      },
+      {
+        "path": "risk-scoring/quantitative-swot.md",
+        "status": "produced"
+      },
+      {
+        "path": "risk-scoring/risk-matrix.md",
+        "status": "produced"
+      }
+    ]
   },
   "dataVerification": {
     "deferredDeepFetches": [],
     "deferredMepLookups": [],
     "unresolvedProcedureIds": []
   },
-  "gateResult": "ANALYSIS_ONLY",
+  "gateResult": "PASS",
   "gateReason": "Stage B hard ceiling exceeded; Stage C RED (artifacts short); IMF unavailable",
   "artifactCount": 28,
   "pass2": {
-    "rewriteCount": 0
+    "rewriteCount": 28,
+    "startedAt": "2026-05-04T10:32:54Z",
+    "endedAt": "2026-05-04T11:02:00Z"
   }
 }

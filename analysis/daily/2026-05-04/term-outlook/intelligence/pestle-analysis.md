@@ -112,3 +112,175 @@ The EU's strategic dependency on critical raw materials for the green and digita
 | Defence spending | ↑ Accelerating | Stable consensus, budget strain | 🟡 Medium |
 | Rule of law backsliding | → Variable | EP oversight burden | 🟡 Medium |
 | Digital sovereignty | ↑ Increasing | New legislative frontiers | 🟢 Low urgency, long-term |
+
+---
+
+## 4. Extended PESTLE Analysis — Domain Deep Dives
+
+### 4.1 Political Domain — Extended
+
+**European-level political dynamics (EP10):**
+
+*Group Dynamics and Power Balance:*
+The EP10 political landscape is characterised by a rightward shift that has produced a more complex coalition environment than EP9. The Grand Coalition (EPP+S&D+Renew at 397/719 seats) holds a mathematical majority, but its programmatic coherence is lower than EP9's Ursula coalition because EPP is simultaneously managing relationships with both the progressive centre-left and the right-flank nationalists.
+
+*Commission-Parliament Axis:*
+Von der Leyen's second term creates an unusual Commission-Parliament programmatic alignment. Both institutions prioritise CID, EDIS, and AI Act implementation. This alignment reduces the usual Commission-Parliament friction but concentrates risk: if von der Leyen's Commission fails to deliver on CID, it damages both Commission and EP10 simultaneously.
+
+*Member State Political Environment:*
+- Germany (CDU/CSU coalition 2025): broadly aligned with EPP agenda; strong on defence, moderate on Green Deal
+- France (Macron weakening): Renew delegation at existential risk; 2027 elections create uncertainty
+- Poland (Tusk 2024–): democratic recovery improves Council progressive majority; EP Polish delegation less obstructionist
+- Italy (Meloni): ECR leadership maintained; pragmatic on EU economics despite ideology
+- Spain (Sanchez minority): S&D anchor maintained; pro-federalist
+
+### 4.2 Economic Domain — Extended (IMF-Degraded Mode)
+
+**⚠️ IMF data unavailable this run. World Bank proxy data used.**
+
+*Macro Context:*
+EU GDP growth at approximately 1.3% in 2025 (WB estimate), projected 1.4–1.7% in 2026. Labour productivity gap with US at approximately 20%. These are the structural economic pressures driving CID.
+
+*Sectoral dynamics:*
+- **Manufacturing:** German industrial output declining; Eastern European manufacturing growing. CID directly addresses this imbalance.
+- **Services (digital):** DMA enforcement targets digital oligopoly; EU competition law increasingly assertive
+- **Energy transition:** Renewable capacity growing (EU reached 47% of electricity from renewables in 2024); but grid infrastructure and storage investment needed
+- **Housing market:** Record prices in 12 EU capitals; ECB rate normalisation expected to moderate but not resolve by 2028
+
+*Trade tensions:*
+EU-US tariff standoff — TA-10-2026-0096 shows EP already legislating on US tariff response. EU-China strategic autonomy debate ongoing. EU-Mercosur CJEU opinion pending — could be transformative for EU-LATAM trade architecture.
+
+### 4.3 Social Domain — Extended
+
+*Labour Market:*
+EU unemployment at approximately 6% (2025, Eurostat); youth unemployment elevated at ~15% in Southern EU. Minimum wage directive implementation in first monitoring cycle. Posted workers enforcement improving but uneven.
+
+*Housing Crisis:*
+The housing affordability crisis is EP10's most acute social challenge. Rent-to-income ratios in Amsterdam, Berlin, Paris, Dublin, Lisbon have reached historical highs. EU has limited formal housing competence, but cohesion funds, EIB lending, and possible housing investment framework are vehicles for action.
+
+*Migration and Social Integration:*
+New Pact implementation creates a solidarity mechanism; member state uptake varies. EP resolutions on Lithuania's public broadcaster (TA-10-2026-0024) and Georgia demonstrate EP's values monitoring function.
+
+*Gender and Equality:*
+EP10 adopts a stronger gender mainstreaming framework than EP9; FEMM committee more active on equal pay directive implementation.
+
+### 4.4 Technological Domain — Extended
+
+*AI Governance:*
+AI Act is EP10's primary technological legacy from EP9. EP10's role is to ensure implementation. The GPAI code of practice co-regulatory process is the most uncertain element — it depends on AI company compliance that cannot be legislatively mandated with the same force as the Act itself.
+
+*Digital Markets Act Enforcement:*
+Commission has designated 6 gatekeepers under DMA; first investigations ongoing. TA-10-2026-0160 (DMA enforcement resolution) signals EP actively monitoring Commission enforcement. EP role: oversight, not direct enforcement.
+
+*Cybersecurity:*
+NIS2 Directive implementation in progress; ENISA capacity increasing. EU Cyber Solidarity Act provides mutual aid framework. EP10 may need to address AI-enabled cyberattacks that exceed current regulatory frameworks.
+
+*Space and Connectivity:*
+IRIS² EU satellite constellation in development; EP budget role in financing. Quantum computing legislative framework emerging. Space sovereignty becoming a national security issue as US Starlink dependency is debated.
+
+### 4.5 Legal Domain — Extended
+
+*CJEU Review Pipeline:*
+Multiple major EP10 acts are potentially subject to CJEU challenge:
+- AI Act GPAI provisions (proportionality under Article 5 ECHR)
+- New Pact solidarity mechanism (Dublin Convention compatibility)
+- DMA gatekeeper designation process (due process challenges from designated companies)
+- Anti-money laundering package (financial institution privacy challenges)
+
+*Charter of Fundamental Rights:*
+EP10 has been more assertive on CFR enforcement than EP9. LIBE committee's annual fundamental rights report has become a significant institutional accountability tool.
+
+*Rule of Law:*
+Article 7 proceedings against Hungary continue; Rule of Law Conditionality Regulation (structural funds link) has produced some compliance. Poland's democratic recovery reduces EP10's rule-of-law workload compared to EP9.
+
+### 4.6 Environmental Domain — Extended
+
+*Green Deal Status (May 2026):*
+The European Green Deal has been partially restructured in EP10's Programme Launch phase:
+- 2030 55% emissions reduction target: MAINTAINED
+- Nature Restoration Law: NARROWED (implementation flexibility added)
+- ETS: MAINTAINED with sectoral expansions
+- Biodiversity 2030 targets: UNDER PRESSURE (CID competitiveness framing creates tension)
+- CBAM (Carbon Border Adjustment): ACTIVE (first revenues from October 2023)
+- EU Taxonomy: CLARIFIED (sustainable finance labelling stable)
+
+*Climate Emergency Pressure:*
+2024–2025 saw record global temperatures; EU experienced major floods, wildfires, and droughts. The political pressure to maintain the Green Deal is present but competing with the competitiveness agenda. ENVI committee is EP10's most contested committee in terms of EPP-Greens dynamic.
+
+---
+
+## 5. PESTLE Interaction Matrix
+
+| Dimension | Amplifies | Constrains |
+|-----------|-----------|------------|
+| Political | Technology adoption speed | Environmental ambition |
+| Economic | Social investment capacity | Green transition cost |
+| Social | Political legitimacy | Economic growth (housing) |
+| Technological | Economic competitiveness | Legal predictability |
+| Legal | Environmental enforcement | Technological innovation speed |
+| Environmental | Social urgency | Economic growth |
+
+**Key PESTLE finding:** The most significant interaction in EP10 is between the **Economic** (CID, competitiveness) and **Environmental** (Green Deal) dimensions — the term's defining policy tension.
+
+**Admiralty Grade:** B2 — PESTLE assessment draws on EP Open Data, adopted texts analysis, and structural analysis of EU policy domains. IMF data unavailable (degraded mode).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**Data freshness:** Political landscape (EP MCP real-time), economic (WB proxy), environmental (EP adopted texts), legal (EP Open Data). IMF economic data unavailable this run — degraded mode.
+
+```mermaid
+graph LR
+    A["EP10 2024"] --> B["Midpoint 2026"] --> C["EP11 2029"]
+```
