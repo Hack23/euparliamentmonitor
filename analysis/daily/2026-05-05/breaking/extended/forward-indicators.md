@@ -181,3 +181,71 @@ Given IMF degraded mode, the following economic indicators serve as proxies unti
 When IMF SDMX becomes available, replace proxies with: `NY.GDP.MKTP.KD.ZG` (GDP growth), `FP.CPI.TOTL.ZG` (inflation), `BN.KLT.DINV.CD` (FDI).
 
 *Forward indicators complete — Run 3, 2026-05-05T15:41Z*
+
+---
+
+## Run 4 Forward Indicators — May 5, 2026
+
+### Actionable Forward Indicators for June-December 2026
+
+**Category 1: DMA Enforcement Watch**
+
+| Indicator | Expected Date | Trigger Threshold | Significance |
+|-----------|--------------|------------------|--------------|
+| Commission DMA enforcement report | June 2026 | Zero new formal proceedings = RED | Signals enforcement paralysis |
+| Apple App Store DMA compliance decision | May-June 2026 | DMA violation finding = HIGH SIGNAL | First major gatekeeper confrontation |
+| WhatsApp interoperability deadline | June 2026 | Technical failure = YELLOW | Tests messaging interop mandate |
+| US USTR annual trade barriers report | July 2026 | DMA cited as barrier = ORANGE | Precursor to trade dispute |
+| EP IMCO committee hearing on DMA | July 2026 | DG COMP officials summoned | Institutional accountability signal |
+
+**Category 2: Ukraine Accountability Progress**
+
+| Indicator | Expected Date | Trigger | Significance |
+|-----------|--------------|---------|--------------|
+| Core States Agreement additional signatories | Ongoing | >40 states = GREEN | Tribunal foundation building |
+| UNGA Special Session on Tribunal | Sept 2026? | Session scheduled = HIGH | Breakthrough signal |
+| Euroclear/Belgian court ruling on asset transfer | Q2-Q3 2026 | Transfer authorized = TRANSFORMATIONAL | Opens €210bn for reconstruction |
+| EP AFET committee monitoring of accountability | Monthly | Inaction = pressure point | Accountability continuity |
+
+**Category 3: MFF 2028-34 Timeline**
+
+| Indicator | Expected Date | Threshold | Significance |
+|-----------|--------------|-----------|--------------|
+| Commission MFF proposal publication | May-June 2026 | Proposal structure = roadmap | Coalition formation trigger |
+| EP rapporteur designation | June 2026 | Which group = strategy signal | Controls EP negotiating mandate |
+| First Council working party discussions | July 2026 | Member state positions revealed | Fault lines emerge |
+| EP budget committee resolution | September 2026 | EP negotiating position adopted | Parliament's opening bid |
+
+**Category 4: Rule of Law Dynamics**
+
+| Indicator | Expected Date | Threshold | Significance |
+|-----------|--------------|-----------|--------------|
+| Hungary Rule of Law review | July 2026 | Funds further frozen = escalation | Conditionality mechanism test |
+| Polish constitutional reform status | Ongoing | No reform by Sept 2026 = concern | EP monitoring pressure |
+| Article 7 Council vote status | Not scheduled | Scheduled = crisis | Political nuclear option |
+
+**Comprehensive Forward Signal Dashboard:**
+
+```mermaid
+gantt
+    title EP Breaking News — Forward Indicators Timeline
+    dateFormat  YYYY-MM
+    section DMA
+    Commission DMA Report          :milestone, 2026-06, 0d
+    Apple compliance decision      :2026-05, 1M
+    WhatsApp interop deadline      :milestone, 2026-06, 0d
+    US USTR report                 :milestone, 2026-07, 0d
+    section Ukraine
+    Core States Agreement expands  :2026-05, 3M
+    Belgian court ruling           :2026-06, 2M
+    UNGA Special Session potential :milestone, 2026-09, 0d
+    section MFF
+    Commission proposal            :milestone, 2026-06, 0d
+    EP rapporteur designated       :milestone, 2026-06, 0d
+    Council working parties        :2026-07, 3M
+    EP negotiating position        :milestone, 2026-09, 0d
+    section Rule of Law
+    Hungary review                 :milestone, 2026-07, 0d
+    Poland reform assessment       :milestone, 2026-09, 0d
+```
+

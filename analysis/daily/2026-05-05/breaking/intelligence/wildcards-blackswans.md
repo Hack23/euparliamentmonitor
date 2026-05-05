@@ -318,3 +318,48 @@ graph TD
 **Run 3 wild card**: Armenia resolution (TA-0162) opens a non-zero path to formal EU accession candidacy process for a post-Soviet state facing active geopolitical pressure — unprecedented in the current EP10 term.
 
 *Wildcards updated — Run 3, 2026-05-05T15:44Z.*
+
+---
+
+## Run 4 Wildcards Update — May 5, 2026
+
+### Black Swan Identification Post-April 30 Plenary
+
+**Black Swan 1: DMA Triggers US Trade War (Low Probability / Extreme Impact)**
+Description: US executive order designating DMA as "discriminatory digital trade barrier" triggers simultaneous WTO dispute and §301 tariff investigation targeting EU automotive/pharmaceutical exports.
+Probability: 🔴 8% (elevated from 5% in Run 3 — Trump administration rhetoric hardening)
+Impact: 🔴 EXTREME — €250bn in transatlantic trade at risk; EP unity around DMA would be severely tested; potential coalition collapse if EPP business wing defects
+Indicators: USTR statements in April-May 2026; US tech lobby spending in Brussels (POLITICO data); Big Tech CEO White House meetings
+Current signal strength: 🟡 MEDIUM — USTR released April report citing EU tech regulation as "systemic concern"
+
+**Black Swan 2: Ukraine Accountability Tribunal Adoption (Medium Probability / High Impact)**
+Description: UN General Assembly passes resolution establishing Special Tribunal for the Crime of Aggression (requiring 2/3 majority: ~133 of 193 states)
+Probability: 🟡 22% — higher than conventional wisdom suggests; African/Latin American swing states are key
+Impact: 🔴 HIGH — Would be the most significant development in international criminal law since Rome Statute; Russia's international isolation formalized
+Indicators: UN diplomatic caucuses; Liechtenstein/Estonia/Netherlands coordinated lobbying; African Union position evolution
+Current signal: 🟢 Positive — More states than expected signing the Core States Agreement (30+ as of April 2026)
+
+**Black Swan 3: PfE Fragmentation Triggered by Hungarian Crisis (Low-Medium)**
+Description: Orbán government loses March 2027 Hungarian parliamentary elections; new government joins mainstream EP coalition; PfE loses its largest national delegation
+Probability: 🟡 18% — Hungarian opposition gaining in polls; Orbán's economic record deteriorating
+Impact: 🟡 HIGH — Would redraw EP coalition mathematics; PfE drops below threshold group size; shifts entire EP10 ideological center of gravity leftward
+Indicators: Hungarian opinion polls; Fidesz economic approval ratings; EU fund conditionality impact on Hungarian economy
+Current signal: 🟡 MEDIUM — Fidesz approval at ~35% in latest polls (still leading but down from 50%+)
+
+**Black Swan 4: AI/Tech Incident Triggers Emergency Regulation**
+Description: Major AI system failure (autonomous weapons incident, financial system manipulation, or election interference at scale) triggers emergency EP legislative session
+Probability: 🟡 15% — AI Act implementation in progress; enforcement gaps exist
+Impact: 🟡 MEDIUM-HIGH — Emergency legislation could pass in days under Article 293 TFEU qualified procedure; cross-party consensus on AI safety is strong
+Indicators: ENISA threat assessments; EU AI Office incident reporting; EP AIDA committee hearings
+Current signal: 🟟 Background noise — Several smaller AI incidents reported Q1 2026 but none system-breaking
+
+**Wild Card Monitoring Matrix:**
+
+| Wild Card | May 2026 Signal | Direction | Tripwire Event |
+|-----------|----------------|-----------|----------------|
+| DMA-US Trade War | USTR April report | 🔴 Rising | US §301 investigation announcement |
+| UN Tribunal establishment | 30+ Core States | 🟢 Progressing | UNGA vote scheduled |
+| Hungarian government change | Fidesz 35% polls | 🟡 Building | March 2027 election |
+| AI Emergency Regulation | Minor incidents only | 🟡 Watching | Major incident threshold |
+| Russia escalation to NATO | No direct attack | 🔴 Risk present | Article 5 invocation |
+

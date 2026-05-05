@@ -206,3 +206,55 @@ xychart-beta
 | EP-Commission alignment breakdown | LOW | LOW | Both Tier-1 resolutions align with Commission priorities |
 
 *Political threat landscape updated — Run 3, 2026-05-05T15:44Z.*
+
+---
+
+## Run 4 Political Threat Landscape — May 5, 2026
+
+### Post-April 30 Threat Landscape Assessment
+
+**Immediate Political Threats (0-30 days from May 5, 2026):**
+
+**T-IMM-01: MFF Positioning Wars Begin**
+The April 28 plenary debate on the MFF 2028-34 interim report marks the start of the positioning phase. Over the next 30-60 days:
+- Commission will finalize its MFF proposal (expected May-June 2026)
+- EP rapporteurs will be designated; EPP, S&D, and Renew will fight for the rapporteurship (whoever controls the EP negotiating mandate controls the institution's leverage)
+- First stakeholder hearings: agricultural lobby (COPA-COGECA), regional authorities (AER/CEMR), climate NGOs, defence industry (ASD)
+**Political threat**: Premature coalition fragmentation on MFF before Commission proposal published — groups may stake out positions that are later used against them in negotiations
+
+**T-IMM-02: DMA Non-Compliance Deadline Watch**
+Several DMA compliance deadlines are approaching in Q2 2026:
+- Apple App Store interoperability: contested compliance status
+- Google's intermediary platform obligations: review pending
+- Meta messaging interoperability: architecture disputes
+If Commission announces major enforcement action in May-June, the political temperature immediately rises vis-à-vis Washington.
+
+**Medium-Term Political Threats (1-6 months):**
+
+**T-MED-01: Rule of Law Enforcement Acceleration**
+The Commission's 2025 Rule of Law Report debate (April 28) signals EP willingness to push harder on conditionality mechanisms. If Commission Acts on Hungary under new Article 7a conditionality framework (implemented 2022), it could:
+- Release frozen EU funds (€13bn) conditionally
+- Force Hungary into good-faith compliance or genuine confrontation
+- Test whether PfE group cohesion holds when Fidesz faces real EU pressure
+
+**T-MED-02: Georgia/Armenia Eastern Partnership Divergence**
+The Armenia democratic resilience resolution (April 30) will be read against the backdrop of Georgia's democratic backsliding (Georgian Dream's pro-Russian drift, October 2024 contested elections, protests 2025-2026). The EP's Armenia support creates pressure to be equally critical of Georgia:
+- EP must decide whether to push for Georgian Dream sanctions (recommended by EP Monitoring Mission)
+- Inconsistency risk: if EP supports Armenia but tolerates Georgia's backsliding, credibility damaged
+- PfE alignment: Georgian Dream has informal links to PfE political family
+
+**Structural Political Threats (6+ months):**
+
+**T-STR-01: EP11 Electoral Shadow**
+With EP11 elections in June 2029, political groups are beginning to consider how EP10 record will affect their electoral performance. This creates:
+- EPP: Incentive to demonstrate governing competence (MFF + DMA success)
+- S&D: Incentive to defend social cohesion (oppose MFF cuts)
+- PfE/ECR: Incentive to oppose "Brussels overreach" narratives
+- **Threat**: Electoral calculation leads to principled opposition replacing policy-oriented bargaining — legislative output decreases
+
+**T-STR-02: AI Act Implementation Stress Test**
+The EU AI Act (adopted June 2024, enforcement phased through 2026-2027) will face its first real stress test as:
+- High-risk AI systems require conformity assessments by August 2026
+- Foundation models (GPT-5, Claude 4.x, Gemini 2.x) face detailed capability requirements
+- **Threat**: If major AI providers are unable or unwilling to comply, the EU faces DMA-style confrontation in AI governance — potentially simultaneously with DMA conflicts
+

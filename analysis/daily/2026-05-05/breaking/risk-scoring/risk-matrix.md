@@ -183,3 +183,64 @@ quadrantChart
 **Net risk assessment**: MEDIUM. No risk has moved to HIGH likelihood since Run 2.
 
 *Risk matrix updated — Run 3, 2026-05-05T15:44Z.*
+
+---
+
+## Run 4 Risk Matrix Update — May 5, 2026
+
+### Post-April 30 Plenary Risk Assessment
+
+**Risk Category: Digital Governance (DMA Enforcement)**
+
+| Risk ID | Risk Description | Likelihood (1-5) | Impact (1-5) | Risk Score | Mitigation |
+|---------|-----------------|------------------|--------------|------------|------------|
+| DMA-R01 | US trade retaliation against DMA enforcement | 3 | 5 | 15 | Diplomatic engagement; WTO-compatible enforcement |
+| DMA-R02 | Big Tech compliance theater — formal compliance, no behavioral change | 4 | 4 | 16 | IMCO oversight; civil society monitoring |
+| DMA-R03 | Commission enforcement capacity insufficient | 3 | 4 | 12 | Additional DG COMP resources; EP budget pressure |
+| DMA-R04 | CJEU strikes down key DMA provisions on proportionality | 2 | 5 | 10 | Careful enforcement; preliminary references managed |
+
+**Risk Category: Security & Foreign Policy**
+
+| Risk ID | Risk Description | Likelihood | Impact | Score | Mitigation |
+|---------|-----------------|------------|--------|-------|------------|
+| UKR-R01 | Ukraine accountability Special Tribunal blocked at UNSC | 4 | 3 | 12 | Core States Agreement alternative path |
+| UKR-R02 | Frozen Russian asset litigation blocks transfer | 4 | 4 | 16 | Windfall profits path as fallback; legal hedging |
+| UKR-R03 | PfE pressure delays Council sanctions renewal | 3 | 4 | 12 | EP resolution as political signal; not binding |
+| ARM-R01 | Azerbaijan escalation disrupts EU-Armenia partnership | 3 | 3 | 9 | Diplomatic engagement; EEAS monitoring |
+
+**Risk Category: MFF Negotiations**
+
+| Risk ID | Risk Description | Likelihood | Impact | Score | Mitigation |
+|---------|-----------------|------------|--------|-------|------------|
+| MFF-R01 | Council unanimity fails — Hungary veto | 4 | 5 | 20 | Conditionality package; Article 312 TFEU escape clauses |
+| MFF-R02 | EP-Council deadlock extends beyond 2027 | 3 | 4 | 12 | Emergency annual procedures contingency |
+| MFF-R03 | Defence/cohesion trade-off collapses S&D support | 3 | 4 | 12 | Package deal architecture |
+| MFF-R04 | Climate mainstreaming diluted below 30% threshold | 3 | 3 | 9 | Greens/EFA leverage as blocking minority |
+
+**Risk Heatmap (Updated May 5, 2026):**
+
+```mermaid
+quadrantChart
+    title Risk Heatmap — EP Breaking News May 2026
+    x-axis Low Impact --> High Impact
+    y-axis Low Likelihood --> High Likelihood
+    quadrant-1 Monitor
+    quadrant-2 Critical Priority
+    quadrant-3 Accept
+    quadrant-4 Manage Actively
+    MFF Hungary Veto: [0.9, 0.7]
+    DMA Compliance Theater: [0.7, 0.75]
+    Frozen Asset Litigation: [0.7, 0.7]
+    US DMA Retaliation: [0.9, 0.55]
+    Commission Capacity: [0.65, 0.55]
+    Azerbaijan Escalation: [0.5, 0.55]
+    CJEU DMA Challenge: [0.9, 0.35]
+    Tribunal UNSC Block: [0.5, 0.7]
+```
+
+**Top 3 Priority Risks for Immediate Monitoring:**
+
+1. 🔴 **MFF-R01 (Score: 20)** — Hungary veto potential: Watch Orbán's signals post-April 30 accountability vote; if Hungary sees MFF + Ukraine reconstruction bundled, veto threat is real
+2. 🔴 **DMA-R02 (Score: 16)** — Big Tech compliance theater: Next major indicator is Commission's DMA enforcement report (expected Q2 2026); will it show real behavioral change?
+3. 🟡 **UKR-R02 (Score: 16)** — Frozen asset litigation: Belgian courts facing Belgian constitutional challenge from Russian oligarchs; outcome could delay windfall profits transfer mechanism
+
