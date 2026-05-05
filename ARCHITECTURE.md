@@ -30,8 +30,9 @@
 > `src/aggregator/**` from committed Stage-B analysis artifacts — there is
 > no AI-authored HTML step, no per-article-type strategies, no
 > AI_MARKER/FALLBACK_TEMPLATE sentinel contract, and no
-> `src/utils/content-validator.ts` / `validate-articles.ts` /
-> `validate-analysis-completeness.ts` runtime validators.
+> `src/utils/content-validator.ts` / `validate-articles.ts` runtime validators.
+> The repository still keeps `scripts/validate-analysis-completeness.js` as
+> the Stage-C artifact-floor checker invoked by prompts and tests.
 >
 > **Canonical references for the current release:**
 >
@@ -155,7 +156,7 @@ Evidence of ISMS compliance is maintained through:
 
 ## 🎯 System Overview
 
-EU Parliament Monitor is a **TypeScript-first static site generator and political intelligence platform** that creates multi-language news articles about European Parliament activities. Content is produced by a fleet of **15 agentic GitHub Workflows** (gh-aw — 14 unified `news-<type>.md` covering 14 article types + `news-translate.md`) that drive AI agents (Claude Opus 4.7 via GitHub Copilot) through the Stage A→E protocol, consuming structured data from **three data surfaces**:
+EU Parliament Monitor is a **TypeScript-first static site generator and political intelligence platform** that creates multi-language news articles about European Parliament activities. Content is produced by a fleet of **15 agentic GitHub Workflows** (gh-aw — 14 unified `news-<type>.md` covering 14 article types + `news-translate.md`) that drive AI agents (Claude Sonnet 4.6 via GitHub Copilot) through the Stage A→E protocol, consuming structured data from **three data surfaces**:
 
 - **[European Parliament MCP Server](https://github.com/Hack23/European-Parliament-MCP-Server)** `v1.2.21+` (primary — 60+ tools including plenary, MEPs, votes, committees, procedures, adopted texts, sliding-window + fixed-window feeds, analytical tools, and a three-state voting fallback to the EP Open Data Portal)
 - **World Bank Open Data MCP** (non-economic only — WDI social/health/education/environment/governance indicators)
@@ -176,7 +177,7 @@ architecture.
 - **TypeScript Source**: All source in `src/` written in TypeScript 6.0.3 (strict, ESM, `"type": "module"`), compiled via `tsc` — `rootDir: ./src`, `outDir: ./scripts`, `target: ES2025`, `module: NodeNext`
 - **Multi-Language Support**: Generates content in 14 languages (`en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh`), defined in `src/constants/language-core.ts::ALL_LANGUAGES`
 - **Article Types**: 14 production content types (`breaking`, `committee-reports`, `election-cycle`, `month-ahead`, `month-in-review`, `motions`, `propositions`, `quarter-ahead`, `quarter-in-review`, `term-outlook`, `week-ahead`, `week-in-review`, `year-ahead`, `year-in-review`) — each type is a slug, not a strategy module; the aggregator renders the same canonical artifact order for every type and per-type content differences are carried by the Stage-B artifacts themselves
-- **Agentic Workflows**: 15 unified gh-aw markdown workflows — 14 `news-<type>.md` article types (Stages A → B → C → D → E in one session, active-work budget 22–28 min before the single safe-outputs `create_pull_request` call, 60-min `timeout-minutes` cap; `engine.mcp.session-timeout` is intentionally **not** set — the bundled MCP gateway v0.3.1 rejects the field) + `news-translate.md` (14-language flush translation, exempt from the single-PR rule) — compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.71.3`)
+- **Agentic Workflows**: 15 unified gh-aw markdown workflows — 14 `news-<type>.md` article types (Stages A → B → C → D → E in one session, active-work budget 22–28 min before the single safe-outputs `create_pull_request` call, 60-min `timeout-minutes` cap; `engine.mcp.session-timeout` is intentionally **not** set — the bundled MCP gateway v0.3.1 rejects the field) + `news-translate.md` (14-language flush translation, exempt from the single-PR rule) — compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.71.4`)
 - **Analysis-Artifact-Driven Article Pipeline**: Agents author the full Stage-B artifact set under `analysis/daily/<date>/<slug>/` (or `<slug>-run<NN>/` when multiple runs occur on the same date) and commit it. The deterministic aggregator (`src/aggregator/**`, invoked via `npm run generate-article -- --run <analysis-run-dir>` for a single run or `npm run generate-article:all` for batch regen) walks `manifest.json`, cleans each artifact, and emits the final HTML with the shared site chrome (stacked header + embedded 14-language switcher + TOC sidebar + footer stats) and 14-language hreflang entries. There is no AI-authored HTML step, no strategies, no builders, no section-builders
 - **Economic Data (IMF-primary, Wave-4 strict default editorial)**: IMF REST is the **primary** source for every economic claim in `intelligence/economic-context.md`; World Bank MCP provides complementary non-economic context only. Enforcement is editorial at the Stage-C completeness review — the legacy runtime gates (`articlePolicyHasEconomicContext`, `articlePolicyHasIMFEconomicEvidence`, `isWave3IMFStrictEnabled`) in `src/utils/content-validator.ts` were purged in April-2026; the Stage-C reviewer applies the IMF-required-for-policy rule directly over the committed artifact
 - **Quality-Through-Artifact Principle**: Mandatory 2-pass iterative improvement during Stage B (~60% pass 1, ~40% pass 2); ≥ 80 words/SWOT item, ≥ 150 words/stakeholder perspective, ≥ 1 Mermaid or Chart.js visualisation per core artifact, 0 `[AI_ANALYSIS_REQUIRED]` sentinel markers in any committed file (enforced at Stage-C agent-side review against `reference-quality-thresholds.json`)
@@ -319,10 +320,10 @@ C4Container
     Person(researcher, "Researcher / Journalist", "Audits analysis artifacts via the Political Intelligence Hub")
 
     Container_Boundary(epmonitor, "EU Parliament Monitor") {
-        Container(aw_orchestrator, "gh-aw Orchestrator", "Agentic Workflows (Claude Opus 4.7)", "15 agentic workflows: 14 unified news-<type>.md + news-translate.md")
+        Container(aw_orchestrator, "gh-aw Orchestrator", "Agentic Workflows (Claude Sonnet 4.6)", "15 agentic workflows: 14 unified news-<type>.md + news-translate.md")
         Container(prompt_lib, "Prompt Library", "10 bounded contexts", ".github/prompts/00-scope … 09-troubleshooting; lint:prompts drift-guard")
         Container(methodology_lib, "Methodology Library", "Markdown methodologies + JSON thresholds", "17 methodologies + reference-quality-thresholds.json (analysis/methodologies/)")
-        Container(template_lib, "Template Library", "51 Markdown templates", "39 core + 12 extended (analysis/templates/)")
+        Container(template_lib, "Template Library", "59 Markdown templates", "59 top-level content templates (analysis/templates/)")
         ContainerDb(analysis_runs, "Analysis Runs", "Markdown + JSON", "analysis/daily/YYYY-MM-DD/<type>/{manifest.json,intelligence/,classification/,risk-scoring/,threat-assessment/,documents/,extended/}")
         Container(aggregator, "Aggregator (5 modules)", "TypeScript", "src/aggregator/**: artifact-order · clean-artifact · analysis-aggregator · markdown-renderer · article-html · article-metadata · article-generator (CLI)")
         Container(ep_client, "EP MCP Client", "TypeScript", "Stdio JSON-RPC to european-parliament-mcp-server@1.2.21+; 60+ tools; getVotingRecordsWithFallback() to EP Open Data Portal (src/mcp/ep-mcp-client.ts)")
@@ -346,7 +347,7 @@ C4Container
     System_Ext(ep_open_data, "EP Open Data Portal", "https://data.europarl.europa.eu — voting-records fallback (/api/v2/decision)")
     System_Ext(wb_mcp, "World Bank Open Data MCP", "Non-economic WDI indicators (health, education, environment, governance)")
     System_Ext(imf_api, "IMF SDMX 3.0 REST", "https://dataservices.imf.org/REST/SDMX_3.0/")
-    System_Ext(copilot, "GitHub Copilot / Claude Opus 4.7", "Authors analysis Markdown under 2-pass AI-First Quality regime — never authors HTML")
+    System_Ext(copilot, "GitHub Copilot / Claude Sonnet 4.6", "Authors analysis Markdown under 2-pass AI-First Quality regime — never authors HTML")
 
     Rel(user, cf_s3, "Reads HTML in 14 langs", "HTTPS")
     Rel(researcher, repo, "Audits analysis/daily/", "Git/HTTPS")
@@ -380,8 +381,8 @@ C4Container
 
 | 🧱 Container | ⚙️ Technology | 🎯 Purpose | 🔄 Data flow |
 |---|---|---|---|
-| 🤖 **gh-aw Orchestrator** | Claude Opus 4.7 + gh-aw v0.71.3 | Runs 15 agentic workflows (14 article + 1 translate); produces analysis artifacts | Triggers via cron / manual; commits one PR per article run |
-| 📚 **Prompt / Methodology / Template libraries** | Markdown + JSON | Bounded-context prompts (10), methodologies (17), templates (51) | Read by every agentic workflow at start-of-session |
+| 🤖 **gh-aw Orchestrator** | Claude Sonnet 4.6 + gh-aw v0.71.4 | Runs 15 agentic workflows (14 article + 1 translate); produces analysis artifacts | Triggers via cron / manual; commits one PR per article run |
+| 📚 **Prompt / Methodology / Template libraries** | Markdown + JSON | Bounded-context prompts (10), methodologies (19), templates (59 top-level content templates) | Read by every agentic workflow at start-of-session |
 | 🧠 **Analysis Runs** | Markdown + JSON | Per-run intelligence tree under `analysis/daily/<date>/<type>/` | Written by Stage B agents; consumed by Stage C and aggregator |
 | 🟢 **Aggregator (5 modules)** | TypeScript | Reads `manifest.json` and Markdown artifacts; renders 14-language HTML deterministically | `npm run generate-article -- --run <dir>` |
 | 🔌 **EP MCP Client** | TypeScript | 60+ EP tools + voting fallback to EP Open Data Portal `/api/v2/decision` | Stage A data collection |
@@ -531,7 +532,7 @@ C4Component
 | 🧩 Component | 🎯 Responsibility | 🔗 Dependencies | 📂 File location |
 |---|---|---|---|
 | 🟢 **Aggregator pipeline** | Discover `manifest.json` → clean artifacts → aggregate (19-section canonical order, Provenance & Audit at end, `.md` only excluding `data/runs/pass1/`) → render Markdown → wrap HTML with TOC sidebar + shared chrome → write `<slug>.en.md` + 14 `<slug>-<lang>.html` | `markdown-it` + `markdown-it-anchor`/`-footnote`/`-attrs`/`-deflist` | `src/aggregator/{article-generator,analysis-aggregator,markdown-renderer,article-html,artifact-order,clean-artifact,article-metadata}.ts` |
-| 🧠 **Analysis artifacts** | 51 templates per run (39 core + 12 extended) under `analysis/daily/<date>/<type>/` with `manifest.json` declaring `articleType` + `files` map. 3-variant manifest schema (`articleType` / `articleTypes[]` / legacy `runType`) handled by `resolveArticleTypeFromManifest()` | 17 methodologies (10-step protocol, Rules 1–22) | `analysis/methodologies/*.md`, `analysis/templates/**`, `analysis/daily/**` |
+| 🧠 **Analysis artifacts** | 59 top-level content templates under `analysis/daily/<date>/<type>/` with `manifest.json` declaring `articleType` + `files` map. 3-variant manifest schema (`articleType` / `articleTypes[]` / legacy `runType`) handled by `resolveArticleTypeFromManifest()` | 19 methodologies (10-step protocol, Rules 1–22) | `analysis/methodologies/*.md`, `analysis/templates/**`, `analysis/daily/**` |
 | 🔌 **EP MCP Client** | 60+ EP tools via stdio JSON-RPC; `safeCallTool()` + `callToolWithRetry()` wrappers; recess-mode detection ([1952,2100] year window); slow-feed warning downgrade for `get_events_feed` | `european-parliament-mcp-server@1.2.21+` (PR #405 normalises political-group codes) | `src/mcp/ep-mcp-client.ts` |
 | 🗳️ **EP Open Data fallback** | Three-state voting fallback: (a) MCP has data → use it · (b) MCP empty → query `/api/v2/decision` · (c) both empty → 🔴 unavailability marker via virtual tool name `ep-get-voting-records` | EP Open Data Portal | `src/mcp/ep-open-data-client.ts` (see `getVotingRecordsWithFallback()`) |
 | 💰 **IMF Client** | `class IMFMCPClient` + `IMF_MCP_TOOLS`; primary economic source per IMF Indicator Mapping; native Node 25 `fetch` SDMX 3.0; env `IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS` | None (REST) | `src/mcp/imf-mcp-client.ts` |
@@ -665,10 +666,10 @@ C4Deployment
 
 | 🏷️ Article Type        | 🤖 gh-aw Workflow                | 📅 Cadence                    |
 |------------------------|----------------------------------|-------------------------------|
-| 🚨 `breaking`           | `news-breaking.md`               | Every 4 hours                 |
+| 🚨 `breaking`           | `news-breaking.md`               | Every 6 hours                 |
 | 🔮 `week-ahead`         | `news-week-ahead.md`             | Fri 07:00 UTC                 |
 | 📊 `month-ahead`        | `news-month-ahead.md`            | 1st of month 08:00 UTC        |
-| 🌐 `quarter-ahead`      | `news-quarter-ahead.md`          | 1st of month 06:00 UTC        |
+| 🌐 `quarter-ahead`      | `news-quarter-ahead.md`          | 1st of month 08:00 UTC        |
 | 🛰️ `year-ahead`         | `news-year-ahead.md`             | Quarterly (2 Jan/Apr/Jul/Oct) |
 | 🗓️ `term-outlook`       | `news-term-outlook.md`           | Semi-annual (1 Jan & 1 Jul)   |
 | 🗳️ `election-cycle`     | `news-election-cycle.md`         | Annual (1 Dec) + T-180/T-90/T-30 imminent triggers |
@@ -684,7 +685,7 @@ Plus: `news-translate.md` (14-language translation helper, manual dispatch only)
 
 ### Agentic Workflows (gh-aw)
 
-All 15 news workflows are **markdown source files compiled to YAML** (`.md` → `.lock.yml`) via the GitHub Agentic Workflows CLI (`gh aw compile --validate`) with pinned `GH_AW_VERSION: v0.71.3` in `.github/workflows/compile-agentic-workflows.yml`. See [WORKFLOWS.md](WORKFLOWS.md) for the full surface.
+All 15 news workflows are **markdown source files compiled to YAML** (`.md` → `.lock.yml`) via the GitHub Agentic Workflows CLI (`gh aw compile --validate`) with pinned `GH_AW_VERSION: v0.71.4` in `.github/workflows/compile-agentic-workflows.yml`. See [WORKFLOWS.md](WORKFLOWS.md) for the full surface.
 
 **5-layer security model**:
 1. **AWF Squid firewall allowlist** — egress HTTP allowlist per workflow
@@ -712,7 +713,7 @@ All 15 news workflows are **markdown source files compiled to YAML** (`.md` → 
 | **Language**        | TypeScript | 6.0.3   | Primary development language     | Strict type safety; compiles from `src/` → `scripts/` targeting ES2025, `module: NodeNext` |
 | **Package Manager** | npm        | 10.x    | Dependency management            | Native Node.js package manager, security audit integration |
 | **Testing**         | Vitest     | 4.1.4   | Unit and integration testing     | Fast, ESM-native; happy-dom env; `happy-dom@20.9.0` |
-| **E2E Testing**     | Playwright | 1.59.1  | End-to-end browser testing       | `@axe-core/playwright@4.11.2` for WCAG 2.1 AA |
+| **E2E Testing**     | Playwright | 1.59.1  | End-to-end browser testing       | `@axe-core/playwright@4.11.3` for WCAG 2.1 AA |
 | **Linting**         | ESLint     | 10.2.1  | Code quality and security        | Flat config; plugins: `eslint-plugin-sonarjs@4.0.3`, `eslint-plugin-security@4.0.0`, `eslint-plugin-jsdoc@62.9.0` |
 | **Formatting**      | Prettier   | 3.8.3   | Code formatting                  | Opinionated formatter, consistent code style |
 | **Visualization**   | Chart.js   | 4.5.1   | Dashboard charts in articles     | Vendored into `js/vendor/` via `npm run copy-vendor` |
@@ -735,9 +736,9 @@ All 15 news workflows are **markdown source files compiled to YAML** (`.md` → 
 | **Chart.js** | 4.5.1 | 4.0.0 | N/A | Vendored; update with copy-vendor script |
 | **D3** | 7.9.0 | 7.0.0 | N/A | Vendored; update with copy-vendor script |
 | **TypeDoc** | 0.28.19 | 0.28.0 | N/A | Major within 60 days |
-| **european-parliament-mcp-server** | 1.2.13 (pinned) | 1.2.13 | Per upstream | Track releases; 1.2.11 (2026-04-20) fixes #377/#378 (fixed-window feeds, uniform unavailable envelope); 1.2.13 (2026-04-23) adds non-retryable UPSTREAM_404 for get_procedures, fixes search_documents envelope, enriches track_legislation timeline, improves get_procedures_feed error classification |
+| **european-parliament-mcp-server** | 1.2.21 (pinned) | 1.2.21 | Per upstream | Track releases; repository workflows and package dependency pin `european-parliament-mcp-server@1.2.21` for EP MCP data access |
 | **worldbank-mcp** | 1.0.1 (optional) | 1.0.0 | Per upstream | Biannual WDI refresh cadence |
-| **gh-aw CLI** | v0.71.3 (pinned `GH_AW_VERSION`) | v0.71.3 | Per upstream | Workflow-level pin in `compile-agentic-workflows.yml` |
+| **gh-aw CLI** | v0.71.4 (pinned `GH_AW_VERSION`) | v0.71.4 | Per upstream | Workflow-level pin in `compile-agentic-workflows.yml`; `.md` workflows compile to committed `.lock.yml` files |
 
 ### Dependency Management
 
@@ -747,7 +748,7 @@ All 15 news workflows are **markdown source files compiled to YAML** (`.md` → 
 
 **IMF REST** is integrated via native TypeScript fetch in `src/mcp/imf-mcp-client.ts` (`class IMFMCPClient`) — this is NOT an MCP server; calls go directly to `https://dataservices.imf.org/REST/SDMX_3.0/`. Env: `IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS`. Supplies WEO + FM monthly forecasts up to five years ahead.
 
-**Dev dependencies** (notable): `vitest@4.1.4`, `@vitest/ui`, `@vitest/coverage-v8`, `happy-dom@20.9.0`, `@playwright/test@1.59.1`, `@axe-core/playwright@4.11.2`, `typescript@6.0.3`, `eslint@10.2.1`, `eslint-plugin-sonarjs@4.0.3`, `eslint-plugin-security@4.0.0`, `eslint-plugin-jsdoc@62.9.0`, `prettier@3.8.3`, `htmlhint@1.9.2`, `typedoc@0.28.19`, `chart.js@4.5.1`, `d3@7.9.0`, `papaparse@5.5.3`, `husky@9.1.7`, `jscpd@4.0.9`.
+**Dev dependencies** (notable): `vitest@4.1.5`, `@vitest/ui`, `@vitest/coverage-v8`, `happy-dom@20.9.0`, `@playwright/test@1.59.1`, `@axe-core/playwright@4.11.3`, `typescript@6.0.3`, `eslint@10.3.0`, `eslint-plugin-sonarjs@4.0.3`, `eslint-plugin-security@4.0.0`, `eslint-plugin-jsdoc@62.9.0`, `prettier@3.8.3`, `htmlhint@1.9.2`, `typedoc@0.28.19`, `chart.js@4.5.1`, `d3@7.9.0`, `papaparse@5.5.3`, `husky@9.1.7`, `jscpd@4.0.9`.
 
 ### Security & Quality
 
@@ -897,7 +898,7 @@ src/                                   → scripts/                          (ts
 ```mermaid
 sequenceDiagram
     participant GHA as GitHub Actions (gh-aw)
-    participant Agent as Copilot Agent (Claude Opus 4.7)
+    participant Agent as Copilot Agent (Claude Sonnet 4.6)
     participant MCP as EP MCP Client
     participant EP as EP MCP Server (stdio)
     participant IMF as IMF SDMX 3.0 (HTTPS)
@@ -1599,8 +1600,8 @@ Non-functional requirements define system qualities that are not directly relate
 **Maintainability Practices:**
 - **Code Review**: All PRs require approval
 - **Documentation**: Architecture, security, process docs maintained
-- **Testing**: Unit (Vitest 4.1.4), Integration (incl. MCP contract tests), E2E (Playwright 1.59.1 + axe-core)
-- **Linting**: ESLint 10.2.1 with `eslint-plugin-sonarjs@4.0.3`, `eslint-plugin-security@4.0.0`, `eslint-plugin-jsdoc@62.9.0`; Prettier 3.8.3 formatting
+- **Testing**: Unit (Vitest 4.1.5), Integration (incl. MCP contract tests), E2E (Playwright 1.59.1 + axe-core 4.11.3)
+- **Linting**: ESLint 10.3.0 with `eslint-plugin-sonarjs@4.0.3`, `eslint-plugin-security@4.0.0`, `eslint-plugin-jsdoc@62.9.0`; Prettier 3.8.3 formatting
 - **Dependencies**: Minimal (1 required production, 1 optional, ~40 dev), weekly Dependabot updates
 
 ---
@@ -1669,8 +1670,8 @@ Non-functional requirements define system qualities that are not directly relate
 
 ### Maintainability
 
-- **Code Complexity**: Moderate (5-stage pipeline + 8 strategies + 6 builders; no SPA framework)
-- **Test Coverage**: 82%+ lines, 83%+ branches across 52 test files; **3061+ passing tests** (unit, integration incl. EP/IMF/WB MCP contract tests, E2E Playwright)
+- **Code Complexity**: Moderate (5-stage artifact pipeline + deterministic aggregator modules; no SPA framework)
+- **Test Coverage**: 82%+ lines, 83%+ branches across 76 test files; **3026+ passing tests** (unit, integration incl. EP/IMF/WB MCP contract tests, E2E Playwright)
 - **Documentation**: Comprehensive (25+ architecture & ISMS docs — see Architecture Documentation Map)
 - **Dependencies**: 1 pinned production (`european-parliament-mcp-server@1.2.21`), 1 optional (`worldbank-mcp@1.0.1`), ~40 dev dependencies
 
