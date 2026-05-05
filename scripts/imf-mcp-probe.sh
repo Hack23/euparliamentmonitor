@@ -11,8 +11,9 @@
 #   scripts/imf-mcp-probe.sh
 #
 # The historical filename is retained for compatibility with prompts that
-# refer to "IMF MCP" data. The transport is direct HTTPS to the public IMF
-# SDMX 3.0 REST endpoint; no API key is required and no MCP gateway is used.
+# refer to "IMF MCP" data. In gh-aw/AWF runs the primary transport is the
+# repo-local fetch-proxy MCP server, constrained to the public IMF SDMX 3.0
+# REST endpoint; direct HTTPS remains the fallback for local/non-AWF runs.
 #
 # Sets when sourced:
 #   IMF_MCP_OK — "true" on success or cache hit, "false" otherwise.
@@ -27,6 +28,7 @@
 export IMF_MCP_OK="false"
 export IMF_MCP_PROBE_ERROR=""
 export IMF_MCP_RECORDS="0"
+export IMF_MCP_GATEWAY_STATUS="not-attempted"
 
 if [ -z "${IMF_API_BASE_URL:-}" ]; then
   IMF_API_BASE_URL="https://dataservices.imf.org/REST/SDMX_3.0"
@@ -51,7 +53,7 @@ _IMF_AUTH_MODE="none"
 _IMF_DATAFLOW_QUERY="dataflow/IMF"
 _IMF_WEO_QUERY="data/WEO/EA+DEU+FRA+ITA.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP.A?startPeriod=2025&endPeriod=2026&format=jsondata"
 
-_IMF_CURL_OPTS=(--silent --show-error --fail --max-time 120 --connect-timeout 45 \
+_IMF_CURL_OPTS=(--silent --show-error --fail --max-time 180 --connect-timeout 45 \
   -H 'Accept: application/json')
 
 # Use the repo-standard Node runtime for JSON escaping instead of adding a jq
@@ -93,14 +95,15 @@ process.stdout.write(String(count));
 
 _imf_write_summary() {
   local available="$1" source="$2" error_message="$3" records="$4"
-  local endpoint_json cache_json dataflow_json weo_json error_json
+  local endpoint_json cache_json dataflow_json weo_json error_json gw_json
   endpoint_json=$(_imf_json_string "$IMF_API_BASE_URL")
   cache_json=$(_imf_json_string "$_IMF_CACHE_DIR")
   dataflow_json=$(_imf_json_string "$_IMF_DATAFLOW_FILE")
   weo_json=$(_imf_json_string "$_IMF_WEO_FILE")
   error_json=$(_imf_json_string "$error_message")
+  gw_json=$(_imf_json_string "$IMF_MCP_GATEWAY_STATUS")
   cat > "$_IMF_SUMMARY_FILE" <<EOF
-{"available":$available,"source":"$source","endpoint":$endpoint_json,"auth":"$_IMF_AUTH_MODE","records":$records,"queries":["$_IMF_DATAFLOW_QUERY","$_IMF_WEO_QUERY"],"cacheDir":$cache_json,"files":{"dataflow":$dataflow_json,"weo":$weo_json},"error":$error_json}
+{"available":$available,"source":"$source","endpoint":$endpoint_json,"auth":"$_IMF_AUTH_MODE","records":$records,"gatewayStatus":$gw_json,"queries":["$_IMF_DATAFLOW_QUERY","$_IMF_WEO_QUERY"],"cacheDir":$cache_json,"files":{"dataflow":$dataflow_json,"weo":$weo_json},"error":$error_json}
 EOF
   cat "$_IMF_SUMMARY_FILE"
 }
@@ -131,7 +134,7 @@ _imf_fetch_to_file() {
     local rpc_body
     rpc_body=$(node -e "process.stdout.write(JSON.stringify({jsonrpc:'2.0',id:1,method:'tools/call',params:{name:'fetch_url',arguments:{url:process.argv[1]}}}))" -- "$url" 2>/dev/null)
     if [ -n "$rpc_body" ]; then
-      stderr_log=$(curl --silent --show-error --max-time 120 --connect-timeout 30 \
+      stderr_log=$(curl --silent --show-error --max-time 180 --connect-timeout 30 \
         -X POST "$FETCH_MCP_GATEWAY_URL" \
         -H "Content-Type: application/json" \
         -H "Accept: application/json, text/event-stream" \
@@ -158,10 +161,22 @@ _imf_fetch_to_file() {
         " -- "$tmp_out" "$out" 2>/dev/null
         if [ $? -eq 0 ] && [ -s "$out" ]; then
           rm -f "$tmp_out"
+          IMF_MCP_GATEWAY_STATUS="ok"
+          export IMF_MCP_GATEWAY_STATUS
           return 0
         fi
+        # Gateway responded but content extraction failed — infrastructure issue
+        IMF_MCP_GATEWAY_STATUS="error:content-extraction-failed"
+        export IMF_MCP_GATEWAY_STATUS
+      else
+        # Gateway POST itself failed — infrastructure issue (not IMF outage)
+        IMF_MCP_GATEWAY_STATUS="error:gateway-post-failed(exit=$status)"
+        export IMF_MCP_GATEWAY_STATUS
       fi
       rm -f "$tmp_out"
+    else
+      IMF_MCP_GATEWAY_STATUS="error:rpc-body-construction-failed"
+      export IMF_MCP_GATEWAY_STATUS
     fi
   fi
 

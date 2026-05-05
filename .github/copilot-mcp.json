@@ -49,10 +49,10 @@
         "-y",
         "european-parliament-mcp-server@1.2.21",
         "--timeout",
-        "90000"
+        "180000"
       ],
       "env": {
-        "EP_REQUEST_TIMEOUT_MS": "90000"
+        "EP_REQUEST_TIMEOUT_MS": "180000"
       },
       "tools": ["*"]
     },
