@@ -41,6 +41,9 @@ export default [
       // Possible Errors
       'no-console': 'off',
       'no-unused-vars': 'off',
+      // TypeScript handles undefined-variable checks better than ESLint's no-undef rule,
+      // which false-positives on TypeScript-only types like BufferEncoding.
+      'no-undef': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
