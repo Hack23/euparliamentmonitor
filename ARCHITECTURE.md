@@ -251,7 +251,7 @@ graph TB
     
     subgraph "GitHub Infrastructure - Trusted Zone"
         subgraph "Build Environment"
-            Actions["GitHub Actions Runner\nGitHub-hosted Ubuntu runner\nubuntu-latest + Node.js 25"]
+            Actions["GitHub Actions Runner\nGitHub-hosted Ubuntu runner\nubuntu-latest + Node.js 26"]
             EPServer["European Parliament\nMCP Server\nLocal process, stdio JSON-RPC"]
         end
         
@@ -535,7 +535,7 @@ C4Component
 | 🧠 **Analysis artifacts** | 59 top-level content templates under `analysis/daily/<date>/<type>/` with `manifest.json` declaring `articleType` + `files` map. 3-variant manifest schema (`articleType` / `articleTypes[]` / legacy `runType`) handled by `resolveArticleTypeFromManifest()` | 19 methodologies (10-step protocol, Rules 1–22) | `analysis/methodologies/*.md`, `analysis/templates/**`, `analysis/daily/**` |
 | 🔌 **EP MCP Client** | 60+ EP tools via stdio JSON-RPC; `safeCallTool()` + `callToolWithRetry()` wrappers; recess-mode detection ([1952,2100] year window); slow-feed warning downgrade for `get_events_feed` | `european-parliament-mcp-server@1.2.21+` (PR #405 normalises political-group codes) | `src/mcp/ep-mcp-client.ts` |
 | 🗳️ **EP Open Data fallback** | Three-state voting fallback: (a) MCP has data → use it · (b) MCP empty → query `/api/v2/decision` · (c) both empty → 🔴 unavailability marker via virtual tool name `ep-get-voting-records` | EP Open Data Portal | `src/mcp/ep-open-data-client.ts` (see `getVotingRecordsWithFallback()`) |
-| 💰 **IMF Client** | `class IMFMCPClient` + `IMF_MCP_TOOLS`; primary economic source per IMF Indicator Mapping; native Node 25 `fetch` SDMX 3.0; env `IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS` | None (REST) | `src/mcp/imf-mcp-client.ts` |
+| 💰 **IMF Client** | `class IMFMCPClient` + `IMF_MCP_TOOLS`; primary economic source per IMF Indicator Mapping; native Node 26 `fetch` SDMX 3.0; env `IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS` | None (REST) | `src/mcp/imf-mcp-client.ts` |
 | 🌱 **World Bank Client** | `WORLD_BANK_MCP_TOOLS`; non-economic WDI indicators only (health, education, environment, governance, innovation) | `worldbank-mcp` (optional) | `src/mcp/wb-mcp-client.ts` |
 | ⚖️ **Stage-C completeness gate** | Editorial agent-side review against `.github/prompts/03-analysis-completeness-gate.md` and `analysis/methodologies/reference-quality-thresholds.json` line floors. **Replaces the purged runtime `content-validator.ts`** | Methodology library + per-artifact thresholds | `.github/prompts/03-…`, `analysis/methodologies/reference-quality-thresholds.json` |
 | 🔁 **Prior-Run Diff** | Re-run improve/extend helper; classifies prior-run artifacts as must-extend (`carryForward[]`) or below-floor rewrite; always-on (no env flag); emits `priorRunDiff` JSON with `priorLines`+`extendFloor` consumed by Stage B and Stage C | — | `scripts/aggregator/prior-run-diff.js` |
@@ -615,7 +615,7 @@ C4Deployment
     Deployment_Node(github_cloud, "GitHub Cloud", "GitHub Infrastructure") {
         Deployment_Node(actions_runner, "GitHub Actions Runner", "Ubuntu 24.04") {
             Container(workflow, "News Generation Workflow", "GitHub Actions YAML", "Daily scheduled workflow")
-            Container(node_runtime, "Node.js Runtime", "Node.js 25", "Executes generation scripts")
+            Container(node_runtime, "Node.js Runtime", "Node.js 26", "Executes generation scripts")
         }
 
         Deployment_Node(pages_cdn, "AWS Infrastructure", "S3 + CloudFront") {
@@ -652,7 +652,7 @@ C4Deployment
 
 | Infrastructure Component  | Technology               | Purpose                           | Configuration                         |
 | ------------------------- | ------------------------ | --------------------------------- | ------------------------------------- |
-| **GitHub Actions Runner** | ubuntu-latest, Node.js 25 | Execute generation workflow       | .github/workflows/news-*.lock.yml |
+| **GitHub Actions Runner** | ubuntu-latest, Node.js 26 | Execute generation workflow       | .github/workflows/news-*.lock.yml |
 | **Amazon CloudFront**     | AWS CDN                  | Serve static content globally     | CloudFront distribution (deploy-s3.yml) |
 | **Amazon S3**             | AWS Object Storage       | Host static site files            | S3 bucket (deploy-s3.yml)              |
 | **Git Repository**        | GitHub Storage           | Version control + content storage | public repository                      |
@@ -709,7 +709,7 @@ All 15 news workflows are **markdown source files compiled to YAML** (`.md` → 
 
 | Layer               | Technology | Version | Purpose                          | Rationale |
 | ------------------- | ---------- | ------- | -------------------------------- | --------- |
-| **Runtime**         | Node.js    | 25.x (`engines: >=25`); Node.js 26 LTS migration scheduled upon release (~Apr 2026) | JavaScript execution environment | Current release for latest features, performance improvements; ESM-native (`"type": "module"`) |
+| **Runtime**         | Node.js    | 26.x (`engines: >=26`); Node.js 26 nightly tested in CI | JavaScript execution environment | LTS release for stability and long-term support; ESM-native (`"type": "module"`) |
 | **Language**        | TypeScript | 6.0.3   | Primary development language     | Strict type safety; compiles from `src/` → `scripts/` targeting ES2025, `module: NodeNext` |
 | **Package Manager** | npm        | 10.x    | Dependency management            | Native Node.js package manager, security audit integration |
 | **Testing**         | Vitest     | 4.1.4   | Unit and integration testing     | Fast, ESM-native; happy-dom env; `happy-dom@20.9.0` |
@@ -726,7 +726,7 @@ All 15 news workflows are **markdown source files compiled to YAML** (`.md` → 
 
 | Technology | Current Version | Minimum Version | End-of-Life | Update Policy |
 |------------|----------------|-----------------|-------------|---------------|
-| **Node.js** | 25.x (current) | 25.0.0 (`engines: >=25`) | ~Apr 2026 (Current EOL; upgrading to Node.js 26 LTS) | Update to Node.js 26 LTS within days of release (~Apr 2026) |
+| **Node.js** | 26.x (LTS) | 26.0.0 (`engines: >=26`) | ~Apr 2029 | Running on Node.js 26 LTS; Node.js 26 nightly tested in CI (`test-and-report.yml`) |
 | **npm** | 10.x (latest) | 10.0.0 | Follows Node.js lifecycle | Auto-updated with Node.js |
 | **TypeScript** | 6.0.3 | 6.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
 | **Vitest** | 4.1.4 | 4.0.0 | N/A | Update to latest minor within 14 days, major within 60 days |

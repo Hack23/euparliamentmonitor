@@ -279,7 +279,7 @@ graph TD
     C -->|✅ Yes| D[🤖 Agent Job<br/>GitHub Copilot + claude-sonnet-4.6]
     C -->|❌ No| E[⏭️ Skip]
     D --> F[📥 Checkout Repository]
-    F --> G[⚙️ Setup Node.js 25]
+    F --> G[⚙️ Setup Node.js 26]
     G --> H[📦 Install Dependencies]
     H --> I[🔗 Install EP MCP Server v1.2.21+]
     I --> J1[🔬 Analysis Stage<br/>Political Intelligence Pipeline<br/>--analysis flag]
@@ -686,7 +686,7 @@ graph LR
 
 | Job | Name | Purpose | Key Steps |
 |-----|------|---------|-----------|
-| `prepare` | Prepare Environment | Cache dependencies, setup Node.js 25 | Checkout, npm ci, cache |
+| `prepare` | Prepare Environment | Cache dependencies, setup Node.js 26 | Checkout, npm ci, cache |
 | `validation` | Validate Code | ESLint, Prettier, HTMLHint, npm audit | Lint, format check, HTML validation |
 | `functional-tests` | Functional Tests | Vitest unit + integration tests | Run tests, coverage report |
 | `performance` | Performance Testing | Lighthouse CI + article generation benchmarks | `@lhci/cli@0.15.1`, performance metrics |
@@ -759,7 +759,7 @@ Prefer fixing knip's view of the world over adding ignores. Every ignore must ca
 
 | Job | Name | Purpose | Key Steps |
 |-----|------|---------|-----------|
-| `knip` | Knip Scan | Unused-code detection | Checkout → setup Node 25 → `npm ci` → `npm run build` → `npm run knip` → write `$GITHUB_STEP_SUMMARY` → upload `knip-output.txt` artefact (14-day retention) |
+| `knip` | Knip Scan | Unused-code detection | Checkout → setup Node 26 → `npm ci` → `npm run build` → `npm run knip` → write `$GITHUB_STEP_SUMMARY` → upload `knip-output.txt` artefact (14-day retention) |
 
 The job runs `npm run build` first because knip resolves imports through the `package.json` `exports` map, which points at compiled `scripts/**`.
 

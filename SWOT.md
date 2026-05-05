@@ -100,7 +100,7 @@ planning and resource allocation.
 - **15 unified gh-aw workflows** (`.github/workflows/news-*.md` → `.lock.yml`): 14 unified `news-<type>.md` (Stage A→E in one ~45-min session, single PR; per-slug stage budgets from `src/config/article-horizons.ts`) + `news-translate.md` (manual 14-language helper)
 - **Aggregator pipeline**: deterministic Markdown→HTML rendering via `src/aggregator/**` (5 modules) — no per-type strategies, no AI-authored HTML, no runtime content-validator
 - **3061+ automated tests** across **52 test files** (Vitest 4.1.4 + Playwright 1.59.1 + @axe-core/playwright 4.11.2)
-- **Stack**: Node 25, TypeScript 6.0.3 strict mode, ESM-only, Apache-2.0 license
+- **Stack**: Node 26, TypeScript 6.0.3 strict mode, ESM-only, Apache-2.0 license
 - **Data sources**: `european-parliament-mcp-server@1.2.21+` (60+ tools, primary EP data) + `worldbank-mcp` (non-economic context) + IMF SDMX 3.0 REST (primary economic source)
 - **Delivery**: AWS S3 + CloudFront (OIDC-based, no long-lived secrets) primary; GitHub Pages fallback runbook
 - **Supply chain**: npm provenance + SLSA L3 + OpenSSF Scorecard + OpenSSF Best Practices badge #12068
@@ -1498,7 +1498,7 @@ Comprehensive view of strategic position.
 
 **Document Classification**: Public  
 **ISMS Compliance**: ISO 27001:2022 compliant, GDPR compliant, NIS2 aligned  
-**Technology Stack**: Node.js 25, GitHub Actions, GitHub Pages, European
+**Technology Stack**: Node.js 26, GitHub Actions, GitHub Pages, European
 Parliament MCP Server  
 **Architecture Pattern**: Static Site Generator with Zero Runtime Dependencies  
 **Review Status**: Active, next review 2026-08-03

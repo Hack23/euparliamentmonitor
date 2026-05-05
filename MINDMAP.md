@@ -389,7 +389,7 @@ Technology stack, infrastructure, and development practices.
 mindmap
   root((Technical<br/>Architecture v0.8.54))
     Runtime Environment
-      Node.js 25
+      Node.js 26
         ES Modules
         Performance
         Latest Features
@@ -1199,7 +1199,7 @@ graph LR
 
 | Component         | Metric           | Target          | Status           |
 | ----------------- | ---------------- | --------------- | ---------------- |
-| **Node.js**       | Version          | Latest LTS      | ✅ 25.x          |
+| **Node.js**       | Version          | Latest LTS      | ✅ 26.x          |
 | **TypeScript**    | Version          | Latest stable   | ✅ 6.0.3         |
 | **Vitest**        | Version          | Latest stable   | ✅ 4.1.4         |
 | **Playwright**    | Version          | Latest stable   | ✅ 1.59.1        |
@@ -1300,7 +1300,7 @@ graph TB
 - [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
 - [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
 
-**Technology Stack**: Node.js 25, TypeScript 6.0.3, Vitest 4.1.4, Playwright 1.59.1, gh-aw v0.71.3, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.2.21, WB MCP 1.0.1, IMF REST SDMX 3.0  
+**Technology Stack**: Node.js 26, TypeScript 6.0.3, Vitest 4.1.4, Playwright 1.59.1, gh-aw v0.71.3, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.2.21, WB MCP 1.0.1, IMF REST SDMX 3.0  
 **Architecture Pattern**: Static Site Generator with Agentic AI-First Authoring and Zero Runtime Dependencies  
 **Review Status**: Active, next review 2026-08-03
 
