@@ -68,8 +68,8 @@ This project adheres to the [Contributor Covenant 2.1](CODE_OF_CONDUCT.md). By p
 
 ### 📋 Prerequisites
 
-- 🟢 **Node.js** ≥ 25 (the platform runtime — see [`package.json`](package.json) `engines.node`)
-- 📦 **npm** ≥ 10 (ships with Node.js 25)
+- 🟢 **Node.js** ≥ 26 (the platform runtime — see [`package.json`](package.json) `engines.node`)
+- 📦 **npm** ≥ 10 (ships with Node.js 26)
 - 🔧 **Git**
 
 ### Setup

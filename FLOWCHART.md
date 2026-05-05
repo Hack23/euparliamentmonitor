@@ -390,7 +390,7 @@ flowchart TD
 flowchart TD
     Trigger[🔔 Git Event<br/>Push to PR<br/>Merge to Main] --> Checkout[📥 Checkout Code<br/>SHA-Pinned Action<br/>actions/checkout@v4]
 
-    Checkout --> SetupNode[⚙️ Setup Node.js 25<br/>SHA-Pinned Action<br/>actions/setup-node@v6]
+    Checkout --> SetupNode[⚙️ Setup Node.js 26<br/>SHA-Pinned Action<br/>actions/setup-node@v6]
 
     SetupNode --> InstallDeps[📦 Install Dependencies<br/>npm ci<br/>Reproducible Build<br/>package-lock.json]
 
@@ -771,7 +771,7 @@ flowchart TD
     end
     
     subgraph "MCP Server Layer"
-        MCPServer["⚙️ EP MCP Server\neuropean-parliament-mcp-server\nNode.js 25"]
+        MCPServer["⚙️ EP MCP Server\neuropean-parliament-mcp-server\nNode.js 26"]
         MCPTransport["📡 JSON-RPC 2.0\nstdio Transport\nProtocol v1.0"]
         MCPCache["💾 LRU Cache\nTTL: 5 min\nMax: 500 entries"]
     end

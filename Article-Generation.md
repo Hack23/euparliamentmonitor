@@ -145,7 +145,7 @@ Each workflow declares the operational envelope used by gh-aw:
 
 | Concern | Current pattern |
 |---|---|
-| Runtime | Node.js 25. |
+| Runtime | Node.js 26. |
 | MCP gateway | `features.mcp-gateway: true`, sandbox MCP port `8080`. |
 | Network allowlist | GitHub, EP data domains, IMF data services, World Bank, Hack23 sites, project domains, defaults. |
 | Safe output | `create-pull-request.max: 1` for article workflows. |
@@ -770,7 +770,7 @@ The deploy excludes source/tooling directories such as `.git/`, `.github/`, `src
 | Sanitized structure | Markdown rendering uses explicit plugin configuration and artifact cleanup. |
 | Static delivery | No server-side execution or database in published site. |
 | Public-data boundary | EP MCP / IMF / World Bank public sources only; no private MEP profiling. |
-| Supply chain | Node 25, pinned GitHub actions, S3 deploy via OIDC, SLSA/npm provenance elsewhere in release pipeline. |
+| Supply chain | Node 26, pinned GitHub actions, S3 deploy via OIDC, SLSA/npm provenance elsewhere in release pipeline. |
 
 ---
 
