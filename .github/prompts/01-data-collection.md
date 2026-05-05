@@ -245,7 +245,7 @@ Stage C — the validator reduces line floors for structurally constrained runs.
 | `"minimal"` | Multiple data sources unavailable (combine title-only + degraded-imf + degraded-voting) | 35% |
 
 **Decision logic** (Stage A exit checklist):
-1. If `cache/imf/probe-summary.json` contains `{"available": false}` → at minimum `"degraded-imf"`
+1. If `cache/imf/imf-probe-summary.json` contains `{"available": false}` → at minimum `"degraded-imf"`
 2. If `getVotingRecordsWithFallback` returns `unavailable` → at minimum `"degraded-voting"`
 3. If adopted texts fetched but all full-text URLs return 404 → at minimum `"title-only"`
 4. If ≥2 of the above conditions apply → `"minimal"`
@@ -266,8 +266,8 @@ limitation in prose (confidence levels reduced, explicit caveat paragraph).
 ### 5.2 · Eurostat Triangulation Fallback (when IMF degraded)
 
 When IMF SDMX is unreachable (`dataMode: "degraded-imf"` or `"minimal"`),
-attempt Eurostat as a secondary economic triangulation source before
-falling back to World Bank GDP-only data:
+attempt Eurostat as a secondary economic triangulation source. Do NOT fall
+back to World Bank for economic data (Stage C rejects WB economic claims):
 
 1. **Eurostat SDMX endpoint** (via `web-fetch` tool):
    `https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/{datasetCode}/{filter}?format=JSON`

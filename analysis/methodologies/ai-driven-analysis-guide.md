@@ -131,7 +131,7 @@ creating files that should have existed in Pass 1.
 **Scaffold protocol (MANDATORY — execute before Step 4):**
 
 1. **Determine `dataMode`** from Stage A results:
-   - `cache/imf/probe-summary.json` → `{"available": false}` → `"degraded-imf"`
+   - `cache/imf/imf-probe-summary.json` → `{"available": false}` → `"degraded-imf"`
    - `getVotingRecordsWithFallback` → `"unavailable"` → `"degraded-voting"`
    - Adopted texts fetched title-only (full-text 404) → `"title-only"`
    - ≥2 conditions above → `"minimal"`
@@ -145,7 +145,7 @@ creating files that should have existed in Pass 1.
      risk-scoring/, threat-assessment/ directories)
 4. **Record** `"scaffoldedAt": "<ISO-timestamp>"` and
    `"scaffoldedArtifactCount": <N>` in `manifest.json`.
-5. **Validate scaffold** — run `ls ${ANALYSIS_DIR}/**/*.md | wc -l` and
+5. **Validate scaffold** — run `find ${ANALYSIS_DIR} -name '*.md' | wc -l` and
    confirm it matches the manifest count ± data/ files.
 
 **Why this matters:** Methodology-reflection analysis of 2026-05-05 runs

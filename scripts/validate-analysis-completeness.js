@@ -505,13 +505,15 @@ function validateArtifact({
   result.lines = countLines(content);
 
   const perFloor = rules.perArtifactFloors?.[relativePath] ?? null;
-  // dataMode reduction applies ONLY to per-artifact floors, NOT to the
-  // CLI-provided --min-lines value. This preserves the contract that
-  // --min-lines can only raise floors, never lower them.
-  const reducedPerFloor = perFloor != null
-    ? Math.max(DEFAULT_MIN_LINES, Math.floor(perFloor * dataModeReduction))
-    : 0;
-  result.minLines = Math.max(options.minLines, reducedPerFloor);
+  // dataMode reduction applies to per-artifact floors AND the default floor,
+  // but NOT to the CLI-provided --min-lines value. This preserves the contract
+  // that --min-lines can only raise floors, never lower them.
+  const baseFloor = perFloor != null ? perFloor : DEFAULT_MIN_LINES;
+  const reducedFloor = Math.max(
+    DEFAULT_MIN_LINES,
+    Math.floor(baseFloor * dataModeReduction),
+  );
+  result.minLines = Math.max(options.minLines, reducedFloor);
   if (result.lines < result.minLines) {
     result.issues.push(
       `short:${result.lines}<${result.minLines}`,
