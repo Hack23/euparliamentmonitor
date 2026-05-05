@@ -391,3 +391,87 @@ quadrantChart
 *No fundamental scenario revision needed — Run 3 data confirms Run 2 probability estimates. Marginal upward revisions reflect stronger adoption margins observed.*
 
 *Scenario forecast updated — Run 3, 2026-05-05T15:44Z.*
+
+---
+
+## Run 4 Scenario Update — May 5, 2026 (Post-April Plenary)
+
+### New Scenario Inputs from April 28–30 Strasbourg Session
+
+The following developments update the scenario forecast with concrete evidence points:
+
+**Evidence anchors for scenario calibration:**
+1. DMA Enforcement resolution → broad tech regulatory consensus confirmed
+2. Ukraine accountability resolution → continued EP institutional pressure on Russia (39-month streak)
+3. Armenia democratic resilience → EU Eastern enlargement momentum
+4. MFF 2028-34 interim debate → budget coalition dynamics emerging
+5. Rule of Law 2025 report → institutional enforcement limitations confirmed
+
+### Updated Scenario Tree
+
+```mermaid
+graph TD
+    NOW["EP10 Status Quo\nMay 2026\nFragmentation=HIGH\nStability=84/100"] --> S1["Scenario 1: Status Quo Drift\nProbability: 40%"]
+    NOW --> S2["Scenario 2: Defence Integration Shock\nProbability: 25%"]
+    NOW --> S3["Scenario 3: DMA Diplomatic Crisis\nProbability: 20%"]
+    NOW --> S4["Scenario 4: Rule of Law Fracture\nProbability: 15%"]
+    
+    S1 --> S1A["MFF negotiations drag 2026-27\nIncremental compromise on spending\nEPP-S&D-Renew tripartite holds"]
+    S2 --> S2A["NATO Article 5 crisis scenario\nDefence spending emergency\nEP unity around security legislation"]
+    S3 --> S3A["US retaliatory tariffs on tech firms\nEPP pressures Commission to soften DMA\nEP vs Council conflict on enforcement"]
+    S4 --> S4A["Article 7 vote finally advances\nHungary loses Council voting rights\nPfE destabilization within EP"]
+```
+
+### Scenario 1: Status Quo Drift (40% probability)
+**Triggers**: No major external shocks; incremental MFF negotiations; continued Ukraine war without dramatic escalation
+
+**Political dynamics**: The EPP-S&D-Renew tripartite managing EU governance continues. DMA enforcement proceeds methodically with Commission leading. Armenia partnership develops through technical cooperation. Ukraine resolutions continue as regular parliamentary expressions.
+
+**Economic implications**: MFF negotiations likely result in 5-7% real-terms budget reduction vs. current MFF; defence gets increased share; cohesion funds squeezed; Green Deal commitments nominally maintained but implementation flexibility eroded.
+
+**Key indicator to watch**: EPP-S&D cohesion on MFF spending lines (April 28 debate revealed tension; will they find common position before Commission proposal?)
+
+**Horizon**: 6-18 months until MFF Commission proposal (expected Q2 2026) crystallizes political positions.
+
+### Scenario 2: Defence Integration Shock (25% probability)
+**Triggers**: NATO Article 5 invocation; Baltic incident; escalation in Ukraine toward direct NATO-Russia confrontation; US withdrawal from NATO theatre
+
+**Political dynamics**: EP unity would override normal coalition dynamics. Emergency defence legislation under TEU Article 222 (solidarity clause) could mobilize cross-party support of 600+ MEPs.
+
+**Budget implications**: Immediate demand for defence "own resources" — emergency fund outside normal MFF architecture (similar to SURE/NextGenEU COVID precedent). €200-500bn scale discussed in defence circles.
+
+**EP's role**: Limited in classical defence (Treaty reserves for member states) but critical in defence industry regulation, procurement harmonization, and civilian emergency preparedness.
+
+### Scenario 3: DMA Diplomatic Crisis (20% probability)
+**Triggers**: US government threatens WTO dispute over DMA; US tech companies escalate compliance resistance; Commission imposes fines triggering retaliatory tariffs
+
+**Political dynamics**: Trump administration (2025-onward) signals deep hostility to EU digital regulation as "regulatory protectionism." If DMA triggers concrete US trade action:
+- EPP under pressure from business community to soften enforcement
+- S&D and Greens maintain enforcement stance
+- Renew splits (pro-market wing vs. EU strategic autonomy wing)
+- **EP coalition for DMA could weaken from 450 to 380 seats if EPP defections occur**
+
+**Indicators**: US USTR statements on DMA; Big Tech CEO statements; Commission DG COMP enforcement timelines; EP IMCO committee hearings
+
+### Scenario 4: Rule of Law Fracture (15% probability)
+**Triggers**: EP forces Article 7 vote against Hungary; Council activates conditionality mechanism; Hungarian government escalates confrontation with EU institutions
+
+**Political dynamics**: Orbán government's survival strategy depends on maintaining EU funding flows while violating EU rule-of-law norms. A genuine Article 7(2) vote activating suspension of voting rights would:
+- Remove Hungary's veto on security/Ukraine policy (historically blocking effect)
+- Fracture PfE group if Hungarian MEPs lose influence
+- Potentially trigger constitutional crisis if Orbán defies EU decisions
+
+**Significance for EP coalition arithmetic**: If PfE fragments (Hungarian MEPs isolated), remaining PfE seats might migrate to ECR or NI, potentially strengthening the centre-right coalition that's already the governing majority.
+
+### Forward Indicators Matrix (Updated May 5, 2026)
+
+| Indicator | Current Signal | Direction | Scenario Impact |
+|-----------|---------------|-----------|-----------------|
+| MFF Commission proposal timing | Q2 2026 expected | ⏱️ Imminent | S1/S2 catalyst |
+| DMA enforcement actions count | 2 formal investigations open | 🔴 Escalating | S3 trigger risk |
+| Ukraine peace talks progress | No formal talks | 🔴 No progress | S2 risk elevated |
+| Hungary conditionality status | €13bn frozen | 🟡 Stable standoff | S4 slowly building |
+| Armenia-EU Partnership progress | Partnership Agenda signed | 🟢 Positive | S1 reinforcing |
+| US-EU trade relations | Tariff disputes ongoing | 🔴 Stress | S3 amplifier |
+| EP10 coalition stability score | 84/100 | 🟢 STABLE | S1 dominant |
+

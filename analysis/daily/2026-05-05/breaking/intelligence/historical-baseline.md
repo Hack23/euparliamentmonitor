@@ -229,3 +229,42 @@ xychart-beta
 - **Budget estimates vs. EP9 pattern**: EP9 estimates consistently exceeded final MFF by 8-12%; same pattern expected for 2027.
 
 *Historical baseline updated — Run 3, 2026-05-05T15:44Z.*
+
+---
+
+## Run 4 Historical Baseline — May 5, 2026
+
+### Historical Precedents for April 28–30 Plenary Events
+
+**DMA Enforcement: Historical Tech Regulation Precedents**
+
+*Microsoft IE Case (2004-2009):* The EU's antitrust action against Microsoft over browser bundling resulted in €497m in fines and mandatory Windows unbundled versions. Timeline: 5 years from Commission investigation to compliance. The DMA seeks to create ex-ante rules that replicate ex-post antitrust outcomes more quickly — the April 30 resolution is essentially demanding the Commission demonstrate that this ex-ante mechanism works faster than the Microsoft precedent.
+
+*Google Shopping (2017-ongoing):* Commission issued €2.42bn fine in 2017 for self-preferencing in shopping search. Google appealed to CJEU; CJEU upheld (September 2024 — landmark). Implementation of genuine neutrality remains contested. Elapsed time: 7+ years from investigation to final judgment. The DMA is explicitly designed to create a faster track — the April 30 EP resolution tests whether that aspiration is real.
+
+*GDPR Enforcement Gap (2018-2023):* When GDPR was adopted in 2018, enforcement was expected to be rigorous. Reality: Irish DPC (regulating most Big Tech European HQs in Dublin) moved slowly; first major Meta fine (€1.2bn) took until May 2023. The DMA Commission-centralized enforcement model is directly designed to avoid the GDPR Irish-bottleneck failure mode.
+
+**Ukraine Accountability: Historical Tribunal Precedents**
+
+*Nuremberg Tribunals (1945-1946):* Established the principle that heads of state are not immune from criminal accountability for crimes against humanity and war crimes. Created from scratch in 4 months (August-November 1945) with Allied cooperation. The key lesson: Tribunals can be established quickly when political will exists — and then persist for 70+ years as normative references.
+
+*International Criminal Tribunal for former Yugoslavia (ICTY, 1993-2017):* UN Security Council Resolution 827 (May 1993) established ICTY in response to Balkan wars atrocities. Indicted 161 individuals; convicted 90 including Milošević and Karadžić. Timeline: First indictments 1994; ongoing until final judgment 2017. The Balkan precedent directly informs EU policymakers designing a Ukraine accountability mechanism — the ICTY model is the closest structural analogy.
+
+*The ICC and Russia:* The ICC issued arrest warrants for Vladimir Putin (war crime of unlawful deportation of Ukrainian children, March 2023) and Maria Lvova-Belova. No enforcement possibility while Russia controls its territory. The Special Tribunal sought by EP goes beyond ICC scope to address the crime of aggression specifically — which the ICC cannot prosecute against non-state parties.
+
+**Armenia: Eastern Partnership Historical Pattern**
+
+*Georgia's EU Path (2014-2023):* Georgia signed the Association Agreement in 2014; received EU candidate status in December 2023. However, the October 2024 elections and Georgian Dream's increasingly authoritarian trajectory demonstrate that EU-path announcements are not self-fulfilling.
+
+*Moldova's EU Accession (2022-):* Moldova received candidate status September 2022; accession negotiations opened June 2024. An EU membership referendum (October 2024) resulted in 50.4% Yes — razor thin. Moldova's experience shows that even genuinely EU-aspiring states face domestic polarization on the EU integration question.
+
+*Armenia's Structural Difference:* Armenia is NOT an EU candidate (unlike Ukraine, Moldova, Georgia). The April 30 resolution supports "democratic resilience" and "Partnership Agenda," not accession. This more limited framework reflects Armenia's geographic constraints (landlocked, surrounded by Azerbaijan and Iran) and Russia's historical security commitments (CSTO membership until 2024 formal withdrawal). Armenia's EU integration is slower and more limited by design.
+
+**Rule of Law: Article 7 Historical Stall**
+
+*Poland Article 7 (2017-2022):* EU Commission launched Article 7(1) proceedings against Poland in December 2017 over judicial independence concerns. Council voted to activate Article 7(1) in 2018. **No further progress despite continued violations.** The mechanism requires unanimity in Council and has never reached the sanction stage (Article 7(2)) — Hungary (aligned with Poland) blocked progress.
+
+*Hungary Article 7 (2018-ongoing):* EP initiated Article 7(1) against Hungary in September 2018 (Sargentini Report: 448-197 vote with 48 abstentions). Council never acted effectively. The Commission instead used the Rule of Law Conditionality Mechanism (adopted 2020, fully operational 2022) to freeze €13bn in EU cohesion funds for Hungary.
+
+**Key lesson from historical baseline:** Institutional mechanisms created for extraordinary use (Article 7) rarely get used as intended because the supermajority requirements create veto points. The EU has learned to use financial conditionality instead — a lesson directly applicable to MFF 2028-34 negotiations.
+

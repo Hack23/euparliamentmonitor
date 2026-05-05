@@ -266,3 +266,88 @@ mindmap
 **Convergence confidence**: HIGH. All three runs confirm the same top-4 significance ranking. No run contradicted the others' analytical conclusions.
 
 *Synthesis summary — Run 3 final, 2026-05-05T15:44Z. Admiralty Code: B2*
+
+---
+
+## Run 4 Synthesis Update — May 5, 2026 (18:34Z)
+
+### Breaking News Context: April 28–30 Strasbourg Plenary
+
+Three adopted texts on April 30, 2026 constitute the core breaking news event for this analysis:
+
+**1. Digital Markets Act Enforcement (TA-10-2026-0160)**
+The EP's resolution on DMA enforcement arrives at a moment of acute transatlantic tension over tech regulation. The EU's Digital Markets Act designates six "gatekeepers" (Alphabet, Amazon, Apple, Meta, Microsoft, ByteDance) subject to interoperability, data portability, and self-preferencing prohibitions. The EP's April 30 resolution reinforces the Commission's enforcement mandate and specifically:
+- Calls for expedited investigation timelines (current: 12-18 months per DMA Article 26)
+- Urges specific enforcement focus on messaging interoperability requirements (WhatsApp/iMessage)
+- Requests quarterly enforcement progress reports to Parliament
+**Coalition**: EPP + S&D + Renew + Greens/EFA — broad tech-accountability consensus (~450 seats, well above 361 threshold)
+**Significance**: 🔴 HIGH — Signals EP institutional willingness to push Commission enforcement harder, with implications for US-EU tech relations and potential retaliatory tariff threats
+
+**2. Ukraine Accountability Resolution (TA-10-2026-0161)**
+Adopted April 30, this resolution demands:
+- Establishment of a Special Tribunal for the Crime of Aggression against Ukraine
+- Continued and expanded military assistance through the European Peace Facility
+- Asset seizure and transfer of frozen Russian sovereign assets (€300bn+ immobilized)
+- Individual accountability for systematic targeting of civilian infrastructure
+**Coalition split**: Mainstream groups (EPP, S&D, Renew, Greens, ECR-East) vs. PfE and ESN who abstained or opposed on "peace negotiation" grounds
+**Significance**: 🔴 HIGH — The Special Tribunal demand elevates institutional accountability stakes; Russia's continued infrastructure bombing in Spring 2026 makes the resolution politically unavoidable
+
+**3. Armenia Democratic Resilience (TA-10-2026-0162)**
+Adopted April 30, supporting Armenia's EU integration trajectory:
+- Endorses the Armenia-EU Partnership Agenda signed March 2025
+- Calls for accelerated visa liberalization for Armenian citizens
+- Condemns ongoing Azerbaijani pressure on Armenian sovereign territory
+- Supports Armenia's democratic reform process under PM Pashinyan
+**Geopolitical context**: Armenia's pivot away from CSTO (Collective Security Treaty Organization) toward EU orientation is the most significant geopolitical realignment in the South Caucasus since Georgian aspirations
+**Significance**: 🟡 MEDIUM-HIGH — Part of EP's systematic Eastern Partnership strengthening; direct strategic challenge to Russian sphere of influence
+
+### MFF 2028-2034: The Defining Fight Ahead
+
+The April 28 plenary debate on the MFF interim report is the most consequential long-term political development. With the current MFF (2021-2027) entering its final operational years, the negotiations for the next 7-year budget framework will:
+- Determine EU's fiscal capacity for climate, defence, and cohesion until 2034
+- Force the EPP-S&D-Renew tripartite to either agree on spending categories or fragment
+- Define whether EU defence integration becomes a structural budget commitment
+**Key tensions identified from debate speeches (April 28):**
+- EPP prioritizes defence and competitiveness (Draghi Report agenda)
+- S&D demands social cohesion and climate investment maintenance
+- Renew supports fiscal consolidation with strategic investment exceptions
+- Greens/EFA warns of cohesion fund cuts
+- Eastern member states (Poland, Romania, Hungary) fight for cohesion allocations
+**Timeline**: Commission proposal expected Q2 2026; full inter-institutional negotiations through 2026-2027
+
+### Rule of Law: Systemic Pressure Points
+
+The Commission's 2025 Rule of Law Report (debated April 28) continues to document deterioration in:
+- Hungary: judicial independence, media freedom, anti-corruption framework failures
+- Bulgaria: persistent rule of law gaps despite EU accession
+- Poland: backsliding concerns despite new government's reform commitments
+- Romania: corruption prosecution independence questions
+EP enforcement capacity remains limited — Article 7 TEU mechanism against Hungary stalled since 2018. The debate signals continued EP frustration with conditionality mechanisms.
+
+### Structural Intelligence Summary
+
+```mermaid
+mindmap
+  root((EP Breaking\nMay 5 2026))
+    Tech Regulation
+      DMA Enforcement (Apr 30)
+      US-EU tech tension
+      Gatekeeper compliance
+    Security & Defense
+      Ukraine Accountability (Apr 30)
+      Special Tribunal demand
+      Asset seizure push
+    Geopolitics
+      Armenia Resilience (Apr 30)
+      CSTO → EU pivot
+      South Caucasus realignment
+    Budget Politics
+      MFF 2028-34 Interim
+      Defence vs Cohesion battle
+      EPP-S&D-Renew tensions
+    Rule of Law
+      2025 Report debate
+      Hungary Article 7 stall
+      Conditionality enforcement
+```
+

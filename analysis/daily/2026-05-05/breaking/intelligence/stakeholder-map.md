@@ -401,3 +401,98 @@ mindmap
 **Run 3 update**: Coalition mathematics confirm that EPP+S&D+Renew (397 seats) comfortably exceeds majority (361). PfE+ECR+ESN (193 seats) cannot block any resolution. Armenia resolution likely passed with Greens/EFA + Left support supplementing the grand coalition.
 
 *Stakeholder map updated — Run 3, 2026-05-05T15:44Z.*
+
+---
+
+## Run 4 Stakeholder Update — May 5, 2026
+
+### New Stakeholder Profiles from April 28–30 Activity
+
+**Stakeholder Group A: Digital Markets Act — Key Actors**
+
+*European Commission DG COMP (Competition Directorate)*
+Role: Primary DMA enforcement authority. EP's April 30 resolution directly targets this directorate.
+Position post-resolution: Under parliamentary pressure to demonstrate enforcement vigor; April 30 resolution calls for 6-month action plans that will be monitored by EP IMCO committee.
+Internal tensions: DG COMP's institutional preference for case-by-case enforcement vs. EP's demand for systemic enforcement across all gatekeepers simultaneously.
+Strategic behavior: Likely to announce enforcement milestones before summer 2026 recess to satisfy EP oversight demands.
+Confidence: 🟢 HIGH
+
+*Big Tech Gatekeepers (Alphabet, Amazon, Apple, Meta, Microsoft, ByteDance)*
+Role: Regulated entities under DMA; compliance obligation holders.
+Position: Compliance theater vs. genuine structural change debate. Apple's App Store changes (iOS 17.4+) are widely viewed as minimal compliance; Meta's messaging interoperability under challenge.
+Strategic behavior: Intensive lobbying of EPP members (business community alignment); legal challenges to Commission enforcement decisions pending before CJEU.
+Intelligence assessment: Tech companies will contest DMA enforcement via litigation (2-4 year timeline to CJEU ruling), buying compliance delay time.
+Confidence: 🟡 MEDIUM
+
+**Stakeholder Group B: Ukraine Accountability — Key Actors**
+
+*Ukraine Government (Zelensky administration)*
+Role: Primary beneficiary of EP accountability resolution; diplomatic pressure actor.
+Position: Strong support for Special Tribunal; asset seizure for reconstruction financing priority.
+Strategic behavior: Lobbying member states on Tribunal establishment (Estonia, Latvia, Netherlands as champions); EU membership application track maintained alongside military/legal priorities.
+Recent signals: Foreign Minister's visit to Brussels March 2026 focused on Tribunal legal architecture.
+Confidence: 🟢 HIGH
+
+*Russian Federation*
+Role: Defendant/subject of accountability mechanisms; external pressure actor on PfE/ECR.
+Position: Actively lobbying PfE-aligned governments (Hungary, Slovakia) to block accountability measures; economic pressure on European energy importers.
+Strategic behavior: Gas supply manipulation, cyberattacks on EP systems (ENISA confirmed in Q4 2025), disinformation targeting PfE MEPs to oppose sanctions.
+Intelligence assessment: Russia has successfully maintained PfE opposition to Ukraine resolutions, but lost the ECR-East wing (Poland, Baltic states) which consistently votes pro-Ukraine.
+Confidence: 🟡 MEDIUM
+
+*PfE Group (Patriots for Europe — 85 seats)*
+Role: Consistent opposition to Ukraine accountability and sanctions; Russian-aligned on foreign policy.
+Position: April 30 Ukraine resolution opposed or abstained. "Peace negotiations" framing deployed.
+Key members: Marine Le Pen's RN (France, 23 MEPs), Viktor Orbán's Fidesz (Hungary, 10 MEPs), ANO/Babiš (Czech Republic), FPÖ (Austria).
+Internal tension: Le Pen shifting foreign policy under French election pressure; Orbán remains hardline Russia-friendly.
+Confidence: 🟢 HIGH
+
+**Stakeholder Group C: MFF 2028-34 — Budget Principals**
+
+*European Council (27 heads of state/government)*
+Role: MFF must be approved unanimously — every member state has veto.
+Position: Deeply divided on spending priorities. Germany (fiscal consolidation), France (agriculture + defence), Poland (cohesion), Italy (regional development + agriculture), Nordic states (digital + innovation).
+Strategic behavior: Commission proposal Q2 2026 will trigger 18-24 months of inter-institutional negotiations.
+Confidence: 🟢 HIGH
+
+*EPP Group (185 seats) on MFF*
+Role: Key parliament negotiator; aligned with business community's competitiveness agenda.
+Position: Draghi Report implementation — strategic autonomy in AI, semiconductors, defence; willing to trade cohesion for competitiveness.
+Key rapporteur: TBD — will be named post-Commission proposal.
+Confidence: �� MEDIUM
+
+*S&D Group (135 seats) on MFF*
+Role: Social dimension defender; opposes cohesion fund cuts.
+Position: "No cohesion, no deal" — using majority arithmetic leverage to maintain social spending lines.
+Key tension: Must choose between pro-Ukraine defence spending and social fund preservation.
+Confidence: 🟡 MEDIUM
+
+**Stakeholder Group D: Armenia Resilience**
+
+*Armenian Government (PM Nikol Pashinyan)*
+Role: EU integration aspirant; domestically constrained by military security situation.
+Position: Strong welcome for EP resolution; visa liberalization is top domestic political prize.
+Constraint: Azerbaijan's post-2023 military superiority limits Armenian sovereignty over foreign policy direction.
+Confidence: 🟢 HIGH
+
+*Azerbaijani Government (President Aliyev)*
+Role: Regional spoiler; monitoring EU-Armenia relationship.
+Position: Opposes EU-Armenia deep integration as potential security threat; using gas supply leverage with EU (Aliyev signed large EU gas deal 2022, leverage maintained).
+Strategic behavior: Episodic pressure on Armenian border zones to signal capability and limits.
+Confidence: 🟡 MEDIUM
+
+### Stakeholder Interaction Map
+
+```mermaid
+graph LR
+    EP["European Parliament\n(719 MEPs)"] -->|"DMA resolution"| COMP["DG COMP\nEnforcement"]
+    EP -->|"Ukraine accountability\nresolution"| COUNCIL["European Council\n(27 member states)"]
+    EP -->|"Armenia partnership\nsupport"| ARMENIA["Armenia\nGovernment"]
+    COMP -->|"Enforcement actions"| BIGTECH["Big Tech\nGatekeepers"]
+    BIGTECH -->|"Legal challenges"| CJEU["CJEU\nCourt of Justice"]
+    RUSSIA["Russia\nFederation"] -->|"Lobbying via PfE/ECR"| EP
+    RUSSIA -->|"Energy leverage"| COUNCIL
+    AZERBAIJAN["Azerbaijan"] -->|"Gas leverage +\nborder pressure"| COUNCIL
+    COUNCIL -->|"Unanimity required\nMFF + Article 7"| EP
+```
+
