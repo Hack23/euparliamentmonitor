@@ -273,6 +273,8 @@ falling back to World Bank GDP-only data:
    `https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/{datasetCode}/{filter}?format=JSON`
    - Key datasets: `namq_10_gdp` (GDP), `prc_hicp_manr` (HICP),
      `une_rt_m` (unemployment), `gov_10dd_edpt1` (government debt)
+   - Example: `https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/namq_10_gdp/Q.SCA.CLV10_MEUR.B1GQ.EA20?format=JSON&startPeriod=2024-Q1`
+     (quarterly GDP, chain-linked volumes, Eurozone-20)
 2. **Eurostat is NOT an IMF replacement** — use only for EU-aggregate and
    member-state triangulation when IMF is down. Attribution: "Eurostat,
    [Dataset], accessed YYYY-MM-DD" in prose.

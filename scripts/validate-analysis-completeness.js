@@ -88,6 +88,17 @@ const PLACEHOLDER_PATTERNS = [
   /^TODO:/m,
 ];
 
+// dataMode threshold reduction factors — when manifest.dataMode declares a
+// degraded data availability state, line floors are multiplied by this factor.
+// Structural checks (mermaid, WEP, Admiralty, SATs) are never reduced.
+const DATA_MODE_REDUCTION = {
+  'full': 1.0,
+  'title-only': 0.75,
+  'degraded-imf': 0.85,
+  'degraded-voting': 0.85,
+  'minimal': 0.65,
+};
+
 const WEP_BAND_RE =
   /\b(Almost Certain|Highly Likely|Likely|Roughly Even|Even Chance|About even|Unlikely|Highly Unlikely|Almost No Chance|WEP\s*:)\b/i;
 
@@ -495,6 +506,8 @@ function validateArtifact({
 
   const perFloor = rules.perArtifactFloors?.[relativePath] ?? null;
   const rawFloor = Math.max(options.minLines, perFloor ?? 0);
+  // Math.floor rounds down — a 200-line floor under 0.85 reduction becomes 170,
+  // not 171. The floor never drops below DEFAULT_MIN_LINES regardless of reduction.
   result.minLines = Math.max(DEFAULT_MIN_LINES, Math.floor(rawFloor * dataModeReduction));
   if (result.lines < result.minLines) {
     result.issues.push(
@@ -945,13 +958,6 @@ function main() {
   // with the available data. The reduction ONLY applies to line floors —
   // structural requirements (mermaid, WEP, Admiralty, SATs) remain unchanged.
   const dataMode = manifest.dataMode || 'full';
-  const DATA_MODE_REDUCTION = {
-    'full': 1.0,
-    'title-only': 0.75,
-    'degraded-imf': 0.85,
-    'degraded-voting': 0.85,
-    'minimal': 0.65,
-  };
   const dataModeReduction = DATA_MODE_REDUCTION[dataMode] || 1.0;
   if (dataMode !== 'full') {
     process.stderr.write(
