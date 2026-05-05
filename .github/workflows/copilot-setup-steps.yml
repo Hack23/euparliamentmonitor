@@ -16,7 +16,8 @@ env:
   GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
   COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
   DISPLAY: ":99"
-  EP_REQUEST_TIMEOUT_MS: "90000"
+  EP_REQUEST_TIMEOUT_MS: "180000"
+  IMF_API_TIMEOUT_MS: "180000"
 
 jobs:
   # The job MUST be called `copilot-setup-steps` or it will not be picked up by Copilot.

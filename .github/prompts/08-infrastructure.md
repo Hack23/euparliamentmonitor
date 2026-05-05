@@ -12,11 +12,12 @@ not behaviour.
 Every `news-*.md` workflow defines `runtimes:`, `network:`, `tools:`, and its
 own `safe-outputs:` block directly in the workflow frontmatter. The
 `mcp-servers:` block is **not** inlined per workflow — it is provided via a
-shared gh-aw import so the four MCP mounts (European Parliament, World Bank,
-memory, sequential-thinking) stay in lockstep across all workflows. The IMF
-integration uses a **native TypeScript client** (not an MCP server) and is
-invoked directly from workflow bash steps via `scripts/imf-mcp-probe.sh` and
-the `ep-mcp-client.js` / `imf-mcp-client.js` compiled modules.
+shared gh-aw import so the five MCP mounts (European Parliament, World Bank,
+fetch-proxy, memory, sequential-thinking) stay in lockstep across all
+workflows. The IMF integration uses the **native TypeScript client** for SDMX
+parsing and request construction, with the shared `fetch-proxy` MCP server as
+the primary gh-aw/AWF transport because direct HTTPS from the agent sandbox can
+be blocked by Squid.
 
 ```yaml
 imports:
@@ -107,13 +108,17 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.21", "--timeout", "120000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.21", "--timeout", "180000"]
     env:
-      EP_REQUEST_TIMEOUT_MS: "120000"
+      EP_REQUEST_TIMEOUT_MS: "180000"
   world-bank:
     container: "node:25-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "worldbank-mcp@1.0.1"]
+  fetch-proxy:
+    container: "node:25-alpine"
+    entrypoint: "node"
+    entrypointArgs: ["-e", "<inline IMF-only JSON-RPC fetch server>"]
   memory:
     container: "node:25-alpine"
     entrypoint: "npx"
@@ -137,8 +142,13 @@ Safe-outputs block: see [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md)
   field entirely.
 - ❌ Never use `node:lts-alpine` — the compile workflow normalizes it to
   `node:25-alpine` and fails if it persists.
-- ✅ `EP_REQUEST_TIMEOUT_MS: "120000"` (120 s) handles slow feed endpoints.
-- Other contexts (`copilot-setup-steps.yml`, `copilot-mcp.json`) may use 90 s.
+- ✅ `EP_REQUEST_TIMEOUT_MS: "180000"` (180 s) handles slow feed endpoints.
+- ✅ `fetch-proxy` must expose exactly `fetch_url`, must not use `\n` string
+  literals in the inline `node -e` script (gh-aw/docker argument decoding can
+  turn them into invalid embedded newlines), and must constrain fetches to
+  `https://dataservices.imf.org/REST/SDMX_3.0/`.
+- Other contexts (`copilot-setup-steps.yml`, `copilot-mcp.json`) use the same
+  180 s EP timeout to avoid drift between local Copilot and gh-aw runs.
 
 ## 3 · MCP Gateway Setup Script
 
@@ -150,8 +160,10 @@ on gh-aw v0.69+) and exports:
 EP_MCP_GATEWAY_URL=http://host.docker.internal:8080/mcp/european-parliament
 EP_MCP_GATEWAY_API_KEY=<extracted via node -e, no jq>
 WORLD_BANK_MCP_SERVER_URL=http://host.docker.internal:8080/mcp/world-bank
-IMF_API_BASE_URL=https://dataservices.imf.org/REST/SDMX_3.0/
-MCP_CLIENT_TIMEOUT_MS=120000
+FETCH_MCP_GATEWAY_URL=http://host.docker.internal:8080/mcp/fetch-proxy
+IMF_API_BASE_URL=https://dataservices.imf.org/REST/SDMX_3.0
+MCP_CLIENT_TIMEOUT_MS=180000
+IMF_API_TIMEOUT_MS=120000
 ```
 
 Token priority: `gateway.apiKey` → `mcpServers['european-parliament'].headers.Authorization`.

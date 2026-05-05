@@ -3,7 +3,9 @@
 > **Skill**: Invoke IMF economic data in EU Parliament Monitor articles
 > and analysis via the **native TypeScript SDMX 3.0 REST client**
 > (`src/mcp/imf-mcp-client.ts`), which calls
-> `https://dataservices.imf.org/REST/SDMX_3.0/` directly. Under
+> `https://dataservices.imf.org/REST/SDMX_3.0/` through the shared
+> `fetch-proxy` MCP gateway in gh-aw/AWF and directly in local/non-AWF
+> contexts. Under
 > ** editorial policy (April 2026)** IMF is the **sole
 > authoritative source for every economic claim** in EU Parliament
 > Monitor articles — macro, fiscal, monetary, trade, FDI,
@@ -18,7 +20,8 @@ forecast marker within 30 words of any projected number.
 
 > **Transport note:** The first iteration proxied through the
 > Python `c-cf/imf-data-mcp` MCP server. That transport was replaced
-> with a native TypeScript HTTP client — the public API
+> with a native TypeScript HTTP client plus the repo-local IMF-only
+> `fetch-proxy` MCP gateway for AWF sandbox egress — the public API
 > (`IMFMCPClient`, five tool methods, `MCPToolResult`-shaped return
 > envelope) is identical.
 
@@ -176,7 +179,8 @@ network:
     - dataservices.imf.org
 ```
 
-This is the SDMX 3.0 REST host the native TypeScript client calls. Do
+This is the SDMX 3.0 REST host the native TypeScript client calls directly
+outside AWF and the shared `fetch-proxy` MCP server calls inside AWF. Do
 **NOT** add `data.imf.org` (DataMapper site) or `api.imf.org` unless
 those endpoints are actually being hit.
 
@@ -193,7 +197,9 @@ export IMF_API_BASE_URL="https://dataservices.imf.org/REST/SDMX_3.0"
 Override via `IMF_API_BASE_URL` when mirroring. IMF SDMX 3.0 is an
 unauthenticated public endpoint — no API key is required.
 
-Per-request timeout: 30 s (override with `IMF_API_TIMEOUT_MS`).
+Per-request timeout: 90 s in the TypeScript client by default, raised to
+120 s by `scripts/mcp-setup.sh` for gh-aw runs and 180 s in Copilot setup
+contexts (override with `IMF_API_TIMEOUT_MS`).
 
 ---
 
@@ -218,6 +224,9 @@ existing workflow prompts do not need to change.
 
 - **Endpoint:** `https://dataservices.imf.org/REST/SDMX_3.0` (override with
   `IMF_API_BASE_URL` only for an approved mirror).
+- **Transport:** `FETCH_MCP_GATEWAY_URL` first in gh-aw/AWF, direct HTTPS
+  fallback for local/non-AWF runs. A fetch-proxy registration failure is an
+  infrastructure defect, not an IMF data outage.
 - **Authentication:** none. IMF SDMX 3.0 is public HTTPS; do not send GitHub,
   MCP gateway, or other bearer tokens to the IMF host.
 - **TLS / attribution:** use HTTPS only and attribute article claims as

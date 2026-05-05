@@ -170,7 +170,13 @@ not secondary, not fallback)**:
   breaking / weekly-review / motions / propositions ≥ 1. Full table in
   [`analysis/methodologies/imf-indicator-mapping.md §8`](../../analysis/methodologies/imf-indicator-mapping.md).
 - Connectivity probes: `source scripts/wb-mcp-probe.sh` and
-  `scripts/imf-mcp-probe.sh` after `scripts/mcp-setup.sh`. For
+  `scripts/imf-mcp-probe.sh` after `scripts/mcp-setup.sh`. The IMF probe
+  uses the shared `fetch-proxy` MCP gateway first (`FETCH_MCP_GATEWAY_URL`)
+  and direct HTTPS only as a local/non-AWF fallback. The probe summary JSON
+  includes a `"gatewayStatus"` field that distinguishes infrastructure failures
+  (e.g. `"error:gateway-post-failed(exit=7)"`) from genuine IMF outages
+  (`"ok"` with `"available":false`). If `gatewayStatus` reports an error, fix
+  the shared MCP component rather than treating IMF as unavailable. For
   `week-in-review`, `month-in-review`, `week-ahead`, and `month-ahead`, start
   the IMF probe in the background at the beginning of Stage A and cache its JSON
   under `${ANALYSIS_DIR}/cache/imf/` while EP MCP calls continue. The probe
@@ -199,7 +205,10 @@ not secondary, not fallback)**:
   for horizon-dependent optimism-bias caveats.
 
 Integration requirements:
-1. Call `imf-search-databases` first to discover the best database (or
+1. Use the native IMF client virtual methods (`imf-search-databases`,
+   `imf-fetch-data`) through `src/mcp/imf-mcp-client.ts` or the cached probe
+   files; do not call a non-existent IMF MCP server. Call
+   `imf-search-databases` first to discover the best database (or
    `search-indicators` for WB non-economic).
 2. Fetch ≥ 2 EU countries (Big Four `DE`/`FR`/`IT`/`ES` or affected
    member states) or use an IMF aggregate (`EU`/`EA`).
@@ -211,6 +220,11 @@ Integration requirements:
 6. Bridge every economic indicator to a named EP file, committee, procedure,
    vote, or stakeholder pressure. A standalone macro paragraph with no EP
    political mechanism fails Stage C even when it cites IMF correctly.
+7. When IMF is unavailable, **do not substitute World Bank GDP, inflation,
+   unemployment, fiscal, trade, FDI, exchange-rate, or banking indicators as
+   economic proxies**. Mark the run IMF-degraded, cite the saved probe error,
+   and either proceed without quantitative economic claims (where allowed) or
+   stop with `ANALYSIS_ONLY` for ECON/BUDG/INTA scoped runs.
 
 ## 5 · Data Verification Manifest
 
