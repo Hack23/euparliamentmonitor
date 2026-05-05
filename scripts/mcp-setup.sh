@@ -11,7 +11,8 @@
 #   npx tsx scripts/generate-news-enhanced.ts --types=committee-reports ...
 #
 # Sets: EP_MCP_GATEWAY_URL, EP_MCP_GATEWAY_API_KEY, MCP_CLIENT_TIMEOUT_MS,
-#       WORLD_BANK_MCP_SERVER_URL
+#       WORLD_BANK_MCP_SERVER_URL, FETCH_MCP_GATEWAY_URL,
+#       IMF_API_BASE_URL, IMF_API_TIMEOUT_MS
 #
 # Gateway address resolution priority:
 #   1. gateway.port + gateway.domain from MCP config JSON (gh-aw writes these)

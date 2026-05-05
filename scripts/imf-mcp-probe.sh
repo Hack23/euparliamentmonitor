@@ -11,8 +11,9 @@
 #   scripts/imf-mcp-probe.sh
 #
 # The historical filename is retained for compatibility with prompts that
-# refer to "IMF MCP" data. The transport is direct HTTPS to the public IMF
-# SDMX 3.0 REST endpoint; no API key is required and no MCP gateway is used.
+# refer to "IMF MCP" data. In gh-aw/AWF runs the primary transport is the
+# repo-local fetch-proxy MCP server, constrained to the public IMF SDMX 3.0
+# REST endpoint; direct HTTPS remains the fallback for local/non-AWF runs.
 #
 # Sets when sourced:
 #   IMF_MCP_OK — "true" on success or cache hit, "false" otherwise.

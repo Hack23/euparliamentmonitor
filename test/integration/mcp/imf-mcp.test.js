@@ -142,6 +142,40 @@ describe('integration — IMF REST client surface', () => {
     expect(url).toContain('format=jsondata');
   });
 
+  it('uses the fetch-proxy gateway before direct IMF fetch when configured', async () => {
+    const fetchSpy = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      statusText: 'OK',
+      async text() {
+        return JSON.stringify({
+          result: { content: [{ text: '{"data":{"dataSets":[{"observations":{"0":1}}]}}' }] },
+        });
+      },
+    });
+    const client = new IMFMCPClient({
+      apiBaseUrl: TEST_BASE_URL,
+      fetchProxyGatewayUrl: 'http://host.docker.internal:8080/mcp/fetch-proxy',
+      fetchProxyApiKey: 'test-token',
+      fetchImpl: fetchSpy,
+    });
+
+    const result = await client.fetchData({
+      databaseId: 'WEO',
+      startYear: 2025,
+      endYear: 2026,
+      filters: { country: ['EA'], indicator: ['NGDP_RPCH'] },
+    });
+
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(fetchSpy.mock.calls[0][0]).toBe('http://host.docker.internal:8080/mcp/fetch-proxy');
+    expect(fetchSpy.mock.calls[0][1].headers.Authorization).toBe('Bearer test-token');
+    expect(JSON.parse(fetchSpy.mock.calls[0][1].body).params.arguments.url).toContain(
+      `${TEST_BASE_URL}/data/WEO/EA.NGDP_RPCH.?`
+    );
+    expect(result.content[0].text).toContain('dataSets');
+  });
+
   it('non-2xx responses surface as the empty fallback (caller-friendly)', async () => {
     const client = new IMFMCPClient({
       apiBaseUrl: TEST_BASE_URL,

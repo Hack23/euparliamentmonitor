@@ -4,8 +4,9 @@
 /**
  * @module MCP/IMFMCPClient
  * @description Native TypeScript IMF Data client — calls the IMF SDMX 3.0
- * REST API at {@link https://dataservices.imf.org/REST/SDMX_3.0/} directly
- * via `fetch()`, with no external MCP server process.
+ * REST API at {@link https://dataservices.imf.org/REST/SDMX_3.0/} via the
+ * shared IMF-only `fetch-proxy` MCP gateway in gh-aw/AWF runs and direct
+ * `fetch()` in local/non-AWF contexts.
  *
  * Historical note: the first Wave-1 iteration delegated to the Python
  * `c-cf/imf-data-mcp` MCP server. That dependency blocked Wave 0 rollout
@@ -643,8 +644,8 @@ export class IMFMCPClient {
 
   /**
    * Build a full URL and GET it as text, enforcing the client-wide timeout.
-   * Tries the MCP fetch-proxy gateway first (bypasses AWF Squid proxy in
-   * agentic workflow sandbox), then falls back to direct fetch.
+   * Tries the IMF-only MCP fetch-proxy gateway first (bypasses AWF Squid
+   * proxy in agentic workflow sandbox), then falls back to direct fetch.
    *
    * @param path - Path (already URL-encoded) to append to the base URL.
    * @returns Response body (`text/*` or `application/*`) as a string.
@@ -692,6 +693,9 @@ export class IMFMCPClient {
    * @internal
    */
   private async _fetchViaGateway(url: string): Promise<string | null> {
+    const gatewayUrl = this._fetchProxyGatewayUrl;
+    if (!gatewayUrl) return null;
+
     const rpcRequest = {
       jsonrpc: '2.0' as const,
       id: Date.now(),
@@ -713,7 +717,7 @@ export class IMFMCPClient {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), this._timeoutMs);
     try {
-      const response = await this._fetchImpl(this._fetchProxyGatewayUrl!, {
+      const response = await this._fetchImpl(gatewayUrl, {
         method: 'POST',
         headers,
         body: JSON.stringify(rpcRequest),

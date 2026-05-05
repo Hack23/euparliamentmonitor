@@ -476,8 +476,8 @@ export class IMFMCPClient {
     // ─── private transport helpers ─────────────────────────────────────────────
     /**
      * Build a full URL and GET it as text, enforcing the client-wide timeout.
-     * Tries the MCP fetch-proxy gateway first (bypasses AWF Squid proxy in
-     * agentic workflow sandbox), then falls back to direct fetch.
+     * Tries the IMF-only MCP fetch-proxy gateway first (bypasses AWF Squid
+     * proxy in agentic workflow sandbox), then falls back to direct fetch.
      *
      * @param path - Path (already URL-encoded) to append to the base URL.
      * @returns Response body (`text/*` or `application/*`) as a string.
@@ -525,6 +525,9 @@ export class IMFMCPClient {
      * @internal
      */
     async _fetchViaGateway(url) {
+        const gatewayUrl = this._fetchProxyGatewayUrl;
+        if (!gatewayUrl)
+            return null;
         const rpcRequest = {
             jsonrpc: '2.0',
             id: Date.now(),
@@ -544,7 +547,7 @@ export class IMFMCPClient {
         const controller = new AbortController();
         const timer = setTimeout(() => controller.abort(), this._timeoutMs);
         try {
-            const response = await this._fetchImpl(this._fetchProxyGatewayUrl, {
+            const response = await this._fetchImpl(gatewayUrl, {
                 method: 'POST',
                 headers,
                 body: JSON.stringify(rpcRequest),
