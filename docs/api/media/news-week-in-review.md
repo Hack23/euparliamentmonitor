@@ -116,7 +116,7 @@ tools:
     allowed-extensions: [".md", ".json"]
     max-file-size: 102400
     max-file-count: 50
-    max-patch-size: 102400
+    max-patch-size: 10240
 
 safe-outputs:
   threat-detection:
