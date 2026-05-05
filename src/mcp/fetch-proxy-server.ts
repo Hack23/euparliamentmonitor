@@ -188,7 +188,7 @@ export function handleToolsList(id: number | string | null): JsonRpcSuccess {
 export async function handleFetchUrl(
   id: number | string | null,
   url: string | undefined,
-  fetchImpl: typeof fetch = globalThis.fetch,
+  fetchImpl: typeof fetch = globalThis.fetch
 ): Promise<JsonRpcSuccess | JsonRpcError> {
   if (!url || !isAllowedImfUrl(url)) {
     return {
@@ -241,7 +241,7 @@ export async function handleFetchUrl(
 export function runServer(
   input: NodeJS.ReadableStream = process.stdin,
   output: NodeJS.WritableStream = process.stdout,
-  fetchImpl: typeof fetch = globalThis.fetch,
+  fetchImpl: typeof fetch = globalThis.fetch
 ): Promise<void> {
   const send = (obj: unknown): void => {
     output.write(toWire(obj));

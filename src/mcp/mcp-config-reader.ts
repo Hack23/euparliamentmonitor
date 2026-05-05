@@ -136,7 +136,7 @@ export function extractApiKey(config: McpConfigJson): string | undefined {
  */
 export function readMcpConfig(
   configPath: string,
-  readFileImpl: (path: string, encoding: BufferEncoding) => string = fs.readFileSync,
+  readFileImpl: (path: string, encoding: BufferEncoding) => string = fs.readFileSync
 ): GatewayConfig {
   let raw: string;
   try {
@@ -156,9 +156,7 @@ export function readMcpConfig(
 
   const rawPort = config.gateway?.port;
   const port =
-    rawPort !== undefined && rawPort !== ''
-      ? Number.parseInt(String(rawPort), 10)
-      : undefined;
+    rawPort !== undefined && rawPort !== '' ? Number.parseInt(String(rawPort), 10) : undefined;
   const parsedPort = port !== undefined && Number.isFinite(port) ? port : undefined;
 
   const domain =
