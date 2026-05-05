@@ -636,4 +636,122 @@ describe('imf-mcp-client', () => {
       await expect(getIMFMCPClient({ apiBaseUrl: 'not a url' })).rejects.toThrow(/Invalid IMF_API_BASE_URL/);
     });
   });
+
+  describe('fetch-proxy gateway — gateway-without-key', () => {
+    // Verifies the root-cause fix from PR #1687:
+    // The gateway must be tried when FETCH_MCP_GATEWAY_URL is set even if
+    // EP_MCP_GATEWAY_API_KEY is absent/empty.  Before the fix the condition
+    // required BOTH the URL and the key, so the gateway was silently skipped
+    // when the key extraction from mcp-config.json failed.
+    //
+    // The gateway uses JSON-RPC 2.0 over HTTP POST.  The mock must return a
+    // valid JSON-RPC envelope so _fetchViaGateway succeeds and the direct
+    // fallback is NOT triggered (which would add a second fetchImpl call).
+    function gatewayResponse(imfData) {
+      return mockFetchResponse(
+        JSON.stringify({
+          jsonrpc: '2.0',
+          id: 1,
+          result: { content: [{ text: JSON.stringify(imfData) }] },
+        })
+      );
+    }
+
+    it('routes through the fetch-proxy gateway when URL is set but API key is empty', async () => {
+      const fetchImpl = vi.fn().mockResolvedValue(
+        gatewayResponse({ data: { dataflows: [] } })
+      );
+      const client = new IMFMCPClient({
+        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+        fetchProxyGatewayUrl: 'http://fetch-proxy:3000',
+        fetchProxyApiKey: '',   // empty key — gateway must still be tried
+        fetchImpl,
+      });
+
+      await client.listDatabases();
+      // Gateway is tried via POST; direct fallback must NOT fire.
+      expect(fetchImpl).toHaveBeenCalledTimes(1);
+      const calledUrl = fetchImpl.mock.calls[0][0];
+      expect(calledUrl).toContain('fetch-proxy:3000');
+      // No Authorization header should be sent when key is empty
+      const calledOptions = fetchImpl.mock.calls[0][1];
+      expect(calledOptions?.headers?.['Authorization']).toBeUndefined();
+    });
+
+    it('routes through the gateway when URL is set and key is undefined', async () => {
+      const fetchImpl = vi.fn().mockResolvedValue(
+        gatewayResponse({ data: { dataflows: [] } })
+      );
+      const client = new IMFMCPClient({
+        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+        fetchProxyGatewayUrl: 'http://fetch-proxy:3000',
+        // fetchProxyApiKey intentionally omitted
+        fetchImpl,
+      });
+
+      await client.listDatabases();
+      expect(fetchImpl).toHaveBeenCalledTimes(1);
+      const calledUrl = fetchImpl.mock.calls[0][0];
+      expect(calledUrl).toContain('fetch-proxy:3000');
+    });
+
+    it('includes Authorization header when key is present', async () => {
+      const fetchImpl = vi.fn().mockResolvedValue(
+        gatewayResponse({ data: { dataflows: [] } })
+      );
+      const client = new IMFMCPClient({
+        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+        fetchProxyGatewayUrl: 'http://fetch-proxy:3000',
+        fetchProxyApiKey: 'secret-token',
+        fetchImpl,
+      });
+
+      await client.listDatabases();
+      expect(fetchImpl).toHaveBeenCalledTimes(1);
+      const calledOptions = fetchImpl.mock.calls[0][1];
+      expect(calledOptions?.headers?.['Authorization']).toBe('Bearer secret-token');
+    });
+
+    it('falls back to direct fetch when gateway returns an error envelope', async () => {
+      const gatewayError = mockFetchResponse(
+        JSON.stringify({ jsonrpc: '2.0', id: 1, error: { code: -1, message: 'blocked' } })
+      );
+      const directSuccess = mockFetchResponse(
+        JSON.stringify({ data: { dataflows: [] } })
+      );
+      const fetchImpl = vi.fn()
+        .mockResolvedValueOnce(gatewayError)
+        .mockResolvedValueOnce(directSuccess);
+
+      const client = new IMFMCPClient({
+        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+        fetchProxyGatewayUrl: 'http://fetch-proxy:3000',
+        fetchImpl,
+      });
+
+      await client.listDatabases();
+      // First call is the gateway attempt, second call is the direct fallback
+      expect(fetchImpl).toHaveBeenCalledTimes(2);
+      expect(fetchImpl.mock.calls[0][0]).toContain('fetch-proxy:3000');
+      expect(fetchImpl.mock.calls[1][0]).toContain('dataservices.imf.org');
+    });
+
+    it('does NOT route through the gateway when URL is absent', async () => {
+      const fetchImpl = vi.fn().mockResolvedValue(
+        mockFetchResponse(JSON.stringify({ data: { dataflows: [] } }))
+      );
+      const client = new IMFMCPClient({
+        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+        // fetchProxyGatewayUrl intentionally omitted
+        fetchImpl,
+      });
+
+      await client.listDatabases();
+      expect(fetchImpl).toHaveBeenCalledTimes(1);
+      const calledUrl = fetchImpl.mock.calls[0][0];
+      // Should call IMF directly (not through any proxy gateway)
+      expect(calledUrl).toContain('dataservices.imf.org');
+      expect(calledUrl).not.toContain('fetch-proxy');
+    });
+  });
 });

@@ -656,8 +656,13 @@ export class IMFMCPClient {
   private async _getText(path: string): Promise<string> {
     const url = `${this._apiBaseUrl}${path.startsWith('/') ? path : `/${path}`}`;
 
-    // Strategy 1: MCP fetch-proxy gateway (bypasses AWF Squid proxy)
-    if (this._fetchProxyGatewayUrl && this._fetchProxyApiKey) {
+    // Strategy 1: MCP fetch-proxy gateway (bypasses AWF Squid proxy).
+    // The API key is optional — the gateway adds the Authorization header only
+    // when the key is present. Without a key the request is sent unauthenticated,
+    // which is sufficient for local AWF container-to-container traffic (same
+    // Docker network). Requiring the key here caused IMF degraded mode whenever
+    // EP_MCP_GATEWAY_API_KEY extraction from mcp-config.json failed silently.
+    if (this._fetchProxyGatewayUrl) {
       try {
         const result = await this._fetchViaGateway(url);
         if (result !== null) return result;

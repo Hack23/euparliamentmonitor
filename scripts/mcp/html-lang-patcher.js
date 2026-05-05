@@ -1,0 +1,137 @@
+// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+// SPDX-License-Identifier: Apache-2.0
+/**
+ * @module MCP/HtmlLangPatcher
+ * @description Patches structural HTML metadata in a copied English article
+ * file so that the file's language-specific markup matches the target locale.
+ *
+ * ## What this does
+ *
+ * When a new article is generated in English and then copied to language-
+ * specific placeholder files (e.g. `news/2025-01-01-breaking-de.html`),
+ * the copy still contains English-language metadata. This module rewrites
+ * only the metadata regions of the file (NOT the article body text, which
+ * is translated separately by an AI translation step):
+ *
+ * - `<html lang="en">` → `<html lang="<lang>">`
+ * - `<html dir="ltr|rtl">` → `<html dir="<langDir>">`
+ * - `<article lang="en">` → `<article lang="<lang>">`
+ * - JSON-LD `"inLanguage": "en"` → `"inLanguage": "<lang>"`
+ * - `<meta property="og:locale" content="...">` → target `ogLocale`
+ * - Self-referential URLs in `<link>` / `<meta>` tags and JSON-LD `@id`/`url`
+ *   fields: replaces the English filename component with the language-specific
+ *   filename component so canonical/og:url links point to the right file.
+ *
+ * ## Usage
+ *
+ * ```typescript
+ * import { patchHtmlLang } from './html-lang-patcher.js';
+ *
+ * patchHtmlLang('/path/to/news/2025-01-01-breaking-de.html', {
+ *   lang: 'de',
+ *   langDir: 'ltr',
+ *   ogLocale: 'de_DE',
+ *   enBasename: '2025-01-01-breaking.html',
+ *   langBasename: '2025-01-01-breaking-de.html',
+ * });
+ * ```
+ *
+ * Or use the lower-level {@link patchHtmlContent} to work with string content
+ * directly (without reading/writing files).
+ *
+ * @author Hack23 AB
+ * @license Apache-2.0
+ */
+import * as fs from 'node:fs';
+// ─── Core logic (pure — operates on string content) ──────────────────────────
+/**
+ * Apply all language patches to the given HTML content string and return the
+ * patched string.
+ *
+ * Scope is intentionally narrow: only document-level lang/dir attributes,
+ * JSON-LD language fields, og:locale, and self-referential URL fields are
+ * rewritten. Body content is left untouched.
+ *
+ * @param content - Raw HTML file content.
+ * @param opts - Patch parameters.
+ * @returns Patched HTML content.
+ */
+export function patchHtmlContent(content, opts) {
+    const { lang, langDir, ogLocale, enBasename, langBasename } = opts;
+    let c = content;
+    // 1. Document-level <html> and <article> lang/dir attributes
+    c = c.replace(/(<html\b[^>]*\s)lang="en"/, `$1lang="${lang}"`);
+    c = c.replace(/(<html\b[^>]*\s)dir="(?:ltr|rtl)"/, `$1dir="${langDir}"`);
+    c = c.replace(/(<article\b[^>]*\s)lang="en"/, `$1lang="${lang}"`);
+    // 2. JSON-LD inLanguage
+    c = c.replace(/("inLanguage"\s*:\s*")en(")/g, `$1${lang}$2`);
+    // 3. og:locale meta tag
+    c = c.replace(/(<meta\s+property="og:locale"\s+content=")[^"]*(")/g, `$1${ogLocale}$2`);
+    // 4. Self-referential URL fields: canonical/og:url link/meta tags AND JSON-LD @id/url
+    const enEsc = enBasename.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const urlFieldRe = new RegExp(`(<(?:link|meta)\\s[^>]*(?:href|content)=")([^"]*)(")` +
+        `|("(?:@id|url|mainEntityOfPage)"\\s*:\\s*")([^"]*)(")`, 'g');
+    c = c.replace(urlFieldRe, (match, p1, p2, p3, j1, j2, j3) => {
+        if (p1)
+            return p1 + p2.replace(new RegExp(enEsc, 'g'), langBasename) + p3;
+        if (j1)
+            return j1 + j2.replace(new RegExp(enEsc, 'g'), langBasename) + j3;
+        return match;
+    });
+    return c;
+}
+// ─── File I/O wrapper ─────────────────────────────────────────────────────────
+/**
+ * Read an HTML file, apply language patches, and write the result back to the
+ * same file (in-place).
+ *
+ * @param filePath - Absolute path to the target HTML file.
+ * @param opts - Patch parameters.
+ * @param readFileImpl - Injectable read function (default: `fs.readFileSync`).
+ * @param writeFileImpl - Injectable write function (default: `fs.writeFileSync`).
+ * @throws If the file cannot be read or written.
+ */
+export function patchHtmlLang(filePath, opts, readFileImpl = fs.readFileSync, writeFileImpl = fs.writeFileSync) {
+    const original = readFileImpl(filePath, 'utf8');
+    const patched = patchHtmlContent(original, opts);
+    writeFileImpl(filePath, patched, 'utf8');
+}
+// ─── CLI entry point ──────────────────────────────────────────────────────────
+/**
+ * CLI entry point — mirrors the argument order used in the `node -e` snippet
+ * inside `news-translate.md`:
+ *
+ * ```
+ * node html-lang-patcher.js <filePath> <lang> <langDir> <ogLocale> <enBasename> <langBasename>
+ * ```
+ *
+ * @param argv - `process.argv` array (or equivalent for testing).
+ */
+export function runCli(argv = process.argv) {
+    const [, , filePath, lang, langDir, ogLocale, enBasename, langBasename] = argv;
+    if (!filePath || !lang || !langDir || !ogLocale || !enBasename || !langBasename) {
+        process.stderr.write('Usage: html-lang-patcher <filePath> <lang> <langDir> <ogLocale> <enBasename> <langBasename>' +
+            String.fromCharCode(10));
+        process.exit(1);
+        return;
+    }
+    if (langDir !== 'ltr' && langDir !== 'rtl') {
+        process.stderr.write(`Error: langDir must be "ltr" or "rtl", got "${langDir}"` + String.fromCharCode(10));
+        process.exit(1);
+        return;
+    }
+    patchHtmlLang(filePath, {
+        lang,
+        langDir: langDir,
+        ogLocale,
+        enBasename,
+        langBasename,
+    });
+}
+// Run when executed directly
+if (process.argv[1] !== undefined &&
+    (process.argv[1].endsWith('html-lang-patcher.js') ||
+        process.argv[1].endsWith('html-lang-patcher.ts'))) {
+    runCli();
+}
+//# sourceMappingURL=html-lang-patcher.js.map
