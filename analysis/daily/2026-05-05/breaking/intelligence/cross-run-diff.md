@@ -85,4 +85,30 @@ No methodology changes from prior runs. Standard news-breaking.md workflow appli
 
 ---
 
-*First run for 2026-05-05 date; no prior same-day run to compare against. Comparison uses estimated prior run baselines from workflow history context. Produced: 2026-05-05.*
+*First run for 2026-05-05 date; no prior same-day run to compare against. Comparison uses estimated prior run baselines from workflow history context. Produced: 2026-05-05T07:05Z (run 2).*
+
+---
+
+## 6. Run 2 Incremental Improvements (2026-05-05, Second Run)
+
+This second run of the 2026-05-05 breaking analysis improves upon the first run (breaking-run-1777942844) in the following areas:
+
+### Data Improvements
+- **Adopted texts feed**: Now returning full feed including 41 items (April 28–30 texts confirmed available)
+- **Political landscape**: Updated coalition dynamics confirmed (EPP 185, S&D 135, majority threshold 361)
+- **Early warning**: New structured alert issued — HIGH severity DOMINANT_GROUP_RISK for EPP dominance pattern
+
+### Analysis Improvements
+- **economic-context.md**: Extended from 138L to 198L — added DMA enforcement gap economics, defence economy analysis, Armenia development economics, budget political economy table
+- **cross-session-intelligence.md**: Extended from 116L to 169L — added EP10 assertiveness pattern, immunity waiver pattern, digital governance cross-session analysis, session benchmarking
+- **extended/**: All 12 required extended artifacts created (previously 0L)
+- **IMF status**: Still degraded — IMF minimums waiver applies per Stage C protocol
+
+### Intelligence Delta from Prior Run
+| Item | Prior Run | This Run | Change |
+|------|-----------|---------|--------|
+| Adopted texts available | 0 (all 404) | 41 in feed, April dates confirmed | ✅ IMPROVEMENT |
+| Economic context depth | 138L | 198L | ✅ +60L |
+| Extended artifact count | 0/12 | 12/12 | ✅ COMPLETE |
+| Events feed | UNAVAILABLE | UNAVAILABLE | — UNCHANGED |
+| IMF data | UNAVAILABLE | UNAVAILABLE | — UNCHANGED |

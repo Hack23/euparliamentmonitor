@@ -42,6 +42,8 @@
   "sources": [
     "classification/actor-mapping.md",
     "executive-brief.md",
+    "extended/executive-brief.md",
+    "extended/forward-indicators.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/economic-context.md",
     "intelligence/scenario-forecast.md",

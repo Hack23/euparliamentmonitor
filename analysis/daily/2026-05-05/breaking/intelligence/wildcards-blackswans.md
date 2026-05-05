@@ -283,3 +283,21 @@ The Monitor should maintain a **wildcard watchlist** — a standing briefing not
 | 3 | WC-E1 (German coalition) | German coalition confidence votes; budget votes | Weekly |
 | 4 | WC-C1 (Negative cascade) | Any two of three triggers firing | Event-driven |
 | 5 | WC-G1 (Nuclear escalation) | NATO intelligence assessments; media signals | Standing watch |
+
+---
+
+## Visual: Wildcard Risk Map
+
+```mermaid
+graph TD
+    A[Black Swan Scenarios] --> B[WC-G1: Nuclear escalation — LOW probability HIGH impact]
+    A --> C[WC-G2: Hungary Article 7 escalation — MEDIUM probability HIGH impact]
+    A --> D[WC-D1: CJEU DMA ruling — HIGH probability MEDIUM impact]
+    A --> E[WC-E1: German coalition collapse — MEDIUM probability HIGH impact]
+    A --> F[WC-C1: Negative cascade — LOW probability CRITICAL impact]
+    B --> Risk[Combined Risk Monitor]
+    C --> Risk
+    D --> Risk
+    E --> Risk
+    F --> Risk
+```
