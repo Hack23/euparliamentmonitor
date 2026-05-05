@@ -253,3 +253,46 @@ To resolve the uncertainty identified in this devil's advocate review, the follo
 **Net effect of devil's advocate process**: Calibrated significance downward on all substantive claims by 15–20% while increasing confidence in the meta-analytical framework.
 
 *Devil's advocate analysis complete — Run 3 version, 2026-05-05T15:40Z*
+
+---
+
+## Run 4 Devil's Advocate — May 5, 2026
+
+### Challenging the Conventional Analysis
+
+**Devil's Advocate Position 1: DMA Enforcement Resolution Is Symbolic Theater**
+
+*Conventional view:* April 30 DMA enforcement resolution demonstrates EP's robust digital governance stance.
+
+*Devil's advocate:* The resolution is non-binding. The Commission is already required by statute to enforce DMA; an EP resolution telling them to "do it faster" has no legal effect whatsoever. The 2-4 year CJEU litigation timelines are set by treaty procedures, not by EP resolutions. The "6-month action plan" request can be satisfied by the Commission filing a 2-page document listing ongoing investigations.
+
+*Evidence for this view:* The DMA was adopted in 2022; the EP has passed multiple enforcement-pressure resolutions since. Actual gatekeeper behavior has changed minimally: Apple's "Core Technology Fee" model for alternative app stores is widely viewed as compliance sabotage; Google remains dominant in search. The enforcement resolutions have not accelerated Commission timelines.
+
+*Counter-evidence:* EP oversight creates institutional accountability that can be activated — rapporteurs can summon DG COMP officials for explanations; EP can threaten to withhold budget increases for DG COMP as leverage; the resolution creates a political record that individual MEPs can use in future electoral campaigns.
+
+*Verdict:* Partially valid. EP resolutions on enforcement do shift the political temperature and create accountability records, but they do not change formal enforcement timelines. The "theater" critique has merit but overstates the irrelevance of EP pressure.
+
+**Devil's Advocate Position 2: Ukraine Special Tribunal Demand Is Counterproductive**
+
+*Conventional view:* EP's demand for a Special Tribunal for the Crime of Aggression strengthens accountability.
+
+*Devil's advocate:* A Special Tribunal that Russian leadership will never appear before, and whose judgments will be unenforceable as long as Russia maintains Security Council veto, risks becoming a tool of legitimacy theater for EU audiences rather than actual accountability. Resources directed at an ICC-adjacent mechanism that Russia ignores could instead go to sanctions enforcement, asset freezing, or Ukrainian reconstruction capacity.
+
+More significantly: highly symbolic legal mechanisms can *reduce* pressure for practical accountability by creating the impression that "something is being done." The International Criminal Court itself has arrest warrants against Putin (since March 2023) with zero enforcement prospect while Russia's military campaign continues.
+
+*Counter-evidence:* The Nuremberg precedent — established without defendant consent — demonstrates that accountability mechanisms can be constructed and enforce normative standards even without universal cooperation. The Special Tribunal's value is partly prospective: deterrence for future aggression; documentation of crimes for historical record; and eventual use if/when Russian political circumstances change.
+
+*Verdict:* Legitimate tension between symbolic accountability and practical effectiveness. EP should maintain the accountability demand but avoid the error of believing the resolution itself constitutes accountability.
+
+**Devil's Advocate Position 3: Armenia Resilience Resolution Is EU Mission Creep**
+
+*Conventional view:* Armenia's democratic choice toward EU deserves institutional support.
+
+*Devil's advocate:* The EU has no strategic capacity to defend Armenia if Azerbaijan escalates. The April 30 resolution raises Armenian expectations of EU protection that cannot be delivered. If EU-Armenia partnership deepens and Azerbaijan responds militarily, the EU will face the choice between defending commitments and abandoning them — both options are worse than not making commitments in the first place.
+
+Furthermore, Azerbaijan is a major gas supplier (EU-Azerbaijan gas deal 2022; Aliyev-von der Leyen agreement to triple supply by 2027). Any sanctions pressure on Azerbaijan for its Armenia-related behavior would directly undermine EU energy security in the context of continued Russian gas phase-out.
+
+*Counter-evidence:* Doing nothing also has costs — EU credibility in Eastern Partnership is already strained by slow integration processes; Armenian populations note the contrast between EU support for Ukraine (with real military assistance) and EU diplomatic statements for Armenia.
+
+*Verdict:* Real strategic dilemma. The resolution is the appropriate response given EU competences and constraints, but it should be paired with honest communication about what EU support actually means.
+

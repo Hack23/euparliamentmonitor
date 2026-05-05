@@ -176,3 +176,58 @@ xychart-beta
 **Net SWOT score**: 24.0/40 (60%) — HIGH significance session confirmed.
 
 *Quantitative SWOT updated — Run 3, 2026-05-05T15:44Z.*
+
+---
+
+## Run 4 SWOT Update — May 5, 2026
+
+### Post-April 30 Plenary SWOT Analysis
+
+**STRENGTHS — EP Institutional Position (Run 4 Evidence)**
+
+🟢 **S1: DMA Coalition Breadth (Confidence: HIGH)**
+The April 30 DMA enforcement resolution demonstrates the EP's unique capacity to forge consensus across ideological divides on digital governance. The ~450-seat coalition (EPP + S&D + Renew + Greens/EFA) reflects genuine alignment that transcends the left-right axis — driven by shared interests in European digital sovereignty, consumer protection, and competition policy. This coalition's durability is its core strength: unlike defense or social policy, digital regulation creates allies out of natural adversaries (business-aligned EPP + social-democratic S&D). This breadth gives the EP institutional authority to pressure the Commission on enforcement timelines and act as a genuine accountability partner rather than a rubber stamp.
+
+🟢 **S2: Ukraine Resolution Continuity (Confidence: HIGH)**
+The April 30 accountability resolution is the 39th consecutive month of EP institutional pressure on Ukraine-related measures. This continuity — despite changing governments in France, Germany, and Italy during this period — demonstrates the EP's role as an anchor of European values commitments independent of member state political cycles. The Special Tribunal demand in the resolution represents genuine legal innovation: the EP is not merely passing symbolic motions but contributing to the construction of a novel international law mechanism. This positions the EP as a norm-entrepreneur in international law, amplifying its soft power beyond its formal treaty competences.
+
+🟢 **S3: Coalition Stability Score (84/100)**
+Despite HIGH fragmentation (6.57 effective parties), the EP's stability score of 84/100 from the early warning system indicates that routine governance functions are operating. The grand coalition viability (top-2 groups hold 60% of seats) provides a floor of governance capacity even under stress scenarios.
+
+**WEAKNESSES — Structural Limitations**
+
+🔴 **W1: Vote-Level Data Unavailability (Confidence: HIGH)**
+This analysis — and every EP watcher's analysis — is constrained by the EP API's failure to expose per-MEP vote-level data in real time. The EP Open Data Portal provides aggregate vote tallies only, and roll-call records are published 2-4 weeks after sessions. This creates a 4-week intelligence blind spot on actual coalition behavior. For a parliamentary body that positions itself as a transparency champion, this represents an institutional credibility gap that also impairs accountability journalism and academic research on EU democracy.
+
+🔴 **W2: No Binding Force on Foreign Policy Resolutions**
+The Armenia and Ukraine resolutions adopted on April 30 are non-binding. The EP has no treaty competence in defence policy (CFSP/CSDP is Council-led), and its ability to compel Council action is limited to:
+- Political pressure via public resolutions
+- Consent procedure on international agreements (Article 218 TFEU)
+- Budgetary leverage (EP controls annual EU budget)
+The Special Tribunal demand, for instance, requires Council unanimity and a UN mandate — both of which can be blocked by individual actors.
+
+🟡 **W3: Immunity Waiver Controversy — Obajtek Signal**
+The April 28 immunity waiver vote for Daniel Obajtek (former PKN Orlen CEO, now ECR MEP) signals ongoing tensions about MEP accountability under national criminal law. Whether immunities are granted or waived is inherently political — the Obajtek case involves alleged financial misconduct at Poland's state oil company — and creates perceptions of political instrumentalization of EP immunity procedures.
+
+**OPPORTUNITIES**
+
+🟢 **O1: MFF as Comprehensive Leverage Opportunity (Confidence: HIGH)**
+The EP's consent vote on the MFF 2028-2034 is the single largest legislative leverage opportunity in a generation. Unlike ordinary legislation (co-decision), the MFF requires EP consent — the EP can block the entire 7-year, €1.5-2 trillion budget unless its priorities are incorporated. Historical precedent (MFF 2021-27) shows the EP can extract concrete concessions including new own resources, rule-of-law conditionality mechanisms, and climate mainstreaming percentages. The April 28 interim report debate is the opening salvo of what will be 18-24 months of high-leverage negotiations.
+
+🟢 **O2: DMA as Template for Global Regulatory Leadership (Confidence: MEDIUM)**
+If DMA enforcement succeeds in changing Big Tech behavior, the EU confirms its "Brussels Effect" — the tendency of EU regulations to set de facto global standards because multinational firms prefer uniform compliance over parallel systems. Japan, Australia, Brazil, and India are monitoring DMA implementation as potential models. EP success in pushing Commission enforcement hardline strengthens this normative influence.
+
+🟡 **O3: Armenia as Eastern Partnership Demonstration Effect (Confidence: MEDIUM)**
+Armenia's EU integration trajectory, supported by April 30's resolution, represents a low-cost geopolitical opportunity: a post-Soviet democracy choosing EU alignment over Russian sphere of influence. The demonstration effect for other Eastern Partnership countries (Georgia — more contested; Moldova/Ukraine — ongoing accession tracks) is significant. EP institutional support costs little in political capital but signals EU normative expansionism is alive.
+
+**THREATS**
+
+🔴 **T1: MFF Hungary Veto (Confidence: HIGH)**
+Orbán's Hungary remains the single most predictable veto risk in EU institutional politics. A MFF deal bundled with Ukraine reconstruction and conditionality mechanisms gives Hungary maximum leverage — it can block €1.5 trillion in EU spending. Historical precedent: Hungary blocked the €50bn Ukraine Facility for 4 months in 2023-24 before extracting €13bn in frozen EU cohesion funds. The same playbook applied to MFF would be catastrophically destabilizing.
+
+🔴 **T2: US-EU Digital Regulatory Conflict (Confidence: MEDIUM)**
+The Trump administration's increasing hostility to EU digital regulation (DMA + DSA + AI Act + GDPR enforcement) creates a structural threat to the EP's digital governance agenda. Trade retaliation risk, though currently below the threshold of formal action, is rising. Key risk: EPP under business community pressure to moderate DMA enforcement if US trade threats materialize — potentially fracturing the ~450-seat coalition.
+
+🔴 **T3: Russian Hybrid Warfare Against EP Processes (Confidence: HIGH)**
+Russia's response to the Ukraine accountability and Armenia resolutions will include information operations targeting the legitimacy of EP votes. Documented tactics include: deepfake MEP statements, coordinated inauthentic behavior on social media amplifying PfE/ESN messaging, and cyberattacks on EP IT infrastructure (ENISA confirmed Q4 2025 attack). These operations do not change vote outcomes but erode public trust in democratic institutions — the deeper strategic objective.
+

@@ -330,3 +330,58 @@ quadrantChart
 - **Budget negotiation threat**: CONFIRMED — 2027 estimates pass but Council-Parliament gap persists (€20-25B uncommitted CAP/structural funds).
 
 *Threat model confirmed — Run 3, 2026-05-05T15:44Z. Admiralty Code: B2*
+
+---
+
+## Run 4 Threat Model Update — May 5, 2026
+
+### Updated Threat Landscape Post-April 30 Plenary
+
+**Threat Category T1: Russian Information Operations Against EP Legitimacy**
+
+Updated assessment: Russia's response to the April 30 Ukraine accountability resolution will likely include:
+- Targeted disinformation campaigns against MEPs who spoke in the debate
+- Social media amplification of PfE/ESN counter-narratives ("peace not war")
+- State media framing: Resolution portrayed as "NATO militarism" in RT/Sputnik outlets (now operating via mirror domains circumventing EU ban)
+- **Specific threat vector**: Deepfake audio/video of mainstream MEPs appearing to express pro-Russian positions; EP Communications Directorate under increased operational pressure
+Confidence: 🟢 HIGH (pattern established over 39 months)
+Mitigation: EP IT Security Unit monitoring; ENISA threat intelligence sharing; mandatory disclosure for coordinated inauthentic behavior on platforms (DSA enforcement)
+
+**Threat Category T2: Regulatory Capture Attempt — DMA Enforcement**
+
+Updated assessment: Following EP's April 30 DMA enforcement resolution, Big Tech lobbying escalation predicted:
+- Estimated Big Tech Brussels lobbying spend: €30-40m/year (2025-2026)
+- Revolving door risk: Former Commission officials in Big Tech legal/lobbying roles (documented by Corporate Europe Observatory)
+- **Specific capture mechanisms**: Technical standard-setting bodies (ETSI, W3C) where Big Tech can delay interoperability specifications
+- "Compliance theater" risk: Meeting letter of DMA requirements while preserving market position
+Confidence: 🟡 MEDIUM
+Mitigation: EP IMCO committee oversight; DMA Advisory Board; civil society coalition (BEUC, EDRi) as watchdogs
+
+**Threat Category T3: MFF Negotiation Paralysis**
+
+Updated assessment: The April 28 MFF interim debate revealed potential for negotiation failure:
+- **Hard timeline**: Commission proposal expected May-June 2026; EP must vote before European Parliament elections (if EP9→EP10 transition repeats in EP11 in June 2029)
+- **Council unanimity requirement**: Hungary veto risk on any MFF deal that includes Ukraine reconstruction funding or conditionality mechanisms
+- **Scenario**: MFF negotiations collapse into "emergency annual procedures" (rolling one-year EU budgets) — administratively possible but politically destabilizing for 7-year investment programs
+Confidence: 🟡 MEDIUM
+Mitigation: Grand bargain attempts (Hungary conditionality relief vs. MFF adoption); qualified majority voting reform discussions (long-term structural fix)
+
+**Threat Category T4: DMA-Triggered Transatlantic Regulatory Fragmentation**
+
+Updated assessment: The most systemic medium-term threat to EU digital governance:
+- If US tech firms successfully resist DMA compliance → enforcement failure signals weakness of EU regulatory power
+- If US government retaliates → forces EU into defensive trade posture that limits DMA ambition
+- **Policy fragmentation risk**: Different member states enforcing DMA differently (Germany vs. France vs. smaller member states) could undermine single market
+Confidence: 🟡 MEDIUM
+Mitigation: Commission's centralized enforcement (DG COMP leads; member state NCAs coordinate); EP oversight strengthens institutional spine
+
+**Threat Severity Matrix (Updated):**
+
+| Threat | Probability | Impact | Urgency | Response |
+|--------|------------|--------|---------|----------|
+| Russian IO against MEPs | 🔴 HIGH (80%) | 🟡 MEDIUM | 🔴 NOW | EP/ENISA monitoring |
+| DMA regulatory capture | 🟡 MEDIUM (45%) | 🟡 MEDIUM | 🟡 6mo | IMCO oversight |
+| MFF negotiation failure | 🟡 MEDIUM (35%) | 🔴 HIGH | 🔴 12mo | Political will required |
+| DMA-US trade conflict | 🔴 LOW-MED (25%) | 🔴 EXTREME | 🟡 9mo | Diplomatic de-escalation |
+| Ukraine accountability stall | 🟡 MEDIUM (50%) | 🟡 MEDIUM | 🟡 12mo | EP pressure continued |
+

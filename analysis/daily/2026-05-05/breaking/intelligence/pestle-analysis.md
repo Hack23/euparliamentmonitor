@@ -301,3 +301,85 @@ quadrantChart
 - **Environmental (Update)**: No environmental items in April 28-30 session — off-cycle per 2026 legislative calendar.
 
 *PESTLE updated — Run 3, 2026-05-05T15:44Z.*
+
+---
+
+## Run 4 PESTLE Update — May 5, 2026 (Fresh Data)
+
+### Political — April 30 Votes as Political Signal Analysis
+
+**DMA Political Dynamics:**
+The EP's DMA enforcement resolution reflects a rare cross-ideological consensus on digital market regulation. Unlike trade or social policy where left-right divides are sharp, digital regulation mobilizes a different coalition architecture:
+- 🟢 **EPP**: Supports enforcement to protect European firms from American tech dominance
+- 🟢 **S&D**: Anti-monopoly, consumer protection, labor rights in platform economy  
+- 🟢 **Renew**: Free-market competition policy — DMA restores competition, not burdens it
+- 🟢 **Greens/EFA**: Data sovereignty and democratic accountability over platforms
+- 🔴 **PfE/ECR**: Sovereignty concerns about EU overregulation; some members argue it harms European tech startups
+- 🟡 **The Left**: Supportive of enforcement but critical of the gatekeeper framework as insufficiently structural
+
+**Ukraine Political Dynamics:**
+The April 30 accountability resolution operates in the context of significant political evolution since Russia's full-scale invasion in February 2022:
+- 39 months of sustained EP institutional pressure on Russia accountability
+- Special Tribunal for Aggression: legal innovation building on Nuremberg and Rome Statute precedents
+- Asset seizure: €300bn frozen Russian reserves — largest sovereign asset immobilization in history
+- **Political test**: Will member states implement EP resolutions? Council veto dynamics make asset transfer slow
+
+**Armenia Political Significance:**
+- Signal function: EP resolution without binding legal force, but strong normative signal
+- Realpolitik context: Azerbaijan's post-2023 military leverage complicates any sanctions
+- EU-Armenia Partnership Agenda (March 2025) represents the institutional scaffolding
+
+### Economic — MFF 2028-34 Budget Battle (Primary Economic Story)
+
+**Budget Scale and Stakes:**
+The MFF 2028-2034 will be the EU's largest-ever budget cycle, estimated at €1.5-2 trillion (current prices) across 7 years. The April 28 interim debate revealed deep divisions on:
+
+**Spending Priority Conflicts:**
+| Category | EPP Position | S&D Position | Renew Position | Current MFF |
+|----------|-------------|-------------|----------------|-------------|
+| Defence/Security | +50-80% | +30% | +40-60% | ~€14bn |
+| Climate/Green Deal | Maintain | +30% | Maintain | €550bn |
+| Cohesion Funds | -10-15% | Defend | Neutral | €392bn |
+| Competitiveness | +70% (Draghi) | +20% | +50% | €95bn |
+| Agriculture | Stable | Cut | Stable | €387bn |
+
+**Economic Context for Assessment:**
+- EU GDP growth 2026 projected at ~1.5% (IMF WEO April 2026 — *sole authoritative source*)
+- Euro area inflation near target (~2.2%) — removes crisis-spending urgency
+- Member state debt levels: Italy 140%, France 115%, Germany 64% — diverse fiscal capacity constrains "own resources" expansion
+- Defence spending demands driven by US signals on NATO burden-sharing (Trump administration 2025-onward NATO pressure)
+
+### Social — Rule of Law and Democratic Backsliding
+
+**Commission Rule of Law Report 2025 Social Implications:**
+- Judicial independence failures in Hungary directly impact 10 million EU citizens' access to EU law protections
+- Poland's reform backsliding concern: new government (PO-led coalition since 2023) has moved slower than EP expects on constitutional court reform
+- **Social dimension of accountability**: The Ukraine accountability resolution is not merely legal — it responds to documented mass atrocities (Bucha, Mariupol, repeated civilian infrastructure attacks in 2025-2026)
+
+### Technological — DMA as Technology Governance Model
+
+**DMA Technological Implementation Requirements:**
+- Interoperability mandates: WhatsApp must open APIs to third-party messaging apps by 2024 (delayed in practice)
+- App store competition: Apple required to allow sideloading (iOS 17.4+ compliance with DMA Article 6(4))
+- Search result neutrality: Google Shopping/Google Maps preferencing investigations ongoing
+- **April 30 resolution calls for 6-month enforcement action plans from Commission** — tightening the institutional accountability loop
+
+### Legal — Special Tribunal for Ukraine: Legal Innovation
+
+**Tribunal Architecture:**
+The EP-demanded Special Tribunal for the Crime of Aggression against Ukraine would:
+- Fill the ICC jurisdiction gap (Russia not a party to Rome Statute)
+- Build on Ukraine Damage Logistics Platform and Register of Damages
+- Require Security Council or UN General Assembly Resolution for UN mandate route
+- Alternative: Core States Agreement (Estonia, Latvia, Lithuania, Netherlands, Denmark leading negotiations)
+**Timeline**: Legal experts estimate 3-5 years to operationalize; EP resolution accelerates political will
+
+### Environmental — Climate Policy Under MFF Pressure
+
+**Green Deal Fiscal Architecture at Risk:**
+The MFF negotiations will determine whether the EU's climate investments survive budget consolidation pressures:
+- European Green Deal promised €1 trillion in sustainable investments through 2030
+- RepowerEU (energy security) has consumed cohesion flexibility provisions
+- New defence spending requirements compete with climate budget lines
+- **Key tension**: Article 11 TEU climate mainstreaming (30% of MFF to climate-related spending) may be diluted in new framework
+
