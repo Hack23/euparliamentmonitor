@@ -1954,5 +1954,38 @@ describe('scripts/validate-analysis-completeness.js', () => {
       // The effective floor should be 300 (CLI), not 130 (reduced perFloor)
       expect(result.stderr).toMatch(/short:250<300/);
     });
+
+    it('reduces default 30-line floor for artifacts without per-artifact threshold', () => {
+      // classification/actor-mapping.md has no perArtifactFloors entry,
+      // so it falls back to DEFAULT_MIN_LINES (30). Under minimal mode
+      // (0.65 factor), effective floor = floor(30*0.65) = 19.
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'test-type',
+          dataMode: 'minimal',
+          files: {
+            intelligence: ['intelligence/synthesis-summary.md'],
+            classification: ['classification/actor-mapping.md'],
+          },
+        }),
+        'utf8',
+      );
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(200, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      // Write 22 lines — above reduced default floor (19) but below unreduced 30
+      fs.mkdirSync(path.join(runDir, 'classification'), { recursive: true });
+      fs.writeFileSync(
+        path.join(runDir, 'classification/actor-mapping.md'),
+        makeArtifact(22, { mermaid: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+    });
   });
 });

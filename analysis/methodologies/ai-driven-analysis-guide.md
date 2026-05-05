@@ -137,8 +137,9 @@ creating files that should have existed in Pass 1.
    - ≥2 conditions above → `"minimal"`
    - Otherwise → `"full"`
 2. **Write `dataMode` to `manifest.json`** at this point.
-3. **Create empty stubs** for every mandatory artifact in the run's
-   `manifest.files.*` list. Each stub must contain:
+3. **Create empty stubs** for every mandatory artifact listed in
+   [`artifact-catalog.md`](artifact-catalog.md) for the current `articleType`.
+   Populate `manifest.files.*` as you create each stub. Each stub must contain:
    - SPDX header (2 lines)
    - H1 title matching the template's expected heading
    - `<!-- mermaid:pending -->` comment (for intelligence/, classification/,

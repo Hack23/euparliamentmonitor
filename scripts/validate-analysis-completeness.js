@@ -193,6 +193,7 @@ function parseArgs(argv) {
     json: false,
     strict: false,
     minLines: DEFAULT_MIN_LINES,
+    minLinesExplicit: false,
     thresholdsPath: null,
   };
   for (let i = 0; i < args.length; i += 1) {
@@ -204,6 +205,7 @@ function parseArgs(argv) {
       if (!Number.isFinite(n) || n < 1) usage(2);
       // The flag may only RAISE the floor — never lower it below DEFAULT_MIN_LINES.
       opts.minLines = Math.max(DEFAULT_MIN_LINES, n);
+      opts.minLinesExplicit = true;
       i += 1;
     } else if (a === '--thresholds') {
       opts.thresholdsPath = args[i + 1];
@@ -509,11 +511,12 @@ function validateArtifact({
   // but NOT to the CLI-provided --min-lines value. This preserves the contract
   // that --min-lines can only raise floors, never lower them.
   const baseFloor = perFloor != null ? perFloor : DEFAULT_MIN_LINES;
-  const reducedFloor = Math.max(
-    DEFAULT_MIN_LINES,
-    Math.floor(baseFloor * dataModeReduction),
-  );
-  result.minLines = Math.max(options.minLines, reducedFloor);
+  const reducedFloor = Math.max(1, Math.floor(baseFloor * dataModeReduction));
+  // When --min-lines is explicitly set, it acts as a hard minimum that the
+  // reduction cannot breach. When not set, use the reduced floor directly.
+  result.minLines = options.minLinesExplicit
+    ? Math.max(options.minLines, reducedFloor)
+    : reducedFloor;
   if (result.lines < result.minLines) {
     result.issues.push(
       `short:${result.lines}<${result.minLines}`,
