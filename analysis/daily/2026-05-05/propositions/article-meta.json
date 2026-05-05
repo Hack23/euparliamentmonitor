@@ -1,0 +1,54 @@
+{
+  "date": "2026-05-05",
+  "articleType": "propositions",
+  "runId": "propositions-run-1777966984",
+  "gateResult": "PENDING",
+  "slug": "2026-05-05-propositions",
+  "articlePath": "analysis/daily/2026-05-05/propositions/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**Apple:** App Store restrictions and browser choice compliance",
+    "**Meta:** Advertising data practices and privacy compliance",
+    "**Alphabet/Google:** Search and shopping interoperability",
+    "**Carbon cost pass-through** to household energy bills: projections indicate €40–80/year additional cost for average European household by 2028",
+    "**Social Climate Fund** mechanisms activated to cushion lower-income households",
+    "**Eastern European exposure:** Poland, Czechia, Hungary face disproportionate adjustment costs given carbon-intensive housing and transport stocks",
+    "**Investment signal:** ETS2 creates a revenue stream for green renovation — EU Green Bond market expected to benefit significantly"
+  ],
+  "topRisks": [
+    "R-01: Daily (USTR statements, US-EU bilateral meetings)",
+    "R-07: Weekly (Council working group on Claims Convention)",
+    "R-06: Daily (Ukraine situational awareness)",
+    "**R-01 (DMA retaliation) → R-04 (EPP fracture):** If US tariffs materialize, EPP business-wing pressure on Von der Leyen increases, potentially causing EPP to distance itself from DMA enforcement. This would cascade as an EPP fracture risk.",
+    "**R-06 (Russia escalation) → R-07 (Claims ratification) → R-02 (Hungary veto):** A major Ukraine escalation creates both urgency to ratify Claims Convention AND political space for Hungary to leverage its veto for security concessions.",
+    "**R-03 (ETS2 protests) → R-04 (EPP fracture):** Social protests against ETS2 would be amplified by ECR/PfE in Eastern European countries, creating domestic political pressure on EPP MEPs from those regions."
+  ],
+  "keyDates": [
+    "Commission enforcement timeline communication by June 2026",
+    "Commission \"compliance roadmap\" agreements announced Q3 2026",
+    "Commission issuing ETS2 implementing regulations by October 2026",
+    "Member state compensation scheme legislation passed by March 2027"
+  ],
+  "keyActors": [
+    "DMA Enforcement: **Strongly FOR** — EPP integrates digital market rules with competitiveness agenda; Weber's group positioned as pro-enforcement to counter narrative of being soft on Big Tech",
+    "ETS2: **Conditionally FOR** — Supported with social compensation provisions; eastern EPP members extracted Social Climate Fund commitments",
+    "Ukraine Claims Commission: **Strongly FOR** — EPP's core geopolitical consensus position; Weber personally championed Ukraine solidarity",
+    "Immunity waivers (Jaki/Braun): **FOR** — EPP did not protect ECR members; signals EPP's withdrawal from far-right protection dynamics",
+    "DMA Enforcement: **Strongly FOR** — S&D has been the most consistent proponent of DMA enforcement; consumer protection alignment",
+    "ETS2: **Strongly FOR** — S&D championed Social Climate Fund provisions; climate justice framing",
+    "Ukraine Claims Commission: **Strongly FOR** — Strong Ukrainian diaspora representation in member parties",
+    "Immunity waivers: **FOR (all)** — S&D consistently votes for waivers where criminal proceedings are involved"
+  ],
+  "macroContext": "Based on IMF World Economic Outlook April 2026 projections:",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

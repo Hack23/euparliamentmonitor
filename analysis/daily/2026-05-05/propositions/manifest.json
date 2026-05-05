@@ -1,0 +1,219 @@
+{
+  "runId": "propositions-run-1777966984",
+  "date": "2026-05-05",
+  "articleTypeSlug": "propositions",
+  "analysisDir": "analysis/daily/2026-05-05/propositions",
+  "workflowStartEpoch": 1777966984,
+  "pass2": {
+    "startedAt": "2026-05-05T07:59:04Z",
+    "endedAt": "2026-05-05T08:06:15Z",
+    "rewriteCount": 4
+  },
+  "stageBudgets": {
+    "stageA": "4 min",
+    "stageB": "22 min",
+    "stageC": "4 min",
+    "stageD": "2 min",
+    "stageE": "2 min"
+  },
+  "dataQuality": {
+    "overallScore": 72,
+    "adoptedTexts": "A",
+    "politicalLandscape": "A",
+    "statisticsData": "A",
+    "votingRecords": "C",
+    "committeeDocuments": "C",
+    "externalDocuments": "C"
+  },
+  "keyFindings": [
+    "37 texts adopted April 28-30, 2026",
+    "3 co-equal strategic texts: DMA enforcement, ETS2 MSR, Ukraine Claims Commission",
+    "5 immunity waivers \u2014 unprecedented single-session cluster",
+    "EP10 majority (EPP+S&D+Renew 397 MEPs) demonstrated cohesion under US pressure",
+    "EP API partially degraded: 3 feeds unavailable, voting records delayed 4-6 weeks"
+  ],
+  "artifacts": [
+    "analysis/daily/2026-05-05/propositions/classification/actor-mapping.md",
+    "analysis/daily/2026-05-05/propositions/classification/forces-analysis.md",
+    "analysis/daily/2026-05-05/propositions/classification/impact-matrix.md",
+    "analysis/daily/2026-05-05/propositions/classification/significance-classification.md",
+    "analysis/daily/2026-05-05/propositions/documents/document-analysis-index.md",
+    "analysis/daily/2026-05-05/propositions/executive-brief.md",
+    "analysis/daily/2026-05-05/propositions/existing/deep-analysis.md",
+    "analysis/daily/2026-05-05/propositions/existing/pipeline-health.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/analysis-index.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/coalition-dynamics.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/cross-run-diff.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/economic-context.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/historical-baseline.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/mcp-reliability-audit.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/methodology-reflection.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/pestle-analysis.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/political-threat-landscape.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/reference-analysis-quality.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/scenario-forecast.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/significance-scoring.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/stakeholder-map.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/synthesis-summary.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/threat-model.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/voting-patterns.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/wildcards-blackswans.md",
+    "analysis/daily/2026-05-05/propositions/intelligence/workflow-audit.md",
+    "analysis/daily/2026-05-05/propositions/risk-scoring/legislative-velocity-risk.md",
+    "analysis/daily/2026-05-05/propositions/risk-scoring/political-capital-risk.md",
+    "analysis/daily/2026-05-05/propositions/risk-scoring/quantitative-swot.md",
+    "analysis/daily/2026-05-05/propositions/risk-scoring/risk-matrix.md",
+    "analysis/daily/2026-05-05/propositions/threat-assessment/actor-threat-profiles.md",
+    "analysis/daily/2026-05-05/propositions/threat-assessment/consequence-trees.md",
+    "analysis/daily/2026-05-05/propositions/threat-assessment/legislative-disruption.md",
+    "analysis/daily/2026-05-05/propositions/threat-assessment/political-threat-landscape.md"
+  ],
+  "history": [
+    {
+      "runId": "propositions-run-1777966984",
+      "startedAt": "2026-05-05T07:43:04Z",
+      "completedAt": "2026-05-05T08:06:15Z",
+      "artifactCount": 34,
+      "dataQualityScore": 72
+    }
+  ],
+  "articleType": "propositions",
+  "files": {
+    "classification/actor-mapping.md": {
+      "path": "analysis/daily/2026-05-05/propositions/classification/actor-mapping.md",
+      "type": "markdown"
+    },
+    "classification/forces-analysis.md": {
+      "path": "analysis/daily/2026-05-05/propositions/classification/forces-analysis.md",
+      "type": "markdown"
+    },
+    "classification/impact-matrix.md": {
+      "path": "analysis/daily/2026-05-05/propositions/classification/impact-matrix.md",
+      "type": "markdown"
+    },
+    "classification/significance-classification.md": {
+      "path": "analysis/daily/2026-05-05/propositions/classification/significance-classification.md",
+      "type": "markdown"
+    },
+    "documents/document-analysis-index.md": {
+      "path": "analysis/daily/2026-05-05/propositions/documents/document-analysis-index.md",
+      "type": "markdown"
+    },
+    "executive-brief.md": {
+      "path": "analysis/daily/2026-05-05/propositions/executive-brief.md",
+      "type": "markdown"
+    },
+    "existing/deep-analysis.md": {
+      "path": "analysis/daily/2026-05-05/propositions/existing/deep-analysis.md",
+      "type": "markdown"
+    },
+    "existing/pipeline-health.md": {
+      "path": "analysis/daily/2026-05-05/propositions/existing/pipeline-health.md",
+      "type": "markdown"
+    },
+    "intelligence/analysis-index.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/analysis-index.md",
+      "type": "markdown"
+    },
+    "intelligence/coalition-dynamics.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/coalition-dynamics.md",
+      "type": "markdown"
+    },
+    "intelligence/cross-run-diff.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/cross-run-diff.md",
+      "type": "markdown"
+    },
+    "intelligence/economic-context.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/economic-context.md",
+      "type": "markdown"
+    },
+    "intelligence/historical-baseline.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/historical-baseline.md",
+      "type": "markdown"
+    },
+    "intelligence/mcp-reliability-audit.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/mcp-reliability-audit.md",
+      "type": "markdown"
+    },
+    "intelligence/methodology-reflection.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/methodology-reflection.md",
+      "type": "markdown"
+    },
+    "intelligence/pestle-analysis.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/pestle-analysis.md",
+      "type": "markdown"
+    },
+    "intelligence/political-threat-landscape.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/political-threat-landscape.md",
+      "type": "markdown"
+    },
+    "intelligence/reference-analysis-quality.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/reference-analysis-quality.md",
+      "type": "markdown"
+    },
+    "intelligence/scenario-forecast.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/scenario-forecast.md",
+      "type": "markdown"
+    },
+    "intelligence/significance-scoring.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/significance-scoring.md",
+      "type": "markdown"
+    },
+    "intelligence/stakeholder-map.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/stakeholder-map.md",
+      "type": "markdown"
+    },
+    "intelligence/synthesis-summary.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/synthesis-summary.md",
+      "type": "markdown"
+    },
+    "intelligence/threat-model.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/threat-model.md",
+      "type": "markdown"
+    },
+    "intelligence/voting-patterns.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/voting-patterns.md",
+      "type": "markdown"
+    },
+    "intelligence/wildcards-blackswans.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/wildcards-blackswans.md",
+      "type": "markdown"
+    },
+    "intelligence/workflow-audit.md": {
+      "path": "analysis/daily/2026-05-05/propositions/intelligence/workflow-audit.md",
+      "type": "markdown"
+    },
+    "risk-scoring/legislative-velocity-risk.md": {
+      "path": "analysis/daily/2026-05-05/propositions/risk-scoring/legislative-velocity-risk.md",
+      "type": "markdown"
+    },
+    "risk-scoring/political-capital-risk.md": {
+      "path": "analysis/daily/2026-05-05/propositions/risk-scoring/political-capital-risk.md",
+      "type": "markdown"
+    },
+    "risk-scoring/quantitative-swot.md": {
+      "path": "analysis/daily/2026-05-05/propositions/risk-scoring/quantitative-swot.md",
+      "type": "markdown"
+    },
+    "risk-scoring/risk-matrix.md": {
+      "path": "analysis/daily/2026-05-05/propositions/risk-scoring/risk-matrix.md",
+      "type": "markdown"
+    },
+    "threat-assessment/actor-threat-profiles.md": {
+      "path": "analysis/daily/2026-05-05/propositions/threat-assessment/actor-threat-profiles.md",
+      "type": "markdown"
+    },
+    "threat-assessment/consequence-trees.md": {
+      "path": "analysis/daily/2026-05-05/propositions/threat-assessment/consequence-trees.md",
+      "type": "markdown"
+    },
+    "threat-assessment/legislative-disruption.md": {
+      "path": "analysis/daily/2026-05-05/propositions/threat-assessment/legislative-disruption.md",
+      "type": "markdown"
+    },
+    "threat-assessment/political-threat-landscape.md": {
+      "path": "analysis/daily/2026-05-05/propositions/threat-assessment/political-threat-landscape.md",
+      "type": "markdown"
+    }
+  }
+}
