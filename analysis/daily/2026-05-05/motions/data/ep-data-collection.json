@@ -1,0 +1,109 @@
+{
+  "collectedAt": "2026-05-05T06:47:00Z",
+  "source": "EP Open Data Portal / MCP",
+  "adoptedTexts_week": [
+    {
+      "id": "TA-10-2026-0105",
+      "title": "Request for the waiver of the immunity of Patryk Jaki",
+      "dateAdopted": "2026-04-28",
+      "subjectMatter": "PRIV",
+      "committee": "AFCO/JURI"
+    },
+    {
+      "id": "TA-10-2026-0112",
+      "title": "Guidelines for the 2027 budget - Section III",
+      "dateAdopted": "2026-04-28",
+      "subjectMatter": "BUDG"
+    },
+    {
+      "id": "TA-10-2026-0115",
+      "title": "Welfare of dogs and cats and their traceability",
+      "dateAdopted": "2026-04-28",
+      "subjectMatter": "AGRI/ENVI"
+    },
+    {
+      "id": "TA-10-2026-0119",
+      "title": "Control of the financial activities of the European Investment Bank Group \u2014 annual report 2024",
+      "dateAdopted": "2026-04-28",
+      "subjectMatter": "CONT"
+    },
+    {
+      "id": "TA-10-2026-0122",
+      "title": "Control, transparency and traceability of performance-based instruments",
+      "dateAdopted": "2026-04-28",
+      "subjectMatter": "BUDG/CONT"
+    },
+    {
+      "id": "TA-10-2026-0132",
+      "title": "Discharge 2024: EU general budget - Committee of the Regions",
+      "dateAdopted": "2026-04-29",
+      "subjectMatter": "CONT"
+    },
+    {
+      "id": "TA-10-2026-0142",
+      "title": "EU-Iceland agreement on transfer of passenger name record (PNR) data",
+      "dateAdopted": "2026-04-29",
+      "subjectMatter": "LIBE/COPO"
+    },
+    {
+      "id": "TA-10-2026-0151",
+      "title": "Escalating trafficking and exploitation by criminal groups in Haiti",
+      "dateAdopted": "2026-04-30",
+      "subjectMatter": "DROI",
+      "type": "urgency_resolution"
+    },
+    {
+      "id": "TA-10-2026-0160",
+      "title": "Enforcement of the Digital Markets Act",
+      "dateAdopted": "2026-04-30",
+      "subjectMatter": "IMCO/ITRE"
+    },
+    {
+      "id": "TA-10-2026-0161",
+      "title": "Ensuring accountability and justice in response to Russia attacks against Ukraine",
+      "dateAdopted": "2026-04-30",
+      "subjectMatter": "AFET/DROI",
+      "type": "urgency_resolution"
+    },
+    {
+      "id": "TA-10-2026-0162",
+      "title": "Supporting democratic resilience in Armenia",
+      "dateAdopted": "2026-04-30",
+      "subjectMatter": "AFET",
+      "type": "urgency_resolution"
+    }
+  ],
+  "plenarySession": {
+    "april28": {
+      "id": "MTG-PL-2026-04-28",
+      "attendance": 663,
+      "location": "Strasbourg"
+    },
+    "april29": {
+      "id": "MTG-PL-2026-04-29",
+      "attendance": 658,
+      "location": "Strasbourg"
+    },
+    "april30": {
+      "id": "MTG-PL-2026-04-30",
+      "attendance": 599,
+      "location": "Strasbourg"
+    }
+  },
+  "votingRecordsNote": "EP roll-call data has 4-6 week publication delay; aggregate tallies for April 28-30 not yet available",
+  "parliamentComposition": {
+    "totalMEPs": 719,
+    "majorityThreshold": 361,
+    "groups": {
+      "EPP": 185,
+      "S&D": 135,
+      "PfE": 85,
+      "ECR": 81,
+      "Renew": 77,
+      "GreensEFA": 53,
+      "TheLeft": 46,
+      "NI": 30,
+      "ESN": 27
+    }
+  }
+}

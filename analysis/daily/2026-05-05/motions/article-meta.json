@@ -1,0 +1,51 @@
+{
+  "date": "2026-05-05",
+  "articleType": "motions",
+  "runId": "motions-run-1777963626",
+  "gateResult": "PENDING",
+  "slug": "2026-05-05-motions",
+  "articlePath": "analysis/daily/2026-05-05/motions/article.md",
+  "topFinding": "The European Parliament's April plenary session was bookended by a politically explosive act: the approval of a request to lift the parliamentary immunity of Patryk Jaki (ECR, Poland), former Polish minister and prominent Law and Justice (PiS)-affiliated MEP.",
+  "keyTakeaways": [
+    "Ukraine Facility extensions",
+    "Eastern Partnership (Armenia) support",
+    "Humanitarian aid increases (Haiti signal)",
+    "DMA enforcement resources",
+    "A typical Strasbourg mini-session produces 2–4 significant resolutions or votes",
+    "The April session produced 2 immunity procedures + 4 external affairs resolutions + 1 major budget decision",
+    "This density reflects deliberate scheduling by the Conference of Presidents to concentrate politically significant votes before the summer recess period begins"
+  ],
+  "topRisks": [
+    "R2: Additional Polish MEP requests — systematic risk; JURI capacity planning",
+    "R5: Budget guidelines → autumn coalition — requires ongoing ECR management",
+    "R1: ECR cohesion decline — track at each session",
+    "R3: DMA platform legal challenge — US diplomatic signals",
+    "R7, R8: Technical data constraints — documented, managed via provenance declarations",
+    "R4: Ukraine amendment — highly unlikely given supermajority",
+    "R6: PfE-ECR merger — black swan probability",
+    "*Almost Certain* (>95%): Immunity waiver vote was carried by the constitutional majority required (EP Rules Article 9)"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "EPP + S&D + Renew = 397 seats",
+    "Active on: DMA, Ukraine, Armenia, Haiti, Budget (mostly), Immunity",
+    "Internal tensions: Renew on DMA details; S&D on budget conditionality",
+    "Core + Greens = 450 seats (rule-of-law, digital, climate)",
+    "Core + ECR = 478 seats (budget, Ukraine, Armenia)",
+    "Core + Left = 443 seats (rule-of-law, humanitarian)",
+    "PfE + ESN = 112 seats (consistent opposition; narrative-focused)",
+    "ECR when voting against core = adds 81 to opposition (on some rule-of-law votes)"
+  ],
+  "macroContext": "| IMF Source | knowledge-only | |---|---| | IMF Availability | 🔴 UNAVAILABLE — probe timed out; no live IMF SDMX data |",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
