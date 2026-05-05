@@ -1,0 +1,47 @@
+{
+  "date": "2026-05-05",
+  "articleType": "committee-reports",
+  "runId": "committee-reports-run-1777957656",
+  "gateResult": "PENDING",
+  "slug": "2026-05-05-committee-reports",
+  "articlePath": "analysis/daily/2026-05-05/committee-reports/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**DMA enforcement resolution** attracted cross-group support from EPP, S&D, Renew, and Greens/EFA, reflecting broad parliamentary consensus on enforcing existing digital legislation — though ECR opposed interventionist interpretations.",
+    "**Ukraine accountability text** saw strong support from EPP, S&D, Renew, ECR, and Greens/EFA; opposed primarily by The Left (on NATO escalation grounds) and elements of PfE and ESN (on \"both sides\" framing grounds).",
+    "**Livestock sector resolution** reflects inter-group compromise: EPP pushed for regulatory relief and economic subsidies; S&D and Greens/EFA insisted on environmental conditionalities; Renew championed innovation incentives. The adopted text shows clear evidence of this negotiated balance.",
+    "**2027 Budget guidelines** passed with EPP-S&D-Renew majority; The Left and Greens/EFA abstained or opposed due to insufficient climate ambition; ECR opposed on EU budget size grounds."
+  ],
+  "topRisks": [
+    "Status of Commission DMA proceedings as of July 2026 (preliminary findings issued?)",
+    "Commission's own public commitment to year-end decision timeline",
+    "Any requests for extension of formal proceedings (permitted under DMA with Commission approval)",
+    "Azerbaijani military movements near Armenian border (monitor via OSCE SMM)",
+    "Energy supply disruption to Armenian market (Gazprom contract modification)",
+    "Russian-language social media disinformation surge targeting Pashinyan government",
+    "Armenian CSTO participation renewal (signal of Russian pressure success)",
+    "European External Action Service (EEAS) engagement with Armenian security sector"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "**Pro-DMA bloc** (S&D + Renew + Greens + Left): ~311 seats — below 361 majority threshold alone",
+    "**Anti-DMA bloc** (PfE + ECR + NI + ESN): ~223 seats — cannot block alone",
+    "**Budget battleground**: EPP + S&D cross-coalition needed for adopted guidelines — requires 320+ seat broad coalition",
+    "**Armenian resolution**: adopted with EPP + S&D + Renew + Greens + Left support (~496 seats); PfE/ECR/ESN opposed",
+    "**Budget**: ECOFIN will review Parliament's guidelines and prepare Council's July counterproposal — *active antagonist* to Parliament's budget ambitions",
+    "**CFSP (Armenia, Ukraine, Haiti)**: Council/EEAS coordinates diplomatic response; Parliament's resolutions are inputs to Council diplomatic calculus",
+    "**Copa-Cogeca** (farmers' union): primary political mobilisation vehicle; strong member-state government relationships",
+    "**National livestock associations**: Germany (DBV), France (FNSEA), Netherlands (LTO), Ireland (ICMSA) — member state variation in policy preferences"
+  ],
+  "macroContext": "Euro area GDP growth: IMF April 2026 World Economic Outlook projects euro area real GDP growth at +1.3% for 2026, recovering modestly from +0.8% in 2025.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
