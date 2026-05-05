@@ -122,6 +122,44 @@ Download the complete data your article type needs — not metadata, not counts.
 
 ---
 
+## 3️⃣.5 Step 3.5 — Scaffold All Artifacts + Set Data Mode
+
+Before any analytical writing begins, create the full file structure and
+declare the data-availability state. This prevents Pass 2 from wasting time
+creating files that should have existed in Pass 1.
+
+**Scaffold protocol (MANDATORY — execute before Step 4):**
+
+1. **Determine `dataMode`** from Stage A results:
+   - `cache/imf/probe-summary.json` → `{"available": false}` → `"degraded-imf"`
+   - `getVotingRecordsWithFallback` → `"unavailable"` → `"degraded-voting"`
+   - Adopted texts fetched title-only (full-text 404) → `"title-only"`
+   - ≥2 conditions above → `"minimal"`
+   - Otherwise → `"full"`
+2. **Write `dataMode` to `manifest.json`** at this point.
+3. **Create empty stubs** for every mandatory artifact in the run's
+   `manifest.files.*` list. Each stub must contain:
+   - SPDX header (2 lines)
+   - H1 title matching the template's expected heading
+   - `<!-- mermaid:pending -->` comment (for intelligence/, classification/,
+     risk-scoring/, threat-assessment/ directories)
+4. **Record** `"scaffoldedAt": "<ISO-timestamp>"` and
+   `"scaffoldedArtifactCount": <N>` in `manifest.json`.
+5. **Validate scaffold** — run `ls ${ANALYSIS_DIR}/**/*.md | wc -l` and
+   confirm it matches the manifest count ± data/ files.
+
+**Why this matters:** Methodology-reflection analysis of 2026-05-05 runs
+shows that 5+ artifacts were created from scratch in Pass 2 (committee-reports,
+quarter-in-review), consuming time that should have been spent deepening
+existing analysis. Scaffolding ensures Pass 1 fills every file and Pass 2
+improves every file.
+
+**Product of Step 3.5:** all artifact files exist (stubs), manifest declares
+`dataMode`, and the analytical writing phase can begin with full awareness of
+available data constraints.
+
+---
+
 ## 4️⃣ Step 4 — Classify Events and Map Actors
 
 Turn raw data into a labelled fact layer.

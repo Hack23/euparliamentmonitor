@@ -230,6 +230,60 @@ Every `manifest.json` records what was successfully downloaded:
 }
 ```
 
+### 5.1 · Data Mode Declaration (MANDATORY)
+
+The manifest **MUST** include a top-level `dataMode` field declaring the
+data-availability state of the run. This drives threshold adjustments in
+Stage C — the validator reduces line floors for structurally constrained runs.
+
+| `dataMode` value | When to set | Line-floor reduction |
+|------------------|-------------|---------------------|
+| `"full"` | All primary sources (EP MCP, IMF, voting records) available | 0% (default) |
+| `"title-only"` | Adopted texts available by title/reference only; full text not yet published (3–7 day EP delay) | 25% |
+| `"degraded-imf"` | IMF SDMX unreachable; World Bank used as partial substitute | 15% |
+| `"degraded-voting"` | Roll-call data unavailable (4–6 week EP publication lag); coalition analysis uses structural proxies only | 15% |
+| `"minimal"` | Multiple data sources unavailable (combine title-only + degraded-imf + degraded-voting) | 35% |
+
+**Decision logic** (Stage A exit checklist):
+1. If `cache/imf/probe-summary.json` contains `{"available": false}` → at minimum `"degraded-imf"`
+2. If `getVotingRecordsWithFallback` returns `unavailable` → at minimum `"degraded-voting"`
+3. If adopted texts fetched but all full-text URLs return 404 → at minimum `"title-only"`
+4. If ≥2 of the above conditions apply → `"minimal"`
+5. Otherwise → `"full"`
+
+Set `dataMode` **at the end of Stage A** so Stage B and C can adapt.
+Every artifact produced under a non-`"full"` dataMode MUST flag the
+limitation in prose (confidence levels reduced, explicit caveat paragraph).
+
+```json
+{
+  "articleType": "breaking",
+  "dataMode": "degraded-imf",
+  "dataVerification": { "..." }
+}
+```
+
+### 5.2 · Eurostat Triangulation Fallback (when IMF degraded)
+
+When IMF SDMX is unreachable (`dataMode: "degraded-imf"` or `"minimal"`),
+attempt Eurostat as a secondary economic triangulation source before
+falling back to World Bank GDP-only data:
+
+1. **Eurostat SDMX endpoint** (via `web-fetch` tool):
+   `https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/{datasetCode}/{filter}?format=JSON`
+   - Key datasets: `namq_10_gdp` (GDP), `prc_hicp_manr` (HICP),
+     `une_rt_m` (unemployment), `gov_10dd_edpt1` (government debt)
+2. **Eurostat is NOT an IMF replacement** — use only for EU-aggregate and
+   member-state triangulation when IMF is down. Attribution: "Eurostat,
+   [Dataset], accessed YYYY-MM-DD" in prose.
+3. Store fetched JSON under `${ANALYSIS_DIR}/cache/eurostat/` with the
+   dataset code as filename.
+4. Record `"eurostatFetched": true` in `manifest.dataVerification`.
+5. **Do NOT cite Eurostat as sole source for economic claims** — it is a
+   triangulation signal. When both IMF and Eurostat are unavailable, use
+   agent knowledge with explicit `data-vintage` attribution and reduce
+   WEP confidence bands by +15 pp across all economic assessments.
+
 ## 6 · MCP Data-Quality Defensive Rules (empirical)
 
 1. `coalition_dynamics.cohesion` with `sharedVotes === null` is a **size-ratio

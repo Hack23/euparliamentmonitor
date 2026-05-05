@@ -472,6 +472,7 @@ function validateArtifact({
   relativePath,
   rules,
   options,
+  dataModeReduction = 1.0,
 }) {
   const abs = path.join(runDir, relativePath);
   const result = {
@@ -493,7 +494,8 @@ function validateArtifact({
   result.lines = countLines(content);
 
   const perFloor = rules.perArtifactFloors?.[relativePath] ?? null;
-  result.minLines = Math.max(options.minLines, perFloor ?? 0);
+  const rawFloor = Math.max(options.minLines, perFloor ?? 0);
+  result.minLines = Math.max(DEFAULT_MIN_LINES, Math.floor(rawFloor * dataModeReduction));
   if (result.lines < result.minLines) {
     result.issues.push(
       `short:${result.lines}<${result.minLines}`,
@@ -935,6 +937,28 @@ function main() {
     );
   }
 
+  // ── Data-mode threshold adjustment (§dataMode) ────────────────────────
+  // When manifest.dataMode declares a degraded data availability state,
+  // the validator applies a line-floor reduction factor so that structurally
+  // constrained runs (missing full text, IMF unavailable, roll-call lag)
+  // can still pass Stage C without inflating thresholds that cannot be met
+  // with the available data. The reduction ONLY applies to line floors —
+  // structural requirements (mermaid, WEP, Admiralty, SATs) remain unchanged.
+  const dataMode = manifest.dataMode || 'full';
+  const DATA_MODE_REDUCTION = {
+    'full': 1.0,
+    'title-only': 0.75,
+    'degraded-imf': 0.85,
+    'degraded-voting': 0.85,
+    'minimal': 0.65,
+  };
+  const dataModeReduction = DATA_MODE_REDUCTION[dataMode] || 1.0;
+  if (dataMode !== 'full') {
+    process.stderr.write(
+      `info: dataMode="${dataMode}" — applying ${Math.round((1 - dataModeReduction) * 100)}% line-floor reduction\n`,
+    );
+  }
+
   const thresholdsJson = loadThresholds(opts.thresholdsPath);
   let rules;
   try {
@@ -953,7 +977,7 @@ function main() {
   const mandatory = listMandatoryArtifacts(rules, manifestArtifacts, articleType);
 
   const results = mandatory.map((relativePath) =>
-    validateArtifact({ runDir, relativePath, rules, options: opts }),
+    validateArtifact({ runDir, relativePath, rules, options: opts, dataModeReduction }),
   );
 
   const forwardRegistryResult = validateForwardStatementsRegistryCoverage(runDir, articleType);

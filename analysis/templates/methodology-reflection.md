@@ -105,6 +105,32 @@ graph TD
 
 ---
 
+## 1️⃣.5 Data Mode Declaration
+
+| Field | Value |
+|-------|-------|
+| **`dataMode`** | `[REQUIRED: full / title-only / degraded-imf / degraded-voting / minimal]` |
+| **Justification** | `[REQUIRED: why this mode — which probes failed, which data is structurally unavailable]` |
+| **Line-floor reduction applied** | `[REQUIRED: 0% / 15% / 25% / 35% — per reference-quality-thresholds.json §1.4.0]` |
+| **Confidence ceiling** | `[REQUIRED: when non-full, state the maximum confidence level permitted for data-dependent claims]` |
+
+**Stage B Scaffold Checklist** — MANDATORY at minute 0 of Stage B:
+
+Before writing any analytical content, create **empty stub files** for every
+mandatory artifact. This ensures Pass 1 produces all files (even if below floor)
+and Pass 2 can deepen rather than create from scratch.
+
+Scaffold protocol:
+1. Read `manifest.json.files.*` list from the completed Stage A manifest
+2. For every file in the list: `touch ${ANALYSIS_DIR}/${relativePath}` with SPDX header
+3. Include Mermaid placeholder `<!-- mermaid:pending -->` in every intelligence/ file
+4. Record scaffold timestamp in manifest: `"scaffoldedAt": "<ISO timestamp>"`
+5. Only THEN begin analytical content generation in Pass 1
+
+`[REQUIRED: confirm scaffold was performed — timestamp and artifact count. If NOT performed, explain why and document the time cost of creating files in Pass 2 instead.]`
+
+---
+
 ## 2️⃣ Data Sources and Provenance
 
 | Source | Purpose | Status | Confidence grade |
