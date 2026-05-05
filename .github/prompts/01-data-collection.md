@@ -172,9 +172,11 @@ not secondary, not fallback)**:
 - Connectivity probes: `source scripts/wb-mcp-probe.sh` and
   `scripts/imf-mcp-probe.sh` after `scripts/mcp-setup.sh`. The IMF probe
   uses the shared `fetch-proxy` MCP gateway first (`FETCH_MCP_GATEWAY_URL`)
-  and direct HTTPS only as a local/non-AWF fallback; if the `fetch-proxy`
-  server fails to register, fix the shared MCP component instead of treating
-  IMF as genuinely unavailable. For
+  and direct HTTPS only as a local/non-AWF fallback. The probe summary JSON
+  includes a `"gatewayStatus"` field that distinguishes infrastructure failures
+  (e.g. `"error:gateway-post-failed(exit=7)"`) from genuine IMF outages
+  (`"ok"` with `"available":false`). If `gatewayStatus` reports an error, fix
+  the shared MCP component rather than treating IMF as unavailable. For
   `week-in-review`, `month-in-review`, `week-ahead`, and `month-ahead`, start
   the IMF probe in the background at the beginning of Stage A and cache its JSON
   under `${ANALYSIS_DIR}/cache/imf/` while EP MCP calls continue. The probe
