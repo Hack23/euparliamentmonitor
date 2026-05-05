@@ -234,7 +234,7 @@ export async function handleFetchUrl(
  * Run the fetch-proxy MCP server, reading JSON-RPC messages from `input` and
  * writing responses to `output`.
  *
- * This function never resolves — it blocks until the input stream closes.
+ * Does not resolve until the input stream closes.
  *
  * @param input - Readable stream to read JSON-RPC lines from (default: stdin).
  * @param output - Writable stream to write responses to (default: stdout).
@@ -254,11 +254,11 @@ export function runServer(
 
   return new Promise((resolve) => {
     rl.on('line', (line: string) => {
-      let requestId: number | string | null = 0;
+      let requestId: number | string | null = null;
       void (async () => {
         try {
           const msg = JSON.parse(line) as JsonRpcRequest;
-          requestId = msg.id ?? 0;
+          requestId = msg.id ?? null;
 
           if (msg.method === 'initialize') {
             send(handleInitialize(msg.id ?? null));

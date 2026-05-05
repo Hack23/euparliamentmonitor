@@ -100,7 +100,6 @@ if [ -f "$_MCP_CONFIG_PATH" ]; then
   else
     # Strip legacy "Bearer " prefix (case-insensitive) — gateway expects raw API key
     export EP_MCP_GATEWAY_API_KEY="$(printf '%s' "$GW_KEY" | sed 's/^[Bb][Ee][Aa][Rr][Ee][Rr][[:space:]]*//')"
-    echo "ℹ️  MCP gateway API key extracted (length=${#EP_MCP_GATEWAY_API_KEY})"
   fi
   # Rebuild gateway URLs from the config if it advertises port/domain, so
   # we always match whatever gh-aw is actually running (80 on old versions,

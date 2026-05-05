@@ -147,7 +147,11 @@ export function readMcpConfig(
 
   let config: McpConfigJson;
   try {
-    config = JSON.parse(raw) as McpConfigJson;
+    const parsed: unknown = JSON.parse(raw);
+    if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
+      return { apiKey: undefined, port: undefined, domain: undefined };
+    }
+    config = parsed as McpConfigJson;
   } catch {
     return { apiKey: undefined, port: undefined, domain: undefined };
   }

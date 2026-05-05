@@ -258,6 +258,8 @@ describe('runServer', () => {
     await runServer(input, stream);
     const responses = output.map((l) => JSON.parse(l.trim()));
     expect(responses[0].error).toBeDefined();
+    // JSON-RPC 2.0: parse errors must use id: null (request id is unknown)
+    expect(responses[0].id).toBeNull();
     expect(responses[1].result.protocolVersion).toBe('2024-11-05');
   });
 

@@ -132,6 +132,33 @@ describe('readMcpConfig', () => {
     });
   });
 
+  it('returns all-undefined when JSON parses to null', () => {
+    const readFileImpl = () => 'null';
+    expect(readMcpConfig('/fake/config.json', readFileImpl)).toEqual({
+      apiKey: undefined,
+      port: undefined,
+      domain: undefined,
+    });
+  });
+
+  it('returns all-undefined when JSON parses to a number', () => {
+    const readFileImpl = () => '42';
+    expect(readMcpConfig('/fake/config.json', readFileImpl)).toEqual({
+      apiKey: undefined,
+      port: undefined,
+      domain: undefined,
+    });
+  });
+
+  it('returns all-undefined when JSON parses to an array', () => {
+    const readFileImpl = () => '["a","b"]';
+    expect(readMcpConfig('/fake/config.json', readFileImpl)).toEqual({
+      apiKey: undefined,
+      port: undefined,
+      domain: undefined,
+    });
+  });
+
   it('reads apiKey from gateway.apiKey', () => {
     const json = JSON.stringify({
       gateway: { apiKey: 'mykey', port: 8080, domain: 'host.docker.internal' },

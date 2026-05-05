@@ -107,7 +107,11 @@ export function readMcpConfig(configPath, readFileImpl = fs.readFileSync) {
     }
     let config;
     try {
-        config = JSON.parse(raw);
+        const parsed = JSON.parse(raw);
+        if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
+            return { apiKey: undefined, port: undefined, domain: undefined };
+        }
+        config = parsed;
     }
     catch {
         return { apiKey: undefined, port: undefined, domain: undefined };
