@@ -490,7 +490,7 @@ jobs:
           echo "- Functional tests: ${{ needs.functional-tests.result }}" >> $GITHUB_STEP_SUMMARY
           echo "- Security check: ${{ needs.security-check.result }}" >> $GITHUB_STEP_SUMMARY
           echo "- Performance testing: ${{ needs.performance.result }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Node.js 27 nightly (informational): ${{ needs.node-next.result }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Node.js 26 nightly (informational): ${{ needs.node-next.result }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "## Accessibility" >> $GITHUB_STEP_SUMMARY
           echo "- ♿ WCAG 2.1 AA accessibility tests run as part of functional-tests job" >> $GITHUB_STEP_SUMMARY

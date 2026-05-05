@@ -63,7 +63,7 @@
 
 ### 📋 Strategic Objective
 
-**EU Parliament Monitor** maintains a modern frontend-only static site architecture using HTML5, CSS3, and the Node.js 26 LTS toolchain for build and content generation. Node.js 26 is the current LTS release (April 2026), and the project tracks the Node.js release schedule by running **Node.js 27 nightly** CI compatibility tests ahead of its stabilization. This strategy ensures proactive lifecycle management of all technology components to prevent security exposure, maintain platform stability, and align with [Hack23 AB's Vulnerability Management Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) **"Living on the Edge"** philosophy.
+**EU Parliament Monitor** maintains a modern frontend-only static site architecture using HTML5, CSS3, and the Node.js 26 LTS toolchain for build and content generation. Node.js 26 is the current LTS release (April 2026), and the project tracks the Node.js release schedule by running **Node.js 26 nightly** CI compatibility tests ahead of Node.js 27's stabilization. This strategy ensures proactive lifecycle management of all technology components to prevent security exposure, maintain platform stability, and align with [Hack23 AB's Vulnerability Management Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Vulnerability_Management.md) **"Living on the Edge"** philosophy.
 
 This strategy aligns with the [Hack23 AB Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) requirement for comprehensive lifecycle documentation.
 
@@ -93,7 +93,7 @@ mindmap
         LTS Release Apr 2026
         EOL Apr 2029
         Next Alpha Node.js 27
-        CI Testing Node.js 27 nightly
+        CI Testing Node.js 26 nightly
       Browser Runtime
         Evergreen Updates
         No EOL
@@ -261,7 +261,7 @@ gantt
 #### 🟢 Proactive Migration Triggers (Preferred)
 
 1. **✅ Completed:** Node.js 25 → Node.js 26 LTS — Upgraded upon Node.js 26 release (April/May 2026)
-2. **🔬 Active Now:** Node.js 27 Nightly CI — Running `27-nightly` compatibility tests in `test-and-report.yml`
+2. **🔬 Active Now:** Node.js 26 Nightly CI — Running `26-nightly` compatibility tests in `test-and-report.yml`
 3. **📅 Node.js 27 Alpha Release:** October 2026 — Begin CI integration testing
 3. **📅 Node.js 27 Current Release:** April 2027 — Begin migration planning
 4. **🛡️ Security Feature Advantages:** Enhanced security features in newer Node.js releases
@@ -645,7 +645,7 @@ Should EOL conditions trigger migration, the successor platform will maintain **
 ```
 2026-04-30 (done)   ✅ Node.js 25 EOL — Migrated to Node.js 26 LTS
 2026-05-05 (now)    ✅ Node.js 26 LTS — Active Production (engines: >=26)
-2026-05-05 (now)    🔬 Node.js 27 Nightly — Running in CI (node-next job, continue-on-error)
+2026-05-05 (now)    🔬 Node.js 26 Nightly — Running in CI (node-next job, continue-on-error)
 2026-10-01          🆕 New Node.js release schedule takes effect
 2026-10-01          🔬 Node.js 27 Alpha — Upgrade CI matrix from nightly to alpha
 2027-04-01          📦 Node.js 27 Current — Begin migration validation

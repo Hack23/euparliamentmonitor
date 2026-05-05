@@ -709,7 +709,7 @@ All 15 news workflows are **markdown source files compiled to YAML** (`.md` → 
 
 | Layer               | Technology | Version | Purpose                          | Rationale |
 | ------------------- | ---------- | ------- | -------------------------------- | --------- |
-| **Runtime**         | Node.js    | 26.x (`engines: >=26`); Node.js 27 nightly tested in CI | JavaScript execution environment | LTS release for stability and long-term support; ESM-native (`"type": "module"`) |
+| **Runtime**         | Node.js    | 26.x (`engines: >=26`); Node.js 26 nightly tested in CI | JavaScript execution environment | LTS release for stability and long-term support; ESM-native (`"type": "module"`) |
 | **Language**        | TypeScript | 6.0.3   | Primary development language     | Strict type safety; compiles from `src/` → `scripts/` targeting ES2025, `module: NodeNext` |
 | **Package Manager** | npm        | 10.x    | Dependency management            | Native Node.js package manager, security audit integration |
 | **Testing**         | Vitest     | 4.1.4   | Unit and integration testing     | Fast, ESM-native; happy-dom env; `happy-dom@20.9.0` |
@@ -726,7 +726,7 @@ All 15 news workflows are **markdown source files compiled to YAML** (`.md` → 
 
 | Technology | Current Version | Minimum Version | End-of-Life | Update Policy |
 |------------|----------------|-----------------|-------------|---------------|
-| **Node.js** | 26.x (LTS) | 26.0.0 (`engines: >=26`) | ~Apr 2029 | Running on Node.js 26 LTS; Node.js 27 nightly tested in CI (`test-and-report.yml`) |
+| **Node.js** | 26.x (LTS) | 26.0.0 (`engines: >=26`) | ~Apr 2029 | Running on Node.js 26 LTS; Node.js 26 nightly tested in CI (`test-and-report.yml`) |
 | **npm** | 10.x (latest) | 10.0.0 | Follows Node.js lifecycle | Auto-updated with Node.js |
 | **TypeScript** | 6.0.3 | 6.0.0 | N/A | Update to latest minor within 14 days, major within 90 days |
 | **Vitest** | 4.1.4 | 4.0.0 | N/A | Update to latest minor within 14 days, major within 60 days |
