@@ -96,7 +96,7 @@ if [ -f "$_MCP_CONFIG_PATH" ]; then
   GW_PORT="${_MCP_GATEWAY_REST%%	*}"
   GW_DOMAIN="${_MCP_GATEWAY_REST#*	}"
   if [ -z "$GW_KEY" ]; then
-    echo "⚠️  WARNING: MCP config found but no auth token in gateway.apiKey, mcpServers[*].headers.Authorization, or any server header — IMF fetch-proxy gateway will run unauthenticated (still works for internal AWF container traffic)"
+    echo "⚠️  WARNING: MCP config found but no auth token — gateway will run unauthenticated (OK for internal AWF traffic)"
   else
     # Strip legacy "Bearer " prefix (case-insensitive) — gateway expects raw API key
     export EP_MCP_GATEWAY_API_KEY="$(printf '%s' "$GW_KEY" | sed 's/^[Bb][Ee][Aa][Rr][Ee][Rr][[:space:]]*//')"
