@@ -16,8 +16,8 @@
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.2 | **📅 Last Updated:** 2026-05-03 (UTC) | **📦 Release:** v0.8.54  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03
+**📋 Document Owner:** CEO | **📄 Version:** 4.3 | **📅 Last Updated:** 2026-05-05 (UTC) | **📦 Release:** v0.8.58  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-05
 
 ---
 
@@ -116,7 +116,7 @@ EU Parliament Monitor employs a comprehensive suite of **GitHub Actions workflow
 | # | Workflow | Purpose | Schedule / Trigger | ISMS Alignment |
 |---|---------|---------|-------------------|----------------|
 | 1 | **Agentic News Workflows** (×15) | AI-generated multi-language news articles (14 article-type unified `news-<type>.md` + `news-translate`) | Varied schedules (see §1) | Integrity controls (Medium) |
-| 2 | **Test & Report** | Unit + integration tests, 3061+ tests, coverage, performance | On PR/push to main | Quality assurance (ISO 27001 A.12.1.4) |
+| 2 | **Test & Report** | Unit + integration tests, 3026+ tests, coverage, performance | On PR/push to main | Quality assurance (ISO 27001 A.12.1.4) |
 | 3 | **CodeQL** | SAST security scanning (JS/TS + GitHub Actions) | On PR/push + weekly Saturday | Vulnerability management (ISO 27001 A.12.6) |
 | 4 | **E2E Tests** | End-to-end Playwright tests (Chromium) + axe-core | On PR/push + daily midnight UTC | Functional validation + WCAG 2.1 AA |
 | 5 | **Release** | Build, attest (SLSA L3), document, publish to npm (provenance) | Manual/tag push | SLSA L3, Documentation-as-code, npm provenance |
@@ -125,7 +125,7 @@ EU Parliament Monitor employs a comprehensive suite of **GitHub Actions workflow
 | 8 | **Deploy S3** | Production deployment to AWS S3 + CloudFront (OIDC, egress: block) | Push to main | Infrastructure as Code |
 | 9 | **REUSE Compliance** | License and copyright verification (REUSE 3.3) | On PR/push + weekly Monday | Open Source Policy |
 | 10 | **SLSA Provenance** | Build provenance attestation (integrated in release.yml) | On release + manual | Supply chain security (SLSA L3) |
-| 11 | **Compile Agentic Workflows** | Compile `.md` → `.lock.yml` via gh-aw CLI (pinned `GH_AW_VERSION: v0.71.3`) | Manual dispatch | Automation governance |
+| 11 | **Compile Agentic Workflows** | Compile `.md` → `.lock.yml` via gh-aw CLI (pinned `GH_AW_VERSION: v0.71.4`) | Manual dispatch | Automation governance |
 | 12 | **Agentics Maintenance** | Housekeeping for agentic workflows (stale lock cleanup, health probes) | Scheduled | Automation governance |
 | 13 | **Labeler** | Automatic PR labeling | On pull_request_target | Workflow governance |
 | 14 | **Setup Labels** | Repository label management | Manual dispatch | Repository governance |
@@ -177,7 +177,7 @@ flowchart TB
 
     subgraph "Agentic Content Pipeline"
         direction TB
-        Schedule1[Scheduled Triggers] --> AgenticNews[10 Agentic News Workflows]
+        Schedule1[Scheduled / Manual Triggers] --> AgenticNews[15 Agentic News Workflows]
         AgenticNews --> Analysis[Political Intelligence Analysis]
         Analysis --> Articles[14-Language Article Generation]
         Articles --> ContentPR[Content Pull Request]
@@ -235,7 +235,7 @@ flowchart TB
 | 🚨 **EU Parliament Breaking News** | `news-breaking.lock.yml` | Every 6 hours (`0 */6 * * *`) | 60 min |
 | 🔮 **EU Parliament Week Ahead** | `news-week-ahead.lock.yml` | Friday 07:00 UTC | 60 min |
 | 📊 **EU Parliament Month Ahead** | `news-month-ahead.lock.yml` | 1st of month 08:00 UTC | 60 min |
-| 🌐 **EU Parliament Quarter Ahead** | `news-quarter-ahead.lock.yml` | 1st of month 06:00 UTC (`0 6 1 * *`) | 60 min |
+| 🌐 **EU Parliament Quarter Ahead** | `news-quarter-ahead.lock.yml` | 1st of month 08:00 UTC (`0 8 1 * *`) | 60 min |
 | 🛰️ **EU Parliament Year Ahead** | `news-year-ahead.lock.yml` | Quarterly — 2nd of Jan/Apr/Jul/Oct 08:00 UTC (`0 8 2 1,4,7,10 *`) | 60 min |
 | 🗓️ **EU Parliament Term Outlook** | `news-term-outlook.lock.yml` | Semi-annual — 1 Jan & 1 Jul 08:00 UTC (`0 8 1 1,7 *`) | 60 min |
 | 🗳️ **EU Parliament Election Cycle** | `news-election-cycle.lock.yml` | Annual — 1 Dec 08:00 UTC (`0 8 1 12 *`) + T-180 / T-90 / T-30 imminent triggers | 60 min |
@@ -246,7 +246,7 @@ flowchart TB
 | 🗳️ **EU Parliament Plenary Votes & Resolutions** | `news-motions.lock.yml` | Weekdays (Mon–Fri) 06:00 UTC | 60 min |
 | ⚖️ **EU Parliament Legislative Procedures** | `news-propositions.lock.yml` | Weekdays (Mon–Fri) 05:00 UTC | 60 min |
 | 🏛️ **EU Parliament Committee Activity** | `news-committee-reports.lock.yml` | Weekdays (Mon–Fri) 04:00 UTC | 60 min |
-| 🌐 **Translate Articles** | `news-translate.lock.yml` | Weekdays 09:00/12:00/15:00 UTC; Sat 15:00; 1st & 28th 15:00 | 60 min |
+| 🌐 **Translate Articles** | `news-translate.lock.yml` | Manual dispatch only (`workflow_dispatch`) | 60 min |
 
 > Each `news-<type>.md` workflow runs **Stages A → B → C → D → E in one 60-minute session** and produces **exactly one PR** containing both analysis artifacts and rendered article HTML. The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were **deleted** in the April-2026 aggregator-pipeline migration. The `news-translate.md` helper (manual dispatch only) is the sole exemption from the single-PR rule.
 
@@ -270,7 +270,7 @@ flowchart TB
 
 #### Agentic Workflow Architecture
 
-All 15 agentic workflows share a common architecture (14 unified `news-<type>.md` produce English articles in single 60-min sessions; the manual `news-translate` helper then generates the remaining 13 languages):
+All 15 agentic workflows share a common architecture. The 14 article workflows render the committed analysis run into all 14 language-aware HTML variants in Stage D; `news-translate.md` is a manual helper for refreshing translated Markdown sources when needed:
 
 ```mermaid
 graph TD
@@ -324,8 +324,8 @@ graph TD
 | **Node.js version** | 25 |
 | **EP MCP Server** | `european-parliament-mcp-server@1.2.21` (globally installed via `scripts/mcp-setup.sh`, MCP gateway `EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament`) |
 | **Data sources** | European Parliament MCP Server `v1.2.21+` (primary, 60+ tools — sliding + fixed-window feeds + analytical), IMF REST SDMX 3.0 (native fetch in `src/mcp/imf-mcp-client.ts`, **primary economic source** — WEO+FM+IFS+BOP+ER+PCPS+GFSR+EREO+FSI+GFS+DOT), World Bank Open Data MCP (non-economic only — WDI social/health/education/environment/governance). Economic-context enforcement is editorial at the Stage-C completeness review against [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md) and the per-artifact line floors in [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json) — the runtime `articlePolicyHas*` gates were purged in April-2026 |
-| **Analysis stage** | `--analysis` flag enables 18-method political intelligence pipeline before article generation |
-| **Analysis output** | `analysis/daily/{date}/` for cross-article artifacts (for example shared synthesis outputs), plus `analysis/daily/{date}/{article-type}/` for article-type-scoped classification, threat-assessment, risk-scoring, and data (EP feeds, World Bank, IMF, OSINT) artifacts committed to PR. Article-type scoping prevents merge conflicts between concurrent workflows. |
+| **Analysis stage** | Stage B writes structured Markdown artifacts under the run directory using the 10-step AI-driven analysis protocol |
+| **Analysis output** | `analysis/daily/{date}/{article-type}/` (or suffixed same-day variants) containing `manifest.json`, raw data, Stage-B artifacts, `article.md`, and `article-meta.json`. Article-type scoping prevents merge conflicts between concurrent workflows. |
 
 #### 5-Stage Pipeline (matches the prompt library `00`→`09`)
 
@@ -338,7 +338,7 @@ with the ten-file prompt library in [`.github/prompts/`](.github/prompts/README.
 | **A** | Data collection | [`01-data-collection.md`](.github/prompts/01-data-collection.md) + [`07-mcp-reference.md`](.github/prompts/07-mcp-reference.md) | `analysis/daily/<YYYY-MM-DD>/<type>-run<NN>/intelligence/*` |
 | **B** | Analysis (**2-pass mandatory**) | [`02-analysis-protocol.md`](.github/prompts/02-analysis-protocol.md) → `analysis/methodologies/ai-driven-analysis-guide.md` (10 steps, Rules 1–22) | classification / threat / risk / synthesis artifacts under the same run dir |
 | **C** | Completeness gate | [`03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md) → `npm run validate-analysis` vs `analysis/methodologies/reference-quality-thresholds.json` | **blocks** PR if any floor is missed |
-| **D** | Article (**2-pass mandatory**) | [`04-article-generation.md`](.github/prompts/04-article-generation.md) + [`05-analysis-to-article-contract.md`](.github/prompts/05-analysis-to-article-contract.md) with Read-Before-Write against every artifact from Stage B | `news/<date>-<type>-<lang>.html` |
+| **D** | Deterministic article render | [`04-article-generation.md`](.github/prompts/04-article-generation.md) + [`05-analysis-to-article-contract.md`](.github/prompts/05-analysis-to-article-contract.md); no AI-authored HTML | `analysis/daily/<date>/<type>/article.md`, `article-meta.json`, `news/<slug>.en.md`, and 14 `news/<slug>-<lang>.html` files |
 | **E** | Single PR | [`06-pr-and-safe-outputs.md`](.github/prompts/06-pr-and-safe-outputs.md) → one `safeoutputs___create_pull_request` call at end of run | GitHub PR (max 1 per run; `news-translate.md` is the sole exemption — multi-call flush for 14-language fan-out) |
 
 Stage D's Read-Before-Write rule requires the agent to consult every artifact
@@ -365,13 +365,13 @@ imports:
   `mcp-servers:` block (EP, World Bank, IMF, MCP Gateway mounts). Editing it
   propagates to every importing workflow on next compile.
 - `.github/agents/news-generation.agent.md` contributes **body-only** content
-  (confirmed against gh-aw v0.71.3, 2026-04-21: imported agent frontmatter is
+  (confirmed against gh-aw v0.71.4, 2026-04-21: imported agent frontmatter is
   not merged into workflow frontmatter). It appends the canonical Required
   Reading order and the 5-stage Stage Contract to every importing prompt.
 - Both files are tracked; any change triggers a recompile of every importing
   `.lock.yml` by [`compile-agentic-workflows.yml`](.github/workflows/compile-agentic-workflows.yml).
 
-#### safeoutputs semantics (gh-aw v0.71.3)
+#### safeoutputs semantics (gh-aw v0.71.4)
 
 Every `news-*.md` declares:
 
@@ -473,7 +473,7 @@ flowchart LR
 | **Weekly Review** | adopted_texts, procedures, plenary_documents, parliamentary_questions | get_voting_records, detect_voting_anomalies, generate_political_landscape | 📊 Retrospective outcome review |
 | **Month Ahead** | events, procedures, plenary/committee docs, adopted_texts, session docs, meps | get_plenary_sessions, get_committee_info, monitor_pipeline, generate_landscape, compare_groups, analyze_delegation | 📆 Strategic calendar outlook |
 | **Monthly Review** | adopted_texts, procedures, plenary_documents, parliamentary_questions | get_voting_records, detect_anomalies, generate_landscape, compare_groups, analyze_effectiveness | 📈 Comprehensive monthly trends |
-| **Translate** | — (consumes English articles) | — | 🌐 EN → 13 languages |
+| **Translate** | — (manual helper) | — | 🌐 Refresh translated Markdown sources |
 
 > **PRIO 1 MANDATE:** Each workflow ALWAYS downloads its mandatory feed data and runs its mandatory analytical tools BEFORE deciding whether to produce an article. Data collection is NEVER skipped, even for noop runs.
 
@@ -485,39 +485,39 @@ flowchart LR
 **🎯 Purpose:** AI-powered news article generation using GitHub Agentic Workflows (gh-aw) with European Parliament MCP Server data
 **⏰ Schedule:** Various (see table below)
 
-#### Architecture: Content/Translation Split
+#### Architecture: Unified Article Render + Manual Translation Helper
 
-The agentic news system uses a **separation of concerns** architecture:
+The agentic news system uses a **deterministic aggregator** architecture:
 
-1. **Content Workflows** (14 workflows) → Generate English-only articles with deep political intelligence
-2. **Translation Workflow** (1 workflow) → Translates English articles to 13 other languages
+1. **Article workflows** (14 workflows) → Collect data, author Stage-B artifacts, run Stage-C completeness checks, and render all 14 language-aware HTML variants from the committed analysis run.
+2. **Translation helper** (1 workflow) → Manual-only workflow for refreshing translated Markdown sources with multi-call safe-output flushes when needed.
 
-This split ensures content workflows spend their full time budget on political intelligence quality, while translations maintain fidelity to the English source content.
+This keeps political-intelligence authoring in Markdown artifacts and makes HTML generation reproducible across every language.
 
 ```mermaid
 graph TD
-    A[📋 Content Workflows<br/>English only] -->|Generate| B[📰 English Articles]
-    B -->|Merge PR| C[main branch]
-    C -->|Schedule trigger| D[🌐 Translation Workflow]
-    D -->|Generate| E[🌍 13 Language Translations]
-    E -->|Merge PR| C
-    C -->|Deploy| F[📊 GitHub Pages<br/>Language Switchers + Sitemaps]
+    A[📋 Article Workflows<br/>Stage A-E] -->|Write| B[🧠 analysis/daily run]
+    B -->|Render| C[🌐 14 HTML variants]
+    C -->|Single safe-output| D[📝 Content PR]
+    B -.->|Manual refresh| E[🌐 news-translate.md]
+    E -.->|Translated Markdown sources| C
+    D -->|Merge + deploy| F[☁️ S3 / CloudFront<br/>Language Switchers + Sitemaps]
 
     classDef trigger fill:#3498db,stroke:#2980b9,stroke-width:2px,color:white
     classDef process fill:#9b59b6,stroke:#8e44ad,stroke-width:1.5px,color:white
-    classDef deploy fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
+    classDef render fill:#27ae60,stroke:#1e8449,stroke-width:1.5px,color:white
     classDef translation fill:#e67e22,stroke:#d35400,stroke-width:1.5px,color:white
 
     class A trigger
-    class B,C process
-    class D,E translation
-    class F deploy
+    class B,D process
+    class C,F render
+    class E translation
 ```
 
 #### Content Workflow Schedule
 
-| Workflow Pair (analysis + article) | Article Type | Analysis Schedule | Focus |
-|------------------------------------|--------------|-------------------|-------|
+| Workflow | Article Type | Schedule | Focus |
+|---|---|---|---|
 | 🤖 Workflow | 🏷️ Type | 📅 Schedule | 🎯 Purpose |
 |---|---|---|---|
 | `news-committee-reports.md` | committee-reports | Mon–Fri 04:00 UTC | Committee activity analysis |
@@ -529,13 +529,13 @@ graph TD
 | `news-month-in-review.md` | month-in-review | 28th of month 10:00 UTC | Monthly retrospective |
 | `news-breaking.md` | breaking | Every 6 hours | Real-time EP feed events |
 
-> Each `news-<type>.md` runs the full Stage A→E protocol in one ~60-minute session and produces exactly one PR with both analysis artifacts and the rendered article HTML. The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were **deleted** in the April-2026 aggregator-pipeline migration (the prior legacy single-job `news-<type>.md` were briefly replaced by split pairs in 2025 because those exceeded the safeoutputs MCP TTL — the unified workflows now use `engine.mcp.session-timeout: 65m` (gh-aw v0.71.3+) to keep the safeoutputs HTTP session alive for the full run, with the PR call landing by minute ≤ 45 of the 60-min `timeout-minutes` cap).
+> Each `news-<type>.md` runs the full Stage A→E protocol in one ~60-minute session and produces exactly one PR with both analysis artifacts and the rendered article HTML. The earlier split-pair `news-<type>-analysis.md` + `news-<type>-article.md` layout and the manual `news-article-generator.md` helper were **deleted** in the April-2026 aggregator-pipeline migration (the prior legacy single-job `news-<type>.md` were briefly replaced by split pairs in 2025 because those exceeded the safeoutputs MCP TTL — the unified workflows intentionally do **not** set `engine.mcp.session-timeout` because the bundled MCP gateway rejects the field; the default gateway keepalive is used and the PR call lands by minute ≤ 45 of the 60-min `timeout-minutes` cap).
 
 #### Translation Workflow
 
 | Workflow | Schedule | Purpose |
 |----------|----------|---------|
-| `news-translate.md` | Mon–Fri 07/09/12/15/17/19 UTC, Sat–Sun 09/12/15 UTC | Translate English articles to sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh |
+| `news-translate.md` | Manual (`workflow_dispatch`) only | Refresh or complete sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh translated Markdown sources; multi-call safe-output flush is allowed only here |
 
 #### Supported Languages (14 total)
 
@@ -651,12 +651,12 @@ The translation workflow has its own fidelity module:
 
 | Test Type | Framework | Coverage Target | Current Status |
 |-----------|-----------|----------------|----------------|
-| **Unit Tests** | Vitest 4.1.4 (happy-dom) | 52 test files | ✅ 3061+ passing |
+| **Unit Tests** | Vitest 4.1.5 (happy-dom) | 76 test files | ✅ 3026+ passing |
 | **Integration Tests** | Vitest + MCP contract suites (`test/integration/mcp-integration.test.js`, `test/integration/mcp/imf-mcp.test.js`, `test/integration/mcp/worldbank-mcp.test.js`) | IMF/WB canonical tool lists asserted via drift-guard tests; EP MCP covered by `mcp-integration.test.js` (no canonical `EP_MCP_TOOLS` export yet) | ✅ All passing |
 | **Line Coverage** | Vitest (V8) | ≥80% | ✅ 82%+ |
 | **Branch Coverage** | Vitest (V8) | ≥75% | ✅ 83%+ |
 | **Function Coverage** | Vitest (V8) | ≥80% | ✅ 89%+ |
-| **E2E** | Playwright 1.59.1 + @axe-core/playwright 4.11.2 | WCAG 2.1 AA | ✅ Passing |
+| **E2E** | Playwright 1.59.1 + @axe-core/playwright 4.11.3 | WCAG 2.1 AA | ✅ Passing |
 
 #### Workflow Jobs (6 Jobs)
 
@@ -926,7 +926,7 @@ Every release automatically generates:
 | **Artifact Signing** | GitHub Attestations API (Sigstore, OIDC keyless) | Integrity verification |
 | **npm Registry** | Published to `registry.npmjs.org/euparliamentmonitor` with Sigstore provenance | Supply chain transparency |
 | **Documentation Audit Trail** | Committed to main branch | Evidence trail |
-| **Test Validation** | 3061+ unit/integration tests + E2E Playwright | Quality gates |
+| **Test Validation** | 3026+ unit/integration tests + E2E Playwright | Quality gates |
 
 #### ISMS Evidence
 
@@ -1115,18 +1115,18 @@ created during the build step and attached to the immutable GitHub Release in a 
 ### 11. Compile Agentic Workflows
 
 **📄 File:** `.github/workflows/compile-agentic-workflows.yml`  
-**🎯 Purpose:** Compile agentic workflow markdown source files (`.md`) into executable lock files (`.lock.yml`) using the `gh-aw` CLI (pinned `GH_AW_VERSION: v0.71.3`)  
+**🎯 Purpose:** Compile agentic workflow markdown source files (`.md`) into executable lock files (`.lock.yml`) using the `gh-aw` CLI (pinned `GH_AW_VERSION: v0.71.4`)  
 **⏰ Trigger:** Manual dispatch only (`workflow_dispatch`)  
 **📊 Status:** [![Compile Agentic Workflows](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml/badge.svg)](https://github.com/Hack23/euparliamentmonitor/actions/workflows/compile-agentic-workflows.yml)
 
-> **Version pin contract**: `GH_AW_VERSION: v0.71.3` is a repository-level environment pin in `compile-agentic-workflows.yml`. Bumping this pin requires re-compilation of all 15 `.lock.yml` files, a full PR review, and successful `gh aw compile --validate` across the workflow set. Any `.md` → `.lock.yml` drift is detected by `agentics-maintenance.yml`.
+> **Version pin contract**: `GH_AW_VERSION: v0.71.4` is a repository-level environment pin in `compile-agentic-workflows.yml`. Bumping this pin requires re-compilation of all 15 `.lock.yml` files, a full PR review, and successful `gh aw compile --validate` across the workflow set. Any `.md` → `.lock.yml` drift is detected by `agentics-maintenance.yml`.
 
 #### Compilation Pipeline
 
 ```mermaid
 graph LR
     A[Manual Trigger] --> B[Checkout Repository]
-    B --> C["Install gh-aw CLI<br/>(pinned v0.71.3)"]
+    B --> C["Install gh-aw CLI<br/>(pinned v0.71.4)"]
     C --> D["Run gh aw compile --validate<br/>Validates frontmatter + safe-outputs"]
     D --> E["Commit & Push<br/>.lock.yml Files"]
 
@@ -1153,7 +1153,7 @@ graph LR
 | Control | Implementation | ISMS Reference |
 |---------|----------------|----------------|
 | **Manual Trigger Only** | `workflow_dispatch` — no automatic runs | Change control |
-| **Version Pin** | `GH_AW_VERSION: v0.71.3` pinned at workflow env | Supply chain integrity |
+| **Version Pin** | `GH_AW_VERSION: v0.71.4` pinned at workflow env | Supply chain integrity |
 | **Token Fallback** | `COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` with `GITHUB_TOKEN` fallback | Credential management |
 | **Write Permissions** | `contents: write`, `pull-requests: write`, `actions: write`, `issues: write` | Least privilege for compilation |
 
@@ -1215,7 +1215,7 @@ graph LR
 ### 15. Agentics Maintenance
 
 **📄 File:** `.github/workflows/agentics-maintenance.yml`  
-**🎯 Purpose:** Housekeeping for the agentic workflow fleet — detect `.md` ↔ `.lock.yml` drift, probe MCP gateway health, prune stale analysis artifacts, verify `GH_AW_VERSION: v0.71.3` is in effect.  
+**🎯 Purpose:** Housekeeping for the agentic workflow fleet — detect `.md` ↔ `.lock.yml` drift, probe MCP gateway health, prune stale analysis artifacts, verify `GH_AW_VERSION: v0.71.4` is in effect.  
 **⏰ Trigger:** Scheduled (weekly) + manual dispatch  
 
 #### Security Controls
@@ -1890,7 +1890,7 @@ The following tools integrate with the GitHub Security Dashboard via SARIF or na
 | **Policy Section** | **Implementation** | **Evidence** |
 | --- | --- | --- |
 | **§3.2 Architecture Documentation** | Documentation-as-code in release workflow | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
-| **§3.3 Testing Requirements** | 3061+ unit/integration tests, E2E tests, 82%+ coverage | [Test & Report Workflow](.github/workflows/test-and-report.yml) |
+| **§3.3 Testing Requirements** | 3026+ unit/integration tests, E2E tests, 82%+ coverage | [Test & Report Workflow](.github/workflows/test-and-report.yml) |
 | **§4.1 CI/CD Security** | All workflows with security controls | This document |
 | **§4.3 Security Scanning** | CodeQL, npm audit, Dependabot | [CodeQL Workflow](.github/workflows/codeql.yml) |
 | **§4.4 Supply Chain Security** | SLSA L3, SBOM, Dependency Review, REUSE, npm provenance | [Release Workflow](.github/workflows/release.yml) |
@@ -2047,7 +2047,7 @@ flowchart LR
     end
 
     subgraph "🔌 MCP Layer"
-        MCP["EP MCP Server<br/>v1.2.21+<br/>(120s timeout;<br/>60+ tools, sliding + fixed-window feeds)"]
+        MCP["EP MCP Server<br/>v1.2.21+<br/>(180s timeout;<br/>60+ tools, sliding + fixed-window feeds)"]
     end
 
     subgraph "🤖 Agent Layer"
