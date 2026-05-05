@@ -13,7 +13,10 @@
 #   1. date                 — ISO date in YYYY-MM-DD form (e.g. 2026-04-22)
 #   2. article-type-slug    — one of: breaking | committee-reports |
 #                             propositions | motions | week-ahead |
-#                             month-ahead | week-in-review | month-in-review
+#                             month-ahead | week-in-review | month-in-review |
+#                             quarter-in-review | quarter-ahead |
+#                             year-in-review | year-ahead |
+#                             election-cycle | deep-analysis | term-outlook
 #
 # Output:
 #   Echoes the absolute folder path, e.g.
@@ -52,12 +55,15 @@ esac
 case "$SLUG" in
   breaking|committee-reports|propositions|motions|\
 week-ahead|month-ahead|week-in-review|month-in-review|\
+quarter-in-review|quarter-ahead|year-in-review|year-ahead|\
+election-cycle|deep-analysis|\
 term-outlook) : ;;
   *)
     echo "error: unknown article-type slug: $SLUG" >&2
     echo "       allowed: breaking, committee-reports, propositions, motions," >&2
     echo "                week-ahead, month-ahead, week-in-review, month-in-review," >&2
-    echo "                term-outlook" >&2
+    echo "                quarter-in-review, quarter-ahead, year-in-review, year-ahead," >&2
+    echo "                election-cycle, deep-analysis, term-outlook" >&2
     exit 2
     ;;
 esac
