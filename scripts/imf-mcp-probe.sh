@@ -129,16 +129,24 @@ _imf_fetch_to_file() {
 
   # Strategy 1: Route through MCP fetch-proxy gateway (bypasses AWF Squid proxy).
   # The fetch-proxy MCP server runs in a container with direct network access.
-  if [ -n "${FETCH_MCP_GATEWAY_URL:-}" ] && [ -n "${EP_MCP_GATEWAY_API_KEY:-}" ]; then
+  # EP_MCP_GATEWAY_API_KEY is optional — the gateway header is added only when
+  # the key is non-empty. Requiring the key caused IMF degraded mode whenever
+  # the key extraction from mcp-config.json failed silently.
+  if [ -n "${FETCH_MCP_GATEWAY_URL:-}" ]; then
     tmp_out="$out.$$"
     local rpc_body
     rpc_body=$(node -e "process.stdout.write(JSON.stringify({jsonrpc:'2.0',id:1,method:'tools/call',params:{name:'fetch_url',arguments:{url:process.argv[1]}}}))" -- "$url" 2>/dev/null)
     if [ -n "$rpc_body" ]; then
+      # Build curl args — add Authorization header only when API key is available
+      local _curl_auth_args=()
+      if [ -n "${EP_MCP_GATEWAY_API_KEY:-}" ]; then
+        _curl_auth_args=(-H "Authorization: Bearer $EP_MCP_GATEWAY_API_KEY")
+      fi
       stderr_log=$(curl --silent --show-error --max-time 180 --connect-timeout 30 \
         -X POST "$FETCH_MCP_GATEWAY_URL" \
         -H "Content-Type: application/json" \
         -H "Accept: application/json, text/event-stream" \
-        -H "Authorization: Bearer $EP_MCP_GATEWAY_API_KEY" \
+        "${_curl_auth_args[@]}" \
         -d "$rpc_body" \
         -o "$tmp_out" 2>&1)
       status=$?

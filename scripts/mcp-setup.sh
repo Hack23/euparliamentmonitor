@@ -63,13 +63,27 @@ if [ -f "$_MCP_CONFIG_PATH" ]; then
   _MCP_GATEWAY_FIELDS=$(node -e "
     try {
       const c = JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8'));
-      // Priority 1: gateway.apiKey (legacy path)
       const gw = c.gateway || {};
+      // Priority 1: gateway.apiKey (legacy path — gh-aw <= v0.68)
       let key = gw.apiKey || '';
       // Priority 2: mcpServers['european-parliament'].headers.Authorization
+      // (gh-aw v0.69–v0.71 canonical path)
       if (!key) {
         const ep = ((c.mcpServers || {})['european-parliament']) || {};
         key = (ep.headers || {})['Authorization'] || '';
+      }
+      // Priority 3: mcpServers['fetch-proxy'].headers.Authorization
+      // (gh-aw >= v0.72 — some versions moved key to the per-server headers)
+      if (!key) {
+        const fp = ((c.mcpServers || {})['fetch-proxy']) || {};
+        key = (fp.headers || {})['Authorization'] || '';
+      }
+      // Priority 4: first mcpServer with a non-empty Authorization header
+      if (!key) {
+        for (const srv of Object.values(c.mcpServers || {})) {
+          const k = ((srv && typeof srv === 'object' ? srv.headers : null) || {})['Authorization'] || '';
+          if (k) { key = k; break; }
+        }
       }
       const port = (gw.port != null && gw.port !== '') ? String(gw.port) : '';
       const domain = (gw.domain || '').toString();
@@ -82,7 +96,7 @@ if [ -f "$_MCP_CONFIG_PATH" ]; then
   GW_PORT="${_MCP_GATEWAY_REST%%	*}"
   GW_DOMAIN="${_MCP_GATEWAY_REST#*	}"
   if [ -z "$GW_KEY" ]; then
-    echo "⚠️  WARNING: MCP config file exists but MCP auth token is missing or invalid"
+    echo "⚠️  WARNING: MCP config found but no auth token — gateway will run unauthenticated (OK for internal AWF traffic)"
   else
     # Strip legacy "Bearer " prefix (case-insensitive) — gateway expects raw API key
     export EP_MCP_GATEWAY_API_KEY="$(printf '%s' "$GW_KEY" | sed 's/^[Bb][Ee][Aa][Rr][Ee][Rr][[:space:]]*//')"
@@ -94,6 +108,7 @@ if [ -f "$_MCP_CONFIG_PATH" ]; then
     export EP_MCP_GATEWAY_URL="http://${GW_DOMAIN}:${GW_PORT}/mcp/european-parliament"
     export WORLD_BANK_MCP_SERVER_URL="http://${GW_DOMAIN}:${GW_PORT}/mcp/world-bank"
     export FETCH_MCP_GATEWAY_URL="http://${GW_DOMAIN}:${GW_PORT}/mcp/fetch-proxy"
+    echo "ℹ️  MCP gateway URLs resolved from config: domain=${GW_DOMAIN} port=${GW_PORT}"
   fi
   unset _MCP_GATEWAY_FIELDS _MCP_GATEWAY_REST GW_KEY GW_PORT GW_DOMAIN
 fi
