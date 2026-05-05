@@ -21,7 +21,10 @@ const SAMPLE_HTML = `<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Language" content="en">
   <link rel="canonical" href="https://example.com/news/2025-01-01-breaking.html">
+  <link rel="alternate" hreflang="en" href="https://example.com/news/2025-01-01-breaking.html">
+  <link rel="alternate" hreflang="de" href="https://example.com/news/2025-01-01-breaking-de.html">
   <meta property="og:url" content="https://example.com/news/2025-01-01-breaking.html">
   <meta property="og:locale" content="en_US">
   <script type="application/ld+json">{"@type":"NewsArticle","inLanguage":"en","url":"https://example.com/news/2025-01-01-breaking.html","@id":"https://example.com/news/2025-01-01-breaking.html"}</script>
@@ -97,6 +100,19 @@ describe('patchHtmlContent', () => {
     });
   });
 
+  describe('Content-Language meta tag', () => {
+    it('replaces Content-Language content with target language', () => {
+      const result = patchHtmlContent(SAMPLE_HTML, BASE_OPTS);
+      expect(result).toContain('http-equiv="Content-Language" content="de"');
+      expect(result).not.toContain('http-equiv="Content-Language" content="en"');
+    });
+
+    it('handles RTL language Content-Language replacement', () => {
+      const result = patchHtmlContent(SAMPLE_HTML, { ...BASE_OPTS, lang: 'ar', langDir: 'rtl', ogLocale: 'ar_AR' });
+      expect(result).toContain('http-equiv="Content-Language" content="ar"');
+    });
+  });
+
   describe('canonical and og:url link/meta tags', () => {
     it('replaces the English filename in canonical link href', () => {
       expect(patchHtmlContent(SAMPLE_HTML, BASE_OPTS)).toContain(
@@ -107,6 +123,18 @@ describe('patchHtmlContent', () => {
     it('replaces the English filename in og:url meta content', () => {
       expect(patchHtmlContent(SAMPLE_HTML, BASE_OPTS)).toContain(
         'content="https://example.com/news/2025-01-01-breaking-de.html"',
+      );
+    });
+
+    it('does not rewrite rel="alternate" hreflang link hrefs', () => {
+      const result = patchHtmlContent(SAMPLE_HTML, BASE_OPTS);
+      // The hreflang="en" alternate link must keep the English basename
+      expect(result).toContain(
+        '<link rel="alternate" hreflang="en" href="https://example.com/news/2025-01-01-breaking.html">',
+      );
+      // The hreflang="de" alternate link must remain unchanged
+      expect(result).toContain(
+        '<link rel="alternate" hreflang="de" href="https://example.com/news/2025-01-01-breaking-de.html">',
       );
     });
   });

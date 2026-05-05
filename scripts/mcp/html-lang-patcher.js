@@ -18,9 +18,10 @@
  * - `<article lang="en">` → `<article lang="<lang>">`
  * - JSON-LD `"inLanguage": "en"` → `"inLanguage": "<lang>"`
  * - `<meta property="og:locale" content="...">` → target `ogLocale`
- * - Self-referential URLs in `<link>` / `<meta>` tags and JSON-LD `@id`/`url`
- *   fields: replaces the English filename component with the language-specific
- *   filename component so canonical/og:url links point to the right file.
+ * - Self-referential URLs in `<link rel="canonical">` and
+ *   `<meta property="og:url">` tags, and JSON-LD `@id`/`url` fields: replaces
+ *   the English filename component with the language-specific filename.
+ *   `rel="alternate"` / hreflang links are intentionally NOT rewritten.
  *
  * ## Usage
  *
@@ -67,17 +68,18 @@ export function patchHtmlContent(content, opts) {
     c = c.replace(/("inLanguage"\s*:\s*")en(")/g, `$1${lang}$2`);
     // 3. og:locale meta tag
     c = c.replace(/(<meta\s+property="og:locale"\s+content=")[^"]*(")/g, `$1${ogLocale}$2`);
-    // 4. Self-referential URL fields: canonical/og:url link/meta tags AND JSON-LD @id/url
+    // 3b. Content-Language meta tag
+    c = c.replace(/(<meta\s+http-equiv="Content-Language"\s+content=")[^"]*(")/g, `$1${lang}$2`);
+    // 4. Self-referential URL fields.
+    // Restricted to rel="canonical" links and property="og:url" meta only —
+    // rel="alternate"/hreflang links are intentionally excluded.
     const enEsc = enBasename.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const urlFieldRe = new RegExp(`(<(?:link|meta)\\s[^>]*(?:href|content)=")([^"]*)(")` +
-        `|("(?:@id|url|mainEntityOfPage)"\\s*:\\s*")([^"]*)(")`, 'g');
-    c = c.replace(urlFieldRe, (match, p1, p2, p3, j1, j2, j3) => {
-        if (p1)
-            return p1 + p2.replace(new RegExp(enEsc, 'g'), langBasename) + p3;
-        if (j1)
-            return j1 + j2.replace(new RegExp(enEsc, 'g'), langBasename) + j3;
-        return match;
-    });
+    // 4a. <link rel="canonical" href="..."> (any attribute order; lookahead guards rel value)
+    c = c.replace(/(<link\b(?=[^>]*\brel="canonical")[^>]*\shref=")([^"]*)(")/g, (_, p1, p2, p3) => p1 + p2.replace(new RegExp(enEsc, 'g'), langBasename) + p3);
+    // 4b. <meta property="og:url" content="..."> (any attribute order)
+    c = c.replace(/(<meta\b(?=[^>]*\bproperty="og:url")[^>]*\scontent=")([^"]*)(")/g, (_, p1, p2, p3) => p1 + p2.replace(new RegExp(enEsc, 'g'), langBasename) + p3);
+    // 4c. JSON-LD @id, url, mainEntityOfPage fields
+    c = c.replace(/("(?:@id|url|mainEntityOfPage)"\s*:\s*")([^"]*)(")/g, (_, j1, j2, j3) => j1 + j2.replace(new RegExp(enEsc, 'g'), langBasename) + j3);
     return c;
 }
 // ─── File I/O wrapper ─────────────────────────────────────────────────────────
@@ -98,8 +100,7 @@ export function patchHtmlLang(filePath, opts, readFileImpl = fs.readFileSync, wr
 }
 // ─── CLI entry point ──────────────────────────────────────────────────────────
 /**
- * CLI entry point — mirrors the argument order used in the `node -e` snippet
- * inside `news-translate.md`:
+ * CLI entry point. Positional argument order:
  *
  * ```
  * node html-lang-patcher.js <filePath> <lang> <langDir> <ogLocale> <enBasename> <langBasename>

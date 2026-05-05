@@ -103,6 +103,9 @@ export function isAllowedImfUrl(url: string): boolean {
   return (
     parsed.protocol === IMF_ALLOWED_PROTOCOL &&
     parsed.hostname === IMF_ALLOWED_HOSTNAME &&
+    (parsed.port === '' || parsed.port === '443') &&
+    parsed.username === '' &&
+    parsed.password === '' &&
     parsed.pathname.startsWith(IMF_ALLOWED_PATH_PREFIX)
   );
 }

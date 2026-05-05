@@ -15,6 +15,8 @@
 
 import { describe, it, expect, vi } from 'vitest';
 import { Readable, Writable } from 'node:stream';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 import {
   isAllowedImfUrl,
   toWire,
@@ -23,6 +25,8 @@ import {
   handleFetchUrl,
   runServer,
 } from '../../scripts/mcp/fetch-proxy-server.js';
+
+const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
 // ─── isAllowedImfUrl ─────────────────────────────────────────────────────────
 
@@ -58,6 +62,22 @@ describe('isAllowedImfUrl', () => {
   it('allows the SDMX path root without further segments', () => {
     expect(isAllowedImfUrl('https://dataservices.imf.org/REST/SDMX_3.0/')).toBe(true);
   });
+
+  it('rejects a URL with a non-standard port', () => {
+    expect(isAllowedImfUrl('https://dataservices.imf.org:8443/REST/SDMX_3.0/')).toBe(false);
+  });
+
+  it('allows explicit port 443', () => {
+    expect(isAllowedImfUrl('https://dataservices.imf.org:443/REST/SDMX_3.0/')).toBe(true);
+  });
+
+  it('rejects a URL with embedded credentials', () => {
+    expect(isAllowedImfUrl('https://user:pass@dataservices.imf.org/REST/SDMX_3.0/')).toBe(false);
+  });
+
+  it('rejects a URL with username only', () => {
+    expect(isAllowedImfUrl('https://user@dataservices.imf.org/REST/SDMX_3.0/')).toBe(false);
+  });
 });
 
 // ─── toWire ──────────────────────────────────────────────────────────────────
@@ -75,7 +95,7 @@ describe('toWire', () => {
   it('compiled source uses String.fromCharCode(10), not bare \\n literal', async () => {
     // Read the compiled JS to verify the newline-safe form is preserved
     const { readFileSync } = await import('node:fs');
-    const src = readFileSync('scripts/mcp/fetch-proxy-server.js', 'utf8');
+    const src = readFileSync(path.join(REPO_ROOT, 'scripts/mcp/fetch-proxy-server.js'), 'utf8');
     expect(src).toContain('String.fromCharCode(10)');
   });
 });

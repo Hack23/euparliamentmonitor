@@ -114,9 +114,7 @@ export function readMcpConfig(configPath, readFileImpl = fs.readFileSync) {
     }
     const apiKey = extractApiKey(config);
     const rawPort = config.gateway?.port;
-    const port = rawPort !== undefined && rawPort !== ''
-        ? Number.parseInt(String(rawPort), 10)
-        : undefined;
+    const port = rawPort !== undefined && rawPort !== '' ? Number.parseInt(String(rawPort), 10) : undefined;
     const parsedPort = port !== undefined && Number.isFinite(port) ? port : undefined;
     const domain = config.gateway?.domain !== undefined && config.gateway.domain !== ''
         ? config.gateway.domain
