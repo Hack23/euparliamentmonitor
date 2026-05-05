@@ -1,0 +1,36 @@
+{
+  "collectedAt": "2026-05-05T01:05:00Z",
+  "source": "EP MCP Tool: generate_political_landscape, analyze_coalition_dynamics, early_warning_system",
+  "parliament": {
+    "totalMEPs": 719,
+    "politicalGroups": 9,
+    "countriesRepresented": 27,
+    "majorityThreshold": 361,
+    "stabilityScore": 84,
+    "riskLevel": "MEDIUM"
+  },
+  "groups": [
+    {"name": "EPP", "memberCount": 185, "seatShare": 25.73},
+    {"name": "S&D", "memberCount": 135, "seatShare": 18.78},
+    {"name": "PfE", "memberCount": 85, "seatShare": 11.82},
+    {"name": "ECR", "memberCount": 81, "seatShare": 11.27},
+    {"name": "Renew", "memberCount": 77, "seatShare": 10.71},
+    {"name": "Greens/EFA", "memberCount": 53, "seatShare": 7.37},
+    {"name": "The Left", "memberCount": 46, "seatShare": 6.40},
+    {"name": "NI", "memberCount": 30, "seatShare": 4.17},
+    {"name": "ESN", "memberCount": 27, "seatShare": 3.76}
+  ],
+  "earlyWarnings": [
+    {"type": "HIGH_FRAGMENTATION", "severity": "MEDIUM", "description": "Parliament fragmented across 8 political groups"},
+    {"type": "DOMINANT_GROUP_RISK", "severity": "HIGH", "description": "EPP 19x the size of smallest group"},
+    {"type": "SMALL_GROUP_QUORUM_RISK", "severity": "LOW", "description": "3 groups may struggle to maintain quorum"}
+  ],
+  "legislativeStats2026": {
+    "rollCallVotes": 567,
+    "adoptedTexts": 164,
+    "procedures": 935,
+    "legislativeActsAdopted": 114,
+    "fragmentationIndex": 6.59,
+    "legislativeOutputChange": "+46.2%"
+  }
+}
