@@ -301,3 +301,20 @@ graph TD
     E --> Risk
     F --> Risk
 ```
+
+---
+
+## Wildcards & Black Swans — Run 3 Update (2026-05-05T15:44Z)
+
+**Run 3 black swan probability update**:
+
+| Event | Prior probability | Run 3 update | Trigger signal |
+|-------|-----------------|-------------|---------------|
+| EU-Russia direct ceasefire talks | <5% | <5% | No signals in EP data |
+| DMA: new tech giant blocked from EU market | <10% | <10% | Resolution adopts; enforcement 6-12 months |
+| Armenia: EU emergency accession fast-track | <3% | <3% | Geopolitical pressure needed |
+| Budget 2027: institutional crisis | 15% | 18% | Estimates adopted at aggressive level |
+
+**Run 3 wild card**: Armenia resolution (TA-0162) opens a non-zero path to formal EU accession candidacy process for a post-Soviet state facing active geopolitical pressure — unprecedented in the current EP10 term.
+
+*Wildcards updated — Run 3, 2026-05-05T15:44Z.*

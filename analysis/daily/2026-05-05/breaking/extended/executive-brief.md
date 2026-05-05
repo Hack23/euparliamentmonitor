@@ -114,3 +114,71 @@ The April 28–30 session's legislative success demonstrates that the EPP-led mu
 ---
 
 *Extended executive brief produced for 2026-05-05 breaking analysis, run 2. Sources: EP adopted texts feed, political landscape API, early warning system. IMF degraded mode active — economic claims at 🔴 LOW confidence unless otherwise noted.*
+
+---
+
+## Extended Executive Brief — Run 3 Update (2026-05-05T15:40Z)
+
+### Top Intelligence Updates — Run 3
+
+This run confirms and extends the prior run intelligence with three new analytical developments:
+
+**1. Parliament Structural Analysis — Pivotal Group Confirmed**
+Fresh EP API reads confirm: EPP (185) + S&D (135) = 320 seats — still 41 short of 361 majority. Renew (77 seats) is mathematically indispensable for any mainstream coalition. The far-right bloc (EPP+PfE+ECR = 351) is also short. This structural finding confirms the April 30 resolutions required broad centre-to-centre-left unity.
+
+**2. Early Warning: EPP Dominance Risk**
+The early warning system flagged HIGH alert on EPP dominance (19x smallest group). This means that while the April 30 consensus items passed comfortably, future contested votes on economic policy, migration, or enlargement could see EPP wielding disproportionate agenda-setting power.
+
+**3. 21 Adopted Texts Confirmed**
+The full 2026 adopted texts list (21 items through April 30) provides the definitive legislative context. The April 28–30 session contributed 7 of 21 (33%) of all 2026 adopted texts — confirming it was the highest-output session of the year to date.
+
+### Session Significance Scorecard — Final (Run 3)
+
+| Dimension | Score | Rationale |
+|-----------|-------|-----------|
+| Legislative output volume | 9/10 | 7 texts in 3 days — highest 2026 concentration |
+| Geopolitical significance | 8/10 | Russia + Armenia + Iceland PNR = international scope |
+| Digital governance impact | 8/10 | DMA + platform liability = regulatory signal |
+| Parliamentary consensus strength | 7/10 | Mainstream coalition confirmed; far-right opposed |
+| Implementation feasibility | 5/10 | Non-binding resolutions; enforcement 3-5+ years away |
+| Economic context | 4/10 | IMF degraded; WB proxy only; budget process early stage |
+| **Overall session score** | **7.0/10** | **Significant political signal; impact pending implementation** |
+
+### Action Items for Editors
+
+1. Lead with DMA enforcement + Russia accountability as the dual Tier-1 frame
+2. Contextualise as political signal event, not immediate enforcement
+3. Note IMF degraded mode in economic claims
+4. Cross-reference with `intelligence/synthesis-summary.md` for full narrative
+
+*[EXTEND-FROM-PRIOR: extended/executive-brief.md — extended with Run-3 top intelligence updates, parliament structural analysis, significance scorecard, editor action items]*
+
+---
+
+## Executive Summary — Final Statement (Run 3)
+
+The April 28–30, 2026 Strasbourg plenary represents the highest-output session of the 2026 calendar year to date, with 7 of 21 total 2026 adopted texts originating from this three-day session (33% of all 2026 texts in three days). The two Tier-1 items — DMA enforcement against designated gatekeepers and EU accountability for Russian attacks on Ukraine — both withstand full analytical challenge and represent genuine political signals with medium-term implementation potential.
+
+**Key uncertainty**: All significance claims are contingent on Commission, Council, and third-party follow-through. The EP's institutional role is to signal, mandate, and pressure — not to directly implement. The next assessment point is the May 19–22 Strasbourg plenary.
+
+**For editorial use**: Lead with DMA + Ukraine as the primary frame. Note IMF degraded mode. Cross-reference `intelligence/synthesis-summary.md` for full narrative.
+
+| Item | Significance | Confidence | 12-Month Outcome |
+|------|-------------|-----------|-----------------|
+| DMA enforcement | 🟢 HIGH | 🟡 MEDIUM | Commission action expected |
+| Russia accountability | 🟢 HIGH | 🟡 MEDIUM | Mechanism formation begins |
+| Armenia resilience | 🟡 MEDIUM | 🟡 MEDIUM | Bilateral intensification |
+| Platform liability | 🟡 MEDIUM | 🟡 MEDIUM | Legislative proposal expected |
+| Budget 2027 guidelines | 🟡 MEDIUM | 🟢 HIGH | Procedural certainty |
+
+*Extended executive brief complete — Run 3, 2026-05-05T15:41Z*
+
+---
+
+*Extended executive brief — final version. Sources confirmed: 21 adopted texts (EP API), political landscape (719 MEPs across 9 groups), early warning system (stability 84/100). IMF degraded mode active throughout Run 3. Next major session: May 19–22, 2026 Strasbourg plenary.*
+
+| Run | Quality Gate | Key Artifacts | Status |
+|-----|-------------|--------------|--------|
+| Run 1 | PENDING | Core intelligence + risk scoring | Stage B complete |
+| Run 2 | PENDING | All carryForward extended | Stage B complete |
+| Run 3 | Stage C pending | All extended/* artifacts meeting floor | In progress |

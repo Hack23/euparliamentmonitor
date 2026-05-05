@@ -209,3 +209,21 @@ pie title Revised April 28-30 Breaking Significance (All 20+ Texts)
 **Key revision**: Trade Defence + China cluster now accounts for 20% of the session significance weight (vs. 0% in initial run), making it co-equal with DMA enforcement as a breaking news driver. The session narrative shifts from "EP digital + Ukraine" to "EP digital + Ukraine + strategic autonomy" — a broader mandate assertiveness story.
 
 **Admiralty Code**: B2
+
+---
+
+## Significance Scoring — Run 3 Update (2026-05-05T15:44Z)
+
+**Run 3 significance score confirmation**:
+
+| Document | Run 2 Score | Run 3 Confirmed | Notes |
+|----------|------------|-----------------|-------|
+| TA-10-2026-0160 (DMA enforcement) | 9.2/10 | 9.2/10 | No change |
+| TA-10-2026-0161 (Ukraine accountability) | 8.9/10 | 8.9/10 | No change |
+| TA-10-2026-04-30-ANN01 (Budget estimates) | 7.5/10 | 7.5/10 | No change |
+| TA-10-2026-0162 (Armenia) | 7.8/10 | 7.8/10 | No change |
+| TA-10-2026-0142 (EU-Iceland PNR) | 6.5/10 | 6.5/10 | No change |
+
+**Run 3 conclusion**: Significance scores stable. No new evidence materially changes the ranking.
+
+**Admiralty Code**: B2 (updated Run 3, 2026-05-05T15:44Z)

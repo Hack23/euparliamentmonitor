@@ -433,3 +433,25 @@ xychart-beta
 **Recommendation for future runs**: For breaking news article types, paginate `get_adopted_texts?year=CURRENT_YEAR` to offset 140–160 to capture full session output, not just feed-accessible items.
 
 **Admiralty Code**: A1 (direct observation — tool call results logged in this run)
+
+---
+
+## MCP Reliability Audit — Run 3 Update (2026-05-05T15:44Z)
+
+**Run 3 tool call results summary**:
+
+| Tool | Status | Notes |
+|------|--------|-------|
+| `get_adopted_texts_feed` (one-week) | ✅ 294 items | Consistent with Run 2 |
+| `get_adopted_texts` (year=2026) | ✅ 21 texts | April dates confirmed |
+| `generate_political_landscape` | ✅ Full data | 719 seats, 8 groups |
+| `analyze_coalition_dynamics` | ✅ Partial | Size-proxy only |
+| `detect_voting_anomalies` | ✅ 0 anomalies | LOW confidence |
+| `early_warning_system` | ✅ Score 84/100 | Stability confirmed |
+| `get_plenary_sessions` | ⚠️ Empty | filteredTotal=0 |
+| `get_voting_records` | ⚠️ Empty | Delayed 4-6 weeks |
+| IMF SDMX fetch | 🔴 DEGRADED | Not attempted Run 3 |
+
+Run 3 reliability rate: 6/9 (67%) — consistent across all three runs.
+
+*Run 3 reliability addendum. 2026-05-05T15:44Z.*

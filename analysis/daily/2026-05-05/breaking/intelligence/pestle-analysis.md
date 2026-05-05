@@ -286,3 +286,18 @@ quadrantChart
 **IMF Note**: Economic dimension PESTLE factors carry reduced confidence due to IMF SDMX unavailability. The economic severity scores should be treated as directional rather than precise. A full PESTLE re-run with IMF data is recommended when IMF SDMX becomes available.
 
 
+
+---
+
+## PESTLE Analysis — Run 3 Update (2026-05-05T15:44Z)
+
+**Run 3 PESTLE factor updates**:
+
+- **Political (Update)**: EPP-S&D-Renew supermajority confirmed. No threat to current legislative agenda.
+- **Economic (Update)**: Budget 2027 estimates at €262.5B. IMF degraded mode continues — World Bank proxy confirms EU GDP growth 1.2% 2026E.
+- **Social (Update)**: Armenia resolution reflects broad EP consensus on democratic resilience in EU neighbourhood.
+- **Technological (Update)**: DMA enforcement resolution directly impacts Alphabet, Apple, Meta, Amazon.
+- **Legal (Update)**: EU-Iceland PNR TA-0142 extends privacy-security balance precedent to non-Schengen EEA states.
+- **Environmental (Update)**: No environmental items in April 28-30 session — off-cycle per 2026 legislative calendar.
+
+*PESTLE updated — Run 3, 2026-05-05T15:44Z.*

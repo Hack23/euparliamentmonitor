@@ -146,3 +146,23 @@ timeline
 ```
 
 **Admiralty Code**: A1 (direct EP API observation)
+
+---
+
+## Document Analysis Index — Run 3 Update (2026-05-05T15:44Z)
+
+**Run 3 document collection update**:
+
+| Document ID | Collection method | Run 1 | Run 2 | Run 3 |
+|------------|------------------|-------|-------|-------|
+| TA-10-2026-0160 | Feed + paginated | ✅ | ✅ | ✅ Confirmed |
+| TA-10-2026-0161 | Feed + paginated | ✅ | ✅ | ✅ Confirmed |
+| TA-10-2026-04-30-ANN01 | Paginated | ❌ | ✅ | ✅ Confirmed |
+| TA-10-2026-0162 | Feed + paginated | ✅ | ✅ | ✅ Confirmed |
+| TA-10-2026-0112 | Paginated | ❌ | ✅ | ✅ Confirmed |
+| TA-10-2026-0142 | Paginated | ❌ | ✅ | ✅ Confirmed |
+| TA-10-2026-0115 | Paginated | ❌ | ✅ | ✅ Confirmed |
+
+**Run 3 total documents confirmed**: 21 texts in year=2026 dataset; 7 classified as TIER-1/2/3 for April 28-30 session.
+
+*Document analysis index updated — Run 3, 2026-05-05T15:44Z.*

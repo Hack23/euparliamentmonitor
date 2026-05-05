@@ -190,3 +190,19 @@ xychart-beta
 | PT-NEW-2 Banking Complacency | 🟢 LOW | P=0.25 | ECB/EBA monitoring continued |
 
 *Framework: Political Threat Landscape v4.0. Re-run updated: 2026-05-05T13:03Z.*
+
+---
+
+## Political Threat Landscape — Run 3 Update (2026-05-05T15:44Z)
+
+**Updated threat vectors based on April 28-30 adopted texts**:
+
+| Threat | Pre-session | Post-session | Trajectory |
+|--------|-------------|-------------|------------|
+| Tech-platform regulatory fragmentation | HIGH | HIGH | TA-0160 adds EP enforcement call; Commission must follow |
+| Russia narrative penetration | MEDIUM | MEDIUM | TA-0161 accountability mechanism counters disinformation |
+| Armenia geopolitical destabilisation | HIGH | REDUCED | EP backing through TA-0162 provides diplomatic shield |
+| Budget 2027 Council-Parliament crisis | MEDIUM | MEDIUM | Estimates ambitious but still within negotiating range |
+| EP-Commission alignment breakdown | LOW | LOW | Both Tier-1 resolutions align with Commission priorities |
+
+*Political threat landscape updated — Run 3, 2026-05-05T15:44Z.*

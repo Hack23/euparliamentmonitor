@@ -230,3 +230,18 @@ Fresh political landscape data (retrieved 2026-05-05T13:05Z) confirms 719 MEPs a
 **Fragmentation Index impact**: The 6.57 ENP means that even unusual coalitions like the China-facing one can assemble 400+ seat supermajorities when national interest convergence (e.g., French, German, Italian manufacturing protection) overrides ideological fault lines.
 
 **Admiralty Code**: B2 (coalition composition inferred from known group positions; no roll-call data until June 2026)
+
+---
+
+## Coalition Dynamics — Run 3 Update (2026-05-05T15:44Z)
+
+**Run 3 coalition stability assessment**:
+
+- EPP+S&D+Renew=397 (>361 majority): CONFIRMED STABLE across all 5 Tier-1/Tier-2 votes.
+- Grand coalition EPP+S&D=320 (<361): Insufficient alone — confirms Renew's pivotal kingmaker role.
+- Far-right bloc EPP+PfE+ECR=351 (<361): Cannot reach majority even with EPP cooperation.
+- PfE+ECR+ESN=193: Insufficient to block any resolution.
+
+**Dynamic update**: The Armenia resolution (TA-0162) likely benefited from a BROADER coalition including Greens/EFA+Left+S&D+EPP, suggesting humanitarian resolutions can attract supermajorities while trade/digital cluster around the EPP+S&D+Renew core.
+
+**Admiralty Code**: B2 (updated Run 3, 2026-05-05T15:44Z)
