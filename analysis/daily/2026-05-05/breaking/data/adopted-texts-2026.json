@@ -1,0 +1,43 @@
+{
+  "collectedAt": "2026-05-05T18:34:00Z",
+  "run": 4,
+  "adoptedTexts2026": [
+    {"id":"TA-10-2026-0008","title":"Request for opinion from the Court of Justice on the compatibility with the Treaties of the proposed EU-Mercosur Partnership Agreement (EMPA) and Interim Trade Agreement (ITA)","dateAdopted":"2026-01-21","subjectMatter":"PCOM, ACIN"},
+    {"id":"TA-10-2026-0010","title":"Enhanced cooperation on the establishment of a Loan for Ukraine","dateAdopted":"2026-01-21","subjectMatter":"ASTU, EXT"},
+    {"id":"TA-10-2026-0060","title":"Appointment of the Vice-President of the European Central Bank","dateAdopted":"2026-03-10","subjectMatter":"BCE, INST"},
+    {"id":"TA-10-2026-0083","title":"Case of Elene Khoshtaria and political prisoners under the Georgian Dream regime","dateAdopted":"2026-03-12","subjectMatter":"DDLH, PESC"},
+    {"id":"TA-10-2026-0084","title":"Calculation of emission credits for heavy-duty vehicles for the reporting periods of the years 2025 to 2029","dateAdopted":"2026-03-12","subjectMatter":"POLL, TRAN, ENV"},
+    {"id":"TA-10-2026-0112","title":"Guidelines for the 2027 budget - Section III","dateAdopted":"2026-04-28","subjectMatter":"BUDG"},
+    {"id":"TA-10-2026-0115","title":"Welfare of dogs and cats and their traceability","dateAdopted":"2026-04-28","subjectMatter":"AGRI"},
+    {"id":"TA-10-2026-0119","title":"Control of the financial activities of the European Investment Bank Group — annual report 2024","dateAdopted":"2026-04-28","subjectMatter":"CONT"},
+    {"id":"TA-10-2026-0142","title":"EU-Iceland agreement on transfer of passenger name record (PNR) data to prevent, detect, investigate and prosecute terrorist offences and serious crime","dateAdopted":"2026-04-29","subjectMatter":"LIBE"},
+    {"id":"TA-10-2026-0160","title":"Enforcement of the Digital Markets Act","dateAdopted":"2026-04-30","subjectMatter":"IMCO, DMA"},
+    {"id":"TA-10-2026-0161","title":"Ensuring accountability and justice in response to Russia's continued attacks against the civilian population in Ukraine","dateAdopted":"2026-04-30","subjectMatter":"AFET, UKRAINE"},
+    {"id":"TA-10-2026-0162","title":"Supporting democratic resilience in Armenia","dateAdopted":"2026-04-30","subjectMatter":"AFET, ARMENIA"}
+  ],
+  "plenaryDebatesApril28_30": [
+    "Interim report on the MFF 2028-2034 (debate)",
+    "Enforcement of the Digital Markets Act (debate)",
+    "The Commission's 2025 Rule of Law report (debate)",
+    "Ensuring accountability and justice for Russia's attacks on Ukraine (debate)",
+    "Supporting democratic resilience in Armenia (debate)",
+    "Request for waiver of immunity of Daniel Obajtek (vote)"
+  ],
+  "politicalLandscape": {
+    "totalMEPs": 719,
+    "groups": [
+      {"name":"EPP","seats":185,"share":25.73},
+      {"name":"S&D","seats":135,"share":18.78},
+      {"name":"PfE","seats":85,"share":11.82},
+      {"name":"ECR","seats":81,"share":11.27},
+      {"name":"Renew","seats":77,"share":10.71},
+      {"name":"Greens/EFA","seats":53,"share":7.37},
+      {"name":"The Left","seats":46,"share":6.40},
+      {"name":"NI","seats":30,"share":4.17},
+      {"name":"ESN","seats":27,"share":3.76}
+    ],
+    "majorityThreshold": 361,
+    "fragmentationIndex": "HIGH",
+    "stabilityScore": 84
+  }
+}

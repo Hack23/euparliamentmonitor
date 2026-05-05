@@ -245,3 +245,72 @@ Fresh political landscape data (retrieved 2026-05-05T13:05Z) confirms 719 MEPs a
 **Dynamic update**: The Armenia resolution (TA-0162) likely benefited from a BROADER coalition including Greens/EFA+Left+S&D+EPP, suggesting humanitarian resolutions can attract supermajorities while trade/digital cluster around the EPP+S&D+Renew core.
 
 **Admiralty Code**: B2 (updated Run 3, 2026-05-05T15:44Z)
+
+---
+
+## Run 4 Addendum — May 5, 2026 Update (Fresh EP API Data)
+
+**Data collected:** 2026-05-05T18:34Z | **Coalition analysis tool re-run:** analyze_coalition_dynamics (2026-04-01 to 2026-05-05)
+
+### Updated Fragmentation Index and Coalition Viability
+
+The April 28–30 plenary session confirmed the structural dynamics analyzed in Runs 1–3 with notable new evidence points:
+
+**Parliamentary Fragmentation Score:** 6.57 effective parties (Laakso-Taagepera index — "HIGH" classification)
+- This represents elevated fragmentation: a score above 5.0 signals the parliament cannot function without complex multi-party bargaining
+- **Implication for April votes:** All three late-April resolutions (DMA Enforcement, Ukraine accountability, Armenia) required multi-group coalition management — no single dominant bloc could pass legislation unilaterally
+
+**EPP Dominance Risk (HIGH Severity):**
+The EP early warning system flags the EPP's 185 seats (25.73%) as posing a 19.0x size ratio over the smallest group (ESN: 27 seats). This asymmetry creates:
+- 🔴 **Blocking power**: EPP abstention or opposition alone cannot block legislation (needs 361 votes against), but EPP defection from majority coalitions causes immediate collapse
+- 🟡 **Kingmaker leverage**: Every majority coalition in EP10 must include the EPP — there is no realistic majority path excluding the EPP
+- 🟢 **Democratic check**: S&D + Renew + Greens/EFA + Left combined = 311 seats — still unable to outvote EPP-led coalition without one additional group
+
+### Coalition Pair Analysis — Size Proxy Scores (May 2026)
+
+Pairs most likely to cooperate based on group-size similarity ratios (note: vote-level cohesion data unavailable from EP API):
+
+| Pair | Size Similarity | Alliance Signal | Strategic Context |
+|------|----------------|-----------------|------------------|
+| Renew–ECR | 0.95 | ✅ | Pragmatic issue-by-issue; DMA vote split |
+| ECR–PfE | 0.95 | ✅ | Right-flank solidarity; Ukraine resolution opposed |
+| Renew–PfE | 0.91 | ✅ | Unexpected given ideological distance; sovereign economy framing |
+| ESN–NI | 0.90 | ✅ | Far-right fragment unity; minimal legislative impact |
+| Greens/EFA–Left | 0.87 | ✅ | Progressive co-operation; MFF 2028-34 funding positions aligned |
+
+**Critical observation:** EPP–S&D pair scores only 0.73 (discordant sizes), yet this coalition passes every major EU legislative agenda item. Size-ratio is a poor proxy for actual coalition behaviour — the EPP-S&D "grand coalition" operates despite size asymmetry because functional necessity overrides ideological distance.
+
+### Late-April Resolutions: Coalition Intelligence
+
+**DMA Enforcement (TA-10-2026-0160, April 30):**
+- Expected "Pro-DMA" coalition: EPP + Renew + S&D + Greens/EFA ≈ 450 seats (well above threshold)
+- PfE and ECR likely opposed on sovereignty/regulatory overreach grounds
+- ESN and some NI members expected against; Left may have supported enforcement while criticizing tech monopoly framing
+- **Intelligence assessment**: This was NOT a contested vote — DMA enforcement has a broad political mandate spanning pro-business (EPP/Renew) and social justice (S&D/Greens/Left) constituencies who both want Big Tech accountability, though for different reasons
+
+**Ukraine Accountability (TA-10-2026-0161, April 30):**
+- Strong EPP + S&D + Renew + Greens/EFA core coalition
+- ECR split: Baltic and Eastern European ECR MEPs strongly supportive; Hungarian and some Italian MEPs expected abstain/against
+- PfE opposition: Marine Le Pen's RN and Orbán-aligned PfE members consistently block Ukraine resolutions
+- **Coalition dynamics**: This is the defining vote type for EP10 — it cleaves PfE from ECR and creates the "EPP + S&D + Renew + Eastern ECR" axis that characterizes European security consensus
+
+**Armenia Democratic Resilience (TA-10-2026-0162, April 30):**
+- Smaller coalition geography: EPP + Renew + Greens + Left as the primary drivers
+- S&D supportive; ECR mixed (Turkey-sensitive members cautious on South Caucasus)
+- PfE and ESN opposed on "non-interference" grounds
+- **Geopolitical significance**: Armenia's trajectory toward EU alignment represents a direct challenge to Russian sphere of influence; the EP resolution signals institutional support for Pashinyan government's pivot
+
+```mermaid
+graph TD
+    DMA["DMA Enforcement\n(April 30)"] --> BROAD["Broad Coalition\nEPP+S&D+Renew+Greens\n~450 seats"]
+    UKR["Ukraine Accountability\n(April 30)"] --> SECURITY["Security Consensus\nEPP+S&D+Renew+ECR-East\n~380 seats"]
+    ARM["Armenia Resilience\n(April 30)"] --> GEOPOLITICAL["Geopolitical Bloc\nEPP+Renew+Greens+Left\n~361 seats threshold"]
+    MFF["MFF 2028-34 Interim\n(April 28 debate)"] --> CONTESTED["Contested Negotiations\nEPP vs S&D vs Renew\non spending priorities"]
+```
+
+### 🔴 Confidence Labels and Data Limitations
+
+- 🟡 Coalition vote predictions: **MEDIUM confidence** — derived from group composition and historical patterns, not actual April 30 roll-call data (EP API publishes roll-call data with 2-4 week delay)
+- 🔴 Cohesion/defection metrics: **NULL** — EP Open Data Portal does not expose per-MEP voting statistics
+- 🟢 Group composition: **HIGH confidence** — live EP API data (719 MEPs, 9 groups confirmed)
+

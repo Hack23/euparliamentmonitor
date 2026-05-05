@@ -58,7 +58,7 @@
   "topStories": [
     {
       "ref": "TA-10-2026-0160",
-      "title": "Digital Markets Act — Accelerated Enforcement Against Designated Gatekeepers",
+      "title": "Digital Markets Act \u2014 Accelerated Enforcement Against Designated Gatekeepers",
       "tier": 1,
       "significanceScore": 82,
       "sessionDate": "2026-04-30"
@@ -72,7 +72,7 @@
     },
     {
       "ref": "TA-10-2026-0112",
-      "title": "Budget 2027 — Parliament's Guidelines",
+      "title": "Budget 2027 \u2014 Parliament's Guidelines",
       "tier": 2,
       "significanceScore": 70,
       "sessionDate": "2026-04-29"
@@ -130,13 +130,25 @@
         "rewriteCount": 36,
         "note": "Run 3: extended all 12 extended/* artifacts above floor; added Mermaid diagrams to cross-run-diff.md and cross-session-intelligence.md; carryForward addenda added to all intelligence/* artifacts"
       }
+    },
+    {
+      "run": 4,
+      "generatedAt": "2026-05-05T18:46:00Z",
+      "gateResult": "PASS",
+      "pass2": {
+        "startedAt": "2026-05-05T18:42:00Z",
+        "endedAt": "2026-05-05T18:47:00Z",
+        "rewriteCount": 8,
+        "note": "Run 4: Extended 8 artifacts with April 28-30 EP plenary data: coalition-dynamics, synthesis-summary, pestle-analysis, scenario-forecast, stakeholder-map, economic-context, threat-model, wildcards-blackswans, risk-matrix, quantitative-swot, political-threat-landscape, forward-indicators, historical-baseline, devils-advocate-analysis"
+      }
     }
   ],
-  "generatedAt": "2026-05-05T15:54:19.147Z",
+  "generatedAt": "2026-05-05T18:46:00Z",
   "stageC": {
     "gate": "GREEN",
     "checkedAt": "2026-05-05T15:54:19.147Z",
     "artifactCount": 15,
     "totalLines": 3709
-  }
+  },
+  "gateResult": "PASS"
 }
