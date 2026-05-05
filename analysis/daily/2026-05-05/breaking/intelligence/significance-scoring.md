@@ -174,3 +174,17 @@
 ---
 
 *Significance scoring: multi-criteria framework. Scores represent editorial intelligence assessments at 2026-05-05. Data sources: EP MCP adopted texts feed, political landscape data. Produced: 2026-05-05.*
+
+---
+
+## Visual: Significance Distribution
+
+```mermaid
+pie title April 28-30 Breaking Significance by Topic
+    "DMA Enforcement (Digital)" : 28
+    "Russia Accountability (Geopolitical)" : 24
+    "Armenia Democratic Resilience (Geopolitical)" : 18
+    "2027 Budget Estimates (Fiscal)" : 14
+    "2027 Budget Guidelines (Fiscal)" : 10
+    "Other texts (HAI, PNR, EIB, Animal welfare)" : 6
+```

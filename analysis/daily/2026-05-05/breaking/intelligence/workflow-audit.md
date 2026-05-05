@@ -117,3 +117,15 @@
 ---
 
 *Audit produced during Stage B execution. Final compliance verification to occur at Stage C gate. Produced: 2026-05-05.*
+
+---
+
+## Visual: Workflow Stage Completion Status
+
+```mermaid
+flowchart LR
+    A[Stage A<br/>Data Collection] -->|✅ COMPLETE| B[Stage B<br/>Analysis]
+    B -->|✅ COMPLETE| C[Stage C<br/>Completeness Gate]
+    C -->|⏳ PENDING| D[Stage D<br/>Article Render]
+    D -->|⏳ PENDING| E[Stage E<br/>PR Creation]
+```

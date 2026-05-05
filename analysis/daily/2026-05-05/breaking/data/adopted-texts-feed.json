@@ -1,21 +1,90 @@
 {
-  "collectedAt": "2026-05-05T01:05:00Z",
-  "source": "EP MCP Tool: get_adopted_texts_feed (timeframe: today, fallback one-week)",
-  "totalItems": 50,
-  "recentBreakingItems": [
-    {"id": "TA-10-2026-0160", "title": "Enforcement of the Digital Markets Act", "dateAdopted": "2026-04-30", "subjectMatter": "Digital regulation"},
-    {"id": "TA-10-2026-0161", "title": "Ensuring accountability and justice in response to Russia's continued attacks against the civilian population of Ukraine", "dateAdopted": "2026-04-30", "subjectMatter": "PESC, Geopolitics"},
-    {"id": "TA-10-2026-0162", "title": "Supporting democratic resilience in Armenia", "dateAdopted": "2026-04-30", "subjectMatter": "EXT, Democracy"},
-    {"id": "TA-10-2026-0163", "title": "The need for targeted criminal provisions and platforms' responsibility to effectively address cyberbullying and online harassment", "dateAdopted": "2026-04-30", "subjectMatter": "Digital, LIBE"},
-    {"id": "TA-10-2026-0157", "title": "How to secure a sustainable future for the EU livestock sector in light of the need to ensure food security, farmers' resilience and the challenges posed by animal diseases?", "dateAdopted": "2026-04-30", "subjectMatter": "AGRI, Food Security"},
-    {"id": "TA-10-2026-0151", "title": "Escalating trafficking and exploitation by criminal groups in Haiti", "dateAdopted": "2026-04-30", "subjectMatter": "Human Rights, EXT"},
-    {"id": "TA-10-2026-04-30-ANN01", "title": "ESTIMATES OF THE EUROPEAN PARLIAMENT FOR THE FINANCIAL YEAR 2027", "dateAdopted": "2026-04-30", "subjectMatter": "Budget, Institutional"},
-    {"id": "TA-10-2026-0132", "title": "Discharge 2024: EU general budget - Committee of the Regions", "dateAdopted": "2026-04-29", "subjectMatter": "Budget, Accountability"},
-    {"id": "TA-10-2026-0142", "title": "EU-Iceland agreement on transfer of passenger name record (PNR) data to prevent, detect, investigate and prosecute terrorist offences and serious crime", "dateAdopted": "2026-04-29", "subjectMatter": "Security, EXT"},
-    {"id": "TA-10-2026-0112", "title": "Guidelines for the 2027 budget - Section III", "dateAdopted": "2026-04-28", "subjectMatter": "Budget"},
-    {"id": "TA-10-2026-0115", "title": "Welfare of dogs and cats and their traceability", "dateAdopted": "2026-04-28", "subjectMatter": "Animal welfare"},
-    {"id": "TA-10-2026-0119", "title": "Control of the financial activities of the European Investment Bank Group — annual report 2024", "dateAdopted": "2026-04-28", "subjectMatter": "EIB, Finance"},
-    {"id": "TA-10-2026-0122", "title": "Control, transparency and traceability of performance-based instruments", "dateAdopted": "2026-04-28", "subjectMatter": "Accountability, Finance"},
-    {"id": "TA-10-2026-0105", "title": "Request for the waiver of the immunity of Patryk Jaki", "dateAdopted": "2026-04-28", "subjectMatter": "Immunity, Rule of Law"}
-  ]
+  "generatedAt": "2026-05-05T07:04Z",
+  "adopted_texts_2026": [
+    {
+      "id": "TA-10-2026-0160",
+      "title": "Enforcement of the Digital Markets Act",
+      "dateAdopted": "2026-04-30",
+      "session": "MTG-PL-2026-04-30",
+      "subjectMatter": "Big Tech / DMA"
+    },
+    {
+      "id": "TA-10-2026-0161",
+      "title": "Ensuring accountability and justice in response to Russia continued attacks against civilian population in Ukraine",
+      "dateAdopted": "2026-04-30",
+      "session": "MTG-PL-2026-04-30",
+      "subjectMatter": "Ukraine/Russia"
+    },
+    {
+      "id": "TA-10-2026-0162",
+      "title": "Supporting democratic resilience in Armenia",
+      "dateAdopted": "2026-04-30",
+      "session": "MTG-PL-2026-04-30",
+      "subjectMatter": "Armenia democracy"
+    },
+    {
+      "id": "TA-10-2026-0151",
+      "title": "Escalating trafficking and exploitation by criminal groups in Haiti",
+      "dateAdopted": "2026-04-30",
+      "session": "MTG-PL-2026-04-30",
+      "subjectMatter": "Human rights/Haiti"
+    },
+    {
+      "id": "TA-10-2026-04-30-ANN01",
+      "title": "ESTIMATES OF THE EUROPEAN PARLIAMENT FOR THE FINANCIAL YEAR 2027",
+      "dateAdopted": "2026-04-30",
+      "session": "MTG-PL-2026-04-30",
+      "subjectMatter": "Budget 2027"
+    },
+    {
+      "id": "TA-10-2026-0142",
+      "title": "EU-Iceland agreement on transfer of passenger name record (PNR) data",
+      "dateAdopted": "2026-04-29",
+      "session": "MTG-PL-2026-04-29",
+      "subjectMatter": "Security/PNR"
+    },
+    {
+      "id": "TA-10-2026-0119",
+      "title": "Control of EIB Group financial activities annual report 2024",
+      "dateAdopted": "2026-04-28",
+      "session": "MTG-PL-2026-04-28",
+      "subjectMatter": "EIB/Finance"
+    },
+    {
+      "id": "TA-10-2026-0115",
+      "title": "Welfare of dogs and cats and their traceability",
+      "dateAdopted": "2026-04-28",
+      "session": "MTG-PL-2026-04-28",
+      "subjectMatter": "Animal welfare"
+    },
+    {
+      "id": "TA-10-2026-0112",
+      "title": "Guidelines for the 2027 budget - Section III",
+      "dateAdopted": "2026-04-28",
+      "session": "MTG-PL-2026-04-28",
+      "subjectMatter": "Budget"
+    }
+  ],
+  "political_landscape": {
+    "totalMEPs": 719,
+    "groups": {
+      "EPP": 185,
+      "SD": 135,
+      "PfE": 85,
+      "ECR": 81,
+      "Renew": 77,
+      "GreensEFA": 53,
+      "TheLeft": 46,
+      "NI": 30,
+      "ESN": 27
+    },
+    "majorityThreshold": 361,
+    "stabilityScore": 84
+  },
+  "dataStatus": {
+    "eventsToday": "UNAVAILABLE",
+    "votingRecords": "DELAYED_NO_DATA",
+    "adoptedTexts": "AVAILABLE_APR28-30",
+    "procedures": "STALE_HISTORICAL"
+  }
 }

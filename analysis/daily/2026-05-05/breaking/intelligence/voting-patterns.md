@@ -164,3 +164,22 @@ Key metrics to verify against this structural model:
 ---
 
 *Data limitation: Roll-call data for April 28–30 session not yet published. All voting pattern projections are based on EP10 group composition and historical alignment analysis. Verification against actual roll-call records required when published. Produced: 2026-05-05.*
+
+---
+
+## Visual: Projected Vote Alignment by Group
+
+```mermaid
+graph LR
+    DMA[DMA Enforcement vote] --> A[EPP 175 FOR]
+    DMA --> B[S&D 132 FOR]
+    DMA --> C[Renew 68 FOR]
+    DMA --> D[Greens 51 FOR]
+    DMA --> E[Left 43 FOR]
+    DMA --> F[ECR 55/25 SPLIT]
+    DMA --> G[PfE 40/45 SPLIT]
+    DMA --> H[ESN 5/20 AGAINST]
+    A & B & C & D & E --> FOR[~569 FOR]
+    F & G & H --> MIXED[~150 MIXED/AGAINST]
+    FOR --> Result[PASSED - well above 361 threshold]
+```

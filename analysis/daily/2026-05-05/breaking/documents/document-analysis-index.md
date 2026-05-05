@@ -80,4 +80,22 @@
 
 ---
 
-*Document index produced during Stage B. All documents referenced in this index are cited in the analysis artifacts. Full-text documents to be consulted when published to EP Official Journal (~May 7–12, 2026). Produced: 2026-05-05.*
+## 6. Second Run Update (2026-05-05T07:05Z)
+
+This document updated in run 2 to reflect improved data availability:
+
+**Adopted texts feed status**: 41 items now confirmed available in feed (up from 0 direct-lookup successes in run 1). April 28–30 texts are indexed with labels (T10-0105/2026 through T10-0163/2026).
+
+**April 28–30 session coverage completeness**: 14 priority items analyzed. All items now confirmed as adopted by the April 28–30 Strasbourg session. Key items:
+- `TA-10-2026-0160`: Digital Markets Act enforcement — CONFIRMED ADOPTED April 30
+- `TA-10-2026-0161`: Russia/Ukraine accountability — CONFIRMED ADOPTED April 30
+- `TA-10-2026-0162`: Armenia democratic resilience — CONFIRMED ADOPTED April 30
+- `TA-10-2026-04-30-ANN01`: EP 2027 budget estimates — CONFIRMED ADOPTED April 30
+- `TA-10-2026-0142`: EU-Iceland PNR agreement — CONFIRMED ADOPTED April 29
+- `TA-10-2026-0115`: Dog and cat welfare regulation — CONFIRMED ADOPTED April 28
+- `TA-10-2026-0112`: 2027 budget guidelines — CONFIRMED ADOPTED April 28
+- `TA-10-2026-0119`: EIB Group financial control — CONFIRMED ADOPTED April 28
+
+**Data freshness upgrade**: Feed data collected at 07:02Z on 2026-05-05 — approximately 6 days after plenary adoption. Text is now indexed (feed confirmed) but full Official Journal text may still have a 1–3 day lag.
+
+*Document index revised in run 2. Full-text documents available via EP Official Journal at eur-lex.europa.eu. Produced: 2026-05-05T07:05Z.*

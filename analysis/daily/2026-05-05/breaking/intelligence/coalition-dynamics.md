@@ -192,3 +192,20 @@ pie title EP10 Coalition Distribution (May 2026)
 ```
 
 **Admiralty Code**: B2
+
+---
+
+## Visual: EP10 Seat Distribution
+
+```mermaid
+pie title EP10 Political Groups — Seat Distribution (Total 719)
+    "EPP" : 185
+    "S&D" : 135
+    "PfE" : 85
+    "ECR" : 81
+    "Renew" : 77
+    "Greens/EFA" : 53
+    "The Left" : 46
+    "NI" : 30
+    "ESN" : 27
+```
