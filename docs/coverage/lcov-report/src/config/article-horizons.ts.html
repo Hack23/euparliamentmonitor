@@ -1515,7 +1515,7 @@ export const ARTICLE_HORIZONS: Record&lt;ArticleCategory, ArticleHorizonConfig&g
     perspective: CATEGORY_PERSPECTIVE[ArticleCategory.WEEK_AHEAD],
     timePeriod: CATEGORY_TIME_PERIOD[ArticleCategory.WEEK_AHEAD],
     dataWindow: { direction: 'forward', days: 7, anchor: 'today' },
-    cadence: { cron: '0 6 * * 0', description: 'Weekly — Sunday 06:00 UTC' },
+    cadence: { cron: '0 7 * * 5', description: 'Weekly — Friday 07:00 UTC' },
     primaryFeeds: [...STANDARD_FEEDS],
     mandatoryArtifacts: [...PROSPECTIVE_MANDATORY, A_FORWARD_PROJECTION],
     optionalArtifacts: [A_EXEC_BRIEF],
@@ -1529,7 +1529,7 @@ export const ARTICLE_HORIZONS: Record&lt;ArticleCategory, ArticleHorizonConfig&g
     perspective: CATEGORY_PERSPECTIVE[ArticleCategory.MONTH_AHEAD],
     timePeriod: CATEGORY_TIME_PERIOD[ArticleCategory.MONTH_AHEAD],
     dataWindow: { direction: 'forward', days: 30, anchor: 'today' },
-    cadence: { cron: '0 6 1 * *', description: 'Monthly — 1st @ 06:00 UTC' },
+    cadence: { cron: '0 8 1 * *', description: 'Monthly — 1st @ 08:00 UTC' },
     primaryFeeds: [...STANDARD_FEEDS],
     mandatoryArtifacts: [...PROSPECTIVE_MANDATORY, A_FORWARD_PROJECTION],
     optionalArtifacts: [A_EXEC_BRIEF],
@@ -1580,7 +1580,7 @@ export const ARTICLE_HORIZONS: Record&lt;ArticleCategory, ArticleHorizonConfig&g
     timePeriod: CATEGORY_TIME_PERIOD[ArticleCategory.WEEK_IN_REVIEW],
     // ADR-006: D-8 → D-36 reporting window for roll-call publication delay.
     dataWindow: { direction: 'backward', days: 28, anchor: 'today' },
-    cadence: { cron: '0 6 * * 6', description: 'Weekly — Saturday 06:00 UTC' },
+    cadence: { cron: '0 9 * * 6', description: 'Weekly — Saturday 09:00 UTC' },
     primaryFeeds: [...STANDARD_FEEDS, 'get_voting_records'],
     mandatoryArtifacts: [...RETROSPECTIVE_MANDATORY],
     optionalArtifacts: [A_EXEC_BRIEF],
@@ -1594,7 +1594,7 @@ export const ARTICLE_HORIZONS: Record&lt;ArticleCategory, ArticleHorizonConfig&g
     perspective: CATEGORY_PERSPECTIVE[ArticleCategory.MONTH_IN_REVIEW],
     timePeriod: CATEGORY_TIME_PERIOD[ArticleCategory.MONTH_IN_REVIEW],
     dataWindow: { direction: 'backward', days: 30, anchor: 'today' },
-    cadence: { cron: '0 6 5 * *', description: 'Monthly — 5th @ 06:00 UTC' },
+    cadence: { cron: '0 10 28 * *', description: 'Monthly — 28th @ 10:00 UTC' },
     primaryFeeds: [...STANDARD_FEEDS, 'get_voting_records'],
     mandatoryArtifacts: [...RETROSPECTIVE_MANDATORY],
     optionalArtifacts: [A_EXEC_BRIEF],
@@ -1687,7 +1687,7 @@ export const ARTICLE_HORIZONS: Record&lt;ArticleCategory, ArticleHorizonConfig&g
     slug: 'breaking',
     perspective: CATEGORY_PERSPECTIVE[ArticleCategory.BREAKING_NEWS],
     dataWindow: { direction: 'point', anchor: 'today' },
-    cadence: { cron: '0 */4 * * *', description: 'Every 4 hours' },
+    cadence: { cron: '0 */6 * * *', description: 'Every 6 hours' },
     primaryFeeds: [...STANDARD_FEEDS],
     mandatoryArtifacts: [
       A_SIGNIFICANCE,
@@ -1716,7 +1716,7 @@ export const ARTICLE_HORIZONS: Record&lt;ArticleCategory, ArticleHorizonConfig&g
     slug: 'committee-reports',
     perspective: CATEGORY_PERSPECTIVE[ArticleCategory.COMMITTEE_REPORTS],
     dataWindow: { direction: 'backward', days: 30, anchor: 'today' },
-    cadence: { cron: '0 7 * * 1', description: 'Weekly — Monday 07:00 UTC' },
+    cadence: { cron: '0 4 * * 1-5', description: 'Weekdays — Mon–Fri 04:00 UTC' },
     primaryFeeds: [...STANDARD_FEEDS, 'get_committee_documents'],
     mandatoryArtifacts: [...RETROSPECTIVE_MANDATORY],
     optionalArtifacts: [A_EXEC_BRIEF],
@@ -1729,7 +1729,7 @@ export const ARTICLE_HORIZONS: Record&lt;ArticleCategory, ArticleHorizonConfig&g
     slug: 'motions',
     perspective: CATEGORY_PERSPECTIVE[ArticleCategory.MOTIONS],
     dataWindow: { direction: 'backward', days: 30, anchor: 'today' },
-    cadence: { cron: '0 7 * * 2', description: 'Weekly — Tuesday 07:00 UTC' },
+    cadence: { cron: '0 6 * * 1-5', description: 'Weekdays — Mon–Fri 06:00 UTC' },
     primaryFeeds: [...STANDARD_FEEDS, 'get_voting_records'],
     mandatoryArtifacts: [...RETROSPECTIVE_MANDATORY],
     optionalArtifacts: [A_EXEC_BRIEF],
@@ -1742,7 +1742,7 @@ export const ARTICLE_HORIZONS: Record&lt;ArticleCategory, ArticleHorizonConfig&g
     slug: 'propositions',
     perspective: CATEGORY_PERSPECTIVE[ArticleCategory.PROPOSITIONS],
     dataWindow: { direction: 'forward', days: 90, anchor: 'today' },
-    cadence: { cron: '0 7 * * 3', description: 'Weekly — Wednesday 07:00 UTC' },
+    cadence: { cron: '0 5 * * 1-5', description: 'Weekdays — Mon–Fri 05:00 UTC' },
     primaryFeeds: [...STANDARD_FEEDS, 'get_procedures'],
     mandatoryArtifacts: [...PROSPECTIVE_MANDATORY],
     optionalArtifacts: [A_PIPELINE_FORECAST, A_EXEC_BRIEF],
@@ -1834,7 +1834,7 @@ export function getMandatoryArtifacts(slug: string): readonly string[] {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-05T08:51:43.099Z
+                at 2026-05-05T21:50:13.002Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

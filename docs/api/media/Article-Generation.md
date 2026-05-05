@@ -19,8 +19,8 @@
   <a href="#"><img src="https://img.shields.io/badge/Render-Deterministic-2E7D32?style=for-the-badge" alt="Deterministic Render"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.0 | **📅 Last Updated:** 2026-04-25 (UTC)
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-25 | **🏷️ Classification:** Public
+**📋 Document Owner:** CEO | **📄 Version:** 1.1 | **📅 Last Updated:** 2026-05-05 (UTC)
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-05 | **🏷️ Classification:** Public
 
 ---
 
@@ -111,7 +111,7 @@ The article is a deterministic view over this object.
 
 ### Source workflows
 
-The article-generating workflows are Markdown gh-aw workflows under `.github/workflows/` and are compiled to `.lock.yml` files. This table reflects the **current repository files**: one source workflow per article type plus the translation helper. The 8 new long-horizon and electoral workflows (`news-quarter-ahead.md`, `news-year-ahead.md`, `news-quarter-in-review.md`, `news-year-in-review.md`, `news-term-outlook.md`, `news-election-cycle.md`) were added in 2026-Q2 — see [§ Forward-looking horizons & election cycle](#-forward-looking-horizons--election-cycle).
+The article-generating workflows are Markdown gh-aw workflows under `.github/workflows/` and are compiled to `.lock.yml` files. This table reflects the **current repository files**: 14 unified article workflows plus the manual translation helper. The 6 long-horizon and electoral workflows (`news-quarter-ahead.md`, `news-year-ahead.md`, `news-quarter-in-review.md`, `news-year-in-review.md`, `news-term-outlook.md`, `news-election-cycle.md`) were added in 2026-Q2 — see [§ Forward-looking horizons & election cycle](#-forward-looking-horizons--election-cycle).
 
 | Workflow | Article type slug | Purpose |
 |---|---|---|
@@ -178,7 +178,7 @@ Adding a new horizon is a four-step change documented in the module header: new 
 
 | Slug | Window | Cadence | Mandatory extras (vs base) | Electoral overlay |
 |---|---|---|---|:---:|
-| `quarter-ahead` | T+90d (forward) | `0 6 1 * *` — 1st of month 06:00 UTC | `forward-projection` · `legislative-pipeline-forecast` · `parliamentary-calendar-projection` · `forward-indicators` | — |
+| `quarter-ahead` | T+90d (forward) | `0 8 1 * *` — 1st of month 08:00 UTC | `forward-projection` · `legislative-pipeline-forecast` · `parliamentary-calendar-projection` · `forward-indicators` | — |
 | `year-ahead` | T+365d (forward) | `0 8 2 1,4,7,10 *` — quarterly | adds `presidency-trio-context` · `commission-wp-alignment` (mandatory) | — |
 | `quarter-in-review` | T-90d (backward) | `0 8 5 * *` — 5th of month | retrospective base + `legislative-pipeline-forecast` | — |
 | `year-in-review` | T-365d (backward) | `0 8 15 1 *` — 15 Jan | retrospective base + `mandate-fulfilment-scorecard` · `term-arc` · `legislative-pipeline-forecast` · `presidency-trio-context` · `commission-wp-alignment` · `historical-parallels` | — |
@@ -202,7 +202,7 @@ The long-horizon workflows author 8 new artifacts produced under `intelligence/`
 
 ### Stage-C tripwires for long-horizon runs
 
-Stage-C completeness gate exit minute (within the 60-min `timeout-minutes` cap, `engine.mcp.session-timeout: 65m`):
+Stage-C completeness gate exit minute (within the 60-min `timeout-minutes` cap; `engine.mcp.session-timeout` is intentionally **not** set because the bundled gh-aw MCP gateway rejects that field):
 
 | Family | Stage-C exit | PR-call deadline | Stage budgets (A/B/C/D/E) |
 |---|:---:|:---:|---|

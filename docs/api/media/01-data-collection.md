@@ -170,7 +170,13 @@ not secondary, not fallback)**:
   breaking / weekly-review / motions / propositions ≥ 1. Full table in
   [`analysis/methodologies/imf-indicator-mapping.md §8`](../../analysis/methodologies/imf-indicator-mapping.md).
 - Connectivity probes: `source scripts/wb-mcp-probe.sh` and
-  `scripts/imf-mcp-probe.sh` after `scripts/mcp-setup.sh`. For
+  `scripts/imf-mcp-probe.sh` after `scripts/mcp-setup.sh`. The IMF probe
+  uses the shared `fetch-proxy` MCP gateway first (`FETCH_MCP_GATEWAY_URL`)
+  and direct HTTPS only as a local/non-AWF fallback. The probe summary JSON
+  includes a `"gatewayStatus"` field that distinguishes infrastructure failures
+  (e.g. `"error:gateway-post-failed(exit=7)"`) from genuine IMF outages
+  (`"ok"` with `"available":false`). If `gatewayStatus` reports an error, fix
+  the shared MCP component rather than treating IMF as unavailable. For
   `week-in-review`, `month-in-review`, `week-ahead`, and `month-ahead`, start
   the IMF probe in the background at the beginning of Stage A and cache its JSON
   under `${ANALYSIS_DIR}/cache/imf/` while EP MCP calls continue. The probe
@@ -199,7 +205,10 @@ not secondary, not fallback)**:
   for horizon-dependent optimism-bias caveats.
 
 Integration requirements:
-1. Call `imf-search-databases` first to discover the best database (or
+1. Use the native IMF client virtual methods (`imf-search-databases`,
+   `imf-fetch-data`) through `src/mcp/imf-mcp-client.ts` or the cached probe
+   files; do not call a non-existent IMF MCP server. Call
+   `imf-search-databases` first to discover the best database (or
    `search-indicators` for WB non-economic).
 2. Fetch ≥ 2 EU countries (Big Four `DE`/`FR`/`IT`/`ES` or affected
    member states) or use an IMF aggregate (`EU`/`EA`).
@@ -211,6 +220,11 @@ Integration requirements:
 6. Bridge every economic indicator to a named EP file, committee, procedure,
    vote, or stakeholder pressure. A standalone macro paragraph with no EP
    political mechanism fails Stage C even when it cites IMF correctly.
+7. When IMF is unavailable, **do not substitute World Bank GDP, inflation,
+   unemployment, fiscal, trade, FDI, exchange-rate, or banking indicators as
+   economic proxies**. Mark the run IMF-degraded, cite the saved probe error,
+   and either proceed without quantitative economic claims (where allowed) or
+   stop with `ANALYSIS_ONLY` for ECON/BUDG/INTA scoped runs.
 
 ## 5 · Data Verification Manifest
 
@@ -229,6 +243,66 @@ Every `manifest.json` records what was successfully downloaded:
   }
 }
 ```
+
+### 5.1 · Data Mode Declaration (MANDATORY)
+
+The manifest **MUST** include a top-level `dataMode` field declaring the
+data-availability state of the run. This drives threshold adjustments in
+Stage C — the validator reduces line floors for structurally constrained runs.
+
+| `dataMode` value | When to set | Line-floor reduction |
+|------------------|-------------|---------------------|
+| `"full"` | All primary sources (EP MCP, IMF, voting records) available | 0% (default) |
+| `"title-only"` | Adopted texts available by title/reference only; full text not yet published (3–7 day EP delay) | 25% |
+| `"degraded-imf"` | IMF SDMX unreachable; Eurostat used as triangulation fallback (WB remains non-economic only) | 15% |
+| `"degraded-voting"` | Roll-call data unavailable (4–6 week EP publication lag); coalition analysis uses structural proxies only | 15% |
+| `"minimal"` | Multiple data sources unavailable (combine title-only + degraded-imf + degraded-voting) | 35% |
+
+**Decision logic** (Stage A exit checklist):
+1. If `cache/imf/imf-probe-summary.json` contains `{"available": false}` → at minimum `"degraded-imf"`
+2. If `getVotingRecordsWithFallback` returns `unavailable` → at minimum `"degraded-voting"`
+3. If adopted texts fetched but all full-text URLs return 404 → at minimum `"title-only"`
+4. If ≥2 of the above conditions apply → `"minimal"`
+5. Otherwise → `"full"`
+
+Set `dataMode` **at the end of Stage A** so Stage B and C can adapt.
+Every artifact produced under a non-`"full"` dataMode MUST flag the
+limitation in prose (confidence levels reduced, explicit caveat paragraph).
+
+```json
+{
+  "articleType": "breaking",
+  "dataMode": "degraded-imf",
+  "dataVerification": { "..." }
+}
+```
+
+### 5.2 · Eurostat Triangulation Fallback (when IMF degraded)
+
+When IMF SDMX is unreachable (`dataMode: "degraded-imf"` or `"minimal"`),
+attempt Eurostat as a secondary economic triangulation source. Do NOT fall
+back to World Bank for economic data (Stage C rejects WB economic claims):
+
+1. **Eurostat SDMX endpoint** (via `web-fetch` tool):
+   `https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/{datasetCode}/{filter}?format=JSON`
+   - Key datasets: `namq_10_gdp` (GDP), `prc_hicp_manr` (HICP),
+     `une_rt_m` (unemployment), `gov_10dd_edpt1` (government debt)
+   - Example: `https://ec.europa.eu/eurostat/api/dissemination/sdmx/2.1/data/namq_10_gdp/Q.SCA.CLV10_MEUR.B1GQ.EA20?format=JSON&startPeriod=2024-Q1`
+     (quarterly GDP, chain-linked volumes, Eurozone-20)
+2. **Eurostat is NOT an IMF replacement** — use only for EU-aggregate and
+   member-state triangulation when IMF is down. Attribution: "Eurostat,
+   [Dataset], accessed YYYY-MM-DD" in prose.
+3. Store fetched JSON under `${ANALYSIS_DIR}/cache/eurostat/` with the
+   dataset code as filename.
+4. Record `"eurostatFetched": true` in `manifest.dataVerification`.
+5. **Do NOT cite Eurostat as sole source for economic claims** — it is a
+   triangulation signal. When both IMF and Eurostat are unavailable,
+   omit quantitative economic claims from `economic-context.md` entirely
+   rather than using agent knowledge (which produces `IMF Source:
+   knowledge-only` and fails Stage C). Instead, write a qualitative
+   economic context section citing only structural EU fiscal rules,
+   published Commission communications, and EP committee positions —
+   never numeric GDP/inflation/fiscal figures without a live data source.
 
 ## 6 · MCP Data-Quality Defensive Rules (empirical)
 

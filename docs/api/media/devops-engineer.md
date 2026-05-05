@@ -87,10 +87,10 @@ jobs:
           fetch-depth: 0 # Full history for git operations
       
       # 2. Setup Node.js with caching
-      - name: Setup Node.js 26
+      - name: Setup Node.js 25
         uses: actions/setup-node@v4
         with:
-          node-version: '26'
+          node-version: '25'
           cache: 'npm'
       
       # 3. Cache APT packages for Playwright
@@ -221,7 +221,7 @@ jobs:
 - name: Setup Node.js with npm cache
   uses: actions/setup-node@v4
   with:
-    node-version: '26'
+    node-version: '25'
     cache: 'npm' # Automatic npm cache
     cache-dependency-path: 'package-lock.json'
 ```
@@ -584,7 +584,7 @@ Configuration:
 
 - [ ] Every workflow `permissions:` block is explicit and minimal
 - [ ] All `uses:` Actions pinned to commit SHA (not tags) with comment noting version
-- [ ] All Docker base images pinned by digest (e.g. `node:26-alpine@sha256:…`)
+- [ ] All Docker base images pinned by digest (e.g. `node:25-alpine@sha256:…`)
 - [ ] Secrets referenced via `${{ secrets.* }}` and stored in GitHub environments, never in code
 - [ ] Release workflow emits SBOM (SPDX JSON) + SLSA L3 attestation + signed tag
 - [ ] CodeQL + Dependabot + secret scanning enabled and alerts triaged within SLA
@@ -706,7 +706,7 @@ All gh-aw workflow `.md` files MUST include (note: MCP servers are configured in
 ```yaml
 runtimes:
   node:
-    version: "26"                    # Node.js 26 runtime on the runner
+    version: "25"                    # Node.js 25 runtime on the runner
 
 network:
   allowed:
@@ -716,7 +716,7 @@ network:
 
 mcp-servers:
   european-parliament:
-    container: "node:26-alpine"      # Docker container for MCP server
+    container: "node:25-alpine"      # Docker container for MCP server
     entrypoint: "npx"
     entrypointArgs: ["-y", "european-parliament-mcp-server@1.2.19", "--timeout", "120000"]
     env:
@@ -730,9 +730,9 @@ mcp-servers:
 
 The `compile-agentic-workflows.yml` workflow:
 1. Deletes existing `.lock.yml` files
-2. Lints agentic workflow prompts (single-PR rule)
-3. Compiles all `.md` workflows with `gh aw compile --validate`
-4. Commits generated `.lock.yml` files, `agentics-maintenance.yml`, and `actions-lock.json`
+2. Compiles all `.md` workflows with `gh aw compile`
+3. Patches `node:lts-alpine` → `node:25-alpine` in compiled lock files
+4. Commits changes
 
 **Never modify `.lock.yml` files directly** — always edit the `.md` source and recompile.
 

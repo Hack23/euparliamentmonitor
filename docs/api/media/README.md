@@ -174,7 +174,7 @@ Canonical analysis anchors every agent on the news critical path should read:
 - GitHub Actions workflow authoring
 - Daily news generation automation
 - Playwright browser testing in CI
-- Node.js 26 environment setup
+- Node.js 25 environment setup
 - MCP server pre-installation and caching
 - GitHub Pages deployment strategies
 - Security scanning integration (Dependabot, CodeQL)
