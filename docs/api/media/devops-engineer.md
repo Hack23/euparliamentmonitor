@@ -90,7 +90,7 @@ jobs:
       - name: Setup Node.js 26
         uses: actions/setup-node@v4
         with:
-          node-version: '26''
+          node-version: '26'
           cache: 'npm'
       
       # 3. Cache APT packages for Playwright
@@ -221,7 +221,7 @@ jobs:
 - name: Setup Node.js with npm cache
   uses: actions/setup-node@v4
   with:
-    node-version: '26''
+    node-version: '26'
     cache: 'npm' # Automatic npm cache
     cache-dependency-path: 'package-lock.json'
 ```
@@ -730,9 +730,9 @@ mcp-servers:
 
 The `compile-agentic-workflows.yml` workflow:
 1. Deletes existing `.lock.yml` files
-2. Compiles all `.md` workflows with `gh aw compile`
-3. Patches `node:lts-alpine` → `node:26-alpine` in compiled lock files
-4. Commits changes
+2. Lints agentic workflow prompts (single-PR rule)
+3. Compiles all `.md` workflows with `gh aw compile --validate`
+4. Commits generated `.lock.yml` files, `agentics-maintenance.yml`, and `actions-lock.json`
 
 **Never modify `.lock.yml` files directly** — always edit the `.md` source and recompile.
 
