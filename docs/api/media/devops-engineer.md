@@ -706,7 +706,7 @@ All gh-aw workflow `.md` files MUST include (note: MCP servers are configured in
 ```yaml
 runtimes:
   node:
-    version: "25"                    # Node.js 26 runtime on the runner
+    version: "26"                    # Node.js 26 runtime on the runner
 
 network:
   allowed:
