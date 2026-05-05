@@ -122,9 +122,9 @@ safe-outputs:
   threat-detection:
     continue-on-error: true
   # Analysis artifacts can exceed the 1024 KB default patch limit; raise to
-  # 10 MB to match news-translate.md and prevent legitimate analysis-only
-  # patches from being rejected (see run 24961736954 for week-in-review).
-  max-patch-size: 10240
+  # 100 MB to prevent legitimate analysis-only
+  # patches from being rejected.
+  max-patch-size: 102400
   allowed-domains:
     - github                         # ecosystem: github.com + api.github.com (least-privilege; PR creation only)
     - data.europarl.europa.eu
