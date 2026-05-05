@@ -58,7 +58,7 @@
   "topStories": [
     {
       "ref": "TA-10-2026-0160",
-      "title": "Digital Markets Act — Accelerated Enforcement Against Designated Gatekeepers",
+      "title": "Digital Markets Act \u2014 Accelerated Enforcement Against Designated Gatekeepers",
       "tier": 1,
       "significanceScore": 82,
       "sessionDate": "2026-04-30"
@@ -72,7 +72,7 @@
     },
     {
       "ref": "TA-10-2026-0112",
-      "title": "Budget 2027 — Parliament's Guidelines",
+      "title": "Budget 2027 \u2014 Parliament's Guidelines",
       "tier": 2,
       "significanceScore": 70,
       "sessionDate": "2026-04-29"
@@ -102,6 +102,19 @@
       "stageDStatus": "pending",
       "stageEStatus": "pending",
       "notes": "IMF degraded mode; events feed unavailable; procedures feed stale; all April texts 404 (publication delay)"
+    },
+    {
+      "runId": "breaking-run2-rerun",
+      "startedAt": "2026-05-05T13:00:00Z",
+      "completedAt": "2026-05-05T13:30:00Z",
+      "gateResult": "PENDING",
+      "pass2": {
+        "startedAt": "2026-05-05T13:10:00Z",
+        "endedAt": "2026-05-05T13:28:00Z",
+        "rewriteCount": 24
+      },
+      "notes": "Re-run: improved/extended all carryForward artifacts. 6 new texts identified. China cluster analysis added.",
+      "imfDegradedMode": true
     }
   ],
   "generatedAt": "2026-05-05T01:58:00Z"

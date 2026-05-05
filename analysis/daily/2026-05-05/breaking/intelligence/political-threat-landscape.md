@@ -156,3 +156,37 @@ The April 28–30 session produced 14 adopted texts — a high output rate that 
 ---
 
 *Framework: Political Threat Landscape v4.0. Data: EP MCP tools. Analysis produced: 2026-05-05.*
+
+---
+
+## Re-run Extension — China Dimension Political Threat Assessment (2026-05-05T13:03Z)
+
+The April 28–30 session added a significant new threat dimension not present in Run 1:
+
+### Threat PT-NEW-1: EU-China Diplomatic Friction (Tier 1)
+- **Trigger**: TA-0152 (China ethnic unity law) + TA-0149 (trade defence) signal EP as increasingly hawkish on China
+- **Mechanism**: Chinese government traditionally responds to EP condemnations with targeted economic or diplomatic retaliation
+- **Political sensitivity**: S&D split on trade defence (progressive protectionists vs. free traders); PfE/ECR ambivalent on China human rights
+- **Probability (escalation to sanctions)**: Unlikely (P=0.30) given 2021 precedent suggests restraint
+- **Probability (diplomatic downgrade)**: Roughly Even (P=0.45) given current trajectory
+
+### Threat PT-NEW-2: Banking Union Complacency Risk (Tier 2)
+- **Trigger**: TA-0159 Banking Union annual report approved — risks generating complacency about systemic financial stability
+- **Mechanism**: Annual report may be read as clean bill of health; obscures residual NPL exposure in Southern Europe
+- **Political sensitivity**: EPP and Renew prefer banking union completion; ECR/PfE sceptical of supranational resolution authority
+
+```mermaid
+xychart-beta
+    title "Political Threat Matrix — Updated (Re-run)"
+    x-axis ["PT1 Veto Fragmentation", "PT2 EPP-SD Rupture", "PT3 ECR Normalisation", "PT4 FI Polarisation", "PT5 Institutional Drift", "PT-NEW-1 China Friction", "PT-NEW-2 Banking Complacency"]
+    y-axis "Threat Level (0=Low, 10=High)" 0 --> 10
+    bar [7, 5, 6, 8, 4, 6, 4]
+```
+
+| Threat | Severity | Probability | Mitigation |
+|--------|:--------:|:-----------:|-----------|
+| Democratic Erosion | 🟡 MEDIUM | Systemic | ECR/PfE bloc expansion risk |
+| PT-NEW-1 China Friction | 🟡 MEDIUM | P=0.30–0.45 | Commission diplomatic engagement |
+| PT-NEW-2 Banking Complacency | 🟢 LOW | P=0.25 | ECB/EBA monitoring continued |
+
+*Framework: Political Threat Landscape v4.0. Re-run updated: 2026-05-05T13:03Z.*

@@ -239,6 +239,44 @@ The April 28–30 plenary session was a HIGH-intensity political event across Po
 
 ---
 
+## Re-run Extension — China Trade and Strategic Autonomy PESTLE (2026-05-05T13:03Z)
+
+The second data collection pass identified TA-10-2026-0149 and TA-10-2026-0152 as structurally significant additions that require PESTLE re-calibration:
+
+### Revised PESTLE Scores (All 20 Texts)
+
+| Factor | Score (Initial) | Score (Revised) | Driver of Change |
+|--------|:-:|:-:|---|
+| Political | 9/10 | 9/10 | No change — core political intensity already high |
+| Economic | 6/10 | 7/10 | +1: TA-0149 trade defence + TA-0159 Banking Union elevate economic signal |
+| Social | 6/10 | 6/10 | No change |
+| Technological | 8/10 | 8/10 | No change — DMA remains dominant |
+| Legal | 9/10 | 9/10 | No change |
+| Environmental | 4/10 | 4/10 | No change |
+
+### China Strategic Autonomy Dimension
+
+The discovery of TA-10-2026-0149 (trade defence) and TA-10-2026-0152 (China ethnic law) in the same session creates a **China cluster** in the PESTLE analysis:
+
+```mermaid
+quadrantChart
+    title China Dimension — PESTLE Factor Impact
+    x-axis Low Likelihood --> High Likelihood
+    y-axis Low Impact --> High Impact
+    quadrant-1 Monitor Closely
+    quadrant-2 Priority Management
+    quadrant-3 Low Priority
+    quadrant-4 Contingency Planning
+    EU-China Trade War: [0.72, 0.85]
+    Chinese Retaliation: [0.55, 0.78]
+    EU Supply Chain: [0.68, 0.72]
+    MEP Delegation Response: [0.80, 0.45]
+```
+
+**China PESTLE addendum**: The dual-track EP China strategy (economic protection + human rights condemnation) increases the P(EU-China trade friction) in 2026. Parliament's adoption of trade defence resolutions simultaneously with ethnic minority condemnations signals a coordinated hardening of EP10's China posture. This is a new PESTLE signal not present in EP9 with comparable intensity.
+
+---
+
 *This PESTLE analysis serves as the cross-domain contextual framework feeding scenario-forecast.md and synthesis-summary.md. Updates to any PESTLE domain should trigger re-evaluation of the scenario probabilities in scenario-forecast.md. Analysts are advised to re-run the PESTLE model at 30-day intervals while DMA enforcement and Russia accountability developments are active.*
 
 ## Admiralty Code

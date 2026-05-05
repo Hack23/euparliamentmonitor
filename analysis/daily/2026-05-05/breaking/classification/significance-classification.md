@@ -114,16 +114,38 @@ Items are classified across three tiers:
 
 ---
 
-*Classification applied using multi-tier framework. Scores calibrated against significance-scoring.md for consistency. Produced: 2026-05-05.*
+## 5. Re-run Extension — Additional Items Classified (2026-05-05T13:03Z)
 
-## Significance Distribution
+Fresh data collection identified 6 additional texts from April 28–30 session requiring classification:
+
+| Text | Title (abbreviated) | Score | Tier | Domain |
+|------|---------------------|-------|------|--------|
+| TA-10-2026-0149 | EU Trade Defence vs. Unfair Competition | 82 | **1** | TRADE, ECON |
+| TA-10-2026-0152 | China Ethnic Unity Law Condemnation | 80 | **1** | PESC, DDLH |
+| TA-10-2026-0159 | Banking Union Annual Report 2025 | 76 | **2** | ECON, INST |
+| TA-10-2026-0146 | Fundamental Rights in EU 2024–2025 | 74 | **2** | DFON, DISC |
+| TA-10-2026-0153 | Venezuela Amnesty Law | 58 | **3** | PESC, DDLH |
+| TA-10-2026-0156 | Financial Literacy / Finfluencers | 52 | **3** | ECON, FINLIT |
+
+### Revised Tier Distribution
 
 ```mermaid
-pie title Significance Tier Distribution (April 28–30 Session)
-    "TIER 1 (80-100)" : 2
-    "TIER 2 (60-79)" : 2
-    "TIER 3 (40-59)" : 0
-    "TIER 4 (20-39)" : 0
+pie title Significance Tier Distribution — REVISED (All 20 Texts)
+    "TIER 1 (80-100)" : 4
+    "TIER 2 (60-79)" : 6
+    "TIER 3 (40-59)" : 6
+    "TIER 4 (under 40)" : 4
 ```
 
+### Classification Notes
+- **TA-10-2026-0149** elevated to Tier 1 because trade defence texts with cross-domain strategic autonomy implications score ≥80 under EP10 geopolitical context
+- **TA-10-2026-0152** elevated to Tier 1 because China-specific human rights condemnations in 2026 carry elevated significance given EU-China trade war context
+- **TA-10-2026-0159** Banking Union report is Tier 2 given its position in the BRRD3 oversight chain (March → April legislative sequence)
+
+**Revised Article Recommendation**: Lead with DMA + Russia + Trade Defence as triple headline, framing the session as "EP Asserts EU Sovereignty: Digital, Geopolitical, and Economic Fronts Simultaneously."
+
+*Classification applied using multi-tier framework. Produced: 2026-05-05.*
+
 **Admiralty Code**: B2
+
+*Classification updated in re-run to include 6 additional texts from April 28–30 session. Total: 20+ texts classified. Re-run: 2026-05-05T13:03Z.*

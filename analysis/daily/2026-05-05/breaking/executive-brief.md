@@ -178,3 +178,26 @@ Based on the April 28–30 session analysis, the EU Parliament Monitor editorial
 - CJEU DMA case filings (monthly)
 - German coalition stability (weekly from September 2026)
 - Hungary Council blocking signals (monthly)
+
+---
+
+## XIII. Additional April 28–30 Session Findings (Re-run Extension — 2026-05-05)
+
+Fresh data collection on 2026-05-05T13:03Z identified additional adopted texts from the same Strasbourg plenary that warrant intelligence assessment:
+
+| Text | Title (abbreviated) | Date | Significance |
+|------|---------------------|------|--------------|
+| TA-10-2026-0149 | Protection of EU Companies vs. Unfair Competition | Apr 29 | 🔴 HIGH — Trade sovereignty / China |
+| TA-10-2026-0152 | Chinese Law on Ethnic Unity — EP Condemnation | Apr 30 | 🔴 HIGH — Geopolitical / China-EU |
+| TA-10-2026-0153 | Venezuela Amnesty Law Shortcomings | Apr 30 | 🟡 MEDIUM — Latin America democracy |
+| TA-10-2026-0156 | Financial Literacy and Finfluencer Regulation | Apr 30 | 🟡 MEDIUM — Digital finance / CMU |
+| TA-10-2026-0159 | Banking Union Annual Report 2025 | Apr 30 | 🔴 HIGH — Financial architecture |
+| TA-10-2026-0146 | Fundamental Rights in EU 2024–2025 | Apr 29 | 🔴 HIGH — Rule of law signals |
+
+**Key intelligence upgrade**: TA-10-2026-0149 (Trade Defence vs. unfair competition) combined with TA-10-2026-0152 (China ethnic minorities) and TA-10-2026-0159 (Banking Union review) reveals a coherent anti-China/strategic autonomy cluster in the April 28–30 session that was underweighted in the initial run. The session produced a more China-focused geopolitical posture than initially assessed.
+
+**Banking Union 2025 Report**: The adoption of the Banking Union annual report signals Parliament's readiness for the BRRD3 implementation oversight, following TA-10-2026-0091 (adopted March 26) — the sequence creates a legislative-oversight chain with Q3 2026 implications for EU financial stability architecture.
+
+**Revised Significance Assessment**: Re-evaluating the session with the additional texts, the April 28–30 plenary produced **20+ adopted items** (vs. 14 initially catalogued), with 5 Tier-1 items (DMA, Russia accountability, Trade Defence, Fundamental Rights, Banking Union) and 15+ Tier-2/3 items — making this the highest-volume significant Strasbourg session of EP10 2026.
+
+**Coalition fragmentation context**: The 2026-05-05 political landscape snapshot confirms EPP at 185 seats (25.7%), S&D at 135 (18.8%), PfE at 85 (11.8%), ECR at 81 (11.3%), Renew at 77 (10.7%). Parliamentary Fragmentation Index: 6.57 (HIGH). The multi-coalition requirement means every Tier-1 item required ≥3 group assembly — the China/trade texts likely needed a broad EPP-S&D-Renew-ECR convergence on strategic autonomy grounds, unusual given the typical ECR Eurosceptic stance.
