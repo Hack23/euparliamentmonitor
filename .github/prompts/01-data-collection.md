@@ -240,7 +240,7 @@ Stage C — the validator reduces line floors for structurally constrained runs.
 |------------------|-------------|---------------------|
 | `"full"` | All primary sources (EP MCP, IMF, voting records) available | 0% (default) |
 | `"title-only"` | Adopted texts available by title/reference only; full text not yet published (3–7 day EP delay) | 25% |
-| `"degraded-imf"` | IMF SDMX unreachable; World Bank used as partial substitute | 15% |
+| `"degraded-imf"` | IMF SDMX unreachable; Eurostat used as triangulation fallback (WB remains non-economic only) | 15% |
 | `"degraded-voting"` | Roll-call data unavailable (4–6 week EP publication lag); coalition analysis uses structural proxies only | 15% |
 | `"minimal"` | Multiple data sources unavailable (combine title-only + degraded-imf + degraded-voting) | 35% |
 
@@ -282,9 +282,13 @@ falling back to World Bank GDP-only data:
    dataset code as filename.
 4. Record `"eurostatFetched": true` in `manifest.dataVerification`.
 5. **Do NOT cite Eurostat as sole source for economic claims** — it is a
-   triangulation signal. When both IMF and Eurostat are unavailable, use
-   agent knowledge with explicit `data-vintage` attribution and reduce
-   WEP confidence bands by +15 pp across all economic assessments.
+   triangulation signal. When both IMF and Eurostat are unavailable,
+   omit quantitative economic claims from `economic-context.md` entirely
+   rather than using agent knowledge (which produces `IMF Source:
+   knowledge-only` and fails Stage C). Instead, write a qualitative
+   economic context section citing only structural EU fiscal rules,
+   published Commission communications, and EP committee positions —
+   never numeric GDP/inflation/fiscal figures without a live data source.
 
 ## 6 · MCP Data-Quality Defensive Rules (empirical)
 

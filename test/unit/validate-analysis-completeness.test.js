@@ -1857,7 +1857,32 @@ describe('scripts/validate-analysis-completeness.js', () => {
       expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
     });
 
-    it('treats unknown dataMode as full (no reduction)', () => {
+    it('applies degraded-voting mode with 0.85 reduction factor', () => {
+      // With floor=200 and degraded-voting reduction (0.85), effective floor = 170
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'test-type',
+          dataMode: 'degraded-voting',
+          files: {
+            intelligence: ['intelligence/synthesis-summary.md'],
+          },
+        }),
+        'utf8',
+      );
+      // Write 175 lines — above 170 (reduced floor) but below 200 (full floor)
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(175, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stderr).toMatch(/dataMode="degraded-voting"/);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+    });
+
+    it('treats unknown dataMode as full (no reduction) and emits warning', () => {
       fs.writeFileSync(
         path.join(runDir, 'manifest.json'),
         JSON.stringify({
@@ -1878,6 +1903,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
       const result = runHere();
       expect(result.code).toBe(1);
       expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
+      expect(result.stderr).toMatch(/not a recognized value/);
     });
 
     it('does not reduce structural checks (mermaid still required)', () => {
@@ -1901,6 +1927,32 @@ describe('scripts/validate-analysis-completeness.js', () => {
       const result = runHere();
       expect(result.code).toBe(1);
       expect(result.stderr).toMatch(/mermaid:missing/);
+    });
+
+    it('does not reduce --min-lines CLI floor even under degraded mode', () => {
+      // --min-lines 300 must NOT be reduced by dataMode; it always raises floors
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'test-type',
+          dataMode: 'minimal',
+          files: {
+            intelligence: ['intelligence/synthesis-summary.md'],
+          },
+        }),
+        'utf8',
+      );
+      // Write 250 lines — above reduced perFloor (200*0.65=130) but below --min-lines 300
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere(['--min-lines', '300']);
+      expect(result.code).toBe(1);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
+      // The effective floor should be 300 (CLI), not 130 (reduced perFloor)
+      expect(result.stderr).toMatch(/short:250<300/);
     });
   });
 });

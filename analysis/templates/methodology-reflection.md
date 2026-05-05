@@ -122,10 +122,9 @@ and Pass 2 can deepen rather than create from scratch.
 
 Scaffold protocol:
 1. Read `manifest.json.files.*` list from the completed Stage A manifest
-2. For every file in the list: `touch ${ANALYSIS_DIR}/${relativePath}` with SPDX header
-3. Include Mermaid placeholder `<!-- mermaid:pending -->` in every intelligence/ file
-4. Record scaffold timestamp in manifest: `"scaffoldedAt": "<ISO timestamp>"`
-5. Only THEN begin analytical content generation in Pass 1
+2. For every file in the list: create `${ANALYSIS_DIR}/${relativePath}` containing the SPDX header, an H1 title matching the template, and a `<!-- mermaid:pending -->` comment for intelligence/ files
+3. Record scaffold timestamp in manifest: `"scaffoldedAt": "<ISO timestamp>"`
+4. Only THEN begin analytical content generation in Pass 1
 
 `[REQUIRED: confirm scaffold was performed — timestamp and artifact count. If NOT performed, explain why and document the time cost of creating files in Pass 2 instead.]`
 

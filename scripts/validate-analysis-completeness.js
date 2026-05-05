@@ -505,10 +505,13 @@ function validateArtifact({
   result.lines = countLines(content);
 
   const perFloor = rules.perArtifactFloors?.[relativePath] ?? null;
-  const rawFloor = Math.max(options.minLines, perFloor ?? 0);
-  // Math.floor rounds down — a 200-line floor under 0.85 reduction becomes 170,
-  // not 171. The floor never drops below DEFAULT_MIN_LINES regardless of reduction.
-  result.minLines = Math.max(DEFAULT_MIN_LINES, Math.floor(rawFloor * dataModeReduction));
+  // dataMode reduction applies ONLY to per-artifact floors, NOT to the
+  // CLI-provided --min-lines value. This preserves the contract that
+  // --min-lines can only raise floors, never lower them.
+  const reducedPerFloor = perFloor != null
+    ? Math.max(DEFAULT_MIN_LINES, Math.floor(perFloor * dataModeReduction))
+    : 0;
+  result.minLines = Math.max(options.minLines, reducedPerFloor);
   if (result.lines < result.minLines) {
     result.issues.push(
       `short:${result.lines}<${result.minLines}`,
@@ -958,10 +961,17 @@ function main() {
   // with the available data. The reduction ONLY applies to line floors —
   // structural requirements (mermaid, WEP, Admiralty, SATs) remain unchanged.
   const dataMode = manifest.dataMode || 'full';
-  const dataModeReduction = DATA_MODE_REDUCTION[dataMode] || 1.0;
-  if (dataMode !== 'full') {
+  const dataModeReduction = DATA_MODE_REDUCTION[dataMode];
+  if (dataModeReduction === undefined) {
     process.stderr.write(
-      `info: dataMode="${dataMode}" — applying ${Math.round((1 - dataModeReduction) * 100)}% line-floor reduction\n`,
+      `warning: manifest.dataMode="${dataMode}" is not a recognized value ` +
+        `(expected: ${Object.keys(DATA_MODE_REDUCTION).join(', ')}). Treating as "full".\n`,
+    );
+  }
+  const effectiveReduction = dataModeReduction ?? 1.0;
+  if (dataMode !== 'full' && dataModeReduction !== undefined) {
+    process.stderr.write(
+      `info: dataMode="${dataMode}" — applying ${Math.round((1 - effectiveReduction) * 100)}% line-floor reduction\n`,
     );
   }
 
@@ -983,7 +993,7 @@ function main() {
   const mandatory = listMandatoryArtifacts(rules, manifestArtifacts, articleType);
 
   const results = mandatory.map((relativePath) =>
-    validateArtifact({ runDir, relativePath, rules, options: opts, dataModeReduction }),
+    validateArtifact({ runDir, relativePath, rules, options: opts, dataModeReduction: effectiveReduction }),
   );
 
   const forwardRegistryResult = validateForwardStatementsRegistryCoverage(runDir, articleType);
