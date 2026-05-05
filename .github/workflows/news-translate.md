@@ -103,7 +103,7 @@ tools:
     allowed-extensions: [".md", ".json"]
     max-file-size: 102400
     max-file-count: 50
-    max-patch-size: 102400
+    max-patch-size: 10240
 
 safe-outputs:
   threat-detection:
@@ -115,9 +115,9 @@ safe-outputs:
   # small: run 156 (24635614642) had all 26 translations completed by the
   # agent but safeoutputs rejected the PR with
   #   "Patch size (1084 KB) exceeds maximum allowed size (1024 KB)"
-  # causing total data loss. Raising to 100 MB gives ample headroom while
+  # causing total data loss. Raising to 10 MB (max allowed) gives headroom while
   # still protecting against runaway patches.
-  max-patch-size: 102400
+  max-patch-size: 10240
   allowed-domains:
     - github                         # ecosystem: github.com + api.github.com (least-privilege; PR creation only)
     - data.europarl.europa.eu

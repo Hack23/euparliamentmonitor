@@ -116,14 +116,14 @@ tools:
     allowed-extensions: [".md", ".json"]
     max-file-size: 102400
     max-file-count: 50
-    max-patch-size: 102400
+    max-patch-size: 10240
 
 safe-outputs:
   threat-detection:
     continue-on-error: true
   # Week-in-review analysis artifacts can exceed the 1024 KB default patch
   # limit; run 24961736954 produced a legitimate 5205 KB analysis-only patch.
-  max-patch-size: 102400
+  max-patch-size: 10240
   allowed-domains:
     - github                         # ecosystem: github.com + api.github.com (least-privilege; PR creation only)
     - data.europarl.europa.eu
