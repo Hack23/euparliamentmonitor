@@ -1757,4 +1757,235 @@ describe('scripts/validate-analysis-completeness.js', () => {
       expect(result.stderr).not.toMatch(/long-horizon-structural-break/);
     });
   });
+
+  describe('dataMode threshold reduction', () => {
+    it('passes GREEN when artifact meets reduced floor under degraded-imf mode', () => {
+      // With floor=200 and degraded-imf reduction (0.85), effective floor = 170
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'test-type',
+          dataMode: 'degraded-imf',
+          files: {
+            intelligence: ['intelligence/synthesis-summary.md'],
+          },
+        }),
+        'utf8',
+      );
+      // Write 175 lines — above 170 (reduced floor) but below 200 (full floor)
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(175, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stderr).toMatch(/dataMode="degraded-imf"/);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+    });
+
+    it('still fails RED when artifact is below even the reduced floor', () => {
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'test-type',
+          dataMode: 'degraded-imf',
+          files: {
+            intelligence: ['intelligence/synthesis-summary.md'],
+          },
+        }),
+        'utf8',
+      );
+      // Write 100 lines — below 170 reduced floor
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(100, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
+    });
+
+    it('applies title-only mode with 0.75 reduction factor', () => {
+      // With floor=200 and title-only reduction (0.75), effective floor = 150
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'test-type',
+          dataMode: 'title-only',
+          files: {
+            intelligence: ['intelligence/synthesis-summary.md'],
+          },
+        }),
+        'utf8',
+      );
+      // Write 155 lines — above 150 (reduced floor) but below 200 (full floor)
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(155, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stderr).toMatch(/dataMode="title-only"/);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+    });
+
+    it('applies minimal mode with 0.65 reduction factor', () => {
+      // With floor=200 and minimal reduction (0.65), effective floor = 130
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'test-type',
+          dataMode: 'minimal',
+          files: {
+            intelligence: ['intelligence/synthesis-summary.md'],
+          },
+        }),
+        'utf8',
+      );
+      // Write 135 lines — above 130 (reduced floor) but below 200 (full floor)
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(135, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stderr).toMatch(/dataMode="minimal"/);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+    });
+
+    it('applies degraded-voting mode with 0.85 reduction factor', () => {
+      // With floor=200 and degraded-voting reduction (0.85), effective floor = 170
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'test-type',
+          dataMode: 'degraded-voting',
+          files: {
+            intelligence: ['intelligence/synthesis-summary.md'],
+          },
+        }),
+        'utf8',
+      );
+      // Write 175 lines — above 170 (reduced floor) but below 200 (full floor)
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(175, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stderr).toMatch(/dataMode="degraded-voting"/);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+    });
+
+    it('treats unknown dataMode as full (no reduction) and emits warning', () => {
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'test-type',
+          dataMode: 'unknown-mode',
+          files: {
+            intelligence: ['intelligence/synthesis-summary.md'],
+          },
+        }),
+        'utf8',
+      );
+      // Write 195 lines — below 200 full floor
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(195, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
+      expect(result.stderr).toMatch(/not a recognized value/);
+    });
+
+    it('does not reduce structural checks (mermaid still required)', () => {
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'test-type',
+          dataMode: 'minimal',
+          files: {
+            intelligence: ['intelligence/synthesis-summary.md'],
+          },
+        }),
+        'utf8',
+      );
+      // Meets reduced line floor but missing mermaid
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(200, { mermaid: false, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stderr).toMatch(/mermaid:missing/);
+    });
+
+    it('does not reduce --min-lines CLI floor even under degraded mode', () => {
+      // --min-lines 300 must NOT be reduced by dataMode; it always raises floors
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'test-type',
+          dataMode: 'minimal',
+          files: {
+            intelligence: ['intelligence/synthesis-summary.md'],
+          },
+        }),
+        'utf8',
+      );
+      // Write 250 lines — above reduced perFloor (200*0.65=130) but below --min-lines 300
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(250, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere(['--min-lines', '300']);
+      expect(result.code).toBe(1);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
+      // The effective floor should be 300 (CLI), not 130 (reduced perFloor)
+      expect(result.stderr).toMatch(/short:250<300/);
+    });
+
+    it('reduces default 30-line floor for artifacts without per-artifact threshold', () => {
+      // classification/actor-mapping.md has no perArtifactFloors entry,
+      // so it falls back to DEFAULT_MIN_LINES (30). Under minimal mode
+      // (0.65 factor), effective floor = floor(30*0.65) = 19.
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'test-type',
+          dataMode: 'minimal',
+          files: {
+            intelligence: ['intelligence/synthesis-summary.md'],
+            classification: ['classification/actor-mapping.md'],
+          },
+        }),
+        'utf8',
+      );
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(200, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      // Write 22 lines — above reduced default floor (19) but below unreduced 30
+      fs.mkdirSync(path.join(runDir, 'classification'), { recursive: true });
+      fs.writeFileSync(
+        path.join(runDir, 'classification/actor-mapping.md'),
+        makeArtifact(22, { mermaid: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+    });
+  });
 });

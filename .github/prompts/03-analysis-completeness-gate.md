@@ -65,6 +65,12 @@ catalog. The validator enforces:
    (keyed by `articleType × relativePath`).
 10. `workflow-audit.md` and `methodology-reflection.md` are present as the
     final two artifacts of the run (see `ai-driven-analysis-guide.md` Step 10.5).
+11. **`dataMode` threshold reduction** — when `manifest.dataMode` is non-`"full"`,
+    per-artifact line floors (from `reference-quality-thresholds.json`) and the
+    default 30-line floor are both reduced: `title-only` ×0.75,
+    `degraded-imf`/`degraded-voting` ×0.85, `minimal` ×0.65. The CLI
+    `--min-lines` flag is never reduced. Structural checks (mermaid, WEP,
+    Admiralty, SATs, requiredSections) are **never** reduced.
 
 ### Mandatory reader layer — `executive-brief.md`
 

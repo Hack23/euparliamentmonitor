@@ -105,6 +105,31 @@ graph TD
 
 ---
 
+## 1️⃣.5 Data Mode Declaration
+
+| Field | Value |
+|-------|-------|
+| **`dataMode`** | `[REQUIRED: full / title-only / degraded-imf / degraded-voting / minimal]` |
+| **Justification** | `[REQUIRED: why this mode — which probes failed, which data is structurally unavailable]` |
+| **Line-floor reduction applied** | `[REQUIRED: 0% / 15% / 15% / 25% / 35% — for full / degraded-imf / degraded-voting / title-only / minimal per reference-quality-thresholds.json §1.4.0]` |
+| **Confidence ceiling** | `[REQUIRED: when non-full, state the maximum confidence level permitted for data-dependent claims]` |
+
+**Stage B Scaffold Checklist** — MANDATORY at minute 0 of Stage B:
+
+Before writing any analytical content, create **empty stub files** for every
+mandatory artifact. This ensures Pass 1 produces all files (even if below floor)
+and Pass 2 can deepen rather than create from scratch.
+
+Scaffold protocol:
+1. Read the mandatory artifact list from [`artifact-catalog.md`](../../analysis/methodologies/artifact-catalog.md) for the current `articleType`
+2. For every mandatory artifact: create `${ANALYSIS_DIR}/${relativePath}` containing the SPDX header, an H1 title matching the template, and a `<!-- mermaid:pending -->` comment for intelligence/, classification/, risk-scoring/, and threat-assessment/ files
+3. Record scaffold timestamp in manifest: `"scaffoldedAt": "<ISO timestamp>"`
+4. Only THEN begin analytical content generation in Pass 1
+
+`[REQUIRED: confirm scaffold was performed — timestamp and artifact count. If NOT performed, explain why and document the time cost of creating files in Pass 2 instead.]`
+
+---
+
 ## 2️⃣ Data Sources and Provenance
 
 | Source | Purpose | Status | Confidence grade |
