@@ -493,7 +493,7 @@ EU Parliament Monitor implements **security-by-design** under the [Hack23 ISMS](
 ### Requirements
 
 - **Node.js** 25 or higher
-- **npm** 10 or higher (ships with Node.js 25)
+- **npm** 10 or higher (ships with Node.js 26)
 - **Git**
 
 ### From source

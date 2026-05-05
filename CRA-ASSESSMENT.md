@@ -80,7 +80,7 @@ As a static site generating multi-language news articles from European Parliamen
 | **Security Contact** | security@hack23.com |
 | **License** | Apache-2.0 |
 | **Purpose** | Multi-language European Parliament transparency platform — 1894+ HTML articles / 14 languages / 14 article types / 15 unified gh-aw workflows (14 `news-<type>.md` + `news-translate.md`) / 3061+ tests / 52 test files |
-| **Technology Stack** | Node.js 25, TypeScript 6.0.3, ESM, HTML5/CSS3, Vitest, Playwright |
+| **Technology Stack** | Node.js 26, TypeScript 6.0.3, ESM, HTML5/CSS3, Vitest, Playwright |
 | **Deployment Model** | npm (provenance + SLSA L3), AWS S3 + CloudFront primary, GitHub Pages fallback |
 | **Data Sources** | European Parliament MCP Server 1.2.13 (public open data) |
 
@@ -214,7 +214,7 @@ gantt
 
 | 📋 **CRA Technical Area** | 📊 **Implementation** | 🔗 **Evidence** |
 |---------------------------|----------------------|-----------------|
-| **Product Architecture** | C4 architecture model (Context, Container, Component levels); static site generator with GitHub Pages deployment; Node.js 25/TypeScript build pipeline | [ARCHITECTURE.md](ARCHITECTURE.md), [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md), [MINDMAP.md](MINDMAP.md) |
+| **Product Architecture** | C4 architecture model (Context, Container, Component levels); static site generator with GitHub Pages deployment; Node.js 26/TypeScript build pipeline | [ARCHITECTURE.md](ARCHITECTURE.md), [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md), [MINDMAP.md](MINDMAP.md) |
 | **SBOM & Components** | CycloneDX SBOM generated per release; npm `package-lock.json` provides full dependency tree; single runtime dependency (`european-parliament-mcp-server`) | [GitHub Release Attestations](https://github.com/Hack23/euparliamentmonitor/releases), [package.json](https://github.com/Hack23/euparliamentmonitor/blob/main/package.json) |
 | **Cybersecurity Controls** | Static site security model (no server-side code execution); CSP headers via GitHub Pages; Content Security Policy; HTTPS-only delivery; no cookies or tracking | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md), [THREAT_MODEL.md](THREAT_MODEL.md) |
 | **Supply Chain Security** | SLSA Level 3 provenance via `release.yml`; Dependabot daily dependency scanning; OpenSSF Scorecard weekly assessment; dependency-review on PRs; npm audit in CI | [release.yml](https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/release.yml), [scorecards.yml](https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/scorecards.yml), [OpenSSF Scorecard](https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor) |
@@ -223,7 +223,7 @@ gantt
 | **Data Protection** | Public data only — all source data from official European Parliament open data portal; no PII collected, processed, or stored; no user tracking or analytics; GDPR compliant by design | [CLASSIFICATION.md](CLASSIFICATION.md), [SECURITY.md](SECURITY.md) |
 | **User Guidance** | README.md with quick-start instructions; comprehensive architecture documentation suite (20+ documents); Security Policy with vulnerability reporting process; API documentation | [README.md](README.md), [SECURITY.md](SECURITY.md), [ARCHITECTURE.md](ARCHITECTURE.md) |
 | **Vulnerability Disclosure** | GitHub Security Advisories enabled; coordinated disclosure process in SECURITY.md; severity-based SLAs (Critical: 7 days, High: 30 days, Medium: 90 days); security@hack23.com contact | [SECURITY.md](SECURITY.md), [GitHub Security Advisories](https://github.com/Hack23/euparliamentmonitor/security/advisories) |
-| **Technology Lifecycle** | End-of-Life Strategy documenting Node.js 25 Current support timeline (upgrading to Node.js 26 LTS); dependency lifecycle tracking; proactive technology migration planning | [End-of-Life-Strategy.md](End-of-Life-Strategy.md) |
+| **Technology Lifecycle** | End-of-Life Strategy documenting Node.js 26 LTS support timeline (Node.js 27 nightly CI testing active); dependency lifecycle tracking; proactive technology migration planning | [End-of-Life-Strategy.md](End-of-Life-Strategy.md) |
 | **Testing & Validation** | Vitest unit tests (82%+ coverage); Playwright E2E tests across 14 languages; axe-core accessibility testing (WCAG 2.1 AA); Lighthouse performance benchmarking; ESLint + HTMLHint linting | [UnitTestPlan.md](UnitTestPlan.md), [E2ETestPlan.md](E2ETestPlan.md), [performance-testing.md](performance-testing.md) |
 | **Business Continuity** | GitHub Pages CDN with global distribution; git-based disaster recovery; repository mirroring capability; classification-driven recovery priorities | [BCPPlan.md](BCPPlan.md), [FinancialSecurityPlan.md](FinancialSecurityPlan.md) |
 
@@ -307,7 +307,7 @@ Supplementary evidence map aligning each Annex I Part I essential cybersecurity 
 | 5 | **Provide mechanism for security updates** | ✅ Met | Automated CI/CD pipeline via GitHub Actions; Dependabot generates PRs for dependency updates; SLSA Level 3 provenance ensures update integrity; static site redeploys automatically on merge to main branch | [WORKFLOWS.md](WORKFLOWS.md), [release.yml](https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/release.yml) |
 | 6 | **Share vulnerability information in a timely manner** | ✅ Met | Public SECURITY.md with clear reporting instructions; GitHub Security Advisories with CVE assignment capability; coordinated disclosure timeline (acknowledge 48h, validate 7d, remediate per SLA); public security metrics | [SECURITY.md](SECURITY.md) |
 | 7 | **Provide a machine-readable SBOM** | ✅ Met | CycloneDX SBOM generated in release workflow; npm `package-lock.json` provides exact dependency versions; SLSA provenance attestation links SBOM to build; REUSE compliance for license metadata | [release.yml](https://github.com/Hack23/euparliamentmonitor/blob/main/.github/workflows/release.yml), [REUSE.toml](https://github.com/Hack23/euparliamentmonitor/blob/main/REUSE.toml) |
-| 8 | **Define security support period** | ✅ Met | End-of-Life Strategy documents technology lifecycle and support timeline; Node.js 25 Current tracked (Node.js 26 LTS upgrade planned Apr 2026); dependency EOL monitoring; proactive migration planning documented | [End-of-Life-Strategy.md](End-of-Life-Strategy.md), [SECURITY.md](SECURITY.md) |
+| 8 | **Define security support period** | ✅ Met | End-of-Life Strategy documents technology lifecycle and support timeline; Node.js 26 LTS active (Node.js 27 nightly CI testing); dependency EOL monitoring; proactive migration planning documented | [End-of-Life-Strategy.md](End-of-Life-Strategy.md), [SECURITY.md](SECURITY.md) |
 
 #### 🔄 Annex I Part II — 2026-04-20 Vulnerability Handling Evidence Map
 
