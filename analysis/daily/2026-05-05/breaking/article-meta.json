@@ -1,0 +1,53 @@
+{
+  "date": "2026-05-05",
+  "articleType": "breaking",
+  "runId": "breaking-run-1777942844",
+  "gateResult": "PENDING",
+  "slug": "2026-05-05-breaking",
+  "articlePath": "analysis/daily/2026-05-05/breaking/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**Track A (Economic/Competitive)**: DMA Enforcement demands structural remedies against algorithmic self-preferencing by Apple and Alphabet. Parliament is signalling that the 2023 DMA's initial enforcement phase was too slow, and that gatekeeper status suspension must be on the table for continued violations.",
+    "**Track B (Social Harm)**: Cyberbullying platform liability fills the criminal law gap left by the DSA. Where the DSA relies on civil/administrative enforcement, Parliament is demanding national criminal provisions backed by platform co-liability for systematic failures to protect users.",
+    "**Eastern Neighbourhood**: Russia accountability + Armenia democracy — Parliament is applying coordinated pressure on the full Eastern European/South Caucasus security perimeter",
+    "**Western Hemisphere**: Haiti trafficking — Parliament's engagement with Western Hemisphere crises signals intent to use EU foreign policy tools beyond the traditional European neighbourhood",
+    "**Security Architecture**: Iceland PNR deal — practical security cooperation that extends the Schengen information ecosystem to an EEA partner",
+    "Parliament is signalling support for higher defence spending within EU budget frameworks",
+    "Cohesion fund preservation is a red line for S&D and regional MEPs"
+  ],
+  "topRisks": [
+    "Enhanced cooperation (Art. 20 TEU): 9+ member states can proceed without Hungary",
+    "Article 7(2) proceedings (escalation path)",
+    "Targeted sanctions on Hungary's EU fund access (Art. 7(3) consequence)",
+    "Commission should pre-emptively design enforcement measures to withstand proportionality review",
+    "Parliament can escalate through written questions and IMCO committee hearings",
+    "Commission can appeal any General Court suspension to CJEU immediately"
+  ],
+  "keyDates": [
+    "Council adopts EU-level Russia accountability coordination mechanism by September 2026",
+    "EU leaders convene extraordinary Council sessions by June 2026",
+    "Budget deadline missed; one-twelfths extend into Q1 2027",
+    "Evidence for: German business sentiment (ifo index) improved Q1 2026; automotive sector recovery signals",
+    "June 2026: Commission DMA investigation opened (TIER 1)",
+    "September 2026: Russia accountability Council conclusions (TIER 1–2)",
+    "November 2026: Budget trilogue agreement (TIER 2)",
+    "Q1 2027: First DMA enforcement decision (TIER 1)"
+  ],
+  "keyActors": [
+    "Roll-call voting data not yet published (4–6 week delay); coalition models are structural estimates",
+    "April 28–30 full text not published (3–7 day EP delay); analysis based on document titles",
+    "IMF economic data unavailable; World Bank proxy used for economic context"
+  ],
+  "macroContext": "Without IMF data, the following structural observations draw on available World Bank indicators and EP statistical data:",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "articleType": "breaking",
+  "slug": "breaking",
+  "date": "2026-05-05",
+  "runId": "breaking-run-1777942844",
+  "runEpoch": 1777942844,
+  "analysisDir": "analysis/daily/2026-05-05/breaking",
+  "workflowFile": ".github/workflows/news-breaking.md",
+  "iMFDegradedMode": true,
+  "iMFDegradedReason": "IMF SDMX API unavailable; World Bank GDP proxy used; IMF minimum waived at Stage C",
+  "dataWindow": "today (last 12h fallback one-week)",
+  "primarySession": "April 28-30, 2026 Strasbourg",
+  "breakingItemsCount": 14,
+  "files": {
+    "executiveBrief": "analysis/daily/2026-05-05/breaking/executive-brief.md",
+    "intelligence": {
+      "analysisIndex": "analysis/daily/2026-05-05/breaking/intelligence/analysis-index.md",
+      "synthesisSummary": "analysis/daily/2026-05-05/breaking/intelligence/synthesis-summary.md",
+      "coalitionDynamics": "analysis/daily/2026-05-05/breaking/intelligence/coalition-dynamics.md",
+      "economicContext": "analysis/daily/2026-05-05/breaking/intelligence/economic-context.md",
+      "mcpReliabilityAudit": "analysis/daily/2026-05-05/breaking/intelligence/mcp-reliability-audit.md",
+      "pestleAnalysis": "analysis/daily/2026-05-05/breaking/intelligence/pestle-analysis.md",
+      "politicalThreatLandscape": "analysis/daily/2026-05-05/breaking/intelligence/political-threat-landscape.md",
+      "stakeholderMap": "analysis/daily/2026-05-05/breaking/intelligence/stakeholder-map.md",
+      "scenarioForecast": "analysis/daily/2026-05-05/breaking/intelligence/scenario-forecast.md",
+      "significanceScoring": "analysis/daily/2026-05-05/breaking/intelligence/significance-scoring.md",
+      "threatModel": "analysis/daily/2026-05-05/breaking/intelligence/threat-model.md",
+      "wildcardsBlackswans": "analysis/daily/2026-05-05/breaking/intelligence/wildcards-blackswans.md",
+      "historicalBaseline": "analysis/daily/2026-05-05/breaking/intelligence/historical-baseline.md",
+      "votingPatterns": "analysis/daily/2026-05-05/breaking/intelligence/voting-patterns.md",
+      "referenceAnalysisQuality": "analysis/daily/2026-05-05/breaking/intelligence/reference-analysis-quality.md",
+      "workflowAudit": "analysis/daily/2026-05-05/breaking/intelligence/workflow-audit.md",
+      "crossSessionIntelligence": "analysis/daily/2026-05-05/breaking/intelligence/cross-session-intelligence.md",
+      "crossRunDiff": "analysis/daily/2026-05-05/breaking/intelligence/cross-run-diff.md",
+      "methodologyReflection": "analysis/daily/2026-05-05/breaking/intelligence/methodology-reflection.md"
+    },
+    "riskScoring": {
+      "riskMatrix": "analysis/daily/2026-05-05/breaking/risk-scoring/risk-matrix.md",
+      "quantitativeSwot": "analysis/daily/2026-05-05/breaking/risk-scoring/quantitative-swot.md"
+    },
+    "documents": {
+      "documentAnalysisIndex": "analysis/daily/2026-05-05/breaking/documents/document-analysis-index.md"
+    },
+    "classification": {
+      "significanceClassification": "analysis/daily/2026-05-05/breaking/classification/significance-classification.md",
+      "actorMapping": "analysis/daily/2026-05-05/breaking/classification/actor-mapping.md",
+      "forcesAnalysis": "analysis/daily/2026-05-05/breaking/classification/forces-analysis.md",
+      "impactMatrix": "analysis/daily/2026-05-05/breaking/classification/impact-matrix.md"
+    },
+    "data": {
+      "adoptedTextsFeed": "analysis/daily/2026-05-05/breaking/data/adopted-texts-feed.json",
+      "politicalLandscape": "analysis/daily/2026-05-05/breaking/data/political-landscape.json"
+    },
+    "cache": {
+      "imfProbeSummary": "analysis/daily/2026-05-05/breaking/cache/imf/probe-summary.json"
+    }
+  },
+  "topStories": [
+    {
+      "ref": "TA-10-2026-0160",
+      "title": "Digital Markets Act — Accelerated Enforcement Against Designated Gatekeepers",
+      "tier": 1,
+      "significanceScore": 82,
+      "sessionDate": "2026-04-30"
+    },
+    {
+      "ref": "TA-10-2026-0161",
+      "title": "Accountability for Crimes Committed in Occupied Ukrainian Territories",
+      "tier": 1,
+      "significanceScore": 82,
+      "sessionDate": "2026-04-30"
+    },
+    {
+      "ref": "TA-10-2026-0112",
+      "title": "Budget 2027 — Parliament's Guidelines",
+      "tier": 2,
+      "significanceScore": 70,
+      "sessionDate": "2026-04-29"
+    },
+    {
+      "ref": "TA-10-2026-0163",
+      "title": "Digital Platforms Criminal Liability for Cyberbullying and Online Harassment",
+      "tier": 2,
+      "significanceScore": 70,
+      "sessionDate": "2026-04-30"
+    }
+  ],
+  "pass2": {
+    "startedAt": "2026-05-05T01:28:00Z",
+    "endedAt": "2026-05-05T01:58:00Z",
+    "rewriteCount": 15,
+    "status": "complete"
+  },
+  "history": [
+    {
+      "runId": "breaking-run-1777942844",
+      "runEpoch": 1777942844,
+      "startedAt": "2026-05-05T01:00:44Z",
+      "gateResult": "PENDING",
+      "stageBStatus": "complete",
+      "stageCStatus": "pending",
+      "stageDStatus": "pending",
+      "stageEStatus": "pending",
+      "notes": "IMF degraded mode; events feed unavailable; procedures feed stale; all April texts 404 (publication delay)"
+    }
+  ],
+  "generatedAt": "2026-05-05T01:58:00Z"
+}
