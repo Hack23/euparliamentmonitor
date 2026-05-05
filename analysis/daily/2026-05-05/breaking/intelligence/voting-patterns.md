@@ -183,3 +183,47 @@ graph LR
     F & G & H --> MIXED[~150 MIXED/AGAINST]
     FOR --> Result[PASSED - well above 361 threshold]
 ```
+
+---
+
+## Re-run Extension — Additional Voting Pattern Analysis (2026-05-05T13:03Z)
+
+Additional texts identified in re-run enable voting pattern reconstruction for the China/Trade cluster:
+
+### Projected Voting Patterns — China Policy Cluster
+
+**TA-10-2026-0149 (Trade Defence vs. Unfair Competition)**
+
+```mermaid
+graph LR
+    TRADE[Trade Defence vote] --> A[EPP 185 FOR - protectionist]
+    TRADE --> B[S&D 130 FOR - jobs protection]
+    TRADE --> C[Renew 60 FOR - strategic autonomy]
+    TRADE --> D[ECR 80 FOR - national industry]
+    TRADE --> E[PfE 75 FOR - economic nationalism]
+    TRADE --> F[Greens 30 MIXED - free trade tension]
+    TRADE --> G[Left 20 MIXED - anti-corporate vs. workers]
+    A & B & C & D & E --> FOR[~530 FOR]
+    F & G --> MIXED[~50 MIXED]
+    FOR --> Result[PASSED - broad strategic autonomy majority]
+```
+
+**TA-10-2026-0152 (China Ethnic Unity Law Condemnation)**
+
+```mermaid
+graph LR
+    CHINA[China HR vote] --> A[EPP 185 FOR]
+    CHINA --> B[S&D 130 FOR]
+    CHINA --> C[Renew 75 FOR]
+    CHINA --> D[Greens 53 FOR]
+    CHINA --> E[ECR 70 FOR]
+    CHINA --> F[PfE 40/45 SPLIT - China-friendly wing]
+    CHINA --> G[Left 35 FOR - solidarity framing]
+    A & B & C & D & E & G --> FOR[~548 FOR]
+    F --> MIXED[~45 MIXED/AGAINST]
+    FOR --> Result[PASSED - near-supermajority on HR grounds]
+```
+
+**Pattern intelligence**: The China HR condemnation achieves a wider coalition than trade defence, as human rights framing enables left-wing participation that trade defence texts cannot attract.
+
+**Admiralty Code**: B3 (voting pattern estimates based on group composition; no roll-call data confirmed)

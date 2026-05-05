@@ -328,3 +328,49 @@ WEP band probabilities for key forecast judgements:
 - Hungary sustains Russia accountability veto through 2026: **Highly Likely** (P=0.70)
 - External shock disrupts EP agenda in 2026: **Unlikely** (P=0.25)
 - Cascading institutional failure scenario: **Almost No Chance** (P=0.15)
+
+---
+
+## Re-run Extension — China Strategic Autonomy Scenario Addendum (2026-05-05T13:03Z)
+
+### Scenario CX-1: EU-China Trade Escalation
+
+**Trigger**: China retaliates against TA-0149 anti-circumvention measures with targeted tariffs on EU luxury goods or machinery.
+
+**Probability (24 months)**: Likely (P=0.60) | **Severity**: HIGH
+
+**Signalling indicators**: Chinese Ministry of Commerce WTO complaint; State media escalation; supply chain diversification from EU.
+
+### Scenario CX-2: China Human Rights Counter-Sanctions
+
+**Trigger**: TA-0152 China ethnic unity law condemnation prompts Beijing counter-sanctions on EP staff or MEPs.
+
+**Probability (12 months)**: Unlikely (P=0.30) | **Severity**: MEDIUM-HIGH
+
+**Precedent**: China sanctioned 5 MEPs in March 2021 following Xinjiang resolutions.
+
+### Scenario CX-3: EU-China Engagement Continuation
+
+**Trigger**: Despite TA-0152 passage, diplomatic back-channels preserve EU-China infrastructure dialogue.
+
+**Probability (24 months)**: Roughly Even (P=0.50) | **Severity**: POSITIVE
+
+**Note**: EP resolutions are non-binding. Historical pattern shows Commission maintains economic engagement regardless of EP political posture.
+
+```mermaid
+quadrantChart
+    title China Scenario Probability vs. Impact
+    x-axis Low Impact --> High Impact
+    y-axis Unlikely --> Likely
+    quadrant-1 "High Priority Monitor"
+    quadrant-2 "Primary Risk Zone"
+    quadrant-3 "Low Priority"
+    quadrant-4 "Tail Risk Watch"
+    "CX-1 Trade Escalation": [0.80, 0.60]
+    "CX-2 Counter-Sanctions": [0.70, 0.30]
+    "CX-3 Engagement": [0.40, 0.50]
+    "Banking Union Stress": [0.65, 0.35]
+    "DMA Non-Compliance": [0.55, 0.65]
+```
+
+*Scenario addendum produced in re-run. 2026-05-05T13:03Z.*

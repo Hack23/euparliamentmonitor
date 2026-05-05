@@ -196,3 +196,41 @@ The simultaneous adoption of 2027 Budget Guidelines (Section III) and EP Financi
 **Key constraint**: No single political family can block or approve the budget alone. The final vote requires a minimum three-group coalition to reach 361 votes — creating structural incentives for log-rolling across priorities.
 
 **Pass-through timeline**: Council-Parliament budget negotiation typically takes June–November. The April guidelines and estimates set Parliament's opening position; the real numbers will emerge in trilogue by October 2026. 🟢 High confidence on process; 🔴 Low confidence on specific budget figures.
+
+---
+
+## Re-run Mermaid Supplement — Budget & Economic Priorities Map (2026-05-05T13:03Z)
+
+```mermaid
+mindmap
+  root((EP Economic<br>Agenda<br>Apr 28-30))
+    Budget2027
+      TA-0112 Guidelines
+      Priorities set
+      Competition vs. Cohesion
+    MFF2028
+      TA-0111 Interim report
+      Defence hike proposed
+      Green transition baseline
+    FinancialStability
+      TA-0159 Banking Union
+      BRRD3 resolution tools
+      NPL reduction trajectory
+    DigitalEconomy
+      TA-0156 Finfluencers
+      ESMA coordination gap
+      TA-0160 DMA enforcement
+    TradeEconomy
+      TA-0149 Anti-circumvention
+      EU-China €300B exposure
+      CBAM carbon border
+```
+
+**IMF degraded mode note**: 🔴 IMF SDMX endpoint UNAVAILABLE in both Run 1 and Run 2. All macro figures (growth projections, inflation forecasts, fiscal balances) would normally cite IMF World Economic Outlook (April 2026 edition). Without live IMF access:
+- GDP growth projections for EU-27: NOT PROVIDED (agent knowledge waived per degraded-mode protocol)
+- Inflation trajectory: NOT PROVIDED
+- Fiscal balance forecasts: NOT PROVIDED
+
+🟢 World Bank GDP data available (2023 vintage) as partial proxy. Structural economic facts (budget cycle, negotiation timetable) remain valid regardless of IMF status.
+
+*Economic context Mermaid supplement added in re-run. 2026-05-05T13:03Z.*

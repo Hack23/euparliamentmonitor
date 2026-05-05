@@ -151,3 +151,18 @@ quadrantChart
 **Admiralty Code**: B2
 
 *Risk matrix compiled under IMF degraded mode. Economic severity ratings (R04, R06) carry reduced confidence.*
+
+---
+
+## Re-run Extension — China Risks Added (2026-05-05T13:03Z)
+
+| Risk ID | Category | Description | Probability | Severity | Score |
+|---------|----------|-------------|:-----------:|:--------:|:-----:|
+| R-NEW-1 | TRADE | EU-China trade retaliation (TA-0149 trigger) | M (0.40) | HIGH | 3.2 |
+| R-NEW-2 | DIPLOMATIC | China counter-sanctions on MEPs (TA-0152 trigger) | L (0.25) | MEDIUM | 1.5 |
+| R-NEW-3 | FINANCIAL | Banking Union stress if BRRD3 implementation delayed | L (0.20) | HIGH | 2.0 |
+| R-NEW-4 | DIGITAL | DMA non-compliance escalation if enforcement delayed | M (0.50) | MEDIUM | 2.5 |
+
+**IMF degraded mode note**: 🔴 IMF SDMX unavailable. Economic severity ratings are based on structural analysis; specific macro impact figures not provided.
+
+*Risk matrix extended in re-run. 2026-05-05T13:03Z. Admiralty Code: B2.*

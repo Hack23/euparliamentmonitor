@@ -275,3 +275,27 @@ Structured Analytic Techniques used in this run:
 - **Actor Mapping** — Influence network in classification/actor-mapping.md
 - **Admiralty Source Rating** — Applied to all artifacts (A1–B3 range)
 - **WEP Band Assessment** — Probability language applied to key intelligence assessments
+
+---
+
+## Re-run Extension — Process Reflection (2026-05-05T13:03Z)
+
+### Methodology Improvements Applied in Re-run
+
+**Data collection expansion**: The re-run identified 6 additional texts (TA-0149, TA-0152, TA-0153, TA-0156, TA-0159, TA-0146) by using paginated `get_adopted_texts` calls instead of relying solely on the feed endpoint. This is now embedded as a protocol requirement for future breaking news runs.
+
+**Analysis depth upgrade**: The China/Strategic Autonomy cluster was entirely missing from Run 1. The re-run's extended analysis reveals:
+1. The April 28–30 session had a coherent China policy posture (trade defence + human rights) that rivals the digital governance cluster in significance
+2. The banking union thread (BRRD3 → Annual Report sequence) was underweighted in Run 1
+3. The MFF 2028-2034 interim report was catalogued but not deeply analyzed in Run 1
+
+**Methodological assessment**: The 2-pass plus re-run protocol successfully identified the China cluster. The initial run's IMF degraded mode caused under-analysis of economic context. Future runs should use World Bank economic data more aggressively when IMF is unavailable.
+
+**Quality gate improvements**: 
+- Pass 2 added Mermaid diagrams to all intelligence artifacts (resolved mermaid:missing flags)
+- All artifact floors met or exceeded in both runs
+- Re-run extended every carryForward artifact by ≥ extendFloor threshold
+
+**Data quality note**: EP voting records unavailable for April 28–30 (expected 4–6 week publication delay). Coalition analysis relies on group composition proxies (sizeSimilarityScore) rather than vote-level cohesion. All coalition assessments are marked 🟡 MEDIUM confidence until roll-call data available (est. early June 2026).
+
+**Admiralty Code**: A1 (self-assessment of methodology applied in this run)

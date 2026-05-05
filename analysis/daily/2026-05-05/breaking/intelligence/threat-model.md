@@ -278,3 +278,42 @@ WEP band probability assessments for key threats:
 - R03 EP majority maintained through 2026: **Almost Certain** (P=0.90)
 - R05 Geopolitical external shock forces agenda reset: **Unlikely** (P=0.20)
 - R08 Platform lobby delays cyberbullying directive: **Likely** (P=0.55)
+
+---
+
+## Re-run Extension — China Threat Assessment (2026-05-05T13:03Z)
+
+The identification of TA-10-2026-0149 and TA-10-2026-0152 requires threat model expansion to include the China-EU institutional confrontation vector.
+
+### New Threat Vector: China Diplomatic Retaliation
+
+| Threat | Stage | Description | Probability | Impact |
+|--------|:-----:|-------------|:-----------:|:------:|
+| China freezes EP delegation access | 2 | Tit-for-tat diplomatic restriction after ethnic unity condemnation | 0.45 | MEDIUM |
+| China WTO challenge to trade defence measures | 3 | Legal challenge to EP-demanded anti-dumping escalation | 0.55 | HIGH |
+| China MEP influence operations | 4 | Lobbying through EP-China Friendship Group to soften future resolutions | 0.65 | MEDIUM |
+| EU-China trade war escalation | 5 | Retaliatory tariffs on EU luxury goods/Airbus | 0.40 | CRITICAL |
+
+### Revised Threat Priority Matrix
+
+```mermaid
+quadrantChart
+    title Updated Threat Matrix — Post Re-run Extension
+    x-axis Low Likelihood --> High Likelihood
+    y-axis Low Impact --> High Impact
+    quadrant-1 High Priority
+    quadrant-2 Critical Monitoring
+    quadrant-3 Low Priority
+    quadrant-4 Standard Coverage
+    Hungary Veto R01: [0.70, 0.85]
+    CJEU DMA R02: [0.60, 0.80]
+    China WTO R11: [0.55, 0.80]
+    Platform Delay R08: [0.55, 0.55]
+    China Diplomatic R10: [0.45, 0.50]
+    EU-China Trade War R12: [0.40, 0.95]
+    EP Majority R03: [0.10, 0.90]
+```
+
+**New threat IDs**: R10 = China diplomatic retaliation; R11 = China WTO challenge; R12 = EU-China trade war escalation
+
+**Admiralty Code**: B2

@@ -209,3 +209,24 @@ pie title EP10 Political Groups — Seat Distribution (Total 719)
     "NI" : 30
     "ESN" : 27
 ```
+
+---
+
+## Re-run Extension — China Trade Coalition Dynamics (2026-05-05T13:03Z)
+
+Fresh political landscape data (retrieved 2026-05-05T13:05Z) confirms 719 MEPs across 9 groups. The discovery of TA-10-2026-0149 (trade defence) and TA-10-2026-0152 (China ethnic law) in the same April 28–30 session requires coalition analysis for a China-facing policy cluster.
+
+### China-Policy Coalition Viability Analysis
+
+| Text | EPP | S&D | Renew | Greens/EFA | ECR | PfE | The Left | Coalition Type |
+|------|:---:|:---:|:-----:|:----------:|:---:|:---:|:--------:|:---:|
+| TA-0149 Trade Defence | ✅ | ✅ | ✅ | ⚠️ | ✅ | ⚠️ | ❌ | EPP+S&D+Renew+ECR |
+| TA-0152 China HR | ✅ | ✅ | ✅ | ✅ | ✅ | ⚠️ | ⚠️ | Broad majority |
+| TA-0160 DMA | ✅ | ✅ | ✅ | ✅ | ❌ | ❌ | ✅ | Centre-left tech |
+| TA-0161 Russia | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ⚠️ | Pro-UA majority |
+
+**Coalition intelligence**: China-policy texts attract a cross-ideological coalition that includes ECR (unusual for trade/HR texts) — the strategic autonomy framing enables right-wing groups that oppose liberal trade to align with pro-China-accountability positions. This "unusual coalition" signal is significant: ECR + EPP + S&D + Renew = 478 seats (66% majority) on strategic autonomy grounds.
+
+**Fragmentation Index impact**: The 6.57 ENP means that even unusual coalitions like the China-facing one can assemble 400+ seat supermajorities when national interest convergence (e.g., French, German, Italian manufacturing protection) overrides ideological fault lines.
+
+**Admiralty Code**: B2 (coalition composition inferred from known group positions; no roll-call data until June 2026)

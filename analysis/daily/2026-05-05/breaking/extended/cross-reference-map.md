@@ -157,3 +157,32 @@ All extended artifacts produced in this run (run 2, 2026-05-05) are original ana
 ---
 
 *Cross-reference map produced for 2026-05-05 breaking analysis. This file is the definitive artifact-to-article mapping for the Stage D article generator.*
+
+---
+
+## Re-run Extension — China Cluster Cross-Reference (2026-05-05T13:03Z)
+
+The following cross-references were ABSENT from Run 1 and added in re-run:
+
+| Artifact | China Connection | New Cross-References Added |
+|----------|-----------------|---------------------------|
+| `intelligence/coalition-dynamics.md` | China policy voting projections | → significance-scoring.md §China cluster |
+| `intelligence/threat-model.md` | R10 China trade retaliation, R11 sanctions, R12 CAI | → scenario-forecast.md §CX-1/CX-2/CX-3 |
+| `intelligence/stakeholder-map.md` | EU trade defence industry stakeholders | → pestle-analysis.md §China addendum |
+| `intelligence/voting-patterns.md` | TA-0149/TA-0152 projected votes | → coalition-dynamics.md §China viability |
+| `intelligence/pestle-analysis.md` | China strategic autonomy PESTLE | → historical-baseline.md §China precedent |
+
+```mermaid
+graph LR
+    TA0149[TA-0149 Trade Defence] --> CD[coalition-dynamics]
+    TA0149 --> TM[threat-model R10]
+    TA0149 --> VP[voting-patterns]
+    TA0152[TA-0152 China Ethnic Law] --> TM2[threat-model R11]
+    TA0152 --> SM[stakeholder-map]
+    TA0152 --> SF[scenario-forecast CX-2]
+    CD --> SF
+    TM --> SF
+    SF --> XRM[cross-reference-map ← this file]
+```
+
+*Updated cross-reference map. Re-run produced: 2026-05-05T13:03Z.*

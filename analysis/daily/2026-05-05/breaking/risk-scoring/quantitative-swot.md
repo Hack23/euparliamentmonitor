@@ -140,3 +140,22 @@ xychart-beta
 | German Q3 GDP positive surprise | Weaknesses −1 | ↑ |
 | PfE gains in national polls (>90 seats projected) | Threats +2 | ↓ |
 | EP roll-call confirms 80%+ coalition cohesion | Strengths +1 | ↑ |
+
+---
+
+## Re-run Extension — Updated SWOT Scoring (2026-05-05T13:03Z)
+
+**Revised SWOT score delta from re-run new findings**:
+
+| Vector | Run 1 | Re-run Delta | Reason |
+|--------|:-----:|:------------:|--------|
+| Strengths | +8 | +1 | Trade defence institutional machinery confirmed via TA-0149 |
+| Weaknesses | −5 | −1 | Banking Union implementation gap confirmed via TA-0159 audit |
+| Opportunities | +6 | +2 | China policy leadership; Banking Union completion path |
+| Threats | −7 | −2 | China retaliation risk (R-NEW-1); DMA non-compliance (R-NEW-4) |
+
+**Re-run composite SWOT score**: +2 (net positive for EU institutional position, constrained by China/DMA uncertainty)
+
+**Key insight**: The April 2026 session, when extended analysis includes TA-0149 and TA-0152, shows a more complex picture than Run 1's assessment — the EU is simultaneously asserting strategic autonomy (trade) AND creating diplomatic risk (China relations) in the same session week.
+
+*SWOT revised in re-run. 2026-05-05T13:03Z. Admiralty Code: B2.*

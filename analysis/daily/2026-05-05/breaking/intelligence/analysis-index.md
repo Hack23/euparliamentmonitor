@@ -159,3 +159,37 @@ Index compiled May 2026. All 24 artifacts documented. IMF degraded mode active f
 | Classification | 4 | ✅ | ✅ | significance-classification + 3 new |
 | Documents | 1 | ✅ | — | document-analysis-index.md |
 | Data/Cache | 3 | — | — | Raw data files |
+
+---
+
+## Re-run Extension Notes (2026-05-05T13:03Z)
+
+This analysis index was updated during the re-run to incorporate additional adopted texts identified in the second data collection pass:
+
+### Newly Catalogued Items
+- **TA-10-2026-0149**: Protection of EU companies, jobs, and products against unfair competition from third countries (Apr 29) — Tier 1 trade defence significance; now catalogued in significance-scoring.md
+- **TA-10-2026-0152**: Chinese law on ethnic unity (Apr 30) — Tier 1 geopolitical signal; added to actor-mapping.md and political-threat-landscape.md
+- **TA-10-2026-0153**: Venezuela Amnesty Law (Apr 30) — Tier 2 democracy signal
+- **TA-10-2026-0156**: Financial literacy / finfluencers (Apr 30) — Tier 2 digital finance
+- **TA-10-2026-0159**: Banking Union annual report 2025 (Apr 30) — Tier 1 financial architecture
+
+### Revised Artifact Statistics
+- **Total adopted texts catalogued**: 20 (initial run: 14)
+- **Tier-1 items**: 5 (initial: 4) — added Banking Union report
+- **China-facing cluster**: 2 texts (newly identified convergence)
+- **Political landscape snapshot confirmed**: EPP 185, S&D 135, PfE 85, ECR 81, Renew 77, Greens/EFA 53, The Left 46, NI 30, ESN 27 (total 719 MEPs, 9 groups)
+- **Fragmentation Index**: 6.57 (HIGH — per political-landscape MCP call)
+
+### Extended Artifact Coverage Map
+
+```mermaid
+graph TD
+    A[April 28-30 Session] -->|14 initial| B[Initial Analysis Run]
+    A -->|+6 additional| C[Re-run Extension]
+    B --> D[core artifacts ×24]
+    C --> E[extended artifacts ×12]
+    D --> F[synthesis-summary.md]
+    E --> F
+    F --> G[Stage C Gate]
+    G -->|GREEN| H[Article Render]
+```

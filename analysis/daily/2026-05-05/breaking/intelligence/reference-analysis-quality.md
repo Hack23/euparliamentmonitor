@@ -192,3 +192,37 @@ Artifacts not yet written as of this quality report:
 ---
 
 *Quality framework: reference-quality-thresholds.json + per-artifact-methodologies.md. Assessment produced at Stage B mid-point. Final assessment to be updated in methodology-reflection.md (Step 10.5). Produced: 2026-05-05.*
+
+---
+
+## Re-run Quality Assessment Update (2026-05-05T13:03Z)
+
+**Updated overall assessment**: 🟢 PASS — all mandatory artifacts completed and extended; mermaid:missing flags resolved; extendFloor thresholds met across the artifact set.
+
+### Quality Gate Summary — Re-run Pass
+
+```mermaid
+pie title Artifact Quality Status (Re-run Final)
+    "PASS (above floor)" : 22
+    "CONDITIONAL PASS (flagged constraint)" : 3
+    "FAIL" : 0
+```
+
+### Conditional Pass Artifacts
+
+| Artifact | Condition | Reason |
+|----------|-----------|--------|
+| `intelligence/economic-context.md` | 🟡 IMF DEGRADED | IMF SDMX unavailable — economic figures not provided per protocol |
+| `intelligence/coalition-dynamics.md` | 🟡 PROXY DATA | Per-MEP voting data unavailable; size-similarity proxy used |
+| `intelligence/voting-patterns.md` | 🟡 PROJECTED ONLY | April roll-call votes not yet published; all figures are projections |
+
+### Completeness Confirmation
+
+- ✅ All 25 per-artifact templates represented in analysis set
+- ✅ All 14 agentic-workflow templates present (including workflow-audit.md, cross-run-diff.md)
+- ✅ manifest.json topology matches artifact file count
+- ✅ Mermaid diagrams present in all 22 intelligence artifacts
+- ✅ Admiralty Codes applied throughout (A1 dominant; B2 for coalition projections)
+- ✅ WEP Bands applied to all probabilistic assessments
+
+*Quality framework: reference-quality-thresholds.json + per-artifact-methodologies.md. Re-run final assessment. 2026-05-05T13:03Z.*

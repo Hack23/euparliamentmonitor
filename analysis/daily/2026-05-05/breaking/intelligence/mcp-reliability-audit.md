@@ -397,3 +397,39 @@ xychart-beta
 ```
 
 **Admiralty Code**: A1 (direct observation — tool call results logged in this run)
+
+---
+
+## Re-run Extension — Updated Reliability Assessment (2026-05-05T13:03Z)
+
+Second data collection pass executed at 2026-05-05T13:03Z. Updated reliability observations:
+
+### Tool Call Summary — Re-run Pass
+
+| Tool | Status | Notes |
+|------|:------:|-------|
+| `get_adopted_texts_feed` | ✅ SUCCESS | 56 items returned; FRESHNESS_FALLBACK triggered (expected pattern) |
+| `get_adopted_texts` (paginated) | ✅ SUCCESS | Total 161 texts as of 2026-05-05; pages at offset 100, 130, 140 successful |
+| `generate_political_landscape` | ✅ SUCCESS | 719 MEPs, 9 groups confirmed; Fragmentation Index 6.57 HIGH |
+| `analyze_coalition_dynamics` | ✅ SUCCESS (LIMITED) | Group composition data available; per-MEP voting data UNAVAILABLE (expected API constraint) |
+| `get_voting_records` | ❌ EMPTY | date range 2026-04-28→2026-05-01 returned 0 records (EP voting data publication delay — expected) |
+| `get_plenary_sessions` | ⚠️ PARTIAL | Sessions listed (total 11) but filteredTotal=0 for April 28-30 range |
+| `get_meps_feed` | NOT CALLED | Not needed for breaking news extension |
+
+### Reliability Comparison (Run 1 vs. Run 2)
+
+```mermaid
+xychart-beta
+    title "MCP Tool Reliability — Run 1 vs Run 2"
+    x-axis ["EP-feeds", "EP-analysis", "EP-text-paginated", "Coalition", "Voting-Records", "World-Bank", "IMF"]
+    y-axis "Success Rate %" 0 --> 100
+    bar [50, 100, 100, 100, 0, 100, 0]
+```
+
+**Key improvement**: `get_adopted_texts` paginated calls in Run 2 discovered 6 additional significant texts (TA-0149, TA-0152, TA-0153, TA-0156, TA-0159, TA-0146) not included in Run 1's initial feed-only collection. This confirms the data collection protocol should always include paginated `get_adopted_texts` in addition to `get_adopted_texts_feed`.
+
+**IMF status**: Confirmed UNAVAILABLE again in Run 2. IMF degraded mode persists; World Bank GDP proxy data remains the economic context source.
+
+**Recommendation for future runs**: For breaking news article types, paginate `get_adopted_texts?year=CURRENT_YEAR` to offset 140–160 to capture full session output, not just feed-accessible items.
+
+**Admiralty Code**: A1 (direct observation — tool call results logged in this run)

@@ -99,3 +99,50 @@ This document updated in run 2 to reflect improved data availability:
 **Data freshness upgrade**: Feed data collected at 07:02Z on 2026-05-05 — approximately 6 days after plenary adoption. Text is now indexed (feed confirmed) but full Official Journal text may still have a 1–3 day lag.
 
 *Document index revised in run 2. Full-text documents available via EP Official Journal at eur-lex.europa.eu. Produced: 2026-05-05T07:05Z.*
+
+---
+
+## Re-run Document Extension — Additional April 28–30 Texts (2026-05-05T13:03Z)
+
+Second data collection pass identified 6 additional texts not catalogued in Run 1:
+
+| Reference | Title | Date | Official Journal ETA |
+|-----------|-------|------|---------------------|
+| TA-10-2026-0149 | Protection of EU companies vs. unfair competition | Apr 29 | Est. May 12–20, 2026 |
+| TA-10-2026-0152 | China ethnic unity law condemnation | Apr 30 | Est. May 14–21, 2026 |
+| TA-10-2026-0153 | Venezuela Amnesty Law shortcomings | Apr 30 | Est. May 14–21, 2026 |
+| TA-10-2026-0156 | Financial literacy and finfluencers | Apr 30 | Est. May 14–21, 2026 |
+| TA-10-2026-0159 | Banking Union annual report 2025 | Apr 30 | Est. May 14–21, 2026 |
+| TA-10-2026-0146 | Fundamental rights in EU 2024–2025 | Apr 29 | Est. May 12–20, 2026 |
+
+**Revised total**: 20+ texts confirmed from April 28–30 session (initial: 14).
+
+```mermaid
+timeline
+    title April 28-30 Session Document Timeline
+    section April 28
+        TA-0111 MFF 2028-2034 : Interim report adopted
+        TA-0112 Budget 2027 : Guidelines adopted
+        TA-0116 EGF workers : Adjustment fund
+        TA-0119 EIB Control : Financial oversight
+        TA-0120 Rape legislation : Consent-based
+        TA-0121 Ocean diplomacy : Fisheries/aquaculture
+        TA-0122 Performance instruments : Technical
+        TA-0115 Pet welfare : Consumer protection
+    section April 29
+        TA-0125 Commission discharge : Accountability
+        TA-0146 Fundamental rights : Rule of law
+        TA-0149 Trade defence : Strategic autonomy
+        TA-0159 Banking Union : Financial architecture
+    section April 30
+        TA-0151 Haiti trafficking : Human rights
+        TA-0152 China ethnic law : Geopolitics
+        TA-0153 Venezuela amnesty : Democracy
+        TA-0156 Financial literacy : Digital finance
+        TA-0160 DMA enforcement : Digital markets
+        TA-0161 Russia accountability : Ukraine war
+        TA-0162 Armenia democracy : Eastern neighbourhood
+        TA-0163 Cyberbullying liability : Platform law
+```
+
+**Admiralty Code**: A1 (direct EP API observation)

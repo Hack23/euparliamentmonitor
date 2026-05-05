@@ -177,14 +177,35 @@
 
 ---
 
-## Visual: Significance Distribution
+## Re-run Extension — Revised Significance Scores (2026-05-05T13:03Z)
+
+Additional texts identified in re-run require significance scoring:
+
+### New Text Scores
+
+| Text | Title (abbreviated) | Score | Tier | Key Driver |
+|------|---------------------|:-----:|:----:|------------|
+| TA-10-2026-0149 | Trade Defence vs. Unfair Competition | 82 | 1 | Strategic autonomy, China trade war risk |
+| TA-10-2026-0152 | China Ethnic Unity Law | 80 | 1 | EU-China relations, geopolitical signal |
+| TA-10-2026-0159 | Banking Union Annual Report 2025 | 76 | 2 | BRRD3 chain, financial architecture |
+| TA-10-2026-0146 | Fundamental Rights 2024–2025 | 74 | 2 | Rule of law, EP oversight assertion |
+| TA-10-2026-0125 | Discharge 2024 EU Budget (Commission) | 62 | 2 | Accountability, rare Commission discharge |
+| TA-10-2026-0111 | MFF 2028-2034 Interim Report | 70 | 2 | Long-term fiscal architecture |
+| TA-10-2026-0153 | Venezuela Amnesty Law | 58 | 3 | Latin America democracy signal |
+| TA-10-2026-0156 | Financial Literacy/Finfluencers | 52 | 3 | Digital finance, CMU narrative |
+
+### Revised Significance Distribution
 
 ```mermaid
-pie title April 28-30 Breaking Significance by Topic
-    "DMA Enforcement (Digital)" : 28
-    "Russia Accountability (Geopolitical)" : 24
-    "Armenia Democratic Resilience (Geopolitical)" : 18
-    "2027 Budget Estimates (Fiscal)" : 14
-    "2027 Budget Guidelines (Fiscal)" : 10
-    "Other texts (HAI, PNR, EIB, Animal welfare)" : 6
+pie title Revised April 28-30 Breaking Significance (All 20+ Texts)
+    "DMA Enforcement (Digital)" : 22
+    "Russia Accountability (Geopolitical)" : 18
+    "Trade Defence + China (Strategic Autonomy)" : 20
+    "Budget + MFF + Banking Union (Fiscal)" : 18
+    "Fundamental Rights + Armenia (Democracy)" : 12
+    "Other texts" : 10
 ```
+
+**Key revision**: Trade Defence + China cluster now accounts for 20% of the session significance weight (vs. 0% in initial run), making it co-equal with DMA enforcement as a breaking news driver. The session narrative shifts from "EP digital + Ukraine" to "EP digital + Ukraine + strategic autonomy" — a broader mandate assertiveness story.
+
+**Admiralty Code**: B2

@@ -198,6 +198,33 @@ All four scenario trajectories should be assessed against actual outcomes. The M
 
 ---
 
+## 5. Extended Intelligence Assessment (Re-run 2026-05-05T13:03Z)
+
+### 5.1 Trade Defence and China Dimension
+
+Re-run data collection identified TA-10-2026-0149 ("Protection of EU companies, jobs and products against unfair competition from third countries", adopted 2026-04-29) as a critical additional finding. This text, combined with TA-10-2026-0152 ("New Chinese law on ethnic unity and progress — intensified suppression of ethnic identities", adopted 2026-04-30), reveals a coordinated China-facing strategic autonomy posture across two legislative tracks:
+
+**Track A (Economic)**: TA-10-2026-0149 — Parliament calling for enhanced trade defence instruments against third-country dumping and subsidies, implicitly targeting Chinese industrial overcapacity in solar panels, EVs, and steel.
+
+**Track B (Human Rights/Geopolitical)**: TA-10-2026-0152 — EP condemnation of China's ethnic unity law, interpreted as targeted at Tibetan, Uyghur, and Mongolian cultural identity suppression.
+
+**Intelligence assessment**: The dual-track China positioning is structurally similar to the dual-track Russia positioning (accountability + sanctions). This is a deliberate EP10 pattern — geopolitical assertiveness on human rights combined with economic self-protection. 🟡 Confidence MEDIUM — confirming the convergence requires roll-call vote analysis (unavailable until early June 2026).
+
+### 5.2 Financial Architecture Cross-Reference
+
+TA-10-2026-0159 ("Banking Union — annual report 2025") closes the legislative loop with BRRD3 (TA-10-2026-0091, March 2026). Parliament's sequential actions:
+1. March 2026: Adopt BRRD3 updating bank resolution rules
+2. April 2026: Adopt Banking Union annual report reviewing implementation
+3. Implied: Parliament positioning itself as primary Banking Union oversight actor in EP10
+
+This sequence creates a **legislative-oversight chain** that will constrain Commission discretion in banking supervisory policy through 2027.
+
+### 5.3 Venezuela and Latin America Signals
+
+TA-10-2026-0153 ("Shortcomings and deficiencies of the Amnesty Law in Venezuela") continues the EP10 pattern of Latin America democracy resolutions that extend EP foreign policy leverage beyond the European neighbourhood. Parliament's Venezuela engagement is consistent with broader Western democratic coalition signals (US, EU, UK) maintaining pressure on the Maduro regime.
+
+---
+
 *This synthesis was produced under IMF degraded mode (IMF SDMX unavailable at time of run). Economic confidence levels are MEDIUM. All other intelligence assessments remain at stated confidence levels. Editorial teams should independently verify any economic data cited before publication.*
 
 ## Intelligence Map
@@ -215,6 +242,12 @@ mindmap
       Legislative Pathway
     Budget 2027
       Trilogue Process
+    China Dimension
+      Trade Defence TA-0149
+      Ethnic Unity Law TA-0152
+    Financial Architecture
+      Banking Union TA-0159
+      BRRD3 Implementation
 ```
 
 **Admiralty Code**: B2

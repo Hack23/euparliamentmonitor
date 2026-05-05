@@ -328,3 +328,54 @@ quadrantChart
 ```
 
 **Admiralty Code**: B2
+
+---
+
+## Re-run Extension — Additional Stakeholders Identified (2026-05-05T13:03Z)
+
+The second data collection pass identified additional key stakeholders for TA-10-2026-0149 (Trade Defence) and TA-10-2026-0152 (China) and TA-10-2026-0159 (Banking Union):
+
+### China-Facing Trade Policy Stakeholders
+
+| Stakeholder | Role | Interest | Influence | EP Access |
+|-------------|------|----------|:---------:|:---------:|
+| Chinese Mission to EU | Diplomatic | Counter EP condemnation resolutions | HIGH | INDIRECT |
+| Airbus / European aerospace lobby | Industrial | Trade defence for high-tech manufacturing | HIGH | DIRECT |
+| European Steel Association (EUROFER) | Industrial | Anti-dumping enforcement against Chinese steel | HIGH | DIRECT |
+| National governments (FR/DE/IT) | Political | Manufacturing protection + China relations | HIGH | INDIRECT (Council) |
+| EP-China Friendship Group | Parliamentary | Moderate tone in China resolutions | MEDIUM | DIRECT (plenary) |
+
+### Banking Union Stakeholders
+
+| Stakeholder | Role | Interest | Influence |
+|-------------|------|----------|:---------:|
+| European Banking Authority (EBA) | Regulatory | BRRD3 implementation oversight | HIGH |
+| SSM (ECB banking supervision) | Regulatory | Single supervisory mechanism authority | HIGH |
+| SRB (Single Resolution Board) | Resolution | Resolution fund management | HIGH |
+| EU banking associations (EBF) | Industry | Limit BRRD3 operational burden | HIGH |
+
+### Updated Stakeholder Intelligence Map
+
+```mermaid
+mindmap
+  root((April Session Stakeholders))
+    Digital
+      Big Tech Apple/Alphabet
+      Platform Associations
+      BEUC Consumer Group
+    Geopolitical
+      Ukraine Government
+      Russia Federation
+      Armenia Government
+      Chinese Mission EU
+    Financial
+      EBA/ECB/SRB
+      European Banking Federation
+      Finance Ministries
+    Trade
+      EUROFER Steel
+      Airbus Aerospace
+      National Manufacturing Lobbies
+```
+
+**Admiralty Code**: B2
