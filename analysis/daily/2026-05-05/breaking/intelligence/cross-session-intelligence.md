@@ -189,4 +189,41 @@ The April 28–30 session's China-related output (TA-0149 + TA-0152) requires cr
 
 **Intelligence assessment**: This clustering is NOT coincidental — it reflects a coordinated INTA/AFET committee strategy to maximise political pressure on China ahead of Q2 2026 EU-China summit consultations.
 
-*Cross-session intelligence extended. 2026-05-05T13:03Z.*
+---
+
+## Cross-Session Intelligence — Session Evolution Diagram
+
+```mermaid
+timeline
+    title EP10 Major Session Themes — 2026 Context
+    January 2026 : Financial stability amid economic uncertainties
+                 : EU-Mercosur CJEU compatibility request
+    February 2026 : Northeast Syria ceasefire resolution
+                  : Georgia democracy erosion (Khoshtaria)
+                  : Subcontracting workers rights
+    March 2026 : ECB Vice-President appointment
+               : Better Law-Making report
+               : Tupperware EGF mobilisation
+    April 28-30 2026 : DMA enforcement (Tier-1)
+                     : Russia-Ukraine accountability (Tier-1)
+                     : Armenia democratic resilience
+                     : Budget 2027 guidelines
+                     : Platform criminal liability
+                     : EU-Iceland PNR
+```
+
+## Cross-Session Pattern Analysis
+
+| Theme | Frequency (2026 sessions) | April 28–30 contribution | Trend |
+|-------|--------------------------|------------------------|-------|
+| Russia/Ukraine solidarity | High | 1 resolution | 📈 Sustained |
+| Digital governance | Medium-High | 2 resolutions | 📈 Accelerating |
+| Democratic resilience | Medium | 1 resolution (Armenia) | ➡️ Steady |
+| Budget/fiscal | Medium | 2 resolutions | 📈 Seasonal |
+| Social/labour | Low | 0 | 📉 Off-cycle |
+| Environment | Very Low | 0 | 📉 Off-cycle |
+| External relations | High | 3 resolutions | 📈 Sustained |
+
+**Cross-session intelligence conclusion**: The April 28–30 session accelerates the digital governance and Eastern security themes that have defined EP10's 2026 legislative year, while maintaining sustained Russia-Ukraine solidarity. Climate and social topics are in an off-cycle period pending autumn priorities.
+
+*Cross-session intelligence updated — Run 3, 2026-05-05T15:43Z*

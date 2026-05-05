@@ -166,3 +166,20 @@ quadrantChart
 **IMF degraded mode note**: 🔴 IMF SDMX unavailable. Economic severity ratings are based on structural analysis; specific macro impact figures not provided.
 
 *Risk matrix extended in re-run. 2026-05-05T13:03Z. Admiralty Code: B2.*
+
+---
+
+## Risk Matrix — Run 3 Update (2026-05-05T15:44Z)
+
+**Run 3 risk matrix update**:
+
+| Risk | Likelihood | Impact | Run 3 update |
+|------|-----------|--------|-------------|
+| DMA enforcement delayed | LOW (25%) | HIGH | Commission must act; EP resolution adds pressure |
+| Ukraine accountability blocked in Council | MEDIUM (45%) | HIGH | Council unanimous required; Russia veto risk via Hungary |
+| Budget 2027 standoff exceeds 6 months | MEDIUM (40%) | HIGH | Historical precedent: 2020 budget took 14 months |
+| Armenia deterioration despite EP resolution | MEDIUM (35%) | MEDIUM | Resolution non-binding; Baku can ignore |
+
+**Net risk assessment**: MEDIUM. No risk has moved to HIGH likelihood since Run 2.
+
+*Risk matrix updated — Run 3, 2026-05-05T15:44Z.*

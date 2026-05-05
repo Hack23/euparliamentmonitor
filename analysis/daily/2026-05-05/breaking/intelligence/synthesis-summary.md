@@ -251,3 +251,18 @@ mindmap
 ```
 
 **Admiralty Code**: B2
+
+---
+
+## Synthesis Summary — Run 3 Update (2026-05-05T15:44Z)
+
+**Three-run synthesis convergence**: After three analysis runs, the synthesis summary has stabilised. The April 28–30, 2026 Strasbourg plenary was a high-significance session characterised by:
+
+1. **Digital governance acceleration**: DMA enforcement resolution marks EP's most direct enforcement posture to date.
+2. **Russia-Ukraine sustained solidarity**: Accountability mechanism call consistent with EP10's collective security stance.
+3. **Eastern neighbourhood expansion**: Armenia resolution signals EP willingness to extend democratic resilience support beyond candidate countries.
+4. **Fiscal ambition**: Budget 2027 estimates at €262.5B signal aggressive MFF ambitions heading into Council negotiations.
+
+**Convergence confidence**: HIGH. All three runs confirm the same top-4 significance ranking. No run contradicted the others' analytical conclusions.
+
+*Synthesis summary — Run 3 final, 2026-05-05T15:44Z. Admiralty Code: B2*

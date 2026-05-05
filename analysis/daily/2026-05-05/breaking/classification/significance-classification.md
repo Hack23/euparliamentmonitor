@@ -149,3 +149,23 @@ pie title Significance Tier Distribution — REVISED (All 20 Texts)
 **Admiralty Code**: B2
 
 *Classification updated in re-run to include 6 additional texts from April 28–30 session. Total: 20+ texts classified. Re-run: 2026-05-05T13:03Z.*
+
+---
+
+## Significance Classification — Run 3 Update (2026-05-05T15:44Z)
+
+**Classification confirmed across three runs**:
+
+| Document | Classification | Confidence | Run 3 change |
+|----------|--------------|-----------|-------------|
+| TA-10-2026-0160 | TIER-1 BREAKING | HIGH | None |
+| TA-10-2026-0161 | TIER-1 BREAKING | HIGH | None |
+| TA-10-2026-04-30-ANN01 | TIER-2 SIGNIFICANT | HIGH | None |
+| TA-10-2026-0162 | TIER-2 SIGNIFICANT | HIGH | None |
+| TA-10-2026-0112 | TIER-2 SIGNIFICANT | MEDIUM | None |
+| TA-10-2026-0142 | TIER-3 NOTEWORTHY | MEDIUM | None |
+| TA-10-2026-0115 | TIER-3 NOTEWORTHY | LOW | None |
+
+**Run 3 conclusion**: Classification stable. TIER-1 dual breaking news confirmed — both TA-0160 and TA-0161 meet the breaking news threshold.
+
+*Significance classification updated — Run 3, 2026-05-05T15:44Z.*

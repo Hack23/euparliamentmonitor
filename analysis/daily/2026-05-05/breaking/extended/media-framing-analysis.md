@@ -141,3 +141,41 @@ pie title Predicted Social Media Topic Distribution (April 28-30 EP Coverage)
 ---
 
 *Media framing analysis produced for 2026-05-05 breaking analysis. Outlet analysis is based on known editorial positions and historical EU Parliament coverage patterns. No media monitoring data available for this session (events feed unavailable; social media monitoring not implemented).*
+
+---
+
+## Media Framing Analysis Update — Run 3 (2026-05-05T15:40Z)
+
+### Anticipated Framing by Outlet Category
+
+| Outlet Category | Expected Framing | Key Narrative | Audience |
+|----------------|-----------------|--------------|---------|
+| Pro-EU European press (Euractiv, Politico EU) | "EP acts on digital governance and Ukraine justice" | Mainstream consensus on two key issues | Brussels bubble |
+| Centre-right national press (FAZ, Le Figaro) | "EP forces Commission on DMA; Ukraine accountability endorsed" | EP asserting institutional power | National elites |
+| Centre-left national press (Guardian, Monde) | "Platform power checked; EU stands with Ukraine" | Progressive legislative agenda | General educated |
+| Eurosceptic right press (Breitbart EU, RN-aligned media) | "EU further expands regulation; sovereignty threat" | Anti-EU mobilisation | Eurosceptic base |
+| Far-left press | "DMA is corporate capture; accountability without justice for Gaza" | Left-flank criticism | Progressive base |
+| Tech industry press (TechCrunch, Wired) | "EU doubles down on Big Tech enforcement" | Regulatory pressure narrative | Tech sector |
+
+### Framing Vulnerability Assessment
+
+The April 28–30 session presents two specific framing vulnerabilities:
+
+**Vulnerability 1 — "Resolution theatre" critique**: Because both Tier-1 resolutions are non-binding political statements (not legislative acts), media critics could frame them as symbolic gestures. The EP's communications should pre-empt this by emphasising the institutional signalling function.
+
+**Vulnerability 2 — Data deficit narrative**: This analysis notes multiple data gaps (events feed unavailable, voting records delayed, full text of resolutions not parsed). A media critic with access to full texts could identify specific omissions or contradictions. The analysis should be framed as provisional intelligence, not definitive assessment.
+
+```mermaid
+graph TD
+    Session[April 28-30 Session] -->|Centre/pro-EU frame| F1["'EP leads digital governance and defends Ukraine'"]
+    Session -->|Eurosceptic frame| F2["'EU overreach continues: more regulation, more spending'"]
+    Session -->|Progressive-left frame| F3["'Too little on climate; resolution theatre on Ukraine'"]
+    Session -->|Tech industry frame| F4["'Commission gets political cover to accelerate DMA enforcement'"]
+
+    F1 -->|Dominant in| B1[Brussels, national quality press]
+    F2 -->|Dominant in| B2[Alternative/nationalist media]
+    F3 -->|Dominant in| B3[Progressive left media]
+    F4 -->|Dominant in| B4[Industry and trade press]
+```
+
+*[EXTEND-FROM-PRIOR: extended/media-framing-analysis.md — extended with Run-3 outlet framing table, framing vulnerability assessment, framing ecosystem diagram]*

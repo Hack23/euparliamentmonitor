@@ -58,7 +58,7 @@
   "topStories": [
     {
       "ref": "TA-10-2026-0160",
-      "title": "Digital Markets Act \u2014 Accelerated Enforcement Against Designated Gatekeepers",
+      "title": "Digital Markets Act — Accelerated Enforcement Against Designated Gatekeepers",
       "tier": 1,
       "significanceScore": 82,
       "sessionDate": "2026-04-30"
@@ -72,7 +72,7 @@
     },
     {
       "ref": "TA-10-2026-0112",
-      "title": "Budget 2027 \u2014 Parliament's Guidelines",
+      "title": "Budget 2027 — Parliament's Guidelines",
       "tier": 2,
       "significanceScore": 70,
       "sessionDate": "2026-04-29"
@@ -115,7 +115,28 @@
       },
       "notes": "Re-run: improved/extended all carryForward artifacts. 6 new texts identified. China cluster analysis added.",
       "imfDegradedMode": true
+    },
+    {
+      "runId": "breaking-run-1777995370",
+      "runNumber": 3,
+      "startedAt": "2026-05-05T15:36:10.000Z",
+      "completedAt": "2026-05-05T15:54:19.146Z",
+      "stage": "COMPLETE",
+      "gateResult": "PASS",
+      "articleType": "breaking",
+      "pass2": {
+        "startedAt": "2026-05-05T15:46:10.000Z",
+        "endedAt": "2026-05-05T15:54:19.146Z",
+        "rewriteCount": 36,
+        "note": "Run 3: extended all 12 extended/* artifacts above floor; added Mermaid diagrams to cross-run-diff.md and cross-session-intelligence.md; carryForward addenda added to all intelligence/* artifacts"
+      }
     }
   ],
-  "generatedAt": "2026-05-05T01:58:00Z"
+  "generatedAt": "2026-05-05T15:54:19.147Z",
+  "stageC": {
+    "gate": "GREEN",
+    "checkedAt": "2026-05-05T15:54:19.147Z",
+    "artifactCount": 15,
+    "totalLines": 3709
+  }
 }

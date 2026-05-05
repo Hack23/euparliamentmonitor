@@ -379,3 +379,25 @@ mindmap
 ```
 
 **Admiralty Code**: B2
+
+---
+
+## Stakeholder Map — Run 3 Update (2026-05-05T15:44Z)
+
+**Updated stakeholder power assessment — coalition mathematics**:
+
+| Stakeholder | Seats | Power | April 30 role |
+|------------|-------|-------|--------------|
+| EPP | 185 | Dominant | Agenda-setter for both Tier-1 resolutions |
+| S&D | 135 | High | Co-proposer Ukraine + digital |
+| PfE | 85 | Blocking minority | Failed to block either resolution |
+| ECR | 81 | Split | Partial Ukraine support; opposed DMA |
+| Renew | 77 | Pivotal | Mathematical kingmaker; EPP+S&D need Renew for majority |
+| Greens/EFA | 53 | Junior | Supported digital; strong on Armenia |
+| Left | 46 | Junior | Ukraine condemnation mixed; digital support |
+| ESN | 27 | Marginal | Opposed Ukraine; digital abstain |
+| NI | 30 | Marginal | Fragmented votes |
+
+**Run 3 update**: Coalition mathematics confirm that EPP+S&D+Renew (397 seats) comfortably exceeds majority (361). PfE+ECR+ESN (193 seats) cannot block any resolution. Armenia resolution likely passed with Greens/EFA + Left support supplementing the grand coalition.
+
+*Stakeholder map updated — Run 3, 2026-05-05T15:44Z.*

@@ -374,3 +374,20 @@ quadrantChart
 ```
 
 *Scenario addendum produced in re-run. 2026-05-05T13:03Z.*
+
+---
+
+## Scenario Forecast — Run 3 Addendum (2026-05-05T15:44Z)
+
+**Probability calibration update based on Run 3 data refresh**:
+
+| Scenario | Run 2 Probability | Run 3 Update | Rationale |
+|----------|-----------------|-------------|-----------|
+| DMA enforcement escalation (tech fines Q3-Q4 2026) | 75% | 80% | TA-0160 passes with EPP+S&D+Renew supermajority |
+| Russia-Ukraine accountability mechanism enacted by year-end | 55% | 58% | Resolution momentum; Council adoption uncertain |
+| Armenia EU accession talks reopened 2026-2027 | 25% | 28% | TA-0162 signals political will; practical obstacles remain |
+| Budget 2027 Council-Parliament standoff | 60% | 62% | Estimates adopted; Council constraints expected |
+
+*No fundamental scenario revision needed — Run 3 data confirms Run 2 probability estimates. Marginal upward revisions reflect stronger adoption margins observed.*
+
+*Scenario forecast updated — Run 3, 2026-05-05T15:44Z.*

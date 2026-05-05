@@ -186,3 +186,40 @@ graph LR
 ```
 
 *Updated cross-reference map. Re-run produced: 2026-05-05T13:03Z.*
+
+---
+
+## Cross-Reference Map Update — Run 3 (2026-05-05T15:40Z)
+
+### New Cross-References — Run 3 Extensions
+
+The following cross-references were established in Run 3 through the extended artifact suite:
+
+| Source Artifact | Target Artifact | Link Type | Key Citation |
+|----------------|----------------|-----------|-------------|
+| extended/intelligence-assessment.md | intelligence/coalition-dynamics.md | Confirms | EPP+S&D+Renew = 397/719 majority |
+| extended/coalition-mathematics.md | intelligence/political-threat-landscape.md | Extends | Far-right bloc 351/361 = BELOW majority |
+| extended/voter-segmentation.md | intelligence/stakeholder-map.md | Extends | 5 voter segments mapped to EP actor landscape |
+| extended/forward-indicators.md | intelligence/scenario-forecast.md | Links | 30/90-day indicators feed scenario probability updates |
+| extended/comparative-international.md | intelligence/historical-baseline.md | Extends | Global digital governance comparison confirms EU leadership |
+| extended/devils-advocate-analysis.md | intelligence/significance-scoring.md | Refines | Tier-1 confidence revised -15% post devil's advocate |
+| extended/implementation-feasibility.md | risk-scoring/risk-matrix.md | Extends | Implementation risk register feeds risk matrix |
+| extended/media-framing-analysis.md | intelligence/synthesis-summary.md | Links | Framing vulnerabilities inform communications guidance |
+| extended/historical-parallels.md | intelligence/historical-baseline.md | Supplements | 7 parallels including PNR evolution, budget battles |
+| extended/data-download-manifest.md | intelligence/mcp-reliability-audit.md | Confirms | Run 3 data collection scope consistent with prior MCP audit |
+
+```mermaid
+graph LR
+    EI[extended/intelligence-assessment] -->|confirms| CD[coalition-dynamics]
+    CM[extended/coalition-mathematics] -->|extends| PT[political-threat-landscape]
+    VS[extended/voter-segmentation] -->|extends| SM[stakeholder-map]
+    FI[extended/forward-indicators] -->|feeds| SF[scenario-forecast]
+    CI[extended/comparative-international] -->|extends| HB[historical-baseline]
+    DA[extended/devils-advocate] -->|refines| SS[significance-scoring]
+    IF[extended/impl-feasibility] -->|extends| RM[risk-matrix]
+    MF[extended/media-framing] -->|links| SY[synthesis-summary]
+    HP[extended/historical-parallels] -->|supplements| HB
+    DM[extended/data-download-manifest] -->|confirms| MCA[mcp-reliability-audit]
+```
+
+*Cross-reference map complete — Run 3 version, 2026-05-05T15:40Z. Total cross-references: 35 intra-artifact + 10 new Run-3 links = 45 total.*

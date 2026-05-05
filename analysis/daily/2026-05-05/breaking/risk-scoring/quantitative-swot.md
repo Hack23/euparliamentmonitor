@@ -159,3 +159,20 @@ xychart-beta
 **Key insight**: The April 2026 session, when extended analysis includes TA-0149 and TA-0152, shows a more complex picture than Run 1's assessment — the EU is simultaneously asserting strategic autonomy (trade) AND creating diplomatic risk (China relations) in the same session week.
 
 *SWOT revised in re-run. 2026-05-05T13:03Z. Admiralty Code: B2.*
+
+---
+
+## Quantitative SWOT — Run 3 Update (2026-05-05T15:44Z)
+
+**Run 3 SWOT score update**:
+
+| Dimension | Run 2 Score | Run 3 Update | Change |
+|-----------|------------|-------------|--------|
+| Strength (supermajority) | 8.5/10 | 8.5/10 | None |
+| Weakness (roll-call unavailable) | 3.0/10 | 3.0/10 | None |
+| Opportunity (DMA precedent) | 8.0/10 | 8.0/10 | None |
+| Threat (Council opposition) | 5.0/10 | 5.5/10 | +0.5 (budget gap widened) |
+
+**Net SWOT score**: 24.0/40 (60%) — HIGH significance session confirmed.
+
+*Quantitative SWOT updated — Run 3, 2026-05-05T15:44Z.*

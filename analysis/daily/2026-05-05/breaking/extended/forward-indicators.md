@@ -106,3 +106,78 @@ graph TD
 ---
 
 *Forward indicators analysis produced for 2026-05-05 breaking analysis. Probabilities represent analyst judgment. Economic indicators pending IMF data availability (currently in degraded mode).*
+
+---
+
+## Forward Indicators Update — Run 3 (2026-05-05T15:40Z)
+
+### 30-Day Forward Indicators (May 5 – June 5, 2026)
+
+| Indicator | Signal Direction | Probability | Watch Date |
+|-----------|-----------------|------------|-----------|
+| Commission DMA enforcement decision (Alphabet/Meta) | Positive (EP resolution provides political cover) | 35% within 30 days | By June 5 |
+| EU-Armenia Partnership Agreement ministerial | Neutral | 20% within 30 days | By June 5 |
+| Council position on Russia accountability mechanism | Uncertain | 15% formal position | By June 5 |
+| Next EP plenary (Strasbourg, May 19–22) | Scheduled | 95% | May 19 |
+| Budget 2027 Commission draft response | Neutral | 40% | By June 5 |
+
+### 90-Day Forward Indicators (May–July 2026)
+
+| Indicator | Signal Direction | Probability | Watch Date |
+|-----------|-----------------|------------|-----------|
+| DMA structural remedy decision | Positive | 25% | Q3 2026 |
+| Platform liability legislative proposal | Uncertain | 30% | Q3 2026 |
+| Armenia EU Council conclusions | Positive | 60% | By July 2026 |
+| EP summer recess impact on momentum | Negative | HIGH | July–August 2026 |
+| MFF 2028–2034 preliminary Commission scoping | Neutral | 20% | Q3 2026 |
+
+### Lead Indicators — What to Watch
+
+```mermaid
+mindmap
+    root((Forward<br/>Indicators))
+        Digital Governance
+            DMA enforcement decisions
+            Platform liability proposal
+            AI Act implementation decrees
+        Geopolitical
+            Russia accountability mechanism
+            Armenia Association Council
+            Georgia reversal monitoring
+        Economic
+            WB GDP growth proxy
+            IMF Article IV consultation
+            EU structural funds allocation
+        Parliamentary
+            May plenary agenda
+            Committee work programme
+            MEP parliamentary questions on DMA/Ukraine
+```
+
+### Lagging Indicators — What the April Session Will Be Measured By
+
+In 12 months (May 2027), the significance of the April 28–30 session will be assessed by:
+1. Whether DMA structural remedies have been ordered against any gatekeeper
+2. Whether a Russia accountability tribunal has been formally constituted
+3. Whether Armenia has signed an EU Association Agreement
+4. Whether platform criminal liability legislation has been proposed by the Commission
+5. Whether the 2027 budget reflects the EP's April 28 guidelines
+
+*[EXTEND-FROM-PRIOR: extended/forward-indicators.md — extended with 30-day and 90-day indicator tables, forward indicators mindmap, lagging indicators assessment framework]*
+
+---
+
+## Forward Indicators — Economic Data Watch (IMF Degraded Mode Context)
+
+Given IMF degraded mode, the following economic indicators serve as proxies until IMF SDMX becomes available:
+
+| Proxy Indicator | Source | Last Available | Relevance |
+|----------------|--------|---------------|---------|
+| EU GDP growth rate | World Bank | 2024 (1.0% for EU average) | Budget 2027 baseline |
+| Euro area inflation | ECB publications | April 2026 | Platform liability compliance costs |
+| DMA gatekeeper revenue | Company filings | Q4 2025 | DMA fine calculation basis |
+| Ukraine reconstruction cost estimates | World Bank/UN | 2025 | Accountability mechanism cost context |
+
+When IMF SDMX becomes available, replace proxies with: `NY.GDP.MKTP.KD.ZG` (GDP growth), `FP.CPI.TOTL.ZG` (inflation), `BN.KLT.DINV.CD` (FDI).
+
+*Forward indicators complete — Run 3, 2026-05-05T15:41Z*

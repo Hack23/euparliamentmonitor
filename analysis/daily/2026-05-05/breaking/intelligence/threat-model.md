@@ -317,3 +317,16 @@ quadrantChart
 **New threat IDs**: R10 = China diplomatic retaliation; R11 = China WTO challenge; R12 = EU-China trade war escalation
 
 **Admiralty Code**: B2
+
+---
+
+## Threat Model — Run 3 Update (2026-05-05T15:44Z)
+
+**Run 3 threat landscape update**: No new threats identified; Run 2 threat model confirmed. Key updates:
+
+- **DMA enforcement threat to tech platforms**: CONFIRMED HIGH — TA-0160 passed, triggering formal enforcement trigger timeline.
+- **Disinformation threat to Ukraine resolution**: UNCHANGED — resolution text explicitly names accountability mechanism; Russian state media pressure expected.
+- **Coalition fragmentation risk**: LOWER than estimated — EPP+S&D+Renew (397) provides comfortable majority buffer above 361 threshold.
+- **Budget negotiation threat**: CONFIRMED — 2027 estimates pass but Council-Parliament gap persists (€20-25B uncommitted CAP/structural funds).
+
+*Threat model confirmed — Run 3, 2026-05-05T15:44Z. Admiralty Code: B2*

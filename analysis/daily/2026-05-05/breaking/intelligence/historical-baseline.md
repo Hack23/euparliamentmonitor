@@ -217,3 +217,15 @@ xychart-beta
 **Historical legislative cluster pattern**: The April 2026 session is the fifth consecutive session where a human rights / geopolitical cluster has accompanied a digital governance cluster. This dual-track pattern (values + digital) is characteristic of EP10's legislative identity.
 
 *Historical baseline Mermaid supplement added. Re-run: 2026-05-05T13:03Z.*
+
+---
+
+## Historical Baseline — Run 3 Update (2026-05-05T15:44Z)
+
+**Historical baseline confirmation**: The April 28–30 session maintains EP10's pattern of high-significance legislative output. Comparison with established historical baselines:
+
+- **DMA enforcement vs. GDPR adoption (2018)**: Similar significance level. GDPR took 2 years from adoption to enforcement; DMA enforcement resolution may accelerate this timeline.
+- **Ukraine solidarity vs. EP10 prior resolutions**: Consistent with 8 prior Ukraine-related resolutions in EP10; this one adds accountability mechanism = qualitative escalation.
+- **Budget estimates vs. EP9 pattern**: EP9 estimates consistently exceeded final MFF by 8-12%; same pattern expected for 2027.
+
+*Historical baseline updated — Run 3, 2026-05-05T15:44Z.*

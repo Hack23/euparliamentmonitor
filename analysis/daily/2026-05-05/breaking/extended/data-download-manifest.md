@@ -126,3 +126,42 @@ This run (run 2) extends the prior run (breaking-run-1777942844) which completed
 ---
 
 *Data download manifest produced for 2026-05-05 breaking analysis, run 2. This is the definitive record of data collection scope and limitations for this analysis run.*
+
+---
+
+## Run 3 Data Collection Addendum (2026-05-05T15:40Z)
+
+### Fresh Data Collected — Run 3
+
+| Source | Tool | Result | Items |
+|--------|------|--------|-------|
+| EP Adopted Texts (2026) | `get_adopted_texts` year=2026 | ✅ SUCCESS | 21 texts |
+| EP Adopted Texts Feed | `get_adopted_texts_feed` one-week | ✅ SUCCESS | 294 items |
+| EP Political Landscape | `generate_political_landscape` | ✅ SUCCESS | Full composition |
+| EP Coalition Dynamics | `analyze_coalition_dynamics` dateFrom=2026-04-01 | ✅ SUCCESS | 9 groups, size-proxy only |
+| EP Voting Anomalies | `detect_voting_anomalies` dateFrom=2026-04-28 | ✅ SUCCESS | 0 anomalies detected |
+| EP Plenary Sessions | `get_plenary_sessions` dateFrom=2026-04-28 | ⚠️ EMPTY | filteredTotal=0 |
+| EP Voting Records | `get_voting_records` dateFrom=2026-04-28 | ⚠️ EMPTY | 0 records (delayed 4-6w) |
+| EP Early Warning System | `early_warning_system` sensitivity=high | ✅ SUCCESS | 3 warnings, score=84 |
+
+### Key Confirmed Texts — Run 3
+
+| ID | Title | Date | Tier |
+|----|-------|------|------|
+| TA-10-2026-0160 | DMA Enforcement Against Designated Gatekeepers | 2026-04-30 | 1 |
+| TA-10-2026-0161 | Russia Accountability for Ukraine Attacks | 2026-04-30 | 1 |
+| TA-10-2026-0162 | Supporting Democratic Resilience in Armenia | 2026-04-30 | 2 |
+| TA-10-2026-04-30-ANN01 | EP Estimates for Financial Year 2027 | 2026-04-30 | 2 |
+| TA-10-2026-0112 | Guidelines for 2027 Budget — Section III | 2026-04-28 | 2 |
+| TA-10-2026-0142 | EU-Iceland PNR Data Agreement | 2026-04-29 | 3 |
+| TA-10-2026-0115 | Dog and Cat Welfare and Traceability | 2026-04-28 | 4 |
+
+### Persistent Data Limitations
+
+- **Events feed**: Unavailable (feed endpoint slow/timing out)
+- **Voting records**: Delayed 4–6 weeks from EP adoption — no roll-call data for April 28–30
+- **Full resolution text**: EP API returns metadata only; document parsing not implemented
+- **IMF SDMX**: Degraded mode — WorldBank GDP proxy used for economic context
+- **MEP-level data**: No individual MEP activity data collected this run
+
+*[EXTEND-FROM-PRIOR: extended/data-download-manifest.md — extended with Run-3 data collection table, confirmed texts table, persistent limitations summary]*

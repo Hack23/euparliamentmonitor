@@ -122,3 +122,83 @@ The international benchmark confirms the session's Tier-1 significance classific
 ---
 
 *Comparative analysis produced for 2026-05-05 breaking analysis. International data sourced from public legislative record. Comparisons are qualitative assessments, not quantitative benchmarks.*
+
+---
+
+## Comparative International Analysis Update — Run 3 (2026-05-05T15:40Z)
+
+### Global Digital Regulation Landscape Comparison
+
+The April 30, 2026 DMA enforcement resolution and platform liability resolution situate the EU at a specific point in the global digital regulation spectrum:
+
+| Jurisdiction | Digital Regulation Status | Enforcement Stringency | Platform Liability |
+|-------------|--------------------------|----------------------|-------------------|
+| **EU** | Comprehensive (DSA+DMA+GDPR+AI Act) | 🟢 HIGH — active enforcement | Expanding (2026) |
+| **United States** | Fragmented (Section 230, state laws) | 🔴 LOW — federal stalemate | Limited |
+| **United Kingdom** | Online Safety Act 2023 | 🟡 MEDIUM — Ofcom phased | Ofcom-administered |
+| **China** | Extensive domestic regulation | 🟢 HIGH — for domestic platforms | State-directed |
+| **India** | IT Rules 2021 + Digital India Act | 🟡 MEDIUM — implementation uneven | Expanding |
+| **Brazil** | Marco Civil 2014 + PL 2630 | 🟡 MEDIUM — stalled legislation | Limited |
+| **Canada** | Online Harms Act 2023 | 🟡 MEDIUM — in force 2024 | Platform duty of care |
+
+```mermaid
+quadrantChart
+    title Global Digital Regulation: Scope vs Enforcement
+    x-axis Low Scope --> High Scope
+    y-axis Low Enforcement --> High Enforcement
+    quadrant-1 Comprehensive + Enforced
+    quadrant-2 Broad but weak enforcement
+    quadrant-3 Limited scope and enforcement
+    quadrant-4 Narrow but enforced
+    EU: [0.92, 0.88]
+    China: [0.85, 0.95]
+    UK: [0.65, 0.60]
+    Canada: [0.55, 0.55]
+    India: [0.60, 0.45]
+    Brazil: [0.40, 0.35]
+    USA: [0.25, 0.20]
+```
+
+### Ukraine Accountability — International Accountability Mechanisms Comparison
+
+| Mechanism | Jurisdiction | Scope | Precedent |
+|-----------|-------------|-------|-----------|
+| ICTY | Former Yugoslavia | War crimes, crimes against humanity | Completed 2017 |
+| ICC | Universal (124 states) | Most serious crimes | Active (Ukraine warrants issued) |
+| **Proposed EU Mechanism** | EU-coordinated | Crimes committed in Ukraine | Under formation |
+| ECCC (Cambodia) | Cambodia | Khmer Rouge crimes | Completed 2022 |
+| STL (Lebanon) | Lebanon | Hariri assassination | Completed 2022 |
+
+**Key comparative finding**: All successful international accountability mechanisms required 5–15 years from creation to significant prosecutions. The April 30 EP resolution is therefore at the beginning of a long institutional formation process, not near its culmination.
+
+### Comparative Conclusion
+The EU's digital regulation leadership is confirmed by the April 28–30 outcomes. The international accountability mechanism comparisons confirm that the Ukraine justice process will be generational, not immediate. Both findings are consistent with the earlier significance scoring.
+
+*[EXTEND-FROM-PRIOR: extended/comparative-international.md — extended with global digital regulation comparison table, quadrant chart, accountability mechanisms comparison, comparative conclusion]*
+
+---
+
+## Comparative Policy Learning — Key Takeaways
+
+### What the EU Can Learn from Comparators
+
+| Learning | Source | Application |
+|----------|--------|-------------|
+| Criminal liability requires clear hosting safe harbour boundaries | US Section 230 experience | EU platform liability must define safe harbour precisely |
+| Mass PNR surveillance requires proportionality review every 5 years | EU-US PNR 2012 practice | Iceland agreement should include automatic review clause |
+| Accountability tribunals need domestic law compatibility checks | ICTY establishment experience | Russia accountability mechanism needs EU legal basis |
+| DMA-type regulation needs interoperability mandates, not just fines | UK CMA approach | Commission should complement DMA fines with access orders |
+
+### Comparative Strength Assessment — EU Digital Governance
+
+```mermaid
+xychart-beta
+    title "Digital Governance: Scope Score by Jurisdiction (1-10)"
+    x-axis ["EU", "UK", "China", "India", "USA", "Brazil"]
+    y-axis "Governance Score" 0 --> 10
+    bar [9, 6, 8, 5, 3, 4]
+```
+
+**Bottom line**: The EU's April 28–30 digital governance actions extend an already comprehensive regulatory lead. The closest competitor (China) operates an opaque domestic regime. The EU's model is the only one combining democratic accountability with high enforcement stringency.
+
+*Comparative international analysis complete — Run 3, 2026-05-05T15:41Z*

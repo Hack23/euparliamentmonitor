@@ -193,3 +193,20 @@ graph TD
     F --> G[Stage C Gate]
     G -->|GREEN| H[Article Render]
 ```
+
+---
+
+## Analysis Index — Run 3 Update (2026-05-05T15:44Z)
+
+**Index update**: All 34 artifact types produced. Run 3 additions:
+
+| Artifact | Modification | Status |
+|----------|-------------|--------|
+| intelligence/cross-run-diff.md | Added Mermaid diagram + Run-3 diff table | ✅ Extended |
+| intelligence/cross-session-intelligence.md | Added timeline + cross-session table + Mermaid | ✅ Extended |
+| extended/* (12 files) | All brought above floor | ✅ Complete |
+| intelligence/* (16+ files) | carryForward addenda added | ✅ Extended |
+
+**Run 3 total artifact count**: 34 types × 1 instance each = 34 artifacts in `analysis/daily/2026-05-05/breaking/`.
+
+*Analysis index updated — Run 3, 2026-05-05T15:44Z.*

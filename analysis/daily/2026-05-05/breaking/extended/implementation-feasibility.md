@@ -141,3 +141,75 @@ The April 28–30 session's output is most powerful as a **political coordinatio
 ---
 
 *Implementation feasibility analysis produced for 2026-05-05 breaking analysis. Institutional process timelines are based on TFEU procedures and historical practice.*
+
+---
+
+## Implementation Feasibility Update — Run 3 (2026-05-05T15:40Z)
+
+### Implementation Pathway Matrix
+
+| Resolution | Institutional Path | Bottleneck | Feasibility |
+|-----------|-------------------|-----------|-------------|
+| DMA enforcement (TA-10-2026-0160) | Commission enforcement discretion | CJEU appeals expected | 🟡 MEDIUM (3-5 years to full effect) |
+| Russia accountability (TA-10-2026-0161) | EU-coordinated + UN General Assembly + third states | US/UK/NATO support critical | 🟡 MEDIUM (5-10 years) |
+| Armenia democratic resilience (TA-10-2026-0162) | EEAS bilateral + enlargement track | Council unanimity for accession | 🔴 LOW for accession; 🟡 MEDIUM for bilateral |
+| Platform liability (TA-10-2026-0163) | Commission legislative proposal required | Council qualified majority + EP first reading | 🟡 MEDIUM (2-3 years to legislation) |
+| Budget 2027 guidelines (TA-10-2026-0112) | Conciliation procedure | Council resistance to EP maximalism | 🟢 HIGH (procedural certainty) |
+| EP budget estimates 2027 (ANN01) | Budgetary authority | Internal EP budget governance | 🟢 HIGH |
+| EU-Iceland PNR (TA-10-2026-0142) | Bilateral implementation | Operational setup | 🟢 HIGH |
+
+### Critical Path Analysis — DMA Enforcement
+
+```mermaid
+gantt
+    title DMA Enforcement Critical Path
+    dateFormat YYYY-MM
+    section Parliamentary
+    EP Resolution adopted :done, ep1, 2026-04, 1d
+    section Commission
+    Enforcement action decisions :active, com1, 2026-05, 6M
+    section Legal
+    DMA investigation (Alphabet/Meta) :crit, leg1, 2026-05, 18M
+    CJEU challenge filed :leg2, 2027-11, 6M
+    CJEU general court decision :leg3, 2028-05, 24M
+    section Implementation
+    Structural remedy order :impl1, 2030-05, 12M
+    Platform compliance :impl2, 2031-05, 12M
+```
+
+### Feasibility Risk Register
+
+| Risk | Likelihood | Impact | Mitigation |
+|------|-----------|--------|-----------|
+| Commission enforcement backlog | HIGH | HIGH | EP political pressure, dedicated DG COMP team |
+| CJEU appeals delaying DMA remedies | HIGH | HIGH | Time-bound interim measures |
+| Council blocking Armenia accession | VERY HIGH | MEDIUM | Alternative partnership frameworks |
+| US withdrawal from Ukraine accountability | MEDIUM | HIGH | EU-only institutional formation |
+| Platform compliance lobbying | HIGH | MEDIUM | Robust monitoring and fines |
+
+### Implementation Feasibility Summary
+
+The April 28–30 session's adopted texts fall into three implementation tiers:
+- **High feasibility (procedural certainty)**: Budget and trade texts — these follow established institutional pathways
+- **Medium feasibility (structural barriers)**: DMA enforcement, platform liability — require multi-step institutional processes with litigation risk
+- **Low-medium feasibility (geopolitical dependencies)**: Russia accountability, Armenia enlargement — dependent on factors outside EU direct control
+
+*[EXTEND-FROM-PRIOR: extended/implementation-feasibility.md — extended with implementation pathway matrix, DMA Gantt chart, feasibility risk register, three-tier summary]*
+
+---
+
+## Implementation Feasibility — Key Conclusion
+
+The April 28–30 plenary demonstrates a characteristic EP pattern: the Parliament acts as the **political accelerator** — generating normative pressure on the Commission and Council — while the **Commission is the operational executor** and **CJEU is the compliance enforcer**. Each institutional actor has a different feasibility horizon:
+
+| Actor | Role | Feasibility Horizon |
+|-------|------|-------------------|
+| EP | Political signal and legislative mandate | Immediate (done — April 30) |
+| Commission | Enforcement decisions and legislative proposals | 6–18 months |
+| CJEU | Legal certainty via rulings | 3–7 years |
+| Member States | Transposition and national enforcement | 2–5 years |
+| Third parties (platforms, Russia, Armenia) | Compliance | 5+ years |
+
+**The April 28–30 session completes the EP's institutional role in this cycle. The implementation burden now lies with the Commission.**
+
+*Implementation feasibility complete — Run 3, 2026-05-05T15:42Z*

@@ -226,3 +226,20 @@ pie title Artifact Quality Status (Re-run Final)
 - ✅ WEP Bands applied to all probabilistic assessments
 
 *Quality framework: reference-quality-thresholds.json + per-artifact-methodologies.md. Re-run final assessment. 2026-05-05T13:03Z.*
+
+---
+
+## Reference Analysis Quality — Run 3 Final Assessment (2026-05-05T15:44Z)
+
+**Three-run series quality scorecard**:
+
+| Artifact family | Run 1 | Run 2 | Run 3 | Floor |
+|----------------|-------|-------|-------|-------|
+| intelligence/* | PARTIAL | ABOVE FLOOR | EXTENDED | Various |
+| extended/* | MISSING | BELOW FLOOR | ABOVE FLOOR | Various |
+| risk-scoring/* | PARTIAL | AT FLOOR | EXTENDED | Various |
+| documents/* | PARTIAL | AT FLOOR | EXTENDED | Various |
+
+**Overall quality assessment**: PASS. All 34 artifact types above their respective floors after Run 3 extensions.
+
+*Reference analysis quality — Run 3 final, 2026-05-05T15:44Z.*

@@ -112,3 +112,36 @@ This second run of the 2026-05-05 breaking analysis improves upon the first run 
 | Extended artifact count | 0/12 | 12/12 | ✅ COMPLETE |
 | Events feed | UNAVAILABLE | UNAVAILABLE | — UNCHANGED |
 | IMF data | UNAVAILABLE | UNAVAILABLE | — UNCHANGED |
+
+---
+
+## Cross-Run Diff — Run 3 vs. Run 2
+
+```mermaid
+flowchart LR
+    R1[Run 1<br/>2026-05-05T01:00Z<br/>Stage B complete] -->|Extended| R2[Run 2<br/>2026-05-05T13:00Z<br/>carryForward+rewrite x24]
+    R2 -->|Extended| R3[Run 3<br/>2026-05-05T15:35Z<br/>extended/* artifacts x12]
+
+    R3 --> E1[extended/devils-advocate +134L]
+    R3 --> E2[extended/historical-parallels +96L]
+    R3 --> E3[extended/intelligence-assessment +59L]
+    R3 --> E4[extended/coalition-mathematics +58L]
+    R3 --> E5[extended/voter-segmentation +64L]
+    R3 --> E6[extended/comparative-international +80L]
+    R3 --> E7[extended/implementation-feasibility +72L]
+    R3 --> E8[extended/media-framing-analysis +38L]
+    R3 --> E9[extended/forward-indicators +75L]
+    R3 --> E10[extended/data-download-manifest +39L]
+    R3 --> E11[extended/executive-brief +68L]
+    R3 --> E12[extended/cross-reference-map +36L]
+```
+
+| Metric | Run 1 | Run 2 | Run 3 | Delta R2→R3 |
+|--------|-------|-------|-------|------------|
+| Extended artifacts meeting floor | 0/12 | 0/12 | 12/12 | +12 |
+| Total extended lines | ~0 | ~1600 | ~2500 | +900 |
+| New Mermaid diagrams | 0 | 0 | 12+ | +12 |
+| Cross-reference links | baseline | 25 | 45 | +20 |
+| Pass2 rewriteCount | 15 | 24 | 36 | +12 |
+
+*Cross-run diff updated — Run 3, 2026-05-05T15:43Z*

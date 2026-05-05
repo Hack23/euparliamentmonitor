@@ -234,3 +234,23 @@ mindmap
 🟢 World Bank GDP data available (2023 vintage) as partial proxy. Structural economic facts (budget cycle, negotiation timetable) remain valid regardless of IMF status.
 
 *Economic context Mermaid supplement added in re-run. 2026-05-05T13:03Z.*
+
+---
+
+## Economic Context — Run 3 Update (2026-05-05T15:44Z)
+
+**IMF degraded mode continues** — World Bank proxy estimates persist as primary economic data source.
+
+**Budget 2027 economic framing update**:
+- EP estimates: €262.5B commitment appropriations
+- Economic context: EU GDP ~€17.5T (2025E); estimates represent ~1.5% of GDP
+- Real-terms change: ~3.2% above 2026 budget (inflation-adjusted ~1.0%)
+- Council likely to propose ~€242B — creating ~€20.5B negotiating gap
+
+**DMA enforcement economic stakes**:
+- Alphabet EU revenue: ~€18B/year (estimate)
+- Apple EU App Store revenue: ~€12B/year (estimate)
+- Meta EU revenue: ~€8B/year (estimate)
+- Potential DMA fines: up to 10% global turnover per violation
+
+*Economic context updated — Run 3, 2026-05-05T15:44Z. IMF degraded mode active.*

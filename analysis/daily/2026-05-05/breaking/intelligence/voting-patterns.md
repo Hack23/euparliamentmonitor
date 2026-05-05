@@ -227,3 +227,21 @@ graph LR
 **Pattern intelligence**: The China HR condemnation achieves a wider coalition than trade defence, as human rights framing enables left-wing participation that trade defence texts cannot attract.
 
 **Admiralty Code**: B3 (voting pattern estimates based on group composition; no roll-call data confirmed)
+
+---
+
+## Voting Patterns — Run 3 Update (2026-05-05T15:44Z)
+
+**Run 3 voting pattern update**: Roll-call data remains unavailable (EP API delayed 4-6 weeks). Estimated voting patterns persist:
+
+| Resolution | EPP | S&D | Renew | PfE | ECR | Greens | Left | ESN | Estimated result |
+|-----------|-----|-----|-------|-----|-----|--------|------|-----|-----------------|
+| TA-0160 DMA | ✅ | ✅ | ✅ | ❌ | ⚠️ | ✅ | ✅ | ❌ | ~490-510 for |
+| TA-0161 Ukraine | ✅ | ✅ | ✅ | ⚠️ | ✅ | ✅ | ✅ | ❌ | ~560-580 for |
+| TA-0162 Armenia | ✅ | ✅ | ✅ | ⚠️ | ✅ | ✅ | ✅ | ❌ | ~570-590 for |
+
+Legend: ✅=For, ❌=Against, ⚠️=Split/Abstain
+
+**Run 3 note**: These remain estimated — actual roll-call data will be available via EP API approximately early June 2026.
+
+**Admiralty Code**: B3 (estimates, Run 3 confirmed, 2026-05-05T15:44Z)

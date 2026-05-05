@@ -129,3 +129,19 @@ flowchart LR
     C -->|⏳ PENDING| D[Stage D<br/>Article Render]
     D -->|⏳ PENDING| E[Stage E<br/>PR Creation]
 ```
+
+---
+
+## Workflow Audit — Run 3 Update (2026-05-05T15:44Z)
+
+**Three-run workflow audit summary**:
+
+| Run | Stage A | Stage B | Stage C | Stage D | Stage E |
+|-----|---------|---------|---------|---------|---------|
+| Run 1 | ✅ PASS | ⚠️ Partial | ✅ PASS | ✅ PASS | ✅ PR created |
+| Run 2 | ✅ PASS | ✅ PASS | ✅ PASS | ✅ PASS | ✅ PR created |
+| Run 3 | ✅ PASS | ✅ PASS | PENDING | PENDING | PENDING |
+
+**Workflow compliance**: Single-PR rule enforced in all runs. No `engine.mcp.session-timeout` set (gateway v0.3.1 rejects it). Extended/* artifacts brought above floor in Run 3. Mermaid diagrams added to flagged artifacts.
+
+*Workflow audit updated — Run 3, 2026-05-05T15:44Z.*
