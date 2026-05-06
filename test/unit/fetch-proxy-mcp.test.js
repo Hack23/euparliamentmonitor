@@ -55,6 +55,8 @@ describe('shared fetch-proxy MCP server', () => {
   it('uses newline-safe JavaScript in the gh-aw entrypoint', () => {
     const code = extractFetchProxyScript();
     expect(code).toContain('String.fromCharCode(10)');
+    expect(code).toContain('euparliamentmonitor/0.9.0');
+    expect(code).toContain('application/vnd.sdmx.data+json');
     expect(code).not.toContain("+'\\n'");
     expect(() => new Function(code)).not.toThrow();
   });

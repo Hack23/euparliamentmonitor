@@ -216,9 +216,11 @@ else
 fi
 ```
 
-Max 2 HTTP calls, 30 s wall-clock ceiling. The probe keeps its historic
-filename and env-var names (`IMF_MCP_OK`, `IMF_MCP_PROBE_ERROR`) so
-existing workflow prompts do not need to change.
+Max 2 canonical IMF queries, with each gateway/direct transport leg capped at
+30 s so Stage A records degraded IMF mode quickly when the sandbox or upstream
+endpoint is unavailable. The probe keeps its historic filename and env-var names
+(`IMF_MCP_OK`, `IMF_MCP_PROBE_ERROR`) so existing workflow prompts do not need
+to change.
 
 ### Live Probe Contract (Stage A)
 
@@ -244,7 +246,7 @@ probe remains inside the ≤4 min Stage-A budget):
 | Purpose | IMF REST path | Coverage |
 |---------|---------------|----------|
 | Availability / dataflow drift | `/dataflow/IMF` | Confirms SDMX 3.0 service and WEO dataflow listing |
-| Macro WEO slice | `/data/WEO/EA+DEU+FRA+ITA.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP.A?startPeriod=2025&endPeriod=2026&format=jsondata` | Eurozone aggregate (`EA`) plus DE/FR/IT for real GDP growth (`NGDP_RPCH`), inflation (`PCPIPCH`), and fiscal balance (`GGXCNL_NGDP`) |
+| Macro WEO slice | `/data/WEO/A.EA+DEU+FRA+ITA.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP?startPeriod=2025&endPeriod=2026&format=jsondata` | Annual WEO (`A`) for Eurozone aggregate (`EA`) plus DE/FR/IT real GDP growth (`NGDP_RPCH`), inflation (`PCPIPCH`), and fiscal balance (`GGXCNL_NGDP`) |
 
 `economic-context.md` must set `IMF Source` to `live` when the current run
 created the cache files, `cache` when it reused same-day cache, or

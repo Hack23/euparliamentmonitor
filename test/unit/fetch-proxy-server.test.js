@@ -155,6 +155,12 @@ describe('handleFetchUrl', () => {
     const url = 'https://dataservices.imf.org/REST/SDMX_3.0/data/WEO/DEU.NGDP_RPCH.?';
     const result = await handleFetchUrl(3, url, mockFetch);
     expect(result.result.content[0].text).toBe('{"data":"test"}');
+    expect(mockFetch.mock.calls[0][1].headers).toMatchObject({
+      'User-Agent': 'euparliamentmonitor/0.9.0 (+https://github.com/Hack23/euparliamentmonitor)',
+      Accept: 'application/json, application/vnd.sdmx.data+json, */*;q=0.8',
+      'Accept-Language': 'en-US,en;q=0.9',
+      'Cache-Control': 'no-cache',
+    });
   });
 
   it('returns an error on non-2xx HTTP response', async () => {
