@@ -12,7 +12,7 @@
     // Using a single feature for Node.js for simplicity
     "ghcr.io/devcontainers/features/node:1": {
       "nodeGypDependencies": true,
-      "version": "25" // Aligned with base image
+      "version": "26"
     },
     "ghcr.io/devcontainers/features/git:1": {
       "ppa": true,
