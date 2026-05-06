@@ -1,0 +1,46 @@
+{
+  "date": "2026-05-06",
+  "articleType": "unknown",
+  "runId": "motions-run431-1778097237",
+  "gateResult": "PENDING",
+  "slug": "2026-05-06-unknown",
+  "articlePath": "analysis/daily/2026-05-06/motions/article.md",
+  "topFinding": "The European Parliament in EP10 Year 2 (2026) is operating under a structurally right-shifted composition with the right bloc holding 52.3% of seats.",
+  "keyTakeaways": [
+    "**Immediate action required:** EDIS motions scheduled for plenary vote this week; margins are tighter than typical on solidarity clauses",
+    "**Monitor closely:** CID secondary legislation — ITRE rapporteur position subject to amendment storm",
+    "**Watch indicator:** NI group voting behaviour on defence motions — signals whether national governments (esp. Hungary) will support Council positions",
+    "**Primary source:** European Parliament MCP server v1.3.0 — `get_all_generated_stats` (functional)",
+    "**Feed APIs status:** All direct EP feeds returning HTTP 502 at time of collection (2026-05-06T19:53Z)",
+    "**Economic data:** World Bank API — GDP growth DE/FR/IT/ES 2024",
+    "**IMF fetch-proxy:** Unavailable (fetch failed)"
+  ],
+  "topRisks": [
+    "**P** = Probability (0–10)",
+    "**I** = Impact severity (0–10)",
+    "**V** = Velocity (speed of onset, 0–10)",
+    "**R** = Reversibility (higher = harder to reverse, 0–10)",
+    "**E** = EU integration relevance (0–10)"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "Defence: Support EDIS expansion — frames as \"investment in security, not cost\"",
+    "Economic: Champion CID but demand simplification (fewer reporting obligations)",
+    "Migration: Maintain managed migration narrative, resist humanitarian exceptions",
+    "AI: Support AI Act implementation but push back on \"excessive\" restrictions on innovation",
+    "Bavarian CSU wing (Weber-adjacent) vs. Nordic/Scandinavian EPP moderates on climate ambition",
+    "French EPP (Thierry Mariani types, now in PfE) departure creates ideological space for EPP centre-right consolidation",
+    "German SPD federal government's industrial policy positions creating cross-party pressure on German EPP MEPs",
+    "Defence: Support Ukraine/EDIS but demand \"social EDIS\" — worker protection in defence industry conversion"
+  ],
+  "macroContext": "The European Parliament's legislative motions in May 2026 operate against a deeply uneven EU economic backdrop.",
+  "sources": [
+    "executive-brief.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

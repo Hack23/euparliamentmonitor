@@ -44,11 +44,6 @@ timeout-minutes: 60
 features:
   mcp-gateway: true
 
-sandbox:
-  agent: awf
-  mcp:
-    port: 8080
-
 imports:
   - .github/agents/news-generation.agent.md
   - shared/mcp/news-mcp-servers.md
@@ -59,7 +54,7 @@ concurrency:
 
 runtimes:
   node:
-    version: "25"
+    version: "26"
 
 # Network allowlist — uses ecosystem identifiers where possible (per
 # upstream docs/reference/network.md §"Ecosystem Identifiers"):

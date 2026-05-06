@@ -66,7 +66,7 @@ jobs:
 
       - name: Install gh-aw CLI
         run: |
-          GH_AW_VERSION="v0.71.6"
+          GH_AW_VERSION="v0.72.0"
           gh extension install github/gh-aw --pin "$GH_AW_VERSION"
         env:
           GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
