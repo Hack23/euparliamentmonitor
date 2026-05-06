@@ -1204,7 +1204,7 @@ graph LR
 | **Vitest**        | Version          | Latest stable   | ✅ 4.1.4         |
 | **Playwright**    | Version          | Latest stable   | ✅ 1.59.1        |
 | **gh-aw**         | Pinned runtime   | Known-good      | ✅ v0.71.3       |
-| **EP MCP Server** | Version          | Latest release  | ✅ 1.2.21        |
+| **EP MCP Server** | Version          | Latest release  | ✅ 1.3.0        |
 | **Dependencies**  | Vulnerabilities  | 0 critical/high | ✅ 0             |
 | **Test Coverage** | Tests / files    | 3,000+ / 50+    | ✅ 3,061+ / 52   |
 | **Build Time**    | CI/CD duration   | <10 min         | ✅ 6 min         |
@@ -1281,9 +1281,9 @@ graph TB
 
 | Version | Date       | Author | Changes                                                           |
 | ------- | ---------- | ------ | ----------------------------------------------------------------- |
-| 1.5     | 2026-05-03 | CEO    | Refresh for v0.8.54: gh-aw pin bumped to `v0.71.3`, EP MCP `1.2.21`, all metadata aligned with current `package.json` and `.github/workflows/compile-agentic-workflows.yml`; ISMS-PUBLIC policy footer added |
+| 1.5     | 2026-05-03 | CEO    | Refresh for v0.8.54: gh-aw pin bumped to `v0.71.3`, EP MCP `1.3.0`, all metadata aligned with current `package.json` and `.github/workflows/compile-agentic-workflows.yml`; ISMS-PUBLIC policy footer added |
 | 1.4     | 2026-05-02 | CEO    | Look-Ahead epic refresh: 14 article types (added `quarter-ahead`, `year-ahead`, `term-outlook`, `election-cycle`, `quarter-in-review`, `year-in-review`), 15 unified gh-aw workflows (14 `news-<type>.md` + `news-translate.md`), centralised horizon registry in `src/config/article-horizons.ts` (ADR-007), 8 new analysis artifacts governed by `forward-projection-methodology.md` + `electoral-cycle-methodology.md` |
-| 1.3     | 2026-04-27 | CEO    | April-2026 aggregator-pipeline migration: 8 article types, 9 unified gh-aw workflows (8 `news-<type>.md` + `news-translate.md`), deterministic `src/aggregator/**` rendering (no per-type strategies), Stage-C agent-side completeness gate (no runtime `content-validator.ts`), EP MCP `v1.2.21+` (60+ tools, voting fallback to EP Open Data Portal), IMF SDMX 3.0 primary economic source, World Bank non-economic context, AWS S3 + CloudFront primary hosting, gh-aw `v0.69.0` pinned |
+| 1.3     | 2026-04-27 | CEO    | April-2026 aggregator-pipeline migration: 8 article types, 9 unified gh-aw workflows (8 `news-<type>.md` + `news-translate.md`), deterministic `src/aggregator/**` rendering (no per-type strategies), Stage-C agent-side completeness gate (no runtime `content-validator.ts`), EP MCP `v1.3.0+` (60+ tools, voting fallback to EP Open Data Portal), IMF SDMX 3.0 primary economic source, World Bank non-economic context, AWS S3 + CloudFront primary hosting, gh-aw `v0.69.0` pinned |
 | 1.2     | 2026-04-20 | CEO    | Refreshed for v0.8.40: 8 article types, 9 strategies (1 generic + 8 type-specific), 5-stage pipeline, 10 agentic + 14 infra workflows, dual economic data (EP MCP 1.2.13 + WB MCP 1.0.1 + IMF REST SDMX 3.0), AI-First quality gates, 3061+ tests, AWS S3 + CloudFront primary hosting, gh-aw v0.69.0 pinned |
 | 1.1     | 2026-02-24 | CEO    | Updated review date and verified current state accuracy            |
 | 1.0     | 2025-02-17 | CEO    | Initial mindmap documentation with comprehensive conceptual views |
@@ -1300,7 +1300,7 @@ graph TB
 - [Information Security Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Information_Security_Policy.md)
 - [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md)
 
-**Technology Stack**: Node.js 26, TypeScript 6.0.3, Vitest 4.1.4, Playwright 1.59.1, gh-aw v0.71.3, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.2.21, WB MCP 1.0.1, IMF REST SDMX 3.0  
+**Technology Stack**: Node.js 26, TypeScript 6.0.3, Vitest 4.1.4, Playwright 1.59.1, gh-aw v0.71.3, AWS S3 + CloudFront, GitHub Pages (fallback), EP MCP 1.3.0, WB MCP 1.0.1, IMF REST SDMX 3.0  
 **Architecture Pattern**: Static Site Generator with Agentic AI-First Authoring and Zero Runtime Dependencies  
 **Review Status**: Active, next review 2026-08-03
 

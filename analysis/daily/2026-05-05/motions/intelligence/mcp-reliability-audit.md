@@ -31,7 +31,7 @@ graph LR
 
 ## European Parliament MCP Server Audit
 
-**Version:** `european-parliament-mcp-server@1.2.21`  
+**Version:** `european-parliament-mcp-server@1.3.0`  
 **Gateway URL:** `http://host.docker.internal:8080/mcp/european-parliament`
 
 ### Tools Called and Results
