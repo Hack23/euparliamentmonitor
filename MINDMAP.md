@@ -1300,7 +1300,7 @@ mindmap
 
 ## 🧱 Aggregator Bounded Contexts Mindmap
 
-The deterministic aggregator pipeline at [`src/aggregator/`](src/aggregator/) is decomposed into eight bounded contexts, each with its own public `index.ts` API. The aggregator is invoked at Stage D of every unified `news-<type>.md` workflow.
+The deterministic aggregator pipeline at [`src/aggregator/`](src/aggregator/) is decomposed into nine bounded contexts, each with its own public `index.ts` API. The aggregator is invoked at Stage D of every unified `news-<type>.md` workflow.
 
 ```mermaid
 mindmap
@@ -1678,7 +1678,7 @@ graph TB
 
 | Version | Date       | Author | Changes                                                           |
 | ------- | ---------- | ------ | ----------------------------------------------------------------- |
-| 1.6     | 2026-05-06 | CEO    | Full review: added Political Intelligence Framework mindmap (ICD-203, Admiralty Code, WEP, 10 core SATs, EP-domain frameworks, OSINT ethics), Analysis Methodologies mindmap (19 methodology files), Analysis Templates mindmap (60 templates clustered into 9 families), Aggregator Bounded Contexts mindmap (8 sub-contexts with dependency table), and Multi-Language Publication Ecosystem mindmap (14 languages, accessibility framework, structured data, translation gate) |
+| 1.6     | 2026-05-06 | CEO    | Full review: added Political Intelligence Framework mindmap (ICD-203, Admiralty Code, WEP, 10 core SATs, EP-domain frameworks, OSINT ethics), Analysis Methodologies mindmap (19 methodology files), Analysis Templates mindmap (60 templates clustered into 9 families), Aggregator Bounded Contexts mindmap (9 sub-contexts with dependency table), and Multi-Language Publication Ecosystem mindmap (14 languages, accessibility framework, structured data, translation gate) |
 | 1.5     | 2026-05-03 | CEO    | Refresh for v0.8.54: gh-aw pin bumped to `v0.71.3`, EP MCP `1.3.0`, all metadata aligned with current `package.json` and `.github/workflows/compile-agentic-workflows.yml`; ISMS-PUBLIC policy footer added |
 | 1.4     | 2026-05-02 | CEO    | Look-Ahead epic refresh: 14 article types (added `quarter-ahead`, `year-ahead`, `term-outlook`, `election-cycle`, `quarter-in-review`, `year-in-review`), 15 unified gh-aw workflows (14 `news-<type>.md` + `news-translate.md`), centralised horizon registry in `src/config/article-horizons.ts` (ADR-007), 8 new analysis artifacts governed by `forward-projection-methodology.md` + `electoral-cycle-methodology.md` |
 | 1.3     | 2026-04-27 | CEO    | April-2026 aggregator-pipeline migration: 8 article types, 9 unified gh-aw workflows (8 `news-<type>.md` + `news-translate.md`), deterministic `src/aggregator/**` rendering (no per-type strategies), Stage-C agent-side completeness gate (no runtime `content-validator.ts`), EP MCP `v1.3.0+` (60+ tools, voting fallback to EP Open Data Portal), IMF SDMX 3.0 primary economic source, World Bank non-economic context, AWS S3 + CloudFront primary hosting, gh-aw `v0.69.0` pinned |
