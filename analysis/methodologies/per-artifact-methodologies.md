@@ -918,15 +918,15 @@ Older `motions-*` runs mirror `intelligence/coalition-dynamics.md`, `intelligenc
 
 ### media-framing-analysis
 
-**Purpose.** Dominant narrative frames across EU-wide and national press. Covers Politico Europe, Euractiv, FT, Euronews, Reuters Europe, DPA, AFP + ≥5 national outlets.
+**Purpose.** Comprehensive media framing & influence-operations analysis across EU-wide and national press. Identifies dominant narrative frames, manipulation vectors, cognitive vulnerabilities, narrative-laundering chains, and counter-resilience gaps using the Entman (1993), DISARM, and ABCDE (Camille François) frameworks. Covers ≥15 outlets across ≥5 MS/languages including Brussels bureaux (Politico EU, Euractiv, EUobserver), wire services (AFP, Reuters, DPA), national quality press (FAZ, Le Monde, Corriere, El País), and state-affiliated monitoring (RT, CGTN).
 
-**Required sources.** External media (Europresse, LexisNexis EU). External-only, analyst-curated.
+**Required sources.** External media (open-access only — no paywall bypass). EP MCP tools: `get_speeches`, `get_adopted_texts`, `get_parliamentary_questions`. Brussels bureaux (Admiralty B2), national quality press (Admiralty C2), wire services (Admiralty B2). State-affiliated outlets monitored for Frame E detection but never cited as factual authority (ceiling D3).
 
-**Construction steps.** (1) Identify dominant event. (2) Sample ≥20 articles across ≥15 outlets. (3) Code for frame (thematic / episodic / strategic-game / conflict / human-impact / economic-consequence). (4) Outlet × frame matrix. (5) EU-wide vs national divergence commentary.
+**Construction steps.** (1) Populate Tradecraft Context (F3EAD, PIRs, SATs, ICD 203). (2) Identify 3–5 frames and produce Frame Package Overview Mermaid. (3) Apply Entman functions (Problem / Cause / Moral / Treatment) per frame. (4) Map cognitive vulnerabilities per frame with primary academic literature. (5) Scan for DISARM TTPs using T-codes. (6) Trace narrative-laundering chain (fringe → alt-media → political amplification → mainstream → international). (7) Populate Source Ecology / Outlet Bias Audit with 5-axis multi-dimensional assessment (no-neutral-media doctrine). (8) Assess CIB indicators using ABCDE framework. (9) Document algorithmic-amplification asymmetry per platform with academic citations. (10) Identify ≥2 comparative-international frame cognates per frame. (11) Pattern-match against ≥5 strategic doctrines. (12) Produce frame lifecycle xychart (≥8 time points) with half-life and zombie probability. (13) Calculate RRPA composite (Reach × Resonance × Persistence × Action) with dated real-world evidence. (14) Populate counter-resilience plan (L1–L5). (15) Document quote salience with manipulation flags. (16) Produce frame-competition dynamics Mermaid. (17) Build coverage-volume dashboard (day-by-day). (18) EU vs national framing comparison (≥5 MS). (19) Forward watchlist with WEP + Admiralty. (20) Complete Pass-2 Self-Audit Checklist (33 items).
 
-**Quality signals.** ≥270 lines. ≥20 coded articles. Outlet × frame matrix fully filled. Divergence commentary ≥200 words.
+**Quality signals.** ≥270 lines. ≥15 outlets assessed across ≥5 MS/languages. All 4 Entman functions per frame. DISARM TTPs with verbatim T-codes. Narrative-laundering chain ≥4 stages. CIB ABCDE all 7 indicators assessed. ≥3 academic citations for algorithmic-amplification. ≥2 international cognates per frame (naivety check). Frame lifecycle xychart ≥8 time points. RRPA composite with dated indicators. Counter-resilience L1–L5 populated. Pass-2 Self-Audit Checklist attested.
 
-**Cross-refs.** → `synthesis-summary.md` · → `political-style-guide.md §Narrative Integrity`.
+**Cross-refs.** → `synthesis-summary.md` · → `political-style-guide.md §Narrative Integrity` · → `analytical-supplementary-methodology.md §media-framing` · → `electoral-domain-methodology.md §Part 4` · → `forward-indicators.md` · → `scenario-forecast.md`.
 
 ### comparative-international
 

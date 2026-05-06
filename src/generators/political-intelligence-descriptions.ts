@@ -133,6 +133,11 @@ export const CURATED_DESCRIPTIONS: Readonly<Record<string, CuratedDescription>> 
       zh: '欧盟范围选举分析方法论 — 预测、欧洲议会 361 席阈值及成员国层面的联盟数学，以及选民分群框架。',
     },
   },
+  'analysis/methodologies/analytical-supplementary-methodology.md': {
+    description:
+      'Optional deep-dive methodology — PESTLE, Wildcards, SWOT scoring, and Media Framing v2.0.',
+  },
+
   'analysis/methodologies/imf-indicator-mapping.md': {
     description:
       'Canonical mapping of IMF WEO, Fiscal Monitor, IFS, BOP, ER and PCPS indicators to European Parliament Monitor article types — the primary source for economic, monetary, fiscal, trade and FDI context.',
@@ -414,7 +419,7 @@ export const CURATED_DESCRIPTIONS: Readonly<Record<string, CuratedDescription>> 
   },
   'analysis/templates/media-framing-analysis.md': {
     description:
-      'Media framing analysis — maps how narratives spread across outlets and languages, comparing national-media framings of EP events.',
+      'Media framing & influence-operations — DISARM TTPs, CIB detection, narrative-laundering, counter-resilience across EU-27.',
   },
   'analysis/templates/methodology-reflection.md': {
     description:
