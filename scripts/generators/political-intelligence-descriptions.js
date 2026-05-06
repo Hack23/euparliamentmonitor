@@ -76,9 +76,6 @@ export const CURATED_DESCRIPTIONS = {
     'analysis/methodologies/analytical-supplementary-methodology.md': {
         description: 'Optional deep-dive methodology — PESTLE, Wildcards, SWOT scoring, and Media Framing v2.0.',
     },
-    'analysis/methodologies/political-style-guide.json': {
-        description: 'Machine-readable style rules — WEP bands, Admiralty grades, named-actor discipline.',
-    },
     'analysis/methodologies/imf-indicator-mapping.md': {
         description: 'Canonical mapping of IMF WEO, Fiscal Monitor, IFS, BOP, ER and PCPS indicators to European Parliament Monitor article types — the primary source for economic, monetary, fiscal, trade and FDI context.',
         i18n: {

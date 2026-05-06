@@ -3,10 +3,10 @@
 
 <!-- ANALYSIS-TEMPLATE-FRONTMATTER:v1
 artifactId: media-framing-analysis
-methodology: ../methodologies/electoral-domain-methodology.md#part-4--media-framing-analysis-media-framing-analysismd
+methodology: ../methodologies/analytical-supplementary-methodology.md#as4--media-framing-deep-dive
 catalogRow: ../methodologies/artifact-catalog.md
 depthFloorBreaking: 270
-mermaidType: graph LR (outlet × frame)
+mermaidType: graph LR (outlet × frame) + xychart-beta (lifecycle)
 partialsDir: ./_partials/
 -->
 
