@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.3-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--03-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.4-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--06-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:**
-2026-05-03 (UTC) | **🏷️ Platform Release:** v0.8.54  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03
+**📋 Document Owner:** CEO | **📄 Version:** 1.4 | **📅 Last Updated:**
+2026-05-06 (UTC) | **🏷️ Platform Release:** v0.8.59  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-06
 
 ---
 
@@ -116,7 +116,7 @@ flowchart TD
 
     MCPSetup --> Firewall["🔥 AWF Squid firewall\nAllowlist-only egress"]
 
-    Firewall --> FetchStage["📥 fetch-stage\nEP MCP 1.2.13 + WB MCP 1.0.1 + IMF REST"]
+    Firewall --> FetchStage["📥 Stage A: data acquisition\nEP MCP 1.3.0 + WB MCP 1.0.1 + IMF SDMX 3.0"]
 
     FetchStage --> EPAvail{"EP available?"}
     EPAvail -->|"status:unavailable"| MCPRetry["🔄 mcp-retry.ts\nExponential backoff"]
@@ -176,16 +176,105 @@ flowchart TD
     class SafeOutput,PR,Merge,Deploy outputNode
 ```
 
-> **Note — gh-aw compile is out-of-band:** The `.lock.yml` artifacts executed above are pre-compiled and committed to the repository. Compilation (`gh aw compile --validate` pinned to `GH_AW_VERSION: v0.71.3`) runs in the **separate `.github/workflows/compile-agentic-workflows.yml` workflow** (manual `workflow_dispatch` only) and is **not** part of any scheduled news-generation run. Scheduled news workflows invoke only the already-committed lock files; agent-authored `.md` edits require a dedicated compile PR before they take effect.
+> **Note — gh-aw compile is out-of-band:** The `.lock.yml` artifacts executed above are pre-compiled and committed to the repository. Compilation (`gh aw compile --validate` pinned to `GH_AW_VERSION: v0.71.6`) runs in the **separate `.github/workflows/compile-agentic-workflows.yml` workflow** (manual `workflow_dispatch` only) and is **not** part of any scheduled news-generation run. Scheduled news workflows invoke only the already-committed lock files; agent-authored `.md` edits require a dedicated compile PR before they take effect.
 
 **Workflow & Aggregator References:**
 - 🤖 Agentic `.md` sources: [`.github/workflows/news-*.md`](.github/workflows/)
 - 🔒 Compiled lock files: `.github/workflows/news-*.lock.yml`
 - 🟢 Aggregator entry point: [`src/aggregator/article-generator.ts`](src/aggregator/article-generator.ts)
 - 📦 Aggregator modules: [`src/aggregator/{analysis-aggregator,artifact-order,clean-artifact,markdown-renderer,article-html,article-metadata}.ts`](src/aggregator/)
-- 🧠 Methodology library: [`analysis/methodologies/`](analysis/methodologies/) (17 methodologies)
+- 🧠 Methodology library: [`analysis/methodologies/`](analysis/methodologies/) (19 methodologies)
 - 📐 Quality thresholds: [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json)
 - ⚖️ Stage-C completeness gate: [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md)
+
+---
+
+## ⚖️ Stage-C Completeness Validation Flow
+
+The Stage-C completeness gate is enforced by [`scripts/validate-analysis-completeness.js`](scripts/validate-analysis-completeness.js) (runtime check, invokable via `npm run validate-analysis`) and by the editorial agent following [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md). The validator reads `manifest.json` and grades each artifact against the floors in [`reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json) (schema 1.4.0).
+
+```mermaid
+flowchart TD
+    Start["🟢 Stage-C entry\nrun directory:\nanalysis/daily/&lt;date&gt;/&lt;type&gt;/\n(or &lt;type&gt;-run&lt;NN&gt;/ for collision re-runs)"] --> ReadManifest["📖 Read manifest.json\n• articleType / article_type\n• files.* (agent-declared artifacts)\n• dataMode (optional)"]
+
+    ReadManifest --> ResolveType{"Read manifest.articleType\n(or manifest.article_type)"}
+    ResolveType -->|"resolved"| LoadFloors
+    ResolveType -->|"both absent → 'unknown'"| Abort["❌ RED: Cannot resolve articleType\n(stdout: STAGE_C_GATE: RED)"]
+
+    LoadFloors["📐 Load thresholds.&lt;articleType&gt;\nfrom reference-quality-thresholds.json"] --> ApplyDataMode{"manifest.dataMode\nset?"}
+
+    ApplyDataMode -->|"full / unset"| Factor1["factor = 1.00"]
+    ApplyDataMode -->|"title-only"| Factor075["factor = 0.75"]
+    ApplyDataMode -->|"degraded-imf"| Factor085a["factor = 0.85"]
+    ApplyDataMode -->|"degraded-voting"| Factor085b["factor = 0.85"]
+    ApplyDataMode -->|"minimal"| Factor065["factor = 0.65"]
+
+    Factor1 --> BuildMandatory
+    Factor075 --> BuildMandatory
+    Factor085a --> BuildMandatory
+    Factor085b --> BuildMandatory
+    Factor065 --> BuildMandatory
+
+    BuildMandatory["🔍 Build mandatory artifact list:\narticle-horizons registry mandatoryArtifacts[]\n∪ manifest.files.* entries\n(registry is source of truth when slug known)"] --> ForEach{"For each mandatory artifact"}
+
+    ForEach --> CountLines["📏 Count lines\n(effective floor = max(perArtifact, defaultMinLines) × factor)"]
+    CountLines --> CompareFloor{"lines ≥ effective floor?"}
+    CompareFloor -->|"❌ below"| RedIssue["🔴 RED issue\nblocks PR creation"]
+    CompareFloor -->|"✅ at/above"| StructCheck{"Always-blocking structural checks\n(mermaid, requiredSections,\nlong-horizon scenario gate ≥6)"}
+
+    StructCheck -->|"❌ missing"| RedIssue
+    StructCheck -->|"✅ pass"| TradecraftCheck{"Tradecraft signals\n(WEP / Admiralty / ICD-203 BLUF / SATs ≥10)"}
+
+    TradecraftCheck -->|"❌ missing"| RedTradecraft["🔴 RED issue\n(wep:missing / admiralty:missing /\nbluf:missing / sat:&lt;N&gt;&lt;10)"]
+    TradecraftCheck -->|"✅ present"| WarnCheck{"Warn-level structural checks\n(reader-block, source-diversity)\n[RED only under --strict]"}
+
+    WarnCheck -->|"missing (default)"| AmberSignal["🟡 WARN\n(non-blocking unless --strict)"]
+    WarnCheck -->|"✅ present"| EconomicCheck
+
+    AmberSignal --> EconomicCheck{"intelligence/economic-context.md\nuses IMF as primary?"}
+
+    EconomicCheck -->|"❌ WB econ codes or\nimf-source:knowledge-only"| RedIssue
+    EconomicCheck -->|"✅ IMF primary"| OnDiskOrphans
+
+    OnDiskOrphans["🔍 Scan run dir for files\n*not* in mandatory set"] --> Orphan{"orphan artifacts?"}
+    Orphan -->|"yes"| WarnOrphan["⚠️ WARN orphan\n(non-blocking)"]
+    Orphan -->|"no"| AggregateGate
+
+    RedTradecraft --> AggregateGate
+    WarnOrphan --> AggregateGate
+
+    AggregateGate{"🟢 GREEN gate?\n(0 RED issues)"} -->|"❌ any RED"| Block["🚫 Stdout: STAGE_C_GATE: RED\n(validator does NOT mutate manifest;\nmanifest gateResult stays PENDING\nuntil agent appends GREEN/\nGREEN_WITH_WARNINGS/ANALYSIS_ONLY)"]
+    AggregateGate -->|"✅ no RED"| GoStageD["✅ Stdout: STAGE_C_GATE: GREEN\n→ Agent appends history[].gateResult =\nGREEN / GREEN_WITH_WARNINGS / ANALYSIS_ONLY"]
+
+    classDef startNode fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:#000000
+    classDef checkNode fill:#FFE082,stroke:#F57C00,stroke-width:2px,color:#000000
+    classDef factorNode fill:#90CAF9,stroke:#1565C0,stroke-width:2px,color:#000000
+    classDef passNode fill:#A5D6A7,stroke:#2E7D32,stroke-width:2px,color:#000000
+    classDef warnNode fill:#FFCC80,stroke:#EF6C00,stroke-width:2px,color:#000000
+    classDef redNode fill:#EF9A9A,stroke:#D32F2F,stroke-width:2px,color:#000000
+
+    class Start startNode
+    class ResolveType,ApplyDataMode,ForEach,CompareFloor,StructCheck,EconomicCheck,TradecraftCheck,WarnCheck,Orphan,AggregateGate checkNode
+    class Factor1,Factor075,Factor085a,Factor085b,Factor065,LoadFloors,BuildMandatory,CountLines,ReadManifest,OnDiskOrphans factorNode
+    class GoStageD passNode
+    class AmberSignal,WarnOrphan warnNode
+    class RedIssue,RedTradecraft,Abort,Block redNode
+```
+
+**Validator surfaces**:
+
+| Surface | Severity | Effect on PR |
+|---|---|---|
+| Artifact below `effective floor × dataMode-factor` (applies to both per-artifact thresholds AND the 30-line default fallback) | 🔴 RED | Blocks PR; triggers Pass-2 rewrite |
+| Missing Mermaid block, required H2 sections, or `### Scenario N` count < 6 for long-horizon types | 🔴 RED | Blocks PR (always-blocking structural) |
+| Tradecraft signal missing (WEP band, Admiralty grade, ICD-203 BLUF, SAT ≥ 10) | 🔴 RED | Blocks PR — these are `issues` (not warnings) in the validator |
+| `intelligence/economic-context.md` cites WB economic codes or `imf-source:knowledge-only` | 🔴 RED | Blocks PR — IMF must be primary economic source |
+| Missing reader-block or source-diversity evidence | 🟡 WARN (default) / 🔴 RED (`--strict`) | Non-blocking by default; blocking when `--strict` flag is set |
+| On-disk artifact not listed in mandatory set | ⚠️ WARN orphan | Non-blocking — encourages explicit inclusion |
+
+> **Note on manifest `gateResult`**: The validator stdout emits `STAGE_C_GATE: RED` or `STAGE_C_GATE: GREEN` but does **not** mutate the run directory or `manifest.json`. The manifest `history[].gateResult` field uses the union `GREEN | GREEN_WITH_WARNINGS | ANALYSIS_ONLY | PENDING` (no `RED` value); the calling agent is responsible for appending the appropriate entry after reviewing the validator's stdout verdict.
+
+**Rationale for `dataMode` reduction factors** — when one or more Stage-A waves return structurally degraded payloads (no per-event evidence bodies; IMF or roll-call voting unavailable), the agent records the mode in `manifest.dataMode`. The validator then applies the matching factor (`title-only: 0.75`, `degraded-imf/degraded-voting: 0.85`, `minimal: 0.65`) to **both** per-artifact floors and the default 30-line fallback floor, so that the line floors track the available evidence rather than penalising depth that the source data simply cannot support. Structural checks (Mermaid, required sections, long-horizon scenario gate) and tradecraft checks (WEP, Admiralty, ICD-203 BLUF, SATs) are **never** reduced — they are contracts on the artefact's shape, not its volume.
 
 ---
 
