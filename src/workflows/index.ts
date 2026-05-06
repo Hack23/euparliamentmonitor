@@ -10,7 +10,7 @@
  * src/workflows/
  * ├── types.ts                  — Shared workflow contract types
  * ├── completeness-gate/        — Stage C validation (from validate-analysis-completeness.js)
- * ├── infrastructure/           — Shell safety, MCP setup helpers
+ * ├── infrastructure/           — Shell safety validation rules and utilities
  * └── safe-outputs/             — Stage E PR creation constraints
  * ```
  *

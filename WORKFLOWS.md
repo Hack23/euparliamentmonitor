@@ -323,7 +323,7 @@ src/workflows/
 │   ├── types.ts                # ValidationRules, ValidatorOptions, ValidationContext
 │   ├── constants.ts            # Regex patterns, thresholds (extracted from validator JS)
 │   └── validators.ts           # Pure validation functions (hasMermaid, hasWepBand, etc.)
-├── infrastructure/             # Shell safety, MCP setup
+├── infrastructure/             # Shell safety validation rules and utilities
 │   ├── index.ts                # Public API
 │   └── shell-safety.ts         # SHELL_SAFETY_RULES[], validateShellSafety()
 └── safe-outputs/               # Stage E PR creation constraints

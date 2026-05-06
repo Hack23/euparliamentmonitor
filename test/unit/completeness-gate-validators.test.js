@@ -171,10 +171,15 @@ describe('completeness-gate/validators', () => {
       expect(hasSourceDiversityEvidence('analyze_voting_patterns revealed...')).toBe(true);
     });
 
-    it('should detect structured evidence table with Source header and separator', () => {
+    it('should detect structured evidence table with Source header, separator, and data row', () => {
       const tableContent =
         '| Source | Date | Finding |\n|--------|------|----------|\n| IMF WEO | 2026 | GDP 1.1% |';
       expect(hasSourceDiversityEvidence(tableContent)).toBe(true);
+    });
+
+    it('should reject a header-only table (no data rows after separator)', () => {
+      // Header + separator only — no data rows should not satisfy the check
+      expect(hasSourceDiversityEvidence('| Source | Date | Finding |\n|--------|------|----------|')).toBe(false);
     });
 
     it('should reject a table without Source/Evidence/Reference header', () => {

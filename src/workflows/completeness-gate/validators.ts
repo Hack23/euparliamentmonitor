@@ -110,7 +110,7 @@ export function countSatBullets(content: string): number {
 /**
  * Check if content contains evidence of source diversity via MCP tool references
  * or a structured evidence/source table with header, separator, and at least one
- * data row (stricter check — single table rows are not sufficient).
+ * data row (stricter check — a header-only table with no data rows is not sufficient).
  *
  * @param content - The full text content of an artifact
  * @returns true if source diversity evidence is present
@@ -121,13 +121,24 @@ export function hasSourceDiversityEvidence(content: string): boolean {
     return true;
   }
   // Check for a structured evidence table: requires header row with Source/Evidence/Reference,
-  // a separator row (---|---), and at least one data row. This prevents plain prose
-  // markdown tables from being counted as source diversity.
-  if (
-    /^\|[^|]*(?:Source|Evidence|Reference)[^|]*\|/im.test(content) &&
-    /^\|[-: |]+\|/m.test(content)
-  ) {
-    return true;
+  // a separator row (---|---), and at least one data row after the separator. This prevents
+  // header-only tables and plain prose markdown tables from being counted as source diversity.
+  const lines = content.split('\n');
+  let foundHeader = false;
+  let foundSeparator = false;
+  for (const line of lines) {
+    if (!foundHeader && /^\|[^|]*(?:Source|Evidence|Reference)[^|]*\|/i.test(line)) {
+      foundHeader = true;
+      continue;
+    }
+    if (foundHeader && !foundSeparator && /^\|[-: |]+\|/.test(line)) {
+      foundSeparator = true;
+      continue;
+    }
+    if (foundHeader && foundSeparator && /^\|[^|]+\|/.test(line)) {
+      // At least one non-empty data row after the separator
+      return true;
+    }
   }
   return false;
 }

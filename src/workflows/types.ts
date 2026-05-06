@@ -41,13 +41,17 @@ export type StageCVerdict = 'GREEN' | 'RED';
  * Full manifest `gateResult` union, as stored in `manifest.history[].gateResult`
  * and read back by `src/utils/file-utils.ts#readLatestGateResult`.
  *
- * - `GREEN`              — Stage C passed; article generation proceeds.
+ * **Note:** `RED` is intentionally excluded — Stage C failures are never persisted
+ * to the manifest history; they are emitted only via the `STAGE_C_GATE:` stdout line
+ * and surfaced via {@link StageCVerdict}. The manifest records the resolved outcome
+ * after the gate: GREEN, warnings, analysis-only mode, or still-pending.
+ *
+ * - `GREEN`               — Stage C passed; article generation proceeds.
  * - `GREEN_WITH_WARNINGS` — Stage C passed with non-blocking warnings.
- * - `ANALYSIS_ONLY`      — Analysis written but article generation skipped.
- * - `PENDING`            — Default/sentinel before Stage C completes.
- * - `RED`                — Stage C failed; article generation blocked.
+ * - `ANALYSIS_ONLY`       — Analysis written but article generation skipped.
+ * - `PENDING`             — Default/sentinel before Stage C completes.
  */
-export type GateVerdict = 'GREEN' | 'GREEN_WITH_WARNINGS' | 'ANALYSIS_ONLY' | 'PENDING' | 'RED';
+export type GateVerdict = 'GREEN' | 'GREEN_WITH_WARNINGS' | 'ANALYSIS_ONLY' | 'PENDING';
 
 /**
  * Structured result emitted by the Stage C completeness validator.
