@@ -1347,7 +1347,6 @@ export function getCategoryIndicators(category) {
     if (!Object.hasOwn(CATEGORY_INDICATOR_MAP, category)) {
         return getCategoryIndicators(ArticleCategory.BREAKING_NEWS);
     }
-    // eslint-disable-next-line security/detect-object-injection -- key validated via Object.hasOwn
     return CATEGORY_INDICATOR_MAP[category];
 }
 /**

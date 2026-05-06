@@ -238,7 +238,7 @@ function advanceFenceState(
   fenceMarker: string
 ): { inFence: boolean; fenceMarker: string; matched: boolean } {
   const fenceMatch = /^(\s*)(```+|~~~+)(.*)$/.exec(line);
-  if (!fenceMatch || !fenceMatch[2]) return { inFence, fenceMarker, matched: false };
+  if (!fenceMatch?.[2]) return { inFence, fenceMarker, matched: false };
   const marker = fenceMatch[2];
   if (!inFence) {
     return { inFence: true, fenceMarker: marker, matched: true };
@@ -271,7 +271,7 @@ function processHeadingLine(
     return { output: null, consumed: 2, h1Removed: true };
   }
   const atx = /^(\s*)(#{1,6})(\s.*)$/.exec(line);
-  if (!atx || !atx[2]) {
+  if (!atx?.[2]) {
     return { output: line, consumed: 1, h1Removed: false };
   }
   const level = atx[2].length;

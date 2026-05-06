@@ -78,7 +78,7 @@ export function createEmptyIndex() {
 export function addArticleToIndex(index, entry) {
     // Replace or append
     const existingIdx = index.articles.findIndex((a) => a.id === entry.id);
-    const oldEntry = existingIdx >= 0 ? index.articles[existingIdx] : undefined; // eslint-disable-line security/detect-object-injection -- existingIdx from findIndex
+    const oldEntry = existingIdx >= 0 ? index.articles[existingIdx] : undefined;
     const articles = existingIdx >= 0
         ? [...index.articles.slice(0, existingIdx), entry, ...index.articles.slice(existingIdx + 1)]
         : [...index.articles, entry];
@@ -480,10 +480,8 @@ function sanitizeMap(source) {
     for (const key of Object.keys(source)) {
         if (!isSafeKey(key))
             continue;
-        // eslint-disable-next-line security/detect-object-injection -- key validated via isSafeKey
         const val = source[key];
         if (val) {
-            // eslint-disable-next-line security/detect-object-injection -- key validated via isSafeKey
             safe[key] = val;
         }
     }
@@ -613,17 +611,14 @@ function removeIdFromMap(map, keys, articleId) {
     for (const key of keys) {
         if (!isSafeKey(key))
             continue;
-        // eslint-disable-next-line security/detect-object-injection -- key validated via isSafeKey
         const list = map[key];
         if (!list)
             continue;
         const filtered = list.filter((id) => id !== articleId);
         if (filtered.length === 0) {
-            // eslint-disable-next-line security/detect-object-injection -- key validated via isSafeKey
             delete map[key];
         }
         else {
-            // eslint-disable-next-line security/detect-object-injection -- key validated via isSafeKey
             map[key] = filtered;
         }
     }
@@ -640,10 +635,8 @@ function addIdToMap(map, keys, articleId) {
     for (const key of keys) {
         if (!isSafeKey(key))
             continue;
-        // eslint-disable-next-line security/detect-object-injection -- key validated via isSafeKey
         const existing = map[key] ?? [];
         if (!existing.includes(articleId)) {
-            // eslint-disable-next-line security/detect-object-injection -- key validated via isSafeKey
             map[key] = [...existing, articleId];
         }
     }

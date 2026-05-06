@@ -1951,7 +1951,6 @@ function kindWord(relPath, lang) {
  * @returns The resolved string (never empty for well-formed records)
  */
 function getFromRecord(record, lang) {
-    // eslint-disable-next-line security/detect-object-injection
     return record[lang] ?? record.en;
 }
 /**
@@ -1968,7 +1967,6 @@ function getFromRecord(record, lang) {
  * @returns Fully localized description sentence
  */
 function buildGenericFallback(relPath, lang, title) {
-    // eslint-disable-next-line security/detect-object-injection
     const template = GENERIC_FALLBACK_I18N[lang] ?? GENERIC_FALLBACK_I18N.en;
     const kind = kindWord(relPath, lang);
     return template.replace('{title}', title).replace('{kind}', kind);
@@ -1996,10 +1994,8 @@ function buildGenericFallback(relPath, lang, title) {
 export function getCuratedDescription(relPath, lang, fallback = '') {
     // Normalise path separators so Windows callers don't silently miss entries.
     const key = relPath.replace(/\\/g, '/');
-    // eslint-disable-next-line security/detect-object-injection
     const entry = CURATED_DESCRIPTIONS[key];
     if (entry) {
-        // eslint-disable-next-line security/detect-object-injection
         const localized = entry.i18n?.[lang];
         if (localized)
             return localized;
@@ -2023,7 +2019,6 @@ export function getCuratedDescription(relPath, lang, fallback = '') {
  * @returns `true` when the curated table contains the file
  */
 export function hasCuratedDescription(relPath) {
-    // eslint-disable-next-line security/detect-object-injection
     return Object.prototype.hasOwnProperty.call(CURATED_DESCRIPTIONS, relPath.replace(/\\/g, '/'));
 }
 /**
@@ -2035,7 +2030,6 @@ export function hasCuratedDescription(relPath) {
  * @returns `true` when {@link CURATED_TITLES} contains the file
  */
 export function hasCuratedTitle(relPath) {
-    // eslint-disable-next-line security/detect-object-injection
     return Object.prototype.hasOwnProperty.call(CURATED_TITLES, relPath.replace(/\\/g, '/'));
 }
 /**
@@ -2063,10 +2057,8 @@ export function hasCuratedTitle(relPath) {
 export function getCuratedTitle(relPath, lang, fallback) {
     const key = relPath.replace(/\\/g, '/');
     // 1 + 2: curated title overlay
-    // eslint-disable-next-line security/detect-object-injection
     const titleEntry = CURATED_TITLES[key];
     if (titleEntry) {
-        // eslint-disable-next-line security/detect-object-injection
         const localized = titleEntry[lang];
         if (localized)
             return localized;
@@ -2074,10 +2066,8 @@ export function getCuratedTitle(relPath, lang, fallback) {
             return titleEntry.en;
     }
     // 3 + 4: historic colocated title on CURATED_DESCRIPTIONS entry
-    // eslint-disable-next-line security/detect-object-injection
     const descEntry = CURATED_DESCRIPTIONS[key];
     if (descEntry) {
-        // eslint-disable-next-line security/detect-object-injection
         const localized = descEntry.titleI18n?.[lang];
         if (localized)
             return localized;
@@ -2673,7 +2663,6 @@ export function parseRunSlug(slug) {
     const sorted = [...RUN_TYPE_SLUGS].sort((a, b) => b.length - a.length);
     for (const prefix of sorted) {
         if (lower === prefix || lower.startsWith(`${prefix}-`) || lower.startsWith(`${prefix}_`)) {
-            // eslint-disable-next-line security/detect-object-injection
             const canonical = RUN_TYPE_ALIASES[prefix];
             const tail = slug.slice(prefix.length).replace(/^[-_]+/, '');
             return { type: canonical, runId: tail };
@@ -2696,9 +2685,7 @@ export function parseRunSlug(slug) {
 export function getRunTypeInfo(slug, lang) {
     const { type, runId } = parseRunSlug(slug);
     if (type) {
-        // eslint-disable-next-line security/detect-object-injection
         const titleRecord = RUN_TYPE_TITLES[type];
-        // eslint-disable-next-line security/detect-object-injection
         const descRecord = RUN_TYPE_DESCRIPTIONS[type];
         const title = titleRecord ? getFromRecord(titleRecord, lang) : stripEmojiAndPunct(slug);
         const description = descRecord ? getFromRecord(descRecord, lang) : '';
@@ -2797,7 +2784,6 @@ function canonicalizeArtifactStem(stem) {
         'ai-voting-patterns': 'voting-patterns',
     };
     if (Object.prototype.hasOwnProperty.call(SYNONYMS, s)) {
-        // eslint-disable-next-line security/detect-object-injection
         const synonym = SYNONYMS[s];
         if (typeof synonym === 'string')
             return synonym;
@@ -3135,7 +3121,6 @@ export function getArtifactInfo(shortPath, lang) {
     //    and we still guard with `hasOwn` to block any prototype-key surprise.
     const feed = parseFeedPrefix(rawStem);
     if (feed && Object.prototype.hasOwnProperty.call(FEED_PREFIX_LABELS, feed.feed)) {
-        // eslint-disable-next-line security/detect-object-injection
         const entry = FEED_PREFIX_LABELS[feed.feed];
         if (entry) {
             return {
@@ -3152,7 +3137,6 @@ export function getArtifactInfo(shortPath, lang) {
     //    (e.g. a hypothetical `__proto__.md` file).
     const stemLower = stem.toLowerCase();
     if (Object.prototype.hasOwnProperty.call(ORPHAN_ARTIFACT_INFO, stemLower)) {
-        // eslint-disable-next-line security/detect-object-injection
         const orphan = ORPHAN_ARTIFACT_INFO[stemLower];
         if (orphan) {
             return {

@@ -607,7 +607,7 @@ export const PI_COPY: Partial<Record<string, Partial<PICopy>>> = (() => {
  * @returns Fully-populated {@link PICopy}
  */
 export function getPICopy(lang: string): PICopy {
-  // eslint-disable-next-line security/detect-object-injection
+   
   const overrides = PI_COPY[lang] ?? {};
   return { ...DEFAULT_COPY, ...overrides };
 }

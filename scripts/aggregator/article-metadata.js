@@ -324,7 +324,6 @@ export function isGenericHeading(heading, articleType, date) {
             return true;
     }
     // The bare `${human} — <anything>` with nothing extra is also generic.
-    // eslint-disable-next-line security/detect-non-literal-regexp -- `human` derives from a sanitised slug via escapeRegex
     const trailingDateOnly = new RegExp(`^${escapeRegex(human)}\\s*[—–-]\\s*[\\d-]+$`, 'u');
     if (trailingDateOnly.test(normalized)) {
         return true;
