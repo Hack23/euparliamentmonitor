@@ -1403,7 +1403,11 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
    * @returns Latest plenary vote records with NEAR_REALTIME freshness
    */
   async getLatestVotes(options: GetLatestVotesOptions = {}): Promise<MCPToolResult> {
-    return this.safeCallTool('get_latest_votes', options, '{"votes": [], "dataFreshness": "NEAR_REALTIME"}');
+    return this.safeCallTool(
+      'get_latest_votes',
+      options,
+      '{"votes": [], "dataFreshness": "NEAR_REALTIME"}'
+    );
   }
 
   /**
