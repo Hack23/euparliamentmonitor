@@ -125,6 +125,40 @@ describe('wrapArticleHtml', () => {
     });
     expect(html).toContain('news/2026-01-15-breaking.en.md');
     expect(html).toContain('type="text/markdown"');
+    // Must include the SVG external-link icon
+    expect(html).toContain('class="icon icon-inline"');
+    // Label must say "View source Markdown", not "View analysis artifacts"
+    expect(html).toContain('View source Markdown');
+  });
+
+  it('emits localized source-markdown label for non-English languages', () => {
+    const html = wrapArticleHtml({
+      ...baseOptions,
+      lang: 'sv',
+      sourceMarkdownRelPath: 'news/2026-01-15-breaking.sv.md',
+    });
+    expect(html).toContain('Visa Markdown-källa');
+  });
+
+  it('renders a localized kicker with article-type emoji icon', () => {
+    const html = wrapArticleHtml(baseOptions);
+    // breaking → ⚡ emoji and localized "Breaking News" label
+    expect(html).toContain('article-kicker');
+    expect(html).toContain('⚡');
+    expect(html).toContain('Breaking News');
+  });
+
+  it('renders a localized kicker in non-English languages', () => {
+    const html = wrapArticleHtml({ ...baseOptions, lang: 'de' });
+    expect(html).toContain('⚡');
+    expect(html).toContain('Eilmeldung');
+  });
+
+  it('falls back to humanised slug for unknown article types', () => {
+    const html = wrapArticleHtml({ ...baseOptions, articleType: 'custom-report' });
+    // Unknown types get the fallback 📄 icon and a humanised slug
+    expect(html).toContain('📄');
+    expect(html).toContain('custom report');
   });
 
   it('renders the article TOC sidebar when toc entries are supplied', () => {

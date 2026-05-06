@@ -21,6 +21,7 @@
 import { BASE_URL, BUILD_SHORT, MERMAID_VERSION } from '../constants/config.js';
 import { buildHeadFreshnessTags } from '../constants/build-info-meta.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, SKIP_LINK_TEXTS, TOC_ARIA_LABELS, ARTICLE_TYPE_LABELS, VIEW_SOURCE_MARKDOWN_LABELS, ARTICLE_TYPE_ICONS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { ArticleCategory } from '../types/index.js';
 import { escapeHTML } from '../utils/file-utils.js';
 import { buildSiteFooter, buildSiteHeader, buildPageBanner, } from '../templates/section-builders.js';
 import { READER_GUIDE_SECTION_ID } from './reader-guide-constants.js';
@@ -36,7 +37,10 @@ import { READER_GUIDE_TITLE_LABELS } from './reader-intelligence-guide.js';
 function getLocalizedArticleType(slug, lang) {
     const labels = getLocalizedString(ARTICLE_TYPE_LABELS, lang);
     const label = labels[slug] ?? slug.replace(/-/g, ' ');
-    const iconEmoji = ARTICLE_TYPE_ICONS[slug] ?? '📄';
+    const categoryValues = Object.values(ArticleCategory);
+    const iconEmoji = categoryValues.includes(slug)
+        ? ARTICLE_TYPE_ICONS[slug]
+        : '📄';
     return `${iconEmoji} ${label}`;
 }
 /** Publisher organization name used in JSON-LD, meta tags. */

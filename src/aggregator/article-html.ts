@@ -36,6 +36,7 @@ import {
   getTextDirection,
 } from '../constants/languages.js';
 import type { LanguageCode } from '../types/index.js';
+import { ArticleCategory } from '../types/index.js';
 import { escapeHTML } from '../utils/file-utils.js';
 import {
   buildSiteFooter,
@@ -56,7 +57,10 @@ import { READER_GUIDE_TITLE_LABELS } from './reader-intelligence-guide.js';
 function getLocalizedArticleType(slug: string, lang: LanguageCode): string {
   const labels = getLocalizedString(ARTICLE_TYPE_LABELS, lang);
   const label = (labels as Record<string, string>)[slug] ?? slug.replace(/-/g, ' ');
-  const iconEmoji = ARTICLE_TYPE_ICONS[slug] ?? '📄';
+  const categoryValues = Object.values(ArticleCategory) as string[];
+  const iconEmoji = categoryValues.includes(slug)
+    ? ARTICLE_TYPE_ICONS[slug as ArticleCategory]
+    : '📄';
   return `${iconEmoji} ${label}`;
 }
 
