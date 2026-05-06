@@ -166,7 +166,7 @@ The EU Parliament Monitor implements **GitHub Agentic Workflows (gh-aw)** with a
 **Allowed Endpoints**:
 - ✅ **GitHub API**: `api.github.com`, `github.com` (workflow control, PR creation)
 - ✅ **npm Registry**: `registry.npmjs.org` (dependency installation)
-- ✅ **European Parliament MCP Gateway**: `host.docker.internal:80/mcp/european-parliament` (Docker bridge, local-only)
+- ✅ **European Parliament MCP Gateway**: `host.docker.internal:8080/mcp/european-parliament` (Docker bridge, local-only — gh-aw v0.69.0+ canonical port)
 - ✅ **World Bank MCP**: World Bank data integration
 - ✅ **IMF Data Services**: `dataservices.imf.org/REST/SDMX_3.0/` (economic context data)
 - ✅ **LLM APIs**: Copilot API, Claude API, Codex API (AI inference)
@@ -351,7 +351,9 @@ The EU Parliament Monitor integrates with **Model Context Protocol (MCP)** serve
 
 ### European Parliament MCP
 
-**Endpoint**: `EP_MCP_GATEWAY_URL=http://host.docker.internal:80/mcp/european-parliament`
+**Endpoint**: `EP_MCP_GATEWAY_URL=http://host.docker.internal:8080/mcp/european-parliament`
+
+**Configuration source**: `scripts/mcp-setup.sh` is sourced by every agentic workflow `.md` body. It resolves `gateway.port` and `gateway.domain` dynamically from `/home/runner/.copilot/mcp-config.json` (gh-aw writes these per-run) and falls back to `host.docker.internal:8080` for non-agentic callers. Token extraction reads `gateway.apiKey` (legacy) or `mcpServers['european-parliament'].headers.Authorization` (raw API key) using `node -e` JSON parsing — **no `jq` dependency**, no shell expansion of untrusted JSON values. Sets `EP_MCP_GATEWAY_URL`, `EP_MCP_GATEWAY_API_KEY`, and `MCP_CLIENT_TIMEOUT_MS=180000` (180 s default).
 
 **Communication Model**:
 - **Protocol**: Local stdio JSON-RPC over Docker bridge network
@@ -473,7 +475,7 @@ The EU Parliament Monitor integrates with **Model Context Protocol (MCP)** serve
       "command": "npx",
       "args": ["-y", "european-parliament-mcp-server@1.3.0"],
       "env": {
-        "EP_MCP_GATEWAY_URL": "http://host.docker.internal:80/mcp/european-parliament"
+        "EP_MCP_GATEWAY_URL": "http://host.docker.internal:8080/mcp/european-parliament"
       }
     },
     "worldbank": {
@@ -1012,6 +1014,102 @@ flowchart TD
 
 - [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) -
   Input validation requirements
+
+#### Branded Type Safety System (Compile-Time XSS / Injection Prevention)
+
+The TypeScript generation layer in [`src/generators/shared/`](src/generators/shared/) implements a **phantom-brand type system** that turns sanitisation contracts into compile-time guarantees. The branded types are erased by TypeScript (zero runtime cost) but prevent accidental interpolation of unsanitised strings into HTML, XML, or URL contexts.
+
+| Branded Type        | Producer Function     | Source Module                            | Guarantee                                                                  |
+| ------------------- | --------------------- | ---------------------------------------- | -------------------------------------------------------------------------- |
+| `SafeHtmlString`    | `toSafeHtml(raw)`     | `src/generators/shared/html-escape.ts`   | HTML-entity-escaped (`&`, `<`, `>`, `"`, `'`) — safe for HTML interpolation |
+| `SafeXmlString`     | `toSafeXml(raw)`      | `src/generators/shared/html-escape.ts`   | XML-entity-escaped — safe for `sitemap.xml` / `rss.xml` interpolation       |
+| `AbsoluteUrl`       | `toAbsoluteUrl(raw)`  | `src/generators/shared/html-escape.ts`   | Validated `https://` URL with attribute-safe character set                 |
+| `RelativeFilePath`  | `toRelativeFilePath()`| `src/generators/shared/html-escape.ts`   | POSIX-normalised, no leading slash, no `..` traversal                       |
+
+**Compile-time enforcement model:**
+
+```mermaid
+flowchart LR
+    RAW[raw: string<br/>untrusted MCP / EP / IMF input]
+    PROD[Producer Function<br/>toSafeHtml / toSafeXml /<br/>toAbsoluteUrl / toRelativeFilePath]
+    BRANDED[SafeHtmlString /<br/>SafeXmlString /<br/>AbsoluteUrl /<br/>RelativeFilePath]
+    TPL[HTML / XML Template<br/>accepts only branded types]
+    OUT[Generated artefact<br/>provably escaped at compile time]
+
+    RAW -->|"escapeHTML / escapeXML /<br/>URL validation"| PROD
+    PROD -->|"phantom brand:<br/>{readonly [__brand]: 'SafeHtml'}"| BRANDED
+    BRANDED -->|"type-checked interpolation"| TPL
+    TPL --> OUT
+
+    BLOCK[❌ raw string passed<br/>directly to template] -.->|"TS2322:<br/>Type 'string' is not<br/>assignable to 'SafeHtmlString'"| TPL
+
+    style RAW fill:#fff4e1
+    style PROD fill:#e1f5ff
+    style BRANDED fill:#e8f5e9
+    style TPL fill:#e8f5e9
+    style OUT fill:#e8f5e9
+    style BLOCK fill:#ffe1e1
+```
+
+**Security properties:**
+
+1. **No runtime cost** — branded types are compile-time-only (TypeScript erases the phantom `__brand` symbol). They impose zero performance overhead on generated output.
+2. **Single sanitisation gateway** — `html-escape.ts` is the **only** module that produces branded values. Every template parameter typed `SafeHtmlString` is provably escaped because it can only originate from `toSafeHtml()`.
+3. **Compile-time XSS prevention** — passing an unbranded `string` directly into a template that accepts `SafeHtmlString` is a TypeScript error (`TS2322`). The build fails before the artefact reaches CI.
+4. **Multi-language correctness** — branded types are language-agnostic. The escaping logic is identical for all 14 supported languages (EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH), including RTL scripts (Arabic, Hebrew) where mixed-direction injection attacks are otherwise easy to miss.
+5. **No `dangerouslySetInnerHTML` equivalent** — the project ships no escape hatch that bypasses the brand. `markdown-it` runs with `html: false` and the result is post-processed by [`src/utils/html-sanitize.ts`](src/utils/html-sanitize.ts) before being branded.
+
+**Verification:**
+
+- Unit tests in `test/unit/generators/shared/html-escape.test.js` exercise each producer with hostile inputs (`<script>`, `javascript:`, RTL override characters, attribute-breakout payloads).
+- Integration tests in `test/integration/html-article-pipeline.test.js` verify the **pipeline-level** invariant: every generated HTML page passes HTMLHint, contains no inline `<script>`, and has CSP-compliant output across all 14 languages.
+- The shared barrel [`src/generators/shared/index.ts`](src/generators/shared/index.ts) re-exports only the producers; the brand symbol itself is module-private, preventing user code from forging branded values.
+
+**ISMS Alignment:**
+
+- [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) — secure-by-design output encoding
+- [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) — defence-in-depth with TLS in transit
+- OWASP A03:2021 (Injection) — primary mitigation for stored / reflected XSS in generated articles
+- OWASP A05:2021 (Security Misconfiguration) — eliminates the category of "forgot to escape one field"
+
+#### Shell-Safety Filter Enforcement (Agentic Workflow Hardening)
+
+GitHub Agentic Workflows execute AI-authored bash inside a sandboxed runner. To prevent prompt-injection-driven arbitrary code execution, the platform's shell-safety filter **rejects** a defined set of bash expansion patterns. Repository code, prompts, and helper scripts must avoid these patterns or the run fails — sometimes after burning the 60-minute workflow budget. The repository enforces this at three layers:
+
+**Layer 1 — Forbidden expansion patterns** (matched by `test/unit/shell-safety.test.js` against every `scripts/**.sh`):
+
+| Pattern                                  | Example (DO NOT USE)                  | Risk                                                       |
+| ---------------------------------------- | ------------------------------------- | ---------------------------------------------------------- |
+| Nested parameter expansion               | `${var#${other}}`, `${A:-${B:-}}`     | Inner expansion result becomes part of outer pattern       |
+| Indirect expansion                       | `${!var}`, `${!prefix*}`              | Reads arbitrary variables by name                          |
+| Parameter transformation                 | `${var@P}`, `${var@Q}`, `${var@E}`    | `@P` re-evaluates the string as a prompt                   |
+| Nested command substitution              | `$(cmd $(inner))`                     | Inner `$()` executes under the outer                       |
+| Default-with-command-substitution        | `${VAR:-$(cmd)}`                      | Default expression is a live command                       |
+| Input redirection inside `$()`           | `$(cmd < file)`                       | Smuggles arbitrary file reads into substitutions           |
+| `eval`                                   | `eval "$str"`                         | Explicit arbitrary-code execution                          |
+| Adjacent `${RANDOM}${RANDOM}`            | `suffix="${RANDOM}${RANDOM}"`         | Adjacency heuristic trips nested-expansion detection       |
+
+**Layer 2 — Drift-guard test** (`test/unit/shell-safety.test.js`):
+
+- Recursively scans every `scripts/**.sh` file
+- Strips whole-line comments before applying regex rules (so the documented forbidden patterns in commentary do not trigger the guard)
+- Emits a precise file:line failure pointing at `.github/prompts/00-scope-and-ground-rules.md §47` and `.github/prompts/08-infrastructure.md §177-181`
+- Runs as part of the standard `npm run test` Vitest suite — every PR is gated on it
+
+**Layer 3 — Prompt-level rules** (read by every news-generation agent):
+
+- [`.github/prompts/00-scope-and-ground-rules.md`](.github/prompts/00-scope-and-ground-rules.md) §47 — authoritative short-form forbidden-pattern list, imported by every `news-<type>.md` workflow body
+- [`.github/prompts/08-infrastructure.md`](.github/prompts/08-infrastructure.md) §177-181 — long-form explanations with safe replacement idioms (e.g. `if`/`elif`/`else` instead of `${A:-${B:-}}`, two-step variable assignment instead of nested `$()`)
+- [`.github/prompts/02-analysis-protocol.md`](.github/prompts/02-analysis-protocol.md) §10 — mandates that bash in agentic workflows delegates to repo-hosted, pre-audited helpers (e.g. `scripts/checkpoint-analysis-to-memory.sh`) rather than inlining expansion-heavy commands
+
+**Threat model linkage:** see [`THREAT_MODEL.md`](THREAT_MODEL.md) Threat T-029 (Shell Expansion Injection in Agentic Workflows) for the STRIDE / MITRE ATT&CK mapping and residual risk rating.
+
+**ISMS Alignment:**
+
+- [Secure Development Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Secure_Development_Policy.md) — secure CI/CD, command-injection prevention
+- [AI Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/AI_Policy.md) — sandboxing AI-generated code
+- OWASP A03:2021 (Injection) — command injection prevention
+- CIS Control 16.11 (Application Software Security) — protect against runtime-generated commands
 
 #### Data Classification & Handling
 
