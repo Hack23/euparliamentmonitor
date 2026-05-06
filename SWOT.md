@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.2-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--03-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.3-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--06-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.2 | **📅 Last Updated:**
-2026-05-03 (UTC)  
+**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:**
+2026-05-06 (UTC)  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
@@ -1336,6 +1336,98 @@ Funding** | €0 | €10-20k | 🔴 Critical |
 
 ---
 
+---
+
+### 🆕 2026-05-06 Refresh — S18–S22, W16–W19, O15–O17, T16–T18
+
+**Strengths (S18–S22):**
+
+- **S18: Deterministic Aggregator Pipeline** — `src/aggregator/**` decomposed into 9 bounded contexts (`manifest`, `runs`, `slug`, `infra`, `cli`, `artifacts`, `content`, `markdown`, `metadata`) producing reproducible Markdown→HTML output with no per-type strategies and no AI-authored HTML. Eliminates an entire class of runtime content-validation failures. *Impact: 9/10.*
+- **S19: 60-Artifact Analytical Baseline** — every article-generating run produces a 39+ artifact set under `analysis/daily/<date>/<slug>/` derived from 60 templates in `analysis/templates/`. Stage-C validator enforces per-artifact line floors from `analysis/methodologies/reference-quality-thresholds.json`, scaled by manifest `dataMode`. *Impact: 9/10.*
+- **S20: Branded Type Safety** — `src/generators/shared/` provides branded TypeScript types (`SafeHtmlString`, `SafeXmlString`, `AbsoluteUrl`, `RelativeFilePath`) with escape producers, preventing accidental cross-context string injection at compile time. *Impact: 7/10.*
+- **S21: Shell-Safety Enforcement** — `test/unit/shell-safety.test.js` is a CI-enforced drift-guard against the gh-aw sandbox shell-safety filter. The sandbox blocks indirect expansion (`${!var}`), parameter transformation (`${var@P}`), nested command substitution, and `eval` patterns; the test catches new violations before they consume a 60-min run. Authoritative ground rules in `.github/prompts/00-scope-and-ground-rules.md` §47 and `.github/prompts/08-infrastructure.md` §177-181. *Impact: 8/10.*
+- **S22: Professional Intelligence Tradecraft** — every analysis run applies ICD-203, Admiralty Code source grading, Words of Estimative Probability, and ≥10 Structured Analytic Techniques (Heuer & Pherson). Enforced by Stage-C tradecraft RED gates (WEP missing, Admiralty missing, BLUF missing, <10 SATs). Codified in `analysis/methodologies/osint-tradecraft-standards.md`. *Impact: 9/10.*
+
+**Weaknesses (W16–W19):**
+
+- **W16: EP MCP 1.3.0 Skeleton Coverage** — pinned `european-parliament-mcp-server@1.3.0` exposes 60+ tools but several endpoints (committee-documents, plenary-session-document-items, controlled-vocabularies feed) remain fixed-window with no timeframe filtering, limiting historical-query precision. *Risk: 🟢 Low.*
+- **W17: IMF Probe Degradation Modes** — when `cache/imf/imf-probe-summary.json` reports failure, manifest `dataMode` falls back to `degraded-imf` (-15% line floor) or `minimal` (-35%); WB satisfies the OR-gate but tradecraft on monetary/fiscal claims still relies on IMF as primary. *Risk: 🟡 Medium.*
+- **W18: Single-Session 60-Min Workflow Timeout** — every unified `news-<type>.md` workflow runs Stages A→E in one 60-min session and creates exactly one PR. The hard PR deadline minute ≤ 45 (target ≤ 42 standard slugs, ≤ 47 electoral) leaves no margin if upstream MCP latency spikes mid-run. *Risk: 🟡 Medium.*
+- **W19: MCP Gateway Keepalive Issues** — gh-aw v0.71.3 advertises `engine.mcp.session-timeout` but the bundled gateway image v0.3.1 rejects the field (run #25275823699 fingerprint). Pipeline relies on the upstream-default keepalive. *Risk: 🟡 Medium.*
+
+**Opportunities (O15–O17):**
+
+- **O15: Deeper Political Intelligence on Long Horizons** — the new `term-outlook` and `election-cycle` article types (governed by `electoral-cycle-methodology.md` and `forward-projection-methodology.md`) open the door to deeper coalition-mathematics, seat-projection, and mandate-fulfilment-scorecard analysis covering full 5-year EP terms. *Impact: 🌟🌟🌟🌟.*
+- **O16: IMF + Eurostat Cross-Source Triangulation** — IMF remains the sole authoritative economic citation per `analysis/imf/cross-source-triangulation.md`, but Eurostat can be added as an additional triangulation surface for EU-specific indicators (NEET rate, sectoral unemployment, PPP-adjusted regional GDP). Strengthens evidence base without violating the IMF-primary rule. *Impact: 🌟🌟🌟.*
+- **O17: Real-Time DOCEO Vote Integration** — EP MCP 1.3.0's new `get_latest_votes` tool (DOCEO XML-backed, near-realtime vs. multi-week lag of EP Open Data) enables breaking-vote analysis, intraday coalition-fracture detection, and faster `news-breaking.md` runs. Already wired into `src/mcp/ep-mcp-client.ts` canonical tool list. *Impact: 🌟🌟🌟🌟.*
+
+**Threats (T16–T18):**
+
+- **T16: MCP Gateway Reliability** — every workflow depends on `EP_MCP_GATEWAY_URL`; gateway outages or upstream EP API rate limiting cascade into Stage-A failures and force `dataMode: title-only` or `dataMode: minimal` runs that publish thinner analysis. Mitigated by `get_server_health` probe + dataMode reduction factors but cannot eliminate root cause. *Risk: 🟡 Medium.*
+- **T17: AI Quality Consistency Across 14 Languages** — `news-translate.md` fan-outs from authoritative EN to 13 target languages with a pre-translation completeness gate, but per-language line-by-line human review is not feasible at current throughput. Drift in idiomatic-political-vocabulary across languages (especially RTL: ar, he and East Asian: ja, ko, zh) is a recurring risk. *Risk: 🟠 Medium–High.*
+- **T18: Shell-Safety Filter False Positives** — the sandbox shell-safety filter occasionally blocks legitimate constructs (whitespace-trim idioms, default-with-command-substitution patterns) and the agent burns the remaining 60-min budget on workarounds. Authoritative safe replacements documented in `.github/prompts/08-infrastructure.md` §177-181 mitigate but do not eliminate the risk. See failed run #24773038606. *Risk: 🟡 Medium.*
+
+---
+
+## 🔀 TOWS Strategic Matrix (Current State)
+
+The TOWS matrix maps internal Strengths/Weaknesses against external Opportunities/Threats to surface concrete strategic actions. Following the structured TOWS construction in [`analysis/methodologies/political-swot-framework.md`](analysis/methodologies/political-swot-framework.md), each cell is an actionable, time-bounded direction.
+
+|                                     | **Opportunities (O)**                                                                                                                                                      | **Threats (T)**                                                                                                                                                       |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Strengths (S)** — *SO Maxi-Maxi*  | **SO1**: Pair S22 (tradecraft) with O15 (long-horizon analysis) → publish term-outlook and election-cycle articles with full ICD-203 + ACH + WEP discipline as a market differentiator. **SO2**: Pair S19 (60-artifact baseline) + S18 (deterministic aggregator) with O17 (real-time DOCEO votes) → make `news-breaking.md` the fastest credible breaking-vote intelligence in EU civic tech. | **ST1**: Use S21 (shell-safety enforcement) to neutralize T18 (filter false positives) by expanding `test/unit/shell-safety.test.js` patterns. **ST2**: Use S11 (SLSA L3) + S14 (5-layer security) to pre-empt T11 (supply-chain attack vectors). |
+| **Weaknesses (W)** — *WO Mini-Maxi* | **WO1**: Use O17 (DOCEO votes) to compensate for W16 (EP MCP fixed-window feeds). **WO2**: Use O16 (IMF + Eurostat triangulation) to mitigate W17 (IMF probe degradation modes). | **WT1**: W18 (60-min session) × T16 (MCP gateway reliability) is the highest-priority risk pair — mitigation: extend gh-aw keepalive (when v0.71.3+ ships a working `session-timeout`) or split heavy slugs into Stage A+B / Stage D+E pairs. **WT2**: W13 (monolingual source-of-truth) × T17 (AI quality across 14 languages) — mitigation: targeted human spot-checks on RTL and East Asian languages every quarter. |
+
+### TOWS Action Priority
+
+| Priority | Action                                                                                       | Owner | Horizon |
+| -------- | -------------------------------------------------------------------------------------------- | ----- | ------- |
+| 🔴 P1    | **WT1**: Stage-split heavy slugs OR upstream gh-aw `session-timeout` fix                     | DevOps | 2026-Q3 |
+| 🟠 P2    | **SO1**: Establish term-outlook + election-cycle as flagship long-horizon products            | Editorial | 2026-Q3 |
+| 🟠 P2    | **WO2**: Add Eurostat as IMF triangulation surface (additional, not replacement)              | Data  | 2026-Q4 |
+| 🟡 P3    | **SO2**: Optimize `news-breaking.md` for sub-30-min runs using DOCEO votes                    | DevOps | 2026-Q4 |
+| 🟡 P3    | **WT2**: RTL + East Asian quarterly translation spot-check protocol                            | QA    | 2026-Q4 |
+| 🟢 P4    | **ST1**: Expand `test/unit/shell-safety.test.js` pattern coverage                              | DevOps | 2026-Q3 |
+
+---
+
+## 🏛️ Political Intelligence Competitive Positioning
+
+EU Parliament Monitor occupies a distinctive position in the parliamentary monitoring market by combining deterministic open-source publishing infrastructure with professional intelligence-tradecraft analysis at industrial multilingual scale.
+
+### Competitive Landscape
+
+| Dimension                          | Traditional Parliamentary Monitors (VoteWatch, Politico Pro) | Civic-Tech Trackers (EU Observer, MEP Watch) | EU Parliament Monitor                              |
+| ---------------------------------- | ------------------------------------------------------------ | -------------------------------------------- | -------------------------------------------------- |
+| **Data Access**                    | Proprietary, paywalled                                       | Manual scraping, episodic                    | EP MCP Server (open, 60+ tools, MIT/Apache)        |
+| **Analysis Depth**                 | Editorial commentary, vote tallies                           | News briefs, headlines                       | 39+ artifacts/run with ICD-203 + ACH + WEP         |
+| **Tradecraft Discipline**          | Implicit, journalist-driven                                  | None codified                                | Explicit ICD-203 + Admiralty + WEP + ≥10 SATs      |
+| **Language Coverage**              | EN + FR (occasional DE, ES)                                  | EN primarily                                 | 14 languages (en + 13 targets, RTL + East Asian)   |
+| **Update Cadence**                 | Daily / weekly editorial                                     | Ad-hoc                                       | 14 article types on cron + manual triggers        |
+| **Reproducibility**                | None                                                          | None                                         | Deterministic aggregator + SLSA L3 attestations    |
+| **Bias Discipline**                | Editorial perspective                                        | Editorial perspective                        | Devil's Advocate + Pre-Mortem in every artifact    |
+| **Cost to Reader**                 | €500–€5000/year                                              | Free with ads                                | Free, no ads, no tracking, no JS                   |
+
+### Differentiation Pillars
+
+1. **Tradecraft over Opinion** — every probabilistic claim is WEP-banded; every source is Admiralty-graded; every analysis includes ≥10 attested SATs. No other open-source EU parliamentary monitor enforces this discipline.
+
+2. **Determinism over Generation** — the deterministic aggregator means the same inputs always produce the same HTML output. Competitors regenerate from scratch, accumulating drift.
+
+3. **Multilingual Parity** — 14 languages with WCAG 2.1 AA accessibility on every page. Most competitors deliver English with optional translations of headlines only.
+
+4. **Open Methodology** — every methodology document is in `analysis/methodologies/` under Apache-2.0. Competitors guard editorial methodology as proprietary.
+
+5. **Forward + Backward Coverage** — `*-ahead` (forward), `*-in-review` (backward), `term-outlook` (5-year), and `breaking` (intraday) horizons fully tile parliamentary intelligence. No competitor publishes across this full timeframe.
+
+### Vulnerable Flanks
+
+- **Brand Recognition**: VoteWatch, Politico Pro, and EU Observer have decades of trust capital. The platform compensates with open methodology and reproducibility but recognition gap remains.
+- **Network Effects**: Paywalled competitors have established journalist/lobbyist user networks that are slow to switch.
+- **Crisis Coverage**: Editorial competitors can dispatch human reporters to surprise events; the platform's `news-breaking.md` is fast but cannot cover events not surfaced via EP/IMF/WB MCP data.
+
+---
+
 ## 🎯 Strategic Priorities Matrix
 
 Prioritize initiatives based on impact and effort.
@@ -1428,10 +1520,10 @@ Comprehensive view of strategic position.
 
 | Category          | Count | Severity   | Strategic Focus                                 |
 | ----------------- | ----- | ---------- | ----------------------------------------------- |
-| **Strengths**     | 17    | 8.1/10 avg | Leverage for growth and differentiation (S1–S7 + S8–S17 2026-04-20 refresh) |
-| **Weaknesses**    | 15    | 6.5/10 avg | Prioritize MCP development and quality controls (W1–W6 + W7–W15 2026-04-20 refresh) |
-| **Opportunities** | 14    | 8.3/10 avg | Pursue AI advancement and partnerships actively (O1–O6 + O7–O14 2026-04-20 refresh) |
-| **Threats**       | 15    | 6.7/10 avg | Mitigate LLM reliability and compliance risks (T1–T6 + T7–T15 2026-04-20 refresh) |
+| **Strengths**     | 22    | 8.2/10 avg | Leverage for growth and differentiation (S1–S7 + S8–S17 2026-04-20 + S18–S22 2026-05-06) |
+| **Weaknesses**    | 19    | 6.5/10 avg | Prioritize MCP reliability and stage-budget headroom (W1–W6 + W7–W15 + W16–W19 2026-05-06) |
+| **Opportunities** | 17    | 8.3/10 avg | Pursue AI advancement, long-horizon products, and triangulation (O1–O6 + O7–O14 + O15–O17 2026-05-06) |
+| **Threats**       | 18    | 6.7/10 avg | Mitigate gateway reliability, multilingual quality, and shell-safety drift (T1–T6 + T7–T15 + T16–T18 2026-05-06) |
 
 ### Key Strategic Insights
 
@@ -1488,6 +1580,7 @@ Comprehensive view of strategic position.
 
 | Version | Date       | Author | Changes                                                       |
 | ------- | ---------- | ------ | ------------------------------------------------------------- |
+| 1.3     | 2026-05-06 | CEO    | Full review: added 2026-05-06 refresh extending Strengths (S18–S22: deterministic aggregator, 60-artifact baseline, branded type safety, shell-safety enforcement, professional intelligence tradecraft), Weaknesses (W16–W19: EP MCP 1.3.0 fixed-window feeds, IMF probe degradation, 60-min single-session timeout, gateway keepalive), Opportunities (O15–O17: long-horizon political intelligence, IMF+Eurostat triangulation, real-time DOCEO votes), Threats (T16–T18: gateway reliability, 14-language quality consistency, shell-safety filter false positives); added TOWS Strategic Matrix and Political Intelligence Competitive Positioning sections; refreshed SWOT Summary Matrix counts (22S/19W/17O/18T) |
 | 1.2     | 2026-05-03 | CEO    | v0.8.54 Look-Ahead epic refresh: expanded to 14 article types (added quarter-ahead, quarter-in-review, year-ahead, year-in-review, term-outlook, election-cycle), 15 unified gh-aw workflows (14 article + translate), gh-aw pin v0.71.3, EP MCP 1.3.0, ISMS-PUBLIC policy footer added |
 | 1.1     | 2026-04-20 | CEO    | v0.8.40 state refresh: 1894 articles / 14 languages / 8 article types / 3061+ tests / 52 test files / dual economic context (WB+IMF) / AWS S3+CloudFront primary delivery / SLSA L3 + npm provenance / gh-aw 5-layer security model |
 | 1.0     | 2025-02-17 | CEO    | Initial SWOT analysis with comprehensive strategic assessment |
