@@ -157,7 +157,7 @@
     "husky": "9.1.7",
     "jscpd": "4.0.9",
     "knip": "^6.7.0",
-    "lint-staged": "16.4.0",
+    "lint-staged": "17.0.2",
     "mermaid": "11.14.0",
     "papaparse": "5.5.3",
     "prettier": "3.8.3",
