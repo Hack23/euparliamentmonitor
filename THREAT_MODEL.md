@@ -1655,6 +1655,85 @@ already secured)
 
 ---
 
+### Threat T-029: Shell Expansion Injection in Agentic Workflows
+
+| Attribute           | Value                                                                          |
+| ------------------- | ------------------------------------------------------------------------------ |
+| **Threat ID**       | T-029                                                                          |
+| **STRIDE Category** | Tampering, Elevation of Privilege                                              |
+| **MITRE ATT&CK**    | T1059.004 (Unix Shell), T1027 (Obfuscated Files/Information), T1546 (Event-Triggered Execution) |
+| **Threat Agent**    | Prompt-injection attacker (via EP debate text, IMF metadata, contributor PRs)  |
+| **Likelihood**      | Medium (3/5) — AI agents emit bash on every news-generation run                |
+| **Impact**          | High (4/5) — Arbitrary code execution inside the agentic sandbox               |
+| **Risk Score**      | High (12/25)                                                                   |
+| **Priority**        | P1                                                                             |
+
+**Description:** A prompt-injection payload embedded in untrusted upstream content (parliamentary debate text, IMF dataset descriptions, contributor PR diff content) coerces an AI agent (Copilot/Claude/Codex) into emitting bash that uses dangerous expansion patterns — `${var@P}` (parameter transformation re-eval), `${!var}` (indirect expansion), `${A:-${B:-$(cmd)}}` (nested default with command substitution), `eval "$str"`, or `$(cmd < $(inner))` (nested substitution with redirection). If the gh-aw shell-safety filter does not catch the pattern at parse time, or if a developer commits a hand-written `scripts/*.sh` that contains such a pattern, an attacker can pivot from injected content to arbitrary command execution inside the GitHub Actions runner — exfiltrating ephemeral tokens, modifying analysis artefacts before PR creation, or persisting via lock-file manipulation.
+
+**Existing Controls:**
+
+- ✅ **Drift-guard test** (`test/unit/shell-safety.test.js`) — recursively scans every `scripts/**.sh` file against 9 forbidden-pattern regexes (nested parameter expansion, indirect expansion, parameter transformation `@P/@Q/@E/@A/@K/@a`, nested command substitution, default-with-command-substitution, redirection inside `$()`, adjacent `${RANDOM}${RANDOM}`, `eval`). Runs in standard `npm run test` Vitest suite — gates every PR.
+- ✅ **Prompt-level rules** — `.github/prompts/00-scope-and-ground-rules.md §47` (short-form forbidden-pattern list, imported by every `news-<type>.md` workflow body) + `.github/prompts/08-infrastructure.md §177-181` (long-form safe-replacement idioms) + `.github/prompts/02-analysis-protocol.md §10` (mandates delegation to pre-audited `scripts/*.sh` helpers).
+- ✅ **gh-aw shell-safety filter** — sandbox-side parser rejects forbidden patterns at workflow execution time (defence-in-depth against patterns that escape the test suite).
+- ✅ **AWF Squid egress firewall** — even if RCE succeeds, outbound traffic is restricted to the upstream allowlist (no exfiltration to arbitrary hosts).
+- ✅ **Ephemeral GITHUB_TOKEN** — workflow-scoped, expires at job completion; least-privilege `permissions:` block per workflow.
+- ✅ **Safe-outputs constraints** — agent cannot push to protected branches; the only write path is `safeoutputs___create_pull_request` which lands a PR for review.
+
+**Attack Vectors:**
+
+1. **Prompt-injection via EP debate content** — hostile MEP debate text crafted to coerce the agent into emitting `${VAR@P}` or `eval $(curl ...)`.
+2. **Contributor PR with crafted `scripts/*.sh`** — committed shell helper containing forbidden patterns; relies on test suite catching at PR-time.
+3. **Workflow `.md` body editing** — direct injection into `.github/workflows/*.md` bash blocks; must pass the gh-aw compile step + lint.
+
+**Residual Risk:** Low-Medium — Three independent layers (test drift-guard + prompt rules + sandbox parser) + AWF egress containment. The dominant residual risk is a novel expansion pattern not covered by the regex set; mitigated by quarterly review of bash-injection literature and the gh-aw upstream filter rules.
+
+**Risk Treatment:** Mitigate — Maintain the drift-guard test as part of the `test/unit/` baseline; review prompt rules every release; subscribe to the gh-aw security advisory feed for new pattern disclosures.
+
+---
+
+### Threat T-030: MCP Gateway Impersonation & Safe-Outputs Constraint Escape
+
+| Attribute           | Value                                                                          |
+| ------------------- | ------------------------------------------------------------------------------ |
+| **Threat ID**       | T-030                                                                          |
+| **STRIDE Category** | Spoofing, Elevation of Privilege, Information Disclosure                       |
+| **MITRE ATT&CK**    | T1557 (Adversary-in-the-Middle), T1078 (Valid Accounts), T1199 (Trusted Relationship) |
+| **Threat Agent**    | Compromised dependency, malicious MCP server registration, Docker bridge attacker |
+| **Likelihood**      | Low (2/5) — Docker bridge is local-only, but supply-chain risk is real         |
+| **Impact**          | High (4/5) — Tampered analysis artefacts → flawed political-intelligence output |
+| **Risk Score**      | Medium (8/25)                                                                  |
+| **Priority**        | P2                                                                             |
+
+**Description:** Two related attack paths share the same trust-boundary surface:
+
+1. **MCP Gateway Impersonation** — a malicious process binds to `host.docker.internal:8080` (or to a port advertised in `/home/runner/.copilot/mcp-config.json`) and serves crafted responses to the European Parliament MCP, IMF fetch-proxy, or World Bank MCP endpoints. The agentic workflow consumes the poisoned data and writes plausible-looking but factually false analysis artefacts. Because the agent is gradient-corrected toward Economist-quality prose, the resulting articles would still pass Stage-C completeness gates while encoding the attacker's narrative.
+2. **Safe-Outputs Constraint Escape** — the safe-outputs subsystem enforces that the only way an agent can mutate the repository is via a constrained `create_pull_request` call (no direct push, no branch deletion, no protected-ref edits). An attacker who finds a parser bug in the safe-outputs validator, or who tampers with the compiled `.lock.yml` between compile and execute, could inject extra mutations (e.g. modifying `package-lock.json` to introduce a typosquat).
+
+**Existing Controls:**
+
+- ✅ **Local-only MCP transport** — `EP_MCP_GATEWAY_URL` defaults to `host.docker.internal:8080`. The Docker bridge is not reachable from outside the runner; impersonation requires a co-located malicious container.
+- ✅ **Auth-token extraction via `scripts/mcp-setup.sh`** — uses `node -e` JSON parsing, not shell expansion of untrusted JSON values; eliminates the class of "API key injected via shell metacharacter" attacks.
+- ✅ **180s MCP timeout** (`MCP_CLIENT_TIMEOUT_MS=180000`) — bounds the blast radius of a hung or slow-loris MCP impersonator.
+- ✅ **Drift-proofing tool list assertions** — `test/integration/mcp/imf-mcp.test.js`, `worldbank-mcp.test.js`, and `ep-mcp.test.js` assert that the tool catalogue exposed by each MCP server matches the canonical exports in `src/mcp/*-mcp-client.ts`. Any silent tool addition (a likely impersonation indicator) fails CI.
+- ✅ **Cross-source triangulation** — IMF + EP + World Bank are independent providers. Stage-C validators flag claims supported by only one source; the editorial IMF-primary policy means any economic claim must reconcile across IMF and the article narrative.
+- ✅ **Lock-file compilation** (`compile-agentic-workflows.yml`) — compiles `.github/workflows/*.md` to `.lock.yml` deterministically; PR diff review catches unexpected changes to the compiled artefact.
+- ✅ **Safe-outputs schema validation** — the agent's `create_pull_request` call payload is schema-validated; non-conforming mutations are rejected before reaching the GitHub API.
+- ✅ **`max-patch-size` cap** — limits how large a single safe-output PR can be, bounding the impact of a successful escape (T-025 covers the bypass attempt).
+- ✅ **OIDC for AWS / npm** — no long-lived deployment credentials accessible to a compromised MCP server.
+
+**Attack Vectors:**
+
+1. **Co-located malicious container** binding `host.docker.internal:8080` first (race condition with the legitimate MCP gateway). Mitigated by gh-aw startup sequencing + drift-proofing tool list checks.
+2. **Compromised `european-parliament-mcp-server` npm package** (T-002 / T-012 coverage). Pinned to `1.3.0` with provenance verification.
+3. **Parser bug in the safe-outputs validator** allowing extra fields. Mitigated by gh-aw upstream test coverage + lock-file diff review.
+4. **`.lock.yml` tampering between compile and execute** (T-024 coverage).
+
+**Residual Risk:** Low — Docker-bridge locality + drift-proofing + cross-source triangulation + safe-outputs schema together cap exploitability. Residual risk is dominated by undisclosed parser bugs in the gh-aw safe-outputs validator (out of repository control).
+
+**Risk Treatment:** Mitigate — Maintain drift-proofing tool list assertions; subscribe to gh-aw security advisories; quarterly review of `.lock.yml` diff patterns for anomalies.
+
+---
+
 ## 🏛️ European Parliament-Specific Threats
 
 ### **🇪🇺 Parliamentary Data Integrity Threats**
