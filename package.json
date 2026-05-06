@@ -33,6 +33,14 @@
     "./generators/*": {
       "import": "./scripts/generators/*.js",
       "types": "./scripts/generators/*.d.ts"
+    },
+    "./workflows": {
+      "import": "./scripts/workflows/index.js",
+      "types": "./scripts/workflows/index.d.ts"
+    },
+    "./workflows/*": {
+      "import": "./scripts/workflows/*.js",
+      "types": "./scripts/workflows/*.d.ts"
     }
   },
   "files": [

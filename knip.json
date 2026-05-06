@@ -11,6 +11,7 @@
     "src/aggregator/slug/index.ts",
     "src/aggregator/infra/github-urls.ts",
     "src/config/index.ts",
+    "src/workflows/index.ts",
     "scripts/backport-article-seo.js",
     "scripts/aggregator/forward-statements-registry.js",
     "test/**/*.test.js",
