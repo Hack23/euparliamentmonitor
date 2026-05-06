@@ -8,6 +8,8 @@
  * options used throughout the aggregator pipeline.
  */
 
+import type { CleanArtifactResult } from '../clean-artifact.js';
+
 /**
  * Represents raw artifact content read from an analysis run directory.
  * Carries the original Markdown body along with its provenance metadata.
@@ -22,22 +24,17 @@ export interface ArtifactContent {
 }
 
 /**
- * Represents cleaned artifact content after sanitization. The cleaning
- * process strips front-matter, banners, demotes headings, and rewrites links.
+ * A {@link CleanArtifactResult} extended with provenance (the run-relative
+ * path of the source artifact). Use this type when you need to track which
+ * artifact produced a given cleaned output — e.g. for telemetry or
+ * source-mapping in `article-meta.json`.
+ *
+ * `CleanArtifactResult` is the raw return of `cleanArtifact()`;
+ * `CleanedArtifactWithPath` adds the origin path for pipeline bookkeeping.
  */
-export interface CleanedArtifact {
+export interface CleanedArtifactWithPath extends CleanArtifactResult {
   /** Run-relative path of the source artifact. */
   readonly path: string;
-  /** Cleaned Markdown ready for aggregation. */
-  readonly markdown: string;
-  /** Number of H1 headings that were stripped. */
-  readonly strippedH1s: number;
-  /** Number of banner/metadata lines removed. */
-  readonly strippedBannerLines: number;
-  /** Number of operational metadata preamble lines removed. */
-  readonly strippedMetaLines: number;
-  /** Number of mermaid blocks deduplicated. */
-  readonly dedupedMermaidBlocks: number;
 }
 
 /**

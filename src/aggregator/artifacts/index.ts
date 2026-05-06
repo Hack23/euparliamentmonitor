@@ -7,7 +7,7 @@
  * Provides artifact ordering, sanitization, and type definitions.
  */
 
-export type { ArtifactContent, CleanedArtifact, ResolvedSection } from './types.js';
+export type { ArtifactContent, CleanedArtifactWithPath, ResolvedSection } from './types.js';
 
 export type { ArtifactSection } from '../artifact-order.js';
 export {
