@@ -311,15 +311,16 @@ classification ([CLASSIFICATION.md](CLASSIFICATION.md): Public/Medium/Medium).
 
 ### **📊 Key Findings**
 
-- **Total Threats Identified:** 28 (T-001 to T-028)
+- **Total Threats Identified:** 30 (T-001 to T-030)
 - **Risk Distribution:**
   - Critical: 0
-  - High: 0
-  - Medium: 3 (T-003, T-007, T-013 — P1 Priority)
+  - High: 1 (T-029 — shell expansion injection, P1)
+  - Medium: 4 (T-003, T-007, T-013, T-030 — P1/P2 Priority)
   - Low-Medium: 10 (Monitored with existing controls)
   - Low: 7 (Managed with existing controls)
-  - 2026-04-20 refresh: 8 new threats (T-021…T-028) covering LLM/agentic, OIDC, and toolchain risks
-- **Primary Security Focus:** Data integrity, supply chain security, information manipulation
+  - 2026-04-20 refresh: 8 threats (T-021…T-028) covering LLM/agentic, OIDC, and toolchain risks
+  - 2026-05-06 refresh: 2 threats (T-029, T-030) covering shell-safety bypass and MCP gateway impersonation
+- **Primary Security Focus:** Data integrity, supply chain security, information manipulation, agentic workflow sandboxing
 - **Defense Posture:** Multi-layer defense-in-depth with 30+ security controls
 - **ENISA Alignment:** 7/7 ENISA TL 2024 threat categories mapped
 - **ATT&CK Coverage:** 18 techniques across 9 tactics
@@ -2445,7 +2446,7 @@ with parliamentary adaptations:
 | T-006     | MCP Server Compromise           | Low         | P4       | Accept     | Annual Review    | Security Team |
 | T-016     | Automated Bot Abuse             | Low         | P4       | Accept     | Monitor          | DevOps Team   |
 
-#### **Risk Matrix (20 Threats)**
+#### **Risk Matrix (30 Threats)**
 
 ```
       │ V.Low (1)  │  Low (2)       │  Med (3)       │  High (4)          │ Crit (5)
@@ -2629,7 +2630,7 @@ requirements (5-strategy integration, ENISA TL 2024, Kill Chain, Quantitative Ri
 
 | Metric                       | Value                       | Status                                       |
 | ---------------------------- | --------------------------- | -------------------------------------------- |
-| **Total Threats Identified** | 20                          | ✅ Documented (T-001 to T-020)               |
+| **Total Threats Identified** | 30                          | ✅ Documented (T-001 to T-030)               |
 | **MITRE ATT&CK Coverage**    | 2.3% (18/793 techniques)    | ✅ Appropriate for static site               |
 | **Security Controls**        | 30+                         | ✅ Implemented                               |
 | **Defense Layers**           | 8 (Perimeter to Isolation)  | ✅ Complete                                  |
@@ -2639,10 +2640,10 @@ requirements (5-strategy integration, ENISA TL 2024, Kill Chain, Quantitative Ri
 | **Threat Agent Profiles**    | 5 detailed + 1 summary      | ✅ Comprehensive classification              |
 | **Misuse Cases**             | 6 scenarios                 | ✅ Scenario-Centric analysis                 |
 | **Compliance Frameworks**    | 3 (ISO 27001, NIST, CIS)   | ✅ Full mapping                              |
-| **Document Lines**           | 2200+                       | ✅ Comprehensive (matching Hack23 standards) |
+| **Document Lines**           | 2700+                       | ✅ Comprehensive (matching Hack23 standards) |
 | **Maturity Level**           | Level 2 (In Progress)       | 🔄 Advancing to Level 3                      |
-| **P1 Threats**               | 3 (T-003, T-007, T-013)    | ⚠️ Requires action by Q3 2026                |
-| **Risk Distribution**        | 3 Medium, 10 Low-Med, 7 Low | ✅ Acceptable risk profile                   |
+| **P1 Threats**               | 4 (T-003, T-007, T-013, T-029) | ⚠️ Requires action by Q3 2026             |
+| **Risk Distribution**        | 1 High, 4 Medium, 10 Low-Med, 7 Low | ✅ Acceptable risk profile            |
 
 ### **🎯 Success Criteria**
 
