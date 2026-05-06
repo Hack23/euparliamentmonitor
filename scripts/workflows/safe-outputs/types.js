@@ -18,9 +18,7 @@ export const FORBIDDEN_PHRASES = [
  * Forbidden tool references in workflow files.
  * push_repo_memory is not allowed in any news-*.md workflow.
  */
-export const FORBIDDEN_TOOL_REFS = [
-    'safeoutputs___push_repo_memory',
-];
+export const FORBIDDEN_TOOL_REFS = ['safeoutputs___push_repo_memory'];
 // ─── Default Constraints by Slug Type ────────────────────────────────────────
 /**
  * Default safe-outputs timing constraints for standard article slugs.

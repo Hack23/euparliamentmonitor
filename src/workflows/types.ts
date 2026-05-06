@@ -15,37 +15,48 @@
  * When EP/IMF/WB data sources are partially unavailable, the manifest records
  * a degraded mode so downstream validators can adjust thresholds proportionally.
  */
-export type DataMode =
-  | 'full'
-  | 'title-only'
-  | 'degraded-imf'
-  | 'degraded-voting'
-  | 'minimal';
+export type DataMode = 'full' | 'title-only' | 'degraded-imf' | 'degraded-voting' | 'minimal';
 
 /**
  * Reduction factors applied to line-floor thresholds per data mode.
  * Structural checks (mermaid, WEP, Admiralty, SATs) are never reduced.
  */
 export const DATA_MODE_REDUCTION: Readonly<Record<DataMode, number>> = {
-  'full': 1.0,
+  full: 1.0,
   'title-only': 0.75,
   'degraded-imf': 0.85,
   'degraded-voting': 0.85,
-  'minimal': 0.65,
+  minimal: 0.65,
 };
 
 // ─── Stage Gate Results ──────────────────────────────────────────────────────
 
-/** Stage C gate verdict — GREEN means pass, RED means blocking violations. */
-export type GateVerdict = 'GREEN' | 'RED';
+/**
+ * Stage C gate verdict emitted to the `STAGE_C_GATE:` stdout line.
+ * Downstream tooling parses only `GREEN` (proceed to Stage D) and `RED` (block).
+ */
+export type StageCVerdict = 'GREEN' | 'RED';
+
+/**
+ * Full manifest `gateResult` union, as stored in `manifest.history[].gateResult`
+ * and read back by `src/utils/file-utils.ts#readLatestGateResult`.
+ *
+ * - `GREEN`              — Stage C passed; article generation proceeds.
+ * - `GREEN_WITH_WARNINGS` — Stage C passed with non-blocking warnings.
+ * - `ANALYSIS_ONLY`      — Analysis written but article generation skipped.
+ * - `PENDING`            — Default/sentinel before Stage C completes.
+ * - `RED`                — Stage C failed; article generation blocked.
+ */
+export type GateVerdict = 'GREEN' | 'GREEN_WITH_WARNINGS' | 'ANALYSIS_ONLY' | 'PENDING' | 'RED';
 
 /**
  * Structured result emitted by the Stage C completeness validator.
  * Corresponds to the `STAGE_C_GATE:` output line parsed by downstream tooling.
+ * The `verdict` field here is narrowed to `StageCVerdict` (GREEN | RED only).
  */
 export interface StageGateResult {
   /** The final verdict: GREEN (pass) or RED (fail). */
-  readonly verdict: GateVerdict;
+  readonly verdict: StageCVerdict;
   /** The article type slug resolved from the manifest. */
   readonly articleType: string;
   /** Total number of mandatory artifacts validated. */
@@ -108,15 +119,18 @@ export type PipelineStage =
 
 /**
  * Stage metadata recorded in manifest.history[] entries.
+ * Field names align with {@link AnalysisManifestHistoryEntry} in
+ * `src/utils/file-utils.ts` — uses `finishedAt` (not `completedAt`) and
+ * the full {@link GateVerdict} union (not just GREEN | RED).
  */
 export interface StageHistoryEntry {
   /** Which pipeline stage this entry describes. */
   readonly stage: PipelineStage;
   /** ISO 8601 timestamp when the stage started. */
   readonly startedAt: string;
-  /** ISO 8601 timestamp when the stage completed (absent if in-progress). */
-  readonly completedAt?: string;
-  /** Stage C gate result (only present for stage C). */
+  /** ISO 8601 timestamp when the stage finished (absent if in-progress). */
+  readonly finishedAt?: string;
+  /** Stage C gate result (only present for stage C). Full union per manifest spec. */
   readonly gateResult?: GateVerdict;
   /** Summary text for audit logging. */
   readonly summary?: string;

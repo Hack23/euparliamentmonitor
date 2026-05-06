@@ -44,8 +44,7 @@ export const PLACEHOLDER_PATTERNS: readonly RegExp[] = [
  * placeholder scanning is suppressed (the artifact is itself a template
  * instruction doc that legitimately contains placeholder examples).
  */
-export const META_DOC_HINT_RE =
-  /(template-instructions|placeholder reference|TODO list of)/i;
+export const META_DOC_HINT_RE = /(template-instructions|placeholder reference|TODO list of)/i;
 
 // ─── Content Quality Patterns ────────────────────────────────────────────────
 
@@ -90,8 +89,7 @@ export const MCP_TOOL_RE =
  * IMF Source field in structured evidence table.
  * Used to verify economic-context artifacts cite IMF as primary source.
  */
-export const IMF_SOURCE_FIELD_RE =
-  /^\|\s*\*\*IMF Source\*\*\s*\|\s*`?([^`|\]]+?)`?\s*\|/im;
+export const IMF_SOURCE_FIELD_RE = /^\|\s*\*\*IMF Source\*\*\s*\|\s*`?([^`|\]]+?)`?\s*\|/im;
 
 /**
  * IMF numeric claim proximity pattern — detects "IMF" within 160 chars
@@ -121,8 +119,7 @@ export const WB_ECONOMIC_CLAIM_RE =
  * Pattern for structural-break / regime-change content required in
  * scenario-forecast.md when horizonMonths ≥ LONG_HORIZON_THRESHOLD_MONTHS.
  */
-export const STRUCTURAL_BREAK_RE =
-  /\b(structural[- ]break|regime[- ]change|regime[- ]shift)\b/i;
+export const STRUCTURAL_BREAK_RE = /\b(structural[- ]break|regime[- ]change|regime[- ]shift)\b/i;
 
 // ─── Directory Classification ────────────────────────────────────────────────
 

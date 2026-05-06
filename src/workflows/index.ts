@@ -20,6 +20,7 @@
 export type {
   DataMode,
   GateVerdict,
+  StageCVerdict,
   StageGateResult,
   IssueSeverity,
   ValidationIssue,

@@ -5,10 +5,10 @@
  * Structural checks (mermaid, WEP, Admiralty, SATs) are never reduced.
  */
 export const DATA_MODE_REDUCTION = {
-    'full': 1.0,
+    full: 1.0,
     'title-only': 0.75,
     'degraded-imf': 0.85,
     'degraded-voting': 0.85,
-    'minimal': 0.65,
+    minimal: 0.65,
 };
 //# sourceMappingURL=types.js.map

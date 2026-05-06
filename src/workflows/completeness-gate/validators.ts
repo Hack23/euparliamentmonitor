@@ -108,8 +108,9 @@ export function countSatBullets(content: string): number {
 }
 
 /**
- * Check if content contains evidence of source diversity (MCP tool references
- * or structured evidence table rows).
+ * Check if content contains evidence of source diversity via MCP tool references
+ * or a structured evidence/source table with header, separator, and at least one
+ * data row (stricter check — single table rows are not sufficient).
  *
  * @param content - The full text content of an artifact
  * @returns true if source diversity evidence is present
@@ -119,8 +120,13 @@ export function hasSourceDiversityEvidence(content: string): boolean {
   if (MCP_TOOL_RE.test(content)) {
     return true;
   }
-  // Check for structured evidence table rows (| Source | ... pattern)
-  if (/^\|[^|]+\|[^|]+\|/m.test(content)) {
+  // Check for a structured evidence table: requires header row with Source/Evidence/Reference,
+  // a separator row (---|---), and at least one data row. This prevents plain prose
+  // markdown tables from being counted as source diversity.
+  if (
+    /^\|[^|]*(?:Source|Evidence|Reference)[^|]*\|/im.test(content) &&
+    /^\|[-: |]+\|/m.test(content)
+  ) {
     return true;
   }
   return false;
@@ -144,7 +150,7 @@ export function hasImfFigureClaim(content: string): boolean {
  */
 export function findWbEconomicIndicator(content: string): string | null {
   const match = content.match(WB_ECONOMIC_INDICATOR_CODE_RE);
-  return match ? match[1] ?? null : null;
+  return match ? (match[1] ?? null) : null;
 }
 
 /**
@@ -173,10 +179,12 @@ export function computeEffectiveMinLines(
   relativePath: string,
   rules: ValidationRules,
   dataModeReduction: number,
-  explicitMinLines?: number,
+  explicitMinLines?: number
 ): number {
   const baseFloor = rules.minLines?.[relativePath] ?? rules.defaultMinLines ?? DEFAULT_MIN_LINES;
-  const reduced = Math.ceil(baseFloor * dataModeReduction);
+  // Use Math.floor to match scripts/validate-analysis-completeness.js behavior.
+  // Clamp to at least 1 so every artifact has a meaningful floor even in minimal mode.
+  const reduced = Math.max(1, Math.floor(baseFloor * dataModeReduction));
 
   // CLI --min-lines only raises, never lowers
   if (explicitMinLines !== undefined && explicitMinLines > reduced) {

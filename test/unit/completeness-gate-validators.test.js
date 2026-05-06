@@ -171,8 +171,20 @@ describe('completeness-gate/validators', () => {
       expect(hasSourceDiversityEvidence('analyze_voting_patterns revealed...')).toBe(true);
     });
 
-    it('should detect structured evidence table', () => {
-      expect(hasSourceDiversityEvidence('| Source | Date | Finding |')).toBe(true);
+    it('should detect structured evidence table with Source header and separator', () => {
+      const tableContent =
+        '| Source | Date | Finding |\n|--------|------|----------|\n| IMF WEO | 2026 | GDP 1.1% |';
+      expect(hasSourceDiversityEvidence(tableContent)).toBe(true);
+    });
+
+    it('should reject a table without Source/Evidence/Reference header', () => {
+      // A plain markdown table without the required header keywords is not evidence
+      expect(hasSourceDiversityEvidence('| Country | Year | Value |\n|---------|------|-------|\n| DE | 2025 | 5 |')).toBe(false);
+    });
+
+    it('should reject a single table row without header', () => {
+      // A lone pipe-row with no header is not sufficient
+      expect(hasSourceDiversityEvidence('| Some | Data | Here |')).toBe(false);
     });
 
     it('should return false without evidence', () => {
@@ -236,8 +248,17 @@ describe('completeness-gate/validators', () => {
       expect(computeEffectiveMinLines('intelligence/unknown.md', rules, 1.0)).toBe(30);
     });
 
-    it('should apply data-mode reduction', () => {
+    it('should apply data-mode reduction (uses Math.floor, not Math.ceil)', () => {
+      // 80 * 0.75 = 60.0 → floor = 60
       expect(computeEffectiveMinLines('intelligence/synthesis-summary.md', rules, 0.75)).toBe(60);
+      // 30 * 0.75 = 22.5 → floor = 22 (not Math.ceil = 23)
+      expect(computeEffectiveMinLines('intelligence/unknown.md', rules, 0.75)).toBe(22);
+    });
+
+    it('should clamp to at least 1 in minimal mode', () => {
+      const narrowRules = { defaultMinLines: 1 };
+      // 1 * 0.65 = 0.65 → floor = 0, clamped to 1
+      expect(computeEffectiveMinLines('any.md', narrowRules, 0.65)).toBe(1);
     });
 
     it('should use explicit minLines when higher', () => {

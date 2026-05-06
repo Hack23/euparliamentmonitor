@@ -1,44 +1,60 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 /**
- * Complete set of shell safety rules enforced in agentic workflow scripts.
+ * Full set of shell safety rules enforced in agentic workflow scripts.
  * Each rule corresponds to a pattern that the sandbox shell-safety filter blocks.
+ * IDs and regexes are aligned with the drift-guard in test/unit/shell-safety.test.js.
  */
 export const SHELL_SAFETY_RULES = [
     {
-        id: 'nested-param-expansion',
-        description: 'Nested parameter expansion (inner expansion becomes outer pattern)',
-        pattern: /\$\{[^}]*\$\{/,
+        id: 'nested-parameter-expansion',
+        description: 'Nested parameter expansion like `${var#${other}}` or `${A:-${B:-}}`',
+        pattern: /\$\{[^{}]*\$\{/u,
         rationale: 'Inner expansion result becomes part of the outer pattern — classic prompt-injection vector.',
     },
     {
         id: 'indirect-expansion',
-        description: 'Indirect variable expansion (${!var})',
-        pattern: /\$\{![a-zA-Z_]/,
+        description: 'Indirect expansion `${!var}`',
+        pattern: /\$\{![A-Za-z_]/u,
         rationale: 'Reads arbitrary variables by name — information leak vector.',
     },
     {
         id: 'parameter-transformation',
-        description: 'Parameter transformation operators (${var@P}, ${var@Q}, etc)',
-        pattern: /\$\{[^}]+@[PQEAKa]\}/,
+        description: 'Parameter transformation `${var@P/Q/E/A/K/a}`',
+        pattern: /\$\{[A-Za-z_][A-Za-z_0-9]*@[PQEAKa]\}/u,
         rationale: '@P re-evaluates as a prompt; others leak state.',
     },
     {
         id: 'nested-command-substitution',
-        description: 'Nested command substitution ($(cmd $(inner)))',
-        pattern: /\$\([^)]*\$\(/,
+        description: 'Nested command substitution `$(cmd $(inner))`',
+        pattern: /\$\([^()]*\$\(/u,
         rationale: 'Inner $() executes under the outer — command injection vector.',
     },
     {
-        id: 'default-with-command-sub',
-        description: 'Default/alternate with command substitution (${VAR:-$(cmd)})',
-        pattern: /\$\{[^}]*:-\s*\$\(/,
-        rationale: 'Default expression is a live command — same risk as nested $().',
+        id: 'default-with-command-substitution',
+        description: 'Default/alternate/assign/error with command substitution `${VAR:-$(cmd)}`, `${VAR:+$(cmd)}`, etc.',
+        pattern: /\$\{[A-Za-z_][A-Za-z_0-9]*:[-=+?]\$\(/u,
+        rationale: 'The parameter-expansion operator combines with command substitution — same risk as nested $().',
     },
     {
-        id: 'eval-usage',
-        description: 'Use of eval (explicit arbitrary code execution)',
-        pattern: /\beval\s/,
+        id: 'redirection-in-command-substitution',
+        description: 'Input/output redirection inside `$()` — e.g. `$(cmd < file)` or `$(cmd <"$file")`',
+        // Matches a `$(` … `<` sequence on a single line where `<` is a single-char
+        // redirection operator. Excludes `<<`/`<<<` (here-doc), `<(...)` (process
+        // substitution), and `<=` (comparison).
+        pattern: /\$\([^()]*(?:^|\s|[0-9])<(?![<(=])/u,
+        rationale: 'Redirection inside $() can read arbitrary files at agent runtime — file-exfiltration vector.',
+    },
+    {
+        id: 'adjacent-random',
+        description: 'Adjacent `${RANDOM}${RANDOM}` — adjacency heuristic trips nested-expansion detection',
+        pattern: /\$\{RANDOM\}\$\{RANDOM\}/u,
+        rationale: 'The adjacency pattern triggers the sandbox nested-expansion heuristic.',
+    },
+    {
+        id: 'eval',
+        description: 'Use of `eval` builtin',
+        pattern: /(^|[\s;&|])eval\s/u,
         rationale: 'Explicit arbitrary-code execution primitive.',
     },
 ];
@@ -54,24 +70,28 @@ export const SHELL_SAFETY_RULES = [
 export function stripCommentLines(content) {
     return content
         .split('\n')
-        .filter((line) => !/^\s*#/.test(line))
+        .filter((line) => !/^\s*#/u.test(line))
         .join('\n');
 }
 /**
  * Validate shell script content against all shell safety rules.
- * Returns an array of violations found (empty = clean).
+ * Accepts raw shell content — comment-only lines are automatically skipped
+ * during scanning so reported line numbers match the original file.
  *
- * @param content - Shell script content (comments should be pre-stripped)
+ * @param content - Raw shell script content (comment lines will be skipped automatically)
  * @returns array of rule violations with line context
  */
 export function validateShellSafety(content) {
-    const strippedContent = stripCommentLines(content);
-    const lines = strippedContent.split('\n');
+    const lines = content.split('\n');
     const violations = [];
     for (const rule of SHELL_SAFETY_RULES) {
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i];
-            if (line !== undefined && rule.pattern.test(line)) {
+            // Skip whole-line comments — they describe patterns without executing them
+            if (line === undefined || /^\s*#/u.test(line)) {
+                continue;
+            }
+            if (rule.pattern.test(line)) {
                 violations.push({
                     ruleId: rule.id,
                     description: rule.description,

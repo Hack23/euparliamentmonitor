@@ -310,8 +310,6 @@ graph TD
     class J,K,L,M,N output
 ```
 
-#### Common Agentic Workflow Properties
-
 #### Bounded Context Architecture (TypeScript Modules)
 
 The workflow support logic is organized into bounded contexts under `src/workflows/`:

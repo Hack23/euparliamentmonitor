@@ -10,8 +10,20 @@ import {
 
 describe('infrastructure/shell-safety', () => {
   describe('SHELL_SAFETY_RULES', () => {
-    it('should contain at least 6 rules', () => {
-      expect(SHELL_SAFETY_RULES.length).toBeGreaterThanOrEqual(6);
+    it('should contain all 8 rules (aligned with drift-guard)', () => {
+      expect(SHELL_SAFETY_RULES.length).toBe(8);
+    });
+
+    it('should include all expected rule IDs', () => {
+      const ids = SHELL_SAFETY_RULES.map((r) => r.id);
+      expect(ids).toContain('nested-parameter-expansion');
+      expect(ids).toContain('indirect-expansion');
+      expect(ids).toContain('parameter-transformation');
+      expect(ids).toContain('nested-command-substitution');
+      expect(ids).toContain('default-with-command-substitution');
+      expect(ids).toContain('redirection-in-command-substitution');
+      expect(ids).toContain('adjacent-random');
+      expect(ids).toContain('eval');
     });
 
     it('should have unique rule IDs', () => {
@@ -51,7 +63,7 @@ describe('infrastructure/shell-safety', () => {
       const content = 'FOO=${var#${other}}';
       const violations = validateShellSafety(content);
       expect(violations.length).toBeGreaterThan(0);
-      expect(violations[0].ruleId).toBe('nested-param-expansion');
+      expect(violations[0].ruleId).toBe('nested-parameter-expansion');
     });
 
     it('should detect indirect expansion', () => {
@@ -75,18 +87,39 @@ describe('infrastructure/shell-safety', () => {
       expect(violations[0].ruleId).toBe('nested-command-substitution');
     });
 
-    it('should detect default with command substitution', () => {
+    it('should detect default with command substitution (:-)', () => {
       const content = 'VAR=${X:-$(date +%s)}';
       const violations = validateShellSafety(content);
       expect(violations.length).toBeGreaterThan(0);
-      expect(violations[0].ruleId).toBe('default-with-command-sub');
+      expect(violations[0].ruleId).toBe('default-with-command-substitution');
+    });
+
+    it('should detect alternate with command substitution (:+)', () => {
+      const content = 'OUT=${DEBUG:+$(logger debug)}';
+      const violations = validateShellSafety(content);
+      expect(violations.length).toBeGreaterThan(0);
+      expect(violations[0].ruleId).toBe('default-with-command-substitution');
+    });
+
+    it('should detect redirection inside command substitution', () => {
+      const content = 'result=$(cat < "$file")';
+      const violations = validateShellSafety(content);
+      expect(violations.length).toBeGreaterThan(0);
+      expect(violations[0].ruleId).toBe('redirection-in-command-substitution');
+    });
+
+    it('should detect adjacent RANDOM expansion', () => {
+      const content = 'suffix=${RANDOM}${RANDOM}';
+      const violations = validateShellSafety(content);
+      expect(violations.length).toBeGreaterThan(0);
+      expect(violations[0].ruleId).toBe('adjacent-random');
     });
 
     it('should detect eval usage', () => {
       const content = 'eval "$cmd"';
       const violations = validateShellSafety(content);
       expect(violations.length).toBeGreaterThan(0);
-      expect(violations[0].ruleId).toBe('eval-usage');
+      expect(violations[0].ruleId).toBe('eval');
     });
 
     it('should return empty array for safe shell code', () => {
@@ -102,16 +135,28 @@ describe('infrastructure/shell-safety', () => {
       expect(violations).toHaveLength(0);
     });
 
-    it('should skip comment lines', () => {
+    it('should skip comment lines without altering line numbers', () => {
+      // Line 1: comment describing a forbidden pattern (safe)
+      // Line 2: actual safe code
       const content = '# This is safe: ${!var} because it is a comment\necho ok';
       const violations = validateShellSafety(content);
       expect(violations).toHaveLength(0);
     });
 
-    it('should include line numbers in violations', () => {
+    it('should report accurate original line numbers (not stripped-content line numbers)', () => {
+      // Lines 1-2 are comments, violation is on line 3
+      const content = '# comment line 1\n# comment line 2\neval "$dangerous"';
+      const violations = validateShellSafety(content);
+      expect(violations.length).toBeGreaterThan(0);
+      // Line number should be 3 (the original line), not 1 (what it would be after stripping)
+      expect(violations[0].lineNumber).toBe(3);
+    });
+
+    it('should report correct line number without leading comments', () => {
       const content = 'echo ok\neval "$dangerous"';
       const violations = validateShellSafety(content);
       expect(violations[0].lineNumber).toBe(2);
     });
   });
 });
+

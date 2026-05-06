@@ -7,8 +7,4 @@
  */
 
 export type { ShellSafetyRule, ShellSafetyViolation } from './shell-safety.js';
-export {
-  SHELL_SAFETY_RULES,
-  stripCommentLines,
-  validateShellSafety,
-} from './shell-safety.js';
+export { SHELL_SAFETY_RULES, stripCommentLines, validateShellSafety } from './shell-safety.js';
