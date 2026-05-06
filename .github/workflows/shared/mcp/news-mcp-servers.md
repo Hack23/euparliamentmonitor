@@ -37,7 +37,7 @@ It mounts the five MCP servers every article-generating workflow needs:
 
 | Server | Version | Purpose |
 |---|---|---|
-| `european-parliament` | `european-parliament-mcp-server@1.3.0` | 62 EP tools (see `.github/prompts/07-mcp-reference.md`) |
+| `european-parliament` | `european-parliament-mcp-server@1.3.0` | 63 EP tools (see `.github/prompts/07-mcp-reference.md`) |
 | `world-bank` | `worldbank-mcp@1.0.1` | **Non-economic** indicators — health, education, social, environment, demographics, defence (military expenditure), agriculture, innovation, governance (WGI). |
 | `fetch-proxy` | inline Node.js MCP server | IMF-only HTTPS fetch proxy — bypasses AWF Squid proxy for `dataservices.imf.org/REST/SDMX_3.0/` calls. Exposes `fetch_url` tool. |
 | `memory` | `@modelcontextprotocol/server-memory` | Run-scoped scratch memory |

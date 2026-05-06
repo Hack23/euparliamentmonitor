@@ -23,7 +23,7 @@ analysis pipeline. See:
 4. MUST sanitize data before rendering in HTML
 5. MUST handle rate limiting and retry with exponential backoff
 
-### European Parliament MCP Server Tools (62 tools)
+### European Parliament MCP Server Tools (63 tools)
 
 #### MEP Tools (7)
 | Tool | Purpose | Key Parameters |
@@ -48,6 +48,7 @@ analysis pipeline. See:
 | `get_meeting_plenary_session_documents` | Get session documents for a meeting | `sittingId`, `limit` |
 | `get_meeting_plenary_session_document_items` | Get session document items for a meeting | `sittingId`, `limit` |
 | `get_voting_records` | Get voting records | `sessionId`, `mepId`, `topic`, `limit` |
+| `get_latest_votes` | DOCEO-backed near-realtime vote records (`dataFreshness: NEAR_REALTIME`) | `limit`, `offset` |
 
 #### Committee Tools (2)
 | Tool | Purpose | Key Parameters |

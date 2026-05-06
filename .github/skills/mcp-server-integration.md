@@ -87,7 +87,7 @@ tools: []
 
 ### European Parliament MCP Server
 
-**Version**: `european-parliament-mcp-server@1.3.0` | **Tools**: 62 | **Source**: `src/mcp/ep-mcp-client.ts`
+**Version**: `european-parliament-mcp-server@1.3.0` | **Tools**: 63 | **Source**: `src/mcp/ep-mcp-client.ts`
 
 #### AWF Workflow Configuration (gh-aw frontmatter)
 
@@ -128,7 +128,7 @@ source scripts/mcp-setup.sh
 }
 ```
 
-**62 Available Tools** — see `.github/skills/european-parliament-data.md` for the full catalog.
+**63 Available Tools** — see `.github/skills/european-parliament-data.md` for the full catalog.
 
 ### Filesystem MCP Server
 
