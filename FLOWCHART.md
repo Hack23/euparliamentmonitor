@@ -195,13 +195,11 @@ The Stage-C completeness gate is enforced by [`scripts/validate-analysis-complet
 
 ```mermaid
 flowchart TD
-    Start["🟢 Stage-C entry\nrun directory:\nanalysis/daily/&lt;date&gt;/&lt;type&gt;-run&lt;NN&gt;/"] --> ReadManifest["📖 Read manifest.json\n• articleType\n• files.* (mandatory set)\n• dataMode (optional)"]
+    Start["🟢 Stage-C entry\nrun directory:\nanalysis/daily/&lt;date&gt;/&lt;type&gt;/\n(or &lt;type&gt;-run&lt;NN&gt;/ for collision re-runs)"] --> ReadManifest["📖 Read manifest.json\n• articleType / article_type\n• files.* (agent-declared artifacts)\n• dataMode (optional)"]
 
-    ReadManifest --> ResolveType{"resolveArticleTypeFromManifest()\n3-variant schema"}
-    ResolveType -->|"articleType (canonical)"| LoadFloors
-    ResolveType -->|"articleTypes[] (legacy)"| LoadFloors
-    ResolveType -->|"runType (legacy)"| LoadFloors
-    ResolveType -->|"unresolved"| Abort["❌ RED: Cannot resolve articleType"]
+    ReadManifest --> ResolveType{"Read manifest.articleType\n(or manifest.article_type)"}
+    ResolveType -->|"resolved"| LoadFloors
+    ResolveType -->|"both absent → 'unknown'"| Abort["❌ RED: Cannot resolve articleType\n(stdout: STAGE_C_GATE: RED)"]
 
     LoadFloors["📐 Load thresholds.&lt;articleType&gt;\nfrom reference-quality-thresholds.json"] --> ApplyDataMode{"manifest.dataMode\nset?"}
 
@@ -211,37 +209,42 @@ flowchart TD
     ApplyDataMode -->|"degraded-voting"| Factor085b["factor = 0.85"]
     ApplyDataMode -->|"minimal"| Factor065["factor = 0.65"]
 
-    Factor1 --> WalkFiles
-    Factor075 --> WalkFiles
-    Factor085a --> WalkFiles
-    Factor085b --> WalkFiles
-    Factor065 --> WalkFiles
+    Factor1 --> BuildMandatory
+    Factor075 --> BuildMandatory
+    Factor085a --> BuildMandatory
+    Factor085b --> BuildMandatory
+    Factor065 --> BuildMandatory
 
-    WalkFiles["🔍 Walk manifest.files[]\n(mandatory artifact set)"] --> ForEach{"For each artifact"}
+    BuildMandatory["🔍 Build mandatory artifact list:\narticle-horizons registry mandatoryArtifacts[]\n∪ manifest.files.* entries\n(registry is source of truth when slug known)"] --> ForEach{"For each mandatory artifact"}
 
-    ForEach --> CountLines["📏 Count lines"]
-    CountLines --> CompareFloor{"lines ≥ floor × factor?"}
+    ForEach --> CountLines["📏 Count lines\n(effective floor = max(perArtifact, defaultMinLines) × factor)"]
+    CountLines --> CompareFloor{"lines ≥ effective floor?"}
     CompareFloor -->|"❌ below"| RedIssue["🔴 RED issue\nblocks PR creation"]
-    CompareFloor -->|"✅ at/above"| StructCheck{"Structural requirements\n(mermaid, reader-block,\nrequired sections,\nlong-horizon scenarios)"}
+    CompareFloor -->|"✅ at/above"| StructCheck{"Always-blocking structural checks\n(mermaid, requiredSections,\nlong-horizon scenario gate ≥6)"}
 
     StructCheck -->|"❌ missing"| RedIssue
-    StructCheck -->|"✅ pass"| EconomicCheck{"intelligence/economic-context.md\nuses IMF as primary?"}
+    StructCheck -->|"✅ pass"| TradecraftCheck{"Tradecraft signals\n(WEP / Admiralty / ICD-203 BLUF / SATs ≥10)"}
 
-    EconomicCheck -->|"❌ World Bank econ codes detected"| RedIssue
-    EconomicCheck -->|"✅ IMF primary"| TradecraftCheck{"Tradecraft signals\n(WEP / Admiralty / ICD-203 / SATs)"}
+    TradecraftCheck -->|"❌ missing"| RedTradecraft["🔴 RED issue\n(wep:missing / admiralty:missing /\nbluf:missing / sat:&lt;N&gt;&lt;10)"]
+    TradecraftCheck -->|"✅ present"| WarnCheck{"Warn-level structural checks\n(reader-block, source-diversity)\n[RED only under --strict]"}
 
-    TradecraftCheck -->|"⚠️ missing"| AmberSignal["🟡 Pass-2 review reminder\n(non-blocking)"]
-    TradecraftCheck -->|"✅ present"| OnDiskOrphans
+    WarnCheck -->|"missing (default)"| AmberSignal["🟡 WARN\n(non-blocking unless --strict)"]
+    WarnCheck -->|"✅ present"| EconomicCheck
 
-    OnDiskOrphans["🔍 Scan run dir for files\n*not* listed in manifest.files"] --> Orphan{"orphan artifacts?"}
+    AmberSignal --> EconomicCheck{"intelligence/economic-context.md\nuses IMF as primary?"}
+
+    EconomicCheck -->|"❌ WB econ codes or\nimf-source:knowledge-only"| RedIssue
+    EconomicCheck -->|"✅ IMF primary"| OnDiskOrphans
+
+    OnDiskOrphans["🔍 Scan run dir for files\n*not* in mandatory set"] --> Orphan{"orphan artifacts?"}
     Orphan -->|"yes"| WarnOrphan["⚠️ WARN orphan\n(non-blocking)"]
     Orphan -->|"no"| AggregateGate
 
-    AmberSignal --> AggregateGate
+    RedTradecraft --> AggregateGate
     WarnOrphan --> AggregateGate
 
-    AggregateGate{"🟢 GREEN gate?\n(0 RED issues)"} -->|"❌ any RED"| Block["🚫 Block Stage-D PR creation\n• Append history[].gateResult = RED\n• Trigger Pass-2 rewrite"]
-    AggregateGate -->|"✅ no RED"| GoStageD["✅ GREEN — proceed to Stage D\nappend history[].gateResult = GREEN\n(or ANALYSIS_ONLY for analysis-only runs)"]
+    AggregateGate{"🟢 GREEN gate?\n(0 RED issues)"} -->|"❌ any RED"| Block["🚫 Stdout: STAGE_C_GATE: RED\n(validator does NOT mutate manifest;\nmanifest gateResult stays PENDING\nuntil agent appends GREEN/\nGREEN_WITH_WARNINGS/ANALYSIS_ONLY)"]
+    AggregateGate -->|"✅ no RED"| GoStageD["✅ Stdout: STAGE_C_GATE: GREEN\n→ Agent appends history[].gateResult =\nGREEN / GREEN_WITH_WARNINGS / ANALYSIS_ONLY"]
 
     classDef startNode fill:#4CAF50,stroke:#2E7D32,stroke-width:2px,color:#000000
     classDef checkNode fill:#FFE082,stroke:#F57C00,stroke-width:2px,color:#000000
@@ -251,24 +254,27 @@ flowchart TD
     classDef redNode fill:#EF9A9A,stroke:#D32F2F,stroke-width:2px,color:#000000
 
     class Start startNode
-    class ResolveType,ApplyDataMode,ForEach,CompareFloor,StructCheck,EconomicCheck,TradecraftCheck,Orphan,AggregateGate checkNode
-    class Factor1,Factor075,Factor085a,Factor085b,Factor065,LoadFloors,WalkFiles,CountLines,ReadManifest,OnDiskOrphans factorNode
+    class ResolveType,ApplyDataMode,ForEach,CompareFloor,StructCheck,EconomicCheck,TradecraftCheck,WarnCheck,Orphan,AggregateGate checkNode
+    class Factor1,Factor075,Factor085a,Factor085b,Factor065,LoadFloors,BuildMandatory,CountLines,ReadManifest,OnDiskOrphans factorNode
     class GoStageD passNode
     class AmberSignal,WarnOrphan warnNode
-    class RedIssue,Abort,Block redNode
+    class RedIssue,RedTradecraft,Abort,Block redNode
 ```
 
 **Validator surfaces**:
 
 | Surface | Severity | Effect on PR |
 |---|---|---|
-| Artifact below `floor × dataMode-factor` | 🔴 RED | Blocks PR; triggers Pass-2 rewrite |
-| Missing required structural element (mermaid, reader-block, `### Scenario N` for long-horizon, required H2 substrings) | 🔴 RED | Blocks PR |
-| `intelligence/economic-context.md` cites WB economic codes as primary | 🔴 RED | Blocks PR — IMF must be primary economic source |
-| Tradecraft signal missing (WEP band, Admiralty grade, ICD-203 BLUF, SAT documentation) | 🟡 Pass-2 reminder | Non-blocking — flagged for editorial reviewer |
-| On-disk artifact not listed in `manifest.files[]` | ⚠️ WARN orphan | Non-blocking — encourages explicit inclusion |
+| Artifact below `effective floor × dataMode-factor` (applies to both per-artifact thresholds AND the 30-line default fallback) | 🔴 RED | Blocks PR; triggers Pass-2 rewrite |
+| Missing Mermaid block, required H2 sections, or `### Scenario N` count < 6 for long-horizon types | 🔴 RED | Blocks PR (always-blocking structural) |
+| Tradecraft signal missing (WEP band, Admiralty grade, ICD-203 BLUF, SAT ≥ 10) | 🔴 RED | Blocks PR — these are `issues` (not warnings) in the validator |
+| `intelligence/economic-context.md` cites WB economic codes or `imf-source:knowledge-only` | 🔴 RED | Blocks PR — IMF must be primary economic source |
+| Missing reader-block or source-diversity evidence | 🟡 WARN (default) / 🔴 RED (`--strict`) | Non-blocking by default; blocking when `--strict` flag is set |
+| On-disk artifact not listed in mandatory set | ⚠️ WARN orphan | Non-blocking — encourages explicit inclusion |
 
-**Rationale for `dataMode` reduction factors** — when one or more Stage-A waves return structurally degraded payloads (no per-event evidence bodies; IMF or roll-call voting unavailable), the agent records the mode in `manifest.dataMode`. The validator then applies the matching factor (`title-only: 0.75`, `degraded-imf/degraded-voting: 0.85`, `minimal: 0.65`) so that the line floors track the available evidence rather than penalising depth that the source data simply cannot support. Structural checks (Mermaid, WEP, Admiralty, SATs, required-sections, long-horizon scenario gate) are **never** reduced — they are contracts on the artefact's shape, not its volume.
+> **Note on manifest `gateResult`**: The validator stdout emits `STAGE_C_GATE: RED` or `STAGE_C_GATE: GREEN` but does **not** mutate the run directory or `manifest.json`. The manifest `history[].gateResult` field uses the union `GREEN | GREEN_WITH_WARNINGS | ANALYSIS_ONLY | PENDING` (no `RED` value); the calling agent is responsible for appending the appropriate entry after reviewing the validator's stdout verdict.
+
+**Rationale for `dataMode` reduction factors** — when one or more Stage-A waves return structurally degraded payloads (no per-event evidence bodies; IMF or roll-call voting unavailable), the agent records the mode in `manifest.dataMode`. The validator then applies the matching factor (`title-only: 0.75`, `degraded-imf/degraded-voting: 0.85`, `minimal: 0.65`) to **both** per-artifact floors and the default 30-line fallback floor, so that the line floors track the available evidence rather than penalising depth that the source data simply cannot support. Structural checks (Mermaid, required sections, long-horizon scenario gate) and tradecraft checks (WEP, Admiralty, ICD-203 BLUF, SATs) are **never** reduced — they are contracts on the artefact's shape, not its volume.
 
 ---
 

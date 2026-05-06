@@ -58,12 +58,13 @@ Parliament Monitor platform for news generation, storage, and delivery.
 
 ## 🗂️ Manifest Schema (authoritative, aggregator era)
 
-Every analysis run under `analysis/daily/<date>/<slug>-run<NN>/` carries a
+Every analysis run under `analysis/daily/<date>/<slug>/` (or `<slug>-run<NN>/` when
+multiple runs occur on the same date — suffix added only for collision avoidance) carries a
 `manifest.json` that the aggregator reads to know what to render:
 
 ```jsonc
 {
-  "articleType": "motions",               // one of the 14 production article-type slugs
+  "articleType": "motions",               // one of the 15 article-type slugs (14 scheduled + deep-analysis manual)
   "runId": "motions-run46",               // <slug>-run<NN>
   "date": "2026-04-20",                   // ISO date (run subdirectory)
   "dataMode": "full",                     // optional — full | title-only | degraded-imf | degraded-voting | minimal
@@ -108,7 +109,7 @@ Validation rules (enforced by the Stage-C agent-side review and `scripts/validat
 
 | Rule | Rationale |
 |---|---|
-| top-level `articleType` present and matches one of the 14 production slugs (`breaking`, `week-ahead`, `month-ahead`, `quarter-ahead`, `year-ahead`, `term-outlook`, `election-cycle`, `week-in-review`, `month-in-review`, `quarter-in-review`, `year-in-review`, `committee-reports`, `motions`, `propositions`) — registered centrally in [`src/config/article-horizons.ts`](src/config/article-horizons.ts) (ADR-007) | The aggregator uses this to pick the right shared-chrome variant and the per-type mandatory-artifact set |
+| top-level `articleType` present and matches one of the 15 registered slugs — 14 scheduled production types (`breaking`, `week-ahead`, `month-ahead`, `quarter-ahead`, `year-ahead`, `term-outlook`, `election-cycle`, `week-in-review`, `month-in-review`, `quarter-in-review`, `year-in-review`, `committee-reports`, `motions`, `propositions`) plus `deep-analysis` (manual/`workflow_dispatch` only) — registered centrally in [`src/config/article-horizons.ts`](src/config/article-horizons.ts) (ADR-007) | The aggregator uses this to pick the right shared-chrome variant and the per-type mandatory-artifact set |
 | `files` present as an object (nested category → string[] **or** flat path → description) | Walked in canonical order by `src/aggregator/artifact-order.ts` |
 | Every `files.*` entry resolves to an existing file under the run directory | Broken links fail the render |
 | Each artifact listed in `files.*` meets the per-artifact line floor in [`reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json) (or the floor multiplied by the `dataMode` reduction factor — see § Reference Quality Thresholds below) | Insufficient depth becomes a 🔴 RED issue blocking PR |
@@ -640,17 +641,17 @@ The thresholds JSON exposes four top-level surfaces:
 | Surface | Key | Purpose |
 |---|---|---|
 | **Per-artifact line floors** | `thresholds.<articleType>.<relativePath>` | Minimum line counts derived from the Run 184 reference benchmark (`analysis/daily/2026-04-18/breaking-run184/`) minus a 10 % tolerance, rounded down to 5-line increments. Falls back to the CLI `--min-lines` flag (default `30`) when an artifact has no explicit entry; effective floor = `max(perArtifact, --min-lines)`. |
-| **Tradecraft quality signals** (additive) | `tradecraftQualitySignals.{wepBandRequired, admiraltyGradeRequired, icd203BlufRequired, satDocumentationRequired}` | Lists artifacts that MUST carry WEP probability bands, Admiralty grades on external sources, ICD-203 BLUF blocks, or SAT (Structured Analytic Techniques) documentation. Not enforced by the line-count validator — checked by Pass-2 reviewers. |
-| **Structural requirements** | `structuralRequirements.{mermaidRequired, readerBlockRequired, sourceDiversityRequired, requiredSections, longHorizonScenarioGate}` | Hard structural contracts: required Mermaid blocks, "Reader Briefing" / "Plain Language" sections, source-diversity (EP MCP citation OR evidence table), required H2 substrings per artifact, and the long-horizon scenario gate (≥ 6 `### Scenario N` headings for `term-outlook` / `election-cycle`). |
-| **`dataMode` reductions** (schema 1.4.0+) | `DATA_MODE_REDUCTION` constant in `validate-analysis-completeness.js` | When `manifest.dataMode != "full"` the line-floor is multiplied by a reduction factor so structurally constrained runs can pass Stage C. Structural checks (mermaid, WEP, Admiralty, SATs, requiredSections) remain unchanged. |
+| **Tradecraft quality signals** (blocking) | `tradecraftQualitySignals.{wepBandRequired, admiraltyGradeRequired, icd203BlufRequired, satDocumentationRequired}` | Lists artifacts that MUST carry WEP probability bands, Admiralty grades on external sources, ICD-203 BLUF blocks, or SAT (Structured Analytic Techniques) documentation. **Enforced as 🔴 RED (blocking) by the validator** — missing WEP/Admiralty/BLUF or SAT < 10 emits `issues[]` that block PR creation. |
+| **Structural requirements** (split severity) | `structuralRequirements.{mermaidRequired, readerBlockRequired, sourceDiversityRequired, requiredSections, longHorizonScenarioGate}` | **Always-blocking (🔴 RED):** required Mermaid blocks, required H2 substrings per artifact (`requiredSections`), and the long-horizon scenario gate (≥ 6 `### Scenario N` headings for `term-outlook` / `election-cycle`). **Warning-by-default (🟡 WARN → 🔴 RED under `--strict`):** `readerBlockRequired` ("Reader Briefing" / "For Citizens" / "Plain Language" sections) and `sourceDiversityRequired` (EP MCP citation OR evidence table). |
+| **`dataMode` reductions** (schema 1.4.0+) | `DATA_MODE_REDUCTION` constant in `validate-analysis-completeness.js` | When `manifest.dataMode != "full"` the line-floor is multiplied by a reduction factor so structurally constrained runs can pass Stage C. Applies to **both** per-artifact floors and the default 30-line fallback. Structural checks (mermaid, requiredSections, long-horizon gate) and tradecraft checks (WEP, Admiralty, BLUF, SATs) remain unchanged. |
 
-**`dataMode` reduction factors** (applied to per-artifact line floors only):
+**`dataMode` reduction factors** (applied to both per-artifact line floors AND the default 30-line fallback when no per-artifact entry exists):
 
 | `dataMode` value | Factor | When it applies |
 |---|---|---|
 | `full` (default) | 1.00 | All Stage-A waves succeeded with full payloads |
 | `title-only` | 0.75 | EP MCP returned headlines only (no per-event evidence bodies) |
-| `degraded-imf` | 0.85 | IMF SDMX 3.0 fetch failed; Wave-2 economic context derives from cache or World Bank fallback |
+| `degraded-imf` | 0.85 | IMF SDMX 3.0 fetch failed; Wave-2 economic context derives from cached IMF data or Eurostat triangulation (World Bank remains non-economic only — Stage C rejects WB economic indicator codes) |
 | `degraded-voting` | 0.85 | EP roll-call voting data is empty in both MCP and the EP Open Data fallback |
 | `minimal` | 0.65 | Multiple Stage-A waves failed; the run proceeded with skeleton evidence only |
 
