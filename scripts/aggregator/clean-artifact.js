@@ -194,7 +194,7 @@ export function stripSpdxTags(md) {
  */
 function advanceFenceState(line, inFence, fenceMarker) {
     const fenceMatch = /^(\s*)(```+|~~~+)(.*)$/.exec(line);
-    if (!fenceMatch || !fenceMatch[2])
+    if (!fenceMatch?.[2])
         return { inFence, fenceMarker, matched: false };
     const marker = fenceMatch[2];
     if (!inFence) {
@@ -224,7 +224,7 @@ function processHeadingLine(lines, index) {
         return { output: null, consumed: 2, h1Removed: true };
     }
     const atx = /^(\s*)(#{1,6})(\s.*)$/.exec(line);
-    if (!atx || !atx[2]) {
+    if (!atx?.[2]) {
         return { output: line, consumed: 1, h1Removed: false };
     }
     const level = atx[2].length;

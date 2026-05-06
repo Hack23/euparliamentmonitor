@@ -233,12 +233,12 @@ function harvestToc(tokens: readonly Token[]): TocEntry[] {
   const out: TocEntry[] = [];
   for (let i = 0; i < tokens.length; i++) {
     const token = tokens[i];
-    if (!token || token.type !== 'heading_open') continue;
+    if (token?.type !== 'heading_open') continue;
     const level = Number.parseInt(token.tag.slice(1), 10);
     if (!Number.isFinite(level) || level < 2 || level > 6) continue;
     const slug = typeof token.attrGet === 'function' ? token.attrGet('id') : null;
     const inline = tokens[i + 1];
-    if (!inline || inline.type !== 'inline') continue;
+    if (inline?.type !== 'inline') continue;
     const text = (inline.content ?? '').trim();
     out.push({ level, slug: slug ?? slugify(text), text });
   }

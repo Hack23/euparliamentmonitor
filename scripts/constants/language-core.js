@@ -66,7 +66,6 @@ export const LANGUAGE_NAMES = {
  */
 export function getLocalizedString(map, lang) {
     const code = lang;
-    // eslint-disable-next-line security/detect-object-injection -- key validated via Object.hasOwn
     return Object.hasOwn(map, code) ? (map[code] ?? map.en) : map.en;
 }
 /**
