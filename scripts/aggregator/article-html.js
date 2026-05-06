@@ -116,7 +116,7 @@ export function buildArticleToc(entries, lang) {
     return [
         `  <aside class="article-toc-container" aria-label="${label}">`,
         `    <details class="article-toc-details" open>`,
-        `      <summary class="article-toc-summary">${label}</summary>`,
+        `      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> ${label}</summary>`,
         `      <nav class="article-toc">`,
         `        <ol class="article-toc-list">`,
         items,
@@ -145,7 +145,7 @@ export function wrapArticleHtml(options) {
     const langSwitcher = buildLanguageSwitcher(options.articleSlug, safeLang);
     const sourceMdLabel = getLocalizedString(VIEW_SOURCE_MARKDOWN_LABELS, safeLang);
     const sourceMdLink = options.sourceMarkdownRelPath
-        ? `<p class="article-source-md"><a href="${BASE_URL}/${options.sourceMarkdownRelPath}" rel="alternate" type="text/markdown">${escapeHTML(sourceMdLabel)}</a></p>`
+        ? `<p class="article-source-md"><a href="${BASE_URL}/${options.sourceMarkdownRelPath}" rel="alternate" type="text/markdown"><svg class="icon icon-inline" width="16" height="16" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path d="M9 5H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2M12 3h6a2 2 0 0 1 2 2v6M10 14 20 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> ${escapeHTML(sourceMdLabel)}</a></p>`
         : '';
     const tocHtml = buildArticleToc(options.toc ?? [], safeLang);
     const jsonLd = {
