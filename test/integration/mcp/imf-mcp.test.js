@@ -131,12 +131,9 @@ describe('integration — IMF REST client surface', () => {
       filters: { country: ['DEU', 'FRA'], indicator: ['NGDP_RPCH'] },
     });
     const url = fetchSpy.mock.calls[0][0];
-    // `country` is a union of two alphanumeric codes joined with SDMX's
-    // literal `+` separator ("DEU+FRA" — URI-encoding each code is
-    // idempotent for A-Z). `indicator` is a single code. `frequency` is
-    // the wildcard (empty string). Query string carries startPeriod,
-    // endPeriod, and format=jsondata.
-    expect(url).toContain(`${TEST_BASE_URL}/data/WEO/DEU+FRA.NGDP_RPCH.?`);
+    // WEO order is frequency.country.indicator; WEO is annual, so the
+    // client supplies frequency=A when callers omit it.
+    expect(url).toContain(`${TEST_BASE_URL}/data/WEO/A.DEU+FRA.NGDP_RPCH?`);
     expect(url).toContain('startPeriod=2020');
     expect(url).toContain('endPeriod=2030');
     expect(url).toContain('format=jsondata');
@@ -171,7 +168,7 @@ describe('integration — IMF REST client surface', () => {
     expect(fetchSpy.mock.calls[0][0]).toBe('http://host.docker.internal:8080/mcp/fetch-proxy');
     expect(fetchSpy.mock.calls[0][1].headers.Authorization).toBe('Bearer test-token');
     expect(JSON.parse(fetchSpy.mock.calls[0][1].body).params.arguments.url).toContain(
-      `${TEST_BASE_URL}/data/WEO/EA.NGDP_RPCH.?`
+      `${TEST_BASE_URL}/data/WEO/A.EA.NGDP_RPCH?`
     );
     expect(result.content[0].text).toContain('dataSets');
   });

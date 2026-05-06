@@ -508,15 +508,21 @@ describe('imf-mcp-client', () => {
 
       expect(fetchImpl).toHaveBeenCalledTimes(1);
       const url = fetchImpl.mock.calls[0][0];
-      // WEO order is country.indicator.frequency; `country` carries a
+      // WEO order is frequency.country.indicator; `country` carries a
       // union of two codes joined with SDMX's `+` separator (each code
-      // URI-encoded first — idempotent for alphanumeric), `frequency`
-      // is omitted so the slot becomes the empty-string wildcard.
-      expect(url).toContain('/data/WEO/DEU+FRA.NGDP_RPCH.?');
+      // URI-encoded first — idempotent for alphanumeric). WEO is annual,
+      // so the client supplies frequency=A when callers omit it.
+      expect(url).toContain('/data/WEO/A.DEU+FRA.NGDP_RPCH?');
       expect(url).toContain('startPeriod=2020');
       expect(url).toContain('endPeriod=2030');
       expect(url).toContain('format=jsondata');
       expect(result.content[0].text).toBe(sdmxPayload);
+      expect(fetchImpl.mock.calls[0][1].headers).toMatchObject({
+        'User-Agent': 'euparliamentmonitor/0.9.0 (+https://github.com/Hack23/euparliamentmonitor)',
+        Accept: 'application/json, application/vnd.sdmx.data+json, */*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Cache-Control': 'no-cache',
+      });
     });
 
     it('honours a caller-supplied dimensionOrder override', async () => {
@@ -602,7 +608,7 @@ describe('imf-mcp-client', () => {
       const url = fetchImpl.mock.calls[0][0];
       // `+` inside a single country code must be %-encoded so SDMX does
       // not interpret it as the "union-of-codes" separator.
-      expect(url).toContain('/data/WEO/DEU%2BFRA.NGDP_RPCH.?');
+      expect(url).toContain('/data/WEO/A.DEU%2BFRA.NGDP_RPCH?');
     });
   });
 
