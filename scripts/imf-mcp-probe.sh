@@ -51,10 +51,13 @@ _IMF_WEO_FILE="$_IMF_CACHE_DIR/weo-ea-deu-fra-ita-gdp-inflation-fiscal.json"
 _IMF_SUMMARY_FILE="$_IMF_CACHE_DIR/imf-probe-summary.json"
 _IMF_AUTH_MODE="none"
 _IMF_DATAFLOW_QUERY="dataflow/IMF"
-_IMF_WEO_QUERY="data/WEO/EA+DEU+FRA+ITA.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP.A?startPeriod=2025&endPeriod=2026&format=jsondata"
+_IMF_WEO_QUERY="data/WEO/A.EA+DEU+FRA+ITA.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP?startPeriod=2025&endPeriod=2026&format=jsondata"
 
-_IMF_CURL_OPTS=(--silent --show-error --fail --max-time 180 --connect-timeout 45 \
-  -H 'Accept: application/json')
+_IMF_CURL_OPTS=(--silent --show-error --fail --max-time 30 --connect-timeout 10 \
+  -H 'User-Agent: euparliamentmonitor/0.9.0 (+https://github.com/Hack23/euparliamentmonitor)' \
+  -H 'Accept: application/json, application/vnd.sdmx.data+json, */*;q=0.8' \
+  -H 'Accept-Language: en-US,en;q=0.9' \
+  -H 'Cache-Control: no-cache')
 
 # Use the repo-standard Node runtime for JSON escaping instead of adding a jq
 # dependency to workflow containers.
@@ -142,7 +145,7 @@ _imf_fetch_to_file() {
       if [ -n "${EP_MCP_GATEWAY_API_KEY:-}" ]; then
         _curl_auth_args=(-H "Authorization: Bearer $EP_MCP_GATEWAY_API_KEY")
       fi
-      stderr_log=$(curl --silent --show-error --max-time 180 --connect-timeout 30 \
+      stderr_log=$(curl --silent --show-error --max-time 30 --connect-timeout 10 \
         -X POST "$FETCH_MCP_GATEWAY_URL" \
         -H "Content-Type: application/json" \
         -H "Accept: application/json, text/event-stream" \
@@ -190,21 +193,14 @@ _imf_fetch_to_file() {
 
   # Strategy 2: Direct curl (works outside AWF sandbox or if proxy allowlist resolves).
   tmp_out="$out.$$"
-  local attempt=0
-  while [ $attempt -lt 3 ]; do
-    stderr_log=$(curl "${_IMF_CURL_OPTS[@]}" -X GET "$url" -o "$tmp_out" 2>&1)
-    status=$?
-    if [ $status -eq 0 ]; then
-      mv "$tmp_out" "$out"
-      return 0
-    fi
-    attempt=$((attempt + 1))
-    if [ $attempt -lt 3 ]; then
-      sleep $((attempt * 5))
-    fi
-  done
+  stderr_log=$(curl "${_IMF_CURL_OPTS[@]}" -X GET "$url" -o "$tmp_out" 2>&1)
+  status=$?
+  if [ $status -eq 0 ]; then
+    mv "$tmp_out" "$out"
+    return 0
+  fi
   rm -f "$tmp_out"
-  IMF_MCP_PROBE_ERROR="GET $url failed after 3 attempts (exit $status): ${stderr_log%%$'\n'*}"
+  IMF_MCP_PROBE_ERROR="GET $url failed (exit $status): ${stderr_log%%$'\n'*}"
   return $status
 }
 
