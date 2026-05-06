@@ -1,0 +1,135 @@
+{
+  "version": "1.0.0",
+  "description": "Machine-readable style enforcement rules for EU Parliament Monitor political intelligence analysis. Companion to political-style-guide.md. Advisory reference consumed by AI agents during analysis generation for style compliance guidance.",
+  "effective": "2026-05-06",
+  "owner": "Hack23 AB",
+  "rules": {
+    "neutrality": {
+      "prohibitedTerms": [
+        "clearly wrong",
+        "obviously correct",
+        "must agree",
+        "everyone knows",
+        "undeniably",
+        "without question",
+        "it is certain that",
+        "we believe",
+        "our view is"
+      ],
+      "requiredQualifiers": [
+        "according to",
+        "the evidence suggests",
+        "based on available data",
+        "analysis indicates",
+        "EP MCP data shows"
+      ],
+      "maxConsecutiveSentencesWithoutEvidence": 3
+    },
+    "estimativeLanguage": {
+      "wepBands": {
+        "almostCertain": { "range": [93, 100], "label": "Almost Certain" },
+        "highlyLikely": { "range": [80, 92], "label": "Highly Likely" },
+        "likely": { "range": [63, 79], "label": "Likely" },
+        "roughlyEven": { "range": [40, 62], "label": "Roughly Even" },
+        "unlikely": { "range": [21, 39], "label": "Unlikely" },
+        "highlyUnlikely": { "range": [8, 20], "label": "Highly Unlikely" },
+        "almostNoChance": { "range": [0, 7], "label": "Almost No Chance" }
+      },
+      "requiredContext": ["timeHorizon", "confidenceLevel"],
+      "prohibitedVagueTerms": [
+        "might",
+        "could possibly",
+        "may or may not",
+        "it is possible",
+        "perhaps",
+        "it remains to be seen"
+      ]
+    },
+    "confidenceLevels": {
+      "HIGH": "Multiple independent EP MCP sources corroborate; voting records confirm; ≥3 data points",
+      "MEDIUM": "Some EP MCP data supports; pattern consistent but limited observations; 1-2 data points",
+      "LOW": "Single source or inferred from indirect indicators; requires further monitoring"
+    },
+    "admiraltyGrades": {
+      "sourceReliability": ["A", "B", "C", "D", "E", "F"],
+      "informationCredibility": ["1", "2", "3", "4", "5", "6"],
+      "minimumForCitation": "C2",
+      "minimumForHeadlineJudgement": "B2",
+      "stateAffiliatedCeiling": "D3"
+    },
+    "namedActorDiscipline": {
+      "requireNamedActors": true,
+      "prohibitedVagueAttributions": [
+        "some MEPs",
+        "certain groups",
+        "many observers",
+        "sources say",
+        "it is widely believed",
+        "insiders report",
+        "Brussels circles"
+      ],
+      "requiredSpecificity": "Every factual claim about EP actors must name specific MEPs, political groups, committees, or institutions with verifiable identifiers"
+    },
+    "citationFormat": {
+      "epMcpCall": "EP MCP: {tool_name}({params}) — retrieved {ISO_date}",
+      "epProcedure": "EP Procedure {reference} — {stage} — {date}",
+      "adoptedText": "EP Adopted Text {reference} — {date}",
+      "externalSource": "{Author/Outlet} ({date}) — Admiralty {grade}",
+      "minimumCitationsPerArtifact": 5,
+      "minimumCitationsPerSection": 1
+    },
+    "formatting": {
+      "headingStyle": "ATX (# level)",
+      "tableAlignment": "left (text) / center (numbers/grades)",
+      "mermaidTheme": "dark",
+      "mermaidColorPalette": {
+        "primary": "#1565C0",
+        "secondary": "#2E7D32",
+        "tertiary": "#FF9800",
+        "quaternary": "#7B1FA2",
+        "error": "#D32F2F",
+        "note": "#FFC107",
+        "document": "#0288D1"
+      },
+      "dateFormat": "ISO 8601 (YYYY-MM-DD)",
+      "numberFormat": "Use comma separator for thousands (1,234)"
+    },
+    "structure": {
+      "requiredSections": [
+        "header/metadata",
+        "executive summary / BLUF",
+        "analysis body",
+        "evidence table",
+        "forward monitors",
+        "sources"
+      ],
+      "blufMaxWords": 200,
+      "blufMinWords": 30,
+      "sectionMinWords": 50,
+      "paragraphMaxSentences": 6
+    },
+    "politicalNeutrality": {
+      "noPartisanConclusions": true,
+      "balanceRequirement": "When analysing political positions, present ≥2 competing perspectives with equal depth",
+      "framingDiscipline": {
+        "noNeutralMediaLabel": "Never label any outlet as 'neutral' or 'impartial' without explicit multi-axis bias assessment",
+        "noSingleAxisScoring": "Never reduce political position to single left/right score — use 5-axis EU alignment key",
+        "noValueJudgements": "Analysis describes effects and dynamics, never prescribes what actors 'should' do"
+      }
+    },
+    "euSpecific": {
+      "politicalGroups": ["EPP", "S&D", "Renew", "Greens/EFA", "ECR", "PfE", "The Left", "NI"],
+      "institutions": ["European Parliament", "European Commission", "European Council", "Council of the EU", "ECJ/CJEU", "ECB"],
+      "languages": ["EN", "SV", "DA", "NO", "FI", "DE", "FR", "ES", "NL", "AR", "HE", "JA", "KO", "ZH"],
+      "memberStates": 27,
+      "epSeats": 720,
+      "majorityThreshold": 361,
+      "qualifiedMajority": "55% of MS representing 65% of EU population"
+    }
+  },
+  "consumption": {
+    "consumers": ["AI agents during analysis generation", "Pass-2 self-audit checklist"],
+    "enforcementLevel": "advisory",
+    "note": "Style rules are guidance for AI agents and human reviewers during Pass-2 review. Not currently parsed by validation scripts. Violations trigger Pass-2 rewrite but do not block Stage-C gate."
+  }
+}

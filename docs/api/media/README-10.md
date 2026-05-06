@@ -5,8 +5,8 @@
 <h1 align="center">📐 EU Parliament Monitor — Analysis Methodologies</h1>
 
 <p align="center">
-  <strong>📊 Sixteen Interlocking Political Intelligence Methodologies for European Parliament Analysis</strong><br>
-  <em>🎯 Six core frameworks (Classification · Risk · Threat · SWOT · AI Quality · OSINT) + eight supporting methodologies (Style · Synthesis · Strategic Extensions · Per-Document · Structural Metadata · Electoral Domain · IMF Indicator Mappings · World Bank Indicator Mappings) governing all 51 analysis templates</em>
+  <strong>📊 Eighteen Interlocking Political Intelligence Methodologies for European Parliament Analysis</strong><br>
+  <em>🎯 Six core frameworks (Classification · Risk · Threat · SWOT · AI Quality · OSINT) + eleven supporting methodologies (Style · Synthesis · Strategic Extensions · Per-Document · Structural Metadata · Electoral Domain · Analytical Supplementary · IMF Indicator Mappings · World Bank Indicator Mappings · Forward Projection · Electoral Cycle) + machine-readable style enforcement governing all 59 analysis templates</em>
 </p>
 
 <p align="center">
@@ -200,6 +200,8 @@ graph LR
 | **14** | **[Electoral Domain Methodology](electoral-domain-methodology.md)** | EP election analysis — 2024 retrospective + 2029 forecast; national-delegation seat projections; Spitzenkandidaten; cross-MS party family analysis | 27 MS; 720 seats; D'Hondt variants; Europhile/Euroskeptic segmentation | **Electoral runs** — produced for election-focused workflows and for `extended/voter-segmentation.md` |
 | **15** | **[Forward-Projection Methodology](forward-projection-methodology.md)** | Multi-horizon forecasting protocol — 7d / 30d / 90d / 12m / term-end / EP-election. WEP decay tables, structural-break tripwires, reference-class forecasting, pipeline transit-time priors. | 6-horizon lattice; WEP decay bands; ≥6 alt scenarios for long-horizon; pipeline transit Monte-Carlo P10/P50/P90 | **Long-horizon prospective runs** — every prospective horizon ≥ 7 days produces a `forward-projection.md` artifact governed by this methodology |
 | **16** | **[Electoral-Cycle Methodology](electoral-cycle-methodology.md)** | Dual-track lens for the election-cycle horizon — Track A (term retrospective: vote-share delta, mandate-fulfilment scorecard, defection-flow) + Track B (term forecast: seat projections at 6/12/24/36-month horizons, coalition viability, Spitzenkandidaten arithmetic, treaty-revision feasibility) | EP9/EP10/EP11 anchors; 27 MS; 720 seats; mandate-fulfilment matrix; coalition arithmetic | **Election-cycle and term-outlook workflows** — promoted from extended layer to primary lens of the article |
+| **17** | **[Analytical Supplementary Methodology](analytical-supplementary-methodology.md)** | Rules for optional deep-dive analytical templates — PESTLE deep-dive, Wildcards & Black Swans, Quantitative SWOT, Media Framing & Influence-Operations deep-dive (v2.0). Composition rules, DIW weight vector, TTP mapping, forward-indicator feed. | 4 supplementary templates; DISARM T-codes; ABCDE CIB; Entman framing; RRPA composite | **Supplementary** — triggered by specific analytical conditions (≥2 PESTLE dimensions, high salience, long-horizon forecasting, decision memo) |
+| **18** | **[Political Style Guide (machine-readable)](political-style-guide.json)** | Machine-readable style enforcement rules — WEP bands, Admiralty grades, named-actor discipline, no-neutral-media doctrine, EU-specific constants (720 seats, 361 majority, 27 MS). | JSON schema; 7 WEP bands; 6×6 Admiralty; prohibited terms; citation formats | **Advisory** — consumed by AI agents during analysis generation for style compliance guidance (not currently enforced by validation scripts) |
 
 ---
 

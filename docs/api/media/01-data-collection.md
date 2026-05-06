@@ -46,6 +46,7 @@ Every workflow downloads (tools and parameter corrections in
      `manifest.dataVerification.unresolvedProcedureIds[]` and proceed
      with adopted-text data only — do not abort the run.
    - `get_voting_records({ sessionId, limit: 50 })` — actual vote counts
+   - `get_latest_votes({ limit: 20 })` — **near-realtime DOCEO votes** (v1.3.0+, `dataFreshness: NEAR_REALTIME`); use to identify recent group voting patterns when `get_voting_records` returns empty due to EP publication delay
    - `get_meeting_decisions({ sittingId })` — adopted decisions
    - `get_speeches({ dateFrom, dateTo, limit: 20 })` — debate contributions
    - `get_adopted_texts({ year, limit: 100 })` — full text, not titles

@@ -10,9 +10,17 @@
     "src/aggregator/manifest/index.ts",
     "src/aggregator/slug/index.ts",
     "src/aggregator/infra/github-urls.ts",
+    "src/aggregator/artifacts/index.ts",
+    "src/aggregator/content/index.ts",
+    "src/aggregator/markdown/index.ts",
+    "src/aggregator/metadata/index.ts",
+    "src/config/index.ts",
+    "src/workflows/index.ts",
     "scripts/backport-article-seo.js",
     "scripts/aggregator/forward-statements-registry.js",
     "test/**/*.test.js",
+    "test/helpers/*.js",
+    "test/fixtures/*.js",
     "e2e/**/*.spec.js"
   ],
   "project": [
@@ -33,6 +41,13 @@
     "@types/d3",
     "@types/papaparse",
     "european-parliament-mcp-server"
+  ],
+  "ignoreExportsUsedInFile": true,
+  "exclude": ["duplicates"],
+  "ignore": [
+    "src/types/quality.ts",
+    "src/types/significance.ts",
+    "src/types/world-bank.ts"
   ],
   "ignoreBinaries": [
     "python3"

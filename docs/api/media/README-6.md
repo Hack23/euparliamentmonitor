@@ -191,7 +191,7 @@ per-node `style …` directives layered **on top** of the canonical init block.
 | `legislative-velocity-risk.md` | flowchart LR | universal (added v3.3) | Bottleneck path |
 | `mandate-fulfilment-scorecard.md` | flowchart LR | universal (added v3.3) | Defection flow |
 | `mcp-reliability-audit.md` | flowchart | universal | Reliability map |
-| `media-framing-analysis.md` | flowchart | universal | Narrative frame |
+| `media-framing-analysis.md` | graph LR (outlet × frame) + xychart-beta (lifecycle) | universal | Narrative frames · Influence-ops · DISARM · CIB · RRPA (v2.0) |
 | `methodology-reflection.md` | flowchart | universal | Pipeline self-audit |
 | `parliamentary-calendar-projection.md` | gantt (new v3.3) | universal | Walk-forward calendar |
 | `per-file-political-intelligence.md` | flowchart + quadrant + others | both | Per-document |

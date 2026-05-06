@@ -62,6 +62,7 @@ Timeframes: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"custom"`
 | `get_incoming_meps` | `limit`, `offset` | — |
 | `get_outgoing_meps` | `limit`, `offset` | — |
 | `get_homonym_meps` | `limit`, `offset` | — |
+| `get_latest_votes` | `limit`, `offset` | Near-realtime DOCEO-backed vote records (`dataFreshness: NEAR_REALTIME`) |
 
 ## 3 · EP Analytical Tools (AI-powered)
 
@@ -77,6 +78,22 @@ Timeframes: `"today"`, `"one-day"`, `"one-week"`, `"one-month"`, `"custom"`
 | `generate_political_landscape` | `dateFrom/dateTo` |
 | `early_warning_system` | `sensitivity`, `focusArea` |
 | `get_all_generated_stats` | `category`, `yearFrom/yearTo` (precomputed — no live EP call) |
+
+### DOCEO Near-Realtime Vote Data (v1.3.0+)
+
+`get_latest_votes` returns vote records directly from the DOCEO XML endpoint — typically available within minutes of a plenary vote, vs. the regular EP API which has a multi-week delay.
+
+**Integration with existing tools:**
+- `analyze_coalition_dynamics` — now uses real DOCEO vote cohesion data (not just seat-share proxy). The `allianceSignal` values in `coalitionPairs` reflect actual voting similarity.
+- `get_all_generated_stats` — when called with `category: "all"` or `category: "roll_call_votes"` and `includeRankings: true`, the response includes a `recentVoteActivity` field with `dataFreshness: NEAR_REALTIME, dataSource: EP_DOCEO_XML`.
+
+**Stage A usage pattern** (for real-time political context):
+
+```
+get_latest_votes({ limit: 20 })
+```
+
+Use the results to identify which groups voted together on recent votes, then cross-reference with `analyze_coalition_dynamics` for full context.
 
 ## 4 · EP Specialized Tools
 
@@ -261,7 +278,7 @@ Failures are skipped, not retried.
 |---|---------|---------|:--------:|-----------------------------------|
 | 1 | `generate_political_landscape` returns `totalMEPs: 100` (sampling artifact); seat shares approximate | `generate_political_landscape` | 🔴 REAL BUG | **Fixed upstream in [Hack23/European-Parliament-MCP-Server#405](https://github.com/Hack23/European-Parliament-MCP-Server/pull/405)** — full ~720-MEP roster via `fetchAllCurrentMEPs`, ships in **v1.2.15+** (gateway is pinned to `v1.3.0`). Cross-reference seat shares with `get_all_generated_stats({ category:"political_groups" })` for full-roster validation; the historical ±2 pp drift no longer applies. Do NOT re-file. |
 | 2 | `analyze_coalition_dynamics` reports `EPP memberCount: 0`; group appears as `"PPE"` (French) elsewhere; same group split across `EPP`/`PPE`/`Verts-ALE`/`Greens/EFA`/legacy `ID`/`PfE` | `analyze_coalition_dynamics`, `compare_political_groups`, `generate_political_landscape` | 🔵 CALLING-PATTERN | **Treat as a calling-pattern issue for triage purposes.** Always pass canonical English short codes — `["EPP","S&D","Renew","Greens/EFA","ECR","PfE","Left","NI"]`. Never pass `"PPE"`, `"Verts-ALE"`, `"ID"`, or full group names. **Historical note:** alias normalization was also fixed upstream in [#405](https://github.com/Hack23/European-Parliament-MCP-Server/pull/405) via `normalizePoliticalGroup` in `aggregateByGroup` (collapses `PPE → EPP`, `Verts-ALE → Greens/EFA`, legacy `ID → PfE`), shipping in **v1.2.15+**. Do NOT re-file. |
-| 3 | `analyze_coalition_dynamics` returns `cohesionRate: null`, `defectionRate: null`, `sharedVotes: null` — only `sizeSimilarityScore` populated | `analyze_coalition_dynamics`, `compare_political_groups` | 🟢 LIMITATION | **Documented EP API limitation** — per-MEP roll-call data is not exposed by the EP Open Data Portal. Tool returns size-ratio proxy only. Already in tool schema description. Stage-A guard: emit `coalition_dynamics.cohesion=null` data-quality warning per [`01-data-collection.md` §6 rule 1](01-data-collection.md). Do NOT classify as a defect; classify as `"documented limitation — size-similarity proxy used"`. |
+| 3 | `analyze_coalition_dynamics` returns `cohesionRate: null`, `defectionRate: null`, `sharedVotes: null` — only `sizeSimilarityScore` populated | `analyze_coalition_dynamics`, `compare_political_groups` | 🟢 LIMITATION | **Partially resolved in v1.3.0+.** Prior to v1.3.0, per-MEP roll-call data was not exposed by the EP Open Data Portal, so the tool returned a size-ratio proxy only. In v1.3.0+, `analyze_coalition_dynamics` uses real DOCEO vote cohesion data when available via `get_latest_votes`; the `allianceSignal` values in `coalitionPairs` now reflect actual voting similarity. Historical data gaps (pre-DOCEO integration) still return `sizeSimilarityScore` proxy only. Stage-A guard: check for `cohesionRate: null` and emit `coalition_dynamics.cohesion=null` data-quality warning per [`01-data-collection.md` §6 rule 1](01-data-collection.md). |
 | 4 | `monitor_legislative_pipeline` returns empty pipeline | `monitor_legislative_pipeline` | 🔵 CALLING-PATTERN | **Historical v1.2.13 default-period bug + consumer fix.** Pre-v1.2.14, when invoked **without** `dateFrom`/`dateTo`, the server reported `period: 2024-01-01..2024-12-31` (empty for current procedures). **Always pass explicit dates:** `monitor_legislative_pipeline({ dateFrom: $LAST_MONTH, dateTo: $TODAY, status: "ACTIVE", limit: 20 })`. Forward-looking workflows use the next-week/next-month window. v1.2.14+ defaults to rolling-30-days; gateway is pinned to `v1.3.0`, but explicit dates remain the required calling pattern for reproducibility. Already documented in §4 above + [`01-data-collection.md` §6 rule 6](01-data-collection.md). |
 | 5 | `get_procedures` / `get_procedures_feed` return 1972–1990 historical procedures with no current-year content | `get_procedures`, `get_procedures_feed` | 🟢 LIMITATION | **Documented EP API behaviour** — these endpoints serve the historical archive in ID order, not chronological. The feed has no server-side date filter. **MCP client mitigation (v0.8.47+):** `getProceduresFeed` now detects the historical-only response (all items ≤ 1995) and automatically adds `recessMode: true` and a `RECESS_MODE: …` entry to `dataQualityWarnings[]`; Stage-A consumers should check for this flag and fall back to `get_adopted_texts({ year: $YEAR, limit: 100 })`. **Additional mitigation:** use `track_legislation({ procedureId: "YYYY/NNNN(COD)" })` for individual procedures by known ID. Already in §7 reliability matrix. Do NOT file. |
 | 6 | `get_voting_records` returns empty for last 1–2 months; `get_speeches` returns empty for last 1–2 months | `get_voting_records`, `get_speeches` | 🟢 LIMITATION | **Documented EP publication delay** — roll-call data publishes 4–6 weeks late, plenary speeches similarly. Already in tool schema description ("expected EP API behavior, not an error"). **Mitigation:** broaden `dateFrom` to D-60 minimum; use `get_adopted_texts` metadata for vote outcomes; use `get_plenary_documents` as proxy for debate content. Do NOT file. |

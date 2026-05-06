@@ -1,6 +1,6 @@
 {
   "name": "euparliamentmonitor",
-  "version": "0.8.59",
+  "version": "0.9.0",
   "type": "module",
   "description": "European Parliament Intelligence Platform - Monitor political activity with systematic transparency",
   "main": "scripts/index.js",
@@ -33,6 +33,14 @@
     "./generators/*": {
       "import": "./scripts/generators/*.js",
       "types": "./scripts/generators/*.d.ts"
+    },
+    "./workflows": {
+      "import": "./scripts/workflows/index.js",
+      "types": "./scripts/workflows/index.d.ts"
+    },
+    "./workflows/*": {
+      "import": "./scripts/workflows/*.js",
+      "types": "./scripts/workflows/*.d.ts"
     }
   },
   "files": [
@@ -157,7 +165,7 @@
     "husky": "9.1.7",
     "jscpd": "4.0.9",
     "knip": "^6.7.0",
-    "lint-staged": "16.4.0",
+    "lint-staged": "17.0.2",
     "mermaid": "11.14.0",
     "papaparse": "5.5.3",
     "prettier": "3.8.3",
@@ -183,6 +191,8 @@
   },
   "overrides": {
     "flatted": ">=3.4.2",
-    "path-to-regexp": ">=8.4.0"
+    "path-to-regexp": ">=8.4.0",
+    "ip-address": ">=10.1.1",
+    "uuid": ">=11.1.1"
   }
 }
