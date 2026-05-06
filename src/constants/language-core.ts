@@ -80,7 +80,7 @@ export const LANGUAGE_NAMES: LanguageMap = {
  */
 export function getLocalizedString<T>(map: LanguageMap<T>, lang: string): T {
   const code = lang as LanguageCode;
-   
+
   return Object.hasOwn(map, code) ? (map[code] ?? map.en) : map.en;
 }
 

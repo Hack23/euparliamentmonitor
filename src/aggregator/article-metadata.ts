@@ -398,7 +398,7 @@ export function isGenericHeading(heading: string, articleType: string, date: str
   }
 
   // The bare `${human} — <anything>` with nothing extra is also generic.
-   
+
   const trailingDateOnly = new RegExp(`^${escapeRegex(human)}\\s*[—–-]\\s*[\\d-]+$`, 'u');
   if (trailingDateOnly.test(normalized)) {
     return true;

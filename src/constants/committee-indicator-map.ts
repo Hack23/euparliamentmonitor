@@ -1477,7 +1477,7 @@ export function getCategoryIndicators(category: ArticleCategory): CategoryIndica
   if (!Object.hasOwn(CATEGORY_INDICATOR_MAP, category)) {
     return getCategoryIndicators(ArticleCategory.BREAKING_NEWS);
   }
-   
+
   return CATEGORY_INDICATOR_MAP[category];
 }
 

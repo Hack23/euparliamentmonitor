@@ -2105,7 +2105,6 @@ function getFromRecord<T extends Record<LanguageCode, string>>(
   record: T,
   lang: LanguageCode
 ): string {
-   
   return record[lang] ?? record.en;
 }
 
@@ -2123,7 +2122,6 @@ function getFromRecord<T extends Record<LanguageCode, string>>(
  * @returns Fully localized description sentence
  */
 function buildGenericFallback(relPath: string, lang: LanguageCode, title: string): string {
-   
   const template = GENERIC_FALLBACK_I18N[lang] ?? GENERIC_FALLBACK_I18N.en;
   const kind = kindWord(relPath, lang);
   return template.replace('{title}', title).replace('{kind}', kind);
@@ -2152,10 +2150,9 @@ function buildGenericFallback(relPath: string, lang: LanguageCode, title: string
 export function getCuratedDescription(relPath: string, lang: LanguageCode, fallback = ''): string {
   // Normalise path separators so Windows callers don't silently miss entries.
   const key = relPath.replace(/\\/g, '/');
-   
+
   const entry = CURATED_DESCRIPTIONS[key];
   if (entry) {
-     
     const localized = entry.i18n?.[lang];
     if (localized) return localized;
     // English callers get the curated English description. Non-English
@@ -2178,7 +2175,6 @@ export function getCuratedDescription(relPath: string, lang: LanguageCode, fallb
  * @returns `true` when the curated table contains the file
  */
 export function hasCuratedDescription(relPath: string): boolean {
-   
   return Object.prototype.hasOwnProperty.call(CURATED_DESCRIPTIONS, relPath.replace(/\\/g, '/'));
 }
 
@@ -2191,7 +2187,6 @@ export function hasCuratedDescription(relPath: string): boolean {
  * @returns `true` when {@link CURATED_TITLES} contains the file
  */
 export function hasCuratedTitle(relPath: string): boolean {
-   
   return Object.prototype.hasOwnProperty.call(CURATED_TITLES, relPath.replace(/\\/g, '/'));
 }
 
@@ -2220,19 +2215,17 @@ export function hasCuratedTitle(relPath: string): boolean {
 export function getCuratedTitle(relPath: string, lang: LanguageCode, fallback: string): string {
   const key = relPath.replace(/\\/g, '/');
   // 1 + 2: curated title overlay
-   
+
   const titleEntry = CURATED_TITLES[key];
   if (titleEntry) {
-     
     const localized = titleEntry[lang];
     if (localized) return localized;
     if (titleEntry.en) return titleEntry.en;
   }
   // 3 + 4: historic colocated title on CURATED_DESCRIPTIONS entry
-   
+
   const descEntry = CURATED_DESCRIPTIONS[key];
   if (descEntry) {
-     
     const localized = descEntry.titleI18n?.[lang];
     if (localized) return localized;
     if (descEntry.title) return descEntry.title;
@@ -2834,7 +2827,6 @@ export function parseRunSlug(slug: string): { type: RunTypeSlug | null; runId: s
   const sorted = [...RUN_TYPE_SLUGS].sort((a, b) => b.length - a.length);
   for (const prefix of sorted) {
     if (lower === prefix || lower.startsWith(`${prefix}-`) || lower.startsWith(`${prefix}_`)) {
-       
       const canonical = RUN_TYPE_ALIASES[prefix];
       const tail = slug.slice(prefix.length).replace(/^[-_]+/, '');
       return { type: canonical, runId: tail };
@@ -2861,9 +2853,8 @@ export function getRunTypeInfo(
 ): { title: string; description: string; runId: string } {
   const { type, runId } = parseRunSlug(slug);
   if (type) {
-     
     const titleRecord = RUN_TYPE_TITLES[type];
-     
+
     const descRecord = RUN_TYPE_DESCRIPTIONS[type];
     const title = titleRecord ? getFromRecord(titleRecord, lang) : stripEmojiAndPunct(slug);
     const description = descRecord ? getFromRecord(descRecord, lang) : '';
@@ -2964,7 +2955,6 @@ function canonicalizeArtifactStem(stem: string): string {
     'ai-voting-patterns': 'voting-patterns',
   };
   if (Object.prototype.hasOwnProperty.call(SYNONYMS, s)) {
-     
     const synonym = SYNONYMS[s];
     if (typeof synonym === 'string') return synonym;
   }
@@ -3314,7 +3304,6 @@ export function getArtifactInfo(
   //    and we still guard with `hasOwn` to block any prototype-key surprise.
   const feed = parseFeedPrefix(rawStem);
   if (feed && Object.prototype.hasOwnProperty.call(FEED_PREFIX_LABELS, feed.feed)) {
-     
     const entry = FEED_PREFIX_LABELS[feed.feed];
     if (entry) {
       return {
@@ -3331,7 +3320,6 @@ export function getArtifactInfo(
   //    (e.g. a hypothetical `__proto__.md` file).
   const stemLower = stem.toLowerCase();
   if (Object.prototype.hasOwnProperty.call(ORPHAN_ARTIFACT_INFO, stemLower)) {
-     
     const orphan = ORPHAN_ARTIFACT_INFO[stemLower];
     if (orphan) {
       return {

@@ -101,7 +101,7 @@ export function addArticleToIndex(
 ): IntelligenceIndex {
   // Replace or append
   const existingIdx = index.articles.findIndex((a) => a.id === entry.id);
-  const oldEntry = existingIdx >= 0 ? index.articles[existingIdx] : undefined;  
+  const oldEntry = existingIdx >= 0 ? index.articles[existingIdx] : undefined;
   const articles =
     existingIdx >= 0
       ? [...index.articles.slice(0, existingIdx), entry, ...index.articles.slice(existingIdx + 1)]
@@ -582,10 +582,9 @@ function sanitizeMap(source: Record<string, string[]>): Record<string, string[]>
   const safe = createNullMap();
   for (const key of Object.keys(source)) {
     if (!isSafeKey(key)) continue;
-     
+
     const val = source[key];
     if (val) {
-       
       safe[key] = val;
     }
   }
@@ -748,15 +747,13 @@ function removeIdFromMap(
 ): void {
   for (const key of keys) {
     if (!isSafeKey(key)) continue;
-     
+
     const list = map[key];
     if (!list) continue;
     const filtered = list.filter((id) => id !== articleId);
     if (filtered.length === 0) {
-       
       delete map[key];
     } else {
-       
       map[key] = filtered;
     }
   }
@@ -777,10 +774,9 @@ function addIdToMap(
 ): void {
   for (const key of keys) {
     if (!isSafeKey(key)) continue;
-     
+
     const existing = map[key] ?? [];
     if (!existing.includes(articleId)) {
-       
       map[key] = [...existing, articleId];
     }
   }
