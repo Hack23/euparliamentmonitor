@@ -145,7 +145,7 @@ export default [
     },
     rules: {
       'no-console': 'off',
-      'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
       eqeqeq: ['error', 'always'],
       'no-eval': 'error',
       'no-implied-eval': 'error',
@@ -158,7 +158,7 @@ export default [
 
       // Documentation — encourage JSDoc in test helpers/fixtures
       'jsdoc/check-alignment': 'error',
-      'jsdoc/check-param-names': 'warn',
+      'jsdoc/check-param-names': 'error',
       'jsdoc/check-tag-names': 'error',
     },
   },

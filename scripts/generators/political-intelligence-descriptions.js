@@ -1994,6 +1994,12 @@ function buildGenericFallback(relPath, lang, title) {
 export function getCuratedDescription(relPath, lang, fallback = '') {
     // Normalise path separators so Windows callers don't silently miss entries.
     const key = relPath.replace(/\\/g, '/');
+    // Guard against prototype-chain lookups for keys like __proto__ or constructor.
+    if (!Object.prototype.hasOwnProperty.call(CURATED_DESCRIPTIONS, key)) {
+        // No curated entry — build a localized fallback from the file's title.
+        const localizedTitle = getCuratedTitle(key, lang, fallback || stripEmojiAndPunct(key));
+        return buildGenericFallback(key, lang, localizedTitle);
+    }
     const entry = CURATED_DESCRIPTIONS[key];
     if (entry) {
         const localized = entry.i18n?.[lang];
@@ -2056,23 +2062,20 @@ export function hasCuratedTitle(relPath) {
  */
 export function getCuratedTitle(relPath, lang, fallback) {
     const key = relPath.replace(/\\/g, '/');
-    // 1 + 2: curated title overlay
-    const titleEntry = CURATED_TITLES[key];
-    if (titleEntry) {
-        const localized = titleEntry[lang];
-        if (localized)
-            return localized;
-        if (titleEntry.en)
-            return titleEntry.en;
+    // 1 + 2: curated title overlay — guard against prototype-chain lookups
+    if (Object.prototype.hasOwnProperty.call(CURATED_TITLES, key)) {
+        const titleEntry = CURATED_TITLES[key];
+        if (titleEntry) {
+            // Prefer localized, then English overlay
+            return titleEntry[lang] ?? titleEntry.en ?? fallback;
+        }
     }
     // 3 + 4: historic colocated title on CURATED_DESCRIPTIONS entry
-    const descEntry = CURATED_DESCRIPTIONS[key];
-    if (descEntry) {
-        const localized = descEntry.titleI18n?.[lang];
-        if (localized)
-            return localized;
-        if (descEntry.title)
-            return descEntry.title;
+    if (Object.prototype.hasOwnProperty.call(CURATED_DESCRIPTIONS, key)) {
+        const descEntry = CURATED_DESCRIPTIONS[key];
+        if (descEntry) {
+            return descEntry.titleI18n?.[lang] ?? descEntry.title ?? fallback;
+        }
     }
     return fallback;
 }
