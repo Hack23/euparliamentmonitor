@@ -136,7 +136,7 @@ The published site is the audience-facing companion to this npm/TypeScript packa
 
 **MCP Server Integration**: The project uses the
 [European-Parliament-MCP-Server](https://github.com/Hack23/European-Parliament-MCP-Server)
-v1.2.21 for accessing real EU Parliament data via the Model Context Protocol.
+v1.3.0 for accessing real EU Parliament data via the Model Context Protocol.
 
 - **MCP Server Status**: ✅ Fully operational — 60+ EP data tools available
   (feeds, direct lookups, analytical tools, intelligence correlation)
@@ -432,7 +432,7 @@ import type { ArticleCategory, LanguageCode } from 'euparliamentmonitor/types';
 
 ## 🔌 Data Sources
 
-**Primary — European Parliament MCP Server** ([Hack23/European-Parliament-MCP-Server](https://github.com/Hack23/European-Parliament-MCP-Server) v1.2.21+, fully operational):
+**Primary — European Parliament MCP Server** ([Hack23/European-Parliament-MCP-Server](https://github.com/Hack23/European-Parliament-MCP-Server) v1.3.0+, fully operational):
 
 - 🗳️ Plenary sessions, voting records, roll-call votes
 - 📜 Adopted texts, motions, resolutions, urgency files

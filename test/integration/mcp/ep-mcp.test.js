@@ -6,7 +6,7 @@
  *
  * The `EP_MCP_TOOLS` array exported from `src/mcp/ep-mcp-client.ts` is the
  * single source of truth for the tools the EP MCP client can call on
- * `european-parliament-mcp-server@1.2.11`. This test asserts:
+ * `european-parliament-mcp-server@1.3.0`. This test asserts:
  *
  *   1. `EP_MCP_TOOLS` is in sync with the actual `this.safeCallTool(...)`
  *      and manual `this.callToolWithRetry(...)`

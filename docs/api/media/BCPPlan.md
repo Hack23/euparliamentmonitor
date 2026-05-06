@@ -481,7 +481,7 @@ For **critical static-site availability (primary S3/CloudFront or GitHub Pages f
 | **GitHub Repository**       | Source Code Storage   | Critical        | Local clones, contributor forks    | 15 minutes |
 | **GitHub Actions**          | CI/CD + gh-aw Runtime | High            | Manual local build + deploy        | 4 hours |
 | **GitHub Copilot Business** | AI inference via `gh aw` | High         | Engine switch (Claude / Codex) in workflow frontmatter; human fallback | 30 minutes |
-| **EP MCP Server (`european-parliament-mcp-server@1.2.21`)** | EU Parliament Data | High | Uniform unavailable envelope + `mcp-retry.ts` backoff; existing articles continue to serve | N/A (graceful degrade) |
+| **EP MCP Server (`european-parliament-mcp-server@1.3.0`)** | EU Parliament Data | High | Uniform unavailable envelope + `mcp-retry.ts` backoff; existing articles continue to serve | N/A (graceful degrade) |
 | **World Bank MCP (`worldbank-mcp@1.0.1`)** | Biannual WDI data — **non-economic indicators** (health, education, social, environment, demographics, defence, agriculture, innovation, governance) | Medium | Article continues without WB cross-refs; non-economic claims relax to "data unavailable for current vintage" with explicit caveat | N/A (graceful degrade) |
 | **IMF REST (SDMX 3.0, native `IMFMCPClient`)** | WEO + FM forecasts (sole authoritative economic source) | High | Cached `cache/imf/*.json` reused on transient outage; if no cache and live IMF down, Stage-C blocks article (`imf-cache:missing`); `IMF_API_TIMEOUT_MS` configurable. | Defer article to next run |
 | **npm Registry**            | Dependency + Publish  | High            | GitHub Packages mirror; npm cache + `npm ci`; SLSA 3 attestations verifiable | 2 hours |
