@@ -11,14 +11,14 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.3-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--03-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.4-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--06-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:**
-2026-05-03 (UTC) | **📦 Release:** v0.8.54  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03
+**📋 Document Owner:** CEO | **📄 Version:** 1.4 | **📅 Last Updated:**
+2026-05-06 (UTC) | **📦 Release:** v0.8.59  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-06
 
 ---
 
@@ -63,13 +63,18 @@ Every analysis run under `analysis/daily/<date>/<slug>-run<NN>/` carries a
 
 ```jsonc
 {
-  "articleType": "motions",               // one of the 8 canonical slugs
+  "articleType": "motions",               // one of the 14 production article-type slugs
   "runId": "motions-run46",               // <slug>-run<NN>
   "date": "2026-04-20",                   // ISO date (run subdirectory)
+  "dataMode": "full",                     // optional — full | title-only | degraded-imf | degraded-voting | minimal
   "history": [                            // append-only gate history
     { "at": "2026-04-20T06:00:00Z", "gateResult": "PENDING", "pass": 1 },
     { "at": "2026-04-20T06:22:00Z", "gateResult": "GREEN",   "pass": 2 }
   ],
+  "artifactSources": {                    // optional (schema 1.1.0+) — emitted by prior-run-diff.js
+    "intelligence/synthesis-summary.md": "fresh",
+    "extended/historical-parallels.md":  "carry-forward-from:motions-run45"
+  },
   "files": {                              // canonical artifact index
     "intelligence": [
       "intelligence/synthesis-summary.md",
@@ -99,13 +104,15 @@ Every analysis run under `analysis/daily/<date>/<slug>-run<NN>/` carries a
 }
 ```
 
-Validation rules (enforced by the Stage-C agent-side review):
+Validation rules (enforced by the Stage-C agent-side review and `scripts/validate-analysis-completeness.js`):
 
 | Rule | Rationale |
 |---|---|
-| top-level `articleType` present and matches one of the 8 slugs | The aggregator uses this to pick the right shared-chrome variant |
+| top-level `articleType` present and matches one of the 14 production slugs (`breaking`, `week-ahead`, `month-ahead`, `quarter-ahead`, `year-ahead`, `term-outlook`, `election-cycle`, `week-in-review`, `month-in-review`, `quarter-in-review`, `year-in-review`, `committee-reports`, `motions`, `propositions`) — registered centrally in [`src/config/article-horizons.ts`](src/config/article-horizons.ts) (ADR-007) | The aggregator uses this to pick the right shared-chrome variant and the per-type mandatory-artifact set |
 | `files` present as an object (nested category → string[] **or** flat path → description) | Walked in canonical order by `src/aggregator/artifact-order.ts` |
 | Every `files.*` entry resolves to an existing file under the run directory | Broken links fail the render |
+| Each artifact listed in `files.*` meets the per-artifact line floor in [`reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json) (or the floor multiplied by the `dataMode` reduction factor — see § Reference Quality Thresholds below) | Insufficient depth becomes a 🔴 RED issue blocking PR |
+| On-disk artifacts not present in `files.*` are reported as ⚠️ WARN orphans (do not block) | Encourages explicit inclusion without false-failing exploratory artefacts |
 | Latest `history[]` entry with a non-PENDING `gateResult` is carried forward on re-runs | Preserves the last `GREEN` / `ANALYSIS_ONLY` stamp |
 | At least one of the per-type required artifacts from [`.github/prompts/05-analysis-to-article-contract.md`](.github/prompts/05-analysis-to-article-contract.md) § 4 present | Prevents a thin run from publishing |
 
@@ -626,12 +633,47 @@ Every MCP client exports a canonical tool list asserted by an integration contra
 
 ### Reference Quality Thresholds
 
-Authoritative thresholds live in `analysis/methodologies/reference-quality-thresholds.json`:
+Authoritative thresholds live in [`analysis/methodologies/reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json) (schema version **1.4.0**). The file is consumed by `scripts/validate-analysis-completeness.js` (Stage-C runtime check) and by the editorial agent following [`.github/prompts/03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md).
 
-| Artifact | Minimum words | Breaking-news threshold |
-|----------|---------------|-------------------------|
-| `intelligence/mcp-reliability-audit.md` | 200 | 385 |
-| `intelligence/reference-analysis-quality.md` | 140 | 190 |
+The thresholds JSON exposes four top-level surfaces:
+
+| Surface | Key | Purpose |
+|---|---|---|
+| **Per-artifact line floors** | `thresholds.<articleType>.<relativePath>` | Minimum line counts derived from the Run 184 reference benchmark (`analysis/daily/2026-04-18/breaking-run184/`) minus a 10 % tolerance, rounded down to 5-line increments. Falls back to the CLI `--min-lines` flag (default `30`) when an artifact has no explicit entry; effective floor = `max(perArtifact, --min-lines)`. |
+| **Tradecraft quality signals** (additive) | `tradecraftQualitySignals.{wepBandRequired, admiraltyGradeRequired, icd203BlufRequired, satDocumentationRequired}` | Lists artifacts that MUST carry WEP probability bands, Admiralty grades on external sources, ICD-203 BLUF blocks, or SAT (Structured Analytic Techniques) documentation. Not enforced by the line-count validator — checked by Pass-2 reviewers. |
+| **Structural requirements** | `structuralRequirements.{mermaidRequired, readerBlockRequired, sourceDiversityRequired, requiredSections, longHorizonScenarioGate}` | Hard structural contracts: required Mermaid blocks, "Reader Briefing" / "Plain Language" sections, source-diversity (EP MCP citation OR evidence table), required H2 substrings per artifact, and the long-horizon scenario gate (≥ 6 `### Scenario N` headings for `term-outlook` / `election-cycle`). |
+| **`dataMode` reductions** (schema 1.4.0+) | `DATA_MODE_REDUCTION` constant in `validate-analysis-completeness.js` | When `manifest.dataMode != "full"` the line-floor is multiplied by a reduction factor so structurally constrained runs can pass Stage C. Structural checks (mermaid, WEP, Admiralty, SATs, requiredSections) remain unchanged. |
+
+**`dataMode` reduction factors** (applied to per-artifact line floors only):
+
+| `dataMode` value | Factor | When it applies |
+|---|---|---|
+| `full` (default) | 1.00 | All Stage-A waves succeeded with full payloads |
+| `title-only` | 0.75 | EP MCP returned headlines only (no per-event evidence bodies) |
+| `degraded-imf` | 0.85 | IMF SDMX 3.0 fetch failed; Wave-2 economic context derives from cache or World Bank fallback |
+| `degraded-voting` | 0.85 | EP roll-call voting data is empty in both MCP and the EP Open Data fallback |
+| `minimal` | 0.65 | Multiple Stage-A waves failed; the run proceeded with skeleton evidence only |
+
+**Schema changelog** (most recent first):
+
+| Version | Change |
+|---|---|
+| `1.4.0` | Additive: `dataMode` support in `manifest.json` and `DATA_MODE_REDUCTION` factors |
+| `1.3.0` | Additive: `forward-projection.md` line floors for `week-ahead` (80) and `month-ahead` (120) |
+| `1.2.0` | Additive: thresholds for the four long-horizon and electoral types; line floors for the eight new analysis artifacts (`forward-projection`, `legislative-pipeline-forecast`, `parliamentary-calendar-projection`, `term-arc`, `seat-projection`, `mandate-fulfilment-scorecard`, `presidency-trio-context`, `commission-wp-alignment`) |
+| `1.1.0` | Additive: `manifest.json` may carry `artifactSources` (`fresh` / `carry-forward-from:<runId>`) emitted by `scripts/aggregator/prior-run-diff.js` |
+| `1.0.0` | Initial release |
+
+**Worked examples** of canonical floors (full extract is in the JSON file):
+
+| Article type | Artifact | Floor |
+|---|---|---|
+| `breaking` | `intelligence/synthesis-summary.md` | 200 |
+| `breaking` | `intelligence/mcp-reliability-audit.md` | 385 |
+| `week-ahead` | `intelligence/forward-projection.md` | 80 |
+| `month-ahead` | `intelligence/forward-projection.md` | 120 |
+| `term-outlook` | `intelligence/scenario-forecast.md` | 6 × `### Scenario N` headings (long-horizon scenario gate) |
+| any | `intelligence/reference-analysis-quality.md` | 140 (190 for `breaking`) |
 
 ---
 
@@ -646,8 +688,8 @@ export interface AnalysisManifest {
   runId: string;                        // gh-aw run identifier
   generatedAt: string;                  // ISO 8601 UTC
   sourceCommit: string;                 // Git SHA of source code
-  epMcpVersion: "1.2.13";               // Pinned EP MCP Server version
-  ghAwVersion: "v0.71.3";               // Pinned gh-aw CLI
+  epMcpVersion: "1.3.0";                // Pinned EP MCP Server version
+  ghAwVersion: "v0.71.6";               // Pinned gh-aw CLI
   files: AnalysisRunFiles;              // Emitted artifact catalogue
   qualityReport: QualityReport;         // AI-First 2-pass metrics
   dataSourcesUsed: Array<"EP" | "WB" | "IMF">;
@@ -711,7 +753,7 @@ interface ArticleMetadata {
   slug: string;                         // "week-ahead"
   lang: LanguageCode;                   // 14 possible values
   title: string;                        // localised title
-  type: ArticleCategory;                // 7 production types
+  type: ArticleCategory;                // 14 production types (see ADR-007 / src/config/article-horizons.ts)
   articleRunId?: string;                // cross-reference to analysis manifest
   correction?: {                        // immutability exception
     correctsArticle: string;            // filename of article being corrected
@@ -941,7 +983,7 @@ erDiagram
     MCP_CLIENT ||--o{ RESPONSE_VALIDATOR : "validates with"
 
     MCP_SERVER {
-        string version "1.2.13"
+        string version "1.3.0"
         string connectionType "stdio, SSE"
         string status "running, stopped"
         datetime lastHealthCheck
@@ -1554,6 +1596,7 @@ timeline
 |---------|--------------|-------------|----------------|
 | **v1.0** | 2026-02-01 | Initial release, basic article generation | 1 (Main ER diagram) |
 | **v1.1** | 2026-03-19 | Multi-language support, MCP integration, ISMS alignment | 4 (MEP, MCP, Multi-language, Sitemap models) + 1 (EP data flow) |
+| **v1.4** | 2026-05-06 | Architecture documentation full review (current state, post-aggregator era): manifest schema fully documented (`articleType`, `dataMode`, `artifactSources`, `history`, `files`); Reference Quality Thresholds expanded to cover all four JSON surfaces (per-artifact floors, tradecraft signals, structural requirements, `dataMode` reduction factors per schema 1.4.0); `epMcpVersion` pinned to `1.3.0`; `ghAwVersion` pinned to `v0.71.6`; `ArticleMetadata.type` correctly enumerates 14 production types | Schema unchanged — coverage refresh |
 | **v1.3** | 2026-05-03 | Refresh for v0.8.54 + Look-Ahead epic completion: 14 article types (added `quarter-ahead`, `quarter-in-review`, `year-ahead`, `year-in-review`, `term-outlook`, `election-cycle`), 15 unified gh-aw workflows (14 `news-<type>.md` + `news-translate.md`), centralised horizon registry in `src/config/article-horizons.ts` (ADR-007), `ghAwVersion` pinned to `v0.71.3`, isolation rule restated for the post-aggregator pipeline | Schema unchanged — taxonomic refresh |
 | **v1.2** | 2026-04-20 | TypeScript type system coverage, FeedBaseOptions vs FixedWindowFeedOptions split (EP MCP v1.2.13), IMF/WB dual economic context, AnalysisManifest schema, 8 article types correctly enumerated, 14 languages from `language-core.ts::ALL_LANGUAGES`, `buildSiteFooter()` single source of truth, reference quality thresholds | Same set — content updates |
 | **v2.0** | 2026-Q4 (Planned) | Real-time updates, expanded intelligence types | TBD |
@@ -1750,6 +1793,6 @@ const sourceHash = crypto.createHash('sha256')
 ---
 
 **Document Status**: Active  
-**Last Updated**: 2026-05-03 (EU Parliament Monitor v0.8.54)  
-**Next Review**: 2026-08-03  
+**Last Updated**: 2026-05-06 (EU Parliament Monitor v0.8.59)  
+**Next Review**: 2026-08-06  
 **Owner**: Development Team, Hack23 AB

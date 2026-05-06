@@ -11,15 +11,15 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.3-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--03-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.4-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--06-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
   <a href="https://www.bestpractices.dev/projects/12068"><img src="https://www.bestpractices.dev/projects/12068/badge" alt="OpenSSF Best Practices"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:**
-2026-05-03 (UTC) | **📦 Release:** v0.8.54  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03
+**📋 Document Owner:** CEO | **📄 Version:** 1.4 | **📅 Last Updated:**
+2026-05-06 (UTC) | **📦 Release:** v0.8.59  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-06
 
 ---
 
@@ -177,7 +177,7 @@ architecture.
 - **TypeScript Source**: All source in `src/` written in TypeScript 6.0.3 (strict, ESM, `"type": "module"`), compiled via `tsc` — `rootDir: ./src`, `outDir: ./scripts`, `target: ES2025`, `module: NodeNext`
 - **Multi-Language Support**: Generates content in 14 languages (`en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh`), defined in `src/constants/language-core.ts::ALL_LANGUAGES`
 - **Article Types**: 14 production content types (`breaking`, `committee-reports`, `election-cycle`, `month-ahead`, `month-in-review`, `motions`, `propositions`, `quarter-ahead`, `quarter-in-review`, `term-outlook`, `week-ahead`, `week-in-review`, `year-ahead`, `year-in-review`) — each type is a slug, not a strategy module; the aggregator renders the same canonical artifact order for every type and per-type content differences are carried by the Stage-B artifacts themselves
-- **Agentic Workflows**: 15 unified gh-aw markdown workflows — 14 `news-<type>.md` article types (Stages A → B → C → D → E in one session, active-work budget 22–28 min before the single safe-outputs `create_pull_request` call, 60-min `timeout-minutes` cap; `engine.mcp.session-timeout` is intentionally **not** set — the bundled MCP gateway v0.3.1 rejects the field) + `news-translate.md` (14-language flush translation, exempt from the single-PR rule) — compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.71.4`)
+- **Agentic Workflows**: 15 unified gh-aw markdown workflows — 14 `news-<type>.md` article types (Stages A → B → C → D → E in one session, active-work budget 22–28 min before the single safe-outputs `create_pull_request` call, 60-min `timeout-minutes` cap; `engine.mcp.session-timeout` is intentionally **not** set — the bundled MCP gateway v0.3.1 rejects the field) + `news-translate.md` (14-language flush translation, exempt from the single-PR rule) — compiled to `.lock.yml` via `gh aw compile --validate` (pinned `GH_AW_VERSION: v0.71.6`)
 - **Analysis-Artifact-Driven Article Pipeline**: Agents author the full Stage-B artifact set under `analysis/daily/<date>/<slug>/` (or `<slug>-run<NN>/` when multiple runs occur on the same date) and commit it. The deterministic aggregator (`src/aggregator/**`, invoked via `npm run generate-article -- --run <analysis-run-dir>` for a single run or `npm run generate-article:all` for batch regen) walks `manifest.json`, cleans each artifact, and emits the final HTML with the shared site chrome (stacked header + embedded 14-language switcher + TOC sidebar + footer stats) and 14-language hreflang entries. There is no AI-authored HTML step, no strategies, no builders, no section-builders
 - **Economic Data (IMF-primary, Wave-4 strict default editorial)**: IMF REST is the **primary** source for every economic claim in `intelligence/economic-context.md`; World Bank MCP provides complementary non-economic context only. Enforcement is editorial at the Stage-C completeness review — the legacy runtime gates (`articlePolicyHasEconomicContext`, `articlePolicyHasIMFEconomicEvidence`, `isWave3IMFStrictEnabled`) in `src/utils/content-validator.ts` were purged in April-2026; the Stage-C reviewer applies the IMF-required-for-policy rule directly over the committed artifact
 - **Quality-Through-Artifact Principle**: Mandatory 2-pass iterative improvement during Stage B (~60% pass 1, ~40% pass 2); ≥ 80 words/SWOT item, ≥ 150 words/stakeholder perspective, ≥ 1 Mermaid or Chart.js visualisation per core artifact, 0 `[AI_ANALYSIS_REQUIRED]` sentinel markers in any committed file (enforced at Stage-C agent-side review against `reference-quality-thresholds.json`)
@@ -322,8 +322,8 @@ C4Container
     Container_Boundary(epmonitor, "EU Parliament Monitor") {
         Container(aw_orchestrator, "gh-aw Orchestrator", "Agentic Workflows (Claude Sonnet 4.6)", "15 agentic workflows: 14 unified news-<type>.md + news-translate.md")
         Container(prompt_lib, "Prompt Library", "10 bounded contexts", ".github/prompts/00-scope … 09-troubleshooting; lint:prompts drift-guard")
-        Container(methodology_lib, "Methodology Library", "Markdown methodologies + JSON thresholds", "17 methodologies + reference-quality-thresholds.json (analysis/methodologies/)")
-        Container(template_lib, "Template Library", "59 Markdown templates", "59 top-level content templates (analysis/templates/)")
+        Container(methodology_lib, "Methodology Library", "Markdown methodologies + JSON thresholds", "19 methodologies + reference-quality-thresholds.json (analysis/methodologies/)")
+        Container(template_lib, "Template Library", "60 Markdown templates", "60 top-level content templates + 6 partial fragments under _partials/ (analysis/templates/)")
         ContainerDb(analysis_runs, "Analysis Runs", "Markdown + JSON", "analysis/daily/YYYY-MM-DD/<type>/{manifest.json,intelligence/,classification/,risk-scoring/,threat-assessment/,documents/,extended/}")
         Container(aggregator, "Aggregator (5 modules)", "TypeScript", "src/aggregator/**: artifact-order · clean-artifact · analysis-aggregator · markdown-renderer · article-html · article-metadata · article-generator (CLI)")
         Container(ep_client, "EP MCP Client", "TypeScript", "Stdio JSON-RPC to european-parliament-mcp-server@1.3.0+; 60+ tools; getVotingRecordsWithFallback() to EP Open Data Portal (src/mcp/ep-mcp-client.ts)")
@@ -381,8 +381,8 @@ C4Container
 
 | 🧱 Container | ⚙️ Technology | 🎯 Purpose | 🔄 Data flow |
 |---|---|---|---|
-| 🤖 **gh-aw Orchestrator** | Claude Sonnet 4.6 + gh-aw v0.71.4 | Runs 15 agentic workflows (14 article + 1 translate); produces analysis artifacts | Triggers via cron / manual; commits one PR per article run |
-| 📚 **Prompt / Methodology / Template libraries** | Markdown + JSON | Bounded-context prompts (10), methodologies (19), templates (59 top-level content templates) | Read by every agentic workflow at start-of-session |
+| 🤖 **gh-aw Orchestrator** | Claude Sonnet 4.6 + gh-aw v0.71.6 | Runs 15 agentic workflows (14 article + 1 translate); produces analysis artifacts | Triggers via cron / manual; commits one PR per article run |
+| 📚 **Prompt / Methodology / Template libraries** | Markdown + JSON | Bounded-context prompts (10), methodologies (19), templates (60 top-level + 6 `_partials/`) | Read by every agentic workflow at start-of-session |
 | 🧠 **Analysis Runs** | Markdown + JSON | Per-run intelligence tree under `analysis/daily/<date>/<type>/` | Written by Stage B agents; consumed by Stage C and aggregator |
 | 🟢 **Aggregator (5 modules)** | TypeScript | Reads `manifest.json` and Markdown artifacts; renders 14-language HTML deterministically | `npm run generate-article -- --run <dir>` |
 | 🔌 **EP MCP Client** | TypeScript | 60+ EP tools + voting fallback to EP Open Data Portal `/api/v2/decision` | Stage A data collection |
@@ -532,7 +532,7 @@ C4Component
 | 🧩 Component | 🎯 Responsibility | 🔗 Dependencies | 📂 File location |
 |---|---|---|---|
 | 🟢 **Aggregator pipeline** | Discover `manifest.json` → clean artifacts → aggregate (19-section canonical order, Provenance & Audit at end, `.md` only excluding `data/runs/pass1/`) → render Markdown → wrap HTML with TOC sidebar + shared chrome → write `<slug>.en.md` + 14 `<slug>-<lang>.html` | `markdown-it` + `markdown-it-anchor`/`-footnote`/`-attrs`/`-deflist` | `src/aggregator/{article-generator,analysis-aggregator,markdown-renderer,article-html,artifact-order,clean-artifact,article-metadata}.ts` |
-| 🧠 **Analysis artifacts** | 59 top-level content templates under `analysis/daily/<date>/<type>/` with `manifest.json` declaring `articleType` + `files` map. 3-variant manifest schema (`articleType` / `articleTypes[]` / legacy `runType`) handled by `resolveArticleTypeFromManifest()` | 19 methodologies (10-step protocol, Rules 1–22) | `analysis/methodologies/*.md`, `analysis/templates/**`, `analysis/daily/**` |
+| 🧠 **Analysis artifacts** | 60 top-level content templates under `analysis/daily/<date>/<type>/` with `manifest.json` declaring `articleType` + `files` map. 3-variant manifest schema (`articleType` / `articleTypes[]` / legacy `runType`) handled by `resolveArticleTypeFromManifest()`. Optional `dataMode` (`full`/`title-only`/`degraded-imf`/`degraded-voting`/`minimal`) applies depth-floor reduction factors for structurally constrained runs (see DATA_MODEL.md § Reference Quality Thresholds) | 19 methodologies (10-step protocol, Rules 1–22) | `analysis/methodologies/*.md`, `analysis/templates/**`, `analysis/daily/**` |
 | 🔌 **EP MCP Client** | 60+ EP tools via stdio JSON-RPC; `safeCallTool()` + `callToolWithRetry()` wrappers; recess-mode detection ([1952,2100] year window); slow-feed warning downgrade for `get_events_feed` | `european-parliament-mcp-server@1.3.0+` (PR #405 normalises political-group codes) | `src/mcp/ep-mcp-client.ts` |
 | 🗳️ **EP Open Data fallback** | Three-state voting fallback: (a) MCP has data → use it · (b) MCP empty → query `/api/v2/decision` · (c) both empty → 🔴 unavailability marker via virtual tool name `ep-get-voting-records` | EP Open Data Portal | `src/mcp/ep-open-data-client.ts` (see `getVotingRecordsWithFallback()`) |
 | 💰 **IMF Client** | `class IMFMCPClient` + `IMF_MCP_TOOLS`; primary economic source per IMF Indicator Mapping; native Node 26 `fetch` SDMX 3.0; env `IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS` | None (REST) | `src/mcp/imf-mcp-client.ts` |
@@ -685,7 +685,7 @@ Plus: `news-translate.md` (14-language translation helper, manual dispatch only)
 
 ### Agentic Workflows (gh-aw)
 
-All 15 news workflows are **markdown source files compiled to YAML** (`.md` → `.lock.yml`) via the GitHub Agentic Workflows CLI (`gh aw compile --validate`) with pinned `GH_AW_VERSION: v0.71.4` in `.github/workflows/compile-agentic-workflows.yml`. See [WORKFLOWS.md](WORKFLOWS.md) for the full surface.
+All 15 news workflows are **markdown source files compiled to YAML** (`.md` → `.lock.yml`) via the GitHub Agentic Workflows CLI (`gh aw compile --validate`) with pinned `GH_AW_VERSION: v0.71.6` in `.github/workflows/compile-agentic-workflows.yml`. See [WORKFLOWS.md](WORKFLOWS.md) for the full surface.
 
 **5-layer security model**:
 1. **AWF Squid firewall allowlist** — egress HTTP allowlist per workflow
@@ -738,7 +738,7 @@ All 15 news workflows are **markdown source files compiled to YAML** (`.md` → 
 | **TypeDoc** | 0.28.19 | 0.28.0 | N/A | Major within 60 days |
 | **european-parliament-mcp-server** | 1.3.0 (pinned) | 1.3.0 | Per upstream | Track releases; repository workflows and package dependency pin `european-parliament-mcp-server@1.3.0` for EP MCP data access |
 | **worldbank-mcp** | 1.0.1 (optional) | 1.0.0 | Per upstream | Biannual WDI refresh cadence |
-| **gh-aw CLI** | v0.71.4 (pinned `GH_AW_VERSION`) | v0.71.4 | Per upstream | Workflow-level pin in `compile-agentic-workflows.yml`; `.md` workflows compile to committed `.lock.yml` files |
+| **gh-aw CLI** | v0.71.6 (pinned `GH_AW_VERSION`) | v0.71.6 | Per upstream | Workflow-level pin in `compile-agentic-workflows.yml`; `.md` workflows compile to committed `.lock.yml` files |
 
 ### Dependency Management
 
@@ -1705,9 +1705,9 @@ Non-functional requirements define system qualities that are not directly relate
 <div class="architecture-footer">
 
 **Document Status:** Living Document  
-**Last Updated:** 2026-05-03  
-**Next Review:** 2026-08-03  
-**Project Release:** v0.8.54  
+**Last Updated:** 2026-05-06  
+**Next Review:** 2026-08-06  
+**Project Release:** v0.8.59  
 **Owner:** CEO
 
 This architecture documentation follows the [C4 model](https://c4model.com/)
