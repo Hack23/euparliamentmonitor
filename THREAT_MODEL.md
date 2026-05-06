@@ -315,7 +315,7 @@ classification ([CLASSIFICATION.md](CLASSIFICATION.md): Public/Medium/Medium).
 - **Risk Distribution:**
   - Critical: 0
   - High: 1 (T-029 — shell expansion injection, P1)
-  - Medium: 4 (T-003, T-007, T-013, T-030 — P1/P2 Priority)
+  - Medium: 4 (T-003, T-007, T-013 P1; T-030 P2)
   - Low-Medium: 10 (Monitored with existing controls)
   - Low: 7 (Managed with existing controls)
   - 2026-04-20 refresh: 8 threats (T-021…T-028) covering LLM/agentic, OIDC, and toolchain risks
