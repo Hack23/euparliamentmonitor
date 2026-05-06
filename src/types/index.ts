@@ -138,6 +138,7 @@ export {
   type GetIncomingMEPsOptions,
   type GetOutgoingMEPsOptions,
   type GetHomonymMEPsOptions,
+  type GetLatestVotesOptions,
   type GetPlenaryDocumentsOptions,
   type GetCommitteeDocumentsOptions,
   type GetPlenarySessionDocumentsOptions,

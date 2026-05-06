@@ -148,7 +148,7 @@ This run's MCP reliability profile is consistent with patterns from prior quarte
 
 ### European Parliament MCP Server — Tool Usage Analysis
 
-The EP MCP server (`european-parliament-mcp-server@1.2.21`) exposes 62 tools. This run utilised 11 distinct tools, representing 18% of the available capability. The following tools were available but not called in Stage A (reserved for future runs or not applicable to quarter-in-review):
+The EP MCP server (`european-parliament-mcp-server@1.3.0`) exposes 62 tools. This run utilised 11 distinct tools, representing 18% of the available capability. The following tools were available but not called in Stage A (reserved for future runs or not applicable to quarter-in-review):
 
 **Not called — applicable to future analysis:**
 - `search_documents` — keyword search across legislative documents

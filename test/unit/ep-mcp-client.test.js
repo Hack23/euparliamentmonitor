@@ -587,7 +587,7 @@ describe('ep-mcp-client', () => {
         // period: { from: "2024-01-01", to: "2024-12-31" } producing an empty
         // pipeline; that is why Stage-A prompts (01-data-collection.md rule 6,
         // 07-mcp-reference.md §4) require explicit dates. The gateway is now
-        // pinned to v1.2.21 (rolling-30-days default), but explicit dates remain
+        // pinned to v1.3.0 (rolling-30-days default), but explicit dates remain
         // the required calling pattern for reproducibility.
         const now = Date.now();
         const today = new Date(now).toISOString().slice(0, 10);
@@ -1358,6 +1358,27 @@ describe('ep-mcp-client', () => {
 
         expect(result).toEqual({
           content: [{ type: 'text', text: '{"meps": []}' }],
+        });
+      });
+
+      it('should get latest votes', async () => {
+        client.callTool.mockResolvedValue({
+          content: [{ type: 'text', text: '{"votes": [], "dataFreshness": "NEAR_REALTIME"}' }],
+        });
+
+        const options = { limit: 20 };
+        await client.getLatestVotes(options);
+
+        expect(client.callTool).toHaveBeenCalledWith('get_latest_votes', options);
+      });
+
+      it('should handle missing get_latest_votes tool gracefully', async () => {
+        client.callTool.mockRejectedValue(new Error('Tool not available'));
+
+        const result = await client.getLatestVotes();
+
+        expect(result).toEqual({
+          content: [{ type: 'text', text: '{"votes": [], "dataFreshness": "NEAR_REALTIME"}' }],
         });
       });
 
