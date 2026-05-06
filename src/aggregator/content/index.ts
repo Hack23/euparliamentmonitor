@@ -26,9 +26,7 @@ export {
   KEY_TAKEAWAYS_SECTION_TITLE,
 } from '../key-takeaways.js';
 
-export {
-  buildReaderIntelligenceGuideHtml,
-} from '../reader-intelligence-guide.js';
+export { buildReaderIntelligenceGuideHtml } from '../reader-intelligence-guide.js';
 
 export {
   READER_GUIDE_SECTION_ID,

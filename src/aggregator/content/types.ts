@@ -31,7 +31,13 @@ export interface SynthesisedTakeaway {
 }
 
 /**
- * Result of key-takeaways synthesis for the entire article.
+ * Structured representation of key-takeaways synthesis output.
+ *
+ * **Note:** The current `buildKeyTakeaways` function returns a plain `string`
+ * (the rendered Markdown block). This interface is a forward-looking contract
+ * for future structured consumers that need both the raw takeaway items and
+ * the rendered output. Use {@link Takeaway} (from `key-takeaways.ts`) for
+ * per-item typing when processing the raw bullets.
  */
 export interface KeyTakeawaysResult {
   /** Ordered list of synthesised takeaways (3–7 items). */

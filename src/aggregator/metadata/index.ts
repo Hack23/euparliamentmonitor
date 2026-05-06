@@ -14,7 +14,4 @@ export type { ArticleMeta, BuildArticleMetaOptions } from '../article-meta.js';
 export { buildArticleMeta } from '../article-meta.js';
 
 export type { ResolvedMetadataEntry, ResolvedMetadata } from '../article-metadata.js';
-export {
-  resolveArticleMetadata,
-  stripInlineMarkdown,
-} from '../article-metadata.js';
+export { resolveArticleMetadata, stripInlineMarkdown } from '../article-metadata.js';

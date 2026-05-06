@@ -61,7 +61,7 @@ export interface ArticleMeta {
   readonly keyDates: readonly string[];
   /** Key actors / political groups identified by the artifacts. */
   readonly keyActors: readonly string[];
-  /** Optional IMF / WorldBank macro hook surfaced as a sidebar callout. */
+  /** Optional IMF economic-context macro hook surfaced as a sidebar callout. Empty string when absent. */
   readonly macroContext: string;
   /**
    * Run-relative paths of every artifact whose content fed into this meta

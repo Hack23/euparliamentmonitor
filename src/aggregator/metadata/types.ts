@@ -25,34 +25,9 @@ export interface PerLanguageMetadata {
 
 /**
  * Complete article metadata sidecar shape (`article-meta.json`).
- * This is the canonical contract between the aggregator pipeline
- * and downstream consumers (HTML, RSS, sitemap, news indexes).
+ * This is a type alias for the canonical {@link ArticleMeta} interface
+ * defined in `article-meta.ts`. Use this name when referring to the
+ * sidecar contract in downstream consumers (HTML, RSS, sitemap, news
+ * indexes).
  */
-export interface ArticleMetaSidecar {
-  /** ISO date of the run (`YYYY-MM-DD`). */
-  readonly date: string;
-  /** Article type slug (e.g. `breaking`). */
-  readonly articleType: string;
-  /** Stable run identifier from the manifest. */
-  readonly runId: string;
-  /** Latest non-PENDING gate result. */
-  readonly gateResult: string;
-  /** Article slug used by the news pages. */
-  readonly slug: string;
-  /** Run-relative path of the canonical `article.md`. */
-  readonly articlePath: string;
-  /** One-sentence executive lead — the strongest finding, distilled. */
-  readonly topFinding: string;
-  /** 3–7 deterministic key takeaways harvested from synthesis-summary. */
-  readonly keyTakeaways: readonly string[];
-  /** Top political risks (artifact-driven, may be empty). */
-  readonly topRisks: readonly string[];
-  /** Key dated triggers / "what to watch" items. */
-  readonly keyDates: readonly string[];
-  /** Key actors / political groups identified by the artifacts. */
-  readonly keyActors: readonly string[];
-  /** Optional IMF / WorldBank macro hook surfaced as a sidebar callout. */
-  readonly macroContext: string;
-  /** Run-relative paths of every artifact whose content fed into this meta record. */
-  readonly sources: readonly string[];
-}
+export type { ArticleMeta as ArticleMetaSidecar } from '../article-meta.js';

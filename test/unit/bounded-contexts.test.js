@@ -7,6 +7,9 @@
  */
 
 import { describe, it, expect } from 'vitest';
+import os from 'os';
+import path from 'path';
+import crypto from 'crypto';
 
 // Artifacts bounded context
 import {
@@ -184,8 +187,8 @@ describe('content bounded context', () => {
   });
 
   it('buildKeyTakeaways returns empty string when sources absent', () => {
-    const tmpDir = '/tmp/nonexistent-run-dir-test';
-    const result = buildKeyTakeaways({ runDir: tmpDir });
+    const uniqueDir = path.join(os.tmpdir(), `ep-test-nonexistent-${crypto.randomUUID()}`);
+    const result = buildKeyTakeaways({ runDir: uniqueDir });
     expect(result).toBe('');
   });
 
