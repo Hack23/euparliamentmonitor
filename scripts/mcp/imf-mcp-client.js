@@ -5,6 +5,17 @@
 const DEFAULT_IMF_API_BASE_URL = 'https://dataservices.imf.org/REST/SDMX_3.0';
 /** Default per-request timeout (milliseconds). */
 const DEFAULT_IMF_API_TIMEOUT_MS = 90_000;
+/** Product identifier sent to IMF SDMX endpoints. */
+const IMF_USER_AGENT = 'euparliamentmonitor/0.9.0 (+https://github.com/Hack23/euparliamentmonitor)';
+/** IMF SDMX accepts JSON data; keep a fallback for proxy/content negotiation. */
+const IMF_ACCEPT_HEADER = 'application/json, application/vnd.sdmx.data+json, */*;q=0.8';
+/** Common unauthenticated headers for direct IMF SDMX REST requests. */
+const IMF_REQUEST_HEADERS = Object.freeze({
+    Accept: IMF_ACCEPT_HEADER,
+    'User-Agent': IMF_USER_AGENT,
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Cache-Control': 'no-cache',
+});
 /** Fallback payload shape when an IMF call fails or the server is offline. */
 const IMF_FALLBACK = {
     content: [{ type: 'text', text: '' }],
@@ -134,9 +145,9 @@ function encodeSDMXDimension(codes) {
  * declared order are ignored — the caller is expected to have discovered
  * the correct dimension names via {@link IMFMCPClient.getParameterDefs}.
  *
- * @param dimensions - Declared dimension order (e.g. `["country","indicator","frequency"]`).
+ * @param dimensions - Declared dimension order (e.g. `["frequency","country","indicator"]`).
  * @param filters - Map of dimension → selected codes.
- * @returns SDMX key (e.g. `"DEU.NGDP_RPCH.A"`).
+ * @returns SDMX key (e.g. `"A.DEU.NGDP_RPCH"`).
  * @internal
  */
 function buildSDMXKey(dimensions, filters) {
@@ -155,8 +166,8 @@ function buildSDMXKey(dimensions, filters) {
  * fallback because the WEO datastructure in particular is so widely used
  * that encoding a well-known default eliminates one round-trip per fetch.
  *
- * Order mirrors the conventional `{country}.{indicator}.{frequency}`
- * layout documented on the IMF Data Services pages.
+ * Order mirrors the IMF SDMX 3.0 DSDs catalogued in
+ * `analysis/imf/sdmx-dimensions-reference.md`.
  *
  * @param databaseId - Dataflow identifier (case-insensitive).
  * @returns Default dimension order used when the caller omits it.
@@ -166,17 +177,72 @@ function defaultDimensionOrder(databaseId) {
     switch (databaseId.toUpperCase()) {
         case 'WEO':
         case 'FM':
-            return ['country', 'indicator', 'frequency'];
         case 'IFS':
         case 'CPI':
-            return ['frequency', 'country', 'indicator'];
         case 'BOP_AGG':
         case 'ER':
-        case 'PCPS':
+        case 'FSI':
             return ['frequency', 'country', 'indicator'];
+        case 'DOT':
+            return ['frequency', 'country', 'counterpartArea', 'indicator'];
+        case 'CDIS':
+            return ['frequency', 'country', 'counterpartArea', 'sector', 'indicator'];
+        case 'CPIS':
+            return ['frequency', 'country', 'counterpartArea', 'instrument', 'indicator'];
+        case 'PCPS':
+            return ['frequency', 'indicator'];
+        case 'GFSR':
+            return ['frequency', 'country', 'indicator', 'sector'];
+        case 'GFS':
+            return ['frequency', 'country', 'sector', 'unit', 'indicator'];
         default:
-            return ['country', 'indicator', 'frequency'];
+            return ['frequency', 'country', 'indicator'];
     }
+}
+/**
+ * Infer the natural frequency for IMF dataflows whose editorial use is stable.
+ *
+ * Callers can still override this by passing `filters.frequency`; the default
+ * only prevents malformed WEO/FM URLs when agents omit frequency in Stage A.
+ *
+ * @param databaseId - Dataflow identifier (case-insensitive).
+ * @returns A frequency code, or `undefined` when the dataflow has no safe default.
+ * @internal
+ */
+function defaultFrequency(databaseId) {
+    switch (databaseId.toUpperCase()) {
+        case 'WEO':
+        case 'FM':
+        case 'DOT':
+        case 'CDIS':
+        case 'CPIS':
+        case 'GFSR':
+            return 'A';
+        case 'BOP_AGG':
+        case 'FSI':
+        case 'GFS':
+            return 'Q';
+        case 'IFS':
+        case 'CPI':
+        case 'ER':
+        case 'PCPS':
+            return 'M';
+        default:
+            return undefined;
+    }
+}
+/**
+ * Add a dataflow-specific default frequency when the caller omitted one.
+ *
+ * @param databaseId - Dataflow identifier.
+ * @param filters - Caller-supplied SDMX dimension filters.
+ * @returns The original filters or a shallow copy with `frequency` populated.
+ * @internal
+ */
+function withDefaultFrequency(databaseId, filters) {
+    const hasFrequency = Object.entries(filters).some(([key]) => key === 'frequency');
+    const frequency = defaultFrequency(databaseId);
+    return !hasFrequency && frequency ? { ...filters, frequency: [frequency] } : filters;
 }
 // ─── Client ──────────────────────────────────────────────────────────────────
 /**
@@ -457,7 +523,7 @@ export class IMFMCPClient {
         }
         try {
             const dims = dimensionOrder ?? defaultDimensionOrder(databaseId);
-            const key = buildSDMXKey(dims, filters);
+            const key = buildSDMXKey(dims, withDefaultFrequency(databaseId, filters));
             const qs = new URLSearchParams({
                 startPeriod: String(startYear),
                 endPeriod: String(endYear),
@@ -509,7 +575,7 @@ export class IMFMCPClient {
         try {
             const response = await this._fetchImpl(url, {
                 method: 'GET',
-                headers: { Accept: 'application/json' },
+                headers: IMF_REQUEST_HEADERS,
                 signal: controller.signal,
             });
             if (!response.ok) {

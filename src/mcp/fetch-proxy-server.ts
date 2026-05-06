@@ -49,8 +49,7 @@ const IMF_ALLOWED_PROTOCOL = 'https:';
 const FETCH_TIMEOUT_MS = 180_000;
 
 /** Product identifier sent to IMF SDMX endpoints. */
-const IMF_USER_AGENT =
-  'euparliamentmonitor/0.9.0 (+https://github.com/Hack23/euparliamentmonitor)';
+const IMF_USER_AGENT = 'euparliamentmonitor/0.9.0 (+https://github.com/Hack23/euparliamentmonitor)';
 
 /** Common unauthenticated headers for IMF SDMX REST requests. */
 const IMF_REQUEST_HEADERS: Readonly<Record<string, string>> = Object.freeze({

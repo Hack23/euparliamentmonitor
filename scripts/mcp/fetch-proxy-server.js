@@ -42,6 +42,15 @@ const IMF_ALLOWED_PATH_PREFIX = '/REST/SDMX_3.0/';
 const IMF_ALLOWED_PROTOCOL = 'https:';
 /** Per-request fetch timeout (ms). */
 const FETCH_TIMEOUT_MS = 180_000;
+/** Product identifier sent to IMF SDMX endpoints. */
+const IMF_USER_AGENT = 'euparliamentmonitor/0.9.0 (+https://github.com/Hack23/euparliamentmonitor)';
+/** Common unauthenticated headers for IMF SDMX REST requests. */
+const IMF_REQUEST_HEADERS = Object.freeze({
+    Accept: 'application/json, application/vnd.sdmx.data+json, */*;q=0.8',
+    'User-Agent': IMF_USER_AGENT,
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Cache-Control': 'no-cache',
+});
 // ─── Allowlist check ─────────────────────────────────────────────────────────
 /**
  * Returns `true` when `url` is allowed by the IMF-only fetch-proxy policy.
@@ -152,7 +161,7 @@ export async function handleFetchUrl(id, url, fetchImpl = globalThis.fetch) {
     }
     try {
         const response = await fetchImpl(url, {
-            headers: { Accept: 'application/json' },
+            headers: IMF_REQUEST_HEADERS,
             signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
         });
         if (!response.ok) {

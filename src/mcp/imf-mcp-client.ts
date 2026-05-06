@@ -64,8 +64,7 @@ const DEFAULT_IMF_API_BASE_URL = 'https://dataservices.imf.org/REST/SDMX_3.0';
 const DEFAULT_IMF_API_TIMEOUT_MS = 90_000;
 
 /** Product identifier sent to IMF SDMX endpoints. */
-const IMF_USER_AGENT =
-  'euparliamentmonitor/0.9.0 (+https://github.com/Hack23/euparliamentmonitor)';
+const IMF_USER_AGENT = 'euparliamentmonitor/0.9.0 (+https://github.com/Hack23/euparliamentmonitor)';
 
 /** IMF SDMX accepts JSON data; keep a fallback for proxy/content negotiation. */
 const IMF_ACCEPT_HEADER = 'application/json, application/vnd.sdmx.data+json, */*;q=0.8';
