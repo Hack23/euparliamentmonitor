@@ -28,19 +28,23 @@ const NEWS_DIR = path.join(REPO_ROOT, 'news');
 /** Pick a sample article in each category for validation */
 function findSampleArticles() {
   const files = fs.readdirSync(NEWS_DIR).filter((f) => f.endsWith('-en.html'));
-  // Pick up to 3 recent English articles
+  // Sort to ensure deterministic selection across filesystems
+  files.sort();
+  // Pick up to 3 recent English articles (last alphabetically = newest by date)
   return files.slice(-3);
 }
 
 /** Find an Arabic variant for RTL testing */
 function findArabicArticle() {
   const files = fs.readdirSync(NEWS_DIR).filter((f) => f.endsWith('-ar.html'));
+  files.sort();
   return files.length > 0 ? files[files.length - 1] : null;
 }
 
 /** Find a Hebrew variant for RTL testing */
 function findHebrewArticle() {
   const files = fs.readdirSync(NEWS_DIR).filter((f) => f.endsWith('-he.html'));
+  files.sort();
   return files.length > 0 ? files[files.length - 1] : null;
 }
 

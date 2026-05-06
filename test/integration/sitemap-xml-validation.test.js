@@ -151,7 +151,7 @@ describe('rss.xml structural validation', () => {
       const text = title.replace(/<\/?title>/g, '');
       // After removing &amp;/&lt;/&gt;/&quot;/&apos; there should be no bare &/</>
       const cleaned = text.replace(/&amp;|&lt;|&gt;|&quot;|&apos;/g, '');
-      expect(cleaned).not.toMatch(/[<>]/);
+      expect(cleaned).not.toMatch(/[<>&]/);
     }
   });
 });

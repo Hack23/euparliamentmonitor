@@ -87,7 +87,7 @@ describe('toAbsoluteUrl', () => {
   });
 
   it('throws for relative paths', () => {
-    expect(() => toAbsoluteUrl('/news/article.html')).toThrow('Expected absolute HTTPS URL');
+    expect(() => toAbsoluteUrl('/news/article.html')).toThrow('Invalid URL');
   });
 
   it('throws for javascript: protocol', () => {
@@ -95,7 +95,25 @@ describe('toAbsoluteUrl', () => {
   });
 
   it('throws for empty strings', () => {
-    expect(() => toAbsoluteUrl('')).toThrow('Expected absolute HTTPS URL');
+    expect(() => toAbsoluteUrl('')).toThrow('Invalid URL');
+  });
+
+  it('throws for URLs with quotes (attribute injection)', () => {
+    expect(() => toAbsoluteUrl('https://example.com" onload="alert(1)')).toThrow(
+      'unsafe for HTML attributes'
+    );
+  });
+
+  it('throws for URLs with angle brackets', () => {
+    expect(() => toAbsoluteUrl('https://example.com/<script>')).toThrow(
+      'unsafe for HTML attributes'
+    );
+  });
+
+  it('throws for URLs with whitespace', () => {
+    expect(() => toAbsoluteUrl('https://example.com/path name')).toThrow(
+      'unsafe for HTML attributes'
+    );
   });
 });
 
@@ -121,6 +139,18 @@ describe('toRelativeFilePath', () => {
   it('handles Windows-style paths', () => {
     expect(toRelativeFilePath('\\news\\subdir\\article.html')).toBe('news/subdir/article.html');
   });
+
+  it('rejects path traversal with ../', () => {
+    expect(() => toRelativeFilePath('../etc/passwd')).toThrow('Path traversal not allowed');
+  });
+
+  it('rejects path traversal with nested ../..', () => {
+    expect(() => toRelativeFilePath('news/../../secret')).toThrow('Path traversal not allowed');
+  });
+
+  it('rejects Windows-style path traversal', () => {
+    expect(() => toRelativeFilePath('..\\windows\\system32')).toThrow('Path traversal not allowed');
+  });
 });
 
 describe('cacheBustUrl', () => {
@@ -138,6 +168,10 @@ describe('cacheBustUrl', () => {
 
   it('handles empty build hash gracefully', () => {
     expect(cacheBustUrl('file.js', { buildShort: '', appVersion: '' })).toBe('file.js?v=');
+  });
+
+  it('uses & separator when asset path already has a query string', () => {
+    expect(cacheBustUrl('file.css?x=1', config)).toBe('file.css?x=1&v=abc1234');
   });
 });
 
@@ -173,6 +207,14 @@ describe('buildMetaTag', () => {
   it('handles empty content', () => {
     expect(buildMetaTag('robots', '')).toBe('  <meta name="robots" content="">');
   });
+
+  it('escapes special characters in content', () => {
+    const result = buildMetaTag('description', 'A & B "quotes" <tags>');
+    expect(result).toContain('&amp;');
+    expect(result).toContain('&quot;');
+    expect(result).toContain('&lt;');
+    expect(result).not.toContain('"quotes"');
+  });
 });
 
 describe('buildOgMetaTag', () => {
@@ -186,6 +228,12 @@ describe('buildOgMetaTag', () => {
     expect(buildOgMetaTag('og:type', 'article')).toBe(
       '  <meta property="og:type" content="article">'
     );
+  });
+
+  it('escapes special characters in content', () => {
+    const result = buildOgMetaTag('og:title', 'A & B "quotes"');
+    expect(result).toContain('&amp;');
+    expect(result).toContain('&quot;');
   });
 });
 
@@ -213,14 +261,21 @@ describe('getDirection', () => {
 
 describe('buildHreflangLink', () => {
   it('produces a valid hreflang link element', () => {
-    expect(buildHreflangLink('en', 'https://euparliamentmonitor.com/index.html')).toBe(
+    const url = toAbsoluteUrl('https://euparliamentmonitor.com/index.html');
+    expect(buildHreflangLink('en', url)).toBe(
       '  <link rel="alternate" hreflang="en" href="https://euparliamentmonitor.com/index.html">'
     );
   });
 
   it('handles x-default', () => {
-    expect(buildHreflangLink('x-default', 'https://euparliamentmonitor.com/index.html')).toBe(
+    const url = toAbsoluteUrl('https://euparliamentmonitor.com/index.html');
+    expect(buildHreflangLink('x-default', url)).toBe(
       '  <link rel="alternate" hreflang="x-default" href="https://euparliamentmonitor.com/index.html">'
     );
+  });
+
+  it('throws for invalid hreflang values', () => {
+    const url = toAbsoluteUrl('https://euparliamentmonitor.com/index.html');
+    expect(() => buildHreflangLink('invalid!!', url)).toThrow('Invalid hreflang value');
   });
 });

@@ -27,12 +27,7 @@ export type {
 } from './types.js';
 
 // Escape utilities (branded-type producers)
-export {
-  toSafeHtml,
-  toSafeXml,
-  toAbsoluteUrl,
-  toRelativeFilePath,
-} from './html-escape.js';
+export { toSafeHtml, toSafeXml, toAbsoluteUrl, toRelativeFilePath } from './html-escape.js';
 
 // Template helpers
 export {
