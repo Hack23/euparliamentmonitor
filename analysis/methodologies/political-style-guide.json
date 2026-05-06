@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "description": "Machine-readable style enforcement rules for EU Parliament Monitor political intelligence analysis. Companion to political-style-guide.md. Used by validation scripts and AI agents to check compliance.",
+  "description": "Machine-readable style enforcement rules for EU Parliament Monitor political intelligence analysis. Companion to political-style-guide.md. Advisory reference consumed by AI agents during analysis generation for style compliance guidance.",
   "effective": "2026-05-06",
   "owner": "Hack23 AB",
   "rules": {
@@ -127,9 +127,9 @@
       "qualifiedMajority": "55% of MS representing 65% of EU population"
     }
   },
-  "validation": {
-    "scriptPath": "scripts/validate-analysis-completeness.js",
+  "consumption": {
+    "consumers": ["AI agents during analysis generation", "Pass-2 self-audit checklist"],
     "enforcementLevel": "advisory",
-    "note": "Style rules are checked during Pass-2 review. Violations trigger Pass-2 rewrite but do not block Stage-C gate unless combined with line-floor violation."
+    "note": "Style rules are guidance for AI agents and human reviewers during Pass-2 review. Not currently parsed by validation scripts. Violations trigger Pass-2 rewrite but do not block Stage-C gate."
   }
 }

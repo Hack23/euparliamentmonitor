@@ -62,7 +62,7 @@ aggregationPosition: 5 of 30
 
 **Template Purpose:** Analyze how media coverage shapes and reflects European Parliament political dynamics across 27 member states and the global audience. Identifies framing patterns, influence operations, narrative-laundering chains, and democratic-resilience gaps with EU-specific institutional, linguistic, and geopolitical context.
 
-**Methodology:** [electoral-domain-methodology.md §Part 4](../methodologies/electoral-domain-methodology.md#part-4--media-framing-analysis-media-framing-analysismd) + [analytical-supplementary-methodology.md §AS4](../methodologies/analytical-supplementary-methodology.md#-as4--media-framing-deep-dive)
+**Methodology:** [electoral-domain-methodology.md §Part 4](../methodologies/electoral-domain-methodology.md#part-4--media-framing-analysis-media-framing-analysismd) + [analytical-supplementary-methodology.md §AS4](../methodologies/analytical-supplementary-methodology.md#as4--media-framing-deep-dive)
 
 **Min Lines:** 270
 
