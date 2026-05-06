@@ -74,12 +74,12 @@ export function buildOgMetaTag(property: string, content: string): string {
  * @returns `'rtl'` for Arabic and Hebrew, `'ltr'` for all others
  */
 export function getDirection(lang: LanguageCode): 'ltr' | 'rtl' {
-  return getTextDirection(lang) as 'ltr' | 'rtl';
+  return getTextDirection(lang);
 }
 
 /**
  * Check whether a value is a valid hreflang — BCP-47 language tags or `x-default`.
- * Uses simple string checks instead of regex to avoid ESLint unsafe-regex warnings.
+ * Uses length checks and simple character-class regex for subtag validation.
  *
  * @param value - The hreflang value to validate
  * @returns `true` if the value is a valid BCP-47 tag or `x-default`
