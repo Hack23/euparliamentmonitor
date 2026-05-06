@@ -2478,3 +2478,40 @@ export const FOOTER_COMPANY_TAGLINE_LABELS: LanguageMap = {
   ko: '정치적 투명성과 오픈소스 인텔리전스를 전문으로 하는 스웨덴 사이버보안 컨설팅 회사.',
   zh: '一家专注于政治透明度与开源情报的瑞典网络安全咨询机构。',
 };
+
+/** Localized "View analysis artifacts" link label for articles */
+export const VIEW_SOURCE_MARKDOWN_LABELS: LanguageMap = {
+  en: 'View analysis artifacts',
+  sv: 'Visa analysartefakter',
+  da: 'Vis analyseartefakter',
+  no: 'Vis analyseartefakter',
+  fi: 'Näytä analyysiartifaktit',
+  de: 'Analyseartefakte anzeigen',
+  fr: "Voir les artefacts d'analyse",
+  es: 'Ver artefactos de análisis',
+  nl: 'Analyse-artefacten bekijken',
+  ar: 'عرض مواد التحليل',
+  he: 'הצג ממצאי ניתוח',
+  ja: '分析アーティファクトを表示',
+  ko: '분석 아티팩트 보기',
+  zh: '查看分析工件',
+};
+
+/** Icons (emoji) for each article type to improve visual recognition */
+export const ARTICLE_TYPE_ICONS: Record<string, string> = {
+  'week-ahead': '📅',
+  'month-ahead': '🗓️',
+  'quarter-ahead': '📊',
+  'year-ahead': '🔭',
+  'week-in-review': '📋',
+  'month-in-review': '📰',
+  'quarter-in-review': '📈',
+  'year-in-review': '🏛️',
+  'breaking': '⚡',
+  'committee-reports': '📑',
+  'motions': '🗳️',
+  'propositions': '📜',
+  'term-outlook': '🔮',
+  'election-cycle': '🗳️',
+  'deep-analysis': '🔬',
+};

@@ -6758,6 +6758,106 @@ html[data-theme='dark'] .d3-network-wrapper text {
   font-size: 0.9rem;
 }
 
+/* ─── Reader Intelligence Guide ─────────────────────────────────── */
+
+.reader-guide-intro {
+  max-width: 72ch;
+  color: var(--text-muted, #57606a);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.reader-guide-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.reader-guide-table thead th {
+  background: linear-gradient(135deg, rgba(0, 51, 153, 0.08), rgba(255, 204, 0, 0.1));
+  padding: 0.75rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--primary, #003399);
+  border-bottom: 2px solid var(--primary, #003399);
+}
+
+.reader-guide-table tbody td {
+  padding: 0.7rem 1rem;
+  vertical-align: top;
+  border-bottom: 1px solid rgba(0, 51, 153, 0.08);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.reader-guide-table tbody tr:hover {
+  background: rgba(0, 51, 153, 0.03);
+}
+
+.reader-guide-table tbody td:first-child {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.reader-guide-table tbody td:last-child code {
+  font-size: 0.78rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  background: rgba(0, 51, 153, 0.06);
+  color: var(--primary, #003399);
+}
+
+.guide-icon {
+  font-size: 1.1em;
+  margin-inline-end: 0.25em;
+}
+
+[data-component="reader-intelligence-guide"] {
+  margin: 1.5rem 0 2.5rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(0, 51, 153, 0.14);
+  border-radius: 14px;
+  background:
+    linear-gradient(135deg, rgba(0, 51, 153, 0.04), rgba(42, 157, 143, 0.05)),
+    var(--surface, #ffffff);
+  box-shadow: 0 6px 18px rgba(0, 51, 153, 0.06);
+}
+
+[data-component="reader-intelligence-guide"] h2 {
+  margin-top: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0 0 0.5rem;
+  border-bottom: 2px solid rgba(0, 51, 153, 0.12);
+  font-size: 1.3rem;
+}
+
+html[data-theme='dark'] [data-component="reader-intelligence-guide"] {
+  background:
+    linear-gradient(135deg, rgba(0, 51, 153, 0.12), rgba(42, 157, 143, 0.08)),
+    var(--surface, #161b22);
+  border-color: rgba(255, 204, 0, 0.18);
+}
+
+html[data-theme='dark'] .reader-guide-table thead th {
+  background: rgba(0, 51, 153, 0.2);
+  color: #ffcc00;
+  border-bottom-color: rgba(255, 204, 0, 0.4);
+}
+
+html[data-theme='dark'] .reader-guide-table tbody td:last-child code {
+  background: rgba(255, 204, 0, 0.1);
+  color: #ffcc00;
+}
+
+html[data-theme='dark'] .reader-guide-table tbody tr:hover {
+  background: rgba(255, 204, 0, 0.04);
+}
+
 .article-body > h1 {
   margin: 1.1rem 0 1.6rem;
   padding: 0.75rem 1rem;

@@ -29,6 +29,9 @@ import {
   PAGE_TITLES,
   SKIP_LINK_TEXTS,
   TOC_ARIA_LABELS,
+  ARTICLE_TYPE_LABELS,
+  VIEW_SOURCE_MARKDOWN_LABELS,
+  ARTICLE_TYPE_ICONS,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
@@ -41,6 +44,21 @@ import {
 } from '../templates/section-builders.js';
 import { READER_GUIDE_SECTION_ID } from './reader-guide-constants.js';
 import { READER_GUIDE_TITLE_LABELS } from './reader-intelligence-guide.js';
+
+/**
+ * Resolve a localized article type label with icon. Falls back to the
+ * humanised slug when a translation isn't available.
+ *
+ * @param slug - Raw article type slug (e.g. "motions", "week-ahead")
+ * @param lang - Target language code
+ * @returns Localized label with preceding emoji icon (e.g. "🗳️ Plenary Votes & Resolutions")
+ */
+function getLocalizedArticleType(slug: string, lang: LanguageCode): string {
+  const labels = getLocalizedString(ARTICLE_TYPE_LABELS, lang);
+  const label = (labels as Record<string, string>)[slug] ?? slug.replace(/-/g, ' ');
+  const iconEmoji = ARTICLE_TYPE_ICONS[slug] ?? '📄';
+  return `${iconEmoji} ${label}`;
+}
 
 /** Publisher organization name used in JSON-LD, meta tags. */
 const PUBLISHER_NAME = 'Hack23 AB';
@@ -210,8 +228,9 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   const indexHref = safeLang === 'en' ? '../index.html' : `../index-${safeLang}.html`;
   const hreflangLinks = buildArticleHreflangLinks(options.articleSlug);
   const langSwitcher = buildLanguageSwitcher(options.articleSlug, safeLang);
+  const sourceMdLabel = getLocalizedString(VIEW_SOURCE_MARKDOWN_LABELS, safeLang);
   const sourceMdLink = options.sourceMarkdownRelPath
-    ? `<p class="article-source-md"><a href="${BASE_URL}/${options.sourceMarkdownRelPath}" rel="alternate" type="text/markdown">View source Markdown</a></p>`
+    ? `<p class="article-source-md"><a href="${BASE_URL}/${options.sourceMarkdownRelPath}" rel="alternate" type="text/markdown">${escapeHTML(sourceMdLabel)}</a></p>`
     : '';
   const tocHtml = buildArticleToc(options.toc ?? [], safeLang);
 
@@ -335,7 +354,7 @@ ${buildHeadFreshnessTags('../')}
   <main id="main" class="site-main article-main">
 ${tocHtml}    <article class="article-body" lang="${safeLang}">
       <header class="article-hero">
-        <p class="article-kicker">${escapeHTML(options.articleType.replace(/-/g, ' '))}</p>
+        <p class="article-kicker">${escapeHTML(getLocalizedArticleType(options.articleType, safeLang))}</p>
         <h1>${escapeHTML(options.title)}</h1>
         <p class="article-dek">${escapeHTML(options.description)}</p>
         <p class="article-meta"><time datetime="${options.date}">${options.date}</time> · EU Parliament Monitor</p>
