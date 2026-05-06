@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-4.1-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--20-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.4-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--06-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.3 | **📅 Last Updated:** 2026-05-05 (UTC) | **📦 Release:** v0.8.58  
-**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-05
+**📋 Document Owner:** CEO | **📄 Version:** 4.4 | **📅 Last Updated:** 2026-05-06 (UTC) | **📦 Release:** v0.8.59  
+**🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-06
 
 ---
 
@@ -2150,6 +2150,265 @@ analysis/daily/2026-03-31/
 
 ---
 
+## 📖 Prompt Library Architecture
+
+The agentic news workflows share a common prompt library under [`.github/prompts/`](.github/prompts/). Each file maps to a specific pipeline stage and is imported by the workflow agent at runtime:
+
+| # | File | Pipeline Stage | Purpose |
+|---|------|---------------|---------|
+| 0 | [`00-scope-and-ground-rules.md`](.github/prompts/00-scope-and-ground-rules.md) | All stages | Foundational rules, shell-safety constraints, banned patterns, time budgets |
+| 1 | [`01-data-collection.md`](.github/prompts/01-data-collection.md) | Stage A | MCP tool invocation patterns, feed selection, data-window logic |
+| 2 | [`02-analysis-protocol.md`](.github/prompts/02-analysis-protocol.md) | Stage B | 10-step AI analysis protocol (Rules 1–22), 2-pass mandatory |
+| 3 | [`03-analysis-completeness-gate.md`](.github/prompts/03-analysis-completeness-gate.md) | Stage C | Completeness validator invocation, threshold enforcement |
+| 4 | [`04-article-generation.md`](.github/prompts/04-article-generation.md) | Stage D | Artifact-to-article section map, Read-Before-Write rule |
+| 5 | [`05-analysis-to-article-contract.md`](.github/prompts/05-analysis-to-article-contract.md) | Stage D | Data contract between analysis and render |
+| 6 | [`06-pr-and-safe-outputs.md`](.github/prompts/06-pr-and-safe-outputs.md) | Stage E | Single PR semantics, timing constraints, banned alternatives |
+| 7 | [`07-mcp-reference.md`](.github/prompts/07-mcp-reference.md) | Stage A | EP MCP Server tool reference (60+ tools), IMF/World Bank guidance |
+| 8 | [`08-infrastructure.md`](.github/prompts/08-infrastructure.md) | All stages | Shell-safety long-form rules, forbidden expansion patterns |
+| 9 | [`09-troubleshooting.md`](.github/prompts/09-troubleshooting.md) | All stages | Common failure modes, workarounds, timeout handling |
+| 10 | [`10-horizon-stage-helpers.md`](.github/prompts/10-horizon-stage-helpers.md) | Stage B | Long-horizon-specific artifact requirements |
+| 11 | [`11-forward-projection.md`](.github/prompts/11-forward-projection.md) | Stage B | Forward-projection methodology and scenario authoring |
+| 12 | [`12-electoral-cycle.md`](.github/prompts/12-electoral-cycle.md) | Stage B | Electoral overlay invariants, cycle-position drivers |
+
+### Drift-Guard Lint (`npm run lint:prompts`)
+
+[`scripts/lint-prompts.js`](scripts/lint-prompts.js) validates every `.md` file in `.github/prompts/` and all `news-*.md` workflows against banned patterns:
+
+| Banned Pattern | Risk if Present |
+|----------------|-----------------|
+| `checkpoint pr` | Partial PRs break the single-PR invariant |
+| `keep-alive` | Idle heartbeats waste budget without output |
+| `heartbeat` | Same as keep-alive |
+| `progressive safe output` | Partial patches violate snapshot semantics |
+| `push_repo_memory` | Unaudited state persistence |
+
+The lint is wired into `compile-agentic-workflows.yml` and fails CI on any match. `news-translate.md` is exempted from the multi-call check (legitimate multi-call flush for 14-language fan-out).
+
+### AWF Firewall (Squid Proxy Allowlist)
+
+All agentic workflows execute inside a sandboxed Docker container with network access restricted by a Squid proxy (AWF Firewall). Only explicitly allowlisted domains are reachable:
+
+| Allowed Domain | Purpose |
+|----------------|---------|
+| `data.europarl.europa.eu` | EP Open Data Portal (MCP Server backend) |
+| `api.github.com` | GitHub API (PR creation, file operations) |
+| `github.com` | Git operations |
+| `registry.npmjs.org` | npm package resolution |
+| `sdmxcentral.imf.org` | IMF SDMX API (economic data) |
+| `api.worldbank.org` | World Bank Open Data API |
+
+All other outbound network traffic is **blocked** by the Squid proxy. This prevents data exfiltration and restricts the agent's attack surface to known-good endpoints.
+
+---
+
+## 🔬 Political Intelligence Methodologies & Templates Framework
+
+The 15 agentic news workflows produce political intelligence using a structured framework of **22 analysis methodologies** and **60 analysis artifact templates**. This section documents the complete political intelligence methodology stack.
+
+### Analysis Methodology Catalogue (`analysis/methodologies/`)
+
+The following 22 methodology files govern how political intelligence is authored:
+
+| # | Methodology File | Domain | Key Capabilities |
+|---|-----------------|--------|-----------------|
+| 1 | [`ai-driven-analysis-guide.md`](analysis/methodologies/ai-driven-analysis-guide.md) | **Core protocol** | 10-step analysis protocol, Rules 1–22, Pass-2 mandatory improvement cycle |
+| 2 | [`osint-tradecraft-standards.md`](analysis/methodologies/osint-tradecraft-standards.md) | **Tradecraft** | Admiralty Code (A1–F6), WEP confidence bands, source grading, ≥10 SATs/run |
+| 3 | [`political-threat-framework.md`](analysis/methodologies/political-threat-framework.md) | **Threat analysis** | 6-dimension political threat landscape (coalition shifts, transparency deficit, policy reversal, institutional pressure, legislative obstruction, democratic erosion) |
+| 4 | [`political-risk-methodology.md`](analysis/methodologies/political-risk-methodology.md) | **Risk assessment** | 5×5 likelihood × impact matrix, residual risk, risk velocity |
+| 5 | [`political-swot-framework.md`](analysis/methodologies/political-swot-framework.md) | **Strategic** | Evidence-based SWOT/TOWS, quantitative scoring, cross-domain linkage |
+| 6 | [`political-classification-guide.md`](analysis/methodologies/political-classification-guide.md) | **Classification** | 7-dimension political alignment taxonomy, significance scoring |
+| 7 | [`electoral-cycle-methodology.md`](analysis/methodologies/electoral-cycle-methodology.md) | **Electoral** | Cycle-position drivers, volatility forecast, turnout modelling |
+| 8 | [`electoral-domain-methodology.md`](analysis/methodologies/electoral-domain-methodology.md) | **Electoral** | Domain-specific electoral analysis (seats, mandates, coalitions) |
+| 9 | [`forward-projection-methodology.md`](analysis/methodologies/forward-projection-methodology.md) | **Forecasting** | Multi-scenario modelling, probability bands, time-horizon calibration |
+| 10 | [`synthesis-methodology.md`](analysis/methodologies/synthesis-methodology.md) | **Synthesis** | Multi-source intelligence fusion, cross-artifact correlation |
+| 11 | [`strategic-extensions-methodology.md`](analysis/methodologies/strategic-extensions-methodology.md) | **Long-horizon** | Quarter/year/term-scoped strategic analysis extensions |
+| 12 | [`per-artifact-methodologies.md`](analysis/methodologies/per-artifact-methodologies.md) | **Construction rules** | 34 per-artifact sections — construction rules + quality signals for each template |
+| 13 | [`analytical-supplementary-methodology.md`](analysis/methodologies/analytical-supplementary-methodology.md) | **Supplementary** | Cross-session intelligence, devil's advocate, wildcards |
+| 14 | [`per-document-methodology.md`](analysis/methodologies/per-document-methodology.md) | **Document analysis** | EP document deep-analysis framework (5-point structured analysis) |
+| 15 | [`structural-metadata-methodology.md`](analysis/methodologies/structural-metadata-methodology.md) | **Metadata** | Manifest structure, artifact cataloging, cross-reference mapping |
+| 16 | [`imf-indicator-mapping.md`](analysis/methodologies/imf-indicator-mapping.md) | **Economic** | IMF WEO/FM/IFS/BOP/ER/PCPS indicator → article-section mapping |
+| 17 | [`worldbank-indicator-mapping.md`](analysis/methodologies/worldbank-indicator-mapping.md) | **Economic** | World Bank WDI social/health/education/governance indicators |
+| 18 | [`political-style-guide.md`](analysis/methodologies/political-style-guide.md) | **Style** | Economist-quality editorial standards, prose requirements |
+| 19 | [`political-style-guide.json`](analysis/methodologies/political-style-guide.json) | **Style (machine)** | Machine-readable style rules for automated validation |
+| 20 | [`artifact-catalog.md`](analysis/methodologies/artifact-catalog.md) | **Catalogue** | Master map: artifact → methodology + template + depth floor + Mermaid type |
+| 21 | [`reference-quality-thresholds.json`](analysis/methodologies/reference-quality-thresholds.json) | **Quality floors** | Per-artifact line-count floors enforced by Stage-C validator (v1.4.0) |
+| 22 | [`README.md`](analysis/methodologies/README.md) | **Index** | Methodology library entry point |
+
+### Analysis Template Catalogue (`analysis/templates/`)
+
+The following 60 templates are used by Stage-B to produce structured intelligence artifacts. They are grouped by analytical domain:
+
+#### Political Analysis Templates (6)
+
+| Template | Purpose | Key Outputs |
+|----------|---------|-------------|
+| [`coalition-dynamics.md`](analysis/templates/coalition-dynamics.md) | Coalition formation/dissolution analysis | Alliance mapping, defection patterns, cohesion metrics |
+| [`coalition-mathematics.md`](analysis/templates/coalition-mathematics.md) | Quantitative coalition modelling | Seat arithmetic, blocking minorities, qualified majority paths |
+| [`political-capital-risk.md`](analysis/templates/political-capital-risk.md) | Political capital expenditure/depletion | Leadership position strength, mandate utilisation |
+| [`seat-projection.md`](analysis/templates/seat-projection.md) | Electoral seat projection modelling | Group size forecasts, majority thresholds |
+| [`voter-segmentation.md`](analysis/templates/voter-segmentation.md) | Voter base analysis | Demographic segments, issue salience |
+| [`voting-patterns.md`](analysis/templates/voting-patterns.md) | Roll-call vote analysis | Cross-party alliances, abstention clusters, margin analysis |
+
+#### Threat & Risk Templates (6)
+
+| Template | Purpose | Key Outputs |
+|----------|---------|-------------|
+| [`threat-analysis.md`](analysis/templates/threat-analysis.md) | Structured threat identification | Threat actors, capabilities, intent |
+| [`threat-model.md`](analysis/templates/threat-model.md) | STRIDE-based political threat modelling | Attack trees, mitigation mapping |
+| [`political-threat-landscape.md`](analysis/templates/political-threat-landscape.md) | 6-dimension threat landscape scan | Dimension severity scores, trend vectors |
+| [`risk-assessment.md`](analysis/templates/risk-assessment.md) | Likelihood × Impact risk scoring | Risk register, residual risk |
+| [`risk-matrix.md`](analysis/templates/risk-matrix.md) | 5×5 risk matrix visualisation | Heat map, priority ranking |
+| [`actor-threat-profiles.md`](analysis/templates/actor-threat-profiles.md) | Per-actor threat profiles | Capability, intent, opportunity scores |
+
+#### Strategic Analysis Templates (6)
+
+| Template | Purpose | Key Outputs |
+|----------|---------|-------------|
+| [`swot-analysis.md`](analysis/templates/swot-analysis.md) | Evidence-based SWOT quadrants | ≥80 words/item, cross-domain linkage |
+| [`quantitative-swot.md`](analysis/templates/quantitative-swot.md) | Scored SWOT with numeric weighting | Weighted priority scores, TOWS strategies |
+| [`pestle-analysis.md`](analysis/templates/pestle-analysis.md) | Political-Economic-Social-Tech-Legal-Environmental | 6-dimension macro context |
+| [`forces-analysis.md`](analysis/templates/forces-analysis.md) | Porter's 5 Forces adapted for politics | Competitive dynamics, barrier analysis |
+| [`scenario-forecast.md`](analysis/templates/scenario-forecast.md) | Multi-scenario probability modelling | 2–4 named scenarios with WEP bands |
+| [`wildcards-blackswans.md`](analysis/templates/wildcards-blackswans.md) | Low-probability / high-impact events | Early warning signals, contingency options |
+
+#### Intelligence Assessment Templates (6)
+
+| Template | Purpose | Key Outputs |
+|----------|---------|-------------|
+| [`intelligence-assessment.md`](analysis/templates/intelligence-assessment.md) | ICD-203-style structured assessment | Key judgements, confidence levels, alternatives |
+| [`devils-advocate-analysis.md`](analysis/templates/devils-advocate-analysis.md) | Challenge function for dominant hypothesis | Counter-arguments, blind-spot identification |
+| [`significance-classification.md`](analysis/templates/significance-classification.md) | Publication priority classification | High/Medium/Low + justification |
+| [`significance-scoring.md`](analysis/templates/significance-scoring.md) | Multi-factor significance score | Novelty, scope, impact, urgency composite |
+| [`cross-session-intelligence.md`](analysis/templates/cross-session-intelligence.md) | Cross-run intelligence continuity | Trend tracking, hypothesis evolution |
+| [`synthesis-summary.md`](analysis/templates/synthesis-summary.md) | Multi-source intelligence synthesis | BLUF, evidence base, confidence assessment |
+
+#### Legislative Analysis Templates (6)
+
+| Template | Purpose | Key Outputs |
+|----------|---------|-------------|
+| [`legislative-pipeline-forecast.md`](analysis/templates/legislative-pipeline-forecast.md) | Procedure stage tracking & timeline | Passage probability, next steps, blockers |
+| [`legislative-velocity-risk.md`](analysis/templates/legislative-velocity-risk.md) | Legislative pace risk assessment | Acceleration/deceleration signals, backlog risk |
+| [`legislative-disruption.md`](analysis/templates/legislative-disruption.md) | Amendment flooding/obstruction detection | Disruption indicators, obstruction tactics |
+| [`mandate-fulfilment-scorecard.md`](analysis/templates/mandate-fulfilment-scorecard.md) | Political programme delivery tracking | Promise vs. delivery, completion percentage |
+| [`implementation-feasibility.md`](analysis/templates/implementation-feasibility.md) | Legislative implementation assessment | Transposition complexity, compliance burden |
+| [`parliamentary-calendar-projection.md`](analysis/templates/parliamentary-calendar-projection.md) | Session calendar forward-projection | Sitting weeks, recess periods, crunch points |
+
+#### Context & Comparative Templates (7)
+
+| Template | Purpose | Key Outputs |
+|----------|---------|-------------|
+| [`economic-context.md`](analysis/templates/economic-context.md) | IMF/World Bank economic context | GDP, inflation, employment, fiscal indicators |
+| [`historical-baseline.md`](analysis/templates/historical-baseline.md) | Historical norm establishment | Baseline metrics for deviation detection |
+| [`historical-parallels.md`](analysis/templates/historical-parallels.md) | Precedent-based reasoning | Analogous situations, outcomes, lessons |
+| [`comparative-international.md`](analysis/templates/comparative-international.md) | Cross-jurisdiction comparison | EU vs. national parliament comparisons |
+| [`presidency-trio-context.md`](analysis/templates/presidency-trio-context.md) | Council Presidency trio analysis | Priority alignment, legislative agenda |
+| [`commission-wp-alignment.md`](analysis/templates/commission-wp-alignment.md) | Commission Work Programme tracking | CWP delivery, legislative pipeline alignment |
+| [`term-arc.md`](analysis/templates/term-arc.md) | EP term trajectory analysis | Term phase, momentum indicators |
+
+#### Forward-Looking Templates (5)
+
+| Template | Purpose | Key Outputs |
+|----------|---------|-------------|
+| [`forward-indicators.md`](analysis/templates/forward-indicators.md) | Leading indicator identification | Early warning signals, predictive metrics |
+| [`forward-projection.md`](analysis/templates/forward-projection.md) | Structured scenario projection | Time-horizon-calibrated WEP probability bands |
+| [`impact-matrix.md`](analysis/templates/impact-matrix.md) | Multi-stakeholder impact assessment | Impact scores by stakeholder × dimension |
+| [`consequence-trees.md`](analysis/templates/consequence-trees.md) | Cascading consequence modelling | 2nd/3rd-order effects, feedback loops |
+| [`per-file-political-intelligence.md`](analysis/templates/per-file-political-intelligence.md) | Per-document intelligence extraction | Document-level political significance |
+
+#### Media & Stakeholder Templates (4)
+
+| Template | Purpose | Key Outputs |
+|----------|---------|-------------|
+| [`media-framing-analysis.md`](analysis/templates/media-framing-analysis.md) | Media narrative frame identification | Dominant frames, counter-narratives |
+| [`stakeholder-impact.md`](analysis/templates/stakeholder-impact.md) | Stakeholder impact assessment (≥150 words/perspective) | Multi-perspective analysis, winners/losers |
+| [`stakeholder-map.md`](analysis/templates/stakeholder-map.md) | Stakeholder power/interest mapping | Influence quadrant, alliance networks |
+| [`actor-mapping.md`](analysis/templates/actor-mapping.md) | Political actor identification & classification | Actor profiles, motivations, capabilities |
+
+#### Meta & Audit Templates (10)
+
+| Template | Purpose | Key Outputs |
+|----------|---------|-------------|
+| [`methodology-reflection.md`](analysis/templates/methodology-reflection.md) | Analysis quality self-assessment (Step 10.5) | SAT count (≥10), WEP coverage, improvement notes |
+| [`workflow-audit.md`](analysis/templates/workflow-audit.md) | Workflow execution audit trail | Stage timings, tool calls, data coverage |
+| [`mcp-reliability-audit.md`](analysis/templates/mcp-reliability-audit.md) | MCP Server reliability assessment | Tool success rates, latency, data freshness |
+| [`cross-reference-map.md`](analysis/templates/cross-reference-map.md) | Inter-artifact cross-reference network | Artifact dependencies, citation graph |
+| [`cross-run-diff.md`](analysis/templates/cross-run-diff.md) | Delta analysis between consecutive runs | Changed assessments, new signals |
+| [`data-download-manifest.md`](analysis/templates/data-download-manifest.md) | MCP data download record | Tools invoked, data volumes, timestamps |
+| [`reference-analysis-quality.md`](analysis/templates/reference-analysis-quality.md) | Quality benchmark comparison | Per-artifact quality scores vs. reference |
+| [`imf-vintage-audit.md`](analysis/templates/imf-vintage-audit.md) | IMF data vintage verification | Dataset recency, WEO edition, vintage dates |
+| [`session-baseline.md`](analysis/templates/session-baseline.md) | Session initial state capture | Starting conditions, prior-run context |
+| [`political-classification.md`](analysis/templates/political-classification.md) | 7-dimension political classification output | Alignment scores, taxonomy placement |
+
+#### Output & Index Templates (4)
+
+| Template | Purpose | Key Outputs |
+|----------|---------|-------------|
+| [`executive-brief.md`](analysis/templates/executive-brief.md) | BLUF executive summary | Key judgements, confidence, recommendations |
+| [`deep-analysis.md`](analysis/templates/deep-analysis.md) | Extended deep-analysis section | Full analytical depth, evidence chains |
+| [`intelligence-assessment.md`](analysis/templates/intelligence-assessment.md) | ICD-203 formatted assessment | Structured intelligence product |
+| [`analysis-index.md`](analysis/templates/analysis-index.md) | Run-level artifact index | Table of contents for all run outputs |
+
+### Quality Gates & Enforcement
+
+#### Per-Artifact Line Floors (`reference-quality-thresholds.json` v1.4.0)
+
+The Stage-C completeness validator (`scripts/validate-analysis-completeness.js`) enforces minimum line counts per artifact type:
+
+| Category | Floor Range | Enforcement |
+|----------|------------|-------------|
+| Executive brief | 80–120 lines | RED (blocking) — PR creation blocked |
+| Intelligence artifacts | 40–100 lines | RED (blocking) |
+| Risk scoring artifacts | 35–80 lines | RED (blocking) |
+| Classification artifacts | 30–60 lines | RED (blocking) |
+| Data manifests | 20–40 lines | RED (blocking) |
+
+**DataMode reductions** (when EP MCP data availability is constrained):
+- `full` (default): 100% of configured floors
+- `degraded-imf` / `degraded-voting`: 85% of floors
+- `title-only`: 75% of floors
+- `minimal`: 65% of floors
+
+#### Tradecraft Quality Signals
+
+In addition to line floors, the following tradecraft signals are **always RED** (blocking) regardless of `--strict` mode:
+
+| Signal | Requirement | Artifacts Affected |
+|--------|-------------|--------------------|
+| **WEP Band** | Every headline judgement must carry a WEP (Words of Estimative Probability) confidence band + time horizon | 12 artifacts (executive-brief, scenario-forecast, forward-projection, threat-model, etc.) |
+| **Admiralty Grade** | Every external source must carry an Admiralty Code grade (A1–F6) | 13 artifacts (intelligence assessments, comparatives, historical parallels) |
+| **≥10 SATs per run** | At least 10 Structured Analytic Techniques applied and documented in `methodology-reflection.md` | methodology-reflection.md §12 |
+| **Mermaid diagrams** | Required structural diagrams present | Per-artifact requirements in artifact-catalog.md |
+| **Required sections** | Template-mandated sections present | All templates with `## Required Sections` headers |
+
+#### ICD-203 / WEP Confidence Framework
+
+The intelligence assessments follow the US Intelligence Community Directive 203 (ICD-203) confidence framework adapted for political intelligence:
+
+| WEP Band | Probability Range | Usage |
+|----------|------------------|-------|
+| **Almost certain** | 93–99% | Reserved for near-term procedural certainties |
+| **Very likely** | 80–92% | Strong evidence, limited alternatives |
+| **Likely** | 63–79% | Preponderance of evidence supports |
+| **Roughly even** | 40–62% | Evidence supports multiple outcomes equally |
+| **Unlikely** | 20–39% | Limited evidence against dominant view |
+| **Very unlikely** | 5–19% | Minimal evidence, contrarian scenarios |
+| **Remote** | 1–4% | Black swan / wildcard territory |
+
+#### Admiralty Source Grading
+
+| Reliability | Credibility | Combined Grade |
+|-------------|-------------|----------------|
+| **A** Completely reliable | **1** Confirmed | A1 (highest) |
+| **B** Usually reliable | **2** Probably true | B2 |
+| **C** Fairly reliable | **3** Possibly true | C3 |
+| **D** Not usually reliable | **4** Doubtful | D4 |
+| **E** Unreliable | **5** Improbable | E5 |
+| **F** Cannot be judged | **6** Cannot be judged | F6 (lowest) |
+
+EP Official Journal and adopted texts are rated **A1**; MCP feed data is rated **B2**; press reports are rated **C3** unless corroborated.
+
+---
+
 ## 🔄 Continuous Improvement
 
 ### Planned Enhancements
@@ -2170,10 +2429,14 @@ See [FUTURE_WORKFLOWS.md](FUTURE_WORKFLOWS.md) for:
 | 🔐 Security Architecture | Current security implementation | [SECURITY_ARCHITECTURE.md](SECURITY_ARCHITECTURE.md) |
 | 📈 Security Flowcharts | Process flows with security controls | [FLOWCHART.md](FLOWCHART.md) |
 | 📊 Data Model | Data structures and flows | [DATA_MODEL.md](DATA_MODEL.md) |
+| 🏛️ Architecture | System structure (§Analysis Framework) | [ARCHITECTURE.md](ARCHITECTURE.md) |
 | 🚀 Future Workflows | Planned enhancements | [FUTURE_WORKFLOWS.md](FUTURE_WORKFLOWS.md) |
 | 📋 Release Process | Release procedures | [docs/RELEASE_PROCESS.md](docs/RELEASE_PROCESS.md) |
 | 🛡️ ISMS Policy | Security policy framework | [Hack23 ISMS-PUBLIC](https://github.com/Hack23/ISMS-PUBLIC) |
 | 📦 Dependabot Config | Automated dependency updates | [.github/dependabot.yml](.github/dependabot.yml) |
+| 🔬 Analysis Methodologies | 22 intelligence methodologies | [analysis/methodologies/](analysis/methodologies/) |
+| 📄 Analysis Templates | 60 artifact templates | [analysis/templates/](analysis/templates/) |
+| 📖 Prompt Library | 13-file prompt architecture | [.github/prompts/](.github/prompts/) |
 
 ---
 
@@ -2188,4 +2451,4 @@ See [FUTURE_WORKFLOWS.md](FUTURE_WORKFLOWS.md) for:
 
 ---
 
-*Last updated: 2026-05-03 by Documentation Architect / DevOps Engineer (EU Parliament Monitor v0.8.54)*
+*Last updated: 2026-05-06 by Documentation Architect / Security Architect (EU Parliament Monitor v0.8.59)*
