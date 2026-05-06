@@ -15,6 +15,7 @@
     "src/aggregator/markdown/index.ts",
     "src/aggregator/metadata/index.ts",
     "src/config/index.ts",
+    "src/workflows/index.ts",
     "scripts/backport-article-seo.js",
     "scripts/aggregator/forward-statements-registry.js",
     "test/**/*.test.js",

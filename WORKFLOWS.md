@@ -310,6 +310,41 @@ graph TD
     class J,K,L,M,N output
 ```
 
+#### Bounded Context Architecture (TypeScript Modules)
+
+The workflow support logic is organized into bounded contexts under `src/workflows/`:
+
+```
+src/workflows/
+├── index.ts                    # Barrel export — public API
+├── types.ts                    # Shared contracts: DataMode, GateVerdict, PipelineStage
+├── completeness-gate/          # Stage C analysis validation
+│   ├── index.ts                # Public API
+│   ├── types.ts                # ValidationRules, ValidatorOptions, ValidationContext
+│   ├── constants.ts            # Regex patterns, thresholds (extracted from validator JS)
+│   └── validators.ts           # Pure validation functions (hasMermaid, hasWepBand, etc.)
+├── infrastructure/             # Shell safety validation rules and utilities
+│   ├── index.ts                # Public API
+│   └── shell-safety.ts         # SHELL_SAFETY_RULES[], validateShellSafety()
+└── safe-outputs/               # Stage E PR creation constraints
+    ├── index.ts                # Public API
+    └── types.ts                # SafeOutputsPRParams, FORBIDDEN_PHRASES, timing constraints
+```
+
+**Design principles:**
+- Single responsibility per module — each file has one clear purpose
+- Strict TypeScript typing — all interfaces use `readonly` fields
+- Pure functions — validators are side-effect-free and independently testable
+- Constants extracted — regex patterns defined once, used by both validator scripts and tests
+- Barrel exports — each bounded context has an `index.ts` for clean imports
+
+**Import pattern:**
+```typescript
+import { completenessGate, infrastructure, safeOutputs } from './workflows/index.js';
+// or selectively:
+import { hasPlaceholders, computeEffectiveMinLines } from './workflows/completeness-gate/index.js';
+```
+
 #### Common Agentic Workflow Properties
 
 | Property | Value |
