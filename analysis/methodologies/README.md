@@ -5,7 +5,7 @@
 <h1 align="center">📐 EU Parliament Monitor — Analysis Methodologies</h1>
 
 <p align="center">
-  <strong>📊 Nineteen Interlocking Political Intelligence Methodologies for European Parliament Analysis</strong><br>
+  <strong>📊 Eighteen Interlocking Political Intelligence Methodologies for European Parliament Analysis</strong><br>
   <em>🎯 Six core frameworks (Classification · Risk · Threat · SWOT · AI Quality · OSINT) + eleven supporting methodologies (Style · Synthesis · Strategic Extensions · Per-Document · Structural Metadata · Electoral Domain · Analytical Supplementary · IMF Indicator Mappings · World Bank Indicator Mappings · Forward Projection · Electoral Cycle) + machine-readable style enforcement governing all 59 analysis templates</em>
 </p>
 

@@ -297,24 +297,28 @@ This section governs the deep-dive production of `extended/media-framing-analysi
 
 ### How supplementary artifacts feed the article
 
-The article aggregator (`src/aggregator/article-generator.ts`) checks `manifest.files.extended[]` for supplementary artifacts. When present, they contribute:
+The article aggregator (`src/aggregator/article-generator.ts`) reads `manifest.files` and flattens all groups. When the following artifacts are present in their canonical locations, they contribute:
 
-| Artifact | Article Section Fed |
-|----------|---------------------|
-| `pestle-analysis.md` | Policy Context section — cross-dimensional analysis |
-| `wildcards-blackswans.md` | Risk Outlook section — low-probability/high-impact register |
-| `quantitative-swot.md` | Strategic Assessment section — scored position ranking |
-| `media-framing-analysis.md` | Media & Perception section — dominant narratives + influence operations |
+| Artifact | Canonical Path | Article Section Fed |
+|----------|---------------|---------------------|
+| `pestle-analysis.md` | `intelligence/pestle-analysis.md` | Policy Context section — cross-dimensional analysis |
+| `wildcards-blackswans.md` | `intelligence/wildcards-blackswans.md` | Risk Outlook section — low-probability/high-impact register |
+| `quantitative-swot.md` | `risk-scoring/quantitative-swot.md` | Strategic Assessment section — scored position ranking |
+| `media-framing-analysis.md` | `extended/media-framing-analysis.md` | Media & Perception section — dominant narratives + influence operations |
 
 ### Registration in manifest.json
 
 ```json
 {
   "files": {
+    "intelligence": [
+      "intelligence/pestle-analysis.md",
+      "intelligence/wildcards-blackswans.md"
+    ],
+    "risk_scoring": [
+      "risk-scoring/quantitative-swot.md"
+    ],
     "extended": [
-      "extended/pestle-analysis.md",
-      "extended/wildcards-blackswans.md",
-      "extended/quantitative-swot.md",
       "extended/media-framing-analysis.md"
     ]
   }
@@ -324,8 +328,9 @@ The article aggregator (`src/aggregator/article-generator.ts`) checks `manifest.
 ### Stage-C Gate Interaction
 
 These artifacts are **non-blocking** — their absence does not prevent Stage-C from passing. However:
-- If an artifact IS produced, it must meet its line floor (from `reference-quality-thresholds.json`)
-- If an artifact IS produced below floor, Stage-C flags it as a soft warning (not hard-RED)
+- If an artifact IS listed in `manifest.files` (i.e., part of the mandatory set for the run), it must meet its line floor (from `reference-quality-thresholds.json`)
+- If a listed artifact IS produced below floor, Stage-C treats it as a **RED issue** (`short:<lines><<minLines>`) — the run fails validation
+- Artifacts found on disk but NOT listed in `manifest.files` are reported only as WARN orphans
 - The `manifest.pass2.rewriteCount` check still applies to all produced artifacts
 
 ---

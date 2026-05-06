@@ -135,11 +135,11 @@ export const CURATED_DESCRIPTIONS: Readonly<Record<string, CuratedDescription>> 
   },
   'analysis/methodologies/analytical-supplementary-methodology.md': {
     description:
-      'Rules for optional deep-dive analytical templates — PESTLE deep-dive, Wildcards & Black Swans, Quantitative SWOT, and Media Framing & Influence-Operations (v2.0) with DISARM TTPs, CIB ABCDE, and counter-resilience.',
+      'Optional deep-dive methodology — PESTLE, Wildcards, SWOT scoring, and Media Framing v2.0.',
   },
   'analysis/methodologies/political-style-guide.json': {
     description:
-      'Machine-readable style enforcement rules — WEP bands, Admiralty grades, named-actor discipline, no-neutral-media doctrine, EU-specific constants (720 seats, 361 majority, 27 MS). Companion to political-style-guide.md.',
+      'Machine-readable style rules — WEP bands, Admiralty grades, named-actor discipline.',
   },
   'analysis/methodologies/imf-indicator-mapping.md': {
     description:
@@ -422,7 +422,7 @@ export const CURATED_DESCRIPTIONS: Readonly<Record<string, CuratedDescription>> 
   },
   'analysis/templates/media-framing-analysis.md': {
     description:
-      'Media framing & influence-operations analysis — Entman functions, DISARM TTPs, CIB signals, narrative-laundering chains, cognitive vulnerabilities, algorithmic amplification, counter-resilience L1–L5, and RRPA composite across EU-27 member states and global audience.',
+      'Media framing & influence-operations — DISARM TTPs, CIB detection, narrative-laundering, counter-resilience across EU-27.',
   },
   'analysis/templates/methodology-reflection.md': {
     description:
