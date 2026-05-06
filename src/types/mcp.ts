@@ -331,6 +331,14 @@ export interface GetHomonymMEPsOptions {
   offset?: number | undefined;
 }
 
+/** Options for getLatestVotes (DOCEO-backed near-real-time vote enrichment, new in v1.3.0) */
+export interface GetLatestVotesOptions {
+  /** Maximum number of recent vote records to return (default: 50) */
+  limit?: number | undefined;
+  /** Pagination offset */
+  offset?: number | undefined;
+}
+
 /** Options for getPlenaryDocuments */
 export interface GetPlenaryDocumentsOptions {
   docId?: string | undefined;

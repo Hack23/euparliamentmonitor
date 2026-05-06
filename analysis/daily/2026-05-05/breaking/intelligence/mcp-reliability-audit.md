@@ -269,7 +269,7 @@ This MCP reliability audit documents every EP MCP tool call made during the 2026
 
 ### EP Open Data Portal — Chronic Failure Mode Taxonomy
 
-Based on this run's MCP tool call results and documented EP API behaviours across the `european-parliament-mcp-server@1.2.21` tool set, the following failure modes are classified as chronic (expected in >50% of breaking news runs immediately following a Strasbourg session):
+Based on this run's MCP tool call results and documented EP API behaviours across the `european-parliament-mcp-server@1.3.0` tool set, the following failure modes are classified as chronic (expected in >50% of breaking news runs immediately following a Strasbourg session):
 
 **CHRONIC FAILURE MODE 1: Events Feed Unavailability**
 

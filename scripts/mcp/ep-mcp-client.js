@@ -11,7 +11,7 @@ import { recordPendingDocument, markDocumentResolved, getPendingDocumentsForRepr
 import { EP_NEXT_ELECTION_START, EP_NEXT_ELECTION_END, EP_CURRENT_TERM, EP_NEXT_TERM, } from '../constants/config.js';
 /**
  * Canonical list of tools exposed by the European Parliament MCP gateway
- * (`european-parliament-mcp-server@1.2.21`). The news workflows, prompt
+ * (`european-parliament-mcp-server@1.3.0`). The news workflows, prompt
  * library (`.github/prompts/07-mcp-reference.md`), and the integration test
  * suite all reference this list so a regression that adds/removes a tool
  * fails a single drift guard
@@ -51,6 +51,7 @@ export const EP_MCP_TOOLS = [
     'get_external_documents_feed',
     'get_homonym_meps',
     'get_incoming_meps',
+    'get_latest_votes',
     'get_meeting_activities',
     'get_meeting_decisions',
     'get_meeting_foreseen_activities',
@@ -115,7 +116,7 @@ const CONTENT_NOT_YET_AVAILABLE_SUBSTRING = 'document indexed but content not ye
 /**
  * Classify an error message into a diagnostic error category.
  *
- * Maps EP MCP Server v1.2.21 structured error codes and generic HTTP/network
+ * Maps EP MCP Server v1.3.0 structured error codes and generic HTTP/network
  * errors into one of six broad categories used for logging and retry decisions:
  *
  * Returned categories (priority order):
@@ -131,7 +132,7 @@ const CONTENT_NOT_YET_AVAILABLE_SUBSTRING = 'document indexed but content not ye
  */
 function classifyToolError(message) {
     const lowerMsg = message.toLowerCase();
-    // EP MCP Server v1.2.21 structured error codes (matched case-insensitively)
+    // EP MCP Server v1.3.0 structured error codes (matched case-insensitively)
     if (lowerMsg.includes('internal_error')) {
         return 'INTERNAL_ERROR';
     }
@@ -190,7 +191,7 @@ function _parseResultPayload(result) {
  * covering the two shapes historically emitted by the EP MCP server.
  *
  * 1. **Uniform envelope** (all feeds as of
- *    `european-parliament-mcp-server@1.2.21`) —
+ *    `european-parliament-mcp-server@1.3.0`) —
  *    `{status:"unavailable", items:[], generatedAt:"..."}` established by
  *    Hack23/European-Parliament-MCP-Server#301 and extended to
  *    `get_events_feed`/`get_procedures_feed` by
@@ -591,9 +592,9 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      *
      * @remarks
      * This repository is currently documented/configured against
-     * `european-parliament-mcp-server@1.2.21`.
+     * `european-parliament-mcp-server@1.3.0`.
      *
-     * **Upstream date-filter contract (v1.2.14+, active on the pinned v1.2.21 server):** the upstream server
+     * **Upstream date-filter contract (v1.2.14+, active on the pinned v1.3.0 server):** the upstream server
      * applies a server-side post-filter on `dateFrom`/`dateTo` before serialisation, because the
      * EP Open Data Portal `/meetings` endpoint silently ignores its `date-from`/`date-to` query
      * parameters (Defect #5). Under this contract:
@@ -602,7 +603,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * - Per-window session counts are reproducible because the EP-side regression is masked by
      *   the upstream post-filter.
      *
-     * No local post-filter is applied here. The repository is pinned to v1.2.21, so the
+     * No local post-filter is applied here. The repository is pinned to v1.3.0, so the
      * date-filter guarantees above apply; consumers running against an older server image
      * (pre-v1.2.14) must not assume them.
      */
@@ -1102,6 +1103,21 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      */
     async getHomonymMEPs(options = {}) {
         return this.safeCallTool('get_homonym_meps', options, MEPS_FALLBACK);
+    }
+    /**
+     * Retrieve latest EP plenary votes via DOCEO XML endpoint.
+     *
+     * Returns near-realtime vote records (dataFreshness: NEAR_REALTIME,
+     * dataSource: EP_DOCEO_XML) — typically available within minutes of a
+     * plenary vote, unlike the regular EP API which has a multi-week delay.
+     *
+     * New in `european-parliament-mcp-server@1.3.0`.
+     *
+     * @param options - Pagination options
+     * @returns Latest plenary vote records with NEAR_REALTIME freshness
+     */
+    async getLatestVotes(options = {}) {
+        return this.safeCallTool('get_latest_votes', options, '{"votes": [], "dataFreshness": "NEAR_REALTIME"}');
     }
     /**
      * Get plenary documents
