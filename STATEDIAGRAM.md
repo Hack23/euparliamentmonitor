@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.3-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--03-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.4-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--06-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.3 | **📅 Last Updated:**
-2026-05-03 (UTC) | **🏷️ Platform Release:** v0.8.54  
+**📋 Document Owner:** CEO | **📄 Version:** 1.4 | **📅 Last Updated:**
+2026-05-06 (UTC) | **🏷️ Platform Release:** v0.8.54  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
@@ -1273,6 +1273,320 @@ stateDiagram-v2
 
 ---
 
+## 🚦 Unified Workflow Run State Machine (`news-<type>.md`)
+
+Every unified `.github/workflows/news-<type>.md` workflow runs Stages **A → E** in a single 60-minute session and produces exactly one PR. The 14 article-generating workflows (`breaking`, `week-ahead`, `week-in-review`, `month-ahead`, `month-in-review`, `quarter-ahead`, `quarter-in-review`, `year-ahead`, `year-in-review`, `term-outlook`, `election-cycle`, `committee-reports`, `motions`, `propositions`) all share this state machine. `news-translate.md` is the single exception — see §Translation State Machine below.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Triggered: cron OR workflow_dispatch
+
+    Triggered --> MCPSetup: scripts/mcp-setup.sh
+    MCPSetup --> StageA: EP_MCP_GATEWAY_URL ready
+
+    state StageA {
+        [*] --> AcquiringEPData
+        AcquiringEPData --> AcquiringIMF: EP MCP probe
+        AcquiringIMF --> AcquiringWB: IMF probe (cache/imf/imf-probe-summary.json)
+        AcquiringWB --> StageAComplete: dataMode resolved (full | degraded-* | title-only | minimal)
+        StageAComplete --> [*]
+    }
+
+    StageA --> StageB: minute ≤ 12 (per-slug budget)
+
+    state StageB {
+        [*] --> AnalysisPass1
+        AnalysisPass1 --> AnalysisPass2: ~60% of stage budget
+        AnalysisPass2 --> ArtifactsEmitted: ~40% of stage budget (read-back & extend)
+        ArtifactsEmitted --> [*]
+    }
+
+    StageB --> StageC: artifacts written under analysis/daily/<date>/<slug>/
+
+    state StageC {
+        [*] --> RunningValidator
+        RunningValidator --> GREEN: all gates pass
+        RunningValidator --> GREEN_WITH_WARNINGS: WARN issues only
+        RunningValidator --> RED: any RED issue (tradecraft, mermaid, requiredSections)
+        RunningValidator --> ANALYSIS_ONLY: skipArticle flag set
+    }
+
+    StageC --> StageD: GREEN | GREEN_WITH_WARNINGS
+    StageC --> [*]: RED → STAGE_C_GATE:RED stdout, abort
+    StageC --> [*]: ANALYSIS_ONLY → no article, manifest updated
+
+    state StageD {
+        [*] --> ArticlePass1
+        ArticlePass1 --> ArticlePass2: prose draft complete
+        ArticlePass2 --> HTMLRendered: deterministic aggregator render (src/aggregator/markdown/)
+        HTMLRendered --> [*]
+    }
+
+    StageD --> StageE: rendered HTML + analysis artifacts ready
+
+    state StageE {
+        [*] --> SafeOutputCall
+        SafeOutputCall --> PRCreated: safeoutputs___create_pull_request (called exactly once)
+        PRCreated --> [*]
+    }
+
+    StageE --> Complete: minute ≤ 45 (target ≤ 42 standard slugs, ≤ 47 electoral)
+    Complete --> [*]: PR awaits review
+
+    note right of StageA
+        Per-slug stage budgets are
+        authoritative in
+        src/config/article-horizons.ts
+        Hard PR deadline minute ≤ 45
+    end note
+
+    note right of StageC
+        Verdict union:
+          GREEN | GREEN_WITH_WARNINGS |
+          ANALYSIS_ONLY | PENDING (manifest)
+          RED is stdout-only — never
+          persisted to manifest history
+    end note
+```
+
+### Stage Definitions
+
+| Stage  | Description                                                       | Output                                                          | Gate                                  |
+| ------ | ----------------------------------------------------------------- | --------------------------------------------------------------- | ------------------------------------- |
+| **A**  | Data acquisition (EP MCP + IMF + World Bank)                      | Cached envelopes, manifest with `dataMode`                      | All sources probed, dataMode resolved |
+| **B**  | Analysis (2-pass) — produces 39+ artifacts under `analysis/daily/`| Methodology-driven artifact set with WEP/Admiralty grading      | Pass 2 read-back complete             |
+| **C**  | Completeness gate (`scripts/validate-analysis-completeness.js`)   | `STAGE_C_GATE:GREEN/RED` stdout + `manifest.history[].gateResult`| RED blocks PR; GREEN allows Stage D   |
+| **D**  | Article generation (2-pass + deterministic aggregator render)     | One HTML article in EN under `news/<slug>/<date>/article.html`  | Aggregator render succeeds            |
+| **E**  | Single PR creation via `safeoutputs___create_pull_request`        | PR with analysis artifacts + article HTML, exactly one call     | Hard deadline minute ≤ 45             |
+
+---
+
+## 📊 Manifest `dataMode` State Machine
+
+Each Stage-A run resolves a manifest `dataMode` describing data availability for the run. The `DataMode` union (`'full' | 'title-only' | 'degraded-imf' | 'degraded-voting' | 'minimal'`) is defined in [`src/workflows/types.ts`](src/workflows/types.ts) with line-floor reduction factors in `DATA_MODE_REDUCTION`. Stage-C uses these factors to scale per-artifact line floors; structural checks (Mermaid, WEP, Admiralty, SAT≥10) are **never** reduced.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Probing: Stage A starts
+
+    Probing --> Full: EP MCP OK + IMF OK + World Bank OK<br/>(reduction = 1.00)
+    Probing --> DegradedIMF: EP OK + IMF FAIL/missing + WB OK<br/>(reduction = 0.85)
+    Probing --> DegradedVoting: EP partial (votes endpoint degraded)<br/>(reduction = 0.85)
+    Probing --> TitleOnly: EP returns titles only — no body content<br/>(reduction = 0.75)
+    Probing --> Minimal: Multiple sources unavailable<br/>(reduction = 0.65)
+
+    Full --> DegradedIMF: IMF probe expires mid-run
+    Full --> DegradedVoting: Vote tool times out
+    DegradedIMF --> Minimal: WB also fails
+    DegradedVoting --> Minimal: IMF also fails
+    TitleOnly --> Minimal: Even title fetch degrades
+
+    DegradedIMF --> Full: WB satisfies economic OR-gate (no transition needed; reported)
+    DegradedVoting --> Full: get_latest_votes recovers via DOCEO XML
+
+    Full --> [*]: Stage B proceeds at full thresholds
+    DegradedIMF --> [*]: Stage B with -15% line floors
+    DegradedVoting --> [*]: Stage B with -15% line floors
+    TitleOnly --> [*]: Stage B with -25% line floors
+    Minimal --> [*]: Stage B with -35% line floors
+
+    note right of Probing
+        Stage A determines mode from:
+        - EP MCP get_server_health
+        - IMF probe summary
+          (cache/imf/imf-probe-summary.json)
+        - World Bank Open Data MCP
+    end note
+
+    note right of Minimal
+        Minimal mode still requires:
+        - All structural checks
+        - WEP banding present
+        - Admiralty grading present
+        - ≥10 SATs in
+          methodology-reflection.md
+    end note
+```
+
+### dataMode Transition Triggers
+
+| From → To              | Trigger                                                              | Validator behaviour                                              |
+| ---------------------- | -------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `full` → `degraded-imf`| `cache/imf/imf-probe-summary.json` reports failure or is missing      | -15% line floor; IMF citation requirement falls back to WB       |
+| `full` → `degraded-voting` | Vote tool (`get_voting_records` / `get_latest_votes`) times out  | -15% line floor; voting-pattern artifacts use cached sample      |
+| `full` → `title-only`  | EP MCP returns metadata envelopes without body content                | -25% line floor; full-content artifacts permitted shorter forms  |
+| any → `minimal`        | ≥2 critical sources unavailable                                       | -35% line floor; tradecraft (WEP/Admiralty/SAT) still mandatory  |
+| `degraded-*` → `full`  | Source recovers within run lifetime                                   | Normally not transitioned — manifest records initial probe state |
+
+---
+
+## 🧬 Analysis Artifact State Machine
+
+Each individual analysis artifact under `analysis/daily/<YYYY-MM-DD>/<slug>/` progresses through a six-state lifecycle during Stage B. The catalog of 60 templates in [`analysis/templates/`](analysis/templates/) seeds the **Empty** state; each template requires Pass-1 → Pass-2 work to reach **Validated** before Stage C accepts it.
+
+```mermaid
+stateDiagram-v2
+    [*] --> Empty: Stage B begins<br/>(template skeleton in analysis/templates/)
+
+    Empty --> Draft: AI agent reads methodology<br/>(per-artifact-methodologies.md)
+
+    Draft --> Pass1Complete: Initial content written<br/>(≥60% of stage budget)
+
+    Pass1Complete --> Pass2Refined: Read-back and improve<br/>(≥40% of stage budget)
+
+    Pass2Refined --> Validated: Local checks pass<br/>(line floor, mermaid syntax, sections)
+    Pass2Refined --> Pass2Refined: Self-revision loop<br/>(extend shallow sections)
+
+    Validated --> Committed: Written to analysis/daily/<date>/<slug>/<artifact>.md
+    Committed --> [*]: Listed in manifest.files for Stage C validation
+
+    Empty --> AbandonedSkip: Optional artifact deemed N/A
+    AbandonedSkip --> [*]: Marked as skipped in manifest
+
+    Draft --> Pass1Failed: Time budget exhausted before Pass 1
+    Pass1Complete --> Pass2Failed: Time budget exhausted before Pass 2
+    Pass1Failed --> [*]: Stage B fails, run aborted
+    Pass2Failed --> [*]: Stage C will RED on shallow content
+
+    note right of Pass1Complete
+        Quality floor signals:
+        - Mandatory sections present
+        - WEP/Admiralty grading
+        - ≥1 Mermaid diagram (per
+          artifact-catalog.md)
+        - No [AI_ANALYSIS_REQUIRED]
+          markers
+    end note
+
+    note right of Pass2Refined
+        Pass-2 read-back rule
+        (ai-driven-analysis-guide.md
+         Step 10):
+        Read every section word-by-word,
+        identify shallow content,
+        rewrite and extend.
+        Pass 2 is where quality is
+        achieved — not Pass 1.
+    end note
+```
+
+### Artifact State Definitions
+
+| State              | Description                                              | Validator outcome              |
+| ------------------ | -------------------------------------------------------- | ------------------------------ |
+| **Empty**          | Template skeleton from `analysis/templates/`             | Not yet present                |
+| **Draft**          | Agent has begun writing, sections incomplete             | RED on `requiredSections`      |
+| **Pass-1 Complete**| All sections present; quality may still be shallow       | Possibly WARN on word-count    |
+| **Pass-2 Refined** | Read-back done; shallow sections extended                | Likely passes line floor       |
+| **Validated**      | Local Mermaid/section/floor checks pass                  | Local pass (no Stage-C run yet)|
+| **Committed**      | Written to disk and listed in `manifest.files`           | Eligible for Stage-C scan      |
+| **Abandoned/Skip** | Optional artifact not produced (rare — most are required)| Not in `manifest.files`        |
+
+---
+
+## 🕵️ Political Intelligence Artifact State Machine
+
+For artifacts that carry **political intelligence judgements** (`scenario-forecast.md`, `coalition-dynamics.md`, `wildcards-blackswans.md`, `intelligence-assessment.md`, `political-threat-landscape.md`, `executive-brief.md`, `synthesis-summary.md`, `methodology-reflection.md`), the content additionally progresses through an OSINT-tradecraft state machine governed by [`analysis/methodologies/osint-tradecraft-standards.md`](analysis/methodologies/osint-tradecraft-standards.md).
+
+```mermaid
+stateDiagram-v2
+    [*] --> SourceCollection: Stage B begins
+
+    SourceCollection --> SourceGrading: Sources gathered
+    SourceGrading --> HypothesisGeneration: Admiralty A1–F6 grade assigned per source<br/>(reliability letter × credibility digit)
+
+    HypothesisGeneration --> ACHEvaluation: ≥3 plausible hypotheses identified
+
+    state ACHEvaluation {
+        [*] --> BuildingMatrix
+        BuildingMatrix --> CountingInconsistencies: hypotheses × evidence
+        CountingInconsistencies --> WinningHypothesis: fewest inconsistencies wins
+        CountingInconsistencies --> KeyAssumptionsCheck: parallel KAC
+        KeyAssumptionsCheck --> WinningHypothesis: assumptions documented
+        WinningHypothesis --> [*]
+    }
+
+    ACHEvaluation --> ConfidenceAssignment: hypothesis selected
+
+    ConfidenceAssignment --> WEPBanding: source grade × ACH outcome → confidence
+
+    state WEPBanding {
+        [*] --> SelectingBand
+        SelectingBand --> AlmostNoTermsForbidden: banned terms (likely-but-vague) replaced
+        AlmostNoTermsForbidden --> BandSelected: one of the seven Kent bands<br/>(remote → almost-certain)
+        BandSelected --> [*]
+    }
+
+    WEPBanding --> StructuredAnalyticTechniques: probability-banded judgement
+
+    state StructuredAnalyticTechniques {
+        [*] --> CoreSATsApplied
+        CoreSATsApplied --> SupportingSATsApplied: ≥10 core SATs applied
+        SupportingSATsApplied --> SATAttestation: methodology-reflection.md §3 table
+        SATAttestation --> [*]
+    }
+
+    StructuredAnalyticTechniques --> RedTeamReview: SAT attestation present
+
+    RedTeamReview --> PreMortem: devil's advocate written
+    PreMortem --> Publication: top-3 failure modes documented
+
+    Publication --> [*]: artifact passes Stage C tradecraft gates
+
+    SourceGrading --> InsufficientGrade: only D/E/F sources available
+    InsufficientGrade --> [*]: artifact downgraded to lower confidence
+    ACHEvaluation --> InsufficientHypotheses: <3 plausible hypotheses
+    InsufficientHypotheses --> Publication: justified in methodology-reflection.md
+
+    note right of SourceGrading
+        Admiralty Code (NATO STANAG 2511):
+        Reliability A (completely reliable) → F (cannot be judged)
+        Credibility 1 (confirmed) → 6 (cannot be judged)
+        See osint-tradecraft-standards.md §2
+    end note
+
+    note right of WEPBanding
+        Words of Estimative Probability
+        (Kent scale, ICD-203 §6):
+          Almost no chance (<5%)
+          Very unlikely (5–20%)
+          Unlikely (20–45%)
+          Roughly even chance (45–55%)
+          Likely (55–80%)
+          Very likely (80–95%)
+          Almost certain (>95%)
+        Banned: "possible", "could",
+        "may", uncalibrated "likely"
+    end note
+
+    note right of StructuredAnalyticTechniques
+        Required core SATs:
+        ACH, KAC, Quality of Information,
+        Indicators & Signposts, What-If,
+        High-Impact/Low-Probability,
+        Red Team / Devil's Advocate,
+        Pre-Mortem, Scenario Analysis,
+        Lightweight ACH per-file
+        Plus PESTLE, Stakeholder Mapping,
+        Bayesian Update, Force-Field,
+        Cone of Plausibility (supporting)
+    end note
+```
+
+### Tradecraft Gate Outcomes (Stage C)
+
+| Gate                          | Trigger                                                    | Severity |
+| ----------------------------- | ---------------------------------------------------------- | -------- |
+| **WEP missing**               | Probabilistic claim without WEP band                       | RED      |
+| **Admiralty missing**         | Source cited without A1–F6 grade                           | RED      |
+| **BLUF missing**              | Executive judgement absent from `executive-brief.md`       | RED      |
+| **<10 SATs attested**         | `methodology-reflection.md` §3 lists fewer than 10 SATs    | RED      |
+| **Banned WEP term**           | "possible", "could", "may" in analytic conclusion          | RED      |
+| **Reader-block**              | Sentence/paragraph length exceeds readability ceiling      | WARN (RED in `--strict`) |
+| **Source-diversity warning**  | Single source dominates evidence base                       | WARN (RED in `--strict`) |
+
+---
+
 ## 🎨 Color Legend & Styling
 
 State diagrams use consistent colors to indicate state categories:
@@ -1455,6 +1769,8 @@ Per
 
 | Version | Date       | Author | Changes                                                               |
 | ------- | ---------- | ------ | --------------------------------------------------------------------- |
+| 1.4     | 2026-05-06 | CEO    | Full review: added unified `news-<type>.md` Stage A→E run state machine, manifest `dataMode` state machine (`full` / `degraded-imf` / `degraded-voting` / `title-only` / `minimal` per `src/workflows/types.ts`), six-state analysis-artifact lifecycle (Empty → Draft → Pass-1 → Pass-2 → Validated → Committed), and political-intelligence artifact state machine (Admiralty grading → ACH → WEP banding → SAT attestation → publication) per `osint-tradecraft-standards.md` |
+| 1.3     | 2026-05-03 | CEO    | v0.8.54 refresh: long-horizon expansion (term-outlook, election-cycle), 14 unified news workflows, gh-aw pin v0.71.3 |
 | 1.2     | 2026-04-20 | CEO    | Added Pipeline-Stage, Validator-Gate, and Translation state machines for v0.8.40 (5-stage pipeline, validator gate with fallback-leak scan, news-translate fan-out across 13 languages with 10240 KB max-patch-size); refreshed article-types note to 7 types; updated review cadence |
 | 1.1     | 2026-02-24 | CEO    | Updated review date and verified current state accuracy                |
 | 1.0     | 2025-02-17 | CEO    | Initial state diagram documentation with comprehensive state machines |

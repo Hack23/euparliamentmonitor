@@ -11,13 +11,13 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-1.5-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--03-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-1.6-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--06-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 1.5 | **📅 Last Updated:**
-2026-05-03 (UTC) | **🏷️ Platform Release:** v0.8.54  
+**📋 Document Owner:** CEO | **📄 Version:** 1.6 | **📅 Last Updated:**
+2026-05-06 (UTC) | **🏷️ Platform Release:** v0.8.54  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-03  
 **🏷️ Classification:** Public (Open Source European Parliament Monitoring
 Platform)
@@ -1012,6 +1012,403 @@ graph TB
 
 ---
 
+## 🕵️ Political Intelligence Framework Mindmap
+
+The platform applies professional intelligence-tradecraft standards across every analysis artifact. The framework — codified in [`analysis/methodologies/osint-tradecraft-standards.md`](analysis/methodologies/osint-tradecraft-standards.md) — combines four pillars (ICD-203, Admiralty Code, Words of Estimative Probability, Structured Analytic Techniques) with six EP-domain-specific frameworks.
+
+```mermaid
+mindmap
+  root((Political<br/>Intelligence<br/>Framework))
+    ICD 203 Tradecraft Standards
+      Standard 1 Objective
+      Standard 2 Independent of policy
+      Standard 3 Timely
+      Standard 4 Based on all sources
+      Standard 5 Implements analytic tradecraft
+        Properly describes quality of sources
+        Properly expresses uncertainties
+        Properly distinguishes intelligence from assumptions
+        Incorporates alternative analysis
+        Demonstrates relevance to customers
+        Uses logical argumentation
+        Exhibits consistency
+        Makes accurate judgements
+      Standard 6 Politically neutral
+      Standard 7 Customer-relevant
+      Standard 8 Properly attributed
+      Standard 9 Properly classified
+    Admiralty Code Source Grading
+      Reliability Letter
+        A Completely reliable
+        B Usually reliable
+        C Fairly reliable
+        D Not usually reliable
+        E Unreliable
+        F Cannot be judged
+      Credibility Digit
+        1 Confirmed by other sources
+        2 Probably true
+        3 Possibly true
+        4 Doubtful
+        5 Improbable
+        6 Cannot be judged
+      6x6 Confidence Matrix
+      EP Adopted-Texts Freshness Protocol
+    Words of Estimative Probability
+      Kent Scale Bands
+        Almost no chance below 5 percent
+        Very unlikely 5 to 20 percent
+        Unlikely 20 to 45 percent
+        Roughly even chance 45 to 55 percent
+        Likely 55 to 80 percent
+        Very likely 80 to 95 percent
+        Almost certain above 95 percent
+      Banned Vague Terms
+        possible
+        could
+        may
+        uncalibrated likely
+      Time Horizon Discipline
+      Pairing With Admiralty
+    Structured Analytic Techniques (Heuer & Pherson)
+      Core SATs Required
+        Analysis of Competing Hypotheses ACH
+        Key Assumptions Check KAC
+        Quality of Information Check
+        Indicators and Signposts
+        What-If Analysis
+        High-Impact Low-Probability
+        Red Team Devils Advocate
+        Pre-Mortem
+        Scenario Analysis
+        Lightweight ACH per-file
+      Supporting SATs
+        PESTLE
+        Stakeholder Mapping
+        Bayesian Update
+        Force-Field Analysis
+        Cone of Plausibility
+      Attestation in methodology-reflection.md §3
+    EP Domain Frameworks
+      political-classification-guide.md
+      political-risk-methodology.md
+      political-threat-framework.md
+      political-swot-framework.md
+      political-style-guide.md
+      ai-driven-analysis-guide.md
+    OSINT Sourcing Ethics
+      In Scope
+        EP Open Data
+        IMF SDMX 3.0 REST
+        World Bank Open Data
+        Public press releases
+        Verified social posts MEPs
+      Out of Scope
+        Private personal data
+        Doxing aggregation
+        Speculative biography
+      GDPR Proportionality
+      Attribution and Reproducibility
+```
+
+### Tradecraft Pillars and Their Artifact Anchors
+
+| Pillar                     | Canonical artifact                                              | Stage-C check          |
+| -------------------------- | --------------------------------------------------------------- | ---------------------- |
+| ICD 203                    | `methodology-reflection.md` §1                                  | Required sections      |
+| Admiralty Code             | `mcp-reliability-audit.md`, `reference-analysis-quality.md`      | RED on missing grade   |
+| Words of Estimative Probability | `executive-brief.md`, `scenario-forecast.md`               | RED on missing band    |
+| Structured Analytic Techniques | `methodology-reflection.md` §3 (≥10 SATs)                    | RED on <10 SATs        |
+
+---
+
+## 📚 Analysis Methodologies Mindmap
+
+The platform's 19 methodology documents under [`analysis/methodologies/`](analysis/methodologies/) form a layered system: cross-cutting tradecraft, EP-domain frameworks, AI-author guidance, and per-artifact construction rules.
+
+```mermaid
+mindmap
+  root((Analysis<br/>Methodologies))
+    Cross-Cutting Tradecraft
+      osint-tradecraft-standards.md
+        ICD 203 standards
+        Admiralty Code grading
+        Words of Estimative Probability
+        Structured Analytic Techniques
+      analytical-supplementary-methodology.md
+      structural-metadata-methodology.md
+    EP Domain Frameworks
+      political-classification-guide.md
+        Significance levels
+        Domain taxonomy
+      political-risk-methodology.md
+        Bayesian Update
+        Risk register
+      political-threat-framework.md
+        Threat taxonomy
+        Mitigation chains
+      political-swot-framework.md
+        Quantitative SWOT
+        TOWS construction
+      political-style-guide.md
+        Editorial voice
+        Banned terms
+      political-style-guide.json
+    Forward-Looking Methodologies
+      forward-projection-methodology.md
+        Cone of plausibility
+        Indicators and signposts
+      electoral-cycle-methodology.md
+        Term horizons
+        Mandate fulfilment
+      electoral-domain-methodology.md
+      strategic-extensions-methodology.md
+    Synthesis & Reflection
+      synthesis-methodology.md
+      ai-driven-analysis-guide.md
+        10-step protocol
+        Pass-1 and Pass-2 read-back
+        Step 10.5 methodology-reflection
+      per-artifact-methodologies.md
+        34 sections one per artifact
+      per-document-methodology.md
+    Indicator Mapping
+      imf-indicator-mapping.md
+        WEO Fiscal Monitor IFS BOP ER PCPS
+      worldbank-indicator-mapping.md
+    Reference & Catalog
+      artifact-catalog.md
+        Master template index
+        Depth floors
+        Mermaid types
+      reference-quality-thresholds.json
+        Per-artifact line floors
+        DataMode reduction factors
+      README.md
+```
+
+### Methodology to Stage Mapping
+
+| Stage | Methodology drivers                                                                 |
+| ----- | ----------------------------------------------------------------------------------- |
+| **A** | `imf-indicator-mapping.md`, `worldbank-indicator-mapping.md`                        |
+| **B** | `osint-tradecraft-standards.md`, all 6 EP-domain frameworks, `forward-projection-methodology.md`, `electoral-cycle-methodology.md`, `per-artifact-methodologies.md` |
+| **C** | `reference-quality-thresholds.json`, `artifact-catalog.md`                          |
+| **D** | `political-style-guide.md`, `synthesis-methodology.md`                              |
+
+---
+
+## 📄 Analysis Templates Mindmap
+
+The 60 templates under [`analysis/templates/`](analysis/templates/) cluster into nine methodology-aligned families. Each template names the canonical artifact filename produced under `analysis/daily/<date>/<slug>/` and inherits its line floor and required sections from `reference-quality-thresholds.json`.
+
+```mermaid
+mindmap
+  root((60 Analysis<br/>Templates))
+    Executive & Synthesis
+      executive-brief
+      synthesis-summary
+      intelligence-assessment
+      analysis-index
+      methodology-reflection
+      deep-analysis
+    Stakeholder & Coalition
+      stakeholder-map
+      stakeholder-impact
+      actor-mapping
+      actor-threat-profiles
+      coalition-dynamics
+      coalition-mathematics
+      seat-projection
+      voter-segmentation
+    Risk Threat & Forecast
+      risk-assessment
+      risk-matrix
+      threat-analysis
+      threat-model
+      political-threat-landscape
+      political-capital-risk
+      legislative-velocity-risk
+      legislative-disruption
+      consequence-trees
+      wildcards-blackswans
+    Forward Projection
+      forward-projection
+      forward-indicators
+      scenario-forecast
+      legislative-pipeline-forecast
+      parliamentary-calendar-projection
+      term-arc
+      mandate-fulfilment-scorecard
+    Strategic Frameworks
+      swot-analysis
+      quantitative-swot
+      pestle-analysis
+      forces-analysis
+      impact-matrix
+      implementation-feasibility
+    Historical & Comparative
+      historical-baseline
+      historical-parallels
+      session-baseline
+      cross-run-diff
+      cross-session-intelligence
+      comparative-international
+      presidency-trio-context
+      commission-wp-alignment
+    Classification & Significance
+      political-classification
+      significance-classification
+      significance-scoring
+      cross-reference-map
+      per-file-political-intelligence
+    Quality & Tradecraft
+      mcp-reliability-audit
+      reference-analysis-quality
+      imf-vintage-audit
+      devils-advocate-analysis
+      media-framing-analysis
+    Data Operations
+      data-download-manifest
+      economic-context
+      voting-patterns
+      workflow-audit
+    Partials (reusable fragments)
+      ai-instructions
+      citation-pattern
+      evidence-table
+      imf-callout
+      quality-checklist
+```
+
+### Template Family Coverage
+
+| Family                    | Count | Required for                                        |
+| ------------------------- | ----- | --------------------------------------------------- |
+| Executive & Synthesis     | 6     | All article types                                   |
+| Stakeholder & Coalition   | 8     | All article types                                   |
+| Risk, Threat & Forecast   | 10    | All article types                                   |
+| Forward Projection        | 7     | Forward-looking horizons (week/month/quarter/year-ahead, term-outlook) |
+| Strategic Frameworks      | 6     | All article types                                   |
+| Historical & Comparative  | 8     | All article types                                   |
+| Classification & Significance | 5 | All article types                                   |
+| Quality & Tradecraft      | 5     | All article types                                   |
+| Data Operations           | 4     | All article types                                   |
+| Partials                  | 5     | Embedded into other artifacts                       |
+
+---
+
+## 🧱 Aggregator Bounded Contexts Mindmap
+
+The deterministic aggregator pipeline at [`src/aggregator/`](src/aggregator/) is decomposed into eight bounded contexts, each with its own public `index.ts` API. The aggregator is invoked at Stage D of every unified `news-<type>.md` workflow.
+
+```mermaid
+mindmap
+  root((src/aggregator<br/>Bounded Contexts))
+    manifest
+      Manifest read and write
+      DataMode resolution
+      History tracking
+      gateResult union
+    runs
+      Run discovery
+      Per-slug run iteration
+      Cross-run diff helpers
+    slug
+      Slug normalization
+      Article-type → slug mapping
+      Routing helpers
+    infra
+      Filesystem helpers
+      Path resolution
+      Cache directory layout
+    cli
+      Aggregator CLI entry
+      Strategy.run dispatch
+      Argument parsing
+    artifacts
+      Artifact ordering
+      Sanitization
+      Stable section emission
+    content
+      Lead generation
+      Takeaways generation
+      Reading guide generation
+    markdown
+      Deterministic Markdown to HTML
+      AI_MARKER sentinel substitution
+      Chart.js embedding hooks
+    metadata
+      Article meta tags
+      JSON-LD structured data
+      hreflang alternates
+```
+
+### Bounded Context Dependencies
+
+| Context     | Depends on                          | Public API                                    |
+| ----------- | ----------------------------------- | --------------------------------------------- |
+| `manifest`  | `infra`                             | Manifest read/write, dataMode resolution      |
+| `runs`      | `manifest`, `infra`                 | Run discovery, per-slug iteration             |
+| `slug`      | (none)                              | Slug normalization, article-type routing      |
+| `infra`     | (none)                              | Filesystem helpers, path resolution           |
+| `cli`       | `manifest`, `runs`, `slug`, `infra` | CLI entry, Strategy.run dispatch              |
+| `artifacts` | `infra`                             | Artifact ordering and sanitization            |
+| `content`   | `artifacts`, `manifest`             | Lead, takeaways, reading-guide generation     |
+| `markdown`  | `content`, `artifacts`              | Deterministic Markdown → HTML rendering       |
+| `metadata`  | `manifest`, `slug`                  | Article meta tags, JSON-LD, hreflang          |
+
+---
+
+## 🌍 Multi-Language Publication Ecosystem
+
+The 14-language publication surface is governed by a separate `news-translate.md` workflow that fan-outs from English to 13 target languages, with a pre-translation completeness gate to prevent broken English content from being replicated.
+
+```mermaid
+mindmap
+  root((14-Language<br/>Publication<br/>Ecosystem))
+    Source Language
+      en English authoritative
+    Western European
+      sv Swedish
+      da Danish
+      no Norwegian
+      fi Finnish
+      de German
+      fr French
+      es Spanish
+      nl Dutch
+    Right-To-Left
+      ar Arabic RTL
+      he Hebrew RTL
+    East Asian
+      ja Japanese
+      ko Korean
+      zh Chinese Simplified
+    Accessibility Framework
+      WCAG 2.1 AA enforcement
+      axe-core Playwright in CI
+      Semantic landmarks
+      Skip-to-content links
+      ARIA labels and roles
+      Color contrast >=4.5:1
+      Keyboard navigation
+    Structured Data
+      JSON-LD NewsArticle schema
+      hreflang alternates 15 per page
+      OpenGraph tags
+      Twitter Cards
+      RSS 2.0 feed
+      sitemap.xml
+    Translation Gate
+      Pre-translation validator
+      All English sources pass before fan-out
+      Per-language axe-core validation
+      news-translate-reconciler cleanup
+```
+
+---
+
 ## 🎨 Visual Design Principles
 
 Mindmaps follow these design principles for consistency and clarity.
@@ -1281,6 +1678,7 @@ graph TB
 
 | Version | Date       | Author | Changes                                                           |
 | ------- | ---------- | ------ | ----------------------------------------------------------------- |
+| 1.6     | 2026-05-06 | CEO    | Full review: added Political Intelligence Framework mindmap (ICD-203, Admiralty Code, WEP, 10 core SATs, EP-domain frameworks, OSINT ethics), Analysis Methodologies mindmap (19 methodology files), Analysis Templates mindmap (60 templates clustered into 9 families), Aggregator Bounded Contexts mindmap (8 sub-contexts with dependency table), and Multi-Language Publication Ecosystem mindmap (14 languages, accessibility framework, structured data, translation gate) |
 | 1.5     | 2026-05-03 | CEO    | Refresh for v0.8.54: gh-aw pin bumped to `v0.71.3`, EP MCP `1.3.0`, all metadata aligned with current `package.json` and `.github/workflows/compile-agentic-workflows.yml`; ISMS-PUBLIC policy footer added |
 | 1.4     | 2026-05-02 | CEO    | Look-Ahead epic refresh: 14 article types (added `quarter-ahead`, `year-ahead`, `term-outlook`, `election-cycle`, `quarter-in-review`, `year-in-review`), 15 unified gh-aw workflows (14 `news-<type>.md` + `news-translate.md`), centralised horizon registry in `src/config/article-horizons.ts` (ADR-007), 8 new analysis artifacts governed by `forward-projection-methodology.md` + `electoral-cycle-methodology.md` |
 | 1.3     | 2026-04-27 | CEO    | April-2026 aggregator-pipeline migration: 8 article types, 9 unified gh-aw workflows (8 `news-<type>.md` + `news-translate.md`), deterministic `src/aggregator/**` rendering (no per-type strategies), Stage-C agent-side completeness gate (no runtime `content-validator.ts`), EP MCP `v1.3.0+` (60+ tools, voting fallback to EP Open Data Portal), IMF SDMX 3.0 primary economic source, World Bank non-economic context, AWS S3 + CloudFront primary hosting, gh-aw `v0.69.0` pinned |
