@@ -400,6 +400,20 @@ const READER_GUIDE_ROWS: Readonly<Record<string, GuideRowData>> = {
   },
 };
 
+/* ─── Section icons ─────────────────────────────────────────────── */
+
+/** Visual icons for each reader guide section to improve scannability. */
+const SECTION_ICONS: Readonly<Record<string, string>> = {
+  'section-executive-brief': '📋',
+  'section-synthesis': '🔗',
+  'section-significance': '⚖️',
+  'section-coalitions-voting': '🤝',
+  'section-stakeholder-map': '👥',
+  'section-economic-context': '💶',
+  'section-scenarios': '🔮',
+  'section-risk': '⚠️',
+};
+
 /* ─── HTML builder ───────────────────────────────────────────────── */
 
 /**
@@ -430,9 +444,10 @@ export function buildReaderIntelligenceGuideHtml(
     const value = getLocalizedString(rowData.value, lang);
     const source = included.find((artifact) => artifact.sectionId === section.id)?.runRelPath;
     const sourceLabel = source ? `<code>${escapeHTML(source)}</code>` : escapeHTML(section.title);
+    const sectionIcon = SECTION_ICONS[section.id] ?? '📎';
 
     rows.push(
-      `<tr><td><a href="#${escapeHTML(section.id)}">${escapeHTML(need)}</a></td><td>${escapeHTML(value)}</td><td>${sourceLabel}</td></tr>`
+      `<tr><td><span class="guide-icon" aria-hidden="true">${sectionIcon}</span> <a href="#${escapeHTML(section.id)}">${escapeHTML(need)}</a></td><td>${escapeHTML(value)}</td><td>${sourceLabel}</td></tr>`
     );
   }
 
@@ -445,10 +460,10 @@ export function buildReaderIntelligenceGuideHtml(
   const colSource = getLocalizedString(READER_GUIDE_COL_SOURCE_LABELS, lang);
 
   return `<section id="${READER_GUIDE_SECTION_ID}" data-component="reader-intelligence-guide" aria-label="${escapeHTML(title)}"${dir === 'rtl' ? ' dir="rtl"' : ''}>
-<h2 id="${READER_GUIDE_SECTION_ID}-heading">${escapeHTML(title)}</h2>
-<p>${escapeHTML(intro)}</p>
+<h2 id="${READER_GUIDE_SECTION_ID}-heading"><span class="guide-icon" aria-hidden="true">🧭</span> ${escapeHTML(title)}</h2>
+<p class="reader-guide-intro">${escapeHTML(intro)}</p>
 <div class="table-scroll" role="region" tabindex="0" aria-labelledby="${READER_GUIDE_SECTION_ID}-heading">
-<table>
+<table class="reader-guide-table">
 <caption class="sr-only">${escapeHTML(title)}</caption>
 <thead><tr><th scope="col">${escapeHTML(colNeed)}</th><th scope="col">${escapeHTML(colValue)}</th><th scope="col">${escapeHTML(colSource)}</th></tr></thead>
 <tbody>

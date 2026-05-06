@@ -75,7 +75,7 @@ describe('reader-intelligence-guide', () => {
           .replace(/>/g, '&gt;')
           .replace(/"/g, '&quot;')
           .replace(/'/g, '&#39;');
-        expect(html).toContain(`<p>${escapedIntro}</p>`);
+        expect(html).toContain(`<p class="reader-guide-intro">${escapedIntro}</p>`);
       }
     });
 
