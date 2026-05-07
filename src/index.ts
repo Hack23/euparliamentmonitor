@@ -145,6 +145,7 @@ export {
   getArticleFilename,
   buildArticleHreflangLinks,
   wrapArticleHtml,
+  localizeArticleBody,
 } from './aggregator/article-html.js';
 export { generateArticle } from './aggregator/article-generator.js';
 

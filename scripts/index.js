@@ -57,7 +57,7 @@ export { ARTIFACT_SECTIONS, SUPPLEMENTARY_SECTION_ID, SUPPLEMENTARY_SECTION_TITL
 export { cleanArtifact } from './aggregator/clean-artifact.js';
 export { aggregateAnalysisRun } from './aggregator/analysis-aggregator.js';
 export { renderMarkdown, slugify, buildMarkdownIt } from './aggregator/markdown-renderer.js';
-export { getArticleFilename, buildArticleHreflangLinks, wrapArticleHtml, } from './aggregator/article-html.js';
+export { getArticleFilename, buildArticleHreflangLinks, wrapArticleHtml, localizeArticleBody, } from './aggregator/article-html.js';
 export { generateArticle } from './aggregator/article-generator.js';
 // ─── Constants ───────────────────────────────────────────────────────────────
 export { PROJECT_ROOT, NEWS_DIR, METADATA_DIR, BASE_URL, ARTICLE_FILENAME_PATTERN, } from './constants/config.js';
