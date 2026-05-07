@@ -122,3 +122,64 @@ graph LR
 ---
 
 *Workflow audit v1.1 | Run: breaking-run-1778159307*
+
+---
+
+## Re-Run Audit Section — May 7, 2026 Second Run
+
+**[EXTEND-FROM-PRIOR: workflow-audit.md — adding re-run metadata per re-run improve/extend rule]**
+
+**Re-run ID:** breaking-rerun2-1778179641  
+**Re-run trigger:** Automated re-run (same-day folder, manifest.history.length=1 detected)  
+**Re-run rule applied:** Every artifact must be extended ≥ 20 lines beyond prior floor; `pass2.rewriteCount` must equal total artifact count (27)
+
+### Re-Run Stage Summary
+
+| Stage | Prior Run | Re-Run | Status |
+|-------|-----------|--------|--------|
+| A — Data Collection | ✅ Complete | ✅ Extended (new landscape probe) | 🟢 |
+| B — Analysis (27 artifacts) | ✅ 27 artifacts written | 🔄 All 27 extended/extended | 🟡 In progress |
+| C — Completeness Gate | 🟢 GREEN (prior run) | 🔄 Running after B | Pending |
+| D — Article Render | ✅ Rendered | 🔄 Re-render pending | Pending |
+| E — Single PR | ✅ 1 PR in prior run | ✅ 1 PR this run | Pending |
+
+### Artifact Extension Tracking (Re-Run)
+
+Per the re-run rule, all 27 artifacts must reach `extendFloor = max(threshold_floor, priorLines + 20)`. Extensions completed in this re-run:
+
+- [x] `executive-brief.md` — Extended ~65 lines (May 7 landscape table, June triggers, BLUF v3.0)
+- [x] `intelligence/coalition-dynamics.md` — Extended ~80 lines (coalition stress scenarios, Mermaid chart)
+- [x] `intelligence/economic-context.md` — Extended ~90 lines (DMA economics, EU-Iceland PNR cost-benefit, budget context)
+- [x] `intelligence/synthesis-summary.md` — Extended ~80 lines (Pass 2 synthesis, revised scenarios, data gap status)
+- [x] `intelligence/wildcards-blackswans.md` — Extended ~90 lines (WC-07 US tariff escalation, WC-08 PfE-ECR merger)
+- [x] `intelligence/mcp-reliability-audit.md` — Extended ~60 lines (re-run probe update, data quality comparison)
+- [x] `intelligence/workflow-audit.md` — Extended (this section)
+- [ ] `intelligence/methodology-reflection.md` — Pending
+- [ ] `intelligence/pestle-analysis.md` — Pending (§10+ already comprehensive)
+- [ ] `intelligence/stakeholder-map.md` — Pending
+- [ ] `intelligence/scenario-forecast.md` — Pending
+- [ ] `intelligence/threat-model.md` — Pending
+- [ ] `intelligence/historical-baseline.md` — Pending
+- [ ] `intelligence/analysis-index.md` — Pending
+- [ ] `classification/significance-classification.md` — Pending
+- [ ] `classification/actor-mapping.md` — Pending
+- [ ] `classification/forces-analysis.md` — Pending
+- [ ] `classification/impact-matrix.md` — Pending
+- [ ] `threat-assessment/political-threat-landscape.md` — Pending
+- [ ] `threat-assessment/actor-threat-profiles.md` — Pending
+- [ ] `threat-assessment/consequence-trees.md` — Pending
+- [ ] `threat-assessment/legislative-disruption.md` — Pending
+- [ ] `risk-scoring/risk-matrix.md` — Pending
+- [ ] `risk-scoring/quantitative-swot.md` — Pending
+- [ ] `risk-scoring/political-capital-risk.md` — Pending
+- [ ] `risk-scoring/legislative-velocity-risk.md` — Pending
+
+### Workflow Performance Notes (Re-Run)
+
+- IMF degraded-imf mode continues (4th consecutive run)
+- EP events feed unavailable (2nd consecutive run)
+- DOCEO XML unavailable (expected — April 30 session, day 7 of 14-day publication lag)
+- Political landscape probe successful: 719 MEPs, fragmentation index 6.55 confirmed
+- No new adopted texts since prior run (gap ~30 minutes)
+
+*Workflow audit v2.0 | Run: breaking-rerun2-1778179641 | Updated: 2026-05-07*

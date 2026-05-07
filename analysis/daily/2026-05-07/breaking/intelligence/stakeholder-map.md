@@ -258,3 +258,63 @@ The key external actors — US government and Russia — have influence outside 
 ---
 
 *Stakeholder map v2.0 | Run: breaking-run-1778159307*
+
+---
+
+## Re-Run Extension — May 7, 2026 Stakeholder Update
+
+**[EXTEND-FROM-PRIOR: stakeholder-map.md — adding DG COMP enforcement actors, EU-Iceland actors, and Haiti stakeholder profiles from May 7 extended analysis]**
+
+### New Stakeholder Group: Commission DG COMP / DG CNECT (DMA Enforcement Actors)
+
+**Actor:** Directorate-General for Competition (DG COMP) + Directorate-General for Communications Networks, Content and Technology (DG CNECT)
+
+**Role:** DMA enforcement is a joint responsibility of DG COMP (competition aspects, fines) and DG CNECT (digital markets regulatory aspects, gatekeeper compliance). The EP resolution (TA-10-2026-0160) implicitly targets both.
+
+**Position:**
+- DG COMP: In principle supportive of enforcement, but constrained by CJEU precedent risk (interim measures applications from gatekeepers)
+- DG CNECT: More enforcement-oriented; the DMA is their flagship regulation; institutional incentive to demonstrate enforcement credibility
+
+**Influence:** Very High — These are the directorates with the legal powers to act; without their action, the EP resolution is politically symbolic
+
+**Threat/Opportunity mapping:**
+- 🟢 Opportunity: EP resolution provides political backing for bold enforcement action
+- 🔴 Risk: If enforcement action triggers CJEU suspension (WC-02), DG COMP/CNECT face institutional embarrassment
+
+### New Stakeholder: Iceland (EU-Iceland PNR Agreement)
+
+**Actor:** Government of Iceland (Ministry of Justice + National Police Commissioner)
+
+**Role:** Iceland is the recipient of the PNR data-sharing agreement under TA-10-2026-0142. Iceland is an EEA member (not EU) with a Schengen Area participation.
+
+**Position:** Supportive — Iceland has long sought closer security cooperation with EU member states. The PNR agreement provides Iceland with access to EU PNR data analysis capacity, beneficial for counter-terrorism screening.
+
+**Influence on EP:** Low direct influence (non-EU state); relevant through EFTA/EEA consultative channels
+
+**Strategic significance:** Iceland's inclusion sets a precedent for other EEA states (Norway, Liechtenstein) and potentially for non-EEA states seeking enhanced security partnerships with the EU (UK post-Brexit).
+
+### New Stakeholder Profile: Haiti Trafficking Networks (Non-State Threat Actor)
+
+**Actor:** Gang-led trafficking networks operating in Haiti (primarily the G9 and other Port-au-Prince area criminal syndicates)
+
+**Role:** The EP resolution (TA-10-2026-0151) identifies these networks as the target of international accountability mechanisms. They are not conventional political stakeholders but are relevant to the EP's analysis.
+
+**Position:** Non-party (no institutional voice); relevant through humanitarian and security lens
+
+**Influence:** They have the capacity to frustrate EU-supported humanitarian operations in Haiti; their destabilising activities are the reason for the EP resolution.
+
+**EP response options:** The resolution calls for international accountability mechanisms, which may include ICC referral (limited precedent) or targeted sanctions against trafficking network financiers.
+
+### Stakeholder Power/Interest Update (May 7)
+
+| Stakeholder | Power | Interest | Position | Change |
+|-------------|-------|----------|----------|--------|
+| Commission DG COMP | HIGH | HIGH | Pro-enforcement (with legal caution) | Added detail |
+| Commission DG CNECT | HIGH | VERY HIGH | Pro-enforcement (institutional interest) | Added detail |
+| Iceland Government | LOW (external) | MEDIUM | Pro-PNR (security partnership) | New stakeholder |
+| PfE Group (MEPs) | MEDIUM | VERY HIGH | Anti-Commission, anti-DMA enforcement | No change |
+| ECR Group (MEPs) | MEDIUM | HIGH | Pro-PfE tactical alignment | No change |
+| EPP Group (MEPs) | HIGH | HIGH | Pro-enforcement (with trade caution) | No change |
+| S&D Group (MEPs) | HIGH | VERY HIGH | Pro-enforcement (maximum scope) | No change |
+
+*Stakeholder map v3.0 | Run: breaking-rerun2-1778179641 | 3 new/extended stakeholder profiles*

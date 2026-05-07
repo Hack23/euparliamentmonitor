@@ -179,3 +179,33 @@ The most important velocity risk for citizens is the DMA track — a slow Commis
 ---
 
 *Legislative velocity risk v2.0 | Run: breaking-run-1778159307 | 6 required sections added*
+
+---
+
+## Re-Run Extension — Legislative Velocity Risk Update (May 7, 2026)
+
+**[EXTEND-FROM-PRIOR: legislative-velocity-risk.md — adding H2 2026 velocity risk calendar and US tariff/PfE-ECR velocity impact]**
+
+### Legislative Velocity Risk — H2 2026 Outlook
+
+The re-run analysis identifies two new velocity risk drivers for H2 2026:
+
+**Velocity Risk V-07: US Tariff Uncertainty → DMA Implementation Slowdown**  
+If the USTR signals DMA enforcement as a trade concern, the Commission's enforcement timeline would extend by an estimated 3-6 months as legal and diplomatic consultations occur. DMA enforcement velocity risk: 🟡 MEDIUM (28% probability of significant slowdown).
+
+**Velocity Risk V-08: PfE-ECR Amendment Flood → Budget Committee Overload**  
+The right bloc's capacity to table extensive budget amendments (standard parliamentary procedure) creates a **velocity risk** for the EP Budget Committee: processing large amendment packages consumes committee time, potentially delaying the EP's internal budget position from the September target to October, compressing the conciliation window.
+
+**Updated Legislative Velocity Risk Calendar:**
+
+| Month | Process | Velocity Risk | Probability | Mitigation |
+|-------|---------|--------------|------------|-----------|
+| May-June 2026 | IMCO DMA scrutiny | 🟡 Medium | 35% | Procedural management |
+| July 2026 | Summer recess | 🟢 Low | - | Structural break |
+| September 2026 | Budget Committee first reading | 🟡 Medium | 45% (amendment overload) | Procedural guillotine |
+| October-November 2026 | Budget trilogues | 🟡 Medium | Standard risk | Conciliation protocol |
+| December 2026 | Budget final adoption | 🔴 High | 15% (failure risk) | Strong historical precedent for deal |
+
+**Net velocity risk assessment (May 7):** H2 2026 velocity is at **medium** overall risk. No single identified risk is likely to cause legislative paralysis, but the cumulative effect of US tariff uncertainty (DMA), PfE-ECR budget strategy, and MFF preparation timelines creates a scenario where the EP operates at reduced legislative velocity vs. the H1 2026 pace (5 adopted texts in April alone).
+
+*Legislative velocity risk v3.0 | Run: breaking-rerun2-1778179641 | H2 2026 velocity calendar added*

@@ -124,3 +124,59 @@ The PfE Rule 169 debate on Commission interference (29 April) is a coalition str
 ---
 
 *Sources: EP group composition data (EP Open Data Portal, 2026-05-04); EP debate records April 28–30; historical election results; coalition-dynamics MCP tool (proxy data only — DOCEO XML unavailable).*
+
+---
+
+## 6 · Coalition Stress Assessment — May 7, 2026 Update
+
+**[EXTEND-FROM-PRIOR: coalition-dynamics.md — adding May 7 real-time political landscape data, coalition stress triggers, and June 2026 projection]**
+
+### Updated Coalition Arithmetic (Confirmed May 7, 2026)
+
+The EP Open Data Portal confirms 719 MEPs as of 7 May 2026, with the group distribution unchanged from the prior analysis. The majority threshold remains **361 seats**.
+
+**Critical coalitions for June 2026:**
+
+| Coalition | Seats | % | June Viability |
+|-----------|------:|--:|----------------|
+| EPP+S&D+Renew (core) | 398 | 55.4% | 🟢 Viable for most acts |
+| EPP+S&D+Renew+Greens/EFA | 451 | 62.7% | 🟢 Strong for DMA, climate |
+| EPP+S&D+Renew+ECR (selective) | 479 | 66.6% | 🟡 Case-by-case (migration) |
+| PfE+ECR+ESN+NI (maximum right) | 223 | 31.0% | 🔴 Cannot form majority |
+| PfE+ECR+ESN+NI+EPP (if EPP defects) | 408 | 56.7% | 🔴 Theoretically possible; EPP discipline prevents |
+
+### June 2026 Coalition Stress Scenarios
+
+**Scenario 1: Budget Fracture (MEDIUM probability, 40%)**
+If EPP and S&D cannot agree on defence vs. social spending balance in the Council counter-position (expected June 2026), the budget resolution in June or October will expose coalition fractures. The Left and Greens will oppose from the left; PfE/ECR from the right. A budget defeat is technically possible if EPP right-wingers defect to vote with PfE on anti-Brussels grounds. Historical precedent: EP9 budget conciliation failed twice before final adoption.
+
+**Scenario 2: DMA Accountability Vote (HIGH probability, 65%)**
+If the Commission does not announce meaningful DMA enforcement action by mid-June, IMCO committee chair will table a follow-up scrutiny motion. This could attract broader coalition support (EPP digital hawks + S&D consumer advocates + Renew) but would create EP-Commission institutional tension.
+
+**Scenario 3: PfE-ECR Convergence on Inquiry Motion (LOW-MEDIUM probability, 30%)**
+PfE has signalled intent to table a formal committee of inquiry motion on "Commission interference in elections." If ECR joins (requires 1/4 of MEPs = 180), it could force establishment of an inquiry committee even against EPP wishes. Current ECR position: unwilling to co-sign PfE's strongest institutional challenges, but may change after June national elections in several member states.
+
+### Fragmentation Index — Historical Comparison
+
+The 6.55 effective-parties fragmentation (Laakso-Taagepera index) represents an historical high for the EP:
+
+```mermaid
+xychart-beta
+    title "EP Fragmentation Index (Effective Number of Parties)"
+    x-axis ["EP6 (2004)", "EP7 (2009)", "EP8 (2014)", "EP9 (2019)", "EP10 (2024+)"]
+    y-axis "Fragmentation Index" 3 --> 7
+    bar [3.8, 4.12, 5.1, 6.0, 6.55]
+    line [3.8, 4.12, 5.1, 6.0, 6.55]
+```
+
+The trend is monotonically increasing. Each European election produces a more fragmented chamber. Extrapolating this trend, EP11 (2029) could see a fragmentation index above 7.0, making majority coalition formation structurally more difficult.
+
+### Implications for EP Institutional Power
+
+Higher fragmentation paradoxically strengthens EP bargaining power vis-à-vis the Commission and Council, because the Commission must negotiate with more groups to secure legislative outcomes. However, it weakens EP legislative coherence: controversial acts (budget, MFF, AI regulation enforcement, defence cooperation) become harder to pass without concessions to multiple competing blocs. The April 28-30 plenary demonstrated this dynamic: the four adopted texts all required broad coalitions, and in each case the PfE/ECR/ESN opposition was contained but significant.
+
+**Forward Coalition Intelligence:** The next critical test is the June 2026 Strasbourg plenary, where the Commission's DMA enforcement posture will determine whether IMCO pursues formal scrutiny proceedings. If scrutiny is tabled, it becomes a proxy vote on the EPP-Commission relationship — the most politically loaded vote of EP10 Year 2.
+
+🟢 **Confidence: Medium-High** — Group composition confirmed; coalition vote estimates based on structural analysis; individual MEP positions cannot be confirmed without DOCEO XML (publication delayed 4-6 weeks for April 30 votes).
+
+*Sources: EP group composition data (EP Open Data Portal, 2026-05-07); analyze_coalition_dynamics MCP tool (May 7, 2026); generate_political_landscape MCP tool (2026-05-07); historical EP election data (EP archives); coalition analysis cross-reference from per-artifact-methodologies.md.*

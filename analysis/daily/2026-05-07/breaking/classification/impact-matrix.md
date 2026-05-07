@@ -216,3 +216,34 @@ The **Armenia resolution** (E-04) is lower-priority for most EU citizens but sig
 ---
 
 *Impact matrix v2.0 | Run: breaking-run-1778159307 | 7 sections | Mermaid: 1*
+
+---
+
+## Re-Run Extension — Impact Matrix Update (May 7, 2026)
+
+**[EXTEND-FROM-PRIOR: impact-matrix.md — adding updated impact scores from May 7 extended analysis]**
+
+### Revised Impact Scores (Re-Run)
+
+| Story | Stakeholder | Prior Impact | May 7 Revised | Rationale |
+|-------|------------|-------------|--------------|-----------|
+| DMA Enforcement | Gatekeeper companies | HIGH | **VERY HIGH** | WC-07 US retaliation risk adds systemic dimension |
+| DMA Enforcement | EU startups | MEDIUM (positive) | **HIGH (positive)** | DMA levelling effect quantified (~€15-30B over 5 years) |
+| DMA Enforcement | US-EU trade relations | MEDIUM | **HIGH** | Tariff threat mechanism identified in re-run |
+| Ukraine Accountability | ICC | HIGH | **HIGH** | No change |
+| EU-Iceland PNR | EEA framework | LOW-MED | **MEDIUM** | EEA precedent for Norway/Liechtenstein identified |
+| Budget 2027 | Member states | HIGH | **HIGH** | No change |
+| Haiti Trafficking | HUMA emergency fund | LOW | **MEDIUM** | ~€1.5B reserve fund implication identified |
+
+### Cumulative Impact Assessment
+
+**Highest cumulative institutional impact (May 7):**
+
+1. **DMA Enforcement resolution (TA-10-2026-0160)** — TIER 1 cumulative impact across 6 stakeholder categories; systemic trade implications add new dimension
+2. **Budget 2027 guidelines (TA-10-2026-0112)** — TIER 1 cumulative; shapes entire EP-Council 2027 budget negotiation
+3. **Ukraine Accountability (TA-10-2026-0161)** — TIER 1 cumulative; political significance remains very high
+4. **EU-Iceland PNR (TA-10-2026-0142)** — upgraded to TIER 2 cumulative (EEA integration dimension)
+5. **Armenia Democracy (TA-10-2026-0162)** — TIER 2 cumulative; geopolitical context
+6. **Haiti Trafficking (TA-10-2026-0151)** — upgraded to TIER 2-3 (HUMA fund dimension identified)
+
+*Impact matrix v3.0 | Run: breaking-rerun2-1778179641 | 6 stories re-scored*

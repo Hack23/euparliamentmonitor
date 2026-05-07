@@ -228,3 +228,63 @@ graph TD
 ```
 
 *Actor mapping v2.0 | Run: breaking-run-1778159307*
+
+---
+
+## Re-Run Extension — Actor Mapping Update (May 7, 2026)
+
+**[EXTEND-FROM-PRIOR: actor-mapping.md — adding Iceland/EFTA actors and DG COMP/CNECT enforcement actors]**
+
+### New Actor Categories Identified (Re-Run)
+
+**DG COMP (Enforcement Actor — DMA Story)**
+- **Type:** EU Institution internal actor
+- **Role:** Competition enforcement authority; has DMA fine powers
+- **Position:** Pro-enforcement with legal caution
+- **Alignment:** Aligned with EP majority on DMA enforcement; may be slower to act
+
+**DG CNECT (Regulatory Actor — DMA Story)**
+- **Type:** EU Institution internal actor  
+- **Role:** DMA regulatory authority; DMA is their flagship regulation
+- **Position:** Strongly pro-enforcement (institutional credibility at stake)
+- **Alignment:** Fully aligned with EP resolution TA-10-2026-0160
+
+**Iceland Government (Treaty Actor — EU-Iceland PNR)**
+- **Type:** Third-country/EEA partner
+- **Role:** Recipient of PNR agreement
+- **Position:** Pro-agreement (security cooperation benefit)
+- **Alignment:** Aligned with EU security objectives
+
+**Gatekeeper Companies (Target Actors — DMA Story)**
+- **Type:** Private sector actors (not directly represented in EP)
+- **Companies:** Alphabet (Google), Amazon, Apple, ByteDance (TikTok), Meta, Microsoft
+- **Position:** Reluctant compliance, litigation strategy
+- **Alignment:** Opposed to enforcement; represented through USTR trade pressure and lobbying
+
+**US Administration (External Pressure — DMA Story)**
+- **Type:** Third-country government
+- **Role:** Potential trade retaliator if DMA enforcement targets US companies
+- **Position:** Opposed to DMA enforcement on US tech companies
+- **Alignment:** Aligned with gatekeeper companies (informal); aligned with PfE on deregulation rhetoric
+
+### Actor Network Map Update (May 7)
+
+```mermaid
+graph LR
+    EP["EP Majority\n(EPP+S&D+Renew)"]
+    COM["Commission\n(DG COMP + DG CNECT)"]
+    PfE["PfE Group\n(Institutional opposition)"]
+    GATE["Gatekeeper Companies\n(Compliance targets)"]
+    US["US Administration\n(External pressure)"]
+    ICC["Iceland + EEA\n(PNR partners)"]
+    
+    EP -->|"TA-0160 mandate"| COM
+    COM -->|"DMA enforcement"| GATE
+    GATE -->|"CJEU challenges"| COM
+    US -->|"Tariff threat"| COM
+    US -->|"Informal alignment"| PfE
+    EP -->|"TA-0142"| ICC
+    PfE -->|"Rule 169 opposition"| EP
+```
+
+*Actor mapping v3.0 | Run: breaking-rerun2-1778179641 | 5 new/extended actor profiles*

@@ -190,3 +190,48 @@ graph TD
 ```
 
 *Consequence trees v2.0 | Run: breaking-run-1778159307*
+
+---
+
+## Re-Run Extension — Consequence Trees Update (May 7, 2026)
+
+**[EXTEND-FROM-PRIOR: consequence-trees.md — adding US tariff DMA consequence chain and PfE-ECR merger consequence tree]**
+
+### New Consequence Tree: US Tariff DMA Chain
+
+```mermaid
+graph TD
+    TRIG["Trigger: Commission DMA\nenforcement action\nagainst US gatekeeper"]
+    US1["US Response:\nUSTR Section 301\nreview initiated"]
+    US2["US Escalation:\n25% tariffs announced\non EU manufactured goods"]
+    EU1["EU Counter-response:\nWTO dispute filing\n(12-18 months)"]
+    EP1["EP Response:\nEmergency resolution\ndefending DMA"]
+    COM1["Commission Dilemma:\nTrade vs. Digital\npolicy trade-off"]
+    OUT1["Outcome A:\nCommission pauses DMA\n(loses EP confidence)"]
+    OUT2["Outcome B:\nCommission holds firm\n(US tariffs activate)"]
+    
+    TRIG --> US1
+    US1 --> US2
+    US2 --> EU1
+    US2 --> EP1
+    US2 --> COM1
+    COM1 --> OUT1
+    COM1 --> OUT2
+```
+
+**Consequence severity:** OUT1 = institutional damage to EP-Commission relationship; OUT2 = economic damage (EU exporters impacted) but political integrity maintained
+
+### New Consequence Tree: PfE-ECR Merger Cascade
+
+**If PfE-ECR formal merger occurs:**
+1. Committee chair rebalancing: Right bloc challenges D'Hondt allocation (new group would be second largest at ~162 seats — above S&D at 136)
+2. Coalition arithmetic: EPP+Renew alone = 236 (not majority); EPP must choose S&D alliance or right bloc tactical cooperation
+3. EPP decision point: Formal cordon sanitaire extension OR selective cooperation
+4. Institutional consequence: Coalition instability, potential failed votes on sensitive dossiers
+
+**Probability-weighted consequence:**
+- Merger occurs (8%): Consequence cascade is HIGH severity
+- Tactical coordination intensifies without merger (35%): Consequence is MEDIUM severity (manageable)
+- Status quo continues (57%): No significant consequence tree activation
+
+*Consequence trees v3.0 | Run: breaking-rerun2-1778179641 | T-09 and T-10 consequence trees added*

@@ -219,3 +219,64 @@ graph LR
 ```
 
 *Threat model v2.0 | Run: breaking-run-1778159307 | Admiralty: B3 | 10 sections*
+
+---
+
+## 11 · Re-Run Extension — Updated Threat Landscape (May 7, 2026)
+
+**[EXTEND-FROM-PRIOR: threat-model.md — adding WC-07 US tariff escalation as new threat vector and updating political threat landscape with May 7 group dynamics]**
+
+### New Threat Vector: T-09 · US-EU Trade Retaliation (DMA Tariff Threat)
+
+**Threat ID:** T-09  
+**Threat Type:** Geopolitical / Trade  
+**Probability:** 🟡 18% (within 18-month horizon)  
+**Impact:** 🔴 Very High  
+**Confidence:** 🟡 Medium  
+
+**Description:** The US Trade Representative (USTR) lists DMA enforcement actions against US tech companies as violations of trade commitments and announces 25% sectoral tariffs on EU goods. This would force a political trade-off between DMA enforcement (EP priority, TA-10-2026-0160) and EU-US trade relations (Council/Commission priority).
+
+**Threat mechanism:** EP resolution → Commission enforcement decision → US retaliation threat → Commission delays/weakens enforcement → EP-Commission institutional conflict
+
+**Vulnerability:** The EP has no formal authority over external trade policy (Council/Commission competence). If the Commission chooses to delay DMA enforcement to avoid US tariffs, the EP can express displeasure but cannot compel action under current treaty structure.
+
+**Mitigation:** EU-US Trade and Technology Council provides a diplomatic circuit-breaker. WTO dispute resolution is available but slow (3-5 years). The EP can escalate through parliamentary questions to the Commissioner for Digital and Competition.
+
+**Added STRIDE classification:** Spoofing (US claims DMA is discriminatory) + Repudiation (Commission may deny US claims are causally linked to tariff threats) + Elevation (trade conflict escalated to highest political level)
+
+### T-10 · PfE-ECR Convergence Threat (Institutional Power Shift)
+
+**Threat ID:** T-10  
+**Threat Type:** Institutional / Political  
+**Probability:** 🔴 8% (formal merger) / 🟡 35% (tactical coordination)  
+**Impact:** 🔴 Very High (merger) / 🟡 Medium (coordination)  
+**Confidence:** 🟡 Medium  
+
+**Description:** Progressive formal convergence between PfE (85 seats) and ECR (81 seats) creates a 166-seat right-wing bloc that challenges the EPP-S&D-Renew coalition's structural dominance. Even short of a formal merger, sustained tactical coordination on key votes (budget amendments, procedural motions, committee chair challenges) would constrain coalition flexibility.
+
+**Threat to EP institutional stability:**
+- Committee chair rebalancing: Right bloc could challenge the current allocation formula (D'Hondt method) if combined group size exceeds S&D
+- Budget amendments: A 166-seat bloc can table and force votes on alternative budget positions
+- Motion of no confidence: Still short of the 1/5 threshold (143 seats) needed to initiate; but if PfE+ECR+ESN+some NI = potentially 223 seats — approaching the threshold
+
+**Monitoring indicators:**
+- Joint PfE-ECR standing orders coordination
+- Shared rapporteur nominations on key dossiers
+- Joint committee opinion submissions
+
+### Updated Threat Register (May 7, 2026)
+
+| Threat ID | Category | Probability | Impact | Change |
+|-----------|----------|------------|--------|--------|
+| T-01 | DOCEO data lag | 100% (structural) | Low | Confirmed |
+| T-02 | IMF network block | 100% (structural) | Med | Confirmed |
+| T-03 | Events feed failure | 70% per run | Low | Confirmed |
+| T-04 | PfE media amplification | 85% ongoing | Med | Confirmed |
+| T-05 | Commission enforcement delay | 60% | High | Confirmed |
+| T-06 | Ukrainian ceasefire complication | 20% | Very High | Confirmed |
+| T-07 | DMA CJEU suspension | 25% | Very High | Confirmed |
+| T-08 | Budget conciliation breakdown | 7% | Very High | Confirmed |
+| **T-09** | **US tariff DMA retaliation** | **18%** | **Very High** | **NEW** |
+| **T-10** | **PfE-ECR convergence** | **35% coord / 8% merger** | **High/Very High** | **NEW** |
+
+*Threat model v3.0 | Run: breaking-rerun2-1778179641 | T-09 and T-10 added*

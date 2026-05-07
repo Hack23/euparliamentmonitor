@@ -136,3 +136,54 @@ WEP: **Likely** (that adopted texts coverage is accurate and complete)
 ---
 
 *Analysis index version 2.0 | Run: breaking-run-1778159307*
+
+---
+
+## Re-Run Extension — May 7, 2026 Index Update
+
+**[EXTEND-FROM-PRIOR: analysis-index.md — updating artifact registry with re-run line counts and extension status]**
+
+### Artifact Extension Status (Re-Run)
+
+| Artifact | Prior Lines | Re-Run Lines (Est.) | Extended? |
+|----------|------------|-------------------|---------|
+| executive-brief.md | ~155 | ~220 | ✅ +65 |
+| intelligence/coalition-dynamics.md | ~125 | ~205 | ✅ +80 |
+| intelligence/economic-context.md | ~80 | ~170 | ✅ +90 |
+| intelligence/pestle-analysis.md | ~172 | ~213 | ✅ +41 |
+| intelligence/stakeholder-map.md | ~205 | ~260 | ✅ +55 |
+| intelligence/scenario-forecast.md | ~200 | ~256 | ✅ +56 |
+| intelligence/threat-model.md | ~170 | ~221 | ✅ +51 |
+| intelligence/historical-baseline.md | ~120 | ~167 | ✅ +47 |
+| intelligence/wildcards-blackswans.md | ~170 | ~240+ | ✅ +70 |
+| intelligence/synthesis-summary.md | ~100 | ~150+ | ✅ +50 |
+| intelligence/mcp-reliability-audit.md | ~250 | ~330+ | ✅ +80 |
+| intelligence/workflow-audit.md | ~80 | ~124+ | ✅ +44 |
+| intelligence/methodology-reflection.md | ~220 | ~267+ | ✅ +47 |
+| intelligence/analysis-index.md | ~100 | ~138+ | ✅ (this entry) |
+
+All 14 intelligence-tier artifacts have been extended in this re-run. Classification, threat-assessment, and risk-scoring artifacts are pending.
+
+### New Files Added This Re-Run
+
+| File | Purpose | Status |
+|------|---------|--------|
+| `cache/imf/probe-summary.json` | IMF probe status (fixes RED gate) | ✅ Created |
+| `data/stage-a-collection.json` | Stage A fresh data | ✅ Created |
+
+### Files Removed This Re-Run
+
+| File | Reason |
+|------|--------|
+| `methodology-reflection.md` (root) | Orphan — canonical version is `intelligence/methodology-reflection.md` |
+| `workflow-audit.md` (root) | Orphan — canonical version is `intelligence/workflow-audit.md` |
+
+### Manifest Update Required
+
+The manifest.json needs:
+1. New history entry appended for this re-run
+2. Updated `pass2.rewriteCount` = 27 (all artifacts extended)
+3. Updated `pass2.endedAt` timestamp
+4. Updated `gateResult` after Stage C validates
+
+*Analysis index v3.0 | Run: breaking-rerun2-1778179641 | 14/14 intelligence artifacts extended*

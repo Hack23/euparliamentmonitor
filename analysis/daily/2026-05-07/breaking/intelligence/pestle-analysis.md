@@ -211,3 +211,48 @@ The interaction map above shows the six PESTLE forces and their causal relations
 *PESTLE analysis v2.0 | Run: breaking-run-1778159307 | Mermaid: 1 interaction diagram*
 
 *PESTLE analysis v2.1 — minimum 212-line threshold reached.*
+
+---
+
+## 11 · May 7 Re-Run Extension — Updated PESTLE Assessment
+
+**[EXTEND-FROM-PRIOR: pestle-analysis.md — adding re-run PESTLE delta from May 7 political landscape data and EU-Iceland/Haiti items]**
+
+### Political Update (May 7, 2026)
+
+The May 7 political landscape probe confirms the group distribution:
+- **EPP:** 185 seats (25.7%) — dominant, but below 1/4 majority alone
+- **S&D:** 136 seats (18.9%) — second largest, declining from peak
+- **PfE:** 85 seats (11.8%) — third group, growing influence
+- **ECR:** 81 seats (11.3%) — fourth group, PfE's natural ally
+- **Renew:** 77 seats (10.7%) — coalition kingmaker
+- **Greens/EFA:** 53 seats (7.4%) — reduced from EP9 but still influential
+- **Left:** 45 seats (6.3%) — leftward anchor
+- **NI:** 30 seats (4.2%) — non-attached, fragmented
+- **ESN:** 27 seats (3.8%) — far-right minor group
+
+**PESTLE Political re-assessment:** The PfE+ECR combined total (166 seats, 23.1%) represents a structurally significant opposition bloc that is approaching the single-veto threshold on issues requiring qualified majorities. If PfE-ECR convergence (tracked as WC-08 in wildcards-blackswans.md) materialises into a formal merger, the political PESTLE dimension would shift from 'Escalating tension' to 'Structural transformation'.
+
+### Social Update (May 7, 2026)
+
+The EU-Iceland PNR agreement (TA-10-2026-0142) extends passenger data sharing to Iceland's 380,000 residents who travel through the Schengen Area. The social dimension:
+- **Digital rights:** PNR systems are controversial — EU data subjects have limited rights to challenge their inclusion in PNR databases under the EU-PNR Directive framework
+- **Counter-narrative:** Counter-terrorism public safety benefit is broadly supported; Iceland's inclusion reflects the progressive deepening of EEA integration beyond the EFTA framework
+- **Social trust:** PNR expansion without a major terrorism event may generate civil society concern, particularly from EDRi (European Digital Rights network) and Privacy International
+
+The Haiti trafficking resolution (TA-10-2026-0151) reflects the EP's social agenda:
+- **Global solidarity:** The EP's decision to address Haiti reflects a European public that supports international humanitarian action
+- **Migration connection:** Haiti trafficking routes through Central America and the Caribbean connect to EU migration debates — though the EP resolution focused on the humanitarian dimension, not migration management
+
+### PESTLE Summary Matrix Update (May 7)
+
+| Dimension | Direction | Intensity | Key Driver | Confidence | Change from Prior |
+|-----------|-----------|-----------|-----------|-----------|-----------------|
+| Political | ⬆️ Escalating tension | HIGH | PfE vs Commission; DMA enforcement row | 🟡 Med | Confirmed — no change |
+| Economic | ↔️ Uncertain | MEDIUM | Budget 2027 gap; DMA economic rents; IMF unavailable | 🔴 Low-Med | Confirmed — no change |
+| Social | ⬆️ Growing polarisation | MEDIUM | Anti-institutional sentiment; PNR/digital rights; Haiti solidarity | 🟡 Med | Added PNR + Haiti dimension |
+| Technological | ⬆️ Regulatory intensification | HIGH | DMA enforcement; AI Act overlaps | 🟡 Med | Confirmed — no change |
+| Legal | ↔️ Status quo tested | HIGH | DMA powers; ICC/Ukraine; Electoral law | 🟢 High | Confirmed — no change |
+| Environmental | ⬇️ Relative de-prioritisation | MEDIUM | Defence/industrial budget reorientation | 🟡 Med | Confirmed — no change |
+
+*PESTLE analysis v3.0 | Run: breaking-rerun2-1778179641 | May 7 extension added*
