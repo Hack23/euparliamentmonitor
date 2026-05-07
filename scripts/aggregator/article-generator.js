@@ -10,8 +10,13 @@
  *
  * Usage:
  *   npm run generate-article -- --run analysis/daily/2026-01-15/breaking-run1
- *   npm run generate-article -- --run ... --lang en --lang sv
  *   npm run generate-article -- --run ... --out-dir news --title "Headline"
+ *
+ * **Always-14-languages-always-HTML contract**: every CLI invocation
+ * renders every supported language to HTML. The legacy `--lang` /
+ * `--language` / `--markdown-only` flags have been removed. The
+ * programmatic `generateArticle()` API still accepts `langs` and
+ * `markdownOnly` for tests that need to scope a render for speed.
  *
  * Designed to be idempotent: running again with no changes overwrites
  * identical files byte-for-byte.
@@ -48,9 +53,6 @@ function applyFlagResult(acc, result) {
         case 'since':
             acc.since = result.value;
             return;
-        case 'lang':
-            acc.langs.push(result.value);
-            return;
         case 'outDir':
             acc.outDir = result.value;
             return;
@@ -59,9 +61,6 @@ function applyFlagResult(acc, result) {
             return;
         case 'description':
             acc.description = result.value;
-            return;
-        case 'markdownOnly':
-            acc.markdownOnly = true;
             return;
         default: {
             // Exhaustiveness guard — if a new FlagResult kind is added without a
@@ -75,9 +74,7 @@ export function parseCliArgs(argv, repoRoot) {
     const acc = {
         runDir: null,
         all: false,
-        langs: [],
         outDir: path.join(repoRoot, 'news'),
-        markdownOnly: false,
     };
     for (let i = 0; i < argv.length; i++) {
         const arg = argv[i] ?? '';
@@ -105,10 +102,14 @@ export function parseCliArgs(argv, repoRoot) {
     const opts = {
         runDir: acc.runDir,
         all: acc.all,
-        langs: acc.langs.length > 0 ? acc.langs : [...ALL_LANGUAGES],
+        // Always render every language — the `--lang/--language` flags have
+        // been removed in the always-14-languages contract.
+        langs: [...ALL_LANGUAGES],
         outDir: acc.outDir,
         repoRoot,
-        markdownOnly: acc.markdownOnly,
+        // Always emit HTML — the `--markdown-only` flag has been removed in
+        // the always-HTML contract.
+        markdownOnly: false,
         ...(acc.since !== undefined ? { since: acc.since } : {}),
         ...(acc.title !== undefined ? { title: acc.title } : {}),
         ...(acc.description !== undefined ? { description: acc.description } : {}),
@@ -117,7 +118,7 @@ export function parseCliArgs(argv, repoRoot) {
 }
 /**
  * Resolve one CLI flag to a {@link FlagResult}. Throws `Error` for any
- * unsupported flag or language code.
+ * unsupported flag.
  *
  * @param flag - Flag name (e.g. `--run`)
  * @param takeValue - Lazily returns the value argument for value-bearing flags
@@ -137,14 +138,6 @@ function applyCliFlag(flag, takeValue) {
             }
             return { kind: 'since', value };
         }
-        case '--lang':
-        case '--language': {
-            const value = takeValue();
-            if (!ALL_LANGUAGES.includes(value)) {
-                throw new Error(`Unsupported language code: ${value}`);
-            }
-            return { kind: 'lang', value: value };
-        }
         case '--out-dir':
         case '--output':
             return { kind: 'outDir', value: path.resolve(takeValue()) };
@@ -152,13 +145,19 @@ function applyCliFlag(flag, takeValue) {
             return { kind: 'title', value: takeValue() };
         case '--description':
             return { kind: 'description', value: takeValue() };
-        case '--markdown-only':
-            return { kind: 'markdownOnly' };
         case '--help':
         case '-h':
             printHelp();
             process.exit(0);
         // eslint-disable-next-line no-fallthrough
+        case '--lang':
+        case '--language':
+        case '--markdown-only':
+            // Removed in the always-14-languages-always-HTML contract — every
+            // article.md now always renders to all 14 supported languages and
+            // HTML emission cannot be skipped from the CLI.
+            throw new Error(`Flag ${flag} has been removed. The CLI always renders all 14 languages with HTML output. ` +
+                `See Article-Generation.md § "CLI contract" for the new always-on contract.`);
         default:
             throw new Error(`Unknown argument: ${flag}`);
     }
@@ -183,19 +182,22 @@ function printHelp() {
         '  generate-article --all [--since YYYY-MM-DD] [options]',
         '',
         'Aggregate analysis artifacts from an `analysis/daily/**/<run>` directory',
-        'into a canonical Markdown document and render it to HTML in all 14',
-        'languages. The `--all` form walks every run under `analysis/daily/`',
-        'and regenerates the full historic catalogue in one pass.',
+        'into a canonical Markdown document and render it to HTML in **all 14',
+        'supported languages** (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja,',
+        'ko, zh). The `--all` form walks every run under `analysis/daily/` and',
+        'regenerates the full historic catalogue in one pass.',
+        '',
+        'The 14-language HTML render is **always on** — there is no flag to',
+        'scope a render to a single language or to skip HTML emission. Every',
+        'article.md always produces 14 corresponding `<slug>-<lang>.html` files.',
         '',
         'Options:',
         '  --run <path>          Analysis run directory (single-run mode)',
         '  --all                 Batch-regenerate every run under analysis/daily/',
         '  --since YYYY-MM-DD    With --all: skip runs dated before this cut-off',
-        '  --lang <code>         Language to render (repeatable; default: all 14)',
         '  --out-dir <path>      Output directory (default: news/)',
         '  --title <text>        Override article title (single-run only)',
         '  --description <text>  Override article meta description (single-run only)',
-        '  --markdown-only       Write only the source .md (skip HTML)',
         '  --help, -h            Show this help',
         '',
     ].join('\n'));

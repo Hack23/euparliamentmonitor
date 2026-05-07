@@ -591,11 +591,6 @@ jobs:
                         "default": true,
                         "description": "Force translation even if translations already exist",
                         "type": "boolean"
-                      },
-                      "languages": {
-                        "default": "all-non-en",
-                        "description": "Target languages (all-non-en | eu-core | nordic | comma-separated)",
-                        "type": "string"
                       }
                     },
                     "type": "object"

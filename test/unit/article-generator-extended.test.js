@@ -47,9 +47,10 @@ describe('article-generator extended', () => {
       expect(opts.runDir).toBe(FIXTURE_RUN);
     });
 
-    it('accepts --language as alias for --lang', () => {
-      const opts = parseCliArgs(['--run', FIXTURE_RUN, '--language', 'sv'], FIXTURE_REPO);
-      expect(opts.langs).toContain('sv');
+    it('rejects --language because the flag has been removed (always 14 languages)', () => {
+      expect(() =>
+        parseCliArgs(['--run', FIXTURE_RUN, '--language', 'sv'], FIXTURE_REPO)
+      ).toThrow(/--language has been removed/);
     });
 
     it('accepts --output as alias for --out-dir', () => {
@@ -70,9 +71,12 @@ describe('article-generator extended', () => {
       expect(opts.description).toBe('A description');
     });
 
-    it('throws when --lang value is missing', () => {
+    it('rejects --lang because the flag has been removed (always 14 languages)', () => {
+      // Pre-removal contract was "throws Missing value for --lang"; new
+      // contract is "the flag itself is rejected before any value is
+      // consumed", surfacing a clearer migration message.
       expect(() => parseCliArgs(['--run', FIXTURE_RUN, '--lang'], FIXTURE_REPO)).toThrow(
-        /Missing value/
+        /--lang has been removed/
       );
     });
 

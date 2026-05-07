@@ -579,6 +579,21 @@ graph TD
 | **German (de)** | **French (fr)** | **Spanish (es)** | **Dutch (nl)** | **Arabic (ar)** |
 | **Hebrew (he)** | **Japanese (ja)** | **Korean (ko)** | **Chinese (zh)** | |
 
+##### 🌐 Always-14-Languages-Always-HTML Contract (May 2026)
+
+> Every `article.md` produced by an agentic workflow **always** renders to **14 language-aware HTML files** — there is no opt-out, no subset, and no markdown-only escape hatch.
+
+| Property | Before May 2026 | After May 2026 |
+|---|---|---|
+| `npm run generate-article -- --lang en --lang sv` | Rendered selected languages only | **Rejected** — flag removed; CLI always renders all 14 |
+| `npm run generate-article -- --markdown-only` | Skipped HTML emission | **Rejected** — flag removed; HTML is always emitted |
+| `news-translate.md` `languages:` workflow_dispatch input (`all-non-en` / `eu-core` / `nordic` / comma-separated) | Configurable subset | **Removed** — every run translates to all 13 non-English languages |
+| Article workflows (`news-<type>.md`) Stage D | Could be configured to render fewer languages via `--lang` | Always render all 14 languages from the committed analysis run |
+
+**Why**: per-language partial coverage created a long tail of articles where `<slug>-en.html` existed but `<slug>-zh.html` did not, and silent CLI subset selection let workflows drift from the committed product contract. Hard-wiring "always 14" at the CLI boundary makes coverage a property of every run rather than a property of every invocation choice. The aggregator's idempotent skip-write logic (mtime ≥ source artefacts) keeps re-renders cheap when only a subset of languages were actually missing.
+
+**Programmatic escape hatch**: `generateArticle()` (called from unit / integration tests for speed) still accepts `langs` and `markdownOnly` directly on the options object — only the **CLI surface area** (and therefore every workflow) is locked down.
+
 #### Security Controls
 
 | Control | Implementation | ISMS Reference |

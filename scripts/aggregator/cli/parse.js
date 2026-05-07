@@ -19,22 +19,24 @@ export const HELP_TEXT = [
     '  generate-article --all [--since YYYY-MM-DD] [options]',
     '',
     'Aggregate analysis artifacts from an `analysis/daily/**/<run>` directory',
-    'into a canonical Markdown document and render it to HTML in all 14',
-    'languages. The `--all` form walks every run under `analysis/daily/`',
-    'and regenerates the full historic catalogue in one pass.',
+    'into a canonical Markdown document and render it to HTML in **all 14',
+    'supported languages** (en, sv, da, no, fi, de, fr, es, nl, ar, he, ja,',
+    'ko, zh). The `--all` form walks every run under `analysis/daily/` and',
+    'regenerates the full historic catalogue in one pass.',
+    '',
+    'The 14-language HTML render is **always on** — there is no flag to scope',
+    'a render to a single language or to skip HTML emission. Every article.md',
+    'always produces 14 corresponding `<slug>-<lang>.html` files.',
     '',
     'Options:',
     '  --run, --analysis-dir <path>',
     '                        Analysis run directory (single-run mode)',
     '  --all                 Batch-regenerate every run under analysis/daily/',
     '  --since YYYY-MM-DD    With --all: skip runs dated before this cut-off',
-    '  --lang, --language <code>',
-    '                        Language to render (repeatable; default: all 14)',
     '  --out-dir, --output <path>',
     '                        Output directory (default: news/)',
     '  --title <text>        Override article title (single-run only)',
     '  --description <text>  Override article meta description (single-run only)',
-    '  --markdown-only       Write only the source .md (skip HTML)',
     '  --help, -h            Show this help',
     '',
 ].join('\n');
@@ -76,14 +78,6 @@ function applyCliFlag(flag, takeValue) {
             }
             return { kind: 'since', value };
         }
-        case '--lang':
-        case '--language': {
-            const value = takeValue();
-            if (!ALL_LANGUAGES.includes(value)) {
-                throw new FlagValueError(`Unsupported language code: ${value}`);
-            }
-            return { kind: 'lang', value: value };
-        }
         case '--out-dir':
         case '--output':
             return { kind: 'outDir', value: path.resolve(takeValue()) };
@@ -91,11 +85,19 @@ function applyCliFlag(flag, takeValue) {
             return { kind: 'title', value: takeValue() };
         case '--description':
             return { kind: 'description', value: takeValue() };
-        case '--markdown-only':
-            return { kind: 'markdownOnly' };
         case '--help':
         case '-h':
             return { kind: 'help' };
+        case '--lang':
+        case '--language':
+        case '--markdown-only':
+            // Removed in the always-14-languages-always-HTML contract: every
+            // article.md now always renders to all 14 supported languages and
+            // HTML emission cannot be skipped from the CLI. The flags are
+            // rejected explicitly so any leftover invocation surfaces a clear
+            // error rather than silently behaving as if the flag was honoured.
+            throw new UnknownFlagError(`Flag ${flag} has been removed. The CLI always renders all 14 languages with HTML output. ` +
+                `See Article-Generation.md § "CLI contract" for the new always-on contract.`);
         default:
             throw new UnknownFlagError(`Unknown argument: ${flag}`);
     }
@@ -119,9 +121,6 @@ function applyFlagResult(acc, result) {
         case 'since':
             acc.since = result.value;
             return;
-        case 'lang':
-            acc.langs.push(result.value);
-            return;
         case 'outDir':
             acc.outDir = result.value;
             return;
@@ -130,9 +129,6 @@ function applyFlagResult(acc, result) {
             return;
         case 'description':
             acc.description = result.value;
-            return;
-        case 'markdownOnly':
-            acc.markdownOnly = true;
             return;
         case 'help':
             return 'help';
@@ -214,9 +210,7 @@ export function parseCliArgsSafe(argv, repoRoot) {
     const acc = {
         runDir: null,
         all: false,
-        langs: [],
         outDir: path.join(repoRoot, 'news'),
-        markdownOnly: false,
     };
     let i = 0;
     while (i < argv.length) {
@@ -240,10 +234,17 @@ export function parseCliArgsSafe(argv, repoRoot) {
         value: {
             runDir: acc.runDir,
             all: acc.all,
-            langs: acc.langs.length > 0 ? acc.langs : [...ALL_LANGUAGES],
+            // Always-14-languages contract: the parser does not accept a
+            // language scope; every CLI invocation renders every supported
+            // language. Programmatic callers (tests) can still narrow the
+            // scope by constructing the options object directly.
+            langs: [...ALL_LANGUAGES],
             outDir: acc.outDir,
             repoRoot,
-            markdownOnly: acc.markdownOnly,
+            // Always-HTML contract: the parser does not accept a markdown-only
+            // toggle; every CLI invocation emits HTML. Programmatic callers
+            // (tests) can still set `markdownOnly: true` directly.
+            markdownOnly: false,
             ...(acc.since !== undefined ? { since: acc.since } : {}),
             ...(acc.title !== undefined ? { title: acc.title } : {}),
             ...(acc.description !== undefined ? { description: acc.description } : {}),

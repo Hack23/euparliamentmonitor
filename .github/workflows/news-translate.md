@@ -19,10 +19,6 @@ on:
         description: 'Date of articles to translate (YYYY-MM-DD, default: today)'
         required: false
         default: ''
-      languages:
-        description: 'Target languages (all-non-en | eu-core | nordic | comma-separated)'
-        required: false
-        default: all-non-en
       force_translation:
         description: Force translation even if translations already exist
         type: boolean
@@ -332,7 +328,7 @@ true  # Non-blocking: continue to Step 1 no matter what.
 
 ## 🔧 Inputs & Memory
 
-- **article_types** = `${{ github.event.inputs.article_types }}` | **article_date** = `${{ github.event.inputs.article_date }}` | **languages** = `${{ github.event.inputs.languages }}` | **force_translation** = `${{ github.event.inputs.force_translation }}`
+- **article_types** = `${{ github.event.inputs.article_types }}` | **article_date** = `${{ github.event.inputs.article_date }}` | **languages** = `all 13 non-English` (no longer configurable — always-14-languages contract) | **force_translation** = `${{ github.event.inputs.force_translation }}`
 - **Repo Memory**: Read/write `translation-log.json` in `/tmp/gh-aw/repo-memory/default/memory/news-generation/`
 - **Memory MCP**: Use `create_entities`/`search_nodes` for terminology tracking within this run
 - **Sequential Thinking**: Use for complex translation decisions
@@ -576,25 +572,14 @@ fi
 FORCE_TRANSLATION="${EP_FORCE_TRANSLATION:-${{ github.event.inputs.force_translation }}}"
 
 # --- Resolve target languages FIRST (needed by discovery) ---
-LANGUAGES_INPUT="${{ github.event.inputs.languages }}"
-if [ -z "$LANGUAGES_INPUT" ]; then
-  LANGUAGES_INPUT="${EP_LANG_INPUT:-all-non-en}"
-fi
-case "$LANGUAGES_INPUT" in
-  "all-non-en") LANG_ARG="sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh" ;;
-  "eu-core")    LANG_ARG="de,fr,es,nl" ;;
-  "nordic")     LANG_ARG="sv,da,no,fi" ;;
-  *)
-    if printf '%s' "$LANGUAGES_INPUT" | grep -Eq '^(sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh)(,(sv|da|no|fi|de|fr|es|nl|ar|he|ja|ko|zh))*$'; then
-      LANG_ARG="$LANGUAGES_INPUT"
-    else
-      echo "❌ Invalid languages input: $LANGUAGES_INPUT" >&2
-      echo "Allowed: all-non-en, eu-core, nordic, or comma-separated: sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh" >&2
-      exit 1
-    fi
-    ;;
-esac
-echo "🌐 Target languages for discovery and generation: $LANG_ARG"
+# Always-14-languages contract: news-translate.md no longer accepts a
+# `languages:` workflow_dispatch input. Every run translates each English
+# article into ALL 13 supported non-English languages so that every
+# article.md ends up with all 14 language variants on disk. Subset
+# scopes (eu-core, nordic, ad-hoc comma-separated lists) have been
+# removed — see WORKFLOWS.md § "Always-14-languages-always-HTML".
+LANG_ARG="sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh"
+echo "🌐 Target languages for discovery and generation: $LANG_ARG (always all 13 non-English)"
 
 # --- Phase 1: Check today's articles ---
 if [ -z "$ARTICLE_TYPES_INPUT" ]; then
@@ -886,17 +871,18 @@ for ITEM in $(echo "$NEEDS_TRANSLATION" | tr ',' ' '); do
     if [ -z "$TYPE_ANALYSIS_DIR" ] || [ ! -f "$TYPE_ANALYSIS_DIR/manifest.json" ]; then
       echo "⚠️ No committed analysis at $TYPE_ANALYSIS_DIR for ${ITEM_DATE}/${TYPE} — falling through to HTML translation path"
     else
-      LANG_ARGS=""
-      for L in $(echo "$MISSING_LANGS" | tr ',' ' '); do
-        LANG_ARGS="$LANG_ARGS --lang $L"
-      done
-
-      # shellcheck disable=SC2086
-      npm run generate-article -- --run "$TYPE_ANALYSIS_DIR" $LANG_ARGS
+      # Always-14-languages-always-HTML contract: `npm run generate-article`
+      # no longer accepts `--lang`. A single CLI invocation now renders
+      # the canonical English source PLUS all 13 non-English language
+      # variants from the committed analysis run. The aggregator's
+      # idempotent skip-write logic (mtime ≥ source artefacts) ensures
+      # this is cheap when only a subset of language files were
+      # missing — already-up-to-date variants are not rewritten.
+      npm run generate-article -- --run "$TYPE_ANALYSIS_DIR"
 
       if [ $? -eq 0 ]; then
         TRANSLATED_TYPES="${TRANSLATED_TYPES:+$TRANSLATED_TYPES,}${ITEM_DATE}:${TYPE}"
-        echo "✅ Render completed for ${ITEM_DATE}/${TYPE} (${MISSING_LANGS})"
+        echo "✅ Render completed for ${ITEM_DATE}/${TYPE} (all 14 languages — missing set was: ${MISSING_LANGS})"
         continue
       else
         FAILED_TYPES="${FAILED_TYPES:+$FAILED_TYPES,}${ITEM_DATE}:${TYPE}"
