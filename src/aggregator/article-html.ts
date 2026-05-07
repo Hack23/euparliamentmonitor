@@ -32,6 +32,18 @@ import {
   ARTICLE_TYPE_LABELS,
   VIEW_SOURCE_MARKDOWN_LABELS,
   ARTICLE_TYPE_ICONS,
+  TRADECRAFT_HEADING_LABELS,
+  TRADECRAFT_INTRO_LABELS,
+  TRADECRAFT_METHODOLOGIES_LABELS,
+  TRADECRAFT_TEMPLATES_LABELS,
+  ANALYSIS_INDEX_HEADING_LABELS,
+  ANALYSIS_INDEX_INTRO_LABELS,
+  ANALYSIS_INDEX_COL_SECTION_LABELS,
+  ANALYSIS_INDEX_COL_ARTIFACT_LABELS,
+  ANALYSIS_INDEX_COL_PATH_LABELS,
+  KEY_TAKEAWAYS_HEADING_LABELS,
+  SUPPLEMENTARY_HEADING_LABELS,
+  SECTION_TITLE_LABELS,
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
@@ -45,6 +57,12 @@ import {
 } from '../templates/section-builders.js';
 import { READER_GUIDE_SECTION_ID } from './reader-guide-constants.js';
 import { READER_GUIDE_TITLE_LABELS } from './reader-intelligence-guide.js';
+import {
+  TRADECRAFT_SECTION_ID,
+  MANIFEST_SECTION_ID,
+  SUPPLEMENTARY_SECTION_ID,
+} from './artifact-order.js';
+import { KEY_TAKEAWAYS_SECTION_ID } from './key-takeaways.js';
 
 /**
  * Resolve a localized article type label with icon. Falls back to the
@@ -175,6 +193,45 @@ function buildLanguageSwitcher(articleSlug: string, current: LanguageCode): stri
 }
 
 /**
+ * Resolve a localized title for a TOC entry based on its section ID.
+ * Falls back to the original English title if no translation is available.
+ *
+ * @param sectionId - The fragment identifier of the section
+ * @param fallbackTitle - The English title to fall back to
+ * @param lang - Target language code
+ * @returns Localized title string
+ */
+function getLocalizedTocTitle(sectionId: string, fallbackTitle: string, lang: LanguageCode): string {
+  // Reader Intelligence Guide
+  if (sectionId === READER_GUIDE_SECTION_ID) {
+    return getLocalizedString(READER_GUIDE_TITLE_LABELS, lang);
+  }
+  // Tradecraft References appendix
+  if (sectionId === TRADECRAFT_SECTION_ID) {
+    return getLocalizedString(TRADECRAFT_HEADING_LABELS, lang);
+  }
+  // Analysis Index appendix
+  if (sectionId === MANIFEST_SECTION_ID) {
+    return getLocalizedString(ANALYSIS_INDEX_HEADING_LABELS, lang);
+  }
+  // Key Takeaways
+  if (sectionId === KEY_TAKEAWAYS_SECTION_ID) {
+    return getLocalizedString(KEY_TAKEAWAYS_HEADING_LABELS, lang);
+  }
+  // Supplementary Intelligence
+  if (sectionId === SUPPLEMENTARY_SECTION_ID) {
+    return getLocalizedString(SUPPLEMENTARY_HEADING_LABELS, lang);
+  }
+  // Artifact section titles (strip the `section-` prefix to find the key)
+  const sectionKey = sectionId.replace(/^section-/, '');
+  const sectionLabels = SECTION_TITLE_LABELS[sectionKey];
+  if (sectionLabels) {
+    return getLocalizedString(sectionLabels, lang);
+  }
+  return fallbackTitle;
+}
+
+/**
  * Build the article-level Table of Contents nav. Renders a labelled
  * `<nav class="article-toc">` with one `<a>` per H2 section, keyed by the
  * stable fragment ids produced by the aggregator. The containing `<aside>`
@@ -193,11 +250,7 @@ export function buildArticleToc(entries: readonly ArticleTocEntry[], lang: Langu
   const label = escapeHTML(getLocalizedString(TOC_ARIA_LABELS, lang));
   const items = entries
     .map((e) => {
-      // Translate the Reader Intelligence Guide title into the target language
-      const displayTitle =
-        e.id === READER_GUIDE_SECTION_ID
-          ? getLocalizedString(READER_GUIDE_TITLE_LABELS, lang)
-          : e.title;
+      const displayTitle = getLocalizedTocTitle(e.id, e.title, lang);
       return `        <li><a href="#${escapeHTML(e.id)}">${escapeHTML(displayTitle)}</a></li>`;
     })
     .join('\n');
@@ -214,6 +267,96 @@ export function buildArticleToc(entries: readonly ArticleTocEntry[], lang: Langu
     `  </aside>`,
     '',
   ].join('\n');
+}
+
+/**
+ * Localize the Tradecraft References and Analysis Index sections in the
+ * rendered article body HTML. Replaces English headings, introductions,
+ * sub-headings, and table headers with translated equivalents.
+ *
+ * @param bodyHtml - The rendered HTML body (from Markdown)
+ * @param lang - Target language code
+ * @returns HTML body with localized appendix sections
+ */
+export function localizeArticleBody(bodyHtml: string, lang: LanguageCode): string {
+  if (lang === 'en') return bodyHtml;
+
+  let html = bodyHtml;
+
+  // --- Tradecraft References heading ---
+  const tradecraftHeading = getLocalizedString(TRADECRAFT_HEADING_LABELS, lang);
+  html = html.replace(
+    new RegExp(`(<h2[^>]*id=["']${TRADECRAFT_SECTION_ID}["'][^>]*>)Tradecraft References(</h2>)`),
+    `$1${escapeHTML(tradecraftHeading)}$2`
+  );
+
+  // --- Tradecraft intro paragraph ---
+  // The rendered Markdown produces a <p> containing the intro text with an
+  // <a> link to Hack23. Replace the English text with the localized version.
+  const tradecraftIntro = getLocalizedString(TRADECRAFT_INTRO_LABELS, lang);
+  html = html.replace(
+    /This article is produced under the <a[^>]*>Hack23 AB<\/a> intelligence tradecraft library\.[^<]*/,
+    `${tradecraftIntro.replace('Hack23 AB', '<a href="https://hack23.com">Hack23 AB</a>')}`
+  );
+
+  // --- Methodologies sub-heading ---
+  const methodsLabel = getLocalizedString(TRADECRAFT_METHODOLOGIES_LABELS, lang);
+  html = html.replace(
+    /<h3>Methodologies<\/h3>/,
+    `<h3>${escapeHTML(methodsLabel)}</h3>`
+  );
+
+  // --- Artifact templates sub-heading ---
+  const templatesLabel = getLocalizedString(TRADECRAFT_TEMPLATES_LABELS, lang);
+  html = html.replace(
+    /<h3>Artifact templates<\/h3>/,
+    `<h3>${escapeHTML(templatesLabel)}</h3>`
+  );
+
+  // --- Analysis Index heading ---
+  const analysisIndexHeading = getLocalizedString(ANALYSIS_INDEX_HEADING_LABELS, lang);
+  html = html.replace(
+    new RegExp(`(<h2[^>]*id=["']${MANIFEST_SECTION_ID}["'][^>]*>)Analysis Index(</h2>)`),
+    `$1${escapeHTML(analysisIndexHeading)}$2`
+  );
+
+  // --- Analysis Index intro ---
+  const analysisIndexIntro = getLocalizedString(ANALYSIS_INDEX_INTRO_LABELS, lang);
+  // Extract the manifest.json URL from the existing link before replacing
+  const manifestUrlMatch = html.match(/href="([^"]*manifest\.json[^"]*)"/);
+  const manifestUrl = manifestUrlMatch?.[1] ?? '';
+  const localizedIntroWithLink = manifestUrl
+    ? analysisIndexIntro.replace('manifest.json', `<a href="${manifestUrl}">manifest.json</a>`)
+    : analysisIndexIntro;
+  html = html.replace(
+    /Every artifact below was read by the aggregator and contributed to this article\. The raw <a[^>]*>manifest\.json<\/a> carries the full machine-readable list, including gate-result history\./,
+    localizedIntroWithLink
+  );
+
+  // --- Analysis Index table headers ---
+  const colSection = getLocalizedString(ANALYSIS_INDEX_COL_SECTION_LABELS, lang);
+  const colArtifact = getLocalizedString(ANALYSIS_INDEX_COL_ARTIFACT_LABELS, lang);
+  const colPath = getLocalizedString(ANALYSIS_INDEX_COL_PATH_LABELS, lang);
+  html = html.replace(
+    /<th>Section<\/th>\s*<th>Artifact<\/th>\s*<th>Path<\/th>/,
+    `<th>${escapeHTML(colSection)}</th><th>${escapeHTML(colArtifact)}</th><th>${escapeHTML(colPath)}</th>`
+  );
+
+  // --- Key Takeaways heading ---
+  const keyTakeawaysHeading = getLocalizedString(KEY_TAKEAWAYS_HEADING_LABELS, lang);
+  html = html.replace(
+    /(<h2[^>]*id=["']section-key-takeaways["'][^>]*>)Key Takeaways(<\/h2>)/,
+    `$1${escapeHTML(keyTakeawaysHeading)}$2`
+  );
+
+  // --- Supplementary Intelligence heading ---
+  const supplementaryHeading = getLocalizedString(SUPPLEMENTARY_HEADING_LABELS, lang);
+  html = html.replace(
+    /(<h2[^>]*id=["']supplementary-intelligence["'][^>]*>)Supplementary Intelligence(<\/h2>)/,
+    `$1${escapeHTML(supplementaryHeading)}$2`
+  );
+
+  return html;
 }
 
 /**
