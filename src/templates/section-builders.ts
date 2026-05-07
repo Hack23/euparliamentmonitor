@@ -455,7 +455,7 @@ export function buildSiteHeader(options: SiteHeaderOptions): string {
       <a href="${escapeHTML(homeHref)}" class="site-header__brand" aria-label="${safeTitle}">
         <picture class="site-header__logo-picture">
           <source srcset="${pathPrefix}images/banner.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--banner" src="${pathPrefix}images/banner.jpg" alt="${safeTitle}" width="180" height="60" loading="eager">
+          <img class="site-header__logo site-header__logo--banner" src="${pathPrefix}images/banner.jpg" alt="${safeTitle}" width="240" height="80" loading="eager">
         </picture>
         <span class="site-header__brand-text">
           <span class="site-header__title">${safeTitle}</span>
@@ -478,9 +478,8 @@ export function buildSiteHeader(options: SiteHeaderOptions): string {
 /**
  * Build the full-width page banner shown below the sticky site header on every page.
  *
- * The banner image (`banner.webp` / `banner.jpg`) is 1200×400. CSS renders it with
- * `object-fit: cover; object-position: center` so the middle 80% of the image is
- * always visible and the uninteresting top/bottom 10% may be cropped.
+ * The banner image (`banner.webp` / `banner.jpg`) is 1200×400. CSS renders it
+ * at its native 3:1 ratio so the full artwork remains visible on every viewport.
  *
  * @param pathPrefix - Asset path prefix: `''` for root pages, `'../'` for `news/` pages.
  * @returns HTML string for the `.page-banner` element.

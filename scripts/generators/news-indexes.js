@@ -292,7 +292,9 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#003399">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#003399" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a1a38" media="(prefers-color-scheme: dark)">
   <link rel="alternate" type="application/rss+xml" title="EU Parliament Monitor RSS" href="rss.xml">
   <link rel="stylesheet" href="styles.css?v=${BUILD_SHORT}">
 ${buildHeadFreshnessTags('')}
