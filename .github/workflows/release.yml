@@ -92,6 +92,10 @@ jobs:
           PLAIN_VERSION="${PLAIN_VERSION#v}"
           npm version $PLAIN_VERSION --no-git-tag-version
 
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
       - name: Run tests with coverage
         run: npm run test:coverage
 
