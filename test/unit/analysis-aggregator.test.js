@@ -272,12 +272,18 @@ describe('aggregateAnalysisRun (fixture)', () => {
       id: 'section-executive-brief',
       title: 'Executive Brief',
     });
-    // Position 1 may be either Key Takeaways (when the fixture's
-    // synthesis-summary yields ≥3 strong bullets) or the Reader
-    // Intelligence Guide. The next-after-Key-Takeaways slot is always
-    // the Reader Intelligence Guide. Both layouts are deterministic.
-    const earlyIds = toc.slice(1, 3).map((e) => e.id);
-    expect(earlyIds).toContain('reader-intelligence-guide');
+    // New deterministic order (post-skeleton-reorder): Reader Intelligence
+    // Guide always sits at index 1 right after the Executive Brief, giving
+    // the reader a navigation map before the bullet digest. When the
+    // synthesis-summary fixture yields ≥3 strong bullets, Key Takeaways
+    // sits at index 2; otherwise index 2 is the first deep section
+    // (Synthesis Summary). Both layouts are deterministic.
+    expect(toc[1]).toEqual({
+      id: 'reader-intelligence-guide',
+      title: 'Reader Intelligence Guide',
+    });
+    const slot2 = toc[2]?.id;
+    expect(['section-key-takeaways', 'section-synthesis']).toContain(slot2);
     // Every TOC entry must correspond to an <h2 id="…">Title</h2> in the output
     for (const entry of toc) {
       expect(typeof entry.id).toBe('string');

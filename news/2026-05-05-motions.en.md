@@ -184,18 +184,6 @@ All factual claims in this brief are sourced from official EP Open Data Portal r
 - **Adopted texts full content:** PDF publication lag 1–3 days post-session; metadata only
 - **Political landscape:** Current as of 2026-05-05 from `generate_political_landscape`
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- Ukraine Facility extensions
-- Eastern Partnership (Armenia) support
-- Humanitarian aid increases (Haiti signal)
-- DMA enforcement resources
-- A typical Strasbourg mini-session produces 2–4 significant resolutions or votes
-- The April session produced 2 immunity procedures + 4 external affairs resolutions + 1 major budget decision
-- This density reflects deliberate scheduling by the Conference of Presidents to concentrate politically significant votes before the summer recess period begins
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -210,6 +198,18 @@ Use this guide to read the article as a political-intelligence product rather th
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- Ukraine Facility extensions
+- Eastern Partnership (Armenia) support
+- Humanitarian aid increases (Haiti signal)
+- DMA enforcement resources
+- A typical Strasbourg mini-session produces 2–4 significant resolutions or votes
+- The April session produced 2 immunity procedures + 4 external affairs resolutions + 1 major budget decision
+- This density reflects deliberate scheduling by the Conference of Presidents to concentrate politically significant votes before the summer recess period begins
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

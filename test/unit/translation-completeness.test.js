@@ -34,6 +34,37 @@ function collectLabelMaps() {
   return maps;
 }
 
+/**
+ * Walk every named export looking for *nested* per-language maps:
+ * shapes like `{ <sectionKey>: { en, sv, da, ... } }` where the *value*
+ * objects (not the top-level export) are LanguageMaps.
+ *
+ * Returns a flat list of `{ name, value }` entries where `name` is
+ * `EXPORT_NAME[childKey]` and `value` is the inner LanguageMap. This
+ * lets the same per-language coverage assertions run against e.g.
+ * `SECTION_TITLE_LABELS[executive-brief]` so that a missing language
+ * inside any nested entry is caught.
+ */
+function collectNestedLabelMaps() {
+  const maps = [];
+  for (const [name, value] of Object.entries(languageUi)) {
+    if (!value || typeof value !== 'object' || Array.isArray(value)) continue;
+    // Skip top-level LanguageMaps — they're already covered by collectLabelMaps()
+    if (Object.prototype.hasOwnProperty.call(value, 'en')) continue;
+    for (const [childKey, child] of Object.entries(value)) {
+      if (
+        child &&
+        typeof child === 'object' &&
+        !Array.isArray(child) &&
+        Object.prototype.hasOwnProperty.call(child, 'en')
+      ) {
+        maps.push({ name: `${name}[${childKey}]`, value: child });
+      }
+    }
+  }
+  return maps;
+}
+
 function collectEmptyStringPaths(value, path) {
   if (typeof value === 'string') {
     return value.trim().length === 0 ? [path] : [];
@@ -52,11 +83,19 @@ function collectEmptyStringPaths(value, path) {
 
 describe('translation-completeness', () => {
   const labelMaps = collectLabelMaps();
+  const nestedLabelMaps = collectNestedLabelMaps();
 
   it('discovers the expected number of label maps in language-ui.js (tight sentinel)', () => {
     // language-ui.js currently exports 96 consts; at least ~30 are per-language
     // label maps. Lock against a tight lower bound to detect accidental removals.
     expect(labelMaps.length).toBeGreaterThanOrEqual(25);
+  });
+
+  it('discovers nested per-section LanguageMaps (e.g. SECTION_TITLE_LABELS[executive-brief])', () => {
+    // Tight sentinel — SECTION_TITLE_LABELS carries 19 nested LanguageMaps
+    // (one per emitted aggregator section). Lock against a lower bound of
+    // 15 to detect accidental flattening, removal, or migration.
+    expect(nestedLabelMaps.length).toBeGreaterThanOrEqual(15);
   });
 
   it(`ALL_LANGUAGES has exactly ${EXPECTED_LANG_COUNT} entries`, () => {
@@ -79,6 +118,30 @@ describe('translation-completeness', () => {
       expect(
         extra,
         `${name} has unexpected language code(s): ${extra.join(', ')}`,
+      ).toHaveLength(0);
+    });
+
+    it('has no empty-string values at any nested translation path (English fallthrough)', () => {
+      const emptyPaths = [];
+      for (const lang of ALL_LANGUAGES) {
+        emptyPaths.push(...collectEmptyStringPaths(value[lang], `${name}.${lang}`));
+      }
+
+      expect(emptyPaths, `Empty translation string(s): ${emptyPaths.join(', ')}`).toHaveLength(0);
+    });
+  });
+
+  // Run the same per-language coverage assertions against every nested
+  // LanguageMap discovered inside top-level objects (e.g. each entry of
+  // SECTION_TITLE_LABELS). Catches the case where a translator adds a new
+  // section key but forgets to translate it into all 14 languages.
+  describe.each(nestedLabelMaps)('$name', ({ name, value }) => {
+    it(`has entries for all ${EXPECTED_LANG_COUNT} languages`, () => {
+      const keys = Object.keys(value);
+      const missing = ALL_LANGUAGES.filter((lang) => !keys.includes(lang));
+      expect(
+        missing,
+        `${name} is missing language(s): ${missing.join(', ')}`,
       ).toHaveLength(0);
     });
 

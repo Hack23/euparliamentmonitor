@@ -65,18 +65,6 @@ All adopted text data from European Parliament Open Data Portal (data.europarl.e
 
 **IMF Economic Context**: April 2026 WEO projections (vintage WEO-April-2026) indicate EU zone economic growth headwinds from trade policy uncertainty. US tariff escalation adds approximately 0.3–0.5% downside risk to EU GDP growth projections for 2026 according to IMF modelling (IMF WEO April 2026 baseline). Euro area fragility is a key determinant of EP legislative urgency on the SRMR3 banking reform package.
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- TA-10-2026-0096 adopted March 26, 2026 (Source: EP Open Data Portal, A1)
-- TA-10-2026-0078 ("EU-Canada cooperation amid threats to Canada's sovereignty") adopted March 11, 2026 — Canada-EU alignment forming (A1)
-- TA-10-2026-0008 (Request for CJEU opinion on EU-Mercosur EMPA/ITA compatibility) adopted January 21, 2026 — EP seeking judicial review of trade agreements (A1)
-- EU early warning system: DOMINANT_GROUP_RISK (EPP 19x smallest group) creates leverage for EPP leadership to moderate or escalate trade posture (C3)
-- TA-10-2026-0092 adopted March 26 (A1): early intervention thresholds codified in regulation
-- TA-10-2026-0034 ("ECB Annual Report 2025") adopted February 10, 2026 (A1): ECB flagging systemic banking sector vulnerabilities
-- TA-10-2026-0060 ("Appointment of ECB Vice-President") adopted March 10, 2026 (A1): ECB leadership transition ongoing
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -88,6 +76,18 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- TA-10-2026-0096 adopted March 26, 2026 (Source: EP Open Data Portal, A1)
+- TA-10-2026-0078 ("EU-Canada cooperation amid threats to Canada's sovereignty") adopted March 11, 2026 — Canada-EU alignment forming (A1)
+- TA-10-2026-0008 (Request for CJEU opinion on EU-Mercosur EMPA/ITA compatibility) adopted January 21, 2026 — EP seeking judicial review of trade agreements (A1)
+- EU early warning system: DOMINANT_GROUP_RISK (EPP 19x smallest group) creates leverage for EPP leadership to moderate or escalate trade posture (C3)
+- TA-10-2026-0092 adopted March 26 (A1): early intervention thresholds codified in regulation
+- TA-10-2026-0034 ("ECB Annual Report 2025") adopted February 10, 2026 (A1): ECB flagging systemic banking sector vulnerabilities
+- TA-10-2026-0060 ("Appointment of ECB Vice-President") adopted March 10, 2026 (A1): ECB leadership transition ongoing
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

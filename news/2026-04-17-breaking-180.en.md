@@ -11,6 +11,16 @@ layout: article
 ---
 # Breaking — 2026-04-17
 
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
+| [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
 A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
@@ -22,16 +32,6 @@ A deterministic 3–7 bullet synthesis of the strongest evidence-bearing finding
 - ✅ **SWOT depth**: ≥80 words per SWOT item confirmed
 - ✅ **Stakeholder perspectives**: ≥4 perspectives covered in deep-analysis.md
 - ✅ **Cross-run continuity**: Explicit references to runs 176-179, with differentiation from prior analyses
-
-<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
-
-Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
-
-| Reader need | What you'll get | Source artifact |
-|---|---|---|
-| [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
-| [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
-| [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

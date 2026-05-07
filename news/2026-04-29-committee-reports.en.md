@@ -82,18 +82,6 @@ The April 28 outcomes reflect the EP10 majority coalition (EPP + S&D + Renew, ~3
 
 April 28 will be remembered as the session where Parliament simultaneously set the terms for the EU's next budget decade, modernised its trade preference architecture, and extended EU regulatory competence to transport emissions and animal welfare. The immediate institutional work is complete; the policy battle has now shifted to implementation, secondary legislation, and the MFF negotiation marathon that will define EU governance through 2034.
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- Establishing red lines on minimum expenditure levels for cohesion, CAP, and defence
-- Positioning itself as a co-architect of budget architecture, not merely a consent-giving body
-- Signalling to member states that Parliament will use consent procedure leverage (majority required for final adoption) aggressively
-- TRAN opinion (Jan 27): Transport spending priorities, likely linked to the GHG transport accounting regulation also adopted this week
-- AFET opinion (Jan 28): External action priorities — geopolitical context of Ukraine, Western Balkans, and near-neighbourhood
-- ITRE opinion (Feb 25): Industrial/energy competitiveness — Draghi report follow-through
-- AGRI opinion (Feb 24): CAP appropriation protection
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -107,6 +95,18 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- Establishing red lines on minimum expenditure levels for cohesion, CAP, and defence
+- Positioning itself as a co-architect of budget architecture, not merely a consent-giving body
+- Signalling to member states that Parliament will use consent procedure leverage (majority required for final adoption) aggressively
+- TRAN opinion (Jan 27): Transport spending priorities, likely linked to the GHG transport accounting regulation also adopted this week
+- AFET opinion (Jan 28): External action priorities — geopolitical context of Ukraine, Western Balkans, and near-neighbourhood
+- ITRE opinion (Feb 25): Industrial/energy competitiveness — Draghi report follow-through
+- AGRI opinion (Feb 24): CAP appropriation protection
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

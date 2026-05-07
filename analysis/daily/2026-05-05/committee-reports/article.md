@@ -11,15 +11,6 @@ layout: article
 ---
 # Committee Reports — 2026-05-05
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- **DMA enforcement resolution** attracted cross-group support from EPP, S&D, Renew, and Greens/EFA, reflecting broad parliamentary consensus on enforcing existing digital legislation — though ECR opposed interventionist interpretations.
-- **Ukraine accountability text** saw strong support from EPP, S&D, Renew, ECR, and Greens/EFA; opposed primarily by The Left (on NATO escalation grounds) and elements of PfE and ESN (on "both sides" framing grounds).
-- **Livestock sector resolution** reflects inter-group compromise: EPP pushed for regulatory relief and economic subsidies; S&D and Greens/EFA insisted on environmental conditionalities; Renew championed innovation incentives. The adopted text shows clear evidence of this negotiated balance.
-- **2027 Budget guidelines** passed with EPP-S&D-Renew majority; The Left and Greens/EFA abstained or opposed due to insufficient climate ambition; ECR opposed on EU budget size grounds.
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -33,6 +24,15 @@ Use this guide to read the article as a political-intelligence product rather th
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **DMA enforcement resolution** attracted cross-group support from EPP, S&D, Renew, and Greens/EFA, reflecting broad parliamentary consensus on enforcing existing digital legislation — though ECR opposed interventionist interpretations.
+- **Ukraine accountability text** saw strong support from EPP, S&D, Renew, ECR, and Greens/EFA; opposed primarily by The Left (on NATO escalation grounds) and elements of PfE and ESN (on "both sides" framing grounds).
+- **Livestock sector resolution** reflects inter-group compromise: EPP pushed for regulatory relief and economic subsidies; S&D and Greens/EFA insisted on environmental conditionalities; Renew championed innovation incentives. The adopted text shows clear evidence of this negotiated balance.
+- **2027 Budget guidelines** passed with EPP-S&D-Renew majority; The Left and Greens/EFA abstained or opposed due to insufficient climate ambition; ECR opposed on EU budget size grounds.
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 
