@@ -13,6 +13,7 @@ import {
   parseCliArgsSafe,
   HELP_TEXT,
 } from '../../scripts/aggregator/cli/index.js';
+import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
 
 const REPO_ROOT = path.resolve('.');
 const FIXTURE_RUN = path.resolve('test/fixtures/analysis/2026-01-15/breaking-run-test');
@@ -46,11 +47,17 @@ describe('parseCliArgsSafe — kind:"options" happy paths', () => {
 
   it('always renders all 14 languages — langs scope is no longer configurable from the CLI', () => {
     // --lang / --language flags were removed in the always-14-languages
-    // contract. The parser populates `langs` with all supported languages
-    // unconditionally.
+    // contract. The parser populates `langs` with the canonical
+    // `ALL_LANGUAGES` list — exactly, in declared order, with no
+    // duplicates and no unknown codes. Asserting set-equality (rather
+    // than `length >= 14`) prevents accidental drift where the parser
+    // could populate a longer list, drop a language, or substitute an
+    // unsupported code without the test catching it.
     const r = parseCliArgsSafe(['--run', FIXTURE_RUN], REPO_ROOT);
     if (r.kind !== 'options') throw new Error('not options');
-    expect(r.value.langs.length).toBeGreaterThanOrEqual(14);
+    expect([...r.value.langs]).toEqual([...ALL_LANGUAGES]);
+    expect(r.value.langs.length).toBe(ALL_LANGUAGES.length);
+    expect(new Set(r.value.langs).size).toBe(r.value.langs.length);
   });
 
   it('always emits HTML — markdownOnly is not configurable from the CLI', () => {
@@ -84,9 +91,14 @@ describe('parseCliArgsSafe — kind:"options" happy paths', () => {
   });
 
   it('defaults langs to ALL_LANGUAGES when no language flags are passed', () => {
+    // Same exact-equality assertion as above, but exercising the
+    // `--all` codepath to make sure both single-run and batch entry
+    // points populate identical `langs` lists.
     const r = parseCliArgsSafe(['--all'], REPO_ROOT);
     if (r.kind !== 'options') throw new Error('not options');
-    expect(r.value.langs.length).toBeGreaterThanOrEqual(14);
+    expect([...r.value.langs]).toEqual([...ALL_LANGUAGES]);
+    expect(r.value.langs.length).toBe(ALL_LANGUAGES.length);
+    expect(new Set(r.value.langs).size).toBe(r.value.langs.length);
   });
 });
 
