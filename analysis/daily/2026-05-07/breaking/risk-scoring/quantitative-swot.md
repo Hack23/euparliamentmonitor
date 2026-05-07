@@ -134,3 +134,37 @@ The critical path for converting these SWOT opportunities into outcomes runs thr
 ---
 
 *Quantitative SWOT v2.0 | Run: breaking-run-1778159307*
+
+---
+
+## Re-Run Extension — Quantitative SWOT Update (May 7, 2026)
+
+**[EXTEND-FROM-PRIOR: quantitative-swot.md — updating SWOT scores with May 7 data and adding WC-07/WC-08 dimensions]**
+
+### SWOT Score Update (May 7)
+
+**Strengths (no change in May 7 data):**
+- S1: Legislative majority (398/720 = 55.4%) — score: 8.5/10
+- S2: Institutional authority (adopted texts carry legal weight) — score: 9/10
+- S3: Cross-group consensus on Ukraine — score: 8/10
+- **S4 (NEW): EP resolution creates political accountability baseline for Commission** — score: 7/10
+
+**Weaknesses (updated):**
+- W1: DOCEO data lag (structural) — score: 7/10 (unchanged)
+- W2: IMF data unavailable (4 consecutive runs now) — score: 8/10 (upgraded: pattern is systemic)
+- **W3 (UPDATED): No EP authority over trade policy (US tariff dimension)** — score: 6/10 (upgraded from 5/10)
+
+**Opportunities (updated):**
+- O1: DMA enforcement credibility building — score: 7/10 (unchanged)
+- O2: Budget guidelines set 2027 precedent — score: 7/10 (unchanged)
+- **O3 (NEW): EU-Iceland PNR sets EEA integration precedent (Norway/Liechtenstein potential)** — score: 5/10
+
+**Threats (updated):**
+- T1: US tariff DMA retaliation — score: 7.2/10 (new, prioritised)
+- T2: PfE-ECR convergence/merger — score: 6.8/10 (new institutional threat)
+- T3: Commission DMA delay — score: 7.0/10 (unchanged)
+- T4: CJEU interim measures — score: 6.5/10 (unchanged)
+
+**Net SWOT vector (May 7):** Strengths remain dominant; threats have increased marginally due to new geopolitical and institutional risk dimensions. The net vector is **Cautiously Positive** — EP has demonstrated legislative capacity (5 adopted texts) but faces meaningful implementation risks in the 12-18 month horizon.
+
+*Quantitative SWOT v3.0 | Run: breaking-rerun2-1778179641 | S4, W3 updated, O3, T1, T2 added*

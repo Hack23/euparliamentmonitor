@@ -120,3 +120,30 @@ quadrantChart
 ---
 
 *Significance classification v2.0 | Run: breaking-run-1778159307*
+
+---
+
+## Re-Run Extension — Significance Classification Update (May 7, 2026)
+
+**[EXTEND-FROM-PRIOR: significance-classification.md — adding May 7 updated scores and EU-Iceland/Haiti items]**
+
+### Updated Significance Scoring (Re-Run)
+
+| Text | Story | Prior Significance | May 7 Update | Rationale |
+|------|-------|-------------------|-------------|-----------|
+| TA-10-2026-0160 | DMA Enforcement | TIER 1 (9/10) | **TIER 1 (9.2/10)** | +0.2: WC-07 US retaliation adds strategic complexity |
+| TA-10-2026-0161 | Ukraine Accountability | TIER 1 (8.5/10) | **TIER 1 (8.5/10)** | No change — ceasefire scenario (WC-03) holds significance stable |
+| TA-10-2026-0112 | Budget 2027 | TIER 1 (8/10) | **TIER 1 (8.2/10)** | +0.2: June plenary budget first reading adds near-term significance |
+| TA-10-2026-0162 | Armenia Democracy | TIER 2 (7/10) | **TIER 2 (7/10)** | No change |
+| TA-10-2026-0151 | Haiti Trafficking | TIER 3 (5/10) | **TIER 3 (5.5/10)** | +0.5: EU-HUMA emergency fund implication identified |
+| TA-10-2026-0142 | EU-Iceland PNR | TIER 2-3 (5.5/10) | **TIER 2 (6/10)** | +0.5: EEA precedent-setting nature identified in re-run |
+
+**Significance distribution (May 7):**
+- TIER 1 (Critical, score ≥8): 3 items (DMA, Ukraine, Budget)
+- TIER 2 (High, score 6-7.9): 2 items (Armenia, EU-Iceland PNR)
+- TIER 3 (Significant, score 4-5.9): 1 item (Haiti)
+- TIER 4 (Moderate, score 2-3.9): 0 items
+
+**Key finding:** The re-run does not change the tier distribution but raises scores on DMA and Budget based on extended strategic analysis. The EU-Iceland PNR agreement is upgraded from Tier 3 to Tier 2 based on its EEA precedent-setting value identified in the stakeholder-map extension.
+
+*Significance classification v3.0 | Run: breaking-rerun2-1778179641 | Updated scores*

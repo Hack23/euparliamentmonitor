@@ -254,3 +254,65 @@ graph TD
 ```
 
 *Scenario forecast v2.1 complete | 11 sections | Admiralty: C3–D4 | WEP: Likely (Scenario B)*
+
+---
+
+## 12 · Re-Run Extension — Updated Scenario Probabilities (May 7, 2026)
+
+**[EXTEND-FROM-PRIOR: scenario-forecast.md — updating scenario probabilities from May 7 data and adding June 2026 plenary-specific sub-scenarios]**
+
+### Revised Probability Distribution (May 7, 2026)
+
+| Scenario | Prior Run | May 7 Update | Rationale |
+|----------|-----------|-------------|-----------|
+| A: Regulatory Progress | 45% | **40%** | Commission DMA action unlikely before MFF proposal; trade retaliation risk increases caution |
+| B: Stalemate | 40% | **48%** | Budget complexity; PfE tactical success (Rule 169 debate); Commission risk aversion |
+| C: Crisis | 15% | **12%** | No immediate ceasefire signal; no budget collapse risk near-term |
+
+**Net shift:** Probability mass moves from Scenario A to Scenario B (Stalemate). This reflects the structural observation that the EP has passed ambitious resolutions but the Commission is under cross-pressure (trade retaliation risk vs enforcement credibility) that tends to produce cautious, delayed action.
+
+### June 2026 Plenary Sub-Scenarios (New — May 7 Extension)
+
+The next major plenary session (June 23-26, 2026) will be the first plenary after the Commission's expected Q3 DMA enforcement timeline crystallises. Three sub-scenarios for June:
+
+**June Sub-Scenario J-A: DMA Enforcement Signal (35%)**  
+The Commission issues a preliminary Statement of Objections against a gatekeeper before June 23. This would:
+- Validate EP's TA-10-2026-0160 resolution politically
+- Generate a positive IMCO committee response
+- Move probability mass back toward Scenario A
+
+**June Sub-Scenario J-B: Budget Committee First Reading (45%)**  
+The EP Budget Committee adopts its initial position paper on the 2027 budget (before the Council's draft budget). This would:
+- Set the formal EP opening position for EP-Council negotiations
+- Likely generate EPP-S&D tension on spending levels
+- PfE will attempt to amend with lower total ceilings
+
+**June Sub-Scenario J-C: PfE Formal Inquiry Motion (20%)**  
+PfE files a formal motion for a Committee of Inquiry into Commission conduct (Rule 226 TFEU). This would:
+- Require 1/4 of MEPs to sign (181 signatures; PfE+ECR=162 — likely insufficient without EPP defections)
+- Escalate institutional conflict beyond Rule 169 topical debates
+- Force EPP to publicly reject or support — a politically costly choice
+
+### Scenario Decision Tree (Updated)
+
+```mermaid
+flowchart LR
+    NOW["May 7, 2026\nBaseline State"]
+    Q2["Q2 2026\nJune Plenary"]
+    Q3["Q3 2026\nSummer Recess + MFF"]
+    Q4["Q4 2026\nBudget Conciliation"]
+    
+    NOW -->|"40%"| J_A["J-A: DMA Signal\n(Commission acts)"]
+    NOW -->|"45%"| J_B["J-B: Budget First Read\n(Procedural progress)"]
+    NOW -->|"15%"| J_C["J-C: PfE Inquiry\n(Escalation attempt)"]
+    
+    J_A -->|"Scenario A"| Q3_A["Q3: Full DMA Enforcement\nRegulatory Progress"]
+    J_B -->|"Scenario B"| Q3_B["Q3: Budget Contestation\nStalemate"]
+    J_C -->|"Scenario B/C"| Q3_C["Q3: Institutional Crisis\nEscalation"]
+    
+    Q3_A --> Q4_A["Q4: Budget compromise\nS&D-EPP hold coalition"]
+    Q3_B --> Q4_B["Q4: Budget conciliation\nDelayed but resolved"]
+    Q3_C --> Q4_C["Q4: PfE-ECR consolidation\nMajority at risk"]
+```
+
+*Scenario forecast v3.0 | Run: breaking-rerun2-1778179641 | May 7 probabilities updated; June 2026 sub-scenarios added*

@@ -167,3 +167,30 @@ The Commission has the most at stake on DMA enforcement — it must implement th
 ---
 
 *Political capital risk v2.0 | Run: breaking-run-1778159307 | 5 required sections added*
+
+---
+
+## Re-Run Extension — Political Capital Risk Update (May 7, 2026)
+
+**[EXTEND-FROM-PRIOR: political-capital-risk.md — adding US tariff dimension and PfE-ECR convergence risk to political capital analysis]**
+
+### Political Capital Risk Update (May 7)
+
+**New Risk: US Tariff → Commission Political Capital Erosion**
+If the Commission delays DMA enforcement due to US tariff pressure, the political capital risk shifts from the EP to the Commission. EP's political capital would be partially preserved (it passed the resolution; the Commission failed to act), but this would:
+- Damage Commission credibility on digital policy
+- Create an EP vs Commission political capital contest
+- Give PfE ammunition ("Commission admits it can't enforce its own regulations")
+
+**Political Capital Risk Score Update:**
+
+| Actor | Prior PCR Score | May 7 Update | Rationale |
+|-------|----------------|-------------|-----------|
+| Commission | 6.5/10 (medium risk) | **7.2/10** | US tariff risk adds external exposure |
+| EP majority | 4.0/10 (low-medium risk) | **4.0/10** | No change |
+| PfE group | 3.5/10 (low risk to PfE itself) | **3.5/10** | Benefiting from Commission exposure |
+| EPP leadership | 5.5/10 (moderate risk) | **6.0/10** | Trade-digital tension increases EPP exposure |
+
+**Key insight:** The US tariff threat paradoxically **reduces** EP's near-term political capital risk (Commission, not EP, must absorb the DMA enforcement trade-off) while increasing Commission and EPP political capital risk. The EP's political capital position is marginally improved by having the resolution on record — it defines the accountability baseline.
+
+*Political capital risk v3.0 | Run: breaking-rerun2-1778179641 | US tariff dimension added*

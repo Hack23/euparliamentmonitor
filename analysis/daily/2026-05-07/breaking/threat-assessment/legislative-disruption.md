@@ -184,3 +184,42 @@ The most effective disruption techniques against the April 28-30 decisions are t
 The least effective technique is PfE's parliamentary disruption — they can generate headlines but cannot override the centrist majority's 398-seat advantage.
 
 *Legislative disruption v2.0 | Run: breaking-run-1778159307*
+
+---
+
+## Re-Run Extension — Legislative Disruption Update (May 7, 2026)
+
+**[EXTEND-FROM-PRIOR: legislative-disruption.md — adding updated disruption risk assessment and June 2026 disruption scenarios]**
+
+### Updated Legislative Disruption Risk (May 7, 2026)
+
+**Three new disruption vectors identified in re-run analysis:**
+
+1. **US Tariff Threat (T-09) → Commission DMA delay:**
+The US tariff threat could cause the Commission to delay or soften DMA enforcement actions, which would be a **legislative disruption from outside the EP**. The EP resolution (TA-10-2026-0160) would be effectively neutralised by external economic pressure. This is an indirect disruption — not caused by internal EP opposition but by external constraints on the implementing body.
+
+**Disruption probability:** 🟡 28% (Commission delay in DMA enforcement within 12 months)
+
+2. **PfE-ECR Budget Amendments (T-10) → Budget delay:**
+The right bloc (PfE+ECR+ESN=193 seats) can table disruptive budget amendments that force the EP Budget Committee to spend significant parliamentary time addressing and defeating them. This is a **legislative process disruption** — not sufficient to block the budget, but can slow the parliamentary calendar and create political optics challenges.
+
+**Disruption probability:** 🟡 45% (one or more significant budget amendment packages in September-October 2026)
+
+3. **June Plenary DMA Scrutiny Failure:**
+If the Commission has not taken DMA enforcement action by June 23, the IMCO committee may table a scrutiny motion under the Framework Agreement. Such a motion, if adopted, formally requests the Commission to explain its inaction. This is a **legislative accountability disruption** — it forces Commission attendance and creates a formal record of inaction.
+
+**Disruption probability:** 🟡 35% (IMCO scrutiny motion if no Commission DMA action by June 1)
+
+### Legislative Disruption Calendar (H2 2026 Outlook)
+
+| Month | Potential Disruption | Probability | Severity |
+|-------|---------------------|------------|---------|
+| May 2026 | PfE topical debate follow-up | 🟡 55% | Low |
+| June 2026 | IMCO DMA scrutiny motion | 🟡 35% | Medium |
+| July 2026 | Summer recess — low disruption risk | 🟢 90% quiet | Minimal |
+| September 2026 | PfE budget amendment package | 🟡 45% | Medium |
+| October 2026 | EP-Council budget conciliation | 🟢 75% routine | Low-Med |
+| November 2026 | Commission MFF proposal response | 🟡 40% contested | Medium |
+| December 2026 | Budget final adoption | 🔴 15% disruption risk | High (if disrupted) |
+
+*Legislative disruption v3.0 | Run: breaking-rerun2-1778179641 | June-December 2026 disruption calendar added*

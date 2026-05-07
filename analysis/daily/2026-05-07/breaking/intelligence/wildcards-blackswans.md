@@ -231,3 +231,75 @@ Track the following for early wild-card detection:
 **Review cadence:** Wild card register should be refreshed every 30 days or following any significant geopolitical development.
 
 *Wildcards v2.1 | 10 sections complete*
+
+---
+
+## 11 · May 7 Re-Run Extension — New Wild Cards Identified
+
+**[EXTEND-FROM-PRIOR: wildcards-blackswans.md — adding WC-07 US tariff escalation and WC-08 PfE-ECR formal merger as new wild cards from May 7 political landscape update]**
+
+### WC-07 · US Tariff Escalation — DMA Trade Retaliation
+**Probability:** 🟡 18%  
+**Impact if materialises:** 🔴 Very High  
+**Trigger:** The US Trade Representative (USTR) adds the EU Digital Markets Act to its 301 Watch List and announces 25% tariffs on EU manufactured goods as retaliatory measure following Commission DMA enforcement action against US tech companies.
+
+**Scenario:** EP DMA enforcement resolution (TA-10-2026-0160) — if translated into Commission action — could trigger a US trade response under the current US administration's "America First Digital" posture. The USTR has previously flagged DMA as a trade barrier (2025 NTE report). If tariffs are announced:
+- EU automotive, luxury goods, and agricultural exports to US (~€500B annually) face 25% tariff
+- DMA enforcement becomes politically radioactive — Commission faces intense Council pressure to pause
+- EP EPP moderates would defect from strong DMA enforcement position
+- Centrist coalition fractures on digital-trade nexus
+
+**Pre-conditions:** Commission must first take a formal DMA enforcement action against a US gatekeeper. Current timeline puts this at Q3-Q4 2026 at earliest. The WC-07 risk is therefore medium-term (6-18 months).
+
+**Counter:** US-EU Trade and Technology Council (TTC) provides a diplomatic channel. The US semiconductor industry also benefits from EU digital market access. A full trade war over DMA is economically costly for both sides.
+
+**Signal:** USTR inclusion of DMA in 301 Watch List; US Congressional statements on DMA; US-EU TTC meeting cancellations or tone deterioration.
+
+---
+
+### WC-08 · PfE-ECR Formal Merger — EP Group Architecture Earthquake
+**Probability:** 🔴 8%  
+**Impact if materialises:** 🔴 Extreme  
+**Trigger:** Patriots for Europe (PfE, 84 seats) and European Conservatives and Reformists (ECR, 78 seats) announce a formal merger to create a unified right-wing EP group of 162 seats — the second-largest group in the Parliament.
+
+**Scenario:** A unified PfE-ECR group would:
+- Become the second-largest EP group (surpassing S&D at 136 seats)
+- Challenge EPP dominance on committee chair allocation
+- Force EPP to formally commit to a "firewall" against cooperating with the merged group
+- Create an opposition bloc that EPP cannot ignore on key votes
+- Fundamentally alter coalition arithmetic: EPP+Renew alone = 236 seats (not a majority)
+
+**Institutional cascade:** EPP would face an impossible dilemma: cooperate with the merged group on some votes (breaking the firewall) or remain dependent on S&D and Greens for every majority (constraint on rightward policy moves).
+
+**Pre-conditions:** PfE and ECR have different funding structures, different relationship with Vladimir Putin (PfE more pro-Kremlin), and different views on EU institutional reform. Merger would require significant internal compromise. The April 29 Rule 169 debate demonstrates they can cooperate tactically — but formal merger is a larger political step.
+
+**Signal:** Joint PfE-ECR working groups; shared committee coordinator positions; joint amendment submissions on 3+ major legislation pieces.
+
+---
+
+### Updated Wild Card Risk Heat Map (May 7)
+
+```mermaid
+quadrantChart
+    title Updated Wild Card Impact vs Probability Matrix (May 7, 2026)
+    x-axis Low Probability --> High Probability
+    y-axis Low Impact --> High Impact
+    quadrant-1 Monitor Closely
+    quadrant-2 Critical Watch
+    quadrant-3 Background Noise
+    quadrant-4 Near-term Risks
+    DMA-Judicial-Challenge: [0.25, 0.85]
+    PfE-No-Confidence: [0.15, 0.75]
+    Ukraine-Ceasefire: [0.20, 0.90]
+    Armenia-Escalation: [0.08, 0.65]
+    Tech-EU-Withdrawal: [0.05, 0.95]
+    Budget-Collapse: [0.07, 0.80]
+    US-Tariff-DMA: [0.18, 0.82]
+    PfE-ECR-Merger: [0.08, 0.92]
+```
+
+**New WC-07 (US Tariff DMA) enters the Monitor Closely quadrant** — 18% probability and Very High impact make it the new second-highest-priority wild card after Ukraine Ceasefire.
+
+**New WC-08 (PfE-ECR Merger) enters the Critical Watch quadrant** — low probability but extreme institutional impact if it materialises.
+
+*Wildcards v3.0 | Run: breaking-rerun2-1778179641 | 11 sections | 2 new wild cards added*

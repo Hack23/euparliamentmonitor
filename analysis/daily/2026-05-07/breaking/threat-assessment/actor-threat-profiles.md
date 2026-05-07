@@ -188,3 +188,30 @@ The PfE and ECR are more visible (they're in the EP chamber making speeches) but
 ---
 
 *Actor threat profiles v2.0 | Run: breaking-run-1778159307 | 7 required sections added*
+
+---
+
+## Re-Run Extension — Actor Threat Profiles Update (May 7, 2026)
+
+**[EXTEND-FROM-PRIOR: actor-threat-profiles.md — adding T-09 and T-10 actor profiles]**
+
+### New Actor Threat Profile: US Administration (T-09 Driver)
+
+**Actor:** US Trade Representative (USTR) / White House Trade Policy Office  
+**Threat Vector:** Potential tariff retaliation against EU goods if DMA enforcement targets US tech companies  
+**Threat Capability:** HIGH — USTR has statutory authority to impose Section 301 tariffs; US has done so against EU in Airbus dispute (2019, $7.5B authorised tariffs)  
+**Threat Probability:** 🟡 18% (within 18-month horizon of DMA enforcement decision)  
+**Intent:** 🟡 Medium — the US has stated DMA concerns formally (NTE report), but has not yet issued a formal threat linked to DMA enforcement specifically  
+**Timeline:** Threat crystallises only after Commission takes formal enforcement action (expected Q3-Q4 2026 at earliest)  
+**EP Vulnerability:** EP has no direct authority over trade policy — threat is aimed at Commission, but political spillover affects EP's position on DMA enforcement  
+
+### New Actor Threat Profile: PfE-ECR Coalition (T-10 Driver)
+
+**Actor:** Patriots for Europe + European Conservatives and Reformists (tactical coordination)  
+**Threat Vector:** Institutional challenge to centrist majority through procedural disruption, amendment campaigns, and narrative war  
+**Threat Capability:** MEDIUM — 166 combined seats; cannot block legislation but can delay, complicate, and create political cost  
+**Current Tactical Mode:** Rule 169 topical debates (confirmed April 29); joint amendment filing strategy  
+**Future Escalation Options:** Committee of Inquiry motion (need 181 signatures — near threshold), no-confidence motion (still 25% of chamber — threshold not reached with ECR alone)  
+**EP Vulnerability:** MEDIUM — coalition majority (398) is robust; the threat is primarily reputational and media-based, not legislative  
+
+*Actor threat profiles v3.0 | Run: breaking-rerun2-1778179641 | T-09 and T-10 actor profiles added*

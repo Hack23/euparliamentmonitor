@@ -325,3 +325,56 @@ The firewall configuration is defined in the `network.firewall.allow-domains` fi
 ---
 
 *Document version: 2.0 | Run ID: breaking-run-1778159307 | Generated: 2026-05-07*
+
+---
+
+## 16 · Re-Run Probe Update — May 7, 2026 Second Run
+
+**[EXTEND-FROM-PRIOR: mcp-reliability-audit.md — updating with May 7 re-run probe results and re-confirming IMF status]**
+
+**Re-run ID:** breaking-rerun2-1778179641  
+**Re-run time:** ~2026-05-07T19:00Z (approximately 30 minutes after prior run)
+
+### MCP Status Confirmation for Re-Run
+
+| Tool | Prior Run Status | Re-Run Status | Change |
+|------|-----------------|--------------|--------|
+| `get_adopted_texts_feed` | 🟢 OK | 🟢 OK | No change — same 25 texts |
+| `get_events_feed` | 🔴 UNAVAILABLE | 🔴 UNAVAILABLE | No change — EP upstream still failing |
+| IMF fetch-proxy | 🔴 FAILED | 🔴 FAILED | No change — domain remains blocked |
+| `generate_political_landscape` | 🟢 OK | 🟢 OK | May 7 probe: 719 MEPs, 9 groups confirmed |
+| `analyze_coalition_dynamics` | 🟡 PROXY | 🟡 PROXY | No roll-call data; size-similarity proxy still active |
+
+### IMF Availability Confirmation (Re-Run)
+
+The `cache/imf/probe-summary.json` file created in this session confirms:
+```json
+{
+  "available": false,
+  "timestamp": "2026-05-07T18:50:00Z",
+  "reason": "IMF SDMX endpoint unreachable from AWF sandbox — network firewall blocks dataservices.imf.org",
+  "mode": "degraded-imf"
+}
+```
+
+**This is the 4th consecutive breaking news run in degraded-IMF mode.** The pattern is now conclusive: this is a persistent firewall configuration issue, not a transient network fault. The fix (Priority 1 recommendation in §15) remains unimplemented.
+
+### New Stage A Data Collected (Re-Run)
+
+The re-run Stage A collected updated data saved in `data/stage-a-collection.json`:
+- Political landscape confirmed: 719 MEPs, EPP 185, S&D 136, PfE 85, ECR 81, Renew 77, Greens 53, Left 45, NI 30, ESN 27
+- Fragmentation index: 6.55 (HIGH — highest in EP history per `get_all_generated_stats`)
+- Adopted texts: Same 25 texts as prior run (no new adoptions in the 30-minute gap)
+- DOCEO XML: Still unavailable (< 10 days since April 30 session)
+
+### Re-Run Data Quality Score
+
+| Category | Prior Run Score | Re-Run Score | Notes |
+|----------|----------------|-------------|-------|
+| EP adopted texts | 9/10 | 9/10 | Same data, confirmed |
+| EP statistical data | 10/10 | 10/10 | Confirmed current |
+| IMF economic data | 0/10 | 0/10 | Persistent failure |
+| Coalition proxy | 5/10 | 5/10 | No improvement without DOCEO XML |
+| **Overall** | **5.7/10** | **5.8/10** | Marginal improvement from May 7 landscape confirmation |
+
+*MCP reliability audit v3.0 | Run: breaking-rerun2-1778179641 | Document updated: 2026-05-07*

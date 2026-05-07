@@ -96,3 +96,46 @@ The EP's institutional resilience against current threats is supported by:
 ---
 
 *Framework: Political Threat Framework v4.0; Diamond Model integration with threat-model.md.*
+
+---
+
+## Re-Run Extension — Political Threat Landscape Update (May 7, 2026)
+
+**[EXTEND-FROM-PRIOR: political-threat-landscape.md — adding May 7 threat landscape update with T-09 and T-10 integration]**
+
+### Updated Political Threat Landscape (May 7, 2026)
+
+The May 7 landscape probe (719 MEPs, PFI=6.55) confirms the structural threat context from the prior run. Two new threat vectors identified in this re-run (T-09, T-10 in threat-model.md) have political threat landscape implications:
+
+**T-09 (US Tariff DMA Threat) — Political Threat Landscape Implications:**
+The US tariff threat against DMA enforcement creates a cross-cutting political threat:
+- It empowers PfE's "regulatory overreach" narrative (even without PfE coordination with the US)
+- It creates a cleavage within the EPP: EPP trade hawks (prioritise EU-US relations) vs. EPP digital hawks (prioritise tech sovereignty)
+- It enables Commission to cite "trade stability" as a legitimate reason for cautious enforcement — this is a political threat to the EP's ability to hold the Commission accountable via TA-10-2026-0160
+
+**T-10 (PfE-ECR Convergence) — Political Threat Landscape Implications:**
+PfE-ECR tactical coordination is now documented in this session's analysis (April 29 Rule 169 joint debate). The political threat:
+- **Near-term (May-June 2026):** PfE-ECR joint amendments on budget and DMA enforcement dossiers can force recorded votes, creating accountability evidence for the next election
+- **Medium-term (H2 2026):** If PfE-ECR approach 30% of EP seats through coordination, they become the de facto alternative government in waiting — affecting Commission behaviour more than their current formal vote share would suggest
+- **Long-term (EP10 Year 3+):** Formal merger (WC-08) would require EPP to choose sides formally
+
+### Political Threat Severity Matrix (Updated May 7)
+
+```mermaid
+quadrantChart
+    title Political Threats: Severity vs Immediacy (May 7, 2026)
+    x-axis Low Immediacy --> High Immediacy
+    y-axis Low Severity --> High Severity
+    quadrant-1 Urgent Priority
+    quadrant-2 Strategic Watch
+    quadrant-3 Background Monitor
+    quadrant-4 Near-term Manage
+    PfE-Rule169: [0.7, 0.4]
+    US-Tariff-Threat: [0.4, 0.75]
+    PfE-ECR-Convergence: [0.5, 0.7]
+    Budget-Coalition-Stress: [0.6, 0.65]
+    CJEU-DMA-Challenge: [0.3, 0.8]
+    Ukraine-Ceasefire: [0.2, 0.9]
+```
+
+*Political threat landscape v3.0 | Run: breaking-rerun2-1778179641 | T-09 and T-10 integrated*

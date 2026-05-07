@@ -224,3 +224,34 @@ graph LR
 ```
 
 *Forces analysis v2.0 | Run: breaking-run-1778159307*
+
+---
+
+## Re-Run Extension — Forces Analysis Update (May 7, 2026)
+
+**[EXTEND-FROM-PRIOR: forces-analysis.md — adding May 7 updated driving/restraining force balance and WC-07/WC-08 force dynamics]**
+
+### Updated Force Balance (May 7, 2026)
+
+The re-run stage A data and extended analysis identifies two new significant forces not captured in the prior run:
+
+**New Driving Force: US Tariff Threat (WC-07)**
+A potential US tariff response to DMA enforcement creates a **restraining force** on Commission DMA enforcement that was underweighted in the prior run. The US-EU trade relationship (~€1.3 trillion annually) is a powerful structural deterrent against actions that could trigger retaliatory tariffs. This force:
+- Acts as a restraining force on Commission enforcement actions
+- Converts some driving-force momentum (EP resolution, public support) into restrained-enforcement outcomes
+- Is a new structural element in the forces balance that did not exist at the DMA's 2022 adoption
+
+**New Driving Force: PfE-ECR Convergence**
+The increasing tactical cooperation between PfE and ECR (observed in the April 29 Rule 169 debate) creates a driving force for **institutional polarisation** that is new in EP10 Year 2:
+- Drives EPP toward a clearer coalition choice (maintain cordon sanitaire vs. tactical cooperation)
+- Restrains Commission from bold rightward policy moves that might alienate S&D
+- Drives the overall legislative discourse toward a more contested, adversarial model
+
+### Revised Driving/Restraining Force Balance
+
+**Net Force Direction on DMA Enforcement:**
+- Driving forces: EP resolution (strong), Public digital rights support (medium), DMA legal basis (strong), Commission institutional credibility interest (medium)
+- Restraining forces: US tariff threat (medium-high, new), CJEU interim measures risk (medium), Trade DG opposition (low-medium), PfE media opposition (low direct)
+- **Net balance: Driving forces still outweigh restraining forces, but the margin has narrowed since the prior run due to US tariff dynamics**
+
+*Forces analysis v3.0 | Run: breaking-rerun2-1778179641 | Updated force balance with US tariff and PfE-ECR convergence*

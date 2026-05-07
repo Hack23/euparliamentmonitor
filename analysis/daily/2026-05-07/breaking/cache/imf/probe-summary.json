@@ -1,0 +1,30 @@
+{
+  "available": false,
+  "timestamp": "2026-05-07T18:50:00Z",
+  "run_id": "breaking-rerun2-1778179641",
+  "article_type": "breaking",
+  "date": "2026-05-07",
+  "dataMode": "degraded-imf",
+  "probe_sequence": [
+    {
+      "step": 1,
+      "action": "tool_call",
+      "tool": "fetch_url",
+      "url": "https://dataservices.imf.org/REST/SDMX_3.0/data/IFS/A.US.NGDP_R_PC_PP_PT",
+      "result": "FAILED",
+      "error": "fetch failed"
+    },
+    {
+      "step": 2,
+      "action": "activate_degraded_imf",
+      "line_floor_reduction": 0.15,
+      "imf_citations_allowed": false
+    }
+  ],
+  "reason": "IMF SDMX endpoint unreachable from AWF sandbox environment — dataservices.imf.org not allowlisted in Squid proxy or network blocked",
+  "recommendation": "Add dataservices.imf.org to network.firewall.allow-domains in news-breaking.md workflow frontmatter and recompile",
+  "consecutive_degraded_runs": 4,
+  "pattern": "Persistent — not transient network fault",
+  "economic_context_fallback": "EP Research Service briefings and EU Commission budget documentation",
+  "note": "All economic context in this run uses EP/Commission reference data only per degraded-imf protocol"
+}

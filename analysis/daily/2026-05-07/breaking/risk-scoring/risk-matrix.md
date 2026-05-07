@@ -145,3 +145,36 @@ The risk matrix is a tool for prioritisation -- it does not predict outcomes but
 ---
 
 *Risk matrix v2.0 | Run: breaking-run-1778159307 | WEP: Likely | Admiralty: B3*
+
+---
+
+## Re-Run Extension — Risk Matrix Update (May 7, 2026)
+
+**[EXTEND-FROM-PRIOR: risk-matrix.md — adding T-09 and T-10 risk entries, updated risk scores]**
+
+### New Risk Entries (Re-Run)
+
+| Risk ID | Risk | Probability | Impact | Risk Score | Category |
+|---------|------|------------|--------|------------|---------|
+| R-09 | US tariff DMA retaliation | 18% | Very High (9/10) | **Medium-High** | Geopolitical |
+| R-10 | PfE-ECR convergence (tactical) | 35% | Medium (5/10) | **Medium** | Institutional |
+| R-11 | PfE-ECR merger (structural) | 8% | Very High (9/10) | **Medium-High** | Institutional |
+
+### Updated Top Risk Register (May 7, 2026)
+
+| Rank | Risk | Score | Change |
+|------|------|-------|--------|
+| 1 | DOCEO voting data lag | Structural | = |
+| 2 | IMF data unavailable | Structural | = |
+| 3 | Commission DMA enforcement delay | 7.2 | = |
+| 4 | Ukraine ceasefire complication | 7.0 | = |
+| 5 | **US tariff DMA retaliation (NEW)** | **6.8** | **+NEW** |
+| 6 | DMA CJEU suspension | 6.5 | Was 5 |
+| 7 | **PfE-ECR merger (structural) (NEW)** | **6.3** | **+NEW** |
+| 8 | Budget conciliation breakdown | 5.6 | = |
+| 9 | Events feed API failure | 4.2 | = |
+| 10 | Procedures feed staleness | 3.8 | = |
+
+**Net change from prior run:** Two new medium-high risks added (R-09, R-11) reflecting the strategic analysis extensions from this re-run.
+
+*Risk matrix v3.0 | Run: breaking-rerun2-1778179641 | R-09, R-10, R-11 added*
