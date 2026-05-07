@@ -1725,7 +1725,7 @@ already secured)
 **Attack Vectors:**
 
 1. **Co-located malicious container** binding `host.docker.internal:8080` first (race condition with the legitimate MCP gateway). Mitigated by gh-aw startup sequencing + drift-proofing tool list checks.
-2. **Compromised `european-parliament-mcp-server` npm package** (T-002 / T-012 coverage). Pinned to `1.3.0` with provenance verification.
+2. **Compromised `european-parliament-mcp-server` npm package** (T-002 / T-012 coverage). Pinned to `1.3.1` with provenance verification.
 3. **Parser bug in the safe-outputs validator** allowing extra fields. Mitigated by gh-aw upstream test coverage + lock-file diff review.
 4. **`.lock.yml` tampering between compile and execute** (T-024 coverage).
 
