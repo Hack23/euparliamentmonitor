@@ -278,4 +278,65 @@ describe('buildHreflangLink', () => {
     const url = toAbsoluteUrl('https://euparliamentmonitor.com/index.html');
     expect(() => buildHreflangLink('invalid!!', url)).toThrow('Invalid hreflang value');
   });
+
+  // ─── isValidHreflang branch coverage (via buildHreflangLink) ─────────
+  // These cases exercise every reject branch in the BCP-47 validator so
+  // that future tightening or relaxation of the rules is caught by tests.
+
+  it('rejects values shorter than 2 chars', () => {
+    const url = toAbsoluteUrl('https://euparliamentmonitor.com/x.html');
+    expect(() => buildHreflangLink('e', url)).toThrow('Invalid hreflang value');
+  });
+
+  it('rejects values longer than 12 chars', () => {
+    const url = toAbsoluteUrl('https://euparliamentmonitor.com/x.html');
+    expect(() => buildHreflangLink('en-toolongregion', url)).toThrow('Invalid hreflang value');
+  });
+
+  it('rejects more than two subtags (a-b-c)', () => {
+    const url = toAbsoluteUrl('https://euparliamentmonitor.com/x.html');
+    expect(() => buildHreflangLink('en-US-x', url)).toThrow('Invalid hreflang value');
+  });
+
+  it('rejects primary subtags shorter than 2 or longer than 3', () => {
+    const url = toAbsoluteUrl('https://euparliamentmonitor.com/x.html');
+    expect(() => buildHreflangLink('a-US', url)).toThrow('Invalid hreflang value');
+    expect(() => buildHreflangLink('toolong-US', url)).toThrow('Invalid hreflang value');
+  });
+
+  it('rejects primary subtags containing uppercase or digits', () => {
+    const url = toAbsoluteUrl('https://euparliamentmonitor.com/x.html');
+    expect(() => buildHreflangLink('EN', url)).toThrow('Invalid hreflang value');
+    expect(() => buildHreflangLink('e1', url)).toThrow('Invalid hreflang value');
+  });
+
+  it('rejects region subtags shorter than 2 chars', () => {
+    const url = toAbsoluteUrl('https://euparliamentmonitor.com/x.html');
+    expect(() => buildHreflangLink('en-A', url)).toThrow('Invalid hreflang value');
+  });
+
+  it('rejects region subtags longer than 8 chars', () => {
+    const url = toAbsoluteUrl('https://euparliamentmonitor.com/x.html');
+    expect(() => buildHreflangLink('en-LATIN9X', url)).toThrow('Invalid hreflang value');
+  });
+
+  it('rejects region subtags containing digits', () => {
+    const url = toAbsoluteUrl('https://euparliamentmonitor.com/x.html');
+    expect(() => buildHreflangLink('en-U1', url)).toThrow('Invalid hreflang value');
+  });
+
+  it('accepts a 2-letter primary + 2-letter region (en-US)', () => {
+    const url = toAbsoluteUrl('https://euparliamentmonitor.com/x.html');
+    expect(buildHreflangLink('en-US', url)).toContain('hreflang="en-US"');
+  });
+
+  it('accepts a 3-letter primary (e.g. fil)', () => {
+    const url = toAbsoluteUrl('https://euparliamentmonitor.com/x.html');
+    expect(buildHreflangLink('fil', url)).toContain('hreflang="fil"');
+  });
+
+  it('accepts a 4-letter script subtag (en-Latn)', () => {
+    const url = toAbsoluteUrl('https://euparliamentmonitor.com/x.html');
+    expect(buildHreflangLink('en-Latn', url)).toContain('hreflang="en-Latn"');
+  });
 });
