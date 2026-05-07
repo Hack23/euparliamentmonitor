@@ -8297,3 +8297,107 @@ html[data-theme='dark'] .article-body h2 {
     padding: 0.78rem 0.8rem;
   }
 }
+
+/* ─── Dark mode parity (system preference) ──────────────────────────
+ *
+ * The components below have an explicit `html[data-theme='dark']` rule
+ * (manual toggle) but were missing the parallel
+ * `@media (prefers-color-scheme: dark) { html:not([data-theme='light']) ... }`
+ * gate, so users on a dark-OS who never touched the theme toggle saw the
+ * default light styling — visible as washed-out article headings, invisible
+ * intel-tone badges, mis-tinted Mermaid frames, and unreadable
+ * article-intel-table rows. Each rule below mirrors the body of the
+ * matching manual rule earlier in the stylesheet.
+ *
+ * Auditing rule: every entry inside this block must have a manual
+ * `html[data-theme='dark'] <selector>` rule elsewhere with an identical
+ * body. The drift-guard test in `test/unit/dark-mode-parity.test.js`
+ * fails if a manual dark rule lacks a parity entry here.
+ * ────────────────────────────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme='light']) .article-body > h1 {
+    background:
+      linear-gradient(135deg, rgba(255, 204, 0, 0.13), rgba(79, 140, 255, 0.09)),
+      rgba(255, 255, 255, 0.035);
+    border-color: rgba(255, 255, 255, 0.14);
+    border-inline-start-color: #ffcc00;
+    color: #f0f6fc;
+  }
+
+  html:not([data-theme='light']) .article-body h3 {
+    color: #e6edf3;
+  }
+
+  html:not([data-theme='light']) .article-body blockquote {
+    background: rgba(144, 202, 249, 0.08);
+  }
+
+  html:not([data-theme='light']) .table-scroll {
+    background: rgba(255, 255, 255, 0.035);
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+  }
+
+  html:not([data-theme='light']) .article-intel-table th {
+    background: linear-gradient(135deg, #153a88, #315fc7);
+  }
+
+  html:not([data-theme='light']) .article-intel-table tbody tr:nth-child(even) td {
+    background: rgba(79, 140, 255, 0.06);
+  }
+
+  html:not([data-theme='light']) .article-intel-table tbody tr:hover td {
+    background: rgba(255, 204, 0, 0.1);
+  }
+
+  html:not([data-theme='light']) .intel-tone-critical {
+    color: #ffb3b8;
+    background: rgba(255, 99, 132, 0.15);
+  }
+
+  html:not([data-theme='light']) .intel-tone-high {
+    color: #ffd18a;
+    background: rgba(255, 152, 0, 0.16);
+  }
+
+  html:not([data-theme='light']) .intel-tone-medium {
+    color: #ffe680;
+    background: rgba(255, 204, 0, 0.13);
+  }
+
+  html:not([data-theme='light']) .intel-tone-low {
+    color: #9be7b0;
+    background: rgba(40, 167, 69, 0.15);
+  }
+
+  html:not([data-theme='light']) .intel-tone-source {
+    color: #a8cfff;
+    background: rgba(88, 166, 255, 0.14);
+  }
+
+  html:not([data-theme='light']) .mermaid-figure {
+    background:
+      radial-gradient(circle at top left, rgba(79, 140, 255, 0.11), transparent 26rem),
+      radial-gradient(circle at top right, rgba(255, 204, 0, 0.09), transparent 22rem),
+      rgba(255, 255, 255, 0.035);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  html:not([data-theme='light']) .mindmap-stakeholder-desc {
+    color: var(--text-secondary);
+  }
+
+  html:not([data-theme='light']) .pipeline-panel {
+    border-left-color: inherit;
+  }
+
+  html:not([data-theme='light']) .ep-offline-hero__panel {
+    background: #142848;
+    border-color: rgba(168, 207, 255, 0.18);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+  }
+
+  html:not([data-theme='light']) .ep-offline-hero__title {
+    color: #a8cfff;
+  }
+}
