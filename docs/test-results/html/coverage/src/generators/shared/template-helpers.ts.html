@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">72.41% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>21/29</span>
+                <span class='fraction'>29/29</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">61.53% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>16/26</span>
+                <span class='fraction'>26/26</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">86.36% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>19/22</span>
+                <span class='fraction'>22/22</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -269,22 +269,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">16x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -296,10 +294,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
@@ -390,16 +390,16 @@ export function getDirection(lang: LanguageCode): 'ltr' | 'rtl' {
 function isValidHreflang(value: string): boolean {
   if (value === 'x-default') return true;
   // BCP-47 primary subtag: 2-3 lowercase, optional region/script subtag
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (value.length &lt; 2 || value.length &gt; 12) <span class="cstat-no" title="statement not covered" >return false;</span>
+  if (value.length &lt; 2 || value.length &gt; 12) return false;
   const parts = value.split('-');
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (parts.length &gt; 2) <span class="cstat-no" title="statement not covered" >return false;</span>
+  if (parts.length &gt; 2) return false;
   const primary = parts[0] as string;
   if (primary.length &lt; 2 || primary.length &gt; 3) return false;
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (!/^[a-z]+$/.test(primary)) <span class="cstat-no" title="statement not covered" >return false;</span>
-  <span class="missing-if-branch" title="if path not taken" >I</span>if (parts.length === 2) {
-    const subtag = <span class="cstat-no" title="statement not covered" >parts[1] as string;</span>
-<span class="cstat-no" title="statement not covered" >    if (subtag.length &lt; 2 || subtag.length &gt; 8) <span class="cstat-no" title="statement not covered" >return false;</span></span>
-<span class="cstat-no" title="statement not covered" >    if (!/^[A-Za-z]+$/.test(subtag)) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+  if (!/^[a-z]+$/.test(primary)) return false;
+  if (parts.length === 2) {
+    const subtag = parts[1] as string;
+    if (subtag.length &lt; 2 || subtag.length &gt; 8) return false;
+    if (!/^[A-Za-z]+$/.test(subtag)) return false;
   }
   return true;
 }
@@ -427,7 +427,7 @@ export function buildHreflangLink(hreflang: string, href: AbsoluteUrl): string {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-06T17:33:04.194Z
+                at 2026-05-07T13:05:37.144Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

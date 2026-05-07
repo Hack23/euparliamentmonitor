@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">79.8% </span>
+                <span class="strong">80.18% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>83/104</span>
+                <span class='fraction'>85/106</span>
             </div>
         
             
@@ -849,7 +849,9 @@
 <a name='L784'></a><a href='#L784'>784</a>
 <a name='L785'></a><a href='#L785'>785</a>
 <a name='L786'></a><a href='#L786'>786</a>
-<a name='L787'></a><a href='#L787'>787</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L787'></a><a href='#L787'>787</a>
+<a name='L788'></a><a href='#L788'>788</a>
+<a name='L789'></a><a href='#L789'>789</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1565,35 +1567,37 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">42x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">42x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">42x</span>
+<span class="cline-any cline-yes">41x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">41x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">41x</span>
-<span class="cline-any cline-yes">41x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">41x</span>
 <span class="cline-any cline-yes">41x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">41x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -2347,32 +2351,35 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
   const analysisIndex = renderAnalysisIndex(includedArtifacts, manifestRelPath);
   const readerGuide = renderReaderIntelligenceGuide(emittedSections, includedArtifacts);
   // Deterministic 3–7 bullet "Key takeaways" block, harvested from the
-  // synthesis-summary / intelligence-assessment artifacts. Placed
-  // immediately after the Executive Brief so the reader gets the BLUF
-  // followed by a digest of the strongest findings before being handed
-  // off to the Reader Intelligence Guide and the deeper sections.
+  // synthesis-summary / intelligence-assessment artifacts. Sits between
+  // the Reader Intelligence Guide and the deep sections: the reader gets
+  // the BLUF (Executive Brief) → a navigation map (Reader Guide) → a
+  // bullet digest of the strongest findings (Key Takeaways) → the deep
+  // analysis. This is the order requested for reader UX so navigation
+  // is established before the reader commits to scanning takeaways.
   const keyTakeaways = buildKeyTakeaways({ runDir });
 &nbsp;
-  // TOC ordering reflects the rendered document:
+  // TOC ordering must match the rendered Markdown body 1:1. Order:
   // Executive Brief (already first in emittedSections via appendSection) →
-  // Key Takeaways (inserted right after the brief when present) →
-  // Reader Intelligence Guide → remaining sections → audit appendices.
+  // Reader Intelligence Guide (inserted right after the brief when present) →
+  // Key Takeaways (inserted right after the guide when present) →
+  // remaining sections → audit appendices.
   let postBriefIdx =
     emittedSections.length &gt; 0 &amp;&amp;
     emittedSections[0]?.id === namespacedSectionId(execBriefSection?.id ?? <span class="branch-1 cbranch-no" title="branch not covered" >'')</span>
       ? 1
       : 0;
+  if (readerGuide) {
+    emittedSections.splice(postBriefIdx, 0, {
+      id: READER_GUIDE_SECTION_ID,
+      title: READER_GUIDE_SECTION_TITLE,
+    });
+    postBriefIdx += 1;
+  }
   if (keyTakeaways) {
     emittedSections.splice(postBriefIdx, 0, {
       id: KEY_TAKEAWAYS_SECTION_ID,
       title: KEY_TAKEAWAYS_SECTION_TITLE,
-    });
-    postBriefIdx += 1;
-  }
-  <span class="missing-if-branch" title="else path not taken" >E</span>if (readerGuide) {
-    emittedSections.splice(postBriefIdx, 0, {
-      id: READER_GUIDE_SECTION_ID,
-      title: READER_GUIDE_SECTION_TITLE,
     });
   }
   emittedSections.push({ id: TRADECRAFT_SECTION_ID, title: TRADECRAFT_SECTION_TITLE });
@@ -2383,9 +2390,8 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
     '',
     ...execBriefMarkdown,
     '',
+    ...(readerGuide ? [readerGuide, ''] : <span class="branch-1 cbranch-no" title="branch not covered" >[])</span>,
     ...(keyTakeaways ? [keyTakeaways, ''] : []),
-    readerGuide,
-    '',
     ...sectionMarkdown,
     '',
     provenance,
@@ -2428,7 +2434,7 @@ export function guessDateFromRunDir(runDirRelPath: string): string {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-06T17:33:04.194Z
+                at 2026-05-07T13:05:37.144Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
