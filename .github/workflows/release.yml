@@ -93,7 +93,7 @@ jobs:
           npm version $PLAIN_VERSION --no-git-tag-version
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
+        run: npx playwright install
 
       - name: Run tests with coverage
         run: npm run test:coverage
