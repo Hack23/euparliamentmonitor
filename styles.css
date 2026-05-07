@@ -6949,7 +6949,7 @@ html[data-theme='dark'] [data-component="reader-intelligence-guide"] h2 {
     linear-gradient(135deg, rgba(255, 204, 0, 0.13), rgba(0, 51, 153, 0.07)),
     var(--surface, #ffffff);
   color: var(--heading, #24292f);
-  font-size: clamp(1.55rem, 3vw, 2.15rem);
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
   line-height: 1.15;
   letter-spacing: -0.02em;
   box-shadow: 0 8px 22px rgba(0, 51, 153, 0.07);
@@ -6976,8 +6976,8 @@ html[data-theme='dark'] [data-component="reader-intelligence-guide"] h2 {
 
 .article-body p,
 .article-body li {
-  line-height: 1.78;
-  font-size: 1.05rem;
+  line-height: 1.7;
+  font-size: clamp(0.98rem, 0.18vw + 0.94rem, 1.03rem);
   letter-spacing: -0.006em;
 }
 
@@ -7833,8 +7833,8 @@ html {
 }
 
 .article-hero {
-  margin-bottom: clamp(26px, 4vw, 44px);
-  padding: clamp(22px, 4vw, 44px);
+  margin-bottom: clamp(20px, 3vw, 34px);
+  padding: clamp(18px, 2.8vw, 34px);
   background:
     linear-gradient(135deg, rgba(0, 51, 153, 0.14), rgba(230, 184, 0, 0.17)),
     radial-gradient(circle at 92% 8%, rgba(0, 102, 204, 0.16), transparent 22rem),
@@ -7845,12 +7845,13 @@ html {
 }
 
 .article-hero h1 {
-  font-size: clamp(2.15rem, 6vw, 4rem);
+  font-size: clamp(1.75rem, 3.3vw, 3rem);
+  line-height: 1.08;
 }
 
 .article-dek {
   color: var(--text-secondary);
-  font-size: clamp(1.05rem, 2.4vw, 1.32rem);
+  font-size: clamp(0.98rem, 1.2vw, 1.16rem);
 }
 
 .article-source-md {
@@ -7872,6 +7873,7 @@ html {
 .article-body h2 {
   margin-top: clamp(2rem, 4vw, 3rem);
   padding: 0.82rem 1rem;
+  font-size: clamp(1.28rem, 1.45vw, 1.7rem);
   /* Reset older physical borders before applying the logical accent so RTL
    * articles do not render both left and right heading rails. */
   border-left: 0;
@@ -7886,6 +7888,7 @@ html {
 
 .article-body h3 {
   color: var(--text);
+  font-size: clamp(1.08rem, 0.95vw, 1.28rem);
 }
 
 @supports (text-wrap: balance) {
