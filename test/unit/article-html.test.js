@@ -206,7 +206,22 @@ describe('wrapArticleHtml', () => {
     expect(html).toContain('../images/banner.webp');
     expect(html).toContain('../images/banner.jpg');
     expect(html).toContain('site-header__logo--banner');
-    expect(html).toContain('width="180" height="60"');
+    expect(html).toContain('width="240" height="80"');
+  });
+
+  it('marks article mains without a TOC so the body spans the full layout', () => {
+    const html = wrapArticleHtml(baseOptions);
+    expect(html).toContain('article-main--no-toc');
+    expect(html).not.toContain('article-main--with-toc');
+  });
+
+  it('marks article mains with a TOC for the wide-screen reading shell', () => {
+    const html = wrapArticleHtml({
+      ...baseOptions,
+      toc: [{ id: 'section-synthesis', title: 'Synthesis Summary' }],
+    });
+    expect(html).toContain('article-main--with-toc');
+    expect(html).not.toContain('article-main--no-toc');
   });
 
   it('surfaces the footer-stats line when articleCount is provided', () => {

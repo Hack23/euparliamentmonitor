@@ -484,6 +484,8 @@ describe('generate-news-indexes', () => {
       expect(headerLogo).not.toBeNull();
       expect(headerLogo.classList.contains('site-header__logo--banner')).toBe(true);
       expect(headerLogo.getAttribute('src')).toBe('images/banner.jpg');
+      expect(headerLogo.getAttribute('width')).toBe('240');
+      expect(headerLogo.getAttribute('height')).toBe('80');
       expect(html).toContain('class="hero__inner"');
       expect(html).toContain('class="hero__content"');
       expect(html).toContain('class="hero__kicker"');
