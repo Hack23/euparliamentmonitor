@@ -36,7 +36,7 @@ import {
 } from './article-metadata.js';
 import { buildArticleMeta, serializeArticleMeta } from './article-meta.js';
 import { renderMarkdown } from './markdown-renderer.js';
-import { wrapArticleHtml, getArticleFilename } from './article-html.js';
+import { wrapArticleHtml, getArticleFilename, localizeArticleBody } from './article-html.js';
 import {
   buildReaderIntelligenceGuideHtml,
   stripInlineReaderGuide,
@@ -500,6 +500,9 @@ function writeLanguageVariant(
     // and avoids fragile in-body heading searches.
     bodyHtml = guideHtml + '\n' + bodyHtml;
   }
+  // Localize Tradecraft References, Analysis Index, and other appendix
+  // section headings and content into the target language.
+  bodyHtml = localizeArticleBody(bodyHtml, lang);
   // When a per-language translated source exists, prefer a summary derived
   // from it so the `<meta description>` matches the visible prose. The
   // editorial title still comes from the English resolver (per-language

@@ -20,12 +20,14 @@
  */
 import { BASE_URL, BUILD_SHORT, MERMAID_VERSION } from '../constants/config.js';
 import { buildHeadFreshnessTags } from '../constants/build-info-meta.js';
-import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, SKIP_LINK_TEXTS, TOC_ARIA_LABELS, ARTICLE_TYPE_LABELS, VIEW_SOURCE_MARKDOWN_LABELS, ARTICLE_TYPE_ICONS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, SKIP_LINK_TEXTS, TOC_ARIA_LABELS, ARTICLE_TYPE_LABELS, VIEW_SOURCE_MARKDOWN_LABELS, ARTICLE_TYPE_ICONS, TRADECRAFT_HEADING_LABELS, TRADECRAFT_INTRO_LABELS, TRADECRAFT_METHODOLOGIES_LABELS, TRADECRAFT_TEMPLATES_LABELS, ANALYSIS_INDEX_HEADING_LABELS, ANALYSIS_INDEX_INTRO_LABELS, ANALYSIS_INDEX_COL_SECTION_LABELS, ANALYSIS_INDEX_COL_ARTIFACT_LABELS, ANALYSIS_INDEX_COL_PATH_LABELS, KEY_TAKEAWAYS_HEADING_LABELS, SUPPLEMENTARY_HEADING_LABELS, SECTION_TITLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { ArticleCategory } from '../types/index.js';
 import { escapeHTML } from '../utils/file-utils.js';
 import { buildSiteFooter, buildSiteHeader, buildPageBanner, } from '../templates/section-builders.js';
 import { READER_GUIDE_SECTION_ID } from './reader-guide-constants.js';
 import { READER_GUIDE_TITLE_LABELS } from './reader-intelligence-guide.js';
+import { TRADECRAFT_SECTION_ID, MANIFEST_SECTION_ID, SUPPLEMENTARY_SECTION_ID, } from './artifact-order.js';
+import { KEY_TAKEAWAYS_SECTION_ID } from './key-takeaways.js';
 /**
  * Resolve a localized article type label with icon. Falls back to the
  * humanised slug when a translation isn't available.
@@ -91,6 +93,44 @@ function buildLanguageSwitcher(articleSlug, current) {
     }).join('\n        ');
 }
 /**
+ * Resolve a localized title for a TOC entry based on its section ID.
+ * Falls back to the original English title if no translation is available.
+ *
+ * @param sectionId - The fragment identifier of the section
+ * @param fallbackTitle - The English title to fall back to
+ * @param lang - Target language code
+ * @returns Localized title string
+ */
+function getLocalizedTocTitle(sectionId, fallbackTitle, lang) {
+    // Reader Intelligence Guide
+    if (sectionId === READER_GUIDE_SECTION_ID) {
+        return getLocalizedString(READER_GUIDE_TITLE_LABELS, lang);
+    }
+    // Tradecraft References appendix
+    if (sectionId === TRADECRAFT_SECTION_ID) {
+        return getLocalizedString(TRADECRAFT_HEADING_LABELS, lang);
+    }
+    // Analysis Index appendix
+    if (sectionId === MANIFEST_SECTION_ID) {
+        return getLocalizedString(ANALYSIS_INDEX_HEADING_LABELS, lang);
+    }
+    // Key Takeaways
+    if (sectionId === KEY_TAKEAWAYS_SECTION_ID) {
+        return getLocalizedString(KEY_TAKEAWAYS_HEADING_LABELS, lang);
+    }
+    // Supplementary Intelligence
+    if (sectionId === SUPPLEMENTARY_SECTION_ID) {
+        return getLocalizedString(SUPPLEMENTARY_HEADING_LABELS, lang);
+    }
+    // Artifact section titles (strip the `section-` prefix to find the key)
+    const sectionKey = sectionId.replace(/^section-/, '');
+    const sectionLabels = SECTION_TITLE_LABELS[sectionKey];
+    if (sectionLabels) {
+        return getLocalizedString(sectionLabels, lang);
+    }
+    return fallbackTitle;
+}
+/**
  * Build the article-level Table of Contents nav. Renders a labelled
  * `<nav class="article-toc">` with one `<a>` per H2 section, keyed by the
  * stable fragment ids produced by the aggregator. The containing `<aside>`
@@ -110,10 +150,7 @@ export function buildArticleToc(entries, lang) {
     const label = escapeHTML(getLocalizedString(TOC_ARIA_LABELS, lang));
     const items = entries
         .map((e) => {
-        // Translate the Reader Intelligence Guide title into the target language
-        const displayTitle = e.id === READER_GUIDE_SECTION_ID
-            ? getLocalizedString(READER_GUIDE_TITLE_LABELS, lang)
-            : e.title;
+        const displayTitle = getLocalizedTocTitle(e.id, e.title, lang);
         return `        <li><a href="#${escapeHTML(e.id)}">${escapeHTML(displayTitle)}</a></li>`;
     })
         .join('\n');
@@ -130,6 +167,126 @@ export function buildArticleToc(entries, lang) {
         `  </aside>`,
         '',
     ].join('\n');
+}
+/**
+ * Localize the Tradecraft References and Analysis Index sections in the
+ * rendered article body HTML. Replaces English headings, introductions,
+ * sub-headings, and table headers with translated equivalents.
+ *
+ * @param bodyHtml - The rendered HTML body (from Markdown)
+ * @param lang - Target language code
+ * @returns HTML body with localized appendix sections
+ */
+export function localizeArticleBody(bodyHtml, lang) {
+    if (lang === 'en')
+        return bodyHtml;
+    let html = bodyHtml;
+    // --- Tradecraft References heading ---
+    // Use simple string indexOf to avoid polynomial regex backtracking.
+    const tradecraftHeading = getLocalizedString(TRADECRAFT_HEADING_LABELS, lang);
+    html = replaceHeadingById(html, TRADECRAFT_SECTION_ID, 'Tradecraft References', tradecraftHeading);
+    // --- Tradecraft intro paragraph ---
+    // The rendered Markdown produces a <p> containing the intro text with an
+    // <a> link to Hack23. Replace only the known English sentence prefix.
+    const tradecraftIntro = getLocalizedString(TRADECRAFT_INTRO_LABELS, lang);
+    const introSentenceStart = 'This article is produced under the ';
+    const introIdx = html.indexOf(introSentenceStart);
+    if (introIdx !== -1) {
+        // Find the end of the sentence (next '</p>' or period followed by '<')
+        const sentenceEnd = html.indexOf('</p>', introIdx);
+        if (sentenceEnd !== -1) {
+            const localizedWithLink = tradecraftIntro.replace('Hack23 AB', '<a href="https://hack23.com">Hack23 AB</a>');
+            html = html.slice(0, introIdx) + localizedWithLink + html.slice(sentenceEnd);
+        }
+    }
+    // --- Methodologies sub-heading ---
+    const methodsLabel = getLocalizedString(TRADECRAFT_METHODOLOGIES_LABELS, lang);
+    html = html.replace(/<h3>Methodologies<\/h3>/, `<h3>${escapeHTML(methodsLabel)}</h3>`);
+    // --- Artifact templates sub-heading ---
+    const templatesLabel = getLocalizedString(TRADECRAFT_TEMPLATES_LABELS, lang);
+    html = html.replace(/<h3>Artifact templates<\/h3>/, `<h3>${escapeHTML(templatesLabel)}</h3>`);
+    // --- Analysis Index heading ---
+    const analysisIndexHeading = getLocalizedString(ANALYSIS_INDEX_HEADING_LABELS, lang);
+    html = replaceHeadingById(html, MANIFEST_SECTION_ID, 'Analysis Index', analysisIndexHeading);
+    // --- Analysis Index intro ---
+    const analysisIndexIntro = getLocalizedString(ANALYSIS_INDEX_INTRO_LABELS, lang);
+    // Use indexOf to find the manifest.json link URL without polynomial regex
+    const manifestLinkPrefix = 'href="';
+    const manifestJsonLiteral = 'manifest.json';
+    const manifestLinkIdx = html.indexOf(manifestJsonLiteral);
+    let manifestUrl = '';
+    if (manifestLinkIdx !== -1) {
+        // Walk backward to find the preceding href="
+        const hrefIdx = html.lastIndexOf(manifestLinkPrefix, manifestLinkIdx);
+        if (hrefIdx !== -1 && manifestLinkIdx - hrefIdx < 200) {
+            const urlStart = hrefIdx + manifestLinkPrefix.length;
+            const urlEnd = html.indexOf('"', urlStart);
+            if (urlEnd !== -1) {
+                manifestUrl = html.slice(urlStart, urlEnd);
+            }
+        }
+    }
+    const localizedIntroWithLink = manifestUrl
+        ? analysisIndexIntro.replace('manifest.json', `<a href="${manifestUrl}">manifest.json</a>`)
+        : analysisIndexIntro;
+    // Replace the known English intro sentence using indexOf
+    const analysisIntroStart = 'Every artifact below was read by the aggregator';
+    const analysisIntroIdx = html.indexOf(analysisIntroStart);
+    if (analysisIntroIdx !== -1) {
+        const analysisIntroEnd = html.indexOf('gate-result history.', analysisIntroIdx);
+        if (analysisIntroEnd !== -1) {
+            const endOffset = analysisIntroEnd + 'gate-result history.'.length;
+            html = html.slice(0, analysisIntroIdx) + localizedIntroWithLink + html.slice(endOffset);
+        }
+    }
+    // --- Analysis Index table headers ---
+    const colSection = getLocalizedString(ANALYSIS_INDEX_COL_SECTION_LABELS, lang);
+    const colArtifact = getLocalizedString(ANALYSIS_INDEX_COL_ARTIFACT_LABELS, lang);
+    const colPath = getLocalizedString(ANALYSIS_INDEX_COL_PATH_LABELS, lang);
+    html = html.replace('<th>Section</th><th>Artifact</th><th>Path</th>', `<th>${escapeHTML(colSection)}</th><th>${escapeHTML(colArtifact)}</th><th>${escapeHTML(colPath)}</th>`);
+    // --- Key Takeaways heading ---
+    const keyTakeawaysHeading = getLocalizedString(KEY_TAKEAWAYS_HEADING_LABELS, lang);
+    html = replaceHeadingById(html, 'section-key-takeaways', 'Key Takeaways', keyTakeawaysHeading);
+    // --- Supplementary Intelligence heading ---
+    const supplementaryHeading = getLocalizedString(SUPPLEMENTARY_HEADING_LABELS, lang);
+    html = replaceHeadingById(html, 'supplementary-intelligence', 'Supplementary Intelligence', supplementaryHeading);
+    return html;
+}
+/**
+ * Replace an H2 heading's text content by locating it via its `id` attribute.
+ * Uses indexOf-based search to avoid polynomial regex backtracking (CodeQL).
+ *
+ * @param html - Full HTML string
+ * @param sectionId - The id attribute value of the target `<h2>`
+ * @param englishTitle - The English title text to replace
+ * @param localizedTitle - The localized title to insert
+ * @returns Updated HTML string
+ */
+function replaceHeadingById(html, sectionId, englishTitle, localizedTitle) {
+    // Find the id attribute in the HTML — this uniquely identifies the heading
+    const idMarker = `id="${sectionId}"`;
+    let idIdx = html.indexOf(idMarker);
+    if (idIdx === -1) {
+        // Try single-quoted variant
+        const idMarkerSingle = `id='${sectionId}'`;
+        idIdx = html.indexOf(idMarkerSingle);
+    }
+    if (idIdx === -1)
+        return html;
+    // Find the closing '>' of the opening tag after the id
+    const tagCloseIdx = html.indexOf('>', idIdx);
+    if (tagCloseIdx === -1)
+        return html;
+    // The title text starts immediately after '>'
+    const titleStart = tagCloseIdx + 1;
+    const titleEnd = html.indexOf('<', titleStart);
+    if (titleEnd === -1)
+        return html;
+    // Verify this is actually the English title we expect
+    const existingTitle = html.slice(titleStart, titleEnd);
+    if (existingTitle.trim() !== englishTitle)
+        return html;
+    return html.slice(0, titleStart) + escapeHTML(localizedTitle) + html.slice(titleEnd);
 }
 /**
  * Render the full article HTML document with the shared chrome.
