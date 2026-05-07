@@ -114,7 +114,7 @@ describe('parseCliArgsSafe — kind:"help"', () => {
   });
 
   it('short-circuits even when other flags follow --help', () => {
-    const r = parseCliArgsSafe(['--run', FIXTURE_RUN, '--help'], REPO_ROOT);
+    const r = parseCliArgsSafe(['--run', FIXTURE_RUN, '--help', '--unknown-flag'], REPO_ROOT);
     expect(r.kind).toBe('help');
   });
 
