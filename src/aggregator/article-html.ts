@@ -300,15 +300,18 @@ export function localizeArticleBody(bodyHtml: string, lang: LanguageCode): strin
   // --- Tradecraft intro paragraph ---
   // The rendered Markdown produces a <p> containing the intro text with an
   // <a> link to Hack23. Replace only the known English sentence prefix.
-  const tradecraftIntro = getLocalizedString(TRADECRAFT_INTRO_LABELS, lang);
+  // HTML-escape the localized text to prevent injection, then re-insert the
+  // intentional <a> tag via a placeholder split.
+  const tradecraftIntroRaw = getLocalizedString(TRADECRAFT_INTRO_LABELS, lang);
   const introSentenceStart = 'This article is produced under the ';
   const introIdx = html.indexOf(introSentenceStart);
   if (introIdx !== -1) {
     // Find the end of the sentence (next '</p>' or period followed by '<')
     const sentenceEnd = html.indexOf('</p>', introIdx);
     if (sentenceEnd !== -1) {
-      const localizedWithLink = tradecraftIntro.replace(
-        'Hack23 AB',
+      const escapedIntro = escapeHTML(tradecraftIntroRaw);
+      const localizedWithLink = escapedIntro.replace(
+        escapeHTML('Hack23 AB'),
         '<a href="https://hack23.com">Hack23 AB</a>'
       );
       html = html.slice(0, introIdx) + localizedWithLink + html.slice(sentenceEnd);
@@ -328,7 +331,7 @@ export function localizeArticleBody(bodyHtml: string, lang: LanguageCode): strin
   html = replaceHeadingById(html, MANIFEST_SECTION_ID, 'Analysis Index', analysisIndexHeading);
 
   // --- Analysis Index intro ---
-  const analysisIndexIntro = getLocalizedString(ANALYSIS_INDEX_INTRO_LABELS, lang);
+  const analysisIndexIntroRaw = getLocalizedString(ANALYSIS_INDEX_INTRO_LABELS, lang);
   // Use indexOf to find the manifest.json link URL without polynomial regex
   const manifestLinkPrefix = 'href="';
   const manifestJsonLiteral = 'manifest.json';
@@ -345,9 +348,14 @@ export function localizeArticleBody(bodyHtml: string, lang: LanguageCode): strin
       }
     }
   }
+  // HTML-escape the localized intro, then re-insert the <a> link
+  const escapedAnalysisIntro = escapeHTML(analysisIndexIntroRaw);
   const localizedIntroWithLink = manifestUrl
-    ? analysisIndexIntro.replace('manifest.json', `<a href="${manifestUrl}">manifest.json</a>`)
-    : analysisIndexIntro;
+    ? escapedAnalysisIntro.replace(
+        'manifest.json',
+        `<a href="${escapeHTML(manifestUrl)}">manifest.json</a>`
+      )
+    : escapedAnalysisIntro;
   // Replace the known English intro sentence using indexOf
   const analysisIntroStart = 'Every artifact below was read by the aggregator';
   const analysisIntroIdx = html.indexOf(analysisIntroStart);
@@ -370,13 +378,13 @@ export function localizeArticleBody(bodyHtml: string, lang: LanguageCode): strin
 
   // --- Key Takeaways heading ---
   const keyTakeawaysHeading = getLocalizedString(KEY_TAKEAWAYS_HEADING_LABELS, lang);
-  html = replaceHeadingById(html, 'section-key-takeaways', 'Key Takeaways', keyTakeawaysHeading);
+  html = replaceHeadingById(html, KEY_TAKEAWAYS_SECTION_ID, 'Key Takeaways', keyTakeawaysHeading);
 
   // --- Supplementary Intelligence heading ---
   const supplementaryHeading = getLocalizedString(SUPPLEMENTARY_HEADING_LABELS, lang);
   html = replaceHeadingById(
     html,
-    'supplementary-intelligence',
+    SUPPLEMENTARY_SECTION_ID,
     'Supplementary Intelligence',
     supplementaryHeading
   );
