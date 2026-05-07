@@ -33,26 +33,32 @@ describe('parseCliArgs', () => {
     expect(() => parseCliArgs([], FIXTURE_REPO)).toThrow(/--run .* or --all/);
   });
 
-  it('accepts --run=PATH inline-style', () => {
+  it('accepts --run=PATH inline-style and defaults to all 14 languages with HTML on', () => {
     const opts = parseCliArgs([`--run=${FIXTURE_RUN}`], FIXTURE_REPO);
     expect(opts.runDir).toBe(FIXTURE_RUN);
     expect(opts.all).toBe(false);
+    // Always-14-languages contract: no flag can override the language scope.
     expect(opts.langs.length).toBe(ALL_LANGUAGES.length);
+    // Always-HTML contract: no flag can disable HTML rendering.
     expect(opts.markdownOnly).toBe(false);
   });
 
-  it('collects repeated --lang flags', () => {
-    const opts = parseCliArgs(
-      ['--run', FIXTURE_RUN, '--lang', 'en', '--lang', 'sv'],
-      FIXTURE_REPO
-    );
-    expect([...opts.langs]).toEqual(['en', 'sv']);
+  it('rejects the removed --lang flag with a clear migration message', () => {
+    expect(() =>
+      parseCliArgs(['--run', FIXTURE_RUN, '--lang', 'sv'], FIXTURE_REPO)
+    ).toThrow(/--lang has been removed/);
   });
 
-  it('rejects unknown languages', () => {
+  it('rejects the removed --language alias with a clear migration message', () => {
     expect(() =>
-      parseCliArgs(['--run', FIXTURE_RUN, '--lang', 'xx'], FIXTURE_REPO)
-    ).toThrow(/Unsupported language/);
+      parseCliArgs(['--run', FIXTURE_RUN, '--language', 'de'], FIXTURE_REPO)
+    ).toThrow(/--language has been removed/);
+  });
+
+  it('rejects the removed --markdown-only flag with a clear migration message', () => {
+    expect(() =>
+      parseCliArgs(['--run', FIXTURE_RUN, '--markdown-only'], FIXTURE_REPO)
+    ).toThrow(/--markdown-only has been removed/);
   });
 
   it('rejects unknown flags', () => {
@@ -65,14 +71,6 @@ describe('parseCliArgs', () => {
     expect(() =>
       parseCliArgs(['--run', '/does/not/exist/123'], FIXTURE_REPO)
     ).toThrow(/does not exist/);
-  });
-
-  it('honours --markdown-only', () => {
-    const opts = parseCliArgs(
-      ['--run', FIXTURE_RUN, '--markdown-only'],
-      FIXTURE_REPO
-    );
-    expect(opts.markdownOnly).toBe(true);
   });
 
   it('accepts --all with no --run', () => {

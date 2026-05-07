@@ -13,6 +13,7 @@ import {
   parseCliArgsSafe,
   HELP_TEXT,
 } from '../../scripts/aggregator/cli/index.js';
+import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
 
 const REPO_ROOT = path.resolve('.');
 const FIXTURE_RUN = path.resolve('test/fixtures/analysis/2026-01-15/breaking-run-test');
@@ -44,22 +45,27 @@ describe('parseCliArgsSafe — kind:"options" happy paths', () => {
     expect(r.value.runDir).toBeNull();
   });
 
-  it('collects repeated --lang flags', () => {
-    const r = parseCliArgsSafe(['--run', FIXTURE_RUN, '--lang', 'en', '--lang', 'sv'], REPO_ROOT);
+  it('always renders all 14 languages — langs scope is no longer configurable from the CLI', () => {
+    // --lang / --language flags were removed in the always-14-languages
+    // contract. The parser populates `langs` with the canonical
+    // `ALL_LANGUAGES` list — exactly, in declared order, with no
+    // duplicates and no unknown codes. Asserting set-equality (rather
+    // than `length >= 14`) prevents accidental drift where the parser
+    // could populate a longer list, drop a language, or substitute an
+    // unsupported code without the test catching it.
+    const r = parseCliArgsSafe(['--run', FIXTURE_RUN], REPO_ROOT);
     if (r.kind !== 'options') throw new Error('not options');
-    expect([...r.value.langs]).toEqual(['en', 'sv']);
+    expect([...r.value.langs]).toEqual([...ALL_LANGUAGES]);
+    expect(r.value.langs.length).toBe(ALL_LANGUAGES.length);
+    expect(new Set(r.value.langs).size).toBe(r.value.langs.length);
   });
 
-  it('accepts the --language alias', () => {
-    const r = parseCliArgsSafe(['--run', FIXTURE_RUN, '--language', 'de'], REPO_ROOT);
+  it('always emits HTML — markdownOnly is not configurable from the CLI', () => {
+    // --markdown-only was removed in the always-HTML contract. The parser
+    // forces `markdownOnly: false` unconditionally.
+    const r = parseCliArgsSafe(['--run', FIXTURE_RUN], REPO_ROOT);
     if (r.kind !== 'options') throw new Error('not options');
-    expect([...r.value.langs]).toEqual(['de']);
-  });
-
-  it('honours --markdown-only', () => {
-    const r = parseCliArgsSafe(['--run', FIXTURE_RUN, '--markdown-only'], REPO_ROOT);
-    if (r.kind !== 'options') throw new Error('not options');
-    expect(r.value.markdownOnly).toBe(true);
+    expect(r.value.markdownOnly).toBe(false);
   });
 
   it('honours --since', () => {
@@ -84,10 +90,15 @@ describe('parseCliArgsSafe — kind:"options" happy paths', () => {
     expect(r.value.outDir).toBe(path.resolve('/tmp/news'));
   });
 
-  it('defaults langs to ALL_LANGUAGES when none specified', () => {
+  it('defaults langs to ALL_LANGUAGES when no language flags are passed', () => {
+    // Same exact-equality assertion as above, but exercising the
+    // `--all` codepath to make sure both single-run and batch entry
+    // points populate identical `langs` lists.
     const r = parseCliArgsSafe(['--all'], REPO_ROOT);
     if (r.kind !== 'options') throw new Error('not options');
-    expect(r.value.langs.length).toBeGreaterThanOrEqual(14);
+    expect([...r.value.langs]).toEqual([...ALL_LANGUAGES]);
+    expect(r.value.langs.length).toBe(ALL_LANGUAGES.length);
+    expect(new Set(r.value.langs).size).toBe(r.value.langs.length);
   });
 });
 
@@ -103,7 +114,7 @@ describe('parseCliArgsSafe — kind:"help"', () => {
   });
 
   it('short-circuits even when other flags follow --help', () => {
-    const r = parseCliArgsSafe(['--run', FIXTURE_RUN, '--help', '--lang', 'xx'], REPO_ROOT);
+    const r = parseCliArgsSafe(['--run', FIXTURE_RUN, '--help', '--unknown-flag'], REPO_ROOT);
     expect(r.kind).toBe('help');
   });
 
@@ -111,9 +122,16 @@ describe('parseCliArgsSafe — kind:"help"', () => {
     expect(typeof HELP_TEXT).toBe('string');
     expect(HELP_TEXT.length).toBeGreaterThan(50);
     expect(HELP_TEXT).toMatch(/--run, --analysis-dir/);
-    expect(HELP_TEXT).toMatch(/--lang, --language/);
     expect(HELP_TEXT).toMatch(/--out-dir, --output/);
     expect(HELP_TEXT).toMatch(/--all/);
+    // The always-14-languages-always-HTML contract is documented in HELP_TEXT.
+    expect(HELP_TEXT).toMatch(/all 14/);
+  });
+
+  it('does NOT advertise the removed --lang / --markdown-only flags', () => {
+    expect(HELP_TEXT).not.toMatch(/--lang/);
+    expect(HELP_TEXT).not.toMatch(/--language/);
+    expect(HELP_TEXT).not.toMatch(/--markdown-only/);
   });
 });
 
@@ -137,10 +155,23 @@ describe('parseCliArgsSafe — kind:"error"', () => {
     expect(r.message).toMatch(/Unknown argument: --wat/);
   });
 
-  it('errors on unsupported language codes', () => {
-    const r = parseCliArgsSafe(['--run', FIXTURE_RUN, '--lang', 'xx'], REPO_ROOT);
+  it('rejects the removed --lang flag with a clear migration message', () => {
+    const r = parseCliArgsSafe(['--run', FIXTURE_RUN, '--lang', 'sv'], REPO_ROOT);
     if (r.kind !== 'error') throw new Error('not error');
-    expect(r.message).toMatch(/Unsupported language/);
+    expect(r.message).toMatch(/--lang has been removed/);
+    expect(r.message).toMatch(/all 14 languages/);
+  });
+
+  it('rejects the removed --language alias with a clear migration message', () => {
+    const r = parseCliArgsSafe(['--run', FIXTURE_RUN, '--language', 'de'], REPO_ROOT);
+    if (r.kind !== 'error') throw new Error('not error');
+    expect(r.message).toMatch(/--language has been removed/);
+  });
+
+  it('rejects the removed --markdown-only flag with a clear migration message', () => {
+    const r = parseCliArgsSafe(['--run', FIXTURE_RUN, '--markdown-only'], REPO_ROOT);
+    if (r.kind !== 'error') throw new Error('not error');
+    expect(r.message).toMatch(/--markdown-only has been removed/);
   });
 
   it('errors on malformed --since date', () => {
@@ -169,12 +200,6 @@ describe('parseCliArgsSafe — kind:"error"', () => {
     const r = parseCliArgsSafe(['--run='], REPO_ROOT);
     if (r.kind !== 'error') throw new Error('not error');
     expect(r.message).toMatch(/Missing value for --run/);
-  });
-
-  it('errors on empty inline value for --lang=', () => {
-    const r = parseCliArgsSafe(['--run', FIXTURE_RUN, '--lang='], REPO_ROOT);
-    if (r.kind !== 'error') throw new Error('not error');
-    expect(r.message).toMatch(/Missing value for --lang/);
   });
 
   it('errors on empty inline value for --since=', () => {

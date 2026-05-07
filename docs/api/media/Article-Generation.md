@@ -355,7 +355,7 @@ The aggregator package is split into seven bounded contexts under `src/aggregato
 | File / Module | Responsibility |
 |---|---|
 | `src/aggregator/article-generator.ts` | CLI entry point; parses flags; runs aggregation; resolves metadata; writes `article.md` to the run directory AND `news/<slug>.en.md`; **emits the deterministic `article-meta.json` sidecar next to `article.md`**; renders 14 HTML variants; passes `isBasedOn` source artifact URLs to the HTML chrome. Re-exports `buildArticleSlug`, `sanitizeRunSuffix`, `discoverAnalysisRuns`, `groupRunsForCollision`, `DiscoveredRun` from `slug/` and `runs/` for back-compat. |
-| `src/aggregator/analysis-aggregator.ts` | Reads run directory and `manifest.json`; flattens manifest files; discovers additional Markdown (excluding `article.md`, translated variants, `README.md`, and `pass1/`); orders sections; **inserts the deterministic Key Takeaways block immediately after the Executive Brief**; adds provenance, tradecraft, and analysis-index appendices. Re-exports `AnalysisManifest`, `flattenManifestFiles`, `latestGateResult`, `resolveArticleTypeFromManifest` from `manifest/` for back-compat. Exports `guessDateFromRunDir` for testability. |
+| `src/aggregator/analysis-aggregator.ts` | Reads run directory and `manifest.json`; flattens manifest files; discovers additional Markdown (excluding `article.md`, translated variants, `README.md`, and `pass1/`); orders sections; **inserts the Reader Intelligence Guide immediately after the Executive Brief, then the deterministic Key Takeaways block, before the deep sections**; adds provenance, tradecraft, and analysis-index appendices. Re-exports `AnalysisManifest`, `flattenManifestFiles`, `latestGateResult`, `resolveArticleTypeFromManifest` from `manifest/` for back-compat. Exports `guessDateFromRunDir` for testability. |
 | `src/aggregator/artifact-order.ts` | Defines the canonical section order and artifact path claims. The forward-projection bucket renders under the **`What to Watch`** title so readers see dated triggers as a forward-looking lens rather than buried "extended intel". |
 | `src/aggregator/clean-artifact.ts` | Strips front matter, banners, H1s, SPDX tags, artifact-metadata preambles (`**Run:**`, `**Window:**`, etc.), demotes headings, rewrites links, deduplicates Mermaid bodies. Re-exports `githubBlobUrl`/`githubRawUrl` from `infra/` for back-compat. |
 | `src/aggregator/markdown-renderer.ts` | Configures `markdown-it`, headings, footnotes, attrs, definition lists, table wrappers, and Mermaid fence rendering. |
@@ -382,29 +382,38 @@ The aggregator package is split into seven bounded contexts under `src/aggregato
 | `test/unit/manifest.test.js` | 30 tests — all 3 schema variants, malformed JSON, missing file, file-flattener edge cases, gate-result history walk. |
 | `test/unit/runs.test.js` | 19 tests — discovery walk, legacy schema tolerance, malformed-JSON skip, sort order, no-descend-into-nested-manifest, collision grouping, insertion-order preservation. |
 | `test/unit/slug.test.js` | 21 tests — pure naming functions plus a filename-safety round-trip property check. |
-| `test/unit/cli-parse.test.js` | 21 tests — every flag form (`--flag value`, `--flag=value`, aliases like `--analysis-dir`/`--language`/`--output`), `--help` short-circuit (no `process.exit` spy required), every error branch. |
-| `test/unit/aggregator-determinism.test.js` | 3 tests — byte-equality of every output file across two consecutive runs in English-only, all-14-languages, and `--markdown-only` modes. **Now also asserts byte-equality of `article-meta.json`.** This is the safety net that protects the byte-output contract. |
+| `test/unit/cli-parse.test.js` | Every flag form (`--flag value`, `--flag=value`, aliases like `--analysis-dir`/`--output`), `--help` short-circuit (no `process.exit` spy required), every error branch — **including explicit rejection of the removed `--lang/--language/--markdown-only` flags with a clear migration message**. |
+| `test/unit/aggregator-determinism.test.js` | 3 tests — byte-equality of every output file across two consecutive runs in English-only, all-14-languages, and `--markdown-only` modes (the `markdownOnly` knob is preserved on the programmatic API for test speed even though the CLI flag has been removed). **Now also asserts byte-equality of `article-meta.json`.** This is the safety net that protects the byte-output contract. |
 | `test/unit/aggregator-key-takeaways.test.js` | **NEW** — 14 tests covering bullet harvesting (`## Top Findings` / `## Key Judgments` / `## BLUF`), Jaccard near-duplicate dedupe, MIN/MAX bounds, and the rendered Markdown block. |
 | `test/unit/aggregator-lead.test.js` | **NEW** — 10 tests covering the executive-lead extractor: preferred-heading scanning, fallback paragraph, code-fence handling, and the sentence-trim cap. |
 | `test/unit/aggregator-article-meta.test.js` | **NEW** — 9 tests covering the structured `article-meta.json` sidecar: every per-field extractor (top finding, key takeaways, top risks, key dates, key actors, IMF macro context), graceful degradation when artifacts are missing, and stable sorted-key JSON serialisation. |
 
 ### CLI contract
 
+> **Always-14-languages-always-HTML contract (May 2026):** the CLI no longer accepts `--lang`, `--language`, or `--markdown-only`. Every CLI invocation aggregates the analysis run, writes `article.md` and `article-meta.json` into the run directory, and renders **all 14 language-aware HTML variants** under `news/`. There is no flag to scope to a single language or to skip HTML emission — both are guarantees of the contract. Programmatic callers (unit / integration tests) can still narrow the scope by constructing the options object directly when calling `generateArticle()` for speed.
+
 ```bash
 # Single-run render: article.md in run dir + source Markdown in news/ + all 14 HTML variants
 npm run generate-article -- --run analysis/daily/2026-04-24/propositions
 
-# Single-run render for selected languages
-npm run generate-article -- --run analysis/daily/2026-04-24/propositions --lang en --lang sv
-
-# Batch regeneration of every valid analysis run (backport / rebuild all article.md files)
+# Batch regeneration of every valid analysis run — backport / rebuild
+# all article.md files and produce all 14 HTML variants for every run
+# discovered under analysis/daily/.
 npm run generate-article:all
 
-# Batch regeneration from a date lower bound
+# Batch regeneration from a date lower bound (still all 14 languages per run)
 npm run generate-article -- --all --since 2026-04-24
 
-# Markdown-only source generation
-npm run generate-article -- --run analysis/daily/2026-04-24/propositions --markdown-only
+# Override the auto-derived title or description (single-run only)
+npm run generate-article -- --run analysis/daily/2026-04-24/propositions \
+  --title "Custom headline" --description "Custom lede"
+```
+
+The legacy `--lang en --lang sv` and `--markdown-only` invocations are now rejected with:
+
+```
+Flag --lang has been removed. The CLI always renders all 14 languages with HTML output.
+See Article-Generation.md § "CLI contract" for the new always-on contract.
 ```
 
 ### Generated file naming
@@ -476,8 +485,8 @@ The aggregated `article.md` follows a fixed deterministic skeleton, shaped for a
 
 1. **`# {humanize(articleType)} — {date}`** (document title)
 2. **Executive Brief** (`<h2 id="section-executive-brief">`) — BLUF up front
-3. **Key Takeaways** (`<h2 id="section-key-takeaways">`) — 3–7 deterministic bullets harvested from synthesis-summary / intelligence-assessment, **only emitted when ≥3 strong bullets are available**
-4. **Reader Intelligence Guide** (`<h2 id="reader-intelligence-guide">`) — Riksdagsmonitor-style navigation table that maps reader needs to artifacts
+3. **Reader Intelligence Guide** (`<h2 id="reader-intelligence-guide">`) — Riksdagsmonitor-style navigation table that maps reader needs to artifacts (placed right after the Executive Brief so readers get a navigation map before they commit to scanning the deeper digest)
+4. **Key Takeaways** (`<h2 id="section-key-takeaways">`) — 3–7 deterministic bullets harvested from synthesis-summary / intelligence-assessment, **only emitted when ≥3 strong bullets are available**
 5. **The political story** — `Synthesis Summary` → `Significance` → `Actors & Forces` → `Coalitions & Voting` → `Stakeholder Map` (the cast and how they aligned)
 6. **The stakes** — `Economic Context` (IMF macro stakes) → `Risk Assessment` → `Threat Landscape` → `Scenarios & Wildcards`
 7. **What to Watch** (`<h2 id="section-forward-projection">`) — forward-projection bucket (legislative-pipeline-forecast, parliamentary-calendar-projection, forward-indicators) so dated triggers live in their own forward-looking lens rather than under "extended intel"
