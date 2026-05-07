@@ -76,18 +76,6 @@ The 2027 budget guidelines text signals EP priorities for the mid-term budget re
 
 **Source:** EP Open Data Portal, EP Statistics 2026, World Bank Economic Data (DE/FR proxy for EU economic context)
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- **Apple:** App Store restrictions and browser choice compliance
-- **Meta:** Advertising data practices and privacy compliance
-- **Alphabet/Google:** Search and shopping interoperability
-- **Carbon cost pass-through** to household energy bills: projections indicate €40–80/year additional cost for average European household by 2028
-- **Social Climate Fund** mechanisms activated to cushion lower-income households
-- **Eastern European exposure:** Poland, Czechia, Hungary face disproportionate adjustment costs given carbon-intensive housing and transport stocks
-- **Investment signal:** ETS2 creates a revenue stream for green renovation — EU Green Bond market expected to benefit significantly
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -102,6 +90,18 @@ Use this guide to read the article as a political-intelligence product rather th
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **Apple:** App Store restrictions and browser choice compliance
+- **Meta:** Advertising data practices and privacy compliance
+- **Alphabet/Google:** Search and shopping interoperability
+- **Carbon cost pass-through** to household energy bills: projections indicate €40–80/year additional cost for average European household by 2028
+- **Social Climate Fund** mechanisms activated to cushion lower-income households
+- **Eastern European exposure:** Poland, Czechia, Hungary face disproportionate adjustment costs given carbon-intensive housing and transport stocks
+- **Investment signal:** ETS2 creates a revenue stream for green renovation — EU Green Bond market expected to benefit significantly
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

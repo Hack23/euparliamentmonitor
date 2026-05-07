@@ -185,16 +185,6 @@ All quantitative claims in this brief are anchored to live EP MCP data from `gen
 
 **Overall brief confidence:** 🟡 MEDIUM-HIGH (political arithmetic HIGH confidence; committee scheduling MEDIUM confidence; external scenario probability LOW-MEDIUM confidence)
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- **FS-2026-05-01-001:** EPP-S&D-Renew EDIS committee coalition — test by ITRE vote late May 2026. Trigger: ITRE committee vote scheduled.
-- **FS-2026-05-01-002:** AI Act August 2, 2026 prohibited practices enforcement — implementing acts must be adopted by June 1 or LIBE emergency procedure required.
-- **FS-2026-05-01-003:** EDIS rapporteur (ITRE) committee vote — expected May 18-21 plenary session. Pre-clearance during May 4-8 determinative.
-- **FS-2026-05-01-004:** US automotive tariff negotiation — formal announcement or 90-day extension decision expected by end of May 2026.
-- **FS-2026-05-01-005:** Clean Industrial Deal state aid framework — Commission legislative proposal expected before July 2026 summer recess.
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -207,6 +197,16 @@ Use this guide to read the article as a political-intelligence product rather th
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **FS-2026-05-01-001:** EPP-S&D-Renew EDIS committee coalition — test by ITRE vote late May 2026. Trigger: ITRE committee vote scheduled.
+- **FS-2026-05-01-002:** AI Act August 2, 2026 prohibited practices enforcement — implementing acts must be adopted by June 1 or LIBE emergency procedure required.
+- **FS-2026-05-01-003:** EDIS rapporteur (ITRE) committee vote — expected May 18-21 plenary session. Pre-clearance during May 4-8 determinative.
+- **FS-2026-05-01-004:** US automotive tariff negotiation — formal announcement or 90-day extension decision expected by end of May 2026.
+- **FS-2026-05-01-005:** Clean Industrial Deal state aid framework — Commission legislative proposal expected before July 2026 summer recess.
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

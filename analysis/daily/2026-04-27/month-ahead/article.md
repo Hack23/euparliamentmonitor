@@ -222,18 +222,6 @@ through State aid flexibility, industrial subsidy frameworks, or banking stabili
 *Sources: EP MCP tools (european-parliament-mcp-server@1.2.15), World Bank WDI API, IMF WEO April 2026.*
 *Generated: 2026-04-27 | SPDX: Apache-2.0*
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- Commission: targeted, reversible countermeasures
-- Council: broader scope, higher tariff rates on specific US goods
-- EP (INTA position): conditional suspension mechanism with escalation triggers
-- *Western EPP faction (Germany CDU/CSU, Netherlands VVD, Nordic members):* Support for Green Deal
-- *Eastern EPP faction (Poland PO, Czech ODS, Romanian PNL):* Insist on nuclear and gas transitional
-- EPP + S&D + Renew with social conditionality: 397 seats — viable
-- EPP + ECR + Renew without conditionality: 343 seats — below majority (needs 18 more)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -248,6 +236,18 @@ Use this guide to read the article as a political-intelligence product rather th
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/political-risk.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- Commission: targeted, reversible countermeasures
+- Council: broader scope, higher tariff rates on specific US goods
+- EP (INTA position): conditional suspension mechanism with escalation triggers
+- *Western EPP faction (Germany CDU/CSU, Netherlands VVD, Nordic members):* Support for Green Deal
+- *Eastern EPP faction (Poland PO, Czech ODS, Romanian PNL):* Insist on nuclear and gas transitional
+- EPP + S&D + Renew with social conditionality: 397 seats — viable
+- EPP + ECR + Renew without conditionality: 343 seats — below majority (needs 18 more)
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

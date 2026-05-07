@@ -11,18 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-24
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- `data/events-feed.json` — `status:"unavailable", reason:"EP API returned an error-in-body response for get_events_feed — the upstream enrichment step may have failed."`
-- `data/procedures-feed-preview.json` — preview leads with `1972-0003` and `1980-0013` identifiers; a fresh-breaking feed would lead with `2026` identifiers.
-- Prior-run manifest `analysis/daily/2026-04-23/breaking-run-1776928781/manifest.json` — history entry labelled "Day 12 outage".
-- `data/adopted-texts-feed.json` — itemCount=18 with identifiers spanning `TA-9-2024` (EP9), `TA-10-2024` (early EP10), and `TA-10-2025-0302..0314` (mid-EP10).
-- No `TA-10-2026-*` identifier present.
-- MCP server returned payload larger than 32 MB forcing file-mode response (`agentInstructions` field present, `payloadPath` provided).
-- No `delta` field surfaced in the schema.
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -34,6 +22,18 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- `data/events-feed.json` — `status:"unavailable", reason:"EP API returned an error-in-body response for get_events_feed — the upstream enrichment step may have failed."`
+- `data/procedures-feed-preview.json` — preview leads with `1972-0003` and `1980-0013` identifiers; a fresh-breaking feed would lead with `2026` identifiers.
+- Prior-run manifest `analysis/daily/2026-04-23/breaking-run-1776928781/manifest.json` — history entry labelled "Day 12 outage".
+- `data/adopted-texts-feed.json` — itemCount=18 with identifiers spanning `TA-9-2024` (EP9), `TA-10-2024` (early EP10), and `TA-10-2025-0302..0314` (mid-EP10).
+- No `TA-10-2026-*` identifier present.
+- MCP server returned payload larger than 32 MB forcing file-mode response (`agentInstructions` field present, `payloadPath` provided).
+- No `delta` field surfaced in the schema.
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

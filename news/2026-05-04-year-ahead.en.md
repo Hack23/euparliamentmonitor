@@ -61,18 +61,6 @@ EP10 will deliver a functional but below-EP9-pace legislative programme. Externa
 
 *This brief is based on European Parliament Open Data, World Bank economic indicators for Germany, public political group positions, and adopted texts metadata (January–April 2026). Voting data from EP API carries a 4–6 week publication delay; coalition assessments are based on structural inference and publicly observable political patterns.*
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- **May 2026:** 18–21 May (Strasbourg, full 4-day)
-- **July 2026:** 6–9 July (Strasbourg, full 4-day — summer session, reduced attendance expected)
-- **September 2026:** 14–17 September (Strasbourg, return from summer recess)
-- **November 2026:** 11–12 November (Brussels, mini-session), 23–26 November (Strasbourg, full 4-day)
-- **December 2026:** Not confirmed in dataset (typically 1 session, budget finalization)
-- **January–May 2027:** Estimated 10–12 further plenary sessions (historical pattern: 4 per month exc. August)
-- **Grand Coalition (EPP+S&D):** 320 seats — BELOW majority. Requires Renew (+77) = 397 → **viable supermajority** for institutional reform, treaty matters.
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -87,6 +75,18 @@ Use this guide to read the article as a political-intelligence product rather th
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **May 2026:** 18–21 May (Strasbourg, full 4-day)
+- **July 2026:** 6–9 July (Strasbourg, full 4-day — summer session, reduced attendance expected)
+- **September 2026:** 14–17 September (Strasbourg, return from summer recess)
+- **November 2026:** 11–12 November (Brussels, mini-session), 23–26 November (Strasbourg, full 4-day)
+- **December 2026:** Not confirmed in dataset (typically 1 session, budget finalization)
+- **January–May 2027:** Estimated 10–12 further plenary sessions (historical pattern: 4 per month exc. August)
+- **Grand Coalition (EPP+S&D):** 320 seats — BELOW majority. Requires Renew (+77) = 397 → **viable supermajority** for institutional reform, treaty matters.
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

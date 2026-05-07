@@ -153,18 +153,6 @@ The fragmentation index of 6.57 (effective parties) means majority coalitions re
 
 *Data sources: EP Open Data Portal (data.europarl.europa.eu) — adopted texts, plenary sessions, speeches metadata. Classified: PUBLIC. GDPR: MEP data used in public parliamentary role only.*
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- EPP: 185 seats (25.7%) — dominant centre-right
-- S&D: 135 seats (18.8%) — main left anchor
-- PfE: 85 seats (11.8%) — right populist
-- ECR: 81 seats (11.3%) — conservative nationalist
-- Renew: 77 seats (10.7%) — liberal centrist
-- Greens/EFA: 53 seats (7.4%) — green-progressive
-- The Left: 46 seats (6.4%) — radical left
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -179,6 +167,18 @@ Use this guide to read the article as a political-intelligence product rather th
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- EPP: 185 seats (25.7%) — dominant centre-right
+- S&D: 135 seats (18.8%) — main left anchor
+- PfE: 85 seats (11.8%) — right populist
+- ECR: 81 seats (11.3%) — conservative nationalist
+- Renew: 77 seats (10.7%) — liberal centrist
+- Greens/EFA: 53 seats (7.4%) — green-progressive
+- The Left: 46 seats (6.4%) — radical left
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

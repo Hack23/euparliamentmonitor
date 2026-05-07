@@ -98,18 +98,6 @@ The EP's adoption of a resolution on Lithuania's public broadcaster takeover att
 *Run ID:* `month-ahead-run-1777445122`
 *Agent:* EU Parliament Monitor — News Generation Workflow
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- May session completes without major disruption
-- Budget 2027 negotiations progress to trilogue stage
-- US tariff response calibrated, not escalated
-- CID makes steady committee progress
-- US announcement of automotive tariffs > 15% in the May 1-10 window
-- EU countermeasures activation (TER) that US reads as escalation
-- German automotive industry lobbying EPP against retaliation
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -124,6 +112,18 @@ Use this guide to read the article as a political-intelligence product rather th
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- May session completes without major disruption
+- Budget 2027 negotiations progress to trilogue stage
+- US tariff response calibrated, not escalated
+- CID makes steady committee progress
+- US announcement of automotive tariffs > 15% in the May 1-10 window
+- EU countermeasures activation (TER) that US reads as escalation
+- German automotive industry lobbying EPP against retaliation
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

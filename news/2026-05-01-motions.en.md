@@ -74,18 +74,6 @@ The European Parliament's April 2026 plenary session (28–30 April, Strasbourg)
 
 *Generated: 2026-05-01 | Source: EP Open Data Portal | IMF: UNAVAILABLE (network restriction, degraded mode) | Classification: UNCLASSIFIED*
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- `classification/actor-mapping.md`: ECR group internal power split identified (PiS-Polish 20/81 MEPs vs. institutional ECR)
-- `classification/forces-analysis.md`: National interest divergence force identified as structural feature of ECR's composition
-- `threat-assessment/political-threat-landscape.md`: T-01 (ECR fragmentation) rated 🔴 CRITICAL likelihood × impact
-- `risk-scoring/political-capital-risk.md`: ECR net -5 political capital this week (largest single-actor loss)
-- `intelligence/coalition-dynamics.md`: ECR cohesion estimated at 65% on Jaki vs. 74% average
-- `classification/significance-classification.md`: DMA motion TIER 2 significance
-- `classification/impact-matrix.md`: DMA carries 🔴 CRITICAL near-term economic impact
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -100,6 +88,18 @@ Use this guide to read the article as a political-intelligence product rather th
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- `classification/actor-mapping.md`: ECR group internal power split identified (PiS-Polish 20/81 MEPs vs. institutional ECR)
+- `classification/forces-analysis.md`: National interest divergence force identified as structural feature of ECR's composition
+- `threat-assessment/political-threat-landscape.md`: T-01 (ECR fragmentation) rated 🔴 CRITICAL likelihood × impact
+- `risk-scoring/political-capital-risk.md`: ECR net -5 political capital this week (largest single-actor loss)
+- `intelligence/coalition-dynamics.md`: ECR cohesion estimated at 65% on Jaki vs. 74% average
+- `classification/significance-classification.md`: DMA motion TIER 2 significance
+- `classification/impact-matrix.md`: DMA carries 🔴 CRITICAL near-term economic impact
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

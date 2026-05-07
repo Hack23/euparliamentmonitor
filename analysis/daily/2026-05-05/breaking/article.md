@@ -206,18 +206,6 @@ Fresh data collection on 2026-05-05T13:03Z identified additional adopted texts f
 
 **Coalition fragmentation context**: The 2026-05-05 political landscape snapshot confirms EPP at 185 seats (25.7%), S&D at 135 (18.8%), PfE at 85 (11.8%), ECR at 81 (11.3%), Renew at 77 (10.7%). Parliamentary Fragmentation Index: 6.57 (HIGH). The multi-coalition requirement means every Tier-1 item required ≥3 group assembly — the China/trade texts likely needed a broad EPP-S&D-Renew-ECR convergence on strategic autonomy grounds, unusual given the typical ECR Eurosceptic stance.
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- **Track A (Economic/Competitive)**: DMA Enforcement demands structural remedies against algorithmic self-preferencing by Apple and Alphabet. Parliament is signalling that the 2023 DMA's initial enforcement phase was too slow, and that gatekeeper status suspension must be on the table for continued violations.
-- **Track B (Social Harm)**: Cyberbullying platform liability fills the criminal law gap left by the DSA. Where the DSA relies on civil/administrative enforcement, Parliament is demanding national criminal provisions backed by platform co-liability for systematic failures to protect users.
-- **Eastern Neighbourhood**: Russia accountability + Armenia democracy — Parliament is applying coordinated pressure on the full Eastern European/South Caucasus security perimeter
-- **Western Hemisphere**: Haiti trafficking — Parliament's engagement with Western Hemisphere crises signals intent to use EU foreign policy tools beyond the traditional European neighbourhood
-- **Security Architecture**: Iceland PNR deal — practical security cooperation that extends the Schengen information ecosystem to an EEA partner
-- Parliament is signalling support for higher defence spending within EU budget frameworks
-- Cohesion fund preservation is a red line for S&D and regional MEPs
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -232,6 +220,18 @@ Use this guide to read the article as a political-intelligence product rather th
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **Track A (Economic/Competitive)**: DMA Enforcement demands structural remedies against algorithmic self-preferencing by Apple and Alphabet. Parliament is signalling that the 2023 DMA's initial enforcement phase was too slow, and that gatekeeper status suspension must be on the table for continued violations.
+- **Track B (Social Harm)**: Cyberbullying platform liability fills the criminal law gap left by the DSA. Where the DSA relies on civil/administrative enforcement, Parliament is demanding national criminal provisions backed by platform co-liability for systematic failures to protect users.
+- **Eastern Neighbourhood**: Russia accountability + Armenia democracy — Parliament is applying coordinated pressure on the full Eastern European/South Caucasus security perimeter
+- **Western Hemisphere**: Haiti trafficking — Parliament's engagement with Western Hemisphere crises signals intent to use EU foreign policy tools beyond the traditional European neighbourhood
+- **Security Architecture**: Iceland PNR deal — practical security cooperation that extends the Schengen information ecosystem to an EEA partner
+- Parliament is signalling support for higher defence spending within EU budget frameworks
+- Cohesion fund preservation is a red line for S&D and regional MEPs
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

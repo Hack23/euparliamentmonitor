@@ -187,18 +187,6 @@ These are lower-probability legislative actions in the May-June window. AI Act d
 
 **Note:** All dates are structural estimates — confirmed dates unavailable due to EP API outage.
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- 45% probability US automotive tariffs announced × 78% probability this produces EP unity = ~35% joint probability
-- Historical base rate of external-threat-induced EP unity in 30-day windows: ~40% when trigger conditions are met
-- Average of these estimates: 35-37.5%
-- If automotive Section 232 tariffs ≥25% announced before May 20: Scenario B activates; probability rises to 55%
-- If no announcement by May 20: Scenario A probability rises to 40%, Scenario C to 30%
-- If EPP group meeting produces unified position on EDIS supranational provisions: Scenario A probability rises 10-15%
-- If EPP group meeting shows ≥15-vote defection signals: Scenario C probability rises 15%
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -213,6 +201,18 @@ Use this guide to read the article as a political-intelligence product rather th
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- 45% probability US automotive tariffs announced × 78% probability this produces EP unity = ~35% joint probability
+- Historical base rate of external-threat-induced EP unity in 30-day windows: ~40% when trigger conditions are met
+- Average of these estimates: 35-37.5%
+- If automotive Section 232 tariffs ≥25% announced before May 20: Scenario B activates; probability rises to 55%
+- If no announcement by May 20: Scenario A probability rises to 40%, Scenario C to 30%
+- If EPP group meeting produces unified position on EDIS supranational provisions: Scenario A probability rises 10-15%
+- If EPP group meeting shows ≥15-vote defection signals: Scenario C probability rises 15%
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

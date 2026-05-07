@@ -11,18 +11,6 @@ layout: article
 ---
 # Breaking — 2026-04-19
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- **EPP**: memberCount=0 (API anomaly — estimated ~187; 🔴 Low confidence on exact count)
-- **S&D**: 135 seats (exact, 🟢 High confidence)
-- **Renew**: 77 seats (🟢 High confidence)
-- **Greens/EFA**: 53 seats (🟢 High confidence)
-- **The Left**: 46 seats (🟢 High confidence)
-- EPP + S&D + Renew (centre coalition): ~399 seats (~55.4%) — theoretical majority but vote-specific
-- EPP + S&D only: ~322 seats — insufficient without Renew or ECR
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -35,6 +23,18 @@ Use this guide to read the article as a political-intelligence product rather th
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **EPP**: memberCount=0 (API anomaly — estimated ~187; 🔴 Low confidence on exact count)
+- **S&D**: 135 seats (exact, 🟢 High confidence)
+- **Renew**: 77 seats (🟢 High confidence)
+- **Greens/EFA**: 53 seats (🟢 High confidence)
+- **The Left**: 46 seats (🟢 High confidence)
+- EPP + S&D + Renew (centre coalition): ~399 seats (~55.4%) — theoretical majority but vote-specific
+- EPP + S&D only: ~322 seats — insufficient without Renew or ECR
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

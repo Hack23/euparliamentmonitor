@@ -129,18 +129,6 @@ The next 7-year budget will dominate EP10's final 1.5 years. If negotiations are
 
 **Executive brief is regenerated per run, synthesising all 28 analysis artifacts. This is the primary reader-facing summary.**
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- Core majority: EPP (185) + S&D (135) + Renew (77) = 397 seats (solid majority)
-- Greens (53) + Left (46) augment on progressive dossiers but are not consistently available
-- ECR (81) + PfE (85) provide a majority-of-sorts on right-tilt amendments when EPP permits
-- YES → EP10 proves that social Europe and competitive Europe are not mutually exclusive; S&D legacy enhanced
-- NO → EP10 passes CID as competitiveness measure only; Green Deal advocates claim defeat; S&D weakened
-- YES → EU institutional norms vindicated; right-wing votes "contained"
-- NO → Major structural shift in EP's coalition grammar; normalisation of far-right
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -155,6 +143,18 @@ Use this guide to read the article as a political-intelligence product rather th
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- Core majority: EPP (185) + S&D (135) + Renew (77) = 397 seats (solid majority)
+- Greens (53) + Left (46) augment on progressive dossiers but are not consistently available
+- ECR (81) + PfE (85) provide a majority-of-sorts on right-tilt amendments when EPP permits
+- YES → EP10 proves that social Europe and competitive Europe are not mutually exclusive; S&D legacy enhanced
+- NO → EP10 passes CID as competitiveness measure only; Green Deal advocates claim defeat; S&D weakened
+- YES → EU institutional norms vindicated; right-wing votes "contained"
+- NO → Major structural shift in EP's coalition grammar; normalisation of far-right
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 
