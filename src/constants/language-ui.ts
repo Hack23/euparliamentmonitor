@@ -1092,7 +1092,11 @@ export const ANALYSIS_INDEX_HEADING_LABELS: LanguageMap = {
   zh: '分析索引',
 };
 
-/** Localized description for the Analysis Index appendix */
+/**
+ * Localized description for the Analysis Index appendix.
+ * NOTE: Every translation MUST contain the literal substring "manifest.json"
+ * — the HTML renderer injects a link around it at render time.
+ */
 export const ANALYSIS_INDEX_INTRO_LABELS: LanguageMap = {
   en: 'Every artifact below was read by the aggregator and contributed to this article. The raw manifest.json carries the full machine-readable list, including gate-result history.',
   sv: 'Varje artefakt nedan lästes av aggregeraren och bidrog till denna artikel. Rå manifest.json innehåller den fullständiga maskinläsbara listan, inklusive gate-resultathistorik.',
