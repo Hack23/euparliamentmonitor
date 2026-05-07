@@ -87,6 +87,7 @@ describe('sync-template-frontmatter > buildFrontmatterBlock', () => {
   });
 });
 
+// REUSE-IgnoreStart
 describe('sync-template-frontmatter > applyFrontmatter', () => {
   const SPDX = [
     '<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->',
@@ -180,6 +181,7 @@ describe('sync-template-frontmatter > applyFrontmatter', () => {
     expect(next).toContain(body);
   });
 });
+// REUSE-IgnoreEnd
 
 describe('sync-template-frontmatter > FRAMEWORK_TEMPLATE_OVERRIDES', () => {
   it('uses methodology and mermaidType pairs only — no extraneous fields', () => {
