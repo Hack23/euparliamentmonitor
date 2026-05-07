@@ -7621,7 +7621,7 @@ html[data-theme='dark'] .ep-offline-hero__title {
   --surface-warm-tint: rgba(230, 184, 0, 0.12);
   --shadow-xl: 0 22px 70px rgba(15, 23, 42, 0.14);
   --shadow-glow: 0 18px 54px rgba(0, 51, 153, 0.13);
-  --page-gutter: clamp(12px, 2vw, 32px);
+  --page-gutter: clamp(8px, 1vw, 20px);
   --reader-width: minmax(0, 1fr);
   --toc-width: clamp(260px, 18vw, 340px);
 }
@@ -7636,6 +7636,10 @@ body {
     var(--bg);
 }
 
+html {
+  overflow-x: clip;
+}
+
 .site-header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.13);
 }
@@ -7644,6 +7648,10 @@ body {
   width: calc(100% - (var(--page-gutter) * 2));
   max-width: none;
   padding-inline: 0;
+}
+
+.site-header__inner--stacked .site-header__brand {
+  flex: 1 1 460px;
 }
 
 .site-header__actions {
@@ -7701,7 +7709,8 @@ body {
 }
 
 .hero__banner {
-  width: min(calc(100% - (var(--page-gutter) * 2)), 1200px);
+  width: 100%;
+  max-width: none;
   margin-inline: auto;
   border-radius: 0;
 }
@@ -7714,12 +7723,15 @@ body {
 }
 
 .page-banner {
+  width: 100%;
+  margin-inline: 0;
   padding-block: clamp(6px, 1.2vw, 18px);
 }
 
 .page-banner picture {
   display: block;
-  width: min(calc(100% - (var(--page-gutter) * 2)), 1200px);
+  width: 100%;
+  max-width: none;
   margin-inline: auto;
 }
 
@@ -7746,9 +7758,9 @@ body {
 
 /* Article pages: keep long generated analysis readable on every viewport. */
 .article-main {
-  grid-template-columns: minmax(220px, var(--toc-width)) minmax(0, var(--reader-width));
+  grid-template-columns: minmax(240px, var(--toc-width)) minmax(0, var(--reader-width));
   justify-content: stretch;
-  gap: clamp(18px, 3vw, 42px);
+  gap: clamp(14px, 2vw, 36px);
   width: calc(100% - (var(--page-gutter) * 2));
   max-width: none;
   padding-block: clamp(20px, 3vw, 42px);
@@ -7808,6 +7820,7 @@ body {
 .article-body {
   max-width: none;
   width: 100%;
+  box-sizing: border-box;
   padding: clamp(20px, 3.4vw, 44px);
   background:
     radial-gradient(circle at 8% 0%, var(--surface-tint), transparent 26rem),
@@ -7816,6 +7829,7 @@ body {
   border-color: color-mix(in srgb, var(--primary) 18%, var(--border));
   border-radius: 24px;
   box-shadow: var(--shadow-xl);
+  overflow-x: clip;
 }
 
 .article-hero {
