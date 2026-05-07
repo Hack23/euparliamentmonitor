@@ -129,14 +129,6 @@ This executive brief synthesizes the following artifacts from `analysis/daily/20
 **Run ID:** month-in-review-run-1777448086  
 **Generated:** 2026-04-29
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- The structural fragmentation (ENP 6.59) exceeds all prior terms
-- The legislative output acceleration (+46%) is historically anomalous for Year 2 of a term
-- The multi-front crisis agenda is more complex than EP9 (which had COVID + climate but not simultaneous trade confrontation)
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -151,6 +143,14 @@ Use this guide to read the article as a political-intelligence product rather th
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- The structural fragmentation (ENP 6.59) exceeds all prior terms
+- The legislative output acceleration (+46%) is historically anomalous for Year 2 of a term
+- The multi-front crisis agenda is more complex than EP9 (which had COVID + climate but not simultaneous trade confrontation)
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

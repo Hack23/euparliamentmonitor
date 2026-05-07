@@ -550,30 +550,33 @@ export function aggregateAnalysisRun(options) {
     const analysisIndex = renderAnalysisIndex(includedArtifacts, manifestRelPath);
     const readerGuide = renderReaderIntelligenceGuide(emittedSections, includedArtifacts);
     // Deterministic 3–7 bullet "Key takeaways" block, harvested from the
-    // synthesis-summary / intelligence-assessment artifacts. Placed
-    // immediately after the Executive Brief so the reader gets the BLUF
-    // followed by a digest of the strongest findings before being handed
-    // off to the Reader Intelligence Guide and the deeper sections.
+    // synthesis-summary / intelligence-assessment artifacts. Sits between
+    // the Reader Intelligence Guide and the deep sections: the reader gets
+    // the BLUF (Executive Brief) → a navigation map (Reader Guide) → a
+    // bullet digest of the strongest findings (Key Takeaways) → the deep
+    // analysis. This is the order requested for reader UX so navigation
+    // is established before the reader commits to scanning takeaways.
     const keyTakeaways = buildKeyTakeaways({ runDir });
-    // TOC ordering reflects the rendered document:
+    // TOC ordering must match the rendered Markdown body 1:1. Order:
     // Executive Brief (already first in emittedSections via appendSection) →
-    // Key Takeaways (inserted right after the brief when present) →
-    // Reader Intelligence Guide → remaining sections → audit appendices.
+    // Reader Intelligence Guide (inserted right after the brief when present) →
+    // Key Takeaways (inserted right after the guide when present) →
+    // remaining sections → audit appendices.
     let postBriefIdx = emittedSections.length > 0 &&
         emittedSections[0]?.id === namespacedSectionId(execBriefSection?.id ?? '')
         ? 1
         : 0;
-    if (keyTakeaways) {
-        emittedSections.splice(postBriefIdx, 0, {
-            id: KEY_TAKEAWAYS_SECTION_ID,
-            title: KEY_TAKEAWAYS_SECTION_TITLE,
-        });
-        postBriefIdx += 1;
-    }
     if (readerGuide) {
         emittedSections.splice(postBriefIdx, 0, {
             id: READER_GUIDE_SECTION_ID,
             title: READER_GUIDE_SECTION_TITLE,
+        });
+        postBriefIdx += 1;
+    }
+    if (keyTakeaways) {
+        emittedSections.splice(postBriefIdx, 0, {
+            id: KEY_TAKEAWAYS_SECTION_ID,
+            title: KEY_TAKEAWAYS_SECTION_TITLE,
         });
     }
     emittedSections.push({ id: TRADECRAFT_SECTION_ID, title: TRADECRAFT_SECTION_TITLE });
@@ -583,9 +586,8 @@ export function aggregateAnalysisRun(options) {
         '',
         ...execBriefMarkdown,
         '',
+        ...(readerGuide ? [readerGuide, ''] : []),
         ...(keyTakeaways ? [keyTakeaways, ''] : []),
-        readerGuide,
-        '',
         ...sectionMarkdown,
         '',
         provenance,

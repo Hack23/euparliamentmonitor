@@ -215,6 +215,8 @@ function stripCellNoise(s) {
     .trim();
 }
 
+export { stripCellNoise };
+
 const AI_INSTRUCTIONS_BODY = `<!-- ${AI_INSTRUCTIONS_TOKEN}
 ROLE          : You are filling this template as part of an EU Parliament Monitor
                 Stage-B analysis run. The output is consumed verbatim by the
@@ -264,6 +266,8 @@ function buildFrontmatterBlock(basename, depthFloor, methodology, mermaidType) {
     `-->`,
   ].join('\n');
 }
+
+export { buildFrontmatterBlock };
 
 const FRONTMATTER_REGEX = new RegExp(
   `<!--\\s*${FRONTMATTER_TOKEN}[\\s\\S]*?-->\\s*\\n+`,
@@ -325,6 +329,13 @@ function applyFrontmatter(originalContent, basename, depthFloor, methodology, me
   return `${beforeWithBlank}\n${blocks}\n${after}`;
 }
 
+export {
+  applyFrontmatter,
+  FRONTMATTER_TOKEN,
+  AI_INSTRUCTIONS_TOKEN,
+  FRAMEWORK_TEMPLATE_OVERRIDES,
+};
+
 function listTemplateFiles() {
   return fs
     .readdirSync(TEMPLATES_DIR)
@@ -382,4 +393,11 @@ function main() {
   );
 }
 
-main();
+export { main };
+
+// Run main() only when this module is the entry point — never on import (so
+// unit tests can import the helpers above without triggering the CLI's
+// filesystem walk + process.exit on drift).
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main();
+}

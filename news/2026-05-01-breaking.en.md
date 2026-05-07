@@ -150,18 +150,6 @@ Run 2 identified 5 additional adopted texts missed by Run 1's feed-only query. T
 
 **Data confidence:** 🟢 HIGH for procedural/political analysis; 🟡 MEDIUM for scenario forecasts (calibrated to 2026-05-01 information environment). Voting record data not yet available from EP API (4–6 week delay); coalition analysis uses seat-share proxy confirmed accurate for historical patterns.
 
-<h2 id="section-key-takeaways">Key Takeaways</h2>
-
-A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
-
-- **International rule of law:** Accountability for the crime of aggression; ICC warrant enforcement; special tribunal
-- **Democratic rule of law:** Armenia's protection from authoritarian pressure; EU enlargement as democratic anchor
-- **Digital rule of law:** Platform criminal liability for cyberbullying; ending effective impunity for coordinated online harassment
-- Ukraine reconstruction funding
-- Defence spending increase
-- Green transition maintenance
-- Agricultural support
-
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
@@ -176,6 +164,18 @@ Use this guide to read the article as a political-intelligence product rather th
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+
+<h2 id="section-key-takeaways">Key Takeaways</h2>
+
+A deterministic 3–7 bullet synthesis of the strongest evidence-bearing findings, harvested from the synthesis-summary and intelligence-assessment artifacts. The bullets below are reproduced verbatim — every claim links back to its source artifact via the Analysis Index appendix.
+
+- **International rule of law:** Accountability for the crime of aggression; ICC warrant enforcement; special tribunal
+- **Democratic rule of law:** Armenia's protection from authoritarian pressure; EU enlargement as democratic anchor
+- **Digital rule of law:** Platform criminal liability for cyberbullying; ending effective impunity for coordinated online harassment
+- Ukraine reconstruction funding
+- Defence spending increase
+- Green transition maintenance
+- Agricultural support
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 
