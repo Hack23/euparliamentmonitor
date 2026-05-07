@@ -331,12 +331,16 @@ html[data-theme='light'] .theme-toggle__svg--dark {
 }
 
 .site-header__logo--banner {
-  width: 180px;
-  height: 60px;
-  border-radius: 4px;
-  object-fit: cover;
+  width: 200px;
+  height: 64px;
+  border-radius: 6px;
+  /* Use `contain` instead of `cover` so the EU stars / parliament motif
+     in the 1200×400 source asset is fully visible inside the header
+     pill rather than being center-cropped to an unrecognisable strip. */
+  object-fit: contain;
   object-position: center;
   flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.08);
   box-shadow:
     0 0 0 2px rgba(255, 255, 255, 0.2),
     0 2px 8px rgba(0, 0, 0, 0.3);
@@ -349,7 +353,7 @@ html[data-theme='light'] .theme-toggle__svg--dark {
 
 .site-header__title {
   display: block;
-  font-size: 1.1rem;
+  font-size: clamp(1.15rem, 0.5vw + 1rem, 1.45rem);
   font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.2;
@@ -358,9 +362,9 @@ html[data-theme='light'] .theme-toggle__svg--dark {
 
 .site-header__subtitle {
   display: block;
-  font-size: 0.72rem;
+  font-size: clamp(0.78rem, 0.25vw + 0.7rem, 0.92rem);
   font-weight: 400;
-  opacity: 0.8;
+  opacity: 0.85;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   overflow-wrap: anywhere;
@@ -532,8 +536,14 @@ html[data-theme='light'] .theme-toggle__svg--dark {
 .hero__banner-img {
   display: block;
   width: 100%;
-  height: clamp(180px, 32vw, 360px);
-  object-fit: cover;
+  height: auto;
+  /* Source banner is 1200×400 — preserve native 3:1 aspect so the entire
+     motif (EU stars, parliament chamber, copy area) stays visible at every
+     viewport width. The previous `object-fit: cover` + clamped pixel
+     height cropped ~50–60% of vertical content on narrow viewports. */
+  aspect-ratio: 1200 / 400;
+  max-height: clamp(200px, 30vw, 400px);
+  object-fit: contain;
   object-position: center;
 }
 
@@ -545,14 +555,23 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   margin-inline: calc(50% - 50vw);
   overflow: hidden;
   border-bottom: 3px solid var(--secondary);
+  /* Provide a brand-tinted backdrop for letterboxed remainders when the
+     banner aspect ratio is narrower than the viewport. Matches the header
+     gradient so the seam between header and banner is visually continuous. */
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   line-height: 0;
 }
 
 .page-banner__img {
   display: block;
   width: 100%;
-  height: clamp(120px, 26vw, 320px);
-  object-fit: cover;
+  height: auto;
+  /* See `.hero__banner-img` rationale: full banner visibility via native
+     1200×400 aspect ratio rather than vertical cropping. The max-height
+     prevents the banner from dominating very wide ultra-wide displays. */
+  aspect-ratio: 1200 / 400;
+  max-height: clamp(160px, 28vw, 360px);
+  object-fit: contain;
   object-position: center;
 }
 
