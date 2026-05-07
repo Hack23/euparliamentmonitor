@@ -569,7 +569,18 @@ ARTICLE_TYPES_INPUT="${{ github.event.inputs.article_types }}"
 if [ -z "$ARTICLE_TYPES_INPUT" ]; then
   ARTICLE_TYPES_INPUT="${EP_ARTICLE_TYPES:-}"
 fi
-FORCE_TRANSLATION="${EP_FORCE_TRANSLATION:-${{ github.event.inputs.force_translation }}}"
+# Force-translation override: prefer the EP_FORCE_TRANSLATION env var,
+# fall back to the workflow_dispatch input. Split into a plain capture +
+# if/else dispatch to avoid nested parameter expansion -- the gh-aw
+# shell-safety filter rejects the legacy `var-or-template-default`
+# pattern even though the inner GitHub-Actions templating is evaluated
+# before bash sees the line.
+FORCE_TRANSLATION_INPUT="${{ github.event.inputs.force_translation }}"
+if [ -n "${EP_FORCE_TRANSLATION:-}" ]; then
+  FORCE_TRANSLATION="$EP_FORCE_TRANSLATION"
+else
+  FORCE_TRANSLATION="$FORCE_TRANSLATION_INPUT"
+fi
 
 # --- Resolve target languages FIRST (needed by discovery) ---
 # Always-14-languages contract: news-translate.md no longer accepts a

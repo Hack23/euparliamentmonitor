@@ -396,8 +396,9 @@ The aggregator package is split into seven bounded contexts under `src/aggregato
 # Single-run render: article.md in run dir + source Markdown in news/ + all 14 HTML variants
 npm run generate-article -- --run analysis/daily/2026-04-24/propositions
 
-# Batch regeneration of every valid analysis run (backport / rebuild all article.md files
-# — produces all 14 HTML variants for every run discovered under analysis/daily/)
+# Batch regeneration of every valid analysis run — backport / rebuild
+# all article.md files and produce all 14 HTML variants for every run
+# discovered under analysis/daily/.
 npm run generate-article:all
 
 # Batch regeneration from a date lower bound (still all 14 languages per run)
