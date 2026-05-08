@@ -1,0 +1,53 @@
+{
+  "date": "2026-05-08",
+  "articleType": "propositions",
+  "runId": "propositions-run425-1778219258",
+  "gateResult": "PENDING",
+  "slug": "2026-05-08-propositions",
+  "articlePath": "analysis/daily/2026-05-08/propositions/article.md",
+  "topFinding": "The European Parliament completed its April 2026 plenary session with a historically productive legislative sprint, adopting 57 texts across the period January–April 2026 (101 total in 2026 to date).",
+  "keyTakeaways": [
+    "Europe now has a Banking Resolution framework (SRMR3) that can handle major bank failures without taxpayer bailouts",
+    "The EU's first anti-corruption law is now legally binding on all member states",
+    "The Critical Medicines Act (June 2026 target) could mandate pharmaceutical companies to stockpile medicines in EU — ending the drug shortage crisis",
+    "Carbon market reform (ETS2 MSR) will raise carbon prices, affecting heating and transport costs",
+    "REACH simplification could make EU chemical regulation less burdensome — helpful for industry, controversial for environmentalists",
+    "EP external documents feed shows 12 Commission follow-up notes (SP-2026-05-05) acknowledging adopted EP texts from 2025–2026, indicating active implementation tracking",
+    "No plenary votes recorded May 1–8 (Parliament in recess/committee week between the Strasbourg session ending April 30)"
+  ],
+  "topRisks": [
+    "R2 (Score 14) and R4 (Score 13) are the highest composite risks. Both require monitoring in the next 30 days. R2 monitoring is actionable via EP political signals. R4 monitoring is via Commission/Hungary dialogue."
+  ],
+  "keyDates": [
+    "Austrian Council Presidency (Jan–June 2026) delivers General Approaches on ETS2 MSR and Chemical Simplification in June",
+    "Polish Council Presidency (July–December 2026) commits to fast trilogue timetable",
+    "Chemical Simplification: Provisional agreement November, plenary vote Q1 2027 (slips slightly)",
+    "Critical Medicines Act: Agreement Q1 2027 (6 months after current trilogue state)",
+    "ETS2 MSR: Agreement Q3 2027 (contentious; 2 years after Commission proposal)",
+    "Chemical Simplification: Agreement Q4 2027 (longest — most contested)",
+    "Chemical Simplification: Weakened version adopted Q2 2027 without Greens/Left support",
+    "🟢 **Probability 75%:** Third trilogue round confirmed for June 2026"
+  ],
+  "keyActors": [
+    "EPP: 188 + S&D: 136 + Renew: 77 + Greens: 53 = **454 seats** (63% of 719)",
+    "This exceeds the simple majority threshold (360) by 94 seats",
+    "Risk: Greens may defect if CMA Article 22 (environmental exemptions) is weakened",
+    "PfE: 84 + ECR: 78 + ESN: 18 = **180 seats**",
+    "Insufficient to block outright but sufficient to force delays and amendments",
+    "The Left (46 seats) may tactically abstain if IP provisions are not strengthened",
+    "More fragmented; Greens + S&D + parts of Renew (~200 seats) form core",
+    "EPP internal division: western members (pro-reform) vs. eastern members (anti-speed)"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

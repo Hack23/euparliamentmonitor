@@ -1,0 +1,59 @@
+{
+  "articleType": "propositions",
+  "date": "2026-05-08",
+  "runId": "propositions-run425-1778219258",
+  "workflowStartEpoch": 1778219258,
+  "status": "stage-b-pass2",
+  "imfAvailable": false,
+  "pass2": {
+    "startedAt": "2026-05-08T06:04:53Z",
+    "endedAt": "2026-05-08T06:17:45.077Z",
+    "rewriteCount": 23
+  },
+  "gateResult": null,
+  "files": {
+    "artifacts": [
+      "executive-brief.md",
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/analysis-index.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/methodology-reflection.md",
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/legislative-velocity-risk.md",
+      "threat-assessment/political-threat-landscape.md",
+      "threat-assessment/legislative-disruption.md",
+      "existing/pipeline-health.md"
+    ]
+  },
+  "keyFindings": {
+    "totalAdoptedTexts2026": 101,
+    "activeProcedures": 3,
+    "completedProcedures": 2,
+    "epMEPs": 719,
+    "epGroups": 9,
+    "majorityThreshold": 361,
+    "fragmentationIndex": 6.55,
+    "standardCoalitionSeats": 398
+  },
+  "history": [
+    {
+      "runId": "propositions-run425-1778219258",
+      "timestamp": "2026-05-08T00:00:00Z",
+      "status": "stage-b-complete",
+      "artifactsWritten": 20
+    }
+  ]
+}
