@@ -26,13 +26,35 @@ if [ -n "${GH_AW_PAT_FALLBACK_STDIO_LOG:-}" ]; then
   stdio_log="$GH_AW_PAT_FALLBACK_STDIO_LOG"
 fi
 
-if [ ! -f "$stdio_log" ]; then
-  log "agent stdio log not found; fallback skipped"
-  exit 0
+# Check if a recovery patch was captured by gh-aw-capture-agent-patch.sh.
+# A recovery patch indicates the agent committed work that the safe_outputs
+# bundle-apply step may not have successfully applied (e.g. due to a
+# shallow-clone race where a concurrent push to main moved HEAD ahead of the
+# commit the agent branched from, making the bundle's prerequisite commit
+# unavailable in the safe_outputs runner's fetch-depth:1 checkout).
+recovery_patch="/tmp/gh-aw/aw-agent-recovery.patch"
+has_recovery_patch=false
+if [ -f "$recovery_patch" ] && [ -s "$recovery_patch" ]; then
+  has_recovery_patch=true
 fi
 
-if ! grep -qi 'session not found' "$stdio_log"; then
-  log "safeoutputs session expiry not detected; fallback skipped"
+if [ ! -f "$stdio_log" ]; then
+  if [ "$has_recovery_patch" = false ]; then
+    log "agent stdio log not found and no recovery patch; fallback skipped"
+    exit 0
+  fi
+fi
+
+# Trigger 1 (classic): safeoutputs MCP session expired ('session not found').
+session_not_found=false
+if [ -f "$stdio_log" ] && grep -qi 'session not found' "$stdio_log"; then
+  session_not_found=true
+fi
+
+# Trigger 2 (new): agent committed work but safe_outputs bundle apply failed.
+# Activate when either trigger condition is met.
+if [ "$session_not_found" = false ] && [ "$has_recovery_patch" = false ]; then
+  log "no session expiry and no recovery patch; fallback skipped"
   exit 0
 fi
 
@@ -48,12 +70,11 @@ if [ -n "$safe_outputs_file" ] && [ -f "$safe_outputs_file" ]; then
   fi
 fi
 
-if [ -f /tmp/gh-aw/safeoutputs.jsonl ]; then
-  if grep -q 'create_pull_request' /tmp/gh-aw/safeoutputs.jsonl; then
-    log "create_pull_request safeoutput copy exists; fallback skipped"
-    exit 0
-  fi
-fi
+# NOTE: The /tmp/gh-aw/safeoutputs.jsonl check is deferred until after
+# slug/today/repo are computed so we can verify via the GitHub API whether
+# the PR was actually created on GitHub (not just requested by the agent).
+# The old eager check caused false-positive skips when the agent wrote a
+# create_pull_request safeoutput but safe_outputs failed to apply the bundle.
 
 token=""
 if [ -n "${GH_AW_PAT_PR_FALLBACK_TOKEN:-}" ]; then
@@ -95,6 +116,31 @@ if [ -n "${GITHUB_REPOSITORY:-}" ]; then
 else
   log "GITHUB_REPOSITORY unavailable; fallback skipped"
   exit 0
+fi
+
+# Deferred safeoutputs.jsonl check: verify via GitHub API whether the
+# safe_outputs bundle path actually created an open PR.
+#
+# The old eager check (`grep create_pull_request /tmp/gh-aw/safeoutputs.jsonl
+# → skip`) was a false positive for bundle apply failures: the agent writes
+# the request to safeoutputs.jsonl before the safe_outputs job runs, so the
+# file always contains create_pull_request even when the bundle apply fails
+# with "Repository lacks prerequisite commits" (shallow-clone race condition).
+#
+# safe_outputs creates branches with format "news/<slug>-<date>-<salt>".
+# Our fallback creates "news/<date>-<slug>" (no salt, different order).
+# A successful safe_outputs run will have an open PR for the salted branch;
+# absence of that PR is a reliable signal that the bundle apply failed.
+if [ -f /tmp/gh-aw/safeoutputs.jsonl ] && grep -q 'create_pull_request' /tmp/gh-aw/safeoutputs.jsonl; then
+  bundle_pr=$(gh pr list --repo "$repo" --state open \
+    --json number,headRefName \
+    --jq "[.[] | select(.headRefName | startswith(\"news/${slug}-${today}-\"))] | .[0].number // \"\"" \
+    2>/dev/null || true)
+  if [ -n "$bundle_pr" ]; then
+    log "safe_outputs created open PR #${bundle_pr} via bundle (news/${slug}-${today}-*); fallback skipped"
+    exit 0
+  fi
+  log "agent wrote create_pull_request but no open bundle-path PR found on GitHub; proceeding with fallback"
 fi
 
 server_url="https://github.com"
@@ -222,8 +268,13 @@ fi
 
 title="[news] $headline"
 
+fallback_reason="safeoutputs MCP session expired with \`session not found\`"
+if [ "$session_not_found" = false ] && [ "$has_recovery_patch" = true ]; then
+  fallback_reason="safe_outputs bundle apply failed (shallow-clone race: a commit was pushed to main while the agent was running, making the bundle's prerequisite commit unavailable in the fetch-depth:1 checkout)"
+fi
+
 cat > "$body_file" <<EOF_BODY
-Host-side PAT fallback created this PR after the normal gh-aw safeoutputs PR creation path reported an expired MCP session.
+Host-side PAT fallback created this PR after the normal gh-aw safeoutputs PR creation path failed.
 
 - Workflow: $workflow_name
 - Run: $run_url
@@ -231,7 +282,7 @@ Host-side PAT fallback created this PR after the normal gh-aw safeoutputs PR cre
 - Article type: $slug
 - Analysis directory: $analysis_dir
 - Gate result: $gate_result
-- Fallback reason: safeoutputs MCP session expired with \`session not found\`
+- Fallback reason: $fallback_reason
 - Fallback credential: \`COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN\` from the host workflow environment
 
 Changed file summary:
