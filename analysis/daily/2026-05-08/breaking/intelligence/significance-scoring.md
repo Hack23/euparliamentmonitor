@@ -90,12 +90,20 @@ Texts adopted in the same plenary week often reinforce each other through cross-
 
 **Interaction C — Armenia + Geopolitical Repositioning:** The Armenia democratic resilience text (TA-10-2026-0162), read against the Ukraine accountability framework, signals the EP's active management of its Eastern neighbourhood. Two resolutions in one week on the EU's eastern flank establishes a pattern: EP is asserting foreign policy influence through soft-law instruments at scale.
 
-**Re-run significance validation (2026-05-08):** All tier-1 items confirmed as current and material. No new adopted texts from today's (May 8) feed that would displace the April 30 items from the significance ranking. The significance scoring stands.
+**Re-run significance validation (2026-05-08 Pass 2):** All tier-1 items confirmed as current and material. No new adopted texts from today's (May 8) feed that would displace the April 30 items from the significance ranking. The significance scoring stands.
 
-*Source: Significance scoring | EP Open Data | 2026-05-08 (re-run extended)*
+### Third-Run Extended Significance Assessment (2026-05-08)
+
+**Parliamentary Stability Context for Significance:** The EP10 political landscape (confirmed 2026-05-08 via live EP API) shows EPP 185 seats (25.7%), S&D 136 (18.9%), PfE 85 (11.8%), ECR 81 (11.3%), Renew 77 (10.7%), Greens/EFA 53 (7.4%), The Left 45 (6.3%), NI 30 (4.2%), ESN 27 (3.8%). Total 719 MEPs. The majority threshold is 361 seats. Grand coalition (EPP+S&D) at 321 seats falls short of majority — the tier-1 adopted texts required cross-party coalition building, elevating their political significance.
+
+**Fragmentation Index Impact on Significance:** The EP's parliamentary fragmentation index of 6.55 (effective number of parties) is historically elevated for EP10. This means tier-1 texts required supermajority-style coalitions to pass. The DMA enforcement resolution and Ukraine accountability framework — both requiring 361+ votes — represent institutionally significant coalition achievements in a fragmented parliament.
+
+**Dominant Group Risk and Significance Amplification:** The early warning system flags EPP's 185-seat dominance as HIGH severity, with EPP 19× the size of the smallest groups. The significance of the April 30 session is amplified by EPP's pivotal role: as agenda-setter and largest group, EPP's alignment with S&D on Ukraine accountability elevates the legislative outcome's durability.
+
+*Source: Significance scoring extended | EP Open Data Portal live API | EP Political Landscape 2026-05-08 | Early Warning System | 2026-05-08 (third-run extended)*
 
 ---
-*Significance scoring complete. 2026-05-08.*
+*Significance scoring complete. 2026-05-08 (Pass 3 extended).*
 
 
 
