@@ -2,7 +2,7 @@
   "date": "2026-05-08",
   "articleType": "breaking",
   "runId": "breaking-run373-1778202056",
-  "gateResult": "PASS",
+  "gateResult": "GREEN",
   "slug": "2026-05-08-breaking",
   "articlePath": "analysis/daily/2026-05-08/breaking/article.md",
   "topFinding": "---",
