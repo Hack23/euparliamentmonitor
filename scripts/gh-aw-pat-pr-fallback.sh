@@ -8,6 +8,11 @@ log() {
   printf 'gh-aw-pat-pr-fallback: %s\n' "$*"
 }
 
+gh_aw_dir="/tmp/gh-aw"
+if [ -n "${GH_AW_DIR:-}" ]; then
+  gh_aw_dir="$GH_AW_DIR"
+fi
+
 read_gate_result() {
   manifest_path="$1"
   node - "$manifest_path" <<'NODE_GATE_RESULT'
@@ -21,7 +26,7 @@ console.log(lastHistory.gateResult || manifest.gateResult || 'UNKNOWN');
 NODE_GATE_RESULT
 }
 
-stdio_log="/tmp/gh-aw/agent-stdio.log"
+stdio_log="$gh_aw_dir/agent-stdio.log"
 if [ -n "${GH_AW_PAT_FALLBACK_STDIO_LOG:-}" ]; then
   stdio_log="$GH_AW_PAT_FALLBACK_STDIO_LOG"
 fi
@@ -32,15 +37,30 @@ fi
 # shallow-clone race where a concurrent push to main moved HEAD ahead of the
 # commit the agent branched from, making the bundle's prerequisite commit
 # unavailable in the safe_outputs runner's fetch-depth:1 checkout).
-recovery_patch="/tmp/gh-aw/aw-agent-recovery.patch"
+recovery_patch="$gh_aw_dir/aw-agent-recovery.patch"
 has_recovery_patch=false
 if [ -f "$recovery_patch" ] && [ -s "$recovery_patch" ]; then
   has_recovery_patch=true
 fi
 
+has_safeoutputs_patch=false
+shopt -s nullglob
+safeoutputs_patches=("$gh_aw_dir"/aw-*.patch)
+shopt -u nullglob
+if [ "${#safeoutputs_patches[@]}" -gt 0 ]; then
+  has_safeoutputs_patch=true
+fi
+
+safe_outputs_failed=false
+case "${GH_AW_SAFE_OUTPUTS_RESULT:-}" in
+  failure|cancelled|timed_out)
+    safe_outputs_failed=true
+    ;;
+esac
+
 if [ ! -f "$stdio_log" ]; then
-  if [ "$has_recovery_patch" = false ]; then
-    log "agent stdio log not found and no recovery patch; fallback skipped"
+  if [ "$has_recovery_patch" = false ] && { [ "$safe_outputs_failed" = false ] || [ "$has_safeoutputs_patch" = false ]; }; then
+    log "agent stdio log not found and no recovery/failed-safeoutputs patch; fallback skipped"
     exit 0
   fi
 fi
@@ -51,10 +71,21 @@ if [ -f "$stdio_log" ] && grep -qi 'session not found' "$stdio_log"; then
   session_not_found=true
 fi
 
-# Trigger 2 (new): agent committed work but safe_outputs bundle apply failed.
+# Trigger 2: agent committed work but safe_outputs did not emit a usable patch.
+# Trigger 3: safe_outputs failed after emitting its own patch (for example, a
+# bundle prerequisite race in the create_pull_request write job).
 # Activate when either trigger condition is met.
-if [ "$session_not_found" = false ] && [ "$has_recovery_patch" = false ]; then
-  log "no session expiry and no recovery patch; fallback skipped"
+should_run=false
+if [ "$session_not_found" = true ]; then
+  should_run=true
+elif [ "$has_recovery_patch" = true ]; then
+  should_run=true
+elif [ "$safe_outputs_failed" = true ] && [ "$has_safeoutputs_patch" = true ]; then
+  should_run=true
+fi
+
+if [ "$should_run" = false ]; then
+  log "no session expiry, recovery patch, or failed safe_outputs patch artifact; fallback skipped"
   exit 0
 fi
 
@@ -131,7 +162,7 @@ fi
 # Our fallback creates "news/<date>-<slug>" (no salt, different order).
 # A successful safe_outputs run will have an open PR for the salted branch;
 # absence of that PR is a reliable signal that the bundle apply failed.
-if [ -f /tmp/gh-aw/safeoutputs.jsonl ] && grep -q 'create_pull_request' /tmp/gh-aw/safeoutputs.jsonl; then
+if [ -f "$gh_aw_dir/safeoutputs.jsonl" ] && grep -q 'create_pull_request' "$gh_aw_dir/safeoutputs.jsonl"; then
   gh_stderr=$(mktemp)
   bundle_pr=$(gh pr list --repo "$repo" --state open \
     --json number,headRefName \
@@ -185,7 +216,7 @@ body_file=$(mktemp)
 stat_file=$(mktemp)
 
 if [ -z "$(git status --porcelain)" ]; then
-  for patch_file in /tmp/gh-aw/aw-*.patch; do
+  for patch_file in "$gh_aw_dir"/aw-*.patch; do
     if [ ! -e "$patch_file" ]; then
       continue
     fi
@@ -276,6 +307,8 @@ title="[news] $headline"
 fallback_reason="safeoutputs MCP session expired with \`session not found\`"
 if [ "$session_not_found" = false ] && [ "$has_recovery_patch" = true ]; then
   fallback_reason="safe_outputs bundle apply failed (recovery patch present but no open bundle-path PR found; possible race condition between agent run and concurrent commits to main)"
+elif [ "$session_not_found" = false ] && [ "$safe_outputs_failed" = true ] && [ "$has_safeoutputs_patch" = true ]; then
+  fallback_reason="safe_outputs create_pull_request failed after emitting a patch (no open bundle-path PR found; likely bundle prerequisite race with concurrent commits to main)"
 fi
 
 cat > "$body_file" <<EOF_BODY
