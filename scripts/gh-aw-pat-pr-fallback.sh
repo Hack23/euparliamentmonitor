@@ -132,10 +132,15 @@ fi
 # A successful safe_outputs run will have an open PR for the salted branch;
 # absence of that PR is a reliable signal that the bundle apply failed.
 if [ -f /tmp/gh-aw/safeoutputs.jsonl ] && grep -q 'create_pull_request' /tmp/gh-aw/safeoutputs.jsonl; then
+  gh_stderr=$(mktemp)
   bundle_pr=$(gh pr list --repo "$repo" --state open \
     --json number,headRefName \
     --jq "[.[] | select(.headRefName | startswith(\"news/${slug}-${today}-\"))] | .[0].number // \"\"" \
-    2>/dev/null || true)
+    2>"$gh_stderr" || true)
+  if [ -s "$gh_stderr" ]; then
+    log "gh pr list error (will proceed with fallback): $(cat "$gh_stderr")"
+  fi
+  rm -f "$gh_stderr"
   if [ -n "$bundle_pr" ]; then
     log "safe_outputs created open PR #${bundle_pr} via bundle (news/${slug}-${today}-*); fallback skipped"
     exit 0
@@ -270,7 +275,7 @@ title="[news] $headline"
 
 fallback_reason="safeoutputs MCP session expired with \`session not found\`"
 if [ "$session_not_found" = false ] && [ "$has_recovery_patch" = true ]; then
-  fallback_reason="safe_outputs bundle apply failed (shallow-clone race: a commit was pushed to main while the agent was running, making the bundle's prerequisite commit unavailable in the fetch-depth:1 checkout)"
+  fallback_reason="safe_outputs bundle apply failed (recovery patch present but no open bundle-path PR found; possible race condition between agent run and concurrent commits to main)"
 fi
 
 cat > "$body_file" <<EOF_BODY
