@@ -147,6 +147,35 @@
         "rewriteCount": 38
       },
       "note": "Re-run: extended all 24 rewrite targets + 16 carry-forward targets + 11 new extended/ artifacts"
+    },
+    {
+      "runId": "breaking-run312-1778266754",
+      "timestamp": "2026-05-08T18:59:14.391973Z",
+      "gateResult": "GREEN",
+      "articlesProduced": 1,
+      "analysisArtifacts": [
+        "executive-summary.md",
+        "political-landscape.md",
+        "key-developments.md",
+        "swot-analysis.md",
+        "stakeholder-analysis.md",
+        "risk-assessment.md",
+        "methodology-reflection.md",
+        "intelligence/coalition-dynamics.md",
+        "intelligence/mcp-reliability-audit.md"
+      ],
+      "pass2": {
+        "startedAt": "2026-05-08T18:59:14.392067Z",
+        "endedAt": "2026-05-08T18:59:14.392100Z",
+        "rewriteCount": 9
+      },
+      "dataQuality": {
+        "epApiStatus": "PARTIAL",
+        "imfApiStatus": "FAILED",
+        "worldBankApiStatus": "NOT_TESTED",
+        "notes": "IMF fetch proxy failed; events feed unavailable; procedures feed timeout; 9 today-indexed texts content unavailable"
+      }
     }
-  ]
+  ],
+  "lastUpdated": "2026-05-08T18:59:14.392133Z"
 }
