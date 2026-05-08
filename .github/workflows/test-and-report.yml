@@ -281,7 +281,10 @@ jobs:
 
       - name: Install Playwright browsers (with retry)
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        timeout-minutes: 10
+        # 20 min = 3 attempts × max ~5 min (cold ~170 MB chromium download) +
+        # 2 × 20 s back-off. 10 min was too tight on a cold cache and timed out
+        # on the actual download itself, not on a transient failure.
+        timeout-minutes: 20
         shell: bash
         run: |
           # Browser bundle downloads from playwright.azureedge.net — same retry

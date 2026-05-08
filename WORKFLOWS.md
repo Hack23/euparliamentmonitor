@@ -1790,7 +1790,7 @@ All external network installs are wrapped in retry loops to survive transient re
 |--------------|----------------|---------|
 | `npm ci` | 3 attempts, 15 s back-off | `timeout-minutes: 10` |
 | `npx playwright install-deps` (apt) | 3 attempts, 20 s back-off | `timeout-minutes: 10` |
-| `npx playwright install <browser>` | 3 attempts, 20 s back-off | `timeout-minutes: 10` |
+| `npx playwright install <browser>` | 3 attempts, 20 s back-off | `timeout-minutes: 20` |
 | `apt-get install` (copilot setup) | 3 attempts, 20 s back-off | `timeout-minutes: 10` |
 | `npm install -g <mcp-package>` | 3 attempts, 15 s back-off via helper function | `timeout-minutes: 15` |
 

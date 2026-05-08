@@ -126,7 +126,9 @@ jobs:
 
       - name: Install Playwright browsers (with retry)
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        timeout-minutes: 10
+        # 20 min = 3 attempts × max ~5 min (cold ~170 MB chromium download) +
+        # 2 × 20 s back-off. Same rationale as test-and-report.yml.
+        timeout-minutes: 20
         shell: bash
         run: |
           for attempt in 1 2 3; do

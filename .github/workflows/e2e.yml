@@ -79,7 +79,11 @@ jobs:
 
       - name: Install Playwright browsers (with retry)
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        timeout-minutes: 10
+        # 20 min = 3 attempts × max ~5 min (cold full-browser download) +
+        # 2 × 20 s back-off. e2e.yml installs the full browser set (chromium +
+        # firefox + webkit, ~500 MB total), so the cold-cache budget is even
+        # tighter than test-and-report.yml's chromium-only step.
+        timeout-minutes: 20
         shell: bash
         run: |
           for attempt in 1 2 3; do
