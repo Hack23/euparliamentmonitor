@@ -1,0 +1,60 @@
+{
+  "date": "2026-05-08",
+  "articleType": "committee-reports",
+  "runId": "committee-reports-run263-1778221903",
+  "gateResult": "PENDING",
+  "slug": "2026-05-08-committee-reports",
+  "articlePath": "analysis/daily/2026-05-08/committee-reports/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**Assessment:** 75% (Likely) — based on Parliamentary resolution pressure, Commission election-year dynamic (new Commissioner confidence vote), and DMA Article 26 procedural timeline.",
+    "**Key Indicator:** Commission DG CONNECT enforcement calendar publication (expected June 2026).",
+    "**Assessment:** 80% (Likely) — based on Parliament's explicit divergence from Commission baseline (+15% defence request), Council budgetary conservatism in Austria/Netherlands/Germany coalition governments.",
+    "**Key Indicator:** Council's first budget position (expected September 2026).",
+    "**Assessment:** 60% (More likely than not) — the CJEU has never rejected an Art. 218(11) opinion request; precedent (Opinion 1/94, 2/15) suggests 12–18 month review.",
+    "**Key Indicator:** CJEU admissibility decision (expected Q3 2026).",
+    "**Assessment:** 20% (Unlikely) — Hungary/Slovakia veto risk; third-party jurisdiction legal obstacles unresolved."
+  ],
+  "topRisks": [
+    "*Owner:* ENVI committee rapporteur",
+    "*Treatment:* Parliament activates Art. 290 TFEU delegated act objection rights for specific Nature Restoration implementing measures; ENVI drafts formal objection procedures",
+    "*Timeline:* June–December 2026 (as delegated acts published)",
+    "*Residual Risk after Treatment:* 🟡 MEDIUM (some dilution likely regardless)",
+    "*Owner:* Commission DG CONNECT + DG COMP",
+    "*Treatment:* Commission pursues behavioural remedies in parallel with structural orders; designs structural orders for proportionality (Art. 49 EUCFR) to reduce CJEU vulnerability",
+    "*Timeline:* 2026–2028 (multi-year legal trajectory)",
+    "*Residual Risk after Treatment:* 🔴 HIGH (litigation timeline cannot be shortened significantly)"
+  ],
+  "keyDates": [
+    "DMA: Meta faces structural separation order in preliminary form by Q4 2026",
+    "Budget: 2027 budget adopted in November 2026 conciliation round",
+    "Commission DG CONNECT enforcement calendar (June 2026)",
+    "Council budget position submission (September 2026)",
+    "Budget: Provisional twelfths apply from January 2027; emergency budget negotiations in Q1 2027",
+    "Ukraine: Accountability tribunal framework advanced at EP level but Council blocked by Hungary through March 2027",
+    "Budget: Provisional twelfths from January 2027; fiscal uncertainty for EU programmes",
+    "European Council June 2026 summit conclusions"
+  ],
+  "keyActors": [
+    "**Enforcement Alliance:** EPP centre + S&D + Renew + Greens (DMA, AI Act oversight)",
+    "**Security/Ukraine Alliance:** EPP + S&D + Renew + Greens (most stable EP10 coalition)",
+    "**Fiscal Restraint Alliance:** EPP right + ECR + PfE + Council frugal bloc (budget ceiling)",
+    "**Anti-Mercosur Alliance:** Agricultural lobby + AGRI committee majority + national governments (FR, IE, BE, AT)",
+    "**Anti-Green Deal Implementation Alliance:** EPP right + ECR + PfE (delegated act blocking)",
+    "**High quality / available:** EP vote records, committee meeting schedules, adopted texts",
+    "**Medium quality / partial:** Commission enforcement proceedings (internal documents not public)",
+    "**Low quality / gap:** Real-time trilogue positions; Commission DMA enforcement strategy documents"
+  ],
+  "macroContext": "⚠️ IMF Data Unavailable: IMF probe returned 503 Service Unavailable.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

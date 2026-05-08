@@ -1,0 +1,53 @@
+{
+  "articleType": "committee-reports",
+  "date": "2026-05-08",
+  "runId": "committee-reports-run263-1778221903",
+  "dataMode": "degraded-imf",
+  "analysisDir": "analysis/daily/2026-05-08/committee-reports",
+  "pass2": {
+    "startedAt": "2026-05-08T00:20:00Z",
+    "endedAt": "2026-05-08T00:22:00Z",
+    "rewriteCount": 8
+  },
+  "artifacts": [
+    "executive-brief.md",
+    "intelligence/synthesis-summary.md",
+    "intelligence/historical-baseline.md",
+    "intelligence/economic-context.md",
+    "intelligence/pestle-analysis.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/threat-model.md",
+    "intelligence/wildcards-blackswans.md",
+    "intelligence/mcp-reliability-audit.md",
+    "intelligence/reference-analysis-quality.md",
+    "intelligence/analysis-index.md",
+    "intelligence/methodology-reflection.md",
+    "risk-scoring/risk-matrix.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/political-capital-risk.md",
+    "risk-scoring/legislative-velocity-risk.md",
+    "classification/impact-matrix.md",
+    "classification/forces-analysis.md",
+    "classification/actor-mapping.md",
+    "threat-assessment/actor-threat-profiles.md",
+    "threat-assessment/legislative-disruption.md",
+    "threat-assessment/consequence-trees.md",
+    "existing/committee-productivity.md",
+    "cache/imf/probe-summary.json",
+    "data/adopted-texts-2026.json",
+    "data/committee-activity.json"
+  ],
+  "mermaidDiagrams": 11,
+  "satCount": 15,
+  "qualityGrade": "MEDIUM-GOOD",
+  "admiraltyGrade": "B-2",
+  "imfAvailable": false,
+  "history": [
+    {
+      "runId": "committee-reports-run263-1778221903",
+      "completedAt": "2026-05-08T00:20:00Z",
+      "stageCompleted": "B"
+    }
+  ]
+}
