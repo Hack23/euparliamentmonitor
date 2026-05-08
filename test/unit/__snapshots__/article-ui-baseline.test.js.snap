@@ -10,10 +10,10 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
     "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
-    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    "toc": "<aside class="article-toc-container" aria-labelledby="article-toc-heading">
     <details class="article-toc-details" open>
-      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
-      <nav class="article-toc">
+      <summary class="article-toc-summary" id="article-toc-heading"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc" aria-labelledby="article-toc-heading">
         <ol class="article-toc-list">
         <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
         <li><a href="#section-synthesis">Synthesis Summary</a></li>
@@ -36,10 +36,10 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
     "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
-    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    "toc": "<aside class="article-toc-container" aria-labelledby="article-toc-heading">
     <details class="article-toc-details" open>
-      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
-      <nav class="article-toc">
+      <summary class="article-toc-summary" id="article-toc-heading"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc" aria-labelledby="article-toc-heading">
         <ol class="article-toc-list">
         <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
         <li><a href="#section-synthesis">Synthesis Summary</a></li>
@@ -62,10 +62,10 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
     "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
-    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    "toc": "<aside class="article-toc-container" aria-labelledby="article-toc-heading">
     <details class="article-toc-details" open>
-      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
-      <nav class="article-toc">
+      <summary class="article-toc-summary" id="article-toc-heading"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc" aria-labelledby="article-toc-heading">
         <ol class="article-toc-list">
         <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
         <li><a href="#section-synthesis">Synthesis Summary</a></li>
@@ -88,10 +88,10 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
     "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
-    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    "toc": "<aside class="article-toc-container" aria-labelledby="article-toc-heading">
     <details class="article-toc-details" open>
-      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
-      <nav class="article-toc">
+      <summary class="article-toc-summary" id="article-toc-heading"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc" aria-labelledby="article-toc-heading">
         <ol class="article-toc-list">
         <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
         <li><a href="#section-synthesis">Synthesis Summary</a></li>
@@ -114,10 +114,10 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
     "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
-    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    "toc": "<aside class="article-toc-container" aria-labelledby="article-toc-heading">
     <details class="article-toc-details" open>
-      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
-      <nav class="article-toc">
+      <summary class="article-toc-summary" id="article-toc-heading"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc" aria-labelledby="article-toc-heading">
         <ol class="article-toc-list">
         <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
         <li><a href="#section-synthesis">Synthesis Summary</a></li>
@@ -140,10 +140,10 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
     "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
-    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    "toc": "<aside class="article-toc-container" aria-labelledby="article-toc-heading">
     <details class="article-toc-details" open>
-      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
-      <nav class="article-toc">
+      <summary class="article-toc-summary" id="article-toc-heading"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc" aria-labelledby="article-toc-heading">
         <ol class="article-toc-list">
         <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
         <li><a href="#section-synthesis">Synthesis Summary</a></li>
@@ -166,10 +166,10 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
     "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
-    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    "toc": "<aside class="article-toc-container" aria-labelledby="article-toc-heading">
     <details class="article-toc-details" open>
-      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
-      <nav class="article-toc">
+      <summary class="article-toc-summary" id="article-toc-heading"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc" aria-labelledby="article-toc-heading">
         <ol class="article-toc-list">
         <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
         <li><a href="#section-synthesis">Synthesis Summary</a></li>
@@ -192,10 +192,10 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
     "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
-    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    "toc": "<aside class="article-toc-container" aria-labelledby="article-toc-heading">
     <details class="article-toc-details" open>
-      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
-      <nav class="article-toc">
+      <summary class="article-toc-summary" id="article-toc-heading"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc" aria-labelledby="article-toc-heading">
         <ol class="article-toc-list">
         <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
         <li><a href="#section-synthesis">Synthesis Summary</a></li>
@@ -218,10 +218,10 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
     "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
-    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    "toc": "<aside class="article-toc-container" aria-labelledby="article-toc-heading">
     <details class="article-toc-details" open>
-      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
-      <nav class="article-toc">
+      <summary class="article-toc-summary" id="article-toc-heading"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc" aria-labelledby="article-toc-heading">
         <ol class="article-toc-list">
         <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
         <li><a href="#section-synthesis">Synthesis Summary</a></li>
@@ -244,10 +244,10 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
     "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
-    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    "toc": "<aside class="article-toc-container" aria-labelledby="article-toc-heading">
     <details class="article-toc-details" open>
-      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
-      <nav class="article-toc">
+      <summary class="article-toc-summary" id="article-toc-heading"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc" aria-labelledby="article-toc-heading">
         <ol class="article-toc-list">
         <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
         <li><a href="#section-synthesis">Synthesis Summary</a></li>
@@ -270,10 +270,10 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
     "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
-    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    "toc": "<aside class="article-toc-container" aria-labelledby="article-toc-heading">
     <details class="article-toc-details" open>
-      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
-      <nav class="article-toc">
+      <summary class="article-toc-summary" id="article-toc-heading"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc" aria-labelledby="article-toc-heading">
         <ol class="article-toc-list">
         <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
         <li><a href="#section-synthesis">Synthesis Summary</a></li>
@@ -296,10 +296,10 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
     "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
-    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    "toc": "<aside class="article-toc-container" aria-labelledby="article-toc-heading">
     <details class="article-toc-details" open>
-      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
-      <nav class="article-toc">
+      <summary class="article-toc-summary" id="article-toc-heading"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc" aria-labelledby="article-toc-heading">
         <ol class="article-toc-list">
         <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
         <li><a href="#section-synthesis">Synthesis Summary</a></li>
@@ -322,10 +322,10 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
     "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
-    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    "toc": "<aside class="article-toc-container" aria-labelledby="article-toc-heading">
     <details class="article-toc-details" open>
-      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
-      <nav class="article-toc">
+      <summary class="article-toc-summary" id="article-toc-heading"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc" aria-labelledby="article-toc-heading">
         <ol class="article-toc-list">
         <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
         <li><a href="#section-synthesis">Synthesis Summary</a></li>
@@ -348,10 +348,10 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
     "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
-    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    "toc": "<aside class="article-toc-container" aria-labelledby="article-toc-heading">
     <details class="article-toc-details" open>
-      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
-      <nav class="article-toc">
+      <summary class="article-toc-summary" id="article-toc-heading"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc" aria-labelledby="article-toc-heading">
         <ol class="article-toc-list">
         <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
         <li><a href="#section-synthesis">Synthesis Summary</a></li>
@@ -374,10 +374,10 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
     "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
-    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    "toc": "<aside class="article-toc-container" aria-labelledby="article-toc-heading">
     <details class="article-toc-details" open>
-      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
-      <nav class="article-toc">
+      <summary class="article-toc-summary" id="article-toc-heading"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc" aria-labelledby="article-toc-heading">
         <ol class="article-toc-list">
         <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
         <li><a href="#section-synthesis">Synthesis Summary</a></li>

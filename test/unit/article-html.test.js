@@ -294,7 +294,8 @@ describe('buildArticleToc', () => {
     );
     expect(html).toContain('<aside class="article-toc-container"');
     expect(html).toContain('<details class="article-toc-details" open>');
-    expect(html).toContain('<nav class="article-toc">');
+    expect(html).toContain('<summary class="article-toc-summary" id="article-toc-heading">');
+    expect(html).toContain('<nav class="article-toc" aria-labelledby="article-toc-heading">');
     expect(html).toContain('<ol class="article-toc-list">');
     expect(html).toMatch(/<li><a href="#synthesis">Synthesis Summary<\/a><\/li>/);
     expect(html).toMatch(/<li><a href="#risk">Risk Assessment<\/a><\/li>/);
