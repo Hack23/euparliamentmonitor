@@ -177,9 +177,17 @@ describe('article UI baseline snapshots', () => {
       // Phase 5 — every footer section heading carries the accent class
       // that drives the editorial underline.
       expect(html).toContain('class="footer-section__heading"');
-      // The four standard sections must each emit the accent heading.
+      // The four standard sections must each emit the accent heading,
+      // covering About / Quick Links / Built by Hack23 / Languages.
       const accentCount = (html.match(/class="footer-section__heading"/g) ?? []).length;
       expect(accentCount).toBeGreaterThanOrEqual(4);
+      // Spot-check that each canonical section heading is present so a
+      // structural regression (e.g. a section being dropped) fails loudly
+      // rather than passing the count check by coincidence.
+      expect(html).toContain('About EU Parliament Monitor');
+      expect(html).toContain('Quick Links');
+      expect(html).toContain('Built by Hack23 AB');
+      expect(html).toMatch(/>\s*Languages<\/h3>/);
     });
   });
 });

@@ -93,7 +93,11 @@ describe('buildSiteHeader', () => {
     // <640px breakpoint to switch to icon-only display. Match each
     // <a class="…site-header__cta…"> opening tag exactly once and
     // assert there is one label span per CTA.
-    const ctaCount = (html.match(/<a[^>]*\bclass="[^"]*\bsite-header__cta\b[^"]*"/g) ?? []).length;
+    // Match every anchor whose class attribute contains the `site-header__cta`
+    // token. We avoid `\b` word-boundary anchors here because `_` is a word
+    // character in regex, so `\b` does not apply at the `__` boundary inside
+    // the BEM block name.
+    const ctaCount = (html.match(/<a[^>]*class="[^"]*site-header__cta[^"]*"/g) ?? []).length;
     expect(ctaCount).toBeGreaterThanOrEqual(4);
     const labelCount = (html.match(/class="site-header__cta-label"/g) ?? []).length;
     expect(labelCount).toBe(ctaCount);
