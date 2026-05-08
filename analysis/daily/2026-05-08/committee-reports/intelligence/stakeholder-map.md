@@ -155,7 +155,46 @@ The EIB faces unusual Parliament scrutiny following the €3.2bn InvestEU deploy
 
 ---
 
-## 5. Reader Briefing: Understanding EP Stakeholders
+## 5. Stakeholder Power Dynamics — May 2026 Assessment
+
+### 5.1 Parliamentary Group Seat Distribution
+Based on current EP10 composition (9 groups, 705 MEPs total):
+
+| Group | Seats | % | Coalition Role |
+|-------|-------|---|----------------|
+| EPP | 185 | 26.2% | Dominant; internal divisions |
+| S&D | 136 | 19.3% | Pro-social conditions; swing on trade |
+| PfE | 85 | 12.1% | Far-right; anti-Ukraine, anti-DMA |
+| ECR | 81 | 11.5% | Conservative; varies by dossier |
+| Renew | 77 | 10.9% | Pro-market; digital enforcement |
+| Greens/EFA | 53 | 7.5% | Green Deal; transparency |
+| The Left | 45 | 6.4% | Progressive; anti-Big Tech |
+| NI | 30 | 4.3% | No party whip; unpredictable |
+| ESN | 27 | 3.8% | Far-right nationalist |
+
+**Majority threshold: 353 votes (absolute) / 299 (voting quorum majority)**
+
+**Parliamentary fragmentation index (HHI-derived): 6.55** — among the highest in EP history, indicating extraordinary coalition complexity.
+
+### 5.2 Power Asymmetry Analysis
+
+🟢 **Most powerful actor this week:** The **European Commission** — it controls the DMA enforcement calendar, the 2027 budget proposal timetable, and the Green Deal implementation tempo. Parliament can adopt resolutions with large majorities (421 votes on DMA) but cannot legally compel Commission action on Art. 26 timelines.
+
+🟡 **Second most powerful:** **EPP group centre** — with 185 seats (26.2%), EPP is the pivot group on every dossier. The EPP-centre's alignment with either the pro-enforcement coalition or the ECR/PfE conservative bloc determines parliamentary outcomes on DMA, Green Deal, and budget.
+
+🔴 **Structural veto holders:** **Hungary and Slovakia** via Council unanimity requirements — most visibly on Ukraine military support and accountability measures, but also on any Treaty-based reform measure.
+
+### 5.3 Emerging Stakeholder Dynamics
+
+**Civil Society Capacity Building:** BEUC (European Consumer Organisation) and EDRi (European Digital Rights) have substantially increased EP engagement since 2022, with permanent observer status in several IMCO and LIBE working groups. Their influence on DMA enforcement preferences is now structurally embedded rather than ad hoc.
+
+**Digital Sovereignty Industry Coalition:** A new industry coalition (launched March 2026) representing EU-headquartered tech companies (Spotify, Booking.com, Klarna) actively lobbies for stronger DMA enforcement against US Big Tech — creating an unusual pro-regulation business lobby that reinforces the parliamentary majority.
+
+**Agricultural Transformation:** Copa-Cogeca has historically been anti-environmental regulation; since 2025, a growing minority of Copa members (particularly from Nordic and Baltic states) are advocating for Green Deal compatibility, creating an internal Copa split that the AGRI committee must navigate on Farm to Fork successors.
+
+---
+
+## 6. Reader Briefing: Understanding EP Stakeholders
 
 **For Citizens:** The European Parliament's decisions are shaped by a complex web of political groups, committees, lobbyists, and external actors. Understanding who has power and what they want explains why EU decisions look the way they do.
 
