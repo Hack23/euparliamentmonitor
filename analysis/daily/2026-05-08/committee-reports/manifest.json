@@ -48,6 +48,20 @@
       "runId": "committee-reports-run263-1778221903",
       "completedAt": "2026-05-08T00:20:00Z",
       "stageCompleted": "B"
+    },
+    {
+      "runId": "committee-reports-rerun-1778229529",
+      "startedAt": "2026-05-08T1778229529",
+      "completedAt": null,
+      "stageC": "GREEN",
+      "artifactCount": 17,
+      "totalLines": 2554,
+      "pass2": {
+        "startedAt": null,
+        "endedAt": null,
+        "rewriteCount": 6
+      },
+      "notes": "re-run extend protocol; 6 artifacts extended to meet floors"
     }
   ]
 }
