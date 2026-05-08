@@ -1,0 +1,48 @@
+{
+  "date": "2026-05-07",
+  "articleType": "motions",
+  "runId": "motions-run540-1778167043",
+  "gateResult": "PENDING",
+  "slug": "2026-05-07-motions",
+  "articlePath": "analysis/daily/2026-05-07/motions/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**Grand coalition on foreign policy:** EPP-S&D-Renew forms a stable majority (398 seats, exceeding 361 threshold) on Russia, Armenia, and international accountability motions",
+    "**Right-bloc fragmentation on digital regulation:** ECR and PfE diverge from EPP on DMA enforcement scope; EPP split between pro-business and pro-regulation wings",
+    "**Left-bloc cohesion on social motions:** Greens/EFA and The Left unite with S&D on cyberbullying; total left-progressive bloc reaches ~234 seats (insufficient alone, needs Renew/EPP)",
+    "**PfE as institutional spoiler:** The livestock and DMA debates show PfE using procedural tools to delay and amend rather than directly block",
+    "**Primary data sources**: EP Open Data Portal adopted texts list (265 texts in feed, 51 confirmed 2026); EP speech records (31 speeches, April 28-30); political landscape API",
+    "**Limitations**: Most recent adopted text content (April 30 texts) not yet available from EP API (indexed but content pending publication); IMF economic data unavailable; DOCEO vote records empty for May 4-7 (no plenary week)",
+    "**Inference level**: Coalition margin estimates are structural (seat-share based), not vote-level"
+  ],
+  "topRisks": [
+    "**Probability**: 1 (Very Unlikely) to 5 (Highly Likely)",
+    "**Impact**: 1 (Negligible) to 5 (Catastrophic for affected domain)",
+    "**Risk Score = Probability × Impact** (Maximum 25)",
+    "🔴 HIGH RISK: Score 15-25",
+    "🟠 ELEVATED RISK: Score 10-14",
+    "🟡 MEDIUM RISK: Score 5-9",
+    "🟢 LOW RISK: Score 1-4",
+    "Agricultural coalition in EP10 is structurally stable (EPP+ECR+S&D rural)"
+  ],
+  "keyDates": [
+    "Fast: Commission completes investigations and issues final decisions within 6 months (by November 2026)"
+  ],
+  "keyActors": [
+    "**Role**: Protagonist / Antagonist / Supporter / Affected / Observer",
+    "**Policy domain stake**: Primary policy area(s) of engagement",
+    "**Influence vector**: How they exert influence on EP outcomes"
+  ],
+  "macroContext": "🔴 IMF data unavailable for this run",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
