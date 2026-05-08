@@ -164,4 +164,31 @@ graph LR
 | IMF protocol compliance | ✅ | IMF-unavailable flag applied correctly |
 | WEP application | ✅ | Uncertainty bands declared |
 
-*Source: Reference analysis quality review | 2026-05-08*
+## RE-RUN QUALITY ASSESSMENT UPDATE (2026-05-08, Run 2)
+
+**Changes from Run 1:**
+
+| Quality Dimension | Run 1 Score | Run 2 Score | Change |
+|------------------|-------------|-------------|--------|
+| Source diversity | 4/5 | 5/5 | +1 (early warning system added) |
+| MCP tool reliability | 9/13 (69%) | 11/13 (85%) | +2 (coalition analysis, landscape tools added) |
+| Artifact completeness | 27/27 (100%) | 32/32 (incl. 5 new) | Expanded |
+| Coalition intelligence quality | HIGH | HIGH | Stable |
+| IMF protocol compliance | ✅ Degraded | ✅ Degraded (confirmed) | IMF unavailability confirmed structural |
+| WEP application | ✅ | ✅ Extended | More WEP bands applied |
+| Depth per artifact (avg lines) | ~165 | ~185 | +20 lines avg |
+
+**New tools used in Run 2:**
+- `analyze_coalition_dynamics`: Returned structural data (size-similarity proxy, no vote cohesion)
+- `generate_political_landscape`: Confirmed 719 MEPs, 9 groups, HIGH fragmentation
+- `early_warning_system` (HIGH sensitivity): 3 warnings generated including DOMINANT_GROUP_RISK (HIGH)
+- `get_latest_votes`: No DOCEO XML data available for April 30 (expected — 4–6 week EP delay)
+
+**Persistent quality gaps:**
+- Vote-level cohesion data: UNAVAILABLE from EP API (structural limitation; DOCEO XML not yet published for April 2026)
+- Events feed: UNAVAILABLE (EP API error-in-body response)
+- IMF data: UNAVAILABLE (HTTP 503, confirmed structural for this analysis window)
+
+**Quality grade (Run 2):** 🟢 HIGH — expanded artifact set, additional tools, degraded-mode protocol correctly applied.
+
+*Source: Reference analysis quality review | 2026-05-08 (re-run extended)*

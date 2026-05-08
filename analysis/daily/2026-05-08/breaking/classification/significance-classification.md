@@ -99,8 +99,25 @@ pie title Significance Classification by Tier (April 28-30 Plenary)
 
 **Assessment:** April 2026 Strasbourg plenary is the highest-significance single-week EP10 event to date by both number and average score of Tier-1 texts.
 
-*Source: Historical significance comparison | Classification methodology | 2026-05-08*
+## 5. SIGNIFICANCE CLASSIFICATION UPDATE — RE-RUN (2026-05-08)
+
+**Significance recalibration with re-run data:**
+
+No new adopted texts from May 1–8 2026 that would alter the significance ranking. The May 8 adopted texts feed returned only 9 items (TA-10-2026-0008 through TA-10-2026-0056) from the EP10 term's early period — these are historical texts now being published in the feed (FRESHNESS_FALLBACK pattern documented in EP API behaviour).
+
+**Cross-domain significance summary (final):**
+
+| Domain | Lead Text | Significance | Trend |
+|--------|----------|-------------|-------|
+| Digital governance | TA-10-2026-0160 (DMA) | 9.0/10 | 🟢 Increasing (enforcement momentum) |
+| Geopolitics/Security | TA-10-2026-0161 (Ukraine) | 9.2/10 | 🟢 Stable (consistent majority) |
+| Eastern neighbourhood | TA-10-2026-0162 (Armenia) | 8.0/10 | 🟡 Emerging (new front) |
+| Institutional finance | TA-10-2026-0112 (Budget) | 8.5/10 | 🟡 Medium (negotiations ahead) |
+| Humanitarian | TA-10-2026-0151 (Haiti) | 7.0/10 | 🟢 Stable |
+
+**Overall session significance: 9.2/10** (revised upward from 8.5/10 in Run 1 based on Armenia text's strategic significance becoming clearer after re-analysis)
+
+*Source: Historical significance comparison | Classification methodology | 2026-05-08 (re-run extended)*
 
 ---
 *Classification complete. 2026-05-08.*
-

@@ -26,6 +26,8 @@
     "CJEU injunction request on DMA"
   ],
   "keyDates": [
+    "[ ] Apple App Store interoperability compliance report (due Q2 2026)",
+    "[ ] Council decision on next tranche of Ukraine Facility (Q3 2026)",
     "European Commission announces three DMA enforcement decisions against Alphabet (self-preferencing) and Apple (app store interoperability) by June 2026",
     "Council working group acknowledges Budget 2027 EP guidelines as input document; trilogue scheduled for September 2026",
     "IMF degrades eurozone GDP outlook (already DEGRADED as of this run date; further signal if Q2 2026 data confirms slowdown)",
@@ -34,19 +36,15 @@
     "DMA enforcement decisions by June 2026: 70% → \"Likely\""
   ],
   "keyActors": [
-    "**DMA enforcement:** SUPPORT — Shifted from \"revise DMA\" to \"enforce DMA\" since Q1 2026. Key EPP voices from Germany, France, Netherlands drove this shift. Strategic calculation: DMA enforcement benefits European tech ecosystems vis-à-vis US and Chinese platforms.",
-    "**Ukraine accountability:** SUPPORT with caveats — Overwhelming EPP support, but EPP's Hungarian associates (Fidesz-aligned MEPs operating as NI since 2021 expulsion) abstained or opposed. EPP leadership (Manfred Weber) has been unequivocal in support.",
-    "**Budget 2027:** MIXED — EPP supports defence spending increases (EDIP) but is more cautious on climate mainstreaming and social spending expansion. EPP fiscal conservatives from Scandinavian and Baltic delegations resist open-ended budget expansion.",
-    "**Armenia:** SUPPORT — EPP has long championed EU neighbourhood expansion in Eastern Europe; Armenia's euro-integration trajectory aligns with EPP's strategic interests.",
-    "**DMA enforcement:** STRONG SUPPORT — S&D sees DMA enforcement as protecting workers and consumers from platform exploitative practices. MEPs from Spain, Italy, France led advocacy.",
-    "**Ukraine accountability:** STRONG SUPPORT — S&D has been among the most consistent advocates for Ukrainian sovereignty and Russian accountability since 2022.",
-    "**Budget 2027:** LEAD — S&D authored the social protection provisions and Just Transition Fund protections in the guidelines. The group sees the 2027 budget as a critical moment to embed social equity into EU fiscal architecture.",
-    "**Armenia:** STRONG SUPPORT — S&D has championed Armenian democratic development since the 2018 Velvet Revolution."
+    "Polish ECR bloc (~30 MEPs, PiS-affiliated): Pro-Ukraine, anti-Russian, defence spending advocates",
+    "Hungarian and allied ECR bloc (~15 MEPs): Anti-Ukraine mechanism, pro-sovereignty, closer to PfE positions",
+    "Italian ECR bloc (FdI-affiliated, ~23 MEPs): Pivotal — balances between Ukrainian support and Italian national interests"
   ],
   "macroContext": "---",
   "sources": [
     "classification/actor-mapping.md",
     "executive-brief.md",
+    "extended/forward-indicators.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/economic-context.md",
     "intelligence/scenario-forecast.md",

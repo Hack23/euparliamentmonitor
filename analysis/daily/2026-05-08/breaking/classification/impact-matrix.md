@@ -67,4 +67,19 @@ flowchart LR
 
 Four major EP decisions from the April 28-30 Strasbourg plenary will affect different groups in different ways. For EU internet users, the DMA enforcement resolution means digital platforms must offer more choice, easier data portability, and fairer interoperability — a net positive. For EU farmers, the 2027 budget guidelines introduce stricter environmental conditions on direct payments. For Ukrainian citizens, the accountability framework brings frozen Russian assets closer to funding reconstruction. For businesses in the EU defence sector, the budget's EDIP component unlocks new procurement funding. The common thread: the governing coalition's priorities — digital sovereignty, Ukraine support, green transition, defence resilience — came through in all five major votes, despite Council resistance ahead.
 
-*Source: EP Open Data Portal | Impact matrix | 2026-05-08*
+## 5. IMPACT MATRIX UPDATE — RE-RUN (2026-05-08)
+
+**Additional impact dimensions identified:**
+
+**Big Tech Platform Impact (DMA enforcement):**
+- Apple (estimated DMA compliance cost): €2–5bn revenue impact if App Store interoperability requirements enforced
+- Alphabet/Google (Search, Chrome, Android): Risk of structural remedy (separation of search advertising from search algorithm) — highest-impact enforcement scenario
+- Meta (WhatsApp, Instagram, Facebook interoperability): EU's most advanced gatekeeper — already shipping interoperability API; risk profile lower than Apple/Google
+- Amazon (marketplace, logistics): Self-preferencing enforcement in progress; most mature enforcement track
+
+**Trade Policy Impact (TA-10-2026-0096):**
+- EU exporters to US: ~€500bn goods trade at risk; automotive (€60bn), pharmaceuticals (€55bn), industrial equipment (€45bn) most exposed sectors
+- US exporters to EU: retaliatory tariff risk on ~€26bn of goods (bourbon, Harley-Davidson, agricultural products)
+- EU defence industry: trade war creates incentive to accelerate EDIP (defence industrial autonomy); net positive for EU defence sector long-term
+
+*Source: EP Open Data Portal | Impact matrix | 2026-05-08 (re-run extended)*

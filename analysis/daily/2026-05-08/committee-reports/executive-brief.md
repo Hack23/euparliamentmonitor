@@ -158,3 +158,32 @@ The European Parliament operates through 24 specialist committees, each responsi
 | World Bank API | ✅ Probed via WB MCP | Non-economic indicators only |
 
 **IMF Degraded Mode:** This run records IMF unavailability. Economic context in this report draws on EP-published data and qualitative analysis only. Figures from agent knowledge are not used — see `cache/imf/probe-summary.json`.
+
+---
+
+## 8. Strategic Outlook — H2 2026
+
+### Policy Trajectory Assessment
+
+The five major legislative threads identified in this report will converge during the autumn 2026 legislative intensive. The following trajectory assessment summarises expected developments across each:
+
+**DMA Enforcement (🟡 40% Scenario B probability):**
+By September 2026, the Commission must choose between initiating Art. 26 structural separation proceedings or signalling a behavioural remedies approach. The Commissioner mandate renewal timeline (if tied to EP confidence vote) creates a political incentive for enforcement escalation. However, DG COMP procedural inertia and Big Tech legal challenge preparedness suggest the dominant outcome is managed escalation (behavioural remedies + credible threat of structural proceedings) rather than full structural orders.
+
+**2027 Budget (🔴 35% probability of provisional twelfths):**
+The conciliation period (October–November 2026) will be unusually adversarial given EP's +15% defence demand vs. Council conservatism. The most likely outcome is a negotiated +8-10% defence increase with creative instrument design (off-budget mechanisms, EIB involvement) to bridge the gap. Full conciliation failure leading to provisional twelfths remains the tail risk requiring contingency planning.
+
+**Ukraine Policy (🟢 HIGH confidence of continued support, with constraints):**
+The accountability tribunal track will advance at EP level but face Council blockage (Hungary/Slovakia veto). EP10 majority for Ukraine solidarity is durable — Renew + S&D + Greens + EPP-centre represents structural majority of 450+ votes. The risk is initiative fatigue: repeated blockage at Council diminishes EP's sense of impact, creating pressure for more radical institutional manoeuvres.
+
+**EU-Mercosur (🟡 60% CJEU opinion delays):**
+The CJEU opinion request is the key variable. If admitted (admissibility decision expected Q3 2026), the agreement enters a legal twilight zone — neither ratifiable nor definitively blocked — for 12-18 months. This preserves political optionality for both supporters and opponents, which is the Parliament's revealed preference.
+
+**Green Deal Consolidation (🔴 50% significant delegated act weakening):**
+The Nature Restoration Law and related instruments face systematic pressure through delegated act review processes. ENVI committee holds formal veto rights but faces opposition from AGRI + EPP-right coalition. The outcome will be selective weakening of implementation measures while maintaining headline 2030 targets — a "structural integrity with administrative retreat" pattern visible in past EU environmental policy history.
+
+### Reader Guidance
+
+**For Policy Professionals:** This analysis provides a 6-month forward view of EP committee-driven legislative dynamics. The scenario forecast (Scenario B as modal outcome) should inform stakeholder engagement strategies for September-November 2026. Priority monitoring: Commission enforcement calendar, German Council budget position, CJEU Mercosur admissibility decision.
+
+**For Citizens:** The European Parliament is working hard to hold Big Tech, the EU Commission, and national governments accountable on digital markets, the environment, Ukraine, and the EU budget. Progress is real but slow — that is a structural feature of EU governance, not a failure. This report maps the engine room of that accountability work.

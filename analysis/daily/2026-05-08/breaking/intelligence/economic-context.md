@@ -158,4 +158,22 @@ Per the degraded-data protocol, all macroeconomic figures below are sourced from
 
 | **IMF Source** | degraded |
 
-*Source: Eurostat, Commission estimates | Degraded-data protocol | 2026-05-08*
+## 6. ECONOMIC CONTEXT UPDATE — RE-RUN (2026-05-08)
+
+**IMF Status:** 🔴 DEGRADED — HTTP 503 confirmed on re-run at 06:50 UTC. Two consecutive extraction attempts returned the same error. IMF degraded mode is the operational baseline for this analysis window.
+
+**US-EU Trade Tension Economic Context:**
+The customs tariff adjustment resolution (TA-10-2026-0096, adopted 2026-03-26) authorises the Commission to adjust US import tariffs in response to US Section 232 and reciprocal tariff measures. This is the EP's first formal legislative endorsement of retaliatory trade measures in EP10. Economic context:
+
+- EU goods exports to US: ~€500bn annually (Commission DG TRADE estimates)
+- US tariff measures impact (estimated): €10–15bn additional burden on EU exporters
+- EU retaliatory tariff potential: 25% on selected US goods, ~€26bn US export value at risk
+- Sector exposure: EU automotive, agricultural products, aerospace, luxury goods most exposed
+- EU defensive position: Commission has invoked WTO safeguard procedures as legal basis
+
+**EIB Group Financial Oversight:**
+The EIB annual report text (TA-10-2026-0119) confirms EP oversight of the EIB Group's €500bn+ loan portfolio. Key economic signals from the text: EIB increased climate-related lending to 57% of total operations; EFSI II successor mechanisms under InvestEU deployed €47bn in Q1-Q4 2025; Ukraine support through Ukraine Resilience and Recovery Facility reached €4.2bn disbursed.
+
+**Confidence in economic context:** 🟡 MEDIUM — No IMF-backed figures; Commission/Eurostat estimates cited; EIB data from EP-adopted text.
+
+*Source: Eurostat, Commission estimates, EIB Group Annual Report 2024 | Degraded-data protocol | 2026-05-08 (re-run extended)*

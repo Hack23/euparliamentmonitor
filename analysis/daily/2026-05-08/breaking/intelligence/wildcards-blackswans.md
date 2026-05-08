@@ -224,7 +224,44 @@ graph TD
 | Coalition split (any text) | EPP defection from centrist line | Monitor EPP group voting discipline |
 | Armenia conflict renewal | UN Security Council emergency session | Track EEAS crisis communication |
 
-*Source: Wildcards and black swans analysis | 2026-05-08*
+## 5. BLACK SWAN SCENARIOS — EXTENDED ANALYSIS (RE-RUN 2026-05-08)
+
+### Black Swan E — Simultaneous Multi-Front Crisis
+**Probability:** Very Low (3–8%) | **Impact if triggered:** EXISTENTIAL
+
+The convergence of a US-EU trade war escalation, Russian military breakthrough in Ukraine, and Chinese Taiwan Strait crisis within a single 90-day window would overwhelm EU institutional capacity. The EP, as a deliberative body, would face a constitutional challenge: can it maintain effective legislative operation under multiple simultaneous geopolitical shocks? Historical precedent: COVID-19 (2020) demonstrated EP resilience but also exposed the limits of remote deliberation when physical plenary sessions were suspended.
+
+**Detection tripwire:** US tariff measures expand to EU financial services sector; Russian forces advance beyond current FEBA by >50km; PLAAF exercises over Taiwan Strait exceed 200 sorties/day.
+
+### Black Swan F — ECR Split and Reconstitution
+**Probability:** Low (8–15%) | **Impact if triggered:** HIGH — reconfigures EP10 political landscape
+
+The ECR's internal contradictions (Poland vs. Hungary, pro-Ukraine vs. pro-Russia factions, socially liberal vs. socially conservative members) make it a structurally fragile group. A formal split — with Polish PiS-aligned MEPs forming a new "Democratic Conservative" group and Hungarian Fidesz-aligned members joining PfE — would create a five-bloc landscape fundamentally different from the current nine-group fragmentation.
+
+**Impact on legislative outcomes:** A post-split landscape with a consolidated PfE (120+ MEPs) would create a genuine right-wing veto power on procedural votes requiring qualified majorities. This would be the most significant institutional reconfiguration since EP7.
+
+**Detection tripwire:** ECR internal vote on Ukraine accountability with >20 MEP defection from group line; Polish MEPs publicly cite "irreconcilable differences" with Hungarian ECR members.
+
+### Black Swan G — Commission Confidence Crisis
+**Probability:** Very Low (3–5%) | **Impact if triggered:** SEVERE institutional disruption
+
+The von der Leyen Commission's second term mandate runs through 2029. A no-confidence motion requires absolute majority (361 MEPs). Under current composition, such a motion could theoretically pass if PfE + ECR + ESN + disaffected EPP members align. The DMA enforcement acceleration and defence spending commitments have already created EPP backbench discomfort. A single catastrophic Commission failure (DMA enforcement scandal, budget overspend, border control failure) could trigger a no-confidence scenario.
+
+**Historical precedent:** The 1999 Santer Commission resignation under corruption allegations remains the only precedent. The current Commission faces no comparable imminent scandal, but structural institutional tensions are elevated.
+
+**Detection tripwire:** Three or more EPP national parties issue public demands for Commission policy reversal; first reading confidence vote motion tabled by any group.
+
+### Updated Wildcard-Black Swan Matrix (Re-run)
+
+| Category | Count | Max Probability | Highest Impact |
+|----------|-------|----------------|----------------|
+| White Swans (High prob, known) | 4 | 75% | DMA CJEU challenge |
+| Grey Swans (Med prob, emerging) | 4 | 40% | ECR reconfiguration |
+| Black Swans (Low prob, unknown) | 3 | 15% | Multi-front crisis |
+
+**Overall wildcard risk level:** 🟡 MEDIUM — Multiple concurrent stress vectors but no immediate black swan catalyst.
+
+*Source: Wildcards and black swans analysis | 2026-05-08 (re-run extended)*
 
 ---
 *Wildcards and black swans complete. 2026-05-08.*

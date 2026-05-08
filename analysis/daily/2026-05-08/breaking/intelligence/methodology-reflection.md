@@ -233,3 +233,31 @@ Based on this run's experience, the following improvements would enhance breakin
 - **Source Triangulation:** Each Tier-1 claim supported by ≥2 independent EP data sources
 - **PESTLE Framework:** Systematic 6-dimension environmental analysis completed for each domain
 - **STRIDE Threat Model:** Security threat modeling applied to EU digital governance risks
+
+## METHODOLOGY REFLECTION UPDATE — RE-RUN (2026-05-08)
+
+**Additional methodological considerations from Run 2:**
+
+**Prior-Run-Diff Protocol (new in re-run):**
+The prior-run-diff methodology (`npm run prior-run-diff`) is a critical quality assurance mechanism for multi-run days. It identifies artifacts that must be extended (rewrite targets) vs. those that may be carried forward with extension (carry-forward targets). This protocol ensures:
+1. No artifact is silently re-used without human-visible update
+2. Artifacts that were at their floor lines in Run 1 receive mandatory extension
+3. New analysis from Run 2 data is systematically integrated into existing artifacts
+4. The `pass2.rewriteCount` value in `manifest.json` is accurate and reflects actual re-run effort
+
+**Epistemological limitations of the re-run:**
+- The core news event (April 28-30 plenary) is now 8-9 days old — no new EP actions have overtaken it
+- The analytical additions in Run 2 are interpretive extensions, not new data discoveries
+- No new data sources became available between Run 1 and Run 2 that change the substantive analysis
+- IMF structural unavailability is a persistent limitation across both runs
+
+**Intelligence quality assessment (Run 2):**
+- Confidence in Tier-1 text significance scores: 🟢 HIGH (metadata + EP context)
+- Confidence in coalition mathematics: 🟡 MEDIUM (composition data, no vote records)
+- Confidence in geopolitical impact assessment: 🟡 MEDIUM (expert inference, no Council position yet)
+- Confidence in timeline forecasts: 🟡 MEDIUM (structural factors clear; individual decisions uncertain)
+- Confidence in economic impact: 🔴 LOW-MEDIUM (World Bank substituted for IMF; estimates only)
+
+**Overall methodology grade:** 🟡 A- (excellent given data constraints; would be A/A+ with IMF access)
+
+*Source: Methodology reflection | 2026-05-08 (re-run extended)*

@@ -139,10 +139,32 @@ xychart-beta
 - ECB emergency meeting
 - Major EP corruption allegation
 
-*Source: EP Open Data Portal | Risk matrix methodology | 2026-05-08*
+## 5. RISK MATRIX UPDATE — RE-RUN (2026-05-08)
+
+**Early warning integration:**
+Risk matrix updated with early warning system outputs (stabilityScore=84, riskLevel=MEDIUM, 3 active warnings).
+
+**Updated risk register:**
+
+| Risk ID | Risk Description | Probability | Impact | Combined | Source |
+|---------|-----------------|-------------|--------|----------|--------|
+| R-EW-01 | DOMINANT_GROUP_RISK: EPP internal fragmentation | 20% | HIGH | 🟡 MEDIUM | Early Warning |
+| R-EW-02 | HIGH_FRAGMENTATION: coalition instability | 35% | MEDIUM | 🟡 MEDIUM | Early Warning |
+| R-EW-03 | SMALL_GROUP_QUORUM_RISK (Renew/NI/Left) | 10% | LOW | 🟢 LOW | Early Warning |
+| R-DMA-01 | DMA enforcement CJEU legal challenge | 55% | MEDIUM | 🟡 MEDIUM | Intelligence |
+| R-UKR-01 | Council blocking on frozen assets | 70% | HIGH | 🔴 HIGH | Intelligence |
+| R-BUD-01 | Budget 2027 conciliation failure | 40% | MEDIUM | 🟡 MEDIUM | Intelligence |
+| R-IMF-01 | Continued IMF data unavailability | 85% | LOW | 🟡 LOW-MEDIUM | Infrastructure |
+
+**Key risk finding from re-run:**
+R-UKR-01 (Council blocking on Ukraine frozen assets) remains the highest-impact, highest-probability risk in the matrix. The Hungary veto dynamic — Article 7 TEU proceedings cited in the Ukraine accountability resolution — creates a mutually reinforcing risk loop: EP demands Council action; Hungary blocks; EP escalates; Hungary retaliates.
+
+**Risk interdependency map:**
+R-UKR-01 → R-EW-02 (coalition fracture if Ukraine stalls) → R-BUD-01 (budget leverage lost if ECR re-aligns) → R-DMA-01 (enforcement timeline delayed by legislative backlog)
+
+*Source: EP Open Data Portal | Risk matrix methodology | 2026-05-08 (re-run extended)*
 
 *End of Risk Matrix | 2026-05-08*
-
 
 ---
 *Risk matrix complete. 2026-05-08. All risks monitored via EP MCP tools.*

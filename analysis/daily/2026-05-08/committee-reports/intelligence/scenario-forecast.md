@@ -112,6 +112,36 @@ The Commission's minimal DMA enforcement, combined with a budget impasse that tr
 
 ---
 
+## Scenario Confidence Assessment
+
+### Scenario A Confidence Calibration 🟡 MEDIUM
+The "Regulated Momentum" scenario requires two rare coincidences: enforcement ambition AND Council cooperation. Historical base rate for both conditions being met simultaneously: ~15-20%. However, the current Commissioner's mandate renewal incentive raises the conditional probability significantly if the renewal timeline coincides with DMA enforcement decisions.
+
+**Key assumption under scrutiny:** Does the Commissioner actually control enforcement calendar, or is DG COMP bureaucratic inertia the binding constraint? Evidence suggests procedural inertia is the dominant factor in DMA enforcement delays — not political reluctance. This is a critical assumption check.
+
+### Scenario B Confidence Calibration 🟢 HIGH
+"Institutional Confrontation" is consistent with EP10's structural dynamics: 9-group fragmented parliament (HHI index 6.55 — highly fragmented), assertive BUDG rapporteur established record of conciliation demands, Big Tech legal teams consistently choosing litigation over compliance. No new information required for this scenario to remain modal.
+
+**Key assumption:** Council's budget conservatism holds through Q4 2026. German federal coalition dynamics (Scholz III) and Dutch electoral results are the primary uncertainty. If Germany's 2027 budget process shifts toward deficit spending (breaking decades of Schuldenbremse tradition), the +8% defence offer becomes achievable — shifting toward Scenario A.
+
+### Scenario C Confidence Calibration 🔴 LOW
+The "Digital Rupture" scenario is internally inconsistent: structural separation proceedings against US companies simultaneously with budget confrontation creates a political environment that typically leads to institutional retrenchment, not escalation. The Commission would have political incentive to offer budget concessions if it planned structural DMA proceedings — decoupling the two confrontations.
+
+### Scenario D Confidence Calibration 🟡 MEDIUM
+The "Governance Stalemate" scenario requires independent failures — DMA enforcement collapse AND budget impasse AND sustained Hungarian veto. The first two are plausible independently; the third (sustained HU veto) is very likely. But the combination requires all three persisting simultaneously, which historical analysis of EP governance suggests is unusual. Base rate: ~12-15% under EP10 conditions.
+
+---
+
+## Scenario E: Crisis Adaptation (Supplementary — WEP: 5%)
+
+A supplementary scenario not captured in the 2×2 matrix addresses a **structural crisis requiring adaptation** rather than normal policy outcomes. This could be triggered by any of the wildcards in `wildcards-blackswans.md` or by compound institutional failures.
+
+**Characteristics:** High enforcement ambition under crisis conditions; emergency budget procedures bypassing normal conciliation; plenary resurgence as committee system overwhelmed.
+
+**Probability:** 5% — outside the main matrix but documented for completeness.
+
+---
+
 ## Early Warning Indicators
 
 | Indicator | Trigger Event | Target Scenario | Timeline |
@@ -121,3 +151,31 @@ The Commission's minimal DMA enforcement, combined with a budget impasse that tr
 | EP-Commission joint statement on DMA | Exists → Scenario A; Absent → B/C/D | All | July 2026 |
 | Hungary Art. 7 hearing outcome | Unresolved → Scenario D risk increases | D | Ongoing |
 | CJEU Mercosur admissibility | Admissible → confirms Scenario A/B path | All | Q3 2026 |
+| EPP group discipline on DMA vote | Any EPP defection > 30 MEPs → Scenario B/D | B, D | September 2026 |
+| Commission DG COMP staffing for DMA | Significant new hires → Scenario A or C | A, C | July 2026 |
+| Nature Restoration Law implementation decree | Signed → Scenario A indicator; Delayed → B/D | A | Q3 2026 |
+| EU-Ukraine Loan tranche disbursement | On schedule → Scenario A; Delayed → B/D | All | June 2026 |
+
+### Scenario Revision Trigger
+
+This forecast should be revised if:
+1. Any two early warning indicators trigger in the same calendar month
+2. A wildcard event occurs (see `wildcards-blackswans.md`)
+3. German federal coalition collapses before Q4 2026 (would recalibrate Council budget position)
+4. Commissioner mandate renewal timeline shifts by >6 weeks (would affect enforcement incentive calculation)
+
+---
+
+## Cross-Scenario Risk Assessment
+
+### Transition Pathways Between Scenarios
+
+The four scenarios are not static — political events can shift the trajectory between them during H2 2026. Key transition pathways:
+
+**A → B (Most likely transition):** Commission initially shows enforcement ambition (June 2026 calendar signals) but budget confrontation forces a political retreat. Commission trades enforcement credibility for Council budget flexibility. Result: formal enforcement calendar announced but without structural separation — effectively Scenario B.
+
+**B → C (Possible):** A Commission enforcement escalation triggered by an external event (e.g., Alphabet market manipulation evidence surfacing) creates pressure that makes Scenario C the rational political choice even during budget confrontation. The Commission frames structural separation as a separate EU strategic autonomy question rather than an economic regulation issue.
+
+**B → D (Risk):** If the German Council Presidency adopts a below-3% defence budget offer (fiscal hawks dominate), the budget confrontation becomes intractable, and DMA enforcement ambition also collapses under business lobby pressure. This creates the governance stalemate: no digital policy victory, no budget deal.
+
+**D → A (Recovery path):** A political reset triggered by an external shock (new US trade escalation, major Russian offensive) creates coalition-building urgency and enables a grand compromise — EPP + S&D + Renew agree to both budget and enforcement simultaneously. Historical precedent: COVID accelerated MFF plus NextGenEU deal in 2020.
