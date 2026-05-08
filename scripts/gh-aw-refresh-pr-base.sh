@@ -23,31 +23,54 @@ if [ -n "${GH_AW_PR_BASE_BRANCH:-}" ]; then
   base_branch="$GH_AW_PR_BASE_BRANCH"
 fi
 
-validate_ref_part() {
+validate_remote_name() {
   value="$1"
-  label="$2"
   case "$value" in
-    ""|/*|*/|*..*|*//*)
-      log "invalid $label: $value"
+    ""|"."|".."|*/*|*..*)
+      log "invalid remote: $value"
       exit 1
       ;;
   esac
   case "$value" in
-    *[!A-Za-z0-9._/-]*)
-      log "invalid $label: $value"
+    *[!A-Za-z0-9._-]*)
+      log "invalid remote: $value"
       exit 1
       ;;
   esac
 }
 
-validate_ref_part "$remote" "remote"
-validate_ref_part "$base_branch" "base branch"
-
-base_ref="refs/remotes/$remote/$base_branch"
+validate_base_branch() {
+  value="$1"
+  case "$value" in
+    ""|refs/*|/*|*/|*//*|*..*)
+      log "invalid base branch: $value"
+      exit 1
+      ;;
+  esac
+  case "$value" in
+    *[!A-Za-z0-9._/-]*)
+      log "invalid base branch: $value"
+      exit 1
+      ;;
+  esac
+  if ! git check-ref-format --branch "$value" >/dev/null 2>&1; then
+    log "invalid base branch: $value"
+    exit 1
+  fi
+}
 
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   log "not inside a git work tree; skipped"
   exit 0
+fi
+
+validate_remote_name "$remote"
+validate_base_branch "$base_branch"
+
+base_ref="refs/remotes/$remote/$base_branch"
+if ! git check-ref-format "$base_ref" >/dev/null 2>&1; then
+  log "invalid remote tracking ref: $base_ref"
+  exit 1
 fi
 
 if [ -n "$(git status --porcelain)" ]; then

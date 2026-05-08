@@ -51,7 +51,7 @@ function createGitTestFixture() {
   git(workspace, 'config', 'user.email', 't@t');
   git(workspace, 'config', 'user.name', 't');
 
-  return { root, seed, workspace };
+  return { root, remote, seed, workspace };
 }
 
 let fixture;
@@ -120,6 +120,58 @@ describe('gh-aw-refresh-pr-base.sh', () => {
 
     const result = runRefresh(workspace, {
       GH_AW_PR_BASE_BRANCH: '../main',
+    });
+
+    expect(result.code).toBe(1);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).toContain('invalid base branch');
+  });
+
+  it('allows hyphenated remotes and base branches', () => {
+    const { remote, seed, workspace } = fixture;
+    git(workspace, 'remote', 'add', 'origin-fork', remote);
+
+    git(seed, 'checkout', '-qb', 'release-2026');
+    fs.writeFileSync(path.join(seed, 'release.txt'), 'release base\n');
+    git(seed, 'add', '.');
+    git(seed, 'commit', '-qm', 'release base');
+    git(seed, 'push', '-q', 'origin', 'release-2026');
+
+    git(workspace, 'checkout', '-qb', 'news/hyphenated-base');
+    fs.writeFileSync(path.join(workspace, 'article.md'), 'news output\n');
+    git(workspace, 'add', '.');
+    git(workspace, 'commit', '-qm', 'agent output');
+
+    const result = runRefresh(workspace, {
+      GH_AW_PR_REMOTE: 'origin-fork',
+      GH_AW_PR_BASE_BRANCH: 'release-2026',
+    });
+
+    expect(result.code).toBe(0);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).toContain('refs/remotes/origin-fork/release-2026');
+    expect(git(workspace, 'merge-base', '--is-ancestor', 'origin-fork/release-2026', 'HEAD')).toBe('');
+  });
+
+  it('rejects slash-containing remote names', () => {
+    const { workspace } = fixture;
+    git(workspace, 'checkout', '-qb', 'news/unsafe-remote');
+
+    const result = runRefresh(workspace, {
+      GH_AW_PR_REMOTE: 'origin/fork',
+    });
+
+    expect(result.code).toBe(1);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).toContain('invalid remote');
+  });
+
+  it('rejects base branches starting with refs/', () => {
+    const { workspace } = fixture;
+    git(workspace, 'checkout', '-qb', 'news/refs-prefix');
+
+    const result = runRefresh(workspace, {
+      GH_AW_PR_BASE_BRANCH: 'refs/heads/main',
     });
 
     expect(result.code).toBe(1);
