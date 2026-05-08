@@ -42,7 +42,7 @@ validate_remote_name() {
 validate_base_branch() {
   value="$1"
   case "$value" in
-    ""|refs/*|/*|*/|*//*|*..*)
+    ""|refs/*|/*|*/|.*|*.|*/.*|*./*|*//*|*..*)
       log "invalid base branch: $value"
       exit 1
       ;;

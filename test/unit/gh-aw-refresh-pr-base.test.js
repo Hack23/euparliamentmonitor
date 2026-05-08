@@ -151,6 +151,7 @@ describe('gh-aw-refresh-pr-base.sh', () => {
     expect(result.stderr).toBe('');
     expect(result.stdout).toContain('refs/remotes/origin-fork/release-2026');
     expect(git(workspace, 'merge-base', '--is-ancestor', 'origin-fork/release-2026', 'HEAD')).toBe('');
+    expect(fs.readFileSync(path.join(workspace, 'release.txt'), 'utf8')).toBe('release base\n');
   });
 
   it('rejects slash-containing remote names', () => {
@@ -172,6 +173,19 @@ describe('gh-aw-refresh-pr-base.sh', () => {
 
     const result = runRefresh(workspace, {
       GH_AW_PR_BASE_BRANCH: 'refs/heads/main',
+    });
+
+    expect(result.code).toBe(1);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).toContain('invalid base branch');
+  });
+
+  it('rejects base branch path traversal before constructing the remote tracking ref', () => {
+    const { workspace } = fixture;
+    git(workspace, 'checkout', '-qb', 'news/path-traversal-base');
+
+    const result = runRefresh(workspace, {
+      GH_AW_PR_BASE_BRANCH: 'feature/../main',
     });
 
     expect(result.code).toBe(1);
