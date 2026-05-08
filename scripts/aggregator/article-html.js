@@ -157,10 +157,10 @@ export function buildArticleToc(entries, lang) {
     })
         .join('\n');
     return [
-        `  <aside class="article-toc-container" aria-label="${label}">`,
+        `  <aside class="article-toc-container" aria-labelledby="article-toc-heading">`,
         `    <details class="article-toc-details" open>`,
-        `      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> ${label}</summary>`,
-        `      <nav class="article-toc">`,
+        `      <summary class="article-toc-summary" id="article-toc-heading"><span class="guide-icon" aria-hidden="true">📑</span> ${label}</summary>`,
+        `      <nav class="article-toc" aria-labelledby="article-toc-heading">`,
         `        <ol class="article-toc-list">`,
         items,
         `        </ol>`,
