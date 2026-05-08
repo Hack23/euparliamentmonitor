@@ -463,10 +463,14 @@ export function buildSiteHeader(options: SiteHeaderOptions): string {
         </span>
       </a>
       <div class="site-header__actions">
-        ${piCta}${cta('site-header__cta--sponsor', 'https://github.com/sponsors/Hack23', 'heart', sponsorLabel)}
-        ${cta('', 'https://www.hack23.com', 'sponsor', becomeSponsorLabel)}
-        ${cta('site-header__cta--security', 'https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md', ICON_SECURITY, securityLabel)}
-        ${createThemeToggleButton(themeToggleLabel)}
+        <div class="site-header__cta-group">
+          ${piCta}${cta('site-header__cta--sponsor', 'https://github.com/sponsors/Hack23', 'heart', sponsorLabel)}
+          ${cta('', 'https://www.hack23.com', 'sponsor', becomeSponsorLabel)}
+          ${cta('site-header__cta--security', 'https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md', ICON_SECURITY, securityLabel)}
+        </div>
+        <div class="site-header__theme-toggle-slot">
+          ${createThemeToggleButton(themeToggleLabel)}
+        </div>
       </div>
       <nav class="site-header__langs" role="navigation" aria-label="${langSelectionLabel}">
         ${languageSwitcherHtml}
@@ -597,12 +601,12 @@ export function buildSiteFooter(options: SiteFooterOptions): string {
   return `<footer class="site-footer" role="contentinfo">
     <div class="footer-content">
       <div class="footer-section">
-        <h3>${aboutHeading}</h3>
+        <h3 class="footer-section__heading">${aboutHeading}</h3>
         <p>${aboutText}</p>${articlesLine}
         <p class="footer-company-summary">${companyTagline}</p>
       </div>
       <div class="footer-section">
-        <h3>${quickLinksHeading}</h3>
+        <h3 class="footer-section__heading">${quickLinksHeading}</h3>
         <ul>
           <li><a href="${homeHref}">${icon('home')}<span>${homeLabel}</span></a></li>
           <li><a href="${homeHref}#main">${icon('news')}<span>${newsLabel}</span></a></li>
@@ -623,7 +627,7 @@ export function buildSiteFooter(options: SiteFooterOptions): string {
         </ul>
       </div>
       <div class="footer-section">
-        <h3>${builtByHeading}</h3>
+        <h3 class="footer-section__heading">${builtByHeading}</h3>
         <div class="footer-badges" aria-label="${escapeHTML(getLocalizedString(FOOTER_TRUST_BADGES_ARIA_LABELS, lang))}">
           <a href="https://www.npmjs.com/package/euparliamentmonitor" aria-label="npm package version"><img src="https://img.shields.io/npm/v/euparliamentmonitor.svg" alt="npm package version"></a>
           <a href="https://scorecard.dev/viewer/?uri=github.com/Hack23/euparliamentmonitor" aria-label="OpenSSF Scorecard"><img src="https://api.securityscorecards.dev/projects/github.com/Hack23/euparliamentmonitor/badge" alt="OpenSSF Scorecard"></a>
@@ -653,7 +657,7 @@ export function buildSiteFooter(options: SiteFooterOptions): string {
         </ul>
       </div>
       <div class="footer-section">
-        <h3>${icon('lang')} ${languagesHeading}</h3>
+        <h3 class="footer-section__heading">${icon('lang')} ${languagesHeading}</h3>
         <div class="language-grid">
           ${langGrid}
         </div>

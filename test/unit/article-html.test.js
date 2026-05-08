@@ -14,6 +14,7 @@ import {
   wrapArticleHtml,
 } from '../../scripts/aggregator/article-html.js';
 import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
+import { validateArticleHTML } from '../../scripts/utils/file-utils.js';
 
 describe('getArticleFilename', () => {
   it('uses <date>-<type>-<lang>.html pattern uniformly', () => {
@@ -62,6 +63,26 @@ describe('wrapArticleHtml', () => {
     expect(html).toContain('class="skip-link"');
     // Theme toggle script tag is inlined by shared chrome
     expect(html).toMatch(/theme|toggle/i);
+  });
+
+  it('includes reader UX affordances required by article validation', () => {
+    const html = wrapArticleHtml(baseOptions);
+    expect(html).toContain('class="reading-progress"');
+    expect(html).toContain('<div class="reading-progress" aria-hidden="true"></div>');
+    expect(html).toContain('class="article-top-nav"');
+    expect(html).toContain('Article navigation');
+    expect(html).toContain('← Back to News');
+    expect(html).toContain('../political-intelligence.html');
+    expect(html).toContain('../sitemap.html');
+    expect(validateArticleHTML(html)).toEqual({ valid: true, errors: [] });
+  });
+
+  it('localizes the article top navigation links', () => {
+    const html = wrapArticleHtml({ ...baseOptions, lang: 'sv' });
+    expect(html).toContain('aria-label="Artikelnavigering"');
+    expect(html).toContain('← Tillbaka till Nyheter');
+    expect(html).toContain('../political-intelligence_sv.html');
+    expect(html).toContain('../sitemap_sv.html');
   });
 
   it('renders hreflang alternates for all 14 languages + x-default', () => {

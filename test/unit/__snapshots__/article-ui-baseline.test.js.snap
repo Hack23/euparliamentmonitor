@@ -1,0 +1,749 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`article UI baseline snapshots > article wrapper chrome > matches the current article-hero baseline for every article category 1`] = `
+{
+  "breaking": {
+    "hero": "<header class="article-hero">
+        <p class="article-kicker">⚡ Breaking News</p>
+        <h1>Baseline breaking</h1>
+        <p class="article-dek">Baseline description for breaking.</p>
+        <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
+      </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
+    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    <details class="article-toc-details" open>
+      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc">
+        <ol class="article-toc-list">
+        <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
+        <li><a href="#section-synthesis">Synthesis Summary</a></li>
+        <li><a href="#aggregator-analysis-index">Analysis Index</a></li>
+        </ol>
+      </nav>
+    </details>
+  </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
+  },
+  "committee-reports": {
+    "hero": "<header class="article-hero">
+        <p class="article-kicker">📑 Committee Activity</p>
+        <h1>Baseline committee-reports</h1>
+        <p class="article-dek">Baseline description for committee-reports.</p>
+        <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
+      </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
+    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    <details class="article-toc-details" open>
+      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc">
+        <ol class="article-toc-list">
+        <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
+        <li><a href="#section-synthesis">Synthesis Summary</a></li>
+        <li><a href="#aggregator-analysis-index">Analysis Index</a></li>
+        </ol>
+      </nav>
+    </details>
+  </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
+  },
+  "deep-analysis": {
+    "hero": "<header class="article-hero">
+        <p class="article-kicker">🔬 Deep Analysis</p>
+        <h1>Baseline deep-analysis</h1>
+        <p class="article-dek">Baseline description for deep-analysis.</p>
+        <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
+      </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
+    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    <details class="article-toc-details" open>
+      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc">
+        <ol class="article-toc-list">
+        <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
+        <li><a href="#section-synthesis">Synthesis Summary</a></li>
+        <li><a href="#aggregator-analysis-index">Analysis Index</a></li>
+        </ol>
+      </nav>
+    </details>
+  </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
+  },
+  "election-cycle": {
+    "hero": "<header class="article-hero">
+        <p class="article-kicker">🗳️ Election Cycle</p>
+        <h1>Baseline election-cycle</h1>
+        <p class="article-dek">Baseline description for election-cycle.</p>
+        <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
+      </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
+    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    <details class="article-toc-details" open>
+      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc">
+        <ol class="article-toc-list">
+        <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
+        <li><a href="#section-synthesis">Synthesis Summary</a></li>
+        <li><a href="#aggregator-analysis-index">Analysis Index</a></li>
+        </ol>
+      </nav>
+    </details>
+  </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
+  },
+  "month-ahead": {
+    "hero": "<header class="article-hero">
+        <p class="article-kicker">🗓️ Month Ahead</p>
+        <h1>Baseline month-ahead</h1>
+        <p class="article-dek">Baseline description for month-ahead.</p>
+        <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
+      </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
+    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    <details class="article-toc-details" open>
+      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc">
+        <ol class="article-toc-list">
+        <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
+        <li><a href="#section-synthesis">Synthesis Summary</a></li>
+        <li><a href="#aggregator-analysis-index">Analysis Index</a></li>
+        </ol>
+      </nav>
+    </details>
+  </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
+  },
+  "month-in-review": {
+    "hero": "<header class="article-hero">
+        <p class="article-kicker">📰 Month in Review</p>
+        <h1>Baseline month-in-review</h1>
+        <p class="article-dek">Baseline description for month-in-review.</p>
+        <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
+      </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
+    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    <details class="article-toc-details" open>
+      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc">
+        <ol class="article-toc-list">
+        <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
+        <li><a href="#section-synthesis">Synthesis Summary</a></li>
+        <li><a href="#aggregator-analysis-index">Analysis Index</a></li>
+        </ol>
+      </nav>
+    </details>
+  </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
+  },
+  "motions": {
+    "hero": "<header class="article-hero">
+        <p class="article-kicker">🗳️ Plenary Votes &amp; Resolutions</p>
+        <h1>Baseline motions</h1>
+        <p class="article-dek">Baseline description for motions.</p>
+        <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
+      </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
+    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    <details class="article-toc-details" open>
+      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc">
+        <ol class="article-toc-list">
+        <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
+        <li><a href="#section-synthesis">Synthesis Summary</a></li>
+        <li><a href="#aggregator-analysis-index">Analysis Index</a></li>
+        </ol>
+      </nav>
+    </details>
+  </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
+  },
+  "propositions": {
+    "hero": "<header class="article-hero">
+        <p class="article-kicker">📜 Legislative Procedures</p>
+        <h1>Baseline propositions</h1>
+        <p class="article-dek">Baseline description for propositions.</p>
+        <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
+      </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
+    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    <details class="article-toc-details" open>
+      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc">
+        <ol class="article-toc-list">
+        <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
+        <li><a href="#section-synthesis">Synthesis Summary</a></li>
+        <li><a href="#aggregator-analysis-index">Analysis Index</a></li>
+        </ol>
+      </nav>
+    </details>
+  </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
+  },
+  "quarter-ahead": {
+    "hero": "<header class="article-hero">
+        <p class="article-kicker">📊 Quarter Ahead</p>
+        <h1>Baseline quarter-ahead</h1>
+        <p class="article-dek">Baseline description for quarter-ahead.</p>
+        <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
+      </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
+    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    <details class="article-toc-details" open>
+      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc">
+        <ol class="article-toc-list">
+        <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
+        <li><a href="#section-synthesis">Synthesis Summary</a></li>
+        <li><a href="#aggregator-analysis-index">Analysis Index</a></li>
+        </ol>
+      </nav>
+    </details>
+  </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
+  },
+  "quarter-in-review": {
+    "hero": "<header class="article-hero">
+        <p class="article-kicker">📈 Quarter in Review</p>
+        <h1>Baseline quarter-in-review</h1>
+        <p class="article-dek">Baseline description for quarter-in-review.</p>
+        <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
+      </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
+    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    <details class="article-toc-details" open>
+      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc">
+        <ol class="article-toc-list">
+        <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
+        <li><a href="#section-synthesis">Synthesis Summary</a></li>
+        <li><a href="#aggregator-analysis-index">Analysis Index</a></li>
+        </ol>
+      </nav>
+    </details>
+  </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
+  },
+  "term-outlook": {
+    "hero": "<header class="article-hero">
+        <p class="article-kicker">🔮 Term Outlook</p>
+        <h1>Baseline term-outlook</h1>
+        <p class="article-dek">Baseline description for term-outlook.</p>
+        <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
+      </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
+    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    <details class="article-toc-details" open>
+      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc">
+        <ol class="article-toc-list">
+        <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
+        <li><a href="#section-synthesis">Synthesis Summary</a></li>
+        <li><a href="#aggregator-analysis-index">Analysis Index</a></li>
+        </ol>
+      </nav>
+    </details>
+  </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
+  },
+  "week-ahead": {
+    "hero": "<header class="article-hero">
+        <p class="article-kicker">📅 Week Ahead</p>
+        <h1>Baseline week-ahead</h1>
+        <p class="article-dek">Baseline description for week-ahead.</p>
+        <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
+      </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
+    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    <details class="article-toc-details" open>
+      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc">
+        <ol class="article-toc-list">
+        <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
+        <li><a href="#section-synthesis">Synthesis Summary</a></li>
+        <li><a href="#aggregator-analysis-index">Analysis Index</a></li>
+        </ol>
+      </nav>
+    </details>
+  </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
+  },
+  "week-in-review": {
+    "hero": "<header class="article-hero">
+        <p class="article-kicker">📋 Week in Review</p>
+        <h1>Baseline week-in-review</h1>
+        <p class="article-dek">Baseline description for week-in-review.</p>
+        <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
+      </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
+    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    <details class="article-toc-details" open>
+      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc">
+        <ol class="article-toc-list">
+        <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
+        <li><a href="#section-synthesis">Synthesis Summary</a></li>
+        <li><a href="#aggregator-analysis-index">Analysis Index</a></li>
+        </ol>
+      </nav>
+    </details>
+  </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
+  },
+  "year-ahead": {
+    "hero": "<header class="article-hero">
+        <p class="article-kicker">🔭 Year Ahead</p>
+        <h1>Baseline year-ahead</h1>
+        <p class="article-dek">Baseline description for year-ahead.</p>
+        <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
+      </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
+    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    <details class="article-toc-details" open>
+      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc">
+        <ol class="article-toc-list">
+        <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
+        <li><a href="#section-synthesis">Synthesis Summary</a></li>
+        <li><a href="#aggregator-analysis-index">Analysis Index</a></li>
+        </ol>
+      </nav>
+    </details>
+  </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
+  },
+  "year-in-review": {
+    "hero": "<header class="article-hero">
+        <p class="article-kicker">🏛️ Year in Review</p>
+        <h1>Baseline year-in-review</h1>
+        <p class="article-dek">Baseline description for year-in-review.</p>
+        <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
+      </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
+    "toc": "<aside class="article-toc-container" aria-label="Table of contents">
+    <details class="article-toc-details" open>
+      <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
+      <nav class="article-toc">
+        <ol class="article-toc-list">
+        <li><a href="#reader-intelligence-guide">Reader Intelligence Guide</a></li>
+        <li><a href="#section-synthesis">Synthesis Summary</a></li>
+        <li><a href="#aggregator-analysis-index">Analysis Index</a></li>
+        </ol>
+      </nav>
+    </details>
+  </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
+  },
+}
+`;
+
+exports[`article UI baseline snapshots > political-intelligence hub > matches the current political-intelligence hero, run-card, and artifact-disclosure baseline 1`] = `
+{
+  "artifactDisclosure": "<details class="pi-run__artifacts">
+                <summary class="pi-run__artifacts-toggle">Show all 2 artifact files</summary>
+                <ul class="pi-run__artifacts-list">
+                  <li class="pi-artifact">
+                    <a class="pi-artifact__link" href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-22/breaking-run1/data/agent-pre-work.md" rel="noopener external" target="_blank">
+                      <span class="pi-artifact__icon" aria-hidden="true">📄</span>
+                      <span class="pi-artifact__body">
+                        <span class="pi-artifact__title">Agent Pre-Work</span>
+                        <span class="pi-artifact__desc">Raw inputs the AI agent collected before starting analysis — data-pull logs, scope notes, tool inventory and methodology selection. Gives auditors full traceability of what went into the run.</span>
+                        <span class="pi-artifact__path"><code>data/agent-pre-work.md</code></span>
+                      </span>
+                      <span class="pi-artifact__cta" aria-hidden="true">↗</span>
+                    </a>
+                  </li>
+                  <li class="pi-artifact">
+                    <a class="pi-artifact__link" href="https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-22/breaking-run1/intelligence/swot.md" rel="noopener external" target="_blank">
+                      <span class="pi-artifact__icon" aria-hidden="true">🧭</span>
+                      <span class="pi-artifact__body">
+                        <span class="pi-artifact__title">Swot</span>
+                        <span class="pi-artifact__desc">Swot — analysis artifact in the EU Parliament Monitor analysis library.</span>
+                        <span class="pi-artifact__path"><code>intelligence/swot.md</code></span>
+                      </span>
+                      <span class="pi-artifact__cta" aria-hidden="true">↗</span>
+                    </a>
+                  </li>
+                </ul>
+              </details>",
+  "hero": "<section class="sitemap-hero pi-hero" aria-labelledby="pi-heading">
+      <h1 id="pi-heading">🧭 Political Intelligence</h1>
+      <p class="sitemap-hero__subtitle">Methodologies, templates &amp; daily analysis transparency</p>
+      <p class="sitemap-hero__intro">Every political analysis published on this site is backed by a transparent chain of methodologies, artifact templates, and run-level analysis data. This page gives you a single, fully-linked index into every piece of tradecraft used to produce the news. All sources open in GitHub so you can audit the analysis behind the prose.</p>
+      <dl class="sitemap-stats" aria-label="Political Intelligence">
+        <div class="sitemap-stats__item">
+          <dt>Methodologies</dt>
+          <dd>2</dd>
+        </div>
+        <div class="sitemap-stats__item">
+          <dt>Templates</dt>
+          <dd>2</dd>
+        </div>
+        <div class="sitemap-stats__item">
+          <dt>References</dt>
+          <dd>0</dd>
+        </div>
+        <div class="sitemap-stats__item">
+          <dt>Analysis runs</dt>
+          <dd>1</dd>
+        </div>
+        <div class="sitemap-stats__item">
+          <dt>Artifacts</dt>
+          <dd>2</dd>
+        </div>
+      </dl>
+    </section>",
+  "runLink": "<a class="pi-run__link" href="https://github.com/Hack23/euparliamentmonitor/tree/main/analysis/daily/2026-04-22/breaking-run1" rel="noopener external" target="_blank">
+                <span class="pi-run__icon" aria-hidden="true">🚨</span>
+                <span class="pi-run__body">
+                  <span class="pi-run__title">Breaking Analysis <span class="pi-run__runid" aria-hidden="true">#run1</span></span>
+                  <span class="pi-run__desc">Fast-turnaround breaking-news analysis of a single European Parliament event — classification, stakeholder map, SWOT, risk scoring and scenario forecast produced within hours.</span>
+                  <span class="pi-run__meta"><span class="pi-run__slug"><code>breaking-run1</code></span> · 2 artifacts</span>
+                </span>
+                <span class="pi-run__cta" aria-hidden="true">↗</span>
+              </a>",
+}
+`;
+
+exports[`article UI baseline snapshots > reader-intelligence guide > matches the current all-language guide baseline 1`] = `
+{
+  "ar": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="دليل القارئ الاستخباراتي" dir="rtl">
+<h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> دليل القارئ الاستخباراتي</h2>
+<p class="reader-guide-intro">استخدم هذا الدليل لقراءة المقال كمنتج استخباراتي سياسي بدلاً من مجموعة مواد خام. تظهر العدسات عالية القيمة أولاً؛ تبقى المصادر التقنية متاحة في ملاحق المراجعة.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
+<table class="reader-guide-table">
+<caption class="sr-only">دليل القارئ الاستخباراتي</caption>
+<thead><tr><th scope="col">حاجة القارئ</th><th scope="col">ما ستحصل عليه</th><th scope="col">مصدر المواد</th></tr></thead>
+<tbody>
+<tr><td><span class="guide-icon" aria-hidden="true">📋</span> <a href="#section-executive-brief">ملخص تنفيذي وقرارات تحريرية</a></td><td>إجابة سريعة عما حدث، لماذا يهم، من المسؤول، والمحفز التالي المؤرخ</td><td><code>executive-brief.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔗</span> <a href="#section-synthesis">أطروحة متكاملة</a></td><td>القراءة السياسية الرائدة التي تربط الحقائق والفاعلين والمخاطر والثقة</td><td><code>synthesis.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚖️</span> <a href="#section-significance">تقييم الأهمية</a></td><td>لماذا تتفوق هذه القصة أو تتخلف عن إشارات البرلمان الأوروبي الأخرى في نفس اليوم</td><td><code>significance.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🤝</span> <a href="#section-coalitions-voting">التحالفات والتصويت</a></td><td>توافق المجموعات السياسية وأدلة التصويت ونقاط ضغط التحالف</td><td><code>coalitions-voting.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">👥</span> <a href="#section-stakeholder-map">تأثير أصحاب المصلحة</a></td><td>من يكسب، من يخسر، وأي مؤسسات أو مواطنين يشعرون بتأثير السياسة</td><td><code>stakeholder-map.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">💶</span> <a href="#section-economic-context">سياق اقتصادي مدعوم من صندوق النقد الدولي</a></td><td>أدلة كلية أو مالية أو تجارية أو نقدية تغير التفسير السياسي</td><td><code>economic-context.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔮</span> <a href="#section-scenarios">مؤشرات استشرافية</a></td><td>عناصر مراقبة مؤرخة تتيح للقراء التحقق من التقييم أو دحضه لاحقاً</td><td><code>scenarios.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚠️</span> <a href="#section-risk">تقييم المخاطر</a></td><td>سجل مخاطر السياسات والمؤسسات والتحالفات والاتصالات والتنفيذ</td><td><code>risk.md</code></td></tr>
+</tbody>
+</table>
+</div>
+</section>",
+  "da": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Læserguide til efterretninger">
+<h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Læserguide til efterretninger</h2>
+<p class="reader-guide-intro">Brug denne guide til at læse artiklen som et politisk efterretningsprodukt snarere end en rå artefaktsamling. Læserperspektiver med høj værdi vises først; teknisk oprindelse forbliver tilgængelig i revisionsbilagene.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
+<table class="reader-guide-table">
+<caption class="sr-only">Læserguide til efterretninger</caption>
+<thead><tr><th scope="col">Læserbehov</th><th scope="col">Hvad du får</th><th scope="col">Kildeartefakt</th></tr></thead>
+<tbody>
+<tr><td><span class="guide-icon" aria-hidden="true">📋</span> <a href="#section-executive-brief">BLUF og redaktionelle beslutninger</a></td><td>hurtigt svar på hvad der skete, hvorfor det er vigtigt, hvem der er ansvarlig, og den næste daterede trigger</td><td><code>executive-brief.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔗</span> <a href="#section-synthesis">Integreret tese</a></td><td>den ledende politiske læsning der forbinder fakta, aktører, risici og tillid</td><td><code>synthesis.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚖️</span> <a href="#section-significance">Betydningsvurdering</a></td><td>hvorfor denne historie overgår eller ligger under andre EU-parlamentssignaler fra samme dag</td><td><code>significance.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🤝</span> <a href="#section-coalitions-voting">Koalitioner og afstemning</a></td><td>politisk gruppeafstemning, stemmebevis og koalitionstrykpunkter</td><td><code>coalitions-voting.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">👥</span> <a href="#section-stakeholder-map">Interessentpåvirkning</a></td><td>hvem vinder, hvem taber, og hvilke institutioner eller borgere der mærker politikeffekten</td><td><code>stakeholder-map.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">💶</span> <a href="#section-economic-context">IMF-støttet økonomisk kontekst</a></td><td>makro-, finans-, handels- eller monetærbevis der ændrer den politiske fortolkning</td><td><code>economic-context.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔮</span> <a href="#section-scenarios">Fremadrettede indikatorer</a></td><td>daterede overvågningspunkter der lader læsere verificere eller falsificere vurderingen senere</td><td><code>scenarios.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚠️</span> <a href="#section-risk">Risikovurdering</a></td><td>politik-, institutions-, koalitions-, kommunikations- og implementeringsrisikoregister</td><td><code>risk.md</code></td></tr>
+</tbody>
+</table>
+</div>
+</section>",
+  "de": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Leser-Intelligenz-Leitfaden">
+<h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Leser-Intelligenz-Leitfaden</h2>
+<p class="reader-guide-intro">Nutzen Sie diesen Leitfaden, um den Artikel als politisches Nachrichtendienstprodukt statt als bloße Artefaktsammlung zu lesen. Hochwertige Leserperspektiven erscheinen zuerst; technische Herkunft bleibt in den Prüfanhängen verfügbar.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
+<table class="reader-guide-table">
+<caption class="sr-only">Leser-Intelligenz-Leitfaden</caption>
+<thead><tr><th scope="col">Leserbedarf</th><th scope="col">Was Sie erhalten</th><th scope="col">Quellartefakt</th></tr></thead>
+<tbody>
+<tr><td><span class="guide-icon" aria-hidden="true">📋</span> <a href="#section-executive-brief">BLUF und redaktionelle Entscheidungen</a></td><td>schnelle Antwort auf was passiert ist, warum es wichtig ist, wer verantwortlich ist und der nächste terminierte Auslöser</td><td><code>executive-brief.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔗</span> <a href="#section-synthesis">Integrierte These</a></td><td>die führende politische Lesart, die Fakten, Akteure, Risiken und Vertrauen verbindet</td><td><code>synthesis.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚖️</span> <a href="#section-significance">Bedeutungsbewertung</a></td><td>warum diese Geschichte andere gleichzeitige EU-Parlamentssignale übertrifft oder hinterherhinkt</td><td><code>significance.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🤝</span> <a href="#section-coalitions-voting">Koalitionen und Abstimmungen</a></td><td>politische Gruppenausrichtung, Abstimmungsnachweise und Koalitionsdruckpunkte</td><td><code>coalitions-voting.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">👥</span> <a href="#section-stakeholder-map">Stakeholder-Auswirkungen</a></td><td>wer gewinnt, wer verliert, und welche Institutionen oder Bürger die Politikwirkung spüren</td><td><code>stakeholder-map.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">💶</span> <a href="#section-economic-context">IWF-gestützter wirtschaftlicher Kontext</a></td><td>makroökonomische, fiskalische, Handels- oder geldpolitische Belege, die die politische Interpretation ändern</td><td><code>economic-context.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔮</span> <a href="#section-scenarios">Vorausschauende Indikatoren</a></td><td>datierte Beobachtungspunkte, mit denen Leser die Bewertung später verifizieren oder falsifizieren können</td><td><code>scenarios.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚠️</span> <a href="#section-risk">Risikobewertung</a></td><td>Risikoverzeichnis für Politik, Institutionen, Koalitionen, Kommunikation und Umsetzung</td><td><code>risk.md</code></td></tr>
+</tbody>
+</table>
+</div>
+</section>",
+  "en": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Reader Intelligence Guide">
+<h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Reader Intelligence Guide</h2>
+<p class="reader-guide-intro">Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
+<table class="reader-guide-table">
+<caption class="sr-only">Reader Intelligence Guide</caption>
+<thead><tr><th scope="col">Reader need</th><th scope="col">What you&#39;ll get</th><th scope="col">Source artifact</th></tr></thead>
+<tbody>
+<tr><td><span class="guide-icon" aria-hidden="true">📋</span> <a href="#section-executive-brief">BLUF and editorial decisions</a></td><td>fast answer to what happened, why it matters, who is accountable, and the next dated trigger</td><td><code>executive-brief.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔗</span> <a href="#section-synthesis">Integrated thesis</a></td><td>the lead political reading that connects facts, actors, risks, and confidence</td><td><code>synthesis.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚖️</span> <a href="#section-significance">Significance scoring</a></td><td>why this story outranks or trails other same-day European Parliament signals</td><td><code>significance.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🤝</span> <a href="#section-coalitions-voting">Coalitions and voting</a></td><td>political group alignment, voting evidence, and coalition pressure points</td><td><code>coalitions-voting.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">👥</span> <a href="#section-stakeholder-map">Stakeholder impact</a></td><td>who gains, who loses, and which institutions or citizens feel the policy effect</td><td><code>stakeholder-map.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">💶</span> <a href="#section-economic-context">IMF-backed economic context</a></td><td>macro, fiscal, trade, or monetary evidence that changes the political interpretation</td><td><code>economic-context.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔮</span> <a href="#section-scenarios">Forward indicators</a></td><td>dated watch items that let readers verify or falsify the assessment later</td><td><code>scenarios.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚠️</span> <a href="#section-risk">Risk assessment</a></td><td>policy, institutional, coalition, communications, and implementation risk register</td><td><code>risk.md</code></td></tr>
+</tbody>
+</table>
+</div>
+</section>",
+  "es": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Guía de inteligencia para el lector">
+<h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Guía de inteligencia para el lector</h2>
+<p class="reader-guide-intro">Use esta guía para leer el artículo como un producto de inteligencia política en lugar de una colección de artefactos sin procesar. Las perspectivas de lectura de alto valor aparecen primero; la procedencia técnica permanece disponible en los apéndices de auditoría.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
+<table class="reader-guide-table">
+<caption class="sr-only">Guía de inteligencia para el lector</caption>
+<thead><tr><th scope="col">Necesidad del lector</th><th scope="col">Lo que obtendrá</th><th scope="col">Artefacto fuente</th></tr></thead>
+<tbody>
+<tr><td><span class="guide-icon" aria-hidden="true">📋</span> <a href="#section-executive-brief">BLUF y decisiones editoriales</a></td><td>respuesta rápida a qué sucedió, por qué importa, quién es responsable y el próximo evento programado</td><td><code>executive-brief.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔗</span> <a href="#section-synthesis">Tesis integrada</a></td><td>la lectura política principal que conecta hechos, actores, riesgos y confianza</td><td><code>synthesis.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚖️</span> <a href="#section-significance">Puntuación de significancia</a></td><td>por qué esta historia supera o queda detrás de otras señales del Parlamento Europeo del mismo día</td><td><code>significance.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🤝</span> <a href="#section-coalitions-voting">Coaliciones y votación</a></td><td>alineamiento de grupos políticos, evidencia de votación y puntos de presión de la coalición</td><td><code>coalitions-voting.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">👥</span> <a href="#section-stakeholder-map">Impacto en las partes interesadas</a></td><td>quién gana, quién pierde, y qué instituciones o ciudadanos sienten el efecto de la política</td><td><code>stakeholder-map.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">💶</span> <a href="#section-economic-context">Contexto económico respaldado por el FMI</a></td><td>evidencia macro, fiscal, comercial o monetaria que cambia la interpretación política</td><td><code>economic-context.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔮</span> <a href="#section-scenarios">Indicadores prospectivos</a></td><td>elementos de vigilancia fechados que permiten a los lectores verificar o refutar la evaluación posteriormente</td><td><code>scenarios.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚠️</span> <a href="#section-risk">Evaluación de riesgos</a></td><td>registro de riesgos políticos, institucionales, de coalición, de comunicación y de implementación</td><td><code>risk.md</code></td></tr>
+</tbody>
+</table>
+</div>
+</section>",
+  "fi": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Lukijan tiedusteluopas">
+<h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Lukijan tiedusteluopas</h2>
+<p class="reader-guide-intro">Käytä tätä opasta artikkelin lukemiseen poliittisena tiedustelutuotteena raa&#39;an artefaktikokoelman sijaan. Arvokkaita lukijanäkökulmia esitetään ensin; tekninen alkuperä on saatavilla tarkastusliitteissä.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
+<table class="reader-guide-table">
+<caption class="sr-only">Lukijan tiedusteluopas</caption>
+<thead><tr><th scope="col">Lukijan tarve</th><th scope="col">Mitä saat</th><th scope="col">Lähdeartefakti</th></tr></thead>
+<tbody>
+<tr><td><span class="guide-icon" aria-hidden="true">📋</span> <a href="#section-executive-brief">BLUF ja toimitukselliset päätökset</a></td><td>nopea vastaus siihen mitä tapahtui, miksi sillä on merkitystä, kuka on vastuussa ja seuraava päivätty laukaisin</td><td><code>executive-brief.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔗</span> <a href="#section-synthesis">Integroitu teesi</a></td><td>johtava poliittinen tulkinta, joka yhdistää faktat, toimijat, riskit ja luottamuksen</td><td><code>synthesis.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚖️</span> <a href="#section-significance">Merkittävyyspisteytys</a></td><td>miksi tämä uutinen ohittaa tai jää jälkeen muista saman päivän EU-parlamentin signaaleista</td><td><code>significance.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🤝</span> <a href="#section-coalitions-voting">Koalitiot ja äänestys</a></td><td>poliittisen ryhmän linjaus, äänestystodisteet ja koalition painepisteet</td><td><code>coalitions-voting.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">👥</span> <a href="#section-stakeholder-map">Sidosryhmävaikutus</a></td><td>kuka voittaa, kuka häviää, ja mitkä instituutiot tai kansalaiset tuntevat politiikan vaikutuksen</td><td><code>stakeholder-map.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">💶</span> <a href="#section-economic-context">IMF:n tukema taloudellinen konteksti</a></td><td>makro-, finanssi-, kauppa- tai rahapoliittiset todisteet, jotka muuttavat poliittista tulkintaa</td><td><code>economic-context.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔮</span> <a href="#section-scenarios">Tulevaisuuden indikaattorit</a></td><td>päivätyt seurantakohteet, joiden avulla lukijat voivat myöhemmin vahvistaa tai kumota arvion</td><td><code>scenarios.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚠️</span> <a href="#section-risk">Riskiarviointi</a></td><td>politiikka-, instituutio-, koalitio-, viestintä- ja toteutusriskien rekisteri</td><td><code>risk.md</code></td></tr>
+</tbody>
+</table>
+</div>
+</section>",
+  "fr": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Guide d&#39;intelligence pour le lecteur">
+<h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Guide d&#39;intelligence pour le lecteur</h2>
+<p class="reader-guide-intro">Utilisez ce guide pour lire l&#39;article comme un produit de renseignement politique plutôt qu&#39;un simple recueil d&#39;artefacts. Les perspectives de lecture à haute valeur apparaissent en premier ; la provenance technique reste disponible dans les annexes d&#39;audit.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
+<table class="reader-guide-table">
+<caption class="sr-only">Guide d&#39;intelligence pour le lecteur</caption>
+<thead><tr><th scope="col">Besoin du lecteur</th><th scope="col">Ce que vous obtiendrez</th><th scope="col">Artefact source</th></tr></thead>
+<tbody>
+<tr><td><span class="guide-icon" aria-hidden="true">📋</span> <a href="#section-executive-brief">BLUF et décisions éditoriales</a></td><td>réponse rapide à ce qui s&#39;est passé, pourquoi c&#39;est important, qui est responsable et le prochain déclencheur daté</td><td><code>executive-brief.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔗</span> <a href="#section-synthesis">Thèse intégrée</a></td><td>la lecture politique principale qui relie faits, acteurs, risques et confiance</td><td><code>synthesis.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚖️</span> <a href="#section-significance">Évaluation de la signification</a></td><td>pourquoi cette histoire surpasse ou suit d&#39;autres signaux du Parlement européen du même jour</td><td><code>significance.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🤝</span> <a href="#section-coalitions-voting">Coalitions et votes</a></td><td>alignement des groupes politiques, preuves de vote et points de pression de la coalition</td><td><code>coalitions-voting.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">👥</span> <a href="#section-stakeholder-map">Impact sur les parties prenantes</a></td><td>qui gagne, qui perd, et quelles institutions ou citoyens ressentent l&#39;effet de la politique</td><td><code>stakeholder-map.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">💶</span> <a href="#section-economic-context">Contexte économique soutenu par le FMI</a></td><td>preuves macro, fiscales, commerciales ou monétaires qui modifient l&#39;interprétation politique</td><td><code>economic-context.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔮</span> <a href="#section-scenarios">Indicateurs prospectifs</a></td><td>éléments de surveillance datés permettant aux lecteurs de vérifier ou d&#39;infirmer l&#39;évaluation ultérieurement</td><td><code>scenarios.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚠️</span> <a href="#section-risk">Évaluation des risques</a></td><td>registre des risques politiques, institutionnels, de coalition, de communication et de mise en œuvre</td><td><code>risk.md</code></td></tr>
+</tbody>
+</table>
+</div>
+</section>",
+  "he": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="מדריך מודיעין לקורא" dir="rtl">
+<h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> מדריך מודיעין לקורא</h2>
+<p class="reader-guide-intro">השתמש במדריך זה לקריאת המאמר כמוצר מודיעין פוליטי ולא כאוסף ממצאים גולמי. עדשות קריאה בעלות ערך גבוה מופיעות ראשונות; מקור טכני נשאר זמין בנספחי הביקורת.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
+<table class="reader-guide-table">
+<caption class="sr-only">מדריך מודיעין לקורא</caption>
+<thead><tr><th scope="col">צורך הקורא</th><th scope="col">מה תקבל</th><th scope="col">ממצא מקור</th></tr></thead>
+<tbody>
+<tr><td><span class="guide-icon" aria-hidden="true">📋</span> <a href="#section-executive-brief">תמצית ניהולית והחלטות עריכה</a></td><td>תשובה מהירה למה שקרה, למה זה חשוב, מי אחראי, והטריגר הבא</td><td><code>executive-brief.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔗</span> <a href="#section-synthesis">תזה משולבת</a></td><td>הקריאה הפוליטית המובילה שמחברת עובדות, שחקנים, סיכונים ואמון</td><td><code>synthesis.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚖️</span> <a href="#section-significance">ציון משמעות</a></td><td>מדוע הסיפור הזה עולה או נופל ביחס לאותות אחרים של הפרלמנט האירופי מאותו יום</td><td><code>significance.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🤝</span> <a href="#section-coalitions-voting">קואליציות והצבעות</a></td><td>התאמת קבוצות פוליטיות, ראיות הצבעה ונקודות לחץ קואליציוניות</td><td><code>coalitions-voting.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">👥</span> <a href="#section-stakeholder-map">השפעה על בעלי עניין</a></td><td>מי מרוויח, מי מפסיד, ואילו מוסדות או אזרחים חשים את השפעת המדיניות</td><td><code>stakeholder-map.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">💶</span> <a href="#section-economic-context">הקשר כלכלי מגובה קרן המטבע</a></td><td>ראיות מקרו, פיסקליות, מסחריות או מוניטריות שמשנות את הפרשנות הפוליטית</td><td><code>economic-context.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔮</span> <a href="#section-scenarios">אינדיקטורים קדימה</a></td><td>פריטי מעקב מתוארכים שמאפשרים לקוראים לאמת או להפריך את ההערכה בהמשך</td><td><code>scenarios.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚠️</span> <a href="#section-risk">הערכת סיכונים</a></td><td>מרשם סיכוני מדיניות, מוסדות, קואליציות, תקשורת ויישום</td><td><code>risk.md</code></td></tr>
+</tbody>
+</table>
+</div>
+</section>",
+  "ja": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="読者インテリジェンスガイド">
+<h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> 読者インテリジェンスガイド</h2>
+<p class="reader-guide-intro">このガイドを使用して、生の成果物の集まりではなく政治インテリジェンス製品として記事を読んでください。高価値な読者視点が最初に表示されます。技術的な出所は監査付録で引き続き確認できます。</p>
+<div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
+<table class="reader-guide-table">
+<caption class="sr-only">読者インテリジェンスガイド</caption>
+<thead><tr><th scope="col">読者のニーズ</th><th scope="col">得られる情報</th><th scope="col">ソースアーティファクト</th></tr></thead>
+<tbody>
+<tr><td><span class="guide-icon" aria-hidden="true">📋</span> <a href="#section-executive-brief">BLUF と編集上の判断</a></td><td>何が起きたか、なぜ重要か、誰が責任者か、次の予定トリガーへの即答</td><td><code>executive-brief.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔗</span> <a href="#section-synthesis">統合テーゼ</a></td><td>事実、アクター、リスク、信頼を結びつける主要な政治的解釈</td><td><code>synthesis.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚖️</span> <a href="#section-significance">重要度スコアリング</a></td><td>この記事が同日の他のEU議会シグナルを上回る/下回る理由</td><td><code>significance.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🤝</span> <a href="#section-coalitions-voting">連立と投票</a></td><td>政党グループの連携、投票エビデンス、連立圧力ポイント</td><td><code>coalitions-voting.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">👥</span> <a href="#section-stakeholder-map">ステークホルダーへの影響</a></td><td>誰が得をし、誰が損をし、どの機関や市民が政策効果を感じるか</td><td><code>stakeholder-map.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">💶</span> <a href="#section-economic-context">IMF裏付け経済コンテキスト</a></td><td>政治的解釈を変えるマクロ、財政、貿易、金融エビデンス</td><td><code>economic-context.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔮</span> <a href="#section-scenarios">先行指標</a></td><td>読者が後で評価を検証または反証できる日付入り監視項目</td><td><code>scenarios.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚠️</span> <a href="#section-risk">リスク評価</a></td><td>政策、制度、連立、コミュニケーション、実施のリスクレジスター</td><td><code>risk.md</code></td></tr>
+</tbody>
+</table>
+</div>
+</section>",
+  "ko": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="독자 인텔리전스 가이드">
+<h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> 독자 인텔리전스 가이드</h2>
+<p class="reader-guide-intro">이 가이드를 사용하여 기사를 원시 산출물 모음이 아닌 정치 인텔리전스 제품으로 읽으십시오. 고가치 독자 관점이 먼저 나타납니다. 기술적 출처는 감사 부록에서 확인할 수 있습니다.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
+<table class="reader-guide-table">
+<caption class="sr-only">독자 인텔리전스 가이드</caption>
+<thead><tr><th scope="col">독자 요구</th><th scope="col">얻게 되는 정보</th><th scope="col">소스 아티팩트</th></tr></thead>
+<tbody>
+<tr><td><span class="guide-icon" aria-hidden="true">📋</span> <a href="#section-executive-brief">BLUF 및 편집 결정</a></td><td>무슨 일이 있었는지, 왜 중요한지, 누가 책임지는지, 다음 예정된 트리거에 대한 빠른 답변</td><td><code>executive-brief.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔗</span> <a href="#section-synthesis">통합 논제</a></td><td>사실, 행위자, 위험 및 신뢰를 연결하는 주요 정치적 해석</td><td><code>synthesis.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚖️</span> <a href="#section-significance">중요도 평가</a></td><td>이 기사가 같은 날의 다른 EU 의회 신호보다 높은/낮은 순위인 이유</td><td><code>significance.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🤝</span> <a href="#section-coalitions-voting">연합 및 투표</a></td><td>정치 그룹 정렬, 투표 증거 및 연합 압력 지점</td><td><code>coalitions-voting.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">👥</span> <a href="#section-stakeholder-map">이해관계자 영향</a></td><td>누가 이익을 보고, 누가 손해를 보며, 어떤 기관이나 시민이 정책 효과를 느끼는지</td><td><code>stakeholder-map.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">💶</span> <a href="#section-economic-context">IMF 지원 경제 맥락</a></td><td>정치적 해석을 바꾸는 거시, 재정, 무역 또는 통화 증거</td><td><code>economic-context.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔮</span> <a href="#section-scenarios">전망 지표</a></td><td>독자가 나중에 평가를 검증하거나 반증할 수 있는 날짜가 지정된 감시 항목</td><td><code>scenarios.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚠️</span> <a href="#section-risk">위험 평가</a></td><td>정책, 기관, 연합, 커뮤니케이션 및 이행 위험 등록부</td><td><code>risk.md</code></td></tr>
+</tbody>
+</table>
+</div>
+</section>",
+  "nl": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Lezersgids voor inlichtingen">
+<h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Lezersgids voor inlichtingen</h2>
+<p class="reader-guide-intro">Gebruik deze gids om het artikel te lezen als een politiek inlichtingenproduct in plaats van een ruwe artefactverzameling. Hoogwaardige lezersperspectieven verschijnen eerst; technische herkomst blijft beschikbaar in de auditbijlagen.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
+<table class="reader-guide-table">
+<caption class="sr-only">Lezersgids voor inlichtingen</caption>
+<thead><tr><th scope="col">Lezersbehoefte</th><th scope="col">Wat u krijgt</th><th scope="col">Bronartefact</th></tr></thead>
+<tbody>
+<tr><td><span class="guide-icon" aria-hidden="true">📋</span> <a href="#section-executive-brief">BLUF en redactionele beslissingen</a></td><td>snel antwoord op wat er gebeurde, waarom het belangrijk is, wie verantwoordelijk is en de volgende geplande trigger</td><td><code>executive-brief.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔗</span> <a href="#section-synthesis">Geïntegreerde these</a></td><td>de leidende politieke lezing die feiten, actoren, risico&#39;s en vertrouwen verbindt</td><td><code>synthesis.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚖️</span> <a href="#section-significance">Significantiebeoordeling</a></td><td>waarom dit verhaal andere EU-Parlementsignalen van dezelfde dag overtreft of achterblijft</td><td><code>significance.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🤝</span> <a href="#section-coalitions-voting">Coalities en stemmingen</a></td><td>politieke groepsafstemming, stembewijzen en coalitiepressuurpunten</td><td><code>coalitions-voting.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">👥</span> <a href="#section-stakeholder-map">Impact op belanghebbenden</a></td><td>wie wint, wie verliest, en welke instellingen of burgers het beleidseffect voelen</td><td><code>stakeholder-map.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">💶</span> <a href="#section-economic-context">IMF-ondersteunde economische context</a></td><td>macro-, fiscaal, handels- of monetair bewijs dat de politieke interpretatie verandert</td><td><code>economic-context.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔮</span> <a href="#section-scenarios">Vooruitkijkende indicatoren</a></td><td>gedateerde bewakingspunten waarmee lezers de beoordeling later kunnen verifiëren of weerleggen</td><td><code>scenarios.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚠️</span> <a href="#section-risk">Risicobeoordeling</a></td><td>risicoregister voor beleid, instellingen, coalities, communicatie en implementatie</td><td><code>risk.md</code></td></tr>
+</tbody>
+</table>
+</div>
+</section>",
+  "no": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Leserguide for etterretning">
+<h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Leserguide for etterretning</h2>
+<p class="reader-guide-intro">Bruk denne guiden til å lese artikkelen som et politisk etterretningsprodukt i stedet for en rå artefaktsamling. Leserperspektiver med høy verdi vises først; teknisk opprinnelse er tilgjengelig i revisjonsvedleggene.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
+<table class="reader-guide-table">
+<caption class="sr-only">Leserguide for etterretning</caption>
+<thead><tr><th scope="col">Leserbehov</th><th scope="col">Hva du får</th><th scope="col">Kildeartefakt</th></tr></thead>
+<tbody>
+<tr><td><span class="guide-icon" aria-hidden="true">📋</span> <a href="#section-executive-brief">BLUF og redaksjonelle beslutninger</a></td><td>raskt svar på hva som skjedde, hvorfor det betyr noe, hvem som er ansvarlig, og neste daterte trigger</td><td><code>executive-brief.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔗</span> <a href="#section-synthesis">Integrert tese</a></td><td>den ledende politiske lesningen som kobler sammen fakta, aktører, risikoer og tillit</td><td><code>synthesis.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚖️</span> <a href="#section-significance">Betydningsvurdering</a></td><td>hvorfor denne saken overgår eller ligger bak andre EU-parlamentssignaler fra samme dag</td><td><code>significance.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🤝</span> <a href="#section-coalitions-voting">Koalisjoner og avstemning</a></td><td>politisk gruppetilpasning, avstemningsbevis og koalisjonstrykpunkter</td><td><code>coalitions-voting.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">👥</span> <a href="#section-stakeholder-map">Interessentpåvirkning</a></td><td>hvem som vinner, hvem som taper, og hvilke institusjoner eller borgere som merker politikkeffekten</td><td><code>stakeholder-map.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">💶</span> <a href="#section-economic-context">IMF-støttet økonomisk kontekst</a></td><td>makro-, finans-, handels- eller pengepolitiske bevis som endrer den politiske tolkningen</td><td><code>economic-context.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔮</span> <a href="#section-scenarios">Fremoverpekende indikatorer</a></td><td>daterte overvåkningspunkter som lar lesere verifisere eller falsifisere vurderingen senere</td><td><code>scenarios.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚠️</span> <a href="#section-risk">Risikovurdering</a></td><td>politikk-, institusjons-, koalisjons-, kommunikasjons- og gjennomføringsrisikoregister</td><td><code>risk.md</code></td></tr>
+</tbody>
+</table>
+</div>
+</section>",
+  "sv": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="Läsarguide för underrättelser">
+<h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> Läsarguide för underrättelser</h2>
+<p class="reader-guide-intro">Använd denna guide för att läsa artikeln som en politisk underrättelseprodukt snarare än en rå artefaktsamling. Högvärda läsarperspektiv visas först; teknisk härkomst finns tillgänglig i granskningsbilagorna.</p>
+<div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
+<table class="reader-guide-table">
+<caption class="sr-only">Läsarguide för underrättelser</caption>
+<thead><tr><th scope="col">Läsarbehov</th><th scope="col">Vad du får</th><th scope="col">Källartefakt</th></tr></thead>
+<tbody>
+<tr><td><span class="guide-icon" aria-hidden="true">📋</span> <a href="#section-executive-brief">BLUF och redaktionella beslut</a></td><td>snabbt svar på vad som hände, varför det spelar roll, vem som ansvarar och nästa daterade trigger</td><td><code>executive-brief.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔗</span> <a href="#section-synthesis">Integrerad tes</a></td><td>den ledande politiska läsningen som kopplar samman fakta, aktörer, risker och förtroende</td><td><code>synthesis.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚖️</span> <a href="#section-significance">Betydelsepoäng</a></td><td>varför denna nyhet överträffar eller underpresterar andra samma dags EU-parlamentssignaler</td><td><code>significance.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🤝</span> <a href="#section-coalitions-voting">Koalitioner och röstning</a></td><td>politisk gruppanpassning, röstbevis och koalitionstryckpunkter</td><td><code>coalitions-voting.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">👥</span> <a href="#section-stakeholder-map">Intressentpåverkan</a></td><td>vem som vinner, vem som förlorar, och vilka institutioner eller medborgare som påverkas</td><td><code>stakeholder-map.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">💶</span> <a href="#section-economic-context">IMF-stödd ekonomisk kontext</a></td><td>makro-, finans-, handels- eller monetärbevis som förändrar den politiska tolkningen</td><td><code>economic-context.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔮</span> <a href="#section-scenarios">Framåtblickande indikatorer</a></td><td>daterade bevakningspunkter som låter läsare verifiera eller falsifiera bedömningen senare</td><td><code>scenarios.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚠️</span> <a href="#section-risk">Riskbedömning</a></td><td>policy-, institutions-, koalitions-, kommunikations- och genomföranderiskregister</td><td><code>risk.md</code></td></tr>
+</tbody>
+</table>
+</div>
+</section>",
+  "zh": "<section id="reader-intelligence-guide" data-component="reader-intelligence-guide" aria-label="读者情报指南">
+<h2 id="reader-intelligence-guide-heading"><span class="guide-icon" aria-hidden="true">🧭</span> 读者情报指南</h2>
+<p class="reader-guide-intro">使用本指南将文章作为政治情报产品而非原始工件集合来阅读。高价值读者视角优先呈现；技术出处可在审计附录中查阅。</p>
+<div class="table-scroll" role="region" tabindex="0" aria-labelledby="reader-intelligence-guide-heading">
+<table class="reader-guide-table">
+<caption class="sr-only">读者情报指南</caption>
+<thead><tr><th scope="col">读者需求</th><th scope="col">您将获得</th><th scope="col">源工件</th></tr></thead>
+<tbody>
+<tr><td><span class="guide-icon" aria-hidden="true">📋</span> <a href="#section-executive-brief">BLUF与编辑决策</a></td><td>快速回答发生了什么、为何重要、谁负责以及下一个预定触发事件</td><td><code>executive-brief.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔗</span> <a href="#section-synthesis">综合论点</a></td><td>将事实、行动者、风险和信心联系起来的主要政治解读</td><td><code>synthesis.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚖️</span> <a href="#section-significance">重要性评分</a></td><td>为何此新闻在同日欧洲议会信号中排名靠前或靠后</td><td><code>significance.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🤝</span> <a href="#section-coalitions-voting">联盟与投票</a></td><td>政治团体对齐、投票证据和联盟压力点</td><td><code>coalitions-voting.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">👥</span> <a href="#section-stakeholder-map">利益相关者影响</a></td><td>谁受益、谁受损，哪些机构或公民感受到政策效果</td><td><code>stakeholder-map.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">💶</span> <a href="#section-economic-context">IMF支持的经济背景</a></td><td>改变政治解读的宏观、财政、贸易或货币证据</td><td><code>economic-context.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">🔮</span> <a href="#section-scenarios">前瞻性指标</a></td><td>让读者日后验证或证伪评估的标注日期监测项目</td><td><code>scenarios.md</code></td></tr>
+<tr><td><span class="guide-icon" aria-hidden="true">⚠️</span> <a href="#section-risk">风险评估</a></td><td>政策、机构、联盟、沟通和执行风险登记册</td><td><code>risk.md</code></td></tr>
+</tbody>
+</table>
+</div>
+</section>",
+}
+`;

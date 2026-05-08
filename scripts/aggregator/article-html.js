@@ -20,7 +20,7 @@
  */
 import { BASE_URL, BUILD_SHORT, MERMAID_VERSION } from '../constants/config.js';
 import { buildHeadFreshnessTags } from '../constants/build-info-meta.js';
-import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, SKIP_LINK_TEXTS, TOC_ARIA_LABELS, ARTICLE_TYPE_LABELS, VIEW_SOURCE_MARKDOWN_LABELS, ARTICLE_TYPE_ICONS, TRADECRAFT_HEADING_LABELS, TRADECRAFT_INTRO_LABELS, TRADECRAFT_METHODOLOGIES_LABELS, TRADECRAFT_TEMPLATES_LABELS, ANALYSIS_INDEX_HEADING_LABELS, ANALYSIS_INDEX_INTRO_LABELS, ANALYSIS_INDEX_COL_SECTION_LABELS, ANALYSIS_INDEX_COL_ARTIFACT_LABELS, ANALYSIS_INDEX_COL_PATH_LABELS, KEY_TAKEAWAYS_HEADING_LABELS, SUPPLEMENTARY_HEADING_LABELS, SECTION_TITLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, SKIP_LINK_TEXTS, TOC_ARIA_LABELS, ARTICLE_TYPE_LABELS, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, VIEW_SOURCE_MARKDOWN_LABELS, ARTICLE_TYPE_ICONS, FOOTER_SITEMAP_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS, TRADECRAFT_HEADING_LABELS, TRADECRAFT_INTRO_LABELS, TRADECRAFT_METHODOLOGIES_LABELS, TRADECRAFT_TEMPLATES_LABELS, ANALYSIS_INDEX_HEADING_LABELS, ANALYSIS_INDEX_INTRO_LABELS, ANALYSIS_INDEX_COL_SECTION_LABELS, ANALYSIS_INDEX_COL_ARTIFACT_LABELS, ANALYSIS_INDEX_COL_PATH_LABELS, KEY_TAKEAWAYS_HEADING_LABELS, SUPPLEMENTARY_HEADING_LABELS, SECTION_TITLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { ArticleCategory } from '../types/index.js';
 import { escapeHTML } from '../utils/file-utils.js';
 import { buildSiteFooter, buildSiteHeader, buildPageBanner, } from '../templates/section-builders.js';
@@ -28,6 +28,8 @@ import { READER_GUIDE_SECTION_ID } from './reader-guide-constants.js';
 import { READER_GUIDE_TITLE_LABELS } from './reader-intelligence-guide.js';
 import { TRADECRAFT_SECTION_ID, MANIFEST_SECTION_ID, SUPPLEMENTARY_SECTION_ID, } from './artifact-order.js';
 import { KEY_TAKEAWAYS_SECTION_ID } from './key-takeaways.js';
+import { getPoliticalIntelligenceFilename } from '../generators/political-intelligence.js';
+import { getSitemapFilename } from '../generators/sitemap/index.js';
 /**
  * Resolve a localized article type label with icon. Falls back to the
  * humanised slug when a translation isn't available.
@@ -310,6 +312,12 @@ export function wrapArticleHtml(options) {
     const hreflangLinks = buildArticleHreflangLinks(options.articleSlug);
     const langSwitcher = buildLanguageSwitcher(options.articleSlug, safeLang);
     const sourceMdLabel = getLocalizedString(VIEW_SOURCE_MARKDOWN_LABELS, safeLang);
+    const articleNavLabel = getLocalizedString(ARTICLE_NAV_LABELS, safeLang);
+    const backToNewsLabel = getLocalizedString(BACK_TO_NEWS_LABELS, safeLang);
+    const politicalIntelligenceLabel = getLocalizedString(FOOTER_POLITICAL_INTELLIGENCE_LABELS, safeLang);
+    const sitemapLabel = getLocalizedString(FOOTER_SITEMAP_LABELS, safeLang);
+    const politicalIntelligenceHref = `../${getPoliticalIntelligenceFilename(safeLang)}`;
+    const sitemapHref = `../${getSitemapFilename(safeLang)}`;
     const sourceMdLink = options.sourceMarkdownRelPath
         ? `<p class="article-source-md"><a href="${BASE_URL}/${options.sourceMarkdownRelPath}" rel="alternate" type="text/markdown"><svg class="icon icon-inline" width="16" height="16" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path d="M9 5H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2M12 3h6a2 2 0 0 1 2 2v6M10 14 20 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> ${escapeHTML(sourceMdLabel)}</a></p>`
         : '';
@@ -425,12 +433,18 @@ ${buildHeadFreshnessTags('../')}
 </head>
 <body>
   <a href="#main" class="skip-link">${escapeHTML(skipLinkText)}</a>
+  <div class="reading-progress" aria-hidden="true"></div>
 
   ${header}
 
   ${buildPageBanner('../')}
 
   <main id="main" class="site-main article-main ${articleMainClass}">
+    <nav class="article-top-nav" aria-label="${escapeHTML(articleNavLabel)}">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="${indexHref}">${escapeHTML(backToNewsLabel)}</a>
+      <a class="article-top-nav__link" href="${politicalIntelligenceHref}">🧠 ${escapeHTML(politicalIntelligenceLabel)}</a>
+      <a class="article-top-nav__link" href="${sitemapHref}">🗺️ ${escapeHTML(sitemapLabel)}</a>
+    </nav>
 ${tocHtml}    <article class="article-body" lang="${safeLang}">
       <header class="article-hero">
         <p class="article-kicker">${escapeHTML(getLocalizedArticleType(options.articleType, safeLang))}</p>

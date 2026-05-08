@@ -48,6 +48,21 @@
   --max-width: 1440px;
   --transition: 0.25s ease;
 
+  /* Header / footer chrome tokens (Phase 4/5).
+   * `--chrome-text-strong` is the AA-safe text colour used on dark-navy
+   * surfaces such as `.site-header__cta` labels and `.footer-section`
+   * link text. Computed contrast: rgba(255,255,255,0.94) on #002266
+   * ≈ 12.6:1, well above WCAG 2.1 AA (4.5:1) and AAA (7:1) for normal
+   * text. `--chrome-text-muted` (0.78 alpha) ≈ 9.8:1 on the same
+   * background — still AAA-safe and reserved for de-emphasised copy
+   * such as `.footer-bottom` and `.footer-stats`.
+   */
+  --chrome-text-strong: rgba(255, 255, 255, 0.94);
+  --chrome-text-muted: rgba(255, 255, 255, 0.78);
+  --chrome-surface-card: rgba(255, 255, 255, 0.06);
+  --chrome-surface-card-border: rgba(255, 255, 255, 0.12);
+  --chrome-divider-strong: rgba(255, 255, 255, 0.22);
+
   /* Generic surface and text tokens */
   --surface-alt: #ffffff;
   --surface-muted: #f8f9fa;
@@ -182,6 +197,17 @@ img {
   transform: scale(0.96) rotate(0);
 }
 
+/* Suppress the rotation/scale affordance under reduced-motion so the
+ * toggle's "spin" doesn't trigger vestibular discomfort. The colour
+ * change still communicates hover/focus state.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle:hover,
+  .theme-toggle:active {
+    transform: none;
+  }
+}
+
 .theme-toggle:focus-visible {
   outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
@@ -257,8 +283,28 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: var(--shadow-md);
+  /* Header→body seam (Phase 4): a soft drop-shadow underneath the sticky
+   * header plus a 1px inset highlight on the inside so the header reads
+   * as a distinct chrome surface and doesn't visually clip the content
+   * scrolled beneath it. */
+  box-shadow:
+    var(--shadow-md),
+    0 6px 18px -8px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid var(--hero-surface-border);
   overflow: hidden;
+}
+
+.site-header::after {
+  /* 1px inset highlight on the inside of the bottom border. Decorative —
+   * `pointer-events: none` so it never intercepts clicks/focus. */
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
 }
 
 .site-header__inner {
@@ -375,26 +421,59 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 8px;
+  gap: 10px;
   flex: 0 0 auto;
   flex-wrap: wrap;
-  max-width: min(100%, 720px);
+  max-width: min(100%, 760px);
+}
+
+/* CTA group keeps the four pill CTAs visually clustered so the theme
+ * toggle (in its own slot, below) reads as a distinct utility control
+ * rather than as a fifth CTA. */
+.site-header__cta-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* Dedicated slot for the theme toggle. Visually separated from the
+ * CTA cluster by a thin vertical rule on wider viewports; on narrow
+ * viewports the rule collapses and the slot still keeps the toggle
+ * away from the pill CTAs via the parent `.site-header__actions` gap. */
+.site-header__theme-toggle-slot {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 10px;
+  border-left: 1px solid var(--hero-surface-border);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .site-header__theme-toggle-slot {
+    padding-left: 0;
+    border-left: none;
+  }
 }
 
 .site-header__cta {
   display: inline-flex;
   align-items: center;
-  min-height: 34px;
-  padding: 6px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.24);
+  gap: 6px;
+  min-height: 32px;
+  padding: 5px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.12);
+  /* AA-safe label colour on the dark navy header (≥4.5:1). */
+  color: var(--chrome-text-strong);
   font-size: 0.74rem;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   line-height: 1.2;
   text-decoration: none;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
   transition:
     background var(--transition),
     border-color var(--transition),
@@ -403,8 +482,8 @@ html[data-theme='light'] .theme-toggle__svg--dark {
 }
 
 .site-header__cta:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
   color: #fff;
   text-decoration: none;
   transform: translateY(-1px);
@@ -417,17 +496,58 @@ html[data-theme='light'] .theme-toggle__svg--dark {
 
 .site-header__cta--sponsor {
   background: linear-gradient(135deg, #db2777, #be123c);
-  border-color: rgba(255, 255, 255, 0.32);
+  border-color: rgba(255, 255, 255, 0.42);
+  color: #fff;
+}
+
+.site-header__cta--sponsor:hover {
+  background: linear-gradient(135deg, #ec4899, #db2777);
+  color: #fff;
 }
 
 .site-header__cta--security {
-  background: rgba(230, 184, 0, 0.18);
-  border-color: rgba(230, 184, 0, 0.48);
+  background: rgba(230, 184, 0, 0.28);
+  border-color: rgba(230, 184, 0, 0.62);
+  color: #fff5cc;
+}
+
+.site-header__cta--security:hover {
+  background: rgba(230, 184, 0, 0.38);
+  color: #fff;
 }
 
 .site-header__cta--pi {
-  background: rgba(0, 51, 153, 0.22);
-  border-color: rgba(0, 51, 153, 0.55);
+  background: rgba(0, 90, 200, 0.42);
+  border-color: rgba(180, 215, 255, 0.55);
+  color: #e8f1ff;
+}
+
+.site-header__cta--pi:hover {
+  background: rgba(0, 110, 230, 0.55);
+  color: #fff;
+}
+
+/* Mobile <640px: collapse CTA labels and show icon-only pills so the
+ * action row never overflows or triggers horizontal scrolling. */
+@media (max-width: 640px) {
+  .site-header__cta {
+    padding: 5px 9px;
+    gap: 0;
+  }
+
+  .site-header__cta-label {
+    /* Visually hidden but still announced by screen readers via
+     * the existing aria-label on the anchor. */
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 }
 
 /* Language switcher — inline in header, single row */
@@ -448,9 +568,15 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   width: 100%;
   flex-basis: 100%;
   overflow: visible;
-  /* Base padding for wrapped language rows; reduced on mobile for compactness. */
-  padding-top: 10px;
-  border-top: 1px solid var(--hero-surface-border);
+  /* Visually distinct strip below the brand+actions row.
+   * The 1px top divider plus a subtle inset highlight + a slightly
+   * darker translucent fill make the language nav read as its own
+   * sub-header band rather than as an extension of the actions row. */
+  margin-top: 8px;
+  padding: 8px 0 4px;
+  border-top: 1px solid var(--chrome-divider-strong);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .site-header__langs::-webkit-scrollbar {
@@ -1041,9 +1167,13 @@ html[data-theme='light'] .theme-toggle__svg--dark {
 /* ─── Site Footer (Hack23 AB multi-section) ──────────────────────── */
 .site-footer {
   background: var(--primary-dark);
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--chrome-text-strong);
   padding: 0;
   font-size: 0.9rem;
+  /* Stronger top divider so the seam between the page body and the
+   * footer chrome is unambiguous in both light and dark modes. */
+  border-top: 3px solid var(--secondary);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .footer-content {
@@ -1058,12 +1188,41 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   padding: 40px 24px 32px;
 }
 
-.footer-section h3 {
+.footer-section h3,
+.footer-section__heading {
   color: var(--secondary);
   font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   letter-spacing: 0.02em;
+  /* Editorial accent underline — a 36px wedge in --secondary echoing
+   * the brand voice. The pseudo-element sits below the heading text
+   * with a small gap so it reads as an underline rather than as a
+   * border. */
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.footer-section h3::after,
+.footer-section__heading::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 36px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--secondary);
+  /* Subtle glow so the accent reads cleanly on both #002266 (light
+   * mode footer bg) and the deeper dark-mode gradient. */
+  box-shadow: 0 0 6px rgba(230, 184, 0, 0.35);
+}
+
+[dir='rtl'] .footer-section h3::after,
+[dir='rtl'] .footer-section__heading::after {
+  left: auto;
+  right: 0;
 }
 
 .footer-section p {
@@ -1084,7 +1243,7 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--chrome-text-strong);
   text-decoration: none;
   transition: color var(--transition);
   overflow-wrap: anywhere;
@@ -1096,11 +1255,19 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   text-decoration: underline;
 }
 
+/* Trust-badges block (Phase 5): wrap the four shield badges in a
+ * subtle surface card so they read as a distinct credential cluster
+ * inside the "Built by Hack23" section instead of bleeding into the
+ * link list directly below. */
 .footer-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin: 0 0 12px;
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  background: var(--chrome-surface-card);
+  border: 1px solid var(--chrome-surface-card-border);
+  border-radius: var(--radius-md);
 }
 
 .footer-badges a {
@@ -1108,16 +1275,21 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   align-items: center;
   padding: 3px;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   transition:
     background var(--transition),
     transform var(--transition);
 }
 
 .footer-badges a:hover {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.2);
   transform: translateY(-1px);
+}
+
+.footer-badges a:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
 }
 
 .footer-badges img {
@@ -1131,17 +1303,17 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   align-items: center;
   gap: 6px;
   font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--chrome-text-muted);
   font-style: italic;
   margin-top: 8px;
   padding: 4px 12px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--chrome-surface-card);
   border-radius: 100px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--chrome-surface-card-border);
 }
 
 .footer-company-summary {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--chrome-text-muted);
   border-left: 3px solid var(--secondary);
   padding-left: 10px;
   margin-top: 12px;
@@ -1160,36 +1332,68 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   gap: 6px;
 }
 
+/* Language pills (Phase 5): match the lang-link aesthetic in the
+ * header — pill shape, subtle surface fill, focus-visible ring,
+ * and a clearly distinct active state. */
 .language-grid a {
-  color: rgba(255, 255, 255, 0.9);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--chrome-text-strong);
   text-decoration: none;
-  font-size: 0.82rem;
-  padding: 3px 6px;
-  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 8px;
+  min-height: 30px;
+  border-radius: 999px;
+  background: var(--chrome-surface-card);
+  border: 1px solid var(--chrome-surface-card-border);
   transition:
     background var(--transition),
-    color var(--transition);
+    color var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
   white-space: nowrap;
   text-align: center;
 }
 
 .language-grid a:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.32);
   color: var(--secondary);
   text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.language-grid a:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
 }
 
 .language-grid a.active {
-  color: var(--secondary);
+  color: var(--on-secondary);
+  background: var(--secondary);
+  border-color: var(--secondary-dark);
   font-weight: 700;
 }
 
+.language-grid a.active:hover {
+  background: var(--secondary);
+  color: var(--on-secondary);
+}
+
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  /* Stronger top divider — uses the same chrome divider token as
+   * the header langs strip so the footer-bottom seam matches. */
+  border-top: 1px solid var(--chrome-divider-strong);
   text-align: center;
   padding: 16px 24px;
   font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.6);
+  /* AA-safe muted text on the dark-navy footer background.
+   * 0.78 white on #002266 ≈ 9.8:1 contrast — exceeds WCAG 2.1 AAA
+   * (7:1) for normal text. */
+  color: var(--chrome-text-muted);
+  background: rgba(0, 0, 0, 0.12);
 }
 
 .footer-bottom a {
@@ -1938,6 +2142,18 @@ button:focus-visible {
       0 1px 8px rgba(0, 0, 0, 0.5),
       0 0 1px rgba(77, 163, 255, 0.15);
   }
+
+  /* Footer (Phase 5): use a slightly deeper, less-blue gradient than
+   * the header so the two chrome surfaces remain distinguishable in
+   * dark mode (header was previously also a dark navy and the seam
+   * between them effectively disappeared). */
+  html:not([data-theme='light']) .site-footer {
+    background: linear-gradient(180deg, #0a1a38 0%, #060f26 100%);
+  }
+
+  html:not([data-theme='light']) .footer-bottom {
+    background: rgba(0, 0, 0, 0.25);
+  }
 }
 
 /* Explicit dark mode toggle: applies when user manually selects dark theme */
@@ -1990,6 +2206,17 @@ html[data-theme='dark'] .site-header {
   box-shadow:
     0 1px 8px rgba(0, 0, 0, 0.5),
     0 0 1px rgba(77, 163, 255, 0.15);
+}
+
+/* Footer (Phase 5): match the system-preference dark-mode rule above
+ * so the explicit `data-theme="dark"` toggle gets the same deeper,
+ * less-blue gradient distinguishing footer chrome from header chrome. */
+html[data-theme='dark'] .site-footer {
+  background: linear-gradient(180deg, #0a1a38 0%, #060f26 100%);
+}
+
+html[data-theme='dark'] .footer-bottom {
+  background: rgba(0, 0, 0, 0.25);
 }
 
 /* ─── Article Typography Enhancement ────────────────────────── */
@@ -6937,6 +7164,14 @@ html[data-theme='dark'] [data-component="reader-intelligence-guide"] h2 {
   html:not([data-theme='light']) .reader-guide-table tbody tr:hover {
     background: rgba(255, 204, 0, 0.04);
   }
+
+  html:not([data-theme='light']) .reader-guide-table tbody tr {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+html[data-theme='dark'] .reader-guide-table tbody tr {
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .article-body > h1 {
@@ -7774,6 +8009,64 @@ html {
   grid-column: 1 / -1;
 }
 
+.article-top-nav {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: -0.15rem;
+  padding: 0.78rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 14%, var(--border));
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--surface-raised) 94%, transparent), var(--surface)),
+    var(--surface);
+  box-shadow: var(--shadow-md);
+}
+
+.article-top-nav__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 16%, var(--border));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 86%, var(--primary-light));
+  color: var(--primary);
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition),
+    background var(--transition);
+}
+
+.article-top-nav__link:hover,
+.article-top-nav__link:focus-visible {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--accent) 42%, var(--border));
+  background: color-mix(in srgb, var(--primary-light) 78%, var(--surface));
+  color: var(--primary-dark);
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+}
+
+.article-top-nav__link--primary {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  border-color: color-mix(in srgb, var(--primary) 72%, #fff);
+}
+
+.article-top-nav__link--primary:hover,
+.article-top-nav__link--primary:focus-visible {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+}
+
 .article-toc-container {
   top: clamp(104px, 15vh, 176px);
   max-height: calc(100vh - clamp(136px, 18vh, 208px));
@@ -7811,10 +8104,16 @@ html {
 }
 
 .article-toc-list a:hover,
-.article-toc-list a:focus-visible {
+.article-toc-list a:focus-visible,
+.article-toc-list a.is-active {
   background: var(--primary-light);
   color: var(--primary);
   text-decoration: none;
+}
+
+.article-toc-list a.is-active {
+  box-shadow: inset 3px 0 0 var(--secondary);
+  font-weight: 800;
 }
 
 .article-body {
@@ -8041,6 +8340,7 @@ html {
 .pi-run__link,
 .pi-run__artifacts,
 .pi-artifact__link {
+  position: relative;
   border-color: color-mix(in srgb, var(--primary) 12%, var(--border));
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--surface-raised) 96%, transparent), var(--surface)),
@@ -8051,6 +8351,17 @@ html {
 .pi-card {
   border-radius: 18px;
   overflow: clip;
+}
+
+.pi-card::before,
+.pi-run__link::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: 5px;
+  background: linear-gradient(180deg, var(--primary), var(--secondary));
+  opacity: 0.72;
 }
 
 .pi-card:hover,
@@ -8077,6 +8388,7 @@ html {
 .pi-run__link {
   padding: 0.85rem 1rem;
   border-radius: 14px;
+  overflow: hidden;
 }
 
 .pi-run__link:hover {
@@ -8169,6 +8481,7 @@ html[data-theme='dark'] body {
   html:not([data-theme='light']) .article-toc-container,
   html:not([data-theme='light']) .article-body,
   html:not([data-theme='light']) .article-hero,
+  html:not([data-theme='light']) .article-top-nav,
   html:not([data-theme='light']) .sitemap-section,
   html:not([data-theme='light']) .pi-date-group,
   html:not([data-theme='light']) .page-faq {
@@ -8193,6 +8506,7 @@ html[data-theme='dark'] body {
   html:not([data-theme='light']) .pi-run__artifacts,
   html:not([data-theme='light']) .pi-artifact__link,
   html:not([data-theme='light']) .page-faq__item,
+  html:not([data-theme='light']) .article-top-nav__link,
   html:not([data-theme='light']) .article-source-md a {
     background: color-mix(in srgb, var(--surface) 92%, var(--primary-light));
     border-color: rgba(255, 255, 255, 0.1);
@@ -8210,9 +8524,16 @@ html[data-theme='dark'] body {
   }
 
   html:not([data-theme='light']) .article-toc-list a:hover,
-  html:not([data-theme='light']) .article-toc-list a:focus-visible {
+  html:not([data-theme='light']) .article-toc-list a:focus-visible,
+  html:not([data-theme='light']) .article-toc-list a.is-active {
     background: rgba(79, 140, 255, 0.12);
     color: #c8dcff;
+  }
+
+  html:not([data-theme='light']) .article-top-nav__link--primary {
+    background: linear-gradient(135deg, #1f6feb, #003399);
+    color: #fff;
+    border-color: rgba(159, 194, 255, 0.42);
   }
 
   html:not([data-theme='light']) .article-toc-summary {
@@ -8242,6 +8563,7 @@ html[data-theme='dark'] body {
 html[data-theme='dark'] .article-toc-container,
 html[data-theme='dark'] .article-body,
 html[data-theme='dark'] .article-hero,
+html[data-theme='dark'] .article-top-nav,
 html[data-theme='dark'] .sitemap-section,
 html[data-theme='dark'] .pi-date-group,
 html[data-theme='dark'] .page-faq {
@@ -8266,9 +8588,16 @@ html[data-theme='dark'] .pi-run__link,
 html[data-theme='dark'] .pi-run__artifacts,
 html[data-theme='dark'] .pi-artifact__link,
 html[data-theme='dark'] .page-faq__item,
+html[data-theme='dark'] .article-top-nav__link,
 html[data-theme='dark'] .article-source-md a {
   background: color-mix(in srgb, var(--surface) 92%, var(--primary-light));
   border-color: rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme='dark'] .article-top-nav__link--primary {
+  background: linear-gradient(135deg, #1f6feb, #003399);
+  color: #fff;
+  border-color: rgba(159, 194, 255, 0.42);
 }
 
 html[data-theme='dark'] .article-body h2 {
@@ -8294,6 +8623,10 @@ html[data-theme='dark'] .article-body h2 {
   .article-main {
     grid-template-columns: minmax(0, 1fr);
     gap: 18px;
+  }
+
+  .article-top-nav {
+    border-radius: 18px;
   }
 
   .article-toc-container {
@@ -8330,12 +8663,63 @@ html[data-theme='dark'] .article-body h2 {
     padding: 1.1rem;
     border-radius: 18px;
   }
+
+  .reader-guide-table,
+  .reader-guide-table thead,
+  .reader-guide-table tbody,
+  .reader-guide-table tr,
+  .reader-guide-table th,
+  .reader-guide-table td {
+    display: block;
+  }
+
+  .reader-guide-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  .reader-guide-table tbody {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .reader-guide-table tbody tr {
+    padding: 0.85rem;
+    border: 1px solid color-mix(in srgb, var(--primary) 14%, var(--border));
+    border-radius: 14px;
+    background: color-mix(in srgb, var(--surface) 94%, var(--primary-light));
+    box-shadow: var(--shadow-sm);
+  }
+
+  .reader-guide-table tbody td {
+    padding: 0.35rem 0;
+    border-bottom: 0;
+  }
+
+  .reader-guide-table tbody td:first-child {
+    white-space: normal;
+  }
 }
 
 @media (max-width: 560px) {
   .article-body {
     padding: 16px 12px;
     border-radius: 18px;
+  }
+
+  .article-top-nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0.7rem;
+  }
+
+  .article-top-nav__link {
+    justify-content: center;
+    width: 100%;
   }
 
   .article-hero {
