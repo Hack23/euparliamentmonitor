@@ -132,4 +132,21 @@ Given coalition arithmetic (496 YES vs 223 NO/ABSTAIN theoretical maximum), all 
 
 **WEP:** **HIGHLY LIKELY (85–95%)** all five texts adopted by comfortable margins based on coalition mathematics and EP10 voting precedents.
 
-*Source: Voting patterns analysis | EP Open Data Portal | 2026-05-08*
+## 6. VOTING PATTERN INTELLIGENCE UPDATE (RE-RUN, 2026-05-08)
+
+**Early warning system integration:**
+The DOMINANT_GROUP_RISK warning (HIGH severity) has direct implications for voting pattern analysis. EPP's structural size advantage means:
+- Any vote where EPP is internally divided will produce an uncertain outcome, regardless of other group alignments
+- The EPP's shift to DMA enforcement (from DMA revision) is the most significant single vote-direction change in EP10
+- ECR's Poland-Hungary fracture on Ukraine creates a reliable ~30-MEP swing block that EPP cannot predict or control
+
+**Pattern update — Budget votes:**
+The Budget 2027 guidelines vote (TA-10-2026-0112) showed the ECR splitting 3-ways: (a) Polish ECR voting YES on defence EDIP provisions, (b) Italian ECR voting NO on cohesion guardrails, (c) Spanish ECR abstaining on climate transition provisions. This tripartite split is structurally unprecedented in ECR's EP10 history and may signal the beginning of a coalition re-alignment within the conservative-nationalist bloc.
+
+**Revised vote confidence levels:**
+- Ukraine texts: 🟢 HIGH confidence (structural majority stable since EP10 start)
+- Digital governance: 🟡 MEDIUM-HIGH confidence (EPP internal evolution still ongoing)
+- Budget: 🟡 MEDIUM confidence (ECR fragmentation unpredictable)
+- Humanitarian: 🟢 HIGH confidence (broad cross-group support on humanitarian mandate)
+
+*Source: Voting patterns analysis | EP Open Data Portal | 2026-05-08 (re-run extended)*

@@ -200,9 +200,31 @@ mindmap
 
 **IMF-unavailable protocol:** ✅ Active. All economic claims use EU Commission/ECB/Eurostat framing without IMF quantification.
 
-*Source: EP Open Data Portal | Synthesis summary | Breaking news | 2026-05-08*
+## 7. SYNTHESIS UPDATE — RE-RUN (2026-05-08)
+
+**New analytical threads identified in second run:**
+
+**Thread 1 — Renew as Kingmaker:**
+The political landscape analysis confirms EPP+S&D at 321 seats (short of 361 majority). Renew at 77 seats is the minimum necessary third partner for any grand coalition majority. This structural fact — not previously surfaced explicitly in the synthesis — is the single most important coalition intelligence finding of Run 2. Renew's programmatic alignment with EP progressive values on digital governance and foreign policy ensures current coalition stability. The risk is in budgetary negotiations where Renew's fiscal moderation may create friction with S&D's spending commitments.
+
+**Thread 2 — EP10 Institutional Maturation:**
+The April 2026 plenary's multi-domain output pattern reflects a Parliament that has resolved its Year 1 organisational questions (committee assignments, coalition norms, Commission Programme alignment) and is now in assertive legislative mode. Year 2 of EP terms historically show higher legislative throughput than Year 1. The April 2026 data confirms this pattern.
+
+**Thread 3 — US-EU Economic Dimension (Degraded Mode):**
+Without IMF data, the economic dimension of the synthesis is structurally incomplete. The customs tariff adjustment resolution (TA-10-2026-0096) is the most economically significant text in the April batch that cannot be fully quantified in degraded mode. When IMF data is restored, this resolution's trade war context should be the first priority for economic context supplementation.
+
+**Revised confidence summary:**
+
+| Analytical Domain | Run 1 Confidence | Run 2 Confidence |
+|------------------|-----------------|-----------------|
+| Legislative outputs | 🟢 HIGH | 🟢 HIGH |
+| Coalition structures | 🟡 MEDIUM | 🟡 MEDIUM (confirmed) |
+| Economic context | 🔴 LOW (IMF degraded) | 🔴 LOW (IMF still degraded) |
+| Forward projections | 🟡 MEDIUM | 🟡 MEDIUM (scenario-calibrated) |
+| Geopolitical assessment | 🟡 MEDIUM | 🟡 MEDIUM (early warning validated) |
+
+*Source: EP Open Data Portal | Synthesis summary | Breaking news | 2026-05-08 (re-run extended)*
 
 ---
 
 *Analysis complete. 2026-05-08.*
-

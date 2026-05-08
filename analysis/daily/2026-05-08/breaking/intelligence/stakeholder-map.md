@@ -294,13 +294,35 @@ Breaking news analysis of April 28-30 plenary stakeholder dynamics suggests the 
 | COPA-COGECA | "Transition support welcome; methane targets require revision" | Sectoral communication | LOW |
 | PfE group | "EP's Ukraine resolution escalates conflict; Europeans want peace" | Press conference | MEDIUM |
 
-*Source: EP Open Data Portal | Stakeholder engagement analysis | 2026-05-08*
+## 6. STAKEHOLDER UPDATE — RE-RUN (2026-05-08)
+
+**New stakeholder data from re-run analysis:**
+
+**Early Warning System — Stakeholder implications:**
+The DOMINANT_GROUP_RISK warning (HIGH severity, 2026-05-08) carries direct stakeholder implications. EPP's structural dominance creates asymmetric stakeholder relationships:
+
+| Stakeholder | EPP Dependency | Influence Direction | Confidence |
+|------------|---------------|--------------------|-----------| 
+| European Commission | HIGH — needs EPP for agenda confirmation | Bidirectional | 🟡 MEDIUM |
+| Council Presidency (Poland) | MEDIUM — EPP aligned on defence, divergent on Ukraine mechanism | Asymmetric | 🟡 MEDIUM |
+| Big Tech platforms | MEDIUM — EPP DMA shift to enforcement is key risk | Defensive | 🟢 HIGH |
+| Ukrainian Government | HIGH — EPP participation in Ukraine coalition is decisive | Dependent | 🟢 HIGH |
+| Armenian Government | MEDIUM — EPP support for Armenia text required for adoption | Engaged | 🟡 MEDIUM |
+
+**Coalition mathematics stakeholder implication:**
+EPP+S&D combined hold 321 seats — 40 short of a majority. This means the grand coalition is NOT sufficient for legislation. Renew (77) must join as a minimum third coalition partner. This creates a structural dependency:
+
+- Renew's participation = EPP+S&D+Renew = 398 seats (above 361 threshold)
+- Renew's defection = EPP+S&D = 321 seats (below threshold)
+- Therefore, Renew is the **kingmaker group** in EP10 — despite being only the 5th largest group
+
+Renew's strategic position means its stakeholder preferences on digital regulation (pro-DMA enforcement), Ukraine (strongly supportive), and budget (fiscally moderate) shape the legislative outcomes disproportionate to its seat share.
+
+*Source: EP Open Data Portal | Stakeholder engagement analysis | 2026-05-08 (re-run extended)*
 
 ---
 *Stakeholder map complete. 2026-05-08.*
 
 > **Note:** This stakeholder map will be superseded when April 28-30 roll-call voting data becomes available via EP Open Data Portal (expected: late May 2026). At that point, inferred group positions can be replaced with confirmed individual MEP positions.
 
-
 *End of Stakeholder Map | Generated: 2026-05-08 | EU Parliament Monitor*
-

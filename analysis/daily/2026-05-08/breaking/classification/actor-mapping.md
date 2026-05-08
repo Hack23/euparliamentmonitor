@@ -68,4 +68,21 @@ graph LR
 
 The April 2026 Strasbourg plenary was defined by strong cohesion among the five-party governing coalition (EPP, S&D, Renew, Greens, Left), delivering historic votes on DMA enforcement, Ukraine accountability, and the EU's 2027 budget framework. The opposition bloc (ECR, PfE) could not block any of the five Tier-1 texts. Power remains concentrated in the hands of the three largest group leaders — Weber, García Pérez, and Hayer — who together control the coalition's coherence and agenda.
 
-*Source: EP Open Data Portal | Actor mapping | 2026-05-08*
+## 6. ACTOR MAPPING UPDATE — RE-RUN (2026-05-08)
+
+**New actor intelligence from re-run:**
+
+**Renew Europe (Hayer) — Kingmaker role confirmed:**
+Political landscape analysis confirms Renew is the indispensable third partner in the governing coalition (EPP+S&D+Renew = 398, the minimum majority coalition). Renew's 77 MEPs carry leverage disproportionate to their seat share. Hayer's leadership is therefore structurally one of the three most influential positions in EP10.
+
+**ECR Internal Power Dynamics:**
+The ECR's Poland-Hungary fracture on Ukraine creates two distinct sub-groups within the formal group:
+- Polish ECR bloc (~30 MEPs, PiS-affiliated): Pro-Ukraine, anti-Russian, defence spending advocates
+- Hungarian and allied ECR bloc (~15 MEPs): Anti-Ukraine mechanism, pro-sovereignty, closer to PfE positions
+- Italian ECR bloc (FdI-affiliated, ~23 MEPs): Pivotal — balances between Ukrainian support and Italian national interests
+Acting power within ECR rests with the Italian bloc, which is large enough to tip the internal balance.
+
+**PfE internal coherence:**
+PfE (85 MEPs) voted as a bloc against DMA enforcement and Ukraine accountability — demonstrating higher internal discipline than ECR. PfE's cohesion on these two texts signals mature group coordination under Marine Le Pen-aligned leadership.
+
+*Source: EP Open Data Portal | Actor mapping | 2026-05-08 (re-run extended)*

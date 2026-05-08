@@ -81,4 +81,24 @@ graph LR
 
 **Status:** 5 Tier-1 documents identified and analysed by metadata. Full-text analysis would require EUR-Lex lookups (outside MCP scope). Metadata-only analysis sufficient for breaking news significance assessment.
 
-*Source: Document analysis index | EP Open Data | 2026-05-08*
+## 4. DOCUMENT INDEX UPDATE — RE-RUN (2026-05-08)
+
+**New documents from re-run data extraction:**
+
+| Document ID | Title (short) | Source | Date |
+|------------|---------------|--------|------|
+| TA-10-2026-04-30-ANN01 | EP Estimates 2027 | Adopted texts feed | 2026-04-30 |
+| TA-10-2026-0142 | EU-Iceland PNR agreement | Adopted texts API | 2026-04-29 |
+| TA-10-2026-0115 | Dogs and cats welfare | Adopted texts API | 2026-04-28 |
+| TA-10-2026-0119 | EIB Group annual report 2024 | Adopted texts API | 2026-04-28 |
+
+**Document coverage assessment:**
+- Total adopted texts identified: 21 (from API, year=2026 extraction)
+- Tier-1 texts (significance ≥7.5): 5
+- Tier-2 texts (significance 6.0–7.4): 4 (EIB oversight, Iceland PNR, subcontracting chains, ECB Vice-President appointment)
+- Background texts (significance <6.0): 12
+
+**Note on EP estimates (ANN01):**
+The EP Estimates document (TA-10-2026-04-30-ANN01) is classified as BUDGET_EP_DRAFT rather than TEXT_ADOPTED in the API, indicating it is the Parliament's own budget estimate submitted to the Council per Article 314 TFEU. Estimated amount: ~€2.4bn for EP institutional operations in 2027. This is distinct from the EU general budget guidelines (TA-10-2026-0112).
+
+*Source: Document analysis index | EP Open Data | 2026-05-08 (re-run extended)*

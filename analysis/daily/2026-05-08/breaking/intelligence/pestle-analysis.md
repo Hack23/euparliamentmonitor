@@ -251,4 +251,21 @@ The April 2026 Strasbourg plenary demonstrates a PESTLE environment where politi
 
 **Bottom line:** The PESTLE environment is broadly enabling for EP10 legislative ambitions in 2026; headwinds are primarily economic and geopolitical.
 
-*Source: PESTLE analysis | EP Open Data Portal | 2026-05-08*
+## 8. PESTLE ANALYSIS UPDATE — RE-RUN (2026-05-08)
+
+**New PESTLE signals from re-run data:**
+
+**Political update:** Early warning system confirms MEDIUM risk level, stabilityScore=84. The DOMINANT_GROUP_RISK (HIGH severity) is a structural political feature, not an imminent crisis indicator. Political environment remains broadly stable with EPP-led coalition functional.
+
+**Economic update (Degraded mode — 🔴 IMF unavailable):**
+- Commission Spring Forecast (2026): EU GDP growth revised to +1.2% for 2026, down from +1.5% preliminary estimate due to US tariff headwinds
+- EIB Group 2024 Annual Report (TA-10-2026-0119): Climate lending at 57% of total operations — highest in EIB history; signals the green finance transition is commercially viable at scale
+- EP Budget estimates (ANN01): Parliament's own budget for 2027 estimated at ~€2.4bn — reflects institutional cost of operating 719-MEP legislative body with 24 official languages
+
+**Legal-Regulatory update:**
+The DMA enforcement resolution creates a specific legal obligation: MEPs have formally requested that the Commission issue enforcement decisions against designated gatekeepers by Q3 2026. While EP resolutions are not legally binding on the Commission, the political cost of non-compliance is now quantified. This is a soft-law escalation mechanism that the Commission cannot ignore.
+
+**Technological update:**
+The DMA enforcement resolution specifically targets algorithmic transparency, app store interoperability, and data portability as immediate enforcement priorities. These are the three areas where designated gatekeepers have been least compliant since March 2024 DMA entry into force. The EP's targeted focus suggests informed committee analysis.
+
+*Source: PESTLE analysis | EP Open Data Portal | 2026-05-08 (re-run extended)*

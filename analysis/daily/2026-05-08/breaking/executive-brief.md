@@ -147,6 +147,22 @@ WEP: **LIKELY (65–85%)** — Council will delay but not block Ukraine accounta
 *EP Significance Score: 8.5/10 — highest single-week plenary score since EP10 inaugurated.*
 
 ---
+
+## ADDENDUM — RE-RUN ANALYSIS (2026-05-08, Run 2)
+
+**New data collected during re-run:**
+- Early warning system flagged DOMINANT_GROUP_RISK (HIGH severity): EPP at 185 MEPs is 6.85x larger than ESN (27 MEPs), creating structural asymmetry in coalition formation.
+- EP fragmentation index confirmed HIGH with effective number of parties = 6.55. This is the highest EP10 reading to date, driven by PfE consolidation and ESN growth.
+- Coalition pair analysis reveals Renew-ECR as the closest-sized mid-bench grouping (95% size similarity), creating a potential centrist-nationalist bridging dynamic not captured in bloc-level analysis.
+- IMF SDMX 3.0 endpoint returned HTTP 503 again on re-run (2026-05-08 06:50 UTC). Degraded mode confirmed. Economic context relies on ECB/Commission cited documents.
+
+**Re-run analytical additions:**
+
+*Structural Parliament observation (2026-05-08):* The EPP's 185-seat bloc gives it a de facto veto on all legislation in EP10. No majority can be assembled without EPP participation. This structural dominance means EPP's internal deliberations — particularly its balance between traditional Christian democratic centre-right and its more nationalist/sovereigntist wing — determine the legislative agenda more than any coalition negotiation between other groups.
+
+*Revised forward assessment:* The DMA enforcement resolution timeline is now revised to **HIGH PROBABILITY** (80%) for Commission enforcement action by Q4 2026, given that US-EU trade tensions under the current US administration have shifted EPP's calculus — European businesses now favour DMA enforcement as competitive protection against US platform dominance.
+
+---
 *Executive brief complete. Five Tier-1 texts assessed. IMF DEGRADED protocol applied. 2026-05-08.*
 
 > **ASSESSMENT CONFIDENCE: HIGH** (EP Open Data + coalition mathematics) | **IMF DATA: UNAVAILABLE** (HTTP 503)

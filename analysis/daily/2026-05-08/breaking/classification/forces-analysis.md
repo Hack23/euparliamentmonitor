@@ -61,4 +61,19 @@ graph TD
 
 The driving forces in the European Parliament — coalition supermajority, external urgency, and legal mandates — dominated the April 2026 Strasbourg plenary. The restraining forces (Council blocking, legal challenges, fiscal constraints) could not prevent adoption of five major texts. The critical intervention point going forward is Hungary's position on Ukraine accountability: a shift there would transform the entire EU geopolitical response. For citizens, this means more EU-level digital regulation and continued Ukraine support are near-certainties; the speed of implementation depends on Council dynamics beyond Parliament's control.
 
-*Source: EP Open Data Portal | Forces analysis | 2026-05-08*
+## 5. FORCES ANALYSIS UPDATE — RE-RUN (2026-05-08)
+
+**New forces identified from re-run data:**
+
+**Driving Force Addition — Early Warning System Validated:**
+The DOMINANT_GROUP_RISK early warning (HIGH severity) paradoxically reinforces the EP's institutional stability. EPP's dominance means there is no viable opposition path to parliamentary fragmentation — any alternative majority requires EPP participation, giving EPP strong incentive to maintain coalition discipline. Driving force: EPP self-interest in legislative delivery = institutional stability force.
+
+**Restraining Force Update — US Trade Policy:**
+The customs tariff adjustment resolution (TA-10-2026-0096) reveals a restraining force not captured in original analysis: US trade policy creates uncertainty for EU budget planning. If US-EU trade war escalates to services sector (financial services, professional services), EU revenue projections underlying Budget 2027 guidelines could be invalidated, requiring a re-opening of the guidelines process.
+
+**Force balance update:**
+- Driving forces: 5 (coalition supermajority + external urgency + legal mandates + EPP self-interest + institutional inertia)
+- Restraining forces: 4 (Council blocking + legal challenges + fiscal constraints + US trade uncertainty)
+- Net force: Strongly toward EP agenda execution in H1 2026; more contested in H2 2026 as budget negotiations begin
+
+*Source: EP Open Data Portal | Forces analysis | 2026-05-08 (re-run extended)*
