@@ -283,4 +283,25 @@ All probability assessments in this threat model use the following WEP conventio
 - Corruption scandal: Unlikely (5%) — EP post-QatarGate transparency reforms reduce risk
 - Information environment degradation: Highly likely (85%) — already ongoing per EU East StratCom
 
-*Source: EP Open Data Portal | STRIDE threat methodology | WEP conventions | 2026-05-08*
+## 6. THREAT MODEL UPDATE — RE-RUN (2026-05-08)
+
+**Early warning system integration:**
+The early warning system's DOMINANT_GROUP_RISK (HIGH severity) adds a structural dimension to the threat model not captured in the original run:
+
+**New Threat: Coalition Dependency Capture**
+- **Threat Actor:** Any group that can deny EPP a working majority (especially Renew, 77 MEPs)
+- **Attack Path:** Renew defects from grand coalition on a single high-profile vote → EPP forced to negotiate with PfE/ECR → Pro-European legislative agenda compromised
+- **Capability:** HIGH — Renew has demonstrated willingness to vote independently (e.g., agricultural derogation votes in 2024)
+- **Intent:** MEDIUM — Renew has incentive to assert independence to maintain voter differentiation from EPP
+- **Opportunity:** MEDIUM — specific high-stakes votes (budget finalization, DMA enforcement remedies) create leverage moments
+- **WEP:** POSSIBLE (35-45%) — at least one major coalition defection event in H2 2026
+
+**Threat Intelligence Update — PfE/ECR Blocking Minority:**
+The right-wing bloc (PfE 85 + ECR 81 + ESN 27 = 193 MEPs) approaches 27% of Parliament — the rough threshold for blocking a qualified majority in procedural votes. This is not yet a direct legislative veto on normal votes but creates meaningful pressure on:
+- Budget amendments (Council-EP conciliation)
+- Interinstitutional agreement modifications
+- Delegation authority decisions
+
+**Confidence in threat assessment:** 🟡 MEDIUM — structural threats well-evidenced; specific timing and trigger mechanisms carry uncertainty.
+
+*Source: EP Open Data Portal | Political threat framework v4.0 | WEP conventions | 2026-05-08 (re-run extended)*

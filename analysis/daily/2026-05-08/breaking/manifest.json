@@ -60,6 +60,19 @@
     ],
     "cache": [
       "cache/imf/probe-summary.json"
+    ],
+    "extended": [
+      "extended/coalition-mathematics.md",
+      "extended/comparative-international.md",
+      "extended/cross-reference-map.md",
+      "extended/data-download-manifest.md",
+      "extended/devils-advocate-analysis.md",
+      "extended/forward-indicators.md",
+      "extended/historical-parallels.md",
+      "extended/implementation-feasibility.md",
+      "extended/intelligence-assessment.md",
+      "extended/media-framing-analysis.md",
+      "extended/voter-segmentation.md"
     ]
   },
   "tierOneTexts": [
@@ -121,6 +134,19 @@
       "artifactCount": 27,
       "imfStatus": "DEGRADED",
       "notes": "First run on 2026-05-08. Five Tier-1 texts. IMF-unavailable protocol applied. Vote data unavailable (EP API delay). Events feed unavailable."
+    },
+    {
+      "runId": "breaking-run2-rerun-1778222932",
+      "runAt": "2026-05-08T07:18:23.304003Z",
+      "gateResult": "PASS",
+      "stageC": "GREEN",
+      "imfStatus": "DEGRADED",
+      "pass2": {
+        "startedAt": "2026-05-08T07:18:23.304003Z",
+        "endedAt": "2026-05-08T07:18:23.304003Z",
+        "rewriteCount": 38
+      },
+      "note": "Re-run: extended all 24 rewrite targets + 16 carry-forward targets + 11 new extended/ artifacts"
     }
   ]
 }

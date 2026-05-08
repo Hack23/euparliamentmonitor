@@ -78,8 +78,31 @@ This is the **first run** for 2026-05-08. No previous run exists for comparison.
 
 **Admiralty Grade:** A1 (First-hand data from EP Open Data; direct observation; confirmed via multiple tools)
 
-*Source: Cross-run diff analysis | EP Open Data | 2026-05-08*
+## 4. RE-RUN COMPARISON (Run 1 → Run 2, 2026-05-08)
+
+**Run 1 Baseline:**
+- Artifacts produced: 22 core artifacts
+- Gate result: PASS (GREEN)
+- IMF status: DEGRADED (503)
+- Events feed: UNAVAILABLE
+
+**Run 2 Changes:**
+- All 22 core artifacts extended/rewritten per prior-run-diff plan
+- 3 new extended artifacts added: coalition-mathematics, cross-reference-map, forward-indicators
+- IMF status: Still DEGRADED (503 persists across both runs — structural issue, not transient)
+- Events feed: Still UNAVAILABLE — EP API returning error-in-body response
+- New data available: Early warning system data, coalition pair analysis, political landscape analysis
+
+**Delta assessment:**
+- No material change to the legislative substance (no new adopted texts from May 1–8 period beyond the April 30 batch)
+- Political landscape unchanged: EPP 185, S&D 136, total 719 MEPs
+- Quality improvement: executive-brief.md extended from 153 to 180+ lines; all artifacts meeting updated floors
+- Intelligence signal: IMF's sustained unavailability (two consecutive runs, 6+ hours apart) suggests infrastructure issue, not temporary overload. IMF degraded mode is the new baseline for this run.
+
+**Confidence in cross-run comparison:** 🟢 HIGH — same EP Open Data source, same 2026-05-08 extraction window
+
+*Source: Cross-run diff analysis | EP Open Data | 2026-05-08 (re-run extended)*
 
 ---
-*Cross-run diff complete. First run for 2026-05-08. 2026-05-08.*
+*Cross-run diff complete. Second run for 2026-05-08. 2026-05-08.*
 

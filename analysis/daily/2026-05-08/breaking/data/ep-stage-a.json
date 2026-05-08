@@ -1,0 +1,131 @@
+{
+  "collectedAt": "2026-05-08T06:52:00Z",
+  "adoptedTexts2026": [
+    {
+      "id": "TA-10-2026-0160",
+      "title": "Enforcement of the Digital Markets Act",
+      "dateAdopted": "2026-04-30",
+      "subjectMatter": "PROT, MARI"
+    },
+    {
+      "id": "TA-10-2026-0161",
+      "title": "Ensuring accountability and justice in response to Russia continued attacks against the civilian population in Ukraine",
+      "dateAdopted": "2026-04-30"
+    },
+    {
+      "id": "TA-10-2026-0162",
+      "title": "Supporting democratic resilience in Armenia",
+      "dateAdopted": "2026-04-30"
+    },
+    {
+      "id": "TA-10-2026-0151",
+      "title": "Escalating trafficking and exploitation by criminal groups in Haiti",
+      "dateAdopted": "2026-04-30",
+      "subjectMatter": "DDLH, PESC"
+    },
+    {
+      "id": "TA-10-2026-0112",
+      "title": "Guidelines for the 2027 budget - Section III",
+      "dateAdopted": "2026-04-28"
+    },
+    {
+      "id": "TA-10-2026-0119",
+      "title": "Control of the financial activities of the European Investment Bank Group annual report 2024",
+      "dateAdopted": "2026-04-28"
+    },
+    {
+      "id": "TA-10-2026-0096",
+      "title": "Adjustment of customs duties and opening of tariff quotas for import of certain goods originating in the United States of America",
+      "dateAdopted": "2026-03-26",
+      "subjectMatter": "TDC, PCOM, EXT"
+    },
+    {
+      "id": "TA-10-2026-0083",
+      "title": "Case of Elene Khoshtaria and political prisoners under the Georgian Dream regime",
+      "dateAdopted": "2026-03-12",
+      "subjectMatter": "DDLH, PESC"
+    },
+    {
+      "id": "TA-10-2026-0034",
+      "title": "European Central Bank annual report 2025",
+      "dateAdopted": "2026-02-10"
+    },
+    {
+      "id": "TA-10-2026-0115",
+      "title": "Welfare of dogs and cats and their traceability",
+      "dateAdopted": "2026-04-28",
+      "subjectMatter": "IANW"
+    }
+  ],
+  "politicalLandscape": {
+    "totalMEPs": 719,
+    "groups": [
+      {
+        "name": "EPP",
+        "memberCount": 185,
+        "seatShare": 25.73
+      },
+      {
+        "name": "S&D",
+        "memberCount": 136,
+        "seatShare": 18.92
+      },
+      {
+        "name": "PfE",
+        "memberCount": 85,
+        "seatShare": 11.82
+      },
+      {
+        "name": "ECR",
+        "memberCount": 81,
+        "seatShare": 11.27
+      },
+      {
+        "name": "Renew",
+        "memberCount": 77,
+        "seatShare": 10.71
+      },
+      {
+        "name": "Greens/EFA",
+        "memberCount": 53,
+        "seatShare": 7.37
+      },
+      {
+        "name": "The Left",
+        "memberCount": 45,
+        "seatShare": 6.26
+      },
+      {
+        "name": "NI",
+        "memberCount": 30,
+        "seatShare": 4.17
+      },
+      {
+        "name": "ESN",
+        "memberCount": 27,
+        "seatShare": 3.76
+      }
+    ],
+    "majorityThreshold": 361,
+    "fragmentationIndex": "HIGH"
+  },
+  "earlyWarnings": {
+    "riskLevel": "MEDIUM",
+    "stabilityScore": 84,
+    "warnings": [
+      {
+        "type": "HIGH_FRAGMENTATION",
+        "severity": "MEDIUM"
+      },
+      {
+        "type": "DOMINANT_GROUP_RISK",
+        "severity": "HIGH"
+      },
+      {
+        "type": "SMALL_GROUP_QUORUM_RISK",
+        "severity": "LOW"
+      }
+    ]
+  },
+  "imfStatus": "UNAVAILABLE_503"
+}

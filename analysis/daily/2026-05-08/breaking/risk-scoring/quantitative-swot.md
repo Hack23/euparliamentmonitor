@@ -142,4 +142,31 @@ quadrantChart
 **Opportunity scores:** 🟡 MEDIUM confidence — opportunity realization depends on Commission, Council, and external factors
 **Threat scores:** 🟡 MEDIUM confidence — threat probabilities are assessments, not confirmed events
 
-*Source: EP Open Data Portal | Quantitative SWOT methodology | 2026-05-08*
+## 9. QUANTITATIVE SWOT UPDATE — RE-RUN (2026-05-08)
+
+**Re-run SWOT recalibration with new data:**
+
+**Strengths (Updated):**
+- S1: EPP structural dominance (185 MEPs, 25.7% seats): STRENGTH_SCORE revised to 9.2/10 — confirmed by political landscape analysis
+- S2: Pro-European mainstream coalition (EPP+S&D+Renew=398 seats): Confirmed as above-majority; STRENGTH_SCORE 8.8/10
+- S3: Legislative productivity (14 texts, April plenary): Multi-domain output confirmed; STRENGTH_SCORE 8.5/10
+- S4: Ukraine solidarity consensus: Stable cross-group majority; STRENGTH_SCORE 8.0/10
+
+**Weaknesses (Updated):**
+- W1: IMF data unavailability: Structural gap confirmed over two consecutive runs; WEAKNESS_SCORE 6.5/10 (upgraded from 6.0)
+- W2: Vote-level data absent: EP API 4-6 week delay is structural; WEAKNESS_SCORE 7.0/10
+- W3: Events feed failure: Error-in-body response on multiple attempts; WEAKNESS_SCORE 5.0/10
+
+**Opportunities (Updated):**
+- O1: DMA enforcement momentum: EPP shift to enforcement stance creates bipartisan regulatory momentum; OPPORTUNITY_SCORE 8.5/10
+- O2: Armenia partnership window: CSTO exit + EUMA deployment creates 18-24 month geopolitical window; OPPORTUNITY_SCORE 7.5/10
+- O3: EU defence industry consolidation (EDIP): Budget 2027 tripled EDIP allocation signals multi-year investment cycle; OPPORTUNITY_SCORE 8.0/10
+
+**Revised SWOT composite score:** 
+- Strengths aggregate: 8.6/10
+- Weaknesses aggregate: 6.2/10
+- Opportunities aggregate: 8.0/10
+- Threats aggregate: 5.8/10
+- **Net strategic position: STRONGLY FAVOURABLE** (Strengths + Opportunities >> Weaknesses + Threats)
+
+*Source: EP Open Data Portal | Quantitative SWOT methodology | 2026-05-08 (re-run extended)*

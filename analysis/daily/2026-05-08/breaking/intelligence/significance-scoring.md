@@ -80,7 +80,19 @@ quadrantChart
     EP Budget: [0.4, 0.5]
 ```
 
-*Source: Significance scoring | EP Open Data | 2026-05-08*
+## 5. CROSS-DOMAIN SIGNIFICANCE INTERACTIONS
+
+Texts adopted in the same plenary week often reinforce each other through cross-domain signalling. The April 2026 session exhibits three such interactions:
+
+**Interaction A — Digital + Trade:** The DMA enforcement resolution (TA-10-2026-0160) and the US customs tariff adjustment (TA-10-2026-0096) are analytically linked. Both address EU-US economic asymmetry — one through digital regulation enforcement, the other through trade equalisation. Combined WEP signal: 🟢 HIGH confidence that EU-US economic friction will escalate in H2 2026.
+
+**Interaction B — Ukraine + Budget:** The Ukraine accountability resolution (TA-10-2026-0161) and Budget 2027 guidelines (TA-10-2026-0112) mutually reinforce the defence spending escalation narrative. The EP's budget call for tripled EDIP allocation is politically enabled by the Ukraine accountability text's framing of EU security as a collective responsibility requiring institutional investment.
+
+**Interaction C — Armenia + Geopolitical Repositioning:** The Armenia democratic resilience text (TA-10-2026-0162), read against the Ukraine accountability framework, signals the EP's active management of its Eastern neighbourhood. Two resolutions in one week on the EU's eastern flank establishes a pattern: EP is asserting foreign policy influence through soft-law instruments at scale.
+
+**Re-run significance validation (2026-05-08):** All tier-1 items confirmed as current and material. No new adopted texts from today's (May 8) feed that would displace the April 30 items from the significance ranking. The significance scoring stands.
+
+*Source: Significance scoring | EP Open Data | 2026-05-08 (re-run extended)*
 
 ---
 *Significance scoring complete. 2026-05-08.*

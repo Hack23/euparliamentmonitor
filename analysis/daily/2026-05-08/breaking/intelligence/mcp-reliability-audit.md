@@ -387,4 +387,32 @@ The compound degradation of three independent data streams (IMF API, Events feed
 
 **Net quality assessment:** Analysis remains HIGH quality for intelligence purposes despite tool degradation. Predictive claims carry appropriate uncertainty ranges. Structural data from World Bank / EP Open Data provides robust foundations.
 
-*Source: MCP reliability audit | 2026-05-08 | Quality assurance*
+## RE-RUN RELIABILITY AUDIT UPDATE (Run 2, 2026-05-08)
+
+**Additional tools used in Run 2 and their reliability:**
+
+| Tool | Status | Data Quality | Notes |
+|------|--------|-------------|-------|
+| `analyze_coalition_dynamics` | ✅ SUCCESS | 🟡 MEDIUM | Size-similarity proxy only; no vote cohesion |
+| `generate_political_landscape` | ✅ SUCCESS | 🟢 HIGH | Full EP composition confirmed |
+| `early_warning_system` | ✅ SUCCESS | 🟡 MEDIUM | Structural metrics; no voting data |
+| `get_latest_votes` | ❌ NO DATA | N/A | No DOCEO XML for April 30 (expected) |
+| `get_plenary_sessions` | ✅ SUCCESS | 🟡 MEDIUM | Historical sessions only; no May 2026 data yet |
+| `get_voting_records` | ❌ NO DATA | N/A | EP API delay confirmed |
+| `get_parliamentary_questions` | ✅ SUCCESS | 🔴 LOW | Questions returned without content (metadata only) |
+| `get_procedures` | ✅ SUCCESS | 🔴 LOW | Historical procedures, no recent data |
+
+**Run 2 aggregate reliability assessment:**
+- Tools successful: 13/17 (76%)
+- Data completeness: 🟡 MEDIUM (structural data complete; temporal/vote data absent)
+- IMF status: 🔴 DEGRADED (HTTP 503 confirmed on second attempt)
+- Events feed: 🔴 UNAVAILABLE (structural error, not transient)
+
+**Cross-run reliability trend:**
+Run 1 reliability: 69% (9/13 tools)
+Run 2 reliability: 76% (13/17 tools)
+Trend: 🟢 IMPROVING — additional tool types tested and confirmed operational
+
+**Critical observation:** The IMF 503 error persisting across two runs 6+ hours apart (00:00 UTC and 06:50 UTC) suggests IMF infrastructure is experiencing an extended outage, not a transient load spike. The economic context limitation is structural for this analysis window.
+
+*Source: MCP reliability audit | 2026-05-08 | Quality assurance (re-run extended)*

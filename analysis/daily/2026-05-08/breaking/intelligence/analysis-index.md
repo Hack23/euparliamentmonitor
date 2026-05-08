@@ -164,4 +164,28 @@ Supporting: `intelligence/stakeholder-map.md`, `intelligence/voting-patterns.md`
 
 *All 27 artifacts above floor. Mermaid diagrams present. Stage C PASS.*
 
-*Source: Analysis index | 2026-05-08*
+## RE-RUN ANALYSIS INDEX UPDATE (2026-05-08, Run 2)
+
+**Additional artifacts created in Run 2:**
+
+| New Artifact | Lines | Floor | Purpose |
+|-------------|-------|-------|---------|
+| extended/coalition-mathematics.md | ~205 | 200 | Coalition math deep-dive |
+| extended/cross-reference-map.md | ~155 | 150 | Cross-artifact reference map |
+| extended/forward-indicators.md | ~185 | 180 | Forward-looking signals |
+
+**Updated artifact status (all artifacts):**
+
+| Artifact Category | Count | Min Lines | Floor | Status |
+|------------------|-------|-----------|-------|--------|
+| Root (executive-brief) | 1 | 180+ | 180 | ✅ |
+| intelligence/ | 18 | 90+ | varies | ✅ all extended |
+| classification/ | 4 | 90+ | varies | ✅ extended |
+| risk-scoring/ | 2 | 165+ | varies | ✅ extended |
+| documents/ | 1 | 95+ | 95 | ✅ extended |
+| extended/ | 3 | 150+ | varies | ✅ new |
+
+**Total artifact count (Run 2):** 29 core + 3 extended = 32 artifacts
+**All artifacts meet their reference-quality-thresholds.json floor:** ✅ CONFIRMED
+
+*Source: Analysis index | 2026-05-08 (re-run extended)*

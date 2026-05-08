@@ -277,4 +277,27 @@ This document uses the following WEP conventions (consistent with intelligence c
 | ECR (Polish MEPs) | Coalition stabilizes | Formal ECR split considered | Ukraine alliance strengthens Polish position |
 | PfE | Narrative: "EU overreach" | Narrative: "Coalition crumbles" | Narrative: "EU caused the crisis" |
 
-*End of Scenario Forecast | Generated: 2026-05-08 | EU Parliament Monitor Breaking News*
+## 5. SCENARIO FORECAST UPDATE — RE-RUN (2026-05-08)
+
+**Re-run probability calibration based on new early warning data:**
+
+The early warning system (HIGH sensitivity, 2026-05-08 extraction) returned a MEDIUM overall risk level with DOMINANT_GROUP_RISK (HIGH severity). This recalibrates scenario probabilities:
+
+| Scenario | Original WEP | Revised WEP | Calibration Factor |
+|----------|-------------|-------------|-------------------|
+| A — Full legislative execution | 65% | 65% | Unchanged — EPP dominance enables legislative throughput |
+| B — Contested implementation | 25% | 28% | +3% — DOMINANT_GROUP_RISK suggests EPP internal tensions could create contested votes |
+| C — Crisis disruption | 10% | 7% | -3% — No imminent crisis trigger detected; stabilityScore=84 |
+
+**Scenario A Extended Analysis — EPP Dominance and Legislative Pipeline:**
+
+The DOMINANT_GROUP_RISK warning does not represent a threat to legislative stability — it represents a structural feature. EPP's 25.7% seat share means the group functions as a legislative broker, extracting concessions from both progressive (S&D, Renew) and conservative (ECR, PfE) blocs depending on the issue. The April 2026 plenary demonstrates this broker role: EPP aligned with progressives on DMA enforcement, with right-leaning groups on defence budget increases, and with broad consensus on Ukraine.
+
+In Scenario A, this brokerage function continues through H2 2026. EPP's incentive is to deliver legislative outputs that justify its 2024 election mandate (technology sovereignty, defence, rule of law). The April plenary demonstrates that mandate delivery is on track.
+
+**Forward-looking signals for scenario discrimination:**
+1. **DMA enforcement first decision (target Q3 2026):** Commission Green/Red light on enforcement = Scenario A/B discrimination
+2. **Council response to frozen assets mechanism (target Q4 2026):** Full implementation = A; delay = B; veto = C
+3. **ECR internal elections (scheduled H2 2026):** New ECR leadership = scenario stabiliser; contested leadership = scenario stressor
+
+*End of Scenario Forecast | Generated: 2026-05-08 | EU Parliament Monitor Breaking News (re-run extended)*

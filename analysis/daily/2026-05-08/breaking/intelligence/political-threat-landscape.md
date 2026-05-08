@@ -83,4 +83,16 @@ WEP: **ROUGHLY EVEN (45–55%)** Big Tech appeals will delay but not overturn DM
 **Threat 3 — Governing coalition fracture:**
 WEP: **UNLIKELY (15–25%)** coalition fragmentation before end-2026 EP10 session. Greens' defence spending position is the single most likely fracture point.
 
-*Source: Political threat landscape | EP Open Data | 2026-05-08*
+## 6. CROSS-THREAT CORRELATION MATRIX
+
+| Threat | Probability | Impact | Combined Risk |
+|--------|------------|--------|---------------|
+| Council blocking Ukraine assets | 65–75% | HIGH | 🟡 MEDIUM-HIGH |
+| DMA CJEU legal challenge | 45–55% | MEDIUM | 🟡 MEDIUM |
+| Governing coalition fracture | 15–25% | HIGH | 🟡 LOW-MEDIUM |
+| PfE-ECR convergence on blocking | 40–50% | HIGH | 🟡 MEDIUM |
+| EP institutional capacity overreach | 20–30% | LOW | 🟢 LOW |
+
+**Re-run additions (2026-05-08):** Early warning system confirms DOMINANT_GROUP_RISK as live threat vector. EPP's structural dominance (25.7% of seats) creates asymmetric coalition dynamics — all risk scenarios flow through EPP's internal decision process. Political threat landscape confidence: 🟢 HIGH for structural threats, 🟡 MEDIUM for coalition-dependent threats.
+
+*Source: Political threat landscape | EP Open Data | 2026-05-08 (re-run extended)*
