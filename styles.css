@@ -48,6 +48,17 @@
   --max-width: 1440px;
   --transition: 0.25s ease;
 
+  /* Header / footer chrome tokens (Phase 4/5).
+   * `--chrome-text-strong` is the AA-safe text color used on dark-navy
+   * surfaces such as `.site-header__cta` labels and `.footer-bottom`.
+   * Keeping these centralised makes the dark-mode override single-source.
+   */
+  --chrome-text-strong: rgba(255, 255, 255, 0.94);
+  --chrome-text-muted: rgba(255, 255, 255, 0.78);
+  --chrome-surface-card: rgba(255, 255, 255, 0.06);
+  --chrome-surface-card-border: rgba(255, 255, 255, 0.12);
+  --chrome-divider-strong: rgba(255, 255, 255, 0.22);
+
   /* Generic surface and text tokens */
   --surface-alt: #ffffff;
   --surface-muted: #f8f9fa;
@@ -182,6 +193,17 @@ img {
   transform: scale(0.96) rotate(0);
 }
 
+/* Suppress the rotation/scale affordance under reduced-motion so the
+ * toggle's "spin" doesn't trigger vestibular discomfort. The colour
+ * change still communicates hover/focus state.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle:hover,
+  .theme-toggle:active {
+    transform: none;
+  }
+}
+
 .theme-toggle:focus-visible {
   outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
@@ -257,8 +279,28 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: var(--shadow-md);
+  /* Header→body seam (Phase 4): a soft drop-shadow underneath the sticky
+   * header plus a 1px inset highlight on the inside so the header reads
+   * as a distinct chrome surface and doesn't visually clip the content
+   * scrolled beneath it. */
+  box-shadow:
+    var(--shadow-md),
+    0 6px 18px -8px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid var(--hero-surface-border);
   overflow: hidden;
+}
+
+.site-header::after {
+  /* 1px inset highlight on the inside of the bottom border. Decorative —
+   * `pointer-events: none` so it never intercepts clicks/focus. */
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
 }
 
 .site-header__inner {
@@ -375,26 +417,59 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 8px;
+  gap: 10px;
   flex: 0 0 auto;
   flex-wrap: wrap;
-  max-width: min(100%, 720px);
+  max-width: min(100%, 760px);
+}
+
+/* CTA group keeps the four pill CTAs visually clustered so the theme
+ * toggle (in its own slot, below) reads as a distinct utility control
+ * rather than as a fifth CTA. */
+.site-header__cta-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* Dedicated slot for the theme toggle. Visually separated from the
+ * CTA cluster by a thin vertical rule on wider viewports; on narrow
+ * viewports the rule collapses and the slot still keeps the toggle
+ * away from the pill CTAs via the parent `.site-header__actions` gap. */
+.site-header__theme-toggle-slot {
+  display: inline-flex;
+  align-items: center;
+  padding-left: 10px;
+  border-left: 1px solid var(--hero-surface-border);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .site-header__theme-toggle-slot {
+    padding-left: 0;
+    border-left: none;
+  }
 }
 
 .site-header__cta {
   display: inline-flex;
   align-items: center;
-  min-height: 34px;
-  padding: 6px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.24);
+  gap: 6px;
+  min-height: 32px;
+  padding: 5px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.12);
+  /* AA-safe label colour on the dark navy header (≥4.5:1). */
+  color: var(--chrome-text-strong);
   font-size: 0.74rem;
-  font-weight: 700;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   line-height: 1.2;
   text-decoration: none;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
   transition:
     background var(--transition),
     border-color var(--transition),
@@ -403,8 +478,8 @@ html[data-theme='light'] .theme-toggle__svg--dark {
 }
 
 .site-header__cta:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
   color: #fff;
   text-decoration: none;
   transform: translateY(-1px);
@@ -417,17 +492,58 @@ html[data-theme='light'] .theme-toggle__svg--dark {
 
 .site-header__cta--sponsor {
   background: linear-gradient(135deg, #db2777, #be123c);
-  border-color: rgba(255, 255, 255, 0.32);
+  border-color: rgba(255, 255, 255, 0.42);
+  color: #fff;
+}
+
+.site-header__cta--sponsor:hover {
+  background: linear-gradient(135deg, #ec4899, #db2777);
+  color: #fff;
 }
 
 .site-header__cta--security {
-  background: rgba(230, 184, 0, 0.18);
-  border-color: rgba(230, 184, 0, 0.48);
+  background: rgba(230, 184, 0, 0.28);
+  border-color: rgba(230, 184, 0, 0.62);
+  color: #fff5cc;
+}
+
+.site-header__cta--security:hover {
+  background: rgba(230, 184, 0, 0.38);
+  color: #fff;
 }
 
 .site-header__cta--pi {
-  background: rgba(0, 51, 153, 0.22);
-  border-color: rgba(0, 51, 153, 0.55);
+  background: rgba(0, 90, 200, 0.42);
+  border-color: rgba(180, 215, 255, 0.55);
+  color: #e8f1ff;
+}
+
+.site-header__cta--pi:hover {
+  background: rgba(0, 110, 230, 0.55);
+  color: #fff;
+}
+
+/* Mobile <640px: collapse CTA labels and show icon-only pills so the
+ * action row never overflows or triggers horizontal scrolling. */
+@media (max-width: 640px) {
+  .site-header__cta {
+    padding: 5px 9px;
+    gap: 0;
+  }
+
+  .site-header__cta-label {
+    /* Visually hidden but still announced by screen readers via
+     * the existing aria-label on the anchor. */
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
 }
 
 /* Language switcher — inline in header, single row */
@@ -448,9 +564,15 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   width: 100%;
   flex-basis: 100%;
   overflow: visible;
-  /* Base padding for wrapped language rows; reduced on mobile for compactness. */
-  padding-top: 10px;
-  border-top: 1px solid var(--hero-surface-border);
+  /* Visually distinct strip below the brand+actions row.
+   * The 1px top divider plus a subtle inset highlight + a slightly
+   * darker translucent fill make the language nav read as its own
+   * sub-header band rather than as an extension of the actions row. */
+  margin-top: 8px;
+  padding: 8px 0 4px;
+  border-top: 1px solid var(--chrome-divider-strong);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .site-header__langs::-webkit-scrollbar {
@@ -1041,9 +1163,13 @@ html[data-theme='light'] .theme-toggle__svg--dark {
 /* ─── Site Footer (Hack23 AB multi-section) ──────────────────────── */
 .site-footer {
   background: var(--primary-dark);
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--chrome-text-strong);
   padding: 0;
   font-size: 0.9rem;
+  /* Stronger top divider so the seam between the page body and the
+   * footer chrome is unambiguous in both light and dark modes. */
+  border-top: 3px solid var(--secondary);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .footer-content {
@@ -1058,12 +1184,41 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   padding: 40px 24px 32px;
 }
 
-.footer-section h3 {
+.footer-section h3,
+.footer-section__heading {
   color: var(--secondary);
   font-size: 1rem;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   letter-spacing: 0.02em;
+  /* Editorial accent underline — a 36px wedge in --secondary echoing
+   * the brand voice. The pseudo-element sits below the heading text
+   * with a small gap so it reads as an underline rather than as a
+   * border. */
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.footer-section h3::after,
+.footer-section__heading::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 36px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--secondary);
+  /* Subtle glow so the accent reads cleanly on both #002266 (light
+   * mode footer bg) and the deeper dark-mode gradient. */
+  box-shadow: 0 0 6px rgba(230, 184, 0, 0.35);
+}
+
+[dir='rtl'] .footer-section h3::after,
+[dir='rtl'] .footer-section__heading::after {
+  left: auto;
+  right: 0;
 }
 
 .footer-section p {
@@ -1084,7 +1239,7 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--chrome-text-strong);
   text-decoration: none;
   transition: color var(--transition);
   overflow-wrap: anywhere;
@@ -1096,11 +1251,19 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   text-decoration: underline;
 }
 
+/* Trust-badges block (Phase 5): wrap the four shield badges in a
+ * subtle surface card so they read as a distinct credential cluster
+ * inside the "Built by Hack23" section instead of bleeding into the
+ * link list directly below. */
 .footer-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  margin: 0 0 12px;
+  margin: 0 0 16px;
+  padding: 10px 12px;
+  background: var(--chrome-surface-card);
+  border: 1px solid var(--chrome-surface-card-border);
+  border-radius: var(--radius-md);
 }
 
 .footer-badges a {
@@ -1108,16 +1271,21 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   align-items: center;
   padding: 3px;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   transition:
     background var(--transition),
     transform var(--transition);
 }
 
 .footer-badges a:hover {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.2);
   transform: translateY(-1px);
+}
+
+.footer-badges a:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
 }
 
 .footer-badges img {
@@ -1131,17 +1299,17 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   align-items: center;
   gap: 6px;
   font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--chrome-text-muted);
   font-style: italic;
   margin-top: 8px;
   padding: 4px 12px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--chrome-surface-card);
   border-radius: 100px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--chrome-surface-card-border);
 }
 
 .footer-company-summary {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--chrome-text-muted);
   border-left: 3px solid var(--secondary);
   padding-left: 10px;
   margin-top: 12px;
@@ -1160,36 +1328,67 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   gap: 6px;
 }
 
+/* Language pills (Phase 5): match the lang-link aesthetic in the
+ * header — pill shape, subtle surface fill, focus-visible ring,
+ * and a clearly distinct active state. */
 .language-grid a {
-  color: rgba(255, 255, 255, 0.9);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--chrome-text-strong);
   text-decoration: none;
-  font-size: 0.82rem;
-  padding: 3px 6px;
-  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 8px;
+  min-height: 30px;
+  border-radius: 999px;
+  background: var(--chrome-surface-card);
+  border: 1px solid var(--chrome-surface-card-border);
   transition:
     background var(--transition),
-    color var(--transition);
+    color var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
   white-space: nowrap;
   text-align: center;
 }
 
 .language-grid a:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.32);
   color: var(--secondary);
   text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.language-grid a:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
 }
 
 .language-grid a.active {
-  color: var(--secondary);
+  color: var(--on-secondary);
+  background: var(--secondary);
+  border-color: var(--secondary-dark);
   font-weight: 700;
 }
 
+.language-grid a.active:hover {
+  background: var(--secondary);
+  color: var(--on-secondary);
+}
+
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  /* Stronger top divider — uses the same chrome divider token as
+   * the header langs strip so the footer-bottom seam matches. */
+  border-top: 1px solid var(--chrome-divider-strong);
   text-align: center;
   padding: 16px 24px;
   font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.6);
+  /* AA-safe muted text on the dark-navy footer background.
+   * 0.78 white on #002266 ≈ 7:1 contrast, well above 4.5:1. */
+  color: var(--chrome-text-muted);
+  background: rgba(0, 0, 0, 0.12);
 }
 
 .footer-bottom a {
@@ -1938,6 +2137,18 @@ button:focus-visible {
       0 1px 8px rgba(0, 0, 0, 0.5),
       0 0 1px rgba(77, 163, 255, 0.15);
   }
+
+  /* Footer (Phase 5): use a slightly deeper, less-blue gradient than
+   * the header so the two chrome surfaces remain distinguishable in
+   * dark mode (header was previously also a dark navy and the seam
+   * between them effectively disappeared). */
+  html:not([data-theme='light']) .site-footer {
+    background: linear-gradient(180deg, #0a1a38 0%, #060f26 100%);
+  }
+
+  html:not([data-theme='light']) .footer-bottom {
+    background: rgba(0, 0, 0, 0.25);
+  }
 }
 
 /* Explicit dark mode toggle: applies when user manually selects dark theme */
@@ -1990,6 +2201,17 @@ html[data-theme='dark'] .site-header {
   box-shadow:
     0 1px 8px rgba(0, 0, 0, 0.5),
     0 0 1px rgba(77, 163, 255, 0.15);
+}
+
+/* Footer (Phase 5): match the system-preference dark-mode rule above
+ * so the explicit `data-theme="dark"` toggle gets the same deeper,
+ * less-blue gradient distinguishing footer chrome from header chrome. */
+html[data-theme='dark'] .site-footer {
+  background: linear-gradient(180deg, #0a1a38 0%, #060f26 100%);
+}
+
+html[data-theme='dark'] .footer-bottom {
+  background: rgba(0, 0, 0, 0.25);
 }
 
 /* ─── Article Typography Enhancement ────────────────────────── */

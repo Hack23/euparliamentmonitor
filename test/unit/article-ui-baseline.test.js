@@ -149,4 +149,37 @@ describe('article UI baseline snapshots', () => {
       expect(baselines).toMatchSnapshot();
     });
   });
+
+  /**
+   * Phase-4 / Phase-5 chrome hooks.
+   *
+   * These live alongside the snapshot suites so any future header/footer
+   * refactor that drops these CSS hooks fails fast with a meaningful
+   * assertion message — without dragging the entire wrapped article HTML
+   * into the snapshot file.
+   */
+  describe('shared site chrome hooks', () => {
+    it('renders the dedicated theme-toggle slot and the footer accent heading inside the article wrapper', () => {
+      const html = wrapArticleHtml({
+        lang: 'en',
+        articleSlug: '2026-01-15-breaking',
+        body: '<p>Body.</p>',
+        title: 'Hook check',
+        description: 'Hook check.',
+        date: '2026-01-15',
+        articleType: ArticleCategory.BREAKING_NEWS,
+        toc: [],
+      });
+      // Phase 4 — header theme toggle lives in its own slot, not inline
+      // with the pill CTAs.
+      expect(html).toContain('site-header__theme-toggle-slot');
+      expect(html).toContain('site-header__cta-group');
+      // Phase 5 — every footer section heading carries the accent class
+      // that drives the editorial underline.
+      expect(html).toContain('class="footer-section__heading"');
+      // The four standard sections must each emit the accent heading.
+      const accentCount = (html.match(/class="footer-section__heading"/g) ?? []).length;
+      expect(accentCount).toBeGreaterThanOrEqual(4);
+    });
+  });
 });

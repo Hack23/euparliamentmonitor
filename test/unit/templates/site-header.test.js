@@ -61,10 +61,46 @@ describe('buildSiteHeader', () => {
     expect(html).not.toContain('site-header__cta--pi');
   });
 
+  it('should wrap the theme toggle in a dedicated .site-header__theme-toggle-slot', async () => {
+    const html = await renderHeader('en');
+    // Slot exists and contains the theme-toggle button.
+    expect(html).toContain('site-header__theme-toggle-slot');
+    expect(html).toMatch(
+      /site-header__theme-toggle-slot[\s\S]*?<button[^>]*class="theme-toggle"[\s\S]*?<\/button>[\s\S]*?<\/div>/
+    );
+  });
+
+  it('should group the four pill CTAs in .site-header__cta-group separate from the theme toggle slot', async () => {
+    const html = await renderHeader('en');
+    expect(html).toContain('site-header__cta-group');
+    // CTA group sits before the theme-toggle slot inside the actions container.
+    const ctaGroupIndex = html.indexOf('site-header__cta-group');
+    const slotIndex = html.indexOf('site-header__theme-toggle-slot');
+    expect(ctaGroupIndex).toBeGreaterThan(-1);
+    expect(slotIndex).toBeGreaterThan(ctaGroupIndex);
+    // Theme toggle is NOT a sibling of the pill CTAs anymore — it lives
+    // in its own slot, never directly inside the cta-group div.
+    const ctaGroupBlock = html.slice(
+      ctaGroupIndex,
+      html.indexOf('</div>', ctaGroupIndex)
+    );
+    expect(ctaGroupBlock).not.toContain('class="theme-toggle"');
+  });
+
+  it('should keep CTAs as icon + label-span pairs so mobile collapse can hide the label only', async () => {
+    const html = await renderHeader('en');
+    // Every CTA carries a `.site-header__cta-label` span used by the
+    // <640px breakpoint to switch to icon-only display.
+    const ctaCount = (html.match(/class="site-header__cta(?:--[a-z]+)?(?: site-header__cta--[a-z]+)?"/g) ?? []).length;
+    expect(ctaCount).toBeGreaterThanOrEqual(4);
+    const labelCount = (html.match(/class="site-header__cta-label"/g) ?? []).length;
+    expect(labelCount).toBe(ctaCount);
+  });
+
   it('should not emit extra whitespace when PI CTA is suppressed', async () => {
     const html = await renderHeader('en', { politicalIntelligenceHref: '' });
     // No double-newline or blank line between actions div and sponsor CTA
-    expect(html).not.toMatch(/site-header__actions">\s*\n\s*\n/);
+    expect(html).not.toMatch(/site-header__cta-group[^>]*>\s*\n\s*\n/);
   });
 
   it('should reject javascript: scheme in politicalIntelligenceHref and fall back to default', async () => {
