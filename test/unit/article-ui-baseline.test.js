@@ -124,6 +124,8 @@ describe('article UI baseline snapshots', () => {
           ],
         });
         baselines[articleType] = {
+          readingProgress: matchFragment(html, /<div class="reading-progress"[\s\S]*?><\/div>/),
+          topNav: matchFragment(html, /<nav class="article-top-nav"[\s\S]*?<\/nav>/),
           hero: matchFragment(html, /<header class="article-hero"[\s\S]*?<\/header>/),
           toc: matchFragment(
             html,

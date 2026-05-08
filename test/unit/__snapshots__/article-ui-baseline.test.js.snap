@@ -9,6 +9,7 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-dek">Baseline description for breaking.</p>
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
     "toc": "<aside class="article-toc-container" aria-label="Table of contents">
     <details class="article-toc-details" open>
       <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
@@ -21,6 +22,11 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
       </nav>
     </details>
   </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
   },
   "committee-reports": {
     "hero": "<header class="article-hero">
@@ -29,6 +35,7 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-dek">Baseline description for committee-reports.</p>
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
     "toc": "<aside class="article-toc-container" aria-label="Table of contents">
     <details class="article-toc-details" open>
       <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
@@ -41,6 +48,11 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
       </nav>
     </details>
   </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
   },
   "deep-analysis": {
     "hero": "<header class="article-hero">
@@ -49,6 +61,7 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-dek">Baseline description for deep-analysis.</p>
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
     "toc": "<aside class="article-toc-container" aria-label="Table of contents">
     <details class="article-toc-details" open>
       <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
@@ -61,6 +74,11 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
       </nav>
     </details>
   </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
   },
   "election-cycle": {
     "hero": "<header class="article-hero">
@@ -69,6 +87,7 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-dek">Baseline description for election-cycle.</p>
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
     "toc": "<aside class="article-toc-container" aria-label="Table of contents">
     <details class="article-toc-details" open>
       <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
@@ -81,6 +100,11 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
       </nav>
     </details>
   </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
   },
   "month-ahead": {
     "hero": "<header class="article-hero">
@@ -89,6 +113,7 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-dek">Baseline description for month-ahead.</p>
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
     "toc": "<aside class="article-toc-container" aria-label="Table of contents">
     <details class="article-toc-details" open>
       <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
@@ -101,6 +126,11 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
       </nav>
     </details>
   </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
   },
   "month-in-review": {
     "hero": "<header class="article-hero">
@@ -109,6 +139,7 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-dek">Baseline description for month-in-review.</p>
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
     "toc": "<aside class="article-toc-container" aria-label="Table of contents">
     <details class="article-toc-details" open>
       <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
@@ -121,6 +152,11 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
       </nav>
     </details>
   </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
   },
   "motions": {
     "hero": "<header class="article-hero">
@@ -129,6 +165,7 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-dek">Baseline description for motions.</p>
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
     "toc": "<aside class="article-toc-container" aria-label="Table of contents">
     <details class="article-toc-details" open>
       <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
@@ -141,6 +178,11 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
       </nav>
     </details>
   </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
   },
   "propositions": {
     "hero": "<header class="article-hero">
@@ -149,6 +191,7 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-dek">Baseline description for propositions.</p>
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
     "toc": "<aside class="article-toc-container" aria-label="Table of contents">
     <details class="article-toc-details" open>
       <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
@@ -161,6 +204,11 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
       </nav>
     </details>
   </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
   },
   "quarter-ahead": {
     "hero": "<header class="article-hero">
@@ -169,6 +217,7 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-dek">Baseline description for quarter-ahead.</p>
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
     "toc": "<aside class="article-toc-container" aria-label="Table of contents">
     <details class="article-toc-details" open>
       <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
@@ -181,6 +230,11 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
       </nav>
     </details>
   </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
   },
   "quarter-in-review": {
     "hero": "<header class="article-hero">
@@ -189,6 +243,7 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-dek">Baseline description for quarter-in-review.</p>
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
     "toc": "<aside class="article-toc-container" aria-label="Table of contents">
     <details class="article-toc-details" open>
       <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
@@ -201,6 +256,11 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
       </nav>
     </details>
   </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
   },
   "term-outlook": {
     "hero": "<header class="article-hero">
@@ -209,6 +269,7 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-dek">Baseline description for term-outlook.</p>
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
     "toc": "<aside class="article-toc-container" aria-label="Table of contents">
     <details class="article-toc-details" open>
       <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
@@ -221,6 +282,11 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
       </nav>
     </details>
   </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
   },
   "week-ahead": {
     "hero": "<header class="article-hero">
@@ -229,6 +295,7 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-dek">Baseline description for week-ahead.</p>
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
     "toc": "<aside class="article-toc-container" aria-label="Table of contents">
     <details class="article-toc-details" open>
       <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
@@ -241,6 +308,11 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
       </nav>
     </details>
   </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
   },
   "week-in-review": {
     "hero": "<header class="article-hero">
@@ -249,6 +321,7 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-dek">Baseline description for week-in-review.</p>
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
     "toc": "<aside class="article-toc-container" aria-label="Table of contents">
     <details class="article-toc-details" open>
       <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
@@ -261,6 +334,11 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
       </nav>
     </details>
   </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
   },
   "year-ahead": {
     "hero": "<header class="article-hero">
@@ -269,6 +347,7 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-dek">Baseline description for year-ahead.</p>
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
     "toc": "<aside class="article-toc-container" aria-label="Table of contents">
     <details class="article-toc-details" open>
       <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
@@ -281,6 +360,11 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
       </nav>
     </details>
   </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
   },
   "year-in-review": {
     "hero": "<header class="article-hero">
@@ -289,6 +373,7 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
         <p class="article-dek">Baseline description for year-in-review.</p>
         <p class="article-meta"><time datetime="2026-01-15">2026-01-15</time> · EU Parliament Monitor</p>
       </header>",
+    "readingProgress": "<div class="reading-progress" aria-hidden="true"></div>",
     "toc": "<aside class="article-toc-container" aria-label="Table of contents">
     <details class="article-toc-details" open>
       <summary class="article-toc-summary"><span class="guide-icon" aria-hidden="true">📑</span> Table of contents</summary>
@@ -301,6 +386,11 @@ exports[`article UI baseline snapshots > article wrapper chrome > matches the cu
       </nav>
     </details>
   </aside>",
+    "topNav": "<nav class="article-top-nav" aria-label="Article navigation">
+      <a class="article-top-nav__link article-top-nav__link--primary" href="../index.html">← Back to News</a>
+      <a class="article-top-nav__link" href="../political-intelligence.html">🧠 Political Intelligence</a>
+      <a class="article-top-nav__link" href="../sitemap.html">🗺️ Sitemap</a>
+    </nav>",
   },
 }
 `;
