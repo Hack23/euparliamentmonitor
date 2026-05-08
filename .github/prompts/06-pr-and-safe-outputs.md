@@ -26,7 +26,24 @@ called the tool at minute ~3 as a "checkpoint".
 
 ## 2 · Pre-PR Attestation (MANDATORY log line)
 
-Immediately before the single call, emit to stdout:
+Immediately before the pre-PR attestation, refresh the final clean
+`news/<YYYY-MM-DD>-<type>` branch onto the latest `origin/main`:
+
+```bash
+bash scripts/gh-aw-refresh-pr-base.sh
+```
+
+This is a preventive guard for gh-aw bundle application: the safe-output write
+job checks out the current base branch shallowly, so if `main` advances while
+the agent is still generating analysis, a bundle based on the older triggering
+commit can fail with `Repository lacks prerequisite commits`. The refresh script
+is safe to run only after all final files are committed on the `news/*` branch;
+if it reports a dirty worktree, commit the final files first, then run it again.
+The script exits non-zero for dirty worktrees and invalid base refs, so do not
+continue to the PR call until the refresh command exits 0.
+
+After the refresh succeeds or reports that the branch is already current, emit
+to stdout:
 
 ```
 SINGLE_PR_ATTESTATION: about to call safeoutputs___create_pull_request for the first and only time at elapsed=<N>m with <X> analysis files + <Y> article files staged
@@ -68,16 +85,16 @@ attempt a second PR.
 - More than one `safeoutputs___create_pull_request` reference in the same workflow
   file (exception: `news-translate.md`)
 
-### 4a · Host-side PAT fallback for expired safeoutputs sessions
+### 4a · Host-side PAT fallback for failed safeoutputs code pushes
 
-The 8 unified article workflow sources define a deterministic custom
+The unified article workflow sources define a deterministic custom
 `pat-pr-fallback` job that depends on the generated `agent` job. The fallback
 is **not** an agent tool call and does **not** expose credentials to the
 agent. It downloads the agent artifact and runs
 `scripts/gh-aw-pat-pr-fallback.sh` with
-`secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` only when the normal
-safeoutputs path failed with `session not found` and no
-`create_pull_request` safeoutput item exists.
+`secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` when the normal safeoutputs
+path fails with either an expired MCP session or a bundle-apply failure after
+the agent emitted a patch artifact.
 
 The fallback preserves the single-PR rule by pushing only the canonical
 `news/<YYYY-MM-DD>-<type>` branch, checking for an existing open PR for that
