@@ -1,0 +1,50 @@
+{
+  "date": "2026-05-08",
+  "articleType": "week-ahead",
+  "runId": "week-ahead-run265-1778230116",
+  "gateResult": "PENDING",
+  "slug": "2026-05-08-week-ahead",
+  "articlePath": "analysis/daily/2026-05-08/week-ahead/article.md",
+  "topFinding": "The European Parliament's Strasbourg plenary of 18–21 May 2026 is a HIGH-significance legislative week at the threshold of the EU legislative calendar's summer sprint.",
+  "keyTakeaways": [
+    "**9 groups, 719 MEPs, HIGH fragmentation** (Laakso-Taagepera index 6.55)",
+    "**EPP dominance** with 25.73% seat share — but not a majority alone",
+    "**Grand coalition** (EPP+S&D+Renew = 398) is the structural default for mainstream legislation",
+    "**Right flank** (EPP+ECR+PfE = 351) is 10 seats below majority — requires NI or ESN support for viability",
+    "**Stability score 84/100** — structurally sound despite fragmentation",
+    "**Monday (May 18):** 7 debates, 0 votes — positioning day; parties signal intentions",
+    "**Tuesday (May 19):** 5 debates, 6 votes — first legislative tests of coalition arithmetic"
+  ],
+  "topRisks": [
+    "**Probability:** 1 (Remote) to 5 (Near-certain)",
+    "**Impact:** 1 (Negligible) to 5 (Critical)",
+    "**Risk Score:** P × I (1–25)",
+    "**Risk Level:** Low (1–6), Medium (7–12), High (13–19), Critical (20–25)",
+    "Security/defense items where ECR and EPP share sovereignty-first preferences",
+    "Migration/border control legislation",
+    "Economic deregulation items (regulatory burden reduction)",
+    "Renew has historically maintained group discipline (size-similarity score vs. EPP 0.42 — structural distance suggests some friction)"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "**Role:** Legislative co-author on COD procedures; sole author on non-legislative resolutions; budgetary authority",
+    "**Composition:** 719 MEPs across 9 political groups, 27 member states",
+    "**Power status:** Majority threshold 361 seats; no single group holds majority",
+    "**Influence vector:** Coalition-dependent on every binding vote; non-binding resolutions can pass with simple majority",
+    "**Role:** Legislative initiator; executor of EP-adopted regulations",
+    "**Interest in this week:** Commission proposals before the plenary will reflect its legislative programme priorities (digital single market, Green Deal successor framework, security/defence spending flexibility)",
+    "**Coalition alignment:** Historically aligned with EPP–S&D–Renew centre coalition",
+    "**Role:** Co-legislator; trilogue partner"
+  ],
+  "macroContext": "⚠️ DATA LIMITATION NOTICE: Direct IMF SDMX API queries were not resolvable in this run due to toolchain constraints in the sandbox environment.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
