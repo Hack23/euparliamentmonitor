@@ -49,9 +49,13 @@
   --transition: 0.25s ease;
 
   /* Header / footer chrome tokens (Phase 4/5).
-   * `--chrome-text-strong` is the AA-safe text color used on dark-navy
-   * surfaces such as `.site-header__cta` labels and `.footer-bottom`.
-   * Keeping these centralised makes the dark-mode override single-source.
+   * `--chrome-text-strong` is the AA-safe text colour used on dark-navy
+   * surfaces such as `.site-header__cta` labels and `.footer-section`
+   * link text. Computed contrast: rgba(255,255,255,0.94) on #002266
+   * ≈ 12.6:1, well above WCAG 2.1 AA (4.5:1) and AAA (7:1) for normal
+   * text. `--chrome-text-muted` (0.78 alpha) ≈ 9.8:1 on the same
+   * background — still AAA-safe and reserved for de-emphasised copy
+   * such as `.footer-bottom` and `.footer-stats`.
    */
   --chrome-text-strong: rgba(255, 255, 255, 0.94);
   --chrome-text-muted: rgba(255, 255, 255, 0.78);
@@ -1386,7 +1390,8 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   padding: 16px 24px;
   font-size: 0.82rem;
   /* AA-safe muted text on the dark-navy footer background.
-   * 0.78 white on #002266 ≈ 7:1 contrast, well above 4.5:1. */
+   * 0.78 white on #002266 ≈ 9.8:1 contrast — exceeds WCAG 2.1 AAA
+   * (7:1) for normal text. */
   color: var(--chrome-text-muted);
   background: rgba(0, 0, 0, 0.12);
 }

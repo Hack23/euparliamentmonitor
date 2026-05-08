@@ -90,8 +90,10 @@ describe('buildSiteHeader', () => {
   it('should keep CTAs as icon + label-span pairs so mobile collapse can hide the label only', async () => {
     const html = await renderHeader('en');
     // Every CTA carries a `.site-header__cta-label` span used by the
-    // <640px breakpoint to switch to icon-only display.
-    const ctaCount = (html.match(/class="site-header__cta(?:--[a-z]+)?(?: site-header__cta--[a-z]+)?"/g) ?? []).length;
+    // <640px breakpoint to switch to icon-only display. Match each
+    // <a class="…site-header__cta…"> opening tag exactly once and
+    // assert there is one label span per CTA.
+    const ctaCount = (html.match(/<a[^>]*\bclass="[^"]*\bsite-header__cta\b[^"]*"/g) ?? []).length;
     expect(ctaCount).toBeGreaterThanOrEqual(4);
     const labelCount = (html.match(/class="site-header__cta-label"/g) ?? []).length;
     expect(labelCount).toBe(ctaCount);

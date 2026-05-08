@@ -463,7 +463,7 @@ export function buildSiteHeader(options: SiteHeaderOptions): string {
         </span>
       </a>
       <div class="site-header__actions">
-        <div class="site-header__cta-group" role="group" aria-label="${safeTitle}">
+        <div class="site-header__cta-group">
           ${piCta}${cta('site-header__cta--sponsor', 'https://github.com/sponsors/Hack23', 'heart', sponsorLabel)}
           ${cta('', 'https://www.hack23.com', 'sponsor', becomeSponsorLabel)}
           ${cta('site-header__cta--security', 'https://github.com/Hack23/euparliamentmonitor/blob/main/SECURITY.md', ICON_SECURITY, securityLabel)}
