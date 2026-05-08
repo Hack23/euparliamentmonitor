@@ -79,7 +79,7 @@
       });
     };
     if ('IntersectionObserver' in window && tocHeadings.length) {
-      var activeIds = {};
+      var activeIds = Object.create(null);
       var observer = new IntersectionObserver(
         function (entries) {
           entries.forEach(function (entry) {

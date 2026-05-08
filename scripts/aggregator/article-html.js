@@ -28,6 +28,8 @@ import { READER_GUIDE_SECTION_ID } from './reader-guide-constants.js';
 import { READER_GUIDE_TITLE_LABELS } from './reader-intelligence-guide.js';
 import { TRADECRAFT_SECTION_ID, MANIFEST_SECTION_ID, SUPPLEMENTARY_SECTION_ID, } from './artifact-order.js';
 import { KEY_TAKEAWAYS_SECTION_ID } from './key-takeaways.js';
+import { getPoliticalIntelligenceFilename } from '../generators/political-intelligence.js';
+import { getSitemapFilename } from '../generators/sitemap/index.js';
 /**
  * Resolve a localized article type label with icon. Falls back to the
  * humanised slug when a translation isn't available.
@@ -314,10 +316,8 @@ export function wrapArticleHtml(options) {
     const backToNewsLabel = getLocalizedString(BACK_TO_NEWS_LABELS, safeLang);
     const politicalIntelligenceLabel = getLocalizedString(FOOTER_POLITICAL_INTELLIGENCE_LABELS, safeLang);
     const sitemapLabel = getLocalizedString(FOOTER_SITEMAP_LABELS, safeLang);
-    const politicalIntelligenceHref = safeLang === 'en'
-        ? '../political-intelligence.html'
-        : `../political-intelligence_${safeLang}.html`;
-    const sitemapHref = safeLang === 'en' ? '../sitemap.html' : `../sitemap_${safeLang}.html`;
+    const politicalIntelligenceHref = `../${getPoliticalIntelligenceFilename(safeLang)}`;
+    const sitemapHref = `../${getSitemapFilename(safeLang)}`;
     const sourceMdLink = options.sourceMarkdownRelPath
         ? `<p class="article-source-md"><a href="${BASE_URL}/${options.sourceMarkdownRelPath}" rel="alternate" type="text/markdown"><svg class="icon icon-inline" width="16" height="16" viewBox="0 0 24 24" role="img" aria-hidden="true" focusable="false"><path d="M9 5H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-2M12 3h6a2 2 0 0 1 2 2v6M10 14 20 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg> ${escapeHTML(sourceMdLabel)}</a></p>`
         : '';

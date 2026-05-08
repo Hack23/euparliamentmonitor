@@ -57,7 +57,10 @@ function normaliseHtml(html) {
 
 function matchFragment(html, pattern) {
   const match = html.match(pattern);
-  return normaliseHtml(match?.[0] ?? '');
+  if (!match) {
+    throw new Error(`Expected pattern ${pattern} to match HTML, but no match was found. The UI element may have been removed.`);
+  }
+  return normaliseHtml(match[0]);
 }
 
 describe('article UI baseline snapshots', () => {

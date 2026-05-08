@@ -68,7 +68,7 @@ describe('wrapArticleHtml', () => {
   it('includes reader UX affordances required by article validation', () => {
     const html = wrapArticleHtml(baseOptions);
     expect(html).toContain('class="reading-progress"');
-    expect(html).toContain('aria-hidden="true"');
+    expect(html).toContain('<div class="reading-progress" aria-hidden="true"></div>');
     expect(html).toContain('class="article-top-nav"');
     expect(html).toContain('Article navigation');
     expect(html).toContain('← Back to News');
