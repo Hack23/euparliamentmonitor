@@ -1,0 +1,58 @@
+{
+  "date": "2026-05-08",
+  "articleType": "breaking",
+  "runId": "breaking-run373-1778202056",
+  "gateResult": "PASS",
+  "slug": "2026-05-08-breaking",
+  "articlePath": "analysis/daily/2026-05-08/breaking/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**Enforcement track (DMA):** Focus on ex-post compliance by designated gatekeepers (Apple, Alphabet/Google, Meta, Amazon, Microsoft, ByteDance). The Commission's enforcement delay — acknowledged in the resolution — has allowed gatekeeper behaviours to continue 18+ months past the DMA's entry into force date (March 2024 for initial obligations).",
+    "**Criminal law track (cybercrime):** The cybercrime resolution calls for uniform EU criminal provisions targeting ransomware, critical infrastructure attacks, and child sexual abuse material (CSAM) facilitation via platforms. Platforms face potential criminal liability for hosting such content when they fail to act on notice.",
+    "**Defence:** Support for EDIP (European Defence Industry Programme) funding, with EP calling for at least €1.5bn annual allocation starting 2027 (Admiralty: C3 — not yet confirmed)",
+    "**Ukraine:** Continued EU4Ukraine funding at 2026 levels or above (Admiralty: B2 — reflected in guidelines text)",
+    "**Climate:** Rejection of cuts to Just Transition Fund; demand for enhanced climate mainstreaming",
+    "**Cohesion:** Strong resistance to any reduction in Cohesion Policy allocations, particularly from southern and central-eastern European member states' MEPs",
+    "EP composition data (719 MEPs, 9 groups, seat shares): 🟢 HIGH confidence — confirmed from `generate_political_landscape` tool"
+  ],
+  "topRisks": [
+    "Mitigation: EPP leadership public commitment to centre coalition; national EPP anchor parties holding line",
+    "Residual risk: 🟡 MEDIUM (structural ECR fracture is irreversible; EPP must manage it)",
+    "Mitigation: Commission as honest broker; interinstitutional framework; EP political pressure",
+    "Residual risk: 🟡 MEDIUM-HIGH (Council budget blocking is historically normal; EP must accept compromise)",
+    "Mitigation: G7-aligned legal frameworks; Commission legal services coordination; multilateral legal opinions",
+    "Residual risk: 🟡 MEDIUM (legal challenge is likely; outcome uncertain)",
+    "Commission DMA enforcement decision",
+    "CJEU injunction request on DMA"
+  ],
+  "keyDates": [
+    "European Commission announces three DMA enforcement decisions against Alphabet (self-preferencing) and Apple (app store interoperability) by June 2026",
+    "Council working group acknowledges Budget 2027 EP guidelines as input document; trilogue scheduled for September 2026",
+    "IMF degrades eurozone GDP outlook (already DEGRADED as of this run date; further signal if Q2 2026 data confirms slowdown)",
+    "ECB Q2 2026 inflation and growth projection updates",
+    "Deadlock in November likely; provisional twelfths on December 2026 budget deadline scenario has 30% probability",
+    "DMA enforcement decisions by June 2026: 70% → \"Likely\""
+  ],
+  "keyActors": [
+    "**DMA enforcement:** SUPPORT — Shifted from \"revise DMA\" to \"enforce DMA\" since Q1 2026. Key EPP voices from Germany, France, Netherlands drove this shift. Strategic calculation: DMA enforcement benefits European tech ecosystems vis-à-vis US and Chinese platforms.",
+    "**Ukraine accountability:** SUPPORT with caveats — Overwhelming EPP support, but EPP's Hungarian associates (Fidesz-aligned MEPs operating as NI since 2021 expulsion) abstained or opposed. EPP leadership (Manfred Weber) has been unequivocal in support.",
+    "**Budget 2027:** MIXED — EPP supports defence spending increases (EDIP) but is more cautious on climate mainstreaming and social spending expansion. EPP fiscal conservatives from Scandinavian and Baltic delegations resist open-ended budget expansion.",
+    "**Armenia:** SUPPORT — EPP has long championed EU neighbourhood expansion in Eastern Europe; Armenia's euro-integration trajectory aligns with EPP's strategic interests.",
+    "**DMA enforcement:** STRONG SUPPORT — S&D sees DMA enforcement as protecting workers and consumers from platform exploitative practices. MEPs from Spain, Italy, France led advocacy.",
+    "**Ukraine accountability:** STRONG SUPPORT — S&D has been among the most consistent advocates for Ukrainian sovereignty and Russian accountability since 2022.",
+    "**Budget 2027:** LEAD — S&D authored the social protection provisions and Just Transition Fund protections in the guidelines. The group sees the 2027 budget as a critical moment to embed social equity into EU fiscal architecture.",
+    "**Armenia:** STRONG SUPPORT — S&D has championed Armenian democratic development since the 2018 Velvet Revolution."
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
