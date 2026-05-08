@@ -31,7 +31,7 @@ function runRefresh(workspace, extraEnv = {}) {
   return { code: r.status, stdout: r.stdout, stderr: r.stderr };
 }
 
-function makeRemoteWorkspace() {
+function createGitTestFixture() {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'aw-refresh-'));
   const remote = path.join(root, 'origin.git');
   const seed = path.join(root, 'seed');
@@ -57,7 +57,7 @@ function makeRemoteWorkspace() {
 let fixture;
 
 beforeEach(() => {
-  fixture = makeRemoteWorkspace();
+  fixture = createGitTestFixture();
 });
 
 afterEach(() => {
@@ -112,5 +112,18 @@ describe('gh-aw-refresh-pr-base.sh', () => {
     expect(result.code).toBe(1);
     expect(result.stderr).toBe('');
     expect(result.stdout).toContain('working tree is dirty');
+  });
+
+  it('rejects unsafe base branch names from the environment', () => {
+    const { workspace } = fixture;
+    git(workspace, 'checkout', '-qb', 'news/unsafe-base');
+
+    const result = runRefresh(workspace, {
+      GH_AW_PR_BASE_BRANCH: '../main',
+    });
+
+    expect(result.code).toBe(1);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).toContain('invalid base branch');
   });
 });

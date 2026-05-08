@@ -39,6 +39,8 @@ the agent is still generating analysis, a bundle based on the older triggering
 commit can fail with `Repository lacks prerequisite commits`. The refresh script
 is safe to run only after all final files are committed on the `news/*` branch;
 if it reports a dirty worktree, commit the final files first, then run it again.
+The script exits non-zero for dirty worktrees and invalid base refs, so do not
+continue to the PR call until the refresh command exits 0.
 
 After the refresh succeeds or reports that the branch is already current, emit
 to stdout:

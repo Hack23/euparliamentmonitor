@@ -23,11 +23,36 @@ if [ -n "${GH_AW_PR_BASE_BRANCH:-}" ]; then
   base_branch="$GH_AW_PR_BASE_BRANCH"
 fi
 
+validate_ref_part() {
+  value="$1"
+  label="$2"
+  case "$value" in
+    ""|/*|*/|*..*|*//*)
+      log "invalid $label: $value"
+      exit 1
+      ;;
+  esac
+  case "$value" in
+    *[!A-Za-z0-9._/-]*)
+      log "invalid $label: $value"
+      exit 1
+      ;;
+  esac
+}
+
+validate_ref_part "$remote" "remote"
+validate_ref_part "$base_branch" "base branch"
+
 base_ref="refs/remotes/$remote/$base_branch"
 
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   log "not inside a git work tree; skipped"
   exit 0
+fi
+
+if [ -n "$(git status --porcelain)" ]; then
+  log "working tree is dirty; commit or discard changes before rebasing"
+  exit 1
 fi
 
 current_branch=$(git branch --show-current)
@@ -39,11 +64,6 @@ case "$current_branch" in
     exit 0
     ;;
 esac
-
-if [ -n "$(git status --porcelain)" ]; then
-  log "working tree is dirty; commit or discard changes before rebasing"
-  exit 1
-fi
 
 log "fetching $remote $base_branch"
 git fetch --quiet "$remote" "$base_branch"
