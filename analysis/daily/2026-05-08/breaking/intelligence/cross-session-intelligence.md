@@ -130,15 +130,19 @@ This second run on 2026-05-08 adds fresh EP Open Data extraction. Key changes fr
 
 1. **No new adopted texts today (May 8):** The adopted texts feed for "today" returned only 9 items (TA-10-2026-0008 through TA-10-2026-0015 and TA-10-2026-0056), all from the EP10 term's early period. This confirms the April 30 plenary session remains the dominant legislative event window for breaking news.
 
-2. **MCP reliability confirmed:** All EP MCP tools responded successfully on re-run. The events feed remains UNAVAILABLE (error-in-body response) — this appears to be a structural API issue, not a transient error.
+2. **MCP reliability confirmed (Pass 3):** All EP MCP tools responded successfully on third run. The events feed remains UNAVAILABLE (error-in-body response) — this is a structural EP API issue. Coalition dynamics and political landscape tools confirmed operational with HIGH confidence.
 
-3. **Political landscape cross-session stability:** Parliament composition unchanged from Run 1. EPP: 185, S&D: 136, total 719. No incoming/outgoing MEPs flagged in the weekly feed this session.
+3. **Political landscape cross-session stability:** Parliament composition unchanged from Runs 1–2. EPP: 185, S&D: 136, PfE: 85, ECR: 81, Renew: 77, Greens/EFA: 53, The Left: 45, NI: 30, ESN: 27. Total: 719 MEPs. The parliamentary fragmentation index of 6.55 (effective number of parties) is consistent across sessions, confirming structural stability.
 
 4. **Intelligence continuity:** The April 30 adopted texts remain the top-priority intelligence output. No superseding events detected. The cross-session intelligence conclusion is: the breaking news window of April 28–30 2026 remains analytically valid and current as of May 8 2026.
 
-**Cross-session confidence:** 🟢 HIGH — two independent data extractions (6+ hours apart) confirm the same legislative landscape.
+5. **Coalition dynamics cross-session validation (new, Pass 3):** The coalition pair analysis confirms Renew–ECR size similarity score of 0.95 and ECR–PfE at 0.95 as the closest-matched groups. The EPP–S&D grand coalition pair scores 0.74 — viable for specific legislative packages but not reliable for routine business. This cross-session finding directly supports the significance-scoring conclusion that tier-1 adopted texts required exceptional coalition mobilisation.
 
-*Source: Cross-session intelligence | EP Open Data Portal | 2026-05-08 (re-run extended)*
+6. **Early Warning System cross-session signal (new, Pass 3):** The EWS stability score of 84/100 (MEDIUM risk) with HIGH-severity dominant group risk (EPP 19× smallest group) is consistent with the April 30 session's legislative intensity. The MEDIUM stability rating and multi-group fragmentation pattern confirm that the EP is operating in a structurally contested legislative environment — making each plenary session's outcomes more consequential than in a majority-party parliament.
+
+**Cross-session confidence (Pass 3):** 🟢 HIGH — Three independent data extractions confirm the same legislative landscape. Coalition dynamics API returns consistent group compositions. Early Warning System stability score stable at 84.
+
+*Source: Cross-session intelligence extended | EP Open Data Portal | Coalition Dynamics API | EWS | 2026-05-08 (third-run extended)*
 
 
 

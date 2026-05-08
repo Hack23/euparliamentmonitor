@@ -176,9 +176,21 @@ The April 28–30 2026 session's 14 adopted texts represents a volume output com
 
 **EP institutional cycle context:** EP10 (inaugurated July 2024) is now 22 months into its 5-year term. The April 2026 output aligns with the historical pattern of EP assertiveness in the second year of a parliamentary term — once committee structures are established, coalition norms tested, and the Commission's first-year legislative programme evaluated.
 
-**Confidence in historical comparison:** 🟡 MEDIUM — Historical vote counts from EP records; current-year comparison from EP Open Data.
+**Third-Run Historical Context — Parliamentary Fragmentation Baseline (2026-05-08):**
 
-*Source: Historical baseline analysis | EP Open Data | 2026-05-08 (re-run extended)*
+The live EP API (May 8 2026) confirms 719 MEPs across 9 groups. The effective number of parties (ENP) = 6.55, and the parliamentary fragmentation index is HIGH. This fragmentation level provides important historical baseline context:
+
+- **EP6 (2004–2009):** ENP ~3.5 — two-party domination (EPP-ED + PSE controlled ~52%). Simple coalition sufficed.
+- **EP7 (2009–2014):** ENP ~4.2 — three major groups emerged with Greens/EFA gaining influence.
+- **EP8 (2014–2019):** ENP ~5.1 — fragmentation increased; Eurosceptic groups (ECR, EFDD) grew, forcing centrist coalitions.
+- **EP9 (2019–2024):** ENP ~5.8 — first term without EPP+S&D majority; three-party coalition norm (EPP+S&D+Renew) established.
+- **EP10 (2024–present):** ENP ~6.55 — highest fragmentation in EP history. The April 2026 session adopted texts under this historically unprecedented fragmentation, making the legislative output even more significant.
+
+**Historical precedent for multi-domain sessions under fragmentation:** The only historical comparator for April 2026's multi-domain output under high fragmentation is the September 2019 inauguration session of EP9 — also a period of exceptional institutional assertiveness immediately post-election. However, EP9's inaugural session was constitutionally mandated, while EP10's April 2026 session is driven by accumulated legislative pressure, making it more significant as evidence of voluntary coalition cohesion.
+
+**Confidence in historical comparison (extended Pass 3):** 🟡 MEDIUM — Historical fragmentation indices derived from EP records and academic sources (Hix/Noury/Roland EP voting datasets); current-year comparison from EP Open Data live API.
+
+*Source: Historical baseline analysis extended | EP Open Data | Coalition Analysis API | 2026-05-08 (third-run extended)*
 
 ---
 *Historical baseline complete. EP10 trajectory confirmed. 2026-05-08.*

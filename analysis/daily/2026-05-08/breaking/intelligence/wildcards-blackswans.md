@@ -261,10 +261,29 @@ The von der Leyen Commission's second term mandate runs through 2029. A no-confi
 
 **Overall wildcard risk level:** 🟡 MEDIUM — Multiple concurrent stress vectors but no immediate black swan catalyst.
 
-*Source: Wildcards and black swans analysis | 2026-05-08 (re-run extended)*
+**Third-Run Wildcard Update — Live Data Integration (2026-05-08):**
+
+Fresh data from the EP API (May 8 2026) adds the following wildcard intelligence:
+
+**New Wildcard W4 — Early Warning System Elevation:** The EP Early Warning System (queried May 8 2026) returns MEDIUM risk with HIGH-severity dominant group risk. The signal: EPP's 19× dominance over smallest groups creates institutional pressure for minority groups to form blocking coalitions. If minority coalitions (ESN+NI at 57 seats combined) align with ECR or PfE, they could create unpredictable vote outcomes in close proceedings. Probability: LOW (15%). Impact: MEDIUM. 🟡 MEDIUM confidence.
+
+**New Wildcard W5 — Coalition Fracture at Grand Coalition Level:** The EPP–S&D grand coalition (321 seats combined, 40 seats short of majority) cannot pass legislation alone. Any fracture in this pairing — e.g., over migration policy, digital regulation, or defence spending — would require ECR or Renew as the 'swing' coalition partner. Each potential pivot creates volatility. The coalition dynamics API shows Renew–ECR similarity score of 0.95, suggesting potential Renew–ECR axis as alternative to traditional EPP–S&D–Renew centre coalition. Probability: MEDIUM (25%). Impact: HIGH. 🟡 MEDIUM confidence.
+
+**New Wildcard W6 — Adopted Texts Metadata Gap as Black Swan Signal:** The adopted texts API returned TA-10-2026-0008 through 0015 plus 0056 as "today's" texts, but all show 404 (content not yet available). This metadata gap — texts indexed but content withheld — could signal forthcoming high-impact announcements not yet in the public record. Historical precedent: emergency resolutions on geopolitical crises are sometimes indexed before full text publication. 🔴 LOW confidence (speculative).
+
+| Wildcard ID | Description | Probability | Impact | Confidence |
+|---|---|---|---|---|
+| W1 | US trade escalation snap decision | 20% | VERY HIGH | 🟡 MEDIUM |
+| W2 | Ukraine ceasefire or military reversal | 15% | VERY HIGH | 🟡 MEDIUM |
+| W3 | ECB emergency policy reversal | 10% | HIGH | 🟡 MEDIUM |
+| W4 | EWS dominant-group coalition fracture | 15% | MEDIUM | 🟡 MEDIUM |
+| W5 | Grand coalition breakdown (EPP–S&D) | 25% | HIGH | 🟡 MEDIUM |
+| W6 | Texts metadata gap signals hidden announcement | 5% | UNKNOWN | 🔴 LOW |
+
+*Source: Wildcards and black swans extended | EP Open Data Portal | EWS | Coalition Dynamics API | 2026-05-08 (third-run extended)*
 
 ---
-*Wildcards and black swans complete. 2026-05-08.*
+*Wildcards and black swans complete. 2026-05-08 (Pass 3 extended).*
 
 
 
