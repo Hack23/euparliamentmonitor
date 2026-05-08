@@ -11,12 +11,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-4.4-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--06-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-4.5-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--08-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Review-Quarterly-orange?style=for-the-badge" alt="Review Cycle"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 4.4 | **📅 Last Updated:** 2026-05-06 (UTC) | **📦 Release:** v0.8.59  
+**📋 Document Owner:** CEO | **📄 Version:** 4.5 | **📅 Last Updated:** 2026-05-08 (UTC) | **📦 Release:** v0.8.60  
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-08-06
 
 ---
@@ -1761,6 +1761,68 @@ graph TD
 | **Cache-Optimised Sync** | Per-type cache headers (HTML: 1h, assets: 1y) | Performance + integrity |
 | **HTTPS Enforcement** | CloudFront HTTPS-only distribution | Data in transit protection |
 | **TLS 1.3** | CloudFront + S3 expected to enforce TLS 1.3 (configured in AWS account) | [Cryptography Policy](https://github.com/Hack23/ISMS-PUBLIC/blob/main/Cryptography_Policy.md) |
+
+---
+
+## ⚡ Build Cache & Install Resilience
+
+### Caching Strategy
+
+All standard GitHub Actions workflows follow a single, consistent caching convention:
+
+| Cache | Mechanism | Key Pattern | Expiry |
+|-------|-----------|-------------|--------|
+| **npm packages** (`~/.npm`) | `setup-node` built-in `cache: 'npm'` + `cache-dependency-path: package-lock.json` | `<runner-os>-node-<hash(package-lock.json)>` | Expires automatically when `package-lock.json` changes; GitHub evicts unused entries after 7 days |
+| **Playwright browsers** (`~/.cache/ms-playwright`) | `actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5` | `<runner-os>-playwright-v2-<scope>-<hash(package-lock.json)>` | Key versioned (`v2`) — increment the version prefix (e.g., `v2` → `v3`) to expire all existing Playwright caches and force re-download on next run |
+
+#### Design decisions
+
+- **No separate `actions/cache` step for `~/.npm`** — `setup-node` with `cache: 'npm'` already uses `actions/cache` internally. Adding a second explicit step creates two cache entries for the same data under different keys, wastes cache quota, and introduces key drift.
+- **One canonical `actions/cache` SHA pin** (`27d5ce7f…` v5.0.5) used for all non-npm caches. Every workflow that needs Playwright or another tool-specific cache MUST use this exact SHA to stay consistent and auditable.
+- **`cache-dependency-path: package-lock.json`** is always set explicitly so the internal npm cache key is scoped to the exact lock-file hash (rather than a glob scan of all `**/package-lock.json` files).
+- **Cache expiry** — GitHub Actions evicts caches unused for 7 days automatically. The `v2` prefix in Playwright cache keys ensures all caches created before this change are treated as stale and re-populated on next run.
+
+### Install Resilience
+
+All external network installs are wrapped in retry loops to survive transient registry or mirror outages:
+
+| Install type | Retry mechanism | Timeout |
+|--------------|----------------|---------|
+| `npm ci` | 3 attempts, 15 s back-off | `timeout-minutes: 10` |
+| `npx playwright install-deps` (apt) | 3 attempts, 20 s back-off | `timeout-minutes: 10` |
+| `npx playwright install <browser>` | 3 attempts, 20 s back-off | `timeout-minutes: 10` |
+| `apt-get install` (copilot setup) | 3 attempts, 20 s back-off | `timeout-minutes: 10` |
+| `npm install -g <mcp-package>` | 3 attempts, 15 s back-off via helper function | `timeout-minutes: 15` |
+
+#### Retry pattern (shell)
+
+```bash
+for attempt in 1 2 3; do
+  if <install-command>; then
+    echo "✅ succeeded on attempt $attempt"
+    exit 0          # or break for inline steps
+  fi
+  echo "⚠️ failed on attempt $attempt — retrying in 15s"
+  sleep 15
+done
+echo "❌ failed after 3 attempts"
+exit 1
+```
+
+All install steps also set `--prefer-offline` for `npm ci` so that the warm npm cache is used in preference to the network on subsequent attempts.
+
+### Per-workflow cache summary
+
+| Workflow | npm cache | Playwright cache | Other caches |
+|----------|-----------|-----------------|--------------|
+| `test-and-report.yml` | `setup-node` built-in | `playwright-v2-chromium-*` (functional-tests job) | — |
+| `release.yml` | `setup-node` built-in | `playwright-v2-chromium-*` (prepare job) | — |
+| `e2e.yml` | `setup-node` built-in | `playwright-v2-all-*` (full browser suite) | — |
+| `knip.yml` | `setup-node` built-in | — | — |
+| `deploy-s3.yml` | `setup-node` built-in | — | — |
+| `compile-agentic-workflows.yml` | `setup-node` built-in | — | — |
+| `copilot-setup-steps.yml` | `setup-node` built-in | — | — |
+| `agentics-maintenance.yml` (generated) | — | — | `activity-report-logs` (custom key per run+repo) |
 
 ---
 
