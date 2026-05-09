@@ -772,6 +772,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
     fs.mkdirSync(path.join(runDir, 'classification'), { recursive: true });
     fs.mkdirSync(path.join(runDir, 'risk-scoring'), { recursive: true });
     fs.mkdirSync(path.join(runDir, 'intelligence'), { recursive: true });
+    fs.mkdirSync(path.join(runDir, 'extended'), { recursive: true });
     for (const artifact of WEEK_AHEAD_MANDATORY) {
       fs.writeFileSync(
         path.join(runDir, artifact),
@@ -924,6 +925,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
     fs.mkdirSync(path.join(runDir, 'classification'), { recursive: true });
     fs.mkdirSync(path.join(runDir, 'risk-scoring'), { recursive: true });
     fs.mkdirSync(path.join(runDir, 'intelligence'), { recursive: true });
+    fs.mkdirSync(path.join(runDir, 'extended'), { recursive: true });
     for (const artifact of MONTH_AHEAD_MANDATORY) {
       fs.writeFileSync(
         path.join(runDir, artifact),

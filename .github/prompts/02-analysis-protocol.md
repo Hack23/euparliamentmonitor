@@ -30,7 +30,7 @@ Every run produces the per-run subset of these 39+ templates. The **article-type
 | **Intelligence** (reference-quality 7 + extended) | `pestle-analysis`, `stakeholder-map`, `scenario-forecast`, `threat-model`, `historical-baseline`, `economic-context`, `wildcards-blackswans`, `synthesis-summary`, `analysis-index`, `coalition-dynamics`, `mcp-reliability-audit`, `per-file-political-intelligence`, `reference-analysis-quality`, `imf-vintage-audit` (optional) | OSINT, political-science, intelligence-analysis-techniques, electoral-analysis, behavioral-analysis |
 | **Executive reader layer** | `executive-brief.md` at run root (mandatory first article artifact; `extended/executive-brief.md` accepted only for legacy runs) | `synthesis-methodology.md`, ICD 203 BLUF, Riksdagsmonitor article pattern |
 | **Strategic extensions** (Family C) | `devils-advocate-analysis`, `historical-parallels`, `forward-indicators`, `intelligence-assessment`, `comparative-international` | `strategic-extensions-methodology.md`, ACH, ICF/ODNI standards |
-| **Domain-specific** (Family D) | `coalition-mathematics`, `implementation-feasibility`, `media-framing-analysis`, `voter-segmentation` | `electoral-domain-methodology.md`, coalition analysis, electoral forecasting |
+| **Domain-specific** (Family D) | `coalition-mathematics`, `implementation-feasibility`, `media-framing-analysis` (**mandatory** for every article-generating run — produced in Pass 2 once context is mature; see §"Pass 2 Explicit Checklist" item 9), `voter-segmentation` | `electoral-domain-methodology.md`, `analytical-supplementary-methodology.md §AS4`, coalition analysis, electoral forecasting |
 | **Provenance** (Family B) | `cross-reference-map`, `data-download-manifest` | `structural-metadata-methodology.md`, GDPR audit, citation provenance |
 | **Existing / cross-run** | `deep-analysis`, `stakeholder-impact`, `voting-patterns`, `cross-session-intelligence`, `cross-run-diff`, `session-baseline` | legislative-monitoring, behavioral-analysis |
 | **Documents** | `document-analysis-index` | OSINT |
@@ -358,6 +358,22 @@ agent MUST execute every item below during Pass 2:
    projections, and risk matrices must contain horizon-specific probability
    bands (WEP decay), structural-break triggers, and at least one
    quantified outcome per scenario branch.
+9. **Produce `extended/media-framing-analysis.md` (mandatory) — late.**
+   Every article-generating workflow MUST ship `extended/media-framing-analysis.md`
+   (registered as a `mandatoryArtifact` for every slug in
+   `src/config/article-horizons.ts`). Build it in Pass 2 *after* the
+   synthesis-summary, stakeholder-map, scenario-forecast, coalition-dynamics,
+   and (for review runs) voting-patterns artifacts have been read back and
+   stabilised — the framing analysis cites them and identifies which
+   narratives amplify or contradict the underlying parliamentary record. Late
+   Pass 1 is acceptable for re-runs that must extend prior artifacts before
+   the read-back. **Never write `media-framing-analysis.md` first** — frame
+   identification, RRPA scoring, and counter-resilience plans require the
+   upstream artifacts to be settled. Apply the v2.0 template's 22-section
+   contract per
+   [`analytical-supplementary-methodology.md §AS4`](../../analysis/methodologies/analytical-supplementary-methodology.md#as4--media-framing-deep-dive)
+   and the per-article-type line floor from
+   [`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json).
 
 ### Pass-2 Readback Rules for Long-Horizon Scenarios (≥90-day horizons)
 

@@ -283,11 +283,13 @@ timeline
 
 ---
 
-## 📰 Part 4 — Media Framing Analysis (`media-framing-analysis.md`)
+## 📰 Part 4 — Media Framing Analysis (`media-framing-analysis.md`) — MANDATORY
 
 ### Purpose
 
 Analyze how **media coverage** shapes and reflects EP political dynamics. Critical for understanding public perception, agenda-setting, and political pressure vectors.
+
+> **Status: mandatory across the platform.** `extended/media-framing-analysis.md` is registered as a `mandatoryArtifact` for every article-generating slug in `src/config/article-horizons.ts` and carries per-article-type line floors in [`reference-quality-thresholds.json`](reference-quality-thresholds.json). Build it during Pass 2 (or late Pass 1) once `synthesis-summary`, `stakeholder-map`, `scenario-forecast`, `coalition-dynamics`, and (for review runs) `voting-patterns` are stable — see [`analytical-supplementary-methodology.md §AS4`](analytical-supplementary-methodology.md#as4--media-framing-deep-dive) for the 22-section construction contract and Pass-2 placement rules.
 
 ### EP MCP Tools
 
