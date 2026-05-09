@@ -3,8 +3,7 @@ name: "News: EU Parliament Week in Review — Unified"
 description: Generates a single PR containing analysis artifacts and the rendered week-in-review article (Stages A → B → C → D → E in one workflow).
 strict: false
 on:
-  schedule:
-    - cron: "0 9 * * 6"  # Saturdays around 09:00 UTC
+  schedule: weekly on saturday around 9am  # fuzzy: scatters within ±1h of 09:00 UTC Saturdays to avoid load spikes
   workflow_dispatch:
     inputs:
       force_generation:
@@ -187,8 +186,10 @@ post-steps:
 jobs:
   pat-pr-fallback:
     name: Host-side PAT PR fallback
-    needs: [agent]
-    if: always() && needs.agent.result != 'skipped'
+    needs: [agent, detection, safe_outputs]
+    if: >
+      always() && needs.agent.result != 'skipped' &&
+      (needs.detection.result == 'success' || needs.detection.result == 'skipped')
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -213,6 +214,7 @@ jobs:
           GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
           GH_AW_PAT_PR_FALLBACK_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
           GH_AW_PAT_FALLBACK_SLUG: week-in-review
+          GH_AW_SAFE_OUTPUTS_RESULT: ${{ needs.safe_outputs.result }}
           GH_AW_PAT_FALLBACK_WORKFLOW_NAME: "News: EU Parliament Week in Review — Unified"
           GH_AW_PAT_FALLBACK_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: bash scripts/gh-aw-pat-pr-fallback.sh

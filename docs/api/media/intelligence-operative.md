@@ -51,7 +51,8 @@ The 39 core + 12 extended artifacts are catalogued authoritatively in
 | **Intelligence (ref-quality 7 + extended)** | `pestle-analysis`, `stakeholder-map`, `scenario-forecast`, `threat-model`, `historical-baseline`, `economic-context`, `wildcards-blackswans`, `synthesis-summary`, `analysis-index`, `coalition-dynamics`, `mcp-reliability-audit`, `per-file-political-intelligence`, `reference-analysis-quality` |
 | **Existing / cross-run** | `deep-analysis`, `stakeholder-impact`, `voting-patterns`, `cross-session-intelligence`, `cross-run-diff`, `session-baseline` |
 | **Documents** | `document-analysis-index` |
-| **Extended (optional, recommended for long-form / crisis runs)** | `executive-brief`, `devils-advocate-analysis`, `historical-parallels`, `coalition-mathematics`, `forward-indicators`, `intelligence-assessment`, `implementation-feasibility`, `media-framing-analysis`, `comparative-international`, `cross-reference-map`, `data-download-manifest`, `voter-segmentation` |
+| **Extended — mandatory for every article-generating run** | `media-framing-analysis` (built in Pass 2 / late Pass 1; see [`analytical-supplementary-methodology.md §AS4`](../../analysis/methodologies/analytical-supplementary-methodology.md#as4--media-framing-deep-dive)) |
+| **Extended (optional, recommended for long-form / crisis runs)** | `executive-brief`, `devils-advocate-analysis`, `historical-parallels`, `coalition-mathematics`, `forward-indicators`, `intelligence-assessment`, `implementation-feasibility`, `comparative-international`, `cross-reference-map`, `data-download-manifest`, `voter-segmentation` |
 | **Workflow self-audit (last)** | `workflow-audit`, `methodology-reflection` — final two artifacts per Step 10.5 |
 
 ### Methodology references (ordered for read-on-session-start)

@@ -42,9 +42,22 @@ jobs:
         with:
           node-version: '26'
           cache: 'npm'
+          cache-dependency-path: package-lock.json
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install dependencies (npm ci with retry)
+        timeout-minutes: 10
+        shell: bash
+        run: |
+          for attempt in 1 2 3; do
+            if npm ci --no-audit --no-fund --prefer-offline; then
+              echo "✅ npm ci succeeded on attempt $attempt"
+              exit 0
+            fi
+            echo "⚠️ npm ci failed on attempt $attempt — retrying in 15s"
+            sleep 15
+          done
+          echo "❌ npm ci failed after 3 attempts"
+          exit 1
 
       - name: Build TypeScript (so knip can resolve compiled scripts/**)
         run: npm run build

@@ -27,7 +27,7 @@
 
 ## 🎯 Purpose
 
-This methodology governs the **four optional deep-dive analytical templates** that augment the mandatory core artifacts with specialised analytical lenses. These artifacts are **not blocking** at the Stage-C completeness gate — their absence does not prevent PR creation. However, when produced, they must meet the quality standards documented here.
+This methodology governs **four deep-dive analytical templates** that augment the mandatory core artifacts with specialised analytical lenses. Three of them (`pestle-analysis.md`, `wildcards-blackswans.md`, `quantitative-swot.md`) are **non-blocking** — their absence does not prevent PR creation. The fourth, `media-framing-analysis.md`, is **mandatory** for every article-generating workflow (see AS4 below).
 
 **Trigger conditions** — produce these artifacts when:
 
@@ -36,7 +36,7 @@ This methodology governs the **four optional deep-dive analytical templates** th
 | `pestle-analysis.md` | Event crosses ≥2 PESTLE dimensions simultaneously |
 | `wildcards-blackswans.md` | Long-horizon forecasting (month-ahead, quarter-ahead, year-ahead) or crisis/uncertainty period |
 | `quantitative-swot.md` | Decision memo requiring numerically scored SWOT ranking for comparison |
-| `media-framing-analysis.md` | High-salience event with significant media coverage (≥15 articles across ≥5 outlets) |
+| `media-framing-analysis.md` | **Always — mandatory for every article-generating run.** Produced during Pass 2 (or late Pass 1) once the underlying coalition / stakeholder / scenario artifacts are stable. |
 
 ---
 
@@ -224,7 +224,20 @@ PIR-1 (Legislative Impact), PIR-2 (Political Stability), PIR-3 (Economic Consequ
 
 ### Trigger
 
-High-salience event with significant media coverage (≥15 articles across ≥5 outlets from ≥3 MS/languages) where framing analysis adds intelligence value beyond the base synthesis.
+**Mandatory for every article-generating workflow** (breaking, week/month/quarter/year-ahead and -in-review, committee-reports, motions, propositions, term-outlook, election-cycle, deep-analysis). The artifact is registered as a `mandatoryArtifact` in `src/config/article-horizons.ts` for every slug and carries a per-article-type line floor in `reference-quality-thresholds.json`.
+
+### When to Build It (Pass-2 placement)
+
+`extended/media-framing-analysis.md` is the **last analytical artifact** an agent writes in Stage B. It depends on the synthesis-summary, stakeholder-map, scenario-forecast, coalition-dynamics and (for review runs) voting-patterns artifacts being stable so the framing analysis can cite them and identify which narratives are amplifying or contradicting the underlying parliamentary record.
+
+Two acceptable orderings:
+
+| Pattern | When to use | Where in the run |
+|---------|-------------|------------------|
+| **Pass 2 production** *(preferred)* | Standard runs where Pass 1 produced the dependency chain | Begin writing `extended/media-framing-analysis.md` immediately after Pass 2 read-back of `synthesis-summary.md` is complete; finish before the Stage C exit tripwire. |
+| **Late Pass 1 production** | Re-runs where Pass 1 must extend prior artifacts and Pass 2 is reserved for read-back | Write the artifact at the **end of Pass 1**, after every other mandatory artifact in the run, so Pass 2 can read it back alongside the rest. |
+
+Either way, **never write `media-framing-analysis.md` first.** Frame identification, RRPA scoring, and counter-resilience plans require the upstream artifacts to be settled — writing it early forces a Pass-2 rewrite when synthesis evidence shifts.
 
 ### PIRs Served
 
@@ -327,9 +340,10 @@ The article aggregator (`src/aggregator/article-generator.ts`) reads `manifest.f
 
 ### Stage-C Gate Interaction
 
-These artifacts are **non-blocking** — their absence does not prevent Stage-C from passing. However:
-- If an artifact IS listed in `manifest.files` (i.e., part of the mandatory set for the run), it must meet its line floor (from `reference-quality-thresholds.json`)
-- If a listed artifact IS produced below floor, Stage-C treats it as a **RED issue** (`short:<lines><<minLines>`) — the run fails validation
+`media-framing-analysis.md` is **blocking** — the Stage-C validator treats it as a mandatory artifact for every article-generating slug (registered in `src/config/article-horizons.ts` `mandatoryArtifacts`). The other three supplementary artifacts (`pestle-analysis`, `wildcards-blackswans`, `quantitative-swot`) are non-blocking unless they are listed under `manifest.files.*` for the run. For all four:
+
+- If an artifact is mandatory or listed in `manifest.files`, it must meet its line floor (from `reference-quality-thresholds.json`)
+- If a listed artifact is produced below floor, Stage-C treats it as a **RED issue** (`short:<lines><<minLines>`) — the run fails validation
 - Artifacts found on disk but NOT listed in `manifest.files` are reported only as WARN orphans
 - The `manifest.pass2.rewriteCount` check still applies to all produced artifacts
 
@@ -352,6 +366,7 @@ These artifacts are **non-blocking** — their absence does not prevent Stage-C 
 
 | Version | Date | Changes |
 |:-------:|------|---------|
+| 1.1 | 2026-05-09 | Promote `media-framing-analysis.md` from optional to **mandatory** for every article-generating workflow. Register the artifact in `PROSPECTIVE_MANDATORY` + `RETROSPECTIVE_MANDATORY` + `BREAKING_NEWS` + `DEEP_ANALYSIS` in `src/config/article-horizons.ts`; add per-article-type line floors to `reference-quality-thresholds.json` v1.5.0. Add Pass-2 (or late-Pass-1) production guidance — the artifact is built after the synthesis / stakeholder / scenario / coalition dependencies are stable. AS4 trigger updated; Stage-C interaction note clarified. |
 | 1.0 | 2026-05-06 | Initial EU Parliament Monitor analytical supplementary methodology. Ported from riksdagsmonitor v4.5 (`analytical-supplementary-methodology.md`), adapted for EU 27-MS context with: EP political groups, DSA/EEAS FIMI frameworks, IMF-only economic sourcing rule, STRIDE rejection preserved, media-framing deep-dive (v2.0 template integration). |
 
 ---

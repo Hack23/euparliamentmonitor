@@ -3,8 +3,7 @@ name: "News: EU Parliament Week Ahead — Unified"
 description: Generates a single PR containing analysis artifacts and the rendered week-ahead article (Stages A → B → C → D → E in one workflow).
 strict: false
 on:
-  schedule:
-    - cron: "0 7 * * 5"  # Fridays around 07:00 UTC
+  schedule: weekly on friday around 7am  # fuzzy: scatters within ±1h of 07:00 UTC Fridays to avoid load spikes
   workflow_dispatch:
     inputs:
       force_generation:
@@ -166,16 +165,17 @@ steps:
       npm run copy-vendor
 
 # Post-execution recovery: when the agent commits Stage E output to a local
-# news/* branch but the safeoutputs MCP create_pull_request call fails with
-# session not found (well-known TTL expiry — see prompts/09-troubleshooting.md),
-# the agent commits live only on the agent runner filesystem and are lost
-# when the runner is reaped. This post-step writes
-# /tmp/gh-aw/aw-agent-recovery.patch from the news/* branch, which the
-# existing Upload agent artifacts step bundles into agent.zip and the
-# host-side pat-pr-fallback job applies on its fresh main checkout via
-# scripts/gh-aw-pat-pr-fallback.sh aw-*.patch loop. Originated from run
-# #25028873034 (week-in-review) where 35 staged files and Stage C GREEN
-# were lost because no patch was serialised.
+# news/* branch but the safeoutputs MCP create_pull_request path later fails
+# (session TTL expiry, or a bundle prerequisite race in the write job), the
+# agent commits live only on the agent runner filesystem and are otherwise
+# lost when the runner is reaped. This post-step writes
+# /tmp/gh-aw/aw-agent-recovery.patch from the news/* branch when gh-aw has not
+# emitted its own aw-*.patch artifact. The host-side pat-pr-fallback job runs
+# after safe_outputs, verifies no bundle-path PR exists, and applies eligible
+# analysis/news changes via scripts/gh-aw-pat-pr-fallback.sh. Originated from
+# run #25028873034 (week-in-review) and extended after run #25541403260
+# (motions) exposed a bundle prerequisite failure after the fallback job had
+# already skipped.
 post-steps:
   - name: Capture agent recovery patch
     if: always()
@@ -185,8 +185,10 @@ post-steps:
 jobs:
   pat-pr-fallback:
     name: Host-side PAT PR fallback
-    needs: [agent]
-    if: always() && needs.agent.result != 'skipped'
+    needs: [agent, detection, safe_outputs]
+    if: >
+      always() && needs.agent.result != 'skipped' &&
+      (needs.detection.result == 'success' || needs.detection.result == 'skipped')
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -211,6 +213,7 @@ jobs:
           GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
           GH_AW_PAT_PR_FALLBACK_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
           GH_AW_PAT_FALLBACK_SLUG: week-ahead
+          GH_AW_SAFE_OUTPUTS_RESULT: ${{ needs.safe_outputs.result }}
           GH_AW_PAT_FALLBACK_WORKFLOW_NAME: "News: EU Parliament Week Ahead — Unified"
           GH_AW_PAT_FALLBACK_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: bash scripts/gh-aw-pat-pr-fallback.sh

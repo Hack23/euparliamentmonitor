@@ -131,9 +131,11 @@ The **single source of truth** for what a run produces is [`analysis/methodologi
 | `threat-assessment/` | 5 | ✅ when threat framework applies |
 | `documents/` | 1 | ✅ when documents downloaded |
 | `existing/` (legacy) | 2 + mirrors | ⚪ legacy layout, accepted for back-compat |
-| `extended/` (optional) | 11 | ⚪ optional — adds depth for long-form / crisis / breaking runs; not gated |
+| `extended/` | 12 (1 mandatory + 11 optional) | 🟡 `extended/media-framing-analysis.md` is **mandatory** for every article-generating workflow; the other 11 are optional depth artifacts |
 
-**Extended artifacts** (`devils-advocate-analysis`, `historical-parallels`, `coalition-mathematics`, `forward-indicators`, `intelligence-assessment`, `implementation-feasibility`, `media-framing-analysis`, `comparative-international`, `cross-reference-map`, `data-download-manifest`, `voter-segmentation`) are **recommended** for:
+**Mandatory extended artifact**: `extended/media-framing-analysis.md` is registered as a `mandatoryArtifact` for every article-generating slug in `src/config/article-horizons.ts` and carries per-article-type line floors in `reference-quality-thresholds.json`. Build it during Pass 2 (or late Pass 1) once synthesis-summary, stakeholder-map, scenario-forecast and coalition-dynamics are stable — see [`02-analysis-protocol.md` §"Pass 2 Explicit Checklist" item 9](02-analysis-protocol.md) and [`analytical-supplementary-methodology.md §AS4`](../../analysis/methodologies/analytical-supplementary-methodology.md#as4--media-framing-deep-dive).
+
+**Optional extended artifacts** (`devils-advocate-analysis`, `historical-parallels`, `coalition-mathematics`, `forward-indicators`, `intelligence-assessment`, `implementation-feasibility`, `comparative-international`, `cross-reference-map`, `data-download-manifest`, `voter-segmentation`, legacy `executive-brief`) are **recommended** for:
 - long-form review workflows (`month-in-review`, `quarter-in-review`, `propositions`, `committee-reports`)
 - crisis / breaking deep runs where decision-maker briefings add value
 - any run where the agent has budget after core artifacts are complete
