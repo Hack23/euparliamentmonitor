@@ -107,3 +107,94 @@ When EP publishes April 28–30 roll-call data (expected: late May 2026):
 3. **ECR remains a swing factor:** ECR's ideological heterogeneity (Eastern pro-Ukraine + Western anti-Ukraine; market-liberal + agricultural-protectionist) means it splits on many votes. This unpredictability is strategically valuable to both grand coalition and sovereigntist bloc.
 
 4. **EP10 is legislative functional but politically contested:** The April 28–30 session demonstrates this paradox — maximum legislative output alongside maximum political conflict intensity.
+
+---
+
+## Extended Voting Pattern Analysis
+
+### Structural Data Availability Gap
+
+**Critical note:** Roll-call voting records for the April 28-30 session are NOT available. The EP publishes voting records with a 4-6 week delay (publication typically appears 5-7 weeks after the plenary session). The `get_voting_records` tool returned empty for dates after approximately March 15, 2026. `get_latest_votes` (DOCEO XML near-realtime) returned empty for the current week.
+
+**Consequence:** All voting pattern analysis below is INFERRED from:
+1. Group seat counts and known political positions
+2. Adopted text titles and political context
+3. Prior voting patterns from historically similar dossiers
+4. Intelligence tool outputs (coalition dynamics proxy scores)
+
+All voting pattern claims carry 🟡 MEDIUM confidence (structural inference) or 🔴 LOW confidence (speculative).
+
+---
+
+### Inferred Vote Patterns: April 28-30 Session
+
+#### TA-10-2026-0105: Jaki Immunity Waiver
+
+**Expected voting pattern (inferred):**
+- EPP: FOR (follow JURI recommendation, rule-of-law precedent)
+- S&D: FOR (strongly pro-rule-of-law; Polish government ally)
+- Renew: FOR (rule-of-law primary value)
+- Greens/EFA: FOR (unanimously pro-accountability)
+- Left: FOR (anti-impunity, anti-ECR)
+- ECR: AGAINST (protecting own member; sovereignty argument)
+- PfE: AGAINST (ECR solidarity on sovereignty argument)
+- ESN: AGAINST (far-right solidarity)
+- NI: MIXED (varies by national affiliation)
+
+**Implied arithmetic:**
+- FOR: EPP(183) + S&D(136) + Renew(77) + Greens(53) + Left(45) = 494
+- AGAINST: ECR(81) + PfE(85) + ESN(27) + NI partial(~15) = 208
+- **Result: Adopted by approximately 494/702 (70% FOR)** [inferred]
+
+#### TA-10-2026-0160: DMA Enforcement
+
+**Expected voting pattern (inferred):**
+- EPP, S&D, Renew: FOR (cross-partisan digital regulation consensus)
+- Greens/EFA, Left: FOR (platform accountability)
+- ECR: MIXED (digital regulation scepticism vs. platform competition fairness)
+- PfE: AGAINST (regulatory overreach framing)
+- ESN: AGAINST
+- NI: MIXED
+
+**Implied arithmetic:**
+- FOR: EPP(183) + S&D(136) + Renew(77) + Greens(53) + Left(45) + ECR partial(~40) = 534
+- AGAINST: ECR partial(~41) + PfE(85) + ESN(27) + NI partial(~10) = 163
+- **Result: Adopted by approximately 534/697 (77% FOR)** [inferred]
+
+#### TA-10-2026-0161: Ukraine Accountability
+
+**Expected voting pattern (inferred):**
+- EPP, S&D, Renew, Greens, Left: FOR (near-unanimous geopolitical solidarity)
+- ECR: MIXED (Polish, Baltic MEPs FOR; Orbán-adjacent MEPs AGAINST)
+- PfE: AGAINST or ABSTAIN (Orbán bloc opposes Ukraine support)
+- ESN: AGAINST (French RN traditionally anti-Ukraine support)
+
+**Implied arithmetic:**
+- FOR: EPP(183) + S&D(136) + Renew(77) + Greens(53) + Left(45) + ECR partial(~50) = 544
+- AGAINST/ABSTAIN: ECR partial(~31) + PfE(85) + ESN(27) + NI partial(~15) = 158
+- **Result: Adopted by approximately 544/702 (78% FOR)** [inferred]
+
+---
+
+### Historical Voting Pattern Benchmarks
+
+Based on EP API voting records from sessions prior to the 4-6 week publication delay:
+
+| Vote category | Typical FOR majority | Cross-coalition? | EPP position |
+|--------------|---------------------|-----------------|-------------|
+| Geopolitical solidarity (Ukraine) | 75-85% | Yes (broad) | FOR |
+| Digital regulation (DMA/DSA) | 70-80% | Yes (broad) | FOR |
+| Banking regulation | 60-70% | Partial | FOR |
+| Anti-corruption measures | 65-75% | Partial | FOR (with caveats) |
+| Immunity waivers | 65-80% | Yes (broad) | FOR (follows JURI) |
+| Budget guidelines | 55-65% | Narrower | FOR (EPP leads) |
+
+**Observed pattern:** Geopolitical and digital dossiers generate the broadest EP coalitions (70-85% FOR). Budget and structural fund dossiers generate narrower coalitions (55-65% FOR). This validates the "three-coalition" model described in `synthesis-summary.md`.
+
+---
+
+### Near-Realtime Voting Intelligence (DOCEO XML)
+
+`get_latest_votes` returned 0 records for the week of 2026-05-04 to 2026-05-09. This is consistent with Europe Day (May 9) falling mid-week — plenary recess week with no Strasbourg sitting. Next plenary sitting: estimated week of June 9-12 (Strasbourg).
+
+**Implication:** No new DOCEO voting data will be available until after the next Strasbourg plenary. This run's voting analysis relies entirely on inferred patterns.

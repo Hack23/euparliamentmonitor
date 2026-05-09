@@ -141,3 +141,132 @@ Secondary keywords: digital markets act, dogs cats EU law, Patriots for Europe, 
 - **AR/HE:** Ukraine accountability and international accountability mechanisms context
 - **JA/KO/ZH:** DMA enforcement — AI and tech regulation implications for Asian platform companies in EU
 - **ES/NL:** PfE-ECR dynamics relevant to domestic nationalist politics in both countries
+
+---
+
+## Extended Frame Analysis: DMA vs. Trade War Narrative
+
+### Frame Competition: Rule of Law vs. Sovereignty
+
+The April-May 2026 news cycle has produced a clear frame competition between:
+
+**Frame 1 (Mainstream European media):** "EU defends digital sovereignty through DMA enforcement"
+- Protagonists: Commission, EP (EPP+S&D+Renew)
+- Antagonists: Big Tech platforms, US trade representatives
+- Narrative arc: EU as democratic bulwark against platform monopoly power
+- Resonance: 🟢 HIGH in FR, DE, NL, BE; 🟡 MEDIUM in PL, HU
+
+**Frame 2 (Right-wing/Eurosceptic media):** "Brussels overreach threatens innovation and US relations"
+- Protagonists: US tech companies, ECR/PfE MEPs
+- Antagonists: Commission technocrats, Greens
+- Narrative arc: EU regulation destroying competitive tech sector
+- Resonance: 🟢 HIGH in UK (post-Brexit media), HU; 🟡 MEDIUM in IT, PL
+
+**Frame 3 (Financial media, FT/Bloomberg/WSJ):** "EU regulatory uncertainty increases investment risk"
+- Protagonists: Institutional investors, rating agencies
+- Antagonists: Commission (indirect)
+- Narrative arc: Regulatory unpredictability creates premium for non-EU market operations
+- Resonance: 🟢 HIGH in institutional investor community globally
+
+### Frame Competition: Immunity Waivers
+
+**Frame 1 (Rule-of-law media):** "EP upholds accountability even for own members"
+- Narrative: Institutional self-discipline signal; Braun/Jaki face same laws as citizens
+- Resonance: 🟢 HIGH in DE, FR, SE; 🟡 MEDIUM elsewhere
+
+**Frame 2 (ECR/PfE media):** "Political persecution of opposition politicians"
+- Narrative: Warsaw/Brussels axis persecuting right-wing voices
+- Resonance: 🟢 HIGH in PiS-affiliated Polish media; 🟡 MEDIUM in PfE networks
+
+### Misinformation Risk Assessment
+
+| Narrative | Misinformation potential | Source |
+|-----------|------------------------|--------|
+| "EU banning free speech via DMA" | 🔴 HIGH | PfE-aligned social media |
+| "Jaki/Braun immunity = political trial" | 🔴 HIGH | Russian state media framing |
+| "SRMR3 will confiscate deposits" | 🟡 MEDIUM | Hard-right financial media |
+| "Armenia resolution = NATO proxy war" | 🟡 MEDIUM | Russian information operations |
+
+---
+
+## Media Coverage Quality Assessment
+
+| Source type | DMA coverage quality | Immunity waiver coverage | Ukraine/Armenia |
+|-------------|---------------------|------------------------|-----------------|
+| Politico Europe | 🟢 High quality | 🟢 High quality | 🟢 High quality |
+| EUobserver | 🟢 High quality | 🟡 Adequate | 🟢 High quality |
+| Reuters/AP | 🟡 Surface coverage | 🟢 Accurate | 🟢 High quality |
+| National broadsheets (FR/DE) | 🟡 Adequate | 🟡 Adequate | 🟢 High quality |
+| Social media (X/Twitter) | 🔴 Frame competition | 🔴 High polarization | 🔴 Narrative warfare |
+| Russian state media (RT, Sputnik) | N/A (banned EU) | 🔴 Weaponized | 🔴 Weaponized |
+
+**Key finding:** The gap between specialist EU policy media (Politico Europe, EUobserver) and general national media is structural. EP acts adopted in Strasbourg rarely reach national front pages unless there is a domestic political connection (e.g., German DMA enforcement = German media interest in Alphabet/Apple).
+
+---
+
+## 14-Language Frame Priority (Editorial Guidance)
+
+For EU Parliament Monitor article generation, the following frames should be prioritised by language audience:
+
+| Language | Primary frame | Secondary frame | Context note |
+|----------|--------------|----------------|-------------|
+| EN | DMA enforcement + rule of law | Coalition mathematics | Global English readership |
+| DE | DMA enforcement + trade war risk | SRMR3 banking | German tech/banking exposure |
+| FR | Digital sovereignty + Armenia | DMA enforcement | France-Armenia diaspora |
+| ES | Coalition mathematics + EU digital | DMA trade implications | Spanish tech startup exposure |
+| NL | DMA enforcement + SRMR3 | Coalition dynamics | Amsterdam fintech hub |
+| SV/NO/DA/FI | Ukraine accountability + Armenia | Animal welfare regulation | Nordic values resonance |
+| PL | Immunity waivers (Jaki/Braun) | Anti-corruption directive | Domestic political relevance |
+| AR/HE | Ukraine accountability | International law | Geopolitical/regional readers |
+| JA/KO/ZH | DMA tech regulation | SRMR3 banking | Asian tech/finance readers |
+
+---
+
+## Media Framing Section 4: Outlet-Specific Anticipated Framing
+
+| Publication | Political lean | Anticipated DMA framing | Anticipated SRMR3 framing |
+|------------|---------------|------------------------|--------------------------|
+| Financial Times | Centre-right liberal | "Brussels regulatory overreach vs. US innovation" | "Completed banking union milestone" |
+| Le Monde | Centre-left | "EU sovereignty through digital regulation" | "European solidarity on banking" |
+| Der Spiegel | Centre-left | "Deutsche Bank implications" | "Bundesbank concerns about bailin" |
+| Politico EU | Technocratic | "Enforcement mechanism details" | "Technical analysis of resolution triggers" |
+| EUobserver | Pro-EU federalist | "Rule of law and DMA as EU constitution in action" | "Banking union: what's left to complete?" |
+| Euractiv | Technocratic | "The DMA enforcement calendar" | "SRMR3: what the text actually says" |
+| Süddeutsche Zeitung | Centre-left | "German automotive sector and US tariffs" | "Bail-in and depositor protection" |
+| El País | Centre-left | "Spain's anti-corruption precedent" | "Banking reform in Spain's interest" |
+| Rzeczpospolita | Centre-right | "Poland's role in Ukraine resolution" | "Warsaw's banking exposure" |
+
+---
+
+## Media Framing Section 5: Counter-Narrative Analysis
+
+**Official EU narrative:** "Parliament delivers for citizens: financial stability, anti-corruption, digital fairness"
+**Conservative counter-narrative:** "Regulatory burden increase threatens European competitiveness"
+**Sovereignist counter-narrative:** "EU overreach into national prerogative"
+**Progressive counter-narrative:** "Not enough: DMA fines too small, anti-corruption too slow"
+**Eurosceptic counter-narrative:** "Parliament rubber-stamps Commission agenda"
+
+The most credible counter-narrative is the **Progressive** one — the DMA fine cap (10% of global turnover) is technically large but the enforcement timeline is long, and the Anti-Corruption Directive's 24-month transposition deadline is arguably too slow given the urgency of the rule-of-law situation in Hungary and Bulgaria.
+
+---
+
+## Media Framing Section 6: Predicted Story Arc (1-4 weeks)
+
+| Week | Dominant story | Risk of negative cycle |
+|------|---------------|----------------------|
+| Week 1 (this week) | SRMR3 + Anti-Corruption adoption as "milestone" | LOW |
+| Week 2 | Anti-Corruption implementation details; member state reactions | MEDIUM |
+| Week 3 | DMA enforcement first formal action (if any) | HIGH if Commission delays |
+| Week 4 | US tariff escalation response (if any) | HIGH if trade war escalates |
+
+**Media cycle risk:** LOW in week 1; escalating through weeks 2-4 depending on external events.
+
+**Media framing confidence:** 🟡 MEDIUM — Outlet-specific framing predictions are based on general knowledge of each publication's editorial position. No actual coverage has been monitored (no web search available). Predictions may be revised by actual press monitoring in subsequent runs.
+
+---
+
+## Media Framing Handoff
+
+Monitor actual press coverage in next run to verify/update the framing predictions made here. Key metrics to track: coverage volume of Anti-Corruption Directive vs. DMA enforcement; tone of German press on SRMR3; Southern European reception of banking regulation.
+
+**Media framing monitoring:** Ongoing. Update outlet framing model if actual coverage diverges significantly from predictions.

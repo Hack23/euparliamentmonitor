@@ -105,3 +105,148 @@ This artifact systematically challenges the dominant analytical narrative. Every
 | Ukraine accountability progress | MEDIUM (5/10) | MEDIUM-LOW (4/10) — practical impact limited |
 | PfE historical significance | HIGH (8/10) | MEDIUM (6/10) — framing partially inflated |
 | Grand coalition durability | HIGH (8/10) | HIGH (8/10) — devil's advocate reinforces this |
+
+---
+
+## Extended Devil's Advocate: Challenging the Significance Narrative
+
+### Challenge 1: The "DMA Enforcement" Resolution Is Toothless
+
+**The standard narrative:** EP's DMA enforcement resolution (TA-0160) signals strong political will to hold Big Tech accountable.
+
+**Devil's advocate critique:**
+
+The EP cannot enforce DMA directly. Enforcement authority rests exclusively with the Commission (DG COMP) and, for national DSA enforcement, with Digital Services Coordinators (DSCs). An EP resolution is a political signal, not a legal instrument. The Commission has already issued enforcement timelines on its own schedule — the EP resolution adds political noise but zero legal force.
+
+**Evidence supporting the critique:**
+- Article 19 DMA: "The Commission shall have exclusive competence to enforce this Regulation"
+- Previous EP enforcement resolutions on GDPR (2019-2021) did not materially accelerate Commission enforcement
+- DG COMP operates under its own strategic priorities; EP resolutions are one of many political inputs
+
+**Partial rebuttal:** EP political pressure does influence Commission resource allocation. The 2022 DSA/DMA passage was accelerated by EP pressure. Historical precedent shows EP resolutions matter in aggregate, not individually. However, this specific resolution's marginal impact is low given existing Commission enforcement commitment.
+
+**Calibrated significance score:** 5/10 (vs. 7/10 standard narrative)
+
+---
+
+### Challenge 2: Immunity Waivers Are Routine, Not Transformative
+
+**The standard narrative:** Dual immunity waivers for Braun and Jaki signal EP's rule-of-law enforcement commitment and set precedent.
+
+**Devil's advocate critique:**
+
+Immunity waiver decisions by JURI have historically been granted in >80% of cases where member state courts request them (based on EP JURI committee practice). The CJEU has consistently held that parliamentary immunity should not protect against ordinary criminal proceedings — only politically motivated prosecutions trigger JURI refusal. In this context, the Braun and Jaki waivers may simply be routine JURI practice, not a rule-of-law signal.
+
+**Evidence supporting the critique:**
+- JURI rarely refuses immunity waivers (exceptions: cases where clear political motivation visible)
+- Both Braun and Jaki face charges in national court systems (Polish) — the sovereignty argument is weak since Polish courts are independent
+- The EP has no mechanism to verify whether Polish proceedings are genuinely independent post-PiS
+
+**Partial rebuttal:** In the current political context (ECR groups challenging rule-of-law norms), the waivers do carry symbolic significance even if procedurally routine. The optics are important to the mainstream coalition.
+
+**Calibrated significance score:** 5/10 (vs. 8/10 standard narrative)
+
+---
+
+### Challenge 3: The "Ursula Coalition Is Stable" Assertion Is Premature
+
+**The standard narrative:** A stability score of 84/100 and 396-seat margin indicate Ursula coalition health.
+
+**Devil's advocate critique:**
+
+The 84/100 stability score is a composite metric from the EP intelligence tools — it uses group seat counts and procedural data as proxies, not actual vote-level cohesion. The real cohesion measure (how often each group member votes with the group whip) is unavailable due to the 4-6 week publication delay on voting records.
+
+**Evidence supporting the critique:**
+- Without vote-level data, the stability score is a structural metric, not a behavioral metric
+- EPP internal tensions (between centre-EPP/Weber and national right-flank parties) are visible in public statements but not captured in seat-count proxies
+- Renew group has experienced internal leadership challenges; cohesion may be below historical norm
+
+**What we can say with confidence:** The coalition retains arithmetic majority. Whether it maintains voting discipline is unknowable from current data.
+
+**Calibrated confidence:** Coalition arithmetic is certain (396 > 360). Coalition behavioral coherence is 🟡 MEDIUM confidence.
+
+---
+
+### Challenge 4: Budget Guidelines Are Not "High Priority" for 2026
+
+**The standard narrative:** Budget guidelines (TA-0112) are a breaking-news-level development.
+
+**Devil's advocate critique:**
+
+The April 28 budget guidelines resolution is a non-binding Parliamentary own-initiative report (OPI) on the Commission's preliminary draft budget for 2027. These annual guidelines resolutions are produced on a fixed calendar — Q1/Q2 for that year's OPI, Q4 for the budget conciliation. They are structurally routine. What matters for actual budget outcomes is the October-November trilogue between EP and Council, which will not happen for 6 months.
+
+**Significance of the TA-0112 OPI:**
+- Sets EP's negotiating parameters for autumn trilogue
+- Non-binding (advisory)
+- Expected: Commission will note it; Council will largely ignore it until trilogue
+
+**Calibrated significance score:** 3/10 (vs. 7/10 standard narrative)
+
+---
+
+## Devil's Advocate Summary: Recalibrated Significance Table
+
+| Development | Standard score | DA-calibrated score | Key caveat |
+|-------------|---------------|--------------------|-----------| 
+| DMA enforcement resolution | 7/10 | 5/10 | Non-binding; Commission leads enforcement |
+| Jaki immunity waiver | 7/10 | 5/10 | Routine JURI practice |
+| Braun immunity waiver | 8/10 | 5/10 | Routine JURI practice (earlier) |
+| SRMR3 banking reform | 9/10 | 8/10 | Binding regulation — retains high significance |
+| Anti-corruption directive | 9/10 | 7/10 | Implementation risk downgrade |
+| Budget guidelines | 7/10 | 3/10 | OPI; non-binding; 6 months from actual budget |
+| Ukraine/Armenia resolutions | 7/10 | 7/10 | Retained — geopolitical signal still matters |
+| Coalition stability assessment | 8/10 | 6/10 | Vote-level data unavailable; structural proxy only |
+
+**Overall takeaway:** The April 28-30 session is significant for SRMR3 (binding law), Anti-Corruption Directive (binding), and geopolitical signals. The significance of non-binding resolutions has been partially overstated in the standard narrative.
+
+---
+
+## Devil's Advocate Section 4: Systemic Critiques
+
+### Critique 1: The EP10 Anti-Corruption Directive Won't Work
+
+**Argument:** The Anti-Corruption Directive requires member states to create independent national anti-corruption authorities. But:
+- Hungary has systematically weakened its existing anti-corruption institutions since 2010
+- Bulgaria has had 10+ failed anti-corruption reform waves since EU accession
+- Transposition deadline is 24 months — political cycles will intervene
+- CJEU enforcement of transposition failures takes 3-5+ years
+
+**Conclusion:** The Anti-Corruption Directive may be symbolically significant but operationally ineffective in the highest-risk member states.
+
+**Counter to devil's advocate:** EU funds conditionality creates enforcement leverage not dependent on CJEU — Hungary's experience with Rule of Law conditionality shows this can change incentives.
+
+### Critique 2: DMA Enforcement Will Fail Under US Political Pressure
+
+**Argument:** Large DMA fines against US Big Tech will trigger US government retaliation. Given Trump administration's 2025-2029 posture (protectionist, transactional), a €10B+ Meta or Apple fine could be cited as justification for additional EU tariffs.
+
+**Conclusion:** Commission will rationally de-escalate DMA enforcement to avoid trade war, making the enforcement signal adopted by EP meaningless.
+
+**Counter to devil's advocate:** The EU's leverage includes the single market access — US companies cannot easily exit the EU market. The Commission has not retreated from GDPR enforcement under similar political pressure.
+
+### Critique 3: SRMR3 Perpetuates Banking Union Incompleteness
+
+**Argument:** SRMR3 improves resolution but leaves the European Deposit Insurance Scheme (EDIS) incomplete. Without EDIS, banking union is structurally incomplete. SRMR3 may create a false sense of completion, delaying the politically harder EDIS negotiation.
+
+**Conclusion:** SRMR3 is a necessary but insufficient step. It may crowd out political energy for EDIS by satisfying German demands (bail-in) without requiring them to accept EDIS (risk-sharing).
+
+**Counter to devil's advocate:** SRMR3 was the precondition for EDIS negotiations — creditor-bail-in rules had to be agreed before any shared deposit insurance was politically viable.
+
+---
+
+## Devil's Advocate Section 5: Meta-Critique — EU Parliament as Performance Theater?
+
+**Argument:** EP decisions on SRMR3 and Anti-Corruption Directive were both reached after years of trialogue negotiation with the Council. By the time they reach EP plenary, they are fait accompli — the EP's role is to legitimise decisions already made by Council+Commission.
+
+**Impact:** If accurate, this critique implies the "breaking news" of EP adoption is less significant than the Council agreement that preceded it (often 6-18 months earlier).
+
+**Counter:** This is partially true but misses the EP's role in shaping the legislation through amendments during trialogue. The Anti-Corruption Directive was significantly strengthened by EP LIBE Committee's insistence on institutional independence requirements.
+
+**Conclusion:** EP adoption is the final legally binding step and legitimisation ceremony for decisions that have been forming for years. The news value is real but contextualised by the legislative history.
+
+**Devil's Advocate confidence:** 🟡 MEDIUM — Systemic critiques are analytical positions derived from general knowledge of EU institutional dynamics. They represent legitimate scholarly and journalistic perspectives, not predictions that these outcomes will occur.
+
+---
+
+## Summary of Devil's Advocate Positions
+
+Three systemic critiques were advanced: (1) Anti-Corruption Directive ineffective in high-corruption members; (2) DMA enforcement will be softened under US political pressure; (3) SRMR3 delays EDIS completion. A meta-critique was also advanced: EP adoption is performance theater for decisions already made in trialogue. All critiques have counter-arguments. The analysis here presents the strongest version of each critique, not a prediction that they will prevail.

@@ -90,3 +90,131 @@ The parallel to 2026: Nuremberg required great-power agreement. A Ukraine accoun
 All five parallel analyses share a common meta-pattern: **EU institutions face maximum stress, adapt, and continue functioning**. The 1992 Maastricht crisis produced Edinburgh opt-outs. The 2005 constitutional rejection produced Lisbon Treaty. The Qatargate corruption scandal produced transparency reforms. Each crisis leaves institutions changed but functioning.
 
 The April 28–30 breaking cluster — maximum legislative output under institutional political stress — is historically consistent with this pattern. EP10 is likely to be EP history's most productive and most politically contentious term simultaneously.
+
+---
+
+## Extended Historical Parallels Analysis
+
+### Parallel 1: EP6-EP7 Digital Regulation Trajectory (2009-2014) and Today
+
+The EP7 (2009-2014) era is the closest historical parallel to the EP10 digital regulation push. In EP7:
+- The Copyright Directive debates began (completed in EP9)
+- GDPR framework was first proposed (completed in EP9)
+- Net neutrality regulation was first adopted
+- E-commerce regulation was progressively tightened
+
+The EP10 DMA enforcement (April 2026) mirrors the EP7 period of building regulatory architecture — with the key difference that EP10 is in enforcement rather than legislation. The enforcement curve is steeper and faster in EP10 because:
+1. DMA (2022) was adopted more quickly than GDPR (13 years from proposal to adoption)
+2. Platform regulation has developed greater political consensus across the spectrum
+3. US-EU regulatory competition is now explicit (US Big Tech lobby vs. EU Commission DG COMP)
+
+**Historical lesson:** Digital regulatory cycles follow a 10-15 year pattern from first proposal to meaningful enforcement. EP10 is in the early enforcement phase of a cycle started in EP6.
+
+### Parallel 2: The 2012-2013 Banking Union Crisis Adoption vs. SRMR3
+
+In 2012-2013, the EU created the Banking Union in a crisis-driven legislative sprint:
+- Single Supervisory Mechanism (SSM): Proposed June 2012, adopted November 2013
+- Single Resolution Mechanism (SRM): Proposed July 2013, adopted April 2014
+- Deposit Guarantee Schemes Directive: Revised 2014
+
+This 18-month sprint from proposal to adoption was unprecedented for EU banking legislation. The SRMR3 represents the first major amendment to the SRM architecture and follows a more deliberate 3-year process:
+- SRMR3 proposal: 2022
+- Trilogue: 2024-2025
+- Adoption: March 2026
+
+**Historical lesson:** The 2012 crisis-driven adoption left structural gaps (no EDIS; incomplete bail-in framework) that SRMR3 now addresses. Each major EU banking reform addresses the gaps left by the previous one — a systemic learning pattern.
+
+### Parallel 3: Rule-of-Law Mechanism and Anti-Corruption Directive vs. 2004 Accession
+
+The 2004 EU enlargement (Poland, Czech Republic, Hungary, Slovakia, Baltic states, Malta, Cyprus) brought in member states with varying rule-of-law traditions. The EU's 2024-2026 anti-corruption and rule-of-law enforcement push can be read as the culmination of a 20-year integration failure:
+
+- 2004: Enlargement without strong rule-of-law conditionality
+- 2010-2014: EP concerns begin about Orbán's constitutional changes
+- 2017: Article 7(1) TEU proceedings against Poland (first ever)
+- 2018: Article 7(1) proceedings against Hungary
+- 2022: Conditionality Regulation (3/4 vote required) creates financial leverage
+- 2026: Anti-Corruption Directive creates criminal law harmonisation
+
+**Historical lesson:** The EU took 22 years from enlargement to bind member states through criminal law on corruption. The long arc reflects the constitutional limits of EU competence and the political dynamics of consensus-seeking.
+
+### Parallel 4: PfE 2024 vs. ID Group 2019
+
+In EP9, the Identity & Democracy (ID) group (49 seats) was the fifth-largest group and was systematically excluded from committee chairs and coalition participation. In EP10, PfE (85 seats) is the third-largest group and faces the same exclusion.
+
+**Key differences from EP9:**
+1. PfE is 73% larger (85 vs 49 seats) — harder to ignore
+2. PfE includes national governing parties (Fidesz, Italian right) — not just opposition fringe
+3. Global far-right alignment (Trump administration) creates external legitimacy resource for PfE
+4. EPP is under greater internal right-wing pressure to accommodate PfE positions (if not PfE itself)
+
+**Historical lesson:** In EP8, the EFD group (UK Independence Party-dominated) self-destructed through Brexit, delivering Brexit's indirect gift to European federalists. PfE has no equivalent self-destruction mechanism — it will likely grow or remain stable through EP10. The mainstream coalition's exclusion strategy faces a durability test it did not face in EP9.
+
+---
+
+## Comparative Timeline: Key Legislative Milestones
+
+```
+2012: Banking Union begins (SSM/SRM)
+2016: GDPR adopted (after 13-year process)
+2018: Article 7 proceedings vs. Poland, Hungary
+2019: DSM package completed; Ursula coalition formed
+2022: DMA/DSA adopted; Conditionality Regulation enforced
+2024: EP elections; PfE emerges as third-largest group; EP10 constituted
+2025: AI Act implementation begins; new MFF 2028-2034 debate starts
+2026 (today): SRMR3 adopted; Anti-Corruption Directive adopted; DMA enforcement push; US tariff response
+```
+
+This timeline reveals EP10 is simultaneously implementing the legacy of EP9 (DMA enforcement, AI Act) and beginning EP10's own legislative agenda (budget 2027, new MFF). This dual-track workload explains why April 28-30's session was unusually dense with 13 acts — output is compressed by two overlapping legislative cycles.
+
+---
+
+## Historical Parallels Section 4: Anti-Corruption Legislative History
+
+### EU Anti-Corruption Legislative Timeline
+
+| Year | Measure | Status | Parallel to April 2026 |
+|------|---------|--------|----------------------|
+| 2014 | EU Anti-Corruption Report (COM) | Annual report mechanism only | Predecessor soft instrument |
+| 2017 | EPPO Regulation | Established EPPO (12 participating states) | Institutional precedent |
+| 2020 | Rule of Law Conditionality Regulation | Adopted (Brexit crisis backdrop) | Political enforcement precedent |
+| 2023 | Anti-Corruption Directive — Commission proposal | Tabled (post-Qatar-gate) | Direct precursor |
+| 2026 (April 28) | Anti-Corruption Directive — EP adoption | Final step | This event |
+
+**Historical lesson:** EU anti-corruption legislation has consistently followed political scandals — the 2014 report followed the 2012 corruption survey revelations; the EPPO followed PIF fraud concerns; the 2026 Directive followed Qatar-gate (2022). Legislative response to scandal has improved but remains slow (4+ years).
+
+---
+
+## Historical Parallels Section 5: Banking Union Legislative Milestones
+
+| Year | Measure | Historical significance | Parallel to SRMR3 |
+|------|---------|------------------------|------------------|
+| 2014 | BRRD (Banking Recovery and Resolution Directive) | First EU-wide resolution framework | Predecessor to SRMR3 |
+| 2014 | SSM (Single Supervisory Mechanism) | ECB supervision of major banks | ECB role in SRMR3 |
+| 2016 | SRMR (first generation) | Created SRB | Direct predecessor |
+| 2019 | SRMR2 | Enhanced bail-in powers | Incremental improvement |
+| 2026 | SRMR3 | Advanced bail-in pricing, TLAC alignment | This event |
+
+**Historical parallel:** SRMR3 represents the 3rd generation of EU bank resolution law in 12 years (2014-2026). Each iteration has strengthened the framework — the banking union is incrementally but genuinely being built.
+
+---
+
+## Historical Parallels Conclusion
+
+The April 28-30, 2026 session represents a convergence of three parallel legislative histories:
+1. Digital regulation: GDPR (2018) → DSA (2022) → DMA enforcement (2026)
+2. Anti-corruption: 2014 Report → EPPO (2017) → Qatar-gate → 2026 Directive
+3. Banking union: SSM/BRRD (2014) → SRMR1 (2016) → SRMR2 (2019) → SRMR3 (2026)
+
+All three streams reflect the same pattern: EU legislation follows crises, requires 4-8 year political cycles, and improves with each iteration. The April 2026 session is notable for completing all three legislative arcs simultaneously — a historically unusual convergence.
+
+**Historical parallels confidence:** 🟡 MEDIUM — Timeline dates are based on general knowledge of EU legislative history. Precise adoption dates for earlier measures may require verification against official EUR-Lex records. The analytical narrative (pattern identification) is HIGH confidence.
+
+---
+
+## Historical Parallels Handoff
+
+The April 28-30, 2026 session should be compared in future runs with the EP8 May 2018 session (GDPR + NIS1 final readings) as the closest historical parallel for multi-domain legislative convergence. Both sessions represent "closing moments" in years-long regulatory cycles.
+
+**Historical parallels confidence:** MEDIUM — Timeline comparisons based on general EU legislative history knowledge.
+
+Key lesson from historical parallels: EU legislative output follows crisis → response → institutionalization cycles. The 2022 Qatar-gate → 2026 Anti-Corruption Directive is a 4-year cycle. The 2014 BRRD → 2026 SRMR3 is a 12-year cycle. The 2022 DMA adoption → 2026 enforcement action is a 4-year cycle. Understanding these cycles allows prediction of future EP output priorities.

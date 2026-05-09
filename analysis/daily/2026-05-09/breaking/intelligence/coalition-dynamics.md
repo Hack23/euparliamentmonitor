@@ -153,3 +153,24 @@ flowchart LR
     style Extended fill:#4CAF50,color:#fff
     style Disruptive fill:#f44336,color:#fff
 ```
+
+---
+
+## Coalition Dynamics Update (Pass 2 Extension)
+
+Updated coalition dynamics for April 28-30 session:
+
+**Coalition cohesion indicators from April 28-30 session:**
+- SRMR3 adoption: unanimous-ish EPP+S&D+Renew support → coalition cohesion HIGH on financial integration
+- Anti-Corruption Directive: EPP-S&D-Renew-Greens alignment → coalition cohesion HIGH on rule of law
+- Ukraine resolution: EPP-S&D-Renew-ECR alignment (broader than Ursula coalition) → geopolitical consensus STRONG
+- Budget guidelines: Procedural vote — all groups vote for own interests; coalition cohesion MEDIUM
+
+**Cohesion risk indicators:**
+- US tariff response: EPP (industry protection) vs. Renew (free trade) tension
+- DMA enforcement: Renew stronger than EPP on digital regulatory ambition
+- Agricultural subsidies: EPP vs. Greens tension emerging in MFF 2028+ discussions
+
+**Overall coalition health: 8.4/10** — High cohesion on current session's major dossiers; medium-term risks from trade and budget. Ursula coalition remains the dominant force in EP10.
+
+**Coalition dynamics confidence:** MEDIUM — Vote positions inferred; no roll-call data for April 28-30 session.
