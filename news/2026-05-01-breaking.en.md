@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EP Breaking News: April 28–30, 2026"
-description: "Date: 2026-05-01 | Article Type: breaking | Confidence: 🟡 Medium"
+title: "Extended Executive Brief — EP Breaking News: April 28–30, 2026"
+description: "The European Parliament's April Strasbourg plenary (28–30 April 2026) delivered fourteen adopted texts across three days, producing the most substantive foreign policy and digital governance output of the EP10 term to date. The session was dominated by a landmark Ukraine accountability…"
 date: 2026-05-01
 article_type: breaking
 slug: 2026-05-01-breaking

@@ -1,5 +1,5 @@
 ---
-title: "🧠 Intelligence Synthesis Summary — April 18, 2026 (Run 183)"
+title: "title: \"🧠 Intelligence Synthesis Summary — Easter Recess Day 5 & Pre-Plenary Intelligence\""
 description: "title: \"🧠 Intelligence Synthesis Summary — Easter Recess Day 5 & Pre-Plenary Intelligence\""
 date: 2026-04-18
 article_type: breaking

@@ -1,6 +1,6 @@
 ---
-title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
-description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
+title: "This index consolidates per-document intelligence for the key legislative texts under monitoring during the post-Easter inter-session…"
+description: "This index consolidates per-document intelligence for the key legislative texts under monitoring during the post-Easter inter-session period. Analysis covers the most significant adopted texts from the March 2026 plenary sessions."
 date: 2026-04-16
 article_type: breaking
 slug: 2026-04-16-breaking-176

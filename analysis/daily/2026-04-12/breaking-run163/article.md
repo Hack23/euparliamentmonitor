@@ -1,5 +1,5 @@
 ---
-title: "📋 Synthesis Summary — 2026-04-12 (Run 163)"
+title: "This analysis consolidates findings from Run 163's five analysis categories (classification, threat assessment, risk scoring…"
 description: "This analysis consolidates findings from Run 163's five analysis categories (classification, threat assessment, risk scoring, intelligence, documents) based on EP MCP precomputed statistics (264KB) and cross-run editorial memory spanning April 8-12 (12 prior workflow runs)."
 date: 2026-04-12
 article_type: breaking

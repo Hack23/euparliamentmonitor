@@ -1,6 +1,6 @@
 ---
-title: "Intelligence Synthesis Summary — EU Parliament Committee Reports"
-description: "Date: 2026-04-29 | Session Coverage: April 22–28, 2026 (Strasbourg)"
+title: "April 28 will be remembered as the session where Parliament simultaneously set the terms for the EU's next budget decade, modernised its…"
+description: "April 28 will be remembered as the session where Parliament simultaneously set the terms for the EU's next budget decade, modernised its trade preference architecture, and extended EU regulatory competence to transport emissions and animal welfare. The immediate institutional work is complete…"
 date: 2026-04-29
 article_type: committee-reports
 slug: 2026-04-29-committee-reports

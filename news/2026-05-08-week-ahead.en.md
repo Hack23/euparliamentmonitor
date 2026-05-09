@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EP Week Ahead 2026-05-18 to 2026-05-21"
-description: "Date: 2026-05-08 | Horizon: Week Ahead (May 18–21, 2026) | Confidence: 🟡 MEDIUM"
+title: "The European Parliament's Strasbourg plenary of 18–21 May 2026 is a HIGH-significance legislative week at the threshold of the EU…"
+description: "The European Parliament's Strasbourg plenary of 18–21 May 2026 is a HIGH-significance legislative week at the threshold of the EU legislative calendar's summer sprint. Fifty-three scheduled activities — spanning 24 debates and 17 vote items across four session days — make this one of the busiest…"
 date: 2026-05-08
 article_type: week-ahead
 slug: 2026-05-08-week-ahead

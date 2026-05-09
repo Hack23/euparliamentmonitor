@@ -1,6 +1,6 @@
 ---
 title: "🧩 Political Intelligence Synthesis — European Parliament"
-description: "🔍 Items Tracked: 30+ adopted texts | 0 events | 0 procedures | 737 MEP updates"
+description: "pie title Q1 2026 Adopted Texts by Policy Domain"
 date: 2026-04-09
 article_type: breaking
 slug: 2026-04-09-breaking

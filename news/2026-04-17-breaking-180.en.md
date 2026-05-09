@@ -1,5 +1,5 @@
 ---
-title: "🎯 Synthesis Summary — EU Parliament Intelligence Brief"
+title: "Mode: DEGRADED (server health unavailable) | Run: 180 | Confidence: 🟡 Medium"
 description: "Mode: DEGRADED (server health unavailable) | Run: 180 | Confidence: 🟡 Medium"
 date: 2026-04-17
 article_type: breaking

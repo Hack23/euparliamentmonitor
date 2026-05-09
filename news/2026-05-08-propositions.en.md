@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EU Parliament Propositions — 8 May 2026"
-description: "The 8 May 2026 EU Parliament propositions picture reveals an institution at the apex of its EP10 term legislative sprint. Two landmark measures — the Anti-Corruption Directive (April 29) and SRMR3 (April 20) — represent historic institutional achievements. Three active trilogues are in progress…"
+title: "The European Parliament completed its April 2026 plenary session with a historically productive legislative sprint, adopting 57 texts…"
+description: "The European Parliament completed its April 2026 plenary session with a historically productive legislative sprint, adopting 57 texts across the period January–April 2026 (101 total in 2026 to date). Four landmark legislative acts have reached final adoption or signing stage this week: the…"
 date: 2026-05-08
 article_type: propositions
 slug: 2026-05-08-propositions

@@ -176,4 +176,50 @@ describe('HTML article generation pipeline', () => {
       expect(hasHtmlBreadcrumb || hasJsonLdBreadcrumb).toBe(true);
     });
   });
+
+  describe('article body section ordering', () => {
+    it.each(sampleArticles)(
+      '%s renders Executive Brief BEFORE Reader Intelligence Guide (when both exist)',
+      (filename) => {
+        const html = fs.readFileSync(path.join(NEWS_DIR, filename), 'utf-8');
+        const briefIdx = html.indexOf('id="section-executive-brief"');
+        const guideIdx = html.indexOf('id="reader-intelligence-guide"');
+        // Sparse runs may legitimately omit one of the two; the contract
+        // applies only when both are present.
+        if (briefIdx === -1 || guideIdx === -1) return;
+        expect(briefIdx).toBeLessThan(guideIdx);
+      }
+    );
+
+    it.each(sampleArticles)(
+      '%s does not leak `**Purpose:**` artefact preamble into the SEO description',
+      (filename) => {
+        const html = fs.readFileSync(path.join(NEWS_DIR, filename), 'utf-8');
+        const match = /<meta name="description" content="([^"]+)"/.exec(html);
+        expect(match).not.toBeNull();
+        const description = match[1];
+        // Common artefact-preamble leak vectors that the resolver guards against.
+        expect(description).not.toMatch(/^Purpose:\s/i);
+        expect(description).not.toMatch(/^This artifact provides/i);
+        expect(description).not.toMatch(/^Reporting Window:/i);
+      }
+    );
+
+    it.each(sampleArticles)(
+      '%s `<title>` does not start with an artefact-category label (Synthesis Summary, Executive Brief, …)',
+      (filename) => {
+        const html = fs.readFileSync(path.join(NEWS_DIR, filename), 'utf-8');
+        const match = /<title>([^<]+)<\/title>/.exec(html);
+        expect(match).not.toBeNull();
+        const title = match[1];
+        // The page title is `<headline> — <site-title>`; the headline is
+        // the segment before the first ` — `.
+        const headline = title.split(' — ')[0].trim();
+        expect(headline).not.toMatch(/^Synthesis Summary\b/i);
+        expect(headline).not.toMatch(/^Executive Brief\b/i);
+        expect(headline).not.toMatch(/^Intelligence Briefing\b/i);
+        expect(headline).not.toMatch(/^Intelligence Assessment\b/i);
+      }
+    );
+  });
 });

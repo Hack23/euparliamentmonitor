@@ -1,5 +1,5 @@
 ---
-title: "📰 Synthesis Summary — Run 193 (Tuesday 2026-04-21, API Outage Day 13, Recess Day 8)"
+title: "The March 26, 2026 plenary session has emerged from 26 days of data obscurity as Parliament's most consequential single-session…"
 description: "The March 26, 2026 plenary session has emerged from 26 days of data obscurity as Parliament's most consequential single-session legislative output of Q1 2026. Adopted one week before President Trump's April 2 \"Liberation Day\" tariff proclamations, the session reveals Parliament was already…"
 date: 2026-04-21
 article_type: breaking

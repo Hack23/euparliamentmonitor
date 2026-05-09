@@ -1,6 +1,6 @@
 ---
 title: "Breaking News Intelligence Brief — Cross-Session Update"
-description: "analyst: EU Parliament Monitor Agentic Workflow"
+description: "The European Parliament remains in Easter recess (Day 10 of 18). No parliamentary sessions, committee meetings, or votes are scheduled. This cross-session intelligence update confirms all findings from the morning analysis and adds multi-framework depth."
 date: 2026-04-05
 article_type: breaking
 slug: 2026-04-05-breaking-breaking-2

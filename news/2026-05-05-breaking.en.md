@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — Breaking News | 2026-05-05"
-description: "Method: Convergent Analysis — Cross-domain synthesis of April 28–30 Strasbourg plenary outputs"
+title: "Extended Executive Brief — Breaking News | 2026-05-05"
+description: "The April 28–30, 2026 Strasbourg plenary represents the highest-output session of the 2026 calendar year to date, with 7 of 21 total 2026 adopted texts originating from this three-day session (33% of all 2026 texts in three days). The two Tier-1 items — DMA enforcement against designated…"
 date: 2026-05-05
 article_type: breaking
 slug: 2026-05-05-breaking

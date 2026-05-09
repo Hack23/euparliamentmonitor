@@ -1,6 +1,6 @@
 ---
-title: "Intelligence Synthesis Summary — EP Committee Reports"
-description: "Admiralty Grade: B-2 (Usually Reliable / Probably True)"
+title: "The European Parliament concluded a highly productive April 28–30 plenary session in Strasbourg, adopting 19 texts and advancing its…"
+description: "The European Parliament concluded a highly productive April 28–30 plenary session in Strasbourg, adopting 19 texts and advancing its legislative agenda across digital, trade, environmental, and foreign policy domains. The week of May 1–8, 2026, marks a transition to committee-intensive work as…"
 date: 2026-05-08
 article_type: committee-reports
 slug: 2026-05-08-committee-reports

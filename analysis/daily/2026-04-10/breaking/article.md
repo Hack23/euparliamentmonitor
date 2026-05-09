@@ -1,6 +1,6 @@
 ---
-title: "🔬 Synthesis Summary — Breaking News Intelligence Brief"
-description: "dataAvailability: Unavailable (Easter recess Day 15)"
+title: "🏷️ Political Classification — Easter Recess Day 15 Intelligence"
+description: "📅 Analysis Date: 2026-04-10 00:20 UTC | 🏛️ Parliament Status: Easter Recess (Day 15/18) | 📰 Article Type: breaking"
 date: 2026-04-10
 article_type: breaking
 slug: 2026-04-10-breaking-breaking

@@ -1,6 +1,6 @@
 ---
-title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
-description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
+title: "European Parliament Q1 2026 legislative output surged 46% year-on-year to a projected 114 adopted acts. The March 26 plenary burst…"
+description: "European Parliament Q1 2026 legislative output surged 46% year-on-year to a projected 114 adopted acts. The March 26 plenary burst delivered Banking Union SRMR3, Anti-Corruption Directive, and tariff countermeasures. Today (April 15) marks T-0 for tariff activation. The pipeline transitions from…"
 date: 2026-04-15
 article_type: propositions
 slug: 2026-04-15-propositions

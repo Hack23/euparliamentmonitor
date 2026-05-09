@@ -1,6 +1,6 @@
 ---
-title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
-description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
+title: "European Parliament committees produced a record Q1 2026 output of 104 adopted texts and 114 legislative acts, marking a 46% increase…"
+description: "European Parliament committees produced a record Q1 2026 output of 104 adopted texts and 114 legislative acts, marking a 46% increase over the full-year 2025 total. The March 26 session alone delivered 18 texts including the Banking Union triple package (DGSD2/BRRD3/SRMR3), the first EU…"
 date: 2026-04-16
 article_type: committee-reports
 slug: 2026-04-16-committee-reports-485c93f9-8c68-4b20-a7bb-fb4f6e5a

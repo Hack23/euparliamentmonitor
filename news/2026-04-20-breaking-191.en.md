@@ -1,6 +1,6 @@
 ---
-title: "📰 Synthesis Summary — Run 191 (Monday 2026-04-20, Easter Recess Day 8, API Outage Day 11)"
-description: "Date: Monday 2026-04-20 (EP Easter recess Day 8 of 13; Easter Sunday was April 5)"
+title: "Mode: ANALYSIS_ONLY — Parliament in Easter recess (Day 8), no breaking news threshold met"
+description: "Mode: ANALYSIS_ONLY — Parliament in Easter recess (Day 8), no breaking news threshold met"
 date: 2026-04-20
 article_type: breaking
 slug: 2026-04-20-breaking-191

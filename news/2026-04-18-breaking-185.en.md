@@ -1,5 +1,5 @@
 ---
-title: "🧠 Intelligence Synthesis Summary — April 18, 2026 (Run 185)"
+title: "title: \"🧠 Intelligence Synthesis Summary — API Plateau & 9-Day Countdown (Run 185)\""
 description: "title: \"🧠 Intelligence Synthesis Summary — API Plateau & 9-Day Countdown (Run 185)\""
 date: 2026-04-18
 article_type: breaking

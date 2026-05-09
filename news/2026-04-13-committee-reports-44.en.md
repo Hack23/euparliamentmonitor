@@ -1,6 +1,6 @@
 ---
-title: "\"server\": { \"version\": \"1.2.4\", \"uptime_seconds\": 0, \"status\": \"unhealthy\" },"
-description: "\"server\": { \"version\": \"1.2.4\", \"uptime_seconds\": 0, \"status\": \"unhealthy\" },"
+title: "title: \"title: \\\"title: \\\\\\\"\\\\\\\\\\\\\\\"server\\\\\\\\\\\\\\\": { \\\\\\\\\\\\\\\"version\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"1.2.4\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"uptime_seconds\\\\\\\\\\\\\\\": 0…"
+description: "title: \"title: \\\"title: \\\\\\\"\\\\\\\\\\\\\\\"server\\\\\\\\\\\\\\\": { \\\\\\\\\\\\\\\"version\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"1.2.4\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"uptime_seconds\\\\\\\\\\\\\\\": 0, \\\\\\\\\\\\\\\"status\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"unhealthy\\\\\\\\\\\\\\\" },\\\\\\\"\\\"\""
 date: 2026-04-13
 article_type: committee-reports
 slug: 2026-04-13-committee-reports-44

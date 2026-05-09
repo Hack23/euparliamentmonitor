@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EU Parliament Q1 2026 Quarter-in-Review"
-description: "Date: 2026-05-05 | Confidence: 🟡 Medium | WEP Band: Probable (55–79%)"
+title: "The European Parliament completed its second full quarter of EP10 (2024–2029) with a markedly high-energy legislative calendar dominated…"
+description: "The European Parliament completed its second full quarter of EP10 (2024–2029) with a markedly high-energy legislative calendar dominated by three structural imperatives: European defence autonomy, Clean Industrial Deal implementation, and digital governance maturation. The quarter saw 70+…"
 date: 2026-05-05
 article_type: quarter-in-review
 slug: 2026-05-05-quarter-in-review

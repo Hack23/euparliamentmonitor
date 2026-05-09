@@ -1,6 +1,6 @@
 ---
-title: "Intelligence Synthesis Summary — EP April 2026 Strasbourg Plenary"
-description: "Date: 2026-04-27 | Confidence: 🟡 B2 | WEP: Likely (65–85%)"
+title: "The European Parliament convenes its April 2026 Strasbourg plenary session (April 27–30) at a pivotal geopolitical moment. The session…"
+description: "The European Parliament convenes its April 2026 Strasbourg plenary session (April 27–30) at a pivotal geopolitical moment. The session opens just one month after the parliament took the landmark step of adjusting EU customs duties against United States goods (TA-10-2026-0096, March 26, 2026)…"
 date: 2026-04-27
 article_type: breaking
 slug: 2026-04-27-breaking

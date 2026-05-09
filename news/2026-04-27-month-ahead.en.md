@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EP Month Ahead: April 27 – May 27, 2026"
-description: "Run Date: 2026-04-27 | Admiralty Grade: B2 | WEP Bands: MANDATORY"
+title: "The European Parliament is now in session — the April 27–30 Strasbourg plenary opened today"
+description: "The European Parliament is now in session — the April 27–30 Strasbourg plenary opened today"
 date: 2026-04-27
 article_type: month-ahead
 slug: 2026-04-27-month-ahead

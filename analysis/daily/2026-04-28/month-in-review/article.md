@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EU Parliament Month in Review: March 29–April 28, 2026"
-description: "Run Date: 2026-04-28 | Type: month-in-review | Confidence: 🟢 HIGH"
+title: "The European Parliament's March–April 2026 legislative cycle produced a historic output of 104 adopted texts, anchored by three…"
+description: "The European Parliament's March–April 2026 legislative cycle produced a historic output of 104 adopted texts, anchored by three interlocking strategic clusters: defence industrial integration (five texts establishing the framework for European defence industrial cooperation), banking union…"
 date: 2026-04-28
 article_type: month-in-review
 slug: 2026-04-28-month-in-review

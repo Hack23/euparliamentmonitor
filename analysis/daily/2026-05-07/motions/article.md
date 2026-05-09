@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EP Motions & Adopted Texts"
-description: "Date: 2026-05-07 | Article Type: motions | Confidence: 🟡 Medium"
+title: "SITUATION: The European Parliament's late-April 2026 plenary session (April 28–30) adopted 13 resolutions and texts covering digital…"
+description: "SITUATION: The European Parliament's late-April 2026 plenary session (April 28–30) adopted 13 resolutions and texts covering digital regulation enforcement, Ukraine accountability, Armenia democratic support, EU agricultural sustainability, and budget oversight. No plenary session is scheduled…"
 date: 2026-05-07
 article_type: motions
 slug: 2026-05-07-motions

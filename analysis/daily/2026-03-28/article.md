@@ -1,6 +1,6 @@
 ---
 title: "Political Actor Mapping: EP10 Ecosystem Analysis"
-description: "title: \"Political Actor Mapping: EP10 Ecosystem Analysis\""
+description: "The EP10 political actor ecosystem is characterised by:"
 date: 2026-03-28
 article_type: month-in-review
 slug: 2026-03-28-month-in-review

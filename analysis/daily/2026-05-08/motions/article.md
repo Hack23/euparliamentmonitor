@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EP Motions · 2026-05-08"
-description: "Run date: 2026-05-08 | Plenary: Strasbourg, 28–30 April 2026"
+title: "The April 28–30 Strasbourg plenary adopted 15+ motions and legislative acts covering digital governance, food security, foreign policy…"
+description: "The April 28–30 Strasbourg plenary adopted 15+ motions and legislative acts covering digital governance, food security, foreign policy accountability, and institutional budget matters. Three votes stand out for coalition dynamics intelligence: (1) the Digital Markets Act enforcement resolution…"
 date: 2026-05-08
 article_type: motions
 slug: 2026-05-08-motions

@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EU Parliament Motions: 27 April–4 May 2026"
-description: "The April 28–30, 2026 Strasbourg plenary was one of the most substantively dense sessions of the EP10 term. Eleven motions were adopted covering digital regulation enforcement, Ukraine accountability, Armenian democratic resilience, the 2027 EU budget framework, animal welfare, PNR data…"
+title: "The European Parliament's April 28–30, 2026 Strasbourg plenary adopted eleven substantive texts spanning digital regulation enforcement…"
+description: "The European Parliament's April 28–30, 2026 Strasbourg plenary adopted eleven substantive texts spanning digital regulation enforcement, Ukraine accountability, Armenia democratic resilience, and the 2027 budget framework — marking the most legislative-dense three-day session of the EP10 term…"
 date: 2026-05-04
 article_type: motions
 slug: 2026-05-04-motions

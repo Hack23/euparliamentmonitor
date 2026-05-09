@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EP Motions Analysis, 28 April 2026"
-description: "The week ending 28 April 2026 captures the aftermath of the Parliament's most intensive plenary cluster of EP10's second year. The March 26, 2026 session adopted 12 major texts across trade, financial regulation, digital policy, anti-corruption, and institutional governance — a legislative…"
+title: "The European Parliament has entered its most legislatively productive phase of the EP10 term, with 567 roll-call votes recorded in 2026…"
+description: "The European Parliament has entered its most legislatively productive phase of the EP10 term, with 567 roll-call votes recorded in 2026 alone — a 35% surge over 2025. A landmark cluster of resolutions adopted in late March 2026 reveals a Parliament navigating competing pressures: asserting…"
 date: 2026-04-28
 article_type: motions
 slug: 2026-04-28-motions

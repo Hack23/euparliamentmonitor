@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EU Parliament Propositions"
-description: "Date: 2026-05-06 | Confidence: 🟡 Medium (EP API degraded)"
+title: "EU Parliament Propositions — Executive Brief"
+description: "The week of 29 April – 6 May 2026 sees the European Parliament's legislative pipeline operating at record pace for EP10's second year, with 935 active procedures and 114 legislative acts already adopted in 2026 (a +46.2% increase over 2025). The dominant propositions cluster around three…"
 date: 2026-05-06
 article_type: propositions
 slug: 2026-05-06-propositions

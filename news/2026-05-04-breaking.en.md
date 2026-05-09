@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EP Breaking News | April 28–30, 2026"
-description: "Date: 2026-05-04 | Confidence: 🟢 HIGH | Type: Cross-artifact synthesis"
+title: "Extended Executive Brief — EP Breaking News | April 28–30, 2026"
+description: "This document supplements the root executive-brief.md with deeper strategic context, cross-institutional analysis, and intelligence assessments not suitable for the abbreviated executive summary format."
 date: 2026-05-04
 article_type: breaking
 slug: 2026-05-04-breaking

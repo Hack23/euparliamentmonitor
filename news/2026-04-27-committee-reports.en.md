@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EP Committee Reports (2026-04-27)"
-description: "Methodology: Integrative synthesis of all Stage B intelligence artifacts; WEP bands; Admiralty grading"
+title: "The European Parliament's legislative committees delivered substantial output in Q1 2026, adopting texts across trade defence (US…"
+description: "The European Parliament's legislative committees delivered substantial output in Q1 2026, adopting texts across trade defence (US tariffs, EU-Mercosur), digital governance (AI copyright), monetary oversight (ECB annual report, appointments), housing rights, and electoral reform. The most…"
 date: 2026-04-27
 article_type: committee-reports
 slug: 2026-04-27-committee-reports

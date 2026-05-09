@@ -1,6 +1,6 @@
 ---
 title: "Mid-Recess Strategic Intelligence Brief — 12-Hour Longitudinal Synthesis"
-description: "analyst: EU Parliament Monitor Agentic Workflow"
+description: "The European Parliament is at the exact midpoint of its 18-day Easter recess (Day 10 of 18, 27 March – 13 April 2026). No parliamentary sessions, committee meetings, or votes have occurred since the recess began. This mid-recess intelligence brief synthesises three runs of monitoring data from…"
 date: 2026-04-05
 article_type: breaking
 slug: 2026-04-05-breaking-breaking-3

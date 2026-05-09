@@ -1,6 +1,6 @@
 ---
-title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
-description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
+title: "1. March 26 pre-Easter plenary adopted 7 texts including three critical items: US tariff countermeasures (TA-10-2026-0096)…"
+description: "1. March 26 pre-Easter plenary adopted 7 texts including three critical items: US tariff countermeasures (TA-10-2026-0096), anti-corruption directive (TA-10-2026-0094), and banking reform SRMR3 (TA-10-2026-0092)."
 date: 2026-04-13
 article_type: motions
 slug: 2026-04-13-motions-b3749573-d54d-4d01-94be-4b538541

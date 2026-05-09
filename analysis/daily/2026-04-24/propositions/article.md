@@ -1,5 +1,5 @@
 ---
-title: "Synthesis Summary — Propositions — 2026-04-24"
+title: "BLUF (ICD-203): Over the past 30 days the European Parliament has"
 description: "BLUF (ICD-203): Over the past 30 days the European Parliament has"
 date: 2026-04-24
 article_type: propositions

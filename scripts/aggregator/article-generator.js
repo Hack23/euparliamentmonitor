@@ -349,12 +349,17 @@ function writeLanguageVariant(lang, slug, aggregated, englishHtml, chromeOptions
     bodyHtml = bodyHtml.replace(/<h1[^>]*>[\s\S]*?<\/h1>\s*/, '');
     const guideHtml = buildReaderIntelligenceGuideHtml(lang, aggregated.sectionToc, aggregated.includedArtifacts);
     if (guideHtml) {
-        // Prepend the guide to the body so it always appears at the top of
-        // the rendered content, immediately after the chrome header. The
-        // article chrome in wrapArticleHtml wraps the body in an <article>
-        // with its own <header>/<h1>, so prepending here is deterministic
-        // and avoids fragile in-body heading searches.
-        bodyHtml = guideHtml + '\n' + bodyHtml;
+        // Insert the guide IMMEDIATELY AFTER the Executive Brief section so
+        // the rendered HTML body order matches the documented article
+        // skeleton (Article-Generation.md §"Article skeleton"):
+        //   1. Executive Brief
+        //   2. Reader Intelligence Guide
+        //   3. Key Takeaways
+        //   4. … deep sections
+        // We splice at the start of the next H2 after the Executive Brief
+        // anchor; when the brief is missing (sparse runs) we fall back to
+        // prepending so the guide still appears at the top of the body.
+        bodyHtml = insertReaderGuideAfterExecutiveBrief(bodyHtml, guideHtml);
     }
     // Localize Tradecraft References, Analysis Index, and other appendix
     // section headings and content into the target language.
@@ -384,6 +389,60 @@ function writeLanguageVariant(lang, slug, aggregated, englishHtml, chromeOptions
     const filename = getArticleFilename(slug, lang);
     fs.writeFileSync(path.join(opts.outDir, filename), html, 'utf8');
     return filename;
+}
+/**
+ * Insert the regenerated Reader Intelligence Guide HTML immediately after
+ * the Executive Brief section so the rendered article body matches the
+ * documented order (Executive Brief → Reader Intelligence Guide → Key
+ * Takeaways → deep sections). The Executive Brief section ends where the
+ * next H2 begins; we splice at that boundary. When the brief is absent
+ * (sparse runs) we fall back to prepending so the guide still appears
+ * at the top of the body.
+ *
+ * Implementation uses `indexOf` rather than a regex so the splice point
+ * is deterministic and immune to polynomial-regex backtracking on
+ * pathological input.
+ *
+ * @param bodyHtml - Rendered article body
+ * @param guideHtml - Reader Intelligence Guide HTML fragment
+ * @returns Body HTML with the guide spliced after the Executive Brief
+ */
+export function insertReaderGuideAfterExecutiveBrief(bodyHtml, guideHtml) {
+    const execBriefAnchor = 'id="section-executive-brief"';
+    const briefIdx = bodyHtml.indexOf(execBriefAnchor);
+    if (briefIdx === -1) {
+        return guideHtml + '\n' + bodyHtml;
+    }
+    // Skip the Executive Brief opening tag itself, then walk forward to the
+    // next H2 — that's where the next section starts and where we want to
+    // splice the guide. `<h2 ` matches a tag with attributes; `<h2>` matches
+    // a bare tag (defensive).
+    const afterBrief = briefIdx + execBriefAnchor.length;
+    const nextH2Tagged = bodyHtml.indexOf('<h2 ', afterBrief);
+    const nextH2Bare = bodyHtml.indexOf('<h2>', afterBrief);
+    const nextH2 = pickEarliestIndex(nextH2Tagged, nextH2Bare);
+    if (nextH2 === -1) {
+        // Executive Brief is the only section — append the guide at the end.
+        return bodyHtml + '\n' + guideHtml;
+    }
+    return bodyHtml.slice(0, nextH2) + guideHtml + '\n' + bodyHtml.slice(nextH2);
+}
+/**
+ * Return the smaller of two `indexOf` results, treating `-1` as "not
+ * found" so the caller gets `-1` only when both probes failed. Extracted
+ * to keep {@link insertReaderGuideAfterExecutiveBrief} under the
+ * useless-assignment lint.
+ *
+ * @param a - First `indexOf` result
+ * @param b - Second `indexOf` result
+ * @returns Smaller non-negative index, or `-1` when both are `-1`
+ */
+function pickEarliestIndex(a, b) {
+    if (a === -1)
+        return b;
+    if (b === -1)
+        return a;
+    return Math.min(a, b);
 }
 /**
  * Safely look up one language entry in a {@link ResolvedMetadata} map.

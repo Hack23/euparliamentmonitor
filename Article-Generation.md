@@ -500,6 +500,20 @@ The aggregated `article.md` follows a fixed deterministic skeleton, shaped for a
 
 The canonical machine-readable order lives in [`src/aggregator/artifact-order.ts`](./src/aggregator/artifact-order.ts) (see the doc-comment on `ARTIFACT_SECTIONS`); the prose skeleton above is its journalistic narration. The TOC entries emitted in `aggregateAnalysisRun(...).sectionToc` mirror the order above 1:1 — when Key Takeaways or the Reader Intelligence Guide is suppressed for a sparse run, both the H2 and the TOC entry are dropped together.
 
+The **rendered HTML body order matches this skeleton 1:1**. The HTML pipeline regenerates the Reader Intelligence Guide from `aggregated.sectionToc` (so per-language copy stays in sync with `i18n/site/<lang>.json`) and then splices it **immediately after the Executive Brief section** via `insertReaderGuideAfterExecutiveBrief(bodyHtml, guideHtml)` in [`src/aggregator/article-generator.ts`](./src/aggregator/article-generator.ts). When the Executive Brief is missing (sparse runs) the splice falls back to prepending so the guide still appears at the top of the body. An integration test in `test/integration/html-article-pipeline.test.js` enforces the ordering on every published article.
+
+### 🏷 Title and description resolution (SEO-critical)
+
+`<title>`, `<meta description>`, OG/Twitter tags, and the `NewsArticle` JSON-LD `headline` / `description` all flow from the same per-language priority ladder in [`src/aggregator/article-metadata.ts`](./src/aggregator/article-metadata.ts) (`resolveArticleMetadata`):
+
+1. **Manifest override** — `manifest.title` / `manifest.description` (string or per-language map). Stage-B agents set these when they have a hand-crafted headline.
+2. **Editorial artefact H1** — first non-generic `# …` from the canonical editorial-artefact list, in this order: `executive-brief.md` → `extended/executive-brief.md` → `intelligence/synthesis-summary.md` → `intelligence/executive-summary.md` → `intelligence/intelligence-briefing.md` → run-root fallbacks. H1s that are artefact-category labels (`Synthesis Summary — …`, `Executive Brief — …`, `Intelligence Briefing — …`, `Breaking News Analysis — …`, `Committee Activity Report — …`) are treated as **generic** by `isGenericHeading` so they cannot leak into the SEO surfaces.
+3. **Editorial lede paragraph** — when an editorial artefact's H1 is generic but it carries a `## 60-Second Read` / `## TL;DR` / `## BLUF` / `## Executive Summary` / `## Headline Judgement` (or other heading in `EDITORIAL_LEDE_HEADINGS`), the resolver pulls the first qualifying prose paragraph **inside that section** as the description. Heading matching is emoji-tolerant (`🎯 Headline Judgement` is recognised).
+4. **Aggregated H1 / strong prose** — falls through to the aggregated Markdown's own H1 then the first strong prose paragraph that survives the metadata-leak filter.
+5. **Localized template fallback** — last-resort per-language template from `buildTemplateFallback(articleType, date, committee?)` so every locale always has a non-empty `{title, description}` pair.
+
+The `shouldSkipDescriptionLine` filter rejects every Stage-B preamble row that previously leaked into descriptions: `**Purpose:** …`, `**Reporting Window:** …`, `**Date:** … | **Horizon:** … | **Confidence:** …`, `**Admiralty Grade:** B2 | **WEP Band:** Probable …`, plus all the historical metadata banners (`Analysis Date`, `Run`, `Series`, `Window`, …). The full prefix list lives in `METADATA_LINE_PREFIXES` and is unit-tested in `test/unit/article-metadata.test.js`.
+
 ---
 
 ## 🔁 How Analysis Becomes HTML

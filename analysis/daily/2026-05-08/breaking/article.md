@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — Breaking News Analysis"
-description: "Admiralty Grade: B2 — Reliable source, probably true"
+title: "Key Legislative Developments — Deep Analysis (2026-05-08)"
+description: "The Digital Markets Act (DMA, Regulation 2022/1925) entered into force on 1 November 2022 and has been applicable since 6 March 2024. By March 2024, six \"gatekeepers\" were designated: Alphabet (Google), Amazon, Apple, ByteDance (TikTok), Meta, and Microsoft. The DMA imposes obligations including…"
 date: 2026-05-08
 article_type: breaking
 slug: 2026-05-08-breaking

@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EU Parliament Week-in-Review"
-description: "Function: Integrated intelligence synthesis — master narrative from all artifact streams"
+title: "The European Parliament's week of April 19–26, 2026 demonstrated high legislative productivity under increasing structural political…"
+description: "The European Parliament's week of April 19–26, 2026 demonstrated high legislative productivity under increasing structural political stress. Parliament passed 147+ adopted texts including major legislation on banking resolution (SRMR3), trade countermeasures against US tariffs, anti-corruption…"
 date: 2026-04-26
 article_type: week-in-review
 slug: 2026-04-26-week-in-review

@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EP Motions, 2026-05-01"
-description: "Methodology: Cross-artifact synthesis and integrated intelligence assessment"
+title: "The European Parliament's April 2026 plenary session (28–30 April, Strasbourg) delivered a dense legislative harvest spanning immunity…"
+description: "The European Parliament's April 2026 plenary session (28–30 April, Strasbourg) delivered a dense legislative harvest spanning immunity law, digital regulation, geopolitical crisis response, and budget oversight. Five motions define the week's political signature:"
 date: 2026-05-01
 article_type: motions
 slug: 2026-05-01-motions

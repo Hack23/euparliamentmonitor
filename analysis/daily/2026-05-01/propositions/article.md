@@ -1,6 +1,6 @@
 ---
-title: "Intelligence Synthesis Summary — EU Parliament Propositions"
-description: "Date: 2026-05-01 | Article Type: propositions | Coverage: 2026-04-24 to 2026-05-01"
+title: "Coverage: April 28–30, 2026 Strasbourg Plenary | Propositions Edition"
+description: "Coverage: April 28–30, 2026 Strasbourg Plenary | Propositions Edition"
 date: 2026-05-01
 article_type: propositions
 slug: 2026-05-01-propositions

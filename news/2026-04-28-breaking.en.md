@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EU Parliament Breaking News — 2026-04-28"
-description: "Methodology: Multi-source synthesis with WEP probability banding (Sherman Kent scale)"
+title: "The European Parliament is in its April 2026 Strasbourg plenary session (April 27–30), with active legislative work continuing amid a…"
+description: "The European Parliament is in its April 2026 Strasbourg plenary session (April 27–30), with active legislative work continuing amid a charged geopolitical environment. Two votes were registered on April 27; twenty-one debates are scheduled for April 28. This session follows the historically…"
 date: 2026-04-28
 article_type: breaking
 slug: 2026-04-28-breaking

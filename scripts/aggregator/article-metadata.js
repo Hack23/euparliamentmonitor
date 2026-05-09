@@ -52,6 +52,14 @@ const DESCRIPTION_MAX_LENGTH = 300;
 const TITLE_MAX_LENGTH = 140;
 /** Ordered list of artefact filenames that typically carry the editorial H1. */
 const EDITORIAL_ARTEFACT_CANDIDATES = [
+    // `executive-brief.md` is the canonical Riksdagsmonitor-aligned editorial
+    // artefact (see `analysis/methodologies/ai-driven-analysis-guide.md`).
+    // It always carries the journalist's BLUF and a `## 60-Second Read`
+    // paragraph that is the lede — preferring it over `synthesis-summary.md`
+    // keeps Stage-B internal vocabulary ("Purpose: This artifact provides …")
+    // out of the SEO-critical `<title>` and `<meta description>` surfaces.
+    'executive-brief.md',
+    'extended/executive-brief.md',
     'intelligence/synthesis-summary.md',
     'intelligence/executive-summary.md',
     'intelligence/intelligence-briefing.md',
@@ -67,6 +75,72 @@ const EDITORIAL_ARTEFACT_CANDIDATES = [
     'month-in-review.md',
     'motions-analysis.md',
     'propositions-analysis.md',
+];
+/**
+ * Headings inside an editorial artefact that carry the journalist's lede
+ * paragraph (a one-paragraph summary of "what happened, why it matters").
+ * When the resolver sees one of these as a `## …` heading inside the
+ * editorial artefact, it prefers the first prose paragraph that follows
+ * it as the description (and as a title fallback) over a generic line
+ * walk. Names are matched case-insensitively against the heading text
+ * (after stripping inline Markdown).
+ */
+const EDITORIAL_LEDE_HEADINGS = [
+    '60-second read',
+    '60 second read',
+    'sixty-second read',
+    'lede',
+    'lead',
+    'tl;dr',
+    'tldr',
+    'synopsis',
+    'in brief',
+    'at a glance',
+    'bottom line',
+    'bluf',
+    'bluf — bottom line up front',
+    'bottom line up front',
+    'executive summary',
+    'executive briefing',
+    'master narrative',
+    'overview',
+    'headline judgement',
+    'headline judgment',
+    'key findings',
+    'key judgements',
+    'key judgments',
+    'situation summary',
+    'situation report',
+    'situation update',
+];
+/**
+ * Artifact-category prefixes that appear inside editorial-artefact H1s as
+ * a structural label rather than an editorial headline (e.g. `# Synthesis
+ * Summary — Week in Review (3 Apr – 1 May 2026)`). When a candidate H1
+ * starts with one of these prefixes followed by a separator (em/en dash,
+ * hyphen, or colon), the resolver treats it as **generic** so it does
+ * not leak into the article `<title>`. Compared lower-case, with leading
+ * punctuation stripped.
+ */
+const ARTIFACT_CATEGORY_PREFIXES = [
+    'executive brief',
+    'executive summary',
+    'synthesis summary',
+    'intelligence synthesis summary',
+    'intelligence briefing',
+    'intelligence assessment',
+    'breaking news analysis',
+    'committee activity report',
+    'legislative pipeline analysis',
+    'weekly outlook',
+    'monthly outlook',
+    'week in review',
+    'month in review',
+    'motions analysis',
+    'propositions analysis',
+    'master intelligence synthesis',
+    'methodology reflection',
+    'analytical quality',
 ];
 /**
  * Emoji-banner prefixes that Stage-B agents use to decorate metadata rows
@@ -96,27 +170,47 @@ const EMOJI_BANNER_CHARS = [
  * by optional space and a colon.
  */
 const METADATA_LINE_PREFIXES = [
+    'Admiralty Grade',
     'Analysis Date',
     'Analysis Owner',
     'Article Type',
+    'Article Window',
     'Assessment Date',
+    'Briefing',
+    'Briefing Date',
     'Classification',
     'Classification Date',
     'Confidence',
+    'Confidence in Evidence',
     'Data Sources',
+    'Date',
     'Document Type',
+    'Filing Date',
     'Generated',
+    'Horizon',
+    'IMF Status',
     'Last Updated',
     'Parliamentary Status',
     'Parliamentary Term',
     'Period',
+    'Prepared',
+    'Purpose',
+    'Region',
+    'Reporting',
+    'Reporting Period',
+    'Reporting Window',
     'Run',
     'Run ID',
     'Series',
     'Series Run',
+    'Source',
+    'Sources',
     'SPDX-FileCopyrightText',
     'SPDX-License-Identifier',
+    'Topic',
     'Type',
+    'WEP Band',
+    'WEP Grade',
     'Window',
 ];
 /**
@@ -274,6 +368,100 @@ export function extractStrongProseLine(markdown) {
     return '';
 }
 /**
+ * Walk the body of an editorial artefact and, when it contains a `## …`
+ * heading whose text matches one of {@link EDITORIAL_LEDE_HEADINGS},
+ * return the first prose paragraph that follows that heading. This is
+ * the journalist's lede ("60-Second Read", "TL;DR", "BLUF — …", …) and
+ * is exactly the sentence that should power `<meta description>` and
+ * the OG/Twitter description fields.
+ *
+ * Returns the empty string when no lede heading is found or no qualifying
+ * prose follows it. Inline Markdown is stripped and the result is
+ * truncated to fit `<meta description>`.
+ *
+ * @param markdown - Editorial artefact source
+ * @returns Lede paragraph, or empty string when none matched
+ */
+export function extractLedeAfterHeading(markdown) {
+    const lines = markdown.split('\n');
+    let inLede = false;
+    for (let i = 0; i < lines.length; i++) {
+        const raw = lines[i] ?? '';
+        const line = raw.trim();
+        // Detect the start of a lede section — accept any H2/H3 whose plain
+        // text (after stripping leading hashes, inline decorations, and any
+        // leading emoji/punctuation) matches one of the canonical headings.
+        if (/^#{2,3}\s+/.test(line)) {
+            const headingText = normaliseHeadingText(line.replace(/^#{2,3}\s+/, ''));
+            inLede = EDITORIAL_LEDE_HEADINGS.some((h) => headingText === h || headingText.startsWith(`${h} `) || headingText.startsWith(`${h}:`));
+            continue;
+        }
+        if (!inLede)
+            continue;
+        // Inside the lede section: skip non-prose lines, then return the first
+        // qualifying paragraph.
+        if (shouldSkipDescriptionLine(line))
+            continue;
+        const plain = stripInlineMarkdown(line);
+        if (plain.length < 40)
+            continue;
+        return truncateDescription(plain);
+    }
+    return '';
+}
+/**
+ * Normalise a Markdown heading's text for comparison against the
+ * editorial-lede heading whitelist. Strips inline Markdown decorations
+ * (`*`, `_`, `` ` ``, `#`), then strips any leading non-alphanumeric
+ * characters (emoji, punctuation, spaces) so a heading like
+ * `🎯 Headline Judgement` compares equal to `headline judgement`.
+ *
+ * @param raw - Raw heading text (no leading hashes)
+ * @returns Lower-cased, decoration-stripped heading text
+ */
+function normaliseHeadingText(raw) {
+    return stripInlineMarkdown(raw)
+        .replace(/[*_`#]+/g, '')
+        .replace(/^[^A-Za-z0-9]+/, '')
+        .trim()
+        .toLowerCase();
+}
+/**
+ * Return `true` when an artefact-H1 begins with one of the
+ * {@link ARTIFACT_CATEGORY_PREFIXES} followed by a separator. Such H1s
+ * carry the artefact's structural label rather than a journalist's
+ * headline (e.g. `# Synthesis Summary — Week in Review (3 Apr – 1 May
+ * 2026)`) and must not leak into the article `<title>`.
+ *
+ * @param heading - Plain-text H1 (after `stripInlineMarkdown`)
+ * @returns `true` when the heading is an artefact-category label
+ */
+export function isArtifactCategoryHeading(heading) {
+    const normalized = heading
+        .trim()
+        .toLowerCase()
+        // Strip any leading non-alphanumeric run (emoji, decoration, punctuation)
+        // so headings like `🔖 Executive Brief — …` are recognised the same as
+        // `Executive Brief — …`.
+        .replace(/^[^a-z0-9]+/, '')
+        .replace(/\s+/g, ' ');
+    if (normalized === '')
+        return false;
+    for (const prefix of ARTIFACT_CATEGORY_PREFIXES) {
+        if (normalized === prefix)
+            return true;
+        // Accept any of: "<prefix> — …", "<prefix> – …", "<prefix> - …",
+        // "<prefix>: …" — every separator commonly used in artefact H1s.
+        if (normalized.startsWith(`${prefix} —`) ||
+            normalized.startsWith(`${prefix} –`) ||
+            normalized.startsWith(`${prefix} -`) ||
+            normalized.startsWith(`${prefix}:`)) {
+            return true;
+        }
+    }
+    return false;
+}
+/**
  * Humanise an `article-type` slug the same way the aggregator does (see
  * `src/aggregator/analysis-aggregator.ts:humanize`). Kept in sync by value
  * — we deliberately do not import the private helper.
@@ -303,6 +491,12 @@ export function humanizeSlug(slug) {
 export function isGenericHeading(heading, articleType, date) {
     const normalized = heading.trim().replace(/\s+/g, ' ');
     if (normalized === '')
+        return true;
+    // Artefact-category H1s (e.g. `Synthesis Summary — …`, `Executive Brief
+    // — …`) are structural labels, not journalist headlines. Treat them as
+    // generic so the resolver falls through to the localized template tier
+    // and the SEO `<title>` stays clean.
+    if (isArtifactCategoryHeading(normalized))
         return true;
     const human = humanizeSlug(articleType);
     const patterns = [
@@ -353,37 +547,65 @@ function escapeRegex(input) {
 export function extractArtifactHighlight(runDir, articleType, date) {
     if (!runDir || !fs.existsSync(runDir))
         return null;
-    // Direct candidate lookup — cheap and deterministic.
-    for (const rel of EDITORIAL_ARTEFACT_CANDIDATES) {
+    // Direct candidate lookup — cheap and deterministic. We collect the
+    // first artefact whose body yields a usable lede summary even when its
+    // H1 is a structural artefact-category label, so the description tier
+    // benefits from the editorial 60-Second Read paragraph in
+    // `executive-brief.md` even though its H1 (`Executive Brief — …`) is
+    // generic.
+    const direct = scanCandidatesForHighlight(runDir, EDITORIAL_ARTEFACT_CANDIDATES, articleType, date);
+    if (direct.headline)
+        return { headline: direct.headline, summary: direct.summary };
+    // Fallback: walk the top-level `.md` files in the run dir once, looking
+    // for any that starts with `#` and has a non-generic headline.
+    const topLevel = safeReaddir(runDir).filter((f) => f.endsWith('.md') && f !== 'manifest.json');
+    const fallback = scanCandidatesForHighlight(runDir, topLevel, articleType, date);
+    if (fallback.headline)
+        return { headline: fallback.headline, summary: fallback.summary };
+    // No editorial headline was found, but we may have harvested a strong
+    // lede summary from one of the editorial artefacts. Returning a
+    // headline-less highlight lets `resolveEditorialContent` keep the
+    // editorial summary while falling back to the localized title template.
+    const summaryOnly = direct.summary || fallback.summary;
+    if (summaryOnly) {
+        return { headline: '', summary: summaryOnly };
+    }
+    return null;
+}
+/**
+ * Walk a list of candidate artefact paths and return the first
+ * non-generic headline + summary pair, plus the first usable lede
+ * summary seen along the way. Extracted from
+ * {@link extractArtifactHighlight} to keep its cognitive complexity
+ * within the SonarJS budget.
+ *
+ * @param runDir - Absolute run directory path
+ * @param candidates - Run-relative candidate filenames to probe
+ * @param articleType - Article-type slug (used by {@link isGenericHeading})
+ * @param date - ISO run date (used by {@link isGenericHeading})
+ * @returns `{headline, summary}` where either field may be empty
+ */
+function scanCandidatesForHighlight(runDir, candidates, articleType, date) {
+    let bestSummaryOnly = '';
+    for (const rel of candidates) {
         const abs = path.join(runDir, rel);
         if (!fs.existsSync(abs))
             continue;
         const body = readArtefactBody(abs);
         const headline = extractFirstH1(body);
-        if (!headline)
-            continue;
-        if (isGenericHeading(headline, articleType, date))
-            continue;
-        const summary = extractStrongProseLine(body);
-        return { headline: truncateTitle(headline), summary };
+        // Prefer the journalist's lede paragraph (60-Second Read / TL;DR /
+        // BLUF / …) over a line-by-line walk so SEO descriptions read like
+        // editorial copy rather than artefact preamble.
+        const lede = extractLedeAfterHeading(body);
+        const summary = lede || extractStrongProseLine(body);
+        if (headline && !isGenericHeading(headline, articleType, date)) {
+            return { headline: truncateTitle(headline), summary };
+        }
+        if (!bestSummaryOnly && summary) {
+            bestSummaryOnly = summary;
+        }
     }
-    // Fallback: walk the top-level `.md` files in the run dir once, looking
-    // for any that starts with `#` and has a non-generic headline.
-    const topLevel = safeReaddir(runDir).filter((f) => f.endsWith('.md'));
-    for (const rel of topLevel) {
-        if (rel === 'manifest.json')
-            continue;
-        const abs = path.join(runDir, rel);
-        const body = readArtefactBody(abs);
-        const headline = extractFirstH1(body);
-        if (!headline)
-            continue;
-        if (isGenericHeading(headline, articleType, date))
-            continue;
-        const summary = extractStrongProseLine(body);
-        return { headline: truncateTitle(headline), summary };
-    }
-    return null;
+    return { headline: '', summary: bestSummaryOnly };
 }
 /**
  * Read an artefact file, skipping any SPDX HTML-comment header rows so the
@@ -763,7 +985,13 @@ function manifestOverrideFor(value, lang) {
  */
 function resolveEditorialContent(opts) {
     const { articleType, date, markdown, runDir } = opts;
-    // Tier 2: first non-generic H1 in the first substantive artefact.
+    // Tier 2: first non-generic H1 in the first substantive artefact. We
+    // also remember any editorial summary harvested from a category-only
+    // artefact (e.g. `executive-brief.md` whose H1 is the structural
+    // `Executive Brief — …` label but whose `## 60-Second Read` paragraph
+    // is the journalist's lede) so the description tier can still benefit
+    // from real editorial copy when the headline tier falls through.
+    let artefactSummary = '';
     if (runDir) {
         const highlight = extractArtifactHighlight(runDir, articleType, date);
         if (highlight?.headline) {
@@ -772,6 +1000,9 @@ function resolveEditorialContent(opts) {
                 summary: highlight.summary,
             };
         }
+        if (highlight?.summary) {
+            artefactSummary = highlight.summary;
+        }
     }
     // Tier 3: first non-generic H1 in the aggregated Markdown itself.
     const aggregatedH1 = extractFirstH1(markdown);
@@ -779,12 +1010,16 @@ function resolveEditorialContent(opts) {
     if (aggregatedH1 && !isGenericHeading(aggregatedH1, articleType, date)) {
         return {
             headline: truncateTitle(aggregatedH1),
-            summary: aggregatedSummary,
+            summary: artefactSummary || aggregatedSummary,
         };
     }
     // Tier 4: first strong prose paragraph (title = same prose clipped).
-    if (aggregatedSummary) {
-        return { headline: truncateTitle(aggregatedSummary), summary: aggregatedSummary };
+    // Prefer the artefact-derived editorial summary when available so the
+    // description carries the journalist's lede rather than the
+    // aggregator-walk leftover.
+    const summary = artefactSummary || aggregatedSummary;
+    if (summary) {
+        return { headline: truncateTitle(summary), summary };
     }
     return { headline: '', summary: '' };
 }

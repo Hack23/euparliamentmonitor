@@ -1,6 +1,6 @@
 ---
-title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
-description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
+title: "2026 Q1 legislative output represents a step-change in EP10 productivity:"
+description: "2026 Q1 legislative output represents a step-change in EP10 productivity:"
 date: 2026-04-13
 article_type: breaking
 slug: 2026-04-13-breaking

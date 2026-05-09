@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EP Motions | April 28–30, 2026"
-description: "The April 28–30, 2026 Strasbourg plenary was dominated by a single coherent political narrative: the EP10 governing coalition (EPP + S&D + Renew) demonstrating institutional assertiveness on rule-of-law, digital governance, external affairs, and fiscal priorities simultaneously. This was not a…"
+title: "The European Parliament's April plenary session was bookended by a politically explosive act: the approval of a request to lift the…"
+description: "The European Parliament's April plenary session was bookended by a politically explosive act: the approval of a request to lift the parliamentary immunity of Patryk Jaki (ECR, Poland), former Polish minister and prominent Law and Justice (PiS)-affiliated MEP. Coming barely five weeks after the…"
 date: 2026-05-05
 article_type: motions
 slug: 2026-05-05-motions

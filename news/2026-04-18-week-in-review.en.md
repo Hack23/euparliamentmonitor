@@ -1,5 +1,5 @@
 ---
-title: "🧠 Synthesis Summary — Week of April 11–18, 2026"
+title: "title: \"Synthesis Summary — Week of April 11–18, 2026\""
 description: "title: \"Synthesis Summary — Week of April 11–18, 2026\""
 date: 2026-04-18
 article_type: week-in-review

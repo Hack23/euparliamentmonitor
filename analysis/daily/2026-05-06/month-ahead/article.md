@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EU Parliament Month Ahead"
-description: "Date: 2026-05-06 | Horizon: May 7 – June 6, 2026 | Confidence: 🟡 MEDIUM"
+title: "The European Parliament enters its critical May–June 2026 legislative sprint with three dominant agenda clusters: (1) the European…"
+description: "The European Parliament enters its critical May–June 2026 legislative sprint with three dominant agenda clusters: (1) the European Defence Industrial Strategy (EDIS) and companion defence-spending frameworks demanding cross-group coalition management; (2) the Clean Industrial Deal (CID) package…"
 date: 2026-05-06
 article_type: month-ahead
 slug: 2026-05-06-month-ahead

@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EP Breaking News: April 28–30, 2026"
-description: "Admiralty Grade: A2 (Source: EP official portal; Content: confirmed from adopted-text records)"
+title: "Reference: TA-10-2026-0112 | Procedure: 2025/2246(BUI) | dateAdopted: 2026-04-28"
+description: "Reference: TA-10-2026-0112 | Procedure: 2025/2246(BUI) | dateAdopted: 2026-04-28"
 date: 2026-04-30
 article_type: breaking
 slug: 2026-04-30-breaking

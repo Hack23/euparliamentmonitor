@@ -1,5 +1,5 @@
 ---
-title: "Intelligence Synthesis Summary — EP Plenary Motions Week of 28–29 April 2026"
+title: "WEP Headline Judgement: The April 28–29 Strasbourg plenary produced a legislative cluster of high political salience dominated by three…"
 description: "WEP Headline Judgement: The April 28–29 Strasbourg plenary produced a legislative cluster of high political salience dominated by three interrelated themes: (1) parliamentary immunity waivers for three far-right MEPs (Patryk Jaki, Daniel Obajtek — ECR/Poland; Diana Iovanovici Şoşoacă …"
 date: 2026-04-30
 article_type: motions

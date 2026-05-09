@@ -1,6 +1,6 @@
 ---
-title: "📋 Synthesis Summary — Breaking News Evaluation (Easter Monday Run 3)"
-description: "Date: 6 April 2026 (Easter Monday — Midday) | Recess Day: 11/18 | Confidence: 🟡 MEDIUM"
+title: "🔄 Agent Risk Workflow — Systematic Risk Register for April-May 2026"
+description: "Overall Risk Level: 🟡 MEDIUM — no critical risks, but clustered medium-severity risks around the April 14-23 post-recess window create compound vulnerability."
 date: 2026-04-06
 article_type: breaking
 slug: 2026-04-06-breaking-breaking-3
