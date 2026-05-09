@@ -761,6 +761,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
           classification: WEEK_AHEAD_MANDATORY.filter((a) => a.startsWith('classification/')),
           'risk-scoring': WEEK_AHEAD_MANDATORY.filter((a) => a.startsWith('risk-scoring/')),
           intelligence: WEEK_AHEAD_MANDATORY.filter((a) => a.startsWith('intelligence/')),
+          extended: WEEK_AHEAD_MANDATORY.filter((a) => a.startsWith('extended/')),
         },
       }),
       'utf8',
@@ -772,6 +773,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
     fs.mkdirSync(path.join(runDir, 'classification'), { recursive: true });
     fs.mkdirSync(path.join(runDir, 'risk-scoring'), { recursive: true });
     fs.mkdirSync(path.join(runDir, 'intelligence'), { recursive: true });
+    fs.mkdirSync(path.join(runDir, 'extended'), { recursive: true });
     for (const artifact of WEEK_AHEAD_MANDATORY) {
       fs.writeFileSync(
         path.join(runDir, artifact),
@@ -914,6 +916,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
           classification: MONTH_AHEAD_MANDATORY.filter((a) => a.startsWith('classification/')),
           'risk-scoring': MONTH_AHEAD_MANDATORY.filter((a) => a.startsWith('risk-scoring/')),
           intelligence: MONTH_AHEAD_MANDATORY.filter((a) => a.startsWith('intelligence/')),
+          extended: MONTH_AHEAD_MANDATORY.filter((a) => a.startsWith('extended/')),
         },
       }),
       'utf8',
@@ -924,6 +927,7 @@ describe('scripts/validate-analysis-completeness.js', () => {
     fs.mkdirSync(path.join(runDir, 'classification'), { recursive: true });
     fs.mkdirSync(path.join(runDir, 'risk-scoring'), { recursive: true });
     fs.mkdirSync(path.join(runDir, 'intelligence'), { recursive: true });
+    fs.mkdirSync(path.join(runDir, 'extended'), { recursive: true });
     for (const artifact of MONTH_AHEAD_MANDATORY) {
       fs.writeFileSync(
         path.join(runDir, artifact),
