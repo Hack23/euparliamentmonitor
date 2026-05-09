@@ -363,11 +363,20 @@ jobs:
           echo "CHROME_PATH=$CHROME_PATH" >> "$GITHUB_ENV"
 
       - name: Run Lighthouse CI
-        # `--no-sandbox` is required when running Chrome as root inside the
-        # Playwright container (the LHCI default Chrome flags do not include it).
+        # Chrome flags required for running headless Chrome as root inside the
+        # Playwright container:
+        #   --no-sandbox            Chrome refuses to start as root without it.
+        #   --headless=new          Use the new headless mode (LHCI default omits it).
+        #   --disable-dev-shm-usage Docker's default /dev/shm is 64 MB, which is
+        #                           too small for Chrome's renderer; without this
+        #                           flag the renderer crashes mid-navigation
+        #                           (Target closed → NO_FCP), see GitHub Actions
+        #                           run #25600946624 for the failure trace.
+        #   --disable-gpu           No GPU in the container; suppresses noisy
+        #                           swiftshader fallbacks.
         env:
           LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.sha }}
-        run: lhci autorun --collect.settings.chromeFlags="--no-sandbox --headless=new"
+        run: lhci autorun --collect.settings.chromeFlags="--no-sandbox --headless=new --disable-dev-shm-usage --disable-gpu"
 
       - name: Upload Lighthouse reports
         if: always()
