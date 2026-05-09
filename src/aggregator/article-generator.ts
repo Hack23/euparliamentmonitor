@@ -41,7 +41,13 @@ import {
 } from './article-metadata.js';
 import { buildArticleMeta, serializeArticleMeta } from './article-meta.js';
 import { renderMarkdown } from './markdown-renderer.js';
-import { wrapArticleHtml, getArticleFilename, localizeArticleBody, enhanceTradecraftCards, enhanceAnalysisIndexCards } from './article-html.js';
+import {
+  wrapArticleHtml,
+  getArticleFilename,
+  localizeArticleBody,
+  enhanceTradecraftCards,
+  enhanceAnalysisIndexCards,
+} from './article-html.js';
 import {
   buildReaderIntelligenceGuideHtml,
   stripInlineReaderGuide,

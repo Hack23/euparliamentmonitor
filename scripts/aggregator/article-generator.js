@@ -29,7 +29,7 @@ import { resolveRunId as _resolveRunId } from './manifest/index.js';
 import { resolveArticleMetadata, extractStrongProseLine, } from './article-metadata.js';
 import { buildArticleMeta, serializeArticleMeta } from './article-meta.js';
 import { renderMarkdown } from './markdown-renderer.js';
-import { wrapArticleHtml, getArticleFilename, localizeArticleBody, enhanceTradecraftCards, enhanceAnalysisIndexCards } from './article-html.js';
+import { wrapArticleHtml, getArticleFilename, localizeArticleBody, enhanceTradecraftCards, enhanceAnalysisIndexCards, } from './article-html.js';
 import { buildReaderIntelligenceGuideHtml, stripInlineReaderGuide, } from './reader-intelligence-guide.js';
 import { ALL_LANGUAGES } from '../constants/language-core.js';
 import { blobUrl } from './infra/github-urls.js';
