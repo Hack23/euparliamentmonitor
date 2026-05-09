@@ -283,7 +283,7 @@ timeline
 
 ---
 
-## 📰 Part 4 — Media Framing Analysis (`media-framing-analysis.md`) — MANDATORY
+## 📰 Part 4 — Media Framing Analysis (`extended/media-framing-analysis.md`) — MANDATORY
 
 ### Purpose
 

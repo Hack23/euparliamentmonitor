@@ -80,31 +80,29 @@ decisions, 60-second read, top documents/procedures table, Mermaid risk snapshot
 and top forward trigger. `extended/executive-brief.md` is accepted only as a
 legacy fallback when improving an older run; new runs write the root artifact.
 
-### Optional — `extended/` artifacts (not required by default)
+### `extended/` artifacts — 1 mandatory + 11 optional
 
-Artifacts written to `${ANALYSIS_DIR}/extended/` are **not required** for a
-green gate by default — **except `extended/media-framing-analysis.md`,
-which is mandatory for every article-generating workflow** (registered in
-`src/config/article-horizons.ts` `mandatoryArtifacts` for every slug, with
-per-article-type line floors in
+**Mandatory:** `extended/media-framing-analysis.md` is required for every
+article-generating workflow (registered in `src/config/article-horizons.ts`
+`mandatoryArtifacts` for every slug, with per-article-type line floors in
 [`reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json)).
-The remaining extended artifacts are recommended for long-form review
-workflows and crisis / breaking deep runs. Produce them only after every
-mandatory artifact above has passed. If you register them in
-`manifest.files.extended[]` and they have entries in
-`reference-quality-thresholds.json`,
-the validator may enforce the corresponding checks (including per-artifact line
-floors).
+Build it during Pass 2 (or late Pass 1) per
+[`02-analysis-protocol.md` §"Pass 2 Explicit Checklist" item 9](02-analysis-protocol.md)
+and [`analytical-supplementary-methodology.md §AS4`](../../analysis/methodologies/analytical-supplementary-methodology.md#as4--media-framing-deep-dive).
+
+**Optional (not required by default):** the remaining 11 artifacts written to
+`${ANALYSIS_DIR}/extended/` are recommended for long-form review workflows and
+crisis / breaking deep runs. Produce them only after every mandatory artifact
+above has passed. If you register them in `manifest.files.extended[]` and they
+have entries in `reference-quality-thresholds.json`, the validator may enforce
+the corresponding checks (including per-artifact line floors).
 
 The 11 optional extended artifacts are: `devils-advocate-analysis`,
 `historical-parallels`, `coalition-mathematics`, `forward-indicators`,
 `intelligence-assessment`, `implementation-feasibility`,
 `comparative-international`, `cross-reference-map`, `data-download-manifest`,
-`voter-segmentation`, `executive-brief` (legacy mirror).
-`extended/media-framing-analysis.md` is **always** mandatory and is built in
-Pass 2 (or late Pass 1) per
-[`02-analysis-protocol.md` §"Pass 2 Explicit Checklist" item 9](02-analysis-protocol.md).
-Construction rules: see
+`voter-segmentation`, `executive-brief` (legacy mirror). Construction rules:
+see
 [`per-artifact-methodologies.md §extended`](../../analysis/methodologies/per-artifact-methodologies.md)
 and the dedicated methodologies
 ([synthesis](../../analysis/methodologies/synthesis-methodology.md),
