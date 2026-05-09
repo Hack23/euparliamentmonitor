@@ -1,0 +1,1 @@
+{"period":{"from":"2026-04-09","to":"2026-05-09"},"summary":{"totalProcedures":0,"activeCount":0,"stalledCount":0,"completedCount":0},"computedAttributes":{"pipelineHealthScore":100,"legislativeMomentum":"STRONG"},"confidenceLevel":"LOW","dataQualityWarnings":["EP /procedures sample < 10 — metrics not statistically representative; legacy pre-stage procedures dominate the feed"]}

@@ -1,0 +1,269 @@
+{
+  "enabled": true,
+  "mode": "improve-and-extend",
+  "runDir": "analysis/daily/2026-05-09/term-outlook",
+  "articleType": "term-outlook",
+  "priorRunId": "term-outlook-run444-1778232545",
+  "carryForward": [
+    {
+      "relativePath": "classification/actor-mapping.md",
+      "lines": 127,
+      "priorLines": 127,
+      "floor": 30,
+      "extendFloor": 147,
+      "source": "extend-from-prior:term-outlook-run444-1778232545"
+    },
+    {
+      "relativePath": "classification/forces-analysis.md",
+      "lines": 145,
+      "priorLines": 145,
+      "floor": 30,
+      "extendFloor": 165,
+      "source": "extend-from-prior:term-outlook-run444-1778232545"
+    },
+    {
+      "relativePath": "classification/impact-matrix.md",
+      "lines": 153,
+      "priorLines": 153,
+      "floor": 30,
+      "extendFloor": 173,
+      "source": "extend-from-prior:term-outlook-run444-1778232545"
+    },
+    {
+      "relativePath": "existing/deep-analysis.md",
+      "lines": 88,
+      "priorLines": 88,
+      "floor": 30,
+      "extendFloor": 108,
+      "source": "extend-from-prior:term-outlook-run444-1778232545"
+    },
+    {
+      "relativePath": "existing/session-baseline.md",
+      "lines": 88,
+      "priorLines": 88,
+      "floor": 30,
+      "extendFloor": 108,
+      "source": "extend-from-prior:term-outlook-run444-1778232545"
+    },
+    {
+      "relativePath": "extended/devils-advocate-analysis.md",
+      "lines": 92,
+      "priorLines": 92,
+      "floor": 30,
+      "extendFloor": 112,
+      "source": "extend-from-prior:term-outlook-run444-1778232545"
+    },
+    {
+      "relativePath": "risk-scoring/legislative-velocity-risk.md",
+      "lines": 102,
+      "priorLines": 102,
+      "floor": 30,
+      "extendFloor": 122,
+      "source": "extend-from-prior:term-outlook-run444-1778232545"
+    },
+    {
+      "relativePath": "risk-scoring/political-capital-risk.md",
+      "lines": 123,
+      "priorLines": 123,
+      "floor": 30,
+      "extendFloor": 143,
+      "source": "extend-from-prior:term-outlook-run444-1778232545"
+    },
+    {
+      "relativePath": "threat-assessment/actor-threat-profiles.md",
+      "lines": 142,
+      "priorLines": 142,
+      "floor": 30,
+      "extendFloor": 162,
+      "source": "extend-from-prior:term-outlook-run444-1778232545"
+    },
+    {
+      "relativePath": "threat-assessment/consequence-trees.md",
+      "lines": 110,
+      "priorLines": 110,
+      "floor": 30,
+      "extendFloor": 130,
+      "source": "extend-from-prior:term-outlook-run444-1778232545"
+    },
+    {
+      "relativePath": "threat-assessment/legislative-disruption.md",
+      "lines": 104,
+      "priorLines": 104,
+      "floor": 30,
+      "extendFloor": 124,
+      "source": "extend-from-prior:term-outlook-run444-1778232545"
+    },
+    {
+      "relativePath": "threat-assessment/political-threat-landscape.md",
+      "lines": 142,
+      "priorLines": 142,
+      "floor": 30,
+      "extendFloor": 162,
+      "source": "extend-from-prior:term-outlook-run444-1778232545"
+    }
+  ],
+  "rewrite": [
+    {
+      "relativePath": "classification/significance-classification.md",
+      "lines": 85,
+      "floor": 120,
+      "reason": "short:85<120"
+    },
+    {
+      "relativePath": "executive-brief.md",
+      "lines": 93,
+      "floor": 220,
+      "reason": "short:93<220"
+    },
+    {
+      "relativePath": "extended/comparative-international.md",
+      "lines": 84,
+      "floor": 240,
+      "reason": "short:84<240"
+    },
+    {
+      "relativePath": "extended/forward-indicators.md",
+      "lines": 94,
+      "floor": 260,
+      "reason": "short:94<260"
+    },
+    {
+      "relativePath": "extended/historical-parallels.md",
+      "lines": 92,
+      "floor": 240,
+      "reason": "short:92<240"
+    },
+    {
+      "relativePath": "extended/media-framing-analysis.md",
+      "lines": 0,
+      "floor": 280,
+      "reason": "missing"
+    },
+    {
+      "relativePath": "intelligence/analysis-index.md",
+      "lines": 89,
+      "floor": 160,
+      "reason": "short:89<160"
+    },
+    {
+      "relativePath": "intelligence/coalition-dynamics.md",
+      "lines": 100,
+      "floor": 240,
+      "reason": "short:100<240"
+    },
+    {
+      "relativePath": "intelligence/commission-wp-alignment.md",
+      "lines": 39,
+      "floor": 220,
+      "reason": "short:39<220"
+    },
+    {
+      "relativePath": "intelligence/cross-session-intelligence.md",
+      "lines": 100,
+      "floor": 30,
+      "reason": "mermaid:missing"
+    },
+    {
+      "relativePath": "intelligence/economic-context.md",
+      "lines": 116,
+      "floor": 240,
+      "reason": "short:116<240"
+    },
+    {
+      "relativePath": "intelligence/forward-projection.md",
+      "lines": 154,
+      "floor": 360,
+      "reason": "short:154<360"
+    },
+    {
+      "relativePath": "intelligence/historical-baseline.md",
+      "lines": 37,
+      "floor": 240,
+      "reason": "short:37<240"
+    },
+    {
+      "relativePath": "intelligence/mandate-fulfilment-scorecard.md",
+      "lines": 149,
+      "floor": 280,
+      "reason": "short:149<280"
+    },
+    {
+      "relativePath": "intelligence/mcp-reliability-audit.md",
+      "lines": 60,
+      "floor": 240,
+      "reason": "short:60<240"
+    },
+    {
+      "relativePath": "intelligence/methodology-reflection.md",
+      "lines": 160,
+      "floor": 240,
+      "reason": "short:160<240"
+    },
+    {
+      "relativePath": "intelligence/pestle-analysis.md",
+      "lines": 116,
+      "floor": 280,
+      "reason": "short:116<280"
+    },
+    {
+      "relativePath": "intelligence/presidency-trio-context.md",
+      "lines": 43,
+      "floor": 220,
+      "reason": "short:43<220"
+    },
+    {
+      "relativePath": "intelligence/scenario-forecast.md",
+      "lines": 128,
+      "floor": 360,
+      "reason": "short:128<360"
+    },
+    {
+      "relativePath": "intelligence/seat-projection.md",
+      "lines": 148,
+      "floor": 280,
+      "reason": "short:148<280"
+    },
+    {
+      "relativePath": "intelligence/stakeholder-map.md",
+      "lines": 149,
+      "floor": 300,
+      "reason": "short:149<300"
+    },
+    {
+      "relativePath": "intelligence/synthesis-summary.md",
+      "lines": 125,
+      "floor": 280,
+      "reason": "short:125<280"
+    },
+    {
+      "relativePath": "intelligence/term-arc.md",
+      "lines": 151,
+      "floor": 320,
+      "reason": "short:151<320"
+    },
+    {
+      "relativePath": "intelligence/threat-model.md",
+      "lines": 112,
+      "floor": 260,
+      "reason": "short:112<260"
+    },
+    {
+      "relativePath": "intelligence/wildcards-blackswans.md",
+      "lines": 105,
+      "floor": 280,
+      "reason": "short:105<280"
+    },
+    {
+      "relativePath": "risk-scoring/quantitative-swot.md",
+      "lines": 167,
+      "floor": 160,
+      "reason": "mermaid:missing"
+    },
+    {
+      "relativePath": "risk-scoring/risk-matrix.md",
+      "lines": 120,
+      "floor": 160,
+      "reason": "short:120<160"
+    }
+  ]
+}
