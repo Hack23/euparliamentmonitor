@@ -129,3 +129,120 @@ This artifact identifies specific, measurable leading indicators that signal the
 | I5-C (group membership) | Jul 2026 | Monthly | MEDIUM |
 | I2-C (DMA staffing) | Q3 2026 | Quarterly | LOW |
 | I3-C (frozen assets) | Jun–Nov 2026 | Monthly | MEDIUM |
+
+---
+
+## Extended Forward Indicators: June-September 2026 Dashboard
+
+### Indicator Category 1: Legislative Pipeline Indicators
+
+#### DMA Enforcement Decision (Leading indicator)
+
+**What to watch:** Commission DG COMP announcement of first formal DMA enforcement decision or binding commitment.
+
+**Threshold levels:**
+- 🟢 GREEN: Enforcement decision announced by Q3 2026
+- 🟡 AMBER: Commission signals delay to Q4 2026
+- 🔴 RED: No enforcement action before US-EU tariff deal (delayed for trade negotiation)
+
+**Current status:** 🟡 AMBER — April 2026 EP resolution signals political pressure; Commission enforcement timeline unclear.
+
+#### SRMR3 Implementation Milestone (Lagging indicator)
+
+**What to watch:** EBA publication of delegated acts implementing SRMR3 revised bail-in hierarchy.
+
+**Threshold levels:**
+- 🟢 GREEN: EBA draft delegated acts published Q3 2026 (on timeline)
+- 🟡 AMBER: Publication delayed to Q4 2026
+- 🔴 RED: Major member state legal challenge to SRMR3 filed at CJEU
+
+**Current status:** 🔴 No tracking possible (EBA data not in EP MCP tools)
+
+### Indicator Category 2: Political Coalition Indicators
+
+#### EPP-PfE Distance Score (Leading indicator for coalition stability)
+
+**What to watch:** Public statements by EPP leadership on PfE cooperation; any EPP vote with PfE against coalition partners.
+
+**Threshold levels:**
+- 🟢 GREEN: EPP maintains public exclusion policy; no EPP-PfE joint vote on major dossiers
+- 🟡 AMBER: EPP votes with PfE on 1-2 procedural matters; denies substance cooperation
+- 🔴 RED: EPP accepts PfE committee chair; formal cooperation announced
+
+**Current status:** 🟢 GREEN — Weber publicly opposed to PfE; no structural cooperation signals
+
+#### Renew Group Cohesion (Lagging indicator)
+
+**What to watch:** Renew internal votes; French and German Renew sub-group alignment.
+
+**Threshold levels:**
+- 🟢 GREEN: Renew votes as bloc >80% of time on major dossiers
+- 🟡 AMBER: Renew national delegation splits visible in voting records
+- 🔴 RED: Renew group chair position contested; German/French blocs diverge systematically
+
+**Current status:** 🟡 Data unavailable (voting records delayed) — structural estimate: AMBER
+
+### Indicator Category 3: Data Reliability Indicators
+
+#### IMF Data Availability (Meta-indicator for economic analysis quality)
+
+**What to watch:** IMF SDMX API (`dataservices.imf.org`) availability in future runs.
+
+**Threshold levels:**
+- 🟢 GREEN: API responds within 30 seconds; data includes current year 2026
+- 🟡 AMBER: API responds but with delayed data (2025 most recent)
+- 🔴 RED: API timeout (>120 seconds); degraded mode required
+
+**Current status:** 🔴 RED (timeout this run) — check again in next breaking news run
+
+#### EP Events Feed Reliability (Meta-indicator for committee intelligence)
+
+**What to watch:** `get_events_feed(today)` response on next scheduled monitoring run.
+
+**Threshold levels:**
+- 🟢 GREEN: Feed returns ≥1 recent event
+- 🟡 AMBER: Feed returns 0 items (may be correct for recess week)
+- 🔴 RED: Feed returns error-in-body (confirmed API issue)
+
+**Current status:** 🔴 RED (error in body this run; may be Europe Day recess artifact)
+
+### Indicator Category 4: Geopolitical Indicators
+
+#### Ukraine Aid Legislative Activity (Leading indicator for EP geopolitical role)
+
+**What to watch:** Next EP Ukraine-related resolution or legislative vehicle (aid, sanctions, accountability mechanism).
+
+**June 2026 expected agenda:**
+- European Peace Facility Ukraine tranche (Q2 2026)
+- Russia sanctions renewal (July 2026)
+- ICC cooperation mechanism vote (TBD)
+
+**Current status:** 🟡 MEDIUM — Consistent EP solidarity; next concrete legislative vehicle TBD
+
+#### US-EU Trade Negotiations (Leading indicator for tariff legislation relevance)
+
+**What to watch:** US-EU trade negotiation announcements; tariff withdrawal commitments.
+
+**Threshold levels:**
+- 🟢 GREEN: Tariff truce announced; TA-0096 activation less likely
+- 🟡 AMBER: Negotiations ongoing; tariff adjustment law on standby
+- 🔴 RED: US implements 25%+ tariffs on EU automotive; TA-0096 activation triggered
+
+**Current status:** 🟡 AMBER — Negotiations ongoing; no resolution announced
+
+---
+
+## Forward Indicators Summary Dashboard
+
+| Category | Indicator | Current | 3-Month Forecast | Confidence |
+|----------|-----------|---------|-----------------|-----------|
+| Legislative | DMA enforcement first action | 🟡 AMBER | 🟢 GREEN by Q3 | 🟡 MEDIUM |
+| Legislative | SRMR3 EBA delegated acts | 🟡 AMBER | 🟡 AMBER | 🔴 LOW (no data) |
+| Political | EPP-PfE distance | 🟢 GREEN | 🟢 GREEN | 🟢 HIGH |
+| Political | Renew cohesion | 🟡 AMBER | 🟡 AMBER | 🟡 MEDIUM |
+| Data | IMF availability | 🔴 RED | 🟡 AMBER | 🟡 MEDIUM |
+| Data | Events feed reliability | 🔴 RED | 🟡 AMBER | 🟡 MEDIUM |
+| Geopolitical | Ukraine aid activity | 🟡 MEDIUM | 🟡 MEDIUM | 🟢 HIGH |
+| Geopolitical | US-EU trade | 🟡 AMBER | 🟡 AMBER | 🟡 MEDIUM |
+
+**Overall system health:** 🟡 CAUTIOUS — Multiple data availability issues (IMF, events feed) degrade monitoring quality. Political and legislative indicators are stable but require better data infrastructure.

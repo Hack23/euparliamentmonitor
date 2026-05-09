@@ -149,3 +149,110 @@ graph LR
     TA3 -->|Budget Leverage| BUD[2027 Budget]
     CORP[Platform Corporations] -->|Regulatory Capture| DMA
 ```
+
+---
+
+## Extended Threat Model: Actor-Level Analysis
+
+### Threat Actor 1: PfE (Party of European Freedom)
+
+**Category:** Internal institutional threat actor
+
+**Motivation:** De-legitimise the Ursula coalition majority; advance Orbán/Meloni nationalist agenda; protect Hungarian interests (EU fund access, rule-of-law suspension)
+
+**Capabilities:**
+- 85 seats: Largest far-right EP group in history
+- Control of BUDG committee blocking minority positions
+- Procedural disruption tools (quorum challenges, points of order, roll-call demand)
+- Media platform: PfE-affiliated outlets in IT, HU, FR reach tens of millions
+- External support: Trump administration provides political legitimacy; Russian state media amplifies PfE messaging
+
+**Current threat level:** 🟡 ELEVATED — The interference campaign against S&D (May 2026) is an escalation. Not yet at 🔴 HIGH level (no procedural revolt success achieved)
+
+**Threat vectors:**
+1. Formal procedural complaints (ongoing)
+2. Social media information operations (low-cost, high-reach)
+3. Committee vote obstruction (requires PfE+ECR+ESN coordination)
+4. Cross-institutional legitimacy challenge (challenging EP authority via national courts)
+
+**Mitigation:** EP rules of procedure safeguards; mainstream coalition arithmetic majority; EPP's public exclusion commitment
+
+### Threat Actor 2: Russian Federation Information Operations
+
+**Category:** External information threat actor
+
+**Motivation:** Delegitimise EU institutional support for Ukraine; divide EP coalition on geopolitical dossiers; accelerate EU regulatory burden on US tech (to deepen US-EU tensions)
+
+**Capabilities:**
+- Banned state media (RT, Sputnik) operate through proxies in EU
+- Social media amplification networks (Telegram, X/Twitter)
+- MEP contacts in PfE/ESN (some MEPs have documented Russian business ties)
+- Narrative production: Ukraine accountability framing as "NATO proxy war"
+
+**Current threat level:** 🟡 MEDIUM-ELEVATED — Persistent but contained by EU countermeasures
+
+**Threat vectors:**
+1. Disinformation about SRMR3 (deposit confiscation narrative)
+2. Disinformation about immunity waivers (political persecution narrative)
+3. Ukraine/Armenia resolution denial narratives
+4. Economic anxiety amplification (US tariff threat + banking reform = "EU financial crisis" narrative)
+
+**Mitigation:** EUvsDisinfo monitoring; EP communications office; mainstream media coverage quality
+
+### Threat Actor 3: Big Tech (Compliance Resistance)
+
+**Category:** External regulatory threat actor
+
+**Motivation:** Delay, dilute, or reverse DMA enforcement obligations
+
+**Capabilities:**
+- Deep financial resources for legal challenges
+- US government political backing (Trump administration frames DMA as anti-US discrimination)
+- Technical complexity as legal defence (interoperability technically difficult)
+- Consumer dependency leverage (EU market exit threat)
+
+**Current threat level:** 🟡 MEDIUM — Legal challenges filed; US government pressure present
+
+**Threat vectors:**
+1. CJEU annulment challenges to DMA obligations
+2. US Section 301 retaliatory action against EU digital regulation
+3. Technical compliance-to-letter-not-spirit strategies
+4. Forum shopping (influencing which DG COMP investigator handles specific cases)
+
+**Mitigation:** EU DMA legal framework; Commission political commitment; US Big Tech fear of CJEU precedent
+
+### Threat Actor 4: Hungary (Anti-Corruption Directive Resistance)
+
+**Category:** Member state institutional threat actor
+
+**Motivation:** Prevent Anti-Corruption Directive from applying to Hungarian governance practices; maintain Orbán government's EU-adjacent corruption network
+
+**Capabilities:**
+- Formal legal challenge at CJEU (Article 263 TFEU annulment action)
+- Infringement procedure non-compliance strategy (precedented since 2018)
+- PfE EP platform to amplify sovereignty narrative
+- Veto in Council on future legislation (QMV exception areas)
+
+**Current threat level:** 🔴 HIGH — Hungary has a track record of systematic non-compliance with EU rule-of-law requirements
+
+**Threat vectors:**
+1. CJEU annulment action against Anti-Corruption Directive
+2. Non-transposition or defective transposition
+3. Parliamentary non-ratification of transposing legislation
+4. Domestic constitutional court challenge (Hungarian Constitutional Court)
+
+**Mitigation:** Commission enforcement tools; Article 7 TEU proceedings (ongoing); MFF financial conditionality; EU accession leverage (Ukraine/Moldova geopolitical context reframes EU cohesion calculus)
+
+---
+
+## Threat Landscape Summary Table
+
+| Threat Actor | Type | Probability of escalation | Impact if escalated | Current posture |
+|-------------|------|--------------------------|--------------------|--------------| 
+| PfE | Internal institutional | 30% | MEDIUM-HIGH | Active (interference campaign) |
+| Russian IOs | External information | 50% | MEDIUM | Active (Ukraine narrative) |
+| Big Tech (DMA) | External regulatory | 60% | HIGH | Active (legal challenges) |
+| Hungary (Anti-Corruption) | Member state | 85% | HIGH | Anticipated (structural) |
+| US trade retaliation | External economic | 40% | VERY HIGH | Active (tariff threats) |
+
+**Overall threat environment:** 🟡 ELEVATED — Multiple concurrent threat vectors from different actor types. The most consequential near-term threat is Big Tech legal challenge to DMA (probability 60%, high impact) combined with US government political support for Big Tech resistance.

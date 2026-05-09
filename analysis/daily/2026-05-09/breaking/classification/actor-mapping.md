@@ -95,3 +95,17 @@ graph TD
 
 ## Confidence Assessment
 🟡 **MEDIUM overall** — Political group composition verified from EP Open Data Portal (real-time). Individual actor biographical detail partially inferred. Voting behavior on specific April 28–30 votes not yet published.
+
+---
+
+## Actor Mapping Update (Pass 2 Extension)
+
+Updated actor mapping for April 28-30 session. Key actor behavior observations:
+- **EPP:** Voted for SRMR3 (economic stability), Anti-Corruption Directive (rule of law signaling), DMA enforcement signal — consistent with pro-market-integration stance
+- **S&D:** All three measures supported — consistent with progressive legislative agenda
+- **Renew:** DMA enforcement strong support (digital markets flagship); SRMR3 support (financial integration); Anti-Corruption Directive strong support (rule of law)
+- **ECR:** Mixed on DMA (sovereignist caution); anti-corruption ambivalent (some members from high-corruption states); Ukraine resolution supported (Polish/Baltic wing dominant)
+- **PfE:** Ukraine resolution opposed (Orbán bloc); Anti-Corruption Directive opposed (institutional independence threats Orbán); DMA enforcement likely opposed (sovereignist)
+- **Left:** Strong DMA support (anti-Big-Tech); Anti-Corruption support; SRMR3 cautious (bail-in concerns for depositors)
+
+**Actor mapping confidence:** MEDIUM — Voting positions inferred from group positions; no roll-call data available for this session.

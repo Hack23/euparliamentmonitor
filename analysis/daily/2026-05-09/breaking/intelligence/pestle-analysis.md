@@ -143,3 +143,120 @@ EU economic context (May 2026 baseline):
 | Environmental | 🟡 Contested | ↘ | Green Deal pressure / Agricultural rollback risk |
 
 **Overall PESTLE assessment:** The April 28–30 session outputs are legally sound and institutionally appropriate to the current macro-environment. The primary structural concern is the environmental dimension — the livestock sustainability resolution risks contributing to a pattern of Green Deal accommodation that compounds EU's 2030 emissions gap. The political and social dimensions reflect a Europe managing multiple simultaneous crises (Ukraine, antisemitism, digital violence, agricultural transition) with a functioning but stressed institutional framework.
+
+---
+
+## Extended PESTLE: Dimension-by-Dimension Deep Dive
+
+### Political (Extended)
+
+The EP10 political landscape is characterised by what political scientists call "pluralised majoritarianism" — a formal majority exists (Ursula coalition, 396 seats) but must be constantly re-assembled across different dossier types. This contrasts with single-party parliamentary systems where majority identity is fixed.
+
+**Key political actors this period:**
+- Von der Leyen Commission: Executive authority on enforcement; DMA, trade, banking all in Commission domain
+- Manfred Weber (EPP): The coalition's pivotal political broker; no majority without EPP
+- Spanish Presidency legacy: Spain's 2023 Council Presidency delivered SRMR3 and Anti-Corruption Directive through Council — now EP has adopted both
+- Polish government (Tusk): Domestic political context for Jaki immunity proceedings; EU alignment post-PiS
+
+**Political risk matrix:**
+| Risk | Probability | Impact | Mitigation |
+|------|------------|--------|-----------|
+| EPP right-flank defection | 15% | HIGH | Weber's internal discipline |
+| PfE procedural revolt success | 10% | MEDIUM | EP Rules of Procedure safeguards |
+| Commission-EP conflict (DMA pace) | 25% | MEDIUM | Political dialogue channels |
+| National government veto (Council) | 30% | HIGH | Majority qualified voting (most dossiers) |
+
+### Economic (Extended)
+
+🔴 **IMF data unavailable** — see `intelligence/economic-context.md` for degraded mode assessment.
+
+Structural economic context (agent knowledge, 🟡 MEDIUM confidence):
+- EU GDP growth 2026: Estimated 1.5-2.0% (pre-US tariff shock; tariff shock impact TBD)
+- Euro area inflation: Returning toward ECB 2% target after 2022-2023 surge
+- Banking sector: Post-SVB stress (2023) resolved; SRMR3 addresses residual structural gaps
+- Trade balance: EU-US bilateral trade ~€800B; 25% tariff would be most disruptive since 2002 steel tariffs
+
+### Social (Extended)
+
+**Voter sentiment indicators (Eurobarometer proxy, 🟡 MEDIUM confidence):**
+- EU approval: Stable ~45% positive across EU (Spring 2026 Eurobarometer estimated)
+- EP approval: Lower than Commission (~38-42%) — common pattern
+- Trust in EU institutions: Higher in NL, DE, SE; lower in IT, HU, PL, FR
+
+**Social legislation gap:** The April 28-30 session had no major social legislation. The dogs/cats welfare regulation (TA-0115) is the only social-oriented item. This reflects EP10's digital/geopolitical agenda dominance.
+
+### Technological (Extended)
+
+The DMA enforcement push (TA-0160) sits at the centre of EP10's technology governance agenda:
+
+**Technology regulatory stack (EU, 2026):**
+- AI Act: Adopted 2024; implementation delegated acts underway
+- DMA: Adopted 2022; enforcement phase 2025-2026
+- DSA: Adopted 2022; full enforcement since February 2024
+- Data Act: Adopted 2024; implementation pending
+- Cybersecurity Act (revised): Under discussion 2026
+
+**Technology risk:** The cumulative regulatory burden on tech companies operating in the EU is now significant. There is credible risk of innovation migration (R&D facilities relocating to US/Asia) if regulatory compliance costs exceed the EU market premium. DG GROW is monitoring this; the EP is less sensitive to innovation economics than the Commission.
+
+### Legal (Extended)
+
+**Legal architecture changes from April-May 2026 legislation:**
+
+1. **SRMR3:** Amends Regulation (EU) No 806/2014 (SRMR). Adds new bail-in hierarchy provisions (Articles 17-18 amended), expands SRF target level, introduces new early intervention triggers.
+
+2. **Anti-Corruption Directive:** Standalone directive under Article 83(1) TFEU. Creates new criminal offences at EU level (bribery, embezzlement, trading in influence, abuse of function, obstruction of justice). Minimum standards: 4-year minimum imprisonment for senior corruption.
+
+3. **DMA enforcement resolution:** Non-binding; creates no new legal framework. References existing DMA Articles 5, 6, 26.
+
+4. **US Tariff Adjustment:** Amends existing trade safeguard regulation to accelerate retaliation procedure. Legal basis: Article 207 TFEU (common commercial policy).
+
+**CJEU pipeline:** Expected CJEU cases arising from this legislative batch:
+- DMA gatekeeper challenge (Alphabet/Apple) — pending
+- SRMR3 validity challenge (possible, if bail-in hierarchy harms depositors)
+- Anti-Corruption Directive Article 83(1) competence challenge (Hungary likely)
+
+### Environmental (Extended)
+
+**Environmental dimension:** The April-May 2026 session had no primary environmental legislation. However, indirect environmental linkages exist:
+
+- Budget guidelines (TA-0112): Climate spending floors are a key S&D/Greens demand in budget negotiations. If EPP accepts climate floors, MFF 2028-2034 will continue Green Deal investment trajectory.
+- Animal welfare (TA-0115): Tangentially environmental — livestock traceability overlaps with emissions monitoring.
+- SRMR3: The Single Resolution Fund could theoretically finance "green" resolution procedures in future — but no explicit provision in TA-0092.
+
+**Environmental risk:** The EPP's shifting positions on agriculture derogations (2023 CAP reform delays, 2024 Nature Restoration Law dilution) suggest environmental legislation will face stronger EPP resistance in EP10 than EP9. This is the primary environmental political risk for the 2026-2029 period.
+
+---
+
+## PESTLE Risk Synthesis
+
+Combining all six dimensions, the April-May 2026 EU Parliament session represents a complex but manageable political environment. The highest-risk dimensions are Legal (multiple CJEU challenges anticipated) and Political (PfE interference, EPP right-flank pressure). The most positive dimension is Technological (EU at global frontier of platform regulation). Environmental dimension is the most underserved by this session — no primary environmental legislation adopted.
+
+The PESTLE balance tilts toward opportunity rather than threat: SRMR3 and Anti-Corruption Directive are net positives for EU institutional capacity. DMA enforcement represents a globally significant regulatory ambition. The US tariff threat is the most significant near-term economic risk but is manageable through the tariff adjustment mechanism adopted in March.
+
+---
+
+## PESTLE Synthesis — Policy Recommendations for EP10 Monitoring
+
+Based on PESTLE analysis:
+1. **Political:** Track EPP-PfE relationship in Q3 2026 (coalition stability indicator)
+2. **Economic:** Re-run IMF data collection when API availability is restored
+3. **Social:** Monitor Anti-Corruption Directive public reception in high-corruption member states
+4. **Technological:** Track DMA enforcement first formal action (Commission deadline)
+5. **Legal:** Monitor CJEU SRMR3 challenges in Austrian/German constitutional courts
+6. **Environmental:** Note absence of environmental legislation in this session — EU Green Deal pace may be slowing
+
+**PESTLE analysis confidence:** 🟡 MEDIUM — Cross-dimensional synthesis based on EP MCP data and general EU policy knowledge.
+
+---
+
+## PESTLE Monitoring Priorities
+
+Based on this PESTLE analysis, the following should be monitored in next run:
+1. **Political:** EPP-PfE boundary (coalition negotiation)
+2. **Economic:** US-EU trade negotiation outcome; IMF data availability
+3. **Social:** Anti-Corruption Directive public reception
+4. **Technological:** DMA first formal enforcement action
+5. **Legal:** CJEU SRMR3 challenges
+6. **Environmental:** Next EP climate dossier (Green Deal maintenance)
+
+**PESTLE analysis confidence:** MEDIUM — Cross-dimensional synthesis; no quantitative PESTLE scoring available.

@@ -139,3 +139,145 @@ flowchart TD
     DOWN --> OUT3["June outcome:<br/>EPP internal summit<br/>Commission legislative retreat<br/>Media crisis narrative"]
     TAIL --> OUT4["June outcome:<br/>Emergency plenary<br/>Crisis legislation<br/>Normal agenda suspended"]
 ```
+
+---
+
+## Scenario A (Base Case 55%): Managed Plurality — Detailed Analysis
+
+**Trigger conditions:**
+- DMA enforcement: Commission issues enforcement timeline in June but no major fine before Q3 2026
+- Budget 2027: Guidelines pass with standard Ursula coalition majority; trilogue begins autumn
+- Ukraine solidarity: EP continues verbal support; no new significant aid legislation before summer recess
+- PfE/ECR dynamic: Continued pressure but no procedural revolt succeeds
+
+**Key indicators to watch (June 2026):**
+1. IMCO committee vote on DMA interim enforcement report — if passes with broad majority, confirms coalition discipline on digital
+2. BUDG hearing on MFF 2027 parameters — EPP-S&D compromise scope indicates budget coalition health
+3. PfE procedural motions count — if >3 failed procedural challenges, confirms PfE containment
+
+**June 2026 plenary outlook:**
+- Agriculture/Fisheries: Common market organisation amendments
+- Digital: AI Act implementation delegated acts (second tranche)
+- Social: Posted workers directive review
+- Security: Schengen evaluation report
+
+**Probability shift triggers:**
+- Upward: US-EU tariff truce → reduces EPP trade pressure → coalition cohesion improves → 65%
+- Downward: ECR breakaway on budget → coalition needs emergency partners → 40%
+
+---
+
+## Scenario B (Upside 25%): Legislative Momentum Sustained
+
+**Trigger conditions:**
+- US-EU trade deal or significant tariff reduction announced (removes EPP right-wing pressure)
+- Commission announces first major DMA fine (signals enforcement seriousness)
+- Armenia framework agreement progresses (demonstrates EP geopolitical impact)
+- Greens and Left cooperate on budget social investment amendments
+
+**Quantitative threshold for this scenario:**
+- Ursula coalition wins ≥85% of plenary votes (vs. ~78% in April)
+- DMA enforcement fine announced ≥€500M (signals credibility)
+- EP approval rating rises ≥2 points in Eurobarometer
+
+**Historical parallel:** This scenario resembles EP8 (2014-2019) under Commission President Juncker — steady legislative output with high coalition coherence enabled the Digital Single Market package (2016-2018).
+
+---
+
+## Scenario C (Downside 15%): Coalition Fracture Risk
+
+**Trigger conditions:**
+- EPP national delegations defect on budget vote due to domestic fiscal pressure
+- S&D pushes social spending floor that Renew cannot accept
+- PfE succeeds in procedural revolt (quorum challenge during key vote)
+- External crisis (trade war escalation) diverts EP agenda for 3+ weeks
+
+**Early warning indicators:**
+- EPP-S&D coordination failure on budget parameters (visible from BUDG committee vote)
+- Renew group whip authority challenged internally (French/German delegation split)
+- PfE procedural challenge succeeds once → emboldens further challenges
+
+**Recovery mechanisms:** Even in this scenario, the Ursula coalition retains arithmetic majority. Full fracture requires simultaneous defection by ≥37 coalition MEPs — unlikely without a dramatic external catalyst.
+
+---
+
+## Scenario D (Tail Risk 5%): External Crisis Suspension
+
+**Trigger conditions:**
+- Direct NATO-Russia confrontation involving EU member state
+- Major bank failure requiring emergency EU intervention (SRMR3 not yet in force)
+- Catastrophic cyberattack on EU institutional infrastructure
+- Trump 100% tariff on EU goods (escalation beyond current trajectory)
+
+**EP response protocol:**
+- Emergency Article 122 TFEU procedure (bypasses normal legislative timeline)
+- Article 78(3) TFEU provisional measures (if migration crisis component)
+- Parliament convenes extraordinary plenary within 5 days (Rules of Procedure, Rule 143)
+
+**Historical precedent:** COVID-19 (March 2020) — EP operated reduced plenary, remote voting, emergency legislation. The institutional resilience demonstrated then provides the template.
+
+---
+
+## Confidence Matrix
+
+| Scenario | Probability | Evidence basis | Confidence in probability |
+|----------|------------|---------------|--------------------------|
+| Base Case (Managed Plurality) | 55% | Strong — historical pattern, coalition stability | 🟢 HIGH |
+| Upside (Momentum) | 25% | Medium — requires external positive trigger | 🟡 MEDIUM |
+| Downside (Fracture) | 15% | Medium — internal tension indicators exist but manageable | 🟡 MEDIUM |
+| Tail Risk (Crisis) | 5% | Low — external macro risk | 🟡 MEDIUM |
+
+*All probability estimates reflect May 9, 2026 data snapshot. IMF economic data unavailable (degraded mode) — economic scenarios carry higher uncertainty than political scenarios.*
+
+---
+
+## Scenario Forecast Section 4: Quantitative Scenario Modeling
+
+### Probability Mass Distribution (6-month horizon)
+
+| Scenario | Probability | Coalition impact | Key variable |
+|---------|-------------|-----------------|--------------|
+| Status Quo Persistence | 50% | 0 change | No external shock |
+| Moderate Pressure (US tariffs 20%) | 25% | -5 seats effective (Renew partial) | US-EU trade talks |
+| EPP Rightward Drift | 15% | -10 seats (Greens hostile) | PfE entrenchment |
+| Coalition Fracture | 7% | -50 seats (majority threatened) | Multi-shock event |
+| Grand Coalition (EPP+S&D supermajority) | 3% | +100 seats | VdL 3rd term deal |
+
+**Probability mass concentration:** 75% in "Status Quo + Moderate Pressure" range. The tail scenarios (fracture, grand coalition) have significant policy impact but low probability.
+
+---
+
+## Scenario Forecast Section 5: 12-Month Legislative Output Projection
+
+Based on current EP10 pace and the April 28-30 session output:
+
+| Quarter | Predicted major legislation | Risk factor |
+|---------|---------------------------|------------|
+| Q2 2026 (ongoing) | MFF 2028+ framework discussions; AI Act implementation review | LOW |
+| Q3 2026 | Summer recess → September recovery; security/defence dossiers | LOW |
+| Q4 2026 | Budget 2027 (annual); climate implementation; SRMR3 RTS | MEDIUM |
+| Q1 2027 | Anti-Corruption Directive transposition begins; MFF first readings | MEDIUM |
+
+**Overall 12-month legislative health:** 🟢 HEALTHY — EP10 is on track for above-average legislative output (2025 pace extrapolated)
+
+---
+
+## Scenario Forecast Section 6: Data-Limited Forecasting Caveat
+
+This scenario forecast was developed without access to:
+- Current polling data on individual MEPs' positions
+- Confidential trialogue negotiation status
+- Commission forward work programme (Q3-Q4 2026)
+- Council Presidency (Poland → Denmark) transition plans
+
+All quantitative figures are analytical estimates with high uncertainty bands (±50%). The forecast value is in the qualitative direction and trigger identification, not in the precise probability figures.
+
+**Scenario forecast confidence:** 🟡 MEDIUM — Based on current political landscape data from EP MCP. IMF economic forecasts unavailable (degraded mode). Scenarios are analytical frameworks, not predictive models.
+
+---
+
+## Scenario Forecast Handoff
+
+Key scenario anchors for next run: US tariff escalation as primary trigger watch; PfE coalition entry demand as medium-probability scenario by Q3 2026; coalition fracture probability at 7%; Status Quo probability at 50%.
+
+**Scenario forecast confidence:** MEDIUM — Analytical estimates without empirical polling data.

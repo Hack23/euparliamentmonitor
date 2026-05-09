@@ -152,3 +152,24 @@ If next breaking news run occurs in May 2026, highest-value data targets:
 3. Dogs/cats OJ publication confirmation
 4. Ukraine Facility review conclusions
 5. Any EP committee hearings on Commission interference allegations
+
+---
+
+## Forward Projection Update (Pass 2 Extension)
+
+Updated forward projection for EP10 Q2-Q3 2026:
+
+**Near-term (May-June 2026) projection:**
+- Commission DMA enforcement guidance publication expected
+- SRMR3 enters into force (Official Journal publication + 20 days)
+- Anti-Corruption Directive transposition deadline notification to member states
+- MFF 2028+ inter-institutional consultation begins
+- Polish Council Presidency → Danish Council Presidency (July 1, 2026)
+
+**Medium-term (Q3-Q4 2026) projection:**
+- Budget 2027 negotiations (EP vs. Council annual procedure)
+- EDIS second attempt (politically enabled by SRMR3 completion)
+- AI Act delegated acts (Commission publication of first GPAI rules)
+- Schengen enlargement (Romania, Bulgaria — technical completion phase)
+
+**Forward projection confidence:** MEDIUM — Institutional calendar is predictable; political developments are probabilistic.

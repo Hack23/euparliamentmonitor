@@ -152,3 +152,23 @@ quadrantChart
 | RISK-08: Antisemitism | 12 | 🟡 MEDIUM | Action plan implementation; criminal law | Member states / Commission |
 
 **Aggregate risk profile:** 🟡 MEDIUM-HIGH — No critical (≥20) risks currently, but two high (15–16) risks require active management. The PfE institutional campaign risk is the most politically novel and operationally challenging.
+
+---
+
+## Risk Matrix Update (Pass 2 Extension)
+
+Updated risk matrix for April 28-30 session and near-term horizon:
+
+| Risk | Probability | Impact | Score | Mitigation |
+|------|-------------|--------|-------|-----------|
+| US tariff escalation | 30% | HIGH | 6.0 | EP tariff adjustment mechanism (March 2026) |
+| Anti-Corruption impl. failure (HU/BG) | 60% | MEDIUM | 6.0 | EU funds conditionality |
+| DMA enforcement legal challenge | 50% | MEDIUM | 5.0 | CJEU precedent (Google) strong |
+| Coalition fracture on trade | 15% | HIGH | 4.5 | Renew-EPP bridge-building ongoing |
+| SRMR3 constitutional challenge | 20% | MEDIUM | 4.0 | ECB/SRB institutional support |
+| EP legislative gridlock | 10% | HIGH | 4.0 | Ursula coalition stable |
+| IMF data persistent unavailability | 40% | LOW | 2.0 | Alternative indicators (ECB, Eurostat) |
+
+**Risk matrix confidence:** MEDIUM — Probability estimates are qualitative assessments without actuarial basis.
+
+**Overall risk level:** MODERATE — The EU Parliament institutional environment is stable. The main external risks (US tariffs, implementation failures) are manageable through existing instruments. No systemic existential risk to EP10 legislative program identified.

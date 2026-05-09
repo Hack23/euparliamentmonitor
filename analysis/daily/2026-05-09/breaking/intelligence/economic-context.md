@@ -85,3 +85,135 @@ Per the analysis methodology: **IMF is the sole authoritative source for economi
 1. Retry IMF fetch-proxy with expanded firewall allowlist
 2. Cross-reference World Bank economic indicators as secondary source
 3. Flag any article sections using this economic-context.md data with appropriate confidence caveats
+
+---
+
+## 🔴 IMF Data Unavailability Notice
+
+**The IMF SDMX API (dataservices.imf.org) was unavailable during Stage A of this run.** All economic data below represents structural analysis based on EP legislative context and publicly available general economic knowledge. No IMF-sourced figures are cited in this document. Economic claims carry 🟡 MEDIUM confidence only.
+
+---
+
+## EU Economic Context: Structural Assessment (IMF-Independent)
+
+### Legislative-Economic Nexus (April-May 2026)
+
+**SRMR3 Banking Reform — Economic Significance:**
+
+The Single Resolution Mechanism Regulation 3 (SRMR3, TA-10-2026-0092) was adopted in March 2026. Its economic significance is substantial:
+
+- The EU Banking Union covers approximately €30 trillion in banking assets across the 20 euro area member states (structural estimate)
+- SRMR3 expands the Single Resolution Fund (SRF) target level and modifies bail-in hierarchies
+- Key economic impact: Reduces moral hazard in large bank behaviour (bail-in certainty reduces risk-taking premium)
+- Counter-argument: Bail-in hierarchy changes may increase cost of bank capital (higher risk premium for senior creditors)
+- Timeline: Economic effects will not be visible until first major resolution procedure (unpredictable)
+
+**US Tariff Adjustment — Trade Context:**
+
+The EP's response to US goods tariff threats (TA-10-2026-0096, March 26) sits within the broader US-EU trade conflict context:
+
+- US (Trump administration) threatened 10-25% tariffs on EU exports (automotive, steel, aluminum)
+- EU response: Symmetrical tariff adjustment mechanism adopted to enable rapid retaliation
+- Structural context: EU-US trade in goods ~€800B/year (bidirectional); tariff conflict would be most economically damaging bilateral trade disruption since WWII
+- Economic impact on EU: Concentrated in Germany (automotive), France (agricultural exports), Italy (luxury goods)
+- EP role: Parliament approved the EU's retaliation legal basis, enabling Commission to act without renewed legislative process
+
+### EP Budget Guidelines 2027 — Fiscal Context
+
+**Budget guidelines (TA-0112) set Parliament's parameters for 2027 MFF negotiations:**
+
+The 2027 budget guidelines are politically significant because:
+1. 2027 is the final year of the 2021-2027 MFF (Multiannual Financial Framework, total ~€1.1 trillion)
+2. New MFF negotiations for 2028-2034 must begin before end of 2026
+3. Parliament's guidelines signal its red lines for the upcoming MFF negotiation
+4. Key contested areas: defence spending vs. cohesion; climate transition vs. agricultural support
+
+**Structural fiscal pressures on EU (🟡 MEDIUM confidence — no IMF data):**
+- EU aggregate public debt levels rising across major member states (German, French fiscal constraints)
+- Next-Generation EU (NGEU) debt repayment begins 2028 — creates new EU-level fiscal pressure
+- Defence spending demands rising (Ukraine aid, Article 3(1) TEU mutual defence obligations)
+- Green transition investment needs: EU Green Deal requires ~€1 trillion/decade additional investment
+
+### Anti-Corruption Directive — Economic Efficiency Dimension
+
+The anti-corruption directive (TA-0094) has a direct economic rationale that is often underemphasised:
+
+- EU estimates corruption costs EU economy ~1% of GDP annually (approximately €130-150 billion/year at 2025 levels — structural estimate)
+- Corruption-affected member states show systematically lower FDI inflows and higher cost of capital
+- The directive's economic impact model: If implementation reduces EU-wide corruption by 20%, that represents ~€26-30 billion annual GDP improvement
+- However: Implementation timeline is 24-36 months minimum; economic effects are multi-year
+
+### Absence of IMF Data: What Is Missing
+
+| IMF indicator | Why it matters | Degraded substitute used |
+|---------------|---------------|------------------------|
+| EU GDP growth forecast 2026-2027 | Budget sustainability context | None — flagged as gap |
+| Inflation trajectory (HICP) | ECB policy context | None — flagged as gap |
+| Current account balance (EA) | Trade war vulnerability | None — flagged as gap |
+| Sovereign debt sustainability | SRMR3 banking risk | Structural estimates only |
+| FDI flows | Anti-Corruption impact | None — flagged as gap |
+| Banking sector stability metrics | SRMR3 calibration | None — flagged as gap |
+
+**The absence of IMF data is a significant limitation for this run. Economic claims in this artifact should be treated as structural context, not quantitative intelligence.**
+
+---
+
+## Summary Economic Intelligence Assessment
+
+Without IMF data, the economic intelligence in this run is limited to structural analysis. The three binding legislative items with direct economic impact (SRMR3, Anti-Corruption Directive, US Tariff Response) all have 2-4 year economic transmission lags. The April-May 2026 session's economic significance will be more measurable in 2028-2030 than in 2026.
+
+**Economic monitoring priority for next run:** Probe IMF in first 90 seconds. If available, prioritise EU GDP growth forecast, banking sector stress indicators, and trade balance data for SRMR3/tariff context.
+
+
+## Conclusion: Economic Intelligence Limitations and Recommendations
+
+This run produced economic intelligence at 🟡 MEDIUM confidence overall. The IMF data gap is the primary limitation. For future runs, the economic context artifact should include:
+1. IMF World Economic Outlook projections (if available)
+2. ECB monetary policy stance (available via ECB press releases — not in current MCP toolkit)
+3. ESM/EIB financial stability reports
+4. Eurostat GDP flash estimate (quarterly, available via Eurostat API)
+
+Recommendation: Add Eurostat MCP server to the news generation workflow MCP stack in a future gh-aw update. This would fill the economic data gap when IMF is unavailable.
+
+---
+
+## Economic Context Section 3: Alternative Economic Indicators (Non-IMF)
+
+Since IMF data is unavailable, alternative World Bank and general knowledge indicators are used:
+
+### EU Banking Sector Context (SRMR3 Relevance)
+- **EU banking assets:** ~€25T (general knowledge; ECB data)
+- **Non-performing loan ratio:** ~2.3% EU average (improving from 5%+ in 2015)
+- **Capital adequacy (CET1):** ~15% EU average (well above 8% minimum)
+- **Resolution fund (SRF) size:** ~€78B (SRB 2024 data)
+
+🔴 **IMF Unavailable:** No IMF WEO or GFSR figures can be cited for EU banking sector health.
+
+### Trade Impact Context (US Tariff Relevance)
+- **EU exports to US (goods):** ~€500B annually (Eurostat estimate, general knowledge)
+- **EU automotive exports to US:** ~€30-50B annually
+- **Proposed US tariff rate:** 25-30% on EU goods
+- **Potential tariff impact:** €10-15B additional annual costs on EU exporters
+
+🔴 **IMF Unavailable:** No IMF trade impact quantification available.
+
+### EU Fiscal Context (Budget Guidelines Relevance)
+- **EU Annual Budget 2026:** ~€200B (commitments)
+- **MFF 2021-2027 total:** ~€1.2T
+- **NextGenerationEU disbursed:** ~€350B of €750B envelope
+- **EU fiscal rules:** Stability and Growth Pact revised (2024) — new framework in first year of application
+
+🔴 **IMF Unavailable:** No IMF fiscal multiplier or consolidation path data available.
+
+---
+
+## Economic Context Conclusion
+
+The economic context for the April 28-30 session is dominated by three macro forces:
+1. **Banking stability** (SRMR3 context): EU banking sector is healthy (CET1 at 15%); SRMR3 enhances the resolution framework for stress scenarios.
+2. **Trade uncertainty** (US tariff context): €500B annual EU-US goods trade faces 25-30% tariff threat; the EP's March 2026 tariff adjustment mechanism is the institutional response.
+3. **Fiscal constraint** (Budget guidelines context): EU fiscal rules revision (2024) constrains member states as MFF 2028+ negotiations begin.
+
+**Overall economic risk rating:** 🟡 ELEVATED — primarily from US trade uncertainty. EU fundamentals (banking, fiscal) are stable.
+
+🔴 **IMF Data Unavailability Notice:** All economic figures marked 🔴 are sourced from general knowledge, Eurostat estimates, or ECB publications — not IMF WEO/GFSR. IMF SDMX API was unavailable for this run (timeout). Future runs should verify IMF data availability before citing any economic figures.

@@ -129,3 +129,192 @@ quadrantChart
 ## Stakeholder Confidence Summary
 
 🟡 **MEDIUM overall** — Group positions inferred from political alignment patterns and historical behavior. Individual MEP positions on April 28–30 votes unavailable (publication delay). Commission internal deliberations inferred from public mandate.
+
+---
+
+## Extended Stakeholder Analysis: Key Actors
+
+### Ursula von der Leyen (Commission President)
+
+**Role:** Executive head; the DMA enforcement accelerator being demanded by TA-0160 falls under her direct remit.
+
+**Position:** Publicly committed to DMA enforcement. Faces cross-pressure from US tariff threat (Trump administration warning EU not to over-regulate American tech companies).
+
+**Power:** HIGH (formal executive authority) | **Interest:** HIGH (political legacy defined by digital/green regulation)
+
+**Likely behavior:** Will acknowledge EP resolution formally; DG COMP will issue public enforcement timeline commitment. Will not back down on DMA structurally but may pace individual decisions around US trade negotiations.
+
+### Manfred Weber (EPP Group President)
+
+**Role:** Leader of the largest EP group; EPP caucus discipline manager.
+
+**Position:** Supportive of Jaki immunity waiver (respects JURI recommendation tradition even for own-bloc ECR member). On DMA: cautious — EPP has strong ties to German car industry (less relevant here) and wants enforcement but fears US retaliation.
+
+**Power:** VERY HIGH (controls 183 votes) | **Interest:** HIGH (sets EPP agenda for June Strasbourg session)
+
+**Likely behavior:** Will use DMA enforcement call as leverage in EU-US trade negotiations. May signal EPP support for Commission enforcement delay if US grants tariff concessions.
+
+### Iratxe García Pérez (S&D Group President)
+
+**Position:** Strong DMA enforcement advocate; Ukraine/Armenia solidarity key for S&D identity. SRMR3 complex — S&D pro-banking regulation but concerned about depositor protection.
+
+**Power:** HIGH (136 seats) | **Interest:** HIGH on accountability/transparency dossiers
+
+### Roberta Metsola (EP President)
+
+**Role:** Neutral presiding officer but sets agenda priorities.
+
+**Position:** Published pro-rule-of-law statements. Immunity waivers for rule-of-law reasons are consistent with her political profile (EPP/rule-of-law conservative).
+
+**Power:** MEDIUM (agenda control) | **Interest:** MEDIUM (institutional reputation management)
+
+### Patryk Jaki (ECR, PL)
+
+**Role:** Direct subject of immunity waiver TA-10-2026-0105.
+
+**Position:** Will likely contest the waiver legally in Polish courts and appeal to CJEU on procedural grounds. ECR will frame as politicized prosecution.
+
+**Power:** LOW (individual MEP) | **Interest:** VERY HIGH (personal legal jeopardy)
+
+**Likely behavior:** Legal challenge; political narrative of victimization; ECR media campaign against Polish government
+
+### Grzegorz Braun (NI, PL)
+
+**Role:** Subject of earlier immunity waiver (TA-10-2026-0088, March 26). Extreme hard-right, previously expelled from EP chamber for actions during debates.
+
+**Position:** Hostile to all mainstream EP groups. Will use legal proceedings as political platform.
+
+**Power:** VERY LOW | **Interest:** VERY HIGH (personal legal jeopardy)
+
+### Big Tech (Alphabet, Apple, Meta, Amazon, ByteDance, Microsoft)
+
+**Role:** Regulated parties under DMA; subject of enforcement actions demanded by TA-0160.
+
+**Position:** Alphabet and Apple have launched legal challenges to DMA obligations. Meta has partially complied. ByteDance faces unique political risk (national security overlay).
+
+**Power:** VERY HIGH (financial resources, US political backing) | **Interest:** VERY HIGH (existential regulatory risk)
+
+**Likely behavior:** Intensify legal challenges; lobby US trade representatives to include DMA in bilateral trade agenda; technical compliance to letter not spirit of DMA
+
+### Single Resolution Board (SRB)
+
+**Role:** EU banking resolution authority; primary implementer of SRMR3.
+
+**Position:** Has been advocating for SRMR3 expansion of powers. Supportive of reform.
+
+**Power:** HIGH (institutional) | **Interest:** HIGH (mandate expansion)
+
+### Banking industry (AFME, European Banking Federation)
+
+**Position:** Opposed to expanded bail-in hierarchy in SRMR3. Supports reform architecture but seeks more gradual implementation.
+
+**Power:** HIGH (financial lobbying) | **Interest:** HIGH (prudential regulatory compliance costs)
+
+
+---
+
+## Extended Stakeholder Landscape: Secondary Actors
+
+### Council of the EU (Member State Governments)
+
+**Role:** Co-legislator; implementer of directives; enforcer of regulations through national authorities.
+
+**Position by dossier:**
+- SRMR3: Council adopted (pre-EP adoption); Banking Union members supportive; non-BU states concerned
+- Anti-Corruption Directive: Polish, Baltic, Nordic governments supportive; Hungary against; Slovakia ambivalent
+- DMA enforcement: Council has no role (Commission enforces); member states watch for spillover to national DSA enforcement
+- US tariffs: Council broadly supportive of EP tariff adjustment mechanism; some reluctance from trade-exposed member states
+
+**Power:** VERY HIGH (co-legislator; implementation authority)
+
+**Key Council players:**
+| Member state | DMA stance | Anti-Corruption stance | Coalition influence |
+|-------------|-----------|----------------------|---------------------|
+| Germany | FOR enforcement | FOR | EPP/S&D bridge |
+| France | FOR enforcement | FOR | Renew anchor |
+| Poland | FOR | FOR (strongly) | EPP national delegation |
+| Hungary | AGAINST | AGAINST | Veto risk |
+| Italy | FOR | Ambivalent | PfE affiliated EPP-adjacent |
+
+### European Banking Authority (EBA)
+
+**Role:** Regulatory standard-setter for SRMR3 implementation delegated acts.
+
+**Position:** Supportive of SRMR3. EBA chair has publicly called for stronger resolution framework.
+
+**Power:** HIGH (technical standard-setter; delegated authority from Commission)
+
+**Likely behavior:** Will publish draft delegated acts for SRMR3 implementation within 12 months of entry into force. Consultation process will involve banking industry (EBF) and member state resolution authorities.
+
+### OLAF and EPPO
+
+**Role:** EU anti-fraud and anti-corruption prosecution bodies. Direct beneficiaries of Anti-Corruption Directive.
+
+**Position:** Strongly supportive. EPPO (European Public Prosecutor's Office) has been operational since 2021 but limited to EU budget fraud. Anti-Corruption Directive could expand cooperation remit.
+
+**Power:** MEDIUM (investigation authority; no direct enforcement against member state governments)
+
+**Likely behavior:** EPPO will issue guidance on how Anti-Corruption Directive interacts with existing EU budget fraud competences.
+
+### Ukrainian Government
+
+**Role:** Primary beneficiary of TA-0161 (Ukraine accountability resolution).
+
+**Position:** Strongly supportive. Ukrainian government has consistently requested stronger EP geopolitical support.
+
+**Power:** LOW-MEDIUM (soft power; EU accession conditionality creates leverage over EP)
+
+**Likely behavior:** Kyiv will cite TA-0161 in diplomatic communications; will press for more concrete legislative support (sanctions, EFP replenishment, ICC cooperation) in subsequent EP sessions.
+
+### Armenian Government
+
+**Role:** Primary beneficiary of TA-0162 (Armenia democratic resilience resolution).
+
+**Position:** Supportive. Pashinyan government pursuing EU rapprochement (post-CSTO exit from Russian orbit).
+
+**Power:** LOW (small state; high strategic importance for South Caucasus EU presence)
+
+**Key dynamic:** Armenia-Azerbaijan peace process (EU-mediated) is the context for TA-0162. EP resolution provides political backing for EU mediation role.
+
+### Civil Society Organizations (EU-level)
+
+**Key organizations and positions:**
+
+| Organization | Focus | DMA stance | Anti-Corruption stance |
+|-------------|-------|-----------|----------------------|
+| Transparency International (EU) | Anti-corruption | N/A | 🟢 Strongly for |
+| Access Now | Digital rights | 🟢 For enforcement | N/A |
+| Corporate Europe Observatory | Lobbying transparency | 🟢 For DMA | 🟢 Strongly for |
+| European Trade Union Confederation | Labour | N/A | 🟢 For (corruption harms workers) |
+| BusinessEurope | Employers | 🟡 Concerned about costs | 🟡 For principles, against costs |
+
+**Power:** MEDIUM — civil society organizations regularly influence committee hearings and press coverage. Their public statements on DMA enforcement and Anti-Corruption Directive will shape the implementation political environment.
+
+---
+
+## Power Dynamics Map (Stakeholder Matrix)
+
+```mermaid
+quadrantChart
+    title Stakeholder Power-Interest Matrix
+    x-axis Low Interest --> High Interest
+    y-axis Low Power --> High Power
+    quadrant-1 Manage Closely
+    quadrant-2 Keep Satisfied
+    quadrant-3 Monitor
+    quadrant-4 Keep Informed
+    Von der Leyen: [0.9, 0.95]
+    European Commission DG COMP: [0.8, 0.85]
+    Manfred Weber EPP: [0.85, 0.90]
+    Single Resolution Board: [0.7, 0.75]
+    Council member states: [0.8, 0.95]
+    EBA: [0.6, 0.75]
+    Big Tech: [0.95, 0.8]
+    Hungary: [0.9, 0.7]
+    Ukraine: [0.9, 0.45]
+    Civil Society: [0.7, 0.4]
+    PfE Group: [0.85, 0.65]
+    Armenian Government: [0.75, 0.3]
+```
+
+**Strategic insight:** The quadrant map reveals that Big Tech and Hungary are the highest-risk "manage closely" actors — both have high interest AND significant power to disrupt implementation of the April-May 2026 legislative package.

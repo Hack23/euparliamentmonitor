@@ -106,3 +106,93 @@ This artifact situates the April 28–30, 2026 EP breaking story cluster in glob
 **Draghi Report (2024) context:** The Draghi Report called for an additional €750–800B/year in EU investment for competitiveness, climate, and defense. This is 4-5x the current EU budget. The EP's 2027 guidelines cannot bridge this gap through budget increases alone — own resources reform (EU-level taxes: digital, carbon border, financial transactions) is essential. The EP's budget guidelines likely contain language on own resources as the strategic solution.
 
 **Fiscal federalism trajectory:** The EU's fiscal capacity has been incrementally expanding (SURE scheme 2020, NextGenerationEU 2020–2026, now ~€800B). The 2027 budget guidelines may push further on this trajectory. Historically, EU fiscal capacity has only expanded during crises — COVID, Ukraine war. The political question of 2026–2027 is whether the EP can secure further expansion absent a new crisis.
+
+---
+
+## Extended Comparative International Analysis
+
+### Case Study 1: US Digital Regulation vs. EU DMA
+
+**Context:** The US government is simultaneously pursuing antitrust actions against Big Tech (DOJ vs. Google, FTC vs. Amazon, DOJ vs. Apple) while criticising the EU's DMA as discriminatory against US companies.
+
+**Comparative analysis:**
+
+| Dimension | EU (DMA) | US (Antitrust) |
+|-----------|---------|---------------|
+| Legal basis | Regulation (ex ante) | Sherman Act (ex post) |
+| Designated gatekeepers | 6 platforms | Case-by-case |
+| Timeline | 2022 adopted; 2024 enforcement | Decades per case (Google trial 2024) |
+| Remedies | Behavioural + structural | Primarily behavioural |
+| Data portability | Mandatory (Art. 6) | No equivalent |
+| Interoperability | Mandatory (Art. 7) | No equivalent |
+| Fine ceiling | 20% global turnover | 3x damages (civil); $100M criminal |
+| Political context | Bipartisan EU support | Bipartisan US support (unusual) |
+
+**Key finding:** The EU's ex ante DMA approach is more interventionist and faster-acting than US antitrust — but creates predictability risk for platforms. The US approach is slower but more tailored to specific harms. The April 2026 enforcement resolution represents EU Parliament demanding the EU approach deliver on its speed advantage.
+
+**International precedent value:** If DMA enforcement succeeds (first major fine + compliance improvement), it will inspire similar legislation in:
+- UK (Digital Markets, Competition and Consumers Act 2024 — already in force)
+- Australia (Digital Platform Services Inquiry recommendations)
+- Japan (Economic Security Promotion Act digital provisions)
+- South Korea (Online Platform Act)
+
+### Case Study 2: US-EU Trade Architecture vs. 1987-1993 GATT/Uruguay Round
+
+The current US tariff threat against EU goods (TA-10-2026-0096 responds to this) parallels the 1987-1993 Uruguay Round trade tensions:
+
+| Dimension | 1987-1993 | 2025-2026 |
+|-----------|----------|----------|
+| US administration | Reagan/Bush | Trump |
+| EU response | Defensive negotiation | Tariff adjustment law |
+| WTO/GATT recourse | Primary mechanism | Secondary (WTO weakened) |
+| Affected sectors | Agriculture, textiles | Automotive, steel, tech |
+| Resolution | GATT 1994/WTO creation | TBD |
+
+**Key difference:** The WTO dispute settlement mechanism is significantly weakened in 2026 compared to 1993 — the Appellate Body has been dysfunctional since 2019 (US blocking appointments). The EU cannot rely on WTO adjudication as a first resort; the tariff adjustment law (TA-0096) is the EU's self-help mechanism in a world without functioning multilateral trade dispute resolution.
+
+### Case Study 3: SRMR3 vs. US Dodd-Frank Banking Reform
+
+The SRMR3 is most directly comparable to the US Dodd-Frank Wall Street Reform (2010):
+
+| Dimension | SRMR3 (EU 2026) | Dodd-Frank (US 2010) |
+|-----------|----------------|---------------------|
+| Trigger | Post-GFC vulnerability + SVB stress | 2008 global financial crisis |
+| Bail-in provisions | Expanded hierarchy | FDIC OLA (orderly liquidation) |
+| Resolution authority | Single Resolution Board | FDIC |
+| Geographic scope | Banking Union (20 states) | US federal |
+| Implementation timeline | 18-24 months | 3-5 years |
+| Rollback risk | Lower (EU political consensus) | Higher (Trump DOD-Frank rollbacks) |
+
+**Historical outcome of Dodd-Frank:** Despite 2018 partial rollback, the core resolution framework survived. The SRMR3 is unlikely to face equivalent rollback risk because EU regulatory architecture does not change with national elections.
+
+### Case Study 4: Anti-Corruption Directive vs. GRECO Standards
+
+The EU Anti-Corruption Directive (TA-0094) complements the Council of Europe's GRECO (Group of States against Corruption) monitoring mechanism:
+
+| Mechanism | Type | Enforcement | Coverage |
+|-----------|------|------------|---------|
+| GRECO recommendations | Soft law | Political pressure | 50 states |
+| EU Anti-Corruption Directive | Hard law | Infringement | 27 EU states |
+| UNCAC (UN) | Treaty | Non-binding implementation review | 189 parties |
+
+**Key finding:** For EU member states, the Anti-Corruption Directive creates binding obligations that GRECO recommendations lacked. This represents a step-change in European anti-corruption architecture, moving from soft-law monitoring to hard-law harmonisation. The closest international parallel is the US FCPA (Foreign Corrupt Practices Act) — but applied multilaterally.
+
+---
+
+## International Intelligence Assessment Summary
+
+| Development | International significance | Comparable precedent | Precedent outcome |
+|-------------|--------------------------|---------------------|------------------|
+| DMA enforcement | 🔴 VERY HIGH — global digital regulation model | US Sherman Act (1890) | Slow but durable |
+| SRMR3 | 🟡 MEDIUM — Banking Union technical upgrade | Dodd-Frank (2010) | Survived rollback |
+| Anti-Corruption Directive | 🔴 HIGH — hard-law EU accountability first | US FCPA (1977) | Became global standard |
+| US tariff response | 🔴 HIGH — WTO-bypass self-help precedent | EC301 (pre-WTO) | Mixed; de-escalated |
+| Ukraine/Armenia resolutions | 🟡 MEDIUM — geopolitical signal only | Previous EP resolutions | Political signal value |
+
+---
+
+## Conclusion
+
+EU legislative developments of April-May 2026 sit within a globally significant context. SRMR3 and the Anti-Corruption Directive are the most internationally significant (binding, precedent-setting). DMA enforcement is globally watched. The US tariff response is the EU's most important trade policy self-help tool since the WTO Appellate Body collapsed in 2019. EP10 is legislating at the intersection of rule-of-law, digital regulation, and geoeconomics — a combination without historical precedent in EU institutional history.
+
+The April-May 2026 session confirms EP10 as the most legislatively ambitious parliament since EP6 (2004-2009 enlargement era). Three factors create this density: overlapping EP9-legacy implementation + new EP10 agenda + external shock response (US tariffs, Russia/Ukraine). This convergence produces exceptional value for parliamentary intelligence monitoring.

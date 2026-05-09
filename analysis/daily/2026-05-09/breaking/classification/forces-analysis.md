@@ -110,3 +110,24 @@ quadrantChart
 ```
 
 **Summary:** The sovereigntist insurgency scores highest on political intensity but lower on institutional impact (no binding output). Ukraine solidarity and DMA enforcement score high on both dimensions. Agricultural tension is structurally important but currently managed. Parliamentary integrity represents incremental rule-of-law consolidation.
+
+---
+
+## Forces Analysis Update (Pass 2 Extension)
+
+Updated forces analysis for April 28-30 session legislative context:
+
+**Structural forces (unchanged):**
+- EPP dominance (183 seats, 25.5%) creates centrist gravity in EP10
+- PfE isolation (85 seats, 11.9%) provides rightwing pressure without coalition power
+- Renew weakness (77 seats, 10.7%) makes coalition fragile on trade/digital issues
+
+**Dynamic forces (session-specific):**
+- US tariff threat activates EPP nationalist-protectionist tendency (conflict with Renew free-trade orthodoxy)
+- Anti-Corruption Directive creates EPP vs. PfE/ECR fault line (EPP supports; ECR/PfE ambivalent)
+- DMA enforcement creates EP vs. US business lobby tension (EP maintains regulatory autonomy)
+- SRMR3 creates EP vs. German banking lobby tension (bail-in strengthened)
+
+**Forces balance:** Pro-integration forces (EPP+S&D+Renew+Greens) dominate in EP10. Anti-integration forces (PfE+ECR part+NI) are effective opposition but not majority. Current trajectory: integration continues at measured pace.
+
+**Forces analysis confidence:** MEDIUM — Based on EP seat distribution and group position inferences; no individual MEP voting data.

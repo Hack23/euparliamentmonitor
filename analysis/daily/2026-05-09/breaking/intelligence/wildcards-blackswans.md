@@ -132,3 +132,144 @@ quadrantChart
     W4 Pet Database Scandal: [0.08, 0.35]
     W5 EP Session Disruption: [0.18, 0.30]
 ```
+
+---
+
+## Black Swan Analysis: Detailed Assessment
+
+### Black Swan B1: Armed Conflict Spillover (P=5%, Impact=CATASTROPHIC)
+
+**Scenario definition:** A direct conventional military attack by Russia on an EU/NATO member state (Estonia, Latvia, Lithuania most likely) triggers Article 5 NATO and Article 42(7) TEU mutual defence clause. The EP suspends normal legislative calendar.
+
+**EP institutional response:**
+- Emergency plenary convened within 5 days under Rule 143
+- All pending legislative procedures paused under force majeure
+- Article 122 TFEU emergency financial assistance activated
+- European Defence Industrial Base provisions accelerated
+
+**Why this is a black swan:**
+- NATO deterrence has held for 80 years
+- Russian military capability severely degraded by Ukraine war
+- But: probability non-zero given Russian leadership behaviour patterns
+
+**EP-specific impact:**
+- Immunity proceedings against Braun/Jaki suspended indefinitely
+- DMA enforcement paused (resource reallocation)
+- Budget 2027 negotiations completely restructured (defence spending dominates)
+
+### Black Swan B2: Censure Motion Against Commission (P=2%, Impact=EXISTENTIAL)
+
+**Scenario definition:** A successful censure motion (Article 234 TFEU) forces resignation of the entire von der Leyen Commission. Requires absolute majority of MEPs (360/720).
+
+**Current arithmetic:** A right-wing censure bloc (PfE 85 + ECR 81 + ESN 27 + NI 30 = 223) is far short of 360. Even with EPP right-wing defection (20-30 MEPs), total reaches only 243-253 — still 107+ seats short.
+
+**Why this remains a black swan:**
+- Left-wing parties would never join a right-wing censure bloc
+- EPP controls Commission President; self-censure irrational
+- No precedent for successful censure in EP history (failed attempts: 1999 almost, 2019 rejected)
+
+**Trigger conditions that could change dynamics:**
+- Commission corruption scandal (Ursula von der Leyen personally implicated)
+- Systematic DMA/DSA enforcement failure generating cross-spectrum anger
+- Major institutional crisis (e.g., MFF collapse, accession framework collapse)
+
+### Black Swan W1: PfE Delegitimisation (P=15%, Impact=HIGH)
+
+**Scenario definition:** A major financial scandal or foreign influence operation links PfE to hostile state actors (Russia, China). The group's 85 seats become a liability rather than an asset for any potential coalition partners.
+
+**Current indicators:**
+- Hungarian MEPs (Fidesz-linked PfE) have documented ties to Russian business interests
+- Italian PfE delegation less clearly linked to foreign influence
+- MEP declarations of financial interests may contain investigatable items
+
+**EP institutional response:** CONT and AFCO committees would investigate. MEPs implicated could face immunity procedures. PfE whip authority would collapse if group cohesion falls below disciplinary threshold.
+
+### Black Swan W3: Major Platform DMA Exit (P=22%, Impact=HIGH)
+
+**Scenario definition:** Apple or Google announces it will withdraw major services (iOS App Store, Google Search, WhatsApp) from EU markets rather than comply with DMA interoperability mandates.
+
+**Why this would be transformative:**
+- 450 million EU citizens immediately affected
+- EP DMA enforcement narrative collapses ("regulation drove out innovation")
+- US government escalates trade retaliation
+
+**Probability assessment:** 🟡 LOW-MEDIUM (22%) — Platform exit threats are negotiating tactics. The US market dependence cuts both ways: EU is too large to exit. Apple has ~350M EU device users; Google has ~200M EU search users. Exit would trigger immediate US antitrust scrutiny too (US DOJ watching).
+
+**EP response:** Emergency IMCO hearing, Article 226 TFEU committee of inquiry, potential DMA Article 11 emergency measures.
+
+---
+
+## Wildcard Monitoring Dashboard
+
+The following indicators should be checked at each subsequent EP monitoring cycle:
+
+| Indicator | Current status | Threshold for attention |
+|-----------|---------------|------------------------|
+| PfE procedural challenges per plenary | Baseline unknown | >3/week = elevated risk |
+| EPP internal coordination failures | 0 visible | >1/month = coalition strain |
+| US tariff escalation announcements | 10% threatened | >25% = game changer |
+| Russia escalation indicators | Ongoing Ukraine war | Direct NATO territory = black swan |
+| Platform DMA compliance public statements | Mixed signals | Public exit threat = wildcard |
+| EP Eurobarometer approval | ~45% baseline | <35% = delegitimisation risk |
+| IMF EU growth forecast changes | Unavailable today | >-1ppt downward = economic wildcard |
+
+---
+
+## Wildcard vs. Black Swan Distinction
+
+| Category | Definition | Examples in this run |
+|----------|-----------|---------------------|
+| **Wildcard** | Possible but unusual; probability 5-30%; impact HIGH | PfE delegitimisation, platform market exit, EP session disruption |
+| **Black Swan** | Very rare, extreme impact; probability <5%; retroactively obvious | Armed conflict spillover, censure motion success, asset confiscation crisis |
+| **Structural risk** | Persistent, not dramatic; slow-moving | Coalition fragmentation, IMF degraded mode, MEP attendance decline |
+
+*This distinction matters for monitoring cadence: wildcards warrant quarterly checks; black swans warrant annual scenario planning; structural risks warrant continuous monitoring.*
+
+---
+
+## Wildcards Section 4: Additional Black Swan Candidates
+
+### Black Swan 4: EP Dissolution Demand
+**Probability:** Ultra-low (<1%)
+**Trigger:** Constitutional crisis triggered by VdL Commission corruption scandal of unprecedented scale (not individual MEP immunities, but systemic Commission-wide)
+**Impact:** If triggered, EP would demand VdL resignation and new Commission appointment process — destabilizing 6-12 months of EU governance
+
+### Black Swan 5: Simultaneous Major Market Failure
+**Probability:** Low (2-3%)  
+**Trigger:** Bank resolution under SRMR3 triggered within weeks of regulation entering into force — testing the new framework under fire
+**Impact:** If a medium-sized EU bank faced resolution and SRMR3 process was seen to fail, it would create massive pressure for emergency revision. However, SRMR3 actually STRENGTHENS the framework — this scenario is more likely to demonstrate success than failure.
+
+### Black Swan 6: DMA Fine Sparks US Trade War
+**Probability:** Low (5%)
+**Trigger:** Commission imposes €10B+ DMA fine on US company; US President announces 35% tariffs on EU services as retaliation
+**Impact:** EU Parliament would face immediate pressure for emergency response. Ursula coalition would fracture on trade response (Renew vs. EPP vs. S&D diverge). Emergency legislative procedure invoked.
+
+---
+
+## Wildcards Section 5: Early Warning Indicators to Monitor
+
+For each identified wildcard, the following early warning indicators should be monitored in subsequent runs:
+
+| Wildcard | Key indicators to watch |
+|---------|------------------------|
+| US tariff escalation | US Treasury statements; EP emergency plenary call; Commission Article 207 TFEU activation |
+| PfE coalition entry demand | Orbán Budapest summit; EPP leadership statements; specific dossier vote margins |
+| SRMR3 constitutional challenge | CJEU Art 263/267 referrals; German Verfassungsgericht |
+| DMA fine announcement | Commission press releases; DG COMP enforcement calendar |
+| MEP corruption scandal | Investigative journalism (OCCRP, Der Spiegel, Le Monde); EP ethics committee |
+| EP dissolution demand | Commission resignation rumors; super-majority motion of censure |
+| DMA trade war | US USTR statements; EP urgent resolution tabling |
+
+**Wildcards and Black Swans confidence:** 🟡 MEDIUM — All scenarios are analytically derived from current political conditions. Probability estimates are qualitative assessments. None of these scenarios are based on specific intelligence or advance knowledge of impending events.
+
+---
+
+## Wildcards Handoff
+
+Key early warning indicators to monitor in next run: Commission DG COMP enforcement calendar update; US Treasury trade negotiation statements; German Constitutional Court SRMR3 challenge filings; EP ethics committee investigations.
+
+**Wildcards and black swans monitoring:** Ongoing in each subsequent run. Probability estimates reviewed at each run.
+
+**Wildcards confidence:** MEDIUM — Qualitative probability assessments; no quantitative modeling available.
+
+Additional wildcard watch for next run: May 9 (Europe Day) is a potential trigger for symbolic EP resolutions or statements. Check if any emergency resolution was tabled on May 9, 2026.

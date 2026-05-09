@@ -66,3 +66,102 @@ The European Parliament's April 28–30, 2026 Strasbourg plenary session produce
 - Voting breakdowns (for/against/abstain) not yet published by EP
 - Parliamentary question authors and content incomplete in API
 - Exact coalition voting behavior on April 28–30 resolutions unknown
+
+---
+
+## Extended Significance Classification: Full 5-Tier Assessment
+
+### Tier 1 (Critical — 9-10/10)
+
+No events in this run's data window meet Tier 1 (critical) significance. Tier 1 requires an imminent existential threat to EU institutional integrity, a constitutional crisis, or an event with immediate multi-member-state impact.
+
+### Tier 2 (Very High — 7-8/10)
+
+#### TA-10-2026-0092: SRMR3 Banking Resolution (Significance: 9/10 → Tier 2 High)
+
+**Classification basis:**
+- Binding regulation (directly applicable in all 27 member states)
+- €30 trillion Banking Union asset base at stake
+- First major amendment to Banking Union architecture since 2014
+- Multi-year economic impact on banking sector capital costs and resolution procedures
+
+**Why not Tier 1:** SRMR3 is structural reform, not an acute crisis. Impact is gradual.
+
+#### TA-10-2026-0094: Anti-Corruption Directive (Significance: 8/10 → Tier 2)
+
+**Classification basis:**
+- First binding EU criminal law on corruption (minimum harmonisation)
+- 27-country implementation with enforcement mechanism
+- Rule-of-law architecture transformation (GRECO → hard law)
+- Significant implementation risk in Hungary, Bulgaria (reduces effectiveness)
+
+### Tier 3 (High — 5-6/10)
+
+#### TA-10-2026-0160: DMA Enforcement Resolution (Significance: 6/10 → Tier 3)
+
+**Classification basis:**
+- Non-binding resolution (advisory)
+- Political signal of enforcement commitment
+- Moderate additive value (Commission already committed to enforcement)
+
+**Devil's advocate calibration:** Standard narrative overstated at 8/10; recalibrated to 6/10.
+
+#### TA-10-2026-0096: US Tariff Adjustment (Significance: 6/10 → Tier 3)
+
+**Classification basis:**
+- Enabling legislation (not actual tariffs) — moderate immediate impact
+- Signals EU retaliation intent; de-escalation of US tariff threat possible
+- Trade framework significance: establishes EU's WTO-bypass capacity
+
+#### TA-10-2026-0161: Ukraine Accountability (Significance: 5/10 → Tier 3)
+
+**Classification basis:**
+- Non-binding resolution
+- Consistent with ongoing EP Ukraine solidarity (not new policy direction)
+- Signal value to Ukrainian government and international community
+
+#### TA-10-2026-0105: Jaki Immunity Waiver (Significance: 5/10 → Tier 3)
+
+**Classification basis:**
+- Routine JURI procedure (see historical baseline: ~87% grant rate)
+- Significant for individual MEP; moderate political signal value
+- ECR-PfE response will generate political noise
+
+### Tier 4 (Moderate — 3-4/10)
+
+#### TA-10-2026-0112: Budget Guidelines 2027 (Significance: 4/10 → Tier 4)
+
+**Classification basis:**
+- Non-binding OPI (own-initiative report)
+- Sets EP parameters for autumn trilogue (6 months away)
+- Routine annual document; significant for budget experts, not general public
+
+#### TA-10-2026-0162: Armenia Democratic Resilience (Significance: 4/10 → Tier 4)
+
+**Classification basis:**
+- Non-binding resolution
+- Symbolic geopolitical support
+- Meaningful for Armenia relationship but limited EU enforcement capacity
+
+### Tier 5 (Low — 1-2/10)
+
+#### TA-10-2026-0115: Dogs/Cats Welfare and Traceability (Significance: 2/10 → Tier 5)
+
+**Classification basis:**
+- Sectoral regulation with limited economic impact
+- High public interest (animal welfare resonant) but low political significance
+- Nordic/Dutch audience: high attention; global: minimal
+
+---
+
+## Significance Classification Summary
+
+| Tier | Count | Examples |
+|------|-------|---------|
+| Tier 1 (Critical) | 0 | — |
+| Tier 2 (Very High) | 2 | SRMR3, Anti-Corruption Directive |
+| Tier 3 (High) | 5 | DMA enforcement, US tariffs, Ukraine, Jaki immunity, budget guidelines |
+| Tier 4 (Moderate) | 2 | Budget guidelines (OPI), Armenia |
+| Tier 5 (Low) | 1+ | Animal welfare, EIB control |
+
+**Overall session significance:** 🔴 HIGH — Two Tier 2 pieces of binding legislation (SRMR3 + Anti-Corruption) in a single month represents above-average legislative density for EP10.
