@@ -4169,6 +4169,30 @@ html[data-theme='dark'] [dir='rtl'] .news-card {
   font-weight: 600;
 }
 
+/* Section provenance badge — only used inside the in-article Analysis
+ * Index card grid so the reader can see which article section each
+ * artifact contributed to without leaving the cards. */
+.pi-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.35rem;
+}
+
+.pi-card__section-badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 /* Date-grouped daily-analysis section */
 
 .pi-date-group {
@@ -6872,8 +6896,11 @@ html[data-theme='dark'] .d3-network-wrapper text {
 /* ─── Article Table of Contents (aggregator-driven articles) ─────── */
 /*
  * Two-column article layout: TOC sidebar on the left, article body on
- * the right. On narrow viewports the `<details>` collapses the TOC into
- * a disclosure so the article body stays the primary focus.
+ * the right. On wide viewports the TOC becomes a full-viewport-height
+ * left rail that stays pinned while the article body scrolls — the rail
+ * always shows the reader where they are in the document. On narrow
+ * viewports the `<details>` collapses the TOC into a disclosure so the
+ * article body stays the primary focus.
  */
 .article-main {
   display: grid;
@@ -6884,15 +6911,26 @@ html[data-theme='dark'] .d3-network-wrapper text {
 
 .article-toc-container {
   position: sticky;
-  top: 24px;
-  max-height: calc(100vh - 48px);
+  top: 0;
+  height: 100vh;
+  max-height: 100vh;
   overflow-y: auto;
-  padding: 16px 18px;
+  padding: 20px 18px;
   background: var(--card-bg, #f6f8fa);
   border: 1px solid var(--border, #d0d7de);
   border-radius: 8px;
   font-size: 0.9rem;
   line-height: 1.45;
+  scrollbar-width: thin;
+}
+
+.article-toc-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.article-toc-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 51, 153, 0.18);
+  border-radius: 3px;
 }
 
 .article-toc-details[open] .article-toc-summary {
@@ -6913,30 +6951,61 @@ html[data-theme='dark'] .d3-network-wrapper text {
 }
 
 .article-toc-list {
-  list-style: decimal inside;
+  list-style: none;
   margin: 0;
   padding: 0;
+  counter-reset: article-toc;
 }
 
 .article-toc-list li {
-  margin: 6px 0;
-  padding-left: 4px;
+  margin: 2px 0;
+  padding: 0;
+  counter-increment: article-toc;
 }
 
 .article-toc-list a {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
   color: var(--link, #0969da);
   text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+
+.article-toc-list a::before {
+  content: counter(article-toc) '.';
+  flex: 0 0 auto;
+  min-width: 1.6em;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted, #57606a);
+  font-weight: 600;
+  font-size: 0.78rem;
+}
+
+.article-toc-icon {
+  flex: 0 0 auto;
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1;
+  filter: saturate(1.1);
+}
+
+.article-toc-text {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .article-toc-list a:hover,
 .article-toc-list a:focus-visible {
-  text-decoration: underline;
+  background-color: rgba(9, 105, 218, 0.08);
+  text-decoration: none;
 }
 
 .article-toc-list a:focus-visible {
   outline: 2px solid var(--primary, #003399);
   outline-offset: 2px;
-  border-radius: 2px;
 }
 
 .article-body {
@@ -7407,6 +7476,7 @@ pre.mermaid--error {
   .article-toc-container {
     position: static;
     max-height: none;
+    height: auto;
   }
   .article-toc-details:not([open]) .article-toc-list {
     display: none;

@@ -60,7 +60,10 @@ import {
   buildPageBanner,
 } from '../templates/section-builders.js';
 import { READER_GUIDE_SECTION_ID } from './reader-guide-constants.js';
-import { READER_GUIDE_TITLE_LABELS } from './reader-intelligence-guide.js';
+import {
+  READER_GUIDE_TITLE_LABELS,
+  getReaderGuideSectionIcon,
+} from './reader-intelligence-guide.js';
 import {
   TRADECRAFT_SECTION_ID,
   MANIFEST_SECTION_ID,
@@ -69,6 +72,11 @@ import {
 import { KEY_TAKEAWAYS_SECTION_ID } from './key-takeaways.js';
 import { getPoliticalIntelligenceFilename } from '../generators/political-intelligence.js';
 import { getSitemapFilename } from '../generators/sitemap/index.js';
+import {
+  getCuratedTitle,
+  getCuratedDescription,
+  getArtifactInfo,
+} from '../generators/political-intelligence-descriptions.js';
 
 /**
  * Resolve a localized article type label with icon. Falls back to the
@@ -242,11 +250,33 @@ function getLocalizedTocTitle(
 }
 
 /**
+ * Resolve the visual icon glyph used as the Table-of-Contents bullet for
+ * a given section. Reuses {@link getReaderGuideSectionIcon} for the
+ * canonical artifact sections (so the TOC and the Reader Intelligence
+ * Guide share the same visual vocabulary), and adds dedicated icons for
+ * the aggregator-owned appendix anchors that the guide does not list.
+ *
+ * @param sectionId - Anchor id of the section (e.g. `section-risk`,
+ *                    `aggregator-tradecraft-references`)
+ * @returns Single emoji glyph used as the `guide-icon` for that entry
+ */
+function getTocSectionIcon(sectionId: string): string {
+  if (sectionId === READER_GUIDE_SECTION_ID) return '🧭';
+  if (sectionId === KEY_TAKEAWAYS_SECTION_ID) return '🔑';
+  if (sectionId === SUPPLEMENTARY_SECTION_ID) return '🗂️';
+  if (sectionId === TRADECRAFT_SECTION_ID) return '🛠️';
+  if (sectionId === MANIFEST_SECTION_ID) return '📚';
+  return getReaderGuideSectionIcon(sectionId);
+}
+
+/**
  * Build the article-level Table of Contents nav. Renders a labelled
  * `<nav class="article-toc">` with one `<a>` per H2 section, keyed by the
  * stable fragment ids produced by the aggregator. The containing `<aside>`
- * is styled as a sticky sidebar on wide viewports and collapses into a
- * `<details>` disclosure on narrow viewports via `styles.css`.
+ * is styled as a sticky, full-height sidebar on wide viewports and
+ * collapses into a `<details>` disclosure on narrow viewports via
+ * `styles.css`. Each entry is prefixed with a contextual emoji icon so
+ * readers can scan the navigation visually as well as textually.
  *
  * Returns an empty string when `entries` is empty so low-signal
  * `ANALYSIS_ONLY` articles (few sections, no value in a TOC) stay compact.
@@ -261,7 +291,8 @@ export function buildArticleToc(entries: readonly ArticleTocEntry[], lang: Langu
   const items = entries
     .map((e) => {
       const displayTitle = getLocalizedTocTitle(e.id, e.title, lang);
-      return `        <li><a href="#${escapeHTML(e.id)}">${escapeHTML(displayTitle)}</a></li>`;
+      const icon = getTocSectionIcon(e.id);
+      return `        <li><a href="#${escapeHTML(e.id)}"><span class="article-toc-icon" aria-hidden="true">${icon}</span> <span class="article-toc-text">${escapeHTML(displayTitle)}</span></a></li>`;
     })
     .join('\n');
   return [
@@ -325,12 +356,37 @@ export function localizeArticleBody(bodyHtml: string, lang: LanguageCode): strin
   }
 
   // --- Methodologies sub-heading ---
+  // markdown-it's anchor plugin renders sub-headings as
+  // `<h3 id="methodologies" tabindex="-1"><a class="header-anchor"
+  //   href="#methodologies"><span>Methodologies</span></a></h3>`.
+  // Localise the inner `<span>Methodologies</span>` text without using
+  // regular expressions to avoid catastrophic backtracking on long
+  // inputs. We accept either the anchor-prefixed form above or the
+  // bare `<h3>Methodologies</h3>` form some renderers emit.
   const methodsLabel = getLocalizedString(TRADECRAFT_METHODOLOGIES_LABELS, lang);
-  html = html.replace(/<h3>Methodologies<\/h3>/, `<h3>${escapeHTML(methodsLabel)}</h3>`);
+  html = replaceFirstStringIn(
+    html,
+    '<span>Methodologies</span>',
+    `<span>${escapeHTML(methodsLabel)}</span>`
+  );
+  html = replaceFirstStringIn(
+    html,
+    '<h3>Methodologies</h3>',
+    `<h3>${escapeHTML(methodsLabel)}</h3>`
+  );
 
   // --- Artifact templates sub-heading ---
   const templatesLabel = getLocalizedString(TRADECRAFT_TEMPLATES_LABELS, lang);
-  html = html.replace(/<h3>Artifact templates<\/h3>/, `<h3>${escapeHTML(templatesLabel)}</h3>`);
+  html = replaceFirstStringIn(
+    html,
+    '<span>Artifact templates</span>',
+    `<span>${escapeHTML(templatesLabel)}</span>`
+  );
+  html = replaceFirstStringIn(
+    html,
+    '<h3>Artifact templates</h3>',
+    `<h3>${escapeHTML(templatesLabel)}</h3>`
+  );
 
   // --- Analysis Index heading ---
   const analysisIndexHeading = getLocalizedString(ANALYSIS_INDEX_HEADING_LABELS, lang);
@@ -399,6 +455,24 @@ export function localizeArticleBody(bodyHtml: string, lang: LanguageCode): strin
 }
 
 /**
+ * Replace the first literal occurrence of `needle` in `haystack` with
+ * `replacement`. Uses `indexOf` rather than `String.prototype.replace`
+ * with a regex so we don't fall foul of the security/detect-unsafe-regex
+ * lint rule, and so we never accidentally interpret regex metacharacters
+ * inside `needle` or `$1`-style references inside `replacement`.
+ *
+ * @param haystack - String to search in
+ * @param needle - Literal substring to replace
+ * @param replacement - Literal replacement text (no `$` escaping needed)
+ * @returns Modified string, or `haystack` unchanged when `needle` is absent
+ */
+function replaceFirstStringIn(haystack: string, needle: string, replacement: string): string {
+  const idx = haystack.indexOf(needle);
+  if (idx === -1) return haystack;
+  return haystack.slice(0, idx) + replacement + haystack.slice(idx + needle.length);
+}
+
+/**
  * Replace an H2 heading's text content by locating it via its `id` attribute.
  * Uses indexOf-based search to avoid polynomial regex backtracking (CodeQL).
  *
@@ -438,6 +512,497 @@ function replaceHeadingById(
   if (existingTitle.trim() !== englishTitle) return html;
 
   return html.slice(0, titleStart) + escapeHTML(localizedTitle) + html.slice(titleEnd);
+}
+
+/* ─── Tradecraft & Analysis Index card-grid enhancement ─────────── */
+
+/**
+ * Default emoji used for cards that do not have a curated icon mapped to
+ * their stem. Mirrors the fallback used in
+ * {@link political-intelligence/html.buildPiCard}.
+ */
+const DEFAULT_CARD_ICON = '🧭';
+
+/**
+ * Curated icon overrides keyed by the methodology / template stem (the
+ * filename without the `.md` extension). Mirrors a subset of the icon
+ * map used by `generators/political-intelligence/html.ts` so the cards
+ * embedded inside news articles match the icons on the dedicated
+ * Political Intelligence index page.
+ */
+const STEM_ICONS: Readonly<Record<string, string>> = {
+  README: '📘',
+  'ai-driven-analysis-guide': '🧭',
+  'analytical-supplementary-methodology': '🧭',
+  'artifact-catalog': '📚',
+  'electoral-cycle-methodology': '🗳️',
+  'electoral-domain-methodology': '🗳️',
+  'forward-projection-methodology': '🔭',
+  'imf-indicator-mapping': '💶',
+  'osint-tradecraft-standards': '🛳️',
+  'per-artifact-methodologies': '🧭',
+  'per-document-methodology': '🧭',
+  'political-classification-guide': '🏷️',
+  'political-risk-methodology': '⚠️',
+  'political-style-guide': '✒️',
+  'political-swot-framework': '⚖️',
+  'political-threat-framework': '🛡️',
+  'strategic-extensions-methodology': '🧭',
+  'structural-metadata-methodology': '🧭',
+  'synthesis-methodology': '🔗',
+  'worldbank-indicator-mapping': '🌍',
+  'actor-mapping': '🎭',
+  'actor-threat-profiles': '🛡️',
+  'analysis-index': '📚',
+  'coalition-dynamics': '🤝',
+  'coalition-mathematics': '🧮',
+  'commission-wp-alignment': '📋',
+  'comparative-international': '🌐',
+  'consequence-trees': '🌳',
+  'cross-reference-map': '🗺️',
+  'cross-run-diff': '🔁',
+  'cross-session-intelligence': '🔁',
+  'data-download-manifest': '📦',
+  'deep-analysis': '🔍',
+  'devils-advocate-analysis': '🪞',
+  'economic-context': '💶',
+  'executive-brief': '📋',
+  'forces-analysis': '⚙️',
+  'forward-indicators': '🔭',
+  'forward-projection': '🔭',
+  'historical-baseline': '📜',
+  'historical-parallels': '📜',
+  'imf-vintage-audit': '💶',
+  'impact-matrix': '📊',
+  'implementation-feasibility': '🔧',
+  'intelligence-assessment': '🧠',
+  'legislative-disruption': '🛡️',
+  'legislative-pipeline-forecast': '🛤️',
+  'legislative-velocity-risk': '⏱️',
+  'mandate-fulfilment-scorecard': '📋',
+  'mcp-reliability-audit': '📡',
+  'media-framing-analysis': '📰',
+  'methodology-reflection': '🪞',
+  'parliamentary-calendar-projection': '📅',
+  'per-file-political-intelligence': '🧭',
+  'pestle-analysis': '🌍',
+  'political-capital-risk': '💼',
+  'political-classification': '🏷️',
+  'political-threat-landscape': '🛡️',
+  'presidency-trio-context': '🇪🇺',
+  'quantitative-swot': '⚖️',
+  'reference-analysis-quality': '✅',
+  'risk-assessment': '⚠️',
+  'risk-matrix': '⚠️',
+  'scenario-forecast': '🔮',
+  'seat-projection': '🪑',
+  'session-baseline': '📊',
+  'significance-classification': '⚖️',
+  'significance-scoring': '⚖️',
+  'stakeholder-impact': '👥',
+  'stakeholder-map': '👥',
+  'swot-analysis': '⚖️',
+  'synthesis-summary': '🔗',
+  'term-arc': '🗳️',
+  'threat-analysis': '🛡️',
+  'threat-model': '🛡️',
+  'voter-segmentation': '👥',
+  'voting-patterns': '🤝',
+  'wildcards-blackswans': '⚡',
+  'workflow-audit': '🔧',
+};
+
+/**
+ * Resolve the icon for a tradecraft / artifact card by file stem.
+ *
+ * @param stem - File stem (filename without `.md`)
+ * @returns Single emoji glyph for the card icon
+ */
+function getStemIcon(stem: string): string {
+  return STEM_ICONS[stem] ?? DEFAULT_CARD_ICON;
+}
+
+/** One link extracted from the rendered tradecraft `<ul>` block. */
+interface ExtractedLink {
+  /** Absolute GitHub blob URL for the file */
+  readonly href: string;
+  /** Repo-relative path (e.g. `analysis/methodologies/synthesis-methodology.md`) */
+  readonly repoRelPath: string;
+}
+
+/**
+ * Extract `<a href="…">label</a>` link tokens from the slice of HTML
+ * between two indices. Used to harvest the methodology / template list
+ * the Markdown renderer emitted as `<ul><li><a>…</a></li>…</ul>` so we
+ * can re-render it as a card grid.
+ *
+ * Anchors whose `href` does not point at an `analysis/<methodologies|
+ * templates>/<…>.md` blob URL are silently skipped — the tradecraft
+ * appendix only contains those, and any stray external link (e.g. the
+ * Hack23 URL inside the intro paragraph) must not be promoted to a card.
+ *
+ * @param html - HTML slice to scan
+ * @param expectedPrefix - Path prefix (e.g. `analysis/methodologies/`)
+ * @returns List of extracted `{ href, repoRelPath }` tuples
+ */
+function extractTradecraftLinks(html: string, expectedPrefix: string): ExtractedLink[] {
+  const out: ExtractedLink[] = [];
+  // Walk anchor tags one at a time using indexOf to avoid catastrophic
+  // backtracking on long inputs (CodeQL js/polynomial-redos).
+  let cursor = 0;
+  while (cursor < html.length) {
+    const aIdx = html.indexOf('<a ', cursor);
+    if (aIdx === -1) break;
+    const hrefIdx = html.indexOf('href="', aIdx);
+    if (hrefIdx === -1) break;
+    const urlStart = hrefIdx + 'href="'.length;
+    const urlEnd = html.indexOf('"', urlStart);
+    if (urlEnd === -1) break;
+    const href = html.slice(urlStart, urlEnd);
+    const closeIdx = html.indexOf('>', urlEnd);
+    if (closeIdx === -1) break;
+    const endIdx = html.indexOf('</a>', closeIdx);
+    if (endIdx === -1) break;
+    cursor = endIdx + '</a>'.length;
+    // Only keep links pointing at the expected analysis/* path under the
+    // GitHub blob URL — every other anchor is intro chrome.
+    const blobMarker = `/blob/main/${expectedPrefix}`;
+    const blobIdx = href.indexOf(blobMarker);
+    if (blobIdx === -1) continue;
+    const repoRelPath = href.slice(blobIdx + '/blob/main/'.length);
+    out.push({ href, repoRelPath });
+  }
+  return out;
+}
+
+/**
+ * Render a single tradecraft / artifact card. Mirrors the structure
+ * used on `political-intelligence.html` so the visual vocabulary stays
+ * consistent (same `.pi-card-grid`, `.pi-card`, `.pi-card__icon`,
+ * `.pi-card__body`, `.pi-card__title`, `.pi-card__path`,
+ * `.pi-card__desc`, `.pi-card__cta` class hooks).
+ *
+ * @param link - Extracted link with absolute href + repo-relative path
+ * @param lang - Target language code for title/description lookup
+ * @returns HTML fragment for one `<li class="pi-card">…</li>` element
+ */
+function renderTradecraftCard(link: ExtractedLink, lang: LanguageCode): string {
+  const stem = link.repoRelPath.split('/').pop()?.replace(/\.md$/i, '') ?? link.repoRelPath;
+  // README cards live under analysis/methodologies/README.md and
+  // analysis/templates/README.md — fall back to a humanised "README" so the
+  // card title reads naturally rather than echoing "README" verbatim.
+  const title = getCuratedTitle(link.repoRelPath, lang, stem);
+  const description = getCuratedDescription(link.repoRelPath, lang, stem);
+  const icon = getStemIcon(stem);
+  return [
+    `          <li class="pi-card">`,
+    `            <a class="pi-card__link" href="${escapeHTML(link.href)}" rel="noopener external" target="_blank">`,
+    `              <span class="pi-card__icon" aria-hidden="true">${icon}</span>`,
+    `              <span class="pi-card__body">`,
+    `                <span class="pi-card__title">${escapeHTML(title)}</span>`,
+    `                <span class="pi-card__path"><code>${escapeHTML(link.repoRelPath)}</code></span>`,
+    `                <span class="pi-card__desc">${escapeHTML(description)}</span>`,
+    `                <span class="pi-card__cta">${escapeHTML(getViewOnGithubLabel(lang))} <span aria-hidden="true">↗</span></span>`,
+    `              </span>`,
+    `            </a>`,
+    `          </li>`,
+  ].join('\n');
+}
+
+/**
+ * Localised "View on GitHub" CTA shown on every tradecraft / artifact
+ * card. Kept inline rather than added to `language-ui.ts` because this
+ * is the only consumer; promote to a shared label table when a second
+ * surface needs it.
+ *
+ * @param lang - Target language code
+ * @returns Localised CTA text
+ */
+function getViewOnGithubLabel(lang: LanguageCode): string {
+  const labels: Partial<Record<LanguageCode, string>> = {
+    en: 'View on GitHub',
+    sv: 'Visa på GitHub',
+    da: 'Se på GitHub',
+    no: 'Se på GitHub',
+    fi: 'Näytä GitHubissa',
+    de: 'Auf GitHub ansehen',
+    fr: 'Voir sur GitHub',
+    es: 'Ver en GitHub',
+    nl: 'Bekijk op GitHub',
+    ar: 'عرض على GitHub',
+    he: 'הצג ב-GitHub',
+    ja: 'GitHub で表示',
+    ko: 'GitHub에서 보기',
+    zh: '在 GitHub 上查看',
+  };
+  return labels[lang] ?? labels.en ?? 'View on GitHub';
+}
+
+/**
+ * Replace the `<ul>` block that follows a sub-heading with a card-grid
+ * `<ul class="pi-card-grid">` rendering. Matching is bounded to the
+ * first `<ul>` that appears after `searchFromIdx` and that closes with
+ * `</ul>` — so the function is safe to call on partial HTML.
+ *
+ * @param html - HTML to transform
+ * @param searchFromIdx - Index after which the first `<ul>` is located
+ * @param cardsHtml - Pre-rendered `<li class="pi-card">…</li>` joined by `\n`
+ * @returns `{ html, endIdx }` with the new HTML and the index just after
+ *          the inserted card grid (so successive calls can chain)
+ */
+function replaceFollowingUlWithCardGrid(
+  html: string,
+  searchFromIdx: number,
+  cardsHtml: string
+): { html: string; endIdx: number } {
+  const ulIdx = html.indexOf('<ul>', searchFromIdx);
+  if (ulIdx === -1) return { html, endIdx: searchFromIdx };
+  const ulEnd = html.indexOf('</ul>', ulIdx);
+  if (ulEnd === -1) return { html, endIdx: searchFromIdx };
+  const replacement = `<ul class="pi-card-grid">\n${cardsHtml}\n        </ul>`;
+  const closeIdx = ulEnd + '</ul>'.length;
+  const next = html.slice(0, ulIdx) + replacement + html.slice(closeIdx);
+  return { html: next, endIdx: ulIdx + replacement.length };
+}
+
+/**
+ * Replace the rendered Tradecraft References bullet lists with a
+ * `pi-card-grid` of richly described cards (icon, curated title,
+ * repo-relative path, curated description, GitHub CTA). The cards reuse
+ * the exact same class hooks as `political-intelligence.html`, so the
+ * site-wide CSS already styles them — no additional CSS is required.
+ *
+ * Falls back to the original Markdown-rendered list when the expected
+ * structure (H2 → intro paragraph → Methodologies sub-heading → `<ul>` →
+ * Artifact-templates sub-heading → `<ul>`) is missing, so partially
+ * stripped or unusual articles are not silently corrupted.
+ *
+ * @param bodyHtml - The (already-localised) article body HTML
+ * @param lang - Target language code for curated titles/descriptions
+ * @returns Body HTML with the tradecraft section upgraded to cards
+ */
+export function enhanceTradecraftCards(bodyHtml: string, lang: LanguageCode): string {
+  const anchorIdx = bodyHtml.indexOf(`id="${TRADECRAFT_SECTION_ID}"`);
+  if (anchorIdx === -1) return bodyHtml;
+  // The next H2 marks the end of the tradecraft section.
+  const nextH2 = bodyHtml.indexOf('<h2 ', anchorIdx + 1);
+  const sectionEnd = nextH2 === -1 ? bodyHtml.length : nextH2;
+  const section = bodyHtml.slice(anchorIdx, sectionEnd);
+  // Harvest the methodology + template links from the rendered HTML.
+  const methodLinks = extractTradecraftLinks(section, 'analysis/methodologies/');
+  const templateLinks = extractTradecraftLinks(section, 'analysis/templates/');
+  if (methodLinks.length === 0 && templateLinks.length === 0) return bodyHtml;
+  let next = bodyHtml;
+  // Replace methodology <ul> first, then the template <ul>. Use the
+  // returned end index from the methodology replacement to seed the
+  // search for the template <ul> so we never double-replace.
+  // Note: markdown-it adds `id` and `tabindex` attributes to headings
+  // (`<h3 id="methodologies" tabindex="-1">…`), so we search for `<h3`
+  // (no terminator) rather than `<h3>` to match either form.
+  const methodHeadingIdx = next.indexOf('<h3', anchorIdx);
+  if (methodHeadingIdx !== -1 && methodLinks.length > 0) {
+    const methodCards = methodLinks.map((l) => renderTradecraftCard(l, lang)).join('\n');
+    const result = replaceFollowingUlWithCardGrid(next, methodHeadingIdx, methodCards);
+    next = result.html;
+  }
+  const templateHeadingSearchStart = next.indexOf(`id="${TRADECRAFT_SECTION_ID}"`);
+  if (templateHeadingSearchStart !== -1 && templateLinks.length > 0) {
+    // Find the second <h3 after the tradecraft anchor (Methodologies
+    // is the first; Artifact templates is the second).
+    const firstH3 = next.indexOf('<h3', templateHeadingSearchStart);
+    if (firstH3 !== -1) {
+      const secondH3 = next.indexOf('<h3', firstH3 + 1);
+      if (secondH3 !== -1) {
+        const templateCards = templateLinks.map((l) => renderTradecraftCard(l, lang)).join('\n');
+        const result = replaceFollowingUlWithCardGrid(next, secondH3, templateCards);
+        next = result.html;
+      }
+    }
+  }
+  return next;
+}
+
+/**
+ * Replace the Analysis Index `<table>` with a `pi-card-grid` of cards,
+ * one per included artifact. Each card renders the artifact's curated
+ * localised title + description, the section it contributed to, the
+ * run-relative path as inline `<code>`, and a "View on GitHub" CTA.
+ *
+ * Strategy: parse the rendered table's `<tbody>` rows (each row carries
+ * `[sectionId, <a href="…">stem</a>, runRelPath]`) and re-render the
+ * region between the table's opening wrapper and `</table>` as a card
+ * grid. The wrapping `<div class="table-scroll">` is dropped because
+ * the card grid handles its own responsive layout via flex/grid.
+ *
+ * @param bodyHtml - Article body HTML
+ * @param lang - Target language code
+ * @returns Body HTML with the Analysis Index upgraded to a card grid
+ */
+export function enhanceAnalysisIndexCards(bodyHtml: string, lang: LanguageCode): string {
+  const anchorIdx = bodyHtml.indexOf(`id="${MANIFEST_SECTION_ID}"`);
+  if (anchorIdx === -1) return bodyHtml;
+  // Locate the table and its end.
+  const tableIdx = bodyHtml.indexOf('<table>', anchorIdx);
+  if (tableIdx === -1) return bodyHtml;
+  const tableEnd = bodyHtml.indexOf('</table>', tableIdx);
+  if (tableEnd === -1) return bodyHtml;
+  const tableHtml = bodyHtml.slice(tableIdx, tableEnd + '</table>'.length);
+  const rows = parseAnalysisIndexRows(tableHtml);
+  if (rows.length === 0) return bodyHtml;
+  const cards = rows.map((row) => renderAnalysisIndexCard(row, lang)).join('\n');
+  // Walk back to the start of the wrapping <div class="table-scroll"> if
+  // present, so we replace the responsive wrapper too.
+  const wrapperOpen = bodyHtml.lastIndexOf('<div class="table-scroll"', tableIdx);
+  const replaceFrom = wrapperOpen !== -1 && wrapperOpen > anchorIdx ? wrapperOpen : tableIdx;
+  // Walk forward past the matching </div> when we kicked off from the
+  // wrapper, otherwise stop right after </table>.
+  let replaceTo = tableEnd + '</table>'.length;
+  if (wrapperOpen !== -1 && wrapperOpen > anchorIdx) {
+    const wrapperClose = bodyHtml.indexOf('</div>', tableEnd);
+    if (wrapperClose !== -1) replaceTo = wrapperClose + '</div>'.length;
+  }
+  const replacement = `<ul class="pi-card-grid analysis-index-grid">\n${cards}\n        </ul>`;
+  return bodyHtml.slice(0, replaceFrom) + replacement + bodyHtml.slice(replaceTo);
+}
+
+/** One parsed row from the rendered Analysis Index table. */
+interface AnalysisIndexRow {
+  /** Section id the artifact contributed to (e.g. `section-risk`) */
+  readonly sectionId: string;
+  /** Display title from the table cell (anchor text) */
+  readonly anchorText: string;
+  /** Absolute GitHub URL the anchor points at */
+  readonly href: string;
+  /** Run-relative path embedded in the third column */
+  readonly runRelPath: string;
+}
+
+/**
+ * Parse the `<tbody>` rows of the rendered Analysis Index table. Each
+ * row has the shape `<tr><td>section-id</td><td><a href="…">stem</a>
+ * </td><td><code>relPath</code></td></tr>`.
+ *
+ * @param tableHtml - Slice of HTML from `<table>` to `</table>`
+ * @returns Parsed rows (skipping malformed ones)
+ */
+function parseAnalysisIndexRows(tableHtml: string): AnalysisIndexRow[] {
+  const out: AnalysisIndexRow[] = [];
+  let cursor = 0;
+  while (cursor < tableHtml.length) {
+    const trIdx = tableHtml.indexOf('<tr>', cursor);
+    if (trIdx === -1) break;
+    const trEnd = tableHtml.indexOf('</tr>', trIdx);
+    if (trEnd === -1) break;
+    const row = tableHtml.slice(trIdx, trEnd);
+    cursor = trEnd + '</tr>'.length;
+    // Skip the header row (which only has <th> not <td>).
+    if (row.indexOf('<td>') === -1) continue;
+    const cells = parseRowCells(row);
+    if (cells.length < 3) continue;
+    const anchorMatch = parseAnchor(cells[1] ?? '');
+    if (!anchorMatch) continue;
+    const runRelPath = stripCodeWrapper(cells[2] ?? '');
+    out.push({
+      sectionId: (cells[0] ?? '').trim(),
+      anchorText: anchorMatch.text,
+      href: anchorMatch.href,
+      runRelPath,
+    });
+  }
+  return out;
+}
+
+/**
+ * Extract the `<td>…</td>` cell contents from a single `<tr>…</tr>`
+ * fragment. Uses `indexOf` to avoid backtracking.
+ *
+ * @param row - HTML for one row (no `</tr>` terminator required)
+ * @returns Array of inner-HTML strings, one per `<td>`
+ */
+function parseRowCells(row: string): string[] {
+  const cells: string[] = [];
+  let cursor = 0;
+  while (cursor < row.length) {
+    const tdIdx = row.indexOf('<td>', cursor);
+    if (tdIdx === -1) break;
+    const tdEnd = row.indexOf('</td>', tdIdx);
+    if (tdEnd === -1) break;
+    cells.push(row.slice(tdIdx + '<td>'.length, tdEnd));
+    cursor = tdEnd + '</td>'.length;
+  }
+  return cells;
+}
+
+/**
+ * Parse a single `<a href="…">text</a>` token out of a cell. Returns
+ * `null` when the cell does not contain an anchor (e.g. a plain string).
+ *
+ * @param cell - Inner-HTML of the `<td>` cell
+ * @returns Parsed anchor or `null`
+ */
+function parseAnchor(cell: string): { href: string; text: string } | null {
+  const aIdx = cell.indexOf('<a ');
+  if (aIdx === -1) return null;
+  const hrefIdx = cell.indexOf('href="', aIdx);
+  if (hrefIdx === -1) return null;
+  const urlStart = hrefIdx + 'href="'.length;
+  const urlEnd = cell.indexOf('"', urlStart);
+  if (urlEnd === -1) return null;
+  const closeOpenTag = cell.indexOf('>', urlEnd);
+  if (closeOpenTag === -1) return null;
+  const closeIdx = cell.indexOf('</a>', closeOpenTag);
+  if (closeIdx === -1) return null;
+  return {
+    href: cell.slice(urlStart, urlEnd),
+    text: cell.slice(closeOpenTag + 1, closeIdx),
+  };
+}
+
+/**
+ * Strip the `<code>…</code>` wrapper added by the Markdown renderer
+ * around the run-relative path cell.
+ *
+ * @param cell - Cell inner-HTML (possibly `<code>foo.md</code>`)
+ * @returns Plain text without code formatting
+ */
+function stripCodeWrapper(cell: string): string {
+  const start = cell.indexOf('<code>');
+  if (start === -1) return cell.trim();
+  const end = cell.indexOf('</code>', start);
+  if (end === -1) return cell.trim();
+  return cell.slice(start + '<code>'.length, end).trim();
+}
+
+/**
+ * Render one Analysis Index card. Reuses the `pi-card` class hooks so
+ * the card-grid sits naturally next to the methodology / template
+ * cards in the same article.
+ *
+ * @param row - Parsed Analysis Index row
+ * @param lang - Target language code
+ * @returns HTML fragment for one `<li class="pi-card">…</li>`
+ */
+function renderAnalysisIndexCard(row: AnalysisIndexRow, lang: LanguageCode): string {
+  const info = getArtifactInfo(row.runRelPath, lang);
+  const stem = row.runRelPath.split('/').pop()?.replace(/\.md$/i, '') ?? row.runRelPath;
+  const icon = getStemIcon(stem);
+  // Reuse the section-title localisation already used by the TOC so the
+  // "Section: …" badge reads naturally in every language.
+  const sectionLabel = getLocalizedTocTitle(row.sectionId, row.sectionId, lang);
+  return [
+    `          <li class="pi-card">`,
+    `            <a class="pi-card__link" href="${escapeHTML(row.href)}" rel="noopener external" target="_blank">`,
+    `              <span class="pi-card__icon" aria-hidden="true">${icon}</span>`,
+    `              <span class="pi-card__body">`,
+    `                <span class="pi-card__title">${escapeHTML(info.title)}</span>`,
+    `                <span class="pi-card__path"><code>${escapeHTML(row.runRelPath)}</code></span>`,
+    `                <span class="pi-card__desc">${escapeHTML(info.description)}</span>`,
+    `                <span class="pi-card__meta"><span class="pi-card__section-badge">${escapeHTML(sectionLabel)}</span></span>`,
+    `                <span class="pi-card__cta">${escapeHTML(getViewOnGithubLabel(lang))} <span aria-hidden="true">↗</span></span>`,
+    `              </span>`,
+    `            </a>`,
+    `          </li>`,
+  ].join('\n');
 }
 
 /**

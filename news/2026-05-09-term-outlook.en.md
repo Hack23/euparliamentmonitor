@@ -1,6 +1,6 @@
 ---
-title: "EP10 Term Outlook — May 2026 Refresh"
-description: "Mid-term EP10 forward projection: headline grand-coalition arithmetic intact (396/717) but stress-adjusted working majority (319) below threshold; 28-artifact analysis run flagged ANALYSIS_ONLY due to line-floor deficits under degraded-imf dataMode"
+title: "EP10 Term Outlook"
+description: "The European Parliament's EP10 term (2024–2029) has entered its decisive second year with a structurally rightward-shifted parliament navigating a historic convergence of crises: European strategic autonomy, defence rearmament, economic competitiveness stress, and democratic backsliding. The…"
 date: 2026-05-09
 article_type: term-outlook
 slug: 2026-05-09-term-outlook

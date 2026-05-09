@@ -297,8 +297,34 @@ describe('buildArticleToc', () => {
     expect(html).toContain('<summary class="article-toc-summary" id="article-toc-heading">');
     expect(html).toContain('<nav class="article-toc" aria-labelledby="article-toc-heading">');
     expect(html).toContain('<ol class="article-toc-list">');
-    expect(html).toMatch(/<li><a href="#synthesis">Synthesis Summary<\/a><\/li>/);
-    expect(html).toMatch(/<li><a href="#risk">Risk Assessment<\/a><\/li>/);
+    // Each entry now wraps its title in a `<span class="article-toc-text">`
+    // and prefixes it with a contextual emoji icon.
+    expect(html).toMatch(
+      /<li><a href="#synthesis"><span class="article-toc-icon" aria-hidden="true">[^<]+<\/span> <span class="article-toc-text">Synthesis Summary<\/span><\/a><\/li>/
+    );
+    expect(html).toMatch(
+      /<li><a href="#risk"><span class="article-toc-icon" aria-hidden="true">[^<]+<\/span> <span class="article-toc-text">Risk Assessment<\/span><\/a><\/li>/
+    );
+  });
+
+  it('renders contextual emoji icons for known section anchors', () => {
+    const html = buildArticleToc(
+      [
+        { id: 'section-risk', title: 'Risk Assessment' },
+        { id: 'section-threat', title: 'Threat Landscape' },
+        { id: 'section-electoral-arc', title: 'Electoral Arc & Mandate' },
+        { id: 'reader-intelligence-guide', title: 'Reader Intelligence Guide' },
+        { id: 'aggregator-tradecraft-references', title: 'Tradecraft References' },
+        { id: 'aggregator-analysis-index', title: 'Analysis Index' },
+      ],
+      'en'
+    );
+    expect(html).toContain('⚠️'); // Risk
+    expect(html).toContain('🛡️'); // Threat
+    expect(html).toContain('🗳️'); // Electoral Arc
+    expect(html).toContain('🧭'); // Reader Intelligence Guide
+    expect(html).toContain('🛠️'); // Tradecraft References
+    expect(html).toContain('📚'); // Analysis Index
   });
 
   it('escapes HTML in entry titles and ids to prevent injection', () => {
