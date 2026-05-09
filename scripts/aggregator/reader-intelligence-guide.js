@@ -363,6 +363,312 @@ const READER_GUIDE_ROWS = {
             zh: '政策、机构、联盟、沟通和执行风险登记册',
         },
     },
+    'section-actors-forces': {
+        need: {
+            en: 'Actors & forces',
+            sv: 'Aktörer & krafter',
+            da: 'Aktører & kræfter',
+            no: 'Aktører & krefter',
+            fi: 'Toimijat & voimat',
+            de: 'Akteure & Kräfte',
+            fr: 'Acteurs & forces',
+            es: 'Actores & fuerzas',
+            nl: 'Actoren & krachten',
+            ar: 'الفاعلون والقوى',
+            he: 'שחקנים וכוחות',
+            ja: 'アクターと力学',
+            ko: '행위자 & 세력',
+            zh: '行动者与力量',
+        },
+        value: {
+            en: 'who is driving the story, what political forces line up behind them, and which institutional levers they can pull',
+            sv: 'vem som driver händelsen, vilka politiska krafter står bakom och vilka institutionella spakar de kan dra',
+            da: 'hvem der driver historien, hvilke politiske kræfter står bag, og hvilke institutionelle håndtag de kan trække',
+            no: 'hvem som driver saken, hvilke politiske krefter står bak, og hvilke institusjonelle spaker de kan trekke',
+            fi: 'kuka ohjaa tarinaa, mitkä poliittiset voimat ovat takana ja mitä institutionaalisia vipuja he voivat käyttää',
+            de: 'wer die Geschichte vorantreibt, welche politischen Kräfte dahinterstehen und welche institutionellen Hebel sie ziehen können',
+            fr: "qui pilote l'histoire, quelles forces politiques sont alignées derrière, et quels leviers institutionnels ils peuvent actionner",
+            es: 'quién impulsa la historia, qué fuerzas políticas están detrás y qué palancas institucionales pueden accionar',
+            nl: 'wie het verhaal aandrijft, welke politieke krachten erachter staan en welke institutionele hefbomen ze kunnen overhalen',
+            ar: 'من يقود القصة، وما القوى السياسية المصطفة خلفه، وأي روافع مؤسسية يمكنهم تحريكها',
+            he: 'מי מניע את הסיפור, אילו כוחות פוליטיים מאחוריו, ואילו מנופים מוסדיים הם יכולים להפעיל',
+            ja: 'ストーリーを動かしているのは誰か、その背後にある政治的勢力、そして彼らが引ける制度的レバー',
+            ko: '누가 이야기를 주도하는지, 그 뒤에 어떤 정치적 세력이 있는지, 그리고 어떤 제도적 지렛대를 당길 수 있는지',
+            zh: '谁在推动故事、哪些政治力量在其背后、以及他们可以拉动哪些制度杠杆',
+        },
+    },
+    'section-threat': {
+        need: {
+            en: 'Threat landscape',
+            sv: 'Hotlandskap',
+            da: 'Trussellandskab',
+            no: 'Trussellandskap',
+            fi: 'Uhkamaisema',
+            de: 'Bedrohungslandschaft',
+            fr: 'Paysage des menaces',
+            es: 'Panorama de amenazas',
+            nl: 'Dreigingslandschap',
+            ar: 'مشهد التهديدات',
+            he: 'נוף האיומים',
+            ja: '脅威ランドスケープ',
+            ko: '위협 환경',
+            zh: '威胁态势',
+        },
+        value: {
+            en: 'hostile actors, attack vectors, consequence trees, and the legislative-disruption pathways the article tracks',
+            sv: 'fientliga aktörer, attackvektorer, konsekvensträd och de lagstiftningsstörningsvägar artikeln spårar',
+            da: 'fjendtlige aktører, angrebsvektorer, konsekvenstræer og de lovgivningsforstyrrelsesveje artiklen følger',
+            no: 'fiendtlige aktører, angrepsvektorer, konsekvenstrær og lovgivningsforstyrrelsesveiene artikkelen sporer',
+            fi: 'vihamieliset toimijat, hyökkäysvektorit, seurauspuut ja lainsäädännön häiriöpolut, joita artikkeli seuraa',
+            de: 'feindliche Akteure, Angriffsvektoren, Konsequenzbäume und die Gesetzgebungsstörungspfade, die der Artikel verfolgt',
+            fr: "acteurs hostiles, vecteurs d'attaque, arbres de conséquences et voies de perturbation législative que l'article suit",
+            es: 'actores hostiles, vectores de ataque, árboles de consecuencias y las vías de disrupción legislativa que sigue el artículo',
+            nl: 'vijandige actoren, aanvalsvectoren, gevolgenbomen en de wetgevingsverstoringspaden die het artikel volgt',
+            ar: 'الجهات المعادية وناقلات الهجوم وأشجار العواقب ومسارات التعطيل التشريعي التي يتتبعها المقال',
+            he: 'שחקנים עוינים, ווקטורי תקיפה, עצי השלכה ונתיבי שיבוש החקיקה שהמאמר עוקב אחריהם',
+            ja: '敵対的アクター、攻撃ベクトル、結果ツリー、および記事が追跡する立法阻害経路',
+            ko: '적대적 행위자, 공격 벡터, 결과 트리, 그리고 기사가 추적하는 입법 교란 경로',
+            zh: '敌对行为者、攻击向量、后果树以及文章追踪的立法干扰路径',
+        },
+    },
+    'section-forward-projection': {
+        need: {
+            en: 'What to watch',
+            sv: 'Vad att bevaka',
+            da: 'Hvad man skal følge',
+            no: 'Hva å følge med på',
+            fi: 'Mitä seurata',
+            de: 'Was zu beobachten ist',
+            fr: 'À surveiller',
+            es: 'Qué vigilar',
+            nl: 'Wat te volgen',
+            ar: 'ما يجب مراقبته',
+            he: 'מה לעקוב אחריו',
+            ja: '注目ポイント',
+            ko: '주목할 사항',
+            zh: '关注要点',
+        },
+        value: {
+            en: 'dated trigger events, parliamentary-calendar dependencies, and the legislative-pipeline forecast',
+            sv: 'daterade triggers, beroenden i parlamentskalendern och prognosen för lagstiftningspipelinen',
+            da: 'daterede triggers, parlamentskalender-afhængigheder og prognosen for lovgivningspipelinen',
+            no: 'daterte triggers, parlamentskalender-avhengigheter og prognosen for lovgivningspipelinen',
+            fi: 'päivätyt laukaisimet, parlamentin kalenterin riippuvuudet ja lainsäädäntöputken ennuste',
+            de: 'datierte Auslöseereignisse, Abhängigkeiten vom Parlamentskalender und die Prognose der Gesetzgebungspipeline',
+            fr: "événements déclencheurs datés, dépendances du calendrier parlementaire et prévision du pipeline législatif",
+            es: 'eventos desencadenantes fechados, dependencias del calendario parlamentario y previsión del pipeline legislativo',
+            nl: 'gedateerde triggergebeurtenissen, afhankelijkheden van de parlementaire agenda en de voorspelling van de wetgevingspijplijn',
+            ar: 'أحداث محفزة مؤرخة، تبعيات الجدول البرلماني، وتوقعات خط الأنابيب التشريعي',
+            he: 'אירועי טריגר מתוארכים, תלויות לוח הפרלמנט ותחזית צינור החקיקה',
+            ja: '日付付きのトリガーイベント、議会カレンダーの依存関係、立法パイプラインの予測',
+            ko: '날짜가 지정된 트리거 이벤트, 의회 일정 의존성, 입법 파이프라인 예측',
+            zh: '标注日期的触发事件、议会日历依赖关系以及立法流程预测',
+        },
+    },
+    'section-electoral-arc': {
+        need: {
+            en: 'Electoral arc & mandate',
+            sv: 'Valbåge & mandat',
+            da: 'Valgbue & mandat',
+            no: 'Valgbue & mandat',
+            fi: 'Vaalikaari & mandaatti',
+            de: 'Wahlbogen & Mandat',
+            fr: 'Arc électoral & mandat',
+            es: 'Arco electoral & mandato',
+            nl: 'Verkiezingsboog & mandaat',
+            ar: 'القوس الانتخابي والتفويض',
+            he: 'קשת בחירות ומנדט',
+            ja: '選挙アークとマンデート',
+            ko: '선거 아크 & 위임',
+            zh: '选举弧线与任期',
+        },
+        value: {
+            en: 'where in the term the story sits, mandate-fulfilment scoring, seat projection, and the presidency-trio context',
+            sv: 'var i mandatperioden händelsen befinner sig, mandatuppfyllelsescoring, mandatprojektion och ordförandetrio-kontexten',
+            da: 'hvor i valgperioden historien ligger, mandatopfyldelsesscoring, mandatprojektion og formandstrio-konteksten',
+            no: 'hvor i valgperioden saken ligger, mandatoppfyllelsesscoring, mandatprojeksjon og formannskapstrio-konteksten',
+            fi: 'mihin kohtaan kautta tarina sijoittuu, mandaatin täyttymisen pisteytys, paikkaennuste ja puheenjohtajatrion konteksti',
+            de: 'wo im Mandat die Geschichte liegt, Mandatserfüllungs-Scoring, Sitzprojektion und Präsidentschaftstrio-Kontext',
+            fr: "où en est l'histoire dans le mandat, notation de l'exécution du mandat, projection des sièges et contexte du trio présidentiel",
+            es: 'dónde se sitúa la historia en el mandato, puntuación de cumplimiento del mandato, proyección de escaños y contexto del trío presidencial',
+            nl: 'waar het verhaal zich in het mandaat bevindt, scoring mandaatuitvoering, zetelprojectie en context van de voorzittersdrieluik',
+            ar: 'موقع القصة في الولاية، تقييم تنفيذ التفويض، توقعات المقاعد، وسياق الترويكا الرئاسية',
+            he: 'איפה בכהונה הסיפור ממוקם, ניקוד מילוי המנדט, תחזית מושבים, והקשר של שלישיית הנשיאות',
+            ja: '物語が任期のどこに位置するか、マンデート遂行スコア、議席予測、議長トリオの文脈',
+            ko: '이야기가 임기의 어디에 위치하는지, 위임 이행 점수, 의석 예측, 의장 트리오 맥락',
+            zh: '故事在任期中所处的位置、任期履行评分、席位预测以及主席三人组的背景',
+        },
+    },
+    'section-pestle-context': {
+        need: {
+            en: 'PESTLE & structural context',
+            sv: 'PESTLE & strukturell kontext',
+            da: 'PESTLE & strukturel kontekst',
+            no: 'PESTLE & strukturell kontekst',
+            fi: 'PESTLE & rakenteellinen konteksti',
+            de: 'PESTLE & struktureller Kontext',
+            fr: 'PESTLE & contexte structurel',
+            es: 'PESTLE & contexto estructural',
+            nl: 'PESTLE & structurele context',
+            ar: 'PESTLE والسياق الهيكلي',
+            he: 'PESTLE והקשר מבני',
+            ja: 'PESTLEと構造的コンテキスト',
+            ko: 'PESTLE & 구조적 맥락',
+            zh: 'PESTLE与结构性背景',
+        },
+        value: {
+            en: 'political, economic, social, technological, legal, and environmental forces plus the historical baseline',
+            sv: 'politiska, ekonomiska, sociala, tekniska, juridiska och miljömässiga krafter samt historisk baslinje',
+            da: 'politiske, økonomiske, sociale, teknologiske, juridiske og miljømæssige kræfter samt historisk baseline',
+            no: 'politiske, økonomiske, sosiale, teknologiske, juridiske og miljømessige krefter pluss historisk grunnlinje',
+            fi: 'poliittiset, taloudelliset, sosiaaliset, teknologiset, juridiset ja ympäristötekijät sekä historiallinen lähtötaso',
+            de: 'politische, wirtschaftliche, soziale, technologische, rechtliche und Umweltkräfte plus historische Baseline',
+            fr: 'forces politiques, économiques, sociales, technologiques, juridiques et environnementales plus la base historique',
+            es: 'fuerzas políticas, económicas, sociales, tecnológicas, legales y ambientales más la línea base histórica',
+            nl: 'politieke, economische, sociale, technologische, juridische en milieukrachten plus de historische basislijn',
+            ar: 'القوى السياسية والاقتصادية والاجتماعية والتكنولوجية والقانونية والبيئية بالإضافة إلى الأساس التاريخي',
+            he: 'כוחות פוליטיים, כלכליים, חברתיים, טכנולוגיים, משפטיים וסביבתיים בתוספת קו הבסיס ההיסטורי',
+            ja: '政治・経済・社会・技術・法律・環境の各要因と歴史的ベースライン',
+            ko: '정치, 경제, 사회, 기술, 법률, 환경 요인과 역사적 기준선',
+            zh: '政治、经济、社会、技术、法律和环境力量加上历史基准',
+        },
+    },
+    'section-continuity': {
+        need: {
+            en: 'Cross-run continuity',
+            sv: 'Kontinuitet mellan körningar',
+            da: 'Kryds-kørsels-kontinuitet',
+            no: 'Kontinuitet mellom kjøringer',
+            fi: 'Ajojen välinen jatkuvuus',
+            de: 'Laufübergreifende Kontinuität',
+            fr: 'Continuité inter-exécutions',
+            es: 'Continuidad entre ejecuciones',
+            nl: 'Continuïteit tussen runs',
+            ar: 'استمرارية عبر التشغيلات',
+            he: 'רציפות בין הרצות',
+            ja: 'クロスラン継続性',
+            ko: '교차 실행 연속성',
+            zh: '跨运行连续性',
+        },
+        value: {
+            en: 'how this run links to prior sessions, what changed, and how confidence shifted between runs',
+            sv: 'hur denna körning kopplar till tidigare sessioner, vad som förändrats och hur förtroendet skiftat mellan körningar',
+            da: 'hvordan denne kørsel forbinder til tidligere sessioner, hvad der er ændret, og hvordan tilliden har skiftet mellem kørsler',
+            no: 'hvordan denne kjøringen kobler til tidligere økter, hva som er endret, og hvordan tilliten har skiftet mellom kjøringer',
+            fi: 'miten tämä ajo kytkeytyy aiempiin istuntoihin, mikä on muuttunut ja miten luottamus on siirtynyt ajojen välillä',
+            de: 'wie dieser Lauf mit früheren Sitzungen verknüpft ist, was sich geändert hat und wie sich das Vertrauen zwischen Läufen verschoben hat',
+            fr: "comment cette exécution se relie aux sessions précédentes, ce qui a changé, et comment la confiance s'est déplacée entre les exécutions",
+            es: 'cómo se vincula esta ejecución con sesiones anteriores, qué cambió y cómo se desplazó la confianza entre ejecuciones',
+            nl: 'hoe deze run aansluit op eerdere sessies, wat er is veranderd en hoe het vertrouwen tussen runs is verschoven',
+            ar: 'كيفية ارتباط هذا التشغيل بالجلسات السابقة، وما الذي تغير، وكيف تحولت الثقة بين عمليات التشغيل',
+            he: 'כיצד הרצה זו מתקשרת להפעלות קודמות, מה השתנה, וכיצד הביטחון השתנה בין הרצות',
+            ja: 'この実行が以前のセッションとどう繋がるか、何が変わったか、実行間で信頼性がどう変動したか',
+            ko: '이 실행이 이전 세션과 어떻게 연결되는지, 무엇이 변경되었는지, 실행 간에 신뢰도가 어떻게 변화했는지',
+            zh: '本次运行如何与先前会话关联、变化了什么以及置信度在运行之间如何变化',
+        },
+    },
+    'section-extended-intel': {
+        need: {
+            en: 'Extended intelligence',
+            sv: 'Utökad underrättelse',
+            da: 'Udvidet efterretning',
+            no: 'Utvidet etterretning',
+            fi: 'Laajennettu tiedustelu',
+            de: 'Erweiterte Aufklärung',
+            fr: 'Renseignement étendu',
+            es: 'Inteligencia ampliada',
+            nl: 'Uitgebreide inlichtingen',
+            ar: 'استخبارات موسعة',
+            he: 'מודיעין מורחב',
+            ja: '拡張インテリジェンス',
+            ko: '확장 인텔리전스',
+            zh: '扩展情报',
+        },
+        value: {
+            en: "devil's-advocate critique, comparative international parallels, historical precedents, and media-framing analysis",
+            sv: 'djävulens-advokat-kritik, jämförande internationella paralleller, historiska prejudikat och mediaframing-analys',
+            da: 'djævlens-advokat-kritik, sammenlignende internationale paralleller, historiske præcedenser og medieframing-analyse',
+            no: 'djevelens advokat-kritikk, sammenlignende internasjonale paralleller, historiske presedenser og mediaframing-analyse',
+            fi: 'paholaisen asianajaja -kritiikki, kansainväliset vertailut, historialliset ennakkotapaukset ja media-analyysi',
+            de: 'Devil-Advocate-Kritik, vergleichende internationale Parallelen, historische Präzedenzfälle und Medien-Framing-Analyse',
+            fr: "critique de l'avocat du diable, parallèles internationaux comparatifs, précédents historiques et analyse du cadrage médiatique",
+            es: 'crítica de abogado del diablo, paralelismos internacionales comparativos, precedentes históricos y análisis de encuadre mediático',
+            nl: 'devils-advocate-kritiek, vergelijkende internationale parallellen, historische precedenten en media-framinganalyse',
+            ar: 'نقد محامي الشيطان، توازيات دولية مقارنة، سوابق تاريخية، وتحليل التأطير الإعلامي',
+            he: 'ביקורת פרקליט השטן, מקבילות בינלאומיות השוואתיות, תקדימים היסטוריים וניתוח מסגור תקשורתי',
+            ja: '悪魔の代弁者批評、比較国際パラレル、歴史的先例、メディアフレーミング分析',
+            ko: '악마의 변호인 비판, 비교 국제 평행 사례, 역사적 선례, 미디어 프레이밍 분석',
+            zh: '魔鬼代言人批评、比较国际平行案例、历史先例和媒体框架分析',
+        },
+    },
+    'section-mcp-reliability': {
+        need: {
+            en: 'MCP data reliability',
+            sv: 'MCP-datatillförlitlighet',
+            da: 'MCP-datapålidelighed',
+            no: 'MCP-datapålitelighet',
+            fi: 'MCP-datan luotettavuus',
+            de: 'MCP-Datenzuverlässigkeit',
+            fr: 'Fiabilité des données MCP',
+            es: 'Fiabilidad de datos MCP',
+            nl: 'Betrouwbaarheid MCP-gegevens',
+            ar: 'موثوقية بيانات MCP',
+            he: 'אמינות נתוני MCP',
+            ja: 'MCPデータ信頼性',
+            ko: 'MCP 데이터 신뢰성',
+            zh: 'MCP数据可靠性',
+        },
+        value: {
+            en: 'which feeds were healthy, which were degraded, and how the data limitations bound the conclusions',
+            sv: 'vilka flöden var friska, vilka var degraderade och hur databegränsningar binder slutsatserna',
+            da: 'hvilke feeds var sunde, hvilke var forringede, og hvordan databegrænsningerne binder konklusionerne',
+            no: 'hvilke feeds var sunne, hvilke var degradert, og hvordan databegrensninger binder konklusjonene',
+            fi: 'mitkä syötteet olivat terveitä, mitkä huonontuneita ja miten datarajoitukset rajaavat johtopäätöksiä',
+            de: 'welche Feeds gesund waren, welche degradiert, und wie die Datengrenzen die Schlussfolgerungen binden',
+            fr: "quels flux étaient sains, lesquels étaient dégradés et comment les limites de données contraignent les conclusions",
+            es: 'qué fuentes estaban sanas, cuáles degradadas y cómo las limitaciones de datos restringen las conclusiones',
+            nl: 'welke feeds gezond waren, welke gedegradeerd, en hoe databeperkingen de conclusies inperken',
+            ar: 'أي الموجزات كانت صحية، وأيها متدهورة، وكيف تقيد قيود البيانات الاستنتاجات',
+            he: 'אילו פידים היו תקינים, אילו היו פגומים, וכיצד מגבלות הנתונים תוחמות את המסקנות',
+            ja: 'どのフィードが健全だったか、どれが劣化していたか、そしてデータの制約が結論をどう制限するか',
+            ko: '어떤 피드가 건강했고, 어떤 피드가 저하되었으며, 데이터 제약이 결론을 어떻게 제한하는지',
+            zh: '哪些数据源健康、哪些已降级，以及数据限制如何约束结论',
+        },
+    },
+    'section-quality-reflection': {
+        need: {
+            en: 'Analytical quality & reflection',
+            sv: 'Analytisk kvalitet & reflektion',
+            da: 'Analytisk kvalitet & refleksion',
+            no: 'Analytisk kvalitet & refleksjon',
+            fi: 'Analyyttinen laatu & pohdinta',
+            de: 'Analytische Qualität & Reflexion',
+            fr: 'Qualité analytique & réflexion',
+            es: 'Calidad analítica & reflexión',
+            nl: 'Analytische kwaliteit & reflectie',
+            ar: 'الجودة التحليلية والتأمل',
+            he: 'איכות אנליטית ורפלקציה',
+            ja: '分析品質と内省',
+            ko: '분석 품질 & 성찰',
+            zh: '分析质量与反思',
+        },
+        value: {
+            en: 'self-assessment scores, methodology audit, structured-analytic-techniques used, and known limitations',
+            sv: 'självvärderingspoäng, metodologirevision, strukturerade analystekniker som använts och kända begränsningar',
+            da: 'selvevalueringsresultater, metoderevision, anvendte strukturerede analyseteknikker og kendte begrænsninger',
+            no: 'selvvurderingsskår, metoderevisjon, brukte strukturerte analyseteknikker og kjente begrensninger',
+            fi: 'itsearviointipisteet, metodologian auditointi, käytetyt strukturoidut analyysitekniikat ja tunnetut rajoitukset',
+            de: 'Selbsteinschätzungs-Scores, Methodologie-Audit, eingesetzte strukturierte Analysetechniken und bekannte Einschränkungen',
+            fr: "scores d'auto-évaluation, audit méthodologique, techniques analytiques structurées utilisées et limitations connues",
+            es: 'puntuaciones de autoevaluación, auditoría metodológica, técnicas analíticas estructuradas utilizadas y limitaciones conocidas',
+            nl: 'zelfevaluatiescores, methodologie-audit, gebruikte gestructureerde analytische technieken en bekende beperkingen',
+            ar: 'درجات التقييم الذاتي، تدقيق المنهجية، تقنيات التحليل المنظمة المستخدمة، والقيود المعروفة',
+            he: 'ציוני הערכה עצמית, ביקורת מתודולוגית, טכניקות אנליטיות מובנות שנעשה בהן שימוש ומגבלות ידועות',
+            ja: '自己評価スコア、方法論監査、使用された構造化分析技法、および既知の制約',
+            ko: '자가 평가 점수, 방법론 감사, 사용된 구조화된 분석 기법 및 알려진 한계',
+            zh: '自我评估分数、方法论审计、使用的结构化分析技术和已知限制',
+        },
+    },
 };
 /* ─── Section icons ─────────────────────────────────────────────── */
 /** Visual icons for each reader guide section to improve scannability. */
@@ -370,24 +676,56 @@ const SECTION_ICONS = {
     'section-executive-brief': '📋',
     'section-synthesis': '🔗',
     'section-significance': '⚖️',
+    'section-actors-forces': '🎭',
     'section-coalitions-voting': '🤝',
     'section-stakeholder-map': '👥',
     'section-economic-context': '💶',
-    'section-scenarios': '🔮',
     'section-risk': '⚠️',
+    'section-threat': '🛡️',
+    'section-scenarios': '🔮',
+    'section-forward-projection': '🔭',
+    'section-electoral-arc': '🗳️',
+    'section-pestle-context': '🌍',
+    'section-continuity': '🔁',
+    'section-extended-intel': '🧠',
+    'section-mcp-reliability': '📡',
+    'section-quality-reflection': '🪞',
 };
+/**
+ * Look up the visual icon for a known article section.
+ *
+ * Exposed so the article-level Table-of-Contents (`buildArticleToc`)
+ * can render the same emoji that the Reader Intelligence Guide uses
+ * for each section, keeping the two navigation surfaces visually
+ * consistent. Unknown section IDs (e.g. ad-hoc `supplementary-…` or
+ * appendix anchors) fall back to a generic 📎 paperclip.
+ *
+ * @param sectionId - Anchor id of the section (e.g. `section-risk`)
+ * @returns Single emoji glyph used as a `guide-icon`
+ */
+export function getReaderGuideSectionIcon(sectionId) {
+    return SECTION_ICONS[sectionId] ?? '📎';
+}
 /* ─── HTML builder ───────────────────────────────────────────────── */
 /**
  * Build a translated Reader Intelligence Guide as an HTML section.
  * Emits exactly one component with `data-component="reader-intelligence-guide"`
  * for de-duplication detection by E2E tests.
  *
+ * The guide renders one row per emitted article section that has a
+ * curated reader-need translation (see {@link READER_GUIDE_ROWS}). The
+ * `included` list is no longer surfaced — the previous "source artifact"
+ * column duplicated the per-section navigation that the Analysis Index
+ * appendix already presents, and clutters the headline reader lens. The
+ * parameter is kept on the signature for backward compatibility with
+ * callers that may pre-compute the run manifest.
+ *
  * @param lang - Target language code
  * @param sections - Emitted section TOC entries, in document order
- * @param included - Included artifacts, used to name each section's source
+ * @param _included - (Unused) Included artifacts; kept for API stability
  * @returns HTML fragment for the guide, or empty string if no rows match
  */
-export function buildReaderIntelligenceGuideHtml(lang, sections, included) {
+export function buildReaderIntelligenceGuideHtml(lang, sections, _included = []) {
     const dir = getTextDirection(lang);
     const rows = [];
     for (const section of sections) {
@@ -396,10 +734,8 @@ export function buildReaderIntelligenceGuideHtml(lang, sections, included) {
             continue;
         const need = getLocalizedString(rowData.need, lang);
         const value = getLocalizedString(rowData.value, lang);
-        const source = included.find((artifact) => artifact.sectionId === section.id)?.runRelPath;
-        const sourceLabel = source ? `<code>${escapeHTML(source)}</code>` : escapeHTML(section.title);
-        const sectionIcon = SECTION_ICONS[section.id] ?? '📎';
-        rows.push(`<tr><td><span class="guide-icon" aria-hidden="true">${sectionIcon}</span> <a href="#${escapeHTML(section.id)}">${escapeHTML(need)}</a></td><td>${escapeHTML(value)}</td><td>${sourceLabel}</td></tr>`);
+        const sectionIcon = getReaderGuideSectionIcon(section.id);
+        rows.push(`<tr><td><span class="guide-icon" aria-hidden="true">${sectionIcon}</span> <a href="#${escapeHTML(section.id)}">${escapeHTML(need)}</a></td><td>${escapeHTML(value)}</td></tr>`);
     }
     if (rows.length === 0)
         return '';
@@ -407,14 +743,13 @@ export function buildReaderIntelligenceGuideHtml(lang, sections, included) {
     const intro = getLocalizedString(READER_GUIDE_INTRO_LABELS, lang);
     const colNeed = getLocalizedString(READER_GUIDE_COL_NEED_LABELS, lang);
     const colValue = getLocalizedString(READER_GUIDE_COL_VALUE_LABELS, lang);
-    const colSource = getLocalizedString(READER_GUIDE_COL_SOURCE_LABELS, lang);
     return `<section id="${READER_GUIDE_SECTION_ID}" data-component="reader-intelligence-guide" aria-label="${escapeHTML(title)}"${dir === 'rtl' ? ' dir="rtl"' : ''}>
 <h2 id="${READER_GUIDE_SECTION_ID}-heading"><span class="guide-icon" aria-hidden="true">🧭</span> ${escapeHTML(title)}</h2>
 <p class="reader-guide-intro">${escapeHTML(intro)}</p>
 <div class="table-scroll" role="region" tabindex="0" aria-labelledby="${READER_GUIDE_SECTION_ID}-heading">
 <table class="reader-guide-table">
 <caption class="sr-only">${escapeHTML(title)}</caption>
-<thead><tr><th scope="col">${escapeHTML(colNeed)}</th><th scope="col">${escapeHTML(colValue)}</th><th scope="col">${escapeHTML(colSource)}</th></tr></thead>
+<thead><tr><th scope="col">${escapeHTML(colNeed)}</th><th scope="col">${escapeHTML(colValue)}</th></tr></thead>
 <tbody>
 ${rows.join('\n')}
 </tbody>

@@ -10,6 +10,7 @@ import {
   READER_GUIDE_COL_NEED_LABELS,
   READER_GUIDE_COL_VALUE_LABELS,
   READER_GUIDE_COL_SOURCE_LABELS,
+  getReaderGuideSectionIcon,
 } from '../../scripts/aggregator/reader-intelligence-guide.js';
 import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
 
@@ -18,6 +19,9 @@ describe('reader-intelligence-guide', () => {
     { id: 'section-executive-brief', title: 'Executive Brief' },
     { id: 'section-synthesis', title: 'Synthesis Summary' },
     { id: 'section-risk', title: 'Risk Assessment' },
+    { id: 'section-threat', title: 'Threat Landscape' },
+    { id: 'section-electoral-arc', title: 'Electoral Arc & Mandate' },
+    { id: 'section-quality-reflection', title: 'Analytical Quality & Reflection' },
   ];
 
   const sampleIncluded = [
@@ -50,18 +54,27 @@ describe('reader-intelligence-guide', () => {
       }
     });
 
-    it('renders translated table headers for all 14 languages', () => {
+    it('renders translated table headers for all 14 languages (need + value only)', () => {
       for (const lang of ALL_LANGUAGES) {
         const html = buildReaderIntelligenceGuideHtml(lang, sampleSections, sampleIncluded);
         // Column headers go through escapeHTML; check that column content is present
         // (escapeHTML only affects &, <, >, ", ' → &#39;)
         const needLabel = READER_GUIDE_COL_NEED_LABELS[lang].replace(/'/g, '&#39;');
         const valueLabel = READER_GUIDE_COL_VALUE_LABELS[lang].replace(/'/g, '&#39;');
-        const sourceLabel = READER_GUIDE_COL_SOURCE_LABELS[lang].replace(/'/g, '&#39;');
         expect(html).toContain(needLabel);
         expect(html).toContain(valueLabel);
-        expect(html).toContain(sourceLabel);
       }
+    });
+
+    it('does NOT render the deprecated "Source artifact" column', () => {
+      const html = buildReaderIntelligenceGuideHtml('en', sampleSections, sampleIncluded);
+      // Three header cells used to be present (Need / Value / Source);
+      // the source column was removed in favour of the Analysis Index appendix.
+      const thMatches = html.match(/<th scope="col">/g);
+      expect(thMatches).toHaveLength(2);
+      // No <code>…runRelPath…</code> inline source cells should remain.
+      expect(html).not.toContain('<code>executive-brief.md</code>');
+      expect(html).not.toContain('<code>synthesis.md</code>');
     });
 
     it('renders translated introduction text for all 14 languages', () => {
@@ -86,16 +99,21 @@ describe('reader-intelligence-guide', () => {
       expect(html).toContain('href="#section-risk"');
     });
 
-    it('shows the source artifact run-relative path as <code>', () => {
+    it('emits a row for every recognised section (including extended sections)', () => {
       const html = buildReaderIntelligenceGuideHtml('en', sampleSections, sampleIncluded);
-      expect(html).toContain('<code>executive-brief.md</code>');
-      expect(html).toContain('<code>synthesis.md</code>');
+      // The threat / electoral-arc / quality-reflection sections are
+      // newly covered by the guide (previously omitted).
+      expect(html).toContain('href="#section-threat"');
+      expect(html).toContain('href="#section-electoral-arc"');
+      expect(html).toContain('href="#section-quality-reflection"');
     });
 
-    it('falls back to section title when no artifact is found for a section', () => {
-      const html = buildReaderIntelligenceGuideHtml('en', sampleSections, sampleIncluded);
-      // Risk section has no matching included artifact, so it uses the section title
-      expect(html).toContain('Risk Assessment');
+    it('falls back gracefully when no included artifact matches a row', () => {
+      const html = buildReaderIntelligenceGuideHtml('en', [
+        { id: 'section-risk', title: 'Risk Assessment' },
+      ], []);
+      // No source column means we don't need an artifact to render the row.
+      expect(html).toContain('href="#section-risk"');
     });
 
     it('returns empty string when no sections match the guide rows', () => {
@@ -139,10 +157,10 @@ describe('reader-intelligence-guide', () => {
       expect(html).toContain('id="reader-intelligence-guide-heading"');
     });
 
-    it('adds scope="col" to all table header cells for screen-reader nav', () => {
+    it('adds scope="col" to the two surviving table header cells', () => {
       const html = buildReaderIntelligenceGuideHtml('en', sampleSections, sampleIncluded);
       const thMatches = html.match(/<th scope="col">/g);
-      expect(thMatches).toHaveLength(3);
+      expect(thMatches).toHaveLength(2);
     });
 
     it('adds a sr-only <caption> that matches the guide title', () => {
@@ -221,10 +239,26 @@ describe('reader-intelligence-guide', () => {
       }
     });
 
-    it('all 14 languages have non-empty column source labels', () => {
+    it('preserves READER_GUIDE_COL_SOURCE_LABELS export for back-compat', () => {
+      // Even though the source column is no longer rendered, the constant
+      // is kept exported so downstream consumers (tests, future tooling)
+      // do not break. Spot-check all 14 languages remain populated.
       for (const lang of ALL_LANGUAGES) {
         expect(READER_GUIDE_COL_SOURCE_LABELS[lang]).toBeTruthy();
       }
+    });
+  });
+
+  describe('getReaderGuideSectionIcon', () => {
+    it('returns a known icon for each canonical section', () => {
+      expect(getReaderGuideSectionIcon('section-risk')).toBe('⚠️');
+      expect(getReaderGuideSectionIcon('section-threat')).toBe('🛡️');
+      expect(getReaderGuideSectionIcon('section-electoral-arc')).toBe('🗳️');
+      expect(getReaderGuideSectionIcon('section-pestle-context')).toBe('🌍');
+    });
+
+    it('returns the 📎 fallback for unknown section ids', () => {
+      expect(getReaderGuideSectionIcon('section-unknown-xyz')).toBe('📎');
     });
   });
 });
