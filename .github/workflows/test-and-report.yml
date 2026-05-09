@@ -343,8 +343,28 @@ jobs:
       - name: Install Lighthouse CI
         run: npm install -g @lhci/cli@0.15.1
 
+      - name: Resolve Chrome path for Lighthouse
+        # The Playwright image does NOT install system google-chrome — it ships
+        # chromium under /ms-playwright/chromium-*/chrome-linux/chrome. Lighthouse
+        # uses chrome-launcher which respects $CHROME_PATH; ask the
+        # playwright-core package (transitive dep of @playwright/test) for the
+        # exact path so we don't hard-code a build-numbered subdirectory.
+        run: |
+          set -euo pipefail
+          CHROME_PATH=$(node -e "console.log(require('playwright-core').chromium.executablePath())")
+          if [ ! -x "$CHROME_PATH" ]; then
+            echo "❌ Resolved CHROME_PATH is not executable: $CHROME_PATH" >&2
+            exit 1
+          fi
+          echo "✅ Resolved Chrome: $CHROME_PATH"
+          echo "CHROME_PATH=$CHROME_PATH" >> "$GITHUB_ENV"
+
       - name: Run Lighthouse CI
-        run: lhci autorun
+        # `--no-sandbox` is required when running Chrome as root inside the
+        # Playwright container (the LHCI default Chrome flags do not include it).
+        env:
+          LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.sha }}
+        run: lhci autorun --collect.settings.chromeFlags="--no-sandbox --headless=new"
 
       - name: Upload Lighthouse reports
         if: always()

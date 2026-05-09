@@ -60,13 +60,61 @@ jobs:
         # `workflow_dispatch` provides `inputs.url`; the scheduled run falls
         # back to the production canonical URL. Single source of truth so the
         # scan step below stays declarative.
+        #
+        # Hardening (per code-review feedback):
+        #   1. Read the input via env, not direct ${{ }} interpolation, so a
+        #      crafted value can't break out of the shell command.
+        #   2. Strip CR/LF (and any other control chars) before writing to
+        #      $GITHUB_OUTPUT so a newline can't inject a second output line.
+        #   3. Enforce the URL scheme is `https://` and the host matches an
+        #      allowlist — prevents using the runner as an SSRF probe against
+        #      arbitrary internal/external targets (file://, http://169.254.x,
+        #      private RFC1918 ranges, etc.).
+        #   4. Emit via `printf` (not `echo`) so backslash sequences in any
+        #      surviving payload are not interpreted.
+        env:
+          INPUT_URL: ${{ github.event.inputs.url }}
+          DEFAULT_URL: https://www.euparliamentmonitor.eu
+          # Comma-separated host allowlist. Add staging hosts here as needed.
+          ALLOWED_HOSTS: 'www.euparliamentmonitor.eu,euparliamentmonitor.eu'
         run: |
-          URL="${{ github.event.inputs.url }}"
+          set -euo pipefail
+          URL="${INPUT_URL:-}"
           if [ -z "$URL" ]; then
-            URL="https://www.euparliamentmonitor.eu"
+            URL="$DEFAULT_URL"
           fi
-          echo "url=$URL" >> "$GITHUB_OUTPUT"
-          echo "🎯 ZAP target: $URL"
+          # Strip CR/LF and other control characters (tab, etc.) defensively
+          URL=$(printf '%s' "$URL" | tr -d '\r\n\t')
+          # Scheme must be HTTPS — refuse anything else (file://, http://, gopher://, ...)
+          case "$URL" in
+            https://*) ;;
+            *)
+              echo "❌ Refusing non-HTTPS target: $URL" >&2
+              exit 1
+              ;;
+          esac
+          # Extract host portion ("https://host[:port]/path…" → "host")
+          HOST=$(printf '%s' "$URL" | awk -F/ '{print $3}' | awk -F: '{print $1}')
+          if [ -z "$HOST" ]; then
+            echo "❌ Could not parse host from URL: $URL" >&2
+            exit 1
+          fi
+          # Allowlist enforcement
+          ALLOWED=0
+          IFS=',' read -ra HOSTS <<< "$ALLOWED_HOSTS"
+          for h in "${HOSTS[@]}"; do
+            if [ "$HOST" = "$h" ]; then
+              ALLOWED=1
+              break
+            fi
+          done
+          if [ "$ALLOWED" -ne 1 ]; then
+            echo "❌ Host '$HOST' is not in ALLOWED_HOSTS ($ALLOWED_HOSTS)" >&2
+            exit 1
+          fi
+          # Safe write: printf (not echo) and explicit newline terminator
+          printf 'url=%s\n' "$URL" >> "$GITHUB_OUTPUT"
+          printf '🎯 ZAP target: %s\n' "$URL"
 
       - name: ZAP Full Scan
         # SHA-pinned per Hack23 security policy. v0.13.0 — the same release
