@@ -1,6 +1,6 @@
 ---
-title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
-description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
+title: "The March 2026 committee output cycle affects all six stakeholder groups, with ECON banking reforms and LIBE anti-corruption measures…"
+description: "The March 2026 committee output cycle affects all six stakeholder groups, with ECON banking reforms and LIBE anti-corruption measures carrying the broadest cross-stakeholder impact. Analysis based on 236 adopted texts from EP10, with focus on the 24 texts adopted during the pre-recess March 26…"
 date: 2026-04-07
 article_type: committee-reports
 slug: 2026-04-07-committee-reports

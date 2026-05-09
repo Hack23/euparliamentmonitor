@@ -1,5 +1,5 @@
 ---
-title: "📊 Synthesis Summary — Easter Recess Day 8 / Run 187"
+title: "Easter Recess Day 8 / Run 187"
 description: "Easter recess continues. Parliament remains suspended until April 27. Run 187 — the ninth monitoring run in the Easter Recess series — generates one material intelligence increment: the confirmation of the EU-China WTO tariff rate quota agreement (TA-10-2026-0101) as a March 26 Sprint II output…"
 date: 2026-04-19
 article_type: breaking

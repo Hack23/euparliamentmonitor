@@ -1,6 +1,6 @@
 ---
-title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
-description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
+title: "The March 2026 Strasbourg sessions produced a multi-domain legislative sprint across five committee jurisdictions. This scoring…"
+description: "The March 2026 Strasbourg sessions produced a multi-domain legislative sprint across five committee jurisdictions. This scoring identifies the highest-priority items for today's committee reports article, deliberately differentiating from prior runs (Run 52: Banking Union/tariffs; Run 180…"
 date: 2026-04-17
 article_type: committee-reports
 slug: 2026-04-17-committee-reports

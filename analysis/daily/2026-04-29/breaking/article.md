@@ -1,6 +1,6 @@
 ---
-title: "Intelligence Synthesis Summary — EU Parliament April 28, 2026"
-description: "Admiralty Grade: B2 | Date: 2026-04-29 | Article Type: breaking"
+title: "EU Parliament Plenary Session April 28, 2026"
+description: "The European Parliament convened for a major plenary vote on April 28, 2026, adopting 19 texts across five policy domains: institutional finance, MEP immunity proceedings, trade policy, human rights, and environmental regulation. The session represents a critical juncture in three ongoing…"
 date: 2026-04-29
 article_type: breaking
 slug: 2026-04-29-breaking

@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EU Parliament Month in Review: April 2026"
-description: "Framework: Cross-artifact synthesis and intelligence integration"
+title: "EU Parliament Month in Review: April 2026"
+description: "The EU Parliament in April 2026 delivered a historically dense legislative agenda — including 2027 Budget Guidelines, a US tariff defense package, a landmark housing framework, and continued Ukraine solidarity — all under record coalition fragmentation. EP10 Year 2 is on pace for +46%…"
 date: 2026-04-29
 article_type: month-in-review
 slug: 2026-04-29-month-in-review

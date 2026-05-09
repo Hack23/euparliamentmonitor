@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — Week in Review (3 Apr – 1 May 2026)"
-description: "Purpose: This artifact provides a coherent single-voice synthesis integrating all analysis streams: PESTLE, stakeholder map, coalition dynamics, risk matrix, SWOT, threat landscape, scenario forecast, forces analysis, impact matrix, and historical baseline. It is the primary source for Stage D…"
+title: "EU Parliament Week in Review"
+description: "The European Parliament's April 2026 plenary sessions (primarily the Strasbourg session of 27–30 April) produced a dense legislative harvest across three strategic fault lines: EU-US trade tensions, democratic backsliding accountability, and digital governance. The Parliament adopted 19+ texts…"
 date: 2026-05-09
 article_type: week-in-review
 slug: 2026-05-09-week-in-review

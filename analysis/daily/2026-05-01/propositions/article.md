@@ -1,6 +1,6 @@
 ---
-title: "Intelligence Synthesis Summary — EU Parliament Propositions"
-description: "Date: 2026-05-01 | Article Type: propositions | Coverage: 2026-04-24 to 2026-05-01"
+title: "EU Parliament Propositions"
+description: "The final week of April 2026 delivered one of the most substantive legislative batches of the EP10 term: three urgency resolutions, a landmark animal welfare regulation completing trilogue, a critical data-transfer agreement with Iceland, several discharge procedures, and two major pieces of…"
 date: 2026-05-01
 article_type: propositions
 slug: 2026-05-01-propositions

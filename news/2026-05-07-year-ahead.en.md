@@ -1,6 +1,6 @@
 ---
-title: "🎯 Synthesis Summary — EU Parliament Year Ahead 2026–2027"
-description: "Date: 2026-05-07 | Methodology: Multi-layer intelligence synthesis across all analysis artifacts"
+title: "EU Parliament Year Ahead"
+description: "The European Parliament enters a pivotal legislative year from May 2026 to May 2027, facing three simultaneous pressure systems: (1) defence integration accelerating under the ReArm Europe framework and Ukraine war fatigue; (2) digital regulation enforcement — the Digital Markets Act (DMA) and…"
 date: 2026-05-07
 article_type: year-ahead
 slug: 2026-05-07-year-ahead

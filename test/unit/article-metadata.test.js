@@ -18,12 +18,16 @@ import {
   deriveWeekRange,
   extractArtifactHighlight,
   extractFirstH1,
+  extractLedeAfterHeading,
   extractStrongProseLine,
   humanizeSlug,
+  isArtifactCategoryHeading,
   isGenericHeading,
   resolveArticleMetadata,
   shouldSkipDescriptionLine,
+  stripArtifactCategoryAffix,
   stripInlineMarkdown,
+  stripLeadingProseLabel,
   truncateDescription,
   truncateTitle,
 } from '../../scripts/aggregator/article-metadata.js';
@@ -57,6 +61,20 @@ describe('shouldSkipDescriptionLine — tightened leak filter', () => {
     expect(shouldSkipDescriptionLine('Window: Q1 2026')).toBe(true);
     expect(shouldSkipDescriptionLine('Series: EP10')).toBe(true);
     expect(shouldSkipDescriptionLine('Parliamentary Status: Active')).toBe(true);
+  });
+
+  it('rejects artefact preamble rows (Purpose, Reporting Window, Sources, …)', () => {
+    expect(
+      shouldSkipDescriptionLine(
+        '**Purpose:** This artifact provides a coherent single-voice synthesis integrating all analysis streams.'
+      )
+    ).toBe(true);
+    expect(shouldSkipDescriptionLine('**Reporting Window:** 3 April – 1 May 2026')).toBe(true);
+    expect(shouldSkipDescriptionLine('Reporting Period: Q1 2026')).toBe(true);
+    expect(shouldSkipDescriptionLine('Sources: EP Open Data Portal, IMF WEO')).toBe(true);
+    expect(shouldSkipDescriptionLine('Source: European Parliament press service')).toBe(true);
+    expect(shouldSkipDescriptionLine('Region: EU27')).toBe(true);
+    expect(shouldSkipDescriptionLine('Topic: Digital Markets Act')).toBe(true);
   });
 
   it('rejects decorative separators', () => {
@@ -227,7 +245,7 @@ describe('isGenericHeading', () => {
     ).toBe(true);
   });
 
-  it('accepts any non-generic editorial headline', () => {
+  it('accepts any non-genuine-editorial headline', () => {
     expect(
       isGenericHeading(
         'Banking Union Breakthrough and Anti-Corruption Landmark',
@@ -237,11 +255,40 @@ describe('isGenericHeading', () => {
     ).toBe(false);
     expect(
       isGenericHeading(
-        'Synthesis Summary — EP10 Q1 2026 Motions & Resolutions',
+        'Coalition Realignment After Plenary Vote',
         'motions',
         '2026-04-20'
       )
     ).toBe(false);
+  });
+
+  it('rejects artefact-category H1 prefixes (Synthesis Summary, Executive Brief, …)', () => {
+    // These structural labels appear as the H1 of editorial artefacts but
+    // must NOT leak into the article <title>.
+    expect(
+      isGenericHeading(
+        'Synthesis Summary — EP10 Q1 2026 Motions & Resolutions',
+        'motions',
+        '2026-04-20'
+      )
+    ).toBe(true);
+    expect(
+      isGenericHeading(
+        'Executive Brief — EU Parliament Week in Review',
+        'week-in-review',
+        '2026-05-09'
+      )
+    ).toBe(true);
+    expect(
+      isGenericHeading(
+        'Intelligence Briefing — 2026-04-20',
+        'breaking',
+        '2026-04-20'
+      )
+    ).toBe(true);
+    expect(
+      isGenericHeading('Breaking News Analysis: Coalition Shift', 'breaking', '2026-04-20')
+    ).toBe(true);
   });
 
   it('rejects empty headings', () => {
@@ -590,7 +637,7 @@ describe('extractArtifactHighlight', () => {
         '<!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->',
         '<!-- SPDX-License-Identifier: Apache-2.0 -->',
         '',
-        '# Master Intelligence Synthesis — EP10 Q1 2026',
+        '# Coalition Realignment After Plenary Vote',
         '',
         'The quarter closes with a rightward shift across committee coalitions and a decisive anti-corruption package.',
       ].join('\n'),
@@ -599,7 +646,7 @@ describe('extractArtifactHighlight', () => {
     // REUSE-IgnoreEnd
     const result = extractArtifactHighlight(tmpRun, 'motions', '2026-04-20');
     expect(result).not.toBeNull();
-    expect(result.headline).toBe('Master Intelligence Synthesis — EP10 Q1 2026');
+    expect(result.headline).toBe('Coalition Realignment After Plenary Vote');
     expect(result.summary).toContain('rightward shift');
   });
 
@@ -612,5 +659,250 @@ describe('extractArtifactHighlight', () => {
       'utf8'
     );
     expect(extractArtifactHighlight(tmpRun, 'breaking', '2026-04-20')).toBeNull();
+  });
+
+  it('prefers `executive-brief.md` over `intelligence/synthesis-summary.md`', () => {
+    fs.writeFileSync(
+      path.join(tmpRun, 'executive-brief.md'),
+      [
+        '# Coalition Realignment After Plenary Vote',
+        '',
+        'The plenary outcome reshapes the centrist coalition and triggers immediate cabinet reshuffles across two delegations.',
+      ].join('\n'),
+      'utf8'
+    );
+    fs.mkdirSync(path.join(tmpRun, 'intelligence'), { recursive: true });
+    fs.writeFileSync(
+      path.join(tmpRun, 'intelligence', 'synthesis-summary.md'),
+      [
+        '# Banking Union Breakthrough',
+        '',
+        'Some other prose that should not win because executive-brief.md is preferred.',
+      ].join('\n'),
+      'utf8'
+    );
+    const result = extractArtifactHighlight(tmpRun, 'breaking', '2026-04-20');
+    expect(result).not.toBeNull();
+    expect(result.headline).toBe('Coalition Realignment After Plenary Vote');
+    expect(result.summary).toContain('plenary outcome');
+  });
+
+  it('extracts the `## 60-Second Read` paragraph as the summary even when the H1 is the structural label', () => {
+    fs.writeFileSync(
+      path.join(tmpRun, 'executive-brief.md'),
+      [
+        '# Executive Brief — EU Parliament Week in Review',
+        '**Reporting Window:** 3 April – 1 May 2026 (D-36→D-8, ADR-006)',
+        '**Generated:** 2026-05-09 | **Confidence:** 🟡 Medium',
+        '',
+        '---',
+        '',
+        '## 60-Second Read',
+        '',
+        "The European Parliament's April 2026 plenary sessions produced a dense legislative harvest across three strategic fault lines: EU-US trade tensions, democratic backsliding accountability, and digital governance.",
+      ].join('\n'),
+      'utf8'
+    );
+    const result = extractArtifactHighlight(tmpRun, 'week-in-review', '2026-05-09');
+    expect(result).not.toBeNull();
+    // Headline is recovered from the artefact-category H1 by stripping
+    // the `Executive Brief — ` prefix — leaving the editorial-topic core
+    // `EU Parliament Week in Review`. This is far better than falling
+    // through to the localized template fallback.
+    expect(result.headline).toBe('EU Parliament Week in Review');
+    // Summary comes from the `## 60-Second Read` paragraph, not from the
+    // `**Reporting Window:**` preamble.
+    expect(result.summary).toContain('European Parliament');
+    expect(result.summary).toContain('April 2026 plenary sessions');
+    expect(result.summary).not.toContain('Reporting Window');
+    expect(result.summary).not.toContain('Confidence');
+  });
+});
+
+describe('extractLedeAfterHeading', () => {
+  it('returns the first prose paragraph inside a `## 60-Second Read` block', () => {
+    const md = [
+      '# Executive Brief — Something',
+      '',
+      '## 60-Second Read',
+      '',
+      'The plenary adopted a landmark anti-corruption resolution on Tuesday, closing a six-year debate.',
+      '',
+      '## BLUF',
+      '',
+      'Other content.',
+    ].join('\n');
+    expect(extractLedeAfterHeading(md)).toContain('plenary adopted a landmark');
+  });
+
+  it('returns the first prose paragraph inside a `## TL;DR` block', () => {
+    const md = [
+      '## TL;DR',
+      '',
+      'Five developments demand attention this week, including a fresh push on Digital Markets Act enforcement.',
+    ].join('\n');
+    expect(extractLedeAfterHeading(md)).toContain('Five developments demand attention');
+  });
+
+  it('returns empty when no lede heading exists', () => {
+    const md = ['# Just a heading', '', 'Plain prose, but no lede heading anywhere in the doc.'].join('\n');
+    expect(extractLedeAfterHeading(md)).toBe('');
+  });
+
+  it('skips metadata banner rows inside the lede section', () => {
+    const md = [
+      '## 60-Second Read',
+      '',
+      '**Reporting Window:** 3 April – 1 May 2026',
+      '',
+      'The actual lede sentence carries enough length to satisfy the prose threshold and survive truncation.',
+    ].join('\n');
+    const lede = extractLedeAfterHeading(md);
+    expect(lede).toContain('actual lede sentence');
+    expect(lede).not.toContain('Reporting Window');
+  });
+});
+
+describe('isArtifactCategoryHeading', () => {
+  it('flags the canonical artefact-category prefixes', () => {
+    expect(isArtifactCategoryHeading('Executive Brief — Foo')).toBe(true);
+    expect(isArtifactCategoryHeading('Synthesis Summary — Bar')).toBe(true);
+    expect(isArtifactCategoryHeading('Intelligence Briefing — Baz')).toBe(true);
+    expect(isArtifactCategoryHeading('Intelligence Assessment: Quux')).toBe(true);
+    expect(isArtifactCategoryHeading('Committee Activity Report - Qux')).toBe(true);
+  });
+
+  it('does not flag genuine editorial headlines', () => {
+    expect(isArtifactCategoryHeading('Banking Union Breakthrough')).toBe(false);
+    expect(isArtifactCategoryHeading('Coalition Realignment After Plenary Vote')).toBe(false);
+    expect(isArtifactCategoryHeading('')).toBe(false);
+  });
+
+  it('strips leading emoji/decoration before matching', () => {
+    expect(isArtifactCategoryHeading('🔖 Executive Brief — EU Parliament Year Ahead')).toBe(true);
+    expect(isArtifactCategoryHeading('📊 Synthesis Summary — Q1 2026')).toBe(true);
+  });
+});
+
+describe('stripLeadingProseLabel', () => {
+  it('strips a single-word all-caps label opener', () => {
+    expect(
+      stripLeadingProseLabel(
+        'SITUATION: The European Parliament adopted 14 texts at the late-April plenary session in Strasbourg.'
+      )
+    ).toBe(
+      'The European Parliament adopted 14 texts at the late-April plenary session in Strasbourg.'
+    );
+  });
+
+  it('strips a multi-word all-caps label opener', () => {
+    expect(
+      stripLeadingProseLabel(
+        'KEY MOTION: TA-10-2026-0160 demands stronger DMA enforcement against Big Tech gatekeepers.'
+      )
+    ).toBe(
+      'TA-10-2026-0160 demands stronger DMA enforcement against Big Tech gatekeepers.'
+    );
+  });
+
+  it('strips a hyphenated all-caps label opener (TIER-1, BLUF, etc.)', () => {
+    expect(
+      stripLeadingProseLabel(
+        'TIER-1: Five legislative developments demand immediate decision-maker attention this week.'
+      )
+    ).toBe('Five legislative developments demand immediate decision-maker attention this week.');
+    expect(
+      stripLeadingProseLabel(
+        'BLUF: Coalition fracture probability rises to 35% on the upcoming defence-spending vote.'
+      )
+    ).toBe('Coalition fracture probability rises to 35% on the upcoming defence-spending vote.');
+  });
+
+  it('returns the line unchanged when there is no all-caps opener', () => {
+    const line = 'The European Parliament adopted 14 texts at the late-April plenary session.';
+    expect(stripLeadingProseLabel(line)).toBe(line);
+  });
+
+  it('returns the line unchanged when the opener is too short to be a label', () => {
+    // Only `OK:` — too short, would false-match an actual sentence opener.
+    expect(stripLeadingProseLabel('OK: that decision matters and here is why it matters now.')).toBe(
+      'OK: that decision matters and here is why it matters now.'
+    );
+  });
+
+  it('returns the line unchanged when the opener uses lowercase letters', () => {
+    expect(
+      stripLeadingProseLabel('Situation: The Parliament adopted multiple texts in the plenary.')
+    ).toBe('Situation: The Parliament adopted multiple texts in the plenary.');
+  });
+
+  it('returns the line unchanged when the prose body is too short', () => {
+    expect(stripLeadingProseLabel('SITUATION: too short')).toBe('SITUATION: too short');
+  });
+
+  it('handles empty input safely', () => {
+    expect(stripLeadingProseLabel('')).toBe('');
+  });
+});
+
+describe('stripArtifactCategoryAffix', () => {
+  it('strips a prefix-form category label', () => {
+    expect(stripArtifactCategoryAffix('Executive Brief — EU Parliament Motions')).toBe(
+      'EU Parliament Motions'
+    );
+    expect(stripArtifactCategoryAffix('Synthesis Summary — EP Motions & Adopted Texts')).toBe(
+      'EP Motions & Adopted Texts'
+    );
+    expect(
+      stripArtifactCategoryAffix('Intelligence Synthesis Summary — EP10 Year in Review')
+    ).toBe('EP10 Year in Review');
+  });
+
+  it('strips a suffix-form category label', () => {
+    expect(stripArtifactCategoryAffix('EU Parliament Propositions — Executive Brief')).toBe(
+      'EU Parliament Propositions'
+    );
+    expect(stripArtifactCategoryAffix('EP10 Term Outlook — Executive Brief')).toBe(
+      'EP10 Term Outlook'
+    );
+  });
+
+  it('strips trailing parenthesised metadata after rescuing the core', () => {
+    expect(
+      stripArtifactCategoryAffix('Key Legislative Developments — Deep Analysis (2026-05-08)')
+    ).toBe('Key Legislative Developments');
+    expect(
+      stripArtifactCategoryAffix('Actor Mapping — EP10 Political Power Network (May 2026)')
+    ).toBe('EP10 Political Power Network');
+  });
+
+  it('returns empty when only the category label survives', () => {
+    expect(stripArtifactCategoryAffix('Executive Brief')).toBe('');
+    expect(stripArtifactCategoryAffix('Synthesis Summary')).toBe('');
+  });
+
+  it('returns the heading unchanged when no category affix is present', () => {
+    expect(stripArtifactCategoryAffix('Banking Union Breakthrough')).toBe(
+      'Banking Union Breakthrough'
+    );
+    expect(stripArtifactCategoryAffix('Coalition Realignment After Plenary Vote')).toBe(
+      'Coalition Realignment After Plenary Vote'
+    );
+  });
+
+  it('handles colon-form separators', () => {
+    expect(stripArtifactCategoryAffix('Executive Brief: EU Parliament Week Ahead')).toBe(
+      'EU Parliament Week Ahead'
+    );
+  });
+
+  it('handles empty input safely', () => {
+    expect(stripArtifactCategoryAffix('')).toBe('');
+    expect(stripArtifactCategoryAffix('   ')).toBe('');
+  });
+
+  it('falls back to empty when the rescued core is too short', () => {
+    // After stripping, only `EU` remains — below the 5-char minimum.
+    expect(stripArtifactCategoryAffix('EU — Executive Brief')).toBe('');
   });
 });

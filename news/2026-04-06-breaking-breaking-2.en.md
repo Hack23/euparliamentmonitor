@@ -1,6 +1,6 @@
 ---
-title: "📋 Synthesis Summary — Breaking News Evaluation (Easter Monday)"
-description: "Date: 6 April 2026 (Easter Monday) | Recess Day: 11/18 | Confidence: 🟡 MEDIUM"
+title: "Breaking News Evaluation"
+description: "Pipeline Stage: Analysis complete — newsworthiness evaluation"
 date: 2026-04-06
 article_type: breaking
 slug: 2026-04-06-breaking-breaking-2

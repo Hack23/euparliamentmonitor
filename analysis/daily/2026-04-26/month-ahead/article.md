@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EP Month Ahead: April 26 – May 26, 2026"
-description: "Run Date: 2026-04-26 | Admiralty Grade: B2 | WEP Bands Required: YES"
+title: "EP Month Ahead: April 26 – May 26, 2026"
+description: "The European Parliament enters its most consequential 30-day window since the start of EP10 year 2."
 date: 2026-04-26
 article_type: month-ahead
 slug: 2026-04-26-month-ahead

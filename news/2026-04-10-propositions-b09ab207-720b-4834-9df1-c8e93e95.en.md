@@ -1,6 +1,6 @@
 ---
-title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
-description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
+title: "Quantitative risk scoring across 1 identified political dimensions."
+description: "Quantitative risk scoring across 1 identified political dimensions."
 date: 2026-04-10
 article_type: propositions
 slug: 2026-04-10-propositions-b09ab207-720b-4834-9df1-c8e93e95

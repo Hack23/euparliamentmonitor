@@ -1,6 +1,6 @@
 ---
-title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
-description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
+title: "Analysis of March 26 pre-Easter committee output from six stakeholder perspectives, covering Banking Union triple package…"
+description: "Analysis of March 26 pre-Easter committee output from six stakeholder perspectives, covering Banking Union triple package (TA-0090/0091/0092), Anti-Corruption Directive (TA-0094), Tariff Countermeasures (TA-0096/0097), Water Pollutants (TA-0093), and AI Digital Omnibus (TA-0098)."
 date: 2026-04-14
 article_type: committee-reports
 slug: 2026-04-14-committee-reports

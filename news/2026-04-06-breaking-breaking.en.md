@@ -1,6 +1,6 @@
 ---
 title: "Political SWOT Analysis — Easter Monday Recess Intelligence"
-description: "Date: 6 April 2026 | Recess Day: 11/18 | Confidence: MEDIUM"
+description: "Framework: Cross-SWOT interference analysis with TOWS matrix"
 date: 2026-04-06
 article_type: breaking
 slug: 2026-04-06-breaking-breaking

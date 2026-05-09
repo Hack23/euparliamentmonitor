@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EP10 Term Outlook"
-description: "Date: 2026-05-04 | Method: ACH + SAT | Confidence: 🟡 Medium"
+title: "EP10 Term Outlook: Executive Intelligence Brief"
+description: "The European Parliament's 10th parliamentary term (2024–2029) has entered its second year of operation at a critical inflection point. The term's defining characteristics — a rightward political shift, fragmented coalition arithmetic, and an agenda dominated by defence, competitiveness, and…"
 date: 2026-05-04
 article_type: term-outlook
 slug: 2026-05-04-term-outlook

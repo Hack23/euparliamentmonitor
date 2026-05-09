@@ -1,6 +1,6 @@
 ---
-title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
-description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
+title: "The European Parliament's final Easter recess day (April 13, 2026) marks a transition point for the EU's legislative machinery. The…"
+description: "The European Parliament's final Easter recess day (April 13, 2026) marks a transition point for the EU's legislative machinery. The March plenary sessions — particularly the March 26 session — produced a concentrated burst of legislative output that now enters implementation and trilogue phases…"
 date: 2026-04-13
 article_type: propositions
 slug: 2026-04-13-propositions

@@ -1,5 +1,5 @@
 ---
-title: "🧠 Intelligence Synthesis Summary — April 18, 2026 (Run 184)"
+title: "April 18, 2026"
 description: "title: \"🧠 Intelligence Synthesis Summary — API Recovery Threshold & Final Recess Assessment\""
 date: 2026-04-18
 article_type: breaking
