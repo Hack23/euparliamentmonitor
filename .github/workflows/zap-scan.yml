@@ -1,0 +1,146 @@
+name: ZAP DAST Scan
+
+# OWASP ZAP full-scan against a deployed target. Runs on a weekly schedule
+# against the production site and on manual dispatch against an HTTPS URL
+# whose host is in ALLOWED_HOSTS (see "Resolve target URL" step below — the
+# allowlist exists so the runner can't be turned into an SSRF probe). Not
+# wired to push/PR triggers because a full scan with the AJAX spider can take
+# 20-40 minutes and requires a deployed target — the existing CI workflows
+# (test-and-report.yml, e2e.yml) already cover unit/E2E/accessibility on PRs.
+#
+# Canonical production host: euparliamentmonitor.com (matches BASE_URL in
+# src/constants/config.ts). Add staging hosts to ALLOWED_HOSTS as needed.
+#
+# Reference: https://www.zaproxy.org/docs/docker/full-scan/
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'Target URL to scan (must be HTTPS; host must be in ALLOWED_HOSTS — see job env)'
+        required: true
+        default: 'https://euparliamentmonitor.com'
+  schedule:
+    # Every Sunday at 03:00 UTC — runs off-peak for European traffic so the
+    # active scan doesn't compete with real users for CloudFront capacity.
+    # Adjust if production traffic patterns change.
+    - cron: '0 3 * * 0'
+
+# Restrict top-level permissions to read-only by default
+permissions: read-all
+
+# Never cancel an in-flight scan; concurrent runs against the same target
+# would skew results and produce noisy duplicate issue reports.
+concurrency:
+  group: zap-scan
+  cancel-in-progress: false
+
+jobs:
+  zap-full-scan:
+    name: OWASP ZAP Full Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      # zaproxy/action-full-scan files findings as a single rolling GitHub
+      # issue (one issue per workflow file, updated each run). Required write
+      # scope for that auto-issue. Set `allow_issue_writing: false` below to
+      # disable, in which case `issues: write` can be removed.
+      issues: write
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        # Audit-only — block mode would defeat the purpose of an external
+        # active scan that intentionally generates thousands of outbound
+        # requests against the target.
+        uses: step-security/harden-runner@a5ad31d6a139d249332a2605b85202e8c0b78450 # v2.19.1
+        with:
+          egress-policy: audit
+
+      - name: Checkout repository
+        # Required so the ZAP action can read .zap/rules.tsv from the repo.
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Resolve target URL
+        id: target
+        # `workflow_dispatch` provides `inputs.url`; the scheduled run falls
+        # back to the production canonical URL. Single source of truth so the
+        # scan step below stays declarative.
+        #
+        # Hardening (per code-review feedback):
+        #   1. Read the input via env, not direct ${{ }} interpolation, so a
+        #      crafted value can't break out of the shell command.
+        #   2. Strip CR/LF (and any other control chars) before writing to
+        #      $GITHUB_OUTPUT so a newline can't inject a second output line.
+        #   3. Enforce the URL scheme is `https://` and the host matches an
+        #      allowlist — prevents using the runner as an SSRF probe against
+        #      arbitrary internal/external targets (file://, http://169.254.x,
+        #      private RFC1918 ranges, etc.).
+        #   4. Emit via `printf` (not `echo`) so backslash sequences in any
+        #      surviving payload are not interpreted.
+        env:
+          INPUT_URL: ${{ github.event.inputs.url }}
+          DEFAULT_URL: https://euparliamentmonitor.com
+          # Comma-separated host allowlist. Canonical production host is
+          # euparliamentmonitor.com (matches BASE_URL in src/constants/config.ts).
+          # Add staging hosts here as needed.
+          ALLOWED_HOSTS: 'euparliamentmonitor.com,www.euparliamentmonitor.com'
+        run: |
+          set -euo pipefail
+          URL="${INPUT_URL:-}"
+          if [ -z "$URL" ]; then
+            URL="$DEFAULT_URL"
+          fi
+          # Strip the full ASCII control range (0x00-0x1F + DEL 0x7F) defensively —
+          # CR/LF would let a crafted input forge extra $GITHUB_OUTPUT lines, and
+          # the other control bytes have no business in a URL.
+          URL=$(printf '%s' "$URL" | tr -d '\000-\037\177')
+          # Scheme must be HTTPS — refuse anything else (file://, http://, gopher://, ...)
+          case "$URL" in
+            https://*) ;;
+            *)
+              echo "❌ Refusing non-HTTPS target: $URL" >&2
+              exit 1
+              ;;
+          esac
+          # Extract host portion ("https://host[:port]/path…" → "host")
+          HOST=$(printf '%s' "$URL" | awk -F/ '{print $3}' | awk -F: '{print $1}')
+          if [ -z "$HOST" ]; then
+            echo "❌ Could not parse host from URL: $URL" >&2
+            exit 1
+          fi
+          # Allowlist enforcement
+          ALLOWED=0
+          IFS=',' read -ra HOSTS <<< "$ALLOWED_HOSTS"
+          for h in "${HOSTS[@]}"; do
+            if [ "$HOST" = "$h" ]; then
+              ALLOWED=1
+              break
+            fi
+          done
+          if [ "$ALLOWED" -ne 1 ]; then
+            echo "❌ Host '$HOST' is not in ALLOWED_HOSTS ($ALLOWED_HOSTS)" >&2
+            exit 1
+          fi
+          # Safe write: printf (not echo) and explicit newline terminator
+          printf 'url=%s\n' "$URL" >> "$GITHUB_OUTPUT"
+          printf '🎯 ZAP target: %s\n' "$URL"
+
+      - name: ZAP Full Scan
+        # SHA-pinned per Hack23 security policy. v0.13.0 — the same release
+        # the example in the issue references. Bump the SHA + comment together.
+        uses: zaproxy/action-full-scan@3c58388149901b9a03b7718852c5ba889646c27c # v0.13.0
+        with:
+          token: ${{ github.token }}
+          docker_name: 'ghcr.io/zaproxy/zaproxy:stable'
+          target: ${{ steps.target.outputs.url }}
+          # False-positive suppressions live in .zap/rules.tsv (review after
+          # each new finding is auto-filed).
+          rules_file_name: '.zap/rules.tsv'
+          # -a: include alpha-quality active-scan rules
+          # -j: enable AJAX spider for client-side rendered content (Mermaid /
+          #     Chart.js graphs render after DOMContentLoaded on our pages)
+          cmd_options: '-a -j'
+          # Auto-file findings as a single rolling issue. Set to false to
+          # rely on the uploaded artifact instead.
+          allow_issue_writing: true
+          artifact_name: zap_scan

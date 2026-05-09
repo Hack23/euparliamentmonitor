@@ -362,6 +362,30 @@ incrementally during the run and persists independently of the
 
 ---
 
+#### `zap-scan.yml`
+**Purpose**: OWASP ZAP full active DAST scan against deployed targets
+
+**Trigger**:
+- `workflow_dispatch` with `url` input (defaults to `https://euparliamentmonitor.com`; host must be in the workflow's ALLOWED_HOSTS allowlist — `euparliamentmonitor.com`, `www.euparliamentmonitor.com`)
+- Scheduled weekly: Sundays at 03:00 UTC against the production canonical URL
+
+**What it does**:
+- Runs `zaproxy/action-full-scan@v0.13.0` (SHA-pinned) using the official `ghcr.io/zaproxy/zaproxy:stable` container
+- Spider + AJAX-spider + active scan with alpha rules (`-a -j` cmd options)
+- Reads false-positive suppressions from `.zap/rules.tsv` (in-repo, reviewed)
+- Auto-files findings as a single rolling GitHub issue and uploads `report_html.html`, `report_md.md`, `report_json.json` as the `zap_scan` artifact
+- Concurrency-protected (`group: zap-scan`, `cancel-in-progress: false`) so two scans never overlap on the same target
+
+**Permissions**:
+- `contents: read`
+- `issues: write` (only required for the auto-issue; can be removed by setting `allow_issue_writing: false`)
+
+**Tuning**:
+- Update `.zap/rules.tsv` to suppress new noisy findings — keep the ignore list as small as possible and prefer fixing the underlying issue
+- Adjust the cron in `on.schedule` if production traffic patterns change
+
+---
+
 ### ✅ Test & Validation
 
 #### `test-and-report.yml`
@@ -399,7 +423,18 @@ incrementally during the run and persists independently of the
 **Purpose**: Playwright end-to-end browser tests (14 languages, accessibility,
 visual regression) against the built static site.
 
-**Trigger**: Push + PR to `main`; manual dispatch.
+**Trigger**: Push + PR to `main`; manual dispatch; daily cron at 00:00 UTC.
+
+**Runtime**: Runs inside the official `mcr.microsoft.com/playwright:v1.59.1-noble`
+container — chromium + firefox + webkit + OS deps + fonts are pre-baked, so the
+job no longer pays the ~500 MB cold browser download or the `playwright
+install-deps` apt-get flake cost. Node 26 is overlaid via `actions/setup-node`
+because the image bundles Node 22 and `engines.node` requires `>=26`. Bump the
+image tag in lockstep with `@playwright/test` in `package.json`.
+
+> **Note:** `step-security/harden-runner` is not used in container jobs (it
+> requires host-level network hooks). The egress-audit observability is
+> intentionally traded for the build-reliability gain on the Playwright path.
 
 #### `reuse.yml`
 **Purpose**: REUSE 3.3 compliance check (every file declares an SPDX licence

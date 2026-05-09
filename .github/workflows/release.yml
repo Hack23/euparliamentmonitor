@@ -28,15 +28,29 @@ jobs:
     # Only prepare job needs write permissions for commit and tagging
     permissions:
       contents: write # Required for git auto-commit
+    # Pre-baked Playwright image — runs E2E + doc generation without paying the
+    # ~170 MB browser download or `playwright install-deps` apt-get cost.
+    # NOTE: harden-runner is incompatible with container jobs; the egress-audit
+    # observability is intentionally traded for build reliability here.
+    container:
+      image: mcr.microsoft.com/playwright:v1.59.1-noble
     outputs:
       version: ${{ steps.get-version.outputs.version }}
       npm_version: ${{ steps.get-version.outputs.npm_version }}
       is_prerelease: ${{ github.event.inputs.prerelease || 'false' }}
     steps:
-      - name: Harden Runner
-        uses: step-security/harden-runner@a5ad31d6a139d249332a2605b85202e8c0b78450 # v2.19.1
-        with:
-          egress-policy: audit
+      - name: Configure git safe.directory
+        # This step runs BEFORE actions/checkout. The container runs as root,
+        # but actions/checkout writes the workspace as a different uid, so any
+        # later `git` invocation in this job (auto-commit, tagging) would
+        # otherwise fail with "detected dubious ownership". Marking the path
+        # safe here — before checkout — means the very first git operation
+        # (checkout itself, then everything after) can read/write the repo
+        # without complaint. Only needed in this workflow because release.yml
+        # performs git commits and tagging beyond checkout; the other
+        # containerized workflows (e2e.yml, test-and-report.yml) only checkout
+        # and don't need it.
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Checkout repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -99,48 +113,6 @@ jobs:
           PLAIN_VERSION="${PLAIN_VERSION#v}"
           npm version $PLAIN_VERSION --no-git-tag-version
 
-
-      - name: Cache Playwright browsers
-        id: playwright-cache
-        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
-        with:
-          path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-v2-chromium-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-playwright-v2-chromium-
-
-      - name: Install Playwright OS dependencies (with retry)
-        timeout-minutes: 10
-        shell: bash
-        run: |
-          for attempt in 1 2 3; do
-            if npx playwright install-deps chromium; then
-              echo "✅ Playwright OS deps installed on attempt $attempt"
-              exit 0
-            fi
-            echo "⚠️ playwright install-deps failed on attempt $attempt — retrying in 20s"
-            sleep 20
-          done
-          echo "❌ playwright install-deps failed after 3 attempts"
-          exit 1
-
-      - name: Install Playwright browsers (with retry)
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
-        # 20 min = 3 attempts × max ~5 min (cold ~170 MB chromium download) +
-        # 2 × 20 s back-off. Same rationale as test-and-report.yml.
-        timeout-minutes: 20
-        shell: bash
-        run: |
-          for attempt in 1 2 3; do
-            if npx playwright install chromium; then
-              echo "✅ Playwright chromium installed on attempt $attempt"
-              exit 0
-            fi
-            echo "⚠️ playwright install failed on attempt $attempt — retrying in 20s"
-            sleep 20
-          done
-          echo "❌ playwright install failed after 3 attempts"
-          exit 1
 
       - name: Run tests with coverage
         run: npm run test:coverage
