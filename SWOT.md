@@ -1359,7 +1359,7 @@ Funding** | €0 | €10-20k | 🔴 Critical |
 
 - **O15: Deeper Political Intelligence on Long Horizons** — the new `term-outlook` and `election-cycle` article types (governed by `electoral-cycle-methodology.md` and `forward-projection-methodology.md`) open the door to deeper coalition-mathematics, seat-projection, and mandate-fulfilment-scorecard analysis covering full 5-year EP terms. *Impact: 🌟🌟🌟🌟.*
 - **O16: IMF + Eurostat Cross-Source Triangulation** — IMF remains the sole authoritative economic citation per `analysis/imf/cross-source-triangulation.md`, but Eurostat can be added as an additional triangulation surface for EU-specific indicators (NEET rate, sectoral unemployment, PPP-adjusted regional GDP). Strengthens evidence base without violating the IMF-primary rule. *Impact: 🌟🌟🌟.*
-- **O17: Real-Time DOCEO Vote Integration** — EP MCP 1.3.2's new `get_latest_votes` tool (DOCEO XML-backed, near-realtime vs. multi-week lag of EP Open Data) enables breaking-vote analysis, intraday coalition-fracture detection, and faster `news-breaking.md` runs. Already wired into `src/mcp/ep-mcp-client.ts` canonical tool list. *Impact: 🌟🌟🌟🌟.*
+- **O17: Real-Time DOCEO Vote Integration** — `get_latest_votes` tool (DOCEO XML-backed, introduced in v1.3.1, available on the pinned v1.3.2 server; near-realtime vs. multi-week lag of EP Open Data) enables breaking-vote analysis, intraday coalition-fracture detection, and faster `news-breaking.md` runs. Already wired into `src/mcp/ep-mcp-client.ts` canonical tool list. *Impact: 🌟🌟🌟🌟.*
 
 **Threats (T16–T18):**
 
