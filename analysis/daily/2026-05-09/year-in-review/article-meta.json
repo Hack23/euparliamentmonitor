@@ -1,0 +1,48 @@
+{
+  "date": "2026-05-09",
+  "articleType": "year-in-review",
+  "runId": "year-in-review-run390-1778313444",
+  "gateResult": "PENDING",
+  "slug": "2026-05-09-year-in-review",
+  "articlePath": "analysis/daily/2026-05-09/year-in-review/article.md",
+  "topFinding": "The European Parliament's tenth term entered its second year under the shadow of geopolitical polycrisis, executing a demanding legislative agenda dominated by Ukrainian support architecture, rearmament frameworks, democratic backsliding confrontation (Hungary, Serbia, Georgia), and migration reform.",
+  "keyTakeaways": [
+    "EP Open Data API (real-time, high confidence for structural data)",
+    "Adopted texts titles and subject codes (2025–2026, ~200 items)",
+    "Political landscape analysis (group composition, coalition mathematics)",
+    "No per-MEP voting data (EP API does not expose this)",
+    "No IMF economic data (503 error during probe; degraded mode)",
+    "Structural facts (seats, votes adopted/rejected, legislative titles): 🟢 High",
+    "Legislative intent and content analysis (from titles only, not full text): 🟡 Medium"
+  ],
+  "topRisks": [
+    "EU member state appetite for additional Ukraine financial support would likely split: eastern member states (Poland, Baltic states) for continued/expanded support; some western member states for negotiated settlement",
+    "EP majority coalition on Ukraine files would fracture — S&D and Renew would diverge on \"negotiate vs. support\" question",
+    "The claims commission would face jurisdictional questions (whose law applies if Ukraine loses territory?)",
+    "MFF emergency revision would be triggered for defence budget expansion",
+    "CJEU annulment would embarrass the EPP-led majority coalition, particularly the MEPs who advocated rights-compatibility",
+    "Potential \"rights-washing\" criticism of EP legal service for approving legislation subsequently overturned",
+    "Political pressure on right-nationalist groups (PfE/ECR) who used the package as a political victory; reversal undermines their \"effective action\" narrative",
+    "Commission required to submit alternative legislative proposal"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "EP7: ~3.5",
+    "EP8: ~4.2",
+    "EP9: ~5.1",
+    "EP10: ~6.6"
+  ],
+  "macroContext": "| Field | Value | |-------|-------| | IMF Source | cache | | Data Mode | degraded-imf (HTTP 503; probe-summary.json at cache/imf/) | | Effective Date | 2026-05-09 |",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/legislative-pipeline-forecast.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

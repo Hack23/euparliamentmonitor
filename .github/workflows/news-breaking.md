@@ -3,8 +3,7 @@ name: "News: EU Parliament Breaking News — Unified"
 description: Generates a single PR containing analysis artifacts and the rendered breaking-news article (Stages A → B → C → D → E in one workflow).
 strict: false
 on:
-  schedule:
-    - cron: "0 */6 * * *"  # every 6 hours
+  schedule: every 6h  # fuzzy: scatters minute offset across the 6h window to avoid load spikes
   workflow_dispatch:
     inputs:
       force_generation:

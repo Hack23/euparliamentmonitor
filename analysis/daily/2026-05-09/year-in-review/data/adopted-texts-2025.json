@@ -1,0 +1,908 @@
+{
+  "data": [
+    {
+      "id": "TA-10-2025-0001",
+      "title": "EU/Republic of Serbia agreement on operational activities carried out by the European Border and Coast Guard Agency in the Republic of Serbia",
+      "reference": "TA-10-2025-0001",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-01-21",
+      "procedureReference": "eli/dl/event/2024-0074-DEC-DCPL-2025-01-21",
+      "subjectMatter": "EXT, INST, FRON"
+    },
+    {
+      "id": "TA-10-2025-0004",
+      "title": "Systematic repression of human rights in Iran, notably the cases of Pakhshan Azizi and Wrisha Moradi, and the taking of EU citizens as hostages",
+      "reference": "TA-10-2025-0004",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-01-23",
+      "procedureReference": "eli/dl/event/2025-2511-DEC-DCPL-2025-01-23",
+      "subjectMatter": "DDLH, PESC"
+    },
+    {
+      "id": "TA-10-2025-0007",
+      "title": "Situation in Venezuela following the usurpation of the presidency on 10 January 2025",
+      "reference": "TA-10-2025-0007",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-01-23",
+      "procedureReference": "eli/dl/event/2025-2519-DEC-DCPL-2025-01-23",
+      "subjectMatter": "PESC, DDLH"
+    },
+    {
+      "id": "TA-10-2025-0012",
+      "title": "VAT: rules for the digital age",
+      "reference": "TA-10-2025-0012",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-02-12",
+      "procedureReference": "eli/dl/event/2022-0407-DEC-DCPL-2025-02-12",
+      "subjectMatter": "TVA, FISC"
+    },
+    {
+      "id": "TA-10-2025-0013",
+      "title": "Administrative cooperation in the field of taxation",
+      "reference": "TA-10-2025-0013",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-02-12",
+      "procedureReference": "eli/dl/event/2024-0276-DEC-DCPL-2025-02-12",
+      "subjectMatter": "FISC"
+    },
+    {
+      "id": "TA-10-2025-0022",
+      "title": "Establishing the Reform and Growth Facility for the Republic of Moldova",
+      "reference": "TA-10-2025-0022",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-03-11",
+      "procedureReference": "eli/dl/event/2024-0258-DEC-DCPL-2025-03-11",
+      "subjectMatter": "CDEV, PECO"
+    },
+    {
+      "id": "TA-10-2025-0024",
+      "title": "Appointment of a member of the Single Resolution Board",
+      "reference": "TA-10-2025-0024",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-03-11",
+      "procedureReference": "eli/dl/event/2025-0902-DEC-DCPL-2025-03-11",
+      "subjectMatter": "UEM, INST"
+    },
+    {
+      "id": "TA-10-2025-0025",
+      "title": "Appointment of the Vice-Chair of the Single Resolution Board",
+      "reference": "TA-10-2025-0025",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-03-11",
+      "procedureReference": "eli/dl/event/2025-0903-DEC-DCPL-2025-03-11",
+      "subjectMatter": "UEM, INST"
+    },
+    {
+      "id": "TA-10-2025-0029",
+      "title": "EU-Norway Agreement: modification of concessions on all the tariff-rate quotas included in the EU Schedule CLXXV as a consequence of the United Kingdom's withdrawal from the European Union",
+      "reference": "TA-10-2025-0029",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-03-12",
+      "procedureReference": "eli/dl/event/2023-0341-DEC-DCPL-2025-03-12",
+      "subjectMatter": "TDCC"
+    },
+    {
+      "id": "TA-10-2025-0038",
+      "title": "Unlawful detention and sham trials of Armenian hostages, including high-ranking political representatives from Nagorno-Karabakh, by Azerbaijan",
+      "reference": "TA-10-2025-0038",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-03-13",
+      "procedureReference": "eli/dl/event/2025-2596-DEC-DCPL-2025-03-13",
+      "subjectMatter": "PESC, DDLH"
+    },
+    {
+      "id": "TA-10-2025-0041",
+      "title": "Request for the waiver of the immunity of Petr Bystron",
+      "reference": "TA-10-2025-0041",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-04-01",
+      "procedureReference": "eli/dl/event/2024-2048-DEC-DCPL-2025-04-01",
+      "subjectMatter": "PRIV"
+    },
+    {
+      "id": "TA-10-2025-0042",
+      "title": "Request for the waiver of the immunity of Maciej Wąsik",
+      "reference": "TA-10-2025-0042",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-04-01",
+      "procedureReference": "eli/dl/event/2024-2043-DEC-DCPL-2025-04-01",
+      "subjectMatter": "PRIV"
+    },
+    {
+      "id": "TA-10-2025-0043",
+      "title": "Request for the waiver of the immunity of Mariusz Kamiński",
+      "reference": "TA-10-2025-0043",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-04-01",
+      "procedureReference": "eli/dl/event/2024-2046-DEC-DCPL-2025-04-01",
+      "subjectMatter": "PRIV"
+    },
+    {
+      "id": "TA-10-2025-0045",
+      "title": "Common data platform on chemicals, establishing a monitoring and outlook framework for chemicals",
+      "reference": "TA-10-2025-0045",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-04-01",
+      "procedureReference": "",
+      "subjectMatter": "ENV, INST"
+    },
+    {
+      "id": "TA-10-2025-0048",
+      "title": "Macro-financial assistance to Jordan",
+      "reference": "TA-10-2025-0048",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-04-01",
+      "procedureReference": "eli/dl/event/2024-0086-DEC-DCPL-2025-04-01",
+      "subjectMatter": "COPT, EXT"
+    },
+    {
+      "id": "TA-10-2025-0055",
+      "title": "EU-Bosnia and Herzegovina Agreement: cooperation between Eurojust and the authorities of Bosnia and Herzegovina competent for judicial cooperation in criminal matters",
+      "reference": "TA-10-2025-0055",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-04-02",
+      "procedureReference": "eli/dl/event/2024-0167-DEC-DCPL-2025-04-02",
+      "subjectMatter": "COOP, COJP"
+    },
+    {
+      "id": "TA-10-2025-0058",
+      "title": "Implementation of the common security and defence policy – annual report 2024",
+      "reference": "TA-10-2025-0058",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-04-02",
+      "procedureReference": "eli/dl/event/2024-2082-DEC-DCPL-2025-04-02",
+      "subjectMatter": "PESC"
+    },
+    {
+      "id": "TA-10-2025-0061",
+      "title": "Prosecution of journalists in Cameroon, notably the cases of Amadou Vamoulké, Kingsley Fomunyuy Njoka, Mancho Bibixy, Thomas Awah Junior, Tsi Conrad",
+      "reference": "TA-10-2025-0061",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-04-03",
+      "procedureReference": "eli/dl/event/2025-2627-DEC-DCPL-2025-04-03",
+      "subjectMatter": "PESC, DDLH"
+    },
+    {
+      "id": "TA-10-2025-0062",
+      "title": "Execution spree in Iran and the confirmation of the death sentences of activists Behrouz Ehsani and Mehdi Hassani",
+      "reference": "TA-10-2025-0062",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-04-03",
+      "procedureReference": "eli/dl/event/2025-2628-DEC-DCPL-2025-04-03",
+      "subjectMatter": "PESC, DDLH"
+    },
+    {
+      "id": "TA-10-2025-0064",
+      "title": "Amending Directives (EU) 2022/2464 and (EU) 2024/1760 as regards the dates from which Member States are to apply certain corporate sustainability reporting and due diligence requirements",
+      "reference": "TA-10-2025-0064",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-04-03",
+      "procedureReference": "eli/dl/event/2025-0044-DEC-DCPL-2025-04-03",
+      "subjectMatter": "MARI, LES, INFO"
+    },
+    {
+      "id": "TA-10-2025-0070",
+      "title": "Border Regions’ instrument for development and growth (BRIDGEforEU)",
+      "reference": "TA-10-2025-0070",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-06",
+      "procedureReference": "eli/dl/event/2018-0198-DEC-DCPL-2025-05-06",
+      "subjectMatter": "PREG, COES"
+    },
+    {
+      "id": "TA-10-2025-0073",
+      "title": "Amendments to the International Health Regulations contained in the Annex to Resolution WHA77.17 and adopted on 1 June 2024",
+      "reference": "TA-10-2025-0073",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-06",
+      "procedureReference": "eli/dl/event/2024-0299-DEC-DCPL-2025-05-06",
+      "subjectMatter": "COOP, SANT"
+    },
+    {
+      "id": "TA-10-2025-0074",
+      "title": "Mobilisation of the European Globalisation Adjustment Fund for Displaced Workers: application EGF/2024/003 BE/Van Hool – Belgium",
+      "reference": "TA-10-2025-0074",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-06",
+      "procedureReference": "eli/dl/event/2025-0061-DEC-DCPL-2025-05-06",
+      "subjectMatter": "EMPL"
+    },
+    {
+      "id": "TA-10-2025-0076",
+      "title": "Control of the financial activities of the European Investment Bank – annual report 2023",
+      "reference": "TA-10-2025-0076",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-06",
+      "procedureReference": "eli/dl/event/2024-2052-DEC-DCPL-2025-05-06",
+      "subjectMatter": "FIN, BEI"
+    },
+    {
+      "id": "TA-10-2025-0077",
+      "title": "Discharge 2023: EU general budget - Commission, executive agencies and European Development Funds",
+      "reference": "TA-10-2025-0077",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-07",
+      "procedureReference": "eli/dl/event/2024-2019-DEC-DCPL-2025-05-07",
+      "subjectMatter": "BUDG"
+    },
+    {
+      "id": "TA-10-2025-0079",
+      "title": "Discharge 2023: EU general budget - European Council and Council",
+      "reference": "TA-10-2025-0079",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-07",
+      "procedureReference": "eli/dl/event/2024-2021-DEC-DCPL-2025-05-07",
+      "subjectMatter": "BUDG"
+    },
+    {
+      "id": "TA-10-2025-0084",
+      "title": "Discharge 2023: EU general budget - European Ombudsman",
+      "reference": "TA-10-2025-0084",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-07",
+      "procedureReference": "eli/dl/event/2024-2027-DEC-DCPL-2025-05-07",
+      "subjectMatter": "BUDG"
+    },
+    {
+      "id": "TA-10-2025-0088",
+      "title": "Discharge 2023: Agencies",
+      "reference": "TA-10-2025-0088",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-07",
+      "procedureReference": "eli/dl/event/2024-2030-DEC-DCPL-2025-05-07",
+      "subjectMatter": "BUDG"
+    },
+    {
+      "id": "TA-10-2025-0089",
+      "title": "Discharge 2023: Joint Undertakings",
+      "reference": "TA-10-2025-0089",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-07",
+      "procedureReference": "eli/dl/event/2024-2031-DEC-DCPL-2025-05-07",
+      "subjectMatter": "BUDG"
+    },
+    {
+      "id": "TA-10-2025-0092",
+      "title": "2023 and 2024 reports on Türkiye",
+      "reference": "TA-10-2025-0092",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-07",
+      "procedureReference": "eli/dl/event/2025-2023-DEC-DCPL-2025-05-07",
+      "subjectMatter": "EXT"
+    },
+    {
+      "id": "TA-10-2025-0093",
+      "title": "2023 and 2024 reports on Serbia",
+      "reference": "TA-10-2025-0093",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-07",
+      "procedureReference": "eli/dl/event/2025-2022-DEC-DCPL-2025-05-07",
+      "subjectMatter": "EXT, ADH"
+    },
+    {
+      "id": "TA-10-2025-0097",
+      "title": "Violations of religious freedom in Tibet",
+      "reference": "TA-10-2025-0097",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-08",
+      "procedureReference": "eli/dl/event/2025-2692-DEC-DCPL-2025-05-08",
+      "subjectMatter": "DDLH, PESC"
+    },
+    {
+      "id": "TA-10-2025-0099",
+      "title": "CO2 emission performance standards for new passenger cars and new light commercial vehicles for 2025 to 2027",
+      "reference": "TA-10-2025-0099",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-08",
+      "procedureReference": "",
+      "subjectMatter": "TRAN, POLL, ENV"
+    },
+    {
+      "id": "TA-10-2025-0106",
+      "title": "Genetically modified soybean MON 87705 × MON 87708 × MON 89788",
+      "reference": "TA-10-2025-0106",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-08",
+      "procedureReference": "eli/dl/event/2025-2647-DEC-DCPL-2025-05-08",
+      "subjectMatter": "PROT, D-AL"
+    },
+    {
+      "id": "TA-10-2025-0107",
+      "title": "Old challenges and new commercial practices in the internal market",
+      "reference": "TA-10-2025-0107",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-08",
+      "procedureReference": "eli/dl/event/2025-2542-DEC-DCPL-2025-05-08",
+      "subjectMatter": "MARI, COAD"
+    },
+    {
+      "id": "TA-10-2025-0109",
+      "title": "Modification of customs duties applicable to imports of certain goods originating in or exported from the Russian Federation and the Republic of Belarus",
+      "reference": "TA-10-2025-0109",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-22",
+      "procedureReference": "eli/dl/event/2025-0021-DEC-DCPL-2025-05-22",
+      "subjectMatter": "TDC"
+    },
+    {
+      "id": "TA-10-2025-0113",
+      "title": "Partial renewal of Members of the Court of Auditors - HR nominee",
+      "reference": "TA-10-2025-0113",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-22",
+      "procedureReference": "eli/dl/event/2025-0802-DEC-DCPL-2025-05-22",
+      "subjectMatter": "INST"
+    },
+    {
+      "id": "TA-10-2025-0114",
+      "title": "Deliberations of the Committee on Petitions in 2023",
+      "reference": "TA-10-2025-0114",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-05-22",
+      "procedureReference": "eli/dl/event/2025-2027-DEC-DCPL-2025-05-22",
+      "subjectMatter": "INST, CIT"
+    },
+    {
+      "id": "TA-10-2025-0116",
+      "title": "Combating the sexual abuse and sexual exploitation of children and child sexual abuse material and replacing Council Framework Decision 2004/68/JHA (recast)",
+      "reference": "TA-10-2025-0116",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-06-17",
+      "procedureReference": "eli/dl/event/2024-0035-DEC-DCPL-2025-06-17",
+      "subjectMatter": "J-AI"
+    },
+    {
+      "id": "TA-10-2025-0120",
+      "title": "Electoral rights of mobile Union citizens in European Parliament elections",
+      "reference": "TA-10-2025-0120",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-06-17",
+      "procedureReference": "eli/dl/event/2021-0372-DEC-DCPL-2025-06-17",
+      "subjectMatter": "CIT, PRIN"
+    },
+    {
+      "id": "TA-10-2025-0122",
+      "title": "Strengthening rural areas in the EU through cohesion policy",
+      "reference": "TA-10-2025-0122",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-06-17",
+      "procedureReference": "eli/dl/event/2024-2105-DEC-DCPL-2025-06-17",
+      "subjectMatter": "COES, PREG"
+    },
+    {
+      "id": "TA-10-2025-0124",
+      "title": "Non-objection to a delegated act: The time period to submit requests for amendments of CAP Strategic Plans",
+      "reference": "TA-10-2025-0124",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-06-18",
+      "procedureReference": "eli/dl/event/2025-2728-DEC-DCPL-2025-06-18",
+      "subjectMatter": "FEADER"
+    },
+    {
+      "id": "TA-10-2025-0129",
+      "title": "The Commission’s 2024 Rule of Law report",
+      "reference": "TA-10-2025-0129",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-06-18",
+      "procedureReference": "eli/dl/event/2024-2078-DEC-DCPL-2025-06-18",
+      "subjectMatter": "PRIN"
+    },
+    {
+      "id": "TA-10-2025-0146",
+      "title": "Security of energy supply in the EU",
+      "reference": "TA-10-2025-0146",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-07-08",
+      "procedureReference": "eli/dl/event/2025-2055-DEC-DCPL-2025-07-08",
+      "subjectMatter": "ENER"
+    },
+    {
+      "id": "TA-10-2025-0155",
+      "title": "2023 and 2024 reports on Albania",
+      "reference": "TA-10-2025-0155",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-07-09",
+      "procedureReference": "eli/dl/event/2025-2017-DEC-DCPL-2025-07-09",
+      "subjectMatter": "MARI, ADH"
+    },
+    {
+      "id": "TA-10-2025-0161",
+      "title": "Case of Ryan Cornelius in Dubai",
+      "reference": "TA-10-2025-0161",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-07-10",
+      "procedureReference": "eli/dl/event/2025-2796-DEC-DCPL-2025-07-10",
+      "subjectMatter": "DDLH, PESC"
+    },
+    {
+      "id": "TA-10-2025-0165",
+      "title": "Future of the EU biotechnology and biomanufacturing sector: leveraging research, boosting innovation and enhancing competitiveness",
+      "reference": "TA-10-2025-0165",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-07-10",
+      "procedureReference": "eli/dl/event/2025-2008-DEC-DCPL-2025-07-10",
+      "subjectMatter": "INDU, RDT, TECN"
+    },
+    {
+      "id": "TA-10-2025-0167",
+      "title": "Waste Framework Directive: textiles and food waste",
+      "reference": "TA-10-2025-0167",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-09-09",
+      "procedureReference": "eli/dl/event/2023-0234-DEC-DCPL-2025-09-09",
+      "subjectMatter": "ENV, DECH"
+    },
+    {
+      "id": "TA-10-2025-0168",
+      "title": "Circularity requirements for vehicle design and management of end-of-life vehicles",
+      "reference": "TA-10-2025-0168",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-09-09",
+      "procedureReference": "eli/dl/event/2023-0284-DEC-DCPL-2025-09-09",
+      "subjectMatter": "TRAN, ETEC"
+    },
+    {
+      "id": "TA-10-2025-0169",
+      "title": "EU-Brazil Agreement: cooperation with and through Europol and the Federal Police of Brazil",
+      "reference": "TA-10-2025-0169",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-09-09",
+      "procedureReference": "eli/dl/event/2024-0321-DEC-DCPL-2025-09-09",
+      "subjectMatter": "COPO, PDON, EXT"
+    },
+    {
+      "id": "TA-10-2025-0170",
+      "title": "EU-Kyrgyz Republic Enhanced Partnership and Cooperation Agreement",
+      "reference": "TA-10-2025-0170",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-09-09",
+      "procedureReference": "eli/dl/event/2022-0184-DEC-DCPL-2025-09-09",
+      "subjectMatter": "COOP, EXT"
+    },
+    {
+      "id": "TA-10-2025-0177",
+      "title": "Amending ERDF, Cohesion Fund and Just Transition Fund as regards specific measures to address strategic challenges in the context of the mid-term review",
+      "reference": "TA-10-2025-0177",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-09-10",
+      "procedureReference": "eli/dl/event/2025-0084-DEC-DCPL-2025-09-10",
+      "subjectMatter": "FIN, COES, COOR"
+    },
+    {
+      "id": "TA-10-2025-0179",
+      "title": "Securities settlement in the EU and central securities depositories (CSDs): shorter settlement cycle in the Union",
+      "reference": "TA-10-2025-0179",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-09-10",
+      "procedureReference": "eli/dl/event/2025-0022-DEC-DCPL-2025-09-10",
+      "subjectMatter": "PECO, FIN"
+    },
+    {
+      "id": "TA-10-2025-0181",
+      "title": "Extension of the timeframe for the establishment of the Eurojust case management system",
+      "reference": "TA-10-2025-0181",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-09-10",
+      "procedureReference": "eli/dl/event/2025-0074-DEC-DCPL-2025-09-10",
+      "subjectMatter": "J-AI"
+    },
+    {
+      "id": "TA-10-2025-0193",
+      "title": "Case of Victoire Ingabire in Rwanda",
+      "reference": "TA-10-2025-0193",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-09-11",
+      "procedureReference": "eli/dl/event/2025-2861-DEC-DCPL-2025-09-11",
+      "subjectMatter": "PESC, DDLH"
+    },
+    {
+      "id": "TA-10-2025-0196",
+      "title": "A new vision for the European Universities alliances",
+      "reference": "TA-10-2025-0196",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-09-11",
+      "procedureReference": "eli/dl/event/2025-2036-DEC-DCPL-2025-09-11",
+      "subjectMatter": "EFPJ"
+    },
+    {
+      "id": "TA-10-2025-0201",
+      "title": "Request for the waiver of the immunity of Michał Dworczyk",
+      "reference": "TA-10-2025-0201",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-10-07",
+      "procedureReference": "eli/dl/event/2024-2044-DEC-DCPL-2025-10-07",
+      "subjectMatter": "PRIV"
+    },
+    {
+      "id": "TA-10-2025-0206",
+      "title": "Request for the waiver of the immunity of Ilaria Salis",
+      "reference": "TA-10-2025-0206",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-10-07",
+      "procedureReference": "eli/dl/event/2024-2086-DEC-DCPL-2025-10-07",
+      "subjectMatter": "PRIV"
+    },
+    {
+      "id": "TA-10-2025-0207",
+      "title": "Request for the waiver of the immunity of Klára Dobrev",
+      "reference": "TA-10-2025-0207",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-10-07",
+      "procedureReference": "eli/dl/event/2024-2042-DEC-DCPL-2025-10-07",
+      "subjectMatter": "PRIV"
+    },
+    {
+      "id": "TA-10-2025-0209",
+      "title": "Revision of the Visa Suspension Mechanism",
+      "reference": "TA-10-2025-0209",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-10-07",
+      "procedureReference": "eli/dl/event/2023-0371-DEC-DCPL-2025-10-07",
+      "subjectMatter": "LCP"
+    },
+    {
+      "id": "TA-10-2025-0210",
+      "title": "Inland waterway transport: River Information Services (RIS)",
+      "reference": "TA-10-2025-0210",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-10-07",
+      "procedureReference": "eli/dl/event/2024-0011-DEC-DCPL-2025-10-07",
+      "subjectMatter": "TRAN, RDT, MARI"
+    },
+    {
+      "id": "TA-10-2025-0212",
+      "title": "Role of EU policies in shaping the European Sport Model",
+      "reference": "TA-10-2025-0212",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-10-07",
+      "procedureReference": "eli/dl/event/2025-2035-DEC-DCPL-2025-10-07",
+      "subjectMatter": "SPOR"
+    },
+    {
+      "id": "TA-10-2025-0216",
+      "title": "Withdrawal of the European Union from the International Rubber Study Group (IRSG)",
+      "reference": "TA-10-2025-0216",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-10-08",
+      "procedureReference": "eli/dl/event/2017-0159-DEC-DCPL-2025-10-08",
+      "subjectMatter": "EXT"
+    },
+    {
+      "id": "TA-10-2025-0218",
+      "title": "Draft amending budget No 2/2025: update of revenue (own resources) and adjustments to expenditure",
+      "reference": "TA-10-2025-0218",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-10-08",
+      "procedureReference": "eli/dl/event/2025-0206-DEC-DCPL-2025-10-08",
+      "subjectMatter": "BUDG"
+    },
+    {
+      "id": "TA-10-2025-0227",
+      "title": "The role of simple tax rules and tax fragmentation in European competitiveness",
+      "reference": "TA-10-2025-0227",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-10-09",
+      "procedureReference": "eli/dl/event/2024-2118-DEC-DCPL-2025-10-09",
+      "subjectMatter": "FISC"
+    },
+    {
+      "id": "TA-10-2025-0236",
+      "title": "Re-attribution of scientific and technical tasks to the European Chemicals Agency",
+      "reference": "TA-10-2025-0236",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-10-21",
+      "procedureReference": "eli/dl/event/2023-0454-DEC-DCPL-2025-10-21",
+      "subjectMatter": "COAD, ENV, INST"
+    },
+    {
+      "id": "TA-10-2025-0237",
+      "title": "Re-attribution of scientific and technical tasks and improving cooperation among Union agencies in the area of chemicals",
+      "reference": "TA-10-2025-0237",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-10-21",
+      "procedureReference": "eli/dl/event/2023-0455-DEC-DCPL-2025-10-21",
+      "subjectMatter": "ENV, INST, COOP"
+    },
+    {
+      "id": "TA-10-2025-0241",
+      "title": "Standing Forest and Forestry Expert Group",
+      "reference": "TA-10-2025-0241",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-10-21",
+      "procedureReference": "eli/dl/event/2023-0410-DEC-DCPL-2025-10-21",
+      "subjectMatter": "INST, SILV"
+    },
+    {
+      "id": "TA-10-2025-0243",
+      "title": "Non-objection to a delegated act: the nomenclature for the dimensions and codes for the types of intervention for the ERDF, the ESF+, the Cohesion Fund and the JTF",
+      "reference": "TA-10-2025-0243",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-10-22",
+      "procedureReference": "eli/dl/event/2025-2888-DEC-DCPL-2025-10-22",
+      "subjectMatter": "COHE"
+    },
+    {
+      "id": "TA-10-2025-0244",
+      "title": "General budget of the European Union for the financial year 2026 - all sections",
+      "reference": "TA-10-2025-0244",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-10-22",
+      "procedureReference": "eli/dl/event/2025-0210-DEC-DCPL-2025-10-22",
+      "subjectMatter": "BUDG"
+    },
+    {
+      "id": "TA-10-2025-0247",
+      "title": "Institutional consequences of the EU enlargement negotiations",
+      "reference": "TA-10-2025-0247",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-10-22",
+      "procedureReference": "eli/dl/event/2025-2041-DEC-DCPL-2025-10-22",
+      "subjectMatter": "PESC, ADH"
+    },
+    {
+      "id": "TA-10-2025-0248",
+      "title": "Polarisation and increased repression in Serbia, one year after the Novi Sad tragedy",
+      "reference": "TA-10-2025-0248",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-10-22",
+      "procedureReference": "eli/dl/event/2025-2917-DEC-DCPL-2025-10-22",
+      "subjectMatter": "DDLH, PESC"
+    },
+    {
+      "id": "TA-10-2025-0253",
+      "title": "Renewing the EU-Africa Partnership: building common priorities ahead of the Angola Summit",
+      "reference": "TA-10-2025-0253",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-10-23",
+      "procedureReference": "eli/dl/event/2025-2933-DEC-DCPL-2025-10-23",
+      "subjectMatter": "CDEV, EXT"
+    },
+    {
+      "id": "TA-10-2025-0259",
+      "title": "Request for the waiver of the immunity of Grzegorz Braun",
+      "reference": "TA-10-2025-0259",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-11-13",
+      "procedureReference": "eli/dl/event/2025-2122-DEC-DCPL-2025-11-13",
+      "subjectMatter": "PRIV"
+    },
+    {
+      "id": "TA-10-2025-0264",
+      "title": "Certain corporate sustainability reporting and due diligence requirements",
+      "reference": "TA-10-2025-0264",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-11-13",
+      "procedureReference": "eli/dl/event/2025-0045-DEC-DCPL-2025-11-13",
+      "subjectMatter": "LES, INFO, MARI"
+    },
+    {
+      "id": "TA-10-2025-0273",
+      "title": "EU-Switzerland agreement on the automatic exchange of financial account information: Amending Protocol",
+      "reference": "TA-10-2025-0273",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-11-13",
+      "procedureReference": "eli/dl/event/2025-0199-DEC-DCPL-2025-11-13",
+      "subjectMatter": "FISC, EXT"
+    },
+    {
+      "id": "TA-10-2025-0275",
+      "title": "Appointment of Maria Berger to the panel set up under Article 255 TFEU",
+      "reference": "TA-10-2025-0275",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-11-13",
+      "procedureReference": "eli/dl/event/2025-2223-DEC-DCPL-2025-11-13",
+      "subjectMatter": "INST"
+    },
+    {
+      "id": "TA-10-2025-0277",
+      "title": "Partial renewal of Members of the Court of Auditors - Pierre Moscovici",
+      "reference": "TA-10-2025-0277",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-11-13",
+      "procedureReference": "eli/dl/event/2025-0808-DEC-DCPL-2025-11-13",
+      "subjectMatter": "INST"
+    },
+    {
+      "id": "TA-10-2025-0279",
+      "title": "Safety of toys and repealing Directive 2009/48/EC",
+      "reference": "TA-10-2025-0279",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-11-25",
+      "procedureReference": "eli/dl/event/2023-0290-DEC-DCPL-2025-11-25",
+      "subjectMatter": "MARI, PROT"
+    },
+    {
+      "id": "TA-10-2025-0283",
+      "title": "Existence of a clear risk of a serious breach by Hungary of the values on which the Union is founded",
+      "reference": "TA-10-2025-0283",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-11-25",
+      "procedureReference": "eli/dl/event/2018-0902R-DEC-DCPL-2025-11-25",
+      "subjectMatter": "PRIN, DROIT"
+    },
+    {
+      "id": "TA-10-2025-0286",
+      "title": "Impact of artificial intelligence on the financial sector",
+      "reference": "TA-10-2025-0286",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-11-25",
+      "procedureReference": "eli/dl/event/2025-2056-DEC-DCPL-2025-11-25",
+      "subjectMatter": "MARI, TECN"
+    },
+    {
+      "id": "TA-10-2025-0287",
+      "title": "2024 budget – assessing the implementation of the gender mainstreaming methodology in the EU budget",
+      "reference": "TA-10-2025-0287",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-11-25",
+      "procedureReference": "eli/dl/event/2025-2033-DEC-DCPL-2025-11-25",
+      "subjectMatter": "BUDG, DISC"
+    },
+    {
+      "id": "TA-10-2025-0288",
+      "title": "Genetically modified maize DAS1131",
+      "reference": "TA-10-2025-0288",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-11-25",
+      "procedureReference": "eli/dl/event/2025-2893-DEC-DCPL-2025-11-25",
+      "subjectMatter": "SANT, PROT, D-AL"
+    },
+    {
+      "id": "TA-10-2025-0290",
+      "title": "Genetically modified oilseed rape MON 88302",
+      "reference": "TA-10-2025-0290",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-11-25",
+      "procedureReference": "eli/dl/event/2025-2895-DEC-DCPL-2025-11-25",
+      "subjectMatter": "PROT, D-AL, AL-A"
+    },
+    {
+      "id": "TA-10-2025-0291",
+      "title": "Genetically modified soybean MON 87708",
+      "reference": "TA-10-2025-0291",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-11-25",
+      "procedureReference": "eli/dl/event/2025-2896-DEC-DCPL-2025-11-25",
+      "subjectMatter": "AL-A, D-AL, PROT"
+    },
+    {
+      "id": "TA-10-2025-0296",
+      "title": "Increasing the efficiency of the EU guarantee under the InvestEU Regulation and simplifying reporting requirements",
+      "reference": "TA-10-2025-0296",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-11-26",
+      "procedureReference": "eli/dl/event/2025-0040-DEC-DCPL-2025-11-26",
+      "subjectMatter": "PECO, INV"
+    },
+    {
+      "id": "TA-10-2025-0306",
+      "title": "Harmonised requirements in the internal market on transparency of third countries interest representation",
+      "reference": "TA-10-2025-0306",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-11-27",
+      "procedureReference": "eli/dl/event/2023-0463-DEC-DCPL-2025-11-27",
+      "subjectMatter": "MARI, ELSJ"
+    },
+    {
+      "id": "TA-10-2025-0309",
+      "title": "Application of the Treaty provisions related to the principles of subsidiarity and proportionality and the role of national parliaments in the EU legislative process",
+      "reference": "TA-10-2025-0309",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-11-27",
+      "procedureReference": "eli/dl/event/2025-2042-DEC-DCPL-2025-11-27",
+      "subjectMatter": "INST, ACTE"
+    },
+    {
+      "id": "TA-10-2025-0310",
+      "title": "Escalation of the war and the humanitarian catastrophe in Sudan",
+      "reference": "TA-10-2025-0310",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-11-27",
+      "procedureReference": "eli/dl/event/2025-2984-DEC-DCPL-2025-11-27",
+      "subjectMatter": "PESC, DDLH"
+    },
+    {
+      "id": "TA-10-2025-0317",
+      "title": "Request for the waiver of the immunity of Alessandra Moretti",
+      "reference": "TA-10-2025-0317",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-12-16",
+      "procedureReference": "eli/dl/event/2025-2064-DEC-DCPL-2025-12-16",
+      "subjectMatter": "PRIV"
+    },
+    {
+      "id": "TA-10-2025-0319",
+      "title": "Compulsory licensing of patents in crisis situations",
+      "reference": "TA-10-2025-0319",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-12-16",
+      "procedureReference": "eli/dl/event/2023-0129-DEC-DCPL-2025-12-16",
+      "subjectMatter": "RAPL, INDU, PCOM"
+    },
+    {
+      "id": "TA-10-2025-0323",
+      "title": "Brexit Adjustment Reserve",
+      "reference": "TA-10-2025-0323",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-12-16",
+      "procedureReference": "eli/dl/event/2025-0289-DEC-DCPL-2025-12-16",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2025-0325",
+      "title": "Mobilisation of the European Globalisation Adjustment Fund for Displaced Workers following an application from Sweden – EGF/2025/003 SE/Northvolt",
+      "reference": "TA-10-2025-0325",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-12-16",
+      "procedureReference": "eli/dl/event/2025-0326-DEC-DCPL-2025-12-16",
+      "subjectMatter": "EMPL"
+    },
+    {
+      "id": "TA-10-2025-0328",
+      "title": "Genetically modified sugar beet KWS20-1",
+      "reference": "TA-10-2025-0328",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-12-16",
+      "procedureReference": "eli/dl/event/2025-2959-DEC-DCPL-2025-12-16",
+      "subjectMatter": "AL-A, D-AL, PROT"
+    },
+    {
+      "id": "TA-10-2025-0332",
+      "title": "EU/Jordan Agreement for scientific and technological cooperation: terms and conditions for the participation of Jordan in the Partnership for Research and Innovation in the Mediterranean Area (PRIMA)",
+      "reference": "TA-10-2025-0332",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-12-17",
+      "procedureReference": "",
+      "subjectMatter": "COOP, RDT, EXT"
+    },
+    {
+      "id": "TA-10-2025-0338",
+      "title": "European Citizens’ Initiative ‘My voice, my choice: for safe and accessible abortion’",
+      "reference": "TA-10-2025-0338",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-12-17",
+      "procedureReference": "eli/dl/event/2025-3007-DEC-DCPL-2025-12-17",
+      "subjectMatter": "SOPO, SANT"
+    },
+    {
+      "id": "TA-10-2025-0339",
+      "title": "Arbitrary arrest and sentencing of academics Bahruz Samadov and Igbal Abilov in Azerbaijan",
+      "reference": "TA-10-2025-0339",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-12-18",
+      "procedureReference": "eli/dl/event/2025-3028-DEC-DCPL-2025-12-18",
+      "subjectMatter": "DDLH, PESC"
+    },
+    {
+      "id": "TA-10-2025-0340",
+      "title": "Mass kidnapping of children in Nigeria, including from St Mary's Catholic school in Papiri",
+      "reference": "TA-10-2025-0340",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-12-18",
+      "procedureReference": "eli/dl/event/2025-3029-DEC-DCPL-2025-12-18",
+      "subjectMatter": "DDLH, PESC"
+    },
+    {
+      "id": "TA-10-2025-0342",
+      "title": "Appointment of a Member of the Executive Board of the Anti-Money Laundering Authority (AMLA)",
+      "reference": "TA-10-2025-0342",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-12-18",
+      "procedureReference": "eli/dl/event/2025-0905-DEC-DCPL-2025-12-18",
+      "subjectMatter": "COJP, INST"
+    },
+    {
+      "id": "TA-10-2025-0345",
+      "title": "Continuous Belarusian hybrid attacks against Lithuania",
+      "reference": "TA-10-2025-0345",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2025-12-18",
+      "procedureReference": "eli/dl/event/2025-3025-DEC-DCPL-2025-12-18",
+      "subjectMatter": "PESC"
+    }
+  ],
+  "total": 101,
+  "limit": 100,
+  "offset": 0,
+  "hasMore": true
+}
