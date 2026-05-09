@@ -1,5 +1,5 @@
 ---
-title: "🔬 Synthesis Summary — Breaking News Intelligence Brief"
+title: "Breaking News Intelligence Brief"
 description: "dataAvailability: Unavailable (Easter recess Day 15)"
 date: 2026-04-10
 article_type: breaking

@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — Breaking 2026-04-24"
-description: "Gate target: GREEN or ANALYSIS_ONLY fallback"
+title: "Within today's six-hour breaking-news probe window, no material EP10 breaking event surfaced from the operational feed set. The…"
+description: "Within today's six-hour breaking-news probe window, no material EP10 breaking event surfaced from the operational feed set. The getadoptedtextsfeed returns an 18-item mixed-vintage backfill (oldest TA-9-2024-0004 from EP9, newest TA-10-2025-0314), geteventsfeed is unavailable on the upstream…"
 date: 2026-04-24
 article_type: breaking
 slug: 2026-04-24-breaking

@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EU Parliament Year Ahead (May 2026–May 2027)"
-description: "WEP Band: Probably (60–70%) the EP will adopt a multi-policy agenda weighted toward defence, green transition revision, AI governance, and trade policy resilience over the 12-month horizon."
+title: "EU Parliament Year Ahead 2026–2027: Executive Intelligence Brief"
+description: "1. 🟢 HIGH CONFIDENCE — The EP10 Grand Coalition (EPP+S&D+Renew = 397 seats) will maintain a reliable majority on Ukraine support, digital governance, and defence integration legislation through May 2027. These three policy clusters represent the durable core of EP10 legislative capacity."
 date: 2026-05-04
 article_type: year-ahead
 slug: 2026-05-04-year-ahead

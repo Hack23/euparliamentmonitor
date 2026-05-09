@@ -1,5 +1,5 @@
 ---
-title: "Intelligence Synthesis Summary — EP10 Year in Review"
+title: "EP10 Year in Review"
 description: "EP10 Year 2 is defined by a central paradox: the Parliament achieved more on defence/security than any in history while simultaneously retreating on the sustainability agenda it inherited from EP9. The synthesis of 23 analysis artifacts confirms that this contradiction is not accidental — it is…"
 date: 2026-05-07
 article_type: year-in-review

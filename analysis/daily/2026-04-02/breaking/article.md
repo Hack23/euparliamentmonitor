@@ -1,6 +1,6 @@
 ---
-title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
-description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
+title: "title: \"title: \\\"title: \\\\\\\"title: \\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Use this guide to read the…"
+description: "title: \"title: \\\"title: \\\\\\\"title: \\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Use this guide to read the article as a political-intelligence product…\""
 date: 2026-04-02
 article_type: breaking
 slug: 2026-04-02-breaking

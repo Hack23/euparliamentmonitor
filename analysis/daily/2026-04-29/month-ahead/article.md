@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EU Parliament: April 29 – May 29, 2026"
-description: "Role: Integrates all analysis artifacts into a unified strategic assessment."
+title: "EU Parliament: April 29 – May 29, 2026"
+description: "The EU Parliament enters May 2026 operationally effective but politically stressed. The most important legislative month of EP10's second year opens with three concurrent high-stakes files — Budget 2027 framework, US tariff response, and Clean Industrial Deal — all converging on the May 18-21…"
 date: 2026-04-29
 article_type: month-ahead
 slug: 2026-04-29-month-ahead

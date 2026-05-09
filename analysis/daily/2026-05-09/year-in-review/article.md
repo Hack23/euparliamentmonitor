@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — European Parliament Year in Review 2025–2026"
-description: "The European Parliament's year from May 2025 to May 2026 established the defining narrative of the EP10 term: a parliament navigating the intersection of geopolitical emergency and democratic pressure on its progressive legacy. This was not an ordinary parliamentary year — it was the second year…"
+title: "European Parliament Year in Review"
+description: "The European Parliament's tenth term entered its second year under the shadow of geopolitical polycrisis, executing a demanding legislative agenda dominated by Ukrainian support architecture, rearmament frameworks, democratic backsliding confrontation (Hungary, Serbia, Georgia), and migration…"
 date: 2026-05-09
 article_type: year-in-review
 slug: 2026-05-09-year-in-review

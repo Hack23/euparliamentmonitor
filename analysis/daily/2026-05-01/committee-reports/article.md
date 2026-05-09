@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EU Parliament Committee Reports"
-description: "The April 2026 plenary close provides definitive confirmation that EP10's second full"
+title: "EU Parliament Committee Reports"
+description: "The last week of April 2026 affirmed EP10's record-setting legislative productivity pace."
 date: 2026-05-01
 article_type: committee-reports
 slug: 2026-05-01-committee-reports

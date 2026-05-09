@@ -52,6 +52,14 @@ const DESCRIPTION_MAX_LENGTH = 300;
 const TITLE_MAX_LENGTH = 140;
 /** Ordered list of artefact filenames that typically carry the editorial H1. */
 const EDITORIAL_ARTEFACT_CANDIDATES = [
+    // `executive-brief.md` is the canonical Riksdagsmonitor-aligned editorial
+    // artefact (see `analysis/methodologies/ai-driven-analysis-guide.md`).
+    // It always carries the journalist's BLUF and a `## 60-Second Read`
+    // paragraph that is the lede — preferring it over `synthesis-summary.md`
+    // keeps Stage-B internal vocabulary ("Purpose: This artifact provides …")
+    // out of the SEO-critical `<title>` and `<meta description>` surfaces.
+    'executive-brief.md',
+    'extended/executive-brief.md',
     'intelligence/synthesis-summary.md',
     'intelligence/executive-summary.md',
     'intelligence/intelligence-briefing.md',
@@ -67,6 +75,107 @@ const EDITORIAL_ARTEFACT_CANDIDATES = [
     'month-in-review.md',
     'motions-analysis.md',
     'propositions-analysis.md',
+];
+/**
+ * Headings inside an editorial artefact that carry the journalist's lede
+ * paragraph (a one-paragraph summary of "what happened, why it matters").
+ * When the resolver sees one of these as a `## …` heading inside the
+ * editorial artefact, it prefers the first prose paragraph that follows
+ * it as the description (and as a title fallback) over a generic line
+ * walk. Names are matched case-insensitively against the heading text
+ * (after stripping inline Markdown).
+ */
+const EDITORIAL_LEDE_HEADINGS = [
+    '60-second read',
+    '60 second read',
+    'sixty-second read',
+    'lede',
+    'lead',
+    'tl;dr',
+    'tldr',
+    'synopsis',
+    'in brief',
+    'at a glance',
+    'bottom line',
+    'bluf',
+    'bluf — bottom line up front',
+    'bottom line up front',
+    'executive summary',
+    'executive briefing',
+    'master narrative',
+    'overview',
+    'headline judgement',
+    'headline judgment',
+    'key findings',
+    'key judgements',
+    'key judgments',
+    'situation summary',
+    'situation report',
+    'situation update',
+];
+/**
+ * Artifact-category prefixes that appear inside editorial-artefact H1s as
+ * a structural label rather than an editorial headline (e.g. `# Synthesis
+ * Summary — Week in Review (3 Apr – 1 May 2026)`). When a candidate H1
+ * starts with one of these prefixes followed by a separator (em/en dash,
+ * hyphen, or colon), the resolver treats it as **generic** so it does
+ * not leak into the article `<title>`. Compared lower-case, with leading
+ * punctuation stripped.
+ */
+const ARTIFACT_CATEGORY_PREFIXES = [
+    'actor mapping',
+    'analytical quality',
+    'breaking news analysis',
+    'coalition dynamics',
+    'commission wp alignment',
+    'committee activity report',
+    'cross run continuity',
+    'deep analysis',
+    'economic context',
+    'executive brief',
+    'executive briefing',
+    'executive summary',
+    'forward indicators',
+    'historical baseline',
+    'impact matrix',
+    'intelligence assessment',
+    'intelligence briefing',
+    'intelligence synthesis summary',
+    'legislative output analysis',
+    'legislative pipeline analysis',
+    'legislative pipeline forecast',
+    'mandate fulfilment scorecard',
+    'master intelligence synthesis',
+    'mcp reliability audit',
+    'methodology reflection',
+    'monthly outlook',
+    'motions analysis',
+    'parliamentary calendar projection',
+    'pestle analysis',
+    'political intelligence brief',
+    'political risk',
+    'political threat landscape',
+    'presidency trio context',
+    'propositions analysis',
+    'quantitative swot',
+    'risk assessment',
+    'risk matrix',
+    'risk scoring',
+    'scenario forecast',
+    'seat projection',
+    'significance classification',
+    'situation report',
+    'situation summary',
+    'stakeholder analysis',
+    'stakeholder impact',
+    'stakeholder map',
+    'swot analysis',
+    'synthesis summary',
+    'threat assessment',
+    'threat model',
+    'voting patterns',
+    'weekly outlook',
+    'wildcards blackswans',
 ];
 /**
  * Emoji-banner prefixes that Stage-B agents use to decorate metadata rows
@@ -96,27 +205,47 @@ const EMOJI_BANNER_CHARS = [
  * by optional space and a colon.
  */
 const METADATA_LINE_PREFIXES = [
+    'Admiralty Grade',
     'Analysis Date',
     'Analysis Owner',
     'Article Type',
+    'Article Window',
     'Assessment Date',
+    'Briefing',
+    'Briefing Date',
     'Classification',
     'Classification Date',
     'Confidence',
+    'Confidence in Evidence',
     'Data Sources',
+    'Date',
     'Document Type',
+    'Filing Date',
     'Generated',
+    'Horizon',
+    'IMF Status',
     'Last Updated',
     'Parliamentary Status',
     'Parliamentary Term',
     'Period',
+    'Prepared',
+    'Purpose',
+    'Region',
+    'Reporting',
+    'Reporting Period',
+    'Reporting Window',
     'Run',
     'Run ID',
     'Series',
     'Series Run',
+    'Source',
+    'Sources',
     'SPDX-FileCopyrightText',
     'SPDX-License-Identifier',
+    'Topic',
     'Type',
+    'WEP Band',
+    'WEP Grade',
     'Window',
 ];
 /**
@@ -169,6 +298,53 @@ export function shouldSkipDescriptionLine(line) {
     if (/^[-*_=~.]{3,}$/.test(line))
         return true;
     return false;
+}
+/**
+ * Strip inline Markdown decorations so we can use the remaining text as
+ * plain-text meta-tag content. Removes link syntax, emphasis, inline code
+ * backticks, and HTML-entity fragments that the Markdown source sometimes
+ * smuggles in. Keeps the visible text readable.
+ *
+ * @param raw - Trimmed Markdown line
+ * @returns Plain-text variant
+ */
+/**
+ * Strip a leading all-caps prose label (e.g. `SITUATION:`, `KEY MOTION:`,
+ * `BLUF:`, `BOTTOM LINE:`, `TIER-1:`) from a prose line. These labels
+ * are common in BLUF-style editorial writing — they survive
+ * {@link stripInlineMarkdown} (which strips the `**bold**` wrapper but
+ * keeps the literal text) and would otherwise leak into the SEO
+ * description as a confusing all-caps shout.
+ *
+ * Matches up to 4 hyphenated all-caps tokens, optionally followed by a
+ * digit suffix (`TIER-1`), terminating at a colon. Returns the original
+ * line when no opener is present.
+ *
+ * @param line - Plain prose line (post-{@link stripInlineMarkdown})
+ * @returns Line with the all-caps opener removed
+ */
+export function stripLeadingProseLabel(line) {
+    // Use a single-pass regex with no nested quantifiers and no overlapping
+    // character classes — keeps `security/detect-unsafe-regex` happy. The
+    // pattern matches a label of 2-80 contiguous chars from a closed set
+    // (uppercase letters, digits, hyphen, single internal spaces),
+    // terminated by `:` and at least one whitespace before the prose body.
+    const colonIdx = line.indexOf(': ');
+    if (colonIdx < 2 || colonIdx > 80)
+        return line;
+    const label = line.slice(0, colonIdx);
+    const rest = line.slice(colonIdx + 2).trim();
+    if (rest.length < 20)
+        return line;
+    // Validate the label: ALL chars must be uppercase A-Z, digit 0-9, space,
+    // or hyphen; the first char must be a letter.
+    if (!/^[A-Z][A-Z0-9 -]{1,79}$/.test(label))
+        return line;
+    // Reject single-word labels shorter than 3 chars (`OK:` would be a
+    // false positive against legitimate sentence openers).
+    if (label.length < 3)
+        return line;
+    return rest;
 }
 /**
  * Strip inline Markdown decorations so we can use the remaining text as
@@ -266,12 +442,203 @@ export function extractStrongProseLine(markdown) {
         const line = raw.trim();
         if (shouldSkipDescriptionLine(line))
             continue;
-        const plain = stripInlineMarkdown(line);
+        const plain = stripLeadingProseLabel(stripInlineMarkdown(line));
         if (plain.length < 40)
             continue;
         return truncateDescription(plain);
     }
     return '';
+}
+/**
+ * Walk the body of an editorial artefact and, when it contains a `## …`
+ * heading whose text matches one of {@link EDITORIAL_LEDE_HEADINGS},
+ * return the first prose paragraph that follows that heading. This is
+ * the journalist's lede ("60-Second Read", "TL;DR", "BLUF — …", …) and
+ * is exactly the sentence that should power `<meta description>` and
+ * the OG/Twitter description fields.
+ *
+ * Returns the empty string when no lede heading is found or no qualifying
+ * prose follows it. Inline Markdown is stripped and the result is
+ * truncated to fit `<meta description>`.
+ *
+ * @param markdown - Editorial artefact source
+ * @returns Lede paragraph, or empty string when none matched
+ */
+export function extractLedeAfterHeading(markdown) {
+    const lines = markdown.split('\n');
+    let inLede = false;
+    for (let i = 0; i < lines.length; i++) {
+        const raw = lines[i] ?? '';
+        const line = raw.trim();
+        // Detect the start of a lede section — accept any H2/H3 whose plain
+        // text (after stripping leading hashes, inline decorations, and any
+        // leading emoji/punctuation) matches one of the canonical headings.
+        if (/^#{2,3}\s+/.test(line)) {
+            const headingText = normaliseHeadingText(line.replace(/^#{2,3}\s+/, ''));
+            inLede = EDITORIAL_LEDE_HEADINGS.some((h) => headingText === h || headingText.startsWith(`${h} `) || headingText.startsWith(`${h}:`));
+            continue;
+        }
+        if (!inLede)
+            continue;
+        // Inside the lede section: skip non-prose lines, then return the first
+        // qualifying paragraph. Strip a leading all-caps prose label
+        // (`SITUATION:`, `KEY MOTION:`, `BLUF:`, …) so SEO descriptions read
+        // as natural sentences rather than BLUF shouts.
+        if (shouldSkipDescriptionLine(line))
+            continue;
+        const plain = stripLeadingProseLabel(stripInlineMarkdown(line));
+        if (plain.length < 40)
+            continue;
+        return truncateDescription(plain);
+    }
+    return '';
+}
+/**
+ * Normalise a Markdown heading's text for comparison against the
+ * editorial-lede heading whitelist. Strips inline Markdown decorations
+ * (`*`, `_`, `` ` ``, `#`), then strips any leading non-alphanumeric
+ * characters (emoji, punctuation, spaces) so a heading like
+ * `🎯 Headline Judgement` compares equal to `headline judgement`.
+ *
+ * @param raw - Raw heading text (no leading hashes)
+ * @returns Lower-cased, decoration-stripped heading text
+ */
+function normaliseHeadingText(raw) {
+    return stripInlineMarkdown(raw)
+        .replace(/[*_`#]+/g, '')
+        .replace(/^[^A-Za-z0-9]+/, '')
+        .trim()
+        .toLowerCase();
+}
+/**
+ * Return `true` when an artefact-H1 begins with one of the
+ * {@link ARTIFACT_CATEGORY_PREFIXES} followed by a separator. Such H1s
+ * carry the artefact's structural label rather than a journalist's
+ * headline (e.g. `# Synthesis Summary — Week in Review (3 Apr – 1 May
+ * 2026)`) and must not leak into the article `<title>`.
+ *
+ * @param heading - Plain-text H1 (after `stripInlineMarkdown`)
+ * @returns `true` when the heading is an artefact-category label
+ */
+export function isArtifactCategoryHeading(heading) {
+    const normalized = normaliseCategoryHeading(heading);
+    if (normalized === '')
+        return false;
+    for (const prefix of ARTIFACT_CATEGORY_PREFIXES) {
+        if (normalized === prefix)
+            return true;
+        // Accept any of: "<prefix> — …", "<prefix> – …", "<prefix> - …",
+        // "<prefix>: …" — every separator commonly used in artefact H1s.
+        if (normalized.startsWith(`${prefix} —`) ||
+            normalized.startsWith(`${prefix} –`) ||
+            normalized.startsWith(`${prefix} -`) ||
+            normalized.startsWith(`${prefix}:`)) {
+            return true;
+        }
+        // Also accept "<topic> — <prefix>" / "<topic>: <prefix>" so suffix-form
+        // category labels (`# EU Parliament Propositions — Executive Brief`,
+        // `# Key Legislative Developments — Deep Analysis`) are flagged the
+        // same as prefix-form ones. The "topic" is rescued by the affix
+        // stripper before this rejection takes effect.
+        if (normalized.endsWith(` — ${prefix}`) ||
+            normalized.endsWith(` – ${prefix}`) ||
+            normalized.endsWith(` - ${prefix}`) ||
+            normalized.endsWith(`: ${prefix}`)) {
+            return true;
+        }
+    }
+    return false;
+}
+/**
+ * Strip a leading or trailing artifact-category label from a heading and
+ * return the editorial-topic core. When neither end carries a category
+ * label, the heading is returned unchanged. When the category label is
+ * the **entire** heading (e.g. `# Executive Brief`) the result is the
+ * empty string.
+ *
+ * Examples:
+ * - `Executive Brief — EU Parliament Motions` → `EU Parliament Motions`
+ * - `EU Parliament Propositions — Executive Brief` → `EU Parliament Propositions`
+ * - `EP10 Term Outlook — Executive Brief` → `EP10 Term Outlook`
+ * - `Key Legislative Developments — Deep Analysis (2026-05-08)` → `Key Legislative Developments`
+ * - `Synthesis Summary — EP Motions & Adopted Texts` → `EP Motions & Adopted Texts`
+ *
+ * Trailing parenthesised metadata (`(2026-05-08)`, `(May 2026)`) is also
+ * stripped because it functions as a date stamp rather than editorial
+ * copy. The returned core is trimmed of whitespace and trailing
+ * punctuation.
+ *
+ * @param heading - Raw heading text (post-{@link stripInlineMarkdown})
+ * @returns Editorial-topic core, or empty string when only the category survived
+ */
+export function stripArtifactCategoryAffix(heading) {
+    const trimmed = heading.trim();
+    if (trimmed === '')
+        return '';
+    const sortedPrefixes = [...ARTIFACT_CATEGORY_PREFIXES].sort((a, b) => b.length - a.length);
+    const normalized = normaliseCategoryHeading(trimmed);
+    const skip = trimmed.length - normalized.length;
+    const visible = trimmed.slice(skip < 0 ? 0 : skip);
+    // Pre-strip trailing parenthesised metadata (`(2026-05-08)`,
+    // `(May 2026)`) so the suffix matcher works on `… — deep analysis`
+    // rather than `… — deep analysis (2026-05-08)`.
+    const visibleClean = visible.replace(/\s*\([^)]{1,80}\)\s*$/u, '').trim();
+    const normalizedClean = normaliseCategoryHeading(visibleClean);
+    for (const prefix of sortedPrefixes) {
+        // Prefix-form: `Executive Brief — <topic>`
+        for (const sep of [' — ', ' – ', ' - ', ': ']) {
+            const candidate = `${prefix}${sep}`;
+            if (normalizedClean.startsWith(candidate)) {
+                const core = visibleClean.slice(candidate.length).trim();
+                return cleanupAffixCore(core);
+            }
+        }
+        // Suffix-form: `<topic> — Executive Brief`
+        for (const sep of [' — ', ' – ', ' - ', ': ']) {
+            const candidate = `${sep}${prefix}`;
+            if (normalizedClean.endsWith(candidate)) {
+                const core = visibleClean.slice(0, visibleClean.length - candidate.length).trim();
+                return cleanupAffixCore(core);
+            }
+        }
+        // Whole-heading match: `Executive Brief`
+        if (normalizedClean === prefix)
+            return '';
+    }
+    // No category label detected — return the heading unchanged.
+    return trimmed;
+}
+/**
+ * Tidy the editorial-topic core returned by
+ * {@link stripArtifactCategoryAffix}: drop trailing parenthesised
+ * metadata (`(2026-05-08)`, `(May 2026)`) and trailing punctuation. When
+ * stripping leaves the string too short to be meaningful (<5 chars),
+ * return the empty string so callers fall through to lower tiers.
+ *
+ * @param core - Heading with the category label already stripped
+ * @returns Cleaned editorial-topic core, or empty string when too short
+ */
+function cleanupAffixCore(core) {
+    const withoutTrailingParens = core.replace(/\s*\([^)]{1,80}\)\s*$/u, '').trim();
+    const withoutTrailingPunct = withoutTrailingParens.replace(/[—–:;,.\s-]+$/u, '').trim();
+    if (withoutTrailingPunct.length < 5)
+        return '';
+    return withoutTrailingPunct;
+}
+/**
+ * Lower-case, decoration-stripped form used by the artifact-category
+ * matchers. Strips inline Markdown, leading non-alphanumeric runs (emoji,
+ * decoration), and collapses whitespace to a single space.
+ *
+ * @param raw - Raw heading text
+ * @returns Lower-case normalised form
+ */
+function normaliseCategoryHeading(raw) {
+    return stripInlineMarkdown(raw)
+        .trim()
+        .toLowerCase()
+        .replace(/^[^a-z0-9]+/, '')
+        .replace(/\s+/g, ' ');
 }
 /**
  * Humanise an `article-type` slug the same way the aggregator does (see
@@ -303,6 +670,12 @@ export function humanizeSlug(slug) {
 export function isGenericHeading(heading, articleType, date) {
     const normalized = heading.trim().replace(/\s+/g, ' ');
     if (normalized === '')
+        return true;
+    // Artefact-category H1s (e.g. `Synthesis Summary — …`, `Executive Brief
+    // — …`) are structural labels, not journalist headlines. Treat them as
+    // generic so the resolver falls through to the localized template tier
+    // and the SEO `<title>` stays clean.
+    if (isArtifactCategoryHeading(normalized))
         return true;
     const human = humanizeSlug(articleType);
     const patterns = [
@@ -353,37 +726,101 @@ function escapeRegex(input) {
 export function extractArtifactHighlight(runDir, articleType, date) {
     if (!runDir || !fs.existsSync(runDir))
         return null;
-    // Direct candidate lookup — cheap and deterministic.
-    for (const rel of EDITORIAL_ARTEFACT_CANDIDATES) {
-        const abs = path.join(runDir, rel);
-        if (!fs.existsSync(abs))
-            continue;
-        const body = readArtefactBody(abs);
-        const headline = extractFirstH1(body);
-        if (!headline)
-            continue;
-        if (isGenericHeading(headline, articleType, date))
-            continue;
-        const summary = extractStrongProseLine(body);
-        return { headline: truncateTitle(headline), summary };
-    }
+    // Direct candidate lookup — cheap and deterministic. We collect the
+    // first artefact whose body yields a usable lede summary even when its
+    // H1 is a structural artefact-category label, so the description tier
+    // benefits from the editorial 60-Second Read paragraph in
+    // `executive-brief.md` even though its H1 (`Executive Brief — …`) is
+    // generic.
+    const direct = scanCandidatesForHighlight(runDir, EDITORIAL_ARTEFACT_CANDIDATES, articleType, date);
+    if (direct.headline)
+        return { headline: direct.headline, summary: direct.summary };
     // Fallback: walk the top-level `.md` files in the run dir once, looking
     // for any that starts with `#` and has a non-generic headline.
-    const topLevel = safeReaddir(runDir).filter((f) => f.endsWith('.md'));
-    for (const rel of topLevel) {
-        if (rel === 'manifest.json')
-            continue;
-        const abs = path.join(runDir, rel);
-        const body = readArtefactBody(abs);
-        const headline = extractFirstH1(body);
-        if (!headline)
-            continue;
-        if (isGenericHeading(headline, articleType, date))
-            continue;
-        const summary = extractStrongProseLine(body);
-        return { headline: truncateTitle(headline), summary };
+    const topLevel = safeReaddir(runDir).filter((f) => f.endsWith('.md') && f !== 'manifest.json');
+    const fallback = scanCandidatesForHighlight(runDir, topLevel, articleType, date);
+    if (fallback.headline)
+        return { headline: fallback.headline, summary: fallback.summary };
+    // No editorial headline was found, but we may have harvested a strong
+    // lede summary from one of the editorial artefacts. Returning a
+    // headline-less highlight lets `resolveEditorialContent` keep the
+    // editorial summary while falling back to the localized title template.
+    const summaryOnly = direct.summary || fallback.summary;
+    if (summaryOnly) {
+        return { headline: '', summary: summaryOnly };
     }
     return null;
+}
+/**
+ * Walk a list of candidate artefact paths and return the first
+ * non-generic headline + summary pair, plus the first usable lede
+ * summary seen along the way. Extracted from
+ * {@link extractArtifactHighlight} to keep its cognitive complexity
+ * within the SonarJS budget.
+ *
+ * @param runDir - Absolute run directory path
+ * @param candidates - Run-relative candidate filenames to probe
+ * @param articleType - Article-type slug (used by {@link isGenericHeading})
+ * @param date - ISO run date (used by {@link isGenericHeading})
+ * @returns `{headline, summary}` where either field may be empty
+ */
+function scanCandidatesForHighlight(runDir, candidates, articleType, date) {
+    let bestSummaryOnly = '';
+    for (const rel of candidates) {
+        const probe = probeCandidateForHighlight(runDir, rel, articleType, date);
+        // Both clean and stripped highlights win the loop — they come from
+        // the highest-priority artefact that yielded usable text. This
+        // preserves the priority order of {@link EDITORIAL_ARTEFACT_CANDIDATES}
+        // (executive-brief > synthesis-summary > …) so a stripped headline
+        // from `executive-brief.md` beats a clean H1 from a lower-priority
+        // artefact like `intelligence/synthesis-summary.md`.
+        if (probe.cleanHighlight)
+            return probe.cleanHighlight;
+        if (probe.strippedHeadline) {
+            return { headline: probe.strippedHeadline, summary: probe.summary ?? bestSummaryOnly };
+        }
+        if (!bestSummaryOnly && probe.summary) {
+            bestSummaryOnly = probe.summary;
+        }
+    }
+    return { headline: '', summary: bestSummaryOnly };
+}
+/**
+ * Read a single candidate artefact and classify what it can contribute
+ * to the highlight resolver. Extracted from
+ * {@link scanCandidatesForHighlight} to keep its cognitive complexity
+ * within the SonarJS budget.
+ *
+ * @param runDir - Absolute run directory
+ * @param rel - Run-relative artefact path
+ * @param articleType - Article-type slug for {@link isGenericHeading}
+ * @param date - ISO run date for {@link isGenericHeading}
+ * @returns
+ *   - `cleanHighlight` when the artefact has a non-generic H1 (caller may
+ *     return it directly)
+ *   - `strippedHeadline` when the H1 is generic but yields an editorial
+ *     core after {@link stripArtifactCategoryAffix}
+ *   - `summary` when the artefact carries a usable lede or strong prose
+ *     line (independent of the headline outcome)
+ */
+function probeCandidateForHighlight(runDir, rel, articleType, date) {
+    const abs = path.join(runDir, rel);
+    if (!fs.existsSync(abs))
+        return {};
+    const body = readArtefactBody(abs);
+    const headline = extractFirstH1(body);
+    const lede = extractLedeAfterHeading(body);
+    const summary = lede || extractStrongProseLine(body);
+    if (headline && !isGenericHeading(headline, articleType, date)) {
+        return { cleanHighlight: { headline: truncateTitle(headline), summary } };
+    }
+    if (headline) {
+        const stripped = stripArtifactCategoryAffix(headline);
+        if (stripped && !isGenericHeading(stripped, articleType, date)) {
+            return { strippedHeadline: truncateTitle(stripped), summary };
+        }
+    }
+    return { summary };
 }
 /**
  * Read an artefact file, skipping any SPDX HTML-comment header rows so the
@@ -763,7 +1200,13 @@ function manifestOverrideFor(value, lang) {
  */
 function resolveEditorialContent(opts) {
     const { articleType, date, markdown, runDir } = opts;
-    // Tier 2: first non-generic H1 in the first substantive artefact.
+    // Tier 2: first non-generic H1 in the first substantive artefact. We
+    // also remember any editorial summary harvested from a category-only
+    // artefact (e.g. `executive-brief.md` whose H1 is the structural
+    // `Executive Brief — …` label but whose `## 60-Second Read` paragraph
+    // is the journalist's lede) so the description tier can still benefit
+    // from real editorial copy when the headline tier falls through.
+    let artefactSummary = '';
     if (runDir) {
         const highlight = extractArtifactHighlight(runDir, articleType, date);
         if (highlight?.headline) {
@@ -772,6 +1215,9 @@ function resolveEditorialContent(opts) {
                 summary: highlight.summary,
             };
         }
+        if (highlight?.summary) {
+            artefactSummary = highlight.summary;
+        }
     }
     // Tier 3: first non-generic H1 in the aggregated Markdown itself.
     const aggregatedH1 = extractFirstH1(markdown);
@@ -779,12 +1225,16 @@ function resolveEditorialContent(opts) {
     if (aggregatedH1 && !isGenericHeading(aggregatedH1, articleType, date)) {
         return {
             headline: truncateTitle(aggregatedH1),
-            summary: aggregatedSummary,
+            summary: artefactSummary || aggregatedSummary,
         };
     }
     // Tier 4: first strong prose paragraph (title = same prose clipped).
-    if (aggregatedSummary) {
-        return { headline: truncateTitle(aggregatedSummary), summary: aggregatedSummary };
+    // Prefer the artefact-derived editorial summary when available so the
+    // description carries the journalist's lede rather than the
+    // aggregator-walk leftover.
+    const summary = artefactSummary || aggregatedSummary;
+    if (summary) {
+        return { headline: truncateTitle(summary), summary };
     }
     return { headline: '', summary: '' };
 }

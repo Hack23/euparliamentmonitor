@@ -1,6 +1,6 @@
 ---
-title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
-description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
+title: "The European Parliament enters its inter-session gap (March 27 to April 26) carrying the most ambitious legislative portfolio of EP10…"
+description: "The European Parliament enters its inter-session gap (March 27 to April 26) carrying the most ambitious legislative portfolio of EP10 current term. With 51 procedures registered in 2026 including 13 ordinary legislative procedures (COD) simultaneously in committee stage, the institution faces an…"
 date: 2026-04-16
 article_type: propositions
 slug: 2026-04-16-propositions

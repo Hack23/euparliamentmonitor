@@ -1,6 +1,6 @@
 ---
-title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
-description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
+title: "TA-10-2026-0096 and TA-10-2026-0097 became operational on April 15, 2026. The 21-day compliance window from the March 26 plenary…"
+description: "TA-10-2026-0096 and TA-10-2026-0097 became operational on April 15, 2026. The 21-day compliance window from the March 26 plenary adoption has expired. This is the most time-critical committee output in EP10 — INTA committee delivered the fastest trade countermeasure in European Parliament…"
 date: 2026-04-15
 article_type: committee-reports
 slug: 2026-04-15-committee-reports

@@ -1,5 +1,5 @@
 ---
-title: "🧠 Synthesis Summary — EP Motions & Adopted Texts"
+title: "EP Motions & Adopted Texts"
 description: "Almost Certainly (A1, confidence HIGH): The April 28, 2026 Strasbourg plenary session marked a significant week for the EP, delivering 17 adopted texts across budget, justice, environment, trade, and institutional domains. Three politically charged immunity waivers targeting Polish ECR-aligned…"
 date: 2026-04-29
 article_type: motions

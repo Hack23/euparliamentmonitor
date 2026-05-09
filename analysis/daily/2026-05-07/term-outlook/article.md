@@ -1,6 +1,6 @@
 ---
-title: "EP10 Term Synthesis Summary"
-description: "Date: 2026-05-07 | Confidence: 🟡 MEDIUM-HIGH | Horizon: 37 months remaining (to ~June 2029)"
+title: "EP10 Term Outlook"
+description: "The European Parliament's tenth legislative term (EP10, July 2024–June 2029) has entered its critical middle phase. With roughly 37 months remaining until the next European Parliament elections, the institution faces an extraordinary convergence of strategic imperatives: a fundamental…"
 date: 2026-05-07
 article_type: term-outlook
 slug: 2026-05-07-term-outlook

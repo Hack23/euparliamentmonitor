@@ -1,5 +1,5 @@
 ---
-title: "Synthesis Summary: Post-Easter Committee Restart"
+title: "Post-Easter Committee Restart"
 description: "title: \"Synthesis Summary: Week Ahead 10-17 April 2026\""
 date: 2026-04-10
 article_type: week-ahead

@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — March 2026 Motion Cluster"
-description: "Data source: European Parliament Open Data Portal (adopted texts feed"
+title: "March 2026 Motion Cluster"
+description: "Headline judgement (WEP: LIKELY, ~65-80%, 6-month horizon): The"
 date: 2026-04-24
 article_type: motions-runmotions-run-1777010709
 slug: 2026-04-24-motions-runmotions-run-1777010709
