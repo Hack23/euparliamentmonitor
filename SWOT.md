@@ -101,7 +101,7 @@ planning and resource allocation.
 - **Aggregator pipeline**: deterministic Markdown→HTML rendering via `src/aggregator/**` (5 modules) — no per-type strategies, no AI-authored HTML, no runtime content-validator
 - **3061+ automated tests** across **52 test files** (Vitest 4.1.4 + Playwright 1.59.1 + @axe-core/playwright 4.11.2)
 - **Stack**: Node 26, TypeScript 6.0.3 strict mode, ESM-only, Apache-2.0 license
-- **Data sources**: `european-parliament-mcp-server@1.3.1+` (60+ tools, primary EP data) + `worldbank-mcp` (non-economic context) + IMF SDMX 3.0 REST (primary economic source)
+- **Data sources**: `european-parliament-mcp-server@1.3.2+` (60+ tools, primary EP data) + `worldbank-mcp` (non-economic context) + IMF SDMX 3.0 REST (primary economic source)
 - **Delivery**: AWS S3 + CloudFront (OIDC-based, no long-lived secrets) primary; GitHub Pages fallback runbook
 - **Supply chain**: npm provenance + SLSA L3 + OpenSSF Scorecard + OpenSSF Best Practices badge #12068
 
@@ -1350,7 +1350,7 @@ Funding** | €0 | €10-20k | 🔴 Critical |
 
 **Weaknesses (W16–W19):**
 
-- **W16: EP MCP 1.3.1 Skeleton Coverage** — pinned `european-parliament-mcp-server@1.3.1` exposes 60+ tools but several endpoints (committee-documents, plenary-session-document-items, controlled-vocabularies feed) remain fixed-window with no timeframe filtering, limiting historical-query precision. *Risk: 🟢 Low.*
+- **W16: EP MCP 1.3.2 Skeleton Coverage** — pinned `european-parliament-mcp-server@1.3.2` exposes 60+ tools but several endpoints (committee-documents, plenary-session-document-items, controlled-vocabularies feed) remain fixed-window with no timeframe filtering, limiting historical-query precision. *Risk: 🟢 Low.*
 - **W17: IMF Probe Degradation Modes** — when `cache/imf/imf-probe-summary.json` reports failure, manifest `dataMode` falls back to `degraded-imf` (-15% line floor) or `minimal` (-35%); WB satisfies the OR-gate but tradecraft on monetary/fiscal claims still relies on IMF as primary. *Risk: 🟡 Medium.*
 - **W18: Single-Session 60-Min Workflow Timeout** — every unified `news-<type>.md` workflow runs Stages A→E in one 60-min session and creates exactly one PR. The hard PR deadline minute ≤ 45 (target ≤ 42 standard slugs, ≤ 47 electoral) leaves no margin if upstream MCP latency spikes mid-run. *Risk: 🟡 Medium.*
 - **W19: MCP Gateway Keepalive Issues** — gh-aw v0.71.3 advertises `engine.mcp.session-timeout` but the bundled gateway image v0.3.1 rejects the field (run #25275823699 fingerprint). Pipeline relies on the upstream-default keepalive. *Risk: 🟡 Medium.*
@@ -1359,7 +1359,7 @@ Funding** | €0 | €10-20k | 🔴 Critical |
 
 - **O15: Deeper Political Intelligence on Long Horizons** — the new `term-outlook` and `election-cycle` article types (governed by `electoral-cycle-methodology.md` and `forward-projection-methodology.md`) open the door to deeper coalition-mathematics, seat-projection, and mandate-fulfilment-scorecard analysis covering full 5-year EP terms. *Impact: 🌟🌟🌟🌟.*
 - **O16: IMF + Eurostat Cross-Source Triangulation** — IMF remains the sole authoritative economic citation per `analysis/imf/cross-source-triangulation.md`, but Eurostat can be added as an additional triangulation surface for EU-specific indicators (NEET rate, sectoral unemployment, PPP-adjusted regional GDP). Strengthens evidence base without violating the IMF-primary rule. *Impact: 🌟🌟🌟.*
-- **O17: Real-Time DOCEO Vote Integration** — EP MCP 1.3.1's new `get_latest_votes` tool (DOCEO XML-backed, near-realtime vs. multi-week lag of EP Open Data) enables breaking-vote analysis, intraday coalition-fracture detection, and faster `news-breaking.md` runs. Already wired into `src/mcp/ep-mcp-client.ts` canonical tool list. *Impact: 🌟🌟🌟🌟.*
+- **O17: Real-Time DOCEO Vote Integration** — EP MCP 1.3.2's new `get_latest_votes` tool (DOCEO XML-backed, near-realtime vs. multi-week lag of EP Open Data) enables breaking-vote analysis, intraday coalition-fracture detection, and faster `news-breaking.md` runs. Already wired into `src/mcp/ep-mcp-client.ts` canonical tool list. *Impact: 🌟🌟🌟🌟.*
 
 **Threats (T16–T18):**
 
