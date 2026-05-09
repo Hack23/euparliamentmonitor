@@ -42,7 +42,10 @@ jobs:
       - name: Configure git safe.directory
         # Container runs as root but the workspace is owned by a different uid
         # after actions/checkout — explicitly mark the workspace as safe so
-        # subsequent git operations (auto-commit, tagging) succeed.
+        # subsequent git operations (auto-commit, tagging) succeed. Only
+        # needed in this workflow because release.yml performs git commits
+        # and tagging beyond checkout; the other containerized workflows
+        # (e2e.yml, test-and-report.yml) only checkout and don't need it.
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Checkout repository

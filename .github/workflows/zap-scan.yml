@@ -16,8 +16,9 @@ on:
         required: true
         default: 'https://www.euparliamentmonitor.eu'
   schedule:
-    # Every Sunday at 03:00 UTC — off-peak for European traffic and low
-    # CloudFront cost window. Adjust if production traffic patterns change.
+    # Every Sunday at 03:00 UTC — runs off-peak for European traffic so the
+    # active scan doesn't compete with real users for CloudFront capacity.
+    # Adjust if production traffic patterns change.
     - cron: '0 3 * * 0'
 
 # Restrict top-level permissions to read-only by default
