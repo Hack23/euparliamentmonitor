@@ -549,7 +549,8 @@ export function extractLedeAfterHeading(markdown: string): string {
     if (/^#{2,3}\s+/.test(line)) {
       const headingText = normaliseHeadingText(line.replace(/^#{2,3}\s+/, ''));
       inLede = EDITORIAL_LEDE_HEADINGS.some(
-        (h) => headingText === h || headingText.startsWith(`${h} `) || headingText.startsWith(`${h}:`)
+        (h) =>
+          headingText === h || headingText.startsWith(`${h} `) || headingText.startsWith(`${h}:`)
       );
       continue;
     }

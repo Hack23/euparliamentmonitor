@@ -565,10 +565,7 @@ function writeLanguageVariant(
  * @param guideHtml - Reader Intelligence Guide HTML fragment
  * @returns Body HTML with the guide spliced after the Executive Brief
  */
-export function insertReaderGuideAfterExecutiveBrief(
-  bodyHtml: string,
-  guideHtml: string
-): string {
+export function insertReaderGuideAfterExecutiveBrief(bodyHtml: string, guideHtml: string): string {
   const execBriefAnchor = 'id="section-executive-brief"';
   const briefIdx = bodyHtml.indexOf(execBriefAnchor);
   if (briefIdx === -1) {
