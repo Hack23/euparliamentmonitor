@@ -3,8 +3,7 @@ name: "News: EU Parliament Week Ahead — Unified"
 description: Generates a single PR containing analysis artifacts and the rendered week-ahead article (Stages A → B → C → D → E in one workflow).
 strict: false
 on:
-  schedule:
-    - cron: "0 7 * * 5"  # Fridays around 07:00 UTC
+  schedule: weekly on friday around 7am  # fuzzy: scatters within ±1h of 07:00 UTC Fridays to avoid load spikes
   workflow_dispatch:
     inputs:
       force_generation:

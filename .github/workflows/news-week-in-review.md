@@ -3,8 +3,7 @@ name: "News: EU Parliament Week in Review — Unified"
 description: Generates a single PR containing analysis artifacts and the rendered week-in-review article (Stages A → B → C → D → E in one workflow).
 strict: false
 on:
-  schedule:
-    - cron: "0 9 * * 6"  # Saturdays around 09:00 UTC
+  schedule: weekly on saturday around 9am  # fuzzy: scatters within ±1h of 09:00 UTC Saturdays to avoid load spikes
   workflow_dispatch:
     inputs:
       force_generation:
