@@ -58,6 +58,7 @@ const A_COMPARATIVE_INTL = 'extended/comparative-international.md';
 const A_EXEC_BRIEF = 'extended/executive-brief.md';
 const A_DEVILS_ADVOCATE = 'extended/devils-advocate-analysis.md';
 const A_INTEL_ASSESSMENT = 'extended/intelligence-assessment.md';
+const A_MEDIA_FRAMING = 'extended/media-framing-analysis.md';
 const A_DEEP_ANALYSIS_EXISTING = 'existing/deep-analysis.md';
 /** Stage budgets shared by the four short/mid prospective horizons.
  *  Sum 35 (A=5, B=22, C=4, D=2, E=2). Per-family B1→B2,
@@ -86,7 +87,13 @@ const STANDARD_FEEDS = [
     'get_external_documents',
 ];
 /** Mandatory artifacts shared by every prospective horizon. Long-horizon
- *  variants additionally require `forward-projection.md`. */
+ *  variants additionally require `forward-projection.md`.
+ *
+ *  `extended/media-framing-analysis.md` is mandatory for every horizon —
+ *  see [`analytical-supplementary-methodology.md` §AS4](../../analysis/methodologies/analytical-supplementary-methodology.md)
+ *  and [`per-artifact-methodologies.md` §media-framing-analysis](../../analysis/methodologies/per-artifact-methodologies.md).
+ *  Agents produce it during Pass 2 (or late Pass 1) once the rest of the
+ *  context is in place. */
 const PROSPECTIVE_MANDATORY = [
     A_SIGNIFICANCE,
     A_ACTOR_MAP,
@@ -105,9 +112,15 @@ const PROSPECTIVE_MANDATORY = [
     A_THREAT,
     A_MCP_AUDIT,
     A_INDEX,
+    A_MEDIA_FRAMING,
     A_REFLECTION,
 ];
-/** Mandatory artifacts shared by every retrospective horizon. */
+/** Mandatory artifacts shared by every retrospective horizon.
+ *
+ *  `extended/media-framing-analysis.md` is mandatory across every horizon
+ *  (see PROSPECTIVE_MANDATORY) — review runs build it from the same Pass-2
+ *  read-back so framing analysis lands after the underlying voting,
+ *  stakeholder and coalition artifacts are stable. */
 const RETROSPECTIVE_MANDATORY = [
     A_SIGNIFICANCE,
     A_ACTOR_MAP,
@@ -125,6 +138,7 @@ const RETROSPECTIVE_MANDATORY = [
     A_THREAT,
     A_MCP_AUDIT,
     A_INDEX,
+    A_MEDIA_FRAMING,
     A_REFLECTION,
 ];
 /** Mandatory artifacts unique to long-horizon prospective runs. */
@@ -345,6 +359,7 @@ export const ARTICLE_HORIZONS = {
             A_THREAT,
             A_MCP_AUDIT,
             A_INDEX,
+            A_MEDIA_FRAMING,
             A_REFLECTION,
         ],
         optionalArtifacts: [A_EXEC_BRIEF],

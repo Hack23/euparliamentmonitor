@@ -1,7 +1,8 @@
 {
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Per-artifact minimum line-count floors used by scripts/validate-analysis-completeness.js to enforce Rule 22 (Per-Artifact Depth Floors) of analysis/methodologies/ai-driven-analysis-guide.md. Values are derived from the Run 184 reference benchmark (analysis/daily/2026-04-18/breaking-run184/) minus a 10% tolerance, rounded down to the nearest 5 lines. A file below its threshold MUST trigger Pass 2; it MUST NOT be shipped with a note. When an articleType × relativePath entry is absent the validator falls back to the CLI --min-lines flag (DEFAULT_MIN_LINES = 30). When a per-artifact entry is present the effective floor is max(perArtifact, --min-lines), so --min-lines can raise but never lower a configured floor.",
   "schemaChangelog": {
+    "1.5.0": "Mandatory: extended/media-framing-analysis.md is now required for every article-generating workflow (breaking, week/month/quarter/year-ahead and -in-review, committee-reports, motions, propositions, term-outlook, election-cycle, deep-analysis). Per-article-type line floors added to every entry under thresholds[]. The artifact is produced during Pass 2 (or late Pass 1) once the rest of the analysis context is in place — see analytical-supplementary-methodology.md §AS4 and per-artifact-methodologies.md §media-framing-analysis.",
     "1.4.0": "Additive: dataMode support in manifest.json. Valid values: full (default), title-only, degraded-imf, degraded-voting, minimal. When dataMode != full, the validator applies a line-floor reduction factor (title-only: 0.75, degraded-imf/degraded-voting: 0.85, minimal: 0.65) so structurally constrained runs can pass Stage C. Structural checks (mermaid, WEP, Admiralty, SATs, requiredSections) remain unchanged.",
     "1.3.0": "Additive: forward-projection.md line floors added for week-ahead (80) and month-ahead (120) to match §9.4 stronger Stage-C gate.",
     "1.2.0": "Additive: introduce thresholds for the four new long-horizon and electoral article types (quarter-ahead, quarter-in-review, year-ahead, year-in-review, term-outlook, election-cycle). Adds line floors for the eight new analysis artifacts (forward-projection, legislative-pipeline-forecast, parliamentary-calendar-projection, term-arc, seat-projection, mandate-fulfilment-scorecard, presidency-trio-context, commission-wp-alignment).",
@@ -212,6 +213,7 @@
       "intelligence/cross-session-intelligence.md": 150,
       "risk-scoring/risk-matrix.md": 120,
       "risk-scoring/quantitative-swot.md": 120,
+      "extended/media-framing-analysis.md": 180,
       "intelligence/methodology-reflection.md": 180
     },
     "month-in-review": {
@@ -235,6 +237,7 @@
       "intelligence/session-baseline.md": 180,
       "risk-scoring/risk-matrix.md": 140,
       "risk-scoring/quantitative-swot.md": 140,
+      "extended/media-framing-analysis.md": 220,
       "intelligence/methodology-reflection.md": 200
     },
     "week-ahead": {
@@ -253,6 +256,7 @@
       "intelligence/forward-projection.md": 80,
       "risk-scoring/risk-matrix.md": 100,
       "risk-scoring/quantitative-swot.md": 100,
+      "extended/media-framing-analysis.md": 180,
       "intelligence/methodology-reflection.md": 180
     },
     "month-ahead": {
@@ -271,6 +275,7 @@
       "intelligence/forward-projection.md": 120,
       "risk-scoring/risk-matrix.md": 120,
       "risk-scoring/quantitative-swot.md": 120,
+      "extended/media-framing-analysis.md": 200,
       "intelligence/methodology-reflection.md": 180
     },
     "committee-reports": {
@@ -288,6 +293,7 @@
       "intelligence/reference-analysis-quality.md": 140,
       "risk-scoring/risk-matrix.md": 100,
       "risk-scoring/quantitative-swot.md": 100,
+      "extended/media-framing-analysis.md": 180,
       "intelligence/methodology-reflection.md": 180
     },
     "motions": {
@@ -311,6 +317,7 @@
       "intelligence/session-baseline.md": 200,
       "risk-scoring/risk-matrix.md": 100,
       "risk-scoring/quantitative-swot.md": 100,
+      "extended/media-framing-analysis.md": 200,
       "intelligence/methodology-reflection.md": 200
     },
     "propositions": {
@@ -328,6 +335,7 @@
       "intelligence/reference-analysis-quality.md": 140,
       "risk-scoring/risk-matrix.md": 100,
       "risk-scoring/quantitative-swot.md": 100,
+      "extended/media-framing-analysis.md": 200,
       "intelligence/methodology-reflection.md": 180
     },
     "quarter-ahead": {
@@ -349,6 +357,7 @@
       "intelligence/presidency-trio-context.md": 180,
       "intelligence/commission-wp-alignment.md": 180,
       "extended/forward-indicators.md": 200,
+      "extended/media-framing-analysis.md": 240,
       "risk-scoring/risk-matrix.md": 140,
       "risk-scoring/quantitative-swot.md": 140,
       "classification/significance-classification.md": 100,
@@ -367,6 +376,7 @@
       "intelligence/threat-model.md": 200,
       "intelligence/voting-patterns.md": 220,
       "intelligence/legislative-pipeline-forecast.md": 200,
+      "extended/media-framing-analysis.md": 240,
       "risk-scoring/risk-matrix.md": 140,
       "risk-scoring/quantitative-swot.md": 140,
       "classification/significance-classification.md": 100,
@@ -392,6 +402,7 @@
       "intelligence/commission-wp-alignment.md": 220,
       "extended/forward-indicators.md": 240,
       "extended/historical-parallels.md": 200,
+      "extended/media-framing-analysis.md": 260,
       "risk-scoring/risk-matrix.md": 160,
       "risk-scoring/quantitative-swot.md": 160,
       "classification/significance-classification.md": 120,
@@ -415,6 +426,7 @@
       "intelligence/presidency-trio-context.md": 220,
       "intelligence/commission-wp-alignment.md": 220,
       "extended/historical-parallels.md": 220,
+      "extended/media-framing-analysis.md": 260,
       "risk-scoring/risk-matrix.md": 160,
       "risk-scoring/quantitative-swot.md": 160,
       "classification/significance-classification.md": 120,
@@ -442,6 +454,7 @@
       "extended/forward-indicators.md": 260,
       "extended/historical-parallels.md": 240,
       "extended/comparative-international.md": 240,
+      "extended/media-framing-analysis.md": 280,
       "risk-scoring/risk-matrix.md": 160,
       "risk-scoring/quantitative-swot.md": 160,
       "classification/significance-classification.md": 120,
@@ -469,6 +482,7 @@
       "extended/forward-indicators.md": 280,
       "extended/historical-parallels.md": 280,
       "extended/comparative-international.md": 280,
+      "extended/media-framing-analysis.md": 320,
       "risk-scoring/risk-matrix.md": 180,
       "risk-scoring/quantitative-swot.md": 180,
       "classification/significance-classification.md": 140,
