@@ -1,6 +1,6 @@
 ---
-title: "title: \"title: \\\"title: \\\\\\\"Use this guide to read the article as a political-intelligence product rather than a raw artifact dump…"
-description: "title: \"title: \\\"title: \\\\\\\"Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value…\""
+title: "title: \"title: \\\"title: \\\\\\\"title: \\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Use this guide to read the article as a political-intelligence product…"
+description: "title: \"title: \\\"title: \\\\\\\"title: \\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"Use this guide to read the article as a political-intelligence product rather than a raw…\""
 date: 2026-04-11
 article_type: week-in-review
 slug: 2026-04-11-week-in-review

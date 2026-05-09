@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's spring 2026 legislative session is characterised by intensified committee workload across trade, monetary…"
+title: "EP Committee Reports | 28 April 2026"
 description: "The European Parliament's spring 2026 legislative session is characterised by intensified committee workload across trade, monetary affairs, technology sovereignty, and environmental regulation — driven by external shocks (US tariff threats), Green Deal implementation deadlines, and new EU…"
 date: 2026-04-28
 article_type: committee-reports

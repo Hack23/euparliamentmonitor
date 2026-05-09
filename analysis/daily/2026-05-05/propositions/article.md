@@ -1,5 +1,5 @@
 ---
-title: "WEP Probability Band: Assessed findings — Likely (55–79%) to have multi-year policy consequences"
+title: "EU Parliament Propositions"
 description: "WEP Probability Band: Assessed findings — Likely (55–79%) to have multi-year policy consequences"
 date: 2026-05-05
 article_type: propositions

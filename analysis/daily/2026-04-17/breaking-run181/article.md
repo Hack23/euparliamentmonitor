@@ -1,5 +1,5 @@
 ---
-title: "title: \"🧠 Intelligence Synthesis Summary — EP T+3 Secondary Sprint Analysis\""
+title: "April 17, 2026"
 description: "title: \"🧠 Intelligence Synthesis Summary — EP T+3 Secondary Sprint Analysis\""
 date: 2026-04-17
 article_type: breaking

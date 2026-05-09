@@ -1,5 +1,5 @@
 ---
-title: "The April 28–30 Strasbourg plenary completed an unusually dense legislative sprint, adopting 18 significant acts across technology…"
+title: "EU Parliament Propositions, 28–30 April 2026"
 description: "The April 28–30 Strasbourg plenary completed an unusually dense legislative sprint, adopting 18 significant acts across technology regulation, climate policy, trade, foreign affairs, and institutional governance. This session's output will shape EU competitive positioning and geopolitical…"
 date: 2026-05-04
 article_type: propositions

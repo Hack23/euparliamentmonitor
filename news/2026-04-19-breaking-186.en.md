@@ -1,5 +1,5 @@
 ---
-title: "title: \"🧠 Intelligence Synthesis Summary — T-8 Countdown: April 28 Plenary Intelligence Framework (Run 186)\""
+title: "Run 186"
 description: "title: \"🧠 Intelligence Synthesis Summary — T-8 Countdown: April 28 Plenary Intelligence Framework (Run 186)\""
 date: 2026-04-19
 article_type: breaking

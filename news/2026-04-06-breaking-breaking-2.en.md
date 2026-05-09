@@ -1,6 +1,6 @@
 ---
-title: "🎭 Actor Mapping — EP10 Easter Recess Power Configuration"
-description: "Methodology: Power Index combines seat share (40%), coalition invitation frequency (30%), committee chair holdings (20%), and rapporteur allocation (10%). Easter recess values are estimates based on EP10 Q1 2026 patterns. 🟡 MEDIUM confidence."
+title: "Breaking News Evaluation"
+description: "Pipeline Stage: Analysis complete — newsworthiness evaluation"
 date: 2026-04-06
 article_type: breaking
 slug: 2026-04-06-breaking-breaking-2

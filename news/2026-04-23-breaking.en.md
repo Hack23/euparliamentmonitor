@@ -1,5 +1,5 @@
 ---
-title: "The March 26, 2026 plenary session, adopted exactly one week before President Trump's April 2 tariff proclamations, has undergone a…"
+title: "Run breaking-run-1776928781"
 description: "The March 26, 2026 plenary session, adopted exactly one week before President Trump's April 2 tariff proclamations, has undergone a dramatic retrospective reframing during the Easter recess. What appeared at the time as a routine end-of-session legislative sprint has emerged as a prescient…"
 date: 2026-04-23
 article_type: breaking

@@ -1,6 +1,6 @@
 ---
-title: "Coalition Dynamics Assessment — European Parliament"
-description: "title: \"Coalition Dynamics Assessment — EP10 — 2026-04-04\""
+title: "EP10 Q1 2026"
+description: "title: \"Legislative Pipeline Analysis — EP10 Q1 2026 — 2026-04-04\""
 date: 2026-04-04
 article_type: breaking
 slug: 2026-04-04-breaking-breaking-2

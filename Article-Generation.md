@@ -514,6 +514,13 @@ The **rendered HTML body order matches this skeleton 1:1**. The HTML pipeline re
 
 The `shouldSkipDescriptionLine` filter rejects every Stage-B preamble row that previously leaked into descriptions: `**Purpose:** …`, `**Reporting Window:** …`, `**Date:** … | **Horizon:** … | **Confidence:** …`, `**Admiralty Grade:** B2 | **WEP Band:** Probable …`, plus all the historical metadata banners (`Analysis Date`, `Run`, `Series`, `Window`, …). The full prefix list lives in `METADATA_LINE_PREFIXES` and is unit-tested in `test/unit/article-metadata.test.js`.
 
+In addition, two helpers run on every artefact body before it reaches the SEO surfaces:
+
+- **`stripArtifactCategoryAffix(heading)`** — when an editorial-artefact H1 carries an artifact-category label as either prefix (`# Executive Brief — EU Parliament Motions`) or suffix (`# EP10 Term Outlook — Executive Brief`) — including the `Synthesis Summary`, `Intelligence (Synthesis|Briefing|Assessment) Summary`, `Breaking News Analysis`, `Committee Activity Report`, `Deep Analysis`, `Actor Mapping`, `PESTLE Analysis`, `Stakeholder Map`, `SWOT Analysis`, `Risk Matrix`, `Threat Model`, `Coalition Dynamics`, `Voting Patterns`, `Mandate Fulfilment Scorecard`, `Commission WP Alignment`, `Presidency Trio Context`, `Methodology Reflection`, `MCP Reliability Audit`, `Forward Indicators`, `Scenario Forecast`, `Wildcards Blackswans`, `Quantitative SWOT`, `Impact Matrix`, `Significance Classification`, `Legislative Pipeline Forecast/Analysis/Output Analysis`, `Parliamentary Calendar Projection`, `Seat Projection` and `Cross Run Continuity` labels — the affix is stripped and the editorial-topic core is recovered as the headline. Trailing parenthesised metadata (`(2026-05-08)`, `(May 2026)`) is stripped after the affix. When stripping leaves <5 chars the resolver falls through to the next candidate.
+- **`stripLeadingProseLabel(line)`** — when the journalist's lede paragraph begins with an all-caps BLUF-style label (`SITUATION:`, `KEY MOTION:`, `BLUF:`, `BOTTOM LINE:`, `TIER-1:`, …) the label is stripped before the line is used as the SEO description. Both `extractLedeAfterHeading` and `extractStrongProseLine` route prose through this helper. Single-word labels shorter than 3 chars are exempted to avoid false-matching legitimate sentence openers like `OK:` / `EU:` / `PR:`.
+
+Both helpers are unit-tested in `test/unit/article-metadata.test.js` and locked in by integration assertions in `test/integration/html-article-pipeline.test.js` (no headline starts OR ends with an artefact-category label; no description starts with an all-caps prose-label opener).
+
 ---
 
 ## 🔁 How Analysis Becomes HTML

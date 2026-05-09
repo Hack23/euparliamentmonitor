@@ -206,19 +206,42 @@ describe('HTML article generation pipeline', () => {
     );
 
     it.each(sampleArticles)(
-      '%s `<title>` does not start with an artefact-category label (Synthesis Summary, Executive Brief, …)',
+      '%s `<title>` does not start OR end with an artefact-category label (Synthesis Summary, Executive Brief, Deep Analysis, …)',
       (filename) => {
         const html = fs.readFileSync(path.join(NEWS_DIR, filename), 'utf-8');
         const match = /<title>([^<]+)<\/title>/.exec(html);
         expect(match).not.toBeNull();
         const title = match[1];
         // The page title is `<headline> — <site-title>`; the headline is
-        // the segment before the first ` — `.
-        const headline = title.split(' — ')[0].trim();
+        // every segment before the final site-title separator.
+        const segments = title.split(' — ');
+        const headline = segments.slice(0, -1).join(' — ').trim() || title;
+        // Reject prefix-form artefact-category leaks.
         expect(headline).not.toMatch(/^Synthesis Summary\b/i);
         expect(headline).not.toMatch(/^Executive Brief\b/i);
         expect(headline).not.toMatch(/^Intelligence Briefing\b/i);
         expect(headline).not.toMatch(/^Intelligence Assessment\b/i);
+        expect(headline).not.toMatch(/^Intelligence Synthesis Summary\b/i);
+        expect(headline).not.toMatch(/^Deep Analysis\b/i);
+        expect(headline).not.toMatch(/^Actor Mapping\b/i);
+        // Reject suffix-form artefact-category leaks (`<topic> — Executive Brief`).
+        expect(headline).not.toMatch(/[—–-]\s*Executive Brief\s*$/i);
+        expect(headline).not.toMatch(/[—–-]\s*Synthesis Summary\s*$/i);
+        expect(headline).not.toMatch(/[—–-]\s*Deep Analysis(?:\s*\([^)]*\))?\s*$/i);
+        expect(headline).not.toMatch(/[—–-]\s*Intelligence Briefing\s*$/i);
+        // Reject all-caps prose-label openers (SITUATION:, KEY MOTION:, …).
+        expect(headline).not.toMatch(/^[A-Z][A-Z0-9 -]{1,40}:\s/);
+      }
+    );
+
+    it.each(sampleArticles)(
+      '%s `<meta description>` does not start with an all-caps prose label (SITUATION:, KEY MOTION:, BLUF:, …)',
+      (filename) => {
+        const html = fs.readFileSync(path.join(NEWS_DIR, filename), 'utf-8');
+        const match = /<meta name="description" content="([^"]+)"/.exec(html);
+        expect(match).not.toBeNull();
+        const description = match[1];
+        expect(description).not.toMatch(/^[A-Z][A-Z0-9 -]{1,40}:\s/);
       }
     );
   });

@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament enters May 2026 with a single full Strasbourg plenary session (18–21 May) against a backdrop of accelerating…"
+title: "EU Parliament Month Ahead: May 2026"
 description: "The European Parliament enters May 2026 with a single full Strasbourg plenary session (18–21 May) against a backdrop of accelerating legislative momentum: EP10 has already adopted 51 texts in 2026 (Q1 through early-Q2), surpassing 2025's pace by 46%. Three structural forces will dominate the month:"
 date: 2026-05-01
 article_type: month-ahead

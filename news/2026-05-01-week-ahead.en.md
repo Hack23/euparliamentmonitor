@@ -1,5 +1,5 @@
 ---
-title: "The week of 4–8 May 2026 is a committee-intensive work week with no plenary sitting in Brussels or Strasbourg. The next plenary is…"
+title: "EU Parliament Week Ahead: 4–8 May 2026"
 description: "The week of 4–8 May 2026 is a committee-intensive work week with no plenary sitting in Brussels or Strasbourg. The next plenary is scheduled for 18–21 May in Strasbourg. This week's committee activities will shape the legislative agenda for that session. The dominant intelligence themes are: (1)…"
 date: 2026-05-01
 article_type: week-ahead

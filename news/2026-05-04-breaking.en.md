@@ -1,6 +1,6 @@
 ---
-title: "Extended Executive Brief — EP Breaking News | April 28–30, 2026"
-description: "This document supplements the root executive-brief.md with deeper strategic context, cross-institutional analysis, and intelligence assessments not suitable for the abbreviated executive summary format."
+title: "Breaking News | 2026-05-04"
+description: "The European Parliament's April 28-30 mini-plenary session in Brussels delivered an unusually dense cluster of high-salience resolutions on a single day — April 30, 2026 — signalling coordinated legislative intent across geopolitics, digital regulation, and Eastern Partnership policy."
 date: 2026-05-04
 article_type: breaking
 slug: 2026-05-04-breaking

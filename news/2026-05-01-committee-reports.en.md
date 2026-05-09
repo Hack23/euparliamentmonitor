@@ -1,5 +1,5 @@
 ---
-title: "The last week of April 2026 affirmed EP10's record-setting legislative productivity pace."
+title: "EU Parliament Committee Reports"
 description: "The last week of April 2026 affirmed EP10's record-setting legislative productivity pace."
 date: 2026-05-01
 article_type: committee-reports

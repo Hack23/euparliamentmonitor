@@ -1,6 +1,6 @@
 ---
-title: "Key Legislative Developments — Deep Analysis (2026-05-08)"
-description: "The Digital Markets Act (DMA, Regulation 2022/1925) entered into force on 1 November 2022 and has been applicable since 6 March 2024. By March 2024, six \"gatekeepers\" were designated: Alphabet (Google), Amazon, Apple, ByteDance (TikTok), Meta, and Microsoft. The DMA imposes obligations including…"
+title: "European Parliament Breaking News"
+description: "The European Parliament concluded its April Strasbourg plenary session (28–30 April 2026) with a legislative and political output of exceptional density. Fourteen adopted texts (TA-10-2026-0105 through TA-10-2026-0163) address digital regulation, foreign policy, humanitarian crises, animal…"
 date: 2026-05-08
 article_type: breaking
 slug: 2026-05-08-breaking

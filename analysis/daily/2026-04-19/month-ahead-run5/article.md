@@ -1,5 +1,5 @@
 ---
-title: "European Parliament returns from Easter recess on April 27, 2026 — Day 14 of the recess — to face the densest post-break legislative…"
+title: "April Month-Ahead 2026"
 description: "European Parliament returns from Easter recess on April 27, 2026 — Day 14 of the recess — to face the densest post-break legislative programme since the Parliament's first post-COVID return in September 2020. Eight texts adopted on March 26 in a single extraordinary session have created both…"
 date: 2026-04-19
 article_type: month-ahead

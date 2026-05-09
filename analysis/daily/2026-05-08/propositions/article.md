@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament completed its April 2026 plenary session with a historically productive legislative sprint, adopting 57 texts…"
+title: "EU Parliament Propositions — 8 May 2026"
 description: "The European Parliament completed its April 2026 plenary session with a historically productive legislative sprint, adopting 57 texts across the period January–April 2026 (101 total in 2026 to date). Four landmark legislative acts have reached final adoption or signing stage this week: the…"
 date: 2026-05-08
 article_type: propositions

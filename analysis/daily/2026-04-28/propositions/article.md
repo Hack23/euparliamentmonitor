@@ -1,5 +1,5 @@
 ---
-title: "Run Date: 2026-04-28 | Article Type: propositions | Data Window: 2026-04-21 → 2026-04-28"
+title: "EU Parliament Propositions"
 description: "Run Date: 2026-04-28 | Article Type: propositions | Data Window: 2026-04-21 → 2026-04-28"
 date: 2026-04-28
 article_type: propositions

@@ -1,5 +1,5 @@
 ---
-title: "The week of April 20–27, 2026 marks a pivotal legislative moment for the European Parliament: the SRMR3 bank resolution regulation…"
+title: "EU Parliament Propositions Analysis"
 description: "The week of April 20–27, 2026 marks a pivotal legislative moment for the European Parliament: the SRMR3 bank resolution regulation published in the EU Official Journal on April 20 signals the completion of a multi-year reform cycle for EU financial stability architecture. Simultaneously, the…"
 date: 2026-04-27
 article_type: propositions

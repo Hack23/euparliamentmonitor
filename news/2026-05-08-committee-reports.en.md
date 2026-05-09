@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament concluded a highly productive April 28–30 plenary session in Strasbourg, adopting 19 texts and advancing its…"
+title: "EP Committee Reports"
 description: "The European Parliament concluded a highly productive April 28–30 plenary session in Strasbourg, adopting 19 texts and advancing its legislative agenda across digital, trade, environmental, and foreign policy domains. The week of May 1–8, 2026, marks a transition to committee-intensive work as…"
 date: 2026-05-08
 article_type: committee-reports

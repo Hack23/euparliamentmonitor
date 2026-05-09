@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's April plenary session was bookended by a politically explosive act: the approval of a request to lift the…"
+title: "EU Parliament Motions | 28 April – 5 May 2026"
 description: "The European Parliament's April plenary session was bookended by a politically explosive act: the approval of a request to lift the parliamentary immunity of Patryk Jaki (ECR, Poland), former Polish minister and prominent Law and Justice (PiS)-affiliated MEP. Coming barely five weeks after the…"
 date: 2026-05-05
 article_type: motions

@@ -1,6 +1,6 @@
 ---
-title: "Coverage: April 28–30, 2026 Strasbourg Plenary | Propositions Edition"
-description: "Coverage: April 28–30, 2026 Strasbourg Plenary | Propositions Edition"
+title: "EU Parliament Propositions"
+description: "The final week of April 2026 delivered one of the most substantive legislative batches of the EP10 term: three urgency resolutions, a landmark animal welfare regulation completing trilogue, a critical data-transfer agreement with Iceland, several discharge procedures, and two major pieces of…"
 date: 2026-05-01
 article_type: propositions
 slug: 2026-05-01-propositions

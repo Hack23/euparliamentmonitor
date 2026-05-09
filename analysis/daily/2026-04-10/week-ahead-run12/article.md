@@ -1,6 +1,6 @@
 ---
-title: "Weekly Intelligence Brief: Post-Easter Committee Restart Preview"
-description: "The European Parliament approaches a pivotal week as the Easter recess ends and committee work resumes on 14 April. Three converging pressures define the political landscape: (1) a critical US tariff deadline on 15 April that forces INTA into emergency session on the first day of committee…"
+title: "Post-Easter Committee Restart"
+description: "title: \"Synthesis Summary: Week Ahead 10-17 April 2026\""
 date: 2026-04-10
 article_type: week-ahead
 slug: 2026-04-10-week-ahead

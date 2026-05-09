@@ -1,5 +1,5 @@
 ---
-title: "The March 26, 2026 mini-plenary session produced 18 adopted texts — the highest single-session legislative density of EP10's second…"
+title: "EP10 Month-in-Review April 2026"
 description: "The March 26, 2026 mini-plenary session produced 18 adopted texts — the highest single-session legislative density of EP10's second year. This compressed delivery pattern confirms that the 2024–2029 Parliament has institutionalised pre-recess sprints as a structural tool for managing coalition…"
 date: 2026-04-19
 article_type: month-in-review

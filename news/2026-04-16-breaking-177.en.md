@@ -1,5 +1,5 @@
 ---
-title: "This analysis-only run (Run 177) was conducted on 16 April 2026, the second day of the European Parliament's inter-session period (April…"
+title: "16 April 2026"
 description: "This analysis-only run (Run 177) was conducted on 16 April 2026, the second day of the European Parliament's inter-session period (April 14-26), at T+2 since tariff countermeasures activation. No breaking news was identified. Parliament remains in recess with no emergency recall signalled. The…"
 date: 2026-04-16
 article_type: breaking

@@ -1,5 +1,5 @@
 ---
-title: "April 28 will be remembered as the session where Parliament simultaneously set the terms for the EU's next budget decade, modernised its…"
+title: "EU Parliament Committee Reports, April 28, 2026"
 description: "April 28 will be remembered as the session where Parliament simultaneously set the terms for the EU's next budget decade, modernised its trade preference architecture, and extended EU regulatory competence to transport emissions and animal welfare. The immediate institutional work is complete…"
 date: 2026-04-29
 article_type: committee-reports

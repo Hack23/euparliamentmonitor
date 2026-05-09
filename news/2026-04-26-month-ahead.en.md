@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament enters its most consequential 30-day window since the start of EP10 year 2."
+title: "EP Month Ahead: April 26 – May 26, 2026"
 description: "The European Parliament enters its most consequential 30-day window since the start of EP10 year 2."
 date: 2026-04-26
 article_type: month-ahead

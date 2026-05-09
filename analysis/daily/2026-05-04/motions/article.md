@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's April 28–30, 2026 Strasbourg plenary adopted eleven substantive texts spanning digital regulation enforcement…"
+title: "EU Parliament Motions: 27 April–4 May 2026"
 description: "The European Parliament's April 28–30, 2026 Strasbourg plenary adopted eleven substantive texts spanning digital regulation enforcement, Ukraine accountability, Armenia democratic resilience, and the 2027 budget framework — marking the most legislative-dense three-day session of the EP10 term…"
 date: 2026-05-04
 article_type: motions

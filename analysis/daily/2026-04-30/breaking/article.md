@@ -1,5 +1,5 @@
 ---
-title: "Reference: TA-10-2026-0112 | Procedure: 2025/2246(BUI) | dateAdopted: 2026-04-28"
+title: "EU Parliament Breaking News: April 28–30, 2026"
 description: "Reference: TA-10-2026-0112 | Procedure: 2025/2246(BUI) | dateAdopted: 2026-04-28"
 date: 2026-04-30
 article_type: breaking

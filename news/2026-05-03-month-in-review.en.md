@@ -1,5 +1,5 @@
 ---
-title: "April 2026 marked the European Parliament's most legislatively intensive month of EP10's second year, with the Strasbourg and Brussels…"
+title: "EU Parliament Month in Review: April 2026"
 description: "April 2026 marked the European Parliament's most legislatively intensive month of EP10's second year, with the Strasbourg and Brussels plenary sessions adopting 11 binding or significant texts in a single week (27–30 April). The legislative agenda was dominated by digital market enforcement…"
 date: 2026-05-03
 article_type: month-in-review

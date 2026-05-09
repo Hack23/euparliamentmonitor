@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's final April 2026 plenary delivered three high-impact outputs that will define the EP's political trajectory…"
+title: "EP Breaking News: 7 May 2026"
 description: "The European Parliament's final April 2026 plenary delivered three high-impact outputs that will define the EP's political trajectory into summer recess: a confrontational Digital Markets Act enforcement resolution that puts the Commission on notice, a far-right topical debate challenging the…"
 date: 2026-05-07
 article_type: breaking

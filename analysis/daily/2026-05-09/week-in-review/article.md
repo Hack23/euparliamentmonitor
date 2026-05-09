@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament's April 2026 plenary sessions (primarily the Strasbourg session of 27–30 April) produced a dense legislative…"
+title: "EU Parliament Week in Review"
 description: "The European Parliament's April 2026 plenary sessions (primarily the Strasbourg session of 27–30 April) produced a dense legislative harvest across three strategic fault lines: EU-US trade tensions, democratic backsliding accountability, and digital governance. The Parliament adopted 19+ texts…"
 date: 2026-05-09
 article_type: week-in-review

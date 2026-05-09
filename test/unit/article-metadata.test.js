@@ -25,7 +25,9 @@ import {
   isGenericHeading,
   resolveArticleMetadata,
   shouldSkipDescriptionLine,
+  stripArtifactCategoryAffix,
   stripInlineMarkdown,
+  stripLeadingProseLabel,
   truncateDescription,
   truncateTitle,
 } from '../../scripts/aggregator/article-metadata.js';
@@ -703,9 +705,11 @@ describe('extractArtifactHighlight', () => {
     );
     const result = extractArtifactHighlight(tmpRun, 'week-in-review', '2026-05-09');
     expect(result).not.toBeNull();
-    // Headline is empty because the H1 is an artefact-category label
-    // (`Executive Brief — …`) and is correctly treated as generic.
-    expect(result.headline).toBe('');
+    // Headline is recovered from the artefact-category H1 by stripping
+    // the `Executive Brief — ` prefix — leaving the editorial-topic core
+    // `EU Parliament Week in Review`. This is far better than falling
+    // through to the localized template fallback.
+    expect(result.headline).toBe('EU Parliament Week in Review');
     // Summary comes from the `## 60-Second Read` paragraph, not from the
     // `**Reporting Window:**` preamble.
     expect(result.summary).toContain('European Parliament');
@@ -777,5 +781,128 @@ describe('isArtifactCategoryHeading', () => {
   it('strips leading emoji/decoration before matching', () => {
     expect(isArtifactCategoryHeading('🔖 Executive Brief — EU Parliament Year Ahead')).toBe(true);
     expect(isArtifactCategoryHeading('📊 Synthesis Summary — Q1 2026')).toBe(true);
+  });
+});
+
+describe('stripLeadingProseLabel', () => {
+  it('strips a single-word all-caps label opener', () => {
+    expect(
+      stripLeadingProseLabel(
+        'SITUATION: The European Parliament adopted 14 texts at the late-April plenary session in Strasbourg.'
+      )
+    ).toBe(
+      'The European Parliament adopted 14 texts at the late-April plenary session in Strasbourg.'
+    );
+  });
+
+  it('strips a multi-word all-caps label opener', () => {
+    expect(
+      stripLeadingProseLabel(
+        'KEY MOTION: TA-10-2026-0160 demands stronger DMA enforcement against Big Tech gatekeepers.'
+      )
+    ).toBe(
+      'TA-10-2026-0160 demands stronger DMA enforcement against Big Tech gatekeepers.'
+    );
+  });
+
+  it('strips a hyphenated all-caps label opener (TIER-1, BLUF, etc.)', () => {
+    expect(
+      stripLeadingProseLabel(
+        'TIER-1: Five legislative developments demand immediate decision-maker attention this week.'
+      )
+    ).toBe('Five legislative developments demand immediate decision-maker attention this week.');
+    expect(
+      stripLeadingProseLabel(
+        'BLUF: Coalition fracture probability rises to 35% on the upcoming defence-spending vote.'
+      )
+    ).toBe('Coalition fracture probability rises to 35% on the upcoming defence-spending vote.');
+  });
+
+  it('returns the line unchanged when there is no all-caps opener', () => {
+    const line = 'The European Parliament adopted 14 texts at the late-April plenary session.';
+    expect(stripLeadingProseLabel(line)).toBe(line);
+  });
+
+  it('returns the line unchanged when the opener is too short to be a label', () => {
+    // Only `OK:` — too short, would false-match an actual sentence opener.
+    expect(stripLeadingProseLabel('OK: that decision matters and here is why it matters now.')).toBe(
+      'OK: that decision matters and here is why it matters now.'
+    );
+  });
+
+  it('returns the line unchanged when the opener uses lowercase letters', () => {
+    expect(
+      stripLeadingProseLabel('Situation: The Parliament adopted multiple texts in the plenary.')
+    ).toBe('Situation: The Parliament adopted multiple texts in the plenary.');
+  });
+
+  it('returns the line unchanged when the prose body is too short', () => {
+    expect(stripLeadingProseLabel('SITUATION: too short')).toBe('SITUATION: too short');
+  });
+
+  it('handles empty input safely', () => {
+    expect(stripLeadingProseLabel('')).toBe('');
+  });
+});
+
+describe('stripArtifactCategoryAffix', () => {
+  it('strips a prefix-form category label', () => {
+    expect(stripArtifactCategoryAffix('Executive Brief — EU Parliament Motions')).toBe(
+      'EU Parliament Motions'
+    );
+    expect(stripArtifactCategoryAffix('Synthesis Summary — EP Motions & Adopted Texts')).toBe(
+      'EP Motions & Adopted Texts'
+    );
+    expect(
+      stripArtifactCategoryAffix('Intelligence Synthesis Summary — EP10 Year in Review')
+    ).toBe('EP10 Year in Review');
+  });
+
+  it('strips a suffix-form category label', () => {
+    expect(stripArtifactCategoryAffix('EU Parliament Propositions — Executive Brief')).toBe(
+      'EU Parliament Propositions'
+    );
+    expect(stripArtifactCategoryAffix('EP10 Term Outlook — Executive Brief')).toBe(
+      'EP10 Term Outlook'
+    );
+  });
+
+  it('strips trailing parenthesised metadata after rescuing the core', () => {
+    expect(
+      stripArtifactCategoryAffix('Key Legislative Developments — Deep Analysis (2026-05-08)')
+    ).toBe('Key Legislative Developments');
+    expect(
+      stripArtifactCategoryAffix('Actor Mapping — EP10 Political Power Network (May 2026)')
+    ).toBe('EP10 Political Power Network');
+  });
+
+  it('returns empty when only the category label survives', () => {
+    expect(stripArtifactCategoryAffix('Executive Brief')).toBe('');
+    expect(stripArtifactCategoryAffix('Synthesis Summary')).toBe('');
+  });
+
+  it('returns the heading unchanged when no category affix is present', () => {
+    expect(stripArtifactCategoryAffix('Banking Union Breakthrough')).toBe(
+      'Banking Union Breakthrough'
+    );
+    expect(stripArtifactCategoryAffix('Coalition Realignment After Plenary Vote')).toBe(
+      'Coalition Realignment After Plenary Vote'
+    );
+  });
+
+  it('handles colon-form separators', () => {
+    expect(stripArtifactCategoryAffix('Executive Brief: EU Parliament Week Ahead')).toBe(
+      'EU Parliament Week Ahead'
+    );
+  });
+
+  it('handles empty input safely', () => {
+    expect(stripArtifactCategoryAffix('')).toBe('');
+    expect(stripArtifactCategoryAffix('   ')).toBe('');
+  });
+
+  it('falls back to empty when the rescued core is too short', () => {
+    // After stripping, only `EU` remains — below the 5-char minimum.
+    expect(stripArtifactCategoryAffix('EU — Executive Brief')).toBe('');
   });
 });

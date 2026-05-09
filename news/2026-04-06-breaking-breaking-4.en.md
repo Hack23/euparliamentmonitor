@@ -1,6 +1,6 @@
 ---
-title: "🤝 Coalition Dynamics Analysis — Easter Monday Evening Assessment"
-description: "Framework: Dual-Track Coalition Model + Power Index Analysis"
+title: "Easter Monday Daily Intelligence Closure"
+description: "Scope: Consolidation of 4 breaking-news runs (00:33, 06:45, 12:15, 18:18 UTC) + committee-reports + propositions + 2 extended breaking runs"
 date: 2026-04-06
 article_type: breaking
 slug: 2026-04-06-breaking-breaking-4
