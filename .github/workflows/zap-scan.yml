@@ -90,8 +90,10 @@ jobs:
           if [ -z "$URL" ]; then
             URL="$DEFAULT_URL"
           fi
-          # Strip CR/LF and other control characters (tab, etc.) defensively
-          URL=$(printf '%s' "$URL" | tr -d '\r\n\t')
+          # Strip the full ASCII control range (0x00-0x1F + DEL 0x7F) defensively —
+          # CR/LF would let a crafted input forge extra $GITHUB_OUTPUT lines, and
+          # the other control bytes have no business in a URL.
+          URL=$(printf '%s' "$URL" | tr -d '\000-\037\177')
           # Scheme must be HTTPS — refuse anything else (file://, http://, gopher://, ...)
           case "$URL" in
             https://*) ;;
