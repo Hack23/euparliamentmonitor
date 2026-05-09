@@ -1,0 +1,88 @@
+name: ZAP DAST Scan
+
+# OWASP ZAP full-scan against a deployed target. Runs on a weekly schedule
+# against the production site and on manual dispatch against any URL. Not
+# wired to push/PR triggers because a full scan with the AJAX spider can take
+# 20-40 minutes and requires a deployed target — the existing CI workflows
+# (test-and-report.yml, e2e.yml) already cover unit/E2E/accessibility on PRs.
+#
+# Reference: https://www.zaproxy.org/docs/docker/full-scan/
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'Target URL to scan (must be HTTPS, publicly reachable)'
+        required: true
+        default: 'https://www.euparliamentmonitor.eu'
+  schedule:
+    # Every Sunday at 03:00 UTC — off-peak for European traffic and low
+    # CloudFront cost window. Adjust if production traffic patterns change.
+    - cron: '0 3 * * 0'
+
+# Restrict top-level permissions to read-only by default
+permissions: read-all
+
+# Never cancel an in-flight scan; concurrent runs against the same target
+# would skew results and produce noisy duplicate issue reports.
+concurrency:
+  group: zap-scan
+  cancel-in-progress: false
+
+jobs:
+  zap-full-scan:
+    name: OWASP ZAP Full Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      # zaproxy/action-full-scan files findings as a single rolling GitHub
+      # issue (one issue per workflow file, updated each run). Required write
+      # scope for that auto-issue. Set `allow_issue_writing: false` below to
+      # disable, in which case `issues: write` can be removed.
+      issues: write
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        # Audit-only — block mode would defeat the purpose of an external
+        # active scan that intentionally generates thousands of outbound
+        # requests against the target.
+        uses: step-security/harden-runner@a5ad31d6a139d249332a2605b85202e8c0b78450 # v2.19.1
+        with:
+          egress-policy: audit
+
+      - name: Checkout repository
+        # Required so the ZAP action can read .zap/rules.tsv from the repo.
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Resolve target URL
+        id: target
+        # `workflow_dispatch` provides `inputs.url`; the scheduled run falls
+        # back to the production canonical URL. Single source of truth so the
+        # scan step below stays declarative.
+        run: |
+          URL="${{ github.event.inputs.url }}"
+          if [ -z "$URL" ]; then
+            URL="https://www.euparliamentmonitor.eu"
+          fi
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          echo "🎯 ZAP target: $URL"
+
+      - name: ZAP Full Scan
+        # SHA-pinned per Hack23 security policy. v0.13.0 — the same release
+        # the example in the issue references. Bump the SHA + comment together.
+        uses: zaproxy/action-full-scan@3c58388149901b9a03b7718852c5ba889646c27c # v0.13.0
+        with:
+          token: ${{ github.token }}
+          docker_name: 'ghcr.io/zaproxy/zaproxy:stable'
+          target: ${{ steps.target.outputs.url }}
+          # False-positive suppressions live in .zap/rules.tsv (review after
+          # each new finding is auto-filed).
+          rules_file_name: '.zap/rules.tsv'
+          # -a: include alpha-quality active-scan rules
+          # -j: enable AJAX spider for client-side rendered content (Mermaid /
+          #     Chart.js graphs render after DOMContentLoaded on our pages)
+          cmd_options: '-a -j'
+          # Auto-file findings as a single rolling issue. Set to false to
+          # rely on the uploaded artifact instead.
+          allow_issue_writing: true
+          artifact_name: zap_scan
