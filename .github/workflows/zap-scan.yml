@@ -1,10 +1,15 @@
 name: ZAP DAST Scan
 
 # OWASP ZAP full-scan against a deployed target. Runs on a weekly schedule
-# against the production site and on manual dispatch against any URL. Not
+# against the production site and on manual dispatch against an HTTPS URL
+# whose host is in ALLOWED_HOSTS (see "Resolve target URL" step below — the
+# allowlist exists so the runner can't be turned into an SSRF probe). Not
 # wired to push/PR triggers because a full scan with the AJAX spider can take
 # 20-40 minutes and requires a deployed target — the existing CI workflows
 # (test-and-report.yml, e2e.yml) already cover unit/E2E/accessibility on PRs.
+#
+# Canonical production host: euparliamentmonitor.com (matches BASE_URL in
+# src/constants/config.ts). Add staging hosts to ALLOWED_HOSTS as needed.
 #
 # Reference: https://www.zaproxy.org/docs/docker/full-scan/
 
@@ -12,9 +17,9 @@ on:
   workflow_dispatch:
     inputs:
       url:
-        description: 'Target URL to scan (must be HTTPS, publicly reachable)'
+        description: 'Target URL to scan (must be HTTPS; host must be in ALLOWED_HOSTS — see job env)'
         required: true
-        default: 'https://www.euparliamentmonitor.eu'
+        default: 'https://euparliamentmonitor.com'
   schedule:
     # Every Sunday at 03:00 UTC — runs off-peak for European traffic so the
     # active scan doesn't compete with real users for CloudFront capacity.
@@ -74,9 +79,11 @@ jobs:
         #      surviving payload are not interpreted.
         env:
           INPUT_URL: ${{ github.event.inputs.url }}
-          DEFAULT_URL: https://www.euparliamentmonitor.eu
-          # Comma-separated host allowlist. Add staging hosts here as needed.
-          ALLOWED_HOSTS: 'www.euparliamentmonitor.eu,euparliamentmonitor.eu'
+          DEFAULT_URL: https://euparliamentmonitor.com
+          # Comma-separated host allowlist. Canonical production host is
+          # euparliamentmonitor.com (matches BASE_URL in src/constants/config.ts).
+          # Add staging hosts here as needed.
+          ALLOWED_HOSTS: 'euparliamentmonitor.com,www.euparliamentmonitor.com'
         run: |
           set -euo pipefail
           URL="${INPUT_URL:-}"

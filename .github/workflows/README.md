@@ -366,7 +366,7 @@ incrementally during the run and persists independently of the
 **Purpose**: OWASP ZAP full active DAST scan against deployed targets
 
 **Trigger**:
-- `workflow_dispatch` with `url` input (defaults to `https://www.euparliamentmonitor.eu`)
+- `workflow_dispatch` with `url` input (defaults to `https://euparliamentmonitor.com`; host must be in the workflow's ALLOWED_HOSTS allowlist — `euparliamentmonitor.com`, `www.euparliamentmonitor.com`)
 - Scheduled weekly: Sundays at 03:00 UTC against the production canonical URL
 
 **What it does**:

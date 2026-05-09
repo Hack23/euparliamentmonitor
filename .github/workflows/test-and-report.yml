@@ -349,6 +349,9 @@ jobs:
         # uses chrome-launcher which respects $CHROME_PATH; ask the
         # playwright-core package (transitive dep of @playwright/test) for the
         # exact path so we don't hard-code a build-numbered subdirectory.
+        # `shell: bash` is required: the default `sh -e {0}` in container jobs
+        # rejects `set -o pipefail`.
+        shell: bash
         run: |
           set -euo pipefail
           CHROME_PATH=$(node -e "console.log(require('playwright-core').chromium.executablePath())")
