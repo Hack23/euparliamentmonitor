@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EU Parliament Propositions"
-description: "Run Date: 2026-04-28 | Confidence: 🟡 MEDIUM (limited real-time data from current week)"
+title: "EU Parliament Propositions"
+description: "Run Date: 2026-04-28 | Article Type: propositions | Data Window: 2026-04-21 → 2026-04-28"
 date: 2026-04-28
 article_type: propositions
 slug: 2026-04-28-propositions

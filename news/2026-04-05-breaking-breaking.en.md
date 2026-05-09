@@ -1,6 +1,6 @@
 ---
 title: "Breaking News Intelligence Brief - European Parliament"
-description: "analyst: EU Parliament Monitor Agentic Workflow"
+description: "The European Parliament remains in Easter recess (27 March - 13 April 2026). No parliamentary sessions, committee meetings, or votes are scheduled. The EP Open Data API continues to show degraded performance, with 6 of 8 feed endpoints returning 404 errors - a recurring pattern during recess…"
 date: 2026-04-05
 article_type: breaking
 slug: 2026-04-05-breaking-breaking

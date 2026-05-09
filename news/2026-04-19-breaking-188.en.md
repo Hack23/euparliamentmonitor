@@ -1,5 +1,5 @@
 ---
-title: "📊 Synthesis Summary — Easter Recess Day 7 / Run 188"
+title: "Easter Recess Day 7 / Run 188"
 description: "Run 188 — the tenth and final run before the Parliament's expected API restoration window (April 21-23) — delivers a single landmark intelligence breakthrough: the first confirmed official titles for the four high-significance texts adopted on March 26, 2026 that have remained…"
 date: 2026-04-19
 article_type: breaking

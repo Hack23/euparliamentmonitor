@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — Breaking News | 2026-05-05"
-description: "Method: Convergent Analysis — Cross-domain synthesis of April 28–30 Strasbourg plenary outputs"
+title: "Breaking News | 2026-05-05"
+description: "The European Parliament concluded its April 28–30 Strasbourg plenary session with a high-density legislative sprint that produced 14 adopted texts across digital governance, geopolitics, fiscal policy, and rule-of-law domains. The session stands as one of the most consequential three-day…"
 date: 2026-05-05
 article_type: breaking
 slug: 2026-05-05-breaking

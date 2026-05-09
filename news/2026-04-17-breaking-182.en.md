@@ -1,5 +1,5 @@
 ---
-title: "🧠 Intelligence Synthesis Summary — April 17, 2026 (Run 182)"
+title: "April 17, 2026"
 description: "title: \"🧠 Intelligence Synthesis Summary — Digital Omnibus AI Rollback & Pre-Plenary Brief\""
 date: 2026-04-17
 article_type: breaking

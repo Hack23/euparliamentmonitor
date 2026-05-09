@@ -1,6 +1,6 @@
 ---
 title: "EP API Reliability Assessment — 3 April 2026"
-description: "title: \"EP API Reliability Assessment — 2026-04-03\""
+description: "Systematic testing across three independent runs on 3 April 2026 reveals significant degradation in the European Parliament Open Data Portal's feed API. While core data endpoints (MEP records, adopted texts with one-week window, analytical tools) remain operational, the real-time feed…"
 date: 2026-04-03
 article_type: breaking
 slug: 2026-04-03-breaking-breaking-2

@@ -1,6 +1,6 @@
 ---
-title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
-description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
+title: "European Parliament committees enter the Easter recess having delivered a record Q1 2026 legislative output of 114 acts — a 46% increase…"
+description: "European Parliament committees enter the Easter recess having delivered a record Q1 2026 legislative output of 114 acts — a 46% increase over the full year 2025 total of 78 acts. The March sessions produced landmark cross-committee legislation including the EU Talent Pool directive…"
 date: 2026-04-16
 article_type: committee-reports
 slug: 2026-04-16-committee-reports-1677eddd-9ddd-4b92-a3b7-876a5a4c

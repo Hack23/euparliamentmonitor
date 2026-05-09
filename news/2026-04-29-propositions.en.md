@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EU Parliament Propositions"
-description: "Date: 2026-04-29 | Session: Strasbourg April 28–29, 2026"
+title: "EU Parliament Propositions"
+description: "The April 28, 2026 Strasbourg plenary session was one of the most legislatively dense sittings of EP10, adopting 22 texts across nine policy domains — from the multiannual financial framework interim report to consent-based rape legislation and the Generalised Scheme of Preferences. Five MEP…"
 date: 2026-04-29
 article_type: propositions
 slug: 2026-04-29-propositions

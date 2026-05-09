@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — Breaking News Analysis"
-description: "Admiralty Grade: B2 — Reliable source, probably true"
+title: "European Parliament Breaking News"
+description: "The European Parliament concluded its April Strasbourg plenary session (28–30 April 2026) with a legislative and political output of exceptional density. Fourteen adopted texts (TA-10-2026-0105 through TA-10-2026-0163) address digital regulation, foreign policy, humanitarian crises, animal…"
 date: 2026-05-08
 article_type: breaking
 slug: 2026-05-08-breaking

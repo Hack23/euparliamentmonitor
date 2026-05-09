@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EP Committee Reports | 28 April 2026"
-description: "Admiralty Grade: B/2 — Multiple independent EP institutional data sources corroborate the legislative timeline. Coalition probability estimates carry inherent uncertainty due to absence of vote-level data."
+title: "EP Committee Reports | 28 April 2026"
+description: "The European Parliament's spring 2026 legislative session is characterised by intensified committee workload across trade, monetary affairs, technology sovereignty, and environmental regulation — driven by external shocks (US tariff threats), Green Deal implementation deadlines, and new EU…"
 date: 2026-04-28
 article_type: committee-reports
 slug: 2026-04-28-committee-reports

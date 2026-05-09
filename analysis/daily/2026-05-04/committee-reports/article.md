@@ -1,6 +1,6 @@
 ---
-title: "Synthesis Summary — EP Committee Reports Week 27 Apr–4 May 2026"
-description: "Analyst Confidence: 🟡 Medium | Data Sources: EP Open Data Portal (live)"
+title: "EP Committee Reports"
+description: "The European Parliament's committee system delivered a significant legislative output batch in the week of 27 April – 4 May 2026, with nine adopted texts spanning digital market regulation, budget planning, foreign policy, and animal welfare. The highest-salience items are the Digital Markets…"
 date: 2026-05-04
 article_type: committee-reports
 slug: 2026-05-04-committee-reports

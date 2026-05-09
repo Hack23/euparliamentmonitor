@@ -1,6 +1,6 @@
 ---
-title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
-description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
+title: "The Q1 2026 committee output creates differentiated stakeholder impacts across six dimensions. The US tariff response (TA-10-2026-0096)…"
+description: "The Q1 2026 committee output creates differentiated stakeholder impacts across six dimensions. The US tariff response (TA-10-2026-0096) creates immediate economic uncertainty for industry while empowering INTA's institutional role. The Banking Union triple package reshapes the financial sector…"
 date: 2026-04-13
 article_type: committee-reports
 slug: 2026-04-13-committee-reports-43b9989e-4e2a-4672-aa00-f50e936a

@@ -1,6 +1,6 @@
 ---
 title: "📰 Weekly Intelligence Brief — Post-Easter Return (April 27–30, 2026)"
-description: "📅 Week of: 2026-04-27 to 2026-04-30 (Strasbourg Plenary)"
+description: "The European Parliament returns from Easter recess on 27 April 2026 to a four-day Strasbourg plenary that ranks among the most consequential of EP10's second year. Three debates converge to test both the new coalition architecture and Parliament's institutional ambitions: the Security and…"
 date: 2026-04-17
 article_type: week-ahead
 slug: 2026-04-17-week-ahead

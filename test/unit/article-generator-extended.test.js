@@ -18,6 +18,7 @@ import {
   generateAllArticles,
   discoverAnalysisRuns,
   groupRunsForCollision,
+  insertReaderGuideAfterExecutiveBrief,
 } from '../../scripts/aggregator/article-generator.js';
 import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
 
@@ -243,5 +244,51 @@ describe('article-generator extended', () => {
       const allRuns = discoverAnalysisRuns(FIXTURE_REPO);
       expect(allRuns.length).toBeGreaterThan(0);
     });
+  });
+});
+
+describe('insertReaderGuideAfterExecutiveBrief', () => {
+  const guide = '<section id="reader-intelligence-guide"><h2>Guide</h2></section>';
+
+  it('splices the guide AFTER the Executive Brief and BEFORE the next H2', () => {
+    const body = [
+      '<h2 id="section-executive-brief">Executive Brief</h2>',
+      '<p>Brief body.</p>',
+      '<h2 id="section-synthesis">Synthesis</h2>',
+      '<p>Deep body.</p>',
+    ].join('\n');
+    const out = insertReaderGuideAfterExecutiveBrief(body, guide);
+    const briefIdx = out.indexOf('section-executive-brief');
+    const guideIdx = out.indexOf('reader-intelligence-guide');
+    const synthesisIdx = out.indexOf('section-synthesis');
+    expect(briefIdx).toBeGreaterThanOrEqual(0);
+    expect(guideIdx).toBeGreaterThan(briefIdx);
+    expect(synthesisIdx).toBeGreaterThan(guideIdx);
+  });
+
+  it('appends the guide at the end when the Executive Brief is the only H2', () => {
+    const body = '<h2 id="section-executive-brief">Brief</h2><p>Body.</p>';
+    const out = insertReaderGuideAfterExecutiveBrief(body, guide);
+    expect(out.endsWith(guide)).toBe(true);
+  });
+
+  it('falls back to prepending when the Executive Brief is missing (sparse runs)', () => {
+    const body = '<h2 id="section-synthesis">Synthesis</h2><p>Body.</p>';
+    const out = insertReaderGuideAfterExecutiveBrief(body, guide);
+    expect(out.startsWith(guide)).toBe(true);
+  });
+
+  it('handles a bare `<h2>` tag (no attributes) on the next section', () => {
+    const body = [
+      '<h2 id="section-executive-brief">Brief</h2>',
+      '<p>Body.</p>',
+      '<h2>Plain</h2>',
+      '<p>Plain body.</p>',
+    ].join('\n');
+    const out = insertReaderGuideAfterExecutiveBrief(body, guide);
+    expect(out.indexOf('reader-intelligence-guide')).toBeGreaterThan(
+      out.indexOf('section-executive-brief')
+    );
+    expect(out.indexOf('reader-intelligence-guide')).toBeLessThan(out.indexOf('<h2>Plain'));
   });
 });

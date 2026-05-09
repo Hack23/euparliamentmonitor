@@ -1,5 +1,5 @@
 ---
-title: "📊 Synthesis Summary — Easter Recess Day 7 / Run 190"
+title: "Easter Recess Day 7 / Run 190"
 description: "Run 190 (Easter Monday, April 20, 2026) marks the eleventh consecutive ANALYSIS_ONLY run"
 date: 2026-04-20
 article_type: breaking

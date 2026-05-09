@@ -1,6 +1,6 @@
 ---
-title: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear…"
-description: "Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices."
+title: "The European Parliament faces a convergence of three independent threat vectors as it returns from Easter recess on April 15:"
+description: "The European Parliament faces a convergence of three independent threat vectors as it returns from Easter recess on April 15:"
 date: 2026-04-14
 article_type: breaking
 slug: 2026-04-14-breaking-170

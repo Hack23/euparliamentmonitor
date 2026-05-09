@@ -1,6 +1,6 @@
 ---
-title: "EP10 Term Outlook — Synthesis Summary"
-description: "Date: 2026-05-08 | Article Type: term-outlook | Horizon: EP10 (July 2024 – June 2029)"
+title: "EP10 Term Outlook"
+description: "The European Parliament's EP10 term (2024–2029) has entered its decisive second year with a structurally rightward-shifted parliament navigating a historic convergence of crises: European strategic autonomy, defence rearmament, economic competitiveness stress, and democratic backsliding. The…"
 date: 2026-05-08
 article_type: term-outlook
 slug: 2026-05-08-term-outlook
