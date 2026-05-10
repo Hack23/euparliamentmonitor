@@ -1,0 +1,908 @@
+{
+  "data": [
+    {
+      "id": "TA-10-2026-0001",
+      "title": "Framework for strengthening the availability and security of supply of critical medicinal products as well as the availability of, and accessibility of, medicinal products of common interest",
+      "reference": "TA-10-2026-0001",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-01-20",
+      "procedureReference": "eli/dl/event/2025-0102-DEC-DCPL-2026-01-20",
+      "subjectMatter": "MARI, SANT"
+    },
+    {
+      "id": "TA-10-2026-0004",
+      "title": "Safeguarding and promoting financial stability amid economic uncertainties",
+      "reference": "TA-10-2026-0004",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-01-20",
+      "procedureReference": "eli/dl/event/2025-2051-DEC-DCPL-2026-01-20",
+      "subjectMatter": "PECO, c_b1a922fd"
+    },
+    {
+      "id": "TA-10-2026-0005",
+      "title": "Humanitarian aid in a time of polycrisis – reaffirming our principles for a more effective and ambitious response to humanitarian crises",
+      "reference": "TA-10-2026-0005",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-01-20",
+      "procedureReference": "eli/dl/event/2025-2085-DEC-DCPL-2026-01-20",
+      "subjectMatter": "EXT, DDLH"
+    },
+    {
+      "id": "TA-10-2026-0006",
+      "title": "Reform of the European Electoral Act – hurdles to ratification and implementation in the Member States",
+      "reference": "TA-10-2026-0006",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-01-20",
+      "procedureReference": "eli/dl/event/2025-2028-DEC-DCPL-2026-01-20",
+      "subjectMatter": "DGEN"
+    },
+    {
+      "id": "TA-10-2026-0008",
+      "title": "Request for opinion from the Court of Justice on the compatibility with the Treaties of the proposed EU-Mercosur Partnership Agreement (EMPA) and Interim Trade Agreement (ITA)",
+      "reference": "TA-10-2026-0008",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-01-21",
+      "procedureReference": "eli/dl/event/2026-2560-DEC-DCPL-2026-01-21",
+      "subjectMatter": "PCOM, ACIN"
+    },
+    {
+      "id": "TA-10-2026-0009",
+      "title": "Air passenger rights",
+      "reference": "TA-10-2026-0009",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-01-21",
+      "procedureReference": "eli/dl/event/2013-0072-DEC-DCPL-2026-01-21",
+      "subjectMatter": "TRAN, PROT"
+    },
+    {
+      "id": "TA-10-2026-0010",
+      "title": "Enhanced cooperation on the establishment of a Loan for Ukraine",
+      "reference": "TA-10-2026-0010",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-01-21",
+      "procedureReference": "eli/dl/event/2025-0431-DEC-DCPL-2026-01-21",
+      "subjectMatter": "ASTU, EXT"
+    },
+    {
+      "id": "TA-10-2026-0012",
+      "title": "Implementation of the common foreign and security policy – annual report 2025",
+      "reference": "TA-10-2026-0012",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-01-21",
+      "procedureReference": "eli/dl/event/2025-2164-DEC-DCPL-2026-01-21",
+      "subjectMatter": "PESC"
+    },
+    {
+      "id": "TA-10-2026-0015",
+      "title": "Addressing impunity through EU sanctions, including the EU Global Human Rights sanctions regime (so-called ‘EU Magnitsky Act’)",
+      "reference": "TA-10-2026-0015",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-01-21",
+      "procedureReference": "eli/dl/event/2025-2049-DEC-DCPL-2026-01-21",
+      "subjectMatter": "DDLH, PESC"
+    },
+    {
+      "id": "TA-10-2026-0020",
+      "title": "Drones and new systems of warfare – the EU’s need to adapt to be fit for today’s security challenges",
+      "reference": "TA-10-2026-0020",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-01-22",
+      "procedureReference": "eli/dl/event/2025-2088-DEC-DCPL-2026-01-22",
+      "subjectMatter": "EXT, PESC"
+    },
+    {
+      "id": "TA-10-2026-0022",
+      "title": "European technological sovereignty and digital infrastructure",
+      "reference": "TA-10-2026-0022",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-01-22",
+      "procedureReference": "eli/dl/event/2025-2007-DEC-DCPL-2026-01-22",
+      "subjectMatter": "MARI, TELE"
+    },
+    {
+      "id": "TA-10-2026-0024",
+      "title": "Attempted takeover of Lithuania’s public broadcaster and the threat to democracy in Lithuania",
+      "reference": "TA-10-2026-0024",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-01-22",
+      "procedureReference": "eli/dl/event/2026-2568-DEC-DCPL-2026-01-22",
+      "subjectMatter": "ELSJ"
+    },
+    {
+      "id": "TA-10-2026-0025",
+      "title": "Establishment of a list of safe countries of origin at Union level",
+      "reference": "TA-10-2026-0025",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-10",
+      "procedureReference": "eli/dl/event/2025-0101-DEC-DCPL-2026-02-10",
+      "subjectMatter": "IMMI"
+    },
+    {
+      "id": "TA-10-2026-0026",
+      "title": "Application of the ‘safe third country’ concept",
+      "reference": "TA-10-2026-0026",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-10",
+      "procedureReference": "eli/dl/event/2025-0132-DEC-DCPL-2026-02-10",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0029",
+      "title": "Amending the Measuring Instruments Directive",
+      "reference": "TA-10-2026-0029",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-10",
+      "procedureReference": "eli/dl/event/2024-0311-DEC-DCPL-2026-02-10",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0030",
+      "title": "Bilateral safeguard clause of the EU-Mercosur Partnership Agreement and the EU-Mercosur Interim Trade Agreement for agricultural products",
+      "reference": "TA-10-2026-0030",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-10",
+      "procedureReference": "eli/dl/event/2025-0322-DEC-DCPL-2026-02-10",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0032",
+      "title": "European Union designs (codification)",
+      "reference": "TA-10-2026-0032",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-10",
+      "procedureReference": "eli/dl/event/2025-0190-DEC-DCPL-2026-02-10",
+      "subjectMatter": "PROP, MARI"
+    },
+    {
+      "id": "TA-10-2026-0033",
+      "title": "Appointment of the Vice-Chair of the Supervisory Board of the European Central Bank",
+      "reference": "TA-10-2026-0033",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-10",
+      "procedureReference": "eli/dl/event/2025-0906-DEC-DCPL-2026-02-10",
+      "subjectMatter": "INST, BCE"
+    },
+    {
+      "id": "TA-10-2026-0034",
+      "title": "European Central Bank – annual report 2025",
+      "reference": "TA-10-2026-0034",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-10",
+      "procedureReference": "eli/dl/event/2025-2182-DEC-DCPL-2026-02-10",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0035",
+      "title": "Regulation implementing enhanced cooperation on the establishment of the Ukraine Support Loan for 2026 and 2027",
+      "reference": "TA-10-2026-0035",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-11",
+      "procedureReference": "eli/dl/event/2026-0008-DEC-DCPL-2026-02-11",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0037",
+      "title": "Amending the multiannual financial framework for the years 2021 to 2027",
+      "reference": "TA-10-2026-0037",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-11",
+      "procedureReference": "eli/dl/event/2025-3500-DEC-DCPL-2026-02-11",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0038",
+      "title": "Mobilisation of the European Globalisation Adjustment Fund: application EGF/2025/006 BE/ Audi - Belgium",
+      "reference": "TA-10-2026-0038",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-11",
+      "procedureReference": "eli/dl/event/2026-0001-DEC-DCPL-2026-02-11",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0039",
+      "title": "Interim report in view of the consent procedure on the Agreement establishing an association between the EU and the Principality of Andorra and the Republic of San Marino",
+      "reference": "TA-10-2026-0039",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-11",
+      "procedureReference": "eli/dl/event/2024-0101R-DEC-DCPL-2026-02-11",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0040",
+      "title": "EU strategic defence and security partnerships",
+      "reference": "TA-10-2026-0040",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-11",
+      "procedureReference": "eli/dl/event/2025-2119-DEC-DCPL-2026-02-11",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0041",
+      "title": "Genetically modified soybean DBN-09004-6",
+      "reference": "TA-10-2026-0041",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-11",
+      "procedureReference": "eli/dl/event/2026-2523-DEC-DCPL-2026-02-11",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0043",
+      "title": "Genetically modified cotton GHB614 × LLCotton25",
+      "reference": "TA-10-2026-0043",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-11",
+      "procedureReference": "eli/dl/event/2026-2519-DEC-DCPL-2026-02-11",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0045",
+      "title": "Post-election situation in Uganda and threats against opposition leader Bobi Wine",
+      "reference": "TA-10-2026-0045",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-12",
+      "procedureReference": "eli/dl/event/2026-2611-DEC-DCPL-2026-02-12",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0046",
+      "title": "Systemic oppression, inhumane conditions and arbitrary detentions by the regime in Iran",
+      "reference": "TA-10-2026-0046",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-12",
+      "procedureReference": "eli/dl/event/2026-2612-DEC-DCPL-2026-02-12",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0048",
+      "title": "Cooperation among enforcement authorities regarding unfair trading practices in the agri-food supply chain",
+      "reference": "TA-10-2026-0048",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-12",
+      "procedureReference": "eli/dl/event/2024-0318-DEC-DCPL-2026-02-12",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0050",
+      "title": "Addressing subcontracting chains and the role of intermediaries in order to protect workers’ rights",
+      "reference": "TA-10-2026-0050",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-12",
+      "procedureReference": "eli/dl/event/2025-2133-DEC-DCPL-2026-02-12",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0051",
+      "title": "Recommendation to the Council on EU priorities for the 70th session of the UN Commission on the Status of Women",
+      "reference": "TA-10-2026-0051",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-12",
+      "procedureReference": "eli/dl/event/2025-2240-DEC-DCPL-2026-02-12",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0052",
+      "title": "World Cancer Day",
+      "reference": "TA-10-2026-0052",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-12",
+      "procedureReference": "eli/dl/event/2026-2586-DEC-DCPL-2026-02-12",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0053",
+      "title": "Situation in Northeast Syria, the violence against civilians and the need to maintain a sustainable ceasefire",
+      "reference": "TA-10-2026-0053",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-12",
+      "procedureReference": "eli/dl/event/2026-2602-DEC-DCPL-2026-02-12",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0054",
+      "title": "Accession of Montenegro to the Convention of 2 July 2019 on the Recognition and Enforcement of Foreign Judgments in Civil or Commercial Matters",
+      "reference": "TA-10-2026-0054",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-12",
+      "procedureReference": "eli/dl/event/2025-3047-DEC-DCPL-2026-02-12",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0055",
+      "title": "Accession of the Republic of Albania to the Convention of 2 July 2019 on the Recognition and Enforcement of Foreign Judgments in Civil or Commercial Matters",
+      "reference": "TA-10-2026-0055",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-02-12",
+      "procedureReference": "eli/dl/event/2025-3048-DEC-DCPL-2026-02-12",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0058",
+      "title": "EU Talent Pool",
+      "reference": "TA-10-2026-0058",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-10",
+      "procedureReference": "eli/dl/event/2023-0404-DEC-DCPL-2026-03-10",
+      "subjectMatter": "EMPL, IMMI"
+    },
+    {
+      "id": "TA-10-2026-0060",
+      "title": "Appointment of the Vice-President of the European Central Bank",
+      "reference": "TA-10-2026-0060",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-10",
+      "procedureReference": "eli/dl/event/2026-0801-DEC-DCPL-2026-03-10",
+      "subjectMatter": "BCE, INST"
+    },
+    {
+      "id": "TA-10-2026-0063",
+      "title": "European Union regulatory fitness and subsidiarity and proportionality – report on Better Law-Making covering 2023 and 2024",
+      "reference": "TA-10-2026-0063",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-10",
+      "procedureReference": "eli/dl/event/2025-2015-DEC-DCPL-2026-03-10",
+      "subjectMatter": "INST"
+    },
+    {
+      "id": "TA-10-2026-0064",
+      "title": "Housing crisis in the European Union with the aim of proposing solutions for decent, sustainable and affordable housing",
+      "reference": "TA-10-2026-0064",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-10",
+      "procedureReference": "eli/dl/event/2025-2070-DEC-DCPL-2026-03-10",
+      "subjectMatter": "SOCI"
+    },
+    {
+      "id": "TA-10-2026-0065",
+      "title": "Public access to documents – report 2022 - 2024",
+      "reference": "TA-10-2026-0065",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-10",
+      "procedureReference": "eli/dl/event/2025-2137-DEC-DCPL-2026-03-10",
+      "subjectMatter": "INST, INFO"
+    },
+    {
+      "id": "TA-10-2026-0066",
+      "title": "Copyright and generative artificial intelligence – opportunities and challenges",
+      "reference": "TA-10-2026-0066",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-10",
+      "procedureReference": "eli/dl/event/2025-2058-DEC-DCPL-2026-03-10",
+      "subjectMatter": "INFQ"
+    },
+    {
+      "id": "TA-10-2026-0067",
+      "title": "Fisheries management approaches for safeguarding sensitive species, tackling invasive species and benefiting local economies",
+      "reference": "TA-10-2026-0067",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-10",
+      "procedureReference": "eli/dl/event/2025-2011-DEC-DCPL-2026-03-10",
+      "subjectMatter": "PECH"
+    },
+    {
+      "id": "TA-10-2026-0070",
+      "title": "Amending Regulation (EU) 2021/1232 as regards the extension of its period of application",
+      "reference": "TA-10-2026-0070",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-11",
+      "procedureReference": "eli/dl/event/2025-0429-DEC-DCPL-2026-03-11",
+      "subjectMatter": "J-AI, DDLH"
+    },
+    {
+      "id": "TA-10-2026-0072",
+      "title": "EU-Ecuador Agreement: cooperation between Europol and the Ecuadorian authorities competent for combatting serious crime and terrorism",
+      "reference": "TA-10-2026-0072",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-11",
+      "procedureReference": "eli/dl/event/2025-0120-DEC-DCPL-2026-03-11",
+      "subjectMatter": "PDON, EXT, COPO"
+    },
+    {
+      "id": "TA-10-2026-0073",
+      "title": "Mobilisation of the European Globalisation Adjustment Fund for Displaced Workers: application EGF/2025/004 BE/Tupperware - Belgium",
+      "reference": "TA-10-2026-0073",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-11",
+      "procedureReference": "eli/dl/event/2026-0004-DEC-DCPL-2026-03-11",
+      "subjectMatter": "EMPL"
+    },
+    {
+      "id": "TA-10-2026-0076",
+      "title": "European Semester for economic policy coordination: employment and social priorities for 2026",
+      "reference": "TA-10-2026-0076",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-11",
+      "procedureReference": "eli/dl/event/2025-2183-DEC-DCPL-2026-03-11",
+      "subjectMatter": "SOCI, PECO"
+    },
+    {
+      "id": "TA-10-2026-0077",
+      "title": "EU enlargement strategy",
+      "reference": "TA-10-2026-0077",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-11",
+      "procedureReference": "eli/dl/event/2025-2110-DEC-DCPL-2026-03-11",
+      "subjectMatter": "PESC, ADH"
+    },
+    {
+      "id": "TA-10-2026-0078",
+      "title": "Recommendation on enhanced EU-Canada cooperation in the current geopolitical context, including the threats to Canada’s economic stability and sovereignty",
+      "reference": "TA-10-2026-0078",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-11",
+      "procedureReference": "eli/dl/event/2025-2168-DEC-DCPL-2026-03-11",
+      "subjectMatter": "PESC, EXT"
+    },
+    {
+      "id": "TA-10-2026-0079",
+      "title": "Tackling barriers to the single market for defence",
+      "reference": "TA-10-2026-0079",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-11",
+      "procedureReference": "eli/dl/event/2025-2143-DEC-DCPL-2026-03-11",
+      "subjectMatter": "PESC"
+    },
+    {
+      "id": "TA-10-2026-0083",
+      "title": "Case of Elene Khoshtaria and political prisoners under the Georgian Dream regime",
+      "reference": "TA-10-2026-0083",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-12",
+      "procedureReference": "eli/dl/event/2026-2643-DEC-DCPL-2026-03-12",
+      "subjectMatter": "DDLH, PESC"
+    },
+    {
+      "id": "TA-10-2026-0084",
+      "title": "Calculation of emission credits for heavy-duty vehicles for the reporting periods of the years 2025 to 2029",
+      "reference": "TA-10-2026-0084",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-12",
+      "procedureReference": "",
+      "subjectMatter": "POLL, TRAN, ENV"
+    },
+    {
+      "id": "TA-10-2026-0085",
+      "title": "Package travel and linked travel arrangements: make the protection of travellers more effective and simplify and clarify certain aspects",
+      "reference": "TA-10-2026-0085",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-12",
+      "procedureReference": "eli/dl/event/2023-0435-DEC-DCPL-2026-03-12",
+      "subjectMatter": "RAPL, PROT, MARI"
+    },
+    {
+      "id": "TA-10-2026-0086",
+      "title": "Multilateral negotiations in view of the WTO’s 14th Ministerial Conference in Yaoundé, 26 to 29 March 2026",
+      "reference": "TA-10-2026-0086",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-12",
+      "procedureReference": "eli/dl/event/2025-2875-DEC-DCPL-2026-03-12",
+      "subjectMatter": "OMC, PCOM"
+    },
+    {
+      "id": "TA-10-2026-0088",
+      "title": "Request for the waiver of the immunity of Grzegorz Braun",
+      "reference": "TA-10-2026-0088",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-26",
+      "procedureReference": "eli/dl/event/2025-2192-DEC-DCPL-2026-03-26",
+      "subjectMatter": "PRIV"
+    },
+    {
+      "id": "TA-10-2026-0092",
+      "title": "Early intervention measures, conditions for resolution and funding of resolution action (SRMR3)",
+      "reference": "TA-10-2026-0092",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-26",
+      "procedureReference": "eli/dl/event/2023-0111-DEC-DCPL-2026-03-26",
+      "subjectMatter": "UEM, PECO"
+    },
+    {
+      "id": "TA-10-2026-0094",
+      "title": "Combating corruption",
+      "reference": "TA-10-2026-0094",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-26",
+      "procedureReference": "eli/dl/event/2023-0135-DEC-DCPL-2026-03-26",
+      "subjectMatter": "COJP"
+    },
+    {
+      "id": "TA-10-2026-0095",
+      "title": "Amending Regulation (EU) 2021/1232 as regards the extension of its period of application",
+      "reference": "TA-10-2026-0095",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-26",
+      "procedureReference": "eli/dl/event/2025-0429-DEC-DCPL-2026-03-26",
+      "subjectMatter": "DDLH, J-AI"
+    },
+    {
+      "id": "TA-10-2026-0096",
+      "title": "Adjustment of customs duties and opening of tariff quotas for the import of certain goods originating in the United States of America",
+      "reference": "TA-10-2026-0096",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-26",
+      "procedureReference": "eli/dl/event/2025-0261-DEC-DCPL-2026-03-26",
+      "subjectMatter": "TDC, PCOM, EXT"
+    },
+    {
+      "id": "TA-10-2026-0099",
+      "title": "United Nations Convention on the International Effects of Judicial Sales of Ships",
+      "reference": "TA-10-2026-0099",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-26",
+      "procedureReference": "eli/dl/event/2025-0233-DEC-DCPL-2026-03-26",
+      "subjectMatter": "EXT"
+    },
+    {
+      "id": "TA-10-2026-0100",
+      "title": "EU-Lebanon Agreement for scientific and technological cooperation setting, participation of Lebanon in the Partnership for Research and Innovation in the Mediterranean Area (PRIMA)",
+      "reference": "TA-10-2026-0100",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-26",
+      "procedureReference": "eli/dl/event/2024-0324-DEC-DCPL-2026-03-26",
+      "subjectMatter": "EXT, ANCO"
+    },
+    {
+      "id": "TA-10-2026-0101",
+      "title": "EU-China Agreement: modification of concessions on all the tariff rate quotas included in the EU Schedule CLXXV",
+      "reference": "TA-10-2026-0101",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-26",
+      "procedureReference": "eli/dl/event/2023-0183-DEC-DCPL-2026-03-26",
+      "subjectMatter": "TDCC"
+    },
+    {
+      "id": "TA-10-2026-0103",
+      "title": "Mobilisation of the European Globalisation Adjustment Fund for Displaced Workers: application EGF/2025/005 AT/KTM - Austria",
+      "reference": "TA-10-2026-0103",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-26",
+      "procedureReference": "eli/dl/event/2026-0037-DEC-DCPL-2026-03-26",
+      "subjectMatter": "EMPL"
+    },
+    {
+      "id": "TA-10-2026-0104",
+      "title": "Global Gateway -– past impacts and future orientation",
+      "reference": "TA-10-2026-0104",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-03-26",
+      "procedureReference": "eli/dl/event/2025-2073-DEC-DCPL-2026-03-26",
+      "subjectMatter": "INV, c_6f402b92, COPT"
+    },
+    {
+      "id": "TA-10-2026-0105",
+      "title": "Request for the waiver of the immunity of Patryk Jaki",
+      "reference": "TA-10-2026-0105",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "eli/dl/event/2025-2171-DEC-DCPL-2026-04-28",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0106",
+      "title": "Request for the waiver of the immunity of Daniel Obajtek",
+      "reference": "TA-10-2026-0106",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "eli/dl/event/2025-2172-DEC-DCPL-2026-04-28",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0107",
+      "title": "Request for the waiver of the immunity of Tomasz Buczek",
+      "reference": "TA-10-2026-0107",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "eli/dl/event/2025-2193-DEC-DCPL-2026-04-28",
+      "subjectMatter": "PRIV"
+    },
+    {
+      "id": "TA-10-2026-0108",
+      "title": "Request for the waiver of the immunity of Diana Iovanovici Şoşoacă",
+      "reference": "TA-10-2026-0108",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "eli/dl/event/2025-2196-DEC-DCPL-2026-04-28",
+      "subjectMatter": "PRIV"
+    },
+    {
+      "id": "TA-10-2026-0109",
+      "title": "Request for the waiver of the immunity of Grzegorz Braun",
+      "reference": "TA-10-2026-0109",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "eli/dl/event/2025-2241-DEC-DCPL-2026-04-28",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0112",
+      "title": "Guidelines for the 2027 budget - Section III",
+      "reference": "TA-10-2026-0112",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "eli/dl/event/2025-2246-DEC-DCPL-2026-04-28",
+      "subjectMatter": "BUDG"
+    },
+    {
+      "id": "TA-10-2026-0113",
+      "title": "Accounting of greenhouse gas emissions of transport services",
+      "reference": "TA-10-2026-0113",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "eli/dl/event/2023-0266-DEC-DCPL-2026-04-28",
+      "subjectMatter": "ENV, TRAN"
+    },
+    {
+      "id": "TA-10-2026-0114",
+      "title": "Generalised scheme of tariff preferences",
+      "reference": "TA-10-2026-0114",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "eli/dl/event/2021-0297-DEC-DCPL-2026-04-28",
+      "subjectMatter": "CDEV, PCOM, RPRE"
+    },
+    {
+      "id": "TA-10-2026-0115",
+      "title": "Welfare of dogs and cats and their traceability",
+      "reference": "TA-10-2026-0115",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "eli/dl/event/2023-0447-DEC-DCPL-2026-04-28",
+      "subjectMatter": "IANW, IABR, IAID, VETE"
+    },
+    {
+      "id": "TA-10-2026-0117",
+      "title": "Amendments to Biocidal Products Regulation as regards the extension of certain data protection periods",
+      "reference": "TA-10-2026-0117",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "eli/dl/event/2025-0408-DEC-DCPL-2026-04-28",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0118",
+      "title": "Amendments to Parliament's Rules of Procedure concerning appointments to Union agencies and bodies (Rule 135)",
+      "reference": "TA-10-2026-0118",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "eli/dl/event/2025-2262-DEC-DCPL-2026-04-28",
+      "subjectMatter": "RULESPRO"
+    },
+    {
+      "id": "TA-10-2026-0119",
+      "title": "Control of the financial activities of the European Investment Bank Group — annual report 2024",
+      "reference": "TA-10-2026-0119",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "eli/dl/event/2025-2237-DEC-DCPL-2026-04-28",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0122",
+      "title": "Control, transparency and traceability of performance-based instruments",
+      "reference": "TA-10-2026-0122",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "eli/dl/event/2025-2032-DEC-DCPL-2026-04-28",
+      "subjectMatter": "c_7b45b05f, BUDG"
+    },
+    {
+      "id": "TA-10-2026-0123",
+      "title": "Enhancing connectivity, preserving cultural heritage and driving local excellence in European tourism – destination management and regional tourism growth",
+      "reference": "TA-10-2026-0123",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-28",
+      "procedureReference": "eli/dl/event/2025-2120-DEC-DCPL-2026-04-28",
+      "subjectMatter": "TOUR"
+    },
+    {
+      "id": "TA-10-2026-0124",
+      "title": "Amendment of the European Electoral Act allowing Members to vote in plenary by proxy voting during pregnancy and after giving birth",
+      "reference": "TA-10-2026-0124",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-29",
+      "procedureReference": "eli/dl/event/2025-0900-DEC-DCPL-2026-04-29",
+      "subjectMatter": "INST"
+    },
+    {
+      "id": "TA-10-2026-0127",
+      "title": "Discharge 2024: EU general budget - European Council and Council",
+      "reference": "TA-10-2026-0127",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-29",
+      "procedureReference": "eli/dl/event/2025-2147-DEC-DCPL-2026-04-29",
+      "subjectMatter": "BUDG"
+    },
+    {
+      "id": "TA-10-2026-0128",
+      "title": "Discharge 2024: EU general budget - Court of Justice of the European Union",
+      "reference": "TA-10-2026-0128",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-29",
+      "procedureReference": "eli/dl/event/2025-2148-DEC-DCPL-2026-04-29",
+      "subjectMatter": "BUDG"
+    },
+    {
+      "id": "TA-10-2026-0129",
+      "title": "Discharge 2024: EU general budget - Court of Auditors",
+      "reference": "TA-10-2026-0129",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-29",
+      "procedureReference": "eli/dl/event/2025-2149-DEC-DCPL-2026-04-29",
+      "subjectMatter": "BUDG"
+    },
+    {
+      "id": "TA-10-2026-0131",
+      "title": "Discharge 2024: EU general budget - European Economic and Social Committee",
+      "reference": "TA-10-2026-0131",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-29",
+      "procedureReference": "eli/dl/event/2025-2151-DEC-DCPL-2026-04-29",
+      "subjectMatter": "BUDG"
+    },
+    {
+      "id": "TA-10-2026-0132",
+      "title": "Discharge 2024: EU general budget - Committee of the Regions",
+      "reference": "TA-10-2026-0132",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-29",
+      "procedureReference": "eli/dl/event/2025-2152-DEC-DCPL-2026-04-29",
+      "subjectMatter": "BUDG"
+    },
+    {
+      "id": "TA-10-2026-0134",
+      "title": "Discharge 2024: EU general budget - European Data Protection Supervisor",
+      "reference": "TA-10-2026-0134",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-29",
+      "procedureReference": "eli/dl/event/2025-2154-DEC-DCPL-2026-04-29",
+      "subjectMatter": "BUDG"
+    },
+    {
+      "id": "TA-10-2026-0138",
+      "title": "Simplification of certain requirements and procedures for chemical products",
+      "reference": "TA-10-2026-0138",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-29",
+      "procedureReference": "eli/dl/event/2025-0531-DEC-DCPL-2026-04-29",
+      "subjectMatter": "PROT, ENV"
+    },
+    {
+      "id": "TA-10-2026-0139",
+      "title": "Market stability reserve for the buildings, road transport and additional sectors",
+      "reference": "TA-10-2026-0139",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-29",
+      "procedureReference": "eli/dl/event/2025-0380-DEC-DCPL-2026-04-29",
+      "subjectMatter": "ENV"
+    },
+    {
+      "id": "TA-10-2026-0141",
+      "title": "International Cocoa Agreement",
+      "reference": "TA-10-2026-0141",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-29",
+      "procedureReference": "eli/dl/event/2025-0283-DEC-DCPL-2026-04-29",
+      "subjectMatter": "ACIN, CAC, EXT"
+    },
+    {
+      "id": "TA-10-2026-0142",
+      "title": "EU-Iceland agreement on transfer of passenger name record (PNR) data to prevent, detect, investigate and prosecute terrorist offences and serious crime",
+      "reference": "TA-10-2026-0142",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-29",
+      "procedureReference": "eli/dl/event/2025-0156-DEC-DCPL-2026-04-29",
+      "subjectMatter": "EXT, COOP, c_69c82520"
+    },
+    {
+      "id": "TA-10-2026-0144",
+      "title": "EU-USA-Iceland-Norway Air Transport Agreement, and EU-Iceland-Norway Ancillary Agreement on the application of the Air Transport Agreement",
+      "reference": "TA-10-2026-0144",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-29",
+      "procedureReference": "eli/dl/event/2011-0102-DEC-DCPL-2026-04-29",
+      "subjectMatter": "TRAN"
+    },
+    {
+      "id": "TA-10-2026-0148",
+      "title": "Monitoring the application of European Union law in 2023, 2024 and 2025",
+      "reference": "TA-10-2026-0148",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-29",
+      "procedureReference": "eli/dl/event/2025-2016-DEC-DCPL-2026-04-29",
+      "subjectMatter": "DROIT"
+    },
+    {
+      "id": "TA-10-2026-0151",
+      "title": "Escalating trafficking and exploitation by criminal groups in Haiti",
+      "reference": "TA-10-2026-0151",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "eli/dl/event/2026-2702-DEC-DCPL-2026-04-30",
+      "subjectMatter": "DDLH, PESC"
+    },
+    {
+      "id": "TA-10-2026-0154",
+      "title": "Convention Establishing an International Claims Commission for Ukraine",
+      "reference": "TA-10-2026-0154",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "eli/dl/event/2026-0065-DEC-DCPL-2026-04-30",
+      "subjectMatter": "ACIN"
+    },
+    {
+      "id": "TA-10-2026-0155",
+      "title": "Estimates of revenue and expenditure for the financial year 2027 – Section I – European Parliament",
+      "reference": "TA-10-2026-0155",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "eli/dl/event/2025-2247-DEC-DCPL-2026-04-30",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0157",
+      "title": "How to secure a sustainable future for the EU livestock sector in light of the need to ensure food security, farmers’ resilience and the challenges posed by animal diseases?",
+      "reference": "TA-10-2026-0157",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "eli/dl/event/2025-2053-DEC-DCPL-2026-04-30",
+      "subjectMatter": "IANO, IAZC"
+    },
+    {
+      "id": "TA-10-2026-0158",
+      "title": "Women’s entrepreneurship in rural and island areas and outermost regions",
+      "reference": "TA-10-2026-0158",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "eli/dl/event/2024-2124-DEC-DCPL-2026-04-30",
+      "subjectMatter": "PREG, DISC"
+    },
+    {
+      "id": "TA-10-2026-0160",
+      "title": "Enforcement of the Digital Markets Act",
+      "reference": "TA-10-2026-0160",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "eli/dl/event/2026-2596-DEC-DCPL-2026-04-30",
+      "subjectMatter": "PROT, MARI"
+    },
+    {
+      "id": "TA-10-2026-0161",
+      "title": "Ensuring accountability and justice in response to Russia’s continued attacks against the civilian population in Ukraine",
+      "reference": "TA-10-2026-0161",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "eli/dl/event/2026-2700-DEC-DCPL-2026-04-30",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0162",
+      "title": "Supporting democratic resilience in Armenia",
+      "reference": "TA-10-2026-0162",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "eli/dl/event/2026-2701-DEC-DCPL-2026-04-30",
+      "subjectMatter": ""
+    },
+    {
+      "id": "TA-10-2026-0163",
+      "title": "The need for targeted criminal provisions and platforms’ responsibility to effectively address cyberbullying and online harassment",
+      "reference": "TA-10-2026-0163",
+      "type": "def/ep-document-types/TEXT_ADOPTED",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "eli/dl/event/2026-2693-DEC-DCPL-2026-04-30",
+      "subjectMatter": "TELE, SOCI"
+    },
+    {
+      "id": "TA-10-2026-04-30-ANN01",
+      "title": "ESTIMATES OF THE EUROPEAN PARLIAMENT FOR THE FINANCIAL YEAR 2027",
+      "reference": "TA-10-2026-04-30-ANN01",
+      "type": "def/ep-document-types/BUDGET_EP_DRAFT",
+      "dateAdopted": "2026-04-30",
+      "procedureReference": "",
+      "subjectMatter": ""
+    }
+  ],
+  "total": 101,
+  "limit": 100,
+  "offset": 0,
+  "hasMore": true
+}
