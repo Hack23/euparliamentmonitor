@@ -218,6 +218,17 @@ calls), set the keys in `.env` or the shell. When neither key is set,
 the request is sent unauthenticated and IMF returns `204 No Content` —
 this is the diagnostic mode, not the production mode.
 
+To smoke-test the live WEO endpoint end-to-end (list dataflows, parameter
+codes, fixed-indicator slice, **all-indicators slice for one country**):
+
+```bash
+IMF_API_PRIMARY_KEY=<key> npx vitest run test/integration/mcp/imf-weo-live.test.js
+```
+
+The test is gated on `IMF_API_PRIMARY_KEY` and skips silently when the
+secret is unset (default in CI and sandboxed agent environments). The
+network-free URL-shape drift guard in `imf-mcp.test.js` runs unconditionally.
+
 Per-request timeout: 90 s in the TypeScript client by default, raised to
 120 s by `scripts/mcp-setup.sh` for gh-aw runs and 180 s in Copilot setup
 contexts (override with `IMF_API_TIMEOUT_MS`).
