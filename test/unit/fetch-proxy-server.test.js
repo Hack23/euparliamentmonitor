@@ -34,8 +34,8 @@ describe('isAllowedImfUrl', () => {
   it('allows a valid IMF SDMX 3.0 URL', () => {
     expect(
       isAllowedImfUrl(
-        'https://api.imf.org/external/sdmx/3.0/data/WEO/DEU.NGDP_RPCH.?startPeriod=2024',
-      ),
+        'https://api.imf.org/external/sdmx/3.0/data/WEO/DEU.NGDP_RPCH.?startPeriod=2024'
+      )
     ).toBe(true);
   });
 
@@ -61,6 +61,14 @@ describe('isAllowedImfUrl', () => {
 
   it('allows the SDMX path root without further segments', () => {
     expect(isAllowedImfUrl('https://api.imf.org/external/sdmx/3.0/')).toBe(true);
+  });
+
+  it('rejects SDMX 2.1 paths (only 3.0 is allowed)', () => {
+    expect(isAllowedImfUrl('https://api.imf.org/external/sdmx/2.1/data/WEO/')).toBe(false);
+  });
+
+  it('rejects /external/sdmx/ root (must include 3.0/)', () => {
+    expect(isAllowedImfUrl('https://api.imf.org/external/sdmx/')).toBe(false);
   });
 
   it('rejects a URL with a non-standard port', () => {
@@ -311,6 +319,30 @@ describe('handleFetchUrl', () => {
       const result = await handleFetchUrl(6, url, mockFetch);
       expect(result.error).toBeDefined();
       expect(result.error.message).not.toContain('super-secret-key-xyz123');
+    });
+
+    it('surfaces the network error when secondary attempt throws after primary 401', async () => {
+      // Regression: previously the post-loop branch returned the stale
+      // 401 from the primary attempt, masking the real network failure
+      // observed on the secondary attempt. Caller must see the thrown
+      // error so it can distinguish auth-class failures from outages.
+      process.env['IMF_API_PRIMARY_KEY'] = 'rotated-primary';
+      process.env['IMF_API_SECONDARY_KEY'] = 'live-secondary';
+      const mockFetch = vi
+        .fn()
+        .mockResolvedValueOnce({
+          ok: false,
+          status: 401,
+          statusText: 'Unauthorized',
+          text: async () => 'auth error',
+        })
+        .mockRejectedValueOnce(new Error('ECONNREFUSED-secondary'));
+      const url = 'https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF/all/latest';
+      const result = await handleFetchUrl(7, url, mockFetch);
+      expect(mockFetch).toHaveBeenCalledTimes(2);
+      expect(result.error).toBeDefined();
+      expect(result.error.message).toContain('ECONNREFUSED-secondary');
+      expect(result.error.message).not.toContain('401');
     });
   });
 });

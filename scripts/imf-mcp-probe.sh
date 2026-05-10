@@ -63,22 +63,13 @@ _IMF_DATAFLOW_QUERY="structure/dataflow/IMF/all/latest"
 _IMF_WEO_QUERY="data/dataflow/IMF/WEO/+/A.EA+DEU+FRA+ITA.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP?startPeriod=2025&endPeriod=2026&format=jsondata"
 
 # Build curl base options. The Ocp-Apim-Subscription-Key header is added per-
-# request from $IMF_API_PRIMARY_KEY (or $IMF_API_SECONDARY_KEY) — see
-# `_imf_curl_with_key` below for the wrapper used by direct fetches.
+# request inside the direct-curl loop below from $IMF_API_PRIMARY_KEY (and
+# $IMF_API_SECONDARY_KEY on 401/403 retry).
 _IMF_CURL_OPTS=(--silent --show-error --fail --max-time 30 --connect-timeout 10 \
   -H 'User-Agent: euparliamentmonitor/0.9.0 (+https://github.com/Hack23/euparliamentmonitor)' \
   -H 'Accept: application/json, application/vnd.sdmx.data+json, */*;q=0.8' \
   -H 'Accept-Language: en-US,en;q=0.9' \
   -H 'Cache-Control: no-cache')
-
-# Echo the active subscription key as additional curl args (or nothing when
-# unset). Caller expands the result with `"${args[@]}"`.
-_imf_subscription_args() {
-  local key="${1:-}"
-  if [ -n "$key" ]; then
-    printf '%s\n' "-H" "Ocp-Apim-Subscription-Key: $key"
-  fi
-}
 
 # Use the repo-standard Node runtime for JSON escaping instead of adding a jq
 # dependency to workflow containers.

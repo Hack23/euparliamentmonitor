@@ -6,7 +6,7 @@
  *
  * Implements the Model Context Protocol (JSON-RPC 2.0 over stdio) with a
  * single tool — `fetch_url` — that proxies HTTPS GET requests to the IMF
- * Data Portal SDMX 3.0 REST API at `https://api.imf.org/external/sdmx/`.
+ * Data Portal SDMX 3.0 REST API at `https://api.imf.org/external/sdmx/3.0/`.
  *
  * ## Why this exists
  *
@@ -16,9 +16,8 @@
  * run in a Docker network with direct outbound access (bypassing Squid),
  * `fetch_url` can reach the IMF API while the main runner cannot.
  *
- * The server only allows calls to `https://api.imf.org/external/sdmx/`
- * (covers both `/external/sdmx/3.0/` and `/external/sdmx/2.1/`) — all
- * other URLs are rejected with an error message.
+ * The server only allows calls to `https://api.imf.org/external/sdmx/3.0/`
+ * — SDMX 2.1 paths and any other URLs are rejected with an error message.
  *
  * ## Authentication
  *
@@ -51,7 +50,7 @@
 import * as readline from 'node:readline';
 // ─── Constants ────────────────────────────────────────────────────────────────
 const IMF_ALLOWED_HOSTNAME = 'api.imf.org';
-const IMF_ALLOWED_PATH_PREFIX = '/external/sdmx/';
+const IMF_ALLOWED_PATH_PREFIX = '/external/sdmx/3.0/';
 const IMF_ALLOWED_PROTOCOL = 'https:';
 /** Per-request fetch timeout (ms). */
 const FETCH_TIMEOUT_MS = 180_000;
@@ -70,7 +69,7 @@ const IMF_SUBSCRIPTION_KEY_HEADER = 'Ocp-Apim-Subscription-Key';
 /**
  * Returns `true` when `url` is allowed by the IMF-only fetch-proxy policy.
  *
- * Allowed: `https://api.imf.org/external/sdmx/...` (covers SDMX 3.0 and 2.1).
+ * Allowed: `https://api.imf.org/external/sdmx/3.0/...` (SDMX 2.1 rejected).
  *
  * @param url - Raw URL string to validate.
  * @returns Whether the URL is permitted.
@@ -251,9 +250,17 @@ export async function handleFetchUrl(id, url, fetchImpl = globalThis.fetch) {
         catch (err) {
             lastError = err;
             // Network errors are not auth-class — do not retry with the secondary
-            // key (the IMF endpoint is the same, only the header differs).
+            // key (the IMF endpoint is the same, only the header differs). Clear
+            // any HTTP response captured by an earlier attempt so the post-loop
+            // branch does not surface a stale 401/403 in place of this thrown
+            // error (the caller needs to see the real failure mode).
+            lastResponse = undefined;
             break;
         }
+    }
+    if (lastError !== undefined) {
+        const message = lastError instanceof Error ? lastError.message : String(lastError);
+        return { jsonrpc: '2.0', id, error: { code: -1, message } };
     }
     if (lastResponse !== undefined && !lastResponse.ok) {
         return {
@@ -265,8 +272,11 @@ export async function handleFetchUrl(id, url, fetchImpl = globalThis.fetch) {
             },
         };
     }
-    const message = lastError instanceof Error ? lastError.message : String(lastError);
-    return { jsonrpc: '2.0', id, error: { code: -1, message } };
+    return {
+        jsonrpc: '2.0',
+        id,
+        error: { code: -1, message: 'fetch_url failed without a response' },
+    };
 }
 // ─── Main server loop ─────────────────────────────────────────────────────────
 /**
