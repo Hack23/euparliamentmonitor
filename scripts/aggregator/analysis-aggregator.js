@@ -213,15 +213,12 @@ export function renderTradecraftAppendix(files) {
         'This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.',
         '',
     ];
-    if (methods.length > 0) {
-        block.push('### Methodologies');
-        block.push('');
-        for (const rel of methods) {
-            const stem = rel.split('/').pop()?.replace(/\.md$/i, '') ?? rel;
-            block.push(`- [${humanize(stem)}](${githubBlobUrl(rel)})`);
-        }
-        block.push('');
-    }
+    // Order: Artifact templates first (concrete deliverables readers
+    // recognise from the article body), then Methodologies (the underlying
+    // tradecraft library). This matches the natural reader flow — the
+    // article is built from artifacts, and the methodologies explain how
+    // each artifact is produced — and pairs with the contextual, kind-
+    // aware "View …" CTAs rendered in `enhanceTradecraftCards`.
     if (templates.length > 0) {
         block.push('### Artifact templates');
         block.push('');
@@ -231,7 +228,29 @@ export function renderTradecraftAppendix(files) {
         }
         block.push('');
     }
+    if (methods.length > 0) {
+        block.push('### Methodologies');
+        block.push('');
+        for (const rel of methods) {
+            const stem = rel.split('/').pop()?.replace(/\.md$/i, '') ?? rel;
+            block.push(`- [${humanize(stem)}](${githubBlobUrl(rel)})`);
+        }
+        block.push('');
+    }
     return block.join('\n');
+}
+/**
+ * Public re-export of the internal `humanize` helper so other aggregator
+ * modules (in particular `article-html.ts`) can derive the same display
+ * title from a file stem when no curated title is available. Keeping the
+ * single canonical implementation here avoids duplicate humanisation
+ * rules drifting across modules.
+ *
+ * @param stem - File stem (e.g. `electoral-cycle-methodology`)
+ * @returns Humanised title (e.g. `Electoral Cycle Methodology`)
+ */
+export function humanizeStem(stem) {
+    return humanize(stem);
 }
 /**
  * Render the analysis-index appendix — a compact table of every included

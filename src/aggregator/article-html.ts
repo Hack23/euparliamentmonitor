@@ -69,6 +69,7 @@ import {
   MANIFEST_SECTION_ID,
   SUPPLEMENTARY_SECTION_ID,
 } from './artifact-order.js';
+import { humanizeStem } from './analysis-aggregator.js';
 import { KEY_TAKEAWAYS_SECTION_ID } from './key-takeaways.js';
 import { getPoliticalIntelligenceFilename } from '../generators/political-intelligence.js';
 import { getSitemapFilename } from '../generators/sitemap/index.js';
@@ -679,20 +680,41 @@ function extractTradecraftLinks(html: string, expectedPrefix: string): Extracted
  * Render a single tradecraft / artifact card. Mirrors the structure
  * used on `political-intelligence.html` so the visual vocabulary stays
  * consistent (same `.pi-card-grid`, `.pi-card`, `.pi-card__icon`,
- * `.pi-card__body`, `.pi-card__title`, `.pi-card__path`,
- * `.pi-card__desc`, `.pi-card__cta` class hooks).
+ * `.pi-card__body`, `.pi-card__title`, `.pi-card__desc`,
+ * `.pi-card__cta` class hooks).
+ *
+ * The `.pi-card__path` filename row that the political-intelligence
+ * page emits is intentionally omitted here — inside an article body the
+ * curated title plus the curated description already convey the
+ * artifact's purpose, and the raw `analysis/.../foo.md` filename adds
+ * visual noise without providing reader-relevant context. Readers who
+ * need the path can hover the card link or click through.
+ *
+ * The CTA is kind-aware ("View methodology" for the Methodologies
+ * sub-section, "View artifact template" for the Artifact templates
+ * sub-section) — the older generic "View on GitHub" leaked workflow
+ * jargon into a reader-facing surface and provided no context about
+ * what the link targets.
  *
  * @param link - Extracted link with absolute href + repo-relative path
  * @param lang - Target language code for title/description lookup
+ * @param ctaLabel - Pre-resolved localised CTA text (kind-aware)
  * @returns HTML fragment for one `<li class="pi-card">…</li>` element
  */
-function renderTradecraftCard(link: ExtractedLink, lang: LanguageCode): string {
+function renderTradecraftCard(
+  link: ExtractedLink,
+  lang: LanguageCode,
+  ctaLabel: string
+): string {
   const stem = link.repoRelPath.split('/').pop()?.replace(/\.md$/i, '') ?? link.repoRelPath;
-  // README cards live under analysis/methodologies/README.md and
-  // analysis/templates/README.md — fall back to a humanised "README" so the
-  // card title reads naturally rather than echoing "README" verbatim.
-  const title = getCuratedTitle(link.repoRelPath, lang, stem);
-  const description = getCuratedDescription(link.repoRelPath, lang, stem);
+  // Use the humanised stem (e.g. "Electoral Cycle Methodology") as the
+  // fallback title, matching how the political-intelligence page
+  // resolves titles for files without a curated entry. The previous
+  // raw-stem fallback ("electoral-cycle-methodology") leaked filename
+  // noise into reader-facing card titles.
+  const fallbackTitle = humanizeStem(stem);
+  const title = getCuratedTitle(link.repoRelPath, lang, fallbackTitle);
+  const description = getCuratedDescription(link.repoRelPath, lang, fallbackTitle);
   const icon = getStemIcon(stem);
   return [
     `          <li class="pi-card">`,
@@ -700,9 +722,8 @@ function renderTradecraftCard(link: ExtractedLink, lang: LanguageCode): string {
     `              <span class="pi-card__icon" aria-hidden="true">${icon}</span>`,
     `              <span class="pi-card__body">`,
     `                <span class="pi-card__title">${escapeHTML(title)}</span>`,
-    `                <span class="pi-card__path"><code>${escapeHTML(link.repoRelPath)}</code></span>`,
     `                <span class="pi-card__desc">${escapeHTML(description)}</span>`,
-    `                <span class="pi-card__cta">${escapeHTML(getViewOnGithubLabel(lang))} <span aria-hidden="true">↗</span></span>`,
+    `                <span class="pi-card__cta">${escapeHTML(ctaLabel)} <span aria-hidden="true">↗</span></span>`,
     `              </span>`,
     `            </a>`,
     `          </li>`,
@@ -710,32 +731,90 @@ function renderTradecraftCard(link: ExtractedLink, lang: LanguageCode): string {
 }
 
 /**
- * Localised "View on GitHub" CTA shown on every tradecraft / artifact
- * card. Kept inline rather than added to `language-ui.ts` because this
- * is the only consumer; promote to a shared label table when a second
- * surface needs it.
+ * Localised "View methodology" CTA used on every Tradecraft References
+ * methodology card. Tells the reader exactly what the link surface
+ * targets — a methodology guide — so the call-to-action is informative
+ * even when the card is read in isolation.
  *
  * @param lang - Target language code
  * @returns Localised CTA text
  */
-function getViewOnGithubLabel(lang: LanguageCode): string {
+function getViewMethodologyLabel(lang: LanguageCode): string {
   const labels: Partial<Record<LanguageCode, string>> = {
-    en: 'View on GitHub',
-    sv: 'Visa på GitHub',
-    da: 'Se på GitHub',
-    no: 'Se på GitHub',
-    fi: 'Näytä GitHubissa',
-    de: 'Auf GitHub ansehen',
-    fr: 'Voir sur GitHub',
-    es: 'Ver en GitHub',
-    nl: 'Bekijk op GitHub',
-    ar: 'عرض على GitHub',
-    he: 'הצג ב-GitHub',
-    ja: 'GitHub で表示',
-    ko: 'GitHub에서 보기',
-    zh: '在 GitHub 上查看',
+    en: 'View methodology',
+    sv: 'Visa metodologi',
+    da: 'Se metode',
+    no: 'Se metodologi',
+    fi: 'Näytä metodologia',
+    de: 'Methodologie ansehen',
+    fr: 'Voir la méthodologie',
+    es: 'Ver metodología',
+    nl: 'Methodologie bekijken',
+    ar: 'عرض المنهجية',
+    he: 'הצג מתודולוגיה',
+    ja: '方法論を表示',
+    ko: '방법론 보기',
+    zh: '查看方法论',
   };
-  return labels[lang] ?? labels.en ?? 'View on GitHub';
+  return labels[lang] ?? labels.en ?? 'View methodology';
+}
+
+/**
+ * Localised "View artifact template" CTA used on every Tradecraft
+ * References artifact-template card. Tells the reader exactly what the
+ * link surface targets — a structured template that defines the shape
+ * of the artifact behind the article.
+ *
+ * @param lang - Target language code
+ * @returns Localised CTA text
+ */
+function getViewTemplateLabel(lang: LanguageCode): string {
+  const labels: Partial<Record<LanguageCode, string>> = {
+    en: 'View artifact template',
+    sv: 'Visa artefaktmall',
+    da: 'Se artefaktskabelon',
+    no: 'Se artefaktmal',
+    fi: 'Näytä artefaktipohja',
+    de: 'Artefaktvorlage ansehen',
+    fr: 'Voir le modèle d’artefact',
+    es: 'Ver plantilla de artefacto',
+    nl: 'Artefactsjabloon bekijken',
+    ar: 'عرض قالب القطعة',
+    he: 'הצג תבנית פריט',
+    ja: 'アーティファクト テンプレートを表示',
+    ko: '아티팩트 템플릿 보기',
+    zh: '查看构件模板',
+  };
+  return labels[lang] ?? labels.en ?? 'View artifact template';
+}
+
+/**
+ * Localised "View artifact" CTA used on every Analysis Index card.
+ * Tells the reader the link opens a specific committed artifact from
+ * this article's analysis run on GitHub, providing audit context that
+ * the older generic "View on GitHub" CTA lacked.
+ *
+ * @param lang - Target language code
+ * @returns Localised CTA text
+ */
+function getViewArtifactLabel(lang: LanguageCode): string {
+  const labels: Partial<Record<LanguageCode, string>> = {
+    en: 'View artifact',
+    sv: 'Visa artefakt',
+    da: 'Se artefakt',
+    no: 'Se artefakt',
+    fi: 'Näytä artefakti',
+    de: 'Artefakt ansehen',
+    fr: 'Voir l’artefact',
+    es: 'Ver artefacto',
+    nl: 'Artefact bekijken',
+    ar: 'عرض القطعة',
+    he: 'הצג פריט',
+    ja: 'アーティファクトを表示',
+    ko: '아티팩트 보기',
+    zh: '查看构件',
+  };
+  return labels[lang] ?? labels.en ?? 'View artifact';
 }
 
 /**
@@ -768,13 +847,19 @@ function replaceFollowingUlWithCardGrid(
 /**
  * Replace the rendered Tradecraft References bullet lists with a
  * `pi-card-grid` of richly described cards (icon, curated title,
- * repo-relative path, curated description, GitHub CTA). The cards reuse
- * the exact same class hooks as `political-intelligence.html`, so the
- * site-wide CSS already styles them — no additional CSS is required.
+ * curated description, kind-aware CTA). The cards reuse the exact same
+ * class hooks as `political-intelligence.html`, so the site-wide CSS
+ * already styles them — no additional CSS is required.
+ *
+ * After the April-2026 reorder the rendered Markdown emits Artifact
+ * templates as the first sub-heading and Methodologies as the second,
+ * matching how readers encounter the run (artifacts first, methodology
+ * library second). The card upgrade follows the same order so the H3
+ * positions stay aligned with the kind-aware CTA labels.
  *
  * Falls back to the original Markdown-rendered list when the expected
- * structure (H2 → intro paragraph → Methodologies sub-heading → `<ul>` →
- * Artifact-templates sub-heading → `<ul>`) is missing, so partially
+ * structure (H2 → intro paragraph → Artifact-templates sub-heading →
+ * `<ul>` → Methodologies sub-heading → `<ul>`) is missing, so partially
  * stripped or unusual articles are not silently corrupted.
  *
  * @param bodyHtml - The (already-localised) article body HTML
@@ -792,29 +877,35 @@ export function enhanceTradecraftCards(bodyHtml: string, lang: LanguageCode): st
   const methodLinks = extractTradecraftLinks(section, 'analysis/methodologies/');
   const templateLinks = extractTradecraftLinks(section, 'analysis/templates/');
   if (methodLinks.length === 0 && templateLinks.length === 0) return bodyHtml;
+  const methodCta = getViewMethodologyLabel(lang);
+  const templateCta = getViewTemplateLabel(lang);
   let next = bodyHtml;
-  // Replace methodology <ul> first, then the template <ul>. Use the
-  // returned end index from the methodology replacement to seed the
-  // search for the template <ul> so we never double-replace.
+  // Replace Artifact-templates <ul> first, then the Methodologies <ul>.
+  // Use the returned end index from the first replacement to seed the
+  // search for the second <ul> so we never double-replace.
   // Note: markdown-it adds `id` and `tabindex` attributes to headings
-  // (`<h3 id="methodologies" tabindex="-1">…`), so we search for `<h3`
-  // (no terminator) rather than `<h3>` to match either form.
-  const methodHeadingIdx = next.indexOf('<h3', anchorIdx);
-  if (methodHeadingIdx !== -1 && methodLinks.length > 0) {
-    const methodCards = methodLinks.map((l) => renderTradecraftCard(l, lang)).join('\n');
-    const result = replaceFollowingUlWithCardGrid(next, methodHeadingIdx, methodCards);
+  // (`<h3 id="artifact-templates" tabindex="-1">…`), so we search for
+  // `<h3` (no terminator) rather than `<h3>` to match either form.
+  const firstHeadingIdx = next.indexOf('<h3', anchorIdx);
+  if (firstHeadingIdx !== -1 && templateLinks.length > 0) {
+    const templateCards = templateLinks
+      .map((l) => renderTradecraftCard(l, lang, templateCta))
+      .join('\n');
+    const result = replaceFollowingUlWithCardGrid(next, firstHeadingIdx, templateCards);
     next = result.html;
   }
-  const templateHeadingSearchStart = next.indexOf(`id="${TRADECRAFT_SECTION_ID}"`);
-  if (templateHeadingSearchStart !== -1 && templateLinks.length > 0) {
-    // Find the second <h3 after the tradecraft anchor (Methodologies
-    // is the first; Artifact templates is the second).
-    const firstH3 = next.indexOf('<h3', templateHeadingSearchStart);
+  const secondHeadingSearchStart = next.indexOf(`id="${TRADECRAFT_SECTION_ID}"`);
+  if (secondHeadingSearchStart !== -1 && methodLinks.length > 0) {
+    // Find the second <h3 after the tradecraft anchor (Artifact templates
+    // is the first; Methodologies is the second).
+    const firstH3 = next.indexOf('<h3', secondHeadingSearchStart);
     if (firstH3 !== -1) {
       const secondH3 = next.indexOf('<h3', firstH3 + 1);
       if (secondH3 !== -1) {
-        const templateCards = templateLinks.map((l) => renderTradecraftCard(l, lang)).join('\n');
-        const result = replaceFollowingUlWithCardGrid(next, secondH3, templateCards);
+        const methodCards = methodLinks
+          .map((l) => renderTradecraftCard(l, lang, methodCta))
+          .join('\n');
+        const result = replaceFollowingUlWithCardGrid(next, secondH3, methodCards);
         next = result.html;
       }
     }
@@ -989,16 +1080,20 @@ function renderAnalysisIndexCard(row: AnalysisIndexRow, lang: LanguageCode): str
   // Reuse the section-title localisation already used by the TOC so the
   // "Section: …" badge reads naturally in every language.
   const sectionLabel = getLocalizedTocTitle(row.sectionId, row.sectionId, lang);
+  // Drop the redundant `<code>analysis/.../foo.md</code>` filename row —
+  // the curated title + curated description plus the section badge
+  // already convey what the artifact is and where it sits in the
+  // article. The kind-aware "View artifact" CTA tells the reader the
+  // link opens the underlying committed artifact on GitHub.
   return [
     `          <li class="pi-card">`,
     `            <a class="pi-card__link" href="${escapeHTML(row.href)}" rel="noopener external" target="_blank">`,
     `              <span class="pi-card__icon" aria-hidden="true">${icon}</span>`,
     `              <span class="pi-card__body">`,
     `                <span class="pi-card__title">${escapeHTML(info.title)}</span>`,
-    `                <span class="pi-card__path"><code>${escapeHTML(row.runRelPath)}</code></span>`,
     `                <span class="pi-card__desc">${escapeHTML(info.description)}</span>`,
     `                <span class="pi-card__meta"><span class="pi-card__section-badge">${escapeHTML(sectionLabel)}</span></span>`,
-    `                <span class="pi-card__cta">${escapeHTML(getViewOnGithubLabel(lang))} <span aria-hidden="true">↗</span></span>`,
+    `                <span class="pi-card__cta">${escapeHTML(getViewArtifactLabel(lang))} <span aria-hidden="true">↗</span></span>`,
     `              </span>`,
     `            </a>`,
     `          </li>`,
