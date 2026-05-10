@@ -3,7 +3,7 @@
 > **Skill**: Invoke IMF economic data in EU Parliament Monitor articles
 > and analysis via the **native TypeScript SDMX 3.0 REST client**
 > (`src/mcp/imf-mcp-client.ts`), which calls
-> `https://dataservices.imf.org/REST/SDMX_3.0/` through the shared
+> `https://api.imf.org/external/sdmx/3.0/` through the shared
 > `fetch-proxy` MCP gateway in gh-aw/AWF and directly in local/non-AWF
 > contexts. Under
 > ** editorial policy (April 2026)** IMF is the **sole
@@ -176,7 +176,7 @@ When adding IMF to a gh-aw workflow (mandatory), add exactly:
 ```yaml
 network:
   allowed:
-    - dataservices.imf.org
+    - api.imf.org
 ```
 
 This is the SDMX 3.0 REST host the native TypeScript client calls directly
@@ -191,11 +191,43 @@ those endpoints are actually being hit.
 `scripts/mcp-setup.sh` exports:
 
 ```bash
-export IMF_API_BASE_URL="https://dataservices.imf.org/REST/SDMX_3.0"
+export IMF_API_BASE_URL="https://api.imf.org/external/sdmx/3.0"
 ```
 
-Override via `IMF_API_BASE_URL` when mirroring. IMF SDMX 3.0 is an
-unauthenticated public endpoint — no API key is required.
+Override via `IMF_API_BASE_URL` when mirroring.
+
+### Authentication (mandatory since September 2025)
+
+IMF migrated to the Azure-APIM-fronted `api.imf.org` endpoint and now
+**requires a subscription key** for every request. Repository secrets
+(set at Settings → Secrets → Actions, mirrored to the `copilot`
+environment):
+
+| Secret | Purpose |
+|---|---|
+| `IMF_API_PRIMARY_KEY` | Sent as `Ocp-Apim-Subscription-Key` on every request. |
+| `IMF_API_SECONDARY_KEY` | Warm-standby key, retried automatically on `401` / `403` so live key rotation never breaks a run. |
+
+Both keys are exposed to the inline `fetch-proxy` MCP container via its
+`env:` block (see `.github/workflows/shared/mcp/news-mcp-servers.md`) and
+to ad-hoc bash blocks via the same env vars. The header is **injected
+server-side** — agent prompts never see the key value.
+
+For local development (`npm run generate-news`, direct `IMFMCPClient`
+calls), set the keys in `.env` or the shell. When neither key is set,
+the request is sent unauthenticated and IMF returns `204 No Content` —
+this is the diagnostic mode, not the production mode.
+
+To smoke-test the live WEO endpoint end-to-end (list dataflows, parameter
+codes, fixed-indicator slice, **all-indicators slice for one country**):
+
+```bash
+IMF_API_PRIMARY_KEY=<key> npx vitest run test/integration/mcp/imf-weo-live.test.js
+```
+
+The test is gated on `IMF_API_PRIMARY_KEY` and skips silently when the
+secret is unset (default in CI and sandboxed agent environments). The
+network-free URL-shape drift guard in `imf-mcp.test.js` runs unconditionally.
 
 Per-request timeout: 90 s in the TypeScript client by default, raised to
 120 s by `scripts/mcp-setup.sh` for gh-aw runs and 180 s in Copilot setup
@@ -224,13 +256,16 @@ to change.
 
 ### Live Probe Contract (Stage A)
 
-- **Endpoint:** `https://dataservices.imf.org/REST/SDMX_3.0` (override with
+- **Endpoint:** `https://api.imf.org/external/sdmx/3.0` (override with
   `IMF_API_BASE_URL` only for an approved mirror).
 - **Transport:** `FETCH_MCP_GATEWAY_URL` first in gh-aw/AWF, direct HTTPS
   fallback for local/non-AWF runs. A fetch-proxy registration failure is an
   infrastructure defect, not an IMF data outage.
-- **Authentication:** none. IMF SDMX 3.0 is public HTTPS; do not send GitHub,
-  MCP gateway, or other bearer tokens to the IMF host.
+- **Authentication:** `Ocp-Apim-Subscription-Key` header read from
+  `IMF_API_PRIMARY_KEY` (with `IMF_API_SECONDARY_KEY` retried on 401/403
+  for live key rotation). Mandatory since the September 2025 IMF Data
+  Portal migration. Do not send GitHub, MCP gateway, or other bearer
+  tokens to the IMF host.
 - **TLS / attribution:** use HTTPS only and attribute article claims as
   `Source: IMF, World Economic Outlook, <vintage>`.
 - **Cache location:** `analysis/daily/<date>/<slug>/cache/imf/`. Same-day
@@ -245,8 +280,8 @@ probe remains inside the ≤4 min Stage-A budget):
 
 | Purpose | IMF REST path | Coverage |
 |---------|---------------|----------|
-| Availability / dataflow drift | `/dataflow/IMF` | Confirms SDMX 3.0 service and WEO dataflow listing |
-| Macro WEO slice | `/data/WEO/A.EA+DEU+FRA+ITA.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP?startPeriod=2025&endPeriod=2026&format=jsondata` | Annual WEO (`A`) for Eurozone aggregate (`EA`) plus DE/FR/IT real GDP growth (`NGDP_RPCH`), inflation (`PCPIPCH`), and fiscal balance (`GGXCNL_NGDP`) |
+| Availability / dataflow drift | `/structure/dataflow` | Confirms SDMX 3.0 service and lists every dataflow across all IMF agencies (IMF.RES/STA/FAD/…) |
+| Macro WEO slice | `/data/dataflow/IMF.RES/WEO/+/EA+DEU+FRA+ITA.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP.A?startPeriod=2025&endPeriod=2026&format=jsondata` | WEO (agency `IMF.RES`, key order COUNTRY.INDICATOR.FREQUENCY) for Eurozone aggregate (`EA`) plus DE/FR/IT real GDP growth (`NGDP_RPCH`), inflation (`PCPIPCH`), and fiscal balance (`GGXCNL_NGDP`), annual frequency (`A`) |
 
 `economic-context.md` must set `IMF Source` to `live` when the current run
 created the cache files, `cache` when it reused same-day cache, or

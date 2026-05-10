@@ -59,7 +59,7 @@ network:
     - github
     - node
     - data.europarl.europa.eu
-    - dataservices.imf.org
+    - api.imf.org
     - api.worldbank.org
     - "*.worldbank.org"
     - "*.europa.eu"

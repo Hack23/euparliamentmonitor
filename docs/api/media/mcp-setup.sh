@@ -47,11 +47,14 @@ export FETCH_MCP_GATEWAY_URL="http://${MCP_GATEWAY_DOMAIN_DEFAULT}:${MCP_GATEWAY
 
 # IMF Data — native TypeScript SDMX 3.0 REST client.
 # Primary transport: MCP fetch-proxy gateway (bypasses AWF Squid proxy).
-# Fallback: direct HTTPS to https://dataservices.imf.org/ (works outside AWF).
+# Fallback: direct HTTPS to https://api.imf.org/external/sdmx/3.0 (works
+# outside AWF when an Ocp-Apim-Subscription-Key is provided via
+# IMF_API_PRIMARY_KEY / IMF_API_SECONDARY_KEY — IMF gated all SDMX feeds
+# behind Azure-APIM subscription keys in their Sept-2025 migration).
 # Export the base URL so `scripts/imf-mcp-probe.sh` and any ad-hoc curl
 # calls in workflow bash blocks target the same endpoint the client
 # resolves at runtime. Override via `IMF_API_BASE_URL` if mirroring.
-export IMF_API_BASE_URL="${IMF_API_BASE_URL:-https://dataservices.imf.org/REST/SDMX_3.0}"
+export IMF_API_BASE_URL="${IMF_API_BASE_URL:-https://api.imf.org/external/sdmx/3.0}"
 
 # Extract auth token + gateway address (port/domain) using node
 # (repo runtime — no python3 dependency). gh-aw writes the actual

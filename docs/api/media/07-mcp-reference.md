@@ -177,18 +177,53 @@ Rate limit: 500 req / 5 min. Cached responses < 200 ms.
 > editorial/agent-side at Stage-C completeness review.
 
 Client: `src/mcp/imf-mcp-client.ts` (class `IMFMCPClient`).
-Transport: direct REST to `https://dataservices.imf.org/REST/SDMX_3.0/`
+Transport: direct REST to `https://api.imf.org/external/sdmx/3.0/`
 via `fetch` (no Python MCP dependency). Env vars:
-`IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS`. Probe:
-`scripts/imf-mcp-probe.sh`.
+`IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS` (default 90000),
+`IMF_API_PRIMARY_KEY` and `IMF_API_SECONDARY_KEY` — Azure-APIM
+subscription keys sent as `Ocp-Apim-Subscription-Key` (required
+since IMF's September 2025 migration; secondary is the warm-standby
+used to retry on 401/403). Probe: `scripts/imf-mcp-probe.sh`.
 
 | Virtual tool | Method | REST endpoint | Purpose |
 |--------------|--------|---------------|---------|
-| `imf-list-databases` | `listDatabases` | `GET /dataflow/IMF` | List ~155 SDMX dataflows |
+| `imf-list-databases` | `listDatabases` | `GET /structure/dataflow` | List ~190 SDMX dataflows (across all IMF agencies) |
 | `imf-search-databases` | `searchDatabases(keyword)` | dataflow list + filter | Find a database by keyword |
-| `imf-get-parameter-defs` | `getParameterDefs(dbId)` | `GET /datastructure/{id}` | SDMX data-structure definition |
-| `imf-get-parameter-codes` | `getParameterCodes(db, dim, search?)` | `GET /datastructure/{id}?references=codelist` | Codelist for a dimension |
-| `imf-fetch-data` | `fetchData({ databaseId, startYear, endYear, filters })` | `GET /data/{df}/{key}` | Fetch a time series |
+| `imf-get-parameter-defs` | `getParameterDefs(dbId)` | `GET /structure/dataflow/{agency}/{id}/+?references=datastructure` | DSD dimensions for a dataflow |
+| `imf-get-parameter-codes` | `getParameterCodes(db, dim, search?)` | `GET /structure/dataflow/{agency}/{id}/+?references=all` | Codelist for a dimension (walks DSD → conceptScheme → codelist) |
+| `imf-fetch-data` | `fetchData({ databaseId, startYear, endYear, filters })` | `GET /data/dataflow/{agency}/{id}/+/{KEY}?format=jsondata` | Fetch a time series |
+
+**Agency map** (post-Sept-2025 IMF Data Portal — the umbrella `IMF`
+agency was retired and now returns 204; the client auto-resolves but
+agents may override via `agencyId`):
+
+| Dataflow | Agency | Notes |
+|----------|--------|-------|
+| `WEO`, `PCPS`, `ITS` | `IMF.RES` | Research Department (forecasts, commodity prices) |
+| `FM` | `IMF.FAD` | Fiscal Affairs Department |
+| `CPI`, `BOP`, `BOP_AGG`, `ER`, `IFS`, `DOT`, `CDIS`, `CPIS`, `GFS`, `FSI`, `MFS` | `IMF.STA` | Statistics Department (everything else editorial) |
+
+**SDMX 3.0 key shape**: post-Sept-2025 IMF Data Portal uses uppercase
+dimension names with **frequency last** (not first), and the literal
+`*` for "all codes" in a dimension — bare `..` returns 0 series.
+Filter keys are matched **case-insensitively** so legacy lowercase
+aliases (`country`, `indicator`, `frequency`) still work.
+
+The exact dimension order varies per dataflow. `COUNTRY.INDICATOR.FREQUENCY`
+is a common 3-dimension pattern (e.g. **WEO**, **FM**, **IFS**), but
+many dataflows have additional dimensions — for example **CPI** is
+`COUNTRY.INDICATOR.COICOP_1999.UNIT_MEASURE.FREQUENCY` (yielding
+`DE.CPI._T._T.M`), **DOT** adds `COUNTERPART_AREA`, **CDIS** adds
+`COUNTERPART_AREA.SECTOR`, **GFS** adds `SECTOR.UNIT`, etc. Always
+call `imf-get-parameter-defs` first to discover the correct dimension
+order for the target dataflow rather than assuming the 3-dimension
+shape; see [`analysis/imf/sdmx-dimensions-reference.md`](../../analysis/imf/sdmx-dimensions-reference.md)
+for the per-dataflow dimension table.
+
+Examples:
+- WEO real GDP growth for Germany 2020-2030 (3 dims, COUNTRY.INDICATOR.FREQUENCY): `GET /data/dataflow/IMF.RES/WEO/+/DEU.NGDP_RPCH.A?startPeriod=2020&endPeriod=2030&format=jsondata`
+- WEO all indicators for Germany 2024 (wildcard INDICATOR): `GET /data/dataflow/IMF.RES/WEO/+/DEU.*.A?startPeriod=2024&endPeriod=2024&format=jsondata`
+- CPI inflation for Germany monthly 2025 (5 dims, COUNTRY.INDICATOR.COICOP_1999.UNIT_MEASURE.FREQUENCY): `GET /data/dataflow/IMF.STA/CPI/+/DE.CPI._T._T.M?startPeriod=2025-01&endPeriod=2025-12&format=jsondata`
 
 **Scope references:**
 - [`analysis/imf/database-directory.md`](../../analysis/imf/database-directory.md) — full 155-database relevance map
