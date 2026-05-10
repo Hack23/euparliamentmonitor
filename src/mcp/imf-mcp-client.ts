@@ -85,6 +85,171 @@ const IMF_REQUEST_HEADERS: Readonly<Record<string, string>> = Object.freeze({
 /** Azure APIM subscription-key header expected by `api.imf.org`. */
 const IMF_SUBSCRIPTION_KEY_HEADER = 'Ocp-Apim-Subscription-Key';
 
+/**
+ * Per-dataflow → maintainer agency map for the post-September-2025 IMF
+ * Data Portal, where the umbrella `IMF` agency was retired in favour of
+ * sub-departmental agency IDs (`IMF.RES`, `IMF.STA`, `IMF.FAD`, `IMF.WHD`,
+ * `IMF.MCM`, …). Discovered live against
+ * `GET /structure/dataflow` on `api.imf.org/external/sdmx/3.0`.
+ *
+ * Keys are uppercased dataflow IDs; values are the canonical agency that
+ * publishes them. Unknown / vintage-suffixed IDs (e.g. `WEO_2025_OCT_VINTAGE`)
+ * fall through to {@link DEFAULT_IMF_AGENCY}.
+ */
+const IMF_DATAFLOW_AGENCY: Readonly<Record<string, string>> = Object.freeze({
+  // IMF.RES — Research Department (forecasts + commodity prices)
+  WEO: 'IMF.RES',
+  PCPS: 'IMF.RES',
+  ITS: 'IMF.RES',
+  // IMF.FAD — Fiscal Affairs Department
+  FM: 'IMF.FAD',
+  // IMF.STA — Statistics Department (everything else editorial)
+  CPI: 'IMF.STA',
+  CPI_WCA: 'IMF.STA',
+  BOP: 'IMF.STA',
+  BOP_AGG: 'IMF.STA',
+  ER: 'IMF.STA',
+  IFS: 'IMF.STA',
+  DOT: 'IMF.STA',
+  CDIS: 'IMF.STA',
+  CPIS: 'IMF.STA',
+  GFS: 'IMF.STA',
+  GFS_SOO: 'IMF.STA',
+  GFS_BS: 'IMF.STA',
+  GFS_COFOG: 'IMF.STA',
+  GFS_SSUC: 'IMF.STA',
+  GFS_SOEF: 'IMF.STA',
+  GFS_SFCP: 'IMF.STA',
+  FSI: 'IMF.STA',
+  MFS: 'IMF.STA',
+  MFS_FC: 'IMF.STA',
+  FA: 'IMF.STA',
+  GFSR: 'IMF.STA',
+});
+
+/** Fallback agency when {@link IMF_DATAFLOW_AGENCY} has no entry — most editorial dataflows are STA-published. */
+const DEFAULT_IMF_AGENCY = 'IMF.STA';
+
+/**
+ * Parse an SDMX URN into its three salient parts:
+ * agency (optional), id, and concept-id (only present for Concept URNs).
+ *
+ * Examples handled:
+ *   - `urn:sdmx:org.sdmx.infomodel.codelist.Codelist=IMF.RES:CL_WEO_INDICATOR(2.0+.0)`
+ *     → `{ agency: 'IMF.RES', id: 'CL_WEO_INDICATOR', conceptId: undefined }`
+ *   - `urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=IMF.RES:CS_WEO(4.0+.0).INDICATOR`
+ *     → `{ agency: 'IMF.RES', id: 'CS_WEO', conceptId: 'INDICATOR' }`
+ *
+ * Pure string-split parsing (no regex) so the static-analysis "unsafe regex"
+ * detector has nothing to object to and the extraction stays linear.
+ *
+ * @param urn - SDMX URN to parse.
+ * @returns Parsed parts (any field may be empty if absent in the URN).
+ * @internal
+ */
+function parseSDMXUrn(urn: string): {
+  agency: string;
+  id: string;
+  conceptId: string;
+} {
+  const eqIdx = urn.indexOf('=');
+  const body = eqIdx >= 0 ? urn.slice(eqIdx + 1) : urn;
+  const parenIdx = body.indexOf('(');
+  const head = parenIdx >= 0 ? body.slice(0, parenIdx) : body;
+  // Concept URNs have a trailing `.CONCEPT_ID` after the closing paren or
+  // — when the version block is absent — after the codelist id itself.
+  // We extract it from the part *after* the version block to avoid
+  // mistaking the dots inside the version string for a concept separator.
+  const tail = parenIdx >= 0 ? body.slice(body.indexOf(')', parenIdx) + 1) : '';
+  const conceptId = tail.startsWith('.') ? tail.slice(1) : '';
+  const colonIdx = head.indexOf(':');
+  const agency = colonIdx >= 0 ? head.slice(0, colonIdx) : '';
+  const id = colonIdx >= 0 ? head.slice(colonIdx + 1) : head;
+  return { agency, id, conceptId };
+}
+
+/**
+ * Resolve the codelist URN for a single dimension by walking the SDMX
+ * 3.0 dimension → concept → codelist binding chain.
+ *
+ * Tries the legacy SDMX 2.1 shape first (`localRepresentation.enumeration`
+ * directly on the dimension) before falling back to the SDMX 3.0 shape
+ * where the binding lives on the concept (`coreRepresentation.enumeration`).
+ *
+ * @param dim - DSD dimension entry.
+ * @param conceptSchemes - Inlined conceptSchemes from the same payload.
+ * @returns Codelist URN, or `undefined` when no binding is declared.
+ * @internal
+ */
+function resolveCodelistUrn(
+  dim: SDMXDimension,
+  conceptSchemes: readonly SDMXConceptScheme[]
+): string | undefined {
+  const direct = dim.localRepresentation?.enumeration;
+  if (direct) return direct;
+  if (!dim.conceptIdentity) return undefined;
+  const { agency, id, conceptId } = parseSDMXUrn(dim.conceptIdentity);
+  if (!conceptId) return undefined;
+  const cs = conceptSchemes.find((s) => s.id === id && (agency === '' || s.agencyID === agency));
+  const concept = cs?.concepts?.find((c) => c.id === conceptId);
+  return concept?.coreRepresentation?.enumeration;
+}
+
+/**
+ * Resolve the actual list of codes for a single dimension by looking up
+ * the bound codelist in the inlined codelists payload. Falls back to
+ * any inlined `dim.values` array when present.
+ *
+ * @param dim - DSD dimension entry.
+ * @param payload - The `data` block of an SDMX `references=all` response
+ *   (must contain `conceptSchemes` and `codelists`).
+ * @returns Ordered list of `{ id, name }` codes; empty when the
+ *   dimension has neither inlined values nor a resolvable codelist.
+ * @internal
+ */
+function resolveCodelistCodes(
+  dim: SDMXDimension,
+  payload: NonNullable<SDMXDataStructureResponse['data']>
+): readonly SDMXDimensionValue[] {
+  if (dim.values && dim.values.length > 0) return dim.values;
+  const urn = resolveCodelistUrn(dim, payload.conceptSchemes ?? []);
+  if (!urn) return [];
+  const { agency, id } = parseSDMXUrn(urn);
+  if (!id) return [];
+  const cls = payload.codelists ?? [];
+  const exact = cls.find((c) => c.id === id && (!agency || c.agencyID === agency));
+  const cl = exact ?? cls.find((c) => c.id === id);
+  return cl?.codes ?? [];
+}
+
+/**
+ * Resolve the SDMX agency for a dataflow.
+ *
+ * Strips any `_YYYY_MMM_VINTAGE` suffix before lookup so monthly vintage
+ * IDs (`WEO_2025_OCT_VINTAGE`) inherit the same agency as their
+ * canonical "latest" sibling (`WEO`).
+ *
+ * @param databaseId - IMF dataflow identifier.
+ * @returns Agency code (e.g. `"IMF.RES"`).
+ * @internal
+ */
+function resolveAgency(databaseId: string): string {
+  const upper = databaseId.toUpperCase();
+  // Avoid dynamic object indexing so the security lint does not flag user input as a sink.
+  const direct = Object.entries(IMF_DATAFLOW_AGENCY).find(([k]) => k === upper)?.[1];
+  if (direct) return direct;
+  // Vintage suffix: WEO_2025_OCT_VINTAGE → WEO
+  const vintageIdx = upper.indexOf('_VINTAGE');
+  if (vintageIdx > 0) {
+    const trimmed = upper.slice(0, vintageIdx).split('_').slice(0, -2).join('_');
+    if (trimmed) {
+      const fromBase = Object.entries(IMF_DATAFLOW_AGENCY).find(([k]) => k === trimmed)?.[1];
+      if (fromBase) return fromBase;
+    }
+  }
+  return DEFAULT_IMF_AGENCY;
+}
+
 /** Fallback payload shape when an IMF call fails or the server is offline. */
 const IMF_FALLBACK: MCPToolResult = {
   content: [{ type: 'text', text: '' }],
@@ -143,6 +308,8 @@ interface SDMXCategoryReference {
   id?: string;
   name?: string | Record<string, string>;
   description?: string | Record<string, string>;
+  agencyID?: string;
+  version?: string;
 }
 
 interface SDMXDataflowListResponse {
@@ -159,10 +326,23 @@ interface SDMXDimensionValue {
 interface SDMXDimension {
   id: string;
   name?: string | Record<string, string>;
+  conceptIdentity?: string;
   localRepresentation?: {
     enumeration?: string;
   };
   values?: SDMXDimensionValue[];
+}
+
+interface SDMXConcept {
+  id?: string;
+  name?: string | Record<string, string>;
+  coreRepresentation?: { enumeration?: string };
+}
+
+interface SDMXConceptScheme {
+  id?: string;
+  agencyID?: string;
+  concepts?: SDMXConcept[];
 }
 
 interface SDMXDataStructureResponse {
@@ -173,8 +353,10 @@ interface SDMXDataStructureResponse {
         dimensionList?: { dimensions?: SDMXDimension[] };
       };
     }>;
+    conceptSchemes?: SDMXConceptScheme[];
     codelists?: Array<{
       id?: string;
+      agencyID?: string;
       codes?: SDMXDimensionValue[];
     }>;
   };
@@ -291,26 +473,38 @@ function encodeSDMXDimension(codes: readonly string[]): string {
 /**
  * Build an SDMX key from a filters map + declared dimension order.
  *
- * If a declared dimension is absent from `filters`, the slot is left as
- * the wildcard (empty string). Extra filter keys not present in the
- * declared order are ignored — the caller is expected to have discovered
- * the correct dimension names via {@link IMFMCPClient.getParameterDefs}.
+ * If a declared dimension is absent from `filters`, the slot is filled
+ * with the SDMX 3.0 wildcard `*` (the post-Sept-2025 IMF Data Portal
+ * rejects bare empty positions — `DEU..A` returns 0 series, `DEU.*.A`
+ * returns the full set). Extra filter keys not present in the declared
+ * order are ignored — the caller is expected to have discovered the
+ * correct dimension names via {@link IMFMCPClient.getParameterDefs}.
  *
- * @param dimensions - Declared dimension order (e.g. `["frequency","country","indicator"]`).
+ * Filter keys are matched case-insensitively against declared dimension
+ * names so callers can keep using the legacy lowercase aliases
+ * (`country`, `indicator`, `frequency`) even though the IMF SDMX 3.0
+ * DSDs use uppercase (`COUNTRY`, `INDICATOR`, `FREQUENCY`).
+ *
+ * @param dimensions - Declared dimension order (e.g. `["COUNTRY","INDICATOR","FREQUENCY"]`).
  * @param filters - Map of dimension → selected codes.
- * @returns SDMX key (e.g. `"A.DEU.NGDP_RPCH"`).
+ * @returns SDMX key (e.g. `"DEU.NGDP_RPCH.A"` or `"DEU.*.A"` for wildcard indicator).
  * @internal
  */
 function buildSDMXKey(
   dimensions: readonly string[],
   filters: Readonly<Record<string, readonly string[]>>
 ): string {
+  const lowercasedFilters = Object.entries(filters).map(
+    ([key, value]) => [key.toLowerCase(), value] as const
+  );
   return dimensions
     .map((dim) => {
-      // Avoid direct dynamic object indexing here so the security lint rule
-      // does not flag caller-supplied SDMX dimension names as an injection sink.
-      const codes = Object.entries(filters).find(([key]) => key === dim)?.[1];
-      return Array.isArray(codes) ? encodeSDMXDimension(codes) : '';
+      const dimLc = dim.toLowerCase();
+      const codes = lowercasedFilters.find(([key]) => key === dimLc)?.[1];
+      // SDMX 3.0 wildcard for "match every code in this dimension" is `*`.
+      // The legacy SDMX 2.1 convention of leaving the segment bare is
+      // rejected by `api.imf.org` post-Sept-2025 (returns 0 series).
+      return Array.isArray(codes) && codes.length > 0 ? encodeSDMXDimension(codes) : '*';
     })
     .join('.');
 }
@@ -321,8 +515,12 @@ function buildSDMXKey(
  * fallback because the WEO datastructure in particular is so widely used
  * that encoding a well-known default eliminates one round-trip per fetch.
  *
- * Order mirrors the IMF SDMX 3.0 DSDs catalogued in
- * `analysis/imf/sdmx-dimensions-reference.md`.
+ * Order mirrors the IMF SDMX 3.0 DSDs catalogued live against
+ * `api.imf.org/external/sdmx/3.0/structure/dataflow/{agency}/{id}/+?references=datastructure`
+ * (post-Sept-2025 Data Portal migration). All dimension names are
+ * UPPERCASE and `FREQUENCY` is the **last** series-level dimension —
+ * the legacy SDMX 2.1 convention of leading with `FREQ` no longer
+ * applies on `api.imf.org`.
  *
  * @param databaseId - Dataflow identifier (case-insensitive).
  * @returns Default dimension order used when the caller omits it.
@@ -333,25 +531,37 @@ function defaultDimensionOrder(databaseId: string): readonly string[] {
     case 'WEO':
     case 'FM':
     case 'IFS':
-    case 'CPI':
     case 'BOP_AGG':
+      return ['COUNTRY', 'INDICATOR', 'FREQUENCY'];
+    case 'CPI':
+    case 'CPI_WCA':
+      return ['COUNTRY', 'INDEX_TYPE', 'COICOP_1999', 'TYPE_OF_TRANSFORMATION', 'FREQUENCY'];
+    case 'BOP':
+      return ['COUNTRY', 'BOP_ACCOUNTING_ENTRY', 'INDICATOR', 'UNIT', 'FREQUENCY'];
     case 'ER':
-    case 'FSI':
-      return ['frequency', 'country', 'indicator'];
-    case 'DOT':
-      return ['frequency', 'country', 'counterpartArea', 'indicator'];
-    case 'CDIS':
-      return ['frequency', 'country', 'counterpartArea', 'sector', 'indicator'];
-    case 'CPIS':
-      return ['frequency', 'country', 'counterpartArea', 'instrument', 'indicator'];
+      return ['COUNTRY', 'INDICATOR', 'TYPE_OF_TRANSFORMATION', 'FREQUENCY'];
     case 'PCPS':
-      return ['frequency', 'indicator'];
+      return ['COUNTRY', 'INDICATOR', 'DATA_TRANSFORMATION', 'FREQUENCY'];
+    case 'DOT':
+      return ['COUNTRY', 'COUNTERPART_AREA', 'INDICATOR', 'FREQUENCY'];
+    case 'CDIS':
+      return ['COUNTRY', 'COUNTERPART_AREA', 'SECTOR', 'INDICATOR', 'FREQUENCY'];
+    case 'CPIS':
+      return ['COUNTRY', 'COUNTERPART_AREA', 'INSTRUMENT', 'INDICATOR', 'FREQUENCY'];
+    case 'FSI':
+      return ['COUNTRY', 'INDICATOR', 'SECTOR', 'FREQUENCY'];
     case 'GFSR':
-      return ['frequency', 'country', 'indicator', 'sector'];
+      return ['COUNTRY', 'INDICATOR', 'SECTOR', 'FREQUENCY'];
     case 'GFS':
-      return ['frequency', 'country', 'sector', 'unit', 'indicator'];
+    case 'GFS_SOO':
+    case 'GFS_BS':
+    case 'GFS_COFOG':
+    case 'GFS_SSUC':
+    case 'GFS_SOEF':
+    case 'GFS_SFCP':
+      return ['COUNTRY', 'SECTOR', 'UNIT', 'INDICATOR', 'FREQUENCY'];
     default:
-      return ['frequency', 'country', 'indicator'];
+      return ['COUNTRY', 'INDICATOR', 'FREQUENCY'];
   }
 }
 
@@ -390,19 +600,25 @@ function defaultFrequency(databaseId: string): string | undefined {
 
 /**
  * Add a dataflow-specific default frequency when the caller omitted one.
+ * Filter-key matching is case-insensitive so callers using legacy
+ * lowercase aliases (`frequency`) do not double-inject when the DSD
+ * uses the SDMX 3.0 uppercase form (`FREQUENCY`).
  *
  * @param databaseId - Dataflow identifier.
  * @param filters - Caller-supplied SDMX dimension filters.
- * @returns The original filters or a shallow copy with `frequency` populated.
+ * @returns The original filters or a shallow copy with `FREQUENCY` populated.
  * @internal
  */
 function withDefaultFrequency(
   databaseId: string,
   filters: Readonly<Record<string, readonly string[]>>
 ): Readonly<Record<string, readonly string[]>> {
-  const hasFrequency = Object.entries(filters).some(([key]) => key === 'frequency');
+  const hasFrequency = Object.entries(filters).some(([key]) => {
+    const k = key.toLowerCase();
+    return k === 'frequency' || k === 'freq';
+  });
   const frequency = defaultFrequency(databaseId);
-  return !hasFrequency && frequency ? { ...filters, frequency: [frequency] } : filters;
+  return !hasFrequency && frequency ? { ...filters, FREQUENCY: [frequency] } : filters;
 }
 
 /**
@@ -561,21 +777,27 @@ export class IMFMCPClient {
   /**
    * List every IMF database (dataflow) exposed by the SDMX 3.0 API.
    *
-   * Virtual tool: `imf-list-databases`.
+   * Virtual tool: `imf-list-databases`. Hits the umbrella
+   * `/structure/dataflow` endpoint which returns every published
+   * dataflow across all IMF sub-agencies (`IMF.RES`, `IMF.STA`,
+   * `IMF.FAD`, `IMF.WHD`, `IMF.MCM`, …) — typically ~190 entries.
+   * Each row includes the publishing `agency` so callers know which
+   * agency to use when calling {@link getParameterDefs} or {@link fetchData}.
    *
    * @returns MCP-shaped result whose `content[0].text` carries a JSON
-   *   array of `{ id, name, description }` entries. Empty on error.
+   *   array of `{ id, name, description, agency, version }` entries.
+   *   Empty on error.
    */
   async listDatabases(): Promise<MCPToolResult> {
     try {
-      const json = await this._getJSON<SDMXDataflowListResponse>(
-        '/structure/dataflow/IMF/all/latest'
-      );
+      const json = await this._getJSON<SDMXDataflowListResponse>('/structure/dataflow');
       const flows = json?.data?.dataflows ?? [];
       const rows = flows.map((f) => ({
         id: f.id ?? '',
         name: unwrapLocalisedLabel(f.name),
         description: unwrapLocalisedLabel(f.description),
+        agency: f.agencyID ?? '',
+        version: f.version ?? '',
       }));
       return wrapAsMCPResult(rows);
     } catch (error) {
@@ -602,9 +824,7 @@ export class IMFMCPClient {
       return IMF_FALLBACK;
     }
     try {
-      const json = await this._getJSON<SDMXDataflowListResponse>(
-        '/structure/dataflow/IMF/all/latest'
-      );
+      const json = await this._getJSON<SDMXDataflowListResponse>('/structure/dataflow');
       const flows = json?.data?.dataflows ?? [];
       const needle = keyword.toLowerCase();
       const rows = flows
@@ -612,6 +832,8 @@ export class IMFMCPClient {
           id: f.id ?? '',
           name: unwrapLocalisedLabel(f.name),
           description: unwrapLocalisedLabel(f.description),
+          agency: f.agencyID ?? '',
+          version: f.version ?? '',
         }))
         .filter((r) => {
           const hay = `${r.id} ${r.name} ${r.description}`.toLowerCase();
@@ -630,20 +852,26 @@ export class IMFMCPClient {
    * dataflow. Essential before building an SDMX key for
    * {@link fetchData} because each database has its own dimension set.
    *
-   * Virtual tool: `imf-get-parameter-defs`.
+   * Virtual tool: `imf-get-parameter-defs`. Uses the
+   * `/structure/dataflow/{agency}/{id}/+?references=datastructure`
+   * endpoint because the legacy `/structure/datastructure/IMF/{id}/+`
+   * shape returns 204 on `api.imf.org` after the September-2025 IMF
+   * Data Portal migration retired the umbrella `IMF` agency.
    *
-   * @param databaseId - IMF dataflow identifier (e.g. `"WEO"`, `"IFS"`).
+   * @param databaseId - IMF dataflow identifier (e.g. `"WEO"`, `"FM"`).
+   * @param agencyId - Optional override; defaults to {@link resolveAgency}.
    * @returns MCP-shaped result whose `content[0].text` carries the
    *   ordered list of dimensions (`[{ id, name }]`). Empty on error.
    */
-  async getParameterDefs(databaseId: string): Promise<MCPToolResult> {
+  async getParameterDefs(databaseId: string, agencyId?: string): Promise<MCPToolResult> {
     if (!databaseId) {
       console.warn('imf-get-parameter-defs called without databaseId');
       return IMF_FALLBACK;
     }
     try {
+      const agency = agencyId ?? resolveAgency(databaseId);
       const json = await this._getJSON<SDMXDataStructureResponse>(
-        `/structure/datastructure/IMF/${encodeURIComponent(databaseId)}/+`
+        `/structure/dataflow/${encodeURIComponent(agency)}/${encodeURIComponent(databaseId)}/+?references=datastructure`
       );
       const ds = json?.data?.dataStructures?.[0];
       const dims = ds?.dataStructureComponents?.dimensionList?.dimensions ?? [];
@@ -660,29 +888,38 @@ export class IMFMCPClient {
    * List valid codes for a single dimension of an IMF dataflow, with
    * an optional free-text filter to narrow the result.
    *
-   * Virtual tool: `imf-get-parameter-codes`. The underlying SDMX
-   * `/codelist/` endpoint is used, looked up from the datastructure so
-   * the caller does not need to know the codelist identifier ahead of
-   * time.
+   * Virtual tool: `imf-get-parameter-codes`. Uses
+   * `/structure/dataflow/{agency}/{id}/+?references=children` to fetch
+   * the DSD plus its referenced codelists in one round-trip.
    *
    * @param databaseId - IMF dataflow identifier.
-   * @param parameter - Dimension name (e.g. `"country"`, `"indicator"`).
+   * @param parameter - Dimension name (e.g. `"COUNTRY"`, `"INDICATOR"`;
+   *   matched case-insensitively).
    * @param search - Optional free-text search (case-insensitive substring).
+   * @param agencyId - Optional agency override; defaults to {@link resolveAgency}.
    * @returns MCP-shaped result with `[{ id, name }]` rows; empty on error.
    */
   async getParameterCodes(
     databaseId: string,
     parameter: string,
-    search?: string
+    search?: string,
+    agencyId?: string
   ): Promise<MCPToolResult> {
     if (!databaseId || !parameter) {
       console.warn('imf-get-parameter-codes requires databaseId and parameter');
       return IMF_FALLBACK;
     }
     try {
-      // 1. Discover the codelist id for the requested dimension.
+      const agency = agencyId ?? resolveAgency(databaseId);
+      // `references=all` returns DSD + conceptSchemes + codelists in one
+      // round-trip. The IMF SDMX 3.0 DSDs put the codelist binding on
+      // the *concept* (`coreRepresentation.enumeration`), not on the
+      // dimension itself, so we need both the DSD (for the dimension →
+      // concept link) and the conceptScheme (for the concept → codelist
+      // link). The payload is large (~2-3 MB for WEO) — it's fetched
+      // once per workflow run by gh-aw and cached upstream.
       const structure = await this._getJSON<SDMXDataStructureResponse>(
-        `/structure/datastructure/IMF/${encodeURIComponent(databaseId)}/+?references=codelist`
+        `/structure/dataflow/${encodeURIComponent(agency)}/${encodeURIComponent(databaseId)}/+?references=all`
       );
       const ds = structure?.data?.dataStructures?.[0];
       const dims = ds?.dataStructureComponents?.dimensionList?.dimensions ?? [];
@@ -690,33 +927,11 @@ export class IMFMCPClient {
       if (!dim) {
         return wrapAsMCPResult([]);
       }
-      // The SDMX codelist reference URN looks like
-      //   "urn:sdmx:org.sdmx.infomodel.codelist.Codelist=IMF:CL_AREA(1.0)"
-      // We only need the codelist id — use string-split parsing
-      // (no regex) so the static-analysis "unsafe regex" detector has
-      // nothing to object to and the extraction stays obviously linear.
-      let codelistId: string | undefined = dim.localRepresentation?.enumeration;
-      if (codelistId) {
-        const afterEquals = codelistId.includes('=')
-          ? (codelistId.split('=')[1] ?? '')
-          : codelistId;
-        const beforeParen = afterEquals.split('(')[0] ?? '';
-        const parts = beforeParen.split(':');
-        codelistId = (parts[parts.length - 1] ?? beforeParen).trim() || codelistId;
-      }
-      // Some payloads inline the values directly; prefer those when present.
-      let codes: SDMXDimensionValue[] = dim.values ?? [];
-      if (codes.length === 0 && codelistId) {
-        const cl = structure?.data?.codelists?.find((c) => c.id === codelistId);
-        codes = cl?.codes ?? [];
-      }
+      const codes = resolveCodelistCodes(dim, structure?.data ?? {});
       const needle = (search ?? '').toLowerCase();
       const rows = codes
         .map((c) => ({ id: c.id, name: unwrapLocalisedLabel(c.name) }))
-        .filter((r) => {
-          if (!needle) return true;
-          return `${r.id} ${r.name}`.toLowerCase().includes(needle);
-        });
+        .filter((r) => !needle || `${r.id} ${r.name}`.toLowerCase().includes(needle));
       return wrapAsMCPResult(rows);
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
@@ -735,13 +950,17 @@ export class IMFMCPClient {
    * April-2026 aggregator-pipeline migration.)
    *
    * @param options - Fetch parameters.
-   * @param options.databaseId - IMF dataflow ID (`"WEO"`, `"IFS"`, ...).
+   * @param options.databaseId - IMF dataflow ID (`"WEO"`, `"FM"`, ...).
    * @param options.startYear - Inclusive start year (e.g. `2015`).
    * @param options.endYear - Inclusive end year (e.g. `2030` for WEO forecasts).
-   * @param options.filters - Map of dimension → selected codes.
+   * @param options.filters - Map of dimension → selected codes. Filter
+   *   keys are matched case-insensitively against the DSD dimensions
+   *   (legacy lowercase `country`/`indicator`/`frequency` continue to work).
    * @param options.dimensionOrder - Optional override of the dimension order
    *   used to build the SDMX key. Defaults to
    *   {@link defaultDimensionOrder} for the database.
+   * @param options.agencyId - Optional SDMX agency override (e.g. `"IMF.RES"`,
+   *   `"IMF.STA"`). Defaults to {@link resolveAgency}.
    * @returns MCP-shaped result whose `content[0].text` carries the raw
    *   SDMX-JSON response. Empty on error or invalid inputs.
    */
@@ -751,8 +970,9 @@ export class IMFMCPClient {
     endYear: number;
     filters: Readonly<Record<string, readonly string[]>>;
     dimensionOrder?: readonly string[];
+    agencyId?: string;
   }): Promise<MCPToolResult> {
-    const { databaseId, startYear, endYear, filters, dimensionOrder } = options;
+    const { databaseId, startYear, endYear, filters, dimensionOrder, agencyId } = options;
     if (!databaseId || !filters || Object.keys(filters).length === 0) {
       console.warn('imf-fetch-data requires databaseId and a non-empty filters map');
       return IMF_FALLBACK;
@@ -762,6 +982,7 @@ export class IMFMCPClient {
       return IMF_FALLBACK;
     }
     try {
+      const agency = agencyId ?? resolveAgency(databaseId);
       const dims = dimensionOrder ?? defaultDimensionOrder(databaseId);
       const key = buildSDMXKey(dims, withDefaultFrequency(databaseId, filters));
       const qs = new URLSearchParams({
@@ -769,7 +990,7 @@ export class IMFMCPClient {
         endPeriod: String(endYear),
         format: 'jsondata',
       });
-      const url = `/data/dataflow/IMF/${encodeURIComponent(databaseId)}/+/${key}?${qs.toString()}`;
+      const url = `/data/dataflow/${encodeURIComponent(agency)}/${encodeURIComponent(databaseId)}/+/${key}?${qs.toString()}`;
       const text = await this._getText(url);
       return wrapAsMCPResult(text);
     } catch (error) {

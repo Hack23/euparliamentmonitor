@@ -179,14 +179,25 @@ describe('imf-mcp-client', () => {
     });
     afterEach(() => consoleOutput.restore());
 
-    it('requests the /structure/dataflow/IMF/all/latest endpoint and normalises the payload', async () => {
+    it('requests the /structure/dataflow umbrella endpoint and normalises the payload', async () => {
       const fetchImpl = vi.fn().mockResolvedValue(
         mockFetchResponse(
           JSON.stringify({
             data: {
               dataflows: [
-                { id: 'WEO', name: { en: 'World Economic Outlook' }, description: 'Forecasts' },
-                { id: 'IFS', name: 'International Financial Statistics' },
+                {
+                  id: 'WEO',
+                  name: { en: 'World Economic Outlook' },
+                  description: 'Forecasts',
+                  agencyID: 'IMF.RES',
+                  version: '9.0.0',
+                },
+                {
+                  id: 'CPI',
+                  name: 'Consumer Price Index',
+                  agencyID: 'IMF.STA',
+                  version: '5.0.0',
+                },
               ],
             },
           })
@@ -200,14 +211,27 @@ describe('imf-mcp-client', () => {
 
       expect(fetchImpl).toHaveBeenCalledTimes(1);
       const calledUrl = fetchImpl.mock.calls[0][0];
-      expect(calledUrl).toBe(
-        'https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF/all/latest'
-      );
+      // Post-Sept-2025 IMF Data Portal: the umbrella `IMF` agency was
+      // retired in favour of sub-departmental agencies (IMF.RES, IMF.STA, ...).
+      // The list endpoint is now agency-less and returns every dataflow.
+      expect(calledUrl).toBe('https://api.imf.org/external/sdmx/3.0/structure/dataflow');
 
       const parsed = JSON.parse(result.content[0].text);
       expect(parsed).toEqual([
-        { id: 'WEO', name: 'World Economic Outlook', description: 'Forecasts' },
-        { id: 'IFS', name: 'International Financial Statistics', description: '' },
+        {
+          id: 'WEO',
+          name: 'World Economic Outlook',
+          description: 'Forecasts',
+          agency: 'IMF.RES',
+          version: '9.0.0',
+        },
+        {
+          id: 'CPI',
+          name: 'Consumer Price Index',
+          description: '',
+          agency: 'IMF.STA',
+          version: '5.0.0',
+        },
       ]);
     });
 
@@ -299,20 +323,20 @@ describe('imf-mcp-client', () => {
     });
     afterEach(() => consoleOutput.restore());
 
-    it('requests /structure/datastructure/IMF/{id}/+ and extracts the dimension list', async () => {
+    it('requests /structure/dataflow/{agency}/{id}/+?references=datastructure and extracts the dimension list', async () => {
       const fetchImpl = vi.fn().mockResolvedValue(
         mockFetchResponse(
           JSON.stringify({
             data: {
               dataStructures: [
                 {
-                  id: 'WEO',
+                  id: 'DSD_WEO',
                   dataStructureComponents: {
                     dimensionList: {
                       dimensions: [
-                        { id: 'country', name: { en: 'Country' } },
-                        { id: 'indicator', name: 'Indicator' },
-                        { id: 'frequency' },
+                        { id: 'COUNTRY', name: { en: 'Country' } },
+                        { id: 'INDICATOR', name: 'Indicator' },
+                        { id: 'FREQUENCY' },
                       ],
                     },
                   },
@@ -329,13 +353,18 @@ describe('imf-mcp-client', () => {
       const result = await client.getParameterDefs('WEO');
 
       const url = fetchImpl.mock.calls[0][0];
-      expect(url).toBe('https://api.imf.org/external/sdmx/3.0/structure/datastructure/IMF/WEO/+');
+      // WEO is published by the IMF Research Department (IMF.RES); the
+      // legacy umbrella `IMF` agency was retired in the Sept-2025 IMF
+      // Data Portal migration and now returns 204 No Content.
+      expect(url).toBe(
+        'https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF.RES/WEO/+?references=datastructure'
+      );
 
       const rows = JSON.parse(result.content[0].text);
       expect(rows).toEqual([
-        { id: 'country', name: 'Country' },
-        { id: 'indicator', name: 'Indicator' },
-        { id: 'frequency', name: '' },
+        { id: 'COUNTRY', name: 'Country' },
+        { id: 'INDICATOR', name: 'Indicator' },
+        { id: 'FREQUENCY', name: '' },
       ]);
     });
 
@@ -347,7 +376,7 @@ describe('imf-mcp-client', () => {
       expect(result.content[0].text).toBe('');
     });
 
-    it('URI-encodes the databaseId', async () => {
+    it('URI-encodes the databaseId and uses the resolved agency', async () => {
       const fetchImpl = vi
         .fn()
         .mockResolvedValue(mockFetchResponse(JSON.stringify({ data: { dataStructures: [] } })));
@@ -355,9 +384,13 @@ describe('imf-mcp-client', () => {
         apiBaseUrl: 'https://example.com',
         fetchImpl,
       });
+      // Unknown dataflow ID falls back to DEFAULT_IMF_AGENCY (IMF.STA).
+      // The `.` in the agency is a valid URL character so it is preserved.
       await client.getParameterDefs('DB/ID WITH SPACES');
       const url = fetchImpl.mock.calls[0][0];
-      expect(url).toContain('/structure/datastructure/IMF/DB%2FID%20WITH%20SPACES/+');
+      expect(url).toContain(
+        '/structure/dataflow/IMF.STA/DB%2FID%20WITH%20SPACES/+?references=datastructure'
+      );
     });
   });
 
@@ -537,11 +570,13 @@ describe('imf-mcp-client', () => {
 
       expect(fetchImpl).toHaveBeenCalledTimes(1);
       const url = fetchImpl.mock.calls[0][0];
-      // WEO order is frequency.country.indicator; `country` carries a
-      // union of two codes joined with SDMX's `+` separator (each code
-      // URI-encoded first — idempotent for alphanumeric). WEO is annual,
-      // so the client supplies frequency=A when callers omit it.
-      expect(url).toContain('/data/dataflow/IMF/WEO/+/A.DEU+FRA.NGDP_RPCH?');
+      // Post-Sept-2025 IMF Data Portal: WEO is published by IMF.RES;
+      // dimension order is COUNTRY.INDICATOR.FREQUENCY (frequency last,
+      // all uppercase). `country` carries a union of two codes joined
+      // with SDMX's `+` separator (each code URI-encoded first —
+      // idempotent for alphanumeric). WEO is annual, so the client
+      // supplies FREQUENCY=A when callers omit it.
+      expect(url).toContain('/data/dataflow/IMF.RES/WEO/+/DEU+FRA.NGDP_RPCH.A?');
       expect(url).toContain('startPeriod=2020');
       expect(url).toContain('endPeriod=2030');
       expect(url).toContain('format=jsondata');
@@ -564,11 +599,12 @@ describe('imf-mcp-client', () => {
         databaseId: 'IFS',
         startYear: 2024,
         endYear: 2025,
-        filters: { frequency: ['M'], country: ['DEU'], indicator: ['FPOLM_PA'] },
-        dimensionOrder: ['frequency', 'country', 'indicator'],
+        filters: { FREQUENCY: ['M'], COUNTRY: ['DEU'], INDICATOR: ['FPOLM_PA'] },
+        dimensionOrder: ['FREQUENCY', 'COUNTRY', 'INDICATOR'],
       });
       const url = fetchImpl.mock.calls[0][0];
-      expect(url).toContain('/data/dataflow/IMF/IFS/+/M.DEU.FPOLM_PA?');
+      // IFS is published by IMF.STA in the post-Sept-2025 Data Portal.
+      expect(url).toContain('/data/dataflow/IMF.STA/IFS/+/M.DEU.FPOLM_PA?');
     });
 
     it('rejects an empty filters map', async () => {
@@ -637,7 +673,7 @@ describe('imf-mcp-client', () => {
       const url = fetchImpl.mock.calls[0][0];
       // `+` inside a single country code must be %-encoded so SDMX does
       // not interpret it as the "union-of-codes" separator.
-      expect(url).toContain('/data/dataflow/IMF/WEO/+/A.DEU%2BFRA.NGDP_RPCH?');
+      expect(url).toContain('/data/dataflow/IMF.RES/WEO/+/DEU%2BFRA.NGDP_RPCH.A?');
     });
   });
 
