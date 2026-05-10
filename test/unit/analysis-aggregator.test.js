@@ -164,6 +164,22 @@ describe('renderTradecraftAppendix', () => {
     );
   });
 
+  it('orders Artifact templates before Methodologies', () => {
+    const out = renderTradecraftAppendix([
+      'analysis/methodologies/ai-driven-analysis-guide.md',
+      'analysis/templates/SWOT.md',
+    ]);
+    const templatesIdx = out.indexOf('### Artifact templates');
+    const methodsIdx = out.indexOf('### Methodologies');
+    expect(templatesIdx).toBeGreaterThan(-1);
+    expect(methodsIdx).toBeGreaterThan(-1);
+    // Artifact templates section must appear earlier in the rendered
+    // appendix than the Methodologies section so readers encounter the
+    // concrete deliverables (used in the article body) before the
+    // upstream methodology library.
+    expect(templatesIdx).toBeLessThan(methodsIdx);
+  });
+
   it('omits section headings when no files of that kind exist', () => {
     const out = renderTradecraftAppendix(['analysis/templates/SWOT.md']);
     expect(out).not.toContain('### Methodologies');
