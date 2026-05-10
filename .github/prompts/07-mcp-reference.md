@@ -179,16 +179,19 @@ Rate limit: 500 req / 5 min. Cached responses < 200 ms.
 Client: `src/mcp/imf-mcp-client.ts` (class `IMFMCPClient`).
 Transport: direct REST to `https://api.imf.org/external/sdmx/3.0/`
 via `fetch` (no Python MCP dependency). Env vars:
-`IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS`. Probe:
-`scripts/imf-mcp-probe.sh`.
+`IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS` (default 90000),
+`IMF_API_PRIMARY_KEY` and `IMF_API_SECONDARY_KEY` — Azure-APIM
+subscription keys sent as `Ocp-Apim-Subscription-Key` (required
+since IMF's September 2025 migration; secondary is the warm-standby
+used to retry on 401/403). Probe: `scripts/imf-mcp-probe.sh`.
 
 | Virtual tool | Method | REST endpoint | Purpose |
 |--------------|--------|---------------|---------|
-| `imf-list-databases` | `listDatabases` | `GET /dataflow/IMF` | List ~155 SDMX dataflows |
+| `imf-list-databases` | `listDatabases` | `GET /structure/dataflow/IMF/all/latest` | List ~155 SDMX dataflows |
 | `imf-search-databases` | `searchDatabases(keyword)` | dataflow list + filter | Find a database by keyword |
-| `imf-get-parameter-defs` | `getParameterDefs(dbId)` | `GET /datastructure/{id}` | SDMX data-structure definition |
-| `imf-get-parameter-codes` | `getParameterCodes(db, dim, search?)` | `GET /datastructure/{id}?references=codelist` | Codelist for a dimension |
-| `imf-fetch-data` | `fetchData({ databaseId, startYear, endYear, filters })` | `GET /data/{df}/{key}` | Fetch a time series |
+| `imf-get-parameter-defs` | `getParameterDefs(dbId)` | `GET /structure/datastructure/IMF/{id}/+` | SDMX data-structure definition |
+| `imf-get-parameter-codes` | `getParameterCodes(db, dim, search?)` | `GET /structure/datastructure/IMF/{id}/+?references=codelist` | Codelist for a dimension |
+| `imf-fetch-data` | `fetchData({ databaseId, startYear, endYear, filters })` | `GET /data/dataflow/IMF/{id}/+/{KEY}?format=jsondata` | Fetch a time series |
 
 **Scope references:**
 - [`analysis/imf/database-directory.md`](../../analysis/imf/database-directory.md) — full 155-database relevance map

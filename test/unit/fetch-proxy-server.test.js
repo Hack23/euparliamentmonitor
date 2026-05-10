@@ -344,6 +344,28 @@ describe('handleFetchUrl', () => {
       expect(result.error.message).toContain('ECONNREFUSED-secondary');
       expect(result.error.message).not.toContain('401');
     });
+
+    it('treats HTTP 204 No Content as an explicit auth-misconfiguration error', async () => {
+      // api.imf.org returns 204 when the request reached Azure APIM but
+      // no Ocp-Apim-Subscription-Key matched. 204 is technically 2xx so
+      // without an explicit guard the empty body would be returned as a
+      // successful MCP result and the caller would silently get unusable
+      // data. Pin the diagnostic-error contract.
+      delete process.env['IMF_API_PRIMARY_KEY'];
+      delete process.env['IMF_API_SECONDARY_KEY'];
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 204,
+        statusText: 'No Content',
+        text: async () => '',
+      });
+      const url = 'https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF/all/latest';
+      const result = await handleFetchUrl(8, url, mockFetch);
+      expect(result.error).toBeDefined();
+      expect(result.error.message).toContain('204');
+      expect(result.error.message).toContain('Ocp-Apim-Subscription-Key');
+      expect(result.error.message).toContain('IMF_API_PRIMARY_KEY');
+    });
   });
 });
 

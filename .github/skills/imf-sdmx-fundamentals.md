@@ -29,18 +29,21 @@ the human-readable companion to
 Every IMF dataflow is queried with a URL of the shape:
 
 ```
-GET https://api.imf.org/external/sdmx/3.0/data/{DATAFLOW}/{KEY}?startPeriod=YYYY&endPeriod=YYYY
+GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF/{DATAFLOW}/+/{KEY}?startPeriod=YYYY&endPeriod=YYYY&format=jsondata
 ```
 
-The `{KEY}` is a dot-delimited tuple of dimension-code values in the
-**fixed dimension order** declared by the dataflow's Data Structure
-Definition (DSD). Wildcards are allowed per-position by leaving the
-slot empty (`..`).
+The `/dataflow/IMF/{DATAFLOW}/+/` segment is the SDMX 3.0 reference
+form expected by the IMF Azure-APIM gateway — `IMF` is the agency,
+`+` selects the latest version of the dataflow, and `{DATAFLOW}` is
+the database id (e.g. `WEO`, `IFS`). The trailing `{KEY}` is a
+dot-delimited tuple of dimension-code values in the **fixed dimension
+order** declared by the dataflow's Data Structure Definition (DSD).
+Wildcards are allowed per-position by leaving the slot empty (`..`).
 
 **Example (WEO — annual frequency, Germany real-GDP growth, 2020→2029):**
 
 ```
-GET /data/WEO/A.DEU.NGDP_RPCH?startPeriod=2020&endPeriod=2029
+GET /data/dataflow/IMF/WEO/+/A.DEU.NGDP_RPCH?startPeriod=2020&endPeriod=2029&format=jsondata
 ```
 
 The key decodes as:

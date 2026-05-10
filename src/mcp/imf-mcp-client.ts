@@ -37,7 +37,7 @@
  *
  * - Uses the native Node 25 `fetch()` — no extra runtime dependency.
  * - Every call has an independent `AbortController` with a configurable
- *   timeout (`IMF_API_TIMEOUT_MS`, default 30 s).
+ *   timeout (`IMF_API_TIMEOUT_MS`, default 90 s).
  * - Errors (HTTP 4xx/5xx, network faults, JSON parse failures, abort) are
  *   caught and converted to the {@link IMF_FALLBACK} envelope. Callers
  *   upstream can therefore treat "no IMF" as "empty data" without
@@ -46,7 +46,7 @@
  * Environment variables:
  * - `IMF_API_BASE_URL` — override base URL (default
  *   `https://api.imf.org/external/sdmx/3.0`).
- * - `IMF_API_TIMEOUT_MS` — per-request timeout (default `30000`).
+ * - `IMF_API_TIMEOUT_MS` — per-request timeout (default `90000`).
  * - `IMF_API_PRIMARY_KEY` — Azure APIM subscription key for `api.imf.org`
  *   (required since September 2025; sent as `Ocp-Apim-Subscription-Key`).
  * - `IMF_API_SECONDARY_KEY` — warm-standby subscription key, used to retry
@@ -870,6 +870,20 @@ export class IMFMCPClient {
         signal: controller.signal,
       });
       if (response.ok) {
+        // `api.imf.org` returns 204 when the request reached Azure APIM
+        // but no Ocp-Apim-Subscription-Key matched. 204 is technically
+        // 2xx, so without this explicit branch the empty body would be
+        // returned as a successful SDMX-JSON envelope and downstream
+        // parsers would silently produce empty series. Treat 204 as an
+        // error so missing/invalid keys are caught at Stage A.
+        if (response.status === 204) {
+          return {
+            kind: 'error',
+            error: new Error(
+              `HTTP 204 No Content for ${url} — likely missing or invalid ${IMF_SUBSCRIPTION_KEY_HEADER} (set IMF_API_PRIMARY_KEY)`
+            ),
+          };
+        }
         return { kind: 'ok', text: await response.text() };
       }
       const error = new Error(`HTTP ${response.status} ${response.statusText} for ${url}`);

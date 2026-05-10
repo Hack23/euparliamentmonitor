@@ -256,6 +256,63 @@ function buildImfHeaders(key: string | undefined): Record<string, string> {
  * @param fetchImpl - Injectable `fetch` implementation (defaults to global).
  * @returns JSON-RPC success or error.
  */
+type FetchAttemptResponse = {
+  ok: boolean;
+  status: number;
+  statusText: string;
+  text: () => Promise<string>;
+};
+
+type FetchAttemptOutcome =
+  | { kind: 'ok'; text: string }
+  | { kind: 'auth-retry'; response: FetchAttemptResponse }
+  | { kind: 'error'; rpcError: { code: number; message: string }; response?: FetchAttemptResponse };
+
+/**
+ * Classify a single `fetch()` response from `api.imf.org` so
+ * {@link handleFetchUrl} can decide whether to rotate keys, return
+ * success, or surface an explicit error.
+ *
+ * - `204 No Content` → explicit error (Azure APIM accepted the request
+ *   but no Ocp-Apim-Subscription-Key matched; without this guard the
+ *   empty body would be indistinguishable from a successful 200).
+ * - `401`/`403` with another key available → auth-retry signal.
+ * - Any other non-2xx → error with the HTTP status.
+ *
+ * @internal Exported for tests.
+ *
+ * @param response - The HTTP response returned by `fetch()`.
+ * @param hasNextAttempt - `true` when another subscription key is available for retry.
+ * @returns A classified outcome — `'ok'` with body text, `'auth-retry'` to rotate keys,
+ *   or `'error'` with a JSON-RPC error envelope.
+ */
+async function classifyFetchResponse(
+  response: FetchAttemptResponse,
+  hasNextAttempt: boolean
+): Promise<FetchAttemptOutcome> {
+  if ((response.status === 401 || response.status === 403) && hasNextAttempt) {
+    return { kind: 'auth-retry', response };
+  }
+  if (response.status === 204) {
+    return {
+      kind: 'error',
+      rpcError: {
+        code: -1,
+        message: `HTTP 204 No Content from ${IMF_ALLOWED_HOSTNAME} — likely missing or invalid ${IMF_SUBSCRIPTION_KEY_HEADER} (set IMF_API_PRIMARY_KEY)`,
+      },
+      response,
+    };
+  }
+  if (!response.ok) {
+    return {
+      kind: 'error',
+      rpcError: { code: -1, message: `HTTP ${response.status} ${response.statusText}` },
+      response,
+    };
+  }
+  return { kind: 'ok', text: await response.text() };
+}
+
 export async function handleFetchUrl(
   id: number | string | null,
   url: string | undefined,
@@ -279,35 +336,28 @@ export async function handleFetchUrl(
   const keys = readImfSubscriptionKeys();
   const attempts: (string | undefined)[] = keys.length > 0 ? [...keys] : [undefined];
 
-  let lastResponse:
-    | { ok: boolean; status: number; statusText: string; text: () => Promise<string> }
-    | undefined;
+  let lastResponse: FetchAttemptResponse | undefined;
   let lastError: unknown;
 
   for (let i = 0; i < attempts.length; i += 1) {
     const key = attempts[i];
     try {
-      const response = await fetchImpl(url, {
+      const response = (await fetchImpl(url, {
         headers: buildImfHeaders(key),
         signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-      });
+      })) as FetchAttemptResponse;
       lastResponse = response;
-      // Retry only on auth-class failures with the next configured key.
-      if ((response.status === 401 || response.status === 403) && i + 1 < attempts.length) {
+      const outcome = await classifyFetchResponse(response, i + 1 < attempts.length);
+      if (outcome.kind === 'auth-retry') {
         continue;
       }
-      if (!response.ok) {
-        return {
-          jsonrpc: '2.0',
-          id,
-          error: { code: -1, message: `HTTP ${response.status} ${response.statusText}` },
-        };
+      if (outcome.kind === 'error') {
+        return { jsonrpc: '2.0', id, error: outcome.rpcError };
       }
-      const text = await response.text();
       return {
         jsonrpc: '2.0',
         id,
-        result: { content: [{ type: 'text', text }] },
+        result: { content: [{ type: 'text', text: outcome.text }] },
       };
     } catch (err) {
       lastError = err;

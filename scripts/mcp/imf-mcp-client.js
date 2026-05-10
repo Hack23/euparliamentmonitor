@@ -679,6 +679,18 @@ export class IMFMCPClient {
                 signal: controller.signal,
             });
             if (response.ok) {
+                // `api.imf.org` returns 204 when the request reached Azure APIM
+                // but no Ocp-Apim-Subscription-Key matched. 204 is technically
+                // 2xx, so without this explicit branch the empty body would be
+                // returned as a successful SDMX-JSON envelope and downstream
+                // parsers would silently produce empty series. Treat 204 as an
+                // error so missing/invalid keys are caught at Stage A.
+                if (response.status === 204) {
+                    return {
+                        kind: 'error',
+                        error: new Error(`HTTP 204 No Content for ${url} — likely missing or invalid ${IMF_SUBSCRIPTION_KEY_HEADER} (set IMF_API_PRIMARY_KEY)`),
+                    };
+                }
                 return { kind: 'ok', text: await response.text() };
             }
             const error = new Error(`HTTP ${response.status} ${response.statusText} for ${url}`);

@@ -200,7 +200,9 @@ describe('imf-mcp-client', () => {
 
       expect(fetchImpl).toHaveBeenCalledTimes(1);
       const calledUrl = fetchImpl.mock.calls[0][0];
-      expect(calledUrl).toBe('https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF/all/latest');
+      expect(calledUrl).toBe(
+        'https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF/all/latest'
+      );
 
       const parsed = JSON.parse(result.content[0].text);
       expect(parsed).toEqual([
@@ -212,7 +214,9 @@ describe('imf-mcp-client', () => {
     it('returns empty fallback on HTTP error', async () => {
       const fetchImpl = vi
         .fn()
-        .mockResolvedValue(mockFetchResponse('gateway error', { status: 502, statusText: 'Bad Gateway' }));
+        .mockResolvedValue(
+          mockFetchResponse('gateway error', { status: 502, statusText: 'Bad Gateway' })
+        );
       const client = new IMFMCPClient({ fetchImpl });
       const result = await client.listDatabases();
       expect(result.content[0].text).toBe('');
@@ -223,6 +227,31 @@ describe('imf-mcp-client', () => {
       const client = new IMFMCPClient({ fetchImpl });
       const result = await client.listDatabases();
       expect(result.content[0].text).toBe('');
+    });
+
+    it('treats HTTP 204 No Content as an error so missing keys do not silently produce empty data', async () => {
+      // api.imf.org returns 204 when the request reached Azure APIM but
+      // no Ocp-Apim-Subscription-Key matched. 204 is technically 2xx, so
+      // without an explicit guard the empty body would be returned as a
+      // successful SDMX-JSON envelope and downstream parsers would
+      // silently produce empty series. The client must fall back to the
+      // empty MCP envelope (same shape as any other auth/network failure)
+      // and surface a 204-flavoured warning so the failure mode is
+      // visible in agent logs.
+      const fetchImpl = vi
+        .fn()
+        .mockResolvedValue(mockFetchResponse('', { status: 204, statusText: 'No Content' }));
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
+      try {
+        const client = new IMFMCPClient({ fetchImpl });
+        const result = await client.listDatabases();
+        expect(result.content[0].text).toBe('');
+        const warnings = warnSpy.mock.calls.map((call) => call.join(' ')).join('\n');
+        expect(warnings).toContain('204');
+        expect(warnings).toContain('Ocp-Apim-Subscription-Key');
+      } finally {
+        warnSpy.mockRestore();
+      }
     });
   });
 
@@ -639,7 +668,9 @@ describe('imf-mcp-client', () => {
     });
 
     it('getIMFMCPClient rejects a malformed base URL', async () => {
-      await expect(getIMFMCPClient({ apiBaseUrl: 'not a url' })).rejects.toThrow(/Invalid IMF_API_BASE_URL/);
+      await expect(getIMFMCPClient({ apiBaseUrl: 'not a url' })).rejects.toThrow(
+        /Invalid IMF_API_BASE_URL/
+      );
     });
   });
 
@@ -664,13 +695,11 @@ describe('imf-mcp-client', () => {
     }
 
     it('routes through the fetch-proxy gateway when URL is set but API key is empty', async () => {
-      const fetchImpl = vi.fn().mockResolvedValue(
-        gatewayResponse({ data: { dataflows: [] } })
-      );
+      const fetchImpl = vi.fn().mockResolvedValue(gatewayResponse({ data: { dataflows: [] } }));
       const client = new IMFMCPClient({
         apiBaseUrl: 'https://api.imf.org/external/sdmx/3.0',
         fetchProxyGatewayUrl: 'http://fetch-proxy:3000',
-        fetchProxyApiKey: '',   // empty key — gateway must still be tried
+        fetchProxyApiKey: '', // empty key — gateway must still be tried
         fetchImpl,
       });
 
@@ -685,9 +714,7 @@ describe('imf-mcp-client', () => {
     });
 
     it('routes through the gateway when URL is set and key is undefined', async () => {
-      const fetchImpl = vi.fn().mockResolvedValue(
-        gatewayResponse({ data: { dataflows: [] } })
-      );
+      const fetchImpl = vi.fn().mockResolvedValue(gatewayResponse({ data: { dataflows: [] } }));
       const client = new IMFMCPClient({
         apiBaseUrl: 'https://api.imf.org/external/sdmx/3.0',
         fetchProxyGatewayUrl: 'http://fetch-proxy:3000',
@@ -702,9 +729,7 @@ describe('imf-mcp-client', () => {
     });
 
     it('includes Authorization header when key is present', async () => {
-      const fetchImpl = vi.fn().mockResolvedValue(
-        gatewayResponse({ data: { dataflows: [] } })
-      );
+      const fetchImpl = vi.fn().mockResolvedValue(gatewayResponse({ data: { dataflows: [] } }));
       const client = new IMFMCPClient({
         apiBaseUrl: 'https://api.imf.org/external/sdmx/3.0',
         fetchProxyGatewayUrl: 'http://fetch-proxy:3000',
@@ -722,10 +747,9 @@ describe('imf-mcp-client', () => {
       const gatewayError = mockFetchResponse(
         JSON.stringify({ jsonrpc: '2.0', id: 1, error: { code: -1, message: 'blocked' } })
       );
-      const directSuccess = mockFetchResponse(
-        JSON.stringify({ data: { dataflows: [] } })
-      );
-      const fetchImpl = vi.fn()
+      const directSuccess = mockFetchResponse(JSON.stringify({ data: { dataflows: [] } }));
+      const fetchImpl = vi
+        .fn()
         .mockResolvedValueOnce(gatewayError)
         .mockResolvedValueOnce(directSuccess);
 
@@ -743,9 +767,9 @@ describe('imf-mcp-client', () => {
     });
 
     it('does NOT route through the gateway when URL is absent', async () => {
-      const fetchImpl = vi.fn().mockResolvedValue(
-        mockFetchResponse(JSON.stringify({ data: { dataflows: [] } }))
-      );
+      const fetchImpl = vi
+        .fn()
+        .mockResolvedValue(mockFetchResponse(JSON.stringify({ data: { dataflows: [] } })));
       const client = new IMFMCPClient({
         apiBaseUrl: 'https://api.imf.org/external/sdmx/3.0',
         // fetchProxyGatewayUrl intentionally omitted

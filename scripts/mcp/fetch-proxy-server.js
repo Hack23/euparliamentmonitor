@@ -188,20 +188,46 @@ function buildImfHeaders(key) {
     return headers;
 }
 /**
- * Execute the `fetch_url` tool call.
+ * Classify a single `fetch()` response from `api.imf.org` so
+ * {@link handleFetchUrl} can decide whether to rotate keys, return
+ * success, or surface an explicit error.
  *
- * Only URLs matching the IMF SDMX 3.0 allowlist are permitted. Non-matching
- * or malformed URLs receive a JSON-RPC error response; HTTP errors and network
- * failures also surface as errors.
+ * - `204 No Content` → explicit error (Azure APIM accepted the request
+ *   but no Ocp-Apim-Subscription-Key matched; without this guard the
+ *   empty body would be indistinguishable from a successful 200).
+ * - `401`/`403` with another key available → auth-retry signal.
+ * - Any other non-2xx → error with the HTTP status.
  *
- * The `Ocp-Apim-Subscription-Key` header is injected from `IMF_API_PRIMARY_KEY`
- * (with `IMF_API_SECONDARY_KEY` as a fallback retried once on `401`/`403`).
+ * @internal Exported for tests.
  *
- * @param id - Request id to echo.
- * @param url - URL to fetch.
- * @param fetchImpl - Injectable `fetch` implementation (defaults to global).
- * @returns JSON-RPC success or error.
+ * @param response - The HTTP response returned by `fetch()`.
+ * @param hasNextAttempt - `true` when another subscription key is available for retry.
+ * @returns A classified outcome — `'ok'` with body text, `'auth-retry'` to rotate keys,
+ *   or `'error'` with a JSON-RPC error envelope.
  */
+async function classifyFetchResponse(response, hasNextAttempt) {
+    if ((response.status === 401 || response.status === 403) && hasNextAttempt) {
+        return { kind: 'auth-retry', response };
+    }
+    if (response.status === 204) {
+        return {
+            kind: 'error',
+            rpcError: {
+                code: -1,
+                message: `HTTP 204 No Content from ${IMF_ALLOWED_HOSTNAME} — likely missing or invalid ${IMF_SUBSCRIPTION_KEY_HEADER} (set IMF_API_PRIMARY_KEY)`,
+            },
+            response,
+        };
+    }
+    if (!response.ok) {
+        return {
+            kind: 'error',
+            rpcError: { code: -1, message: `HTTP ${response.status} ${response.statusText}` },
+            response,
+        };
+    }
+    return { kind: 'ok', text: await response.text() };
+}
 export async function handleFetchUrl(id, url, fetchImpl = globalThis.fetch) {
     if (!url || !isAllowedImfUrl(url)) {
         return {
@@ -224,27 +250,22 @@ export async function handleFetchUrl(id, url, fetchImpl = globalThis.fetch) {
     for (let i = 0; i < attempts.length; i += 1) {
         const key = attempts[i];
         try {
-            const response = await fetchImpl(url, {
+            const response = (await fetchImpl(url, {
                 headers: buildImfHeaders(key),
                 signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-            });
+            }));
             lastResponse = response;
-            // Retry only on auth-class failures with the next configured key.
-            if ((response.status === 401 || response.status === 403) && i + 1 < attempts.length) {
+            const outcome = await classifyFetchResponse(response, i + 1 < attempts.length);
+            if (outcome.kind === 'auth-retry') {
                 continue;
             }
-            if (!response.ok) {
-                return {
-                    jsonrpc: '2.0',
-                    id,
-                    error: { code: -1, message: `HTTP ${response.status} ${response.statusText}` },
-                };
+            if (outcome.kind === 'error') {
+                return { jsonrpc: '2.0', id, error: outcome.rpcError };
             }
-            const text = await response.text();
             return {
                 jsonrpc: '2.0',
                 id,
-                result: { content: [{ type: 'text', text }] },
+                result: { content: [{ type: 'text', text: outcome.text }] },
             };
         }
         catch (err) {
