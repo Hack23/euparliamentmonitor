@@ -82,3 +82,66 @@ Parliament's budget guidelines call for:
 ---
 
 *Budget 2027 Analysis | EU Parliament Monitor | 2026-05-10*
+
+---
+
+## 📊 BUDGET 2027 EXTENDED ANALYSIS (Re-run 3)
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+pie title EU Budget 2027 Priority Allocations (EP Position, €bn approx.)
+    "Cohesion & Regional" : 50
+    "Agriculture (CAP)" : 55
+    "Defence & EDIP" : 18
+    "Research & Innovation" : 13
+    "Neighbourhood & World" : 15
+    "Migration & Borders" : 8
+    "Climate & Environment" : 12
+    "Administration" : 11
+    "Other" : 8
+```
+
+### Key Budget 2027 Political Battles
+
+**Battle 1: Defence vs. Cohesion trade-off**
+- EPP + ECR: Increase defence; accept cohesion reduction
+- S&D + Greens + Left: Maintain cohesion; find defence funding elsewhere (new own resources)
+- Renew: Supports defence increase; wants structural reform conditionality on cohesion
+- **Likely outcome:** +€3-5bn defence relative to 2026; cohesion broadly maintained (net new own resources source needed)
+
+**Battle 2: Climate conditionality**
+- Greens + Left: 30% climate mainstreaming minimum
+- EPP: Climate mainstreaming yes; 30% threshold negotiable
+- ECR + PfE: Oppose mandatory climate conditionality
+- **Likely outcome:** 25-30% climate mainstreaming agreed (European Green Deal continuity)
+
+**Battle 3: Own resources**
+- Commission proposal includes digital levy + carbon border adjustment revenue
+- Germany: Resists new EU taxes
+- France: Supports new own resources to avoid larger national contributions
+- **Likely outcome:** Carbon Border Adjustment Mechanism (CBAM) revenues flow to EU budget; digital levy contested
+
+### EP Budget 2027 Timeline
+
+| Stage | Timing | Key Actor |
+|-------|--------|-----------|
+| EP Resolution (April 30 — this run) | April 2026 | EP Plenary |
+| Commission Draft Budget 2027 | May 15, 2026 | Commission |
+| Council First Reading | June-July 2026 | Council (Poland Presidency) |
+| EP First Reading | October 2026 | EP BUDG Committee + Plenary |
+| Conciliation | November 2026 | Conciliation Committee |
+| Final Adoption | December 2026 | EP + Council |
+
+**If no agreement by December 31:** EU operates on provisional twelfths (monthly portions of previous year's budget) — creates operational disruption and political crisis.
+
+### Fiscal Sustainability Dimension
+
+The Budget 2027 discussion occurs against a backdrop of EU-area fiscal consolidation:
+- **Reformed Stability and Growth Pact (2024):** Allows defence spending off fiscal deficit count (bilateral EU mechanism)
+- **Implication for national defence:** Germany, France, Italy can increase defence spending without breaching SGP limits (to a degree)
+- **Implication for EU budget:** EU own resources still constrained by unanimity rule in Council — any new tax requires all 27 to agree
+
+**Strategic insight:** EP resolution TA-10-2026-0112 is the Parliament's opening position in a budget negotiation cycle that will run through December 2026. The resolution itself commits EP to defend these priorities in trilogue.
+
+*Budget 2027 Analysis | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2 Extension)*
+*Confidence: 🟡 MEDIUM — procedural facts confirmed; political scenario weights are expert estimates*

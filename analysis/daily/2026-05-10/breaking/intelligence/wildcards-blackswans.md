@@ -303,3 +303,49 @@ All probability estimates carry ±10 percentage points uncertainty due to:
 1. **DOCEO vote data** (May 14-15): Will resolve uncertainty on Ukraine resolution margin and EPP defection rate
 2. **Commission DMA enforcement calendar** (Q2-Q3 2026): First major enforcement decision will set global precedent and US response tone
 3. **Armenia domestic politics** (ongoing): Pashinyan coalition stability is the critical precondition for TA-0162 implementation
+
+---
+
+## 🔄 WILDCARDS — RE-RUN 3 EXTENSION
+
+### Updated Wildcard Assessment
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+quadrantChart
+    title Wildcard Events: Probability vs Impact
+    x-axis "Very Unlikely" --> "Unlikely-but-Possible"
+    y-axis "Limited Impact" --> "Transformative Impact"
+    quadrant-1 "Black Swan — Monitor"
+    quadrant-2 "Prepare Now"
+    quadrant-3 "Ignore"
+    quadrant-4 "Low Priority"
+    Russia-Ukraine Ceasefire: [0.55, 0.90]
+    US DMA Trade War: [0.25, 0.75]
+    CJEU Strike Down DMA: [0.10, 0.85]
+    Pashinyan Falls: [0.20, 0.50]
+    ECB Emergency Rate Hike: [0.08, 0.60]
+    EP Coalition Fracture: [0.10, 0.80]
+```
+
+**New wildcards identified in Re-run 3:**
+
+**Wildcard W7: CJEU strikes down DMA on proportionality grounds (10% probability)**
+- Scenario: Apple or Google successfully argues DMA gatekeeper obligations violate TFEU proportionality principle
+- Impact: Catastrophic for EU digital regulatory framework; would require legislative redraft
+- Trigger: CJEU Grand Chamber referral following appeals court ruling
+- Preparation: Commission's DMA legal basis is Article 114 TFEU (internal market) — historically robust
+
+**Wildcard W8: EP Coalition fracture on defence spending (10% probability)**
+- Scenario: German CDU/CSU MEPs vote with ECR against Budget 2027 framework resolution
+- Impact: HIGH — forces renegotiation; signals EPP internal divisions; weakens Commission position in Council
+- Trigger: If Budget 2027 requires German contribution increase >€3bn
+- Early warning signal: EPP group internal vote on Budget BUDG committee recommendation
+
+**Wildcard W9: Russia-Ukraine ceasefire (20% probability, 18-month horizon)**
+- Scenario: Diplomatic breakthrough leads to ceasefire agreement
+- Impact: TRANSFORMATIVE — ICPA vs. amnesty tension peaks immediately; Ukrainian reconstruction funding unlocked; frozen assets legal status changes
+- Trigger: Change in Trump administration stance + Ukrainian military exhaustion
+- EP implication: Resolution TA-0161 accountability framework becomes the diplomatic anchor point for accountability terms in any peace deal
+
+*Wildcards/Black Swans | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2)*

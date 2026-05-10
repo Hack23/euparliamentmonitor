@@ -309,3 +309,34 @@ radar
 - EP has repeatedly highlighted Ukrainian energy infrastructure vulnerability as accountability context
 
 *PESTLE analysis extended: 2026-05-10 (Pass 2). Full coverage across all six PESTLE dimensions confirmed.*
+
+---
+
+## 🔄 PESTLE ANALYSIS — RE-RUN 3 EXTENSION
+
+### Updated PESTLE Ratings Matrix
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+xychart-beta
+    title "PESTLE Factor Intensity (1-10 scale, higher=more influential)"
+    x-axis ["Political", "Economic", "Social", "Technological", "Legal", "Environmental"]
+    y-axis "Intensity" 0 --> 10
+    bar [9, 8, 5, 9, 9, 6]
+```
+
+**Re-run 3 PESTLE additions:**
+
+**Political (9/10):** EPP dominance risk (EARLY WARNING HIGH) confirmed. ENP fragmentation 6.58 means each legislative vote requires active coalition management. The troika (EPP+S&D+Renew) is functional but not automatic.
+
+**Economic (8/10):** Germany's -0.50% GDP 2024 creates structural headwind for EU fiscal ambitions. Spain's +3.46% shows divergence is not uniform — peripheral economies outperforming core. IMF baseline: +2.1% EU growth 2026 — recovery trajectory intact.
+
+**Social (5/10):** European public opinion on Ukraine accountability: strong (>65% support in EP member states per Eurobarometer). On digital regulation: supportive (>70% support DMA goals per EP polls). On Armenia: moderate (less salient for EU publics).
+
+**Technological (9/10):** AI capability gap between EU and US/China is the underlying structural driver of DMA urgency. EU digital investment 1.5% GDP vs. US 2.5%. DMA enforcement is a partial substitute for investment — regulatory rather than industrial response.
+
+**Legal (9/10):** Rome Statute aggression gap (Russia excluded) is the primary legal driver of ICPA concept. Universal jurisdiction expansion (German, French courts active) is the near-term accountability vehicle. DMA is legally robust at EU level; CJEU appeals anticipated.
+
+**Environmental (6/10):** Ukrainian energy infrastructure vulnerability provides accountability context for TA-0161. EU renewables build-out is the primary energy security response to Russian fossil fuel leverage. Budget 2027 climate conditionality is the EP's environmental contribution to this plenary.
+
+*PESTLE Analysis | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2)*

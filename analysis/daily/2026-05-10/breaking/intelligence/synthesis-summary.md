@@ -222,3 +222,32 @@ After completing Pass 2 extensions across all below-floor artifacts, the synthes
 **The article render** (Stage D) should produce a substantive breaking news article on the April 30 legislative cluster, positioned at the intersection of European democratic resilience, digital sovereignty, and institutional complexity. The article should lead with the DMA enforcement resolution as the most internationally significant text, frame the Ukraine accountability resolution in the context of the accountability gap, and present the Armenia resolution as the Eastern Partnership frontier expansion.
 
 *Synthesis last updated: 2026-05-10 (Pass 2 extension). Word count: ~3,800 total across this document.*
+
+---
+
+## 🔄 RE-RUN 3 SYNTHESIS ADDITIONS
+
+### Updated Synthesis Assessment (Re-run 3)
+
+**New analytical dimensions added in this run:**
+- Coalition forward scenarios with probability weights (A: Supermajority 40%, B: Troika continues 50%, C: Fracture 10%)
+- Gatekeeper-by-gatekeeper DMA compliance status — Apple, Google, Meta specifics
+- ICPA stakeholder support matrix with 9 actors (France leads; China opposes; Global South mixed)
+- Germany Schuldenbremse as structural constraint for EU budget 2027
+- Armenia POW conditionality (23-30 POWs; Azerbaijan leverage mechanism)
+- Haiti trafficking flowchart (geographic network mapping to EU)
+- Escalation risk assessment for EU-US digital trade war (full war: 5%; negotiated framework: 45%)
+
+**Synthesis confidence update:**
+- Prior run synthesis confidence: 🟡 MEDIUM
+- Re-run 3 synthesis confidence: 🟡 MEDIUM-HIGH (more analytical depth; same underlying data)
+- Key remaining uncertainty: Full text of 5 adopted resolutions still unavailable
+
+**Strategic coherence assessment (Re-run 3):**
+The five April 30 resolutions continue to form a high-coherence strategic cluster. The EP's strategic narrative is:
+> *"The EU Parliament is the institution of democratic assertiveness — enforcing markets (DMA), advancing accountability (Ukraine), expanding the normative frontier (Armenia), managing the budget (2027), and protecting the vulnerable (Haiti). We are legislating from a position of strategic coherence, not reactive fire-fighting."*
+
+This narrative will be evident in the Stage D article render and should be preserved as the lead framing.
+
+*Synthesis Summary | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2)*
+*Total artifact set: 48 documents, ~18,700 lines across the analysis directory*

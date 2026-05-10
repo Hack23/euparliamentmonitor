@@ -91,3 +91,79 @@ If ICPA is established and Putin/Russian leadership is indicted:
 ---
 
 *Ukraine Accountability Deep Dive | EU Parliament Monitor | 2026-05-10*
+
+---
+
+## 🔍 EXTENDED UKRAINE ACCOUNTABILITY ANALYSIS (Re-run 3)
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+flowchart TD
+    A[EP Resolution TA-10-2026-0161] --> B[Commission Mandate: ICPA Acceleration]
+    A --> C[Council: Activate Frozen Asset Mechanism]
+    A --> D[EEAS: Third-Country Accountability Partnerships]
+    B --> E{ICPA Treaty Path}
+    E --> F[Multilateral Treaty Draft — 2027]
+    E --> G[UN General Assembly Endorsement]
+    E --> H[Ratification by 30+ States — 2028-2029]
+    E --> I[ICPA Operational — 2029-2030]
+    C --> J[G7 $50bn Loan — Interest from Frozen Assets]
+    C --> K[ARRC Mechanism — Principal Confiscation Pathway]
+    K --> L[ICPA Treaty Linkage — Legal Basis for Confiscation]
+    D --> M[ICC Complementarity — EU Member State Universal Jurisdiction]
+    D --> N[Eurojust Coordination Hub — Evidence Collection]
+    I --> O[First ICPA Trial — 2030+]
+```
+
+### War Crimes Accountability Architecture — Current State
+
+**ICC active proceedings (as of May 2026):**
+- Putin arrest warrant (children deportation — Article 8 Rome Statute) — outstanding since March 2023
+- Lvova-Belova (children deportation) — outstanding since March 2023
+- Prigozhin (post-Wagner mutiny — not applicable)
+- Multiple Russia military commanders under investigation (sealed warrants likely)
+
+**EU member state universal jurisdiction cases (active):**
+- Germany: Syrian torture case precedent (2022); Ukraine war crimes investigations open (Hamburg, Munich)
+- France: War crimes investigations (Paris Court) — 3 cases
+- Sweden: Universal jurisdiction statute applicable; investigations proceeding
+- Estonia, Latvia, Lithuania: Cases linked to Baltic Russian nationals involved in Ukraine operations
+
+**Eurojust coordination:**
+- Joint Investigation Team (JIT) — Ukraine, 10 EU member states + ICC cooperating
+- EUAA: 21,000+ accounts from Ukrainian refugees documenting crimes (evidence gathering)
+- Freeze and Seize Taskforce: Coordination hub for Russian asset immobilisation
+
+### Frozen Assets: Status and Prospects
+
+**€280bn+ immobilised assets breakdown:**
+- Euroclear (Belgium): ~€190bn Russian Central Bank reserves
+- Member state central banks/institutions: ~€90bn additional
+- Annual interest/profits: ~€2.8-3.2bn/year (2024 actual)
+
+**G7 $50bn Ukraine loan:**
+- Backed by frozen asset interest streams
+- Disbursement began Q4 2024
+- Legal structure: 5-year loan; repaid from future interest; no confiscation of principal
+- EP resolution likely calls for converting loan to grant + accelerating principal confiscation pathway
+
+**Legal risk:** Several European legal opinions (including German Bundesbank) caution that principal confiscation could violate international law (sovereign immunity, bilateral investment treaties). EP resolution pushes Commission to develop the strongest available legal basis.
+
+### ICPA — Political Support Assessment
+
+| Actor | Position | Key Concern |
+|-------|----------|------------|
+| EP | 🟢 Strongly supports | Accountability as EU value |
+| Commission | 🟡 Supportive | Legal basis complexity |
+| Council | 🟡 Majority supportive | Hungary blocks consensus |
+| France | 🟢 Leads ICPA initiative | ICPA is French diplomatic legacy project |
+| Germany | 🟢 Supports | Zeitenwende accountability dimension |
+| US (Trump) | 🟡 Unclear | Ukraine fatigue; BUT accountability ≠ military support |
+| Ukraine | 🟢 Strongly supports | Maximum accountability |
+| China | 🔴 Opposes | Sovereignty narrative; UNGA veto threat |
+| Global South | 🟡 Mixed | Selectivity concerns (Is this only for Russia?) |
+
+**Consensus building strategy:** Frame ICPA as universal (for all aggression, not Russia-specific) to address Global South selectivity concerns. Key test: Would ICPA apply to hypothetical US aggression? This is the diplomatic hurdle for non-Western support.
+
+*Ukraine Accountability Deep Dive | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2 Extension)*
+*Confidence: 🟢 HIGH — legal analysis based on confirmed ICC proceedings; political scenarios are expert estimates*

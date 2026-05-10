@@ -285,3 +285,63 @@ graph LR
 **Overall threat environment:** ELEVATED — 2 CRITICAL threats, 3 HIGH threats, 4 MEDIUM threats. The CRITICAL threats (T3, T9) are structural/geopolitical and cannot be mitigated by EP alone. The HIGH threats (T4, T7, T8) are manageable within institutional capacity.
 
 *Threat model last updated: 2026-05-10 (Pass 2 extension). Threats 6-8 added in this pass.*
+
+---
+
+## 🔄 THREAT MODEL — RE-RUN 3 EXTENSION
+
+### Cross-Threat Interaction Analysis
+
+**Threat interaction network (top 5 pairs):**
+
+1. **T3 (Implementation gap) + T9 (US trade retaliation):** 🔴 AMPLIFYING
+   - DMA enforcement resolution TA-0160 increases T9 risk; if T9 materialises (tariffs), creates political pressure to water down DMA enforcement → amplifies T3
+   - Combined probability: 18%
+
+2. **T1 (Far-right disruption) + T11 (Budget blockage):** 🟡 COMPOUNDING
+   - Budget 2027 fiscal debate creates opportunity for far-right to fracture EPP coalition on fiscal conservatism
+   - Combined probability: 15%
+
+3. **T6 (Russian hybrid) + T8 (Disinformation):** 🔴 AMPLIFYING (causal chain)
+   - Russian hybrid operations include disinformation as primary tool; T6 is root cause, T8 is effect
+   - Combined probability: 60% (both likely materialising simultaneously)
+
+4. **T4 (Accountability framework) + T7 (Far-right violence):** 🟢 INDEPENDENT
+   - Ukraine accountability (T4) is not linked to domestic far-right violence (T7)
+   - Independent risk: T4 at 45%; T7 at 30%
+
+5. **T2 (Rule of law) + T1 (Far-right disruption):** 🟡 CORRELATED
+   - Rule of law backsliding often correlates with far-right MEP gains in domestic elections
+   - Combined probability: 25%
+
+### Updated Threat Priority Matrix
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+quadrantChart
+    title Threat Priority: Probability vs Impact (Re-run 3)
+    x-axis "Low Probability" --> "High Probability"
+    y-axis "Low Impact" --> "High Impact"
+    quadrant-1 "Priority 1 — Act Now"
+    quadrant-2 "Monitor — Structural"
+    quadrant-3 "Background"
+    quadrant-4 "High Risk — Structural"
+    T3 Implementation Gap: [0.55, 0.75]
+    T9 US Trade Retaliation: [0.30, 0.80]
+    T6 Russian Hybrid: [0.70, 0.55]
+    T8 Disinformation: [0.70, 0.50]
+    T1 Far-Right Disruption: [0.40, 0.45]
+    T4 Accountability Framework: [0.45, 0.60]
+```
+
+### Mitigation Strategy Update (Re-run 3)
+
+| Threat | Current Mitigation | EP Leverage | Council Leverage | Commission Leverage |
+|--------|-------------------|-----------|--------------|--------------------|
+| T3 (Implementation gap) | Resolution TA-0160 sets enforcement expectation | HIGH | LOW | HIGH |
+| T9 (US trade retaliation) | EU-US TTC reactivation | LOW | MEDIUM | HIGH |
+| T6 (Russian hybrid) | EP CyberSecurity committee | LOW | MEDIUM | HIGH |
+| T4 (Accountability framework) | Resolution TA-0161; Eurojust | MEDIUM | MEDIUM | HIGH |
+| T1 (Far-right disruption) | Coalition discipline; EP leadership | HIGH | LOW | LOW |
+
+*Threat Model | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2)*
