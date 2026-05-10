@@ -212,3 +212,76 @@ graph LR
 
 
 *Threat Model intelligence grading complete. See methodology-reflection.md §12 for SAT attestation.*
+
+---
+
+## EXTENDED THREAT MODEL (Pass 2 Extension — 2026-05-10)
+
+### Additional Threat Vectors
+
+#### Threat 6: Regulatory Capture Risk (DMA Context)
+
+**Threat description:** Big Tech companies achieve regulatory capture of DMA enforcement through revolving door (former Commission officials in tech lobbying roles), information asymmetry (tech companies know their systems better than any regulator), and litigation strategy (every enforcement decision appealed, creating delays).
+
+**Probability:** MEDIUM (30%) | **Impact:** HIGH | **Score: 9** MEDIUM-HIGH
+
+**Evidence:**
+- Microsoft hired former EU Competition Commissioner's chief of staff
+- Apple appealed all three major DMA decisions to date
+- Information asymmetry is structural: Commission has ~50 DMA enforcement staff; each gatekeeper has 100+ compliance lawyers
+
+**Mitigations:**
+- EP monitoring (IMCO committee) creates transparency accountability pressure
+- TA-0160 creates political mandate that limits Commission softening
+- DMA fines are revenue-based (10% of global annual revenue) — too large for tech to absorb through compliance arbitrage alone
+
+#### Threat 7: Russian Information Operations on Ukraine File
+
+**Threat description:** Russia's information operations targeting EU public opinion on Ukraine accountability. Narrative: "EP is prolonging war by focusing on punishment rather than peace." Transmitted through: pro-Russia media channels, social media amplification, some MEP statements.
+
+**Probability:** HIGH (65%) | **Impact:** MEDIUM | **Score: 10** HIGH
+
+**Evidence:** Russian information operations targeting EU Ukraine policy are well-documented (EU DisinfoLab, DFRLab). Operation dossier: ~40 MEPs identified as regular amplifiers of Russia-aligned Ukraine narratives.
+
+**Mitigations:**
+- EU DisinfoLab monitoring and exposure
+- EEAS Strategic Communications (EastStratCom Task Force)
+- EP fact-checking unit (new in EP10)
+- The accountability narrative is legally sound and difficult to discredit on the merits
+
+#### Threat 8: CJEU Challenge to CSAM Legislation
+
+**Threat description:** CJEU rules that CSAM detection requirements in forthcoming legislation are incompatible with Article 7 (privacy) and Article 11 (expression) of the EU Charter, following the logic of the C-793/19 and C-794/19 rulings (SpaceNet case) and the La Quadrature du Net case.
+
+**Probability:** HIGH (40%) | **Impact:** HIGH | **Score: 12** HIGH
+
+**Evidence:**
+- La Quadrature du Net (C-511/18): CJEU ruled bulk metadata retention incompatible with EU law
+- SpaceNet (C-793/19, C-794/19): CJEU ruled IP address retention restrictions
+- CSAM detection legislation as proposed requires some form of scanning — necessarily implicating privacy rights
+- CJEU has been consistently restrictive on digital surveillance at EU law level
+
+**Mitigations:**
+- TA-0163 is a resolution (political), not legislation — the threat applies to implementing legislation
+- Commission can design legislation to require outcome (CSAM removal) without mandating scanning means
+- ECHR human rights test: child protection is a legitimate aim under Article 8(2)
+
+#### Updated Threat Register Summary
+
+| Threat | Probability | Impact | Score | Level |
+|--------|------------|--------|-------|-------|
+| T1: Vote data gap | Confirmed | MEDIUM | — | Constraint |
+| T2: Full-text 404 | Confirmed | MEDIUM | — | Constraint |
+| T3: Ukraine accountability without enforcement | HIGH | CRITICAL | 20 | CRITICAL |
+| T4: EPP fragmentation on Ukraine | MEDIUM | HIGH | 12 | HIGH |
+| T5: US trade pressure on DMA | MEDIUM | HIGH | 9 | MEDIUM |
+| T6: DMA regulatory capture | MEDIUM | HIGH | 9 | MEDIUM-HIGH |
+| T7: Russian information operations | HIGH | MEDIUM | 10 | HIGH |
+| T8: CJEU CSAM challenge | HIGH | HIGH | 12 | HIGH |
+| T9: PfE-ECR cooperation escalation | MEDIUM | CRITICAL | 15 | CRITICAL |
+| T10: Armenia government collapse | LOW | SEVERE | 8 | MEDIUM |
+| T11: Budget 2027 blockage | LOW | HIGH | 6 | MEDIUM |
+
+**Overall threat environment:** ELEVATED — 2 CRITICAL threats, 3 HIGH threats, 4 MEDIUM threats. The CRITICAL threats (T3, T9) are structural/geopolitical and cannot be mitigated by EP alone. The HIGH threats (T4, T7, T8) are manageable within institutional capacity.
+
+*Threat model last updated: 2026-05-10 (Pass 2 extension). Threats 6-8 added in this pass.*

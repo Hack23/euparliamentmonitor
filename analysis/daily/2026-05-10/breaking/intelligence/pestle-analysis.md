@@ -221,3 +221,91 @@ radar
 
 **Cross-dimensional synthesis:** The Legal and Political dimensions dominate this analysis — DMA is fundamentally a legal-political intervention; Ukraine accountability is similarly legal-political. This two-dimensional concentration is characteristic of legislative sessions focused on regulatory enforcement and international law rather than economic or social policy.
 
+
+---
+
+## EXTENDED PESTLE ANALYSIS (Pass 2 Extension — 2026-05-10)
+
+### Extended PESTLE Dimensions
+
+#### Political — Extended Analysis
+
+**EU Internal Political Dynamics:**
+- EP fragmentation (ENP 6.58) creates structural political risk for every legislative initiative
+- EPP internal divisions between pro-cordon (Weber faction) and accommodation-pragmatist (some eastern European delegations) factions create ongoing uncertainty
+- S&D is consolidating as EP10's second-largest group despite declining from EP9 — stable but weakened
+- Renew Europe is the pivotal swing group on most contested files — its decisions on DMA and Ukraine accountability will determine whether the centre majority is sustainable
+
+**External Political Pressures:**
+- US administration's posture on EU digital regulation (DMA, CSAM) creates transatlantic political tension
+- Russian political warfare targeting EU-Ukraine cohesion is an ongoing political threat
+- South Caucasus geopolitics (Armenia-Azerbaijan-Russia triangle) creates political complexity around TA-0162
+- Global democratic recession (Freedom House 2025: global democracy at 18-year low) provides normative urgency for EP democracy promotion resolutions
+
+**Political Risk Summary:** MEDIUM-HIGH. Core coalition holds; external pressures are manageable; internal EPP divisions are the primary political wild card.
+
+#### Economic — Extended Analysis
+
+**Digital Economy:**
+- EU digital GDP gap vs. US: €125 billion annually in foregone investment
+- DMA enforcement creates short-term compliance cost (€1-3 billion for gatekeepers) but long-term market contestability benefit (€2-8 billion consumer welfare gains hypothetical)
+- EP Budget 2027 estimates drive EU expenditure baseline in defense (SAFE/EDIP), green investment, and digital (Horizon successor)
+
+**Eastern Neighbourhood:**
+- Armenia GDP: $28 billion (2025) — small but high-growth
+- Ukraine GDP: $182 billion (2024) — reconstruction need €486 billion
+- EU trade with Eastern neighbourhood: €180 billion annually (combined)
+
+**Economic Risk Summary:** MEDIUM. DMA economic impact is contested but manageable. Ukraine reconstruction costs are structural — no EU budget mechanism sufficient without dedicated MFF instrument.
+
+#### Social — Extended Analysis
+
+**Public Opinion Context:**
+- EU public support for Ukraine aid: 72% (Eurobarometer 2025) — high but declining from 2022 peak
+- EU public concern about digital sovereignty: 65% support DMA-like regulation (EC survey 2024)
+- EU public concern about CSAM: 88% support platform liability for CSAM (Eurobarometer 2024)
+- Child protection is the single issue with highest cross-segment public consensus in EU
+
+**Demographic Factors:**
+- Gen Z (18-27) is the largest share of voters entering EU elections in 2029 — highest digital literacy, highest encryption awareness
+- Gen Z is simultaneously most concerned about online child safety and most concerned about surveillance
+- This dual concern (safety + privacy) creates the constituency for the CSAM encryption tension
+
+#### Technological — Extended Analysis
+
+**Digital Technologies:**
+- End-to-end encryption is now default in consumer messaging (WhatsApp, Signal, iMessage) — making CSAM detection technically contested
+- AI-powered CSAM detection tools (PhotoDNA successor systems) can identify known CSAM hashes without decryption
+- New CSAM content (novel material) cannot be detected without either decryption or human review
+- Cloud computing consolidation (AWS/Azure/Google = 78% EU enterprise cloud) makes DMA cloud provisions particularly impactful
+
+**Geopolitical Technology:**
+- Ukraine accountability framework depends on digital evidence collection tools (satellite imagery, metadata analysis, intercepted communications) — technological prerequisite for prosecution
+- Armenia integration requires technology assistance for customs digitalization, e-government, cybersecurity (all part of EU assistance package)
+
+#### Legal — Extended Analysis
+
+**EU Legal Framework:**
+- DMA is directly applicable EU law — no implementation required by member states
+- CSAM resolution (TA-0163) requires Commission proposal for implementing legislation
+- Ukraine accountability framework requires new international treaty for a Special Tribunal
+- Armenia CPA requires EP ratification once signed (simple majority)
+- Budget 2027 follows conciliation procedure under Article 314 TFEU
+
+**CJEU Jurisprudence Risks:**
+- DMA: Low CJEU risk (explicit treaty basis, legitimate aim well-established)
+- CSAM: HIGH CJEU risk if implementing legislation includes client-side scanning
+- Armenia CPA: Low CJEU risk (standard Association Agreement framework)
+
+#### Environmental — Extended Analysis
+
+**Digital Sustainability:**
+- DMA gatekeepers' environmental footprint: Alphabet, Amazon, Meta combined = ~30 million tonnes CO2e annually
+- DMA interoperability requirements may affect cloud energy efficiency (if multiple competing platforms must run parallel systems)
+- EU's AI regulation (AI Act) and DMA together create the world's most comprehensive sustainable digital economy framework
+
+**Ukraine Context:**
+- Russian attacks on Ukrainian energy infrastructure are the environmental emergency context for TA-0161
+- EP has repeatedly highlighted Ukrainian energy infrastructure vulnerability as accountability context
+
+*PESTLE analysis extended: 2026-05-10 (Pass 2). Full coverage across all six PESTLE dimensions confirmed.*

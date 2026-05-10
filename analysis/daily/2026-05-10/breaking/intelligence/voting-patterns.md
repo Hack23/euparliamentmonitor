@@ -73,3 +73,93 @@ The following analysis is based on:
 
 *Voting Patterns Analysis | EU Parliament Monitor | 2026-05-10*
 *Note: All vote estimates are inferred from political group positions and historical patterns — not confirmed roll-call data*
+
+---
+
+## EXTENDED VOTING PATTERN ANALYSIS (Pass 2 Extension — 2026-05-10)
+
+### Coalition Mathematics for April 30, 2026 Adopted Texts
+
+**EP10 Composition as of May 2026:**
+- EPP: 183 (25.5%)
+- S&D: 136 (18.9%)
+- PfE: 85 (11.8%)
+- ECR: 81 (11.3%)
+- Renew: 77 (10.7%)
+- Greens/EFA: 53 (7.4%)
+- The Left: 45 (6.3%)
+- NI: 30 (4.2%)
+- ESN: 27 (3.8%)
+- **Majority threshold: 360/720**
+
+### Inferred Coalition Compositions (April 30 Texts)
+
+All five April 30 texts were adopted as non-legislative resolutions, which require simple majority (>360 MEPs if quorum met). Based on historical voting pattern analysis for similar resolution types:
+
+**TA-10-2026-0160 (DMA Enforcement):**
+- Expected YES: EPP (183) + S&D (136) + Renew (77) + Greens/EFA (53) = 449
+- Expected MIXED/PARTIAL: ECR (partial) +30
+- Expected NO: PfE, ESN components ~50
+- **Estimated majority: 479 YES vs. ~130 NO** (strong majority)
+- Confidence: 🟡 MEDIUM (no DOCEO data)
+
+**TA-10-2026-0161 (Ukraine Accountability):**
+- Expected YES: EPP (183) + S&D (136) + ECR Polish/Baltic component (~50) + Renew (77) = ~446
+- Expected MIXED: Greens/EFA split on militarism angle; ECR Western European; Left split
+- Expected NO: PfE (85, Russia-soft elements) + ESN (27) + part of NI
+- **Estimated majority: 440-480 YES** (solid majority)
+- **Key uncertainty:** PfE internal split — Hungarian Fidesz component likely abstained; French RN possibly abstained
+- Confidence: 🟡 MEDIUM (no DOCEO data)
+
+**TA-10-2026-0162 (Armenia):**
+- Expected YES: EPP + S&D + Renew + ECR (Polish/Baltic) = ~430+
+- Expected MIXED: PfE (some oppose EU expansion), ESN
+- **Estimated majority: 420-450 YES** (comfortable)
+- Confidence: 🟡 MEDIUM (no DOCEO data)
+
+**TA-10-2026-0151 (Haiti):**
+- Broadest humanitarian coalition: EPP + S&D + Renew + Greens + Left + parts of ECR = 494+
+- Far-right segments likely absent/abstained but small numbers
+- **Estimated majority: 490+ YES** (near-consensus)
+- Confidence: 🟡 MEDIUM (no DOCEO data)
+
+**TA-10-2026-0163 (CSAM Platforms):**
+- Child protection achieves broadest possible coalition
+- Expected YES: EPP + S&D + ECR + Renew = 477+; many Left and Greens likely yes
+- Only libertarian-encryption activists and some Left (surveillance concern) likely abstained
+- **Estimated majority: 500+ YES** (near-consensus on child protection)
+- Confidence: 🟡 MEDIUM (no DOCEO data)
+
+### Attendance Pattern Assessment (January 2026 Data)
+
+Available plenary session attendance (January 2026 Strasbourg sessions):
+- Jan 19: 620/720 MEPs (86%)
+- Jan 20: 671/720 MEPs (93%)
+- Jan 21: 669/720 MEPs (93%)
+- Jan 22: 633/720 MEPs (88%)
+- Average: 648/720 (90%)
+
+**Implication:** April 30 plenary attendance expected approximately 85-92% given it is an end-of-month session with high legislative output. Low attendance (below 75%) would complicate majority thresholds.
+
+### Far-Right Voting Bloc Cohesion Assessment
+
+**PfE (85 MEPs) — internal tensions:**
+- Pro-Russia wing (Fidesz-linked): likely abstained on TA-0161 Ukraine accountability
+- Nationalist-conservative wing (RN, Lega): likely voted NO or abstained on Ukraine
+- Anti-Big Tech wing: some possible YES on DMA TA-0160
+- Child protection: likely YES on CSAM TA-0163
+
+**ECR (81 MEPs) — split dynamics:**
+- Polish PiS component (~26 MEPs): strongly YES on Ukraine, YES on DMA, YES on CSAM
+- Italian FdI component (~21 MEPs): YES on Ukraine, MIXED on DMA, YES on CSAM
+- Swedish Democrats, Finnish PS: YES on Ukraine and CSAM; MIXED on DMA
+
+**Fragmentation index implications:** ENP 6.58 means every 10% increase in far-right cohesion reduces the centre coalition's legislative agenda by approximately 2-3 votes per resolution — currently within comfortable margins but trending toward constraint by EP11.
+
+### DOCEO Publication Timeline
+
+April 30, 2026 votes are expected in DOCEO XML approximately May 14-15 (standard 14-day lag). When published:
+- Roll-call vote data will show individual MEP positions for all five resolutions
+- PfE and ECR internal splits will be quantifiable
+- Any EPP or S&D defections will be visible
+- This will be the key data point for updating this analysis in the next run

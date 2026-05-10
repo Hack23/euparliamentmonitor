@@ -263,3 +263,100 @@ graph TD
     style HU fill:#B71C1C,color:#fff
 ```
 
+
+---
+
+## EXTENDED STAKEHOLDER MAP (Pass 2 Extension — 2026-05-10)
+
+### Additional Stakeholder Analysis
+
+#### Secondary Stakeholders: Private Sector and Civil Society
+
+**Big Tech Companies (DMA Stakeholders)**
+
+*Alphabet (Google):*
+- Primary DMA designation: Search, app marketplace, advertising intermediation
+- Compliance investment: $3 billion+ (estimated)
+- Position: Compliance + legal challenge strategy (both simultaneously)
+- Key risk: Interoperability requirements for search results; advertising data separation
+- EP relevance: Testifies regularly to IMCO committee; lobbying via CCIA and BSA
+
+*Apple:*
+- Primary DMA designation: iOS (gatekeeper OS), App Store, Safari
+- Compliance investment: $2 billion+ (estimated)
+- Position: Formal compliance while filing appeals on every major decision
+- Key risk: Third-party app store requirement (core revenue model disruption)
+- EP relevance: Highest-profile DMA case; every EP session has Apple reference since 2022
+
+*Meta (Facebook):*
+- Primary DMA designation: Facebook, Instagram, WhatsApp, Marketplace
+- Position: Full compliance + lobbying for narrow CSAM scope (encryption protection)
+- Dual exposure: DMA gatekeeper + CSAM/TA-0163 target
+- Key tension: CSAM resolution (TA-0163) directly affects WhatsApp encryption policy
+
+*Microsoft:*
+- Primary DMA designation: Windows, LinkedIn, Edge, Teams (some)
+- Position: Most cooperative of Big Tech on DMA
+- Key risk: Teams/Slack bundling decision; Office 365 interoperability
+- EP relevance: Teams/Office 365 used by many MEPs — internal conflict of interest concern
+
+**Civil Society Organizations**
+
+*European Digital Rights (EDRi):*
+- Position on DMA: STRONGLY SUPPORTIVE (but concerned about enforcement gaps)
+- Position on CSAM (TA-0163): STRONGLY OPPOSED (encryption backdoor risk)
+- Position on Ukraine accountability: SUPPORTIVE
+- Position on Armenia: SUPPORTIVE
+- EP access: Regular testimony to LIBE, IMCO
+
+*ECPAT (child protection network):*
+- Position on CSAM (TA-0163): STRONGLY SUPPORTIVE
+- Position on DMA: Neutral
+- EP access: High-profile briefings to LIBE on child exploitation cases
+
+*Amnesty International EU Office:*
+- Position on Ukraine accountability (TA-0161): SUPPORTIVE (with rule of law caveats)
+- Position on Armenia (TA-0162): SUPPORTIVE
+- Position on CSAM: MIXED (child protection yes; surveillance risk)
+- EP access: Regular briefings to human rights intergroup
+
+#### Institutional Stakeholders Beyond EP
+
+**European Commission DG COMP:**
+- Role in DMA: Primary enforcement authority
+- Relationship to TA-0160: EP's enforcement pressure creates political mandate
+- Constraint: Legal proceedings require due process timelines that EP deadlines ignore
+- Expected response: Positive public reception of TA-0160; internal timeline adjustment unlikely
+
+**Council (Danish Presidency, January 2026; Polish Presidency, July 2026):**
+- Position on DMA enforcement: Supportive (all member states ratified DMA)
+- Position on Ukraine accountability: STRONGLY SUPPORTIVE (particularly Nordic, Baltic states)
+- Position on Armenia: Supportive (no blocking minority on normative resolutions)
+- Position on Budget 2027: NET CONTRIBUTOR RESTRAINT (will reduce EP estimate)
+
+**European External Action Service (EEAS):**
+- Role in Armenia: Front-line bilateral relationship management (EU-Armenia Monitoring Mission, EUMM)
+- Role in Ukraine: EU diplomatic framework; sanctions coordination
+- Position on TA-0161, TA-0162: Aligned; EEAS has operational interest in institutional EP support
+
+**ICC (International Criminal Court):**
+- Role in Ukraine accountability (TA-0161): Primary prosecution body for individual criminal liability
+- Relationship to EP resolution: EP resolution validates ICC mandate; no direct legal link
+- Current status: 3 arrest warrants issued (Putin, Lvova-Belova, unconfirmed third)
+
+#### Stakeholder Network Summary
+
+The April 30 resolution cluster activates a complex stakeholder network spanning:
+- 4 major US tech companies (DMA)
+- 27 EU member states (Budget, Ukraine, Armenia)
+- 3+ international tribunals (Ukraine accountability)
+- 2 South Caucasus states + Russia (Armenia geopolitics)
+- ECPAT + EDRi + AI (CSAM civil society divide)
+- Commission DG COMP + EEAS + ICC (institutional network)
+
+**Stakeholder convergence area:** All institutional and most civil society stakeholders support EP's Ukraine accountability and Armenia positions. The primary divergence is:
+1. Tech vs. civil society on DMA scope and speed
+2. Child protection vs. digital rights on CSAM technical implementation
+3. Net contributors vs. EP on Budget 2027 level
+
+*Stakeholder map last updated: 2026-05-10 (Pass 2 extension). Extended from 265 lines to include secondary stakeholders.*

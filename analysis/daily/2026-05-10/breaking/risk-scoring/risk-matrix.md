@@ -129,3 +129,84 @@ graph TD
     style R02 fill:#B71C1C,color:#fff
 ```
 
+
+---
+
+## EXTENDED RISK MATRIX (Pass 2 Extension — 2026-05-10)
+
+### Methodology Appendix
+
+#### Risk Scoring Approach
+
+All risks are scored on a 5×5 matrix with probability and impact on 1-5 scales:
+- **Score = Probability × Impact (1-25)**
+- **Critical:** 15-25 | **High:** 10-14 | **Medium:** 5-9 | **Low:** 1-4
+
+#### Data Quality Confidence Tags
+
+Each risk is tagged with a data quality confidence:
+- 🟢 HIGH: Based on confirmed data or structural analysis
+- 🟡 MEDIUM: Based on partial data or reasonable inference
+- 🔴 LOW: Based on speculative assessment or limited data
+
+### Additional Risks (Extended Matrix)
+
+#### R-07: DMA Enforcement Delay (Regulatory Risk)
+- **Probability:** 3/5 (Possible) | **Impact:** 4/5 (Major) | **Score: 12** HIGH 🟡 MEDIUM
+- *Driver:* Commission enforcement timelines historically slip; Big Tech legal challenges expected. US trade pressure may cause de facto enforcement softening.
+- *Controls:* EP resolution (TA-0160) creates public accountability pressure on Commission. ECP framework provides internal EP monitoring.
+- *Residual:* If enforcement delayed beyond 2027, DMA's market correction effect is negligible before next EP cycle. Medium-term reputational risk for EP's digital agenda.
+
+#### R-08: Armenia CPA Signature Failure (Geopolitical Risk)
+- **Probability:** 2/5 (Unlikely) | **Impact:** 5/5 (Catastrophic) | **Score: 10** HIGH 🟡 MEDIUM
+- *Driver:* Russian pressure, domestic Armenian opposition, territorial status unresolved.
+- *Controls:* Pashinyan government has structural EU-orientation incentive; CPA text largely technical/economic.
+- *Residual:* If CPA fails, EP TA-0162 has no legislative basis for follow-through. Armenia would likely return to deeper CSTO integration. Eastern Partnership credibility impact moderate (Moldova remains on track).
+
+#### R-09: CSAM Platform Compliance Failure (Regulatory Risk)
+- **Probability:** 4/5 (Likely) | **Impact:** 3/5 (Moderate) | **Score: 12** HIGH 🟡 MEDIUM
+- *Driver:* End-to-end encryption deployment by major platforms renders client-side scanning technically and legally contested. Multiple CJEU rulings pending.
+- *Controls:* TA-0163 framing as criminal law (not surveillance) reduces CJEU vulnerability. DSA enforcement creates parallel obligation pathway.
+- *Residual:* High probability that CSAM legislation passes but with reduced scope. Child protection outcome is medium rather than high effectiveness.
+
+#### R-10: Haiti Crisis Deepening (Humanitarian Risk)
+- **Probability:** 3/5 (Possible) | **Impact:** 3/5 (Moderate) | **Score: 9** MEDIUM 🟢 HIGH
+- *Driver:* MSS gang control (80%+ Port-au-Prince), MMSM mission resource constraints, political vacuum post-Henry.
+- *Controls:* EP TA-0151 creates political mandate for EU engagement. CARICOM diplomatic track.
+- *Residual:* Haiti risk is structural — EP can express concern but has no enforcement tools for third-country humanitarian crises. Resolution is declaratory at institutional level.
+
+#### R-11: EU Budget 2027 Political Blockage (Fiscal Risk)
+- **Probability:** 2/5 (Unlikely) | **Impact:** 4/5 (Major) | **Score: 8** MEDIUM 🟢 HIGH
+- *Driver:* Net contributor member states (Netherlands, Sweden, Austria) typically resist Budget estimates that exceed GNI growth. EP Position vs. Council likely to diverge.
+- *Controls:* Budget estimates (TA-04-30-ANN01) are EP first reading — conciliation procedure will moderate. Trilogue precedent favors compromise in €1-2 billion range from EP request.
+- *Residual:* Low probability of full blockage; medium probability of significant EP position reduction in final act.
+
+### Complete Risk Register Summary
+
+| ID | Risk | Score | Level | Confidence |
+|----|------|-------|-------|-----------|
+| R-01 | Vote data gap (analytical) | — | Constraint | 🟢 HIGH |
+| R-02 | Full-text 404 (analytical) | — | Constraint | 🟢 HIGH |
+| R-03 | Ukraine accountability without ICJ enforcement | 20 | CRITICAL | 🟡 MEDIUM |
+| R-04 | EPP fragmentation on Ukraine | 12 | HIGH | 🟡 MEDIUM |
+| R-05 | DMA enforcement undermined by US trade | 9 | MEDIUM | 🟡 MEDIUM |
+| R-06 | PfE-ECR cooperation escalation | 15 | CRITICAL | 🟡 MEDIUM |
+| R-07 | DMA enforcement delay | 12 | HIGH | 🟡 MEDIUM |
+| R-08 | Armenia CPA failure | 10 | HIGH | 🟡 MEDIUM |
+| R-09 | CSAM compliance failure | 12 | HIGH | 🟡 MEDIUM |
+| R-10 | Haiti crisis deepening | 9 | MEDIUM | 🟢 HIGH |
+| R-11 | EU Budget 2027 blockage | 8 | MEDIUM | 🟢 HIGH |
+
+**Overall institutional risk level: HIGH**
+*Primary driver: Structural analytical constraints (no vote data, no full text) combined with geopolitical uncertainty (Ukraine accountability without enforcement mechanism). Core institutional operations remain unaffected.*
+
+### 30-Day Risk Reassessment Schedule
+
+| Date | Trigger | Reassess |
+|------|---------|---------|
+| 2026-05-14 | DOCEO XML publication | R-04 (EPP fragmentation), R-06 (PfE-ECR) |
+| 2026-05-19 | Next Strasbourg plenary | All legislative risks |
+| 2026-06-01 | Commission DMA Q1 enforcement report | R-05, R-07 |
+| 2026-07-01 | Armenia CPA status update | R-08 |
+
+*Risk matrix last updated: 2026-05-10 (re-run). Full reassessment upon DOCEO vote data availability.*

@@ -184,3 +184,122 @@ The April 2026 EP plenary resolutions show moderate resilience to black swan eve
 *Wildcards & Black Swans | EU Parliament Monitor | 2026-05-10*
 *Framework: Taleb tail-risk methodology, structured scenario analysis*
 *Confidence: 🟡 MEDIUM — probabilities are expert estimates, not actuarial calculations*
+
+---
+
+## EXTENDED BLACK SWAN / WILDCARD ANALYSIS (Pass 2 Extension — 2026-05-10)
+
+### Additional High-Magnitude Scenarios Not Yet Covered
+
+#### Black Swan: AI Act + DMA Convergence Regulatory Crisis (Q3 2026)
+**Trigger:** AI Act GPAI provisions (August 2, 2026) create simultaneous enforcement obligations overlapping with DMA gatekeeper AI systems (Gemini, GPT-4o). Commission lacks legal clarity on which enforcement team leads.
+**Probability:** Low (8%)
+**Magnitude:** HIGH — potential chilling effect on all EU AI/digital enforcement
+**Early warning signals:** Commission legal service opinion on DMA/AI Act jurisdictional boundary requested (watch for publication)
+
+#### Wildcard: Russian CBR Asset Release Demand
+**Trigger:** A major EU member state (possibly Hungary) proposes in Council to return frozen Russian Central Bank assets as part of a ceasefire framework, splitting the EU consensus.
+**Probability:** Medium (15%)
+**Magnitude:** HIGH — would undermine the accountability framework endorsed in TA-0161 and fracture EU unity
+**Connection to April 30 text:** Directly undermines TA-10-2026-0161's accountability framework
+
+#### Black Swan: Armenian Government Collapse
+**Trigger:** Domestic opposition forces (pro-Russian armed groups, post-Nagorno-Karabakh displaced population grievances) destabilize the Pashinyan government within 12 months of the EP Armenia resolution.
+**Probability:** Low (12%)
+**Magnitude:** HIGH — would reverse the entire EU Armenia engagement strategy; comparable to Georgia's democratic backsliding (2023-2024)
+**Connection to April 30 text:** Directly negates TA-10-2026-0162's democratic resilience objective
+
+#### Wildcard: Haiti Governance Breakthrough
+**Inverse black swan:** MSS achieves unexpected success in restoring Port-au-Prince security in Q3 2026, enabling transitional governance elections.
+**Probability:** Very low (5%)
+**Magnitude:** POSITIVE HIGH — would dramatically increase EU relevance and impact of TA-0151
+**Monitoring:** MSS operation reports and UN SC situation assessments
+
+#### Wildcard: DMA Enforcement Catalyzes US Trade Response
+**Trigger:** Commission issues first major DMA penalty against US-headquartered platform; US Trade Representative responds with tariff threat on EU exports.
+**Probability:** Medium-Low (18%)
+**Magnitude:** MEDIUM — trade tensions could force Commission to moderate enforcement, undermining TA-0160's objectives
+**Connection:** Transatlantic TTC channel breakdown would be key early warning signal
+
+#### Black Swan: EP9 → EP10 Coalition Fracture
+**Trigger:** EPP formally cooperates with PfE/ECR on a major legislative file (migration, rule of law), triggering S&D and Renew to withdraw from the centre coalition.
+**Probability:** Low (10%), but rising
+**Magnitude:** VERY HIGH — would fundamentally alter EP governance dynamics for the rest of EP10 (through 2029)
+**Early warning:** EPP-PfE joint amendments in committee votes (track LIBE, JURI)
+
+### Updated Wildcard Probability Distribution
+
+| Category | Low-Probability Events (< 10%) | Medium-Probability (10-25%) | High-Probability (> 25%) |
+|----------|--------------------------------|----------------------------|--------------------------|
+| Digital | AI/DMA regulatory crisis (8%) | US trade response (18%) | Commission enforcement delay (35%) |
+| Geopolitical | Armenia collapse (12%) | Hungarian asset release proposal (15%) | DOCEO vote confirmation of PfE split (70%) |
+| Institutional | EP coalition fracture (10%) | Budget 2027 conciliation failure (20%) | Roll-call data availability (80%) |
+| Criminal/Security | Haiti breakthrough (5%) | Europol CSAM advisory (25%) | Criminal network adaptation (40%) |
+
+### Confidence Calibration for Extended Wildcards
+
+All probability estimates carry ±10 percentage points uncertainty due to:
+1. Absence of roll-call voting data for April 30 (key uncertainty about coalition cohesion)
+2. Unpredictable Russia-Ukraine military dynamics affecting accountability timeline
+3. US administration posture uncertainty (DMA trade response; Ukraine support continuity)
+4. Internal EU member state positions on frozen assets (Hungary, Slovakia as known wildcards)
+
+---
+
+## EXTENDED WILDCARDS AND BLACK SWANS (Pass 2 Extension — 2026-05-10)
+
+### Additional Black Swan Scenarios
+
+#### Black Swan 5: DMA Enforcement Triggers US Digital Trade War
+
+**Scenario:** Commission imposes DMA fine of €10+ billion on a major US tech company in Q3 2026. US responds with Section 232 tariffs on EU exports (€50+ billion equivalent). EU-US digital trade war escalates into broader economic conflict.
+
+**Probability:** 3/100 | **Impact:** CATASTROPHIC (EP legislative agenda frozen by geopolitical crisis)
+**Trigger signals:** US USTR formal DMA investigation announcement; White House executive order on EU digital regulations; Transatlantic Trade and Technology Council breakdown
+**EP specific impact:** Renew Europe fractures (pro-US liberals vs. pro-sovereignty wing); EPP under pressure from European business lobby; DMA enforcement suspended pending diplomatic resolution
+**Leading indicators:** USTR "Section 301" investigation announcement (current status: not initiated); WTO DS panel request (not filed); US Treasury designation of EU as "digital currency manipulator" (not current policy)
+
+#### Black Swan 6: Pashinyan Government Collapse
+
+**Scenario:** Pro-Russian domestic forces in Armenia (military, church, oligarchy) engineer a parliamentary or extra-constitutional transition. New government suspends CPA negotiation and re-applies for CSTO participation.
+
+**Probability:** 8/100 | **Impact:** SEVERE (EU loses Eastern Partnership credibility; Moldova becomes isolated)
+**Trigger signals:** Armenian opposition gaining >40% in polls; Military leadership public statement against EU integration; Pashinyan losing coalition majority in parliament
+**EP specific impact:** TA-0162 becomes basis for sanctions resolution rather than integration resolution; EU imposes targeted sanctions on Armenian coup leaders; Emergency EP plenary (Georgia model)
+**Leading indicators:** Next Armenian parliamentary election 2026; Azerbaijani-Armenian territorial dispute resurgence; Russian economic pressure (energy pricing, remittances)
+
+#### Black Swan 7: CJEU Rules DMA Incompatible with ECHR
+
+**Scenario:** The European Court of Justice Grand Chamber, responding to a preliminary reference from a national court, rules that DMA's disclosure requirements violate trade secrets protections under the Charter of Fundamental Rights. Commission enforcement effectively halted pending legislative revision.
+
+**Probability:** 6/100 | **Impact:** HIGH (sets back digital market regulation by 2-3 years)
+**Trigger signals:** Advocate General opinion supporting tech companies on Charter grounds; National court preliminary reference filed; Commission losing interim relief application
+**EP specific impact:** Emergency revision of DMA required; TA-0160 enforcement call becomes moot; EPP under pressure from business lobby to de-prioritize revision
+
+#### Black Swan 8: EP Cordon Sanitaire Formal Breach
+
+**Scenario:** EPP formally agrees to support PfE candidate for an EP committee chairmanship in exchange for budget support. The cordon sanitaire — intact since EP foundation — formally ends. PfE is treated as a normal governing partner.
+
+**Probability:** 5/100 | **Impact:** CATASTROPHIC (restructures entire EP coalition architecture for EP10 remainder and EP11 formation)
+**Trigger signals:** EPP Presidency public statement about "broadening majority"; Weber meeting with Le Pen published; EPP group vote fails on committee assignments
+**EP specific impact:** S&D withdraws from cooperation on contested files; Greens suspend inter-group relations; EP external credibility on democracy promotion collapses (TA-0162 credibility impact)
+
+### Updated Wild Card Registry
+
+| Scenario | Probability | Impact | Signal Quality |
+|----------|------------|--------|----------------|
+| DOCEO vote reveals EPP defection on Ukraine | 12/100 | HIGH | 🟡 MEDIUM (awaiting data) |
+| DMA enforcement triggers US trade war | 3/100 | CATASTROPHIC | 🟢 HIGH (clear triggers) |
+| Armenia government collapse | 8/100 | SEVERE | 🟢 HIGH (clear triggers) |
+| CJEU DMA compatibility ruling | 6/100 | HIGH | 🟡 MEDIUM |
+| Cordon sanitaire breach | 5/100 | CATASTROPHIC | 🟢 HIGH (clear triggers) |
+| Ukraine ceasefire changes accountability context | 15/100 | MODERATE | 🟡 MEDIUM |
+| CSAM legislation CJEU challenge | 25/100 | HIGH | 🟢 HIGH (encryption basis) |
+| Haiti MMSM mission collapse | 12/100 | MODERATE | 🟢 HIGH (resource constraints) |
+| EP majority restructuring (early election context) | 3/100 | SEVERE | 🔴 LOW |
+| Budget 2027 trilogue failure | 8/100 | HIGH | 🟡 MEDIUM |
+
+**Signal monitoring recommendation:** The three highest-value monitoring targets are:
+1. **DOCEO vote data** (May 14-15): Will resolve uncertainty on Ukraine resolution margin and EPP defection rate
+2. **Commission DMA enforcement calendar** (Q2-Q3 2026): First major enforcement decision will set global precedent and US response tone
+3. **Armenia domestic politics** (ongoing): Pashinyan coalition stability is the critical precondition for TA-0162 implementation

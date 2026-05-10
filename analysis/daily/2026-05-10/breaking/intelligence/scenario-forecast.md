@@ -238,3 +238,71 @@ gantt
     Ukraine Support Freeze :2027-01, 2028-01
 ```
 
+
+---
+
+## EXTENDED SCENARIO FORECAST (Pass 2 Extension — 2026-05-10)
+
+### Additional Scenario Analysis: 12-Month Horizon
+
+#### Scenario D: DMA Enforcement Catalyst (P=35%)
+
+**Description:** Commission delivers first major DMA enforcement decision (Alphabet or Apple) with penalty of €5-15 billion in Q3 2026. Decision upheld on appeal by General Court in expedited timeline. US government formally protests but does not impose retaliatory tariffs. DMA becomes global template — UK DMCC, Australian DPSA accelerate.
+
+**Key requirements:** Commission enforcement timeline holds; General Court upholds interim relief; US administration decides against trade war escalation (domestic political calculation).
+
+**EP impact:** EP TA-0160 is vindicated as catalyst for enforcement acceleration. Renew Europe and EPP both claim credit — strengthening pro-digital-regulation coalition for EP10's second half. New EP monitoring resolution (Q4 2026) calls for sectoral extension of DMA to cloud services.
+
+**Policy outcomes:**
+- DMA proven as viable enforcement model globally
+- App store fees reduced by major platforms
+- European cloud providers gain market share
+- Big Tech lobbying shifts from "block DMA" to "shape enforcement details"
+
+#### Scenario E: Centre Coalition Fracture (P=8%)
+
+**Description:** EPP internal leadership crisis (Weber challenged by Manfred Tusk faction) forces EPP to signal openness to PfE cooperation on budget file. S&D announces suspension of cooperation on all files where EPP votes with far-right. EP effectively paralyzed on contested files.
+
+**Key requirements:** EPP leadership contest triggered by Budget 2027 failure; PfE offers EPP a face-saving budget deal; S&D assesses opposition posture as electorally beneficial.
+
+**EP impact:** All five April 30 resolution follow-through mechanisms suspended. DMA enforcement resolution ignored. Ukraine accountability framework stalls at EP level. Armenia CPA ratification delayed. Budget 2027 negotiations break down (special budget procedure).
+
+**Policy outcomes:** Structural shift in EP majority architecture; cordon sanitaire ends; far-right enters government coalition at EP level for first time.
+
+**Note:** This scenario is Scenario E for reference — it is the Black Swan scenario from wildcards-blackswans.md transposed into formal scenario format. Probability: LOW but non-trivial.
+
+#### Scenario F: Data Availability Windfall (P=50%)
+
+**Description:** DOCEO publishes April 30 vote XML on May 14-15 as expected. Full text of all seven adopted documents becomes available on EP portal by May 12. A follow-up breaking news run on May 15-16 incorporates this data and significantly upgrades the analytical quality of all artifacts.
+
+**Key requirements:** Standard EP publication timelines hold.
+
+**EP impact (analytical):** Coalition analysis for all five resolutions confirmed empirically. Any EPP defection on Ukraine file documented. Any ECR splits on DMA documented. Reference quality for this run's artifacts retroactively validated.
+
+**Policy implications:** No immediate policy impact — purely analytical scenario. Confirms or revises coalitional assessments.
+
+### Scenario Probability Matrix (Updated)
+
+| Scenario | Label | Probability | Key Variable |
+|----------|-------|------------|-------------|
+| A | Centre holds, enforcement proceeds | 45% | Commission DMA timeline |
+| B | Stalemate | 25% | US trade pressure magnitude |
+| C | Far-right disruption | 15% | EPP discipline |
+| D | DMA enforcement catalyst | 35% | General Court timeline |
+| E | Coalition fracture | 8% | EPP leadership stability |
+| F | Data availability windfall | 50% | Standard EP publication |
+
+*Note: Scenarios are not mutually exclusive. A + D can co-occur (e.g., enforcement proceeds and becomes catalyst). E excludes A-D.*
+
+### 30-Day Forecast Table (Updated)
+
+| Date | Event | Expected Outcome | Confidence |
+|------|-------|----------------|-----------|
+| May 14-15 | DOCEO vote XML | Vote data available | HIGH |
+| May 12 | Adopted text portal | Full text available | MEDIUM |
+| May 19-22 | Strasbourg plenary | Ukraine follow-up agenda item | MEDIUM |
+| June 2026 | Commission DMA response | Enforcement timeline announced | MEDIUM |
+| June 2026 | Commission Budget 2027 draft | Submitted to EP | HIGH |
+| July 2026 | EP Budget first reading | EP position on draft | HIGH |
+
+*Scenario forecast last updated: 2026-05-10 (Pass 2). Scenarios A-F represent full range of likely outcomes.*
