@@ -43,7 +43,7 @@ network:
     - node                    # npm/npx installation
     - data.europarl.europa.eu
     - "*.europa.eu"
-    - dataservices.imf.org    # IMF SDMX 3.0 REST — sole authoritative economic source
+    - api.imf.org    # IMF SDMX 3.0 REST — sole authoritative economic source
     - api.worldbank.org       # WB MCP — non-economic domains
     - hack23.com
     - www.hack23.com
@@ -146,7 +146,7 @@ Safe-outputs block: see [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md)
 - ✅ `fetch-proxy` must expose exactly `fetch_url`, must not use `\n` string
   literals in the inline `node -e` script (gh-aw/docker argument decoding can
   turn them into invalid embedded newlines), and must constrain fetches to
-  `https://dataservices.imf.org/REST/SDMX_3.0/`.
+  `https://api.imf.org/external/sdmx/3.0/`.
 - Other contexts (`copilot-setup-steps.yml`, `copilot-mcp.json`) use the same
   180 s EP timeout to avoid drift between local Copilot and gh-aw runs.
 
@@ -161,7 +161,7 @@ EP_MCP_GATEWAY_URL=http://host.docker.internal:8080/mcp/european-parliament
 EP_MCP_GATEWAY_API_KEY=<extracted via node -e, no jq>
 WORLD_BANK_MCP_SERVER_URL=http://host.docker.internal:8080/mcp/world-bank
 FETCH_MCP_GATEWAY_URL=http://host.docker.internal:8080/mcp/fetch-proxy
-IMF_API_BASE_URL=https://dataservices.imf.org/REST/SDMX_3.0
+IMF_API_BASE_URL=https://api.imf.org/external/sdmx/3.0
 MCP_CLIENT_TIMEOUT_MS=180000
 IMF_API_TIMEOUT_MS=120000
 ```

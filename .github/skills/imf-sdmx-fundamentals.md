@@ -29,7 +29,7 @@ the human-readable companion to
 Every IMF dataflow is queried with a URL of the shape:
 
 ```
-GET https://dataservices.imf.org/REST/SDMX_3.0/data/{DATAFLOW}/{KEY}?startPeriod=YYYY&endPeriod=YYYY
+GET https://api.imf.org/external/sdmx/3.0/data/{DATAFLOW}/{KEY}?startPeriod=YYYY&endPeriod=YYYY
 ```
 
 The `{KEY}` is a dot-delimited tuple of dimension-code values in the

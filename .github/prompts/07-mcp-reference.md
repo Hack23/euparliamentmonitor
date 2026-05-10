@@ -177,7 +177,7 @@ Rate limit: 500 req / 5 min. Cached responses < 200 ms.
 > editorial/agent-side at Stage-C completeness review.
 
 Client: `src/mcp/imf-mcp-client.ts` (class `IMFMCPClient`).
-Transport: direct REST to `https://dataservices.imf.org/REST/SDMX_3.0/`
+Transport: direct REST to `https://api.imf.org/external/sdmx/3.0/`
 via `fetch` (no Python MCP dependency). Env vars:
 `IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS`. Probe:
 `scripts/imf-mcp-probe.sh`.

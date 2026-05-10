@@ -124,7 +124,7 @@ describe('imf-mcp-client', () => {
       delete process.env['IMF_API_BASE_URL'];
       delete process.env['IMF_API_TIMEOUT_MS'];
       const c = new IMFMCPClient();
-      expect(c.getApiBaseUrl()).toBe('https://dataservices.imf.org/REST/SDMX_3.0');
+      expect(c.getApiBaseUrl()).toBe('https://api.imf.org/external/sdmx/3.0');
       expect(c.getTimeoutMs()).toBe(90_000);
       expect(c.isConnected()).toBe(false);
     });
@@ -159,7 +159,7 @@ describe('imf-mcp-client', () => {
     });
 
     it('connect() accepts a valid base URL and disconnect() clears it', async () => {
-      const c = new IMFMCPClient({ apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0' });
+      const c = new IMFMCPClient({ apiBaseUrl: 'https://api.imf.org/external/sdmx/3.0' });
       await c.connect();
       expect(c.isConnected()).toBe(true);
       c.disconnect();
@@ -179,7 +179,7 @@ describe('imf-mcp-client', () => {
     });
     afterEach(() => consoleOutput.restore());
 
-    it('requests the /dataflow/IMF endpoint and normalises the payload', async () => {
+    it('requests the /structure/dataflow/IMF/all/latest endpoint and normalises the payload', async () => {
       const fetchImpl = vi.fn().mockResolvedValue(
         mockFetchResponse(
           JSON.stringify({
@@ -193,14 +193,14 @@ describe('imf-mcp-client', () => {
         )
       );
       const client = new IMFMCPClient({
-        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+        apiBaseUrl: 'https://api.imf.org/external/sdmx/3.0',
         fetchImpl,
       });
       const result = await client.listDatabases();
 
       expect(fetchImpl).toHaveBeenCalledTimes(1);
       const calledUrl = fetchImpl.mock.calls[0][0];
-      expect(calledUrl).toBe('https://dataservices.imf.org/REST/SDMX_3.0/dataflow/IMF');
+      expect(calledUrl).toBe('https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF/all/latest');
 
       const parsed = JSON.parse(result.content[0].text);
       expect(parsed).toEqual([
@@ -270,7 +270,7 @@ describe('imf-mcp-client', () => {
     });
     afterEach(() => consoleOutput.restore());
 
-    it('requests /datastructure/{id} and extracts the dimension list', async () => {
+    it('requests /structure/datastructure/IMF/{id}/+ and extracts the dimension list', async () => {
       const fetchImpl = vi.fn().mockResolvedValue(
         mockFetchResponse(
           JSON.stringify({
@@ -294,13 +294,13 @@ describe('imf-mcp-client', () => {
         )
       );
       const client = new IMFMCPClient({
-        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+        apiBaseUrl: 'https://api.imf.org/external/sdmx/3.0',
         fetchImpl,
       });
       const result = await client.getParameterDefs('WEO');
 
       const url = fetchImpl.mock.calls[0][0];
-      expect(url).toBe('https://dataservices.imf.org/REST/SDMX_3.0/datastructure/WEO');
+      expect(url).toBe('https://api.imf.org/external/sdmx/3.0/structure/datastructure/IMF/WEO/+');
 
       const rows = JSON.parse(result.content[0].text);
       expect(rows).toEqual([
@@ -328,7 +328,7 @@ describe('imf-mcp-client', () => {
       });
       await client.getParameterDefs('DB/ID WITH SPACES');
       const url = fetchImpl.mock.calls[0][0];
-      expect(url).toContain('/datastructure/DB%2FID%20WITH%20SPACES');
+      expect(url).toContain('/structure/datastructure/IMF/DB%2FID%20WITH%20SPACES/+');
     });
   });
 
@@ -496,7 +496,7 @@ describe('imf-mcp-client', () => {
       const sdmxPayload = JSON.stringify({ data: { dataSets: [{ series: {} }], structure: {} } });
       const fetchImpl = vi.fn().mockResolvedValue(mockFetchResponse(sdmxPayload));
       const client = new IMFMCPClient({
-        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+        apiBaseUrl: 'https://api.imf.org/external/sdmx/3.0',
         fetchImpl,
       });
       const result = await client.fetchData({
@@ -512,7 +512,7 @@ describe('imf-mcp-client', () => {
       // union of two codes joined with SDMX's `+` separator (each code
       // URI-encoded first — idempotent for alphanumeric). WEO is annual,
       // so the client supplies frequency=A when callers omit it.
-      expect(url).toContain('/data/WEO/A.DEU+FRA.NGDP_RPCH?');
+      expect(url).toContain('/data/dataflow/IMF/WEO/+/A.DEU+FRA.NGDP_RPCH?');
       expect(url).toContain('startPeriod=2020');
       expect(url).toContain('endPeriod=2030');
       expect(url).toContain('format=jsondata');
@@ -539,7 +539,7 @@ describe('imf-mcp-client', () => {
         dimensionOrder: ['frequency', 'country', 'indicator'],
       });
       const url = fetchImpl.mock.calls[0][0];
-      expect(url).toContain('/data/IFS/M.DEU.FPOLM_PA?');
+      expect(url).toContain('/data/dataflow/IMF/IFS/+/M.DEU.FPOLM_PA?');
     });
 
     it('rejects an empty filters map', async () => {
@@ -608,7 +608,7 @@ describe('imf-mcp-client', () => {
       const url = fetchImpl.mock.calls[0][0];
       // `+` inside a single country code must be %-encoded so SDMX does
       // not interpret it as the "union-of-codes" separator.
-      expect(url).toContain('/data/WEO/A.DEU%2BFRA.NGDP_RPCH?');
+      expect(url).toContain('/data/dataflow/IMF/WEO/+/A.DEU%2BFRA.NGDP_RPCH?');
     });
   });
 
@@ -629,7 +629,7 @@ describe('imf-mcp-client', () => {
 
     it('getIMFMCPClient returns a connected singleton', async () => {
       const c = await getIMFMCPClient({
-        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+        apiBaseUrl: 'https://api.imf.org/external/sdmx/3.0',
       });
       expect(c).toBeInstanceOf(IMFMCPClient);
       expect(c.isConnected()).toBe(true);
@@ -668,7 +668,7 @@ describe('imf-mcp-client', () => {
         gatewayResponse({ data: { dataflows: [] } })
       );
       const client = new IMFMCPClient({
-        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+        apiBaseUrl: 'https://api.imf.org/external/sdmx/3.0',
         fetchProxyGatewayUrl: 'http://fetch-proxy:3000',
         fetchProxyApiKey: '',   // empty key — gateway must still be tried
         fetchImpl,
@@ -689,7 +689,7 @@ describe('imf-mcp-client', () => {
         gatewayResponse({ data: { dataflows: [] } })
       );
       const client = new IMFMCPClient({
-        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+        apiBaseUrl: 'https://api.imf.org/external/sdmx/3.0',
         fetchProxyGatewayUrl: 'http://fetch-proxy:3000',
         // fetchProxyApiKey intentionally omitted
         fetchImpl,
@@ -706,7 +706,7 @@ describe('imf-mcp-client', () => {
         gatewayResponse({ data: { dataflows: [] } })
       );
       const client = new IMFMCPClient({
-        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+        apiBaseUrl: 'https://api.imf.org/external/sdmx/3.0',
         fetchProxyGatewayUrl: 'http://fetch-proxy:3000',
         fetchProxyApiKey: 'secret-token',
         fetchImpl,
@@ -730,7 +730,7 @@ describe('imf-mcp-client', () => {
         .mockResolvedValueOnce(directSuccess);
 
       const client = new IMFMCPClient({
-        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+        apiBaseUrl: 'https://api.imf.org/external/sdmx/3.0',
         fetchProxyGatewayUrl: 'http://fetch-proxy:3000',
         fetchImpl,
       });
@@ -739,7 +739,7 @@ describe('imf-mcp-client', () => {
       // First call is the gateway attempt, second call is the direct fallback
       expect(fetchImpl).toHaveBeenCalledTimes(2);
       expect(fetchImpl.mock.calls[0][0]).toContain('fetch-proxy:3000');
-      expect(fetchImpl.mock.calls[1][0]).toContain('dataservices.imf.org');
+      expect(fetchImpl.mock.calls[1][0]).toContain('api.imf.org');
     });
 
     it('does NOT route through the gateway when URL is absent', async () => {
@@ -747,7 +747,7 @@ describe('imf-mcp-client', () => {
         mockFetchResponse(JSON.stringify({ data: { dataflows: [] } }))
       );
       const client = new IMFMCPClient({
-        apiBaseUrl: 'https://dataservices.imf.org/REST/SDMX_3.0',
+        apiBaseUrl: 'https://api.imf.org/external/sdmx/3.0',
         // fetchProxyGatewayUrl intentionally omitted
         fetchImpl,
       });
@@ -756,7 +756,7 @@ describe('imf-mcp-client', () => {
       expect(fetchImpl).toHaveBeenCalledTimes(1);
       const calledUrl = fetchImpl.mock.calls[0][0];
       // Should call IMF directly (not through any proxy gateway)
-      expect(calledUrl).toContain('dataservices.imf.org');
+      expect(calledUrl).toContain('api.imf.org');
       expect(calledUrl).not.toContain('fetch-proxy');
     });
   });
