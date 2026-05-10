@@ -178,3 +178,45 @@ Per `manifest.dataVerification`:
 2. **DOCEO vote delay:** Roll-call votes for April 30 plenary expected May 14-15 — next coalition analysis run should query `get_latest_votes` with `weekStart: "2026-04-27"`.
 3. **Procedures feed staleness:** Use `get_procedures` with direct processId lookups rather than feed endpoint for current-week procedure queries.
 4. **MEP deep-fetch:** If named MEPs identified from roll-call data (when available), re-run MEP detail lookups up to 10 cap.
+
+---
+
+## 📊 DATA QUALITY SUMMARY (Re-run 3 Extension)
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+pie title Data Sources by Quality Level (Re-run 3)
+    "Full data retrieved" : 8
+    "Metadata only" : 5
+    "404 / Unavailable" : 5
+    "Proxy failure" : 3
+    "Empty (publication delay)" : 2
+```
+
+### Data Source Performance Across Runs (All 3 Runs)
+
+| Data Source | Run 1 | Run 2 | Run 3 | Pattern |
+|------------|-------|-------|-------|---------|
+| EP political landscape | 🟢 OK | 🟢 OK | 🟢 OK | STABLE |
+| EP coalition dynamics | 🟢 OK | 🟢 OK | 🟢 OK | STABLE |
+| EP adopted texts (metadata) | 🟡 Partial | 🟡 Partial | 🟡 Partial | STABLE-DEGRADED |
+| EP adopted texts (full text) | 🔴 404 | 🔴 404 | 🔴 404 | CONSISTENTLY UNAVAILABLE |
+| DOCEO vote XML | 🔴 Empty | 🔴 Empty | 🔴 Empty | PUBLICATION DELAY |
+| World Bank GDP data | 🟢 OK | 🟢 OK | 🟢 OK | STABLE |
+| IMF SDMX proxy | �� Failed | 🔴 Failed | 🔴 Failed | CONSISTENTLY FAILING |
+| EP early warning system | 🟢 OK | 🟢 OK | 🟢 OK | STABLE |
+| EP plenary sessions | 🟡 Partial | 🟡 Partial | 🟡 Partial | STABLE-PARTIAL |
+
+**Structural data gaps (consistent across all 3 runs):**
+1. EP API 404 for TA-10-2026-0112 through TA-10-2026-0163 (publishing delay)
+2. IMF SDMX proxy failure (fetch-proxy MCP server issue)
+3. DOCEO XML empty for April 28-30 plenary week (14-day lag)
+
+**Implications for future runs:**
+- Data quality will improve significantly when DOCEO XML publishes (May 14-15)
+- EP full-text access will improve by June 2026 (standard 6-week publication lag for plenary texts)
+- IMF proxy requires troubleshooting before next run if IMF data refresh is needed
+- World Bank data is stable and reliable — continue using for cross-country economic comparison
+
+*Data Download Manifest | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2)*
+*This document tracks all data retrieval attempts and outcomes*

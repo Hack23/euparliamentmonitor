@@ -66,3 +66,82 @@ Defence spending emphasis in budget:
 ---
 
 *EU Strategic Autonomy Analysis | EU Parliament Monitor | 2026-05-10*
+
+---
+
+## 🔍 EXTENDED ANALYSIS — STRATEGIC AUTONOMY DEEP DIVE (Re-run 3)
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+quadrantChart
+    title Strategic Autonomy Dimensions: Progress vs Strategic Importance
+    x-axis "Low Strategic Importance" --> "High Strategic Importance"
+    y-axis "Low Progress" --> "High Progress"
+    quadrant-1 "Key Wins — Sustain"
+    quadrant-2 "Needs Investment — Accelerate"
+    quadrant-3 "Manage & Monitor"
+    quadrant-4 "Critical Gap — Priority"
+    Energy Autonomy: [0.75, 0.70]
+    Digital Autonomy: [0.80, 0.45]
+    Defence Autonomy: [0.90, 0.30]
+    Semiconductor Autonomy: [0.85, 0.35]
+    Neighbourhood Autonomy: [0.65, 0.40]
+    Financial Autonomy: [0.60, 0.55]
+```
+
+### Institutional Architecture for Strategic Autonomy
+
+The April 2026 resolutions contribute to a broader institutional architecture:
+
+| Institution | Primary Autonomy Function | April 2026 Strengthening |
+|------------|--------------------------|-------------------------|
+| European Defence Agency (EDA) | Defence R&D coordination | Budget 2027 allocation |
+| EU Chips Act (ESIP) | Semiconductor supply chain | Indirect (fiscal context) |
+| European Investment Bank (EIB) | Investment in strategic sectors | Defence lending mandate expanded |
+| European Defence Fund (EDF) | Military R&D funding | Budget 2027 resolution endorsement |
+| EDIP (European Defence Industrial Programme) | Industrial base coordination | Budget 2027 reference |
+| Commission (DG CONNECT) | Digital regulatory enforcement | DMA resolution 0160 |
+| EEAS | Neighbourhood policy management | Armenia resolution 0162 |
+
+### The French Strategic Autonomy Doctrine
+
+France has been the primary EU strategic autonomy advocate since 2017. Key elements of the Macron doctrine:
+- "Sovereignty" over EU digital data and AI
+- European strategic culture independent of NATO
+- EU industrial policy supporting European champions
+- Neighbourhood policy alternative to US/NATO
+
+**2026 assessment of French doctrine:**
+- **Succeeds on:** Digital regulation (DMA/DSA), energy sovereignty (nuclear + renewables)
+- **Partial success:** Defence industry (KNDS Franco-German tank; Airbus; MBDA)
+- **Fails on:** NATO alternative (Ukraine war entrenched NATO; US nuclear deterrence irreplaceable)
+- **Under pressure:** Industrial policy (US Inflation Reduction Act + European AI lagging)
+
+French influence on April 2026 resolutions: DMA enforcement (French digital sovereignty agenda); Armenia (France-Armenia cultural/diplomatic ties); Ukraine accountability (France supports ICPA concept)
+
+### Germany's Strategic Autonomy Calculation
+
+Germany's Zeitenwende (2022) pivot represents the most dramatic strategic autonomy shift:
+- From: Russian energy dependence + China trade dependence + US security dependence
+- To: LNG diversification + China+1 trade strategy + NATO 2% commitment
+
+**2026 German position:**
+- Defence: **Supporting** (2.1% GDP, ReArm/SAFE)
+- Digital: **Ambivalent** (DMA hurts German industry; SAP is affected; but rule-of-law instinct supports enforcement)
+- Neighbourhood: **Cautious** (Armenia integration — Germany worried about setting integration precedent)
+- Ukraine: **Strong supporter** of accountability (war crimes investigations proceeding in German courts)
+
+### Strategic Autonomy — 5-Year Outlook (2026-2031)
+
+| Domain | 2031 Scenario (Optimistic) | 2031 Scenario (Realistic) | Key Dependency |
+|--------|---------------------------|--------------------------|----------------|
+| Defence | 40% self-sufficient on conventional arms; nuclear still US-dependent | 25% self-sufficient; NATO supplement | US deterrence |
+| Digital | 3-4 European hyperscalers; EU cloud market 40% European | 1-2 European clouds; US still 55%+ | AI investment |
+| Energy | 95% renewable electricity; LNG residual | 85% renewable; Russian gas irreplaceable at cost | Storage tech |
+| Semiconductors | EU Chips Act fabs producing 20% EU consumption | EU fabs operational but 15% only | Taiwan stability |
+| Neighbourhood | Armenia association; Ukraine accession trajectory | Armenia deep partnership; Ukraine candidate | Russia conflict end |
+
+**Bottom Line:** EU is on an improving trajectory for strategic autonomy but will remain a heavily interdependent power in 2031. The April 2026 resolutions are meaningful steps in the right direction.
+
+*EU Strategic Autonomy Analysis | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2 Extension)*
+*Confidence: 🟡 MEDIUM — structural analysis sound; quantitative targets are expert estimates*

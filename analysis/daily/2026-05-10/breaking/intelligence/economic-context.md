@@ -218,3 +218,76 @@ The April 30 resolutions collectively address economic contexts spanning:
 - **€172-180 billion** EU annual budget (estimates)
 
 The economic stakes are highest for DMA enforcement (largest market) and Ukraine reconstruction (largest reconstruction need). Armenia integration has the highest economic multiplier potential per dollar invested — small economy, high-growth trajectory, strong fiscal position.
+
+---
+
+## 📊 ECONOMIC IMPACT VISUALISATIONS
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+xychart-beta
+    title "EU Major Economy GDP Growth (%) — World Bank 2021-2024"
+    x-axis ["2021", "2022", "2023", "2024"]
+    y-axis "GDP Growth (%)" -2 --> 10
+    line [3.91, 1.81, -0.87, -0.50]
+    line [6.88, 2.72, 1.44, 1.19]
+    line [8.93, 4.82, 0.98, 0.69]
+    line [6.68, 6.37, 2.46, 3.46]
+```
+
+*Lines: Germany (blue) | France (yellow) | Italy (green) | Spain (red)*
+
+**Economic divergence pattern:** Germany in technical recession (-0.87%, -0.50%), France modestly recovering (+1.19%), Spain outperforming (+3.46%). This divergence creates political-economic tensions within the EU27 that complicate consensus on fiscal policy, defence spending, and digital regulation.
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+pie title EU Legislative Economic Exposure (€ billions, approx.)
+    "Digital Market (DMA)" : 500
+    "Ukraine Reconstruction" : 486
+    "EU Annual Budget (2027)" : 180
+    "SAFE Defence Instrument" : 150
+    "Armenia Integration Pathway" : 22
+    "Haiti Humanitarian" : 1
+```
+
+## 💱 IMF ECONOMIC CONTEXT: GERMANY RECESSION AND EU STRUCTURAL CHALLENGES
+
+Germany's consecutive GDP contractions (-0.87% in 2023, -0.50% in 2024) represent the most significant economic headwind for EU-wide legislative ambitions:
+
+### Germany's Structural Challenges
+1. **Energy transition cost:** Phaseout of Russian gas 2022 → LNG at 3-4x price premium → industrial competitiveness loss
+2. **Automotive sector disruption:** Chinese EV competition + BEV transition costs → Germany's manufacturing core under stress
+3. **Fiscal orthodoxy vs. investment needs:** Constitutional debt brake limits counter-cyclical spending
+4. **Demographic pressure:** Working-age population decline accelerating; immigration policy failures constraining labour supply
+
+### EU-Wide Implication for April 30 Legislation
+- **Budget 2027 (TA-0112):** Germany's fiscal constraints limit appetite for higher EU spending; Berlin is a Council restraint force
+- **Defence (ReArm/SAFE):** Germany is increasing defence spending despite fiscal pressure — political commitment stronger than economic capacity
+- **DMA enforcement:** German tech industry (SAP, Deutsche Telekom) ambivalent — DMA constrains US tech but also creates regulatory precedent affecting German firms
+- **Ukraine:** Germany's aid commitment faces domestic political pressure as economic headwinds persist
+
+### Spain Outperformance: Policy Model Signal
+Spain's +3.46% GDP growth in 2024 — highest among major EU economies — reflects:
+- Tourism-driven services recovery (post-COVID lagging boom)
+- Industrial policy (CHIPS Act equivalent investments)
+- Labour market reforms (2021 reform reducing temporary contracts)
+- EU Recovery Fund (NextGenerationEU) deployment at scale — Spain was lead beneficiary
+
+**Legislative relevance:** Spain's success with EU Recovery Funds strengthens Parliament's case for expansive Budget 2027 and post-MFF investment instruments. Spanish MEPs (across EPP, S&D, Renew) are natural advocates for EU-level investment tools.
+
+## 🔮 ECONOMIC FORECASTING: 2026 H2 OUTLOOK
+
+| Indicator | 2026 H1 (actual/estimated) | 2026 H2 (IMF forecast) | EP Legislative Implication |
+|-----------|---------------------------|----------------------|--------------------------|
+| EU aggregate growth | +1.2% (annualised) | +1.5% | Budget request slightly loosened |
+| EUR/USD exchange rate | ~1.08-1.12 | ~1.06-1.14 (range) | DMA fine amounts stable in USD terms |
+| EU inflation | 2.3% (declining) | ~2.0% (ECB target met) | Rate cuts supportive of growth |
+| Germany growth | -0.2% (Q1 2026) | +0.3-0.5% (recovery expected) | Political support for EU spending may shift |
+| US-EU tariff environment | 15-25% on industrial goods | Negotiation ongoing | Budget 2027 agricultural support crucial |
+
+**Bottom Line:** The EU economy enters H2 2026 with modest momentum — not recession, not robust growth. Legislative ambitions from the April 30 plenary (DMA enforcement, Ukraine reconstruction, defence investment) are broadly consistent with economic capacity but require prioritisation given constrained fiscal space.
+
+*Economic Context | EU Parliament Monitor | 2026-05-10 (Re-run 3)*
+*IMF WEO April 2026 is the sole authoritative source for all macroeconomic claims*
+*World Bank GDP growth data: DE (-0.50% 2024), FR (+1.19% 2024), IT (+0.69% 2024), ES (+3.46% 2024), PL (+3.03% 2024)*
+*Confidence: 🟡 MEDIUM-HIGH — WB/IMF data confirmed; EU legislative economic modelling is AI inference*

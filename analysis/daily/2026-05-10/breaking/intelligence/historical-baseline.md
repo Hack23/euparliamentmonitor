@@ -249,3 +249,35 @@ timeline
 5. **Digital governance maturation** — moving from regulation to enforcement after 4 years of DMA in force
 
 The legislative output of April 30 is historically robust for a mid-mandate session. EP10 is on track to be one of the more legislatively productive terms despite fragmentation.
+
+---
+
+## 🔄 HISTORICAL BASELINE — RE-RUN 3 EXTENSION
+
+### Historical Comparisons to April 2026 Legislative Cluster
+
+**DMA Enforcement Precedent:**
+- **GDPR (2016/679):** Most comparable regulatory precedent. GDPR enacted 2018; first major fine (Google €50M) 2019; enforcement matured 2020-2022. Pattern: 18-24 months from enactment to first major enforcement. DMA entered into force 2023; enforcement resolution 2026 = 3 years later. Assessment: DMA enforcement is slower than GDPR enforcement but accelerating.
+
+**Ukraine Accountability Historical Comparison:**
+- **Nuremberg Tribunal (1946):** Original aggression accountability model; victors' justice; 16-month process
+- **ICTY (1993):** Created by UNSC resolution during active conflict; 25-year process before close
+- **ICC (1998/2002):** 20+ years from statute to meaningful enforcement pace
+- **Implied timeline for ICPA:** 7-10 years minimum from political signal to first trial
+
+**Armenia Integration Historical Comparison:**
+- **Georgia EU candidacy (2023):** 14 months from application (March 2022) to candidacy status
+- **Moldova EU candidacy (2023):** Same package as Georgia
+- **Ukraine EU candidacy (2022):** 4 months from application to candidacy (wartime acceleration)
+- **Western Balkans:** 20+ years without membership (applicant since 2000s)
+- **Armenia implication:** If EU is serious, candidacy in 3-5 years is possible; actual membership 10-15 years
+
+**Coalition Mathematics Historical Comparison:**
+- EP9 (2019-2024) centre coalition (EPP+S&D+Renew): ~390 MEPs (54%)
+- EP10 current (2024-2026): EPP+S&D+Renew = 396 MEPs (55%)
+- EP10 centre coalition is marginally stronger than EP9 despite record fragmentation ENP=6.58
+- Historical pattern: Centre coalitions in post-enlargement EP have been durable across terms
+
+**Assessment:** All five April 30 developments fit within normal EP10 legislative patterns. There is nothing anomalous about the institutional dynamics — what is notable is the strategic coherence of the legislative cluster (all five advancing related values agenda).
+
+*Historical Baseline | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2)*

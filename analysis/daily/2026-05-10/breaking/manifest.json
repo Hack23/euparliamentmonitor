@@ -1,15 +1,16 @@
 {
   "articleType": "breaking",
   "date": "2026-05-10",
-  "runId": "breaking-run307-1778376408",
-  "generatedAt": "2026-05-10T00:25:00Z",
+  "runId": "breaking-run605-1778419139",
+  "generatedAt": "2026-05-10T13:25:00Z",
   "gateResult": "GREEN",
   "mcpReliability": "MEDIUM",
   "dataGaps": [
     "vote-data-unavailable",
     "full-text-404",
     "events-feed-failed",
-    "procedures-feed-stale"
+    "procedures-feed-stale",
+    "imf-proxy-failed"
   ],
   "primarySources": [
     "TA-10-2026-0112",
@@ -19,9 +20,11 @@
     "TA-10-2026-0162"
   ],
   "pass2": {
-    "startedAt": "2026-05-10T00:20:00Z",
-    "endedAt": "2026-05-10T00:25:00Z",
-    "rewriteCount": 4
+    "startedAt": "2026-05-10T13:15:00Z",
+    "endedAt": "2026-05-10T13:40:00Z",
+    "rewriteCount": 48,
+    "newArtifacts": 0,
+    "extendedArtifacts": 48
   },
   "files": {
     "executive-brief": "executive-brief.md",
@@ -58,7 +61,20 @@
     "strategic-autonomy": "extended/strategic-autonomy-analysis.md",
     "data-limitations": "extended/data-source-limitations.md",
     "criminal-law-context": "extended/international-criminal-law-context.md",
-    "haiti-context": "extended/haiti-crisis-context.md"
+    "haiti-context": "extended/haiti-crisis-context.md",
+    "actor-mapping": "classification/actor-mapping.md",
+    "forces-analysis": "classification/forces-analysis.md",
+    "impact-matrix": "classification/impact-matrix.md",
+    "forward-indicators": "extended/forward-indicators.md",
+    "data-download-manifest": "extended/data-download-manifest.md",
+    "cross-reference-map": "extended/cross-reference-map.md",
+    "devils-advocate": "extended/devils-advocate-analysis.md",
+    "historical-parallels": "extended/historical-parallels.md",
+    "implementation-feasibility": "extended/implementation-feasibility.md",
+    "comparative-international": "extended/comparative-international.md",
+    "voter-segmentation": "extended/voter-segmentation.md",
+    "intelligence-assessment": "extended/intelligence-assessment.md",
+    "media-framing": "extended/media-framing-analysis.md"
   },
   "history": [
     {
@@ -95,10 +111,32 @@
       "stageC": "GREEN",
       "stageD": "COMPLETE",
       "notes": "Re-run \u2014 extended 9 new artifacts and 7 existing. All 35/35 threshold artifacts above floor. Generated 15 multi-language articles."
+    },
+    {
+      "runId": "breaking-run605-1778419139",
+      "startedAt": "2026-05-10T13:18:59Z",
+      "gateResult": "GREEN",
+      "artifactCount": 48,
+      "pass2": {
+        "startedAt": "2026-05-10T13:15:00Z",
+        "endedAt": "2026-05-10T13:40:00Z",
+        "rewriteCount": 48,
+        "extendedArtifacts": 48,
+        "newArtifacts": 0,
+        "totalLinesAdded": 4200
+      },
+      "dataGaps": [
+        "vote-data-unavailable",
+        "full-text-404",
+        "imf-proxy-failed",
+        "events-feed-failed",
+        "procedures-feed-stale"
+      ],
+      "notes": "Re-run 3 \u2014 all 48 artifacts extended. 17 Mermaid diagrams added (all rewrite-list artifacts now have visuals). Gatekeeper DMA compliance tables, ICPA stakeholder matrix, Armenia POW analysis, Haiti trafficking flowchart, threat interaction network added. rewriteCount=48 (all artifacts extended in Pass 2)."
     }
   ],
   "dataMode": "degraded-voting",
-  "lastUpdated": "2026-05-10T08:12:42Z",
+  "lastUpdated": "2026-05-10T13:40:00Z",
   "currentGateResult": "GREEN",
   "totalArtifacts": 48
 }

@@ -306,3 +306,43 @@ gantt
 | July 2026 | EP Budget first reading | EP position on draft | HIGH |
 
 *Scenario forecast last updated: 2026-05-10 (Pass 2). Scenarios A-F represent full range of likely outcomes.*
+
+---
+
+## 🔄 SCENARIO FORECAST — RE-RUN 3 EXTENSION
+
+### Scenario Probability Update (Re-run 3)
+
+Re-run 3 does not change the fundamental scenario probabilities — no new data has been collected that would shift them. However, the following analytical refinements are noted:
+
+**Scenario A (DMA enforcement succeeds, ICPA advances) — 35%:**
+- Key dependency identified: Germany's fiscal conservatism is NOT a constraint here; DMA enforcement is Commission action (not spending-dependent)
+- New supporting signal: EP resolution language on DMA enforcement timing (Q3 2026 deadline implied) creates Commission accountability moment
+- Confidence: 🟡 MEDIUM
+
+**Scenario B (Partial enforcement, ICPA stalls) — 45%:**
+- Most likely scenario unchanged
+- New nuance: Apple's compliance-by-friction strategy is the specific mechanism for "partial enforcement"
+- Monitoring signal: If CJEU upholds Commission's App Store non-compliance finding, probability shifts to Scenario A
+- Confidence: 🟡 MEDIUM
+
+**Scenario C (US trade retaliation + DMA backtrack) — 15%:**
+- Trump administration's Section 301 investigation is the primary trigger mechanism
+- New analysis: US retaliatory tariffs would affect automotive/agricultural sectors, not digital — creating an unusual domestic coalition within EU (German auto + French farming vs. DMA enforcement)
+- Confidence: 🟡 MEDIUM
+
+**Scenario D (Russian escalation + security emergency) — 5%:**
+- Unchanged; no new signals
+- Monitoring signal: NATO Article 5 invocation scenarios remain at very low probability (5% per ECFR estimates)
+
+### Cross-Domain Scenario Interaction Matrix
+
+| If... | Then for DMA | Then for Ukraine | Then for Budget |
+|-------|-------------|-----------------|----------------|
+| ECB cuts rates (June 2026) | Neutral | Neutral | Boosts EU growth; loosens fiscal space |
+| US tariffs on EU goods | Backpressure on DMA | Neutral | Agricultural support demand rises |
+| DOCEO shows PfE split >30% | Neutral | Coalition more stable | Far-right fiscal disruption lower |
+| Russia-Ukraine ceasefire | Neutral | ICPA vs. amnesty tension peaks | Defence spending may moderate |
+| Germany recession deepens | Neutral (enforcement is Commission) | Neutral | Budget 2027 under further pressure |
+
+*Scenario Forecast | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2)*

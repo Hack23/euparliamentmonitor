@@ -60,3 +60,82 @@ The trafficking networks the EP resolution addresses span:
 ---
 
 *Haiti Crisis Context | EU Parliament Monitor | 2026-05-10*
+
+---
+
+## 🔄 EXTENDED ANALYSIS — HAITI CRISIS AND EU RESPONSE (Re-run 3)
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+timeline
+    title Haiti Crisis Timeline: 2021-2026
+    section Trigger
+        2021 : President Moïse assassinated (July) : Constitutional vacuum created : Gang violence accelerates
+    section Deterioration
+        2023 : Gang coalition takes control of Port-au-Prince : Ariel Henry government collapse : 1M+ displaced
+    section International Response
+        2024 : Kenyan-led MSS deployed : EP previous resolution on Haiti : EU humanitarian aid increased
+    section Current
+        2026 : EP anti-trafficking resolution : MSS struggling for impact : 1.5M+ displaced
+```
+
+### EU Humanitarian Funding Framework
+
+| Instrument | Purpose | 2024-2026 Haiti Allocation (est.) |
+|-----------|---------|-----------------------------------|
+| ECHO (Humanitarian) | Emergency relief; food; shelter | €30-50M |
+| NDICI (Development) | Long-term development | €15-25M (limited due to instability) |
+| EPARD (Peace) | Security sector support | €5-10M |
+| **Total EU** | | **~€50-85M/year** |
+
+**EP resolution likely calls for:** Increase in ECHO allocation; specific trafficking-focused programming; victim support fund.
+
+### Human Trafficking Pathway Analysis
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+flowchart LR
+    A[Haiti Gang Control] -->|Forced recruitment| B[Internal Displacement]
+    B -->|Trafficking networks| C[Dominican Republic]
+    C -->|Caribbean corridor| D[Caribbean Islands]
+    C -->|Americas corridor| E[Colombia/Panama Darien]
+    E -->|North America corridor| F[Mexico/US border]
+    B -->|Atlantic corridor| G[Canary Islands/EU periphery]
+    G --> H[EU Internal Markets]
+    C -->|Direct trafficking| H
+    A -->|Diaspora exploitation| I[France Haitian diaspora]
+    I --> H
+    H -->|Sex exploitation & forced labour| J[EU Law Enforcement Response]
+    J -->|Europol coordination| K[EP Resolution Mechanism]
+```
+
+**Gang economics of trafficking:**
+- Estimated gang revenues from kidnapping, extortion, trafficking: $20-50M/year (UN OIOS estimate)
+- Trafficking revenue per victim: $3,000-$15,000 depending on route and exploitation type
+- Gang leadership financing international operations through money laundering in Dominican Republic and US
+
+### EU Anti-Trafficking Legislative Context
+
+The Haiti resolution connects to broader EU anti-trafficking architecture:
+
+1. **Anti-Trafficking Directive (2011/36/EU):** Updated 2024 — stronger provisions on digital recruitment, child trafficking, demand reduction
+2. **FRONTEX:** Intercepts trafficking networks at EU maritime borders (Canary Islands route)
+3. **Europol EMPACT:** Operation vs. Nigerian/Haitian trafficking networks active
+4. **EEAS:** EU Delegation Port-au-Prince (evacuated 2024) — operations via Dominican Republic
+
+**New element in TA-10-2026-0151:** Likely calls for specific Haiti trafficking focus in Europol EMPACT programme and increased ECHO support for IOM and UNHCR trafficking response in the region.
+
+### EU-Haiti Relationship Assessment
+
+**Diplomatic constraints:**
+- No functioning Haitian government to engage with bilaterally
+- MSS (Kenyan-led) is the security vehicle — EU supports politically and financially but does not lead
+- CARICOM (Caribbean Community) is the primary regional framework — EU engages through CARICOM
+
+**Opportunities:**
+- France-EU axis: France has constitutional ties to Haiti (former coloniser, largest diaspora); French MEPs are institutional champions
+- Criminal justice: EU has technical assistance capacity for anti-trafficking prosecution support
+- Digital: Social media platforms used for trafficking recruitment — EU can press platforms under DSA
+
+*Haiti Crisis Context | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2 Extension)*
+*Confidence: 🟡 MEDIUM — crisis facts from UN/IOM sources; EU policy analysis is expert inference*

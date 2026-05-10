@@ -113,3 +113,60 @@ Haiti              🟢 LOW        🟢 LOW         🟢 LOW
 
 **Key takeaway:** The April 2026 Strasbourg session has immediate high impact on EU digital markets (DMA) and generates durable multi-year cascades on Ukraine integration and EU fiscal policy. Haiti is the lowest-impact item despite humanitarian urgency. Stakeholders should focus analytical resources on DMA (immediate) and Ukraine ICPA + Budget (medium-term).
 
+---
+
+## 📊 IMPACT MATRIX VISUALISATION (Re-run 3 Extension)
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+quadrantChart
+    title Resolution Impact Matrix: Immediacy vs. Breadth
+    x-axis "Narrow Impact" --> "Broad Impact"
+    y-axis "Long-term Effect" --> "Immediate Effect"
+    quadrant-1 "High Priority — Act Now"
+    quadrant-2 "Monitor — Widespread but Later"
+    quadrant-3 "Watch — Narrow and Later"
+    quadrant-4 "Manage — Narrow and Now"
+    DMA Enforcement: [0.90, 0.70]
+    Ukraine Accountability: [0.75, 0.60]
+    Budget 2027 Guidelines: [0.95, 0.40]
+    Armenia Integration: [0.45, 0.50]
+    Haiti Trafficking: [0.35, 0.60]
+```
+
+### Impact Cascade Analysis — Second-Order Effects
+
+**Second-order effects from DMA Enforcement (TA-10-2026-0160):**
+- **+12 months:** Big Tech compliance posture visible; first Commission non-compliance finding
+- **+18 months:** First CJEU appeals; DMA legal architecture stress-tested
+- **+3 years:** EU digital market share measurably different (optimistic: +5-8% European alternatives; pessimistic: US companies restructure without behavioural change)
+- **+5 years:** DMA 2.0 legislative proposals based on enforcement learnings
+
+**Second-order effects from Ukraine Accountability (TA-10-2026-0161):**
+- **+6 months:** Commission reports to EP on ICPA progress; frozen asset mechanism update
+- **+18 months:** ICPA treaty negotiations formally launched if political conditions hold
+- **+3 years:** If peace process starts — accountability vs. amnesty tension peaks; ICPA may be traded for ceasefire
+- **+5 years:** Either ICPA operational (optimistic) or shelved (pessimistic; depends on peace deal terms)
+
+**Second-order effects from Budget 2027 (TA-10-2026-0112):**
+- **+3 months:** Commission draft budget published (May 2026); EP position established
+- **+6 months:** Council first reading; EP-Council positions diverge/converge
+- **+9 months:** Conciliation committee; final budget agreed (or provisional twelfths)
+- **+1 year:** Implementation reality — defence vs. cohesion trade-off visible in actual spending
+
+### Stakeholder Impact Intensity Assessment
+
+| Stakeholder Category | DMA | Ukraine | Armenia | Budget | Haiti |
+|--------------------|-----|---------|---------|--------|-------|
+| EU citizens (digital) | 🔴 HIGH | 🟡 MED | 🟢 LOW | 🔴 HIGH | 🟢 LOW |
+| EU corporations | 🔴 HIGH (Big Tech/competitors) | 🟡 MED | 🟢 LOW | 🟡 MED | 🟢 LOW |
+| US government | 🔴 HIGH | 🟡 MED | 🟢 LOW | 🟢 LOW | 🟢 LOW |
+| Ukraine | 🟢 LOW | 🔴 HIGH | 🟢 LOW | 🟡 MED | 🟢 LOW |
+| Armenia | 🟢 LOW | 🟢 LOW | 🔴 HIGH | 🟢 LOW | 🟢 LOW |
+| Russia | 🟡 MED (sanctions) | 🔴 HIGH | 🟡 MED | 🟢 LOW | 🟢 LOW |
+| EU member states | 🟡 MED | 🟡 MED | 🟢 LOW | 🔴 HIGH | 🟢 LOW |
+| Commission | 🔴 HIGH | 🟡 MED | 🟡 MED | 🔴 HIGH | 🟢 LOW |
+
+*Impact Matrix | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2 Extension)*
+*Confidence: 🟡 MEDIUM — structural impact assessment; cascade effects are expert projections*
+

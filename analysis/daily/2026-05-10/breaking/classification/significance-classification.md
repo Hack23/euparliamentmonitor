@@ -124,3 +124,54 @@ This ranks among the top 15% of EP plenary sessions in historical significance s
 **Classification: BREAKING / LEGISLATIVE CLUSTER — HIGH SIGNIFICANCE**
 
 *Classification last updated: 2026-05-10 (re-run). Methodology: EP Monitor Significance Framework v2.1*
+
+---
+
+## 📊 SIGNIFICANCE CLASSIFICATION VISUALISATION (Re-run 3 Extension)
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+pie title Resolution Classification Distribution (April 2026 Breaking News)
+    "CRITICAL — Tier 1" : 2
+    "HIGH — Tier 2" : 2
+    "MEDIUM — Tier 3" : 1
+```
+
+### Tier-by-Tier Significance Assessment
+
+**TIER 1 — CRITICAL SIGNIFICANCE** (Score 40-50/50)
+1. **TA-10-2026-0161 (Ukraine Accountability)** — Score: 43/50
+   - Rationale: ICPA operationalisation represents a once-in-generation international law innovation; frozen asset mechanism touches €280bn; precedent implications for all future aggression
+   - Implementation risk: HIGH (ICPA requires 5-7 year treaty process)
+   - Monitoring frequency: Monthly check on Commission ICPA progress report
+
+2. **TA-10-2026-0160 (DMA Enforcement)** — Score: 42/50
+   - Rationale: DMA enforcement touches €500bn+ EU digital market; affects 450M users; sets decade-long Big Tech regulatory precedent
+   - Implementation risk: MEDIUM (Commission actively pursuing enforcement; CJEU appeals likely)
+   - Monitoring frequency: Quarterly check on Commission DMA enforcement decisions
+
+**TIER 2 — HIGH SIGNIFICANCE** (Score 30-39/50)
+3. **TA-10-2026-0162 (Armenia Integration)** — Score: 32/50
+   - Rationale: Geopolitical pivot for 2.8M population; EU neighbourhood policy expansion; Russian influence challenge
+   - Implementation risk: HIGH (Gyumri base; Eurasian Economic Union exit required for full integration)
+   - Monitoring frequency: Semi-annual check on CEPA implementation + FTA negotiations
+
+4. **TA-10-2026-0112 (Budget 2027)** — Score: 30/50
+   - Rationale: Sets fiscal framework for all EU citizens; annual anchor for all programmes; defence vs. cohesion battle indicator
+   - Implementation risk: MEDIUM (procedural; trilogue standard process)
+   - Monitoring frequency: Monthly during October-December 2026 budget cycle
+
+**TIER 3 — MEDIUM SIGNIFICANCE** (Score 20-29/50)
+5. **TA-10-2026-0151 (Haiti Trafficking)** — Score: 22/50
+   - Rationale: Humanitarian importance high but EU leverage limited; resolution symbolic in immediate term
+   - Implementation risk: HIGH (MSS effectiveness uncertain; Haitian governance fragility)
+   - Monitoring frequency: Quarterly check on ECHO funding + MSS progress
+
+### Cross-Tier Observation
+
+An unusual feature of the April 28-30 plenary: Two Tier-1 CRITICAL resolutions were adopted in the same session. This clustering — DMA enforcement (digital sovereignty) and Ukraine accountability (security values) — reflects EP10's strategic positioning in year three. Both resolutions advance the EU's claim to regulatory superpower status in their respective domains.
+
+**Historical comparison:** The October 2018 plenary adopted the GDPR implementation resolution, which also ranked CRITICAL (now confirmed as transformative). The April 2026 session may be of similar historic significance for digital markets and international criminal law.
+
+*Significance Classification | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2)*
+*Methodology: EP Monitor Significance Framework v2.1 | Confidence: 🟡 MEDIUM-HIGH*

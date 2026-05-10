@@ -103,4 +103,58 @@ Each resolution scored on 5 dimensions (1-10 scale):
 
 ---
 
+## 📊 VISUAL SIGNIFICANCE COMPARISON
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+xychart-beta
+    title "Resolution Significance Scores (April 30, 2026 Plenary)"
+    x-axis ["Ukraine Acct", "DMA Enforce", "Armenia", "Budget 2027", "Haiti"]
+    y-axis "Significance Score (0-50)" 0 --> 50
+    bar [43, 42, 32, 30, 22]
+```
+
+## 🔄 DIMENSION-BY-DIMENSION RADAR ANALYSIS
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+quadrantChart
+    title Significance Matrix: Immediacy vs Durability
+    x-axis "Low Durability" --> "High Durability"
+    y-axis "Low Immediacy" --> "High Immediacy"
+    quadrant-1 "High Urgency / Enduring"
+    quadrant-2 "High Urgency / Transient"
+    quadrant-3 "Low Urgency / Transient"
+    quadrant-4 "Low Urgency / Enduring"
+    DMA Enforcement: [0.9, 0.7]
+    Ukraine Accountability: [1.0, 0.6]
+    Armenia Resilience: [0.8, 0.5]
+    Budget 2027: [0.5, 0.4]
+    Haiti Resolution: [0.3, 0.6]
+```
+
+## 🎯 INSTITUTIONAL IMPACT WEIGHTING
+
+Beyond raw significance scores, the institutional processing path multiplies political impact:
+
+| Resolution | Processing Path | Institutional Amplifier | Net Political Impact |
+|-----------|----------------|------------------------|---------------------|
+| TA-0160 (DMA) | EP → Commission → DMA enforcement | Commission obligation to respond within 3 months | **HIGH** |
+| TA-0161 (Ukraine) | EP → Council → Member state coordination | NATO/ICC synergy | **VERY HIGH** |
+| TA-0162 (Armenia) | EP → EEAS → Neighbourhood Policy | CPA negotiation acceleration | **MEDIUM-HIGH** |
+| TA-0112 (Budget) | EP → Council trilogue | Annual budget negotiation anchor | **HIGH** |
+| TA-0151 (Haiti) | EP → DEVCO → ECHO | Humanitarian coordination mechanism | **MEDIUM** |
+
+### Confidence Assessment by Resolution
+
+| Resolution | Data Quality | Procedural Confidence | Analytical Confidence |
+|-----------|-------------|----------------------|-----------------------|
+| TA-0160 DMA | 🔴 LIMITED (no full text) | 🟢 HIGH (confirmed adopted) | 🟡 MEDIUM |
+| TA-0161 Ukraine | 🔴 LIMITED (no full text) | 🟢 HIGH (confirmed adopted) | 🟡 MEDIUM |
+| TA-0162 Armenia | 🔴 LIMITED (no full text) | 🟢 HIGH (confirmed adopted) | 🟡 MEDIUM |
+| TA-0112 Budget | 🔴 LIMITED (no full text) | 🟢 HIGH (confirmed adopted) | 🟡 MEDIUM |
+| TA-0151 Haiti | 🔴 LIMITED (no full text) | 🟢 HIGH (confirmed adopted) | 🟡 MEDIUM |
+
+**Note:** Data quality is uniformly limited — all adopted texts from April 28-30, 2026 return HTTP 404 from EP API. Significance scoring is based on document titles, procedural references, and structural EP political analysis. Confidence will improve when full-text documents become available (estimated: June 2026).
+
 *Significance Scoring | EU Parliament Monitor | 2026-05-10*
