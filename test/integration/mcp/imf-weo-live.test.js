@@ -68,6 +68,11 @@ describe('integration — IMF WEO live (gated on IMF_API_PRIMARY_KEY)', () => {
       const weo = rows.find((r) => r.id === 'WEO');
       expect(weo).toBeDefined();
       expect(weo.name).toMatch(/world\s+economic\s+outlook/i);
+      // Post-Sept-2025 IMF Data Portal exposes the publishing agency on
+      // every dataflow. WEO is owned by the Research Department.
+      expect(weo.agency).toBe('IMF.RES');
+      expect(typeof weo.version).toBe('string');
+      expect(weo.version.length).toBeGreaterThan(0);
     },
     TIMEOUT_MS
   );

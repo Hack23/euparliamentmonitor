@@ -59,8 +59,8 @@ elif [ -n "${IMF_API_SECONDARY_KEY:-}" ]; then
 else
   _IMF_AUTH_MODE="none"
 fi
-_IMF_DATAFLOW_QUERY="structure/dataflow/IMF/all/latest"
-_IMF_WEO_QUERY="data/dataflow/IMF/WEO/+/A.EA+DEU+FRA+ITA.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP?startPeriod=2025&endPeriod=2026&format=jsondata"
+_IMF_DATAFLOW_QUERY="structure/dataflow"
+_IMF_WEO_QUERY="data/dataflow/IMF.RES/WEO/+/EA+DEU+FRA+ITA.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP.A?startPeriod=2025&endPeriod=2026&format=jsondata"
 
 # Build curl base options. The Ocp-Apim-Subscription-Key header is added per-
 # request inside the direct-curl loop below from $IMF_API_PRIMARY_KEY (and

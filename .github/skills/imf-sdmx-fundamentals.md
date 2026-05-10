@@ -29,46 +29,65 @@ the human-readable companion to
 Every IMF dataflow is queried with a URL of the shape:
 
 ```
-GET https://api.imf.org/external/sdmx/3.0/data/dataflow/IMF/{DATAFLOW}/+/{KEY}?startPeriod=YYYY&endPeriod=YYYY&format=jsondata
+GET https://api.imf.org/external/sdmx/3.0/data/dataflow/{AGENCY}/{DATAFLOW}/+/{KEY}?startPeriod=YYYY&endPeriod=YYYY&format=jsondata
 ```
 
-The `/dataflow/IMF/{DATAFLOW}/+/` segment is the SDMX 3.0 reference
-form expected by the IMF Azure-APIM gateway — `IMF` is the agency,
-`+` selects the latest version of the dataflow, and `{DATAFLOW}` is
-the database id (e.g. `WEO`, `IFS`). The trailing `{KEY}` is a
-dot-delimited tuple of dimension-code values in the **fixed dimension
-order** declared by the dataflow's Data Structure Definition (DSD).
-Wildcards are allowed per-position by leaving the slot empty (`..`).
+The `/dataflow/{AGENCY}/{DATAFLOW}/+/` segment is the SDMX 3.0
+reference form expected by the IMF Azure-APIM gateway. Post-Sept-2025
+**`{AGENCY}` is the publishing sub-department** (`IMF.RES`, `IMF.STA`,
+`IMF.FAD`, …) — the umbrella `IMF` agency was retired in the IMF Data
+Portal migration and now returns 204 No Content for every editorial
+dataflow. `+` selects the latest version of the dataflow. The trailing
+`{KEY}` is a dot-delimited tuple of dimension-code values in the
+**fixed dimension order** declared by the dataflow's Data Structure
+Definition (DSD). For "all codes in this dimension" use the SDMX 3.0
+wildcard `*` (e.g. `DEU.*.A`) — the bare empty form `DEU..A` is
+rejected by `api.imf.org` (returns 0 series).
 
-**Example (WEO — annual frequency, Germany real-GDP growth, 2020→2029):**
+**Example (WEO — Germany real-GDP growth, annual frequency, 2020→2030):**
 
 ```
-GET /data/dataflow/IMF/WEO/+/A.DEU.NGDP_RPCH?startPeriod=2020&endPeriod=2029&format=jsondata
+GET /data/dataflow/IMF.RES/WEO/+/DEU.NGDP_RPCH.A?startPeriod=2020&endPeriod=2030&format=jsondata
 ```
 
 The key decodes as:
-- Position 1 = `FREQ` dimension → `A` (annual)
-- Position 2 = `REF_AREA` dimension → `DEU` (ISO 3166-1 alpha-3)
-- Position 3 = `INDICATOR` dimension → `NGDP_RPCH` (real GDP growth %)
+- Position 1 = `COUNTRY` dimension → `DEU` (ISO 3166-1 alpha-3)
+- Position 2 = `INDICATOR` dimension → `NGDP_RPCH` (real GDP growth %)
+- Position 3 = `FREQUENCY` dimension → `A` (annual)
+
+(Frequency is the **last** series-level dimension in the SDMX 3.0
+WEO DSD — the legacy SDMX 2.1 convention of leading with `FREQ` does
+not apply on `api.imf.org`.)
 
 ---
 
 ## 2. Canonical dimension order (per database family)
 
-| Database | Key positions | Example |
-|----------|---------------|---------|
-| `WEO` | FREQ. REF_AREA. INDICATOR | `A.DEU.NGDP_RPCH` |
-| `FM` | FREQ. REF_AREA. INDICATOR | `A.DEU.GGXWDG_NGDP` |
-| `IFS` | FREQ. REF_AREA. INDICATOR | `M.DE.FPOLM_PA` |
-| `BOP_AGG` | FREQ. REF_AREA. INDICATOR | `Q.EU.BFD_BP6_USD` |
-| `DOT` | FREQ. REF_AREA. COUNTERPART_AREA. INDICATOR | `A.DEU.CHN.TXG_FOB_USD` |
-| `CDIS` | FREQ. REF_AREA. COUNTERPART_AREA. SECTOR. INDICATOR | `A.DEU.USA.S1.IAD_BP6_USD` |
-| `CPIS` | FREQ. REF_AREA. COUNTERPART_AREA. INSTR. INDICATOR | `A.DEU.USA.F3.IAD_BP6_USD` |
-| `ER` | FREQ. REF_AREA. INDICATOR | `D.DE.ENDA_XDC_USD_RATE` |
-| `PCPS` | FREQ. INDICATOR | `M.PCOPP_USD` |
-| `GFSR` | FREQ. REF_AREA. INDICATOR. SECTOR | `A.DEU.FA_LE_F3_T_XDC.S1` |
-| `FSI` | FREQ. REF_AREA. INDICATOR | `Q.DE.NPLR_PT` |
-| `GFS` | FREQ. REF_AREA. SECTOR. UNIT. INDICATOR | `A.DE.S13.XDC.GRE` |
+All dimension names are UPPERCASE in the SDMX 3.0 DSDs. `FREQUENCY` is
+the **last** series-level dimension in every editorial dataflow.
+
+| Database | Agency | Key positions | Example |
+|----------|--------|---------------|---------|
+| `WEO` | `IMF.RES` | COUNTRY. INDICATOR. FREQUENCY | `DEU.NGDP_RPCH.A` |
+| `FM` | `IMF.FAD` | COUNTRY. INDICATOR. FREQUENCY | `DEU.GGXWDG_NGDP.A` |
+| `IFS` | `IMF.STA` | COUNTRY. INDICATOR. FREQUENCY | `DE.FPOLM_PA.M` |
+| `BOP_AGG` | `IMF.STA` | COUNTRY. INDICATOR. FREQUENCY | `EU.BFD_BP6_USD.Q` |
+| `DOT` | `IMF.STA` | COUNTRY. COUNTERPART_AREA. INDICATOR. FREQUENCY | `DEU.CHN.TXG_FOB_USD.A` |
+| `CDIS` | `IMF.STA` | COUNTRY. COUNTERPART_AREA. SECTOR. INDICATOR. FREQUENCY | `DEU.USA.S1.IAD_BP6_USD.A` |
+| `CPIS` | `IMF.STA` | COUNTRY. COUNTERPART_AREA. INSTRUMENT. INDICATOR. FREQUENCY | `DEU.USA.F3.IAD_BP6_USD.A` |
+| `ER` | `IMF.STA` | COUNTRY. INDICATOR. TYPE_OF_TRANSFORMATION. FREQUENCY | `DE.ENDA_XDC_USD_RATE.LCY.D` |
+| `PCPS` | `IMF.RES` | COUNTRY. INDICATOR. DATA_TRANSFORMATION. FREQUENCY | `W00.PCOPP.IX.M` |
+| `GFSR` | `IMF.STA` | COUNTRY. INDICATOR. SECTOR. FREQUENCY | `DEU.FA_LE_F3_T_XDC.S1.A` |
+| `FSI` | `IMF.STA` | COUNTRY. INDICATOR. SECTOR. FREQUENCY | `DE.NPLR_PT._T.Q` |
+| `GFS` | `IMF.STA` | COUNTRY. SECTOR. UNIT. INDICATOR. FREQUENCY | `DE.S13.XDC.GRE.A` |
+
+The `IMFMCPClient` auto-resolves agency from the dataflow id; pass an
+explicit `agencyId` only when overriding for a vintage or non-editorial
+dataflow. The override slot differs per method:
+
+- `getParameterDefs(databaseId, agencyId?)` — **2nd** positional argument
+- `getParameterCodes(databaseId, parameter, search?, agencyId?)` — **4th** positional argument
+- `fetchData({ databaseId, …, agencyId })` — named option on the options object
 
 See [`../../analysis/imf/sdmx-dimensions-reference.md`](../../analysis/imf/sdmx-dimensions-reference.md)
 for the complete list and per-dimension codelists.
