@@ -187,11 +187,32 @@ used to retry on 401/403). Probe: `scripts/imf-mcp-probe.sh`.
 
 | Virtual tool | Method | REST endpoint | Purpose |
 |--------------|--------|---------------|---------|
-| `imf-list-databases` | `listDatabases` | `GET /structure/dataflow/IMF/all/latest` | List ~155 SDMX dataflows |
+| `imf-list-databases` | `listDatabases` | `GET /structure/dataflow` | List ~190 SDMX dataflows (across all IMF agencies) |
 | `imf-search-databases` | `searchDatabases(keyword)` | dataflow list + filter | Find a database by keyword |
-| `imf-get-parameter-defs` | `getParameterDefs(dbId)` | `GET /structure/datastructure/IMF/{id}/+` | SDMX data-structure definition |
-| `imf-get-parameter-codes` | `getParameterCodes(db, dim, search?)` | `GET /structure/datastructure/IMF/{id}/+?references=codelist` | Codelist for a dimension |
-| `imf-fetch-data` | `fetchData({ databaseId, startYear, endYear, filters })` | `GET /data/dataflow/IMF/{id}/+/{KEY}?format=jsondata` | Fetch a time series |
+| `imf-get-parameter-defs` | `getParameterDefs(dbId)` | `GET /structure/dataflow/{agency}/{id}/+?references=datastructure` | DSD dimensions for a dataflow |
+| `imf-get-parameter-codes` | `getParameterCodes(db, dim, search?)` | `GET /structure/dataflow/{agency}/{id}/+?references=all` | Codelist for a dimension (walks DSD → conceptScheme → codelist) |
+| `imf-fetch-data` | `fetchData({ databaseId, startYear, endYear, filters })` | `GET /data/dataflow/{agency}/{id}/+/{KEY}?format=jsondata` | Fetch a time series |
+
+**Agency map** (post-Sept-2025 IMF Data Portal — the umbrella `IMF`
+agency was retired and now returns 204; the client auto-resolves but
+agents may override via `agencyId`):
+
+| Dataflow | Agency | Notes |
+|----------|--------|-------|
+| `WEO`, `PCPS`, `ITS` | `IMF.RES` | Research Department (forecasts, commodity prices) |
+| `FM` | `IMF.FAD` | Fiscal Affairs Department |
+| `CPI`, `BOP`, `BOP_AGG`, `ER`, `IFS`, `DOT`, `CDIS`, `CPIS`, `GFS`, `FSI`, `MFS` | `IMF.STA` | Statistics Department (everything else editorial) |
+
+**SDMX 3.0 key shape**: `{COUNTRY}.{INDICATOR}.{FREQUENCY}` — uppercase
+dimension names, **frequency last** (not first). Use `*` for "all
+codes" in a dimension; bare `..` returns 0 series. Filter keys are
+matched **case-insensitively** so legacy lowercase aliases (`country`,
+`indicator`, `frequency`) still work.
+
+Examples:
+- WEO real GDP growth for Germany 2020-2030: `GET /data/dataflow/IMF.RES/WEO/+/DEU.NGDP_RPCH.A?startPeriod=2020&endPeriod=2030&format=jsondata`
+- WEO all indicators for Germany 2024: `GET /data/dataflow/IMF.RES/WEO/+/DEU.*.A?startPeriod=2024&endPeriod=2024&format=jsondata`
+- CPI inflation for Germany monthly 2025: `GET /data/dataflow/IMF.STA/CPI/+/DE.CPI._T._T.M?startPeriod=2025-01&endPeriod=2025-12&format=jsondata`
 
 **Scope references:**
 - [`analysis/imf/database-directory.md`](../../analysis/imf/database-directory.md) — full 155-database relevance map

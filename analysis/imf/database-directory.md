@@ -4,13 +4,24 @@
 # 📚 IMF Database Directory — EU Parliament Monitor
 
 > **Purpose**: Full enumeration of the SDMX 3.0 dataflows advertised by
-> `GET https://dataservices.imf.org/REST/SDMX_3.0/dataflow/IMF`, grouped
-> by IMF publisher unit, with each database tagged for EP editorial
-> relevance. Companion to [`indicator-catalog.md`](indicator-catalog.md)
+> `GET https://api.imf.org/external/sdmx/3.0/structure/dataflow`,
+> grouped by IMF publisher unit, with each database tagged for EP
+> editorial relevance. Companion to [`indicator-catalog.md`](indicator-catalog.md)
 > — this file enumerates the **databases** (dataflows); the catalog
 > enumerates the **indicators** (SDMX codes) inside them.
 
-**📅 Last Updated:** 2026-04-25 | **🏷️ Classification:** Public | **🌀 Wave:** 4
+**📅 Last Updated:** 2026-05-10 | **🏷️ Classification:** Public | **🌀 Wave:** 4
+
+> **Agency note** (post-Sept-2025 IMF Data Portal): the umbrella
+> `IMF` agency was retired and now returns 204 for every editorial
+> dataflow. Each dataflow now lives under its publishing
+> sub-department: `IMF.RES` (Research — WEO, PCPS, ITS), `IMF.FAD`
+> (Fiscal Affairs — FM), `IMF.STA` (Statistics — everything else
+> editorial: CPI, BOP, BOP_AGG, ER, IFS, DOT, CDIS, CPIS, GFS, GFSR,
+> FSI, MFS). The TypeScript client (`src/mcp/imf-mcp-client.ts`)
+> auto-resolves agency from dataflow id; agents may pass an explicit
+> `agencyId` override on `getParameterDefs` / `getParameterCodes` /
+> `fetchData` for vintage or non-editorial dataflows.
 
 ---
 

@@ -280,8 +280,8 @@ probe remains inside the ≤4 min Stage-A budget):
 
 | Purpose | IMF REST path | Coverage |
 |---------|---------------|----------|
-| Availability / dataflow drift | `/dataflow/IMF` | Confirms SDMX 3.0 service and WEO dataflow listing |
-| Macro WEO slice | `/data/WEO/A.EA+DEU+FRA+ITA.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP?startPeriod=2025&endPeriod=2026&format=jsondata` | Annual WEO (`A`) for Eurozone aggregate (`EA`) plus DE/FR/IT real GDP growth (`NGDP_RPCH`), inflation (`PCPIPCH`), and fiscal balance (`GGXCNL_NGDP`) |
+| Availability / dataflow drift | `/structure/dataflow` | Confirms SDMX 3.0 service and lists every dataflow across all IMF agencies (IMF.RES/STA/FAD/…) |
+| Macro WEO slice | `/data/dataflow/IMF.RES/WEO/+/EA+DEU+FRA+ITA.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP.A?startPeriod=2025&endPeriod=2026&format=jsondata` | WEO (agency `IMF.RES`, key order COUNTRY.INDICATOR.FREQUENCY) for Eurozone aggregate (`EA`) plus DE/FR/IT real GDP growth (`NGDP_RPCH`), inflation (`PCPIPCH`), and fiscal balance (`GGXCNL_NGDP`), annual frequency (`A`) |
 
 `economic-context.md` must set `IMF Source` to `live` when the current run
 created the cache files, `cache` when it reused same-day cache, or

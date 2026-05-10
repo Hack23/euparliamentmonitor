@@ -26,7 +26,7 @@
 |----------|-------------|----------|
 | [`database-directory.md`](database-directory.md) | Full SDMX dataflow inventory (~155 databases) grouped by IMF publisher unit, tagged 🟢/🟡/⚪ for EP editorial relevance | AI workflows, developers |
 | [`indicator-catalog.md`](indicator-catalog.md) | ~80 IMF indicators across WEO, IFS, FM, BOP, ER, PCPS, organised by 10 EP policy domains with SDMX codes, frequency, and forecast horizon | AI workflows, developers |
-| [`sdmx-dimensions-reference.md`](sdmx-dimensions-reference.md) | Canonical SDMX 3.0 dimensions (`FREQ`, `REF_AREA`, `INDICATOR`, `COUNTERPART_AREA`, `OBS_STATUS`, `SCALE`, `METHODOLOGY`) with EP handling rules | AI workflows, developers |
+| [`sdmx-dimensions-reference.md`](sdmx-dimensions-reference.md) | Canonical SDMX 3.0 dimensions (`COUNTRY`, `INDICATOR`, `FREQUENCY`, `COUNTERPART_AREA`, `INSTRUMENT`, `SECTOR`, `UNIT`, `OBS_STATUS`, `SCALE`, `METHODOLOGY`) with EP handling rules | AI workflows, developers |
 | [`eu-country-mapping.md`](eu-country-mapping.md) | EU-27 + comparison groups with IMF country codes and aggregation codelists (`EA`, `EU`, `G7`, `G20`) | AI workflows, analysis |
 | [`release-calendar.md`](release-calendar.md) | Rolling 18-month calendar of WEO/FM/GFSR/EREO vintages + monthly IFS/CPI/ER/PCPS cadence with editorial-trigger SLAs | AI workflows, product |
 | [`forecast-accuracy-baseline.md`](forecast-accuracy-baseline.md) | Per-horizon MAE bands for WEO/FM forecasts driving the mandatory optimism-bias acknowledgement on horizons ≥3y | AI workflows, news-journalist |
@@ -47,11 +47,23 @@ and the workflow probe.
 
 | Virtual tool | Method | REST endpoint |
 |---|---|---|
-| `imf-list-databases` | `listDatabases` | `GET /dataflow/IMF` |
-| `imf-search-databases` | `searchDatabases(keyword)` | `/dataflow/IMF` + client-side filter |
-| `imf-get-parameter-defs` | `getParameterDefs(databaseId)` | `GET /datastructure/{id}` |
-| `imf-get-parameter-codes` | `getParameterCodes(db, param, search?)` | `GET /datastructure/{id}?references=codelist` |
-| `imf-fetch-data` | `fetchData({ databaseId, startYear, endYear, filters })` | `GET /data/{dataflow}/{key}?startPeriod=…` |
+| `imf-list-databases` | `listDatabases` | `GET /structure/dataflow` |
+| `imf-search-databases` | `searchDatabases(keyword)` | `/structure/dataflow` + client-side filter |
+| `imf-get-parameter-defs` | `getParameterDefs(databaseId)` | `GET /structure/dataflow/{agency}/{id}/+?references=datastructure` |
+| `imf-get-parameter-codes` | `getParameterCodes(db, param, search?)` | `GET /structure/dataflow/{agency}/{id}/+?references=all` |
+| `imf-fetch-data` | `fetchData({ databaseId, startYear, endYear, filters })` | `GET /data/dataflow/{agency}/{id}/+/{KEY}?startPeriod=…&endPeriod=…&format=jsondata` |
+
+> **Agency resolution** (post-Sept-2025 IMF Data Portal): the umbrella
+> `IMF` agency was retired and now returns 204 No Content for every
+> editorial dataflow. Agencies in use today: `IMF.RES` (WEO, PCPS,
+> ITS), `IMF.FAD` (FM), `IMF.STA` (CPI, BOP, BOP_AGG, ER, IFS, DOT,
+> CDIS, CPIS, GFS, GFSR, FSI, MFS — i.e. everything else editorial).
+> The TypeScript client auto-resolves agency from dataflow id; pass an
+> explicit `agencyId` only when overriding for vintage or
+> non-editorial dataflows. SDMX 3.0 key shape is
+> `{COUNTRY}.{INDICATOR}.{FREQUENCY}` for editorial dataflows
+> (uppercase dimension names, **frequency last**); use `*` for
+> wildcard positions — bare `..` returns 0 series.
 
 The canonical identifier list is duplicated in `IMF_MCP_TOOLS` in
 [`src/mcp/imf-mcp-client.ts`](../../src/mcp/imf-mcp-client.ts) and guarded by the

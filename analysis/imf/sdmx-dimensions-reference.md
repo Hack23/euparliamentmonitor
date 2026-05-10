@@ -21,56 +21,69 @@
 
 ## 1. Dimensions Glossary
 
+> **SDMX 3.0 dimension naming**: post-Sept-2025 the IMF Data Portal
+> uses UPPERCASE dimension names on `api.imf.org` — `COUNTRY`,
+> `INDICATOR`, `FREQUENCY` (not the legacy lowercase / `FREQ` /
+> `REF_AREA` shapes that appeared in SDMX 2.1 IFS payloads). The
+> `IMFMCPClient` matches filter keys case-insensitively so legacy
+> `country`/`indicator`/`frequency` aliases keep working.
+
 | Dimension | Appears on | Required? | Example values | EP handling |
 |-----------|------------|:---------:|----------------|-------------|
-| `FREQ` | All | ✅ | `A` / `Q` / `M` | Encoded as first path segment after dataflow ID |
-| `REF_AREA` | All | ✅ | `DEU`, `FRA`, `EU`, `EA` | ISO-3 country or IMF aggregate — see `eu-country-mapping.md` |
-| `INDICATOR` | WEO, FM, IFS, FSI, PCPS, SRF | ✅ | `NGDP_RPCH`, `GGXWDG_NGDP` | Canonical SDMX code; see `indicator-catalog.md §2` |
+| `FREQUENCY` | All | ✅ | `A` / `Q` / `M` | **Last** series-level dimension in every editorial DSD; client supplies dataflow-default when omitted |
+| `COUNTRY` | All | ✅ | `DEU`, `FRA`, `EU`, `EA` | ISO-3 country or IMF aggregate — see `eu-country-mapping.md` |
+| `INDICATOR` | WEO, FM, IFS, FSI, PCPS, SRF, … | ✅ | `NGDP_RPCH`, `GGXWDG_NGDP` | Canonical SDMX code; see `indicator-catalog.md §2` |
 | `COUNTERPART_AREA` | BOP, DOT, CDIS, CPIS | ✅ | `W00` (World), `USA`, `CHN` | Bilateral partner for flow data |
-| `UNIT_MEASURE` | All | optional | `USD`, `EUR`, `PT` (percent), `IX` (index) | Stored on observation but rarely filtered |
+| `INSTRUMENT` | CPIS | ✅ | `F1`, `F2`, `F3` | Financial-instrument classification |
+| `SECTOR` | FSI, GFS, GFSR, CDIS | ✅/optional | `S1` (total economy), `S11` (non-financial corps), `S13` (general govt) | ESA 2010 sector codes |
+| `UNIT` / `UNIT_MEASURE` | GFS, ER, all (obs-level) | varies | `XDC` (domestic currency), `USD`, `EUR`, `PT` (percent), `IX` (index) | Required positional dim on GFS; observation-level metadata elsewhere |
+| `TYPE_OF_TRANSFORMATION` | CPI, ER | optional | `IX` (index), `PCH` (% change), `LCY` | WEO ships the change form via INDICATOR suffix; CPI/ER ship transformation as a dimension |
+| `INDEX_TYPE` | CPI | ✅ | `CPI`, `CCPI` | Headline vs. core |
+| `COICOP_1999` | CPI | ✅ | `_T` (all items) | COICOP product breakdown |
+| `BOP_ACCOUNTING_ENTRY` | BOP | ✅ | `C`, `D`, `N` (credit/debit/net) | BPM6 entry side |
 | `OBS_STATUS` | All (observation-level) | — | `A`, `F`, `E`, `B`, `P` | See `indicator-catalog.md §4` |
 | `SCALE` | All (observation-level) | — | `0`, `3`, `6`, `9` | Power-of-10 multiplier for the observation value |
 | `METHODOLOGY` | GFS, BOP | optional | `GFSM2014`, `BPM6` | Methodological-vintage tag |
 | `TIME_PERIOD` | All | ✅ (in query range) | `2026`, `2026-Q1`, `2026-03` | Emitted as `startPeriod` / `endPeriod` query params |
-| `TRANSFORMATION` | WEO forecasts | optional | `LEVEL`, `PCH`, `Y2Y` | Some indicators are distributed in both level and change form |
-| `ECONOMY_REF` | IFS | optional | `D` (domestic), `F` (foreign) | Monetary-statistics context |
-| `SECTOR` | FSI, GFS | optional | `S1` (total economy), `S11` (non-financial corps) | ESA 2010 sector codes |
 
 ---
 
 ## 2. Dimension ordering in the SDMX key
 
-The SDMX key is a **slash-separated concatenation** of dimension
-values in the order defined by the dataflow's
-`datastructure`. The TypeScript client's `imf-fetch-data` builds this
-automatically from the `filters` map; agents should supply filters by
-name, not by position.
+The SDMX key is a **dot-separated concatenation** of dimension values
+in the order defined by the dataflow's `datastructure`. The TypeScript
+client's `imf-fetch-data` builds this automatically from the `filters`
+map; agents should supply filters by name, not by position.
 
-Example for WEO:
+For "all codes in this dimension" use the SDMX 3.0 wildcard `*`. The
+bare empty form (`DEU..A`) is rejected by `api.imf.org` and returns 0
+series — always emit `*` when you want a wildcard.
 
-```
-GET /data/WEO/A.DEU.NGDP_RPCH?startPeriod=2020&endPeriod=2028
-         │ │    │
-         │ │    └── INDICATOR
-         │ └──────── REF_AREA
-         └────────── FREQ
-```
-
-Example for BOP:
+Example for WEO (agency `IMF.RES`, order COUNTRY.INDICATOR.FREQUENCY):
 
 ```
-GET /data/BOP_AGG/Q.DEU.W00.BFD_BP6_USD?startPeriod=2024
-                 │ │    │    │
-                 │ │    │    └── INDICATOR
-                 │ │    └──────── COUNTERPART_AREA (W00 = World)
-                 │ └────────── REF_AREA
-                 └──────────── FREQ
+GET /data/dataflow/IMF.RES/WEO/+/DEU.NGDP_RPCH.A?startPeriod=2020&endPeriod=2030&format=jsondata
+                                  │   │          │
+                                  │   │          └── FREQUENCY
+                                  │   └────────────── INDICATOR
+                                  └────────────────── COUNTRY
 ```
 
-Wildcard segments are legal: `A..NGDP_RPCH` means "all countries, WEO
-GDP growth". The client forbids this for data-fetch calls (keep the
-request scoped) but `imf-search-databases` / `imf-get-parameter-codes`
-may use wildcards freely.
+Example for BOP_AGG (agency `IMF.STA`, order COUNTRY.INDICATOR.FREQUENCY):
+
+```
+GET /data/dataflow/IMF.STA/BOP_AGG/+/DEU.BFD_BP6_USD.Q?startPeriod=2024
+                                     │   │            │
+                                     │   │            └── FREQUENCY
+                                     │   └──────────────── INDICATOR
+                                     └──────────────────── COUNTRY
+```
+
+Wildcard segments are legal: `*.NGDP_RPCH.A` means "all countries,
+WEO GDP growth, annual". The client forbids fully-empty filter maps
+on data-fetch calls (keep the request scoped); structure-discovery
+calls (`imf-search-databases` / `imf-get-parameter-codes`) may use
+wildcards freely.
 
 ---
 
