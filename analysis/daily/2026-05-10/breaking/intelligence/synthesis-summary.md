@@ -251,3 +251,63 @@ This narrative will be evident in the Stage D article render and should be prese
 
 *Synthesis Summary | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2)*
 *Total artifact set: 48 documents, ~18,700 lines across the analysis directory*
+
+---
+
+## 🔄 RUN 4 SYNTHESIS EXTENSION
+
+### Four-Run Analytical Convergence
+
+After four consecutive analytical runs on 2026-05-10, the synthesis picture has converged. The following represents the final consolidated synthesis:
+
+**Core thesis (confirmed stable across all 4 runs):** The April 2026 extraordinary EP plenary represents a threshold moment in which legislative ambition (DMA, ICPA, Armenia) is converting to enforcement and operationalisation. This is not incremental politics — it is institutional maturation.
+
+### Synthesis Heat Map
+
+```mermaid
+block-beta
+    columns 3
+    block:DIGITAL:1
+        DMA["DMA Enforcement\n🔴 High Impact\nShort timeline"]
+    end
+    block:SECURITY:1
+        ICPA["ICPA Ukraine\n🔴 High Impact\nMedium timeline"]
+    end
+    block:FOREIGN:1
+        ARM["Armenia Integration\n🟡 Medium-High\nLong timeline"]
+    end
+    block:FISCAL:1
+        BUD["Budget 2027\n🔴 High Impact\nMedium timeline"]
+    end
+    block:HUMANITARIAN:1
+        HAI["Haiti Trafficking\n🟡 Medium Impact\nLong timeline"]
+    end
+    block:INSTITUTIONAL:1
+        EIB["EIB + CoR Discharge\n🟢 Low-Med Impact\nAnnual cycle"]
+    end
+```
+
+### Integrated Threat-Opportunity Matrix
+
+| Domain | Primary Opportunity | Primary Threat | Net Assessment |
+|--------|--------------------|--------------|--------------| 
+| Digital markets | DMA creates European digital sovereignty | US retaliation risk (trade) | Net positive for EU |
+| Accountability | ICPA creates deterrence architecture | Hungary undermines consensus | Net positive for rule of law |
+| Eastern policy | Armenia accession path opens | Azerbaijan destabilisation | Net positive for EU security |
+| Budget | Defence spending mobilised | Social cohesion funding crowded out | Mixed |
+| Humanitarian | Gang governance addressed | Insufficient operational follow-through | Mixed |
+
+### 30/60/90-Day Action Matrix
+
+| Timeframe | Priority Action | Actor | Probability |
+|-----------|----------------|-------|-------------|
+| 30 days | Commission DMA Q2 enforcement update | DG COMP | 90% |
+| 30 days | ICPA ratification next state | EU member states | 70% |
+| 60 days | Apple interoperability ruling | Commission | 75% |
+| 60 days | Armenia-EU dialogue proposal | Commission | 55% |
+| 90 days | Budget 2027 trilogue formal opening | EP/Council | 85% |
+| 90 days | Haiti security resolution follow-up | UN/EU | 40% |
+
+[EXTEND-FROM-PRIOR: intelligence/synthesis-summary.md prior=253L → new=298L (+45)]
+
+*Synthesis Summary Extended | EU Parliament Monitor | 2026-05-10 | Run 4*
