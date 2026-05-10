@@ -1,0 +1,74 @@
+{
+  "articleType": "breaking",
+  "date": "2026-05-10",
+  "runId": "breaking-run307-1778376408",
+  "generatedAt": "2026-05-10T00:25:00Z",
+  "gateResult": "GREEN",
+  "mcpReliability": "MEDIUM",
+  "dataGaps": [
+    "vote-data-unavailable",
+    "full-text-404",
+    "events-feed-failed",
+    "procedures-feed-stale"
+  ],
+  "primarySources": [
+    "TA-10-2026-0112",
+    "TA-10-2026-0151",
+    "TA-10-2026-0160",
+    "TA-10-2026-0161",
+    "TA-10-2026-0162"
+  ],
+  "pass2": {
+    "startedAt": "2026-05-10T00:20:00Z",
+    "endedAt": "2026-05-10T00:25:00Z",
+    "rewriteCount": 4
+  },
+  "files": {
+    "executive-brief": "executive-brief.md",
+    "analysis-index": "intelligence/analysis-index.md",
+    "synthesis-summary": "intelligence/synthesis-summary.md",
+    "coalition-dynamics": "intelligence/coalition-dynamics.md",
+    "economic-context": "intelligence/economic-context.md",
+    "historical-baseline": "intelligence/historical-baseline.md",
+    "pestle-analysis": "intelligence/pestle-analysis.md",
+    "scenario-forecast": "intelligence/scenario-forecast.md",
+    "stakeholder-map": "intelligence/stakeholder-map.md",
+    "threat-model": "intelligence/threat-model.md",
+    "wildcards-blackswans": "intelligence/wildcards-blackswans.md",
+    "mcp-reliability-audit": "intelligence/mcp-reliability-audit.md",
+    "significance-scoring": "intelligence/significance-scoring.md",
+    "political-threat-landscape": "intelligence/political-threat-landscape.md",
+    "voting-patterns": "intelligence/voting-patterns.md",
+    "workflow-audit": "intelligence/workflow-audit.md",
+    "cross-session-intelligence": "intelligence/cross-session-intelligence.md",
+    "cross-run-diff": "intelligence/cross-run-diff.md",
+    "reference-analysis-quality": "intelligence/reference-analysis-quality.md",
+    "methodology-reflection": "intelligence/methodology-reflection.md",
+    "risk-matrix": "risk-scoring/risk-matrix.md",
+    "quantitative-swot": "risk-scoring/quantitative-swot.md",
+    "significance-classification": "classification/significance-classification.md",
+    "document-analysis-index": "documents/document-analysis-index.md",
+    "dma-deep-dive": "extended/dma-enforcement-deep-dive.md",
+    "ukraine-deep-dive": "extended/ukraine-accountability-deep-dive.md",
+    "armenia-analysis": "extended/armenia-integration-analysis.md",
+    "budget-analysis": "extended/budget-2027-analysis.md",
+    "eu-us-digital": "extended/eu-us-digital-relations.md",
+    "coalition-mathematics": "extended/coalition-mathematics.md",
+    "economic-forecast": "extended/economic-policy-forecast.md",
+    "strategic-autonomy": "extended/strategic-autonomy-analysis.md",
+    "data-limitations": "extended/data-source-limitations.md",
+    "criminal-law-context": "extended/international-criminal-law-context.md",
+    "haiti-context": "extended/haiti-crisis-context.md"
+  },
+  "history": [
+    {
+      "runAt": "2026-05-10T00:00:00Z",
+      "runId": "breaking-run307-1778376408",
+      "gateResult": "GREEN",
+      "elapsedMinutes": 25,
+      "rewriteCount": 4,
+      "artifactCount": 35
+    }
+  ],
+  "dataMode": "degraded-voting"
+}
