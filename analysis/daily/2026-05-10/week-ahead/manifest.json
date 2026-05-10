@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "1.0",
+  "articleType": "week-ahead",
+  "date": "2026-05-10",
+  "analysisDir": "analysis/daily/2026-05-10/week-ahead",
+  "runId": "week-ahead-unified-2026-05-10",
+  "createdAt": "2026-05-10T08:08:12Z",
+  "workflowRunId": "25623285802",
+  "imfStatus": "UNAVAILABLE",
+  "dataQuality": {
+    "overall": "MODERATE",
+    "epApiStatus": "PARTIAL",
+    "imfStatus": "UNAVAILABLE",
+    "voteDataAvailable": false,
+    "eventsFeedAvailable": false,
+    "foreseenActivitiesAvailable": true
+  },
+  "files": {
+    "root": [
+      "executive-brief.md",
+      "methodology-reflection.md"
+    ],
+    "intelligence": [
+      "intelligence/synthesis-summary.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/forward-projection.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/analysis-index.md",
+      "intelligence/threat-model.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/reference-analysis-quality.md"
+    ],
+    "classification": [
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md"
+    ],
+    "threatAssessment": [
+      "threat-assessment/political-threat-landscape.md"
+    ],
+    "riskScoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "extended": [
+      "extended/media-framing-analysis.md"
+    ],
+    "data": [
+      "data/stage-a-collection.json"
+    ],
+    "cache": [
+      "cache/imf/probe-summary.json"
+    ]
+  },
+  "artifactStats": {
+    "totalArtifacts": 25,
+    "intelligenceArtifacts": 14,
+    "classificationArtifacts": 4,
+    "threatArtifacts": 1,
+    "riskArtifacts": 2,
+    "extendedArtifacts": 1,
+    "rootArtifacts": 2,
+    "mandatoryArtifactsMet": true,
+    "forwardProjectionPresent": true,
+    "mediaFramingPresent": true,
+    "executiveBriefPresent": true
+  },
+  "pass2": {
+    "startedAt": "2026-05-10T08:00:00Z",
+    "endedAt": "2026-05-10T08:08:00Z",
+    "rewriteCount": 4,
+    "sectionsReviewed": [
+      "executive-brief.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/forward-projection.md",
+      "extended/media-framing-analysis.md"
+    ]
+  },
+  "stageTimings": {
+    "stageAStarted": "2026-05-10T07:50:54Z",
+    "stageACompleted": "2026-05-10T07:57:00Z",
+    "stageB1Started": "2026-05-10T07:57:00Z",
+    "stageB2Started": "2026-05-10T08:00:00Z",
+    "stageB2Completed": "2026-05-10T08:08:12Z"
+  },
+  "history": [
+    {
+      "runAt": "2026-05-10T08:08:12Z",
+      "runId": "week-ahead-unified-2026-05-10",
+      "workflowRunId": "25623285802",
+      "stagesCompleted": [
+        "A",
+        "B1",
+        "B2"
+      ],
+      "stagesPending": [
+        "C",
+        "D",
+        "E"
+      ],
+      "artifactCount": 20,
+      "imfStatus": "UNAVAILABLE"
+    }
+  ]
+}
