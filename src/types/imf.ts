@@ -6,7 +6,7 @@
  * @description Types for IMF (International Monetary Fund) economic data
  * integration via the native TypeScript SDMX 3.0 REST client
  * (`src/mcp/imf-mcp-client.ts`), which calls
- * `https://dataservices.imf.org/REST/SDMX_3.0/` directly.
+ * `https://api.imf.org/external/sdmx/3.0/` directly.
  *
  * Used to enrich EU Parliament articles with **fresher** macroeconomic context
  * than the World Bank WDI provides (IMF WEO ships 2025 actuals + 2026-2030
@@ -31,7 +31,7 @@
  * (parsers, indicator/country maps, HTML builders) was purged in the
  * April-2026 aggregator-pipeline migration.
  *
- * @see {@link https://dataservices.imf.org/REST/SDMX_3.0 | IMF SDMX 3.0 REST API}
+ * @see {@link https://api.imf.org/external/sdmx/3.0 | IMF SDMX 3.0 REST API}
  * @see {@link https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/imf-indicator-mapping.md | IMF Indicator Mapping methodology} for the committee →
  *   IMF indicator mapping enforced at Stage-C editorial review.
  */
@@ -47,7 +47,7 @@ import type { MCPClientOptions } from './mcp.js';
  * actually consumed by the native HTTP transport:
  *
  * - `apiBaseUrl` — override the IMF REST base URL (default
- *   `https://dataservices.imf.org/REST/SDMX_3.0`).
+ *   `https://api.imf.org/external/sdmx/3.0`).
  * - `timeoutMs` — per-request timeout in milliseconds.
  * - `fetchImpl` — optional `fetch` injection for tests.
  *

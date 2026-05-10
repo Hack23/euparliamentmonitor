@@ -7,7 +7,7 @@
  * Drift guard for the native TypeScript IMF SDMX 3.0 REST client. Pins
  * the URL shape for each of the five virtual "tool" methods so a
  * refactor that silently changes the HTTP endpoint (e.g. drops
- * `/dataflow/IMF`, reorders SDMX key dimensions, or loses the
+ * `/structure/dataflow/IMF/all/latest`, reorders SDMX key dimensions, or loses the
  * `format=jsondata` query param) fails a fast, network-free test.
  *
  * Mirrors the pattern of `test/integration/mcp/worldbank-mcp.test.js`
@@ -23,7 +23,7 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
-const TEST_BASE_URL = 'https://dataservices.imf.org/REST/SDMX_3.0';
+const TEST_BASE_URL = 'https://api.imf.org/external/sdmx/3.0';
 
 /**
  * Build an `IMFMCPClient` whose `fetch` implementation is a vitest mock
@@ -49,18 +49,18 @@ function buildMockedClient(body = '{"data":{}}') {
 }
 
 describe('integration — IMF REST client surface', () => {
-  it('imf-list-databases hits /dataflow/IMF', async () => {
+  it('imf-list-databases hits /structure/dataflow/IMF/all/latest', async () => {
     const { client, fetchSpy } = buildMockedClient(
       JSON.stringify({ data: { dataflows: [{ id: 'WEO', name: 'World Economic Outlook' }] } })
     );
     const result = await client.listDatabases();
     expect(fetchSpy).toHaveBeenCalledTimes(1);
-    expect(fetchSpy.mock.calls[0][0]).toBe(`${TEST_BASE_URL}/dataflow/IMF`);
+    expect(fetchSpy.mock.calls[0][0]).toBe(`${TEST_BASE_URL}/structure/dataflow/IMF/all/latest`);
     const payload = JSON.parse(result.content[0].text);
     expect(payload[0]).toEqual({ id: 'WEO', name: 'World Economic Outlook', description: '' });
   });
 
-  it('imf-search-databases reuses /dataflow/IMF and filters client-side', async () => {
+  it('imf-search-databases reuses /structure/dataflow/IMF/all/latest and filters client-side', async () => {
     const { client, fetchSpy } = buildMockedClient(
       JSON.stringify({
         data: {
@@ -72,7 +72,7 @@ describe('integration — IMF REST client surface', () => {
       })
     );
     const result = await client.searchDatabases('price');
-    expect(fetchSpy.mock.calls[0][0]).toBe(`${TEST_BASE_URL}/dataflow/IMF`);
+    expect(fetchSpy.mock.calls[0][0]).toBe(`${TEST_BASE_URL}/structure/dataflow/IMF/all/latest`);
     const rows = JSON.parse(result.content[0].text);
     expect(rows).toHaveLength(1);
     expect(rows[0].id).toBe('CPI');
@@ -93,7 +93,7 @@ describe('integration — IMF REST client surface', () => {
       })
     );
     const result = await client.getParameterDefs('WEO');
-    expect(fetchSpy.mock.calls[0][0]).toBe(`${TEST_BASE_URL}/datastructure/WEO`);
+    expect(fetchSpy.mock.calls[0][0]).toBe(`${TEST_BASE_URL}/structure/datastructure/IMF/WEO/+`);
     const rows = JSON.parse(result.content[0].text);
     expect(rows.map((r) => r.id)).toEqual(['country', 'indicator']);
   });
@@ -118,7 +118,7 @@ describe('integration — IMF REST client surface', () => {
     );
     await client.getParameterCodes('WEO', 'indicator');
     expect(fetchSpy.mock.calls[0][0]).toBe(
-      `${TEST_BASE_URL}/datastructure/WEO?references=codelist`
+      `${TEST_BASE_URL}/structure/datastructure/IMF/WEO/+?references=codelist`
     );
   });
 
@@ -133,7 +133,7 @@ describe('integration — IMF REST client surface', () => {
     const url = fetchSpy.mock.calls[0][0];
     // WEO order is frequency.country.indicator; WEO is annual, so the
     // client supplies frequency=A when callers omit it.
-    expect(url).toContain(`${TEST_BASE_URL}/data/WEO/A.DEU+FRA.NGDP_RPCH?`);
+    expect(url).toContain(`${TEST_BASE_URL}/data/dataflow/IMF/WEO/+/A.DEU+FRA.NGDP_RPCH?`);
     expect(url).toContain('startPeriod=2020');
     expect(url).toContain('endPeriod=2030');
     expect(url).toContain('format=jsondata');
@@ -168,7 +168,7 @@ describe('integration — IMF REST client surface', () => {
     expect(fetchSpy.mock.calls[0][0]).toBe('http://host.docker.internal:8080/mcp/fetch-proxy');
     expect(fetchSpy.mock.calls[0][1].headers.Authorization).toBe('Bearer test-token');
     expect(JSON.parse(fetchSpy.mock.calls[0][1].body).params.arguments.url).toContain(
-      `${TEST_BASE_URL}/data/WEO/A.EA.NGDP_RPCH?`
+      `${TEST_BASE_URL}/data/dataflow/IMF/WEO/+/A.EA.NGDP_RPCH?`
     );
     expect(result.content[0].text).toContain('dataSets');
   });

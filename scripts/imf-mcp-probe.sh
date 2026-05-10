@@ -31,7 +31,7 @@ export IMF_MCP_RECORDS="0"
 export IMF_MCP_GATEWAY_STATUS="not-attempted"
 
 if [ -z "${IMF_API_BASE_URL:-}" ]; then
-  IMF_API_BASE_URL="https://dataservices.imf.org/REST/SDMX_3.0"
+  IMF_API_BASE_URL="https://api.imf.org/external/sdmx/3.0"
 fi
 export IMF_API_BASE_URL
 
@@ -49,10 +49,22 @@ mkdir -p "$_IMF_CACHE_DIR" 2>/dev/null || true
 _IMF_DATAFLOW_FILE="$_IMF_CACHE_DIR/dataflow-imf.json"
 _IMF_WEO_FILE="$_IMF_CACHE_DIR/weo-ea-deu-fra-ita-gdp-inflation-fiscal.json"
 _IMF_SUMMARY_FILE="$_IMF_CACHE_DIR/imf-probe-summary.json"
-_IMF_AUTH_MODE="none"
-_IMF_DATAFLOW_QUERY="dataflow/IMF"
-_IMF_WEO_QUERY="data/WEO/A.EA+DEU+FRA+ITA.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP?startPeriod=2025&endPeriod=2026&format=jsondata"
+# Auth mode reflects which subscription key the probe carried — useful for
+# diagnosing the Sept-2025 IMF Data Portal migration that gated all SDMX
+# feeds behind Azure-APIM subscription keys.
+if [ -n "${IMF_API_PRIMARY_KEY:-}" ]; then
+  _IMF_AUTH_MODE="primary"
+elif [ -n "${IMF_API_SECONDARY_KEY:-}" ]; then
+  _IMF_AUTH_MODE="secondary"
+else
+  _IMF_AUTH_MODE="none"
+fi
+_IMF_DATAFLOW_QUERY="structure/dataflow/IMF/all/latest"
+_IMF_WEO_QUERY="data/dataflow/IMF/WEO/+/A.EA+DEU+FRA+ITA.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP?startPeriod=2025&endPeriod=2026&format=jsondata"
 
+# Build curl base options. The Ocp-Apim-Subscription-Key header is added per-
+# request inside the direct-curl loop below from $IMF_API_PRIMARY_KEY (and
+# $IMF_API_SECONDARY_KEY on 401/403 retry).
 _IMF_CURL_OPTS=(--silent --show-error --fail --max-time 30 --connect-timeout 10 \
   -H 'User-Agent: euparliamentmonitor/0.9.0 (+https://github.com/Hack23/euparliamentmonitor)' \
   -H 'Accept: application/json, application/vnd.sdmx.data+json, */*;q=0.8' \
@@ -192,16 +204,51 @@ _imf_fetch_to_file() {
   fi
 
   # Strategy 2: Direct curl (works outside AWF sandbox or if proxy allowlist resolves).
-  tmp_out="$out.$$"
-  stderr_log=$(curl "${_IMF_CURL_OPTS[@]}" -X GET "$url" -o "$tmp_out" 2>&1)
-  status=$?
-  if [ $status -eq 0 ]; then
-    mv "$tmp_out" "$out"
-    return 0
+  # Tries the primary subscription key first, falling back to the secondary
+  # on 401/403 so live IMF key rotation never breaks an in-flight run.
+  local _imf_keys=()
+  if [ -n "${IMF_API_PRIMARY_KEY:-}" ]; then
+    _imf_keys+=("$IMF_API_PRIMARY_KEY")
   fi
-  rm -f "$tmp_out"
-  IMF_MCP_PROBE_ERROR="GET $url failed (exit $status): ${stderr_log%%$'\n'*}"
-  return $status
+  if [ -n "${IMF_API_SECONDARY_KEY:-}" ] \
+    && [ "${IMF_API_SECONDARY_KEY:-}" != "${IMF_API_PRIMARY_KEY:-}" ]; then
+    _imf_keys+=("$IMF_API_SECONDARY_KEY")
+  fi
+  if [ ${#_imf_keys[@]} -eq 0 ]; then
+    _imf_keys+=("")
+  fi
+  local _imf_attempt
+  local _imf_http_status
+  for _imf_attempt in "${_imf_keys[@]}"; do
+    tmp_out="$out.$$"
+    local _key_args=()
+    if [ -n "$_imf_attempt" ]; then
+      _key_args=(-H "Ocp-Apim-Subscription-Key: $_imf_attempt")
+    fi
+    # `--fail` returns exit 22 for 4xx/5xx; capture %{http_code} via -w so
+    # we can tell auth-class failures (401/403) from other errors and only
+    # retry on the former.
+    _imf_http_status=$(curl --silent --show-error --max-time 30 --connect-timeout 10 \
+      -H 'User-Agent: euparliamentmonitor/0.9.0 (+https://github.com/Hack23/euparliamentmonitor)' \
+      -H 'Accept: application/json, application/vnd.sdmx.data+json, */*;q=0.8' \
+      -H 'Accept-Language: en-US,en;q=0.9' \
+      -H 'Cache-Control: no-cache' \
+      "${_key_args[@]}" \
+      -o "$tmp_out" -w '%{http_code}' \
+      -X GET "$url" 2>/dev/null) || _imf_http_status="000"
+    if [ "$_imf_http_status" = "200" ] && [ -s "$tmp_out" ]; then
+      mv "$tmp_out" "$out"
+      return 0
+    fi
+    rm -f "$tmp_out"
+    if [ "$_imf_http_status" = "401" ] || [ "$_imf_http_status" = "403" ]; then
+      # Auth-class — retry with the next configured key (if any).
+      continue
+    fi
+    break
+  done
+  IMF_MCP_PROBE_ERROR="GET $url failed (HTTP $_imf_http_status)"
+  return 1
 }
 
 if [ -s "$_IMF_DATAFLOW_FILE" ] && [ -s "$_IMF_WEO_FILE" ]; then

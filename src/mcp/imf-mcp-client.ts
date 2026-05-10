@@ -4,7 +4,7 @@
 /**
  * @module MCP/IMFMCPClient
  * @description Native TypeScript IMF Data client — calls the IMF SDMX 3.0
- * REST API at {@link https://dataservices.imf.org/REST/SDMX_3.0/} via the
+ * REST API at {@link https://api.imf.org/external/sdmx/3.0/} via the
  * shared IMF-only `fetch-proxy` MCP gateway in gh-aw/AWF runs and direct
  * `fetch()` in local/non-AWF contexts.
  *
@@ -37,7 +37,7 @@
  *
  * - Uses the native Node 25 `fetch()` — no extra runtime dependency.
  * - Every call has an independent `AbortController` with a configurable
- *   timeout (`IMF_API_TIMEOUT_MS`, default 30 s).
+ *   timeout (`IMF_API_TIMEOUT_MS`, default 90 s).
  * - Errors (HTTP 4xx/5xx, network faults, JSON parse failures, abort) are
  *   caught and converted to the {@link IMF_FALLBACK} envelope. Callers
  *   upstream can therefore treat "no IMF" as "empty data" without
@@ -45,20 +45,25 @@
  *
  * Environment variables:
  * - `IMF_API_BASE_URL` — override base URL (default
- *   `https://dataservices.imf.org/REST/SDMX_3.0`).
- * - `IMF_API_TIMEOUT_MS` — per-request timeout (default `30000`).
+ *   `https://api.imf.org/external/sdmx/3.0`).
+ * - `IMF_API_TIMEOUT_MS` — per-request timeout (default `90000`).
+ * - `IMF_API_PRIMARY_KEY` — Azure APIM subscription key for `api.imf.org`
+ *   (required since September 2025; sent as `Ocp-Apim-Subscription-Key`).
+ * - `IMF_API_SECONDARY_KEY` — warm-standby subscription key, used to retry
+ *   on `401`/`403` so live key rotation never breaks a run.
  *
  * Historic env vars (`IMF_MCP_GATEWAY_URL`, `IMF_MCP_GATEWAY_API_KEY`,
- * `IMF_MCP_SERVER_PATH`) are no longer consulted — no gateway is needed
- * because the IMF SDMX 3.0 API is an unauthenticated public endpoint.
+ * `IMF_MCP_SERVER_PATH`) are no longer consulted — the IMF SDMX surface
+ * runs over plain HTTPS (with subscription-key auth) via the AWF
+ * fetch-proxy MCP server when reached from a sandboxed agent.
  */
 
 import type { MCPToolResult, MCPClientOptions } from '../types/index.js';
 
 // ─── Defaults ────────────────────────────────────────────────────────────────
 
-/** Default base URL for the IMF SDMX 3.0 REST API. */
-const DEFAULT_IMF_API_BASE_URL = 'https://dataservices.imf.org/REST/SDMX_3.0';
+/** Default base URL for the IMF Data Portal SDMX 3.0 REST API. */
+const DEFAULT_IMF_API_BASE_URL = 'https://api.imf.org/external/sdmx/3.0';
 
 /** Default per-request timeout (milliseconds). */
 const DEFAULT_IMF_API_TIMEOUT_MS = 90_000;
@@ -69,13 +74,16 @@ const IMF_USER_AGENT = 'euparliamentmonitor/0.9.0 (+https://github.com/Hack23/eu
 /** IMF SDMX accepts JSON data; keep a fallback for proxy/content negotiation. */
 const IMF_ACCEPT_HEADER = 'application/json, application/vnd.sdmx.data+json, */*;q=0.8';
 
-/** Common unauthenticated headers for direct IMF SDMX REST requests. */
+/** Common headers for direct IMF SDMX REST requests (auth header added per-request). */
 const IMF_REQUEST_HEADERS: Readonly<Record<string, string>> = Object.freeze({
   Accept: IMF_ACCEPT_HEADER,
   'User-Agent': IMF_USER_AGENT,
   'Accept-Language': 'en-US,en;q=0.9',
   'Cache-Control': 'no-cache',
 });
+
+/** Azure APIM subscription-key header expected by `api.imf.org`. */
+const IMF_SUBSCRIPTION_KEY_HEADER = 'Ocp-Apim-Subscription-Key';
 
 /** Fallback payload shape when an IMF call fails or the server is offline. */
 const IMF_FALLBACK: MCPToolResult = {
@@ -397,6 +405,70 @@ function withDefaultFrequency(
   return !hasFrequency && frequency ? { ...filters, frequency: [frequency] } : filters;
 }
 
+/**
+ * Resolve the IMF base URL and per-request timeout from constructor options
+ * and environment variables. Extracted so the {@link IMFMCPClient}
+ * constructor stays under SonarJS's cognitive-complexity threshold.
+ *
+ * @param options - Caller-supplied options (take precedence over env).
+ * @returns Resolved `base` (raw, may have trailing slashes) and `timeout`.
+ * @internal
+ */
+function readBaseAndTimeout(options: IMFClientOptions): { base: string; timeout: number } {
+  const envBase = process.env['IMF_API_BASE_URL'];
+  const envTimeout = process.env['IMF_API_TIMEOUT_MS'];
+  const parsedEnvTimeout =
+    envTimeout !== undefined && envTimeout !== '' ? Number.parseInt(envTimeout, 10) : Number.NaN;
+  const base =
+    options.apiBaseUrl ?? (envBase && envBase !== '' ? envBase : DEFAULT_IMF_API_BASE_URL);
+  let timeout: number;
+  if (
+    options.timeoutMs !== undefined &&
+    Number.isFinite(options.timeoutMs) &&
+    options.timeoutMs > 0
+  ) {
+    timeout = options.timeoutMs;
+  } else if (Number.isFinite(parsedEnvTimeout) && parsedEnvTimeout > 0) {
+    timeout = parsedEnvTimeout;
+  } else {
+    timeout = DEFAULT_IMF_API_TIMEOUT_MS;
+  }
+  return { base, timeout };
+}
+
+/**
+ * Strip trailing slashes without using a regex, so the CodeQL polynomial-
+ * ReDoS detector has nothing to flag. Single linear pass from the right.
+ *
+ * @param s - Input string.
+ * @returns The input with all trailing `/` characters removed.
+ * @internal
+ */
+function stripTrailingSlashes(s: string): string {
+  let end = s.length;
+  while (end > 0 && s.charCodeAt(end - 1) === 47 /* '/' */) {
+    end -= 1;
+  }
+  return end === s.length ? s : s.slice(0, end);
+}
+
+/**
+ * Read IMF Azure-APIM subscription keys from the environment, in priority
+ * order (primary, then secondary). Empty / unset / duplicate keys are
+ * filtered out so the returned array is `[]` only when no key is set at all.
+ *
+ * @returns Ordered list of candidate API keys (length 0–2).
+ * @internal
+ */
+function readImfSubscriptionKeysFromEnv(): readonly string[] {
+  const candidates = [process.env['IMF_API_PRIMARY_KEY'], process.env['IMF_API_SECONDARY_KEY']];
+  const keys: string[] = [];
+  for (const k of candidates) {
+    if (typeof k === 'string' && k.length > 0 && !keys.includes(k)) keys.push(k);
+  }
+  return keys;
+}
+
 // ─── Client ──────────────────────────────────────────────────────────────────
 
 /**
@@ -413,34 +485,23 @@ export class IMFMCPClient {
   private readonly _fetchImpl: typeof fetch;
   private readonly _fetchProxyGatewayUrl: string | undefined;
   private readonly _fetchProxyApiKey: string | undefined;
+  private readonly _imfSubscriptionKeys: readonly string[];
   private _connected = false;
 
   constructor(options: IMFClientOptions = {}) {
-    const envBase = process.env['IMF_API_BASE_URL'];
-    const envTimeout = process.env['IMF_API_TIMEOUT_MS'];
-    const parsedEnvTimeout =
-      envTimeout !== undefined && envTimeout !== '' ? Number.parseInt(envTimeout, 10) : Number.NaN;
-    const base =
-      options.apiBaseUrl ?? (envBase && envBase !== '' ? envBase : DEFAULT_IMF_API_BASE_URL);
-    // Strip trailing slashes without a regex so the CodeQL polynomial-ReDoS
-    // detector has nothing to flag. Single linear pass from the right.
-    let end = base.length;
-    while (end > 0 && base.charCodeAt(end - 1) === 47 /* '/' */) {
-      end -= 1;
-    }
-    this._apiBaseUrl = end === base.length ? base : base.slice(0, end);
-    this._timeoutMs =
-      options.timeoutMs !== undefined && Number.isFinite(options.timeoutMs) && options.timeoutMs > 0
-        ? options.timeoutMs
-        : Number.isFinite(parsedEnvTimeout) && parsedEnvTimeout > 0
-          ? parsedEnvTimeout
-          : DEFAULT_IMF_API_TIMEOUT_MS;
+    const { base, timeout } = readBaseAndTimeout(options);
+    this._apiBaseUrl = stripTrailingSlashes(base);
+    this._timeoutMs = timeout;
     this._fetchImpl = options.fetchImpl ?? globalThis.fetch.bind(globalThis);
     // MCP fetch-proxy gateway for AWF sandbox (bypasses Squid proxy)
     this._fetchProxyGatewayUrl =
       options.fetchProxyGatewayUrl ?? process.env['FETCH_MCP_GATEWAY_URL'] ?? undefined;
     this._fetchProxyApiKey =
       options.fetchProxyApiKey ?? process.env['EP_MCP_GATEWAY_API_KEY'] ?? undefined;
+    // IMF Azure-APIM subscription keys (primary + secondary). The fetch-proxy
+    // server already injects the same header when it is the transport, so this
+    // is mainly for the direct-fetch fallback used outside the AWF sandbox.
+    this._imfSubscriptionKeys = readImfSubscriptionKeysFromEnv();
   }
 
   /**
@@ -507,7 +568,9 @@ export class IMFMCPClient {
    */
   async listDatabases(): Promise<MCPToolResult> {
     try {
-      const json = await this._getJSON<SDMXDataflowListResponse>('/dataflow/IMF');
+      const json = await this._getJSON<SDMXDataflowListResponse>(
+        '/structure/dataflow/IMF/all/latest'
+      );
       const flows = json?.data?.dataflows ?? [];
       const rows = flows.map((f) => ({
         id: f.id ?? '',
@@ -539,7 +602,9 @@ export class IMFMCPClient {
       return IMF_FALLBACK;
     }
     try {
-      const json = await this._getJSON<SDMXDataflowListResponse>('/dataflow/IMF');
+      const json = await this._getJSON<SDMXDataflowListResponse>(
+        '/structure/dataflow/IMF/all/latest'
+      );
       const flows = json?.data?.dataflows ?? [];
       const needle = keyword.toLowerCase();
       const rows = flows
@@ -578,7 +643,7 @@ export class IMFMCPClient {
     }
     try {
       const json = await this._getJSON<SDMXDataStructureResponse>(
-        `/datastructure/${encodeURIComponent(databaseId)}`
+        `/structure/datastructure/IMF/${encodeURIComponent(databaseId)}/+`
       );
       const ds = json?.data?.dataStructures?.[0];
       const dims = ds?.dataStructureComponents?.dimensionList?.dimensions ?? [];
@@ -617,7 +682,7 @@ export class IMFMCPClient {
     try {
       // 1. Discover the codelist id for the requested dimension.
       const structure = await this._getJSON<SDMXDataStructureResponse>(
-        `/datastructure/${encodeURIComponent(databaseId)}?references=codelist`
+        `/structure/datastructure/IMF/${encodeURIComponent(databaseId)}/+?references=codelist`
       );
       const ds = structure?.data?.dataStructures?.[0];
       const dims = ds?.dataStructureComponents?.dimensionList?.dimensions ?? [];
@@ -704,7 +769,7 @@ export class IMFMCPClient {
         endPeriod: String(endYear),
         format: 'jsondata',
       });
-      const url = `/data/${encodeURIComponent(databaseId)}/${key}?${qs.toString()}`;
+      const url = `/data/dataflow/IMF/${encodeURIComponent(databaseId)}/+/${key}?${qs.toString()}`;
       const text = await this._getText(url);
       return wrapAsMCPResult(text);
     } catch (error) {
@@ -746,18 +811,87 @@ export class IMFMCPClient {
     }
 
     // Strategy 2: Direct fetch (works outside AWF sandbox)
+    // Tries the primary subscription key first, falling back to the secondary
+    // on 401/403 so live IMF key rotation never breaks an in-flight run.
+    return this._fetchDirectWithKeyRotation(url);
+  }
+
+  /**
+   * Direct-fetch strategy with subscription-key rotation.
+   *
+   * Iterates configured `IMF_API_PRIMARY_KEY` → `IMF_API_SECONDARY_KEY`,
+   * retrying only on `401`/`403`. Network errors short-circuit immediately.
+   *
+   * @param url - Fully-qualified IMF SDMX URL.
+   * @returns Response body text on success.
+   * @throws The last HTTP/network error when all configured keys are exhausted.
+   * @internal
+   */
+  private async _fetchDirectWithKeyRotation(url: string): Promise<string> {
+    const attempts: (string | undefined)[] =
+      this._imfSubscriptionKeys.length > 0 ? [...this._imfSubscriptionKeys] : [undefined];
+    let lastError: unknown;
+    for (let i = 0; i < attempts.length; i += 1) {
+      const isLast = i + 1 >= attempts.length;
+      const outcome = await this._fetchOnceWithKey(url, attempts[i]);
+      if (outcome.kind === 'ok') return outcome.text;
+      lastError = outcome.error;
+      if (outcome.kind === 'auth' && !isLast) continue;
+      throw outcome.error;
+    }
+    if (lastError !== undefined) throw lastError;
+    throw new Error(`IMF request to ${url} failed without producing a response`);
+  }
+
+  /**
+   * Single direct-fetch attempt with one subscription key. Classifies the
+   * outcome so {@link _fetchDirectWithKeyRotation} can decide whether to
+   * rotate keys or surface the error.
+   *
+   * @param url - Fully-qualified IMF SDMX URL.
+   * @param key - Subscription key for this attempt, or `undefined` to send unauthenticated.
+   * @returns `'ok'` with body text, `'auth'` with the 401/403 error, or `'error'` for everything else.
+   * @internal
+   */
+  private async _fetchOnceWithKey(
+    url: string,
+    key: string | undefined
+  ): Promise<{ kind: 'ok'; text: string } | { kind: 'auth' | 'error'; error: Error }> {
+    const headers: Record<string, string> = { ...IMF_REQUEST_HEADERS };
+    if (key !== undefined && key.length > 0) {
+      headers[IMF_SUBSCRIPTION_KEY_HEADER] = key;
+    }
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), this._timeoutMs);
     try {
       const response = await this._fetchImpl(url, {
         method: 'GET',
-        headers: IMF_REQUEST_HEADERS,
+        headers,
         signal: controller.signal,
       });
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status} ${response.statusText} for ${url}`);
+      if (response.ok) {
+        // `api.imf.org` returns 204 when the request reached Azure APIM
+        // but no Ocp-Apim-Subscription-Key matched. 204 is technically
+        // 2xx, so without this explicit branch the empty body would be
+        // returned as a successful SDMX-JSON envelope and downstream
+        // parsers would silently produce empty series. Treat 204 as an
+        // error so missing/invalid keys are caught at Stage A.
+        if (response.status === 204) {
+          return {
+            kind: 'error',
+            error: new Error(
+              `HTTP 204 No Content for ${url} — likely missing or invalid ${IMF_SUBSCRIPTION_KEY_HEADER} (set IMF_API_PRIMARY_KEY)`
+            ),
+          };
+        }
+        return { kind: 'ok', text: await response.text() };
       }
-      return await response.text();
+      const error = new Error(`HTTP ${response.status} ${response.statusText} for ${url}`);
+      const isAuthFailure = response.status === 401 || response.status === 403;
+      return { kind: isAuthFailure ? 'auth' : 'error', error };
+    } catch (err) {
+      const error = err instanceof Error ? err : new Error(String(err));
+      return { kind: 'error', error };
     } finally {
       clearTimeout(timer);
     }

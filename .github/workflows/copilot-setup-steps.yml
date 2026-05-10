@@ -18,6 +18,12 @@ env:
   DISPLAY: ":99"
   EP_REQUEST_TIMEOUT_MS: "180000"
   IMF_API_TIMEOUT_MS: "180000"
+  # IMF Data Portal Azure-APIM subscription keys (mandatory since the
+  # September 2025 migration). Surfaced here so cloud-agent debugging
+  # bash sessions can hit `api.imf.org/external/sdmx/3.0/` directly.
+  # The agentic news workflows read these via `shared/mcp/news-mcp-servers.md`.
+  IMF_API_PRIMARY_KEY: ${{ secrets.IMF_API_PRIMARY_KEY }}
+  IMF_API_SECONDARY_KEY: ${{ secrets.IMF_API_SECONDARY_KEY }}
 
 jobs:
   # The job MUST be called `copilot-setup-steps` or it will not be picked up by Copilot.

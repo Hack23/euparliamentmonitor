@@ -79,7 +79,7 @@ network:
     - api.github.com
     - data.europarl.europa.eu
     - "*.europa.eu"
-    - dataservices.imf.org   # IMF SDMX REST — sole authoritative economic source
+    - api.imf.org   # IMF SDMX REST — sole authoritative economic source
     - api.worldbank.org      # World Bank WDI — non-economic
     - hack23.com
     - www.hack23.com
@@ -201,7 +201,7 @@ network:
     - github.com
     - api.github.com
     - data.europarl.europa.eu
-    - dataservices.imf.org        # IMF SDMX REST — sole authoritative economic source
+    - api.imf.org        # IMF SDMX REST — sole authoritative economic source
     - api.worldbank.org           # World Bank API — non-economic
     - "*.europa.eu"
     - hack23.com

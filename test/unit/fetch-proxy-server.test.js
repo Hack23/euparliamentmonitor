@@ -13,7 +13,7 @@
  * - runServer — full request/response round-trips via stream mocks
  */
 
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import { Readable, Writable } from 'node:stream';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -34,13 +34,13 @@ describe('isAllowedImfUrl', () => {
   it('allows a valid IMF SDMX 3.0 URL', () => {
     expect(
       isAllowedImfUrl(
-        'https://dataservices.imf.org/REST/SDMX_3.0/data/WEO/DEU.NGDP_RPCH.?startPeriod=2024',
-      ),
+        'https://api.imf.org/external/sdmx/3.0/data/WEO/DEU.NGDP_RPCH.?startPeriod=2024'
+      )
     ).toBe(true);
   });
 
   it('rejects http (non-HTTPS)', () => {
-    expect(isAllowedImfUrl('http://dataservices.imf.org/REST/SDMX_3.0/data/WEO/')).toBe(false);
+    expect(isAllowedImfUrl('http://api.imf.org/external/sdmx/3.0/data/WEO/')).toBe(false);
   });
 
   it('rejects a different hostname', () => {
@@ -48,7 +48,7 @@ describe('isAllowedImfUrl', () => {
   });
 
   it('rejects a non-SDMX path on the correct hostname', () => {
-    expect(isAllowedImfUrl('https://dataservices.imf.org/admin/something')).toBe(false);
+    expect(isAllowedImfUrl('https://api.imf.org/admin/something')).toBe(false);
   });
 
   it('rejects a malformed URL string', () => {
@@ -60,23 +60,31 @@ describe('isAllowedImfUrl', () => {
   });
 
   it('allows the SDMX path root without further segments', () => {
-    expect(isAllowedImfUrl('https://dataservices.imf.org/REST/SDMX_3.0/')).toBe(true);
+    expect(isAllowedImfUrl('https://api.imf.org/external/sdmx/3.0/')).toBe(true);
+  });
+
+  it('rejects SDMX 2.1 paths (only 3.0 is allowed)', () => {
+    expect(isAllowedImfUrl('https://api.imf.org/external/sdmx/2.1/data/WEO/')).toBe(false);
+  });
+
+  it('rejects /external/sdmx/ root (must include 3.0/)', () => {
+    expect(isAllowedImfUrl('https://api.imf.org/external/sdmx/')).toBe(false);
   });
 
   it('rejects a URL with a non-standard port', () => {
-    expect(isAllowedImfUrl('https://dataservices.imf.org:8443/REST/SDMX_3.0/')).toBe(false);
+    expect(isAllowedImfUrl('https://api.imf.org:8443/REST/SDMX_3.0/')).toBe(false);
   });
 
   it('allows explicit port 443', () => {
-    expect(isAllowedImfUrl('https://dataservices.imf.org:443/REST/SDMX_3.0/')).toBe(true);
+    expect(isAllowedImfUrl('https://api.imf.org:443/external/sdmx/3.0/')).toBe(true);
   });
 
   it('rejects a URL with embedded credentials', () => {
-    expect(isAllowedImfUrl('https://user:pass@dataservices.imf.org/REST/SDMX_3.0/')).toBe(false);
+    expect(isAllowedImfUrl('https://user:pass@api.imf.org/external/sdmx/3.0/')).toBe(false);
   });
 
   it('rejects a URL with username only', () => {
-    expect(isAllowedImfUrl('https://user@dataservices.imf.org/REST/SDMX_3.0/')).toBe(false);
+    expect(isAllowedImfUrl('https://user@api.imf.org/external/sdmx/3.0/')).toBe(false);
   });
 });
 
@@ -137,7 +145,7 @@ describe('handleFetchUrl', () => {
   it('rejects a non-IMF URL with an error containing the allowed hostname', async () => {
     const result = await handleFetchUrl(1, 'https://example.com/');
     expect(result.error).toBeDefined();
-    expect(result.error.message).toContain('dataservices.imf.org');
+    expect(result.error.message).toContain('api.imf.org');
   });
 
   it('rejects undefined url', async () => {
@@ -152,7 +160,7 @@ describe('handleFetchUrl', () => {
       statusText: 'OK',
       text: async () => '{"data":"test"}',
     });
-    const url = 'https://dataservices.imf.org/REST/SDMX_3.0/data/WEO/DEU.NGDP_RPCH.?';
+    const url = 'https://api.imf.org/external/sdmx/3.0/data/WEO/DEU.NGDP_RPCH.?';
     const result = await handleFetchUrl(3, url, mockFetch);
     expect(result.result.content[0].text).toBe('{"data":"test"}');
     expect(mockFetch.mock.calls[0][1].headers).toMatchObject({
@@ -170,7 +178,7 @@ describe('handleFetchUrl', () => {
       statusText: 'Service Unavailable',
       text: async () => 'error body',
     });
-    const url = 'https://dataservices.imf.org/REST/SDMX_3.0/data/WEO/';
+    const url = 'https://api.imf.org/external/sdmx/3.0/data/WEO/';
     const result = await handleFetchUrl(4, url, mockFetch);
     expect(result.error).toBeDefined();
     expect(result.error.message).toContain('503');
@@ -178,7 +186,7 @@ describe('handleFetchUrl', () => {
 
   it('returns an error when fetch throws a network error', async () => {
     const mockFetch = vi.fn().mockRejectedValue(new Error('ECONNREFUSED'));
-    const url = 'https://dataservices.imf.org/REST/SDMX_3.0/data/WEO/';
+    const url = 'https://api.imf.org/external/sdmx/3.0/data/WEO/';
     const result = await handleFetchUrl(5, url, mockFetch);
     expect(result.error).toBeDefined();
     expect(result.error.message).toContain('ECONNREFUSED');
@@ -189,9 +197,175 @@ describe('handleFetchUrl', () => {
     expect(result1.id).toBe(99);
 
     const mockFetch = vi.fn().mockRejectedValue(new Error('network'));
-    const url = 'https://dataservices.imf.org/REST/SDMX_3.0/data/WEO/';
+    const url = 'https://api.imf.org/external/sdmx/3.0/data/WEO/';
     const result2 = await handleFetchUrl(77, url, mockFetch);
     expect(result2.id).toBe(77);
+  });
+
+  describe('Ocp-Apim-Subscription-Key injection', () => {
+    const ORIGINAL_PRIMARY = process.env['IMF_API_PRIMARY_KEY'];
+    const ORIGINAL_SECONDARY = process.env['IMF_API_SECONDARY_KEY'];
+
+    afterEach(() => {
+      if (ORIGINAL_PRIMARY === undefined) delete process.env['IMF_API_PRIMARY_KEY'];
+      else process.env['IMF_API_PRIMARY_KEY'] = ORIGINAL_PRIMARY;
+      if (ORIGINAL_SECONDARY === undefined) delete process.env['IMF_API_SECONDARY_KEY'];
+      else process.env['IMF_API_SECONDARY_KEY'] = ORIGINAL_SECONDARY;
+    });
+
+    it('injects the primary key as Ocp-Apim-Subscription-Key when set', async () => {
+      process.env['IMF_API_PRIMARY_KEY'] = 'primary-key-abc';
+      delete process.env['IMF_API_SECONDARY_KEY'];
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        statusText: 'OK',
+        text: async () => '{"ok":true}',
+      });
+      const url = 'https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF/all/latest';
+      await handleFetchUrl(1, url, mockFetch);
+      expect(mockFetch).toHaveBeenCalledTimes(1);
+      expect(mockFetch.mock.calls[0][1].headers['Ocp-Apim-Subscription-Key']).toBe(
+        'primary-key-abc'
+      );
+    });
+
+    it('falls back to the secondary key on a 401 response', async () => {
+      process.env['IMF_API_PRIMARY_KEY'] = 'rotated-primary';
+      process.env['IMF_API_SECONDARY_KEY'] = 'live-secondary';
+      const mockFetch = vi
+        .fn()
+        .mockResolvedValueOnce({
+          ok: false,
+          status: 401,
+          statusText: 'Unauthorized',
+          text: async () => 'auth error',
+        })
+        .mockResolvedValueOnce({
+          ok: true,
+          status: 200,
+          statusText: 'OK',
+          text: async () => '{"ok":true}',
+        });
+      const url = 'https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF/all/latest';
+      const result = await handleFetchUrl(2, url, mockFetch);
+      expect(mockFetch).toHaveBeenCalledTimes(2);
+      expect(mockFetch.mock.calls[0][1].headers['Ocp-Apim-Subscription-Key']).toBe(
+        'rotated-primary'
+      );
+      expect(mockFetch.mock.calls[1][1].headers['Ocp-Apim-Subscription-Key']).toBe(
+        'live-secondary'
+      );
+      expect(result.result.content[0].text).toBe('{"ok":true}');
+    });
+
+    it('falls back to the secondary key on a 403 response', async () => {
+      process.env['IMF_API_PRIMARY_KEY'] = 'p';
+      process.env['IMF_API_SECONDARY_KEY'] = 's';
+      const mockFetch = vi
+        .fn()
+        .mockResolvedValueOnce({
+          ok: false,
+          status: 403,
+          statusText: 'Forbidden',
+          text: async () => 'forbidden',
+        })
+        .mockResolvedValueOnce({
+          ok: true,
+          status: 200,
+          statusText: 'OK',
+          text: async () => 'ok',
+        });
+      const url = 'https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF/all/latest';
+      const result = await handleFetchUrl(3, url, mockFetch);
+      expect(mockFetch).toHaveBeenCalledTimes(2);
+      expect(result.result.content[0].text).toBe('ok');
+    });
+
+    it('does not retry on a 500 response (only auth-class)', async () => {
+      process.env['IMF_API_PRIMARY_KEY'] = 'p';
+      process.env['IMF_API_SECONDARY_KEY'] = 's';
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: false,
+        status: 500,
+        statusText: 'Server Error',
+        text: async () => 'boom',
+      });
+      const url = 'https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF/all/latest';
+      const result = await handleFetchUrl(4, url, mockFetch);
+      expect(mockFetch).toHaveBeenCalledTimes(1);
+      expect(result.error.message).toContain('500');
+    });
+
+    it('sends the request unauthenticated when no keys are configured', async () => {
+      delete process.env['IMF_API_PRIMARY_KEY'];
+      delete process.env['IMF_API_SECONDARY_KEY'];
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 200,
+        statusText: 'OK',
+        text: async () => 'ok',
+      });
+      const url = 'https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF/all/latest';
+      await handleFetchUrl(5, url, mockFetch);
+      expect(mockFetch).toHaveBeenCalledTimes(1);
+      expect(mockFetch.mock.calls[0][1].headers['Ocp-Apim-Subscription-Key']).toBeUndefined();
+    });
+
+    it('does not leak the subscription key in error messages', async () => {
+      process.env['IMF_API_PRIMARY_KEY'] = 'super-secret-key-xyz123';
+      const mockFetch = vi.fn().mockRejectedValue(new Error('network boom'));
+      const url = 'https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF/all/latest';
+      const result = await handleFetchUrl(6, url, mockFetch);
+      expect(result.error).toBeDefined();
+      expect(result.error.message).not.toContain('super-secret-key-xyz123');
+    });
+
+    it('surfaces the network error when secondary attempt throws after primary 401', async () => {
+      // Regression: previously the post-loop branch returned the stale
+      // 401 from the primary attempt, masking the real network failure
+      // observed on the secondary attempt. Caller must see the thrown
+      // error so it can distinguish auth-class failures from outages.
+      process.env['IMF_API_PRIMARY_KEY'] = 'rotated-primary';
+      process.env['IMF_API_SECONDARY_KEY'] = 'live-secondary';
+      const mockFetch = vi
+        .fn()
+        .mockResolvedValueOnce({
+          ok: false,
+          status: 401,
+          statusText: 'Unauthorized',
+          text: async () => 'auth error',
+        })
+        .mockRejectedValueOnce(new Error('ECONNREFUSED-secondary'));
+      const url = 'https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF/all/latest';
+      const result = await handleFetchUrl(7, url, mockFetch);
+      expect(mockFetch).toHaveBeenCalledTimes(2);
+      expect(result.error).toBeDefined();
+      expect(result.error.message).toContain('ECONNREFUSED-secondary');
+      expect(result.error.message).not.toContain('401');
+    });
+
+    it('treats HTTP 204 No Content as an explicit auth-misconfiguration error', async () => {
+      // api.imf.org returns 204 when the request reached Azure APIM but
+      // no Ocp-Apim-Subscription-Key matched. 204 is technically 2xx so
+      // without an explicit guard the empty body would be returned as a
+      // successful MCP result and the caller would silently get unusable
+      // data. Pin the diagnostic-error contract.
+      delete process.env['IMF_API_PRIMARY_KEY'];
+      delete process.env['IMF_API_SECONDARY_KEY'];
+      const mockFetch = vi.fn().mockResolvedValue({
+        ok: true,
+        status: 204,
+        statusText: 'No Content',
+        text: async () => '',
+      });
+      const url = 'https://api.imf.org/external/sdmx/3.0/structure/dataflow/IMF/all/latest';
+      const result = await handleFetchUrl(8, url, mockFetch);
+      expect(result.error).toBeDefined();
+      expect(result.error.message).toContain('204');
+      expect(result.error.message).toContain('Ocp-Apim-Subscription-Key');
+      expect(result.error.message).toContain('IMF_API_PRIMARY_KEY');
+    });
   });
 });
 
@@ -242,7 +416,7 @@ describe('runServer', () => {
     await runServer(input, stream);
     const responses = output.map((l) => JSON.parse(l.trim()));
     expect(responses[1].error).toBeDefined();
-    expect(responses[1].error.message).toContain('dataservices.imf.org');
+    expect(responses[1].error.message).toContain('api.imf.org');
   });
 
   it('handles unknown methods gracefully', async () => {

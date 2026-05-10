@@ -75,7 +75,7 @@ describe('shared fetch-proxy MCP server', () => {
 
     expect(responses[0].result.capabilities.tools).toEqual({});
     expect(responses[1].result.tools[0].name).toBe('fetch_url');
-    expect(responses[2].error.message).toContain('dataservices.imf.org');
+    expect(responses[2].error.message).toContain('api.imf.org');
   });
 
   it('preserves request id in error responses from the catch handler', async () => {
@@ -108,8 +108,9 @@ describe('shared fetch-proxy MCP server', () => {
     );
     // The lock file should contain the critical fetch-proxy patterns
     expect(lockContent).toContain('String.fromCharCode(10)');
-    expect(lockContent).toContain('dataservices.imf.org');
-    expect(lockContent).toContain('/REST/SDMX_3.0/');
+    expect(lockContent).toContain('api.imf.org');
+    expect(lockContent).toContain('/external/sdmx/');
+    expect(lockContent).toContain('Ocp-Apim-Subscription-Key');
     // Verify the id-preserving catch pattern is compiled into the lock file
     expect(lockContent).toContain('mid=m.id');
   });
