@@ -203,16 +203,27 @@ agents may override via `agencyId`):
 | `FM` | `IMF.FAD` | Fiscal Affairs Department |
 | `CPI`, `BOP`, `BOP_AGG`, `ER`, `IFS`, `DOT`, `CDIS`, `CPIS`, `GFS`, `FSI`, `MFS` | `IMF.STA` | Statistics Department (everything else editorial) |
 
-**SDMX 3.0 key shape**: `{COUNTRY}.{INDICATOR}.{FREQUENCY}` — uppercase
-dimension names, **frequency last** (not first). Use `*` for "all
-codes" in a dimension; bare `..` returns 0 series. Filter keys are
-matched **case-insensitively** so legacy lowercase aliases (`country`,
-`indicator`, `frequency`) still work.
+**SDMX 3.0 key shape**: post-Sept-2025 IMF Data Portal uses uppercase
+dimension names with **frequency last** (not first), and the literal
+`*` for "all codes" in a dimension — bare `..` returns 0 series.
+Filter keys are matched **case-insensitively** so legacy lowercase
+aliases (`country`, `indicator`, `frequency`) still work.
+
+The exact dimension order varies per dataflow. `COUNTRY.INDICATOR.FREQUENCY`
+is a common 3-dimension pattern (e.g. **WEO**, **FM**, **IFS**), but
+many dataflows have additional dimensions — for example **CPI** is
+`COUNTRY.INDICATOR.COICOP_1999.UNIT_MEASURE.FREQUENCY` (yielding
+`DE.CPI._T._T.M`), **DOT** adds `COUNTERPART_AREA`, **CDIS** adds
+`COUNTERPART_AREA.SECTOR`, **GFS** adds `SECTOR.UNIT`, etc. Always
+call `imf-get-parameter-defs` first to discover the correct dimension
+order for the target dataflow rather than assuming the 3-dimension
+shape; see [`analysis/imf/sdmx-dimensions-reference.md`](../../analysis/imf/sdmx-dimensions-reference.md)
+for the per-dataflow dimension table.
 
 Examples:
-- WEO real GDP growth for Germany 2020-2030: `GET /data/dataflow/IMF.RES/WEO/+/DEU.NGDP_RPCH.A?startPeriod=2020&endPeriod=2030&format=jsondata`
-- WEO all indicators for Germany 2024: `GET /data/dataflow/IMF.RES/WEO/+/DEU.*.A?startPeriod=2024&endPeriod=2024&format=jsondata`
-- CPI inflation for Germany monthly 2025: `GET /data/dataflow/IMF.STA/CPI/+/DE.CPI._T._T.M?startPeriod=2025-01&endPeriod=2025-12&format=jsondata`
+- WEO real GDP growth for Germany 2020-2030 (3 dims, COUNTRY.INDICATOR.FREQUENCY): `GET /data/dataflow/IMF.RES/WEO/+/DEU.NGDP_RPCH.A?startPeriod=2020&endPeriod=2030&format=jsondata`
+- WEO all indicators for Germany 2024 (wildcard INDICATOR): `GET /data/dataflow/IMF.RES/WEO/+/DEU.*.A?startPeriod=2024&endPeriod=2024&format=jsondata`
+- CPI inflation for Germany monthly 2025 (5 dims, COUNTRY.INDICATOR.COICOP_1999.UNIT_MEASURE.FREQUENCY): `GET /data/dataflow/IMF.STA/CPI/+/DE.CPI._T._T.M?startPeriod=2025-01&endPeriod=2025-12&format=jsondata`
 
 **Scope references:**
 - [`analysis/imf/database-directory.md`](../../analysis/imf/database-directory.md) — full 155-database relevance map

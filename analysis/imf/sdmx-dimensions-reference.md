@@ -80,10 +80,22 @@ GET /data/dataflow/IMF.STA/BOP_AGG/+/DEU.BFD_BP6_USD.Q?startPeriod=2024
 ```
 
 Wildcard segments are legal: `*.NGDP_RPCH.A` means "all countries,
-WEO GDP growth, annual". The client forbids fully-empty filter maps
-on data-fetch calls (keep the request scoped); structure-discovery
-calls (`imf-search-databases` / `imf-get-parameter-codes`) may use
-wildcards freely.
+WEO GDP growth, annual". Two scope rules apply on data-fetch calls
+(structure-discovery calls — `imf-search-databases` /
+`imf-get-parameter-codes` — may use wildcards freely):
+
+1. **Empty filter maps are rejected.** `fetchData` requires a
+   non-empty `filters` object.
+2. **At least one non-FREQUENCY dimension must be concrete.** Because
+   `FREQUENCY` auto-injects via the dataflow's default (e.g. `A` for
+   WEO) and every other unspecified slot resolves to `*`, a typo'd or
+   unrecognised filter key (e.g. `region: ['EU']` against a dataflow
+   that declares `COUNTRY` instead) would otherwise yield an
+   effectively unbounded key like `*.*.A` and download the full
+   cross-product. The client refuses such requests and returns the
+   empty `IMF_FALLBACK` payload with a console warning identifying
+   the rejected filter keys. Single-wildcard intent like `DEU.*.A`
+   still passes because `DEU` pins COUNTRY.
 
 ---
 
