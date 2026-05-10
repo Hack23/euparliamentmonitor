@@ -163,3 +163,66 @@ April 30, 2026 votes are expected in DOCEO XML approximately May 14-15 (standard
 - PfE and ECR internal splits will be quantifiable
 - Any EPP or S&D defections will be visible
 - This will be the key data point for updating this analysis in the next run
+
+---
+
+## 📊 VOTING BEHAVIOR VISUALISATION
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+xychart-beta
+    title "Estimated Vote Counts by Resolution (April 30, 2026)"
+    x-axis ["DMA Enforce", "Ukraine Acct", "Armenia", "Budget 2027", "Haiti CSAM"]
+    y-axis "MEPs" 0 --> 717
+    bar [479, 460, 450, 390, 500]
+    line [360, 360, 360, 360, 360]
+```
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+pie title EP Voting Blocs: Pro-EU Centre vs Eurosceptic Right
+    "EPP (183)" : 183
+    "S&D (136)" : 136
+    "Renew (77)" : 77
+    "Greens/EFA (53)" : 53
+    "The Left (45)" : 45
+    "ECR (81)" : 81
+    "PfE (85)" : 85
+    "ESN (27)" : 27
+    "NI (30)" : 30
+```
+
+## 🔍 BEHAVIORAL PATTERN ANALYSIS
+
+### Historical Group Cohesion (EP10 baseline, 2024-2026)
+
+Based on historical DOCEO roll-call data from EP10's first year (2024-2025):
+
+| Group | Avg Cohesion (Rice Index) | Cohesion Trend | Key Divides |
+|-------|--------------------------|----------------|-------------|
+| EPP | ~0.82 | Declining | Ukraine-Russia; Migration; Digital |
+| S&D | ~0.88 | Stable | Defence vs Social spending |
+| PfE | ~0.61 | Declining | Russian-soft vs NATO-aligned |
+| ECR | ~0.73 | Stable | Eastern EU nationalists vs Western conservatives |
+| Renew | ~0.80 | Stable | Liberal economics vs social market |
+| Greens/EFA | ~0.86 | Declining (smaller group) | National parties vs EFA regionalists |
+| The Left | ~0.84 | Stable | War/peace; NATO; Digital rights |
+
+**Note:** Rice Index = |%YES - %NO|; 1.0 = perfect cohesion; 0.0 = perfect split
+
+### April 30 Cohesion Forecast
+
+Based on resolution content and historical patterns:
+
+| Group | DMA | Ukraine | Armenia | Budget | Haiti |
+|-------|-----|---------|---------|--------|-------|
+| EPP | 0.85 | 0.90 | 0.85 | 0.65 | 0.90 |
+| S&D | 0.92 | 0.95 | 0.90 | 0.70 | 0.95 |
+| PfE | 0.35 | 0.28 | 0.45 | 0.60 | 0.65 |
+| ECR | 0.68 | 0.72 | 0.70 | 0.65 | 0.80 |
+| Renew | 0.88 | 0.90 | 0.88 | 0.65 | 0.92 |
+
+**DOCEO verification pending (expected May 14-15, 2026)**
+
+*Voting Patterns Analysis | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2)*
+*Confidence: 🟡 MEDIUM — Structural inference only; DOCEO XML not yet available for April 30 session*

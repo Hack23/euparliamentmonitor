@@ -188,3 +188,57 @@
 - Budget 2027: Commission draft expected June — **TRACKING**
 
 **Overall forward indicator quality:** 🟡 MEDIUM — most forward indicators are not yet resolvable from current available data; they define what to watch rather than what has occurred.
+
+---
+
+## 📊 FORWARD INDICATORS EXTENSION (Re-run 3)
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+timeline
+    title Forward Indicators: Key Upcoming Milestones (May-December 2026)
+    section May 2026
+        May 14-15 : DOCEO vote XML published for April 30 : PfE and ECR internal splits quantifiable
+        May 19-22 : Next Strasbourg plenary : Ukraine follow-up legislation possible
+    section June 2026
+        June 1 : Commission formal DMA response due : First major enforcement signal
+        June 15 : Commission Budget 2027 draft : EP vs Council negotiations begin
+    section July 2026
+        July 1 : EP first reading of Budget 2027 : Coalition dynamics on fiscal issues visible
+        July 15 : EEAS Armenia report : Integration progress assessment
+    section October-December 2026
+        Oct-Dec : Budget 2027 trilogue : Critical coalition stress test
+        Dec 31 : Budget 2027 adoption deadline : Or provisional twelfths trigger
+```
+
+### Forward Indicator Quality Assessment by Domain
+
+| Domain | Indicator | Resolvability | Timeline | Watch Signal |
+|--------|-----------|--------------|----------|--------------|
+| DMA | Apple App Store non-compliance finding | 🟡 Likely within 90 days | Q3 2026 | Commission press release |
+| DMA | First DMA fine issued | 🟡 Possible within 6 months | Q3-Q4 2026 | Commission decision |
+| Ukraine | ICPA treaty negotiation launch | 🟡 Conditional on political will | 2027 | UN General Assembly endorsement |
+| Ukraine | DOCEO vote data for April 30 | 🟢 Certain within 14 days | May 14-15 | EP publications |
+| Armenia | CPA negotiations milestone | 🟡 Incremental progress | Quarterly | EEAS reports |
+| Budget | Commission 2027 draft | 🟢 Certain | May 15, 2026 | Commission publication |
+| Budget | EP-Council trilogue outcome | 🔴 Uncertain | Dec 2026 | Conciliation result |
+| Haiti | MSS operational expansion | 🟡 Conditional on Kenyan capacity | Q3 2026 | UN OCHA reports |
+| Coalition | EP10 group shifts (MEP movement) | 🟢 Observable continuously | Monthly | EP group membership data |
+| Economy | ECB rate decision | 🟢 Scheduled | June 5, 2026 | ECB press conference |
+
+### Contingent Forward Indicators (If-Then Logic)
+
+**IF** DOCEO vote data (May 14-15) shows PfE split >30% on Ukraine resolution:
+→ **THEN** recalculate far-right bloc cohesion assessment; flag risk of increased PfE volatility in H2 2026
+
+**IF** Commission issues DMA formal non-compliance finding against Apple:
+→ **THEN** US Section 301 escalation risk increases to 40%; update threat matrix TL-4 probability
+
+**IF** Budget 2027 trilogue fails (December 2026):
+→ **THEN** Coalition cohesion assessment downgrade; monitor EPP-S&D relationship stress indicators
+
+**IF** Armenia-Azerbaijan peace deal signed:
+→ **THEN** EU integration pathway acceleration; update scenario probabilities; Armenia candidacy timeline compresses 2-3 years
+
+*Forward Indicators | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2 Extension)*
+*Confidence: 🟡 MEDIUM — timeline certainties vary; contingent indicators are expert if-then analysis*

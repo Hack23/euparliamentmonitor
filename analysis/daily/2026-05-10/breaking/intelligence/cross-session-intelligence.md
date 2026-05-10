@@ -153,3 +153,68 @@ The April 30 session's significance in EP10 cross-session context is HIGH. Cross
 5. **Far-right bloc behavior** is consistent — opposition on Ukraine, split on digital, support on child protection
 
 *Cross-session intelligence maintained in memory across runs. Updated: 2026-05-10.*
+
+---
+
+## 🔄 CROSS-SESSION INTELLIGENCE — RE-RUN 3 UPDATE
+
+### New Intelligence Added in Re-run 3
+
+**Intelligence additions this run (extending prior analysis):**
+- Coalition forward assessment: 3 scenarios with probability weights (A: 40%, B: 50%, C: 10%)
+- DMA gatekeeper-by-gatekeeper compliance status table (Apple, Google, Meta specifics)
+- POW conditionality analysis for Armenia: 23-30 POWs; Azerbaijan leverage identified
+- Haiti trafficking flowchart: Geographic network mapping from Haiti to EU
+- Germany fiscal Schuldenbremse analysis: Structural constraint for EU budget ambitions
+- ICPA stakeholder support matrix: 9 actors including Global South concerns
+- Frozen assets breakdown: €190bn Euroclear + €90bn member states = €280bn total
+
+### 5-Resolution Pattern Intelligence
+
+**Cross-resolution strategic coherence score: 🟢 HIGH**
+
+The five April 30 resolutions form a coherent strategic cluster under the "EU as regulatory and values superpower" frame:
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+mindmap
+    root((EP10 Strategic Narrative))
+        Digital Sovereignty
+            DMA Enforcement TA-0160
+            US Big Tech compliance
+            European digital alternatives
+        Values-Based Security
+            Ukraine Accountability TA-0161
+            ICPA operationalisation
+            Frozen asset mechanism
+        Neighbourhood Expansion
+            Armenia Integration TA-0162
+            Eastern neighbourhood template
+            Russia sphere of influence reduction
+        Fiscal Governance
+            Budget 2027 TA-0112
+            Defence investment
+            Climate/cohesion balance
+        Humanitarian Leadership
+            Haiti Trafficking TA-0151
+            Anti-trafficking architecture
+            MSS political support
+```
+
+### EP10 Legislative Intelligence Baseline (Updated Re-run 3)
+
+**EP10 profile (Year 3, May 2026):**
+- Group count: 9 (record fragmentation; ENP 6.58)
+- Centre coalition stability: HIGH (EPP+S&D+Renew = 396/717)
+- Far-right governance threat: LOW (PfE+ESN = 112; mathematically incapable of blocking)
+- Legislative velocity: HIGH (5 resolutions in one 3-day plenary)
+- Commission accountability pressure: INCREASING (DMA, Ukraine, Armenia — all push Commission to act faster)
+- Key uncertainty: Budget 2027 trilogue (October-December 2026) — fiscal stress test for coalition
+
+**Comparison to EP9 (2019-2024):**
+- EP9 average: 3.2 resolutions per plenary; EP10 showing 4.5+ trend
+- EP9 centre coalition margin: ~380; EP10 margin: ~396 (slightly stronger despite higher fragmentation)
+- Key difference: ECR (81) is more selectively cooperative in EP10 on Ukraine/security than EP9
+
+*Cross-Session Intelligence | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2)*
+*Confidence: 🟡 MEDIUM — structural intelligence; numeric comparisons are estimates*

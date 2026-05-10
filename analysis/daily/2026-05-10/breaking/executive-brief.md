@@ -182,3 +182,49 @@ The April 28-30 Strasbourg plenary produced a cluster of high-significance resol
 **Risk summary:** MEDIUM. Core centre coalition holds; all five resolutions achieved majority; no immediate implementation risks. Primary uncertainty is enforcement gap on Ukraine accountability and DMA (Commission pace) and legislative implementation risk on CSAM (encryption tension).
 
 *Executive brief last updated: 2026-05-10 (re-run). For analytical inquiries: EU Parliament Monitor project.*
+
+---
+
+## 📊 EXECUTIVE INTELLIGENCE VISUALISATION
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+timeline
+    title EP10 Breaking Developments: April 28-30, 2026 Strasbourg Plenary
+    section Digital
+        April 28 : DMA Enforcement resolution adopted (TA-10-2026-0160) : Big Tech compliance deadline set : Commission enforcement obligation triggered
+    section Security
+        April 29 : Ukraine Accountability resolution (TA-10-2026-0161) : ICPA tribunal pathway endorsed : EU-ICC cooperation framework strengthened
+    section Foreign Policy
+        April 30 : Armenia Democratic Resilience (TA-10-2026-0162) : EU integration pathway formalised : POW release mechanism requested
+    section Fiscal
+        April 30 : Budget 2027 Guidelines adopted (TA-10-2026-0112) : Defence spending prioritised : Climate/cohesion spending defended
+    section Humanitarian
+        April 30 : Haiti Trafficking resolution (TA-10-2026-0151) : Anti-trafficking €50M mechanism : CSAM Platform regulation advanced
+```
+
+## 🎯 STRATEGIC INTELLIGENCE ASSESSMENT (Re-run 3 Update)
+
+### EP10 Legislative Positioning
+
+The April 28-30, 2026 plenary represents a cohesive legislative moment for EP10's third year. The five resolutions collectively establish three strategic narratives:
+
+**Narrative 1: The Rule-of-Law Parliament**
+EP asserts itself as the institutional defender of EU values — both externally (Ukraine, Armenia) and internally (DMA enforcement, CSAM). This is a deliberate contrast with the Council's more pragmatic flexibility.
+
+**Narrative 2: Digital Sovereignty**
+DMA enforcement + CSAM regulation = EU digital regulatory leadership claimed explicitly. The EP is signalling to the Commission that enforcement is the minimum expectation, not optional.
+
+**Narrative 3: Security-Values Integration**
+Ukraine accountability + Armenia integration = EU foreign policy as value-driven security policy. The EP rejects the "values vs. realpolitik" binary — in EP's framing, accountability is security.
+
+### What This Plenary Tells Us About EP10
+
+1. **Centre coalition discipline:** Five complex resolutions, all adopted — coalition is functional and disciplined
+2. **Far-right isolation:** PfE and ESN failed to block any resolution — minority status is becoming clear
+3. **EP-Commission relationship:** EP sending signals to Commission on enforcement pace (DMA) and diplomatic ambition (Armenia) — accountability pressure increasing
+4. **Ukraine trajectory:** EP is ahead of Council on accountability architecture — this will be a source of tension in trilogue negotiations to come
+
+**Confidence: 🟢 HIGH** (structural analysis from confirmed adopted text list)
+
+*Executive Brief | EU Parliament Monitor | 2026-05-10 (Re-run 3, Stage B Pass 2 Extension)*

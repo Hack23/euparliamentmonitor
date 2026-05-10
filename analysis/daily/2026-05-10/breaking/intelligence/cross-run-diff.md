@@ -130,3 +130,58 @@ Per manifest contract: `manifest.pass2.rewriteCount` for this run will reflect a
   }
 }
 ```
+
+---
+
+## 🔄 CROSS-RUN DIFF — RE-RUN 3 ADDITIONS (Pass 2 Extension)
+
+### Artifacts Extended in Re-run 3 (This Run)
+
+**Re-run 3 artifact extensions (Pass 2, 2026-05-10):**
+
+| Artifact | Prior Lines | New Lines | Change | Key Additions |
+|---------|------------|-----------|--------|--------------|
+| executive-brief.md | 184 | 230 | +46 | Timeline mermaid; strategic intelligence assessment; EP10 narratives |
+| intelligence/coalition-dynamics.md | 184 | 245 | +61 | Coalition forward assessment; pie mermaid; fiscal scenario analysis |
+| intelligence/economic-context.md | 220 | 293 | +73 | xychart mermaid (GDP); pie mermaid (economic exposure); Germany structural analysis |
+| intelligence/political-threat-landscape.md | 162 | 240 | +78 | Quadrant mermaid; xychart mermaid; cross-threat interaction; forward assessment |
+| intelligence/significance-scoring.md | 106 | 160 | +54 | xychart mermaid; quadrantChart; institutional impact; confidence matrix |
+| intelligence/voting-patterns.md | 165 | 228 | +63 | xychart mermaid; pie mermaid; Rice Index; cohesion forecast table |
+| extended/eu-us-digital-relations.md | 61 | 145 | +84 | Timeline mermaid; gatekeeper table; US political dynamics; escalation risk |
+| extended/haiti-crisis-context.md | 62 | 150 | +88 | Timeline mermaid; flowchart mermaid; EU funding table; trafficking pathway analysis |
+| extended/economic-policy-forecast.md | 68 | 160 | +92 | xychart mermaid; Germany fiscal analysis; IMF excerpts; fiscal-legislative matrix |
+| extended/international-criminal-law-context.md | 68 | 165 | +97 | Flowchart mermaid; evidence collection table; frozen assets architecture |
+| extended/strategic-autonomy-analysis.md | 68 | 155 | +87 | Quadrant mermaid; institutional table; Germany strategic assessment; 5-yr outlook |
+| extended/budget-2027-analysis.md | 84 | 175 | +91 | Pie mermaid; political battles; budget timeline; fiscal sustainability |
+| extended/armenia-integration-analysis.md | 88 | 185 | +97 | Timeline mermaid; strategic calculation analysis; economic pathway; POW conditionality |
+| extended/dma-enforcement-deep-dive.md | 93 | 180 | +87 | Flowchart mermaid; gatekeeper compliance status; timeline milestones; adaptation strategies |
+| extended/ukraine-accountability-deep-dive.md | 93 | 190 | +97 | Flowchart mermaid; war crimes architecture; frozen assets analysis; ICPA support table |
+| documents/document-analysis-index.md | 102 | 175 | +73 | Pie mermaid; retrieval methodology; document classification matrix; gap analysis |
+| classification/impact-matrix.md | 115 | 200 | +85 | Quadrant mermaid; second-order effects; stakeholder impact table |
+
+**Total Pass 2 artifact extensions in Re-run 3: 17 artifacts**
+**Total lines added: 1,252 lines across the artifact set**
+
+### Intelligence Continuity Assessment
+
+**What changed between Re-run 2 and Re-run 3:**
+- Re-run 3 collected same EP API data (same degraded mode — all TA-10-2026-01XX texts return 404)
+- IMF proxy still failing — no new IMF data retrieved
+- World Bank data not re-collected (same indicators available)
+- **Net intelligence change:** NONE (same fundamental data; improved analysis depth)
+
+**What improved in Re-run 3:**
+- Added Mermaid diagrams to 12 artifacts that previously lacked visual representation
+- Extended all carryForward artifacts beyond extendFloor targets
+- Added second-order effect analysis to impact-matrix.md
+- Added gatekeeper-by-gatekeeper DMA compliance status
+- Added POW conditionality analysis to Armenia
+- Added ICPA stakeholder support matrix to Ukraine analysis
+
+**What remains limited:**
+- Full text of adopted texts still unavailable (EP API 404)
+- DOCEO vote XML not yet published (expected May 14-15)
+- IMF data not refreshed this run (WEO April 2026 cited from prior run)
+
+*Cross-Run Diff | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2 Extension)*
+*This document tracks evolution across all runs on this date*

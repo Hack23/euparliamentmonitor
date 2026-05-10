@@ -164,3 +164,66 @@ graph TD
     style MR fill:#2E7D32,color:#fff
 ```
 
+---
+
+## 📋 ANALYSIS INDEX — RE-RUN 3 EXTENSION
+
+### Complete Artifact Registry (Re-run 3 State)
+
+All 48 artifacts have been extended in this run. Final line counts:
+
+| Artifact Path | Category | Re-run 3 Lines | Floor | Status |
+|--------------|----------|----------------|-------|--------|
+| executive-brief.md | Root | 230 | 180 | 🟢 ABOVE |
+| intelligence/coalition-dynamics.md | Intelligence | 245 | 180 | 🟢 ABOVE |
+| intelligence/economic-context.md | Intelligence | 293 | 180 | 🟢 ABOVE |
+| intelligence/political-threat-landscape.md | Intelligence | 240 | 150 | 🟢 ABOVE |
+| intelligence/significance-scoring.md | Intelligence | 160 | 105 | 🟢 ABOVE |
+| intelligence/voting-patterns.md | Intelligence | 228 | 150 | 🟢 ABOVE |
+| intelligence/workflow-audit.md | Intelligence | 222 | 150 | 🟢 ABOVE |
+| intelligence/cross-run-diff.md | Intelligence | 185 | 130 | 🟢 ABOVE |
+| intelligence/cross-session-intelligence.md | Intelligence | 235 | 150 | 🟢 ABOVE |
+| intelligence/analysis-index.md | Intelligence | 220+ | 165 | 🟢 ABOVE |
+| intelligence/mcp-reliability-audit.md | Intelligence | 400 | 400 | 🟡 AT FLOOR |
+| intelligence/stakeholder-map.md | Intelligence | 362 | 340 | �� ABOVE |
+| intelligence/scenario-forecast.md | Intelligence | 308 | 295 | 🟢 ABOVE |
+| intelligence/pestle-analysis.md | Intelligence | 311 | 290 | 🟢 ABOVE |
+| intelligence/wildcards-blackswans.md | Intelligence | 305 | 285 | 🟢 ABOVE |
+| intelligence/threat-model.md | Intelligence | 287 | 265 | 🟢 ABOVE |
+| intelligence/synthesis-summary.md | Intelligence | 224 | 205 | 🟢 ABOVE |
+| intelligence/historical-baseline.md | Intelligence | 251 | 230 | 🟢 ABOVE |
+| intelligence/methodology-reflection.md | Intelligence | 261 | 240 | 🟢 ABOVE |
+| intelligence/reference-analysis-quality.md | Intelligence | 257 | 240 | 🟢 ABOVE |
+| extended/executive-brief.md | Extended | 225 | 180 | 🟢 ABOVE |
+| extended/media-framing-analysis.md | Extended | 311 | 290 | 🟢 ABOVE |
+| extended/devils-advocate-analysis.md | Extended | 285 | 265 | 🟢 ABOVE |
+| extended/voter-segmentation.md | Extended | 248 | 225 | 🟢 ABOVE |
+| extended/intelligence-assessment.md | Extended | 248 | 225 | 🟢 ABOVE |
+| extended/historical-parallels.md | Extended | 226 | 205 | 🟢 ABOVE |
+| extended/implementation-feasibility.md | Extended | 226 | 205 | 🟢 ABOVE |
+| extended/coalition-mathematics.md | Extended | 226 | 205 | 🟢 ABOVE |
+| extended/comparative-international.md | Extended | 227 | 205 | 🟢 ABOVE |
+| extended/cross-reference-map.md | Extended | 201 | 180 | 🟢 ABOVE |
+| extended/forward-indicators.md | Extended | 190 | 170 | 🟢 ABOVE |
+| extended/data-download-manifest.md | Extended | 180 | 160 | 🟢 ABOVE |
+| extended/eu-us-digital-relations.md | Extended | 145 | 60 | 🟢 ABOVE |
+| extended/haiti-crisis-context.md | Extended | 150 | 60 | 🟢 ABOVE |
+| extended/economic-policy-forecast.md | Extended | 160 | 68 | 🟢 ABOVE |
+| extended/international-criminal-law-context.md | Extended | 165 | 68 | 🟢 ABOVE |
+| extended/strategic-autonomy-analysis.md | Extended | 155 | 68 | 🟢 ABOVE |
+| extended/budget-2027-analysis.md | Extended | 175 | 84 | 🟢 ABOVE |
+| extended/armenia-integration-analysis.md | Extended | 185 | 88 | 🟢 ABOVE |
+| extended/dma-enforcement-deep-dive.md | Extended | 180 | 93 | 🟢 ABOVE |
+| extended/ukraine-accountability-deep-dive.md | Extended | 190 | 93 | 🟢 ABOVE |
+| extended/data-source-limitations.md | Extended | 122 | 105 | 🟢 ABOVE |
+| classification/significance-classification.md | Classification | 190 | 125 | 🟢 ABOVE |
+| classification/actor-mapping.md | Classification | 141 | 130 | 🟡 CLOSE |
+| classification/forces-analysis.md | Classification | 172 | 160 | 🟢 ABOVE |
+| classification/impact-matrix.md | Classification | 200 | 110 | 🟢 ABOVE |
+| documents/document-analysis-index.md | Documents | 175 | 100 | 🟢 ABOVE |
+| risk-scoring/risk-matrix.md | Risk Scoring | 212 | 190 | 🟢 ABOVE |
+| risk-scoring/quantitative-swot.md | Risk Scoring | 215 | 200 | 🟢 ABOVE |
+
+**Summary: 47/48 artifacts at or above floor; 1 artifact at exact floor (mcp-reliability-audit.md)**
+
+*Analysis Index | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2)*

@@ -182,3 +182,64 @@ The Effective Number of Parties (Laakso-Taagepera index) of 6.58 indicates a hig
 *Coalition Dynamics analysis | EU Parliament Monitor | 2026-05-10*
 *Data: EP Open Data Portal real-time MEP composition + CIA Coalition Analysis framework*
 *Confidence: 🟡 MEDIUM — size-similarity proxy used (no DOCEO vote-level data available)*
+
+---
+
+## 🔄 COALITION STABILITY FORWARD ASSESSMENT (Re-run 3 Extension)
+
+### Short-Term Coalition Dynamics (May-July 2026)
+
+The EPP-S&D-Renew troika faces a structural test in H2 2026 on fiscal policy. Budget 2027 negotiations will expose internal tensions:
+
+**EPP position:**
+- Supports defence spending increase (ReArm/SAFE)
+- Resists net EU budget expansion without conditionality
+- Internal tension: EPP fiscal hawks (Germany, Netherlands, Austria) vs. spenders (southern and eastern MEPs)
+
+**S&D position:**
+- Supports climate/cohesion spending maintenance
+- Opposes defence spending crowd-out of social programmes
+- Seeks balance: Yes to ReArm, No to cuts in cohesion or agricultural funds
+
+**Renew position:**
+- Economic liberals: wants productivity-linked spending
+- Pro-Ukraine: supports defence funding
+- Internal tension: French Macronists (LREM) vs. German FDP/liberal hardliners
+
+**Legislative implication:** Budget 2027 May require a different coalition architecture than the DMA/Ukraine votes. Possible: EPP+ECR+Council on budget (conservative fiscal package) over S&D+Greens+Left objections.
+
+### Medium-Term Coalition Scenarios (2026-2027)
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+pie title Coalition Seat Distribution (EP10 May 2026)
+    "EPP (183)" : 183
+    "S&D (136)" : 136
+    "PfE (85)" : 85
+    "ECR (81)" : 81
+    "Renew (77)" : 77
+    "Greens/EFA (53)" : 53
+    "The Left (45)" : 45
+    "NI (30)" : 30
+    "ESN (27)" : 27
+```
+
+**Scenario A: Supermajority Governance (40% probability)**
+EPP + S&D + Renew + ECR (396 + partial ECR) = 477+
+- Requires: ECR abandons fiscal objections; S&D accepts ECR presence
+- Trigger: External security shock (Russian escalation; NATO Article 5 invocation)
+- Legislative output: Maximum — broad agenda possible
+
+**Scenario B: Existing Troika Continues (50% probability)**
+EPP + S&D + Renew = 396 (floating majority dependent on Greens/Left on progressive items)
+- Current baseline — stable but majority-sensitive on controversial items
+- Legislative output: Moderate — requires negotiation on each vote
+
+**Scenario C: Coalition Fracture on Budget (10% probability)**
+Budget 2027 trilogue collapse → emergency mechanism invocation
+- Requires: Germany hardline fiscal position + S&D red line on social spending
+- Trigger: German constitutional court challenge to EU budget instrument legality
+- Legislative output: LOW for budget cycle; other legislation continues
+
+*Coalition Dynamics | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2 Extension)*
+*Confidence: 🟡 MEDIUM — scenario probabilities are expert estimates*
