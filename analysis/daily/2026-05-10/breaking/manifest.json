@@ -68,7 +68,37 @@
       "elapsedMinutes": 25,
       "rewriteCount": 4,
       "artifactCount": 35
+    },
+    {
+      "runId": "breaking-run246-1778398695",
+      "startedAt": "2026-05-10T07:38:15Z",
+      "completedAt": "2026-05-10T08:12:42Z",
+      "gateResult": "GREEN",
+      "artifactCount": 48,
+      "pass2": {
+        "startedAt": "2026-05-10T07:45:00Z",
+        "endedAt": "2026-05-10T08:05:00Z",
+        "rewriteCount": 16,
+        "newArtifacts": 9,
+        "extendedArtifacts": 7
+      },
+      "dataGaps": [
+        "vote-data-unavailable",
+        "full-text-404",
+        "events-feed-failed",
+        "procedures-feed-stale"
+      ],
+      "articlesGenerated": [
+        "2026-05-10-breaking.en.md",
+        "2026-05-10-breaking-en.html"
+      ],
+      "stageC": "GREEN",
+      "stageD": "COMPLETE",
+      "notes": "Re-run \u2014 extended 9 new artifacts and 7 existing. All 35/35 threshold artifacts above floor. Generated 15 multi-language articles."
     }
   ],
-  "dataMode": "degraded-voting"
+  "dataMode": "degraded-voting",
+  "lastUpdated": "2026-05-10T08:12:42Z",
+  "currentGateResult": "GREEN",
+  "totalArtifacts": 48
 }

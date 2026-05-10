@@ -52,3 +52,51 @@ All documents retrieved directly from EP Open Data Portal via authenticated MCP 
 ---
 
 *Document Analysis Index | EU Parliament Monitor | 2026-05-10*
+
+---
+
+## EXTENDED DOCUMENT ANALYSIS INDEX (Pass 2 Extension — 2026-05-10)
+
+### Complete Document Registry
+
+#### Primary Documents (April 30, 2026 Session)
+
+| Document ID | Title | Type | Status | Full Text |
+|------------|-------|------|--------|-----------|
+| TA-10-2026-0151 | Haiti humanitarian crisis | Resolution | Adopted | ❌ 404 |
+| TA-10-2026-0157 | Livestock transport | Regulation | Adopted | ❌ 404 |
+| TA-10-2026-0160 | DMA enforcement | Resolution | Adopted | ❌ 404 |
+| TA-10-2026-0161 | Ukraine accountability | Resolution | Adopted | ❌ 404 |
+| TA-10-2026-0162 | Armenia democratic resilience | Resolution | Adopted | ❌ 404 |
+| TA-10-2026-0163 | CSAM platform liability | Resolution | Adopted | ❌ 404 |
+| TA-10-2026-04-30-ANN01 | EP Budget 2027 estimates | Budget | Adopted | ❌ 404 |
+
+**Full text availability:** 0/7 (0%) — all texts in 10-day post-adoption processing period (expected: May 10-12)
+
+#### Secondary Sources Used
+
+| Source Type | Source | Coverage |
+|------------|--------|---------|
+| EP API feed (adopted texts) | get_adopted_texts_feed | Metadata only (titles, IDs, dates) |
+| EP API (procedures) | get_procedures_feed | STALE — historical tail |
+| DOCEO XML | get_latest_votes | UNAVAILABLE — May 4-7 session |
+| EP API (coalition) | analyze_coalition_dynamics | ✅ Full seat data |
+| EP API (events) | get_events_feed | FAILED |
+| IMF SDMX | fetch-proxy (dataservices.imf.org) | ✅ Economic indicators |
+
+#### Document Quality Summary
+
+**Primary document access:** 0% (data gap — EP publication lag)
+**Secondary source coverage:** HIGH for coalition/institutional analysis; LOW for document-specific analysis
+**Analytical foundation:** Based on document titles and institutional context — appropriate for breaking news format; insufficient for detailed legislative text analysis
+
+### Document Watch Schedule
+
+| Date | Expected Documents |
+|------|--------------------|
+| 2026-05-10 to 2026-05-12 | Full text of April 30 adopted texts |
+| 2026-05-14 to 2026-05-15 | DOCEO roll-call vote XML for April 30 |
+| 2026-06-01 | Formal Commission response to DMA resolution |
+| 2026-07-01 | EP first reading on Commission 2027 draft budget |
+
+*Document analysis index last updated: 2026-05-10 (re-run). Primary document gap documented and flagged.*

@@ -26,14 +26,14 @@
     "**Score:** 20 — CRITICAL"
   ],
   "keyDates": [
+    "[ ] Commission publishes DMA implementation progress report (annual report due Q3 2026)",
+    "[ ] IWF publishes Q1 2026 report with CSAM volume data",
     "Commission announcement of investigation closures: Q3-Q4 2026",
     "ICPA treaty signatories reach 40+ states by Q4 2026",
     "Commission mandate for upgraded Partnership Agreement: Q3 2026",
     "Visa liberalisation Action Plan: Q4 2026",
     "Commission draft budget: June 2026",
-    "Council position: September 2026",
-    "Parliament first reading: October 2026",
-    "Conciliation committee: November-December 2026"
+    "Council position: September 2026"
   ],
   "keyActors": [
     "EPP-S&D-Renew: Stable governing triopoly; aligned on DMA, Ukraine, Armenia",
@@ -49,6 +49,7 @@
   "sources": [
     "classification/actor-mapping.md",
     "executive-brief.md",
+    "extended/forward-indicators.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/economic-context.md",
     "intelligence/scenario-forecast.md",

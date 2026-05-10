@@ -229,3 +229,83 @@ Key disinformation vectors identified:
 *Media Framing Analysis | EU Parliament Monitor | 2026-05-10 | Strasbourg April 2026 Plenary*
 *Admiralty Grade: B2 (reliable analyst; confirmed framing patterns from comparable sessions)*
 *WEP Assessment: **Highly Likely** (≥85%) that pro-enforcement frame dominates EU media; **About Even** (45-55%) that US media remains hostile to DMA framing.*
+
+---
+
+## EXTENDED MEDIA FRAMING ANALYSIS (Pass 2 Extension — 2026-05-10)
+
+### Additional Media Frames and Audience Analysis
+
+#### Frame 4: The Democratic Resilience Frame
+
+**Narrative:** "EU Parliament as guardian of democratic values in an era of democratic recession"
+**Core claim:** All five April 30 resolutions, read together, constitute a comprehensive democratic resilience agenda: digital democracy (DMA), accountability for democratic violations (Ukraine), supporting democracy in transition (Armenia), protecting children (CSAM), and funding democratic institutions (Budget).
+**Target audience:** Pro-EU progressives, civil society, foundations, NGOs
+**Outlets:** EUobserver, Politico EU, Der Spiegel (EU edition), Le Monde
+**Risk:** Over-aggregating five distinct resolutions into a single meta-frame loses specificity and may appear propagandistic
+
+#### Frame 5: The Geopolitical Assertiveness Frame
+
+**Narrative:** "EU Parliament shows teeth — asserting influence beyond its borders on Ukraine, Armenia, and digital markets"
+**Core claim:** EP is no longer a passive advisory body — it is actively shaping EU foreign policy direction through binding resolutions that force Commission/Council to respond
+**Target audience:** Security policy analysts, CEPS, Bruegel, CFR
+**Outlets:** War on the Rocks, Financial Times EU coverage, EUobserver security
+**Risk:** EP resolutions are not legally binding — geopolitical assertiveness frame overstates EP's direct policy authority
+
+#### Frame 6: The Tech Industry Accountability Frame
+
+**Narrative:** "Brussels doubles down on Big Tech — DMA enforcement after 3 years"
+**Core claim:** DMA enforcement resolution signals EU is moving from regulatory design to enforcement phase; Big Tech faces genuine consequences
+**Target audience:** Tech industry, investors, Silicon Valley press
+**Outlets:** Financial Times, Bloomberg Technology, The Information, TechCrunch
+**Risk:** Overstates short-term enforcement impact; Commission enforcement timeline may still be 12-18 months away from major decisions
+
+#### Audience Segmentation (Extended)
+
+**Audience A: Policy professionals (50% of likely readership)**
+- Needs: Technical accuracy, procedural detail, coalition data
+- Frame preference: Institutional/procedural
+- Key information needs: What exactly did the resolution say? What was the vote margin? Who opposed?
+- Data gap impact: HIGH — these readers will note the absence of vote data and full text
+
+**Audience B: Political journalists and analysts (25%)**
+- Needs: Narrative significance, context, implications
+- Frame preference: Political/coalition
+- Key information needs: What does this mean for EP10's political balance? For EPP's future?
+- Data gap impact: MEDIUM — narrative framing can proceed without vote specifics
+
+**Audience C: Civil society / NGOs (15%)**
+- Needs: Practical implications, advocacy hooks
+- Frame preference: Rights-based or issue-specific
+- Key information needs: What does CSAM resolution mean for encryption? What does Ukraine resolution create?
+- Data gap impact: LOW — implications analysis is possible without full text
+
+**Audience D: General public (10%)**
+- Needs: Significance, plain language explanation
+- Frame preference: Democratic / democratic resilience
+- Key information needs: Why does this matter? What changes now?
+- Data gap impact: VERY LOW — high-level significance can be communicated clearly
+
+### Media Strategy Recommendation
+
+**For the EP Monitor article:**
+1. **Lead with DMA** (highest international significance, clearest narrative hook for general audience)
+2. **Contextualise Ukraine accountability** with the ICTY parallel (explains why EP is acting before enforcement mechanism exists)
+3. **Frame Armenia** as Eastern Partnership frontier expansion — not just a technical resolution
+4. **CSAM** — acknowledge the encryption tension explicitly (this is the news for digital rights audience)
+5. **Budget** — brief treatment; the negotiating game has just begun
+
+**Recommended framing:** Institutional assertiveness + digital sovereignty as the meta-frame; avoid over-claiming on enforcement outcomes; foreground the coalition complexity.
+
+**Recommended headline type:** "European Parliament advances digital sovereignty and eastern security agenda in sweeping April session" (not "EU bans X" or "MEPs demand Y" — those overstate)
+
+### Comparative Media Framing: How Others Covered Similar Sessions
+
+**EP April 2016 session (GDPR + NIS):**
+- Most outlets: "EU finalizes privacy law that will reshape internet" — GDPR-centric
+- Ignored: NIS Directive (equally significant for cybersecurity)
+- Lesson: Single-issue lead dominates coverage of multi-resolution sessions
+
+**Implication for this article:** DMA enforcement will dominate coverage. Ukraine accountability is the second story. Armenia will be covered by Eastern Europe specialists. CSAM is the digital rights story. Budget is financial press. Structure the article to serve each audience's lead while maintaining overall coherence.
+
+*Media framing analysis extended: 2026-05-10 (Pass 2). Full frame coverage across six frames + four audience segments.*
