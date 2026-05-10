@@ -82,9 +82,9 @@ the **last** series-level dimension in every editorial dataflow.
 | `GFS` | `IMF.STA` | COUNTRY. SECTOR. UNIT. INDICATOR. FREQUENCY | `DE.S13.XDC.GRE.A` |
 
 The `IMFMCPClient` auto-resolves agency from the dataflow id; pass an
-explicit `agencyId` (5th argument on `getParameterCodes`, named option
-on `fetchData`) only when overriding for a vintage or non-editorial
-dataflow.
+explicit `agencyId` (4th positional argument on `getParameterDefs` and
+`getParameterCodes`, named option on `fetchData`) only when overriding
+for a vintage or non-editorial dataflow.
 
 See [`../../analysis/imf/sdmx-dimensions-reference.md`](../../analysis/imf/sdmx-dimensions-reference.md)
 for the complete list and per-dimension codelists.

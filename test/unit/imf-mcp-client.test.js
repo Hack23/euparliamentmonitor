@@ -643,6 +643,22 @@ describe('imf-mcp-client', () => {
       expect(result.content[0].text).toBe('');
     });
 
+    it('refuses an all-wildcard key when no filter matches a declared dimension', async () => {
+      const fetchImpl = vi.fn();
+      const client = new IMFMCPClient({ fetchImpl });
+      // `region` is not a declared WEO dimension — after case-insensitive
+      // normalisation it matches nothing, every slot would resolve to `*`,
+      // and the request would download the full WEO cross-product.
+      const result = await client.fetchData({
+        databaseId: 'WEO',
+        startYear: 2020,
+        endYear: 2025,
+        filters: { region: ['EU'] },
+      });
+      expect(fetchImpl).not.toHaveBeenCalled();
+      expect(result.content[0].text).toBe('');
+    });
+
     it('rejects an inverted year range', async () => {
       const fetchImpl = vi.fn();
       const client = new IMFMCPClient({ fetchImpl });

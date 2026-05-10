@@ -74,6 +74,13 @@ const DEFAULT_IMF_AGENCY = 'IMF.STA';
  * Pure string-split parsing (no regex) so the static-analysis "unsafe regex"
  * detector has nothing to object to and the extraction stays linear.
  *
+ * Assumption: IMF SDMX 3.0 always emits a `(version)` block on every
+ * URN we encounter, so the concept-id extraction relies on the closing
+ * `)`. If the version block is missing or malformed (no `)`) we treat
+ * the URN as having no concept-id rather than fall back to slicing
+ * from the start of the body — which would silently leak the codelist
+ * id into the conceptId field.
+ *
  * @param urn - SDMX URN to parse.
  * @returns Parsed parts (any field may be empty if absent in the URN).
  * @internal
@@ -83,11 +90,16 @@ function parseSDMXUrn(urn) {
     const body = eqIdx >= 0 ? urn.slice(eqIdx + 1) : urn;
     const parenIdx = body.indexOf('(');
     const head = parenIdx >= 0 ? body.slice(0, parenIdx) : body;
-    // Concept URNs have a trailing `.CONCEPT_ID` after the closing paren or
-    // — when the version block is absent — after the codelist id itself.
-    // We extract it from the part *after* the version block to avoid
-    // mistaking the dots inside the version string for a concept separator.
-    const tail = parenIdx >= 0 ? body.slice(body.indexOf(')', parenIdx) + 1) : '';
+    // Concept URNs have a trailing `.CONCEPT_ID` after the closing paren.
+    // Guard the missing-`)` case explicitly: `indexOf(')', n)` returns -1
+    // when absent, and `body.slice(-1 + 1) = body.slice(0)` would echo
+    // the whole URN body into `tail` — yielding a bogus conceptId.
+    let tail = '';
+    if (parenIdx >= 0) {
+        const closeIdx = body.indexOf(')', parenIdx);
+        if (closeIdx >= 0)
+            tail = body.slice(closeIdx + 1);
+    }
     const conceptId = tail.startsWith('.') ? tail.slice(1) : '';
     const colonIdx = head.indexOf(':');
     const agency = colonIdx >= 0 ? head.slice(0, colonIdx) : '';
@@ -289,8 +301,15 @@ export function countIMFSDMXObservations(payload) {
  * avoid collisions with user-supplied codes that happen to contain
  * those characters.
  *
- * @param codes - Ordered code values for a single dimension (may be empty = wildcard).
- * @returns URL-safe dimension component (`""` for wildcard, `"A+B"` for union).
+ * Callers must NOT pass an empty array. The post-Sept-2025 IMF Data
+ * Portal rejects bare empty positions (`DEU..A` returns 0 series); the
+ * SDMX 3.0 wildcard for "match every code in this dimension" is the
+ * literal `*` and is emitted by {@link buildSDMXKey} directly when a
+ * dimension has no caller-supplied codes — never by passing `[]` here.
+ *
+ * @param codes - Ordered, non-empty code values for a single dimension.
+ * @returns URL-safe dimension component (`"A"` for a single code,
+ *   `"A+B"` for a union; never `""` — see note above).
  * @internal
  */
 function encodeSDMXDimension(codes) {
@@ -447,10 +466,11 @@ function withDefaultFrequency(databaseId, filters) {
             passthrough[key] = value;
         }
     }
-    const fallback = freqCodes ?? (() => {
-        const f = defaultFrequency(databaseId);
-        return f ? [f] : undefined;
-    })();
+    const fallback = freqCodes ??
+        (() => {
+            const f = defaultFrequency(databaseId);
+            return f ? [f] : undefined;
+        })();
     return fallback ? { ...passthrough, FREQUENCY: fallback } : filters;
 }
 /**
@@ -792,7 +812,24 @@ export class IMFMCPClient {
         try {
             const agency = agencyId ?? resolveAgency(databaseId);
             const dims = dimensionOrder ?? defaultDimensionOrder(databaseId);
-            const key = buildSDMXKey(dims, withDefaultFrequency(databaseId, filters));
+            const normalisedFilters = withDefaultFrequency(databaseId, filters);
+            const key = buildSDMXKey(dims, normalisedFilters);
+            // Guard against accidentally unbounded downloads: at least one
+            // *non-FREQUENCY* slot must be concrete (not `*`). FREQUENCY
+            // auto-injects via withDefaultFrequency, so requiring it would
+            // not prove the caller intended a bounded query — a typo'd
+            // filter key (e.g. `region` instead of `country` for WEO) would
+            // otherwise yield `*.*.A`, downloading the full WEO cross-product.
+            // Callers wanting a single wildcard slot (e.g. `DEU.*.A`) still
+            // pass because `DEU` pins the COUNTRY dimension.
+            const slots = key.split('.');
+            const hasConcreteNonFreqSlot = dims.some((dim, i) => dim.toUpperCase() !== 'FREQUENCY' && slots[i] !== '*');
+            if (!hasConcreteNonFreqSlot) {
+                console.warn(`imf-fetch-data refusing unbounded request for ${databaseId} (${dims.join('.')}=${key}): ` +
+                    `at least one non-FREQUENCY dimension must have a concrete filter value. ` +
+                    `Filter keys received: ${Object.keys(filters).join(', ') || '<none>'}`);
+                return IMF_FALLBACK;
+            }
             const qs = new URLSearchParams({
                 startPeriod: String(startYear),
                 endPeriod: String(endYear),

@@ -24,7 +24,7 @@
 
 | Document | Description | Audience |
 |----------|-------------|----------|
-| [`database-directory.md`](database-directory.md) | Full SDMX dataflow inventory (~155 databases) grouped by IMF publisher unit, tagged 🟢/🟡/⚪ for EP editorial relevance | AI workflows, developers |
+| [`database-directory.md`](database-directory.md) | Curated editorial subset of the IMF SDMX inventory (~155 dataflows tagged 🟢/🟡/⚪ for EP relevance). The live umbrella `/structure/dataflow` endpoint exposes ~193 dataflows across `IMF.RES`/`IMF.FAD`/`IMF.STA` and other agencies — see [`sdmx-dimensions-reference.md`](sdmx-dimensions-reference.md) for the full agency map | AI workflows, developers |
 | [`indicator-catalog.md`](indicator-catalog.md) | ~80 IMF indicators across WEO, IFS, FM, BOP, ER, PCPS, organised by 10 EP policy domains with SDMX codes, frequency, and forecast horizon | AI workflows, developers |
 | [`sdmx-dimensions-reference.md`](sdmx-dimensions-reference.md) | Canonical SDMX 3.0 dimensions (`COUNTRY`, `INDICATOR`, `FREQUENCY`, `COUNTERPART_AREA`, `INSTRUMENT`, `SECTOR`, `UNIT`, `OBS_STATUS`, `SCALE`, `METHODOLOGY`) with EP handling rules | AI workflows, developers |
 | [`eu-country-mapping.md`](eu-country-mapping.md) | EU-27 + comparison groups with IMF country codes and aggregation codelists (`EA`, `EU`, `G7`, `G20`) | AI workflows, analysis |
