@@ -298,10 +298,7 @@ function stripTrailingSlashes(s) {
  * @internal
  */
 function readImfSubscriptionKeysFromEnv() {
-    const candidates = [
-        process.env['IMF_API_PRIMARY_KEY'],
-        process.env['IMF_API_SECONDARY_KEY'],
-    ];
+    const candidates = [process.env['IMF_API_PRIMARY_KEY'], process.env['IMF_API_SECONDARY_KEY']];
     const keys = [];
     for (const k of candidates) {
         if (typeof k === 'string' && k.length > 0 && !keys.includes(k))
@@ -642,9 +639,7 @@ export class IMFMCPClient {
      * @internal
      */
     async _fetchDirectWithKeyRotation(url) {
-        const attempts = this._imfSubscriptionKeys.length > 0
-            ? [...this._imfSubscriptionKeys]
-            : [undefined];
+        const attempts = this._imfSubscriptionKeys.length > 0 ? [...this._imfSubscriptionKeys] : [undefined];
         let lastError;
         for (let i = 0; i < attempts.length; i += 1) {
             const isLast = i + 1 >= attempts.length;

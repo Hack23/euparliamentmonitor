@@ -461,10 +461,7 @@ function stripTrailingSlashes(s: string): string {
  * @internal
  */
 function readImfSubscriptionKeysFromEnv(): readonly string[] {
-  const candidates = [
-    process.env['IMF_API_PRIMARY_KEY'],
-    process.env['IMF_API_SECONDARY_KEY'],
-  ];
+  const candidates = [process.env['IMF_API_PRIMARY_KEY'], process.env['IMF_API_SECONDARY_KEY']];
   const keys: string[] = [];
   for (const k of candidates) {
     if (typeof k === 'string' && k.length > 0 && !keys.includes(k)) keys.push(k);
@@ -832,9 +829,7 @@ export class IMFMCPClient {
    */
   private async _fetchDirectWithKeyRotation(url: string): Promise<string> {
     const attempts: (string | undefined)[] =
-      this._imfSubscriptionKeys.length > 0
-        ? [...this._imfSubscriptionKeys]
-        : [undefined];
+      this._imfSubscriptionKeys.length > 0 ? [...this._imfSubscriptionKeys] : [undefined];
     let lastError: unknown;
     for (let i = 0; i < attempts.length; i += 1) {
       const isLast = i + 1 >= attempts.length;

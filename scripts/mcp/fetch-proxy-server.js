@@ -163,10 +163,7 @@ export function handleToolsList(id) {
  * @internal
  */
 function readImfSubscriptionKeys() {
-    const candidates = [
-        process.env['IMF_API_PRIMARY_KEY'],
-        process.env['IMF_API_SECONDARY_KEY'],
-    ];
+    const candidates = [process.env['IMF_API_PRIMARY_KEY'], process.env['IMF_API_SECONDARY_KEY']];
     const keys = [];
     for (const k of candidates) {
         if (typeof k === 'string' && k.length > 0 && !keys.includes(k)) {
@@ -234,8 +231,7 @@ export async function handleFetchUrl(id, url, fetchImpl = globalThis.fetch) {
             });
             lastResponse = response;
             // Retry only on auth-class failures with the next configured key.
-            if ((response.status === 401 || response.status === 403) &&
-                i + 1 < attempts.length) {
+            if ((response.status === 401 || response.status === 403) && i + 1 < attempts.length) {
                 continue;
             }
             if (!response.ok) {
