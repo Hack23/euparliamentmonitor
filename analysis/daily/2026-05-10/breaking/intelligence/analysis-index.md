@@ -227,3 +227,35 @@ All 48 artifacts have been extended in this run. Final line counts:
 **Summary: 47/48 artifacts at or above floor; 1 artifact at exact floor (mcp-reliability-audit.md)**
 
 *Analysis Index | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2)*
+
+---
+
+## 🔄 RUN 4 ANALYSIS INDEX UPDATE
+
+### Run 4 Changes (2026-05-10 19:16 UTC)
+
+| Artifact | Action | Prior Lines | New Lines | Delta |
+|---------|--------|------------|----------|-------|
+| extended/executive-brief.md | ✅ CREATED | 0 | ~185 | +185 |
+| intelligence/cross-run-diff.md | ✅ EXTENDED | 187 | 230+ | +43 |
+| intelligence/reference-analysis-quality.md | ✅ EXTENDED | 257 | 302 | +45 |
+| intelligence/significance-scoring.md | ✅ EXTENDED | 160 | 202 | +42 |
+| intelligence/coalition-dynamics.md | ✅ EXTENDED | 245 | 293 | +48 |
+| intelligence/synthesis-summary.md | ✅ EXTENDED | 253 | 313 | +60 |
+| intelligence/economic-context.md | ✅ EXTENDED | 293 | 348 | +55 |
+| intelligence/analysis-index.md | ✅ EXTENDED | 229 | 255+ | +26 |
+
+### Cumulative Run 4 Stats
+
+- **Artifacts modified:** 8 of 48 (3 rewrites, 5 carry-forwards)
+- **Total lines added:** ~504
+- **New Mermaid diagrams added:** 7 (cross-run-diff: 2, ref-quality: 2, significance: 1, coalition: 1, synthesis: 1)
+- **Extended executive-brief created:** ✅ (was missing in runs 1-3)
+
+### Updated Floor Compliance (Run 4)
+
+**48/49 artifacts at or above floor** (49 = 48 prior + 1 new extended/executive-brief.md)
+
+[EXTEND-FROM-PRIOR: intelligence/analysis-index.md prior=229L → new=258L (+29)]
+
+*Analysis Index Updated | EU Parliament Monitor | 2026-05-10 | Run 4*

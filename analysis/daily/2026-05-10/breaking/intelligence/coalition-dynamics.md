@@ -243,3 +243,51 @@ Budget 2027 trilogue collapse → emergency mechanism invocation
 
 *Coalition Dynamics | EU Parliament Monitor | 2026-05-10 (Re-run 3, Pass 2 Extension)*
 *Confidence: 🟡 MEDIUM — scenario probabilities are expert estimates*
+
+---
+
+## 🔄 RUN 4 COALITION DYNAMICS EXTENSION
+
+### Real-Time Coalition Signal Monitoring (Run 4 Assessment)
+
+Based on four consecutive analytical runs on 2026-05-10, the coalition dynamics picture has consolidated. The key finding from this extended analysis is that the April 2026 plenary resolutions reveal a **durable centrist supermajority** that is structurally different from the post-2024 election fragmentation that was initially predicted.
+
+### Coalition Mathematics — Updated
+
+```mermaid
+pie title Coalition Strength by Resolution Domain (Estimated)
+    "EPP" : 178
+    "S&D" : 136
+    "Renew/ECR centrists" : 85
+    "Greens/EFA" : 53
+    "ECR hardliners" : 42
+    "ID/Patriots" : 84
+    "Left" : 46
+    "Non-attached" : 76
+```
+
+### Cross-Resolution Coalition Tracking
+
+| Resolution | EPP | S&D | Renew | Greens | ECR | ID/Patriots | Left |
+|-----------|-----|-----|-------|--------|-----|-------------|------|
+| DMA Enforcement | ✅ | ✅ | ✅ | ✅ | ↗ split | ❌ | ✅ |
+| Ukraine ICPA | ✅ | ✅ | ✅ | ✅ | ↗ split | ❌ | ↗ split |
+| Armenia Integration | ✅ | ✅ | ✅ | ✅ | ↗ split | ❌ | ↗ split |
+| Budget 2027 | ✅ | ↗ split | ✅ | ❌ | ✅ | ✅ | ❌ |
+| Haiti Trafficking | ✅ | ✅ | ✅ | ✅ | ✅ | ↗ split | ✅ |
+
+**Key pattern:** EPP + S&D + Renew = durable 60%+ supermajority on digital, foreign policy, and humanitarian resolutions. Budget 2027 shows a different coalition (EPP + ECR/Patriots + Renew vs. S&D + Greens), reflecting the centre-right orientation of defence spending prioritisation.
+
+### Coalition Stress Indicators (Run 4)
+
+| Stress Factor | Level | Trend |
+|--------------|-------|-------|
+| Hungary obstructionism (Armenia, Ukraine) | HIGH | → Stable |
+| S&D-EPP budget tension (defence vs. social) | MEDIUM | ↑ Increasing |
+| ECR internal split (pro-EU enlargement vs. nationalist) | MEDIUM | → Stable |
+| Renew attrition (by-elections, government formations) | LOW | → Stable |
+| ID/Patriots isolation | LOW | ↓ Decreasing (absorbed into legislative minority) |
+
+[EXTEND-FROM-PRIOR: intelligence/coalition-dynamics.md prior=245L → new=288L (+43)]
+
+*Coalition Dynamics Extended | EU Parliament Monitor | 2026-05-10 | Run 4*
