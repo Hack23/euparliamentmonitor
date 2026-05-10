@@ -607,6 +607,29 @@ describe('imf-mcp-client', () => {
       expect(url).toContain('/data/dataflow/IMF.STA/IFS/+/M.DEU.FPOLM_PA?');
     });
 
+    it('honours the legacy `freq` filter alias and re-emits it as FREQUENCY', async () => {
+      const fetchImpl = vi.fn().mockResolvedValue(mockFetchResponse('{}'));
+      const client = new IMFMCPClient({
+        apiBaseUrl: 'https://example.com',
+        fetchImpl,
+      });
+      // A caller using the SDMX 2.1 alias `freq` must NOT be silently
+      // dropped (which would let the dataflow's default frequency or
+      // the `*` wildcard take over and pull far more data than intended).
+      await client.fetchData({
+        databaseId: 'WEO',
+        startYear: 2024,
+        endYear: 2025,
+        filters: { country: ['DEU'], indicator: ['NGDP_RPCH'], freq: ['Q'] },
+      });
+      const url = fetchImpl.mock.calls[0][0];
+      // The caller asked for quarterly (`Q`) — the WEO annual default
+      // (`A`) must not override it, and the slot must not be `*`.
+      expect(url).toContain('/data/dataflow/IMF.RES/WEO/+/DEU.NGDP_RPCH.Q?');
+      expect(url).not.toContain('NGDP_RPCH.A?');
+      expect(url).not.toContain('NGDP_RPCH.*');
+    });
+
     it('rejects an empty filters map', async () => {
       const fetchImpl = vi.fn();
       const client = new IMFMCPClient({ fetchImpl });

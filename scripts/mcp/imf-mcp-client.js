@@ -67,7 +67,7 @@ const DEFAULT_IMF_AGENCY = 'IMF.STA';
  *
  * Examples handled:
  *   - `urn:sdmx:org.sdmx.infomodel.codelist.Codelist=IMF.RES:CL_WEO_INDICATOR(2.0+.0)`
- *     → `{ agency: 'IMF.RES', id: 'CL_WEO_INDICATOR', conceptId: undefined }`
+ *     → `{ agency: 'IMF.RES', id: 'CL_WEO_INDICATOR', conceptId: '' }`
  *   - `urn:sdmx:org.sdmx.infomodel.conceptscheme.Concept=IMF.RES:CS_WEO(4.0+.0).INDICATOR`
  *     → `{ agency: 'IMF.RES', id: 'CS_WEO', conceptId: 'INDICATOR' }`
  *
@@ -417,10 +417,12 @@ function defaultFrequency(databaseId) {
     }
 }
 /**
- * Add a dataflow-specific default frequency when the caller omitted one.
- * Filter-key matching is case-insensitive so callers using legacy
- * lowercase aliases (`frequency`) do not double-inject when the DSD
- * uses the SDMX 3.0 uppercase form (`FREQUENCY`).
+ * Add a dataflow-specific default frequency when the caller omitted one,
+ * and normalise the legacy `freq` alias to the SDMX 3.0 `FREQUENCY`
+ * dimension name. {@link buildSDMXKey} matches dimension keys by name
+ * (`frequency`/`FREQUENCY`), so a caller that passes `freq: ['A']`
+ * would otherwise be silently dropped and the FREQUENCY slot filled
+ * with the `*` wildcard — pulling far more data than intended.
  *
  * @param databaseId - Dataflow identifier.
  * @param filters - Caller-supplied SDMX dimension filters.
@@ -428,12 +430,28 @@ function defaultFrequency(databaseId) {
  * @internal
  */
 function withDefaultFrequency(databaseId, filters) {
-    const hasFrequency = Object.entries(filters).some(([key]) => {
+    // Pull any caller-supplied frequency value out of the legacy `freq`
+    // alias (or any case variant of `frequency`) so we can re-emit it
+    // under the canonical uppercase `FREQUENCY` key that buildSDMXKey
+    // and defaultDimensionOrder both use.
+    let freqCodes;
+    const passthrough = {};
+    for (const [key, value] of Object.entries(filters)) {
         const k = key.toLowerCase();
-        return k === 'frequency' || k === 'freq';
-    });
-    const frequency = defaultFrequency(databaseId);
-    return !hasFrequency && frequency ? { ...filters, FREQUENCY: [frequency] } : filters;
+        if (k === 'frequency' || k === 'freq') {
+            if (Array.isArray(value) && value.length > 0 && freqCodes === undefined) {
+                freqCodes = value;
+            }
+        }
+        else {
+            passthrough[key] = value;
+        }
+    }
+    const fallback = freqCodes ?? (() => {
+        const f = defaultFrequency(databaseId);
+        return f ? [f] : undefined;
+    })();
+    return fallback ? { ...passthrough, FREQUENCY: fallback } : filters;
 }
 /**
  * Resolve the IMF base URL and per-request timeout from constructor options
@@ -690,8 +708,11 @@ export class IMFMCPClient {
      * an optional free-text filter to narrow the result.
      *
      * Virtual tool: `imf-get-parameter-codes`. Uses
-     * `/structure/dataflow/{agency}/{id}/+?references=children` to fetch
-     * the DSD plus its referenced codelists in one round-trip.
+     * `/structure/dataflow/{agency}/{id}/+?references=all` to fetch the
+     * DSD plus its referenced conceptSchemes and codelists in one
+     * round-trip — SDMX 3.0 binds the codelist on the *concept*
+     * (`coreRepresentation.enumeration`), so resolving codes requires
+     * walking dim → conceptIdentity → conceptScheme → concept → codelist.
      *
      * @param databaseId - IMF dataflow identifier.
      * @param parameter - Dimension name (e.g. `"COUNTRY"`, `"INDICATOR"`;
