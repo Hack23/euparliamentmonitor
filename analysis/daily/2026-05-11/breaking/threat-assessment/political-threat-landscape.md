@@ -121,3 +121,21 @@ Goal: Suspend or Roll Back ETS2 (Buildings/Road Transport Carbon Pricing)
 - Coalition Dynamics: EP MCP tool (April 1–May 11, 2026)
 - Political Threat Framework: analysis/methodologies/political-threat-framework.md v4.0
 - EP Adopted Texts: data.europarl.europa.eu (April 28–30, 2026)
+
+## Political Threat Landscape Visualization
+
+```mermaid
+flowchart TD
+    T1[Claims Commission ECJ Challenge] --> |Roughly Even| O1[Partial annulment]
+    T2[HU/PL Non-compliance] --> |Likely| O2[Implementation delay 12-18 months]
+    T3[Coalition fracture ETS2] --> |Unlikely this session| O3[Minority vote on ETS2 revision]
+    T4[ESN committee blocking] --> |Roughly Even 6 months| O4[Procedural delays]
+    T5[Russia response] --> |Unlikely| O5[Diplomatic escalation]
+    O1 --> RISK[Political risk landscape HIGH]
+    O2 --> RISK
+    O3 --> RISK
+```
+
+**Political threat WEP assessment**: The overall political threat landscape for EP10 centrist coalition durability is assessed as *Likely* to remain stable through Q3 2026. The *Roughly Even* ECJ challenge risk is the primary structural threat; HU/PL non-compliance is *Likely* but manageable through Art. 7 leverage.
+
+*Threat landscape confidence: MEDIUM-HIGH | Admiralty: B2 | License: Apache-2.0*

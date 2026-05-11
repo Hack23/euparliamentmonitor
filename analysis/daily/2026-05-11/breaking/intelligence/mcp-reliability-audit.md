@@ -361,3 +361,25 @@ This run's MCP reliability profile is **representative of typical news-breaking 
 **Primary constraint:** MEP roll-call vote data delay (structural — inherent in EP data architecture)  
 **Secondary constraint:** Events feed recurring unavailability (infrastructure — EP API issue)  
 **Recommendation priority:** HIGH — pursue April DOCEO XML retrieval in next run to validate this run's coalition estimates
+
+## MCP Reliability Visualization
+
+```mermaid
+quadrantChart
+    title MCP Tool Reliability — Response Quality vs Speed
+    x-axis Slow Response --> Fast Response
+    y-axis Low Data Quality --> High Data Quality
+    quadrant-1 Reliable Fast
+    quadrant-2 Reliable but Slow
+    quadrant-3 Unreliable Slow
+    quadrant-4 Fast but Limited
+    generate_political_landscape: [0.80, 0.95]
+    get_adopted_texts_feed: [0.85, 0.90]
+    early_warning_system: [0.75, 0.88]
+    get_latest_votes: [0.20, 0.30]
+    get_events_feed: [0.40, 0.70]
+    get_procedures_feed: [0.60, 0.65]
+    get_plenary_sessions: [0.50, 0.60]
+```
+
+*MCP reliability audit confidence: HIGH — based on observed tool responses in this run. Admiralty: A1 (direct observation).*

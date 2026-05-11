@@ -225,3 +225,25 @@ With the ETS2 MSR adjustment, the complete scorecard of Green Deal legislative c
 - ECJ legal analysis: based on ECJ precedent (Weiss, Kadi, ETS aviation cases)
 - Green Deal instrument status: European Commission DG CLIMA published progress dashboard
 - Public opinion: aggregate from Eurobarometer wave 102 (2024) + national polling (2025 estimates)
+
+## PESTLE Factor Weighting
+
+```mermaid
+quadrantChart
+    title PESTLE Factors — Impact vs Certainty
+    x-axis Low Certainty --> High Certainty
+    y-axis Low Impact --> High Impact
+    quadrant-1 High Impact High Certainty
+    quadrant-2 High Impact Monitor
+    quadrant-3 Background Factors
+    quadrant-4 Track Developments
+    Political coalition stability: [0.80, 0.85]
+    Economic carbon price shock: [0.65, 0.75]
+    Social public support Ukraine: [0.70, 0.70]
+    Technological ETS monitoring: [0.85, 0.60]
+    Legal ECJ review risk: [0.50, 0.90]
+    Environmental ETS2 targets: [0.75, 0.80]
+```
+
+*PESTLE synthesis: Legal (ECJ review) and Political (coalition dynamics) are the dominant uncertainty factors. Environmental (ETS2 targets) and Political (coalition) are the highest-impact certainties. Economic carbon price trajectory is Highly Likely to materialize given MSR adjustment. Admiralty: B2 overall PESTLE assessment.*
+

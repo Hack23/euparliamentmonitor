@@ -238,3 +238,68 @@ For EU Parliament watchers and policy analysts:
 - Stakeholder interaction framework: Power/Interest matrix methodology (Mendelow 1991) adapted for EU institutional analysis
 - ECB reference: ECB Financial Stability Review 2025 (climate risk and collateral framework)
 - ICC reference: ICC public docket (Putin/Lvova-Belova arrest warrants, March 2023)
+
+## Stakeholder Network Visualization
+
+```mermaid
+flowchart TD
+    EP[European Parliament] --> |legislates| CC[Claims Commission]
+    EP --> |adjusts| ETS2[ETS2 MSR]
+    EP --> |waives immunity| MEPs[4 MEPs]
+    CC --> |compensates| UKR[Ukraine/Ukrainian citizens]
+    CC --> |draws from| RU_ASSETS[Frozen Russian assets ~€300bn]
+    ETS2 --> |prices carbon| INDUSTRY[EU industry/transport/buildings]
+    ETS2 --> |generates revenue| MS[Member States]
+    MEPs --> |subject to| COURTS[National judicial proceedings]
+    ECJ[ECJ] --> |reviews legality| CC
+    ECJ --> |reviews| ETS2
+    MS[Member States] --> |implement| CC
+    MS --> |transpose| ETS2
+    COUNCIL[EU Council] --> |monitors| MS
+```
+
+**Stakeholder influence assessment**:
+- European Parliament: HIGH influence (legislative actor, PR completed)
+- European Commission: HIGH (implementation authority, Claims Commission secretariat)
+- EU Council: HIGH (implementation oversight, qualified majority veto)
+- Hungary/Poland: MEDIUM-HIGH (implementation non-compliance risk — *Likely* to delay)
+- Ukraine government: HIGH stake, LOW formal influence (third-country beneficiary)
+- ECJ: MEDIUM influence now, potentially HIGH if challenge filed (*Roughly Even*)
+- EU carbon market participants: MEDIUM stake, LOW formal legislative influence post-adoption
+
+**Stakeholder WEP ratings** (each stakeholder's cooperative probability):
+- Commission cooperation: *Almost Certain* (operational mandate)
+- Council cooperation: *Highly Likely* (qualified majority already achieved)
+- Hungary compliance: *Unlikely* (historical pattern; Art. 7 proceedings ongoing)
+- Poland compliance: *Roughly Even* (new government more cooperative than 2015–2023)
+- ECJ filing by ECR-adjacent parties: *Roughly Even*
+
+## Stakeholder Engagement Recommendations
+
+**For EU transparency advocates**: Monitor Claims Commission implementation progress via Commission tracking tool. Push for public hearings on Claims Commission operational framework design.
+
+**For climate policy trackers**: Weekly ETS2 carbon price monitoring. Request Commission to publish MSR adjustment implementation decree (expected June–July 2026).
+
+**For rule-of-law watchdogs**: Track the four MEP immunity waiver cases through national judicial proceedings. These cases test EP–national judiciary cooperation norms.
+
+**For election observers**: Monitor proxy voting reform implementation into national electoral procedures for 2029 EP elections. Verify uniform application across 27 member states.
+
+*Stakeholder map confidence: HIGH — based on confirmed EP seat distribution (717 MEPs, 9 groups), adopted texts register, and historical cooperation patterns. Admiralty: B2.*
+
+---
+*Document version: 2.0 (re-run extension)*
+*Data as of: 2026-05-11 | Source: EP MCP API, EP Open Data Portal*
+*Recommended review: September 2026 after roll-call data published and implementation notifications received*
+
+**Cross-reference**: See `intelligence/coalition-dynamics.md` §Coalition Dynamics Visualization for group positioning; `intelligence/scenario-forecast.md` §Stakeholder WEP ratings for probabilistic engagement scenarios; `risk-scoring/risk-matrix.md` for stakeholder risk scores.
+
+---
+*End of stakeholder map. Cross-reference: coalition-dynamics.md for group-level analysis; scenario-forecast.md for probabilistic engagement scenarios.*
+*WEP overall: stakeholder landscape is Highly Likely to shift as implementation proceeds (June–December 2026).*
+*Admiralty: B2 | Data: EP MCP API 2026-05-11 | License: Apache-2.0*
+
+
+
+
+
+

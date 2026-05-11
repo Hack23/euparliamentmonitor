@@ -216,3 +216,60 @@
 - Euroclear cyber threat data: ENISA Threat Landscape 2025 (critical financial market infrastructure threats); CERT-EU APT intelligence (public reporting)
 - Scenario foundations: scenario-forecast.md (this run); risk-matrix.md risk register
 - Geopolitical signals: early_warning_system (high sensitivity, 2026-05-11)
+
+## Wildcards Visualization
+
+```mermaid
+quadrantChart
+    title Wildcards — Impact vs Probability
+    x-axis Highly Unlikely --> Roughly Even
+    y-axis Low Impact --> Catastrophic Impact
+    quadrant-1 Black Swans
+    quadrant-2 Grey Rhinos
+    quadrant-3 Background Noise
+    quadrant-4 Monitor Closely
+    ECJ Claims Commission annulment: [0.45, 0.80]
+    EU budget political crisis: [0.30, 0.75]
+    Russia escalation response: [0.25, 0.95]
+    ESN coalition-building success: [0.20, 0.60]
+    Coalition fracture on ETS2: [0.35, 0.70]
+    MEP data breach incident: [0.15, 0.50]
+```
+
+**WEP Assessment of Wildcards**:
+- Russia escalatory response to Claims Commission (military/diplomatic): *Unlikely* but with *catastrophic impact if realized*
+- ECJ suspending Claims Commission (interim measures): *Unlikely* — would require emergency ECJ filing
+- EU budget crisis triggered by Claims Commission costs: *Highly Unlikely* (no direct budget impact)
+- Coalition collapse on ETS2 implementation: *Unlikely* this session
+- ESN establishing committee presence within 6 months: *Roughly Even* (standard procedural timeline)
+
+**Admiralty Grading of Wildcard Scenarios**:
+
+| Wildcard | Source | Grade | Rationale |
+|----------|--------|-------|-----------|
+| Russia escalation | Geopolitical analysis | C3 | Speculative; historical pattern basis |
+| ECJ suspension | Legal analysis | C2 | Possible; ECR likely to file |
+| Budget crisis | Fiscal analysis | D2 | Poorly sourced; unlikely mechanism |
+| Coalition fracture | EP data | B3 | Possible; Central EU EPP tension observable |
+| ESN committee seats | EP rules analysis | B2 | Probably true timeline assessment |
+
+## Black Swan Monitoring Protocol
+
+**Weekly monitoring triggers**:
+1. Russian diplomatic communiqués on Claims Commission
+2. ECJ Curia.europa.eu — new Art. 263 TFEU challenges
+3. EP coalition vote margins — any <5 seat majority signals fracture risk
+4. ESN committee application filings (EP registry)
+
+**Monthly assessment**:
+- ETS2 carbon price vs. MSR model trajectory
+- Member state Claims Commission enabling legislation progress
+
+*Wildcards and black swans document — version 2.0 (re-run extension)*
+*Confidence: LOW-MEDIUM (wildcard analysis is inherently speculative)*
+*Admiralty aggregate: C3 | WEP: Most wildcards assessed as Unlikely to Highly Unlikely*
+*License: Apache-2.0 | © 2024–2026 Hack23 AB*
+
+
+
+

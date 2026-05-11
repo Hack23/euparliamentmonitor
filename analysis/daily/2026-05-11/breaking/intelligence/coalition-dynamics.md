@@ -212,3 +212,27 @@ Expected votes and coalition projections:
 - early_warning_system (high sensitivity, 2026-05-11) — stability=84, 3 warnings
 - DOCEO XML: unavailable for April 28–30 week — voting estimates are analytical projections
 - Historical coalition precedents: EP7–EP9 coalition dynamics documentation (EP institutional knowledge base)
+
+## Coalition Dynamics Visualization
+
+```mermaid
+quadrantChart
+    title EP Political Group Coalition Positions (2026-05-11)
+    x-axis Eurosceptic --> Pro-EU Integration
+    y-axis Conservative --> Progressive
+    quadrant-1 Pro-EU Progressive
+    quadrant-2 Eurosceptic Progressive
+    quadrant-3 Eurosceptic Conservative
+    quadrant-4 Pro-EU Conservative
+    EPP 183: [0.75, 0.40]
+    S&D 136: [0.80, 0.75]
+    PfE 85: [0.15, 0.25]
+    ECR 81: [0.30, 0.30]
+    Renew 77: [0.85, 0.60]
+    Greens/EFA 53: [0.70, 0.90]
+    The Left 45: [0.55, 0.95]
+    NI 30: [0.40, 0.45]
+    ESN 27: [0.10, 0.20]
+```
+
+**Coalition probability assessment**: The centrist coalition (EPP+S&D+Renew) is *Highly Likely* to maintain legislative majority through Q3 2026. Coalition fracture risk is *Unlikely* on Ukraine files but *Roughly Even* on ETS2 tightening (Central European EPP defection risk).

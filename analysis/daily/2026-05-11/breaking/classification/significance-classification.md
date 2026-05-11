@@ -57,3 +57,49 @@
 - EP Adopted Texts: data.europarl.europa.eu (April 28–30, 2026)
 - Political Landscape: EP Open Data Portal
 - Scoring methodology: 5-dimension significance matrix (EU Parliament Monitor analytical framework)
+
+## Significance Assessment Visualization
+
+```mermaid
+quadrantChart
+    title Legislative Significance — Impact vs Precedent Value
+    x-axis Low Precedent --> High Precedent
+    y-axis Low Impact --> High Impact
+    quadrant-1 Historic
+    quadrant-2 High Impact
+    quadrant-3 Routine
+    quadrant-4 Precedent Setting
+    Ukraine Claims Commission: [0.95, 0.95]
+    ETS2 MSR Adjustment: [0.75, 0.85]
+    MEP Immunity x4: [0.70, 0.70]
+    Electoral Reform: [0.65, 0.60]
+    Other adopted texts: [0.20, 0.35]
+```
+
+## Significance Classification Summary
+
+**HISTORIC** (once-in-decade legislative significance): Ukraine Frozen Assets Claims Commission (TA-10-2026-0154) — establishes EU as first supranational body to operationalize sovereign accountability through frozen asset collateral mechanism.
+
+**HIGH SIGNIFICANCE**: ETS2 MSR adjustment — accelerates 2026–2028 carbon market reform timeline; directly impacts EU Green Deal delivery.
+
+**MEDIUM SIGNIFICANCE**: MEP immunity waivers (×4) — precedent-setting EP cooperation with national judiciary, but case-by-case decisions.
+
+**ROUTINE-HIGH**: Electoral reform (proxy voting) — procedural improvement with 2029 election implications.
+
+**Assessment WEP**: All four legislative acts are *Almost Certain* to enter into force (published or pending Official Journal publication). Implementation compliance is the key uncertainty: *Likely* for ETS2 and electoral reform; *Roughly Even* for Claims Commission full operationalization by Q4 2026.
+
+*Significance classification confidence: HIGH. Admiralty: B1 — reliable source, confirmed legislative record.*
+
+## Comparative Significance Benchmarking
+
+Comparing against prior EP10 legislative milestones:
+- **January–March 2026**: AI Act implementation measures (MEDIUM) — routine technical specifications
+- **April 28–30 2026**: This plenary session = HIGHEST significance of EP10 to date
+- **Comparison to EP9 history**: The Claims Commission matches in significance the 2020 EU Recovery Fund approval (€750bn) and the 2021 EU AI Act initiation
+
+*Historical benchmarking based on EP legislative database and impact magnitude comparison.*
+
+---
+*Significance classification complete. Document version 2.0 (re-run extension).*
+*Cross-reference: impact-matrix.md §Heat Map for geographic significance distribution; scenario-forecast.md for forward significance trajectory.*
+*Admiralty: B1 | WEP overall session significance: Almost Certain to be recorded as historic EP10 legislative milestone.*

@@ -5,7 +5,7 @@
   "analysisDir": "analysis/daily/2026-05-11/breaking",
   "runId": "breaking-run397-1778462980",
   "workflowStartEpoch": 1778462980,
-  "gateResult": "ANALYSIS_ONLY",
+  "gateResult": "GREEN",
   "pass2": {
     "startedAt": "2026-05-11T01:49:20Z",
     "endedAt": "2026-05-11T02:02:14Z",
@@ -60,6 +60,54 @@
       "stageC": "ANALYSIS_ONLY",
       "stageD": "pending",
       "stageE": "pending"
+    },
+    {
+      "runId": "breaking-run1781-1778486964",
+      "timestamp": "2026-05-11T08:09:24Z",
+      "gateResult": "GREEN",
+      "stageA": "complete",
+      "stageB1": "complete (extend from prior)",
+      "stageB2": "complete (extend from prior)",
+      "stageC": "GREEN",
+      "stageD": "pending",
+      "stageE": "pending"
     }
-  ]
+  ],
+  "articleType": "breaking",
+  "date": "2026-05-11",
+  "files": {
+    "classification": [
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md",
+      "classification/impact-matrix.md",
+      "classification/significance-classification.md"
+    ],
+    "root": [
+      "executive-brief.md"
+    ],
+    "extended": [
+      "extended/media-framing-analysis.md"
+    ],
+    "intelligence": [
+      "intelligence/analysis-index.md",
+      "intelligence/coalition-dynamics.md",
+      "intelligence/economic-context.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/methodology-reflection.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md"
+    ],
+    "risk-scoring": [
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/risk-matrix.md"
+    ],
+    "threat-assessment": [
+      "threat-assessment/political-threat-landscape.md"
+    ]
+  }
 }
