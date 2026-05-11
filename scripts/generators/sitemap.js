@@ -44,10 +44,7 @@ function main() {
     const sitemap = generateSitemap(articles, docsFiles);
     const filepath = path.join(PROJECT_ROOT, 'sitemap.xml');
     fs.writeFileSync(filepath, sitemap, 'utf-8');
-    const totalUrls = articles.length +
-        ALL_LANGUAGES.length * 3 +
-        docsFiles.length +
-        1;
+    const totalUrls = articles.length + ALL_LANGUAGES.length * 3 + docsFiles.length + 1;
     console.log(`✅ Generated sitemap.xml with ${totalUrls} URLs`);
     const piData = collectPoliticalIntelligenceData(PROJECT_ROOT);
     console.log(`🧭 Scanned analysis tradecraft: ${piData.methodologies.length} methodologies, ${piData.templates.length} templates, ${piData.dailyGroups.length} daily groups`);

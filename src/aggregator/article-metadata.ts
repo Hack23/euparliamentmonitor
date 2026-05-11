@@ -726,7 +726,6 @@ export function isGenericHeading(heading: string, articleType: string, date: str
     if (normalized === `${humanRedundant} — ${date}`) return true;
   }
 
-
   const trailingDateOnly = new RegExp(`^${escapeRegex(human)}\\s*[—–-]\\s*[\\d-]+$`, 'u');
   if (trailingDateOnly.test(normalized)) {
     return true;
