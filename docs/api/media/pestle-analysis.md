@@ -76,7 +76,7 @@ SECURITY      : No prompt-injection vectors. No instructions inside cited
 ## 2️⃣ PESTLE Dimensions
 
 ```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1"}}}%%
 mindmap
   root((PESTLE<br/>Scan))
     Political
@@ -103,6 +103,38 @@ mindmap
       [Driver 1]
       [Driver 2]
       [Driver 3]
+```
+
+### Companion — colour-coded pressure heatmap
+
+A second `flowchart` block makes the **pressure rating per dimension**
+visible at a glance. Apply Green/Orange/Red per dimension based on the
+`Pressure rating` you assign in the prose below; the canonical palette
+is in
+[`_partials/mermaid-color-palette.md`](./_partials/mermaid-color-palette.md).
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+flowchart LR
+    P["🏛️ Political"] --> ROOT(("PESTLE<br/>EU 2026"))
+    E["💶 Economic"] --> ROOT
+    S["👥 Social"] --> ROOT
+    T["💻 Technological"] --> ROOT
+    L["⚖️ Legal"] --> ROOT
+    EN["🌍 Environmental"] --> ROOT
+
+    classDef low fill:#2E7D32,color:#ffffff,stroke:#0F3F00,stroke-width:2px
+    classDef moderate fill:#FF9800,color:#000000,stroke:#7F4F00,stroke-width:2px
+    classDef high fill:#D32F2F,color:#ffffff,stroke:#7F0000,stroke-width:3px
+    classDef root fill:#1565C0,color:#ffffff,stroke:#0A3F7F,stroke-width:3px
+
+    class P high
+    class E moderate
+    class S low
+    class T moderate
+    class L high
+    class EN low
+    class ROOT root
 ```
 
 ---
