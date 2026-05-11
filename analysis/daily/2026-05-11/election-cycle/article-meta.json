@@ -1,0 +1,32 @@
+{
+  "date": "2026-05-11",
+  "articleType": "election-cycle",
+  "runId": "election-cycle",
+  "gateResult": "PENDING",
+  "slug": "2026-05-11-election-cycle",
+  "articlePath": "analysis/daily/2026-05-11/election-cycle/article.md",
+  "topFinding": "The 2024–2029 European Parliament term began with a structurally fragmented chamber (717 MEPs across 9 groups, fragmentation index 6.58) in which the centrist EPP+S&D+Renew majority operates with a 36-seat cushion that is materially thinner than EP9.",
+  "keyTakeaways": [],
+  "topRisks": [],
+  "keyDates": [
+    "January 2027 Bureau election concludes in first-round vote",
+    "MFF mid-term IIA signed by Q3 2027",
+    "≥3 right-axis floor wins by Q4 2026",
+    "S&D cohesion-proxy index rises above 0.85 in Stage-A captures by Q1 2027",
+    "Joint EPP–S&D communiqué before March 2029",
+    "Spitzenkandidat agreement before Q4 2028"
+  ],
+  "keyActors": [],
+  "macroContext": "The electoral cycle 2024–2029 unfolds against a macro environment characterised by post-pandemic and post-energy-shock normalisation, gradual disinflation, and structurally elevated public-debt ratios across most member states.",
+  "sources": [
+    "classification/actor-mapping.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}

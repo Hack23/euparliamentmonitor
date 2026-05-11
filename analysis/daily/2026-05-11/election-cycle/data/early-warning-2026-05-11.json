@@ -1,0 +1,19 @@
+{
+  "stabilityScore": 84,
+  "riskLevel": "MEDIUM",
+  "criticalWarnings": 0,
+  "highWarnings": 1,
+  "totalWarnings": 3,
+  "keyRiskFactor": "DOMINANT_GROUP_RISK",
+  "warnings": [
+    {"type": "HIGH_FRAGMENTATION", "severity": "MEDIUM", "groups": 8},
+    {"type": "DOMINANT_GROUP_RISK", "severity": "HIGH", "ratio": 19.0},
+    {"type": "SMALL_GROUP_QUORUM_RISK", "severity": "LOW", "affected": 3}
+  ],
+  "trends": {
+    "fragmentation": "NEUTRAL (eff. parties=4.4)",
+    "grandCoalitionViability": "POSITIVE (top-2 = 60%)",
+    "minorityRepresentation": "POSITIVE (6%)"
+  },
+  "source": "european-parliament-mcp-server@1.3.2 early_warning_system 2026-05-11"
+}
