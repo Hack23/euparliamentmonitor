@@ -425,7 +425,7 @@ visual regression) against the built static site.
 
 **Trigger**: Push + PR to `main`; manual dispatch; daily cron at 00:00 UTC.
 
-**Runtime**: Runs inside the official `mcr.microsoft.com/playwright:v1.59.1-noble`
+**Runtime**: Runs inside the official `mcr.microsoft.com/playwright:v1.60.0-noble`
 container — chromium + firefox + webkit + OS deps + fonts are pre-baked, so the
 job no longer pays the ~500 MB cold browser download or the `playwright
 install-deps` apt-get flake cost. Node 26 is overlaid via `actions/setup-node`
