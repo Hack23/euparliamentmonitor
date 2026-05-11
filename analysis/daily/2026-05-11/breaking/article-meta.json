@@ -1,0 +1,58 @@
+{
+  "date": "2026-05-11",
+  "articleType": "unknown",
+  "runId": "breaking-run397-1778462980",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-05-11-unknown",
+  "articlePath": "analysis/daily/2026-05-11/breaking/article.md",
+  "topFinding": "The European Parliament's April 28–30, 2026 Strasbourg plenary delivered three landmark actions:",
+  "keyTakeaways": [
+    "Stalled ceasefire negotiations under US-brokered mediation (Q1 2026)",
+    "Russian counter-offensive pressure in Zaporizhzhia and Kherson oblasts",
+    "EU Ukraine Support Loan for 2026–2027 (€50 billion, approved February 2026)",
+    "NATO Article 3 rearmament obligations pressure on lagging member states (Poland, Germany leading)",
+    "**Ukraine Claims Commission**: Broad majority (EPP + S&D + Renew + Greens/EFA + The Left) against PfE opposition and ECR ambivalence. Estimated 480+ for, 180 against.",
+    "**MEP Immunity Waivers**: Cross-party majority; waivers typically pass with 60–70% support; ECR's own members' waivers were politically awkward for group leadership.",
+    "**ETS2 MSR**: Narrower majority; EPP + ECR + PfE pressed for the weakest MSR version; S&D + Greens/EFA + The Left sought a stronger stabilisation mechanism. Final text a compromise."
+  ],
+  "topRisks": [
+    "If the Convention's legal base is Article 218 TFEU with QMV, Hungary cannot veto unilaterally",
+    "Political pressure from other EU member states (particularly Poland, Baltic states) limits Orbán's leverage",
+    "US/NATO political cost of blocking would be significant",
+    "German Bundestag election: CDU/CSU (EPP-aligned) campaigns on ETS2 delay",
+    "French fiscal crisis: Macron government cannot fund Social Climate Fund obligations",
+    "Poland: Energy mix still heavily coal-dependent; ETS2 creates structural cost shock",
+    "Social Climate Fund (€86 billion) is explicitly designed to manage political resistance",
+    "ETS2 is now primary legislation (Fit for 55 package) — any weakening requires new legislative procedure"
+  ],
+  "keyDates": [
+    "Commission submits Claims Commission implementing regulation (expected Q3 2026)",
+    "**Expected:** ECJ opinion delivered Q3 2026 on whether frozen asset *principal* can fund Claims Commission payouts — outcome genuinely uncertain (confidence: 🔴 Low on direction)",
+    "EP Political Landscape: generate_political_landscape (2026-05-11)",
+    "IMF WEO: September 2025 vintage (GDP/fiscal indicators)",
+    "Early Warning System: early_warning_system (high sensitivity, 2026-05-11)",
+    "IMF economic data: September 2025 WEO (GDP/fiscal/inflation for DEU/FRA/ITA/ESP/POL) via fetch_url",
+    "EP political composition: generate_political_landscape (2026-05-11; 717 MEPs, 9 groups)"
+  ],
+  "keyActors": [
+    "*Ukraine Claims Commission:* Strongly supportive — EPP has been the consistent champion of maximum institutional support for Ukraine within EU structures. The EPP sees the Claims Commission as a landmark that positions Europe as the primary institutional guarantor of the post-invasion legal order.",
+    "*ETS2 MSR:* Led the push for a weaker (higher-threshold) MSR activation mechanism, reflecting pressure from centre-right constituencies worried about energy cost of living. EPP's \"competitive sustainability\" agenda directly shaped the final text.",
+    "*Far-Right MEP Waivers:* Formally supports JURI processes; EPP leadership privately welcomes actions against Braun and Şoşoacă as it reinforces EPP's claim to democratic legitimacy over the far right.",
+    "*Ukraine Claims Commission:* Full support — S&D has consistently framed Ukraine support as a values issue (sovereignty, rule of law, democratic solidarity) rather than a geopolitical calculation.",
+    "*ETS2 MSR:* S&D supported a stronger MSR mechanism but accepted the EPP compromise to preserve the Social Climate Fund provisions. The Fund's €86 billion for low-income households was a key S&D negotiation win.",
+    "*Cyberbullying Resolution:* S&D championed the online harassment framework, particularly provisions targeting gender-based online harassment.",
+    "*MEP Waivers:* S&D supports all four waivers; explicitly called for stronger EP sanctions mechanisms against anti-democratic behaviour.",
+    "*Ukraine Claims Commission:* Opposed — PfE (which includes Orbán's Fidesz/Hungary) views the Claims Commission as an escalatory tool and opposes EU involvement in multilateral anti-Russia mechanisms."
+  ],
+  "macroContext": "The EU economic context for the April 28–30 EP plenary and May 2026 developments is characterised by a fragile recovery from the 2024–2025 growth slowdown, persistent fiscal pressure, and structural divergence across member states.",
+  "sources": [
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
