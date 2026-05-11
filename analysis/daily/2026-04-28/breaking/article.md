@@ -1,6 +1,7 @@
 ---
 title: "EP Breaking: Strasbourg April Plenary & US Tariff Counter-Response"
-description: "The European Parliament is in its April 2026 Strasbourg plenary session (April 27–30), with active legislative work continuing amid a charged geopolitical environment. Two votes were registered on April 27; twenty-one debates are scheduled for April 28. This session follows the historically…"
+description: "The European Parliament is in its April 2026 Strasbourg plenary session (April 27–30), with active legislative work continuing amid a charged geopolitical environment. Two……"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-28", "run breaking-run1777360024", "Strasbourg", "April", "Plenary", "Tariff", "Counter", "Response", "European", "Parliament"]
 date: 2026-04-28
 article_type: breaking
 slug: 2026-04-28-breaking

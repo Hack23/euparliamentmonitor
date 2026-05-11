@@ -1,6 +1,7 @@
 ---
 title: "The European Parliament's Q1 2026 output of 104 adopted texts, 46.2% above the 2025 pace, reveals a significant concentration of…"
-description: "The European Parliament's Q1 2026 output of 104 adopted texts, 46.2% above the 2025 pace, reveals a significant concentration of legislative power in ECON and LIBE committees. ECON's unprecedented triple-package adoption of the Banking Union reform (SRMR3, BRRD3, DGSD2 on 26 March 2026)…"
+description: "The European Parliament's Q1 2026 output of 104 adopted texts, 46.2% above the 2025 pace, reveals a significant concentration of legislative power in ECON and LIBE committees……"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-10", "run committee-reports-2026-04-10", "European", "Parliament", "output", "adopted", "texts", "above", "pace", "reveals"]
 date: 2026-04-10
 article_type: committee-reports
 slug: 2026-04-10-committee-reports

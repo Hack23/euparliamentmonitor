@@ -1,6 +1,7 @@
 ---
 title: "🧩 Political Intelligence Synthesis — Legislative Propositions (2026-04-09)"
-description: "- 100 adopted texts between January 20 and March 26 across 6 plenary sessions"
+description: "- 100 adopted texts between January 20 and March 26 across 6 plenary sessions Published 2026-04-09 · analysis run PROP-2026-04-09-001, with source-linked voting, committee and…"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-09", "run PROP-2026-04-09-001", "Political", "Intelligence", "Synthesis", "Legislative", "adopted", "texts", "between", "January"]
 date: 2026-04-09
 article_type: propositions
 slug: 2026-04-09-propositions

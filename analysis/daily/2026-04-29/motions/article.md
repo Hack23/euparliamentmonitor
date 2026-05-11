@@ -1,6 +1,7 @@
 ---
 title: "EP Motions & Adopted Texts"
-description: "Almost Certainly (A1, confidence HIGH): The April 28, 2026 Strasbourg plenary session marked a significant week for the EP, delivering 17 adopted texts across budget, justice, environment, trade, and institutional domains. Three politically charged immunity waivers targeting Polish ECR-aligned…"
+description: "Almost Certainly (A1, confidence HIGH): The April 28, 2026 Strasbourg plenary session marked a significant week for the EP, delivering 17 adopted texts across budget, justice……"
+keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-29", "run motions-run-1777445455", "Adopted", "Texts", "Almost", "Certainly", "confidence", "HIGH", "April", "Strasbourg"]
 date: 2026-04-29
 article_type: motions
 slug: 2026-04-29-motions

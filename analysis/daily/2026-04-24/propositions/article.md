@@ -1,6 +1,7 @@
 ---
 title: "BLUF (ICD-203): Over the past 30 days the European Parliament has"
-description: "BLUF (ICD-203): Over the past 30 days the European Parliament has"
+description: "BLUF (ICD-203): Over the past 30 days the European Parliament has Published 2026-04-24 · analysis run propositions-run-1777009560, with source-linked voting, committee and…"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-24", "run propositions-run-1777009560", "BLUF", "Over", "past", "days", "European", "Parliament", "Published", "analysis"]
 date: 2026-04-24
 article_type: propositions
 slug: 2026-04-24-propositions

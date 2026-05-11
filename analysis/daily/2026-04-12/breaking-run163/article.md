@@ -1,6 +1,7 @@
 ---
 title: "2026-04-12"
-description: "This analysis consolidates findings from Run 163's five analysis categories (classification, threat assessment, risk scoring, intelligence, documents) based on EP MCP precomputed statistics (264KB) and cross-run editorial memory spanning April 8-12 (12 prior workflow runs)."
+description: "This analysis consolidates findings from Run 163's five analysis categories (classification, threat assessment, risk scoring, intelligence, documents) based on EP MCP……"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-12", "This", "analysis", "consolidates", "findings", "from", "five", "categories", "classification", "threat"]
 date: 2026-04-12
 article_type: breaking
 slug: 2026-04-12-breaking

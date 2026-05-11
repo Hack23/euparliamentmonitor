@@ -1,6 +1,7 @@
 ---
 title: "Detection and analysis of voting trends across European Parliament proceedings."
-description: "Detection and analysis of voting trends across European Parliament proceedings."
+description: "Detection and analysis of voting trends across European Parliament proceedings. Published 2026-04-01 · analysis run 7f928e7c-85fd-4f76-890b-f362622c3f42, with source-linked…"
+keywords: ["EU Parliament", "month ahead", "legislative agenda", "European Parliament", "plenary session", "2026-04-01", "run 7f928e7c-85fd-4f76-890b-f362622c3f42", "Detection", "analysis", "voting", "trends", "across", "European", "Parliament", "proceedings", "Published"]
 date: 2026-04-01
 article_type: month-ahead
 slug: 2026-04-01-month-ahead

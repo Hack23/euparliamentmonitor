@@ -1,6 +1,7 @@
 ---
 title: "Post-Easter Committee Restart"
-description: "title: \"Synthesis Summary: Week Ahead 10-17 April 2026\""
+description: "title: \"Synthesis Summary: Week Ahead 10-17 April 2026\" Published 2026-04-10 · analysis run 12, with source-linked voting, committee and legislative intelligence for…"
+keywords: ["EU Parliament", "week ahead", "committee meetings", "plenary debate", "European Parliament", "legislation", "2026-04-10", "run 12", "Post", "Easter", "Committee", "Restart", "title", "Synthesis", "Summary", "Week"]
 date: 2026-04-10
 article_type: week-ahead
 slug: 2026-04-10-week-ahead

@@ -1,6 +1,7 @@
 ---
 title: "🧩 Political Intelligence Synthesis — Easter Recess Day 15 (Run 156)"
-description: "analysisPeriod: \"2026-04-10 18:17–18:45 UTC\""
+description: "analysisPeriod: \"2026-04-10 18:17–18:45 UTC\" Published 2026-04-10, with source-linked voting, committee and legislative intelligence for democratic-accountability readers…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-10", "Political", "Intelligence", "Synthesis", "Easter", "Recess", "analysisPeriod", "Published", "with", "source"]
 date: 2026-04-10
 article_type: breaking
 slug: 2026-04-10-breaking-156

@@ -1,6 +1,7 @@
 ---
 title: "2026 Q1 legislative output represents a step-change in EP10 productivity:"
-description: "2026 Q1 legislative output represents a step-change in EP10 productivity:"
+description: "2026 Q1 legislative output represents a step-change in EP10 productivity: Published 2026-04-13, with source-linked voting, committee and legislative intelligence for…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-13", "legislative", "output", "represents", "step", "change", "EP10", "productivity", "Published", "with"]
 date: 2026-04-13
 article_type: breaking
 slug: 2026-04-13-breaking

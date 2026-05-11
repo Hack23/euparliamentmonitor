@@ -1,6 +1,7 @@
 ---
 title: "European Parliament Year Ahead — May 2026–May 2027"
-description: "The European Parliament enters the second year of its 10th term (2024–2029) at a critical juncture. With 717 MEPs distributed across nine political groups in a highly fragmented assembly, the institution faces a governance landscape defined by multi-coalition dependencies, rising far-right…"
+description: "The European Parliament enters the second year of its 10th term (2024–2029) at a critical juncture. With 717 MEPs distributed across nine political groups in a highly……"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year Ahead", "2026-05-10", "run year-ahead-run411-1778439890", "European", "Parliament", "Year", "Ahead", "enters", "second", "10th", "term", "critical", "juncture"]
 date: 2026-05-10
 article_type: year-ahead
 slug: 2026-05-10-year-ahead

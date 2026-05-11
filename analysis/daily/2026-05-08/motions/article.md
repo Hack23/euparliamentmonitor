@@ -1,6 +1,7 @@
 ---
 title: "EP Motions · Week of 28–30 April 2026"
-description: "The April 28–30 Strasbourg plenary adopted 15+ motions and legislative acts covering digital governance, food security, foreign policy accountability, and institutional budget matters. Three votes stand out for coalition dynamics intelligence: (1) the Digital Markets Act enforcement resolution…"
+description: "The April 28–30 Strasbourg plenary adopted 15+ motions and legislative acts covering digital governance, food security, foreign policy accountability, and institutional budget……"
+keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-08", "run motions-run380-1778231555", "Week", "April", "Strasbourg", "plenary", "adopted", "legislative", "acts", "covering"]
 date: 2026-05-08
 article_type: motions
 slug: 2026-05-08-motions

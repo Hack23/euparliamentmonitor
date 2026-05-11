@@ -1,6 +1,7 @@
 ---
 title: "European Parliament committees enter the Easter recess having delivered a record Q1 2026 legislative output of 114 acts — a 46% increase…"
-description: "European Parliament committees enter the Easter recess having delivered a record Q1 2026 legislative output of 114 acts — a 46% increase over the full year 2025 total of 78 acts. The March sessions produced landmark cross-committee legislation including the EU Talent Pool directive…"
+description: "European Parliament committees enter the Easter recess having delivered a record Q1 2026 legislative output of 114 acts — a 46% increase over the full year 2025 total of 78……"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-16", "run 1677eddd-9ddd-4b92-a3b7-876a5a4ce8d4", "European", "Parliament", "committees", "enter", "Easter", "recess", "having", "delivered"]
 date: 2026-04-16
 article_type: committee-reports
 slug: 2026-04-16-committee-reports-1677eddd-9ddd-4b92-a3b7-876a5a4c

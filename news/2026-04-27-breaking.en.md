@@ -1,6 +1,7 @@
 ---
 title: "EP April 2026 Strasbourg Plenary Opens Amid EU-US Trade Confrontation"
-description: "The European Parliament convenes its April 2026 Strasbourg plenary session (April 27–30) at a pivotal geopolitical moment. The session opens just one month after the parliament took the landmark step of adjusting EU customs duties against United States goods (TA-10-2026-0096, March 26, 2026)…"
+description: "The European Parliament convenes its April 2026 Strasbourg plenary session (April 27–30) at a pivotal geopolitical moment. The session opens just one month after the…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-27", "run breaking-run1777273481", "April", "Strasbourg", "Plenary", "Opens", "Amid", "Trade", "Confrontation", "European"]
 date: 2026-04-27
 article_type: breaking
 slug: 2026-04-27-breaking

@@ -1,6 +1,7 @@
 ---
 title: "April 17, 2026"
-description: "title: \"🧠 Intelligence Synthesis Summary — Digital Omnibus AI Rollback & Pre-Plenary Brief\""
+description: "title: \"🧠 Intelligence Synthesis Summary — Digital Omnibus AI Rollback & Pre-Plenary Brief\" Published 2026-04-17, with source-linked voting, committee and legislative…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-17", "April", "title", "Intelligence", "Synthesis", "Summary", "Digital", "Omnibus", "Rollback", "Plenary"]
 date: 2026-04-17
 article_type: breaking
 slug: 2026-04-17-breaking-182

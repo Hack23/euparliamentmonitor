@@ -1,6 +1,7 @@
 ---
 title: "EP Plenary Motions Week of 28–29 April 2026"
-description: "WEP Headline Judgement: The April 28–29 Strasbourg plenary produced a legislative cluster of high political salience dominated by three interrelated themes: (1) parliamentary immunity waivers for three far-right MEPs (Patryk Jaki, Daniel Obajtek — ECR/Poland; Diana Iovanovici Şoşoacă …"
+description: "WEP Headline Judgement: The April 28–29 Strasbourg plenary produced a legislative cluster of high political salience dominated by three interrelated themes: (1) parliamentary……"
+keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-30", "run motions-run-1777531962", "Plenary", "Week", "April", "Headline", "Judgement", "Strasbourg", "produced", "legislative"]
 date: 2026-04-30
 article_type: motions
 slug: 2026-04-30-motions

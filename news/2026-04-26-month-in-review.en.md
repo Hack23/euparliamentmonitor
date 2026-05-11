@@ -1,6 +1,7 @@
 ---
 title: "EU Parliament Month in Review: March 27 – April 26, 2026"
-description: "The European Parliament completed a landmark legislative sprint in March-April 2026 achieving the most consequential 30-day output since the 2020 COVID recovery legislation, including the long-delayed Banking Union package, AI governance reform, and European defence integration mandate. However…"
+description: "The European Parliament completed a landmark legislative sprint in March-April 2026 achieving the most consequential 30-day output since the 2020 COVID recovery legislation……"
+keywords: ["EU Parliament", "month in review", "European Parliament", "summary", "legislative review", "2026-04-26", "run month-in-review-run-1777207349", "Parliament", "Month", "Review", "March", "April", "European", "completed", "landmark", "legislative"]
 date: 2026-04-26
 article_type: month-in-review
 slug: 2026-04-26-month-in-review

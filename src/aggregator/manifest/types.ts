@@ -5,8 +5,8 @@
  * @module Aggregator/Manifest/Types
  * @description Canonical manifest schema for analysis runs and the narrower
  * projection consumed by the editorial-metadata resolver. Centralises every
- * historic schema variant (canonical `articleType`, plural
- * `articleTypes[]`, original `runType`) into one type that downstream
+ * historic schema variant (canonical `articleType`, workflow
+ * `articleTypeSlug`, plural `articleTypes[]`, original `runType`) into one type that downstream
  * modules can read against.
  */
 
@@ -66,6 +66,11 @@ export type ManifestMetadataOverride = string | Partial<Record<LanguageCode, str
 export interface Manifest {
   /** Canonical singular form (current pipeline). */
   readonly articleType?: string;
+  /**
+   * Slug form emitted by newer gh-aw workflow manifests before Stage D writes
+   * the canonical `articleType` field. Treated as the second-best source.
+   */
+  readonly articleTypeSlug?: string;
   /**
    * Plural form emitted by some pre-aggregator-pipeline workflows (historic
    * schema variant). When present, `articleTypes[0]` is treated as the

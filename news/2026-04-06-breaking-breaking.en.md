@@ -1,6 +1,7 @@
 ---
 title: "Political SWOT Analysis — Easter Monday Recess Intelligence"
-description: "Framework: Cross-SWOT interference analysis with TOWS matrix"
+description: "Framework: Cross-SWOT interference analysis with TOWS matrix Published 2026-04-06, with source-linked voting, committee and legislative intelligence for…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-06", "Political", "SWOT", "Analysis", "Easter", "Monday", "Recess", "Intelligence", "Framework", "Cross"]
 date: 2026-04-06
 article_type: breaking
 slug: 2026-04-06-breaking-breaking

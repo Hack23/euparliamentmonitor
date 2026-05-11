@@ -1,6 +1,7 @@
 ---
 title: "🧩 Political Intelligence Synthesis — Tariff T-0 Convergence and Post-Recess Pipeline"
-description: "subgraph \"EP Political Intelligence Dashboard 14 April 2026\""
+description: "This synthesis builds on intelligence from 8+ prior runs during the Easter recess period: Published 2026-04-14, with source-linked voting, committee and legislative…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-14", "Political", "Intelligence", "Synthesis", "Tariff", "Convergence", "Post", "Recess", "Pipeline", "This"]
 date: 2026-04-14
 article_type: breaking
 slug: 2026-04-14-breaking-171

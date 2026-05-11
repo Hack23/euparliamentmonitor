@@ -1,6 +1,7 @@
 ---
 title: "EU Parliament Legislative Propositions"
-description: "The European Parliament is navigating a period of intense legislative consolidation in spring 2026. The weeks spanning late April and early May 2026 saw a dense cluster of landmark legislative completions, including the first major EU act on animal companion welfare (2023/0447(COD)), a…"
+description: "The European Parliament is navigating a period of intense legislative consolidation in spring 2026. The weeks spanning late April and early May 2026 saw a dense cluster of……"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-11", "run propositions-run251-1778480471", "Parliament", "Legislative", "European", "navigating", "period", "intense", "consolidation", "spring"]
 date: 2026-05-11
 article_type: propositions
 slug: 2026-05-11-propositions

@@ -1,6 +1,7 @@
 ---
 title: "EP10 Term Outlook: Executive Intelligence Brief"
-description: "The European Parliament's 10th parliamentary term (2024–2029) has entered its second year of operation at a critical inflection point. The term's defining characteristics — a rightward political shift, fragmented coalition arithmetic, and an agenda dominated by defence, competitiveness, and…"
+description: "The European Parliament's 10th parliamentary term (2024–2029) has entered its second year of operation at a critical inflection point. The term's defining characteristics — a……"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Term Outlook", "2026-05-04", "run term-outlook-run-1777895963", "EP10", "Term", "Outlook", "Executive", "Intelligence", "Brief", "European", "Parliament", "10th", "parliamentary"]
 date: 2026-05-04
 article_type: term-outlook
 slug: 2026-05-04-term-outlook

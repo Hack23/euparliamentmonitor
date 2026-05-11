@@ -1,6 +1,7 @@
 ---
 title: "Detection and analysis of voting trends across European Parliament proceedings."
-description: "Detection and analysis of voting trends across European Parliament proceedings."
+description: "Detection and analysis of voting trends across European Parliament proceedings. Published 2026-04-02 · analysis run c93513b6-9f22-4b36-a984-d0512328769c, with source-linked…"
+keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-02", "run c93513b6-9f22-4b36-a984-d0512328769c", "Detection", "analysis", "voting", "trends", "across", "European", "Parliament", "proceedings"]
 date: 2026-04-02
 article_type: motions
 slug: 2026-04-02-motions

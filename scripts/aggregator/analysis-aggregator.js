@@ -463,7 +463,7 @@ function appendSection(runDir, runDirRelPath, sectionId, sectionTitle, paths, se
  *
  * Thin re-export of {@link _resolveArticleType} from
  * `aggregator/manifest/index.js`. Resolution order: `articleType` →
- * `articleTypes[0]` → `runType` → `'unknown'`.
+ * `articleTypeSlug` → `articleTypes[0]` → `runType` → `'unknown'`.
  *
  * @param manifest - Parsed manifest (any of the supported schemas)
  * @returns Article-type slug usable as a filename component

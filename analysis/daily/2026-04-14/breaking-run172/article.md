@@ -1,6 +1,7 @@
 ---
 title: "🧩 Political Intelligence Synthesis — Q1 2026 Legislative Productivity Audit & Post-Recess Pressure Mapping"
-description: "pie title EP10 Political Group Seats (720 total)"
+description: "Grand coalition (EPP+S&D): 320 seats = DEFICIT of -41 → Grand coalition IMPOSSIBLE Published 2026-04-14, with source-linked voting, committee and legislative intelligence for…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-14", "Political", "Intelligence", "Synthesis", "Legislative", "Productivity", "Audit", "Post", "Recess", "Pressure"]
 date: 2026-04-14
 article_type: breaking
 slug: 2026-04-14-breaking-172

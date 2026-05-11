@@ -1,6 +1,7 @@
 ---
 title: "TA-10-2026-0096 and TA-10-2026-0097 became operational on April 15, 2026. The 21-day compliance window from the March 26 plenary…"
-description: "TA-10-2026-0096 and TA-10-2026-0097 became operational on April 15, 2026. The 21-day compliance window from the March 26 plenary adoption has expired. This is the most time-critical committee output in EP10 — INTA committee delivered the fastest trade countermeasure in European Parliament…"
+description: "TA-10-2026-0096 and TA-10-2026-0097 became operational on April 15, 2026. The 21-day compliance window from the March 26 plenary adoption has expired. This is the most……"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-15", "run 0ab28c94-41e0-433e-b6cf-599f19f30e71", "became", "operational", "April", "compliance", "window", "from", "March", "plenary"]
 date: 2026-04-15
 article_type: committee-reports
 slug: 2026-04-15-committee-reports

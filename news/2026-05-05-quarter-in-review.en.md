@@ -1,6 +1,7 @@
 ---
 title: "EU Parliament Quarter in Review — Q1 2026"
-description: "The European Parliament completed its second full quarter of EP10 (2024–2029) with a markedly high-energy legislative calendar dominated by three structural imperatives: European defence autonomy, Clean Industrial Deal implementation, and digital governance maturation. The quarter saw 70+…"
+description: "The European Parliament completed its second full quarter of EP10 (2024–2029) with a markedly high-energy legislative calendar dominated by three structural imperatives……"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Quarter In Review", "2026-05-05", "run quarter-in-review-run-1777970961", "Parliament", "Quarter", "Review", "European", "completed", "second", "full", "EP10", "with", "markedly"]
 date: 2026-05-05
 article_type: quarter-in-review
 slug: 2026-05-05-quarter-in-review

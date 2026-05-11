@@ -1,6 +1,7 @@
 ---
 title: "European Parliament Year in Review"
-description: "The European Parliament's tenth term entered its second year under the shadow of geopolitical polycrisis, executing a demanding legislative agenda dominated by Ukrainian support architecture, rearmament frameworks, democratic backsliding confrontation (Hungary, Serbia, Georgia), and migration…"
+description: "The European Parliament's tenth term entered its second year under the shadow of geopolitical polycrisis, executing a demanding legislative agenda dominated by Ukrainian……"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year In Review", "2026-05-09", "run year-in-review-run390-1778313444", "European", "Parliament", "Year", "Review", "tenth", "term", "entered", "second", "under", "shadow"]
 date: 2026-05-09
 article_type: year-in-review
 slug: 2026-05-09-year-in-review

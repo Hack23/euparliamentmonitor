@@ -1,6 +1,7 @@
 ---
 title: "EU Parliament Motions"
-description: "The European Parliament's late-April 2026 plenary session (April 28–30) adopted 13 resolutions and texts covering digital regulation enforcement, Ukraine accountability, Armenia democratic support, EU agricultural sustainability, and budget oversight. No plenary session is scheduled for May 4–7."
+description: "The European Parliament's late-April 2026 plenary session (April 28–30) adopted 13 resolutions and texts covering digital regulation enforcement, Ukraine accountability……"
+keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-07", "run motions-run540-1778167043", "Parliament", "European", "late", "April", "plenary", "session", "adopted", "texts"]
 date: 2026-05-07
 article_type: motions
 slug: 2026-05-07-motions

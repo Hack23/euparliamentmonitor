@@ -1,6 +1,7 @@
 ---
 title: "Political Intelligence Synthesis — Easter Recess Day 12"
-description: "analyst: news-breaking workflow (run 24067705038)"
+description: "analyst: news-breaking workflow (run 24067705038) Published 2026-04-07 · analysis run d9f79a7a-aa2f-4a35-aa13-d6df91d7b296, with source-linked voting, committee and legislative…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-07", "run d9f79a7a-aa2f-4a35-aa13-d6df91d7b296", "Political", "Intelligence", "Synthesis", "Easter", "Recess", "analyst", "news", "workflow"]
 date: 2026-04-07
 article_type: breaking
 slug: 2026-04-07-breaking-d9f79a7a-aa2f-4a35-aa13-d6df91d7

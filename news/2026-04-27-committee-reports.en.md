@@ -1,6 +1,7 @@
 ---
 title: "EP Committee Reports Week of 2026-04-27"
-description: "The European Parliament's legislative committees delivered substantial output in Q1 2026, adopting texts across trade defence (US tariffs, EU-Mercosur), digital governance (AI copyright), monetary oversight (ECB annual report, appointments), housing rights, and electoral reform. The most…"
+description: "The European Parliament's legislative committees delivered substantial output in Q1 2026, adopting texts across trade defence (US tariffs, EU-Mercosur), digital governance (AI……"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-27", "run committee-reports-run-1777275816", "Committee", "Reports", "Week", "European", "Parliament", "legislative", "committees", "delivered"]
 date: 2026-04-27
 article_type: committee-reports
 slug: 2026-04-27-committee-reports

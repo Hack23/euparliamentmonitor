@@ -1,6 +1,7 @@
 ---
 title: "Within today's six-hour breaking-news probe window, no material EP10 breaking event surfaced from the operational feed set. The…"
-description: "Within today's six-hour breaking-news probe window, no material EP10 breaking event surfaced from the operational feed set. The getadoptedtextsfeed returns an 18-item mixed-vintage backfill (oldest TA-9-2024-0004 from EP9, newest TA-10-2025-0314), geteventsfeed is unavailable on the upstream…"
+description: "Within today's six-hour breaking-news probe window, no material EP10 breaking event surfaced from the operational feed set. The getadoptedtextsfeed returns an 18-item……"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-24", "run breaking-run-1777011267", "Within", "today", "hour", "news", "probe", "window", "material", "EP10"]
 date: 2026-04-24
 article_type: breaking
 slug: 2026-04-24-breaking

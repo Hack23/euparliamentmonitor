@@ -1,6 +1,7 @@
 ---
 title: "EU Parliament Intelligence Brief"
-description: "Mode: DEGRADED (server health unavailable) | Run: 180 | Confidence: 🟡 Medium"
+description: "Mode: DEGRADED (server health unavailable) | Run: 180 | Confidence: 🟡 Medium Published 2026-04-17 · analysis run 180, with source-linked voting, committee and legislative…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-17", "run 180", "Parliament", "Intelligence", "Brief", "Mode", "DEGRADED", "server", "health", "unavailable"]
 date: 2026-04-17
 article_type: breaking
 slug: 2026-04-17-breaking-180

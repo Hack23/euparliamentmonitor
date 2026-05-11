@@ -1,6 +1,7 @@
 ---
 title: "EP10 Term Outlook"
-description: "The European Parliament's EP10 term (2024–2029) has entered its decisive second year with a structurally rightward-shifted parliament navigating a historic convergence of crises: European strategic autonomy, defence rearmament, economic competitiveness stress, and democratic backsliding. The…"
+description: "The European Parliament's EP10 term (2024–2029) has entered its decisive second year with a structurally rightward-shifted parliament navigating a historic convergence of……"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Term Outlook", "2026-05-09", "run term-outlook-run336-1778323975", "EP10", "Term", "Outlook", "European", "Parliament", "entered", "decisive", "second", "year", "with"]
 date: 2026-05-09
 article_type: term-outlook
 slug: 2026-05-09-term-outlook

@@ -1,6 +1,7 @@
 ---
 title: "EU Parliament Year Ahead"
-description: "The European Parliament enters a pivotal legislative year from May 2026 to May 2027, facing three simultaneous pressure systems: (1) defence integration accelerating under the ReArm Europe framework and Ukraine war fatigue; (2) digital regulation enforcement — the Digital Markets Act (DMA) and…"
+description: "The European Parliament enters a pivotal legislative year from May 2026 to May 2027, facing three simultaneous pressure systems: (1) defence integration accelerating under the……"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year Ahead", "2026-05-07", "run year-ahead-25527407922", "Parliament", "Year", "Ahead", "European", "enters", "pivotal", "legislative", "from", "facing", "three"]
 date: 2026-05-07
 article_type: year-ahead
 slug: 2026-05-07-year-ahead

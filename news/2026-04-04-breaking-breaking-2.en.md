@@ -1,6 +1,7 @@
 ---
 title: "EP10 Q1 2026"
-description: "title: \"Legislative Pipeline Analysis — EP10 Q1 2026 — 2026-04-04\""
+description: "title: \"Legislative Pipeline Analysis — EP10 Q1 2026 — 2026-04-04\" Published 2026-04-04, with source-linked voting, committee and legislative intelligence for…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-04", "EP10", "title", "Legislative", "Pipeline", "Analysis", "Published", "with", "source", "linked"]
 date: 2026-04-04
 article_type: breaking
 slug: 2026-04-04-breaking-breaking-2

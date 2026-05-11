@@ -1,6 +1,7 @@
 ---
 title: "The March 2026 committee output cycle affects all six stakeholder groups, with ECON banking reforms and LIBE anti-corruption measures…"
-description: "The March 2026 committee output cycle affects all six stakeholder groups, with ECON banking reforms and LIBE anti-corruption measures carrying the broadest cross-stakeholder impact. Analysis based on 236 adopted texts from EP10, with focus on the 24 texts adopted during the pre-recess March 26…"
+description: "The March 2026 committee output cycle affects all six stakeholder groups, with ECON banking reforms and LIBE anti-corruption measures carrying the broadest cross-stakeholder……"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-07", "run 7c308bf3-07de-408c-ab85-b115b19c2f7e", "March", "committee", "output", "cycle", "affects", "stakeholder", "groups", "with"]
 date: 2026-04-07
 article_type: committee-reports
 slug: 2026-04-07-committee-reports

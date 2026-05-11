@@ -12,6 +12,7 @@
 
 import path, { resolve } from 'path';
 import { pathToFileURL } from 'url';
+import fs from 'fs';
 import { PROJECT_ROOT, APP_VERSION, BUILD_SHORT, NEWS_DIR, BASE_URL } from '../constants/config.js';
 import { getNewsIndexSeo } from './seo-copy.js';
 import { buildHeadFreshnessTags } from '../constants/build-info-meta.js';
@@ -43,6 +44,7 @@ import {
 } from '../utils/file-utils.js';
 import { writeMetadataDatabase } from '../utils/news-metadata.js';
 import { detectCategory } from '../utils/article-category.js';
+import { buildSeoKeywords, resolveArticleMetadata } from '../aggregator/article-metadata.js';
 import type {
   ParsedArticle,
   ArticleCategoryLabels,
@@ -63,6 +65,7 @@ export function getIndexFilename(lang: string): string {
 
 const SCHEMA_ORG = 'https://schema.org';
 const SITE_NAME = 'EU Parliament Monitor';
+const MIN_ARTICLE_DESCRIPTION_LENGTH = 120;
 
 /**
  * Build the compact language switcher nav HTML.
@@ -135,6 +138,216 @@ function buildHreflangTags(): string {
   });
   links.push('<link rel="alternate" hreflang="x-default" href="index.html">');
   return links.join('\n  ');
+}
+
+/**
+ * Backfill SEO metadata for legacy article HTML files that pre-date the
+ * current article generator. This keeps historic pages from carrying short
+ * or duplicate descriptions while the canonical generator handles new runs.
+ *
+ * @param filenames - News article filenames to inspect
+ * @returns Number of HTML files updated
+ */
+function backfillLegacyArticleSeo(filenames: readonly string[]): number {
+  const descriptions = new Map<string, number>();
+  for (const filename of filenames) {
+    const meta = extractArticleMeta(path.join(NEWS_DIR, filename));
+    if (!meta.description) continue;
+    descriptions.set(meta.description, (descriptions.get(meta.description) ?? 0) + 1);
+  }
+
+  let updated = 0;
+  for (const filename of filenames) {
+    if (backfillOneLegacyArticleSeo(filename, descriptions)) updated++;
+  }
+  return updated;
+}
+
+/**
+ * Backfill one article file when its metadata is missing, short or duplicate.
+ *
+ * @param filename - News article filename
+ * @param descriptions - Description frequency map for duplicate detection
+ * @returns True when the file was updated
+ */
+function backfillOneLegacyArticleSeo(
+  filename: string,
+  descriptions: ReadonlyMap<string, number>
+): boolean {
+  const filepath = path.join(NEWS_DIR, filename);
+  const parsed = parseArticleFilename(filename);
+  if (!parsed) return false;
+  const meta = extractArticleMeta(filepath);
+  const html = readArticleHtml(filepath);
+  if (!html) return false;
+  const hasKeywords = /<meta name="keywords" content="[^"]+"/u.test(html);
+  const needsDescription = shouldBackfillDescription(meta.description, descriptions);
+  if (hasKeywords && !needsDescription) return false;
+
+  const articleType = String(detectCategory(parsed.slug));
+  const resolved = resolveArticleMetadata({
+    articleType,
+    date: parsed.date,
+    markdown: `# ${meta.title || formatSlug(parsed.slug)}\n\n${meta.description}`,
+    manifest: buildBackfillManifest(parsed.slug, meta.title, meta.description, needsDescription),
+  });
+  const entry = Object.getOwnPropertyDescriptor(resolved, parsed.lang)?.value as
+    | { readonly title: string; readonly description: string; readonly keywords: readonly string[] }
+    | undefined;
+  const fallbackKeywords = buildSeoKeywords(
+    parsed.lang,
+    articleType,
+    parsed.date,
+    parsed.slug,
+    meta.title,
+    meta.description
+  );
+  const description = needsDescription
+    ? buildLegacyBackfillDescription(
+        parsed.date,
+        parsed.slug,
+        parsed.lang,
+        entry?.description ?? meta.description
+      )
+    : meta.description;
+  const keywords = entry?.keywords ?? fallbackKeywords;
+  const nextHtml = applyArticleSeoBackfill(html, description, keywords);
+  if (nextHtml === html) return false;
+  atomicWrite(filepath, nextHtml);
+  return true;
+}
+
+/**
+ * Prefix legacy descriptions with date and slug context so duplicate strings
+ * become page-specific before the 180-character snippet cap.
+ *
+ * @param date - Article date
+ * @param slug - Article slug
+ * @param lang - Article language
+ * @param description - Candidate description
+ * @returns Page-specific description
+ */
+function buildLegacyBackfillDescription(
+  date: string,
+  slug: string,
+  lang: string,
+  description: string
+): string {
+  const contextual = `${date} ${lang.toUpperCase()} ${formatSlug(slug)} — ${description}`
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (contextual.length <= 180) return contextual;
+  return `${contextual.slice(0, 177).replace(/[.,;:—\s-]+$/u, '')}…`;
+}
+
+/**
+ * Determine whether a meta description needs backfilling.
+ *
+ * @param description - Current description
+ * @param descriptions - Description frequency map
+ * @returns True when the description is missing, short or duplicated
+ */
+function shouldBackfillDescription(
+  description: string,
+  descriptions: ReadonlyMap<string, number>
+): boolean {
+  return (
+    !description ||
+    description.length < MIN_ARTICLE_DESCRIPTION_LENGTH ||
+    (descriptions.get(description) ?? 0) > 1
+  );
+}
+
+/**
+ * Build the manifest projection for legacy SEO backfill.
+ *
+ * @param runId - Stable slug/run id
+ * @param title - Current article title
+ * @param description - Current article description
+ * @param includeDescription - Whether to use the current description as a manifest override
+ * @returns Manifest projection accepted by `resolveArticleMetadata`
+ */
+function buildBackfillManifest(
+  runId: string,
+  title: string,
+  description: string,
+  includeDescription: boolean
+): { readonly runId: string; readonly title: string; readonly description?: string } {
+  return {
+    runId,
+    title,
+    ...(includeDescription ? { description } : {}),
+  };
+}
+
+/**
+ * Read an article HTML file, returning an empty string when unavailable.
+ *
+ * @param filepath - Absolute HTML file path
+ * @returns File content or empty string
+ */
+function readArticleHtml(filepath: string): string {
+  try {
+    return path.isAbsolute(filepath) ? requireFsRead(filepath) : '';
+  } catch {
+    return '';
+  }
+}
+
+/**
+ * Isolated file read helper to keep try/catch bodies small.
+ *
+ * @param filepath - Absolute file path
+ * @returns File text
+ */
+function requireFsRead(filepath: string): string {
+  return fs.readFileSync(filepath, 'utf8');
+}
+
+/**
+ * Apply SEO meta tag replacements to a complete article HTML document.
+ *
+ * @param html - Existing article HTML
+ * @param description - Backfilled meta description
+ * @param keywords - Backfilled keyword list
+ * @returns Updated HTML
+ */
+function applyArticleSeoBackfill(
+  html: string,
+  description: string,
+  keywords: readonly string[]
+): string {
+  const safeDescription = escapeHTML(description);
+  const safeKeywords = escapeHTML(keywords.join(', '));
+  let next = html
+    .replace(
+      /<meta name="description" content="[^"]*">/u,
+      `<meta name="description" content="${safeDescription}">`
+    )
+    .replace(
+      /<meta property="og:description" content="[^"]*">/u,
+      `<meta property="og:description" content="${safeDescription}">`
+    )
+    .replace(
+      /<meta name="twitter:description" content="[^"]*">/u,
+      `<meta name="twitter:description" content="${safeDescription}">`
+    );
+
+  if (/<meta name="keywords" content="[^"]*">/u.test(next)) {
+    next = next.replace(
+      /<meta name="keywords" content="[^"]*">/u,
+      `<meta name="keywords" content="${safeKeywords}">`
+    );
+  } else {
+    next = next.replace(
+      /(<meta name="description" content="[^"]*">\n)/u,
+      `$1  <meta name="keywords" content="${safeKeywords}">\n`
+    );
+  }
+
+  const jsonDescription = JSON.stringify(description).slice(1, -1).replace(/</g, '\\u003c');
+  next = next.replace(/"description":"[^"]*"/u, `"description":"${jsonDescription}"`);
+  return next;
 }
 
 /**
@@ -434,6 +647,10 @@ function main(): void {
 
   const articles = getNewsArticles();
   console.log(`📊 Found ${articles.length} articles`);
+  const backfilled = backfillLegacyArticleSeo(articles);
+  if (backfilled > 0) {
+    console.log(`🔎 Backfilled SEO metadata for ${backfilled} legacy article file(s)`);
+  }
 
   const grouped = groupArticlesByLanguage(articles, ALL_LANGUAGES);
 

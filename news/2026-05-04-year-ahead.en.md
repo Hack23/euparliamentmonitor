@@ -1,6 +1,7 @@
 ---
 title: "EU Parliament Year Ahead 2026–2027: Executive Intelligence Brief"
-description: "1. 🟢 HIGH CONFIDENCE — The EP10 Grand Coalition (EPP+S&D+Renew = 397 seats) will maintain a reliable majority on Ukraine support, digital governance, and defence integration legislation through May 2027. These three policy clusters represent the durable core of EP10 legislative capacity."
+description: "1. 🟢 HIGH CONFIDENCE — The EP10 Grand Coalition (EPP+S&D+Renew = 397 seats) will maintain a reliable majority on Ukraine support, digital governance, and defence integration……"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year Ahead", "2026-05-04", "run year-ahead-run-1777854128", "Parliament", "Year", "Ahead", "Executive", "Intelligence", "Brief", "HIGH", "CONFIDENCE", "EP10", "Grand"]
 date: 2026-05-04
 article_type: year-ahead
 slug: 2026-05-04-year-ahead

@@ -1,6 +1,7 @@
 ---
 title: "This index consolidates per-document intelligence for the key legislative texts under monitoring during the post-Easter inter-session…"
-description: "This index consolidates per-document intelligence for the key legislative texts under monitoring during the post-Easter inter-session period. Analysis covers the most significant adopted texts from the March 2026 plenary sessions."
+description: "This index consolidates per-document intelligence for the key legislative texts under monitoring during the post-Easter inter-session period. Analysis covers the most……"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-16", "This", "index", "consolidates", "document", "intelligence", "legislative", "texts", "under", "monitoring"]
 date: 2026-04-16
 article_type: breaking
 slug: 2026-04-16-breaking-176

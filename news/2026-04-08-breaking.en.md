@@ -1,6 +1,7 @@
 ---
 title: "🧩 Political Intelligence Synthesis — European Parliament"
-description: "🔍 Items Tracked: 57 adopted texts | 0 events | 0 procedures | 737 MEP updates"
+description: "🔍 Items Tracked: 57 adopted texts | 0 events | 0 procedures | 737 MEP updates Published 2026-04-08, with source-linked voting, committee and legislative intelligence for…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-08", "Political", "Intelligence", "Synthesis", "European", "Parliament", "Items", "Tracked", "adopted", "texts"]
 date: 2026-04-08
 article_type: breaking
 slug: 2026-04-08-breaking

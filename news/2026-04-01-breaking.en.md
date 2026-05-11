@@ -1,6 +1,7 @@
 ---
 title: "🔍 Breaking News Intelligence Brief — 2026-04-01"
-description: "📋 Analysis Owner: EU Parliament Monitor | 📅 Generated: 2026-04-01 (UTC)"
+description: "📋 Analysis Owner: EU Parliament Monitor | 📅 Generated: 2026-04-01 (UTC) Published 2026-04-01, with source-linked voting, committee and legislative intelligence for…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-01", "News", "Intelligence", "Brief", "Analysis", "Owner", "Parliament", "Monitor", "Generated", "Published"]
 date: 2026-04-01
 article_type: breaking
 slug: 2026-04-01-breaking

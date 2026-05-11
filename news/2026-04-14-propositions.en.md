@@ -1,6 +1,7 @@
 ---
 title: "The European Parliament returns from Easter recess on April 15, 2026, facing the most consequential first-day-back agenda of the 10th…"
-description: "The European Parliament returns from Easter recess on April 15, 2026, facing the most consequential first-day-back agenda of the 10th parliamentary term. Three converging dynamics define the moment: (1) an imminent US tariff deadline that tests the EU trade countermeasures adopted just hours…"
+description: "The European Parliament returns from Easter recess on April 15, 2026, facing the most consequential first-day-back agenda of the 10th parliamentary term. Three converging……"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-14", "run 68d9a632-9043-4f92-8e7c-ff5d558e91a5", "European", "Parliament", "returns", "from", "Easter", "recess", "April", "facing"]
 date: 2026-04-14
 article_type: propositions
 slug: 2026-04-14-propositions

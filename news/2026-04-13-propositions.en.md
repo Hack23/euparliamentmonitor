@@ -1,6 +1,7 @@
 ---
 title: "The European Parliament's final Easter recess day (April 13, 2026) marks a transition point for the EU's legislative machinery. The…"
-description: "The European Parliament's final Easter recess day (April 13, 2026) marks a transition point for the EU's legislative machinery. The March plenary sessions — particularly the March 26 session — produced a concentrated burst of legislative output that now enters implementation and trilogue phases…"
+description: "The European Parliament's final Easter recess day (April 13, 2026) marks a transition point for the EU's legislative machinery. The March plenary sessions — particularly the……"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-13", "run 149c3a19-6339-45aa-a427-5c30eceb4e49", "European", "Parliament", "final", "Easter", "recess", "April", "marks", "transition"]
 date: 2026-04-13
 article_type: propositions
 slug: 2026-04-13-propositions

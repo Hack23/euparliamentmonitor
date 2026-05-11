@@ -1,6 +1,7 @@
 ---
 title: "EU Parliament Week Ahead: April 27–30, 2026"
-description: "The Strasbourg week of April 27–30, 2026 opens the post-Easter recess with an eight-debate agenda on Day 1 alone — a signal of backlogged legislative business and political urgency. The EP's political geography remains fragile: the PPE (38 seats in this dataset) requires coalition partners for…"
+description: "The Strasbourg week of April 27–30, 2026 opens the post-Easter recess with an eight-debate agenda on Day 1 alone — a signal of backlogged legislative business and political……"
+keywords: ["EU Parliament", "week ahead", "committee meetings", "plenary debate", "European Parliament", "legislation", "2026-04-26", "run week-ahead-run-1777236707", "Parliament", "Week", "Ahead", "April", "Strasbourg", "opens", "post", "Easter"]
 date: 2026-04-26
 article_type: week-ahead
 slug: 2026-04-26-week-ahead

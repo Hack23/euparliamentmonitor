@@ -1,6 +1,7 @@
 ---
 title: "Easter Recess Day 7 / Run 190"
-description: "Run 190 (Easter Monday, April 20, 2026) marks the eleventh consecutive ANALYSIS_ONLY run"
+description: "Run 190 (Easter Monday, April 20, 2026) marks the eleventh consecutive ANALYSIS_ONLY run Published 2026-04-20 · analysis run 190, with source-linked voting, committee and…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-20", "run 190", "Easter", "Recess", "Monday", "April", "marks", "eleventh", "consecutive", "ANALYSIS"]
 date: 2026-04-20
 article_type: breaking
 slug: 2026-04-20-breaking-190

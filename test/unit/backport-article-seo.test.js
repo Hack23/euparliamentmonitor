@@ -227,11 +227,11 @@ describe('deriveMetadataForFile — full pipeline', () => {
     expect(meta.description.length).toBeGreaterThan(10);
   });
 
-  it('uses the localized template when body language does not match filename language', () => {
+  it('uses localized template plus editorial context when body language does not match filename language', () => {
     // Aggregator regression case — the file is `-sv.html` but the body
     // is still rendered in English (known PR#1404 regression). The
-    // backport must NOT extract the English prose into the Swedish
-    // `<title>`; it must fall through to the localized template.
+    // backport must keep the Swedish template shell, while appending the
+    // artifact-derived editorial topic so SEO metadata remains page-specific.
     const englishBody =
       '<h1>Banking Union Breakthrough and Anti-Corruption Landmark</h1>' +
       '<p>The European Parliament this week closed the final gap in the banking union with a landmark resolution adopted by the plenary on Tuesday evening.</p>';
@@ -245,13 +245,10 @@ describe('deriveMetadataForFile — full pipeline', () => {
       { slug: '2026-04-14-breaking', articleType: 'breaking', date: '2026-04-14', lang: 'sv' },
       html
     );
-    // Must NOT contain the English editorial phrases.
-    expect(meta.title).not.toContain('Banking Union Breakthrough');
-    expect(meta.title).not.toContain('Anti-Corruption Landmark');
-    expect(meta.description).not.toContain('banking union with a landmark');
-    // Must be populated from the localized Swedish template.
-    expect(meta.title.length).toBeGreaterThan(5);
-    expect(meta.description.length).toBeGreaterThan(5);
+    expect(meta.title).toMatch(/Senaste|Betydande/);
+    expect(meta.title).toContain('Banking Union Breakthrough');
+    expect(meta.description).toContain('2026-04-14');
+    expect(meta.description.length).toBeGreaterThanOrEqual(120);
   });
 
   it('mines the body when its `<html lang>` matches the filename language', () => {

@@ -1,6 +1,7 @@
 ---
 title: "Breaking News Intelligence Brief"
-description: "dataAvailability: Unavailable (Easter recess Day 15)"
+description: "dataAvailability: Unavailable (Easter recess Day 15) Published 2026-04-10, with source-linked voting, committee and legislative intelligence for democratic-accountability…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-10", "News", "Intelligence", "Brief", "dataAvailability", "Unavailable", "Easter", "recess", "Published", "with"]
 date: 2026-04-10
 article_type: breaking
 slug: 2026-04-10-breaking-breaking

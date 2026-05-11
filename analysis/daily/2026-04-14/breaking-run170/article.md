@@ -1,6 +1,7 @@
 ---
 title: "The European Parliament faces a convergence of three independent threat vectors as it returns from Easter recess on April 15:"
-description: "The European Parliament faces a convergence of three independent threat vectors as it returns from Easter recess on April 15:"
+description: "The European Parliament faces a convergence of three independent threat vectors as it returns from Easter recess on April 15: Published 2026-04-14, with source-linked voting…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-14", "European", "Parliament", "faces", "convergence", "three", "independent", "threat", "vectors", "returns"]
 date: 2026-04-14
 article_type: breaking
 slug: 2026-04-14-breaking-170

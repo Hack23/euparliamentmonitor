@@ -1,9 +1,10 @@
 ---
 title: "EP Breaking News Run 192"
-description: "Run 192 marks Day 1 of the post-Easter work week — the first day EU institutions are operational after the Easter Monday bank holiday. The European Parliament remains in Easter recess until April 27. No breaking news events occurred. The strategic significance of this run lies in five areas: (1)…"
+description: "Run 192 marks Day 1 of the post-Easter work week — the first day EU institutions are operational after the Easter Monday bank holiday. The European Parliament remains in…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-21", "News", "marks", "post", "Easter", "work", "week", "first", "institutions", "operational"]
 date: 2026-04-21
 article_type: breaking
-slug: 2026-04-21-breaking-192
+slug: 2026-04-21-breaking
 source_folder: analysis/daily/2026-04-21/breaking-run192
 generated_at: 2026-04-21T00:00:00.000Z
 language: en

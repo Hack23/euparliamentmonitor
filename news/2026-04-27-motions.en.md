@@ -1,6 +1,7 @@
 ---
 title: "EU Parliament Motions — April 27–30, 2026"
-description: "The European Parliament convenes its April 2026 full Strasbourg plenary (27–30 April) at a moment of intensifying geopolitical and institutional pressure. This session follows a productive but contentious March cycle that adopted 104 texts across banking union reform, AI simplification…"
+description: "The European Parliament convenes its April 2026 full Strasbourg plenary (27–30 April) at a moment of intensifying geopolitical and institutional pressure. This session follows……"
+keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-27", "run motions-run-1777278029", "Parliament", "April", "European", "convenes", "full", "Strasbourg", "plenary", "moment"]
 date: 2026-04-27
 article_type: motions
 slug: 2026-04-27-motions

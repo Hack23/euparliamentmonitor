@@ -1,6 +1,7 @@
 ---
 title: "EP Committee Reports"
-description: "The European Parliament's committee landscape during the week of 4–11 May 2026 is characterised by post-April consolidation and pre-June plenary preparation, occurring within a structurally fragmented Parliament (9 political groups; fragmentation index: HIGH; effective number of parties: 6.58)…"
+description: "The European Parliament's committee landscape during the week of 4–11 May 2026 is characterised by post-April consolidation and pre-June plenary preparation, occurring within…"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-11", "run committee-reports-run251-1778481577", "Committee", "Reports", "European", "Parliament", "landscape", "during", "week", "characterised"]
 date: 2026-05-11
 article_type: committee-reports
 slug: 2026-05-11-committee-reports

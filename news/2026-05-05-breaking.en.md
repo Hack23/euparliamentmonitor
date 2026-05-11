@@ -1,6 +1,7 @@
 ---
 title: "Breaking News | 2026-05-05"
-description: "The European Parliament concluded its April 28–30 Strasbourg plenary session with a high-density legislative sprint that produced 14 adopted texts across digital governance, geopolitics, fiscal policy, and rule-of-law domains. The session stands as one of the most consequential three-day…"
+description: "The European Parliament concluded its April 28–30 Strasbourg plenary session with a high-density legislative sprint that produced 14 adopted texts across digital governance……"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-05", "run breaking-run-1777942844", "News", "European", "Parliament", "concluded", "April", "Strasbourg", "plenary", "session"]
 date: 2026-05-05
 article_type: breaking
 slug: 2026-05-05-breaking

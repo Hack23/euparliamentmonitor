@@ -1,6 +1,7 @@
 ---
 title: "term-outlook 2026-05-11"
-description: "**EP10 will deliver a partial, multi-coalition legislative record between"
+description: "**EP10 will deliver a partial, multi-coalition legislative record between Published 2026-05-11 · analysis run term-outlook-run348-1778510405, with source-linked voting…"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Term Outlook", "2026-05-11", "run term-outlook-run348-1778510405", "term", "outlook", "EP10", "will", "deliver", "partial", "multi", "coalition", "legislative", "record"]
 date: 2026-05-11
 article_type: term-outlook
 slug: 2026-05-11-term-outlook

@@ -1,6 +1,7 @@
 ---
 title: "Run 186"
-description: "title: \"🧠 Intelligence Synthesis Summary — T-8 Countdown: April 28 Plenary Intelligence Framework (Run 186)\""
+description: "title: \"🧠 Intelligence Synthesis Summary — T-8 Countdown: April 28 Plenary Intelligence Framework (Run 186)\" Published 2026-04-19 · analysis run 186, with source-linked…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-19", "run 186", "title", "Intelligence", "Synthesis", "Summary", "Countdown", "April", "Plenary", "Framework"]
 date: 2026-04-19
 article_type: breaking
 slug: 2026-04-19-breaking-186

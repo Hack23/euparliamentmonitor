@@ -1,6 +1,7 @@
 ---
 title: "EP10 Month-in-Review April 2026"
-description: "The March 26, 2026 mini-plenary session produced 18 adopted texts — the highest single-session legislative density of EP10's second year. This compressed delivery pattern confirms that the 2024–2029 Parliament has institutionalised pre-recess sprints as a structural tool for managing coalition…"
+description: "The March 26, 2026 mini-plenary session produced 18 adopted texts — the highest single-session legislative density of EP10's second year. This compressed delivery pattern……"
+keywords: ["EU Parliament", "month in review", "European Parliament", "summary", "legislative review", "2026-04-19", "run b391cced-d8f0-4d03-9c19-ec9478557ec6", "EP10", "Month", "Review", "April", "March", "mini", "plenary", "session", "produced"]
 date: 2026-04-19
 article_type: month-in-review
 slug: 2026-04-19-month-in-review

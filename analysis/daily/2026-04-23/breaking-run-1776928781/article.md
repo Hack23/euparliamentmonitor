@@ -1,6 +1,7 @@
 ---
 title: "Run breaking-run-1776928781"
-description: "The March 26, 2026 plenary session, adopted exactly one week before President Trump's April 2 tariff proclamations, has undergone a dramatic retrospective reframing during the Easter recess. What appeared at the time as a routine end-of-session legislative sprint has emerged as a prescient…"
+description: "The March 26, 2026 plenary session, adopted exactly one week before President Trump's April 2 tariff proclamations, has undergone a dramatic retrospective reframing during the……"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-23", "run breaking-run-1776928781", "March", "plenary", "session", "adopted", "exactly", "week", "before", "President"]
 date: 2026-04-23
 article_type: breaking
 slug: 2026-04-23-breaking

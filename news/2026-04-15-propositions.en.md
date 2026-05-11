@@ -1,6 +1,7 @@
 ---
 title: "European Parliament Q1 2026 legislative output surged 46% year-on-year to a projected 114 adopted acts. The March 26 plenary burst…"
-description: "European Parliament Q1 2026 legislative output surged 46% year-on-year to a projected 114 adopted acts. The March 26 plenary burst delivered Banking Union SRMR3, Anti-Corruption Directive, and tariff countermeasures. Today (April 15) marks T-0 for tariff activation. The pipeline transitions from…"
+description: "European Parliament Q1 2026 legislative output surged 46% year-on-year to a projected 114 adopted acts. The March 26 plenary burst delivered Banking Union SRMR3… Published…"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-15", "run 56d5a875-0b05-4753-8aca-36b9af05c1e2", "European", "Parliament", "legislative", "output", "surged", "year", "projected", "adopted"]
 date: 2026-04-15
 article_type: propositions
 slug: 2026-04-15-propositions

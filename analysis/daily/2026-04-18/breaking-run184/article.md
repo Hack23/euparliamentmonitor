@@ -1,6 +1,7 @@
 ---
 title: "April 18, 2026"
-description: "title: \"🧠 Intelligence Synthesis Summary — API Recovery Threshold & Final Recess Assessment\""
+description: "title: \"🧠 Intelligence Synthesis Summary — API Recovery Threshold & Final Recess Assessment\" Published 2026-04-18, with source-linked voting, committee and legislative…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-18", "April", "title", "Intelligence", "Synthesis", "Summary", "Recovery", "Threshold", "Final", "Recess"]
 date: 2026-04-18
 article_type: breaking
 slug: 2026-04-18-breaking-184

@@ -1,6 +1,7 @@
 ---
 title: "Analysis of March 26 pre-Easter committee output from six stakeholder perspectives, covering Banking Union triple package…"
-description: "Analysis of March 26 pre-Easter committee output from six stakeholder perspectives, covering Banking Union triple package (TA-0090/0091/0092), Anti-Corruption Directive (TA-0094), Tariff Countermeasures (TA-0096/0097), Water Pollutants (TA-0093), and AI Digital Omnibus (TA-0098)."
+description: "Analysis of March 26 pre-Easter committee output from six stakeholder perspectives, covering Banking Union triple package (TA-0090/0091/0092), Anti-Corruption Directive……"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-14", "run e93a1c2e-1784-43d5-8039-6855c4e1a1d4", "Analysis", "March", "Easter", "committee", "output", "from", "stakeholder", "perspectives"]
 date: 2026-04-14
 article_type: committee-reports
 slug: 2026-04-14-committee-reports
