@@ -22,6 +22,7 @@ callout, AI-instructions block, quality checklist).
 | [`citation-pattern.md`](./citation-pattern.md) | Admiralty source grade + Kent/WEP probability + EP MCP citation pattern | Every artifact making external claims |
 | [`evidence-table.md`](./evidence-table.md) | Canonical evidence-table column shape (Source · Grade · Confidence · Reference) | Stakeholder, threat, and risk artifacts |
 | [`imf-callout.md`](./imf-callout.md) | IMF-as-sole-authoritative-economic-source contract | `economic-context.md` and any artifact citing macro/fiscal data |
+| [`mermaid-color-palette.md`](./mermaid-color-palette.md) | Canonical color palette + per-diagram-type color recipes (themeVariables, classDef, style) | Every template that emits at least one Mermaid block |
 
 ## How to use
 
