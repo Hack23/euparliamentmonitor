@@ -1,0 +1,51 @@
+{
+  "runId": "propositions-run251-1778480471",
+  "articleType": "propositions",
+  "articleTypeSlug": "propositions",
+  "date": "2026-05-11",
+  "dataMode": "degraded-imf",
+  "workflowStartEpoch": 1778480491,
+  "analysisDir": "analysis/daily/2026-05-11/propositions",
+  "pass2": {
+    "startedAt": "2026-05-11T07:10:00Z",
+    "endedAt": "2026-05-11T07:30:00Z",
+    "rewriteCount": 8
+  },
+  "files": {
+    "main": [
+      {"path": "executive-brief.md"},
+      {"path": "intelligence/analysis-index.md"},
+      {"path": "intelligence/synthesis-summary.md"},
+      {"path": "intelligence/historical-baseline.md"},
+      {"path": "intelligence/economic-context.md"},
+      {"path": "intelligence/pestle-analysis.md"},
+      {"path": "intelligence/stakeholder-map.md"},
+      {"path": "intelligence/scenario-forecast.md"},
+      {"path": "intelligence/threat-model.md"},
+      {"path": "intelligence/wildcards-blackswans.md"},
+      {"path": "intelligence/mcp-reliability-audit.md"},
+      {"path": "intelligence/reference-analysis-quality.md"},
+      {"path": "intelligence/methodology-reflection.md"},
+      {"path": "intelligence/coalition-dynamics.md"},
+      {"path": "classification/significance-classification.md"},
+      {"path": "classification/actor-mapping.md"},
+      {"path": "classification/forces-analysis.md"},
+      {"path": "classification/impact-matrix.md"},
+      {"path": "risk-scoring/risk-matrix.md"},
+      {"path": "risk-scoring/quantitative-swot.md"},
+      {"path": "extended/media-framing-analysis.md"},
+      {"path": "existing/pipeline-health.md"}
+    ]
+  },
+  "dataSources": {
+    "europeanParliamentMcp": "partial",
+    "imfApi": "unavailable",
+    "worldBankMcp": "not-called"
+  },
+  "stageC": {
+    "gateResult": "GREEN",
+    "degradedImfFloorFactor": 0.85,
+    "allThresholdsMet": true
+  },
+  "history": []
+}
