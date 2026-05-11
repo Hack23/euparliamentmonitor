@@ -208,3 +208,43 @@
 - Adopted texts (threat anchors): TA-10-2026-0154, -0108/0109/0106/0107 (April 28–30, 2026)
 - Coalition data: generate_political_landscape (717 MEPs, EP10); analyze_coalition_dynamics (April 1–May 11)
 - Historical threat precedent: Russia APT operations documented in FireEye/Mandiant reports (2020–2025); NCSC UK advisories
+
+## Threat Landscape Visualization
+
+```mermaid
+quadrantChart
+    title Threat Matrix — Severity vs Probability
+    x-axis Low Probability --> High Probability
+    y-axis Low Severity --> High Severity
+    quadrant-1 Priority Threats
+    quadrant-2 Monitor
+    quadrant-3 Low Priority
+    quadrant-4 Likely but Manageable
+    ECJ annulment Claims Commission: [0.45, 0.95]
+    Coalition fracture on ETS2: [0.35, 0.75]
+    ESN obstruction tactics: [0.60, 0.45]
+    MEP immunity political fallout: [0.55, 0.55]
+    Implementation non-compliance HU/PL: [0.65, 0.80]
+    Carbon market volatility: [0.70, 0.60]
+```
+
+**WEP Assessment of Primary Threats**:
+- ECJ challenge to Claims Commission: *Roughly Even* probability of partial annulment on procedural grounds
+- Hungarian/Polish non-compliance with implementation legislation: *Likely* — historical pattern of delayed transposition on sovereignty-adjacent legislation
+- Coalition fracture on ETS2 tightening: *Unlikely* in current session; *Roughly Even* by Q4 2026 when implementation costs become visible
+- ESN group becoming a meaningful veto player: *Highly Unlikely* (27 seats, no committee chairs)
+
+**Admiralty Grading of Threat Assessments**:
+
+| Threat | Source Reliability | Information Credibility | Grade |
+|--------|-------------------|------------------------|-------|
+| ECJ challenge | B (Reliable) | 2 (Probably True) | B2 |
+| Implementation delay HU/PL | A (Completely Reliable) | 2 (Probably True) | A2 |
+| Coalition fracture | B (Reliable) | 3 (Possibly True) | B3 |
+| ESN obstruction | C (Fairly Reliable) | 3 (Possibly True) | C3 |
+
+**Threat mitigation priority order**: (1) Build redundancy in Claims Commission legal basis; (2) Activate Article 7 leverage on implementation compliance; (3) Maintain coalition dialogue mechanisms; (4) Monitor ESN committee application strategy.
+
+*Threat model confidence: HIGH — based on observed legislative patterns, confirmed EP institutional data (A1), and Admiralty-graded structural analysis. Recommend review upon publication of May 2026 roll-call data.*
+
+

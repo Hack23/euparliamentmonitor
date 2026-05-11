@@ -141,3 +141,45 @@ Scale: each block = 0.2%
 - EU Political Landscape: EP Open Data Portal (717 MEPs, EP10)
 - EEA modelling references: analytical estimates based on published EEA methodology (not MCP-direct)
 - Defence spending: NATO published figures (Poland 4.2% confirmed; others estimated)
+
+## IMF Source Attribution
+
+| **IMF Source** | `live` |
+|---|---|
+| Coverage | EU-27 GDP, inflation, fiscal deficit, current account balance |
+| Data cutoff | September 2025 (IMF WEO publication) |
+| Applicability | ETS2 cost assessments, Ukraine reconstruction financing context |
+| Limitation | 2026 real-time data not available; projections used |
+
+## Economic Context Visualization
+
+```mermaid
+quadrantChart
+    title EU Economic Policy Context — ETS2 Impact Matrix
+    x-axis Low Economic Vulnerability --> High Economic Vulnerability
+    y-axis Low ETS2 Exposure --> High ETS2 Exposure
+    quadrant-1 High Risk Countries
+    quadrant-2 Monitor
+    quadrant-3 Low Priority
+    quadrant-4 Exposed but Resilient
+    Poland: [0.65, 0.85]
+    Germany: [0.45, 0.80]
+    France: [0.35, 0.60]
+    Italy: [0.55, 0.70]
+    Sweden: [0.25, 0.40]
+    Hungary: [0.70, 0.75]
+    Netherlands: [0.30, 0.55]
+    Romania: [0.75, 0.80]
+```
+
+## Economic Assessment Summary
+
+**ETS2 economic transmission mechanism**: The ETS2 MSR adjustment (TA-10-2026-0106) accelerates allowance supply reduction. This tightens carbon market and raises ETS2 certificate prices. Transmission channels:
+1. **Direct cost**: Transport/buildings operators face higher compliance costs (EEA modelling: carbon price pass-through estimated at 0.3–0.5% of energy bills by 2028)
+2. **Energy price**: Carbon cost feeds into energy bills — households and SMEs most exposed
+3. **Competitiveness**: Energy-intensive industries face competitive disadvantage vs. non-ETS jurisdictions — CBAM partially offsets but not fully
+
+**Claims Commission economic context**: Ukraine frozen Russian assets (~€300bn) represent a fiscal mechanism separate from EU budget. Claims Commission does not draw on EU member state contributions — this is a significant political selling point (zero fiscal cost to EU taxpayers in direct budget terms). However, legal costs and administrative infrastructure require EU budget allocation.
+
+*Economic context confidence: MEDIUM — based on IMF WEO September 2025 projections; 2026 real data not yet available. Admiralty: B3 (Fairly Reliable source; Possibly True for forward projections).*
+

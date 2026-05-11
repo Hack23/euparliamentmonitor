@@ -137,3 +137,44 @@ The Electoral Act amendment (TA-10-2026-0124) enabling proxy voting for pregnant
 - EP Coalition Dynamics: analyze_coalition_dynamics (Apr 1–May 11; composition-proxy, not vote-level)
 - Historical context: EP institutional knowledge base (immunity waiver precedents, ETS trajectory)
 - IMF documentation of legal base analysis: analytical synthesis (not direct IMF source)
+
+## Executive Probability Assessment
+
+**WEP probability summary** for executive decision-makers:
+
+| Assessment | WEP Band | Confidence |
+|------------|----------|------------|
+| Claims Commission enters into force | Almost Certain | HIGH |
+| ETS2 MSR adjustment implemented by Q3 2026 | Highly Likely | HIGH |
+| Hungary/Poland delays implementation | Likely | HIGH |
+| ECJ challenge filed within 6 months | Roughly Even | MEDIUM |
+| Coalition holds through June budget vote | Highly Likely | HIGH |
+| ESN becomes blocking minority | Highly Unlikely | HIGH |
+
+## Admiralty Source Assessment
+
+| Source | Reliability | Credibility | Grade |
+|--------|------------|-------------|-------|
+| EP Adopted Texts Register | A (Completely Reliable) | 1 (Confirmed) | A1 |
+| EP Political Landscape (MCP) | A (Completely Reliable) | 2 (Probably True) | A2 |
+| Early Warning System | B (Reliable) | 2 (Probably True) | B2 |
+| Coalition dynamics analysis | B (Reliable) | 2 (Probably True) | B2 |
+| Media framing assessment | C (Fairly Reliable) | 3 (Possibly True) | C3 |
+| Scenario forecasts | B (Reliable) | 3 (Possibly True) | B3 |
+
+**Overall executive brief reliability: B2** — reliable source base, assessments probably true.
+
+## Executive Action Recommendations
+
+**For EU oversight bodies**: Monitor Claims Commission implementation framework publication (target: July 2026). Request Commission to publish implementation timeline by June 2026 Council.
+
+**For MEP offices**: Prepare for September 2026 session focus on Claims Commission secondary legislation and ETS2 implementation decree review.
+
+**For think tanks and NGOs**: Publish legal analysis on Claims Commission ECJ challenge risk to inform public discourse.
+
+**For journalists**: Watch for Commission operational framework publication (Claims Commission) and ETS2 carbon price trajectory as key story milestones.
+
+*Executive brief — version 2.0 (re-run extension) | Date: 2026-05-11*
+*WEP probability bands per intelligence community tradecraft | Admiralty grading applied*
+*License: Apache-2.0 | © 2024–2026 Hack23 AB*
+

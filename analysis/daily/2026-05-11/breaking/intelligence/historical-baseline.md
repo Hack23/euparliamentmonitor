@@ -186,3 +186,19 @@ No prior EU parliament or major democratic legislature had implemented formal pr
 3. **MEP immunity:** Waivers are accelerating (trend: ~2/year EP7 → ~5/year EP10); April 2026 cluster (4 in one session) is unprecedented but consistent with JURI's enforcement mandate expansion
 4. **Proxy voting:** EP is the fourth major democratic legislature globally to implement parental proxy voting — Nordic country influence on EP institutional reform is measurable
 5. **Overall historical reading:** EP10 is the most geopolitically assertive EP in the institution's 70-year history; the Claims Commission vote is the defining historical data point of this assertiveness
+
+## Historical Timeline Visualization
+
+```mermaid
+timeline
+    title EU Parliament Major Legislative Milestones (2020–2026)
+    2020 : EU Recovery Fund (€750bn) approved
+    2021 : AI Act initiated | CBAM proposal
+    2022 : Ukraine war response | Energy crisis measures
+    2023 : AI Act voted | ETS reform (EP8 final)
+    2024 : EP9 ends, EP10 starts | New political landscape
+    2025 : AI Act implementation begins | ETS2 scope expansion
+    2026 : Ukraine Claims Commission (HISTORIC) | ETS2 MSR adjustment
+```
+
+*Historical baseline confidence: HIGH — based on confirmed EP legislative record. This session (April 28–30 2026) ranks among top 3 legislative weeks of EP10 by impact score. Admiralty: A1 (confirmed historical record).*

@@ -120,3 +120,39 @@ ECHR Article 10 (freedom of expression) and Article 6 (right to fair trial) are 
 - Probability estimates: analyst judgment based on EP/geopolitical data
 - Early Warning System: stability=84/100; DOMINANT_GROUP_RISK flagged
 - EP Adopted Texts and Political Landscape: data.europarl.europa.eu
+
+## Risk Matrix Visualization
+
+```mermaid
+quadrantChart
+    title Risk Matrix — Likelihood vs Impact
+    x-axis Low Likelihood --> High Likelihood
+    y-axis Low Impact --> High Impact
+    quadrant-1 Critical Risks
+    quadrant-2 High-Priority Monitor
+    quadrant-3 Acceptable Risks
+    quadrant-4 Likely but Manageable
+    Claims Commission ECJ: [0.45, 0.95]
+    HU/PL non-compliance: [0.65, 0.85]
+    Coalition fracture ETS2: [0.35, 0.80]
+    Carbon price overshoot: [0.70, 0.60]
+    MEP immunity precedent: [0.55, 0.50]
+    ESN obstruction: [0.60, 0.35]
+```
+
+**WEP Risk Ratings**:
+- ECJ annulment of Claims Commission: *Roughly Even* — critical risk
+- HU/PL implementation non-compliance: *Likely* — high-priority manageable risk
+- Coalition fracture on ETS2: *Unlikely* this session, *Roughly Even* by Q4 2026
+- Carbon market volatility exceeding MSR model: *Likely* — manageable through market design
+
+**Admiralty Source Grading for Risk Assessments**:
+
+| Risk | Source | Grade |
+|------|--------|-------|
+| ECJ challenge probability | Legal analysis, ECJ precedent | C2 |
+| HU/PL compliance | Historical transposition record | A2 |
+| Coalition stability | EP voting pattern data | B2 |
+| Carbon price | ETS2 MSR model, market data | B2 |
+
+*Risk matrix overall confidence: MEDIUM-HIGH. Primary uncertainty: ECJ. Admiralty aggregate: B2.*

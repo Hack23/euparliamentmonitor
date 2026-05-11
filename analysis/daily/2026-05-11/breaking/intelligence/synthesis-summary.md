@@ -216,3 +216,30 @@ The ETS2 MSR adjustment provides the counterpoint: the EP is simultaneously adva
 - MCP reliability data: mcp-reliability-audit.md (this run, breaking-run397-1778462980)
 - Risk register: risk-scoring/risk-matrix.md (this run)
 - Scenario analysis: scenario-forecast.md (this run)
+
+## Synthesis Visualization
+
+```mermaid
+flowchart TD
+    A[April 28-30 Plenary] --> B[Ukraine Claims Commission]
+    A --> C[ETS2 MSR Adjustment]
+    A --> D[MEP Immunity x4]
+    A --> E[Electoral Reform]
+    B --> F{Implementation risk}
+    F -->|Likely| G[Operational Q4 2026]
+    F -->|Unlikely| H[ECJ challenge delays]
+    C --> I[Carbon price acceleration]
+    D --> J[Rule of law signal]
+    E --> K[2029 election prep]
+```
+
+**WEP Assessment**: The centrist coalition consolidation is *Highly Likely* to maintain through June 2026. Implementation of all four legislative priorities is *Likely* but contingent on member state transposition (particularly Hungary/Poland). ECJ challenge to Claims Commission is *Roughly Even* (legal basis contestable). ESN group materializing as legislative force is *Unlikely* in short term (27 seats insufficient).
+
+**Admiralty Source Grade**: Overall synthesis — B2 (reliable source, probably true). Primary base: EP Adopted Texts register (A1), political landscape data (A2), early warning system (B2).
+
+| Assessment | Admiralty Grade | WEP Band |
+|------------|-----------------|----------|
+| Claims Commission implementation | B2 | Likely |
+| ETS2 carbon price impact | B2 | Highly Likely |
+| Coalition stability Q3 2026 | B3 | Likely |
+| ECJ challenge success | C3 | Roughly Even |

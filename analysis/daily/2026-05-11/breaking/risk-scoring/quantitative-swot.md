@@ -140,3 +140,26 @@ See Risk Matrix R-01 (risk score 2.70, HIGHEST). Hungary's systematic Ukraine-re
 - EP Political Landscape: EP MCP generate_political_landscape (2026-05-11)
 - Coalition analysis: intelligence/coalition-dynamics.md (this run)
 - Risk register: risk-scoring/risk-matrix.md (this run)
+
+## SWOT Visualization
+
+```mermaid
+quadrantChart
+    title SWOT Quadrant — EU Parliament Breaking News Session
+    x-axis Negative Factors --> Positive Factors
+    y-axis External --> Internal
+    quadrant-1 Strengths
+    quadrant-2 Weaknesses
+    quadrant-3 Threats
+    quadrant-4 Opportunities
+    Coalition majority 396/720: [0.85, 0.75]
+    EP institutional credibility: [0.80, 0.80]
+    Legal basis contestable: [0.30, 0.70]
+    Implementation capacity HU/PL: [0.25, 0.65]
+    ECJ challenge risk: [0.35, 0.25]
+    Geopolitical Russia aggression: [0.20, 0.30]
+    Ukraine accountability precedent: [0.85, 0.30]
+    ETS2 climate leadership: [0.75, 0.25]
+```
+
+*SWOT confidence: HIGH — based on confirmed seat distribution and legislative record. Admiralty: B2.*

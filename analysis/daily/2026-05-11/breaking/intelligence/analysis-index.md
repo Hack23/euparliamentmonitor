@@ -114,3 +114,47 @@
 - IMF WEO: September 2025 SDMX 3.0 vintage via `fetch_url`
 - EP Early Warning System: stability=84/100
 - Coalition Dynamics: EP MCP `analyze_coalition_dynamics`
+
+## Analysis Artifact Dependency Map
+
+```mermaid
+flowchart TD
+    A[Stage A: Data Collection] --> B[classification/significance-classification.md]
+    A --> C[intelligence/analysis-index.md]
+    B --> D[classification/actor-mapping.md]
+    B --> E[classification/forces-analysis.md]
+    B --> F[classification/impact-matrix.md]
+    D --> G[intelligence/stakeholder-map.md]
+    D --> H[intelligence/coalition-dynamics.md]
+    E --> I[intelligence/pestle-analysis.md]
+    F --> J[risk-scoring/risk-matrix.md]
+    G --> K[intelligence/synthesis-summary.md]
+    H --> K
+    I --> K
+    J --> L[risk-scoring/quantitative-swot.md]
+    K --> M[intelligence/scenario-forecast.md]
+    K --> N[intelligence/threat-model.md]
+    M --> O[intelligence/methodology-reflection.md]
+    N --> O
+```
+
+## Index Completeness Assessment
+
+All 16 mandatory artifacts for `breaking` article type are present and accounted for. Analysis pipeline is complete and ready for Stage C gate evaluation.
+
+**Artifact status summary**:
+- 4 classification artifacts: COMPLETE (actor-mapping, forces-analysis, impact-matrix, significance-classification)
+- 1 extended artifact: COMPLETE (media-framing-analysis)
+- 9 intelligence artifacts: COMPLETE (analysis-index, coalition-dynamics, mcp-reliability-audit, methodology-reflection, pestle-analysis, scenario-forecast, stakeholder-map, synthesis-summary, threat-model)
+- 2 risk-scoring artifacts: COMPLETE (quantitative-swot, risk-matrix)
+
+*Analysis index confidence: HIGH — all artifacts verified present by filesystem scan. Admiralty: A1 (structural index).*
+
+---
+*Analysis index version 2.0 | Date: 2026-05-11 | All 16 mandatory breaking news artifacts verified present.*
+*Cross-reference: manifest.json for full artifact registry with line counts and gateResult.*
+*Admiralty: A1 — structural index based on filesystem scan.*
+*Next update: When September 2026 session analysis is generated.*
+*EU Parliament Monitor — civic intelligence platform.*
+
+

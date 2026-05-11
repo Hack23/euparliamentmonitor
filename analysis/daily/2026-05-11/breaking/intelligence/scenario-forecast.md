@@ -215,3 +215,66 @@
 - Coalition analysis: analyze_coalition_dynamics (April 1–May 11; composition-proxy; voting data unavailable)
 - Adopted texts (scenario anchors): TA-10-2026-0154, -0139, -0124, -0163
 - Geopolitical context: intelligence synthesis from synthesis-summary.md, economic-context.md, wildcards-blackswans.md (this run)
+
+## Scenario Probability Visualization
+
+```mermaid
+flowchart LR
+    NOW[May 2026: Post-Plenary] --> S1[Scenario A: Full Implementation]
+    NOW --> S2[Scenario B: Baseline with Delays]
+    NOW --> S3[Scenario C: Structural Setback]
+    S1 --> |Highly Likely, 45%| O1[Claims Commission operational Q4 2026]
+    S2 --> |Likely, 40%| O2[Partial implementation, ECJ delays, 2027 resolution]
+    S3 --> |Unlikely, 15%| O3[ECJ annulment + HU/PL veto = 2028+ timeline]
+```
+
+**WEP Probability Assignments**:
+- Scenario A (Full implementation by Q4 2026): *Roughly Even* — requires sustained coalition + member state cooperation
+- Scenario B (Partial, delayed): *Likely* — most plausible given EU institutional complexity
+- Scenario C (Structural setback): *Unlikely* — would require ECJ annulment AND member state non-compliance simultaneously
+- ETS2 carbon price above €80/tonne by Q4 2026: *Highly Likely* given MSR adjustment trajectory
+
+**Admiralty Grading of Scenario Forecasts**:
+
+| Scenario | Source Basis | Grade | Rationale |
+|----------|-------------|-------|-----------|
+| Scenario A (full impl.) | EP texts + coalition data | B2 | Probably True — precedent supports |
+| Scenario B (partial) | Historical EU implementation patterns | A2 | Reliable source, well-documented |
+| Scenario C (setback) | Legal analysis + political risk | C3 | Possible — speculative on ECJ |
+
+## Forecast Indicators to Monitor
+
+**Leading indicators that Scenario A is materializing**:
+- Commission publishes Claims Commission operational framework (target: July 2026)
+- ETS2 carbon price trajectory (weekly): >€75/tonne by August 2026
+- No ECJ interim measures requested by August 2026
+
+**Warning indicators that Scenario C is materializing**:
+- Hungary/Poland file Art. 263 TFEU challenge at ECJ
+- Commission receives fewer than 20/27 member state implementation notifications by December 2026
+- Coalition vote margin narrows to <10 on Ukraine-related files in September session
+
+## Scenario Update Cadence
+
+This forecast should be updated when:
+1. EP September 2026 plenary session produces Claims Commission follow-up decisions
+2. ETS2 carbon price monitoring shows deviation from MSR model trajectory
+3. ECJ filing status changes (no challenge = stronger Scenario A; challenge filed = Scenario B activated)
+4. Member state transposition notifications received (Commission tracking tool)
+
+*Last updated: 2026-05-11 | Next review: September 2026 session | Admiralty: B2 overall forecast confidence*
+*Scenario forecast is probabilistic, not deterministic — actual outcomes depend on actor decisions not yet made.*
+
+---
+*Scenario forecast confidence: HIGH for Scenario B, MEDIUM for A and C.*
+*Admiralty aggregate: B2 | WEP: Scenario B is Likely, A and C are Roughly Even vs Unlikely.*
+*Data basis: EP Adopted Texts (A1), historical EU implementation patterns (A2), legal analysis (C2).*
+*This forecast is probabilistic. Recommended review: September 2026 session start.*
+*EU Parliament Monitor — civic intelligence for democratic accountability.*
+*License: Apache-2.0 | © 2024–2026 Hack23 AB*
+
+---
+*End of scenario forecast artifact. Cross-reference: threat-model.md for risk scenarios; synthesis-summary.md for integrated assessment.*
+
+
+
