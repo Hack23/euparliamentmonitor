@@ -6,10 +6,15 @@
  * pipeline.
  *
  * Verifies that:
- *  - The `%%{init …themeVariables…}%%` block survives `renderMarkdown`
- *    byte-for-byte inside `<pre class="mermaid">`.
+ *  - The `%%{init …themeVariables…}%%` block is preserved as text
+ *    inside `<pre class="mermaid">` after `renderMarkdown` — its
+ *    contents are HTML-escaped by markdown-it (e.g. `"` → `&quot;`)
+ *    but the init keyword, every theme key, and every hex token remain
+ *    intact so the client-side Mermaid initialiser can un-escape and
+ *    re-parse the block before rendering.
  *  - `classDef`, `class`, and per-node `style` lines survive rendering
- *    (HTML-escaped where appropriate but textually preserved).
+ *    (preserved as text; HTML-special characters escaped, hex tokens
+ *    intact).
  *  - `dedupMermaid` deduplicates only by full-body hash, so two blocks
  *    that share a diagram body but differ only in `themeVariables` /
  *    color tokens are treated as distinct.

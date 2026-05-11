@@ -127,7 +127,10 @@ The integration test
 [`test/integration/article-mermaid-pipeline.test.js`](../../../test/integration/article-mermaid-pipeline.test.js)
 asserts mermaid count parity (artifacts → `article.md` → rendered HTML)
 **and** that color tokens (`%%{init}`, `classDef`, `style`, `fill:#`)
-flow through the pipeline byte-for-byte after deduplication.
+flow through the pipeline after deduplication: byte-for-byte preserved
+in `article.md`, and preserved as text inside `<pre class="mermaid">`
+in the rendered HTML (HTML-special characters such as `"` and `>` are
+escaped, but every hex token and color directive remains intact).
 
 ---
 

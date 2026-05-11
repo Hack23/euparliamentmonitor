@@ -12,8 +12,13 @@
  *   2. Every Mermaid block in `article.md` is rendered into the
  *      generated HTML body fragment.
  *   3. Color tokens (`%%{init …themeVariables…}%%`, `classDef`,
- *      `style …fill:#…`, palette hexes) survive byte-for-byte from the
- *      artifact source through `article.md` to the HTML body.
+ *      `style …fill:#…`, palette hexes) are preserved from the artifact
+ *      source through `article.md` to the HTML body. In `article.md`
+ *      preservation is byte-for-byte; in HTML the Mermaid fence body is
+ *      HTML-escaped inside `<pre class="mermaid">` (e.g. `"` → `&quot;`,
+ *      `>` → `&gt;`) but every hex token and color directive remains
+ *      textually intact and is un-escaped client-side by the Mermaid
+ *      initialiser before rendering.
  *   4. The generator wraps every Mermaid block in
  *      `<figure class="mermaid-figure" role="img" aria-label="…">` so
  *      assistive tech announces the diagram and the colour palette
@@ -266,7 +271,7 @@ describe('article mermaid pipeline — color-coded diagrams flow artifacts → a
   });
 });
 
-describe.runIf(true)('article mermaid pipeline — real production runs (smoke check)', () => {
+describe('article mermaid pipeline — real production runs (smoke check)', () => {
   /**
    * Smoke check against the most-recent committed analysis run, if the
    * `analysis/daily/` tree exists. Verifies count parity between
