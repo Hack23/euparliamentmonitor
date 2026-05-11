@@ -1,0 +1,57 @@
+{
+  "articleType": "committee-reports",
+  "date": "2026-05-11",
+  "runId": "committee-reports-run252-1778477039",
+  "workflowStartEpoch": 1778477071,
+  "dataMode": "degraded",
+  "degradationReasons": ["committee-document-feed-unavailable", "imf-api-blocked-by-awf-firewall", "events-feed-unavailable"],
+  "admiraltyGrade": "B2",
+  "files": {
+    "executive-brief": "executive-brief.md",
+    "analysis-index": "intelligence/analysis-index.md",
+    "synthesis-summary": "intelligence/synthesis-summary.md",
+    "historical-baseline": "intelligence/historical-baseline.md",
+    "economic-context": "intelligence/economic-context.md",
+    "pestle-analysis": "intelligence/pestle-analysis.md",
+    "stakeholder-map": "intelligence/stakeholder-map.md",
+    "scenario-forecast": "intelligence/scenario-forecast.md",
+    "threat-model": "intelligence/threat-model.md",
+    "wildcards-blackswans": "intelligence/wildcards-blackswans.md",
+    "mcp-reliability-audit": "intelligence/mcp-reliability-audit.md",
+    "reference-analysis-quality": "intelligence/reference-analysis-quality.md",
+    "methodology-reflection": "intelligence/methodology-reflection.md",
+    "risk-matrix": "risk-scoring/risk-matrix.md",
+    "quantitative-swot": "risk-scoring/quantitative-swot.md",
+    "media-framing-analysis": "extended/media-framing-analysis.md"
+  },
+  "pass2": {
+    "startedAt": "2026-05-11T06:15:00Z",
+    "endedAt": "2026-05-11T06:40:00Z",
+    "rewriteCount": 7,
+    "filesExtended": [
+      "executive-brief.md",
+      "intelligence/synthesis-summary.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/methodology-reflection.md"
+    ]
+  },
+  "keyFindings": [
+    "DMA enforcement resolution (TA-10-2026-0160) adopted April 30 — most significant digital regulation action of EP10 first 18 months",
+    "Animal welfare binding standards (TA-10-2026-0115) — 6-year legislative journey completed",
+    "Budget 2027 guidelines (TA-10-2026-0112) — EP opening position at EUR 197.2B; Council counter-position expected September 2026",
+    "Coalition arithmetic: EPP+S&D+Renew = 396 seats (centrist grand coalition); ECR+PfE = 166 seats (regulatory-sceptic bloc)",
+    "Non-plenary week — no votes; committee work primary focus; DOCEO XML unavailable"
+  ],
+  "gateResult": null,
+  "history": [
+    {
+      "runId": "committee-reports-run252-1778477039",
+      "date": "2026-05-11",
+      "artifactsProduced": 16,
+      "dataMode": "degraded"
+    }
+  ]
+}
