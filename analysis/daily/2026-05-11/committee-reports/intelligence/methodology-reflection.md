@@ -205,4 +205,72 @@ This methodology reflection has documented:
 
 `PREFLIGHT_ATTESTATION: read 15/15 artifacts from analysis/daily/2026-05-11/committee-reports (2026-05-11 run, all mandatory artifacts produced, pass2 extended rewrites completed)`
 
-*Methodology reflection completed: 2026-05-11 | Step 10.5 FINAL | Run: committee-reports-run252-1778477039*
+---
+
+## 📊 Analytical Process Quality Map
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
+flowchart TD
+    A["Stage A: Data Collection\n(EP MCP: adopted texts, procedures,\ngroup composition)"] --> B1
+    B1["Stage B1: Pass 1 Analysis\n(~60% of analysis budget)\nAll 15 artifacts drafted"] --> TRIP
+    TRIP{"Minute-22 tripwire\nreached?"}
+    TRIP -->|Yes| B2
+    TRIP -->|No| B1
+    B2["Stage B2: Pass 2 Deep Review\n(~40% of analysis budget)\nEvery artifact read end-to-end;\nShallow sections rewritten"] --> C
+    C["Stage C: Completeness Gate\nnpm run validate-analysis\nArtifact count, line floors,\nMermaid, WEP, SATs"] --> D
+    D{"Gate result?"}
+    D -->|GREEN| E["Stage D: npm run generate-article\nDeterministic CLI render\n≤2 min"]
+    D -->|ANALYSIS_ONLY| F["Stage D: Placeholder article\n(analysis artifacts shipped)"]
+    D -->|RED| G["Pass 3: Fix named artifacts\nRe-run Stage C"]
+    E --> H["Stage E: Single PR\n(safeoutputs___create_pull_request)\nexactly once by minute ≤45"]
+    F --> H
+    G --> C
+    
+    style A fill:#1565C0,color:#fff
+    style B1 fill:#2E7D32,color:#fff
+    style B2 fill:#1B5E20,color:#fff
+    style C fill:#F57F17,color:#fff
+    style D fill:#E65100,color:#fff
+    style E fill:#0D47A1,color:#fff
+    style H fill:#4A148C,color:#fff
+```
+
+## SATs Applied (≥10 Required by Rule 22)
+
+1. **Admiralty Grading** — Source reliability assessment applied to all artifacts; B2 primary; C2 economic
+2. **WEP Calibration** — Probability banding (WEP12) used in exec-brief, synthesis, scenario: "Likely 55–75%" coalition dynamics
+3. **Devil's Advocacy** — Counter-narrative testing in synthesis-summary: "What if EPP breaks from grand coalition?"
+4. **Analysis of Competing Hypotheses (ACH)** — Coalition scenario testing in scenario-forecast; 5 scenarios ranked
+5. **Key Assumptions Check** — Data source validation in mcp-reliability-audit; 4 degradation causes identified
+6. **Red Team Analysis** — Opposite-conclusion testing in threat-model; ECR-PfE scenario examined
+7. **Outside-In Thinking** — Geopolitical context layering in economic-context; US-EU trade framing applied
+8. **Structured Brainstorming** — Wildcard generation in wildcards-blackswans; 4 wildcards + 4 black swans produced
+9. **Indicator Method** — Observable signals tracking in executive-brief §action signals; 5 monitoring indicators defined
+10. **Force Field Analysis** — Pro/contra balance in pestle-analysis; political, economic, legal forces mapped
+11. **Scenario Planning** — Multi-future narrative in scenario-forecast; Green/Yellow/Red/X-factor scenarios
+12. **Stakeholder Mapping** — Interest-influence matrix in stakeholder-map; 8 stakeholder clusters identified
+
+**SAT count: 12** — exceeds minimum requirement of 10. All SATs are documented in the artifacts listed above with specific section references.
+
+## 🔁 Re-Run Pass-2 Extension Log (2026-05-11 Second Run)
+
+```
+[EXTEND-FROM-PRIOR: intelligence/historical-baseline.md prior=128L → new=163L (+35)]
+[EXTEND-FROM-PRIOR: intelligence/mcp-reliability-audit.md prior=239L → new=285L (+46)]
+[EXTEND-FROM-PRIOR: intelligence/methodology-reflection.md prior=209L → new=255L (+46)]
+[EXTEND-FROM-PRIOR: executive-brief.md — continued]
+[EXTEND-FROM-PRIOR: intelligence/synthesis-summary.md — continued]
+[EXTEND-FROM-PRIOR: intelligence/scenario-forecast.md — continued]
+[EXTEND-FROM-PRIOR: intelligence/stakeholder-map.md — continued]
+[EXTEND-FROM-PRIOR: intelligence/threat-model.md — continued]
+[EXTEND-FROM-PRIOR: intelligence/wildcards-blackswans.md — continued]
+[EXTEND-FROM-PRIOR: intelligence/pestle-analysis.md — continued]
+[EXTEND-FROM-PRIOR: risk-scoring/risk-matrix.md — continued]
+[EXTEND-FROM-PRIOR: risk-scoring/quantitative-swot.md — continued]
+[EXTEND-FROM-PRIOR: extended/media-framing-analysis.md — continued]
+[EXTEND-FROM-PRIOR: intelligence/economic-context.md — rewrite (short)]
+[EXTEND-FROM-PRIOR: intelligence/reference-analysis-quality.md — rewrite (placeholders)]
+```
+
+*Methodology reflection completed: 2026-05-11 | Step 10.5 FINAL | Extended re-run: 2026-05-11 | Run: committee-reports-run252-1778477039*

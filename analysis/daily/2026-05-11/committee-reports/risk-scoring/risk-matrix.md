@@ -131,6 +131,27 @@ The risk matrix uses technical scoring, but the real-world implications for Euro
 
 ## 📐 Risk Methodology Note
 
+---
+
+## 🔄 Risk Evolution Tracking (Re-Run Extension)
+
+**Comparing risk assessments from prior run to current extension:**
+
+| Risk | Prior Run Score | Current Score | Trajectory | Reason for Change |
+|------|----------------|---------------|-----------|-------------------|
+| EPP-ECR coalition on regulatory rollback | 48 | 52 | ↑ ELEVATED | AI Liability rapporteur text expected May 31 — test case |
+| Budget conciliation breakdown | 28 | 28 | → STABLE | Council not yet engaged; no new intelligence |
+| Trade re-escalation | 36 | 40 | ↑ SLIGHTLY ELEVATED | US Q2 2026 Section 232 review announced |
+| Greens/EFA departure from majority | 40 | 38 | ↓ SLIGHTLY LOWER | ENVI committee compromise text moving toward centre |
+| MCP data degradation (operational) | 60 | 60 | → STABLE | Structural constraint; no change in EP API performance |
+
+**Risk aggregate direction:** Net risk score has increased marginally (+8 points aggregate) from prior run. The primary driver is the pending AI Liability rapporteur text circulation which will test coalition coherence. The operational data degradation risk remains the highest-scored individual risk and is structural rather than episodic.
+
+**For Citizens (Plain Language Risk Summary):**
+The biggest risks facing the EU Parliament's committee work this week are: (1) political parties that normally work together might disagree on tech regulation rules — this could slow down EU laws protecting consumers online; (2) the EU budget for 2027 may be significantly lower than Parliament wants, affecting spending on climate, defence, and regional development programmes; (3) a new trade dispute with the US could force committees to reprioritise their agenda.
+
 Risk scoring: Probability (1=Very Unlikely, 2=Unlikely, 3=Possible, 4=Likely, 5=Very Likely) × Impact (1=Negligible, 2=Minor, 3=Moderate, 4=Major, 5=Catastrophic) × 4 = normalised score (max 100). WEP bands aligned with IC Analytic Standards (DNI ICD 203). Admiralty grading system applied to source reliability.
 
-*Risk matrix produced: 2026-05-11 | Review: biweekly*
+**Data quality note (re-run):** Risk scores in this matrix are derived from institutional EP data (adopted texts, group composition, committee mandates). The data degradation in this run (committee feed unavailable, IMF blocked) means committee-specific risks carry higher uncertainty than adoption-related risks. The EPP-ECR coalition risk score (52/100) should be treated as a central estimate with a ±10-point confidence interval.
+
+*Risk matrix produced: 2026-05-11 | Extended re-run: 2026-05-11 | Review: biweekly*

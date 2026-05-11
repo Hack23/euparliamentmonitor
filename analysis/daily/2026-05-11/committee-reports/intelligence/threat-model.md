@@ -199,4 +199,34 @@ Threat 2 (Democratic Legitimacy Crisis) is driven by a different actor set:
 - Commission 2040 climate target proposal tabling (Threat 5 trigger event)
 - Any US Section 232 announcement (Threat 6 trigger event)
 
-*Extended threat model produced: 2026-05-11 | Review cycle: biweekly*
+---
+
+## 🔍 Threat Monitoring Indicators (Re-Run Extension)
+
+**Observable signals for threat escalation by category:**
+
+### Digital Regulatory Threats
+- **Signal:** Any Commission DMA enforcement action against a named gatekeeper
+- **Threshold:** Fine > €1B or binding interim measure = HIGH threat materialisation
+- **Monitoring:** DG COMP press releases; IMCO committee secretariat notifications
+- **Current status:** 🟡 WATCHING — Apple interoperability case in open investigation phase
+
+### Budget/Fiscal Threats
+- **Signal:** Council's draft position on 2027 budget (expected September 2026)
+- **Threshold:** Council ceiling >8% below EP position = conciliation failure risk
+- **Monitoring:** BUDG committee correspondence; Council press statements
+- **Current status:** 🟢 NORMAL — Council has not yet engaged
+
+### Coalition Stability Threats
+- **Signal:** EPP-ECR joint amendment on any major regulatory file
+- **Threshold:** Joint amendment reaching 320+ vote total = centrist coalition fracture
+- **Monitoring:** EP voting records (DOCEO XML, ~3-week lag)
+- **Current status:** 🟡 ELEVATED — EPP has tested ECR support on Platform Work Directive
+
+### Geopolitical Threats (External)
+- **Signal:** New US tariff announcement affecting EU exports
+- **Threshold:** Any announcement above 10% on EU goods = emergency INTA response
+- **Monitoring:** US Federal Register; USTR press releases; INTA committee alerts
+- **Current status:** 🟡 WATCHING — Q2 2026 US Section 232 review in progress
+
+*Extended threat model produced: 2026-05-11 | Extended re-run: 2026-05-11 | Review cycle: biweekly*

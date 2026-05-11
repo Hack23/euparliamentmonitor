@@ -180,4 +180,27 @@ One limitation of single-scenario analysis is that real-world outcomes often com
 
 3. **Calendar caveat:** The scenario timelines assume normal parliamentary procedure. Emergency procedures (Article 138 Rules of Procedure urgency resolutions) can accelerate specific file timelines by 4–6 weeks, which could compress scenario development windows.
 
-*Extended scenario analysis produced: 2026-05-11 | Next forecast update: 2026-06-08*
+---
+
+## 📊 Scenario Probability Dashboard (Re-Run Pass 2 Extension)
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
+xychart-beta
+    title "Scenario Probability × Impact Matrix (May 2026)"
+    x-axis ["S1: Centrist Coalition", "S2: EPP-ECR Alliance", "S3: Stalemate", "S4: Crisis Acceleration", "S5: Reinforced Centre"]
+    y-axis "Composite Score (probability × impact, 0–100)" 0 --> 100
+    bar [72, 58, 45, 30, 62]
+```
+
+**Scenario signal tracking: Observable leading indicators for the next 30 days**
+
+| Indicator | Monitoring Source | Threshold for Escalation |
+|-----------|-----------------|--------------------------|
+| EPP-ECR voting alignment rate | EP voting records (DOCEO XML) | >55% co-voting rate in June plenary |
+| BUDG committee amendment outcomes | EP adopted texts feed | Council counter-position >10% below EP ceiling |
+| DMA enforcement Commission decision | Commission press releases | Any fine > €5 billion triggers IMCO emergency hearing |
+| AI Liability rapporteur text circulation | LIBE committee documents | Circulation before May 31 = fast track confirmed |
+| EU-US trade communiqué | INTA committee statements | Any new tariff announcement = re-escalation signal |
+
+*Extended scenario analysis produced: 2026-05-11 | Extended re-run: 2026-05-11 | Next forecast update: 2026-06-08*

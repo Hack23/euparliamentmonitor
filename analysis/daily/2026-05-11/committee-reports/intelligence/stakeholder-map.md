@@ -226,4 +226,42 @@ quadrantChart
 | AI Act GPAI | LIBE+IMCO majority | Big Tech+PfE | EPP ITRE wing |
 | 2040 Climate Target | Greens+S&D+Left | PfE+ECR+agrarian EPP | EPP mainstream |
 
-*Stakeholder map produced: 2026-05-11 | Review: monthly*
+---
+
+## 🗺️ Stakeholder Influence Network: June 2026 Plenary Preparedness
+
+**Key relationship dynamics for the June Strasbourg plenary cycle:**
+
+### High-Influence Stakeholder Cluster Analysis
+
+**Cluster 1: Digital Regulation Bloc**
+- EPP IMCO members (particularly German MEPs): Industry-friendly regulatory approach
+- S&D IMCO members: Pro-enforcement, consumer protection emphasis
+- Tech industry lobbying coalitions (DIGITALEUROPE, individual GAFA):  Maximum legitimate influence
+- Civil society (Access Now, EDRi): Counter-lobby; formal transparency registry actors
+- **Dynamic:** Commission DMA Task Force mediating between EP enforcement ambitions and industry compliance timelines
+
+**Cluster 2: Budget Coalition**
+- Net-contributor member states (Germany, Netherlands, Sweden, Austria): Council blocking minority on ceiling increases
+- Cohesion-fund beneficiary states (Poland, Romania, Hungary, Bulgaria): EP allies for maintaining cohesion spending
+- EP BUDG committee majority (EPP + S&D + Renew): Pro-increase coalition
+- **Dynamic:** The MFF sub-ceiling for 2027 creates a legal constraint that BUDG chair must navigate; Council unanimous vote required for MFF revision
+
+**Cluster 3: Climate Governance Network**
+- ENVI committee majority (S&D + Greens/EFA + Renew): Green legislative agenda
+- European automobile industry (ACEA): Lobbying for technology neutrality provisions
+- Climate NGOs (CAN Europe, WWF): Green enforcement pressure
+- EPP industrial wing: Technology neutrality safeguards
+- **Dynamic:** HDV emission credits regulation is the current test case; committee vote expected July 2026
+
+### Influence Heat Map by Policy Domain
+
+| Policy Domain | Dominant Stakeholder | Challenger | EP Committee |
+|--------------|---------------------|------------|-------------|
+| Digital/DMA | Commission DMA Task Force | US tech companies | IMCO |
+| Climate | ENVI majority + NGOs | ACEA + EPP industry wing | ENVI |
+| Budget | BUDG majority | Council net-contributors | BUDG |
+| AI governance | LIBE + Commission AI Office | Tech industry | LIBE |
+| Trade | INTA majority | US/China trading partners | INTA |
+
+*Stakeholder map produced: 2026-05-11 | Extended re-run: 2026-05-11 | Review: monthly*

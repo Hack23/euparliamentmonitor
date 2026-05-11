@@ -177,4 +177,25 @@ quadrantChart
 | Legal: DMA enforcement | 5 open investigations | Escalating | IMCO | 🔴 HIGH |
 | Environmental: 2040 target | Pre-legislative | Approaching | ENVI | 🟡 MEDIUM |
 
-*PESTLE analysis produced: 2026-05-11 | Review: quarterly*
+---
+
+## 📐 PESTLE Deep Dive: EU Digital Regulatory Environment (Re-Run Extension)
+
+The PESTLE framework identified **digital regulation** as the most dynamic force intersecting all six dimensions. This extended analysis traces the cross-PESTLE interactions:
+
+### Cross-PESTLE Digital Regulation Matrix
+
+| PESTLE Dimension | Digital Regulation Force | Intensity | Trajectory (6-month) |
+|-----------------|--------------------------|-----------|----------------------|
+| Political | DMA enforcement as sovereignty signal | HIGH | ↑ Increasing (EP pressure) |
+| Economic | Tech sector compliance costs vs. consumer welfare gain | MEDIUM | → Stable |
+| Social | Public trust in digital platforms | HIGH | ↑ Increasing (post-misinformation scrutiny) |
+| Technological | AI Act GPAI compliance August 2026 deadline | HIGH | ↑ Accelerating |
+| Legal | CJEU DMA interpretation pending cases | HIGH | → Developing |
+| Environmental | AI energy consumption (data centre sustainability) | MEDIUM | ↑ Rising (ENVI monitoring) |
+
+**Synthesis:** The digital PESTLE confluence is creating a "regulatory supercycle" in EP10 that has no direct precedent. The combination of DMA enforcement, AI Act implementation, and GDPR maturation means that the IMCO and LIBE committees are simultaneously the most legislatively active and the most politically contested committees of the current Parliament.
+
+**PESTLE implication for committee forecast:** The June 2026 plenary will feature more digital regulation votes than any previous June plenary in EP history, a structural shift that reflects the political salience of the "Brussels Effect" in global regulatory competition.
+
+*PESTLE analysis produced: 2026-05-11 | Extended re-run: 2026-05-11 | Review: quarterly*

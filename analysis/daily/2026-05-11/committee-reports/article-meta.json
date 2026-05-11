@@ -1,7 +1,7 @@
 {
   "date": "2026-05-11",
   "articleType": "committee-reports",
-  "runId": "committee-reports-run252-1778477039",
+  "runId": "committee-reports-run251-1778481577",
   "gateResult": "PENDING",
   "slug": "2026-05-11-committee-reports",
   "articlePath": "analysis/daily/2026-05-11/committee-reports/article.md",
@@ -31,18 +31,20 @@
     "**LIBE:** AI Act GPAI provisions enter force August 2026 with smooth compliance process for major foundation model providers"
   ],
   "keyActors": [
-    "**Moderate wing** (Germany, Netherlands, Nordic states): supportive of the Von der Leyen Commission's digital and green agenda",
-    "**Populist-agrarian wing** (Hungary, Poland, Italy): pressuring for DMA proportionality reform and CAP protection",
-    "**DMA enforcement:** Moderate wing supports strict enforcement; agrarian wing wants implementing measure flexibility",
-    "**2027 Budget:** Strong on defence (+18%) but divided on Green Deal funding (+15%)",
-    "**AI Act:** Broadly supportive of competitiveness-friendly implementation timelines",
-    "**DMA enforcement:** Fully supportive; champions \"big fine\" approach for repeat violators",
-    "**Budget 2027:** Strong on cohesion and social protection; willing to trade on defence increases for social commitments",
-    "**Animal welfare:** Championed the Cats and Dogs regulation; leading on next phase (farm animal welfare)"
+    "Commission → EP: legislative proposals, budget drafts, delegated acts",
+    "EP → Commission: scrutiny resolutions, committee questions, committee votes on Commission acts",
+    "Industry → EPP/Renew: lobbying on AI liability, digital regulation, product standards",
+    "Civil Society → S&D/Greens: advocacy on climate, social rights, data protection",
+    "IMCO Committee Chair (EPP): controls DMA/DSA file scheduling",
+    "LIBE Committee Chair (S&D): controls AI, data, and security file flows",
+    "BUDG Committee Chair (EPP): controls 2027 budget procedure calendar",
+    "Committee rapporteurs: individual MEPs with draft report authority"
   ],
   "macroContext": "---",
   "sources": [
+    "classification/actor-mapping.md",
     "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
     "intelligence/economic-context.md",
     "intelligence/scenario-forecast.md",
     "intelligence/stakeholder-map.md",
