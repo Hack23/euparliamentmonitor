@@ -69,7 +69,7 @@ esac
 if [ ! -f "$stdio_log" ]; then
   if [ "$has_recovery_patch" = false ] && { [ "$safe_outputs_failed" = false ] || [ "$has_safeoutputs_patch" = false ]; } && \
      { [ "$safe_outputs_failed" = false ] || [ "$has_safeoutputs_bundle" = false ]; }; then
-    log "agent stdio log not found and no recovery/failed-safeoutputs patch; fallback skipped"
+    log "agent stdio log not found and no recovery/failed-safeoutputs patch or bundle; fallback skipped"
     exit 0
   fi
 fi
@@ -230,16 +230,35 @@ body_file=$(mktemp)
 stat_file=$(mktemp)
 
 if [ -z "$(git status --porcelain)" ]; then
+  # Apply gh-aw's own safeoutputs patch artifacts first (aw-<branch>.patch,
+  # aw-create-pull-request.patch, etc.) — these embed authoritative base-commit
+  # context from the agent run. Only fall back to aw-agent-recovery.patch (the
+  # diff-format backup written by gh-aw-capture-agent-patch.sh) when none of
+  # the gh-aw patches apply cleanly. This preserves the "gh-aw primary,
+  # recovery backup" precedence even though the recovery patch sorts first
+  # lexicographically (aw-agent-recovery.patch < aw-create-pull-request.patch).
+  primary_applied=false
+  shopt -s nullglob
   for patch_file in "$gh_aw_dir"/aw-*.patch; do
-    if [ ! -e "$patch_file" ]; then
+    if [ "$patch_file" = "$recovery_patch" ]; then
       continue
     fi
     log "applying agent patch artifact $patch_file"
     if git apply --whitespace=nowarn "$patch_file"; then
+      primary_applied=true
       break
     fi
     log "patch artifact did not apply cleanly: $patch_file"
   done
+  shopt -u nullglob
+  if [ "$primary_applied" = false ] && [ -f "$recovery_patch" ] && [ -s "$recovery_patch" ]; then
+    log "applying recovery patch artifact $recovery_patch (gh-aw patches absent or unapplicable)"
+    if git apply --whitespace=nowarn "$recovery_patch"; then
+      :
+    else
+      log "recovery patch did not apply cleanly: $recovery_patch"
+    fi
+  fi
 fi
 
 git diff --name-only > "$all_changed"

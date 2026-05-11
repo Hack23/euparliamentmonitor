@@ -71,7 +71,7 @@ describe('gh-aw-pat-pr-fallback.sh', () => {
 
     expect(result.code).toBe(0);
     expect(result.stderr).toBe('');
-    expect(result.stdout).toContain('agent stdio log not found and no recovery/failed-safeoutputs patch');
+    expect(result.stdout).toContain('agent stdio log not found and no recovery/failed-safeoutputs patch or bundle');
   });
 
   it('does not activate for bundle artifacts while safe_outputs is still unknown', () => {
@@ -81,6 +81,6 @@ describe('gh-aw-pat-pr-fallback.sh', () => {
 
     expect(result.code).toBe(0);
     expect(result.stderr).toBe('');
-    expect(result.stdout).toContain('agent stdio log not found and no recovery/failed-safeoutputs patch');
+    expect(result.stdout).toContain('agent stdio log not found and no recovery/failed-safeoutputs patch or bundle');
   });
 });
