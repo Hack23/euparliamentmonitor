@@ -170,11 +170,7 @@ function isQuadrantChartBlock(lines: readonly string[]): boolean {
 function quoteMermaidLabel(raw: string): string {
   const trimmed = raw.trim();
   if (trimmed === '') return raw;
-  if (
-    trimmed.length >= 2 &&
-    trimmed.startsWith('"') &&
-    trimmed.endsWith('"')
-  ) {
+  if (trimmed.length >= 2 && trimmed.startsWith('"') && trimmed.endsWith('"')) {
     return trimmed;
   }
   const inner = trimmed.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
@@ -217,11 +213,7 @@ function rewriteQuadrantChartLine(line: string): string {
     const prefix = m[1] ?? '';
     const label = m[2] ?? '';
     const coords = m[3] ?? '';
-    if (
-      !/^(?:x-axis|y-axis|quadrant-[1-4]|title|quadrantChart)\b/.test(
-        label.trim(),
-      )
-    ) {
+    if (!/^(?:x-axis|y-axis|quadrant-[1-4]|title|quadrantChart)\b/.test(label.trim())) {
       return `${prefix}${quoteMermaidLabel(label)}: ${coords}`;
     }
   }

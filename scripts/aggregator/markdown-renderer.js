@@ -136,9 +136,7 @@ function quoteMermaidLabel(raw) {
     const trimmed = raw.trim();
     if (trimmed === '')
         return raw;
-    if (trimmed.length >= 2 &&
-        trimmed.startsWith('"') &&
-        trimmed.endsWith('"')) {
+    if (trimmed.length >= 2 && trimmed.startsWith('"') && trimmed.endsWith('"')) {
         return trimmed;
     }
     const inner = trimmed.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
