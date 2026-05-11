@@ -56,13 +56,15 @@ fi
 
 cd "$workspace"
 
-# If gh-aw / safeoutputs already wrote a recovery-style patch, do not clobber
-# it — the upstream patch is more authoritative.
-shopt -s nullglob
-existing=("$out_dir"/aw-*.patch)
-shopt -u nullglob
-if [ "${#existing[@]}" -gt 0 ]; then
-  log "existing patch artifact(s) already present; skipping capture: ${existing[*]}"
+# Skip only when aw-agent-recovery.patch (our own output) already exists to
+# prevent duplicate work on repeated invocations.  If gh-aw / safeoutputs
+# emitted its own aw-<branch>.patch alongside a bundle, we still produce
+# aw-agent-recovery.patch as a backup: the gh-aw patch may not apply cleanly
+# when main has advanced since the agent run started (bundle-prerequisite race,
+# e.g. run #25653736742), whereas a pure git-diff recovery patch has no
+# prerequisite-commit constraint and applies to any checkout of main.
+if [ -f "$out_file" ] && [ -s "$out_file" ]; then
+  log "recovery patch already present at $out_file; skipping duplicate capture"
   exit 0
 fi
 

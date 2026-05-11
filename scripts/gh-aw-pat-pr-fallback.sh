@@ -51,6 +51,14 @@ if [ "${#safeoutputs_patches[@]}" -gt 0 ]; then
   has_safeoutputs_patch=true
 fi
 
+has_safeoutputs_bundle=false
+shopt -s nullglob
+safeoutputs_bundles=("$gh_aw_dir"/aw-*.bundle)
+shopt -u nullglob
+if [ "${#safeoutputs_bundles[@]}" -gt 0 ]; then
+  has_safeoutputs_bundle=true
+fi
+
 safe_outputs_failed=false
 case "${GH_AW_SAFE_OUTPUTS_RESULT:-}" in
   failure|cancelled|timed_out)
@@ -59,8 +67,9 @@ case "${GH_AW_SAFE_OUTPUTS_RESULT:-}" in
 esac
 
 if [ ! -f "$stdio_log" ]; then
-  if [ "$has_recovery_patch" = false ] && { [ "$safe_outputs_failed" = false ] || [ "$has_safeoutputs_patch" = false ]; }; then
-    log "agent stdio log not found and no recovery/failed-safeoutputs patch; fallback skipped"
+  if [ "$has_recovery_patch" = false ] && { [ "$safe_outputs_failed" = false ] || [ "$has_safeoutputs_patch" = false ]; } && \
+     { [ "$safe_outputs_failed" = false ] || [ "$has_safeoutputs_bundle" = false ]; }; then
+    log "agent stdio log not found and no recovery/failed-safeoutputs patch or bundle; fallback skipped"
     exit 0
   fi
 fi
@@ -74,7 +83,10 @@ fi
 # Trigger 2: agent committed work but safe_outputs did not emit a usable patch.
 # Trigger 3: safe_outputs failed after emitting its own patch (for example, a
 # bundle prerequisite race in the create_pull_request write job).
-# Activate when either trigger condition is met.
+# Trigger 4: safe_outputs failed and a bundle artifact exists (bundle-only case
+# where gh-aw did not generate a separate patch; recovery comes from
+# aw-agent-recovery.patch written by gh-aw-capture-agent-patch.sh).
+# Activate when any trigger condition is met.
 should_run=false
 if [ "$session_not_found" = true ]; then
   should_run=true
@@ -82,10 +94,12 @@ elif [ "$has_recovery_patch" = true ]; then
   should_run=true
 elif [ "$safe_outputs_failed" = true ] && [ "$has_safeoutputs_patch" = true ]; then
   should_run=true
+elif [ "$safe_outputs_failed" = true ] && [ "$has_safeoutputs_bundle" = true ]; then
+  should_run=true
 fi
 
 if [ "$should_run" = false ]; then
-  log "no session expiry, recovery patch, or failed safe_outputs patch artifact; fallback skipped"
+  log "no session expiry, recovery patch, or failed safe_outputs patch/bundle artifact; fallback skipped"
   exit 0
 fi
 
@@ -216,16 +230,35 @@ body_file=$(mktemp)
 stat_file=$(mktemp)
 
 if [ -z "$(git status --porcelain)" ]; then
+  # Apply gh-aw's own safeoutputs patch artifacts first (aw-<branch>.patch,
+  # aw-create-pull-request.patch, etc.) — these embed authoritative base-commit
+  # context from the agent run. Only fall back to aw-agent-recovery.patch (the
+  # diff-format backup written by gh-aw-capture-agent-patch.sh) when none of
+  # the gh-aw patches apply cleanly. This preserves the "gh-aw primary,
+  # recovery backup" precedence even though the recovery patch sorts first
+  # lexicographically (aw-agent-recovery.patch < aw-create-pull-request.patch).
+  primary_applied=false
+  shopt -s nullglob
   for patch_file in "$gh_aw_dir"/aw-*.patch; do
-    if [ ! -e "$patch_file" ]; then
+    if [ "$patch_file" = "$recovery_patch" ]; then
       continue
     fi
     log "applying agent patch artifact $patch_file"
     if git apply --whitespace=nowarn "$patch_file"; then
+      primary_applied=true
       break
     fi
     log "patch artifact did not apply cleanly: $patch_file"
   done
+  shopt -u nullglob
+  if [ "$primary_applied" = false ] && [ -f "$recovery_patch" ] && [ -s "$recovery_patch" ]; then
+    log "applying recovery patch artifact $recovery_patch (gh-aw patches absent or unapplicable)"
+    if git apply --whitespace=nowarn "$recovery_patch"; then
+      :
+    else
+      log "recovery patch did not apply cleanly: $recovery_patch"
+    fi
+  fi
 fi
 
 git diff --name-only > "$all_changed"
@@ -309,6 +342,8 @@ if [ "$session_not_found" = false ] && [ "$has_recovery_patch" = true ]; then
   fallback_reason="safe_outputs bundle apply failed (recovery patch present but no open bundle-path PR found; possible race condition between agent run and concurrent commits to main)"
 elif [ "$session_not_found" = false ] && [ "$safe_outputs_failed" = true ] && [ "$has_safeoutputs_patch" = true ]; then
   fallback_reason="safe_outputs create_pull_request failed after emitting a patch (no open bundle-path PR found; likely bundle prerequisite race with concurrent commits to main)"
+elif [ "$session_not_found" = false ] && [ "$safe_outputs_failed" = true ] && [ "$has_safeoutputs_bundle" = true ] && [ "$has_safeoutputs_patch" = false ]; then
+  fallback_reason="safe_outputs create_pull_request failed with bundle only and no patch (bundle prerequisite race; applying aw-agent-recovery.patch from workspace git diff)"
 fi
 
 cat > "$body_file" <<EOF_BODY

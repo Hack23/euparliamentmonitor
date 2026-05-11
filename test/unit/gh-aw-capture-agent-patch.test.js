@@ -27,9 +27,13 @@ import { fileURLToPath } from 'node:url';
  *      checkout (matches `gh-aw-pat-pr-fallback.sh:142`).
  *   3. With no `news/*` branch ahead of origin/main, the script is a
  *      silent no-op (no patch written).
- *   4. With a pre-existing `aw-*.patch` artifact in the output dir, the
- *      script does not clobber it — gh-aw's own safeoutputs patch wins.
- *   5. With multiple `news/*` branches, the most recently committed branch
+ *   4. With a pre-existing gh-aw `aw-<branch>.patch` in the output dir,
+ *      the script STILL writes `aw-agent-recovery.patch` as a backup so
+ *      the fallback has a second option when the primary patch does not
+ *      apply cleanly after main advanced (bundle-prerequisite race).
+ *   5. With a pre-existing `aw-agent-recovery.patch` (script's own output),
+ *      the script is a no-op — prevents duplicate work on repeated calls.
+ *   6. With multiple `news/*` branches, the most recently committed branch
  *      is selected.
  */
 
@@ -152,18 +156,42 @@ describe('gh-aw-capture-agent-patch.sh', () => {
     expect(fs.readdirSync(outDir)).toEqual([]);
   });
 
-  it('does not clobber a pre-existing aw-*.patch (gh-aw safeoutputs patch wins)', () => {
+  it('co-exists with a pre-existing gh-aw aw-*.patch and still writes the recovery patch', () => {
+    // Scenario: gh-aw generated aw-<branch>.patch alongside a bundle; the
+    // capture script must still write aw-agent-recovery.patch as a backup in
+    // case the gh-aw patch does not apply cleanly after main advanced
+    // (bundle-prerequisite race, e.g. run #25653736742).
     git(workspace, 'checkout', '-qb', 'news/2026-04-28-test');
     fs.writeFileSync(path.join(workspace, 'a.txt'), 'agent\n');
     git(workspace, 'add', '.');
     git(workspace, 'commit', '-qm', 'agent commit');
 
+    // Simulate gh-aw's own patch artifact already present in the output dir.
     fs.writeFileSync(path.join(outDir, 'aw-create-pull-request.patch'), 'preserve-me\n');
 
     const result = runCapture(workspace, outDir);
     expect(result.code).toBe(0);
+    // The gh-aw patch must be preserved (not overwritten).
     expect(fs.readFileSync(path.join(outDir, 'aw-create-pull-request.patch'), 'utf8')).toBe('preserve-me\n');
-    expect(fs.existsSync(path.join(outDir, 'aw-agent-recovery.patch'))).toBe(false);
+    // Recovery patch must also be written as a backup option for the fallback.
+    expect(fs.existsSync(path.join(outDir, 'aw-agent-recovery.patch'))).toBe(true);
+  });
+
+  it('does not overwrite aw-agent-recovery.patch on repeated invocations', () => {
+    // Idempotency guard: if the recovery patch was already written by a prior
+    // call (e.g. the post-step runs twice), the second invocation must be a
+    // no-op and must not clobber the first patch.
+    git(workspace, 'checkout', '-qb', 'news/2026-04-28-test');
+    fs.writeFileSync(path.join(workspace, 'a.txt'), 'agent\n');
+    git(workspace, 'add', '.');
+    git(workspace, 'commit', '-qm', 'agent commit');
+
+    fs.writeFileSync(path.join(outDir, 'aw-agent-recovery.patch'), 'first-capture\n');
+
+    const result = runCapture(workspace, outDir);
+    expect(result.code).toBe(0);
+    // Must preserve the previously written recovery patch.
+    expect(fs.readFileSync(path.join(outDir, 'aw-agent-recovery.patch'), 'utf8')).toBe('first-capture\n');
   });
 
   it('selects the most recently committed news/* branch when several exist', () => {
