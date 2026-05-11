@@ -6,7 +6,7 @@
  * an Executive Brief artifact.
  *
  * The aggregator's Executive Brief section is rendered first; this module
- * is consumed by {@link buildArticleMeta} (and by metadata fall-backs) to
+ * is consumed by `buildArticleMeta` (and by metadata fall-backs) to
  * surface a single concise lead — the journalistic "nut graf" — that
  * sharpens both the SEO description and the structured data emitted next
  * to `article.md`.

@@ -35,7 +35,7 @@ export interface ParsedOptions {
     readonly since?: string;
     /**
      * Always `[...ALL_LANGUAGES]` when produced by this CLI parser; tests
-     * may override the field when calling {@link generateArticle} directly.
+     * may override the field when calling `generateArticle` directly.
      */
     readonly langs: readonly LanguageCode[];
     readonly outDir: string;

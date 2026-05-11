@@ -131,7 +131,7 @@ function countClassToken(content: string, token: string): number {
  * Compute an article quality score by analysing the rendered HTML content.
  *
  * @param content - Full HTML content string of the article body.
- * @returns {@link ArticleQualityScore} with word count, section counts, and overall rating.
+ * @returns `ArticleQualityScore` with word count, section counts, and overall rating.
  */
 export function computeArticleQualityScore(content: string): ArticleQualityScore {
   const noScripts = stripScriptBlocks(content);
@@ -205,7 +205,7 @@ export function buildTableOfContents(entries: TOCEntry[], lang: LanguageCode): s
  * Returns an empty string for articles with a 'needs-improvement' score to avoid
  * surfacing poor-quality signals to readers.
  *
- * @param score - {@link ArticleQualityScore} to render.
+ * @param score - `ArticleQualityScore` to render.
  * @returns HTML string for the badge `<div>`, or empty string for needs-improvement.
  */
 export function buildQualityScoreBadge(score: ArticleQualityScore): string {

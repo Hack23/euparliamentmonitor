@@ -120,7 +120,7 @@ export interface WrapArticleOptions {
    * `2026-01-15-breaking`. Used to build the `<link rel="alternate">` set.
    */
   readonly articleSlug: string;
-  /** Pre-rendered HTML body fragment (from {@link renderMarkdown}). */
+  /** Pre-rendered HTML body fragment (from `renderMarkdown`). */
   readonly body: string;
   /** Article title — shown in `<title>`, breadcrumb, OG/Twitter meta. */
   readonly title: string;

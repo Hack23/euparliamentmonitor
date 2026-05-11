@@ -56,7 +56,7 @@ export interface GatewayConfig {
 }
 
 /** Internal shape of the JSON the gh-aw runtime writes. */
-interface McpConfigJson {
+export interface McpConfigJson {
   gateway?: {
     apiKey?: string;
     port?: number | string;

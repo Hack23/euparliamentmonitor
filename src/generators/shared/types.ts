@@ -27,19 +27,19 @@ declare const __brand: unique symbol;
  * TypeScript prevents accidental interchange. Runtime representation is
  * identical to `Base`; the brand exists only in the type system.
  */
-type Brand<Base, Tag extends string> = Base & { readonly [__brand]: Tag };
+export type Brand<Base, Tag extends string> = Base & { readonly [__brand]: Tag };
 
 // ─── HTML-safe branded types ────────────────────────────────────────────────
 
 /**
  * A string that has been HTML-entity-escaped and is safe for interpolation
- * into an HTML document. Created via {@link toSafeHtml}.
+ * into an HTML document. Created via `toSafeHtml`.
  */
 export type SafeHtmlString = Brand<string, 'SafeHtml'>;
 
 /**
  * A string that has been XML-entity-escaped and is safe for interpolation
- * into an XML document (sitemap.xml, rss.xml). Created via {@link toSafeXml}.
+ * into an XML document (sitemap.xml, rss.xml). Created via `toSafeXml`.
  */
 export type SafeXmlString = Brand<string, 'SafeXml'>;
 

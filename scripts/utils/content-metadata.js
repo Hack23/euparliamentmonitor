@@ -249,7 +249,7 @@ function buildContentDescription(content, baseSubtitle) {
  * Enrich article metadata by analysing the rendered article content.
  *
  * This function is the main entry point — called by the generation pipeline
- * **after** {@link buildContent} produces the article HTML body but
+ * **after** `buildContent` produces the article HTML body but
  * **before** the HTML is wrapped in the full page template.
  *
  * It refines the strategy-provided base metadata with content-derived

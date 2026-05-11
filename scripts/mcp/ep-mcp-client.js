@@ -293,7 +293,7 @@ function extractProcedureItemYear(obj) {
 }
 /**
  * Detect whether a procedures feed response is in "recess mode" — i.e., all items
- * have dates from {@link PROCEDURES_RECESS_YEAR_THRESHOLD} or earlier (historical archive).
+ * have dates from `PROCEDURES_RECESS_YEAR_THRESHOLD` or earlier (historical archive).
  *
  * During parliamentary recesses the EP procedures/feed endpoint may return historical
  * archive data in ID order rather than current procedures. This function detects that
@@ -308,7 +308,7 @@ function extractProcedureItemYear(obj) {
  * yields a year later than the threshold (the feed has current data).
  *
  * @param payload - Parsed procedures feed payload
- * @returns `true` when all dated items are from {@link PROCEDURES_RECESS_YEAR_THRESHOLD} or earlier
+ * @returns `true` when all dated items are from `PROCEDURES_RECESS_YEAR_THRESHOLD` or earlier
  */
 export function detectProceduresFeedRecessMode(payload) {
     if (!payload)
@@ -389,6 +389,13 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * Undefined means "use the module-level default (`<cwd>/data/pending-documents.json`)".
      */
     _pendingDocumentsStorePath;
+    /**
+     * Create a new EP MCP client.
+     *
+     * @param options - Connection and gateway options forwarded to {@link MCPConnection},
+     *   plus an optional `pendingDocumentsStorePath` that overrides the
+     *   default `<cwd>/data/pending-documents.json` sidecar location.
+     */
     constructor(options = {}) {
         super(options);
         this._pendingDocumentsStorePath = options.pendingDocumentsStorePath;
@@ -417,7 +424,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      *
      * Also inspects the tool result for the MCP protocol `isError` flag. When
      * `isError === true`, the first content item's text is passed through
-     * {@link classifyToolError} for diagnostic categorization, and the tool is
+     * `classifyToolError` for diagnostic categorization, and the tool is
      * recorded as failed via {@link _recordToolFailure}. This handles EP MCP
      * Server error responses that are returned (not thrown) as structured results.
      *
@@ -916,7 +923,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
      * from `NOT_FOUND` after the fact.  Two conditions are handled:
      *
      * 1. **UPSTREAM_404 indexing lag** (thrown exception or `isError:true` body):
-     *    message contains {@link CONTENT_NOT_YET_AVAILABLE_SUBSTRING}.
+     *    message contains `CONTENT_NOT_YET_AVAILABLE_SUBSTRING`.
      *
      * 2. **Empty-string sentinel** (`isError:false`, pre-v1.2.13 defence-in-depth):
      *    every string field is `""`.

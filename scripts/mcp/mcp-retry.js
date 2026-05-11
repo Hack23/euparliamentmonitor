@@ -14,6 +14,13 @@ export class CircuitBreaker {
     halfOpenProbeInFlight = false;
     failureThreshold;
     resetTimeoutMs;
+    /**
+     * Construct a new circuit breaker.
+     *
+     * @param options - Optional thresholds for failure count and reset timeout.
+     *   Defaults: 3 consecutive failures trip the breaker; 60 s reset window
+     *   before transitioning to HALF_OPEN.
+     */
     constructor(options = {}) {
         this.failureThreshold = options.failureThreshold ?? 3;
         this.resetTimeoutMs = options.resetTimeoutMs ?? 60_000;

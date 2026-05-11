@@ -76,7 +76,7 @@ export type ResolvedMetadata = LanguageMap<ResolvedMetadataEntry>;
 
 /**
  * Raw manifest subset consumed by the resolver. Deliberately narrower
- * than the full {@link import('./manifest/types.js').Manifest} shape so
+ * than the full `Manifest` shape (see `./manifest/types.ts`) so
  * the resolver stays usable for backport (which only has the manifest in
  * text form) and for callers that don't need the full typed structure.
  */
@@ -101,7 +101,7 @@ export interface MetadataManifest {
   readonly committee?: string;
 }
 
-/** Inputs to {@link resolveArticleMetadata}. */
+/** Inputs to `resolveArticleMetadata`. */
 export interface ResolveMetadataOptions {
   /** Article type slug (e.g. `breaking`, `motions`, `week-ahead`). */
   readonly articleType: string;
@@ -430,7 +430,7 @@ export function stripInlineMarkdown(raw: string): string {
 }
 
 /**
- * Clamp a string to {@link DESCRIPTION_MAX_LENGTH} characters, appending
+ * Clamp a string to `DESCRIPTION_MAX_LENGTH` characters, appending
  * an ellipsis when truncation actually happens. Does not break words if
  * avoidable — a trailing partial word is trimmed back to the previous
  * space first.
@@ -447,7 +447,7 @@ export function truncateDescription(text: string): string {
 }
 
 /**
- * Clamp a title to {@link TITLE_MAX_LENGTH} characters in the same
+ * Clamp a title to `TITLE_MAX_LENGTH` characters in the same
  * word-boundary-preserving fashion as {@link truncateDescription}.
  *
  * @param text - Raw title text
@@ -502,7 +502,7 @@ export function extractStrongProseLine(markdown: string): string {
 
 /**
  * Walk the body of an editorial artefact and, when it contains a `## …`
- * heading whose text matches one of {@link EDITORIAL_LEDE_HEADINGS},
+ * heading whose text matches one of `EDITORIAL_LEDE_HEADINGS`,
  * return the first prose paragraph that follows that heading. This is
  * the journalist's lede ("60-Second Read", "TL;DR", "BLUF — …", …) and
  * is exactly the sentence that should power `<meta description>` and
@@ -558,7 +558,7 @@ function normaliseHeadingText(raw: string): string {
 
 /**
  * Return `true` when an artefact-H1 begins with one of the
- * {@link ARTIFACT_CATEGORY_PREFIXES} followed by a separator. Such H1s
+ * `ARTIFACT_CATEGORY_PREFIXES` followed by a separator. Such H1s
  * carry the artefact's structural label rather than a journalist's
  * headline (e.g. `# Synthesis Summary — Week in Review (3 Apr – 1 May
  * 2026)`) and must not leak into the article `<title>`.
@@ -748,7 +748,7 @@ function escapeRegex(input: string): string {
 
 /**
  * Attempt to read the first H1 and first prose paragraph from the first
- * existing artefact under {@link EDITORIAL_ARTEFACT_CANDIDATES}. Returns
+ * existing artefact under `EDITORIAL_ARTEFACT_CANDIDATES`. Returns
  * `null` when no candidate artefact exists.
  *
  * @param runDir - Absolute run directory path

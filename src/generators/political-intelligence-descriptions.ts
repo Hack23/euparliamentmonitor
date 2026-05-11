@@ -22,7 +22,7 @@
  * naturally in that language.
  *
  * Unmapped files fall back to a generic localized phrase built from the
- * file's display title — see {@link buildGenericFallback}.
+ * file's display title — see `buildGenericFallback`.
  */
 
 import type { LanguageCode } from '../types/index.js';

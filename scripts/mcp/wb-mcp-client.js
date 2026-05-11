@@ -51,6 +51,15 @@ export const WORLD_BANK_MCP_TOOLS = [
  * falls back to the European Parliament MCP server defaults.
  */
 export class WorldBankMCPClient extends MCPConnection {
+    /**
+     * Create a new World Bank MCP client. Always supplies an explicit World
+     * Bank server path, gateway URL, and label so the base class never falls
+     * back to European Parliament defaults.
+     *
+     * @param options - Connection options. `serverPath` / `gatewayUrl` /
+     *   `gatewayApiKey` / `serverLabel` are filled from `WB_*` environment
+     *   variables when not provided explicitly.
+     */
     constructor(options = {}) {
         super({
             ...options,

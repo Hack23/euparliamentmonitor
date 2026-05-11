@@ -6,7 +6,7 @@
  * @description Content-based metadata analysis for articles.
  *
  * Analyses the **rendered article HTML** to extract insightful titles,
- * descriptions, and keywords.  This runs *after* {@link buildContent}
+ * descriptions, and keywords.  This runs *after* `buildContent`
  * produces the article body so that metadata truly reflects what the
  * reader will see — not mechanical counts from the raw data payload.
  *
@@ -310,7 +310,7 @@ function buildContentDescription(content: string, baseSubtitle: string): string 
  * Enrich article metadata by analysing the rendered article content.
  *
  * This function is the main entry point — called by the generation pipeline
- * **after** {@link buildContent} produces the article HTML body but
+ * **after** `buildContent` produces the article HTML body but
  * **before** the HTML is wrapped in the full page template.
  *
  * It refines the strategy-provided base metadata with content-derived

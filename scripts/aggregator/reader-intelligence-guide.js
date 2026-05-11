@@ -713,7 +713,7 @@ export function getReaderGuideSectionIcon(sectionId) {
  * for de-duplication detection by E2E tests.
  *
  * The guide renders one row per emitted article section that has a
- * curated reader-need translation (see {@link READER_GUIDE_ROWS}). The
+ * curated reader-need translation (see `READER_GUIDE_ROWS`). The
  * `included` list is no longer surfaced — the previous "source artifact"
  * column duplicated the per-section navigation that the Analysis Index
  * appendix already presents, and clutters the headline reader lens. The

@@ -48,6 +48,11 @@ const RATE_LIMIT_MSG = 'Rate limited. Retry after';
  * Callers can detect this with `instanceof MCPSessionExpiredError` to trigger re-authentication.
  */
 export class MCPSessionExpiredError extends Error {
+    /**
+     * Construct a new session-expired error.
+     *
+     * @param statusText - Raw HTTP status text returned by the gateway with the 401.
+     */
     constructor(statusText) {
         super(`MCP session expired (401): ${statusText}`);
         this.name = 'MCPSessionExpiredError';
@@ -59,7 +64,14 @@ export class MCPSessionExpiredError extends Error {
  * `retryAfterMs` is 0 when no Retry-After / X-Retry-After header was present.
  */
 export class MCPRateLimitError extends Error {
+    /** Suggested back-off delay in milliseconds parsed from the gateway response. */
     retryAfterMs;
+    /**
+     * Construct a new rate-limit error.
+     *
+     * @param retryAfterMs - Parsed Retry-After delay in ms (0 when no header was present).
+     * @param message - Human-readable error message including endpoint and delay.
+     */
     constructor(retryAfterMs, message) {
         super(message);
         this.name = 'MCPRateLimitError';
@@ -207,6 +219,17 @@ export class MCPConnection {
     mcpSessionId;
     /** Human-readable server name for log messages */
     serverLabel;
+    /**
+     * Create a new MCP connection.
+     *
+     * Resolves the server binary path, gateway URL, and authentication options
+     * from the explicit `options`, then from environment variables, and finally
+     * module-level defaults. The connection is not opened until {@link connect}
+     * is called.
+     *
+     * @param options - Connection options including server path, gateway URL,
+     *   API key, retry policy, and human-readable server label for log messages.
+     */
     constructor(options = {}) {
         this.serverPath =
             options.serverPath ?? process.env['EP_MCP_SERVER_PATH'] ?? DEFAULT_SERVER_BINARY;

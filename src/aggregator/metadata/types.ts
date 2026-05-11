@@ -25,7 +25,7 @@ export interface PerLanguageMetadata {
 
 /**
  * Complete article metadata sidecar shape (`article-meta.json`).
- * This is a type alias for the canonical {@link ArticleMeta} interface
+ * This is a type alias for the canonical `ArticleMeta` interface
  * defined in `article-meta.ts`. Use this name when referring to the
  * sidecar contract in downstream consumers (HTML, RSS, sitemap, news
  * indexes).

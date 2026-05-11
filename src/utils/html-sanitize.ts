@@ -49,6 +49,15 @@ export function stripHtmlTags(html: string): string {
   return result;
 }
 
+/**
+ * Remove every `<script>…</script>` block (and their contents) from an HTML
+ * string using a case-insensitive linear scan. Defends against XSS payloads
+ * smuggled into AI-generated article fragments before the markdown is
+ * rendered into the final article HTML.
+ *
+ * @param html - Raw HTML possibly containing `<script>` blocks.
+ * @returns HTML with every `<script>…</script>` block removed.
+ */
 export function stripScriptBlocks(html: string): string {
   const OPEN = '<script';
   const CLOSE = '</script';

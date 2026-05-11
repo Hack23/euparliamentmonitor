@@ -354,7 +354,7 @@ export function stripInlineMarkdown(raw) {
         .trim();
 }
 /**
- * Clamp a string to {@link DESCRIPTION_MAX_LENGTH} characters, appending
+ * Clamp a string to `DESCRIPTION_MAX_LENGTH` characters, appending
  * an ellipsis when truncation actually happens. Does not break words if
  * avoidable — a trailing partial word is trimmed back to the previous
  * space first.
@@ -371,7 +371,7 @@ export function truncateDescription(text) {
     return `${safe.replace(/[.,;:—-]+$/, '')}…`;
 }
 /**
- * Clamp a title to {@link TITLE_MAX_LENGTH} characters in the same
+ * Clamp a title to `TITLE_MAX_LENGTH` characters in the same
  * word-boundary-preserving fashion as {@link truncateDescription}.
  *
  * @param text - Raw title text
@@ -429,7 +429,7 @@ export function extractStrongProseLine(markdown) {
 }
 /**
  * Walk the body of an editorial artefact and, when it contains a `## …`
- * heading whose text matches one of {@link EDITORIAL_LEDE_HEADINGS},
+ * heading whose text matches one of `EDITORIAL_LEDE_HEADINGS`,
  * return the first prose paragraph that follows that heading. This is
  * the journalist's lede ("60-Second Read", "TL;DR", "BLUF — …", …) and
  * is exactly the sentence that should power `<meta description>` and
@@ -483,7 +483,7 @@ function normaliseHeadingText(raw) {
 }
 /**
  * Return `true` when an artefact-H1 begins with one of the
- * {@link ARTIFACT_CATEGORY_PREFIXES} followed by a separator. Such H1s
+ * `ARTIFACT_CATEGORY_PREFIXES` followed by a separator. Such H1s
  * carry the artefact's structural label rather than a journalist's
  * headline (e.g. `# Synthesis Summary — Week in Review (3 Apr – 1 May
  * 2026)`) and must not leak into the article `<title>`.
@@ -665,7 +665,7 @@ function escapeRegex(input) {
 }
 /**
  * Attempt to read the first H1 and first prose paragraph from the first
- * existing artefact under {@link EDITORIAL_ARTEFACT_CANDIDATES}. Returns
+ * existing artefact under `EDITORIAL_ARTEFACT_CANDIDATES`. Returns
  * `null` when no candidate artefact exists.
  *
  * @param runDir - Absolute run directory path

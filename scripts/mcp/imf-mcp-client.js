@@ -462,7 +462,7 @@ function withDefaultFrequency(databaseId, filters) {
 }
 /**
  * Resolve the IMF base URL and per-request timeout from constructor options
- * and environment variables. Extracted so the {@link IMFMCPClient}
+ * and environment variables. Extracted so the `IMFMCPClient`
  * constructor stays under SonarJS's cognitive-complexity threshold.
  *
  * @param options - Caller-supplied options (take precedence over env).
@@ -537,6 +537,18 @@ export class IMFMCPClient {
     _fetchProxyApiKey;
     _imfSubscriptionKeys;
     _connected = false;
+    /**
+     * Create a new IMF SDMX 3.0 client.
+     *
+     * Resolves the API base URL, timeout, fetch implementation, and Azure-APIM
+     * subscription keys from the explicit `options`, then from environment
+     * variables (`IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS`, `IMF_API_PRIMARY_KEY`,
+     * `IMF_API_SECONDARY_KEY`, `FETCH_MCP_GATEWAY_URL`,
+     * `EP_MCP_GATEWAY_API_KEY`), and finally module-level defaults.
+     *
+     * @param options - Optional overrides for base URL, timeout, fetch impl,
+     *   and the optional fetch-proxy gateway used for restricted networks.
+     */
     constructor(options = {}) {
         const { base, timeout } = readBaseAndTimeout(options);
         this._apiBaseUrl = stripTrailingSlashes(base);
@@ -681,7 +693,7 @@ export class IMFMCPClient {
      * Data Portal migration retired the umbrella `IMF` agency.
      *
      * @param databaseId - IMF dataflow identifier (e.g. `"WEO"`, `"FM"`).
-     * @param agencyId - Optional override; defaults to {@link resolveAgency}.
+     * @param agencyId - Optional override; defaults to `resolveAgency`.
      * @returns MCP-shaped result whose `content[0].text` carries the
      *   ordered list of dimensions (`[{ id, name }]`). Empty on error.
      */
@@ -719,7 +731,7 @@ export class IMFMCPClient {
      * @param parameter - Dimension name (e.g. `"COUNTRY"`, `"INDICATOR"`;
      *   matched case-insensitively).
      * @param search - Optional free-text search (case-insensitive substring).
-     * @param agencyId - Optional agency override; defaults to {@link resolveAgency}.
+     * @param agencyId - Optional agency override; defaults to `resolveAgency`.
      * @returns MCP-shaped result with `[{ id, name }]` rows; empty on error.
      */
     async getParameterCodes(databaseId, parameter, search, agencyId) {
@@ -767,9 +779,9 @@ export class IMFMCPClient {
      *   (legacy lowercase `country`/`indicator`/`frequency` continue to work).
      * @param options.dimensionOrder - Optional override of the dimension order
      *   used to build the SDMX key. Defaults to
-     *   {@link defaultDimensionOrder} for the database.
+     *   `defaultDimensionOrder` for the database.
      * @param options.agencyId - Optional SDMX agency override (e.g. `"IMF.RES"`,
-     *   `"IMF.STA"`). Defaults to {@link resolveAgency}.
+     *   `"IMF.STA"`). Defaults to `resolveAgency`.
      * @returns MCP-shaped result whose `content[0].text` carries the raw
      *   SDMX-JSON response. Empty on error or invalid inputs.
      */
@@ -987,7 +999,7 @@ export class IMFMCPClient {
     }
 }
 /**
- * Forward-looking alias for {@link IMFMCPClient}. New code should prefer
+ * Forward-looking alias for `IMFMCPClient`. New code should prefer
  * `IMFClient`; the `IMFMCPClient` name is retained for backward
  * compatibility with the MCP-backed iteration shipped in Wave 1.
  */

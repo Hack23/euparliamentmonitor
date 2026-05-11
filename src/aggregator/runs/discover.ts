@@ -32,7 +32,7 @@ export interface DiscoveredRun {
 /**
  * Pull a `YYYY-MM-DD` date from a path segment (typically the run
  * directory). Falls back to the epoch date when no ISO date is embedded —
- * matching {@link guessDateFromRunDir} in `analysis-aggregator.ts`.
+ * matching `guessDateFromRunDir` in `analysis-aggregator.ts`.
  *
  * @param p - Any path string
  * @returns ISO date string in `YYYY-MM-DD` form

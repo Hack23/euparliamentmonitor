@@ -185,7 +185,7 @@ const DEDUPE_THRESHOLD = 0.7;
 
 /**
  * Combine bullets harvested from multiple sources, dropping near-duplicates
- * (Jaccard ≥ {@link DEDUPE_THRESHOLD}). Order is preserved: earlier sources
+ * (Jaccard ≥ `DEDUPE_THRESHOLD`). Order is preserved: earlier sources
  * win, so the canonical synthesis-summary always anchors the block.
  *
  * @param candidates - Ordered list of `{body, source}` pairs

@@ -1,5 +1,10 @@
 // SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
+/**
+ * Default English copy for the Political Intelligence hub page. Used as a
+ * fallback when a language-specific override is absent and as the canonical
+ * reference for shape/keys consumed by the page builder.
+ */
 export const DEFAULT_COPY = {
     title: 'Political Intelligence',
     intro: 'Every political analysis published on this site is backed by a transparent chain of methodologies, artifact templates, and run-level analysis data. This page gives you a single, fully-linked index into every piece of tradecraft used to produce the news. All sources open in GitHub so you can audit the analysis behind the prose.',

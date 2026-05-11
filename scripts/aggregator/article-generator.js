@@ -68,6 +68,19 @@ function applyFlagResult(acc, result) {
         }
     }
 }
+/**
+ * Parse the article-generator CLI argv into a {@link CliOptions} struct.
+ *
+ * Recognises `--run-dir <dir>` (or `--run-dir=<dir>`), `--all`, `--out-dir <dir>`,
+ * `--title <s>`, `--description <s>`, `--help`/`-h`, and rejects the historical
+ * `--lang` / `--language` / `--markdown-only` flags now that the CLI always
+ * renders all 14 languages with HTML output.
+ *
+ * @param argv - Argument vector excluding `node` and the script path.
+ * @param repoRoot - Absolute path to the repository root, used to default `outDir`.
+ * @returns Parsed CLI options ready to feed into `generateArticle`.
+ * @throws {Error} On unknown flags, missing values, or removed flags.
+ */
 export function parseCliArgs(argv, repoRoot) {
     const acc = {
         runDir: null,
@@ -303,7 +316,7 @@ function buildJekyllArticleMarkdown(aggregated, metadata, slug, sourceFolder) {
 /**
  * Render a single language-variant article. Pulls from a pre-translated
  * `<slug>.<lang>.md` file when it exists, otherwise renders the English
- * aggregate. Extracted from {@link generateArticle} so the outer function
+ * aggregate. Extracted from `generateArticle` so the outer function
  * stays under the cognitive-complexity budget.
  *
  * @param lang - Target language code
@@ -312,7 +325,7 @@ function buildJekyllArticleMarkdown(aggregated, metadata, slug, sourceFolder) {
  * @param englishHtml - Pre-rendered HTML of the English aggregate
  * @param chromeOptions - Shared chrome options
  * @param chromeOptions.metadata - Per-language `{title, description}` map
- *        resolved by {@link resolveArticleMetadata}
+ *        resolved by `resolveArticleMetadata`
  * @param chromeOptions.sourceMarkdownRelPath - Repo-relative path of the
  *        canonical English Markdown source written by the same run
  * @param chromeOptions.articleCount - Total article count surfaced in the
@@ -417,7 +430,7 @@ function pickEarliestIndex(a, b) {
  * @param map - Resolved per-language metadata
  * @param lang - Target language code
  * @returns The entry for `lang` (always populated by
- *          {@link resolveArticleMetadata})
+ *          `resolveArticleMetadata`)
  */
 function getMetadataEntry(map, lang) {
     const descriptor = Object.getOwnPropertyDescriptor(map, lang);
@@ -433,7 +446,7 @@ function getMetadataEntry(map, lang) {
  * set that `npm run generate-article:all` would materialise. Using the
  * analysis-run catalogue (rather than the `<outDir>` filesystem) keeps
  * the derived count stable across repeated invocations of
- * {@link generateArticle}, preserving determinism for reproducible-build
+ * `generateArticle`, preserving determinism for reproducible-build
  * tests and preventing the footer from drifting as a batch run
  * progresses.
  *
@@ -605,7 +618,7 @@ function readManifestRunId(runDir, defaultRunId) {
 }
 /**
  * Read the raw manifest.json from a run directory and return the subset
- * of fields consumed by {@link resolveArticleMetadata}. Returns an empty
+ * of fields consumed by `resolveArticleMetadata`. Returns an empty
  * object when the manifest is missing or unreadable so the resolver
  * simply falls through to the artefact / aggregator tiers.
  *
@@ -690,7 +703,7 @@ function applyCliOverrides(base, titleOverride, descriptionOverride) {
 /**
  * Derive a default article title from the aggregated run metadata.
  * Preserved as a thin back-compat wrapper — production callers now go
- * through {@link resolveArticleMetadata}.
+ * through `resolveArticleMetadata`.
  *
  * @param run - Aggregated run metadata
  * @returns Human-readable title like `EU Parliament Breaking — 2026-01-15`

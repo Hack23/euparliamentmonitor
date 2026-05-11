@@ -289,7 +289,7 @@ function buildProcedureTrend(index, proc, articleIds) {
  * Detect parliamentary trends from patterns across all indexed articles.
  *
  * A trend is formed when a topic or procedure appears in at least
- * {@link MIN_TREND_ARTICLES} articles. The returned array replaces any
+ * `MIN_TREND_ARTICLES` articles. The returned array replaces any
  * previously detected trends stored in the index.
  *
  * @param index - Intelligence index to analyse

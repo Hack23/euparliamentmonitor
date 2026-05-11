@@ -71,7 +71,7 @@ export interface ArticleMeta {
   readonly sources: readonly string[];
 }
 
-/** Options for {@link buildArticleMeta}. */
+/** Options for `buildArticleMeta`. */
 export interface BuildArticleMetaOptions {
   /** Absolute path to the analysis run directory. */
   readonly runDir: string;
@@ -202,7 +202,7 @@ function extractMacroLeadParagraph(markdown: string): string {
  * Mine top political risks from `risk-scoring/risk-matrix.md` (or its
  * historic variants under the same directory). Falls back to the first
  * bullets in `risk-scoring/quantitative-swot.md` when the matrix is
- * absent. Returns at most {@link MAX_LIST_ENTRIES} bullets.
+ * absent. Returns at most `MAX_LIST_ENTRIES` bullets.
  *
  * @param runDir - Absolute path to the analysis run directory
  * @returns Ordered list of risk bullet bodies
@@ -227,7 +227,7 @@ export function extractTopRisks(runDir: string): string[] {
  * Mine forward-looking dated items from
  * `intelligence/parliamentary-calendar-projection.md` and
  * `extended/forward-indicators.md`. Returns at most
- * {@link MAX_LIST_ENTRIES} bullets, de-duplicated across the two sources.
+ * `MAX_LIST_ENTRIES` bullets, de-duplicated across the two sources.
  *
  * @param runDir - Absolute path to the analysis run directory
  * @returns Ordered list of dated trigger bullet bodies
@@ -248,7 +248,7 @@ export function extractKeyDates(runDir: string): string[] {
  * Mine key actors / political groups from
  * `classification/actor-mapping.md` and `intelligence/stakeholder-map.md`.
  * Falls through to coalition-dynamics when the canonical actor map is
- * missing. Returns at most {@link MAX_LIST_ENTRIES} bullets.
+ * missing. Returns at most `MAX_LIST_ENTRIES` bullets.
  *
  * @param runDir - Absolute path to the analysis run directory
  * @returns Ordered list of actor bullet bodies
@@ -311,7 +311,7 @@ export function extractKeyTakeaways(runDir: string): string[] {
  * of the on-disk artifacts plus the resolved manifest fields.
  *
  * @param options - Run-level metadata + absolute run directory
- * @returns Frozen, JSON-serialisable {@link ArticleMeta}
+ * @returns Frozen, JSON-serialisable `ArticleMeta`
  */
 export function buildArticleMeta(options: BuildArticleMetaOptions): ArticleMeta {
   const { runDir, repoRoot, date, articleType, runId, gateResult, slug } = options;
@@ -370,7 +370,7 @@ function computeSources(runDir: string): string[] {
 }
 
 /**
- * Serialise an {@link ArticleMeta} as a stable JSON string with a trailing
+ * Serialise an `ArticleMeta` as a stable JSON string with a trailing
  * newline. Keys are emitted in declaration order (insertion-order, matching
  * the interface layout). Determinism guarantee: same input → same bytes.
  *

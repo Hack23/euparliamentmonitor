@@ -313,6 +313,20 @@ async function classifyFetchResponse(
   return { kind: 'ok', text: await response.text() };
 }
 
+/**
+ * JSON-RPC handler for the proxy's `fetch_url` method.
+ *
+ * Validates the requested URL against the IMF allow-list (protocol, hostname,
+ * path prefix), forwards it via `fetchImpl`, and returns the response body
+ * wrapped in a JSON-RPC success envelope. Disallowed URLs return a JSON-RPC
+ * error envelope rather than throwing.
+ *
+ * @param id - JSON-RPC request id to echo back in the response.
+ * @param url - Absolute URL the agent is requesting.
+ * @param fetchImpl - `fetch` implementation (overridable for tests).
+ * @returns A JSON-RPC success envelope with the response body, or an error
+ *          envelope describing why the URL was rejected.
+ */
 export async function handleFetchUrl(
   id: number | string | null,
   url: string | undefined,

@@ -22,7 +22,7 @@
  *
  * ## Public API (unchanged from the MCP-backed iteration)
  *
- * - {@link IMFMCPClient} — class with semantic wrappers for five "tools".
+ * - `IMFMCPClient` — class with semantic wrappers for five "tools".
  * - {@link IMF_MCP_TOOLS} — stable virtual tool-name list used by the
  *   Stage-C editorial fingerprint and the workflow probe. Drift-guarded
  *   by `test/integration/mcp/imf-mcp.test.js`.
@@ -39,7 +39,7 @@
  * - Every call has an independent `AbortController` with a configurable
  *   timeout (`IMF_API_TIMEOUT_MS`, default 90 s).
  * - Errors (HTTP 4xx/5xx, network faults, JSON parse failures, abort) are
- *   caught and converted to the {@link IMF_FALLBACK} envelope. Callers
+ *   caught and converted to the `IMF_FALLBACK` envelope. Callers
  *   upstream can therefore treat "no IMF" as "empty data" without
  *   defensive try/catch, matching the `WorldBankMCPClient` pattern.
  *
@@ -288,16 +288,16 @@ export const IMF_MCP_TOOLS: readonly string[] = [
 // ─── Client options ──────────────────────────────────────────────────────────
 
 /**
- * Options accepted by {@link IMFMCPClient}. Shape intentionally matches
+ * Options accepted by `IMFMCPClient`. Shape intentionally matches
  * {@link MCPClientOptions} for historical compatibility — fields unused by
  * the native HTTP transport (`serverPath`, `gatewayUrl`, `gatewayApiKey`,
  * `maxConnectionAttempts`, `connectionRetryDelay`) are accepted and
  * silently ignored so existing call-sites do not break.
  */
 export interface IMFClientOptions extends MCPClientOptions {
-  /** Override the IMF REST base URL (default: {@link DEFAULT_IMF_API_BASE_URL}). */
+  /** Override the IMF REST base URL (default: `DEFAULT_IMF_API_BASE_URL`). */
   apiBaseUrl?: string;
-  /** Per-request timeout in milliseconds (default: {@link DEFAULT_IMF_API_TIMEOUT_MS}). */
+  /** Per-request timeout in milliseconds (default: `DEFAULT_IMF_API_TIMEOUT_MS`). */
   timeoutMs?: number;
   /** Optional `fetch` implementation injection for testing. */
   fetchImpl?: typeof fetch;
@@ -647,7 +647,7 @@ function withDefaultFrequency(
 
 /**
  * Resolve the IMF base URL and per-request timeout from constructor options
- * and environment variables. Extracted so the {@link IMFMCPClient}
+ * and environment variables. Extracted so the `IMFMCPClient`
  * constructor stays under SonarJS's cognitive-complexity threshold.
  *
  * @param options - Caller-supplied options (take precedence over env).
@@ -728,6 +728,18 @@ export class IMFMCPClient {
   private readonly _imfSubscriptionKeys: readonly string[];
   private _connected = false;
 
+  /**
+   * Create a new IMF SDMX 3.0 client.
+   *
+   * Resolves the API base URL, timeout, fetch implementation, and Azure-APIM
+   * subscription keys from the explicit `options`, then from environment
+   * variables (`IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS`, `IMF_API_PRIMARY_KEY`,
+   * `IMF_API_SECONDARY_KEY`, `FETCH_MCP_GATEWAY_URL`,
+   * `EP_MCP_GATEWAY_API_KEY`), and finally module-level defaults.
+   *
+   * @param options - Optional overrides for base URL, timeout, fetch impl,
+   *   and the optional fetch-proxy gateway used for restricted networks.
+   */
   constructor(options: IMFClientOptions = {}) {
     const { base, timeout } = readBaseAndTimeout(options);
     this._apiBaseUrl = stripTrailingSlashes(base);
@@ -877,7 +889,7 @@ export class IMFMCPClient {
    * Data Portal migration retired the umbrella `IMF` agency.
    *
    * @param databaseId - IMF dataflow identifier (e.g. `"WEO"`, `"FM"`).
-   * @param agencyId - Optional override; defaults to {@link resolveAgency}.
+   * @param agencyId - Optional override; defaults to `resolveAgency`.
    * @returns MCP-shaped result whose `content[0].text` carries the
    *   ordered list of dimensions (`[{ id, name }]`). Empty on error.
    */
@@ -917,7 +929,7 @@ export class IMFMCPClient {
    * @param parameter - Dimension name (e.g. `"COUNTRY"`, `"INDICATOR"`;
    *   matched case-insensitively).
    * @param search - Optional free-text search (case-insensitive substring).
-   * @param agencyId - Optional agency override; defaults to {@link resolveAgency}.
+   * @param agencyId - Optional agency override; defaults to `resolveAgency`.
    * @returns MCP-shaped result with `[{ id, name }]` rows; empty on error.
    */
   async getParameterCodes(
@@ -972,9 +984,9 @@ export class IMFMCPClient {
    *   (legacy lowercase `country`/`indicator`/`frequency` continue to work).
    * @param options.dimensionOrder - Optional override of the dimension order
    *   used to build the SDMX key. Defaults to
-   *   {@link defaultDimensionOrder} for the database.
+   *   `defaultDimensionOrder` for the database.
    * @param options.agencyId - Optional SDMX agency override (e.g. `"IMF.RES"`,
-   *   `"IMF.STA"`). Defaults to {@link resolveAgency}.
+   *   `"IMF.STA"`). Defaults to `resolveAgency`.
    * @returns MCP-shaped result whose `content[0].text` carries the raw
    *   SDMX-JSON response. Empty on error or invalid inputs.
    */
@@ -1212,7 +1224,7 @@ export class IMFMCPClient {
 }
 
 /**
- * Forward-looking alias for {@link IMFMCPClient}. New code should prefer
+ * Forward-looking alias for `IMFMCPClient`. New code should prefer
  * `IMFClient`; the `IMFMCPClient` name is retained for backward
  * compatibility with the MCP-backed iteration shipped in Wave 1.
  */

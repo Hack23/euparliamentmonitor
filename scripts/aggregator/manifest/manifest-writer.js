@@ -13,8 +13,7 @@ import { getHorizonConfig } from '../../config/article-horizons.js';
 import { resolveArticleType } from './resolver.js';
 /**
  * Build a {@link HorizonProfile} for the given article-type slug from the
- * canonical {@link import('../../config/article-horizons.js').ARTICLE_HORIZONS}
- * registry.
+ * canonical `ARTICLE_HORIZONS` registry (see `src/config/article-horizons.ts`).
  *
  * `horizonDays` derivation:
  *  - `forward` / `backward` → `dataWindow.days`

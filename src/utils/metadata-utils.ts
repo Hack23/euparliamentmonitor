@@ -29,7 +29,7 @@ export function pl(n: number, singular: string, plural: string): string {
  * Used by all strategy title suffix builders for consistent truncation.
  *
  * @param title - Title string to truncate
- * @param maxLength - Maximum length (default: {@link MAX_SUFFIX_LENGTH})
+ * @param maxLength - Maximum length (default: `MAX_SUFFIX_LENGTH`)
  * @returns Truncated title with `...` suffix if over limit, else unchanged
  */
 export function truncateTitle(title: string, maxLength: number = MAX_SUFFIX_LENGTH): string {

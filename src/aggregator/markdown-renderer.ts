@@ -25,7 +25,7 @@ import attrs from 'markdown-it-attrs';
 import deflist from 'markdown-it-deflist';
 import type Token from 'markdown-it/lib/token.mjs';
 
-/** Options controlling {@link renderMarkdown}. */
+/** Options controlling `renderMarkdown`. */
 export interface RenderOptions {
   /**
    * Optional accessible label builder for mermaid figures. Receives the
@@ -36,7 +36,7 @@ export interface RenderOptions {
   readonly mermaidLabel?: (index: number, body: string) => string;
 }
 
-/** Output from {@link renderMarkdown}. */
+/** Output from `renderMarkdown`. */
 export interface RenderedMarkdown {
   /** Full HTML body fragment (no `<html>` / `<head>` wrapper). */
   readonly html: string;

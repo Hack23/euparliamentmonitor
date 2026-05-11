@@ -123,7 +123,7 @@ export type PipelineStage =
 
 /**
  * Stage metadata recorded in manifest.history[] entries.
- * Field names align with {@link AnalysisManifestHistoryEntry} in
+ * Field names align with `AnalysisManifestHistoryEntry` in
  * `src/utils/file-utils.ts` — uses `finishedAt` (not `completedAt`) and
  * the full {@link GateVerdict} union (not just GREEN | RED).
  */

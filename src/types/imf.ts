@@ -269,7 +269,7 @@ export interface IMFEconomicContext {
  * iteration so the Stage-C editorial fingerprint list (see
  * `analysis/imf/indicator-catalog.md §6`) and the workflow probe
  * (`scripts/imf-mcp-probe.sh`) remain stable across the transport
- * swap. Each name maps to a semantic method on {@link IMFMCPClient}
+ * swap. Each name maps to a semantic method on `IMFMCPClient`
  * rather than to a remote MCP tool call.
  */
 export type IMFMCPToolName =

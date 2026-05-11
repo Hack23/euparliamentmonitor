@@ -228,7 +228,7 @@ ${artifactCards}
  * political-intelligence page.
  *
  * @param lang - Language code
- * @param data - Page data (see {@link collectPoliticalIntelligenceData})
+ * @param data - Page data (see `collectPoliticalIntelligenceData`)
  * @returns Complete HTML document string
  */
 export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData): string {

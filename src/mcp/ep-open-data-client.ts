@@ -230,6 +230,16 @@ export class EPOpenDataClient {
   private readonly _fetchImpl: typeof fetch;
   private _connected = false;
 
+  /**
+   * Create a new EP Open Data REST fallback client.
+   *
+   * Resolves the API base URL and request timeout from (in order)
+   * the explicit `options`, the `EP_OPEN_DATA_BASE_URL` /
+   * `EP_OPEN_DATA_TIMEOUT_MS` environment variables, and finally the
+   * module-level defaults.
+   *
+   * @param options - Optional overrides for base URL, timeout, and `fetch` impl.
+   */
   constructor(options: VotingRecordsFallbackOptions = { dateFrom: '', dateTo: '' }) {
     const envBase = process.env['EP_OPEN_DATA_BASE_URL'];
     const envTimeout = process.env['EP_OPEN_DATA_TIMEOUT_MS'];
@@ -308,7 +318,7 @@ export class EPOpenDataClient {
   /**
    * Fetch roll-call voting records from the EP Open Data Portal.
    *
-   * Virtual tool: `ep-get-voting-records` (see {@link EP_GET_VOTING_RECORDS_TOOL}).
+   * Virtual tool: `ep-get-voting-records` (see `EP_GET_VOTING_RECORDS_TOOL`).
    *
    * Queries `/decision?date-of-vote-start=<dateFrom>&date-of-vote-end=<dateTo>`
    * and normalises the JSON-LD response to a `{ votes: VoteEntry[] }`
