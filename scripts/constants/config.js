@@ -69,7 +69,7 @@ export const APP_VERSION = (() => {
  * version bump in `package.json` automatically invalidates browser /
  * CloudFront caches the next time articles are regenerated. Any leading
  * semver range character (`^`, `~`, `>=`) is stripped — the contract for
- * this repo is a fixed pin (e.g. `"mermaid": "11.14.0"`), but stripping
+ * this repo is a fixed pin (e.g. `"mermaid": "11.15.0"`), but stripping
  * keeps us robust if the pin is briefly relaxed during a dependency update.
  */
 export const MERMAID_VERSION = (() => {
