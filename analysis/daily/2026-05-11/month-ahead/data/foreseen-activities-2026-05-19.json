@@ -1,0 +1,20 @@
+{
+  "sittingId": "MTG-PL-2026-05-19",
+  "date": "2026-05-19",
+  "location": "Strasbourg",
+  "debates": 5,
+  "votes": 6,
+  "activities": [
+    "PLENARY_DEBATE",
+    "PLENARY_DEBATE",
+    "PLENARY_DEBATE",
+    "PLENARY_DEBATE",
+    "PLENARY_DEBATE",
+    "PLENARY_VOTE",
+    "PLENARY_VOTE",
+    "PLENARY_VOTE",
+    "PLENARY_VOTE",
+    "PLENARY_VOTE",
+    "PLENARY_VOTE"
+  ]
+}
