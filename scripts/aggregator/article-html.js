@@ -15,7 +15,7 @@
  * `<script type="module" src="../js/mermaid-init.js?v=<MERMAID_VERSION>" defer>`
  * so CSP stays `script-src 'self'`. The `?v=` query parameter is sourced
  * from `devDependencies.mermaid` in `package.json` (a fixed pin like
- * `11.14.0`); regenerating articles after a Mermaid bump invalidates
+ * `11.15.0`); regenerating articles after a Mermaid bump invalidates
  * browser and CloudFront caches automatically.
  */
 import { BASE_URL, BUILD_SHORT, MERMAID_VERSION } from '../constants/config.js';
