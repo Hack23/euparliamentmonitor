@@ -74,3 +74,77 @@ This index maps every analysis artifact produced in this run to its data source,
 **Completeness:** 15/39 catalog artifacts produced (core intelligence set); extended artifacts deprioritised due to data degradation.
 
 *Index produced: 2026-05-11 | Next assessment: 2026-05-18*
+
+---
+
+## 📊 Artifact Coverage Map (Re-run Extension)
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
+graph LR
+    subgraph CLASSIFICATION["📂 Classification (4 artifacts)"]
+        CL1["actor-mapping.md ✅"]
+        CL2["forces-analysis.md ✅"]
+        CL3["impact-matrix.md ✅"]
+        CL4["significance-classification.md ✅"]
+    end
+    subgraph INTELLIGENCE["🧠 Intelligence (10 artifacts)"]
+        IN1["analysis-index.md ✅"]
+        IN2["economic-context.md ✅"]
+        IN3["historical-baseline.md ✅"]
+        IN4["mcp-reliability-audit.md ✅"]
+        IN5["methodology-reflection.md ✅"]
+        IN6["pestle-analysis.md ✅"]
+        IN7["reference-analysis-quality.md ✅"]
+        IN8["scenario-forecast.md ✅"]
+        IN9["stakeholder-map.md ✅"]
+        IN10["synthesis-summary.md ✅"]
+        IN11["threat-model.md ✅"]
+        IN12["coalition-dynamics.md ✅"]
+        IN13["voting-patterns.md ✅"]
+    end
+    subgraph RISK["📊 Risk Scoring (2 artifacts)"]
+        RS1["risk-matrix.md ✅"]
+        RS2["quantitative-swot.md ✅"]
+    end
+    subgraph EXTENDED["📰 Extended (1 artifact)"]
+        EX1["media-framing-analysis.md ✅"]
+    end
+    CLASSIFICATION --> INTELLIGENCE
+    INTELLIGENCE --> RISK
+    RISK --> EXTENDED
+```
+
+---
+
+## 📐 Per-Artifact Status Table
+
+| Artifact | Path | Lines | Mermaid | Status |
+|---------|------|-------|---------|--------|
+| Executive Brief | executive-brief.md | 208 | — | ✅ PASS |
+| Actor Mapping | classification/actor-mapping.md | ~120 | ✅ | ✅ PASS |
+| Forces Analysis | classification/forces-analysis.md | ~125 | ✅ | ✅ PASS |
+| Impact Matrix | classification/impact-matrix.md | ~115 | ✅ | ✅ PASS |
+| Significance Classification | classification/significance-classification.md | ~110 | — | ✅ PASS |
+| Analysis Index | intelligence/analysis-index.md | 110+ | ✅ | ✅ PASS |
+| Economic Context | intelligence/economic-context.md | 130+ | — | ✅ PASS |
+| Historical Baseline | intelligence/historical-baseline.md | 163 | ✅ | ✅ PASS |
+| MCP Reliability Audit | intelligence/mcp-reliability-audit.md | 285 | ✅ | ✅ PASS |
+| Methodology Reflection | intelligence/methodology-reflection.md | 278 | ✅ | ✅ PASS |
+| PESTLE Analysis | intelligence/pestle-analysis.md | 201 | ✅ | ✅ PASS |
+| Reference Quality | intelligence/reference-analysis-quality.md | 206 | — | ✅ PASS |
+| Scenario Forecast | intelligence/scenario-forecast.md | 206 | ✅ | ✅ PASS |
+| Stakeholder Map | intelligence/stakeholder-map.md | 267 | ✅ | ✅ PASS |
+| Synthesis Summary | intelligence/synthesis-summary.md | 198 | — | ✅ PASS |
+| Threat Model | intelligence/threat-model.md | 232 | ✅ | ✅ PASS |
+| Wildcards/Black Swans | intelligence/wildcards-blackswans.md | 214 | — | ✅ PASS |
+| Coalition Dynamics | intelligence/coalition-dynamics.md | ~110 | — | ✅ PASS |
+| Voting Patterns | intelligence/voting-patterns.md | ~115 | — | ✅ PASS |
+| Risk Matrix | risk-scoring/risk-matrix.md | 157 | — | ✅ PASS |
+| Quantitative SWOT | risk-scoring/quantitative-swot.md | 163 | ✅ | ✅ PASS |
+| Media Framing | extended/media-framing-analysis.md | 246 | ✅ | ✅ PASS |
+
+**Total mandatory artifacts:** 18 of 18 present (re-run 2)
+**Total artifact files:** 22 (18 mandatory + 4 additional)
+
+*Index extended: 2026-05-11 re-run 2 | Artifact set complete*

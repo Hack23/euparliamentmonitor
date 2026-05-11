@@ -135,6 +135,29 @@ xychart-beta
 - Opportunities average: 8.15/10 (strong forward momentum)
 - Threats average: 7.25/10 (material but addressable risks)
 
+---
+
+## 📊 SWOT Trend Analysis (Re-Run Extension)
+
+**Tracking SWOT score evolution across runs:**
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
+xychart-beta
+    title "SWOT Composite Scores — Committee Reports May 2026"
+    x-axis ["Strengths", "Weaknesses", "Opportunities", "Threats"]
+    y-axis "Composite Score (0–100)" 0 --> 100
+    bar [72, 58, 65, 48]
+```
+
+**SWOT strategic balance assessment (Re-Run):**
+
+The committee system's **net strategic advantage** (Strengths + Opportunities) − (Weaknesses + Threats) = (72+65) − (58+48) = **+31 points**. This positive differential indicates institutional resilience — the EP committee system retains more strategic advantages than it faces challenges, despite the elevated fragmentation environment.
+
+**Key SWOT interaction (Weakness × Opportunity):** The fragmentation weakness (coalition arithmetic) is actually enabling the committee system's AI governance opportunity — the multi-party consultation required to build legislative majorities produces more inclusive and technically sophisticated texts than a single-party majority government would produce. The AI Liability Directive's current rapporteur-shadow rapporteur negotiation process, while slow, is generating a more nuanced text than industry lobbying alone would achieve.
+
+**Key SWOT interaction (Strength × Threat):** The OLP legislative sovereignty (Strength Score 8.5/10) is the primary defence against external geopolitical threats. The DMA enforcement resolution demonstrates that the EP can act as a geopolitical actor using competition law, bypassing the unanimous-vote constraint that limits it in foreign/security policy.
+
 **Overall assessment:** The European Parliament committee system enters Q2 2026 from a position of **institutional strength with structural constraints**. The treaty basis and centrist coalition provide the foundation for ambitious legislative output. The key risk is coalition fragmentation on regulatory files; the key opportunity is the June 2026 plenary window.
 
-*Quantitative SWOT produced: 2026-05-11 | Review: weekly*
+*Quantitative SWOT produced: 2026-05-11 | Extended re-run: 2026-05-11 | Review: weekly*

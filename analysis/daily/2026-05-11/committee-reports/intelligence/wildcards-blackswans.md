@@ -185,4 +185,30 @@ The wildcard portfolio for May 2026 is notably more geopolitically exposed than 
 
 The cumulative effect of these geopolitical exposure points is that the EP committee system is operating with higher external risk than any period since 2020 (COVID) or 2022 (Ukraine invasion). This systemic context elevates the wildcard portfolio's aggregate probability and underscores the need for robust monitoring systems.
 
-*Extended wildcard analysis produced: 2026-05-11 | Review cycle: monthly*
+---
+
+## 🔭 Wildcard Monitoring Dashboard (Re-Run Extension)
+
+**Tracking observable precursors for each wildcard and black swan:**
+
+### Wildcard Early Warning Signals
+
+| Wildcard | Precursor Signal | Monitoring Source | 30-day Status |
+|----------|-----------------|------------------|---------------|
+| ECB emergency action | Core inflation >3.5% for 2+ months | ECB press releases | 🟢 DORMANT (2.7% current) |
+| UK-EU institutional dialogue breakdown | UK parliament motion on TCA renegotiation | UK Parliament; FCO statements | 🟡 WATCHING |
+| Digital currency crisis | ECB CBDC pilot disruption | ECB digital currency reports | 🟢 DORMANT |
+| Geostrategic shock (Middle East) | OPEC+ emergency meeting; oil >$120/bbl | IEA reports; energy price indices | 🟡 WATCHING |
+
+### Black Swan Tracking
+
+| Black Swan | Epistemic Status | Why Now | Current Probability |
+|-----------|-----------------|---------|---------------------|
+| EU constitutional crisis (Treaty violation) | UNKNOWN — definitional | ECJ-national court friction ongoing | <5% (12-month) |
+| Catastrophic AI system failure in EU infrastructure | UNKNOWN — novel | AI Act GPAI compliance deadline looming | <3% (12-month) |
+| Rapid EP10 early dissolution | UNKNOWN — Treaty Art.231 | Coalition arithmetic stress increasing | <2% (12-month) |
+| China-Taiwan conflict affecting EU economic links | UNKNOWN — geopolitical | Cross-Strait tension elevated but stable | <8% (12-month) |
+
+**Aggregate tail risk assessment:** The current wildcard portfolio carries an estimated 15–20% aggregate probability of at least one event materialising within 6 months — elevated versus the EP9 baseline of ~10%. This elevation reflects the compounding of geopolitical stress (Ukraine, US-EU trade, Middle East) with domestic institutional fragility (EP10 coalition arithmetic, rule of law disputes).
+
+*Extended wildcard analysis produced: 2026-05-11 | Extended re-run: 2026-05-11 | Review cycle: monthly*

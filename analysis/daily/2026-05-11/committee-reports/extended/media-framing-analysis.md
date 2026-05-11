@@ -216,4 +216,31 @@ Chinese state media (Xinhua, Global Times) covers EU digital regulation selectiv
 | Coalition stability message | EU policy elite | "EP delivers: centrist majority holds" | Euractiv, Politico EU op-eds | Ongoing |
 | Green Deal commitment | Climate-concerned citizens | "2040 targets: EP won't abandon ambition" | NGO partnerships, youth outreach | Q3 2026 |
 
-*Extended media framing analysis produced: 2026-05-11 | Run: committee-reports-run252-1778477039*
+---
+
+## 📡 Digital and Social Media Framing Extension (Re-Run)
+
+**Platform-specific framing dynamics for EP committee activity (May 2026):**
+
+### X (formerly Twitter) / Mastodon
+**Dominant frames:** Short-form policy fragments; EP committee votes reduced to "EU bans/regulates X"
+**Key accounts shaping the frame:** @EP_Press (official), @EU_Commission, committee rapporteur accounts, NGO accounts
+**Framing risk:** Complex legislative nuance (e.g., the distinction between committee approval vs. plenary adoption) lost in 280-character summaries. The DMA enforcement resolution was widely reported as "EU orders Google to break up" — factually incorrect but narratively resonant.
+
+### LinkedIn and Professional Networks
+**Dominant frames:** Regulatory compliance impact for businesses; technical analysis
+**Audience:** Regulatory affairs professionals, policy consultants, corporate counsel
+**Framing opportunity for EP:** Committee work is more accurately represented on professional networks; less sensationalism, more procedural detail
+
+### National Media Divergence (Extended)
+| Country | Primary Frame | Secondary Frame | Anti-EU Narrative Risk |
+|---------|--------------|-----------------|----------------------|
+| Germany | Industrial competitiveness first | Rule of law compliance | MEDIUM (BSW/AfD amplification) |
+| France | Sovereignty and strategic autonomy | Social protection | LOW-MEDIUM |
+| Poland | Cohesion funding defense | Sovereignty concerns | HIGH (PiS media ecosystem) |
+| Hungary | Government vs. EP framing | Autonomy narrative | HIGH (state media dominance) |
+| Netherlands | Budget net-contributor narrative | Regulatory burden | LOW-MEDIUM |
+
+**Intelligence recommendation:** EP communication strategy should differentiate by national media ecosystem. German audiences require industrial competitiveness framing; Polish audiences require cohesion benefit framing; Hungarian audiences are largely inaccessible via EP official communications channels due to state media dominance.
+
+*Extended media framing analysis produced: 2026-05-11 | Extended re-run: 2026-05-11 | Run: committee-reports-run252-1778477039*
