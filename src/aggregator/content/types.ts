@@ -36,7 +36,7 @@ export interface SynthesisedTakeaway {
  * **Note:** The current `buildKeyTakeaways` function returns a plain `string`
  * (the rendered Markdown block). This interface is a forward-looking contract
  * for future structured consumers that need both the raw takeaway items and
- * the rendered output. Use {@link Takeaway} (from `key-takeaways.ts`) for
+ * the rendered output. Use `Takeaway` (from `key-takeaways.ts`) for
  * per-item typing when processing the raw bullets.
  */
 export interface KeyTakeawaysResult {

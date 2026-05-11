@@ -86,7 +86,6 @@ export function generateSitemap(articles, docsFiles = []) {
         ...buildArticleUrls(articles),
         ...buildDocsUrls(docsFiles, today),
     ];
-    // REUSE-IgnoreStart
     return `<?xml version="1.0" encoding="UTF-8"?>
 <!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
 <!-- SPDX-License-Identifier: Apache-2.0 -->
@@ -218,7 +217,6 @@ function buildSitemapHtmlUrls(today) {
  * @returns Sitemap URL entries
  */
 function buildArticleUrls(articles) {
-    // Group language variants by stem
     const byStem = new Map();
     for (const article of articles) {
         const parsed = parseArticleFilename(article);
@@ -238,7 +236,6 @@ function buildArticleUrls(articles) {
         const parsed = parseArticleFilename(article);
         const stem = parsed ? `${parsed.date}-${parsed.slug}` : null;
         const bucket = stem ? byStem.get(stem) : undefined;
-        // Only emit alternates when the stem has multiple language variants
         const hasMultipleLocales = bucket && Object.keys(bucket).length > 1;
         const alternates = hasMultipleLocales
             ? withXDefault(bucket)

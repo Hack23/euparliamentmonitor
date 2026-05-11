@@ -5142,6 +5142,13 @@ export const COMMITTEE_ANALYSIS_CONTENT_STRINGS: LanguageMap<CommitteeAnalysisCo
 /** Shared Scandinavian/Dutch SWOT heading */
 const SWOT_ANALYSE = 'SWOT-analyse';
 
+/**
+ * Localized SWOT heading and label strings indexed by ISO 639-1 language code.
+ *
+ * Consumed by the SWOT builder in `src/aggregator/swot-builder.ts` to render
+ * the four-quadrant analysis section in each of the 14 supported article
+ * languages.
+ */
 export const SWOT_STRINGS: LanguageMap<SwotStrings> = {
   en: {
     sectionHeading: 'SWOT Analysis',
@@ -5329,6 +5336,11 @@ export const SWOT_STRINGS: LanguageMap<SwotStrings> = {
 
 // ─── Dashboard localization strings ──────────────────────────────────────────
 
+/**
+ * Localized dashboard heading and chart-label strings indexed by ISO 639-1
+ * language code. Consumed by the dashboard builder when rendering Chart.js
+ * widgets in each of the 14 supported article languages.
+ */
 export const DASHBOARD_STRINGS: LanguageMap<DashboardStrings> = {
   en: {
     sectionHeading: 'Dashboard',

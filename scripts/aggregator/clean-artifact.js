@@ -117,12 +117,9 @@ export function stripBanners(md) {
             continue;
         }
         if (line.trim() === '') {
-            // blank line — keep scanning for more banner lines
             i++;
             continue;
         }
-        // Real content reached — but absorb a trailing HR if it immediately
-        // follows a banner run.
         if (bannerEnd > 0 && HR_LINE.test(line)) {
             bannerEnd = i + 1;
             stripped++;
@@ -218,7 +215,6 @@ function advanceFenceState(line, inFence, fenceMarker) {
  */
 function processHeadingLine(lines, index) {
     const line = lines[index] ?? '';
-    // Setext H1: current line has text, next line is `===+`
     const nextLine = lines[index + 1] ?? '';
     if (/^\s*=+\s*$/.test(nextLine) && /\S/.test(line)) {
         return { output: null, consumed: 2, h1Removed: true };
@@ -284,7 +280,6 @@ export function demoteHeadings(md) {
  * @returns Absolute URL (or the original target for anchors/absolute links)
  */
 export function resolveLink(target, artifactRelPath, raw) {
-    // Preserve absolute URLs, anchors, mailto/tel, and protocol-relative
     if (/^[a-z][a-z0-9+.-]*:\/\//i.test(target) ||
         target.startsWith('//') ||
         target.startsWith('#') ||
@@ -294,7 +289,6 @@ export function resolveLink(target, artifactRelPath, raw) {
         return target;
     }
     const artifactDir = artifactRelPath.split('/').slice(0, -1).join('/');
-    // Split off an optional `#fragment` or `?query` suffix for re-attachment.
     const suffixMatch = /[#?].*$/.exec(target);
     const suffix = suffixMatch ? suffixMatch[0] : '';
     const bare = suffix ? target.slice(0, -suffix.length) : target;
@@ -426,8 +420,6 @@ function splitTargetAndTitle(raw) {
         return { target: raw, title: '' };
     const target = raw.slice(0, i);
     const rest = raw.slice(i);
-    // Accept only exactly-matched `"..."` title; otherwise treat whole thing
-    // as part of the target so we don't silently drop content.
     const trimmed = rest.trimStart();
     if (trimmed.length >= 2 &&
         trimmed.charAt(0) === '"' &&
@@ -606,14 +598,11 @@ const METADATA_LINE_PATTERN = /^\*\*[A-Za-z][^*\n]*\*\*[:\s]/;
 export function stripArtifactMetadataPreamble(md) {
     const lines = md.split('\n');
     let i = 0;
-    // Skip purely blank lines at the very head
     while (i < lines.length && (lines[i] ?? '').trim() === '')
         i++;
-    // If the first real line is not a metadata line, return unchanged
     if (i >= lines.length || !METADATA_LINE_PATTERN.test(lines[i] ?? '')) {
         return { md, lines: 0 };
     }
-    // Consume the metadata block (metadata lines + interspersed blank lines)
     let metaEnd = i;
     while (metaEnd < lines.length) {
         const line = lines[metaEnd] ?? '';
@@ -624,7 +613,6 @@ export function stripArtifactMetadataPreamble(md) {
             break;
         }
     }
-    // If the next non-blank line is a standalone HR, absorb it
     let scanAhead = metaEnd;
     while (scanAhead < lines.length && (lines[scanAhead] ?? '').trim() === '')
         scanAhead++;
@@ -656,7 +644,6 @@ export function cleanArtifact(source, options) {
     md = rewriteLinks(md, options.artifactRelPath);
     const { md: mdAfterMermaid, deduped } = dedupMermaid(md, seen);
     md = mdAfterMermaid;
-    // Collapse excessive blank lines to at most 2 consecutive blanks
     md = md.replace(/\n{3,}/g, '\n\n').trimEnd() + '\n';
     return {
         markdown: md,

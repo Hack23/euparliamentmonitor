@@ -33,7 +33,7 @@ import fs from 'fs';
 export function stripLeadingEmoji(text: string): string {
   const isPictographic = /\p{Extended_Pictographic}/u;
   const isModifier = /[\uFE0F\u200D]/u;
-  const chars = [...text]; // iterates by Unicode code point
+  const chars = [...text];
   let i = 0;
   for (const ch of chars) {
     if (isPictographic.test(ch) || isModifier.test(ch) || /\s/.test(ch)) {

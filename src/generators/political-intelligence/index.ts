@@ -6,12 +6,12 @@
  * @description Public re-exports for the political-intelligence
  * bounded context. Sub-modules:
  *
- * - {@link ./types}    — interface contracts (`PIDocument`, `PIDailyRun`, etc.)
- * - {@link ./icons}    — `pickDocumentIcon`, `pickRunIcon`, defaults
- * - {@link ./markdown} — `parseMarkdownMeta`, `extractH1Title`, `humanize`, `stripLeadingEmoji`
- * - {@link ./copy}     — `PICopy`, `DEFAULT_COPY`, `PI_COPY` (14 langs), `getPICopy`
- * - {@link ./data}     — `collectPoliticalIntelligenceData` (filesystem scan)
- * - {@link ./html}     — `generatePoliticalIntelligenceHTML`, `getPoliticalIntelligenceFilename`
+ * - `./types`    — interface contracts (`PIDocument`, `PIDailyRun`, etc.)
+ * - `./icons`    — `pickDocumentIcon`, `pickRunIcon`, defaults
+ * - `./markdown` — `parseMarkdownMeta`, `extractH1Title`, `humanize`, `stripLeadingEmoji`
+ * - `./copy`     — `PICopy`, `DEFAULT_COPY`, `PI_COPY` (14 langs), `getPICopy`
+ * - `./data`     — `collectPoliticalIntelligenceData` (filesystem scan)
+ * - `./html`     — `generatePoliticalIntelligenceHTML`, `getPoliticalIntelligenceFilename`
  */
 
 export type {

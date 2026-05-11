@@ -200,7 +200,6 @@ function extractIdentifier(record: EPDecisionRecord): string {
   if (record.identifier) return record.identifier;
   const rawId = record['@id'] ?? '';
   if (!rawId) return '';
-  // Strip the URI prefix — last path segment is the local id.
   const lastSlash = rawId.lastIndexOf('/');
   return lastSlash >= 0 ? rawId.slice(lastSlash + 1) : rawId;
 }
@@ -231,6 +230,16 @@ export class EPOpenDataClient {
   private readonly _fetchImpl: typeof fetch;
   private _connected = false;
 
+  /**
+   * Create a new EP Open Data REST fallback client.
+   *
+   * Resolves the API base URL and request timeout from (in order)
+   * the explicit `options`, the `EP_OPEN_DATA_BASE_URL` /
+   * `EP_OPEN_DATA_TIMEOUT_MS` environment variables, and finally the
+   * module-level defaults.
+   *
+   * @param options - Optional overrides for base URL, timeout, and `fetch` impl.
+   */
   constructor(options: VotingRecordsFallbackOptions = { dateFrom: '', dateTo: '' }) {
     const envBase = process.env['EP_OPEN_DATA_BASE_URL'];
     const envTimeout = process.env['EP_OPEN_DATA_TIMEOUT_MS'];
@@ -240,9 +249,8 @@ export class EPOpenDataClient {
     const base =
       options.apiBaseUrl ?? (envBase && envBase !== '' ? envBase : DEFAULT_EP_OPEN_DATA_BASE_URL);
 
-    // Strip trailing slashes without a regex (avoids polynomial-ReDoS flags).
     let end = base.length;
-    while (end > 0 && base.charCodeAt(end - 1) === 47 /* '/' */) {
+    while (end > 0 && base.charCodeAt(end - 1) === 47) {
       end -= 1;
     }
     this._apiBaseUrl = end === base.length ? base : base.slice(0, end);
@@ -310,7 +318,7 @@ export class EPOpenDataClient {
   /**
    * Fetch roll-call voting records from the EP Open Data Portal.
    *
-   * Virtual tool: `ep-get-voting-records` (see {@link EP_GET_VOTING_RECORDS_TOOL}).
+   * Virtual tool: `ep-get-voting-records` (see `EP_GET_VOTING_RECORDS_TOOL`).
    *
    * Queries `/decision?date-of-vote-start=<dateFrom>&date-of-vote-end=<dateTo>`
    * and normalises the JSON-LD response to a `{ votes: VoteEntry[] }`
@@ -510,8 +518,6 @@ export async function getVotingRecordsWithFallback(
 ): Promise<VotingRecordsFallbackResult> {
   const { dateFrom, dateTo } = options;
 
-  // Fail fast on missing/blank dates so we don't emit misleading freshness
-  // labels like "🟢 MCP ( → )" or empty-window 🔴 markers downstream.
   if (typeof dateFrom !== 'string' || dateFrom.trim() === '') {
     throw new Error('getVotingRecordsWithFallback: dateFrom is required (non-empty YYYY-MM-DD)');
   }
@@ -519,7 +525,6 @@ export async function getVotingRecordsWithFallback(
     throw new Error('getVotingRecordsWithFallback: dateTo is required (non-empty YYYY-MM-DD)');
   }
 
-  // (a) MCP returned real data — use it.
   if (!EPOpenDataClient.isVotingDataEmpty(mcpResult)) {
     return {
       result: mcpResult,
@@ -528,12 +533,8 @@ export async function getVotingRecordsWithFallback(
     };
   }
 
-  // (b) MCP was empty — try the EP Open Data Portal fallback.
   const portalClient = new EPOpenDataClient(options);
 
-  // Validate base URL up front so misconfiguration surfaces as a hard error
-  // rather than being swallowed into the 🔴 "unavailable" path (which is
-  // reserved for genuine "both sources empty" outcomes).
   try {
     await portalClient.connect();
   } catch (error) {
@@ -559,7 +560,6 @@ export async function getVotingRecordsWithFallback(
       };
     }
 
-    // (c) Both empty — emit the 🔴 unavailability marker.
     return {
       result: EPOpenDataClient.buildVotingUnavailableMarker(dateFrom, dateTo),
       source: 'unavailable',

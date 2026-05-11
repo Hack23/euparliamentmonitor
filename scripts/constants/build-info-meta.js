@@ -36,8 +36,6 @@ export function buildHeadFreshnessTags(pathPrefix) {
     const safeBuildId = escapeHTML(BUILD_ID);
     const safeBuildTime = escapeHTML(BUILD_TIME);
     const safeBuildShort = escapeHTML(BUILD_SHORT);
-    // Path prefix is built from controlled string literals (`''` or `'../'`),
-    // but escape it anyway to keep the helper safe under future callers.
     const safePrefix = escapeHTML(pathPrefix);
     return [
         `  <meta name="build-id" content="${safeBuildId}">`,

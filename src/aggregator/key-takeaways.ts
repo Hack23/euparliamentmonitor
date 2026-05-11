@@ -146,7 +146,7 @@ export function extractStrongBullets(markdown: string): string[] {
     }
     const bulletMatch = /^\s*[-*]\s+(.*)$/.exec(line);
     if (!bulletMatch) continue;
-    if (/^\s{2,}[-*]/.test(line)) continue; // skip nested bullets
+    if (/^\s{2,}[-*]/.test(line)) continue;
     const body = (bulletMatch[1] ?? '').trim();
     if (body.length === 0) continue;
     recordBullet(state, body);
@@ -185,7 +185,7 @@ const DEDUPE_THRESHOLD = 0.7;
 
 /**
  * Combine bullets harvested from multiple sources, dropping near-duplicates
- * (Jaccard ≥ {@link DEDUPE_THRESHOLD}). Order is preserved: earlier sources
+ * (Jaccard ≥ `DEDUPE_THRESHOLD`). Order is preserved: earlier sources
  * win, so the canonical synthesis-summary always anchors the block.
  *
  * @param candidates - Ordered list of `{body, source}` pairs

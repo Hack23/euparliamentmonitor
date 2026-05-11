@@ -17,7 +17,7 @@ export type ManifestFiles = Record<string, readonly string[] | Record<string, st
 
 /**
  * Optional horizon-profile bucket attached to a manifest, derived from the
- * canonical {@link import('../../config/article-horizons.js').ArticleHorizonConfig}
+ * canonical `ArticleHorizonConfig` (see `src/config/article-horizons.ts`)
  * registry entry that matches the manifest's `articleType` slug.
  *
  * Threading this onto the manifest lets downstream auditing (run discovery,
@@ -60,7 +60,7 @@ export type ManifestMetadataOverride = string | Partial<Record<LanguageCode, str
 /**
  * Raw manifest shape as committed by the analysis pipeline. Matches every
  * schema variant the pipeline has ever emitted; readers consult
- * {@link resolveArticleType} rather than `articleType` directly so historic
+ * `resolveArticleType` rather than `articleType` directly so historic
  * runs stay readable.
  */
 export interface Manifest {
@@ -103,7 +103,7 @@ export interface Manifest {
 }
 
 /**
- * Narrower manifest projection consumed by {@link resolveArticleMetadata}
+ * Narrower manifest projection consumed by `resolveArticleMetadata`
  * in `aggregator/article-metadata.ts`. The metadata resolver only needs a
  * subset; keeping this projection separate means string-only callers
  * (backport, historic curators) don't have to construct a full {@link Manifest}.

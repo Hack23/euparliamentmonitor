@@ -1900,8 +1900,6 @@ const KIND_WORDS_ARTIFACT = {
  * @returns Title-cased humanized string
  */
 function stripEmojiAndPunct(keyOrTitle) {
-    // Take only the basename (without the extension) as the seed so a raw
-    // path like "analysis/templates/foo-bar.md" yields a readable "Foo Bar".
     const seed = keyOrTitle
         .split('/')
         .pop()
@@ -1995,11 +1993,8 @@ function buildGenericFallback(relPath, lang, title) {
  * @returns A non-empty description string
  */
 export function getCuratedDescription(relPath, lang, fallback = '') {
-    // Normalise path separators so Windows callers don't silently miss entries.
     const key = relPath.replace(/\\/g, '/');
-    // Guard against prototype-chain lookups for keys like __proto__ or constructor.
     if (!Object.prototype.hasOwnProperty.call(CURATED_DESCRIPTIONS, key)) {
-        // No curated entry — build a localized fallback from the file's title.
         const localizedTitle = getCuratedTitle(key, lang, fallback || stripEmojiAndPunct(key));
         return buildGenericFallback(key, lang, localizedTitle);
     }
@@ -2008,14 +2003,9 @@ export function getCuratedDescription(relPath, lang, fallback = '') {
         const localized = entry.i18n?.[lang];
         if (localized)
             return localized;
-        // English callers get the curated English description. Non-English
-        // callers skip it so the page never shows raw English next to a
-        // localized title — they get the localized fallback built from the
-        // file's localized title instead.
         if (lang === 'en')
             return entry.description;
     }
-    // Build a meaningful localized fallback around the localized title.
     const localizedTitle = getCuratedTitle(key, lang, fallback || stripEmojiAndPunct(key));
     return buildGenericFallback(key, lang, localizedTitle);
 }
@@ -2065,15 +2055,12 @@ export function hasCuratedTitle(relPath) {
  */
 export function getCuratedTitle(relPath, lang, fallback) {
     const key = relPath.replace(/\\/g, '/');
-    // 1 + 2: curated title overlay — guard against prototype-chain lookups
     if (Object.prototype.hasOwnProperty.call(CURATED_TITLES, key)) {
         const titleEntry = CURATED_TITLES[key];
         if (titleEntry) {
-            // Prefer localized, then English overlay
             return titleEntry[lang] ?? titleEntry.en ?? fallback;
         }
     }
-    // 3 + 4: historic colocated title on CURATED_DESCRIPTIONS entry
     if (Object.prototype.hasOwnProperty.call(CURATED_DESCRIPTIONS, key)) {
         const descEntry = CURATED_DESCRIPTIONS[key];
         if (descEntry) {
@@ -2663,9 +2650,6 @@ const RUN_TYPE_DESCRIPTIONS = {
  */
 export function parseRunSlug(slug) {
     const lower = slug.toLowerCase();
-    // Longest-prefix match so `committee-reports-run07` matches `committee-reports`
-    // before `committee`, and `week-in-review-run45` matches `week-in-review`
-    // before `week`.
     const sorted = [...RUN_TYPE_SLUGS].sort((a, b) => b.length - a.length);
     for (const prefix of sorted) {
         if (lower === prefix || lower.startsWith(`${prefix}-`) || lower.startsWith(`${prefix}_`)) {
@@ -2722,11 +2706,7 @@ export function getRunTypeInfo(slug, lang) {
  * @returns Canonical template stem to feed into the curated tables
  */
 function canonicalizeArtifactStem(stem) {
-    // Strip ".analysis" compound extension (e.g. "foo.analysis.md" → "foo")
     const s = stem.replace(/\.analysis$/, '');
-    // Exact synonym table — higher priority than prefix stripping. The
-    // lookup uses `hasOwn` to avoid prototype-key surprises when a
-    // malformed filename produces a stem like `__proto__`.
     const SYNONYMS = {
         'coalition-analysis': 'coalition-dynamics',
         'coalition-intelligence': 'coalition-dynamics',
@@ -2776,7 +2756,6 @@ function canonicalizeArtifactStem(stem) {
         'agent-risk-workflow': 'workflow-audit',
         forces: 'forces-analysis',
         voting: 'voting-patterns',
-        // `ai-<x>` family: the artifact uses the same template as the non-AI variant
         'ai-actor-mapping': 'actor-mapping',
         'ai-coalition-dynamics': 'coalition-dynamics',
         'ai-cross-session-intelligence': 'cross-session-intelligence',
@@ -3122,9 +3101,6 @@ function parseFeedPrefix(stem) {
 export function getArtifactInfo(shortPath, lang) {
     const base = shortPath.split('/').pop() ?? shortPath;
     const rawStem = base.replace(/\.[^.]+$/, '');
-    // 1. Feed prefix — single localized label. `parseFeedPrefix` already
-    //    restricts its return value to `Object.keys(FEED_PREFIX_LABELS)`,
-    //    and we still guard with `hasOwn` to block any prototype-key surprise.
     const feed = parseFeedPrefix(rawStem);
     if (feed && Object.prototype.hasOwnProperty.call(FEED_PREFIX_LABELS, feed.feed)) {
         const entry = FEED_PREFIX_LABELS[feed.feed];
@@ -3135,12 +3111,7 @@ export function getArtifactInfo(shortPath, lang) {
             };
         }
     }
-    // 2. Canonicalize stem (strip `.analysis`, apply synonym map)
     const stem = canonicalizeArtifactStem(rawStem);
-    // 3. Orphan-table lookup — stems with no template counterpart.
-    //    Checked before template lookup so orphan entries override the
-    //    localized generic fallback. `hasOwn` blocks prototype-key lookups
-    //    (e.g. a hypothetical `__proto__.md` file).
     const stemLower = stem.toLowerCase();
     if (Object.prototype.hasOwnProperty.call(ORPHAN_ARTIFACT_INFO, stemLower)) {
         const orphan = ORPHAN_ARTIFACT_INFO[stemLower];
@@ -3151,12 +3122,6 @@ export function getArtifactInfo(shortPath, lang) {
             };
         }
     }
-    // 4. Template lookup via existing curated tables. When no curated entry
-    //    exists the description falls through to the generic fallback — in
-    //    that case swap the lookup path from `analysis/templates/…` to
-    //    `analysis/daily/…` so `inferKind()` picks `KIND_WORDS_ARTIFACT`
-    //    ("artifact") instead of `KIND_WORDS_TEMPLATE` ("template"). This
-    //    keeps the fallback sentence accurate for daily-run artifacts.
     const templateKey = `analysis/templates/${stem}.md`;
     const humanized = stripEmojiAndPunct(stem);
     const title = getCuratedTitle(templateKey, lang, humanized);

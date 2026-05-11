@@ -67,7 +67,6 @@ function dedupeItems(candidates, maxItems) {
  * @returns Trimmed lead sentence, or `''`
  */
 function extractMacroLeadParagraph(markdown) {
-    // Try to find a macro-specific preferred section first.
     const lines = markdown.split(/\r?\n/);
     let heading = '';
     let buffer = [];
@@ -82,9 +81,9 @@ function extractMacroLeadParagraph(markdown) {
             if (/^\*\*\s*[A-Za-z][^*]+:\*\*/.test(trimmed))
                 continue;
             if (/^\|/.test(trimmed))
-                continue; // skip table rows
+                continue;
             if (/^-{2,}$/.test(trimmed))
-                continue; // skip horizontal rules
+                continue;
             return trimmed;
         }
         return '';
@@ -114,7 +113,6 @@ function extractMacroLeadParagraph(markdown) {
         }
         buffer.push(line);
     }
-    // Flush last section.
     const lastPrev = tryExtract(buffer);
     if (lastPrev &&
         MACRO_PREFERRED_HEADINGS.some((h) => heading
@@ -124,14 +122,13 @@ function extractMacroLeadParagraph(markdown) {
             .includes(h))) {
         return lastPrev;
     }
-    // Final fallback: use the generic extractor result (lazy, avoids double parse in the common path).
     return extractLeadParagraph(markdown);
 }
 /**
  * Mine top political risks from `risk-scoring/risk-matrix.md` (or its
  * historic variants under the same directory). Falls back to the first
  * bullets in `risk-scoring/quantitative-swot.md` when the matrix is
- * absent. Returns at most {@link MAX_LIST_ENTRIES} bullets.
+ * absent. Returns at most `MAX_LIST_ENTRIES` bullets.
  *
  * @param runDir - Absolute path to the analysis run directory
  * @returns Ordered list of risk bullet bodies
@@ -157,7 +154,7 @@ export function extractTopRisks(runDir) {
  * Mine forward-looking dated items from
  * `intelligence/parliamentary-calendar-projection.md` and
  * `extended/forward-indicators.md`. Returns at most
- * {@link MAX_LIST_ENTRIES} bullets, de-duplicated across the two sources.
+ * `MAX_LIST_ENTRIES` bullets, de-duplicated across the two sources.
  *
  * @param runDir - Absolute path to the analysis run directory
  * @returns Ordered list of dated trigger bullet bodies
@@ -170,7 +167,6 @@ export function extractKeyDates(runDir) {
         'intelligence/scenario-forecast.md',
     ];
     const candidates = harvestCandidates(runDir, sources);
-    // Filter for bullets that contain an explicit date trigger, then dedupe.
     const dated = candidates.filter((t) => DATE_TRIGGER_RE.test(t.body)).map((t) => t.body);
     return dedupeItems(dated, MAX_LIST_ENTRIES);
 }
@@ -178,7 +174,7 @@ export function extractKeyDates(runDir) {
  * Mine key actors / political groups from
  * `classification/actor-mapping.md` and `intelligence/stakeholder-map.md`.
  * Falls through to coalition-dynamics when the canonical actor map is
- * missing. Returns at most {@link MAX_LIST_ENTRIES} bullets.
+ * missing. Returns at most `MAX_LIST_ENTRIES` bullets.
  *
  * @param runDir - Absolute path to the analysis run directory
  * @returns Ordered list of actor bullet bodies
@@ -242,7 +238,7 @@ export function extractKeyTakeaways(runDir) {
  * of the on-disk artifacts plus the resolved manifest fields.
  *
  * @param options - Run-level metadata + absolute run directory
- * @returns Frozen, JSON-serialisable {@link ArticleMeta}
+ * @returns Frozen, JSON-serialisable `ArticleMeta`
  */
 export function buildArticleMeta(options) {
     const { runDir, repoRoot, date, articleType, runId, gateResult, slug } = options;
@@ -299,7 +295,7 @@ function computeSources(runDir) {
     return candidates.filter((rel) => fs.existsSync(path.join(runDir, rel))).sort();
 }
 /**
- * Serialise an {@link ArticleMeta} as a stable JSON string with a trailing
+ * Serialise an `ArticleMeta` as a stable JSON string with a trailing
  * newline. Keys are emitted in declaration order (insertion-order, matching
  * the interface layout). Determinism guarantee: same input → same bytes.
  *
@@ -307,9 +303,6 @@ function computeSources(runDir) {
  * @returns JSON string ready to be written next to `article.md`
  */
 export function serializeArticleMeta(meta) {
-    // JSON.stringify emits keys in insertion order — the {@link ArticleMeta}
-    // shape declares its keys in canonical reading order, so the output is
-    // already deterministic. We add a trailing newline for POSIX hygiene.
     return `${JSON.stringify(meta, null, 2)}\n`;
 }
 /**

@@ -69,6 +69,11 @@ const RATE_LIMIT_MSG = 'Rate limited. Retry after';
  * Callers can detect this with `instanceof MCPSessionExpiredError` to trigger re-authentication.
  */
 export class MCPSessionExpiredError extends Error {
+  /**
+   * Construct a new session-expired error.
+   *
+   * @param statusText - Raw HTTP status text returned by the gateway with the 401.
+   */
   constructor(statusText: string) {
     super(`MCP session expired (401): ${statusText}`);
     this.name = 'MCPSessionExpiredError';
@@ -81,7 +86,14 @@ export class MCPSessionExpiredError extends Error {
  * `retryAfterMs` is 0 when no Retry-After / X-Retry-After header was present.
  */
 export class MCPRateLimitError extends Error {
+  /** Suggested back-off delay in milliseconds parsed from the gateway response. */
   readonly retryAfterMs: number;
+  /**
+   * Construct a new rate-limit error.
+   *
+   * @param retryAfterMs - Parsed Retry-After delay in ms (0 when no header was present).
+   * @param message - Human-readable error message including endpoint and delay.
+   */
   constructor(retryAfterMs: number, message: string) {
     super(message);
     this.name = 'MCPRateLimitError';
@@ -129,14 +141,10 @@ function parseRetryAfterMs(retryAfter: string): number {
  * @returns `true` if the error is safe to retry
  */
 export function isRetriableError(error: Error): boolean {
-  // Never retry session expiry or programmer errors — these require intervention
   if (error instanceof MCPSessionExpiredError || error instanceof TypeError) {
     return false;
   }
   const msg = error.message?.toLowerCase() ?? '';
-  // Never retry rate-limit errors — callers must honour the Retry-After delay.
-  // `instanceof MCPRateLimitError` is the primary guard for typed errors;
-  // the string prefix fallback handles any untyped plain Error with a rate-limit message.
   if (error instanceof MCPRateLimitError || msg.startsWith(RATE_LIMIT_MSG.toLowerCase())) {
     return false;
   }
@@ -148,7 +156,6 @@ export function isRetriableError(error: Error): boolean {
     msg.includes('econnreset') ||
     msg.includes('econnrefused') ||
     msg.includes('socket hang up') ||
-    // Transient upstream gateway errors — safe to retry with backoff
     msg.includes('gateway error 502') ||
     msg.includes('gateway error 503') ||
     msg.includes('gateway error 504')
@@ -164,7 +171,6 @@ export function isRetriableError(error: Error): boolean {
  * @returns Formatted string describing the delay (e.g. "30s" or "45s (until Thu, 01 Jan 2026 …)")
  */
 export function formatRetryAfter(retryAfter: string): string {
-  // Accept both bare numbers ("30") and numeric-with-suffix ("30s")
   const normalized = retryAfter.trim().replace(/s$/i, '');
   if (!normalized) {
     return retryAfter;
@@ -244,6 +250,17 @@ export class MCPConnection {
   /** Human-readable server name for log messages */
   protected serverLabel: string;
 
+  /**
+   * Create a new MCP connection.
+   *
+   * Resolves the server binary path, gateway URL, and authentication options
+   * from the explicit `options`, then from environment variables, and finally
+   * module-level defaults. The connection is not opened until {@link connect}
+   * is called.
+   *
+   * @param options - Connection options including server path, gateway URL,
+   *   API key, retry policy, and human-readable server label for log messages.
+   */
   constructor(options: MCPClientOptions = {}) {
     this.serverPath =
       options.serverPath ?? process.env['EP_MCP_SERVER_PATH'] ?? DEFAULT_SERVER_BINARY;
@@ -387,7 +404,7 @@ export class MCPConnection {
         } else {
           await this._attemptConnection();
         }
-        this.connectionAttempts = 0; // Reset on success
+        this.connectionAttempts = 0;
         return;
       } catch (error) {
         const delay = this._handleConnectionAttemptError(error);
@@ -424,7 +441,6 @@ export class MCPConnection {
         throw new Error(jsonResponse.error.message ?? 'MCP gateway initialization error');
       }
     } catch (e) {
-      // Non-JSON body is acceptable for init — some gateways return empty/plain text
       if (e instanceof Error && e.message.includes('MCP gateway')) {
         throw e;
       }
@@ -450,22 +466,14 @@ export class MCPConnection {
       return '';
     }
 
-    // Reject CR/LF in the key to prevent HTTP header injection.
     if (/[\r\n]/.test(trimmedKey)) {
       throw new Error(
         'Invalid gateway API key: control characters (CR/LF) are not allowed in Authorization header values.'
       );
     }
 
-    // RFC 7235 tchar token pattern for scheme validation.
-    // This regex exclusively allows valid tchar characters, which by definition
-    // excludes control characters — no separate control-char check is needed
-    // for the scheme token itself.
     const tokenRegex = /^[!#$%&'*+\-.^_`|~0-9A-Za-z]+$/;
 
-    // If the key already starts with a valid RFC 7235 scheme token followed
-    // by whitespace, treat it as a fully formed Authorization value and pass
-    // it through unchanged.
     const firstSpaceIndex = trimmedKey.indexOf(' ');
     if (firstSpaceIndex > 0) {
       const possibleScheme = trimmedKey.slice(0, firstSpaceIndex);
@@ -529,7 +537,6 @@ export class MCPConnection {
         this.mcpSessionId = sessionId;
       }
 
-      // Parse and validate the initialization response body
       const contentType = response.headers.get('content-type') ?? '';
       const body = await response.text();
       this._validateGatewayResponseBody(contentType, body);
@@ -552,18 +559,12 @@ export class MCPConnection {
       const command: string = isJavaScriptFile ? process.execPath : this.serverPath;
       const args: string[] = isJavaScriptFile ? [this.serverPath] : [];
 
-      // Ensure EP_REQUEST_TIMEOUT_MS is propagated to the MCP server subprocess.
-      // The EP MCP server defaults to only 10 seconds (v1.1.x) or 60 seconds (v1.2.x);
-      // we need 90+ seconds for slow EP API feed endpoints (events, procedures, documents, etc.).
       const childEnv = { ...process.env };
       const effectiveTimeoutMs = childEnv['EP_REQUEST_TIMEOUT_MS']
         ? Number(childEnv['EP_REQUEST_TIMEOUT_MS'])
         : REQUEST_TIMEOUT_MS;
       childEnv['EP_REQUEST_TIMEOUT_MS'] = String(effectiveTimeoutMs);
 
-      // Pass --timeout as CLI arg (highest precedence in EP MCP server).
-      // This guarantees the timeout is applied even when the env var is not
-      // read at module load time (e.g. due to import ordering in some versions).
       if (!isJavaScriptFile) {
         args.push('--timeout', String(effectiveTimeoutMs));
       }
@@ -656,7 +657,6 @@ export class MCPConnection {
             pending.resolve(message.result);
           }
         } else {
-          // has() returned true but get() returned undefined — unexpected
           this.pendingRequests.delete(message.id);
           console.error(`MCP pending request ${String(message.id)} vanished before handling`);
         }
@@ -698,9 +698,6 @@ export class MCPConnection {
         `${RATE_LIMIT_MSG} (status ${response.status} ${statusText}; ${RETRY_AFTER_HEADER}/Retry-After header missing)`
       );
     }
-    // Include the status code in the error message for classification by isRetriableError()
-    // and safeCallTool(). Diagnostic logging is intentionally omitted here because
-    // callToolWithRetry may retry 502/503/504 errors, and per-retry warnings would be noisy.
     throw new Error(`Gateway error ${response.status}: ${response.statusText}`);
   }
 
@@ -874,12 +871,7 @@ export class MCPConnection {
    * @returns Promise that resolves when reconnection succeeds or logs on failure
    */
   private async _doReconnect(): Promise<void> {
-    // Derive a single outer back-off delay from reconnectCount so successive
-    // reconnect bursts are spaced further apart, capped at RECONNECT_MAX_DELAY_MS.
-    // Normalize maxConnectionAttempts to ≥1 to avoid a negative upper bound when
-    // the user configures 0 attempts (which would give 2^-1 = 0.5 s backoff).
     const normalizedMaxAttempts = Math.max(1, this.maxConnectionAttempts);
-    // Clamp to [0, normalizedMaxAttempts - 1]: first floor to ≥0, then ceil to ≤max.
     const attemptIndex = Math.min(Math.max(0, this.reconnectCount - 1), normalizedMaxAttempts - 1);
     const delay = Math.min(
       this.connectionRetryDelay * Math.pow(2, attemptIndex),

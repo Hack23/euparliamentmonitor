@@ -6,7 +6,7 @@
  * an Executive Brief artifact.
  *
  * The aggregator's Executive Brief section is rendered first; this module
- * is consumed by {@link buildArticleMeta} (and by metadata fall-backs) to
+ * is consumed by `buildArticleMeta` (and by metadata fall-backs) to
  * surface a single concise lead — the journalistic "nut graf" — that
  * sharpens both the SEO description and the structured data emitted next
  * to `article.md`.
@@ -100,7 +100,6 @@ function classifyParagraphLine(trimmed) {
         return 'skip';
     if (/^(>|<|!?\[)/.test(trimmed))
         return 'flush';
-    // Artifact metadata key-value lines (e.g. "**Run:** …", "** IMF requirement:** …").
     if (/^\*\*\s*[A-Za-z][^*]+:\*\*/.test(trimmed))
         return 'skip';
     return 'append';
@@ -144,7 +143,6 @@ export function extractLeadParagraph(markdown) {
         if (paragraph)
             return paragraph;
     }
-    // Fallback: first prose paragraph in any section that follows a heading.
     for (let i = 1; i < sections.length; i++) {
         const section = sections[i];
         if (!section)
@@ -163,8 +161,6 @@ export function extractLeadParagraph(markdown) {
  * @returns Trimmed lead, never longer than {@link MAX_LEAD_CHARS}
  */
 export function trimToLeadSentence(paragraph) {
-    // Strip inline Markdown (bold, italic, links, code) so the emitted lead
-    // is plain text suitable for SEO/structured-data consumption.
     const cleaned = stripInlineMarkdown(paragraph).replace(/\s+/g, ' ').trim();
     if (cleaned.length === 0)
         return '';
@@ -172,7 +168,6 @@ export function trimToLeadSentence(paragraph) {
     const sentence = sentenceMatch?.[1] ?? cleaned;
     if (sentence.length <= MAX_LEAD_CHARS)
         return sentence;
-    // Hard cap with ellipsis at a word boundary.
     const slice = sentence.slice(0, MAX_LEAD_CHARS - 1);
     const lastSpace = slice.lastIndexOf(' ');
     const safe = lastSpace > MAX_LEAD_CHARS / 2 ? slice.slice(0, lastSpace) : slice;

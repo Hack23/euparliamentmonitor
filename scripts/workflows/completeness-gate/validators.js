@@ -20,7 +20,7 @@ import { DATA_MODE_REDUCTION } from '../types.js';
  */
 export function hasPlaceholders(content) {
     if (META_DOC_HINT_RE.test(content)) {
-        return false; // meta-doc contexts are exempt
+        return false;
     }
     return PLACEHOLDER_PATTERNS.some((pattern) => pattern.test(content));
 }
@@ -88,13 +88,9 @@ export function countSatBullets(content) {
  * @returns true if source diversity evidence is present
  */
 export function hasSourceDiversityEvidence(content) {
-    // Check for MCP tool references
     if (MCP_TOOL_RE.test(content)) {
         return true;
     }
-    // Check for a structured evidence table: requires header row with Source/Evidence/Reference,
-    // a separator row (---|---), and at least one data row after the separator. This prevents
-    // header-only tables and plain prose markdown tables from being counted as source diversity.
     const lines = content.split('\n');
     let foundHeader = false;
     let foundSeparator = false;
@@ -108,7 +104,6 @@ export function hasSourceDiversityEvidence(content) {
             continue;
         }
         if (foundHeader && foundSeparator && /^\|[^|]+\|/.test(line)) {
-            // At least one non-empty data row after the separator
             return true;
         }
     }
@@ -155,10 +150,7 @@ export function hasWbEconomicClaim(content) {
  */
 export function computeEffectiveMinLines(relativePath, rules, dataModeReduction, explicitMinLines) {
     const baseFloor = rules.minLines?.[relativePath] ?? rules.defaultMinLines ?? DEFAULT_MIN_LINES;
-    // Use Math.floor to match scripts/validate-analysis-completeness.js behavior.
-    // Clamp to at least 1 so every artifact has a meaningful floor even in minimal mode.
     const reduced = Math.max(1, Math.floor(baseFloor * dataModeReduction));
-    // CLI --min-lines only raises, never lowers
     if (explicitMinLines !== undefined && explicitMinLines > reduced) {
         return explicitMinLines;
     }
@@ -186,11 +178,9 @@ export function resolveDataModeReduction(dataMode) {
  * @returns true if the artifact requires a Mermaid diagram
  */
 export function requiresMermaid(relativePath, rules) {
-    // Explicitly listed in mermaidRequired
     if (rules.mermaidRequired?.includes(relativePath)) {
         return true;
     }
-    // Implicitly required by directory
     const dir = relativePath.split('/')[0];
     return dir !== undefined && DIAGRAM_DIRS.includes(dir);
 }

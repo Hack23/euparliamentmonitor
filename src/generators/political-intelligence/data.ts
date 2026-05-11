@@ -65,8 +65,6 @@ function collectReferenceDocs(rootDir: string): PIDocument[] {
     const dir = path.join(rootDir, 'analysis', source);
     if (!fs.existsSync(dir)) continue;
     const docs = collectDocumentList(dir, rootDir);
-    // Tag the stem with source so duplicates (e.g. `indicator-catalog` exists
-    // in both `imf/` and `worldbank/`) sort and render distinctly.
     for (const doc of docs) {
       result.push({
         ...doc,
@@ -74,8 +72,6 @@ function collectReferenceDocs(rootDir: string): PIDocument[] {
       });
     }
   }
-  // Source-group ordering: reference, imf, worldbank (preserve insertion order)
-  // and within each group keep README-first alphabetical from collectDocumentList.
   return result;
 }
 
@@ -105,7 +101,6 @@ function collectDocumentList(dir: string, rootDir: string): PIDocument[] {
       icon: pickDocumentIcon(stem),
     });
   }
-  // README first, then alphabetical
   result.sort((a, b) => {
     const aReadme = /readme/i.test(a.stem);
     const bReadme = /readme/i.test(b.stem);
@@ -131,7 +126,6 @@ function collectDailyGroups(dailyDir: string, rootDir: string): PIDailyDateGroup
     .filter((d) => d.isDirectory())
     .filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d.name))
     .map((d) => d.name);
-  // Newest first
   dateDirs.sort((a, b) => b.localeCompare(a));
 
   const groups: PIDailyDateGroup[] = [];

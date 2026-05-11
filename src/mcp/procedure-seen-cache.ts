@@ -17,7 +17,7 @@
  * `get_procedures(limit=100)` with client-side date filtering; this cache allows
  * subsequent runs to detect new and updated entries incrementally.
  *
- * @see {@link ../mcp/ep-mcp-client.ts EuropeanParliamentMCPClient.getFreshProcedures}
+ * @see `EuropeanParliamentMCPClient.getFreshProcedures` in `src/mcp/ep-mcp-client.ts`
  */
 
 import fs from 'fs';
@@ -27,7 +27,7 @@ import path from 'path';
 export const DEFAULT_PROCEDURE_SEEN_CACHE_PATH = path.join('data', 'procedure-seen-cache.json');
 
 /** A single entry in the cache file */
-interface ProcedureCacheEntry {
+export interface ProcedureCacheEntry {
   /** ISO date (`YYYY-MM-DD`) of the most recent activity, or empty string */
   dateLastActivity: string;
   /** ISO timestamp of when this entry was last written */

@@ -60,7 +60,6 @@ export function buildMetadataDatabase(newsDir: string = NEWS_DIR): NewsMetadataD
     }
   }
 
-  // Sort by date (newest first)
   articles.sort((a, b) => b.date.localeCompare(a.date));
 
   return {
@@ -143,7 +142,6 @@ export function updateIntelligenceIndex(
 ): IntelligenceIndex {
   const articleFiles = getNewsArticles(newsDir);
 
-  // Collect all entries in a single pass, then build the index in O(n) time
   const entries: ArticleIndexEntry[] = [];
   for (const filename of articleFiles) {
     const parsed = parseArticleFilename(filename);
@@ -154,10 +152,8 @@ export function updateIntelligenceIndex(
     const filepath = path.join(newsDir, filename);
     const meta = extractArticleMeta(filepath);
 
-    // Derive the ArticleCategory from the slug using the shared detection logic
     const category = detectCategory(parsed.slug);
 
-    // Extract meaningful key topics from the slug and article metadata
     const keyTopics = deriveKeyTopics(parsed.slug, parsed.lang, meta.title, meta.description);
 
     entries.push({
@@ -173,13 +169,10 @@ export function updateIntelligenceIndex(
     });
   }
 
-  // Sort deterministically (date desc, then id asc) so the persisted index
-  // does not churn between runs due to platform-dependent readdir ordering.
   entries.sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id));
 
   let index = buildIndexFromEntries(entries);
 
-  // Refresh trend detections
   const trends = detectTrends(index);
   index = { ...index, trends, lastUpdated: new Date().toISOString() };
 
@@ -310,9 +303,6 @@ function deriveKeyTopics(
 ): string[] {
   const tokens = new Set<string>();
   extractTokens(slug, tokens, MIN_SLUG_TOKEN_LENGTH);
-  // Only apply title/description tokenisation for English articles where
-  // STOP_WORDS provides meaningful filtering; non-English articles rely
-  // on slug tokens to avoid noisy cross-language relations.
   if (lang === 'en') {
     if (title) extractTokens(title, tokens, MIN_METADATA_TOKEN_LENGTH);
     if (description) extractTokens(description, tokens, MIN_METADATA_TOKEN_LENGTH);

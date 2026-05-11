@@ -444,33 +444,27 @@ async function main() {
     console.log('📋 Copying test reports to documentation directory...');
     try {
         await fs.mkdir(DOCS_DIR, { recursive: true });
-        // 1. Copy coverage report (from vitest)
         const coverageSrc = join(BUILDS_DIR, 'coverage');
         const coverageDest = join(DOCS_DIR, 'coverage');
         console.log('  📊 Copying coverage report...');
         await copyDirectory(coverageSrc, coverageDest);
         console.log('  ✅ Coverage report copied');
-        // 2. Copy API documentation (from typedoc)
         const apiSrc = join(BUILDS_DIR, 'api');
         const apiDest = join(DOCS_DIR, 'api');
         console.log('  📖 Copying API docs...');
         await copyDirectory(apiSrc, apiDest);
         console.log('  ✅ API docs copied');
-        // 3. Copy Playwright E2E report
         const playwrightSrc = join(BUILDS_DIR, PLAYWRIGHT_REPORT_DIRNAME);
         const playwrightDest = join(DOCS_DIR, PLAYWRIGHT_REPORT_DIRNAME);
         console.log('  🎭 Copying Playwright report...');
         await copyDirectory(playwrightSrc, playwrightDest);
         console.log('  ✅ Playwright report copied');
-        // 4. Copy test results directory (vitest HTML, JSON, JUnit, ESLint reports)
         const buildTestResultsDir = join(BUILDS_DIR, TEST_RESULTS_DIRNAME);
         const docsTestResultsDir = join(DOCS_DIR, TEST_RESULTS_DIRNAME);
         await fs.mkdir(docsTestResultsDir, { recursive: true });
-        // 4a. Copy vitest HTML test report
         console.log('  🧪 Copying Vitest HTML report...');
         await copyDirectory(join(buildTestResultsDir, 'html'), join(docsTestResultsDir, 'html'));
         console.log('  ✅ Vitest HTML report copied');
-        // 4b-4g. Copy individual report files
         const reportCopyTasks = [
             { file: REPORT_FILES.vitestJson, label: 'Vitest JSON results', icon: '📄' },
             { file: REPORT_FILES.vitestJunit, label: 'Vitest JUnit XML results', icon: '📄' },
@@ -488,7 +482,6 @@ async function main() {
                 console.warn(`  ⚠️  ${task.label} not found (skipped)`);
             }
         }
-        // 5. Gather report info and generate comprehensive index
         console.log('  📊 Generating test results index...');
         const reportInfo = await gatherReportInfo();
         await fs.writeFile(join(docsTestResultsDir, INDEX_FILENAME), createTestResultsIndex(reportInfo), 'utf8');

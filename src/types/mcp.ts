@@ -579,7 +579,7 @@ export interface GetProcedureEventByIdOptions {
 }
 
 /**
- * A single normalised procedure item returned by {@link EuropeanParliamentMCPClient.getFreshProcedures}.
+ * A single normalised procedure item returned by `EuropeanParliamentMCPClient.getFreshProcedures`.
  * Fields mirror the EP `/procedures` JSON schema; all string fields may be empty when
  * the EP API has not yet populated them (see upstream indexing-lag issue).
  */
@@ -611,7 +611,7 @@ export interface FreshProcedureItem {
 }
 
 /**
- * Options for {@link EuropeanParliamentMCPClient.getFreshProcedures}.
+ * Options for `EuropeanParliamentMCPClient.getFreshProcedures`.
  *
  * Fresh-procedure discovery routes through `get_procedures(limit, offset=0)` and
  * applies client-side sorting by `dateLastActivity` DESC (falling back to

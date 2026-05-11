@@ -83,7 +83,7 @@ const N = {
 
 /**
  * Extended set of World Bank indicator IDs relevant to EU Parliament policy areas.
- * Superset of {@link PolicyRelevantIndicators} — includes domain-specific indicators
+ * Superset of `PolicyRelevantIndicators` — includes domain-specific indicators
  * that map to individual committee mandates.
  *
  * ⚠️ **AI Agents**: This is a **curated subset of 34 indicators**. The World Bank

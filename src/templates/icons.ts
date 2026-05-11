@@ -44,6 +44,9 @@ export type IconName =
   | 'heart'
   | 'shield-star';
 
+/**
+ * Render-time options accepted by every icon factory in this module.
+ */
 export interface IconOptions {
   /** Pixel size for both width and height (default 18). */
   readonly size?: number;

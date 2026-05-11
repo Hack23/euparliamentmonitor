@@ -21,6 +21,14 @@ export interface FaqPair {
   readonly a: string;
 }
 
+/**
+ * Per-page SEO copy bundle: keywords, OpenGraph image alt text, breadcrumb
+ * labels, and an FAQ block (heading + structured-data language + Q&A pairs).
+ *
+ * One value of this shape exists per (page, language) tuple in the
+ * Political Intelligence and sitemap copy maps so each language ships
+ * native-language SEO content for crawlers and assistive technology.
+ */
 export interface PageSeoCopy {
   readonly keywords: string;
   readonly ogImageAlt: string;

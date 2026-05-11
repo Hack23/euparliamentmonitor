@@ -17,8 +17,7 @@ import type { HorizonProfile, Manifest } from './types.js';
 
 /**
  * Build a {@link HorizonProfile} for the given article-type slug from the
- * canonical {@link import('../../config/article-horizons.js').ARTICLE_HORIZONS}
- * registry.
+ * canonical `ARTICLE_HORIZONS` registry (see `src/config/article-horizons.ts`).
  *
  * `horizonDays` derivation:
  *  - `forward` / `backward` → `dataWindow.days`
@@ -84,9 +83,6 @@ export function applyHorizonProfile(
   const profile = buildHorizonProfile(articleType);
 
   if (!profile) {
-    // Slug is legacy / unknown. With overwrite=true we must actively
-    // strip any stale `horizonProfile` to honour the documented
-    // "absent for unknown slugs" invariant.
     if (options.overwrite && manifest.horizonProfile) {
       const { horizonProfile: _stale, ...rest } = manifest;
       return rest as Manifest;

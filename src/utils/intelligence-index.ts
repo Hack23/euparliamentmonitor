@@ -99,7 +99,6 @@ export function addArticleToIndex(
   index: IntelligenceIndex,
   entry: ArticleIndexEntry
 ): IntelligenceIndex {
-  // Replace or append
   const existingIdx = index.articles.findIndex((a) => a.id === entry.id);
   const oldEntry = existingIdx >= 0 ? index.articles[existingIdx] : undefined;
   const articles =
@@ -107,19 +106,16 @@ export function addArticleToIndex(
       ? [...index.articles.slice(0, existingIdx), entry, ...index.articles.slice(existingIdx + 1)]
       : [...index.articles, entry];
 
-  // Clone lookup maps (null-prototype to prevent pollution)
   const actors = Object.assign(createNullMap(), index.actors);
   const policyDomains = Object.assign(createNullMap(), index.policyDomains);
   const procedures = Object.assign(createNullMap(), index.procedures);
 
-  // Remove stale associations from the old entry (if replacing)
   if (oldEntry) {
     removeIdFromMap(actors, oldEntry.keyActors, entry.id);
     removeIdFromMap(policyDomains, oldEntry.keyTopics, entry.id);
     removeIdFromMap(procedures, oldEntry.procedures, entry.id);
   }
 
-  // Add new associations
   addIdToMap(actors, entry.keyActors, entry.id);
   addIdToMap(policyDomains, entry.keyTopics, entry.id);
   addIdToMap(procedures, entry.procedures, entry.id);
@@ -362,7 +358,7 @@ function buildProcedureTrend(
  * Detect parliamentary trends from patterns across all indexed articles.
  *
  * A trend is formed when a topic or procedure appears in at least
- * {@link MIN_TREND_ARTICLES} articles. The returned array replaces any
+ * `MIN_TREND_ARTICLES` articles. The returned array replaces any
  * previously detected trends stored in the index.
  *
  * @param index - Intelligence index to analyse
@@ -535,7 +531,6 @@ function mergeOntoEmpty(parsed: Partial<IntelligenceIndex>): IntelligenceIndex {
     empty
   );
 
-  // Build a temporary index so detectTrends can recompute from articles
   const base: IntelligenceIndex = {
     articles,
     actors,
@@ -546,7 +541,6 @@ function mergeOntoEmpty(parsed: Partial<IntelligenceIndex>): IntelligenceIndex {
     lastUpdated: typeof parsed.lastUpdated === 'string' ? parsed.lastUpdated : empty.lastUpdated,
   };
 
-  // Recompute trends when maps were rebuilt or when persisted trends are missing/invalid
   const trends = rebuilt || !Array.isArray(parsed.trends) ? detectTrends(base) : parsed.trends;
 
   return { ...base, trends };
@@ -689,13 +683,11 @@ export function buildRelatedArticlesHTML(
         const filename = `${article.id}.html`;
         return `    <li><a href="${escapeAttr(filename)}" rel="noopener noreferrer">${escapeText(label)}: ${escapeText(ref.context)} (${escapeText(displayDate)})</a></li>`;
       }
-      // Fallback: render using targetArticleId when full article metadata is unavailable
       const filename = `${ref.targetArticleId}.html`;
       return `    <li><a href="${escapeAttr(filename)}" rel="noopener noreferrer">${escapeText(label)}: ${escapeText(ref.context)}</a></li>`;
     })
     .filter(Boolean);
 
-  // Fall back: show related articles without explicit cross-refs
   if (listItems.length === 0 && relatedArticles.length > 0) {
     for (const article of relatedArticles) {
       const displayDate = formatDisplayDate(article.date, lang);
@@ -800,7 +792,6 @@ function slugify(text: string): string {
     .replace(/^-+/u, '')
     .replace(/-+$/u, '');
   if (slug.length > 0) return slug;
-  // Deterministic fallback: simple DJB2-style hash of the original text
   let hash = 5381;
   for (let i = 0; i < text.length; i++) {
     hash = ((hash << 5) + hash + text.charCodeAt(i)) | 0;

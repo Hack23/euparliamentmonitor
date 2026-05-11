@@ -84,7 +84,6 @@ export function groupArticlesByLanguage(
     }
   }
 
-  // Sort by date (newest first)
   for (const lang in grouped) {
     const bucket = grouped[lang];
     if (bucket) {
@@ -159,10 +158,8 @@ export function ensureDirectoryExists(dirPath: string): void {
  * @returns `true` when the directory was created by this call, otherwise `false`
  */
 function claimDir(dirPath: string): boolean {
-  // Ensure parent exists (recursive: true never throws EEXIST)
   fs.mkdirSync(path.dirname(dirPath), { recursive: true });
   try {
-    // Non-recursive create: EEXIST means another run already claimed it
     fs.mkdirSync(dirPath, { recursive: false });
     return true;
   } catch (err: unknown) {
@@ -191,16 +188,10 @@ function claimDir(dirPath: string): boolean {
  *          suffixed variant (e.g. `analysis/daily/2026-04-02/breaking-2`) otherwise.
  */
 export function resolveUniqueAnalysisDir(baseDir: string): string {
-  // If the directory doesn't exist yet or has no manifest from a prior
-  // completed run, use it as-is.  This supports the skipCompleted feature
-  // which resumes an incomplete run in the same directory.
   if (!fs.existsSync(path.join(baseDir, 'manifest.json'))) {
     return baseDir;
   }
 
-  // Directory already has a completed run — find the next available suffix.
-  // Use atomic mkdirSync to prevent TOCTOU races when parallel workflow
-  // runs attempt to claim the same suffixed candidate concurrently.
   let suffix = 2;
   const MAX_SUFFIX = 100;
   while (suffix <= MAX_SUFFIX) {
@@ -211,7 +202,6 @@ export function resolveUniqueAnalysisDir(baseDir: string): string {
     suffix++;
   }
 
-  // Fallback: use UUID-suffixed directory to guarantee uniqueness
   const candidate = `${baseDir}-${randomUUID().slice(0, 8)}`;
   fs.mkdirSync(candidate, { recursive: true });
   return candidate;
@@ -275,7 +265,6 @@ export function mergeManifestHistory(
         manifest = parsed as Record<string, unknown>;
       }
     } catch {
-      // Corrupt manifest — start fresh but keep a diagnostic field.
       manifest = { corruptManifestRecoveredAt: new Date().toISOString() };
     }
   }
@@ -287,9 +276,6 @@ export function mergeManifestHistory(
   manifest['history'] = [...existingHistory, entry];
   manifest['updatedAt'] = entry.finishedAt;
 
-  // Enrich with horizonProfile from the article-horizons registry.
-  // Strips any stale `horizonProfile` for legacy / unknown slugs so the
-  // "absent for unknown slugs" invariant holds across registry evolutions.
   const enriched = applyHorizonProfile(manifest as unknown as Manifest, { overwrite: true });
   if (enriched.horizonProfile) {
     manifest['horizonProfile'] = enriched.horizonProfile;
@@ -321,8 +307,6 @@ export function readLatestGateResult(
     if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return 'PENDING';
     const history = (parsed as Record<string, unknown>)['history'];
     if (!Array.isArray(history) || history.length === 0) {
-      // Back-compat: a manifest without a history[] might carry gateResult
-      // directly at the top level during the transition.
       const direct = (parsed as Record<string, unknown>)['gateResult'];
       if (
         direct === 'GREEN' ||
@@ -373,17 +357,12 @@ export function readLatestResolvedGateResult(
     if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return 'PENDING';
     const history = (parsed as Record<string, unknown>)['history'];
     if (!Array.isArray(history) || history.length === 0) {
-      // Back-compat: older manifests may carry a resolved gateResult directly
-      // at the top level without a history[] array.  Only honour non-PENDING
-      // values — a stale PENDING at the top level must not be treated as
-      // resolved, because that defeats the carry-forward purpose of this helper.
       const direct = (parsed as Record<string, unknown>)['gateResult'];
       if (direct === 'GREEN' || direct === 'GREEN_WITH_WARNINGS' || direct === 'ANALYSIS_ONLY') {
         return direct;
       }
       return 'PENDING';
     }
-    // Search from the end to find the most recent non-PENDING result.
     for (let i = history.length - 1; i >= 0; i--) {
       const entry = history[i] as AnalysisManifestHistoryEntry | undefined;
       const gate = entry?.gateResult;
@@ -616,11 +595,6 @@ export function extractArticleMeta(filepath: string): { title: string; descripti
   let description = '';
   try {
     const content = fs.readFileSync(filepath, 'utf-8');
-    // Prefer the <head><title> value (with the " — EU Parliament Monitor"
-    // or " | EU Parliament Monitor" site-suffix stripped) — that is where
-    // the SEO-facing editorial headline resolver writes its output. Fall
-    // back to the first body <h1> for older files where <title> was
-    // never refreshed.
     const headTitleMatch = content.match(/<title[^>]*>([^<]+)<\/title>/u);
     if (headTitleMatch?.[1]) {
       const rawTitle = decodeHtmlEntities(headTitleMatch[1].trim());
@@ -631,9 +605,6 @@ export function extractArticleMeta(filepath: string): { title: string; descripti
       if (stripped.length > 0) title = stripped;
     }
     if (!title) {
-      // Matches h1 with any attributes but only plain-text content (no
-      // nested tags). The template always writes plain escaped text in
-      // h1, so this is correct.
       const titleMatch = content.match(/<h1[^>]*>([^<]+)<\/h1>/u);
       if (titleMatch?.[1]) {
         title = decodeHtmlEntities(titleMatch[1].trim());
@@ -789,12 +760,10 @@ export function discoverAnalysisFileEntries(analysisDirPath: string): AnalysisFi
 
   const entries: AnalysisFileEntry[] = [];
 
-  // Scan known subdirectories
   for (const subdir of DISCOVERY_SUBDIRS) {
     scanSubdirectory(path.join(analysisDirPath, subdir), subdir, entries);
   }
 
-  // Scan root-level .md files (e.g. synthesis-summary.md, weekly-intelligence-brief.md)
   scanRootMarkdownFiles(analysisDirPath, entries);
 
   return entries;

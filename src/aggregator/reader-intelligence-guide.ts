@@ -753,7 +753,7 @@ export function getReaderGuideSectionIcon(sectionId: string): string {
  * for de-duplication detection by E2E tests.
  *
  * The guide renders one row per emitted article section that has a
- * curated reader-need translation (see {@link READER_GUIDE_ROWS}). The
+ * curated reader-need translation (see `READER_GUIDE_ROWS`). The
  * `included` list is no longer surfaced — the previous "source artifact"
  * column duplicated the per-section navigation that the Analysis Index
  * appendix already presents, and clutters the headline reader lens. The
@@ -820,7 +820,6 @@ ${rows.join('\n')}
  * @returns HTML with any inline reader-intelligence-guide removed
  */
 export function stripInlineReaderGuide(html: string): string {
-  // Match from the H2 opening with the reader-intelligence-guide id to just before the next H2 or end
   const pattern =
     /<h2[^>]*id=["']reader-intelligence-guide["'][^>]*>[\s\S]*?(?=<h2[ >]|<section[ >]|$)/gi;
   return html.replace(pattern, '');

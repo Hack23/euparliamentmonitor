@@ -70,7 +70,6 @@ export function getDirection(lang) {
 function isValidHreflang(value) {
     if (value === 'x-default')
         return true;
-    // BCP-47 primary subtag: 2-3 lowercase, optional region/script subtag
     if (value.length < 2 || value.length > 12)
         return false;
     const parts = value.split('-');

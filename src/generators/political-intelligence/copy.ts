@@ -66,6 +66,11 @@ export interface PICopy {
   seoKeywords: string;
 }
 
+/**
+ * Default English copy for the Political Intelligence hub page. Used as a
+ * fallback when a language-specific override is absent and as the canonical
+ * reference for shape/keys consumed by the page builder.
+ */
 export const DEFAULT_COPY: PICopy = {
   title: 'Political Intelligence',
   intro:

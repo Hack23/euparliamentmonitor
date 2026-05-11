@@ -108,7 +108,6 @@ export function toAbsoluteUrl(url: string): AbsoluteUrl {
  */
 export function toRelativeFilePath(filePath: string): RelativeFilePath {
   const normalized = filePath.replace(/\\/g, '/').replace(/^\/+/, '');
-  // Reject path traversal
   if (/(^|\/)\.\.($|\/)/.test(normalized)) {
     throw new Error(`Path traversal not allowed in relative file path: ${filePath.slice(0, 60)}`);
   }

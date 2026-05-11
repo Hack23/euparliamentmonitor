@@ -22,7 +22,7 @@
  *
  * ## Public API (unchanged from the MCP-backed iteration)
  *
- * - {@link IMFMCPClient} — class with semantic wrappers for five "tools".
+ * - `IMFMCPClient` — class with semantic wrappers for five "tools".
  * - {@link IMF_MCP_TOOLS} — stable virtual tool-name list used by the
  *   Stage-C editorial fingerprint and the workflow probe. Drift-guarded
  *   by `test/integration/mcp/imf-mcp.test.js`.
@@ -39,7 +39,7 @@
  * - Every call has an independent `AbortController` with a configurable
  *   timeout (`IMF_API_TIMEOUT_MS`, default 90 s).
  * - Errors (HTTP 4xx/5xx, network faults, JSON parse failures, abort) are
- *   caught and converted to the {@link IMF_FALLBACK} envelope. Callers
+ *   caught and converted to the `IMF_FALLBACK` envelope. Callers
  *   upstream can therefore treat "no IMF" as "empty data" without
  *   defensive try/catch, matching the `WorldBankMCPClient` pattern.
  *
@@ -163,10 +163,6 @@ function parseSDMXUrn(urn: string): {
   const body = eqIdx >= 0 ? urn.slice(eqIdx + 1) : urn;
   const parenIdx = body.indexOf('(');
   const head = parenIdx >= 0 ? body.slice(0, parenIdx) : body;
-  // Concept URNs have a trailing `.CONCEPT_ID` after the closing paren.
-  // Guard the missing-`)` case explicitly: `indexOf(')', n)` returns -1
-  // when absent, and `body.slice(-1 + 1) = body.slice(0)` would echo
-  // the whole URN body into `tail` — yielding a bogus conceptId.
   let tail = '';
   if (parenIdx >= 0) {
     const closeIdx = body.indexOf(')', parenIdx);
@@ -246,10 +242,8 @@ function resolveCodelistCodes(
  */
 function resolveAgency(databaseId: string): string {
   const upper = databaseId.toUpperCase();
-  // Avoid dynamic object indexing so the security lint does not flag user input as a sink.
   const direct = Object.entries(IMF_DATAFLOW_AGENCY).find(([k]) => k === upper)?.[1];
   if (direct) return direct;
-  // Vintage suffix: WEO_2025_OCT_VINTAGE → WEO
   const vintageIdx = upper.indexOf('_VINTAGE');
   if (vintageIdx > 0) {
     const trimmed = upper.slice(0, vintageIdx).split('_').slice(0, -2).join('_');
@@ -294,16 +288,16 @@ export const IMF_MCP_TOOLS: readonly string[] = [
 // ─── Client options ──────────────────────────────────────────────────────────
 
 /**
- * Options accepted by {@link IMFMCPClient}. Shape intentionally matches
+ * Options accepted by `IMFMCPClient`. Shape intentionally matches
  * {@link MCPClientOptions} for historical compatibility — fields unused by
  * the native HTTP transport (`serverPath`, `gatewayUrl`, `gatewayApiKey`,
  * `maxConnectionAttempts`, `connectionRetryDelay`) are accepted and
  * silently ignored so existing call-sites do not break.
  */
 export interface IMFClientOptions extends MCPClientOptions {
-  /** Override the IMF REST base URL (default: {@link DEFAULT_IMF_API_BASE_URL}). */
+  /** Override the IMF REST base URL (default: `DEFAULT_IMF_API_BASE_URL`). */
   apiBaseUrl?: string;
-  /** Per-request timeout in milliseconds (default: {@link DEFAULT_IMF_API_TIMEOUT_MS}). */
+  /** Per-request timeout in milliseconds (default: `DEFAULT_IMF_API_TIMEOUT_MS`). */
   timeoutMs?: number;
   /** Optional `fetch` implementation injection for testing. */
   fetchImpl?: typeof fetch;
@@ -519,9 +513,6 @@ function buildSDMXKey(
     .map((dim) => {
       const dimLc = dim.toLowerCase();
       const codes = lowercasedFilters.find(([key]) => key === dimLc)?.[1];
-      // SDMX 3.0 wildcard for "match every code in this dimension" is `*`.
-      // The legacy SDMX 2.1 convention of leaving the segment bare is
-      // rejected by `api.imf.org` post-Sept-2025 (returns 0 series).
       return Array.isArray(codes) && codes.length > 0 ? encodeSDMXDimension(codes) : '*';
     })
     .join('.');
@@ -633,10 +624,6 @@ function withDefaultFrequency(
   databaseId: string,
   filters: Readonly<Record<string, readonly string[]>>
 ): Readonly<Record<string, readonly string[]>> {
-  // Pull any caller-supplied frequency value out of the legacy `freq`
-  // alias (or any case variant of `frequency`) so we can re-emit it
-  // under the canonical uppercase `FREQUENCY` key that buildSDMXKey
-  // and defaultDimensionOrder both use.
   let freqCodes: readonly string[] | undefined;
   const passthrough: Record<string, readonly string[]> = {};
   for (const [key, value] of Object.entries(filters)) {
@@ -660,7 +647,7 @@ function withDefaultFrequency(
 
 /**
  * Resolve the IMF base URL and per-request timeout from constructor options
- * and environment variables. Extracted so the {@link IMFMCPClient}
+ * and environment variables. Extracted so the `IMFMCPClient`
  * constructor stays under SonarJS's cognitive-complexity threshold.
  *
  * @param options - Caller-supplied options (take precedence over env).
@@ -699,7 +686,7 @@ function readBaseAndTimeout(options: IMFClientOptions): { base: string; timeout:
  */
 function stripTrailingSlashes(s: string): string {
   let end = s.length;
-  while (end > 0 && s.charCodeAt(end - 1) === 47 /* '/' */) {
+  while (end > 0 && s.charCodeAt(end - 1) === 47) {
     end -= 1;
   }
   return end === s.length ? s : s.slice(0, end);
@@ -741,19 +728,27 @@ export class IMFMCPClient {
   private readonly _imfSubscriptionKeys: readonly string[];
   private _connected = false;
 
+  /**
+   * Create a new IMF SDMX 3.0 client.
+   *
+   * Resolves the API base URL, timeout, fetch implementation, and Azure-APIM
+   * subscription keys from the explicit `options`, then from environment
+   * variables (`IMF_API_BASE_URL`, `IMF_API_TIMEOUT_MS`, `IMF_API_PRIMARY_KEY`,
+   * `IMF_API_SECONDARY_KEY`, `FETCH_MCP_GATEWAY_URL`,
+   * `EP_MCP_GATEWAY_API_KEY`), and finally module-level defaults.
+   *
+   * @param options - Optional overrides for base URL, timeout, fetch impl,
+   *   and the optional fetch-proxy gateway used for restricted networks.
+   */
   constructor(options: IMFClientOptions = {}) {
     const { base, timeout } = readBaseAndTimeout(options);
     this._apiBaseUrl = stripTrailingSlashes(base);
     this._timeoutMs = timeout;
     this._fetchImpl = options.fetchImpl ?? globalThis.fetch.bind(globalThis);
-    // MCP fetch-proxy gateway for AWF sandbox (bypasses Squid proxy)
     this._fetchProxyGatewayUrl =
       options.fetchProxyGatewayUrl ?? process.env['FETCH_MCP_GATEWAY_URL'] ?? undefined;
     this._fetchProxyApiKey =
       options.fetchProxyApiKey ?? process.env['EP_MCP_GATEWAY_API_KEY'] ?? undefined;
-    // IMF Azure-APIM subscription keys (primary + secondary). The fetch-proxy
-    // server already injects the same header when it is the transport, so this
-    // is mainly for the direct-fetch fallback used outside the AWF sandbox.
     this._imfSubscriptionKeys = readImfSubscriptionKeysFromEnv();
   }
 
@@ -785,8 +780,6 @@ export class IMFMCPClient {
    */
   async connect(): Promise<void> {
     try {
-      // Validate the base URL shape without making a network request so
-      // construction-time errors surface immediately.
       new URL(this._apiBaseUrl);
       this._connected = true;
     } catch (error) {
@@ -896,7 +889,7 @@ export class IMFMCPClient {
    * Data Portal migration retired the umbrella `IMF` agency.
    *
    * @param databaseId - IMF dataflow identifier (e.g. `"WEO"`, `"FM"`).
-   * @param agencyId - Optional override; defaults to {@link resolveAgency}.
+   * @param agencyId - Optional override; defaults to `resolveAgency`.
    * @returns MCP-shaped result whose `content[0].text` carries the
    *   ordered list of dimensions (`[{ id, name }]`). Empty on error.
    */
@@ -936,7 +929,7 @@ export class IMFMCPClient {
    * @param parameter - Dimension name (e.g. `"COUNTRY"`, `"INDICATOR"`;
    *   matched case-insensitively).
    * @param search - Optional free-text search (case-insensitive substring).
-   * @param agencyId - Optional agency override; defaults to {@link resolveAgency}.
+   * @param agencyId - Optional agency override; defaults to `resolveAgency`.
    * @returns MCP-shaped result with `[{ id, name }]` rows; empty on error.
    */
   async getParameterCodes(
@@ -951,13 +944,6 @@ export class IMFMCPClient {
     }
     try {
       const agency = agencyId ?? resolveAgency(databaseId);
-      // `references=all` returns DSD + conceptSchemes + codelists in one
-      // round-trip. The IMF SDMX 3.0 DSDs put the codelist binding on
-      // the *concept* (`coreRepresentation.enumeration`), not on the
-      // dimension itself, so we need both the DSD (for the dimension →
-      // concept link) and the conceptScheme (for the concept → codelist
-      // link). The payload is large (~2-3 MB for WEO) — it's fetched
-      // once per workflow run by gh-aw and cached upstream.
       const structure = await this._getJSON<SDMXDataStructureResponse>(
         `/structure/dataflow/${encodeURIComponent(agency)}/${encodeURIComponent(databaseId)}/+?references=all`
       );
@@ -998,9 +984,9 @@ export class IMFMCPClient {
    *   (legacy lowercase `country`/`indicator`/`frequency` continue to work).
    * @param options.dimensionOrder - Optional override of the dimension order
    *   used to build the SDMX key. Defaults to
-   *   {@link defaultDimensionOrder} for the database.
+   *   `defaultDimensionOrder` for the database.
    * @param options.agencyId - Optional SDMX agency override (e.g. `"IMF.RES"`,
-   *   `"IMF.STA"`). Defaults to {@link resolveAgency}.
+   *   `"IMF.STA"`). Defaults to `resolveAgency`.
    * @returns MCP-shaped result whose `content[0].text` carries the raw
    *   SDMX-JSON response. Empty on error or invalid inputs.
    */
@@ -1026,14 +1012,6 @@ export class IMFMCPClient {
       const dims = dimensionOrder ?? defaultDimensionOrder(databaseId);
       const normalisedFilters = withDefaultFrequency(databaseId, filters);
       const key = buildSDMXKey(dims, normalisedFilters);
-      // Guard against accidentally unbounded downloads: at least one
-      // *non-FREQUENCY* slot must be concrete (not `*`). FREQUENCY
-      // auto-injects via withDefaultFrequency, so requiring it would
-      // not prove the caller intended a bounded query — a typo'd
-      // filter key (e.g. `region` instead of `country` for WEO) would
-      // otherwise yield `*.*.A`, downloading the full WEO cross-product.
-      // Callers wanting a single wildcard slot (e.g. `DEU.*.A`) still
-      // pass because `DEU` pins the COUNTRY dimension.
       const slots = key.split('.');
       const hasConcreteNonFreqSlot = dims.some(
         (dim, i) => dim.toUpperCase() !== 'FREQUENCY' && slots[i] !== '*'
@@ -1077,12 +1055,6 @@ export class IMFMCPClient {
   private async _getText(path: string): Promise<string> {
     const url = `${this._apiBaseUrl}${path.startsWith('/') ? path : `/${path}`}`;
 
-    // Strategy 1: MCP fetch-proxy gateway (bypasses AWF Squid proxy).
-    // The API key is optional — the gateway adds the Authorization header only
-    // when the key is present. Without a key the request is sent unauthenticated,
-    // which is sufficient for local AWF container-to-container traffic (same
-    // Docker network). Requiring the key here caused IMF degraded mode whenever
-    // EP_MCP_GATEWAY_API_KEY extraction from mcp-config.json failed silently.
     if (this._fetchProxyGatewayUrl) {
       try {
         const result = await this._fetchViaGateway(url);
@@ -1092,9 +1064,6 @@ export class IMFMCPClient {
       }
     }
 
-    // Strategy 2: Direct fetch (works outside AWF sandbox)
-    // Tries the primary subscription key first, falling back to the secondary
-    // on 401/403 so live IMF key rotation never breaks an in-flight run.
     return this._fetchDirectWithKeyRotation(url);
   }
 
@@ -1152,12 +1121,6 @@ export class IMFMCPClient {
         signal: controller.signal,
       });
       if (response.ok) {
-        // `api.imf.org` returns 204 when the request reached Azure APIM
-        // but no Ocp-Apim-Subscription-Key matched. 204 is technically
-        // 2xx, so without this explicit branch the empty body would be
-        // returned as a successful SDMX-JSON envelope and downstream
-        // parsers would silently produce empty series. Treat 204 as an
-        // error so missing/invalid keys are caught at Stage A.
         if (response.status === 204) {
           return {
             kind: 'error',
@@ -1221,7 +1184,6 @@ export class IMFMCPClient {
       if (!response.ok) return null;
 
       let body = await response.text();
-      // Handle SSE format (data: lines)
       if (body.trimStart().startsWith('data:')) {
         const lines = body.split('\n').filter((l: string) => l.startsWith('data:'));
         body = lines.map((l: string) => l.slice(5).trim()).join('');
@@ -1262,7 +1224,7 @@ export class IMFMCPClient {
 }
 
 /**
- * Forward-looking alias for {@link IMFMCPClient}. New code should prefer
+ * Forward-looking alias for `IMFMCPClient`. New code should prefer
  * `IMFClient`; the `IMFMCPClient` name is retained for backward
  * compatibility with the MCP-backed iteration shipped in Wave 1.
  */

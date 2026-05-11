@@ -39,18 +39,13 @@ function main() {
     console.log('🗺️ Generating sitemap...');
     const articles = getNewsArticles();
     console.log(`📊 Found ${articles.length} articles`);
-    // Collect docs HTML files (gracefully empty when docs/ is absent)
     const docsFiles = collectDocsHtmlFiles(SITEMAP_DOCS_DIR);
     console.log(`📚 Found ${docsFiles.length} docs files`);
     const sitemap = generateSitemap(articles, docsFiles);
     const filepath = path.join(PROJECT_ROOT, 'sitemap.xml');
     fs.writeFileSync(filepath, sitemap, 'utf-8');
-    const totalUrls = articles.length +
-        ALL_LANGUAGES.length * 3 + // index pages + sitemap HTML + political-intelligence HTML
-        docsFiles.length +
-        1; // rss.xml
+    const totalUrls = articles.length + ALL_LANGUAGES.length * 3 + docsFiles.length + 1;
     console.log(`✅ Generated sitemap.xml with ${totalUrls} URLs`);
-    // Generate political-intelligence pages (one per language)
     const piData = collectPoliticalIntelligenceData(PROJECT_ROOT);
     console.log(`🧭 Scanned analysis tradecraft: ${piData.methodologies.length} methodologies, ${piData.templates.length} templates, ${piData.dailyGroups.length} daily groups`);
     let piGenerated = 0;
@@ -63,8 +58,6 @@ function main() {
         piGenerated++;
     }
     console.log(`✅ Generated ${piGenerated} political-intelligence HTML files`);
-    // Build article metadata map for sitemap HTML pages and RSS,
-    // pre-grouped by language for O(N) iteration
     const articlesByLang = new Map();
     const rssItems = [];
     for (const lang of ALL_LANGUAGES) {
@@ -94,13 +87,10 @@ function main() {
             });
         }
     }
-    // Check if docs directory exists
     const hasDocsDir = fs.existsSync(SITEMAP_DOCS_DIR);
-    // Generate sitemap HTML for each language
     let htmlGenerated = 0;
     for (const lang of ALL_LANGUAGES) {
         const langArticles = articlesByLang.get(lang) ?? [];
-        // Sort newest first
         langArticles.sort((a, b) => b.date.localeCompare(a.date));
         const html = generateSitemapHTML(lang, langArticles, hasDocsDir);
         const sitemapFilename = getSitemapFilename(lang);
@@ -110,7 +100,6 @@ function main() {
         htmlGenerated++;
     }
     console.log(`✅ Generated ${htmlGenerated} sitemap HTML files`);
-    // Sort RSS items newest first using numeric timestamps
     rssItems.sort((a, b) => Date.parse(b.pubDate) - Date.parse(a.pubDate));
     const rss = generateRssFeed(rssItems);
     const rssPath = path.join(PROJECT_ROOT, 'rss.xml');

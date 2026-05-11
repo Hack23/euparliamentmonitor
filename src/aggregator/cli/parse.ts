@@ -35,7 +35,7 @@ export interface ParsedOptions {
     readonly since?: string;
     /**
      * Always `[...ALL_LANGUAGES]` when produced by this CLI parser; tests
-     * may override the field when calling {@link generateArticle} directly.
+     * may override the field when calling `generateArticle` directly.
      */
     readonly langs: readonly LanguageCode[];
     readonly outDir: string;
@@ -164,11 +164,6 @@ function applyCliFlag(flag: string, takeValue: () => string): FlagResult {
     case '--lang':
     case '--language':
     case '--markdown-only':
-      // Removed in the always-14-languages-always-HTML contract: every
-      // article.md now always renders to all 14 supported languages and
-      // HTML emission cannot be skipped from the CLI. The flags are
-      // rejected explicitly so any leftover invocation surfaces a clear
-      // error rather than silently behaving as if the flag was honoured.
       throw new UnknownFlagError(
         `Flag ${flag} has been removed. The CLI always renders all 14 languages with HTML output. ` +
           `See Article-Generation.md § "CLI contract" for the new always-on contract.`
@@ -235,10 +230,6 @@ function processArgvToken(
   const [flag, inlineValue] = arg.includes('=') ? splitFlag(arg) : [arg, undefined];
   let consumedNext = 0;
   const takeValue = (): string => {
-    // Treat `--flag=` (empty inline value) as missing — otherwise an empty
-    // string sneaks past value-bearing flags and resolves to surprising
-    // defaults (e.g. `path.resolve('')` → `process.cwd()`). Mirrors the
-    // space-separated missing-value branch below for symmetry.
     if (inlineValue !== undefined) {
       if (inlineValue === '') {
         throw new FlagValueError(`Missing value for ${flag}`);
@@ -315,16 +306,9 @@ export function parseCliArgsSafe(argv: readonly string[], repoRoot: string): Par
     value: {
       runDir: acc.runDir,
       all: acc.all,
-      // Always-14-languages contract: the parser does not accept a
-      // language scope; every CLI invocation renders every supported
-      // language. Programmatic callers (tests) can still narrow the
-      // scope by constructing the options object directly.
       langs: [...ALL_LANGUAGES],
       outDir: acc.outDir,
       repoRoot,
-      // Always-HTML contract: the parser does not accept a markdown-only
-      // toggle; every CLI invocation emits HTML. Programmatic callers
-      // (tests) can still set `markdownOnly: true` directly.
       markdownOnly: false,
       ...(acc.since !== undefined ? { since: acc.since } : {}),
       ...(acc.title !== undefined ? { title: acc.title } : {}),

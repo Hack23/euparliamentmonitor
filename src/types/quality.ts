@@ -139,7 +139,7 @@ export type ArticleGrade = 'A' | 'B' | 'C' | 'D' | 'F';
 
 /**
  * Comprehensive quality report for a single generated article.
- * Produced by {@link scoreArticleQuality} in article-quality-scorer.
+ * Produced by `scoreArticleQuality` in article-quality-scorer.
  */
 export interface ArticleQualityReport {
   /** Unique identifier for the article (typically the filename slug) */

@@ -37,12 +37,9 @@ export function stripHtmlTags(html: string): string {
       result += html.slice(pos);
       break;
     }
-    // Copy text before the tag
     result += html.slice(pos, openIdx);
-    // Find the closing '>'
     const closeIdx = html.indexOf('>', openIdx + 1);
     if (closeIdx < 0) {
-      // Unclosed tag — keep the rest as-is
       result += html.slice(openIdx);
       break;
     }
@@ -52,6 +49,15 @@ export function stripHtmlTags(html: string): string {
   return result;
 }
 
+/**
+ * Remove every `<script>…</script>` block (and their contents) from an HTML
+ * string using a case-insensitive linear scan. Defends against XSS payloads
+ * smuggled into AI-generated article fragments before the markdown is
+ * rendered into the final article HTML.
+ *
+ * @param html - Raw HTML possibly containing `<script>` blocks.
+ * @returns HTML with every `<script>…</script>` block removed.
+ */
 export function stripScriptBlocks(html: string): string {
   const OPEN = '<script';
   const CLOSE = '</script';
@@ -65,19 +71,14 @@ export function stripScriptBlocks(html: string): string {
       result += html.slice(pos);
       break;
     }
-    // Copy everything before the opening <script
     result += html.slice(pos, openIdx);
-    // Find the end of the opening tag
     const openEnd = html.indexOf('>', openIdx);
     if (openEnd < 0) {
-      // Malformed — no closing `>`, keep rest as-is
       result += html.slice(openIdx);
       break;
     }
-    // Find the closing </script...> tag
     const closeIdx = lower.indexOf(CLOSE, openEnd + 1);
     if (closeIdx < 0) {
-      // No closing tag — drop the rest
       result += ' ';
       break;
     }

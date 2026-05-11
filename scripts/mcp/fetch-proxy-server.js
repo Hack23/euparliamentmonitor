@@ -228,6 +228,20 @@ async function classifyFetchResponse(response, hasNextAttempt) {
     }
     return { kind: 'ok', text: await response.text() };
 }
+/**
+ * JSON-RPC handler for the proxy's `fetch_url` method.
+ *
+ * Validates the requested URL against the IMF allow-list (protocol, hostname,
+ * path prefix), forwards it via `fetchImpl`, and returns the response body
+ * wrapped in a JSON-RPC success envelope. Disallowed URLs return a JSON-RPC
+ * error envelope rather than throwing.
+ *
+ * @param id - JSON-RPC request id to echo back in the response.
+ * @param url - Absolute URL the agent is requesting.
+ * @param fetchImpl - `fetch` implementation (overridable for tests).
+ * @returns A JSON-RPC success envelope with the response body, or an error
+ *          envelope describing why the URL was rejected.
+ */
 export async function handleFetchUrl(id, url, fetchImpl = globalThis.fetch) {
     if (!url || !isAllowedImfUrl(url)) {
         return {
@@ -239,10 +253,6 @@ export async function handleFetchUrl(id, url, fetchImpl = globalThis.fetch) {
             },
         };
     }
-    // Try the primary key, then the secondary key on 401/403 (live rotation).
-    // When no keys are configured, fall through to a single unauthenticated
-    // attempt so the diagnostic surface (e.g. 204 No Content from IMF) is
-    // visible to the caller.
     const keys = readImfSubscriptionKeys();
     const attempts = keys.length > 0 ? [...keys] : [undefined];
     let lastResponse;
@@ -270,11 +280,6 @@ export async function handleFetchUrl(id, url, fetchImpl = globalThis.fetch) {
         }
         catch (err) {
             lastError = err;
-            // Network errors are not auth-class — do not retry with the secondary
-            // key (the IMF endpoint is the same, only the header differs). Clear
-            // any HTTP response captured by an earlier attempt so the post-loop
-            // branch does not surface a stale 401/403 in place of this thrown
-            // error (the caller needs to see the real failure mode).
             lastResponse = undefined;
             break;
         }

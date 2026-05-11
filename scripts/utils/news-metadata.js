@@ -39,7 +39,6 @@ export function buildMetadataDatabase(newsDir = NEWS_DIR) {
             });
         }
     }
-    // Sort by date (newest first)
     articles.sort((a, b) => b.date.localeCompare(a.date));
     return {
         lastUpdated: new Date().toISOString(),
@@ -103,7 +102,6 @@ const INTELLIGENCE_INDEX_PATH = path.join(NEWS_DIR, 'intelligence-index.json');
  */
 export function updateIntelligenceIndex(newsDir = NEWS_DIR, indexPath = INTELLIGENCE_INDEX_PATH) {
     const articleFiles = getNewsArticles(newsDir);
-    // Collect all entries in a single pass, then build the index in O(n) time
     const entries = [];
     for (const filename of articleFiles) {
         const parsed = parseArticleFilename(filename);
@@ -112,9 +110,7 @@ export function updateIntelligenceIndex(newsDir = NEWS_DIR, indexPath = INTELLIG
         const articleId = `${parsed.date}-${parsed.slug}-${parsed.lang}`;
         const filepath = path.join(newsDir, filename);
         const meta = extractArticleMeta(filepath);
-        // Derive the ArticleCategory from the slug using the shared detection logic
         const category = detectCategory(parsed.slug);
-        // Extract meaningful key topics from the slug and article metadata
         const keyTopics = deriveKeyTopics(parsed.slug, parsed.lang, meta.title, meta.description);
         entries.push({
             id: articleId,
@@ -128,11 +124,8 @@ export function updateIntelligenceIndex(newsDir = NEWS_DIR, indexPath = INTELLIG
             trendContributions: [],
         });
     }
-    // Sort deterministically (date desc, then id asc) so the persisted index
-    // does not churn between runs due to platform-dependent readdir ordering.
     entries.sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id));
     let index = buildIndexFromEntries(entries);
-    // Refresh trend detections
     const trends = detectTrends(index);
     index = { ...index, trends, lastUpdated: new Date().toISOString() };
     saveIntelligenceIndex(index, indexPath);
@@ -250,9 +243,6 @@ const MIN_METADATA_TOKEN_LENGTH = 4;
 function deriveKeyTopics(slug, lang, title, description) {
     const tokens = new Set();
     extractTokens(slug, tokens, MIN_SLUG_TOKEN_LENGTH);
-    // Only apply title/description tokenisation for English articles where
-    // STOP_WORDS provides meaningful filtering; non-English articles rely
-    // on slug tokens to avoid noisy cross-language relations.
     if (lang === 'en') {
         if (title)
             extractTokens(title, tokens, MIN_METADATA_TOKEN_LENGTH);
