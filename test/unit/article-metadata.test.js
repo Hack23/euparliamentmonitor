@@ -214,6 +214,22 @@ describe('extractStrongProseLine', () => {
     expect(desc).toContain('real prose line');
   });
 
+  it('skips mermaid fence bodies when extracting prose', () => {
+    const md = [
+      '# X',
+      '',
+      '```mermaid',
+      'subgraph "📊 EP Political Intelligence Dashboard — 15 April 2026"',
+      'A --> B',
+      '```',
+      '',
+      'The first real prose line after the diagram explains the parliamentary significance in snippet-safe language.',
+    ].join('\n');
+    const desc = extractStrongProseLine(md);
+    expect(desc).not.toMatch(/subgraph|Dashboard/);
+    expect(desc).toContain('parliamentary significance');
+  });
+
   it('returns empty when nothing qualifies', () => {
     expect(extractStrongProseLine('# only a heading')).toBe('');
   });
@@ -462,7 +478,8 @@ describe('resolveArticleMetadata — priority ladder', () => {
     for (const lang of ALL_LANGUAGES) {
       const entry = Object.getOwnPropertyDescriptor(result, lang)?.value;
       expect(entry.title).toBe('OPERATOR HEADLINE');
-      expect(entry.description).toBe('OPERATOR DESCRIPTION THAT MEETS THE LENGTH BAR.');
+      expect(entry.description).toContain('OPERATOR DESCRIPTION THAT MEETS THE LENGTH BAR.');
+      expect(entry.description.length).toBeGreaterThanOrEqual(120);
     }
   });
 
@@ -485,7 +502,7 @@ describe('resolveArticleMetadata — priority ladder', () => {
     expect(de.length).toBeGreaterThan(5);
   });
 
-  it('non-English languages never inherit the English editorial headline', () => {
+  it('non-English languages enrich localized templates with the editorial headline', () => {
     // Simulate the aggregator case: English editorial H1 exists in the
     // aggregated Markdown, but every non-EN variant must still surface a
     // locale-appropriate title rather than the English headline.
@@ -497,14 +514,18 @@ describe('resolveArticleMetadata — priority ladder', () => {
     });
     const en = Object.getOwnPropertyDescriptor(result, 'en')?.value;
     expect(en.title).toBe('Banking Union Breakthrough and Anti-Corruption Landmark');
+    const sv = Object.getOwnPropertyDescriptor(result, 'sv')?.value;
+    const de = Object.getOwnPropertyDescriptor(result, 'de')?.value;
+    expect(sv.title).toContain('Banking Union Breakthrough');
+    expect(sv.title).toMatch(/Senaste|Betydande/);
+    expect(de.title).toContain('Anti-Corruption Landmark');
+    expect(de.title).toMatch(/Eilmeldung|Bedeutende/);
     for (const lang of ALL_LANGUAGES) {
-      if (lang === 'en') continue;
       const entry = Object.getOwnPropertyDescriptor(result, lang)?.value;
-      expect(entry.title).not.toContain('Banking Union Breakthrough');
-      expect(entry.title).not.toContain('Anti-Corruption Landmark');
-      expect(entry.description).not.toContain('banking union with a landmark');
       expect(entry.title.length).toBeGreaterThan(5);
-      expect(entry.description.length).toBeGreaterThan(5);
+      expect(entry.description.length).toBeGreaterThanOrEqual(120);
+      expect(entry.description).toContain('2026-04-20');
+      expect(entry.keywords.length).toBeGreaterThan(3);
     }
   });
 
@@ -524,7 +545,8 @@ describe('resolveArticleMetadata — priority ladder', () => {
     });
     const sv = Object.getOwnPropertyDescriptor(result, 'sv')?.value;
     expect(sv.title).toBe('SV Bankunion-genombrott');
-    expect(sv.description).toBe('SV beskrivning kommer här med tillräcklig längd.');
+    expect(sv.description).toContain('SV beskrivning kommer här med tillräcklig längd.');
+    expect(sv.description.length).toBeGreaterThanOrEqual(120);
   });
 
   it('Tier 2 — first non-generic artefact H1 wins over aggregated H1', () => {
@@ -607,7 +629,8 @@ describe('resolveArticleMetadata — priority ladder', () => {
     for (const lang of ALL_LANGUAGES) {
       const entry = Object.getOwnPropertyDescriptor(result, lang)?.value;
       expect(entry.title.length).toBeGreaterThan(5);
-      expect(entry.description.length).toBeGreaterThan(5);
+      expect(entry.description.length).toBeGreaterThanOrEqual(100);
+      expect(entry.keywords.length).toBeGreaterThan(3);
     }
   });
 });

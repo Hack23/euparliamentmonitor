@@ -935,6 +935,10 @@ export function wrapArticleHtml(options) {
     const structuredData = [jsonLd, breadcrumbLd];
     const jsonLdString = JSON.stringify(structuredData).replace(/</g, '\\u003c');
     const pageTitle = `${options.title} — ${siteTitle}`;
+    const keywords = (options.keywords ?? []).map((keyword) => keyword.trim()).filter(Boolean);
+    const keywordsMeta = keywords.length > 0
+        ? `  <meta name="keywords" content="${escapeHTML(keywords.join(', '))}">\n`
+        : '';
     const header = buildSiteHeader({
         lang: safeLang,
         pathPrefix: '../',
@@ -952,7 +956,7 @@ export function wrapArticleHtml(options) {
   <meta name="referrer" content="no-referrer">
   <title>${escapeHTML(pageTitle)}</title>
   <meta name="description" content="${escapeHTML(options.description)}">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+${keywordsMeta}  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="${PUBLISHER_NAME}">
   <meta name="publisher" content="${PUBLISHER_NAME}">
   <meta name="date" content="${options.date}">

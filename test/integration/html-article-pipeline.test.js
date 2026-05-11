@@ -80,6 +80,13 @@ describe('HTML article generation pipeline', () => {
       const html = fs.readFileSync(path.join(NEWS_DIR, filename), 'utf-8');
       expect(html).toMatch(/<meta name="description" content="[^"]+"/);
     });
+
+    it.each(sampleArticles)('%s has contextual SEO keywords', (filename) => {
+      const html = fs.readFileSync(path.join(NEWS_DIR, filename), 'utf-8');
+      const match = /<meta name="keywords" content="([^"]+)"/.exec(html);
+      expect(match).not.toBeNull();
+      expect(match[1].split(',').length).toBeGreaterThanOrEqual(6);
+    });
   });
 
   describe('cache-busting', () => {
@@ -242,6 +249,18 @@ describe('HTML article generation pipeline', () => {
         expect(match).not.toBeNull();
         const description = match[1];
         expect(description).not.toMatch(/^[A-Z][A-Z0-9 -]{1,40}:\s/);
+      }
+    );
+
+    it.each(sampleArticles)(
+      '%s `<meta description>` is long enough for search snippets and does not leak diagram source',
+      (filename) => {
+        const html = fs.readFileSync(path.join(NEWS_DIR, filename), 'utf-8');
+        const match = /<meta name="description" content="([^"]+)"/.exec(html);
+        expect(match).not.toBeNull();
+        const description = match[1];
+        expect(description.length).toBeGreaterThanOrEqual(120);
+        expect(description).not.toMatch(/\b(?:subgraph|graph LR|classDef)\b/i);
       }
     );
   });

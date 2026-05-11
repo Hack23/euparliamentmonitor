@@ -433,20 +433,29 @@ function yamlEscape(value: string): string {
  * @param metadata - English metadata resolved for SEO
  * @param metadata.title - Resolved English article title
  * @param metadata.description - Resolved English article description
+ * @param metadata.keywords - Resolved English SEO keywords
  * @param slug - Article slug used by generated news paths
  * @param sourceFolder - Repo-relative analysis run directory
  * @returns Markdown with YAML front matter followed by the aggregate body
  */
 function buildJekyllArticleMarkdown(
   aggregated: AggregatedRun,
-  metadata: { readonly title: string; readonly description: string },
+  metadata: {
+    readonly title: string;
+    readonly description: string;
+    readonly keywords?: readonly string[];
+  },
   slug: string,
   sourceFolder: string
 ): string {
+  const keywords = metadata.keywords?.length
+    ? `keywords: [${metadata.keywords.map((keyword) => `"${yamlEscape(keyword)}"`).join(', ')}]`
+    : 'keywords: []';
   const frontMatter = [
     '---',
     `title: "${yamlEscape(metadata.title)}"`,
     `description: "${yamlEscape(metadata.description)}"`,
+    keywords,
     `date: ${aggregated.date}`,
     `article_type: ${aggregated.articleType}`,
     `slug: ${slug}`,
@@ -524,6 +533,7 @@ function writeLanguageVariant(
     body: bodyHtml,
     title: entry.title,
     description: perLangDescription,
+    keywords: entry.keywords,
     date: aggregated.date,
     articleType: aggregated.articleType,
     sourceMarkdownRelPath: chromeOptions.sourceMarkdownRelPath,
@@ -599,15 +609,19 @@ function pickEarliestIndex(a: number, b: number): number {
 function getMetadataEntry(
   map: ResolvedMetadata,
   lang: LanguageCode
-): { readonly title: string; readonly description: string } {
+): { readonly title: string; readonly description: string; readonly keywords: readonly string[] } {
   const descriptor = Object.getOwnPropertyDescriptor(map, lang);
   if (descriptor?.value) {
-    return descriptor.value as { readonly title: string; readonly description: string };
+    return descriptor.value as {
+      readonly title: string;
+      readonly description: string;
+      readonly keywords: readonly string[];
+    };
   }
   const en = Object.getOwnPropertyDescriptor(map, 'en')?.value as
-    | { readonly title: string; readonly description: string }
+    | { readonly title: string; readonly description: string; readonly keywords: readonly string[] }
     | undefined;
-  return en ?? { title: '', description: '' };
+  return en ?? { title: '', description: '', keywords: [] };
 }
 
 /**
@@ -893,17 +907,20 @@ function applyCliOverrides(
   titleOverride: string | undefined,
   descriptionOverride: string | undefined
 ): ResolvedMetadata {
-  const result: Record<LanguageCode, { readonly title: string; readonly description: string }> =
-    Object.create(null) as Record<
-      LanguageCode,
-      { readonly title: string; readonly description: string }
-    >;
+  const result: Record<
+    LanguageCode,
+    { readonly title: string; readonly description: string; readonly keywords: readonly string[] }
+  > = Object.create(null) as Record<
+    LanguageCode,
+    { readonly title: string; readonly description: string; readonly keywords: readonly string[] }
+  >;
   for (const lang of ALL_LANGUAGES) {
     const entry = getMetadataEntry(base, lang);
     Object.defineProperty(result, lang, {
       value: {
         title: titleOverride ?? entry.title,
         description: descriptionOverride ?? entry.description,
+        keywords: entry.keywords,
       },
       enumerable: true,
       writable: true,

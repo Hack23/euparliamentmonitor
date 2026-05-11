@@ -35,13 +35,12 @@
  *    date (or derived values), so the title changes from run to run even
  *    when this last tier fires — but still the "boring repeated" option.
  *
- * English highlights (tiers 2–4) are reserved for the `en` language
- * variant; non-English variants skip them and drop to the localized
- * template (tier 5) unless an explicit `manifest.title.<lang>` /
- * `manifest.description.<lang>` override is present. This guarantees
- * every variant's `<title>` and `<meta description>` are in the correct
- * locale even while the article body itself is still rendered from an
- * English source (until per-language body translations ship).
+ * Artifact-derived highlights (tiers 2–4) are used as page-specific
+ * context across all 14 variants: English can use them directly, while
+ * non-English variants keep the localized article-type template and append
+ * the editorial topic/summary. This prevents duplicate metadata across
+ * same-type pages while keeping the surrounding snippet language-specific
+ * until full per-language body translations are present.
  */
 
 import fs from 'fs';
@@ -51,6 +50,7 @@ import {
   BREAKING_NEWS_TITLES,
   COMMITTEE_REPORTS_TITLES,
   ELECTION_CYCLE_TITLES,
+  LOCALIZED_KEYWORDS,
   MONTH_AHEAD_TITLES,
   MONTHLY_REVIEW_TITLES,
   MOTIONS_TITLES,
@@ -69,6 +69,7 @@ import type { LangTitleSubtitle, LanguageCode, LanguageMap } from '../types/inde
 export interface ResolvedMetadataEntry {
   readonly title: string;
   readonly description: string;
+  readonly keywords: readonly string[];
 }
 
 /** Fully resolved metadata — one entry per supported language. */
@@ -120,10 +121,121 @@ export interface ResolveMetadataOptions {
 }
 
 /** Maximum `<meta description>` length we will emit. */
-const DESCRIPTION_MAX_LENGTH = 300;
+const DESCRIPTION_MAX_LENGTH = 180;
+
+/** Target minimum `<meta description>` length before we append context. */
+const DESCRIPTION_MIN_LENGTH = 140;
 
 /** Maximum `<title>` length — anything longer is truncated with an ellipsis. */
 const TITLE_MAX_LENGTH = 140;
+
+/** Localized labels used to enrich short or duplicate-prone meta descriptions. */
+const SEO_CONTEXT_LABELS: LanguageMap<{
+  readonly context: string;
+  readonly date: string;
+  readonly run: string;
+  readonly evidence: string;
+  readonly reader: string;
+}> = {
+  en: {
+    context: 'Context',
+    date: 'Published',
+    run: 'analysis run',
+    evidence: 'with source-linked voting, committee and legislative intelligence',
+    reader: 'for democratic-accountability readers tracking EU institutional consequences',
+  },
+  sv: {
+    context: 'Kontext',
+    date: 'Publicerad',
+    run: 'analyskörning',
+    evidence: 'med källänkad röstnings-, utskotts- och lagstiftningsanalys',
+    reader: 'för läsare som följer EU-institutionernas demokratiska konsekvenser',
+  },
+  da: {
+    context: 'Kontekst',
+    date: 'Udgivet',
+    run: 'analysekørsel',
+    evidence: 'med kildebelagt afstemnings-, udvalgs- og lovgivningsindblik',
+    reader: 'for læsere, der følger EU-institutionernes demokratiske konsekvenser',
+  },
+  no: {
+    context: 'Kontekst',
+    date: 'Publisert',
+    run: 'analysekjøring',
+    evidence: 'med kildekoblet innsikt om avstemninger, komiteer og lovgivning',
+    reader: 'for lesere som følger EU-institusjonenes demokratiske konsekvenser',
+  },
+  fi: {
+    context: 'Konteksti',
+    date: 'Julkaistu',
+    run: 'analyysiajo',
+    evidence: 'lähdelinkitetyllä äänestys-, valiokunta- ja lainsäädäntöanalyysillä',
+    reader: 'lukijoille, jotka seuraavat EU-instituutioiden demokraattisia vaikutuksia',
+  },
+  de: {
+    context: 'Kontext',
+    date: 'Veröffentlicht',
+    run: 'Analyselauf',
+    evidence: 'mit quellengestützter Abstimmungs-, Ausschuss- und Gesetzgebungsanalyse',
+    reader: 'für Leser, die demokratische Folgen der EU-Institutionen verfolgen',
+  },
+  fr: {
+    context: 'Contexte',
+    date: 'Publié',
+    run: 'cycle d’analyse',
+    evidence: 'avec analyse sourcée des votes, commissions et dossiers législatifs',
+    reader: 'pour suivre les conséquences démocratiques des institutions de l’UE',
+  },
+  es: {
+    context: 'Contexto',
+    date: 'Publicado',
+    run: 'ejecución de análisis',
+    evidence: 'con inteligencia enlazada sobre votos, comisiones y legislación',
+    reader: 'para lectores que siguen consecuencias democráticas de las instituciones de la UE',
+  },
+  nl: {
+    context: 'Context',
+    date: 'Gepubliceerd',
+    run: 'analyserun',
+    evidence: 'met brongekoppelde stem-, commissie- en wetgevingsanalyse',
+    reader: 'voor lezers die democratische gevolgen van EU-instellingen volgen',
+  },
+  ar: {
+    context: 'السياق',
+    date: 'نُشر',
+    run: 'تشغيل التحليل',
+    evidence: 'مع تحليل موثق للتصويت واللجان والتشريع',
+    reader: 'للقراء الذين يتابعون آثار مؤسسات الاتحاد الأوروبي على المساءلة الديمقراطية',
+  },
+  he: {
+    context: 'הקשר',
+    date: 'פורסם',
+    run: 'הרצת ניתוח',
+    evidence: 'עם מודיעין מקושר מקורות על הצבעות, ועדות וחקיקה',
+    reader: 'לקוראים העוקבים אחר השלכות מוסדות האיחוד האירופי על אחריות דמוקרטית',
+  },
+  ja: {
+    context: '文脈',
+    date: '公開日',
+    run: '分析実行',
+    evidence: '投票、委員会、立法に関する出典付きインテリジェンス',
+    reader: 'EU機関の民主的説明責任への影響を追跡する読者向け',
+  },
+  ko: {
+    context: '맥락',
+    date: '게시일',
+    run: '분석 실행',
+    evidence: '투표, 위원회, 입법에 대한 출처 연결 인텔리전스',
+    reader: 'EU 기관의 민주적 책임 영향을 추적하는 독자를 위해',
+  },
+  zh: {
+    context: '背景',
+    date: '发布日期',
+    run: '分析运行',
+    evidence: '附来源链接的投票、委员会、立法程序、政治联盟和政策影响情报',
+    reader: '面向跟踪欧盟机构民主问责、透明度和成员国政策后果的读者',
+  },
+};
 
 /** Ordered list of artefact filenames that typically carry the editorial H1. */
 const EDITORIAL_ARTEFACT_CANDIDATES: readonly string[] = [
@@ -490,8 +602,14 @@ export function extractFirstH1(markdown: string): string {
  * @returns Prose description, or empty string when nothing qualifies
  */
 export function extractStrongProseLine(markdown: string): string {
+  let inFence = false;
   for (const raw of markdown.split('\n')) {
     const line = raw.trim();
+    if (line.startsWith('```') || line.startsWith('~~~')) {
+      inFence = !inFence;
+      continue;
+    }
+    if (inFence) continue;
     if (shouldSkipDescriptionLine(line)) continue;
     const plain = stripLeadingProseLabel(stripInlineMarkdown(line));
     if (plain.length < 40) continue;
@@ -518,9 +636,15 @@ export function extractStrongProseLine(markdown: string): string {
 export function extractLedeAfterHeading(markdown: string): string {
   const lines = markdown.split('\n');
   let inLede = false;
+  let inFence = false;
   for (let i = 0; i < lines.length; i++) {
     const raw = lines[i] ?? '';
     const line = raw.trim();
+    if (line.startsWith('```') || line.startsWith('~~~')) {
+      inFence = !inFence;
+      continue;
+    }
+    if (inFence) continue;
     if (/^#{2,3}\s+/.test(line)) {
       const headingText = normaliseHeadingText(line.replace(/^#{2,3}\s+/, ''));
       inLede = EDITORIAL_LEDE_HEADINGS.some(
@@ -1281,6 +1405,158 @@ function resolveEditorialContent(opts: ResolveMetadataOptions): {
 }
 
 /**
+ * Enrich a localized fallback title with the article-specific editorial
+ * headline so translated variants are not reduced to duplicate type/date
+ * templates when the source artifacts carry a real story.
+ *
+ * @param lang - Target language code
+ * @param fallbackTitle - Localized article-type fallback title
+ * @param editorialHeadline - Artifact-derived editorial headline
+ * @param runId - Optional run id used only when no editorial headline exists
+ * @returns SEO title candidate
+ */
+function composeContextualTitle(
+  lang: LanguageCode,
+  fallbackTitle: string,
+  editorialHeadline: string,
+  runId: string
+): string {
+  if (lang === 'en') {
+    return editorialHeadline || withRunQualifier(fallbackTitle, runId);
+  }
+  if (editorialHeadline) {
+    return `${fallbackTitle} — ${editorialHeadline}`;
+  }
+  return withRunQualifier(fallbackTitle, runId);
+}
+
+/**
+ * Add localized article context, date, run id and evidence language to short
+ * meta descriptions. This turns generic type-level subtitles into
+ * page-specific descriptions suitable for search snippets.
+ *
+ * @param lang - Target language code
+ * @param baseDescription - Best description from manifest/editorial/template
+ * @param editorial - Artifact-derived headline and summary
+ * @param editorial.headline - Artifact-derived headline
+ * @param editorial.summary - Artifact-derived summary
+ * @param date - ISO article date
+ * @param runId - Optional analysis run id
+ * @returns Description in the target language context, capped for SEO snippets
+ */
+function composeContextualDescription(
+  lang: LanguageCode,
+  baseDescription: string,
+  editorial: { readonly headline: string; readonly summary: string },
+  date: string,
+  runId: string
+): string {
+  const labels = getLocalizedString(SEO_CONTEXT_LABELS, lang);
+  const parts = [baseDescription.trim()];
+  const runPart = runId ? ` · ${labels.run} ${runId}` : '';
+  parts.push(`${labels.date} ${date}${runPart}, ${labels.evidence}`);
+  const context = pickFirstNonEmpty([editorial.summary, editorial.headline]);
+  if (context && !containsNormalized(parts[0] ?? '', context)) {
+    parts.push(`${labels.context}: ${context}`);
+  }
+  parts.push(labels.reader);
+  return truncateDescription(parts.join(' '));
+}
+
+/**
+ * Append a run qualifier to otherwise duplicate-prone fallback titles.
+ *
+ * @param title - Base title
+ * @param runId - Optional run id
+ * @returns Title with run qualifier when available
+ */
+function withRunQualifier(title: string, runId: string): string {
+  return runId ? `${title} — Run ${runId}` : title;
+}
+
+/**
+ * Case-insensitive containment check after whitespace normalization.
+ *
+ * @param haystack - Text to search
+ * @param needle - Text to locate
+ * @returns True when `needle` is already present in `haystack`
+ */
+function containsNormalized(haystack: string, needle: string): boolean {
+  const cleanHaystack = haystack.toLowerCase().replace(/\s+/g, ' ');
+  const cleanNeedle = needle.toLowerCase().replace(/\s+/g, ' ');
+  return cleanNeedle.length > 0 && cleanHaystack.includes(cleanNeedle);
+}
+
+/**
+ * Build a stable, localized keyword list from the article type plus the
+ * resolved title/description context.
+ *
+ * @param lang - Target language code
+ * @param articleType - Article type slug
+ * @param date - ISO article date
+ * @param runId - Optional run id
+ * @param title - Resolved title
+ * @param description - Resolved description
+ * @returns De-duplicated keywords for `<meta name="keywords">`
+ */
+export function buildSeoKeywords(
+  lang: LanguageCode,
+  articleType: string,
+  date: string,
+  runId: string,
+  title: string,
+  description: string
+): readonly string[] {
+  const localized = getLocalizedString(LOCALIZED_KEYWORDS, lang);
+  const base = Object.getOwnPropertyDescriptor(localized, articleType)?.value as
+    | readonly string[]
+    | undefined;
+  const fallback = ['EU Parliament', 'European Parliament', 'political intelligence'];
+  const candidates = [
+    ...(base ?? fallback),
+    humanizeSlug(articleType),
+    date,
+    ...(runId ? [`run ${runId}`] : []),
+    ...extractKeywordTerms(`${title} ${description}`),
+  ];
+  return dedupeKeywords(candidates).slice(0, 16);
+}
+
+/**
+ * Extract short keyword terms from resolved SEO copy.
+ *
+ * @param text - Title and description text
+ * @returns Candidate terms
+ */
+function extractKeywordTerms(text: string): string[] {
+  return text
+    .split(/[^\p{L}\p{N}]+/u)
+    .map((token) => token.trim())
+    .filter((token) => token.length >= 4 && !/^\d+$/.test(token))
+    .slice(0, 18);
+}
+
+/**
+ * De-duplicate keywords case-insensitively while preserving original order.
+ *
+ * @param candidates - Raw keyword candidates
+ * @returns De-duplicated keyword list
+ */
+function dedupeKeywords(candidates: readonly string[]): string[] {
+  const seen = new Set<string>();
+  const out: string[] = [];
+  for (const candidate of candidates) {
+    const trimmed = candidate.trim();
+    if (!trimmed) continue;
+    const key = trimmed.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push(trimmed);
+  }
+  return out;
+}
+
+/**
  * Resolve per-language `{title, description}` for one article following
  * the priority ladder documented at the top of this module.
  *
@@ -1291,6 +1567,7 @@ export function resolveArticleMetadata(opts: ResolveMetadataOptions): ResolvedMe
   const manifest = opts.manifest ?? {};
   const editorial = resolveEditorialContent(opts);
   const template = buildTemplateFallback(opts.articleType, opts.date, manifest.committee);
+  const runId = manifest.runId?.trim() ?? '';
 
   const result: Record<LanguageCode, ResolvedMetadataEntry> = Object.create(null) as Record<
     LanguageCode,
@@ -1302,21 +1579,35 @@ export function resolveArticleMetadata(opts: ResolveMetadataOptions): ResolvedMe
     const manifestDescription = manifestOverrideFor(manifest.description, lang);
     const fallback = template[lang];
 
-    const useEditorial = lang === 'en';
-    const titleCandidates = useEditorial
-      ? [manifestTitle, editorial.headline, fallback.title]
-      : [manifestTitle, fallback.title];
-    const descCandidates = useEditorial
-      ? [manifestDescription, editorial.summary, fallback.subtitle]
-      : [manifestDescription, fallback.subtitle];
+    const contextualTitle = composeContextualTitle(lang, fallback.title, editorial.headline, runId);
+    const titleCandidates = [manifestTitle, contextualTitle, fallback.title];
+    const descCandidates = [
+      manifestDescription,
+      lang === 'en' ? editorial.summary : '',
+      fallback.subtitle,
+    ];
 
     const title = pickFirstNonEmpty(titleCandidates) || fallback.title;
-    const description = pickFirstNonEmpty(descCandidates) || fallback.subtitle;
+    const rawDescription = pickFirstNonEmpty(descCandidates) || fallback.subtitle;
+    const description =
+      rawDescription.length >= DESCRIPTION_MIN_LENGTH && containsNormalized(rawDescription, opts.date)
+        ? rawDescription
+        : composeContextualDescription(lang, rawDescription, editorial, opts.date, runId);
+    const truncatedTitle = truncateTitle(title);
+    const truncatedDescription = truncateDescription(description);
 
     Object.defineProperty(result, lang, {
       value: {
-        title: truncateTitle(title),
-        description: truncateDescription(description),
+        title: truncatedTitle,
+        description: truncatedDescription,
+        keywords: buildSeoKeywords(
+          lang,
+          opts.articleType,
+          opts.date,
+          runId,
+          truncatedTitle,
+          truncatedDescription
+        ),
       },
       enumerable: true,
       writable: true,
