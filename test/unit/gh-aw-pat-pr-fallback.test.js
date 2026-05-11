@@ -48,8 +48,34 @@ describe('gh-aw-pat-pr-fallback.sh', () => {
     expect(result.stdout).not.toContain('no recovery/failed-safeoutputs patch');
   });
 
+  it('activates for failed safe_outputs runs when only a bundle artifact exists (bundle-only case)', () => {
+    // Trigger 4: safe_outputs_failed + aw-*.bundle exists (no patch).
+    // Covers the edge case where gh-aw emits only a bundle and the bundle
+    // prerequisite fails due to a shallow-clone race (e.g. run #25653736742).
+    fs.writeFileSync(path.join(ghAwDir, 'aw-news-2026-05-11-propositions-run251.bundle'), 'bundle-placeholder\n');
+
+    const result = runFallback(ghAwDir, {
+      GH_AW_SAFE_OUTPUTS_RESULT: 'failure',
+    });
+
+    expect(result.code).toBe(0);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).toContain('no fallback token available; fallback skipped');
+    expect(result.stdout).not.toContain('no recovery/failed-safeoutputs patch/bundle artifact');
+  });
+
   it('does not activate for patch artifacts while safe_outputs is still unknown', () => {
     fs.writeFileSync(path.join(ghAwDir, 'aw-create-pull-request.patch'), 'diff --git a/x b/x\n');
+
+    const result = runFallback(ghAwDir);
+
+    expect(result.code).toBe(0);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).toContain('agent stdio log not found and no recovery/failed-safeoutputs patch');
+  });
+
+  it('does not activate for bundle artifacts while safe_outputs is still unknown', () => {
+    fs.writeFileSync(path.join(ghAwDir, 'aw-news-run.bundle'), 'bundle-placeholder\n');
 
     const result = runFallback(ghAwDir);
 
