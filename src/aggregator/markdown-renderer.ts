@@ -124,6 +124,111 @@ export function slugify(text: string): string {
 }
 
 /**
+ * Walk the leading lines of a mermaid block, skipping blank lines,
+ * single-line `%%…%%` comments, and (possibly multi-line)
+ * `%%{init: { … }}%%` directives, until we hit the first directive
+ * line. Returns `true` when that directive line is the
+ * `quadrantChart` keyword.
+ *
+ * Extracted from {@link sanitizeMermaidQuadrantChart} to keep the
+ * sanitizer's cognitive complexity below the project's lint cap.
+ *
+ * @param lines - Mermaid block split on `\n`
+ * @returns `true` when the block declares a quadrantChart
+ */
+function isQuadrantChartBlock(lines: readonly string[]): boolean {
+  let inInitDirective = false;
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (trimmed === '') continue;
+    if (inInitDirective) {
+      if (trimmed.endsWith('}}%%')) inInitDirective = false;
+      continue;
+    }
+    if (trimmed.startsWith('%%{')) {
+      if (!trimmed.endsWith('}}%%')) inInitDirective = true;
+      continue;
+    }
+    if (trimmed.startsWith('%%')) continue; // plain comment
+    return /^quadrantChart\b/.test(trimmed);
+  }
+  return false;
+}
+
+/**
+ * Wrap an unquoted mermaid label in double quotes, escaping any
+ * embedded `\` and `"` so the lexer still sees a single string token.
+ * A label that is already fully quoted (matched leading and trailing
+ * `"`, length ≥ 2) is preserved byte-for-byte.
+ *
+ * Backslashes must be escaped **before** double quotes so an input
+ * containing `\` is not double-processed by the second pass.
+ *
+ * @param raw - Raw label text harvested by the per-line regex
+ * @returns Quoted label suitable for emission inside a quadrantChart
+ */
+function quoteMermaidLabel(raw: string): string {
+  const trimmed = raw.trim();
+  if (trimmed === '') return raw;
+  if (
+    trimmed.length >= 2 &&
+    trimmed.startsWith('"') &&
+    trimmed.endsWith('"')
+  ) {
+    return trimmed;
+  }
+  const inner = trimmed.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+  return `"${inner}"`;
+}
+
+/**
+ * Rewrite a single non-directive line inside a quadrantChart block,
+ * auto-quoting axis directives, quadrant labels, and data points. The
+ * `title` line is intentionally untouched because the mermaid v11
+ * lexer accepts arbitrary text after the `title` keyword.
+ *
+ * The regex literals use `-{2}>` instead of the literal three-byte
+ * `-->` token so CodeQL's "bad HTML filtering regexp" heuristic does
+ * not mistake the mermaid axis-arrow grammar for an HTML-comment-end
+ * sanitiser. The two patterns are byte-equivalent.
+ *
+ * @param line - One line from the mermaid block
+ * @returns Rewritten line, or the original when no shape matched
+ */
+function rewriteQuadrantChartLine(line: string): string {
+  // x-axis / y-axis "Left" --> "Right"
+  let m = line.match(/^(\s*(?:x-axis|y-axis)\s+)(.+?)\s*-{2}>\s*(.+?)\s*$/);
+  if (m) {
+    return `${m[1]}${quoteMermaidLabel(m[2] ?? '')} --> ${quoteMermaidLabel(m[3] ?? '')}`;
+  }
+  // Single-axis form (rare): `x-axis "Label only"` with no arrow.
+  m = line.match(/^(\s*(?:x-axis|y-axis)\s+)(.+?)\s*$/);
+  if (m && !/-{2}>/.test(m[2] ?? '')) {
+    return `${m[1]}${quoteMermaidLabel(m[2] ?? '')}`;
+  }
+  // quadrant-N Label
+  m = line.match(/^(\s*quadrant-[1-4]\s+)(.+?)\s*$/);
+  if (m) {
+    return `${m[1]}${quoteMermaidLabel(m[2] ?? '')}`;
+  }
+  // Data point: `Label: [x, y]`
+  m = line.match(/^(\s*)([^[\n]+?)\s*:\s*(\[\s*[\d.]+\s*,\s*[\d.]+\s*\])\s*$/);
+  if (m) {
+    const prefix = m[1] ?? '';
+    const label = m[2] ?? '';
+    const coords = m[3] ?? '';
+    if (
+      !/^(?:x-axis|y-axis|quadrant-[1-4]|title|quadrantChart)\b/.test(
+        label.trim(),
+      )
+    ) {
+      return `${prefix}${quoteMermaidLabel(label)}: ${coords}`;
+    }
+  }
+  return line;
+}
+
+/**
  * Auto-quote unquoted `quadrantChart` labels so the Mermaid v11 lexer
  * accepts them. The Mermaid `quadrantChart` grammar treats unquoted
  * labels as a restricted token class — em-dashes (`—`, U+2014),
@@ -160,103 +265,6 @@ export function slugify(text: string): string {
  *          the input string is returned unchanged for non-quadrant
  *          diagrams or when no edits are required.
  */
-/**
- * Walk the leading lines of a mermaid block, skipping blank lines,
- * single-line `%%…%%` comments, and (possibly multi-line)
- * `%%{init: { … }}%%` directives, until we hit the first directive
- * line. Returns `true` when that directive line is the
- * `quadrantChart` keyword.
- *
- * Extracted from {@link sanitizeMermaidQuadrantChart} to keep the
- * sanitizer's cognitive complexity below the project's lint cap.
- *
- * @param lines - Mermaid block split on `\n`
- * @returns `true` when the block declares a quadrantChart
- */
-function isQuadrantChartBlock(lines: readonly string[]): boolean {
-  let inInitDirective = false;
-  for (const line of lines) {
-    const trimmed = line.trim();
-    if (trimmed === '') continue;
-    if (inInitDirective) {
-      if (trimmed.endsWith('}}%%')) inInitDirective = false;
-      continue;
-    }
-    if (trimmed.startsWith('%%{')) {
-      if (!trimmed.endsWith('}}%%')) inInitDirective = true;
-      continue;
-    }
-    if (trimmed.startsWith('%%')) continue; // plain comment
-    return /^quadrantChart\b/.test(trimmed);
-  }
-  return false;
-}
-
-/**
- * Wrap an unquoted mermaid label in double quotes, escaping any
- * embedded `"` so the lexer still sees a single string token. A label
- * that is already fully quoted (matched leading and trailing `"`,
- * length ≥ 2) is preserved byte-for-byte.
- *
- * @param raw - Raw label text harvested by the per-line regex
- * @returns Quoted label suitable for emission inside a quadrantChart
- */
-function quoteMermaidLabel(raw: string): string {
-  const trimmed = raw.trim();
-  if (trimmed === '') return raw;
-  if (
-    trimmed.length >= 2 &&
-    trimmed.startsWith('"') &&
-    trimmed.endsWith('"')
-  ) {
-    return trimmed;
-  }
-  const inner = trimmed.replace(/"/g, '\\"');
-  return `"${inner}"`;
-}
-
-/**
- * Rewrite a single non-directive line inside a quadrantChart block,
- * auto-quoting axis directives, quadrant labels, and data points. The
- * `title` line is intentionally untouched because the mermaid v11
- * lexer accepts arbitrary text after the `title` keyword.
- *
- * @param line - One line from the mermaid block
- * @returns Rewritten line, or the original when no shape matched
- */
-function rewriteQuadrantChartLine(line: string): string {
-  // x-axis / y-axis "Left" --> "Right"
-  let m = line.match(/^(\s*(?:x-axis|y-axis)\s+)(.+?)\s*-->\s*(.+?)\s*$/);
-  if (m) {
-    return `${m[1]}${quoteMermaidLabel(m[2] ?? '')} --> ${quoteMermaidLabel(m[3] ?? '')}`;
-  }
-  // Single-axis form (rare): `x-axis "Label only"` with no arrow.
-  m = line.match(/^(\s*(?:x-axis|y-axis)\s+)(.+?)\s*$/);
-  if (m && !/-->/.test(m[2] ?? '')) {
-    return `${m[1]}${quoteMermaidLabel(m[2] ?? '')}`;
-  }
-  // quadrant-N Label
-  m = line.match(/^(\s*quadrant-[1-4]\s+)(.+?)\s*$/);
-  if (m) {
-    return `${m[1]}${quoteMermaidLabel(m[2] ?? '')}`;
-  }
-  // Data point: `Label: [x, y]`
-  m = line.match(/^(\s*)([^[\n]+?)\s*:\s*(\[\s*[\d.]+\s*,\s*[\d.]+\s*\])\s*$/);
-  if (m) {
-    const prefix = m[1] ?? '';
-    const label = m[2] ?? '';
-    const coords = m[3] ?? '';
-    if (
-      !/^(?:x-axis|y-axis|quadrant-[1-4]|title|quadrantChart)\b/.test(
-        label.trim(),
-      )
-    ) {
-      return `${prefix}${quoteMermaidLabel(label)}: ${coords}`;
-    }
-  }
-  return line;
-}
-
 export function sanitizeMermaidQuadrantChart(content: string): string {
   const lines = content.split('\n');
   if (!isQuadrantChartBlock(lines)) return content;
@@ -307,8 +315,13 @@ function installMermaidFence(md: MarkdownIt): void {
       const env2 = env as { mermaidLabel?: RenderOptions['mermaidLabel'] };
       const labelFn: RenderOptions['mermaidLabel'] =
         env2.mermaidLabel ?? ((n) => `Mermaid diagram ${n + 1}`);
+      // Per the {@link RenderOptions.mermaidLabel} contract the
+      // callback receives the **raw** mermaid source so caption
+      // builders can inspect author intent (e.g. extract the `title`
+      // line) before any renderer-side normalisation. Sanitisation is
+      // applied only to the body that becomes the `<pre>` content.
+      const label = md.utils.escapeHtml(labelFn(currentIndex, token.content));
       const sanitized = sanitizeMermaidQuadrantChart(token.content);
-      const label = md.utils.escapeHtml(labelFn(currentIndex, sanitized));
       const body = md.utils.escapeHtml(sanitized);
       return `<figure class="mermaid-figure" role="img" aria-label="${label}">\n<pre class="mermaid">${body}</pre>\n</figure>\n`;
     }

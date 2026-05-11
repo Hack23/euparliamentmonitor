@@ -232,6 +232,24 @@ describe('sanitizeMermaidQuadrantChart', () => {
     expect(out).toContain('quadrant-1 "He said \\"hi\\""');
   });
 
+  it('escapes embedded backslashes before double quotes (escape order)', () => {
+    // Backslashes must be escaped first; otherwise the second pass
+    // would re-process the `\` introduced by the `"` → `\"` rewrite
+    // and emit malformed output. Verify both escape passes run in the
+    // correct order against an input that contains both characters.
+    const input = [
+      'quadrantChart',
+      '    quadrant-1 path C:\\Users\\file "x"',
+      '    quadrant-2 B',
+      '    quadrant-3 C',
+      '    quadrant-4 D',
+      '    A: [0.5, 0.5]',
+    ].join('\n');
+    const out = sanitizeMermaidQuadrantChart(input);
+    // Expected: backslashes doubled to `\\` then quotes escaped to `\"`
+    expect(out).toContain('quadrant-1 "path C:\\\\Users\\\\file \\"x\\""');
+  });
+
   it('renderMarkdown emits sanitized quadrantChart bodies', () => {
     const md = [
       '```mermaid',
