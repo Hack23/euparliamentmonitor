@@ -26,7 +26,7 @@ jobs:
     # NOTE: step-security/harden-runner is intentionally NOT used here — it is
     # not supported inside container jobs (requires host-level network hooks).
     container:
-      image: mcr.microsoft.com/playwright:v1.59.1-noble
+      image: mcr.microsoft.com/playwright:v1.60.0-noble
 
     permissions:
       contents: read
