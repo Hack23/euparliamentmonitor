@@ -150,8 +150,8 @@
     "@types/papaparse": "5.5.2",
     "@typescript-eslint/eslint-plugin": "8.59.2",
     "@typescript-eslint/parser": "8.59.2",
-    "@vitest/coverage-v8": "4.1.5",
-    "@vitest/ui": "4.1.5",
+    "@vitest/coverage-v8": "4.1.6",
+    "@vitest/ui": "4.1.6",
     "chart.js": "4.5.1",
     "chartjs-plugin-annotation": "3.1.0",
     "d3": "7.9.0",
@@ -166,14 +166,14 @@
     "jscpd": "4.1.0",
     "knip": "^6.7.0",
     "lint-staged": "17.0.4",
-    "mermaid": "11.14.0",
+    "mermaid": "11.15.0",
     "papaparse": "5.5.3",
     "prettier": "3.8.3",
     "ts-api-utils": "2.5.0",
     "tsx": "4.21.0",
     "typedoc": "0.28.19",
     "typescript": "6.0.3",
-    "vitest": "4.1.5"
+    "vitest": "4.1.6"
   },
   "engines": {
     "node": ">=26"
