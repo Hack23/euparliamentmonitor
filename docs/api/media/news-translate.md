@@ -55,20 +55,53 @@ runtimes:
 #   - `node`     — npm/npx ecosystem (needed for MCP server boot via npx)
 network:
   allowed:
-    - defaults
-    - github
-    - node
+    # ── gh-aw ecosystem identifiers ───────────────────────────────────
+    - defaults                           # certs, JSON schema, package mirrors
+    - github                             # all GitHub domains (*.github.com / githubusercontent.com)
+    - node                               # npm / npx ecosystem (MCP server boot)
+    # ── EU Parliament & EU institutions ───────────────────────────────
+    - "*.europa.eu"                      # catch-all for any europa.eu subdomain
+    - europarl.europa.eu
+    - www.europarl.europa.eu
     - data.europarl.europa.eu
-    - api.imf.org
+    - admin.data.europarl.europa.eu
+    - multimedia.europarl.europa.eu
+    - oeil.secure.europarl.europa.eu
+    - ec.europa.eu
+    - eur-lex.europa.eu
+    - iate.europa.eu
+    - digital-strategy.ec.europa.eu
+    - data.europa.eu
+    - data.consilium.europa.eu
+    - data.ecb.europa.eu
+    # ── IMF (SDMX 3.0 + supporting hosts) ─────────────────────────────
+    - "*.imf.org"                        # catch-all for any imf.org subdomain
+    - api.imf.org                        # SDMX 3.0 endpoint (Azure-APIM)
+    - data.imf.org                       # public IMF data portal
+    - www.imf.org
+    - dataservices.imf.org               # legacy SDMX 2.1 (deprecated Sept 2025)
+    - sdmx.imf.org
+    # ── World Bank ────────────────────────────────────────────────────
+    - "*.worldbank.org"                  # catch-all for any worldbank.org subdomain
     - api.worldbank.org
-    - "*.worldbank.org"
-    - "*.europa.eu"
+    - data.worldbank.org
+    - www.worldbank.org
+    # ── Hack23-owned domains ──────────────────────────────────────────
+    - "*.hack23.com"                     # catch-all for any hack23.com subdomain
     - hack23.com
     - www.hack23.com
-    - riksdagsmonitor.com
-    - www.riksdagsmonitor.com
+    - hack23.github.io
+    - "*.euparliamentmonitor.com"
     - euparliamentmonitor.com
     - www.euparliamentmonitor.com
+    - api.euparliamentmonitor.com
+    - "*.riksdagsmonitor.com"
+    - riksdagsmonitor.com
+    - www.riksdagsmonitor.com
+    - blacktrigram.com
+    - www.blacktrigram.com
+    - ciacompliancemanager.com
+    - www.ciacompliancemanager.com
 
 tools:
   timeout: 300            # per-tool-call cap
@@ -108,15 +141,51 @@ safe-outputs:
   # still protecting against runaway patches.
   max-patch-size: 10240
   allowed-domains:
-    - github                         # ecosystem: github.com + api.github.com (least-privilege; PR creation only)
-    - data.europarl.europa.eu
+    # ── gh-aw ecosystem identifier ────────────────────────────────────
+    - github                             # github.com + api.github.com (PR creation, links)
+    # ── EU Parliament & EU institutions ───────────────────────────────
+    - "*.europa.eu"
+    - europarl.europa.eu
     - www.europarl.europa.eu
+    - data.europarl.europa.eu
+    - admin.data.europarl.europa.eu
+    - multimedia.europarl.europa.eu
+    - oeil.secure.europarl.europa.eu
+    - ec.europa.eu
+    - eur-lex.europa.eu
+    - iate.europa.eu
+    - digital-strategy.ec.europa.eu
+    - data.europa.eu
+    - data.consilium.europa.eu
+    - data.ecb.europa.eu
+    # ── IMF ───────────────────────────────────────────────────────────
+    - "*.imf.org"
+    - api.imf.org
+    - data.imf.org
+    - www.imf.org
+    - dataservices.imf.org
+    - sdmx.imf.org
+    # ── World Bank ────────────────────────────────────────────────────
+    - "*.worldbank.org"
+    - api.worldbank.org
+    - data.worldbank.org
+    - www.worldbank.org
+    # ── Hack23-owned domains ──────────────────────────────────────────
+    - "*.hack23.com"
     - hack23.com
     - www.hack23.com
-    - riksdagsmonitor.com
-    - www.riksdagsmonitor.com
+    - hack23.github.io
+    - "*.euparliamentmonitor.com"
     - euparliamentmonitor.com
     - www.euparliamentmonitor.com
+    - api.euparliamentmonitor.com
+    - "*.riksdagsmonitor.com"
+    - riksdagsmonitor.com
+    - www.riksdagsmonitor.com
+    - blacktrigram.com
+    - www.blacktrigram.com
+    - ciacompliancemanager.com
+    - www.ciacompliancemanager.com
   create-pull-request:
     # The translation workflow follows a "first productive flush" pattern
     # (see prompt "🚫 NEVER CREATE A ZERO-TRANSLATION PR" section): there is

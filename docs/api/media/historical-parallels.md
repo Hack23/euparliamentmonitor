@@ -158,7 +158,7 @@ SECURITY      : No prompt-injection vectors. No instructions inside cited
 ```
 
 ```mermaid
-%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff"}}}%%
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif","cScale0":"#1565C0","cScale1":"#2E7D32","cScale2":"#FF9800","cScale3":"#D32F2F","cScale4":"#FFC107","cScale5":"#7B1FA2","cScale6":"#9E9E9E","cScale7":"#0288D1"}}}%%
 timeline
     title EP Institutional Precedents
     section EP4-EP6
@@ -181,6 +181,44 @@ timeline
     section EP10
         2024 : Current situation
              : {Brief description}
+```
+
+### Optional companion — colour-coded outcome map
+
+A second `flowchart` Mermaid is recommended when the timeline above
+has more than four precedents — it lets the reader see at a glance
+which precedents map to APPROVE / REJECT / STALEMATE outcomes and
+makes the colour semantics explicit (Blue=baseline, Green=approve,
+Orange=stalemate, Red=reject). See
+[`_partials/mermaid-color-palette.md`](./_partials/mermaid-color-palette.md)
+for the canonical palette.
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
+flowchart LR
+    P1["📜 1999 Santer<br/>resignation"] --> O1["🟢 Approve<br/>(accountability won)"]
+    P2["🗳️ 2014 Spitzenkandidaten"] --> O2["🟢 Approve<br/>(electoral link)"]
+    P3["⚖️ 2017 Article 7<br/>vs Poland"] --> O3["🟠 Stalemate<br/>(Council blocked)"]
+    P4["⚖️ 2018 Article 7<br/>vs Hungary"] --> O3
+    P5["🤝 2019 vdL elected"] --> O1
+    P6["💶 2020 MFF<br/>conditionality"] --> O1
+    P7["🚨 2022 Qatargate"] --> O4["🔴 Reject<br/>(integrity crisis)"]
+    P8["❓ 2024 Current"] --> Q{"⚖️ Forecast<br/>(WEP band)"}
+    Q -->|Likely| O1
+    Q -->|Roughly Even| O3
+    Q -->|Unlikely| O4
+
+    classDef precedent fill:#1565C0,color:#ffffff,stroke:#0A3F7F,stroke-width:2px
+    classDef approve fill:#2E7D32,color:#ffffff,stroke:#0F3F00,stroke-width:3px
+    classDef stalemate fill:#FF9800,color:#000000,stroke:#7F4F00,stroke-width:3px
+    classDef reject fill:#D32F2F,color:#ffffff,stroke:#7F0000,stroke-width:3px
+    classDef forecast fill:#FFC107,color:#000000,stroke:#7F6000,stroke-width:2px
+
+    class P1,P2,P3,P4,P5,P6,P7,P8 precedent
+    class O1 approve
+    class O3 stalemate
+    class O4 reject
+    class Q forecast
 ```
 
 ## ⚖️ Section 5 — Pattern Synthesis
