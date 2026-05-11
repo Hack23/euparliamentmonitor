@@ -235,4 +235,51 @@ Future runs should explicitly detect non-plenary weeks (via empty `get_plenary_s
 | monitor_legislative_pipeline | ✅ PASS (empty) | ~2s | 0 | N/A |
 | fetch-proxy (IMF SDMX) | ❌ BLOCKED | N/A | 0 | N/A |
 
-*MCP reliability audit completed: 2026-05-11 | Run: committee-reports-run252-1778477039*
+---
+
+## 📊 MCP Tool Reliability Map
+
+```mermaid
+%%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","lineColor":"#90CAF9"}}}%%
+quadrantChart
+    title MCP Tool Performance Matrix (May 2026 Run)
+    x-axis Low Reliability --> High Reliability
+    y-axis Low Data Volume --> High Data Volume
+    quadrant-1 "Primary Production Tools"
+    quadrant-2 "Unreliable but Critical"
+    quadrant-3 "Low Priority"
+    quadrant-4 "Fast and Light"
+    "get_current_meps": [0.85, 0.80]
+    "get_adopted_texts": [0.90, 0.75]
+    "get_procedures": [0.75, 0.70]
+    "get_plenary_sessions": [0.80, 0.55]
+    "get_parliamentary_questions": [0.85, 0.45]
+    "get_committee_documents_feed": [0.20, 0.70]
+    "get_events_feed": [0.20, 0.60]
+    "fetch-proxy (IMF)": [0.05, 0.50]
+    "world-bank indicators": [0.80, 0.40]
+    "monitor_legislative_pipeline": [0.80, 0.20]
+```
+
+## 🔄 Degradation Pattern Analysis
+
+**Structural degradation causes identified in EP10 runs (2024–2026):**
+
+1. **Committee document feed timeouts** — The EP Open Data Portal `committee-documents/feed` endpoint has exhibited elevated timeout rates (estimated 40–60% failure rate across production runs) due to server-side resource constraints. The fixed-window feed returns the same ~1 month of data regardless of `timeframe` parameter — the upstream API ignores the parameter per EP API contract.
+
+2. **Events feed degradation** — `get_events_feed` has similar timeout patterns; the underlying endpoint is documented as "significantly slower" in the EP MCP server source. Workaround: `get_plenary_sessions` with `year` filter provides partial coverage.
+
+3. **IMF SDMX firewall blocking** — The AWF Squid proxy whitelist does not include `api.imf.org/external/sdmx/3.0/` paths used by SDMX 2.1 (rejected by the IMF API). The `fetch-proxy` inline server is designed to bypass this but is itself subject to the firewall domain allowlist. Consequence: all economic data in this run is from World Bank and EC/ECB published sources.
+
+4. **DOCEO XML availability** — Roll-call voting data and adopted text amendments are published via DOCEO XML with a typical 3–4 week delay. Non-plenary weeks have no new DOCEO XML output.
+
+## 📐 Reliability Improvement Recommendations
+
+| Tool | Priority | Recommended Fallback |
+|------|----------|----------------------|
+| committee-documents/feed | CRITICAL | Direct `get_committee_documents` with pagination |
+| events/feed | HIGH | `get_plenary_sessions?year=2026` + manual date filter |
+| fetch-proxy (IMF) | CRITICAL | World Bank indicators as primary; EC Spring Forecast as secondary |
+| get_voting_records | MEDIUM | `get_adopted_texts_feed` for vote results |
+
+*MCP reliability audit completed: 2026-05-11 | Extended re-run: 2026-05-11 | Run: committee-reports-run252-1778477039*

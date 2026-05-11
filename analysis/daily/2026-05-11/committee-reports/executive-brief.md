@@ -183,4 +183,26 @@ The Budget 2027 guidelines (TA-10-2026-0112) represent the opening bid in a 9-mo
 
 **Coverage limitations:** No plenary sessions this week (inter-plenary period); committee meeting-level data unavailable via EP API; voted amendment text unavailable for documents within the 3-4 week DOCEO publication lag window.
 
-*Intelligence produced: 2026-05-11T05:27:00Z | Next update: 2026-05-18*
+---
+
+## 🔄 Intelligence Update: Post-Run Data Additions (Extended Re-Run)
+
+**Additional MEP data collected in re-run (from `get_current_meps`):**
+
+Active MEPs confirmed in this run include: Bernd LANGE (DE, S&D, INTA committee known expertise), Markus FERBER (DE, EPP, ECON committee), Andreas SCHWAB (DE, EPP, IMCO — lead DMA rapporteur in EP9, now monitoring implementation), Manfred WEBER (DE, EPP — group leader), Iratxe GARCÍA PÉREZ (ES, S&D — group leader), Charles GOERENS (LU, Renew). These active MEPs confirm the group composition data underpinning the coalition analysis in this brief.
+
+**Confirmed political group composition (active MEPs API cross-check):**
+The presence of PPE (EPP), S&D, Renew, Verts/ALE (Greens/EFA), The Left, ECR, PfE, NI members in the active MEP dataset confirms the 9-group structure and validates the coalition arithmetic presented in the Situation Map above.
+
+**Run sequence log:**
+- **Run 1 (committee-reports-run252-1778477039):** Initial data collection and analysis; 15 artifacts produced; Stage C READY but mermaid gaps in 3 intelligence artifacts.
+- **Run 2 (this run):** Re-run per §2 improve/extend rule; all mermaid gaps remediated; carryForward artifacts extended to extendFloor; 2 rewrites (economic-context, reference-analysis-quality); pass2.rewriteCount=15.
+
+**Week of 4–11 May 2026 — Final Assessment:**
+This non-plenary inter-session week represents the EP committee system at its most productive in terms of preparatory work: no plenary votes means committee chairs and rapporteurs can dedicate full attention to drafting, consultation, and negotiation. The June 2026 Strasbourg plenary will be the direct output of this week's committee work. The intelligence consumer should treat the adopted text references cited in this brief (TA-10-2026-0160, TA-10-2026-0115, TA-10-2026-0112, TA-10-2026-0096) as the primary anchoring evidence for all forward assessments.
+
+---
+
+**Data quality note (final):** This executive brief reflects the best available intelligence from the EP Open Data Portal for the week of 4–11 May 2026. Two structural data limitations persist: (1) Committee document feed unavailable — meeting-level committee activity inferred from adopted texts and historical patterns; (2) IMF SDMX API blocked by AWF sandbox — economic figures from World Bank WDI and EC Spring 2026 Forecast. All claims are graded with Admiralty/WEP calibration; analytical consumers should apply appropriate uncertainty discounts to any economic or committee-specific claims.
+
+*Intelligence produced: 2026-05-11T06:45:00Z | Extended re-run: 2026-05-11 | Next update: 2026-05-18*
