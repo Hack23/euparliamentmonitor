@@ -65,7 +65,6 @@ export class CircuitBreaker {
         return false;
       }
     }
-    // HALF_OPEN: allow exactly one probe in flight at a time
     if (this.halfOpenProbeInFlight) return false;
     this.halfOpenProbeInFlight = true;
     return true;
@@ -87,7 +86,6 @@ export class CircuitBreaker {
   recordFailure(): void {
     this.halfOpenProbeInFlight = false;
     if (this.state === 'HALF_OPEN') {
-      // Probe failed — immediately re-open and back off again
       this.state = 'OPEN';
       this.nextAttemptAt = Date.now() + this.resetTimeoutMs;
       console.warn('⚡ Circuit breaker re-OPEN after HALF_OPEN probe failure');

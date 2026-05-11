@@ -74,7 +74,6 @@ function extractIdentifier(record) {
     const rawId = record['@id'] ?? '';
     if (!rawId)
         return '';
-    // Strip the URI prefix — last path segment is the local id.
     const lastSlash = rawId.lastIndexOf('/');
     return lastSlash >= 0 ? rawId.slice(lastSlash + 1) : rawId;
 }
@@ -107,9 +106,8 @@ export class EPOpenDataClient {
         const envTimeout = process.env['EP_OPEN_DATA_TIMEOUT_MS'];
         const parsedEnvTimeout = envTimeout !== undefined && envTimeout !== '' ? Number.parseInt(envTimeout, 10) : Number.NaN;
         const base = options.apiBaseUrl ?? (envBase && envBase !== '' ? envBase : DEFAULT_EP_OPEN_DATA_BASE_URL);
-        // Strip trailing slashes without a regex (avoids polynomial-ReDoS flags).
         let end = base.length;
-        while (end > 0 && base.charCodeAt(end - 1) === 47 /* '/' */) {
+        while (end > 0 && base.charCodeAt(end - 1) === 47) {
             end -= 1;
         }
         this._apiBaseUrl = end === base.length ? base : base.slice(0, end);
@@ -359,15 +357,12 @@ export const EPOpenDataPortalClient = EPOpenDataClient;
  */
 export async function getVotingRecordsWithFallback(mcpResult, options) {
     const { dateFrom, dateTo } = options;
-    // Fail fast on missing/blank dates so we don't emit misleading freshness
-    // labels like "🟢 MCP ( → )" or empty-window 🔴 markers downstream.
     if (typeof dateFrom !== 'string' || dateFrom.trim() === '') {
         throw new Error('getVotingRecordsWithFallback: dateFrom is required (non-empty YYYY-MM-DD)');
     }
     if (typeof dateTo !== 'string' || dateTo.trim() === '') {
         throw new Error('getVotingRecordsWithFallback: dateTo is required (non-empty YYYY-MM-DD)');
     }
-    // (a) MCP returned real data — use it.
     if (!EPOpenDataClient.isVotingDataEmpty(mcpResult)) {
         return {
             result: mcpResult,
@@ -375,11 +370,7 @@ export async function getVotingRecordsWithFallback(mcpResult, options) {
             freshnessLabel: `🟢 MCP (${dateFrom} → ${dateTo})`,
         };
     }
-    // (b) MCP was empty — try the EP Open Data Portal fallback.
     const portalClient = new EPOpenDataClient(options);
-    // Validate base URL up front so misconfiguration surfaces as a hard error
-    // rather than being swallowed into the 🔴 "unavailable" path (which is
-    // reserved for genuine "both sources empty" outcomes).
     try {
         await portalClient.connect();
     }
@@ -400,7 +391,6 @@ export async function getVotingRecordsWithFallback(mcpResult, options) {
                 freshnessLabel: `🟡 EP Open Data Portal fallback (${dateFrom} → ${dateTo}) — attribution: ${EP_OPEN_DATA_ATTRIBUTION}`,
             };
         }
-        // (c) Both empty — emit the 🔴 unavailability marker.
         return {
             result: EPOpenDataClient.buildVotingUnavailableMarker(dateFrom, dateTo),
             source: 'unavailable',

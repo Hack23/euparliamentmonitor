@@ -225,7 +225,6 @@ const CONTENT_NOT_YET_AVAILABLE_SUBSTRING = 'document indexed but content not ye
  */
 function classifyToolError(message: string): string {
   const lowerMsg = message.toLowerCase();
-  // EP MCP Server v1.3.2 structured error codes (matched case-insensitively)
   if (lowerMsg.includes('internal_error')) {
     return 'INTERNAL_ERROR';
   }
@@ -312,10 +311,8 @@ export function isFeedUnavailable(result: MCPToolResult | undefined): boolean {
   const envelope = _parseResultPayload(result);
   if (!envelope) return false;
 
-  // Shape 1 — uniform {status:"unavailable"} envelope (#301 / #380).
   if (envelope['status'] === 'unavailable') return true;
 
-  // Shape 2 — pre-v1.2.13 raw upstream 404 leak (historically pre-v1.2.13, #378).
   const error = envelope['error'];
   const idField = envelope['@id'];
   if (
@@ -425,7 +422,6 @@ export function detectProceduresFeedRecessMode(
 ): boolean {
   if (!payload) return false;
 
-  // Collect items from feed shape (`items[]`) or direct-endpoint shape (`procedures[]`)
   const rawItems = payload['items'] ?? payload['procedures'];
   const items = Array.isArray(rawItems) ? rawItems : [];
 
@@ -440,7 +436,6 @@ export function detectProceduresFeedRecessMode(
     }
   }
 
-  // Recess mode: items exist but every dated item is from the historical-archive window
   return years.length > 0 && years.every((y) => y <= PROCEDURES_RECESS_YEAR_THRESHOLD);
 }
 
@@ -501,7 +496,6 @@ export function getElectionCalendarContext(referenceDate?: Date): ElectionCalend
     electionImminentTier = 'T-30';
   }
 
-  // If we're past the election end, the current term is EP11
   const electionEnd = new Date(EP_NEXT_ELECTION_END + 'T23:59:59Z');
   const termId = ref.getTime() > electionEnd.getTime() ? EP_NEXT_TERM : EP_CURRENT_TERM;
 
@@ -591,21 +585,10 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
       const resolvedArgs = typeof args === 'function' ? args() : args;
       const result = await this.callToolWithRetry(toolName, resolvedArgs);
 
-      // Inspect the result for structured error responses from the EP MCP server.
-      // The server may return isError: true with JSON content containing errorCode
-      // (e.g., INTERNAL_ERROR, UPSTREAM_500) instead of throwing an exception.
       if (result.isError === true) {
         return this._recordToolFailure(toolName, result.content?.[0]?.text ?? '', fallbackText);
       }
 
-      // Detect the unavailable-feed envelope — uniform `{status:"unavailable"}`
-      // (all feeds as of v1.2.13, #301/#380) as well as the pre-v1.2.13 raw upstream
-      // 404 shape `{"@id":..., "error":"404 ..."}` that pre-v1.2.13
-      // get_events_feed / get_procedures_feed emitted
-      // (Hack23/European-Parliament-MCP-Server#378, closed by PR #380). The
-      // server returns HTTP 200 with a payload that bypasses isError — record
-      // it as a NOT_FOUND failure so it is visible in getFailedTools() and the
-      // error summary instead of silently passing through as garbage data.
       if (isFeedUnavailable(result)) {
         return this._recordToolFailure(
           toolName,
@@ -614,7 +597,6 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
         );
       }
 
-      // Clear from failed tools on success
       this._failedTools.delete(toolName);
       return result;
     } catch (error) {
@@ -676,7 +658,6 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
       if (error) {
         lines.push(`  ❌ ${tool}: ${error}`);
       } else if (slowWarning) {
-        // Slow-feed warning: timeout was downgraded — not counted as a failure or success
         lines.push(`  🟡 ${tool}: ${slowWarning}`);
       } else if (this._calledTools.has(tool)) {
         lines.push(`  ✅ ${tool}`);
@@ -1095,16 +1076,14 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   async getFreshProcedures(options: GetFreshProceduresOptions = {}): Promise<MCPToolResult> {
     const { limit = 100, windowDays = 30, topN, seenCacheStorePath } = options;
 
-    // Step 1 — fetch from stable (non-feed) endpoint
     const raw = await this.getProcedures({ limit });
     const payload = _parseResultPayload(raw);
     const payloadProcedures = payload?.['procedures'];
     const allProcedures: unknown[] = Array.isArray(payloadProcedures) ? payloadProcedures : [];
 
-    // Step 2 — sort client-side by dateLastActivity DESC (fall back to dateInitiated)
     const todayMinus = new Date();
     todayMinus.setUTCDate(todayMinus.getUTCDate() - windowDays);
-    const cutoff = todayMinus.toISOString().slice(0, 10); // YYYY-MM-DD
+    const cutoff = todayMinus.toISOString().slice(0, 10);
 
     const normalised = allProcedures.filter(
       (p): p is Record<string, unknown> => p !== null && typeof p === 'object' && !Array.isArray(p)
@@ -1118,14 +1097,12 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
 
     withSortKey.sort((a, b) => b.effectiveDate.localeCompare(a.effectiveDate));
 
-    // Step 3 — filter to window
     const inWindow = withSortKey
       .filter(({ effectiveDate }) => effectiveDate >= cutoff)
       .map(({ item }) => item);
 
     const result = topN !== undefined ? inWindow.slice(0, topN) : inWindow;
 
-    // Step 4 — persist to seen-cache (new IDs and changed dateLastActivity)
     const cache = new ProcedureSeenCache(seenCacheStorePath);
     for (const p of result) {
       const id = typeof p['id'] === 'string' ? p['id'] : '';
@@ -1171,12 +1148,9 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
    * @returns Adopted texts data
    */
   async getAdoptedTexts(options: GetAdoptedTextsOptions = {}): Promise<MCPToolResult> {
-    // docId lookups use a contextual wrapper so the initial log category is
-    // CONTENT_PENDING, not NOT_FOUND followed by a post-hoc reclassification.
     if (typeof options.docId === 'string' && options.docId.trim().length > 0) {
       return this._fetchAdoptedTextByDocId(options.docId.trim());
     }
-    // Year-range list queries use the standard wrapper.
     return this.safeCallTool('get_adopted_texts', options, ADOPTED_TEXTS_FALLBACK);
   }
 
@@ -1210,7 +1184,6 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     try {
       const result = await this.callToolWithRetry('get_adopted_texts', { docId });
 
-      // ── isError structured response ──
       if (result.isError === true) {
         const text = result.content?.[0]?.text ?? '';
         if (text.toLowerCase().includes(CONTENT_NOT_YET_AVAILABLE_SUBSTRING)) {
@@ -1225,7 +1198,6 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
         return this._recordToolFailure('get_adopted_texts', text, ADOPTED_TEXTS_FALLBACK);
       }
 
-      // ── Empty-string sentinel (pre-v1.2.13 defence-in-depth) ──
       const payload = _parseResultPayload(result);
       if (_isEmptyStringSentinel(payload)) {
         await persistPending('sentinel');
@@ -1240,7 +1212,6 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
       return result;
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
-      // ── Primary: UPSTREAM_404 indexing lag (thrown exception) ──
       if (message.toLowerCase().includes(CONTENT_NOT_YET_AVAILABLE_SUBSTRING)) {
         this._failedTools.set(
           'get_adopted_texts',
@@ -1674,7 +1645,6 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     try {
       const result = await this.callToolWithRetry('get_events_feed', options);
 
-      // Inspect for structured error responses (isError flag) from the EP MCP server
       if (result.isError === true) {
         this._slowFeedWarnings.delete('get_events_feed');
         return this._recordToolFailure(
@@ -1684,7 +1654,6 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
         );
       }
 
-      // Detect unavailable-feed envelope (uniform {status:"unavailable"} or pre-v1.2.13 404)
       if (isFeedUnavailable(result)) {
         this._slowFeedWarnings.delete('get_events_feed');
         return this._recordToolFailure(
@@ -1694,27 +1663,20 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
         );
       }
 
-      // Success — clear any prior failure or slow-feed warning so health summary stays accurate
       this._failedTools.delete('get_events_feed');
       this._slowFeedWarnings.delete('get_events_feed');
       return result;
     } catch (error) {
       const message = error instanceof Error ? error.message : String(error);
 
-      // Downgrade genuine TIMEOUT errors to slow-feed warnings — not counted against success rate.
-      // The events feed latency is 30–120 s+; timeouts are expected during EP API load
-      // and classified as 🟢 LIMITATION per 07-mcp-reference.md §11 row #8.
-      // Use classifyToolError so 504 "Gateway Timeout" stays in SERVER_ERROR, not slow-feed.
       if (classifyToolError(message) === 'TIMEOUT') {
         const warningMsg = `SLOW_FEED: ${message.slice(0, 200)}`;
-        // Clear any prior failure entry so health summary doesn't show ❌ alongside 🟡
         this._failedTools.delete('get_events_feed');
         this._slowFeedWarnings.set('get_events_feed', warningMsg);
         console.warn('🟡 get_events_feed slow-feed warning [SLOW_FEED]:', message.slice(0, 200));
         return { content: [{ type: 'text', text: '{"feed":[],"slowFeedWarning":true}' }] };
       }
 
-      // Non-timeout failure: clear any stale slow-feed warning so health summary reflects reality
       this._slowFeedWarnings.delete('get_events_feed');
       return this._recordToolFailure(
         'get_events_feed',
@@ -1752,9 +1714,6 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
       EuropeanParliamentMCPClient.FEED_FALLBACK
     );
 
-    // Recess-mode detection: if all dated items are from ≤1995, the feed returned
-    // historical archive data instead of current procedures (EP API recess behaviour).
-    // See .github/prompts/07-mcp-reference.md §11 row #5.
     const payload = _parseResultPayload(result);
     if (detectProceduresFeedRecessMode(payload)) {
       console.warn(
@@ -1828,10 +1787,6 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
       return result;
     }
 
-    // FRESHNESS_FALLBACK_FAILED: feed broken AND fallback also empty — escalate.
-    // Pick the first FAILED warning specifically so the recorded reason is
-    // accurate even when both FAILED and non-FAILED FRESHNESS_FALLBACK entries
-    // co-exist in the same response.
     const failedWarning = freshnessWarnings.find((w) => w.startsWith('FRESHNESS_FALLBACK_FAILED'));
     if (failedWarning !== undefined) {
       return this._recordToolFailure(
@@ -1841,11 +1796,6 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
       );
     }
 
-    // FRESHNESS_FALLBACK (non-FAILED): server augmented with current-year items.
-    // Keep the result but surface the freshness metadata so Stage-A consumers
-    // can detect augmentation without re-parsing raw dataQualityWarnings.
-    // Preserve the full MCPToolResult shape (isError, additional content items,
-    // etc.) — only rewrite content[0].text with the augmented JSON.
     const augmented: Record<string, unknown> = {
       ...(payload as Record<string, unknown>),
       freshness: 'augmented',

@@ -188,10 +188,6 @@ function renderDailyRun(run: PIDailyRun, copy: PICopy, lang: LanguageCode): stri
     .map((art) => {
       const info = getArtifactInfo(art.shortPath, lang);
       const base = art.shortPath.split('/').pop() ?? art.shortPath;
-      // Strip both the final extension (`.md`) and an optional `.analysis`
-      // compound suffix so `political-landscape.analysis.md` feeds
-      // `political-landscape` into `pickDocumentIcon()` — matching the
-      // stem canonicalization done by `getArtifactInfo`.
       const stem = base.replace(/\.[^.]+$/, '').replace(/\.analysis$/, '');
       const icon = pickDocumentIcon(stem);
       const blobUrl = githubBlobUrl(art.relPath);
@@ -208,9 +204,6 @@ function renderDailyRun(run: PIDailyRun, copy: PICopy, lang: LanguageCode): stri
                   </li>`;
     })
     .join('\n');
-  // The artifact <details> is rendered OUTSIDE the top-level <a> so the
-  // disclosure triangle remains independently keyboard-focusable and the
-  // run-link click target stays unambiguous.
   return `            <li class="pi-run">
               <a class="pi-run__link" href="${escapeHTML(url)}" rel="noopener external" target="_blank">
                 <span class="pi-run__icon" aria-hidden="true">${run.icon}</span>
@@ -239,10 +232,6 @@ ${artifactCards}
  * @returns Complete HTML document string
  */
 export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData): string {
-  // Validate lang against the supported language list. Unsupported values
-  // (including prototype-pollution payloads like `__proto__` or user input)
-  // fall back to English so curated-title / description lookups always
-  // receive a known-safe key.
   const safeLang: LanguageCode = (ALL_LANGUAGES as readonly string[]).includes(lang)
     ? (lang as LanguageCode)
     : 'en';
@@ -257,7 +246,6 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
   const indexHref = safeLang === 'en' ? 'index.html' : `index-${safeLang}.html`;
   const sitemapHref = safeLang === 'en' ? 'sitemap.html' : `sitemap_${safeLang}.html`;
 
-  // Cross-language <link rel="alternate"> block
   const hreflangLinks = [
     ...ALL_LANGUAGES.map(
       (code) =>
@@ -266,14 +254,12 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
     `  <link rel="alternate" hreflang="x-default" href="${BASE_URL}/political-intelligence.html">`,
   ].join('\n');
 
-  // Stats (totals)
   const totalRuns = data.dailyGroups.reduce((acc, g) => acc + g.runs.length, 0);
   const totalArtifacts = data.dailyGroups.reduce(
     (acc, g) => acc + g.runs.reduce((a, r) => a + r.artifactCount, 0),
     0
   );
 
-  // Language switcher (mirrors sitemap layout)
   const langSwitcher = ALL_LANGUAGES.map((code) => {
     const flag = getLocalizedString(LANGUAGE_FLAGS, code);
     const name = getLocalizedString(LANGUAGE_NAMES, code);
@@ -291,10 +277,6 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
     politicalIntelligenceHref: '',
   });
 
-  // Methodologies, templates & reference cards.
-  // Descriptions are sourced from the curated per-file, per-language table
-  // ({@link getCuratedDescription}) — every language page renders a
-  // meaningful, hand-written summary, not scraped Markdown metadata.
   const methodologiesList = data.methodologies
     .map((d) => renderDocumentCard(d, safeLang, copy.viewOnGitHub))
     .join('\n');
@@ -309,12 +291,10 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
       ? ''
       : data.dailyGroups.map((g) => renderDailyGroup(g, copy, safeLang)).join('\n');
 
-  // Localized source-in-English note (non-English pages only)
   const sourceNote = copy.sourceInEnglishNote
     ? `      <p class="pi-source-note" role="note">${escapeHTML(copy.sourceInEnglishNote)}</p>`
     : '';
 
-  // JSON-LD structured data (CollectionPage with BreadcrumbList + publisher)
   const seo = getPoliticalIntelligenceSeo(safeLang);
   const ogImage = `${BASE_URL}/images/og-image.jpg`;
   const publisher = {
@@ -358,9 +338,6 @@ export function generatePoliticalIntelligenceHTML(lang: string, data: PIPageData
     },
     mainEntity: {
       '@type': 'ItemList',
-      // numberOfItems must match the number of `itemListElement` entries
-      // we actually emit (one per top-level page section), not the document
-      // total — otherwise structured-data validators flag the mismatch.
       numberOfItems: 4,
       name: copy.title,
       itemListElement: [

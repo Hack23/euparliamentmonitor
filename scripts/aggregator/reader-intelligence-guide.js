@@ -767,7 +767,6 @@ ${rows.join('\n')}
  * @returns HTML with any inline reader-intelligence-guide removed
  */
 export function stripInlineReaderGuide(html) {
-    // Match from the H2 opening with the reader-intelligence-guide id to just before the next H2 or end
     const pattern = /<h2[^>]*id=["']reader-intelligence-guide["'][^>]*>[\s\S]*?(?=<h2[ >]|<section[ >]|$)/gi;
     return html.replace(pattern, '');
 }

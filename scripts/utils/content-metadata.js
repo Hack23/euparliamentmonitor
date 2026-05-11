@@ -64,14 +64,12 @@ function extractHeadings(content) {
  * @returns Plain-text lede string, or empty string
  */
 function extractLede(content) {
-    // Try explicit lede paragraph first: <p class="lede">...</p>
     const ledeParagraphMatch = /<p[^>]*class="[^"]*\blede\b[^"]*"[^>]*>([\s\S]*?)<\/p>/iu.exec(content);
     if (ledeParagraphMatch?.[1]) {
         const text = stripHtml(ledeParagraphMatch[1]).trim();
         if (text.length > 20)
             return text;
     }
-    // Try section-based lede: <section class="lede"> ... <p>...</p> ... </section>
     const ledeSectionMatch = /<section[^>]*class="[^"]*\blede\b[^"]*"[^>]*>([\s\S]*?)<\/section>/iu.exec(content);
     if (ledeSectionMatch?.[1]) {
         const sectionParagraphMatch = /<p[^>]*>([\s\S]*?)<\/p>/iu.exec(ledeSectionMatch[1]);
@@ -84,7 +82,6 @@ function extractLede(content) {
         if (sectionText.length > 20)
             return sectionText;
     }
-    // Fall back to first paragraph in article-content
     const paraMatch = /<p[^>]*>([\s\S]*?)<\/p>/iu.exec(content);
     if (paraMatch?.[1]) {
         const text = stripHtml(paraMatch[1]).trim();
@@ -103,8 +100,6 @@ function extractLede(content) {
 function extractStatistics(content) {
     const text = stripHtml(content);
     const stats = [];
-    // Match "N adopted texts" / "N documents" / "N procedures" / "N events" etc.
-    // Use a simple alternation list — no nested quantifiers.
     const countWords = [
         'adopted texts',
         'adopted text',
@@ -137,14 +132,12 @@ function extractStatistics(content) {
         stats.push(`${match[1]} ${match[2]}`);
         match = countPatterns.exec(text);
     }
-    // Match percentages — integer or decimal followed by %
     const pctPatterns = /(\d[\d.]*\d|\d)%/gu;
     match = pctPatterns.exec(text);
     while (match) {
         stats.push(`${match[1]}%`);
         match = pctPatterns.exec(text);
     }
-    // Deduplicate
     return [...new Set(stats)].slice(0, 5);
 }
 /**
@@ -156,23 +149,19 @@ function extractStatistics(content) {
  */
 function extractContentKeywords(content, baseKeywords) {
     const keywords = [...baseKeywords];
-    // Add headings as keywords
     const headings = extractHeadings(content);
     for (const h of headings) {
         if (h.length >= MIN_HEADING_KEYWORD_LENGTH && h.length <= MAX_HEADING_KEYWORD_LENGTH) {
             keywords.push(h);
         }
     }
-    // Work against plain text for entity extraction to avoid false positives from markup
     const plainText = stripHtml(content);
-    // Extract committee abbreviations (ENVI, ECON, AFET, etc.)
     const abbrRegex = /\b(ENVI|ECON|AFET|LIBE|AGRI|ITRE|IMCO|TRAN|REGI|PECH|CULT|JURI|BUDG|CONT|EMPL|INTA|DEVE|DROI|SEDE)\b/gu;
     let match = abbrRegex.exec(plainText);
     while (match) {
         keywords.push(match[1] ?? '');
         match = abbrRegex.exec(plainText);
     }
-    // Extract political group names
     const groupRegex = /\b(EPP|S&D|Renew|Greens\/EFA|ECR|The Left|ID|PfE)\b/gu;
     match = groupRegex.exec(plainText);
     while (match) {
@@ -208,11 +197,9 @@ const ANALYTICAL_HEADING_PATTERN = /(?:directive|regulation|resolution|reform|cr
  * @returns Enriched title string
  */
 function buildContentTitle(content, baseTitle) {
-    // If the strategy already appended a suffix (contains em-dash), do not double-suffix
     if (baseTitle.includes('—'))
         return baseTitle;
     const headings = extractHeadings(content);
-    // Priority 1: Find a heading with real political/legislative substance
     const analyticalHeading = headings.find((h) => h.length > 12 &&
         h.length <= 80 &&
         ANALYTICAL_HEADING_PATTERN.test(h) &&
@@ -220,13 +207,10 @@ function buildContentTitle(content, baseTitle) {
     if (analyticalHeading) {
         return `${baseTitle} — ${analyticalHeading}`;
     }
-    // Priority 2: Find any non-generic heading with meaningful length
     const topHeading = headings.find((h) => h.length > 12 && h.length <= 80 && !GENERIC_HEADING_PATTERN.test(h));
     if (topHeading) {
         return `${baseTitle} — ${topHeading}`;
     }
-    // Priority 3 (last resort): Use a key statistic — but only when no
-    // analytical heading is available
     const stats = extractStatistics(content);
     const topStat = stats[0];
     if (topStat) {
@@ -249,10 +233,8 @@ function buildContentTitle(content, baseTitle) {
 function buildContentDescription(content, baseSubtitle) {
     const lede = extractLede(content);
     if (lede.length > 30) {
-        // Truncate at sentence boundary when possible for clean SEO descriptions
         if (lede.length > MAX_DESCRIPTION_LENGTH) {
             const truncated = lede.slice(0, MAX_DESCRIPTION_LENGTH - 3);
-            // Find the last sentence boundary (period, exclamation, or question mark followed by space)
             const lastSentence = Math.max(truncated.lastIndexOf('. '), truncated.lastIndexOf('! '), truncated.lastIndexOf('? '));
             if (lastSentence > MAX_DESCRIPTION_LENGTH * MIN_SENTENCE_TRUNCATION_RATIO) {
                 return truncated.slice(0, lastSentence + 1);

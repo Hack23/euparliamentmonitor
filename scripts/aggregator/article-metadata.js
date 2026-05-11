@@ -260,7 +260,6 @@ const METADATA_LINE_PREFIXES = [
 export function shouldSkipDescriptionLine(line) {
     if (line.length === 0)
         return true;
-    // Markdown structural openers
     if (line.startsWith('#'))
         return true;
     if (line.startsWith('>'))
@@ -273,16 +272,12 @@ export function shouldSkipDescriptionLine(line) {
         return true;
     if (line.startsWith('```') || line.startsWith('~~~'))
         return true;
-    // Mermaid / chart init blocks and the `title <text>` directive inside them
     if (line.startsWith('%%'))
         return true;
     if (/^title\s/i.test(line))
         return true;
-    // Emoji-banner metadata rows
     if (EMOJI_BANNER_CHARS.some((char) => line.startsWith(char)))
         return true;
-    // `Key: value` metadata banners. Match plain text, bold `**Key**`,
-    // and italic `*Key*` variants.
     const labelSource = line.replace(/^\*+/, '').replace(/^\*\*/, '').replace(/^_+/, '').trim();
     for (const prefix of METADATA_LINE_PREFIXES) {
         const lower = labelSource.toLowerCase();
@@ -294,7 +289,6 @@ export function shouldSkipDescriptionLine(line) {
             return true;
         }
     }
-    // Pure punctuation / decorative separators
     if (/^[-*_=~.]{3,}$/.test(line))
         return true;
     return false;
@@ -324,11 +318,6 @@ export function shouldSkipDescriptionLine(line) {
  * @returns Line with the all-caps opener removed
  */
 export function stripLeadingProseLabel(line) {
-    // Use a single-pass regex with no nested quantifiers and no overlapping
-    // character classes — keeps `security/detect-unsafe-regex` happy. The
-    // pattern matches a label of 2-80 contiguous chars from a closed set
-    // (uppercase letters, digits, hyphen, single internal spaces),
-    // terminated by `:` and at least one whitespace before the prose body.
     const colonIdx = line.indexOf(': ');
     if (colonIdx < 2 || colonIdx > 80)
         return line;
@@ -336,12 +325,8 @@ export function stripLeadingProseLabel(line) {
     const rest = line.slice(colonIdx + 2).trim();
     if (rest.length < 20)
         return line;
-    // Validate the label: ALL chars must be uppercase A-Z, digit 0-9, space,
-    // or hyphen; the first char must be a letter.
     if (!/^[A-Z][A-Z0-9 -]{1,79}$/.test(label))
         return line;
-    // Reject single-word labels shorter than 3 chars (`OK:` would be a
-    // false positive against legitimate sentence openers).
     if (label.length < 3)
         return line;
     return rest;
@@ -356,18 +341,15 @@ export function stripLeadingProseLabel(line) {
  * @returns Plain-text variant
  */
 export function stripInlineMarkdown(raw) {
-    // All inner character classes are length-bounded to eliminate the
-    // polynomial-regex worst case that CodeQL flags on uncontrolled input —
-    // none of these decorations are legitimately longer than 500 chars.
     return raw
-        .replace(/!\[([^\]\n]{0,500})\]\(([^)\n]{0,500})\)/g, '$1') // ![alt](img) — must precede [text](url)
-        .replace(/\[([^\]\n]{1,500})\]\(([^)\n]{0,500})\)/g, '$1') // [text](url) → text
-        .replace(/`([^`\n]{1,500})`/g, '$1') // inline code
-        .replace(/\*\*([^*\n]{1,500})\*\*/g, '$1') // **bold**
-        .replace(/__([^_\n]{1,500})__/g, '$1') // __bold__
-        .replace(/\*([^*\n]{1,500})\*/g, '$1') // *italic*
-        .replace(/_([^_\n]{1,500})_/g, '$1') // _italic_
-        .replace(/~~([^~\n]{1,500})~~/g, '$1') // ~~strike~~
+        .replace(/!\[([^\]\n]{0,500})\]\(([^)\n]{0,500})\)/g, '$1')
+        .replace(/\[([^\]\n]{1,500})\]\(([^)\n]{0,500})\)/g, '$1')
+        .replace(/`([^`\n]{1,500})`/g, '$1')
+        .replace(/\*\*([^*\n]{1,500})\*\*/g, '$1')
+        .replace(/__([^_\n]{1,500})__/g, '$1')
+        .replace(/\*([^*\n]{1,500})\*/g, '$1')
+        .replace(/_([^_\n]{1,500})_/g, '$1')
+        .replace(/~~([^~\n]{1,500})~~/g, '$1')
         .replace(/\s+/g, ' ')
         .trim();
 }
@@ -416,12 +398,8 @@ export function extractFirstH1(markdown) {
         const line = raw.trim();
         if (!line.startsWith('#'))
             continue;
-        // Accept `# Title` but not `## Sub-heading`.
         if (!/^#\s+/.test(line))
             continue;
-        // Strip the leading `# ` marker, then trim trailing `#` characters
-        // without an unbounded `\s*#+\s*$` regex (CodeQL flags that form as
-        // polynomial on pathological repeated-`#` input).
         let text = line.replace(/^#\s+/, '').trimEnd();
         while (text.endsWith('#'))
             text = text.slice(0, -1).trimEnd();
@@ -470,9 +448,6 @@ export function extractLedeAfterHeading(markdown) {
     for (let i = 0; i < lines.length; i++) {
         const raw = lines[i] ?? '';
         const line = raw.trim();
-        // Detect the start of a lede section — accept any H2/H3 whose plain
-        // text (after stripping leading hashes, inline decorations, and any
-        // leading emoji/punctuation) matches one of the canonical headings.
         if (/^#{2,3}\s+/.test(line)) {
             const headingText = normaliseHeadingText(line.replace(/^#{2,3}\s+/, ''));
             inLede = EDITORIAL_LEDE_HEADINGS.some((h) => headingText === h || headingText.startsWith(`${h} `) || headingText.startsWith(`${h}:`));
@@ -480,10 +455,6 @@ export function extractLedeAfterHeading(markdown) {
         }
         if (!inLede)
             continue;
-        // Inside the lede section: skip non-prose lines, then return the first
-        // qualifying paragraph. Strip a leading all-caps prose label
-        // (`SITUATION:`, `KEY MOTION:`, `BLUF:`, …) so SEO descriptions read
-        // as natural sentences rather than BLUF shouts.
         if (shouldSkipDescriptionLine(line))
             continue;
         const plain = stripLeadingProseLabel(stripInlineMarkdown(line));
@@ -527,19 +498,12 @@ export function isArtifactCategoryHeading(heading) {
     for (const prefix of ARTIFACT_CATEGORY_PREFIXES) {
         if (normalized === prefix)
             return true;
-        // Accept any of: "<prefix> — …", "<prefix> – …", "<prefix> - …",
-        // "<prefix>: …" — every separator commonly used in artefact H1s.
         if (normalized.startsWith(`${prefix} —`) ||
             normalized.startsWith(`${prefix} –`) ||
             normalized.startsWith(`${prefix} -`) ||
             normalized.startsWith(`${prefix}:`)) {
             return true;
         }
-        // Also accept "<topic> — <prefix>" / "<topic>: <prefix>" so suffix-form
-        // category labels (`# EU Parliament Propositions — Executive Brief`,
-        // `# Key Legislative Developments — Deep Analysis`) are flagged the
-        // same as prefix-form ones. The "topic" is rescued by the affix
-        // stripper before this rejection takes effect.
         if (normalized.endsWith(` — ${prefix}`) ||
             normalized.endsWith(` – ${prefix}`) ||
             normalized.endsWith(` - ${prefix}`) ||
@@ -579,13 +543,9 @@ export function stripArtifactCategoryAffix(heading) {
     const normalized = normaliseCategoryHeading(trimmed);
     const skip = trimmed.length - normalized.length;
     const visible = trimmed.slice(skip < 0 ? 0 : skip);
-    // Pre-strip trailing parenthesised metadata (`(2026-05-08)`,
-    // `(May 2026)`) so the suffix matcher works on `… — deep analysis`
-    // rather than `… — deep analysis (2026-05-08)`.
     const visibleClean = visible.replace(/\s*\([^)]{1,80}\)\s*$/u, '').trim();
     const normalizedClean = normaliseCategoryHeading(visibleClean);
     for (const prefix of sortedPrefixes) {
-        // Prefix-form: `Executive Brief — <topic>`
         for (const sep of [' — ', ' – ', ' - ', ': ']) {
             const candidate = `${prefix}${sep}`;
             if (normalizedClean.startsWith(candidate)) {
@@ -593,7 +553,6 @@ export function stripArtifactCategoryAffix(heading) {
                 return cleanupAffixCore(core);
             }
         }
-        // Suffix-form: `<topic> — Executive Brief`
         for (const sep of [' — ', ' – ', ' - ', ': ']) {
             const candidate = `${sep}${prefix}`;
             if (normalizedClean.endsWith(candidate)) {
@@ -601,11 +560,9 @@ export function stripArtifactCategoryAffix(heading) {
                 return cleanupAffixCore(core);
             }
         }
-        // Whole-heading match: `Executive Brief`
         if (normalizedClean === prefix)
             return '';
     }
-    // No category label detected — return the heading unchanged.
     return trimmed;
 }
 /**
@@ -671,10 +628,6 @@ export function isGenericHeading(heading, articleType, date) {
     const normalized = heading.trim().replace(/\s+/g, ' ');
     if (normalized === '')
         return true;
-    // Artefact-category H1s (e.g. `Synthesis Summary — …`, `Executive Brief
-    // — …`) are structural labels, not journalist headlines. Treat them as
-    // generic so the resolver falls through to the localized template tier
-    // and the SEO `<title>` stays clean.
     if (isArtifactCategoryHeading(normalized))
         return true;
     const human = humanizeSlug(articleType);
@@ -685,8 +638,6 @@ export function isGenericHeading(heading, articleType, date) {
         `${human}: ${date}`,
         `${human} ${date}`,
     ];
-    // Also accept the collision-suffix pattern (e.g. `Breaking Breaking — …`)
-    // and the auto-generated "EU Parliament <Type> — <date>" historic form.
     const humanRedundant = `${human} ${human}`;
     for (const p of patterns) {
         if (normalized === p)
@@ -696,7 +647,6 @@ export function isGenericHeading(heading, articleType, date) {
         if (normalized === `${humanRedundant} — ${date}`)
             return true;
     }
-    // The bare `${human} — <anything>` with nothing extra is also generic.
     const trailingDateOnly = new RegExp(`^${escapeRegex(human)}\\s*[—–-]\\s*[\\d-]+$`, 'u');
     if (trailingDateOnly.test(normalized)) {
         return true;
@@ -726,25 +676,13 @@ function escapeRegex(input) {
 export function extractArtifactHighlight(runDir, articleType, date) {
     if (!runDir || !fs.existsSync(runDir))
         return null;
-    // Direct candidate lookup — cheap and deterministic. We collect the
-    // first artefact whose body yields a usable lede summary even when its
-    // H1 is a structural artefact-category label, so the description tier
-    // benefits from the editorial 60-Second Read paragraph in
-    // `executive-brief.md` even though its H1 (`Executive Brief — …`) is
-    // generic.
     const direct = scanCandidatesForHighlight(runDir, EDITORIAL_ARTEFACT_CANDIDATES, articleType, date);
     if (direct.headline)
         return { headline: direct.headline, summary: direct.summary };
-    // Fallback: walk the top-level `.md` files in the run dir once, looking
-    // for any that starts with `#` and has a non-generic headline.
     const topLevel = safeReaddir(runDir).filter((f) => f.endsWith('.md') && f !== 'manifest.json');
     const fallback = scanCandidatesForHighlight(runDir, topLevel, articleType, date);
     if (fallback.headline)
         return { headline: fallback.headline, summary: fallback.summary };
-    // No editorial headline was found, but we may have harvested a strong
-    // lede summary from one of the editorial artefacts. Returning a
-    // headline-less highlight lets `resolveEditorialContent` keep the
-    // editorial summary while falling back to the localized title template.
     const summaryOnly = direct.summary || fallback.summary;
     if (summaryOnly) {
         return { headline: '', summary: summaryOnly };
@@ -768,12 +706,6 @@ function scanCandidatesForHighlight(runDir, candidates, articleType, date) {
     let bestSummaryOnly = '';
     for (const rel of candidates) {
         const probe = probeCandidateForHighlight(runDir, rel, articleType, date);
-        // Both clean and stripped highlights win the loop — they come from
-        // the highest-priority artefact that yielded usable text. This
-        // preserves the priority order of {@link EDITORIAL_ARTEFACT_CANDIDATES}
-        // (executive-brief > synthesis-summary > …) so a stripped headline
-        // from `executive-brief.md` beats a clean H1 from a lower-priority
-        // artefact like `intelligence/synthesis-summary.md`.
         if (probe.cleanHighlight)
             return probe.cleanHighlight;
         if (probe.strippedHeadline) {
@@ -838,7 +770,6 @@ function readArtefactBody(abs) {
         return '';
     }
     const lines = text.split('\n');
-    // Drop a run of leading `<!--` SPDX/provenance comments plus blank lines.
     let i = 0;
     while (i < lines.length) {
         const line = (lines[i] ?? '').trim();
@@ -883,9 +814,6 @@ function safeReaddir(dir) {
  */
 export function buildTemplateFallback(articleType, date, committee) {
     const map = Object.create(null);
-    // week-in-review uses the D-36→D-8 reporting window (ADR-006) so that
-    // EP roll-call voting data — published 2–6 weeks after the sitting —
-    // is always available in the analysis window.
     const weekRange = articleType === 'week-in-review'
         ? deriveReportingWindowForWeekInReview(date)
         : deriveWeekRange(date);
@@ -977,9 +905,7 @@ export function deriveWeekRange(date) {
     const parsed = parseIsoDate(date);
     if (!parsed)
         return { start: date, end: date };
-    // getUTCDay(): 0 = Sunday, 1 = Monday, …
     const day = parsed.getUTCDay();
-    // Shift so Monday = 0, Sunday = 6.
     const shift = (day + 6) % 7;
     const startMs = parsed.getTime() - shift * MS_PER_DAY;
     const endMs = startMs + 6 * MS_PER_DAY;
@@ -1089,16 +1015,12 @@ export function deriveTermLabel(date) {
     const month = parsed.getUTCMonth() + 1;
     if (year < EP10_START_YEAR)
         return `EP9 → ${EP10_START_YEAR}`;
-    // EPn ends at end of June of its election year — the constitutive sitting of
-    // EP(n+1) happens in early-mid July, so the term only flips after Jun.
     if (year < EP10_END_YEAR || (year === EP10_END_YEAR && month <= EP_ELECTION_MONTH)) {
         return `EP10 → ${EP10_END_YEAR}`;
     }
     if (year < EP11_END_YEAR || (year === EP11_END_YEAR && month <= EP_ELECTION_MONTH)) {
         return `EP11 → ${EP11_END_YEAR}`;
     }
-    // Beyond EP11 — extrapolate by 5-year terms anchored at end of June of the
-    // election year. `termsBeyond=1` means EP12 (ends 2039), 2 means EP13, …
     const yearsBeyond = year - EP11_END_YEAR;
     const offset = month <= EP_ELECTION_MONTH ? 0 : 1;
     const termsBeyond = Math.floor((yearsBeyond - 1 + offset) / 5) + 1;
@@ -1119,16 +1041,10 @@ export function deriveElectionCycleLabel(date) {
     if (!parsed)
         return date;
     const year = parsed.getUTCFullYear();
-    // The cycle "EPn → EP(n+1) (E)" labels the period **up to and including
-    // the entire calendar year of the election** — i.e. ±6 months around June
-    // of E. Pre-election dates anticipate E; post-election dates (e.g.
-    // 2029-12-01) still belong to the cycle that just resolved. The cycle
-    // flips on Jan 1 of the year after the election.
     if (year <= EP10_END_YEAR)
         return `EP10 → EP11 (${EP10_END_YEAR})`;
     if (year <= EP11_END_YEAR)
         return `EP11 → EP12 (${EP11_END_YEAR})`;
-    // Beyond EP11 — extrapolate by 5-year cycles.
     const cyclesBeyond = Math.ceil((year - EP11_END_YEAR) / 5);
     const electionYear = EP11_END_YEAR + 5 * cyclesBeyond;
     const out = 11 + cyclesBeyond;
@@ -1168,19 +1084,10 @@ function formatIsoDate(d) {
  * @returns Override string, or empty string when absent
  */
 function manifestOverrideFor(value, lang) {
-    // A plain string is a blanket editorial override — the operator is
-    // telling the resolver "use this exact text for every language". This
-    // is the one path where a single string is applied cross-locale; the
-    // operator takes responsibility for its language.
     if (typeof value === 'string')
         return value.trim();
     if (!value)
         return '';
-    // Per-language object: respect ONLY the explicit entry for `lang`. We
-    // deliberately do NOT fall back to the `en` entry for non-English
-    // variants — otherwise an EN-only override would leak English into
-    // every other locale's <title>. Missing languages fall through to the
-    // localized template tier.
     const map = new Map();
     for (const key of Object.keys(value)) {
         const v = value[key];
@@ -1200,12 +1107,6 @@ function manifestOverrideFor(value, lang) {
  */
 function resolveEditorialContent(opts) {
     const { articleType, date, markdown, runDir } = opts;
-    // Tier 2: first non-generic H1 in the first substantive artefact. We
-    // also remember any editorial summary harvested from a category-only
-    // artefact (e.g. `executive-brief.md` whose H1 is the structural
-    // `Executive Brief — …` label but whose `## 60-Second Read` paragraph
-    // is the journalist's lede) so the description tier can still benefit
-    // from real editorial copy when the headline tier falls through.
     let artefactSummary = '';
     if (runDir) {
         const highlight = extractArtifactHighlight(runDir, articleType, date);
@@ -1219,7 +1120,6 @@ function resolveEditorialContent(opts) {
             artefactSummary = highlight.summary;
         }
     }
-    // Tier 3: first non-generic H1 in the aggregated Markdown itself.
     const aggregatedH1 = extractFirstH1(markdown);
     const aggregatedSummary = extractStrongProseLine(markdown);
     if (aggregatedH1 && !isGenericHeading(aggregatedH1, articleType, date)) {
@@ -1228,10 +1128,6 @@ function resolveEditorialContent(opts) {
             summary: artefactSummary || aggregatedSummary,
         };
     }
-    // Tier 4: first strong prose paragraph (title = same prose clipped).
-    // Prefer the artefact-derived editorial summary when available so the
-    // description carries the journalist's lede rather than the
-    // aggregator-walk leftover.
     const summary = artefactSummary || aggregatedSummary;
     if (summary) {
         return { headline: truncateTitle(summary), summary };
@@ -1254,10 +1150,6 @@ export function resolveArticleMetadata(opts) {
         const manifestTitle = manifestOverrideFor(manifest.title, lang);
         const manifestDescription = manifestOverrideFor(manifest.description, lang);
         const fallback = template[lang];
-        // Non-English languages must not inherit the English editorial
-        // headline/summary — they would render a non-locale title in a
-        // localized chrome. We skip tiers 2–4 for non-EN and drop straight to
-        // the localized template (or explicit manifest override when provided).
         const useEditorial = lang === 'en';
         const titleCandidates = useEditorial
             ? [manifestTitle, editorial.headline, fallback.title]

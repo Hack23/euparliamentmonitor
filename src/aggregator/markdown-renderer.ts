@@ -149,7 +149,7 @@ function isQuadrantChartBlock(lines: readonly string[]): boolean {
       if (!trimmed.endsWith('}}%%')) inInitDirective = true;
       continue;
     }
-    if (trimmed.startsWith('%%')) continue; // plain comment
+    if (trimmed.startsWith('%%')) continue;
     return /^quadrantChart\b/.test(trimmed);
   }
   return false;
@@ -192,22 +192,18 @@ function quoteMermaidLabel(raw: string): string {
  * @returns Rewritten line, or the original when no shape matched
  */
 function rewriteQuadrantChartLine(line: string): string {
-  // x-axis / y-axis "Left" --> "Right"
   let m = line.match(/^(\s*(?:x-axis|y-axis)\s+)(.+?)\s*-{2}>\s*(.+?)\s*$/);
   if (m) {
     return `${m[1]}${quoteMermaidLabel(m[2] ?? '')} --> ${quoteMermaidLabel(m[3] ?? '')}`;
   }
-  // Single-axis form (rare): `x-axis "Label only"` with no arrow.
   m = line.match(/^(\s*(?:x-axis|y-axis)\s+)(.+?)\s*$/);
   if (m && !/-{2}>/.test(m[2] ?? '')) {
     return `${m[1]}${quoteMermaidLabel(m[2] ?? '')}`;
   }
-  // quadrant-N Label
   m = line.match(/^(\s*quadrant-[1-4]\s+)(.+?)\s*$/);
   if (m) {
     return `${m[1]}${quoteMermaidLabel(m[2] ?? '')}`;
   }
-  // Data point: `Label: [x, y]`
   m = line.match(/^(\s*)([^[\n]+?)\s*:\s*(\[\s*[\d.]+\s*,\s*[\d.]+\s*\])\s*$/);
   if (m) {
     const prefix = m[1] ?? '';
@@ -261,8 +257,6 @@ export function sanitizeMermaidQuadrantChart(content: string): string {
   const lines = content.split('\n');
   if (!isQuadrantChartBlock(lines)) return content;
 
-  // Track multi-line directives during the rewrite pass — content
-  // inside a `%%{init: { … }}%%` span must be passed through verbatim.
   let directiveSpan = false;
   return lines
     .map((line) => {
@@ -307,11 +301,6 @@ function installMermaidFence(md: MarkdownIt): void {
       const env2 = env as { mermaidLabel?: RenderOptions['mermaidLabel'] };
       const labelFn: RenderOptions['mermaidLabel'] =
         env2.mermaidLabel ?? ((n) => `Mermaid diagram ${n + 1}`);
-      // Per the {@link RenderOptions.mermaidLabel} contract the
-      // callback receives the **raw** mermaid source so caption
-      // builders can inspect author intent (e.g. extract the `title`
-      // line) before any renderer-side normalisation. Sanitisation is
-      // applied only to the body that becomes the `<pre>` content.
       const label = md.utils.escapeHtml(labelFn(currentIndex, token.content));
       const sanitized = sanitizeMermaidQuadrantChart(token.content);
       const body = md.utils.escapeHtml(sanitized);

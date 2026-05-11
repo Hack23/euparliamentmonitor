@@ -150,9 +150,6 @@ export function expandSectionArtifacts(
     } else if (available.has(entry) && !consumed.has(entry)) {
       out.push(entry);
       consumed.add(entry);
-      // `executive-brief.md` is the canonical Riksdagsmonitor-aligned path;
-      // `extended/executive-brief.md` remains a compatibility fallback. When
-      // both exist, render only the canonical root file.
       if (section.id === 'executive-brief') break;
     }
   }
@@ -217,8 +214,6 @@ function collectRunArtifacts(runDir: string): string[] {
       const full = path.join(dir, entry.name);
       const rel = prefix ? `${prefix}/${entry.name}` : entry.name;
       if (entry.isDirectory()) {
-        // Skip raw payloads, prior-run snapshots, and Pass-1 work-in-progress
-        // snapshots so they are not rendered as supplementary artifacts.
         if (entry.name === 'data' || entry.name === 'runs' || entry.name === 'pass1') continue;
         walk(full, rel);
       } else if (entry.isFile() && entry.name.endsWith('.md') && !isExcludedArtifact(entry.name)) {
@@ -298,12 +293,6 @@ export function renderTradecraftAppendix(files: readonly string[]): string {
     'This article is produced under the [Hack23 AB](https://hack23.com) intelligence tradecraft library. Every methodology and artifact template applied to this run is linked below.',
     '',
   ];
-  // Order: Artifact templates first (concrete deliverables readers
-  // recognise from the article body), then Methodologies (the underlying
-  // tradecraft library). This matches the natural reader flow — the
-  // article is built from artifacts, and the methodologies explain how
-  // each artifact is produced — and pairs with the contextual, kind-
-  // aware "View …" CTAs rendered in `enhanceTradecraftCards`.
   if (templates.length > 0) {
     block.push('### Artifact templates');
     block.push('');
@@ -428,7 +417,6 @@ export function renderReaderIntelligenceGuide(
 ): string {
   const rows = sections
     .map((section) => {
-      // Guard: only include sections whose IDs are in the canonical list
       if (!READER_GUIDE_SECTION_IDS.includes(section.id)) return '';
       const copy = Object.getOwnPropertyDescriptor(READER_GUIDE_EN, section.id)?.value as
         | { need: string; value: string }
@@ -489,10 +477,6 @@ function renderArtifactFragment(
   });
   const stem = runRel.split('/').pop()?.replace(/\.md$/i, '') ?? runRel;
   const headerLines = suppressHeader ? [] : ['', `### ${humanize(stem)}`];
-  // Per-section "View source" links are intentionally omitted — references
-  // are consolidated in the end-of-document Analysis Index appendix so the
-  // body reads as a journalistic / political-intelligence narrative rather
-  // than as a per-paragraph artifact dump.
   const lines = [...headerLines, '', cleaned.markdown];
   const included: IncludedArtifact = {
     runRelPath: runRel,
@@ -587,9 +571,6 @@ function appendSection(
     fragments.push(...fragment.lines);
     included.push(fragment.included);
   }
-  // Only emit the section H2 + body when at least one artifact was rendered;
-  // an empty heading with no content is a workflow-metadata leak (used to
-  // happen for the Supplementary bucket when leftovers were missing on disk).
   if (fragments.length === 0) return;
   sectionMarkdown.push(`<h2 id="${emittedId}">${sectionTitle}</h2>`);
   sectionMarkdown.push(...fragments);
@@ -634,11 +615,6 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
   }
   const manifestFiles = flattenManifestFiles(manifest.files);
   const discovered = collectRunArtifacts(runDir);
-  // Merge manifest-declared files with discovered files; manifest gives order
-  // priority, discovery ensures nothing is missed. Filter to renderable
-  // markdown only and exclude raw payload directories (`data/`, `runs/`,
-  // `pass1/`) — these are workflow-internal and would leak into the
-  // Supplementary bucket as JSON dumps if the manifest declared them.
   const availableSet = new Set<string>(
     [...manifestFiles, ...discovered].filter(
       (p) =>
@@ -657,10 +633,6 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
   const seenMermaid = new Set<string>();
   const runDirRelPath = path.relative(repoRoot, runDir).split(path.sep).join('/');
 
-  // Render the Executive Brief section first into a dedicated buffer so it
-  // can be placed BEFORE the Reader Intelligence Guide — analysts and
-  // journalists need the BLUF up front; the TOC-style guide then orients
-  // the reader for the deeper sections that follow.
   const execBriefMarkdown: string[] = [];
   const [execBriefSection, ...remainingSections] = ARTIFACT_SECTIONS;
   if (execBriefSection) {
@@ -693,7 +665,6 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
     );
   }
 
-  // Supplementary bucket: anything that didn't match a declared section
   const leftovers = available.filter((p) => !consumed.has(p));
   if (leftovers.length > 0) {
     appendSection(
@@ -729,20 +700,8 @@ export function aggregateAnalysisRun(options: AggregateOptions): AggregatedRun {
   const tradecraft = renderTradecraftAppendix(tradecraftFiles);
   const analysisIndex = renderAnalysisIndex(includedArtifacts, manifestRelPath);
   const readerGuide = renderReaderIntelligenceGuide(emittedSections, includedArtifacts);
-  // Deterministic 3–7 bullet "Key takeaways" block, harvested from the
-  // synthesis-summary / intelligence-assessment artifacts. Sits between
-  // the Reader Intelligence Guide and the deep sections: the reader gets
-  // the BLUF (Executive Brief) → a navigation map (Reader Guide) → a
-  // bullet digest of the strongest findings (Key Takeaways) → the deep
-  // analysis. This is the order requested for reader UX so navigation
-  // is established before the reader commits to scanning takeaways.
   const keyTakeaways = buildKeyTakeaways({ runDir });
 
-  // TOC ordering must match the rendered Markdown body 1:1. Order:
-  // Executive Brief (already first in emittedSections via appendSection) →
-  // Reader Intelligence Guide (inserted right after the brief when present) →
-  // Key Takeaways (inserted right after the guide when present) →
-  // remaining sections → audit appendices.
   let postBriefIdx =
     emittedSections.length > 0 &&
     emittedSections[0]?.id === namespacedSectionId(execBriefSection?.id ?? '')

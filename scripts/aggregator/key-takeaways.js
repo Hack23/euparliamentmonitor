@@ -111,7 +111,7 @@ export function extractStrongBullets(markdown) {
         if (!bulletMatch)
             continue;
         if (/^\s{2,}[-*]/.test(line))
-            continue; // skip nested bullets
+            continue;
         const body = (bulletMatch[1] ?? '').trim();
         if (body.length === 0)
             continue;

@@ -90,10 +90,6 @@ function parseSDMXUrn(urn) {
     const body = eqIdx >= 0 ? urn.slice(eqIdx + 1) : urn;
     const parenIdx = body.indexOf('(');
     const head = parenIdx >= 0 ? body.slice(0, parenIdx) : body;
-    // Concept URNs have a trailing `.CONCEPT_ID` after the closing paren.
-    // Guard the missing-`)` case explicitly: `indexOf(')', n)` returns -1
-    // when absent, and `body.slice(-1 + 1) = body.slice(0)` would echo
-    // the whole URN body into `tail` — yielding a bogus conceptId.
     let tail = '';
     if (parenIdx >= 0) {
         const closeIdx = body.indexOf(')', parenIdx);
@@ -171,11 +167,9 @@ function resolveCodelistCodes(dim, payload) {
  */
 function resolveAgency(databaseId) {
     const upper = databaseId.toUpperCase();
-    // Avoid dynamic object indexing so the security lint does not flag user input as a sink.
     const direct = Object.entries(IMF_DATAFLOW_AGENCY).find(([k]) => k === upper)?.[1];
     if (direct)
         return direct;
-    // Vintage suffix: WEO_2025_OCT_VINTAGE → WEO
     const vintageIdx = upper.indexOf('_VINTAGE');
     if (vintageIdx > 0) {
         const trimmed = upper.slice(0, vintageIdx).split('_').slice(0, -2).join('_');
@@ -341,9 +335,6 @@ function buildSDMXKey(dimensions, filters) {
         .map((dim) => {
         const dimLc = dim.toLowerCase();
         const codes = lowercasedFilters.find(([key]) => key === dimLc)?.[1];
-        // SDMX 3.0 wildcard for "match every code in this dimension" is `*`.
-        // The legacy SDMX 2.1 convention of leaving the segment bare is
-        // rejected by `api.imf.org` post-Sept-2025 (returns 0 series).
         return Array.isArray(codes) && codes.length > 0 ? encodeSDMXDimension(codes) : '*';
     })
         .join('.');
@@ -449,10 +440,6 @@ function defaultFrequency(databaseId) {
  * @internal
  */
 function withDefaultFrequency(databaseId, filters) {
-    // Pull any caller-supplied frequency value out of the legacy `freq`
-    // alias (or any case variant of `frequency`) so we can re-emit it
-    // under the canonical uppercase `FREQUENCY` key that buildSDMXKey
-    // and defaultDimensionOrder both use.
     let freqCodes;
     const passthrough = {};
     for (const [key, value] of Object.entries(filters)) {
@@ -511,7 +498,7 @@ function readBaseAndTimeout(options) {
  */
 function stripTrailingSlashes(s) {
     let end = s.length;
-    while (end > 0 && s.charCodeAt(end - 1) === 47 /* '/' */) {
+    while (end > 0 && s.charCodeAt(end - 1) === 47) {
         end -= 1;
     }
     return end === s.length ? s : s.slice(0, end);
@@ -555,14 +542,10 @@ export class IMFMCPClient {
         this._apiBaseUrl = stripTrailingSlashes(base);
         this._timeoutMs = timeout;
         this._fetchImpl = options.fetchImpl ?? globalThis.fetch.bind(globalThis);
-        // MCP fetch-proxy gateway for AWF sandbox (bypasses Squid proxy)
         this._fetchProxyGatewayUrl =
             options.fetchProxyGatewayUrl ?? process.env['FETCH_MCP_GATEWAY_URL'] ?? undefined;
         this._fetchProxyApiKey =
             options.fetchProxyApiKey ?? process.env['EP_MCP_GATEWAY_API_KEY'] ?? undefined;
-        // IMF Azure-APIM subscription keys (primary + secondary). The fetch-proxy
-        // server already injects the same header when it is the transport, so this
-        // is mainly for the direct-fetch fallback used outside the AWF sandbox.
         this._imfSubscriptionKeys = readImfSubscriptionKeysFromEnv();
     }
     /**
@@ -591,8 +574,6 @@ export class IMFMCPClient {
      */
     async connect() {
         try {
-            // Validate the base URL shape without making a network request so
-            // construction-time errors surface immediately.
             new URL(this._apiBaseUrl);
             this._connected = true;
         }
@@ -748,13 +729,6 @@ export class IMFMCPClient {
         }
         try {
             const agency = agencyId ?? resolveAgency(databaseId);
-            // `references=all` returns DSD + conceptSchemes + codelists in one
-            // round-trip. The IMF SDMX 3.0 DSDs put the codelist binding on
-            // the *concept* (`coreRepresentation.enumeration`), not on the
-            // dimension itself, so we need both the DSD (for the dimension →
-            // concept link) and the conceptScheme (for the concept → codelist
-            // link). The payload is large (~2-3 MB for WEO) — it's fetched
-            // once per workflow run by gh-aw and cached upstream.
             const structure = await this._getJSON(`/structure/dataflow/${encodeURIComponent(agency)}/${encodeURIComponent(databaseId)}/+?references=all`);
             const ds = structure?.data?.dataStructures?.[0];
             const dims = ds?.dataStructureComponents?.dimensionList?.dimensions ?? [];
@@ -814,14 +788,6 @@ export class IMFMCPClient {
             const dims = dimensionOrder ?? defaultDimensionOrder(databaseId);
             const normalisedFilters = withDefaultFrequency(databaseId, filters);
             const key = buildSDMXKey(dims, normalisedFilters);
-            // Guard against accidentally unbounded downloads: at least one
-            // *non-FREQUENCY* slot must be concrete (not `*`). FREQUENCY
-            // auto-injects via withDefaultFrequency, so requiring it would
-            // not prove the caller intended a bounded query — a typo'd
-            // filter key (e.g. `region` instead of `country` for WEO) would
-            // otherwise yield `*.*.A`, downloading the full WEO cross-product.
-            // Callers wanting a single wildcard slot (e.g. `DEU.*.A`) still
-            // pass because `DEU` pins the COUNTRY dimension.
             const slots = key.split('.');
             const hasConcreteNonFreqSlot = dims.some((dim, i) => dim.toUpperCase() !== 'FREQUENCY' && slots[i] !== '*');
             if (!hasConcreteNonFreqSlot) {
@@ -859,12 +825,6 @@ export class IMFMCPClient {
      */
     async _getText(path) {
         const url = `${this._apiBaseUrl}${path.startsWith('/') ? path : `/${path}`}`;
-        // Strategy 1: MCP fetch-proxy gateway (bypasses AWF Squid proxy).
-        // The API key is optional — the gateway adds the Authorization header only
-        // when the key is present. Without a key the request is sent unauthenticated,
-        // which is sufficient for local AWF container-to-container traffic (same
-        // Docker network). Requiring the key here caused IMF degraded mode whenever
-        // EP_MCP_GATEWAY_API_KEY extraction from mcp-config.json failed silently.
         if (this._fetchProxyGatewayUrl) {
             try {
                 const result = await this._fetchViaGateway(url);
@@ -875,9 +835,6 @@ export class IMFMCPClient {
                 // Gateway unavailable — fall through to direct fetch
             }
         }
-        // Strategy 2: Direct fetch (works outside AWF sandbox)
-        // Tries the primary subscription key first, falling back to the secondary
-        // on 401/403 so live IMF key rotation never breaks an in-flight run.
         return this._fetchDirectWithKeyRotation(url);
     }
     /**
@@ -932,12 +889,6 @@ export class IMFMCPClient {
                 signal: controller.signal,
             });
             if (response.ok) {
-                // `api.imf.org` returns 204 when the request reached Azure APIM
-                // but no Ocp-Apim-Subscription-Key matched. 204 is technically
-                // 2xx, so without this explicit branch the empty body would be
-                // returned as a successful SDMX-JSON envelope and downstream
-                // parsers would silently produce empty series. Treat 204 as an
-                // error so missing/invalid keys are caught at Stage A.
                 if (response.status === 204) {
                     return {
                         kind: 'error',
@@ -998,7 +949,6 @@ export class IMFMCPClient {
             if (!response.ok)
                 return null;
             let body = await response.text();
-            // Handle SSE format (data: lines)
             if (body.trimStart().startsWith('data:')) {
                 const lines = body.split('\n').filter((l) => l.startsWith('data:'));
                 body = lines.map((l) => l.slice(5).trim()).join('');

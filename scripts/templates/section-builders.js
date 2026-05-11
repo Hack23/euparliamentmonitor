@@ -51,30 +51,17 @@ function countClassToken(content, token) {
  * @returns {@link ArticleQualityScore} with word count, section counts, and overall rating.
  */
 export function computeArticleQualityScore(content) {
-    // Remove script blocks before tag-stripping to avoid inflating word count.
-    // Uses iterative scanning instead of regex to avoid CodeQL js/bad-tag-filter.
     const noScripts = stripScriptBlocks(content);
-    // Strip HTML tags to get plain text, then count words
     const plainText = stripHtmlTags(noScripts).replace(/\s+/g, ' ').trim();
     const wordCount = plainText.length > 0 ? plainText.split(' ').filter((w) => w.length > 0).length : 0;
-    // All further counting uses script-stripped HTML to avoid false positives
-    // from embedded JSON-LD or interactive script blocks.
     const totalSections = countMatches(noScripts, /<section\b/g);
-    // Count data visualizations using exact class-token matching.
-    // countClassToken splits the class attribute value into tokens, so nested
-    // classes like "dashboard-grid" or "dashboard-panel" are NOT counted.
     const chartCount = countMatches(noScripts, /data-chart-config/g);
     const dashboardCount = countClassToken(noScripts, 'dashboard');
     const mindmapCount = countClassToken(noScripts, 'mindmap-section');
     const swotCount = countClassToken(noScripts, 'swot-analysis');
     const visualizationCount = chartCount + dashboardCount + mindmapCount + swotCount;
-    // Exclude visualization sections from analysis section count
     const analysisSections = totalSections - dashboardCount - mindmapCount - swotCount;
-    // Count EP document links (with a real path, not just the bare homepage).
-    // This excludes the generic footer link `https://www.europarl.europa.eu/`
-    // while counting links to specific EP resources like /doceo/, /plenary/, etc.
     const evidenceReferences = countMatches(noScripts, /href="https:\/\/www\.europarl\.europa\.eu\/\w[^"]*"/g);
-    // Determine overall quality score
     let overallScore;
     if (wordCount >= 800 && analysisSections >= 3 && visualizationCount >= 2) {
         overallScore = 'excellent';
@@ -105,7 +92,6 @@ export function buildTableOfContents(entries, lang) {
     const items = entries
         .map((entry) => {
         const safeLabel = escapeHTML(entry.label);
-        // Strip leading # to prevent href="##foo"
         const safeId = escapeHTML(entry.id.replace(/^#/, ''));
         const classAttr = entry.level === 2 ? ' class="toc-sub"' : '';
         return `<li${classAttr}><a href="#${safeId}">${safeLabel}</a></li>`;
@@ -281,8 +267,6 @@ export function buildSiteHeader(options) {
     const rawPiHref = typeof options.politicalIntelligenceHref === 'string'
         ? options.politicalIntelligenceHref
         : defaultPiHref;
-    // Only allow same-origin relative URLs or https: scheme to prevent javascript:/data: injection.
-    // Reject protocol-relative URLs (//...) and backslash variants that browsers normalize to external navigation.
     const isSafeHref = rawPiHref.length === 0 ||
         (rawPiHref.startsWith('/') && !rawPiHref.startsWith('//') && rawPiHref[1] !== '\\') ||
         rawPiHref.startsWith('./') ||
@@ -291,7 +275,6 @@ export function buildSiteHeader(options) {
         (!rawPiHref.includes(':') && !rawPiHref.startsWith('//') && !rawPiHref.startsWith('\\'));
     const piHref = isSafeHref ? rawPiHref : defaultPiHref;
     const cta = (extraClass, href, iconName, label) => `<a class="site-header__cta${extraClass ? ` ${extraClass}` : ''}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${label}" title="${label}">${icon(iconName)}<span class="site-header__cta-label">${label}</span></a>`;
-    // Internal CTA — same visual style but no target="_blank" since this is a same-site nav entry.
     const piCta = piHref.length > 0
         ? `<a class="site-header__cta site-header__cta--pi" href="${escapeHTML(piHref)}" aria-label="${piLabel}" title="${piLabel}">${icon('pi')}<span class="site-header__cta-label">${piLabel}</span></a>\n        `
         : '';
@@ -382,7 +365,6 @@ export function buildSiteFooter(options) {
     const licenseLabel = escapeHTML(getLocalizedString(FOOTER_LICENSE_LABELS, lang));
     const europarlLabel = escapeHTML(getLocalizedString(FOOTER_EUROPARL_LABELS, lang));
     const linkedinLabel = escapeHTML(getLocalizedString(FOOTER_LINKEDIN_LABELS, lang));
-    // Security & Privacy Policy label already contains safe &amp; entities — do not double-escape
     const securityLabel = getLocalizedString(FOOTER_SECURITY_POLICY_LABELS, lang);
     const contactLabel = escapeHTML(getLocalizedString(FOOTER_CONTACT_LABELS, lang));
     const disclaimerText = escapeHTML(getLocalizedString(FOOTER_DISCLAIMER_LABELS, lang));

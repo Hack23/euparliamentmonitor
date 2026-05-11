@@ -180,7 +180,6 @@ export function generateSitemapHTML(
     languageSwitcherHtml: buildSitemapLangSwitcher(lang),
   });
 
-  // ─── <head> hreflang alternates for all sitemap language variants ───
   const hreflangLinks = [
     ...ALL_LANGUAGES.map(
       (code) =>
@@ -189,7 +188,6 @@ export function generateSitemapHTML(
     `  <link rel="alternate" hreflang="x-default" href="${BASE_URL}/sitemap.html">`,
   ].join('\n');
 
-  // ─── Pages section (one per supported language) ─────────────────────
   const pagesSection = ALL_LANGUAGES.map((code) => {
     const name = getLocalizedString(LANGUAGE_NAMES, code);
     const flag = getLocalizedString(LANGUAGE_FLAGS, code);
@@ -201,7 +199,6 @@ export function generateSitemapHTML(
           </li>`;
   }).join('\n');
 
-  // ─── News articles grouped by editorial category ────────────────────
   const articlesByCategory = new Map<ArticleCategory, SitemapArticleInfo[]>();
   for (const article of articleInfos) {
     const category = detectCategory(article.slug ?? article.filename);
@@ -212,7 +209,6 @@ export function generateSitemapHTML(
     }
     bucket.push(article);
   }
-  // Render in the canonical category order, then any remaining categories
   const orderedCategories: ArticleCategory[] = [
     ...CATEGORY_ORDER.filter((c) => articlesByCategory.has(c)),
     ...[...articlesByCategory.keys()].filter((c) => !CATEGORY_ORDER.includes(c)),
@@ -224,7 +220,6 @@ export function generateSitemapHTML(
       : orderedCategories
           .map((category) => {
             const bucket = articlesByCategory.get(category) ?? [];
-            // Newest first within each category
             bucket.sort((a, b) => b.date.localeCompare(a.date));
             const label = typeLabels[category] ?? category;
             const items = bucket
@@ -245,7 +240,6 @@ ${items}
           })
           .join('\n');
 
-  // ─── Documentation section (high-level links) ───────────────────────
   const docsSection = hasDocsDir
     ? `
       <section class="sitemap-section">
@@ -260,7 +254,6 @@ ${items}
       </section>`
     : '';
 
-  // ─── JSON-LD CollectionPage structured data for SEO ─────────────────
   const seo = getSitemapSeo(lang);
   const ogImage = `${BASE_URL}/images/og-image.jpg`;
   const jsonLd = {
@@ -305,7 +298,6 @@ ${items}
       })),
     },
   };
-  // Safely embed JSON-LD: escape the `<` that could start `</script>` sequences
   const jsonLdString = JSON.stringify(jsonLd).replace(/</g, '\\u003c');
 
   const websiteJsonLd = JSON.stringify({

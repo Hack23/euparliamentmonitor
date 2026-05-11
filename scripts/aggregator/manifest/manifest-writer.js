@@ -75,9 +75,6 @@ export function applyHorizonProfile(manifest, options = {}) {
     const articleType = resolveArticleType(manifest);
     const profile = buildHorizonProfile(articleType);
     if (!profile) {
-        // Slug is legacy / unknown. With overwrite=true we must actively
-        // strip any stale `horizonProfile` to honour the documented
-        // "absent for unknown slugs" invariant.
         if (options.overwrite && manifest.horizonProfile) {
             const { horizonProfile: _stale, ...rest } = manifest;
             return rest;

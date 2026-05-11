@@ -92,11 +92,8 @@ export function stripBearerPrefix(raw: string): string {
  */
 export function extractApiKey(config: McpConfigJson): string | undefined {
   const candidates: Array<string | undefined> = [
-    // Priority 1 — legacy gateway.apiKey
     config.gateway?.apiKey,
-    // Priority 2 — EP MCP server header
     config.mcpServers?.['european-parliament']?.headers?.['Authorization'],
-    // Priority 3 — fetch-proxy server header
     config.mcpServers?.['fetch-proxy']?.headers?.['Authorization'],
   ];
 
@@ -106,7 +103,6 @@ export function extractApiKey(config: McpConfigJson): string | undefined {
     }
   }
 
-  // Priority 4 — first server with a non-empty Authorization header
   if (config.mcpServers) {
     for (const server of Object.values(config.mcpServers)) {
       const auth = server?.headers?.['Authorization'];

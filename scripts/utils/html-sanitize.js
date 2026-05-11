@@ -34,12 +34,9 @@ export function stripHtmlTags(html) {
             result += html.slice(pos);
             break;
         }
-        // Copy text before the tag
         result += html.slice(pos, openIdx);
-        // Find the closing '>'
         const closeIdx = html.indexOf('>', openIdx + 1);
         if (closeIdx < 0) {
-            // Unclosed tag — keep the rest as-is
             result += html.slice(openIdx);
             break;
         }
@@ -60,19 +57,14 @@ export function stripScriptBlocks(html) {
             result += html.slice(pos);
             break;
         }
-        // Copy everything before the opening <script
         result += html.slice(pos, openIdx);
-        // Find the end of the opening tag
         const openEnd = html.indexOf('>', openIdx);
         if (openEnd < 0) {
-            // Malformed — no closing `>`, keep rest as-is
             result += html.slice(openIdx);
             break;
         }
-        // Find the closing </script...> tag
         const closeIdx = lower.indexOf(CLOSE, openEnd + 1);
         if (closeIdx < 0) {
-            // No closing tag — drop the rest
             result += ' ';
             break;
         }

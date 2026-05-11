@@ -136,7 +136,6 @@ function dedupeItems(candidates: readonly string[], maxItems: number): string[] 
  * @returns Trimmed lead sentence, or `''`
  */
 function extractMacroLeadParagraph(markdown: string): string {
-  // Try to find a macro-specific preferred section first.
   const lines = markdown.split(/\r?\n/);
   let heading = '';
   let buffer: string[] = [];
@@ -148,8 +147,8 @@ function extractMacroLeadParagraph(markdown: string): string {
       if (trimmed === '' || /^[-*+]\s+/.test(trimmed) || /^\d+\.\s+/.test(trimmed)) continue;
       if (/^(>|<|!?\[)/.test(trimmed)) continue;
       if (/^\*\*\s*[A-Za-z][^*]+:\*\*/.test(trimmed)) continue;
-      if (/^\|/.test(trimmed)) continue; // skip table rows
-      if (/^-{2,}$/.test(trimmed)) continue; // skip horizontal rules
+      if (/^\|/.test(trimmed)) continue;
+      if (/^-{2,}$/.test(trimmed)) continue;
       return trimmed;
     }
     return '';
@@ -183,7 +182,6 @@ function extractMacroLeadParagraph(markdown: string): string {
     }
     buffer.push(line);
   }
-  // Flush last section.
   const lastPrev = tryExtract(buffer);
   if (
     lastPrev &&
@@ -197,7 +195,6 @@ function extractMacroLeadParagraph(markdown: string): string {
   ) {
     return lastPrev;
   }
-  // Final fallback: use the generic extractor result (lazy, avoids double parse in the common path).
   return extractLeadParagraph(markdown);
 }
 
@@ -243,7 +240,6 @@ export function extractKeyDates(runDir: string): string[] {
     'intelligence/scenario-forecast.md',
   ];
   const candidates = harvestCandidates(runDir, sources);
-  // Filter for bullets that contain an explicit date trigger, then dedupe.
   const dated = candidates.filter((t) => DATE_TRIGGER_RE.test(t.body)).map((t) => t.body);
   return dedupeItems(dated, MAX_LIST_ENTRIES);
 }
@@ -382,9 +378,6 @@ function computeSources(runDir: string): string[] {
  * @returns JSON string ready to be written next to `article.md`
  */
 export function serializeArticleMeta(meta: ArticleMeta): string {
-  // JSON.stringify emits keys in insertion order — the {@link ArticleMeta}
-  // shape declares its keys in canonical reading order, so the output is
-  // already deterministic. We add a trailing newline for POSIX hygiene.
   return `${JSON.stringify(meta, null, 2)}\n`;
 }
 

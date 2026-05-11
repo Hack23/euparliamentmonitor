@@ -82,40 +82,30 @@ export function patchHtmlContent(content: string, opts: HtmlLangPatchOptions): s
 
   let c = content;
 
-  // 1. Document-level <html> and <article> lang/dir attributes
   c = c.replace(/(<html\b[^>]*\s)lang="en"/, `$1lang="${lang}"`);
   c = c.replace(/(<html\b[^>]*\s)dir="(?:ltr|rtl)"/, `$1dir="${langDir}"`);
   c = c.replace(/(<article\b[^>]*\s)lang="en"/, `$1lang="${lang}"`);
 
-  // 2. JSON-LD inLanguage
   c = c.replace(/("inLanguage"\s*:\s*")en(")/g, `$1${lang}$2`);
 
-  // 3. og:locale meta tag
   c = c.replace(/(<meta\s+property="og:locale"\s+content=")[^"]*(")/g, `$1${ogLocale}$2`);
 
-  // 3b. Content-Language meta tag
   c = c.replace(/(<meta\s+http-equiv="Content-Language"\s+content=")[^"]*(")/g, `$1${lang}$2`);
 
-  // 4. Self-referential URL fields.
-  // Restricted to rel="canonical" links and property="og:url" meta only —
-  // rel="alternate"/hreflang links are intentionally excluded.
   const enEsc = enBasename.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-  // 4a. <link rel="canonical" href="..."> (any attribute order; lookahead guards rel value)
   c = c.replace(
     /(<link\b(?=[^>]*\brel="canonical")[^>]*\shref=")([^"]*)(")/g,
     (_, p1: string, p2: string, p3: string) =>
       p1 + p2.replace(new RegExp(enEsc, 'g'), langBasename) + p3
   );
 
-  // 4b. <meta property="og:url" content="..."> (any attribute order)
   c = c.replace(
     /(<meta\b(?=[^>]*\bproperty="og:url")[^>]*\scontent=")([^"]*)(")/g,
     (_, p1: string, p2: string, p3: string) =>
       p1 + p2.replace(new RegExp(enEsc, 'g'), langBasename) + p3
   );
 
-  // 4c. JSON-LD @id, url, mainEntityOfPage fields
   c = c.replace(
     /("(?:@id|url|mainEntityOfPage)"\s*:\s*")([^"]*)(")/g,
     (_, j1: string, j2: string, j3: string) =>

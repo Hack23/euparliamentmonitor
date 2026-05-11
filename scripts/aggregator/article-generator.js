@@ -63,8 +63,6 @@ function applyFlagResult(acc, result) {
             acc.description = result.value;
             return;
         default: {
-            // Exhaustiveness guard — if a new FlagResult kind is added without a
-            // matching case the compiler will surface the gap.
             const exhaustive = result;
             throw new Error(`Unhandled flag result: ${JSON.stringify(exhaustive)}`);
         }
@@ -102,13 +100,9 @@ export function parseCliArgs(argv, repoRoot) {
     const opts = {
         runDir: acc.runDir,
         all: acc.all,
-        // Always render every language — the `--lang/--language` flags have
-        // been removed in the always-14-languages contract.
         langs: [...ALL_LANGUAGES],
         outDir: acc.outDir,
         repoRoot,
-        // Always emit HTML — the `--markdown-only` flag has been removed in
-        // the always-HTML contract.
         markdownOnly: false,
         ...(acc.since !== undefined ? { since: acc.since } : {}),
         ...(acc.title !== undefined ? { title: acc.title } : {}),
@@ -153,9 +147,6 @@ function applyCliFlag(flag, takeValue) {
         case '--lang':
         case '--language':
         case '--markdown-only':
-            // Removed in the always-14-languages-always-HTML contract — every
-            // article.md now always renders to all 14 supported languages and
-            // HTML emission cannot be skipped from the CLI.
             throw new Error(`Flag ${flag} has been removed. The CLI always renders all 14 languages with HTML output. ` +
                 `See Article-Generation.md § "CLI contract" for the new always-on contract.`);
         default:
@@ -265,8 +256,6 @@ const FALLBACK_DESCRIPTION = 'EU Parliament intelligence summary derived from co
  * @returns Plain-text description, truncated to ≤300 characters
  */
 export function extractDefaultDescription(markdown) {
-    // Suppress unused warning: keep `shouldSkipDescriptionLine` for any
-    // historic consumer importing it transitively.
     void shouldSkipDescriptionLine;
     const strong = extractStrongProseLine(markdown);
     return strong.length > 0 ? strong : FALLBACK_DESCRIPTION;
@@ -340,41 +329,15 @@ function writeLanguageVariant(lang, slug, aggregated, englishHtml, chromeOptions
         metaSource = fs.readFileSync(langMdAbs, 'utf8');
         bodyHtml = renderMarkdown(metaSource).html;
     }
-    // Strip any AI-authored inline Reader Intelligence Guide and inject the
-    // renderer-owned, language-aware version so exactly one guide appears.
     bodyHtml = stripInlineReaderGuide(bodyHtml);
-    // The article chrome (wrapArticleHtml) renders its own <h1> in the hero
-    // header. Strip the in-body <h1> emitted from the Markdown `# Title` to
-    // avoid a duplicate H1 and broken heading hierarchy (H2 preceding H1).
     bodyHtml = bodyHtml.replace(/<h1[^>]*>[\s\S]*?<\/h1>\s*/, '');
     const guideHtml = buildReaderIntelligenceGuideHtml(lang, aggregated.sectionToc, aggregated.includedArtifacts);
     if (guideHtml) {
-        // Insert the guide IMMEDIATELY AFTER the Executive Brief section so
-        // the rendered HTML body order matches the documented article
-        // skeleton (Article-Generation.md §"Article skeleton"):
-        //   1. Executive Brief
-        //   2. Reader Intelligence Guide
-        //   3. Key Takeaways
-        //   4. … deep sections
-        // We splice at the start of the next H2 after the Executive Brief
-        // anchor; when the brief is missing (sparse runs) we fall back to
-        // prepending so the guide still appears at the top of the body.
         bodyHtml = insertReaderGuideAfterExecutiveBrief(bodyHtml, guideHtml);
     }
-    // Localize Tradecraft References, Analysis Index, and other appendix
-    // section headings and content into the target language.
     bodyHtml = localizeArticleBody(bodyHtml, lang);
-    // Replace the plain Tradecraft References bullet lists and the
-    // Analysis Index table with `pi-card-grid` cards. Runs for every
-    // language (including English) so the "much nicer" rendering matches
-    // the political-intelligence.html visual vocabulary site-wide.
     bodyHtml = enhanceTradecraftCards(bodyHtml, lang);
     bodyHtml = enhanceAnalysisIndexCards(bodyHtml, lang);
-    // When a per-language translated source exists, prefer a summary derived
-    // from it so the `<meta description>` matches the visible prose. The
-    // editorial title still comes from the English resolver (per-language
-    // translations of the headline are a future enhancement tracked as
-    // out-of-scope).
     const entry = getMetadataEntry(chromeOptions.metadata, lang);
     const perLangDescription = lang !== 'en' && metaSource !== aggregated.markdown
         ? extractStrongProseLine(metaSource) || entry.description
@@ -419,16 +382,11 @@ export function insertReaderGuideAfterExecutiveBrief(bodyHtml, guideHtml) {
     if (briefIdx === -1) {
         return guideHtml + '\n' + bodyHtml;
     }
-    // Skip the Executive Brief opening tag itself, then walk forward to the
-    // next H2 — that's where the next section starts and where we want to
-    // splice the guide. `<h2 ` matches a tag with attributes; `<h2>` matches
-    // a bare tag (defensive).
     const afterBrief = briefIdx + execBriefAnchor.length;
     const nextH2Tagged = bodyHtml.indexOf('<h2 ', afterBrief);
     const nextH2Bare = bodyHtml.indexOf('<h2>', afterBrief);
     const nextH2 = pickEarliestIndex(nextH2Tagged, nextH2Bare);
     if (nextH2 === -1) {
-        // Executive Brief is the only section — append the guide at the end.
         return bodyHtml + '\n' + guideHtml;
     }
     return bodyHtml.slice(0, nextH2) + guideHtml + '\n' + bodyHtml.slice(nextH2);
@@ -513,11 +471,6 @@ export function generateArticle(opts, runSuffix, articleCountOverride) {
         repoRoot: opts.repoRoot,
     });
     const slug = buildArticleSlug(aggregated.date, aggregated.articleType, runSuffix);
-    // Resolve per-language {title, description} from the real article
-    // content (manifest override → artefact H1 → aggregated H1 → strong
-    // prose → localized template). This replaces the previous
-    // `defaultTitle()` + `extractDefaultDescription()` approach which
-    // produced boring, repeated metadata.
     const manifestMetadata = readManifestMetadata(opts.runDir);
     const resolvedMetadata = resolveArticleMetadata({
         articleType: aggregated.articleType,
@@ -526,28 +479,17 @@ export function generateArticle(opts, runSuffix, articleCountOverride) {
         manifest: manifestMetadata,
         runDir: opts.runDir,
     });
-    // CLI `--title` / `--description` overrides still win over everything
-    // (used by ad-hoc curator runs and by the existing test suite).
     const effectiveMetadata = opts.title || opts.description
         ? applyCliOverrides(resolvedMetadata, opts.title, opts.description)
         : resolvedMetadata;
     const runDirRelPath = path.relative(opts.repoRoot, opts.runDir).split(path.sep).join('/');
     const sourceMarkdown = buildJekyllArticleMarkdown(aggregated, getMetadataEntry(effectiveMetadata, 'en'), slug, runDirRelPath);
-    // Write article.md INTO the analysis run directory — canonical Markdown
-    // source that lives alongside the artifacts that produced it.
-    // This mirrors the riksdagsmonitor pattern where `article.md` is committed
-    // inside `analysis/daily/<date>/<type>/` so every run has a browsable,
-    // version-controlled Markdown source in its own directory.
     const runArticleMdAbs = path.join(opts.runDir, 'article.md');
     fs.writeFileSync(runArticleMdAbs, sourceMarkdown, 'utf8');
     const runArticleMdRelPath = path
         .relative(opts.repoRoot, runArticleMdAbs)
         .split(path.sep)
         .join('/');
-    // Emit `article-meta.json` next to `article.md` — a deterministic
-    // structured-data sidecar consumed by HTML SEO, news indexes, and RSS.
-    // Same artifact bytes in → same JSON bytes out (asserted by the
-    // determinism test).
     const runArticleMetaAbs = path.join(opts.runDir, 'article-meta.json');
     const articleMeta = buildArticleMeta({
         runDir: opts.runDir,
@@ -563,8 +505,6 @@ export function generateArticle(opts, runSuffix, articleCountOverride) {
         .relative(opts.repoRoot, runArticleMetaAbs)
         .split(path.sep)
         .join('/');
-    // Also write source Markdown under <outDir>/<slug>.en.md for search
-    // indexing and backwards compatibility with existing news-index scripts.
     ensureDir(opts.outDir);
     const sourceMdFilename = `${slug}.en.md`;
     const sourceMdAbs = path.join(opts.outDir, sourceMdFilename);
@@ -574,8 +514,6 @@ export function generateArticle(opts, runSuffix, articleCountOverride) {
         const rendered = renderMarkdown(sourceMarkdown);
         const chromeOptions = {
             metadata: effectiveMetadata,
-            // Point the "View source Markdown" link at the canonical run-directory
-            // article.md so readers can trace the HTML back to the analysis tree.
             sourceMarkdownRelPath: runArticleMdRelPath,
             articleCount: articleCountOverride ?? countPublishedArticles(opts.repoRoot),
         };
@@ -632,9 +570,6 @@ export function generateAllArticles(opts) {
     const filtered = opts.since ? allRuns.filter((r) => r.date >= opts.since) : allRuns;
     const groups = groupRunsForCollision(filtered);
     const results = [];
-    // Pre-compute the total article count so every footer in the batch
-    // surfaces a stable number rather than the directory size at the moment
-    // each run is rendered (which would grow from 0 → N during the batch).
     const articleCountOverride = filtered.length;
     for (const run of filtered) {
         const key = `${run.date}|${run.articleType}`;

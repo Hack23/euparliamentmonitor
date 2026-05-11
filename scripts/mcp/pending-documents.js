@@ -114,7 +114,6 @@ export async function loadPendingDocuments(storePath) {
         const parsed = JSON.parse(raw);
         if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
             const obj = parsed;
-            // Validate required keys; merge defaults so a partially-written file never throws
             const documents = obj['documents'] && typeof obj['documents'] === 'object' && !Array.isArray(obj['documents'])
                 ? obj['documents']
                 : {};
@@ -166,17 +165,14 @@ export async function recordPendingDocument(docId, storePath, now = new Date()) 
     const existing = store.documents[docId];
     if (existing) {
         if (existing.status === 'PENDING') {
-            // Update tracking fields; preserve firstObservedAt
             existing.attempts += 1;
             existing.lastProbedAt = nowIso;
             existing.nextProbeAfter = computeNextProbeAfter(nowIso, existing.attempts);
             await savePendingDocuments(store, storePath);
             return existing;
         }
-        // Terminal status — return as-is without write
         return existing;
     }
-    // New entry
     const doc = {
         docId,
         firstObservedAt: nowIso,

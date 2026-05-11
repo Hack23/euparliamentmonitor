@@ -101,7 +101,6 @@ function renderCard(
   categoryLabels?: ArticleCategoryLabels
 ): string {
   const category = detectCategory(article.slug);
-  // Sanitize the category for safe use in CSS class names (allow only alphanumeric and hyphens)
   const safeCategory = String(category).replace(/[^a-z0-9-]/gi, '');
   const title = escapeHTML(meta.title || formatSlug(article.slug));
   const badgeLabel = categoryLabels?.[category] ?? formatSlug(safeCategory);
@@ -170,7 +169,6 @@ export function generateIndexHTML(
   const filterLabels = getLocalizedString(FILTER_LABELS, lang) as { all: string; search: string };
   const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, lang) as ArticleCategoryLabels;
 
-  // Collect distinct categories from the current article set
   const usedCategories = new Set<ArticleCategory>();
   for (const a of articles) {
     usedCategories.add(detectCategory(a.slug));
@@ -198,7 +196,6 @@ export function generateIndexHTML(
 
   const ai = getLocalizedString(AI_SECTION_CONTENT, lang);
 
-  // Build filter buttons from used categories (with article count)
   const categoryCounts = new Map<ArticleCategory, number>();
   for (const a of articles) {
     const cat = detectCategory(a.slug);
@@ -222,10 +219,6 @@ export function generateIndexHTML(
   const canonicalUrl = `${BASE_URL}/${selfHref}`;
   const ogImage = `${BASE_URL}/images/og-image.jpg`;
 
-  // Structured data: WebSite, Organization with logo,
-  // CollectionPage with BreadcrumbList, and FAQPage. Each block is a
-  // separate <script type="application/ld+json"> with literal `<` chars
-  // escaped to `\u003c` so the JSON cannot prematurely close the tag.
   const websiteJsonLd = JSON.stringify({
     '@context': SCHEMA_ORG,
     '@type': 'WebSite',
@@ -294,7 +287,6 @@ export function generateIndexHTML(
     })),
   }).replace(/</g, '\\u003c');
 
-  // Visible breadcrumb — string-equal labels with the BreadcrumbList JSON-LD.
   const breadcrumbHtml = `<nav class="breadcrumb" aria-label="${escapeHTML(seo.breadcrumbAriaLabel)}">
     <ol class="breadcrumb__list">
       <li class="breadcrumb__item"><a href="${selfHref}">${escapeHTML(seo.breadcrumbHome)}</a></li>
@@ -302,7 +294,6 @@ export function generateIndexHTML(
     </ol>
   </nav>`;
 
-  // Visible FAQ — Q/A bodies are byte-equivalent to the FAQPage JSON-LD.
   const faqHtml = `<section class="page-faq" aria-labelledby="page-faq-heading">
     <h2 id="page-faq-heading"><span aria-hidden="true">❓</span> ${escapeHTML(seo.faqHeading)}</h2>
     <div class="page-faq__list">
@@ -446,7 +437,6 @@ function main(): void {
 
   const grouped = groupArticlesByLanguage(articles, ALL_LANGUAGES);
 
-  // Build metadata map (real titles + descriptions from each article HTML)
   const metaBuildTimerLabel = `⏱️ Built metadata map for ${articles.length} articles`;
   console.time(metaBuildTimerLabel);
   const metaMap = new Map<string, { title: string; description: string }>();
@@ -456,7 +446,6 @@ function main(): void {
   }
   console.timeEnd(metaBuildTimerLabel);
 
-  // Also update the metadata database, reusing the already-extracted meta to avoid re-reading files
   const dbArticles = articles
     .map((filename) => {
       const parsed = parseArticleFilename(filename);

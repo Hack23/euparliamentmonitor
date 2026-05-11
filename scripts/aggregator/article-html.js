@@ -106,27 +106,21 @@ function buildLanguageSwitcher(articleSlug, current) {
  * @returns Localized title string
  */
 function getLocalizedTocTitle(sectionId, fallbackTitle, lang) {
-    // Reader Intelligence Guide
     if (sectionId === READER_GUIDE_SECTION_ID) {
         return getLocalizedString(READER_GUIDE_TITLE_LABELS, lang);
     }
-    // Tradecraft References appendix
     if (sectionId === TRADECRAFT_SECTION_ID) {
         return getLocalizedString(TRADECRAFT_HEADING_LABELS, lang);
     }
-    // Analysis Index appendix
     if (sectionId === MANIFEST_SECTION_ID) {
         return getLocalizedString(ANALYSIS_INDEX_HEADING_LABELS, lang);
     }
-    // Key Takeaways
     if (sectionId === KEY_TAKEAWAYS_SECTION_ID) {
         return getLocalizedString(KEY_TAKEAWAYS_HEADING_LABELS, lang);
     }
-    // Supplementary Intelligence
     if (sectionId === SUPPLEMENTARY_SECTION_ID) {
         return getLocalizedString(SUPPLEMENTARY_HEADING_LABELS, lang);
     }
-    // Artifact section titles (strip the `section-` prefix to find the key)
     const sectionKey = sectionId.replace(/^section-/, '');
     const sectionLabels = SECTION_TITLE_LABELS[sectionKey];
     if (sectionLabels) {
@@ -212,20 +206,12 @@ export function localizeArticleBody(bodyHtml, lang) {
     if (lang === 'en')
         return bodyHtml;
     let html = bodyHtml;
-    // --- Tradecraft References heading ---
-    // Use simple string indexOf to avoid polynomial regex backtracking.
     const tradecraftHeading = getLocalizedString(TRADECRAFT_HEADING_LABELS, lang);
     html = replaceHeadingById(html, TRADECRAFT_SECTION_ID, 'Tradecraft References', tradecraftHeading);
-    // --- Tradecraft intro paragraph ---
-    // The rendered Markdown produces a <p> containing the intro text with an
-    // <a> link to Hack23. Replace only the known English sentence prefix.
-    // HTML-escape the localized text to prevent injection, then re-insert the
-    // intentional <a> tag via a placeholder split.
     const tradecraftIntroRaw = getLocalizedString(TRADECRAFT_INTRO_LABELS, lang);
     const introSentenceStart = 'This article is produced under the ';
     const introIdx = html.indexOf(introSentenceStart);
     if (introIdx !== -1) {
-        // Find the end of the sentence (next '</p>' or period followed by '<')
         const sentenceEnd = html.indexOf('</p>', introIdx);
         if (sentenceEnd !== -1) {
             const escapedIntro = escapeHTML(tradecraftIntroRaw);
@@ -233,33 +219,20 @@ export function localizeArticleBody(bodyHtml, lang) {
             html = html.slice(0, introIdx) + localizedWithLink + html.slice(sentenceEnd);
         }
     }
-    // --- Methodologies sub-heading ---
-    // markdown-it's anchor plugin renders sub-headings as
-    // `<h3 id="methodologies" tabindex="-1"><a class="header-anchor"
-    //   href="#methodologies"><span>Methodologies</span></a></h3>`.
-    // Localise the inner `<span>Methodologies</span>` text without using
-    // regular expressions to avoid catastrophic backtracking on long
-    // inputs. We accept either the anchor-prefixed form above or the
-    // bare `<h3>Methodologies</h3>` form some renderers emit.
     const methodsLabel = getLocalizedString(TRADECRAFT_METHODOLOGIES_LABELS, lang);
     html = replaceFirstStringIn(html, '<span>Methodologies</span>', `<span>${escapeHTML(methodsLabel)}</span>`);
     html = replaceFirstStringIn(html, '<h3>Methodologies</h3>', `<h3>${escapeHTML(methodsLabel)}</h3>`);
-    // --- Artifact templates sub-heading ---
     const templatesLabel = getLocalizedString(TRADECRAFT_TEMPLATES_LABELS, lang);
     html = replaceFirstStringIn(html, '<span>Artifact templates</span>', `<span>${escapeHTML(templatesLabel)}</span>`);
     html = replaceFirstStringIn(html, '<h3>Artifact templates</h3>', `<h3>${escapeHTML(templatesLabel)}</h3>`);
-    // --- Analysis Index heading ---
     const analysisIndexHeading = getLocalizedString(ANALYSIS_INDEX_HEADING_LABELS, lang);
     html = replaceHeadingById(html, MANIFEST_SECTION_ID, 'Analysis Index', analysisIndexHeading);
-    // --- Analysis Index intro ---
     const analysisIndexIntroRaw = getLocalizedString(ANALYSIS_INDEX_INTRO_LABELS, lang);
-    // Use indexOf to find the manifest.json link URL without polynomial regex
     const manifestLinkPrefix = 'href="';
     const manifestJsonLiteral = 'manifest.json';
     const manifestLinkIdx = html.indexOf(manifestJsonLiteral);
     let manifestUrl = '';
     if (manifestLinkIdx !== -1) {
-        // Walk backward to find the preceding href="
         const hrefIdx = html.lastIndexOf(manifestLinkPrefix, manifestLinkIdx);
         if (hrefIdx !== -1 && manifestLinkIdx - hrefIdx < 200) {
             const urlStart = hrefIdx + manifestLinkPrefix.length;
@@ -269,12 +242,10 @@ export function localizeArticleBody(bodyHtml, lang) {
             }
         }
     }
-    // HTML-escape the localized intro, then re-insert the <a> link
     const escapedAnalysisIntro = escapeHTML(analysisIndexIntroRaw);
     const localizedIntroWithLink = manifestUrl
         ? escapedAnalysisIntro.replace('manifest.json', `<a href="${escapeHTML(manifestUrl)}">manifest.json</a>`)
         : escapedAnalysisIntro;
-    // Replace the known English intro sentence using indexOf
     const analysisIntroStart = 'Every artifact below was read by the aggregator';
     const analysisIntroIdx = html.indexOf(analysisIntroStart);
     if (analysisIntroIdx !== -1) {
@@ -284,15 +255,12 @@ export function localizeArticleBody(bodyHtml, lang) {
             html = html.slice(0, analysisIntroIdx) + localizedIntroWithLink + html.slice(endOffset);
         }
     }
-    // --- Analysis Index table headers ---
     const colSection = getLocalizedString(ANALYSIS_INDEX_COL_SECTION_LABELS, lang);
     const colArtifact = getLocalizedString(ANALYSIS_INDEX_COL_ARTIFACT_LABELS, lang);
     const colPath = getLocalizedString(ANALYSIS_INDEX_COL_PATH_LABELS, lang);
     html = html.replace('<th>Section</th><th>Artifact</th><th>Path</th>', `<th>${escapeHTML(colSection)}</th><th>${escapeHTML(colArtifact)}</th><th>${escapeHTML(colPath)}</th>`);
-    // --- Key Takeaways heading ---
     const keyTakeawaysHeading = getLocalizedString(KEY_TAKEAWAYS_HEADING_LABELS, lang);
     html = replaceHeadingById(html, KEY_TAKEAWAYS_SECTION_ID, 'Key Takeaways', keyTakeawaysHeading);
-    // --- Supplementary Intelligence heading ---
     const supplementaryHeading = getLocalizedString(SUPPLEMENTARY_HEADING_LABELS, lang);
     html = replaceHeadingById(html, SUPPLEMENTARY_SECTION_ID, 'Supplementary Intelligence', supplementaryHeading);
     return html;
@@ -326,26 +294,21 @@ function replaceFirstStringIn(haystack, needle, replacement) {
  * @returns Updated HTML string
  */
 function replaceHeadingById(html, sectionId, englishTitle, localizedTitle) {
-    // Find the id attribute in the HTML — this uniquely identifies the heading
     const idMarker = `id="${sectionId}"`;
     let idIdx = html.indexOf(idMarker);
     if (idIdx === -1) {
-        // Try single-quoted variant
         const idMarkerSingle = `id='${sectionId}'`;
         idIdx = html.indexOf(idMarkerSingle);
     }
     if (idIdx === -1)
         return html;
-    // Find the closing '>' of the opening tag after the id
     const tagCloseIdx = html.indexOf('>', idIdx);
     if (tagCloseIdx === -1)
         return html;
-    // The title text starts immediately after '>'
     const titleStart = tagCloseIdx + 1;
     const titleEnd = html.indexOf('<', titleStart);
     if (titleEnd === -1)
         return html;
-    // Verify this is actually the English title we expect
     const existingTitle = html.slice(titleStart, titleEnd);
     if (existingTitle.trim() !== englishTitle)
         return html;
@@ -472,8 +435,6 @@ function getStemIcon(stem) {
  */
 function extractTradecraftLinks(html, expectedPrefix) {
     const out = [];
-    // Walk anchor tags one at a time using indexOf to avoid catastrophic
-    // backtracking on long inputs (CodeQL js/polynomial-redos).
     let cursor = 0;
     while (cursor < html.length) {
         const aIdx = html.indexOf('<a ', cursor);
@@ -494,8 +455,6 @@ function extractTradecraftLinks(html, expectedPrefix) {
         if (endIdx === -1)
             break;
         cursor = endIdx + '</a>'.length;
-        // Only keep links pointing at the expected analysis/* path under the
-        // GitHub blob URL — every other anchor is intro chrome.
         const blobMarker = `/blob/main/${expectedPrefix}`;
         const blobIdx = href.indexOf(blobMarker);
         if (blobIdx === -1)
@@ -532,11 +491,6 @@ function extractTradecraftLinks(html, expectedPrefix) {
  */
 function renderTradecraftCard(link, lang, ctaLabel) {
     const stem = link.repoRelPath.split('/').pop()?.replace(/\.md$/i, '') ?? link.repoRelPath;
-    // Use the humanised stem (e.g. "Electoral Cycle Methodology") as the
-    // fallback title, matching how the political-intelligence page
-    // resolves titles for files without a curated entry. The previous
-    // raw-stem fallback ("electoral-cycle-methodology") leaked filename
-    // noise into reader-facing card titles.
     const fallbackTitle = humanizeStem(stem);
     const title = getCuratedTitle(link.repoRelPath, lang, fallbackTitle);
     const description = getCuratedDescription(link.repoRelPath, lang, fallbackTitle);
@@ -688,11 +642,9 @@ export function enhanceTradecraftCards(bodyHtml, lang) {
     const anchorIdx = bodyHtml.indexOf(`id="${TRADECRAFT_SECTION_ID}"`);
     if (anchorIdx === -1)
         return bodyHtml;
-    // The next H2 marks the end of the tradecraft section.
     const nextH2 = bodyHtml.indexOf('<h2 ', anchorIdx + 1);
     const sectionEnd = nextH2 === -1 ? bodyHtml.length : nextH2;
     const section = bodyHtml.slice(anchorIdx, sectionEnd);
-    // Harvest the methodology + template links from the rendered HTML.
     const methodLinks = extractTradecraftLinks(section, 'analysis/methodologies/');
     const templateLinks = extractTradecraftLinks(section, 'analysis/templates/');
     if (methodLinks.length === 0 && templateLinks.length === 0)
@@ -700,12 +652,6 @@ export function enhanceTradecraftCards(bodyHtml, lang) {
     const methodCta = getViewMethodologyLabel(lang);
     const templateCta = getViewTemplateLabel(lang);
     let next = bodyHtml;
-    // Replace Artifact-templates <ul> first, then the Methodologies <ul>.
-    // Use the returned end index from the first replacement to seed the
-    // search for the second <ul> so we never double-replace.
-    // Note: markdown-it adds `id` and `tabindex` attributes to headings
-    // (`<h3 id="artifact-templates" tabindex="-1">…`), so we search for
-    // `<h3` (no terminator) rather than `<h3>` to match either form.
     const firstHeadingIdx = next.indexOf('<h3', anchorIdx);
     if (firstHeadingIdx !== -1 && templateLinks.length > 0) {
         const templateCards = templateLinks
@@ -716,8 +662,6 @@ export function enhanceTradecraftCards(bodyHtml, lang) {
     }
     const secondHeadingSearchStart = next.indexOf(`id="${TRADECRAFT_SECTION_ID}"`);
     if (secondHeadingSearchStart !== -1 && methodLinks.length > 0) {
-        // Find the second <h3 after the tradecraft anchor (Artifact templates
-        // is the first; Methodologies is the second).
         const firstH3 = next.indexOf('<h3', secondHeadingSearchStart);
         if (firstH3 !== -1) {
             const secondH3 = next.indexOf('<h3', firstH3 + 1);
@@ -752,7 +696,6 @@ export function enhanceAnalysisIndexCards(bodyHtml, lang) {
     const anchorIdx = bodyHtml.indexOf(`id="${MANIFEST_SECTION_ID}"`);
     if (anchorIdx === -1)
         return bodyHtml;
-    // Locate the table and its end.
     const tableIdx = bodyHtml.indexOf('<table>', anchorIdx);
     if (tableIdx === -1)
         return bodyHtml;
@@ -764,12 +707,8 @@ export function enhanceAnalysisIndexCards(bodyHtml, lang) {
     if (rows.length === 0)
         return bodyHtml;
     const cards = rows.map((row) => renderAnalysisIndexCard(row, lang)).join('\n');
-    // Walk back to the start of the wrapping <div class="table-scroll"> if
-    // present, so we replace the responsive wrapper too.
     const wrapperOpen = bodyHtml.lastIndexOf('<div class="table-scroll"', tableIdx);
     const replaceFrom = wrapperOpen !== -1 && wrapperOpen > anchorIdx ? wrapperOpen : tableIdx;
-    // Walk forward past the matching </div> when we kicked off from the
-    // wrapper, otherwise stop right after </table>.
     let replaceTo = tableEnd + '</table>'.length;
     if (wrapperOpen !== -1 && wrapperOpen > anchorIdx) {
         const wrapperClose = bodyHtml.indexOf('</div>', tableEnd);
@@ -799,7 +738,6 @@ function parseAnalysisIndexRows(tableHtml) {
             break;
         const row = tableHtml.slice(trIdx, trEnd);
         cursor = trEnd + '</tr>'.length;
-        // Skip the header row (which only has <th> not <td>).
         if (row.indexOf('<td>') === -1)
             continue;
         const cells = parseRowCells(row);
@@ -898,14 +836,7 @@ function renderAnalysisIndexCard(row, lang) {
     const info = getArtifactInfo(row.runRelPath, lang);
     const stem = row.runRelPath.split('/').pop()?.replace(/\.md$/i, '') ?? row.runRelPath;
     const icon = getStemIcon(stem);
-    // Reuse the section-title localisation already used by the TOC so the
-    // "Section: …" badge reads naturally in every language.
     const sectionLabel = getLocalizedTocTitle(row.sectionId, row.sectionId, lang);
-    // Drop the redundant `<code>analysis/.../foo.md</code>` filename row —
-    // the curated title + curated description plus the section badge
-    // already convey what the artifact is and where it sits in the
-    // article. The kind-aware "View artifact" CTA tells the reader the
-    // link opens the underlying committed artifact on GitHub.
     return [
         `          <li class="pi-card">`,
         `            <a class="pi-card__link" href="${escapeHTML(row.href)}" rel="noopener external" target="_blank">`,

@@ -126,7 +126,6 @@ export function validateShellSafety(content: string): readonly ShellSafetyViolat
   for (const rule of SHELL_SAFETY_RULES) {
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
-      // Skip whole-line comments — they describe patterns without executing them
       if (line === undefined || /^\s*#/u.test(line)) {
         continue;
       }
