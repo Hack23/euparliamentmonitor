@@ -1,0 +1,39 @@
+{
+  "date": "2026-05-11",
+  "articleType": "term-outlook",
+  "runId": "term-outlook-run348-1778510405",
+  "gateResult": "PENDING",
+  "slug": "2026-05-11-term-outlook",
+  "articlePath": "analysis/daily/2026-05-11/term-outlook/article.md",
+  "topFinding": "EP10 will deliver a partial, multi-coalition legislative record between 2026-05-11 and the 2029 election (WEP Likely, horizon: full term, confidence Moderate).",
+  "keyTakeaways": [
+    "Forces field analysis → `classification/forces-analysis.md`",
+    "Actor influence map → `classification/actor-mapping.md`",
+    "Impact cascade → `classification/impact-matrix.md`",
+    "Risk register → `risk-scoring/risk-matrix.md`",
+    "Strategic SWOT → `risk-scoring/quantitative-swot.md`",
+    "Coalition arithmetic → `intelligence/coalition-dynamics.md`",
+    "Macro context → `intelligence/economic-context.md`"
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [
+    "**Plenary** — official voting venue; agenda set by Conference of Presidents.",
+    "**Trilogue** — informal Council/EP/Commission negotiation; key decision venue.",
+    "**Group caucus** — pre-vote alignment; whip enforcement.",
+    "**Member-state press** — frames national-political reception of EP votes.",
+    "**NGO / industry letters** — pre-position public expectations."
+  ],
+  "macroContext": "These macro constraints map directly to the term-outlook coalition arithmetic:",
+  "sources": [
+    "classification/actor-mapping.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
