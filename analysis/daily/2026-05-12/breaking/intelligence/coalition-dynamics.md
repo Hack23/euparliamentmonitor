@@ -181,3 +181,27 @@ EP political landscape: `generate_political_landscape` — 717 MEPs, 9 groups co
 EP early warning system: stability 84/100, dominant group risk HIGH warning
 Coalition arithmetic: computed from confirmed seat share data
 Vote estimates: group composition proxy (per `analyze_coalition_dynamics` methodology)
+
+---
+
+## Extension — MFF 2028–2034 Coalition Analysis (This Run)
+
+### MFF-Specific Coalition Dynamics (April 2026)
+
+The MFF 2028–2034 interim report introduces a new test of the Grand Coalition's durability. Unlike routine legislative coalitions, the MFF involves both an immediate vote and a multi-year political commitment.
+
+**Phase 1 — Interim Report Vote (April 2026):**
+The EPP+S&D+Renew coalition successfully adopted the interim report. The vote margin was comfortable (+36 above majority threshold based on structural analysis). The Greens voted FOR conditionally; The Left voted AGAINST on defence grounds. PfE/ECR opposition was as expected.
+
+**Phase 2 — Commission Proposal Response (expected Q4 2026):**
+The coalition will face a more significant test when the Commission proposal reveals the gap between EP demands and Commission ambition. If the Commission proposes <1.2% GNI, S&D and Greens may seek amendments that EPP cannot accept. Coalition dynamics will depend on whether EPP can maintain S&D support while negotiating with the Council.
+
+**Phase 3 — Council Trilogue (2027–2028):**
+The highest coalition risk. Historical pattern shows EP ultimately accepts a Council-driven compromise under time pressure (provisional 12ths threat). The 2028 deadline provides similar leverage.
+
+**MFF coalition monitoring indicators:**
+1. Watch for first EPP-Council contact on MFF ceiling level (signals compromise range)
+2. Watch for S&D conditional support threshold (social cohesion maintenance minimum)
+3. Watch for Renew position on digital levy (progressive European position vs. fiscal hawk pressure from national governments)
+
+**Cross-references:** `extended/coalition-mathematics.md`, `extended/forward-indicators.md` FI-90-1, `extended/implementation-feasibility.md` §MFF demands

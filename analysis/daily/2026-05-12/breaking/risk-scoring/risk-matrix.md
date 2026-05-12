@@ -159,3 +159,23 @@ Admiralty grading: NATO A–F/1–6 grid applied to evidence quality
 |---|---|---|
 | Admiralty B2 | EP official feeds + analytical inference | Probably true |
 
+
+
+## Extension — April 2026 Risk Matrix Update
+New risks added:
+- R-NEW-1: MFF negotiation failure (likelihood 15
+### Residual Risk Assessment After Mitigations
+Post-mitigation risk landscape (assuming EP monitoring and advocacy maintain current pressure):
+- Banking crisis: HIGH impact, LOW probability, MEDIUM residual risk
+- MFF breakdown: HIGH impact, LOW-MEDIUM probability, MEDIUM residual risk
+- China trade war: MEDIUM impact, MEDIUM probability, MEDIUM-HIGH residual risk
+- Rule of law regression: HIGH impact, HIGH probability, MEDIUM residual risk (Article 7 + conditionality mitigates)
+- Far-right surge: MEDIUM impact, MEDIUM probability, LOW-MEDIUM residual risk (institutional safeguards)
+Overall residual risk score: MEDIUM (improved from MEDIUM-HIGH in prior run due to Banking Union progress and MFF vote)
+
+
+Confidence: Medium. Source: EU Parliament Monitor risk framework. Cross-reference: intelligence/scenario-forecast.md, intelligence/wildcards-blackswans.md, intelligence/political-threat-landscape.md.
+
+Confidence: Medium. Source attribution: EU Parliament Monitor risk framework v2.2. Final update: 2026-05-12 run.
+
+Additional risk: R-INFRA-1: MCP API publication lag for voting records creates recurrent analysis quality risk on all breaking news runs. Mitigation: structural estimation methodology (as used this run). Final risk registry count: 12 items.

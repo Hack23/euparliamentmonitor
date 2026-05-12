@@ -236,3 +236,46 @@ The 3-month outlook is characterised by medium uncertainty across multiple scena
 Scenario development: Cross-referenced from significance-assessment.md, political-forces.md, coalition-dynamics.md
 Monitoring indicators: Based on EP/Council procedural timelines and documented political actor behaviour
 Scenario probabilities: Expert analytical estimates; WEP bands and Admiralty grades applied per methodology
+
+---
+
+## Extension — New Scenarios (This Run)
+
+### Scenario 6: MFF Negotiation Breakdown (Black Scenario)
+**Probability:** LOW (15%)
+**Trigger:** Commission proposes MFF ceiling at <1.05% GNI; EP refuses to engage; no agreement before December 2028
+**Consequence:** EU operates under provisional 12ths from January 2029 — each month gets 1/12 of prior year budget; major new programmes cannot launch; political crisis entering 2029 EP elections
+**Key uncertainty:** Whether the "12ths threat" creates enough pressure on member states to compromise earlier
+**EP response:** Emergency plenary sessions; potential vote of no-confidence in Commission (unprecedented; requires 2/3 majority)
+**Cross-reference:** `extended/forward-indicators.md` FI-90-1; `intelligence/wildcards-blackswans.md` §BS-3
+
+### Scenario 7: China Trade War Escalation (Black Scenario)
+**Probability:** MEDIUM (30%)
+**Trigger:** China retaliates against EU unfair competition mechanism (TA-10-2026-0149) with targeted tariffs on EU automotive exports (BMW, Volkswagen, Stellantis — which all have significant China revenue)
+**Consequence:** German government under intense pressure from automotive industry; Germany breaks Council unanimity on trade stance; EU trade policy fragmented
+**Second-order effect:** US exploits EU-China trade war to push US-EU bilateral agreement that EPP accepts but S&D conditions on social and environmental standards
+**EP response:** INTA Committee emergency hearings; S&D demands social conditionality; Renew supports US deal; coalition fragmented on trade
+
+### Scenario 8: ECB Emergency Action Scenario
+**Probability:** LOW-MEDIUM (20%)
+**Trigger:** Italian sovereign spread exceeds 300bp versus German Bund for >60 days; markets test ECB backstop commitment
+**Consequence:** ECB activates Transmission Protection Instrument (TPI); conditions on Italian fiscal consolidation; Italian government under pressure to accept conditionality it may not be able to deliver politically
+**EP response:** ECON Committee emergency session; resolution on Banking Union completion (EDIS); S&D and Left demand social protection conditionality on ECB bailout
+**Cross-reference:** `intelligence/wildcards-blackswans.md` §BS-1; `intelligence/economic-context.md` §Banking Union
+
+### Monitoring indicators for new scenarios:
+- Scenario 6: Commission consultation document ambition level (FI-30-1 trigger indicator)
+- Scenario 7: Chinese commerce ministry statements following EU unfair competition measure adoption
+- Scenario 8: Italian sovereign spread vs Bund; BTP-Bund spread monitoring
+
+**Updated scenario probability distribution:**
+- Green scenarios (positive): 25%
+- Baseline scenarios (expected): 40%
+- Yellow scenarios (moderate disruption): 20%
+- Black scenarios (severe disruption): 15%
+
+**Source attribution extension:** Three scenarios added based on new April 2026 legislative outputs (MFF, trade defence mechanism, BRRD3). Scenarios 6-8 cross-reference forward-indicators.md and wildcards-blackswans.md for consistency.
+**Updated confidence:** 🟡 Medium across all extended scenarios; scenario probability estimates are informed judgements, not actuarial calculations.
+
+
+Conclusion: The scenario landscape for EU governance in 2026-2028 is shaped primarily by three pivotal variables: (1) MFF negotiation outcome, (2) US political trajectory affecting Ukraine and EU-US trade, (3) financial stability in peripheral euro area. All new scenarios reflect these variables.

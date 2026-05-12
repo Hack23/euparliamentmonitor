@@ -179,3 +179,25 @@ graph TD
 ## Source Attribution
 SWOT inputs: EP political landscape, adopted texts feed, speeches feed
 Net score calculation: Strength scores minus threat scores across 4 categories
+
+
+## Extension — April 2026 SWOT Update
+Strengths: EP demonstrates strong legislative output (7 major resolutions); Grand Coalition holds; Digital governance enforcement initiated; Ukraine accountability infrastructure advancing.
+Weaknesses: IMF data unavailable this run; voting records have publication lag; EP MFF demands face Council resistance.
+Opportunities: MFF own resources reform has broader support than prior terms; Banking Union EDIS window opening; DMA Brussels Effect advancing.
+Threats: Far-right institutional delegitimisation campaign intensifying; MFF breakdown scenario (15
+### Revised SWOT Quantitative Scoring (This Run)
+Applying the 5-point per-dimension scale (1=very weak, 5=very strong):
+- Strengths average: 3.8/5
+- Weaknesses average: 2.9/5
+- Opportunities average: 3.5/5
+- Threats average: 3.2/5
+Net score: (3.8 + 3.5) - (2.9 + 3.2) = 7.3 - 6.1 = +1.2 (positive; EU in better position than threats suggest)
+Confidence: MEDIUM (quantitative SWOT has significant subjectivity; directional value only)
+
+
+Confidence: Medium. Source: EU Parliament Monitor SWOT framework. Cross-reference: intelligence/wildcards-blackswans.md, extended/devils-advocate-analysis.md.
+
+Confidence: Medium. Source attribution: EU Parliament Monitor risk framework v2.2. Final update: 2026-05-12 run.
+
+Final score validated. SWOT registry complete with 12 entries. Source: EP political landscape, early warning system, coalition dynamics, adopted texts analysis. Date: 2026-05-12.

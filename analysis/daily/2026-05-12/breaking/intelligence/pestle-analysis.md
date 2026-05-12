@@ -219,3 +219,31 @@ PESTLE methodology: `analysis/methodologies/per-artifact-methodologies.md`
 Political and legal scores: EP speeches, adopted texts, coalition data (EP MCP tools)
 Economic scores: IMF WEO context (reference — IMF SDMX not called in this run)
 Technology and social scores: Analytical assessment from speeches feed and adopted texts
+
+### Technology Dimension — AI Displacement Addition
+
+**AI Labour Displacement (PESTLE: T):**
+The AI Digital Omnibus (TA-10-2026-0098) simplifies AI Act compliance but does not address workforce displacement. The EP's EMPL (Employment and Social Affairs) Committee has initiated a study on AI displacement impact across EU sectors; findings expected Q3 2026. The EP's AI governance framework is increasingly recognised as complete on the regulatory side but insufficient on the social adaptation side.
+
+Cross-reference: `extended/comparative-international.md` §Digital Governance; `intelligence/political-threat-landscape.md` §SE-2.
+
+### Economic Dimension Addition — Trade Tension
+The EU-China tariff agreement (TA-10-2026-0101) and unfair competition mechanism (TA-10-2026-0149) represent twin economic signals: the EU is simultaneously engaging diplomatically (tariff agreement) and building defensive capacity (unfair competition). This dual-track approach reflects the broader EU economic strategy of "de-risking not decoupling" from China.
+
+Cross-reference: `extended/comparative-international.md` §Digital Governance; `intelligence/economic-context.md` §Trade.
+
+**Confidence Assessment (B3):** Source reliability: B (EP Open Data Portal + European Commission reports); Information reliability: 3 (medium confidence — structural analysis with qualitative evidence).
+**WEP:** Likely that the technological dimension (AI governance, digital sovereignty) will overtake economic factors as the primary PESTLE driver for EP10's legislative agenda by 2027.
+
+### Integrated PESTLE Summary
+
+The PESTLE analysis reveals a parliament operating at the intersection of five major macro-environmental forces simultaneously: (1) geopolitical fragmentation (Russia-Ukraine, US-China, EU-US trade); (2) green transition acceleration (post-AI Act enforcement, Green Deal implementation); (3) digital sovereignty construction (DMA, DSA, NIS2 enforcement regime); (4) fiscal architecture revision (MFF 2028-2034 negotiation); (5) institutional democratization (Article 7 enforcement, rule-of-law mechanism). No prior EP term has faced this convergence of structural pressures, making comparative analysis challenging and EP10's governance choices particularly consequential for EU's long-term trajectory.
+
+**Summary PESTLE Scores (EP10 Environment, Scale 1-10):**
+- Political: 7.5 (high but manageable given grand coalition stability)
+- Economic: 6.5 (MFF uncertainty, US trade risk, but fundamentals stable)
+- Social: 5.5 (migration tensions, but youth engagement improving)
+- Technological: 9.0 (AI governance is EP10's defining challenge)
+- Legal: 7.0 (major legislative output but implementation risks)
+- Environmental: 7.5 (Green Deal under revision, but baseline strong)
+Overall PESTLE assessment: EP10 operates in HIGH-complexity macro-environment requiring adaptive legislative strategy and sustained coalition management.

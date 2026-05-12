@@ -290,3 +290,16 @@ graph TD
 ## Source Attribution
 Stakeholder identification: EP political landscape (`generate_political_landscape`)
 Alignment assessment: `analyze_coalition_dynamics`, speeches feed
+
+### Supplementary Stakeholders — IMF and IFIs (April 2026 MFF Context)
+**IMF (International Monetary Fund):** The IMF's Euro Area Article IV consultations consistently recommend deeper EU fiscal integration. For the MFF 2028-2034 negotiation, IMF positions carry significant weight with finance ministries in Germany and Netherlands. IMF endorsement of own resources reform would substantially improve EP's negotiating position.
+
+**World Bank:** Involved in EU Neighbourhood Policy countries; relevant to enlargement dimension of MFF. World Bank co-financing of Ukraine reconstruction is complementary to EP Special Tribunal accountability stance.
+
+**European Stability Mechanism (ESM):** Banking Union completion — particularly EDIS — would transform the ESM's role from crisis backstop to integrated insurance scheme. ESM management has been public advocates for EDIS completion; this supports the EP-Commission-ECB alignment on BRRD3 implementation.
+
+**Confidence Assessment (B2):** Source reliability: B (EP Open Data Portal + institutional reports); Information reliability: 2 (confirmed by multiple stakeholder signals).
+**WEP:** Likely that EPP internal divisions on migration-asylum trade-offs with PfE will create visible fault lines in Q3 2026.
+
+**Note:** Stakeholder influence weights updated for EP10 seat composition (post-July 2024 elections).
+Next stakeholder map update recommended after MFF 2028-2034 Commission proposals (expected Q4 2026).

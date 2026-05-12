@@ -337,3 +337,55 @@ Tool reliability comparison: This run vs. prior run artifacts (reference)
 Completeness scoring: Against EP Open Data Portal available feeds
 Recommendations: Based on observed tool performance patterns across multiple runs
 MCP server: `european-parliament-mcp-server@1.3.2`
+
+---
+
+## Extension — This Run's MCP Reliability Data (2026-05-12 Run)
+
+### Run-Specific Reliability Assessment
+
+**Run ID:** breaking-run-1778577220
+**Date:** 2026-05-12
+**EP MCP server version:** european-parliament-mcp-server@1.3.3
+
+#### Tool Performance This Run
+
+| Tool | Calls | Success | Avg latency | Notes |
+|------|-------|---------|-------------|-------|
+| get_adopted_texts_feed | 1 | ✅ | ~3s | 50 items returned |
+| generate_political_landscape | 1 | ✅ | ~2s | Full 717 MEP data |
+| early_warning_system | 1 | ✅ | ~2s | stability=84/100 |
+| analyze_coalition_dynamics | 1 | ✅ | ~3s | Structure only (no cohesion) |
+| get_plenary_sessions | 1 | ✅ | ~2s | Empty (expected) |
+| get_voting_records | 1 | ✅ (empty) | ~2s | Publication lag |
+| get_adopted_texts | 4+ | ✅ | ~3s each | Pagination worked |
+
+**IMF fetch-proxy:** ⚠️ NOT TESTED — gateway may not be configured for IMF endpoint in this run context. IMF data gap documented throughout analysis artifacts.
+
+#### Data Quality Findings — Critical for Article Production
+
+1. **Voting records publication lag:** The EP publishes roll-call data with 4-6 week delay. Any article discussing April 28-30 votes must use structural/estimated analysis, not confirmed data. This is a recurring constraint across all breaking news runs.
+
+2. **Coalition dynamics limitations:** The `analyze_coalition_dynamics` tool currently uses size-proxy methodology (not per-MEP vote data). The EP Open Data Portal does not expose per-MEP roll-call data via the standard API. This limitation is systemic and not specific to this run.
+
+3. **IMF API accessibility:** The fetch-proxy MCP server for IMF SDMX appears to require specific gateway configuration (`EP_MCP_GATEWAY_URL` pointing to a gateway that proxies IMF API). In this run, IMF API was not accessible. Economic analysis quality is correspondingly reduced.
+
+#### Comparison with Prior Run (breaking-run257)
+
+| Metric | Prior run | This run | Delta |
+|--------|-----------|----------|-------|
+| API calls | ~6 | ~7 | +1 |
+| Data quality | MEDIUM | MEDIUM | Equal |
+| Adopted texts | 164 | 164 | Equal (no new texts) |
+| IMF data | Not available | Not available | Equal |
+| Voting records | Not available | Not available | Equal |
+
+**Net MCP reliability assessment for this run:** 🟢 HIGH for EP structural data; 🟡 MEDIUM for completeness (voting data lag); ⚠️ ALERT for IMF API unavailability.
+
+#### Recommendations for MCP Infrastructure Improvement
+
+1. **IMF API gateway:** Verify `fetch-proxy` MCP configuration in all breaking news runs; IMF economic context is required by article-horizons.ts for full quality.
+2. **Voting records:** Consider adding a `get_voting_records_provisional` tool or data flag that returns best-available data even during publication lag period.
+3. **Coalition dynamics:** When EP Open Data Portal exposes per-MEP roll-call data via API, update `analyze_coalition_dynamics` to use empirical rather than proxy cohesion scores.
+
+**Cross-references:** `intelligence/workflow-audit.md` §MCP Tool Reliability Audit, `extended/data-download-manifest.md`

@@ -1,11 +1,11 @@
 {
   "date": "2026-05-12",
   "articleType": "breaking",
-  "runId": "breaking-run257-1778549289",
-  "gateResult": "GREEN",
+  "runId": "breaking-run-1778577220",
+  "gateResult": "ANALYSIS_ONLY",
   "slug": "2026-05-12-breaking",
   "articlePath": "analysis/daily/2026-05-12/breaking/article.md",
-  "topFinding": "The European Parliament's April 28–30, 2026 Strasbourg session produced outputs that simultaneously advance three distinct but intersecting political projects: (1) the EU's digital regulatory sovereignty agenda, (2) its geopolitical accountability architecture for the Russia-Ukraine war, and (3) the domestic…",
+  "topFinding": "---",
   "keyTakeaways": [
     "A deterrent signal to gatekeepers considering compliance arbitrage",
     "A political accountability instrument (EP can cite it at DG COMP hearings)",
@@ -15,13 +15,23 @@
     "**Institutional legitimacy** defence (Commission independence) runs ahead of communication capacity (PfE narrative faster than EU response)",
     "Thread 1 (DMA): High confidence on facts; medium on outcome prediction"
   ],
-  "topRisks": [],
+  "topRisks": [
+    "R-NEW-1: MFF negotiation failure (likelihood 15",
+    "Banking crisis: HIGH impact, LOW probability, MEDIUM residual risk",
+    "MFF breakdown: HIGH impact, LOW-MEDIUM probability, MEDIUM residual risk",
+    "China trade war: MEDIUM impact, MEDIUM probability, MEDIUM-HIGH residual risk",
+    "Rule of law regression: HIGH impact, HIGH probability, MEDIUM residual risk (Article 7 + conditionality mitigates)",
+    "Far-right surge: MEDIUM impact, MEDIUM probability, LOW-MEDIUM residual risk (institutional safeguards)"
+  ],
   "keyDates": [
+    "EU GDP growth Q2 2026 (Eurostat, expected July 2026)",
+    "Inflation trajectory (ECB July 2026 decision)",
+    "Ukraine reconstruction financing (donor conference expected September 2026)",
+    "US-EU trade negotiations (tariff framework expected June-September 2026)",
     "G7 heads of government align on tribunal at June 2026 Summit",
     "PfE and ECR coordinate Rule 169 debates in every May–September 2026 plenary (2 more)",
     "Polish Council Presidency (July 2026) is strongly pro-EU — partially counters Hungarian-Austrian axis",
-    "Budget negotiations begin in September 2026 as planned",
-    "4th+ Rule 169 topical debate request in 2026 (trigger: May–June 2026 plenary)"
+    "Budget negotiations begin in September 2026 as planned"
   ],
   "keyActors": [
     "EPP: 5/5 — coalition-defining; without EPP no majority is possible",
@@ -33,10 +43,13 @@
     "Ukraine: All except PfE/ECR/ESN core (~494)",
     "MFF/Budget: EPP + S&D + Renew only (~396)"
   ],
-  "macroContext": "",
+  "macroContext": "---",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
+    "extended/forward-indicators.md",
     "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
     "intelligence/scenario-forecast.md",
     "intelligence/stakeholder-map.md",
     "intelligence/synthesis-summary.md",
