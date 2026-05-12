@@ -31,6 +31,11 @@ updates:
         update-types:
           - "minor"
           - "patch"
+
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: daily
       
   # GitHub Actions
   - package-ecosystem: "github-actions"
