@@ -162,7 +162,7 @@ describe('deploy pipeline wiring', () => {
     );
     // vendor files are already minified upstream — must not be re-processed by terser
     expect(minifyScript).toContain('.min.js');
-    expect(minifyScript).toMatch(/\.min\.js.*skip|skip.*\.min\.js|endsWith.*\.min\.js|\.min\.js.*vendor|vendor.*exclude|vendor.*skip/is);
+    expect(minifyScript).toMatch(/!.*endsWith\(['"]\.min\.js['"]\)/);
   });
 
   it('scripts/minify-assets.js preserves license banners (/*!) when minifying JS', () => {
@@ -170,9 +170,8 @@ describe('deploy pipeline wiring', () => {
       resolve(repoRoot, 'scripts', 'minify-assets.js'),
       'utf8',
     );
-    // terser format.comments: 'some' preserves /*! banners required by open-source licenses
-    expect(minifyScript).toContain("comments");
-    expect(minifyScript).toMatch(/['"]some['"]|preserveComments|comments.*some|license.*banner/i);
+    // terser format: { comments: 'some' } preserves /*! banners required by open-source licenses
+    expect(minifyScript).toMatch(/comments:\s*['"]some['"]/);
   });
 });
 
