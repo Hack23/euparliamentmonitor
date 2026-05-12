@@ -462,7 +462,7 @@ STAGE_C_GATE: RED articleType=${ARTICLE_TYPE_SLUG} missing=<N> short=<N> placeho
 - **RED (second)** → set `GATE_RESULT=ANALYSIS_ONLY`, skip full article render, and ship analysis-only in the single PR.
 
 > **🧯 Committee-reports invocation-cap guard (run #25715099069)**:
-> Copilot currently enforces a 100 model-invocation cap per agent session; this
+> Copilot currently enforces a 100 model invocation cap per agent session; this
 > workflow previously hit that cap while repeatedly inspecting validator output
 > and source code during Stage C. For `committee-reports`, Stage C therefore has
 > a local repair cutoff at **minute 32 elapsed** (four minutes before the
