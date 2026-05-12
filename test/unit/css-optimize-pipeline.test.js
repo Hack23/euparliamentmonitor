@@ -52,6 +52,7 @@ describe('purgecss.config.cjs', () => {
   it.each([
     './*.html',
     './news/*.html',
+    './sw.js.template',
     './js/**/*.js',
     './scripts/templates/**/*.js',
     './scripts/generators/**/*.js',
@@ -152,6 +153,26 @@ describe('deploy pipeline wiring', () => {
     const minifyIdx = deployYml.indexOf('npm run minify-assets');
     const syncIdx = deployYml.indexOf('aws s3 sync');
     expect(syncIdx).toBeGreaterThan(minifyIdx);
+  });
+
+  it('scripts/minify-assets.js skips already-minified vendor files (*.min.js)', () => {
+    const minifyScript = readFileSync(
+      resolve(repoRoot, 'scripts', 'minify-assets.js'),
+      'utf8',
+    );
+    // vendor files are already minified upstream — must not be re-processed by terser
+    expect(minifyScript).toContain('.min.js');
+    expect(minifyScript).toMatch(/\.min\.js.*skip|skip.*\.min\.js|endsWith.*\.min\.js|\.min\.js.*vendor|vendor.*exclude|vendor.*skip/is);
+  });
+
+  it('scripts/minify-assets.js preserves license banners (/*!) when minifying JS', () => {
+    const minifyScript = readFileSync(
+      resolve(repoRoot, 'scripts', 'minify-assets.js'),
+      'utf8',
+    );
+    // terser format.comments: 'some' preserves /*! banners required by open-source licenses
+    expect(minifyScript).toContain("comments");
+    expect(minifyScript).toMatch(/['"]some['"]|preserveComments|comments.*some|license.*banner/i);
   });
 });
 

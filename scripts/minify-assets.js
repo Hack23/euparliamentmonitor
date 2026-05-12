@@ -19,8 +19,8 @@
 // Scopes:
 //   CSS  — styles.css only (the one deployed stylesheet)
 //   HTML — root *.html + news/*.html (all pages shipped to S3)
-//   JS   — js/**/*.js (client-side bundles; vendor files are already minified
-//           by upstream build — terser is idempotent so re-minifying is safe)
+//   JS   — js/**/*.js excluding *.min.js (vendor files already minified upstream;
+//           re-minifying risks stripping required license banners)
 //
 // HTML files are processed with a concurrency cap (CONCURRENCY) to avoid
 // overwhelming the event loop on the 4400+ news/*.html archive while still
@@ -165,7 +165,9 @@ function collectJs(dir) {
       const full = join(dir, entry.name);
       if (entry.isDirectory()) {
         collectJs(full);
-      } else if (entry.name.endsWith('.js')) {
+      } else if (entry.name.endsWith('.js') && !entry.name.endsWith('.min.js')) {
+        // Skip *.min.js — vendor bundles are already minified upstream;
+        // re-minifying them is wasteful and risks stripping required license banners.
         jsFiles.push(full);
       }
     }
@@ -183,7 +185,13 @@ const jsTasks = jsFiles.map((p) => async () => {
   try {
     const src = readFileSync(p, 'utf8');
     const before = Buffer.byteLength(src, 'utf8');
-    const result = await minifyJs(src, { compress: true, mangle: true });
+    const result = await minifyJs(src, {
+      compress: true,
+      mangle: true,
+      // Preserve /*! ... */ license banners (e.g. Chart.js, D3, MIT headers).
+      // terser 'some' keeps comments that start with ! or contain @license / @preserve.
+      format: { comments: 'some' },
+    });
     if (result.code) {
       writeFileSync(p, result.code);
       const after = Buffer.byteLength(result.code, 'utf8');
