@@ -296,7 +296,30 @@
 <a name='L231'></a><a href='#L231'>231</a>
 <a name='L232'></a><a href='#L232'>232</a>
 <a name='L233'></a><a href='#L233'>233</a>
-<a name='L234'></a><a href='#L234'>234</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L234'></a><a href='#L234'>234</a>
+<a name='L235'></a><a href='#L235'>235</a>
+<a name='L236'></a><a href='#L236'>236</a>
+<a name='L237'></a><a href='#L237'>237</a>
+<a name='L238'></a><a href='#L238'>238</a>
+<a name='L239'></a><a href='#L239'>239</a>
+<a name='L240'></a><a href='#L240'>240</a>
+<a name='L241'></a><a href='#L241'>241</a>
+<a name='L242'></a><a href='#L242'>242</a>
+<a name='L243'></a><a href='#L243'>243</a>
+<a name='L244'></a><a href='#L244'>244</a>
+<a name='L245'></a><a href='#L245'>245</a>
+<a name='L246'></a><a href='#L246'>246</a>
+<a name='L247'></a><a href='#L247'>247</a>
+<a name='L248'></a><a href='#L248'>248</a>
+<a name='L249'></a><a href='#L249'>249</a>
+<a name='L250'></a><a href='#L250'>250</a>
+<a name='L251'></a><a href='#L251'>251</a>
+<a name='L252'></a><a href='#L252'>252</a>
+<a name='L253'></a><a href='#L253'>253</a>
+<a name='L254'></a><a href='#L254'>254</a>
+<a name='L255'></a><a href='#L255'>255</a>
+<a name='L256'></a><a href='#L256'>256</a>
+<a name='L257'></a><a href='#L257'>257</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -347,6 +370,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -588,7 +634,7 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
   {
     id: 'synthesis',
     title: 'Synthesis Summary',
-    artifacts: ['intelligence/synthesis-summary.md'],
+    artifacts: ['intelligence/synthesis-summary.md', 'synthesis.md'],
   },
   {
     id: 'significance',
@@ -599,6 +645,7 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
       'classification/priority-matrix.md',
       'classification/issue-classification.md',
       'intelligence/significance-scoring.md',
+      'significance-assessment.md',
     ],
   },
   {
@@ -609,6 +656,9 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
       'classification/forces-analysis.md',
       'classification/impact-matrix.md',
       'classification/stakeholder-classification.md',
+      'actor-mapping.md',
+      'political-forces.md',
+      'impact-assessment.md',
       // Catch-all for any other classification/*.md not consumed above
       // (keeps non-canonical artifact names out of the Supplementary bucket
       // and inside their journalist-correct section).
@@ -627,7 +677,11 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
   {
     id: 'stakeholder-map',
     title: 'Stakeholder Map',
-    artifacts: ['intelligence/stakeholder-map.md', 'existing/stakeholder-impact.md'],
+    artifacts: [
+      'intelligence/stakeholder-map.md',
+      'existing/stakeholder-impact.md',
+      'stakeholder-perspectives.md',
+    ],
   },
   {
     id: 'economic-context',
@@ -646,6 +700,8 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
       'risk-scoring/legislative-risk.md',
       'risk-scoring/economic-risk.md',
       'risk-scoring/institutional-risk.md',
+      'risk-matrix.md',
+      'quantitative-swot.md',
       // Catch-all for any other risk-scoring/*.md (e.g. naming variants) so
       // they render under Risk Assessment instead of Supplementary.
       'risk-scoring/',
@@ -663,7 +719,11 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
   {
     id: 'scenarios',
     title: 'Scenarios &amp; Wildcards',
-    artifacts: ['intelligence/scenario-forecast.md', 'intelligence/wildcards-blackswans.md'],
+    artifacts: [
+      'intelligence/scenario-forecast.md',
+      'intelligence/wildcards-blackswans.md',
+      'scenario-forecast.md',
+    ],
   },
   {
     id: 'forward-projection',
@@ -672,6 +732,9 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
       'intelligence/forward-projection.md',
       'intelligence/legislative-pipeline-forecast.md',
       'intelligence/parliamentary-calendar-projection.md',
+      'forward/forward-projection.md',
+      'forward/legislative-pipeline-forecast.md',
+      'forward/parliamentary-calendar-projection.md',
       'extended/forward-indicators.md',
     ],
   },
@@ -689,7 +752,11 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
   {
     id: 'pestle-context',
     title: 'PESTLE &amp; Context',
-    artifacts: ['intelligence/pestle-analysis.md', 'intelligence/historical-baseline.md'],
+    artifacts: [
+      'intelligence/pestle-analysis.md',
+      'intelligence/historical-baseline.md',
+      'pestle-analysis.md',
+    ],
   },
   {
     id: 'continuity',
@@ -721,7 +788,7 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
   {
     id: 'extended-intel',
     title: 'Extended Intelligence',
-    artifacts: ['extended/'],
+    artifacts: ['extended/', 'media-framing.md'],
   },
   {
     id: 'mcp-reliability',
@@ -736,6 +803,8 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
       'intelligence/reference-analysis-quality.md',
       'intelligence/workflow-audit.md',
       'intelligence/methodology-reflection.md',
+      'article-index.md',
+      'methodology-reflection.md',
     ],
   },
 ];
@@ -769,7 +838,7 @@ export const MANIFEST_SECTION_TITLE = 'Analysis Index';
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-12T10:28:21.212Z
+                at 2026-05-12T15:30:49.996Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
