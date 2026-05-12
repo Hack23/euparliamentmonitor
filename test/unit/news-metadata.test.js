@@ -111,6 +111,76 @@ describe('utils/news-metadata', () => {
       expect(result).toBeNull();
     });
 
+    it('should preserve lastUpdated and mtime when articles payload is unchanged', () => {
+      const dbPath = path.join(tempDir, 'idempotent-metadata.json');
+      const articles = [
+        { filename: '2025-01-15-article-en.html', date: '2025-01-15', slug: 'article', lang: 'en', title: 'Article' },
+      ];
+      const database = { lastUpdated: '2025-01-15T00:00:00Z', articles };
+
+      // First write
+      writeMetadataDatabase(database, dbPath);
+      const stat1 = fs.statSync(dbPath);
+      const content1 = fs.readFileSync(dbPath, 'utf-8');
+
+      // Set mtime to a known past date so we can detect a rewrite
+      const past = new Date('2020-01-01T00:00:00Z');
+      fs.utimesSync(dbPath, past, past);
+
+      // Second write with a different lastUpdated but same articles
+      const database2 = { lastUpdated: '2099-12-31T23:59:59Z', articles };
+      writeMetadataDatabase(database2, dbPath);
+
+      // mtime should be preserved (still the past date) because the existing
+      // lastUpdated is kept and the resulting JSON is byte-identical.
+      const stat2 = fs.statSync(dbPath);
+      expect(stat2.mtimeMs).toBe(past.getTime());
+
+      // Content should still use the original lastUpdated
+      const content2 = fs.readFileSync(dbPath, 'utf-8');
+      expect(content2).toBe(content1);
+    });
+
+    it('should overwrite when articles payload differs', () => {
+      const dbPath = path.join(tempDir, 'diff-metadata.json');
+      const database = {
+        lastUpdated: '2025-01-15T00:00:00Z',
+        articles: [
+          { filename: '2025-01-15-article-en.html', date: '2025-01-15', slug: 'article', lang: 'en', title: 'Article' },
+        ],
+      };
+
+      writeMetadataDatabase(database, dbPath);
+
+      // Set mtime to a known past date
+      const past = new Date('2020-01-01T00:00:00Z');
+      fs.utimesSync(dbPath, past, past);
+
+      // Write with different articles
+      const database2 = {
+        lastUpdated: '2025-02-01T00:00:00Z',
+        articles: [
+          { filename: '2025-02-01-new-article-en.html', date: '2025-02-01', slug: 'new-article', lang: 'en', title: 'New' },
+        ],
+      };
+      writeMetadataDatabase(database2, dbPath);
+
+      // mtime should have changed (newer than our past date)
+      const stat2 = fs.statSync(dbPath);
+      expect(stat2.mtimeMs).toBeGreaterThan(past.getTime());
+    });
+
+    it('should overwrite when existing file is malformed JSON', () => {
+      const dbPath = path.join(tempDir, 'malformed-metadata.json');
+      fs.writeFileSync(dbPath, 'NOT VALID JSON{{{', 'utf-8');
+
+      const database = { lastUpdated: '2025-01-15T00:00:00Z', articles: [] };
+      writeMetadataDatabase(database, dbPath);
+
+      const result = readMetadataDatabase(dbPath);
+      expect(result).toEqual(database);
+    });
+
     it('should create parent directory if it does not exist', () => {
       const deepPath = path.join(tempDir, 'deep', 'nested', 'metadata.json');
       const database = { lastUpdated: '2025-01-15T00:00:00Z', articles: [] };

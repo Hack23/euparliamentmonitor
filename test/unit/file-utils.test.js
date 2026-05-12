@@ -20,6 +20,10 @@ import {
   calculateReadTime,
   mergeManifestHistory,
   readLatestGateResult,
+  escapeHTML,
+  isSafeURL,
+  validateArticleHTML,
+  resolveUniqueFilePath,
 } from '../../scripts/utils/file-utils.js';
 
 describe('utils/file-utils', () => {
@@ -919,6 +923,96 @@ describe('utils/file-utils', () => {
       const manifestPath = path.join(tempDir, 'manifest-corrupt.json');
       fs.writeFileSync(manifestPath, 'not-json{{{');
       expect(readLatestResolvedGateResult(manifestPath)).toBe('PENDING');
+    });
+  });
+
+  describe('escapeHTML', () => {
+    it('should escape ampersands', () => {
+      expect(escapeHTML('a & b')).toBe('a &amp; b');
+    });
+
+    it('should escape angle brackets and quotes', () => {
+      expect(escapeHTML('<div class="test">it\'s</div>')).toBe(
+        '&lt;div class=&quot;test&quot;&gt;it&#39;s&lt;/div&gt;'
+      );
+    });
+
+    it('should return empty string unchanged', () => {
+      expect(escapeHTML('')).toBe('');
+    });
+  });
+
+  describe('isSafeURL', () => {
+    it('should accept http URLs', () => {
+      expect(isSafeURL('http://example.com')).toBe(true);
+    });
+
+    it('should accept https URLs', () => {
+      expect(isSafeURL('https://example.com/path?q=1')).toBe(true);
+    });
+
+    it('should reject javascript: URLs', () => {
+      expect(isSafeURL('javascript:alert(1)')).toBe(false);
+    });
+
+    it('should reject data: URLs', () => {
+      expect(isSafeURL('data:text/html,<h1>hi</h1>')).toBe(false);
+    });
+
+    it('should return false for invalid URLs', () => {
+      expect(isSafeURL('not a url at all')).toBe(false);
+    });
+  });
+
+  describe('validateArticleHTML', () => {
+    it('should return valid for a well-formed article', () => {
+      const html = `
+        <a class="skip-link" href="#main">Skip</a>
+        <div class="reading-progress"></div>
+        <header class="site-header">
+          <nav class="site-header__langs">langs</nav>
+        </header>
+        <nav class="article-top-nav">back</nav>
+        <main id="main">
+          <article class="news-article">
+            <h1>Title</h1>
+            <footer class="article-meta">meta</footer>
+          </article>
+        </main>
+        <footer class="site-footer">footer</footer>
+      `;
+      const result = validateArticleHTML(html);
+      expect(result.valid).toBe(true);
+      expect(result.errors).toHaveLength(0);
+    });
+
+    it('should report missing elements', () => {
+      const result = validateArticleHTML('<p>empty</p>');
+      expect(result.valid).toBe(false);
+      expect(result.errors.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe('resolveUniqueFilePath', () => {
+    it('should return the original path when file does not exist', () => {
+      const result = resolveUniqueFilePath(path.join(tempDir, 'nonexistent.html'));
+      expect(result).toBe(path.join(tempDir, 'nonexistent.html'));
+    });
+
+    it('should return a suffixed path when the original file exists', () => {
+      const filePath = path.join(tempDir, 'article.html');
+      fs.writeFileSync(filePath, 'exists');
+      const result = resolveUniqueFilePath(filePath);
+      expect(result).toBe(path.join(tempDir, 'article-2.html'));
+    });
+
+    it('should increment suffix until a free slot is found', () => {
+      const filePath = path.join(tempDir, 'article.html');
+      fs.writeFileSync(filePath, 'exists');
+      fs.writeFileSync(path.join(tempDir, 'article-2.html'), 'exists');
+      fs.writeFileSync(path.join(tempDir, 'article-3.html'), 'exists');
+      const result = resolveUniqueFilePath(filePath);
+      expect(result).toBe(path.join(tempDir, 'article-4.html'));
     });
   });
 });
