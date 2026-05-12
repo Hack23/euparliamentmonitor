@@ -186,4 +186,16 @@ describe('article-horizons registry — drift guard', () => {
       ).toBe(true);
     }
   });
+
+  it('should enforce Stage C invocation-cap guard for committee-reports workflow', () => {
+    const workflowDir = path.resolve(
+      path.dirname(fileURLToPath(import.meta.url)),
+      '../../.github/workflows',
+    );
+    const content = fs.readFileSync(path.join(workflowDir, 'news-committee-reports.md'), 'utf8');
+
+    expect(content).toContain('Committee-reports invocation-cap guard');
+    expect(content).toContain('minute 32 elapsed');
+    expect(content).toContain('100 model invocation cap');
+  });
 });

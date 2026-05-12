@@ -93,9 +93,43 @@ SECURITY      : No prompt-injection vectors. No instructions inside cited
 | **Analysis Period** | `[REQUIRED: e.g. "2026-03-30 00:00–18:00 UTC"]` |
 | **Produced By** | `[REQUIRED: workflow name, e.g. news-weekly-review]` |
 | **Overall Confidence** | `[REQUIRED: HIGH / MEDIUM / LOW]` |
-| **SEO Title Candidate** | `[REQUIRED: ≤70 chars, actor/procedure-led, no raw date]` |
-| **SEO Description Candidate** | `[REQUIRED: 150–160 chars, consequence-led, names stakeholder impact]` |
+| **SEO Title Candidate (EN source)** | `[REQUIRED: ≤70 chars, actor/procedure-led, no raw date]` |
+| **SEO Description Candidate (EN source)** | `[REQUIRED: 150–160 chars, consequence-led, names stakeholder impact]` |
+| **14-Language SEO Pack Status** | `[REQUIRED: COMPLETE / DEGRADED — title+description only, no article-body translation]` |
 | **Search Intent Terms** | `[REQUIRED: committee/procedure/policy/stakeholder terms supported by artifacts]` |
+
+---
+
+## 🌍 14-Language SEO Metadata Pack
+
+> **AI Instructions:** Produce strong localized metadata for the renderer, not
+> translated article prose. Every row must be backed by the Top Findings table
+> and by `significance-scoring.md`. Preserve procedure IDs, committee acronyms,
+> political-group acronyms and institution names; translate the impact framing.
+> If a locale cannot be completed, mark the pack status `DEGRADED` and explain
+> the reason in `methodology-reflection.md`.
+
+| Lang | Title candidate (≤70 chars) | Description candidate (150–160 chars) |
+|:---:|---|---|
+| en | `[REQUIRED]` | `[REQUIRED]` |
+| sv | `[REQUIRED]` | `[REQUIRED]` |
+| da | `[REQUIRED]` | `[REQUIRED]` |
+| no | `[REQUIRED]` | `[REQUIRED]` |
+| fi | `[REQUIRED]` | `[REQUIRED]` |
+| de | `[REQUIRED]` | `[REQUIRED]` |
+| fr | `[REQUIRED]` | `[REQUIRED]` |
+| es | `[REQUIRED]` | `[REQUIRED]` |
+| nl | `[REQUIRED]` | `[REQUIRED]` |
+| ar | `[REQUIRED]` | `[REQUIRED]` |
+| he | `[REQUIRED]` | `[REQUIRED]` |
+| ja | `[REQUIRED]` | `[REQUIRED]` |
+| ko | `[REQUIRED]` | `[REQUIRED]` |
+| zh | `[REQUIRED]` | `[REQUIRED]` |
+
+**Manifest transfer:** Copy the completed rows into `manifest.json` as
+`title.{lang}` and `description.{lang}` before Stage D. Add
+`searchIntentTerms` with evidence-backed audience query terms; do not add
+unsupported keywords.
 
 ---
 

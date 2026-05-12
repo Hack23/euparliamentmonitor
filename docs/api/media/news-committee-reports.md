@@ -151,6 +151,29 @@ safe-outputs:
   # 10 MB (max allowed) to prevent legitimate analysis-only
   # patches from being rejected.
   max-patch-size: 10240
+  # The safe_outputs job checks out the current branch tip with fetch-depth:1.
+  # When another news PR merges between the agent job and safe-output bundle
+  # application, the bundle may require the older triggering commit as a
+  # prerequisite. Fetch that commit explicitly so bundle apply does not fail
+  # with "Repository lacks these prerequisite commits".
+  steps:
+    - name: Fetch triggering commit for bundle prerequisites
+      if: contains(needs.agent.outputs.output_types, 'create_pull_request')
+      shell: bash
+      run: |
+        if [ -n "${GITHUB_SHA:-}" ] && git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+          if ! git fetch --no-tags origin "$GITHUB_SHA"; then
+            branch_name="$GITHUB_REF_NAME"
+            if [ -z "$branch_name" ]; then
+              branch_name=main
+            fi
+            if git rev-parse --is-shallow-repository | grep -qx true; then
+              git fetch --unshallow --no-tags origin "$branch_name"
+            else
+              git fetch --no-tags origin "$branch_name"
+            fi
+          fi
+        fi
   allowed-domains:
     # ── gh-aw ecosystem identifier ────────────────────────────────────
     - github                             # github.com + api.github.com (PR creation, links)
@@ -330,7 +353,7 @@ prose pass.
 | Primary feeds | `get_committee_documents`, `get_committee_documents_feed`, `get_procedures_feed`, `get_events_feed` with `timeframe: "one-week"`. |
 | Stage A budget | ≤ 4–5 min (per `article-horizons.ts`) |
 | Stage B budget (2 passes) | **22–28 min — HARD CEILING per `article-horizons.ts`** (do **not** exceed the per-slug ceiling on Stage B even if Pass 2 still has shallow sections; force `GATE_RESULT=ANALYSIS_ONLY` instead) |
-| Stage C budget (gate + optional Pass 3) | ≤ 4 min |
+| Stage C budget (gate + optional Pass 3) | ≤ 4 min; stop repair diagnostics at minute 32 and ship ANALYSIS_ONLY if still not GREEN |
 | Stage D budget | ≤ 2 min (deterministic) |
 | Stage E budget (commit + single PR) | ≤ 2 min |
 | **Stage C exit tripwire** | **minute 36 elapsed** (long-horizon prospective: 39; long-horizon retrospective: 38; electoral: 42) — the **decision threshold** for forcing `GATE_RESULT=ANALYSIS_ONLY` and (if late) skipping Stage D so the run can still reach the PR call. Per-slug stage ceilings live in `src/config/article-horizons.ts`; the tripwire backstops any per-stage overrun. **Note:** Stage D + E run *after* this tripwire, between the Stage C exit and the PR-call deadline. |
@@ -460,6 +483,22 @@ STAGE_C_GATE: RED articleType=${ARTICLE_TYPE_SLUG} missing=<N> short=<N> placeho
 - **GREEN** → set `GATE_RESULT=GREEN` and proceed to Stage D.
 - **RED (first)** → run Pass 3 on the named artifacts, re-run Stage C.
 - **RED (second)** → set `GATE_RESULT=ANALYSIS_ONLY`, skip full article render, and ship analysis-only in the single PR.
+
+> **🧯 Committee-reports invocation-cap guard (run #25715099069)**:
+> Copilot currently enforces a 100 model invocation cap per agent session; this
+> workflow previously hit that cap while repeatedly inspecting validator output
+> and source code during Stage C. For `committee-reports`, Stage C therefore has
+> a local repair cutoff at **minute 32 elapsed** (four minutes before the
+> standard minute-36 Stage C exit tripwire). At the start of each Stage C
+> boundary — before the first validator run, after the first RED result, and
+> after any Pass 3 edits — recompute `ELAPSED_MIN`. If `ELAPSED_MIN ≥ 32`, set
+> `GATE_RESULT=ANALYSIS_ONLY`, emit the `ANALYSIS_ONLY` gate line, skip all
+> remaining validator/debug/source-inspection commands, and proceed directly to
+> Stage E. Stage C may run the validator at most twice total: one initial run,
+> one post-Pass-3 rerun. Never use extra `grep`, `sed`, `node`, or source-code
+> probes to interpret validator failures inside Stage C; use only the validator
+> output already produced. A timely analysis-only PR is preferred over exhausting
+> the invocation cap before the PR call.
 
 > **⏱️ Elapsed-Time Tripwire**: At the top of every Stage C iteration,
 > compute the elapsed minutes (mirror the safe two-step pattern from

@@ -150,6 +150,29 @@ safe-outputs:
   # 10 MB (max allowed) to prevent legitimate analysis-only
   # patches from being rejected.
   max-patch-size: 10240
+  # The safe_outputs job checks out the current branch tip with fetch-depth:1.
+  # When another news PR merges between the agent job and safe-output bundle
+  # application, the bundle may require the older triggering commit as a
+  # prerequisite. Fetch that commit explicitly so bundle apply does not fail
+  # with "Repository lacks these prerequisite commits".
+  steps:
+    - name: Fetch triggering commit for bundle prerequisites
+      if: contains(needs.agent.outputs.output_types, 'create_pull_request')
+      shell: bash
+      run: |
+        if [ -n "${GITHUB_SHA:-}" ] && git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+          if ! git fetch --no-tags origin "$GITHUB_SHA"; then
+            branch_name="$GITHUB_REF_NAME"
+            if [ -z "$branch_name" ]; then
+              branch_name=main
+            fi
+            if git rev-parse --is-shallow-repository | grep -qx true; then
+              git fetch --unshallow --no-tags origin "$branch_name"
+            else
+              git fetch --no-tags origin "$branch_name"
+            fi
+          fi
+        fi
   allowed-domains:
     # ── gh-aw ecosystem identifier ────────────────────────────────────
     - github                             # github.com + api.github.com (PR creation, links)

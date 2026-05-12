@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>41/41</span>
+                <span class='fraction'>43/43</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>38/38</span>
+                <span class='fraction'>42/42</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>36/36</span>
+                <span class='fraction'>38/38</span>
             </div>
         
             
@@ -197,7 +197,13 @@
 <a name='L132'></a><a href='#L132'>132</a>
 <a name='L133'></a><a href='#L133'>133</a>
 <a name='L134'></a><a href='#L134'>134</a>
-<a name='L135'></a><a href='#L135'>135</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -228,17 +234,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1213x</span>
-<span class="cline-any cline-yes">915x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">298x</span>
-<span class="cline-any cline-yes">1213x</span>
-<span class="cline-any cline-yes">258x</span>
+<span class="cline-any cline-yes">1244x</span>
+<span class="cline-any cline-yes">945x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">299x</span>
+<span class="cline-any cline-yes">259x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">40x</span>
+<span class="cline-any cline-yes">1244x</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">27x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -251,13 +261,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1167x</span>
-<span class="cline-any cline-yes">866x</span>
+<span class="cline-any cline-yes">1215x</span>
+<span class="cline-any cline-yes">908x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">301x</span>
+<span class="cline-any cline-yes">307x</span>
 <span class="cline-any cline-yes">140x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">161x</span>
+<span class="cline-any cline-yes">167x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -269,8 +279,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1085x</span>
-<span class="cline-any cline-yes">1085x</span>
+<span class="cline-any cline-yes">1133x</span>
+<span class="cline-any cline-yes">1133x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -338,9 +348,10 @@
  * @module Aggregator/Manifest/Resolver
  * @description Pure resolution helpers over a parsed {@link Manifest}.
  * Consolidates the article-type precedence ladder (`articleType` →
- * `articleTypes[0]` → `runType`), the latest-gate-result lookup, and the
- * `manifest.files` flattener so they live in one bounded context instead of
- * being duplicated across `analysis-aggregator.ts` and `article-generator.ts`.
+ * `articleTypeSlug` → `articleTypes[0]` → `runType`), the latest-gate-result
+ * lookup, and the `manifest.files` flattener so they live in one bounded
+ * context instead of being duplicated across `analysis-aggregator.ts` and
+ * `article-generator.ts`.
  */
 &nbsp;
 import type { Manifest, ManifestFiles } from './types.js';
@@ -353,8 +364,9 @@ export const UNKNOWN_ARTICLE_TYPE = 'unknown';
  *
  * Resolution order (highest precedence first):
  *   1. `articleType` — canonical singular field
- *   2. `articleTypes[0]` — pre-aggregator-pipeline plural array
- *   3. `runType` — historic field on older breaking-run manifests
+ *   2. `articleTypeSlug` — gh-aw workflow slug field
+ *   3. `articleTypes[0]` — pre-aggregator-pipeline plural array
+ *   4. `runType` — historic field on older breaking-run manifests
  *
  * Falls back to `'unknown'` when none of the above is a non-empty string.
  *
@@ -364,6 +376,9 @@ export const UNKNOWN_ARTICLE_TYPE = 'unknown';
 export function resolveArticleType(manifest: Manifest): string {
   if (typeof manifest.articleType === 'string' &amp;&amp; manifest.articleType) {
     return manifest.articleType;
+  }
+  if (typeof manifest.articleTypeSlug === 'string' &amp;&amp; manifest.articleTypeSlug) {
+    return manifest.articleTypeSlug;
   }
   const first = manifest.articleTypes?.[0];
   if (typeof first === 'string' &amp;&amp; first) {
@@ -472,7 +487,7 @@ export function flattenManifestFiles(files: ManifestFiles | undefined): string[]
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-11T11:06:58.416Z
+                at 2026-05-12T10:28:21.212Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -374,17 +374,7 @@
 <a name='L309'></a><a href='#L309'>309</a>
 <a name='L310'></a><a href='#L310'>310</a>
 <a name='L311'></a><a href='#L311'>311</a>
-<a name='L312'></a><a href='#L312'>312</a>
-<a name='L313'></a><a href='#L313'>313</a>
-<a name='L314'></a><a href='#L314'>314</a>
-<a name='L315'></a><a href='#L315'>315</a>
-<a name='L316'></a><a href='#L316'>316</a>
-<a name='L317'></a><a href='#L317'>317</a>
-<a name='L318'></a><a href='#L318'>318</a>
-<a name='L319'></a><a href='#L319'>319</a>
-<a name='L320'></a><a href='#L320'>320</a>
-<a name='L321'></a><a href='#L321'>321</a>
-<a name='L322'></a><a href='#L322'>322</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L312'></a><a href='#L312'>312</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -436,7 +426,6 @@
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -529,7 +518,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">9x</span>
@@ -540,15 +528,11 @@
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -564,7 +548,6 @@
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
@@ -696,9 +679,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
@@ -767,7 +747,6 @@ export function buildMetadataDatabase(newsDir: string = NEWS_DIR): NewsMetadataD
     }
   }
 &nbsp;
-  // Sort by date (newest first)
   articles.sort((a, b) =&gt; b.date.localeCompare(a.date));
 &nbsp;
   return {
@@ -850,7 +829,6 @@ export function updateIntelligenceIndex(
 ): IntelligenceIndex {
   const articleFiles = getNewsArticles(newsDir);
 &nbsp;
-  // Collect all entries in a single pass, then build the index in O(n) time
   const entries: ArticleIndexEntry[] = [];
   for (const filename of articleFiles) {
     const parsed = parseArticleFilename(filename);
@@ -861,10 +839,8 @@ export function updateIntelligenceIndex(
     const filepath = path.join(newsDir, filename);
     const meta = extractArticleMeta(filepath);
 &nbsp;
-    // Derive the ArticleCategory from the slug using the shared detection logic
     const category = detectCategory(parsed.slug);
 &nbsp;
-    // Extract meaningful key topics from the slug and article metadata
     const keyTopics = deriveKeyTopics(parsed.slug, parsed.lang, meta.title, meta.description);
 &nbsp;
     entries.push({
@@ -880,13 +856,10 @@ export function updateIntelligenceIndex(
     });
   }
 &nbsp;
-  // Sort deterministically (date desc, then id asc) so the persisted index
-  // does not churn between runs due to platform-dependent readdir ordering.
   entries.sort((a, b) =&gt; b.date.localeCompare(a.date) || <span class="branch-1 cbranch-no" title="branch not covered" >a.id.localeCompare(b.id))</span>;
 &nbsp;
   let index = buildIndexFromEntries(entries);
 &nbsp;
-  // Refresh trend detections
   const trends = detectTrends(index);
   index = { ...index, trends, lastUpdated: new Date().toISOString() };
 &nbsp;
@@ -1017,9 +990,6 @@ function deriveKeyTopics(
 ): string[] {
   const tokens = new Set&lt;string&gt;();
   extractTokens(slug, tokens, MIN_SLUG_TOKEN_LENGTH);
-  // Only apply title/description tokenisation for English articles where
-  // STOP_WORDS provides meaningful filtering; non-English articles rely
-  // on slug tokens to avoid noisy cross-language relations.
   if (lang === 'en') {
     if (title) extractTokens(title, tokens, MIN_METADATA_TOKEN_LENGTH);
     if (description) extractTokens(description, tokens, MIN_METADATA_TOKEN_LENGTH);
@@ -1033,7 +1003,7 @@ function deriveKeyTopics(
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-11T11:06:58.515Z
+                at 2026-05-12T10:28:21.304Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -145,22 +145,55 @@ through the 5-tier editorial-highlight resolver in
 `src/aggregator/article-metadata.ts`. Tier ordering:
 
 1. **Manifest override** (authored by you, Stage-B agent): when you have
-   an editorial headline, write it into `manifest.json` alongside
-   `articleType` + `files`:
+   an editorial headline, write a **14-language title/description metadata
+   pack** into `manifest.json` alongside `articleType` + `files`. This is only
+   metadata, not full article-body translation:
 
    ```jsonc
    {
      "articleType": "breaking",
-     "title": "Banking Union Breakthrough and Anti-Corruption Landmark",
-     "description": "The plenary closes a six-year debate and triggers immediate criticism from two national delegations about implementation timelines.",
+     "title": {
+       "en": "Banking Union Deal Tests EPP–S&D Discipline",
+       "sv": "Bankunionsuppgörelse prövar EPP–S&D-disciplin",
+       "da": "Bankunionsaftale tester EPP–S&D-disciplin",
+       "no": "Bankunion-avtale tester EPP–S&D-disiplin",
+       "fi": "Pankkiunionisopu testaa EPP–S&D-kuria",
+       "de": "Bankenunion-Deal prüft EPP–S&D-Disziplin",
+       "fr": "L’accord sur l’union bancaire teste EPP–S&D",
+       "es": "El pacto de unión bancaria prueba al EPP–S&D",
+       "nl": "Bankunieakkoord test EPP–S&D-discipline",
+       "ar": "اتفاق الاتحاد المصرفي يختبر انضباط EPP وS&D",
+       "he": "עסקת איחוד הבנקים בוחנת משמעת EPP–S&D",
+       "ja": "銀行同盟合意がEPP・S&D規律を試す",
+       "ko": "은행동맹 합의가 EPP–S&D 규율을 시험",
+       "zh": "银行联盟协议考验EPP与S&D纪律"
+     },
+     "description": {
+       "en": "Parliament’s banking-union compromise narrows supervision deadlines while exposing coalition pressure on EPP, S&D and Renew before the next plenary vote.",
+       "sv": "Parlamentets bankunionskompromiss skärper tillsynsfrister och visar koalitionstryck på EPP, S&D och Renew inför nästa plenarröstning.",
+       "da": "Parlamentets bankunionskompromis skærper tilsynsfrister og viser koalitionstryk på EPP, S&D og Renew før næste plenaraftemning.",
+       "no": "Parlamentets bankunion-kompromiss skjerper tilsynsfrister og viser koalisjonspress på EPP, S&D og Renew før neste plenaravstemning.",
+       "fi": "Parlamentin pankkiunionikompromissi kiristää valvontamääräaikoja ja paljastaa EPP:n, S&D:n ja Renew’n koalitiopaineen.",
+       "de": "Der Bankenunion-Kompromiss verschärft Aufsichtsfristen und zeigt Koalitionsdruck auf EPP, S&D und Renew vor der nächsten Plenarabstimmung.",
+       "fr": "Le compromis sur l’union bancaire resserre les délais de supervision et expose la pression sur EPP, S&D et Renew avant le prochain vote.",
+       "es": "El compromiso sobre unión bancaria estrecha plazos de supervisión y expone presión sobre EPP, S&D y Renew antes del próximo voto plenario.",
+       "nl": "Het bankuniecompromis verkort toezichtstermijnen en toont coalitiedruk op EPP, S&D en Renew vóór de volgende plenaire stemming.",
+       "ar": "يضيق حلّ الاتحاد المصرفي مهل الرقابة ويكشف ضغط الائتلاف على EPP وS&D وRenew قبل التصويت العام المقبل.",
+       "he": "פשרת איחוד הבנקים מצמצמת מועדי פיקוח וחושפת לחץ קואליציוני על EPP, S&D ו-Renew לפני ההצבעה הבאה.",
+       "ja": "銀行同盟の妥協は監督期限を絞り、次回本会議投票前のEPP、S&D、Renewへの連立圧力を示す。",
+       "ko": "은행동맹 절충안은 감독 기한을 좁히고 다음 본회의 표결 전 EPP, S&D, Renew의 연정 압박을 드러낸다.",
+       "zh": "银行联盟折中方案压缩监管期限，并在下次全会投票前暴露EPP、S&D和Renew的联盟压力。"
+     },
+     "searchIntentTerms": ["banking union", "EPP", "S&D", "Renew", "plenary vote"],
      "files": { /* … */ }
    }
    ```
 
-   Both fields accept either a string (applied to all 14 language
-   variants — recommended when only English prose exists) or a per-
-   language object (e.g. `"title": { "en": "…", "sv": "…" }`). Missing
-   languages transparently fall through to the lower tiers.
+   Both fields still accept a string as an emergency degraded fallback, but
+   the standard output is a complete object with exactly these 14 keys:
+   `en`, `sv`, `da`, `no`, `fi`, `de`, `fr`, `es`, `nl`, `ar`, `he`, `ja`,
+   `ko`, `zh`. Missing languages transparently fall through to lower tiers,
+   but do not omit a language merely to save time.
 2. **First artefact H1** — the resolver promotes the first non-generic
    `# …` heading it finds by walking the manifest's file list in
    canonical order. Your synthesis-summary's first heading is therefore
@@ -175,8 +208,8 @@ through the 5-tier editorial-highlight resolver in
    `src/constants/language-articles.ts`.
 
 **Rule for Stage-B agents**: write `manifest.title` and
-`manifest.description` **with the day's actual editorial highlight**
-whenever possible. Required qualities:
+`manifest.description` **with the day's actual editorial highlight in all
+14 languages** whenever possible. Required qualities:
 
 - active voice, ≤ 70 chars, names the actor / institution / legislative file
 - never contains raw metrics, article-type labels, or date-centric
@@ -186,6 +219,13 @@ whenever possible. Required qualities:
 - description target: 150–160 characters, one policy consequence, one named
   stakeholder impact, no markdown, no citation brackets, no unsupported
   probability claim
+- each locale gets its own fluent title/description pair; do not use one
+  shared English string, literal machine-looking translation, or generic
+  type/date boilerplate across variants
+- preserve procedure IDs, committee acronyms, political-group acronyms and
+  named institutions; translate the reader-facing framing around them
+- this is not full article translation — generate only title, description and
+  optional `searchIntentTerms`
 - search intent: ensure the title or first two headings contain the natural
   language terms citizens would search for (committee acronym, procedure title,
   policy area, and one named institution) without keyword stuffing
@@ -205,7 +245,7 @@ Tier-2 fallback will promote it into the `<title>`.
 | Click value | Description explains why the development matters politically, not merely that it occurred. |
 | Evidence hygiene | Title/description only use facts already present in `synthesis-summary.md` or `significance-scoring.md`. |
 | IMF relevance | If the article has economic stakes, description alludes to the economic pressure only when `economic-context.md` cites IMF evidence. |
-| Locale safety | Non-English rendered pages may fall back to English title until translation flush; never put English-only boilerplate in manifest per-language fields. |
+| Locale safety | `manifest.title` and `manifest.description` contain all 14 language keys; non-English fields are fluent localized metadata, not English boilerplate. |
 
 The aggregator does not invent SEO copy. If the manifest and first synthesis H1
 are generic, the published `<title>`, Open Graph headline, Twitter card, JSON-LD

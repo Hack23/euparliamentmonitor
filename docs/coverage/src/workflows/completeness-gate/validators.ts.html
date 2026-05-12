@@ -308,17 +308,7 @@
 <a name='L243'></a><a href='#L243'>243</a>
 <a name='L244'></a><a href='#L244'>244</a>
 <a name='L245'></a><a href='#L245'>245</a>
-<a name='L246'></a><a href='#L246'>246</a>
-<a name='L247'></a><a href='#L247'>247</a>
-<a name='L248'></a><a href='#L248'>248</a>
-<a name='L249'></a><a href='#L249'>249</a>
-<a name='L250'></a><a href='#L250'>250</a>
-<a name='L251'></a><a href='#L251'>251</a>
-<a name='L252'></a><a href='#L252'>252</a>
-<a name='L253'></a><a href='#L253'>253</a>
-<a name='L254'></a><a href='#L254'>254</a>
-<a name='L255'></a><a href='#L255'>255</a>
-<a name='L256'></a><a href='#L256'>256</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L246'></a><a href='#L246'>246</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -436,12 +426,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
@@ -456,7 +442,6 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -513,10 +498,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -548,10 +530,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -616,7 +596,7 @@ import { DATA_MODE_REDUCTION } from '../types.js';
  */
 export function hasPlaceholders(content: string): boolean {
   if (META_DOC_HINT_RE.test(content)) {
-    return false; // meta-doc contexts are exempt
+    return false;
   }
   return PLACEHOLDER_PATTERNS.some((pattern) =&gt; pattern.test(content));
 }
@@ -691,13 +671,9 @@ export function countSatBullets(content: string): number {
  * @returns true if source diversity evidence is present
  */
 export function hasSourceDiversityEvidence(content: string): boolean {
-  // Check for MCP tool references
   if (MCP_TOOL_RE.test(content)) {
     return true;
   }
-  // Check for a structured evidence table: requires header row with Source/Evidence/Reference,
-  // a separator row (---|---), and at least one data row after the separator. This prevents
-  // header-only tables and plain prose markdown tables from being counted as source diversity.
   const lines = content.split('\n');
   let foundHeader = false;
   let foundSeparator = false;
@@ -711,7 +687,6 @@ export function hasSourceDiversityEvidence(content: string): boolean {
       continue;
     }
     if (foundHeader &amp;&amp; foundSeparator &amp;&amp; /^\|[^|]+\|/.test(line)) {
-      // At least one non-empty data row after the separator
       return true;
     }
   }
@@ -768,11 +743,8 @@ export function computeEffectiveMinLines(
   explicitMinLines?: number
 ): number {
   const baseFloor = rules.minLines?.[relativePath] ?? rules.defaultMinLines ?? <span class="branch-2 cbranch-no" title="branch not covered" >DEFAULT_MIN_LINES;</span>
-  // Use Math.floor to match scripts/validate-analysis-completeness.js behavior.
-  // Clamp to at least 1 so every artifact has a meaningful floor even in minimal mode.
   const reduced = Math.max(1, Math.floor(baseFloor * dataModeReduction));
 &nbsp;
-  // CLI --min-lines only raises, never lowers
   if (explicitMinLines !== undefined &amp;&amp; explicitMinLines &gt; reduced) {
     return explicitMinLines;
   }
@@ -803,11 +775,9 @@ export function resolveDataModeReduction(dataMode?: DataMode): number {
  * @returns true if the artifact requires a Mermaid diagram
  */
 export function requiresMermaid(relativePath: string, rules: ValidationRules): boolean {
-  // Explicitly listed in mermaidRequired
   if (rules.mermaidRequired?.includes(relativePath)) {
     return true;
   }
-  // Implicitly required by directory
   const dir = relativePath.split('/')[0];
   return dir !== undefined &amp;&amp; DIAGRAM_DIRS.includes(dir);
 }
@@ -835,7 +805,7 @@ export function createEmptyResult(relativePath: string): ArtifactValidationResul
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-11T11:06:58.416Z
+                at 2026-05-12T10:28:21.212Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

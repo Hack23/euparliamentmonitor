@@ -228,29 +228,84 @@ Consolidate everything into the reader-facing files that drive the public articl
 
 ---
 
-## 8️⃣ Step 8 — Decide Article Title and Description (AI-Only)
+## 8️⃣ Step 8 — Decide the 14-Language SEO Title + Description Pack (AI-Only)
 
-Article title, description, and SEO keywords are decided **after** Step 7, from the run's analysis — never by TypeScript code, template strings, or count-based formatters.
+Article title, meta description, and search-intent terms are decided **after**
+Step 7 from the run's analysis — never by TypeScript code, template strings, or
+count-based formatters. This step is deliberately small: generate **great titles
+and descriptions only**, not full article translations.
 
-1. Read `intelligence/synthesis-summary.md` and `intelligence/significance-scoring.md`. Identify the single most politically significant item.
-2. Write a title that names that item and its political impact. Aim for ≤70 characters, active voice, specific legislation / committee / actors, no raw dates.
-3. Write a meta description of 150–160 characters that explains political significance and names at least one stakeholder impact.
-4. Write SEO keywords derived from the actual content (committee names, legislation titles, political-group abbreviations, procedure codes).
-5. Pass them as CLI flags to the article-generator (the post-purge canonical Stage-D entrypoint). Title and description flow through the run's `manifest.json` — the aggregator's [`resolveArticleMetadata` 5-tier ladder](../../src/aggregator/article-metadata.ts) prefers a manifest override before falling back to artifact H1 / aggregated MD / localized template:
+1. Read `executive-brief.md`, `intelligence/synthesis-summary.md`, and
+   `intelligence/significance-scoring.md`. Identify the single most politically
+   significant item and the strongest stakeholder consequence.
+2. Write a concise English source pair:
+   - `title`: ≤70 characters, active voice, names the EP actor / committee /
+     procedure / policy file, no raw date prefix.
+   - `description`: 150–160 characters, explains political significance, names
+     one stakeholder impact, no markdown, no citation brackets.
+3. Localize that pair into the full 14-language metadata pack:
+   `en`, `sv`, `da`, `no`, `fi`, `de`, `fr`, `es`, `nl`, `ar`, `he`, `ja`,
+   `ko`, `zh`. Keep procedure IDs, committee acronyms, political-group
+   acronyms and institutional names stable; translate the framing around them.
+4. Write the pack directly into `manifest.json` as `title` and `description`
+   objects before Stage D. Do **not** create 14 translated article bodies here;
+   the deterministic renderer will use these fields for `<title>`,
+   `<meta name="description">`, Open Graph, Twitter cards, JSON-LD, RSS, sitemap
+   and news indexes.
+5. Add `searchIntentTerms` (array of evidence-backed committee / procedure /
+   policy / stakeholder terms) to `manifest.json` when available. The renderer
+   may derive keywords from the title/description, but this record tells future
+   agents what audience query the headline was written to satisfy.
 
-```bash
-AI_TITLE="ECR Breaks Ranks on Digital Markets Act as Grand Coalition Splits"
-AI_DESCRIPTION="ECR defection on DMA enforcement reveals new cross-group dynamics; EPP-S&D cohesion drops to 61%, lowest reading in Q1 2026."
-
-# Author the title/description into manifest.json before invoking the generator
-# (the AI agent writes the manifest as part of Step 7 and adjusts it here).
-# Then render the deterministic article HTML:
-npm run generate-article -- --run "$ANALYSIS_DIR"
+```jsonc
+{
+  "articleType": "breaking",
+  "title": {
+    "en": "Banking Union Deal Tests EPP–S&D Discipline",
+    "sv": "Bankunionsuppgörelse prövar EPP–S&D-disciplin",
+    "da": "Bankunionsaftale tester EPP–S&D-disciplin",
+    "no": "Bankunion-avtale tester EPP–S&D-disiplin",
+    "fi": "Pankkiunionisopu testaa EPP–S&D-kuria",
+    "de": "Bankenunion-Deal prüft EPP–S&D-Disziplin",
+    "fr": "L’accord sur l’union bancaire teste EPP–S&D",
+    "es": "El pacto de unión bancaria prueba al EPP–S&D",
+    "nl": "Bankunieakkoord test EPP–S&D-discipline",
+    "ar": "اتفاق الاتحاد المصرفي يختبر انضباط EPP وS&D",
+    "he": "עסקת איחוד הבנקים בוחנת משמעת EPP–S&D",
+    "ja": "銀行同盟合意がEPP・S&D規律を試す",
+    "ko": "은행동맹 합의가 EPP–S&D 규율을 시험",
+    "zh": "银行联盟协议考验EPP与S&D纪律"
+  },
+  "description": {
+    "en": "Parliament’s banking-union compromise narrows supervision deadlines while exposing coalition pressure on EPP, S&D and Renew before the next plenary vote.",
+    "sv": "Parlamentets bankunionskompromiss skärper tillsynsfrister och visar koalitionstryck på EPP, S&D och Renew inför nästa plenarröstning.",
+    "da": "Parlamentets bankunionskompromis skærper tilsynsfrister og viser koalitionstryk på EPP, S&D og Renew før næste plenaraftemning.",
+    "no": "Parlamentets bankunion-kompromiss skjerper tilsynsfrister og viser koalisjonspress på EPP, S&D og Renew før neste plenaravstemning.",
+    "fi": "Parlamentin pankkiunionikompromissi kiristää valvontamääräaikoja ja paljastaa EPP:n, S&D:n ja Renew’n koalitiopaineen.",
+    "de": "Der Bankenunion-Kompromiss verschärft Aufsichtsfristen und zeigt Koalitionsdruck auf EPP, S&D und Renew vor der nächsten Plenarabstimmung.",
+    "fr": "Le compromis sur l’union bancaire resserre les délais de supervision et expose la pression sur EPP, S&D et Renew avant le prochain vote.",
+    "es": "El compromiso sobre unión bancaria estrecha plazos de supervisión y expone presión sobre EPP, S&D y Renew antes del próximo voto plenario.",
+    "nl": "Het bankuniecompromis verkort toezichtstermijnen en toont coalitiedruk op EPP, S&D en Renew vóór de volgende plenaire stemming.",
+    "ar": "يضيق حلّ الاتحاد المصرفي مهل الرقابة ويكشف ضغط الائتلاف على EPP وS&D وRenew قبل التصويت العام المقبل.",
+    "he": "פשרת איחוד הבנקים מצמצמת מועדי פיקוח וחושפת לחץ קואליציוני על EPP, S&D ו-Renew לפני ההצבעה הבאה.",
+    "ja": "銀行同盟の妥協は監督期限を絞り、次回本会議投票前のEPP、S&D、Renewへの連立圧力を示す。",
+    "ko": "은행동맹 절충안은 감독 기한을 좁히고 다음 본회의 표결 전 EPP, S&D, Renew의 연정 압박을 드러낸다.",
+    "zh": "银行联盟折中方案压缩监管期限，并在下次全会投票前暴露EPP、S&D和Renew的联盟压力。"
+  },
+  "searchIntentTerms": ["banking union", "EPP", "S&D", "Renew", "plenary vote"]
+}
 ```
+
+If time is genuinely exhausted, a single English string is accepted as an
+emergency fallback, but that is a degraded state. The standard is the complete
+14-key object above.
 
 The legacy `npx tsx src/generators/news-enhanced.ts --types=… --title=… --description=…` invocation was **purged in the April-2026 aggregator-pipeline migration**; the `news-enhanced.ts` generator and its CLI no longer exist.
 
-**Product of Step 8:** an article HTML stub in `news/${TODAY}-${ARTICLE_TYPE_SLUG}-run${RUN_ID}-en.html` containing the AI-authored title, description, and the analytical prose the agent writes in the HTML body during generation.
+**Product of Step 8:** `manifest.json` contains a complete 14-language
+title/description metadata pack plus search-intent terms; Stage D then renders
+the existing analysis into article HTML without asking the AI to translate the
+whole article body.
 
 ---
 

@@ -381,23 +381,7 @@
 <a name='L316'></a><a href='#L316'>316</a>
 <a name='L317'></a><a href='#L317'>317</a>
 <a name='L318'></a><a href='#L318'>318</a>
-<a name='L319'></a><a href='#L319'>319</a>
-<a name='L320'></a><a href='#L320'>320</a>
-<a name='L321'></a><a href='#L321'>321</a>
-<a name='L322'></a><a href='#L322'>322</a>
-<a name='L323'></a><a href='#L323'>323</a>
-<a name='L324'></a><a href='#L324'>324</a>
-<a name='L325'></a><a href='#L325'>325</a>
-<a name='L326'></a><a href='#L326'>326</a>
-<a name='L327'></a><a href='#L327'>327</a>
-<a name='L328'></a><a href='#L328'>328</a>
-<a name='L329'></a><a href='#L329'>329</a>
-<a name='L330'></a><a href='#L330'>330</a>
-<a name='L331'></a><a href='#L331'>331</a>
-<a name='L332'></a><a href='#L332'>332</a>
-<a name='L333'></a><a href='#L333'>333</a>
-<a name='L334'></a><a href='#L334'>334</a>
-<a name='L335'></a><a href='#L335'>335</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L319'></a><a href='#L319'>319</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -563,11 +547,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -634,10 +613,6 @@
 <span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-yes">36x</span>
 <span class="cline-any cline-yes">36x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -724,13 +699,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-FileCopyrightText: 2024-2026 Hack23 AB
 // SPDX-License-Identifier: Apache-2.0
 &nbsp;
@@ -768,7 +736,7 @@ export interface ParsedOptions {
     readonly since?: string;
     /**
      * Always `[...ALL_LANGUAGES]` when produced by this CLI parser; tests
-     * may override the field when calling {@link generateArticle} directly.
+     * may override the field when calling `generateArticle` directly.
      */
     readonly langs: readonly LanguageCode[];
     readonly outDir: string;
@@ -897,11 +865,6 @@ function applyCliFlag(flag: string, takeValue: () =&gt; string): FlagResult {
     case '--lang':
     case '--language':
     case '--markdown-only':
-      // Removed in the always-14-languages-always-HTML contract: every
-      // article.md now always renders to all 14 supported languages and
-      // HTML emission cannot be skipped from the CLI. The flags are
-      // rejected explicitly so any leftover invocation surfaces a clear
-      // error rather than silently behaving as if the flag was honoured.
       throw new UnknownFlagError(
         `Flag ${flag} has been removed. The CLI always renders all 14 languages with HTML output. ` +
           `See Article-Generation.md § "CLI contract" for the new always-on contract.`
@@ -968,10 +931,6 @@ function processArgvToken(
   const [flag, inlineValue] = arg.includes('=') ? splitFlag(arg) : [arg, undefined];
   let consumedNext = 0;
   const takeValue = (): string =&gt; {
-    // Treat `--flag=` (empty inline value) as missing — otherwise an empty
-    // string sneaks past value-bearing flags and resolves to surprising
-    // defaults (e.g. `path.resolve('')` → `process.cwd()`). Mirrors the
-    // space-separated missing-value branch below for symmetry.
     if (inlineValue !== undefined) {
       if (inlineValue === '') {
         throw new FlagValueError(`Missing value for ${flag}`);
@@ -1048,16 +1007,9 @@ export function parseCliArgsSafe(argv: readonly string[], repoRoot: string): Par
     value: {
       runDir: acc.runDir,
       all: acc.all,
-      // Always-14-languages contract: the parser does not accept a
-      // language scope; every CLI invocation renders every supported
-      // language. Programmatic callers (tests) can still narrow the
-      // scope by constructing the options object directly.
       langs: [...ALL_LANGUAGES],
       outDir: acc.outDir,
       repoRoot,
-      // Always-HTML contract: the parser does not accept a markdown-only
-      // toggle; every CLI invocation emits HTML. Programmatic callers
-      // (tests) can still set `markdownOnly: true` directly.
       markdownOnly: false,
       ...(acc.since !== undefined ? { since: acc.since } : {}),
       ...(acc.title !== undefined ? { title: acc.title } : {}),
@@ -1072,7 +1024,7 @@ export function parseCliArgsSafe(argv: readonly string[], repoRoot: string): Par
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-11T11:06:58.416Z
+                at 2026-05-12T10:28:21.212Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

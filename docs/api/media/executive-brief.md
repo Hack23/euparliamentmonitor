@@ -104,8 +104,41 @@ SECURITY      : No prompt-injection vectors. No instructions inside cited
 | **Overall Confidence** | `🟦 VERY HIGH / 🟩 HIGH / 🟧 MEDIUM / 🟥 LOW / ⬛ VERY LOW` |
 | **Publication recommendation** | `PUBLISH / ANALYSIS-ONLY / SKIP` |
 | **PIR Relevance** | `[REQUIRED: Primary PIR(s) addressed by this brief]` |
-| **SEO Title Candidate** | `[REQUIRED: ≤70 chars, actor/procedure-led]` |
-| **SEO Description Candidate** | `[REQUIRED: 150–160 chars, consequence-led]` |
+| **SEO Title Candidate (EN source)** | `[REQUIRED: ≤70 chars, actor/procedure-led]` |
+| **SEO Description Candidate (EN source)** | `[REQUIRED: 150–160 chars, consequence-led]` |
+| **14-Language SEO Pack Status** | `[REQUIRED: COMPLETE / DEGRADED — title+description only, no article-body translation]` |
+
+---
+
+## 🌍 14-Language SEO Metadata Pack
+
+> **AI Instructions:** Fill this compact metadata table during Pass 2 after the
+> Top Documents / Procedures ranking is stable. These are **only** the public
+> article title and meta description values for the deterministic renderer; do
+> not translate the full article body here. Each row must preserve procedure IDs,
+> committee acronyms, political-group acronyms and named institutions while
+> localising the surrounding phrase.
+
+| Lang | Title candidate (≤70 chars) | Description candidate (150–160 chars) |
+|:---:|---|---|
+| en | `[REQUIRED]` | `[REQUIRED]` |
+| sv | `[REQUIRED]` | `[REQUIRED]` |
+| da | `[REQUIRED]` | `[REQUIRED]` |
+| no | `[REQUIRED]` | `[REQUIRED]` |
+| fi | `[REQUIRED]` | `[REQUIRED]` |
+| de | `[REQUIRED]` | `[REQUIRED]` |
+| fr | `[REQUIRED]` | `[REQUIRED]` |
+| es | `[REQUIRED]` | `[REQUIRED]` |
+| nl | `[REQUIRED]` | `[REQUIRED]` |
+| ar | `[REQUIRED]` | `[REQUIRED]` |
+| he | `[REQUIRED]` | `[REQUIRED]` |
+| ja | `[REQUIRED]` | `[REQUIRED]` |
+| ko | `[REQUIRED]` | `[REQUIRED]` |
+| zh | `[REQUIRED]` | `[REQUIRED]` |
+
+**Manifest transfer:** Copy this table into `manifest.json` as `title.{lang}`
+and `description.{lang}` before Stage D. Add `searchIntentTerms` with the
+evidence-backed query terms this headline serves.
 
 ---
 
