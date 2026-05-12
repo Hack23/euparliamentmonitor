@@ -33,7 +33,7 @@ jobs:
     # NOTE: harden-runner is incompatible with container jobs; the egress-audit
     # observability is intentionally traded for build reliability here.
     container:
-      image: mcr.microsoft.com/playwright:v1.59.1-noble
+      image: mcr.microsoft.com/playwright:v1.60.0-noble
     outputs:
       version: ${{ steps.get-version.outputs.version }}
       npm_version: ${{ steps.get-version.outputs.npm_version }}

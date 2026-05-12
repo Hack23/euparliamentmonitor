@@ -525,15 +525,7 @@
 <a name='L460'></a><a href='#L460'>460</a>
 <a name='L461'></a><a href='#L461'>461</a>
 <a name='L462'></a><a href='#L462'>462</a>
-<a name='L463'></a><a href='#L463'>463</a>
-<a name='L464'></a><a href='#L464'>464</a>
-<a name='L465'></a><a href='#L465'>465</a>
-<a name='L466'></a><a href='#L466'>466</a>
-<a name='L467'></a><a href='#L467'>467</a>
-<a name='L468'></a><a href='#L468'>468</a>
-<a name='L469'></a><a href='#L469'>469</a>
-<a name='L470'></a><a href='#L470'>470</a>
-<a name='L471'></a><a href='#L471'>471</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L463'></a><a href='#L463'>463</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -715,12 +707,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">59x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">826x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -731,7 +721,6 @@
 <span class="cline-any cline-yes">826x</span>
 <span class="cline-any cline-yes">826x</span>
 <span class="cline-any cline-yes">826x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -746,7 +735,6 @@
 <span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">59x</span>
 <span class="cline-any cline-yes">649x</span>
@@ -759,7 +747,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-yes">18x</span>
 <span class="cline-any cline-yes">18x</span>
@@ -780,9 +767,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">59x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -833,7 +818,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1185,7 +1169,6 @@ export function generateSitemapHTML(
     languageSwitcherHtml: buildSitemapLangSwitcher(lang),
   });
 &nbsp;
-  // ─── &lt;head&gt; hreflang alternates for all sitemap language variants ───
   const hreflangLinks = [
     ...ALL_LANGUAGES.map(
       (code) =&gt;
@@ -1194,7 +1177,6 @@ export function generateSitemapHTML(
     `  &lt;link rel="alternate" hreflang="x-default" href="${BASE_URL}/sitemap.html"&gt;`,
   ].join('\n');
 &nbsp;
-  // ─── Pages section (one per supported language) ─────────────────────
   const pagesSection = ALL_LANGUAGES.map((code) =&gt; {
     const name = getLocalizedString(LANGUAGE_NAMES, code);
     const flag = getLocalizedString(LANGUAGE_FLAGS, code);
@@ -1206,7 +1188,6 @@ export function generateSitemapHTML(
           &lt;/li&gt;`;
   }).join('\n');
 &nbsp;
-  // ─── News articles grouped by editorial category ────────────────────
   const articlesByCategory = new Map&lt;ArticleCategory, SitemapArticleInfo[]&gt;();
   for (const article of articleInfos) {
     const category = detectCategory(article.slug ?? article.filename);
@@ -1217,7 +1198,6 @@ export function generateSitemapHTML(
     }
     bucket.push(article);
   }
-  // Render in the canonical category order, then any remaining categories
   const orderedCategories: ArticleCategory[] = [
     ...CATEGORY_ORDER.filter((c) =&gt; articlesByCategory.has(c)),
     ...[...articlesByCategory.keys()].filter((c) =&gt; !CATEGORY_ORDER.includes(c)),
@@ -1229,7 +1209,6 @@ export function generateSitemapHTML(
       : orderedCategories
           .map((category) =&gt; {
             const bucket = articlesByCategory.get(category) ?? <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
-            // Newest first within each category
             bucket.sort((a, b) =&gt; b.date.localeCompare(a.date));
             const label = typeLabels[category] ?? <span class="branch-1 cbranch-no" title="branch not covered" >category;</span>
             const items = bucket
@@ -1250,7 +1229,6 @@ ${items}
           })
           .join('\n');
 &nbsp;
-  // ─── Documentation section (high-level links) ───────────────────────
   const docsSection = hasDocsDir
     ? `
       &lt;section class="sitemap-section"&gt;
@@ -1265,7 +1243,6 @@ ${items}
       &lt;/section&gt;`
     : '';
 &nbsp;
-  // ─── JSON-LD CollectionPage structured data for SEO ─────────────────
   const seo = getSitemapSeo(lang);
   const ogImage = `${BASE_URL}/images/og-image.jpg`;
   const jsonLd = {
@@ -1310,7 +1287,6 @@ ${items}
       })),
     },
   };
-  // Safely embed JSON-LD: escape the `&lt;` that could start `&lt;/script&gt;` sequences
   const jsonLdString = JSON.stringify(jsonLd).replace(/&lt;/g, '\\u003c');
 &nbsp;
   const websiteJsonLd = JSON.stringify({
@@ -1480,7 +1456,7 @@ ${articlesSection}
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-11T11:06:58.515Z
+                at 2026-05-12T10:28:21.304Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

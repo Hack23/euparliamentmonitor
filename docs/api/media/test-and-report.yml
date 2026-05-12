@@ -142,7 +142,7 @@ jobs:
     # NOTE: step-security/harden-runner is omitted here — it is not supported
     # inside container jobs (requires host-level network hooks).
     container:
-      image: mcr.microsoft.com/playwright:v1.59.1-noble
+      image: mcr.microsoft.com/playwright:v1.60.0-noble
     permissions:
       contents: read
     steps:
@@ -286,7 +286,7 @@ jobs:
     # we don't pay a separate Chrome install cost. NOTE: harden-runner is
     # incompatible with container jobs and is omitted.
     container:
-      image: mcr.microsoft.com/playwright:v1.59.1-noble
+      image: mcr.microsoft.com/playwright:v1.60.0-noble
     permissions:
       contents: read
     env:

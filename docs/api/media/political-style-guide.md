@@ -541,6 +541,8 @@ quadrantChart
 ```
 ````
 
+> **⚠️ Quoting is mandatory for `quadrantChart`.** The mermaid v11 `quadrantChart` lexer rejects em-dash (`—`), en-dash (`–`), ellipsis (`…`), parentheses, colons, and non-ASCII currency symbols (`€`) in **unquoted** `quadrant-N`, `x-axis`, `y-axis`, and data-point labels — the diagram fails with `Lexical error … Unrecognized text` and the raw `<pre>` source leaks onto the page. Wrap every label in double quotes as shown above. The HTML renderer (`src/aggregator/markdown-renderer.ts` → `sanitizeMermaidQuadrantChart`) auto-quotes bare labels as a defensive net, but quoting at the source keeps the artifact byte-identical to its rendered form and is preferred.
+
 #### Standard universal init block (REQUIRED for ALL non-quadrant diagrams)
 
 Every other mermaid diagram type — `graph`, `flowchart`, `mindmap`, `sequenceDiagram`, `gantt`, `pie`, `stateDiagram`, `classDiagram`, `erDiagram`, `gitGraph`, `timeline`, `journey`, `xychart-beta`, `C4Context`, `block-beta` — **MUST** be prefixed with the universal init block below. It applies the canonical ISMS palette across `primaryColor` / `secondaryColor` / `tertiaryColor`, `noteBkgColor`, `errorBkgColor`, `pie1`–`pie12`, `git0`–`git3`, and `cScale0`–`cScale7`, so every diagram inherits consistent colour coding without per-diagram `style` directives.

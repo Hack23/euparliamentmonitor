@@ -873,7 +873,6 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -905,6 +904,16 @@
 <span class="cline-any cline-yes">25x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">25x</span>
 <span class="cline-any cline-yes">25x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -912,7 +921,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">25x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">25x</span>
 <span class="cline-any cline-yes">25x</span>
@@ -1183,14 +1191,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
@@ -1201,11 +1206,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
@@ -1226,7 +1227,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1481,7 +1481,6 @@ function extractIdentifier(record: EPDecisionRecord): string {
   if (record.identifier) return record.identifier;
   const rawId = record['@id'] ?? <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
   <span class="missing-if-branch" title="if path not taken" >I</span>if (!rawId) <span class="cstat-no" title="statement not covered" >return '';</span>
-  // Strip the URI prefix — last path segment is the local id.
   const lastSlash = rawId.lastIndexOf('/');
   return lastSlash &gt;= 0 ? rawId.slice(lastSlash + 1) : <span class="branch-1 cbranch-no" title="branch not covered" >rawId;</span>
 }
@@ -1512,6 +1511,16 @@ export class EPOpenDataClient {
   private readonly _fetchImpl: typeof fetch;
   private _connected = false;
 &nbsp;
+  /**
+   * Create a new EP Open Data REST fallback client.
+   *
+   * Resolves the API base URL and request timeout from (in order)
+   * the explicit `options`, the `EP_OPEN_DATA_BASE_URL` /
+   * `EP_OPEN_DATA_TIMEOUT_MS` environment variables, and finally the
+   * module-level defaults.
+   *
+   * @param options - Optional overrides for base URL, timeout, and `fetch` impl.
+   */
   constructor(options: VotingRecordsFallbackOptions = { dateFrom: '', dateTo: '' }) {
     const envBase = process.env['EP_OPEN_DATA_BASE_URL'];
     const envTimeout = process.env['EP_OPEN_DATA_TIMEOUT_MS'];
@@ -1521,9 +1530,8 @@ export class EPOpenDataClient {
     const base =
       options.apiBaseUrl ?? (envBase &amp;&amp; envBase !== '' ? envBase : DEFAULT_EP_OPEN_DATA_BASE_URL);
 &nbsp;
-    // Strip trailing slashes without a regex (avoids polynomial-ReDoS flags).
     let end = base.length;
-    while (end &gt; 0 &amp;&amp; base.charCodeAt(end - 1) === 47 /* '/' */) {
+    while (end &gt; 0 &amp;&amp; base.charCodeAt(end - 1) === 47) {
       end -= 1;
     }
     this._apiBaseUrl = end === base.length ? base : base.slice(0, end);
@@ -1591,7 +1599,7 @@ export class EPOpenDataClient {
   /**
    * Fetch roll-call voting records from the EP Open Data Portal.
    *
-   * Virtual tool: `ep-get-voting-records` (see {@link EP_GET_VOTING_RECORDS_TOOL}).
+   * Virtual tool: `ep-get-voting-records` (see `EP_GET_VOTING_RECORDS_TOOL`).
    *
    * Queries `/decision?date-of-vote-start=&lt;dateFrom&gt;&amp;date-of-vote-end=&lt;dateTo&gt;`
    * and normalises the JSON-LD response to a `{ votes: VoteEntry[] }`
@@ -1791,8 +1799,6 @@ export async function getVotingRecordsWithFallback(
 ): Promise&lt;VotingRecordsFallbackResult&gt; {
   const { dateFrom, dateTo } = options;
 &nbsp;
-  // Fail fast on missing/blank dates so we don't emit misleading freshness
-  // labels like "🟢 MCP ( → )" or empty-window 🔴 markers downstream.
   if (typeof dateFrom !== 'string' || dateFrom.trim() === '') {
     throw new Error('getVotingRecordsWithFallback: dateFrom is required (non-empty YYYY-MM-DD)');
   }
@@ -1800,7 +1806,6 @@ export async function getVotingRecordsWithFallback(
     throw new Error('getVotingRecordsWithFallback: dateTo is required (non-empty YYYY-MM-DD)');
   }
 &nbsp;
-  // (a) MCP returned real data — use it.
   if (!EPOpenDataClient.isVotingDataEmpty(mcpResult)) {
     return {
       result: mcpResult,
@@ -1809,12 +1814,8 @@ export async function getVotingRecordsWithFallback(
     };
   }
 &nbsp;
-  // (b) MCP was empty — try the EP Open Data Portal fallback.
   const portalClient = new EPOpenDataClient(options);
 &nbsp;
-  // Validate base URL up front so misconfiguration surfaces as a hard error
-  // rather than being swallowed into the 🔴 "unavailable" path (which is
-  // reserved for genuine "both sources empty" outcomes).
   try {
     await portalClient.connect();
   } catch (error) {
@@ -1840,7 +1841,6 @@ export async function getVotingRecordsWithFallback(
       };
     }
 &nbsp;
-    // (c) Both empty — emit the 🔴 unavailability marker.
     return {
       result: EPOpenDataClient.buildVotingUnavailableMarker(dateFrom, dateTo),
       source: 'unavailable',
@@ -1894,7 +1894,7 @@ export async function closeEPOpenDataClient(): Promise&lt;void&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-11T11:06:58.416Z
+                at 2026-05-12T10:28:21.212Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
