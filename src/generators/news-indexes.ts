@@ -377,10 +377,7 @@ function buildArticleHreflang(articleSlug: string): string {
  * @returns Updated HTML, or original if no change needed
  */
 function injectHreflangLinks(html: string, hreflangBlock: string): string {
-  return html.replace(
-    /(<\/head>)/u,
-    `${hreflangBlock}\n$1`
-  );
+  return html.replace(/(<\/head>)/u, `${hreflangBlock}\n$1`);
 }
 
 /**
@@ -395,10 +392,7 @@ function fixRelativeHreflangLinks(html: string, hreflangBlock: string): string {
     /\s*<link\s+rel="alternate"\s+hreflang="[^"]*"\s+href="[^"]*">\n?/gu,
     ''
   );
-  return stripped.replace(
-    /(<\/head>)/u,
-    `${hreflangBlock}\n$1`
-  );
+  return stripped.replace(/(<\/head>)/u, `${hreflangBlock}\n$1`);
 }
 
 /**
@@ -441,7 +435,9 @@ function backfillOneArticleHreflang(filename: string): boolean {
   if (!hasHreflang) {
     next = injectHreflangLinks(html, hreflangBlock);
   } else {
-    const hasRelative = /<link\s+rel="alternate"\s+hreflang="[^"]*"\s+href="(?!https?:\/\/)/u.test(html);
+    const hasRelative = /<link\s+rel="alternate"\s+hreflang="[^"]*"\s+href="(?!https?:\/\/)/u.test(
+      html
+    );
     if (!hasRelative) return false;
     next = fixRelativeHreflangLinks(html, hreflangBlock);
   }
