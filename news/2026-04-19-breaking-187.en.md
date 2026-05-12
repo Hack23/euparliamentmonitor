@@ -1,6 +1,6 @@
 ---
 title: "Easter Recess Day 8 / Run 187"
-description: "Easter recess continues. Parliament remains suspended until April 27. Run 187 — the ninth monitoring run in the Easter Recess series — generates one material intelligence……"
+description: "Easter recess continues. Parliament remains suspended until April 27. Run 187 — the ninth monitoring run in the Easter Recess series — generates one material intelligence…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-19", "run 187", "Easter", "Recess", "continues", "Parliament", "remains", "suspended", "until", "April"]
 date: 2026-04-19
 article_type: breaking
@@ -21,6 +21,9 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `intelligence/significance-scoring.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
+| [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `intelligence/cross-run-diff.md` |
+| [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `documents/document-analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `risk/quantitative-swot.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

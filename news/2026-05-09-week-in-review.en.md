@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Week in Review"
-description: "The European Parliament's April 2026 plenary sessions (primarily the Strasbourg session of 27–30 April) produced a dense legislative harvest across three strategic fault lines……"
+description: "The European Parliament's April 2026 plenary sessions (primarily the Strasbourg session of 27–30 April) produced a dense legislative harvest across three strategic fault lines…"
 keywords: ["EU Parliament", "week in review", "European Parliament", "summary", "legislation", "2026-05-09", "run week-in-review-run-1778309196", "Parliament", "Week", "Review", "European", "April", "plenary", "sessions", "primarily", "Strasbourg"]
 date: 2026-05-09
 article_type: week-in-review
@@ -87,11 +87,17 @@ Use this guide to read the article as a political-intelligence product rather th
 | [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/political-threat-landscape.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [PESTLE and structural context](#section-pestle-context) | political, economic, social, technological, legal, and environmental forces plus the historical baseline | `intelligence/pestle-analysis.md` |
+| [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `documents/document-analysis-index.md` |
+| [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `methodology-reflection.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 
@@ -2653,7 +2659,7 @@ All April 28-30 Strasbourg session adopted texts (TA-10-2026-0160 through 0165) 
 
 *MCP Server: european-parliament-mcp-server@1.3.1 | Run ID: week-in-review-run-$(date +%s)*
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+<h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
 
 ### Methodology Reflection
 
@@ -2892,5 +2898,5 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/week-in-review/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/week-in-review/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/week-in-review/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
-| section-supplementary-intelligence | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/week-in-review/methodology-reflection.md) | `methodology-reflection.md` |
+| section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-09/week-in-review/methodology-reflection.md) | `methodology-reflection.md` |
 

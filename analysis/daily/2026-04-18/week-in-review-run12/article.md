@@ -1,6 +1,6 @@
 ---
 title: "Week of April 11–18, 2026"
-description: "title: \"Synthesis Summary — Week of April 11–18, 2026\" Published 2026-04-18 · analysis run week-in-review-run12, with source-linked voting, committee and legislative…"
+description: "title: \"Synthesis Summary — Week of April 11–18, 2026\" Published 2026-04-18 · analysis run week-in-review-run12, with source-linked voting, committee and legislative intelligence…"
 keywords: ["EU Parliament", "week in review", "European Parliament", "summary", "legislation", "2026-04-18", "run week-in-review-run12", "Week", "April", "title", "Synthesis", "Published", "analysis", "review", "run12", "with"]
 date: 2026-04-18
 article_type: week-in-review
@@ -22,7 +22,11 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `intelligence/significance-scoring.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `intelligence/threat-model.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [PESTLE and structural context](#section-pestle-context) | political, economic, social, technological, legal, and environmental forces plus the historical baseline | `intelligence/pestle-analysis.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `intelligence/deep-analysis.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

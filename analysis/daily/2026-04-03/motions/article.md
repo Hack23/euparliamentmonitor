@@ -1,6 +1,6 @@
 ---
 title: "Quantitative risk scoring across 0 identified political dimensions."
-description: "Quantitative risk scoring across 0 identified political dimensions. Published 2026-04-03 · analysis run ddaeac0a-0829-43fb-8588-46bf89f410a4, with source-linked voting…"
+description: "Quantitative risk scoring across 0 identified political dimensions. Published 2026-04-03 · analysis run ddaeac0a-0829-43fb-8588-46bf89f410a4, with source-linked voting, committee…"
 keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-03", "run ddaeac0a-0829-43fb-8588-46bf89f410a4", "Quantitative", "risk", "scoring", "across", "identified", "political", "dimensions", "Published"]
 date: 2026-04-03
 article_type: motions
@@ -18,8 +18,13 @@ Use this guide to read the article as a political-intelligence product rather th
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `existing/voting-patterns.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/actor-threat-profiles.md` |
+| [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `existing/cross-session-intelligence.md` |
+| [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/coalition-analysis.md` |
 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 

@@ -1,6 +1,6 @@
 ---
 title: "📰 Weekly Intelligence Brief — Post-Easter Return (April 27–30, 2026)"
-description: "The European Parliament returns from Easter recess on 27 April 2026 to a four-day Strasbourg plenary that ranks among the most consequential of EP10's second year. Three……"
+description: "The European Parliament returns from Easter recess on 27 April 2026 to a four-day Strasbourg plenary that ranks among the most consequential of EP10's second year."
 keywords: ["EU Parliament", "European Parliament", "political intelligence", "Week Ahead Run14", "2026-04-17", "run cf7e8cd5-3b34-4755-b9ae-ae3b729cd12f", "Weekly", "Intelligence", "Brief", "Post", "Easter", "Return", "April", "European", "Parliament", "returns"]
 date: 2026-04-17
 article_type: week-ahead-run14
@@ -19,6 +19,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 

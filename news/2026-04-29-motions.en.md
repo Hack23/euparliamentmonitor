@@ -1,6 +1,6 @@
 ---
 title: "EP Motions & Adopted Texts"
-description: "Almost Certainly (A1, confidence HIGH): The April 28, 2026 Strasbourg plenary session marked a significant week for the EP, delivering 17 adopted texts across budget, justice……"
+description: "Almost Certainly (A1, confidence HIGH): The April 28, 2026 Strasbourg plenary session marked a significant week for the EP, delivering 17 adopted texts across budget, justice…"
 keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-29", "run motions-run-1777445455", "Adopted", "Texts", "Almost", "Certainly", "confidence", "HIGH", "April", "Strasbourg"]
 date: 2026-04-29
 article_type: motions
@@ -20,10 +20,14 @@ Use this guide to read the article as a political-intelligence product rather th
 |---|---|---|
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/voting-patterns.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `intelligence/threat-model.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [PESTLE and structural context](#section-pestle-context) | political, economic, social, technological, legal, and environmental forces plus the historical baseline | `intelligence/pestle-analysis.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/workflow-audit.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 

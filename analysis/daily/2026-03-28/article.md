@@ -1,6 +1,6 @@
 ---
 title: "Political Actor Mapping: EP10 Ecosystem Analysis"
-description: "The EP10 political actor ecosystem is characterised by: Published 2026-03-28 · analysis run e1c8e9c5-1a6d-4f2c-9cda-312aa19023fe, with source-linked voting, committee and…"
+description: "The EP10 political actor ecosystem is characterised by: Published 2026-03-28 · analysis run e1c8e9c5-1a6d-4f2c-9cda-312aa19023fe, with source-linked voting, committee…"
 keywords: ["EU Parliament", "month in review", "European Parliament", "summary", "legislative review", "2026-03-28", "run e1c8e9c5-1a6d-4f2c-9cda-312aa19023fe", "Political", "Actor", "Mapping", "EP10", "Ecosystem", "Analysis", "characterised", "Published", "e1c8e9c5"]
 date: 2026-03-28
 article_type: month-in-review
@@ -18,8 +18,13 @@ Use this guide to read the article as a political-intelligence product rather th
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `existing/voting-patterns.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/actor-threat-profiles.md` |
+| [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `existing/cross-session-intelligence.md` |
+| [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `ai-actor-mapping.md` |
 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 

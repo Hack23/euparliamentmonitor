@@ -1,7 +1,7 @@
 ---
-title: "Motions — 2026-04-13"
-description: "1. March 26 pre-Easter plenary adopted 7 texts including three critical items: US tariff countermeasures (TA-10-2026-0096), anti-corruption directive (TA-10-2026-0094), and……"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Motions Run41", "2026-04-13", "run b3749573-d54d-4d01-94be-4b53854132bc", "Motions", "March", "Easter", "plenary", "adopted", "texts", "including", "three", "critical", "items"]
+title: "1. March 26 pre-Easter plenary adopted 7 texts including three critical items: US tariff countermeasures (TA-10-2026-0096)…"
+description: "1. March 26 pre-Easter plenary adopted 7 texts including three critical items: US tariff countermeasures (TA-10-2026-0096), anti-corruption directive (TA-10-2026-0094)… Published…"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Motions Run41", "2026-04-13", "run b3749573-d54d-4d01-94be-4b53854132bc", "March", "Easter", "plenary", "adopted", "texts", "including", "three", "critical", "items", "tariff"]
 date: 2026-04-13
 article_type: motions-run41
 slug: 2026-04-13-motions-run41
@@ -20,6 +20,10 @@ Use this guide to read the article as a political-intelligence product rather th
 |---|---|---|
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/political-threat-landscape.md` |
+| [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
+| [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `documents/document-analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/coalition-dynamics.md` |
 
 <h2 id="section-significance">Significance</h2>
 

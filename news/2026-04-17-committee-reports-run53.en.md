@@ -1,7 +1,7 @@
 ---
-title: "Committee Reports — 2026-04-17"
-description: "The March 2026 Strasbourg sessions produced a multi-domain legislative sprint across five committee jurisdictions. This scoring identifies the highest-priority items for……"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run53", "2026-04-17", "run f1dc673b-2d98-4641-930e-4d14497da488", "Committee", "Reports", "March", "Strasbourg", "sessions", "produced", "multi", "domain", "legislative", "sprint"]
+title: "The March 2026 Strasbourg sessions produced a multi-domain legislative sprint across five committee jurisdictions. This scoring identifies…"
+description: "The March 2026 Strasbourg sessions produced a multi-domain legislative sprint across five committee jurisdictions. This scoring identifies the highest-priority items for today's…"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run53", "2026-04-17", "run f1dc673b-2d98-4641-930e-4d14497da488", "March", "Strasbourg", "sessions", "produced", "multi", "domain", "legislative", "sprint", "across", "five"]
 date: 2026-04-17
 article_type: committee-reports-run53
 slug: 2026-04-17-committee-reports-run53
@@ -18,8 +18,12 @@ Use this guide to read the article as a political-intelligence product rather th
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/formal-risk-assessment.md` |
+| [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/committee-power-analysis.md` |
 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 

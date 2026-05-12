@@ -1,6 +1,6 @@
 ---
 title: "🧩 Political Intelligence Synthesis — Tariff T-0 Convergence and Post-Recess Pipeline"
-description: "This synthesis builds on intelligence from 8+ prior runs during the Easter recess period: Published 2026-04-14, with source-linked voting, committee and legislative…"
+description: "This synthesis builds on intelligence from 8+ prior runs during the Easter recess period: Published 2026-04-14, with source-linked voting, committee and legislative intelligence…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-14", "Political", "Intelligence", "Synthesis", "Tariff", "Convergence", "Post", "Recess", "Pipeline", "This"]
 date: 2026-04-14
 article_type: breaking
@@ -11,6 +11,14 @@ language: en
 layout: article
 ---
 # Breaking — 2026-04-14
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `political-classification.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 

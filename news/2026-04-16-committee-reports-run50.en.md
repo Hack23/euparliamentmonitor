@@ -1,7 +1,7 @@
 ---
-title: "Committee Reports — 2026-04-16"
-description: "European Parliament committees enter the Easter recess having delivered a record Q1 2026 legislative output of 114 acts — a 46% increase over the full year 2025 total of 78……"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run50", "2026-04-16", "run 1677eddd-9ddd-4b92-a3b7-876a5a4ce8d4", "Committee", "Reports", "European", "Parliament", "committees", "enter", "Easter", "recess", "having", "delivered"]
+title: "European Parliament committees enter the Easter recess having delivered a record Q1 2026 legislative output of 114 acts — a 46% increase…"
+description: "European Parliament committees enter the Easter recess having delivered a record Q1 2026 legislative output of 114 acts — a 46% increase over the full year 2025 total of 78 acts."
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run50", "2026-04-16", "run 1677eddd-9ddd-4b92-a3b7-876a5a4ce8d4", "European", "Parliament", "committees", "enter", "Easter", "recess", "having", "delivered", "record", "legislative"]
 date: 2026-04-16
 article_type: committee-reports-run50
 slug: 2026-04-16-committee-reports-run50
@@ -18,8 +18,12 @@ Use this guide to read the article as a political-intelligence product rather th
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/political-classification.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-assessment.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/threat-analysis.md` |
+| [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `documents/document-analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/swot-analysis.md` |
 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 

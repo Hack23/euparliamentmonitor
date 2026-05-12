@@ -12,6 +12,14 @@ layout: article
 ---
 # Breaking — 2026-03-31
 
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `breaking-news-analysis.md` |
+
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Breaking News Analysis

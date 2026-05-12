@@ -1,6 +1,6 @@
 ---
 title: "2026-04-12"
-description: "This analysis consolidates findings from Run 163's five analysis categories (classification, threat assessment, risk scoring, intelligence, documents) based on EP MCP……"
+description: "This analysis consolidates findings from Run 163's five analysis categories (classification, threat assessment, risk scoring, intelligence, documents) based on EP MCP…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-12", "This", "analysis", "consolidates", "findings", "from", "five", "categories", "classification", "threat"]
 date: 2026-04-12
 article_type: breaking
@@ -20,7 +20,10 @@ Use this guide to read the article as a political-intelligence product rather th
 |---|---|---|
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/political-threat-landscape.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/api-outage-diagnostic.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 

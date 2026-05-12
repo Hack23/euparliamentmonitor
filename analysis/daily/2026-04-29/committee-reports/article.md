@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Committee Reports, April 28, 2026"
-description: "April 28 will be remembered as the session where Parliament simultaneously set the terms for the EU's next budget decade, modernised its trade preference architecture, and……"
+description: "April 28 will be remembered as the session where Parliament simultaneously set the terms for the EU's next budget decade, modernised its trade preference architecture… Published…"
 keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-29", "Parliament", "Committee", "Reports", "April", "will", "remembered", "session", "where", "simultaneously"]
 date: 2026-04-29
 article_type: committee-reports
@@ -92,10 +92,14 @@ Use this guide to read the article as a political-intelligence product rather th
 | [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/voting-patterns.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/actor-threat-profiles.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `documents/document-analysis-index.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/methodology-reflection.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 

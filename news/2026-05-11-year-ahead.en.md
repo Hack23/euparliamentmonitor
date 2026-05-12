@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Year Ahead"
-description: "The European Parliament faces its most consequential twelve months since the 2024 election. EPP dominance (183/717 seats, 25.5%) within a highly fragmented nine-group chamber……"
+description: "The European Parliament faces its most consequential twelve months since the 2024 election. EPP dominance (183/717 seats, 25.5%) within a highly fragmented nine-group chamber…"
 keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year Ahead", "2026-05-11", "run year-ahead-run598-1778488878", "Parliament", "Year", "Ahead", "European", "faces", "most", "consequential", "twelve", "months", "since"]
 date: 2026-05-11
 article_type: year-ahead
@@ -122,11 +122,18 @@ Use this guide to read the article as a political-intelligence product rather th
 | [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/actor-threat-profiles.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [PESTLE and structural context](#section-pestle-context) | political, economic, social, technological, legal, and environmental forces plus the historical baseline | `intelligence/pestle-analysis.md` |
+| [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/media-framing-analysis.md` |
+| [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `methodology-reflection.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `commission-wp-alignment.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -2365,6 +2372,97 @@ Given the data limitations above, confidence levels in artifacts are calibrated 
 2. World Bank probe for economic context (GDP growth, inflation from World Bank data)
 3. Re-probe voting data in 4–6 weeks for updated cohesion analysis
 
+<h2 id="section-quality-reflection">Analytical Quality & Reflection</h2>
+
+### Methodology Reflection
+
+### I. Protocol Compliance Assessment
+
+#### Stage A — Data Collection
+- **Completeness:** 🟡 PARTIAL — EP MCP tools largely successful; IMF unavailable; World Bank not probed due to time pressure
+- **Protocol adherence:** 🟢 Good — 14+ EP tools called; political landscape, legislative pipeline, foreseen activities captured
+- **Key gap:** IMF economic data → degraded mode activated; World Bank alternative not accessed
+
+#### Stage B — Analysis Artifacts
+- **Pass 1 completeness:** 🟢 FULL — all required artifacts produced
+- **Pass 2 quality:** 🟡 ADEQUATE — artifacts produced with appropriate depth given data constraints
+- **Mermaid diagrams:** 🟢 Present in risk matrix, forces analysis, coalition dynamics, actor mapping, parliamentary calendar
+- **Evidence citations:** 🟡 MEDIUM — structural citations adequate; quantitative citations limited by IMF absence
+
+#### Stage C — Completeness Gate
+- **Estimated gate result:** 🟢 PASS (with IMF degraded mode exceptions noted)
+- **Line floor compliance:** Majority of artifacts exceed minimum line floors
+- **Pass 2 rewrite count:** Multiple artifacts underwent depth enhancement
+
+---
+
+### II. Methodological Choices and Rationale
+
+#### Choice 1: IMF Degraded Mode
+**Decision:** Use publicly known WEO estimates (Oct 2025/Jan 2026) rather than skip economic analysis
+**Rationale:** Economic context is mandatory for year-ahead articles. Structural economic analysis with appropriately calibrated confidence levels is better than no economic analysis.
+**Risk:** Figures may be stale or inaccurate; clearly flagged throughout artifacts
+
+#### Choice 2: Structural Coalition Cohesion Proxies
+**Decision:** Use group size ratios and observed voting patterns from adopted texts as coalition cohesion proxies
+**Rationale:** EP voting API shows multi-week publication delay; no live cohesion data available. Structural proxies are academically defensible and transparently disclosed.
+**Risk:** Miss nuanced vote-by-vote cohesion variation; structural proxies favour largest groups
+
+#### Choice 3: Electoral Overlay NOT Applied
+**Decision:** `electoralOverlay = FALSE` for this run
+**Rationale:** Next EP election is June 2029. Elapsed time since June 2024 = ~24 months. Not within 12-month electoral overlay threshold.
+**Correct application:** Overlay would activate in June 2028 (~12 months before June 2029 election)
+
+#### Choice 4: dateFrom/dateTo Workaround
+**Decision:** Used `year: 2026` parameter instead of dateFrom/dateTo for plenary sessions
+**Rationale:** dateFrom/dateTo filter returns filteredTotal: 0 (broken endpoint); year filter works correctly
+**Impact:** All 54 2026 sessions captured; minor efficiency loss from manual post-filtering
+
+---
+
+### III. Quality Self-Assessment
+
+#### Strengths of This Analysis
+1. **Breadth:** 30+ artifacts covering intelligence, classification, risk-scoring, threat-assessment, and year-ahead specific projections
+2. **Structural rigour:** Political configuration accurately reflected (717 MEPs, 9 groups, correct seat counts)
+3. **Visual intelligence:** Multiple Mermaid diagrams providing data visualisation
+4. **Transparency:** Data limitations consistently disclosed with confidence calibration
+5. **Forward projection depth:** 12- and 24-month projections with scenario variants
+
+#### Acknowledged Weaknesses
+1. **IMF absence:** All economic analysis is estimate-based; fiscal/monetary precision is low
+2. **No live voting data:** Coalition cohesion based on proxies; may miss recent shifts
+3. **World Bank not consulted:** Non-economic social/governance indicators not captured
+4. **Run time pressure:** Some artifacts may be at lower depth than ideal due to session time constraints
+
+---
+
+### IV. Improvements for Next Run
+
+| Improvement | Priority | Action |
+|-------------|----------|--------|
+| IMF retry at different time | 🔴 HIGH | Try 06:00 UTC or different endpoint variant |
+| World Bank social data probe | 🟡 MEDIUM | Add to Stage A mandatory tool list |
+| Attendance data fix | 🟡 MEDIUM | Advocate for EP API fix; track separately |
+| Pass 2 time allocation | 🟡 MEDIUM | Ensure minimum 10 minutes for Pass 2 depth |
+| Voting cohesion alternative source | 🟡 MEDIUM | VoteWatch Europe or academic dataset |
+
+---
+
+### V. AI-First Quality Assessment
+
+| Quality Dimension | Score | Notes |
+|-------------------|-------|-------|
+| Original political analysis | 8/10 | Substantial original synthesis |
+| Evidence-based claims | 6/10 | Good structural; economic evidence weak |
+| Economist-quality prose | 7/10 | Clear, analytical; would benefit from economic anchoring |
+| Quantitative depth | 5/10 | Limited by IMF absence |
+| Scenario richness | 8/10 | 4 scenarios with probabilities |
+| Visual intelligence | 8/10 | Multiple Mermaid diagrams |
+| **Overall** | **7.0/10** | 🟡 GOOD — exceeds floor; IMF absence caps ceiling |
+
+**Final assessment:** This year-ahead analysis is ADEQUATE for publication given data constraints. The political intelligence quality is high; the economic depth is limited by IMF API unavailability and should be noted in the PR description for editorial discretion.
+
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Commission Wp Alignment
@@ -2671,95 +2769,6 @@ flowchart LR
 ---
 
 *Pipeline analysis based on monitor_legislative_pipeline data May 2026, EP10 procedural patterns, and presidency priority assessments.*
-
-### Methodology Reflection
-
-### I. Protocol Compliance Assessment
-
-#### Stage A — Data Collection
-- **Completeness:** 🟡 PARTIAL — EP MCP tools largely successful; IMF unavailable; World Bank not probed due to time pressure
-- **Protocol adherence:** 🟢 Good — 14+ EP tools called; political landscape, legislative pipeline, foreseen activities captured
-- **Key gap:** IMF economic data → degraded mode activated; World Bank alternative not accessed
-
-#### Stage B — Analysis Artifacts
-- **Pass 1 completeness:** 🟢 FULL — all required artifacts produced
-- **Pass 2 quality:** 🟡 ADEQUATE — artifacts produced with appropriate depth given data constraints
-- **Mermaid diagrams:** 🟢 Present in risk matrix, forces analysis, coalition dynamics, actor mapping, parliamentary calendar
-- **Evidence citations:** 🟡 MEDIUM — structural citations adequate; quantitative citations limited by IMF absence
-
-#### Stage C — Completeness Gate
-- **Estimated gate result:** 🟢 PASS (with IMF degraded mode exceptions noted)
-- **Line floor compliance:** Majority of artifacts exceed minimum line floors
-- **Pass 2 rewrite count:** Multiple artifacts underwent depth enhancement
-
----
-
-### II. Methodological Choices and Rationale
-
-#### Choice 1: IMF Degraded Mode
-**Decision:** Use publicly known WEO estimates (Oct 2025/Jan 2026) rather than skip economic analysis
-**Rationale:** Economic context is mandatory for year-ahead articles. Structural economic analysis with appropriately calibrated confidence levels is better than no economic analysis.
-**Risk:** Figures may be stale or inaccurate; clearly flagged throughout artifacts
-
-#### Choice 2: Structural Coalition Cohesion Proxies
-**Decision:** Use group size ratios and observed voting patterns from adopted texts as coalition cohesion proxies
-**Rationale:** EP voting API shows multi-week publication delay; no live cohesion data available. Structural proxies are academically defensible and transparently disclosed.
-**Risk:** Miss nuanced vote-by-vote cohesion variation; structural proxies favour largest groups
-
-#### Choice 3: Electoral Overlay NOT Applied
-**Decision:** `electoralOverlay = FALSE` for this run
-**Rationale:** Next EP election is June 2029. Elapsed time since June 2024 = ~24 months. Not within 12-month electoral overlay threshold.
-**Correct application:** Overlay would activate in June 2028 (~12 months before June 2029 election)
-
-#### Choice 4: dateFrom/dateTo Workaround
-**Decision:** Used `year: 2026` parameter instead of dateFrom/dateTo for plenary sessions
-**Rationale:** dateFrom/dateTo filter returns filteredTotal: 0 (broken endpoint); year filter works correctly
-**Impact:** All 54 2026 sessions captured; minor efficiency loss from manual post-filtering
-
----
-
-### III. Quality Self-Assessment
-
-#### Strengths of This Analysis
-1. **Breadth:** 30+ artifacts covering intelligence, classification, risk-scoring, threat-assessment, and year-ahead specific projections
-2. **Structural rigour:** Political configuration accurately reflected (717 MEPs, 9 groups, correct seat counts)
-3. **Visual intelligence:** Multiple Mermaid diagrams providing data visualisation
-4. **Transparency:** Data limitations consistently disclosed with confidence calibration
-5. **Forward projection depth:** 12- and 24-month projections with scenario variants
-
-#### Acknowledged Weaknesses
-1. **IMF absence:** All economic analysis is estimate-based; fiscal/monetary precision is low
-2. **No live voting data:** Coalition cohesion based on proxies; may miss recent shifts
-3. **World Bank not consulted:** Non-economic social/governance indicators not captured
-4. **Run time pressure:** Some artifacts may be at lower depth than ideal due to session time constraints
-
----
-
-### IV. Improvements for Next Run
-
-| Improvement | Priority | Action |
-|-------------|----------|--------|
-| IMF retry at different time | 🔴 HIGH | Try 06:00 UTC or different endpoint variant |
-| World Bank social data probe | 🟡 MEDIUM | Add to Stage A mandatory tool list |
-| Attendance data fix | 🟡 MEDIUM | Advocate for EP API fix; track separately |
-| Pass 2 time allocation | 🟡 MEDIUM | Ensure minimum 10 minutes for Pass 2 depth |
-| Voting cohesion alternative source | 🟡 MEDIUM | VoteWatch Europe or academic dataset |
-
----
-
-### V. AI-First Quality Assessment
-
-| Quality Dimension | Score | Notes |
-|-------------------|-------|-------|
-| Original political analysis | 8/10 | Substantial original synthesis |
-| Evidence-based claims | 6/10 | Good structural; economic evidence weak |
-| Economist-quality prose | 7/10 | Clear, analytical; would benefit from economic anchoring |
-| Quantitative depth | 5/10 | Limited by IMF absence |
-| Scenario richness | 8/10 | 4 scenarios with probabilities |
-| Visual intelligence | 8/10 | Multiple Mermaid diagrams |
-| **Overall** | **7.0/10** | 🟡 GOOD — exceeds floor; IMF absence caps ceiling |
-
-**Final assessment:** This year-ahead analysis is ADEQUATE for publication given data constraints. The political intelligence quality is high; the economic depth is limited by IMF API unavailability and should be noted in the PR description for editorial discretion.
 
 ### Parliamentary Calendar Projection
 
@@ -3094,10 +3103,10 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-extended-intel | [media-framing-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/extended/media-framing-analysis.md) | `extended/media-framing-analysis.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
+| section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/methodology-reflection.md) | `methodology-reflection.md` |
 | section-supplementary-intelligence | [commission-wp-alignment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/commission-wp-alignment.md) | `commission-wp-alignment.md` |
 | section-supplementary-intelligence | [forward-projection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/forward-projection.md) | `forward-projection.md` |
 | section-supplementary-intelligence | [legislative-pipeline-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/legislative-pipeline-forecast.md) | `legislative-pipeline-forecast.md` |
-| section-supplementary-intelligence | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/methodology-reflection.md) | `methodology-reflection.md` |
 | section-supplementary-intelligence | [parliamentary-calendar-projection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/parliamentary-calendar-projection.md) | `parliamentary-calendar-projection.md` |
 | section-supplementary-intelligence | [presidency-trio-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-11/year-ahead/presidency-trio-context.md) | `presidency-trio-context.md` |
 

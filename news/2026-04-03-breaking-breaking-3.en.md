@@ -1,6 +1,6 @@
 ---
 title: "Anti-Corruption and Institutional Reform Intelligence"
-description: "The March 2026 plenary sessions produced a coherent institutional reform package centred on the adoption of the anti-corruption directive (TA-10-2026-0094) alongside the……"
+description: "The March 2026 plenary sessions produced a coherent institutional reform package centred on the adoption of the anti-corruption directive (TA-10-2026-0094) alongside…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-03", "Anti", "Corruption", "Institutional", "Reform", "Intelligence", "March", "plenary", "sessions", "produced"]
 date: 2026-04-03
 article_type: breaking
@@ -11,6 +11,14 @@ language: en
 layout: article
 ---
 # Breaking — 2026-04-03
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `anti-corruption-reform-intelligence.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 

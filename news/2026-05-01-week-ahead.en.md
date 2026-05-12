@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Week Ahead: 4–8 May 2026"
-description: "The week of 4–8 May 2026 is a committee-intensive work week with no plenary sitting in Brussels or Strasbourg. The next plenary is scheduled for 18–21 May in Strasbourg. This……"
+description: "The week of 4–8 May 2026 is a committee-intensive work week with no plenary sitting in Brussels or Strasbourg. The next plenary is scheduled for 18–21 May in Strasbourg."
 keywords: ["EU Parliament", "week ahead", "committee meetings", "plenary debate", "European Parliament", "legislation", "2026-05-01", "run week-ahead-run-1777621917", "Parliament", "Week", "Ahead", "committee", "intensive", "work", "with", "plenary"]
 date: 2026-05-01
 article_type: week-ahead
@@ -197,7 +197,11 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `intelligence/threat-model.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [PESTLE and structural context](#section-pestle-context) | political, economic, social, technological, legal, and environmental forces plus the historical baseline | `intelligence/pestle-analysis.md` |
+| [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 

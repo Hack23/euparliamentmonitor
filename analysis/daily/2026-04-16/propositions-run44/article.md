@@ -1,7 +1,7 @@
 ---
-title: "Propositions — 2026-04-16"
-description: "The European Parliament enters its inter-session gap (March 27 to April 26) carrying the most ambitious legislative portfolio of EP10 current term. With 51 procedures……"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Propositions Run44", "2026-04-16", "run a44262b7-c7fe-4d49-8de1-d7e07919e39b", "Propositions", "European", "Parliament", "enters", "inter", "session", "March", "April", "carrying", "most"]
+title: "The European Parliament enters its inter-session gap (March 27 to April 26) carrying the most ambitious legislative portfolio of EP10…"
+description: "The European Parliament enters its inter-session gap (March 27 to April 26) carrying the most ambitious legislative portfolio of EP10 current term."
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Propositions Run44", "2026-04-16", "run a44262b7-c7fe-4d49-8de1-d7e07919e39b", "European", "Parliament", "enters", "inter", "session", "March", "April", "carrying", "most", "ambitious"]
 date: 2026-04-16
 article_type: propositions-run44
 slug: 2026-04-16-propositions-run44
@@ -18,7 +18,10 @@ Use this guide to read the article as a political-intelligence product rather th
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/political-classification.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-assessment.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/threat-analysis.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/swot-analysis.md` |
 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 

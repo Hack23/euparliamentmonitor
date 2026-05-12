@@ -1,6 +1,6 @@
 ---
 title: "🧩 Political Intelligence Synthesis — Post-Easter Return and Tariff Activation Convergence"
-description: "TA-10-2026-0096 activates April 15. Commission empowered for autonomous retaliatory tariffs. INTA committee leads oversight. ECR divided on trade policy. Published 2026-04-14 ·…"
+description: "TA-10-2026-0096 activates April 15. Commission empowered for autonomous retaliatory tariffs. INTA committee leads oversight. ECR divided on trade policy."
 keywords: ["EU Parliament", "European Parliament", "political intelligence", "Week Ahead Run13", "2026-04-14", "run d453dec8-df2f-4b80-9c0c-73659e377e8c", "Political", "Intelligence", "Synthesis", "Post", "Easter", "Return", "Tariff", "Activation", "Convergence", "activates"]
 date: 2026-04-14
 article_type: week-ahead-run13
@@ -11,6 +11,14 @@ language: en
 layout: article
 ---
 # Week Ahead Run13 — 2026-04-14
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `political-classification.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 

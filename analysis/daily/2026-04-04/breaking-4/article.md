@@ -1,6 +1,6 @@
 ---
 title: "Adopted Texts Deep Dive — 4 April 2026"
-description: "The one-week adopted texts feed returned 85 items spanning three distinct periods of parliamentary activity. The bulk (70 items) are from the current EP10 2026 session……"
+description: "The one-week adopted texts feed returned 85 items spanning three distinct periods of parliamentary activity. The bulk (70 items) are from the current EP10 2026 session… Published…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-04", "Adopted", "Texts", "Deep", "Dive", "April", "week", "feed", "returned", "items"]
 date: 2026-04-04
 article_type: breaking
@@ -11,6 +11,14 @@ language: en
 layout: article
 ---
 # Breaking — 2026-04-04
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `adopted-texts-analysis.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 

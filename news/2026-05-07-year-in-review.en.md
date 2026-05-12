@@ -1,6 +1,6 @@
 ---
 title: "EP10 Year in Review"
-description: "EP10 Year 2 is defined by a central paradox: the Parliament achieved more on defence/security than any in history while simultaneously retreating on the sustainability agenda……"
+description: "EP10 Year 2 is defined by a central paradox: the Parliament achieved more on defence/security than any in history while simultaneously retreating on the sustainability agenda it…"
 keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year In Review", "2026-05-07", "EP10", "Year", "Review", "defined", "central", "paradox", "Parliament", "achieved", "more", "defence", "security"]
 date: 2026-05-07
 article_type: year-in-review
@@ -20,10 +20,19 @@ Use this guide to read the article as a political-intelligence product rather th
 |---|---|---|
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `intelligence/threat-model.md` |
+| [What to watch](#section-forward-projection) | dated trigger events, calendar dependencies, and legislative-pipeline forecasts | `intelligence/legislative-pipeline-forecast.md` |
+| [Electoral arc and mandate](#section-electoral-arc) | where the story sits in the EP term, mandate fulfilment, seat projection, and presidency-trio context | `intelligence/term-arc.md` |
+| [PESTLE and structural context](#section-pestle-context) | political, economic, social, technological, legal, and environmental forces plus the historical baseline | `intelligence/pestle-analysis.md` |
+| [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/historical-parallels.md` |
+| [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `economic-context.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -894,6 +903,123 @@ Enhanced Loan creates institutional machinery for Ukraine reconstruction financi
 | Cascade effects | Analyst judgment | 🟡 |
 
 *Admiralty: B2. WEP: Likely. Impact classifications based on confirmed text subjects and structural analysis.*
+
+### Actor Mapping
+
+### Core Actors
+
+#### Institutional Actors
+
+| Actor | Role | Power Level | Key Action in Period |
+|-------|------|-------------|----------------------|
+| EPP Group | Legislative agenda-setter | 🔴 DOMINANT | CSRD rollback, banking reform, defence leadership |
+| S&D Group | Essential coalition partner | 🟠 HIGH | Housing, Ukraine, worker protection |
+| European Commission | Legislative initiator | 🔴 DOMINANT | Clean Industrial Deal, ReArm Europe, DMA enforcement |
+| PfE Group | Blocking minority builder | 🟠 GROWING | Hungary protection, Ukraine skepticism |
+| ECR Group | Right-wing institutional partner | 🟡 SIGNIFICANT | Migration, deregulation co-sponsor |
+| Renew Europe | Swing coalition partner | 🟡 PIVOTAL | Digital sovereignty, trade, ECB oversight |
+| Council of the EU | Co-legislator | 🔴 DOMINANT | Banking reform, anti-corruption, budget |
+| ECB | Monetary authority | 🟠 HIGH | Interest rate normalization; Vice-Chair appointments |
+| European Court of Justice | Legal arbiter | 🟡 SIGNIFICANT | Mercosur compatibility, rule of law enforcement |
+
+#### Key National Political Contexts
+
+| Country | Government Orientation | EP Influence | Key Issue |
+|---------|----------------------|--------------|-----------|
+| Germany | Coalition government (post-2025 elections) | HIGH — largest delegation | Economic recovery, defence investment |
+| France | Weakened Macron (Renew) | MEDIUM — domestic fragility | Trade policy, Ukraine |
+| Poland | Pro-EU government | MEDIUM | Rule of law, Ukraine support |
+| Hungary | Orbán (PfE) | LOW — isolated | Article 7, Ukraine obstruction |
+| Italy | Meloni (ECR-affiliated) | MEDIUM | Migration, ECR institutional role |
+
+---
+
+### Power Flow Network
+
+```
+European Commission
+        ↓ (legislative initiative)
+     EPP Group ←→ S&D Group
+      ↙           ↘
+ ECR Group      Renew Group
+  ↕               ↕  
+PfE Group      Greens/EFA
+  ↕               ↕
+ ESN         The Left Group
+        ↓ (final votes)
+     Council of the EU
+        ↓
+  Adopted Legislation
+```
+
+**Critical observation:** EPP functions as the network hub — all legislative paths run through it. The group's bilateral relationships with both S&D (centre coalition) and ECR (right coalition) give it disproportionate veto and agenda power.
+
+---
+
+### Actor Interest Alignment Matrix
+
+| Policy Area | EPP | S&D | PfE | ECR | Renew | Greens | Left |
+|-------------|-----|-----|-----|-----|-------|--------|------|
+| Defence/Ukraine | ✅ | ✅ | ❌ | ✅ | ✅ | ⚠️ | ❌ |
+| Clean Industrial Deal | ✅ | ⚠️ | ✅ | ✅ | ✅ | ⚠️ | ❌ |
+| Migration restrictionism | ✅ | ❌ | ✅ | ✅ | ⚠️ | ❌ | ❌ |
+| Digital sovereignty | ✅ | ✅ | ⚠️ | ⚠️ | ✅ | ✅ | ⚠️ |
+| Housing policy | ⚠️ | ✅ | ❌ | ❌ | ⚠️ | ✅ | ✅ |
+| Rule of law (Hungary) | ⚠️ | ✅ | ❌ | ⚠️ | ✅ | ✅ | ✅ |
+| Banking/Finance | ✅ | ⚠️ | ⚠️ | ⚠️ | ✅ | ⚠️ | ❌ |
+| Climate regulation | ⚠️ | ✅ | ❌ | ❌ | ⚠️ | ✅ | ✅ |
+| Trade defence (vs US) | ✅ | ✅ | ⚠️ | ✅ | ✅ | ✅ | ⚠️ |
+
+*Legend: ✅ support | ⚠️ conditional / divided | ❌ oppose*
+
+---
+
+### Individual Actor Profiles (Key MEPs)
+
+#### Group Presidents and Key Figures
+
+**Manfred Weber (EPP President, Germany)**
+- Defining figure of EP10 institutional politics
+- Coalition management strategy: oscillate between S&D and ECR as needed
+- Key priorities: competitiveness, defence, controlled migration
+- Vulnerability: German CDU/CSU internal tensions on climate and rule-of-law
+
+**Iratxe García Pérez (S&D President, Spain)**
+- Consistent advocate for social rights, housing, workers' protection
+- Coalition strategy: force EPP to choose between social and economic priorities
+- Key wins: housing crisis resolution, worker protection texts
+
+**Marine Le Pen / PfE leadership (via Jordan Bardella as group president)**
+- PfE's primary strategic interest: normalise right-wing positions in EP institutions
+- Key tool: immunity waivers against own members (Braun) create legitimacy optics costs
+
+**Viktor Orbán (Fidesz / PfE — via MEPs)**
+- Hungary's Article 7 status defines PfE's institutional isolation
+- Orbán's primary EP interest: protect Hungarian EU funding while blocking EU federalisation
+- Key vulnerability: SRMR3 and anti-corruption texts limit Hungary's financial manipulation options
+
+---
+
+### Intelligence Assessment: Emerging Power Shifts
+
+#### 1. EPP-ECR Structural Alliance Deepening
+Evidence from the period suggests EPP is increasingly comfortable governing rightward on social/economic issues with ECR rather than centreward with Renew. The CSRD rollback, migration restrictionism, and HGV emissions adjustment all passed with EPP-ECR-PfE configurations rather than the classic EPP-S&D-Renew von der Leyen coalition. This structural shift — if it persists — will redefine EP10's second half policy direction.
+
+**Implication:** S&D retains veto power on institutional/constitutional matters but loses policy influence on economic regulation.
+
+#### 2. Renew's Declining Leverage
+With French domestic politics weakened and liberal parties declining across 21 member states, Renew's seat share is at historical risk for 2029. The group's pivot toward "competitiveness liberalism" (supporting Clean Industrial Deal, digital sovereignty) is an attempt to redefine its value proposition — but EPP is absorbing this space faster than Renew can own it.
+
+**Implication:** Renew becomes increasingly dependent on EPP goodwill; its swing-voter leverage diminishes.
+
+#### 3. PfE's Institutional Learning Curve
+PfE, formed in mid-2024, has had a year to learn EP institutional mechanics. The group is becoming more sophisticated in committee work, rapporteur appointments, and amendment strategies. Its initial positioning as a pure opposition force is giving way to selective engagement — participating in texts that serve its national government interests while blocking texts that threaten them.
+
+**Implication:** PfE's legislative impact will increase in Year 3-4 as it applies institutional knowledge. Monitoring committee-level activity is essential for early warning.
+
+---
+
+*Actor mapping constructed from EP composition data (EP Open Data API), adopted text pattern analysis, and political intelligence synthesis. Confidence: 🟢 seat data from API; 🟡 actor interest assessments from legislative record; 🔴 forward projections are analyst estimates.*
 
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
@@ -3901,123 +4027,6 @@ All artifacts carry Admiralty Source Evaluation grades and WEP probability bands
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
-### Actor Mapping
-
-### Core Actors
-
-#### Institutional Actors
-
-| Actor | Role | Power Level | Key Action in Period |
-|-------|------|-------------|----------------------|
-| EPP Group | Legislative agenda-setter | 🔴 DOMINANT | CSRD rollback, banking reform, defence leadership |
-| S&D Group | Essential coalition partner | 🟠 HIGH | Housing, Ukraine, worker protection |
-| European Commission | Legislative initiator | 🔴 DOMINANT | Clean Industrial Deal, ReArm Europe, DMA enforcement |
-| PfE Group | Blocking minority builder | 🟠 GROWING | Hungary protection, Ukraine skepticism |
-| ECR Group | Right-wing institutional partner | 🟡 SIGNIFICANT | Migration, deregulation co-sponsor |
-| Renew Europe | Swing coalition partner | 🟡 PIVOTAL | Digital sovereignty, trade, ECB oversight |
-| Council of the EU | Co-legislator | 🔴 DOMINANT | Banking reform, anti-corruption, budget |
-| ECB | Monetary authority | 🟠 HIGH | Interest rate normalization; Vice-Chair appointments |
-| European Court of Justice | Legal arbiter | 🟡 SIGNIFICANT | Mercosur compatibility, rule of law enforcement |
-
-#### Key National Political Contexts
-
-| Country | Government Orientation | EP Influence | Key Issue |
-|---------|----------------------|--------------|-----------|
-| Germany | Coalition government (post-2025 elections) | HIGH — largest delegation | Economic recovery, defence investment |
-| France | Weakened Macron (Renew) | MEDIUM — domestic fragility | Trade policy, Ukraine |
-| Poland | Pro-EU government | MEDIUM | Rule of law, Ukraine support |
-| Hungary | Orbán (PfE) | LOW — isolated | Article 7, Ukraine obstruction |
-| Italy | Meloni (ECR-affiliated) | MEDIUM | Migration, ECR institutional role |
-
----
-
-### Power Flow Network
-
-```
-European Commission
-        ↓ (legislative initiative)
-     EPP Group ←→ S&D Group
-      ↙           ↘
- ECR Group      Renew Group
-  ↕               ↕  
-PfE Group      Greens/EFA
-  ↕               ↕
- ESN         The Left Group
-        ↓ (final votes)
-     Council of the EU
-        ↓
-  Adopted Legislation
-```
-
-**Critical observation:** EPP functions as the network hub — all legislative paths run through it. The group's bilateral relationships with both S&D (centre coalition) and ECR (right coalition) give it disproportionate veto and agenda power.
-
----
-
-### Actor Interest Alignment Matrix
-
-| Policy Area | EPP | S&D | PfE | ECR | Renew | Greens | Left |
-|-------------|-----|-----|-----|-----|-------|--------|------|
-| Defence/Ukraine | ✅ | ✅ | ❌ | ✅ | ✅ | ⚠️ | ❌ |
-| Clean Industrial Deal | ✅ | ⚠️ | ✅ | ✅ | ✅ | ⚠️ | ❌ |
-| Migration restrictionism | ✅ | ❌ | ✅ | ✅ | ⚠️ | ❌ | ❌ |
-| Digital sovereignty | ✅ | ✅ | ⚠️ | ⚠️ | ✅ | ✅ | ⚠️ |
-| Housing policy | ⚠️ | ✅ | ❌ | ❌ | ⚠️ | ✅ | ✅ |
-| Rule of law (Hungary) | ⚠️ | ✅ | ❌ | ⚠️ | ✅ | ✅ | ✅ |
-| Banking/Finance | ✅ | ⚠️ | ⚠️ | ⚠️ | ✅ | ⚠️ | ❌ |
-| Climate regulation | ⚠️ | ✅ | ❌ | ❌ | ⚠️ | ✅ | ✅ |
-| Trade defence (vs US) | ✅ | ✅ | ⚠️ | ✅ | ✅ | ✅ | ⚠️ |
-
-*Legend: ✅ support | ⚠️ conditional / divided | ❌ oppose*
-
----
-
-### Individual Actor Profiles (Key MEPs)
-
-#### Group Presidents and Key Figures
-
-**Manfred Weber (EPP President, Germany)**
-- Defining figure of EP10 institutional politics
-- Coalition management strategy: oscillate between S&D and ECR as needed
-- Key priorities: competitiveness, defence, controlled migration
-- Vulnerability: German CDU/CSU internal tensions on climate and rule-of-law
-
-**Iratxe García Pérez (S&D President, Spain)**
-- Consistent advocate for social rights, housing, workers' protection
-- Coalition strategy: force EPP to choose between social and economic priorities
-- Key wins: housing crisis resolution, worker protection texts
-
-**Marine Le Pen / PfE leadership (via Jordan Bardella as group president)**
-- PfE's primary strategic interest: normalise right-wing positions in EP institutions
-- Key tool: immunity waivers against own members (Braun) create legitimacy optics costs
-
-**Viktor Orbán (Fidesz / PfE — via MEPs)**
-- Hungary's Article 7 status defines PfE's institutional isolation
-- Orbán's primary EP interest: protect Hungarian EU funding while blocking EU federalisation
-- Key vulnerability: SRMR3 and anti-corruption texts limit Hungary's financial manipulation options
-
----
-
-### Intelligence Assessment: Emerging Power Shifts
-
-#### 1. EPP-ECR Structural Alliance Deepening
-Evidence from the period suggests EPP is increasingly comfortable governing rightward on social/economic issues with ECR rather than centreward with Renew. The CSRD rollback, migration restrictionism, and HGV emissions adjustment all passed with EPP-ECR-PfE configurations rather than the classic EPP-S&D-Renew von der Leyen coalition. This structural shift — if it persists — will redefine EP10's second half policy direction.
-
-**Implication:** S&D retains veto power on institutional/constitutional matters but loses policy influence on economic regulation.
-
-#### 2. Renew's Declining Leverage
-With French domestic politics weakened and liberal parties declining across 21 member states, Renew's seat share is at historical risk for 2029. The group's pivot toward "competitiveness liberalism" (supporting Clean Industrial Deal, digital sovereignty) is an attempt to redefine its value proposition — but EPP is absorbing this space faster than Renew can own it.
-
-**Implication:** Renew becomes increasingly dependent on EPP goodwill; its swing-voter leverage diminishes.
-
-#### 3. PfE's Institutional Learning Curve
-PfE, formed in mid-2024, has had a year to learn EP institutional mechanics. The group is becoming more sophisticated in committee work, rapporteur appointments, and amendment strategies. Its initial positioning as a pure opposition force is giving way to selective engagement — participating in texts that serve its national government interests while blocking texts that threaten them.
-
-**Implication:** PfE's legislative impact will increase in Year 3-4 as it applies institutional knowledge. Monitoring committee-level activity is essential for early warning.
-
----
-
-*Actor mapping constructed from EP composition data (EP Open Data API), adopted text pattern analysis, and political intelligence synthesis. Confidence: 🟢 seat data from API; 🟡 actor interest assessments from legislative record; 🔴 forward projections are analyst estimates.*
-
 ### Economic Context
 
 ### EU Macroeconomic Conditions (2024–2026)
@@ -5069,6 +5078,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-07/year-in-review/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-07/year-in-review/classification/forces-analysis.md) | `classification/forces-analysis.md` |
 | section-actors-forces | [impact-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-07/year-in-review/classification/impact-matrix.md) | `classification/impact-matrix.md` |
+| section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-07/year-in-review/actor-mapping.md) | `actor-mapping.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-07/year-in-review/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-coalitions-voting | [voting-patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-07/year-in-review/intelligence/voting-patterns.md) | `intelligence/voting-patterns.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-07/year-in-review/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
@@ -5087,7 +5097,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-07/year-in-review/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-07/year-in-review/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-07/year-in-review/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
-| section-supplementary-intelligence | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-07/year-in-review/actor-mapping.md) | `actor-mapping.md` |
 | section-supplementary-intelligence | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-07/year-in-review/economic-context.md) | `economic-context.md` |
 | section-supplementary-intelligence | [legislative-output-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-07/year-in-review/legislative-output-analysis.md) | `legislative-output-analysis.md` |
 | section-supplementary-intelligence | [legislative-pipeline-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-07/year-in-review/legislative-pipeline-forecast.md) | `legislative-pipeline-forecast.md` |

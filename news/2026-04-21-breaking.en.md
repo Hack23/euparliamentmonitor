@@ -1,6 +1,6 @@
 ---
 title: "EP Breaking News Run 192"
-description: "Run 192 marks Day 1 of the post-Easter work week — the first day EU institutions are operational after the Easter Monday bank holiday. The European Parliament remains in…"
+description: "Run 192 marks Day 1 of the post-Easter work week — the first day EU institutions are operational after the Easter Monday bank holiday. The European Parliament remains in Easter…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-21", "News", "marks", "post", "Easter", "work", "week", "first", "institutions", "operational"]
 date: 2026-04-21
 article_type: breaking
@@ -19,9 +19,13 @@ Use this guide to read the article as a political-intelligence product rather th
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `intelligence/cross-run-diff.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/coalition-dynamics.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
