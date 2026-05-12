@@ -92,9 +92,9 @@ function renderCard(article, meta, categoryLabels) {
 function buildHreflangTags() {
     const links = ALL_LANGUAGES.map((code) => {
         const href = getIndexFilename(code);
-        return `<link rel="alternate" hreflang="${code}" href="${href}">`;
+        return `<link rel="alternate" hreflang="${code}" href="${BASE_URL}/${href}">`;
     });
-    links.push('<link rel="alternate" hreflang="x-default" href="index.html">');
+    links.push(`<link rel="alternate" hreflang="x-default" href="${BASE_URL}/index.html">`);
     return links.join('\n  ');
 }
 /**
@@ -252,6 +252,91 @@ function applyArticleSeoBackfill(html, description, keywords) {
     const jsonDescription = JSON.stringify(description).slice(1, -1).replace(/</g, '\\u003c');
     next = next.replace(/"description":"[^"]*"/u, `"description":"${jsonDescription}"`);
     return next;
+}
+/**
+ * Build hreflang `<link rel="alternate">` tags for an article slug.
+ * Produces one tag per supported language plus an `x-default` pointing at
+ * the English variant, all using absolute URLs.
+ *
+ * @param articleSlug - Slug without language suffix (e.g. `2026-02-24-propositions`)
+ * @returns Newline-joined `<link>` tags
+ */
+function buildArticleHreflang(articleSlug) {
+    const entries = ALL_LANGUAGES.map((code) => `  <link rel="alternate" hreflang="${code}" href="${BASE_URL}/news/${articleSlug}-${code}.html">`);
+    entries.push(`  <link rel="alternate" hreflang="x-default" href="${BASE_URL}/news/${articleSlug}-en.html">`);
+    return entries.join('\n');
+}
+/**
+ * Inject hreflang links into an article that has none.
+ *
+ * @param html - Article HTML content
+ * @param hreflangBlock - Pre-built hreflang link block
+ * @returns Updated HTML, or original if no change needed
+ */
+function injectHreflangLinks(html, hreflangBlock) {
+    return html.replace(/(<\/head>)/u, `${hreflangBlock}\n$1`);
+}
+/**
+ * Replace existing relative hreflang links with absolute URLs.
+ *
+ * @param html - Article HTML content
+ * @param hreflangBlock - Pre-built hreflang link block with absolute URLs
+ * @returns Updated HTML, or original if no change needed
+ */
+function fixRelativeHreflangLinks(html, hreflangBlock) {
+    const stripped = html.replace(/\s*<link\s+rel="alternate"\s+hreflang="[^"]*"\s+href="[^"]*">\n?/gu, '');
+    return stripped.replace(/(<\/head>)/u, `${hreflangBlock}\n$1`);
+}
+/**
+ * Backfill hreflang alternate links for all article HTML files.
+ *
+ * Handles three cases:
+ * 1. Articles with no hreflang links at all → inject the full block before `</head>`
+ * 2. Articles with relative hreflang URLs → replace with absolute URLs
+ * 3. Articles already correct → skip
+ *
+ * @param filenames - News article filenames
+ * @returns Number of HTML files updated
+ */
+export function backfillArticleHreflang(filenames) {
+    let updated = 0;
+    for (const filename of filenames) {
+        if (backfillOneArticleHreflang(filename))
+            updated++;
+    }
+    return updated;
+}
+/**
+ * Backfill hreflang for a single article file.
+ *
+ * @param filename - News article filename
+ * @returns True when the file was updated
+ */
+function backfillOneArticleHreflang(filename) {
+    const parsed = parseArticleFilename(filename);
+    if (!parsed)
+        return false;
+    const filepath = path.join(NEWS_DIR, filename);
+    const html = readArticleHtml(filepath);
+    if (!html)
+        return false;
+    const articleSlug = `${parsed.date}-${parsed.slug}`;
+    const hreflangBlock = buildArticleHreflang(articleSlug);
+    const hasHreflang = /<link\s+rel="alternate"\s+hreflang="/u.test(html);
+    let next;
+    if (!hasHreflang) {
+        next = injectHreflangLinks(html, hreflangBlock);
+    }
+    else {
+        const hasRelative = /<link\s+rel="alternate"\s+hreflang="[^"]*"\s+href="(?!https?:\/\/)/u.test(html);
+        if (!hasRelative)
+            return false;
+        next = fixRelativeHreflangLinks(html, hreflangBlock);
+    }
+    if (next === html)
+        return false;
+    atomicWrite(filepath, next);
+    return true;
 }
 /**
  * Generate index HTML for a language.
@@ -521,6 +606,10 @@ function main() {
     const backfilled = backfillLegacyArticleSeo(articles);
     if (backfilled > 0) {
         console.log(`🔎 Backfilled SEO metadata for ${backfilled} legacy article file(s)`);
+    }
+    const hreflangBackfilled = backfillArticleHreflang(articles);
+    if (hreflangBackfilled > 0) {
+        console.log(`🔗 Backfilled hreflang links for ${hreflangBackfilled} article file(s)`);
     }
     const grouped = groupArticlesByLanguage(articles, ALL_LANGUAGES);
     const metaBuildTimerLabel = `⏱️ Built metadata map for ${articles.length} articles`;
