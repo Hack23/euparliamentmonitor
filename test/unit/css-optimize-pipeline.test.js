@@ -135,24 +135,13 @@ describe('.lighthouserc.json budgets', () => {
   );
   const assertions = lhci.ci.assert.assertions;
 
-  it('asserts no unminified CSS reaches production', () => {
-    expect(assertions['unminified-css']).toEqual([
-      'error',
-      { maxLength: 0 },
-    ]);
-  });
-
-  it('asserts no unminified JavaScript reaches production', () => {
-    expect(assertions['unminified-javascript']).toEqual([
-      'error',
-      { maxLength: 0 },
-    ]);
-  });
-
-  it('warns on any unused CSS rules (drift guard for the purge pipeline)', () => {
-    expect(assertions['unused-css-rules']).toBeDefined();
-    expect(assertions['unused-css-rules'][0]).toBe('warn');
-  });
+  // NOTE: unminified-css, unminified-javascript, and unused-css-rules are
+  // intentionally NOT asserted here. Those audits measure the deployed
+  // (minified/purged) payload, but Lighthouse CI in test-and-report.yml
+  // runs against the committed source files before any deploy-time
+  // transformation. Asserting them in the test runner would cause a
+  // permanent false-failure. The actual minification is validated by the
+  // deploy-s3.yml pipeline itself (optimize-css + minify-action steps).
 
   it('targets ≥0.9 performance score (post-purge/minify floor)', () => {
     expect(assertions['categories:performance'][1].minScore).toBeGreaterThanOrEqual(0.9);
@@ -172,5 +161,10 @@ describe('.lighthouserc.json budgets', () => {
 
   it('asserts TBT ≤ 200ms (from 300ms — 30ms observed in field)', () => {
     expect(assertions['total-blocking-time'][1].maxNumericValue).toBeLessThanOrEqual(200);
+  });
+
+  it('does not assert unminified-css or unminified-javascript (Lighthouse CI runs against source, not deployed payload)', () => {
+    expect(assertions['unminified-css']).toBeUndefined();
+    expect(assertions['unminified-javascript']).toBeUndefined();
   });
 });
