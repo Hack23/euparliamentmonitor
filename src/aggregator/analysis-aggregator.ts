@@ -403,8 +403,7 @@ const READER_GUIDE_EN: Readonly<Record<string, { need: string; value: string }>>
   },
   'section-threat': {
     need: 'Threat landscape',
-    value:
-      'hostile actors, attack vectors, consequence trees, and legislative-disruption pathways',
+    value: 'hostile actors, attack vectors, consequence trees, and legislative-disruption pathways',
   },
   'section-forward-projection': {
     need: 'What to watch',

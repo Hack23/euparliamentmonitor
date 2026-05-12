@@ -103,6 +103,7 @@ export function generateSitemap(articles: string[], docsFiles: string[] = []): s
     ...buildDocsUrls(docsFiles, today),
   ];
 
+  // REUSE-IgnoreStart
   return `<?xml version="1.0" encoding="UTF-8"?>
 <!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB -->
 <!-- SPDX-License-Identifier: Apache-2.0 -->
