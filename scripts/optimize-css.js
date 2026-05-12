@@ -10,7 +10,7 @@
 //
 // Invoked from `.github/workflows/deploy-s3.yml` after `npm run prebuild`
 // (so all generated HTML pages exist) and before the
-// `dra1ex/minify-action` step (which then minifies the now-smaller CSS).
+// `npm run minify-assets` step (which then minifies the now-smaller CSS).
 //
 // Logs before/after byte counts so the deploy log records the saving,
 // and exits non-zero on failure so the deploy halts before publishing

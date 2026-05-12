@@ -101,6 +101,24 @@ describe('deploy pipeline wiring', () => {
     );
   });
 
+  it('package.json wires `npm run minify-assets` to scripts/minify-assets.js', () => {
+    expect(packageJson.scripts['minify-assets']).toBe(
+      'node scripts/minify-assets.js',
+    );
+  });
+
+  it('package.json declares html-minifier-terser as a devDependency (pure-Node minifier, no Docker egress needed)', () => {
+    expect(packageJson.devDependencies['html-minifier-terser']).toBeDefined();
+  });
+
+  it('package.json declares clean-css as a devDependency', () => {
+    expect(packageJson.devDependencies['clean-css']).toBeDefined();
+  });
+
+  it('package.json declares terser as a devDependency', () => {
+    expect(packageJson.devDependencies.terser).toBeDefined();
+  });
+
   it('deploy-s3.yml runs `npm run optimize-css` before `rm -rf node_modules`', () => {
     const optimizeIdx = deployYml.indexOf('run: npm run optimize-css');
     // Use the indented-yaml-step form to skip the same string when it
@@ -110,20 +128,28 @@ describe('deploy pipeline wiring', () => {
     expect(rmIdx).toBeGreaterThan(optimizeIdx);
   });
 
-  it('deploy-s3.yml uses the dra1ex/minify-action pinned to v1.0.3 SHA', () => {
-    expect(deployYml).toContain(
-      'dra1ex/minify-action@3c54a82e092a78c827659385d1be715126f13410',
-    );
+  it('deploy-s3.yml runs `npm run minify-assets` (no Docker egress needed)', () => {
+    expect(deployYml).toContain('run: npm run minify-assets');
   });
 
-  it('deploy-s3.yml runs the minify action AFTER `npm run optimize-css` (purge first, minify second)', () => {
+  it('deploy-s3.yml does not use the dra1ex/minify-action Docker step (would require container-registry egress blocked by harden-runner)', () => {
+    expect(deployYml).not.toContain('dra1ex/minify-action');
+  });
+
+  it('deploy-s3.yml runs `npm run minify-assets` AFTER `npm run optimize-css` (purge first, minify second)', () => {
     const optimizeIdx = deployYml.indexOf('npm run optimize-css');
-    const minifyIdx = deployYml.indexOf('dra1ex/minify-action@');
+    const minifyIdx = deployYml.indexOf('npm run minify-assets');
     expect(minifyIdx).toBeGreaterThan(optimizeIdx);
   });
 
-  it('deploy-s3.yml runs the minify action BEFORE the AWS sync passes', () => {
-    const minifyIdx = deployYml.indexOf('dra1ex/minify-action@');
+  it('deploy-s3.yml runs `npm run minify-assets` BEFORE `rm -rf node_modules` (devDeps needed at minify time)', () => {
+    const minifyIdx = deployYml.indexOf('run: npm run minify-assets');
+    const rmIdx = deployYml.indexOf('          rm -rf node_modules');
+    expect(rmIdx).toBeGreaterThan(minifyIdx);
+  });
+
+  it('deploy-s3.yml runs `npm run minify-assets` BEFORE the AWS sync passes', () => {
+    const minifyIdx = deployYml.indexOf('npm run minify-assets');
     const syncIdx = deployYml.indexOf('aws s3 sync');
     expect(syncIdx).toBeGreaterThan(minifyIdx);
   });
@@ -141,7 +167,7 @@ describe('.lighthouserc.json budgets', () => {
   // runs against the committed source files before any deploy-time
   // transformation. Asserting them in the test runner would cause a
   // permanent false-failure. The actual minification is validated by the
-  // deploy-s3.yml pipeline itself (optimize-css + minify-action steps).
+  // deploy-s3.yml pipeline itself (optimize-css + minify-assets steps).
 
   it('targets ≥0.9 performance score (post-purge/minify floor)', () => {
     expect(assertions['categories:performance'][1].minScore).toBeGreaterThanOrEqual(0.9);
@@ -163,8 +189,9 @@ describe('.lighthouserc.json budgets', () => {
     expect(assertions['total-blocking-time'][1].maxNumericValue).toBeLessThanOrEqual(200);
   });
 
-  it('does not assert unminified-css or unminified-javascript (Lighthouse CI runs against source, not deployed payload)', () => {
+  it('does not assert unminified-css, unminified-javascript, or unused-css-rules (Lighthouse CI runs against source, not deployed payload)', () => {
     expect(assertions['unminified-css']).toBeUndefined();
     expect(assertions['unminified-javascript']).toBeUndefined();
+    expect(assertions['unused-css-rules']).toBeUndefined();
   });
 });
