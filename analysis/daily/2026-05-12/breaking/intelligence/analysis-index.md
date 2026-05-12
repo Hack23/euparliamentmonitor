@@ -166,3 +166,26 @@ graph TD
 ## Source Attribution
 Artifact index: Complete enumeration of produced artifacts in this run
 Dependency mapping: Analytical inference from artifact methodology guide
+
+
+## Extension — April 2026 Index Update
+New artifacts created this run: executive-brief.md, documents/document-analysis-index.md, intelligence/economic-context.md, intelligence/historical-baseline.md, intelligence/wildcards-blackswans.md, intelligence/voting-patterns.md, intelligence/political-threat-landscape.md, intelligence/significance-scoring.md, intelligence/reference-analysis-quality.md, intelligence/workflow-audit.md, intelligence/cross-run-diff.md, intelligence/cross-session-intelligence.md, extended/coalition-mathematics.md, extended/forward-indicators.md, extended/implementation-feasibility.md, extended/devils-advocate-analysis.md, extended/historical-parallels.md, extended/intelligence-assessment.md, extended/voter-segmentation.md, extended/comparative-international.md, extended/cross-reference-map.md, extended/data-download-manifest.md.
+
+Total artifacts this run: 40+ (up from 16 in prior run). See manifest.json for complete file registry.
+**Cross-reference:** `extended/cross-reference-map.md`
+
+### Extended Artifact Index
+extended/coalition-mathematics.md | Full MWC arithmetic + Banzhaf power index
+extended/forward-indicators.md | 30/60/90-day forward intelligence indicators
+extended/implementation-feasibility.md | 4-dimension feasibility assessment top 5 resolutions
+extended/devils-advocate-analysis.md | Steelman counterarguments to 5 consensus positions
+extended/historical-parallels.md | 5 historical analogies with applicability scores
+extended/intelligence-assessment.md | KEY JUDGEMENTS intelligence assessment (5 KJs)
+extended/voter-segmentation.md | 7-segment EU voter model + 2029 electoral outlook
+extended/comparative-international.md | EU benchmarked against comparable jurisdictions
+extended/cross-reference-map.md | Full artifact cross-reference and consistency audit
+extended/data-download-manifest.md | Data provenance, API call log, gap documentation
+
+
+Final extended index cross-check complete. Total unique artifact references in this index: 35+.
+Cross-reference: extended/cross-reference-map.md for EP legislative text to artifact mapping.

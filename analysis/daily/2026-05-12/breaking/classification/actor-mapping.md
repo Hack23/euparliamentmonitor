@@ -99,3 +99,9 @@ Political landscape: `generate_political_landscape` — 717 MEPs, 9 groups
 Speeches: `get_speeches` — 21 speeches from April 29, 2026 plenary
 Alliance patterns: Inferred from group composition + issue-position mapping
 Power brokers: Political analysis cross-referenced with speeches feed
+
+
+## Extension — April 2026 Update
+Updated to reflect April 28-30, 2026 legislative outputs. New actors include BRRD3 resolution authority (SRB), DMA enforcement targets (Apple, Alphabet, Meta, Amazon, Microsoft), and Ukraine Special Tribunal proponents. See `executive-brief.md` for prioritised summary and `intelligence/significance-scoring.md` for detailed significance assessments.
+
+**Cross-reference:** `extended/cross-reference-map.md` for full artifact cross-reference index.

@@ -223,3 +223,28 @@ The simultaneous occurrence of IT-01 (procedure weaponisation) + IE-01 (Russian 
 ## Source Attribution
 Compound threat analysis: Cross-referenced from `intelligence/mcp-reliability-audit.md`, media-framing analysis
 WEP and Admiralty: Applied per `analysis/methodologies/ai-driven-analysis-guide.md` standards
+
+### Supply Chain Resilience Threat Model (New from April 2026)
+
+**Threat vector:** EU supply chain concentration in critical materials, semiconductors, and pharmaceutical ingredients
+**Evidence base:** TA-10-2026-0149 (unfair competition mechanism) implicitly addresses supply chain subsidisation concerns; European Critical Raw Materials Act (prior EP session) addressed mineral supply chains
+**Threat assessment:**
+- Critical minerals: EU is highly dependent on Chinese processing (60-80% of rare earths processed in China)
+- Pharmaceutical ingredients: API (Active Pharmaceutical Ingredients) dependency on China/India documented
+- Semiconductors: EU Chips Act targets 20% of global production by 2030 (currently <10%)
+
+**Threat severity:** MEDIUM-HIGH (structural dependency; no immediate crisis but significant vulnerability)
+**Mitigation status:** PARTIAL — Critical Raw Materials Act, Chips Act, pharmaceutical alliance discussions underway
+**EP role:** Advocacy for supply chain resilience has bipartisan support across EPP, S&D, and Renew; resistance from groups opposed to state subsidy (fiscal hawks in ECR)
+
+**Cross-reference:** `intelligence/political-threat-landscape.md` §GS-2; `extended/comparative-international.md`; `intelligence/economic-context.md`
+
+**Confidence Assessment (B3):** Source reliability: B (EP institutional documents + open-source intelligence); Information reliability: 3 (corroborated by multiple threat indicators).
+**WEP:** Likely that EP's hybrid threat posture will be formally codified in a dedicated cybersecurity/information resilience legislative package by Q2 2027.
+
+### Threat Ecosystem Integration
+
+The five threat families (foreign interference, institutional delegitimisation, digital infrastructure, rule-of-law erosion, economic warfare) are not independent — they interact and reinforce each other. Foreign interference amplifies institutional delegitimisation; digital infrastructure vulnerabilities enable foreign interference; rule-of-law erosion creates institutional weaknesses that enable all other threats. The integrated threat ecosystem requires an integrated response architecture, which is precisely what EP10's legislative cluster approach is attempting to build.
+
+**Note:** Estimated threat impact scores calibrated against 2019-2024 EP9 baseline.
+Hybrid threat convergence represents structural new normal for EP10 institutional operations.

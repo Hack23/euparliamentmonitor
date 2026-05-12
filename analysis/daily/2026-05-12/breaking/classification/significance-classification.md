@@ -86,3 +86,19 @@ This score reflects: (1) adoption of four substantive resolutions at the most re
 The `breaking` article type is appropriate for this run — these are the most recent adopted EP outputs with immediate political consequences.
 
 **Source:** `get_adopted_texts(year:2026)` confirmed 4 key resolutions; `early_warning_system` stability 84/100
+
+---
+## Extension — April 2026 New Items
+
+### Tier 1 Additions (This Run)
+- **TA-10-2026-0111 (MFF 2028-2034):** Classified as Tier 1 HIGH (S=9.0) — highest significance item this run; sets EU fiscal architecture for 2028-2034.
+- **TA-10-2026-0104 (DMA enforcement):** Classified as Tier 1 HIGH (S=8.4) — enforcement phase of EU digital governance; Brussels Effect implications.
+
+### Tier 2 Additions (This Run)
+- **TA-10-2026-0161 (Ukraine tribunal):** Tier 2 HIGH (S=7.8) — precedent-setting accountability mechanism.
+- **TA-10-2026-0149 (unfair competition):** Tier 2 HIGH (S=7.8) — trade defence against Chinese unfair subsidies.
+- **TA-10-2026-0147 (rule of law):** Tier 2 HIGH (S=7.4) — extends Hungary conditionality; adds Slovakia monitoring.
+- **TA-10-2026-0022 (BRRD3):** Tier 2 MEDIUM (S=7.0) — banking union architecture advancement.
+- **TA-10-2026-0125 (discharge):** Tier 2/Tier 1 borderline (S=7.6) — rule of law conditionality precedent.
+
+**Cross-reference:** `intelligence/significance-scoring.md` for full 5-dimension scoring tables.
