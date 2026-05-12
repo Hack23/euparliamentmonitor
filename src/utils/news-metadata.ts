@@ -74,6 +74,18 @@ export function buildMetadataDatabase(newsDir: string = NEWS_DIR): NewsMetadataD
  * @param database - Metadata database to write
  * @param outputPath - Output file path (defaults to news/articles-metadata.json)
  */
+/**
+ * Write metadata database to JSON file.
+ *
+ * Idempotent at the byte level: if the existing file has an identical
+ * `articles` payload, the original `lastUpdated` timestamp is preserved
+ * and the file is left untouched. This keeps `aws s3 sync` (size+mtime)
+ * from re-uploading `news/articles-metadata.json` on every prebuild rerun
+ * when no articles actually changed.
+ *
+ * @param database - Metadata database to write
+ * @param outputPath - Output file path (defaults to news/articles-metadata.json)
+ */
 export function writeMetadataDatabase(
   database: NewsMetadataDatabase,
   outputPath: string = METADATA_DB_PATH
@@ -82,7 +94,38 @@ export function writeMetadataDatabase(
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
   }
-  fs.writeFileSync(outputPath, JSON.stringify(database, null, 2), 'utf-8');
+  let payload: NewsMetadataDatabase = database;
+  if (fs.existsSync(outputPath)) {
+    try {
+      const existing = JSON.parse(fs.readFileSync(outputPath, 'utf-8')) as
+        | NewsMetadataDatabase
+        | null;
+      const existingArticlesJson = JSON.stringify(existing?.articles ?? null);
+      const newArticlesJson = JSON.stringify(database.articles ?? null);
+      if (
+        existingArticlesJson === newArticlesJson &&
+        typeof existing?.lastUpdated === 'string'
+      ) {
+        // Same articles content — preserve the prior timestamp so the
+        // serialised JSON stays byte-identical across reruns.
+        payload = { ...database, lastUpdated: existing.lastUpdated };
+      }
+    } catch {
+      // Existing file unreadable / malformed — fall through and overwrite.
+    }
+  }
+  const desired = JSON.stringify(payload, null, 2);
+  if (fs.existsSync(outputPath)) {
+    try {
+      const onDisk = fs.readFileSync(outputPath, 'utf-8');
+      if (onDisk === desired) {
+        return; // byte-identical; preserve mtime
+      }
+    } catch {
+      // Fall through to overwrite.
+    }
+  }
+  fs.writeFileSync(outputPath, desired, 'utf-8');
 }
 
 /**

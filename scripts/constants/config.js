@@ -207,12 +207,29 @@ export const BUILD_SHORT = BUILD_ID.slice(0, 7);
 /**
  * ISO 8601 timestamp for when this build was produced. Precedence:
  *   1. `process.env.BUILD_TIME` (CI sets this in the workflow)
- *   2. `new Date().toISOString()` fallback
+ *   2. Commit timestamp of {@link BUILD_ID} (`git log -1 --format=%cI`) —
+ *      deterministic for a given commit, so workflow_dispatch re-runs of the
+ *      same SHA produce a byte-identical `build-info.json` and `sw.js` and
+ *      `aws s3 sync` correctly skips them as unchanged.
+ *   3. `new Date().toISOString()` fallback (only hits when both env and git
+ *      are unavailable, e.g. tarball builds outside a git checkout).
  */
 export const BUILD_TIME = (() => {
     const fromEnv = (process.env.BUILD_TIME ?? '').trim();
     if (fromEnv)
         return fromEnv;
+    try {
+        const fromGit = execSync('git log -1 --format=%cI', {
+            encoding: 'utf-8',
+            stdio: ['ignore', 'pipe', 'ignore'],
+            cwd: PROJECT_ROOT,
+        }).trim();
+        if (fromGit)
+            return fromGit;
+    }
+    catch {
+        /* git unavailable or not a repo — fall through to wall-clock fallback */
+    }
     return new Date().toISOString();
 })();
 /**

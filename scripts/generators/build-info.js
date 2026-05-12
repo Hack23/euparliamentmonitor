@@ -36,6 +36,7 @@ import {
   BUILD_TIME,
   RELEASE_TAG,
 } from '../constants/config.js';
+import { writeFileIfChanged } from '../utils/file-utils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -51,8 +52,13 @@ function main() {
   };
 
   const outPath = path.join(PROJECT_ROOT, 'build-info.json');
-  fs.writeFileSync(outPath, JSON.stringify(payload, null, 2) + '\n', 'utf-8');
-  console.log(`✅ Wrote build-info.json (buildShort=${BUILD_SHORT}, appVersion=${APP_VERSION})`);
+  // build-info.json content is BUILD_ID-keyed so it changes per commit by
+  // design; using writeFileIfChanged still pays off on workflow_dispatch
+  // re-runs of the same SHA — same BUILD_ID, same payload, no mtime drift.
+  const wrote = writeFileIfChanged(outPath, JSON.stringify(payload, null, 2) + '\n');
+  console.log(
+    `${wrote ? '✅' : '·'} ${wrote ? 'Wrote' : 'Unchanged'} build-info.json (buildShort=${BUILD_SHORT}, appVersion=${APP_VERSION})`,
+  );
 
   // Render the service-worker from its template — substitutes the build id
   // into `CACHE_VERSION` so old caches are evicted on every deploy.
@@ -63,8 +69,10 @@ function main() {
     const rendered = tpl
       .replace(/__BUILD_ID__/g, BUILD_ID)
       .replace(/__BUILD_SHORT__/g, BUILD_SHORT);
-    fs.writeFileSync(swPath, rendered, 'utf-8');
-    console.log(`✅ Rendered sw.js from template (CACHE_VERSION=${BUILD_SHORT})`);
+    const swWrote = writeFileIfChanged(swPath, rendered);
+    console.log(
+      `${swWrote ? '✅' : '·'} ${swWrote ? 'Rendered' : 'Unchanged'} sw.js from template (CACHE_VERSION=${BUILD_SHORT})`,
+    );
   } else {
     console.warn(`⚠️  sw.js.template not found at ${tplPath} — skipping sw.js render`);
   }

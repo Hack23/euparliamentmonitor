@@ -30,7 +30,17 @@
  *     skip it; we want the deploy to succeed without diagrams rather than fail.
  */
 
-import { copyFileSync, cpSync, existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import {
+  copyFileSync,
+  cpSync,
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  rmSync,
+  statSync,
+  writeFileSync,
+} from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 
@@ -42,12 +52,55 @@ function ensureDir(dir) {
   mkdirSync(dir, { recursive: true });
 }
 
+/**
+ * Copy `src` → `dst` only when their bytes differ. Returns `true` when an
+ * actual copy happened, `false` when the destination already had identical
+ * content and was left untouched (mtime preserved). This keeps
+ * `aws s3 sync` (which compares size + mtime) from re-uploading vendor
+ * bundles that the prebuild step regenerated identically.
+ */
+function copyFileIfChanged(src, dst) {
+  if (existsSync(dst)) {
+    try {
+      const srcStat = statSync(src);
+      const dstStat = statSync(dst);
+      if (srcStat.size === dstStat.size) {
+        const srcBuf = readFileSync(src);
+        const dstBuf = readFileSync(dst);
+        if (srcBuf.equals(dstBuf)) {
+          return false;
+        }
+      }
+    } catch {
+      // Fall through to copy — read failures must not block deploy.
+    }
+  }
+  copyFileSync(src, dst);
+  return true;
+}
+
+function writeIfChanged(dst, content) {
+  const desired = Buffer.isBuffer(content) ? content : Buffer.from(content, 'utf8');
+  if (existsSync(dst)) {
+    try {
+      const existing = readFileSync(dst);
+      if (existing.equals(desired)) {
+        return false;
+      }
+    } catch {
+      // Fall through to overwrite.
+    }
+  }
+  writeFileSync(dst, desired);
+  return true;
+}
+
 function writeLicense(targetPath, copyrightText, licenseId) {
   // REUSE-compliant sidecar — see REUSE.toml for path-level annotations.
-  writeFileSync(
+  // Idempotent: don't touch the sidecar's mtime when content is unchanged.
+  writeIfChanged(
     `${targetPath}.license`,
     `SPDX-FileCopyrightText: ${copyrightText}\nSPDX-License-Identifier: ${licenseId}\n`,
-    'utf8',
   );
 }
 
@@ -59,9 +112,9 @@ function copyOrFail(label, srcRel, dstRel, license) {
     process.exit(1);
   }
   ensureDir(path.dirname(dst));
-  copyFileSync(src, dst);
+  const wrote = copyFileIfChanged(src, dst);
   writeLicense(dst, license.copyright, license.spdx);
-  process.stdout.write(`  ✓ ${dstRel}\n`);
+  process.stdout.write(`  ${wrote ? '✓' : '·'} ${dstRel}${wrote ? '' : ' (unchanged)'}\n`);
 }
 
 function copyMermaid() {
@@ -73,44 +126,113 @@ function copyMermaid() {
     );
     return;
   }
-  // Idempotency: wipe the existing mermaid tree before copying so stale
-  // chunks from a previous mermaid version (or a previous filter set) cannot
-  // leak into the deployed bundle. cpSync({force:true}) only overwrites
-  // matching paths; it does not remove orphans.
-  if (existsSync(target)) {
-    rmSync(target, { recursive: true, force: true });
-  }
   ensureDir(target);
 
-  // Copy the minified ESM entry plus its chunk directory. Skip the dev /
-  // unminified flavours (`mermaid.esm.mjs`, `mermaid.core.mjs`,
-  // `mermaid.js`, etc.) AND skip sourcemaps to keep the deployed payload
-  // small (saves ~6 MB and 60+ HTTP requests).
-  const wantedTopLevel = new Set(['mermaid.esm.min.mjs']);
+  // Per-file idempotency: walk the source tree and only copy files whose
+  // bytes differ from what's already in `js/vendor/mermaid/`. Replaces the
+  // earlier `rmSync` + `cpSync` approach which always touched every chunk's
+  // mtime — `aws s3 sync` (size+mtime by default) then re-uploaded the
+  // entire mermaid bundle on every deploy even though the bundle is byte-
+  // identical until the pinned mermaid version in package.json changes.
+  //
+  // Filename contract preserved exactly: entry stays at
+  // `js/vendor/mermaid/mermaid.esm.min.mjs` and chunks stay at
+  // `js/vendor/mermaid/chunks/mermaid.esm.min/*.mjs` so every existing
+  // `<script type="module" src="../js/vendor/mermaid/mermaid.esm.min.mjs">`
+  // and dynamic `import()` from the entry continues to resolve.
 
-  cpSync(mermaidDist, target, {
-    recursive: true,
-    force: true,
-    filter: (src) => {
-      const rel = path.relative(mermaidDist, src);
-      if (rel === '') return true; // root dist dir
-      // Skip sourcemaps — we deploy minified-only.
-      if (src.endsWith('.map')) return false;
-      const segments = rel.split(path.sep);
-      const top = segments[0];
-      // Always allow the chunks directory tree we need.
-      if (top === 'chunks') {
-        if (segments.length === 1) return true;
-        const flavour = segments[1];
-        return flavour === 'mermaid.esm.min';
+  // Build the set of source files we want to ship (filter mirrors the
+  // previous cpSync filter exactly).
+  const wantedTopLevel = new Set(['mermaid.esm.min.mjs']);
+  const wantedFiles = []; // { src, rel } — `rel` is relative to mermaidDist
+
+  function shouldShip(rel) {
+    if (rel.endsWith('.map')) return false;
+    const segments = rel.split(path.sep);
+    const top = segments[0];
+    if (top === 'chunks') {
+      if (segments.length === 1) return false; // directory itself, not a file
+      const flavour = segments[1];
+      return flavour === 'mermaid.esm.min';
+    }
+    if (segments.length === 1) {
+      return wantedTopLevel.has(top);
+    }
+    return false;
+  }
+
+  function walkSource(dir) {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      const rel = path.relative(mermaidDist, full);
+      if (entry.isDirectory()) {
+        walkSource(full);
+      } else if (entry.isFile() && shouldShip(rel)) {
+        wantedFiles.push({ src: full, rel });
       }
-      // Top-level: only allow the minified ESM entry.
-      if (segments.length === 1) {
-        return wantedTopLevel.has(top);
+    }
+  }
+  walkSource(mermaidDist);
+
+  // Copy only-if-changed.
+  let copied = 0;
+  let unchanged = 0;
+  for (const { src, rel } of wantedFiles) {
+    const dst = path.join(target, rel);
+    ensureDir(path.dirname(dst));
+    if (copyFileIfChanged(src, dst)) {
+      copied++;
+    } else {
+      unchanged++;
+    }
+  }
+
+  // Remove orphaned files in the destination tree that no longer have a
+  // matching wanted source — this preserves the "no stale chunks from a
+  // previous mermaid version" guarantee that the old `rmSync` provided,
+  // without touching any current chunk's mtime.
+  const wantedDstSet = new Set(
+    wantedFiles.map(({ rel }) => path.join(target, rel)),
+  );
+  // Allow our REUSE sidecar files alongside their primary file.
+  function isAllowedSidecar(absPath) {
+    if (!absPath.endsWith('.license')) return false;
+    const primary = absPath.slice(0, -'.license'.length);
+    return wantedDstSet.has(primary);
+  }
+  // Also allow the chunks-dir flavour-level license sidecar we drop below.
+  const flavourLicensePath = path.join(
+    target,
+    'chunks',
+    'mermaid.esm.min.license',
+  );
+
+  function pruneOrphans(dir) {
+    if (!existsSync(dir)) return;
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        pruneOrphans(full);
+        // Remove now-empty directories so a flavour rename leaves no shell.
+        try {
+          if (readdirSync(full).length === 0) {
+            rmSync(full, { recursive: true, force: true });
+          }
+        } catch {
+          // best-effort
+        }
+      } else if (entry.isFile()) {
+        if (
+          !wantedDstSet.has(full) &&
+          !isAllowedSidecar(full) &&
+          full !== flavourLicensePath
+        ) {
+          rmSync(full, { force: true });
+        }
       }
-      return false;
-    },
-  });
+    }
+  }
+  pruneOrphans(target);
 
   // REUSE sidecar for the entry file + flavour directory.
   const entry = path.join(target, 'mermaid.esm.min.mjs');
@@ -121,13 +243,14 @@ function copyMermaid() {
   // generated tree without us having to enumerate every chunk by name.
   const chunksDir = path.join(target, 'chunks', 'mermaid.esm.min');
   if (existsSync(chunksDir)) {
-    writeFileSync(
-      path.join(target, 'chunks', 'mermaid.esm.min.license'),
+    writeIfChanged(
+      flavourLicensePath,
       'SPDX-FileCopyrightText: 2014-2026 Mermaid contributors\nSPDX-License-Identifier: MIT\n',
-      'utf8',
     );
   }
-  process.stdout.write(`  ✓ mermaid/ (entry + ${countMjs(target)} mjs chunks)\n`);
+  process.stdout.write(
+    `  ✓ mermaid/ (${copied} copied, ${unchanged} unchanged; ${countMjs(target)} total mjs chunks)\n`,
+  );
 }
 
 function countMjs(dir) {

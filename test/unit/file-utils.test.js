@@ -190,6 +190,53 @@ describe('utils/file-utils', () => {
     });
   });
 
+  describe('writeFileIfChanged (deploy idempotency contract)', () => {
+    it('writes when the file does not yet exist and returns true', async () => {
+      const { writeFileIfChanged } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'fresh.txt');
+      const wrote = writeFileIfChanged(filePath, 'hello');
+      expect(wrote).toBe(true);
+      expect(fs.readFileSync(filePath, 'utf-8')).toBe('hello');
+    });
+
+    it('overwrites when content differs and returns true', async () => {
+      const { writeFileIfChanged } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'change.txt');
+      writeFileIfChanged(filePath, 'before');
+      const wrote = writeFileIfChanged(filePath, 'after');
+      expect(wrote).toBe(true);
+      expect(fs.readFileSync(filePath, 'utf-8')).toBe('after');
+    });
+
+    it('skips write and preserves mtime when content is byte-identical', async () => {
+      const { writeFileIfChanged } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'idempotent.txt');
+      writeFileIfChanged(filePath, 'stable bytes');
+      const mtimeBefore = fs.statSync(filePath).mtimeMs;
+      // Force the OS clock past 1ms granularity so a real write would bump mtime.
+      await new Promise((resolve) => setTimeout(resolve, 50));
+      const wrote = writeFileIfChanged(filePath, 'stable bytes');
+      const mtimeAfter = fs.statSync(filePath).mtimeMs;
+      expect(wrote).toBe(false);
+      // mtime preservation is the load-bearing property: aws s3 sync uses
+      // size+mtime by default to decide whether to re-upload, so unchanged
+      // content must keep its mtime stable across reruns.
+      expect(mtimeAfter).toBe(mtimeBefore);
+    });
+
+    it('accepts Buffer input and treats UTF-8 strings and Buffers as equivalent', async () => {
+      const { writeFileIfChanged } = await import('../../scripts/utils/file-utils.js');
+      const filePath = path.join(tempDir, 'buffer.txt');
+      writeFileIfChanged(filePath, 'string form');
+      const mtimeBefore = fs.statSync(filePath).mtimeMs;
+      await new Promise((resolve) => setTimeout(resolve, 50));
+      const wrote = writeFileIfChanged(filePath, Buffer.from('string form', 'utf-8'));
+      const mtimeAfter = fs.statSync(filePath).mtimeMs;
+      expect(wrote).toBe(false);
+      expect(mtimeAfter).toBe(mtimeBefore);
+    });
+  });
+
   describe('extractArticleMeta', () => {
     it('should extract title from h1 element', async () => {
       const { extractArticleMeta } = await import('../../scripts/utils/file-utils.js');
