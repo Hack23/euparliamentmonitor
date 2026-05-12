@@ -92,9 +92,9 @@ function renderCard(article, meta, categoryLabels) {
 function buildHreflangTags() {
     const links = ALL_LANGUAGES.map((code) => {
         const href = getIndexFilename(code);
-        return `<link rel="alternate" hreflang="${code}" href="${href}">`;
+        return `<link rel="alternate" hreflang="${code}" href="${BASE_URL}/${href}">`;
     });
-    links.push('<link rel="alternate" hreflang="x-default" href="index.html">');
+    links.push(`<link rel="alternate" hreflang="x-default" href="${BASE_URL}/index.html">`);
     return links.join('\n  ');
 }
 /**

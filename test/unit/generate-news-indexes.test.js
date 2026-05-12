@@ -239,10 +239,13 @@ describe('generate-news-indexes', () => {
       expect(html).toContain('<meta property="og:site_name" content="EU Parliament Monitor">');
     });
 
-    it('should include hreflang alternate links', () => {
+    it('should include hreflang alternate links with absolute URLs', () => {
       const html = generateMockIndexHTML('en', []);
       expect(html).toContain('<link rel="alternate" hreflang="en"');
       expect(html).toContain('<link rel="alternate" hreflang="x-default"');
+      // hreflang links must use absolute URLs (not relative paths)
+      expect(html).toContain('href="https://');
+      expect(html).not.toMatch(/<link rel="alternate" hreflang="[^"]*" href="index/);
     });
 
     it('should capitalize badge category text', () => {
@@ -434,6 +437,20 @@ describe('generate-news-indexes', () => {
       expect(activeGermanLink.getAttribute('lang')).toBe('de');
       expect(activeGermanLink.getAttribute('aria-label')).toBe('Deutsch');
       expect(activeGermanLink.getAttribute('aria-current')).toBe('page');
+    });
+
+    it('should use absolute URLs in hreflang alternate link tags', () => {
+      const html = generateIndexHTML('en', []);
+      const document = createDocument(html);
+      const alternateLinks = document.querySelectorAll('link[rel="alternate"][hreflang]');
+
+      expect(alternateLinks.length).toBeGreaterThanOrEqual(15); // 14 langs + x-default
+      for (const link of alternateLinks) {
+        const href = link.getAttribute('href');
+        expect(href, `hreflang="${link.getAttribute('hreflang')}" must use absolute URL`).toMatch(
+          /^https?:\/\//,
+        );
+      }
     });
 
     it('should escape localized language names in link attributes', () => {
@@ -637,8 +654,8 @@ function generateMockIndexHTML(lang, articles) {
   <meta property="og:description" content="${description}">
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="${lang}">
-  <link rel="alternate" hreflang="en" href="index.html">
-  <link rel="alternate" hreflang="x-default" href="index.html">
+  <link rel="alternate" hreflang="en" href="https://euparliamentmonitor.com/index.html">
+  <link rel="alternate" hreflang="x-default" href="https://euparliamentmonitor.com/index.html">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
