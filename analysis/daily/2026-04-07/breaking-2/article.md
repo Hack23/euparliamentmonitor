@@ -1,6 +1,6 @@
 ---
 title: "🧩 Political Intelligence Synthesis — Easter Recess Day 12 Evening Update"
-description: "analyst: news-breaking workflow (run 24097229534) Published 2026-04-07 · analysis run 24097229534, with source-linked voting, committee and legislative intelligence for…"
+description: "analyst: news-breaking workflow (run 24097229534) Published 2026-04-07 · analysis run 24097229534, with source-linked voting, committee and legislative intelligence…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-07", "run 24097229534", "Political", "Intelligence", "Synthesis", "Easter", "Recess", "Evening", "Update", "analyst"]
 date: 2026-04-07
 article_type: breaking
@@ -21,6 +21,9 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/political-threat-landscape.md` |
+| [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `synthesis-summary.md` |
 
 <h2 id="section-significance">Significance</h2>
 

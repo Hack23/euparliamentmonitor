@@ -1,6 +1,6 @@
 ---
 title: "🧩 Political Intelligence Synthesis — European Parliament"
-description: "🔍 Items Tracked: 57 adopted texts | 0 events | 0 procedures | 737 MEP updates Published 2026-04-08, with source-linked voting, committee and legislative intelligence for…"
+description: "🔍 Items Tracked: 57 adopted texts | 0 events | 0 procedures | 737 MEP updates Published 2026-04-08, with source-linked voting, committee and legislative intelligence…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-08", "Political", "Intelligence", "Synthesis", "European", "Parliament", "Items", "Tracked", "adopted", "texts"]
 date: 2026-04-08
 article_type: breaking
@@ -11,6 +11,14 @@ language: en
 layout: article
 ---
 # Breaking — 2026-04-08
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `cross-session-intelligence.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 

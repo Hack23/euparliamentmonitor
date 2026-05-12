@@ -1,6 +1,6 @@
 ---
 title: "Breaking News Evaluation"
-description: "Pipeline Stage: Analysis complete — newsworthiness evaluation Published 2026-04-06, with source-linked voting, committee and legislative intelligence for…"
+description: "Pipeline Stage: Analysis complete — newsworthiness evaluation Published 2026-04-06, with source-linked voting, committee and legislative intelligence…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-06", "News", "Evaluation", "Pipeline", "Stage", "Analysis", "complete", "newsworthiness", "Published", "with"]
 date: 2026-04-06
 article_type: breaking
@@ -12,7 +12,16 @@ layout: article
 ---
 # Breaking — 2026-04-06
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `actor-mapping.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `coalition-analysis.md` |
+
+<h2 id="section-actors-forces">Actors & Forces</h2>
 
 ### Actor Mapping
 
@@ -221,6 +230,8 @@ This count has been stable since at least 5 April, confirming no Easter recess r
 ---
 
 *Sources: European Parliament Open Data Portal — MEPs feed (737 entries, 6 April 2026), political landscape analysis (8 groups, 100-MEP sample), early warning system (3 warnings, stability 84/100), precomputed statistics (2024–2026 longitudinal). Actor power indices are analytical constructs based on observed EP10 patterns; individual values should be interpreted as relative rather than absolute measures.*
+
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Coalition Analysis
 
@@ -1479,7 +1490,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
-| section-supplementary-intelligence | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/actor-mapping.md) | `actor-mapping.md` |
+| section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/actor-mapping.md) | `actor-mapping.md` |
 | section-supplementary-intelligence | [coalition-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/coalition-analysis.md) | `coalition-analysis.md` |
 | section-supplementary-intelligence | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/cross-session-intelligence.md) | `cross-session-intelligence.md` |
 | section-supplementary-intelligence | [deep-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-2/deep-analysis.md) | `deep-analysis.md` |

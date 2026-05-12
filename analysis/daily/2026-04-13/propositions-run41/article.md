@@ -1,7 +1,7 @@
 ---
-title: "Propositions — 2026-04-13"
-description: "The European Parliament's final Easter recess day (April 13, 2026) marks a transition point for the EU's legislative machinery. The March plenary sessions — particularly the……"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Propositions Run41", "2026-04-13", "run 149c3a19-6339-45aa-a427-5c30eceb4e49", "Propositions", "European", "Parliament", "final", "Easter", "recess", "April", "marks", "transition", "point"]
+title: "The European Parliament's final Easter recess day (April 13, 2026) marks a transition point for the EU's legislative machinery. The March…"
+description: "The European Parliament's final Easter recess day (April 13, 2026) marks a transition point for the EU's legislative machinery. The March plenary sessions — particularly…"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Propositions Run41", "2026-04-13", "run 149c3a19-6339-45aa-a427-5c30eceb4e49", "European", "Parliament", "final", "Easter", "recess", "April", "marks", "transition", "point", "legislative"]
 date: 2026-04-13
 article_type: propositions-run41
 slug: 2026-04-13-propositions-run41
@@ -18,8 +18,12 @@ Use this guide to read the article as a political-intelligence product rather th
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/political-classification.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-assessment.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/threat-analysis.md` |
+| [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/swot-analysis.md` |
 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 

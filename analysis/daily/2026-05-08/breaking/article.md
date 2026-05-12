@@ -1,6 +1,6 @@
 ---
 title: "European Parliament Breaking News"
-description: "The European Parliament concluded its April Strasbourg plenary session (28–30 April 2026) with a legislative and political output of exceptional density. Fourteen adopted…"
+description: "The European Parliament concluded its April Strasbourg plenary session (28–30 April 2026) with a legislative and political output of exceptional density."
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-08", "run breaking-run373-1778202056", "European", "Parliament", "News", "concluded", "April", "Strasbourg", "plenary", "session"]
 date: 2026-05-08
 article_type: breaking
@@ -189,11 +189,21 @@ Use this guide to read the article as a political-intelligence product rather th
 | [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `intelligence/political-threat-landscape.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [What to watch](#section-forward-projection) | dated trigger events, calendar dependencies, and legislative-pipeline forecasts | `extended/forward-indicators.md` |
+| [PESTLE and structural context](#section-pestle-context) | political, economic, social, technological, legal, and environmental forces plus the historical baseline | `intelligence/pestle-analysis.md` |
+| [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `intelligence/cross-run-diff.md` |
+| [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `documents/document-analysis-index.md` |
+| [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/coalition-mathematics.md` |
+| [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-summary.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -7122,6 +7132,57 @@ The prior-run-diff methodology (`npm run prior-run-diff`) is a critical quality 
 
 *Source: Methodology reflection | 2026-05-08 (re-run extended)*
 
+### Methodology Reflection
+
+<!--
+-->
+
+### Analysis Approach
+
+This breaking news analysis followed the 10-step AI-driven analysis protocol for the `breaking` article type with the following adaptations:
+
+#### Data Collection (Stage A)
+- **Primary source:** EP Open Data Portal via MCP tools
+- **Key data retrieved:** 41+ adopted texts (2026), political landscape (719 MEPs, 9 groups), coalition dynamics, early warning signals
+- **Fallbacks activated:** Procedures feed timeout → used adopted texts as proxy for legislative activity; IMF API failure → used prior-publication estimates
+- **Coverage gap:** 9 texts indexed today (content unavailable due to EP publication delay)
+
+#### Analysis Methodology Applied
+
+1. **Executive Summary:** Top-5 developments ranked by policy significance and recency
+2. **Political Landscape:** Seat share analysis, majority arithmetic, fragmentation index (ENP = 6.55)
+3. **Key Developments:** Deep-dive on top 3 legislative actions with legal/political/economic context
+4. **SWOT Analysis:** 4 strengths, 3 weaknesses, 3 opportunities, 3 threats (≥80 words each)
+5. **Stakeholder Analysis:** 6 stakeholders with ≥150-word perspectives
+6. **Risk Assessment:** 7 risks with probability-impact matrix
+7. **Coalition Intelligence:** Vote reconstruction analysis, stress indicators
+8. **MCP Reliability Audit:** Tool performance documentation
+
+#### Confidence Framework Applied
+- 🟢 HIGH: Directly evidenced by EP API data
+- 🟡 MEDIUM: Analytical inference from available data  
+- 🔴 LOW: Limited evidence; IMF data unavailable
+
+#### Limitations Acknowledged
+- IMF API unavailable → economic context uses prior-publication estimates
+- EP voting records not yet published for April 30 votes → coalition analysis is inference
+- Events feed unavailable for today → relying on adopted texts as primary signal
+- 9 today's texts have no content yet
+
+#### Story Selection Rationale
+- **DMA enforcement (lead):** Most policy-significant recent legislative action; EU-US trade implications; systemic digital governance impact
+- **Ukraine accountability (secondary):** Cross-institutional significance; frozen assets at critical juncture
+- **Armenia (tertiary):** Geopolitical inflection point; South Caucasus strategic shift
+- **Budget 2027 + US tariffs:** Fiscal and trade context
+
+#### Quality Assurance
+- All EP references verified against live API data with document IDs and adoption dates
+- Stakeholder perspectives grounded in actual legislative outcomes
+- Risk assessments calibrated to documented historical precedents
+- Coalition analysis based on structural group data (size, seat share) with inference markers
+
+**PASS 2 NOTE:** All artifacts reviewed for depth, evidence citations, and placeholder removal. No `[AI_ANALYSIS_REQUIRED]` markers in final output. IMF data limitation transparently documented throughout.
+
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Executive Summary
@@ -7252,57 +7313,6 @@ The EP voted its own institutional budget estimates for 2027 — formal first st
 Earlier March resolution adjusted customs duties and opened tariff quotas for US goods — a carefully calibrated response to US tariff escalations under the Trump administration's second term. EU exported ~€503 billion to US in 2024; US imposed 25% steel/aluminum tariffs and threatened sectoral tariffs on automotive (25%) and pharmaceuticals. The EP resolution signals EU readiness for proportionate counter-measures while keeping negotiating space open.
 
 **Status (May 2026):** Trade tensions remain elevated. EU-US Trade and Technology Council (TTC) meetings have continued, but fundamental disagreements on industrial subsidies (IRA), Big Tech regulation (DMA/DSA), and agricultural market access remain unresolved. The EP's DMA enforcement resolution adds digital trade dimensions to an already complex bilateral relationship.
-
-### Methodology Reflection
-
-<!--
--->
-
-### Analysis Approach
-
-This breaking news analysis followed the 10-step AI-driven analysis protocol for the `breaking` article type with the following adaptations:
-
-#### Data Collection (Stage A)
-- **Primary source:** EP Open Data Portal via MCP tools
-- **Key data retrieved:** 41+ adopted texts (2026), political landscape (719 MEPs, 9 groups), coalition dynamics, early warning signals
-- **Fallbacks activated:** Procedures feed timeout → used adopted texts as proxy for legislative activity; IMF API failure → used prior-publication estimates
-- **Coverage gap:** 9 texts indexed today (content unavailable due to EP publication delay)
-
-#### Analysis Methodology Applied
-
-1. **Executive Summary:** Top-5 developments ranked by policy significance and recency
-2. **Political Landscape:** Seat share analysis, majority arithmetic, fragmentation index (ENP = 6.55)
-3. **Key Developments:** Deep-dive on top 3 legislative actions with legal/political/economic context
-4. **SWOT Analysis:** 4 strengths, 3 weaknesses, 3 opportunities, 3 threats (≥80 words each)
-5. **Stakeholder Analysis:** 6 stakeholders with ≥150-word perspectives
-6. **Risk Assessment:** 7 risks with probability-impact matrix
-7. **Coalition Intelligence:** Vote reconstruction analysis, stress indicators
-8. **MCP Reliability Audit:** Tool performance documentation
-
-#### Confidence Framework Applied
-- 🟢 HIGH: Directly evidenced by EP API data
-- 🟡 MEDIUM: Analytical inference from available data  
-- 🔴 LOW: Limited evidence; IMF data unavailable
-
-#### Limitations Acknowledged
-- IMF API unavailable → economic context uses prior-publication estimates
-- EP voting records not yet published for April 30 votes → coalition analysis is inference
-- Events feed unavailable for today → relying on adopted texts as primary signal
-- 9 today's texts have no content yet
-
-#### Story Selection Rationale
-- **DMA enforcement (lead):** Most policy-significant recent legislative action; EU-US trade implications; systemic digital governance impact
-- **Ukraine accountability (secondary):** Cross-institutional significance; frozen assets at critical juncture
-- **Armenia (tertiary):** Geopolitical inflection point; South Caucasus strategic shift
-- **Budget 2027 + US tariffs:** Fiscal and trade context
-
-#### Quality Assurance
-- All EP references verified against live API data with document IDs and adoption dates
-- Stakeholder perspectives grounded in actual legislative outcomes
-- Risk assessments calibrated to documented historical precedents
-- Coalition analysis based on structural group data (size, seat share) with inference markers
-
-**PASS 2 NOTE:** All artifacts reviewed for depth, evidence citations, and placeholder removal. No `[AI_ANALYSIS_REQUIRED]` markers in final output. IMF data limitation transparently documented throughout.
 
 ### Political Landscape
 
@@ -7717,9 +7727,9 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-08/breaking/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [workflow-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-08/breaking/intelligence/workflow-audit.md) | `intelligence/workflow-audit.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-08/breaking/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-08/breaking/methodology-reflection.md) | `methodology-reflection.md` |
 | section-supplementary-intelligence | [executive-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-08/breaking/executive-summary.md) | `executive-summary.md` |
 | section-supplementary-intelligence | [key-developments](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-08/breaking/key-developments.md) | `key-developments.md` |
-| section-supplementary-intelligence | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-08/breaking/methodology-reflection.md) | `methodology-reflection.md` |
 | section-supplementary-intelligence | [political-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-08/breaking/political-landscape.md) | `political-landscape.md` |
 | section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-08/breaking/risk-assessment.md) | `risk-assessment.md` |
 | section-supplementary-intelligence | [stakeholder-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-08/breaking/stakeholder-analysis.md) | `stakeholder-analysis.md` |

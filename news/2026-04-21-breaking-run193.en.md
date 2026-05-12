@@ -1,6 +1,6 @@
 ---
 title: "Run 193"
-description: "The March 26, 2026 plenary session has emerged from 26 days of data obscurity as Parliament's most consequential single-session legislative output of Q1 2026. Adopted one week……"
+description: "The March 26, 2026 plenary session has emerged from 26 days of data obscurity as Parliament's most consequential single-session legislative output of Q1 2026."
 keywords: ["EU Parliament", "European Parliament", "political intelligence", "Breaking Run193", "2026-04-21", "run 3ff728a7-15fa-4d2d-af0e-73c3e1ffb70e", "March", "plenary", "session", "emerged", "from", "days", "data", "obscurity", "Parliament", "most"]
 date: 2026-04-21
 article_type: breaking-run193
@@ -19,9 +19,16 @@ Use this guide to read the article as a political-intelligence product rather th
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `intelligence/threat-model.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `intelligence/cross-run-diff.md` |
+| [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `documents/document-analysis-index.md` |
+| [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `risk/quantitative-swot.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 

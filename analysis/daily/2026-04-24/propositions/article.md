@@ -1,6 +1,6 @@
 ---
 title: "BLUF (ICD-203): Over the past 30 days the European Parliament has"
-description: "BLUF (ICD-203): Over the past 30 days the European Parliament has Published 2026-04-24 · analysis run propositions-run-1777009560, with source-linked voting, committee and…"
+description: "BLUF (ICD-203): Over the past 30 days the European Parliament has Published 2026-04-24 · analysis run propositions-run-1777009560, with source-linked voting, committee…"
 keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-24", "run propositions-run-1777009560", "BLUF", "Over", "past", "days", "European", "Parliament", "Published", "analysis"]
 date: 2026-04-24
 article_type: propositions
@@ -22,7 +22,11 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `intelligence/threat-model.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [PESTLE and structural context](#section-pestle-context) | political, economic, social, technological, legal, and environmental forces plus the historical baseline | `intelligence/pestle-analysis.md` |
+| [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 

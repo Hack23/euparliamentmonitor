@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Motions — April 27–30, 2026"
-description: "The European Parliament convenes its April 2026 full Strasbourg plenary (27–30 April) at a moment of intensifying geopolitical and institutional pressure. This session follows……"
+description: "The European Parliament convenes its April 2026 full Strasbourg plenary (27–30 April) at a moment of intensifying geopolitical and institutional pressure."
 keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-27", "run motions-run-1777278029", "Parliament", "April", "European", "convenes", "full", "Strasbourg", "plenary", "moment"]
 date: 2026-04-27
 article_type: motions
@@ -102,9 +102,14 @@ Use this guide to read the article as a political-intelligence product rather th
 |---|---|---|
 | [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `intelligence/political-threat-landscape.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `intelligence/cross-run-diff.md` |
+| [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/methodology-reflection.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 

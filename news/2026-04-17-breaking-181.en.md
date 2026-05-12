@@ -1,6 +1,6 @@
 ---
 title: "April 17, 2026"
-description: "title: \"🧠 Intelligence Synthesis Summary — EP T+3 Secondary Sprint Analysis\" Published 2026-04-17, with source-linked voting, committee and legislative intelligence for…"
+description: "title: \"🧠 Intelligence Synthesis Summary — EP T+3 Secondary Sprint Analysis\" Published 2026-04-17, with source-linked voting, committee and legislative intelligence…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-17", "April", "title", "Intelligence", "Synthesis", "Summary", "Secondary", "Sprint", "Analysis", "Published"]
 date: 2026-04-17
 article_type: breaking
@@ -19,8 +19,12 @@ Use this guide to read the article as a political-intelligence product rather th
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/political-threat-landscape.md` |
+| [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `intelligence/cross-run-diff.md` |
+| [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `documents/document-analysis-index.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 

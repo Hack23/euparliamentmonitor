@@ -1,6 +1,6 @@
 ---
 title: "EP Committee Reports"
-description: "The European Parliament's committee system delivered a significant legislative output batch in the week of 27 April – 4 May 2026, with nine adopted texts spanning digital……"
+description: "The European Parliament's committee system delivered a significant legislative output batch in the week of 27 April – 4 May 2026, with nine adopted texts spanning digital market…"
 keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-04", "run committee-reports-run-1777871291", "Committee", "Reports", "European", "Parliament", "system", "delivered", "significant", "legislative"]
 date: 2026-05-04
 article_type: committee-reports
@@ -93,11 +93,17 @@ Use this guide to read the article as a political-intelligence product rather th
 | [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/actor-threat-profiles.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [PESTLE and structural context](#section-pestle-context) | political, economic, social, technological, legal, and environmental forces plus the historical baseline | `intelligence/pestle-analysis.md` |
+| [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `documents/document-analysis-index.md` |
+| [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -4065,8 +4071,6 @@ All analysis in this run is based exclusively on:
 No hallucinated committee meetings, votes, or MEP statements.
 No IMF figures (proxy unavailable — all economic claims structural only).
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
 ### Methodology Reflection
 
 ### Pass 2 Summary
@@ -4301,5 +4305,5 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [workflow-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/intelligence/workflow-audit.md) | `intelligence/workflow-audit.md` |
-| section-supplementary-intelligence | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/methodology-reflection.md) | `methodology-reflection.md` |
+| section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/committee-reports/methodology-reflection.md) | `methodology-reflection.md` |
 

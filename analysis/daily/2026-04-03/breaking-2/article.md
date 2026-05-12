@@ -1,6 +1,6 @@
 ---
 title: "EP API Reliability Assessment — 3 April 2026"
-description: "Systematic testing across three independent runs on 3 April 2026 reveals significant degradation in the European Parliament Open Data Portal's feed API. While core data……"
+description: "Systematic testing across three independent runs on 3 April 2026 reveals significant degradation in the European Parliament Open Data Portal's feed API."
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-03", "Reliability", "Assessment", "April", "Systematic", "testing", "across", "three", "independent", "runs"]
 date: 2026-04-03
 article_type: breaking
@@ -11,6 +11,14 @@ language: en
 layout: article
 ---
 # Breaking — 2026-04-03
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `api-reliability-assessment.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 

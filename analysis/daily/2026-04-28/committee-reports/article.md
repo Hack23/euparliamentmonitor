@@ -1,6 +1,6 @@
 ---
 title: "EP Committee Reports | 28 April 2026"
-description: "The European Parliament's spring 2026 legislative session is characterised by intensified committee workload across trade, monetary affairs, technology sovereignty, and……"
+description: "The European Parliament's spring 2026 legislative session is characterised by intensified committee workload across trade, monetary affairs, technology sovereignty… Published…"
 keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-28", "run committee-reports-run-1777353028", "Committee", "Reports", "April", "European", "Parliament", "spring", "legislative", "session"]
 date: 2026-04-28
 article_type: committee-reports
@@ -83,10 +83,16 @@ Use this guide to read the article as a political-intelligence product rather th
 |---|---|---|
 | [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `intelligence/threat-model.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [PESTLE and structural context](#section-pestle-context) | political, economic, social, technological, legal, and environmental forces plus the historical baseline | `intelligence/pestle-analysis.md` |
+| [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `existing/committee-productivity.md` |
+| [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
 

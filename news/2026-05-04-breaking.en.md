@@ -1,6 +1,6 @@
 ---
 title: "Breaking News | 2026-05-04"
-description: "The European Parliament's April 28-30 mini-plenary session in Brussels delivered an unusually dense cluster of high-salience resolutions on a single day — April 30, 2026 ……"
+description: "The European Parliament's April 28-30 mini-plenary session in Brussels delivered an unusually dense cluster of high-salience resolutions on a single day — April 30, 2026…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-04", "run breaking-run-2026-05-04", "News", "European", "Parliament", "April", "mini", "plenary", "session", "Brussels"]
 date: 2026-05-04
 article_type: breaking
@@ -182,11 +182,21 @@ Use this guide to read the article as a political-intelligence product rather th
 | [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `intelligence/political-threat-landscape.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [What to watch](#section-forward-projection) | dated trigger events, calendar dependencies, and legislative-pipeline forecasts | `extended/forward-indicators.md` |
+| [PESTLE and structural context](#section-pestle-context) | political, economic, social, technological, legal, and environmental forces plus the historical baseline | `intelligence/pestle-analysis.md` |
+| [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `intelligence/cross-run-diff.md` |
+| [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `documents/document-analysis-index.md` |
+| [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/coalition-mathematics.md` |
+| [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `coalition-dynamics.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -729,6 +739,159 @@ xychart-beta
 | Jaki immunity | MEDIUM (Poland) | LOW | LOW | LOW-MEDIUM |
 
 **Impact Assessment Summary:** The April 28–30 session's highest near-term impact is the Ukraine STCA diplomatic signal. The highest long-term impact is the MFF 2028–2034 pre-positioning. DMA enforcement will have moderate near-term and high long-term impact as proceedings develop.
+
+### Actor Mapping
+
+### Primary Parliamentary Actors
+
+#### Roberta Metsola — EP President (EPP, Malta)
+**Role:** EP President, presiding over plenary sessions  
+**Influence:** 🟢 HIGH — Sets agenda, chairs votes, represents EP externally  
+**Position:** Strongly pro-Ukraine (consistent since 2022); strong on rule of law; pragmatic on digital regulation  
+**Relevance to April 28-30 package:** Presided over plenary sessions; the Ukraine accountability and Armenia resolutions reflect her stated political priorities  
+**IMF/Economic context:** Metsola has been vocal on EU competitiveness and housing affordability — both relevant to MFF 2028-34 debate
+
+#### BUDG Committee Chair (name not confirmed via API)
+**Role:** Budget Committee Chair guiding MFF 2028-2034 interim report  
+**Influence:** 🟢 HIGH — Owns the budget dossier and interim report text  
+**Relevance:** The April 28 MFF debate is structured around BUDG committee work  
+**Note:** Chair identity not confirmed through available API data; requires supplemental verification
+
+#### JURI Committee (Immunity Cases)
+**Role:** Committee on Legal Affairs — processes immunity waiver requests  
+**Influence:** 🟢 HIGH on immunity decisions  
+**Relevance:** Processed both Braun (March) and Jaki (April) immunity waiver requests; outputs adopted by plenary
+
+#### IMCO Committee (DMA Enforcement)
+**Role:** Internal Market and Consumer Protection Committee  
+**Influence:** 🟢 HIGH on digital market regulation  
+**Relevance:** DMA enforcement resolution (TA-10-2026-0160) likely originated or was endorsed through IMCO; the committee has been the primary parliamentary oversight body for DMA implementation since 2024
+
+#### AFET Committee (Foreign Affairs)
+**Role:** Committee on Foreign Affairs  
+**Influence:** 🟢 HIGH on Ukraine, Armenia, Middle East resolutions  
+**Relevance:** All geopolitical resolutions (Ukraine, Armenia, Lebanon, Haiti) typically pass through or involve AFET committee work  
+**Note:** AFET chair and key rapporteurs for these resolutions not confirmed via available API data
+
+---
+
+### Key MEPs in Debates (April 28-30) — Identified via Speeches Feed
+
+*Speaker IDs obtained from EP speeches feed; full names not available via API (API returns person/ID format)*
+
+| Speaker ID | Debate | Role/Context |
+|------------|--------|-------------|
+| person/256985 | MFF 2028-2034 debate (Apr 28) | EPP or S&D senior budget rapporteur (inferred) |
+| person/96812 | MFF 2028-2034 debate (Apr 28) | Senior MEP on budget committee |
+| person/256811 | Ukraine accountability debate (Apr 28) | AFET-aligned MEP |
+| person/257037 | Ukraine accountability debate (Apr 28) | AFET-aligned MEP |
+| person/37656 | Middle East energy debate (Apr 29) | Senior MEP, possibly INTA or AFET |
+| person/220896 | Haiti trafficking debate (Apr 29) | DEVE or AFET committee member |
+| person/192254 | Electoral Act proxy voting (Apr 29) | AFCON-related, rapporteur for Electoral Act amendment |
+| person/118859 | Discharge 2024 Court of Justice (Apr 29) | CONT committee member |
+| person/197841 | Russia normalisation debate (Apr 29) | Hawkish pro-Ukraine MEP |
+
+---
+
+### External Actors — Influence Map
+
+```mermaid
+graph LR
+    EP[European Parliament] -->|Accountability resolution| ICC[ICC & Special Tribunal]
+    EP -->|Armenia resolution| EUMAS[EUMA Mission]
+    EP -->|DMA resolution pressure| DGCOMP[DG COMP / Digital Markets Unit]
+    EP -->|Armenia resolution| EEAS[EEAS / Council Foreign Policy]
+    
+    UKRAINE[Ukraine Gov] -->|Lobbying / bilateral| AFET[AFET Committee]
+    USTECH[US Tech Gatekeepers] -->|Legal challenges| EUCOURT[EU General Court]
+    USTECH -->|Trade lobbying| DGTRADE[DG TRADE]
+    RUSSIA[Russian Federation] -->|Disinformation| EP
+    ARMENIA[Armenia Gov] -->|Partnership negotiation| EEAS
+    
+    PfE[PfE / ECR] -->|Opposition votes| EP
+    ORBÁN[Orbán/Hungary] -->|Blocking in Council| COUNCIL[Council of EU]
+```
+
+---
+
+### Interest-Power Matrix
+
+| Actor | Interest in Resolutions | Power to Shape Outcomes |
+|-------|------------------------|------------------------|
+| EPP | HIGH (Ukraine + digital) | 🔴 VERY HIGH (185 seats) |
+| S&D | HIGH (all resolutions) | 🟠 HIGH (135 seats) |
+| Renew | HIGH (all resolutions) | 🟠 HIGH (77 seats — swing pivot) |
+| Greens/EFA | HIGH | 🟡 MEDIUM (53 seats) |
+| PfE | HIGH (against) | 🟡 MEDIUM (85 seats opposition) |
+| ECR | HIGH (against DMA + mixed Ukraine) | 🟡 MEDIUM (81 seats) |
+| Ukraine government | VERY HIGH | LOW (external) |
+| Armenia government | HIGH | LOW (external) |
+| US tech companies | HIGH (DMA) | MEDIUM (legal + lobbying channels) |
+| Commission DG COMP | HIGH (DMA) | HIGH (enforcement discretion) |
+| ICC / Special Tribunal | HIGH (accountability) | LOW-MEDIUM (legal authority) |
+
+---
+
+### Actor Alignment Forecast
+
+**For Ukraine accountability resolution:**
+- **Aligned:** EPP, S&D, Renew, Greens/EFA, The Left, pro-Ukraine NI members (~450-460 seats predicted)
+- **Opposed:** ESN, hard-right PfE members, some ECR (~100-120 seats predicted)
+- **Ambiguous:** Some PfE (French RN peace narrative), some NI (~50-80 seats predicted)
+
+**For DMA enforcement resolution:**
+- **Aligned:** S&D, Renew, Greens/EFA, The Left, moderate EPP (~480-500 seats predicted)  
+- **Opposed:** PfE, ECR, ESN, some EPP free-marketeers (~180-200 seats predicted)
+
+**For Armenia resilience resolution:**
+- **Aligned:** EPP, S&D, Renew, Greens/EFA, The Left (~450-470 seats predicted)
+- **Opposed:** ESN, parts of PfE (Russia-adjacent groups) (~80-110 seats predicted)
+- **Ambiguous:** Some ECR, some NI (~60-80 seats)
+
+---
+
+### Patryk Jaki Immunity Waiver — Actor Detail
+
+**Patryk Jaki (ECR, Poland)**
+- Former Polish government official
+- Current ECR MEP
+- Immunity waived April 28, 2026 (TA-10-2026-0105) — second Polish MEP immunity waiver in consecutive months
+- Polish prosecution context: connected to judicial/prosecutorial activities under the prior PiS government
+- ECR's formal position: likely voted against the waiver; framing as political persecution by PO government
+- JURI committee determination: immunity does not cover acts committed in professional capacity related to political role when immunity protection does not apply
+
+**Grzegorz Braun (context: prior immunity waiver)**
+- Polish MEP (NI/non-attached), extreme nationalist
+- Immunity waived March 26, 2026 (TA-10-2026-0088) — fire extinguisher Hanukkah incident context
+- Different case from Jaki but establishes pattern of Polish immunity proceedings reaching EP
+
+The two cases are legally distinct but politically conjoined in EP discourse — both involve Polish national political conflicts playing out in EU parliamentary immunity proceedings.
+
+---
+
+### Extended Actor Mapping (Run 2 Extension)
+
+#### Secondary Actor Networks
+
+**Legal Ecosystem Actors:**
+- **CJEU (Court of Justice of the EU):** Adjudicates DMA appeals from Big Tech; any preliminary ruling by CJEU significantly impacts enforcement trajectory
+- **National courts (Germany, France):** National competition authorities' cases can complement or complicate DMA
+- **International Court of Justice:** Adjacent body to STCA; no direct jurisdiction over aggression crime but complementarity matters
+- **ICC Prosecutor's Office:** Direct partner with STCA; ongoing Situation in Ukraine (ICC-01/22) shapes STCA negotiations
+
+**Civil Society Actors:**
+- **AlgorithmWatch, EDRi:** Digital rights organizations; provided input to IMCO committee on DMA resolution; important for enforcement monitoring
+- **Transparency International EU:** Monitors PRIV immunity committee proceedings
+- **Human Rights Watch, Amnesty International:** Provided documentation used in Armenia and Ukraine accountability resolutions
+
+**Corporate Actors:**
+- **DIGITAL EUROPE (industry association):** Represents Big Tech interests in Brussels; primary lobby against stringent DMA enforcement
+- **BUSINESSEUROPE:** Broader industry federation; nuanced position on DMA (supports digital single market but opposes structural remedies)
+- **Apple, Meta, Google, Amazon (directly):** Maintain large Brussels public affairs teams; actively engaged on DMA resolution
+
+**Media/Information Actors:**
+- **Politico Europe:** Primary EP monitoring publication; sets Brussels media agenda
+- **EP Multimedia Centre:** Official EP communications; shapes how session is covered internationally
 
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
@@ -4714,160 +4877,104 @@ Key insight: The 60-minute workflow budget is sufficient for a complete initial 
 
 **Note:** Roll-call voting data unavailability caps maximum credibility rating. When voting data becomes available (~May 28), a targeted re-analysis of coalition claims should be conducted.
 
+### Methodology Reflection
+
+### Analytical Decisions and Epistemic Limits
+
+#### Decision 1: Salience Ranking without Voting Data
+The absence of roll-call voting tallies for April 28-30 required all coalition and group-position analysis to be presented as structural inference rather than confirmed data. I applied the EP's historical group behaviour patterns and stated public positions to generate predicted (not confirmed) vote margin ranges. This is methodologically sound for breaking news analysis where roll-call publication lag is a known structural constraint, but all voting-related claims must be read as predictions with 🟡 Medium confidence.
+
+**Epistemic limit acknowledged:** Without confirmed vote tallies, the "margin of victory" for any April 30 resolution cannot be established. This matters most for the DMA enforcement resolution, where the margin may reveal whether EPP divided internally.
+
+#### Decision 2: Prioritising Geopolitical + Digital Nexus
+From the 12+ items adopted April 28-30, I prioritised Ukraine accountability, DMA enforcement, and Armenia resilience as the Tier-1 breaking news items. This prioritisation reflects:
+- Geopolitical immediacy (Russia-Ukraine conflict active)
+- Regulatory significance (DMA first-of-kind enforcement resolution)
+- EaP strategic significance (Armenia as bellwether)
+
+The Patryk Jaki immunity waiver received Tier-2 treatment (significant but not the headline). The 2027 Budget Estimates received Tier-2 treatment (procedurally important but not breaking in the journalistic sense).
+
+**Alternative framing considered:** The MFF 2028-2034 interim report debate could be framed as the headline — it has the largest long-term political consequences. I rejected this as it was a debate without a resolution adopted, making it a process indicator rather than a breaking outcome.
+
+#### Decision 3: IMF Economic Data Not Queried
+For the Ukraine accountability and Armenia resolutions (non-economic instruments), IMF data would not materially improve the analysis. For the DMA enforcement resolution, IMF data is not the appropriate analytical lens — this is competition policy, not macroeconomics.
+
+The Middle East energy-fertilizer debate would benefit from IMF commodity price data and food security indicators, but this debate produced no adopted resolution, reducing the priority for deep economic sourcing.
+
+**Classification:** `imf=not_required` for this run's core topics.
+
+#### Decision 4: World Bank Non-Economic Data Not Queried
+For this specific breaking news package:
+- Ukraine: WB data would add humanitarian assistance disbursement context — useful enhancement but not core
+- Armenia: WB governance indicators (WGI) would be relevant — deferred due to time constraints
+- DMA: No WB data relevant
+
+**Enhancement opportunity:** A subsequent deeper analysis run should query WB WGI indicators for Armenia and WB Ukraine recovery data.
+
+---
+
+### Quality Self-Assessment
+
+#### Artifacts completed (Pass 1):
+1. ✅ executive-brief.md — comprehensive lead story analysis
+2. ✅ swot-analysis.md — SWOT with strategic matrix
+3. ✅ stakeholder-analysis.md — 8 stakeholders with detailed perspective analysis
+4. ✅ risk-assessment.md — 5 risks with ACH methodology
+5. ✅ coalition-dynamics.md — structural coalition analysis with scenario modelling
+6. ✅ actor-mapping.md — primary actors and interest-power matrix
+7. ✅ timeline-analysis.md — chronological reconstruction with future calendar
+8. ✅ intelligence/mcp-reliability-audit.md — tool audit and data gaps
+
+#### Quality Gate Self-Check:
+
+| Criterion | Status | Notes |
+|-----------|--------|-------|
+| ≥80 words per SWOT item | ✅ | Each SWOT item is 80-200+ words |
+| ≥150 words per stakeholder perspective | ✅ | Each stakeholder profile is 150-400+ words |
+| ≥60% prose ratio | ✅ | Predominantly prose with data tables for context |
+| Zero [AI_ANALYSIS_REQUIRED] markers | ✅ | All sections written |
+| IMF requirement | ✅ | `not_required` for this run's topics — documented |
+| Confidence labels on all claims | ✅ | 🟢/🟡/🔴 labels throughout |
+| Source attribution | ✅ | EP Open Data Portal cited throughout |
+| No placeholders | ✅ | All sections substantively completed |
+
+#### Pass 2 Self-Review Notes:
+
+**Sections requiring depth improvement:**
+1. **Stakeholder analysis — EPP section**: Could be strengthened with more specific EPP MEP names from the speeches feed on key debates. Speaker IDs obtained but names not resolved — this is an API limitation.
+2. **Coalition dynamics**: The vote prediction sections would benefit from historical comparison data from EP9 votes on similar topics. Not available in current run.
+3. **Risk-004 (MFF distributional conflict)**: The specific country-by-country EU budget exposure figures would strengthen this risk. World Bank or Eurostat data would help — deferred to enhancement.
+
+**Substantive additions from Pass 2:**
+- Added ACH methodology to risk assessment (Risk Assessment section)
+- Strengthened geopolitical context in executive brief (peace negotiation risk)
+- Expanded Patryk Jaki context in actor mapping
+- Added legislative velocity analysis to timeline section
+
+---
+
+### Analytical Confidence Calibration Summary
+
+| Analysis Domain | Overall Confidence |
+|----------------|-------------------|
+| What was adopted (facts) | 🟢 HIGH |
+| Which groups likely supported/opposed | 🟡 MEDIUM |
+| Geopolitical significance and context | 🟢 HIGH |
+| Vote margins | 🔴 LOW (predicted only) |
+| External actor responses | 🟡 MEDIUM |
+| Economic implications | 🟡 MEDIUM (limited data) |
+| Long-term forecasts (MFF, partnerships) | 🟡 MEDIUM-HIGH (structural confidence) |
+
+---
+
+### Lessons for Future Runs
+
+1. **EP adopted text content lag:** For breaking news runs within 48-72 hours of adoption, plan for 404 errors on full text content. Metadata + debate context + structural analysis is sufficient for same-day breaking news.
+2. **Events feed reliability:** The events/feed endpoint is consistently unreliable. Default to speeches + meetings decisions + plenary sessions.
+3. **IMF data integration:** For the Middle East economic debate, a WTO-or-IMF-primed data query would significantly strengthen the energy-food nexus analysis.
+4. **Gatekeeper contact patterns:** For DMA stories, consider using the EP committee system (IMCO) as the primary analysis anchor rather than adopted texts alone — IMCO reports pre-date resolutions and contain richer technical analysis.
+
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Actor Mapping
-
-### Primary Parliamentary Actors
-
-#### Roberta Metsola — EP President (EPP, Malta)
-**Role:** EP President, presiding over plenary sessions  
-**Influence:** 🟢 HIGH — Sets agenda, chairs votes, represents EP externally  
-**Position:** Strongly pro-Ukraine (consistent since 2022); strong on rule of law; pragmatic on digital regulation  
-**Relevance to April 28-30 package:** Presided over plenary sessions; the Ukraine accountability and Armenia resolutions reflect her stated political priorities  
-**IMF/Economic context:** Metsola has been vocal on EU competitiveness and housing affordability — both relevant to MFF 2028-34 debate
-
-#### BUDG Committee Chair (name not confirmed via API)
-**Role:** Budget Committee Chair guiding MFF 2028-2034 interim report  
-**Influence:** 🟢 HIGH — Owns the budget dossier and interim report text  
-**Relevance:** The April 28 MFF debate is structured around BUDG committee work  
-**Note:** Chair identity not confirmed through available API data; requires supplemental verification
-
-#### JURI Committee (Immunity Cases)
-**Role:** Committee on Legal Affairs — processes immunity waiver requests  
-**Influence:** 🟢 HIGH on immunity decisions  
-**Relevance:** Processed both Braun (March) and Jaki (April) immunity waiver requests; outputs adopted by plenary
-
-#### IMCO Committee (DMA Enforcement)
-**Role:** Internal Market and Consumer Protection Committee  
-**Influence:** 🟢 HIGH on digital market regulation  
-**Relevance:** DMA enforcement resolution (TA-10-2026-0160) likely originated or was endorsed through IMCO; the committee has been the primary parliamentary oversight body for DMA implementation since 2024
-
-#### AFET Committee (Foreign Affairs)
-**Role:** Committee on Foreign Affairs  
-**Influence:** 🟢 HIGH on Ukraine, Armenia, Middle East resolutions  
-**Relevance:** All geopolitical resolutions (Ukraine, Armenia, Lebanon, Haiti) typically pass through or involve AFET committee work  
-**Note:** AFET chair and key rapporteurs for these resolutions not confirmed via available API data
-
----
-
-### Key MEPs in Debates (April 28-30) — Identified via Speeches Feed
-
-*Speaker IDs obtained from EP speeches feed; full names not available via API (API returns person/ID format)*
-
-| Speaker ID | Debate | Role/Context |
-|------------|--------|-------------|
-| person/256985 | MFF 2028-2034 debate (Apr 28) | EPP or S&D senior budget rapporteur (inferred) |
-| person/96812 | MFF 2028-2034 debate (Apr 28) | Senior MEP on budget committee |
-| person/256811 | Ukraine accountability debate (Apr 28) | AFET-aligned MEP |
-| person/257037 | Ukraine accountability debate (Apr 28) | AFET-aligned MEP |
-| person/37656 | Middle East energy debate (Apr 29) | Senior MEP, possibly INTA or AFET |
-| person/220896 | Haiti trafficking debate (Apr 29) | DEVE or AFET committee member |
-| person/192254 | Electoral Act proxy voting (Apr 29) | AFCON-related, rapporteur for Electoral Act amendment |
-| person/118859 | Discharge 2024 Court of Justice (Apr 29) | CONT committee member |
-| person/197841 | Russia normalisation debate (Apr 29) | Hawkish pro-Ukraine MEP |
-
----
-
-### External Actors — Influence Map
-
-```mermaid
-graph LR
-    EP[European Parliament] -->|Accountability resolution| ICC[ICC & Special Tribunal]
-    EP -->|Armenia resolution| EUMAS[EUMA Mission]
-    EP -->|DMA resolution pressure| DGCOMP[DG COMP / Digital Markets Unit]
-    EP -->|Armenia resolution| EEAS[EEAS / Council Foreign Policy]
-    
-    UKRAINE[Ukraine Gov] -->|Lobbying / bilateral| AFET[AFET Committee]
-    USTECH[US Tech Gatekeepers] -->|Legal challenges| EUCOURT[EU General Court]
-    USTECH -->|Trade lobbying| DGTRADE[DG TRADE]
-    RUSSIA[Russian Federation] -->|Disinformation| EP
-    ARMENIA[Armenia Gov] -->|Partnership negotiation| EEAS
-    
-    PfE[PfE / ECR] -->|Opposition votes| EP
-    ORBÁN[Orbán/Hungary] -->|Blocking in Council| COUNCIL[Council of EU]
-```
-
----
-
-### Interest-Power Matrix
-
-| Actor | Interest in Resolutions | Power to Shape Outcomes |
-|-------|------------------------|------------------------|
-| EPP | HIGH (Ukraine + digital) | 🔴 VERY HIGH (185 seats) |
-| S&D | HIGH (all resolutions) | 🟠 HIGH (135 seats) |
-| Renew | HIGH (all resolutions) | 🟠 HIGH (77 seats — swing pivot) |
-| Greens/EFA | HIGH | 🟡 MEDIUM (53 seats) |
-| PfE | HIGH (against) | 🟡 MEDIUM (85 seats opposition) |
-| ECR | HIGH (against DMA + mixed Ukraine) | 🟡 MEDIUM (81 seats) |
-| Ukraine government | VERY HIGH | LOW (external) |
-| Armenia government | HIGH | LOW (external) |
-| US tech companies | HIGH (DMA) | MEDIUM (legal + lobbying channels) |
-| Commission DG COMP | HIGH (DMA) | HIGH (enforcement discretion) |
-| ICC / Special Tribunal | HIGH (accountability) | LOW-MEDIUM (legal authority) |
-
----
-
-### Actor Alignment Forecast
-
-**For Ukraine accountability resolution:**
-- **Aligned:** EPP, S&D, Renew, Greens/EFA, The Left, pro-Ukraine NI members (~450-460 seats predicted)
-- **Opposed:** ESN, hard-right PfE members, some ECR (~100-120 seats predicted)
-- **Ambiguous:** Some PfE (French RN peace narrative), some NI (~50-80 seats predicted)
-
-**For DMA enforcement resolution:**
-- **Aligned:** S&D, Renew, Greens/EFA, The Left, moderate EPP (~480-500 seats predicted)  
-- **Opposed:** PfE, ECR, ESN, some EPP free-marketeers (~180-200 seats predicted)
-
-**For Armenia resilience resolution:**
-- **Aligned:** EPP, S&D, Renew, Greens/EFA, The Left (~450-470 seats predicted)
-- **Opposed:** ESN, parts of PfE (Russia-adjacent groups) (~80-110 seats predicted)
-- **Ambiguous:** Some ECR, some NI (~60-80 seats)
-
----
-
-### Patryk Jaki Immunity Waiver — Actor Detail
-
-**Patryk Jaki (ECR, Poland)**
-- Former Polish government official
-- Current ECR MEP
-- Immunity waived April 28, 2026 (TA-10-2026-0105) — second Polish MEP immunity waiver in consecutive months
-- Polish prosecution context: connected to judicial/prosecutorial activities under the prior PiS government
-- ECR's formal position: likely voted against the waiver; framing as political persecution by PO government
-- JURI committee determination: immunity does not cover acts committed in professional capacity related to political role when immunity protection does not apply
-
-**Grzegorz Braun (context: prior immunity waiver)**
-- Polish MEP (NI/non-attached), extreme nationalist
-- Immunity waived March 26, 2026 (TA-10-2026-0088) — fire extinguisher Hanukkah incident context
-- Different case from Jaki but establishes pattern of Polish immunity proceedings reaching EP
-
-The two cases are legally distinct but politically conjoined in EP discourse — both involve Polish national political conflicts playing out in EU parliamentary immunity proceedings.
-
----
-
-### Extended Actor Mapping (Run 2 Extension)
-
-#### Secondary Actor Networks
-
-**Legal Ecosystem Actors:**
-- **CJEU (Court of Justice of the EU):** Adjudicates DMA appeals from Big Tech; any preliminary ruling by CJEU significantly impacts enforcement trajectory
-- **National courts (Germany, France):** National competition authorities' cases can complement or complicate DMA
-- **International Court of Justice:** Adjacent body to STCA; no direct jurisdiction over aggression crime but complementarity matters
-- **ICC Prosecutor's Office:** Direct partner with STCA; ongoing Situation in Ukraine (ICC-01/22) shapes STCA negotiations
-
-**Civil Society Actors:**
-- **AlgorithmWatch, EDRi:** Digital rights organizations; provided input to IMCO committee on DMA resolution; important for enforcement monitoring
-- **Transparency International EU:** Monitors PRIV immunity committee proceedings
-- **Human Rights Watch, Amnesty International:** Provided documentation used in Armenia and Ukraine accountability resolutions
-
-**Corporate Actors:**
-- **DIGITAL EUROPE (industry association):** Represents Big Tech interests in Brussels; primary lobby against stringent DMA enforcement
-- **BUSINESSEUROPE:** Broader industry federation; nuanced position on DMA (supports digital single market but opposes structural remedies)
-- **Apple, Meta, Google, Amazon (directly):** Maintain large Brussels public affairs teams; actively engaged on DMA resolution
-
-**Media/Information Actors:**
-- **Politico Europe:** Primary EP monitoring publication; sets Brussels media agenda
-- **EP Multimedia Centre:** Official EP communications; shapes how session is covered internationally
 
 ### Coalition Dynamics
 
@@ -5015,103 +5122,6 @@ This configuration reflects EaP EXPANSION vs SPHERE-OF-INFLUENCE CAUTION. Broade
 
 #### Long-Term Coalition Architecture
 The four configurations above will all be active simultaneously during the MFF 2028–2034 negotiations. The challenge for EPP leadership is maintaining coherence across all four when they pull in different directions simultaneously — different MFF spending priorities (defence vs digital vs cohesion) will activate different coalition fractures at once.
-
-### Methodology Reflection
-
-### Analytical Decisions and Epistemic Limits
-
-#### Decision 1: Salience Ranking without Voting Data
-The absence of roll-call voting tallies for April 28-30 required all coalition and group-position analysis to be presented as structural inference rather than confirmed data. I applied the EP's historical group behaviour patterns and stated public positions to generate predicted (not confirmed) vote margin ranges. This is methodologically sound for breaking news analysis where roll-call publication lag is a known structural constraint, but all voting-related claims must be read as predictions with 🟡 Medium confidence.
-
-**Epistemic limit acknowledged:** Without confirmed vote tallies, the "margin of victory" for any April 30 resolution cannot be established. This matters most for the DMA enforcement resolution, where the margin may reveal whether EPP divided internally.
-
-#### Decision 2: Prioritising Geopolitical + Digital Nexus
-From the 12+ items adopted April 28-30, I prioritised Ukraine accountability, DMA enforcement, and Armenia resilience as the Tier-1 breaking news items. This prioritisation reflects:
-- Geopolitical immediacy (Russia-Ukraine conflict active)
-- Regulatory significance (DMA first-of-kind enforcement resolution)
-- EaP strategic significance (Armenia as bellwether)
-
-The Patryk Jaki immunity waiver received Tier-2 treatment (significant but not the headline). The 2027 Budget Estimates received Tier-2 treatment (procedurally important but not breaking in the journalistic sense).
-
-**Alternative framing considered:** The MFF 2028-2034 interim report debate could be framed as the headline — it has the largest long-term political consequences. I rejected this as it was a debate without a resolution adopted, making it a process indicator rather than a breaking outcome.
-
-#### Decision 3: IMF Economic Data Not Queried
-For the Ukraine accountability and Armenia resolutions (non-economic instruments), IMF data would not materially improve the analysis. For the DMA enforcement resolution, IMF data is not the appropriate analytical lens — this is competition policy, not macroeconomics.
-
-The Middle East energy-fertilizer debate would benefit from IMF commodity price data and food security indicators, but this debate produced no adopted resolution, reducing the priority for deep economic sourcing.
-
-**Classification:** `imf=not_required` for this run's core topics.
-
-#### Decision 4: World Bank Non-Economic Data Not Queried
-For this specific breaking news package:
-- Ukraine: WB data would add humanitarian assistance disbursement context — useful enhancement but not core
-- Armenia: WB governance indicators (WGI) would be relevant — deferred due to time constraints
-- DMA: No WB data relevant
-
-**Enhancement opportunity:** A subsequent deeper analysis run should query WB WGI indicators for Armenia and WB Ukraine recovery data.
-
----
-
-### Quality Self-Assessment
-
-#### Artifacts completed (Pass 1):
-1. ✅ executive-brief.md — comprehensive lead story analysis
-2. ✅ swot-analysis.md — SWOT with strategic matrix
-3. ✅ stakeholder-analysis.md — 8 stakeholders with detailed perspective analysis
-4. ✅ risk-assessment.md — 5 risks with ACH methodology
-5. ✅ coalition-dynamics.md — structural coalition analysis with scenario modelling
-6. ✅ actor-mapping.md — primary actors and interest-power matrix
-7. ✅ timeline-analysis.md — chronological reconstruction with future calendar
-8. ✅ intelligence/mcp-reliability-audit.md — tool audit and data gaps
-
-#### Quality Gate Self-Check:
-
-| Criterion | Status | Notes |
-|-----------|--------|-------|
-| ≥80 words per SWOT item | ✅ | Each SWOT item is 80-200+ words |
-| ≥150 words per stakeholder perspective | ✅ | Each stakeholder profile is 150-400+ words |
-| ≥60% prose ratio | ✅ | Predominantly prose with data tables for context |
-| Zero [AI_ANALYSIS_REQUIRED] markers | ✅ | All sections written |
-| IMF requirement | ✅ | `not_required` for this run's topics — documented |
-| Confidence labels on all claims | ✅ | 🟢/🟡/🔴 labels throughout |
-| Source attribution | ✅ | EP Open Data Portal cited throughout |
-| No placeholders | ✅ | All sections substantively completed |
-
-#### Pass 2 Self-Review Notes:
-
-**Sections requiring depth improvement:**
-1. **Stakeholder analysis — EPP section**: Could be strengthened with more specific EPP MEP names from the speeches feed on key debates. Speaker IDs obtained but names not resolved — this is an API limitation.
-2. **Coalition dynamics**: The vote prediction sections would benefit from historical comparison data from EP9 votes on similar topics. Not available in current run.
-3. **Risk-004 (MFF distributional conflict)**: The specific country-by-country EU budget exposure figures would strengthen this risk. World Bank or Eurostat data would help — deferred to enhancement.
-
-**Substantive additions from Pass 2:**
-- Added ACH methodology to risk assessment (Risk Assessment section)
-- Strengthened geopolitical context in executive brief (peace negotiation risk)
-- Expanded Patryk Jaki context in actor mapping
-- Added legislative velocity analysis to timeline section
-
----
-
-### Analytical Confidence Calibration Summary
-
-| Analysis Domain | Overall Confidence |
-|----------------|-------------------|
-| What was adopted (facts) | 🟢 HIGH |
-| Which groups likely supported/opposed | 🟡 MEDIUM |
-| Geopolitical significance and context | 🟢 HIGH |
-| Vote margins | 🔴 LOW (predicted only) |
-| External actor responses | 🟡 MEDIUM |
-| Economic implications | 🟡 MEDIUM (limited data) |
-| Long-term forecasts (MFF, partnerships) | 🟡 MEDIUM-HIGH (structural confidence) |
-
----
-
-### Lessons for Future Runs
-
-1. **EP adopted text content lag:** For breaking news runs within 48-72 hours of adoption, plan for 404 errors on full text content. Metadata + debate context + structural analysis is sufficient for same-day breaking news.
-2. **Events feed reliability:** The events/feed endpoint is consistently unreliable. Default to speeches + meetings decisions + plenary sessions.
-3. **IMF data integration:** For the Middle East economic debate, a WTO-or-IMF-primed data query would significantly strengthen the energy-food nexus analysis.
-4. **Gatekeeper contact patterns:** For DMA stories, consider using the EP committee system (IMCO) as the primary analysis anchor rather than adopted texts alone — IMCO reports pre-date resolutions and contain richer technical analysis.
 
 ### Risk Assessment
 
@@ -5847,6 +5857,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/breaking/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/breaking/classification/forces-analysis.md) | `classification/forces-analysis.md` |
 | section-actors-forces | [impact-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/breaking/classification/impact-matrix.md) | `classification/impact-matrix.md` |
+| section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/breaking/actor-mapping.md) | `actor-mapping.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/breaking/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-coalitions-voting | [voting-patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/breaking/intelligence/voting-patterns.md) | `intelligence/voting-patterns.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/breaking/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
@@ -5879,9 +5890,8 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/breaking/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [workflow-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/breaking/intelligence/workflow-audit.md) | `intelligence/workflow-audit.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/breaking/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
-| section-supplementary-intelligence | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/breaking/actor-mapping.md) | `actor-mapping.md` |
+| section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/breaking/methodology-reflection.md) | `methodology-reflection.md` |
 | section-supplementary-intelligence | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/breaking/coalition-dynamics.md) | `coalition-dynamics.md` |
-| section-supplementary-intelligence | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/breaking/methodology-reflection.md) | `methodology-reflection.md` |
 | section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/breaking/risk-assessment.md) | `risk-assessment.md` |
 | section-supplementary-intelligence | [stakeholder-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/breaking/stakeholder-analysis.md) | `stakeholder-analysis.md` |
 | section-supplementary-intelligence | [swot-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-04/breaking/swot-analysis.md) | `swot-analysis.md` |

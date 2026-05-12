@@ -1,7 +1,7 @@
 ---
-title: "Committee Reports — 2026-04-13"
-description: "The Q1 2026 committee output creates differentiated stakeholder impacts across six dimensions. The US tariff response (TA-10-2026-0096) creates immediate economic uncertainty……"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run47", "2026-04-13", "run 43b9989e-4e2a-4672-aa00-f50e936aa128", "Committee", "Reports", "output", "creates", "differentiated", "stakeholder", "impacts", "across", "dimensions", "tariff"]
+title: "The Q1 2026 committee output creates differentiated stakeholder impacts across six dimensions. The US tariff response (TA-10-2026-0096)…"
+description: "The Q1 2026 committee output creates differentiated stakeholder impacts across six dimensions. The US tariff response (TA-10-2026-0096) creates immediate economic uncertainty…"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run47", "2026-04-13", "run 43b9989e-4e2a-4672-aa00-f50e936aa128", "committee", "output", "creates", "differentiated", "stakeholder", "impacts", "across", "dimensions", "tariff", "response"]
 date: 2026-04-13
 article_type: committee-reports-run47
 slug: 2026-04-13-committee-reports-run47
@@ -18,8 +18,12 @@ Use this guide to read the article as a political-intelligence product rather th
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/political-threat-landscape.md` |
+| [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/coalition-dynamics.md` |
 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 

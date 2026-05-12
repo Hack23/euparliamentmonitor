@@ -1,6 +1,6 @@
 ---
-title: "Within today's six-hour breaking-news probe window, no material EP10 breaking event surfaced from the operational feed set. The…"
-description: "Within today's six-hour breaking-news probe window, no material EP10 breaking event surfaced from the operational feed set. The getadoptedtextsfeed returns an 18-item……"
+title: "Within today's six-hour breaking-news probe window, no material EP10 breaking event surfaced from the operational feed set…"
+description: "Within today's six-hour breaking-news probe window, no material EP10 breaking event surfaced from the operational feed set. The getadoptedtextsfeed returns an 18-item… Published…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-24", "run breaking-run-1777011267", "Within", "today", "hour", "news", "probe", "window", "material", "EP10"]
 date: 2026-04-24
 article_type: breaking
@@ -22,7 +22,11 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `intelligence/threat-model.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [PESTLE and structural context](#section-pestle-context) | political, economic, social, technological, legal, and environmental forces plus the historical baseline | `intelligence/pestle-analysis.md` |
+| [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 

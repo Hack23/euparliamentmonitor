@@ -1,6 +1,6 @@
 ---
 title: "Mid-Recess Strategic Intelligence Brief — 12-Hour Longitudinal Synthesis"
-description: "The European Parliament is at the exact midpoint of its 18-day Easter recess (Day 10 of 18, 27 March – 13 April 2026). No parliamentary sessions, committee meetings, or votes……"
+description: "The European Parliament is at the exact midpoint of its 18-day Easter recess (Day 10 of 18, 27 March – 13 April 2026). No parliamentary sessions, committee meetings, or votes…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-05", "Recess", "Strategic", "Intelligence", "Brief", "Hour", "Longitudinal", "Synthesis", "European", "Parliament"]
 date: 2026-04-05
 article_type: breaking
@@ -11,6 +11,14 @@ language: en
 layout: article
 ---
 # Breaking — 2026-04-05
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `intelligence-brief.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 

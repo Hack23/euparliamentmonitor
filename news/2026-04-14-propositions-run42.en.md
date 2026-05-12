@@ -1,7 +1,7 @@
 ---
-title: "Propositions — 2026-04-14"
-description: "The European Parliament returns from Easter recess on April 15, 2026, facing the most consequential first-day-back agenda of the 10th parliamentary term. Three converging……"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Propositions Run42", "2026-04-14", "run 68d9a632-9043-4f92-8e7c-ff5d558e91a5", "Propositions", "European", "Parliament", "returns", "from", "Easter", "recess", "April", "facing", "most"]
+title: "The European Parliament returns from Easter recess on April 15, 2026, facing the most consequential first-day-back agenda of the 10th…"
+description: "The European Parliament returns from Easter recess on April 15, 2026, facing the most consequential first-day-back agenda of the 10th parliamentary term."
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Propositions Run42", "2026-04-14", "run 68d9a632-9043-4f92-8e7c-ff5d558e91a5", "European", "Parliament", "returns", "from", "Easter", "recess", "April", "facing", "most", "consequential"]
 date: 2026-04-14
 article_type: propositions-run42
 slug: 2026-04-14-propositions-run42
@@ -18,8 +18,12 @@ Use this guide to read the article as a political-intelligence product rather th
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/political-threat-landscape.md` |
+| [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/synthesis-summary.md` |
 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 

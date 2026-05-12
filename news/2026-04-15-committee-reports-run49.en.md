@@ -1,7 +1,7 @@
 ---
-title: "Committee Reports — 2026-04-15"
-description: "TA-10-2026-0096 and TA-10-2026-0097 became operational on April 15, 2026. The 21-day compliance window from the March 26 plenary adoption has expired. This is the most……"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run49", "2026-04-15", "run 0ab28c94-41e0-433e-b6cf-599f19f30e71", "Committee", "Reports", "became", "operational", "April", "compliance", "window", "from", "March", "plenary"]
+title: "TA-10-2026-0096 and TA-10-2026-0097 became operational on April 15, 2026. The 21-day compliance window from the March 26 plenary adoption…"
+description: "TA-10-2026-0096 and TA-10-2026-0097 became operational on April 15, 2026. The 21-day compliance window from the March 26 plenary adoption has expired."
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run49", "2026-04-15", "run 0ab28c94-41e0-433e-b6cf-599f19f30e71", "became", "operational", "April", "compliance", "window", "from", "March", "plenary", "adoption"]
 date: 2026-04-15
 article_type: committee-reports-run49
 slug: 2026-04-15-committee-reports-run49
@@ -18,8 +18,12 @@ Use this guide to read the article as a political-intelligence product rather th
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/political-threat-landscape.md` |
+| [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/synthesis-summary.md` |
 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 

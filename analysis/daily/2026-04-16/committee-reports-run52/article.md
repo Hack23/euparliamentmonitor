@@ -1,7 +1,7 @@
 ---
-title: "Committee Reports — 2026-04-16"
-description: "European Parliament committees produced a record Q1 2026 output of 104 adopted texts and 114 legislative acts, marking a 46% increase over the full-year 2025 total. The March……"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run52", "2026-04-16", "run 485c93f9-8c68-4b20-a7bb-fb4f6e5ab0ab", "Committee", "Reports", "European", "Parliament", "committees", "produced", "record", "output", "adopted", "texts"]
+title: "European Parliament committees produced a record Q1 2026 output of 104 adopted texts and 114 legislative acts, marking a 46% increase over…"
+description: "European Parliament committees produced a record Q1 2026 output of 104 adopted texts and 114 legislative acts, marking a 46% increase over the full-year 2025 total."
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run52", "2026-04-16", "run 485c93f9-8c68-4b20-a7bb-fb4f6e5ab0ab", "European", "Parliament", "committees", "produced", "record", "output", "adopted", "texts", "legislative", "acts"]
 date: 2026-04-16
 article_type: committee-reports-run52
 slug: 2026-04-16-committee-reports-run52
@@ -18,8 +18,12 @@ Use this guide to read the article as a political-intelligence product rather th
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/political-classification.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-assessment.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/threat-analysis.md` |
+| [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/swot-analysis.md` |
 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 

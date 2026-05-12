@@ -1,6 +1,6 @@
 ---
 title: "EP Committee Reports Week of 2026-04-27"
-description: "The European Parliament's legislative committees delivered substantial output in Q1 2026, adopting texts across trade defence (US tariffs, EU-Mercosur), digital governance (AI……"
+description: "The European Parliament's legislative committees delivered substantial output in Q1 2026, adopting texts across trade defence (US tariffs, EU-Mercosur), digital governance (AI…"
 keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-27", "run committee-reports-run-1777275816", "Committee", "Reports", "Week", "European", "Parliament", "legislative", "committees", "delivered"]
 date: 2026-04-27
 article_type: committee-reports
@@ -110,7 +110,12 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `intelligence/threat-model.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [PESTLE and structural context](#section-pestle-context) | political, economic, social, technological, legal, and environmental forces plus the historical baseline | `intelligence/pestle-analysis.md` |
+| [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `existing/committee-productivity.md` |
+| [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 

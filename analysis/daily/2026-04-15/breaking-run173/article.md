@@ -1,6 +1,6 @@
 ---
 title: "🧩 Political Intelligence Synthesis — Tariff T-0 Activation and Post-Recess Convergence"
-description: "Intelligence Assessment: The activation of TA-10-2026-0096 marks the EU's first autonomous trade defence action under the current geopolitical framework. Parliament adopted……"
+description: "Intelligence Assessment: The activation of TA-10-2026-0096 marks the EU's first autonomous trade defence action under the current geopolitical framework."
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-15", "Political", "Intelligence", "Synthesis", "Tariff", "Activation", "Post", "Recess", "Convergence", "Assessment"]
 date: 2026-04-15
 article_type: breaking
@@ -11,6 +11,14 @@ language: en
 layout: article
 ---
 # Breaking — 2026-04-15
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `political-classification.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 

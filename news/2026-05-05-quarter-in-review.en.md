@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Quarter in Review — Q1 2026"
-description: "The European Parliament completed its second full quarter of EP10 (2024–2029) with a markedly high-energy legislative calendar dominated by three structural imperatives……"
+description: "The European Parliament completed its second full quarter of EP10 (2024–2029) with a markedly high-energy legislative calendar dominated by three structural imperatives…"
 keywords: ["EU Parliament", "European Parliament", "political intelligence", "Quarter In Review", "2026-05-05", "run quarter-in-review-run-1777970961", "Parliament", "Quarter", "Review", "European", "completed", "second", "full", "EP10", "with", "markedly"]
 date: 2026-05-05
 article_type: quarter-in-review
@@ -89,10 +89,17 @@ Use this guide to read the article as a political-intelligence product rather th
 | [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `intelligence/threat-model.md` |
+| [What to watch](#section-forward-projection) | dated trigger events, calendar dependencies, and legislative-pipeline forecasts | `intelligence/legislative-pipeline-forecast.md` |
+| [PESTLE and structural context](#section-pestle-context) | political, economic, social, technological, legal, and environmental forces plus the historical baseline | `intelligence/pestle-analysis.md` |
+| [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `intelligence/actor-mapping.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -3811,6 +3818,105 @@ No proprietary data sources. No personal data beyond publicly declared MEP group
 ---
 *End of methodology reflection. Artifact count: 25+. SAT count: 15. Run: 2026-05-05 quarter-in-review.*
 
+### Methodology Reflection
+
+### Reflection on Data Collection (Stage A)
+
+#### Completeness Assessment
+
+**What was obtained:**
+- EP adopted texts (100 texts, Jan–Apr 2026) — HIGH value, core legislative record
+- Political landscape (full group composition) — HIGH value
+- Activity statistics (roll-call votes, plenary sessions) — HIGH value
+- Coalition dynamics (structural analysis) — MEDIUM value (vote-level cohesion unavailable)
+- World Bank economic data (Germany, France GDP) — MEDIUM value
+- Early warning system output — HIGH value
+
+**What was missing / degraded:**
+- **IMF data**: `dataservices.imf.org` not reachable in this execution environment. Degraded mode applied per `08-infrastructure.md §4`. Written to probe-summary.json. **Impact:** Macro/fiscal analysis relies on World Bank proxies; quantitative precision reduced.
+- **EP roll-call voting records**: 0 records for Q1 2026 window — EP roll-call publication delay (4–6 weeks). Expected limitation documented in `07-mcp-reference.md §11`. **Impact:** Voting patterns analysis uses structural proxies (group composition, historical patterns).
+- **EP events feed**: Returned error. **Impact:** Committee meeting calendar data incomplete; mitigation: plenary session data sufficient for quarterly overview.
+- **EP plenary sessions data array**: Total=51 Q1 2026 but data array empty. **Impact:** Session-level granularity unavailable; mitigation: activity statistics provided monthly vote counts.
+
+#### Data Quality Rating: **MEDIUM-HIGH**
+Sufficient for strategic quarterly analysis. Individual MEP-level granularity unavailable. Voting pattern analysis is structural rather than empirical.
+
+---
+
+### Reflection on Analysis Methodology (Stage B)
+
+#### Artifacts Produced
+Total artifacts written: **14**
+
+1. `executive-brief.md` — Root-level mandatory brief ✅
+2. `intelligence/swot-analysis.md` — Full SWOT, 4 quadrants ✅
+3. `intelligence/stakeholder-map.md` — 9 groups + institutional actors ✅
+4. `intelligence/voting-patterns.md` — Structural analysis with Q1 data ✅
+5. `intelligence/legislative-pipeline-forecast.md` — Q1 timeline + scorecard ✅
+6. `intelligence/economic-context.md` — IMF-degraded economic analysis ✅
+7. `intelligence/coalition-dynamics.md` — Coalition architecture ✅
+8. `risk-scoring/risk-register.md` — 5-dimension risk scoring ✅
+9. `threat-assessment/political-threat-assessment.md` — PTF v4.0 ✅
+10. `intelligence/actor-mapping.md` — Actor tiers and influence network ✅
+11. `intelligence/forward-indicators.md` — Q2-Q3 2026 forward projection ✅
+12. `classification/issue-classification.md` — 100-text policy domain taxonomy ✅
+13. `intelligence/scenario-analysis.md` — ACH 4-scenario analysis ✅
+14. `intelligence/geopolitical-assessment.md` — 5-dimension geopolitical assessment ✅
+
+#### Methodologies Applied
+- **Political Threat Framework v4.0** (per `00-scope-and-ground-rules.md §11`) — PTL + Attack Trees + Kill Chain + Diamond Model + ICO
+- **SWOT analysis** — Full 4-quadrant strategic assessment
+- **Analysis of Competing Hypotheses (ACH)** — 4-scenario forward analysis
+- **Actor network mapping** — Tier 1/2/3 actor classification
+- **Issue classification** — Three-axis taxonomy (policy domain, instrument, geography)
+- **Risk matrix methodology** — 5-dimension composite scoring (44/100 MEDIUM)
+- **Cone of Plausibility** — Legislative output range projection Q2-Q3 2026
+- **Forward projection registry** — ACH-weighted carry-forward open items
+
+#### Identified Analytical Limitations
+1. **Cohesion data proxy**: All political group cohesion metrics based on size-similarity score (proxy), not actual vote-level cohesion data. EP API does not provide per-MEP roll-call breakdown.
+2. **Economic analysis degraded**: IMF absence reduces quantitative macro analysis. World Bank provides partial substitute for GDP/growth data but lacks fiscal/monetary/trade granularity.
+3. **Individual MEP granularity**: No MEP-level voting analysis possible given roll-call publication delay. Stakeholder map based on group-level rather than individual-level data.
+4. **Forward projections uncertainty**: Q2-Q3 2026 scenario probabilities are subjective analytical estimates, not model outputs. Geopolitical shocks (Russia escalation, US tariffs) could invalidate baseline scenario rapidly.
+
+#### Confidence Levels by Artifact
+| Artifact | Confidence | Key Limitation |
+|----------|-----------|----------------|
+| executive-brief.md | 🟡 MEDIUM-HIGH | IMF degraded, roll-call unavailable |
+| swot-analysis.md | 🟡 MEDIUM | Forward projections uncertain |
+| stakeholder-map.md | 🟢 HIGH | Group composition data complete |
+| voting-patterns.md | 🟡 MEDIUM | No empirical roll-call data |
+| legislative-pipeline-forecast.md | 🟢 HIGH | Mandate scorecard based on adopted texts |
+| economic-context.md | 🔴 MEDIUM-LOW | IMF entirely absent |
+| coalition-dynamics.md | 🟡 MEDIUM | Proxy cohesion data only |
+| risk-register.md | 🟡 MEDIUM | Some risk scores estimated |
+| political-threat-assessment.md | 🟡 MEDIUM | Forward threat vectors estimated |
+| actor-mapping.md | 🟢 HIGH | Q1 legislative record comprehensive |
+| forward-indicators.md | 🔴 LOW | Future projections inherently uncertain |
+| issue-classification.md | 🟢 HIGH | Direct text analysis |
+| scenario-analysis.md | 🟡 MEDIUM | ACH subjective probabilities |
+| geopolitical-assessment.md | 🟡 MEDIUM | External data limited |
+
+---
+
+### Pass 2 Self-Assessment
+
+**Pass 2 scope completed:** All 14 artifacts reviewed for depth/quality
+
+**Pass 2 enhancements made:**
+1. Added specific adopted text reference codes (TA-10-2026-XXXX) throughout artifacts to increase verifiability
+2. Expanded forward projection tables with probability ranges and coalition dependencies
+3. Strengthened economic context with explicit "degraded mode" documentation and World Bank data integration
+4. Enhanced geopolitical assessment with Dimension 4 (China) and Dimension 5 (Transatlantic) sections
+5. Added ACH diagnostic matrix to scenario analysis with explicit evidence weighting
+6. Deepened actor-mapping with institutional actors section (Commission, Council, ECB, external actors)
+
+**Pass 2 rewrite count:** 6 major artifact sections rewritten/expanded (economic-context IMF section, coalition-dynamics confidence section, geopolitical-assessment Transatlantic section, scenario-analysis ACH table, actor-mapping external actors, risk-register composite score methodology)
+
+---
+*Step 10.5 mandatory artifact per `ai-driven-analysis-guide.md` §10.5.*
+*This reflection is part of the 14-artifact analysis set for quarter-in-review, 2026-05-05.*
+
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Actor Mapping
@@ -4418,105 +4524,6 @@ Resolutions on Lithuania broadcaster takeover threats (TA-10-2026-0024), Georgia
 *Methodology: SWOT derived from EP adopted texts analysis (70+ texts, Q1 2026), political landscape data (9 groups, 719 MEPs), early warning system assessment (stability score 84/100), World Bank economic indicators (Germany, France GDP growth), and EP activity statistics. IMF data unavailable (degraded mode).*
 *Sources: European Parliament Open Data Portal. Confidence levels: 🟢 HIGH, 🟡 MEDIUM, 🔴 LOW*
 
-### Methodology Reflection
-
-### Reflection on Data Collection (Stage A)
-
-#### Completeness Assessment
-
-**What was obtained:**
-- EP adopted texts (100 texts, Jan–Apr 2026) — HIGH value, core legislative record
-- Political landscape (full group composition) — HIGH value
-- Activity statistics (roll-call votes, plenary sessions) — HIGH value
-- Coalition dynamics (structural analysis) — MEDIUM value (vote-level cohesion unavailable)
-- World Bank economic data (Germany, France GDP) — MEDIUM value
-- Early warning system output — HIGH value
-
-**What was missing / degraded:**
-- **IMF data**: `dataservices.imf.org` not reachable in this execution environment. Degraded mode applied per `08-infrastructure.md §4`. Written to probe-summary.json. **Impact:** Macro/fiscal analysis relies on World Bank proxies; quantitative precision reduced.
-- **EP roll-call voting records**: 0 records for Q1 2026 window — EP roll-call publication delay (4–6 weeks). Expected limitation documented in `07-mcp-reference.md §11`. **Impact:** Voting patterns analysis uses structural proxies (group composition, historical patterns).
-- **EP events feed**: Returned error. **Impact:** Committee meeting calendar data incomplete; mitigation: plenary session data sufficient for quarterly overview.
-- **EP plenary sessions data array**: Total=51 Q1 2026 but data array empty. **Impact:** Session-level granularity unavailable; mitigation: activity statistics provided monthly vote counts.
-
-#### Data Quality Rating: **MEDIUM-HIGH**
-Sufficient for strategic quarterly analysis. Individual MEP-level granularity unavailable. Voting pattern analysis is structural rather than empirical.
-
----
-
-### Reflection on Analysis Methodology (Stage B)
-
-#### Artifacts Produced
-Total artifacts written: **14**
-
-1. `executive-brief.md` — Root-level mandatory brief ✅
-2. `intelligence/swot-analysis.md` — Full SWOT, 4 quadrants ✅
-3. `intelligence/stakeholder-map.md` — 9 groups + institutional actors ✅
-4. `intelligence/voting-patterns.md` — Structural analysis with Q1 data ✅
-5. `intelligence/legislative-pipeline-forecast.md` — Q1 timeline + scorecard ✅
-6. `intelligence/economic-context.md` — IMF-degraded economic analysis ✅
-7. `intelligence/coalition-dynamics.md` — Coalition architecture ✅
-8. `risk-scoring/risk-register.md` — 5-dimension risk scoring ✅
-9. `threat-assessment/political-threat-assessment.md` — PTF v4.0 ✅
-10. `intelligence/actor-mapping.md` — Actor tiers and influence network ✅
-11. `intelligence/forward-indicators.md` — Q2-Q3 2026 forward projection ✅
-12. `classification/issue-classification.md` — 100-text policy domain taxonomy ✅
-13. `intelligence/scenario-analysis.md` — ACH 4-scenario analysis ✅
-14. `intelligence/geopolitical-assessment.md` — 5-dimension geopolitical assessment ✅
-
-#### Methodologies Applied
-- **Political Threat Framework v4.0** (per `00-scope-and-ground-rules.md §11`) — PTL + Attack Trees + Kill Chain + Diamond Model + ICO
-- **SWOT analysis** — Full 4-quadrant strategic assessment
-- **Analysis of Competing Hypotheses (ACH)** — 4-scenario forward analysis
-- **Actor network mapping** — Tier 1/2/3 actor classification
-- **Issue classification** — Three-axis taxonomy (policy domain, instrument, geography)
-- **Risk matrix methodology** — 5-dimension composite scoring (44/100 MEDIUM)
-- **Cone of Plausibility** — Legislative output range projection Q2-Q3 2026
-- **Forward projection registry** — ACH-weighted carry-forward open items
-
-#### Identified Analytical Limitations
-1. **Cohesion data proxy**: All political group cohesion metrics based on size-similarity score (proxy), not actual vote-level cohesion data. EP API does not provide per-MEP roll-call breakdown.
-2. **Economic analysis degraded**: IMF absence reduces quantitative macro analysis. World Bank provides partial substitute for GDP/growth data but lacks fiscal/monetary/trade granularity.
-3. **Individual MEP granularity**: No MEP-level voting analysis possible given roll-call publication delay. Stakeholder map based on group-level rather than individual-level data.
-4. **Forward projections uncertainty**: Q2-Q3 2026 scenario probabilities are subjective analytical estimates, not model outputs. Geopolitical shocks (Russia escalation, US tariffs) could invalidate baseline scenario rapidly.
-
-#### Confidence Levels by Artifact
-| Artifact | Confidence | Key Limitation |
-|----------|-----------|----------------|
-| executive-brief.md | 🟡 MEDIUM-HIGH | IMF degraded, roll-call unavailable |
-| swot-analysis.md | 🟡 MEDIUM | Forward projections uncertain |
-| stakeholder-map.md | 🟢 HIGH | Group composition data complete |
-| voting-patterns.md | 🟡 MEDIUM | No empirical roll-call data |
-| legislative-pipeline-forecast.md | 🟢 HIGH | Mandate scorecard based on adopted texts |
-| economic-context.md | 🔴 MEDIUM-LOW | IMF entirely absent |
-| coalition-dynamics.md | 🟡 MEDIUM | Proxy cohesion data only |
-| risk-register.md | 🟡 MEDIUM | Some risk scores estimated |
-| political-threat-assessment.md | 🟡 MEDIUM | Forward threat vectors estimated |
-| actor-mapping.md | 🟢 HIGH | Q1 legislative record comprehensive |
-| forward-indicators.md | 🔴 LOW | Future projections inherently uncertain |
-| issue-classification.md | 🟢 HIGH | Direct text analysis |
-| scenario-analysis.md | 🟡 MEDIUM | ACH subjective probabilities |
-| geopolitical-assessment.md | 🟡 MEDIUM | External data limited |
-
----
-
-### Pass 2 Self-Assessment
-
-**Pass 2 scope completed:** All 14 artifacts reviewed for depth/quality
-
-**Pass 2 enhancements made:**
-1. Added specific adopted text reference codes (TA-10-2026-XXXX) throughout artifacts to increase verifiability
-2. Expanded forward projection tables with probability ranges and coalition dependencies
-3. Strengthened economic context with explicit "degraded mode" documentation and World Bank data integration
-4. Enhanced geopolitical assessment with Dimension 4 (China) and Dimension 5 (Transatlantic) sections
-5. Added ACH diagnostic matrix to scenario analysis with explicit evidence weighting
-6. Deepened actor-mapping with institutional actors section (Commission, Council, ECB, external actors)
-
-**Pass 2 rewrite count:** 6 major artifact sections rewritten/expanded (economic-context IMF section, coalition-dynamics confidence section, geopolitical-assessment Transatlantic section, scenario-analysis ACH table, actor-mapping external actors, risk-register composite score methodology)
-
----
-*Step 10.5 mandatory artifact per `ai-driven-analysis-guide.md` §10.5.*
-*This reflection is part of the 14-artifact analysis set for quarter-in-review, 2026-05-05.*
-
 > **Provenance & Audit**
 >
 > - **Article type:** `quarter-in-review`
@@ -4644,10 +4651,10 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-05/quarter-in-review/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-05/quarter-in-review/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-05/quarter-in-review/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-05/quarter-in-review/methodology-reflection.md) | `methodology-reflection.md` |
 | section-supplementary-intelligence | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-05/quarter-in-review/intelligence/actor-mapping.md) | `intelligence/actor-mapping.md` |
 | section-supplementary-intelligence | [forward-indicators](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-05/quarter-in-review/intelligence/forward-indicators.md) | `intelligence/forward-indicators.md` |
 | section-supplementary-intelligence | [geopolitical-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-05/quarter-in-review/intelligence/geopolitical-assessment.md) | `intelligence/geopolitical-assessment.md` |
 | section-supplementary-intelligence | [scenario-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-05/quarter-in-review/intelligence/scenario-analysis.md) | `intelligence/scenario-analysis.md` |
 | section-supplementary-intelligence | [swot-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-05/quarter-in-review/intelligence/swot-analysis.md) | `intelligence/swot-analysis.md` |
-| section-supplementary-intelligence | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-05/quarter-in-review/methodology-reflection.md) | `methodology-reflection.md` |
 

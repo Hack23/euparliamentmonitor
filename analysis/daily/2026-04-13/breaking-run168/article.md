@@ -1,6 +1,6 @@
 ---
 title: "2026 Q1 legislative output represents a step-change in EP10 productivity:"
-description: "2026 Q1 legislative output represents a step-change in EP10 productivity: Published 2026-04-13, with source-linked voting, committee and legislative intelligence for…"
+description: "2026 Q1 legislative output represents a step-change in EP10 productivity: Published 2026-04-13, with source-linked voting, committee and legislative intelligence…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-13", "legislative", "output", "represents", "step", "change", "EP10", "productivity", "Published", "with"]
 date: 2026-04-13
 article_type: breaking
@@ -19,7 +19,11 @@ Use this guide to read the article as a political-intelligence product rather th
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/political-threat-landscape.md` |
+| [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `documents/document-analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/synthesis-summary.md` |
 
 <h2 id="section-significance">Significance</h2>
 

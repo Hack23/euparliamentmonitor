@@ -1,6 +1,6 @@
 ---
 title: "Breaking News Intelligence Brief — 4 April 2026 (Run 3: Enhanced Pre-Recess Analysis)"
-description: "No breaking news developments on 4 April 2026. The European Parliament remains in Easter recess. This run extends prior analysis (runs 1-2) with full titles and procedure……"
+description: "No breaking news developments on 4 April 2026. The European Parliament remains in Easter recess. This run extends prior analysis (runs 1-2) with full titles and procedure…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-04", "News", "Intelligence", "Brief", "April", "Enhanced", "Recess", "Analysis", "developments", "European"]
 date: 2026-04-04
 article_type: breaking
@@ -11,6 +11,14 @@ language: en
 layout: article
 ---
 # Breaking — 2026-04-04
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `intelligence-brief.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 

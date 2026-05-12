@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Month in Review: April 2026"
-description: "The EU Parliament in April 2026 delivered a historically dense legislative agenda — including 2027 Budget Guidelines, a US tariff defense package, a landmark housing framework……"
+description: "The EU Parliament in April 2026 delivered a historically dense legislative agenda — including 2027 Budget Guidelines, a US tariff defense package, a landmark housing framework…"
 keywords: ["EU Parliament", "month in review", "European Parliament", "summary", "legislative review", "2026-04-29", "run month-in-review-run-1777448086", "Parliament", "Month", "Review", "April", "delivered", "historically", "dense", "legislative", "agenda"]
 date: 2026-04-29
 article_type: month-in-review
@@ -139,11 +139,17 @@ Use this guide to read the article as a political-intelligence product rather th
 | [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `intelligence/threat-model.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [PESTLE and structural context](#section-pestle-context) | political, economic, social, technological, legal, and environmental forces plus the historical baseline | `intelligence/pestle-analysis.md` |
+| [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `workflow-audit.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -2470,8 +2476,6 @@ Lithuania media takeover resolution (TA-10-2026-0024) and Georgian political pri
 
 **Confidence Level:** 🟡 Medium — confirmed by live EP Open Data; roll-call and IMF data structural limitations noted.
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
 ### Methodology Reflection
 
 ### Reflection Overview
@@ -2576,6 +2580,8 @@ The AWF firewall blocked direct IMF API access. While the IMF WEO April 2026 pub
 
 **Suitable for:** Economist-quality political analysis, EU Parliament monitoring, policy briefings  
 **Not suitable for:** Trading decisions, legal proceedings, attribution of specific MEP votes
+
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
 ### Workflow Audit
 
@@ -2807,6 +2813,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/month-in-review/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/month-in-review/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/month-in-review/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
-| section-supplementary-intelligence | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/month-in-review/methodology-reflection.md) | `methodology-reflection.md` |
+| section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/month-in-review/methodology-reflection.md) | `methodology-reflection.md` |
 | section-supplementary-intelligence | [workflow-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-29/month-in-review/workflow-audit.md) | `workflow-audit.md` |
 

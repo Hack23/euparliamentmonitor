@@ -1,7 +1,7 @@
 ---
-title: "Committee Reports — 2026-04-14"
-description: "Analysis of March 26 pre-Easter committee output from six stakeholder perspectives, covering Banking Union triple package (TA-0090/0091/0092), Anti-Corruption Directive……"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run48", "2026-04-14", "run e93a1c2e-1784-43d5-8039-6855c4e1a1d4", "Committee", "Reports", "Analysis", "March", "Easter", "output", "from", "stakeholder", "perspectives", "covering"]
+title: "Analysis of March 26 pre-Easter committee output from six stakeholder perspectives, covering Banking Union triple package…"
+description: "Analysis of March 26 pre-Easter committee output from six stakeholder perspectives, covering Banking Union triple package (TA-0090/0091/0092), Anti-Corruption Directive…"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run48", "2026-04-14", "run e93a1c2e-1784-43d5-8039-6855c4e1a1d4", "Analysis", "March", "Easter", "committee", "output", "from", "stakeholder", "perspectives", "covering", "Banking"]
 date: 2026-04-14
 article_type: committee-reports-run48
 slug: 2026-04-14-committee-reports-run48
@@ -18,8 +18,12 @@ Use this guide to read the article as a political-intelligence product rather th
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/political-threat-landscape.md` |
+| [Deep analysis](#section-deep-analysis) | long-form Economist-style explanation for readers who want the full argument | `existing/deep-analysis.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/synthesis-summary.md` |
 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 

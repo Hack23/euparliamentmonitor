@@ -1,6 +1,6 @@
 ---
 title: "Political Intelligence Synthesis - Easter Recess Day 16 Breaking Assessment"
-description: "documentsAnalyzed: 0 live feeds, 264K chars precomputed stats Published 2026-04-11, with source-linked voting, committee and legislative intelligence for…"
+description: "documentsAnalyzed: 0 live feeds, 264K chars precomputed stats Published 2026-04-11, with source-linked voting, committee and legislative intelligence…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-11", "Political", "Intelligence", "Synthesis", "Easter", "Recess", "Assessment", "documentsAnalyzed", "live", "feeds"]
 date: 2026-04-11
 article_type: breaking
@@ -11,6 +11,14 @@ language: en
 layout: article
 ---
 # Breaking — 2026-04-11
+
+<h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
+
+Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
+
+| Reader need | What you'll get | Source artifact |
+|---|---|---|
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `coalition-intelligence.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
 
