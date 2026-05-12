@@ -21,7 +21,10 @@ describe('reader-intelligence-guide', () => {
     { id: 'section-risk', title: 'Risk Assessment' },
     { id: 'section-threat', title: 'Threat Landscape' },
     { id: 'section-electoral-arc', title: 'Electoral Arc & Mandate' },
+    { id: 'section-deep-analysis', title: 'Deep Analysis' },
+    { id: 'section-documents', title: 'Document Analysis' },
     { id: 'section-quality-reflection', title: 'Analytical Quality & Reflection' },
+    { id: 'section-supplementary-intelligence', title: 'Supplementary Intelligence' },
   ];
 
   const sampleIncluded = [
@@ -99,13 +102,16 @@ describe('reader-intelligence-guide', () => {
       expect(html).toContain('href="#section-risk"');
     });
 
-    it('emits a row for every recognised section (including extended sections)', () => {
+    it('emits a row for every recognised section (including appendices and fallback sections)', () => {
       const html = buildReaderIntelligenceGuideHtml('en', sampleSections, sampleIncluded);
       // The threat / electoral-arc / quality-reflection sections are
       // newly covered by the guide (previously omitted).
       expect(html).toContain('href="#section-threat"');
       expect(html).toContain('href="#section-electoral-arc"');
+      expect(html).toContain('href="#section-deep-analysis"');
+      expect(html).toContain('href="#section-documents"');
       expect(html).toContain('href="#section-quality-reflection"');
+      expect(html).toContain('href="#section-supplementary-intelligence"');
     });
 
     it('falls back gracefully when no included artifact matches a row', () => {
@@ -255,6 +261,9 @@ describe('reader-intelligence-guide', () => {
       expect(getReaderGuideSectionIcon('section-threat')).toBe('🛡️');
       expect(getReaderGuideSectionIcon('section-electoral-arc')).toBe('🗳️');
       expect(getReaderGuideSectionIcon('section-pestle-context')).toBe('🌍');
+      expect(getReaderGuideSectionIcon('section-deep-analysis')).toBe('🔬');
+      expect(getReaderGuideSectionIcon('section-documents')).toBe('📄');
+      expect(getReaderGuideSectionIcon('section-supplementary-intelligence')).toBe('📎');
     });
 
     it('returns the 📎 fallback for unknown section ids', () => {
