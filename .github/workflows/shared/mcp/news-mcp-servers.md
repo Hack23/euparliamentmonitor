@@ -3,7 +3,7 @@ mcp-servers:
   european-parliament:
     container: "node:25-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.3.2", "--timeout", "180000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.3.3", "--timeout", "180000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "180000"
   world-bank:
@@ -40,7 +40,7 @@ It mounts the five MCP servers every article-generating workflow needs:
 
 | Server | Version | Purpose |
 |---|---|---|
-| `european-parliament` | `european-parliament-mcp-server@1.3.2` | 63 EP tools (see `.github/prompts/07-mcp-reference.md`) |
+| `european-parliament` | `european-parliament-mcp-server@1.3.3` | 63 EP tools (see `.github/prompts/07-mcp-reference.md`) |
 | `world-bank` | `worldbank-mcp@1.0.1` | **Non-economic** indicators — health, education, social, environment, demographics, defence (military expenditure), agriculture, innovation, governance (WGI). |
 | `fetch-proxy` | inline Node.js MCP server | IMF-only HTTPS fetch proxy — bypasses AWF Squid proxy for `api.imf.org/external/sdmx/3.0/` calls (SDMX 2.1 is rejected). Injects `Ocp-Apim-Subscription-Key` from `IMF_API_PRIMARY_KEY` (with `IMF_API_SECONDARY_KEY` retried on 401/403 for live key rotation). Exposes `fetch_url` tool. |
 | `memory` | `@modelcontextprotocol/server-memory` | Run-scoped scratch memory |
