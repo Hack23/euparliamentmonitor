@@ -70,8 +70,24 @@ jobs:
           # `js/vendor/` (CSP `script-src 'self'`, no external CDN).
           npm run copy-vendor
           npm run prebuild
-          rm -rf node_modules
           echo "✅ Generated index files, articles-metadata.json, sitemap.xml, sitemap_*.html, political-intelligence_*.html, and vendored JS bundles"
+
+      - name: Optimise CSS (drop unused selectors against every shipped HTML page)
+        # Runs PurgeCSS via scripts/optimize-css.js — scans all *.html (root +
+        # news/*.html + generated index*/sitemap*/political-intelligence_*.html),
+        # plus js/**/*.js and scripts/templates|generators for class names that
+        # only appear in JS string literals, then rewrites styles.css in place.
+        # Filename is preserved so every existing
+        # `<link rel="stylesheet" href="styles.css">` continues to resolve.
+        # MUST run BEFORE `rm -rf node_modules` (purgecss is a devDependency)
+        # and BEFORE the dra1ex/minify-action step (so the minifier compresses
+        # the already-purged stylesheet, not the bloated original).
+        run: npm run optimize-css
+
+      - name: Cleanup node_modules pre-deploy
+        run: |
+          rm -rf node_modules
+          echo "✅ Removed node_modules (excluded from S3 sync regardless, removed for cleanliness)"
 
       - name: Normalise CSP and Mermaid cache-bust in legacy news articles
         run: |
@@ -120,6 +136,23 @@ jobs:
             done
             echo "✅ Pinned Mermaid cache-bust in $mermaid_patched article(s)"
           fi
+
+      - name: Minify HTML/CSS/JS
+        # Compresses every .html/.css/.js file in the workspace in place using
+        # the dra1ex/minify-action Docker action — wraps the `minify` npm
+        # package (HTML, CSS via clean-css, JS via terser equivalents).
+        # Filenames are preserved so all S3 sync globs and CloudFront cache
+        # keys continue to match. Runs AFTER:
+        #   • prebuild generation (so generated pages are minified too)
+        #   • optimize-css (so the minifier compresses purged CSS, not bloat)
+        #   • CSP / Mermaid cache-bust normalisation (so sed edits don't
+        #     have to deal with already-minified attribute orderings)
+        # …and BEFORE the AWS sync passes so S3 receives the minified payload.
+        # The action processes files in node_modules-free workspace because the
+        # earlier "Cleanup node_modules pre-deploy" step removed it; the action
+        # is a Docker container and pulls its own minify@9.1.0 dependency
+        # internally, so no host node_modules is required.
+        uses: dra1ex/minify-action@3c54a82e092a78c827659385d1be715126f13410 # v1.0.3
 
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@d979d5b3a71173a29b74b5b88418bfda9437d885 # v6.1.1
