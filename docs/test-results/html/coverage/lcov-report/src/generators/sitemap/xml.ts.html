@@ -860,7 +860,8 @@ export function generateSitemap(articles: string[], docsFiles: string[] = []): s
 &nbsp;
   return `&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;!-- SPDX-FileCopyrightText: 2024-2026 Hack23 AB --&gt;
-<!--REUSE-IgnoreStart-->&lt;!-- SPDX-License-Identifier: Apache-2.0 --&gt;lt;!-- SPDX-License-Identifier: Apache-2.0 --&lt;!-- SPDX-License-Identifier: Apache-2.0 --&gt;gt;<!--REUSE-IgnoreEnd-->
+<span class="cline-any cline-neutral">&nbsp;</span><span class="cstat-no" title="REUSE compliance">// REUSE-IgnoreStart</span>
+<!--REUSE-IgnoreStart-->&lt;!-- SPDX-License-Identifier: Apache-2.0 --&gt;<!--REUSE-IgnoreEnd-->
 &lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"&gt;
 ${urls.map(renderSitemapUrl).join('\n')}
 &lt;/urlset&gt;`;

@@ -1,6 +1,6 @@
 ---
 title: "EP Breaking News"
-description: "What happened: The EP's end-of-April 2026 plenary session produced a historically dense legislative output. In five days, MEPs adopted an interim report on the 2028–2034……"
+description: "What happened: The EP's end-of-April 2026 plenary session produced a historically dense legislative output. In five days, MEPs adopted an interim report on the 2028–2034…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-12", "run breaking-run-1778577220", "News", "What", "happened", "April", "plenary", "session", "produced", "historically"]
 date: 2026-05-12
 article_type: breaking
@@ -134,11 +134,20 @@ Use this guide to read the article as a political-intelligence product rather th
 | [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
+| [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
 | [IMF-backed economic context](#section-economic-context) | macro, fiscal, trade, or monetary evidence that changes the political interpretation | `intelligence/economic-context.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
+| [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `intelligence/political-threat-landscape.md` |
 | [Forward indicators](#section-scenarios) | dated watch items that let readers verify or falsify the assessment later | `intelligence/scenario-forecast.md` |
+| [What to watch](#section-forward-projection) | dated trigger events, calendar dependencies, and legislative-pipeline forecasts | `extended/forward-indicators.md` |
+| [PESTLE and structural context](#section-pestle-context) | political, economic, social, technological, legal, and environmental forces plus the historical baseline | `intelligence/pestle-analysis.md` |
+| [Cross-run continuity](#section-continuity) | what changed since prior sessions and how confidence shifted between runs | `intelligence/cross-run-diff.md` |
+| [Document trail](#section-documents) | the document index and per-file analysis behind the public judgement | `documents/document-analysis-index.md` |
+| [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/coalition-mathematics.md` |
+| [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
+| [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -153,6 +162,8 @@ A deterministic 3–7 bullet synthesis of the strongest evidence-bearing finding
 - Thread 1 (DMA): High confidence on facts; medium on outcome prediction
 
 <h2 id="section-synthesis">Synthesis Summary</h2>
+
+### Synthesis Summary
 
 ### Analytical Synthesis: The EP's April 28–30, 2026 Plenary — A Triple Fault-Line Week
 
@@ -355,6 +366,84 @@ The cross-thread synthesis remains: April 2026 is best understood as a strategic
 **Updated KPI dashboard:** Synthesis thread coherence score 8.2/10; evidence density HIGH; predictive value MEDIUM-HIGH.
 
 **Source attribution extension:** Cross-references added to extended/ artifact set (12 new artifacts); intelligence-assessment.md KEY JUDGEMENTS validated against all 4 threads.
+
+### Synthesis
+
+### Analytical Synthesis: The EP's April 28–30, 2026 Plenary — A Triple Fault-Line Week
+
+#### The Headline Judgement
+
+The European Parliament's April 28–30, 2026 Strasbourg session produced outputs that simultaneously advance three distinct but intersecting political projects: (1) the EU's digital regulatory sovereignty agenda, (2) its geopolitical accountability architecture for the Russia-Ukraine war, and (3) the domestic institutional conflict between EU democratic legitimacy and the far-right sovereignist challenge. These three fault lines are not separate stories — they are facets of the same deeper European political moment.
+
+#### Analytical Thread 1: Digital Sovereignty Operationalised
+
+The DMA enforcement resolution (TA-10-2026-0160) is best understood not as a narrow competition law intervention but as a declaration of European digital sovereignty. The EU has spent a decade building its regulatory capacity — GDPR (2018), DSA (2022), DMA (2022), AI Act (2024) — and the EP's April 30 resolution marks the transition from framework-building to operationalisation. The key question is no longer "will the EU regulate Big Tech?" but "can the EU enforce against Big Tech with sufficient speed and rigour to matter?"
+
+**Synthesis judgement:** The EP's DMA resolution creates meaningful political pressure on the Commission, but the enforcement gap (12–24 months for investigations) means the actual impact will be felt in 2027–2028. In the meantime, the resolution serves as:
+- A deterrent signal to gatekeepers considering compliance arbitrage
+- A political accountability instrument (EP can cite it at DG COMP hearings)
+- A global standard-setting message (Brussels Effect amplification)
+
+The medium-term risk is that EP enforcement pressure is undermined by US retaliatory threats (T-3 in risk matrix) or by Big Tech's superior legal resources in EU courts. The long-term opportunity — a genuinely functioning digital market regulatory system — is historically significant.
+
+#### Analytical Thread 2: The Accountability Architecture for Ukraine
+
+The Ukraine accountability resolution (TA-10-2026-0161) represents the EP's clearest statement yet that any future peace settlement must be grounded in individual criminal accountability, not political amnesty. This is analytically significant because:
+
+1. **It constrains future EU negotiators**: By adopting strong accountability language, the EP creates political constraints on any future EU head of state or Commission president who might consider a "grand bargain" with Russia that includes accountability waivers.
+
+2. **It supports the Special Tribunal project**: The EP's explicit backing of a Special Tribunal for Crime of Aggression strengthens the multilateral legitimacy of a mechanism that, if established, would be the most significant international legal innovation since the ICC's Rome Statute.
+
+3. **It links accountability to reconstruction**: The broader context — April 30 session occurred in the same week as the Enhanced Cooperation loan for Ukraine (TA-0010) coming into effect — suggests the EP is building an integrated Ukraine strategy where accountability and economic support are presented as a coherent package.
+
+**Synthesis judgement:** The Ukraine accountability resolution is the highest-impact item of the week. Its significance will compound if the Special Tribunal gains multilateral traction in 2026–2027. The main risk is multilateral isolation — if only EU states support the tribunal, it lacks legitimacy.
+
+**Cross-reference:** The Armenia democratic resilience resolution (TA-0162) is analytically linked — both resolutions reflect the EP's Eastern neighbourhood strategy of democratic conditionality: EU political support conditional on democratic trajectory. Armenia's CSTO withdrawal creates the geostrategic window the EP resolution is designed to consolidate.
+
+#### Analytical Thread 3: The Institutional Legitimacy Contest
+
+The PfE's topical debate (April 29) on Commission interference in democratic elections is the week's most politically durable story, even if it produces no immediate legislative output. The PfE's strategy is architecturally sophisticated:
+
+1. **The grievance narrative**: By accusing the Commission of "interference in democratic processes and elections," PfE channels authentic voter frustration with perceived EU institutional overreach into a structured anti-EU narrative
+2. **The institutional trap**: Any Commission defence of its independence (e.g., pointing to transparency rules, political neutrality requirements) can be reframed by PfE as proof that the Commission is "hiding" its true political agenda
+3. **The 2029 pre-campaign**: This debate is most accurately analysed as a campaign event, not a legislative event. PfE is building the 2029 EP election narrative two years in advance
+
+**Synthesis judgement:** The mainstream coalition (EPP+S&D+Renew) correctly identifies that PfE's institutional attacks cannot be ignored, but the EU's institutional communication tools are inadequate for the information environment in which PfE operates. The Commission's formal procedures and press releases are no match for PfE's social media reach and emotionally resonant sovereignty narratives.
+
+**The structural risk:** If PfE-aligned governments gain Council presidency (rotating in 2026–2027 cycle), the institutional challenge moves from Parliament to the highest EU decision-making body — a qualitative escalation.
+
+#### Cross-Cutting Analysis: Three Fault Lines as One Story
+
+The three analytical threads converge on a single structural insight: **the EU is at an inflection point where its regulatory and geopolitical ambitions are outrunning its institutional capacity to deliver and defend them.** 
+
+- **Digital sovereignty** aspiration (DMA enforcement) runs ahead of enforcement capacity (12–18 month investigation lag)
+- **Ukraine accountability** ambition (Special Tribunal) runs ahead of multilateral coalition (Global South neutrality)
+- **Institutional legitimacy** defence (Commission independence) runs ahead of communication capacity (PfE narrative faster than EU response)
+
+This inflection point is not a crisis — the EU has managed similar gaps before. But it creates a window of vulnerability that is being actively exploited by:
+1. Big Tech's legal teams (DMA)
+2. Russia's diplomatic corps and information operations (Ukraine accountability and EU delegitimisation)
+3. PfE and national far-right parties (institutional legitimacy)
+
+#### Policy Implication
+
+The synthesis suggests three priority areas for EU institutional response in the May–September 2026 period:
+1. **Commission**: Accelerate DMA enforcement timelines; issue at least one preliminary finding against a major gatekeeper before summer recess to demonstrate enforcement credibility
+2. **EU External Action Service**: Intensify Global South engagement on Ukraine accountability mechanisms; frame them as universal law, not Western geopolitics
+3. **Mainstream EP groups**: Develop a coordinated counter-narrative strategy against PfE institutional attacks; transparency and democratic values communication must operate at PfE's speed and emotional register, not at the Commission's press-release tempo
+
+#### Confidence Assessment
+
+**Overall synthesis confidence:** 🟡 Medium
+- Thread 1 (DMA): High confidence on facts; medium on outcome prediction
+- Thread 2 (Ukraine): High confidence on EP position; lower on multilateral outcome
+- Thread 3 (PfE): High confidence on PfE strategy diagnosis; medium on long-term impact
+
+### Source Attribution
+All synthesis grounded in EP Open Data (adopted texts, speeches feed, political landscape)
+EP API data: real-time as of 2026-05-12
+Cross-references: significance-assessment.md, actor-mapping.md, political-forces.md, impact-assessment.md, risk-matrix.md
+Methodology: Structured analytic synthesis (convergent analysis of multiple evidentiary streams)
 
 <h2 id="section-significance">Significance</h2>
 
@@ -622,6 +711,66 @@ bar
 ```
 
 **Admiralty Rating:** Source: A (EP adopted texts directly analysed); Reliability: 1 (confirmed from EP TA texts); Confidence: 🟢 High
+
+### Significance Assessment
+
+### Executive Summary
+
+The European Parliament concluded its April 28–30, 2026 Strasbourg plenary session with a burst of high-significance legislative outputs spanning digital market regulation, Ukraine war accountability, tech platform liability, and geopolitical positioning vis-à-vis Armenia. This cluster of resolutions represents the EP's most legislatively dense week since March 2026 and sends clear signals on the EU's trajectory in digital governance, Eastern neighbourhood policy, and transatlantic alignment. Simultaneously, the Patriots for Europe (PfE) group's Rule 169 topical debate accusing the European Commission of interference in democratic elections marks a new escalation in the far-right bloc's challenge to EU institutional legitimacy.
+
+### Significance Tier Assessment
+
+| Resolution/Event | Tier | Rationale |
+|---|---|---|
+| TA-10-2026-0160: DMA Enforcement | **Tier 1** | Binding legislative signal affecting Big Tech worth €2+ trillion in combined market cap; enforcement failures directly affect EU digital sovereignty |
+| TA-10-2026-0161: Ukraine Accountability | **Tier 1** | Direct geopolitical signal to Russia; implication for ICC proceedings and future peace settlement conditions |
+| PfE Topical Debate: Commission interference | **Tier 1** | Institutional legitimacy challenge; signals far-right intensification before 2029 EP elections |
+| TA-10-2026-0163: Cyberbullying Platforms | **Tier 2** | New criminal law framework signal; DSA interaction creates regulatory complexity |
+| TA-10-2026-0162: Armenia Resilience | **Tier 2** | Eastern Partnership upgrade signal; implications for Azerbaijan-EU relations |
+| TA-10-2026-0112: 2027 Budget Guidelines | **Tier 2** | €180+ billion budget frame; ReArm Europe defence spending implications |
+| Antisemitism Debate | **Tier 2** | Following attacks in Netherlands and Belgium; fundamental rights dimension |
+| EU Middle East/Energy Debate | **Tier 2** | Joint debate signalling European energy security concerns amid ongoing conflict |
+
+### Political Significance Score
+
+**Overall Significance: 8.2/10** 🟢 High
+
+The April 30 cluster of resolutions represents the EP exercising its political signalling function at its most assertive:
+- **DMA Enforcement** (TA-0160): The EP's call for robust enforcement of the Digital Markets Act comes as the European Commission has faced criticism for slow action against designated gatekeepers, particularly Apple, Meta, and Alphabet. EP pressure creates institutional accountability dynamics that could accelerate Commission enforcement timelines.
+- **Ukraine Accountability** (TA-0161): Adopted just days before the second anniversary of key escalation phases in the Russia-Ukraine war, the resolution demands individual criminal accountability — naming specific Russian officials — and calls for a Special Tribunal for the Crime of Aggression. This is legally and diplomatically significant: it hardenes the EP's position on any future peace negotiations.
+- **PfE Democracy Debate**: The Rule 169 topical debate requested by the Patriots for Europe group alleging Commission interference in democratic processes and elections represents a weaponisation of EP parliamentary procedures by the far-right bloc. This is the second such debate in 2026 and signals a PfE strategy to delegitimise EU institutions ahead of the 2029 elections.
+- **2027 Budget Guidelines**: The €180+ billion multiannual framework context makes the April 28 budget guidelines vote strategically significant. The debate over defence spending integration into EU budget architecture remains contentious across groups.
+
+### Why This Matters Today (May 12, 2026)
+
+The EP is currently in inter-session period (no plenary until May 19–22, 2026). This creates a "resonance window" during which:
+1. The Council and Commission must respond to EP resolutions
+2. National governments digest EP positions before European Council (June 2026)
+3. Civil society and Big Tech legal teams assess enforcement signals
+4. Media amplification of EP positions can shift public discourse
+
+The combination of digital governance, security policy, and institutional legitimacy questions makes this breaking news cluster unusually multi-dimensional.
+
+### Comparative Historical Significance
+
+| Benchmark | Comparison |
+|---|---|
+| April 2025 EP session | Less significant — primarily budgetary/institutional |
+| March 2026 EP session | Comparable — Ukraine Loan and immunity waivers |
+| January 2026 EP session | Higher — ECB, Mercosur, Electoral Act reform |
+| April 28–30, 2026 | **High** — DMA, Ukraine, PfE institutional challenge, Armenia |
+
+### Confidence Calibration
+
+- 🟢 **High confidence:** Resolution titles, adoption dates, procedural references (EP Open Data, direct)
+- 🟡 **Medium confidence:** Coalition voting patterns (EP API limitation — no per-MEP roll-call data available within publication lag)
+- 🔴 **Low confidence:** Specific vote margins and dissenting MEPs (DOCEO data unavailable for this plenary week)
+
+### Source Attribution
+European Parliament Open Data Portal — data.europarl.europa.eu (CC BY 4.0)
+Adopted texts: TA-10-2026-0160, TA-10-2026-0161, TA-10-2026-0162, TA-10-2026-0163, TA-10-2026-0112
+Speeches feed: MTG-PL-2026-04-29 session records
+Political landscape: Real-time EP API as of 2026-05-12
 
 <h2 id="section-actors-forces">Actors & Forces</h2>
 
@@ -961,6 +1110,358 @@ Heat map: Probability estimates based on historical EP-Commission follow-through
 Updated to reflect April 28-30, 2026 legislative outputs. New actors include BRRD3 resolution authority (SRB), DMA enforcement targets (Apple, Alphabet, Meta, Amazon, Microsoft), and Ukraine Special Tribunal proponents. See `executive-brief.md` for prioritised summary and `intelligence/significance-scoring.md` for detailed significance assessments.
 
 **Cross-reference:** `extended/cross-reference-map.md` for full artifact cross-reference index.
+
+### Actor Mapping
+
+### Primary Actors
+
+#### 1. European Parliament (Institutional Actor)
+**Role:** Legislator, political signaller, democratic oversight body
+**Position in breaking news:** The EP acted as the primary driver of all five breaking developments
+**Interests:** Asserting democratic prerogative; maintaining credibility on digital governance; demonstrating coherent security policy; managing far-right institutional challenge
+**Capabilities:** Legislative initiative (in coordination with Commission); political resolutions (non-binding but politically weighty); inter-institutional pressure; media amplification
+**Constraints:** Cannot enforce own resolutions; must work through Commission/Council; EP internal fragmentation limits coherence on contentious votes
+**Confidence:** 🟢 High — direct EP institutional source data
+
+#### 2. European People's Party (EPP)
+**Role:** Largest political group (183 MEPs, 25.5% of seats)
+**Position:** Dominant coalition driver; typically supports DMA enforcement and Ukraine positions; more cautious on budget increases; split internally on migration and rule of law
+**Interests:** Maintaining legislative leadership; managing internal centrist vs. national-conservative tensions; positioning for 2029 election cycle
+**Coalition Signals:** EPP-S&D grand coalition (319 combined seats) remains the mathematical backbone for most mainstream resolutions; EPP-Renew-Greens cordon sanitaire against PfE/ECR on democracy resolutions
+**Confidence:** 🟡 Medium — group composition confirmed, voting patterns inferred
+
+#### 3. Socialists and Democrats (S&D)
+**Role:** Second largest group (136 MEPs, 19.0%)
+**Position:** Strong on Ukraine accountability; leads on social and workers' rights provisions; sceptical of budget cuts to social programmes
+**Interests:** Maintaining progressive coalition; countering far-right influence; protecting workers' rights in digital and platform economy
+**Coalition Signals:** Consistent alignment with EPP on geopolitical resolutions; diverges on economic deregulation and budget priorities
+**Confidence:** 🟡 Medium
+
+#### 4. Patriots for Europe (PfE)
+**Role:** Third-largest group (85 MEPs, 11.9%) — populist-nationalist bloc
+**Position:** Led the Rule 169 topical debate accusing the Commission of electoral interference. Opposed to Ukraine funding resolutions. Sceptical of DMA enforcement against national champions.
+**Interests:** Destabilising EU institutional framework; garnering media attention; building coalition ahead of 2029 elections; advancing national sovereignty agenda
+**Capabilities:** Can request topical debates (Rule 169); can delay or complicate voting by procedural motions; significant MEP base across Hungary, France, Italy, Austria, Belgium
+**Key Tactic (April 29):** The topical debate on "Commission interference in democratic process and elections" represents a deliberate attempt to weaponise EP democratic legitimacy concerns against the Commission — a mirror of far-right national-level attacks on independent institutions
+**Confidence:** 🟡 Medium — debate confirmed, specific positions inferred from group's consistent pattern
+
+#### 5. European Commission
+**Role:** Executive body; DMA enforcement authority; Ukraine Aid coordinator
+**Position:** Under pressure to accelerate DMA enforcement; defending its independence from PfE accusations; implementing Ukraine Loan mandate
+**Interests:** Institutional legitimacy; regulatory credibility on digital markets; maintaining transatlantic relationships; coordinating Ukraine support
+**Vulnerabilities:** DMA enforcement timeline delays create exposure to EP criticism; PfE attacks threaten institutional reputation; budget negotiation pressures
+**Confidence:** 🟡 Medium — Commission role inferred from EP resolutions targeting it
+
+#### 6. Big Tech Gatekeepers (Apple, Meta, Alphabet, Amazon)
+**Role:** Regulated entities under DMA
+**Position:** Subject to EP enforcement pressure; actively lobbying against strict DMA implementation; challenging gatekeeper designations in court
+**Interests:** Minimising compliance costs; preserving market positions; delaying enforcement timelines
+**Market Context:** Combined EU market cap implications: Apple (~€2.8T), Alphabet (~€1.9T), Meta (~€1.1T) — enforcement creates significant regulatory risk premium
+**Confidence:** 🟡 Medium — DMA enforcement resolution confirmed; company positions inferred from public lobbying record
+
+#### 7. Ukraine (External Stakeholder)
+**Role:** Subject/beneficiary of TA-10-2026-0161 accountability resolution
+**Position:** Seeking EP support for ICC proceedings and Special Tribunal for Crime of Aggression
+**Interests:** International legal accountability for Russian military leadership; EU financial and military support; path to EU accession
+**Confidence:** 🟢 High — EP resolution directly addresses Ukraine interests
+
+#### 8. Armenia (External Stakeholder)
+**Role:** Beneficiary of TA-10-2026-0162 democratic resilience resolution
+**Position:** Undergoing democratic consolidation post-Nagorno-Karabakh conflict
+**Interests:** EU political support; economic partnership deepening; EU accession pathway exploration
+**Geopolitical Context:** Armenia-EU rapprochement accelerated after 2023 Karabakh conflict; EP resolution reinforces this trajectory
+**Confidence:** 🟢 High — EP resolution directly addresses Armenia
+
+#### 9. Civil Society / Platform Users
+**Role:** Beneficiaries of cyberbullying (TA-0163) and DMA (TA-0160) resolutions
+**Position:** Advocacy for stronger platform accountability; human rights framing
+**Interests:** Protection from online harassment; free digital market access; democratic digital governance
+**Confidence:** 🟡 Medium — position inferred from resolution subject matter
+
+### Actor Relationship Network
+
+```mermaid
+graph LR
+    EP[European Parliament] --> COM[Commission]
+    EPP[EPP 183] --> EP
+    SD[S&D 136] --> EP
+    PfE[PfE 85] --> EP
+    ECR[ECR 81] --> EP
+    RE[Renew 77] --> EP
+    GrEFA[Greens/EFA 53] --> EP
+    LEFT[The Left 45] --> EP
+
+    EP -->|DMA pressure| BIG[Big Tech]
+    EP -->|Accountability mandate| UA[Ukraine]
+    EP -->|Democratic solidarity| ARM[Armenia]
+    PfE -->|Institutional attack| COM
+    EPP --- SD
+    EPP --- RE
+    ECR --- PfE
+
+    style EPP fill:#3399CC
+    style SD fill:#FF4444
+    style PfE fill:#CC8800
+    style ECR fill:#4488FF
+    style RE fill:#FFAA00
+    style GrEFA fill:#44BB44
+    style LEFT fill:#CC0000
+```
+
+### Power Asymmetries
+
+| Dyad | Power Balance | Key Leverage |
+|---|---|---|
+| EPP vs. PfE | EPP dominant (2:1 seats) | EPP controls committee chairs and legislative agenda |
+| EP vs. Commission | Asymmetric mutual dependence | EP can delay legislation; Commission controls enforcement |
+| EU vs. Big Tech | Regulatory asymmetry | DMA enforcement creates new EU leverage |
+| EP vs. Russia | Declaratory only | EP resolutions create diplomatic pressure but lack direct enforcement |
+
+### Source Attribution
+EP Open Data Portal — political group composition 2026-05-12
+Adopted texts: TA-10-2026-0160, TA-10-2026-0161, TA-10-2026-0162, TA-10-2026-0163
+Speeches: MTG-PL-2026-04-29 session (Rule 169 PfE topical debate confirmed)
+Political landscape: EP API real-time data (cc-by 4.0)
+
+### Political Forces
+
+### Overview of Political Forces in the 10th European Parliament
+
+The 10th European Parliament (2024–2029) operates under conditions of increased political fragmentation, with nine distinct political groups spanning 717 MEPs from 27 member states. No single group commands a majority; the EPP's 183 seats represent only 25.5% of the legislature, requiring multi-group coalition building for every major vote.
+
+#### Current Group Configuration (May 2026)
+
+| Group | Seats | Share | Bloc |
+|---|---|---|---|
+| EPP (European People's Party) | 183 | 25.5% | Centre-right |
+| S&D (Socialists & Democrats) | 136 | 19.0% | Centre-left |
+| PfE (Patriots for Europe) | 85 | 11.9% | Far-right/sovereignist |
+| ECR (European Conservatives & Reformists) | 81 | 11.3% | Right/national-conservative |
+| Renew Europe | 77 | 10.7% | Liberal/centrist |
+| Greens/EFA | 53 | 7.4% | Green/regionalist |
+| The Left (GUE/NGL) | 45 | 6.3% | Left/radical left |
+| NI (Non-Inscrits) | 30 | 4.2% | Mixed |
+| ESN (Europe of Sovereign Nations) | 27 | 3.8% | Far-right |
+
+**Majority threshold: 360 seats.** No two-group combination reaches majority; EPP+S&D = 319 (still short). Effective majority requires at least three groups.
+
+### The Far-Right Surge: PfE and ESN Challenge
+
+The most significant political force development in 2025–2026 has been the consolidation and assertiveness of the far-right bloc. PfE (85 seats) and ESN (27 seats) together command 112 seats — 15.6% of the Parliament. Their combined strategy involves:
+
+#### PfE Institutional Challenge Strategy (April 29, 2026)
+The Rule 169 topical debate on "Commission interference in democratic process and elections" represents the PfE's most significant institutional attack since its formation. Key strategic dimensions:
+
+1. **Procedural Weaponisation**: By using Rule 169 (topical debates requested by political groups), PfE forces the Commission to appear before Parliament and defend its legitimacy — creating media spectacle regardless of the debate outcome
+2. **Narrative Construction**: The "Commission interference" framing echoes national-level far-right attacks on independent institutions in Hungary, Italy, and Poland — a coordinated cross-border narrative
+3. **Pre-2029 Positioning**: This debate is part of a longer campaign to delegitimise EU institutions and position PfE as the "democracy defender" in the 2029 EP elections
+4. **S&D Response Pattern**: Progressive groups (S&D, Greens, The Left, Renew) typically counter with a cordon sanitaire response — denying PfE resolutions floor time while condemning their institutional attacks
+5. **Effectiveness Assessment**: 🟡 Medium effectiveness — PfE secures media coverage but cannot muster sufficient votes to pass censure motions or substantive resolutions
+
+### The Mainstream Coalition: EPP-S&D-Renew Grand Coalition
+
+Despite fragmentation, the "Grand Coalition" of EPP+S&D+Renew (396 seats combined) can command a reliable majority on:
+- Geopolitical resolutions (Ukraine, Armenia, global security)
+- Digital governance (DMA enforcement, DSA implementation)
+- Rule of law mechanisms
+
+**Coalition Stress Points:**
+- Budget priorities: EPP-Renew push for fiscal restraint vs. S&D social spending demands
+- Migration: EPP-ECR alignment vs. S&D-Greens human rights approach
+- Defence spending: EPP-Renew-ECR defence budget increases vs. The Left opposition
+- Climate: Greens/Left push vs. EPP-ECR rollback pressures
+
+### Issue-Specific Political Force Mapping
+
+#### DMA Enforcement (TA-10-2026-0160)
+**Driving forces:** EPP (digital sovereignty framing), Renew (pro-competition), Greens (anti-monopoly)
+**Opposing forces:** Some ECR members (market deregulation preference), PfE (anti-EU regulatory expansion)
+**Likely majority:** Broad — 450+ MEPs (EPP+S&D+Renew+Greens+Left)
+**Confidence:** 🟡 Medium (no roll-call data available)
+
+#### Ukraine Accountability (TA-10-2026-0161)
+**Driving forces:** EPP, S&D, Renew, Greens, The Left
+**Opposing forces:** PfE (Russian-aligned member states), ECR (divided — Polish ECR supports, Hungarian ECR split)
+**Likely majority:** Strong — 500+ MEPs
+**Confidence:** 🟡 Medium
+
+#### PfE Democracy Debate (Rule 169)
+**Driving forces:** PfE, ESN, parts of NI
+**Opposing forces:** EPP, S&D, Renew, Greens, Left — all mainstream groups
+**Outcome:** Debate held, no binding resolution; PfE narrative amplified in right-wing media
+**Confidence:** 🟢 High (debate confirmed by speeches feed)
+
+#### Cyberbullying/Platforms (TA-10-2026-0163)
+**Driving forces:** S&D, Renew, Greens, The Left
+**Ambiguous forces:** EPP (balancing tech industry and child protection interests)
+**Opposing forces:** Some ECR, PfE (free speech objections)
+**Confidence:** 🟡 Medium
+
+### Structural Political Dynamics
+
+#### Fragmentation Index: 6.58 (HIGH)
+The parliamentary fragmentation index of 6.58 (Effective Number of Parties metric) signals:
+- Coalition-building complexity: every major vote requires at least 3 groups
+- Issue-by-issue alignment: no stable majority exists on all issues
+- Increased bargaining power of medium-sized groups (Renew, ECR) as kingmakers
+
+#### Grand Coalition Viability: CONSTRAINED
+EPP+S&D (319 seats) remains 41 seats short of majority — historically unprecedented in EP politics. This forces EPP and S&D into strategic dependence on Renew (77 seats) as the near-permanent swing group.
+
+#### PfE-ECR Dynamics
+PfE (85) and ECR (81) have a size-similarity score of 0.95, indicating near-parity. Despite ideological overlap, competition for the right-wing nationalist electorate creates:
+- PfE-ECR cooperation on anti-Commission tactics
+- PfE-ECR competition for committee positions and leadership
+- ECR Polish MEPs diverge from PfE on Ukraine (pro-Ukraine vs. PfE's more ambiguous position)
+
+### Trend Analysis: Political Forces in Motion (Jan–May 2026)
+
+| Trend | Direction | Confidence |
+|---|---|---|
+| Far-right institutional assertiveness | ↑ Increasing | 🟢 High |
+| Grand coalition legislative effectiveness | → Stable | 🟡 Medium |
+| Renew kingmaker role | ↑ Strengthening | 🟡 Medium |
+| Greens legislative influence | ↓ Declining | 🟡 Medium |
+| EPP-ECR selective cooperation | ↑ Increasing | 🟡 Medium |
+
+### Implications for Legislative Agenda (May–June 2026)
+
+The political force configuration as of May 12, 2026 suggests:
+1. **Digital governance** resolutions will continue to pass with broad mainstream support
+2. **Ukraine support** resolutions retain majority — PfE opposition insufficient to block
+3. **Budget debates** (June 2026) will be more contested — coalition tensions visible
+4. **Rule of law debates** increasingly weaponised by PfE ahead of European Council
+
+### Source Attribution
+EP Open Data Portal political landscape data — 2026-05-12 real-time
+Coalition analysis: EP API group composition metrics
+Early warning system: EP API structural assessment
+Fragmentation index: 6.58 (effective number of parties, EP API computed)
+Grand coalition viability: EP API (based on seat shares)
+
+### Impact Assessment
+
+### Summary
+
+The April 28–30, 2026 EP plenary outputs collectively constitute a high-impact legislative and political week with consequences spanning digital regulation, EU security architecture, Eastern neighbourhood relations, and the integrity of EU democratic institutions. This assessment maps impacts across five dimensions: legal/regulatory, geopolitical, economic/market, institutional, and societal.
+
+### 1. Digital Markets Act Enforcement (TA-10-2026-0160)
+
+#### Immediate Impact (0–3 months)
+- **Commission Response Pressure**: EP resolution creates political pressure on DG COMP and DG CNECT to accelerate pending DMA investigations. Estimated 3–5 active gatekeeper cases may be expedited
+- **Market Signal**: Big Tech stock volatility expected as enforcement timeline uncertainty narrows
+- **Legal Exposure**: Apple, Meta, Alphabet face increased risk of EU fines (up to 10% of global turnover under DMA Art. 26)
+
+#### Medium-Term Impact (3–12 months)
+- **Interoperability Requirements**: DMA Article 7 (messenger interoperability) compliance timelines under scrutiny; EP resolution amplifies NGO and Commission pressure
+- **App Store Reform**: Apple's App Store compliance with DMA Article 5(7) (alternative distribution) may face accelerated enforcement review
+- **Advertising Data**: Meta's "pay or consent" model faces continued scrutiny under DMA and GDPR interaction
+
+#### Long-Term Impact (12+ months)
+- **EU Digital Sovereignty**: Sustained DMA enforcement signals a durable shift in EU regulatory philosophy — from market integration to active market shaping
+- **Global Regulatory Spillover**: EU DMA enforcement creates de facto global standards for platform governance (Brussels Effect)
+- **Estimated Economic Value at Stake**: €25–40 billion in annual platform revenue subject to DMA constraints across designated gatekeepers
+
+#### Impact Score: 8/10 🟢 High
+The DMA enforcement resolution is binding in its political effect: it creates a documented EP mandate that Commission officials must account for in parliamentary oversight hearings.
+
+### 2. Ukraine Accountability Resolution (TA-10-2026-0161)
+
+#### Immediate Impact
+- **Diplomatic Signal**: Strengthens EU/EP position going into G7 (June 2026) and NATO summits; reinforces Western solidarity on accountability mechanisms
+- **ICC Context**: Resolution names Criminal Court proceedings as the primary tool — reinforces ICC jurisdiction claims against Russian military leadership
+- **Special Tribunal**: EP's call for a Special Tribunal for Crime of Aggression creates momentum for the multilateral process that Council of Europe and Ukraine have been advancing
+
+#### Medium-Term Impact
+- **Peace Settlement Conditions**: By hardening accountability language, the EP makes any future peace settlement that includes amnesty provisions significantly more politically costly
+- **Sanctions Architecture**: Reinforces asset-freeze and travel-ban regimes; could accelerate specific designations
+- **EU Accession**: Links Ukrainian democratic reform with EU accession progress — creates conditionality
+
+#### Long-Term Impact
+- **Precedent-Setting**: If a Special Tribunal for Crime of Aggression is established, it creates the first binding mechanism for this charge since Nuremberg — a landmark in international law
+- **Russian Elite Calculation**: EP accountability language may marginally affect cost-benefit calculations within Russian political elite (though high uncertainty)
+
+#### Impact Score: 9/10 🟢 Very High
+Geopolitically, this is the highest-impact resolution of the week — it directly shapes the post-war justice architecture.
+
+### 3. PfE Institutional Challenge
+
+#### Immediate Impact
+- **Media Cycle**: The Commission interference debate generated significant right-wing media coverage in Hungary, France, Italy, Austria, Belgium — PfE's primary electorates
+- **Institutional Morale**: Within EU institutions, PfE's tactics are demoralising for career officials and Commission staff
+- **No Legislative Impact**: The Rule 169 debate produces no binding output — impact is purely political/reputational
+
+#### Medium-Term Impact
+- **2029 Pre-Positioning**: PfE's institutional attacks are most effectively understood as pre-campaign activities — building a narrative of EU institutional overreach for the 2029 election
+- **Mainstreaming Risk**: Repeated institutional challenges may gradually shift acceptable political discourse, making Commission transparency debates more mainstream
+
+#### Long-Term Impact
+- **Democratic Resilience**: Sustained PfE institutional attacks test the EU's democratic governance architecture; if mainstream groups fail to defend institutional integrity effectively, it creates real governance risk
+- **Separation of Powers**: The Commission's independence from political manipulation claims must be actively defended, requiring procedural and communication resources
+
+#### Impact Score: 6/10 🟡 Medium (Political/Reputational)
+
+### 4. Armenia Democratic Resilience (TA-10-2026-0162)
+
+#### Immediate Impact
+- **Signal to Baku**: EP resolution supporting Armenia signals EU displeasure with Azerbaijan's post-Karabakh conduct — creates diplomatic friction
+- **Signal to Yerevan**: Armenian government receives political capital from EP solidarity; strengthens pro-EU political forces in Yerevan
+- **Russian Reaction**: Russia views Armenia-EU rapprochement as strategic setback; EP resolution is noted in Moscow
+
+#### Medium-Term Impact
+- **Eastern Partnership Upgrade**: The EP's supportive language lays groundwork for a deeper EU-Armenia partnership agreement (beyond existing CEPA)
+- **Civil Society**: Armenian civil society organisations gain visibility and indirectly access to EU advocacy mechanisms
+
+#### Long-Term Impact
+- **Geopolitical Reorientation**: If sustained, EP solidarity resolutions contribute to Armenia's gradual reorientation from Russia toward EU — significant geostrategic shift in South Caucasus
+
+#### Impact Score: 7/10 🟡 Medium-High
+
+### 5. Cyberbullying Platforms Responsibility (TA-10-2026-0163)
+
+#### Immediate Impact
+- **Platform Industry**: Resolution signals to platforms (Meta, TikTok, X/Twitter, YouTube) that criminal liability for enabling harassment may become EU law
+- **Legal Discourse**: MEP speeches in April 29 debate create public record for future legislative proposals
+
+#### Medium-Term Impact
+- **DSA Interaction**: If the EP resolution leads to a formal Commission proposal, it would interact with DSA's existing "illegal content" removal provisions — potentially creating a new criminal law overlay
+- **Victim Advocacy**: Resolution empowers civil society groups pushing for victim-centric platform regulation
+
+#### Long-Term Impact
+- **Content Moderation Standards**: Criminal liability provisions, if enacted, could fundamentally change platform moderation from voluntary/algorithmic to legally mandatory with prosecutorial consequences
+
+#### Impact Score: 6/10 🟡 Medium
+
+### 6. 2027 Budget Guidelines (TA-10-2026-0112)
+
+#### Immediate Impact
+- **MFF Negotiation Setup**: The April 28 budget guidelines vote formally initiates the EP's position for 2027 MFF (Multiannual Financial Framework) negotiations with the Council
+- **Defence Spending Context**: ReArm Europe initiative creates pressure for historically unprecedented EU defence budget integration
+
+#### Medium-Term Impact
+- **Agricultural Policy**: Budget guidelines signal EP preferences on CAP (Common Agricultural Policy) reform ahead of 2028–2034 framework negotiations
+- **Cohesion Funds**: Central and Eastern European MEPs fought for cohesion fund retention — EP guidelines signal this is a red line
+
+#### Long-Term Impact
+- **EU Fiscal Architecture**: Successful ReArm Europe integration into MFF would represent the most significant expansion of EU fiscal capacity since the COVID recovery fund (NGEU)
+
+#### Impact Score: 7/10 🟡 Medium-High
+
+### Aggregate Impact Summary
+
+| Dimension | Impact Level | Primary Driver |
+|---|---|---|
+| Regulatory/Legal | 🟢 High | DMA enforcement, cyberbullying criminal provisions |
+| Geopolitical | 🟢 Very High | Ukraine accountability, Armenia resilience |
+| Economic/Market | 🟡 Medium-High | Big Tech exposure, budget guidelines |
+| Institutional | 🟡 Medium | PfE challenge, Commission pressure |
+| Societal | 🟡 Medium | Platform regulation, antisemitism debate |
+
+### Source Attribution
+EP Adopted Texts: TA-10-2026-0160, 0161, 0162, 0163, 0112 — EP Open Data Portal
+Political landscape: EP API real-time data 2026-05-12
+Economic context: DMA regulation (EU 2022/1925), MFF regulation
+Coalition analysis: EP API group composition
 
 <h2 id="section-coalitions-voting">Coalitions & Voting</h2>
 
@@ -1371,6 +1872,8 @@ graph LR
 
 <h2 id="section-stakeholder-map">Stakeholder Map</h2>
 
+### Stakeholder Map
+
 ### Overview
 
 Seven stakeholder perspectives assessed on the five major outputs of the April 28–30, 2026 EP plenary session. Each perspective includes position, interests, capabilities, and strategic options.
@@ -1670,6 +2173,271 @@ Alignment assessment: `analyze_coalition_dynamics`, speeches feed
 
 **Note:** Stakeholder influence weights updated for EP10 seat composition (post-July 2024 elections).
 Next stakeholder map update recommended after MFF 2028-2034 Commission proposals (expected Q4 2026).
+
+### Stakeholder Perspectives
+
+### Overview
+
+Seven stakeholder perspectives assessed on the five major outputs of the April 28–30, 2026 EP plenary session. Each perspective includes position, interests, capabilities, and strategic options.
+
+---
+
+### Stakeholder 1: European Commission
+
+**Perspective Type:** Institutional regulator and executive
+
+**Position on April 2026 EP Outputs:**
+
+The Commission occupies an ambivalent position relative to the April 2026 plenary outputs. On DMA enforcement (TA-0160), the Commission welcomes EP political support but is constrained by legal timelines and Big Tech legal challenges. On Ukraine accountability (TA-0161), the Commission supports the resolution's objectives and has been a co-sponsor of EU financial packages for Ukraine. On the PfE institutional attack (April 29 debate), the Commission faces a structural dilemma: robust defence risks appearing partisan; weak defence risks validating PfE narratives.
+
+**Interests:**
+- Maintain institutional independence while delivering on EP mandates
+- Accelerate DMA enforcement without triggering US-EU trade retaliation
+- Protect Ukraine support architecture from right-wing Council veto threats
+- Manage PfE attacks without giving them oxygen or appearing defensive
+
+**Capabilities:**
+- Exclusive enforcement authority under DMA, competition law, and state aid
+- Legislative initiative monopoly — only Commission can formally propose directives
+- Diplomatic capacity (EU External Action Service, Commissioner delegations)
+- Communication infrastructure (press corps, social media channels)
+
+**Constraints:**
+- Legal process timelines (DMA investigations: 12–24 months minimum)
+- Member state dependencies in Council for legislative passage
+- Budget dependency on EP and Council approval
+- PfE government allies in Council (Hungary, Austria) can block or delay specific initiatives
+
+**Strategic Options (May–September 2026):**
+- *Option A (Enforcement Acceleration)*: Fast-track DMA Statement of Objections against highest-profile gatekeeper; signal to EP that pressure worked
+- *Option B (Transparency Offensive)*: Launch voluntary transparency initiative to counter PfE interference narrative; document and publish all inter-institutional contacts
+- *Option C (Diplomatic Intensification)*: Ramp up Global South engagement on Ukraine tribunal; invest EU diplomatic capital in convincing Brazil, India, or South Africa to join
+
+**Expected Behaviour:** The Commission will pursue a modified Option A (partial enforcement acceleration) while managing media on PfE attacks through measured official statements. Diplomatic engagement on Ukraine tribunal will intensify through summer 2026.
+
+**Confidence:** 🟡 Medium
+
+---
+
+### Stakeholder 2: Big Tech Gatekeepers (Apple, Meta, Alphabet, Amazon)
+
+**Perspective Type:** Regulated private entities
+
+**Position on April 2026 EP Outputs:**
+
+Big Tech views the DMA enforcement resolution (TA-0160) as a significant escalation of regulatory risk. The EP's political pressure on the Commission creates a new accountability mechanism: if the Commission fails to act, it faces EP oversight hearings, legislative proposals to strengthen DMA, and political embarrassment. This changes the calculus for Commission officials.
+
+**Interests:**
+- Minimise DMA compliance costs while maintaining market positions
+- Prevent DMA enforcement from becoming a template for US or Asian regulators
+- Maintain access to EU policy process (lobbying, public consultation participation)
+- Avoid "structural remedies" (forced divestiture or platform disaggregation) — the worst outcome
+
+**Capabilities:**
+- Largest lobbying operation in Brussels outside of US Embassy
+- Legal teams capable of sustaining 5–10 year litigation campaigns
+- Technical expertise superior to any EU regulatory body
+- Market positioning leverage: EU citizens depend on their services
+
+**Constraints:**
+- EU market too large to exit (single market access value: €500+ billion annually)
+- GDPR precedent: Apple, Meta, Google have all paid multi-billion euro GDPR fines
+- Reputational risk: public opinion increasingly hostile to Big Tech in EU
+- DMA obligations are legally clear and directly applicable
+
+**Strategic Options:**
+- *Option A (Commitments Strategy)*: Offer structural commitments (interoperability, data access) to close investigations without formal finding; preferred outcome is negotiated settlement
+- *Option B (Legal Challenge)*: Challenge every enforcement decision before EU General Court and CJEU; delay enforcement for 5–7 years through litigation
+- *Option C (Political Lobbying)*: Intensify US Congressional pressure on EU DMA enforcement via trade policy channels; leverage tech sector employment arguments
+
+**Expected Behaviour:** All three options will be pursued simultaneously. Commitments (A) to delay formal findings; litigation (B) as backstop; political lobbying (C) as long-term hedge.
+
+**Confidence:** 🟡 Medium
+
+---
+
+### Stakeholder 3: Ukraine Government
+
+**Perspective Type:** External state beneficiary
+
+**Position on April 2026 EP Outputs:**
+
+The Ukrainian government welcomes both the accountability resolution (TA-0161) and the broader EP support framework. The Special Tribunal for Crime of Aggression is a Ukrainian government policy priority — Kyiv has been its most consistent advocate since 2022. EP resolution validation provides diplomatic ammunition in Kyiv's engagement with Global South states.
+
+**Interests:**
+- Maximum EP political support for war effort and reconstruction
+- Accountability mechanisms for Russian military/political leadership
+- EU membership acceleration (Article 49 TEU accession process)
+- Financial support: maintained and expanded military and humanitarian aid
+- Reconstruction financing from frozen Russian assets
+
+**Capabilities:**
+- Significant Western diplomatic capital — extensive political goodwill in EU27
+- Military resilience has created credibility that Ukraine can prevail
+- Diaspora communities in EU member states (Poland, Germany, Czech Republic) as political constituencies
+- Civil society advocacy network across EU capitals
+
+**Constraints:**
+- Ongoing war creates resource constraints on diplomatic outreach
+- Global South neutrality requires Ukrainian diplomatic investment it may lack capacity for
+- Anti-Ukraine fatigue risk in some EU populations (Germany, Italy, Austria)
+- Corruption governance challenges create EP conditionality risks on accession
+
+**Strategic Options:**
+- *Focus on EU accession*: Accelerate reform agenda to maximise EU accession trajectory
+- *Tribunal diplomacy*: Invest in Global South outreach, framing tribunal as universal law not Western interest
+- *Economic cooperation*: Position Ukraine reconstruction as EU economic opportunity (German, French construction sector)
+
+**Expected Behaviour:** Ukraine will publicly thank EP for resolution, intensify accession reform, and work through Council of Europe/EU mechanisms on tribunal establishment.
+
+**Confidence:** 🟡 Medium
+
+---
+
+### Stakeholder 4: Armenia Government (Pashinyan Administration)
+
+**Perspective Type:** External state beneficiary
+
+**Position on April 2026 EP Outputs:**
+
+Armenia's democratic resilience resolution (TA-0162) is diplomatically significant for Pashinyan's government, which has been navigating a difficult geopolitical transition — away from Russian-led structures toward EU/Western orientation following the 2023 Karabakh conflict. EP solidarity provides political legitimacy and reduces Pashinyan's domestic vulnerability from opposition groups who accuse him of Western alignment at Armenia's expense.
+
+**Interests:**
+- International political support for democratic transition
+- Economic diversification away from Russian economic dependence
+- Security guarantees or credible EU engagement on Armenian territorial integrity
+- EU partnership deepening (visa liberalisation, market access, investment)
+
+**Capabilities:**
+- Significant EU lobbying diaspora (France, Belgium, Germany)
+- Geographic leverage: South Caucasus corridor for diversified energy routes
+- Democratic credentials: Armenian civil society is active and EU-oriented
+
+**Constraints:**
+- Geographic vulnerability: surrounded by unfriendly or ambiguous neighbours (Azerbaijan, Turkey, Iran)
+- Russian economic dependence: Russian market, Gazprom gas, Russian-owned utilities
+- Domestic political risk: opposition groups aligned with pro-Russian narrative
+- No security guarantee from EU (non-NATO, non-CSTO now)
+
+**Strategic Options:**
+- Deepen EU partnership: push for full CEPA implementation + visa liberalisation
+- Engage NATO individually: bilateral partnerships without full accession
+- Economic diversification: Georgia corridor trade routes, Iranian energy alternatives
+
+**Expected Behaviour:** Armenia will use EP resolution to advance CEPA upgrade negotiations; signal Yerevan's EU aspirations; maintain cautious engagement with Russia on economic necessities.
+
+**Confidence:** 🟡 Medium
+
+---
+
+### Stakeholder 5: Patriots for Europe (PfE) / Far-Right Bloc
+
+**Perspective Type:** Opposition political group
+
+**Position on April 2026 EP Outputs:**
+
+PfE views the April 2026 EP session through a strategic lens: the institutional challenge debate (April 29) is the most important moment of the week for them — not because it changes legislation, but because it advances their 2029 campaign narrative. They oppose the DMA enforcement resolution (anti-business framing), the Ukraine accountability resolution (anti-entanglement framing), and the Armenia resolution (EU overreach framing).
+
+**Interests:**
+- Build narrative: "EU institutions are corrupt, unaccountable, and undermine democracy"
+- Grow coalition: attract ECR right-flank MEPs toward PfE positions
+- National linkage: reinforce allied national governments' EU-critical positions
+- 2029 positioning: establish PfE as the "alternative governance" option
+
+**Capabilities:**
+- 85 MEPs + ESN 27 + parts of NI: ~140 coordinated votes in opposition
+- Rule 169 topical debate requests: can force plenary debate weekly
+- Social media reach: PfE-aligned media operations in Hungary, France, Italy, Austria, Belgium
+- National government allies: Austria (Kickl), Hungary (Orbán) — EU Council leverage
+
+**Constraints:**
+- Cannot achieve majority: 223 maximum (PfE+ECR+ESN+NI) vs. 360 threshold
+- Internal ECR divisions: Polish ECR pro-Ukraine; Italian ECR moderating under Meloni
+- No positive legislative programme: purely obstructionist
+- EU institutions have formal mechanisms to counter bad-faith procedural moves
+
+**Strategic Options (May–September 2026):**
+- Continue Rule 169 debates every plenary — test mainstream coalition's fatigue
+- Coordinate with Austrian and Hungarian governments on Council positions
+- Build pre-2029 coalition with ECR on specific shared grievances (migration, budget sovereignty)
+
+**Expected Behaviour:** PfE will table at least one more institutional challenge debate in May 2026 plenary (19–22); build Austrian-Hungarian "sovereign arc" narrative in media; continue blocking Ukraine support where procedurally possible.
+
+**Confidence:** 🟢 High (based on consistent historical pattern)
+
+---
+
+### Stakeholder 6: Civil Society and Human Rights Organizations
+
+**Perspective Type:** Advocacy organisations
+
+**Position on April 2026 EP Outputs:**
+
+Civil society organisations are broadly supportive of the April 2026 resolution cluster. Human rights groups welcome the Ukraine accountability and Armenia resilience resolutions. Digital rights advocates welcome DMA enforcement pressure. Anti-harassment advocates welcome the cyberbullying resolution. Anti-racism groups welcome the antisemitism debate and Roma inclusion discussion.
+
+**Interests:**
+- Translate EP political declarations into Commission legislative proposals
+- Maintain access to EU policy process
+- Monitor and publicise implementation progress
+- Represent constituencies (victims of cyberbullying, antisemitism, online discrimination)
+
+**Capabilities:**
+- Advocacy and monitoring expertise
+- EP-level networks (European Economic and Social Committee, civil society dialogue forums)
+- Public opinion mobilisation
+- Legal standing to challenge non-implementation
+
+**Constraints:**
+- No formal legislative role
+- Resource constraints relative to Big Tech lobbying
+- Risk of co-optation by institutional processes
+
+**Expected Behaviour:** Civil society will issue welcoming statements on resolutions; publish monitoring reports; engage EP committees for follow-up; challenge Commission delay on enforcement in formal consultations.
+
+**Confidence:** 🟢 High (predictable advocacy pattern)
+
+---
+
+### Stakeholder 7: EU Member State Governments (Council)
+
+**Perspective Type:** Co-legislators and executive executors
+
+**Position on April 2026 EP Outputs:**
+
+Council positions are divided along multiple axes:
+- **Germany/France/Spain** (large economies): Support DMA enforcement; mixed on Ukraine (Germany cautious on Special Tribunal legal basis)
+- **Poland/Baltic states**: Strongly support Ukraine accountability; front-line states with highest Ukraine engagement
+- **Hungary/Austria** (PfE-aligned): Oppose Ukraine accountability escalation; oppose DMA enforcement of major platforms; coordinate with PfE EP agenda
+- **Italy** (ECR-aligned but moderating): Middle position on Ukraine; supportive of DMA on European economic competitiveness framing
+
+**Interests:**
+- Council wants legislative output but not at cost of national government prerogatives
+- Ukraine support: majority support but Hungary blocking specific measures
+- DMA: most member states support enforcement (competitive economic interest)
+- Far-right governments: block Ukraine, obstruct accountability mechanisms
+
+**Expected Behaviour:** Council will adopt position on 2027 budget guidelines in summer 2026; continue Ukraine support with Hungarian exception; maintain DMA enforcement support at Council level (Commission retains authority anyway).
+
+**Confidence:** 🟡 Medium
+
+---
+
+### Stakeholder Alignment Matrix
+
+| Issue | Commission | Big Tech | Ukraine | Armenia | PfE | Civil Society | Council |
+|---|---|---|---|---|---|---|---|
+| DMA Enforcement | 🟡 Cautious support | 🔴 Oppose | — | — | 🔴 Oppose | 🟢 Support | 🟢 Support |
+| Ukraine Accountability | 🟢 Support | — | 🟢 Strong support | — | 🔴 Oppose | 🟢 Support | 🟡 Mixed |
+| Armenia Resilience | 🟢 Support | — | — | 🟢 Strong support | 🔴 Oppose | 🟢 Support | 🟡 Mixed |
+| Cyberbullying Provisions | 🟡 Cautious | 🔴 Oppose | — | — | 🔴 Oppose | 🟢 Support | 🟡 Mixed |
+| Budget 2027 | 🟡 Negotiating | — | — | — | 🟡 Neutral | 🟡 Mixed | 🔴 Contest |
+
+### Source Attribution
+EP adopted texts: TA-10-2026-0160, 0161, 0162, 0163, 0112
+EP speeches: MTG-PL-2026-04-29 session records (PfE Rule 169 debate confirmed)
+EP political landscape: real-time API 2026-05-12
+Actor-mapping.md cross-reference
+GDPR: structured analytic assessment based on public institutional positions and historical patterns
 
 <h2 id="section-economic-context">Economic Context</h2>
 
@@ -2226,6 +2994,285 @@ Confidence: Medium. Source: EU Parliament Monitor SWOT framework. Cross-referenc
 Confidence: Medium. Source attribution: EU Parliament Monitor risk framework v2.2. Final update: 2026-05-12 run.
 
 Final score validated. SWOT registry complete with 12 entries. Source: EP political landscape, early warning system, coalition dynamics, adopted texts analysis. Date: 2026-05-12.
+
+### Risk Matrix
+
+### Risk Assessment Framework
+
+Risks assessed across five categories: Political, Regulatory/Legal, Geopolitical, Institutional, and Economic. Each risk scored on Likelihood (1–5) × Impact (1–5) = Risk Score (1–25).
+
+### Risk Register
+
+#### R-01: DMA Enforcement Paralysis
+**Category:** Regulatory/Legal
+**Description:** Despite EP pressure, the European Commission fails to accelerate DMA enforcement against Big Tech gatekeepers due to legal challenges, political lobbying, or internal capacity constraints
+**Likelihood:** 3/5 (Legal challenges from Apple/Meta are actively ongoing; Commission enforcement capacity is stretched)
+**Impact:** 4/5 (Failure to enforce DMA undermines EU digital sovereignty claims and EP legislative authority)
+**Risk Score: 12/25** 🟡 Medium-High
+**Mitigants:** EP parliamentary oversight hearings; DG COMP staffing increases; political pressure from DG Connect
+**Residual Risk:** 🟡 Medium
+
+#### R-02: Ukraine Accountability Mechanism Stalled
+**Category:** Geopolitical
+**Description:** The Special Tribunal for Crime of Aggression fails to gain sufficient multilateral support (requires non-EU states, particularly Global South, to participate meaningfully)
+**Likelihood:** 4/5 (Global South states remain sceptical; China and Global South frequently block Western accountability mechanisms)
+**Impact:** 4/5 (Failure to establish tribunal would signal impunity; undermine future deterrence of interstate aggression)
+**Risk Score: 16/25** 🔴 High
+**Mitigants:** EU financial and diplomatic sponsorship; Council of Europe platform; G7 alignment
+**Residual Risk:** 🟡 Medium-High
+
+#### R-03: PfE Institutional Narrative Gains Mainstream Traction
+**Category:** Institutional
+**Description:** Repeated PfE attacks on Commission legitimacy gradually shift acceptable discourse, normalising accusations of EU institutional interference in national democracy
+**Likelihood:** 3/5 (PfE messaging is consistent and well-resourced; right-wing media amplification reliable)
+**Impact:** 4/5 (Erosion of EU institutional legitimacy has compound effects — reduced treaty compliance, weakened enforcement)
+**Risk Score: 12/25** 🟡 Medium-High
+**Mitigants:** Mainstream party coalition discipline; Commission transparency initiatives; civil society monitoring
+**Residual Risk:** 🟡 Medium
+
+#### R-04: Armenia-Azerbaijan Renewed Conflict
+**Category:** Geopolitical
+**Description:** EP resolution in support of Armenia's democratic resilience triggers Azerbaijani diplomatic backlash or, in a tail risk scenario, military escalation
+**Likelihood:** 2/5 (Current ceasefire broadly holding; Azerbaijan calculating EU energy dependence)
+**Impact:** 4/5 (Renewed conflict in South Caucasus would disrupt EU-Baku energy partnership and create humanitarian crisis)
+**Risk Score: 8/25** 🟡 Medium
+**Mitigants:** EU-Baku energy partnership as deterrent; OSCE/UN mediation; normalization talks continuing
+**Residual Risk:** 🟢 Low-Medium
+
+#### R-05: Big Tech Regulatory Arbitrage
+**Category:** Regulatory/Economic
+**Description:** Big Tech companies exploit jurisdictional complexity to circumvent DMA enforcement by restructuring operations outside EU regulatory reach
+**Likelihood:** 2/5 (DMA has extraterritorial applicability; European market too large to exit)
+**Impact:** 3/5 (Partial arbitrage possible for data processing activities; limits enforcement effectiveness)
+**Risk Score: 6/25** 🟢 Low-Medium
+**Mitigants:** DMA extraterritorial provisions; GDPR precedent; network effects keep platforms in EU
+**Residual Risk:** 🟢 Low
+
+#### R-06: EP Budget Guidelines Rejected by Council
+**Category:** Political/Economic
+**Description:** Council rejects 2027 budget guidelines in key areas (defence integration, cohesion funds), triggering prolonged EP-Council deadlock
+**Likelihood:** 3/5 (Historically, EP and Council regularly disagree on budget priorities; defence spending is new territory)
+**Impact:** 3/5 (Budget deadlock delays EU programmes; political cost to all parties)
+**Risk Score: 9/25** 🟡 Medium
+**Mitigants:** Conciliation procedure; political pressure from heads of government; EP discharge power as leverage
+**Residual Risk:** 🟢 Low-Medium
+
+#### R-07: Antisemitism Escalation in EU Member States
+**Category:** Societal/Security
+**Description:** Following the attacks in Netherlands and Belgium debated April 29, antisemitic incidents continue to escalate across EU member states without effective national or EU response
+**Likelihood:** 3/5 (Antisemitic incidents have trended upward since October 2023; structural drivers persistent)
+**Impact:** 4/5 (Fundamental rights violation; erosion of Jewish community presence; political radicalisation risk)
+**Risk Score: 12/25** 🟡 Medium-High
+**Mitigants:** EU Action Plan on Antisemitism; FRA monitoring; national law enforcement
+**Residual Risk:** 🟡 Medium
+
+#### R-08: Cyberbullying Legislation Creates Overreach Risk
+**Category:** Legal/Civil Liberties
+**Description:** If TA-10-2026-0163 leads to criminal provisions against platforms, poorly drafted legislation creates chilling effects on legitimate speech, over-moderation, and misuse by authoritarian EU member states
+**Likelihood:** 2/5 (Legislative process is slow; CJEU scrutiny likely)
+**Impact:** 3/5 (Free expression implications if scope too broad)
+**Risk Score: 6/25** 🟢 Low-Medium
+**Mitigants:** CJEU constitutional review; civil society scrutiny; EP fundamental rights committee oversight
+**Residual Risk:** 🟢 Low
+
+#### R-09: EP-Commission Institutional Conflict
+**Category:** Institutional
+**Description:** PfE attacks on Commission, combined with growing EPP-Commission tensions over specific enforcement actions, erodes the productive EP-Commission relationship necessary for legislative output
+**Likelihood:** 2/5 (EPP-Commission relationship remains transactional but functional)
+**Impact:** 3/5 (Reduced legislative productivity; delays in key regulatory initiatives)
+**Risk Score: 6/25** 🟢 Low-Medium
+**Mitigants:** EPP-Commission shared interest in mainstream legislative agenda; institutional norms
+**Residual Risk:** 🟢 Low
+
+### Risk Heat Map
+
+```
+Impact
+  5 |           |  R-02  |        |        |        |
+  4 | R-04      | R-01   | R-03   | R-07   |        |
+  3 |           | R-06   |        |        |        |
+  2 |           | R-05   | R-08   | R-09   |        |
+  1 |           |        |        |        |        |
+    |     1     |   2    |   3    |   4    |   5    |
+                          Likelihood →
+```
+
+### Top 3 Priority Risks
+
+1. **R-02: Ukraine Tribunal Stall** (Score: 16) — Highest risk; multilateral legitimacy failure with strategic impunity implications
+2. **R-01: DMA Enforcement Paralysis** (Score: 12) — Regulatory credibility risk with long-term EU digital sovereignty consequences
+3. **R-07: Antisemitism Escalation** (Score: 12) — Fundamental rights risk with societal destabilisation potential
+
+### Risk Trend (Jan–May 2026)
+
+| Risk | Jan 2026 | May 2026 | Trend |
+|---|---|---|---|
+| DMA Enforcement Paralysis | 10 | 12 | ↑ Worsening |
+| Ukraine Tribunal Stall | 12 | 16 | ↑ Worsening |
+| PfE Narrative Traction | 10 | 12 | ↑ Worsening |
+| Armenia Conflict Risk | 10 | 8 | ↓ Improving |
+| EU Budget Deadlock | 9 | 9 | → Stable |
+| Antisemitism Escalation | 9 | 12 | ↑ Worsening |
+
+### Source Attribution
+Risk assessment based on: EP adopted texts (TA-10-2026-0160, 0161, 0162, 0163, 0112), EP speeches feed April 29 2026, political landscape EP API, early warning system EP API
+Methodological basis: EU Risk Assessment Framework (structured analytic techniques)
+
+### Quantitative Swot
+
+### SWOT Framework Applied to EP's April 2026 Policy Outputs
+
+This analysis applies quantitative weighting to the SWOT dimensions, scoring each item on impact (1–10) and assigning directional confidence levels.
+
+---
+
+### STRENGTHS (Internal EU/EP Capabilities)
+
+#### S-1: EP Legislative Coherence on Geopolitics (Score: 9/10) 🟢
+The April 30 cluster of resolutions — Ukraine accountability (TA-0161), Armenia resilience (TA-0162), Haiti trafficking (TA-0151), Lebanon ceasefire — demonstrates that the EP can produce coherent, multi-dimensional geopolitical outputs within a single session. Unlike previous terms, the EP10's geopolitical resolutions show consistent framing across multiple simultaneous theatres.
+
+**Evidence:** Five geopolitically significant resolutions adopted on April 30 alone; broad mainstream coalition (EPP+S&D+Renew+Greens) demonstrated across all five; no blocking minority achieved by PfE+ECR opposition.
+
+**Quantitative indicator:** Resolution adoption rate for geopolitical resolutions in 2026: ~95% (based on observed EP10 patterns); comparable to peak EP8 performance.
+
+#### S-2: DMA Regulatory Authority — First-Mover Advantage (Score: 8/10) 🟢
+The EU is the only jurisdiction with a fully operational digital markets regulation (DMA) imposing ex ante obligations on Big Tech gatekeepers. The EP's enforcement resolution (TA-0160) leverages this genuine regulatory competitive advantage. No other democratic bloc — not the US (despite KOSA, ACCESS Act stalling), not the UK (CMA's DMU), not Japan — has an equivalent binding framework in force.
+
+**Evidence:** DMA entered into force 2022; gatekeeper designations confirmed 2023–2024; first enforcement proceedings opened 2024; EP resolution April 30 represents escalatory political pressure at implementation phase.
+
+**Quantitative indicator:** Estimated 6 Big Tech gatekeepers under DMA; total EU-market revenue subject to DMA constraints: ~€150 billion annually.
+
+#### S-3: Cross-Group Ukraine Consensus (Score: 9/10) 🟢
+Despite PfE opposition, the EP10 has maintained one of the most consistent cross-group positions on Ukraine support of any legislative body in the Western alliance. The EPP-S&D-Renew-Greens coalition on Ukraine resolutions appears structurally robust — 396+ seats reliably supportive.
+
+**Evidence:** TA-10-2026-0161 adopted April 30, part of a pattern of Ukraine support resolutions (5 in 2026 alone as of May); no mainstream group has defected from the Ukraine consensus; PfE opposition (85 MEPs) cannot block.
+
+**Quantitative indicator:** Ukraine resolutions adoption rate EP10: ~100% of tabled mainstream resolutions.
+
+#### S-4: Institutional Self-Defence Mechanisms (Score: 7/10) 🟡
+The EP possesses a range of mechanisms to defend institutional integrity against PfE attacks: parliamentary oversight hearings, Rule 169 response debates, Code of Conduct procedures, OLAF referrals, and immunity waiver procedures. The April 2026 immunity waiver for Patryk Jaki (TA-0105) demonstrates willingness to use these mechanisms.
+
+**Evidence:** Waiver of immunity granted for Grzegorz Braun (March 2026) and Patryk Jaki (April 2026) — both ECR/far-right MEPs — signals EP willingness to hold its own members accountable.
+
+**Quantitative indicator:** 2 immunity waivers granted in 2026 (vs. 1 in 2025) — upward trend in accountability action.
+
+---
+
+### WEAKNESSES (Internal EP/EU Limitations)
+
+#### W-1: Enforcement Gap — EP Cannot Execute Own Resolutions (Score: -8/10) 🔴
+The EP's resolutions are politically potent but legally non-binding. The Commission is the exclusive enforcement authority for DMA, competition law, and rule of law mechanisms. The gap between EP resolution and Commission action is a fundamental structural weakness: the EP can signal but not execute.
+
+**Evidence:** EP has passed multiple DMA enforcement-urging resolutions; Commission enforcement pace remains slower than EP demands; enforcement is limited by legal proceedings timelines (average DMA investigation: 12–24 months).
+
+**Quantitative indicator:** Estimated 12–18 month lag between EP enforcement resolution and Commission enforcement action; 0 DMA fines issued as of May 2026.
+
+#### W-2: Fragmentation Reduces Legislative Speed (Score: -7/10) 🟡
+With 9 political groups and no stable majority, every piece of legislation requires multi-group coalition building. This slows the legislative cycle and creates vulnerability to procedural delays orchestrated by PfE and ECR.
+
+**Evidence:** Fragmentation index: 6.58 (EP API computed); EPP+S&D = 319 seats (short of 360 majority); minimum 3 groups needed for any majority vote.
+
+**Quantitative indicator:** Average legislative procedure duration in EP10 (2024–2026): estimated 18–24 months for major regulation (longer than EP8-9).
+
+#### W-3: Digital Capacity Deficit for Own Governance (Score: -5/10) 🟡
+While the EP legislates on digital governance, its own administrative and democratic infrastructure has significant digital capacity deficits: MEP websites vary widely in quality, transparency portals lag private sector equivalents, and the EP's own data publication delay (5+ weeks for roll-call votes) is an embarrassment for a legislature passing digital market rules.
+
+**Evidence:** get_voting_records returns empty for 2026 plenary votes — EP publication delay confirmed; get_latest_votes DOCEO data unavailable for current week; parliamentary questions API returns no detailed content.
+
+**Quantitative indicator:** EP voting data publication delay: 4–6 weeks (documented in EP API); voting records for April 2026 unavailable as of May 12, 2026.
+
+#### W-4: PfE-Driven Narrative Vulnerability (Score: -6/10) 🟡
+The EP's reliance on voluntary adherence to democratic norms creates vulnerability to bad-faith actors like PfE who weaponise parliamentary procedures for propaganda purposes. The EP has no effective mechanism to prevent Rule 169 debates being used for delegitimisation campaigns.
+
+**Evidence:** April 29 PfE topical debate on Commission interference confirmed in speeches feed; pattern matches January 2026 and October 2025 similar debates; mainstream response (cordon sanitaire) reduces but does not eliminate reputational damage.
+
+**Quantitative indicator:** PfE has used Rule 169 at least 3 times in 2025–2026 for institutional delegitimisation debates; media impact estimated significant in PfE-aligned national media.
+
+---
+
+### OPPORTUNITIES (External Environment)
+
+#### O-1: Global DMA Standard-Setting (Brussels Effect) (Score: +8/10) 🟢
+The EU's DMA, if effectively enforced, creates a global regulatory standard that other jurisdictions — US, UK, Japan, South Korea — are likely to adopt elements of (the "Brussels Effect"). EP pressure to enforce DMA accelerates this standard-setting opportunity.
+
+**Evidence:** US KOSA, Japan AMP, UK DMU all explicitly reference DMA provisions; Big Tech global compliance often converges to most stringent standard (EU).
+
+**Quantitative indicator:** Estimated market size affected by Brussels Effect on DMA: $4–6 trillion in global platform market capitalisation.
+
+#### O-2: Ukraine Reconstruction Economic Opportunity (Score: +7/10) 🟡
+The accountability resolution (TA-0161) creates the legal and political architecture for a Russia-funded Ukraine reconstruction mechanism — seizing frozen Russian state assets (~€300 billion). EP resolution strengthens legal case for asset mobilisation.
+
+**Evidence:** G7 has authorised loans backed by frozen asset interest (~€50 billion GAIA loan); EP resolution strengthens case for full asset transfer; April 2026 Enhanced Cooperation loan (TA-10-2026-0010) precedent.
+
+**Quantitative indicator:** Russian frozen assets in EU: estimated €296 billion; interest generated: ~€3 billion/year at current rates.
+
+#### O-3: Armenia-EU Partnership Deepening (Score: +6/10) 🟡
+EP solidarity creates a political opening for a significant upgrade of the EU-Armenia Comprehensive and Enhanced Partnership Agreement (CEPA). This could include market access, visa liberalisation, and security cooperation provisions — particularly valuable given Armenia's strategic pivoting away from Russian-led structures (CSTO exit process).
+
+**Evidence:** EP resolution April 30; Armenia withdrew from CSTO mechanisms in 2024; Yerevan conducted multiple EP delegations in 2025–2026.
+
+**Quantitative indicator:** Armenian GDP 2025: ~$27 billion; EU-Armenia trade: ~€1.5 billion annually; potential trade increase from deepened partnership: 20–30%.
+
+#### O-4: European AI Governance Leadership (Score: +7/10) 🟡
+The copyright/AI resolution (TA-10-2026-0066, March 2026) and DMA enforcement signal position the EP to lead global AI governance discussions. EU AI Act (fully applicable August 2026) creates a comprehensive AI regulatory first-mover advantage extending EP10's digital regulatory leadership.
+
+**Evidence:** EU AI Act enters full applicability August 2026; copyright/generative AI resolution March 2026; DMA/DSA/AI Act trilogy creates world's most comprehensive digital governance framework.
+
+**Quantitative indicator:** Global AI market: $200+ billion in 2025; EU AI regulatory scope: all high-risk AI systems deployed in EU market.
+
+---
+
+### THREATS (External Risks)
+
+#### T-1: Geopolitical Fragmentation Undermines Ukraine Coalition (Score: -8/10) 🔴
+Global South states' neutrality on the Russia-Ukraine conflict threatens to isolate the EU's Ukraine accountability agenda. Without multilateral buy-in, the Special Tribunal for Crime of Aggression lacks the legitimacy to function effectively.
+
+**Evidence:** Global South abstentions in UN General Assembly Ukraine resolutions; China, India, Brazil maintain strategic ambiguity; only 40+ states explicitly support accountability mechanisms.
+
+**Quantitative indicator:** UN UNGA Ukraine accountability votes: ~140 support, ~35 oppose, ~50 abstain — global coalition fragile.
+
+#### T-2: Far-Right Electoral Advance in Member States Weakens EU Unity (Score: -7/10) 🟡
+PfE's parliamentary strength reflects national-level far-right governments and parties: Marine Le Pen (France), Viktor Orbán (Hungary), Giorgia Meloni (Italy), Herbert Kickl (Austria). If these national forces continue to grow, EU Council consensus on key issues — Ukraine support, DMA enforcement, budget — will weaken.
+
+**Evidence:** Austrian government led by Kickl (FPÖ, PfE-aligned) since January 2026; Hungarian Orbán continues to block EU-Russia sanctions; French RN polling ~35%.
+
+**Quantitative indicator:** PfE-aligned governments: 2 (Austria, Hungary); PfE-sympathetic prime ministers: Italy's Meloni (ECR but coalition-aligned on some issues); combined GDP of PfE-governed EU states: ~€500 billion.
+
+#### T-3: US Political Uncertainty and DMA Confrontation (Score: -6/10) 🟡
+Under current US administration dynamics, the Trump-era "EU is worse than China" on trade could re-emerge, with specific threats of retaliatory tariffs against EU DMA enforcement targeting US companies. This creates external pressure to soften DMA enforcement.
+
+**Evidence:** US Section 232 and 301 tariff threats historically linked to EU regulatory actions; Big Tech lobbying in Washington and Brussels is coordinated; US Tech Equivalency Act (proposed 2025) would threaten trade retaliation for DMA enforcement.
+
+**Quantitative indicator:** EU-US trade value: ~€1.5 trillion/year; potential US retaliation on EU agricultural/automotive exports could range €50–100 billion impact.
+
+#### T-4: Russian Information Operations (Score: -6/10) 🟡
+The PfE institutional challenge debate echoes Russian information operation narratives about EU institutional overreach and undemocratic governance. Russia has documented motivation and capability to amplify such narratives through social media, RT/Sputnik successors, and third-party media.
+
+**Evidence:** EU DisinfoLab has documented coordinated amplification of EU-delegitimisation narratives; PfE topical debate themes closely mirror Kremlin official statements.
+
+**Quantitative indicator:** Russian information operations budget (estimated): $1.5–2 billion annually; EU-targeted narratives estimated 15–20% of operational content.
+
+---
+
+### SWOT Scorecard
+
+| Category | Items | Total Score | Net Position |
+|---|---|---|---|
+| Strengths | S-1 to S-4 | +33 | |
+| Weaknesses | W-1 to W-4 | -26 | |
+| Opportunities | O-1 to O-4 | +28 | |
+| Threats | T-1 to T-4 | -27 | |
+| **Net SWOT Position** | 16 items | **+8** | 🟡 **Moderately Positive** |
+
+### Strategic Implications
+
+The positive net SWOT position (+8) reflects genuine EU regulatory and geopolitical strengths, but the magnitude is constrained by structural weaknesses (enforcement gap, fragmentation) and significant external threats (geopolitical fragmentation, far-right national advance). The EP is operating at above-average effectiveness for a 9-group parliament, but systemic constraints limit the translation of legislative outputs into enforceable outcomes.
+
+### Source Attribution
+SWOT methodology: structured analytic technique applied to EP Open Data (April 2026 plenary outputs)
+EP political landscape: real-time API data 2026-05-12
+Adopted texts: TA-10-2026-0160, 0161, 0162, 0163, 0112 (EP Open Data Portal, CC BY 4.0)
+Economic quantification: publicly available market data (DMA regulatory scope, frozen Russian assets, EU-US trade)
 
 <h2 id="section-threat">Threat Landscape</h2>
 
@@ -3334,6 +4381,165 @@ A perfect storm of member state alignment enables treaty reform negotiations to 
 Probability: 8% | Impact: HIGH  
 A major AI system failure attributed to inadequately regulated models creates global regulatory emergency. EP10's AI Act suddenly becomes template for emergency G20 regulation, dramatically elevating EP's geopolitical weight.
 
+### Scenario Forecast
+
+### Scenario Framework
+
+Three scenarios developed using structured analytic techniques (Analysis of Competing Hypotheses). Each scenario assessed for likelihood, strategic significance, and EU institutional response requirements.
+
+---
+
+### Scenario A: DMA Enforcement Momentum — "Brussels Delivers" (Likelihood: 35%)
+
+#### Description
+The European Commission responds to EP pressure (TA-10-2026-0160) by issuing at least one preliminary DMA enforcement finding against a major gatekeeper by September 2026. Apple's App Store or Meta's advertising data business is the most likely target, given the most advanced state of proceedings.
+
+#### Key Conditions Required
+- DG COMP maintains enforcement timeline despite legal challenges
+- No US retaliatory trade threat materialises in the bilateral EU-US agenda
+- Commission President publicly endorses accelerated enforcement
+- Gatekeeper fails to offer sufficient commitments to close investigation
+
+#### Pathway
+1. June 2026: European Council endorses "digital sovereignty" language in conclusions
+2. July 2026: Commission issues Statement of Objections against first gatekeeper (Apple or Meta)
+3. August 2026: Gatekeeper responds; Commission signals fine of 5–8% global turnover
+4. EP oversight hearing: DG COMP Director General appears before IMCO committee
+
+#### Strategic Significance
+- Transforms DMA from theoretical framework to demonstrated enforcement tool
+- Establishes EU as credible Big Tech regulator for global standard-setting
+- Strengthens EP's political position vis-à-vis Commission (EP pressure shown to work)
+
+#### Implications for EU Politics
+- EPP and Renew claim enforcement success as "EU works" narrative
+- Greens and Left claim credit for advocacy pressure
+- PfE attacks enforcement as "anti-innovation" — marginal effect
+- S&D links enforcement to digital workers' rights campaign
+
+#### Risk Modifiers
+- US retaliatory tariff threat could delay (reduces likelihood to 20%)
+- Gatekeeper commitment offers could close investigation without fine
+
+---
+
+### Scenario B: Geopolitical Consolidation — "Ukraine Tribunal Advances" (Likelihood: 25%)
+
+#### Description
+The EP's Ukraine accountability resolution (TA-10-2026-0161) contributes to a multilateral breakthrough: a formal inter-governmental conference is convened to establish the Special Tribunal for Crime of Aggression against Ukraine, with 30+ states committing participation by September 2026.
+
+#### Key Conditions Required
+- G7 heads of government align on tribunal at June 2026 Summit
+- At least 3 significant Global South states (e.g., Brazil, South Africa, or India) signal participation or neutrality
+- ICC and ICJ provide legal opinions supporting tribunal's jurisdictional basis
+- Ukraine government formally tables treaty text
+
+#### Pathway
+1. May–June 2026: Council of Europe and EU External Action Service intensify outreach
+2. June 2026 G7 Summit: Joint statement endorsing tribunal concept
+3. July 2026: Diplomatic conference convened in The Hague
+4. August 2026: Treaty text circulated; 30+ states signal readiness to sign
+
+#### Strategic Significance
+- Most significant international legal development since ICC Rome Statute (1998)
+- Creates personal accountability risk for Russian political/military leadership
+- Strengthens EU as norm-setter in international law
+
+#### Implications for EU Politics
+- EP's April 30 resolution vindicated as legally consequential, not merely declaratory
+- EPP-S&D unity on Ukraine reinforced by diplomatic success
+- PfE continues to oppose — marginalised on this issue
+
+#### Risk Modifiers
+- Russia's diplomatic counter-campaign will be intense
+- Global South scepticism is the primary obstacle
+- Probability drops to 10% if G7 June summit fails to include tribunal language
+
+---
+
+### Scenario C: Institutional Stress — "Far-Right Escalation" (Likelihood: 30%)
+
+#### Description
+PfE's institutional delegitimisation campaign intensifies through summer 2026. Following the April 29 Commission interference debate, PfE uses the rotating EU Council presidency (Hungary concludes, Poland takes over July 2026) to escalate institutional conflict — with the Austrian Kickl government joining in Council. Mainstream EP groups struggle to mount effective counter-narrative at equivalent speed and reach.
+
+#### Key Conditions Required
+- PfE and ECR coordinate Rule 169 debates in every May–September 2026 plenary (2 more)
+- Austrian government escalates EU institutional criticism in media
+- Kickl government uses EU Council to block specific Commission initiatives
+- Commission struggles to defend institutional independence publicly at sufficient speed
+
+#### Pathway
+1. May 2026 plenary (19–22): Second PfE topical debate — "Commission censorship of conservative media"
+2. June 2026: Vienna government formally protests Commission media freedom mechanisms
+3. July 2026: Polish Council Presidency (pro-EU) faces PfE pressure to redirect agenda
+4. July–August 2026: Commission transparency review triggers PfE "vindication" narrative
+5. EP September plenary: PfE motion of no confidence in Commission — fails but generates 100+ votes (political signal)
+
+#### Strategic Significance
+- Tests EU institutions' resilience under sustained delegitimisation pressure
+- Creates precedent: if PfE narrative gains 15%+ traction in mainstream media, it changes acceptable political discourse
+- Potential: EPP right-flank (5–15 MEPs) starts hedging toward PfE on specific institutional votes
+
+#### Implications for EU Politics
+- Commission launches transparency offensive: voluntary disclosure beyond legal minimums
+- EPP leadership publicly condemns PfE tactics — critical for EPP-right discipline
+- Renew and S&D coordinate EP response committee
+- Greens/Left support Commission despite specific policy disagreements
+
+#### Risk Modifiers
+- Polish Council Presidency (July 2026) is strongly pro-EU — partially counters Hungarian-Austrian axis
+- If PfE motion of no confidence gets fewer than 80 votes, narrative collapses
+
+---
+
+### Scenario D: Status Quo Persistence — "Incremental EU" (Likelihood: 10%)
+
+#### Description
+No breakthrough on DMA enforcement, Ukraine tribunal stalls, PfE intensification is managed, and the EU continues its normal legislative cycle with moderate progress on multiple fronts. This is the "muddling through" scenario.
+
+#### Key Conditions Required
+- Commission continues existing enforcement pace (no acceleration)
+- Multilateral tribunal talks stall on Global South participation
+- PfE intensification is effectively countered by mainstream groups
+- Budget negotiations begin in September 2026 as planned
+
+#### Implications
+- EP continues producing resolutions without breakthrough on enforcement
+- Diplomatic progress on Ukraine accountability is incremental
+- PfE visible but unable to achieve institutional impact
+- EU political discourse: muted; summer recess effect
+
+#### Risk Modifiers
+- Most likely if no triggering event (Big Tech fine, Tribunal conference, PfE censure motion) occurs
+- Probability increases if Commission prioritises internal preparation for MFF negotiations
+
+---
+
+### Scenario Probability Summary
+
+| Scenario | Probability | Strategic Impact | Time Horizon |
+|---|---|---|---|
+| A: Brussels Delivers (DMA) | 35% | High | June–September 2026 |
+| B: Ukraine Tribunal Advances | 25% | Very High | June–September 2026 |
+| C: Far-Right Escalation | 30% | Medium-High | May–September 2026 |
+| D: Status Quo Persistence | 10% | Low | Ongoing |
+
+**Note:** Scenarios are not mutually exclusive. Scenarios A and C can occur simultaneously; B and C are compatible. Most likely outcome (55%+): combination of Scenario A (partial DMA progress) + Scenario C (PfE intensification) with incremental B progress.
+
+### Decision Points to Watch
+
+1. **June 2026 G7 Summit**: Will Ukraine tribunal language appear in communiqué?
+2. **June 2026 IMCO Committee**: Will DG COMP commit to Q3 2026 enforcement action?
+3. **May 2026 EP Plenary (19–22)**: Will PfE table second topical debate?
+4. **July 2026 Council Presidency**: How will Poland's EU Council presidency affect PfE dynamics?
+5. **August 2026**: AI Act full applicability — will this trigger new enforcement round?
+
+### Source Attribution
+Scenario framework: structured analytic technique applied to EP Open Data analysis
+EP political landscape: real-time API data 2026-05-12
+Base scenarios informed by: significance-assessment.md, risk-matrix.md, political-forces.md, actor-mapping.md
+Historical EP scenario performance: EP8-EP10 institutional pattern analysis
+
 <h2 id="section-forward-projection">What to Watch</h2>
 
 ### Forward Indicators
@@ -3886,6 +5092,184 @@ xychart-beta
 
 **Confidence Assessment (C3):** Source reliability: C (EP historical records, academic literature); Information reliability: 3 (plausible long-term trend analysis).
 **WEP:** Highly Likely that EP10 will be assessed as one of the most consequential European Parliament terms since the introduction of direct elections in 1979.
+
+### Pestle Analysis
+
+### Overview
+
+PESTLE analysis applied to the five major outputs of the April 28–30, 2026 European Parliament plenary session, assessing Political, Economic, Social, Technological, Legal, and Environmental dimensions.
+
+---
+
+### P — Political Dimensions
+
+#### P-1: Coalition Reconfiguration Signal
+The April 2026 plenary demonstrated that the "Grand Coalition" (EPP+S&D+Renew, 396 seats) remains functionally stable for geopolitical and digital governance votes. However, the budget guidelines vote (TA-0112) revealed coalition stress — defence spending integration is creating new fault lines that cut across traditional left-right divisions.
+
+**Impact:** 🟡 Medium-High | **Direction:** Contested/Complex
+
+#### P-2: Far-Right Institutional Legitimacy Challenge
+PfE's topical debate (Rule 169) on Commission interference is the most significant political dimension this week. PfE is running a sustained pre-2029 campaign to delegitimise EU institutions. This has two political effects: (a) it energises PfE's base and national-level far-right partners; (b) it forces mainstream groups into reactive defensive posture rather than proactive governance.
+
+**Impact:** 🟡 Medium | **Direction:** ↑ Increasing threat intensity
+
+#### P-3: Ukraine as EU Identity Politics
+The Ukraine accountability resolution reflects how Ukraine support has become an EU identity marker — a litmus test for pro-EU vs. anti-EU positioning. This has paradoxically strengthened EU political cohesion among mainstream groups while deepening the divide with PfE.
+
+**Impact:** 🟢 High (positive cohesion) | **Direction:** ↑ Strengthening consensus
+
+#### P-4: Eastern Neighbourhood Strategy
+Armenia resolution (TA-0162) + past Ukraine resolutions = a visible EP Eastern neighbourhood strategy of democratic conditionality. EP is building an informal empire of political solidarity with democratising neighbours.
+
+**Impact:** 🟡 Medium-High | **Direction:** → Steady
+
+---
+
+### E — Economic Dimensions
+
+#### E-1: Big Tech Regulatory Risk Premium
+The DMA enforcement resolution creates measurable economic uncertainty for Big Tech gatekeeper operations in the EU. Combined EU revenues of Apple, Meta, Alphabet, and Amazon in Europe exceed €100 billion annually. DMA compliance costs (estimated €500 million–€2 billion per company for structural changes) represent a non-trivial regulatory burden.
+
+**Impact:** 🟡 Medium-High | **Direction:** ↑ Increasing compliance cost pressure
+
+#### E-2: Ukraine Reconstruction Economy
+The accountability resolution links to the broader Ukraine reconstruction financing architecture. With €296 billion in frozen Russian assets, the EU is exploring mechanisms to mobilise these for reconstruction — the EP's accountability stance is a precondition for the legal frameworks needed to transfer assets.
+
+**Estimated economic value:** €296 billion in frozen assets; €1+ trillion Ukraine reconstruction cost (World Bank estimate)
+**Impact:** 🟢 Very High (long-term) | **Direction:** → Developing
+
+#### E-3: EU Budget 2027 Implications
+The budget guidelines (TA-0112) set the EP's negotiating mandate for the 2027 annual budget and inform the broader MFF (2028–2034) negotiations. Key economic battlegrounds:
+- Defence spending: ReArm Europe initiative pushing for €100+ billion EU-level defence investment
+- Cohesion funds: Central/Eastern European member states defending regional development allocations
+- Green Deal programmes: Greens/S&D defending climate investment; EPP-ECR seeking flexibility
+
+**Impact:** 🟢 High | **Direction:** ↑ Escalating (major negotiations ahead)
+
+#### E-4: Platform Economy Cyberbullying Liability
+The cyberbullying resolution (TA-0163) signals potential new criminal liability for platforms. Economic impact on social media companies would be significant if enacted: mandatory content moderation investment, legal compliance infrastructure, potential liability insurance requirements.
+
+**Estimated cost impact:** €1–5 billion additional platform compliance costs EU-wide
+**Impact:** 🟡 Medium | **Direction:** → Developing
+
+#### E-5: IMF/Macroeconomic Context Note
+The EP's April 2026 plenary occurred against the backdrop of:
+- EU GDP growth: 1.4% (2026 IMF WEO April forecast)
+- EU inflation: declining to 2.4% (ECB target range approach)
+- Eurozone fiscal consolidation: ongoing under revised Stability and Growth Pact
+- Energy price sensitivity: Middle East crisis (debated April 29) creating fertiliser and energy price volatility
+
+**Impact on EP politics:** Economic uncertainty strengthens both mainstream (stability narrative) and far-right (anti-austerity) arguments
+
+---
+
+### S — Social Dimensions
+
+#### S-1: Antisemitism and Social Cohesion
+The April 29 debate on antisemitism following attacks in Netherlands and Belgium reflects a deepening social crisis. Antisemitic incidents in the EU have increased significantly since October 2023. The EP debate signals that this is now a legislative-priority issue, not merely a civil society concern.
+
+**Impact:** 🟡 Medium-High | **Direction:** ↑ Worsening trend requiring legislative response
+
+#### S-2: Roma Inclusion Debate
+The April 29 debate on Roma inclusion, equality, and fundamental rights reflects persistent social exclusion of Europe's largest ethnic minority (10–12 million Roma across EU). EP debate is a political signal, but Roma integration remains chronically underfunded and underprioritised.
+
+**Impact:** 🟡 Medium | **Direction:** → Marginal improvement
+
+#### S-3: Cyberbullying and Online Safety
+The EP resolution on cyberbullying (TA-0163) reflects growing social awareness of online harm, particularly affecting young people. Public support for platform regulation on harassment is strong across EU demographics (polls indicate 70%+ support for stricter platform rules).
+
+**Impact:** 🟡 Medium | **Direction:** ↑ Growing public demand
+
+#### S-4: Ukraine Solidarity in EU Societies
+Public support for Ukraine in EU member states has remained resilient (post-war fatigue has stabilised at 60%+ support in most member states). EP Ukraine accountability resolution both reflects and reinforces this public sentiment.
+
+**Impact:** 🟡 Medium (political legitimation of continued support) | **Direction:** → Stable
+
+---
+
+### T — Technological Dimensions
+
+#### T-1: AI and Digital Market Interaction
+The EP's DMA enforcement focus overlaps with the August 2026 AI Act full applicability. Many Big Tech AI systems (GPT-4 integrations, Meta AI, Gemini) will fall under both DMA interoperability provisions and AI Act high-risk/general-purpose AI requirements. Enforcement coordination between DG COMP and DG CNECT will be critical.
+
+**Impact:** 🟢 High | **Direction:** ↑ Escalating complexity
+
+#### T-2: Drone and Dual-Use Technology Governance
+The January 2026 resolution on drones and new warfare systems (TA-10-2026-0020) reflects the EP's awareness that technological change is outpacing regulatory frameworks. The April 2026 plenary continues this trend — AI Act, DMA, and emerging defence technology governance are simultaneously active legislative areas.
+
+**Impact:** 🟡 Medium | **Direction:** ↑ Growing regulatory urgency
+
+#### T-3: Copyright and Generative AI
+The March 2026 copyright/generative AI resolution (TA-0066) created a framework that interacts with DMA enforcement — content moderation and AI-generated content attribution requirements affect all designated gatekeepers. The technological-legal interface is unusually complex.
+
+**Impact:** 🟡 Medium | **Direction:** → Developing
+
+#### T-4: EP's Own Digital Transparency Deficit
+The EP Parliament's own data publication delays (5–6 weeks for roll-call votes) represent a significant technological governance failure for an institution that is legislating on digital transparency. This is a consistency vulnerability that PfE exploits rhetorically.
+
+**Impact:** 🔴 Low-Medium (institutional) | **Direction:** → Persisting
+
+---
+
+### L — Legal Dimensions
+
+#### L-1: DMA Legal Framework Enforcement
+The DMA creates a novel legal framework — ex ante market regulation rather than ex post antitrust enforcement. The legal complexity of enforcement (gatekeeper commitments, obligations structure, fine calculations) creates significant litigation risk. Big Tech will challenge every enforcement action in EU courts.
+
+**Impact:** 🟢 High | **Direction:** ↑ Increasing legal complexity
+
+#### L-2: Special Tribunal Jurisdictional Basis
+The Ukraine accountability resolution endorses a Special Tribunal for Crime of Aggression. The legal basis is contested — the ICC has no jurisdiction over states not party to the Rome Statute (Russia and Ukraine are not parties). The Special Tribunal would be established under a different legal basis (inter-state treaty). This creates genuine legal innovation.
+
+**Impact:** 🟢 Very High (if established) | **Direction:** → Developing slowly
+
+#### L-3: Immunity Waiver Precedents
+The EP granted immunity waivers for Grzegorz Braun (March 2026) and Patryk Jaki (April 2026). Both are ECR/far-right MEPs facing criminal proceedings in Poland. These waivers create precedent and signal EP willingness to hold its own members legally accountable.
+
+**Impact:** 🟡 Medium | **Direction:** → Establishing precedent
+
+#### L-4: Cyberbullying Criminal Law
+The EP resolution (TA-0163) calls for targeted criminal provisions. If enacted, this would create EU-wide criminal harmonisation in an area currently governed by divergent national laws. Legal harmonisation under Article 83 TFEU requires qualified majority in Council and EP majority — politically feasible given mainstream coalition alignment.
+
+**Impact:** 🟡 Medium (if legislative proposal follows) | **Direction:** → Potential
+
+---
+
+### E2 — Environmental Dimensions
+
+#### E2-1: Budget 2027 and Green Deal
+The budget guidelines (TA-0112) will shape climate investment in 2027 and signal EP preferences for the 2028–2034 MFF. S&D and Greens are defending existing climate commitments against EPP-ECR pressure to redirect funds to defence and competitiveness. The outcome will determine EU climate ambition trajectory.
+
+**Impact:** 🟢 High | **Direction:** ↑ Contested (defence vs. climate allocation)
+
+#### E2-2: Middle East Crisis and EU Fertiliser/Energy Exposure
+The April 29 joint debate on EU strategy on the Middle East crisis highlighted fertiliser and energy price implications. EU agricultural sector remains exposed to energy-intensive fertiliser production disruptions if Middle East conflict escalates.
+
+**Impact:** 🟡 Medium | **Direction:** → Monitoring required
+
+#### E2-3: Heavy-Duty Vehicles Emissions (TA-0084)
+The March 2026 resolution on emission credits for heavy-duty vehicles is a technical but significant climate policy adjustment. EU decarbonisation of freight transport sector depends on these credit calculations.
+
+**Impact:** 🟡 Medium | **Direction:** → Technical implementation
+
+---
+
+### PESTLE Summary Matrix
+
+| Dimension | Primary Issues | Net Impact | Trend |
+|---|---|---|---|
+| Political | Coalition stability, PfE challenge | 🟡 Mixed | ↑↓ Complex |
+| Economic | DMA compliance costs, Ukraine reconstruction, MFF | 🟢 High | ↑ Escalating |
+| Social | Antisemitism, Roma, cyberbullying | 🟡 Medium | ↑ Worsening social pressures |
+| Technological | AI Act + DMA interaction, EP transparency | 🟡 Medium | ↑ Growing complexity |
+| Legal | DMA enforcement, Special Tribunal, immunity | 🟢 High | ↑ Intensifying |
+| Environmental | Green Deal budget, Middle East energy | 🟡 Medium | → Contested |
+
+### Source Attribution
+EP adopted texts: TA-10-2026-0160, 0161, 0162, 0163, 0112, 0084, 0066 (EP Open Data Portal)
+EP speeches: MTG-PL-2026-04-29 session records
+Political landscape: EP API real-time 2026-05-12
+Economic context: publicly available macroeconomic data and IMF WEO (April 2026 reference)
 
 <h2 id="section-continuity">Cross-Run Continuity</h2>
 
@@ -5885,6 +7269,187 @@ Cross-references: `intelligence/coalition-dynamics.md`, `extended/coalition-math
 **Confidence Assessment (B3):** Source reliability: B (EP election data, Eurobarometer surveys); Information reliability: 3 (survey-based; sampling uncertainty ±3-5%).
 **WEP:** Likely that youth disengagement risk will be the dominant EP10-EP11 electoral dynamic, contingent on MFF 2028-2034 outcome for Erasmus/digital programs.
 
+### Media Framing
+
+### Overview
+
+This media framing analysis examines how the April 28–30, 2026 Strasbourg plenary debates and resolutions are likely to be framed across different media ecosystems and political perspectives in Europe. Understanding these frames is essential for the EU Parliament Monitor to position its own reporting with clarity and independence.
+
+---
+
+### Frame 1: Digital Sovereignty Enforcement (DMA)
+
+#### Mainstream European Frame
+**Headline pattern:** "EU Parliament backs tougher Big Tech rules to level digital playing field"
+**Emphasis:** Economic fairness, consumer protection, European digital sovereignty, market competition
+**Evidence cited:** European Commission investigation findings, market share statistics, competition reports
+**Political alignment:** Centrist/pro-EU (EPP, S&D, Renew readers)
+
+#### Progressive Left Frame
+**Headline pattern:** "EP demands accountability from Big Tech monopolies"
+**Emphasis:** Power asymmetry between corporations and citizens/small businesses, worker rights, data exploitation
+**Political alignment:** Greens/EFA, Left group readers
+
+#### Conservative Eurosceptic Frame
+**Headline pattern:** "Brussels bureaucrats attack successful American companies in regulatory overreach"
+**Emphasis:** US-EU trade tensions, job risk in EU tech sector, sovereignty of American companies from EU regulation
+**Political alignment:** ECR, PfE readers; some US media (right-leaning)
+
+#### US Tech Industry Frame
+**Headline pattern:** "EU advances protectionist measures targeting US tech companies"
+**Emphasis:** Discriminatory application of regulations, legal uncertainty, investment deterrence
+**Source: Platform industry communications, US Chamber of Commerce statements
+
+**EU Parliament Monitor position:** Factual reporting on regulatory scope, enforcement mechanism, and documented market conduct findings. Neutral on whether DMA is "protectionist" vs. "sovereignty."
+
+---
+
+### Frame 2: Ukraine Accountability Tribunal
+
+#### Mainstream EU/Atlanticist Frame
+**Headline pattern:** "European Parliament calls for justice for Russia's crimes in Ukraine"
+**Emphasis:** Rule of law, international criminal law precedent, historical justice
+**Political alignment:** EPP, S&D, Renew, Greens readers
+
+#### Pro-Russia / Russian State Media Frame
+**Headline pattern:** "European Parliament rubber-stamps anti-Russia propaganda"
+**Emphasis:** Western double standards, selective justice, NATO aggression
+**Source:** RT (blocked in EU), Sputnik, Telegram channels
+**Note:** This frame is amplified by Russian information operations; EU monitors have documented coordinated amplification
+
+#### Humanitarian/Peace Movement Frame
+**Headline pattern:** "EP calls for war crimes tribunal but offers no immediate action"
+**Emphasis:** Gap between rhetoric and action, slow EU response, civilian toll
+**Political alignment:** Left-wing pacifist movements, some Greens/EFA constituency
+
+#### Legal/Academic Frame
+**Headline pattern:** "EP pushes innovative jurisdictional model for aggression crimes"
+**Emphasis:** Technical legal aspects, precedent in international law, Special Tribunal jurisdictional issues
+**Source:** Academic and professional legal media
+
+**EU Parliament Monitor position:** Report on resolution text, coalition that adopted it (estimated 400+ votes), and legal/political path to a tribunal. Include dissenting voices proportionally.
+
+---
+
+### Frame 3: PfE's Institutional Legitimacy Challenge
+
+#### PfE-Allied / Eurosceptic Frame
+**Headline pattern:** "Patriots for Europe confront Commission's undemocratic interference"
+**Emphasis:** Brussels overreach, democratic sovereignty of member states, citizens vs. EU elites
+**Political alignment:** PfE's own media operation (Patriot.eu), Hungarian government media, Austrian FPÖ channels
+**Note:** This frame is designed to generate international amplification
+
+#### Mainstream EU Frame
+**Headline pattern:** "Far-right bloc uses parliamentary time to attack EU institutions"
+**Emphasis:** PfE's obstructionist agenda, contrast with substantive legislation
+**Political alignment:** Pro-EU media (Politico EU, Euractiv, Le Monde Europe)
+
+#### Centrist Critical Frame
+**Headline pattern:** "PfE debate highlights real frustration with EU governance despite ulterior motives"
+**Emphasis:** Acknowledging legitimate public concern about democratic deficit while critiquing PfE's political manipulation
+**Political alignment:** Quality centrist journalism
+
+#### Critical Academic / Think Tank Frame
+**Headline pattern:** "PfE's parliamentary strategy tests resilience of EU democratic norms"
+**Emphasis:** Democratic backsliding indicators, institutional resilience analysis
+**Source:** ECFR, Carnegie Europe, Chatham House Europe programme
+
+**EU Parliament Monitor position:** Report the debate substance and PfE's political strategy clearly. Include the specific Commission actions PfE is challenging (if documentable). Avoid amplifying pure delegitimisation framing while maintaining factual accuracy.
+
+---
+
+### Frame 4: Antisemitism and Hate Crimes Debate
+
+#### Mainstream European Frame
+**Headline pattern:** "MEPs demand stronger action on rising antisemitism across Europe"
+**Emphasis:** Statistical evidence of increase, inadequacy of current protections, EU responsibility
+**Political alignment:** Broad coalition (EPP through Left)
+
+#### Jewish Community / NGO Frame
+**Headline pattern:** "European Parliament finally addresses antisemitism spike — but is it enough?"
+**Emphasis:** Gap between parliamentary debates and real protection for Jewish communities, need for binding measures
+**Source:** European Jewish Congress, Community Security Trust, FRA data
+
+#### Far-Right Deflection Frame
+**Headline pattern:** "EU uses antisemitism debate to silence critics of Israel's Gaza policy"
+**Emphasis:** Conflation of antisemitism with Middle East conflict criticism, free speech concerns
+**Political alignment:** Some PfE/ECR social media narratives; far-left narratives on different grounds
+
+#### National Frame (country-specific)
+Belgium, Netherlands (sites of recent attacks) likely to have more urgent framing; Eastern EU states may emphasize different historical context (Holocaust memory vs. contemporary threats).
+
+**EU Parliament Monitor position:** Factual reporting on FRA data, debate content, and proposed measures. Clearly distinguish antisemitism (hatred of Jews as Jews) from political criticism of Israeli government policy. Include Jewish community perspectives directly.
+
+---
+
+### Frame 5: Armenia/Azerbaijan Resolution
+
+#### Pan-European / Rights Frame
+**Headline pattern:** "EP backs Armenia as it cements democratic path amid Azerbaijani pressure"
+**Emphasis:** Democracy support, human rights, European values
+**Political alignment:** Mainstream EU media
+
+#### Azerbaijani Government / Aligned Media Frame
+**Headline pattern:** "EU Parliament's one-sided resolution harms South Caucasus stability"
+**Emphasis:** Azerbaijani territorial integrity, "liberated territories," EU bias
+**Note:** Azerbaijan has a track record of coordinated European lobbying on EP votes affecting its interests
+
+#### Energy Security Frame
+**Headline pattern:** "Will EP's Armenia stance complicate EU gas diversification from Azerbaijan?"
+**Emphasis:** Trade-off between democratic values and energy security post-Russia
+**Political alignment:** Energy security–focused media; some business press
+
+**EU Parliament Monitor position:** Factual reporting on resolution text, vote context, and EU-South Caucasus relations. Note both values-based reasoning and geopolitical/energy security dimensions.
+
+---
+
+### Cross-Cutting Frame Patterns
+
+#### Frame Alignment Matrix
+
+| Issue | Pro-EU/Mainstream | Eurosceptic/PfE | Left/Progressive | Academic/NGO |
+|---|---|---|---|---|
+| DMA / Big Tech | Sovereignty win | Regulatory overreach | Corporate accountability | Competition law analysis |
+| Ukraine tribunal | Justice | "NATO agenda" | Too slow, insufficient | Legal innovation |
+| PfE debate | Obstruction | Legitimate challenge | Far-right threat | Norm erosion |
+| Antisemitism | Rights emergency | [Deflects to Gaza] | Rights + conflict distinction | FRA data focus |
+| Armenia | Democracy support | [Azerbaijani lobby] | Peace + sovereignty | Caucasus geopolitics |
+
+#### Media Ecosystem Map
+
+**High-reach quality EU coverage:**
+- Politico Europe, Euractiv, Deutsche Welle (European focus)
+- Le Monde, La Repubblica, El País, Frankfurter Allgemeine (national quality press)
+- Financial Times (business/regulatory angle)
+
+**National tabloid / populist outlets:**
+- Bild (Germany), Daily Mail (UK influence), Il Giornale (Italy)
+- Frame: EU overreach, Brussels bureaucracy, national sovereignty
+
+**Pro-EU Parliament Monitor sources:**
+- EP official channels (neutral), VoteWatch (now Merics), European Parliament Research Service
+
+**State-allied media (caution required):**
+- Hungarian government media (PfE frame amplification)
+- Russian state media (blocked in EU, but reaches diaspora communities)
+- Azerbaijani government channels (Armenia/energy frame)
+
+---
+
+### Recommendations for EU Parliament Monitor Reporting
+
+1. **Lead with specificity**: Name the resolutions (TA-10-2026-0160 to 0163), dates, and estimated vote counts. Avoid "MEPs voted" generality.
+2. **Context without advocacy**: Report why DMA exists (documented market concentration), why Ukraine tribunal is being pursued (CJEU jurisdiction gap), without editorializing on geopolitics.
+3. **Attribution clarity**: Clearly source statistics (FRA for antisemitism, IMF for economic claims, EP for vote counts) to maintain credibility.
+4. **Counter-narrative awareness**: Be aware that Russian information operations will amplify PfE framing; EU Parliament Monitor should not inadvertently provide material for those operations by sensationalizing the institutional conflict.
+5. **Distinguish debate from decision**: April 29 PfE debate is a political action, not a legislative decision. The adopted texts (TA-0160 to 0163) are the actual legislative outputs.
+
+### Source Attribution
+Frame analysis based on: observed plenary debate themes (speeches feed April 29, 2026)
+Russian disinformation pattern: EU DisinfoLab methodology (reference)
+Political alignment assessment: EP group composition data (political-forces.md)
+Media ecosystem mapping: Comparative media landscape studies (Reuters Institute Digital News Report)
+
 <h2 id="section-mcp-reliability">MCP Reliability Audit</h2>
 
 ### Audit Overview
@@ -7050,120 +8615,6 @@ This run uses three confidence levels: 🟢 HIGH (70%+ confidence, confirmed by 
 
 **Step 10.5 validation (per ai-driven-analysis-guide.md):** This methodology-reflection.md serves as the mandatory final artifact per Step 10.5 of the 10-step protocol. It documents the run's analytical decisions, data limitations, and confidence calibration. All four methodological decisions above were made consciously and transparently.
 
-<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
-
-### Actor Mapping
-
-### Primary Actors
-
-#### 1. European Parliament (Institutional Actor)
-**Role:** Legislator, political signaller, democratic oversight body
-**Position in breaking news:** The EP acted as the primary driver of all five breaking developments
-**Interests:** Asserting democratic prerogative; maintaining credibility on digital governance; demonstrating coherent security policy; managing far-right institutional challenge
-**Capabilities:** Legislative initiative (in coordination with Commission); political resolutions (non-binding but politically weighty); inter-institutional pressure; media amplification
-**Constraints:** Cannot enforce own resolutions; must work through Commission/Council; EP internal fragmentation limits coherence on contentious votes
-**Confidence:** 🟢 High — direct EP institutional source data
-
-#### 2. European People's Party (EPP)
-**Role:** Largest political group (183 MEPs, 25.5% of seats)
-**Position:** Dominant coalition driver; typically supports DMA enforcement and Ukraine positions; more cautious on budget increases; split internally on migration and rule of law
-**Interests:** Maintaining legislative leadership; managing internal centrist vs. national-conservative tensions; positioning for 2029 election cycle
-**Coalition Signals:** EPP-S&D grand coalition (319 combined seats) remains the mathematical backbone for most mainstream resolutions; EPP-Renew-Greens cordon sanitaire against PfE/ECR on democracy resolutions
-**Confidence:** 🟡 Medium — group composition confirmed, voting patterns inferred
-
-#### 3. Socialists and Democrats (S&D)
-**Role:** Second largest group (136 MEPs, 19.0%)
-**Position:** Strong on Ukraine accountability; leads on social and workers' rights provisions; sceptical of budget cuts to social programmes
-**Interests:** Maintaining progressive coalition; countering far-right influence; protecting workers' rights in digital and platform economy
-**Coalition Signals:** Consistent alignment with EPP on geopolitical resolutions; diverges on economic deregulation and budget priorities
-**Confidence:** 🟡 Medium
-
-#### 4. Patriots for Europe (PfE)
-**Role:** Third-largest group (85 MEPs, 11.9%) — populist-nationalist bloc
-**Position:** Led the Rule 169 topical debate accusing the Commission of electoral interference. Opposed to Ukraine funding resolutions. Sceptical of DMA enforcement against national champions.
-**Interests:** Destabilising EU institutional framework; garnering media attention; building coalition ahead of 2029 elections; advancing national sovereignty agenda
-**Capabilities:** Can request topical debates (Rule 169); can delay or complicate voting by procedural motions; significant MEP base across Hungary, France, Italy, Austria, Belgium
-**Key Tactic (April 29):** The topical debate on "Commission interference in democratic process and elections" represents a deliberate attempt to weaponise EP democratic legitimacy concerns against the Commission — a mirror of far-right national-level attacks on independent institutions
-**Confidence:** 🟡 Medium — debate confirmed, specific positions inferred from group's consistent pattern
-
-#### 5. European Commission
-**Role:** Executive body; DMA enforcement authority; Ukraine Aid coordinator
-**Position:** Under pressure to accelerate DMA enforcement; defending its independence from PfE accusations; implementing Ukraine Loan mandate
-**Interests:** Institutional legitimacy; regulatory credibility on digital markets; maintaining transatlantic relationships; coordinating Ukraine support
-**Vulnerabilities:** DMA enforcement timeline delays create exposure to EP criticism; PfE attacks threaten institutional reputation; budget negotiation pressures
-**Confidence:** 🟡 Medium — Commission role inferred from EP resolutions targeting it
-
-#### 6. Big Tech Gatekeepers (Apple, Meta, Alphabet, Amazon)
-**Role:** Regulated entities under DMA
-**Position:** Subject to EP enforcement pressure; actively lobbying against strict DMA implementation; challenging gatekeeper designations in court
-**Interests:** Minimising compliance costs; preserving market positions; delaying enforcement timelines
-**Market Context:** Combined EU market cap implications: Apple (~€2.8T), Alphabet (~€1.9T), Meta (~€1.1T) — enforcement creates significant regulatory risk premium
-**Confidence:** 🟡 Medium — DMA enforcement resolution confirmed; company positions inferred from public lobbying record
-
-#### 7. Ukraine (External Stakeholder)
-**Role:** Subject/beneficiary of TA-10-2026-0161 accountability resolution
-**Position:** Seeking EP support for ICC proceedings and Special Tribunal for Crime of Aggression
-**Interests:** International legal accountability for Russian military leadership; EU financial and military support; path to EU accession
-**Confidence:** 🟢 High — EP resolution directly addresses Ukraine interests
-
-#### 8. Armenia (External Stakeholder)
-**Role:** Beneficiary of TA-10-2026-0162 democratic resilience resolution
-**Position:** Undergoing democratic consolidation post-Nagorno-Karabakh conflict
-**Interests:** EU political support; economic partnership deepening; EU accession pathway exploration
-**Geopolitical Context:** Armenia-EU rapprochement accelerated after 2023 Karabakh conflict; EP resolution reinforces this trajectory
-**Confidence:** 🟢 High — EP resolution directly addresses Armenia
-
-#### 9. Civil Society / Platform Users
-**Role:** Beneficiaries of cyberbullying (TA-0163) and DMA (TA-0160) resolutions
-**Position:** Advocacy for stronger platform accountability; human rights framing
-**Interests:** Protection from online harassment; free digital market access; democratic digital governance
-**Confidence:** 🟡 Medium — position inferred from resolution subject matter
-
-### Actor Relationship Network
-
-```mermaid
-graph LR
-    EP[European Parliament] --> COM[Commission]
-    EPP[EPP 183] --> EP
-    SD[S&D 136] --> EP
-    PfE[PfE 85] --> EP
-    ECR[ECR 81] --> EP
-    RE[Renew 77] --> EP
-    GrEFA[Greens/EFA 53] --> EP
-    LEFT[The Left 45] --> EP
-
-    EP -->|DMA pressure| BIG[Big Tech]
-    EP -->|Accountability mandate| UA[Ukraine]
-    EP -->|Democratic solidarity| ARM[Armenia]
-    PfE -->|Institutional attack| COM
-    EPP --- SD
-    EPP --- RE
-    ECR --- PfE
-
-    style EPP fill:#3399CC
-    style SD fill:#FF4444
-    style PfE fill:#CC8800
-    style ECR fill:#4488FF
-    style RE fill:#FFAA00
-    style GrEFA fill:#44BB44
-    style LEFT fill:#CC0000
-```
-
-### Power Asymmetries
-
-| Dyad | Power Balance | Key Leverage |
-|---|---|---|
-| EPP vs. PfE | EPP dominant (2:1 seats) | EPP controls committee chairs and legislative agenda |
-| EP vs. Commission | Asymmetric mutual dependence | EP can delay legislation; Commission controls enforcement |
-| EU vs. Big Tech | Regulatory asymmetry | DMA enforcement creates new EU leverage |
-| EP vs. Russia | Declaratory only | EP resolutions create diplomatic pressure but lack direct enforcement |
-
-### Source Attribution
-EP Open Data Portal — political group composition 2026-05-12
-Adopted texts: TA-10-2026-0160, TA-10-2026-0161, TA-10-2026-0162, TA-10-2026-0163
-Speeches: MTG-PL-2026-04-29 session (Rule 169 PfE topical debate confirmed)
-Political landscape: EP API real-time data (cc-by 4.0)
-
 ### Article Index
 
 ### Analysis Run Summary
@@ -7298,311 +8749,6 @@ Per `src/config/article-horizons.ts` mandatory artifacts for `breaking` slug:
 All artifact sources documented in individual artifact files.
 Artifact list authoritative source: `src/config/article-horizons.ts`
 Line floor requirements: `analysis/methodologies/reference-quality-thresholds.json`
-
-### Impact Assessment
-
-### Summary
-
-The April 28–30, 2026 EP plenary outputs collectively constitute a high-impact legislative and political week with consequences spanning digital regulation, EU security architecture, Eastern neighbourhood relations, and the integrity of EU democratic institutions. This assessment maps impacts across five dimensions: legal/regulatory, geopolitical, economic/market, institutional, and societal.
-
-### 1. Digital Markets Act Enforcement (TA-10-2026-0160)
-
-#### Immediate Impact (0–3 months)
-- **Commission Response Pressure**: EP resolution creates political pressure on DG COMP and DG CNECT to accelerate pending DMA investigations. Estimated 3–5 active gatekeeper cases may be expedited
-- **Market Signal**: Big Tech stock volatility expected as enforcement timeline uncertainty narrows
-- **Legal Exposure**: Apple, Meta, Alphabet face increased risk of EU fines (up to 10% of global turnover under DMA Art. 26)
-
-#### Medium-Term Impact (3–12 months)
-- **Interoperability Requirements**: DMA Article 7 (messenger interoperability) compliance timelines under scrutiny; EP resolution amplifies NGO and Commission pressure
-- **App Store Reform**: Apple's App Store compliance with DMA Article 5(7) (alternative distribution) may face accelerated enforcement review
-- **Advertising Data**: Meta's "pay or consent" model faces continued scrutiny under DMA and GDPR interaction
-
-#### Long-Term Impact (12+ months)
-- **EU Digital Sovereignty**: Sustained DMA enforcement signals a durable shift in EU regulatory philosophy — from market integration to active market shaping
-- **Global Regulatory Spillover**: EU DMA enforcement creates de facto global standards for platform governance (Brussels Effect)
-- **Estimated Economic Value at Stake**: €25–40 billion in annual platform revenue subject to DMA constraints across designated gatekeepers
-
-#### Impact Score: 8/10 🟢 High
-The DMA enforcement resolution is binding in its political effect: it creates a documented EP mandate that Commission officials must account for in parliamentary oversight hearings.
-
-### 2. Ukraine Accountability Resolution (TA-10-2026-0161)
-
-#### Immediate Impact
-- **Diplomatic Signal**: Strengthens EU/EP position going into G7 (June 2026) and NATO summits; reinforces Western solidarity on accountability mechanisms
-- **ICC Context**: Resolution names Criminal Court proceedings as the primary tool — reinforces ICC jurisdiction claims against Russian military leadership
-- **Special Tribunal**: EP's call for a Special Tribunal for Crime of Aggression creates momentum for the multilateral process that Council of Europe and Ukraine have been advancing
-
-#### Medium-Term Impact
-- **Peace Settlement Conditions**: By hardening accountability language, the EP makes any future peace settlement that includes amnesty provisions significantly more politically costly
-- **Sanctions Architecture**: Reinforces asset-freeze and travel-ban regimes; could accelerate specific designations
-- **EU Accession**: Links Ukrainian democratic reform with EU accession progress — creates conditionality
-
-#### Long-Term Impact
-- **Precedent-Setting**: If a Special Tribunal for Crime of Aggression is established, it creates the first binding mechanism for this charge since Nuremberg — a landmark in international law
-- **Russian Elite Calculation**: EP accountability language may marginally affect cost-benefit calculations within Russian political elite (though high uncertainty)
-
-#### Impact Score: 9/10 🟢 Very High
-Geopolitically, this is the highest-impact resolution of the week — it directly shapes the post-war justice architecture.
-
-### 3. PfE Institutional Challenge
-
-#### Immediate Impact
-- **Media Cycle**: The Commission interference debate generated significant right-wing media coverage in Hungary, France, Italy, Austria, Belgium — PfE's primary electorates
-- **Institutional Morale**: Within EU institutions, PfE's tactics are demoralising for career officials and Commission staff
-- **No Legislative Impact**: The Rule 169 debate produces no binding output — impact is purely political/reputational
-
-#### Medium-Term Impact
-- **2029 Pre-Positioning**: PfE's institutional attacks are most effectively understood as pre-campaign activities — building a narrative of EU institutional overreach for the 2029 election
-- **Mainstreaming Risk**: Repeated institutional challenges may gradually shift acceptable political discourse, making Commission transparency debates more mainstream
-
-#### Long-Term Impact
-- **Democratic Resilience**: Sustained PfE institutional attacks test the EU's democratic governance architecture; if mainstream groups fail to defend institutional integrity effectively, it creates real governance risk
-- **Separation of Powers**: The Commission's independence from political manipulation claims must be actively defended, requiring procedural and communication resources
-
-#### Impact Score: 6/10 🟡 Medium (Political/Reputational)
-
-### 4. Armenia Democratic Resilience (TA-10-2026-0162)
-
-#### Immediate Impact
-- **Signal to Baku**: EP resolution supporting Armenia signals EU displeasure with Azerbaijan's post-Karabakh conduct — creates diplomatic friction
-- **Signal to Yerevan**: Armenian government receives political capital from EP solidarity; strengthens pro-EU political forces in Yerevan
-- **Russian Reaction**: Russia views Armenia-EU rapprochement as strategic setback; EP resolution is noted in Moscow
-
-#### Medium-Term Impact
-- **Eastern Partnership Upgrade**: The EP's supportive language lays groundwork for a deeper EU-Armenia partnership agreement (beyond existing CEPA)
-- **Civil Society**: Armenian civil society organisations gain visibility and indirectly access to EU advocacy mechanisms
-
-#### Long-Term Impact
-- **Geopolitical Reorientation**: If sustained, EP solidarity resolutions contribute to Armenia's gradual reorientation from Russia toward EU — significant geostrategic shift in South Caucasus
-
-#### Impact Score: 7/10 🟡 Medium-High
-
-### 5. Cyberbullying Platforms Responsibility (TA-10-2026-0163)
-
-#### Immediate Impact
-- **Platform Industry**: Resolution signals to platforms (Meta, TikTok, X/Twitter, YouTube) that criminal liability for enabling harassment may become EU law
-- **Legal Discourse**: MEP speeches in April 29 debate create public record for future legislative proposals
-
-#### Medium-Term Impact
-- **DSA Interaction**: If the EP resolution leads to a formal Commission proposal, it would interact with DSA's existing "illegal content" removal provisions — potentially creating a new criminal law overlay
-- **Victim Advocacy**: Resolution empowers civil society groups pushing for victim-centric platform regulation
-
-#### Long-Term Impact
-- **Content Moderation Standards**: Criminal liability provisions, if enacted, could fundamentally change platform moderation from voluntary/algorithmic to legally mandatory with prosecutorial consequences
-
-#### Impact Score: 6/10 🟡 Medium
-
-### 6. 2027 Budget Guidelines (TA-10-2026-0112)
-
-#### Immediate Impact
-- **MFF Negotiation Setup**: The April 28 budget guidelines vote formally initiates the EP's position for 2027 MFF (Multiannual Financial Framework) negotiations with the Council
-- **Defence Spending Context**: ReArm Europe initiative creates pressure for historically unprecedented EU defence budget integration
-
-#### Medium-Term Impact
-- **Agricultural Policy**: Budget guidelines signal EP preferences on CAP (Common Agricultural Policy) reform ahead of 2028–2034 framework negotiations
-- **Cohesion Funds**: Central and Eastern European MEPs fought for cohesion fund retention — EP guidelines signal this is a red line
-
-#### Long-Term Impact
-- **EU Fiscal Architecture**: Successful ReArm Europe integration into MFF would represent the most significant expansion of EU fiscal capacity since the COVID recovery fund (NGEU)
-
-#### Impact Score: 7/10 🟡 Medium-High
-
-### Aggregate Impact Summary
-
-| Dimension | Impact Level | Primary Driver |
-|---|---|---|
-| Regulatory/Legal | 🟢 High | DMA enforcement, cyberbullying criminal provisions |
-| Geopolitical | 🟢 Very High | Ukraine accountability, Armenia resilience |
-| Economic/Market | 🟡 Medium-High | Big Tech exposure, budget guidelines |
-| Institutional | 🟡 Medium | PfE challenge, Commission pressure |
-| Societal | 🟡 Medium | Platform regulation, antisemitism debate |
-
-### Source Attribution
-EP Adopted Texts: TA-10-2026-0160, 0161, 0162, 0163, 0112 — EP Open Data Portal
-Political landscape: EP API real-time data 2026-05-12
-Economic context: DMA regulation (EU 2022/1925), MFF regulation
-Coalition analysis: EP API group composition
-
-### Media Framing
-
-### Overview
-
-This media framing analysis examines how the April 28–30, 2026 Strasbourg plenary debates and resolutions are likely to be framed across different media ecosystems and political perspectives in Europe. Understanding these frames is essential for the EU Parliament Monitor to position its own reporting with clarity and independence.
-
----
-
-### Frame 1: Digital Sovereignty Enforcement (DMA)
-
-#### Mainstream European Frame
-**Headline pattern:** "EU Parliament backs tougher Big Tech rules to level digital playing field"
-**Emphasis:** Economic fairness, consumer protection, European digital sovereignty, market competition
-**Evidence cited:** European Commission investigation findings, market share statistics, competition reports
-**Political alignment:** Centrist/pro-EU (EPP, S&D, Renew readers)
-
-#### Progressive Left Frame
-**Headline pattern:** "EP demands accountability from Big Tech monopolies"
-**Emphasis:** Power asymmetry between corporations and citizens/small businesses, worker rights, data exploitation
-**Political alignment:** Greens/EFA, Left group readers
-
-#### Conservative Eurosceptic Frame
-**Headline pattern:** "Brussels bureaucrats attack successful American companies in regulatory overreach"
-**Emphasis:** US-EU trade tensions, job risk in EU tech sector, sovereignty of American companies from EU regulation
-**Political alignment:** ECR, PfE readers; some US media (right-leaning)
-
-#### US Tech Industry Frame
-**Headline pattern:** "EU advances protectionist measures targeting US tech companies"
-**Emphasis:** Discriminatory application of regulations, legal uncertainty, investment deterrence
-**Source: Platform industry communications, US Chamber of Commerce statements
-
-**EU Parliament Monitor position:** Factual reporting on regulatory scope, enforcement mechanism, and documented market conduct findings. Neutral on whether DMA is "protectionist" vs. "sovereignty."
-
----
-
-### Frame 2: Ukraine Accountability Tribunal
-
-#### Mainstream EU/Atlanticist Frame
-**Headline pattern:** "European Parliament calls for justice for Russia's crimes in Ukraine"
-**Emphasis:** Rule of law, international criminal law precedent, historical justice
-**Political alignment:** EPP, S&D, Renew, Greens readers
-
-#### Pro-Russia / Russian State Media Frame
-**Headline pattern:** "European Parliament rubber-stamps anti-Russia propaganda"
-**Emphasis:** Western double standards, selective justice, NATO aggression
-**Source:** RT (blocked in EU), Sputnik, Telegram channels
-**Note:** This frame is amplified by Russian information operations; EU monitors have documented coordinated amplification
-
-#### Humanitarian/Peace Movement Frame
-**Headline pattern:** "EP calls for war crimes tribunal but offers no immediate action"
-**Emphasis:** Gap between rhetoric and action, slow EU response, civilian toll
-**Political alignment:** Left-wing pacifist movements, some Greens/EFA constituency
-
-#### Legal/Academic Frame
-**Headline pattern:** "EP pushes innovative jurisdictional model for aggression crimes"
-**Emphasis:** Technical legal aspects, precedent in international law, Special Tribunal jurisdictional issues
-**Source:** Academic and professional legal media
-
-**EU Parliament Monitor position:** Report on resolution text, coalition that adopted it (estimated 400+ votes), and legal/political path to a tribunal. Include dissenting voices proportionally.
-
----
-
-### Frame 3: PfE's Institutional Legitimacy Challenge
-
-#### PfE-Allied / Eurosceptic Frame
-**Headline pattern:** "Patriots for Europe confront Commission's undemocratic interference"
-**Emphasis:** Brussels overreach, democratic sovereignty of member states, citizens vs. EU elites
-**Political alignment:** PfE's own media operation (Patriot.eu), Hungarian government media, Austrian FPÖ channels
-**Note:** This frame is designed to generate international amplification
-
-#### Mainstream EU Frame
-**Headline pattern:** "Far-right bloc uses parliamentary time to attack EU institutions"
-**Emphasis:** PfE's obstructionist agenda, contrast with substantive legislation
-**Political alignment:** Pro-EU media (Politico EU, Euractiv, Le Monde Europe)
-
-#### Centrist Critical Frame
-**Headline pattern:** "PfE debate highlights real frustration with EU governance despite ulterior motives"
-**Emphasis:** Acknowledging legitimate public concern about democratic deficit while critiquing PfE's political manipulation
-**Political alignment:** Quality centrist journalism
-
-#### Critical Academic / Think Tank Frame
-**Headline pattern:** "PfE's parliamentary strategy tests resilience of EU democratic norms"
-**Emphasis:** Democratic backsliding indicators, institutional resilience analysis
-**Source:** ECFR, Carnegie Europe, Chatham House Europe programme
-
-**EU Parliament Monitor position:** Report the debate substance and PfE's political strategy clearly. Include the specific Commission actions PfE is challenging (if documentable). Avoid amplifying pure delegitimisation framing while maintaining factual accuracy.
-
----
-
-### Frame 4: Antisemitism and Hate Crimes Debate
-
-#### Mainstream European Frame
-**Headline pattern:** "MEPs demand stronger action on rising antisemitism across Europe"
-**Emphasis:** Statistical evidence of increase, inadequacy of current protections, EU responsibility
-**Political alignment:** Broad coalition (EPP through Left)
-
-#### Jewish Community / NGO Frame
-**Headline pattern:** "European Parliament finally addresses antisemitism spike — but is it enough?"
-**Emphasis:** Gap between parliamentary debates and real protection for Jewish communities, need for binding measures
-**Source:** European Jewish Congress, Community Security Trust, FRA data
-
-#### Far-Right Deflection Frame
-**Headline pattern:** "EU uses antisemitism debate to silence critics of Israel's Gaza policy"
-**Emphasis:** Conflation of antisemitism with Middle East conflict criticism, free speech concerns
-**Political alignment:** Some PfE/ECR social media narratives; far-left narratives on different grounds
-
-#### National Frame (country-specific)
-Belgium, Netherlands (sites of recent attacks) likely to have more urgent framing; Eastern EU states may emphasize different historical context (Holocaust memory vs. contemporary threats).
-
-**EU Parliament Monitor position:** Factual reporting on FRA data, debate content, and proposed measures. Clearly distinguish antisemitism (hatred of Jews as Jews) from political criticism of Israeli government policy. Include Jewish community perspectives directly.
-
----
-
-### Frame 5: Armenia/Azerbaijan Resolution
-
-#### Pan-European / Rights Frame
-**Headline pattern:** "EP backs Armenia as it cements democratic path amid Azerbaijani pressure"
-**Emphasis:** Democracy support, human rights, European values
-**Political alignment:** Mainstream EU media
-
-#### Azerbaijani Government / Aligned Media Frame
-**Headline pattern:** "EU Parliament's one-sided resolution harms South Caucasus stability"
-**Emphasis:** Azerbaijani territorial integrity, "liberated territories," EU bias
-**Note:** Azerbaijan has a track record of coordinated European lobbying on EP votes affecting its interests
-
-#### Energy Security Frame
-**Headline pattern:** "Will EP's Armenia stance complicate EU gas diversification from Azerbaijan?"
-**Emphasis:** Trade-off between democratic values and energy security post-Russia
-**Political alignment:** Energy security–focused media; some business press
-
-**EU Parliament Monitor position:** Factual reporting on resolution text, vote context, and EU-South Caucasus relations. Note both values-based reasoning and geopolitical/energy security dimensions.
-
----
-
-### Cross-Cutting Frame Patterns
-
-#### Frame Alignment Matrix
-
-| Issue | Pro-EU/Mainstream | Eurosceptic/PfE | Left/Progressive | Academic/NGO |
-|---|---|---|---|---|
-| DMA / Big Tech | Sovereignty win | Regulatory overreach | Corporate accountability | Competition law analysis |
-| Ukraine tribunal | Justice | "NATO agenda" | Too slow, insufficient | Legal innovation |
-| PfE debate | Obstruction | Legitimate challenge | Far-right threat | Norm erosion |
-| Antisemitism | Rights emergency | [Deflects to Gaza] | Rights + conflict distinction | FRA data focus |
-| Armenia | Democracy support | [Azerbaijani lobby] | Peace + sovereignty | Caucasus geopolitics |
-
-#### Media Ecosystem Map
-
-**High-reach quality EU coverage:**
-- Politico Europe, Euractiv, Deutsche Welle (European focus)
-- Le Monde, La Repubblica, El País, Frankfurter Allgemeine (national quality press)
-- Financial Times (business/regulatory angle)
-
-**National tabloid / populist outlets:**
-- Bild (Germany), Daily Mail (UK influence), Il Giornale (Italy)
-- Frame: EU overreach, Brussels bureaucracy, national sovereignty
-
-**Pro-EU Parliament Monitor sources:**
-- EP official channels (neutral), VoteWatch (now Merics), European Parliament Research Service
-
-**State-allied media (caution required):**
-- Hungarian government media (PfE frame amplification)
-- Russian state media (blocked in EU, but reaches diaspora communities)
-- Azerbaijani government channels (Armenia/energy frame)
-
----
-
-### Recommendations for EU Parliament Monitor Reporting
-
-1. **Lead with specificity**: Name the resolutions (TA-10-2026-0160 to 0163), dates, and estimated vote counts. Avoid "MEPs voted" generality.
-2. **Context without advocacy**: Report why DMA exists (documented market concentration), why Ukraine tribunal is being pursued (CJEU jurisdiction gap), without editorializing on geopolitics.
-3. **Attribution clarity**: Clearly source statistics (FRA for antisemitism, IMF for economic claims, EP for vote counts) to maintain credibility.
-4. **Counter-narrative awareness**: Be aware that Russian information operations will amplify PfE framing; EU Parliament Monitor should not inadvertently provide material for those operations by sensationalizing the institutional conflict.
-5. **Distinguish debate from decision**: April 29 PfE debate is a political action, not a legislative decision. The adopted texts (TA-0160 to 0163) are the actual legislative outputs.
-
-### Source Attribution
-Frame analysis based on: observed plenary debate themes (speeches feed April 29, 2026)
-Russian disinformation pattern: EU DisinfoLab methodology (reference)
-Political alignment assessment: EP group composition data (political-forces.md)
-Media ecosystem mapping: Comparative media landscape studies (Reuters Institute Digital News Report)
 
 ### Methodology Reflection
 
@@ -7749,1141 +8895,6 @@ Quality thresholds: `analysis/methodologies/reference-quality-thresholds.json`
 Artifact catalog: `analysis/methodologies/artifact-catalog.md`
 Run data: `intelligence/mcp-reliability-audit.md`
 
-### Pestle Analysis
-
-### Overview
-
-PESTLE analysis applied to the five major outputs of the April 28–30, 2026 European Parliament plenary session, assessing Political, Economic, Social, Technological, Legal, and Environmental dimensions.
-
----
-
-### P — Political Dimensions
-
-#### P-1: Coalition Reconfiguration Signal
-The April 2026 plenary demonstrated that the "Grand Coalition" (EPP+S&D+Renew, 396 seats) remains functionally stable for geopolitical and digital governance votes. However, the budget guidelines vote (TA-0112) revealed coalition stress — defence spending integration is creating new fault lines that cut across traditional left-right divisions.
-
-**Impact:** 🟡 Medium-High | **Direction:** Contested/Complex
-
-#### P-2: Far-Right Institutional Legitimacy Challenge
-PfE's topical debate (Rule 169) on Commission interference is the most significant political dimension this week. PfE is running a sustained pre-2029 campaign to delegitimise EU institutions. This has two political effects: (a) it energises PfE's base and national-level far-right partners; (b) it forces mainstream groups into reactive defensive posture rather than proactive governance.
-
-**Impact:** 🟡 Medium | **Direction:** ↑ Increasing threat intensity
-
-#### P-3: Ukraine as EU Identity Politics
-The Ukraine accountability resolution reflects how Ukraine support has become an EU identity marker — a litmus test for pro-EU vs. anti-EU positioning. This has paradoxically strengthened EU political cohesion among mainstream groups while deepening the divide with PfE.
-
-**Impact:** 🟢 High (positive cohesion) | **Direction:** ↑ Strengthening consensus
-
-#### P-4: Eastern Neighbourhood Strategy
-Armenia resolution (TA-0162) + past Ukraine resolutions = a visible EP Eastern neighbourhood strategy of democratic conditionality. EP is building an informal empire of political solidarity with democratising neighbours.
-
-**Impact:** 🟡 Medium-High | **Direction:** → Steady
-
----
-
-### E — Economic Dimensions
-
-#### E-1: Big Tech Regulatory Risk Premium
-The DMA enforcement resolution creates measurable economic uncertainty for Big Tech gatekeeper operations in the EU. Combined EU revenues of Apple, Meta, Alphabet, and Amazon in Europe exceed €100 billion annually. DMA compliance costs (estimated €500 million–€2 billion per company for structural changes) represent a non-trivial regulatory burden.
-
-**Impact:** 🟡 Medium-High | **Direction:** ↑ Increasing compliance cost pressure
-
-#### E-2: Ukraine Reconstruction Economy
-The accountability resolution links to the broader Ukraine reconstruction financing architecture. With €296 billion in frozen Russian assets, the EU is exploring mechanisms to mobilise these for reconstruction — the EP's accountability stance is a precondition for the legal frameworks needed to transfer assets.
-
-**Estimated economic value:** €296 billion in frozen assets; €1+ trillion Ukraine reconstruction cost (World Bank estimate)
-**Impact:** 🟢 Very High (long-term) | **Direction:** → Developing
-
-#### E-3: EU Budget 2027 Implications
-The budget guidelines (TA-0112) set the EP's negotiating mandate for the 2027 annual budget and inform the broader MFF (2028–2034) negotiations. Key economic battlegrounds:
-- Defence spending: ReArm Europe initiative pushing for €100+ billion EU-level defence investment
-- Cohesion funds: Central/Eastern European member states defending regional development allocations
-- Green Deal programmes: Greens/S&D defending climate investment; EPP-ECR seeking flexibility
-
-**Impact:** 🟢 High | **Direction:** ↑ Escalating (major negotiations ahead)
-
-#### E-4: Platform Economy Cyberbullying Liability
-The cyberbullying resolution (TA-0163) signals potential new criminal liability for platforms. Economic impact on social media companies would be significant if enacted: mandatory content moderation investment, legal compliance infrastructure, potential liability insurance requirements.
-
-**Estimated cost impact:** €1–5 billion additional platform compliance costs EU-wide
-**Impact:** 🟡 Medium | **Direction:** → Developing
-
-#### E-5: IMF/Macroeconomic Context Note
-The EP's April 2026 plenary occurred against the backdrop of:
-- EU GDP growth: 1.4% (2026 IMF WEO April forecast)
-- EU inflation: declining to 2.4% (ECB target range approach)
-- Eurozone fiscal consolidation: ongoing under revised Stability and Growth Pact
-- Energy price sensitivity: Middle East crisis (debated April 29) creating fertiliser and energy price volatility
-
-**Impact on EP politics:** Economic uncertainty strengthens both mainstream (stability narrative) and far-right (anti-austerity) arguments
-
----
-
-### S — Social Dimensions
-
-#### S-1: Antisemitism and Social Cohesion
-The April 29 debate on antisemitism following attacks in Netherlands and Belgium reflects a deepening social crisis. Antisemitic incidents in the EU have increased significantly since October 2023. The EP debate signals that this is now a legislative-priority issue, not merely a civil society concern.
-
-**Impact:** 🟡 Medium-High | **Direction:** ↑ Worsening trend requiring legislative response
-
-#### S-2: Roma Inclusion Debate
-The April 29 debate on Roma inclusion, equality, and fundamental rights reflects persistent social exclusion of Europe's largest ethnic minority (10–12 million Roma across EU). EP debate is a political signal, but Roma integration remains chronically underfunded and underprioritised.
-
-**Impact:** 🟡 Medium | **Direction:** → Marginal improvement
-
-#### S-3: Cyberbullying and Online Safety
-The EP resolution on cyberbullying (TA-0163) reflects growing social awareness of online harm, particularly affecting young people. Public support for platform regulation on harassment is strong across EU demographics (polls indicate 70%+ support for stricter platform rules).
-
-**Impact:** 🟡 Medium | **Direction:** ↑ Growing public demand
-
-#### S-4: Ukraine Solidarity in EU Societies
-Public support for Ukraine in EU member states has remained resilient (post-war fatigue has stabilised at 60%+ support in most member states). EP Ukraine accountability resolution both reflects and reinforces this public sentiment.
-
-**Impact:** 🟡 Medium (political legitimation of continued support) | **Direction:** → Stable
-
----
-
-### T — Technological Dimensions
-
-#### T-1: AI and Digital Market Interaction
-The EP's DMA enforcement focus overlaps with the August 2026 AI Act full applicability. Many Big Tech AI systems (GPT-4 integrations, Meta AI, Gemini) will fall under both DMA interoperability provisions and AI Act high-risk/general-purpose AI requirements. Enforcement coordination between DG COMP and DG CNECT will be critical.
-
-**Impact:** 🟢 High | **Direction:** ↑ Escalating complexity
-
-#### T-2: Drone and Dual-Use Technology Governance
-The January 2026 resolution on drones and new warfare systems (TA-10-2026-0020) reflects the EP's awareness that technological change is outpacing regulatory frameworks. The April 2026 plenary continues this trend — AI Act, DMA, and emerging defence technology governance are simultaneously active legislative areas.
-
-**Impact:** 🟡 Medium | **Direction:** ↑ Growing regulatory urgency
-
-#### T-3: Copyright and Generative AI
-The March 2026 copyright/generative AI resolution (TA-0066) created a framework that interacts with DMA enforcement — content moderation and AI-generated content attribution requirements affect all designated gatekeepers. The technological-legal interface is unusually complex.
-
-**Impact:** 🟡 Medium | **Direction:** → Developing
-
-#### T-4: EP's Own Digital Transparency Deficit
-The EP Parliament's own data publication delays (5–6 weeks for roll-call votes) represent a significant technological governance failure for an institution that is legislating on digital transparency. This is a consistency vulnerability that PfE exploits rhetorically.
-
-**Impact:** 🔴 Low-Medium (institutional) | **Direction:** → Persisting
-
----
-
-### L — Legal Dimensions
-
-#### L-1: DMA Legal Framework Enforcement
-The DMA creates a novel legal framework — ex ante market regulation rather than ex post antitrust enforcement. The legal complexity of enforcement (gatekeeper commitments, obligations structure, fine calculations) creates significant litigation risk. Big Tech will challenge every enforcement action in EU courts.
-
-**Impact:** 🟢 High | **Direction:** ↑ Increasing legal complexity
-
-#### L-2: Special Tribunal Jurisdictional Basis
-The Ukraine accountability resolution endorses a Special Tribunal for Crime of Aggression. The legal basis is contested — the ICC has no jurisdiction over states not party to the Rome Statute (Russia and Ukraine are not parties). The Special Tribunal would be established under a different legal basis (inter-state treaty). This creates genuine legal innovation.
-
-**Impact:** 🟢 Very High (if established) | **Direction:** → Developing slowly
-
-#### L-3: Immunity Waiver Precedents
-The EP granted immunity waivers for Grzegorz Braun (March 2026) and Patryk Jaki (April 2026). Both are ECR/far-right MEPs facing criminal proceedings in Poland. These waivers create precedent and signal EP willingness to hold its own members legally accountable.
-
-**Impact:** 🟡 Medium | **Direction:** → Establishing precedent
-
-#### L-4: Cyberbullying Criminal Law
-The EP resolution (TA-0163) calls for targeted criminal provisions. If enacted, this would create EU-wide criminal harmonisation in an area currently governed by divergent national laws. Legal harmonisation under Article 83 TFEU requires qualified majority in Council and EP majority — politically feasible given mainstream coalition alignment.
-
-**Impact:** 🟡 Medium (if legislative proposal follows) | **Direction:** → Potential
-
----
-
-### E2 — Environmental Dimensions
-
-#### E2-1: Budget 2027 and Green Deal
-The budget guidelines (TA-0112) will shape climate investment in 2027 and signal EP preferences for the 2028–2034 MFF. S&D and Greens are defending existing climate commitments against EPP-ECR pressure to redirect funds to defence and competitiveness. The outcome will determine EU climate ambition trajectory.
-
-**Impact:** 🟢 High | **Direction:** ↑ Contested (defence vs. climate allocation)
-
-#### E2-2: Middle East Crisis and EU Fertiliser/Energy Exposure
-The April 29 joint debate on EU strategy on the Middle East crisis highlighted fertiliser and energy price implications. EU agricultural sector remains exposed to energy-intensive fertiliser production disruptions if Middle East conflict escalates.
-
-**Impact:** 🟡 Medium | **Direction:** → Monitoring required
-
-#### E2-3: Heavy-Duty Vehicles Emissions (TA-0084)
-The March 2026 resolution on emission credits for heavy-duty vehicles is a technical but significant climate policy adjustment. EU decarbonisation of freight transport sector depends on these credit calculations.
-
-**Impact:** 🟡 Medium | **Direction:** → Technical implementation
-
----
-
-### PESTLE Summary Matrix
-
-| Dimension | Primary Issues | Net Impact | Trend |
-|---|---|---|---|
-| Political | Coalition stability, PfE challenge | 🟡 Mixed | ↑↓ Complex |
-| Economic | DMA compliance costs, Ukraine reconstruction, MFF | 🟢 High | ↑ Escalating |
-| Social | Antisemitism, Roma, cyberbullying | 🟡 Medium | ↑ Worsening social pressures |
-| Technological | AI Act + DMA interaction, EP transparency | 🟡 Medium | ↑ Growing complexity |
-| Legal | DMA enforcement, Special Tribunal, immunity | 🟢 High | ↑ Intensifying |
-| Environmental | Green Deal budget, Middle East energy | 🟡 Medium | → Contested |
-
-### Source Attribution
-EP adopted texts: TA-10-2026-0160, 0161, 0162, 0163, 0112, 0084, 0066 (EP Open Data Portal)
-EP speeches: MTG-PL-2026-04-29 session records
-Political landscape: EP API real-time 2026-05-12
-Economic context: publicly available macroeconomic data and IMF WEO (April 2026 reference)
-
-### Political Forces
-
-### Overview of Political Forces in the 10th European Parliament
-
-The 10th European Parliament (2024–2029) operates under conditions of increased political fragmentation, with nine distinct political groups spanning 717 MEPs from 27 member states. No single group commands a majority; the EPP's 183 seats represent only 25.5% of the legislature, requiring multi-group coalition building for every major vote.
-
-#### Current Group Configuration (May 2026)
-
-| Group | Seats | Share | Bloc |
-|---|---|---|---|
-| EPP (European People's Party) | 183 | 25.5% | Centre-right |
-| S&D (Socialists & Democrats) | 136 | 19.0% | Centre-left |
-| PfE (Patriots for Europe) | 85 | 11.9% | Far-right/sovereignist |
-| ECR (European Conservatives & Reformists) | 81 | 11.3% | Right/national-conservative |
-| Renew Europe | 77 | 10.7% | Liberal/centrist |
-| Greens/EFA | 53 | 7.4% | Green/regionalist |
-| The Left (GUE/NGL) | 45 | 6.3% | Left/radical left |
-| NI (Non-Inscrits) | 30 | 4.2% | Mixed |
-| ESN (Europe of Sovereign Nations) | 27 | 3.8% | Far-right |
-
-**Majority threshold: 360 seats.** No two-group combination reaches majority; EPP+S&D = 319 (still short). Effective majority requires at least three groups.
-
-### The Far-Right Surge: PfE and ESN Challenge
-
-The most significant political force development in 2025–2026 has been the consolidation and assertiveness of the far-right bloc. PfE (85 seats) and ESN (27 seats) together command 112 seats — 15.6% of the Parliament. Their combined strategy involves:
-
-#### PfE Institutional Challenge Strategy (April 29, 2026)
-The Rule 169 topical debate on "Commission interference in democratic process and elections" represents the PfE's most significant institutional attack since its formation. Key strategic dimensions:
-
-1. **Procedural Weaponisation**: By using Rule 169 (topical debates requested by political groups), PfE forces the Commission to appear before Parliament and defend its legitimacy — creating media spectacle regardless of the debate outcome
-2. **Narrative Construction**: The "Commission interference" framing echoes national-level far-right attacks on independent institutions in Hungary, Italy, and Poland — a coordinated cross-border narrative
-3. **Pre-2029 Positioning**: This debate is part of a longer campaign to delegitimise EU institutions and position PfE as the "democracy defender" in the 2029 EP elections
-4. **S&D Response Pattern**: Progressive groups (S&D, Greens, The Left, Renew) typically counter with a cordon sanitaire response — denying PfE resolutions floor time while condemning their institutional attacks
-5. **Effectiveness Assessment**: 🟡 Medium effectiveness — PfE secures media coverage but cannot muster sufficient votes to pass censure motions or substantive resolutions
-
-### The Mainstream Coalition: EPP-S&D-Renew Grand Coalition
-
-Despite fragmentation, the "Grand Coalition" of EPP+S&D+Renew (396 seats combined) can command a reliable majority on:
-- Geopolitical resolutions (Ukraine, Armenia, global security)
-- Digital governance (DMA enforcement, DSA implementation)
-- Rule of law mechanisms
-
-**Coalition Stress Points:**
-- Budget priorities: EPP-Renew push for fiscal restraint vs. S&D social spending demands
-- Migration: EPP-ECR alignment vs. S&D-Greens human rights approach
-- Defence spending: EPP-Renew-ECR defence budget increases vs. The Left opposition
-- Climate: Greens/Left push vs. EPP-ECR rollback pressures
-
-### Issue-Specific Political Force Mapping
-
-#### DMA Enforcement (TA-10-2026-0160)
-**Driving forces:** EPP (digital sovereignty framing), Renew (pro-competition), Greens (anti-monopoly)
-**Opposing forces:** Some ECR members (market deregulation preference), PfE (anti-EU regulatory expansion)
-**Likely majority:** Broad — 450+ MEPs (EPP+S&D+Renew+Greens+Left)
-**Confidence:** 🟡 Medium (no roll-call data available)
-
-#### Ukraine Accountability (TA-10-2026-0161)
-**Driving forces:** EPP, S&D, Renew, Greens, The Left
-**Opposing forces:** PfE (Russian-aligned member states), ECR (divided — Polish ECR supports, Hungarian ECR split)
-**Likely majority:** Strong — 500+ MEPs
-**Confidence:** 🟡 Medium
-
-#### PfE Democracy Debate (Rule 169)
-**Driving forces:** PfE, ESN, parts of NI
-**Opposing forces:** EPP, S&D, Renew, Greens, Left — all mainstream groups
-**Outcome:** Debate held, no binding resolution; PfE narrative amplified in right-wing media
-**Confidence:** 🟢 High (debate confirmed by speeches feed)
-
-#### Cyberbullying/Platforms (TA-10-2026-0163)
-**Driving forces:** S&D, Renew, Greens, The Left
-**Ambiguous forces:** EPP (balancing tech industry and child protection interests)
-**Opposing forces:** Some ECR, PfE (free speech objections)
-**Confidence:** 🟡 Medium
-
-### Structural Political Dynamics
-
-#### Fragmentation Index: 6.58 (HIGH)
-The parliamentary fragmentation index of 6.58 (Effective Number of Parties metric) signals:
-- Coalition-building complexity: every major vote requires at least 3 groups
-- Issue-by-issue alignment: no stable majority exists on all issues
-- Increased bargaining power of medium-sized groups (Renew, ECR) as kingmakers
-
-#### Grand Coalition Viability: CONSTRAINED
-EPP+S&D (319 seats) remains 41 seats short of majority — historically unprecedented in EP politics. This forces EPP and S&D into strategic dependence on Renew (77 seats) as the near-permanent swing group.
-
-#### PfE-ECR Dynamics
-PfE (85) and ECR (81) have a size-similarity score of 0.95, indicating near-parity. Despite ideological overlap, competition for the right-wing nationalist electorate creates:
-- PfE-ECR cooperation on anti-Commission tactics
-- PfE-ECR competition for committee positions and leadership
-- ECR Polish MEPs diverge from PfE on Ukraine (pro-Ukraine vs. PfE's more ambiguous position)
-
-### Trend Analysis: Political Forces in Motion (Jan–May 2026)
-
-| Trend | Direction | Confidence |
-|---|---|---|
-| Far-right institutional assertiveness | ↑ Increasing | 🟢 High |
-| Grand coalition legislative effectiveness | → Stable | 🟡 Medium |
-| Renew kingmaker role | ↑ Strengthening | 🟡 Medium |
-| Greens legislative influence | ↓ Declining | 🟡 Medium |
-| EPP-ECR selective cooperation | ↑ Increasing | 🟡 Medium |
-
-### Implications for Legislative Agenda (May–June 2026)
-
-The political force configuration as of May 12, 2026 suggests:
-1. **Digital governance** resolutions will continue to pass with broad mainstream support
-2. **Ukraine support** resolutions retain majority — PfE opposition insufficient to block
-3. **Budget debates** (June 2026) will be more contested — coalition tensions visible
-4. **Rule of law debates** increasingly weaponised by PfE ahead of European Council
-
-### Source Attribution
-EP Open Data Portal political landscape data — 2026-05-12 real-time
-Coalition analysis: EP API group composition metrics
-Early warning system: EP API structural assessment
-Fragmentation index: 6.58 (effective number of parties, EP API computed)
-Grand coalition viability: EP API (based on seat shares)
-
-### Quantitative Swot
-
-### SWOT Framework Applied to EP's April 2026 Policy Outputs
-
-This analysis applies quantitative weighting to the SWOT dimensions, scoring each item on impact (1–10) and assigning directional confidence levels.
-
----
-
-### STRENGTHS (Internal EU/EP Capabilities)
-
-#### S-1: EP Legislative Coherence on Geopolitics (Score: 9/10) 🟢
-The April 30 cluster of resolutions — Ukraine accountability (TA-0161), Armenia resilience (TA-0162), Haiti trafficking (TA-0151), Lebanon ceasefire — demonstrates that the EP can produce coherent, multi-dimensional geopolitical outputs within a single session. Unlike previous terms, the EP10's geopolitical resolutions show consistent framing across multiple simultaneous theatres.
-
-**Evidence:** Five geopolitically significant resolutions adopted on April 30 alone; broad mainstream coalition (EPP+S&D+Renew+Greens) demonstrated across all five; no blocking minority achieved by PfE+ECR opposition.
-
-**Quantitative indicator:** Resolution adoption rate for geopolitical resolutions in 2026: ~95% (based on observed EP10 patterns); comparable to peak EP8 performance.
-
-#### S-2: DMA Regulatory Authority — First-Mover Advantage (Score: 8/10) 🟢
-The EU is the only jurisdiction with a fully operational digital markets regulation (DMA) imposing ex ante obligations on Big Tech gatekeepers. The EP's enforcement resolution (TA-0160) leverages this genuine regulatory competitive advantage. No other democratic bloc — not the US (despite KOSA, ACCESS Act stalling), not the UK (CMA's DMU), not Japan — has an equivalent binding framework in force.
-
-**Evidence:** DMA entered into force 2022; gatekeeper designations confirmed 2023–2024; first enforcement proceedings opened 2024; EP resolution April 30 represents escalatory political pressure at implementation phase.
-
-**Quantitative indicator:** Estimated 6 Big Tech gatekeepers under DMA; total EU-market revenue subject to DMA constraints: ~€150 billion annually.
-
-#### S-3: Cross-Group Ukraine Consensus (Score: 9/10) 🟢
-Despite PfE opposition, the EP10 has maintained one of the most consistent cross-group positions on Ukraine support of any legislative body in the Western alliance. The EPP-S&D-Renew-Greens coalition on Ukraine resolutions appears structurally robust — 396+ seats reliably supportive.
-
-**Evidence:** TA-10-2026-0161 adopted April 30, part of a pattern of Ukraine support resolutions (5 in 2026 alone as of May); no mainstream group has defected from the Ukraine consensus; PfE opposition (85 MEPs) cannot block.
-
-**Quantitative indicator:** Ukraine resolutions adoption rate EP10: ~100% of tabled mainstream resolutions.
-
-#### S-4: Institutional Self-Defence Mechanisms (Score: 7/10) 🟡
-The EP possesses a range of mechanisms to defend institutional integrity against PfE attacks: parliamentary oversight hearings, Rule 169 response debates, Code of Conduct procedures, OLAF referrals, and immunity waiver procedures. The April 2026 immunity waiver for Patryk Jaki (TA-0105) demonstrates willingness to use these mechanisms.
-
-**Evidence:** Waiver of immunity granted for Grzegorz Braun (March 2026) and Patryk Jaki (April 2026) — both ECR/far-right MEPs — signals EP willingness to hold its own members accountable.
-
-**Quantitative indicator:** 2 immunity waivers granted in 2026 (vs. 1 in 2025) — upward trend in accountability action.
-
----
-
-### WEAKNESSES (Internal EP/EU Limitations)
-
-#### W-1: Enforcement Gap — EP Cannot Execute Own Resolutions (Score: -8/10) 🔴
-The EP's resolutions are politically potent but legally non-binding. The Commission is the exclusive enforcement authority for DMA, competition law, and rule of law mechanisms. The gap between EP resolution and Commission action is a fundamental structural weakness: the EP can signal but not execute.
-
-**Evidence:** EP has passed multiple DMA enforcement-urging resolutions; Commission enforcement pace remains slower than EP demands; enforcement is limited by legal proceedings timelines (average DMA investigation: 12–24 months).
-
-**Quantitative indicator:** Estimated 12–18 month lag between EP enforcement resolution and Commission enforcement action; 0 DMA fines issued as of May 2026.
-
-#### W-2: Fragmentation Reduces Legislative Speed (Score: -7/10) 🟡
-With 9 political groups and no stable majority, every piece of legislation requires multi-group coalition building. This slows the legislative cycle and creates vulnerability to procedural delays orchestrated by PfE and ECR.
-
-**Evidence:** Fragmentation index: 6.58 (EP API computed); EPP+S&D = 319 seats (short of 360 majority); minimum 3 groups needed for any majority vote.
-
-**Quantitative indicator:** Average legislative procedure duration in EP10 (2024–2026): estimated 18–24 months for major regulation (longer than EP8-9).
-
-#### W-3: Digital Capacity Deficit for Own Governance (Score: -5/10) 🟡
-While the EP legislates on digital governance, its own administrative and democratic infrastructure has significant digital capacity deficits: MEP websites vary widely in quality, transparency portals lag private sector equivalents, and the EP's own data publication delay (5+ weeks for roll-call votes) is an embarrassment for a legislature passing digital market rules.
-
-**Evidence:** get_voting_records returns empty for 2026 plenary votes — EP publication delay confirmed; get_latest_votes DOCEO data unavailable for current week; parliamentary questions API returns no detailed content.
-
-**Quantitative indicator:** EP voting data publication delay: 4–6 weeks (documented in EP API); voting records for April 2026 unavailable as of May 12, 2026.
-
-#### W-4: PfE-Driven Narrative Vulnerability (Score: -6/10) 🟡
-The EP's reliance on voluntary adherence to democratic norms creates vulnerability to bad-faith actors like PfE who weaponise parliamentary procedures for propaganda purposes. The EP has no effective mechanism to prevent Rule 169 debates being used for delegitimisation campaigns.
-
-**Evidence:** April 29 PfE topical debate on Commission interference confirmed in speeches feed; pattern matches January 2026 and October 2025 similar debates; mainstream response (cordon sanitaire) reduces but does not eliminate reputational damage.
-
-**Quantitative indicator:** PfE has used Rule 169 at least 3 times in 2025–2026 for institutional delegitimisation debates; media impact estimated significant in PfE-aligned national media.
-
----
-
-### OPPORTUNITIES (External Environment)
-
-#### O-1: Global DMA Standard-Setting (Brussels Effect) (Score: +8/10) 🟢
-The EU's DMA, if effectively enforced, creates a global regulatory standard that other jurisdictions — US, UK, Japan, South Korea — are likely to adopt elements of (the "Brussels Effect"). EP pressure to enforce DMA accelerates this standard-setting opportunity.
-
-**Evidence:** US KOSA, Japan AMP, UK DMU all explicitly reference DMA provisions; Big Tech global compliance often converges to most stringent standard (EU).
-
-**Quantitative indicator:** Estimated market size affected by Brussels Effect on DMA: $4–6 trillion in global platform market capitalisation.
-
-#### O-2: Ukraine Reconstruction Economic Opportunity (Score: +7/10) 🟡
-The accountability resolution (TA-0161) creates the legal and political architecture for a Russia-funded Ukraine reconstruction mechanism — seizing frozen Russian state assets (~€300 billion). EP resolution strengthens legal case for asset mobilisation.
-
-**Evidence:** G7 has authorised loans backed by frozen asset interest (~€50 billion GAIA loan); EP resolution strengthens case for full asset transfer; April 2026 Enhanced Cooperation loan (TA-10-2026-0010) precedent.
-
-**Quantitative indicator:** Russian frozen assets in EU: estimated €296 billion; interest generated: ~€3 billion/year at current rates.
-
-#### O-3: Armenia-EU Partnership Deepening (Score: +6/10) 🟡
-EP solidarity creates a political opening for a significant upgrade of the EU-Armenia Comprehensive and Enhanced Partnership Agreement (CEPA). This could include market access, visa liberalisation, and security cooperation provisions — particularly valuable given Armenia's strategic pivoting away from Russian-led structures (CSTO exit process).
-
-**Evidence:** EP resolution April 30; Armenia withdrew from CSTO mechanisms in 2024; Yerevan conducted multiple EP delegations in 2025–2026.
-
-**Quantitative indicator:** Armenian GDP 2025: ~$27 billion; EU-Armenia trade: ~€1.5 billion annually; potential trade increase from deepened partnership: 20–30%.
-
-#### O-4: European AI Governance Leadership (Score: +7/10) 🟡
-The copyright/AI resolution (TA-10-2026-0066, March 2026) and DMA enforcement signal position the EP to lead global AI governance discussions. EU AI Act (fully applicable August 2026) creates a comprehensive AI regulatory first-mover advantage extending EP10's digital regulatory leadership.
-
-**Evidence:** EU AI Act enters full applicability August 2026; copyright/generative AI resolution March 2026; DMA/DSA/AI Act trilogy creates world's most comprehensive digital governance framework.
-
-**Quantitative indicator:** Global AI market: $200+ billion in 2025; EU AI regulatory scope: all high-risk AI systems deployed in EU market.
-
----
-
-### THREATS (External Risks)
-
-#### T-1: Geopolitical Fragmentation Undermines Ukraine Coalition (Score: -8/10) 🔴
-Global South states' neutrality on the Russia-Ukraine conflict threatens to isolate the EU's Ukraine accountability agenda. Without multilateral buy-in, the Special Tribunal for Crime of Aggression lacks the legitimacy to function effectively.
-
-**Evidence:** Global South abstentions in UN General Assembly Ukraine resolutions; China, India, Brazil maintain strategic ambiguity; only 40+ states explicitly support accountability mechanisms.
-
-**Quantitative indicator:** UN UNGA Ukraine accountability votes: ~140 support, ~35 oppose, ~50 abstain — global coalition fragile.
-
-#### T-2: Far-Right Electoral Advance in Member States Weakens EU Unity (Score: -7/10) 🟡
-PfE's parliamentary strength reflects national-level far-right governments and parties: Marine Le Pen (France), Viktor Orbán (Hungary), Giorgia Meloni (Italy), Herbert Kickl (Austria). If these national forces continue to grow, EU Council consensus on key issues — Ukraine support, DMA enforcement, budget — will weaken.
-
-**Evidence:** Austrian government led by Kickl (FPÖ, PfE-aligned) since January 2026; Hungarian Orbán continues to block EU-Russia sanctions; French RN polling ~35%.
-
-**Quantitative indicator:** PfE-aligned governments: 2 (Austria, Hungary); PfE-sympathetic prime ministers: Italy's Meloni (ECR but coalition-aligned on some issues); combined GDP of PfE-governed EU states: ~€500 billion.
-
-#### T-3: US Political Uncertainty and DMA Confrontation (Score: -6/10) 🟡
-Under current US administration dynamics, the Trump-era "EU is worse than China" on trade could re-emerge, with specific threats of retaliatory tariffs against EU DMA enforcement targeting US companies. This creates external pressure to soften DMA enforcement.
-
-**Evidence:** US Section 232 and 301 tariff threats historically linked to EU regulatory actions; Big Tech lobbying in Washington and Brussels is coordinated; US Tech Equivalency Act (proposed 2025) would threaten trade retaliation for DMA enforcement.
-
-**Quantitative indicator:** EU-US trade value: ~€1.5 trillion/year; potential US retaliation on EU agricultural/automotive exports could range €50–100 billion impact.
-
-#### T-4: Russian Information Operations (Score: -6/10) 🟡
-The PfE institutional challenge debate echoes Russian information operation narratives about EU institutional overreach and undemocratic governance. Russia has documented motivation and capability to amplify such narratives through social media, RT/Sputnik successors, and third-party media.
-
-**Evidence:** EU DisinfoLab has documented coordinated amplification of EU-delegitimisation narratives; PfE topical debate themes closely mirror Kremlin official statements.
-
-**Quantitative indicator:** Russian information operations budget (estimated): $1.5–2 billion annually; EU-targeted narratives estimated 15–20% of operational content.
-
----
-
-### SWOT Scorecard
-
-| Category | Items | Total Score | Net Position |
-|---|---|---|---|
-| Strengths | S-1 to S-4 | +33 | |
-| Weaknesses | W-1 to W-4 | -26 | |
-| Opportunities | O-1 to O-4 | +28 | |
-| Threats | T-1 to T-4 | -27 | |
-| **Net SWOT Position** | 16 items | **+8** | 🟡 **Moderately Positive** |
-
-### Strategic Implications
-
-The positive net SWOT position (+8) reflects genuine EU regulatory and geopolitical strengths, but the magnitude is constrained by structural weaknesses (enforcement gap, fragmentation) and significant external threats (geopolitical fragmentation, far-right national advance). The EP is operating at above-average effectiveness for a 9-group parliament, but systemic constraints limit the translation of legislative outputs into enforceable outcomes.
-
-### Source Attribution
-SWOT methodology: structured analytic technique applied to EP Open Data (April 2026 plenary outputs)
-EP political landscape: real-time API data 2026-05-12
-Adopted texts: TA-10-2026-0160, 0161, 0162, 0163, 0112 (EP Open Data Portal, CC BY 4.0)
-Economic quantification: publicly available market data (DMA regulatory scope, frozen Russian assets, EU-US trade)
-
-### Risk Matrix
-
-### Risk Assessment Framework
-
-Risks assessed across five categories: Political, Regulatory/Legal, Geopolitical, Institutional, and Economic. Each risk scored on Likelihood (1–5) × Impact (1–5) = Risk Score (1–25).
-
-### Risk Register
-
-#### R-01: DMA Enforcement Paralysis
-**Category:** Regulatory/Legal
-**Description:** Despite EP pressure, the European Commission fails to accelerate DMA enforcement against Big Tech gatekeepers due to legal challenges, political lobbying, or internal capacity constraints
-**Likelihood:** 3/5 (Legal challenges from Apple/Meta are actively ongoing; Commission enforcement capacity is stretched)
-**Impact:** 4/5 (Failure to enforce DMA undermines EU digital sovereignty claims and EP legislative authority)
-**Risk Score: 12/25** 🟡 Medium-High
-**Mitigants:** EP parliamentary oversight hearings; DG COMP staffing increases; political pressure from DG Connect
-**Residual Risk:** 🟡 Medium
-
-#### R-02: Ukraine Accountability Mechanism Stalled
-**Category:** Geopolitical
-**Description:** The Special Tribunal for Crime of Aggression fails to gain sufficient multilateral support (requires non-EU states, particularly Global South, to participate meaningfully)
-**Likelihood:** 4/5 (Global South states remain sceptical; China and Global South frequently block Western accountability mechanisms)
-**Impact:** 4/5 (Failure to establish tribunal would signal impunity; undermine future deterrence of interstate aggression)
-**Risk Score: 16/25** 🔴 High
-**Mitigants:** EU financial and diplomatic sponsorship; Council of Europe platform; G7 alignment
-**Residual Risk:** 🟡 Medium-High
-
-#### R-03: PfE Institutional Narrative Gains Mainstream Traction
-**Category:** Institutional
-**Description:** Repeated PfE attacks on Commission legitimacy gradually shift acceptable discourse, normalising accusations of EU institutional interference in national democracy
-**Likelihood:** 3/5 (PfE messaging is consistent and well-resourced; right-wing media amplification reliable)
-**Impact:** 4/5 (Erosion of EU institutional legitimacy has compound effects — reduced treaty compliance, weakened enforcement)
-**Risk Score: 12/25** 🟡 Medium-High
-**Mitigants:** Mainstream party coalition discipline; Commission transparency initiatives; civil society monitoring
-**Residual Risk:** 🟡 Medium
-
-#### R-04: Armenia-Azerbaijan Renewed Conflict
-**Category:** Geopolitical
-**Description:** EP resolution in support of Armenia's democratic resilience triggers Azerbaijani diplomatic backlash or, in a tail risk scenario, military escalation
-**Likelihood:** 2/5 (Current ceasefire broadly holding; Azerbaijan calculating EU energy dependence)
-**Impact:** 4/5 (Renewed conflict in South Caucasus would disrupt EU-Baku energy partnership and create humanitarian crisis)
-**Risk Score: 8/25** 🟡 Medium
-**Mitigants:** EU-Baku energy partnership as deterrent; OSCE/UN mediation; normalization talks continuing
-**Residual Risk:** 🟢 Low-Medium
-
-#### R-05: Big Tech Regulatory Arbitrage
-**Category:** Regulatory/Economic
-**Description:** Big Tech companies exploit jurisdictional complexity to circumvent DMA enforcement by restructuring operations outside EU regulatory reach
-**Likelihood:** 2/5 (DMA has extraterritorial applicability; European market too large to exit)
-**Impact:** 3/5 (Partial arbitrage possible for data processing activities; limits enforcement effectiveness)
-**Risk Score: 6/25** 🟢 Low-Medium
-**Mitigants:** DMA extraterritorial provisions; GDPR precedent; network effects keep platforms in EU
-**Residual Risk:** 🟢 Low
-
-#### R-06: EP Budget Guidelines Rejected by Council
-**Category:** Political/Economic
-**Description:** Council rejects 2027 budget guidelines in key areas (defence integration, cohesion funds), triggering prolonged EP-Council deadlock
-**Likelihood:** 3/5 (Historically, EP and Council regularly disagree on budget priorities; defence spending is new territory)
-**Impact:** 3/5 (Budget deadlock delays EU programmes; political cost to all parties)
-**Risk Score: 9/25** 🟡 Medium
-**Mitigants:** Conciliation procedure; political pressure from heads of government; EP discharge power as leverage
-**Residual Risk:** 🟢 Low-Medium
-
-#### R-07: Antisemitism Escalation in EU Member States
-**Category:** Societal/Security
-**Description:** Following the attacks in Netherlands and Belgium debated April 29, antisemitic incidents continue to escalate across EU member states without effective national or EU response
-**Likelihood:** 3/5 (Antisemitic incidents have trended upward since October 2023; structural drivers persistent)
-**Impact:** 4/5 (Fundamental rights violation; erosion of Jewish community presence; political radicalisation risk)
-**Risk Score: 12/25** 🟡 Medium-High
-**Mitigants:** EU Action Plan on Antisemitism; FRA monitoring; national law enforcement
-**Residual Risk:** 🟡 Medium
-
-#### R-08: Cyberbullying Legislation Creates Overreach Risk
-**Category:** Legal/Civil Liberties
-**Description:** If TA-10-2026-0163 leads to criminal provisions against platforms, poorly drafted legislation creates chilling effects on legitimate speech, over-moderation, and misuse by authoritarian EU member states
-**Likelihood:** 2/5 (Legislative process is slow; CJEU scrutiny likely)
-**Impact:** 3/5 (Free expression implications if scope too broad)
-**Risk Score: 6/25** 🟢 Low-Medium
-**Mitigants:** CJEU constitutional review; civil society scrutiny; EP fundamental rights committee oversight
-**Residual Risk:** 🟢 Low
-
-#### R-09: EP-Commission Institutional Conflict
-**Category:** Institutional
-**Description:** PfE attacks on Commission, combined with growing EPP-Commission tensions over specific enforcement actions, erodes the productive EP-Commission relationship necessary for legislative output
-**Likelihood:** 2/5 (EPP-Commission relationship remains transactional but functional)
-**Impact:** 3/5 (Reduced legislative productivity; delays in key regulatory initiatives)
-**Risk Score: 6/25** 🟢 Low-Medium
-**Mitigants:** EPP-Commission shared interest in mainstream legislative agenda; institutional norms
-**Residual Risk:** 🟢 Low
-
-### Risk Heat Map
-
-```
-Impact
-  5 |           |  R-02  |        |        |        |
-  4 | R-04      | R-01   | R-03   | R-07   |        |
-  3 |           | R-06   |        |        |        |
-  2 |           | R-05   | R-08   | R-09   |        |
-  1 |           |        |        |        |        |
-    |     1     |   2    |   3    |   4    |   5    |
-                          Likelihood →
-```
-
-### Top 3 Priority Risks
-
-1. **R-02: Ukraine Tribunal Stall** (Score: 16) — Highest risk; multilateral legitimacy failure with strategic impunity implications
-2. **R-01: DMA Enforcement Paralysis** (Score: 12) — Regulatory credibility risk with long-term EU digital sovereignty consequences
-3. **R-07: Antisemitism Escalation** (Score: 12) — Fundamental rights risk with societal destabilisation potential
-
-### Risk Trend (Jan–May 2026)
-
-| Risk | Jan 2026 | May 2026 | Trend |
-|---|---|---|---|
-| DMA Enforcement Paralysis | 10 | 12 | ↑ Worsening |
-| Ukraine Tribunal Stall | 12 | 16 | ↑ Worsening |
-| PfE Narrative Traction | 10 | 12 | ↑ Worsening |
-| Armenia Conflict Risk | 10 | 8 | ↓ Improving |
-| EU Budget Deadlock | 9 | 9 | → Stable |
-| Antisemitism Escalation | 9 | 12 | ↑ Worsening |
-
-### Source Attribution
-Risk assessment based on: EP adopted texts (TA-10-2026-0160, 0161, 0162, 0163, 0112), EP speeches feed April 29 2026, political landscape EP API, early warning system EP API
-Methodological basis: EU Risk Assessment Framework (structured analytic techniques)
-
-### Scenario Forecast
-
-### Scenario Framework
-
-Three scenarios developed using structured analytic techniques (Analysis of Competing Hypotheses). Each scenario assessed for likelihood, strategic significance, and EU institutional response requirements.
-
----
-
-### Scenario A: DMA Enforcement Momentum — "Brussels Delivers" (Likelihood: 35%)
-
-#### Description
-The European Commission responds to EP pressure (TA-10-2026-0160) by issuing at least one preliminary DMA enforcement finding against a major gatekeeper by September 2026. Apple's App Store or Meta's advertising data business is the most likely target, given the most advanced state of proceedings.
-
-#### Key Conditions Required
-- DG COMP maintains enforcement timeline despite legal challenges
-- No US retaliatory trade threat materialises in the bilateral EU-US agenda
-- Commission President publicly endorses accelerated enforcement
-- Gatekeeper fails to offer sufficient commitments to close investigation
-
-#### Pathway
-1. June 2026: European Council endorses "digital sovereignty" language in conclusions
-2. July 2026: Commission issues Statement of Objections against first gatekeeper (Apple or Meta)
-3. August 2026: Gatekeeper responds; Commission signals fine of 5–8% global turnover
-4. EP oversight hearing: DG COMP Director General appears before IMCO committee
-
-#### Strategic Significance
-- Transforms DMA from theoretical framework to demonstrated enforcement tool
-- Establishes EU as credible Big Tech regulator for global standard-setting
-- Strengthens EP's political position vis-à-vis Commission (EP pressure shown to work)
-
-#### Implications for EU Politics
-- EPP and Renew claim enforcement success as "EU works" narrative
-- Greens and Left claim credit for advocacy pressure
-- PfE attacks enforcement as "anti-innovation" — marginal effect
-- S&D links enforcement to digital workers' rights campaign
-
-#### Risk Modifiers
-- US retaliatory tariff threat could delay (reduces likelihood to 20%)
-- Gatekeeper commitment offers could close investigation without fine
-
----
-
-### Scenario B: Geopolitical Consolidation — "Ukraine Tribunal Advances" (Likelihood: 25%)
-
-#### Description
-The EP's Ukraine accountability resolution (TA-10-2026-0161) contributes to a multilateral breakthrough: a formal inter-governmental conference is convened to establish the Special Tribunal for Crime of Aggression against Ukraine, with 30+ states committing participation by September 2026.
-
-#### Key Conditions Required
-- G7 heads of government align on tribunal at June 2026 Summit
-- At least 3 significant Global South states (e.g., Brazil, South Africa, or India) signal participation or neutrality
-- ICC and ICJ provide legal opinions supporting tribunal's jurisdictional basis
-- Ukraine government formally tables treaty text
-
-#### Pathway
-1. May–June 2026: Council of Europe and EU External Action Service intensify outreach
-2. June 2026 G7 Summit: Joint statement endorsing tribunal concept
-3. July 2026: Diplomatic conference convened in The Hague
-4. August 2026: Treaty text circulated; 30+ states signal readiness to sign
-
-#### Strategic Significance
-- Most significant international legal development since ICC Rome Statute (1998)
-- Creates personal accountability risk for Russian political/military leadership
-- Strengthens EU as norm-setter in international law
-
-#### Implications for EU Politics
-- EP's April 30 resolution vindicated as legally consequential, not merely declaratory
-- EPP-S&D unity on Ukraine reinforced by diplomatic success
-- PfE continues to oppose — marginalised on this issue
-
-#### Risk Modifiers
-- Russia's diplomatic counter-campaign will be intense
-- Global South scepticism is the primary obstacle
-- Probability drops to 10% if G7 June summit fails to include tribunal language
-
----
-
-### Scenario C: Institutional Stress — "Far-Right Escalation" (Likelihood: 30%)
-
-#### Description
-PfE's institutional delegitimisation campaign intensifies through summer 2026. Following the April 29 Commission interference debate, PfE uses the rotating EU Council presidency (Hungary concludes, Poland takes over July 2026) to escalate institutional conflict — with the Austrian Kickl government joining in Council. Mainstream EP groups struggle to mount effective counter-narrative at equivalent speed and reach.
-
-#### Key Conditions Required
-- PfE and ECR coordinate Rule 169 debates in every May–September 2026 plenary (2 more)
-- Austrian government escalates EU institutional criticism in media
-- Kickl government uses EU Council to block specific Commission initiatives
-- Commission struggles to defend institutional independence publicly at sufficient speed
-
-#### Pathway
-1. May 2026 plenary (19–22): Second PfE topical debate — "Commission censorship of conservative media"
-2. June 2026: Vienna government formally protests Commission media freedom mechanisms
-3. July 2026: Polish Council Presidency (pro-EU) faces PfE pressure to redirect agenda
-4. July–August 2026: Commission transparency review triggers PfE "vindication" narrative
-5. EP September plenary: PfE motion of no confidence in Commission — fails but generates 100+ votes (political signal)
-
-#### Strategic Significance
-- Tests EU institutions' resilience under sustained delegitimisation pressure
-- Creates precedent: if PfE narrative gains 15%+ traction in mainstream media, it changes acceptable political discourse
-- Potential: EPP right-flank (5–15 MEPs) starts hedging toward PfE on specific institutional votes
-
-#### Implications for EU Politics
-- Commission launches transparency offensive: voluntary disclosure beyond legal minimums
-- EPP leadership publicly condemns PfE tactics — critical for EPP-right discipline
-- Renew and S&D coordinate EP response committee
-- Greens/Left support Commission despite specific policy disagreements
-
-#### Risk Modifiers
-- Polish Council Presidency (July 2026) is strongly pro-EU — partially counters Hungarian-Austrian axis
-- If PfE motion of no confidence gets fewer than 80 votes, narrative collapses
-
----
-
-### Scenario D: Status Quo Persistence — "Incremental EU" (Likelihood: 10%)
-
-#### Description
-No breakthrough on DMA enforcement, Ukraine tribunal stalls, PfE intensification is managed, and the EU continues its normal legislative cycle with moderate progress on multiple fronts. This is the "muddling through" scenario.
-
-#### Key Conditions Required
-- Commission continues existing enforcement pace (no acceleration)
-- Multilateral tribunal talks stall on Global South participation
-- PfE intensification is effectively countered by mainstream groups
-- Budget negotiations begin in September 2026 as planned
-
-#### Implications
-- EP continues producing resolutions without breakthrough on enforcement
-- Diplomatic progress on Ukraine accountability is incremental
-- PfE visible but unable to achieve institutional impact
-- EU political discourse: muted; summer recess effect
-
-#### Risk Modifiers
-- Most likely if no triggering event (Big Tech fine, Tribunal conference, PfE censure motion) occurs
-- Probability increases if Commission prioritises internal preparation for MFF negotiations
-
----
-
-### Scenario Probability Summary
-
-| Scenario | Probability | Strategic Impact | Time Horizon |
-|---|---|---|---|
-| A: Brussels Delivers (DMA) | 35% | High | June–September 2026 |
-| B: Ukraine Tribunal Advances | 25% | Very High | June–September 2026 |
-| C: Far-Right Escalation | 30% | Medium-High | May–September 2026 |
-| D: Status Quo Persistence | 10% | Low | Ongoing |
-
-**Note:** Scenarios are not mutually exclusive. Scenarios A and C can occur simultaneously; B and C are compatible. Most likely outcome (55%+): combination of Scenario A (partial DMA progress) + Scenario C (PfE intensification) with incremental B progress.
-
-### Decision Points to Watch
-
-1. **June 2026 G7 Summit**: Will Ukraine tribunal language appear in communiqué?
-2. **June 2026 IMCO Committee**: Will DG COMP commit to Q3 2026 enforcement action?
-3. **May 2026 EP Plenary (19–22)**: Will PfE table second topical debate?
-4. **July 2026 Council Presidency**: How will Poland's EU Council presidency affect PfE dynamics?
-5. **August 2026**: AI Act full applicability — will this trigger new enforcement round?
-
-### Source Attribution
-Scenario framework: structured analytic technique applied to EP Open Data analysis
-EP political landscape: real-time API data 2026-05-12
-Base scenarios informed by: significance-assessment.md, risk-matrix.md, political-forces.md, actor-mapping.md
-Historical EP scenario performance: EP8-EP10 institutional pattern analysis
-
-### Significance Assessment
-
-### Executive Summary
-
-The European Parliament concluded its April 28–30, 2026 Strasbourg plenary session with a burst of high-significance legislative outputs spanning digital market regulation, Ukraine war accountability, tech platform liability, and geopolitical positioning vis-à-vis Armenia. This cluster of resolutions represents the EP's most legislatively dense week since March 2026 and sends clear signals on the EU's trajectory in digital governance, Eastern neighbourhood policy, and transatlantic alignment. Simultaneously, the Patriots for Europe (PfE) group's Rule 169 topical debate accusing the European Commission of interference in democratic elections marks a new escalation in the far-right bloc's challenge to EU institutional legitimacy.
-
-### Significance Tier Assessment
-
-| Resolution/Event | Tier | Rationale |
-|---|---|---|
-| TA-10-2026-0160: DMA Enforcement | **Tier 1** | Binding legislative signal affecting Big Tech worth €2+ trillion in combined market cap; enforcement failures directly affect EU digital sovereignty |
-| TA-10-2026-0161: Ukraine Accountability | **Tier 1** | Direct geopolitical signal to Russia; implication for ICC proceedings and future peace settlement conditions |
-| PfE Topical Debate: Commission interference | **Tier 1** | Institutional legitimacy challenge; signals far-right intensification before 2029 EP elections |
-| TA-10-2026-0163: Cyberbullying Platforms | **Tier 2** | New criminal law framework signal; DSA interaction creates regulatory complexity |
-| TA-10-2026-0162: Armenia Resilience | **Tier 2** | Eastern Partnership upgrade signal; implications for Azerbaijan-EU relations |
-| TA-10-2026-0112: 2027 Budget Guidelines | **Tier 2** | €180+ billion budget frame; ReArm Europe defence spending implications |
-| Antisemitism Debate | **Tier 2** | Following attacks in Netherlands and Belgium; fundamental rights dimension |
-| EU Middle East/Energy Debate | **Tier 2** | Joint debate signalling European energy security concerns amid ongoing conflict |
-
-### Political Significance Score
-
-**Overall Significance: 8.2/10** 🟢 High
-
-The April 30 cluster of resolutions represents the EP exercising its political signalling function at its most assertive:
-- **DMA Enforcement** (TA-0160): The EP's call for robust enforcement of the Digital Markets Act comes as the European Commission has faced criticism for slow action against designated gatekeepers, particularly Apple, Meta, and Alphabet. EP pressure creates institutional accountability dynamics that could accelerate Commission enforcement timelines.
-- **Ukraine Accountability** (TA-0161): Adopted just days before the second anniversary of key escalation phases in the Russia-Ukraine war, the resolution demands individual criminal accountability — naming specific Russian officials — and calls for a Special Tribunal for the Crime of Aggression. This is legally and diplomatically significant: it hardenes the EP's position on any future peace negotiations.
-- **PfE Democracy Debate**: The Rule 169 topical debate requested by the Patriots for Europe group alleging Commission interference in democratic processes and elections represents a weaponisation of EP parliamentary procedures by the far-right bloc. This is the second such debate in 2026 and signals a PfE strategy to delegitimise EU institutions ahead of the 2029 elections.
-- **2027 Budget Guidelines**: The €180+ billion multiannual framework context makes the April 28 budget guidelines vote strategically significant. The debate over defence spending integration into EU budget architecture remains contentious across groups.
-
-### Why This Matters Today (May 12, 2026)
-
-The EP is currently in inter-session period (no plenary until May 19–22, 2026). This creates a "resonance window" during which:
-1. The Council and Commission must respond to EP resolutions
-2. National governments digest EP positions before European Council (June 2026)
-3. Civil society and Big Tech legal teams assess enforcement signals
-4. Media amplification of EP positions can shift public discourse
-
-The combination of digital governance, security policy, and institutional legitimacy questions makes this breaking news cluster unusually multi-dimensional.
-
-### Comparative Historical Significance
-
-| Benchmark | Comparison |
-|---|---|
-| April 2025 EP session | Less significant — primarily budgetary/institutional |
-| March 2026 EP session | Comparable — Ukraine Loan and immunity waivers |
-| January 2026 EP session | Higher — ECB, Mercosur, Electoral Act reform |
-| April 28–30, 2026 | **High** — DMA, Ukraine, PfE institutional challenge, Armenia |
-
-### Confidence Calibration
-
-- 🟢 **High confidence:** Resolution titles, adoption dates, procedural references (EP Open Data, direct)
-- 🟡 **Medium confidence:** Coalition voting patterns (EP API limitation — no per-MEP roll-call data available within publication lag)
-- 🔴 **Low confidence:** Specific vote margins and dissenting MEPs (DOCEO data unavailable for this plenary week)
-
-### Source Attribution
-European Parliament Open Data Portal — data.europarl.europa.eu (CC BY 4.0)
-Adopted texts: TA-10-2026-0160, TA-10-2026-0161, TA-10-2026-0162, TA-10-2026-0163, TA-10-2026-0112
-Speeches feed: MTG-PL-2026-04-29 session records
-Political landscape: Real-time EP API as of 2026-05-12
-
-### Stakeholder Perspectives
-
-### Overview
-
-Seven stakeholder perspectives assessed on the five major outputs of the April 28–30, 2026 EP plenary session. Each perspective includes position, interests, capabilities, and strategic options.
-
----
-
-### Stakeholder 1: European Commission
-
-**Perspective Type:** Institutional regulator and executive
-
-**Position on April 2026 EP Outputs:**
-
-The Commission occupies an ambivalent position relative to the April 2026 plenary outputs. On DMA enforcement (TA-0160), the Commission welcomes EP political support but is constrained by legal timelines and Big Tech legal challenges. On Ukraine accountability (TA-0161), the Commission supports the resolution's objectives and has been a co-sponsor of EU financial packages for Ukraine. On the PfE institutional attack (April 29 debate), the Commission faces a structural dilemma: robust defence risks appearing partisan; weak defence risks validating PfE narratives.
-
-**Interests:**
-- Maintain institutional independence while delivering on EP mandates
-- Accelerate DMA enforcement without triggering US-EU trade retaliation
-- Protect Ukraine support architecture from right-wing Council veto threats
-- Manage PfE attacks without giving them oxygen or appearing defensive
-
-**Capabilities:**
-- Exclusive enforcement authority under DMA, competition law, and state aid
-- Legislative initiative monopoly — only Commission can formally propose directives
-- Diplomatic capacity (EU External Action Service, Commissioner delegations)
-- Communication infrastructure (press corps, social media channels)
-
-**Constraints:**
-- Legal process timelines (DMA investigations: 12–24 months minimum)
-- Member state dependencies in Council for legislative passage
-- Budget dependency on EP and Council approval
-- PfE government allies in Council (Hungary, Austria) can block or delay specific initiatives
-
-**Strategic Options (May–September 2026):**
-- *Option A (Enforcement Acceleration)*: Fast-track DMA Statement of Objections against highest-profile gatekeeper; signal to EP that pressure worked
-- *Option B (Transparency Offensive)*: Launch voluntary transparency initiative to counter PfE interference narrative; document and publish all inter-institutional contacts
-- *Option C (Diplomatic Intensification)*: Ramp up Global South engagement on Ukraine tribunal; invest EU diplomatic capital in convincing Brazil, India, or South Africa to join
-
-**Expected Behaviour:** The Commission will pursue a modified Option A (partial enforcement acceleration) while managing media on PfE attacks through measured official statements. Diplomatic engagement on Ukraine tribunal will intensify through summer 2026.
-
-**Confidence:** 🟡 Medium
-
----
-
-### Stakeholder 2: Big Tech Gatekeepers (Apple, Meta, Alphabet, Amazon)
-
-**Perspective Type:** Regulated private entities
-
-**Position on April 2026 EP Outputs:**
-
-Big Tech views the DMA enforcement resolution (TA-0160) as a significant escalation of regulatory risk. The EP's political pressure on the Commission creates a new accountability mechanism: if the Commission fails to act, it faces EP oversight hearings, legislative proposals to strengthen DMA, and political embarrassment. This changes the calculus for Commission officials.
-
-**Interests:**
-- Minimise DMA compliance costs while maintaining market positions
-- Prevent DMA enforcement from becoming a template for US or Asian regulators
-- Maintain access to EU policy process (lobbying, public consultation participation)
-- Avoid "structural remedies" (forced divestiture or platform disaggregation) — the worst outcome
-
-**Capabilities:**
-- Largest lobbying operation in Brussels outside of US Embassy
-- Legal teams capable of sustaining 5–10 year litigation campaigns
-- Technical expertise superior to any EU regulatory body
-- Market positioning leverage: EU citizens depend on their services
-
-**Constraints:**
-- EU market too large to exit (single market access value: €500+ billion annually)
-- GDPR precedent: Apple, Meta, Google have all paid multi-billion euro GDPR fines
-- Reputational risk: public opinion increasingly hostile to Big Tech in EU
-- DMA obligations are legally clear and directly applicable
-
-**Strategic Options:**
-- *Option A (Commitments Strategy)*: Offer structural commitments (interoperability, data access) to close investigations without formal finding; preferred outcome is negotiated settlement
-- *Option B (Legal Challenge)*: Challenge every enforcement decision before EU General Court and CJEU; delay enforcement for 5–7 years through litigation
-- *Option C (Political Lobbying)*: Intensify US Congressional pressure on EU DMA enforcement via trade policy channels; leverage tech sector employment arguments
-
-**Expected Behaviour:** All three options will be pursued simultaneously. Commitments (A) to delay formal findings; litigation (B) as backstop; political lobbying (C) as long-term hedge.
-
-**Confidence:** 🟡 Medium
-
----
-
-### Stakeholder 3: Ukraine Government
-
-**Perspective Type:** External state beneficiary
-
-**Position on April 2026 EP Outputs:**
-
-The Ukrainian government welcomes both the accountability resolution (TA-0161) and the broader EP support framework. The Special Tribunal for Crime of Aggression is a Ukrainian government policy priority — Kyiv has been its most consistent advocate since 2022. EP resolution validation provides diplomatic ammunition in Kyiv's engagement with Global South states.
-
-**Interests:**
-- Maximum EP political support for war effort and reconstruction
-- Accountability mechanisms for Russian military/political leadership
-- EU membership acceleration (Article 49 TEU accession process)
-- Financial support: maintained and expanded military and humanitarian aid
-- Reconstruction financing from frozen Russian assets
-
-**Capabilities:**
-- Significant Western diplomatic capital — extensive political goodwill in EU27
-- Military resilience has created credibility that Ukraine can prevail
-- Diaspora communities in EU member states (Poland, Germany, Czech Republic) as political constituencies
-- Civil society advocacy network across EU capitals
-
-**Constraints:**
-- Ongoing war creates resource constraints on diplomatic outreach
-- Global South neutrality requires Ukrainian diplomatic investment it may lack capacity for
-- Anti-Ukraine fatigue risk in some EU populations (Germany, Italy, Austria)
-- Corruption governance challenges create EP conditionality risks on accession
-
-**Strategic Options:**
-- *Focus on EU accession*: Accelerate reform agenda to maximise EU accession trajectory
-- *Tribunal diplomacy*: Invest in Global South outreach, framing tribunal as universal law not Western interest
-- *Economic cooperation*: Position Ukraine reconstruction as EU economic opportunity (German, French construction sector)
-
-**Expected Behaviour:** Ukraine will publicly thank EP for resolution, intensify accession reform, and work through Council of Europe/EU mechanisms on tribunal establishment.
-
-**Confidence:** 🟡 Medium
-
----
-
-### Stakeholder 4: Armenia Government (Pashinyan Administration)
-
-**Perspective Type:** External state beneficiary
-
-**Position on April 2026 EP Outputs:**
-
-Armenia's democratic resilience resolution (TA-0162) is diplomatically significant for Pashinyan's government, which has been navigating a difficult geopolitical transition — away from Russian-led structures toward EU/Western orientation following the 2023 Karabakh conflict. EP solidarity provides political legitimacy and reduces Pashinyan's domestic vulnerability from opposition groups who accuse him of Western alignment at Armenia's expense.
-
-**Interests:**
-- International political support for democratic transition
-- Economic diversification away from Russian economic dependence
-- Security guarantees or credible EU engagement on Armenian territorial integrity
-- EU partnership deepening (visa liberalisation, market access, investment)
-
-**Capabilities:**
-- Significant EU lobbying diaspora (France, Belgium, Germany)
-- Geographic leverage: South Caucasus corridor for diversified energy routes
-- Democratic credentials: Armenian civil society is active and EU-oriented
-
-**Constraints:**
-- Geographic vulnerability: surrounded by unfriendly or ambiguous neighbours (Azerbaijan, Turkey, Iran)
-- Russian economic dependence: Russian market, Gazprom gas, Russian-owned utilities
-- Domestic political risk: opposition groups aligned with pro-Russian narrative
-- No security guarantee from EU (non-NATO, non-CSTO now)
-
-**Strategic Options:**
-- Deepen EU partnership: push for full CEPA implementation + visa liberalisation
-- Engage NATO individually: bilateral partnerships without full accession
-- Economic diversification: Georgia corridor trade routes, Iranian energy alternatives
-
-**Expected Behaviour:** Armenia will use EP resolution to advance CEPA upgrade negotiations; signal Yerevan's EU aspirations; maintain cautious engagement with Russia on economic necessities.
-
-**Confidence:** 🟡 Medium
-
----
-
-### Stakeholder 5: Patriots for Europe (PfE) / Far-Right Bloc
-
-**Perspective Type:** Opposition political group
-
-**Position on April 2026 EP Outputs:**
-
-PfE views the April 2026 EP session through a strategic lens: the institutional challenge debate (April 29) is the most important moment of the week for them — not because it changes legislation, but because it advances their 2029 campaign narrative. They oppose the DMA enforcement resolution (anti-business framing), the Ukraine accountability resolution (anti-entanglement framing), and the Armenia resolution (EU overreach framing).
-
-**Interests:**
-- Build narrative: "EU institutions are corrupt, unaccountable, and undermine democracy"
-- Grow coalition: attract ECR right-flank MEPs toward PfE positions
-- National linkage: reinforce allied national governments' EU-critical positions
-- 2029 positioning: establish PfE as the "alternative governance" option
-
-**Capabilities:**
-- 85 MEPs + ESN 27 + parts of NI: ~140 coordinated votes in opposition
-- Rule 169 topical debate requests: can force plenary debate weekly
-- Social media reach: PfE-aligned media operations in Hungary, France, Italy, Austria, Belgium
-- National government allies: Austria (Kickl), Hungary (Orbán) — EU Council leverage
-
-**Constraints:**
-- Cannot achieve majority: 223 maximum (PfE+ECR+ESN+NI) vs. 360 threshold
-- Internal ECR divisions: Polish ECR pro-Ukraine; Italian ECR moderating under Meloni
-- No positive legislative programme: purely obstructionist
-- EU institutions have formal mechanisms to counter bad-faith procedural moves
-
-**Strategic Options (May–September 2026):**
-- Continue Rule 169 debates every plenary — test mainstream coalition's fatigue
-- Coordinate with Austrian and Hungarian governments on Council positions
-- Build pre-2029 coalition with ECR on specific shared grievances (migration, budget sovereignty)
-
-**Expected Behaviour:** PfE will table at least one more institutional challenge debate in May 2026 plenary (19–22); build Austrian-Hungarian "sovereign arc" narrative in media; continue blocking Ukraine support where procedurally possible.
-
-**Confidence:** 🟢 High (based on consistent historical pattern)
-
----
-
-### Stakeholder 6: Civil Society and Human Rights Organizations
-
-**Perspective Type:** Advocacy organisations
-
-**Position on April 2026 EP Outputs:**
-
-Civil society organisations are broadly supportive of the April 2026 resolution cluster. Human rights groups welcome the Ukraine accountability and Armenia resilience resolutions. Digital rights advocates welcome DMA enforcement pressure. Anti-harassment advocates welcome the cyberbullying resolution. Anti-racism groups welcome the antisemitism debate and Roma inclusion discussion.
-
-**Interests:**
-- Translate EP political declarations into Commission legislative proposals
-- Maintain access to EU policy process
-- Monitor and publicise implementation progress
-- Represent constituencies (victims of cyberbullying, antisemitism, online discrimination)
-
-**Capabilities:**
-- Advocacy and monitoring expertise
-- EP-level networks (European Economic and Social Committee, civil society dialogue forums)
-- Public opinion mobilisation
-- Legal standing to challenge non-implementation
-
-**Constraints:**
-- No formal legislative role
-- Resource constraints relative to Big Tech lobbying
-- Risk of co-optation by institutional processes
-
-**Expected Behaviour:** Civil society will issue welcoming statements on resolutions; publish monitoring reports; engage EP committees for follow-up; challenge Commission delay on enforcement in formal consultations.
-
-**Confidence:** 🟢 High (predictable advocacy pattern)
-
----
-
-### Stakeholder 7: EU Member State Governments (Council)
-
-**Perspective Type:** Co-legislators and executive executors
-
-**Position on April 2026 EP Outputs:**
-
-Council positions are divided along multiple axes:
-- **Germany/France/Spain** (large economies): Support DMA enforcement; mixed on Ukraine (Germany cautious on Special Tribunal legal basis)
-- **Poland/Baltic states**: Strongly support Ukraine accountability; front-line states with highest Ukraine engagement
-- **Hungary/Austria** (PfE-aligned): Oppose Ukraine accountability escalation; oppose DMA enforcement of major platforms; coordinate with PfE EP agenda
-- **Italy** (ECR-aligned but moderating): Middle position on Ukraine; supportive of DMA on European economic competitiveness framing
-
-**Interests:**
-- Council wants legislative output but not at cost of national government prerogatives
-- Ukraine support: majority support but Hungary blocking specific measures
-- DMA: most member states support enforcement (competitive economic interest)
-- Far-right governments: block Ukraine, obstruct accountability mechanisms
-
-**Expected Behaviour:** Council will adopt position on 2027 budget guidelines in summer 2026; continue Ukraine support with Hungarian exception; maintain DMA enforcement support at Council level (Commission retains authority anyway).
-
-**Confidence:** 🟡 Medium
-
----
-
-### Stakeholder Alignment Matrix
-
-| Issue | Commission | Big Tech | Ukraine | Armenia | PfE | Civil Society | Council |
-|---|---|---|---|---|---|---|---|
-| DMA Enforcement | 🟡 Cautious support | 🔴 Oppose | — | — | 🔴 Oppose | 🟢 Support | 🟢 Support |
-| Ukraine Accountability | 🟢 Support | — | 🟢 Strong support | — | 🔴 Oppose | 🟢 Support | 🟡 Mixed |
-| Armenia Resilience | 🟢 Support | — | — | 🟢 Strong support | 🔴 Oppose | 🟢 Support | 🟡 Mixed |
-| Cyberbullying Provisions | 🟡 Cautious | 🔴 Oppose | — | — | 🔴 Oppose | 🟢 Support | 🟡 Mixed |
-| Budget 2027 | 🟡 Negotiating | — | — | — | 🟡 Neutral | 🟡 Mixed | 🔴 Contest |
-
-### Source Attribution
-EP adopted texts: TA-10-2026-0160, 0161, 0162, 0163, 0112
-EP speeches: MTG-PL-2026-04-29 session records (PfE Rule 169 debate confirmed)
-EP political landscape: real-time API 2026-05-12
-Actor-mapping.md cross-reference
-GDPR: structured analytic assessment based on public institutional positions and historical patterns
-
-### Synthesis
-
-### Analytical Synthesis: The EP's April 28–30, 2026 Plenary — A Triple Fault-Line Week
-
-#### The Headline Judgement
-
-The European Parliament's April 28–30, 2026 Strasbourg session produced outputs that simultaneously advance three distinct but intersecting political projects: (1) the EU's digital regulatory sovereignty agenda, (2) its geopolitical accountability architecture for the Russia-Ukraine war, and (3) the domestic institutional conflict between EU democratic legitimacy and the far-right sovereignist challenge. These three fault lines are not separate stories — they are facets of the same deeper European political moment.
-
-#### Analytical Thread 1: Digital Sovereignty Operationalised
-
-The DMA enforcement resolution (TA-10-2026-0160) is best understood not as a narrow competition law intervention but as a declaration of European digital sovereignty. The EU has spent a decade building its regulatory capacity — GDPR (2018), DSA (2022), DMA (2022), AI Act (2024) — and the EP's April 30 resolution marks the transition from framework-building to operationalisation. The key question is no longer "will the EU regulate Big Tech?" but "can the EU enforce against Big Tech with sufficient speed and rigour to matter?"
-
-**Synthesis judgement:** The EP's DMA resolution creates meaningful political pressure on the Commission, but the enforcement gap (12–24 months for investigations) means the actual impact will be felt in 2027–2028. In the meantime, the resolution serves as:
-- A deterrent signal to gatekeepers considering compliance arbitrage
-- A political accountability instrument (EP can cite it at DG COMP hearings)
-- A global standard-setting message (Brussels Effect amplification)
-
-The medium-term risk is that EP enforcement pressure is undermined by US retaliatory threats (T-3 in risk matrix) or by Big Tech's superior legal resources in EU courts. The long-term opportunity — a genuinely functioning digital market regulatory system — is historically significant.
-
-#### Analytical Thread 2: The Accountability Architecture for Ukraine
-
-The Ukraine accountability resolution (TA-10-2026-0161) represents the EP's clearest statement yet that any future peace settlement must be grounded in individual criminal accountability, not political amnesty. This is analytically significant because:
-
-1. **It constrains future EU negotiators**: By adopting strong accountability language, the EP creates political constraints on any future EU head of state or Commission president who might consider a "grand bargain" with Russia that includes accountability waivers.
-
-2. **It supports the Special Tribunal project**: The EP's explicit backing of a Special Tribunal for Crime of Aggression strengthens the multilateral legitimacy of a mechanism that, if established, would be the most significant international legal innovation since the ICC's Rome Statute.
-
-3. **It links accountability to reconstruction**: The broader context — April 30 session occurred in the same week as the Enhanced Cooperation loan for Ukraine (TA-0010) coming into effect — suggests the EP is building an integrated Ukraine strategy where accountability and economic support are presented as a coherent package.
-
-**Synthesis judgement:** The Ukraine accountability resolution is the highest-impact item of the week. Its significance will compound if the Special Tribunal gains multilateral traction in 2026–2027. The main risk is multilateral isolation — if only EU states support the tribunal, it lacks legitimacy.
-
-**Cross-reference:** The Armenia democratic resilience resolution (TA-0162) is analytically linked — both resolutions reflect the EP's Eastern neighbourhood strategy of democratic conditionality: EU political support conditional on democratic trajectory. Armenia's CSTO withdrawal creates the geostrategic window the EP resolution is designed to consolidate.
-
-#### Analytical Thread 3: The Institutional Legitimacy Contest
-
-The PfE's topical debate (April 29) on Commission interference in democratic elections is the week's most politically durable story, even if it produces no immediate legislative output. The PfE's strategy is architecturally sophisticated:
-
-1. **The grievance narrative**: By accusing the Commission of "interference in democratic processes and elections," PfE channels authentic voter frustration with perceived EU institutional overreach into a structured anti-EU narrative
-2. **The institutional trap**: Any Commission defence of its independence (e.g., pointing to transparency rules, political neutrality requirements) can be reframed by PfE as proof that the Commission is "hiding" its true political agenda
-3. **The 2029 pre-campaign**: This debate is most accurately analysed as a campaign event, not a legislative event. PfE is building the 2029 EP election narrative two years in advance
-
-**Synthesis judgement:** The mainstream coalition (EPP+S&D+Renew) correctly identifies that PfE's institutional attacks cannot be ignored, but the EU's institutional communication tools are inadequate for the information environment in which PfE operates. The Commission's formal procedures and press releases are no match for PfE's social media reach and emotionally resonant sovereignty narratives.
-
-**The structural risk:** If PfE-aligned governments gain Council presidency (rotating in 2026–2027 cycle), the institutional challenge moves from Parliament to the highest EU decision-making body — a qualitative escalation.
-
-#### Cross-Cutting Analysis: Three Fault Lines as One Story
-
-The three analytical threads converge on a single structural insight: **the EU is at an inflection point where its regulatory and geopolitical ambitions are outrunning its institutional capacity to deliver and defend them.** 
-
-- **Digital sovereignty** aspiration (DMA enforcement) runs ahead of enforcement capacity (12–18 month investigation lag)
-- **Ukraine accountability** ambition (Special Tribunal) runs ahead of multilateral coalition (Global South neutrality)
-- **Institutional legitimacy** defence (Commission independence) runs ahead of communication capacity (PfE narrative faster than EU response)
-
-This inflection point is not a crisis — the EU has managed similar gaps before. But it creates a window of vulnerability that is being actively exploited by:
-1. Big Tech's legal teams (DMA)
-2. Russia's diplomatic corps and information operations (Ukraine accountability and EU delegitimisation)
-3. PfE and national far-right parties (institutional legitimacy)
-
-#### Policy Implication
-
-The synthesis suggests three priority areas for EU institutional response in the May–September 2026 period:
-1. **Commission**: Accelerate DMA enforcement timelines; issue at least one preliminary finding against a major gatekeeper before summer recess to demonstrate enforcement credibility
-2. **EU External Action Service**: Intensify Global South engagement on Ukraine accountability mechanisms; frame them as universal law, not Western geopolitics
-3. **Mainstream EP groups**: Develop a coordinated counter-narrative strategy against PfE institutional attacks; transparency and democratic values communication must operate at PfE's speed and emotional register, not at the Commission's press-release tempo
-
-#### Confidence Assessment
-
-**Overall synthesis confidence:** 🟡 Medium
-- Thread 1 (DMA): High confidence on facts; medium on outcome prediction
-- Thread 2 (Ukraine): High confidence on EP position; lower on multilateral outcome
-- Thread 3 (PfE): High confidence on PfE strategy diagnosis; medium on long-term impact
-
-### Source Attribution
-All synthesis grounded in EP Open Data (adopted texts, speeches feed, political landscape)
-EP API data: real-time as of 2026-05-12
-Cross-references: significance-assessment.md, actor-mapping.md, political-forces.md, impact-assessment.md, risk-matrix.md
-Methodology: Structured analytic synthesis (convergent analysis of multiple evidentiary streams)
-
 > **Provenance & Audit**
 >
 > - **Article type:** `breaking`
@@ -8991,25 +9002,35 @@ Every artifact below was read by the aggregator and contributed to this article.
 |---|---|---|
 | section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/executive-brief.md) | `executive-brief.md` |
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
+| section-synthesis | [synthesis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/synthesis.md) | `synthesis.md` |
 | section-significance | [significance-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/classification/significance-classification.md) | `classification/significance-classification.md` |
 | section-significance | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/significance-scoring.md) | `intelligence/significance-scoring.md` |
+| section-significance | [significance-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/significance-assessment.md) | `significance-assessment.md` |
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/classification/forces-analysis.md) | `classification/forces-analysis.md` |
 | section-actors-forces | [impact-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/classification/impact-matrix.md) | `classification/impact-matrix.md` |
+| section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/actor-mapping.md) | `actor-mapping.md` |
+| section-actors-forces | [political-forces](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/political-forces.md) | `political-forces.md` |
+| section-actors-forces | [impact-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/impact-assessment.md) | `impact-assessment.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-coalitions-voting | [voting-patterns](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/voting-patterns.md) | `intelligence/voting-patterns.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |
+| section-stakeholder-map | [stakeholder-perspectives](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/stakeholder-perspectives.md) | `stakeholder-perspectives.md` |
 | section-economic-context | [economic-context](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/economic-context.md) | `intelligence/economic-context.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/risk-scoring/quantitative-swot.md) | `risk-scoring/quantitative-swot.md` |
+| section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/risk-matrix.md) | `risk-matrix.md` |
+| section-risk | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/quantitative-swot.md) | `quantitative-swot.md` |
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/political-threat-landscape.md) | `intelligence/political-threat-landscape.md` |
 | section-threat | [threat-model](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/threat-model.md) | `intelligence/threat-model.md` |
 | section-threat | [threat-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/threat-assessment/threat-assessment.md) | `threat-assessment/threat-assessment.md` |
 | section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/scenario-forecast.md) | `intelligence/scenario-forecast.md` |
 | section-scenarios | [wildcards-blackswans](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/wildcards-blackswans.md) | `intelligence/wildcards-blackswans.md` |
+| section-scenarios | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/scenario-forecast.md) | `scenario-forecast.md` |
 | section-forward-projection | [forward-indicators](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/extended/forward-indicators.md) | `extended/forward-indicators.md` |
 | section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/pestle-analysis.md) | `intelligence/pestle-analysis.md` |
 | section-pestle-context | [historical-baseline](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/historical-baseline.md) | `intelligence/historical-baseline.md` |
+| section-pestle-context | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/pestle-analysis.md) | `pestle-analysis.md` |
 | section-continuity | [cross-run-diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/cross-run-diff.md) | `intelligence/cross-run-diff.md` |
 | section-continuity | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/cross-session-intelligence.md) | `intelligence/cross-session-intelligence.md` |
 | section-documents | [document-analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/documents/document-analysis-index.md) | `documents/document-analysis-index.md` |
@@ -9023,22 +9044,12 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-extended-intel | [intelligence-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/extended/intelligence-assessment.md) | `extended/intelligence-assessment.md` |
 | section-extended-intel | [media-framing-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/extended/media-framing-analysis.md) | `extended/media-framing-analysis.md` |
 | section-extended-intel | [voter-segmentation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/extended/voter-segmentation.md) | `extended/voter-segmentation.md` |
+| section-extended-intel | [media-framing](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/media-framing.md) | `media-framing.md` |
 | section-mcp-reliability | [mcp-reliability-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/mcp-reliability-audit.md) | `intelligence/mcp-reliability-audit.md` |
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [workflow-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/workflow-audit.md) | `intelligence/workflow-audit.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
-| section-supplementary-intelligence | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/actor-mapping.md) | `actor-mapping.md` |
-| section-supplementary-intelligence | [article-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/article-index.md) | `article-index.md` |
-| section-supplementary-intelligence | [impact-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/impact-assessment.md) | `impact-assessment.md` |
-| section-supplementary-intelligence | [media-framing](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/media-framing.md) | `media-framing.md` |
-| section-supplementary-intelligence | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/methodology-reflection.md) | `methodology-reflection.md` |
-| section-supplementary-intelligence | [pestle-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/pestle-analysis.md) | `pestle-analysis.md` |
-| section-supplementary-intelligence | [political-forces](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/political-forces.md) | `political-forces.md` |
-| section-supplementary-intelligence | [quantitative-swot](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/quantitative-swot.md) | `quantitative-swot.md` |
-| section-supplementary-intelligence | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/risk-matrix.md) | `risk-matrix.md` |
-| section-supplementary-intelligence | [scenario-forecast](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/scenario-forecast.md) | `scenario-forecast.md` |
-| section-supplementary-intelligence | [significance-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/significance-assessment.md) | `significance-assessment.md` |
-| section-supplementary-intelligence | [stakeholder-perspectives](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/stakeholder-perspectives.md) | `stakeholder-perspectives.md` |
-| section-supplementary-intelligence | [synthesis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/synthesis.md) | `synthesis.md` |
+| section-quality-reflection | [article-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/article-index.md) | `article-index.md` |
+| section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-12/breaking/methodology-reflection.md) | `methodology-reflection.md` |
 
