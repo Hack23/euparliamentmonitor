@@ -1403,8 +1403,7 @@ export function resolveArticleMetadata(opts) {
         ];
         const title = pickFirstNonEmpty(titleCandidates) || fallback.title;
         const rawDescription = pickFirstNonEmpty(descCandidates) || fallback.subtitle;
-        const description = rawDescription.length >= DESCRIPTION_MIN_LENGTH &&
-            containsNormalized(rawDescription, opts.date)
+        const description = rawDescription.length >= DESCRIPTION_MIN_LENGTH && containsNormalized(rawDescription, opts.date)
             ? rawDescription
             : composeContextualDescription(lang, rawDescription, editorial, opts.date, runId);
         const truncatedTitle = truncateTitle(title);
