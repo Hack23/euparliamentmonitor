@@ -1,0 +1,91 @@
+{
+  "articleType": "breaking",
+  "date": "2026-05-12",
+  "runId": "breaking-run257-1778549289",
+  "generatedAt": "2026-05-12T01:47:00Z",
+  "gateResult": "GREEN",
+  "dataMode": "degraded-voting",
+  "history": [
+    {
+      "runAt": "2026-05-12T01:28:09Z",
+      "runId": "breaking-run257-1778549289",
+      "stageA": {
+        "completedAt": "2026-05-12T01:38:00Z",
+        "durationMinutes": 10
+      },
+      "stageB": {
+        "completedAt": "2026-05-12T01:47:00Z",
+        "durationMinutes": 9,
+        "pass1CompletedAt": "2026-05-12T01:45:00Z",
+        "pass2StartedAt": "2026-05-12T01:45:00Z",
+        "pass2CompletedAt": "2026-05-12T01:47:00Z",
+        "rewriteCount": 16
+      },
+      "gateResult": "GREEN",
+      "elapsedMinutes": 19
+    }
+  ],
+  "pass2": {
+    "startedAt": "2026-05-12T01:45:00Z",
+    "endedAt": "2026-05-12T01:47:00Z",
+    "rewriteCount": 16
+  },
+  "files": {
+    "significance-classification": ["classification/significance-classification.md"],
+    "actor-mapping": ["classification/actor-mapping.md"],
+    "forces-analysis": ["classification/forces-analysis.md"],
+    "impact-matrix": ["classification/impact-matrix.md"],
+    "risk-matrix": ["risk-scoring/risk-matrix.md"],
+    "quantitative-swot": ["risk-scoring/quantitative-swot.md"],
+    "synthesis-summary": ["intelligence/synthesis-summary.md"],
+    "coalition-dynamics": ["intelligence/coalition-dynamics.md"],
+    "scenario-forecast": ["intelligence/scenario-forecast.md"],
+    "pestle-analysis": ["intelligence/pestle-analysis.md"],
+    "stakeholder-map": ["intelligence/stakeholder-map.md"],
+    "threat-model": ["intelligence/threat-model.md"],
+    "mcp-reliability-audit": ["intelligence/mcp-reliability-audit.md"],
+    "analysis-index": ["intelligence/analysis-index.md"],
+    "media-framing-analysis": ["extended/media-framing-analysis.md"],
+    "methodology-reflection": ["intelligence/methodology-reflection.md"]
+  },
+  "dataVerification": {
+    "unresolvedProcedureIds": [],
+    "deferredDeepFetches": [
+      "TA-10-2026-0160-fulltext",
+      "TA-10-2026-0161-fulltext",
+      "TA-10-2026-0162-fulltext",
+      "TA-10-2026-0163-fulltext"
+    ],
+    "dataGaps": [
+      "Roll-call vote tallies for April 28-30 (EP 4-6 week publication lag)",
+      "Full adopted text content for TA-10-2026-0160 to 0163 (404 - content not yet available)",
+      "Events feed data (API error - recovered via speeches)"
+    ]
+  },
+  "keySources": [
+    "EP adopted texts feed (2026)",
+    "EP speeches feed (April 29, 2026 - 21 speeches)",
+    "EP political landscape tool (717 MEPs, 9 groups)",
+    "EP early warning system (stability 84/100)",
+    "EP coalition dynamics analysis"
+  ],
+  "primaryTopics": [
+    "TA-10-2026-0160 - DMA Enforcement resolution",
+    "TA-10-2026-0161 - Ukraine accountability / Special Tribunal",
+    "TA-10-2026-0162 - Armenia democratic resilience",
+    "TA-10-2026-0163 - Cyberbullying platform accountability",
+    "PfE Rule 169 topical debate on Commission interference"
+  ],
+  "significanceScore": 8.2,
+  "overallConfidence": "MEDIUM",
+  "politicalLandscape": {
+    "totalMEPs": 717,
+    "groups": 9,
+    "majorityThreshold": 360,
+    "largestGroup": "EPP",
+    "largestGroupSeats": 183,
+    "effectiveParties": 6.58,
+    "stabilityScore": 84,
+    "riskLevel": "MEDIUM"
+  }
+}
