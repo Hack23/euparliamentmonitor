@@ -420,10 +420,7 @@ export function resolveUniqueFilePath(filepath: string): string {
  * @returns `true` when an actual write occurred, `false` when the file
  *          already had byte-identical content and was left untouched.
  */
-export function writeFileIfChanged(
-  filepath: string,
-  content: string | Buffer,
-): boolean {
+export function writeFileIfChanged(filepath: string, content: string | Buffer): boolean {
   const dir = path.dirname(filepath);
   ensureDirectoryExists(dir);
   const desired = Buffer.isBuffer(content) ? content : Buffer.from(content, 'utf-8');

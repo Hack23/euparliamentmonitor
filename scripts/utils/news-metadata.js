@@ -68,8 +68,7 @@ export function writeMetadataDatabase(database, outputPath = METADATA_DB_PATH) {
             const existing = JSON.parse(fs.readFileSync(outputPath, 'utf-8'));
             const existingArticlesJson = JSON.stringify(existing?.articles ?? null);
             const newArticlesJson = JSON.stringify(database.articles ?? null);
-            if (existingArticlesJson === newArticlesJson &&
-                typeof existing?.lastUpdated === 'string') {
+            if (existingArticlesJson === newArticlesJson && typeof existing?.lastUpdated === 'string') {
                 // Same articles content — preserve the prior timestamp so the
                 // serialised JSON stays byte-identical across reruns.
                 payload = { ...database, lastUpdated: existing.lastUpdated };

@@ -171,9 +171,7 @@ function writeSitemapHtmlPages(
     const sitemapFilename = getSitemapFilename(lang);
     const sitemapPath = path.join(PROJECT_ROOT, sitemapFilename);
     const wrote = writeFileIfChanged(sitemapPath, html);
-    console.log(
-      `  ${writeLabel(wrote)} ${sitemapFilename} (${langArticles.length} articles)`
-    );
+    console.log(`  ${writeLabel(wrote)} ${sitemapFilename} (${langArticles.length} articles)`);
     if (wrote) written++;
     else unchanged++;
   }

@@ -91,15 +91,12 @@ export function writeMetadataDatabase(
   let payload: NewsMetadataDatabase = database;
   if (fs.existsSync(outputPath)) {
     try {
-      const existing = JSON.parse(fs.readFileSync(outputPath, 'utf-8')) as
-        | NewsMetadataDatabase
-        | null;
+      const existing = JSON.parse(
+        fs.readFileSync(outputPath, 'utf-8')
+      ) as NewsMetadataDatabase | null;
       const existingArticlesJson = JSON.stringify(existing?.articles ?? null);
       const newArticlesJson = JSON.stringify(database.articles ?? null);
-      if (
-        existingArticlesJson === newArticlesJson &&
-        typeof existing?.lastUpdated === 'string'
-      ) {
+      if (existingArticlesJson === newArticlesJson && typeof existing?.lastUpdated === 'string') {
         // Same articles content — preserve the prior timestamp so the
         // serialised JSON stays byte-identical across reruns.
         payload = { ...database, lastUpdated: existing.lastUpdated };
