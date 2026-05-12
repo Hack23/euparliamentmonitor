@@ -14,7 +14,7 @@ import path from 'path';
 import { Window } from 'happy-dom';
 import { createTempDir, cleanupTempDir, validateHTML } from '../helpers/test-utils.js';
 import * as languageConstants from '../../scripts/constants/languages.js';
-import { generateIndexHTML } from '../../scripts/generators/news-indexes.js';
+import { generateIndexHTML, backfillArticleHreflang } from '../../scripts/generators/news-indexes.js';
 
 describe('generate-news-indexes', () => {
   let tempDir;
