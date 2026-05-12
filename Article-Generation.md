@@ -324,27 +324,62 @@ The aggregator maps artifact paths to rendered article sections via `src/aggrega
 | 4 | `actors-forces` → Actors & Forces | [`actor-mapping.md`](./analysis/templates/actor-mapping.md) · [`forces-analysis.md`](./analysis/templates/forces-analysis.md) · [`impact-matrix.md`](./analysis/templates/impact-matrix.md) | Power × Interest quadrants + driver-vs-blocker fan-out. |
 | 5 | `coalitions-voting` → Coalitions & Voting | [`coalition-dynamics.md`](./analysis/templates/coalition-dynamics.md) · [`coalition-mathematics.md`](./analysis/templates/coalition-mathematics.md) · [`voting-patterns.md`](./analysis/templates/voting-patterns.md) | Group icons mandatory: 🔵 EPP / 🔴 S&D / 🟡 RE / 🟢 Greens / 🟠 ECR / 🟣 Left / ⚪ NI. |
 | 6 | `stakeholder-map` → Stakeholder Map | [`stakeholder-map.md`](./analysis/templates/stakeholder-map.md) · [`stakeholder-impact.md`](./analysis/templates/stakeholder-impact.md) | 7-lens institutional cascade. |
-| 7 | `pestle-context` → PESTLE & Context | [`pestle-analysis.md`](./analysis/templates/pestle-analysis.md) · [`historical-baseline.md`](./analysis/templates/historical-baseline.md) | PESTLE 6-axis + historical anchor. |
-| 8 | `economic-context` → Economic Context | [`economic-context.md`](./analysis/templates/economic-context.md) · [`imf-vintage-audit.md`](./analysis/templates/imf-vintage-audit.md) *(optional)* | IMF authoritative; vintage audit when SDMX vintage drifts. |
-| 9 | `risk` → Risk Assessment | [`risk-matrix.md`](./analysis/templates/risk-matrix.md) · [`risk-assessment.md`](./analysis/templates/risk-assessment.md) · [`quantitative-swot.md`](./analysis/templates/quantitative-swot.md) · [`swot-analysis.md`](./analysis/templates/swot-analysis.md) · [`political-capital-risk.md`](./analysis/templates/political-capital-risk.md) · [`legislative-velocity-risk.md`](./analysis/templates/legislative-velocity-risk.md) | 5×5 heat-map: 🟢 low → 🟡 med → 🔴 critical. |
-| 10 | `threat` → Threat Landscape | [`political-threat-landscape.md`](./analysis/templates/political-threat-landscape.md) · [`threat-model.md`](./analysis/templates/threat-model.md) · [`threat-analysis.md`](./analysis/templates/threat-analysis.md) · [`actor-threat-profiles.md`](./analysis/templates/actor-threat-profiles.md) · [`consequence-trees.md`](./analysis/templates/consequence-trees.md) · [`legislative-disruption.md`](./analysis/templates/legislative-disruption.md) | 5-framework integrated (Political Threat Landscape 6D + Attack Trees + Kill Chain + Diamond + ICO). **STRIDE rejected.** |
-| 11 | `scenarios` → Scenarios & Wildcards | [`scenario-forecast.md`](./analysis/templates/scenario-forecast.md) · [`wildcards-blackswans.md`](./analysis/templates/wildcards-blackswans.md) · [`devils-advocate-analysis.md`](./analysis/templates/devils-advocate-analysis.md) *(extended)* | Tree of S1/S2/S3 + black-swan tripwires + counter-thesis. |
-| 12 | `forward-projection` → Forward Projection *(prospective ≥7d)* | [`forward-projection.md`](./analysis/templates/forward-projection.md) · [`legislative-pipeline-forecast.md`](./analysis/templates/legislative-pipeline-forecast.md) *(long-horizon)* · [`parliamentary-calendar-projection.md`](./analysis/templates/parliamentary-calendar-projection.md) *(long-horizon)* · [`forward-indicators.md`](./analysis/templates/forward-indicators.md) *(extended)* | gitGraph + sankey + gantt — prospective horizons only. |
-| 13 | `electoral-arc` → Electoral Arc & Mandate *(long-horizon)* | [`term-arc.md`](./analysis/templates/term-arc.md) · [`seat-projection.md`](./analysis/templates/seat-projection.md) · [`mandate-fulfilment-scorecard.md`](./analysis/templates/mandate-fulfilment-scorecard.md) · [`presidency-trio-context.md`](./analysis/templates/presidency-trio-context.md) · [`commission-wp-alignment.md`](./analysis/templates/commission-wp-alignment.md) | `quarter-ahead+`, `term-outlook`, `election-cycle`. |
+| 7 | `economic-context` → Economic Context | [`economic-context.md`](./analysis/templates/economic-context.md) · [`imf-vintage-audit.md`](./analysis/templates/imf-vintage-audit.md) *(optional)* | IMF authoritative; placed before risk so macro constraints frame the risk register. |
+| 8 | `risk` → Risk Assessment | [`risk-matrix.md`](./analysis/templates/risk-matrix.md) · [`risk-assessment.md`](./analysis/templates/risk-assessment.md) · [`quantitative-swot.md`](./analysis/templates/quantitative-swot.md) · [`swot-analysis.md`](./analysis/templates/swot-analysis.md) · [`political-capital-risk.md`](./analysis/templates/political-capital-risk.md) · [`legislative-velocity-risk.md`](./analysis/templates/legislative-velocity-risk.md) | 5×5 heat-map: 🟢 low → 🟡 med → 🔴 critical. |
+| 9 | `threat` → Threat Landscape | [`political-threat-landscape.md`](./analysis/templates/political-threat-landscape.md) · [`threat-model.md`](./analysis/templates/threat-model.md) · [`threat-analysis.md`](./analysis/templates/threat-analysis.md) · [`actor-threat-profiles.md`](./analysis/templates/actor-threat-profiles.md) · [`consequence-trees.md`](./analysis/templates/consequence-trees.md) · [`legislative-disruption.md`](./analysis/templates/legislative-disruption.md) | 5-framework integrated (Political Threat Landscape 6D + Attack Trees + Kill Chain + Diamond + ICO). **STRIDE rejected.** |
+| 10 | `scenarios` → Scenarios & Wildcards | [`scenario-forecast.md`](./analysis/templates/scenario-forecast.md) · [`wildcards-blackswans.md`](./analysis/templates/wildcards-blackswans.md) · [`devils-advocate-analysis.md`](./analysis/templates/devils-advocate-analysis.md) *(extended)* | Tree of S1/S2/S3 + black-swan tripwires + counter-thesis. |
+| 11 | `forward-projection` → What to Watch *(prospective ≥7d)* | [`forward-projection.md`](./analysis/templates/forward-projection.md) · [`legislative-pipeline-forecast.md`](./analysis/templates/legislative-pipeline-forecast.md) *(long-horizon)* · [`parliamentary-calendar-projection.md`](./analysis/templates/parliamentary-calendar-projection.md) *(long-horizon)* · [`forward-indicators.md`](./analysis/templates/forward-indicators.md) *(extended)* | Dated triggers and pipeline forecasts after scenarios. |
+| 12 | `electoral-arc` → Electoral Arc & Mandate *(long-horizon)* | [`term-arc.md`](./analysis/templates/term-arc.md) · [`seat-projection.md`](./analysis/templates/seat-projection.md) · [`mandate-fulfilment-scorecard.md`](./analysis/templates/mandate-fulfilment-scorecard.md) · [`presidency-trio-context.md`](./analysis/templates/presidency-trio-context.md) · [`commission-wp-alignment.md`](./analysis/templates/commission-wp-alignment.md) | `quarter-ahead+`, `term-outlook`, `election-cycle`. |
+| 13 | `pestle-context` → PESTLE & Context | [`pestle-analysis.md`](./analysis/templates/pestle-analysis.md) · [`historical-baseline.md`](./analysis/templates/historical-baseline.md) | Structural backdrop after the news, stakes, risk and forecast arc. |
 | 14 | `continuity` → Cross-Run Continuity | [`cross-run-diff.md`](./analysis/templates/cross-run-diff.md) · [`cross-session-intelligence.md`](./analysis/templates/cross-session-intelligence.md) · [`session-baseline.md`](./analysis/templates/session-baseline.md) | Drift detection + session baseline gantt. |
 | 15 | `deep-analysis` → Deep Analysis | [`deep-analysis.md`](./analysis/templates/deep-analysis.md) | Long-form 4 000–10 000 word Economist-style prose. |
 | 16 | `documents` → Document Analysis | [`per-file-political-intelligence.md`](./analysis/templates/per-file-political-intelligence.md) · [`political-classification.md`](./analysis/templates/political-classification.md) | Per-file analysis (the most-used template). |
-| 17 | `extended-intel` → Extended Intelligence | All [`extended/*.md`](./analysis/templates/) not consumed above — including [`historical-parallels.md`](./analysis/templates/historical-parallels.md) · [`comparative-international.md`](./analysis/templates/comparative-international.md) · [`voter-segmentation.md`](./analysis/templates/voter-segmentation.md) · [`intelligence-assessment.md`](./analysis/templates/intelligence-assessment.md) · [`implementation-feasibility.md`](./analysis/templates/implementation-feasibility.md) · [`media-framing-analysis.md`](./analysis/templates/media-framing-analysis.md) · [`devils-advocate-analysis.md`](./analysis/templates/devils-advocate-analysis.md) | Catch-all for `extended/` directory; optional long-form, crisis, breaking-deep depth. |
+| 17 | `extended-intel` → Extended Intelligence | All [`extended/*.md`](./analysis/templates/) not consumed above — including [`historical-parallels.md`](./analysis/templates/historical-parallels.md) · [`comparative-international.md`](./analysis/templates/comparative-international.md) · [`voter-segmentation.md`](./analysis/templates/voter-segmentation.md) · [`intelligence-assessment.md`](./analysis/templates/intelligence-assessment.md) · [`implementation-feasibility.md`](./analysis/templates/implementation-feasibility.md) · [`media-framing-analysis.md`](./analysis/templates/media-framing-analysis.md) · [`data-download-manifest.md`](./analysis/templates/data-download-manifest.md) · [`cross-reference-map.md`](./analysis/templates/cross-reference-map.md) | Catch-all for `extended/` directory; optional long-form, crisis, breaking-deep and provenance depth. |
 | 18 | `mcp-reliability` → MCP Reliability Audit | [`mcp-reliability-audit.md`](./analysis/templates/mcp-reliability-audit.md) | Per-tool retry/fallback dashboard. |
 | 19 | `quality-reflection` → Analytical Quality & Reflection | [`analysis-index.md`](./analysis/templates/analysis-index.md) · [`reference-analysis-quality.md`](./analysis/templates/reference-analysis-quality.md) · [`workflow-audit.md`](./analysis/templates/workflow-audit.md) · [`methodology-reflection.md`](./analysis/templates/methodology-reflection.md) | Always last — Step 10.5 of the AI-driven analysis guide. |
 | 20 | `aggregator-tradecraft-references` → Tradecraft References | (auto-generated from [`osint-tradecraft-standards.md`](./analysis/methodologies/osint-tradecraft-standards.md)) | Appendix linking methodology + template files. |
 | 21 | `aggregator-analysis-index` → Analysis Index | (auto-generated from `manifest.json` + [`analysis-index.md`](./analysis/templates/analysis-index.md)) | Lists every included artifact and source path. |
-| 22 | `data-download-manifest` → Provenance Appendix | [`data-download-manifest.md`](./analysis/templates/data-download-manifest.md) · [`cross-reference-map.md`](./analysis/templates/cross-reference-map.md) | GDPR Art. 30 audit trail. |
-| 23 | Supplementary Intelligence | Any discovered Markdown not consumed above | Catch-all so nothing is silently dropped. |
+| 22 | Supplementary Intelligence | Any discovered Markdown not consumed above | Safety-net catch-all only. Recent runs should map all known artifacts into reader-facing sections; this bucket is monitored in the audit below. |
 
 The aggregator never renders templates directly — it renders only artifacts written **from** them, and the order above is the order in which the corresponding *artifacts* appear in the rendered article. Templates marked *(long-horizon)* / *(electoral)* / *(extended)* are silently skipped if the run did not produce them. This list is matched 1:1 with the artifact-claim sets in [`src/aggregator/artifact-order.ts`](./src/aggregator/artifact-order.ts) (the byte-equality test `test/unit/aggregator-determinism.test.js` enforces that the rendered output stays identical run-over-run).
 
 Because `aggregateAnalysisRun()` merges manifest-declared files with discovered Markdown, any extra Markdown in a valid run directory can still be rendered. For current examples such as `analysis/daily/2026-04-24/motions/`, extra Markdown that is not claimed by a canonical section lands under **Supplementary Intelligence** unless `artifact-order.ts` claims it explicitly.
+
+### Recent `article.md` aggregation audit — 2026-05-12
+
+The 2026-05-12 runs were reviewed against the current aggregator contract to
+confirm that every manifest-declared or discovered analysis artifact is included
+in `article.md`, and that readers encounter the material in a coherent order.
+
+| Run | Manifest-declared artifacts | Discovered Markdown artifacts | Included in `article.md` | Missing from aggregation | Supplementary bucket after this audit | Reader-guide status |
+|---|---:|---:|---:|---:|---:|---|
+| `analysis/daily/2026-05-12/breaking` | 38 | 52 | 52 | 0 | 0 | Complete — all emitted analytical sections have guide rows. |
+| `analysis/daily/2026-05-12/motions` | 18 | 18 | 18 | 0 | 0 | Complete — no executive brief exists, so the guide correctly opens the article. |
+| `analysis/daily/2026-05-12/propositions` | 0 (legacy `artifacts[]` schema) | 28 | 28 | 0 | 0 | Complete — discovered artifacts fill the manifest gap. |
+
+Findings:
+
+1. **No artifact was dropped.** The aggregator already merges manifest files with
+   discovered Markdown under the run directory, excluding only generated
+   `article*.md`, `README.md`, `data/`, `runs/`, and `pass1/`.
+2. **Known root-level legacy artifacts needed better placement.** The breaking
+   run contained legacy root files (`synthesis.md`, `risk-matrix.md`,
+   `scenario-forecast.md`, `article-index.md`, `methodology-reflection.md`,
+   etc.) that were included but appeared under **Supplementary Intelligence**.
+   These are now claimed by the corresponding canonical sections so the reading
+   order stays intelligible.
+3. **The Reader Intelligence Guide needed full section coverage in `article.md`.**
+   The Markdown guide now covers executive brief, synthesis, significance,
+   actors/forces, coalitions, stakeholders, economic context, risk, threat,
+   scenarios, forward projection, electoral arc, PESTLE, continuity, deep
+   analysis, document trail, extended intelligence, MCP reliability, analytical
+   quality, and the supplementary safety net.
+4. **The understandable reader order is now:** Executive Brief → Reader
+   Intelligence Guide → Key Takeaways → Synthesis → Significance → Actors &
+   Forces → Coalitions & Voting → Stakeholders → Economic Context → Risk →
+   Threat → Scenarios → What to Watch → Electoral Arc → PESTLE & Context →
+   Continuity → Deep Analysis → Documents → Extended Intelligence → MCP
+   Reliability → Quality & Reflection → Tradecraft References → Analysis Index.
 
 ---
 

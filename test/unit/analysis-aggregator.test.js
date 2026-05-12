@@ -103,6 +103,59 @@ describe('expandSectionArtifacts', () => {
     const result = expandSectionArtifacts(section, available, consumed);
     expect(result).toEqual(['intelligence/a.md', 'intelligence/c.md']);
   });
+
+  it('claims legacy root-level artifacts in their canonical reader sections', () => {
+    const available = new Set([
+      'synthesis.md',
+      'significance-assessment.md',
+      'actor-mapping.md',
+      'political-forces.md',
+      'impact-assessment.md',
+      'stakeholder-perspectives.md',
+      'risk-matrix.md',
+      'quantitative-swot.md',
+      'scenario-forecast.md',
+      'pestle-analysis.md',
+      'article-index.md',
+      'methodology-reflection.md',
+      'media-framing.md',
+    ]);
+    const consumed = new Set();
+    const byId = new Map(ARTIFACT_SECTIONS.map((section) => [section.id, section]));
+
+    expect(expandSectionArtifacts(byId.get('synthesis'), available, consumed)).toEqual([
+      'synthesis.md',
+    ]);
+    expect(expandSectionArtifacts(byId.get('significance'), available, consumed)).toContain(
+      'significance-assessment.md'
+    );
+    expect(expandSectionArtifacts(byId.get('actors-forces'), available, consumed)).toEqual([
+      'actor-mapping.md',
+      'political-forces.md',
+      'impact-assessment.md',
+    ]);
+    expect(expandSectionArtifacts(byId.get('stakeholder-map'), available, consumed)).toEqual([
+      'stakeholder-perspectives.md',
+    ]);
+    expect(expandSectionArtifacts(byId.get('risk'), available, consumed)).toEqual([
+      'risk-matrix.md',
+      'quantitative-swot.md',
+    ]);
+    expect(expandSectionArtifacts(byId.get('scenarios'), available, consumed)).toEqual([
+      'scenario-forecast.md',
+    ]);
+    expect(expandSectionArtifacts(byId.get('pestle-context'), available, consumed)).toEqual([
+      'pestle-analysis.md',
+    ]);
+    expect(expandSectionArtifacts(byId.get('extended-intel'), available, consumed)).toEqual([
+      'media-framing.md',
+    ]);
+    expect(expandSectionArtifacts(byId.get('quality-reflection'), available, consumed)).toEqual([
+      'article-index.md',
+      'methodology-reflection.md',
+    ]);
+    expect([...available].filter((artifact) => !consumed.has(artifact))).toEqual([]);
+  });
 });
 
 describe('renderReaderIntelligenceGuide', () => {
