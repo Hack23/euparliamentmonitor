@@ -1,0 +1,45 @@
+{
+  "date": "2026-05-12",
+  "articleType": "propositions",
+  "runId": "propositions-run270-1778566185",
+  "gateResult": "PENDING",
+  "slug": "2026-05-12-propositions",
+  "articlePath": "analysis/daily/2026-05-12/propositions/article.md",
+  "topFinding": "Three landmark legislative measures reached final publication or adoption in the week of 5–12 May 2026, marking a pivotal moment in EP10's first full legislative year.",
+  "keyTakeaways": [
+    "**First EU binding criminal-law anti-corruption framework** under Article 83(1) TFEU",
+    "**Complex 31-month legislative journey:** Referral June 2023 → Committee adoption January 2024 → Plenary first position February 2024 → Trilogue (5 rounds, including a provisional agreement in January 2026) → Plenary adoption March 2026 → OJ publication May 2026",
+    "**Binding harmonisation** of 8 offence categories: active/passive corruption (public and private sectors), trading in influence, abuse of functions, obstruction of justice, misappropriation, money laundering of corruption proceeds, incitement/aiding",
+    "**Corporate liability:** Minimum 15% global annual turnover fine for legal persons — among the strongest corporate sanctions in EU criminal law",
+    "**EPPO integration:** The Directive's harmonised definitions directly expand EPPO's prosecutorial toolkit in its 22 operating member states",
+    "**Early intervention cascade:** Clearer triggers and procedures for ECB to initiate early intervention before resolution — addressing the \"regulatory gap\" visible in Credit Suisse's managed resolution",
+    "**SRF mechanics:** Strengthened legal framework for SRF deployment in resolution scenarios, reducing ambiguity around burden-sharing"
+  ],
+  "topRisks": [],
+  "keyDates": [
+    "National justice ministry consultation documents Q4 2026",
+    "Commission transposition guidance publication (expected Q2 2027)"
+  ],
+  "keyActors": [
+    "**Role:** Co-legislator, political voice, oversight",
+    "**Key MEPs in this session's dossiers:** Rapporteurs for Anti-Corruption (LIBE), SRMR3 (ECON), Animal Welfare (AGRI/ENVI)",
+    "**Influence direction:** Completed legislation pushing for implementation; DMA/AI enforcement pressure ongoing",
+    "**Coalition alignment:** EPP+S&D+Renew functional majority; Green/EFA supplemental on environment",
+    "**Role:** Legislative initiator, enforcement authority, transposition overseer",
+    "**Relevant DGs:** DG JUST (Anti-Corruption), DG FISMA (SRMR3), DG SANTE (Animal Welfare), DG COMP (DMA enforcement)",
+    "**Influence direction:** Must develop transposition guidance, SRB coordination, and DMA gatekeeper enforcement within tight political timeline",
+    "**Budget constraint:** €180bn+ annual budget under MFF 2021–2027 — constrained in next cycle"
+  ],
+  "macroContext": "The EP's Budget 2027 Guidelines (TA-10-2026-0112) operate within:",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
