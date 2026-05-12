@@ -25,4 +25,26 @@ describe('agentic workflow threat detection policy', () => {
       );
     }
   });
+
+  it('fetches the triggering commit before safe-output PR bundle application', () => {
+    const workflows = fs
+      .readdirSync(WORKFLOWS_DIR)
+      .filter((name) => name.startsWith('news-') && name.endsWith('.md'))
+      .sort();
+
+    expect(workflows.length).toBeGreaterThan(0);
+
+    for (const workflow of workflows) {
+      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+      if (!content.includes('create-pull-request:')) {
+        continue;
+      }
+
+      expect(content, workflow).toContain('Fetch triggering commit for bundle prerequisites');
+      expect(content, workflow).toContain('git fetch --no-tags origin "$GITHUB_SHA"');
+      expect(content, workflow).toContain(
+        'Repository lacks these prerequisite commits',
+      );
+    }
+  });
 });
