@@ -51,8 +51,11 @@ module.exports = {
   variables: true,
   // Keyframes: drop @keyframes that aren't referenced by any surviving rule.
   keyframes: true,
-  // Font-face: drop @font-face rules whose font-family isn't referenced.
-  fontFace: false, // we ship system fonts — but keep face rules just in case.
+  // Font-face: keep all @font-face rules (fontFace: false disables pruning).
+  // We ship system fonts only, so no custom @font-face declarations exist in
+  // styles.css today, but retaining the rules guards against accidental purges
+  // if a web-font is added in future.
+  fontFace: false,
   safelist: {
     standard: [
       // Runtime-toggled state classes.
