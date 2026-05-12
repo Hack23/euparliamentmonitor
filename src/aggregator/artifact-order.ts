@@ -57,7 +57,7 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
   {
     id: 'synthesis',
     title: 'Synthesis Summary',
-    artifacts: ['intelligence/synthesis-summary.md'],
+    artifacts: ['intelligence/synthesis-summary.md', 'synthesis.md'],
   },
   {
     id: 'significance',
@@ -68,6 +68,7 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
       'classification/priority-matrix.md',
       'classification/issue-classification.md',
       'intelligence/significance-scoring.md',
+      'significance-assessment.md',
     ],
   },
   {
@@ -78,6 +79,9 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
       'classification/forces-analysis.md',
       'classification/impact-matrix.md',
       'classification/stakeholder-classification.md',
+      'actor-mapping.md',
+      'political-forces.md',
+      'impact-assessment.md',
       // Catch-all for any other classification/*.md not consumed above
       // (keeps non-canonical artifact names out of the Supplementary bucket
       // and inside their journalist-correct section).
@@ -96,7 +100,11 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
   {
     id: 'stakeholder-map',
     title: 'Stakeholder Map',
-    artifacts: ['intelligence/stakeholder-map.md', 'existing/stakeholder-impact.md'],
+    artifacts: [
+      'intelligence/stakeholder-map.md',
+      'existing/stakeholder-impact.md',
+      'stakeholder-perspectives.md',
+    ],
   },
   {
     id: 'economic-context',
@@ -115,6 +123,8 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
       'risk-scoring/legislative-risk.md',
       'risk-scoring/economic-risk.md',
       'risk-scoring/institutional-risk.md',
+      'risk-matrix.md',
+      'quantitative-swot.md',
       // Catch-all for any other risk-scoring/*.md (e.g. naming variants) so
       // they render under Risk Assessment instead of Supplementary.
       'risk-scoring/',
@@ -132,7 +142,11 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
   {
     id: 'scenarios',
     title: 'Scenarios & Wildcards',
-    artifacts: ['intelligence/scenario-forecast.md', 'intelligence/wildcards-blackswans.md'],
+    artifacts: [
+      'intelligence/scenario-forecast.md',
+      'intelligence/wildcards-blackswans.md',
+      'scenario-forecast.md',
+    ],
   },
   {
     id: 'forward-projection',
@@ -158,7 +172,11 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
   {
     id: 'pestle-context',
     title: 'PESTLE & Context',
-    artifacts: ['intelligence/pestle-analysis.md', 'intelligence/historical-baseline.md'],
+    artifacts: [
+      'intelligence/pestle-analysis.md',
+      'intelligence/historical-baseline.md',
+      'pestle-analysis.md',
+    ],
   },
   {
     id: 'continuity',
@@ -190,7 +208,7 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
   {
     id: 'extended-intel',
     title: 'Extended Intelligence',
-    artifacts: ['extended/'],
+    artifacts: ['extended/', 'media-framing.md'],
   },
   {
     id: 'mcp-reliability',
@@ -205,6 +223,8 @@ export const ARTIFACT_SECTIONS: readonly ArtifactSection[] = [
       'intelligence/reference-analysis-quality.md',
       'intelligence/workflow-audit.md',
       'intelligence/methodology-reflection.md',
+      'article-index.md',
+      'methodology-reflection.md',
     ],
   },
 ];

@@ -376,6 +376,11 @@ const READER_GUIDE_EN: Readonly<Record<string, { need: string; value: string }>>
     need: 'Significance scoring',
     value: 'why this story outranks or trails other same-day European Parliament signals',
   },
+  'section-actors-forces': {
+    need: 'Actors and forces',
+    value:
+      'who is driving the story, what political forces line up behind them, and which institutional levers they can pull',
+  },
   'section-coalitions-voting': {
     need: 'Coalitions and voting',
     value: 'political group alignment, voting evidence, and coalition pressure points',
@@ -395,6 +400,56 @@ const READER_GUIDE_EN: Readonly<Record<string, { need: string; value: string }>>
   'section-risk': {
     need: 'Risk assessment',
     value: 'policy, institutional, coalition, communications, and implementation risk register',
+  },
+  'section-threat': {
+    need: 'Threat landscape',
+    value:
+      'hostile actors, attack vectors, consequence trees, and legislative-disruption pathways',
+  },
+  'section-forward-projection': {
+    need: 'What to watch',
+    value: 'dated trigger events, calendar dependencies, and legislative-pipeline forecasts',
+  },
+  'section-electoral-arc': {
+    need: 'Electoral arc and mandate',
+    value:
+      'where the story sits in the EP term, mandate fulfilment, seat projection, and presidency-trio context',
+  },
+  'section-pestle-context': {
+    need: 'PESTLE and structural context',
+    value:
+      'political, economic, social, technological, legal, and environmental forces plus the historical baseline',
+  },
+  'section-continuity': {
+    need: 'Cross-run continuity',
+    value: 'what changed since prior sessions and how confidence shifted between runs',
+  },
+  'section-deep-analysis': {
+    need: 'Deep analysis',
+    value: 'long-form Economist-style explanation for readers who want the full argument',
+  },
+  'section-documents': {
+    need: 'Document trail',
+    value: 'the document index and per-file analysis behind the public judgement',
+  },
+  'section-extended-intel': {
+    need: 'Extended intelligence',
+    value:
+      "devil's-advocate critique, comparative parallels, historical precedents, and media framing",
+  },
+  'section-mcp-reliability': {
+    need: 'MCP data reliability',
+    value: 'which feeds were healthy, which were degraded, and how data limits bound conclusions',
+  },
+  'section-quality-reflection': {
+    need: 'Analytical quality and reflection',
+    value:
+      'self-assessment scores, methodology audit, structured analytic techniques, and known limitations',
+  },
+  'section-supplementary-intelligence': {
+    need: 'Supplementary intelligence',
+    value:
+      'additional markdown discovered in the run that has not yet been assigned to a canonical section',
   },
 };
 
