@@ -30,9 +30,8 @@
 // partially-minified payload.
 
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
-import { resolve, join } from 'node:path';
+import { resolve, join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { dirname } from 'node:path';
 import { minify as minifyHtml } from 'html-minifier-terser';
 import CleanCSS from 'clean-css';
 import { minify as minifyJs } from 'terser';
@@ -50,13 +49,17 @@ function fmt(before, after) {
   return `${before} → ${after} B (saved ${saved} B / ${pct}%)`;
 }
 
+function errorMessage(e) {
+  return e instanceof Error ? e.message : String(e);
+}
+
 /** Run tasks with at most `limit` in-flight at once. */
 async function pool(tasks, limit) {
   const results = [];
-  const queue = [...tasks];
+  let next = 0;
   async function worker() {
-    let task;
-    while ((task = queue.shift()) !== undefined) {
+    while (next < tasks.length) {
+      const task = tasks[next++];
       results.push(await task());
     }
   }
@@ -131,7 +134,7 @@ const htmlTasks = allHtml.map((p) => async () => {
     const after = Buffer.byteLength(minified, 'utf8');
     return { before, after, ok: true };
   } catch (e) {
-    console.error(`❌ HTML minify failed for ${p}: ${e.message}`);
+    console.error(`❌ HTML minify failed for ${p}: ${errorMessage(e)}`);
     return { before: 0, after: 0, ok: false };
   }
 });
@@ -190,7 +193,7 @@ const jsTasks = jsFiles.map((p) => async () => {
     console.warn(`⚠️  terser returned no code for ${p} — skipping`);
     return { before, after: before, ok: true };
   } catch (e) {
-    console.error(`❌ JS minify failed for ${p}: ${e.message}`);
+    console.error(`❌ JS minify failed for ${p}: ${errorMessage(e)}`);
     return { before: 0, after: 0, ok: false };
   }
 });

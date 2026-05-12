@@ -6,7 +6,7 @@
  *
  * `.github/workflows/deploy-s3.yml` runs `npm run optimize-css` against the
  * committed `purgecss.config.cjs` to drop unused selectors from
- * `styles.css` before the dra1ex/minify-action minifier compresses the
+ * `styles.css` before `npm run minify-assets` compresses the
  * remainder. If the config loses a content glob (e.g. `news/*.html`) or a
  * runtime-generated safelist class (e.g. `intel-tone-critical`) the
  * deployed stylesheet starts shipping broken — pages render with missing
@@ -21,7 +21,7 @@
  *     resolves to a real entry point.
  */
 
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';

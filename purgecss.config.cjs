@@ -12,7 +12,7 @@
 //
 // Run with `npm run optimize-css` (devDependency `purgecss`) — invoked
 // from `.github/workflows/deploy-s3.yml` after prebuild generation and
-// before the dra1ex/minify-action step.
+// before the `npm run minify-assets` step.
 //
 // Safelist rationale: the runtime tone-coder in js/article-runtime.js
 // adds `intel-tone-{critical,high,medium,low,source}` and
