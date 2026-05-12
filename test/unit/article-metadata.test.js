@@ -120,6 +120,29 @@ describe('truncation helpers', () => {
     expect(truncated.endsWith('…')).toBe(true);
     expect(truncated).not.toMatch(/ab…$/); // no mid-word break
   });
+
+  it('prefers the last sentence boundary and never emits a dangling determiner or double ellipsis', () => {
+    // Reproduces the propositions/2026-05-12 description regression where
+    // truncation left "…year. The……" — a dangling article followed by
+    // two ellipsis glyphs.
+    const prose =
+      "Three landmark legislative measures reached final publication or adoption in the week of 5–12 May 2026, marking a pivotal moment in EP10's first full legislative year. The Anti-Corruption Directive entered into force on 11 May 2026.";
+    const truncated = truncateDescription(prose);
+    expect(truncated).not.toMatch(/……/);
+    expect(truncated).not.toMatch(/\b(?:the|a|an|of|to|for|in|on|at|by|and|or|with|from)…$/i);
+    expect(truncated).not.toMatch(/\b(?:the|a|an|of|to|for|in|on|at|by|and|or|with|from)$/i);
+    // Cleanly clipped at the first sentence boundary, no trailing ellipsis.
+    expect(truncated.endsWith('.')).toBe(true);
+  });
+
+  it('strips a pre-existing trailing ellipsis before appending its own', () => {
+    // Guards against double-clip: if the input already carries an ellipsis
+    // (e.g. from an upstream truncation), we must not emit "X……".
+    const seeded = `${'word '.repeat(60).trim()}…`;
+    const truncated = truncateDescription(seeded);
+    expect(truncated).not.toMatch(/……/);
+    expect(truncated.endsWith('…')).toBe(true);
+  });
 });
 
 describe('extractFirstH1', () => {

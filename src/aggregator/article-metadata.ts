@@ -541,6 +541,59 @@ export function stripInlineMarkdown(raw: string): string {
     .trim();
 }
 
+/** Connector / determiner words that read as broken copy when they are
+ *  the final token before a truncation ellipsis. */
+const TRAILING_STOP_WORDS = new Set([
+  'the',
+  'a',
+  'an',
+  'of',
+  'to',
+  'for',
+  'in',
+  'on',
+  'at',
+  'by',
+  'and',
+  'or',
+  'with',
+  'from',
+]);
+
+/** Trailing characters we always strip before appending our own ellipsis,
+ *  so we never emit double-ellipsis or stray punctuation. */
+const TRAILING_PUNCT = /[.,;:—\-…\s]/u;
+
+/**
+ * Repeatedly strip trailing stop-words (separated by a single space) and
+ * trailing punctuation (including any pre-existing ellipsis). Implemented
+ * imperatively to avoid super-linear regex backtracking on the
+ * `(?:\s+stop-word)+$` pattern flagged by `security/detect-unsafe-regex`.
+ *
+ * @param input - Pre-clipped string to clean up
+ * @returns Cleaned string with no trailing stop-words or punctuation
+ */
+function stripTrailingStopWordsAndPunctuation(input: string): string {
+  let result = input;
+  let changed = true;
+  while (changed) {
+    changed = false;
+    while (result.length > 0 && TRAILING_PUNCT.test(result.charAt(result.length - 1))) {
+      result = result.slice(0, -1);
+      changed = true;
+    }
+    const lastSpace = result.lastIndexOf(' ');
+    if (lastSpace >= 0) {
+      const tail = result.slice(lastSpace + 1).toLowerCase();
+      if (TRAILING_STOP_WORDS.has(tail)) {
+        result = result.slice(0, lastSpace);
+        changed = true;
+      }
+    }
+  }
+  return result;
+}
+
 /**
  * Clamp a string to `DESCRIPTION_MAX_LENGTH` characters, appending
  * an ellipsis when truncation actually happens. Does not break words if
@@ -552,10 +605,22 @@ export function stripInlineMarkdown(raw: string): string {
  */
 export function truncateDescription(text: string): string {
   if (text.length <= DESCRIPTION_MAX_LENGTH) return text;
-  const cut = text.slice(0, DESCRIPTION_MAX_LENGTH - 3);
+  const cut = text.slice(0, DESCRIPTION_MAX_LENGTH - 1);
+  // Prefer the last full sentence terminator within the cut so we don't
+  // end on a dangling determiner ("…year. The"). Period/!/? followed by
+  // a space marks a clean boundary. Only honour the boundary when it
+  // sits past the soft minimum so we keep enough body text to be useful.
+  const sentenceEnd = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('! '), cut.lastIndexOf('? '));
+  if (sentenceEnd >= DESCRIPTION_MIN_LENGTH) {
+    return cut.slice(0, sentenceEnd + 1).replace(/\s+$/, '');
+  }
   const lastSpace = cut.lastIndexOf(' ');
-  const safe = lastSpace > DESCRIPTION_MAX_LENGTH - 60 ? cut.slice(0, lastSpace) : cut;
-  return `${safe.replace(/[.,;:—-]+$/, '')}…`;
+  let safe = lastSpace > DESCRIPTION_MAX_LENGTH - 60 ? cut.slice(0, lastSpace) : cut;
+  // Drop dangling stop-words and trailing punctuation/ellipsis so we
+  // never emit broken copy ("…year. The" → "…year.") or double-ellipsis
+  // ("The……") when the upstream input already carried an ellipsis.
+  safe = stripTrailingStopWordsAndPunctuation(safe);
+  return `${safe}…`;
 }
 
 /**
@@ -567,10 +632,11 @@ export function truncateDescription(text: string): string {
  */
 export function truncateTitle(text: string): string {
   if (text.length <= TITLE_MAX_LENGTH) return text;
-  const cut = text.slice(0, TITLE_MAX_LENGTH - 3);
+  const cut = text.slice(0, TITLE_MAX_LENGTH - 1);
   const lastSpace = cut.lastIndexOf(' ');
-  const safe = lastSpace > TITLE_MAX_LENGTH - 40 ? cut.slice(0, lastSpace) : cut;
-  return `${safe.replace(/[.,;:—-]+$/, '')}…`;
+  let safe = lastSpace > TITLE_MAX_LENGTH - 40 ? cut.slice(0, lastSpace) : cut;
+  safe = stripTrailingStopWordsAndPunctuation(safe);
+  return `${safe}…`;
 }
 
 /**

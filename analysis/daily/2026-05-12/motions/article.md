@@ -1,6 +1,6 @@
 ---
 title: "EP Motions 2026-05-12"
-description: "LIKELY (60–75%) | Admiralty: B2 — Probably True, Usually Reliable Source Published 2026-05-12 · analysis run motions-run375-1778572294, with source-linked voting, committee and…"
+description: "LIKELY (60–75%) | Admiralty: B2 — Probably True, Usually Reliable Source Published 2026-05-12 · analysis run motions-run375-1778572294, with source-linked voting, committee…"
 keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-12", "run motions-run375-1778572294", "LIKELY", "Admiralty", "Probably", "True", "Usually", "Reliable", "Source", "Published"]
 date: 2026-05-12
 article_type: motions

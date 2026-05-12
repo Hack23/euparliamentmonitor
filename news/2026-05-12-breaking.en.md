@@ -1,6 +1,6 @@
 ---
 title: "EP Breaking News"
-description: "What happened: The EP's end-of-April 2026 plenary session produced a historically dense legislative output. In five days, MEPs adopted an interim report on the 2028–2034……"
+description: "What happened: The EP's end-of-April 2026 plenary session produced a historically dense legislative output. In five days, MEPs adopted an interim report on the 2028–2034…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-12", "run breaking-run-1778577220", "News", "What", "happened", "April", "plenary", "session", "produced", "historically"]
 date: 2026-05-12
 article_type: breaking

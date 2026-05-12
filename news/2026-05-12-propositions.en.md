@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Propositions"
-description: "Three landmark legislative measures reached final publication or adoption in the week of 5–12 May 2026, marking a pivotal moment in EP10's first full legislative year. The……"
+description: "Three landmark legislative measures reached final publication or adoption in the week of 5–12 May 2026, marking a pivotal moment in EP10's first full legislative year."
 keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-12", "run propositions-run270-1778566185", "Parliament", "Three", "landmark", "legislative", "measures", "reached", "final", "publication"]
 date: 2026-05-12
 article_type: propositions
