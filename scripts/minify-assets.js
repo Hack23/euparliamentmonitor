@@ -35,6 +35,7 @@ import { fileURLToPath } from 'node:url';
 import { minify as minifyHtml } from 'html-minifier-terser';
 import CleanCSS from 'clean-css';
 import { minify as minifyJs } from 'terser';
+import { writeFileIfChanged } from './utils/file-utils.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(__dirname, '..');
@@ -71,6 +72,7 @@ async function pool(tasks, limit) {
 let totalBefore = 0;
 let totalAfter = 0;
 let errors = 0;
+let unchangedCount = 0;
 
 // ─── CSS ────────────────────────────────────────────────────────────────────
 
@@ -83,11 +85,12 @@ const cssPath = resolve(repoRoot, 'styles.css');
     console.error('❌ clean-css errors in styles.css:', result.errors);
     errors++;
   } else {
-    writeFileSync(cssPath, result.styles);
+    const wrote = writeFileIfChanged(cssPath, result.styles);
+    if (!wrote) unchangedCount++;
     const after = Buffer.byteLength(result.styles, 'utf8');
     totalBefore += before;
     totalAfter += after;
-    console.log(`  styles.css  ${fmt(before, after)}`);
+    console.log(`  styles.css  ${fmt(before, after)}${wrote ? '' : '  (unchanged)'}`);
   }
 }
 
@@ -130,20 +133,22 @@ const htmlTasks = allHtml.map((p) => async () => {
     const src = readFileSync(p, 'utf8');
     const before = Buffer.byteLength(src, 'utf8');
     const minified = await minifyHtml(src, htmlOpts);
-    writeFileSync(p, minified);
+    const wrote = writeFileIfChanged(p, minified);
     const after = Buffer.byteLength(minified, 'utf8');
-    return { before, after, ok: true };
+    return { before, after, ok: true, wrote };
   } catch (e) {
     console.error(`❌ HTML minify failed for ${p}: ${errorMessage(e)}`);
-    return { before: 0, after: 0, ok: false };
+    return { before: 0, after: 0, ok: false, wrote: false };
   }
 });
 
 const htmlResults = await pool(htmlTasks, CONCURRENCY);
+let htmlUnchanged = 0;
 for (const r of htmlResults) {
   if (r.ok) {
     htmlBefore += r.before;
     htmlAfter += r.after;
+    if (!r.wrote) htmlUnchanged++;
   } else {
     htmlErrors++;
   }
@@ -151,8 +156,10 @@ for (const r of htmlResults) {
 totalBefore += htmlBefore;
 totalAfter += htmlAfter;
 errors += htmlErrors;
+unchangedCount += htmlUnchanged;
 console.log(
-  `  HTML: ${allHtml.length - htmlErrors} files minified  ${fmt(htmlBefore, htmlAfter)}`,
+  `  HTML: ${allHtml.length - htmlErrors} files minified  ${fmt(htmlBefore, htmlAfter)}` +
+    (htmlUnchanged > 0 ? `  (${htmlUnchanged} unchanged, mtime preserved)` : ''),
 );
 
 // ─── JS ─────────────────────────────────────────────────────────────────────
@@ -193,24 +200,26 @@ const jsTasks = jsFiles.map((p) => async () => {
       format: { comments: 'some' },
     });
     if (result.code) {
-      writeFileSync(p, result.code);
+      const wrote = writeFileIfChanged(p, result.code);
       const after = Buffer.byteLength(result.code, 'utf8');
-      return { before, after, ok: true };
+      return { before, after, ok: true, wrote };
     }
     // Terser succeeded but produced no output — log and skip (file stays as-is)
     console.warn(`⚠️  terser returned no code for ${p} — skipping`);
-    return { before, after: before, ok: true };
+    return { before, after: before, ok: true, wrote: false };
   } catch (e) {
     console.error(`❌ JS minify failed for ${p}: ${errorMessage(e)}`);
-    return { before: 0, after: 0, ok: false };
+    return { before: 0, after: 0, ok: false, wrote: false };
   }
 });
 
 const jsResults = await pool(jsTasks, CONCURRENCY);
+let jsUnchanged = 0;
 for (const r of jsResults) {
   if (r.ok) {
     jsBefore += r.before;
     jsAfter += r.after;
+    if (!r.wrote) jsUnchanged++;
   } else {
     jsErrors++;
   }
@@ -218,8 +227,10 @@ for (const r of jsResults) {
 totalBefore += jsBefore;
 totalAfter += jsAfter;
 errors += jsErrors;
+unchangedCount += jsUnchanged;
 console.log(
-  `  JS:   ${jsFiles.length - jsErrors} files minified  ${fmt(jsBefore, jsAfter)}`,
+  `  JS:   ${jsFiles.length - jsErrors} files minified  ${fmt(jsBefore, jsAfter)}` +
+    (jsUnchanged > 0 ? `  (${jsUnchanged} unchanged, mtime preserved)` : ''),
 );
 
 // ─── summary ────────────────────────────────────────────────────────────────
@@ -229,7 +240,11 @@ const pctTotal =
   totalBefore > 0 ? ((savedTotal / totalBefore) * 100).toFixed(1) : '0.0';
 console.log(
   `✅ Minification complete: ${totalBefore} → ${totalAfter} B ` +
-    `(saved ${savedTotal} B / ${pctTotal}% across CSS + ${allHtml.length} HTML + ${jsFiles.length} JS)`,
+    `(saved ${savedTotal} B / ${pctTotal}% across CSS + ${allHtml.length} HTML + ${jsFiles.length} JS` +
+    (unchangedCount > 0
+      ? `; ${unchangedCount} file(s) byte-identical to existing — mtime preserved so aws s3 sync will skip them`
+      : '') +
+    ')',
 );
 
 if (errors > 0) {

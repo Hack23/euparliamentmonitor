@@ -409,15 +409,47 @@ export function resolveUniqueFilePath(filepath: string): string {
 }
 
 /**
- * Write content to a file with UTF-8 encoding
+ * Write `content` to `filepath` only if the existing on-disk bytes differ.
+ *
+ * Used to keep `aws s3 sync` (which compares size + mtime) from re-uploading
+ * files whose content the build pipeline regenerated identically — see the
+ * idempotency contract documented in `.github/workflows/deploy-s3.yml`.
+ *
+ * @param filepath - Output file path
+ * @param content  - Desired file content (UTF-8 string or raw Buffer)
+ * @returns `true` when an actual write occurred, `false` when the file
+ *          already had byte-identical content and was left untouched.
+ */
+export function writeFileIfChanged(filepath: string, content: string | Buffer): boolean {
+  const dir = path.dirname(filepath);
+  ensureDirectoryExists(dir);
+  const desired = Buffer.isBuffer(content) ? content : Buffer.from(content, 'utf-8');
+  if (fs.existsSync(filepath)) {
+    try {
+      const existing = fs.readFileSync(filepath);
+      if (existing.equals(desired)) {
+        return false;
+      }
+    } catch {
+      // Fall through to overwrite — read failures must not block deploy.
+    }
+  }
+  fs.writeFileSync(filepath, desired);
+  return true;
+}
+
+/**
+ * Write content to a file with UTF-8 encoding.
+ *
+ * Idempotent at the byte level: if the file already exists with identical
+ * content, the file is left untouched (mtime preserved). This keeps
+ * `aws s3 sync` from re-uploading regenerated-but-identical files.
  *
  * @param filepath - Output file path
  * @param content - File content
  */
 export function writeFileContent(filepath: string, content: string): void {
-  const dir = path.dirname(filepath);
-  ensureDirectoryExists(dir);
-  fs.writeFileSync(filepath, content, 'utf-8');
+  writeFileIfChanged(filepath, content);
 }
 
 /**

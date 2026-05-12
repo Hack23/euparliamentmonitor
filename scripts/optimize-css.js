@@ -21,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { createRequire } from 'node:module';
 import { PurgeCSS } from 'purgecss';
+import { writeFileIfChanged } from './utils/file-utils.js';
 
 const require = createRequire(import.meta.url);
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -52,7 +53,7 @@ if (!result.length || typeof result[0].css !== 'string') {
 }
 
 const purged = result[0].css;
-writeFileSync(cssPath, purged);
+const wrote = writeFileIfChanged(cssPath, purged);
 
 const afterBytes = statSync(cssPath).size;
 const savedBytes = beforeBytes - afterBytes;
@@ -60,7 +61,7 @@ const savedPct = ((savedBytes / beforeBytes) * 100).toFixed(1);
 
 console.log(
   `✅ styles.css purged: ${beforeBytes} → ${afterBytes} bytes ` +
-    `(saved ${savedBytes} B / ${savedPct}%)`,
+    `(saved ${savedBytes} B / ${savedPct}%${wrote ? '' : ', no write — content unchanged'})`,
 );
 
 // Sanity floor: if the purge produces a styles.css smaller than 32 KiB,
@@ -74,6 +75,6 @@ if (afterBytes < FLOOR_BYTES) {
   );
   // Restore from the in-memory capture taken BEFORE the purge so a re-run
   // from cache cannot observe the broken file.
-  writeFileSync(cssPath, originalCss);
+  writeFileIfChanged(cssPath, originalCss);
   process.exit(1);
 }
