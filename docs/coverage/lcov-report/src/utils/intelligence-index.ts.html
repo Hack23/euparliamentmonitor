@@ -921,16 +921,7 @@
 <a name='L856'></a><a href='#L856'>856</a>
 <a name='L857'></a><a href='#L857'>857</a>
 <a name='L858'></a><a href='#L858'>858</a>
-<a name='L859'></a><a href='#L859'>859</a>
-<a name='L860'></a><a href='#L860'>860</a>
-<a name='L861'></a><a href='#L861'>861</a>
-<a name='L862'></a><a href='#L862'>862</a>
-<a name='L863'></a><a href='#L863'>863</a>
-<a name='L864'></a><a href='#L864'>864</a>
-<a name='L865'></a><a href='#L865'>865</a>
-<a name='L866'></a><a href='#L866'>866</a>
-<a name='L867'></a><a href='#L867'>867</a>
-<a name='L868'></a><a href='#L868'>868</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L859'></a><a href='#L859'>859</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1031,7 +1022,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">69x</span>
 <span class="cline-any cline-yes">69x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1039,17 +1029,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">69x</span>
 <span class="cline-any cline-yes">69x</span>
 <span class="cline-any cline-yes">69x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">69x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">69x</span>
@@ -1467,9 +1454,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1621,10 +1606,8 @@
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1732,7 +1715,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">28x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -1898,7 +1880,6 @@ export function addArticleToIndex(
   index: IntelligenceIndex,
   entry: ArticleIndexEntry
 ): IntelligenceIndex {
-  // Replace or append
   const existingIdx = index.articles.findIndex((a) =&gt; a.id === entry.id);
   const oldEntry = existingIdx &gt;= 0 ? index.articles[existingIdx] : undefined;
   const articles =
@@ -1906,19 +1887,16 @@ export function addArticleToIndex(
       ? [...index.articles.slice(0, existingIdx), entry, ...index.articles.slice(existingIdx + 1)]
       : [...index.articles, entry];
 &nbsp;
-  // Clone lookup maps (null-prototype to prevent pollution)
   const actors = Object.assign(createNullMap(), index.actors);
   const policyDomains = Object.assign(createNullMap(), index.policyDomains);
   const procedures = Object.assign(createNullMap(), index.procedures);
 &nbsp;
-  // Remove stale associations from the old entry (if replacing)
   if (oldEntry) {
     removeIdFromMap(actors, oldEntry.keyActors, entry.id);
     removeIdFromMap(policyDomains, oldEntry.keyTopics, entry.id);
     removeIdFromMap(procedures, oldEntry.procedures, entry.id);
   }
 &nbsp;
-  // Add new associations
   addIdToMap(actors, entry.keyActors, entry.id);
   addIdToMap(policyDomains, entry.keyTopics, entry.id);
   addIdToMap(procedures, entry.procedures, entry.id);
@@ -2161,7 +2139,7 @@ function buildProcedureTrend(
  * Detect parliamentary trends from patterns across all indexed articles.
  *
  * A trend is formed when a topic or procedure appears in at least
- * {@link MIN_TREND_ARTICLES} articles. The returned array replaces any
+ * `MIN_TREND_ARTICLES` articles. The returned array replaces any
  * previously detected trends stored in the index.
  *
  * @param index - Intelligence index to analyse
@@ -2334,7 +2312,6 @@ function mergeOntoEmpty(parsed: Partial&lt;IntelligenceIndex&gt;): IntelligenceI
     empty
   );
 &nbsp;
-  // Build a temporary index so detectTrends can recompute from articles
   const base: IntelligenceIndex = {
     articles,
     actors,
@@ -2345,7 +2322,6 @@ function mergeOntoEmpty(parsed: Partial&lt;IntelligenceIndex&gt;): IntelligenceI
     lastUpdated: typeof parsed.lastUpdated === 'string' ? parsed.lastUpdated : empty.lastUpdated,
   };
 &nbsp;
-  // Recompute trends when maps were rebuilt or when persisted trends are missing/invalid
   const trends = rebuilt || !Array.isArray(parsed.trends) ? detectTrends(base) : parsed.trends;
 &nbsp;
   return { ...base, trends };
@@ -2488,13 +2464,11 @@ export function buildRelatedArticlesHTML(
         const filename = `${article.id}.html`;
         return `    &lt;li&gt;&lt;a href="${escapeAttr(filename)}" rel="noopener noreferrer"&gt;${escapeText(label)}: ${escapeText(ref.context)} (${escapeText(displayDate)})&lt;/a&gt;&lt;/li&gt;`;
       }
-      // Fallback: render using targetArticleId when full article metadata is unavailable
       const filename = `${ref.targetArticleId}.html`;
       return `    &lt;li&gt;&lt;a href="${escapeAttr(filename)}" rel="noopener noreferrer"&gt;${escapeText(label)}: ${escapeText(ref.context)}&lt;/a&gt;&lt;/li&gt;`;
     })
     .filter(Boolean);
 &nbsp;
-  // Fall back: show related articles without explicit cross-refs
   if (listItems.length === 0 &amp;&amp; relatedArticles.length &gt; 0) {
     for (const article of relatedArticles) {
       const displayDate = formatDisplayDate(article.date, lang);
@@ -2599,7 +2573,6 @@ function slugify(text: string): string {
     .replace(/^-+/u, '')
     .replace(/-+$/u, '');
   <span class="missing-if-branch" title="else path not taken" >E</span>if (slug.length &gt; 0) return slug;
-  // Deterministic fallback: simple DJB2-style hash of the original text
   let hash = <span class="cstat-no" title="statement not covered" >5381;</span>
 <span class="cstat-no" title="statement not covered" >  for (let i = <span class="cstat-no" title="statement not covered" >0;</span> i &lt; text.length; i++) {</span>
 <span class="cstat-no" title="statement not covered" >    hash = ((hash &lt;&lt; 5) + hash + text.charCodeAt(i)) | 0;</span>
@@ -2671,7 +2644,7 @@ function formatDisplayDate(date: string, lang?: string): string {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-11T11:06:58.515Z
+                at 2026-05-12T10:28:21.304Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

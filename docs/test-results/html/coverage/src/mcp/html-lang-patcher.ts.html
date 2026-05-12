@@ -251,17 +251,7 @@
 <a name='L186'></a><a href='#L186'>186</a>
 <a name='L187'></a><a href='#L187'>187</a>
 <a name='L188'></a><a href='#L188'>188</a>
-<a name='L189'></a><a href='#L189'>189</a>
-<a name='L190'></a><a href='#L190'>190</a>
-<a name='L191'></a><a href='#L191'>191</a>
-<a name='L192'></a><a href='#L192'>192</a>
-<a name='L193'></a><a href='#L193'>193</a>
-<a name='L194'></a><a href='#L194'>194</a>
-<a name='L195'></a><a href='#L195'>195</a>
-<a name='L196'></a><a href='#L196'>196</a>
-<a name='L197'></a><a href='#L197'>197</a>
-<a name='L198'></a><a href='#L198'>198</a>
-<a name='L199'></a><a href='#L199'>199</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L189'></a><a href='#L189'>189</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -345,25 +335,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">23x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">23x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -371,12 +353,10 @@
 <span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">22x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">23x</span>
@@ -543,40 +523,30 @@ export function patchHtmlContent(content: string, opts: HtmlLangPatchOptions): s
 &nbsp;
   let c = content;
 &nbsp;
-  // 1. Document-level &lt;html&gt; and &lt;article&gt; lang/dir attributes
   c = c.replace(/(&lt;html\b[^&gt;]*\s)lang="en"/, `$1lang="${lang}"`);
   c = c.replace(/(&lt;html\b[^&gt;]*\s)dir="(?:ltr|rtl)"/, `$1dir="${langDir}"`);
   c = c.replace(/(&lt;article\b[^&gt;]*\s)lang="en"/, `$1lang="${lang}"`);
 &nbsp;
-  // 2. JSON-LD inLanguage
   c = c.replace(/("inLanguage"\s*:\s*")en(")/g, `$1${lang}$2`);
 &nbsp;
-  // 3. og:locale meta tag
   c = c.replace(/(&lt;meta\s+property="og:locale"\s+content=")[^"]*(")/g, `$1${ogLocale}$2`);
 &nbsp;
-  // 3b. Content-Language meta tag
   c = c.replace(/(&lt;meta\s+http-equiv="Content-Language"\s+content=")[^"]*(")/g, `$1${lang}$2`);
 &nbsp;
-  // 4. Self-referential URL fields.
-  // Restricted to rel="canonical" links and property="og:url" meta only —
-  // rel="alternate"/hreflang links are intentionally excluded.
   const enEsc = enBasename.replace(/[.*+?^${}()|[\]\\]/g, '\\$&amp;');
 &nbsp;
-  // 4a. &lt;link rel="canonical" href="..."&gt; (any attribute order; lookahead guards rel value)
   c = c.replace(
     /(&lt;link\b(?=[^&gt;]*\brel="canonical")[^&gt;]*\shref=")([^"]*)(")/g,
     (_, p1: string, p2: string, p3: string) =&gt;
       p1 + p2.replace(new RegExp(enEsc, 'g'), langBasename) + p3
   );
 &nbsp;
-  // 4b. &lt;meta property="og:url" content="..."&gt; (any attribute order)
   c = c.replace(
     /(&lt;meta\b(?=[^&gt;]*\bproperty="og:url")[^&gt;]*\scontent=")([^"]*)(")/g,
     (_, p1: string, p2: string, p3: string) =&gt;
       p1 + p2.replace(new RegExp(enEsc, 'g'), langBasename) + p3
   );
 &nbsp;
-  // 4c. JSON-LD @id, url, mainEntityOfPage fields
   c = c.replace(
     /("(?:@id|url|mainEntityOfPage)"\s*:\s*")([^"]*)(")/g,
     (_, j1: string, j2: string, j3: string) =&gt;
@@ -664,7 +634,7 @@ export function runCli(argv: string[] = process.argv): void {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-05-11T11:06:58.416Z
+                at 2026-05-12T10:28:21.212Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
