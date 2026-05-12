@@ -133,15 +133,16 @@ describe('scripts/normalize-legacy-articles.js', () => {
   });
 
   it('leaves modern article CSPs untouched', () => {
-    const modern = NORMALISED_BODY.replace(
-      'src="../js/mermaid-init.js?v=11.15.0"',
-      'src="../js/mermaid-init.js?v=11.15.0"',
-    );
-    writeArticle(tempDir, 'modern.html', modern);
+    // NORMALISED_BODY already contains the canonical CSP and the current
+    // pinned Mermaid version (11.15.0 — matches the fixture package.json),
+    // so the helper must treat it as a complete no-op: zero rewrites,
+    // mtime preserved, file content byte-identical to the input.
+    writeArticle(tempDir, 'modern.html', NORMALISED_BODY);
     const result = runHelper(tempDir);
     expect(result.status).toBe(0);
     const after = fs.readFileSync(path.join(tempDir, 'news', 'modern.html'), 'utf8');
-    expect(after).toBe(modern);
+    expect(after).toBe(NORMALISED_BODY);
+    expect(result.stdout).toMatch(/0 written/);
   });
 
   it('handles articles with no Mermaid reference (CSP-only normalisation)', () => {

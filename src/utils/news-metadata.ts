@@ -69,12 +69,6 @@ export function buildMetadataDatabase(newsDir: string = NEWS_DIR): NewsMetadataD
 }
 
 /**
- * Write metadata database to JSON file
- *
- * @param database - Metadata database to write
- * @param outputPath - Output file path (defaults to news/articles-metadata.json)
- */
-/**
  * Write metadata database to JSON file.
  *
  * Idempotent at the byte level: if the existing file has an identical
