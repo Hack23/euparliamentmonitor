@@ -1,6 +1,7 @@
 ---
 title: "Coalition Dynamics Assessment — 4 April 2026"
-description: "title: \"Coalition Dynamics Assessment — 2026-04-04\""
+description: "title: \"Coalition Dynamics Assessment — 2026-04-04\" Published 2026-04-04, with source-linked voting, committee and legislative intelligence for democratic-accountability…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-04", "Coalition", "Dynamics", "Assessment", "April", "title", "Published", "with", "source", "linked"]
 date: 2026-04-04
 article_type: breaking
 slug: 2026-04-04-breaking-breaking

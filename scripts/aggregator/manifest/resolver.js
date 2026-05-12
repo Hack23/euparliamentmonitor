@@ -7,8 +7,9 @@ export const UNKNOWN_ARTICLE_TYPE = 'unknown';
  *
  * Resolution order (highest precedence first):
  *   1. `articleType` — canonical singular field
- *   2. `articleTypes[0]` — pre-aggregator-pipeline plural array
- *   3. `runType` — historic field on older breaking-run manifests
+ *   2. `articleTypeSlug` — gh-aw workflow slug field
+ *   3. `articleTypes[0]` — pre-aggregator-pipeline plural array
+ *   4. `runType` — historic field on older breaking-run manifests
  *
  * Falls back to `'unknown'` when none of the above is a non-empty string.
  *
@@ -18,6 +19,9 @@ export const UNKNOWN_ARTICLE_TYPE = 'unknown';
 export function resolveArticleType(manifest) {
     if (typeof manifest.articleType === 'string' && manifest.articleType) {
         return manifest.articleType;
+    }
+    if (typeof manifest.articleTypeSlug === 'string' && manifest.articleTypeSlug) {
+        return manifest.articleTypeSlug;
     }
     const first = manifest.articleTypes?.[0];
     if (typeof first === 'string' && first) {

@@ -1,6 +1,7 @@
 ---
 title: "EP Breaking News: Strasbourg Plenary 28–30 April 2026"
-description: "The European Parliament's April Strasbourg plenary (28–30 April 2026) delivered nine major legislative and political actions in three days, dominated by a landmark Ukraine accountability resolution demanding international justice for Russian attacks on civilians, a democratic resilience package…"
+description: "The European Parliament's April Strasbourg plenary (28–30 April 2026) delivered nine major legislative and political actions in three days, dominated by a landmark Ukraine……"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-01", "run breaking-run-1777638113", "News", "Strasbourg", "Plenary", "April", "European", "Parliament", "delivered", "nine"]
 date: 2026-05-01
 article_type: breaking
 slug: 2026-05-01-breaking

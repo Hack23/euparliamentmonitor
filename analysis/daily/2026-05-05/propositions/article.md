@@ -1,6 +1,7 @@
 ---
 title: "EU Parliament Propositions"
-description: "WEP Probability Band: Assessed findings — Likely (55–79%) to have multi-year policy consequences"
+description: "WEP Probability Band: Assessed findings — Likely (55–79%) to have multi-year policy consequences Published 2026-05-05 · analysis run propositions-run-1777966984, with…"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-05", "run propositions-run-1777966984", "Parliament", "Probability", "Band", "Assessed", "findings", "Likely", "have", "multi"]
 date: 2026-05-05
 article_type: propositions
 slug: 2026-05-05-propositions

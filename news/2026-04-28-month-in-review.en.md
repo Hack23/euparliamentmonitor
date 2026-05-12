@@ -1,6 +1,7 @@
 ---
 title: "EU Parliament Month in Review: March 29–April 28, 2026"
-description: "The European Parliament's March–April 2026 legislative cycle produced a historic output of 104 adopted texts, anchored by three interlocking strategic clusters: defence industrial integration (five texts establishing the framework for European defence industrial cooperation), banking union…"
+description: "The European Parliament's March–April 2026 legislative cycle produced a historic output of 104 adopted texts, anchored by three interlocking strategic clusters: defence……"
+keywords: ["EU Parliament", "month in review", "European Parliament", "summary", "legislative review", "2026-04-28", "run month-in-review-run-1777373049", "Parliament", "Month", "Review", "March", "April", "European", "legislative", "cycle", "produced"]
 date: 2026-04-28
 article_type: month-in-review
 slug: 2026-04-28-month-in-review

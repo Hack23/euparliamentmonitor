@@ -1,6 +1,7 @@
 ---
 title: "Breaking News Evaluation"
-description: "Pipeline Stage: Analysis complete — newsworthiness evaluation"
+description: "Pipeline Stage: Analysis complete — newsworthiness evaluation Published 2026-04-06, with source-linked voting, committee and legislative intelligence for…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-06", "News", "Evaluation", "Pipeline", "Stage", "Analysis", "complete", "newsworthiness", "Published", "with"]
 date: 2026-04-06
 article_type: breaking
 slug: 2026-04-06-breaking-breaking-2

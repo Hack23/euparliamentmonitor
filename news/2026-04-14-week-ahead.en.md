@@ -1,6 +1,7 @@
 ---
 title: "🧩 Political Intelligence Synthesis — Post-Easter Return and Tariff Activation Convergence"
-description: "TA-10-2026-0096 activates April 15. Commission empowered for autonomous retaliatory tariffs. INTA committee leads oversight. ECR divided on trade policy."
+description: "TA-10-2026-0096 activates April 15. Commission empowered for autonomous retaliatory tariffs. INTA committee leads oversight. ECR divided on trade policy. Published 2026-04-14 ·…"
+keywords: ["EU Parliament", "week ahead", "committee meetings", "plenary debate", "European Parliament", "legislation", "2026-04-14", "run d453dec8-df2f-4b80-9c0c-73659e377e8c", "Political", "Intelligence", "Synthesis", "Post", "Easter", "Return", "Tariff", "Activation"]
 date: 2026-04-14
 article_type: week-ahead
 slug: 2026-04-14-week-ahead

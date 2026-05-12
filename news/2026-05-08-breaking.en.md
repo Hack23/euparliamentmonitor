@@ -1,6 +1,7 @@
 ---
 title: "European Parliament Breaking News"
-description: "The European Parliament concluded its April Strasbourg plenary session (28–30 April 2026) with a legislative and political output of exceptional density. Fourteen adopted texts (TA-10-2026-0105 through TA-10-2026-0163) address digital regulation, foreign policy, humanitarian crises, animal…"
+description: "The European Parliament concluded its April Strasbourg plenary session (28–30 April 2026) with a legislative and political output of exceptional density. Fourteen adopted…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-08", "run breaking-run373-1778202056", "European", "Parliament", "News", "concluded", "April", "Strasbourg", "plenary", "session"]
 date: 2026-05-08
 article_type: breaking
 slug: 2026-05-08-breaking

@@ -1,6 +1,7 @@
 ---
 title: "EU Parliament Breaking News"
-description: "Analysis Period: April 28–30, 2026 (most recent completed Strasbourg plenary)"
+description: "Analysis Period: April 28–30, 2026 (most recent completed Strasbourg plenary) Published 2026-05-10 · analysis run breaking-run605-1778419139, with source-linked voting…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-10", "run breaking-run605-1778419139", "Parliament", "News", "Analysis", "Period", "April", "most", "recent", "completed"]
 date: 2026-05-10
 article_type: breaking
 slug: 2026-05-10-breaking

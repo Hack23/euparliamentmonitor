@@ -1,6 +1,7 @@
 ---
 title: "EU Parliament Propositions"
-description: "The final week of April 2026 delivered one of the most substantive legislative batches of the EP10 term: three urgency resolutions, a landmark animal welfare regulation completing trilogue, a critical data-transfer agreement with Iceland, several discharge procedures, and two major pieces of…"
+description: "The final week of April 2026 delivered one of the most substantive legislative batches of the EP10 term: three urgency resolutions, a landmark animal welfare regulation……"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-01", "run propositions-run-1777615486", "Parliament", "final", "week", "April", "delivered", "most", "substantive", "legislative"]
 date: 2026-05-01
 article_type: propositions
 slug: 2026-05-01-propositions

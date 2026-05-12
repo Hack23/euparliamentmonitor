@@ -1,6 +1,7 @@
 ---
 title: "🧩 Political Intelligence Synthesis — Tariff T-0 Activation and Post-Recess Convergence"
-description: "subgraph \"📊 EP Political Intelligence Dashboard 15 April 2026\""
+description: "Intelligence Assessment: The activation of TA-10-2026-0096 marks the EU's first autonomous trade defence action under the current geopolitical framework. Parliament adopted……"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-15", "Political", "Intelligence", "Synthesis", "Tariff", "Activation", "Post", "Recess", "Convergence", "Assessment"]
 date: 2026-04-15
 article_type: breaking
 slug: 2026-04-15-breaking-173

@@ -1,6 +1,7 @@
 ---
 title: "Political Actor Mapping: EP10 Ecosystem Analysis"
-description: "The EP10 political actor ecosystem is characterised by:"
+description: "The EP10 political actor ecosystem is characterised by: Published 2026-03-28 · analysis run e1c8e9c5-1a6d-4f2c-9cda-312aa19023fe, with source-linked voting, committee and…"
+keywords: ["EU Parliament", "month in review", "European Parliament", "summary", "legislative review", "2026-03-28", "run e1c8e9c5-1a6d-4f2c-9cda-312aa19023fe", "Political", "Actor", "Mapping", "EP10", "Ecosystem", "Analysis", "characterised", "Published", "e1c8e9c5"]
 date: 2026-03-28
 article_type: month-in-review
 slug: 2026-03-28-month-in-review

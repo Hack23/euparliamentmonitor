@@ -1,6 +1,7 @@
 ---
 title: "🧩 Political Intelligence Synthesis — European Parliament"
-description: "pie title Q1 2026 Adopted Texts by Policy Domain"
+description: "1. Legislative Backlog Risk — NEW (12/25 HIGH): 30+ adopted texts + 13 COD procedures must be processed in a 4-day committee window (April 14-17). This is a new risk not……"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-09", "Political", "Intelligence", "Synthesis", "European", "Parliament", "Legislative", "Backlog", "Risk", "HIGH"]
 date: 2026-04-09
 article_type: breaking
 slug: 2026-04-09-breaking

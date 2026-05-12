@@ -1,6 +1,7 @@
 ---
 title: "EU Parliament Propositions"
-description: "The week of 29 April – 6 May 2026 sees the European Parliament's legislative pipeline operating at record pace for EP10's second year, with 935 active procedures and 114 legislative acts already adopted in 2026 (a +46.2% increase over 2025). The dominant propositions cluster around three…"
+description: "The week of 29 April – 6 May 2026 sees the European Parliament's legislative pipeline operating at record pace for EP10's second year, with 935 active procedures and 114……"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-06", "run propositions-run265-1778094352", "Parliament", "week", "April", "sees", "European", "legislative", "pipeline", "operating"]
 date: 2026-05-06
 article_type: propositions
 slug: 2026-05-06-propositions

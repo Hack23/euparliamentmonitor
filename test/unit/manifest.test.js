@@ -32,6 +32,16 @@ describe('resolveArticleType', () => {
     expect(resolveArticleType({ articleTypes: ['propositions'] })).toBe('propositions');
   });
 
+  it('falls back to articleTypeSlug before legacy variants', () => {
+    expect(
+      resolveArticleType({
+        articleTypeSlug: 'year-ahead',
+        articleTypes: ['propositions'],
+        runType: 'breaking',
+      })
+    ).toBe('year-ahead');
+  });
+
   it('falls back to runType for very-legacy manifests', () => {
     expect(resolveArticleType({ runType: 'committee-reports' })).toBe('committee-reports');
   });

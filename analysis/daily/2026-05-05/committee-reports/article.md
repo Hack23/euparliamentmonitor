@@ -1,6 +1,7 @@
 ---
 title: "Committee Reports Intelligence Synthesis — 28 April – 5 May 2026"
-description: "The European Parliament concluded a highly productive plenary week (28 April – 1 May 2026) adopting 14 texts across eight distinct legislative domains. Three thematic clusters dominated the agenda: digital governance and market regulation (Digital Markets Act enforcement), agricultural…"
+description: "The European Parliament concluded a highly productive plenary week (28 April – 1 May 2026) adopting 14 texts across eight distinct legislative domains. Three thematic clusters……"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-05", "run committee-reports-run-1777957656", "Committee", "Reports", "Intelligence", "Synthesis", "April", "European", "Parliament", "concluded"]
 date: 2026-05-05
 article_type: committee-reports
 slug: 2026-05-05-committee-reports

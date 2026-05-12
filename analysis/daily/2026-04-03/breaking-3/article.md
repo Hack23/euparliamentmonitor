@@ -1,6 +1,7 @@
 ---
 title: "Anti-Corruption and Institutional Reform Intelligence"
-description: "The March 2026 plenary sessions produced a coherent institutional reform package centred on the adoption of the anti-corruption directive (TA-10-2026-0094) alongside the Grzegorz Braun immunity waiver (TA-10-2026-0088), the Better Law-Making report (TA-10-2026-0063), and the public access to…"
+description: "The March 2026 plenary sessions produced a coherent institutional reform package centred on the adoption of the anti-corruption directive (TA-10-2026-0094) alongside the……"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-03", "Anti", "Corruption", "Institutional", "Reform", "Intelligence", "March", "plenary", "sessions", "produced"]
 date: 2026-04-03
 article_type: breaking
 slug: 2026-04-03-breaking-breaking-3

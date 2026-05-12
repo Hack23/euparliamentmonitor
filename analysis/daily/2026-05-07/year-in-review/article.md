@@ -1,6 +1,7 @@
 ---
 title: "EP10 Year in Review"
-description: "EP10 Year 2 is defined by a central paradox: the Parliament achieved more on defence/security than any in history while simultaneously retreating on the sustainability agenda it inherited from EP9. The synthesis of 23 analysis artifacts confirms that this contradiction is not accidental — it is…"
+description: "EP10 Year 2 is defined by a central paradox: the Parliament achieved more on defence/security than any in history while simultaneously retreating on the sustainability agenda……"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year In Review", "2026-05-07", "EP10", "Year", "Review", "defined", "central", "paradox", "Parliament", "achieved", "more", "defence", "security"]
 date: 2026-05-07
 article_type: year-in-review
 slug: 2026-05-07-year-in-review

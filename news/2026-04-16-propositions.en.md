@@ -1,6 +1,7 @@
 ---
 title: "The European Parliament enters its inter-session gap (March 27 to April 26) carrying the most ambitious legislative portfolio of EP10…"
-description: "The European Parliament enters its inter-session gap (March 27 to April 26) carrying the most ambitious legislative portfolio of EP10 current term. With 51 procedures registered in 2026 including 13 ordinary legislative procedures (COD) simultaneously in committee stage, the institution faces an…"
+description: "The European Parliament enters its inter-session gap (March 27 to April 26) carrying the most ambitious legislative portfolio of EP10 current term. With 51 procedures……"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-16", "run a44262b7-c7fe-4d49-8de1-d7e07919e39b", "European", "Parliament", "enters", "inter", "session", "March", "April", "carrying"]
 date: 2026-04-16
 article_type: propositions
 slug: 2026-04-16-propositions

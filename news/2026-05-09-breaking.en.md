@@ -1,6 +1,7 @@
 ---
 title: "European Parliament Breaking News"
-description: "The European Parliament enters May 2026 navigating an unprecedented convergence of legal accountability crises, digital regulatory enforcement battles, and institutional fragmentation pressures. The April 2026 plenary sessions produced a dense legislative output — from immunity waivers for…"
+description: "The European Parliament enters May 2026 navigating an unprecedented convergence of legal accountability crises, digital regulatory enforcement battles, and institutional……"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-09", "run breaking-run-1778332692", "European", "Parliament", "News", "enters", "navigating", "unprecedented", "convergence", "legal"]
 date: 2026-05-09
 article_type: breaking
 slug: 2026-05-09-breaking

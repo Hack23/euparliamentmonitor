@@ -1,6 +1,7 @@
 ---
 title: "2024–2029 Term"
-description: "The 2024–2029 European Parliament term began with a structurally fragmented chamber (717 MEPs across 9 groups, fragmentation index 6.58) in which the centrist EPP+S&D+Renew majority operates with a 36-seat cushion that is materially thinner than EP9. The dominant analytical question for the…"
+description: "The 2024–2029 European Parliament term began with a structurally fragmented chamber (717 MEPs across 9 groups, fragmentation index 6.58) in which the centrist EPP+S&D+Renew……"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Election Cycle", "2026-05-11", "Term", "European", "Parliament", "began", "with", "structurally", "fragmented", "chamber", "MEPs", "across", "groups"]
 date: 2026-05-11
 article_type: election-cycle
 slug: 2026-05-11-election-cycle

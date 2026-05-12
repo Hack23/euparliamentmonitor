@@ -1,6 +1,7 @@
 ---
 title: "Coalition Dynamics Assessment — 3 April 2026"
-description: "Coalition dynamics analysis for EP10 reveals a structurally asymmetric parliament where PPE's dominant position (38% of sampled seats) means all viable governing coalitions require PPE participation. The most notable finding is a Renew–ECR cohesion signal of 0.95 (strengthening), which — if it…"
+description: "Coalition dynamics analysis for EP10 reveals a structurally asymmetric parliament where PPE's dominant position (38% of sampled seats) means all viable governing coalitions……"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-03", "Coalition", "Dynamics", "Assessment", "April", "analysis", "EP10", "reveals", "structurally", "asymmetric"]
 date: 2026-04-03
 article_type: breaking
 slug: 2026-04-03-breaking-breaking

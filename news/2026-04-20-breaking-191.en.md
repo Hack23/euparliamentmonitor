@@ -1,6 +1,7 @@
 ---
 title: "Run 191"
-description: "Mode: ANALYSIS_ONLY — Parliament in Easter recess (Day 8), no breaking news threshold met"
+description: "Mode: ANALYSIS_ONLY — Parliament in Easter recess (Day 8), no breaking news threshold met Published 2026-04-20, with source-linked voting, committee and legislative…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-20", "Mode", "ANALYSIS", "ONLY", "Parliament", "Easter", "recess", "news", "threshold", "Published"]
 date: 2026-04-20
 article_type: breaking
 slug: 2026-04-20-breaking-191

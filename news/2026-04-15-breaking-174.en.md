@@ -1,6 +1,7 @@
 ---
 title: "🧩 Political Intelligence Synthesis — Tariff T-0 Activation Day and Post-Recess Institutional Reset"
-description: "subgraph \"📊 EP Political Intelligence Dashboard — 15 April 2026 07:20 UTC\""
+description: "Analytical Assessment: The activation of TA-10-2026-0096 marks the EU's first retaliatory tariff package against the United States in the current trade cycle. The Commission……"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-15", "Political", "Intelligence", "Synthesis", "Tariff", "Activation", "Post", "Recess", "Institutional", "Reset"]
 date: 2026-04-15
 article_type: breaking
 slug: 2026-04-15-breaking-174

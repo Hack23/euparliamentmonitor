@@ -1,6 +1,7 @@
 ---
 title: "The March 2026 Strasbourg sessions produced a multi-domain legislative sprint across five committee jurisdictions. This scoring…"
-description: "The March 2026 Strasbourg sessions produced a multi-domain legislative sprint across five committee jurisdictions. This scoring identifies the highest-priority items for today's committee reports article, deliberately differentiating from prior runs (Run 52: Banking Union/tariffs; Run 180…"
+description: "The March 2026 Strasbourg sessions produced a multi-domain legislative sprint across five committee jurisdictions. This scoring identifies the highest-priority items for……"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-17", "run f1dc673b-2d98-4641-930e-4d14497da488", "March", "Strasbourg", "sessions", "produced", "multi", "domain", "legislative", "sprint"]
 date: 2026-04-17
 article_type: committee-reports
 slug: 2026-04-17-committee-reports

@@ -1,6 +1,7 @@
 ---
 title: "Quantitative risk scoring across 0 identified political dimensions."
-description: "Quantitative risk scoring across 0 identified political dimensions."
+description: "Quantitative risk scoring across 0 identified political dimensions. Published 2026-04-03 · analysis run 9be5bca6-de96-4303-80ff-33cb5f24b51b, with source-linked voting…"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-03", "run 9be5bca6-de96-4303-80ff-33cb5f24b51b", "Quantitative", "risk", "scoring", "across", "identified", "political", "dimensions", "Published"]
 date: 2026-04-03
 article_type: propositions
 slug: 2026-04-03-propositions

@@ -1,6 +1,7 @@
 ---
 title: "EU Parliament Motions"
-description: "The European Parliament's April 2026 plenary session (28–30 April, Strasbourg) delivered a dense legislative harvest spanning immunity law, digital regulation, geopolitical crisis response, and budget oversight. Five motions define the week's political signature:"
+description: "The European Parliament's April 2026 plenary session (28–30 April, Strasbourg) delivered a dense legislative harvest spanning immunity law, digital regulation, geopolitical……"
+keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-01", "run motions-run-1777618418", "Parliament", "European", "April", "plenary", "session", "Strasbourg", "delivered", "dense"]
 date: 2026-05-01
 article_type: motions
 slug: 2026-05-01-motions

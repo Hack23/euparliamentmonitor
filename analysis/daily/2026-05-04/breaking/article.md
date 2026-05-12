@@ -1,6 +1,7 @@
 ---
 title: "Breaking News | 2026-05-04"
-description: "The European Parliament's April 28-30 mini-plenary session in Brussels delivered an unusually dense cluster of high-salience resolutions on a single day — April 30, 2026 — signalling coordinated legislative intent across geopolitics, digital regulation, and Eastern Partnership policy."
+description: "The European Parliament's April 28-30 mini-plenary session in Brussels delivered an unusually dense cluster of high-salience resolutions on a single day — April 30, 2026 ……"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-04", "run breaking-run-2026-05-04", "News", "European", "Parliament", "April", "mini", "plenary", "session", "Brussels"]
 date: 2026-05-04
 article_type: breaking
 slug: 2026-05-04-breaking

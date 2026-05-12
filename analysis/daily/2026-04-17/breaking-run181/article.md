@@ -1,6 +1,7 @@
 ---
 title: "April 17, 2026"
-description: "title: \"🧠 Intelligence Synthesis Summary — EP T+3 Secondary Sprint Analysis\""
+description: "title: \"🧠 Intelligence Synthesis Summary — EP T+3 Secondary Sprint Analysis\" Published 2026-04-17, with source-linked voting, committee and legislative intelligence for…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-17", "April", "title", "Intelligence", "Synthesis", "Summary", "Secondary", "Sprint", "Analysis", "Published"]
 date: 2026-04-17
 article_type: breaking
 slug: 2026-04-17-breaking-181

@@ -1,6 +1,7 @@
 ---
 title: "Breaking News Intelligence Brief — 4 April 2026 (Run 3: Enhanced Pre-Recess Analysis)"
-description: "No breaking news developments on 4 April 2026. The European Parliament remains in Easter recess. This run extends prior analysis (runs 1-2) with full titles and procedure references for all March 2026 adopted texts."
+description: "No breaking news developments on 4 April 2026. The European Parliament remains in Easter recess. This run extends prior analysis (runs 1-2) with full titles and procedure……"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-04", "News", "Intelligence", "Brief", "April", "Enhanced", "Recess", "Analysis", "developments", "European"]
 date: 2026-04-04
 article_type: breaking
 slug: 2026-04-04-breaking-breaking-3

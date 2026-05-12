@@ -1,6 +1,7 @@
 ---
 title: "EP10 Q1 2026 Motions & Resolutions"
-description: "Q1 2026 marks a decisive inflection point for the European Parliament's 10th term. With 567 roll-call votes, 180 resolutions, and 104 adopted texts across four plenary part-sessions, the Parliament has demonstrated an unprecedented legislative velocity that fundamentally recalibrates the EU's…"
+description: "Q1 2026 marks a decisive inflection point for the European Parliament's 10th term. With 567 roll-call votes, 180 resolutions, and 104 adopted texts across four plenary……"
+keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-20", "EP10", "marks", "decisive", "inflection", "point", "European", "Parliament", "10th", "term"]
 date: 2026-04-20
 article_type: motions
 slug: 2026-04-20-motions

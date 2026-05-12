@@ -126,6 +126,8 @@ export interface WrapArticleOptions {
   readonly title: string;
   /** Article description — shown in `<meta name="description">` and OG. */
   readonly description: string;
+  /** SEO keywords — shown in `<meta name="keywords">`. */
+  readonly keywords?: readonly string[];
   /** Canonical ISO date of the run (YYYY-MM-DD). */
   readonly date: string;
   /** Article type slug (e.g. `breaking`, `motions`). */
@@ -1118,6 +1120,11 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   const jsonLdString = JSON.stringify(structuredData).replace(/</g, '\\u003c');
 
   const pageTitle = `${options.title} — ${siteTitle}`;
+  const keywords = (options.keywords ?? []).map((keyword) => keyword.trim()).filter(Boolean);
+  const keywordsMeta =
+    keywords.length > 0
+      ? `  <meta name="keywords" content="${escapeHTML(keywords.join(', '))}">\n`
+      : '';
   const header = buildSiteHeader({
     lang: safeLang,
     pathPrefix: '../',
@@ -1136,7 +1143,7 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   <meta name="referrer" content="no-referrer">
   <title>${escapeHTML(pageTitle)}</title>
   <meta name="description" content="${escapeHTML(options.description)}">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+${keywordsMeta}  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="${PUBLISHER_NAME}">
   <meta name="publisher" content="${PUBLISHER_NAME}">
   <meta name="date" content="${options.date}">

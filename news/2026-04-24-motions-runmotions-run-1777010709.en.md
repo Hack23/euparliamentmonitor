@@ -1,6 +1,7 @@
 ---
 title: "March 2026 Motion Cluster"
-description: "Headline judgement (WEP: LIKELY, ~65-80%, 6-month horizon): The"
+description: "Headline judgement (WEP: LIKELY, ~65-80%, 6-month horizon): The Published 2026-04-24 · analysis run 394ceb8d-0788-4530-b2ef-4489a56475b4, with source-linked voting, committee…"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Motions Runmotions Run 1777010709", "2026-04-24", "run 394ceb8d-0788-4530-b2ef-4489a56475b4", "March", "Motion", "Cluster", "Headline", "judgement", "LIKELY", "month", "horizon", "Published", "analysis"]
 date: 2026-04-24
 article_type: motions-runmotions-run-1777010709
 slug: 2026-04-24-motions-runmotions-run-1777010709

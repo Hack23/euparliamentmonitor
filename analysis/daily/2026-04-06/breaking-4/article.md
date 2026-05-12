@@ -1,6 +1,7 @@
 ---
 title: "Easter Monday Daily Intelligence Closure"
-description: "Scope: Consolidation of 4 breaking-news runs (00:33, 06:45, 12:15, 18:18 UTC) + committee-reports + propositions + 2 extended breaking runs"
+description: "Scope: Consolidation of 4 breaking-news runs (00:33, 06:45, 12:15, 18:18 UTC) + committee-reports + propositions + 2 extended breaking runs Published 2026-04-06, with…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-06", "Easter", "Monday", "Daily", "Intelligence", "Closure", "Scope", "Consolidation", "news", "runs"]
 date: 2026-04-06
 article_type: breaking
 slug: 2026-04-06-breaking-breaking-4

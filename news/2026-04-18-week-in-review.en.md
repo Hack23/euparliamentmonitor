@@ -1,6 +1,7 @@
 ---
 title: "Week of April 11–18, 2026"
-description: "title: \"Synthesis Summary — Week of April 11–18, 2026\""
+description: "title: \"Synthesis Summary — Week of April 11–18, 2026\" Published 2026-04-18 · analysis run week-in-review-run12, with source-linked voting, committee and legislative…"
+keywords: ["EU Parliament", "week in review", "European Parliament", "summary", "legislation", "2026-04-18", "run week-in-review-run12", "Week", "April", "title", "Synthesis", "Published", "analysis", "review", "run12", "with"]
 date: 2026-04-18
 article_type: week-in-review
 slug: 2026-04-18-week-in-review

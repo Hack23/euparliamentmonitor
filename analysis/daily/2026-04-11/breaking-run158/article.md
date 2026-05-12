@@ -1,6 +1,7 @@
 ---
 title: "Political Intelligence Synthesis — Easter Recess Final Weekend (Run 158)"
-description: "documentsAnalyzed: 0 live feeds, 264K chars precomputed stats, 11.6K chars coalition dynamics"
+description: "documentsAnalyzed: 0 live feeds, 264K chars precomputed stats, 11.6K chars coalition dynamics Published 2026-04-11, with source-linked voting, committee and legislative…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-11", "Political", "Intelligence", "Synthesis", "Easter", "Recess", "Final", "Weekend", "documentsAnalyzed", "live"]
 date: 2026-04-11
 article_type: breaking
 slug: 2026-04-11-breaking-158

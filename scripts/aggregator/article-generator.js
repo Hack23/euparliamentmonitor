@@ -292,15 +292,20 @@ function yamlEscape(value) {
  * @param metadata - English metadata resolved for SEO
  * @param metadata.title - Resolved English article title
  * @param metadata.description - Resolved English article description
+ * @param metadata.keywords - Resolved English SEO keywords
  * @param slug - Article slug used by generated news paths
  * @param sourceFolder - Repo-relative analysis run directory
  * @returns Markdown with YAML front matter followed by the aggregate body
  */
 function buildJekyllArticleMarkdown(aggregated, metadata, slug, sourceFolder) {
+    const keywords = metadata.keywords?.length
+        ? `keywords: [${metadata.keywords.map((keyword) => `"${yamlEscape(keyword)}"`).join(', ')}]`
+        : 'keywords: []';
     const frontMatter = [
         '---',
         `title: "${yamlEscape(metadata.title)}"`,
         `description: "${yamlEscape(metadata.description)}"`,
+        keywords,
         `date: ${aggregated.date}`,
         `article_type: ${aggregated.articleType}`,
         `slug: ${slug}`,
@@ -361,6 +366,7 @@ function writeLanguageVariant(lang, slug, aggregated, englishHtml, chromeOptions
         body: bodyHtml,
         title: entry.title,
         description: perLangDescription,
+        keywords: entry.keywords,
         date: aggregated.date,
         articleType: aggregated.articleType,
         sourceMarkdownRelPath: chromeOptions.sourceMarkdownRelPath,
@@ -438,7 +444,7 @@ function getMetadataEntry(map, lang) {
         return descriptor.value;
     }
     const en = Object.getOwnPropertyDescriptor(map, 'en')?.value;
-    return en ?? { title: '', description: '' };
+    return en ?? { title: '', description: '', keywords: [] };
 }
 /**
  * Count the number of articles the site currently publishes, derived
@@ -692,6 +698,7 @@ function applyCliOverrides(base, titleOverride, descriptionOverride) {
             value: {
                 title: titleOverride ?? entry.title,
                 description: descriptionOverride ?? entry.description,
+                keywords: entry.keywords,
             },
             enumerable: true,
             writable: true,

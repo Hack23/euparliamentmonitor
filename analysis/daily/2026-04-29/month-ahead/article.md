@@ -1,6 +1,7 @@
 ---
 title: "EU Parliament: April 29 – May 29, 2026"
-description: "The EU Parliament enters May 2026 operationally effective but politically stressed. The most important legislative month of EP10's second year opens with three concurrent high-stakes files — Budget 2027 framework, US tariff response, and Clean Industrial Deal — all converging on the May 18-21…"
+description: "The EU Parliament enters May 2026 operationally effective but politically stressed. The most important legislative month of EP10's second year opens with three concurrent……"
+keywords: ["EU Parliament", "month ahead", "legislative agenda", "European Parliament", "plenary session", "2026-04-29", "run month-ahead-run-1777445122", "Parliament", "April", "enters", "operationally", "effective", "politically", "stressed", "most", "important"]
 date: 2026-04-29
 article_type: month-ahead
 slug: 2026-04-29-month-ahead

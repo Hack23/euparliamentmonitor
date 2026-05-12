@@ -1,6 +1,7 @@
 ---
 title: "April 18, 2026"
-description: "title: \"🧠 Intelligence Synthesis Summary — API Plateau & 9-Day Countdown (Run 185)\""
+description: "title: \"🧠 Intelligence Synthesis Summary — API Plateau & 9-Day Countdown (Run 185)\" Published 2026-04-18, with source-linked voting, committee and legislative intelligence for…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-18", "April", "title", "Intelligence", "Synthesis", "Summary", "Plateau", "Countdown", "Published", "with"]
 date: 2026-04-18
 article_type: breaking
 slug: 2026-04-18-breaking-185

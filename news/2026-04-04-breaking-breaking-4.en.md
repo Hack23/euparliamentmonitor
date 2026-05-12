@@ -1,6 +1,7 @@
 ---
 title: "Adopted Texts Deep Dive — 4 April 2026"
-description: "The one-week adopted texts feed returned 85 items spanning three distinct periods of parliamentary activity. The bulk (70 items) are from the current EP10 2026 session, confirming the strong legislative productivity trajectory identified in the precomputed statistics (498 texts projected for…"
+description: "The one-week adopted texts feed returned 85 items spanning three distinct periods of parliamentary activity. The bulk (70 items) are from the current EP10 2026 session……"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-04", "Adopted", "Texts", "Deep", "Dive", "April", "week", "feed", "returned", "items"]
 date: 2026-04-04
 article_type: breaking
 slug: 2026-04-04-breaking-breaking-4

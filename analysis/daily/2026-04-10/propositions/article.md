@@ -1,6 +1,7 @@
 ---
 title: "🧩 Political Intelligence Synthesis — Legislative Propositions (2026-04-10)"
-description: "- ECON faces Banking Union trilogue (3 files) + new 2026 COD procedures + ECB oversight"
+description: "- ECON faces Banking Union trilogue (3 files) + new 2026 COD procedures + ECB oversight Published 2026-04-10 · analysis run PROP-2026-04-10-001, with source-linked voting…"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-10", "run PROP-2026-04-10-001", "Political", "Intelligence", "Synthesis", "Legislative", "ECON", "faces", "Banking", "Union"]
 date: 2026-04-10
 article_type: propositions
 slug: 2026-04-10-propositions-PROP-2026-04-10-001

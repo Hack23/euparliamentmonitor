@@ -1,6 +1,7 @@
 ---
 title: "EU Parliament Week-in-Review"
-description: "The European Parliament's week of April 19–26, 2026 demonstrated high legislative productivity under increasing structural political stress. Parliament passed 147+ adopted texts including major legislation on banking resolution (SRMR3), trade countermeasures against US tariffs, anti-corruption…"
+description: "The European Parliament's week of April 19–26, 2026 demonstrated high legislative productivity under increasing structural political stress. Parliament passed 147+ adopted……"
+keywords: ["EU Parliament", "week in review", "European Parliament", "summary", "legislation", "2026-04-26", "run week-in-review-run-1777235041", "Parliament", "Week", "Review", "European", "April", "demonstrated", "high", "legislative", "productivity"]
 date: 2026-04-26
 article_type: week-in-review
 slug: 2026-04-26-week-in-review

@@ -1,15 +1,16 @@
 ---
 title: "EU Parliament Year Ahead"
-description: "The European Parliament faces its most consequential twelve months since the 2024 election. EPP dominance (183/717 seats, 25.5%) within a highly fragmented nine-group chamber forces continuous multi-coalition deal-making across three systemic pressure domains: European defence autonomy, US-EU…"
+description: "The European Parliament faces its most consequential twelve months since the 2024 election. EPP dominance (183/717 seats, 25.5%) within a highly fragmented nine-group chamber……"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year Ahead", "2026-05-11", "run year-ahead-run598-1778488878", "Parliament", "Year", "Ahead", "European", "faces", "most", "consequential", "twelve", "months", "since"]
 date: 2026-05-11
-article_type: unknown
-slug: 2026-05-11-unknown
+article_type: year-ahead
+slug: 2026-05-11-year-ahead
 source_folder: analysis/daily/2026-05-11/year-ahead
 generated_at: 2026-05-11T00:00:00.000Z
 language: en
 layout: article
 ---
-# Unknown — 2026-05-11
+# Year Ahead — 2026-05-11
 
 <h2 id="section-executive-brief">Executive Brief</h2>
 
@@ -2971,7 +2972,7 @@ flowchart LR
 
 > **Provenance & Audit**
 >
-> - **Article type:** `unknown`
+> - **Article type:** `year-ahead`
 > - **Run date:** 2026-05-11
 > - **Run id:** `year-ahead-run598-1778488878`
 > - **Gate result:** `PENDING`
