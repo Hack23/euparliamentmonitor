@@ -55,8 +55,8 @@ async function pool(tasks, limit) {
   const results = [];
   const queue = [...tasks];
   async function worker() {
-    while (queue.length) {
-      const task = queue.shift();
+    let task;
+    while ((task = queue.shift()) !== undefined) {
       results.push(await task());
     }
   }
@@ -186,6 +186,8 @@ const jsTasks = jsFiles.map((p) => async () => {
       const after = Buffer.byteLength(result.code, 'utf8');
       return { before, after, ok: true };
     }
+    // Terser succeeded but produced no output — log and skip (file stays as-is)
+    console.warn(`⚠️  terser returned no code for ${p} — skipping`);
     return { before, after: before, ok: true };
   } catch (e) {
     console.error(`❌ JS minify failed for ${p}: ${e.message}`);
