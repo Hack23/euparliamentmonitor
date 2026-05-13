@@ -47,6 +47,9 @@ imports:
   - shared/config/news-common-settings.md
   - shared/config/news-safe-outputs-domains.md
   - shared/config/news-safe-outputs-head.md
+  - uses: shared/config/news-tools.md
+    with:
+      slug: committee-reports
   - uses: shared/config/news-pat-pr-fallback.md
     with:
       slug: committee-reports
@@ -58,31 +61,13 @@ concurrency:
   group: "news-committee-reports"
   cancel-in-progress: false
 
-# Tools — all available read/edit/web/memory tools the agent needs for a
-# resilient 60-min news-generation session. See upstream reference/tools.md
-# and reference/github-tools.md.
-tools:
-  timeout: 180            # per-tool-call cap (bash, MCP, github, edit, web-fetch)
-  startup-timeout: 180    # MCP server boot (npx package install) — covers
-                          # european-parliament/world-bank/memory/sequential-thinking
-  github:
-    # `all` enables every read toolset EXCEPT `dependabot` (per upstream
-    # docs — `dependabot` requires `vulnerability-alerts: read` which we
-    # do not grant; news workflows do not need supply-chain alerts).
-    toolsets:
-      - all
-  bash: true              # AWF-sandboxed shell — required for Stage A/D scripts
-  edit:                   # explicit file-edit tool (analysis artifact authoring)
-  web-fetch:              # fallback fetch for EP/IMF/WB pages when MCP miss
-  agentic-workflows: true # workflow introspection (audit/log analysis)
-  # Cache memory — restores partial analysis & data fetched in prior runs
-  # so a failed safe-outputs PR call does not lose Stage A/B work. Per
-  # upstream reference/cache-memory.md, the compiler auto-injects restore
-  # and save steps using a workflow-scoped key.
-  cache-memory:
-    key: news-committee-reports-${{ github.repository_owner }}
-    retention-days: 7
-    allowed-extensions: [".md", ".json", ".jsonl", ".txt", ".html"]
+# `tools:` is inherited (with `slug` substituted into `cache-memory.key`) from
+# .github/workflows/shared/config/news-tools.md. The full timeout / MCP
+# startup-timeout / github.toolsets / bash / edit / web-fetch /
+# agentic-workflows / cache-memory configuration is identical across all
+# 14 unified article workflows; only the cache-memory key namespace varies
+# by slug.
+
 safe-outputs:
   # Analysis artifacts can exceed the 1024 KB default patch limit; raise to
   # 10 MB (max allowed) to prevent legitimate analysis-only

@@ -38,10 +38,20 @@ const LEGACY_NODE_ALPINE = ['node', '25-alpine'].join(':');
  */
 function readWorkflowWithImports(workflowPath) {
   const text = fs.readFileSync(workflowPath, 'utf8');
-  const importLines = text
-    .split('\n')
-    .filter((line) => /^  - (shared\/|\.github\/)/.test(line))
-    .map((line) => line.replace(/^  - /, '').trim());
+  const importLines = [];
+  for (const line of text.split('\n')) {
+    // Short form: `  - shared/config/foo.md` or `  - .github/agents/foo.md`
+    const shortMatch = line.match(/^  - (shared\/[^\s]+|\.github\/[^\s]+)$/);
+    if (shortMatch) {
+      importLines.push(shortMatch[1].trim());
+      continue;
+    }
+    // Long form: `  - uses: shared/config/foo.md` (parameterized imports)
+    const usesMatch = line.match(/^  - uses: (shared\/[^\s]+|\.github\/[^\s]+)$/);
+    if (usesMatch) {
+      importLines.push(usesMatch[1].trim());
+    }
+  }
   const importedContents = importLines.map((relPath) => {
     const normalized = relPath.startsWith('.github/')
       ? path.join(ROOT, relPath)
@@ -117,12 +127,16 @@ describe('agentic workflow threat detection policy', () => {
     expect(workflows.length).toBeGreaterThan(0);
 
     for (const workflow of workflows) {
-      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+      // Walk imports — `timeout: 180` and `startup-timeout: 180` now live in
+      // .github/workflows/shared/config/news-tools.md after Phase C of the
+      // agentic-workflow refactor; the per-slug workflows MUST NOT reset
+      // those values, but the contract is still binding on the combined view.
+      const combined = readWorkflowWithImports(path.join(WORKFLOWS_DIR, workflow));
 
-      expect(content, workflow).toContain('timeout: 180');
-      expect(content, workflow).toContain('startup-timeout: 180');
-      expect(content, workflow).not.toContain('repo-memory:');
-      expect(content, workflow).not.toContain('max-continuations: 1');
+      expect(combined, workflow).toContain('timeout: 180');
+      expect(combined, workflow).toContain('startup-timeout: 180');
+      expect(combined, workflow).not.toContain('repo-memory:');
+      expect(combined, workflow).not.toContain('max-continuations: 1');
     }
   });
 
@@ -299,6 +313,58 @@ describe('agentic workflow threat detection policy', () => {
       );
       expect(content, `${workflow} must not re-inline pat-pr-fallback job (lives in shared)`).not.toMatch(
         /^  pat-pr-fallback:\n\s*name: Host-side PAT PR fallback/m,
+      );
+    }
+  });
+
+  it('imports the shared parameterized tools component in every article workflow', () => {
+    // Phase C of the agentic-workflow refactor extracted the structurally
+    // identical `tools:` block (timeout / startup-timeout / github.toolsets
+    // / bash / edit / web-fetch / agentic-workflows / cache-memory) out of
+    // the 14 per-slug workflows into a single shared file
+    // (`news-tools.md`) parameterized by `slug` (only `cache-memory.key`
+    // varies between workflows). This drift-guard ensures every article
+    // workflow continues to import it with a correctly-namespaced slug.
+    const articleWorkflows = fs
+      .readdirSync(WORKFLOWS_DIR)
+      .filter((name) =>
+        name.startsWith('news-') &&
+        name.endsWith('.md') &&
+        name !== 'news-translate.md',
+      )
+      .sort();
+
+    expect(articleWorkflows.length).toBeGreaterThan(0);
+
+    const sharedFile = path.join(
+      WORKFLOWS_DIR,
+      'shared',
+      'config',
+      'news-tools.md',
+    );
+    expect(fs.existsSync(sharedFile), 'news-tools.md must exist').toBe(true);
+    const sharedContent = fs.readFileSync(sharedFile, 'utf8');
+    // Shared file must declare the import-schema slug input.
+    expect(sharedContent).toMatch(/^import-schema:/m);
+    expect(sharedContent).toMatch(/^  slug:/m);
+    // And the parameterized cache-memory key must reference the slug input.
+    expect(sharedContent).toContain('key: news-${{ github.aw.import-inputs.slug }}-${{ github.repository_owner }}');
+    // Core tool keys must remain.
+    expect(sharedContent).toContain('timeout: 180');
+    expect(sharedContent).toContain('startup-timeout: 180');
+    expect(sharedContent).toContain('bash: true');
+    expect(sharedContent).toContain('web-fetch:');
+
+    for (const workflow of articleWorkflows) {
+      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+
+      expect(content, workflow).toContain('uses: shared/config/news-tools.md');
+      // And the workflow MUST NOT re-inline the tools block.
+      expect(content, `${workflow} must not re-inline tools: block (lives in shared)`).not.toMatch(
+        /^tools:\n  timeout: 180\n  startup-timeout: 180\n/m,
+      );
+      expect(content, `${workflow} must not re-inline cache-memory.key (lives in shared)`).not.toMatch(
+        /^    key: news-[a-z-]+-\$\{\{ github\.repository_owner \}\}$/m,
       );
     }
   });

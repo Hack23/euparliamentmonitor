@@ -74,32 +74,57 @@ Each workflow renders articles using `npm run generate-article -- --run "${ANALY
 
 #### Shared-import pattern
 
-Every article workflow now imports four reusable building blocks:
+Every article workflow imports a stack of reusable building blocks (the May 2026 refactor
+extracted ~22% of duplicated frontmatter into single-source shared components — see the
+[refactor commits](https://github.com/Hack23/euparliamentmonitor/pulls?q=Phase+A1+OR+Phase+A2+OR+Phase+B+OR+Phase+C) for forensic detail):
 
 ```yaml
 imports:
   - .github/agents/news-generation.agent.md
   - shared/config/news-common-settings.md
+  - shared/config/news-safe-outputs-domains.md
+  - shared/config/news-safe-outputs-head.md
+  - uses: shared/config/news-tools.md
+    with:
+      slug: <article-type-slug>
+  - uses: shared/config/news-pat-pr-fallback.md
+    with:
+      slug: <article-type-slug>
+      workflowName: "News: EU Parliament <Title> — Unified"
   - shared/mcp/news-mcp-servers.md
   - shared/prompts/news-unified-runtime.md
 ```
 
-- [`.github/agents/news-generation.agent.md`](../agents/news-generation.agent.md)
-  stays as the canonical analysis-awareness anchor required by repo lint rules.
-- [`shared/config/news-common-settings.md`](shared/config/news-common-settings.md)
-  centralises the common `features`, `runtimes`, and `network.allowed` blocks
-  used by the news workflows.
-- [`shared/mcp/news-mcp-servers.md`](shared/mcp/news-mcp-servers.md) remains
-  frontmatter-only and provides the shared MCP mounts.
-- [`shared/prompts/news-unified-runtime.md`](shared/prompts/news-unified-runtime.md)
-  carries the repeated unified-workflow runtime instructions (required reading +
-  stage order), so article-specific workflow files can focus on per-slug inputs,
-  budgets, and execution details.
-- `news-translate.md` imports the shared config + MCP components and keeps its
-  translation-specific prompt body.
+| Component | Owns |
+|-----------|------|
+| [`.github/agents/news-generation.agent.md`](../agents/news-generation.agent.md) | Canonical analysis-awareness anchor (required by repo lint rules) |
+| [`shared/config/news-common-settings.md`](shared/config/news-common-settings.md) | Common `features`, `runtimes`, `network.allowed` blocks |
+| [`shared/config/news-safe-outputs-domains.md`](shared/config/news-safe-outputs-domains.md) | `safe-outputs.allowed-domains` allowlist (46 lines, identical across 14) |
+| [`shared/config/news-safe-outputs-head.md`](shared/config/news-safe-outputs-head.md) | `safe-outputs.threat-detection` + bundle-prerequisite `steps:` (25 lines, identical across 14). **NOTE:** `safe-outputs.max-patch-size` does **not** propagate via gh-aw v0.74.1 imports (resets to default 1024 in the compiled lock) — it must stay inline in each workflow. |
+| [`shared/config/news-tools.md`](shared/config/news-tools.md) | Full `tools:` block (timeout / startup-timeout / github.toolsets / bash / edit / web-fetch / agentic-workflows / cache-memory) — parameterized by `slug` (only `cache-memory.key` varies between workflows) |
+| [`shared/config/news-pat-pr-fallback.md`](shared/config/news-pat-pr-fallback.md) | `post-steps:` (agent-patch capture) + `jobs.pat-pr-fallback` (host-side PAT recovery) — parameterized by `slug` and `workflowName`. The PAT recovery contract (`scripts/gh-aw-pat-pr-fallback.sh` short-circuits on `GH_AW_SAFE_OUTPUTS_RESULT=success`) lives here. |
+| [`shared/mcp/news-mcp-servers.md`](shared/mcp/news-mcp-servers.md) | Frontmatter-only shared MCP mounts (EP / IMF / WB / sequential-thinking / fetch-proxy) |
+| [`shared/prompts/news-unified-runtime.md`](shared/prompts/news-unified-runtime.md) | Repeated unified-workflow runtime instructions (required reading + Stage order) |
 
-See the [prompts library](../prompts/README.md) for the canonical Stage A → E
-flow.
+`news-translate.md` imports `news-common-settings.md` + the MCP/prompt components and keeps its
+translation-specific prompt body (multi-call flush pattern, exempt from single-PR rule).
+
+#### Drift-guard
+
+`test/unit/agentic-workflows-threat-detection.test.js` walks each article workflow's
+import graph and asserts:
+
+- Every article workflow imports each of the 5 shared config files above with correct
+  `with:` parameters where required
+- No workflow re-inlines the now-shared blocks (`allowed-domains`, `threat-detection`,
+  bundle-prerequisite fetch step, `post-steps` capture, `pat-pr-fallback` job, or the
+  `tools:` block)
+- Workflow-wide invariants (`timeout: 180`, `startup-timeout: 180`, no `repo-memory:`,
+  no `max-continuations: 1`) still hold on the **combined** post-import view
+
+A re-inlined block in any workflow fails the drift-guard and blocks PR merge.
+
+See the [prompts library](../prompts/README.md) for the canonical Stage A → E flow.
 
 #### Lock-file compile flow
 
