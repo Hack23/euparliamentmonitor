@@ -35,78 +35,13 @@ permissions:
 
 timeout-minutes: 60
 
-features:
-  mcp-gateway: true
 
 imports:
+  - shared/config/news-common-settings.md
   - shared/mcp/news-mcp-servers.md
 
 concurrency:
   job-discriminator: translate-${{ github.event.inputs.article_date || 'manual' }}
-
-runtimes:
-  node:
-    version: "26"
-
-# Network allowlist — uses ecosystem identifiers where possible (per
-# upstream docs/reference/network.md §"Ecosystem Identifiers"):
-#   - `defaults` — basic infrastructure (certs, JSON schema, package mirrors)
-#   - `github`   — all GitHub domains (replaces explicit github.com/api.github.com)
-#   - `node`     — npm/npx ecosystem (needed for MCP server boot via npx)
-network:
-  allowed:
-    # ── gh-aw ecosystem identifiers ───────────────────────────────────
-    - defaults                           # certs, JSON schema, package mirrors
-    - github                             # all GitHub domains (*.github.com / githubusercontent.com)
-    - node                               # npm / npx ecosystem (MCP server boot)
-    # ── Container registries (node:26-alpine MCP backend pulls) ─────────
-    - docker.io
-    - registry-1.docker.io
-    - auth.docker.io
-    - production.cloudflare.docker.com
-    # ── EU Parliament & EU institutions ───────────────────────────────
-    - "*.europa.eu"                      # catch-all for any europa.eu subdomain
-    - europarl.europa.eu
-    - www.europarl.europa.eu
-    - data.europarl.europa.eu
-    - admin.data.europarl.europa.eu
-    - multimedia.europarl.europa.eu
-    - oeil.secure.europarl.europa.eu
-    - ec.europa.eu
-    - eur-lex.europa.eu
-    - iate.europa.eu
-    - digital-strategy.ec.europa.eu
-    - data.europa.eu
-    - data.consilium.europa.eu
-    - data.ecb.europa.eu
-    # ── IMF (SDMX 3.0 + supporting hosts) ─────────────────────────────
-    - "*.imf.org"                        # catch-all for any imf.org subdomain
-    - api.imf.org                        # SDMX 3.0 endpoint (Azure-APIM)
-    - data.imf.org                       # public IMF data portal
-    - www.imf.org
-    - dataservices.imf.org               # legacy SDMX 2.1 (deprecated Sept 2025)
-    - sdmx.imf.org
-    # ── World Bank ────────────────────────────────────────────────────
-    - "*.worldbank.org"                  # catch-all for any worldbank.org subdomain
-    - api.worldbank.org
-    - data.worldbank.org
-    - www.worldbank.org
-    # ── Hack23-owned domains ──────────────────────────────────────────
-    - "*.hack23.com"                     # catch-all for any hack23.com subdomain
-    - hack23.com
-    - www.hack23.com
-    - hack23.github.io
-    - "*.euparliamentmonitor.com"
-    - euparliamentmonitor.com
-    - www.euparliamentmonitor.com
-    - api.euparliamentmonitor.com
-    - "*.riksdagsmonitor.com"
-    - riksdagsmonitor.com
-    - www.riksdagsmonitor.com
-    - blacktrigram.com
-    - www.blacktrigram.com
-    - ciacompliancemanager.com
-    - www.ciacompliancemanager.com
 
 tools:
   timeout: 180            # per-tool-call cap
