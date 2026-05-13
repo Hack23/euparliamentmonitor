@@ -14,6 +14,7 @@ const SHARED_MCP_FILE = path.join(
   'mcp',
   'news-mcp-servers.md',
 );
+const LEGACY_NODE_ALPINE = ['node', '25-alpine'].join(':');
 
 describe('agentic workflow threat detection policy', () => {
   it('keeps safe-output threat detection warning-only for every news workflow', () => {
@@ -80,7 +81,7 @@ describe('agentic workflow threat detection policy', () => {
 
     expect(containers.length).toBeGreaterThan(0);
     expect(containers).toEqual(containers.map(() => 'node:26-alpine'));
-    expect(content).not.toContain('node:26-alpine');
+    expect(content).not.toContain(LEGACY_NODE_ALPINE);
   });
 
   it('keeps compiled news workflows free of repo-memory write jobs', () => {
@@ -95,7 +96,7 @@ describe('agentic workflow threat detection policy', () => {
       const content = fs.readFileSync(path.join(WORKFLOWS_DIR, lockFile), 'utf8');
 
       expect(content, lockFile).not.toContain('push_repo_memory');
-      expect(content, lockFile).not.toContain('node:26-alpine');
+      expect(content, lockFile).not.toContain(LEGACY_NODE_ALPINE);
     }
   });
 });
