@@ -23,7 +23,7 @@ import { buildHeadFreshnessTags } from '../constants/build-info-meta.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, SKIP_LINK_TEXTS, TOC_ARIA_LABELS, ARTICLE_TYPE_LABELS, BACK_TO_NEWS_LABELS, ARTICLE_NAV_LABELS, VIEW_SOURCE_MARKDOWN_LABELS, ARTICLE_TYPE_ICONS, FOOTER_SITEMAP_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS, TRADECRAFT_HEADING_LABELS, TRADECRAFT_INTRO_LABELS, TRADECRAFT_METHODOLOGIES_LABELS, TRADECRAFT_TEMPLATES_LABELS, ANALYSIS_INDEX_HEADING_LABELS, ANALYSIS_INDEX_INTRO_LABELS, ANALYSIS_INDEX_COL_SECTION_LABELS, ANALYSIS_INDEX_COL_ARTIFACT_LABELS, ANALYSIS_INDEX_COL_PATH_LABELS, KEY_TAKEAWAYS_HEADING_LABELS, SUPPLEMENTARY_HEADING_LABELS, SECTION_TITLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
 import { ArticleCategory } from '../types/index.js';
 import { escapeHTML } from '../utils/file-utils.js';
-import { buildSiteFooter, buildSiteHeader, buildPageBanner, } from '../templates/section-builders.js';
+import { buildResponsiveIconLinks, buildResponsiveSocialImageMeta, buildSiteFooter, buildSiteHeader, buildPageBanner, } from '../templates/section-builders.js';
 import { READER_GUIDE_SECTION_ID } from './reader-guide-constants.js';
 import { READER_GUIDE_TITLE_LABELS, getReaderGuideSectionIcon, } from './reader-intelligence-guide.js';
 import { TRADECRAFT_SECTION_ID, MANIFEST_SECTION_ID, SUPPLEMENTARY_SECTION_ID, } from './artifact-order.js';
@@ -888,7 +888,7 @@ export function wrapArticleHtml(options) {
         dateModified: options.date,
         inLanguage: safeLang,
         url: canonicalUrl,
-        image: `${BASE_URL}/images/og-image.jpg`,
+        image: `${BASE_URL}/images/og-image-1200.jpg`,
         author: { '@type': 'Organization', name: PUBLISHER_NAME, url: 'https://hack23.com' },
         publisher: {
             '@type': 'Organization',
@@ -969,18 +969,11 @@ ${hreflangLinks}
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="${safeLang}">
-  <meta property="og:image" content="${BASE_URL}/images/og-image.jpg">
-  <meta property="og:image:alt" content="${escapeHTML(options.title)} — EU Parliament Monitor">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+${buildResponsiveSocialImageMeta(`${options.title} — EU Parliament Monitor`)}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHTML(options.title)}">
   <meta name="twitter:description" content="${escapeHTML(options.description)}">
-  <meta name="twitter:image" content="${BASE_URL}/images/og-image.jpg">
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+${buildResponsiveIconLinks('../')}
   <link rel="manifest" href="../site.webmanifest">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#003399" media="(prefers-color-scheme: light)">

@@ -52,6 +52,12 @@ export default defineConfig({
         'scripts/copy-vendor.js',
         'scripts/lint-prompts.js',
         'scripts/validate-analysis-completeness.js',
+        // Legacy-article HTML normaliser and responsive image generator are
+        // CLI scripts run during the S3 deploy pipeline; their library logic
+        // is verified end-to-end via spawnSync from unit tests, which doesn't
+        // propagate v8 coverage to the parent process.
+        'scripts/normalize-legacy-articles.js',
+        'scripts/generate-responsive-images.js',
         // Exclude type definitions
         'scripts/**/*.d.ts',
         // Exclude TypeScript type-only stubs (interfaces/enums, no testable logic)

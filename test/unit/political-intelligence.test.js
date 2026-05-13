@@ -383,6 +383,9 @@ describe('political-intelligence generator', () => {
       // the curated localized table, not scraped Markdown) and does NOT
       // render the localized "source in English" note.
       expect(html).toContain('pi-card__desc');
+      expect(html).toContain('images/og-image-1200.jpg');
+      expect(html).toContain('images/twitter-card-1200.jpg');
+      expect(html).toContain('images/favicon-512x512.webp');
       expect(html).not.toContain('pi-source-note');
       // Card description is a <span> (phrasing content) — NOT <p>, which
       // would be invalid nested inside <span class="pi-card__body">.

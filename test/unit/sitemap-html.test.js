@@ -142,6 +142,16 @@ describe('generateSitemapHTML', () => {
     expect(html).toContain('class="theme-toggle"');
   });
 
+  it('emits responsive icon and social image metadata', () => {
+    const html = generateSitemapHTML('en', [], false);
+    expect(html).toContain('images/og-image-1200.jpg');
+    expect(html).toContain('images/og-image-1200.webp');
+    expect(html).toContain('images/og-image-1200.avif');
+    expect(html).toContain('images/twitter-card-1200.jpg');
+    expect(html).toContain('images/favicon-512x512.png');
+    expect(html).toContain('images/favicon-512x512.webp');
+  });
+
   it('marks the current language with aria-current="page" in the language switcher', () => {
     const html = generateSitemapHTML('sv', [], false);
     // The Swedish lang-link must have aria-current="page"; the others must not

@@ -32,7 +32,13 @@ import {
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
-import { buildSiteFooter, buildSiteHeader } from '../templates/section-builders.js';
+import {
+  buildResponsiveBannerPicture,
+  buildResponsiveIconLinks,
+  buildResponsiveSocialImageMeta,
+  buildSiteFooter,
+  buildSiteHeader,
+} from '../templates/section-builders.js';
 import {
   getNewsArticles,
   groupArticlesByLanguage,
@@ -527,7 +533,6 @@ export function generateIndexHTML(
 
   const seo = getNewsIndexSeo(lang);
   const canonicalUrl = `${BASE_URL}/${selfHref}`;
-  const ogImage = `${BASE_URL}/images/og-image.jpg`;
 
   const websiteJsonLd = JSON.stringify({
     '@context': SCHEMA_ORG,
@@ -648,21 +653,13 @@ export function generateIndexHTML(
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="${lang}">
-  <meta property="og:image" content="${ogImage}">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="${escapeHTML(seo.ogImageAlt)}">
+${buildResponsiveSocialImageMeta(seo.ogImageAlt)}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${heroTitle}">
   <meta name="twitter:description" content="${description}">
-  <meta name="twitter:image" content="${ogImage}">
-  <meta name="twitter:image:alt" content="${escapeHTML(seo.ogImageAlt)}">
   ${buildHreflangTags()}
   <!-- Favicons -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+${buildResponsiveIconLinks('')}
   <link rel="manifest" href="site.webmanifest">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#003399" media="(prefers-color-scheme: light)">
@@ -689,10 +686,13 @@ ${buildHeadFreshnessTags('')}
         <h1 class="hero__title">${heroTitle}</h1>
         <p class="hero__description">${description}</p>
       </div>
-      <picture class="hero__banner">
-        <source srcset="images/banner.webp" type="image/webp">
-        <img src="images/banner.jpg" alt="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence" class="hero__banner-img" width="1200" height="400" loading="eager">
-      </picture>
+      ${buildResponsiveBannerPicture({
+        pathPrefix: '',
+        pictureClass: 'hero__banner',
+        imageClass: 'hero__banner-img',
+        alt: 'EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence',
+        sizes: '100vw',
+      })}
     </div>
   </section>
 

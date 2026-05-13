@@ -11,7 +11,7 @@
 // even when the substitution produced zero changes — which bumps mtime
 // and forces every legacy article to re-upload on every deploy.
 //
-// Two normalisations applied to each `news/*.html` file:
+// Three normalisations applied to each `news/*.html` file:
 //
 //   1. Convert legacy per-article CSPs to the current fixed policy
 //      (`script-src 'self'` with all executable inline blocks externalised
@@ -31,9 +31,15 @@
 //      existing reference resolves identically; only the `?v=…` query
 //      changes when the pinned mermaid version changes.
 //
+//   3. Upgrade legacy fixed-size image markup to the responsive AVIF/WebP/JPEG
+//      resource set used by newly generated pages. This backfills existing
+//      article HTML at deploy time without forcing a mass commit of the whole
+//      historical news archive.
+//
 // Idempotency contract:
-//   - If both rewrites produce content identical to what's already on disk,
-//     the file is left untouched (mtime preserved → S3 skip).
+//   - If all three rewrites (CSP, Mermaid pin, responsive images) produce
+//     content identical to what's already on disk, the file is left untouched
+//     (mtime preserved → S3 skip).
 //   - Re-running with the same MERMAID_VERSION on already-normalised
 //     articles is a byte-level no-op.
 //
@@ -104,9 +110,100 @@ function pinMermaidVersion(content, version) {
   );
 }
 
+const bannerWidths = [320, 480, 768, 1200];
+const iconSizes = [16, 32, 48, 96, 192, 512];
+// Keep this standalone helper dependency-free: deploy runs it from scripts/
+// and unit tests copy only this file into a synthetic repo. The value mirrors
+// BASE_URL in src/constants/config.ts.
+const siteBaseUrl = 'https://euparliamentmonitor.com';
+
+// Mirrors buildBannerSrcset() in src/templates/section-builders.ts. It is kept
+// local so legacy deploy normalisation still works after node_modules cleanup
+// and inside the isolated test fixture that copies only this script.
+function bannerSrcset(prefix, format) {
+  return bannerWidths.map((width) => `${prefix}images/banner-${width}.${format} ${width}w`).join(', ');
+}
+
+function responsiveBannerPicture(prefix, pictureClass, imageClass, alt, sizes, ariaHidden = false) {
+  const classAttr = pictureClass ? ` class="${pictureClass}"` : '';
+  const extraAttr = ariaHidden ? ' aria-hidden="true"' : '';
+  return `<picture${classAttr}>
+          <source srcset="${bannerSrcset(prefix, 'avif')}" sizes="${sizes}" type="image/avif">
+          <source srcset="${bannerSrcset(prefix, 'webp')}" sizes="${sizes}" type="image/webp">
+          <img class="${imageClass}" src="${prefix}images/banner.jpg" srcset="${bannerSrcset(prefix, 'jpg')}" sizes="${sizes}" alt="${alt}" width="1200" height="400" loading="eager" decoding="async"${extraAttr}>
+        </picture>`;
+}
+
+function responsiveIconLinks(prefix) {
+  const pngLinks = iconSizes
+    .map((size) => `  <link rel="icon" type="image/png" sizes="${size}x${size}" href="${prefix}images/favicon-${size}x${size}.png">`)
+    .join('\n');
+  const webpLinks = iconSizes
+    .map((size) => `  <link rel="icon" type="image/webp" sizes="${size}x${size}" href="${prefix}images/favicon-${size}x${size}.webp">`)
+    .join('\n');
+  return `  <link rel="icon" type="image/x-icon" href="${prefix}favicon.ico">
+${pngLinks}
+${webpLinks}
+  <link rel="apple-touch-icon" sizes="180x180" href="${prefix}images/apple-touch-icon.png">`;
+}
+
+function responsiveSocialMeta(alt) {
+  return `  <meta property="og:image" content="${siteBaseUrl}/images/og-image-1200.jpg">
+  <meta property="og:image:secure_url" content="${siteBaseUrl}/images/og-image-1200.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="${alt}">
+  <meta property="og:image" content="${siteBaseUrl}/images/og-image-1200.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="${siteBaseUrl}/images/og-image-1200.avif">
+  <meta property="og:image:type" content="image/avif">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="${siteBaseUrl}/images/twitter-card-1200.jpg">
+  <meta name="twitter:image:alt" content="${alt}">
+  <meta name="twitter:image:width" content="1200">
+  <meta name="twitter:image:height" content="600">`;
+}
+
+function normaliseResponsiveImages(content) {
+  let out = content;
+  out = out.replace(
+    /<picture class="site-header__logo-picture">\s*<source srcset="\.\.\/images\/(?:banner|header-logo)\.webp" type="image\/webp">\s*<img class="site-header__logo site-header__logo--(?:banner|header)" src="\.\.\/images\/(?:banner\.jpg|header-logo\.png)" alt="([^"]*)" width="(?:240|96|1200)" height="(?:80|64|400)"(?: loading="eager")?(?: aria-hidden="true")?>\s*<\/picture>/g,
+    (_match, existingAlt) =>
+      responsiveBannerPicture(
+        '../',
+        'site-header__logo-picture',
+        'site-header__logo site-header__logo--banner',
+        existingAlt || 'EU Parliament Monitor',
+        '(max-width: 640px) 58vw, (max-width: 1200px) 15vw, 260px'
+      )
+  );
+  out = out.replace(
+    /<picture>\s*<source srcset="\.\.\/images\/banner\.webp" type="image\/webp">\s*<img class="page-banner__img" src="\.\.\/images\/banner\.jpg" alt="" aria-hidden="true" width="1200" height="400" loading="eager">\s*<\/picture>/g,
+    responsiveBannerPicture('../', '', 'page-banner__img', '', '100vw', true)
+  );
+  out = out.replace(
+    /  <meta property="og:image" content="https:\/\/(?:euparliamentmonitor\.com|hack23\.github\.io\/euparliamentmonitor)\/images\/og-image\.jpg">\n  <meta property="og:image:alt" content="([^"]*)">\n  <meta property="og:image:width" content="1200">\n  <meta property="og:image:height" content="630">/g,
+    (_match, alt) => responsiveSocialMeta(alt)
+  );
+  out = out.replace(
+    /  <meta name="twitter:image" content="https:\/\/(?:euparliamentmonitor\.com|hack23\.github\.io\/euparliamentmonitor)\/images\/og-image\.jpg">\n?/g,
+    ''
+  );
+  out = out.replace(
+    /  <link rel="icon" type="image\/x-icon" href="\.\.\/favicon\.ico">\n  <link rel="icon" type="image\/png" sizes="32x32" href="\.\.\/images\/favicon-32x32\.png">\n  <link rel="icon" type="image\/png" sizes="16x16" href="\.\.\/images\/favicon-16x16\.png">\n  <link rel="apple-touch-icon" sizes="180x180" href="\.\.\/images\/apple-touch-icon\.png">/g,
+    responsiveIconLinks('../')
+  );
+  return out;
+}
+
 // ─── Process files ───────────────────────────────────────────────────────
 let cspRewritten = 0;
 let mermaidRewritten = 0;
+let imageRewritten = 0;
 let unchanged = 0;
 let written = 0;
 
@@ -117,6 +214,9 @@ for (const filePath of files) {
   const beforeMermaid = next;
   next = pinMermaidVersion(next, mermaidVersion);
   const mermaidChanged = next !== beforeMermaid;
+  const beforeImages = next;
+  next = normaliseResponsiveImages(next);
+  const imageChanged = next !== beforeImages;
 
   if (next === original) {
     unchanged++;
@@ -128,10 +228,11 @@ for (const filePath of files) {
   written++;
   if (cspChanged) cspRewritten++;
   if (mermaidChanged) mermaidRewritten++;
+  if (imageChanged) imageRewritten++;
 }
 
 console.log(
   `✅ Normalised ${files.length} legacy article(s): ` +
-    `${written} written (${cspRewritten} CSP, ${mermaidRewritten} Mermaid pin), ` +
+    `${written} written (${cspRewritten} CSP, ${mermaidRewritten} Mermaid pin, ${imageRewritten} responsive images), ` +
     `${unchanged} unchanged — mtime preserved so aws s3 sync will skip them.`
 );

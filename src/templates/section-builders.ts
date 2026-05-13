@@ -55,6 +55,7 @@ import {
 } from '../constants/languages.js';
 import {
   APP_VERSION,
+  BASE_URL,
   BUILD_ID,
   BUILD_SHORT,
   BUILD_TIME,
@@ -395,6 +396,104 @@ export interface SiteHeaderOptions {
   politicalIntelligenceHref?: string;
 }
 
+export interface ResponsiveBannerPictureOptions {
+  pathPrefix: string;
+  pictureClass?: string | undefined;
+  imageClass: string;
+  alt: string;
+  sizes: string;
+  loading?: 'eager' | 'lazy' | undefined;
+  /**
+   * When true, renders `aria-hidden="true"` on the `<img>` so screen readers
+   * skip purely decorative banner imagery. Modelled as a typed flag (rather
+   * than a free-form attribute string) so callers cannot inject arbitrary
+   * markup into the rendered tag.
+   */
+  ariaHidden?: boolean | undefined;
+}
+
+const RESPONSIVE_BANNER_WIDTHS: readonly number[] = [320, 480, 768, 1200];
+const ICON_SIZES: readonly number[] = [16, 32, 48, 96, 192, 512];
+const BANNER_WIDTH = 1200;
+const BANNER_HEIGHT = 400;
+const SOCIAL_IMAGE_WIDTH = 1200;
+const SOCIAL_IMAGE_HEIGHT = 630;
+const TWITTER_CARD_WIDTH = 1200;
+const TWITTER_CARD_HEIGHT = 600;
+
+function buildBannerSrcset(pathPrefix: string, format: 'avif' | 'webp' | 'jpg'): string {
+  return RESPONSIVE_BANNER_WIDTHS.map(
+    (width) => `${pathPrefix}images/banner-${width}.${format} ${width}w`
+  ).join(', ');
+}
+
+/**
+ * Build responsive banner picture markup with AVIF/WebP/JPEG fallbacks.
+ *
+ * @param options - Picture, image, path, and sizing options.
+ * @returns HTML string for the responsive banner picture.
+ */
+export function buildResponsiveBannerPicture(options: ResponsiveBannerPictureOptions): string {
+  const pictureClass = options.pictureClass ? ` class="${escapeHTML(options.pictureClass)}"` : '';
+  const loading = options.loading ?? 'eager';
+  const extraAttributes = options.ariaHidden ? ' aria-hidden="true"' : '';
+  const safeSizes = escapeHTML(options.sizes);
+  return `<picture${pictureClass}>
+          <source srcset="${buildBannerSrcset(options.pathPrefix, 'avif')}" sizes="${safeSizes}" type="image/avif">
+          <source srcset="${buildBannerSrcset(options.pathPrefix, 'webp')}" sizes="${safeSizes}" type="image/webp">
+          <img class="${escapeHTML(options.imageClass)}" src="${options.pathPrefix}images/banner.jpg" srcset="${buildBannerSrcset(options.pathPrefix, 'jpg')}" sizes="${safeSizes}" alt="${escapeHTML(options.alt)}" width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" loading="${loading}" decoding="async"${extraAttributes}>
+        </picture>`;
+}
+
+/**
+ * Build favicon and touch-icon links for all committed icon sizes and formats.
+ *
+ * @param pathPrefix - Asset path prefix: `''` for root pages, `'../'` for news pages.
+ * @returns HTML string containing responsive icon link tags.
+ */
+export function buildResponsiveIconLinks(pathPrefix: string): string {
+  const pngLinks = ICON_SIZES.map(
+    (size) =>
+      `  <link rel="icon" type="image/png" sizes="${size}x${size}" href="${pathPrefix}images/favicon-${size}x${size}.png">`
+  ).join('\n');
+  const webpLinks = ICON_SIZES.map(
+    (size) =>
+      `  <link rel="icon" type="image/webp" sizes="${size}x${size}" href="${pathPrefix}images/favicon-${size}x${size}.webp">`
+  ).join('\n');
+  return `  <link rel="icon" type="image/x-icon" href="${pathPrefix}favicon.ico">
+${pngLinks}
+${webpLinks}
+  <link rel="apple-touch-icon" sizes="180x180" href="${pathPrefix}images/apple-touch-icon.png">`;
+}
+
+/**
+ * Build social preview metadata with modern and fallback image resources.
+ *
+ * @param alt - Accessible image alternative text for social previews.
+ * @returns Open Graph and Twitter image metadata for available image formats.
+ */
+export function buildResponsiveSocialImageMeta(alt: string): string {
+  const safeAlt = escapeHTML(alt);
+  return `  <meta property="og:image" content="${BASE_URL}/images/og-image-1200.jpg">
+  <meta property="og:image:secure_url" content="${BASE_URL}/images/og-image-1200.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="${SOCIAL_IMAGE_WIDTH}">
+  <meta property="og:image:height" content="${SOCIAL_IMAGE_HEIGHT}">
+  <meta property="og:image:alt" content="${safeAlt}">
+  <meta property="og:image" content="${BASE_URL}/images/og-image-1200.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="${SOCIAL_IMAGE_WIDTH}">
+  <meta property="og:image:height" content="${SOCIAL_IMAGE_HEIGHT}">
+  <meta property="og:image" content="${BASE_URL}/images/og-image-1200.avif">
+  <meta property="og:image:type" content="image/avif">
+  <meta property="og:image:width" content="${SOCIAL_IMAGE_WIDTH}">
+  <meta property="og:image:height" content="${SOCIAL_IMAGE_HEIGHT}">
+  <meta name="twitter:image" content="${BASE_URL}/images/twitter-card-1200.jpg">
+  <meta name="twitter:image:alt" content="${safeAlt}">
+  <meta name="twitter:image:width" content="${TWITTER_CARD_WIDTH}">
+  <meta name="twitter:image:height" content="${TWITTER_CARD_HEIGHT}">`;
+}
+
 /**
  * Build the shared responsive site header used by every generated page family.
  *
@@ -436,10 +535,13 @@ export function buildSiteHeader(options: SiteHeaderOptions): string {
   return `<header class="site-header" role="banner">
     <div class="site-header__inner site-header__inner--stacked">
       <a href="${escapeHTML(homeHref)}" class="site-header__brand" aria-label="${safeTitle}">
-        <picture class="site-header__logo-picture">
-          <source srcset="${pathPrefix}images/banner.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--banner" src="${pathPrefix}images/banner.jpg" alt="${safeTitle}" width="240" height="80" loading="eager">
-        </picture>
+        ${buildResponsiveBannerPicture({
+          pathPrefix,
+          pictureClass: 'site-header__logo-picture',
+          imageClass: 'site-header__logo site-header__logo--banner',
+          alt: siteTitle,
+          sizes: '(max-width: 640px) 58vw, (max-width: 1200px) 15vw, 260px',
+        })}
         <span class="site-header__brand-text">
           <span class="site-header__title">${safeTitle}</span>
           <span class="site-header__subtitle">${headerSubtitle}</span>
@@ -473,10 +575,13 @@ export function buildSiteHeader(options: SiteHeaderOptions): string {
  */
 export function buildPageBanner(pathPrefix: string): string {
   return `<div class="page-banner" role="img" aria-label="EU Parliament Monitor">
-    <picture>
-      <source srcset="${pathPrefix}images/banner.webp" type="image/webp">
-      <img class="page-banner__img" src="${pathPrefix}images/banner.jpg" alt="" aria-hidden="true" width="1200" height="400" loading="eager">
-    </picture>
+    ${buildResponsiveBannerPicture({
+      pathPrefix,
+      imageClass: 'page-banner__img',
+      alt: '',
+      sizes: '100vw',
+      ariaHidden: true,
+    })}
   </div>`;
 }
 

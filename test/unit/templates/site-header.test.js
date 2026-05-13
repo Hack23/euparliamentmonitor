@@ -33,6 +33,17 @@ describe('buildSiteHeader', () => {
     expect(html).toContain('>Political Intelligence<');
   });
 
+  it('should emit responsive banner sources for modern image formats', async () => {
+    const html = await renderHeader('en');
+    expect(html).toContain('type="image/avif"');
+    expect(html).toContain('type="image/webp"');
+    expect(html).toContain('images/banner-320.avif 320w');
+    expect(html).toContain('images/banner-1200.webp 1200w');
+    expect(html).toContain('srcset="images/banner-320.jpg 320w');
+    expect(html).toContain('sizes="(max-width: 640px) 58vw, (max-width: 1200px) 15vw, 260px"');
+    expect(html).toContain('decoding="async"');
+  });
+
   it('should localize the Political Intelligence CTA label per language', async () => {
     const de = await renderHeader('de');
     expect(de).toContain('Politische Aufklärung');
