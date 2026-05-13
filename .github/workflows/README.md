@@ -177,14 +177,27 @@ downloads the agent artifact. `gh aw compile --validate` emits that source job
 into the generated lock files; do **not** patch `.lock.yml` files directly.
 The fallback job runs
 [`scripts/gh-aw-pat-pr-fallback.sh`](../../scripts/gh-aw-pat-pr-fallback.sh)
-only when `/tmp/gh-aw/agent-stdio.log` contains `session not found` and no
-`create_pull_request` safeoutput item exists. The step uses
+**only when the safe_outputs job did not report success** — the script
+short-circuits with `safe_outputs job reported success; fallback skipped`
+whenever `needs.safe_outputs.result == 'success'` (plumbed as the
+`GH_AW_SAFE_OUTPUTS_RESULT` env var). When safe_outputs failed (or its
+result is unknown), the fallback activates on any of: `session not
+found` in `/tmp/gh-aw/agent-stdio.log`, a captured
+`/tmp/gh-aw/aw-agent-recovery.patch`, or a gh-aw `aw-*.patch` /
+`aw-*.bundle` artifact paired with a non-success result. The step uses
 `secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` from
 [`copilot-setup-steps.yml`](copilot-setup-steps.yml), stages only
 `analysis/daily/**` and `news/**`, pushes the deterministic
 `news/<YYYY-MM-DD>-<type>` branch, and reuses any existing open PR for that
 branch before creating a new one. `news-translate.md` remains the only
 multi-call safeoutputs workflow and does not use this fallback.
+
+> **Regression history**: prior to the `GH_AW_SAFE_OUTPUTS_RESULT=success`
+> short-circuit, a successful bundle-path PR (e.g. PR #1902) could be
+> followed by a duplicate fallback PR (e.g. PR #1903) when the post-step
+> recovery patch existed and the downstream branch-pattern API check
+> missed the bundle PR. The success-guard makes the fallback contract
+> authoritative: **PAT recovery runs only when safe_outputs failed.**
 
 **Cache-memory restore semantics**: gh-aw v0.69.3 emits an
 `update_cache_memory` job gated by `if: needs.agent.result == 'success'`,
