@@ -99,4 +99,40 @@ describe('agentic workflow threat detection policy', () => {
       expect(content, lockFile).not.toContain(LEGACY_NODE_ALPINE);
     }
   });
+
+  it('pre-fetches EP feeds via the shared script in every article workflow', () => {
+    // Run 25799686522 (news-propositions) hit CAPIError 429
+    // "Maximum LLM invocations exceeded (100/100)" because ~50% of
+    // invocations were spent on EP MCP data-gathering. Each article
+    // workflow must call scripts/prefetch-ep-feeds.sh from a pre-agent
+    // step so the agent reads pre-fetched feed data from
+    // ${ANALYSIS_DIR}/data/ instead of calling MCP. The shared script
+    // (not inline curl) is required so we don't drift 14 copies of the
+    // same fetch logic.
+    const articleWorkflows = fs
+      .readdirSync(WORKFLOWS_DIR)
+      .filter((name) =>
+        name.startsWith('news-') &&
+        name.endsWith('.md') &&
+        name !== 'news-translate.md',
+      )
+      .sort();
+
+    expect(articleWorkflows.length).toBeGreaterThan(0);
+
+    const prefetchScript = path.join(ROOT, 'scripts', 'prefetch-ep-feeds.sh');
+    expect(fs.existsSync(prefetchScript), 'shared prefetch script must exist').toBe(true);
+
+    for (const workflow of articleWorkflows) {
+      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+      expect(content, workflow).toContain(
+        'bash scripts/prefetch-ep-feeds.sh',
+      );
+      // Ensure no workflow re-inlined the fetch logic that should now live in the script.
+      // Tolerate the legitimate Squid-allow-list trio in shared/config/news-common-settings.md,
+      // which already lives outside the workflow body.
+      const inlineCurlMatches = content.match(/curl[^\n]*data\.europarl\.europa\.eu/g) || [];
+      expect(inlineCurlMatches.length, `${workflow} must not inline EP API curl calls`).toBe(0);
+    }
+  });
 });

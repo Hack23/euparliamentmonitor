@@ -190,51 +190,9 @@ steps:
     run: |
       npm run copy-vendor
 
-  - name: Pre-fetch EP propositions data (deterministic Stage A)
+  - name: Pre-fetch EP feeds (deterministic Stage A)
     continue-on-error: true
-    run: |
-      TODAY=$(date -u +%Y-%m-%d)
-      ANALYSIS_DIR=$(bash scripts/resolve-analysis-dir.sh "$TODAY" propositions)
-      EP_API="https://data.europarl.europa.eu/api/v2"
-      ACCEPT_HDR="Accept: application/ld+json"
-
-      # Procedures feed — agent Stage A reads this instead of calling MCP
-      if curl -s --max-time 30 --fail \
-           -H "$ACCEPT_HDR" \
-           "${EP_API}/procedures/feed" \
-           -o "${ANALYSIS_DIR}/data/procedures-feed.json" 2>/dev/null; then
-        echo "✅ procedures-feed fetched"
-      else
-        echo '{"items":[]}' > "${ANALYSIS_DIR}/data/procedures-feed.json"
-        echo "⚠️  procedures-feed unavailable — empty placeholder written"
-      fi
-
-      # External/commission documents feed
-      if curl -s --max-time 30 --fail \
-           -H "$ACCEPT_HDR" \
-           "${EP_API}/documents/feed" \
-           -o "${ANALYSIS_DIR}/data/external-docs-feed.json" 2>/dev/null; then
-        echo "✅ external-docs-feed fetched"
-      else
-        echo '{"items":[]}' > "${ANALYSIS_DIR}/data/external-docs-feed.json"
-        echo "⚠️  external-docs-feed unavailable — empty placeholder written"
-      fi
-
-      # Committee documents feed
-      if curl -s --max-time 30 --fail \
-           -H "$ACCEPT_HDR" \
-           "${EP_API}/committee-documents/feed" \
-           -o "${ANALYSIS_DIR}/data/committee-docs-feed.json" 2>/dev/null; then
-        echo "✅ committee-docs-feed fetched"
-      else
-        echo '{"items":[]}' > "${ANALYSIS_DIR}/data/committee-docs-feed.json"
-        echo "⚠️  committee-docs-feed unavailable — empty placeholder written"
-      fi
-
-      echo "ANALYSIS_DIR=${ANALYSIS_DIR}" >> "$GITHUB_ENV"
-      echo "TODAY=${TODAY}" >> "$GITHUB_ENV"
-      FILE_COUNT=$(find "${ANALYSIS_DIR}/data/" -maxdepth 1 -type f | wc -l)
-      echo "Pre-fetch complete: ${FILE_COUNT} files in ${ANALYSIS_DIR}/data/"
+    run: bash scripts/prefetch-ep-feeds.sh propositions procedures external-documents committee-documents
 
 # Post-execution recovery: when the agent commits Stage E output to a local
 # news/* branch but the safeoutputs MCP create_pull_request path later fails
@@ -360,16 +318,11 @@ echo "WORKFLOW_START_EPOCH=$WORKFLOW_START_EPOCH" >> "$GITHUB_ENV"
 
 ### Stage A — Data Collection (Ref: 01, 07)
 
-> **⚡ Stage A hard cap: ≤ 5 EP MCP tool calls total.**
-> Pre-fetched feed data is already in `${ANALYSIS_DIR}/data/` (written by
-> the pre-agent step): `procedures-feed.json`, `external-docs-feed.json`,
-> `committee-docs-feed.json`. Check each file **before** making any MCP
-> call — if it has content, skip that feed's MCP call entirely. On the 5th
-> MCP call, stop data collection and proceed immediately to Stage B.
-
-Run the canonical gateway block from `08-infrastructure.md` §4. Source
-`scripts/mcp-setup.sh`. Use pre-fetched data from `${ANALYSIS_DIR}/data/`
-for EP feeds whenever available. Supplement with at most **3
+Pre-fetched feed data is already in `${ANALYSIS_DIR}/data/`
+(`procedures-feed.json`, `external-documents-feed.json`,
+`committee-documents-feed.json`) — see the universal **Invocation Budget
+Discipline** in `news-unified-runtime.md`. Source `scripts/mcp-setup.sh`,
+read the pre-fetched feeds from disk, then supplement with at most **3
 `track_legislation`** deep-fetches for the highest-priority procedures.
 Target ≤ 4 min total for Stage A.
 
@@ -398,15 +351,7 @@ improve/extend rule from `02-analysis-protocol.md`:**
    `manifest.pass2.rewriteCount` MUST equal the total artifact count —
    `rewriteCount === 0` on a re-run is a Stage-C hard RED.
 
-**Pass 1 (~60% of analysis time):**
-
-> **⚡ Write-first rule**: Read `analysis/methodologies/reference-quality-thresholds.json`
-> ONCE before writing anything. Meet every artifact's line floor in a
-> **single write** — never write a short stub then extend it with a
-> separate shell call. Check-then-extend wastes 2+ invocations per artifact.
-> Pre-size each write to meet the floor on the first attempt.
-
-Apply every methodology and template
+**Pass 1 (~60% of analysis time):** Apply every methodology and template
 (`analysis/methodologies/` + `analysis/templates/`) to every downloaded
 data file. Write every mandatory artifact. Populate `manifest.json` with
 top-level `articleType: propositions` and every produced file under `files.*`.
