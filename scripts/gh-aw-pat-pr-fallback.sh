@@ -66,6 +66,27 @@ case "${GH_AW_SAFE_OUTPUTS_RESULT:-}" in
     ;;
 esac
 
+# Primary authoritative guard: when the safe_outputs job explicitly reported
+# success, the PR was created via the gh-aw bundle path and no host-side
+# recovery is needed. Skip the fallback unconditionally — even when a
+# recovery patch is present.
+#
+# Background: gh-aw-capture-agent-patch.sh (post-step) writes
+# /tmp/gh-aw/aw-agent-recovery.patch on every run where the agent committed
+# to a news/* branch, regardless of whether safe_outputs subsequently
+# succeeded. Without this guard, the recovery-patch trigger below would
+# activate the fallback after a successful safe_outputs run, creating a
+# duplicate PR (canonical example: PR #1902 succeeded, PR #1903 was
+# created anyway because the recovery patch was present and the
+# downstream branch-pattern API check at lines ~179-194 missed the
+# bundle PR due to a salt-format drift). The safe_outputs job result is
+# the authoritative success signal — when it reports success, no
+# recovery is needed full stop.
+if [ "${GH_AW_SAFE_OUTPUTS_RESULT:-}" = "success" ]; then
+  log "safe_outputs job reported success; fallback skipped (no recovery needed)"
+  exit 0
+fi
+
 if [ ! -f "$stdio_log" ]; then
   if [ "$has_recovery_patch" = false ] && { [ "$safe_outputs_failed" = false ] || [ "$has_safeoutputs_patch" = false ]; } && \
      { [ "$safe_outputs_failed" = false ] || [ "$has_safeoutputs_bundle" = false ]; }; then

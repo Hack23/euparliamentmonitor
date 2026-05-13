@@ -14,7 +14,56 @@ const SHARED_MCP_FILE = path.join(
   'mcp',
   'news-mcp-servers.md',
 );
+const SHARED_SAFE_OUTPUTS_HEAD_FILE = path.join(
+  WORKFLOWS_DIR,
+  'shared',
+  'config',
+  'news-safe-outputs-head.md',
+);
+const SHARED_SAFE_OUTPUTS_DOMAINS_FILE = path.join(
+  WORKFLOWS_DIR,
+  'shared',
+  'config',
+  'news-safe-outputs-domains.md',
+);
 const LEGACY_NODE_ALPINE = ['node', '25-alpine'].join(':');
+
+/**
+ * Reads a workflow source and concatenates the content of every shared file it
+ * imports under `imports:`. Drift-guards must look at this combined view because
+ * frontmatter blocks like `threat-detection`, `allowed-domains`, and the
+ * bundle-prerequisite `steps:` block were extracted out of the per-slug
+ * workflows into shared `news-safe-outputs-*.md` components (Phase A1/A2 of the
+ * agentic-workflow refactor).
+ */
+function readWorkflowWithImports(workflowPath) {
+  const text = fs.readFileSync(workflowPath, 'utf8');
+  const importLines = [];
+  for (const line of text.split('\n')) {
+    // Short form: `  - shared/config/foo.md` or `  - .github/agents/foo.md`
+    const shortMatch = line.match(/^  - (shared\/[^\s]+|\.github\/[^\s]+)$/);
+    if (shortMatch) {
+      importLines.push(shortMatch[1].trim());
+      continue;
+    }
+    // Long form: `  - uses: shared/config/foo.md` (parameterized imports)
+    const usesMatch = line.match(/^  - uses: (shared\/[^\s]+|\.github\/[^\s]+)$/);
+    if (usesMatch) {
+      importLines.push(usesMatch[1].trim());
+    }
+  }
+  const importedContents = importLines.map((relPath) => {
+    const normalized = relPath.startsWith('.github/')
+      ? path.join(ROOT, relPath)
+      : path.join(WORKFLOWS_DIR, relPath);
+    try {
+      return fs.readFileSync(normalized, 'utf8');
+    } catch {
+      return '';
+    }
+  });
+  return text + '\n' + importedContents.join('\n');
+}
 
 describe('agentic workflow threat detection policy', () => {
   it('keeps safe-output threat detection warning-only for every news workflow', () => {
@@ -25,9 +74,17 @@ describe('agentic workflow threat detection policy', () => {
 
     expect(workflows.length).toBeGreaterThan(0);
 
+    // The shared head file owns the contract; every news workflow imports it
+    // (except news-translate, which has its own safe-outputs posture and is
+    // already exempt from the import requirement).
+    const sharedHead = fs.readFileSync(SHARED_SAFE_OUTPUTS_HEAD_FILE, 'utf8');
+    expect(sharedHead, 'news-safe-outputs-head.md').toMatch(
+      /^safe-outputs:\n(?:  .*\n)*?  threat-detection:\n    continue-on-error: true$/m,
+    );
+
     for (const workflow of workflows) {
-      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
-      expect(content, workflow).toMatch(
+      const combined = readWorkflowWithImports(path.join(WORKFLOWS_DIR, workflow));
+      expect(combined, workflow).toMatch(
         /^safe-outputs:\n(?:  .*\n)*?  threat-detection:\n    continue-on-error: true$/m,
       );
     }
@@ -41,15 +98,21 @@ describe('agentic workflow threat detection policy', () => {
 
     expect(workflows.length).toBeGreaterThan(0);
 
+    // The shared head file owns the bundle-prerequisite fetch step.
+    const sharedHead = fs.readFileSync(SHARED_SAFE_OUTPUTS_HEAD_FILE, 'utf8');
+    expect(sharedHead, 'news-safe-outputs-head.md').toContain('Fetch triggering commit for bundle prerequisites');
+    expect(sharedHead, 'news-safe-outputs-head.md').toContain('git fetch --no-tags origin "$GITHUB_SHA"');
+    expect(sharedHead, 'news-safe-outputs-head.md').toContain('Repository lacks these prerequisite commits');
+
     for (const workflow of workflows) {
-      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
-      if (!content.includes('create-pull-request:')) {
+      const combined = readWorkflowWithImports(path.join(WORKFLOWS_DIR, workflow));
+      if (!combined.includes('create-pull-request:')) {
         continue;
       }
 
-      expect(content, workflow).toContain('Fetch triggering commit for bundle prerequisites');
-      expect(content, workflow).toContain('git fetch --no-tags origin "$GITHUB_SHA"');
-      expect(content, workflow).toContain(
+      expect(combined, workflow).toContain('Fetch triggering commit for bundle prerequisites');
+      expect(combined, workflow).toContain('git fetch --no-tags origin "$GITHUB_SHA"');
+      expect(combined, workflow).toContain(
         'Repository lacks these prerequisite commits',
       );
     }
@@ -64,12 +127,16 @@ describe('agentic workflow threat detection policy', () => {
     expect(workflows.length).toBeGreaterThan(0);
 
     for (const workflow of workflows) {
-      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+      // Walk imports — `timeout: 180` and `startup-timeout: 180` now live in
+      // .github/workflows/shared/config/news-tools.md after Phase C of the
+      // agentic-workflow refactor; the per-slug workflows MUST NOT reset
+      // those values, but the contract is still binding on the combined view.
+      const combined = readWorkflowWithImports(path.join(WORKFLOWS_DIR, workflow));
 
-      expect(content, workflow).toContain('timeout: 180');
-      expect(content, workflow).toContain('startup-timeout: 180');
-      expect(content, workflow).not.toContain('repo-memory:');
-      expect(content, workflow).not.toContain('max-continuations: 1');
+      expect(combined, workflow).toContain('timeout: 180');
+      expect(combined, workflow).toContain('startup-timeout: 180');
+      expect(combined, workflow).not.toContain('repo-memory:');
+      expect(combined, workflow).not.toContain('max-continuations: 1');
     }
   });
 
@@ -148,6 +215,202 @@ describe('agentic workflow threat detection policy', () => {
         prefetchStepMatch[1],
         `${workflow} prefetch step must NOT set continue-on-error: true`,
       ).not.toContain('continue-on-error: true');
+    }
+  });
+
+  it('imports the shared safe-outputs head + domains components in every article workflow', () => {
+    // Phase A1/A2 of the agentic-workflow refactor extracted the
+    // `safe-outputs.threat-detection`, bundle-prerequisite `steps:` block, and
+    // `safe-outputs.allowed-domains` allowlist out of the per-slug
+    // workflows into shared `news-safe-outputs-head.md` and
+    // `news-safe-outputs-domains.md` components. This drift-guard ensures
+    // every article workflow continues to import both — a new workflow that
+    // re-inlines those blocks would re-introduce ~70 lines of duplication
+    // and break the single-source-of-truth contract.
+    const articleWorkflows = fs
+      .readdirSync(WORKFLOWS_DIR)
+      .filter((name) =>
+        name.startsWith('news-') &&
+        name.endsWith('.md') &&
+        name !== 'news-translate.md',
+      )
+      .sort();
+
+    expect(articleWorkflows.length).toBeGreaterThan(0);
+    expect(fs.existsSync(SHARED_SAFE_OUTPUTS_HEAD_FILE), 'news-safe-outputs-head.md must exist').toBe(true);
+    expect(fs.existsSync(SHARED_SAFE_OUTPUTS_DOMAINS_FILE), 'news-safe-outputs-domains.md must exist').toBe(true);
+
+    for (const workflow of articleWorkflows) {
+      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+
+      expect(content, workflow).toContain('- shared/config/news-safe-outputs-head.md');
+      expect(content, workflow).toContain('- shared/config/news-safe-outputs-domains.md');
+
+      // And the workflow MUST NOT re-inline the now-shared blocks.
+      expect(content, `${workflow} must not re-inline threat-detection (lives in shared)`).not.toMatch(
+        /^  threat-detection:\n    continue-on-error: true$/m,
+      );
+      expect(content, `${workflow} must not re-inline allowed-domains (lives in shared)`).not.toMatch(
+        /^  allowed-domains:\n    - github\b/m,
+      );
+      expect(content, `${workflow} must not re-inline bundle-prerequisite fetch step (lives in shared)`).not.toContain(
+        '- name: Fetch triggering commit for bundle prerequisites',
+      );
+    }
+  });
+
+  it('imports the shared parameterized pat-pr-fallback component in every article workflow', () => {
+    // Phase B of the agentic-workflow refactor extracted the structurally
+    // identical `post-steps:` (agent-patch capture) + `jobs.pat-pr-fallback`
+    // (host-side PAT recovery) blocks out of the 14 per-slug workflows into
+    // a single parameterized shared file (`news-pat-pr-fallback.md`) using
+    // gh-aw's `import-schema:` with `slug` and `workflowName` inputs.
+    // This drift-guard ensures every article workflow continues to import
+    // it with the correct parameters. The PAT recovery contract
+    // (`scripts/gh-aw-pat-pr-fallback.sh` short-circuits on
+    // GH_AW_SAFE_OUTPUTS_RESULT=success; see PR #1902/#1903 forensic history)
+    // depends on the shared file flowing `${{ needs.safe_outputs.result }}`
+    // into the recovery env — re-inlining the job in a single workflow
+    // would either drift that contract or duplicate ~35 lines.
+    const articleWorkflows = fs
+      .readdirSync(WORKFLOWS_DIR)
+      .filter((name) =>
+        name.startsWith('news-') &&
+        name.endsWith('.md') &&
+        name !== 'news-translate.md',
+      )
+      .sort();
+
+    expect(articleWorkflows.length).toBeGreaterThan(0);
+
+    const sharedFile = path.join(
+      WORKFLOWS_DIR,
+      'shared',
+      'config',
+      'news-pat-pr-fallback.md',
+    );
+    expect(fs.existsSync(sharedFile), 'news-pat-pr-fallback.md must exist').toBe(true);
+    const sharedContent = fs.readFileSync(sharedFile, 'utf8');
+    // Shared file must wire the safe-outputs-result short-circuit env var.
+    expect(sharedContent).toContain('GH_AW_SAFE_OUTPUTS_RESULT: ${{ needs.safe_outputs.result }}');
+    // Shared file must declare the import-schema inputs.
+    expect(sharedContent).toMatch(/^import-schema:/m);
+    expect(sharedContent).toContain('slug:');
+    expect(sharedContent).toContain('workflowName:');
+
+    for (const workflow of articleWorkflows) {
+      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+
+      expect(content, workflow).toContain('uses: shared/config/news-pat-pr-fallback.md');
+      // The `with:` map must include both required inputs.
+      expect(content, `${workflow} must pass slug input`).toMatch(/with:\n\s*slug:/);
+      expect(content, `${workflow} must pass workflowName input`).toMatch(/with:\n\s*slug: [^\n]+\n\s*workflowName:/);
+
+      // And the workflow MUST NOT re-inline the post-steps capture step or
+      // the pat-pr-fallback job — those live exclusively in the shared file.
+      expect(content, `${workflow} must not re-inline post-steps Capture agent recovery patch (lives in shared)`).not.toContain(
+        '- name: Capture agent recovery patch',
+      );
+      expect(content, `${workflow} must not re-inline pat-pr-fallback job (lives in shared)`).not.toMatch(
+        /^  pat-pr-fallback:\n\s*name: Host-side PAT PR fallback/m,
+      );
+    }
+  });
+
+  it('imports the shared parameterized tools component in every article workflow', () => {
+    // Phase C of the agentic-workflow refactor extracted the structurally
+    // identical `tools:` block (timeout / startup-timeout / github.toolsets
+    // / bash / edit / web-fetch / agentic-workflows / cache-memory) out of
+    // the 14 per-slug workflows into a single shared file
+    // (`news-tools.md`) parameterized by `slug` (only `cache-memory.key`
+    // varies between workflows). This drift-guard ensures every article
+    // workflow continues to import it with a correctly-namespaced slug.
+    const articleWorkflows = fs
+      .readdirSync(WORKFLOWS_DIR)
+      .filter((name) =>
+        name.startsWith('news-') &&
+        name.endsWith('.md') &&
+        name !== 'news-translate.md',
+      )
+      .sort();
+
+    expect(articleWorkflows.length).toBeGreaterThan(0);
+
+    const sharedFile = path.join(
+      WORKFLOWS_DIR,
+      'shared',
+      'config',
+      'news-tools.md',
+    );
+    expect(fs.existsSync(sharedFile), 'news-tools.md must exist').toBe(true);
+    const sharedContent = fs.readFileSync(sharedFile, 'utf8');
+    // Shared file must declare the import-schema slug input.
+    expect(sharedContent).toMatch(/^import-schema:/m);
+    expect(sharedContent).toMatch(/^  slug:/m);
+    // And the parameterized cache-memory key must reference the slug input.
+    expect(sharedContent).toContain('key: news-${{ github.aw.import-inputs.slug }}-${{ github.repository_owner }}');
+    // Core tool keys must remain.
+    expect(sharedContent).toContain('timeout: 180');
+    expect(sharedContent).toContain('startup-timeout: 180');
+    expect(sharedContent).toContain('bash: true');
+    expect(sharedContent).toContain('web-fetch:');
+
+    for (const workflow of articleWorkflows) {
+      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+
+      expect(content, workflow).toContain('uses: shared/config/news-tools.md');
+      // And the workflow MUST NOT re-inline the tools block.
+      expect(content, `${workflow} must not re-inline tools: block (lives in shared)`).not.toMatch(
+        /^tools:\n  timeout: 180\n  startup-timeout: 180\n/m,
+      );
+      expect(content, `${workflow} must not re-inline cache-memory.key (lives in shared)`).not.toMatch(
+        /^    key: news-[a-z-]+-\$\{\{ github\.repository_owner \}\}$/m,
+      );
+    }
+  });
+
+  it('does not re-inline the 18-line timeout-minutes scheduling rationale (Phase D)', () => {
+    // Phase D of the agentic-workflow refactor compressed the 18-line
+    // YAML-comment explanation above `timeout-minutes: 60` down to a
+    // 3-line cross-reference to the README's "Workflow timing contract"
+    // section. The long version (252 lines duplicated across 14
+    // workflows) lives canonically in `.github/workflows/README.md`.
+    // YAML comments do not propagate into the compiled `.lock.yml` so
+    // there is no runtime risk in compressing them, but this drift-guard
+    // prevents accidental re-inlining by a future author copy-pasting
+    // from an old workflow.
+    const articleWorkflows = fs
+      .readdirSync(WORKFLOWS_DIR)
+      .filter((name) =>
+        name.startsWith('news-') &&
+        name.endsWith('.md') &&
+        name !== 'news-translate.md',
+      )
+      .sort();
+
+    expect(articleWorkflows.length).toBeGreaterThan(0);
+
+    for (const workflow of articleWorkflows) {
+      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+
+      // The hallmark phrase from the long deprecated explanation.
+      expect(content, `${workflow} must not re-inline the long timeout-minutes rationale`).not.toContain(
+        'Hard safety cap = 60 minutes (`timeout-minutes: 60`)',
+      );
+      // The redundant "tools: inherited" multi-line comment.
+      expect(content, `${workflow} must not re-inline the long tools-inherited comment`).not.toMatch(
+        /^# `tools:` is inherited \(with `slug` substituted into `cache-memory\.key`\) from\n# \.github\/workflows\/shared\/config\/news-tools\.md/m,
+      );
+      // The redundant "post-steps + pat-pr-fallback inherited" multi-line comment.
+      expect(content, `${workflow} must not re-inline the long pat-pr-fallback-inherited comment`).not.toMatch(
+        /^# `post-steps:` \(agent-patch capture\) and `jobs\.pat-pr-fallback`\n# \(host-side PAT recovery\) are inherited/m,
+      );
+
+      // And the compressed comment must still be present (with the
+      // README cross-reference) so readers know where the long form lives.
+      expect(content, `${workflow} must keep the timing-contract cross-reference`).toContain(
+        '.github/workflows/README.md "Workflow timing contract"',
+      );
     }
   });
 });

@@ -83,4 +83,46 @@ describe('gh-aw-pat-pr-fallback.sh', () => {
     expect(result.stderr).toBe('');
     expect(result.stdout).toContain('agent stdio log not found and no recovery/failed-safeoutputs patch or bundle');
   });
+
+  // Regression: PR #1902 succeeded but PR #1903 was created anyway because the
+  // post-step gh-aw-capture-agent-patch.sh wrote /tmp/gh-aw/aw-agent-recovery.patch
+  // and the recovery-patch trigger fired despite safe_outputs reporting success.
+  // The downstream branch-pattern API check missed the bundle PR (salt-format
+  // drift), so the fallback ran and double-published. The primary authoritative
+  // guard now short-circuits the fallback when GH_AW_SAFE_OUTPUTS_RESULT=success.
+  it('skips fallback when safe_outputs reported success, even if a recovery patch is present', () => {
+    fs.writeFileSync(path.join(ghAwDir, 'aw-agent-recovery.patch'), 'diff --git a/x b/x\n');
+
+    const result = runFallback(ghAwDir, {
+      GH_AW_SAFE_OUTPUTS_RESULT: 'success',
+    });
+
+    expect(result.code).toBe(0);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).toContain('safe_outputs job reported success; fallback skipped');
+  });
+
+  it('skips fallback when safe_outputs reported success, even if a gh-aw safeoutputs patch artifact is present', () => {
+    fs.writeFileSync(path.join(ghAwDir, 'aw-create-pull-request.patch'), 'diff --git a/x b/x\n');
+
+    const result = runFallback(ghAwDir, {
+      GH_AW_SAFE_OUTPUTS_RESULT: 'success',
+    });
+
+    expect(result.code).toBe(0);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).toContain('safe_outputs job reported success; fallback skipped');
+  });
+
+  it('skips fallback when safe_outputs reported success, even if a bundle artifact is present', () => {
+    fs.writeFileSync(path.join(ghAwDir, 'aw-news-run.bundle'), 'bundle-placeholder\n');
+
+    const result = runFallback(ghAwDir, {
+      GH_AW_SAFE_OUTPUTS_RESULT: 'success',
+    });
+
+    expect(result.code).toBe(0);
+    expect(result.stderr).toBe('');
+    expect(result.stdout).toContain('safe_outputs job reported success; fallback skipped');
+  });
 });

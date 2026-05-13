@@ -74,32 +74,128 @@ Each workflow renders articles using `npm run generate-article -- --run "${ANALY
 
 #### Shared-import pattern
 
-Every article workflow now imports four reusable building blocks:
+Every article workflow imports a stack of reusable building blocks (the May 2026 refactor
+extracted ~22% of duplicated frontmatter into single-source shared components — see the
+[refactor commits](https://github.com/Hack23/euparliamentmonitor/pulls?q=Phase+A1+OR+Phase+A2+OR+Phase+B+OR+Phase+C) for forensic detail):
 
 ```yaml
 imports:
   - .github/agents/news-generation.agent.md
   - shared/config/news-common-settings.md
+  - shared/config/news-safe-outputs-domains.md
+  - shared/config/news-safe-outputs-head.md
+  - uses: shared/config/news-tools.md
+    with:
+      slug: <article-type-slug>
+  - uses: shared/config/news-pat-pr-fallback.md
+    with:
+      slug: <article-type-slug>
+      workflowName: "News: EU Parliament <Title> — Unified"
   - shared/mcp/news-mcp-servers.md
   - shared/prompts/news-unified-runtime.md
 ```
 
-- [`.github/agents/news-generation.agent.md`](../agents/news-generation.agent.md)
-  stays as the canonical analysis-awareness anchor required by repo lint rules.
-- [`shared/config/news-common-settings.md`](shared/config/news-common-settings.md)
-  centralises the common `features`, `runtimes`, and `network.allowed` blocks
-  used by the news workflows.
-- [`shared/mcp/news-mcp-servers.md`](shared/mcp/news-mcp-servers.md) remains
-  frontmatter-only and provides the shared MCP mounts.
-- [`shared/prompts/news-unified-runtime.md`](shared/prompts/news-unified-runtime.md)
-  carries the repeated unified-workflow runtime instructions (required reading +
-  stage order), so article-specific workflow files can focus on per-slug inputs,
-  budgets, and execution details.
-- `news-translate.md` imports the shared config + MCP components and keeps its
-  translation-specific prompt body.
+| Component | Owns |
+|-----------|------|
+| [`.github/agents/news-generation.agent.md`](../agents/news-generation.agent.md) | Canonical analysis-awareness anchor (required by repo lint rules) |
+| [`shared/config/news-common-settings.md`](shared/config/news-common-settings.md) | Common `features`, `runtimes`, `network.allowed` blocks |
+| [`shared/config/news-safe-outputs-domains.md`](shared/config/news-safe-outputs-domains.md) | `safe-outputs.allowed-domains` allowlist (46 lines, identical across 14) |
+| [`shared/config/news-safe-outputs-head.md`](shared/config/news-safe-outputs-head.md) | `safe-outputs.threat-detection` + bundle-prerequisite `steps:` (25 lines, identical across 14). **NOTE:** `safe-outputs.max-patch-size` does **not** propagate via gh-aw v0.74.1 imports (resets to default 1024 in the compiled lock) — it must stay inline in each workflow. |
+| [`shared/config/news-tools.md`](shared/config/news-tools.md) | Full `tools:` block (timeout / startup-timeout / github.toolsets / bash / edit / web-fetch / agentic-workflows / cache-memory) — parameterized by `slug` (only `cache-memory.key` varies between workflows) |
+| [`shared/config/news-pat-pr-fallback.md`](shared/config/news-pat-pr-fallback.md) | `post-steps:` (agent-patch capture) + `jobs.pat-pr-fallback` (host-side PAT recovery) — parameterized by `slug` and `workflowName`. The PAT recovery contract (`scripts/gh-aw-pat-pr-fallback.sh` short-circuits on `GH_AW_SAFE_OUTPUTS_RESULT=success`) lives here. |
+| [`shared/mcp/news-mcp-servers.md`](shared/mcp/news-mcp-servers.md) | Frontmatter-only shared MCP mounts (EP / IMF / WB / sequential-thinking / fetch-proxy) |
+| [`shared/prompts/news-unified-runtime.md`](shared/prompts/news-unified-runtime.md) | Repeated unified-workflow runtime instructions (required reading + Stage order) |
 
-See the [prompts library](../prompts/README.md) for the canonical Stage A → E
-flow.
+`news-translate.md` imports `news-common-settings.md` + the MCP/prompt components and keeps its
+translation-specific prompt body (multi-call flush pattern, exempt from single-PR rule).
+
+#### Import topology diagram
+
+```mermaid
+flowchart LR
+    subgraph "news-<slug>.md (14 article workflows)"
+        WF["• name<br/>• schedule (cron)<br/>• concurrency.group<br/>• safe-outputs.max-patch-size<br/>• create-pull-request.labels<br/>• engine.model<br/>• Stage A-E prompt body"]
+    end
+
+    subgraph "shared/config/ (Phase A1-C extractions)"
+        DOM["news-safe-outputs-<br/>domains.md<br/><i>(46 lines)</i>"]
+        HEAD["news-safe-outputs-<br/>head.md<br/><i>(25 lines)</i>"]
+        TOOLS["news-tools.md<br/><i>+ slug input</i>"]
+        PATPR["news-pat-pr-<br/>fallback.md<br/><i>+ slug, workflowName</i>"]
+        COMMON["news-common-<br/>settings.md"]
+    end
+
+    subgraph "shared/mcp/ & shared/prompts/"
+        MCP["news-mcp-<br/>servers.md"]
+        RT["news-unified-<br/>runtime.md"]
+    end
+
+    subgraph ".github/agents/"
+        AGENT["news-generation.<br/>agent.md"]
+    end
+
+    WF -->|imports| AGENT
+    WF -->|imports| COMMON
+    WF -->|imports| DOM
+    WF -->|imports| HEAD
+    WF -->|uses: with slug| TOOLS
+    WF -->|uses: with slug + workflowName| PATPR
+    WF -->|imports| MCP
+    WF -->|imports| RT
+```
+
+The arrow style distinguishes plain imports from parameterized
+(`uses: … with: …`) imports. Drift-guard tests in
+[`test/unit/agentic-workflows-threat-detection.test.js`](../../test/unit/agentic-workflows-threat-detection.test.js)
+walk this graph and fail if any workflow re-inlines a block that has been
+extracted to a shared component.
+
+#### Drift-guard
+
+`test/unit/agentic-workflows-threat-detection.test.js` walks each article workflow's
+import graph and asserts:
+
+- Every article workflow imports each of the 5 shared config files above with correct
+  `with:` parameters where required
+- No workflow re-inlines the now-shared blocks (`allowed-domains`, `threat-detection`,
+  bundle-prerequisite fetch step, `post-steps` capture, `pat-pr-fallback` job, or the
+  `tools:` block)
+- Workflow-wide invariants (`timeout: 180`, `startup-timeout: 180`, no `repo-memory:`,
+  no `max-continuations: 1`) still hold on the **combined** post-import view
+
+A re-inlined block in any workflow fails the drift-guard and blocks PR merge.
+
+See the [prompts library](../prompts/README.md) for the canonical Stage A → E flow.
+
+#### Workflow timing contract
+
+Every unified article workflow runs under a 60-minute hard cap (`timeout-minutes: 60`)
+with two binding deadlines:
+
+| Deadline | Target | Hard limit | Source |
+|---|---|---|---|
+| Active-work completion (Stages A → E) | minute ≤ 42 | minute ≤ 45 | `src/config/article-horizons.ts` per-slug budgets |
+| Single safe-outputs `create_pull_request` call | minute ≤ 42 | minute ≤ 45 (47 for electoral) | `safeoutputs___create_pull_request` enforcement |
+
+The remaining 15-minute buffer under the 60-minute cap absorbs sandbox boot,
+MCP gateway startup (EP / IMF / WB / sequential-thinking / fetch-proxy), the
+deterministic article render (`npm run generate-article`), git push, and the
+host-side PAT-recovery job. Per-slug stage budgets (Stage A / Stage B Pass 1+2 /
+Stage C gate + optional Pass 3 / Stage D / Stage E) live in
+[`src/config/article-horizons.ts`](../../src/config/article-horizons.ts). The
+Stage C exit tripwire (typically minute 36, slug-specific in
+`article-horizons.ts`) fires `GATE_RESULT=ANALYSIS_ONLY` and (if late) skips
+Stage D so the run still reaches the PR call before the hard deadline.
+
+**MCP session lifetime**: `engine.mcp.session-timeout` is intentionally NOT set
+in any workflow — gh-aw v0.71.3 advertises the field, but the bundled MCP
+gateway image (`ghcr.io/github/gh-aw-mcpg:v0.3.1`) rejects it
+(`additionalProperties 'sessionTimeout' not allowed`, run #25275823699
+fingerprint). The MCP gateway uses its upstream default session lifetime; the
+agent must finish within the 60-minute `timeout-minutes` cap regardless. See
+[`.github/prompts/02-analysis-protocol.md`](../prompts/02-analysis-protocol.md) §3
+for the canonical stage budgets and [`.github/prompts/09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5
+for historical rate-limit forensics (run #24963129839).
 
 #### Lock-file compile flow
 
@@ -177,14 +273,27 @@ downloads the agent artifact. `gh aw compile --validate` emits that source job
 into the generated lock files; do **not** patch `.lock.yml` files directly.
 The fallback job runs
 [`scripts/gh-aw-pat-pr-fallback.sh`](../../scripts/gh-aw-pat-pr-fallback.sh)
-only when `/tmp/gh-aw/agent-stdio.log` contains `session not found` and no
-`create_pull_request` safeoutput item exists. The step uses
+**only when the safe_outputs job did not report success** — the script
+short-circuits with `safe_outputs job reported success; fallback skipped`
+whenever `needs.safe_outputs.result == 'success'` (plumbed as the
+`GH_AW_SAFE_OUTPUTS_RESULT` env var). When safe_outputs failed (or its
+result is unknown), the fallback activates on any of: `session not
+found` in `/tmp/gh-aw/agent-stdio.log`, a captured
+`/tmp/gh-aw/aw-agent-recovery.patch`, or a gh-aw `aw-*.patch` /
+`aw-*.bundle` artifact paired with a non-success result. The step uses
 `secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN` from
 [`copilot-setup-steps.yml`](copilot-setup-steps.yml), stages only
 `analysis/daily/**` and `news/**`, pushes the deterministic
 `news/<YYYY-MM-DD>-<type>` branch, and reuses any existing open PR for that
 branch before creating a new one. `news-translate.md` remains the only
 multi-call safeoutputs workflow and does not use this fallback.
+
+> **Regression history**: prior to the `GH_AW_SAFE_OUTPUTS_RESULT=success`
+> short-circuit, a successful bundle-path PR (e.g. PR #1902) could be
+> followed by a duplicate fallback PR (e.g. PR #1903) when the post-step
+> recovery patch existed and the downstream branch-pattern API check
+> missed the bundle PR. The success-guard makes the fallback contract
+> authoritative: **PAT recovery runs only when safe_outputs failed.**
 
 **Cache-memory restore semantics**: gh-aw v0.69.3 emits an
 `update_cache_memory` job gated by `if: needs.agent.result == 'success'`,
