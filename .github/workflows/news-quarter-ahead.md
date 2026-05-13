@@ -47,6 +47,10 @@ imports:
   - shared/config/news-common-settings.md
   - shared/config/news-safe-outputs-domains.md
   - shared/config/news-safe-outputs-head.md
+  - uses: shared/config/news-pat-pr-fallback.md
+    with:
+      slug: quarter-ahead
+      workflowName: "News: EU Parliament Quarter Ahead — Unified"
   - shared/mcp/news-mcp-servers.md
   - shared/prompts/news-unified-runtime.md
 
@@ -133,59 +137,13 @@ steps:
   - name: Pre-fetch EP feeds (deterministic Stage A)
     run: bash scripts/prefetch-ep-feeds.sh quarter-ahead procedures documents external-documents events
 
-# Post-execution recovery: when the agent commits Stage E output to a local
-# news/* branch but the safeoutputs MCP create_pull_request path later fails
-# (session TTL expiry, or a bundle prerequisite race in the write job), the
-# agent commits live only on the agent runner filesystem and are otherwise
-# lost when the runner is reaped. This post-step writes
-# /tmp/gh-aw/aw-agent-recovery.patch from the news/* branch when gh-aw has not
-# emitted its own aw-*.patch artifact. The host-side pat-pr-fallback job runs
-# after safe_outputs, verifies no bundle-path PR exists, and applies eligible
-# analysis/news changes via scripts/gh-aw-pat-pr-fallback.sh. Originated from
-# run #25028873034 (week-in-review) and extended after run #25541403260
-# (motions) exposed a bundle prerequisite failure after the fallback job had
-# already skipped.
-post-steps:
-  - name: Capture agent recovery patch
-    if: always()
-    continue-on-error: true
-    run: bash scripts/gh-aw-capture-agent-patch.sh
-
-jobs:
-  pat-pr-fallback:
-    name: Host-side PAT PR fallback
-    needs: [agent, detection, safe_outputs]
-    if: >
-      always() && needs.agent.result != 'skipped' &&
-      (needs.detection.result == 'success' || needs.detection.result == 'skipped')
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          ref: ${{ github.base_ref || github.event.pull_request.base.ref || github.ref_name || github.event.repository.default_branch }}
-          token: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
-          persist-credentials: false
-          fetch-depth: 1
-
-      - name: Download agent artifact
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: agent
-          path: /tmp/gh-aw/
-
-      - name: Run host-side PAT PR fallback
-        env:
-          GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
-          GH_AW_PAT_PR_FALLBACK_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
-          GH_AW_PAT_FALLBACK_SLUG: quarter-ahead
-          GH_AW_SAFE_OUTPUTS_RESULT: ${{ needs.safe_outputs.result }}
-          GH_AW_PAT_FALLBACK_WORKFLOW_NAME: "News: EU Parliament Quarter Ahead — Unified"
-          GH_AW_PAT_FALLBACK_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: bash scripts/gh-aw-pat-pr-fallback.sh
+# `post-steps:` (agent-patch capture) and `jobs.pat-pr-fallback`
+# (host-side PAT recovery) are inherited from the shared, parameterized
+# `.github/workflows/shared/config/news-pat-pr-fallback.md` file. The
+# per-slug `slug` and `workflowName` inputs are passed via `imports[].with`
+# in the frontmatter above. The PAT recovery contract:
+# `scripts/gh-aw-pat-pr-fallback.sh` exits early when safe_outputs
+# reported success — recovery runs only when safe_outputs failed.
 
 engine:
   id: copilot

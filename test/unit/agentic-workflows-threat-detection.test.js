@@ -244,4 +244,62 @@ describe('agentic workflow threat detection policy', () => {
       );
     }
   });
+
+  it('imports the shared parameterized pat-pr-fallback component in every article workflow', () => {
+    // Phase B of the agentic-workflow refactor extracted the structurally
+    // identical `post-steps:` (agent-patch capture) + `jobs.pat-pr-fallback`
+    // (host-side PAT recovery) blocks out of the 14 per-slug workflows into
+    // a single parameterized shared file (`news-pat-pr-fallback.md`) using
+    // gh-aw's `import-schema:` with `slug` and `workflowName` inputs.
+    // This drift-guard ensures every article workflow continues to import
+    // it with the correct parameters. The PAT recovery contract
+    // (`scripts/gh-aw-pat-pr-fallback.sh` short-circuits on
+    // GH_AW_SAFE_OUTPUTS_RESULT=success; see PR #1902/#1903 forensic history)
+    // depends on the shared file flowing `${{ needs.safe_outputs.result }}`
+    // into the recovery env — re-inlining the job in a single workflow
+    // would either drift that contract or duplicate ~35 lines.
+    const articleWorkflows = fs
+      .readdirSync(WORKFLOWS_DIR)
+      .filter((name) =>
+        name.startsWith('news-') &&
+        name.endsWith('.md') &&
+        name !== 'news-translate.md',
+      )
+      .sort();
+
+    expect(articleWorkflows.length).toBeGreaterThan(0);
+
+    const sharedFile = path.join(
+      WORKFLOWS_DIR,
+      'shared',
+      'config',
+      'news-pat-pr-fallback.md',
+    );
+    expect(fs.existsSync(sharedFile), 'news-pat-pr-fallback.md must exist').toBe(true);
+    const sharedContent = fs.readFileSync(sharedFile, 'utf8');
+    // Shared file must wire the safe-outputs-result short-circuit env var.
+    expect(sharedContent).toContain('GH_AW_SAFE_OUTPUTS_RESULT: ${{ needs.safe_outputs.result }}');
+    // Shared file must declare the import-schema inputs.
+    expect(sharedContent).toMatch(/^import-schema:/m);
+    expect(sharedContent).toContain('slug:');
+    expect(sharedContent).toContain('workflowName:');
+
+    for (const workflow of articleWorkflows) {
+      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+
+      expect(content, workflow).toContain('uses: shared/config/news-pat-pr-fallback.md');
+      // The `with:` map must include both required inputs.
+      expect(content, `${workflow} must pass slug input`).toMatch(/with:\n\s*slug:/);
+      expect(content, `${workflow} must pass workflowName input`).toMatch(/with:\n\s*slug: [^\n]+\n\s*workflowName:/);
+
+      // And the workflow MUST NOT re-inline the post-steps capture step or
+      // the pat-pr-fallback job — those live exclusively in the shared file.
+      expect(content, `${workflow} must not re-inline post-steps Capture agent recovery patch (lives in shared)`).not.toContain(
+        '- name: Capture agent recovery patch',
+      );
+      expect(content, `${workflow} must not re-inline pat-pr-fallback job (lives in shared)`).not.toMatch(
+        /^  pat-pr-fallback:\n\s*name: Host-side PAT PR fallback/m,
+      );
+    }
+  });
 });
