@@ -35,77 +35,17 @@ permissions:
 
 timeout-minutes: 60
 
-features:
-  mcp-gateway: true
 
 imports:
+  - shared/config/news-common-settings.md
   - shared/mcp/news-mcp-servers.md
 
 concurrency:
   job-discriminator: translate-${{ github.event.inputs.article_date || 'manual' }}
 
-runtimes:
-  node:
-    version: "26"
-
-# Network allowlist — uses ecosystem identifiers where possible (per
-# upstream docs/reference/network.md §"Ecosystem Identifiers"):
-#   - `defaults` — basic infrastructure (certs, JSON schema, package mirrors)
-#   - `github`   — all GitHub domains (replaces explicit github.com/api.github.com)
-#   - `node`     — npm/npx ecosystem (needed for MCP server boot via npx)
-network:
-  allowed:
-    # ── gh-aw ecosystem identifiers ───────────────────────────────────
-    - defaults                           # certs, JSON schema, package mirrors
-    - github                             # all GitHub domains (*.github.com / githubusercontent.com)
-    - node                               # npm / npx ecosystem (MCP server boot)
-    # ── EU Parliament & EU institutions ───────────────────────────────
-    - "*.europa.eu"                      # catch-all for any europa.eu subdomain
-    - europarl.europa.eu
-    - www.europarl.europa.eu
-    - data.europarl.europa.eu
-    - admin.data.europarl.europa.eu
-    - multimedia.europarl.europa.eu
-    - oeil.secure.europarl.europa.eu
-    - ec.europa.eu
-    - eur-lex.europa.eu
-    - iate.europa.eu
-    - digital-strategy.ec.europa.eu
-    - data.europa.eu
-    - data.consilium.europa.eu
-    - data.ecb.europa.eu
-    # ── IMF (SDMX 3.0 + supporting hosts) ─────────────────────────────
-    - "*.imf.org"                        # catch-all for any imf.org subdomain
-    - api.imf.org                        # SDMX 3.0 endpoint (Azure-APIM)
-    - data.imf.org                       # public IMF data portal
-    - www.imf.org
-    - dataservices.imf.org               # legacy SDMX 2.1 (deprecated Sept 2025)
-    - sdmx.imf.org
-    # ── World Bank ────────────────────────────────────────────────────
-    - "*.worldbank.org"                  # catch-all for any worldbank.org subdomain
-    - api.worldbank.org
-    - data.worldbank.org
-    - www.worldbank.org
-    # ── Hack23-owned domains ──────────────────────────────────────────
-    - "*.hack23.com"                     # catch-all for any hack23.com subdomain
-    - hack23.com
-    - www.hack23.com
-    - hack23.github.io
-    - "*.euparliamentmonitor.com"
-    - euparliamentmonitor.com
-    - www.euparliamentmonitor.com
-    - api.euparliamentmonitor.com
-    - "*.riksdagsmonitor.com"
-    - riksdagsmonitor.com
-    - www.riksdagsmonitor.com
-    - blacktrigram.com
-    - www.blacktrigram.com
-    - ciacompliancemanager.com
-    - www.ciacompliancemanager.com
-
 tools:
-  timeout: 300            # per-tool-call cap
-  startup-timeout: 90     # MCP server boot (npx package install)
+  timeout: 180            # per-tool-call cap
+  startup-timeout: 180    # MCP server boot (npx package install)
   github:
     toolsets:
       - all
@@ -120,13 +60,6 @@ tools:
     key: news-translate-${{ github.repository_owner }}
     retention-days: 7
     allowed-extensions: [".md", ".json", ".jsonl", ".txt", ".html"]
-  repo-memory:
-    branch-name: memory/news-generation
-    allowed-extensions: [".md", ".json"]
-    max-file-size: 102400
-    max-file-count: 50
-    max-patch-size: 10240
-
 safe-outputs:
   threat-detection:
     continue-on-error: true
@@ -421,7 +354,7 @@ true  # Non-blocking: continue to Step 1 no matter what.
 ## 🔧 Inputs & Memory
 
 - **article_types** = `${{ github.event.inputs.article_types }}` | **article_date** = `${{ github.event.inputs.article_date }}` | **languages** = `all 13 non-English` (no longer configurable — always-14-languages contract) | **force_translation** = `${{ github.event.inputs.force_translation }}`
-- **Repo Memory**: Read/write `translation-log.json` in `/tmp/gh-aw/repo-memory/default/memory/news-generation/`
+- **Cache Memory**: Read/write `translation-log.json` in `/tmp/gh-aw/cache-memory/` for same-workflow resume support
 - **Memory MCP**: Use `create_entities`/`search_nodes` for terminology tracking within this run
 - **Sequential Thinking**: Use for complex translation decisions
 

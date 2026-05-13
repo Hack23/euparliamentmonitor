@@ -584,7 +584,7 @@ Configuration:
 
 - [ ] Every workflow `permissions:` block is explicit and minimal
 - [ ] All `uses:` Actions pinned to commit SHA (not tags) with comment noting version
-- [ ] All Docker base images pinned by digest (e.g. `node:26-alpine@sha256:…`)
+- [ ] All Docker base images pinned by digest (e.g. `node:25-alpine@sha256:…`)
 - [ ] Secrets referenced via `${{ secrets.* }}` and stored in GitHub environments, never in code
 - [ ] Release workflow emits SBOM (SPDX JSON) + SLSA L3 attestation + signed tag
 - [ ] CodeQL + Dependabot + secret scanning enabled and alerts triaged within SLA
@@ -716,7 +716,7 @@ network:
 
 mcp-servers:
   european-parliament:
-    container: "node:26-alpine"      # Docker container for MCP server
+    container: "node:25-alpine"      # Docker container for MCP server
     entrypoint: "npx"
     entrypointArgs: ["-y", "european-parliament-mcp-server@1.3.3", "--timeout", "120000"]
     env:
@@ -731,7 +731,7 @@ mcp-servers:
 The `compile-agentic-workflows.yml` workflow:
 1. Deletes existing `.lock.yml` files
 2. Compiles all `.md` workflows with `gh aw compile`
-3. Patches `node:lts-alpine` → `node:26-alpine` in compiled lock files
+3. Patches `node:lts-alpine` → `node:25-alpine` in compiled lock files
 4. Commits changes
 
 **Never modify `.lock.yml` files directly** — always edit the `.md` source and recompile.

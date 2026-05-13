@@ -14,7 +14,6 @@ News-generating workflows write ONLY to these directories:
 |-----------|---------|------------------------|
 | `news/` | Article Markdown + HTML files rendered by the aggregator | unified `news-<type>.md` workflows during Stage D |
 | `analysis/daily/` | Analysis artifacts (`.md`, `manifest.json`) + canonical run-dir `article.md` | unified `news-<type>.md` workflows during Stages A–D |
-| `/tmp/gh-aw/repo-memory/default/memory/news-generation/` | Cross-run editorial memory | both |
 
 **Unified-workflow scope guardrails:**
 
