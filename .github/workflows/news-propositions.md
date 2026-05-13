@@ -41,81 +41,16 @@ permissions:
 #      `.github/prompts/02-analysis-protocol.md` §3 for stage budgets.
 timeout-minutes: 60
 
-features:
-  mcp-gateway: true
 
 imports:
   - .github/agents/news-generation.agent.md
+  - shared/config/news-common-settings.md
   - shared/mcp/news-mcp-servers.md
+  - shared/prompts/news-unified-runtime.md
 
 concurrency:
   group: "news-propositions"
   cancel-in-progress: false
-
-runtimes:
-  node:
-    version: "26"
-
-# Network allowlist — uses ecosystem identifiers where possible (per
-# upstream docs/reference/network.md §"Ecosystem Identifiers"):
-#   - `defaults` — basic infrastructure (certs, JSON schema, package mirrors)
-#   - `github`   — all GitHub domains (replaces explicit github.com/api.github.com)
-#   - `node`     — npm/npx ecosystem (needed for MCP server boot via npx)
-# Plus EP/IMF/WB data sources and Hack23 publication targets as explicit domains.
-network:
-  allowed:
-    # ── gh-aw ecosystem identifiers ───────────────────────────────────
-    - defaults                           # certs, JSON schema, package mirrors
-    - github                             # all GitHub domains (*.github.com / githubusercontent.com)
-    - node                               # npm / npx ecosystem (MCP server boot)
-    # ── Container registries (node:26-alpine MCP backend pulls) ─────────
-    - docker.io
-    - registry-1.docker.io
-    - auth.docker.io
-    - production.cloudflare.docker.com
-    # ── EU Parliament & EU institutions ───────────────────────────────
-    - "*.europa.eu"                      # catch-all for any europa.eu subdomain
-    - europarl.europa.eu
-    - www.europarl.europa.eu
-    - data.europarl.europa.eu
-    - admin.data.europarl.europa.eu
-    - multimedia.europarl.europa.eu
-    - oeil.secure.europarl.europa.eu
-    - ec.europa.eu
-    - eur-lex.europa.eu
-    - iate.europa.eu
-    - digital-strategy.ec.europa.eu
-    - data.europa.eu
-    - data.consilium.europa.eu
-    - data.ecb.europa.eu
-    # ── IMF (SDMX 3.0 + supporting hosts) ─────────────────────────────
-    - "*.imf.org"                        # catch-all for any imf.org subdomain
-    - api.imf.org                        # SDMX 3.0 endpoint (Azure-APIM)
-    - data.imf.org                       # public IMF data portal
-    - www.imf.org
-    - dataservices.imf.org               # legacy SDMX 2.1 (deprecated Sept 2025)
-    - sdmx.imf.org
-    # ── World Bank ────────────────────────────────────────────────────
-    - "*.worldbank.org"                  # catch-all for any worldbank.org subdomain
-    - api.worldbank.org
-    - data.worldbank.org
-    - www.worldbank.org
-    # ── Hack23-owned domains ──────────────────────────────────────────
-    - "*.hack23.com"                     # catch-all for any hack23.com subdomain
-    - hack23.com
-    - www.hack23.com
-    - hack23.github.io
-    - "*.euparliamentmonitor.com"
-    - euparliamentmonitor.com
-    - www.euparliamentmonitor.com
-    - api.euparliamentmonitor.com
-    - "*.riksdagsmonitor.com"
-    - riksdagsmonitor.com
-    - www.riksdagsmonitor.com
-    - blacktrigram.com
-    - www.blacktrigram.com
-    - ciacompliancemanager.com
-    - www.ciacompliancemanager.com
 
 # Tools — all available read/edit/web/memory tools the agent needs for a
 # resilient 60-min news-generation session. See upstream reference/tools.md
@@ -315,27 +250,6 @@ engine:
 ---
 # 📰 EU Parliament Propositions — Unified Workflow
 
-You are the **Analysis Agent** for EU Parliament Monitor. This workflow runs
-**Stages A → B → C → D → E** in a single agent session and ships **one PR**
-containing both the analysis artifacts and the rendered article(s) for
-this article type. There is no paired article workflow — Stage D is a
-deterministic CLI invocation (`npm run generate-article`), not an agent
-prose pass.
-
-## 📚 Required Reading (read in this order, once per run)
-
-1. [`.github/prompts/00-scope-and-ground-rules.md`](../prompts/00-scope-and-ground-rules.md) — workspace scope, forbidden/allowed edits, neutrality, **agent never writes article prose**
-2. [`.github/prompts/08-infrastructure.md`](../prompts/08-infrastructure.md) — frontmatter, MCP gateway, stable folder layout, `--analysis-only` flag, `npm run generate-article`
-3. [`.github/prompts/01-data-collection.md`](../prompts/01-data-collection.md) — Stage A
-4. [`.github/prompts/07-mcp-reference.md`](../prompts/07-mcp-reference.md) — canonical tool tables
-5. [`.github/prompts/02-analysis-protocol.md`](../prompts/02-analysis-protocol.md) — Stage B (2 passes; §2 re-run merge rule; §3 time budgets)
-6. [`.github/prompts/03-analysis-completeness-gate.md`](../prompts/03-analysis-completeness-gate.md) — Stage C (blocking); §6b resuming a same-day folder
-7. [`.github/prompts/04-article-generation.md`](../prompts/04-article-generation.md) — Stage D (deterministic CLI; metadata/SEO contract; agents do not author prose)
-8. [`.github/prompts/05-analysis-to-article-contract.md`](../prompts/05-analysis-to-article-contract.md) — artifact-to-article contract and read-before-render duties
-9. [`Article-Generation.md`](../../Article-Generation.md) — end-to-end article pipeline reference, UI/UX export contract, and `article.md` provenance
-10. [`.github/prompts/06-pr-and-safe-outputs.md`](../prompts/06-pr-and-safe-outputs.md) — **single-PR rule**, unified-workflow PR contract
-11. On error → [`.github/prompts/09-troubleshooting.md`](../prompts/09-troubleshooting.md)
-
 ## 🔖 Workflow Parameters
 
 | Parameter | Value |
@@ -397,22 +311,6 @@ echo "WORKFLOW_START_EPOCH=$WORKFLOW_START_EPOCH" >> "$GITHUB_ENV"
 > **⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to any MCP tool,
 > always derive dates from `$TODAY` / `$LAST_WEEK` / `$LAST_MONTH`. Never
 > hard-code a year.
-
-## 🔁 Stage Order (absolute)
-
-```
-Stage A · Data Collection (per-slug budget — see article-horizons.ts)
-  → Stage B · Analysis (Pass 1 + Pass 2, hard ceiling per article-horizons.ts)
-    → Stage C · Completeness Gate (≤ 4 min) — BLOCKING; elapsed-time
-      tripwire (per-slug) forces ANALYSIS_ONLY before Stage D
-      → Stage D · Article Render (npm run generate-article — deterministic, ≤ 2 min)
-        → Stage E · Single PR (≤ 2 min — by minute ≤ 45; exactly once)
-```
-
-> Per-slug minute boundaries are derived from
-> `src/config/article-horizons.ts` (`stageBudgets`) and surfaced in
-> the Workflow-Parameters table above. The full table of per-family
-> tripwires lives in [`.github/prompts/02-analysis-protocol.md` §3](../prompts/02-analysis-protocol.md#3--minimum-analysis-time).
 
 ### Stage A — Data Collection (Ref: 01, 07)
 
