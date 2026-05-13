@@ -1,0 +1,37 @@
+{
+  "date": "2026-05-13",
+  "articleType": "committee-reports",
+  "runId": "committee-reports-run249-1778650040",
+  "gateResult": "GREEN",
+  "slug": "2026-05-13-committee-reports",
+  "articlePath": "analysis/daily/2026-05-13/committee-reports/article.md",
+  "topFinding": "The week of 6–13 May 2026 marks a pivotal inflection point in EP10's legislative trajectory.",
+  "keyTakeaways": [],
+  "topRisks": [
+    "**Probability**: 1 (Rare) → 5 (Almost Certain)",
+    "**Impact**: 1 (Negligible) → 5 (Catastrophic)",
+    "**Risk Score** = Probability × Impact (1–25)",
+    "**Risk Level**: 🔴 HIGH (15–25) | 🟡 MEDIUM (8–14) | 🟢 LOW (1–7)"
+  ],
+  "keyDates": [],
+  "keyActors": [
+    "Role: Primary legislative actor in committee phase; mandator for trilogue negotiations",
+    "Key individuals: Committee Chairs (EPP-majority) and Rapporteurs (d'Hondt allocated)",
+    "Decision-making authority: Committee votes → plenary mandate → trilogue text",
+    "Alignment: Fragmented across 9 political groups; EPP-led majority on most committees",
+    "DG Environment (ENVI files): UWWTD, NRL instruments, Packaging",
+    "DG FISMA (ECON files): AMLR, CMU Phase 2, MiFIR",
+    "DG CONNECT (ITRE/IMCO files): AI Act, AI Liability, DMA enforcement, EU-US DTA",
+    "Alignment: Pro-Omnibus simplification; pro-AMLA independence; pro-AI innovation with safeguards"
+  ],
+  "macroContext": "Data source note: Comprehensive real-time IMF SDMX data was not retrievable in this run due to MCP gateway configuration (EPMCPGATEWAY_URL not set).",
+  "sources": [
+    "classification/actor-mapping.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
