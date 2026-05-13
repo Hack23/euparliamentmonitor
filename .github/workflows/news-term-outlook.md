@@ -45,6 +45,7 @@ timeout-minutes: 60
 imports:
   - .github/agents/news-generation.agent.md
   - shared/config/news-common-settings.md
+  - shared/config/news-safe-outputs-domains.md
   - shared/mcp/news-mcp-servers.md
   - shared/prompts/news-unified-runtime.md
 
@@ -107,52 +108,10 @@ safe-outputs:
             fi
           fi
         fi
-  allowed-domains:
-    # ── gh-aw ecosystem identifier ────────────────────────────────────
-    - github                             # github.com + api.github.com (PR creation, links)
-    # ── EU Parliament & EU institutions ───────────────────────────────
-    - "*.europa.eu"
-    - europarl.europa.eu
-    - www.europarl.europa.eu
-    - data.europarl.europa.eu
-    - admin.data.europarl.europa.eu
-    - multimedia.europarl.europa.eu
-    - oeil.secure.europarl.europa.eu
-    - ec.europa.eu
-    - eur-lex.europa.eu
-    - iate.europa.eu
-    - digital-strategy.ec.europa.eu
-    - data.europa.eu
-    - data.consilium.europa.eu
-    - data.ecb.europa.eu
-    # ── IMF ───────────────────────────────────────────────────────────
-    - "*.imf.org"
-    - api.imf.org
-    - data.imf.org
-    - www.imf.org
-    - dataservices.imf.org
-    - sdmx.imf.org
-    # ── World Bank ────────────────────────────────────────────────────
-    - "*.worldbank.org"
-    - api.worldbank.org
-    - data.worldbank.org
-    - www.worldbank.org
-    # ── Hack23-owned domains ──────────────────────────────────────────
-    - "*.hack23.com"
-    - hack23.com
-    - www.hack23.com
-    - hack23.github.io
-    - "*.euparliamentmonitor.com"
-    - euparliamentmonitor.com
-    - www.euparliamentmonitor.com
-    - api.euparliamentmonitor.com
-    - "*.riksdagsmonitor.com"
-    - riksdagsmonitor.com
-    - www.riksdagsmonitor.com
-    - blacktrigram.com
-    - www.blacktrigram.com
-    - ciacompliancemanager.com
-    - www.ciacompliancemanager.com
+  # `safe-outputs.allowed-domains` is inherited from
+  # .github/workflows/shared/config/news-safe-outputs-domains.md (identical
+  # across all 14 unified article workflows). Add domains there to apply
+  # the change globally; declare slug-specific overrides here only if needed.
   create-pull-request:
     title-prefix: "[news] "
     labels: [agentic-news, analysis-data, "type:term-outlook"]
