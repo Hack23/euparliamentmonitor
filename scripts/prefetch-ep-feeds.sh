@@ -27,10 +27,18 @@
 #
 # Output:
 #   - Writes one JSON file per feed to ${ANALYSIS_DIR}/data/<feed>-feed.json
-#   - On fetch failure, writes a `{"items":[]}` placeholder so the agent
-#     can detect "feed unavailable" without retrying via MCP
+#   - On fetch failure, writes a canonical "feed unavailable" envelope
+#     (status:"unavailable", items:[], itemCount:0, generatedAt:<ISO>)
+#     matching the EP MCP feed-status contract, so downstream analysis
+#     can use a single `status === "unavailable"` check
 #   - Exports ANALYSIS_DIR and TODAY to $GITHUB_ENV for subsequent steps
 #   - Echoes a summary line with file count
+#   - Exits 2 (fail-fast) on unknown feed names — typos in workflow slug
+#     /feed lists would otherwise silently disable prefetch
+#
+# Per-feed timeouts:
+#   - `events`  → 120s (EP API is documented as slow for this feed)
+#   - default   → 60s
 #
 # Safety notes (AWF shell-safety filter compliance):
 #   - No nested parameter expansion, no indirect expansion, no `${var@P}`
@@ -51,9 +59,24 @@ shift
 
 EP_API="https://data.europarl.europa.eu/api/v2"
 ACCEPT_HDR="Accept: application/ld+json"
-TIMEOUT_SECS=30
+
+# Per-feed connection timeouts (seconds). `events` is documented as slow
+# (often 30–120s+ — see .github/prompts/09-troubleshooting.md and the EP
+# MCP `get_events_feed` tool description). Procedure and document feeds
+# return quickly. Defaults below leave enough head-room that placeholders
+# are only written for true upstream outages, not transient slowness.
+TIMEOUT_EVENTS=120
+TIMEOUT_DEFAULT=60
+
+feed_timeout() {
+  case "$1" in
+    events) printf '%s' "$TIMEOUT_EVENTS" ;;
+    *)      printf '%s' "$TIMEOUT_DEFAULT" ;;
+  esac
+}
 
 TODAY=$(date -u +%Y-%m-%d)
+NOW_ISO=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 SCRIPT_DIR=$(dirname -- "$0")
 ANALYSIS_DIR=$(bash "$SCRIPT_DIR/resolve-analysis-dir.sh" "$TODAY" "$SLUG")
 
@@ -74,23 +97,47 @@ controlled-vocabularies|corporate-bodies)
   esac
 }
 
+# Write the canonical "feed unavailable" envelope. Matches the shape the
+# EP MCP client surfaces when an upstream feed returns no data (see
+# `.github/workflows/shared/mcp/news-mcp-servers.md` feed-status contract):
+#   { "status": "unavailable", "items": [], "itemCount": 0, "generatedAt": <ISO> }
+# Keeping the same shape means downstream analysis prompts can use a
+# single `status === "unavailable"` check without per-source schema branches.
+#
+# The `source: "prefetch-ep-feeds.sh"` field distinguishes prefetch-generated
+# placeholders from EP MCP-generated unavailable responses, so downstream
+# analysis (and post-mortem audits) can identify which layer produced the
+# placeholder — useful when triaging why a feed showed up unavailable.
+write_unavailable_placeholder() {
+  local out_file="$1"
+  local feed_name="$2"
+  printf '{"status":"unavailable","items":[],"itemCount":0,"generatedAt":"%s","feed":"%s","source":"prefetch-ep-feeds.sh"}\n' \
+    "$NOW_ISO" "$feed_name" > "$out_file"
+}
+
 FETCHED=0
 PLACEHOLDERS=0
 for feed in "$@"; do
   if ! is_allowed_feed "$feed"; then
-    echo "❌ unknown feed name: $feed (skipping)" >&2
-    continue
+    # Fail fast on unknown feed name: this is a workflow configuration bug
+    # (typo in the slug/feed list) and silently skipping would reintroduce
+    # the invocation-cap problem this script exists to solve. Exit 2 so
+    # the calling step fails loudly (continue-on-error is intentionally
+    # NOT set on the prefetch step in any article workflow).
+    echo "❌ unknown feed name: $feed" >&2
+    exit 2
   fi
   out_file="${ANALYSIS_DIR}/data/${feed}-feed.json"
-  if curl -s --max-time "$TIMEOUT_SECS" --fail \
+  feed_to=$(feed_timeout "$feed")
+  if curl -s --max-time "$feed_to" --fail \
        -H "$ACCEPT_HDR" \
        "${EP_API}/${feed}/feed" \
        -o "$out_file" 2>/dev/null; then
-    echo "✅ ${feed}-feed fetched"
+    echo "✅ ${feed}-feed fetched (timeout=${feed_to}s)"
     FETCHED=$((FETCHED + 1))
   else
-    echo '{"items":[]}' > "$out_file"
-    echo "⚠️  ${feed}-feed unavailable — empty placeholder written"
+    write_unavailable_placeholder "$out_file" "$feed"
+    echo "⚠️  ${feed}-feed unavailable — unavailable-envelope placeholder written (timeout=${feed_to}s)"
     PLACEHOLDERS=$((PLACEHOLDERS + 1))
   fi
 done

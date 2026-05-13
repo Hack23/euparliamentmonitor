@@ -190,7 +190,6 @@ steps:
       npm run copy-vendor
 
   - name: Pre-fetch EP feeds (deterministic Stage A)
-    continue-on-error: true
     run: bash scripts/prefetch-ep-feeds.sh week-ahead procedures documents events
 
 # Post-execution recovery: when the agent commits Stage E output to a local

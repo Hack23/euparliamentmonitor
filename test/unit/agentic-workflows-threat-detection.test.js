@@ -133,6 +133,21 @@ describe('agentic workflow threat detection policy', () => {
       // which already lives outside the workflow body.
       const inlineCurlMatches = content.match(/curl[^\n]*data\.europarl\.europa\.eu/g) || [];
       expect(inlineCurlMatches.length, `${workflow} must not inline EP API curl calls`).toBe(0);
+
+      // The prefetch step must NOT carry `continue-on-error: true`. The
+      // script already handles network failures by writing an
+      // unavailable-envelope placeholder and exits non-zero only on real
+      // configuration bugs (e.g., unknown feed name). Masking those exits
+      // would silently disable prefetch and reintroduce the 100-invocation
+      // cap issue. See PR #1899 reviewer feedback.
+      const prefetchStepMatch = content.match(
+        /- name: Pre-fetch EP feeds[^\n]*\n((?:    [^\n]*\n)+)/,
+      );
+      expect(prefetchStepMatch, `${workflow} must declare the Pre-fetch EP feeds step`).not.toBeNull();
+      expect(
+        prefetchStepMatch[1],
+        `${workflow} prefetch step must NOT set continue-on-error: true`,
+      ).not.toContain('continue-on-error: true');
     }
   });
 });
