@@ -188,6 +188,9 @@ steps:
     run: |
       npm run copy-vendor
 
+  - name: Pre-fetch EP feeds (deterministic Stage A)
+    run: bash scripts/prefetch-ep-feeds.sh week-in-review procedures documents events adopted-texts
+
 # Post-execution recovery: when the agent commits Stage E output to a local
 # news/* branch but the safeoutputs MCP `create_pull_request` call fails with
 # `session not found` (well-known TTL expiry — see prompts/09-troubleshooting.md

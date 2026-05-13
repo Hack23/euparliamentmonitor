@@ -190,6 +190,9 @@ steps:
     run: |
       npm run copy-vendor
 
+  - name: Pre-fetch EP feeds (deterministic Stage A)
+    run: bash scripts/prefetch-ep-feeds.sh motions adopted-texts meps documents procedures
+
 # Post-execution recovery: when the agent commits Stage E output to a local
 # news/* branch but the safeoutputs MCP create_pull_request path later fails
 # (session TTL expiry, or a bundle prerequisite race in the write job), the

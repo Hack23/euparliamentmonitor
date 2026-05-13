@@ -190,6 +190,9 @@ steps:
     run: |
       npm run copy-vendor
 
+  - name: Pre-fetch EP feeds (deterministic Stage A)
+    run: bash scripts/prefetch-ep-feeds.sh propositions procedures external-documents committee-documents
+
 # Post-execution recovery: when the agent commits Stage E output to a local
 # news/* branch but the safeoutputs MCP create_pull_request path later fails
 # (session TTL expiry, or a bundle prerequisite race in the write job), the
@@ -314,11 +317,13 @@ echo "WORKFLOW_START_EPOCH=$WORKFLOW_START_EPOCH" >> "$GITHUB_ENV"
 
 ### Stage A — Data Collection (Ref: 01, 07)
 
-Run the canonical gateway block from `08-infrastructure.md` §4. Source
-`scripts/mcp-setup.sh`, then `scripts/wb-mcp-probe.sh` and
-`scripts/imf-mcp-probe.sh`. Collect EP feed data first; fall back to
-direct endpoints on failure. Deep-fetch up to 10 procedures / voting
-records / meeting decisions into `${ANALYSIS_DIR}/data/`. Target ≤ 4 min.
+Pre-fetched feed data is already in `${ANALYSIS_DIR}/data/`
+(`procedures-feed.json`, `external-documents-feed.json`,
+`committee-documents-feed.json`) — see the universal **Invocation Budget
+Discipline** in `news-unified-runtime.md`. Source `scripts/mcp-setup.sh`,
+read the pre-fetched feeds from disk, then supplement with at most **3
+`track_legislation`** deep-fetches for the highest-priority procedures.
+Target ≤ 4 min total for Stage A.
 
 ### Stage B — Analysis (Ref: 02 §"Re-run improve/extend rule" — never no-op)
 
