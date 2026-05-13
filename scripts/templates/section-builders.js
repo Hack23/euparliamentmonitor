@@ -267,7 +267,7 @@ function buildBannerSrcset(pathPrefix, format) {
 export function buildResponsiveBannerPicture(options) {
     const pictureClass = options.pictureClass ? ` class="${escapeHTML(options.pictureClass)}"` : '';
     const loading = options.loading ?? 'eager';
-    const extraAttributes = options.extraImageAttributes ? ` ${options.extraImageAttributes}` : '';
+    const extraAttributes = options.ariaHidden ? ' aria-hidden="true"' : '';
     const safeSizes = escapeHTML(options.sizes);
     return `<picture${pictureClass}>
           <source srcset="${buildBannerSrcset(options.pathPrefix, 'avif')}" sizes="${safeSizes}" type="image/avif">
@@ -394,7 +394,7 @@ export function buildPageBanner(pathPrefix) {
         imageClass: 'page-banner__img',
         alt: '',
         sizes: '100vw',
-        extraImageAttributes: 'aria-hidden="true"',
+        ariaHidden: true,
     })}
   </div>`;
 }

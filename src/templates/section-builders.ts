@@ -403,7 +403,13 @@ export interface ResponsiveBannerPictureOptions {
   alt: string;
   sizes: string;
   loading?: 'eager' | 'lazy' | undefined;
-  extraImageAttributes?: string | undefined;
+  /**
+   * When true, renders `aria-hidden="true"` on the `<img>` so screen readers
+   * skip purely decorative banner imagery. Modelled as a typed flag (rather
+   * than a free-form attribute string) so callers cannot inject arbitrary
+   * markup into the rendered tag.
+   */
+  ariaHidden?: boolean | undefined;
 }
 
 const RESPONSIVE_BANNER_WIDTHS: readonly number[] = [320, 480, 768, 1200];
@@ -430,7 +436,7 @@ function buildBannerSrcset(pathPrefix: string, format: 'avif' | 'webp' | 'jpg'):
 export function buildResponsiveBannerPicture(options: ResponsiveBannerPictureOptions): string {
   const pictureClass = options.pictureClass ? ` class="${escapeHTML(options.pictureClass)}"` : '';
   const loading = options.loading ?? 'eager';
-  const extraAttributes = options.extraImageAttributes ? ` ${options.extraImageAttributes}` : '';
+  const extraAttributes = options.ariaHidden ? ' aria-hidden="true"' : '';
   const safeSizes = escapeHTML(options.sizes);
   return `<picture${pictureClass}>
           <source srcset="${buildBannerSrcset(options.pathPrefix, 'avif')}" sizes="${safeSizes}" type="image/avif">
@@ -574,7 +580,7 @@ export function buildPageBanner(pathPrefix: string): string {
       imageClass: 'page-banner__img',
       alt: '',
       sizes: '100vw',
-      extraImageAttributes: 'aria-hidden="true"',
+      ariaHidden: true,
     })}
   </div>`;
 }

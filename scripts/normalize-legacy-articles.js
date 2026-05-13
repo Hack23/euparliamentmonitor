@@ -37,8 +37,9 @@
 //      historical news archive.
 //
 // Idempotency contract:
-//   - If both rewrites produce content identical to what's already on disk,
-//     the file is left untouched (mtime preserved → S3 skip).
+//   - If all three rewrites (CSP, Mermaid pin, responsive images) produce
+//     content identical to what's already on disk, the file is left untouched
+//     (mtime preserved → S3 skip).
 //   - Re-running with the same MERMAID_VERSION on already-normalised
 //     articles is a byte-level no-op.
 //
@@ -123,9 +124,9 @@ function bannerSrcset(prefix, format) {
   return bannerWidths.map((width) => `${prefix}images/banner-${width}.${format} ${width}w`).join(', ');
 }
 
-function responsiveBannerPicture(prefix, pictureClass, imageClass, alt, sizes, extra = '') {
+function responsiveBannerPicture(prefix, pictureClass, imageClass, alt, sizes, ariaHidden = false) {
   const classAttr = pictureClass ? ` class="${pictureClass}"` : '';
-  const extraAttr = extra ? ` ${extra}` : '';
+  const extraAttr = ariaHidden ? ' aria-hidden="true"' : '';
   return `<picture${classAttr}>
           <source srcset="${bannerSrcset(prefix, 'avif')}" sizes="${sizes}" type="image/avif">
           <source srcset="${bannerSrcset(prefix, 'webp')}" sizes="${sizes}" type="image/webp">
@@ -170,18 +171,19 @@ function responsiveSocialMeta(alt) {
 function normaliseResponsiveImages(content) {
   let out = content;
   out = out.replace(
-    /<picture class="site-header__logo-picture">\s*<source srcset="\.\.\/images\/(?:banner|header-logo)\.webp" type="image\/webp">\s*<img class="site-header__logo site-header__logo--(?:banner|header)" src="\.\.\/images\/(?:banner\.jpg|header-logo\.png)" alt="[^"]*" width="(?:240|96|1200)" height="(?:80|64|400)"(?: loading="eager")?(?: aria-hidden="true")?>\s*<\/picture>/g,
-    responsiveBannerPicture(
-      '../',
-      'site-header__logo-picture',
-      'site-header__logo site-header__logo--banner',
-      'EU Parliament Monitor',
-      '(max-width: 640px) 58vw, (max-width: 1200px) 15vw, 260px'
-    )
+    /<picture class="site-header__logo-picture">\s*<source srcset="\.\.\/images\/(?:banner|header-logo)\.webp" type="image\/webp">\s*<img class="site-header__logo site-header__logo--(?:banner|header)" src="\.\.\/images\/(?:banner\.jpg|header-logo\.png)" alt="([^"]*)" width="(?:240|96|1200)" height="(?:80|64|400)"(?: loading="eager")?(?: aria-hidden="true")?>\s*<\/picture>/g,
+    (_match, existingAlt) =>
+      responsiveBannerPicture(
+        '../',
+        'site-header__logo-picture',
+        'site-header__logo site-header__logo--banner',
+        existingAlt || 'EU Parliament Monitor',
+        '(max-width: 640px) 58vw, (max-width: 1200px) 15vw, 260px'
+      )
   );
   out = out.replace(
     /<picture>\s*<source srcset="\.\.\/images\/banner\.webp" type="image\/webp">\s*<img class="page-banner__img" src="\.\.\/images\/banner\.jpg" alt="" aria-hidden="true" width="1200" height="400" loading="eager">\s*<\/picture>/g,
-    responsiveBannerPicture('../', '', 'page-banner__img', '', '100vw', 'aria-hidden="true"')
+    responsiveBannerPicture('../', '', 'page-banner__img', '', '100vw', true)
   );
   out = out.replace(
     /  <meta property="og:image" content="https:\/\/(?:euparliamentmonitor\.com|hack23\.github\.io\/euparliamentmonitor)\/images\/og-image\.jpg">\n  <meta property="og:image:alt" content="([^"]*)">\n  <meta property="og:image:width" content="1200">\n  <meta property="og:image:height" content="630">/g,

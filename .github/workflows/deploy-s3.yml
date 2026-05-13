@@ -205,7 +205,7 @@ jobs:
             --content-type 'text/html; charset=utf-8' \
             --no-guess-mime-type \
             "${EXCL[@]}"
-          echo "✅ Pass 1/6: HTML files synced"
+          echo "✅ Pass 1/12: HTML files synced"
 
           # ─── Pass 2: Static assets except raster images (long cache) ───────
           # --size-only is safe here: all assets are fingerprinted (vendor chunks
@@ -229,7 +229,7 @@ jobs:
           # applies one --content-type value to every included object when
           # --no-guess-mime-type is enabled.
           aws s3 sync "$SRC" "$BUCKET" \
-            --size-only \
+            --checksum-algorithm SHA256 \
             --no-progress \
             --exclude '*' --include '*.avif' \
             --cache-control 'public, max-age=31536000, immutable' \
@@ -239,7 +239,7 @@ jobs:
           echo "✅ Pass 3/12: AVIF images synced"
 
           aws s3 sync "$SRC" "$BUCKET" \
-            --size-only \
+            --checksum-algorithm SHA256 \
             --no-progress \
             --exclude '*' --include '*.webp' \
             --cache-control 'public, max-age=31536000, immutable' \
@@ -249,7 +249,7 @@ jobs:
           echo "✅ Pass 4/12: WebP images synced"
 
           aws s3 sync "$SRC" "$BUCKET" \
-            --size-only \
+            --checksum-algorithm SHA256 \
             --no-progress \
             --exclude '*' --include '*.png' \
             --cache-control 'public, max-age=31536000, immutable' \
@@ -259,7 +259,7 @@ jobs:
           echo "✅ Pass 5/12: PNG images synced"
 
           aws s3 sync "$SRC" "$BUCKET" \
-            --size-only \
+            --checksum-algorithm SHA256 \
             --no-progress \
             --exclude '*' --include '*.jpg' --include '*.jpeg' \
             --cache-control 'public, max-age=31536000, immutable' \
@@ -269,7 +269,7 @@ jobs:
           echo "✅ Pass 6/12: JPEG images synced"
 
           aws s3 sync "$SRC" "$BUCKET" \
-            --size-only \
+            --checksum-algorithm SHA256 \
             --no-progress \
             --exclude '*' --include '*.gif' \
             --cache-control 'public, max-age=31536000, immutable' \
@@ -279,7 +279,7 @@ jobs:
           echo "✅ Pass 7/12: GIF images synced"
 
           aws s3 sync "$SRC" "$BUCKET" \
-            --size-only \
+            --checksum-algorithm SHA256 \
             --no-progress \
             --exclude '*' --include '*.ico' \
             --cache-control 'public, max-age=31536000, immutable' \
