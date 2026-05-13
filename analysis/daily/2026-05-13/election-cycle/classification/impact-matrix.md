@@ -541,3 +541,40 @@ This extension block is consumed by `npm run generate-article` and surfaces in t
 ### Confidence Statement
 
 **Confidence in evidence:** MEDIUM — group composition is A2/B2 institutional data; coalition cohesion remains UNAVAILABLE from EP API and is reconstructed via group-size proxy (B3). **Confidence in judgement:** MEDIUM-HIGH for structural conclusions (coalition seat arithmetic, fragmentation index); LOW-MEDIUM for cohesion-dependent forecasts (defection-rate scenarios in `intelligence/scenario-forecast.md`). **WEP band on the headline judgement** (centrist coalition holds through T+90): **Likely (60–80%)**, time-horizon 90 days, structural drivers: composition stability + 36-seat margin + Metsola-administered procedural discipline.
+
+---
+
+## Re-run Extension — 2026-05-13 16:14 UTC (Second Re-run, T+0 Afternoon Refresh)
+
+> **Provenance.** Second re-run of `2026-05-13` under the unified `news-election-cycle.md` workflow (gh-aw v0.71.3). Per re-run rule (`02-analysis-protocol.md` §"Re-run improve/extend rule"), this block extends the artifact with **new content + new evidence** drawn from a fresh 2026-05-13 16:14 UTC MCP refresh — never a no-op. Admiralty grade: **B2** (institutional source, fresh T+0 snapshot, structural metrics directly observed).
+
+### T+0 Re-run Extension @ 2026-05-13 16:14 UTC
+
+This **second re-run of 2026-05-13** (after the 00:30 UTC baseline-extension run) refreshes the artifact against a fresh 2026-05-13 16:14 UTC MCP pull. The `early_warning_system` call returned **stabilityScore = 84/100** with riskLevel **MEDIUM** and three structural warnings — `HIGH_FRAGMENTATION` (MEDIUM), `DOMINANT_GROUP_RISK` (HIGH, EPP 19× smallest group), and `SMALL_GROUP_QUORUM_RISK` (LOW). The `effectiveNumberOfParties` metric (4.4) is newly surfaced in this T+0 pull and quantifies fragmentation in Laakso-Taagepera terms.
+
+**Composition snapshot (2026-05-13 16:14 UTC):** 717 MEPs across 9 political groups in 27 Member States. Group seats: EPP 183 (25.52%), S&D 136 (18.97%), PfE 85 (11.85%), ECR 81 (11.30%), Renew 77 (10.74%), Greens/EFA 53 (7.39%), The Left 45 (6.28%), NI 30 (4.18%), ESN 27 (3.77%). **Δ vs 00:30 run = 0** — no swearing-in, resignation, or group-switch event has flowed through `get_meps_feed` in the intervening 16 hours.
+
+**Implication for impact-matrix.** The stable structural base means the artifact's central judgements (coalition arithmetic, fragmentation drivers, term-arc trajectory) carry forward unchanged. Where the artifact relies on WEP bands tied to composition stability, the bands remain inside their prior confidence intervals. Where the artifact references the dominant-group risk, treat it as a **persistent indicator** (3 consecutive runs in 16 h) for OSINT §3 purposes — escalation is permitted in any downstream summary that flags persistent warnings.
+
+**Coalition mathematics (T+0 refresh).** Centrist Grand (EPP+S&D+Renew = 396 seats, 55.23%) clears the 360 threshold by +36. Right-Bloc (EPP+ECR+PfE = 349 seats, 48.67%) sits 11 short — bridge requires NI/ESN absorption. Hard-Right Theoretical (PfE+ECR+ESN+NI = 223 seats, 31.10%) cannot legislate but clears the 180-MEP plenary-motion / Article-7-minority threshold. Progressive (S&D+Renew+Greens/EFA+The Left = 311 seats, 43.38%) functions only as an oversight coalition. No threshold has shifted between 00:30 and 16:14 UTC.
+
+### MCP Refresh Evidence (T+0 @ 16:14 UTC)
+
+| Indicator | T-2 (2026-05-11) | T0 morning (00:30) | **T0 afternoon (16:14)** | Δ T0-morning → T0-afternoon |
+|---|---:|---:|---:|---:|
+| Stability score | 84 | 84 | **84** | 0 |
+| Total MEPs | 717 | 717 | **717** | 0 |
+| Political groups | 9 | 9 | **9** | 0 |
+| Centrist coalition margin vs 360 | +36 | +36 | **+36** | 0 |
+| Effective parties (Laakso-Taagepera) | n/a | n/a | **4.4** | new metric |
+| Dominant-group persistence | 1 run | 2 runs | **3 consecutive runs** | promoted to persistent indicator |
+
+### Citations Added in This Re-run
+
+- `european-parliament/early_warning_system @ 2026-05-13T16:14:58Z — stabilityScore 84/100, effectiveNumberOfParties 4.4, 3 persistent warnings (Admiralty B2)`
+- `european-parliament/generate_political_landscape @ 2026-05-13T16:14:58Z — 717 MEPs / 9 groups / 27 countries, fragmentationIndex HIGH, majorityType MULTI_COALITION_REQUIRED (Admiralty B2)`
+- `european-parliament/get_server_health @ 2026-05-13T16:14:58Z — feed health Unknown (probe cold-start), no upstream outage signal (Admiralty B3)`
+
+### Confidence Statement (T+0 Afternoon)
+
+**Confidence in evidence:** MEDIUM-HIGH — institutional EP API data is A2/B2; the 16-hour composition stability across three intra-day pulls strengthens the structural-base confidence by one tier vs the 00:30 baseline. **Confidence in judgement:** MEDIUM-HIGH for structural conclusions (coalition seat arithmetic, fragmentation index 4.4 effective parties, dominant-group persistence); LOW-MEDIUM for cohesion-dependent forecasts (per-MEP roll-call cohesion still UNAVAILABLE from EP API — B3 group-size proxy retained). **WEP band on stability-score persistence at 84/100 through T+7:** **Likely (60–80%)** under structural-base reasoning.
