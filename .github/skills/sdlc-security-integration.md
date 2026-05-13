@@ -214,7 +214,7 @@ Prefer dependencies that:
 
 - `package.json` uses conservative ranges (`^x.y.z`); `package-lock.json` committed for integrity
 - GitHub Actions pinned to **commit SHA** with a comment stating the version tag
-- Docker base images pinned to digest (e.g. `node:25-alpine@sha256:...`) in workflows
+- Docker base images pinned to digest (e.g. `node:26-alpine@sha256:...`) in workflows
 
 ### Step 6 — Documentation
 

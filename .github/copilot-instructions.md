@@ -14,7 +14,7 @@
 
 **EU Parliament Monitor** is a European Parliament Intelligence Platform generating multi-language news articles (14 languages) using EP open data via MCP server integration, powered by GitHub Agentic Workflows.
 
-- **Stack**: Node.js 25, TypeScript 6, HTML5/CSS3, Vitest, Playwright, ESLint
+- **Stack**: Node.js 26, TypeScript 6, HTML5/CSS3, Vitest, Playwright, ESLint
 - **License**: Apache-2.0 | **Deployment**: AWS S3/CloudFront (primary) with GitHub Pages as fallback/runbook
 - **Data**: European Parliament MCP Server (`european-parliament-mcp-server@1.3.3`)
 - **Languages**: EN, SV, DA, NO, FI, DE, FR, ES, NL, AR, HE, JA, KO, ZH

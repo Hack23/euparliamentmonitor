@@ -29,7 +29,7 @@ The workflow frontmatter then adds the non-MCP configuration:
 ```yaml
 runtimes:
   node:
-    version: "25"             # Runner uses Node.js 25
+    version: "26"             # Runner uses Node.js 26
 
 # Network allowlist — uses ecosystem identifiers where possible (per
 # upstream docs/reference/network.md §"Ecosystem Identifiers"):
@@ -73,11 +73,10 @@ sandbox:
 engine:
   id: copilot
   model: claude-sonnet-4.6
-  max-continuations: 1
 
 tools:
-  timeout: 300                # per-tool-call cap (bash, MCP, github, edit, web-fetch)
-  startup-timeout: 90         # MCP server boot via npx package-pull
+  timeout: 180                # per-tool-call cap (bash, MCP, github, edit, web-fetch)
+  startup-timeout: 180        # MCP server boot via npx package-pull
   github:
     toolsets: [all]           # all read toolsets EXCEPT `dependabot` (intentional)
   bash: true
@@ -92,12 +91,6 @@ tools:
     key: news-<type>-${{ github.repository_owner }}
     retention-days: 7
     allowed-extensions: [".md", ".json", ".jsonl", ".txt", ".html"]
-  repo-memory:
-    branch-name: memory/news-generation
-    allowed-extensions: [".md", ".json"]
-    max-file-size: 51200
-    max-file-count: 50
-    max-patch-size: 51200
 ```
 
 The current shared `mcp-servers:` block (imported via
@@ -106,25 +99,25 @@ The current shared `mcp-servers:` block (imported via
 ```yaml
 mcp-servers:
   european-parliament:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "european-parliament-mcp-server@1.3.3", "--timeout", "180000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "180000"
   world-bank:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "worldbank-mcp@1.0.1"]
   fetch-proxy:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "node"
     entrypointArgs: ["-e", "<inline IMF-only JSON-RPC fetch server>"]
   memory:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "@modelcontextprotocol/server-memory"]
   sequential-thinking:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "@modelcontextprotocol/server-sequential-thinking"]
 ```
@@ -140,8 +133,8 @@ Safe-outputs block: see [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md)
 - ❌ **Never** add `tools: ["*"]` / `allowed: ["*"]`. The gh-aw MCP gateway
   (`awmg`) treats `*` as a literal tool name and exposes 0 tools. Omit the
   field entirely.
-- ❌ Never use `node:lts-alpine` — the compile workflow normalizes it to
-  `node:25-alpine` and fails if it persists.
+- ❌ Never use `node:lts-alpine` or `node:26-alpine` — MCP backend
+  containers must match the workflow Node 26 runtime (`node:26-alpine`).
 - ✅ `EP_REQUEST_TIMEOUT_MS: "180000"` (180 s) handles slow feed endpoints.
 - ✅ `fetch-proxy` must expose exactly `fetch_url`, must not use `\n` string
   literals in the inline `node -e` script (gh-aw/docker argument decoding can

@@ -170,7 +170,7 @@ timeout-minutes: 60
 
 runtimes:
   node:
-    version: "25"
+    version: "26"
 
 network:
   allowed:
@@ -187,24 +187,24 @@ network:
 
 mcp-servers:
   european-parliament:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "european-parliament-mcp-server@1.3.3", "--timeout", "90000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
     allowed: ["*"]
   world-bank:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "worldbank-mcp@1.0.1"]
     allowed: ["*"]
   memory:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "@modelcontextprotocol/server-memory"]
     allowed: ["*"]
   sequential-thinking:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "@modelcontextprotocol/server-sequential-thinking"]
     allowed: ["*"]
@@ -270,7 +270,7 @@ The `--tool` flag provides:
 3. **Title prefixes** — Use prefixes to identify automated content
 4. **Domain allowlists** — Restrict network access to required domains; use `defaults` (not `default`) for basic infrastructure
 5. **Timeout limits** — Set appropriate timeout-minutes
-6. **Runtimes** — Always include `runtimes: node: version: "25"` for Node.js 25
+6. **Runtimes** — Always include `runtimes: node: version: "26"` for Node.js 26
 7. **MCP container format** — Use `container/entrypoint/entrypointArgs/allowed` (not `command/args`)
 8. **MCP tool access** — Use `allowed: ["*"]` to grant full tool access
 9. **Compile and validate** — Always run `gh aw compile --validate`

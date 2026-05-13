@@ -36,7 +36,7 @@ Enable effective use of GitHub Agentic Workflows (gh-aw) for automated developme
 2. MUST compile workflows with `gh aw compile` before use
 3. MUST define `safe-outputs` for any write operations
 4. MUST use minimal `permissions` (read-only for agent)
-5. MUST include `runtimes: node: version: "25"` in all workflows
+5. MUST include `runtimes: node: version: "26"` in all workflows
 6. MUST use `container/entrypoint/entrypointArgs/allowed` format for MCP servers (NOT `command/args`)
 7. MUST use `defaults` (not `default`) as the network ecosystem identifier for basic infrastructure
 8. MUST pin GitHub Actions to SHA (not tags)
@@ -70,7 +70,7 @@ permissions:
 
 runtimes:
   node:
-    version: "25"
+    version: "26"
 
 network:
   allowed:
@@ -91,24 +91,24 @@ network:
 
 mcp-servers:
   european-parliament:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "european-parliament-mcp-server@1.3.3", "--timeout", "90000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
     allowed: ["*"]
   world-bank:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "worldbank-mcp@1.0.1"]
     allowed: ["*"]
   memory:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "@modelcontextprotocol/server-memory"]
     allowed: ["*"]
   sequential-thinking:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "@modelcontextprotocol/server-sequential-thinking"]
     allowed: ["*"]
@@ -266,15 +266,15 @@ The `--tool` flag provides:
 
 ### Runtimes Configuration
 
-All workflows MUST include the `runtimes:` field to specify Node.js 25:
+All workflows MUST include the `runtimes:` field to specify Node.js 26:
 
 ```yaml
 runtimes:
   node:
-    version: "25"
+    version: "26"
 ```
 
-This ensures the GitHub Actions runner uses Node.js 25 for scripts and builds. MCP containers independently use `node:25-alpine` images via the `container:` field in `mcp-servers:`.
+This ensures the GitHub Actions runner uses Node.js 26 for scripts and builds. MCP containers independently use `node:26-alpine` images via the `container:` field in `mcp-servers:`.
 
 ### MCP Server Format (Container-based)
 
@@ -283,7 +283,7 @@ MCP servers in gh-aw workflows use the `container/entrypoint/entrypointArgs/allo
 ```yaml
 mcp-servers:
   my-server:
-    container: "node:25-alpine"           # Docker container image
+    container: "node:26-alpine"           # Docker container image
     entrypoint: "npx"                     # Entrypoint command
     entrypointArgs: ["-y", "pkg@version"] # Arguments to entrypoint
     env:                                  # Optional: environment variables

@@ -59,6 +59,11 @@ network:
     - defaults                           # certs, JSON schema, package mirrors
     - github                             # all GitHub domains (*.github.com / githubusercontent.com)
     - node                               # npm / npx ecosystem (MCP server boot)
+    # ── Container registries (node:26-alpine MCP backend pulls) ─────────
+    - docker.io
+    - registry-1.docker.io
+    - auth.docker.io
+    - production.cloudflare.docker.com
     # ── EU Parliament & EU institutions ───────────────────────────────
     - "*.europa.eu"                      # catch-all for any europa.eu subdomain
     - europarl.europa.eu
@@ -104,8 +109,8 @@ network:
     - www.ciacompliancemanager.com
 
 tools:
-  timeout: 300            # per-tool-call cap
-  startup-timeout: 90     # MCP server boot (npx package install)
+  timeout: 180            # per-tool-call cap
+  startup-timeout: 180    # MCP server boot (npx package install)
   github:
     toolsets:
       - all
@@ -120,13 +125,6 @@ tools:
     key: news-translate-${{ github.repository_owner }}
     retention-days: 7
     allowed-extensions: [".md", ".json", ".jsonl", ".txt", ".html"]
-  repo-memory:
-    branch-name: memory/news-generation
-    allowed-extensions: [".md", ".json"]
-    max-file-size: 102400
-    max-file-count: 50
-    max-patch-size: 10240
-
 safe-outputs:
   threat-detection:
     continue-on-error: true
@@ -274,7 +272,7 @@ post-steps:
 
 engine:
   id: copilot
-  model: claude-sonnet-4
+  model: claude-sonnet-4.6
   # max-continuations: 3 enables autopilot mode (--autopilot --max-autopilot-continues 3
   # in the compiled lock) so the agent can restart up to 3 times. Translate needs
   # multiple passes to cover all 14 languages within the single job budget.
@@ -421,7 +419,7 @@ true  # Non-blocking: continue to Step 1 no matter what.
 ## 🔧 Inputs & Memory
 
 - **article_types** = `${{ github.event.inputs.article_types }}` | **article_date** = `${{ github.event.inputs.article_date }}` | **languages** = `all 13 non-English` (no longer configurable — always-14-languages contract) | **force_translation** = `${{ github.event.inputs.force_translation }}`
-- **Repo Memory**: Read/write `translation-log.json` in `/tmp/gh-aw/repo-memory/default/memory/news-generation/`
+- **Cache Memory**: Read/write `translation-log.json` in `/tmp/gh-aw/cache-memory/` for same-workflow resume support
 - **Memory MCP**: Use `create_entities`/`search_nodes` for terminology tracking within this run
 - **Sequential Thinking**: Use for complex translation decisions
 
