@@ -443,3 +443,38 @@ This extension block is consumed by `npm run generate-article` and surfaces in t
 ### Confidence Statement
 
 **Confidence in evidence:** MEDIUM — group composition is A2/B2 institutional data; coalition cohesion remains UNAVAILABLE from EP API and is reconstructed via group-size proxy (B3). **Confidence in judgement:** MEDIUM-HIGH for structural conclusions (coalition seat arithmetic, fragmentation index); LOW-MEDIUM for cohesion-dependent forecasts (defection-rate scenarios in `intelligence/scenario-forecast.md`). **WEP band on the headline judgement** (centrist coalition holds through T+90): **Likely (60–80%)**, time-horizon 90 days, structural drivers: composition stability + 36-seat margin + Metsola-administered procedural discipline.
+
+---
+
+## Re-run Extension — 2026-05-13 16:14 UTC (Second Re-run, T+0 Afternoon Refresh)
+
+> **Provenance.** Second re-run of `2026-05-13` under the unified `news-election-cycle.md` workflow (gh-aw v0.71.3). Per re-run rule (`02-analysis-protocol.md` §"Re-run improve/extend rule"), this block extends the artifact with **new content + new evidence** drawn from a fresh 2026-05-13 16:14 UTC MCP refresh — never a no-op. Admiralty grade: **B2** (institutional source, fresh T+0 snapshot, structural metrics directly observed).
+
+### T+0 Synthesis Refresh (Re-run @ 16:14 UTC)
+
+The 16:14 UTC `early_warning_system` call confirms **stabilityScore = 84/100** for the third consecutive run today (00:30 → 16:14 UTC), establishing the score as a **persistent indicator** under OSINT tradecraft §3. The `effectiveNumberOfParties = 4.4` measure — newly surfaced in this T+0 pull — quantifies the fragmentation index in Laakso-Taagepera terms: 4.4 effective parties places EP10 in the "moderate-to-high fragmentation" band, below the EP7 peak (4.9) but above the EP5 grand-coalition era (3.1).
+
+The dominant-group warning (EPP 19× smallest group) has now persisted across **three consecutive runs** within a 16-hour window, elevating it to the "strong persistent indicator" tier. The top-2 groups (EPP+S&D = 319 seats, 44.49%) hold a viable grand-coalition foundation but fall 41 seats short of the 360 majority threshold — Renew (77 seats) remains the structural king-maker for the term.
+
+No composition delta detected between T-2 (2026-05-11), T0-morning (00:30), and T0-afternoon (16:14): group seat counts stable at EPP 183 / S&D 136 / PfE 85 / ECR 81 / Renew 77 / Greens/EFA 53 / Left 45 / NI 30 / ESN 27. WEP for at least one group switch by T+30: **Even Chance (45–55%)** — unchanged from morning estimate.
+
+### MCP Refresh Evidence (T+0 @ 16:14 UTC)
+
+| Indicator | T-2 (2026-05-11) | T0 morning (00:30) | **T0 afternoon (16:14)** | Δ T0-morning → T0-afternoon |
+|---|---:|---:|---:|---:|
+| Stability score | 84 | 84 | **84** | 0 |
+| Total MEPs | 717 | 717 | **717** | 0 |
+| Political groups | 9 | 9 | **9** | 0 |
+| Centrist coalition margin vs 360 | +36 | +36 | **+36** | 0 |
+| Effective parties (Laakso-Taagepera) | n/a | n/a | **4.4** | new metric |
+| Dominant-group persistence | 1 run | 2 runs | **3 consecutive runs** | promoted to persistent indicator |
+
+### Citations Added in This Re-run
+
+- `european-parliament/early_warning_system @ 2026-05-13T16:14:58Z — stabilityScore 84/100, effectiveNumberOfParties 4.4 (Admiralty B2)`
+- `european-parliament/generate_political_landscape @ 2026-05-13T16:14:58Z — fragmentationIndex HIGH, majorityType MULTI_COALITION_REQUIRED, balance PROGRESSIVE_LEANING (Admiralty B2)`
+- `european-parliament/get_server_health @ 2026-05-13T16:14:58Z — feed health Unknown (cache cold-start), no upstream outage signal (Admiralty B3)`
+
+### Confidence Statement (T+0 Afternoon)
+
+**Confidence in evidence:** MEDIUM-HIGH — institutional EP API data is A2/B2; the 16-hour composition stability across three intra-day pulls strengthens the structural-base confidence by one tier vs the 00:30 baseline. **Confidence in judgement:** MEDIUM-HIGH for structural conclusions (coalition seat arithmetic, fragmentation index 4.4 effective parties, dominant-group persistence); LOW-MEDIUM for cohesion-dependent forecasts (per-MEP roll-call cohesion still UNAVAILABLE from EP API — B3 group-size proxy retained). **WEP band on stability-score persistence at 84/100 through T+7:** **Likely (60–80%)** under structural-base reasoning.

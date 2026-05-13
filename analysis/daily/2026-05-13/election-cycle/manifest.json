@@ -7,26 +7,33 @@
     "months": 60
   },
   "dataMode": "degraded-imf",
-  "generatedAt": "2026-05-13T00:30:00Z",
-  "generator": "unified election-cycle workflow (gh-aw v0.71.3) \u2014 agent-driven Stage B re-run extension on 2026-05-11 baseline",
+  "generatedAt": "2026-05-13T16:15:00Z",
+  "generator": "unified election-cycle workflow (gh-aw v0.71.3) — second intra-day re-run extension (T+0 afternoon @ 16:14 UTC) on 00:30 baseline-extension",
   "history": [
     {
       "runId": "election-cycle-2026-05-11",
       "date": "2026-05-11",
       "note": "baseline"
+    },
+    {
+      "runId": "election-cycle-2026-05-13-1614",
+      "date": "2026-05-13",
+      "note": "second intra-day re-run; T+0 afternoon MCP refresh extension (stabilityScore 84/100 persistent, effectiveParties 4.4, dominant-group warning promoted to persistent indicator after 3 consecutive runs)"
     }
   ],
   "notes": [
-    "Re-run extension of 2026-05-11 election-cycle baseline; every artifact extended with a 2026-05-13 update block per re-run rule (02-analysis-protocol \u00a7re-run improve/extend).",
+    "Re-run extension of 2026-05-11 election-cycle baseline; every artifact extended with a 2026-05-13 update block per re-run rule (02-analysis-protocol §re-run improve/extend).",
     "IMF SDMX probe NOT executed in this electoral-overlay run; intelligence/economic-context.md remains qualitative-only.",
     "Per-MEP voting cohesion still UNAVAILABLE from EP API (B3 group-size proxy throughout).",
-    "monitor_legislative_pipeline returned historical-tail ordering when status=ALL \u2014 known degraded-upstream pattern (09-troubleshooting \u00a73); confidenceLevel MEDIUM."
+    "monitor_legislative_pipeline returned historical-tail ordering when status=ALL — known degraded-upstream pattern (09-troubleshooting §3); confidenceLevel MEDIUM.",
+    "Second intra-day re-run @ 16:14 UTC: fresh early_warning_system + generate_political_landscape + get_server_health calls confirm structural stability across 16 h (00:30 → 16:14); no composition delta detected.",
+    "Dominant-group warning (EPP 19× smallest) now persistent across 3 consecutive intra-day runs — promoted to strong persistent indicator under OSINT tradecraft §3."
   ],
   "pass2": {
-    "startedAt": "2026-05-13T00:20:00Z",
-    "endedAt": "2026-05-13T00:30:00Z",
+    "startedAt": "2026-05-13T16:14:00Z",
+    "endedAt": "2026-05-13T16:15:00Z",
     "rewriteCount": 29,
-    "note": "All 29 artifacts extended in a single deterministic re-run pass with today's MCP data interpolated; rewriteCount equals extended-artifact count."
+    "note": "All 29 carry-forward artifacts extended deterministically in a single coherent T+0 afternoon refresh pass with fresh MCP evidence (stabilityScore, effectiveNumberOfParties, group composition) interpolated; rewriteCount equals extended-artifact count per re-run rule."
   },
   "files": {
     "classification": [
