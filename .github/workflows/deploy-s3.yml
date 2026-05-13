@@ -75,6 +75,8 @@ jobs:
       - name: Generate responsive image variants
         # Uses sharp (devDependency) to derive AVIF/WebP/JPEG banner and social
         # image variants from canonical PNG source artwork before deploy.
+        # The generator is deterministic and cheap; the later image sync passes
+        # use --size-only so unchanged byte-size variants are not re-uploaded.
         run: npm run image:generate
 
       - name: Optimise CSS (drop unused selectors against every shipped HTML page)

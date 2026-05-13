@@ -22,6 +22,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, '..');
 
+// Quality targets keep banner/social images below the 500 KB page-image budget
+// while preserving sharp text and logo edges: AVIF 55/WebP 78 are visually close
+// to mozjpeg 82 for this artwork, with materially smaller transfer sizes.
 const jpegOptions = { quality: 82, mozjpeg: true };
 const webpOptions = { quality: 78, effort: 6 };
 const avifOptions = { quality: 55, effort: 7 };
