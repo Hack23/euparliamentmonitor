@@ -14,7 +14,46 @@ const SHARED_MCP_FILE = path.join(
   'mcp',
   'news-mcp-servers.md',
 );
+const SHARED_SAFE_OUTPUTS_HEAD_FILE = path.join(
+  WORKFLOWS_DIR,
+  'shared',
+  'config',
+  'news-safe-outputs-head.md',
+);
+const SHARED_SAFE_OUTPUTS_DOMAINS_FILE = path.join(
+  WORKFLOWS_DIR,
+  'shared',
+  'config',
+  'news-safe-outputs-domains.md',
+);
 const LEGACY_NODE_ALPINE = ['node', '25-alpine'].join(':');
+
+/**
+ * Reads a workflow source and concatenates the content of every shared file it
+ * imports under `imports:`. Drift-guards must look at this combined view because
+ * frontmatter blocks like `threat-detection`, `allowed-domains`, and the
+ * bundle-prerequisite `steps:` block were extracted out of the per-slug
+ * workflows into shared `news-safe-outputs-*.md` components (Phase A1/A2 of the
+ * agentic-workflow refactor).
+ */
+function readWorkflowWithImports(workflowPath) {
+  const text = fs.readFileSync(workflowPath, 'utf8');
+  const importLines = text
+    .split('\n')
+    .filter((line) => /^  - (shared\/|\.github\/)/.test(line))
+    .map((line) => line.replace(/^  - /, '').trim());
+  const importedContents = importLines.map((relPath) => {
+    const normalized = relPath.startsWith('.github/')
+      ? path.join(ROOT, relPath)
+      : path.join(WORKFLOWS_DIR, relPath);
+    try {
+      return fs.readFileSync(normalized, 'utf8');
+    } catch {
+      return '';
+    }
+  });
+  return text + '\n' + importedContents.join('\n');
+}
 
 describe('agentic workflow threat detection policy', () => {
   it('keeps safe-output threat detection warning-only for every news workflow', () => {
@@ -25,9 +64,17 @@ describe('agentic workflow threat detection policy', () => {
 
     expect(workflows.length).toBeGreaterThan(0);
 
+    // The shared head file owns the contract; every news workflow imports it
+    // (except news-translate, which has its own safe-outputs posture and is
+    // already exempt from the import requirement).
+    const sharedHead = fs.readFileSync(SHARED_SAFE_OUTPUTS_HEAD_FILE, 'utf8');
+    expect(sharedHead, 'news-safe-outputs-head.md').toMatch(
+      /^safe-outputs:\n(?:  .*\n)*?  threat-detection:\n    continue-on-error: true$/m,
+    );
+
     for (const workflow of workflows) {
-      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
-      expect(content, workflow).toMatch(
+      const combined = readWorkflowWithImports(path.join(WORKFLOWS_DIR, workflow));
+      expect(combined, workflow).toMatch(
         /^safe-outputs:\n(?:  .*\n)*?  threat-detection:\n    continue-on-error: true$/m,
       );
     }
@@ -41,15 +88,21 @@ describe('agentic workflow threat detection policy', () => {
 
     expect(workflows.length).toBeGreaterThan(0);
 
+    // The shared head file owns the bundle-prerequisite fetch step.
+    const sharedHead = fs.readFileSync(SHARED_SAFE_OUTPUTS_HEAD_FILE, 'utf8');
+    expect(sharedHead, 'news-safe-outputs-head.md').toContain('Fetch triggering commit for bundle prerequisites');
+    expect(sharedHead, 'news-safe-outputs-head.md').toContain('git fetch --no-tags origin "$GITHUB_SHA"');
+    expect(sharedHead, 'news-safe-outputs-head.md').toContain('Repository lacks these prerequisite commits');
+
     for (const workflow of workflows) {
-      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
-      if (!content.includes('create-pull-request:')) {
+      const combined = readWorkflowWithImports(path.join(WORKFLOWS_DIR, workflow));
+      if (!combined.includes('create-pull-request:')) {
         continue;
       }
 
-      expect(content, workflow).toContain('Fetch triggering commit for bundle prerequisites');
-      expect(content, workflow).toContain('git fetch --no-tags origin "$GITHUB_SHA"');
-      expect(content, workflow).toContain(
+      expect(combined, workflow).toContain('Fetch triggering commit for bundle prerequisites');
+      expect(combined, workflow).toContain('git fetch --no-tags origin "$GITHUB_SHA"');
+      expect(combined, workflow).toContain(
         'Repository lacks these prerequisite commits',
       );
     }
@@ -148,6 +201,47 @@ describe('agentic workflow threat detection policy', () => {
         prefetchStepMatch[1],
         `${workflow} prefetch step must NOT set continue-on-error: true`,
       ).not.toContain('continue-on-error: true');
+    }
+  });
+
+  it('imports the shared safe-outputs head + domains components in every article workflow', () => {
+    // Phase A1/A2 of the agentic-workflow refactor extracted the
+    // `safe-outputs.threat-detection`, bundle-prerequisite `steps:` block, and
+    // `safe-outputs.allowed-domains` allowlist out of the per-slug
+    // workflows into shared `news-safe-outputs-head.md` and
+    // `news-safe-outputs-domains.md` components. This drift-guard ensures
+    // every article workflow continues to import both — a new workflow that
+    // re-inlines those blocks would re-introduce ~70 lines of duplication
+    // and break the single-source-of-truth contract.
+    const articleWorkflows = fs
+      .readdirSync(WORKFLOWS_DIR)
+      .filter((name) =>
+        name.startsWith('news-') &&
+        name.endsWith('.md') &&
+        name !== 'news-translate.md',
+      )
+      .sort();
+
+    expect(articleWorkflows.length).toBeGreaterThan(0);
+    expect(fs.existsSync(SHARED_SAFE_OUTPUTS_HEAD_FILE), 'news-safe-outputs-head.md must exist').toBe(true);
+    expect(fs.existsSync(SHARED_SAFE_OUTPUTS_DOMAINS_FILE), 'news-safe-outputs-domains.md must exist').toBe(true);
+
+    for (const workflow of articleWorkflows) {
+      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+
+      expect(content, workflow).toContain('- shared/config/news-safe-outputs-head.md');
+      expect(content, workflow).toContain('- shared/config/news-safe-outputs-domains.md');
+
+      // And the workflow MUST NOT re-inline the now-shared blocks.
+      expect(content, `${workflow} must not re-inline threat-detection (lives in shared)`).not.toMatch(
+        /^  threat-detection:\n    continue-on-error: true$/m,
+      );
+      expect(content, `${workflow} must not re-inline allowed-domains (lives in shared)`).not.toMatch(
+        /^  allowed-domains:\n    - github\b/m,
+      );
+      expect(content, `${workflow} must not re-inline bundle-prerequisite fetch step (lives in shared)`).not.toContain(
+        '- name: Fetch triggering commit for bundle prerequisites',
+      );
     }
   });
 });

@@ -45,6 +45,7 @@ imports:
   - .github/agents/news-generation.agent.md
   - shared/config/news-common-settings.md
   - shared/config/news-safe-outputs-domains.md
+  - shared/config/news-safe-outputs-head.md
   - shared/mcp/news-mcp-servers.md
   - shared/prompts/news-unified-runtime.md
 
@@ -78,39 +79,16 @@ tools:
     retention-days: 7
     allowed-extensions: [".md", ".json", ".jsonl", ".txt", ".html"]
 safe-outputs:
-  threat-detection:
-    continue-on-error: true
   # Analysis artifacts can exceed the 1024 KB default patch limit; raise to
-  # 10 MB (max allowed) to prevent legitimate analysis-only
-  # patches from being rejected.
+  # 10 MB (max allowed) to prevent legitimate analysis-only patches from
+  # being rejected. NOTE: `max-patch-size` does NOT propagate via gh-aw
+  # imports (v0.74.1), so it must stay inline in each workflow.
   max-patch-size: 10240
-  # The safe_outputs job checks out the current branch tip with fetch-depth:1.
-  # When another news PR merges between the agent job and safe-output bundle
-  # application, the bundle may require the older triggering commit as a
-  # prerequisite. Fetch that commit explicitly so bundle apply does not fail
-  # with "Repository lacks these prerequisite commits".
-  steps:
-    - name: Fetch triggering commit for bundle prerequisites
-      if: contains(needs.agent.outputs.output_types, 'create_pull_request')
-      shell: bash
-      run: |
-        if [ -n "${GITHUB_SHA:-}" ] && git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-          if ! git fetch --no-tags origin "$GITHUB_SHA"; then
-            branch_name="$GITHUB_REF_NAME"
-            if [ -z "$branch_name" ]; then
-              branch_name=main
-            fi
-            if git rev-parse --is-shallow-repository | grep -qx true; then
-              git fetch --unshallow --no-tags origin "$branch_name"
-            else
-              git fetch --no-tags origin "$branch_name"
-            fi
-          fi
-        fi
-  # `safe-outputs.allowed-domains` is inherited from
-  # .github/workflows/shared/config/news-safe-outputs-domains.md (identical
-  # across all 14 unified article workflows). Add domains there to apply
-  # the change globally; declare slug-specific overrides here only if needed.
+  # `threat-detection`, the bundle-prerequisite `steps:` block, and
+  # `allowed-domains` are inherited from
+  # .github/workflows/shared/config/news-safe-outputs-head.md and
+  # .github/workflows/shared/config/news-safe-outputs-domains.md.
+  # Both fields are identical across the 14 unified article workflows.
   create-pull-request:
     title-prefix: "[news] "
     labels: [agentic-news, analysis-data, "type:breaking"]
