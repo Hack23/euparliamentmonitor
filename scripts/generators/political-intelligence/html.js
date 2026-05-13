@@ -16,7 +16,7 @@ import { BASE_URL, BUILD_SHORT, THEME_TOGGLE_SCRIPT } from '../../constants/conf
 import { buildHeadFreshnessTags } from '../../constants/build-info-meta.js';
 import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, PAGE_TITLES, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../../constants/languages.js';
 import { FOOTER_SITEMAP_LABELS } from '../../constants/language-ui.js';
-import { buildSiteFooter, buildSiteHeader, buildPageBanner, } from '../../templates/section-builders.js';
+import { buildResponsiveIconLinks, buildResponsiveSocialImageMeta, buildSiteFooter, buildSiteHeader, buildPageBanner, } from '../../templates/section-builders.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { blobUrl, treeUrl } from '../../aggregator/infra/github-urls.js';
 import { getCuratedDescription, getCuratedTitle, getRunTypeInfo, getArtifactInfo, } from '../political-intelligence-descriptions.js';
@@ -250,7 +250,6 @@ export function generatePoliticalIntelligenceHTML(lang, data) {
         ? `      <p class="pi-source-note" role="note">${escapeHTML(copy.sourceInEnglishNote)}</p>`
         : '';
     const seo = getPoliticalIntelligenceSeo(safeLang);
-    const ogImage = `${BASE_URL}/images/og-image.jpg`;
     const publisher = {
         '@type': 'Organization',
         '@id': `${BASE_URL}/#organization`,
@@ -379,20 +378,12 @@ ${hreflangLinks}
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="${safeLang}">
-  <meta property="og:image" content="${ogImage}">
-  <meta property="og:image:alt" content="${escapeHTML(seo.ogImageAlt)}">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+${buildResponsiveSocialImageMeta(seo.ogImageAlt)}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHTML(copy.title)}">
   <meta name="twitter:description" content="${escapeHTML(description)}">
-  <meta name="twitter:image" content="${ogImage}">
-  <meta name="twitter:image:alt" content="${escapeHTML(seo.ogImageAlt)}">
   <!-- Favicons -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+${buildResponsiveIconLinks('')}
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#003399">
   <link rel="stylesheet" href="styles.css?v=${BUILD_SHORT}">

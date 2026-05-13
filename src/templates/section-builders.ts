@@ -55,6 +55,7 @@ import {
 } from '../constants/languages.js';
 import {
   APP_VERSION,
+  BASE_URL,
   BUILD_ID,
   BUILD_SHORT,
   BUILD_TIME,
@@ -406,8 +407,13 @@ export interface ResponsiveBannerPictureOptions {
 }
 
 const RESPONSIVE_BANNER_WIDTHS: readonly number[] = [320, 480, 768, 1200];
+const ICON_SIZES: readonly number[] = [16, 32, 48, 96, 192, 512];
 const BANNER_WIDTH = 1200;
 const BANNER_HEIGHT = 400;
+const SOCIAL_IMAGE_WIDTH = 1200;
+const SOCIAL_IMAGE_HEIGHT = 630;
+const TWITTER_CARD_WIDTH = 1200;
+const TWITTER_CARD_HEIGHT = 600;
 
 function buildBannerSrcset(pathPrefix: string, format: 'avif' | 'webp' | 'jpg'): string {
   return RESPONSIVE_BANNER_WIDTHS.map(
@@ -431,6 +437,55 @@ export function buildResponsiveBannerPicture(options: ResponsiveBannerPictureOpt
           <source srcset="${buildBannerSrcset(options.pathPrefix, 'webp')}" sizes="${safeSizes}" type="image/webp">
           <img class="${escapeHTML(options.imageClass)}" src="${options.pathPrefix}images/banner.jpg" srcset="${buildBannerSrcset(options.pathPrefix, 'jpg')}" sizes="${safeSizes}" alt="${escapeHTML(options.alt)}" width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" loading="${loading}" decoding="async"${extraAttributes}>
         </picture>`;
+}
+
+/**
+ * Build favicon and touch-icon links for all committed icon sizes and formats.
+ *
+ * @param pathPrefix - Asset path prefix: `''` for root pages, `'../'` for news pages.
+ * @returns HTML string containing responsive icon link tags.
+ */
+export function buildResponsiveIconLinks(pathPrefix: string): string {
+  const pngLinks = ICON_SIZES.map(
+    (size) =>
+      `  <link rel="icon" type="image/png" sizes="${size}x${size}" href="${pathPrefix}images/favicon-${size}x${size}.png">`
+  ).join('\n');
+  const webpLinks = ICON_SIZES.map(
+    (size) =>
+      `  <link rel="icon" type="image/webp" sizes="${size}x${size}" href="${pathPrefix}images/favicon-${size}x${size}.webp">`
+  ).join('\n');
+  return `  <link rel="icon" type="image/x-icon" href="${pathPrefix}favicon.ico">
+${pngLinks}
+${webpLinks}
+  <link rel="apple-touch-icon" sizes="180x180" href="${pathPrefix}images/apple-touch-icon.png">`;
+}
+
+/**
+ * Build social preview metadata with modern and fallback image resources.
+ *
+ * @param alt - Accessible image alternative text for social previews.
+ * @returns Open Graph and Twitter image metadata for available image formats.
+ */
+export function buildResponsiveSocialImageMeta(alt: string): string {
+  const safeAlt = escapeHTML(alt);
+  return `  <meta property="og:image" content="${BASE_URL}/images/og-image-1200.jpg">
+  <meta property="og:image:secure_url" content="${BASE_URL}/images/og-image-1200.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="${SOCIAL_IMAGE_WIDTH}">
+  <meta property="og:image:height" content="${SOCIAL_IMAGE_HEIGHT}">
+  <meta property="og:image:alt" content="${safeAlt}">
+  <meta property="og:image" content="${BASE_URL}/images/og-image-1200.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="${SOCIAL_IMAGE_WIDTH}">
+  <meta property="og:image:height" content="${SOCIAL_IMAGE_HEIGHT}">
+  <meta property="og:image" content="${BASE_URL}/images/og-image-1200.avif">
+  <meta property="og:image:type" content="image/avif">
+  <meta property="og:image:width" content="${SOCIAL_IMAGE_WIDTH}">
+  <meta property="og:image:height" content="${SOCIAL_IMAGE_HEIGHT}">
+  <meta name="twitter:image" content="${BASE_URL}/images/twitter-card-1200.jpg">
+  <meta name="twitter:image:alt" content="${safeAlt}">
+  <meta name="twitter:image:width" content="${TWITTER_CARD_WIDTH}">
+  <meta name="twitter:image:height" content="${TWITTER_CARD_HEIGHT}">`;
 }
 
 /**

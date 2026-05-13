@@ -158,6 +158,63 @@ describe('scripts/normalize-legacy-articles.js', () => {
     expect(after).toContain("connect-src 'self'");
   });
 
+  it('upgrades legacy fixed image resources to responsive variants', () => {
+    const legacyImages = `<!doctype html>
+<html><head>
+  <meta property="og:image" content="https://euparliamentmonitor.com/images/og-image.jpg">
+  <meta property="og:image:alt" content="Article preview — EU Parliament Monitor">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image" content="https://euparliamentmonitor.com/images/og-image.jpg">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+</head><body>
+<picture class="site-header__logo-picture">
+  <source srcset="../images/banner.webp" type="image/webp">
+  <img class="site-header__logo site-header__logo--banner" src="../images/banner.jpg" alt="EU Parliament Monitor" width="240" height="80" loading="eager">
+</picture>
+<div class="page-banner" role="img" aria-label="EU Parliament Monitor">
+  <picture>
+    <source srcset="../images/banner.webp" type="image/webp">
+    <img class="page-banner__img" src="../images/banner.jpg" alt="" aria-hidden="true" width="1200" height="400" loading="eager">
+  </picture>
+</div>
+</body></html>
+`;
+    writeArticle(tempDir, 'legacy-images.html', legacyImages);
+    const result = runHelper(tempDir);
+    expect(result.status).toBe(0);
+    const after = fs.readFileSync(path.join(tempDir, 'news', 'legacy-images.html'), 'utf8');
+    expect(after).toContain('../images/banner-320.avif 320w');
+    expect(after).toContain('../images/banner-1200.webp 1200w');
+    expect(after).toContain('srcset="../images/banner-320.jpg 320w');
+    expect(after).toContain('sizes="100vw"');
+    expect(after).toContain('https://euparliamentmonitor.com/images/og-image-1200.jpg');
+    expect(after).toContain('https://euparliamentmonitor.com/images/twitter-card-1200.jpg');
+    expect(after).toContain('../images/favicon-512x512.webp');
+    expect(after).not.toContain('../images/banner.webp');
+    expect(result.stdout).toMatch(/responsive images/);
+  });
+
+  it('upgrades pre-banner header-logo variants to the responsive banner resource set', () => {
+    const legacyHeaderLogo = `<!doctype html><html><body>
+<picture class="site-header__logo-picture">
+  <source srcset="../images/header-logo.webp" type="image/webp">
+  <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
+</picture>
+</body></html>
+`;
+    writeArticle(tempDir, 'legacy-header-logo.html', legacyHeaderLogo);
+    const result = runHelper(tempDir);
+    expect(result.status).toBe(0);
+    const after = fs.readFileSync(path.join(tempDir, 'news', 'legacy-header-logo.html'), 'utf8');
+    expect(after).toContain('site-header__logo--banner');
+    expect(after).toContain('../images/banner-320.avif 320w');
+    expect(after).not.toContain('header-logo.png');
+  });
+
   it('exits 0 when news/ directory does not exist', () => {
     fs.rmSync(path.join(tempDir, 'news'), { recursive: true, force: true });
     const result = runHelper(tempDir);

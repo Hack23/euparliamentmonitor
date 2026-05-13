@@ -91,19 +91,18 @@ jobs:
         # the already-purged stylesheet, not the bloated original).
         run: npm run optimize-css
 
-      - name: Normalise CSP and Mermaid cache-bust in legacy news articles
+      - name: Normalise CSP, Mermaid cache-bust, and responsive images in legacy news articles
         # Replaces the earlier inline `sed -i` loops, which always rewrote
         # every news/*.html file (~4400+) even when the substitution was a
         # no-op — bumping mtime and forcing the upload sync step below to
         # re-upload the entire news archive on every deploy.
         #
         # The Node helper at scripts/normalize-legacy-articles.js applies
-        # the same two normalisations (legacy CSP → current fixed policy,
-        # Mermaid `?v=<MERMAID_VERSION>` cache-bust pinned to the version
-        # in package.json) but is idempotent at the byte level: files
-        # already normalised are left untouched on disk so their mtime
-        # stays stable and the size+mtime-based sync below correctly skips
-        # them on reruns.
+        # the same CSP + Mermaid normalisations and also upgrades legacy
+        # fixed-size banner/icon/social-image tags to the generated responsive
+        # variants. It is idempotent at the byte level: files already normalised
+        # are left untouched on disk so their mtime stays stable and the
+        # size+mtime-based sync below correctly skips them on reruns.
         #
         # Filename / filepath contract preserved exactly:
         #   <script src="../js/mermaid-init.js?v=${MERMAID_VERSION}"></script>

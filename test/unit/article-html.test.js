@@ -231,6 +231,17 @@ describe('wrapArticleHtml', () => {
     expect(html).toContain('width="1200" height="400"');
   });
 
+  it('emits complete responsive icon and social-image metadata', () => {
+    const html = wrapArticleHtml(baseOptions);
+    expect(html).toContain('images/og-image-1200.jpg');
+    expect(html).toContain('content="image/webp"');
+    expect(html).toContain('images/og-image-1200.avif');
+    expect(html).toContain('images/twitter-card-1200.jpg');
+    expect(html).toContain('twitter:image:width" content="1200"');
+    expect(html).toContain('../images/favicon-512x512.png');
+    expect(html).toContain('../images/favicon-512x512.webp');
+  });
+
   it('marks article mains without a TOC so the body spans the full layout', () => {
     const html = wrapArticleHtml(baseOptions);
     expect(html).toContain('article-main--no-toc');
@@ -365,7 +376,7 @@ describe('wrapArticleHtml structured data enhancements', () => {
   it('emits image field in JSON-LD', () => {
     const html = wrapArticleHtml(baseOptions);
     expect(html).toContain('"image"');
-    expect(html).toContain('og-image.jpg');
+    expect(html).toContain('og-image-1200.jpg');
   });
 
   it('emits publisher with logo in JSON-LD', () => {

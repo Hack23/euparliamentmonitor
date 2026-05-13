@@ -492,7 +492,6 @@ describe('generate-news-indexes', () => {
       expect(html).toContain('images/banner-320.avif 320w');
       expect(html).toContain('images/banner-320.webp 320w');
       expect(html).toContain('images/banner.jpg');
-      expect(html).not.toContain('images/favicon-96x96.png');
       expect(headerInner).not.toBeNull();
       expect(headerInner.classList.contains('site-header__inner--stacked')).toBe(true);
       expect(headerLogoPicture).not.toBeNull();
@@ -519,6 +518,16 @@ describe('generate-news-indexes', () => {
       expect(heroInner.children[0]).toBe(heroContent);
       expect(heroInner.children[1]).toBe(heroBanner);
       expect(heroBanner.contains(heroContent)).toBe(false);
+    });
+
+    it('should emit responsive icon and social image metadata for index pages', () => {
+      const html = generateIndexHTML('en', []);
+      expect(html).toContain('images/og-image-1200.jpg');
+      expect(html).toContain('images/og-image-1200.webp');
+      expect(html).toContain('images/og-image-1200.avif');
+      expect(html).toContain('images/twitter-card-1200.jpg');
+      expect(html).toContain('images/favicon-512x512.png');
+      expect(html).toContain('images/favicon-512x512.webp');
     });
 
     it('should contain German localized AI heading on German page', () => {

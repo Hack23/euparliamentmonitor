@@ -34,6 +34,8 @@ import {
 } from '../constants/languages.js';
 import {
   buildResponsiveBannerPicture,
+  buildResponsiveIconLinks,
+  buildResponsiveSocialImageMeta,
   buildSiteFooter,
   buildSiteHeader,
 } from '../templates/section-builders.js';
@@ -531,7 +533,6 @@ export function generateIndexHTML(
 
   const seo = getNewsIndexSeo(lang);
   const canonicalUrl = `${BASE_URL}/${selfHref}`;
-  const ogImage = `${BASE_URL}/images/og-image.jpg`;
 
   const websiteJsonLd = JSON.stringify({
     '@context': SCHEMA_ORG,
@@ -652,21 +653,13 @@ export function generateIndexHTML(
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="EU Parliament Monitor">
   <meta property="og:locale" content="${lang}">
-  <meta property="og:image" content="${ogImage}">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="${escapeHTML(seo.ogImageAlt)}">
+${buildResponsiveSocialImageMeta(seo.ogImageAlt)}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${heroTitle}">
   <meta name="twitter:description" content="${description}">
-  <meta name="twitter:image" content="${ogImage}">
-  <meta name="twitter:image:alt" content="${escapeHTML(seo.ogImageAlt)}">
   ${buildHreflangTags()}
   <!-- Favicons -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+${buildResponsiveIconLinks('')}
   <link rel="manifest" href="site.webmanifest">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#003399" media="(prefers-color-scheme: light)">

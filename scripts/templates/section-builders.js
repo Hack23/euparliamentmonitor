@@ -8,7 +8,7 @@
  */
 import { escapeHTML } from '../utils/file-utils.js';
 import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, getLocalizedString, TOC_ARIA_LABELS, TIMELINE_HEADINGS, COMPARISON_BEFORE_LABELS, COMPARISON_AFTER_LABELS, KEY_FIGURES_HEADINGS, FOOTER_ABOUT_HEADING_LABELS, FOOTER_ABOUT_TEXT_LABELS, FOOTER_QUICK_LINKS_LABELS, FOOTER_BUILT_BY_LABELS, FOOTER_LANGUAGES_LABELS, FOOTER_HOME_LABELS, FOOTER_SITEMAP_LABELS, FOOTER_RSS_LABELS, FOOTER_GITHUB_REPO_LABELS, FOOTER_LICENSE_LABELS, FOOTER_EUROPARL_LABELS, FOOTER_LINKEDIN_LABELS, FOOTER_SECURITY_POLICY_LABELS, FOOTER_CONTACT_LABELS, FOOTER_DISCLAIMER_LABELS, FOOTER_REPORT_ISSUES_LABELS, FOOTER_ARTICLES_AVAILABLE_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS, HEADER_SUBTITLE_LABELS, THEME_TOGGLE_LABELS, BUILD_INFO_COMMIT_LABELS, BUILD_INFO_DEPLOYED_LABELS, HEADER_CTA_SPONSOR_LABELS, HEADER_CTA_BECOME_SPONSOR_LABELS, HEADER_CTA_SECURITY_LABELS, FOOTER_NEWS_LABELS, FOOTER_DASHBOARD_LABELS, FOOTER_ANALYSIS_REPORTS_LABELS, FOOTER_API_DOCS_LABELS, FOOTER_COMPANY_TAGLINE_LABELS, LANGUAGE_SELECTION_ARIA_LABELS, FOOTER_TRUST_BADGES_ARIA_LABELS, } from '../constants/languages.js';
-import { APP_VERSION, BUILD_ID, BUILD_SHORT, BUILD_TIME, createThemeToggleButton, } from '../constants/config.js';
+import { APP_VERSION, BASE_URL, BUILD_ID, BUILD_SHORT, BUILD_TIME, createThemeToggleButton, } from '../constants/config.js';
 import { icon } from './icons.js';
 import { stripScriptBlocks, stripHtmlTags } from '../utils/html-sanitize.js';
 /**
@@ -248,8 +248,13 @@ export function buildKeyFiguresBar(figures, lang) {
 /** Icon name used for security/transparency links across the chrome. */
 const ICON_SECURITY = 'shield-star';
 const RESPONSIVE_BANNER_WIDTHS = [320, 480, 768, 1200];
+const ICON_SIZES = [16, 32, 48, 96, 192, 512];
 const BANNER_WIDTH = 1200;
 const BANNER_HEIGHT = 400;
+const SOCIAL_IMAGE_WIDTH = 1200;
+const SOCIAL_IMAGE_HEIGHT = 630;
+const TWITTER_CARD_WIDTH = 1200;
+const TWITTER_CARD_HEIGHT = 600;
 function buildBannerSrcset(pathPrefix, format) {
     return RESPONSIVE_BANNER_WIDTHS.map((width) => `${pathPrefix}images/banner-${width}.${format} ${width}w`).join(', ');
 }
@@ -269,6 +274,47 @@ export function buildResponsiveBannerPicture(options) {
           <source srcset="${buildBannerSrcset(options.pathPrefix, 'webp')}" sizes="${safeSizes}" type="image/webp">
           <img class="${escapeHTML(options.imageClass)}" src="${options.pathPrefix}images/banner.jpg" srcset="${buildBannerSrcset(options.pathPrefix, 'jpg')}" sizes="${safeSizes}" alt="${escapeHTML(options.alt)}" width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" loading="${loading}" decoding="async"${extraAttributes}>
         </picture>`;
+}
+/**
+ * Build favicon and touch-icon links for all committed icon sizes and formats.
+ *
+ * @param pathPrefix - Asset path prefix: `''` for root pages, `'../'` for news pages.
+ * @returns HTML string containing responsive icon link tags.
+ */
+export function buildResponsiveIconLinks(pathPrefix) {
+    const pngLinks = ICON_SIZES.map((size) => `  <link rel="icon" type="image/png" sizes="${size}x${size}" href="${pathPrefix}images/favicon-${size}x${size}.png">`).join('\n');
+    const webpLinks = ICON_SIZES.map((size) => `  <link rel="icon" type="image/webp" sizes="${size}x${size}" href="${pathPrefix}images/favicon-${size}x${size}.webp">`).join('\n');
+    return `  <link rel="icon" type="image/x-icon" href="${pathPrefix}favicon.ico">
+${pngLinks}
+${webpLinks}
+  <link rel="apple-touch-icon" sizes="180x180" href="${pathPrefix}images/apple-touch-icon.png">`;
+}
+/**
+ * Build social preview metadata with modern and fallback image resources.
+ *
+ * @param alt - Accessible image alternative text for social previews.
+ * @returns Open Graph and Twitter image metadata for available image formats.
+ */
+export function buildResponsiveSocialImageMeta(alt) {
+    const safeAlt = escapeHTML(alt);
+    return `  <meta property="og:image" content="${BASE_URL}/images/og-image-1200.jpg">
+  <meta property="og:image:secure_url" content="${BASE_URL}/images/og-image-1200.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="${SOCIAL_IMAGE_WIDTH}">
+  <meta property="og:image:height" content="${SOCIAL_IMAGE_HEIGHT}">
+  <meta property="og:image:alt" content="${safeAlt}">
+  <meta property="og:image" content="${BASE_URL}/images/og-image-1200.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="${SOCIAL_IMAGE_WIDTH}">
+  <meta property="og:image:height" content="${SOCIAL_IMAGE_HEIGHT}">
+  <meta property="og:image" content="${BASE_URL}/images/og-image-1200.avif">
+  <meta property="og:image:type" content="image/avif">
+  <meta property="og:image:width" content="${SOCIAL_IMAGE_WIDTH}">
+  <meta property="og:image:height" content="${SOCIAL_IMAGE_HEIGHT}">
+  <meta name="twitter:image" content="${BASE_URL}/images/twitter-card-1200.jpg">
+  <meta name="twitter:image:alt" content="${safeAlt}">
+  <meta name="twitter:image:width" content="${TWITTER_CARD_WIDTH}">
+  <meta name="twitter:image:height" content="${TWITTER_CARD_HEIGHT}">`;
 }
 /**
  * Build the shared responsive site header used by every generated page family.
