@@ -311,7 +311,7 @@ jobs:
 
 engine:
   id: copilot
-  model: claude-sonnet-4.6
+  model: claude-sonnet-4
 ---
 # 📰 EU Parliament Motions — Unified Workflow
 

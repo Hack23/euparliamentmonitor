@@ -74,30 +74,28 @@ Each workflow renders articles using `npm run generate-article -- --run "${ANALY
 
 #### Shared-import pattern
 
-Every article-generating `news-*.md` imports two shared files to keep the
-workflow frontmatter and prompt body DRY:
+Every article workflow imports the canonical agent anchor plus the shared
+MCP server component:
 
 ```yaml
 imports:
-  - shared/mcp/news-mcp-servers.md        # merges `mcp-servers:` frontmatter
-  - ../agents/news-generation.agent.md    # appends the canonical Required Reading + Stage Contract body
+  - .github/agents/news-generation.agent.md
+  - shared/mcp/news-mcp-servers.md
 ```
 
-- [`shared/mcp/news-mcp-servers.md`](shared/mcp/news-mcp-servers.md) is a
-  **frontmatter-only** workflow component; its `mcp-servers:` block is merged
-  into the importing workflow's frontmatter (dedupes the EP / WB / IMF / MCP
-  Gateway mounts across 9 workflows).
 - [`.github/agents/news-generation.agent.md`](../agents/news-generation.agent.md)
-  is **body-only** (gh-aw v0.69.3 does not merge agent-file frontmatter); the
-  body is appended to every importing workflow's prompt.
-- `news-translate.md` imports `shared/mcp/news-mcp-servers.md` (so its
-  `mcp-servers:` frontmatter stays in lockstep with the article workflows),
-  but it **does not** import `news-generation.agent.md` — it ships its own
-  prompt body tuned for the 14-language multi-call flush pattern.
+  is intentionally **minimal** and only supplies the analysis anchor + single-PR
+  contract required by repo lint rules. Workflow-specific stage instructions stay
+  in each `news-*.md` source file so the compiled prompt only carries one full
+  copy of that guidance.
+- [`shared/mcp/news-mcp-servers.md`](shared/mcp/news-mcp-servers.md) is now
+  intentionally **frontmatter-only**; gh-aw merges its `mcp-servers:` block
+  into the importing workflow frontmatter without adding prompt overhead.
+- `news-translate.md` imports only the shared MCP component and keeps its own
+  translation-specific prompt body.
 
-See [`.github/agents/news-generation.agent.md`](../agents/news-generation.agent.md)
-§ "Why an imported agent?" for the tested behaviour notes, and the
-[prompts library](../prompts/README.md) for the canonical Stage A → E flow.
+See the [prompts library](../prompts/README.md) for the canonical Stage A → E
+flow.
 
 #### Lock-file compile flow
 

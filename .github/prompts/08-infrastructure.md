@@ -72,7 +72,7 @@ sandbox:
 # session lifetime.
 engine:
   id: copilot
-  model: claude-sonnet-4.6
+  model: claude-sonnet-4
 
 tools:
   timeout: 180                # per-tool-call cap (bash, MCP, github, edit, web-fetch)
