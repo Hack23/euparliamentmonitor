@@ -312,7 +312,7 @@ jobs:
 
 engine:
   id: copilot
-  model: claude-sonnet-4
+  model: claude-sonnet-4.6
   # max-continuations: 1 tells gh-aw NOT to enable autopilot mode — when this
   # equals 1 the compiler omits --autopilot from the Copilot CLI invocation so
   # the agent runs exactly once with no restarts.  Within-session runaway
