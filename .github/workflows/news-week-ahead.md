@@ -67,6 +67,11 @@ network:
     - defaults                           # certs, JSON schema, package mirrors
     - github                             # all GitHub domains (*.github.com / githubusercontent.com)
     - node                               # npm / npx ecosystem (MCP server boot)
+    # ── Container registries (node:26-alpine MCP backend pulls) ─────────
+    - docker.io
+    - registry-1.docker.io
+    - auth.docker.io
+    - production.cloudflare.docker.com
     # ── EU Parliament & EU institutions ───────────────────────────────
     - "*.europa.eu"                      # catch-all for any europa.eu subdomain
     - europarl.europa.eu
@@ -115,8 +120,8 @@ network:
 # resilient 60-min news-generation session. See upstream reference/tools.md
 # and reference/github-tools.md.
 tools:
-  timeout: 300            # per-tool-call cap (bash, MCP, github, edit, web-fetch)
-  startup-timeout: 90     # MCP server boot (npx package install) — covers
+  timeout: 180            # per-tool-call cap (bash, MCP, github, edit, web-fetch)
+  startup-timeout: 180    # MCP server boot (npx package install) — covers
                           # european-parliament/world-bank/memory/sequential-thinking
   github:
     # `all` enables every read toolset EXCEPT `dependabot` (per upstream
@@ -136,13 +141,6 @@ tools:
     key: news-week-ahead-${{ github.repository_owner }}
     retention-days: 7
     allowed-extensions: [".md", ".json", ".jsonl", ".txt", ".html"]
-  repo-memory:
-    branch-name: memory/news-generation
-    allowed-extensions: [".md", ".json"]
-    max-file-size: 102400
-    max-file-count: 50
-    max-patch-size: 10240
-
 safe-outputs:
   threat-detection:
     continue-on-error: true
@@ -313,11 +311,6 @@ jobs:
 engine:
   id: copilot
   model: claude-sonnet-4.6
-  # max-continuations: 1 tells gh-aw NOT to enable autopilot mode — when this
-  # equals 1 the compiler omits --autopilot from the Copilot CLI invocation so
-  # the agent runs exactly once with no restarts.  Within-session runaway
-  # protection is provided by tools.timeout (per-call cap) + timeout-minutes.
-  max-continuations: 1
 ---
 # 📰 EU Parliament Week Ahead — Unified Workflow
 

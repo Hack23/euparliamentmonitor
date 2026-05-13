@@ -1,60 +1,56 @@
-version: 2
 updates:
-  # npm dependencies
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "06:00"
-    open-pull-requests-limit: 10
-    labels:
-      - "dependencies"
-      - "javascript"
-    commit-message:
-      prefix: "build(deps)"
-      prefix-development: "build(deps-dev)"
-      include: "scope"
-    # Group all minor and patch updates together
-    groups:
-      development-dependencies:
-        dependency-type: "development"
-        patterns:
-          - "*"
-        update-types:
-          - "minor"
-          - "patch"
-      production-dependencies:
-        dependency-type: "production"
-        patterns:
-          - "*"
-        update-types:
-          - "minor"
-          - "patch"
-
-  - package-ecosystem: docker
-    directory: /
-    schedule:
-      interval: daily
-      
-  # GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "07:00"
-    labels:
-      - "dependencies"
-      - "github_actions"
-    commit-message:
-      prefix: "build(deps)"
-      include: "scope"
-    # Group all GitHub Actions updates together
-    groups:
-      github-actions:
-        patterns:
-          - "*"
-        update-types:
-          - "minor"
-          - "patch"
+- commit-message:
+    include: scope
+    prefix: build(deps)
+    prefix-development: build(deps-dev)
+  directory: /
+  groups:
+    development-dependencies:
+      dependency-type: development
+      patterns:
+      - "*"
+      update-types:
+      - minor
+      - patch
+    production-dependencies:
+      dependency-type: production
+      patterns:
+      - "*"
+      update-types:
+      - minor
+      - patch
+  labels:
+  - dependencies
+  - javascript
+  open-pull-requests-limit: 10
+  package-ecosystem: npm
+  schedule:
+    day: monday
+    interval: weekly
+    time: "06:00"
+- directory: /
+  package-ecosystem: docker
+  schedule:
+    interval: daily
+- commit-message:
+    include: scope
+    prefix: build(deps)
+  directory: /
+  groups:
+    github-actions:
+      patterns:
+      - "*"
+      update-types:
+      - minor
+      - patch
+  ignore:
+  - dependency-name: "github/gh-aw-actions/**" # Managed by gh aw compile. Version-locked to the gh-aw compiler; do not bump.
+  labels:
+  - dependencies
+  - github_actions
+  package-ecosystem: github-actions
+  schedule:
+    day: monday
+    interval: weekly
+    time: "07:00"
+version: 2

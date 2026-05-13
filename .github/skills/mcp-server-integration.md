@@ -94,7 +94,7 @@ tools: []
 ```yaml
 mcp-servers:
   european-parliament:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "european-parliament-mcp-server@1.3.3", "--timeout", "90000"]
     env:

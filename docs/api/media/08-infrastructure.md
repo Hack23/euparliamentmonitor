@@ -106,25 +106,25 @@ The current shared `mcp-servers:` block (imported via
 ```yaml
 mcp-servers:
   european-parliament:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "european-parliament-mcp-server@1.3.3", "--timeout", "180000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "180000"
   world-bank:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "worldbank-mcp@1.0.1"]
   fetch-proxy:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "node"
     entrypointArgs: ["-e", "<inline IMF-only JSON-RPC fetch server>"]
   memory:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "@modelcontextprotocol/server-memory"]
   sequential-thinking:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "@modelcontextprotocol/server-sequential-thinking"]
 ```
@@ -141,7 +141,7 @@ Safe-outputs block: see [`06-pr-and-safe-outputs.md`](06-pr-and-safe-outputs.md)
   (`awmg`) treats `*` as a literal tool name and exposes 0 tools. Omit the
   field entirely.
 - ❌ Never use `node:lts-alpine` — the compile workflow normalizes it to
-  `node:25-alpine` and fails if it persists.
+  `node:26-alpine` and fails if it persists.
 - ✅ `EP_REQUEST_TIMEOUT_MS: "180000"` (180 s) handles slow feed endpoints.
 - ✅ `fetch-proxy` must expose exactly `fetch_url`, must not use `\n` string
   literals in the inline `node -e` script (gh-aw/docker argument decoding can

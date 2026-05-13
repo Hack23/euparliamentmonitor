@@ -312,7 +312,7 @@ gh aw mcp inspect news-breaking --server european-parliament --tool get_plenary_
 ```yaml
 mcp-servers:
   european-parliament:
-    container: "node:25-alpine"
+    container: "node:26-alpine"
     entrypoint: "npx"
     entrypointArgs: ["-y", "european-parliament-mcp-server@1.3.3"]
     allowed: ["*"]
@@ -336,12 +336,12 @@ These are different contexts — gh-aw uses Docker containers via the MCP gatewa
 
 ### Runtimes Configuration
 
-All gh-aw workflows MUST include `runtimes:` to ensure Node.js 25 on the runner:
+All gh-aw workflows MUST include `runtimes:` to ensure Node.js 26 on the runner:
 
 ```yaml
 runtimes:
   node:
-    version: "25"
+    version: "26"
 ```
 
-This is independent of the `container: "node:25-alpine"` in MCP server definitions — `runtimes:` controls the runner, `container:` controls MCP server containers.
+This is independent of the `container: "node:26-alpine"` in MCP server definitions — `runtimes:` controls the runner, `container:` controls MCP server containers.

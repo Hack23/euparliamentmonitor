@@ -150,22 +150,21 @@ Rationale and exceptions: [`06-pr-and-safe-outputs.md`](../prompts/06-pr-and-saf
 - References [`analysis/templates/README.md`](../../analysis/templates/README.md) for the 39-template artifact catalog
 - May apply minor TypeScript/script corrections (max 20 lines) to unblock generation
 
-#### Resilience & performance posture (April-2026 review)
+#### Resilience & performance posture (May-2026 review)
 
 Every `news-*.md` workflow inherits the following hardened posture, applied
-uniformly across all 9 article + translate workflows:
+uniformly across all 14 article workflows plus `news-translate.md`:
 
 | Concern | Setting | Source-of-truth doc |
 |---|---|---|
-| Per-tool-call cap | `tools.timeout: 300` (5 min) | upstream `reference/tools.md` |
-| MCP server boot budget | `tools.startup-timeout: 90` | upstream `reference/tools.md` |
+| Per-tool-call cap | `tools.timeout: 180` (aligned with EP MCP 180 s request timeout) | upstream `reference/tools.md` |
+| MCP server boot budget | `tools.startup-timeout: 180` | upstream `reference/tools.md` |
 | MCP gateway keepalive | upstream default (no override needed) | upstream `reference/mcp-gateway.md` §4.1.3.5 |
 | Cache memory (resume on failure) | `tools.cache-memory: { key: news-<type>-…, retention-days: 7 }` | upstream `reference/cache-memory.md` |
-| Repo memory (long-term) | `tools.repo-memory: memory/news-generation` | upstream `reference/repo-memory.md` |
 | Web fallback | `tools.web-fetch:` | upstream `reference/tools.md` |
 | Explicit edit tool | `tools.edit:` | upstream `reference/tools.md` |
 | GitHub toolset | `tools.github.toolsets: [all]` (excludes `dependabot`) | upstream `reference/github-tools.md` |
-| Network ecosystem identifiers | `defaults`, `github`, `node` + explicit data-source domains | upstream `reference/network.md` |
+| Network ecosystem identifiers | `defaults`, `github`, `node`, Docker registry domains + explicit data-source domains | upstream `reference/network.md` |
 | Safe-output PR resilience | `if-no-changes: warn`, `fallback-as-issue: true`, `auto-close-issue: false`, `excluded-files: ["**/*.lock", …]` | upstream `reference/safe-outputs-pull-requests.md` |
 | Safe-output egress allowlist | `safe-outputs.allowed-domains: [github, …data sources]` (least-privilege; **not** `default-safe-outputs`) | upstream `reference/safe-outputs.md` |
 
@@ -199,10 +198,12 @@ is therefore narrower than "resume after any failure":
 - ❌ Agent step is killed mid-run (session TTL, container OOM, fatal
   error) → cache-memory is **not** saved; the next run starts fresh.
 
-For Stage A/B partial work that survives a hard crash, rely on
-`repo-memory` (the `memory/news-generation` branch is committed
-incrementally during the run and persists independently of the
-`update_cache_memory` job's `success` gate).
+Hard agent crashes do not have a durable partial-work guarantee; resilience
+comes from enabling gh-aw continuation recovery, keeping tool calls bounded, and
+using the host-side PAT fallback when gh-aw captures a patch artifact. Do not
+reintroduce `repo-memory` as a checkpoint mechanism — it compiles an additional
+`push_repo_memory` write path that the stable riksdagsmonitor news workflows do
+not use.
 
 **Security**: Read-only permissions by default, MCP data only from official EU Parliament / World Bank / IMF sources. Firewall policy via [`gh-aw-firewall` skill](../skills/gh-aw-firewall.md).
 
