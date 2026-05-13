@@ -368,4 +368,49 @@ describe('agentic workflow threat detection policy', () => {
       );
     }
   });
+
+  it('does not re-inline the 18-line timeout-minutes scheduling rationale (Phase D)', () => {
+    // Phase D of the agentic-workflow refactor compressed the 18-line
+    // YAML-comment explanation above `timeout-minutes: 60` down to a
+    // 3-line cross-reference to the README's "Workflow timing contract"
+    // section. The long version (252 lines duplicated across 14
+    // workflows) lives canonically in `.github/workflows/README.md`.
+    // YAML comments do not propagate into the compiled `.lock.yml` so
+    // there is no runtime risk in compressing them, but this drift-guard
+    // prevents accidental re-inlining by a future author copy-pasting
+    // from an old workflow.
+    const articleWorkflows = fs
+      .readdirSync(WORKFLOWS_DIR)
+      .filter((name) =>
+        name.startsWith('news-') &&
+        name.endsWith('.md') &&
+        name !== 'news-translate.md',
+      )
+      .sort();
+
+    expect(articleWorkflows.length).toBeGreaterThan(0);
+
+    for (const workflow of articleWorkflows) {
+      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+
+      // The hallmark phrase from the long deprecated explanation.
+      expect(content, `${workflow} must not re-inline the long timeout-minutes rationale`).not.toContain(
+        'Hard safety cap = 60 minutes (`timeout-minutes: 60`)',
+      );
+      // The redundant "tools: inherited" multi-line comment.
+      expect(content, `${workflow} must not re-inline the long tools-inherited comment`).not.toMatch(
+        /^# `tools:` is inherited \(with `slug` substituted into `cache-memory\.key`\) from\n# \.github\/workflows\/shared\/config\/news-tools\.md/m,
+      );
+      // The redundant "post-steps + pat-pr-fallback inherited" multi-line comment.
+      expect(content, `${workflow} must not re-inline the long pat-pr-fallback-inherited comment`).not.toMatch(
+        /^# `post-steps:` \(agent-patch capture\) and `jobs\.pat-pr-fallback`\n# \(host-side PAT recovery\) are inherited/m,
+      );
+
+      // And the compressed comment must still be present (with the
+      // README cross-reference) so readers know where the long form lives.
+      expect(content, `${workflow} must keep the timing-contract cross-reference`).toContain(
+        '.github/workflows/README.md "Workflow timing contract"',
+      );
+    }
+  });
 });

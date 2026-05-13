@@ -21,24 +21,9 @@ permissions:
   discussions: read
   security-events: read
 
-# Hard safety cap = 60 minutes (`timeout-minutes: 60`). Two deadlines
-# drive this workflow's schedule:
-#
-#   1. **Active-work target ≤ minute 45.** Stages A → E complete by
-#      minute 45, leaving a 15-minute buffer under the 60-min cap for
-#      sandbox setup, MCP gateway boot, deterministic article render,
-#      and git push. Per-slug stage budgets live in
-#      `src/config/article-horizons.ts` and are surfaced in the
-#      Workflow-Parameters table below.
-#
-#   2. **Single safe-output `create_pull_request` call by minute ≤ 45.**
-#      The agent must complete the analysis and ship the PR within the
-#      60-minute `timeout-minutes` cap. The bundled MCP gateway image
-#      (ghcr.io/github/gh-aw-mcpg:v0.3.1, shipped with gh-aw v0.71.3)
-#      currently rejects `engine.mcp.session-timeout` (schema bug — the
-#      field is advertised by the v0.71.3 compiler but absent from the
-#      gateway schema), so we do not set it here. See
-#      `.github/prompts/02-analysis-protocol.md` §3 for stage budgets.
+# Hard safety cap 60 min; active-work target ≤ minute 45; single safe-outputs
+# create_pull_request by minute ≤ 45. Per-slug budgets in src/config/article-horizons.ts.
+# See .github/workflows/README.md "Workflow timing contract" for full rationale.
 timeout-minutes: 60
 
 
@@ -61,27 +46,16 @@ concurrency:
   group: "news-year-in-review"
   cancel-in-progress: false
 
-# `tools:` is inherited (with `slug` substituted into `cache-memory.key`) from
-# .github/workflows/shared/config/news-tools.md. The full timeout / MCP
-# startup-timeout / github.toolsets / bash / edit / web-fetch /
-# agentic-workflows / cache-memory configuration is identical across all
-# 14 unified article workflows; only the cache-memory key namespace varies
-# by slug.
+# tools: inherited from shared/config/news-tools.md (parameterized by slug).
 
 safe-outputs:
-  # Analysis artifacts can exceed the 1024 KB default patch limit; raise to
-  # 10 MB (max allowed) to prevent legitimate analysis-only
-  # patches from being rejected.
+  # max-patch-size kept inline: gh-aw v0.74.1 does NOT propagate
+  # safe-outputs.max-patch-size via imports (resets to default 1024).
+  # 10 MB ceiling prevents legitimate analysis-only patches from being rejected.
   max-patch-size: 10240
-  # `threat-detection` and the bundle-prerequisite `steps:` block are
-  # inherited from .github/workflows/shared/config/news-safe-outputs-head.md.
-  # `allowed-domains` is inherited from
-  # .github/workflows/shared/config/news-safe-outputs-domains.md.
-  # Both blocks are identical across the 14 unified article workflows.
-  # `safe-outputs.allowed-domains` is inherited from
-  # .github/workflows/shared/config/news-safe-outputs-domains.md (identical
-  # across all 14 unified article workflows). Add domains there to apply
-  # the change globally; declare slug-specific overrides here only if needed.
+  # threat-detection + bundle-prerequisite steps + allowed-domains are inherited
+  # from shared/config/news-safe-outputs-head.md and -domains.md. Add domains
+  # globally there; declare slug-specific overrides here only if needed.
   create-pull-request:
     title-prefix: "[news] "
     labels: [agentic-news, analysis-data, "type:year-in-review"]
@@ -122,13 +96,7 @@ steps:
   - name: Pre-fetch EP feeds (deterministic Stage A)
     run: bash scripts/prefetch-ep-feeds.sh year-in-review procedures documents events adopted-texts
 
-# `post-steps:` (agent-patch capture) and `jobs.pat-pr-fallback`
-# (host-side PAT recovery) are inherited from the shared, parameterized
-# `.github/workflows/shared/config/news-pat-pr-fallback.md` file. The
-# per-slug `slug` and `workflowName` inputs are passed via `imports[].with`
-# in the frontmatter above. The PAT recovery contract:
-# `scripts/gh-aw-pat-pr-fallback.sh` exits early when safe_outputs
-# reported success — recovery runs only when safe_outputs failed.
+# post-steps + jobs.pat-pr-fallback inherited from shared/config/news-pat-pr-fallback.md.
 
 engine:
   id: copilot

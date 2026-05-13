@@ -109,6 +109,47 @@ imports:
 `news-translate.md` imports `news-common-settings.md` + the MCP/prompt components and keeps its
 translation-specific prompt body (multi-call flush pattern, exempt from single-PR rule).
 
+#### Import topology diagram
+
+```mermaid
+flowchart LR
+    subgraph "news-<slug>.md (14 article workflows)"
+        WF["• name<br/>• schedule (cron)<br/>• concurrency.group<br/>• safe-outputs.max-patch-size<br/>• create-pull-request.labels<br/>• engine.model<br/>• Stage A-E prompt body"]
+    end
+
+    subgraph "shared/config/ (Phase A1-C extractions)"
+        DOM["news-safe-outputs-<br/>domains.md<br/><i>(46 lines)</i>"]
+        HEAD["news-safe-outputs-<br/>head.md<br/><i>(25 lines)</i>"]
+        TOOLS["news-tools.md<br/><i>+ slug input</i>"]
+        PATPR["news-pat-pr-<br/>fallback.md<br/><i>+ slug, workflowName</i>"]
+        COMMON["news-common-<br/>settings.md"]
+    end
+
+    subgraph "shared/mcp/ & shared/prompts/"
+        MCP["news-mcp-<br/>servers.md"]
+        RT["news-unified-<br/>runtime.md"]
+    end
+
+    subgraph ".github/agents/"
+        AGENT["news-generation.<br/>agent.md"]
+    end
+
+    WF -->|imports| AGENT
+    WF -->|imports| COMMON
+    WF -->|imports| DOM
+    WF -->|imports| HEAD
+    WF -->|uses: with slug| TOOLS
+    WF -->|uses: with slug + workflowName| PATPR
+    WF -->|imports| MCP
+    WF -->|imports| RT
+```
+
+The arrow style distinguishes plain imports from parameterized
+(`uses: … with: …`) imports. Drift-guard tests in
+[`test/unit/agentic-workflows-threat-detection.test.js`](../../test/unit/agentic-workflows-threat-detection.test.js)
+walk this graph and fail if any workflow re-inlines a block that has been
+extracted to a shared component.
+
 #### Drift-guard
 
 `test/unit/agentic-workflows-threat-detection.test.js` walks each article workflow's
@@ -125,6 +166,36 @@ import graph and asserts:
 A re-inlined block in any workflow fails the drift-guard and blocks PR merge.
 
 See the [prompts library](../prompts/README.md) for the canonical Stage A → E flow.
+
+#### Workflow timing contract
+
+Every unified article workflow runs under a 60-minute hard cap (`timeout-minutes: 60`)
+with two binding deadlines:
+
+| Deadline | Target | Hard limit | Source |
+|---|---|---|---|
+| Active-work completion (Stages A → E) | minute ≤ 42 | minute ≤ 45 | `src/config/article-horizons.ts` per-slug budgets |
+| Single safe-outputs `create_pull_request` call | minute ≤ 42 | minute ≤ 45 (47 for electoral) | `safeoutputs___create_pull_request` enforcement |
+
+The remaining 15-minute buffer under the 60-minute cap absorbs sandbox boot,
+MCP gateway startup (EP / IMF / WB / sequential-thinking / fetch-proxy), the
+deterministic article render (`npm run generate-article`), git push, and the
+host-side PAT-recovery job. Per-slug stage budgets (Stage A / Stage B Pass 1+2 /
+Stage C gate + optional Pass 3 / Stage D / Stage E) live in
+[`src/config/article-horizons.ts`](../../src/config/article-horizons.ts). The
+Stage C exit tripwire (typically minute 36, slug-specific in
+`article-horizons.ts`) fires `GATE_RESULT=ANALYSIS_ONLY` and (if late) skips
+Stage D so the run still reaches the PR call before the hard deadline.
+
+**MCP session lifetime**: `engine.mcp.session-timeout` is intentionally NOT set
+in any workflow — gh-aw v0.71.3 advertises the field, but the bundled MCP
+gateway image (`ghcr.io/github/gh-aw-mcpg:v0.3.1`) rejects it
+(`additionalProperties 'sessionTimeout' not allowed`, run #25275823699
+fingerprint). The MCP gateway uses its upstream default session lifetime; the
+agent must finish within the 60-minute `timeout-minutes` cap regardless. See
+[`.github/prompts/02-analysis-protocol.md`](../prompts/02-analysis-protocol.md) §3
+for the canonical stage budgets and [`.github/prompts/09-troubleshooting.md`](../prompts/09-troubleshooting.md) §5
+for historical rate-limit forensics (run #24963129839).
 
 #### Lock-file compile flow
 
