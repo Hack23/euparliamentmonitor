@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-c0tdQzTq/hJuU4A6m9QBNIIY8J/ge8VTXE7upObiA9A='; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-c0tdQzTq/hJuU4A6m9QBNIIY8J/ge8VTXE7upObiA9A='; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-src 'none'; base-uri 'self'; form-action 'none'">
   <title>본회의 투표 및 결의: 2026-03-02 — EU Parliament Monitor</title>
   <meta name="description" content="유럽의회 제10대 회기는 2004년 이래 가장 분열된 의회로 2년차에 접어들고 있습니다. 의회 분열 지수 6.14는 역대 최고치를 기록했으며, 이는 동의안과 결의안이 전통적인 좌우 분열선을 넘어서는 연합을 점점 더 필요로 한다는 것을 의미합니다. 2024년 선거에서 드러난 우경화가 어떤 동의안이 추진력을 얻는지를 계속 재편하고 있습니다.">
   <meta name="keywords" content="European Parliament, plenary votes, resolutions, adopted texts, party cohesion, parliamentary questions">
@@ -30,12 +30,21 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="본회의 투표 및 결의: 2026-03-02">
   <meta name="twitter:description" content="유럽의회 제10대 회기는 2004년 이래 가장 분열된 의회로 2년차에 접어들고 있습니다. 의회 분열 지수 6.14는 역대 최고치를 기록했으며, 이는 동의안과 결의안이 전통적인 좌우 분열선을 넘어서는 연합을 점점 더 필요로 한다는 것을 의미합니다. 2024년 선거에서 드러난 우경화가 어떤 동의안이 추진력을 얻는지를 계속 재편하고 있습니다.">
-  <meta name="twitter:image" content="https://hack23.github.io/euparliamentmonitor/images/og-image.jpg">
   <meta name="twitter:image:alt" content="본회의 투표 및 결의: 2026-03-02 — EU Parliament Monitor">
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../images/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../images/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../images/favicon-512x512.png">
+  <link rel="icon" type="image/webp" sizes="16x16" href="../images/favicon-16x16.webp">
+  <link rel="icon" type="image/webp" sizes="32x32" href="../images/favicon-32x32.webp">
+  <link rel="icon" type="image/webp" sizes="48x48" href="../images/favicon-48x48.webp">
+  <link rel="icon" type="image/webp" sizes="96x96" href="../images/favicon-96x96.webp">
+  <link rel="icon" type="image/webp" sizes="192x192" href="../images/favicon-192x192.webp">
+  <link rel="icon" type="image/webp" sizes="512x512" href="../images/favicon-512x512.webp">
   <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
   <link rel="manifest" href="../site.webmanifest">
   <meta name="theme-color" content="#003399">
@@ -89,8 +98,9 @@
     <div class="site-header__inner site-header__inner--stacked">
       <a href="../index-ko.html" class="site-header__brand" aria-label="EU Parliament Monitor">
         <picture class="site-header__logo-picture">
-          <source srcset="../images/header-logo.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--header" src="../images/header-logo.png" alt="" width="96" height="64" aria-hidden="true">
+          <source srcset="../images/banner-320.avif 320w, ../images/banner-480.avif 480w, ../images/banner-768.avif 768w, ../images/banner-1200.avif 1200w" sizes="(max-width: 640px) 58vw, (max-width: 1200px) 15vw, 260px" type="image/avif">
+          <source srcset="../images/banner-320.webp 320w, ../images/banner-480.webp 480w, ../images/banner-768.webp 768w, ../images/banner-1200.webp 1200w" sizes="(max-width: 640px) 58vw, (max-width: 1200px) 15vw, 260px" type="image/webp">
+          <img class="site-header__logo site-header__logo--banner" src="../images/banner.jpg" srcset="../images/banner-320.jpg 320w, ../images/banner-480.jpg 480w, ../images/banner-768.jpg 768w, ../images/banner-1200.jpg 1200w" sizes="(max-width: 640px) 58vw, (max-width: 1200px) 15vw, 260px" alt="EU Parliament Monitor" width="1200" height="400" loading="eager" decoding="async">
         </picture>
         <span class="site-header__brand-text">
           <span class="site-header__title">EU Parliament Monitor</span>
