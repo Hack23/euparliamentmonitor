@@ -21,30 +21,24 @@ permissions:
   discussions: read
   security-events: read
 
-# Hard safety cap = 60 minutes (`timeout-minutes: 60`). Two deadlines
-# drive this workflow's schedule:
-#
-#   1. **Active-work target ≤ minute 45.** Stages A → E complete by
-#      minute 45, leaving a 15-minute buffer under the 60-min cap for
-#      sandbox setup, MCP gateway boot, deterministic article render,
-#      and git push. Per-slug stage budgets live in
-#      `src/config/article-horizons.ts` and are surfaced in the
-#      Workflow-Parameters table below.
-#
-#   2. **Single safe-output `create_pull_request` call by minute ≤ 45.**
-#      The agent must complete the analysis and ship the PR within the
-#      60-minute `timeout-minutes` cap. The bundled MCP gateway image
-#      (ghcr.io/github/gh-aw-mcpg:v0.3.1, shipped with gh-aw v0.71.3)
-#      currently rejects `engine.mcp.session-timeout` (schema bug — the
-#      field is advertised by the v0.71.3 compiler but absent from the
-#      gateway schema), so we do not set it here. See
-#      `.github/prompts/02-analysis-protocol.md` §3 for stage budgets.
+# Hard safety cap 60 min; active-work target ≤ minute 45; single safe-outputs
+# create_pull_request by minute ≤ 45. Per-slug budgets in src/config/article-horizons.ts.
+# See .github/workflows/README.md "Workflow timing contract" for full rationale.
 timeout-minutes: 60
 
 
 imports:
   - .github/agents/news-generation.agent.md
   - shared/config/news-common-settings.md
+  - shared/config/news-safe-outputs-domains.md
+  - shared/config/news-safe-outputs-head.md
+  - uses: shared/config/news-tools.md
+    with:
+      slug: year-ahead
+  - uses: shared/config/news-pat-pr-fallback.md
+    with:
+      slug: year-ahead
+      workflowName: "News: EU Parliament Year Ahead — Unified"
   - shared/mcp/news-mcp-servers.md
   - shared/prompts/news-unified-runtime.md
 
@@ -52,107 +46,16 @@ concurrency:
   group: "news-year-ahead"
   cancel-in-progress: false
 
-# Tools — all available read/edit/web/memory tools the agent needs for a
-# resilient 60-min news-generation session. See upstream reference/tools.md
-# and reference/github-tools.md.
-tools:
-  timeout: 180            # per-tool-call cap (bash, MCP, github, edit, web-fetch)
-  startup-timeout: 180    # MCP server boot (npx package install) — covers
-                          # european-parliament/world-bank/memory/sequential-thinking
-  github:
-    # `all` enables every read toolset EXCEPT `dependabot` (per upstream
-    # docs — `dependabot` requires `vulnerability-alerts: read` which we
-    # do not grant; news workflows do not need supply-chain alerts).
-    toolsets:
-      - all
-  bash: true              # AWF-sandboxed shell — required for Stage A/D scripts
-  edit:                   # explicit file-edit tool (analysis artifact authoring)
-  web-fetch:              # fallback fetch for EP/IMF/WB pages when MCP miss
-  agentic-workflows: true # workflow introspection (audit/log analysis)
-  # Cache memory — restores partial analysis & data fetched in prior runs
-  # so a failed safe-outputs PR call does not lose Stage A/B work. Per
-  # upstream reference/cache-memory.md, the compiler auto-injects restore
-  # and save steps using a workflow-scoped key.
-  cache-memory:
-    key: news-year-ahead-${{ github.repository_owner }}
-    retention-days: 7
-    allowed-extensions: [".md", ".json", ".jsonl", ".txt", ".html"]
+# tools: inherited from shared/config/news-tools.md (parameterized by slug).
+
 safe-outputs:
-  threat-detection:
-    continue-on-error: true
-  # Analysis artifacts can exceed the 1024 KB default patch limit; raise to
-  # 10 MB (max allowed) to prevent legitimate analysis-only
-  # patches from being rejected.
+  # max-patch-size kept inline: gh-aw v0.74.1 does NOT propagate
+  # safe-outputs.max-patch-size via imports (resets to default 1024).
+  # 10 MB ceiling prevents legitimate analysis-only patches from being rejected.
   max-patch-size: 10240
-  # The safe_outputs job checks out the current branch tip with fetch-depth:1.
-  # When another news PR merges between the agent job and safe-output bundle
-  # application, the bundle may require the older triggering commit as a
-  # prerequisite. Fetch that commit explicitly so bundle apply does not fail
-  # with "Repository lacks these prerequisite commits".
-  steps:
-    - name: Fetch triggering commit for bundle prerequisites
-      if: contains(needs.agent.outputs.output_types, 'create_pull_request')
-      shell: bash
-      run: |
-        if [ -n "${GITHUB_SHA:-}" ] && git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-          if ! git fetch --no-tags origin "$GITHUB_SHA"; then
-            branch_name="$GITHUB_REF_NAME"
-            if [ -z "$branch_name" ]; then
-              branch_name=main
-            fi
-            if git rev-parse --is-shallow-repository | grep -qx true; then
-              git fetch --unshallow --no-tags origin "$branch_name"
-            else
-              git fetch --no-tags origin "$branch_name"
-            fi
-          fi
-        fi
-  allowed-domains:
-    # ── gh-aw ecosystem identifier ────────────────────────────────────
-    - github                             # github.com + api.github.com (PR creation, links)
-    # ── EU Parliament & EU institutions ───────────────────────────────
-    - "*.europa.eu"
-    - europarl.europa.eu
-    - www.europarl.europa.eu
-    - data.europarl.europa.eu
-    - admin.data.europarl.europa.eu
-    - multimedia.europarl.europa.eu
-    - oeil.secure.europarl.europa.eu
-    - ec.europa.eu
-    - eur-lex.europa.eu
-    - iate.europa.eu
-    - digital-strategy.ec.europa.eu
-    - data.europa.eu
-    - data.consilium.europa.eu
-    - data.ecb.europa.eu
-    # ── IMF ───────────────────────────────────────────────────────────
-    - "*.imf.org"
-    - api.imf.org
-    - data.imf.org
-    - www.imf.org
-    - dataservices.imf.org
-    - sdmx.imf.org
-    # ── World Bank ────────────────────────────────────────────────────
-    - "*.worldbank.org"
-    - api.worldbank.org
-    - data.worldbank.org
-    - www.worldbank.org
-    # ── Hack23-owned domains ──────────────────────────────────────────
-    - "*.hack23.com"
-    - hack23.com
-    - www.hack23.com
-    - hack23.github.io
-    - "*.euparliamentmonitor.com"
-    - euparliamentmonitor.com
-    - www.euparliamentmonitor.com
-    - api.euparliamentmonitor.com
-    - "*.riksdagsmonitor.com"
-    - riksdagsmonitor.com
-    - www.riksdagsmonitor.com
-    - blacktrigram.com
-    - www.blacktrigram.com
-    - ciacompliancemanager.com
-    - www.ciacompliancemanager.com
+  # threat-detection + bundle-prerequisite steps + allowed-domains are inherited
+  # from shared/config/news-safe-outputs-head.md and -domains.md. Add domains
+  # globally there; declare slug-specific overrides here only if needed.
   create-pull-request:
     title-prefix: "[news] "
     labels: [agentic-news, analysis-data, "type:year-ahead"]
@@ -190,59 +93,10 @@ steps:
     run: |
       npm run copy-vendor
 
-# Post-execution recovery: when the agent commits Stage E output to a local
-# news/* branch but the safeoutputs MCP create_pull_request path later fails
-# (session TTL expiry, or a bundle prerequisite race in the write job), the
-# agent commits live only on the agent runner filesystem and are otherwise
-# lost when the runner is reaped. This post-step writes
-# /tmp/gh-aw/aw-agent-recovery.patch from the news/* branch when gh-aw has not
-# emitted its own aw-*.patch artifact. The host-side pat-pr-fallback job runs
-# after safe_outputs, verifies no bundle-path PR exists, and applies eligible
-# analysis/news changes via scripts/gh-aw-pat-pr-fallback.sh. Originated from
-# run #25028873034 (week-in-review) and extended after run #25541403260
-# (motions) exposed a bundle prerequisite failure after the fallback job had
-# already skipped.
-post-steps:
-  - name: Capture agent recovery patch
-    if: always()
-    continue-on-error: true
-    run: bash scripts/gh-aw-capture-agent-patch.sh
+  - name: Pre-fetch EP feeds (deterministic Stage A)
+    run: bash scripts/prefetch-ep-feeds.sh year-ahead procedures documents external-documents events
 
-jobs:
-  pat-pr-fallback:
-    name: Host-side PAT PR fallback
-    needs: [agent, detection, safe_outputs]
-    if: >
-      always() && needs.agent.result != 'skipped' &&
-      (needs.detection.result == 'success' || needs.detection.result == 'skipped')
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          ref: ${{ github.base_ref || github.event.pull_request.base.ref || github.ref_name || github.event.repository.default_branch }}
-          token: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
-          persist-credentials: false
-          fetch-depth: 1
-
-      - name: Download agent artifact
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: agent
-          path: /tmp/gh-aw/
-
-      - name: Run host-side PAT PR fallback
-        env:
-          GH_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
-          GH_AW_PAT_PR_FALLBACK_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN || secrets.GITHUB_TOKEN }}
-          GH_AW_PAT_FALLBACK_SLUG: year-ahead
-          GH_AW_SAFE_OUTPUTS_RESULT: ${{ needs.safe_outputs.result }}
-          GH_AW_PAT_FALLBACK_WORKFLOW_NAME: "News: EU Parliament Year Ahead — Unified"
-          GH_AW_PAT_FALLBACK_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: bash scripts/gh-aw-pat-pr-fallback.sh
+# post-steps + jobs.pat-pr-fallback inherited from shared/config/news-pat-pr-fallback.md.
 
 engine:
   id: copilot
