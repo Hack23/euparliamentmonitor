@@ -74,24 +74,28 @@ Each workflow renders articles using `npm run generate-article -- --run "${ANALY
 
 #### Shared-import pattern
 
-Every article workflow imports the canonical agent anchor plus the shared
-MCP server component:
+Every article workflow now imports four reusable building blocks:
 
 ```yaml
 imports:
   - .github/agents/news-generation.agent.md
+  - shared/config/news-common-settings.md
   - shared/mcp/news-mcp-servers.md
+  - shared/prompts/news-unified-runtime.md
 ```
 
 - [`.github/agents/news-generation.agent.md`](../agents/news-generation.agent.md)
-  is intentionally **minimal** and only supplies the analysis anchor + single-PR
-  contract required by repo lint rules. Workflow-specific stage instructions stay
-  in each `news-*.md` source file so the compiled prompt only carries one full
-  copy of that guidance.
-- [`shared/mcp/news-mcp-servers.md`](shared/mcp/news-mcp-servers.md) is now
-  intentionally **frontmatter-only**; gh-aw merges its `mcp-servers:` block
-  into the importing workflow frontmatter without adding prompt overhead.
-- `news-translate.md` imports only the shared MCP component and keeps its own
+  stays as the canonical analysis-awareness anchor required by repo lint rules.
+- [`shared/config/news-common-settings.md`](shared/config/news-common-settings.md)
+  centralises the common `features`, `runtimes`, and `network.allowed` blocks
+  used by the news workflows.
+- [`shared/mcp/news-mcp-servers.md`](shared/mcp/news-mcp-servers.md) remains
+  frontmatter-only and provides the shared MCP mounts.
+- [`shared/prompts/news-unified-runtime.md`](shared/prompts/news-unified-runtime.md)
+  carries the repeated unified-workflow runtime instructions (required reading +
+  stage order), so article-specific workflow files can focus on per-slug inputs,
+  budgets, and execution details.
+- `news-translate.md` imports the shared config + MCP components and keeps its
   translation-specific prompt body.
 
 See the [prompts library](../prompts/README.md) for the canonical Stage A → E
