@@ -28,10 +28,6 @@ updates:
     day: monday
     interval: weekly
     time: "06:00"
-- directory: /
-  package-ecosystem: docker
-  schedule:
-    interval: daily
 - commit-message:
     include: scope
     prefix: build(deps)
