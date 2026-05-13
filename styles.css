@@ -658,6 +658,7 @@ html[data-theme='light'] .theme-toggle__svg--dark {
   /* Break out of the centered content container so the banner spans the viewport. */
   margin-inline: calc(50% - 50vw);
   overflow: hidden;
+  contain: paint;
 }
 
 .hero__banner-img {
@@ -687,6 +688,11 @@ html[data-theme='light'] .theme-toggle__svg--dark {
      gradient so the seam between header and banner is visually continuous. */
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   line-height: 0;
+  contain: paint;
+}
+
+.page-banner picture {
+  display: block;
 }
 
 .page-banner__img {

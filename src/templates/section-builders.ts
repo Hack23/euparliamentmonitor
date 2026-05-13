@@ -395,6 +395,44 @@ export interface SiteHeaderOptions {
   politicalIntelligenceHref?: string;
 }
 
+export interface ResponsiveBannerPictureOptions {
+  pathPrefix: string;
+  pictureClass?: string | undefined;
+  imageClass: string;
+  alt: string;
+  sizes: string;
+  loading?: 'eager' | 'lazy' | undefined;
+  extraImageAttributes?: string | undefined;
+}
+
+const RESPONSIVE_BANNER_WIDTHS: readonly number[] = [320, 480, 768, 1200];
+const BANNER_WIDTH = 1200;
+const BANNER_HEIGHT = 400;
+
+function buildBannerSrcset(pathPrefix: string, format: 'avif' | 'webp' | 'jpg'): string {
+  return RESPONSIVE_BANNER_WIDTHS.map(
+    (width) => `${pathPrefix}images/banner-${width}.${format} ${width}w`
+  ).join(', ');
+}
+
+/**
+ * Build responsive banner picture markup with AVIF/WebP/JPEG fallbacks.
+ *
+ * @param options - Picture, image, path, and sizing options.
+ * @returns HTML string for the responsive banner picture.
+ */
+export function buildResponsiveBannerPicture(options: ResponsiveBannerPictureOptions): string {
+  const pictureClass = options.pictureClass ? ` class="${escapeHTML(options.pictureClass)}"` : '';
+  const loading = options.loading ?? 'eager';
+  const extraAttributes = options.extraImageAttributes ? ` ${options.extraImageAttributes}` : '';
+  const safeSizes = escapeHTML(options.sizes);
+  return `<picture${pictureClass}>
+          <source srcset="${buildBannerSrcset(options.pathPrefix, 'avif')}" sizes="${safeSizes}" type="image/avif">
+          <source srcset="${buildBannerSrcset(options.pathPrefix, 'webp')}" sizes="${safeSizes}" type="image/webp">
+          <img class="${escapeHTML(options.imageClass)}" src="${options.pathPrefix}images/banner.jpg" srcset="${buildBannerSrcset(options.pathPrefix, 'jpg')}" sizes="${safeSizes}" alt="${escapeHTML(options.alt)}" width="${BANNER_WIDTH}" height="${BANNER_HEIGHT}" loading="${loading}" decoding="async"${extraAttributes}>
+        </picture>`;
+}
+
 /**
  * Build the shared responsive site header used by every generated page family.
  *
@@ -436,10 +474,13 @@ export function buildSiteHeader(options: SiteHeaderOptions): string {
   return `<header class="site-header" role="banner">
     <div class="site-header__inner site-header__inner--stacked">
       <a href="${escapeHTML(homeHref)}" class="site-header__brand" aria-label="${safeTitle}">
-        <picture class="site-header__logo-picture">
-          <source srcset="${pathPrefix}images/banner.webp" type="image/webp">
-          <img class="site-header__logo site-header__logo--banner" src="${pathPrefix}images/banner.jpg" alt="${safeTitle}" width="240" height="80" loading="eager">
-        </picture>
+        ${buildResponsiveBannerPicture({
+          pathPrefix,
+          pictureClass: 'site-header__logo-picture',
+          imageClass: 'site-header__logo site-header__logo--banner',
+          alt: siteTitle,
+          sizes: '(max-width: 640px) 58vw, (max-width: 1200px) 15vw, 260px',
+        })}
         <span class="site-header__brand-text">
           <span class="site-header__title">${safeTitle}</span>
           <span class="site-header__subtitle">${headerSubtitle}</span>
@@ -473,10 +514,13 @@ export function buildSiteHeader(options: SiteHeaderOptions): string {
  */
 export function buildPageBanner(pathPrefix: string): string {
   return `<div class="page-banner" role="img" aria-label="EU Parliament Monitor">
-    <picture>
-      <source srcset="${pathPrefix}images/banner.webp" type="image/webp">
-      <img class="page-banner__img" src="${pathPrefix}images/banner.jpg" alt="" aria-hidden="true" width="1200" height="400" loading="eager">
-    </picture>
+    ${buildResponsiveBannerPicture({
+      pathPrefix,
+      imageClass: 'page-banner__img',
+      alt: '',
+      sizes: '100vw',
+      extraImageAttributes: 'aria-hidden="true"',
+    })}
   </div>`;
 }
 

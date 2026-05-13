@@ -32,7 +32,11 @@ import {
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
-import { buildSiteFooter, buildSiteHeader } from '../templates/section-builders.js';
+import {
+  buildResponsiveBannerPicture,
+  buildSiteFooter,
+  buildSiteHeader,
+} from '../templates/section-builders.js';
 import {
   getNewsArticles,
   groupArticlesByLanguage,
@@ -689,10 +693,13 @@ ${buildHeadFreshnessTags('')}
         <h1 class="hero__title">${heroTitle}</h1>
         <p class="hero__description">${description}</p>
       </div>
-      <picture class="hero__banner">
-        <source srcset="images/banner.webp" type="image/webp">
-        <img src="images/banner.jpg" alt="EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence" class="hero__banner-img" width="1200" height="400" loading="eager">
-      </picture>
+      ${buildResponsiveBannerPicture({
+        pathPrefix: '',
+        pictureClass: 'hero__banner',
+        imageClass: 'hero__banner-img',
+        alt: 'EU Parliament Monitor — AI-Disrupted Parliamentary Intelligence',
+        sizes: '100vw',
+      })}
     </div>
   </section>
 

@@ -108,6 +108,13 @@ describe('deploy pipeline wiring', () => {
     );
   });
 
+  it('package.json wires `npm run image:generate` to the sharp responsive image generator', () => {
+    expect(packageJson.scripts['image:generate']).toBe(
+      'node scripts/generate-responsive-images.js',
+    );
+    expect(packageJson.devDependencies.sharp).toBeDefined();
+  });
+
   it('package.json declares html-minifier-terser as a devDependency (pure-Node minifier, no Docker egress needed)', () => {
     expect(packageJson.devDependencies['html-minifier-terser']).toBeDefined();
   });
@@ -153,6 +160,25 @@ describe('deploy pipeline wiring', () => {
     const minifyIdx = deployYml.indexOf('npm run minify-assets');
     const syncIdx = deployYml.indexOf('aws s3 sync');
     expect(syncIdx).toBeGreaterThan(minifyIdx);
+  });
+
+  it('deploy-s3.yml generates responsive images before node_modules cleanup', () => {
+    const imageIdx = deployYml.indexOf('run: npm run image:generate');
+    const rmIdx = deployYml.indexOf('          rm -rf node_modules');
+    expect(imageIdx).toBeGreaterThan(0);
+    expect(rmIdx).toBeGreaterThan(imageIdx);
+  });
+
+  it.each([
+    ['*.avif', 'image/avif'],
+    ['*.webp', 'image/webp'],
+    ['*.png', 'image/png'],
+    ['*.jpg', 'image/jpeg'],
+    ['*.gif', 'image/gif'],
+    ['*.ico', 'image/x-icon'],
+  ])('deploy-s3.yml uploads %s with explicit %s content type', (glob, contentType) => {
+    expect(deployYml).toContain(`--include '${glob}'`);
+    expect(deployYml).toContain(`--content-type '${contentType}'`);
   });
 
   it('scripts/minify-assets.js skips already-minified vendor files (*.min.js)', () => {
