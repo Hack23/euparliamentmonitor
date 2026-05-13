@@ -111,7 +111,14 @@ function pinMermaidVersion(content, version) {
 
 const bannerWidths = [320, 480, 768, 1200];
 const iconSizes = [16, 32, 48, 96, 192, 512];
+// Keep this standalone helper dependency-free: deploy runs it from scripts/
+// and unit tests copy only this file into a synthetic repo. The value mirrors
+// BASE_URL in src/constants/config.ts.
+const siteBaseUrl = 'https://euparliamentmonitor.com';
 
+// Mirrors buildBannerSrcset() in src/templates/section-builders.ts. It is kept
+// local so legacy deploy normalisation still works after node_modules cleanup
+// and inside the isolated test fixture that copies only this script.
 function bannerSrcset(prefix, format) {
   return bannerWidths.map((width) => `${prefix}images/banner-${width}.${format} ${width}w`).join(', ');
 }
@@ -140,21 +147,21 @@ ${webpLinks}
 }
 
 function responsiveSocialMeta(alt) {
-  return `  <meta property="og:image" content="https://euparliamentmonitor.com/images/og-image-1200.jpg">
-  <meta property="og:image:secure_url" content="https://euparliamentmonitor.com/images/og-image-1200.jpg">
+  return `  <meta property="og:image" content="${siteBaseUrl}/images/og-image-1200.jpg">
+  <meta property="og:image:secure_url" content="${siteBaseUrl}/images/og-image-1200.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="${alt}">
-  <meta property="og:image" content="https://euparliamentmonitor.com/images/og-image-1200.webp">
+  <meta property="og:image" content="${siteBaseUrl}/images/og-image-1200.webp">
   <meta property="og:image:type" content="image/webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image" content="https://euparliamentmonitor.com/images/og-image-1200.avif">
+  <meta property="og:image" content="${siteBaseUrl}/images/og-image-1200.avif">
   <meta property="og:image:type" content="image/avif">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta name="twitter:image" content="https://euparliamentmonitor.com/images/twitter-card-1200.jpg">
+  <meta name="twitter:image" content="${siteBaseUrl}/images/twitter-card-1200.jpg">
   <meta name="twitter:image:alt" content="${alt}">
   <meta name="twitter:image:width" content="1200">
   <meta name="twitter:image:height" content="600">`;

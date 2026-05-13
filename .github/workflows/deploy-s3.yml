@@ -77,6 +77,8 @@ jobs:
         # image variants from canonical PNG source artwork before deploy.
         # The generator is deterministic and cheap; the later image sync passes
         # use --size-only so unchanged byte-size variants are not re-uploaded.
+        # GitHub Actions bash steps fail fast by default, so a generation error
+        # stops deployment before CSS optimisation, minification, or S3 sync.
         run: npm run image:generate
 
       - name: Optimise CSS (drop unused selectors against every shipped HTML page)
