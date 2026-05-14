@@ -35,7 +35,8 @@ const REPO_ROOT = path.resolve(THIS_DIR, '..', '..', '..');
 /**
  * Extract every tool name passed as the first argument to wrapper calls in the
  * EP MCP client TypeScript source (`src/mcp/ep-mcp-client.ts`). Handles both
- * `safeCallTool('name', ...)` and manually wrapped `callToolWithRetry('name', ...)`
+ * `safeCallTool('name', ...)`, `safeCallToolWithReliabilityTimeout('name', ...)`,
+ * and manually wrapped `callToolWithRetry('name', ...)`
  * calls where a method needs bespoke post-processing/error handling.
  *
  * @param {string} source - Full file contents
@@ -43,7 +44,7 @@ const REPO_ROOT = path.resolve(THIS_DIR, '..', '..', '..');
  */
 function extractWrappedToolNames(source) {
   const names = new Set();
-  const re = /(?:safeCallTool|callToolWithRetry)\s*\(\s*'([a-z_]+)'/g;
+  const re = /(?:safeCallToolWithReliabilityTimeout|safeCallTool|callToolWithRetry)\s*\(\s*'([a-z_]+)'/g;
   let match;
   while ((match = re.exec(source)) !== null) {
     names.add(match[1]);

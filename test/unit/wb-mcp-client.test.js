@@ -82,6 +82,45 @@ describe('wb-mcp-client', () => {
         expect(result.content[0].text).toBe('');
       });
     });
+
+    describe('getEU27Aggregate', () => {
+      it('should aggregate values per year across EU27 responses', async () => {
+        vi.spyOn(client, 'callTool').mockResolvedValue({
+          content: [{ type: 'text', text: JSON.stringify({ data: [{ year: 2024, value: 2 }] }) }],
+        });
+
+        const result = await client.getEU27Aggregate('get-economic-data', 'GDP', 1);
+        const parsed = JSON.parse(result.content[0].text);
+
+        expect(parsed.scope).toBe('EU27');
+        expect(parsed.series).toEqual([{ year: 2024, value: 54 }]);
+        expect(parsed.contributingCountries).toBe(27);
+        expect(parsed.failedCountries).toEqual([]);
+      });
+
+      it('should track failed countries when a subset of calls fail', async () => {
+        const callTool = vi.spyOn(client, 'callTool');
+        let calls = 0;
+        callTool.mockImplementation(async () => {
+          calls++;
+          if (calls <= 2) {
+            throw new Error('tool failure');
+          }
+          return { content: [{ type: 'text', text: JSON.stringify({ data: [] }) }] };
+        });
+
+        const result = await client.getEU27Aggregate('get-social-data', 'POPULATION', 1);
+        const parsed = JSON.parse(result.content[0].text);
+
+        expect(parsed.contributingCountries).toBe(25);
+        expect(parsed.failedCountries).toHaveLength(2);
+      });
+
+      it('should return empty aggregate fallback when indicator is missing', async () => {
+        const result = await client.getEU27Aggregate('get-health-data', '', 1);
+        expect(JSON.parse(result.content[0].text)).toEqual({ scope: 'EU27', series: [] });
+      });
+    });
   });
 
   describe('Singleton lifecycle', () => {

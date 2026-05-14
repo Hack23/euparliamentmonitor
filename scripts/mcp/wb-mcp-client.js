@@ -25,6 +25,36 @@ const WB_BINARY_FILE = process.platform === 'win32' ? `${WB_BINARY_NAME}.cmd` : 
 const WB_DEFAULT_SERVER = resolve(dirname(fileURLToPath(import.meta.url)), `../../node_modules/.bin/${WB_BINARY_FILE}`);
 /** Fallback payload when indicator data is unavailable (empty CSV) */
 const INDICATOR_FALLBACK = '';
+/** EU-27 ISO country codes used for aggregate World Bank fallback queries. */
+const EU27_ISO2_CODES = [
+    'AT',
+    'BE',
+    'BG',
+    'HR',
+    'CY',
+    'CZ',
+    'DK',
+    'EE',
+    'FI',
+    'FR',
+    'DE',
+    'GR',
+    'HU',
+    'IE',
+    'IT',
+    'LV',
+    'LT',
+    'LU',
+    'MT',
+    'NL',
+    'PL',
+    'PT',
+    'RO',
+    'SK',
+    'SI',
+    'ES',
+    'SE',
+];
 /**
  * Canonical list of tools exposed by the World Bank MCP gateway. The news
  * workflows, probe script, and the integration test suite all reference this
@@ -94,6 +124,66 @@ export class WorldBankMCPClient extends MCPConnection {
             console.warn('get_indicator_for_country not available:', message);
             return { content: [{ type: 'text', text: INDICATOR_FALLBACK }] };
         }
+    }
+    /**
+     * Aggregate a World Bank indicator across EU-27 member states.
+     *
+     * This is a client-side fallback for aggregate codes such as `EUU` that are
+     * rejected by the upstream `worldbank-mcp` server.
+     *
+     * @param toolName - World Bank MCP tool (`get-economic-data`, `get-social-data`, `get-education-data`, `get-health-data`)
+     * @param indicator - Indicator key accepted by the selected tool
+     * @param years - Number of years to request (default 10)
+     * @returns MCP-like JSON payload with summed year-series across EU-27
+     */
+    async getEU27Aggregate(toolName, indicator, years = 10) {
+        if (!indicator || indicator.trim().length === 0) {
+            console.warn('getEU27Aggregate called without required indicator');
+            return { content: [{ type: 'text', text: '{"scope":"EU27","series":[]}' }] };
+        }
+        const seriesByYear = new Map();
+        const failedCountries = [];
+        for (const countryCode of EU27_ISO2_CODES) {
+            try {
+                const result = await this.callTool(toolName, { countryCode, indicator, years });
+                const text = result.content?.[0]?.text;
+                if (typeof text !== 'string' || text.length === 0) {
+                    continue;
+                }
+                const parsed = JSON.parse(text);
+                const data = Array.isArray(parsed.data) ? parsed.data : [];
+                for (const point of data) {
+                    if (typeof point?.year === 'number' &&
+                        Number.isFinite(point.year) &&
+                        typeof point?.value === 'number' &&
+                        Number.isFinite(point.value)) {
+                        seriesByYear.set(point.year, (seriesByYear.get(point.year) ?? 0) + point.value);
+                    }
+                }
+            }
+            catch {
+                failedCountries.push(countryCode);
+            }
+        }
+        const series = [...seriesByYear.entries()]
+            .sort((a, b) => a[0] - b[0])
+            .map(([year, value]) => ({ year, value }));
+        return {
+            content: [
+                {
+                    type: 'text',
+                    text: JSON.stringify({
+                        scope: 'EU27',
+                        tool: toolName,
+                        indicator,
+                        years,
+                        series,
+                        contributingCountries: EU27_ISO2_CODES.length - failedCountries.length,
+                        failedCountries,
+                    }),
+                },
+            ],
+        };
     }
 }
 /** Singleton World Bank MCP client instance */

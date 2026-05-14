@@ -25,6 +25,20 @@ This directory contains GitHub Actions workflows for the EU Parliament Monitor p
 
 ---
 
+### 🔍 MCP Reliability Monitoring
+
+#### `mcp-probe-daily.yml`
+**Purpose**: Daily MCP reliability probe across EP, IMF, and World Bank integrations
+
+**Trigger**:
+- Daily schedule (04:30 UTC)
+- Workflow dispatch (manual)
+
+**What it does**:
+- Sources `scripts/mcp-setup.sh` for gateway URL/auth discovery
+- Runs `npm run mcp:probe -- --json-only`
+- Uploads machine-readable JSON health matrix artifact
+
 ### 📰 News Generation (Agentic Workflows)
 
 The project uses **agentic workflow markdown files** (`.md`) that are compiled to `.lock.yml` files via `gh aw compile --validate`. Each news workflow generates a specific type of EU Parliament article using the European Parliament MCP server as the primary data source, with **IMF native REST-client enrichment as the sole authoritative source for economic context** and World Bank MCP enrichment **only for non-economic domains** (health, education, social, environment, demographics, defence, agriculture, innovation, governance). The World Bank is mounted as an MCP server; IMF data is fetched via a native TypeScript REST client — there is no IMF MCP mount in the workflow frontmatter.

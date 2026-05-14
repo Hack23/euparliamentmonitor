@@ -131,6 +131,7 @@ EU Parliament Monitor employs a comprehensive suite of **GitHub Actions workflow
 | 14 | **Setup Labels** | Repository label management | Manual dispatch | Repository governance |
 | 15 | **Copilot Setup Steps** | GitHub Copilot agent environment setup | Push/PR to itself + manual | Agent infrastructure |
 | 16 | **news-translate-reconciler** | Reconcile missing translation artifacts across 14 languages | Scheduled | Translation consistency |
+| 17 | **MCP Reliability Probe** | Daily EP/IMF/WB MCP health matrix via `npm run mcp:probe` | Daily + manual | Third-party data source assurance |
 
 **🔒 Security Posture:** All 14 standard workflows use SHA-pinned actions (100%), Harden Runner (`step-security/harden-runner@8d3c67de8e2fe68ef647c8db1e6a09f647780f40 # v2.19.0`), and minimal permissions following least privilege principle. Agentic workflows add a 5-layer security model: AWF Squid firewall allowlist, sandboxed Docker with restricted shell, safe-output constraints (`create-pull-request` with `max-patch-size`), JSONL audit trail, and lock-file compilation.
 

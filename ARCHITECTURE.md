@@ -816,6 +816,7 @@ src/                                   → scripts/                          (ts
 │   ├── mcp-connection.ts              Base JSON-RPC 2.0 transport (stdio + HTTP gateway modes)
 │   ├── mcp-health.ts                  Health probes for MCP backends
 │   ├── mcp-retry.ts                   Exponential backoff retry with jitter
+│   └── mcp-probe.ts                   Daily MCP reliability matrix probe (green/yellow/red JSON)
 │   ├── pending-documents.ts           Pending-document tracking for reprobe/escalation
 │   └── procedure-seen-cache.ts        Dedup cache for legislative procedures across runs
 ├── templates/                         → templates/
@@ -862,7 +863,8 @@ src/                                   → scripts/                          (ts
     ├── intelligence-index.ts          Intelligence document index builder
     ├── metadata-utils.ts              Shared metadata transformation utilities
     ├── news-metadata.ts               Article metadata aggregation (articles-metadata.json)
-    └── validate-ep-api.ts             EP API endpoint validation script
+    ├── validate-ep-api.ts             EP API endpoint validation script
+    └── mcp-probe.ts                   MCP reliability probe CLI (`npm run mcp:probe`)
 ```
 
 **Key build / generation commands:**

@@ -2626,7 +2626,7 @@ describe('ep-mcp-client', () => {
       consoleOutput.restore();
     });
 
-    it('should add recessMode:true when all items are pre-1995 (historical archive)', async () => {
+    it('should add recessMode:true when response is stale historical tail (max year < 2020)', async () => {
       const historicalPayload = {
         items: [
           {
@@ -2678,7 +2678,7 @@ describe('ep-mcp-client', () => {
 
       const warnMessages = consoleOutput.warnings.filter((m) => m.includes('🟡'));
       expect(warnMessages.length).toBeGreaterThan(0);
-      expect(warnMessages[0]).toContain('recess mode');
+      expect(warnMessages[0]).toContain('stale historical tail');
     });
 
     it('should NOT set recessMode when items contain current-year procedures', async () => {
@@ -2790,7 +2790,7 @@ describe('ep-mcp-client', () => {
       expect(detectProceduresFeedRecessMode({ items: [] })).toBe(false);
     });
 
-    it('should return true for all-pre-1995 items (via dateInitiated)', () => {
+    it('should return true for historical-tail items where max year is before 2020', () => {
       expect(
         detectProceduresFeedRecessMode({
           items: [
@@ -2810,7 +2810,7 @@ describe('ep-mcp-client', () => {
       ).toBe(true);
     });
 
-    it('should return false when any item has a post-1995 year', () => {
+    it('should return false when any item has a year in 2020 or later', () => {
       expect(
         detectProceduresFeedRecessMode({
           items: [
@@ -2845,20 +2845,20 @@ describe('ep-mcp-client', () => {
       ).toBe(true);
     });
 
-    it('should return false for borderline 1996 year (just above threshold)', () => {
+    it('should return true for borderline 2019 year (just below threshold)', () => {
       expect(
         detectProceduresFeedRecessMode({
-          items: [{ dateInitiated: '1996-01-01' }],
-        })
-      ).toBe(false);
-    });
-
-    it('should return true for borderline 1995 year (exactly at threshold)', () => {
-      expect(
-        detectProceduresFeedRecessMode({
-          items: [{ dateInitiated: '1995-12-31' }],
+          items: [{ dateInitiated: '2019-01-01' }],
         })
       ).toBe(true);
+    });
+
+    it('should return false for borderline 2020 year (exact threshold, not stale)', () => {
+      expect(
+        detectProceduresFeedRecessMode({
+          items: [{ dateInitiated: '2020-12-31' }],
+        })
+      ).toBe(false);
     });
   });
 
