@@ -1886,6 +1886,55 @@ describe('scripts/validate-analysis-completeness.js', () => {
       expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
     });
 
+    it('applies degraded-feeds mode with 0.80 reduction factor', () => {
+      // With floor=200 and degraded-feeds reduction (0.80), effective floor = 160
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'test-type',
+          dataMode: 'degraded-feeds',
+          files: {
+            intelligence: ['intelligence/synthesis-summary.md'],
+          },
+        }),
+        'utf8',
+      );
+      // Write 165 lines — above 160 (reduced floor) but below 200 (full floor)
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(165, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(0);
+      expect(result.stderr).toMatch(/dataMode="degraded-feeds"/);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: GREEN/);
+    });
+
+    it('still fails RED when artifact is below even the degraded-feeds reduced floor', () => {
+      // With floor=200 and degraded-feeds reduction (0.80), effective floor = 160
+      fs.writeFileSync(
+        path.join(runDir, 'manifest.json'),
+        JSON.stringify({
+          articleType: 'test-type',
+          dataMode: 'degraded-feeds',
+          files: {
+            intelligence: ['intelligence/synthesis-summary.md'],
+          },
+        }),
+        'utf8',
+      );
+      // Write 100 lines — below 160 reduced floor
+      fs.writeFileSync(
+        path.join(runDir, 'intelligence/synthesis-summary.md'),
+        makeArtifact(100, { mermaid: true, wep: true, admiralty: true }),
+        'utf8',
+      );
+      const result = runHere();
+      expect(result.code).toBe(1);
+      expect(result.stdout).toMatch(/STAGE_C_GATE: RED/);
+    });
+
     it('treats unknown dataMode as full (no reduction) and emits warning', () => {
       fs.writeFileSync(
         path.join(runDir, 'manifest.json'),

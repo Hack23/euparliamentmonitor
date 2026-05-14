@@ -96,6 +96,7 @@ const DATA_MODE_REDUCTION = {
   'title-only': 0.75,
   'degraded-imf': 0.85,
   'degraded-voting': 0.85,
+  'degraded-feeds': 0.80,
   'minimal': 0.65,
 };
 

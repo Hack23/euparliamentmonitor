@@ -318,6 +318,45 @@ not use.
 
 **Security**: Read-only permissions by default, MCP data only from official EU Parliament / World Bank / IMF sources. Firewall policy via [`gh-aw-firewall` skill](../skills/gh-aw-firewall.md).
 
+#### Degraded-mode data flow and thresholds cache
+
+When the EP API is unavailable or slow, `scripts/prefetch-ep-feeds.sh` retries
+each feed 3 times (backoff: 5 s → 15 s → 45 s) before writing an unavailable-
+envelope placeholder. After all feeds are processed the script writes
+`${ANALYSIS_DIR}/data/prefetch-status.json` with a `prefetchMode` field that
+propagates through the pipeline:
+
+```
+prefetch-ep-feeds.sh → prefetch-status.json (prefetchMode)
+                     → Stage A reads prefetchMode
+                     → Stage A writes manifest.dataMode
+                     → npm run validate-analysis reads manifest.dataMode
+                     → line-floor reduction applied (Stage C gate)
+```
+
+| `prefetchMode` / `dataMode` | Meaning | Line-floor factor |
+|-----------------------------|---------|-------------------|
+| `green` / `full` | All feeds fetched; IMF & voting OK | 1.00 |
+| `degraded-feeds` | 1+ feeds unavailable after 3 retries | 0.80 |
+| `degraded-imf` | IMF data unavailable | 0.85 |
+| `degraded-voting` | EP roll-call data absent | 0.85 |
+| `title-only` | Only titles/metadata available | 0.75 |
+| `minimal` | Most EP feeds unavailable + IMF absent | 0.65 |
+
+Stage A agents must read `prefetch-status.json` and write `manifest.dataMode`
+before Stage B. Stage C's `npm run validate-analysis` then auto-reduces floors
+so structurally constrained runs can pass without agent self-declaration.
+Structural checks (Mermaid, WEP, Admiralty, SATs) are **never** reduced.
+
+**Thresholds cache**: to avoid re-reading
+`analysis/methodologies/reference-quality-thresholds.json` per artifact (a
+pattern that wastes 38+ invocations per run), agents call
+`bash scripts/cache-analysis-thresholds.sh "${ANALYSIS_DIR}" "<slug>"` **once
+at Stage B start**. This writes `${ANALYSIS_DIR}/runs/thresholds-cache.json`
+with only the entries for the active article type. All subsequent artifact
+writes read from the cache, not the source file. The lint check in
+`scripts/lint-prompts.js` flags workflows that inline direct threshold reads.
+
 ---
 
 ### 🏷️ Labeling & PR Automation

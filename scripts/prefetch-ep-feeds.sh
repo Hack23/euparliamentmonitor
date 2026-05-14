@@ -27,14 +27,25 @@
 #
 # Output:
 #   - Writes one JSON file per feed to ${ANALYSIS_DIR}/data/<feed>-feed.json
-#   - On fetch failure, writes a canonical "feed unavailable" envelope
-#     (status:"unavailable", items:[], itemCount:0, generatedAt:<ISO>)
+#   - On fetch failure (after retries), writes a canonical "feed unavailable"
+#     envelope (status:"unavailable", items:[], itemCount:0, generatedAt:<ISO>)
 #     matching the EP MCP feed-status contract, so downstream analysis
 #     can use a single `status === "unavailable"` check
-#   - Exports ANALYSIS_DIR and TODAY to $GITHUB_ENV for subsequent steps
+#   - Writes ${ANALYSIS_DIR}/data/prefetch-status.json summarising the run
+#     with a `prefetchMode` field (green / degraded-feeds / minimal) that
+#     Stage A can read to set manifest.dataMode
+#   - Exports ANALYSIS_DIR, TODAY, and PREFETCH_DATA_MODE to $GITHUB_ENV
 #   - Echoes a summary line with file count
 #   - Exits 2 (fail-fast) on unknown feed names — typos in workflow slug
 #     /feed lists would otherwise silently disable prefetch
+#
+# Retry behaviour:
+#   - Each feed is attempted up to MAX_RETRIES+1 times (default 3 total)
+#   - Backoff delays: RETRY_DELAY_1=5s, RETRY_DELAY_2=15s, RETRY_DELAY_3=45s
+#   - After all attempts are exhausted a DEGRADED message is printed to stderr
+#     so the failure is clearly visible in the step output (fail loudly)
+#   - The step still exits 0 so the workflow continues — the agent reads
+#     the prefetch-status.json to determine data mode
 #
 # Per-feed timeouts:
 #   - `events`  → 120s (EP API is documented as slow for this feed)
@@ -44,6 +55,7 @@
 #   - No nested parameter expansion, no indirect expansion, no `${var@P}`
 #   - No nested command substitution, no `$(cmd < file)` redirection
 #   - All positional args quoted; all expansions single-level
+#   - Retry delays use plain variables (no nested default-with-command-sub)
 #
 # Drift-guarded by test/unit/shell-safety.test.js.
 
@@ -67,6 +79,14 @@ ACCEPT_HDR="Accept: application/ld+json"
 # are only written for true upstream outages, not transient slowness.
 TIMEOUT_EVENTS=120
 TIMEOUT_DEFAULT=60
+
+# Retry configuration. Each feed is attempted up to (MAX_RETRIES+1) = 3
+# total times before the unavailable-envelope placeholder is written.
+# Delays follow an exponential backoff: 5s → 15s → 45s.
+MAX_RETRIES=2
+RETRY_DELAY_1=5
+RETRY_DELAY_2=15
+RETRY_DELAY_3=45
 
 feed_timeout() {
   case "$1" in
@@ -129,18 +149,67 @@ for feed in "$@"; do
   fi
   out_file="${ANALYSIS_DIR}/data/${feed}-feed.json"
   feed_to=$(feed_timeout "$feed")
-  if curl -s --max-time "$feed_to" --fail \
-       -H "$ACCEPT_HDR" \
-       "${EP_API}/${feed}/feed" \
-       -o "$out_file" 2>/dev/null; then
-    echo "✅ ${feed}-feed fetched (timeout=${feed_to}s)"
+
+  # Attempt the fetch with exponential-backoff retry. Up to (MAX_RETRIES+1)
+  # total attempts: delays between attempts are RETRY_DELAY_1, RETRY_DELAY_2,
+  # RETRY_DELAY_3 seconds respectively (5 → 15 → 45 s). Single-level variable
+  # refs only — no nested expansion (shell-safety compliance).
+  attempt=0
+  feed_success=0
+  next_delay="$RETRY_DELAY_1"
+  while [ "$attempt" -le "$MAX_RETRIES" ]; do
+    if curl -s --max-time "$feed_to" --fail \
+         -H "$ACCEPT_HDR" \
+         "${EP_API}/${feed}/feed" \
+         -o "$out_file" 2>/dev/null; then
+      feed_success=1
+      break
+    fi
+    attempt=$((attempt + 1))
+    if [ "$attempt" -le "$MAX_RETRIES" ]; then
+      echo "⟳  ${feed}-feed attempt ${attempt}/$((MAX_RETRIES + 1)) failed — retrying in ${next_delay}s (timeout=${feed_to}s)"
+      sleep "$next_delay"
+      # Advance to the next backoff delay. Use case to avoid nested expansion.
+      case "$next_delay" in
+        "$RETRY_DELAY_1") next_delay="$RETRY_DELAY_2" ;;
+        "$RETRY_DELAY_2") next_delay="$RETRY_DELAY_3" ;;
+        *)                next_delay="$RETRY_DELAY_3" ;;
+      esac
+    fi
+  done
+
+  if [ "$feed_success" -eq 1 ]; then
+    echo "✅ ${feed}-feed fetched (timeout=${feed_to}s, attempts=$((attempt + 1)))"
     FETCHED=$((FETCHED + 1))
   else
     write_unavailable_placeholder "$out_file" "$feed"
-    echo "⚠️  ${feed}-feed unavailable — unavailable-envelope placeholder written (timeout=${feed_to}s)"
+    # Print a loud degraded warning so CI step output makes the failure
+    # visible to the agent at Stage A (fail loudly after all retries).
+    echo "❌ DEGRADED: ${feed}-feed unavailable after $((MAX_RETRIES + 1)) attempts — unavailable-envelope placeholder written (timeout=${feed_to}s)" >&2
     PLACEHOLDERS=$((PLACEHOLDERS + 1))
   fi
 done
+
+# Determine the data mode from the prefetch results:
+#   green         — all feeds fetched successfully (0 placeholders)
+#   degraded-feeds — 1+ feeds unavailable after retries, but some succeeded
+#   minimal        — every feed was unavailable after retries
+if [ "$PLACEHOLDERS" -eq 0 ]; then
+  PREFETCH_DATA_MODE="green"
+elif [ "$FETCHED" -eq 0 ]; then
+  PREFETCH_DATA_MODE="minimal"
+else
+  PREFETCH_DATA_MODE="degraded-feeds"
+fi
+
+TOTAL_FEEDS=$((FETCHED + PLACEHOLDERS))
+
+# Write prefetch-status.json so the agent can read the degraded-mode signal
+# at Stage A without parsing the step output log.
+printf '{"prefetchMode":"%s","fetched":%d,"placeholders":%d,"total":%d,"generatedAt":"%s","source":"prefetch-ep-feeds.sh"}\n' \
+  "$PREFETCH_DATA_MODE" "$FETCHED" "$PLACEHOLDERS" "$TOTAL_FEEDS" "$NOW_ISO" \
+  > "${ANALYSIS_DIR}/data/prefetch-status.json"
+echo "prefetch-status.json written: mode=${PREFETCH_DATA_MODE}, fetched=${FETCHED}, placeholders=${PLACEHOLDERS}"
 
 # Surface env to subsequent workflow steps. Only write when running inside
 # GitHub Actions (GITHUB_ENV present); harmless to skip in local invocations.
@@ -148,6 +217,7 @@ if [ -n "${GITHUB_ENV:-}" ] && [ -w "${GITHUB_ENV:-/dev/null}" ]; then
   {
     echo "ANALYSIS_DIR=${ANALYSIS_DIR}"
     echo "TODAY=${TODAY}"
+    echo "PREFETCH_DATA_MODE=${PREFETCH_DATA_MODE}"
   } >> "$GITHUB_ENV"
 fi
 

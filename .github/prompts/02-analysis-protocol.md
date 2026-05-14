@@ -15,7 +15,7 @@ article drafting until Stage C (completeness gate) exits 0.
 - **Reference run:** `analysis/daily/2026-04-18/breaking-run184/` — 17 artifacts, 3600+ lines, 13 frameworks
 - **Methodology guides:** [`analysis/methodologies/`](../../analysis/methodologies/) (classification, threat, SWOT, risk, style, OSINT tradecraft, WB/IMF indicator mappings)
 - **Templates (39 total):** [`analysis/templates/`](../../analysis/templates/) — 6 framework + 14 agentic-workflow + 25 per-artifact templates, indexed in [`analysis/templates/README.md`](../../analysis/templates/README.md)
-- **Per-artifact line floors:** [`analysis/methodologies/reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json) (keyed by `articleType × relativePath`) — enforced by the Stage-C agent-side readback; there is no standalone runtime validator in the aggregator era.
+- **Per-artifact line floors:** [`analysis/methodologies/reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json) (keyed by `articleType × relativePath`) — **do not read this file per artifact**; call `bash scripts/cache-analysis-thresholds.sh "${ANALYSIS_DIR}" "<slug>"` **once at Stage B start** to write `${ANALYSIS_DIR}/runs/thresholds-cache.json`, then read only the cache for all subsequent artifact writes. See [news-unified-runtime.md Rule 3](../../.github/workflows/shared/prompts/news-unified-runtime.md).
 - **Article pipeline reference:** [`Article-Generation.md`](../../Article-Generation.md) — end-to-end contract for `article.md`, SEO metadata, UI/UX export, and static-site render outputs.
 
 ## 1b · Analysis Artifacts to Produce (39-template catalog)

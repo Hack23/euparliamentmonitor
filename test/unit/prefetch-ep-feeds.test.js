@@ -87,4 +87,48 @@ describe('scripts/prefetch-ep-feeds.sh', () => {
     expect(scriptSource).toMatch(/TIMEOUT_DEFAULT=60/);
     expect(scriptSource).toMatch(/events\)\s*printf '%s' "\$TIMEOUT_EVENTS"/);
   });
+
+  it('declares MAX_RETRIES=2 for 3 total attempts with backoff delays', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    expect(scriptSource).toMatch(/MAX_RETRIES=2/);
+    expect(scriptSource).toMatch(/RETRY_DELAY_1=5/);
+    expect(scriptSource).toMatch(/RETRY_DELAY_2=15/);
+    expect(scriptSource).toMatch(/RETRY_DELAY_3=45/);
+  });
+
+  it('writes prefetch-status.json after the feed loop', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    expect(scriptSource).toContain('prefetch-status.json');
+    expect(scriptSource).toContain('"prefetchMode"');
+    expect(scriptSource).toContain('"fetched"');
+    expect(scriptSource).toContain('"placeholders"');
+    expect(scriptSource).toContain('"source":"prefetch-ep-feeds.sh"');
+  });
+
+  it('sets PREFETCH_DATA_MODE=green when all feeds succeed', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    expect(scriptSource).toContain('PREFETCH_DATA_MODE="green"');
+  });
+
+  it('sets PREFETCH_DATA_MODE=degraded-feeds when some feeds fail', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    expect(scriptSource).toContain('PREFETCH_DATA_MODE="degraded-feeds"');
+  });
+
+  it('sets PREFETCH_DATA_MODE=minimal when all feeds fail', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    expect(scriptSource).toContain('PREFETCH_DATA_MODE="minimal"');
+  });
+
+  it('exports PREFETCH_DATA_MODE to GITHUB_ENV', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    expect(scriptSource).toContain('PREFETCH_DATA_MODE=${PREFETCH_DATA_MODE}');
+  });
+
+  it('prints a loud DEGRADED message to stderr when all retries exhausted', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    expect(scriptSource).toContain('DEGRADED:');
+    // Message must go to stderr (>&2)
+    expect(scriptSource).toMatch(/DEGRADED:[^`\n]*>&2/);
+  });
 });

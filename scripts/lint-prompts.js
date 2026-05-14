@@ -105,6 +105,24 @@ const FORBIDDEN_PHRASES = [
   /\bnews-<type>-analysis\.md\b/i,
   /\bnews-<type>-article\.md\b/i,
   /\bgenerate-news\b(?!-indexes\b)/i,
+  // May-2026 invocation-budget discipline: agents must NOT read
+  // reference-quality-thresholds.json per artifact — they must read
+  // the run-level cache (${ANALYSIS_DIR}/runs/thresholds-cache.json)
+  // written once at Stage B start by cache-analysis-thresholds.sh.
+  // A workflow body that instructs the agent to read the source file
+  // directly (not the cache) indicates the workflow is bypassing the
+  // caching contract, which wastes 38+ invocations across a full run.
+  // See news-unified-runtime.md Rule 3 and
+  // .github/prompts/09-troubleshooting.md §5 (run 25799686522 row).
+  //
+  // The pattern is intentionally narrow: it only fires when the
+  // thresholds file path appears AFTER a "read" / "cat" / "load" verb
+  // within the same sentence, signalling an inline direct-read instruction.
+  // Plain cross-references (e.g. "see reference-quality-thresholds.json")
+  // are allowed since every workflow legitimately links to the methodology
+  // docs. news-unified-runtime.md is a shared prompt import, not a
+  // news-*.md workflow body, so its Rule 3 example is unaffected.
+  /(?:read|cat|load|open)\b[^.\n]{0,60}reference-quality-thresholds\.json/i,
   // IMF-primary editorial policy: IMF is the SOLE authoritative source
   // for every economic / fiscal / monetary / trade / FDI / exchange-rate /
   // banking-soundness claim. World Bank is for non-economic domains.
