@@ -76,7 +76,7 @@ jobs:
         # Uses sharp (devDependency) to derive AVIF/WebP/JPEG banner and social
         # image variants from canonical PNG source artwork before deploy.
         # The generator is deterministic and cheap; the later image sync passes
-        # use --size-only so unchanged byte-size variants are not re-uploaded.
+        # use checksums so same-size regenerated variants are not skipped.
         # GitHub Actions bash steps fail fast by default, so a generation error
         # stops deployment before CSS optimisation, minification, or S3 sync.
         run: npm run image:generate
@@ -193,7 +193,103 @@ jobs:
             --exclude "*.template"
           )
 
-          # ─── Pass 1: HTML files (short cache, ~1hr) ───────────────────────
+          # ─── Pass 1: Static assets except images (long cache) ───────
+          # Use checksum comparison, not --size-only: stable filenames such as
+          # sw.js, styles.css, and same-name vendor files can change content
+          # without changing byte size. Images are uploaded before HTML below
+          # because their filenames are stable and must exist before fresh pages
+          # reference them.
+          aws s3 sync "$SRC" "$BUCKET" \
+            --checksum-algorithm SHA256 \
+            --no-progress \
+            --exclude '*' \
+             --include '*.css' \
+             --include '*.js' --include '*.mjs' \
+             --include '*.js.map' --include '*.mjs.map' \
+             --include '*.woff' --include '*.woff2' --include '*.ttf' --include '*.eot' --include '*.otf' \
+             --cache-control 'public, max-age=31536000, immutable' \
+             "${EXCL[@]}"
+          echo "✅ Pass 1/13: Static assets synced"
+
+          # ─── Pass 2–8: Images with explicit content types ───────────
+          # Image filenames are stable (`banner-1200.avif`, favicons, social cards),
+          # so they must not be marked immutable. Upload them before HTML and give
+          # browsers a short revalidation window so users never need a hard refresh.
+          # Keep image formats in separate sync passes because `aws s3 sync`
+          # applies one --content-type value to every included object when
+          # --no-guess-mime-type is enabled.
+          aws s3 sync "$SRC" "$BUCKET" \
+            --checksum-algorithm SHA256 \
+            --no-progress \
+            --exclude '*' --include '*.avif' \
+            --cache-control 'public, max-age=3600, must-revalidate' \
+            --content-type 'image/avif' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+          echo "✅ Pass 2/13: AVIF images synced"
+
+          aws s3 sync "$SRC" "$BUCKET" \
+            --checksum-algorithm SHA256 \
+            --no-progress \
+            --exclude '*' --include '*.webp' \
+            --cache-control 'public, max-age=3600, must-revalidate' \
+            --content-type 'image/webp' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+          echo "✅ Pass 3/13: WebP images synced"
+
+          aws s3 sync "$SRC" "$BUCKET" \
+            --checksum-algorithm SHA256 \
+            --no-progress \
+            --exclude '*' --include '*.png' \
+            --cache-control 'public, max-age=3600, must-revalidate' \
+            --content-type 'image/png' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+          echo "✅ Pass 4/13: PNG images synced"
+
+          aws s3 sync "$SRC" "$BUCKET" \
+            --checksum-algorithm SHA256 \
+            --no-progress \
+            --exclude '*' --include '*.jpg' --include '*.jpeg' \
+            --cache-control 'public, max-age=3600, must-revalidate' \
+            --content-type 'image/jpeg' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+          echo "✅ Pass 5/13: JPEG images synced"
+
+          aws s3 sync "$SRC" "$BUCKET" \
+            --checksum-algorithm SHA256 \
+            --no-progress \
+            --exclude '*' --include '*.gif' \
+            --cache-control 'public, max-age=3600, must-revalidate' \
+            --content-type 'image/gif' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+          echo "✅ Pass 6/13: GIF images synced"
+
+          aws s3 sync "$SRC" "$BUCKET" \
+            --checksum-algorithm SHA256 \
+            --no-progress \
+            --exclude '*' --include '*.ico' \
+            --cache-control 'public, max-age=3600, must-revalidate' \
+            --content-type 'image/x-icon' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+          echo "✅ Pass 7/13: ICO images synced"
+
+
+          aws s3 sync "$SRC" "$BUCKET" \
+            --checksum-algorithm SHA256 \
+            --no-progress \
+            --exclude '*' --include '*.svg' \
+            --cache-control 'public, max-age=3600, must-revalidate' \
+            --content-type 'image/svg+xml' \
+            --no-guess-mime-type \
+            "${EXCL[@]}"
+          echo "✅ Pass 8/13: SVG images synced"
+
+          # ─── Pass 9: HTML files (short cache, ~1hr; uploaded after assets) ───────────────────────
           # --checksum-algorithm SHA256 instead of --size-only: HTML files are not
           # fingerprinted and small edits often don't change file size, so we need
           # content comparison to avoid serving stale pages after CloudFront invalidation.
@@ -205,90 +301,9 @@ jobs:
             --content-type 'text/html; charset=utf-8' \
             --no-guess-mime-type \
             "${EXCL[@]}"
-          echo "✅ Pass 1/12: HTML files synced"
+          echo "✅ Pass 9/13: HTML files synced"
 
-          # ─── Pass 2: Static assets except raster images (long cache) ───────
-          # --size-only is safe here: all assets are fingerprinted (vendor chunks
-          # have content-hashed names, JS/CSS via mermaid cache-bust query param).
-          # A size change always means a new asset file, so --size-only is correct.
-          aws s3 sync "$SRC" "$BUCKET" \
-            --size-only \
-            --no-progress \
-            --exclude '*' \
-             --include '*.css' \
-             --include '*.js' --include '*.mjs' \
-             --include '*.js.map' --include '*.mjs.map' \
-             --include '*.svg' \
-             --include '*.woff' --include '*.woff2' --include '*.ttf' --include '*.eot' --include '*.otf' \
-             --cache-control 'public, max-age=31536000, immutable' \
-             "${EXCL[@]}"
-          echo "✅ Pass 2/12: Static assets synced"
-
-          # ─── Pass 3–8: Raster images with explicit content types ───────────
-          # Keep image formats in separate sync passes because `aws s3 sync`
-          # applies one --content-type value to every included object when
-          # --no-guess-mime-type is enabled.
-          aws s3 sync "$SRC" "$BUCKET" \
-            --checksum-algorithm SHA256 \
-            --no-progress \
-            --exclude '*' --include '*.avif' \
-            --cache-control 'public, max-age=31536000, immutable' \
-            --content-type 'image/avif' \
-            --no-guess-mime-type \
-            "${EXCL[@]}"
-          echo "✅ Pass 3/12: AVIF images synced"
-
-          aws s3 sync "$SRC" "$BUCKET" \
-            --checksum-algorithm SHA256 \
-            --no-progress \
-            --exclude '*' --include '*.webp' \
-            --cache-control 'public, max-age=31536000, immutable' \
-            --content-type 'image/webp' \
-            --no-guess-mime-type \
-            "${EXCL[@]}"
-          echo "✅ Pass 4/12: WebP images synced"
-
-          aws s3 sync "$SRC" "$BUCKET" \
-            --checksum-algorithm SHA256 \
-            --no-progress \
-            --exclude '*' --include '*.png' \
-            --cache-control 'public, max-age=31536000, immutable' \
-            --content-type 'image/png' \
-            --no-guess-mime-type \
-            "${EXCL[@]}"
-          echo "✅ Pass 5/12: PNG images synced"
-
-          aws s3 sync "$SRC" "$BUCKET" \
-            --checksum-algorithm SHA256 \
-            --no-progress \
-            --exclude '*' --include '*.jpg' --include '*.jpeg' \
-            --cache-control 'public, max-age=31536000, immutable' \
-            --content-type 'image/jpeg' \
-            --no-guess-mime-type \
-            "${EXCL[@]}"
-          echo "✅ Pass 6/12: JPEG images synced"
-
-          aws s3 sync "$SRC" "$BUCKET" \
-            --checksum-algorithm SHA256 \
-            --no-progress \
-            --exclude '*' --include '*.gif' \
-            --cache-control 'public, max-age=31536000, immutable' \
-            --content-type 'image/gif' \
-            --no-guess-mime-type \
-            "${EXCL[@]}"
-          echo "✅ Pass 7/12: GIF images synced"
-
-          aws s3 sync "$SRC" "$BUCKET" \
-            --checksum-algorithm SHA256 \
-            --no-progress \
-            --exclude '*' --include '*.ico' \
-            --cache-control 'public, max-age=31536000, immutable' \
-            --content-type 'image/x-icon' \
-            --no-guess-mime-type \
-            "${EXCL[@]}"
-          echo "✅ Pass 8/12: ICO images synced"
-
-          # ─── Pass 9: JSON metadata (medium cache, ~24hr) ──────────────────
+          # ─── Pass 10: JSON metadata (medium cache, ~24hr) ──────────────────
           # --checksum-algorithm SHA256 for correctness — articles-metadata.json and
           # build-info.json are regenerated every deploy; content may change without
           # size change.
@@ -300,9 +315,9 @@ jobs:
             --content-type 'application/json; charset=utf-8' \
             --no-guess-mime-type \
             "${EXCL[@]}"
-          echo "✅ Pass 9/12: JSON metadata synced"
+          echo "✅ Pass 10/13: JSON metadata synced"
 
-          # ─── Pass 10: XML sitemaps/RSS (medium cache, ~24hr) ───────────────
+          # ─── Pass 11: XML sitemaps/RSS (medium cache, ~24hr) ───────────────
           aws s3 sync "$SRC" "$BUCKET" \
             --checksum-algorithm SHA256 \
             --no-progress \
@@ -311,9 +326,9 @@ jobs:
             --content-type 'text/xml; charset=utf-8' \
             --no-guess-mime-type \
             "${EXCL[@]}"
-          echo "✅ Pass 10/12: XML sitemaps synced"
+          echo "✅ Pass 11/13: XML sitemaps synced"
 
-          # ─── Pass 11: Plain text files (medium cache, ~24hr) ───────────────
+          # ─── Pass 12: Plain text files (medium cache, ~24hr) ───────────────
           aws s3 sync "$SRC" "$BUCKET" \
             --checksum-algorithm SHA256 \
             --no-progress \
@@ -323,9 +338,9 @@ jobs:
             --content-type 'text/plain; charset=utf-8' \
             --no-guess-mime-type \
             "${EXCL[@]}"
-          echo "✅ Pass 11/12: Text files synced"
+          echo "✅ Pass 12/13: Text files synced"
 
-          # ─── Pass 12: Web app manifest (medium cache, ~24hr) ───────────────
+          # ─── Pass 13: Web app manifest (medium cache, ~24hr) ───────────────
           # Separate pass to serve correct application/manifest+json content-type
           # required for PWA install prompts and browser manifest parsing.
           aws s3 sync "$SRC" "$BUCKET" \
@@ -336,9 +351,9 @@ jobs:
             --content-type 'application/manifest+json' \
             --no-guess-mime-type \
             "${EXCL[@]}"
-          echo "✅ Pass 12/12: Web manifest synced"
+          echo "✅ Pass 13/13: Web manifest synced"
 
-          echo "✅ Deploy completed (12 sync passes)"
+          echo "✅ Deploy completed (13 sync passes)"
       
       # Invalidate CloudFront cache to ensure latest content is served
       # Note: Using blanket "/*" invalidation is optimal for this use case:
