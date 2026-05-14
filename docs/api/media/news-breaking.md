@@ -70,6 +70,9 @@ safe-outputs:
       - "**/*.lock"
       - "node_modules/**"
       - ".github/workflows/*.lock.yml"
+      - "analysis/**/data/**"         # raw EP API pre-fetched feeds (meps-feed.json
+                                      # can exceed 8 MB alone); analysis artifacts
+                                      # are in sibling dirs and are committed
   dispatch-workflow:
     workflows: [news-translate]
     max: 1
