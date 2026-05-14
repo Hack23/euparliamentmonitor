@@ -100,7 +100,7 @@ steps:
 
 engine:
   id: copilot
-  model: claude-opus-4.7
+  model: claude-opus-4
 ---
 # 📰 EU Parliament Election Cycle — Unified Workflow
 
