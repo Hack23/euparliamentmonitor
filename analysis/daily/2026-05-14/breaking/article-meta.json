@@ -1,0 +1,55 @@
+{
+  "date": "2026-05-14",
+  "articleType": "breaking",
+  "runId": "breaking-run-1778722670",
+  "gateResult": "ANALYSIS_ONLY",
+  "slug": "2026-05-14-breaking",
+  "articlePath": "analysis/daily/2026-05-14/breaking/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "**A larger budget** than the current MFF's ~€1.07 trillion (2021-2027)",
+    "**New own resources** reducing dependence on GNI-based national contributions",
+    "**Conditionality mechanisms** linking funds to rule of law compliance",
+    "**Flexibility instruments** for crisis response (pandemic-style RRF mechanism)",
+    "**Defence and strategic autonomy funding** elevated as a structural priority",
+    "**Concerns about fraud prevention** in agricultural and cohesion funds",
+    "**Gender budgeting** implementation gaps"
+  ],
+  "topRisks": [
+    "Probability of sustained legislative capacity: 75%",
+    "Weighted score: 6.9",
+    "Probability of maintaining pro-EU majority through MFF: 65%",
+    "Weighted score: 5.1",
+    "Probability of maintained unity: 80%",
+    "Weighted score: 6.8",
+    "Probability of global standard adoption/pressure: 60%",
+    "Weighted score: 4.8"
+  ],
+  "keyDates": [
+    "MFF: Slow-moving; Council positions hardening before December 2026 European Council. No breakthrough expected before 2027.",
+    "DMA: Commission investigation launch by September 2026; first formal enforcement action by Q1 2027."
+  ],
+  "keyActors": [
+    "Ursula von der Leyen (President): Political accountability for Commission discharge",
+    "Teresa Ribera (Executive VP, Competition): DMA enforcement political pressure",
+    "Maroš Šefčovič (Trade): Trade defense resolution implementation",
+    "Piotr Serafin (Budget): MFF architecture lead",
+    "**Net contributor states** (DE, NL, SE, AT, DK, FI): Resist higher own resources/EU taxes; seek to cap budget growth; oppose open-ended borrowing continuation",
+    "**Net beneficiary states** (PL, HU, RO, PT, GR, BG): Seek larger cohesion funds; resist conditionality that could freeze their allocations",
+    "**Frontline states** (UA-adjacent, Mediterranean): Prioritize defence, migration, energy security funding",
+    "**Rule of Law concerns** (Hungary, Slovakia): Oppose conditionality mechanisms; challenge 2024 discharge observations"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "executive-brief.md",
+    "extended/executive-brief.md",
+    "extended/forward-indicators.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
