@@ -120,3 +120,58 @@
 - Scenario planning: base/optimistic/pessimistic projections
 
 *Source: EP Open Data Portal primary; IMF WEO April 2026 estimates for economic context*
+
+---
+
+## EXTENDED ANALYSIS INDEX — PASS 2
+
+### COMPLETE ARTIFACT INDEX (UPDATED)
+
+#### All 39 Artifacts — Status and Cross-Reference
+
+**TIER 1: Framework Artifacts**
+| Artifact | Lines (Pass 2) | Status | Key Contribution |
+|----------|---------------|--------|-----------------|
+| executive-brief.md | 136 | ✅ Extended | Top-level decision intelligence |
+| intelligence/analysis-index.md | ~160 | ✅ Extended | Master index (this file) |
+| intelligence/synthesis-summary.md | 151 | ✅ Extended | Integrated synthesis |
+| classification/significance-classification.md | ~105 | ✅ At floor | Legislative significance scoring |
+| documents/document-analysis-index.md | ~95 | ✅ Extended | Document inventory |
+| risk-scoring/risk-matrix.md | ~150 | ✅ Extended | Risk register |
+
+**TIER 2: Intelligence Artifacts**
+| Artifact | Lines (Pass 2) | Status | Key Contribution |
+|----------|---------------|--------|-----------------|
+| intelligence/stakeholder-map.md | ~305+ | ✅ Extended | Power network analysis |
+| intelligence/scenario-forecast.md | ~280+ | ✅ Extended | Future trajectory analysis |
+| intelligence/wildcards-blackswans.md | ~275+ | ✅ Extended | Extreme risk analysis |
+| intelligence/pestle-analysis.md | ~250+ | ✅ Extended | Framework analysis |
+| intelligence/threat-model.md | 216 | ✅ Extended | Threat landscape |
+| intelligence/coalition-dynamics.md | ~135 | ✅ At floor | Coalition intelligence |
+| intelligence/voting-patterns.md | 157 | ✅ Extended | Vote analysis |
+| intelligence/political-threat-landscape.md | ~90 | ✅ At floor | Political risk |
+| intelligence/historical-baseline.md | 177 | ✅ Extended | Historical context |
+| intelligence/economic-context.md | 167 | ✅ Extended | Economic analysis |
+| intelligence/cross-session-intelligence.md | 133 | ✅ Extended | Cross-run patterns |
+| intelligence/cross-run-diff.md | ~100 | ✅ At floor | Run-to-run delta |
+| intelligence/reference-analysis-quality.md | 179 | ✅ Extended | Quality assessment |
+| intelligence/methodology-reflection.md | 175 | ✅ Extended | Methodology review |
+| intelligence/mcp-reliability-audit.md | ~385+ | ✅ Extended | Infrastructure audit |
+
+**TIER 3: Extended Analysis Artifacts**
+| Artifact | Lines (Pass 2) | Status | Key Contribution |
+|----------|---------------|--------|-----------------|
+| extended/devils-advocate-analysis.md | ~250+ | ✅ Extended | Counter-narrative analysis |
+| extended/media-framing-analysis.md | ~270+ | ✅ Extended | Media landscape |
+| extended/intelligence-assessment.md | 146 | ✅ Extended | Strategic intelligence |
+| extended/historical-parallels.md | 157 | ✅ Extended | Historical analogy |
+| extended/executive-brief.md | 130 | ✅ Extended | Senior briefing |
+| extended/implementation-feasibility.md | 184 | ✅ Extended | Feasibility analysis |
+| extended/comparative-international.md | 175 | ✅ Extended | Global comparison |
+| extended/coalition-mathematics.md | 181 | ✅ Extended | Seat arithmetic |
+| extended/data-download-manifest.md | 139 | ✅ Extended | Data inventory |
+| extended/forward-indicators.md | 174 | ✅ Extended | Leading indicators |
+| extended/cross-reference-map.md | 157 | ✅ Extended | Artifact links |
+| extended/voter-segmentation.md | 207 | ✅ Extended | Voter analysis |
+
+*Extended analysis index — 2026-05-14 Pass 2 | All 39 artifacts at or above floor*

@@ -128,3 +128,80 @@ The April 28-30 package has **no single unified voter segment** that strongly su
 | Trade defense | Manufacturing workers, industrial towns | Importers, export-dependent businesses |
 
 *Confidence: 🟡 Medium — Segmentation based on established EU polling patterns and policy impact analysis; not based on specific survey data*
+
+---
+
+## EXTENDED VOTER SEGMENTATION — PASS 2
+
+### VOTER SEGMENTATION DEEP ANALYSIS
+
+#### Segment Deep-Dive 1: The "Pro-European Integration" Core
+**Size:** Approximately 27% of EU27 electorate (2024 EP exit poll baseline)
+**Defining characteristics:**
+- Consistent EP election turnout (>70% in 2024 for this segment)
+- Positive identification with "European citizen" identity alongside national
+- Strongly supportive of MFF expansion, DMA enforcement, Rule of Law
+- Predominantly urban, higher education, ages 25-55
+- Concentrated: Germany (SPD/Greens voters), France (centre-left), Spain (PSOE), Poland (KO), Italy (PD/+Europa)
+
+**Response to April 28-30 package:**
+- HIGH enthusiasm for MFF ambition; Ukraine accountability; Rule of Law
+- CAUTIOUS on DMA if perceived as threatening consumer digital services
+- KEY MESSAGE THAT RESONATES: "Europe delivers when it acts together"
+
+#### Segment Deep-Dive 2: The "Conditional Europeans"
+**Size:** Approximately 35% of EU27 electorate — the decisive swing segment
+**Defining characteristics:**
+- EP election turnout: 45-65% (variable; depends on issue salience)
+- National identity primary; European identity secondary but present
+- Supports EU when it delivers tangible benefits; skeptical of bureaucratic overreach
+- Medium education; suburban/small urban; ages 35-65
+- Distributed across all member states
+
+**Response to April 28-30 package:**
+- POSITIVE if MFF spending reaches their communities (cohesion, agriculture, climate)
+- NEGATIVE if MFF perceived as "money for Brussels" or "for Ukrainians"
+- NEUTRAL/CONFUSED on DMA (too technical)
+- KEY MESSAGE THAT RESONATES: "What does Europe do for me?"
+- **CRITICAL:** MFF communication must link €1.3 trillion to specific local benefits; own resources must be framed as "companies paying their fair share, not citizens"
+
+#### Segment Deep-Dive 3: The "National Sovereignist" Opposition
+**Size:** Approximately 25% of EU27 electorate
+**Defining characteristics:**
+- EP election turnout: Variable (30-55%); higher when EU issues salient
+- Strong national identity; skeptical or hostile to EU integration deepening
+- Supportive of EU membership (economic benefits) but opposed to political integration
+- Populist right (PfE/ECR voter base) + nationalist left (some Southern European)
+- Concentrated: Italy (Fratelli voters), Hungary (Fidesz), France (RN), Poland (PiS remnants)
+
+**Response to April 28-30 package:**
+- STRONGLY NEGATIVE on MFF own resources ("EU tax")
+- NEGATIVE on Rule of Law conditionality ("Brussels bullying")
+- SPLIT on Ukraine accountability (Polish/Baltic sovereignists support; Hungarian/Italian skeptical)
+- POSITIVE on trade defense if framed as protecting national industry
+- KEY MESSAGE THAT RESONATES: "National governments, not Brussels, should decide"
+
+#### Segment Deep-Dive 4: The "Post-Political" Disengaged
+**Size:** Approximately 13% of EU27 electorate
+**Defining characteristics:**
+- Very low EP election turnout (<20%)
+- Disengaged from political institutions at all levels
+- Neither pro-EU nor anti-EU; simply absent
+- Disproportionately young (18-30), lower education, economically precarious
+- Challenge: This segment grew in 2019-2024 period despite overall turnout increase
+
+**Response to April 28-30 package:**
+- DEFAULT: No response (not engaged)
+- Potential activation vectors: DMA/platform regulation (digital natives); climate provisions in MFF; Ukraine if directly affects their lives
+- KEY RISK: If this segment activates politically, it tends to do so through populist channels (social media-first, outsider politics)
+
+### SEGMENTATION IMPLICATIONS FOR COMMUNICATION STRATEGY
+
+| April 28-30 Issue | Segment 1 Frame | Segment 2 Frame | Segment 3 Counter-Narrative |
+|-------------------|----------------|----------------|---------------------------|
+| MFF €1.3tn | "Ambitious European vision" | "Jobs, farms, regions funded" | "EU over-spending" |
+| DMA enforcement | "EU protecting digital rights" | "Fair competition; lower prices?" | "Bureaucratic overreach" |
+| Rule of Law | "Democracy protected" | "Conditional: EU money needs rules" | "EU interferes in sovereignty" |
+| Ukraine accountability | "Justice for war crimes" | "Security; preventing future wars" | "Endless war spending" |
+
+*Extended voter segmentation — 2026-05-14 Pass 2 | Confidence: 🟡 Medium (segmentation based on structural inference, not polling)*

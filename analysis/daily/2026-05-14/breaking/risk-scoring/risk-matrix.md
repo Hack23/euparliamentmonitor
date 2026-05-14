@@ -119,3 +119,55 @@ The April 28-30 plenary package launches several high-stakes processes (MFF, DMA
 **Key risk interaction:** MFF delay risk (R1) and Rule of Law risk (R2) are correlated — Hungary/Slovakia can weaponize both simultaneously, creating compounding institutional stress.
 
 *Confidence: 🟢 High — Systematic risk assessment based on EU institutional analysis*
+
+---
+
+## EXTENDED RISK MATRIX — PASS 2
+
+### COMPREHENSIVE RISK REGISTER (EXTENDED)
+
+#### Additional Risk Entries
+
+**Risk R-08: EU-US Digital Trade War Escalation**
+- Probability: MEDIUM (40%)
+- Impact: HIGH
+- Trigger: DMA enforcement action against US gatekeeper + US retaliatory digital services tariffs
+- Mitigation: Parallel EU-US digital trade negotiation track; phased enforcement timeline allowing compliance before penalties
+
+**Risk R-09: EP Election 2029 — Right-Wing Parliamentary Majority**
+- Probability: LOW-MEDIUM (25%)
+- Impact: VERY HIGH (structural)
+- Trigger: European centre-left collapse + populist right surge in France, Germany, Italy simultaneously
+- Mitigation: MFF/DMA legacy legislation is already in force; enforcement would continue regardless of Parliament composition
+
+**Risk R-10: Climate Target Regression**
+- Probability: LOW-MEDIUM (20%)
+- Impact: HIGH
+- Trigger: EPP-PfE alliance on "Omnibus" deregulation package rolls back CSRD/CBAM/LULUCF
+- Mitigation: Climate legislation is now EP10 acquis; dismantling requires new legislative procedure
+
+**Risk R-11: Hungarian Veto on MFF**
+- Probability: MEDIUM (45%)
+- Impact: HIGH (delays MFF adoption by 12-24 months)
+- Trigger: Hungary exercises Article 312 TFEU veto to extract concessions on Rule of Law conditionality
+- Mitigation: Passerelle clause (if ever activated) would shift MFF to QMV; political management via conditionality compromise
+
+**Risk R-12: Commission Staff Capacity Crisis (DMA)**
+- Probability: MEDIUM (35%)
+- Impact: MEDIUM-HIGH
+- Trigger: DMA enforcement requires specialist digital economists/engineers that DG COMP cannot recruit competitively vs. private sector
+- Mitigation: ENISA technical support; national competition authority secondments; external expert contracts
+
+### UPDATED RISK HEAT MAP
+
+| Risk | Probability | Impact | Priority |
+|------|-----------|--------|----------|
+| R-01: MFF own resources blocked | HIGH | HIGH | 🔴 CRITICAL |
+| R-02: DMA enforcement delay | MEDIUM | HIGH | 🔴 CRITICAL |
+| R-03: Ukraine accountability derailed | MEDIUM | HIGH | 🟠 HIGH |
+| R-04: Rule of Law legal challenge | MEDIUM | MEDIUM | 🟡 MEDIUM |
+| R-08: US digital trade war | MEDIUM | HIGH | 🟠 HIGH |
+| R-09: EP 2029 right majority | LOW-MEDIUM | VERY HIGH | 🟡 MEDIUM |
+| R-11: Hungarian MFF veto | MEDIUM | HIGH | 🟠 HIGH |
+
+*Extended risk matrix — 2026-05-14 Pass 2 | Confidence: 🟡 Medium*
