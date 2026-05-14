@@ -27,14 +27,26 @@
 #
 # Output:
 #   - Writes one JSON file per feed to ${ANALYSIS_DIR}/data/<feed>-feed.json
-#   - On fetch failure, writes a canonical "feed unavailable" envelope
-#     (status:"unavailable", items:[], itemCount:0, generatedAt:<ISO>)
+#   - On fetch failure (after retries), writes a canonical "feed unavailable"
+#     envelope (status:"unavailable", items:[], itemCount:0, generatedAt:<ISO>)
 #     matching the EP MCP feed-status contract, so downstream analysis
 #     can use a single `status === "unavailable"` check
 #   - Exports ANALYSIS_DIR and TODAY to $GITHUB_ENV for subsequent steps
 #   - Echoes a summary line with file count
 #   - Exits 2 (fail-fast) on unknown feed names — typos in workflow slug
 #     /feed lists would otherwise silently disable prefetch
+#   - Exits 1 when ALL feeds fail (0 successfully fetched) — indicates the
+#     EP API is completely unreachable; workflow can decide to retry the step
+#
+# Retry policy:
+#   - Readiness probe: HEAD to EP API root before the first fetch.
+#     If the probe fails, all feeds are written as placeholders and the
+#     script exits 1 immediately (avoids wasting curl timeouts on each feed).
+#   - Per-feed retry: up to 3 retries with exponential backoff.
+#     Backoff delays: 5s (retry 1), 15s (retry 2), 45s (retry 3).
+#   - If ALL feeds exhaust all retries (zero successful fetches), exits 1.
+#     If SOME feeds succeed and others fail, exits 0 (downstream handles
+#     the placeholder envelopes with the `status === "unavailable"` check).
 #
 # Per-feed timeouts:
 #   - `events`  → 120s (EP API is documented as slow for this feed)
@@ -43,6 +55,7 @@
 # Safety notes (AWF shell-safety filter compliance):
 #   - No nested parameter expansion, no indirect expansion, no `${var@P}`
 #   - No nested command substitution, no `$(cmd < file)` redirection
+#   - Backoff delay uses `case` statement — no array indirect expansion
 #   - All positional args quoted; all expansions single-level
 #
 # Drift-guarded by test/unit/shell-safety.test.js.
@@ -80,6 +93,55 @@ NOW_ISO=$(date -u +%Y-%m-%dT%H:%M:%SZ)
 SCRIPT_DIR=$(dirname -- "$0")
 ANALYSIS_DIR=$(bash "$SCRIPT_DIR/resolve-analysis-dir.sh" "$TODAY" "$SLUG")
 
+# ---------------------------------------------------------------------------
+# EP API readiness probe — HEAD request before the first feed fetch.
+# Returns 0 if the API root is reachable, 1 otherwise.
+# Using --head so we get a cheap connectivity signal without downloading data.
+# Output redirection (>/dev/null 2>&1) is OUTSIDE $(…) — shell-safety OK.
+# ---------------------------------------------------------------------------
+ep_api_probe() {
+  curl -fsS --head --max-time 10 \
+    "${EP_API}/meps?limit=1&format=application%2Fld%2Bjson" \
+    >/dev/null 2>&1
+}
+
+# ---------------------------------------------------------------------------
+# Retry-aware feed fetch.
+# Shell-safety: delay values looked up with `case` — no array/indirect expansion.
+# Args: $1=feed_name  $2=out_file  $3=feed_timeout_seconds
+# Returns: 0 on success, 1 after all retries exhausted.
+# ---------------------------------------------------------------------------
+fetch_with_retry() {
+  local feed_name="$1"
+  local out_file="$2"
+  local feed_to="$3"
+  local attempt=0
+  local delay=0
+
+  while [ "$attempt" -le 3 ]; do
+    if [ "$attempt" -gt 0 ]; then
+      # Shell-safety: use case for delay lookup (no array indirect expansion).
+      case "$attempt" in
+        1) delay=5 ;;
+        2) delay=15 ;;
+        *) delay=45 ;;
+      esac
+      echo "⏳ ${feed_name}: retry ${attempt}/3 — waiting ${delay}s ..." >&2
+      sleep "$delay"
+    fi
+
+    if curl -s --max-time "$feed_to" --fail \
+         -H "$ACCEPT_HDR" \
+         "${EP_API}/${feed_name}/feed" \
+         -o "$out_file" 2>/dev/null; then
+      return 0
+    fi
+
+    attempt=$((attempt + 1))
+  done
+  return 1
+}
+
 # Allow-list of canonical EP API feed names. Maps 1:1 to the EP API path
 # (just append `/feed`). Locked to prevent typos that would silently miss
 # the upstream endpoint.
@@ -115,6 +177,16 @@ write_unavailable_placeholder() {
     "$NOW_ISO" "$feed_name" > "$out_file"
 }
 
+# ---------------------------------------------------------------------------
+# Pre-flight readiness probe — run before the first feed fetch to avoid
+# burning N × (curl timeout) seconds when the EP API is entirely down.
+# ---------------------------------------------------------------------------
+EP_API_REACHABLE=1
+if ! ep_api_probe; then
+  echo "⚠️  EP API readiness probe failed — API may be unreachable; all feeds will be placeholders" >&2
+  EP_API_REACHABLE=0
+fi
+
 FETCHED=0
 PLACEHOLDERS=0
 for feed in "$@"; do
@@ -129,15 +201,18 @@ for feed in "$@"; do
   fi
   out_file="${ANALYSIS_DIR}/data/${feed}-feed.json"
   feed_to=$(feed_timeout "$feed")
-  if curl -s --max-time "$feed_to" --fail \
-       -H "$ACCEPT_HDR" \
-       "${EP_API}/${feed}/feed" \
-       -o "$out_file" 2>/dev/null; then
+
+  if [ "$EP_API_REACHABLE" -eq 0 ]; then
+    # Readiness probe failed — skip curl entirely to avoid timeouts.
+    write_unavailable_placeholder "$out_file" "$feed"
+    echo "⚠️  ${feed}-feed skipped (API unreachable) — placeholder written"
+    PLACEHOLDERS=$((PLACEHOLDERS + 1))
+  elif fetch_with_retry "$feed" "$out_file" "$feed_to"; then
     echo "✅ ${feed}-feed fetched (timeout=${feed_to}s)"
     FETCHED=$((FETCHED + 1))
   else
     write_unavailable_placeholder "$out_file" "$feed"
-    echo "⚠️  ${feed}-feed unavailable — unavailable-envelope placeholder written (timeout=${feed_to}s)"
+    echo "⚠️  ${feed}-feed unavailable after retries — unavailable-envelope placeholder written (timeout=${feed_to}s)"
     PLACEHOLDERS=$((PLACEHOLDERS + 1))
   fi
 done
@@ -153,3 +228,12 @@ fi
 
 FILE_COUNT=$(find "${ANALYSIS_DIR}/data/" -maxdepth 1 -type f | wc -l)
 echo "Pre-fetch complete: ${FETCHED} fetched, ${PLACEHOLDERS} placeholders, ${FILE_COUNT} total files in ${ANALYSIS_DIR}/data/"
+
+# Exit 1 when ALL feeds failed (0 successfully fetched) — the EP API is
+# completely unreachable and the agent would have no data to work with.
+# A partial failure (some feeds OK) exits 0; downstream handles placeholders
+# via the `status === "unavailable"` contract.
+if [ "$FETCHED" -eq 0 ] && [ "$PLACEHOLDERS" -gt 0 ]; then
+  echo "❌ All ${PLACEHOLDERS} feed(s) failed — EP API unreachable" >&2
+  exit 1
+fi

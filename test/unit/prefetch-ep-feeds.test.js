@@ -66,12 +66,7 @@ describe('scripts/prefetch-ep-feeds.sh', () => {
   });
 
   it('writes canonical unavailable-envelope placeholder on fetch failure', () => {
-    // Force a fetch failure by pointing the script at an unreachable host
-    // via curl's --resolve isn't supported here; instead simulate by using
-    // a feed name that exists in the allow-list but for which we
-    // pre-create the output file then have curl fail. Simplest: just
-    // observe the placeholder shape by reading the script source and
-    // confirming the contract.
+    // Observe the placeholder contract by reading the script source.
     const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
     expect(scriptSource).toContain('"status":"unavailable"');
     expect(scriptSource).toContain('"items":[]');
@@ -86,5 +81,52 @@ describe('scripts/prefetch-ep-feeds.sh', () => {
     expect(scriptSource).toMatch(/TIMEOUT_EVENTS=120/);
     expect(scriptSource).toMatch(/TIMEOUT_DEFAULT=60/);
     expect(scriptSource).toMatch(/events\)\s*printf '%s' "\$TIMEOUT_EVENTS"/);
+  });
+
+  // ---------------------------------------------------------------------------
+  // Retry / backoff policy tests (source-code drift guards)
+  // ---------------------------------------------------------------------------
+
+  it('implements retry with exponential-backoff delays (5s / 15s / 45s)', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    // The fetch_with_retry function must have the three delay values in order
+    expect(scriptSource).toContain('1) delay=5');
+    expect(scriptSource).toContain('2) delay=15');
+    // Third delay (default case) must be 45
+    expect(scriptSource).toContain('*) delay=45');
+  });
+
+  it('has fetch_with_retry function that loops up to 3 retries', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    expect(scriptSource).toContain('fetch_with_retry');
+    // The loop condition checks attempt <= 3
+    expect(scriptSource).toContain('"$attempt" -le 3');
+  });
+
+  it('implements EP API readiness probe before fetching feeds', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    // Should have an ep_api_probe function
+    expect(scriptSource).toContain('ep_api_probe');
+    // Probe uses HEAD request (--head flag)
+    expect(scriptSource).toContain('--head');
+    // Probe checks EP_API_REACHABLE before the per-feed curl
+    expect(scriptSource).toContain('EP_API_REACHABLE');
+  });
+
+  it('exits 1 when all feeds fail and zero were successfully fetched', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    // There must be an exit 1 path when FETCHED -eq 0 and PLACEHOLDERS -gt 0
+    expect(scriptSource).toContain('"$FETCHED" -eq 0');
+    expect(scriptSource).toContain('"$PLACEHOLDERS" -gt 0');
+    expect(scriptSource).toContain('exit 1');
+  });
+
+  it('uses case statement for backoff delays (shell-safety: no array indirect expansion)', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    // Must use case/esac for delay lookup
+    expect(scriptSource).toMatch(/case "\$attempt" in/);
+    // Must NOT use array lookup with ${delays[$attempt]} or similar
+    expect(scriptSource).not.toMatch(/\$\{delays\[/);
+    expect(scriptSource).not.toMatch(/\$\{DELAYS\[/);
   });
 });

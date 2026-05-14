@@ -18,6 +18,24 @@ article drafting until Stage C (completeness gate) exits 0.
 - **Per-artifact line floors:** [`analysis/methodologies/reference-quality-thresholds.json`](../../analysis/methodologies/reference-quality-thresholds.json) (keyed by `articleType × relativePath`) — enforced by the Stage-C agent-side readback; there is no standalone runtime validator in the aggregator era.
 - **Article pipeline reference:** [`Article-Generation.md`](../../Article-Generation.md) — end-to-end contract for `article.md`, SEO metadata, UI/UX export, and static-site render outputs.
 
+### 1c · Stage A / Stage B Helper Scripts (Invocation Points)
+
+Call these scripts in the pre-agent steps or at Stage B start. They are
+drift-guarded by unit tests and must not be inlined into workflow prompts.
+
+| Script | When | What it does |
+|--------|------|-------------|
+| `bash scripts/prefetch-ep-feeds.sh <slug> <feeds…>` | Pre-agent step (already wired in all `news-*.md`) | Fetches EP Open Data feeds with 3-retry exponential backoff (5s/15s/45s). Writes JSON placeholders on failure. Exits 1 when all feeds fail (EP API unreachable). |
+| `node scripts/scrape-doceo-votes.js --date <YYYY-MM-DD> --slug <slug> --output-dir <dir>` | Stage A, after EP MCP data collection | Fetches DOCEO RCV XML directly (bypasses EP MCP 4–6 week publication lag). Returns `publicationLag:true` on 404 — not an error. |
+| `node scripts/imf-fallback-ladder.js --output-dir <dir> [--vintage-file <path>]` | Stage A, economic-context data collection | Fetches IMF economic data with 4-rung fallback: SDMX 3.0 → DataMapper → World Bank country proxy → cached vintage. Writes `economic-context-data.json` with provenance per field. |
+| `node scripts/cache-thresholds.js --slug <slug> --run-id <run-id>` | **Stage B start** (once per run, before writing any artifact) | Filters `reference-quality-thresholds.json` to slug-relevant floors. Writes `analysis/runs/<run-id>/thresholds-cache.json`. Content-hashed so re-calls short-circuit. **Eliminates 38+ invocations** wasted on per-artifact re-reads of the full thresholds file. |
+| `node scripts/extend-artifacts.js --spec-file <path> [--base-dir <dir>]` | Stage B Pass 2, when extending multiple under-floor artifacts | Batch-appends/prepends/creates multiple artifact files in one Node.js execution. Takes a JSON spec array `[{path,content,mode}]`. Eliminates per-artifact heredoc overhead. |
+
+**Read-Before-Write rule (unchanged):** The article agent MUST read every
+artifact produced in Stage B BEFORE writing any prose. The cache-thresholds
+output is read once at Stage B start, then the cached floors are referenced
+throughout Pass 1 and Pass 2 without re-invoking the script.
+
 ## 1b · Analysis Artifacts to Produce (39-template catalog)
 
 Every run produces the per-run subset of these 39+ templates. The **article-type-specific required set** is defined by `reference-quality-thresholds.json` and enforced at Stage C. Group by artifact catalog:
@@ -439,6 +457,16 @@ shell-only `wc -l` shortcut.
 | PESTLE | Political / Economic / Social / Technological / Legal / Environmental |
 | Stakeholder mapping (Mendelow power × interest) | Interest + influence on legislation |
 | Red team / devil's advocacy | Stress-test consensus narratives |
+
+**Economic-context data source (IMF as sole authoritative source):**
+Always use `scripts/imf-fallback-ladder.js` output (`economic-context-data.json`)
+for GDP growth, inflation, fiscal balance, and trade figures. The script
+produces a `provenance` field per data point indicating which rung supplied
+it (SDMX 3.0 / DataMapper / World Bank proxy / cached vintage). Cite the
+`rungLabel` in every IMF-sourced claim so readers can assess data freshness.
+Never cite World Bank directly for EU macroeconomic indicators — World Bank
+data enters only as the rung-3 EU-proxy aggregate when the two IMF rungs
+both fail.
 
 ## 8 · Stakeholder 6-Lens Model
 
