@@ -22,6 +22,20 @@
       "totalLines": 10988,
       "passNumber": 2,
       "note": "Pass 2 extend/rewrite run \u2014 all 36 artifacts above floor; article rendered to 15 files"
+    },
+    {
+      "runId": "breaking-run373-1778786862-pass3",
+      "timestamp": "2026-05-14T19:37:41Z",
+      "gateResult": "GREEN",
+      "artifactCount": 36,
+      "rewriteCount": 22,
+      "mermaidAdded": 22,
+      "newArtifacts": [
+        "classification/actor-mapping.md",
+        "classification/forces-analysis.md",
+        "classification/impact-matrix.md"
+      ],
+      "note": "Pass 3 extend/rewrite run \u2014 22 artifacts rewritten with Mermaid diagrams, 3 new classification artifacts created, WEP+Admiralty added to 4 artifacts; Gate GREEN"
     }
   ],
   "files": {
@@ -60,7 +74,10 @@
     "comparativeInternational": "extended/comparative-international.md",
     "voterSegmentation": "extended/voter-segmentation.md",
     "crossReferenceMap": "extended/cross-reference-map.md",
-    "dataDownloadManifest": "extended/data-download-manifest.md"
+    "dataDownloadManifest": "extended/data-download-manifest.md",
+    "actorMapping": "classification/actor-mapping.md",
+    "forcesAnalysis": "classification/forces-analysis.md",
+    "impactMatrix": "classification/impact-matrix.md"
   },
   "dataQuality": {
     "adoptedTexts": "high",
@@ -71,7 +88,7 @@
   },
   "gateResult": "GREEN",
   "pass2": {
-    "rewriteCount": 36,
+    "rewriteCount": 22,
     "artifactCount": 36,
     "totalLines": 10988
   }

@@ -274,3 +274,29 @@ Given the wildcard scenarios identified, how resilient is the EP institutional f
 **Wildcards addendum:** The single most underappreciated wildcard in EU politics is demographic — the gradual replacement of 'permissive consensus' generation voters with digital-native voters who have no personal memory of WWII or the Cold War origins of European integration. By 2029 EP elections, 50%+ of EU voters will have been born after Maastricht. This generational shift creates both risks (EU no longer automatically 'the right answer') and opportunities (climate, digital rights may be stronger unifiers than historical peace narratives).
 
 *Wildcards and black swans analysis complete — 2026-05-14 Pass 2. 12 wildcards documented across 4 categories with probability and impact assessments. Monitoring dashboard included.*
+
+---
+
+## WILDCARD SCENARIO TREE
+
+```mermaid
+graph TD
+    BASE["Baseline Trajectory<br/>MFF negotiation 2026-2027"]
+    
+    W1["🦢 BLACK SWAN<br/>German constitutional crisis<br/>Vetoes MFF own-resources"]
+    W2["🎯 WILDCARD<br/>European Defence Union<br/>triggers MFF renegotiation"]
+    W3["🌊 WILDCARD<br/>Renewed pandemic/crisis<br/>NextGenEU 2 demanded"]
+    W4["🔥 WILDCARD<br/>EP-Council institutional<br/>breakdown on discharge"]
+
+    BASE --> W1
+    BASE --> W2
+    BASE --> W3
+    BASE --> W4
+
+    style W1 fill:#000,color:#fff
+    style W2 fill:#ff4444,color:#fff
+    style W3 fill:#ff4444,color:#fff
+    style W4 fill:#ffaa00,color:#000
+```
+
+**[EXTEND-FROM-PRIOR: intelligence/wildcards-blackswans.md prior=276L → new=300L (+24)]**

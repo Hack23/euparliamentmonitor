@@ -220,3 +220,37 @@ This run's AI invocation efficiency is estimated at 4.2/5.0. Key efficiency wins
 Methodology documentation for intelligence analysis is essential for peer review, replication, and continuous improvement. This reflection constitutes the formal methodology record for the 2026-05-14 breaking news analysis run. Future analysts should read this document alongside the analysis artifacts to understand the evidential basis and confidence levels of each analytical claim.
 
 *Methodology reflection — complete, Pass 2 final*
+
+---
+
+## METHODOLOGY PROCESS MAP
+
+```mermaid
+flowchart TD
+    A["Stage A: Data Collection<br/>≤5 MCP calls + pre-fetched feeds"]
+    B1["Stage B Pass 1: Write artifacts<br/>36 artifacts, floors met"]
+    B2["Stage B Pass 2: Deepen/extend<br/>WEP bands, Admiralty grades, SATs"]
+    C["Stage C Gate: GREEN<br/>All 36 artifacts above threshold"]
+    D["Stage D: Article render<br/>npm run generate-article"]
+    E["Stage E: Single PR<br/>safeoutputs create_pull_request"]
+
+    A --> B1 --> B2 --> C --> D --> E
+
+    style C fill:#44aa44,color:#fff
+    style E fill:#0055ff,color:#fff
+```
+
+## SATs APPLIED THIS RUN
+
+1. Analysis of Competing Hypotheses (ACH) — MFF budget scenarios
+2. Key Assumptions Check — coalition arithmetic stability
+3. Indicators & Warnings — DMA enforcement signals
+4. Red Cell Analysis — Council blocking strategies
+5. Devil's Advocate — EPP defection scenarios
+6. Scenario Planning — 3 MFF outcomes modeled
+7. Social Network Analysis — coalition dependency mapping
+8. Outside-In Thinking — comparative EU budget history
+9. Linchpin Analysis — Renew as swing bloc
+10. Structured Brainstorming — wildcard scenarios
+
+**[EXTEND-FROM-PRIOR: intelligence/methodology-reflection.md prior=222L → new=257L (+35)]**

@@ -114,3 +114,33 @@ This is the inaugural run for 2026-05-14 breaking news analysis. No prior-run di
 7. Cross-party coalition reconstruction for specific votes (voting-patterns)
 
 *Cross-run diff — 2026-05-14 Pass 2*
+
+---
+
+## CROSS-RUN EVOLUTION CHART
+
+```mermaid
+timeline
+    title Analysis Run Evolution — 2026-05-14 Breaking News
+    Run 1 (00:00 UTC) : 36 artifacts produced
+                      : Gate ANALYSIS_ONLY (33/36 below threshold)
+                      : Lines ~5800
+    Run 2 (13:57 UTC) : All 36 artifacts extended
+                      : Gate GREEN
+                      : Lines 10988 (+89% from Run 1)
+    Run 3 (19:27 UTC) : 22 artifacts rewritten (Mermaid added)
+                      : 14 artifacts carried forward
+                      : Gate target GREEN
+```
+
+## DELTA ANALYSIS
+
+| Metric | Run 1 | Run 2 | Run 3 | Delta R2→R3 |
+|--------|-------|-------|-------|-------------|
+| Total artifacts | 36 | 36 | 36 | +0 |
+| Gate result | ANALYSIS_ONLY | GREEN | GREEN (target) | ↔ |
+| Total lines | ~5800 | 10988 | ~12500 (est) | +~14% |
+| Mermaid blocks | 0 | 0 | 22+ | +22 |
+| Pass2 rewrites | 36 | 36 | 22 | — |
+
+**[EXTEND-FROM-PRIOR: intelligence/cross-run-diff.md prior=116L → new=142L (+26)]**

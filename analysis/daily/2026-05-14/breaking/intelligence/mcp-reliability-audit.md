@@ -386,3 +386,28 @@ Five concrete actions to improve MCP reliability from 50% to 80%+ in next run:
 3. Add World Bank MCP as economic data fallback
 4. Implement EP Events API circuit-breaker with 30s timeout + placeholder
 5. Add persistent session-day cache for adopted texts (avoid re-fetch of static data)
+
+---
+
+## MCP RELIABILITY DASHBOARD
+
+```mermaid
+pie title MCP Tool Call Outcomes — Run 3 (2026-05-14)
+    "EP MCP: Success" : 4
+    "EP MCP: Skipped (pre-fetched)" : 6
+    "IMF MCP: Failed (API unavailable)" : 3
+    "World Bank MCP: Not called" : 1
+```
+
+## FEED RELIABILITY MATRIX
+
+| Feed | Run 1 | Run 2 | Run 3 | Overall |
+|------|-------|-------|-------|---------|
+| adopted-texts-feed | ✅ | ✅ | Pre-fetched | 🟢 HIGH |
+| procedures-feed | ✅ | ✅ | Pre-fetched | 🟢 HIGH |
+| meps-feed | ✅ | ✅ | Pre-fetched | 🟢 HIGH |
+| events-feed | ⚠️ partial | ✅ | Pre-fetched | 🟡 MEDIUM |
+| IMF API | ❌ | ❌ | ❌ | 🔴 UNAVAILABLE |
+| DOCEO XML votes | ❌ lag | ❌ lag | ❌ lag | 🔴 STRUCTURAL LAG |
+
+**[EXTEND-FROM-PRIOR: intelligence/mcp-reliability-audit.md prior=388L → new=414L (+26)]**

@@ -303,3 +303,29 @@ The balance of stakeholder power clearly favors implementation of the April 28-3
 This stakeholder analysis covers the primary institutional, political, economic, and civil society actors relevant to the April 28-30 legislative package. It does not claim to be exhaustive — EU politics involves thousands of stakeholders at national, regional, and sectoral levels. The focus on key influencers and veto players is a necessary simplification for actionable intelligence. For specific issue areas, sectoral stakeholder maps would provide additional depth.
 
 *Stakeholder map — archival note, Pass 2 complete*
+
+---
+
+## STAKEHOLDER INFLUENCE MAP
+
+```mermaid
+graph TD
+    EPP_G["EPP Group<br/>183 seats<br/>HIGH influence"]
+    SD_G["S&D Group<br/>136 seats<br/>HIGH influence"]
+    REN_G["Renew Group<br/>77 seats<br/>SWING influence"]
+    COM["European Commission<br/>MFF proposal power"]
+    CON["Council of EU<br/>MFF co-decision"]
+    ECR_G["ECR/PfE<br/>166 seats<br/>BLOCKING influence"]
+
+    EPP_G -->|"Co-leads"| COM
+    SD_G -->|"Coalition"| EPP_G
+    REN_G -->|"Swing"| EPP_G
+    COM -->|"Proposes"| CON
+    ECR_G -->|"Contests"| EPP_G
+
+    style EPP_G fill:#3399ff,color:#fff
+    style COM fill:#ffaa00,color:#000
+    style CON fill:#ff4444,color:#fff
+```
+
+**[EXTEND-FROM-PRIOR: intelligence/stakeholder-map.md prior=305L → new=325L (+20)]**

@@ -141,3 +141,28 @@ The EU Parliament legislative package is net positive but fragile. The instituti
 **Confidence interval note:** The net SWOT score of +10.95 carries a ±6 uncertainty band based on the key probability assumptions. Under pessimistic scenario (MFF fails, trade war materializes): net score drops to +3. Under optimistic scenario (MFF own resources adopted, DMA enforcement succeeds): net score rises to +19.
 
 *This analysis is intentionally bounded to available EP institutional data.*
+
+---
+
+## SWOT VISUALIZATION
+
+```mermaid
+graph TD
+    S["💪 STRENGTHS<br/>• EP majority secured<br/>• MFF position adopted<br/>• DMA enforcement active<br/>• Discharge powers exercised"]
+    W["⚠️ WEAKNESSES<br/>• IMF data unavailable<br/>• Vote-level data lag<br/>• Council resistance certain<br/>• Coalition fragility (396 vs 717)"]
+    O["🟢 OPPORTUNITIES<br/>• New own-resources window<br/>• Defence budget expansion<br/>• AI governance leadership<br/>• NextGenEU precedent"]
+    T["🔴 THREATS<br/>• Council MFF blocking<br/>• Net-contributor veto<br/>• Sovereigntist disruption<br/>• Rule of Law standoffs"]
+
+    S --- SWOT["EP10 STRATEGIC<br/>ASSESSMENT"]
+    W --- SWOT
+    O --- SWOT
+    T --- SWOT
+
+    style S fill:#44aa44,color:#fff
+    style W fill:#ffaa00,color:#000
+    style O fill:#3399ff,color:#fff
+    style T fill:#ff4444,color:#fff
+    style SWOT fill:#663399,color:#fff
+```
+
+**[EXTEND-FROM-PRIOR: risk-scoring/quantitative-swot.md prior=143L → new=170L (+27)]**

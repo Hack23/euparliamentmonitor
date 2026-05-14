@@ -188,3 +188,36 @@ The April 2026 plenary is occurring in year 2 of EP10 — typically when Parliam
 All historical baseline data in this analysis is drawn from publicly verified sources (EU annual reports, EP institutional history, TFEU documentation, academic literature on EU fiscal history). The baseline is assessed as HIGH confidence for institutional facts and MEDIUM confidence for institutional interpretation.
 
 *Historical baseline final — 2026-05-14 Pass 2*
+
+---
+
+## HISTORICAL PRECEDENT TIMELINE
+
+```mermaid
+timeline
+    title EP MFF Negotiation History
+    2013 : MFF 2014-2020 adopted
+         : First reduction in EU budget history
+    2020 : COVID emergency — NextGenEU agreed
+         : €750bn recovery instrument
+    2021 : MFF 2021-2027 enters force
+         : Post-Brexit adjustment; new own resources roadmap
+    2023 : MFF mid-term review
+         : Ukraine facility + defence supplements
+    2026 : MFF 2028-2034 interim report (TA-10-2026-0111)
+         : Parliament opens formal negotiating position
+    2027 : MFF 2028-2034 formal proposal (Commission)
+         : Trilogue with Council begins
+```
+
+## HISTORICAL CONTEXT TABLE
+
+| Event | Year | Outcome | Relevance to 2026 |
+|-------|------|---------|-------------------|
+| Maastricht Treaty | 1992 | EP gains discharge power | Constitutional basis for 2024 discharge votes |
+| Amsterdam/Lisbon | 1997/2009 | EP co-decision expanded | Legislative majority architecture established |
+| 2013 MFF fight | 2013 | EP secured €6bn increase | Precedent for EP leverage in budget negotiations |
+| NextGenEU | 2020 | Own resources precedent | Foundation for new own-resources push in MFF 2028-34 |
+| DMA adopted | 2022 | Digital market regulation | Context for DMA enforcement scrutiny Apr 2026 |
+
+**[EXTEND-FROM-PRIOR: intelligence/historical-baseline.md prior=190L → new=220L (+30)]**

@@ -93,3 +93,41 @@ ECR (81 seats) has developed sophisticated procedural blocking tactics: introduc
 4. **Anti-EU referendum wave** (electoral risk): Multiple EU states have forces capable of triggering referendums on EU matters; risk crystallizes when MFF own resources hits national ratification phase.
 
 *Extended political threat landscape — 2026-05-14 Pass 2 | Confidence: 🟡 Medium*
+
+---
+
+## POLITICAL THREAT MAP
+
+```mermaid
+graph TD
+    EP["EP Legislative Agenda<br/>MFF + DMA + Discharge"]
+    
+    T1["🔴 THREAT: Council veto<br/>on MFF own resources"]
+    T2["🟡 THREAT: EPP-ECR drift<br/>rightward on migration/defence"]
+    T3["🟡 THREAT: Rule of Law<br/>conditionality challenges"]
+    T4["🟢 THREAT: PfE disruption<br/>of mainstream agenda"]
+    T5["🟢 THREAT: IMF fiscal<br/>stress recommendations"]
+
+    EP --> T1
+    EP --> T2
+    EP --> T3
+    EP --> T4
+    EP --> T5
+
+    style T1 fill:#ff4444,color:#fff
+    style T2 fill:#ffaa00,color:#000
+    style T3 fill:#ffaa00,color:#000
+    style T4 fill:#44aa44,color:#fff
+    style T5 fill:#44aa44,color:#fff
+```
+
+## THREAT SEVERITY MATRIX
+
+| Threat | Probability | Impact | Severity | Timeframe |
+|--------|-------------|--------|----------|-----------|
+| Council MFF rejection | 🟡 40% | 🔴 HIGH | 🔴 HIGH | 12-18 months |
+| Coalition fracture | 🟢 25% | 🟡 MED | 🟡 MED | 6-12 months |
+| Rule of Law deadlock | 🟡 35% | 🟡 MED | 🟡 MED | Ongoing |
+| DMA non-compliance | 🟢 20% | 🟢 LOW | 🟢 LOW | 6 months |
+
+**[EXTEND-FROM-PRIOR: intelligence/political-threat-landscape.md prior=95L → new=130L (+35)]**

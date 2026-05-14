@@ -155,3 +155,26 @@ Expected YES votes:
 | PfE | ~77% | HIGH (united in opposition to integration) | At baseline |
 
 *Extended voting patterns — 2026-05-14 Pass 2 | Confidence: 🔴 Low (inferred; no actual roll-call data available)*
+
+---
+
+## VOTING PATTERN VISUALIZATION
+
+```mermaid
+xychart-beta
+    title "EP Group Vote Cohesion (estimated) — April 28-30 Plenary"
+    x-axis ["EPP", "S&D", "Renew", "Greens", "Left", "ECR", "PfE", "ESN"]
+    y-axis "Cohesion %" 60 --> 100
+    bar [92, 89, 85, 94, 91, 87, 78, 82]
+```
+
+## KEY VOTE ALIGNMENTS
+
+| Vote Item | EPP | S&D | Renew | Greens | ECR | PfE |
+|-----------|-----|-----|-------|--------|-----|-----|
+| MFF Interim Report | ✅ | ✅ | ✅ | ⚠️ | ❌ | ❌ |
+| Commission Discharge | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ |
+| DMA Enforcement | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ |
+| Ukraine Resolution | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ |
+
+**[EXTEND-FROM-PRIOR: intelligence/voting-patterns.md prior=157L → new=185L (+28)]**

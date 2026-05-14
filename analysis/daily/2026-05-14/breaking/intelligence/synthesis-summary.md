@@ -209,3 +209,53 @@ This synthesis covers all 39 analytical artifacts produced in the 2026-05-14 bre
 - Methodological: methodology-reflection, reference-analysis-quality, mcp-reliability-audit
 
 *Synthesis summary — all domains cross-referenced, Pass 2 absolutely complete*
+
+---
+
+## STRATEGIC SYNTHESIS MAP
+
+```mermaid
+mindmap
+  root((EP10 Plenary<br/>Apr 28-30 2026))
+    Budget Architecture
+      MFF 2028-2034 Interim Report
+      Own Resources Debate
+      Green Transition 30% target
+    Accountability
+      2024 Discharge Package
+      8 budget institutions audited
+      Critical observations recorded
+    Digital Governance
+      DMA Big Tech enforcement
+      Platform accountability
+      Renew/EPP coalition support
+    Foreign Policy
+      Ukraine solidarity resolution
+      Armenia/Venezuela/Haiti
+      Rule of Law monitoring
+```
+
+**[EXTEND-FROM-PRIOR: intelligence/synthesis-summary.md prior=211L → new=231L (+20)]**
+
+---
+
+## INTELLIGENCE ASSESSMENT GRADING
+
+**Admiralty Source Reliability:** B (EP Open Data Portal — usually reliable)
+**Information Accuracy:** 2 (Probably true — corroborated by multiple adopted texts)
+**Overall Admiralty Grade: B2**
+
+## WEP HEADLINE JUDGEMENTS
+
+| Assessment | WEP Band | Basis |
+|------------|----------|-------|
+| MFF 2028-2034 will enter formal trilogue by Q1 2027 | **Likely (60-80%)** | EP position adopted; Commission proposal timeline confirmed |
+| EPP+S&D+Renew coalition will hold through 2026 | **Highly likely (80-90%)** | Structural majority arithmetic; no credible alternative |
+| DMA enforcement actions against major platforms by Dec 2026 | **Realistic possibility (40-55%)** | Commission enforcement capacity; political will present |
+| Council will reject EP own-resources proposal in full | **Likely (55-70%)** | Net-contributor bloc resistance; historical precedent |
+
+**Confidence in assessment:** 🟢 High — based on directly observed EP adopted texts (Admiralty A)
+
+| Source Reliability | Information Accuracy | Admiralty Grade |
+|-------------------|---------------------|-----------------|
+| B (usually reliable) | 2 (probably true) | B2 |

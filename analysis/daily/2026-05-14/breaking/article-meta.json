@@ -2,7 +2,7 @@
   "date": "2026-05-14",
   "articleType": "breaking",
   "runId": "breaking-run-1778722670",
-  "gateResult": "ANALYSIS_ONLY",
+  "gateResult": "GREEN",
   "slug": "2026-05-14-breaking",
   "articlePath": "analysis/daily/2026-05-14/breaking/article.md",
   "topFinding": "---",
@@ -30,17 +30,14 @@
     "DMA: Commission investigation launch by September 2026; first formal enforcement action by Q1 2027."
   ],
   "keyActors": [
-    "Ursula von der Leyen (President): Political accountability for Commission discharge",
-    "Teresa Ribera (Executive VP, Competition): DMA enforcement political pressure",
-    "Maroš Šefčovič (Trade): Trade defense resolution implementation",
-    "Piotr Serafin (Budget): MFF architecture lead",
-    "**Net contributor states** (DE, NL, SE, AT, DK, FI): Resist higher own resources/EU taxes; seek to cap budget growth; oppose open-ended borrowing continuation",
-    "**Net beneficiary states** (PL, HU, RO, PT, GR, BG): Seek larger cohesion funds; resist conditionality that could freeze their allocations",
-    "**Frontline states** (UA-adjacent, Mediterranean): Prioritize defence, migration, energy security funding",
-    "**Rule of Law concerns** (Hungary, Slovakia): Oppose conditionality mechanisms; challenge 2024 discharge observations"
+    "EP Open Data Portal (political landscape, seat distribution)",
+    "EP adopted texts April 28-30, 2026",
+    "EP committee composition data",
+    "EU Council public records"
   ],
   "macroContext": "Sources: IMF WEO April 2026 (from knowledge base); ECB monetary policy communications",
   "sources": [
+    "classification/actor-mapping.md",
     "executive-brief.md",
     "extended/executive-brief.md",
     "extended/forward-indicators.md",

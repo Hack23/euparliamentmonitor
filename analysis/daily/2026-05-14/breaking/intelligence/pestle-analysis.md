@@ -265,3 +265,30 @@ The Climate Neutrality Framework (TA-10-2026-0031) establishes a -90% emissions 
 - Corporate Sustainability Reporting Directive (CSRD): Creates private sector disclosure regime that EP discharge function should eventually assess
 
 *Extended PESTLE — 2026-05-14 Pass 2 | Confidence: 🟢 High (structural analysis) / 🟡 Medium (IMF projections from knowledge base)*
+
+---
+
+## PESTLE FACTOR INTERACTION MAP
+
+```mermaid
+graph LR
+    P["Political<br/>EPP+S&D+Renew majority<br/>MFF negotiations begin"]
+    E["Economic<br/>EU GDP +1.2%<br/>IMF fiscal stress signals"]
+    S["Social<br/>Youth unemployment 14.5%<br/>Cost-of-living pressures"]
+    T["Technological<br/>DMA Big Tech enforcement<br/>AI governance emerging"]
+    L["Legal<br/>Rule of Law conditionality<br/>Discharge accountability"]
+    EN["Environmental<br/>Green transition funding<br/>30% budget share target"]
+
+    P -->|"Drives"| E
+    P -->|"Shapes"| L
+    E -->|"Constrains"| S
+    T -->|"Informs"| L
+    L -->|"Governs"| P
+    EN -->|"Requires"| E
+
+    style P fill:#3399ff,color:#fff
+    style E fill:#ffaa00,color:#000
+    style EN fill:#44aa44,color:#fff
+```
+
+**[EXTEND-FROM-PRIOR: intelligence/pestle-analysis.md prior=267L → new=295L (+28)]**

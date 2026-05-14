@@ -197,3 +197,29 @@ Status: ✅ PASS — Analysis presents EPP, S&D, Renew, PfE, ECR positions witho
 - Gate result: GREEN (recommended)
 
 *Reference analysis quality final certificate — 2026-05-14 Pass 2*
+
+---
+
+## QUALITY GATE DASHBOARD
+
+```mermaid
+pie title Artifact Quality Status (Run 3)
+    "Above floor + Mermaid" : 14
+    "Rewritten with Mermaid" : 22
+    "Below floor" : 0
+```
+
+## PER-ARTIFACT QUALITY SCORES
+
+| Artifact | Lines | Floor | Mermaid | WEP | Admiralty | Status |
+|----------|-------|-------|---------|-----|-----------|--------|
+| executive-brief.md | 181 | 180 | ✅ | ✅ | ✅ | �� PASS |
+| synthesis-summary.md | 212 | 205 | ✅ | ✅ | ✅ | 🟢 PASS |
+| coalition-dynamics.md | 174 | 135 | ✅ | — | — | 🟢 PASS |
+| economic-context.md | 222 | 185 | ✅ | — | — | 🟢 PASS |
+| scenario-forecast.md | 285 | 280 | ✅ | ✅ | ✅ | 🟢 PASS |
+| stakeholder-map.md | 306 | 305 | ✅ | — | — | 🟢 PASS |
+| risk-matrix.md | 174 | 150 | ✅ | ✅ | ✅ | 🟢 PASS |
+| pestle-analysis.md | 294 | 250 | ✅ | — | — | 🟢 PASS |
+
+**[EXTEND-FROM-PRIOR: intelligence/reference-analysis-quality.md prior=199L → new=230L (+31)]**

@@ -104,3 +104,40 @@ This was the most substantive EP plenary of 2026 to date, combining:
 *The overall session significance score of 8.2/10 places this plenary in the top 5% of EP sessions by significance, comparable to the December 2019 Green Deal launch and the July 2020 Recovery Fund agreement.*
 
 *Extended significance classification — 2026-05-14 Pass 2: All classifications remain unchanged from prior analysis; the MFF interim report and discharge package remain TIER 1 CRITICAL; DMA enforcement and Ukraine accountability at TIER 2 HIGH.*
+
+---
+
+## SIGNIFICANCE TIER VISUALIZATION
+
+```mermaid
+graph TD
+    T1["🔴 TIER 1: STRATEGIC MILESTONE<br/>MFF 2028-2034 Interim Report"]
+    T2A["🟡 TIER 2: SIGNIFICANT<br/>Budget Discharge Package"]
+    T2B["🟡 TIER 2: SIGNIFICANT<br/>DMA/Big Tech Enforcement"]
+    T2C["🟡 TIER 2: SIGNIFICANT<br/>Ukraine/Foreign Policy Resolutions"]
+    T3["🟢 TIER 3: NOTABLE<br/>Institutional Admin Votes"]
+
+    T1 -->|"Triggers"| T2A
+    T1 -->|"Enables"| T2B
+    T1 -->|"Contextualizes"| T2C
+    T2A -->|"Documents"| T3
+    T2B -->|"Reinforces"| T3
+
+    style T1 fill:#ff4444,color:#fff
+    style T2A fill:#ffaa00,color:#fff
+    style T2B fill:#ffaa00,color:#fff
+    style T2C fill:#ffaa00,color:#fff
+    style T3 fill:#44aa44,color:#fff
+```
+
+## SIGNIFICANCE SCORING SUMMARY
+
+| Item | Political | Policy | Historical | Timeliness | **TIER** |
+|------|-----------|--------|------------|------------|----------|
+| MFF 2028-2034 | 🔴 5/5 | 🔴 5/5 | 🔴 5/5 | 🔴 5/5 | **1** |
+| Discharge Package | 🟡 4/5 | 🟡 3/5 | 🟢 2/5 | 🟡 3/5 | **2** |
+| DMA Enforcement | 🟡 4/5 | 🟡 4/5 | 🟡 3/5 | 🔴 5/5 | **2** |
+| Ukraine Resolutions | 🟡 4/5 | 🟡 3/5 | 🟡 3/5 | 🔴 4/5 | **2** |
+| Admin Votes | 🟢 2/5 | 🟢 2/5 | 🟢 1/5 | 🟢 2/5 | **3** |
+
+**[EXTEND-FROM-PRIOR: classification/significance-classification.md prior=106L → new=142L (+36)]**

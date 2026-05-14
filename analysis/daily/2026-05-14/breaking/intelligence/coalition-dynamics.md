@@ -137,3 +137,38 @@ EP10's primary coalition (EPP+S&D+Renew) operates a de facto cordon sanitaire ag
 The EPP-S&D-Renew coalition is unlikely to collapse before 2029. The key structural reason is the mutual deterrence dynamic: EPP cannot form a stable alternative majority with PfE+ECR without S&D, and S&D cannot form a stable majority with Greens+Left without EPP or Renew. Both options require compromise, which the current coalition has institutionalized.
 
 *Extended coalition dynamics — 2026-05-14 Pass 2 | Confidence: 🟡 Medium*
+
+---
+
+## COALITION VISUALIZATION
+
+```mermaid
+graph LR
+    EPP["EPP<br/>183 seats<br/>25.5%"]
+    SD["S&D<br/>136 seats<br/>19.0%"]
+    PfE["PfE<br/>85 seats<br/>11.9%"]
+    ECR["ECR<br/>81 seats<br/>11.3%"]
+    Renew["Renew<br/>77 seats<br/>10.7%"]
+    Greens["Greens/EFA<br/>53 seats<br/>7.4%"]
+    Left["The Left<br/>45 seats<br/>6.3%"]
+    NI["NI<br/>30 seats<br/>4.2%"]
+    ESN["ESN<br/>27 seats<br/>3.8%"]
+    MAJ["MAJORITY<br/>360 seats needed"]
+
+    EPP -->|"183"| MAJ
+    SD -->|"+136=319"| MAJ
+    Renew -->|"+77=396 ✅"| MAJ
+
+    style MAJ fill:#0055ff,color:#fff
+    style EPP fill:#3399ff,color:#fff
+    style SD fill:#ff4444,color:#fff
+    style Renew fill:#ffaa00,color:#000
+```
+
+## COALITION STABILITY ASSESSMENT
+
+**Working Coalition (EPP+S&D+Renew = 396):** Stable for mainstream legislation; fragile on defence spending and migration.
+**Right Bloc (EPP+ECR+PfE = 349):** Below majority threshold; requires NI support.
+**Progressive Bloc (S&D+Renew+Greens+Left = 311):** Cannot form majority alone.
+
+**[EXTEND-FROM-PRIOR: intelligence/coalition-dynamics.md prior=139L → new=165L (+26)]**
