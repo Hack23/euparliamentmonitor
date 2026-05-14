@@ -15,9 +15,12 @@
  *   • Navigations + `*.json`/`*.webmanifest` → network-first with
  *     `cache: 'no-store'`. Cached responses are only served when the
  *     network is offline. HTML never sticks in cache.
- *   • Static assets (`/images/`, `/fonts/`, `/js/vendor/`, common
- *     binary types) → cache-first under a versioned bucket so old
- *     deploys are evicted on activation.
+ *   • Same-origin images → network-first with `cache: 'reload'`, then
+ *     cache fallback. This prevents stale/missing image responses from
+ *     requiring a browser hard refresh after deploys.
+ *   • Static non-image assets (`/fonts/`, `/js/vendor/`, font binaries)
+ *     → cache-first under a versioned bucket so old deploys are evicted
+ *     on activation.
  *   • Other same-origin JS + CSS → stale-while-revalidate so pages
  *     render instantly while still pulling the latest bundle.
  *   • Cross-origin → pass-through `fetch(req)` (we do not proxy
@@ -80,11 +83,15 @@ self.addEventListener('activate', function (event) {
  * Decide if this request is for a static asset that's safe to cache
  * aggressively (cache-first).
  */
+function isImageAsset(url) {
+  if (url.pathname.indexOf('/images/') === 0) return true;
+  return /\.(?:svg|png|jpe?g|webp|avif|gif|ico)$/i.test(url.pathname);
+}
+
 function isStaticAsset(url) {
   if (url.pathname.indexOf('/js/vendor/') === 0) return true;
-  if (url.pathname.indexOf('/images/') === 0) return true;
   if (url.pathname.indexOf('/fonts/') === 0) return true;
-  return /\.(?:woff2?|ttf|otf|eot|svg|png|jpe?g|webp|gif|ico)$/i.test(url.pathname);
+  return /\.(?:woff2?|ttf|otf|eot)$/i.test(url.pathname);
 }
 
 /**
@@ -120,6 +127,24 @@ function staleWhileRevalidate(request) {
         });
       return cached || fetchPromise;
     });
+  });
+}
+
+function networkFirstImage(request) {
+  var reloadRequest = new Request(request, { cache: 'reload' });
+  return caches.open(STATIC_CACHE).then(function (cache) {
+    return fetch(reloadRequest)
+      .then(function (resp) {
+        if (resp && resp.ok) {
+          cache.put(request, resp.clone());
+        }
+        return resp;
+      })
+      .catch(function () {
+        return cache.match(request).then(function (cached) {
+          return cached || fetch(request);
+        });
+      });
   });
 }
 
@@ -229,6 +254,11 @@ self.addEventListener('fetch', function (event) {
     } else {
       event.respondWith(networkFirstJSON(request));
     }
+    return;
+  }
+
+  if (isImageAsset(url)) {
+    event.respondWith(networkFirstImage(request));
     return;
   }
 
