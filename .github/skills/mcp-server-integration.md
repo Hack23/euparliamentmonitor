@@ -87,7 +87,7 @@ tools: []
 
 ### European Parliament MCP Server
 
-**Version**: `european-parliament-mcp-server@1.3.3` | **Tools**: 63 | **Source**: `src/mcp/ep-mcp-client.ts`
+**Version**: `european-parliament-mcp-server@1.3.4` | **Tools**: 63 | **Source**: `src/mcp/ep-mcp-client.ts`
 
 #### AWF Workflow Configuration (gh-aw frontmatter)
 
@@ -96,7 +96,7 @@ mcp-servers:
   european-parliament:
     container: "node:26-alpine"
     entrypoint: "npx"
-    entrypointArgs: ["-y", "european-parliament-mcp-server@1.3.3", "--timeout", "90000"]
+    entrypointArgs: ["-y", "european-parliament-mcp-server@1.3.4", "--timeout", "90000"]
     env:
       EP_REQUEST_TIMEOUT_MS: "90000"
 ```
@@ -120,7 +120,7 @@ source scripts/mcp-setup.sh
     "european-parliament": {
       "type": "local",
       "command": "npx",
-      "args": ["-y", "european-parliament-mcp-server@1.3.3", "--timeout", "90000"],
+      "args": ["-y", "european-parliament-mcp-server@1.3.4", "--timeout", "90000"],
       "env": { "EP_REQUEST_TIMEOUT_MS": "90000" },
       "tools": ["*"]
     }
