@@ -115,6 +115,45 @@ describe('PWA freshness assets', () => {
     );
   });
 
+  it('falls back to a cached same-origin image when the reload response is not OK', async () => {
+    const serviceWorkerTemplate = readServiceWorkerTemplate();
+    const cachedResponse = new Response('cached-image-bytes', { status: 200 });
+    const cache = {
+      match: vi.fn().mockResolvedValue(cachedResponse),
+      put: vi.fn().mockResolvedValue(undefined),
+      add: vi.fn().mockResolvedValue(undefined),
+    };
+    const sandbox = {
+      self: {
+        location: { origin: 'https://euparliamentmonitor.com' },
+        addEventListener: vi.fn(),
+        skipWaiting: vi.fn(),
+        clients: { claim: vi.fn() },
+      },
+      caches: {
+        open: vi.fn().mockResolvedValue(cache),
+        keys: vi.fn().mockResolvedValue([]),
+        delete: vi.fn(),
+      },
+      fetch: vi.fn().mockResolvedValue(new Response('deploy-race-404', { status: 404 })),
+      Request,
+      Response,
+      URL,
+      JSON,
+      Promise,
+    };
+
+    vm.runInNewContext(serviceWorkerTemplate, sandbox);
+    const response = await sandbox.networkFirstImage(
+      new Request('https://euparliamentmonitor.com/images/banner-1200.avif')
+    );
+
+    expect(response).toBe(cachedResponse);
+    expect(response.ok).toBe(true);
+    expect(cache.match).toHaveBeenCalledTimes(1);
+    expect(cache.put).not.toHaveBeenCalled();
+  });
+
   it('resolves PWA root assets from page path rather than preload links', () => {
     const pwaRegister = readPwaRegister();
 

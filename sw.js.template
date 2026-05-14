@@ -137,8 +137,11 @@ function networkFirstImage(request) {
       .then(function (resp) {
         if (resp && resp.ok) {
           cache.put(request, resp.clone());
+          return resp;
         }
-        return resp;
+        return cache.match(request).then(function (cached) {
+          return cached || resp;
+        });
       })
       .catch(function () {
         return cache.match(request).then(function (cached) {

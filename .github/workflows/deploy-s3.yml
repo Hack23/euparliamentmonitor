@@ -76,7 +76,7 @@ jobs:
         # Uses sharp (devDependency) to derive AVIF/WebP/JPEG banner and social
         # image variants from canonical PNG source artwork before deploy.
         # The generator is deterministic and cheap; the later image sync passes
-        # use --size-only so unchanged byte-size variants are not re-uploaded.
+        # use checksums so same-size regenerated variants are not skipped.
         # GitHub Actions bash steps fail fast by default, so a generation error
         # stops deployment before CSS optimisation, minification, or S3 sync.
         run: npm run image:generate
@@ -194,12 +194,13 @@ jobs:
           )
 
           # ─── Pass 1: Static assets except images (long cache) ───────
-          # --size-only is safe here: CSS/JS requests use versioned query params in generated HTML;
-          # vendor chunks keep their upstream filenames. Images are uploaded before
-          # HTML below because their filenames are stable and must exist before
-          # fresh pages reference them.
+          # Use checksum comparison, not --size-only: stable filenames such as
+          # sw.js, styles.css, and same-name vendor files can change content
+          # without changing byte size. Images are uploaded before HTML below
+          # because their filenames are stable and must exist before fresh pages
+          # reference them.
           aws s3 sync "$SRC" "$BUCKET" \
-            --size-only \
+            --checksum-algorithm SHA256 \
             --no-progress \
             --exclude '*' \
              --include '*.css' \

@@ -193,6 +193,18 @@ describe('deploy pipeline wiring', () => {
     expect(deployYml).not.toMatch(/--include '\*\.(?:avif|webp|png|jpg|jpeg|gif|ico|svg)'[\s\S]{0,180}immutable/);
   });
 
+  it('deploy-s3.yml checksum-compares stable CSS/JS assets instead of using size-only sync', () => {
+    const pass1 = deployYml.slice(
+      deployYml.indexOf('Pass 1: Static assets except images'),
+      deployYml.indexOf('Pass 2–8: Images with explicit content types'),
+    );
+
+    expect(pass1).toContain('--checksum-algorithm SHA256');
+    expect(pass1).not.toMatch(/^\s+--size-only\s*\\$/m);
+    expect(pass1).toContain("--include '*.css'");
+    expect(pass1).toContain("--include '*.js'");
+  });
+
   it('scripts/minify-assets.js skips already-minified vendor files (*.min.js)', () => {
     const minifyScript = readFileSync(
       resolve(repoRoot, 'scripts', 'minify-assets.js'),
