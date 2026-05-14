@@ -101,3 +101,84 @@
 - Rule of Law: EP-Commission proposal for automatic suspension formally tabled
 
 *Confidence: 🟡 Medium — Forward projections inherently uncertain; 70% confidence interval on 6-month outlook*
+
+---
+
+## EXTENDED FORWARD INDICATORS — PASS 2
+
+### LEADING INDICATORS TO WATCH (MAY-DECEMBER 2026)
+
+#### Indicator Cluster 1: MFF Budget Process
+**Leading Indicators (signal trajectory before it becomes obvious):**
+
+1. **German Finance Ministry signals on own resources** (May-July 2026)
+   - Positive signal: Finance Minister meets with Commissioner Gentiloni; statements about "pragmatic approach"
+   - Negative signal: Bundestag resolution reaffirming subsidiarity principle before Commission proposal
+   - Baseline: Silence indicates internal coalition management (favorable for eventual compromise)
+
+2. **"Frugal" country finance ministers joint statement** (watch for: June-July 2026)
+   - A joint statement by Netherlands, Sweden, Denmark, Austria would signal organized opposition
+   - No joint statement by July indicates coordination failure (favorable for Commission proposal)
+
+3. **Commission BUDG DG informal papers** (Summer 2026)
+   - Early circulation of non-papers to national parliaments signals confidence; silence signals political sensitivity
+   - MEPs on BUDG committee reporting informal briefings signals process on track
+
+#### Indicator Cluster 2: DMA Enforcement
+**Leading Indicators:**
+
+1. **Commission non-compliance proceedings notifications** (Q2-Q3 2026)
+   - Formal opening of non-compliance proceedings = clear enforcement signal
+   - Voluntary compliance announcement by gatekeeper = enforcement without proceeding
+   - Silence = either compliance or delay
+
+2. **European Court of Justice DMA jurisprudence** (ongoing)
+   - First DMA preliminary reference would create EU-wide interpretive certainty
+   - Absence of ECJ references suggests gatekeepers accepting Commission interpretations
+
+3. **UK CMA Strategic Market Status decisions** (Q2-Q3 2026)
+   - UK parallel enforcement provides comparative benchmark; convergence with EU signals coherent international approach
+
+#### Indicator Cluster 3: Geopolitical Stability
+**Leading Indicators:**
+
+1. **G7 Kananaskis outcomes on Ukraine** (June 2026)
+   - Joint communiqué language on accountability tribunal: Strong language = momentum
+   - Bilateral EU-US digital trade talks announcement = signal on DMA/tariff trade-off
+
+2. **Hungarian judicial independence assessments** (Q2 2026)
+   - Commission semi-annual assessment; peer-review findings
+   - Positive assessment (even partial) could unlock some cohesion fund disbursements
+
+3. **Ukraine reconstruction fund commitments** (ongoing)
+   - MFF's Ukraine facilities disbursement pace is a leading indicator of overall MFF health
+
+#### Indicator Cluster 4: EP Internal Dynamics
+**Leading Indicators (May-September 2026):**
+
+1. **EPP Group bureau meetings** (monthly): Agenda items on MFF reflect internal consensus/fracture
+2. **S&D-EPP coordination meetings**: Joint statements signal coalition cohesion
+3. **Committee rapporteur appointment pace**: Slow appointments signal coalition negotiation difficulties
+4. **MEP attendance rate** (available in EP data): Declining attendance signals institutional fatigue or political distraction
+
+### INDICATOR DASHBOARD FRAMEWORK
+
+| Indicator | Current Signal | Trend | Alert Threshold |
+|-----------|---------------|-------|-----------------|
+| German own resources position | NEUTRAL/OPEN | Uncertain | Watch for negative Bundestag resolution |
+| Commission DMA enforcement pace | POSITIVE | Accelerating | Watch for delay announcements |
+| G7 Ukraine accountability language | POSITIVE | Building momentum | Watch for watered-down Kananaskis text |
+| EP coalition stability (attendance) | GOOD | Stable | Alert if major committee vacancies unfilled |
+| Hungarian conditionality progress | IMPROVING slowly | Mixed | Regression in judicial independence |
+
+*Extended forward indicators — 2026-05-14 Pass 2 | Confidence: 🟡 Medium (predictive)*
+
+### FORWARD INDICATORS DASHBOARD CONCLUSION
+
+**Priority indicators for next analysis run (May 15-21 2026):**
+1. G7 pre-Kananaskis coordination meetings (week of May 18)
+2. Commission DG COMP DMA proceedings update
+3. German CDU party congress (if any MFF statements)
+4. EP BUDG committee hearing schedule announcement
+
+*Extended forward indicators — 2026-05-14 Pass 2*

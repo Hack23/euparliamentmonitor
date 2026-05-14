@@ -95,3 +95,63 @@ No attendance data available from EP API (field reported as 0 in political lands
 
 *Sources: Historical DOCEO voting records (prior sessions); group political communications; coalition dynamics analysis*
 *Confidence: 🟡 Medium — Inferred patterns; not verified against actual April 28-30 votes*
+
+---
+
+## EXTENDED VOTING PATTERNS — PASS 2
+
+### VOTING PATTERN STRUCTURAL ANALYSIS (EXTENDED)
+
+*Note: Individual roll-call vote data unavailable for May 11-14 2026. This analysis is based on structural inference from group compositions, historical patterns, and document analysis.*
+
+#### Inferred Voting Coalitions for April 28-30, 2026
+
+**Vote 1: MFF Interim Report (TA-10-2026-0111)**
+*Inferred coalition: EPP + S&D + Renew + Greens*
+
+Expected YES votes:
+- EPP (189): ~170 YES (some fiscal hawks likely abstaining/absent; German EPP divided on own resources but most voted yes on overall report)
+- S&D (136): ~125 YES (very strong support for MFF ambition)
+- Renew (77): ~65 YES (broadly supportive; some market liberals cautious on own resources)
+- Greens (53): ~47 YES (supportive of climate mainstreaming; critical of CAP share)
+- The Left (46): ~35 YES (supportive of social dimension)
+- ECR (78): ~20 YES / 50 NO (deeply split; national farmers supportive; sovereignty group opposed to own resources)
+- PfE (84): ~8 YES / 70 NO (overwhelmingly against fiscal integration)
+- ESN (25): ~2 YES / 20 NO (hard opposition)
+*Estimated final: ~470 YES / ~210 NO / ~40 abstentions*
+
+**Vote 2: Rule of Law Annual Report (TA-10-2026-0147)**
+*Tighter vote with significant EPP-right defections*
+
+Expected YES votes:
+- EPP (189): ~140 YES / ~35 NO / ~14 absent (EPP historically split on rule of law language; Orbán-allied MEPs oppose; Metsola bloc votes yes)
+- S&D (136): ~130 YES
+- Renew (77): ~72 YES
+- Greens (53): ~50 YES
+- The Left (46): ~40 YES
+*Estimated YES: ~432; NO: ~180-200; Rule of law passes but with lower majority than MFF*
+
+**Vote 3: Ukraine Accountability Tribunal (TA-10-2026-0161)**
+*Strong cross-party support; ECR split*
+
+Expected YES votes:
+- EPP (189): ~175 YES (strong; Ukraine support is rare EPP unifier)
+- S&D (136): ~130 YES
+- Renew (77): ~72 YES
+- Greens (53): ~50 YES
+- ECR (78): ~45 YES (Polish PiS-successors, Baltic nationalists strongly YES; Italian Fratelli split)
+- PfE (84): ~20 YES (divided; Italian/French elements more skeptical; German AfD opposed)
+*Estimated YES: ~492+; strong majority demonstrates EP's Ukraine consensus*
+
+#### Historical Group Cohesion Baseline
+
+| Group | Historical Cohesion Rate | Direction on April 28-30 Issues | Cohesion Assessment |
+|-------|------------------------|--------------------------------|---------------------|
+| EPP | ~82% | Mixed (split on rule of law, own resources) | Below baseline |
+| S&D | ~88% | High (unified on all issues) | At baseline |
+| Renew | ~79% | High (unified on digital; some MFF hesitation) | At baseline |
+| Greens | ~90% | Very high (all issues align with platform) | At/above baseline |
+| ECR | ~74% | LOW (deeply split on Ukraine vs. sovereignty issues) | Below baseline |
+| PfE | ~77% | HIGH (united in opposition to integration) | At baseline |
+
+*Extended voting patterns — 2026-05-14 Pass 2 | Confidence: 🔴 Low (inferred; no actual roll-call data available)*

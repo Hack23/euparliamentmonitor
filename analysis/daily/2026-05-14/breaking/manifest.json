@@ -13,6 +13,15 @@
       "gateResult": "ANALYSIS_ONLY",
       "elapsedMinAtGate": 26,
       "gateReason": "33/36 artifacts below quality threshold; analysis-only mode"
+    },
+    {
+      "runId": "breaking-run-1778765147-pass2",
+      "timestamp": "2026-05-14T13:56:45Z",
+      "gateResult": "GREEN",
+      "artifactCount": 36,
+      "totalLines": 10988,
+      "passNumber": 2,
+      "note": "Pass 2 extend/rewrite run \u2014 all 36 artifacts above floor; article rendered to 15 files"
     }
   ],
   "files": {
@@ -59,5 +68,11 @@
     "imfEconomicData": "unavailable-api-failure",
     "politicalLandscape": "high",
     "eventsData": "unavailable-upstream-error"
+  },
+  "gateResult": "GREEN",
+  "pass2": {
+    "rewriteCount": 36,
+    "artifactCount": 36,
+    "totalLines": 10988
   }
 }

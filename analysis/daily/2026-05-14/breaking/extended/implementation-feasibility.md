@@ -93,3 +93,116 @@ Each item rated on three dimensions:
 **Assessment:** The most achievable outcome from the April 28-30 package is DMA investigation launch + preliminary findings within 12 months. MFF and Rule of Law items face structural institutional constraints that make timely implementation unlikely.
 
 *Confidence: 🟢 High — Feasibility assessment based on institutional analysis and historical precedent*
+
+---
+
+## EXTENDED IMPLEMENTATION FEASIBILITY — PASS 2
+
+### IMPLEMENTATION FEASIBILITY MATRIX (EXTENDED)
+
+#### Priority 1: MFF Own Resources — Implementation Pathway
+**Feasibility: MEDIUM-LOW (40%)**
+
+**Technical implementation requirements:**
+- Plastic packaging levy: Requires EU regulation (Article 113 TFEU unanimity) + 27 national implementations
+- Digital services financial transaction tax: Requires tax directive (Article 113 TFEU unanimity) + OECD BEPS pillar alignment
+- Carbon border adjustment mechanism revenue assignment: Technically simpler (CBAM already in force); revenue allocation requires Budget regulation amendment
+
+**Political feasibility assessment:**
+- Germany: CDU government signals opposition to own resources that bypass Bundestag fiscal sovereignty; BUT German finance ministry has historically been pragmatic when package includes complementary budget discipline measures
+- France: Supportive of own resources in principle; domestic fiscal constraints limit enthusiasm for contributions that don't flow back to France
+- Netherlands/Sweden: "Frugal Four" successor grouping; likely to demand rebate mechanisms as quid pro quo
+- Hungary/Poland: Will oppose unless cohesion fund allocations are maintained
+
+**Implementation timeline (if politically feasible):**
+- 2026 Q4: Commission proposal for own resources package
+- 2027-2028: Council unanimous agreement (requiring 27/27)
+- 2028-2029: Member state ratification procedures
+- 2030: First collection from new own resources
+*This is an optimistic scenario; 2031-2032 is more historically calibrated*
+
+---
+
+#### Priority 2: DMA Enforcement Actions — Implementation Pathway
+**Feasibility: HIGH (75%)**
+
+**Technical implementation:** DMA enforcement is entirely Commission competence — no Council/EP approval required for enforcement actions against specific gatekeepers. The legal framework is operational.
+
+**Key implementation milestones:**
+- Apple App Store: Commission preliminary findings (Q3 2026 likely) → Commitments negotiation → Non-compliance decision (potential Q4 2026 - Q1 2027)
+- Meta data practices: Interoperability obligation assessment → Deadline monitoring → Enforcement if non-compliant
+- Google Search: Self-preferencing monitoring → Structural remedy assessment
+
+**Implementation risk factors:**
+1. US diplomatic pressure: State Department may pressure Commission to delay enforcement as trade war leverage
+2. Legal challenges: Gatekeepers will appeal any enforcement decisions to EU General Court (18-24 month appeals process)
+3. Commission staff capacity: DMA enforcement requires significant technical expertise; DG COMP hiring is lagging
+4. Regulatory cooperation: UK CMA, DOJ Antitrust Division coordination needed to avoid forum shopping
+
+---
+
+#### Priority 3: Ukraine Accountability Tribunal — Implementation Pathway
+**Feasibility: MEDIUM (55%)**
+
+**Shortest viable pathway:**
+1. G7 joint statement (June 2026 Kananaskis) endorsing tribunal concept
+2. Core Group formation (EU + G7 + Ukraine) drafting statute
+3. UNGA resolution of endorsement (September 2026 General Assembly)
+4. International treaty signed by willing states (2027)
+5. First cases (would require surrender of defendants — most unlikely pre-resolution)
+
+**Critical constraint:** Jurisdiction over Putin, Lavrov, Shoigu etc. is legally possible under universal jurisdiction theory, but physical custody is impossible while they control Russia. The tribunal's practical contribution is primarily:
+- Creating a legally defensible accountability framework for post-war
+- Documenting evidence while it is still fresh
+- Signaling to other would-be aggressors that accountability mechanisms exist
+
+---
+
+#### Priority 4: Rule of Law Conditionality Automation — Implementation Pathway
+**Feasibility: MEDIUM-HIGH (65%)**
+
+**Current framework:** Rule of Law Conditionality Regulation (2021/1060) already exists and has been used against Hungary (€5.8 billion suspended). EP is seeking "automation" — removing case-by-case Council unanimity trigger.
+
+**Implementation pathway:**
+- Requires Budget Regulation amendment (qualified majority in Council; EP co-decision)
+- Differs from own resources (QMV, not unanimity)
+- Legal basis: Article 322 TFEU (financial regulation) uses ordinary legislative procedure
+- ECJ has upheld rule of law conditionality mechanism (Case C-156/21 and C-157/21)
+
+**Feasibility assessment:** The legal and technical framework is more tractable than own resources. The political challenge is maintaining EPP unity on automaticity given Hungarian EPP relationship history.
+
+### CROSS-CUTTING IMPLEMENTATION CAPACITY ASSESSMENT
+
+| EU Institution | Current Capacity | Stretch Required | Overall Assessment |
+|---------------|-----------------|-----------------|-------------------|
+| DG COMP (DMA) | Medium-high | High | Feasible with resources |
+| DG BUDGET (MFF) | High | Medium | Standard workload |
+| DG JUSTICE (Rule of Law) | Medium | High | Capacity constraint |
+| EEAS (Ukraine) | Medium | Very High | Political challenge |
+| DG TAXUD (own resources) | High | Very High | Requires political mandate |
+
+*Extended implementation feasibility — 2026-05-14 Pass 2 | Confidence: 🟡 Medium*
+
+### IMPLEMENTATION FEASIBILITY SUMMARY
+
+**Feasibility ranking for April 28-30 priorities:**
+1. DMA enforcement — HIGH feasibility (75%): Commission competence; legal framework operational; staff capacity is the constraint
+2. Rule of Law conditionality — MEDIUM-HIGH (65%): Legal basis established; ECJ-validated; requires EPP unity  
+3. Ukraine accountability tribunal — MEDIUM (55%): Novel legal architecture; G7 coordination the key variable
+4. MFF own resources — LOW-MEDIUM (40%): Highest political barrier (27-state ratification); but unprecedented momentum
+
+*Extended implementation feasibility — 2026-05-14 Pass 2*
+
+
+### IMPLEMENTATION FEASIBILITY — FINAL VERDICT
+
+**Overall feasibility score for April 28-30 package: 58/100 (Medium)**
+- DMA enforcement: 75/100 (High)
+- Rule of Law conditionality: 65/100 (Medium-High)
+- Ukraine accountability: 55/100 (Medium)
+- MFF own resources: 40/100 (Low-Medium)
+- Weighted average: ~58/100
+
+The package's ambition is appropriate for the political window available. Failure on any single element is recoverable; failure on MFF own resources (the least feasible) would be the most consequential.
+
+*Implementation feasibility final — 2026-05-14 Pass 2*

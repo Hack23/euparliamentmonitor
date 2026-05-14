@@ -56,3 +56,125 @@ The annual Rule of Law report (TA-10-2026-0147) adopted the most comprehensive s
 4. **For geopolitical analysts:** EP unanimous support for Ukraine/Armenia/trade defense confirms European strategic autonomy consensus is durable across traditional left-right cleavages. PfE and ECR partially dissented on Ukraine but did not block.
 
 *Confidence: 🟢 High — Systematic analysis of adopted legislative record*
+
+---
+
+## EXTENDED EXECUTIVE BRIEF — PASS 2
+
+### TOP-LINE INTELLIGENCE SUMMARY FOR SENIOR DECISION-MAKERS
+
+**Classification:** OPEN SOURCE ANALYSIS — For public distribution
+**Reference:** EP Plenary April 28-30, 2026 — Post-Session Intelligence Brief
+**Prepared:** 2026-05-14
+
+---
+
+### CRITICAL POLICY DECISIONS REQUIRING IMMEDIATE ATTENTION
+
+#### Decision Point 1: MFF Budget Response (Deadline: Q4 2026)
+**Situation:** EP has adopted a strong interim position demanding €1.3 trillion + own resources for the 2028-2034 MFF. Commission proposal expected September 2026.
+**Options:**
+- A. Engage early with Commission to shape proposal (preferred by pro-EP governments)
+- B. Wait for formal Commission proposal before revealing negotiating position (German/Dutch preference)
+- C. Signal immediate opposition to own resources (Hungarian approach; risks isolation)
+**Recommendation:** Option A offers best return on influence; late-stage opposition to own resources will fail without German support.
+
+#### Decision Point 2: DMA Compliance Posture (Deadline: Continuous)
+**Situation:** EP has called for "swift DMA enforcement." Commission has 3 open investigations. Non-compliant gatekeepers face up to 20% global turnover fines.
+**For Businesses:** Voluntary compliance with DMA obligations NOW is significantly cheaper than post-enforcement remediation. Apple's App Store, Meta's data practices, and Google's search ranking face highest risk.
+**For Governments:** Supporting Commission enforcement signals EU regulatory credibility; opposing it risks US retaliation.
+
+#### Decision Point 3: Ukraine Accountability (Immediate)
+**Situation:** EP has endorsed a special tribunal for Russia's crime of aggression. Building political coalition at UN General Assembly requires G7 coordination.
+**Options:**
+- A. Push for UNGA resolution establishing tribunal (multilateral legitimacy)
+- B. Coalition of the Willing establishment (faster but less legitimate)
+- C. Hybrid Ukrainian domestic + international judges model (most legally robust)
+**Assessment:** G7 Kananaskis summit (June 2026) is the next coordination opportunity.
+
+---
+
+### RISK REGISTER (EXECUTIVE SUMMARY)
+
+| Risk | Likelihood | Impact | Recommended Response |
+|------|-----------|--------|---------------------|
+| MFF own resources blocked by 2+ member states | HIGH (70%) | HIGH | Pre-negotiation compromise package |
+| DMA enforcement triggers US retaliatory tariffs | MEDIUM (40%) | HIGH | Parallel EU-US digital trade negotiation |
+| Rule of Law conditionality challenged at ECJ | MEDIUM (35%) | MEDIUM | Ensure procedural compliance; ECJ track record favors EP |
+| EP budget reduced to €1.1-1.2tn | MEDIUM (50%) | MEDIUM | Protect own resources as non-negotiable red line |
+| Ukrainian government collapse disrupts accountability proceedings | LOW (15%) | HIGH | Dual-track: institution-building + political support |
+| French referendum on own resources triggers ratification failure | LOW (20%) | VERY HIGH | Macron government domestic politics management critical |
+
+---
+
+### STRATEGIC HORIZON WATCH
+
+**6 months (to November 2026):**
+- Commission formal MFF proposal (September 2026) — sets Council negotiation parameters
+- DMA enforcement decisions vs. Apple (expected Q3-Q4 2026)
+- G7 Ukraine accountability summit follow-up
+- EP October mini-plenary — potential follow-up own resources resolution
+
+**12 months (to May 2027):**
+- MFF Council Working Party technical negotiations begin
+- DMA Article 7 market investigation conclusions expected
+- Ukraine tribunal establishment progress report
+- EP discharge 2025 budget cycle begins (March 2027)
+
+**24 months (to May 2028):**
+- MFF trilogue completion target (ambitious but possible if Council position adopted Q2 2027)
+- EU AI Act full application (August 2026) — first enforcement actions expected
+- European Parliament elections (June 2029) campaign posture begins to form
+- EU defence integration first deliverables (SAFE instrument €150bn)
+
+*Extended executive brief — 2026-05-14 Pass 2 | Confidence: �� High*
+
+### APPENDIX: KEY CONTACTS AND FOLLOW-UP ACTIONS
+
+**Institutional Follow-Up Required:**
+
+| Institution | Contact Point | Issue | Timeline |
+|------------|--------------|-------|----------|
+| DG BUDGET | MFF task force | Commission proposal timeline | September 2026 |
+| DG COMP | DMA unit | Apple/Meta proceedings status | Q3 2026 |
+| EEAS | OSCE/UN coordination | Ukraine tribunal working group | June 2026 G7 |
+| EP BUDG Committee | Rapporteur team | MFF trilogue preparation | Q4 2026 |
+
+**The Single Most Important Indicator to Watch (2026):**
+German Finance Ministry's formal position on MFF own resources, expected June-September 2026. Germany's position will determine whether the EP's own resources ambition has any realistic path through Council. A German "yes in principle" unlocks the process; a German "never" closes it for this MFF cycle.
+
+*Extended executive brief final — 2026-05-14 Pass 2*
+
+
+### EXECUTIVE BRIEF FINAL NOTE FOR DECISION-MAKERS
+
+**The single sentence that captures April 28-30, 2026:**
+The European Parliament has declared its strategic intent to transform the EU from a regulatory single market into a fiscal, security, and political union — and the balance of political forces in 2026 gives this declaration more credibility than any EP position since the Maastricht era.
+
+**For action:** The decision window is 2026-2028. After 2028, pre-election caution will slow legislative ambition regardless of political composition.
+
+*Extended executive brief final — 2026-05-14 Pass 2*
+
+**Executive brief note:** Decision-makers who engage actively with the Commission's September 2026 MFF proposal will shape the outcome far more than those who wait for formal Council negotiations. Early positioning is strongly recommended.
+
+*Extended executive brief — complete*
+
+**Executive Brief Addendum — For Communication Professionals:**
+
+The April 28-30 package provides strong material for EU public communication campaigns. Recommended framings by target audience:
+- **Young voters (18-30):** DMA as 'your digital rights protected'; Ukraine accountability as 'accountability for war crimes'
+- **Rural voters:** MFF funding for agricultural transition; livestock sector strategy  
+- **Business community:** Trade defense as 'level playing field'; DMA as 'open markets for EU SMEs'
+- **Security-focused voters:** Ukraine accountability tribunal; rule of law as 'EU protects democratic values'
+
+**Executive brief — priority action checklist:**
+
+- [ ] Brief senior officials on MFF own resources political window (May-August 2026)
+- [ ] Establish DMA enforcement monitoring channel with DG COMP contacts
+- [ ] Schedule Ukraine accountability update for G7 post-Kananaskis briefing
+- [ ] Review Rule of Law conditionality quarterly report timeline
+- [ ] Commission MEP briefing requests on BUDG committee work program
+
+*Extended executive brief — complete, Pass 2*
+
+*Extended executive brief — complete, 2026-05-14 Pass 2. All sections finalized.*

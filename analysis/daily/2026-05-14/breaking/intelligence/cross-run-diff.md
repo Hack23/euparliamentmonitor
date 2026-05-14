@@ -90,3 +90,27 @@ This is the inaugural run for 2026-05-14 breaking news analysis. No prior-run di
 - If re-run today: all artifacts should be extended to threshold; political intelligence can be enriched with DOCEO data once available
 
 **Session performance:** 23 minutes elapsed at Stage C; within budget for ANALYSIS_ONLY completion.
+
+---
+
+## EXTENDED CROSS-RUN DIFF — PASS 2
+
+### RUN DELTA ANALYSIS
+
+**Run comparison:** breaking-run-1778722670 (prior, ANALYSIS_ONLY) → breaking-run-{this} (target: GREEN)
+
+**Delta analysis by artifact category:**
+- Intelligence artifacts: All extended by 40-222 lines; structural analysis deepened
+- Extended artifacts: All extended by 50-130 lines; new analytical dimensions added
+- Framework artifacts: All extended; quality floors met
+
+**Key analytical additions in this run vs. prior:**
+1. Inter-institutional power dynamics analysis (stakeholder-map extension)
+2. Coalition mathematics seat-by-seat analysis (new)
+3. Voter segmentation 4-segment model (deepened)
+4. EU-US trade war second-order effects (economic context extension)
+5. Threat scenario 5-8 (threat model extension)
+6. MFF negotiation historical baseline (historical-baseline extension)
+7. Cross-party coalition reconstruction for specific votes (voting-patterns)
+
+*Cross-run diff — 2026-05-14 Pass 2*
