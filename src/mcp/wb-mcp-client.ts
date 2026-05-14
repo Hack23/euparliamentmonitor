@@ -183,6 +183,7 @@ export class WorldBankMCPClient extends MCPConnection {
           }
         }
       } catch {
+        console.warn(`getEU27Aggregate: ${toolName} failed for ${countryCode}`);
         failedCountries.push(countryCode);
       }
     }

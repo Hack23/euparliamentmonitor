@@ -529,6 +529,9 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     }
     /**
      * Call a tool with per-tool timeout and one timeout-only retry budget.
+     * Non-timeout errors are surfaced immediately unless a timeout was observed
+     * first, in which case a normalized `UPSTREAM_TIMEOUT` error is thrown to
+     * preserve timeout classification for downstream diagnostics.
      *
      * @param toolName - MCP tool name
      * @param args - Tool arguments

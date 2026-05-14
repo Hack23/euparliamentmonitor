@@ -2860,6 +2860,14 @@ describe('ep-mcp-client', () => {
         })
       ).toBe(false);
     });
+
+    it('should return false when mixed years include a post-2019 item', () => {
+      expect(
+        detectProceduresFeedRecessMode({
+          items: [{ dateInitiated: '2019-06-01' }, { dateInitiated: '2021-03-01' }],
+        })
+      ).toBe(false);
+    });
   });
 
   describe('getAdoptedTexts empty-string sentinel (upstream #369)', () => {
