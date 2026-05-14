@@ -183,7 +183,7 @@ write_unavailable_placeholder() {
 # ---------------------------------------------------------------------------
 EP_API_REACHABLE=1
 if ! ep_api_probe; then
-  echo "⚠️  EP API readiness probe failed — API may be unreachable; all feeds will be placeholders" >&2
+  echo "⚠️  EP API readiness probe failed -- API may be unreachable; all feeds will be placeholders" >&2
   EP_API_REACHABLE=0
 fi
 

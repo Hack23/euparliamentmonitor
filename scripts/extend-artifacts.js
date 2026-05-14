@@ -140,7 +140,9 @@ export function extendArtifact(spec, baseDir, dryRun = false) {
   // --- compute new content ---
   let newContent;
   if (mode === 'prepend') {
-    newContent = spec.content + existingContent;
+    // Ensure a newline separator between prepended content and existing content.
+    const needsNewline = spec.content.length > 0 && !spec.content.endsWith('\n') && existingContent.length > 0;
+    newContent = spec.content + (needsNewline ? '\n' : '') + existingContent;
   } else if (mode === 'create' || !fs.existsSync(resolvedPath)) {
     newContent = spec.content;
   } else {

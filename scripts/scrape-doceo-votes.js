@@ -380,7 +380,7 @@ export async function scrapeDoceoVotes(options) {
       outputFile: null,
       voteCount: 0,
       url,
-      error: 'Publication lag — DOCEO XML not yet available for this date (HTTP 404)',
+      error: 'Publication lag -- DOCEO XML not yet available for this date (HTTP 404)',
     };
   }
 

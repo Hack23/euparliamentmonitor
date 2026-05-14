@@ -351,11 +351,18 @@ export async function tryCache(cacheFile) {
  * @returns {object}
  */
 export function buildEconomicContextPayload(data, provenance, rung) {
+  /** @type {Record<number, string>} */
+  const RUNG_LABELS = {
+    1: 'imf-sdmx-3.0',
+    2: 'imf-datamapper',
+    3: 'worldbank-proxy',
+    4: 'cached-vintage',
+  };
   return {
     generatedAt: new Date().toISOString(),
     provenance,
     rung,
-    rungLabel: ['', 'imf-sdmx-3.0', 'imf-datamapper', 'worldbank-proxy', 'cached-vintage'][rung] ?? 'unknown',
+    rungLabel: RUNG_LABELS[rung] ?? 'unknown',
     data,
     quality: rung === 1 ? 'authoritative' : rung === 2 ? 'good' : rung === 3 ? 'proxy' : 'stale',
   };

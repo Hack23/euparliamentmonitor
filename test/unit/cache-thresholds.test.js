@@ -281,6 +281,12 @@ describe('cache-thresholds.js main() CLI', () => {
     expect(result.stderr).toContain('--run-id');
   });
 
+  it('exits 2 when run-id is provided but slug is missing', () => {
+    const result = runScript(['--run-id', 'test-run-1']);
+    expect(result.status).toBe(2);
+    expect(result.stderr).toContain('--slug');
+  });
+
   it('exits 2 when neither slug nor run-id is provided', () => {
     const result = runScript([]);
     expect(result.status).toBe(2);

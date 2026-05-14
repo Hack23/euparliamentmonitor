@@ -168,7 +168,7 @@ describe('extendArtifact (prepend)', () => {
 
     const result = extendArtifact({
       path: filePath,
-      content: '# Title\n\n',
+      content: '# Title',
       mode: 'prepend',
     });
 
@@ -176,6 +176,18 @@ describe('extendArtifact (prepend)', () => {
     const content = fs.readFileSync(filePath, 'utf8');
     expect(content).toMatch(/^# Title/);
     expect(content).toContain('## Section 2');
+    // prepended content without trailing newline gets a separator inserted
+    expect(content).toBe('# Title\n## Section 2\n');
+  });
+
+  it('does not double-add newline when prepended content ends with newline', () => {
+    const filePath = path.join(tmpDir, 'prepend-newline.md');
+    fs.writeFileSync(filePath, '## Body\n', 'utf8');
+
+    extendArtifact({ path: filePath, content: '# Title\n', mode: 'prepend' });
+
+    const content = fs.readFileSync(filePath, 'utf8');
+    expect(content).toBe('# Title\n## Body\n');
   });
 
   it('creates file with content if it does not exist', () => {
