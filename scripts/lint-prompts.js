@@ -115,12 +115,18 @@ const FORBIDDEN_PHRASES = [
   // See news-unified-runtime.md Rule 3 and
   // .github/prompts/09-troubleshooting.md §5 (run 25799686522 row).
   //
-  // The pattern is intentionally narrow: it only fires when the
-  // thresholds file path appears AFTER a "read" / "cat" / "load" verb
-  // within the same sentence, signalling an inline direct-read instruction.
-  // Plain cross-references (e.g. "see reference-quality-thresholds.json")
-  // are allowed since every workflow legitimately links to the methodology
-  // docs. news-unified-runtime.md is a shared prompt import, not a
+  // The pattern matches `<verb>\b<up-to-60-non-newline/period chars>reference-quality-thresholds.json`.
+  // The 60-char window stops at sentence boundaries (`.` and newlines) so
+  // multi-sentence paragraphs that happen to start with a read-verb in one
+  // clause and mention the file in a later clause won't fire. Plain
+  // cross-references (e.g. "see reference-quality-thresholds.json") are
+  // safe because they don't begin with a read-action verb. The `[^.\n]`
+  // character class is intentionally narrow — legitimate prose like "First
+  // read the cache (`runs/thresholds-cache.json`)" uses a period-terminated
+  // clause before any mention of the source file. The pattern is
+  // intentionally not anchored to a line start to catch mid-paragraph
+  // inline instructions.
+  // news-unified-runtime.md is a shared prompt import, not a
   // news-*.md workflow body, so its Rule 3 example is unaffected.
   /(?:read|cat|load|open)\b[^.\n]{0,60}reference-quality-thresholds\.json/i,
   // IMF-primary editorial policy: IMF is the SOLE authoritative source

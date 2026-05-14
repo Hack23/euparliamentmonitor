@@ -62,7 +62,11 @@ esac
 
 # Locate the repository root via git; fall back to the working directory so
 # the script works in sandbox test environments that initialise a bare repo.
-REPO_ROOT=$(git rev-parse --show-toplevel 2>/dev/null || pwd)
+SCRIPT_DIR=$(dirname "$0")
+REPO_ROOT=$(cd "$SCRIPT_DIR/.." 2>/dev/null && pwd)
+if [ ! -d "$REPO_ROOT" ]; then
+  REPO_ROOT=$(pwd)
+fi
 
 THRESHOLDS_SRC="${REPO_ROOT}/analysis/methodologies/reference-quality-thresholds.json"
 if [ ! -f "$THRESHOLDS_SRC" ]; then
@@ -77,6 +81,10 @@ CACHE_FILE="${ANALYSIS_DIR}/runs/thresholds-cache.json"
 # delimiter (<<'NODE_EOF') so the shell does not expand any $ inside the
 # script body — safe per AWF shell-safety rule for heredocs.
 node - "$THRESHOLDS_SRC" "$ARTICLE_TYPE" "$CACHE_FILE" <<'NODE_EOF'
+// NOTE: Inline scripts passed to `node -` via heredoc do not inherit the
+// package.json "type":"module" setting and always execute as CommonJS.
+// Using require() here is correct and intentional; do NOT convert to ESM
+// import/export syntax as that would break the heredoc invocation pattern.
 const [, , src, articleType, dst] = process.argv;
 const fs = require('node:fs');
 

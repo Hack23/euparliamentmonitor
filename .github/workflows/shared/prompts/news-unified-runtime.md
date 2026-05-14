@@ -139,8 +139,8 @@ Combine the prefetch result with live Stage A probes:
 | EP roll-call data missing (0 voting records) | `degraded-voting` | 0.85 |
 | Most EP feeds unavailable + IMF absent | `minimal` | 0.65 |
 
-When multiple degradations apply, pick the **lower** factor:
-- `degraded-feeds` (0.80) + `degraded-imf` (0.85) → use `minimal` (0.65)
+When multiple degradations apply, pick the **lower** (more conservative) factor:
+- `degraded-feeds` (0.80) + `degraded-imf` (0.85) → both degradations active simultaneously means most EP feeds AND IMF are unavailable, which matches `minimal` (0.65) semantics — use `minimal`
 - `degraded-feeds` alone → use `degraded-feeds` (0.80)
 
 ### Step 3 — Write dataMode to manifest.json

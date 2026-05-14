@@ -41,7 +41,11 @@ afterAll(() => {
 });
 
 function runCacheScript(args, extraEnv = {}) {
-  const localScript = path.join(tmpRoot, 'cache-analysis-thresholds.sh');
+  // The script uses `dirname "$0"/..` to find the repo root, so it must be
+  // placed under a `scripts/` subdirectory of the fake repo root.
+  const scriptsDir = path.join(tmpRoot, 'scripts');
+  fs.mkdirSync(scriptsDir, { recursive: true });
+  const localScript = path.join(scriptsDir, 'cache-analysis-thresholds.sh');
   fs.copyFileSync(SCRIPT, localScript);
   fs.chmodSync(localScript, 0o755);
   return spawnSync('bash', [localScript, ...args], {
