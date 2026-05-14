@@ -257,4 +257,4 @@ After writing this artifact, add these fields to `manifest.json`:
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/data-availability-assessment.md` · Template v1.0 · Stage: A · Required for every article-generating run · Read by every Stage-B artifact for template-variant selection.
+**Document Control:** `analysis/templates/data-availability-assessment.md` · Template v1.0 · Stage: A · Required for every article-generating run · Read by every Stage-B artifact for template-variant selection.

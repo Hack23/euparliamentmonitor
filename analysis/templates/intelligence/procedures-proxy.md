@@ -137,4 +137,4 @@ State which tools were called, how many records each returned, and whether the c
 
 ---
 
-**Document Control:** `/analysis/daily/{date}/{type}-run{N}/intelligence/procedures-proxy.md` · Template v1.0 · Triggered by: `get_procedures_feed` STALENESS_WARNING · See [`.github/prompts/07-mcp-reference.md §11`](../../.github/prompts/07-mcp-reference.md) for the authoritative triage classification.
+**Document Control:** `analysis/templates/intelligence/procedures-proxy.md` · Template v1.0 · Triggered by: `get_procedures_feed` STALENESS_WARNING · See [`.github/prompts/07-mcp-reference.md §11`](../../.github/prompts/07-mcp-reference.md) for the authoritative triage classification.

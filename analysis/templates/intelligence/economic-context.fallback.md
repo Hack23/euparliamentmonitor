@@ -23,9 +23,12 @@ TWO-PASS      : Pass 1 ≈ 60% of the artifact's time budget — fill every requ
                 shallow paragraphs to the reduced depth floor, add evidence citations,
                 replace one-liners with full prose.
 DEPTH FLOOR   : degradedFloorFactor = 0.85 × base floor (defined per article-type in
-                reference-quality-thresholds.json). Example: breaking base floor 185 → 157
-                fallback floor. The validator reads manifest.dataMode = "degraded-imf"
-                and applies the factor automatically.
+                reference-quality-thresholds.json). Example: breaking full-data base floor
+                from economic-context.md = 185; degraded floor = floor(185 × 0.85) = 157.
+                The depthFloorBreaking = 157 in this template's frontmatter reflects the
+                breaking floor configured in reference-quality-thresholds.json §breaking.
+                The validator reads manifest.dataMode = "degraded-imf" and applies the
+                factor automatically.
 IMF SOURCE    : When IMF API is unreachable, the only permitted fallback is:
                 (a) A cached IMF JSON file under data/cache/imf/ from a prior run
                     → set IMF Source = "cache"; cite file path and vintage date.
@@ -302,4 +305,4 @@ Explain the fallback chain: (1) Attempted IMF SDMX REST — result: F6/timeout. 
 
 ---
 
-**Document Control:** `/analysis/templates/intelligence/economic-context.fallback.md` · Template v1.0 · Variant: `degraded-imf` · Base: `economic-context.md` · `degradedFloorFactor: 0.85` · See [`../../methodologies/reference-quality-thresholds.json`](../../methodologies/reference-quality-thresholds.json) for per-article-type computed floors.
+**Document Control:** `analysis/templates/intelligence/economic-context.fallback.md` · Template v1.0 · Variant: `degraded-imf` · Base: `economic-context.md` · Full-data base floor (breaking): 185 · Degraded floor (breaking): 157 (= floor(185 × 0.85)) · `degradedFloorFactor: 0.85` · See [`../../methodologies/reference-quality-thresholds.json`](../../methodologies/reference-quality-thresholds.json) for per-article-type computed floors.
