@@ -978,6 +978,30 @@ Older `motions-*` runs mirror `intelligence/coalition-dynamics.md`, `intelligenc
 
 **Cross-refs.** → `electoral-domain-methodology.md` · → `stakeholder-map.md`.
 
+### data-availability-assessment
+
+**Purpose.** Stage-A triage artifact required for every article-generating run. Records the per-source availability status of every EP MCP endpoint, IMF SDMX API, DOCEO XML (voting records), and World Bank data source for the current run. Sets `manifest.dataMode` which drives degraded-floor selection in Stage C. Produced before any Stage-B analysis artifact.
+
+**Required sources.** All EP MCP tool calls attempted in Stage A: `get_voting_records`, `get_latest_votes`, `get_adopted_texts`, `get_procedures_feed`, `get_procedures`, `get_current_meps`, `get_plenary_sessions`, `get_committee_documents_feed`. IMF probe via `scripts/imf-mcp-probe.sh`. World Bank MCP calls if used.
+
+**Construction steps.** (1) Call each EP MCP tool with a date-bounded probe query. Record outcome (full / partial / empty / error). (2) Probe IMF SDMX endpoint — record status (live / F6 / timeout). Check `data/cache/imf/` for prior-run cache. (3) Check `get_voting_records` and `get_latest_votes` for RCV data freshness — compute lag in weeks. (4) Check `get_procedures_feed` for STALENESS_WARNING. (5) Select `dataMode` per the decision table. (6) Write `manifest.dataMode` field. (7) Produce Mermaid source-availability diagram.
+
+**Quality signals.** ≥80 lines. Per-source triage table with ≥8 rows. `dataMode` field explicitly declared. `manifest.json` update noted. Mermaid flowchart present.
+
+**Cross-refs.** → `mcp-reliability-audit.md` · → `reference-quality-thresholds.json §degradedFloorFactors` · → `intelligence/voting-patterns.degraded.md` (when `degraded-voting`) · → `intelligence/economic-context.fallback.md` (when `degraded-imf`).
+
+### procedures-proxy
+
+**Purpose.** Companion artifact to `mcp-reliability-audit.md` produced whenever `get_procedures_feed` returns a STALENESS_WARNING (1972–1987 tail data). Documents the mitigation chain applied (`get_procedures` paginated list + `get_adopted_texts` proxy) so individual Stage-B artifacts do not need to re-document it.
+
+**Required sources.** `get_procedures_feed` (outcome: STALENESS_WARNING captured). `get_procedures` (paginated list — current data). `get_adopted_texts` (outcome-proxy for procedure completions). Optionally `get_meeting_decisions` (session-level procedure decisions).
+
+**Construction steps.** (1) Record the `get_procedures_feed` STALENESS_WARNING (era, item count, date). (2) Confirm this is the known EP upstream pattern (not a new defect). (3) Call `get_procedures` paginated list — record current procedures in scope. (4) Call `get_adopted_texts` — record adopted-text outcomes matching procedures. (5) Produce Mermaid mitigation-chain diagram. (6) Record Admiralty grades for fallback sources (A2 for both). (7) Summarise impact on each Stage-B artifact.
+
+**Quality signals.** ≥60 lines. Staleness incident record table present. Mermaid flowchart of mitigation chain present. ≥2 fallback source rows. Impact table covering ≥3 Stage-B artifacts.
+
+**Cross-refs.** → `mcp-reliability-audit.md §Data-source bridge` · → `data-availability-assessment.md §5 Procedures-Feed Staleness Note` · → `.github/prompts/07-mcp-reference.md §11`.
+
 ---
 
 ## 🧭 Folder Variants

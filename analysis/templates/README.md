@@ -8,18 +8,18 @@
 <h1 align="center">📋 EU Parliament Monitor — Analysis Templates</h1>
 
 <p align="center">
-  <strong>📊 59 Structured Intelligence Templates for AI-Driven Political Analysis</strong><br>
-  <em>🎯 14 master-catalog templates (incl. 6 reusable framework templates) + 25 per-artifact templates + 12 extended deep-intelligence templates — covering every unique <code>.md</code> file produced under <code>analysis/daily/</code></em>
+  <strong>📊 63 Structured Intelligence Templates for AI-Driven Political Analysis</strong><br>
+  <em>🎯 14 master-catalog templates (incl. 6 reusable framework templates) + 25 per-artifact templates + 12 extended deep-intelligence templates + 2 Stage-A triage templates + 2 degraded-mode variant templates (new v3.4) — covering every unique <code>.md</code> file produced under <code>analysis/daily/</code></em>
 </p>
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-3.3-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--02-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.4-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--14-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 3.3 | **📅 Last Updated:** 2026-05-02 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 3.4 | **📅 Last Updated:** 2026-05-14 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -89,7 +89,7 @@ These analysis templates implement structured intelligence production mandated b
 
 ## 🎯 Purpose
 
-This directory contains **59 analysis templates** that AI agents fill when analysing European Parliament data — split into **14 master-catalog templates** (the article-generating workflow set: 6 reusable framework templates that compose inside per-file analysis + 8 supporting workflow templates including voting-patterns, workflow-audit, cross-session-intelligence, deep-analysis, session-baseline, methodology-reflection, executive-brief, synthesis-summary), **25 per-artifact templates** (one for every mandatory `analysis/daily/<run>/…` artifact under `intelligence/`, `classification/`, `risk-scoring/`, `threat-assessment/`, plus the run-root `executive-brief.md`), **8 long-horizon &amp; electoral templates** (forward-projection, legislative-pipeline-forecast, parliamentary-calendar-projection, term-arc, seat-projection, mandate-fulfilment-scorecard, presidency-trio-context, commission-wp-alignment), and **12 optional `extended/` templates** for long-form review, crisis, and breaking-deep runs. Each template enforces a specific analytical framework, requires evidence citations from EP MCP data, and produces structured intelligence that feeds into downstream article generation.
+This directory contains **63 analysis templates** that AI agents fill when analysing European Parliament data — split into **14 master-catalog templates** (the article-generating workflow set: 6 reusable framework templates that compose inside per-file analysis + 8 supporting workflow templates including voting-patterns, workflow-audit, cross-session-intelligence, deep-analysis, session-baseline, methodology-reflection, executive-brief, synthesis-summary), **25 per-artifact templates** (one for every mandatory `analysis/daily/<run>/…` artifact under `intelligence/`, `classification/`, `risk-scoring/`, `threat-assessment/`, plus the run-root `executive-brief.md`), **8 long-horizon & electoral templates** (forward-projection, legislative-pipeline-forecast, parliamentary-calendar-projection, term-arc, seat-projection, mandate-fulfilment-scorecard, presidency-trio-context, commission-wp-alignment), **12 optional `extended/` templates** for long-form review, crisis, and breaking-deep runs, **2 Stage-A triage templates** (`data-availability-assessment.md` — mandatory for every run — and `intelligence/procedures-proxy.md` — triggered by `get_procedures_feed` STALENESS_WARNING), and **2 degraded-mode variant templates** (`intelligence/voting-patterns.degraded.md` for `degraded-voting` dataMode and `intelligence/economic-context.fallback.md` for `degraded-imf` dataMode). Each template enforces a specific analytical framework, requires evidence citations from EP MCP data, and produces structured intelligence that feeds into downstream article generation.
 
 Templates are **not** standalone outputs. They form a **composable intelligence pipeline** — individual templates feed into the daily synthesis, which aggregates into weekly and monthly intelligence reports. The per-file analysis template is the most frequently used: every downloaded EP MCP data file receives a comprehensive analysis using this template.
 
@@ -220,6 +220,10 @@ per-node `style …` directives layered **on top** of the canonical init block.
 | `voting-patterns.md` | flowchart | universal | Coalition arithmetic |
 | `wildcards-blackswans.md` | flowchart | universal | Black-swan map |
 | `workflow-audit.md` | flowchart + sequenceDiagram | universal | 6-phase audit |
+| `data-availability-assessment.md` *(Stage A — new v3.4)* | flowchart LR | universal | Source availability triage |
+| `intelligence/voting-patterns.degraded.md` *(degraded-voting variant — new v3.4)* | graph LR | universal | Seat-share proxy coalition analysis |
+| `intelligence/economic-context.fallback.md` *(degraded-imf variant — new v3.4)* | xyChart + flowchart | universal | IMF KB-estimate economic context |
+| `intelligence/procedures-proxy.md` *(staleness companion — new v3.4)* | flowchart LR | universal | Procedures-feed mitigation record |
 
 > **Drift-guard (v3.3):** if a future contributor adds a new `analysis/templates/*.md` template, the Stage-C validator continues to require ≥1 mermaid block for any artifact path under `intelligence/`, `classification/`, `risk-scoring/`, or `threat-assessment/`. Run `npm test -- test/unit/analysis-templates-referenced.test.js` to confirm the new template is referenced from `.github/prompts/` or `.github/agents/`.
 
@@ -422,8 +426,10 @@ Every mandatory artifact under `analysis/daily/*/` has a 1:1 template in `analys
 | `risk-scoring/` | [risk-matrix](risk-matrix.md) · [quantitative-swot](quantitative-swot.md) · [political-capital-risk](political-capital-risk.md) · [legislative-velocity-risk](legislative-velocity-risk.md) |
 | `threat-assessment/` | [consequence-trees](consequence-trees.md) · [legislative-disruption](legislative-disruption.md) · [actor-threat-profiles](actor-threat-profiles.md) |
 | run root *(required first article artifact)* | [executive-brief](executive-brief.md) — BLUF, three decisions, 60-second read, top trigger |
+| run root *(Stage A — required for every run — new v3.4)* | [data-availability-assessment](data-availability-assessment.md) — per-source triage table; sets `manifest.dataMode`; produced before all Stage-B artifacts |
 | `extended/` *(mandatory: `media-framing-analysis`; the rest optional — not gated by default)* | [media-framing-analysis](media-framing-analysis.md) **(mandatory for every article-generating slug — Pass 2 placement)** · [devils-advocate-analysis](devils-advocate-analysis.md) · [historical-parallels](historical-parallels.md) · [coalition-mathematics](coalition-mathematics.md) · [forward-indicators](forward-indicators.md) · [intelligence-assessment](intelligence-assessment.md) · [implementation-feasibility](implementation-feasibility.md) · [comparative-international](comparative-international.md) · [cross-reference-map](cross-reference-map.md) · [data-download-manifest](data-download-manifest.md) · [voter-segmentation](voter-segmentation.md) |
 | `intelligence/` *(long-horizon & electoral — required for `quarter-ahead+`, `term-outlook`, `election-cycle`)* | [forward-projection](forward-projection.md) · [legislative-pipeline-forecast](legislative-pipeline-forecast.md) · [parliamentary-calendar-projection](parliamentary-calendar-projection.md) · [term-arc](term-arc.md) · [seat-projection](seat-projection.md) · [mandate-fulfilment-scorecard](mandate-fulfilment-scorecard.md) · [presidency-trio-context](presidency-trio-context.md) · [commission-wp-alignment](commission-wp-alignment.md) |
+| `intelligence/` *(degraded-mode variants — new v3.4; activated by `manifest.dataMode`)* | [voting-patterns.degraded](intelligence/voting-patterns.degraded.md) *(replaces `voting-patterns.md` when `dataMode = "degraded-voting"`)* · [economic-context.fallback](intelligence/economic-context.fallback.md) *(replaces `economic-context.md` when `dataMode = "degraded-imf"`)* · [procedures-proxy](intelligence/procedures-proxy.md) *(companion to `mcp-reliability-audit.md` when `get_procedures_feed` returns STALENESS_WARNING)* |
 
 ### 🧱 Framework Templates (6 reusable)
 
