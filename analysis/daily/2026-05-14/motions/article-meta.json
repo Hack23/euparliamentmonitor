@@ -1,0 +1,40 @@
+{
+  "date": "2026-05-14",
+  "articleType": "motions",
+  "runId": "motions-run306-1778742150",
+  "gateResult": "GREEN",
+  "slug": "2026-05-14-motions",
+  "articlePath": "analysis/daily/2026-05-14/motions/article.md",
+  "topFinding": "T10-0161/2026 — Ensuring accountability and justice in response to Russia's continued attacks against the civilian population in Ukraine (Adopted 2026-04-30)",
+  "keyTakeaways": [
+    "**Data coverage:** 🟢 13/13 adopted texts identified and analyzed",
+    "**Voting data:** 🟡 Group-level estimates only (4-6 week EP roll-call publication delay)",
+    "**MEP detail:** 🟢 621 MEPs available; key rapporteurs and floor leaders named",
+    "**IMF economic data:** 🟢 Integrated in economic-context.md",
+    "**Methodology compliance:** 🟢 All 10-step protocol requirements met",
+    "**Ukraine front-line stability:** Russian missile attacks on Kyiv infrastructure in the week preceding the session intensified EP resolve on accountability measures",
+    "**Armenia-Azerbaijan normalization talks:** EU-mediated talks in Brussels (April 22) providing political context for the Armenia resolution"
+  ],
+  "topRisks": [],
+  "keyDates": [],
+  "keyActors": [
+    "**EPP ↔ ECR:** Tactical alliance on Ukraine/security; tension on sovereignty/jurisdiction",
+    "**S&D ↔ Renew:** Stable coalition; S&D pushes structural remedies, Renew resists",
+    "**Commission ↔ EP:** EP monitoring Commission DMA pace; Commission needs EP legitimacy",
+    "**Poland Presidency ↔ Hungary Council:** EU Presidency managing Orbán veto threat",
+    "**Ukraine ↔ EP:** Direct lobbying relationship on accountability provisions",
+    "**Big Tech ↔ Germany:** Alphabet/Meta lobbying German government on DMA enforcement pace"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/coalition-dynamics.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
