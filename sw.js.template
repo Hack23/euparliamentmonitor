@@ -140,7 +140,8 @@ function networkFirstImage(request) {
           return resp;
         }
         return cache.match(request).then(function (cached) {
-          return cached || resp;
+          if (cached) return cached;
+          return resp;
         });
       })
       .catch(function () {
