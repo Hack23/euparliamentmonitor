@@ -154,3 +154,98 @@
 | Armenia Regression | 🟡 MEDIUM | 6-18 months | 🟡 Partial |
 
 *Confidence: 🟢 High — Systematic threat assessment; 🟡 Medium on likelihood estimates*
+
+---
+
+## EXTENDED THREAT MODEL — PASS 2
+
+### ADVANCED THREAT SCENARIOS
+
+#### Threat Scenario 5: Regulatory Capture of DMA Enforcement
+**Threat Actor:** Large technology gatekeeper companies + supporting national governments
+**Vector:** Administrative/lobbying
+**Mechanism:** Commission officials receive career advancement offers from tech companies post-service; national governments (Ireland protecting Apple, Luxembourg protecting Amazon) use Council working groups to slow DMA enforcement secondary legislation
+**Indicators:** Commission DMA enforcement timelines consistently slip; staff turnover to tech industry; national government objections to Commission enforcement proceedings
+**Countermeasures:** EP oversight of Commission enforcement; revolving door rules; transparency register; civil society monitoring
+
+#### Threat Scenario 6: Rule of Law Conditionality Legal Challenge
+**Threat Actor:** Hungary; potentially Slovakia; academic/legal allies
+**Vector:** ECJ litigation + legal doctrine challenge
+**Mechanism:** Novel ECJ challenge arguing that Rule of Law conditionality violates Article 4(2) TEU national identity clause; or that Commission has exceeded its mandate in applying conditionality without Council authorization
+**Indicators:** Hungarian government announces ECJ challenge to specific conditionality decisions; academic papers questioning legal basis appear in EU law reviews
+**Current status:** Hungary has already challenged Rule of Law Regulation (Cases C-156/21, C-157/21) and LOST. ECJ established clear legal basis. New challenges would need novel angles.
+**Countermeasures:** ECJ track record strongly favors conditionality; Commission should maintain procedural rigor to avoid reversal on technical grounds
+
+#### Threat Scenario 7: MFF Own Resources Ratification Failure
+**Threat Actor:** National populist governments; referendum-triggering opposition parties
+**Vector:** Domestic political mobilization
+**Mechanism:** In member state with referendum tradition (Denmark, Ireland), opposition party forces referendum on own resources as EU fiscal autonomy vs. national sovereignty
+**Indicators:** Irish opposition parties propose constitutional referendum bill; Danish People's Party campaigns against new own resources; Italian Brothers of Italy uses issue in regional elections
+**Impact:** Single ratification failure would require renegotiation or abandonment of own resources component
+**Countermeasures:** Own resources package needs very visible citizen benefit (environmental or social fund benefiting directly affected electorates)
+
+#### Threat Scenario 8: Information Operation Against EP
+**Threat Actor:** Russia (GRU information operations); domestic anti-EU actors
+**Vector:** Synthetic media + social amplification
+**Mechanism:** Deepfake audio/video of senior MEPs making politically damaging statements; coordinated inauthentic behavior amplifying existing EP internal divisions; leaked (or fabricated leaked) internal EP communications
+**Indicators:** Unusual spikes in anti-EP social media content; EP security service reports suspicious contact; journalist receives "leaked" EP documents
+**Current vulnerability:** EP's 720 MEPs represent a very large attack surface; political diversity means some MEPs will inevitably amplify hostile content unknowingly
+**Countermeasures:** ENISA cyber threat intelligence sharing; EP digital literacy training; media literacy public campaigns; content provenance standards (C2PA)
+
+### THREAT MATRIX (UPDATED)
+
+| Threat | Actor | Likelihood | Impact | Detection | Mitigation Strength |
+|--------|-------|-----------|--------|-----------|--------------------| 
+| DMA enforcement delay | Tech industry | HIGH | HIGH | MEDIUM | MEDIUM |
+| Rule of Law legal challenge | Hungary | MEDIUM | MEDIUM | HIGH (public) | HIGH (ECJ precedent) |
+| Own resources ratification failure | Populist parties | MEDIUM | VERY HIGH | MEDIUM | LOW-MEDIUM |
+| Information operations | Russia + domestic | HIGH | MEDIUM | MEDIUM | MEDIUM |
+| Discharge escalation | S&D/Left opposition | LOW | HIGH | HIGH | MEDIUM |
+| Ukraine accountability derailment | Russia, US uncertainty | MEDIUM | HIGH | MEDIUM | MEDIUM |
+| EP-Commission institutional crisis | Systemic | LOW | VERY HIGH | MEDIUM | HIGH (Santer precedent) |
+
+### INSTITUTIONAL RESILIENCE ASSESSMENT
+
+**European Parliament resilience to threats:**
+- Legal/procedural resilience: HIGH (robust rules; ECJ recourse)
+- Information/cyber resilience: MEDIUM (improving; ENISA support; but large attack surface)
+- Political resilience: MEDIUM-HIGH (coalition diversity is both strength and vulnerability)
+- Reputational resilience: MEDIUM (discharge scandals create vulnerability; accountability culture helps)
+- Regulatory resilience: HIGH (DMA/DSA legal framework is robust; ECJ-tested)
+
+*Extended threat model — 2026-05-14 Pass 2 | Confidence: 🟡 Medium-High*
+
+### THREAT LANDSCAPE EVOLUTION NOTE
+
+The threat model for the April 28-30 legislative package will evolve over the 24-month implementation horizon. Key evolution points:
+- **June 2026:** G7 Kananaskis — Ukraine accountability geopolitical threat crystallizes or dissipates
+- **Q3 2026:** DMA enforcement actions — US diplomatic/retaliation threat becomes concrete
+- **Q4 2026:** Commission MFF proposal — Own resources ratification threat becomes visible
+- **2027:** MFF trilogue — Hungarian veto threat materializes or resolves
+
+The threat model should be re-run with each of these milestones.
+
+*Extended threat model — 2026-05-14 Pass 2*
+
+
+### THREAT MODEL — OVERALL THREAT POSTURE
+
+**Current threat posture: ELEVATED (3/5)**
+*(Scale: 1=Minimal, 2=Low, 3=Elevated, 4=High, 5=Critical)*
+
+The April 28-30 legislative package has elevated the threat environment relative to routine EP sessions because:
+1. It advances significant interests of powerful adversaries (US tech companies, Russia, Hungarian government)
+2. It creates new enforcement authorities that will be contested in court and in politics
+3. It establishes own resources ambitions that will trigger domestic political mobilization in some member states
+
+**Threat posture evolution forecast:**
+- June 2026 (G7): May increase to 4/5 if US explicitly opposes DMA enforcement
+- Q3 2026 (DMA enforcement): Will peak at 4-4.5/5 around first non-compliance decisions
+- Q4 2026 (Commission MFF proposal): Will peak again around Council response
+- 2027 (MFF trilogue): Sustained elevated threat environment throughout negotiation
+
+*Threat model final — 2026-05-14 Pass 2*
+
+**Threat model — complete.** Overall threat posture: ELEVATED. Primary active threats: US digital trade confrontation, Hungarian MFF veto, DMA enforcement delay. Monitoring the G7 Kananaskis outcomes is the immediate next intelligence requirement.
+
+**Threat model complete.** All 8 threat scenarios documented. Overall threat posture: ELEVATED (3/5). Next threat model update recommended at G7 Kananaskis outcomes (June 2026).

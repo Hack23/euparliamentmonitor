@@ -102,3 +102,5 @@ This was the most substantive EP plenary of 2026 to date, combining:
 **Classification confidence: 🟢 High** — Cross-validated against historical significance precedents.
 
 *The overall session significance score of 8.2/10 places this plenary in the top 5% of EP sessions by significance, comparable to the December 2019 Green Deal launch and the July 2020 Recovery Fund agreement.*
+
+*Extended significance classification — 2026-05-14 Pass 2: All classifications remain unchanged from prior analysis; the MFF interim report and discharge package remain TIER 1 CRITICAL; DMA enforcement and Ukraine accountability at TIER 2 HIGH.*
