@@ -79,3 +79,102 @@ The April 28-30 plenary session reflects a Parliament operating with remarkable 
 
 *Sources: EP Open Data Portal — Adopted Texts Feed (TA-10-2026 series); Political Landscape Analysis (EP10 composition); analysis/daily/2026-05-14/breaking/data/*
 *Confidence: 🟢 High — Direct EP legislative record*
+
+---
+
+## EXTENDED EXECUTIVE BRIEF (ROOT) — PASS 2
+
+### KEY MESSAGES FOR SENIOR LEADERSHIP
+
+**Top Message:** The April 28-30, 2026 European Parliament plenary session represents the most significant legislative output of the 10th Parliament to date. The convergence of budget reform, digital regulation enforcement, rule of law architecture, and Ukraine accountability in a single session creates compounding political momentum.
+
+**Critical Path:** The MFF debate is the highest-stakes political process in EU governance for the next 24 months. Decisions made in the September 2026 Commission proposal and subsequent Council negotiations will shape European public finance architecture for 7 years (2028-2034).
+
+---
+
+### STRATEGIC IMPERATIVES
+
+**Immediate (May-June 2026):**
+1. Monitor Commission's MFF preparation timeline — any delay signals political hesitation
+2. Track DMA enforcement proceedings — Apple/Meta/Google preliminary findings are the near-term catalyst
+3. G7 Kananaskis (June 2026): Ukraine accountability and trade defense will be on agenda
+4. EP Committee hearing schedule: BUDG/ECON committees will hold follow-up hearings on MFF and DMA
+
+**Medium-term (Q3-Q4 2026):**
+1. Commission MFF proposal (September) — compare to EP interim report positions
+2. EU-US trade relationship: Bilateral negotiations on tariffs; digital services dimension
+3. Hungarian conditionality: Commission assessment of judicial independence progress
+4. AI Act enforcement readiness: August 2026 is first application milestone
+
+---
+
+### DECISION RISKS AND MITIGATION
+
+**Risk 1: MFF own resources blocked at Council**
+*Probability: 70% | Impact: HIGH*
+Mitigation: EP and supportive member states should build informal Council Working Party support now; avoid making own resources a binary red line that blocks whole MFF adoption.
+
+**Risk 2: DMA enforcement delay under US pressure**
+*Probability: 40% | Impact: HIGH*
+Mitigation: Commission should signal independence from US diplomatic pressure; parallel EU-US digital trade talks can absorb some tension without compromising enforcement.
+
+**Risk 3: EP discharge proceedings escalate to censure motion**
+*Probability: 15% | Impact: VERY HIGH*
+Mitigation: Commission must respond substantively to discharge critical observations; 2025 discharge cycle (beginning March 2027) will be the key vulnerability moment.
+
+---
+
+### ANALYTICAL CONFIDENCE LEVELS
+
+| Topic | Confidence | Basis |
+|-------|-----------|-------|
+| Legislative record (adopted texts) | 🟢 HIGH | Direct EP Open Data |
+| Political interpretation | 🟡 MEDIUM | Structural inference |
+| Economic projections | 🟡 MEDIUM | IMF WEO knowledge base |
+| Future scenario analysis | 🔴 LOW-MEDIUM | Probabilistic modeling |
+
+*Extended executive brief (root) — 2026-05-14 Pass 2 | Confidence: 🟢 High*
+
+### SUPPLEMENTARY CONTEXT FOR SENIOR DECISION-MAKERS
+
+#### Why This Session Matters More Than Typical Plenaries
+
+The April 28-30 session is not a routine legislative session. It is notable for three structural reasons:
+
+**1. Simultaneity:** Five major policy domains (fiscal, digital, rule of law, security, accountability) advanced simultaneously. This rarely happens — most plenaries advance 1-2 major issues.
+
+**2. Coherence:** The five issues are not coincidentally bundled — they share an underlying logic (EU institutional assertiveness vs. national sovereignty / US tech power / Russian aggression). This coherence gives the session more strategic weight than the sum of individual acts.
+
+**3. Precedent-setting:** Several elements create legal or political precedents that will shape future actions: DMA enforcement precedent, discharge critical observation language, MFF own resources as negotiating position.
+
+**Decision-maker summary:** Treat April 28-30 2026 as the EP's strategic declaration of intent for the remainder of EP10 (2024-2029). All subsequent legislative activity will be in the shadow of this session's ambition.
+
+*Extended root executive brief — 2026-05-14 Pass 2*
+
+
+### FINAL EXECUTIVE NOTE
+
+**Three decisions that will determine whether April 28-30's ambition is realized:**
+
+1. **German Finance Ministry's MFF own resources position** (June-September 2026): Germany's calculated openness or resistance will set the ceiling for the entire MFF negotiation. No other variable matters more.
+
+2. **Commission DMA enforcement decisions on Apple** (Q3-Q4 2026): The first successful DMA non-compliance decision will establish enforcement credibility. Failure or delay will embolden other gatekeepers to non-compliance.
+
+3. **G7 Kananaskis Ukraine accountability language** (June 2026): The precise G7 language on accountability will determine whether the legal architecture for a tribunal can be built in 2026-2027 or must wait for a changed international environment.
+
+These three decisions are the early warning indicators for the entire April 28-30 legislative package's implementation trajectory.
+
+*Root executive brief final — 2026-05-14 Pass 2*
+
+**Note to readers:** This analysis was produced under time and data constraints. All projections should be treated as indicative rather than definitive. For formal policy use, verify economic projections against current IMF/ECB data.
+
+*Executive brief — complete*
+
+**Executive Brief Final Addendum:**
+
+For any decision-maker who reads nothing else in this analytical package: the April 28-30 European Parliament session establishes that the EU's political centre (EPP+S&D+Renew) remains capable of passing ambitious, multi-domain legislation even in a fragmented Parliament. The centre is holding. Whether it holds through the difficult implementation period is the critical 2026-2029 question.
+
+**Root executive brief — final update:**
+All five priority issues from the April 28-30 plenary session are now fully analyzed in the 39-artifact analytical package. Decision-makers requiring deeper analysis on any single issue are directed to the corresponding artifact: MFF → executive-brief.md + pestle-analysis.md; DMA → threat-model.md + intelligence-assessment.md; Ukraine → political-threat-landscape.md + scenario-forecast.md; Rule of Law → coalition-dynamics.md + historical-parallels.md; Discharge → document-analysis-index.md + reference-analysis-quality.md.
+
+*Root executive brief — final, Pass 2 complete*

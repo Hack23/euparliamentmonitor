@@ -77,3 +77,85 @@
 - **Total analysis pipeline data: ~3MB**
 
 *Confidence: 🟢 High — Complete data inventory*
+
+---
+
+## EXTENDED DATA DOWNLOAD MANIFEST — PASS 2
+
+### COMPLETE DATA INVENTORY
+
+#### Session Data Collected
+
+**Primary Data Sources — Successfully Retrieved:**
+
+| Source | Tool | Records | File | Quality |
+|--------|------|---------|------|---------|
+| EP Adopted Texts (2026) | `get_adopted_texts` | 51 items | data/adopted-texts-2026.json | 🟢 GOOD |
+| EP Adopted Texts Feed (1-week) | `get_adopted_texts_feed` | 139 items | data/adopted-texts-feed.json | 🟢 GOOD |
+| EP Plenary Sessions (2026) | `get_plenary_sessions` | 10 sessions | data/plenary-sessions.json | 🟡 PARTIAL |
+
+**Data Sources — Failed or Empty:**
+
+| Source | Tool | Status | Reason |
+|--------|------|--------|--------|
+| EP Events Feed | `get_events_feed` | 🔴 0 items | EP API upstream error |
+| EP Latest Votes (DOCEO) | `get_latest_votes` | 🔴 0 items | May 11-14 data not published |
+| IMF SDMX | `fetch_url` | 🔴 Error | SDMX 3.0 endpoint mismatch |
+| EP Procedures Feed | (prefetch) | 🔴 Placeholder | Pre-fetch script returned empty |
+| EP MEPs Feed | (prefetch) | 🔴 Placeholder | Pre-fetch script returned empty |
+
+**Pre-fetched Feed Files (from scripts/prefetch-ep-feeds.sh):**
+
+| File | Contents | Status |
+|------|---------|--------|
+| data/adopted-texts-feed.json | 139 adopted texts | ✅ POPULATED |
+| data/events-feed.json | {} placeholder | ⚠️ EMPTY |
+| data/procedures-feed.json | {} placeholder | ⚠️ EMPTY |
+| data/meps-feed.json | {} placeholder | ⚠️ EMPTY |
+
+#### Key Documents Referenced in Analysis
+
+**April 28-30, 2026 EP Plenary Session — Adopted Texts:**
+
+| Document ID | Title (abbreviated) | Significance |
+|-------------|--------------------|-----------| 
+| TA-10-2026-0111 | MFF interim report | CRITICAL — Budget architecture |
+| TA-10-2026-0125 → 0137 | 2024 Discharge package (13 decisions) | HIGH — Accountability |
+| TA-10-2026-0160 | DMA enforcement resolution | HIGH — Digital governance |
+| TA-10-2026-0161 | Ukraine accountability tribunal | HIGH — Geopolitics |
+| TA-10-2026-0147 | Rule of Law annual report | HIGH — Democratic governance |
+| TA-10-2026-0162 | Armenia situation resolution | MEDIUM — Regional stability |
+| TA-10-2026-0149 | Trade defense instruments | MEDIUM — Trade policy |
+| TA-10-2026-0157 | Livestock sector strategy | MEDIUM — Agricultural policy |
+| TA-10-2026-0163 | Cyberbullying/online harm | MEDIUM — Digital safety |
+| TA-10-2026-0146 | Fundamental Rights Report | MEDIUM — Human rights |
+
+#### Data Quality Certification
+
+**For Stage C assessment:** This dataset is sufficient for structural legislative analysis but insufficient for individual MEP accountability analysis (missing roll-call votes) or real-time economic contextualization (missing IMF live data).
+
+**Recommendation for next run:** Pre-fetching should include `get_plenary_sessions` with the specific April 2026 session ID to access vote records for that specific session.
+
+*Extended data download manifest — 2026-05-14 Pass 2 | Confidence: 🟢 High*
+
+### DATA MANAGEMENT RECOMMENDATIONS
+
+**For subsequent analysis runs:**
+1. Cache `analysis/daily/2026-05-14/breaking/data/adopted-texts-2026.json` as a persistent artifact — adopted texts don't change retroactively
+2. Implement a "data freshness check" that compares adoption dates rather than re-fetching all 51 texts
+3. Mark the MFF (TA-10-2026-0111) and Discharge package (TA-10-2026-0125 to 0137) as "anchor documents" that all analysis artifacts should reference
+
+*Extended data download manifest — 2026-05-14 Pass 2*
+
+
+### DATA MANIFEST — FINAL INVENTORY NOTE
+
+**Data inventory summary for this run:**
+- Primary legislative record: 51 adopted texts (2026) + 139 feed items = 190 EP legislative items total
+- Plenary session data: 10 sessions (Jan-Feb 2026; incomplete year)
+- Data gaps: Roll-call votes (all); Events (EP API down); IMF live data (protocol failure); Committee documents (not attempted)
+- Net data quality: ADEQUATE for structural analysis; INSUFFICIENT for individual-level political accountability analysis
+
+*Data download manifest final — 2026-05-14 Pass 2*
+
+*Data manifest — complete. All data sources documented. Gaps identified for future resolution.*

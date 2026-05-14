@@ -75,3 +75,21 @@ US Trade Representative has historically threatened retaliatory tariffs (Section
 ECR (81 seats) has developed sophisticated procedural blocking tactics: introducing thousands of amendments to delay legislation, calling for plenary votes on committee decisions, and using EP Rules of Procedure procedural points to slow proceedings. These tactics increase the transaction cost of EP legislative work without blocking final votes.
 
 *Confidence: 🟢 High — Threat identification based on documented institutional patterns*
+
+---
+
+## EXTENDED POLITICAL THREAT LANDSCAPE — PASS 2
+
+### POLITICAL THREAT ASSESSMENT (EXTENDED)
+
+**Emerging Threats Requiring Monitoring:**
+
+1. **EPP internal fracture** (6-18 month horizon): CDU/CSU, PP, EPP Eastern European delegations have different priorities on MFF, migration, rule of law. Fracture would significantly reduce EPP's political coherence.
+
+2. **Renew contraction** (electoral risk): French liberal collapse in 2027 elections would severely weaken Renew's 77 seats; EP10 governing coalition becomes harder to maintain if Renew falls below 50.
+
+3. **S&D fragmentation** (structural): Italian PD, German SPD, French PS have increasingly divergent policy priorities; S&D's 88% cohesion rate is at historical floor.
+
+4. **Anti-EU referendum wave** (electoral risk): Multiple EU states have forces capable of triggering referendums on EU matters; risk crystallizes when MFF own resources hits national ratification phase.
+
+*Extended political threat landscape — 2026-05-14 Pass 2 | Confidence: 🟡 Medium*

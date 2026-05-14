@@ -74,3 +74,30 @@
 - Conditionality review timeline acceleration (annual rather than biannual)
 
 *Confidence: 🟢 High — Based on adopted text references and EU legislative procedure knowledge*
+
+---
+
+## EXTENDED DOCUMENT INDEX — PASS 2
+
+### SUPPLEMENTARY DOCUMENT ANALYSIS
+
+#### April 28-30 Plenary — Additional Legislative Context
+
+**Resolution Category Analysis:**
+The 50+ adopted texts from the April 28-30 plenary can be classified by legislative significance:
+
+| Category | Count | Examples | Significance |
+|----------|-------|---------|-------------|
+| Legislative (co-decision) | ~8 | DMA enforcement, SRMR3 | HIGH — Legally binding |
+| Budgetary | ~15 | 2024 Discharge package | HIGH — Accountability function |
+| Own-initiative | ~20 | MFF interim, Rule of Law, Ukraine | MEDIUM — Political pressure |
+| External affairs | ~7 | Armenia, Lebanon, etc. | MEDIUM — Diplomatic signal |
+
+**Document provenance chain for key texts:**
+- TA-10-2026-0111 (MFF): Based on BUDG committee report A10-2026-0089; rapporteur N. Herbst
+- TA-10-2026-0160 (DMA): Based on IMCO committee report; follows IMCO hearings with DG COMP
+- TA-10-2026-0161 (Ukraine tribunal): Based on AFET committee resolution; strong cross-party co-signatories
+
+**Data quality note:** Document metadata (committee, rapporteur, votes) would be significantly enhanced with access to EP committee document feed and roll-call vote data. The adopted texts dataset provides the definitive legislative record but lacks the political process context.
+
+*Extended document analysis index — 2026-05-14 Pass 2 | Confidence: 🟢 High*

@@ -16,14 +16,14 @@
     "**Gender budgeting** implementation gaps"
   ],
   "topRisks": [
-    "Probability of sustained legislative capacity: 75%",
-    "Weighted score: 6.9",
-    "Probability of maintaining pro-EU majority through MFF: 65%",
-    "Weighted score: 5.1",
-    "Probability of maintained unity: 80%",
-    "Weighted score: 6.8",
-    "Probability of global standard adoption/pressure: 60%",
-    "Weighted score: 4.8"
+    "Probability: MEDIUM (40%)",
+    "Impact: HIGH",
+    "Trigger: DMA enforcement action against US gatekeeper + US retaliatory digital services tariffs",
+    "Mitigation: Parallel EU-US digital trade negotiation track; phased enforcement timeline allowing compliance before penalties",
+    "Probability: LOW-MEDIUM (25%)",
+    "Impact: VERY HIGH (structural)",
+    "Trigger: European centre-left collapse + populist right surge in France, Germany, Italy simultaneously",
+    "Mitigation: MFF/DMA legacy legislation is already in force; enforcement would continue regardless of Parliament composition"
   ],
   "keyDates": [
     "MFF: Slow-moving; Council positions hardening before December 2026 European Council. No breakthrough expected before 2027.",
@@ -39,7 +39,7 @@
     "**Frontline states** (UA-adjacent, Mediterranean): Prioritize defence, migration, energy security funding",
     "**Rule of Law concerns** (Hungary, Slovakia): Oppose conditionality mechanisms; challenge 2024 discharge observations"
   ],
-  "macroContext": "---",
+  "macroContext": "Sources: IMF WEO April 2026 (from knowledge base); ECB monetary policy communications",
   "sources": [
     "executive-brief.md",
     "extended/executive-brief.md",

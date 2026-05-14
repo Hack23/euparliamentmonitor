@@ -120,3 +120,20 @@ French presidential cycle 2027, Dutch coalition instability, and Czech/Slovak el
 On Ukraine, defense, and rule of law issues, this 5-party coalition (EPP 183 + S&D 136 + Renew 77 + Greens 53 + Left 45 = 494 seats) creates a supermajority that can override PfE+ECR+NI+ESN blocking tactics. This scenario is currently the operational reality on geopolitical votes.
 
 *Confidence: 🟢 High for scenario identification; 🟡 Medium for probability estimates*
+
+---
+
+## EXTENDED COALITION DYNAMICS — PASS 2
+
+### COALITION STRESS ANALYSIS (EXTENDED)
+
+**The "Cordon Sanitaire" Dynamics:**
+EP10's primary coalition (EPP+S&D+Renew) operates a de facto cordon sanitaire against PfE/ECR on most issues. However, this cordon is:
+- MAINTAINED on: Rule of Law, Ukraine, Fundamental Rights, institutional questions
+- WEAKENED on: Migration, regulatory simplification, farm policy
+- BREACHED on: Specific farm derogations, some energy security votes
+
+**Coalition durability assessment:**
+The EPP-S&D-Renew coalition is unlikely to collapse before 2029. The key structural reason is the mutual deterrence dynamic: EPP cannot form a stable alternative majority with PfE+ECR without S&D, and S&D cannot form a stable majority with Greens+Left without EPP or Renew. Both options require compromise, which the current coalition has institutionalized.
+
+*Extended coalition dynamics — 2026-05-14 Pass 2 | Confidence: 🟡 Medium*
