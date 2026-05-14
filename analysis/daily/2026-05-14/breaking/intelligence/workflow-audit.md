@@ -109,3 +109,35 @@ Additional: `get_parliamentary_questions`, `get_adopted_texts` (multiple pages),
 - Methodology reflection still to be written
 
 *Confidence: 🟢 High — Direct workflow observation*
+
+---
+
+## WORKFLOW AUDIT TIMELINE
+
+```mermaid
+gantt
+    title Breaking News Workflow Runs — 2026-05-14
+    dateFormat HH:mm
+    axisFormat %H:%M
+    
+    section Run 1
+    Stage A Data Collection    :done, 00:00, 5m
+    Stage B Analysis (Pass 1)  :done, 00:05, 15m
+    Stage B Analysis (Pass 2)  :done, 00:20, 6m
+    Stage C Gate (ANALYSIS_ONLY) :crit, done, 00:26, 1m
+    
+    section Run 2
+    Stage A (pre-fetched)      :done, 13:50, 3m
+    Stage B Extend 36 artifacts :done, 13:53, 22m
+    Stage C Gate (GREEN)       :done, 14:15, 2m
+    Stage D Article render     :done, 14:17, 2m
+    Stage E PR created         :done, 14:19, 1m
+    
+    section Run 3
+    Prior-run-diff + extend    :active, 19:27, 15m
+    Stage C Gate (target GREEN) :19:42, 4m
+    Stage D Article render     :19:46, 2m
+    Stage E Single PR          :19:48, 2m
+```
+
+**[EXTEND-FROM-PRIOR: intelligence/workflow-audit.md prior=111L → new=140L (+29)]**

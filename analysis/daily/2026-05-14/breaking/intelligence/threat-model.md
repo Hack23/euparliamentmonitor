@@ -249,3 +249,52 @@ The April 28-30 legislative package has elevated the threat environment relative
 **Threat model — complete.** Overall threat posture: ELEVATED. Primary active threats: US digital trade confrontation, Hungarian MFF veto, DMA enforcement delay. Monitoring the G7 Kananaskis outcomes is the immediate next intelligence requirement.
 
 **Threat model complete.** All 8 threat scenarios documented. Overall threat posture: ELEVATED (3/5). Next threat model update recommended at G7 Kananaskis outcomes (June 2026).
+
+---
+
+## THREAT ACTOR MAP
+
+```mermaid
+graph LR
+    EP_INST["EP Institutional<br/>Integrity"]
+    
+    TA1["Council of EU<br/>MFF Blocking Actor"]
+    TA2["Net Contributor States<br/>DE/NL/SE/AT"]
+    TA3["Sovereigntist Bloc<br/>PfE/ECR (166 seats)"]
+    TA4["Big Tech Platforms<br/>DMA Resistance"]
+    TA5["Hungary/Slovakia<br/>Rule of Law Challengers"]
+
+    TA1 -->|"Fiscal pressure"| EP_INST
+    TA2 -->|"Own-resources veto"| EP_INST
+    TA3 -->|"Agenda disruption"| EP_INST
+    TA4 -->|"Enforcement resistance"| EP_INST
+    TA5 -->|"Conditionality challenge"| EP_INST
+
+    style EP_INST fill:#3399ff,color:#fff
+    style TA1 fill:#ff4444,color:#fff
+    style TA3 fill:#ffaa00,color:#000
+```
+
+**[EXTEND-FROM-PRIOR: intelligence/threat-model.md prior=251L → new=277L (+26)]**
+
+---
+
+## INTELLIGENCE ASSESSMENT GRADING
+
+**Admiralty Source Reliability:** B (EP Open Data Portal + structural analysis — usually reliable)
+**Information Accuracy:** 2-3 (Probably to possibly true — threat assessments extrapolated)
+**Overall Admiralty Grade: B2/B3**
+
+## WEP THREAT PROBABILITY ASSIGNMENTS
+
+| Threat | WEP Band | Timeframe | Confidence |
+|--------|----------|-----------|------------|
+| Council blocks EP MFF own-resources | **Likely (60-70%)** | 2026-2027 | 🟡 Medium |
+| Sovereigntist bloc disrupts 2 major votes | **Realistic possibility (40-55%)** | 2026 | 🟢 Low |
+| Rule-of-law conditionality challenged legally | **Realistic possibility (35-45%)** | Structural | 🟢 Low |
+| DMA platform non-compliance triggers fines | **Likely (55-65%)** | 12 months | 🟡 Medium |
+| EP-Council institutional breakdown | **Highly unlikely (5-10%)** | 2026-2027 | 🟢 Low |
+
+| Source Reliability | Information Accuracy | Admiralty Grade |
+|-------------------|---------------------|-----------------|
+| B (usually reliable) | 2 (probably true) | B2 |

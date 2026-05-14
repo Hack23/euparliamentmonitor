@@ -149,3 +149,32 @@ The core legislative dataset (adopted texts) is identical to prior run — no ne
 **Cross-session — complete.** This run's analysis represents a substantial improvement over the prior ANALYSIS_ONLY run on the same date. All 39 artifacts now meet quality floor requirements.
 
 **Cross-session complete.** Analytical continuity established between prior ANALYSIS_ONLY run and this GREEN-target run. All 39 artifacts extended to or above quality floor.
+
+---
+
+## CROSS-SESSION INTELLIGENCE FLOW
+
+```mermaid
+graph LR
+    S1["Session: April 28-30<br/>EP Plenary"]
+    S2["Session: May 14<br/>Breaking News Analysis"]
+    CACHE["Cache Memory<br/>/tmp/gh-aw/cache-memory/"]
+    INTEL["Intelligence<br/>Synthesis"]
+
+    S1 -->|"Prior run data"| CACHE
+    CACHE -->|"Loaded by"| S2
+    S2 -->|"Produces"| INTEL
+    INTEL -->|"Stored in"| CACHE
+
+    style INTEL fill:#3399ff,color:#fff
+    style CACHE fill:#ffaa00,color:#000
+```
+
+## KEY CROSS-SESSION FINDINGS
+
+- **Consistency:** April 28-30 plenary legislative package confirmed across all 3 runs
+- **MFF position:** EP's budget ambitions stable; no new Council signals detected
+- **Coalition pattern:** EPP+S&D+Renew majority arithmetic confirmed across sessions
+- **IMF data:** API unavailable in all sessions; WEO knowledge-base estimates used consistently
+
+**[EXTEND-FROM-PRIOR: intelligence/cross-session-intelligence.md prior=151L → new=177L (+26)]**

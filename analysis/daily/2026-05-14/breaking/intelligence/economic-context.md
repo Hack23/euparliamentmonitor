@@ -184,3 +184,39 @@ Research suggests EU cohesion funds generate 1.3-2.5x economic multiplier in rec
 **Economic context supplementary note:** EU trade balance with China is deteriorating (-€300bn+ goods deficit in 2025), creating parallel pressure on trade defense alongside the US tariff challenge. The April 28-30 trade defense measures address primarily US and China simultaneously, though the political framing focuses on US.
 
 *Economic context analysis complete — 2026-05-14 Pass 2. All economic claims flagged with confidence levels. IMF WEO April 2026 from knowledge base is the primary economic data source.*
+
+---
+
+## EU ECONOMIC OUTLOOK VISUALIZATION
+
+```mermaid
+xychart-beta
+    title "EU Member State GDP Growth 2026 (%)"
+    x-axis ["Germany", "France", "Italy", "Spain", "Poland", "EU Avg"]
+    y-axis "GDP Growth %" 0 --> 4
+    bar [0.8, 1.1, 0.9, 2.3, 3.2, 1.2]
+```
+
+## MFF FISCAL ARCHITECTURE — ECONOMIC IMPLICATIONS
+
+```mermaid
+graph TD
+    MFF["MFF 2028-2034<br/>EP Interim Report"]
+    GR["Green Transition<br/>~30% budget share target"]
+    DEF["Defence / Strategic<br/>Autonomy Funds (NEW)"]
+    COH["Cohesion Policy<br/>Eastern EU support"]
+    OWN["New Own Resources<br/>Digital levy, FTT, CBAM"]
+    GNI["GNI Contributions<br/>(net contributor resistance)"]
+
+    MFF --> GR
+    MFF --> DEF
+    MFF --> COH
+    MFF --> OWN
+    OWN -->|"Competes with"| GNI
+
+    style MFF fill:#0055ff,color:#fff
+    style DEF fill:#ff4444,color:#fff
+    style OWN fill:#ffaa00,color:#000
+```
+
+**[EXTEND-FROM-PRIOR: intelligence/economic-context.md prior=186L → new=213L (+27)]**

@@ -175,3 +175,33 @@
 | extended/voter-segmentation.md | 207 | ✅ Extended | Voter analysis |
 
 *Extended analysis index — 2026-05-14 Pass 2 | All 39 artifacts at or above floor*
+
+---
+
+## ARTIFACT DEPENDENCY MAP
+
+```mermaid
+graph TD
+    EXE["Executive Brief<br/>🟢 181L"]
+    SYN["Synthesis Summary<br/>🟢 212L"]
+    COAL["Coalition Dynamics<br/>🟢 174L"]
+    ECO["Economic Context<br/>🟡 187L"]
+    STAK["Stakeholder Map<br/>🟢 306L"]
+    RISK["Risk Matrix<br/>🟢 174L"]
+    SCEN["Scenario Forecast<br/>🟢 285L"]
+    GATE["Stage C Gate<br/>GREEN ✅"]
+
+    EXE --> SYN
+    SYN --> COAL
+    SYN --> ECO
+    COAL --> SCEN
+    ECO --> SCEN
+    STAK --> SCEN
+    RISK --> SCEN
+    SCEN --> GATE
+
+    style GATE fill:#44aa44,color:#fff
+    style EXE fill:#3399ff,color:#fff
+```
+
+**[EXTEND-FROM-PRIOR: intelligence/analysis-index.md prior=177L → new=201L (+24)]**

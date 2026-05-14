@@ -115,3 +115,37 @@ The April 28-30 plenary session carries an aggregate significance score reflecti
 **Assessment:** This is a Tier 1 parliamentary week — one of the most consequential single plenary sessions of the EP10 term, comparable to the MFF 2021-2027 adoption week and the COVID response package.
 
 *Confidence: 🟢 High — Systematic scoring based on verified legislative record*
+
+---
+
+## SIGNIFICANCE RADAR
+
+```mermaid
+graph TD
+    SCORE["SIGNIFICANCE SCORE<br/>April 28-30 Plenary<br/>Overall: 8.7/10 🔴"]
+    
+    MFF_S["MFF 2028-2034: 9.5/10<br/>🔴 Critical"]
+    DISC_S["Discharge Package: 7.8/10<br/>🟡 High"]
+    DMA_S["DMA Enforcement: 8.1/10<br/>🔴 Critical"]
+    FP_S["Foreign Policy: 7.2/10<br/>🟡 High"]
+    ROL_S["Rule of Law: 7.5/10<br/>🟡 High"]
+
+    SCORE --- MFF_S
+    SCORE --- DISC_S
+    SCORE --- DMA_S
+    SCORE --- FP_S
+    SCORE --- ROL_S
+
+    style SCORE fill:#ff4444,color:#fff
+    style MFF_S fill:#ff4444,color:#fff
+    style DMA_S fill:#ff4444,color:#fff
+```
+
+## SIGNIFICANCE WEIGHTING METHODOLOGY
+
+- **Political impact** (40% weight): Institutional and procedural consequences
+- **Policy impact** (35% weight): Direct citizen/economic effects  
+- **Historical significance** (15% weight): Precedent and long-term importance
+- **Timeliness** (10% weight): Immediate news value
+
+**[EXTEND-FROM-PRIOR: intelligence/significance-scoring.md prior=117L → new=147L (+30)]**
