@@ -207,7 +207,7 @@ post-steps:
 
 engine:
   id: copilot
-  model: claude-sonnet-4
+  model: claude-sonnet-4.6
   # max-continuations: 3 enables autopilot mode (--autopilot --max-autopilot-continues 3
   # in the compiled lock) so the agent can restart up to 3 times. Translate needs
   # multiple passes to cover all 14 languages within the single job budget.

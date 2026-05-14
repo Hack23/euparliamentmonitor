@@ -100,7 +100,7 @@ steps:
 
 engine:
   id: copilot
-  model: claude-sonnet-4
+  model: claude-sonnet-4.6
 ---
 # 📰 EU Parliament Year In Review — Unified Workflow
 

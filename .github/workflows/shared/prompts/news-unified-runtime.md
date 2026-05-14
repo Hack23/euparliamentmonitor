@@ -56,13 +56,19 @@ which is 38+ files × ~1.5 invocations/file. Total budget = ~57+ ~50
 Every article workflow runs `bash scripts/prefetch-ep-feeds.sh <slug> <feeds…>`
 in a deterministic pre-agent step. The script writes one JSON file per feed
 to `${ANALYSIS_DIR}/data/<feed>-feed.json` (with `{"items":[]}` placeholder
-on fetch failure). On the agent's first Stage A bash block:
+on fetch failure). Feed files are **automatically truncated to ≤ 200 KB** at
+prefetch time to limit context-window token consumption and prevent org-level
+ET rate-limit crashes (forensic evidence: run 25844831888, 98.1M ET). On the
+agent's first Stage A bash block:
 
 1. List `${ANALYSIS_DIR}/data/` and inventory which feed files exist.
 2. **Skip the corresponding MCP call** for any feed with a non-placeholder
    file. Read the JSON directly from disk instead.
 3. Only call MCP for feed endpoints **not** pre-fetched, or for deep-fetch
    tools (`track_legislation`, `get_voting_records`, `get_meeting_decisions`).
+4. **Never `cat` an entire feed file into the conversation.** Use `head -c 50000`
+   or `jq '.items[:20]'` to extract only the items you need. Reading more than
+   50 KB of a single feed file in one tool call wastes tokens.
 
 ### Rule 2 — Stage A hard cap = ≤ 5 EP MCP tool calls
 
@@ -87,6 +93,7 @@ of cap-exhaustion on long runs):
 - Write short stub → `wc -l` → realize it's short → `cat >> file` extend.
 - Repeated `wc -l` calls across artifacts to verify floors after writing.
 - Re-reading `reference-quality-thresholds.json` per artifact.
+- Reading an entire multi-MB feed file into a single bash `cat` output.
 
 Pass 2 (deepening) MUST still happen, but it MUST be a single coherent
 extension pass per artifact — never a discovery + fix loop.
