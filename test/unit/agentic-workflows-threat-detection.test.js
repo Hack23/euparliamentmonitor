@@ -413,4 +413,77 @@ describe('agentic workflow threat detection policy', () => {
       );
     }
   });
+
+  it('threshold-cache helper script exists and is callable from workflows', () => {
+    // May-2026 invocation-budget discipline: agents must call
+    // scripts/cache-analysis-thresholds.sh once at Stage B start rather
+    // than re-reading reference-quality-thresholds.json per artifact.
+    // This drift-guard ensures the helper script exists and is referenced
+    // in the shared runtime prompt so it flows into every article workflow.
+    const cacheScript = path.join(ROOT, 'scripts', 'cache-analysis-thresholds.sh');
+    expect(fs.existsSync(cacheScript), 'cache-analysis-thresholds.sh must exist').toBe(true);
+
+    const scriptContent = fs.readFileSync(cacheScript, 'utf8');
+    // Script must declare its canonical usage contract.
+    expect(scriptContent).toContain('cache-analysis-thresholds.sh');
+    // Script must write the thresholds-cache.json output.
+    expect(scriptContent).toContain('thresholds-cache.json');
+    // Script must use a single-quoted heredoc (shell-safety: no expansion in node script).
+    expect(scriptContent).toContain("<<'NODE_EOF'");
+
+    // The shared runtime prompt must reference the cache helper so agents
+    // that import news-unified-runtime.md learn about it.
+    const runtimePrompt = path.join(
+      WORKFLOWS_DIR,
+      'shared',
+      'prompts',
+      'news-unified-runtime.md',
+    );
+    const runtimeContent = fs.readFileSync(runtimePrompt, 'utf8');
+    expect(runtimeContent, 'news-unified-runtime.md must reference cache-analysis-thresholds.sh').toContain(
+      'cache-analysis-thresholds.sh',
+    );
+    expect(runtimeContent, 'news-unified-runtime.md must reference thresholds-cache.json').toContain(
+      'thresholds-cache.json',
+    );
+  });
+
+  it('prefetch-status.json data-mode contract is consistent across prefetch script and validator', () => {
+    // The prefetch script must write prefetch-status.json with the
+    // PREFETCH_DATA_MODE values that map to known manifest.dataMode values.
+    const prefetchScript = path.join(ROOT, 'scripts', 'prefetch-ep-feeds.sh');
+    const scriptContent = fs.readFileSync(prefetchScript, 'utf8');
+
+    // Ensure all three data-mode values are present.
+    // NOTE: the script emits "full" (not "green") since the round-2 fix that
+    // eliminated the green→full manual translation at Stage A.
+    expect(scriptContent).toContain('PREFETCH_DATA_MODE="full"');
+    expect(scriptContent).toContain('PREFETCH_DATA_MODE="degraded-feeds"');
+    expect(scriptContent).toContain('PREFETCH_DATA_MODE="minimal"');
+    // prefetch-status.json must be written.
+    expect(scriptContent).toContain('prefetch-status.json');
+    // PREFETCH_DATA_MODE must be exported via GITHUB_ENV.
+    expect(scriptContent).toContain('PREFETCH_DATA_MODE=${PREFETCH_DATA_MODE}');
+    // Loud degraded warning to stderr after retries exhausted.
+    expect(scriptContent).toMatch(/DEGRADED:[^`\n]*>&2/);
+
+    // Validate validate-analysis-completeness.js recognises degraded-feeds.
+    const validatorScript = path.join(ROOT, 'scripts', 'validate-analysis-completeness.js');
+    const validatorContent = fs.readFileSync(validatorScript, 'utf8');
+    expect(validatorContent).toContain("'degraded-feeds':");
+
+    // The shared runtime prompt must document all four modes in its
+    // Data-Mode Declaration table.
+    const runtimePrompt = path.join(
+      WORKFLOWS_DIR,
+      'shared',
+      'prompts',
+      'news-unified-runtime.md',
+    );
+    const runtimeContent = fs.readFileSync(runtimePrompt, 'utf8');
+    expect(runtimeContent, 'runtime prompt must document degraded-feeds mode').toContain('degraded-feeds');
+    expect(runtimeContent, 'runtime prompt must document degraded-imf mode').toContain('degraded-imf');
+    expect(runtimeContent, 'runtime prompt must document degraded-voting mode').toContain('degraded-voting');
+    expect(runtimeContent, 'runtime prompt must document minimal mode').toContain('minimal');
+  });
 });

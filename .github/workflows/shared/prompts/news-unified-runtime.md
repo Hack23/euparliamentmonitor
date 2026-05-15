@@ -72,12 +72,27 @@ immediately. Prefer ≤ 3 `track_legislation` deep-fetches and ≤ 2
 supplementary feed/search calls for slugs where pre-fetched coverage is
 complete.
 
-### Rule 3 — Stage B write-first (single-pass writes, no check-then-extend)
+If a 6th EP MCP call is genuinely required (e.g. a required deep-fetch that
+has no pre-fetched equivalent), log an explicit acknowledged exception:
+```
+# INVOCATION_CAP_ACKNOWLEDGED: 6th EP MCP call required for <reason>
+```
+This exception must appear in `intelligence/mcp-reliability-audit.md`.
 
-Before writing any artifact:
+### Rule 3 — Stage B write-first with thresholds cache (no re-reads per artifact)
 
-1. Read `analysis/methodologies/reference-quality-thresholds.json` **once**.
-   Cache the relevant floor lines in a single bash variable assignment.
+At the **start of Stage B** (before writing any artifact), call:
+
+```bash
+bash scripts/cache-analysis-thresholds.sh "${ANALYSIS_DIR}" "<article-type-slug>"
+```
+
+This writes `${ANALYSIS_DIR}/runs/thresholds-cache.json` — a filtered snapshot
+of `analysis/methodologies/reference-quality-thresholds.json` for the active
+article type. Then, for each artifact:
+
+1. Read the thresholds from the **cache file** (`runs/thresholds-cache.json`)
+   — not from `reference-quality-thresholds.json` directly.
 2. Read the matching template from `analysis/templates/<artifact>.md` **once**.
 3. Pre-size each artifact write to meet the floor on the **first** attempt.
 
@@ -86,7 +101,67 @@ of cap-exhaustion on long runs):
 
 - Write short stub → `wc -l` → realize it's short → `cat >> file` extend.
 - Repeated `wc -l` calls across artifacts to verify floors after writing.
-- Re-reading `reference-quality-thresholds.json` per artifact.
+- Re-reading `reference-quality-thresholds.json` per artifact (use the cache).
 
 Pass 2 (deepening) MUST still happen, but it MUST be a single coherent
 extension pass per artifact — never a discovery + fix loop.
+
+## 🚦 Data-Mode Declaration (Stage A → manifest.json → Stage C)
+
+At the end of Stage A, declare the run's data availability mode. This flows
+into `manifest.json` and then into `npm run validate-analysis` (Stage C),
+which auto-adjusts per-artifact line floors rather than relying on agent
+self-declaration.
+
+### Step 1 — Read prefetch-status.json
+
+The pre-agent step wrote `${ANALYSIS_DIR}/data/prefetch-status.json` with:
+```json
+{
+  "prefetchMode": "full|degraded-feeds|minimal",
+  "fetched": N,
+  "placeholders": M,
+  "total": T
+}
+```
+
+Read this file at Stage A start to understand EP API availability.
+
+### Step 2 — Determine the final data mode
+
+Combine the prefetch result with live Stage A probes:
+
+| Condition | dataMode | Line-floor factor |
+|-----------|----------|-------------------|
+| All feeds fetched + IMF OK + voting OK | `full` | 1.00 |
+| 1+ feeds unavailable (after 3 retries) | `degraded-feeds` | 0.80 |
+| IMF data unavailable / missing | `degraded-imf` | 0.85 |
+| EP roll-call data missing (0 voting records) | `degraded-voting` | 0.85 |
+| Only article title/metadata available | `title-only` | 0.75 |
+| Most EP feeds unavailable + IMF absent | `minimal` | 0.65 |
+
+When multiple degradations apply simultaneously, **pick the single most-severe
+single-axis mode whose trigger independently applies**. Never compose modes —
+e.g. if feeds are degraded AND IMF is unavailable, declare `degraded-feeds`
+(0.80) because its trigger ("1+ feeds unavailable") independently applies and
+has a lower factor than `degraded-imf` (0.85). Only choose `minimal` (0.65)
+when its own trigger ("most EP feeds unavailable + IMF absent") independently
+applies as a single observed condition; do not infer `minimal` by combining
+two single-axis degradations.
+
+### Step 3 — Write dataMode to manifest.json
+
+At the end of Stage A, add `dataMode` to `manifest.json`:
+```json
+{
+  "articleType": "<slug>",
+  "dataMode": "degraded-feeds",
+  ...
+}
+```
+
+Stage C (`npm run validate-analysis "${ANALYSIS_DIR}"`) reads `manifest.dataMode`
+and applies the corresponding factor to all per-artifact line floors automatically.
+Structural checks (Mermaid diagrams, WEP bands, Admiralty grades, SAT ≥ 10) are
+**never** reduced regardless of data mode.
+

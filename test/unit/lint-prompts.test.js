@@ -385,4 +385,50 @@ describe('scripts/lint-prompts.js', () => {
     const result = runLint(tmpDir);
     expect(result.code).toBe(0);
   });
+
+  it('flags inline threshold reads (per-artifact direct read of reference-quality-thresholds.json)', () => {
+    writeWorkflow(
+      'news-bad-thresholds.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n  - shared/mcp/news-mcp-servers.md\n\n' +
+        'Before each artifact, read reference-quality-thresholds.json to get the floor.\n' +
+        'Call safeoutputs___create_pull_request at the end.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(1);
+    expect(result.stderr.toLowerCase()).toContain('reference-quality-thresholds.json');
+  });
+
+  it('allows plain cross-references to reference-quality-thresholds.json (no verb)', () => {
+    writeWorkflow(
+      'news-ok-thresholds-ref.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n  - shared/mcp/news-mcp-servers.md\n\n' +
+        'See analysis/methodologies/reference-quality-thresholds.json for floor definitions.\n' +
+        'Use the cache (runs/thresholds-cache.json) for per-artifact reads.\n' +
+        'Call safeoutputs___create_pull_request at the end.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(0);
+    expect(result.stdout).toContain('0 violations');
+  });
+
+  it('allows negated guidance about reference-quality-thresholds.json (do not / never / don\'t / avoid)', () => {
+    // Regression test for the lint-prompts.js banned-pattern false-positive
+    // raised in PR #1935 review: phrases like "Never load …", "Don't read …",
+    // and "Avoid opening …" must NOT trip the per-artifact-direct-read rule.
+    writeWorkflow(
+      'news-ok-negated.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n  - shared/mcp/news-mcp-servers.md\n\n' +
+        "Don't read reference-quality-thresholds.json directly — use the cache.\n" +
+        'Never load reference-quality-thresholds.json per artifact; read runs/thresholds-cache.json instead.\n' +
+        'Do not open reference-quality-thresholds.json from inside the artifact loop.\n' +
+        'Avoid opening reference-quality-thresholds.json in Pass 2.\n' +
+        'Call safeoutputs___create_pull_request at the end.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(0);
+    expect(result.stdout).toContain('0 violations');
+  });
 });

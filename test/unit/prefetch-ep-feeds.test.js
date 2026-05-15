@@ -89,24 +89,79 @@ describe('scripts/prefetch-ep-feeds.sh', () => {
     expect(scriptSource).toMatch(/events\)\s*printf '%s' "\$TIMEOUT_EVENTS"/);
   });
 
+  it('declares MAX_RETRIES=3 for 4 total attempts with backoff delays', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    // MAX_RETRIES=3 means 1 initial + 3 retries = 4 total attempts.
+    // The constant is authoritative — fetch_with_retry reads it via the
+    // case statement (drift-guarded by the loop test below).
+    expect(scriptSource).toMatch(/MAX_RETRIES=3\b/);
+    expect(scriptSource).toMatch(/RETRY_DELAY_1=5\b/);
+    expect(scriptSource).toMatch(/RETRY_DELAY_2=15\b/);
+    expect(scriptSource).toMatch(/RETRY_DELAY_3=45\b/);
+  });
+
+  it('writes prefetch-status.json after the feed loop', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    expect(scriptSource).toContain('prefetch-status.json');
+    expect(scriptSource).toContain('"prefetchMode"');
+    expect(scriptSource).toContain('"fetched"');
+    expect(scriptSource).toContain('"placeholders"');
+    expect(scriptSource).toContain('"source":"prefetch-ep-feeds.sh"');
+  });
+
+  it('sets PREFETCH_DATA_MODE=full when all feeds succeed', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    expect(scriptSource).toContain('PREFETCH_DATA_MODE="full"');
+  });
+
+  it('sets PREFETCH_DATA_MODE=degraded-feeds when some feeds fail', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    expect(scriptSource).toContain('PREFETCH_DATA_MODE="degraded-feeds"');
+  });
+
+  it('sets PREFETCH_DATA_MODE=minimal when all feeds fail', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    expect(scriptSource).toContain('PREFETCH_DATA_MODE="minimal"');
+  });
+
+  it('exports PREFETCH_DATA_MODE to GITHUB_ENV', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    expect(scriptSource).toContain('PREFETCH_DATA_MODE=${PREFETCH_DATA_MODE}');
+  });
+
+  it('prints a loud DEGRADED message to stderr when all retries exhausted', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    expect(scriptSource).toContain('DEGRADED:');
+    // Message must go to stderr (>&2)
+    expect(scriptSource).toMatch(/DEGRADED:[^`\n]*>&2/);
+  });
+
   // ---------------------------------------------------------------------------
   // Retry / backoff policy tests (source-code drift guards)
   // ---------------------------------------------------------------------------
 
   it('implements retry with exponential-backoff delays (5s / 15s / 45s)', () => {
     const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
-    // The fetch_with_retry function must have the three delay values in order
-    expect(scriptSource).toContain('1) delay=5');
-    expect(scriptSource).toContain('2) delay=15');
-    // Third delay (default case) must be 45
-    expect(scriptSource).toContain('*) delay=45');
+    // The retry constants are declared once at top of script and referenced
+    // by fetch_with_retry via the case statement. Asserting on both layers
+    // ensures the two stay in sync (the original drift-guard regression
+    // from PR #1935 review).
+    expect(scriptSource).toMatch(/RETRY_DELAY_1=5\b/);
+    expect(scriptSource).toMatch(/RETRY_DELAY_2=15\b/);
+    expect(scriptSource).toMatch(/RETRY_DELAY_3=45\b/);
+    expect(scriptSource).toContain('1) delay="$RETRY_DELAY_1"');
+    expect(scriptSource).toContain('2) delay="$RETRY_DELAY_2"');
+    expect(scriptSource).toContain('*) delay="$RETRY_DELAY_3"');
   });
 
-  it('has fetch_with_retry function that loops up to 3 retries', () => {
+  it('has fetch_with_retry function that loops MAX_RETRIES+1 attempts', () => {
     const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
     expect(scriptSource).toContain('fetch_with_retry');
-    // The loop condition checks attempt <= 3
-    expect(scriptSource).toContain('"$attempt" -le 3');
+    // MAX_RETRIES=3 → 4 total attempts (1 initial + 3 retries).
+    // fetch_with_retry must reference the constant (not a hard-coded
+    // literal) so updating MAX_RETRIES is authoritative.
+    expect(scriptSource).toMatch(/MAX_RETRIES=3\b/);
+    expect(scriptSource).toContain('"$attempt" -le "$MAX_RETRIES"');
   });
 
   it('implements EP API readiness probe before fetching feeds', () => {
@@ -142,9 +197,14 @@ describe('scripts/prefetch-ep-feeds.sh', () => {
     source = source.replace('TIMEOUT_EVENTS=120', 'TIMEOUT_EVENTS=1');
     source = source.replace('TIMEOUT_DEFAULT=60', 'TIMEOUT_DEFAULT=1');
     // Collapse retry waits so 3 retries finish in ~0s rather than ~65s.
-    source = source.replace('1) delay=5', '1) delay=0');
-    source = source.replace('2) delay=15', '2) delay=0');
-    source = source.replace('*) delay=45', '*) delay=0');
+    // The retry constants are authoritative — fetch_with_retry reads them
+    // via the case statement (RETRY_DELAY_1/2/3), so overriding the
+    // declarations is enough. We use replaceAll because each constant name
+    // appears twice in the file (once in the header comment and once in the
+    // assignment), and plain replace would only match the first occurrence.
+    source = source.replaceAll('RETRY_DELAY_1=5', 'RETRY_DELAY_1=0');
+    source = source.replaceAll('RETRY_DELAY_2=15', 'RETRY_DELAY_2=0');
+    source = source.replaceAll('RETRY_DELAY_3=45', 'RETRY_DELAY_3=0');
     fs.writeFileSync(localScript, source);
     fs.chmodSync(localScript, 0o755);
 

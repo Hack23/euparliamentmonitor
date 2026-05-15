@@ -250,7 +250,7 @@ PREFLIGHT_ATTESTATION: read N/N artifacts from ${ANALYSIS_DIR} (LINES lines, FRA
 
 ### Stage C — Completeness Gate (Ref: 03) — **BLOCKING**
 
-Read every manifest-listed artifact and compare it with `reference-quality-thresholds.json`, the artifact catalog, and the IMF/SEO rules in prompts 01, 03, and 04. Emit exactly one gate line:
+Run `npm run validate-analysis "${ANALYSIS_DIR}"` — it compares every manifest-listed artifact against the thresholds cache (`runs/thresholds-cache.json`, written by `cache-analysis-thresholds.sh` at Stage B start), the artifact catalog, and the IMF/SEO rules in prompts 01, 03, and 04. Emit exactly one gate line:
 
 ```text
 STAGE_C_GATE: GREEN articleType=${ARTICLE_TYPE_SLUG} artifacts=<N> lines=<L> imf=<pass|not_required>

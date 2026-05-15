@@ -1,28 +1,29 @@
 {
   "version": "1.6.0",
-  "description": "Per-artifact minimum line-count floors used by scripts/validate-analysis-completeness.js to enforce Rule 22 (Per-Artifact Depth Floors) of analysis/methodologies/ai-driven-analysis-guide.md. Values are derived from the Run 184 reference benchmark (analysis/daily/2026-04-18/breaking-run184/) minus a 10% tolerance, rounded down to the nearest 5 lines. A file below its threshold MUST trigger Pass 2; it MUST NOT be shipped with a note. When an articleType × relativePath entry is absent the validator falls back to the CLI --min-lines flag (DEFAULT_MIN_LINES = 30). When a per-artifact entry is present the effective floor is max(perArtifact, --min-lines), so --min-lines can raise but never lower a configured floor.",
+  "description": "Per-artifact minimum line-count floors used by scripts/validate-analysis-completeness.js to enforce Rule 22 (Per-Artifact Depth Floors) of analysis/methodologies/ai-driven-analysis-guide.md. Values are derived from the Run 184 reference benchmark (analysis/daily/2026-04-18/breaking-run184/) minus a 10% tolerance, rounded down to the nearest 5 lines. A file below its threshold MUST trigger Pass 2; it MUST NOT be shipped with a note. When an articleType \u00d7 relativePath entry is absent the validator falls back to the CLI --min-lines flag (DEFAULT_MIN_LINES = 30). When a per-artifact entry is present the effective floor is max(perArtifact, --min-lines), so --min-lines can raise but never lower a configured floor.",
   "schemaChangelog": {
-    "1.6.0": "Additive (two changes): (1) degradedFloorFactors section formalises per-dataMode line-floor reduction multipliers that were previously only documented in code comments. Adds floors for the four new degraded-mode and Stage-A templates: data-availability-assessment.md (Stage A, required for every run), intelligence/voting-patterns.degraded.md (degraded-voting variant), intelligence/economic-context.fallback.md (degraded-imf variant), intelligence/procedures-proxy.md (procedures-feed staleness companion). These templates are anchored in analysis/templates/intelligence/ following the <artifact>.<variant>.md naming convention. Template variant selection is driven by manifest.dataMode, which is set by the Stage-A data-availability-assessment.md artifact. SCOPE NOTE: the validator (scripts/validate-analysis-completeness.js) consumes only top-level thresholds[articleType][relativePath] and applies the dataMode reduction multiplier hard-coded in DATA_MODE_REDUCTION. The degradedFloorFactors sub-objects perTemplateOverrides and stageAFloors are informational human-facing metadata only — they are NOT read by the validator. Enforced floors for the four new templates are duplicated into the per-article-type thresholds[] blocks below. COUPLING NOTE: degraded variant artifacts (*.degraded.md, *.fallback.md) are configured at the same base floor as their full-data counterparts in thresholds[]. The 0.85× reduction is ONLY applied when manifest.dataMode matches the variant's applicableDataMode. If a degraded variant is somehow committed under dataMode='full' (or dataMode is absent), the full base floor applies and will likely cause a Stage-C false fail. Agents MUST set manifest.dataMode via the Stage-A data-availability-assessment before producing degraded variant artifacts. The validator uses Math.floor(baseFloor * factor) — e.g. floor(150 * 0.85) = 127 for breaking voting-patterns. (2) requiredSATs field added to tradecraftQualitySignals. Maps each artifact relativePath to its mandatory Structured Analytic Techniques drawn from per-artifact-methodologies.md **Mandatory SATs.** lines. Checked in ADVISORY mode by scripts/validate-analysis-completeness.js (--sat-check flag); does not block Stage C on legacy artifacts. New methodology pages source-triangulation.md, confidence-calibration.md, and voter-segmentation-methodology.md added 2026-05-14.",
+    "1.6.0": "Additive (two changes): (1) degradedFloorFactors section formalises per-dataMode line-floor reduction multipliers that were previously only documented in code comments. Adds floors for the four new degraded-mode and Stage-A templates: data-availability-assessment.md (Stage A, required for every run), intelligence/voting-patterns.degraded.md (degraded-voting variant), intelligence/economic-context.fallback.md (degraded-imf variant), intelligence/procedures-proxy.md (procedures-feed staleness companion). These templates are anchored in analysis/templates/intelligence/ following the <artifact>.<variant>.md naming convention. Template variant selection is driven by manifest.dataMode, which is set by the Stage-A data-availability-assessment.md artifact. SCOPE NOTE: the validator (scripts/validate-analysis-completeness.js) consumes only top-level thresholds[articleType][relativePath] and applies the dataMode reduction multiplier hard-coded in DATA_MODE_REDUCTION. The degradedFloorFactors sub-objects perTemplateOverrides and stageAFloors are informational human-facing metadata only \u2014 they are NOT read by the validator. Enforced floors for the four new templates are duplicated into the per-article-type thresholds[] blocks below. COUPLING NOTE: degraded variant artifacts (*.degraded.md, *.fallback.md) are configured at the same base floor as their full-data counterparts in thresholds[]. The 0.85\u00d7 reduction is ONLY applied when manifest.dataMode matches the variant's applicableDataMode. If a degraded variant is somehow committed under dataMode='full' (or dataMode is absent), the full base floor applies and will likely cause a Stage-C false fail. Agents MUST set manifest.dataMode via the Stage-A data-availability-assessment before producing degraded variant artifacts. The validator uses Math.floor(baseFloor * factor) \u2014 e.g. floor(150 * 0.85) = 127 for breaking voting-patterns. (2) requiredSATs field added to tradecraftQualitySignals. Maps each artifact relativePath to its mandatory Structured Analytic Techniques drawn from per-artifact-methodologies.md **Mandatory SATs.** lines. Checked in ADVISORY mode by scripts/validate-analysis-completeness.js (--sat-check flag); does not block Stage C on legacy artifacts. New methodology pages source-triangulation.md, confidence-calibration.md, and voter-segmentation-methodology.md added 2026-05-14. (3) degraded-feeds dataMode added (reduction factor 0.80). Triggered when scripts/prefetch-ep-feeds.sh writes unavailable-envelope placeholders for 1+ feeds after 3 retry attempts. prefetch-status.json now written to ${ANALYSIS_DIR}/data/ with prefetchMode field (full / degraded-feeds / minimal). Stage A agents copy prefetchMode directly to manifest.dataMode. See .github/workflows/shared/prompts/news-unified-runtime.md \u00a7Data-Mode Declaration.",
     "1.4.0": "Additive: dataMode support in manifest.json. Valid values: full (default), title-only, degraded-imf, degraded-voting, minimal. When dataMode != full, the validator applies a line-floor reduction factor (title-only: 0.75, degraded-imf/degraded-voting: 0.85, minimal: 0.65) so structurally constrained runs can pass Stage C. Structural checks (mermaid, WEP, Admiralty, SATs, requiredSections) remain unchanged.",
-    "1.3.0": "Additive: forward-projection.md line floors added for week-ahead (80) and month-ahead (120) to match §9.4 stronger Stage-C gate.",
+    "1.3.0": "Additive: forward-projection.md line floors added for week-ahead (80) and month-ahead (120) to match \u00a79.4 stronger Stage-C gate.",
     "1.2.0": "Additive: introduce thresholds for the four new long-horizon and electoral article types (quarter-ahead, quarter-in-review, year-ahead, year-in-review, term-outlook, election-cycle). Adds line floors for the eight new analysis artifacts (forward-projection, legislative-pipeline-forecast, parliamentary-calendar-projection, term-arc, seat-projection, mandate-fulfilment-scorecard, presidency-trio-context, commission-wp-alignment).",
     "1.1.0": "Additive: manifest.json now supports artifactSources record keyed by relativePath. Values are \"fresh\" or \"carry-forward-from:<runId>\". scripts/aggregator/prior-run-diff.js emits the prior-run merge plan; Stage B (workflow/agent) writes artifactSources to manifest.json from that plan when ENABLE_PRIOR_RUN_MERGE=true. Stage C validates all artifacts regardless of source value.",
     "1.0.0": "Initial release."
   },
   "degradedFloorFactors": {
-    "note": "Per-dataMode line-floor reduction multipliers. The factor values (full/degraded-voting/degraded-imf/title-only/minimal) mirror the DATA_MODE_REDUCTION constant in scripts/validate-analysis-completeness.js and document the validator's behaviour: when manifest.dataMode is set to a non-full value the validator computes effective floor = floor(thresholds[articleType][relativePath] * factor). Structural checks (mermaid, WEP, Admiralty, SATs, requiredSections) are NEVER reduced regardless of dataMode. NOTE: The validator does NOT read this JSON section — the factors are hard-coded in DATA_MODE_REDUCTION. This block is a human-facing documentation mirror so contributors can see the reduction policy without reading the validator source. perTemplateOverrides and stageAFloors below are likewise informational metadata only; the enforced floors are duplicated into the per-article-type thresholds[] blocks below.",
+    "note": "Per-dataMode line-floor reduction multipliers. The factor values (full/degraded-voting/degraded-imf/title-only/minimal) mirror the DATA_MODE_REDUCTION constant in scripts/validate-analysis-completeness.js and document the validator's behaviour: when manifest.dataMode is set to a non-full value the validator computes effective floor = floor(thresholds[articleType][relativePath] * factor). Structural checks (mermaid, WEP, Admiralty, SATs, requiredSections) are NEVER reduced regardless of dataMode. NOTE: The validator does NOT read this JSON section \u2014 the factors are hard-coded in DATA_MODE_REDUCTION. This block is a human-facing documentation mirror so contributors can see the reduction policy without reading the validator source. perTemplateOverrides and stageAFloors below are likewise informational metadata only; the enforced floors are duplicated into the per-article-type thresholds[] blocks below.",
     "full": 1.0,
     "degraded-voting": 0.85,
     "degraded-imf": 0.85,
+    "degraded-feeds": 0.8,
     "title-only": 0.75,
     "minimal": 0.65,
     "perTemplateOverrides": {
-      "note": "INFORMATIONAL METADATA ONLY — NOT read by the validator. These entries document each variant template's frontmatter degradedFloorFactor field and the dataMode that selects them. The enforced line floors live in the per-article-type thresholds[] blocks below. Future work may wire this map into the validator so a per-template override can supersede the dataMode-level factor; until then, this is human-facing documentation. IMPORTANT COUPLING: degraded variant artifacts MUST only be produced when manifest.dataMode matches their applicableDataMode. If produced under dataMode='full', the validator applies no reduction and the full base floor (e.g. 150 for breaking voting-patterns) will be enforced, causing a false Stage-C fail.",
+      "note": "INFORMATIONAL METADATA ONLY \u2014 NOT read by the validator. These entries document each variant template's frontmatter degradedFloorFactor field and the dataMode that selects them. The enforced line floors live in the per-article-type thresholds[] blocks below. Future work may wire this map into the validator so a per-template override can supersede the dataMode-level factor; until then, this is human-facing documentation. IMPORTANT COUPLING: degraded variant artifacts MUST only be produced when manifest.dataMode matches their applicableDataMode. If produced under dataMode='full', the validator applies no reduction and the full base floor (e.g. 150 for breaking voting-patterns) will be enforced, causing a false Stage-C fail.",
       "intelligence/voting-patterns.degraded.md": {
         "variantOf": "intelligence/voting-patterns.md",
         "applicableDataMode": "degraded-voting",
         "degradedFloorFactor": 0.85,
-        "note": "Degraded-mode voting patterns variant. Used when roll-call vote data is unavailable or published with a lag exceeding 4 weeks. All confidence labels in §§2–6 capped at 🟡 MEDIUM."
+        "note": "Degraded-mode voting patterns variant. Used when roll-call vote data is unavailable or published with a lag exceeding 4 weeks. All confidence labels in \u00a7\u00a72\u20136 capped at \ud83d\udfe1 MEDIUM."
       },
       "intelligence/economic-context.fallback.md": {
         "variantOf": "intelligence/economic-context.md",
@@ -34,23 +35,23 @@
         "variantOf": null,
         "applicableDataMode": "all",
         "degradedFloorFactor": 1.0,
-        "note": "Stage-A triage artifact required for every article-generating run. Not a degraded-mode variant — it is the source of truth for manifest.dataMode selection. Floor applies at full factor regardless of dataMode."
+        "note": "Stage-A triage artifact required for every article-generating run. Not a degraded-mode variant \u2014 it is the source of truth for manifest.dataMode selection. Floor applies at full factor regardless of dataMode."
       },
       "intelligence/procedures-proxy.md": {
         "variantOf": null,
         "applicableDataMode": "all",
         "degradedFloorFactor": 1.0,
-        "note": "Procedures-feed staleness companion artifact. Produced whenever get_procedures_feed returns a STALENESS_WARNING. Not a degraded-mode variant — it is a mitigation record. Floor applies at full factor."
+        "note": "Procedures-feed staleness companion artifact. Produced whenever get_procedures_feed returns a STALENESS_WARNING. Not a degraded-mode variant \u2014 it is a mitigation record. Floor applies at full factor."
       }
     },
     "stageAFloors": {
-      "note": "INFORMATIONAL METADATA ONLY — NOT read by the validator. Stage-A artifacts apply uniformly across all article types, so their floors are documented here as a single canonical reference and ALSO duplicated into every per-article-type thresholds[] block below (which is what the validator actually reads). Keep both copies in sync when adjusting floors.",
+      "note": "INFORMATIONAL METADATA ONLY \u2014 NOT read by the validator. Stage-A artifacts apply uniformly across all article types, so their floors are documented here as a single canonical reference and ALSO duplicated into every per-article-type thresholds[] block below (which is what the validator actually reads). Keep both copies in sync when adjusting floors.",
       "data-availability-assessment.md": 80,
       "intelligence/procedures-proxy.md": 60
     }
   },
   "tradecraftQualitySignals": {
-    "note": "ADDITIVE quality signals — NOT enforced by the line-count validator. They represent content-quality expectations that Pass-2 reviewers must check manually. Every probabilistic artifact MUST also comply with osint-tradecraft-standards.md: (1) WEP band + time horizon on every headline judgement, (2) Admiralty grade on every external source, (3) confidence-in-evidence tracked separately from WEP probability, (4) >= 10 SATs applied per run (attested in methodology-reflection.md §12). Non-compliant artifacts trigger a Pass-2 rewrite even if the line-count floor is met.",
+    "note": "ADDITIVE quality signals \u2014 NOT enforced by the line-count validator. They represent content-quality expectations that Pass-2 reviewers must check manually. Every probabilistic artifact MUST also comply with osint-tradecraft-standards.md: (1) WEP band + time horizon on every headline judgement, (2) Admiralty grade on every external source, (3) confidence-in-evidence tracked separately from WEP probability, (4) >= 10 SATs applied per run (attested in methodology-reflection.md \u00a712). Non-compliant artifacts trigger a Pass-2 rewrite even if the line-count floor is met.",
     "wepBandRequired": [
       "executive-brief.md",
       "intelligence/synthesis-summary.md",
@@ -86,36 +87,127 @@
     "satDocumentationRequired": [
       "intelligence/methodology-reflection.md"
     ],
-    "requiredSATsNote": "ADVISORY mode — these SAT citations are checked by scripts/validate-analysis-completeness.js (--sat-check flag) but do NOT block Stage C on legacy artifacts. For current runs, a missing SAT citation triggers a Pass-2 action item in methodology-reflection.md, not a build failure. Each value is the array of SAT names that MUST be mentioned in the artifact (case-insensitive substring match on the SAT name). Source: per-artifact-methodologies.md **Mandatory SATs.** lines v1.5.",
+    "requiredSATsNote": "ADVISORY mode \u2014 these SAT citations are checked by scripts/validate-analysis-completeness.js (--sat-check flag) but do NOT block Stage C on legacy artifacts. For current runs, a missing SAT citation triggers a Pass-2 action item in methodology-reflection.md, not a build failure. Each value is the array of SAT names that MUST be mentioned in the artifact (case-insensitive substring match on the SAT name). Source: per-artifact-methodologies.md **Mandatory SATs.** lines v1.5.",
     "requiredSATs": {
-      "executive-brief.md": ["Key Assumptions Check", "Quality of Information Check"],
-      "intelligence/synthesis-summary.md": ["Key Assumptions Check", "Quality of Information Check", "Scenario Analysis"],
-      "intelligence/stakeholder-map.md": ["Stakeholder Mapping", "ACH"],
-      "intelligence/scenario-forecast.md": ["Scenario Analysis", "Pre-Mortem", "Key Assumptions Check", "Indicators"],
-      "intelligence/pestle-analysis.md": ["PESTLE", "Force-Field Analysis"],
-      "intelligence/threat-model.md": ["Key Assumptions Check", "Red Team", "ACH"],
-      "intelligence/coalition-dynamics.md": ["ACH", "Indicators"],
-      "intelligence/cross-run-diff.md": ["Bayesian Update", "Quality of Information Check"],
-      "intelligence/economic-context.md": ["Quality of Information Check", "Bayesian Update"],
-      "intelligence/historical-baseline.md": ["Bayesian Update", "Key Assumptions Check"],
-      "intelligence/significance-scoring.md": ["Key Assumptions Check", "Competing Hypotheses Matrix"],
-      "intelligence/political-threat-landscape.md": ["Key Assumptions Check", "Red Team", "Indicators"],
-      "intelligence/wildcards-blackswans.md": ["High-Impact", "Indicators", "What-If Analysis"],
-      "intelligence/mcp-reliability-audit.md": ["Quality of Information Check", "Red Team"],
-      "intelligence/reference-analysis-quality.md": ["Quality of Information Check", "Key Assumptions Check"],
-      "intelligence/voting-patterns.md": ["ACH", "Bayesian Update"],
-      "intelligence/cross-session-intelligence.md": ["Bayesian Update", "Indicators"],
-      "classification/actor-mapping.md": ["Stakeholder Mapping", "ACH"],
-      "classification/forces-analysis.md": ["Force-Field Analysis", "Key Assumptions Check"],
-      "classification/impact-matrix.md": ["Stakeholder Mapping", "What-If Analysis"],
-      "risk-scoring/risk-matrix.md": ["Key Assumptions Check", "ACH", "What-If Analysis"],
-      "risk-scoring/quantitative-swot.md": ["SWOT", "Bayesian Update"],
-      "risk-scoring/political-capital-risk.md": ["Stakeholder Mapping", "Key Assumptions Check"],
-      "risk-scoring/legislative-velocity-risk.md": ["Indicators", "Key Assumptions Check"],
-      "threat-assessment/consequence-trees.md": ["What-If Analysis", "High-Impact"],
-      "threat-assessment/legislative-disruption.md": ["What-If Analysis", "Red Team"],
-      "threat-assessment/actor-threat-profiles.md": ["Red Team", "Key Assumptions Check"],
-      "extended/voter-segmentation.md": ["Stakeholder Mapping", "Key Assumptions Check"]
+      "executive-brief.md": [
+        "Key Assumptions Check",
+        "Quality of Information Check"
+      ],
+      "intelligence/synthesis-summary.md": [
+        "Key Assumptions Check",
+        "Quality of Information Check",
+        "Scenario Analysis"
+      ],
+      "intelligence/stakeholder-map.md": [
+        "Stakeholder Mapping",
+        "ACH"
+      ],
+      "intelligence/scenario-forecast.md": [
+        "Scenario Analysis",
+        "Pre-Mortem",
+        "Key Assumptions Check",
+        "Indicators"
+      ],
+      "intelligence/pestle-analysis.md": [
+        "PESTLE",
+        "Force-Field Analysis"
+      ],
+      "intelligence/threat-model.md": [
+        "Key Assumptions Check",
+        "Red Team",
+        "ACH"
+      ],
+      "intelligence/coalition-dynamics.md": [
+        "ACH",
+        "Indicators"
+      ],
+      "intelligence/cross-run-diff.md": [
+        "Bayesian Update",
+        "Quality of Information Check"
+      ],
+      "intelligence/economic-context.md": [
+        "Quality of Information Check",
+        "Bayesian Update"
+      ],
+      "intelligence/historical-baseline.md": [
+        "Bayesian Update",
+        "Key Assumptions Check"
+      ],
+      "intelligence/significance-scoring.md": [
+        "Key Assumptions Check",
+        "Competing Hypotheses Matrix"
+      ],
+      "intelligence/political-threat-landscape.md": [
+        "Key Assumptions Check",
+        "Red Team",
+        "Indicators"
+      ],
+      "intelligence/wildcards-blackswans.md": [
+        "High-Impact",
+        "Indicators",
+        "What-If Analysis"
+      ],
+      "intelligence/mcp-reliability-audit.md": [
+        "Quality of Information Check",
+        "Red Team"
+      ],
+      "intelligence/reference-analysis-quality.md": [
+        "Quality of Information Check",
+        "Key Assumptions Check"
+      ],
+      "intelligence/voting-patterns.md": [
+        "ACH",
+        "Bayesian Update"
+      ],
+      "intelligence/cross-session-intelligence.md": [
+        "Bayesian Update",
+        "Indicators"
+      ],
+      "classification/actor-mapping.md": [
+        "Stakeholder Mapping",
+        "ACH"
+      ],
+      "classification/forces-analysis.md": [
+        "Force-Field Analysis",
+        "Key Assumptions Check"
+      ],
+      "classification/impact-matrix.md": [
+        "Stakeholder Mapping",
+        "What-If Analysis"
+      ],
+      "risk-scoring/risk-matrix.md": [
+        "Key Assumptions Check",
+        "ACH",
+        "What-If Analysis"
+      ],
+      "risk-scoring/quantitative-swot.md": [
+        "SWOT",
+        "Bayesian Update"
+      ],
+      "risk-scoring/political-capital-risk.md": [
+        "Stakeholder Mapping",
+        "Key Assumptions Check"
+      ],
+      "risk-scoring/legislative-velocity-risk.md": [
+        "Indicators",
+        "Key Assumptions Check"
+      ],
+      "threat-assessment/consequence-trees.md": [
+        "What-If Analysis",
+        "High-Impact"
+      ],
+      "threat-assessment/legislative-disruption.md": [
+        "What-If Analysis",
+        "Red Team"
+      ],
+      "threat-assessment/actor-threat-profiles.md": [
+        "Red Team",
+        "Key Assumptions Check"
+      ],
+      "extended/voter-segmentation.md": [
+        "Stakeholder Mapping",
+        "Key Assumptions Check"
+      ]
     }
   },
   "referenceBenchmark": {
@@ -132,7 +224,7 @@
       ],
       "minScenarios": 6,
       "artifact": "intelligence/scenario-forecast.md",
-      "note": "Enforced by scripts/validate-analysis-completeness.js countScenarios(). Counts all headings matching /^###\\s+Scenario\\s+[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*\\s*[:—]/gm in the artifact (supports hyphenated IDs like A-24; underscores excluded). Activated for manifest.articleType values listed in articleTypes above."
+      "note": "Enforced by scripts/validate-analysis-completeness.js countScenarios(). Counts all headings matching /^###\\s+Scenario\\s+[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*\\s*[:\u2014]/gm in the artifact (supports hyphenated IDs like A-24; underscores excluded). Activated for manifest.articleType values listed in articleTypes above."
     },
     "mermaidRequired": [
       "classification/impact-matrix.md",
