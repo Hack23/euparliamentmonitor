@@ -95,12 +95,15 @@ Before any analysis, read these documents in order. This is expected to take 4�
 | Priority | Document | What it gives you |
 |:---:|---|---|
 | P1 | [`artifact-catalog.md`](artifact-catalog.md) | Master map of every artifact this run will produce |
-| P1 | [`per-artifact-methodologies.md`](per-artifact-methodologies.md) | Construction rules for each artifact |
+| P1 | [`per-artifact-methodologies.md`](per-artifact-methodologies.md) | Construction rules for each artifact — includes `**Mandatory SATs.**` per artifact |
+| P1 | [`source-triangulation.md`](source-triangulation.md) | **NEW** 4-step fallback ladder: when EP MCP fails, which backup sources apply and what confidence label to use |
+| P1 | [`confidence-calibration.md`](confidence-calibration.md) | **NEW** Unified 🟢/🟡/🔴 + WEP + Admiralty table — read before writing any confidence label |
 | P1 | [`political-swot-framework.md`](political-swot-framework.md) | Evidence hierarchy, confidence levels, TOWS |
 | P1 | [`political-risk-methodology.md`](political-risk-methodology.md) | 5×5 Likelihood × Impact, Bayesian update |
 | P1 | [`political-threat-framework.md`](political-threat-framework.md) | Threat Landscape, Diamond, Attack Trees, Kill Chain |
 | P1 | [`political-classification-guide.md`](political-classification-guide.md) | 7-dimension event classification, significance rubric |
 | P2 | [`political-style-guide.md`](political-style-guide.md) | Writing standards, evidence density, depth levels |
+| P2 | [`voter-segmentation-methodology.md`](voter-segmentation-methodology.md) | **NEW** Eurobarometer integration and structural-fallback rules — required when `extended/voter-segmentation.md` is in scope |
 | P2 | [`imf-indicator-mapping.md`](imf-indicator-mapping.md) (primary economic) + [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) (non-economic) | Economic-context indicator selection
 | P2 | All nine templates in [`../templates/`](../templates/README.md) | Output shapes to fill with analysis |
 
@@ -198,11 +201,13 @@ Turn quantified risk into forward-looking intelligence.
 2. Write `intelligence/political-threat-landscape.md` (the 6-dimension Threat Landscape view using the 5-framework integrated methodology from `political-threat-framework.md`). For threat-heavy article types, also expand into `threat-assessment/actor-threat-profiles.md`, `threat-assessment/consequence-trees.md`, and `threat-assessment/legislative-disruption.md`.
 3. Write `intelligence/scenario-forecast.md` — ≥3 probability-weighted scenarios (baseline → branching `flowchart TD` in green / orange / red) with early-warning indicators and date-bounded triggers.
 4. Write `intelligence/pestle-analysis.md` — six-dimension (P·E·S·T·L·E) scan with pressure ratings.
-5. Write `intelligence/economic-context.md` using **IMF** data as the primary source for every economic claim; World Bank is used for non-economic context. Per-article-type IMF indicator floor MUST be satisfied (see [`imf-indicator-mapping.md §8`](imf-indicator-mapping.md#8-per-article-type-indicator-minimums)). Include `data-vintage` HTML attribute + forecast markers within 30 words of every projected number. Bridge every indicator to a named EP policy topic from the run.
+5. Write `intelligence/economic-context.md` using **IMF** data as the primary source for every economic claim; World Bank is used for non-economic context. Per-article-type IMF indicator floor MUST be satisfied (see [`imf-indicator-mapping.md §8`](imf-indicator-mapping.md#8-per-article-type-indicator-minimums)). Include `data-vintage` HTML attribute + forecast markers within 30 words of every projected number. Bridge every indicator to a named EP policy topic from the run. **When IMF SDMX is unavailable**, apply the fallback ladder in [`source-triangulation.md §Step 2`](source-triangulation.md) — IMF training-data vintage is the Step-2 IMF fallback and must be labelled accordingly (🟡 MEDIUM confidence maximum).
 6. Write `intelligence/coalition-dynamics.md` — group cohesion + alliance pairs using `get_voting_records` / `analyze_coalition_dynamics` / `compare_political_groups`.
 7. Write `intelligence/wildcards-blackswans.md` — ≥5 low-probability, high-impact wildcards on a Probability × Impact `quadrantChart`.
 8. Write `intelligence/historical-baseline.md` — anchor every current score / metric in 30-day and 90-day baselines; mark "first occurrence", "highest since", "return to baseline" findings.
-9. Register artifacts in `manifest.files.intelligence[]` and `manifest.files.threat_assessment[]`.
+9. **For every claim that required a fallback beyond Step 1 EP MCP data:** apply [`source-triangulation.md`](source-triangulation.md) — label the fallback step, the Admiralty grade, and the confidence marker inline. Every claim that reaches Step 4 (KB integration) is confined to caveat / monitoring sections only — never in headline judgements.
+10. **Calibrate every confidence label** against [`confidence-calibration.md`](confidence-calibration.md) — 🟢 for direct EP MCP; 🟡 for Step-2/3 triangulation; 🔴 for Step-4 KB integration. WEP band + time horizon required on every forward-looking claim.
+11. Register artifacts in `manifest.files.intelligence[]` and `manifest.files.threat_assessment[]`.
 
 **Product of Step 6:** the forward-looking intelligence layer. The reader can now see *where the period is heading, what forces are shaping it, and what could flip the trajectory*.
 
