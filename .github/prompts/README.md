@@ -17,6 +17,7 @@ gh-aw workflow. This replaces the 1,789-line `SHARED_PROMPT_PATTERNS.md` monolit
 | 00 | [`00-scope-and-ground-rules.md`](00-scope-and-ground-rules.md) | Workspace scope, forbidden/allowed edits, neutrality, one-PR rule |
 | 01 | [`01-data-collection.md`](01-data-collection.md) | EP MCP feeds + direct fallbacks, deep-fetch, IMF primary economic + WB non-economic |
 | 02 | [`02-analysis-protocol.md`](02-analysis-protocol.md) | Pipeline, methodologies/templates, mandatory 2-pass |
+| 02a | [`02a-rerun-merge.md`](02a-rerun-merge.md) | Re-run improve/extend rule (same-day folder resume) |
 | 03 | [`03-analysis-completeness-gate.md`](03-analysis-completeness-gate.md) | Agent-side completeness gate over artifacts, IMF evidence, and metadata readiness |
 | 04 | [`04-article-generation.md`](04-article-generation.md) | Deterministic aggregator render, `article.md`, SEO title/description/keywords contract |
 | 05 | [`05-analysis-to-article-contract.md`](05-analysis-to-article-contract.md) | AI-first artifact contract and read-before-render duties |

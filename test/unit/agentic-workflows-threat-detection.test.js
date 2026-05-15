@@ -486,4 +486,144 @@ describe('agentic workflow threat detection policy', () => {
     expect(runtimeContent, 'runtime prompt must document degraded-voting mode').toContain('degraded-voting');
     expect(runtimeContent, 'runtime prompt must document minimal mode').toContain('minimal');
   });
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // Phase 1 — Engine model allow-list
+  //
+  // Locks the currently-deployed engine.model per article workflow so a stray
+  // edit can't quietly downgrade Opus 4.7 slugs to Sonnet or upgrade Sonnet
+  // slugs to Opus (both are runtime behaviour changes).
+  //
+  // The allow-list reflects what is on `main` at the start of the
+  // modularization PR. `year-ahead` + `year-in-review` are currently
+  // `claude-sonnet-4.6` — flagged in the PR description as a potential
+  // future upgrade decision.
+  // ─────────────────────────────────────────────────────────────────────────
+  it('locks the engine.model per workflow to the approved allow-list', () => {
+    const APPROVED_MODELS = {
+      'news-breaking.md': 'claude-sonnet-4.6',
+      'news-committee-reports.md': 'claude-sonnet-4.6',
+      'news-election-cycle.md': 'claude-opus-4.7',
+      'news-month-ahead.md': 'claude-sonnet-4.6',
+      'news-month-in-review.md': 'claude-sonnet-4.6',
+      'news-motions.md': 'claude-sonnet-4.6',
+      'news-propositions.md': 'claude-sonnet-4.6',
+      'news-quarter-ahead.md': 'claude-sonnet-4.6',
+      'news-quarter-in-review.md': 'claude-sonnet-4.6',
+      'news-term-outlook.md': 'claude-opus-4.7',
+      'news-translate.md': 'claude-sonnet-4.6',
+      'news-week-ahead.md': 'claude-sonnet-4.6',
+      'news-week-in-review.md': 'claude-sonnet-4.6',
+      'news-year-ahead.md': 'claude-sonnet-4.6',
+      'news-year-in-review.md': 'claude-sonnet-4.6',
+    };
+    for (const [workflow, expectedModel] of Object.entries(APPROVED_MODELS)) {
+      const wfPath = path.join(WORKFLOWS_DIR, workflow);
+      const content = fs.readFileSync(wfPath, 'utf8');
+      // engine.model lives inside the `engine:` frontmatter block — match the
+      // canonical 2-space-indent form emitted by gh-aw.
+      expect(
+        content,
+        `${workflow} must declare engine.model: ${expectedModel}`,
+      ).toMatch(new RegExp(`\\n  model: ${expectedModel.replace(/[.\-]/g, '\\$&')}\\b`));
+    }
+  });
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // Phase 2 — Stages narrative extraction to shared/prompts/news-unified-stages.md
+  //
+  // Every article workflow (NOT news-translate) imports the parameterized
+  // shared file with `with: slug: <slug>` and must NOT re-inline the
+  // extracted narrative (Date Context bash, Stage B re-run + Pass1/2 +
+  // PREFLIGHT_ATTESTATION, Stage C gate + tripwire, Stage D `generate-article`,
+  // Stage E SINGLE_PR_ATTESTATION + safeoutputs___create_pull_request spec,
+  // 🚫 Never section).
+  // ─────────────────────────────────────────────────────────────────────────
+  const articleWorkflows = fs
+    .readdirSync(WORKFLOWS_DIR)
+    .filter((f) => f.startsWith('news-') && f.endsWith('.md') && f !== 'news-translate.md');
+
+  it('every article workflow imports shared/prompts/news-unified-stages.md with a slug', () => {
+    for (const workflow of articleWorkflows) {
+      const slug = workflow.replace(/^news-/, '').replace(/\.md$/, '');
+      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+      // The parameterized import must appear with the matching slug.
+      expect(
+        content,
+        `${workflow} must import shared/prompts/news-unified-stages.md`,
+      ).toMatch(/- uses: shared\/prompts\/news-unified-stages\.md/);
+      // The `with: slug: <slug>` block must declare the same slug as the
+      // workflow file name.
+      const withBlock = new RegExp(
+        `- uses: shared\\/prompts\\/news-unified-stages\\.md\\s*\\n\\s+with:\\s*\\n\\s+slug:\\s+${slug}\\b`,
+      );
+      expect(content, `${workflow} must pass with: slug: ${slug}`).toMatch(withBlock);
+    }
+  });
+
+  it('no article workflow re-inlines the extracted Stage-narrative sentinels', () => {
+    // Sentinels that should now ONLY live in shared/prompts/news-unified-stages.md.
+    // Re-inlining any of these in a per-slug workflow is a Phase-2 regression.
+    const BANNED_INLINE_SENTINELS = [
+      'PREFLIGHT_ATTESTATION: read N/N artifacts from',
+      'SINGLE_PR_ATTESTATION: about to emit the only PR',
+      'STAGE_C_GATE: GREEN articleType=',
+      'STAGE_C_GATE: ANALYSIS_ONLY articleType=',
+      'STAGE_C_GATE: RED articleType=',
+      '## 🚫 Never',
+      '## 🗓️ Date Context + Stable Folder Resolution',
+      'Elapsed-Time Tripwire',
+      'SINGLE_PR_ATTESTATION',
+    ];
+    for (const workflow of articleWorkflows) {
+      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+      for (const banned of BANNED_INLINE_SENTINELS) {
+        expect(
+          content,
+          `${workflow} must not re-inline "${banned}" — it lives in shared/prompts/news-unified-stages.md`,
+        ).not.toContain(banned);
+      }
+    }
+  });
+
+  it('shared/prompts/news-unified-stages.md owns the Stage-narrative sentinels exactly once', () => {
+    const stagesFile = path.join(WORKFLOWS_DIR, 'shared', 'prompts', 'news-unified-stages.md');
+    const stagesContent = fs.readFileSync(stagesFile, 'utf8');
+    // The shared file MUST contain all the sentinels.
+    const REQUIRED_SENTINELS = [
+      'PREFLIGHT_ATTESTATION: read N/N artifacts from',
+      'SINGLE_PR_ATTESTATION: about to emit the only PR',
+      'STAGE_C_GATE: GREEN articleType=',
+      '## 🚫 Never',
+      '## 🗓️ Date Context + Stable Folder Resolution',
+      'Elapsed-Time Tripwire',
+    ];
+    for (const sentinel of REQUIRED_SENTINELS) {
+      expect(
+        stagesContent,
+        `shared/prompts/news-unified-stages.md must contain "${sentinel}"`,
+      ).toContain(sentinel);
+    }
+    // The shared file MUST declare the slug import-schema input.
+    expect(stagesContent).toMatch(/import-schema:\s*\n\s+slug:/);
+    // The shared file MUST substitute slug via the gh-aw expression token.
+    expect(stagesContent).toContain('${{ github.aw.import-inputs.slug }}');
+  });
+
+  it('every article workflow inlines the per-slug Workflow Parameters table + Article-Type Specifics', () => {
+    for (const workflow of articleWorkflows) {
+      const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
+      // These sections are slug-specific and must stay in the per-workflow body
+      // even after Phase-2 extraction.
+      expect(content, `${workflow} must keep its Workflow Parameters table`).toContain(
+        '## 🔖 Workflow Parameters',
+      );
+      expect(content, `${workflow} must keep its Article-Type Specifics`).toContain(
+        '## 🎯 Article-Type Specifics',
+      );
+      expect(content, `${workflow} must keep its Stage A heading`).toMatch(
+        /### Stage A — Data Collection/,
+      );
+    }
+  });
 });
