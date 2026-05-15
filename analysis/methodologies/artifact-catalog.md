@@ -31,7 +31,7 @@ This catalog is the **single source of truth** for every markdown artifact an ag
 
 - the **methodology** the AI agent applies when writing it,
 - the **template** that defines its output shape,
-- the **minimum line floor** enforced by `src/utils/validate-analysis-completeness.ts`,
+- the **minimum line floor** enforced by `scripts/validate-analysis-completeness.js` (`npm run validate-analysis`),
 - the **mandatory color-coded Mermaid diagram** type, and
 - the **EP MCP data sources** feeding it.
 

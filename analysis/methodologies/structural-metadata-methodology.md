@@ -379,7 +379,7 @@ Comprehensive log of **every EP MCP tool call** made during the workflow run. En
 
 ### Manifest Consumption by Validation Scripts
 
-The `src/utils/validate-analysis-completeness.ts` script reads `manifest.json` to:
+The `scripts/validate-analysis-completeness.js` CLI (`npm run validate-analysis -- <runDir>`) reads `manifest.json` to:
 
 1. Verify all required artifacts exist
 2. Check line counts against `reference-quality-thresholds.json`
