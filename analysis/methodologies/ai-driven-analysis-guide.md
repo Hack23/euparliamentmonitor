@@ -14,12 +14,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-6.2-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--04--25-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-6.3-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--15-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 6.2 | **📅 Last Updated:** 2026-04-25 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 6.3 | **📅 Last Updated:** 2026-05-15 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -27,9 +27,62 @@
 
 ## 🎯 Purpose
 
-This guide is the **single authoritative protocol** every agentic workflow (`news-breaking`, `news-weekly-review`, `news-monthly-review`, `news-week-ahead`, `news-month-ahead`, `news-committee-reports`, `news-motions`, `news-propositions`, `news-article-generator`, `news-translate`) follows to turn European Parliament MCP data into reference-quality political intelligence.
+This guide is the **single authoritative protocol** every article-generating agentic workflow follows to turn European Parliament MCP data into reference-quality political intelligence. Canonical `ARTICLE_TYPE_SLUG` values (per [`src/config/article-horizons.ts`](../../src/config/article-horizons.ts)): `breaking`, `week-in-review`, `month-in-review`, `quarter-in-review`, `year-in-review`, `week-ahead`, `month-ahead`, `quarter-ahead`, `year-ahead`, `committee-reports`, `motions`, `propositions`, `term-outlook`, `election-cycle`, `deep-analysis`. Each maps to a `news-<slug>.md` workflow; the helper `news-translate.md` translates English source articles into 13 additional languages and is exempt from the single-PR rule.
 
-The guide is **positive and step-by-step**: each step describes exactly what to produce. Detailed per-artifact construction rules live in [`per-artifact-methodologies.md`](per-artifact-methodologies.md); the master map of every artifact lives in [`artifact-catalog.md`](artifact-catalog.md).
+The guide is **positive and step-by-step**: each step describes exactly what to produce. Detailed per-artifact construction rules live in [`per-artifact-methodologies.md`](per-artifact-methodologies.md); the master map of every artifact lives in [`artifact-catalog.md`](artifact-catalog.md). See [`WEAKNESS-AUDIT-2026-05.md`](WEAKNESS-AUDIT-2026-05.md) for the dated review record of recent improvements.
+
+---
+
+## 🚀 Quick-Start Cheat-Sheet (read this first)
+
+**One screen. One run. No re-reading.** Use this table as the operational
+summary; jump into the deep sections only for the specific step you are about
+to execute.
+
+| Pillar | Where it lives | What you do in this run |
+|---|---|---|
+| 📦 **Scope** | `${ANALYSIS_DIR}` = `analysis/daily/${ARTICLE_DATE}/${ARTICLE_TYPE_SLUG}-run${RUN_ID}/` | Create sub-folders `intelligence/`, `classification/`, `risk-scoring/`, `threat-assessment/`, `documents/`, `extended/`, `data/`. Initialise `manifest.json`. |
+| 📚 **Read** | §"2️⃣ Step 2" (15 docs) | P1 core × 7, P2 horizon-conditional × 5, P3 reference × 3. Emit `METHODOLOGIES_READ: ok`. |
+| 📥 **Collect** | EP MCP, IMF, World Bank | ≤ 5 EP MCP calls in Stage A. Write every response under `data/`. |
+| 🏷️ **Classify** | `classification/*.md` | 5-dim significance + ≥ 12 actors + Lewin force-field + impact matrix. |
+| ⚠️ **Score** | `risk-scoring/*.md` | 5×5 risk matrix + 3+3+3+3 quantitative SWOT + TOWS. |
+| 🎯 **Model** | `intelligence/*.md`, `threat-assessment/*.md` | Threat model (Diamond+Attack-Tree+Kill-Chain) + scenario forecast + PESTLE + IMF-primary economic-context + coalition-dynamics + wildcards + historical-baseline. |
+| 🧠 **Synthesise** | `executive-brief.md`, `intelligence/synthesis-summary.md`, `intelligence/cross-run-diff.md`, `intelligence/significance-scoring.md` | Top-5 findings + ≥ 6 forward monitors + Bayesian delta vs prior run. |
+| 🌐 **Headline pack** | `manifest.json.title` + `.description` | 14-language title + 150–160-char description + `searchIntentTerms`. AI-only, never code-generated. |
+| 🔁 **Pass 2** | every file in `manifest.files.*` | Read end-to-end. Expand every shallow section. Resolve every `[AI_ANALYSIS_REQUIRED]` marker. |
+| 🛡️ **Validate** | Stage-C editorial review | Per-artifact line floors from [`reference-quality-thresholds.json`](reference-quality-thresholds.json); IMF fingerprints; tradecraft self-check. |
+| 🪪 **Audit** | `intelligence/workflow-audit.md` + `intelligence/methodology-reflection.md` | Final two artifacts. Methodology-reflection closes the loop with ≥ 10 SATs, ≥ 5 lessons, ≥ 6 biases. |
+| 📤 **PR** | `safeoutputs___create_pull_request` | Exactly once, at end of run, target ≤ minute 42 (hard deadline ≤ 45). |
+
+### Per-slug time budget (60-min total)
+
+| Slug | Engine model | Pass 1 (min) | Pass 2 (min) | PR call by |
+|---|---|---:|---:|---:|
+| `breaking` | claude-sonnet-4.6 | 12 | 8 | ≤ 42 min |
+| `committee-reports` | claude-sonnet-4.6 | 12 | 8 | ≤ 42 min |
+| `motions` | claude-sonnet-4.6 | 12 | 8 | ≤ 42 min |
+| `propositions` | claude-sonnet-4.6 | 12 | 8 | ≤ 42 min |
+| `week-ahead` / `month-ahead` | claude-sonnet-4.6 | 12 | 8 | ≤ 42 min |
+| `week-in-review` / `month-in-review` | claude-sonnet-4.6 | 15 | 10 | ≤ 45 min |
+| `quarter-in-review` / `year-in-review` | claude-sonnet-4.6 | 18 | 12 | ≤ 45 min |
+| `quarter-ahead` / `year-ahead` | claude-sonnet-4.6 | 18 | 12 | ≤ 45 min |
+| `term-outlook` / `election-cycle` | claude-opus-4.7 | 22 | 15 | ≤ 47 min |
+| `deep-analysis` | claude-sonnet-4.6 | 22 | 15 | ≤ 45 min |
+
+Authoritative per-slug horizons (and the `mandatoryArtifact` lists) live in
+[`src/config/article-horizons.ts`](../../src/config/article-horizons.ts) — the
+table above is a reading aid, not a source of truth.
+
+### Single-source-of-truth pointers
+
+| Question | Answer lives in |
+|---|---|
+| Which artifacts do I produce for slug X? | [`artifact-catalog.md`](artifact-catalog.md) + `src/config/article-horizons.ts` |
+| How do I build artifact Y? | [`per-artifact-methodologies.md`](per-artifact-methodologies.md) §Y |
+| What confidence label do I use? | [`confidence-calibration.md`](confidence-calibration.md) — unified 🟢/🟡/🔴 + WEP + Admiralty |
+| What if EP MCP fails? | [`source-triangulation.md`](source-triangulation.md) — 4-step fallback ladder |
+| What line floor does artifact Y need? | [`reference-quality-thresholds.json`](reference-quality-thresholds.json) keyed by slug + artifact |
+| What template do I render against? | [`../templates/README.md`](../templates/README.md) (61 templates total — `ls` is truth) |
 
 ---
 
@@ -90,22 +143,32 @@ Establish where this run writes and what it produces.
 
 ## 2️⃣ Step 2 — Read the Methodology Library
 
-Before any analysis, read these documents in order. This is expected to take 4–6 minutes of active reading.
+Before any analysis, read these documents in order. This is expected to take 4–6 minutes of active reading. The list below is the **operational reading set**; the [`README.md`](README.md) gives the full library overview.
 
 | Priority | Document | What it gives you |
 |:---:|---|---|
-| P1 | [`artifact-catalog.md`](artifact-catalog.md) | Master map of every artifact this run will produce |
-| P1 | [`per-artifact-methodologies.md`](per-artifact-methodologies.md) | Construction rules for each artifact — includes `**Mandatory SATs.**` per artifact |
-| P1 | [`source-triangulation.md`](source-triangulation.md) | **NEW** 4-step fallback ladder: when EP MCP fails, which backup sources apply and what confidence label to use |
-| P1 | [`confidence-calibration.md`](confidence-calibration.md) | **NEW** Unified 🟢/🟡/🔴 + WEP + Admiralty table — read before writing any confidence label |
-| P1 | [`political-swot-framework.md`](political-swot-framework.md) | Evidence hierarchy, confidence levels, TOWS |
-| P1 | [`political-risk-methodology.md`](political-risk-methodology.md) | 5×5 Likelihood × Impact, Bayesian update |
-| P1 | [`political-threat-framework.md`](political-threat-framework.md) | Threat Landscape, Diamond, Attack Trees, Kill Chain |
-| P1 | [`political-classification-guide.md`](political-classification-guide.md) | 7-dimension event classification, significance rubric |
-| P2 | [`political-style-guide.md`](political-style-guide.md) | Writing standards, evidence density, depth levels |
-| P2 | [`voter-segmentation-methodology.md`](voter-segmentation-methodology.md) | **NEW** Eurobarometer integration and structural-fallback rules — required when `extended/voter-segmentation.md` is in scope |
-| P2 | [`imf-indicator-mapping.md`](imf-indicator-mapping.md) (primary economic) + [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) (non-economic) | Economic-context indicator selection
-| P2 | All nine templates in [`../templates/`](../templates/README.md) | Output shapes to fill with analysis |
+| **P1 core** | [`artifact-catalog.md`](artifact-catalog.md) | Master map of every artifact this run will produce |
+| **P1 core** | [`per-artifact-methodologies.md`](per-artifact-methodologies.md) | Construction rules for each artifact — includes `**Mandatory SATs.**` per artifact |
+| **P1 core** | [`confidence-calibration.md`](confidence-calibration.md) | Single-source-of-truth confidence table — 🟢/🟡/🔴 + WEP + Admiralty |
+| **P1 core** | [`source-triangulation.md`](source-triangulation.md) | 4-step fallback ladder when EP MCP fails — which backup, which confidence label |
+| **P1 core** | [`political-classification-guide.md`](political-classification-guide.md) | 7-dimension event classification, significance rubric |
+| **P1 core** | [`political-risk-methodology.md`](political-risk-methodology.md) | 5×5 Likelihood × Impact, Bayesian update |
+| **P1 core** | [`political-threat-framework.md`](political-threat-framework.md) | 5-framework integrated political threat methodology (STRIDE rejected for political analysis) |
+| **P1 core** | [`political-swot-framework.md`](political-swot-framework.md) | Evidence-based SWOT, confidence levels, TOWS cross-quadrant strategies |
+| **P1 core** | [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md) | ICD 203, Admiralty grading, WEP bands, SAT catalog, OSINT ethics |
+| **P1 core** | [`synthesis-methodology.md`](synthesis-methodology.md) | Stage B.7 synthesis layer — executive-brief, synthesis-summary, stakeholder-perspectives |
+| **P1 core** | [`strategic-extensions-methodology.md`](strategic-extensions-methodology.md) | Stage B.6 strategic depth — scenario-forecast, wildcards, historical-baseline, PESTLE, threat-model |
+| **P1 core** | [`per-document-methodology.md`](per-document-methodology.md) | Stage A.3 per-file intelligence — one analysis per downloaded EP document |
+| **P1 core** | [`structural-metadata-methodology.md`](structural-metadata-methodology.md) | `manifest.json`, `analysis-index.md`, citation graph, provenance layer |
+| **P1 core** | [`analytical-supplementary-methodology.md`](analytical-supplementary-methodology.md) | `media-framing-analysis.md` — **mandatory** for every article-generating run |
+| **P2 horizon** | [`forward-projection-methodology.md`](forward-projection-methodology.md) | Required for `week-ahead`, `month-ahead`, `quarter-ahead`, `year-ahead` |
+| **P2 horizon** | [`electoral-domain-methodology.md`](electoral-domain-methodology.md) | Required for `election-cycle`, `term-outlook`, voter-segmentation |
+| **P2 horizon** | [`electoral-cycle-methodology.md`](electoral-cycle-methodology.md) | EP election-window analysis (Spitzenkandidaten, D'Hondt variants, MS delegations) |
+| **P2 horizon** | [`voter-segmentation-methodology.md`](voter-segmentation-methodology.md) | Eurobarometer integration + structural fallback — required when `extended/voter-segmentation.md` is in scope |
+| **P2 economic** | [`imf-indicator-mapping.md`](imf-indicator-mapping.md) (primary) + [`worldbank-indicator-mapping.md`](worldbank-indicator-mapping.md) (non-economic) | Economic-context indicator selection; IMF is the **sole authoritative** source for monetary / fiscal / trade / FDI claims |
+| **P3 reference** | [`political-style-guide.md`](political-style-guide.md) | Writing standards, evidence density, depth levels |
+| **P3 reference** | [`reference-quality-thresholds.json`](reference-quality-thresholds.json) | Per-artifact line floors enforced at Stage-C editorial review |
+| **P3 reference** | [`../templates/README.md`](../templates/README.md) | Catalog of 61 templates — output shapes to fill |
 
 **Product of Step 2:** the mental model of the analytical pipeline. Emit the line `METHODOLOGIES_READ: ok` in the workflow log before proceeding.
 
@@ -478,7 +541,18 @@ Every article-generating workflow produces **every mandatory artifact in every m
 
 > **Note on `extended/` artifacts.** The 12 artifacts under `extended/` (executive-brief, devils-advocate-analysis, historical-parallels, coalition-mathematics, forward-indicators, intelligence-assessment, implementation-feasibility, media-framing-analysis, comparative-international, cross-reference-map, data-download-manifest, voter-segmentation) split into **one mandatory + eleven optional**. `extended/media-framing-analysis.md` is **mandatory** for every article-generating workflow (registered as a `mandatoryArtifact` for every slug in `src/config/article-horizons.ts`, with per-article-type line floors in [`reference-quality-thresholds.json`](reference-quality-thresholds.json)) — built in Pass 2 (or late Pass 1) once synthesis / stakeholder / scenario / coalition-dynamics dependencies are stable, per [`analytical-supplementary-methodology.md §AS4`](analytical-supplementary-methodology.md#as4--media-framing-deep-dive). The other eleven are **optional**, produced only after every mandatory artifact has passed the completeness gate and recommended for long-form review / crisis / breaking deep runs — see [`../../.github/prompts/03-analysis-completeness-gate.md`](../../.github/prompts/03-analysis-completeness-gate.md) and [`artifact-catalog.md`](artifact-catalog.md#extended). They are **not gated by default** — but when registered in `manifest.files.extended[]` and present in [`reference-quality-thresholds.json`](reference-quality-thresholds.json), their line-floor thresholds and tradecraft signals are enforced.
 
-> **⚠️ This diagram is a category / count overview, not a canonical filename manifest.** The node labels below (`data-summary.md`, `network-analysis.md`, `temporal-analysis.md`, `sentiment-tracker.md`, `diamond-model.md`, `attack-tree.md`, `kill-chain-analysis.md`, `risk-register.md`, `political-temperature.md`, `stakeholder-perspectives.md`, `qualitygate-audit.md`, etc.) are the upstream riksdagsmonitor-origin category names; **several do not map 1:1 to files in [`../templates/`](../templates/)**. The authoritative per-artifact path → template mapping for the EU Parliament Monitor pipeline lives in [`artifact-catalog.md`](./artifact-catalog.md) and [`../templates/README.md`](../templates/README.md); consult those for the canonical filenames, and `per-artifact-methodologies.md` for construction rules.
+> **⚠️ Heritage diagram — informational only.** The diagram below uses
+> Riksdagsmonitor-lineage category names (`data-summary.md`,
+> `network-analysis.md`, `temporal-analysis.md`, `sentiment-tracker.md`,
+> `diamond-model.md`, `attack-tree.md`, `kill-chain-analysis.md`,
+> `risk-register.md`, `political-temperature.md`, `stakeholder-perspectives.md`,
+> `qualitygate-audit.md`, etc.) and **several of these node labels do not map
+> 1:1 to files in [`../templates/`](../templates/)**. Treat the diagram as a
+> *category / count overview* only. **Do not create files using these heritage
+> names** — use the canonical filenames in [`artifact-catalog.md`](./artifact-catalog.md)
+> and the [`per-artifact-methodologies.md`](per-artifact-methodologies.md)
+> construction rules. The audit record for this is in
+> [`WEAKNESS-AUDIT-2026-05.md §W4`](WEAKNESS-AUDIT-2026-05.md).
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
@@ -591,29 +665,53 @@ graph LR
 
 ---
 
-## 🎯 5-Level Confidence Scale
+## 🎯 Confidence Labelling — Single Source of Truth
 
-Every analytical claim in every artifact carries one of these confidence labels. Use the **highest** level whose evidence threshold is fully met. Unlabeled claims fail the quality gate.
+Every analytical claim in every artifact carries a confidence label. The
+**operational protocol uses the 3-marker 🟢/🟡/🔴 system** (Steps 6, 9, 10 above);
+the 5-level scale below is retained for **cross-project compatibility** with
+the Riksdagsmonitor lineage and for granular self-scoring inside
+`methodology-reflection.md`. The authoritative reconciliation table lives in
+[`confidence-calibration.md`](confidence-calibration.md) — read it before
+writing any confidence label.
 
-| Level | Label | Evidence Required | Applies To |
-|:-----:|-------|-------------------|------------|
-| ⬛ 1 | **VERY LOW** | 0–1 source, no corroboration | Speculation, pattern hypotheses, emerging signals |
-| 🟥 2 | **LOW** | 2 sources, indirect evidence | Circumstantial claims, emerging patterns, unconfirmed reports |
-| 🟧 3 | **MEDIUM** | ≥ 3 sources with moderate agreement | Partial records, reported intent, committee deliberations |
-| 🟩 4 | **HIGH** | Official records (EP Open Data, voting records, committee reports, adopted texts) | Documented facts from primary EP sources |
-| 🟦 5 | **VERY HIGH** | Multiple official sources + cross-validation + expert consensus | Verified, cross-corroborated statements with full documentation |
+### Operational 3-marker scale (use this in every artifact)
+
+| Marker | Operational meaning | Use when |
+|:---:|---|---|
+| 🟢 **HIGH** | Direct EP MCP source — voting record, adopted text, committee document, MEP profile | Primary EP data is fetched and complete |
+| 🟡 **MEDIUM** | Step-2/3 triangulation — IMF training-data vintage, World Bank, Eurostat, Council documents | EP MCP missing or delayed; backup source applied per [`source-triangulation.md`](source-triangulation.md) |
+| 🔴 **LOW** | Step-4 KB integration — analytical inference, expert pattern, historical analogue | No primary source; confined to caveat / monitoring sections only |
+
+### 5-level granular scale (heritage, for `methodology-reflection.md` self-score)
+
+| Level | Label | Evidence Required | Maps to 3-marker |
+|:---:|---|---|:---:|
+| ⬛ 1 | VERY LOW | 0–1 source, no corroboration | 🔴 |
+| 🟥 2 | LOW | 2 sources, indirect evidence | 🔴 |
+| 🟧 3 | MEDIUM | ≥ 3 sources with moderate agreement | 🟡 |
+| 🟩 4 | HIGH | Official records (EP Open Data, voting records, committee reports, adopted texts) | 🟢 |
+| 🟦 5 | VERY HIGH | Multiple official sources + cross-validation + expert consensus | 🟢 |
 
 ### Confidence Ceilings by Data Depth
 
-The confidence ceiling is determined by the **data depth** field recorded in `data-summary.md` during Step 3:
+The confidence ceiling is determined by the **data depth** field recorded in
+`intelligence/mcp-reliability-audit.md` and `intelligence/significance-scoring.md`
+during Step 3 (heritage Riksdagsmonitor pipelines called this file
+`data-summary.md`; that filename is **not canonical** in this repo — see
+[`WEAKNESS-AUDIT-2026-05.md §W5`](WEAKNESS-AUDIT-2026-05.md)):
 
-- **FULL-TEXT** document (complete text available via EP MCP) → up to **VERY HIGH** (🟦 5)
-- **SUMMARY-only** document (metadata + abstract only) → cap at **MEDIUM** (🟧 3)
-- **METADATA-only** document (title + date + sponsor only) → cap at **LOW** (🟥 2)
+- **FULL-TEXT** document (complete text via EP MCP) → up to 🟢 HIGH / 🟦 5
+- **SUMMARY-only** document (metadata + abstract) → cap at 🟡 MEDIUM / 🟧 3
+- **METADATA-only** document (title + date + sponsor) → cap at 🔴 LOW / 🟥 2
 
 ### Admiralty Code Integration
 
-Confidence labels pair with **Admiralty Code** source grading `[A–F][1–6]` per [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md). Example notation: **HIGH [B2]** = high-confidence claim, source reliability B (usually reliable), information credibility 2 (probably true).
+Confidence labels pair with the **Admiralty Code** source grading `[A–F][1–6]`
+per [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md) §2. Example
+notation: **HIGH [B2]** = high-confidence claim, source reliability B (usually
+reliable), information credibility 2 (probably true). Every evidence row in
+every artifact carries an Admiralty grade.
 
 ---
 
@@ -754,5 +852,5 @@ Every security-relevant control maps to **ISO 27001:2022**, **NIST CSF 2.0**, **
 **Document Control:**
 - **Path:** `/analysis/methodologies/ai-driven-analysis-guide.md`
 - **Classification:** Public
-- **Version:** 6.2 — v6.2 (2026-04-25, late) reframes the “39-Artifact Output Matrix” heading and surrounding prose as the **Mandatory + Optional Artifact Output Matrix**, points readers at `artifact-catalog.md` as the authoritative file-list (51 templates total: 8 master + 25 per-artifact + 12 extended + 6 framework reusable inside the others), aligns the version-badge with the `Document Owner` line (was v5.1 vs v6.1), and refreshes the document control footer. v6.1 enhanced from v5.0 with riksdagsmonitor methodology improvements: added 39-artifact Output Matrix, Color-Coded Mermaid palette (Hack23 7-color), 5-Level Confidence Scale with Admiralty integration, Quality Gate Checklist with ICD 203 compliance gate, Template-to-Artifact Index, EP Document-Type → Primary Frameworks mapping, and ISMS Alignment section. Ported and adapted from [riksdagsmonitor ai-driven-analysis-guide v6.4](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md).
+- **Version:** 6.3 — v6.3 (2026-05-15) adds the top-of-document `🚀 Quick-Start Cheat-Sheet`, completes the Step 2 reading list to 15+ documents (adds `synthesis-methodology.md`, `strategic-extensions-methodology.md`, `per-document-methodology.md`, `structural-metadata-methodology.md`, `analytical-supplementary-methodology.md`, `forward-projection-methodology.md`, `electoral-domain-methodology.md`, `electoral-cycle-methodology.md`), updates the workflow slug list to the canonical 15-slug set (`week-in-review`, `month-in-review`, `quarter-in-review`, `year-in-review`, `quarter-ahead`, `year-ahead`, `term-outlook`, `election-cycle`, `deep-analysis`), reconciles the 3-marker 🟢/🟡/🔴 operational scale with the 5-level heritage scale via [`confidence-calibration.md`](confidence-calibration.md), relabels the legacy artifact diagram as a heritage / informational view, and corrects the confidence-ceiling reference from the non-canonical `data-summary.md` to `intelligence/mcp-reliability-audit.md` + `intelligence/significance-scoring.md`. Audit record in [`WEAKNESS-AUDIT-2026-05.md`](WEAKNESS-AUDIT-2026-05.md). v6.2 (2026-04-25, late) reframed the “39-Artifact Output Matrix” heading and surrounding prose as the **Mandatory + Optional Artifact Output Matrix**, pointed readers at `artifact-catalog.md` as the authoritative file-list, aligned the version-badge with the `Document Owner` line (was v5.1 vs v6.1), and refreshed the document control footer. v6.1 enhanced from v5.0 with riksdagsmonitor methodology improvements: added 39-artifact Output Matrix, Color-Coded Mermaid palette (Hack23 7-color), 5-Level Confidence Scale with Admiralty integration, Quality Gate Checklist with ICD 203 compliance gate, Template-to-Artifact Index, EP Document-Type → Primary Frameworks mapping, and ISMS Alignment section. Ported and adapted from [riksdagsmonitor ai-driven-analysis-guide v6.4](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md).
 - **Next Review:** 2026-07-31
