@@ -101,22 +101,29 @@ describe('wb-mcp-client', () => {
       });
 
       it('should track failed and noData countries separately', async () => {
+        const failCodes = new Set(['AT', 'BE']); // 2 countries fail
+        const noDataCodes = new Set(['BG', 'HR', 'CY', 'CZ', 'DK']); // 5 return empty data
         const callTool = vi.spyOn(client, 'callTool');
-        let calls = 0;
-        callTool.mockImplementation(async () => {
-          calls++;
-          if (calls <= 2) {
+        callTool.mockImplementation(async (_tool, args) => {
+          const cc = args.countryCode;
+          if (failCodes.has(cc)) {
             throw new Error('tool failure');
           }
-          return { content: [{ type: 'text', text: JSON.stringify({ data: [] }) }] };
+          if (noDataCodes.has(cc)) {
+            return { content: [{ type: 'text', text: JSON.stringify({ data: [] }) }] };
+          }
+          return {
+            content: [{ type: 'text', text: JSON.stringify({ data: [{ year: 2024, value: 1 }] }) }],
+          };
         });
 
         const result = await client.getEU27Aggregate('get-social-data', 'POPULATION', 1);
         const parsed = JSON.parse(result.content[0].text);
 
         expect(parsed.failedCountries).toHaveLength(2);
-        expect(parsed.noDataCountries).toHaveLength(25);
-        expect(parsed.contributingCountries).toBe(0);
+        expect(parsed.noDataCountries).toHaveLength(5);
+        expect(parsed.contributingCountries).toBe(20);
+        expect(parsed.series).toEqual([{ year: 2024, value: 20 }]);
       });
 
       it('should return empty aggregate fallback when indicator is missing', async () => {
