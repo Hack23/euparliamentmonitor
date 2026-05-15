@@ -2,12 +2,52 @@
   "version": "1.6.0",
   "description": "Per-artifact minimum line-count floors used by scripts/validate-analysis-completeness.js to enforce Rule 22 (Per-Artifact Depth Floors) of analysis/methodologies/ai-driven-analysis-guide.md. Values are derived from the Run 184 reference benchmark (analysis/daily/2026-04-18/breaking-run184/) minus a 10% tolerance, rounded down to the nearest 5 lines. A file below its threshold MUST trigger Pass 2; it MUST NOT be shipped with a note. When an articleType × relativePath entry is absent the validator falls back to the CLI --min-lines flag (DEFAULT_MIN_LINES = 30). When a per-artifact entry is present the effective floor is max(perArtifact, --min-lines), so --min-lines can raise but never lower a configured floor.",
   "schemaChangelog": {
-    "1.6.0": "Additive: requiredSATs field added to tradecraftQualitySignals. Maps each artifact relativePath to its mandatory Structured Analytic Techniques drawn from per-artifact-methodologies.md **Mandatory SATs.** lines. Checked in ADVISORY mode by scripts/validate-analysis-completeness.js (--sat-check flag); does not block Stage C on legacy artifacts. New methodology pages source-triangulation.md, confidence-calibration.md, and voter-segmentation-methodology.md added 2026-05-14.",
+    "1.6.0": "Additive (two changes): (1) degradedFloorFactors section formalises per-dataMode line-floor reduction multipliers that were previously only documented in code comments. Adds floors for the four new degraded-mode and Stage-A templates: data-availability-assessment.md (Stage A, required for every run), intelligence/voting-patterns.degraded.md (degraded-voting variant), intelligence/economic-context.fallback.md (degraded-imf variant), intelligence/procedures-proxy.md (procedures-feed staleness companion). These templates are anchored in analysis/templates/intelligence/ following the <artifact>.<variant>.md naming convention. Template variant selection is driven by manifest.dataMode, which is set by the Stage-A data-availability-assessment.md artifact. SCOPE NOTE: the validator (scripts/validate-analysis-completeness.js) consumes only top-level thresholds[articleType][relativePath] and applies the dataMode reduction multiplier hard-coded in DATA_MODE_REDUCTION. The degradedFloorFactors sub-objects perTemplateOverrides and stageAFloors are informational human-facing metadata only — they are NOT read by the validator. Enforced floors for the four new templates are duplicated into the per-article-type thresholds[] blocks below. COUPLING NOTE: degraded variant artifacts (*.degraded.md, *.fallback.md) are configured at the same base floor as their full-data counterparts in thresholds[]. The 0.85× reduction is ONLY applied when manifest.dataMode matches the variant's applicableDataMode. If a degraded variant is somehow committed under dataMode='full' (or dataMode is absent), the full base floor applies and will likely cause a Stage-C false fail. Agents MUST set manifest.dataMode via the Stage-A data-availability-assessment before producing degraded variant artifacts. The validator uses Math.floor(baseFloor * factor) — e.g. floor(150 * 0.85) = 127 for breaking voting-patterns. (2) requiredSATs field added to tradecraftQualitySignals. Maps each artifact relativePath to its mandatory Structured Analytic Techniques drawn from per-artifact-methodologies.md **Mandatory SATs.** lines. Checked in ADVISORY mode by scripts/validate-analysis-completeness.js (--sat-check flag); does not block Stage C on legacy artifacts. New methodology pages source-triangulation.md, confidence-calibration.md, and voter-segmentation-methodology.md added 2026-05-14.",
     "1.4.0": "Additive: dataMode support in manifest.json. Valid values: full (default), title-only, degraded-imf, degraded-voting, minimal. When dataMode != full, the validator applies a line-floor reduction factor (title-only: 0.75, degraded-imf/degraded-voting: 0.85, minimal: 0.65) so structurally constrained runs can pass Stage C. Structural checks (mermaid, WEP, Admiralty, SATs, requiredSections) remain unchanged.",
     "1.3.0": "Additive: forward-projection.md line floors added for week-ahead (80) and month-ahead (120) to match §9.4 stronger Stage-C gate.",
     "1.2.0": "Additive: introduce thresholds for the four new long-horizon and electoral article types (quarter-ahead, quarter-in-review, year-ahead, year-in-review, term-outlook, election-cycle). Adds line floors for the eight new analysis artifacts (forward-projection, legislative-pipeline-forecast, parliamentary-calendar-projection, term-arc, seat-projection, mandate-fulfilment-scorecard, presidency-trio-context, commission-wp-alignment).",
     "1.1.0": "Additive: manifest.json now supports artifactSources record keyed by relativePath. Values are \"fresh\" or \"carry-forward-from:<runId>\". scripts/aggregator/prior-run-diff.js emits the prior-run merge plan; Stage B (workflow/agent) writes artifactSources to manifest.json from that plan when ENABLE_PRIOR_RUN_MERGE=true. Stage C validates all artifacts regardless of source value.",
     "1.0.0": "Initial release."
+  },
+  "degradedFloorFactors": {
+    "note": "Per-dataMode line-floor reduction multipliers. The factor values (full/degraded-voting/degraded-imf/title-only/minimal) mirror the DATA_MODE_REDUCTION constant in scripts/validate-analysis-completeness.js and document the validator's behaviour: when manifest.dataMode is set to a non-full value the validator computes effective floor = floor(thresholds[articleType][relativePath] * factor). Structural checks (mermaid, WEP, Admiralty, SATs, requiredSections) are NEVER reduced regardless of dataMode. NOTE: The validator does NOT read this JSON section — the factors are hard-coded in DATA_MODE_REDUCTION. This block is a human-facing documentation mirror so contributors can see the reduction policy without reading the validator source. perTemplateOverrides and stageAFloors below are likewise informational metadata only; the enforced floors are duplicated into the per-article-type thresholds[] blocks below.",
+    "full": 1.0,
+    "degraded-voting": 0.85,
+    "degraded-imf": 0.85,
+    "title-only": 0.75,
+    "minimal": 0.65,
+    "perTemplateOverrides": {
+      "note": "INFORMATIONAL METADATA ONLY — NOT read by the validator. These entries document each variant template's frontmatter degradedFloorFactor field and the dataMode that selects them. The enforced line floors live in the per-article-type thresholds[] blocks below. Future work may wire this map into the validator so a per-template override can supersede the dataMode-level factor; until then, this is human-facing documentation. IMPORTANT COUPLING: degraded variant artifacts MUST only be produced when manifest.dataMode matches their applicableDataMode. If produced under dataMode='full', the validator applies no reduction and the full base floor (e.g. 150 for breaking voting-patterns) will be enforced, causing a false Stage-C fail.",
+      "intelligence/voting-patterns.degraded.md": {
+        "variantOf": "intelligence/voting-patterns.md",
+        "applicableDataMode": "degraded-voting",
+        "degradedFloorFactor": 0.85,
+        "note": "Degraded-mode voting patterns variant. Used when roll-call vote data is unavailable or published with a lag exceeding 4 weeks. All confidence labels in §§2–6 capped at 🟡 MEDIUM."
+      },
+      "intelligence/economic-context.fallback.md": {
+        "variantOf": "intelligence/economic-context.md",
+        "applicableDataMode": "degraded-imf",
+        "degradedFloorFactor": 0.85,
+        "note": "IMF-fallback economic context variant. Used when IMF SDMX 3.0 REST API returns F6 or times out. All KB-estimate claims carry [KB-ESTIMATE] prefix and explicit WEO training-data vintage."
+      },
+      "data-availability-assessment.md": {
+        "variantOf": null,
+        "applicableDataMode": "all",
+        "degradedFloorFactor": 1.0,
+        "note": "Stage-A triage artifact required for every article-generating run. Not a degraded-mode variant — it is the source of truth for manifest.dataMode selection. Floor applies at full factor regardless of dataMode."
+      },
+      "intelligence/procedures-proxy.md": {
+        "variantOf": null,
+        "applicableDataMode": "all",
+        "degradedFloorFactor": 1.0,
+        "note": "Procedures-feed staleness companion artifact. Produced whenever get_procedures_feed returns a STALENESS_WARNING. Not a degraded-mode variant — it is a mitigation record. Floor applies at full factor."
+      }
+    },
+    "stageAFloors": {
+      "note": "INFORMATIONAL METADATA ONLY — NOT read by the validator. Stage-A artifacts apply uniformly across all article types, so their floors are documented here as a single canonical reference and ALSO duplicated into every per-article-type thresholds[] block below (which is what the validator actually reads). Keep both copies in sync when adjusting floors.",
+      "data-availability-assessment.md": 80,
+      "intelligence/procedures-proxy.md": 60
+    }
   },
   "tradecraftQualitySignals": {
     "note": "ADDITIVE quality signals — NOT enforced by the line-count validator. They represent content-quality expectations that Pass-2 reviewers must check manually. Every probabilistic artifact MUST also comply with osint-tradecraft-standards.md: (1) WEP band + time horizon on every headline judgement, (2) Admiralty grade on every external source, (3) confidence-in-evidence tracked separately from WEP probability, (4) >= 10 SATs applied per run (attested in methodology-reflection.md §12). Non-compliant artifacts trigger a Pass-2 rewrite even if the line-count floor is met.",
@@ -86,7 +126,10 @@
   "structuralRequirements": {
     "note": "Structural contracts enforced by scripts/validate-analysis-completeness.js. mermaidRequired = artifacts that MUST contain at least one Mermaid block (in addition to the directory-based default for intelligence/, classification/, risk-scoring/, threat-assessment/). readerBlockRequired = artifacts that MUST contain a Reader Briefing / 'For Citizens' / 'Plain Language' section. sourceDiversityRequired = artifacts that MUST cite at least one EP MCP tool reference OR carry an evidence table (markdown table with a Source / Evidence / Reference header column, e.g. a 'Data Sources & Provenance' block); the validator accepts either signal. requiredSections = artifact -> array of H2 substrings that MUST appear (case-insensitive substring match). Added 2026-04 alongside template v2.0 enrichment of impact-matrix, forces-analysis, actor-mapping, political-capital-risk, actor-threat-profiles, legislative-disruption, legislative-velocity-risk, consequence-trees. longHorizonScenarioGate = article types whose intelligence/scenario-forecast.md MUST contain >= 6 scenario headings (### Scenario N pattern); activated for manifest.articleType values listed in longHorizonScenarioGate.articleTypes. Added 2026-05 alongside scenario-forecast.md template v1.3.",
     "longHorizonScenarioGate": {
-      "articleTypes": ["term-outlook", "election-cycle"],
+      "articleTypes": [
+        "term-outlook",
+        "election-cycle"
+      ],
       "minScenarios": 6,
       "artifact": "intelligence/scenario-forecast.md",
       "note": "Enforced by scripts/validate-analysis-completeness.js countScenarios(). Counts all headings matching /^###\\s+Scenario\\s+[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*\\s*[:—]/gm in the artifact (supports hyphenated IDs like A-24; underscores excluded). Activated for manifest.articleType values listed in articleTypes above."
@@ -195,6 +238,7 @@
       "intelligence/coalition-dynamics.md": 135,
       "intelligence/cross-run-diff.md": 100,
       "intelligence/economic-context.md": 185,
+      "intelligence/economic-context.fallback.md": 185,
       "intelligence/historical-baseline.md": 190,
       "intelligence/mcp-reliability-audit.md": 385,
       "intelligence/pestle-analysis.md": 250,
@@ -210,6 +254,7 @@
       "documents/document-analysis-index.md": 95,
       "classification/significance-classification.md": 105,
       "intelligence/voting-patterns.md": 150,
+      "intelligence/voting-patterns.degraded.md": 150,
       "intelligence/workflow-audit.md": 100,
       "intelligence/cross-session-intelligence.md": 150,
       "intelligence/methodology-reflection.md": 220,
@@ -224,7 +269,9 @@
       "extended/comparative-international.md": 200,
       "extended/voter-segmentation.md": 200,
       "extended/cross-reference-map.md": 150,
-      "extended/data-download-manifest.md": 160
+      "extended/data-download-manifest.md": 160,
+      "data-availability-assessment.md": 80,
+      "intelligence/procedures-proxy.md": 60
     },
     "week-in-review": {
       "executive-brief.md": 180,
@@ -232,6 +279,7 @@
       "intelligence/synthesis-summary.md": 180,
       "intelligence/historical-baseline.md": 150,
       "intelligence/economic-context.md": 150,
+      "intelligence/economic-context.fallback.md": 150,
       "intelligence/pestle-analysis.md": 200,
       "intelligence/stakeholder-map.md": 240,
       "intelligence/scenario-forecast.md": 220,
@@ -240,12 +288,15 @@
       "intelligence/mcp-reliability-audit.md": 200,
       "intelligence/reference-analysis-quality.md": 140,
       "intelligence/voting-patterns.md": 150,
+      "intelligence/voting-patterns.degraded.md": 150,
       "intelligence/workflow-audit.md": 100,
       "intelligence/cross-session-intelligence.md": 150,
       "risk-scoring/risk-matrix.md": 120,
       "risk-scoring/quantitative-swot.md": 120,
       "extended/media-framing-analysis.md": 180,
-      "intelligence/methodology-reflection.md": 180
+      "intelligence/methodology-reflection.md": 180,
+      "data-availability-assessment.md": 80,
+      "intelligence/procedures-proxy.md": 60
     },
     "month-in-review": {
       "executive-brief.md": 180,
@@ -253,6 +304,7 @@
       "intelligence/synthesis-summary.md": 220,
       "intelligence/historical-baseline.md": 180,
       "intelligence/economic-context.md": 180,
+      "intelligence/economic-context.fallback.md": 180,
       "intelligence/pestle-analysis.md": 240,
       "intelligence/stakeholder-map.md": 280,
       "intelligence/scenario-forecast.md": 260,
@@ -261,6 +313,7 @@
       "intelligence/mcp-reliability-audit.md": 200,
       "intelligence/reference-analysis-quality.md": 140,
       "intelligence/voting-patterns.md": 180,
+      "intelligence/voting-patterns.degraded.md": 180,
       "intelligence/workflow-audit.md": 100,
       "intelligence/cross-session-intelligence.md": 220,
       "existing/deep-analysis.md": 300,
@@ -269,7 +322,9 @@
       "risk-scoring/risk-matrix.md": 140,
       "risk-scoring/quantitative-swot.md": 140,
       "extended/media-framing-analysis.md": 220,
-      "intelligence/methodology-reflection.md": 200
+      "intelligence/methodology-reflection.md": 200,
+      "data-availability-assessment.md": 80,
+      "intelligence/procedures-proxy.md": 60
     },
     "week-ahead": {
       "executive-brief.md": 180,
@@ -277,6 +332,7 @@
       "intelligence/synthesis-summary.md": 160,
       "intelligence/historical-baseline.md": 120,
       "intelligence/economic-context.md": 120,
+      "intelligence/economic-context.fallback.md": 120,
       "intelligence/pestle-analysis.md": 180,
       "intelligence/stakeholder-map.md": 220,
       "intelligence/scenario-forecast.md": 200,
@@ -288,7 +344,9 @@
       "risk-scoring/risk-matrix.md": 100,
       "risk-scoring/quantitative-swot.md": 100,
       "extended/media-framing-analysis.md": 180,
-      "intelligence/methodology-reflection.md": 180
+      "intelligence/methodology-reflection.md": 180,
+      "data-availability-assessment.md": 80,
+      "intelligence/procedures-proxy.md": 60
     },
     "month-ahead": {
       "executive-brief.md": 180,
@@ -296,6 +354,7 @@
       "intelligence/synthesis-summary.md": 180,
       "intelligence/historical-baseline.md": 140,
       "intelligence/economic-context.md": 140,
+      "intelligence/economic-context.fallback.md": 140,
       "intelligence/pestle-analysis.md": 200,
       "intelligence/stakeholder-map.md": 240,
       "intelligence/scenario-forecast.md": 220,
@@ -307,7 +366,9 @@
       "risk-scoring/risk-matrix.md": 120,
       "risk-scoring/quantitative-swot.md": 120,
       "extended/media-framing-analysis.md": 200,
-      "intelligence/methodology-reflection.md": 180
+      "intelligence/methodology-reflection.md": 180,
+      "data-availability-assessment.md": 80,
+      "intelligence/procedures-proxy.md": 60
     },
     "committee-reports": {
       "executive-brief.md": 180,
@@ -315,6 +376,7 @@
       "intelligence/synthesis-summary.md": 160,
       "intelligence/historical-baseline.md": 120,
       "intelligence/economic-context.md": 120,
+      "intelligence/economic-context.fallback.md": 120,
       "intelligence/pestle-analysis.md": 180,
       "intelligence/stakeholder-map.md": 200,
       "intelligence/scenario-forecast.md": 180,
@@ -325,7 +387,9 @@
       "risk-scoring/risk-matrix.md": 100,
       "risk-scoring/quantitative-swot.md": 100,
       "extended/media-framing-analysis.md": 180,
-      "intelligence/methodology-reflection.md": 180
+      "intelligence/methodology-reflection.md": 180,
+      "data-availability-assessment.md": 80,
+      "intelligence/procedures-proxy.md": 60
     },
     "motions": {
       "executive-brief.md": 180,
@@ -333,6 +397,7 @@
       "intelligence/synthesis-summary.md": 160,
       "intelligence/historical-baseline.md": 120,
       "intelligence/economic-context.md": 120,
+      "intelligence/economic-context.fallback.md": 120,
       "intelligence/pestle-analysis.md": 180,
       "intelligence/stakeholder-map.md": 200,
       "intelligence/scenario-forecast.md": 180,
@@ -341,6 +406,7 @@
       "intelligence/mcp-reliability-audit.md": 200,
       "intelligence/reference-analysis-quality.md": 140,
       "intelligence/voting-patterns.md": 200,
+      "intelligence/voting-patterns.degraded.md": 200,
       "intelligence/workflow-audit.md": 100,
       "intelligence/cross-session-intelligence.md": 220,
       "existing/deep-analysis.md": 400,
@@ -349,7 +415,9 @@
       "risk-scoring/risk-matrix.md": 100,
       "risk-scoring/quantitative-swot.md": 100,
       "extended/media-framing-analysis.md": 200,
-      "intelligence/methodology-reflection.md": 200
+      "intelligence/methodology-reflection.md": 200,
+      "data-availability-assessment.md": 80,
+      "intelligence/procedures-proxy.md": 60
     },
     "propositions": {
       "executive-brief.md": 180,
@@ -357,6 +425,7 @@
       "intelligence/synthesis-summary.md": 160,
       "intelligence/historical-baseline.md": 120,
       "intelligence/economic-context.md": 120,
+      "intelligence/economic-context.fallback.md": 120,
       "intelligence/pestle-analysis.md": 180,
       "intelligence/stakeholder-map.md": 200,
       "intelligence/scenario-forecast.md": 180,
@@ -367,7 +436,9 @@
       "risk-scoring/risk-matrix.md": 100,
       "risk-scoring/quantitative-swot.md": 100,
       "extended/media-framing-analysis.md": 200,
-      "intelligence/methodology-reflection.md": 180
+      "intelligence/methodology-reflection.md": 180,
+      "data-availability-assessment.md": 80,
+      "intelligence/procedures-proxy.md": 60
     },
     "quarter-ahead": {
       "executive-brief.md": 200,
@@ -375,6 +446,7 @@
       "intelligence/synthesis-summary.md": 220,
       "intelligence/coalition-dynamics.md": 180,
       "intelligence/economic-context.md": 200,
+      "intelligence/economic-context.fallback.md": 200,
       "intelligence/historical-baseline.md": 200,
       "intelligence/mcp-reliability-audit.md": 220,
       "intelligence/pestle-analysis.md": 240,
@@ -392,7 +464,9 @@
       "risk-scoring/risk-matrix.md": 140,
       "risk-scoring/quantitative-swot.md": 140,
       "classification/significance-classification.md": 100,
-      "intelligence/methodology-reflection.md": 200
+      "intelligence/methodology-reflection.md": 200,
+      "data-availability-assessment.md": 80,
+      "intelligence/procedures-proxy.md": 60
     },
     "quarter-in-review": {
       "executive-brief.md": 200,
@@ -400,18 +474,22 @@
       "intelligence/synthesis-summary.md": 220,
       "intelligence/coalition-dynamics.md": 180,
       "intelligence/economic-context.md": 200,
+      "intelligence/economic-context.fallback.md": 200,
       "intelligence/historical-baseline.md": 200,
       "intelligence/mcp-reliability-audit.md": 220,
       "intelligence/pestle-analysis.md": 240,
       "intelligence/stakeholder-map.md": 260,
       "intelligence/threat-model.md": 200,
       "intelligence/voting-patterns.md": 220,
+      "intelligence/voting-patterns.degraded.md": 220,
       "intelligence/legislative-pipeline-forecast.md": 200,
       "extended/media-framing-analysis.md": 240,
       "risk-scoring/risk-matrix.md": 140,
       "risk-scoring/quantitative-swot.md": 140,
       "classification/significance-classification.md": 100,
-      "intelligence/methodology-reflection.md": 200
+      "intelligence/methodology-reflection.md": 200,
+      "data-availability-assessment.md": 80,
+      "intelligence/procedures-proxy.md": 60
     },
     "year-ahead": {
       "executive-brief.md": 220,
@@ -419,6 +497,7 @@
       "intelligence/synthesis-summary.md": 260,
       "intelligence/coalition-dynamics.md": 200,
       "intelligence/economic-context.md": 240,
+      "intelligence/economic-context.fallback.md": 240,
       "intelligence/historical-baseline.md": 240,
       "intelligence/mcp-reliability-audit.md": 240,
       "intelligence/pestle-analysis.md": 280,
@@ -437,7 +516,9 @@
       "risk-scoring/risk-matrix.md": 160,
       "risk-scoring/quantitative-swot.md": 160,
       "classification/significance-classification.md": 120,
-      "intelligence/methodology-reflection.md": 220
+      "intelligence/methodology-reflection.md": 220,
+      "data-availability-assessment.md": 80,
+      "intelligence/procedures-proxy.md": 60
     },
     "year-in-review": {
       "executive-brief.md": 220,
@@ -445,12 +526,14 @@
       "intelligence/synthesis-summary.md": 280,
       "intelligence/coalition-dynamics.md": 240,
       "intelligence/economic-context.md": 260,
+      "intelligence/economic-context.fallback.md": 260,
       "intelligence/historical-baseline.md": 240,
       "intelligence/mcp-reliability-audit.md": 240,
       "intelligence/pestle-analysis.md": 280,
       "intelligence/stakeholder-map.md": 300,
       "intelligence/threat-model.md": 240,
       "intelligence/voting-patterns.md": 280,
+      "intelligence/voting-patterns.degraded.md": 280,
       "intelligence/term-arc.md": 280,
       "intelligence/mandate-fulfilment-scorecard.md": 320,
       "intelligence/legislative-pipeline-forecast.md": 240,
@@ -461,7 +544,9 @@
       "risk-scoring/risk-matrix.md": 160,
       "risk-scoring/quantitative-swot.md": 160,
       "classification/significance-classification.md": 120,
-      "intelligence/methodology-reflection.md": 220
+      "intelligence/methodology-reflection.md": 220,
+      "data-availability-assessment.md": 80,
+      "intelligence/procedures-proxy.md": 60
     },
     "term-outlook": {
       "executive-brief.md": 220,
@@ -469,6 +554,7 @@
       "intelligence/synthesis-summary.md": 280,
       "intelligence/coalition-dynamics.md": 240,
       "intelligence/economic-context.md": 240,
+      "intelligence/economic-context.fallback.md": 240,
       "intelligence/historical-baseline.md": 240,
       "intelligence/mcp-reliability-audit.md": 240,
       "intelligence/pestle-analysis.md": 280,
@@ -489,7 +575,9 @@
       "risk-scoring/risk-matrix.md": 160,
       "risk-scoring/quantitative-swot.md": 160,
       "classification/significance-classification.md": 120,
-      "intelligence/methodology-reflection.md": 240
+      "intelligence/methodology-reflection.md": 240,
+      "data-availability-assessment.md": 80,
+      "intelligence/procedures-proxy.md": 60
     },
     "election-cycle": {
       "executive-brief.md": 240,
@@ -497,6 +585,7 @@
       "intelligence/synthesis-summary.md": 320,
       "intelligence/coalition-dynamics.md": 280,
       "intelligence/economic-context.md": 260,
+      "intelligence/economic-context.fallback.md": 260,
       "intelligence/historical-baseline.md": 280,
       "intelligence/mcp-reliability-audit.md": 240,
       "intelligence/pestle-analysis.md": 320,
@@ -517,7 +606,9 @@
       "risk-scoring/risk-matrix.md": 180,
       "risk-scoring/quantitative-swot.md": 180,
       "classification/significance-classification.md": 140,
-      "intelligence/methodology-reflection.md": 260
+      "intelligence/methodology-reflection.md": 260,
+      "data-availability-assessment.md": 80,
+      "intelligence/procedures-proxy.md": 60
     }
   }
 }
