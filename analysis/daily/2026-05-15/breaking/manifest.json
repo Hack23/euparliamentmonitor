@@ -1,0 +1,60 @@
+{
+  "articleType": "breaking",
+  "date": "2026-05-15",
+  "runId": "breaking-run343-1778808690",
+  "gateResult": "GREEN",
+  "history": [
+    {
+      "runId": "breaking-run343-1778808690",
+      "timestamp": "2026-05-15T00:00:00Z",
+      "pass": 1,
+      "rewriteCount": 36,
+      "artifacts": 36,
+      "gateResult": "GREEN"
+    }
+  ],
+  "files": {
+    "executive-brief": "executive-brief.md",
+    "document-analysis-index": "documents/document-analysis-index.md",
+    "significance-classification": "classification/significance-classification.md",
+    "analysis-index": "intelligence/analysis-index.md",
+    "significance-scoring": "intelligence/significance-scoring.md",
+    "coalition-dynamics": "intelligence/coalition-dynamics.md",
+    "cross-run-diff": "intelligence/cross-run-diff.md",
+    "economic-context": "intelligence/economic-context.md",
+    "historical-baseline": "intelligence/historical-baseline.md",
+    "mcp-reliability-audit": "intelligence/mcp-reliability-audit.md",
+    "pestle-analysis": "intelligence/pestle-analysis.md",
+    "political-threat-landscape": "intelligence/political-threat-landscape.md",
+    "scenario-forecast": "intelligence/scenario-forecast.md",
+    "stakeholder-map": "intelligence/stakeholder-map.md",
+    "synthesis-summary": "intelligence/synthesis-summary.md",
+    "threat-model": "intelligence/threat-model.md",
+    "voting-patterns": "intelligence/voting-patterns.md",
+    "wildcards-blackswans": "intelligence/wildcards-blackswans.md",
+    "cross-session-intelligence": "intelligence/cross-session-intelligence.md",
+    "workflow-audit": "intelligence/workflow-audit.md",
+    "reference-analysis-quality": "intelligence/reference-analysis-quality.md",
+    "methodology-reflection": "intelligence/methodology-reflection.md",
+    "risk-matrix": "risk-scoring/risk-matrix.md",
+    "quantitative-swot": "risk-scoring/quantitative-swot.md",
+    "extended-executive-brief": "extended/executive-brief.md",
+    "devils-advocate-analysis": "extended/devils-advocate-analysis.md",
+    "historical-parallels": "extended/historical-parallels.md",
+    "coalition-mathematics": "extended/coalition-mathematics.md",
+    "forward-indicators": "extended/forward-indicators.md",
+    "intelligence-assessment": "extended/intelligence-assessment.md",
+    "implementation-feasibility": "extended/implementation-feasibility.md",
+    "media-framing-analysis": "extended/media-framing-analysis.md",
+    "comparative-international": "extended/comparative-international.md",
+    "voter-segmentation": "extended/voter-segmentation.md",
+    "cross-reference-map": "extended/cross-reference-map.md",
+    "data-download-manifest": "extended/data-download-manifest.md"
+  },
+  "dataQuality": {
+    "rollCallDataAvailable": false,
+    "dmaTextAvailable": false,
+    "imfDataAvailable": false,
+    "gateImfDetermination": "not_required"
+  }
+}
