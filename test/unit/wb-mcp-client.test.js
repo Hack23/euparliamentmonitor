@@ -82,6 +82,79 @@ describe('wb-mcp-client', () => {
         expect(result.content[0].text).toBe('');
       });
     });
+
+    describe('getEU27Aggregate', () => {
+      it('should aggregate values per year across EU27 responses', async () => {
+        vi.spyOn(client, 'callTool').mockResolvedValue({
+          content: [{ type: 'text', text: JSON.stringify({ data: [{ year: 2024, value: 2 }] }) }],
+        });
+
+        const result = await client.getEU27Aggregate('get-economic-data', 'GDP', 1);
+        const parsed = JSON.parse(result.content[0].text);
+
+        expect(parsed.scope).toBe('EU27');
+        expect(parsed.aggregation).toBe('sum');
+        expect(parsed.series).toEqual([{ year: 2024, value: 54 }]);
+        expect(parsed.contributingCountries).toBe(27);
+        expect(parsed.failedCountries).toEqual([]);
+        expect(parsed.noDataCountries).toEqual([]);
+      });
+
+      it('should track failed and noData countries separately', async () => {
+        const failCodes = new Set(['AT', 'BE']); // 2 countries fail
+        const noDataCodes = new Set(['BG', 'HR', 'CY', 'CZ', 'DK']); // 5 return empty data
+        const callTool = vi.spyOn(client, 'callTool');
+        callTool.mockImplementation(async (_tool, args) => {
+          const cc = args.countryCode;
+          if (failCodes.has(cc)) {
+            throw new Error('tool failure');
+          }
+          if (noDataCodes.has(cc)) {
+            return { content: [{ type: 'text', text: JSON.stringify({ data: [] }) }] };
+          }
+          return {
+            content: [{ type: 'text', text: JSON.stringify({ data: [{ year: 2024, value: 1 }] }) }],
+          };
+        });
+
+        const result = await client.getEU27Aggregate('get-social-data', 'POPULATION', 1);
+        const parsed = JSON.parse(result.content[0].text);
+
+        expect(parsed.failedCountries).toHaveLength(2);
+        expect(parsed.noDataCountries).toHaveLength(5);
+        expect(parsed.contributingCountries).toBe(20);
+        expect(parsed.series).toEqual([{ year: 2024, value: 20 }]);
+      });
+
+      it('should return empty aggregate fallback when indicator is missing', async () => {
+        const result = await client.getEU27Aggregate('get-health-data', '', 1);
+        expect(JSON.parse(result.content[0].text)).toEqual({ scope: 'EU27', series: [] });
+      });
+
+      it('should treat malformed JSON responses as noDataCountries, not abort aggregation', async () => {
+        const malformedCodes = new Set(['AT', 'BE']); // 2 countries return malformed JSON
+        const callTool = vi.spyOn(client, 'callTool');
+        callTool.mockImplementation(async (_tool, args) => {
+          const cc = args.countryCode;
+          if (malformedCodes.has(cc)) {
+            // Simulate truncated/incomplete JSON as realistic API failure mode
+            return { content: [{ type: 'text', text: '{"data": [incomplete' }] };
+          }
+          return {
+            content: [{ type: 'text', text: JSON.stringify({ data: [{ year: 2024, value: 1 }] }) }],
+          };
+        });
+
+        const result = await client.getEU27Aggregate('get-economic-data', 'GDP', 1);
+        const parsed = JSON.parse(result.content[0].text);
+
+        expect(parsed.noDataCountries).toHaveLength(2);
+        expect(parsed.noDataCountries).toEqual(expect.arrayContaining(['AT', 'BE']));
+        expect(parsed.failedCountries).toHaveLength(0);
+        expect(parsed.contributingCountries).toBe(25);
+        expect(parsed.series).toEqual([{ year: 2024, value: 25 }]);
+      });
+    });
   });
 
   describe('Singleton lifecycle', () => {

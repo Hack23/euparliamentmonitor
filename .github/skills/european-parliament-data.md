@@ -253,6 +253,21 @@ When MCP server is unavailable:
 3. Log warning for monitoring
 4. Continue generating articles with available data
 
+## MCP Reliability Probe
+
+Run the MCP-layer health probe to get a machine-readable green/yellow/red matrix:
+
+```bash
+npm run mcp:probe
+```
+
+Probe policy:
+- Per-tool timeout budget: 15 seconds
+- Retry policy: 1 retry on timeout
+- Procedures feed stale-tail detection: treat payloads as degraded when max detected year is `< 2020`
+
+Daily CI execution is wired in `.github/workflows/mcp-probe-daily.yml`.
+
 ## Related Documentation
 - [European Parliament MCP Server](https://github.com/Hack23/European-Parliament-MCP-Server)
 - [EU Parliament Open Data](https://data.europarl.europa.eu/)

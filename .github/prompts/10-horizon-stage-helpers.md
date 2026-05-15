@@ -141,10 +141,10 @@ safeoutputs HTTP session alive for the full run. The unified
 
 For `quarter-ahead+` horizons:
 
-- When the EP MCP returns `recessMode: true` from any feed within the data
+- When the EP MCP returns `staleTail: true` from any feed within the data
   window, soft-fail that feed and surface a 🟡 dataQualityWarning entry in
   `mcp-reliability-audit.md`. Do not abort the run.
-- When ≥ 2 mandatory feeds are in recess mode, downgrade the article from
+- When ≥ 2 mandatory feeds are in stale-tail mode, downgrade the article from
   "Forward Projection" to "Calendar Projection" — keep the analysis
   artifacts but trim the article BLUF accordingly.
 
