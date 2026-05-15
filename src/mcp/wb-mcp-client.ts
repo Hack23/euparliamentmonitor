@@ -170,7 +170,9 @@ export class WorldBankMCPClient extends MCPConnection {
         if (typeof text !== 'string' || text.length === 0) {
           continue;
         }
-        const parsed = JSON.parse(text) as { data?: Array<{ year?: number; value?: number | null }> };
+        const parsed = JSON.parse(text) as {
+          data?: Array<{ year?: number; value?: number | null }>;
+        };
         const data = Array.isArray(parsed.data) ? parsed.data : [];
         for (const point of data) {
           if (

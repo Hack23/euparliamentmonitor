@@ -194,7 +194,10 @@ function getWBArgs(tool: string): Record<string, unknown> {
   }
 }
 
-async function probeEPTool(client: EuropeanParliamentMCPClient, tool: string): Promise<MCPToolResult> {
+async function probeEPTool(
+  client: EuropeanParliamentMCPClient,
+  tool: string
+): Promise<MCPToolResult> {
   const args = getEPArgs(tool);
   if (args === null) {
     return {
