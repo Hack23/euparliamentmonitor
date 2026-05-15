@@ -284,22 +284,26 @@ jobs:
           
           > **⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to any MCP tool,
           > always derive dates from `$TODAY` / `$LAST_WEEK` / `$LAST_MONTH`. Never
-          > hard-code a year.
+          > hard-code a year. **Slug-specific override**: if the importing workflow
+          > exports custom `$DATE_FROM` / `$DATE_TO` variables (e.g. week-in-review's
+          > D-36 → D-8 window), those take precedence over `$LAST_WEEK` for EP feed
+          > calls in that workflow — the slug-specific Stage A block is authoritative.
           
           > **⏱️ MCP session lifetime**: `engine.mcp.session-timeout` is
-          > NOT set — the gh-aw v0.71.3 compiler advertises the field but
-          > the bundled gateway image `ghcr.io/github/gh-aw-mcpg:v0.3.1`
-          > rejects it (`additionalProperties 'sessionTimeout' not
-          > allowed`, run #25275823699 fingerprint). The MCP gateway uses
-          > the upstream default session lifetime, and the gateway pings
-          > backends at the upstream default interval so
-          > EP / IMF / world-bank / memory sessions stay warm
-          > across the 60-min run. The Stage C exit tripwire still fires
-          > at the slug-specific elapsed-minute mark in
-          > `src/config/article-horizons.ts` so Stage D + E retain enough
-          > budget to land the single PR call by minute ≤ 45. See
+          > NOT set. The MCP gateway (currently `ghcr.io/github/gh-aw-mcpg:v0.3.9`
+          > under gh-aw v0.74.3) uses the upstream default session lifetime, and
+          > pings backends at the upstream default keepalive interval so
+          > EP / IMF / world-bank / memory sessions stay warm across the 60-min
+          > run. The Stage C exit tripwire still fires at the slug-specific
+          > elapsed-minute mark in `src/config/article-horizons.ts` so Stage D + E
+          > retain enough budget to land the single PR call by minute ≤ 45.
+          >
+          > *Historical context*: on gh-aw v0.71.3, the compiler advertised
+          > `engine.mcp.session-timeout` but gateway v0.3.1 rejected it
+          > (`additionalProperties 'sessionTimeout' not allowed`, run
+          > #25275823699). This was resolved by gateway v0.3.9. See
           > [`09-troubleshooting.md`](../../../prompts/09-troubleshooting.md) §5
-          > for run #24963129839 historical context.
+          > for run #24963129839 background.
           
           ### Stage B — Analysis (Ref: 02 §"Re-run improve/extend rule" — never no-op; see also [`02a-rerun-merge.md`](../../../prompts/02a-rerun-merge.md))
           
@@ -383,10 +387,12 @@ jobs:
           > Then skip Pass 3 and **all** Stage D render attempts and proceed
           > straight to Stage E. Shipping ANALYSIS_ONLY at the tripwire is
           > strictly better than blowing the 60-min `timeout-minutes` cap.
-          > The MCP gateway uses upstream default session lifetime
-          > (`engine.mcp.session-timeout` is not set due to an upstream
-          > gh-aw v0.71.3 / gateway-v0.3.1 schema bug — see frontmatter
-          > comment); the workflow hard-caps at 60 minutes regardless. See [`09-troubleshooting.md`](../../../prompts/09-troubleshooting.md) §5
+          > The MCP gateway uses its upstream default session lifetime
+          > (`engine.mcp.session-timeout` is intentionally not set — the
+          > default keepalive is sufficient); the workflow hard-caps at
+          > 60 minutes regardless. See frontmatter comment (lines 76–90)
+          > for historical context on the v0.71.3/v0.3.1 schema rejection.
+          > See [`09-troubleshooting.md`](../../../prompts/09-troubleshooting.md) §5
           > for run #24963129839 (`session not found` at minute 29 under the
           > old 45-min schedule) — historical context for the new design.
           

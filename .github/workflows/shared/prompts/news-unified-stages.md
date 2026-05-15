@@ -171,10 +171,12 @@ STAGE_C_GATE: RED articleType=${ARTICLE_TYPE_SLUG} missing=<N> short=<N> placeho
 > Then skip Pass 3 and **all** Stage D render attempts and proceed
 > straight to Stage E. Shipping ANALYSIS_ONLY at the tripwire is
 > strictly better than blowing the 60-min `timeout-minutes` cap.
-> The MCP gateway uses upstream default session lifetime
-> (`engine.mcp.session-timeout` is not set due to an upstream
-> gh-aw v0.71.3 / gateway-v0.3.1 schema bug — see frontmatter
-> comment); the workflow hard-caps at 60 minutes regardless. See [`09-troubleshooting.md`](../../../prompts/09-troubleshooting.md) §5
+> The MCP gateway uses its upstream default session lifetime
+> (`engine.mcp.session-timeout` is intentionally not set — the
+> default keepalive is sufficient); the workflow hard-caps at
+> 60 minutes regardless. See frontmatter comment (lines 76–90)
+> for historical context on the v0.71.3/v0.3.1 schema rejection.
+> See [`09-troubleshooting.md`](../../../prompts/09-troubleshooting.md) §5
 > for run #24963129839 (`session not found` at minute 29 under the
 > old 45-min schedule) — historical context for the new design.
 

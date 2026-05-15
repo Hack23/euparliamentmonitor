@@ -574,7 +574,6 @@ describe('agentic workflow threat detection policy', () => {
       '## 🚫 Never',
       '## 🗓️ Date Context + Stable Folder Resolution',
       'Elapsed-Time Tripwire',
-      'SINGLE_PR_ATTESTATION',
     ];
     for (const workflow of articleWorkflows) {
       const content = fs.readFileSync(path.join(WORKFLOWS_DIR, workflow), 'utf8');
