@@ -80,7 +80,8 @@ export function resolveArtifactPath(specPath, baseDir) {
   // Prevent path traversal: resolved path must be within baseDir
   if (baseDir) {
     const normalizedBase = path.resolve(base);
-    if (!resolved.startsWith(normalizedBase + path.sep) && resolved !== normalizedBase) {
+    const normalizedResolved = path.resolve(resolved);
+    if (!normalizedResolved.startsWith(normalizedBase + '/') && normalizedResolved !== normalizedBase) {
       throw new Error(`Path traversal detected: "${specPath}" resolves outside base-dir "${baseDir}"`);
     }
   }
