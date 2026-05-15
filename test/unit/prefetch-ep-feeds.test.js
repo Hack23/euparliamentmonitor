@@ -66,12 +66,7 @@ describe('scripts/prefetch-ep-feeds.sh', () => {
   });
 
   it('writes canonical unavailable-envelope placeholder on fetch failure', () => {
-    // Force a fetch failure by pointing the script at an unreachable host
-    // via curl's --resolve isn't supported here; instead simulate by using
-    // a feed name that exists in the allow-list but for which we
-    // pre-create the output file then have curl fail. Simplest: just
-    // observe the placeholder shape by reading the script source and
-    // confirming the contract.
+    // Observe the placeholder contract by reading the script source.
     const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
     expect(scriptSource).toContain('"status":"unavailable"');
     expect(scriptSource).toContain('"items":[]');
@@ -86,5 +81,121 @@ describe('scripts/prefetch-ep-feeds.sh', () => {
     expect(scriptSource).toMatch(/TIMEOUT_EVENTS=120/);
     expect(scriptSource).toMatch(/TIMEOUT_DEFAULT=60/);
     expect(scriptSource).toMatch(/events\)\s*printf '%s' "\$TIMEOUT_EVENTS"/);
+  });
+
+  // ---------------------------------------------------------------------------
+  // Retry / backoff policy tests (source-code drift guards)
+  // ---------------------------------------------------------------------------
+
+  it('implements retry with exponential-backoff delays (5s / 15s / 45s)', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    // The fetch_with_retry function must have the three delay values in order
+    expect(scriptSource).toContain('1) delay=5');
+    expect(scriptSource).toContain('2) delay=15');
+    // Third delay (default case) must be 45
+    expect(scriptSource).toContain('*) delay=45');
+  });
+
+  it('has fetch_with_retry function that loops up to 3 retries', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    expect(scriptSource).toContain('fetch_with_retry');
+    // The loop condition checks attempt <= 3
+    expect(scriptSource).toContain('"$attempt" -le 3');
+  });
+
+  it('implements EP API readiness probe before fetching feeds', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    // Should have an ep_api_probe function
+    expect(scriptSource).toContain('ep_api_probe');
+    // Probe uses HEAD request (--head flag)
+    expect(scriptSource).toContain('--head');
+    // The probe must be advisory only (warning on failure, but proceeds
+    // with per-feed retries). A previous revision skipped all per-feed
+    // fetches on a failed probe, which conflated 405 with API down.
+    expect(scriptSource).toMatch(/advisory/i);
+  });
+
+  it('exits 0 with placeholders when all feeds fail (recovery contract preserved)', () => {
+    // Executable test: force the EP API to be unreachable by overriding the
+    // host resolution via a non-routable proxy URL. We can't trivially
+    // override DNS, so instead we patch the script's EP_API constant via
+    // a local copy and run it. The script must:
+    //   1. exit 0 (agent must still start)
+    //   2. write `status:"unavailable"` placeholder for every requested feed
+    //   3. print a warning "All N feed(s) failed" to stderr
+    //   4. export ANALYSIS_DIR to GITHUB_ENV (when set)
+    const localScript = path.join(tmpRoot, 'scripts', 'prefetch-ep-feeds.sh');
+    fs.copyFileSync(SCRIPT, localScript);
+    let source = fs.readFileSync(localScript, 'utf8');
+    // Redirect EP API to a guaranteed-unreachable, immediately-rejecting
+    // endpoint and shrink curl timeouts so the test runs fast.
+    source = source.replace(
+      'EP_API="https://data.europarl.europa.eu/api/v2"',
+      'EP_API="http://127.0.0.1:1/api/v2"',
+    );
+    source = source.replace('TIMEOUT_EVENTS=120', 'TIMEOUT_EVENTS=1');
+    source = source.replace('TIMEOUT_DEFAULT=60', 'TIMEOUT_DEFAULT=1');
+    // Collapse retry waits so 3 retries finish in ~0s rather than ~65s.
+    source = source.replace('1) delay=5', '1) delay=0');
+    source = source.replace('2) delay=15', '2) delay=0');
+    source = source.replace('*) delay=45', '*) delay=0');
+    fs.writeFileSync(localScript, source);
+    fs.chmodSync(localScript, 0o755);
+
+    const ghEnv = path.join(tmpRoot, 'github-env');
+    fs.writeFileSync(ghEnv, '');
+
+    // Strip GITHUB_WORKSPACE so resolve-analysis-dir.sh uses the sandbox.
+    const sandboxEnv = { ...process.env, GITHUB_ENV: ghEnv };
+    delete sandboxEnv.GITHUB_WORKSPACE;
+
+    const result = spawnSync('bash', [localScript, 'breaking', 'meps', 'documents'], {
+      cwd: tmpRoot,
+      env: sandboxEnv,
+      encoding: 'utf8',
+      timeout: 60_000,
+    });
+
+    // Must exit 0 — the workflow recovery contract requires the agent to
+    // start even when every feed fails (downstream uses MCP or prior-run data).
+    expect(result.status, `stderr was: ${result.stderr}`).toBe(0);
+    expect(result.stderr).toMatch(/All 2 feed\(s\) failed/);
+
+    // Placeholder files must exist with status:"unavailable"
+    const dataDir = path.join(tmpRoot, 'analysis', 'daily');
+    const dayDirs = fs.readdirSync(dataDir);
+    expect(dayDirs.length).toBeGreaterThan(0);
+    const slugDir = path.join(dataDir, dayDirs[0], 'breaking', 'data');
+    const mepsFile = path.join(slugDir, 'meps-feed.json');
+    expect(fs.existsSync(mepsFile)).toBe(true);
+    const mepsPayload = JSON.parse(fs.readFileSync(mepsFile, 'utf8'));
+    expect(mepsPayload.status).toBe('unavailable');
+    expect(mepsPayload.source).toBe('prefetch-ep-feeds.sh');
+    expect(mepsPayload.feed).toBe('meps');
+
+    // GITHUB_ENV must contain ANALYSIS_DIR
+    const envContent = fs.readFileSync(ghEnv, 'utf8');
+    expect(envContent).toMatch(/^ANALYSIS_DIR=/m);
+  }, 90_000);
+
+  it('does NOT exit non-zero on all-fail (drift guard against blocking exit-1)', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    // The all-fail branch must NOT contain `exit 1`. Drift guard against
+    // reintroducing the blocking exit that conflicts with the no-continue-on-error
+    // workflow contract (see test/unit/agentic-workflows-threat-detection.test.js).
+    const allFailBlock = scriptSource.match(
+      /"\$FETCHED" -eq 0 \] && \[ "\$PLACEHOLDERS" -gt 0[\s\S]+?fi/,
+    );
+    expect(allFailBlock, 'all-fail branch missing').not.toBeNull();
+    expect(allFailBlock[0]).not.toMatch(/\bexit 1\b/);
+  });
+
+  it('uses case statement for backoff delays (shell-safety: no array indirect expansion)', () => {
+    const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
+    // Must use case/esac for delay lookup
+    expect(scriptSource).toMatch(/case "\$attempt" in/);
+    // Must NOT use array lookup with ${delays[$attempt]} or similar
+    expect(scriptSource).not.toMatch(/\$\{delays\[/);
+    expect(scriptSource).not.toMatch(/\$\{DELAYS\[/);
   });
 });
