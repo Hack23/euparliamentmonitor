@@ -1,0 +1,70 @@
+{
+  "articleType": "week-ahead",
+  "runDate": "2026-05-15",
+  "analysisDir": "analysis/daily/2026-05-15/week-ahead",
+  "dataMode": "degraded-voting,degraded-imf",
+  "sessionWindow": "2026-05-19/2026-05-22",
+  "history": [
+    {
+      "runId": "week-ahead-run645-1778833571",
+      "startEpoch": 1778833571,
+      "dataMode": "degraded-voting,degraded-imf",
+      "stage": "B",
+      "pass": 1
+    }
+  ],
+  "files": {
+    "root": [
+      "executive-brief.md"
+    ],
+    "intelligence": [
+      "intelligence/synthesis-summary.md",
+      "intelligence/pestle-analysis.md",
+      "intelligence/stakeholder-map.md",
+      "intelligence/scenario-forecast.md",
+      "intelligence/forward-projection.md",
+      "intelligence/threat-model.md",
+      "intelligence/wildcards-blackswans.md",
+      "intelligence/historical-baseline.md",
+      "intelligence/economic-context.md",
+      "intelligence/analysis-index.md",
+      "intelligence/mcp-reliability-audit.md",
+      "intelligence/reference-analysis-quality.md",
+      "intelligence/methodology-reflection.md"
+    ],
+    "classification": [
+      "classification/impact-matrix.md",
+      "classification/significance-classification.md",
+      "classification/actor-mapping.md",
+      "classification/forces-analysis.md"
+    ],
+    "riskScoring": [
+      "risk-scoring/risk-matrix.md",
+      "risk-scoring/quantitative-swot.md",
+      "risk-scoring/political-capital-risk.md",
+      "risk-scoring/legislative-velocity-risk.md"
+    ],
+    "threatAssessment": [
+      "threat-assessment/political-threat-landscape.md",
+      "threat-assessment/actor-threat-profiles.md",
+      "threat-assessment/consequence-trees.md",
+      "threat-assessment/legislative-disruption.md"
+    ],
+    "extended": [
+      "extended/media-framing-analysis.md"
+    ],
+    "existing": [
+      "existing/deep-analysis.md",
+      "existing/session-baseline.md"
+    ]
+  },
+  "pass2": {
+    "rewriteCount": 0,
+    "note": "First run; pass2 deepening applied within same-turn writes"
+  },
+  "qualityFlags": {
+    "executiveBriefBelowFloor": false,
+    "degradedLineFloorApplied": true,
+    "degradedFloorFactor": 0.85
+  }
+}
