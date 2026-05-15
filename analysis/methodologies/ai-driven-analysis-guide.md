@@ -664,15 +664,16 @@ graph LR
 
 ---
 
-## 🎯 Confidence Labelling — Single Source of Truth
+## 🎯 Confidence Labelling — Operational Guide
 
 Every analytical claim in every artifact carries a confidence label. The
 **operational protocol uses the 3-marker 🟢/🟡/🔴 system** (Steps 6, 9, 10 above);
 the 5-level scale below is retained for **cross-project compatibility** with
 the Riksdagsmonitor lineage and for granular self-scoring inside
-`methodology-reflection.md`. The authoritative reconciliation table lives in
-[`confidence-calibration.md`](confidence-calibration.md) — read it before
-writing any confidence label.
+`methodology-reflection.md`. The **authoritative reconciliation table is
+[`confidence-calibration.md`](confidence-calibration.md)** — read it before
+writing any confidence label; the tables in this section are a summary of
+that source of truth.
 
 ### Operational 3-marker scale (use this in every artifact)
 
@@ -694,10 +695,12 @@ writing any confidence label.
 
 ### Confidence Ceilings by Data Depth
 
-The confidence ceiling is determined by the **data depth** field recorded in
-`intelligence/mcp-reliability-audit.md` and `intelligence/significance-scoring.md`
-during Step 3 (heritage Riksdagsmonitor pipelines called this file
-`data-summary.md`; that filename is **not canonical** in this repo):
+The confidence ceiling is determined by the **data depth** field recorded
+during Step 3 in `intelligence/mcp-reliability-audit.md` (per-source
+availability) and propagated into `intelligence/significance-scoring.md`
+(per-claim confidence ceiling). Heritage Riksdagsmonitor pipelines combined
+both responsibilities into a single `data-summary.md` file; that filename is
+**not canonical** in this repo — use the two separate canonical files above. The depth-to-ceiling mapping is:
 
 - **FULL-TEXT** document (complete text via EP MCP) → up to 🟢 HIGH / 🟦 5
 - **SUMMARY-only** document (metadata + abstract) → cap at 🟡 MEDIUM / 🟧 3
