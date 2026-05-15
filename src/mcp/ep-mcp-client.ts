@@ -427,7 +427,7 @@ function extractProcedureItemYear(obj: Record<string, unknown>): number {
  * @param payload - Parsed procedures feed payload
  * @returns `true` when the newest dated item is earlier than `PROCEDURES_STALENESS_YEAR_THRESHOLD`
  */
-export function detectProceduresFeedRecessMode(
+export function detectProceduresFeedStaleTail(
   payload: Record<string, unknown> | undefined
 ): boolean {
   if (!payload) return false;
@@ -1877,15 +1877,15 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
    * Get procedures feed (most recent updates via EP API v2)
    *
-   * Post-processes the response to detect "recess mode" — when the EP procedures
-   * feed returns historical-tail archive data (newest dated item < 2020) instead of
-   * current procedures. This happens during parliamentary recesses when the EP API
-   * serves its historical archive in ID order.
+   * Post-processes the response to detect stale historical tail — when the EP procedures
+   * feed returns archive data (newest dated item < 2020) instead of
+   * current procedures. This happens when the EP API serves its historical archive
+   * in ID order due to upstream ordering degradation.
    *
-   * When recess mode is detected:
-   * - `recessMode: true` is added to the payload
-   * - A `RECESS_MODE: …` entry is appended to `dataQualityWarnings[]`
-   * - A `🟡 procedures-feed: recess mode` console warning is emitted
+   * When a stale tail is detected:
+   * - `staleTail: true` is added to the payload
+   * - A `STALE_TAIL: …` entry is appended to `dataQualityWarnings[]`
+   * - A `🟡 procedures-feed: stale historical tail` console warning is emitted
    *
    * The tool is **not** recorded as failed — this is documented EP API behaviour
    * classified as 🟢 LIMITATION in `.github/prompts/07-mcp-reference.md` §11 row #5.
@@ -1893,7 +1893,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
    * `get_adopted_texts({ year: $YEAR })` or `track_legislation({ procedureId })`.
    *
    * @param options - Pagination options
-   * @returns Procedures feed data, possibly with `recessMode: true` added to the payload
+   * @returns Procedures feed data, possibly with `staleTail: true` added to the payload
    */
   async getProceduresFeed(options: GetProceduresFeedOptions = {}): Promise<MCPToolResult> {
     const result = await this.safeCallTool(
@@ -1903,7 +1903,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     );
 
     const payload = _parseResultPayload(result);
-    if (detectProceduresFeedRecessMode(payload)) {
+    if (detectProceduresFeedStaleTail(payload)) {
       console.warn(
         '🟡 procedures-feed: stale historical tail — newest procedure year is <2020; use get_adopted_texts({ year: $YEAR }) or track_legislation({ procedureId }) instead'
       );
@@ -1912,10 +1912,10 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
         : [];
       const augmented: Record<string, unknown> = {
         ...(payload as Record<string, unknown>),
-        recessMode: true,
+        staleTail: true,
         dataQualityWarnings: [
           ...existingWarnings,
-          'RECESS_MODE: procedures-feed returned stale historical tail (max year <2020) — likely upstream ordering degradation or recess; fallback: get_adopted_texts({ year: $YEAR }) or track_legislation({ procedureId })',
+          'STALE_TAIL: procedures-feed returned stale historical tail (max year <2020) — likely upstream ordering degradation; fallback: get_adopted_texts({ year: $YEAR }) or track_legislation({ procedureId })',
         ],
       };
       const augmentedText = JSON.stringify(augmented);

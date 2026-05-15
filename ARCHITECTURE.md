@@ -816,7 +816,6 @@ src/                                   → scripts/                          (ts
 │   ├── mcp-connection.ts              Base JSON-RPC 2.0 transport (stdio + HTTP gateway modes)
 │   ├── mcp-health.ts                  Health probes for MCP backends
 │   ├── mcp-retry.ts                   Exponential backoff retry with jitter
-│   └── mcp-probe.ts                   Daily MCP reliability matrix probe (green/yellow/red JSON)
 │   ├── pending-documents.ts           Pending-document tracking for reprobe/escalation
 │   └── procedure-seen-cache.ts        Dedup cache for legislative procedures across runs
 ├── templates/                         → templates/

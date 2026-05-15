@@ -145,10 +145,18 @@ export class WorldBankMCPClient extends MCPConnection {
    * This is a client-side fallback for aggregate codes such as `EUU` that are
    * rejected by the upstream `worldbank-mcp` server.
    *
+   * **Important:** This method uses simple summation (`aggregation: "sum"`),
+   * which is only meaningful for **additive** flow/stock metrics (e.g.,
+   * absolute GDP in USD, total population, total exports). For ratios,
+   * percentages, rates, or per-capita indicators (e.g., GDP growth %,
+   * GDP per capita, school enrollment %, health expenditure as % of GDP),
+   * a plain sum is mathematically incorrect. Callers must verify the
+   * indicator is additive before using the result.
+   *
    * @param toolName - World Bank MCP tool (`get-economic-data`, `get-social-data`, `get-education-data`, `get-health-data`)
-   * @param indicator - Indicator key accepted by the selected tool
+   * @param indicator - Indicator key accepted by the selected tool (must be an additive metric — not a ratio or percentage)
    * @param years - Number of years to request (default 10)
-   * @returns MCP-like JSON payload with summed year-series across EU-27
+   * @returns MCP-like JSON payload with summed year-series across EU-27 (includes `aggregation: "sum"` field)
    */
   async getEU27Aggregate(
     toolName: 'get-economic-data' | 'get-social-data' | 'get-education-data' | 'get-health-data',
@@ -203,6 +211,7 @@ export class WorldBankMCPClient extends MCPConnection {
             tool: toolName,
             indicator,
             years,
+            aggregation: 'sum',
             series,
             contributingCountries: EU27_ISO2_CODES.length - failedCountries.length,
             failedCountries,

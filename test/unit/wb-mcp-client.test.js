@@ -93,6 +93,7 @@ describe('wb-mcp-client', () => {
         const parsed = JSON.parse(result.content[0].text);
 
         expect(parsed.scope).toBe('EU27');
+        expect(parsed.aggregation).toBe('sum');
         expect(parsed.series).toEqual([{ year: 2024, value: 54 }]);
         expect(parsed.contributingCountries).toBe(27);
         expect(parsed.failedCountries).toEqual([]);
