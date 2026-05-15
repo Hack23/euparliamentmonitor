@@ -251,6 +251,8 @@ The manifest **MUST** include a top-level `dataMode` field declaring the
 data-availability state of the run. This drives threshold adjustments in
 Stage C — the validator reduces line floors for structurally constrained runs.
 
+**Stage A — `data-availability-assessment` first:** Before writing any analysis artifact, produce `data-availability-assessment.md` in the run root. This artifact records the triage result for every data source (EP MCP endpoints, IMF SDMX, DOCEO XML, World Bank) and sets the `manifest.dataMode` field. Template: [`analysis/templates/data-availability-assessment.md`](../../analysis/templates/data-availability-assessment.md). When `dataMode = "degraded-voting"`, use [`analysis/templates/intelligence/voting-patterns.degraded.md`](../../analysis/templates/intelligence/voting-patterns.degraded.md) instead of the standard `voting-patterns.md`. When `dataMode = "degraded-imf"`, use [`analysis/templates/intelligence/economic-context.fallback.md`](../../analysis/templates/intelligence/economic-context.fallback.md) instead of `economic-context.md`.
+
 | `dataMode` value | When to set | Line-floor reduction |
 |------------------|-------------|---------------------|
 | `"full"` | All primary sources (EP MCP, IMF, voting records) available | 0% (default) |
@@ -325,7 +327,7 @@ back to World Bank for economic data (Stage C rejects WB economic claims):
    last-30-days window when no dates are supplied, but explicit dates
    remain the required calling pattern for reproducibility.
 7. **Chronic feed degradation — pivot fast, do not retry-loop.** The
-   `get_events_feed` API errors and `get_procedures_feed` `RECESS_MODE`
+   `get_events_feed` API errors and `get_procedures_feed` `STALE_TAIL`
    responses are **structural**, not transient. After **one** failed
    call, immediately pivot to the documented compensating source — do
    not retry the same feed multiple times within Stage A. Compensating
@@ -333,7 +335,7 @@ back to World Bank for economic data (Stage C rejects WB economic claims):
    - `get_events_feed` failure → `get_adopted_texts_feed` (today/one-week)
      + `get_meeting_decisions({ sittingId })` for the in-window plenary
      sittings.
-   - `get_procedures_feed` `RECESS_MODE` → `get_procedures({ processId })`
+   - `get_procedures_feed` `STALE_TAIL` → `get_procedures({ processId })`
      for procedure IDs harvested from adopted texts; for forward-looking
      workflows use `get_meeting_foreseen_activities({ sittingId })`
      fan-out (see §8b).

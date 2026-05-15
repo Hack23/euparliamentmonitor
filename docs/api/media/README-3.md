@@ -25,6 +25,20 @@ This directory contains GitHub Actions workflows for the EU Parliament Monitor p
 
 ---
 
+### 🔍 MCP Reliability Monitoring
+
+#### `mcp-probe-daily.yml`
+**Purpose**: Daily MCP reliability probe across EP, IMF, and World Bank integrations
+
+**Trigger**:
+- Daily schedule (04:30 UTC)
+- Workflow dispatch (manual)
+
+**What it does**:
+- Sources `scripts/mcp-setup.sh` for gateway URL/auth discovery
+- Runs `npm run mcp:probe -- --json-only`
+- Uploads machine-readable JSON health matrix artifact
+
 ### 📰 News Generation (Agentic Workflows)
 
 The project uses **agentic workflow markdown files** (`.md`) that are compiled to `.lock.yml` files via `gh aw compile --validate`. Each news workflow generates a specific type of EU Parliament article using the European Parliament MCP server as the primary data source, with **IMF native REST-client enrichment as the sole authoritative source for economic context** and World Bank MCP enrichment **only for non-economic domains** (health, education, social, environment, demographics, defence, agriculture, innovation, governance). The World Bank is mounted as an MCP server; IMF data is fetched via a native TypeScript REST client — there is no IMF MCP mount in the workflow frontmatter.
@@ -317,6 +331,58 @@ reintroduce `repo-memory` as a checkpoint mechanism — it compiles an additiona
 not use.
 
 **Security**: Read-only permissions by default, MCP data only from official EU Parliament / World Bank / IMF sources. Firewall policy via [`gh-aw-firewall` skill](../skills/gh-aw-firewall.md).
+
+#### Degraded-mode data flow and thresholds cache
+
+When the EP API is unavailable or slow, `scripts/prefetch-ep-feeds.sh` retries
+each feed 3 times (backoff: 5 s → 15 s → 45 s) before writing an unavailable-
+envelope placeholder. After all feeds are processed the script writes
+`${ANALYSIS_DIR}/data/prefetch-status.json` with a `prefetchMode` field that
+propagates through the pipeline:
+
+```
+prefetch-ep-feeds.sh → prefetch-status.json (prefetchMode)
+                     → Stage A reads prefetchMode
+                     → Stage A writes manifest.dataMode
+                     → npm run validate-analysis reads manifest.dataMode
+                     → line-floor reduction applied (Stage C gate)
+```
+
+| `prefetchMode` / `dataMode` | Meaning | Line-floor factor |
+|-----------------------------|---------|-------------------|
+| `full` (or `green` alias) | All feeds fetched; IMF & voting OK | 1.00 |
+| `degraded-feeds` | 1+ feeds unavailable after 3 retries | 0.80 |
+| `degraded-imf` | IMF data unavailable | 0.85 |
+| `degraded-voting` | EP roll-call data absent | 0.85 |
+| `title-only` | Only titles/metadata available | 0.75 |
+| `minimal` | Most EP feeds unavailable + IMF absent | 0.65 |
+
+Stage A agents must copy `prefetchMode` directly from `prefetch-status.json`
+into `manifest.dataMode` before Stage B. Stage C's `npm run validate-analysis`
+then auto-reduces floors so structurally constrained runs can pass without
+agent self-declaration. Structural checks (Mermaid, WEP, Admiralty, SATs) are
+**never** reduced.
+
+**Thresholds cache**: to avoid re-reading
+`analysis/methodologies/reference-quality-thresholds.json` per artifact (a
+pattern that wastes 38+ invocations per run), agents call
+`bash scripts/cache-analysis-thresholds.sh "${ANALYSIS_DIR}" "<slug>"` **once
+at Stage B start**. This writes `${ANALYSIS_DIR}/runs/thresholds-cache.json`
+with only the entries for the active article type. All subsequent artifact
+writes read from the cache, not the source file. The lint check in
+`scripts/lint-prompts.js` flags workflows that inline direct threshold reads.
+
+## Helper Scripts — Invocation Order
+
+The following scripts are called by the pre-agent steps or at specific Stage entry points. Invocation order per run:
+
+| Order | Script | Stage | Purpose |
+|-------|--------|-------|---------|
+| 1 | `bash scripts/prefetch-ep-feeds.sh <slug> <feeds…>` | Pre-agent | EP Open Data feed fetch with 3-retry exponential backoff. Exits 1 when all feeds fail (API unreachable). Drift-guarded by `test/unit/prefetch-ep-feeds.test.js` and `test/unit/shell-safety.test.js`. |
+| 2 | `node scripts/scrape-doceo-votes.js --date <date> --slug <slug> --output-dir <dir>` | Stage A | Direct DOCEO RCV XML scrape for roll-call votes (bypasses EP MCP 4–6 week lag). Returns `publicationLag:true` on 404 — not an error. |
+| 3 | `node scripts/imf-fallback-ladder.js --output-dir <dir>` | Stage A | IMF economic data with 4-rung fallback: SDMX 3.0 → DataMapper → World Bank proxy → cached vintage. Writes `economic-context-data.json` with provenance. |
+| 4 | `bash scripts/cache-analysis-thresholds.sh "${ANALYSIS_DIR}" <slug>` | **Stage B start** | Canonical Stage-B threshold cache helper. Filters `reference-quality-thresholds.json` once per run to `${ANALYSIS_DIR}/runs/thresholds-cache.json` (keyed by the active article-type slug only). Eliminates 38+ per-artifact re-reads of the full thresholds file. Shell-safety-compliant (drift-guarded by `test/unit/shell-safety.test.js` and `test/unit/cache-analysis-thresholds.test.js`). Supersedes the legacy `node scripts/cache-thresholds.js --slug <slug> --run-id <run-id>` helper, which remains in-tree for the aggregator's content-hashed short-circuit pathway but is no longer invoked from the news-*.md workflows. |
+| 5 | `node scripts/extend-artifacts.js --spec-file <path> --base-dir <dir>` | Stage B Pass 2 | Batch-extend multiple under-floor artifacts in one Node execution. Accepts JSON spec array `[{path, content, mode}]`. |
 
 ---
 

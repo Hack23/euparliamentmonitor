@@ -82,7 +82,7 @@ Every artifact in this document applies the professional standards defined in [`
 
 - **Source grading** — every citation carries an Admiralty grade (A1–F6); grade → 🟢/🟡/🔴 mapping per §2.3.
 - **Estimative language** — every probabilistic claim uses a Words-of-Estimative-Probability band (§3.1) with an explicit time horizon (§3.4). Banned ambiguous terms (§3.2) do not appear in analytic conclusions.
-- **Structured Analytic Techniques** — the run's `methodology-reflection.md` attests ≥10 SATs drawn from §4; individual artifacts specify their primary SAT in the *Quality signals* row below.
+- **Structured Analytic Techniques** — the run's `methodology-reflection.md` attests ≥10 SATs drawn from §4; each artifact below declares its **`Mandatory SATs.`** line (grep-able: `^\*\*Mandatory SATs\.\*\*`) listing the required primary and supporting techniques. Techniques absent from an artifact's `Mandatory SATs.` line may still be applied at analyst discretion but are not checked at Stage C.
 - **ICD 203 standards** — the nine ODNI analytic standards (§1) map onto the sections of each artifact and are self-audited in `methodology-reflection.md` §12.
 - **OSINT scope** — sources outside §5.2 (personal-life data, doxing, covert collection, unverified leaks) are never cited.
 
@@ -131,6 +131,8 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Depth floor (breaking):** 205 lines.
 
+**Mandatory SATs.** `Key Assumptions Check` (§4.1 technique 2, primary — surface structural assumptions about coalition arithmetic and EP calendar) · `Quality of Information Check` (§4.1 technique 3, primary — populate confidence ledger) · `Scenario Analysis` (§4.1 technique 9, supporting — inform forward-monitor watchpoints). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
+
 **Quality signals.** Every claim in the Executive Finding paragraph links to at least one other artifact in the run; the Top-5 table has ≥3 numeric citations (score, margin, %); no paragraph exceeds 150 words without structure. **Source-grade × Estimative-language discipline (tradecraft):** every headline judgement uses a WEP band (see [`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)) with explicit time horizon (§3.4); every Top-5 finding carries an Admiralty source grade (§2) and a 🟢/🟡/🔴 confidence marker consistent with §2.3.
 
 ---
@@ -152,6 +154,8 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 **Mandatory Mermaid.** `quadrantChart` with axes `Power` (y) and `Alignment` (x), ≥12 labelled points.
 
 **Depth floor (breaking):** 305 lines.
+
+**Mandatory SATs.** `Stakeholder Mapping` (§4.2 supporting, primary — power × alignment grid construction) · `ACH` (§4.1 technique 1, supporting — when ≥2 plausible alignment scores compete for the same actor). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
 
 **Quality signals.** Every power score cites a source (MEP influence index, committee role, group seat share); every alignment score cites a roll-call, speech, or public position.
 
@@ -176,6 +180,8 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Depth floor (breaking):** 280 lines.
 
+**Mandatory SATs.** `Scenario Analysis` (§4.1 technique 9, primary) · `Pre-Mortem` (§4.1 technique 8, primary — mandatory before finalising probability weights) · `Key Assumptions Check` (§4.1 technique 2, supporting — baseline assumption section) · `Indicators & Signposts` (§4.1 technique 4, supporting — early-warning indicators per scenario). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
+
 **Quality signals.** Probabilities sum to 100%; each scenario names at least one procedure ID, date, or named actor; no scenario is described in bullet points alone. **Source-grade × Estimative-language discipline (tradecraft):** each scenario's probability is expressed as a WEP band ([`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)) with explicit time horizon (§3.4); primary SAT is Scenario Analysis with a mandatory Pre-Mortem (§4 techniques 9 + 8); every indicator cites its source with an Admiralty grade (§2).
 
 > 📎 **Worked example:** [`examples/scenario-forecast-good-output.md`](examples/scenario-forecast-good-output.md) — three scenarios with WEP bands separated from confidence labels, dated indicators, a named Pre-Mortem scenario, and a cross-scenario sensitivity flip.
@@ -198,6 +204,8 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Depth floor (breaking):** 250 lines.
 
+**Mandatory SATs.** `PESTLE` (§4.2 supporting, primary — the six-dimension scan is itself the SAT) · `Force-Field Analysis` (§4.2 supporting, supporting — pressure synthesis section). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
+
 **Quality signals.** At least one IMF indicator cited for any economic dimension; WB non-economic indicator additionally cited for health/education/social/environment/defence dimensions; legal dimension cites at least one treaty article or CJEU reference; each dimension's pressure rating has a written justification.
 
 ---
@@ -219,6 +227,8 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 
 **Depth floor (breaking):** 250 lines.
 
+**Mandatory SATs.** `Key Assumptions Check` (§4.1 technique 2, primary — threat assumptions) · `Red Team / Devil's Advocate` (§4.1 technique 7, primary — ≥1 alternative hypothesis per headline threat) · `ACH` (§4.1 technique 1, supporting — when ≥2 threat hypotheses compete). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
+
 **Quality signals.** Each threat is named, not generic; mitigation posture references at least one EP rule, treaty article, or institutional practice. **Source-grade × Estimative-language discipline (tradecraft):** every threat likelihood and impact uses a WEP band ([`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)); every cited intent / capability claim carries an Admiralty grade (§2); ≥1 alternative-hypothesis position (ACH or Red-Team, §4) is surfaced for any headline threat judgement.
 
 ---
@@ -239,6 +249,8 @@ Artifacts marked below with **"Source grade × WEP discipline (tradecraft)"** ma
 **Mandatory Mermaid.** `graph LR` linking groups with edge weight = agreement % (green >70%, orange 50-70%, red <50%).
 
 **Depth floor (breaking):** 135 lines.
+
+**Mandatory SATs.** `ACH` (§4.1 technique 1, primary — competing coalition hypotheses for each contested vote) · `Indicators & Signposts` (§4.1 technique 4, supporting — confidence ledger tripwires for when roll-call data publishes). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
 
 **Quality signals.** At least one RCV ID cited; where EP voting feed has not yet published data, this is stated explicitly and group claims are marked LOW confidence.
 
@@ -274,6 +286,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 **Depth floor (breaking):** 100 lines.
 
+**Mandatory SATs.** `Bayesian Update` (§4.2 supporting, primary — prior × likelihood → posterior for each top finding) · `Quality of Information Check` (§4.1 technique 3, primary — confidence migration section). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
+
 **Quality signals.** Prior-run artifact paths are valid; posterior assessments state the evidence class (supporting / contradicting / orthogonal) per [`political-risk-methodology.md` §Bayesian Update](political-risk-methodology.md). **Source-grade × Estimative-language discipline (tradecraft):** every posterior claim is expressed as a WEP band ([`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)); evidence updating the prior carries an Admiralty grade (§2); primary SATs are Bayesian Update (§4.2) and Quality of Information Check (§4 technique 3).
 
 ---
@@ -301,6 +315,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 **Depth floor (breaking):** 185 lines.
 
+**Mandatory SATs.** `Quality of Information Check` (§4.1 technique 3, primary — IMF source grading and data-vintage audit) · `Bayesian Update` (§4.2 supporting, supporting — forward-outlook section: IMF WEO projection vs prior-run vintage). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
+
 **Quality signals.** Every IMF indicator cites its SDMX code + vintage; the enclosing HTML `<section>` carries `data-vintage="WEO-April-2026"`; every forecast number is within 30 words of a forecast marker (`forecast`/`projection`/`projects`/`expects`). Per-article-type IMF indicator floor (see [`imf-indicator-mapping.md §8`](imf-indicator-mapping.md)) is satisfied. For Tier-1 articles citing high-sensitivity indicators, the cross-source triangulation outcome is logged per [`../imf/cross-source-triangulation.md`](../imf/cross-source-triangulation.md). The final bridge paragraph explicitly links the IMF signal to an EP political mechanism and gives safe SEO terms for title/description reuse.
 
 ---
@@ -321,6 +337,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 **Mandatory Mermaid.** `xyChart` or timeline showing the leading metric over ≥90 days with current run highlighted.
 
 **Depth floor (breaking):** 190 lines.
+
+**Mandatory SATs.** `Bayesian Update` (§4.2 supporting, primary — anchor current scores to priors) · `Key Assumptions Check` (§4.1 technique 2, supporting — validate that 30-/90-day windows are long enough for the claim). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
 
 **Quality signals.** Every baseline claim cites a prior run or an EP stats endpoint; "first occurrence" claims are justified against at least two prior periods.
 
@@ -343,6 +361,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 **Depth floor (breaking):** 385 lines (this is the deepest breaking-run artifact — MCP reliability is a first-class product concern).
 
+**Mandatory SATs.** `Quality of Information Check` (§4.1 technique 3, primary — the artifact IS the per-source quality audit) · `Red Team / Devil's Advocate` (§4.1 technique 7, supporting — stress-test the feed reliability scores to avoid over-optimistic triage). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
+
 **Quality signals.** Every degraded or failed endpoint has one of three explicit dispositions: a cited GitHub issue link, a triage-table citation recorded as `documented behaviour — see §11 #N`, or a clear note that it is a fileable new bug not yet linked; workarounds are reproducible from the text. **Triage-gate compliance:** every degraded/failed row has been looked up in [`.github/prompts/07-mcp-reference.md` §11 Audit-Recurring Triage Table](../../.github/prompts/07-mcp-reference.md); items matching a 🟢 LIMITATION or 🔵 CALLING-PATTERN row are recorded as `documented behaviour — see §11 #N` and **excluded** from "Issues needing creation"; only 🔴 real-bug findings (or new symptoms not in the table) are filed. **Denominator exclusion (§5 Reliability Index):** 🟢/🔵-classified items are excluded from both numerator and denominator when computing the success-rate component — do not count OJQ-404 (`get_meeting_foreseen_activities`, §11 #7), events-feed slow-feed timeouts (🟡 `SLOW_FEED_WARNING`, §11 #8), or procedures-feed recess-mode responses (`recessMode: true`, §11 #5) against the reliability score.
 
 ---
@@ -364,6 +384,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 **Depth floor (breaking):** 105 lines.
 
+**Mandatory SATs.** `Key Assumptions Check` (§4.1 technique 2, primary — assumptions underlying the significance rubric weightings) · `Competing Hypotheses Matrix` (§4.1 technique 10, supporting — when two items compete for the same significance tier). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
+
 **Quality signals.** Composite scores match the weighted sum of per-dimension scores; top item has evidence citations per dimension.
 
 ---
@@ -381,6 +403,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 **Mandatory Mermaid.** `graph TD` with a centre node "EP Democratic Integrity" and six colour-coded branches (one per dimension).
 
 **Depth floor (breaking):** 90 lines (minimum); threat-heavy runs will routinely exceed this.
+
+**Mandatory SATs.** `Key Assumptions Check` (§4.1 technique 2, primary) · `Red Team / Devil's Advocate` (§4.1 technique 7, primary — ≥1 alternative dimension-score for every headline threat) · `Indicators & Signposts` (§4.1 technique 4, supporting — watchlist section). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
 
 **Quality signals.** Every named threat resolves to specific EP activity (procedure, MEP, group manoeuvre); no software-centric models are used. **Source-grade × Estimative-language discipline (tradecraft):** every dimension score (0–5) is accompanied by a WEP band for the underlying judgement ([`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)); every cited threat actor claim carries an Admiralty grade (§2); primary SAT is Key Assumptions Check (§4 technique 1) with a Red-Team alternative (§4 technique 11).
 
@@ -400,6 +424,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 **Depth floor (breaking):** 275 lines.
 
+**Mandatory SATs.** `High-Impact / Low-Probability Analysis` (§4.1 technique 6, primary) · `Indicators & Signposts` (§4.1 technique 4, primary — early-warning matrix) · `What-If Analysis` (§4.1 technique 5, supporting — each wildcard activates a What-If chain). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
+
 **Quality signals.** No wildcard is boilerplate ("economic crisis"); each is named to a plausible EP / EU trigger. **Source-grade × Estimative-language discipline (tradecraft):** wildcard probability is expressed as a WEP band (typically *Very Unlikely* / *Remote Chance*, [`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)) with explicit time horizon (§3.4); trigger-signal sources carry Admiralty grades (§2); primary SATs are High-Impact / Low-Probability Analysis (§4 technique 10) and Indicators / Signposts (§4 technique 7).
 
 ---
@@ -418,6 +444,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 **Mandatory Mermaid.** `flowchart LR` Pass 1 → gap detected → Pass 2 → reference-quality exit.
 
 **Depth floor (breaking):** 190 lines.
+
+**Mandatory SATs.** `Quality of Information Check` (§4.1 technique 3, primary — the artifact IS a quality audit) · `Key Assumptions Check` (§4.1 technique 2, supporting — validate that benchmark comparisons are methodologically equivalent). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
 
 **Quality signals.** Gap claims match the validator output; action list items are concrete enough that Pass 2 can execute them without re-reading the whole run.
 
@@ -440,6 +468,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 **Mandatory Mermaid.** `graph LR` of groups linked by agreement-rate edges; EPP blue, S&D red, Renew orange, Greens green, ECR light-blue (party colours aligned with the Hack23 semantic palette where possible).
 
 **Depth floor (breaking):** 150 lines (weekly / other: 120 lines).
+
+**Mandatory SATs.** `ACH` (§4.1 technique 1, primary — competing coalition hypotheses for each contested bloc vote) · `Bayesian Update` (§4.2 supporting, supporting — bloc win-rate trend vs. prior period). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
 
 **Quality signals.** ≥5 RCV IDs cited; every cohesion % has a vote-count backing; aggregate-only claims explicitly flagged LOW confidence where EP roll-call data has not yet published. §"Voting Data Freshness" table present with `source` field populated (`mcp` / `ep-open-data-portal` / `unavailable`); when source is `ep-open-data-portal` the CC BY 4.0 attribution string is present and WEP bands widened +5 pp; when source is `unavailable` all coalition claims carry explicit LOW-confidence flag and WEP bands widened +10 pp per `osint-tradecraft-standards.md` §3.1. The D-02 fallback path (`getVotingRecordsWithFallback` in `src/mcp/ep-open-data-client.ts`) is invoked whenever `get_voting_records` returns an empty votes array — **structural-proxy cohesion scores may never be used as a silent substitute for real voting data**.
 
@@ -517,6 +547,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 **Depth floor (breaking):** 220 lines (motions quarterly-scope runs), 150 lines (week-in-review / month-in-review).
 
+**Mandatory SATs.** `Bayesian Update` (§4.2 supporting, primary — session-over-session narrative tracks how assessments evolved) · `Indicators & Signposts` (§4.1 technique 4, supporting — forward outlook section). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
+
 **Quality signals.** Sessions reference specific part-session IDs or date ranges; the crystallisation-moment section stands on its own as analysis (not a bullet list).
 
 ---
@@ -547,6 +579,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 **Depth floor (breaking):** flat 30 lines (not yet benchmarked).
 
+**Mandatory SATs.** `Stakeholder Mapping` (§4.2 supporting, primary) · `ACH` (§4.1 technique 1, supporting — when ≥2 plausible alliance footprints compete). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
+
 **Quality signals.** Every influence weight cites at least one EP MCP data source.
 
 ---
@@ -566,6 +600,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 **Depth floor (breaking):** flat 30 lines.
 
+**Mandatory SATs.** `Force-Field Analysis` (§4.2 supporting, primary — driving vs. restraining forces IS the SAT) · `Key Assumptions Check` (§4.1 technique 2, supporting — validate force magnitude scores). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
+
 **Quality signals.** Every force is named to a specific EP, EU, or geopolitical source.
 
 ---
@@ -583,6 +619,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 **Mandatory Mermaid.** None required (matrix is a table); optional `flowchart LR` event → stakeholder if the chain is dense.
 
 **Depth floor (breaking):** flat 30 lines.
+
+**Mandatory SATs.** `Stakeholder Mapping` (§4.2 supporting, primary — the matrix grid IS the stakeholder impact map) · `What-If Analysis` (§4.1 technique 5, supporting — cascade cells require a "what if this hits" chain). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
 
 **Quality signals.** No cell is unjustified; hot-cell narratives cite specific procedures or documents.
 
@@ -605,6 +643,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 **Depth floor (breaking):** 150 lines.
 
+**Mandatory SATs.** `Key Assumptions Check` (§4.1 technique 2, primary — assumptions underlying L and I scores) · `ACH` (§4.1 technique 1, supporting — when multiple risks share monitoring triggers) · `What-If Analysis` (§4.1 technique 5, supporting — tail-risk entries). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
+
 **Quality signals.** Every score matches `L × I`; every monitoring trigger is time-bounded. **Source-grade × Estimative-language discipline (tradecraft):** each risk narrative reports the residual likelihood as a WEP band ([`osint-tradecraft-standards.md` §3.1](osint-tradecraft-standards.md)) with time horizon (§3.4); evidence backing the L and I scores carries an Admiralty grade (§2); ACH (§4 technique 6) is used when multiple competing risks share the same monitoring triggers.
 
 > 📎 **Worked example:** [`examples/risk-matrix-good-output.md`](examples/risk-matrix-good-output.md) — illustrative 5-risk register with WEP-banded Likelihood, dated trigger events, named mitigation owners, and pre/post-mitigation residual scoring.
@@ -624,6 +664,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 **Mandatory Mermaid.** `quadrantChart` with axes External/Internal × Positive/Negative; optional `graph LR` for TOWS bridges.
 
 **Depth floor (breaking):** 140 lines.
+
+**Mandatory SATs.** `SWOT` (Heuer & Pherson SWOT framework, primary — the four quadrants are the SAT output) · `Bayesian Update` (§4.2 supporting, supporting — TOWS scenario bridge section maps SWOT configuration to scenario-forecast posteriors). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
 
 **Quality signals.** Every SWOT item has an evidence citation; no quadrant has fewer than 3 items; TOWS strategies name specific actors and timelines.
 
@@ -645,6 +687,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 **Depth floor (breaking):** flat 30 lines.
 
+**Mandatory SATs.** `Stakeholder Mapping` (§4.2 supporting, primary — capital flow is a form of stakeholder power dynamics) · `Key Assumptions Check` (§4.1 technique 2, supporting — assumptions about what constitutes "political capital" for each actor). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
+
 **Quality signals.** Every named actor has an EP role cited.
 
 ---
@@ -662,6 +706,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 **Mandatory Mermaid.** `gantt` of top procedures' remaining stages, or `flowchart LR` bottleneck map.
 
 **Depth floor (breaking):** flat 30 lines.
+
+**Mandatory SATs.** `Indicators & Signposts` (§4.1 technique 4, primary — deadline exposure section and bottleneck map are indicator-based) · `Key Assumptions Check` (§4.1 technique 2, supporting — assumptions about term-end deadlines). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
 
 **Quality signals.** Uses `monitor_legislative_pipeline` data explicitly.
 
@@ -683,6 +729,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 **Depth floor (breaking):** flat 30 lines.
 
+**Mandatory SATs.** `What-If Analysis` (§4.1 technique 5, primary — "what if this threat action fires?" drives each tree branch) · `High-Impact / Low-Probability Analysis` (§4.1 technique 6, supporting — cross-tree convergence section focuses on low-probability, high-impact combinations). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
+
 **Quality signals.** No branch is "and then bad things happen"; every branch names a mechanism.
 
 ---
@@ -701,6 +749,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 
 **Depth floor (breaking):** flat 30 lines.
 
+**Mandatory SATs.** `What-If Analysis` (§4.1 technique 5, primary — "what if this disruption technique is applied?" drives the disruption playbook) · `Red Team / Devil's Advocate` (§4.1 technique 7, supporting — the disruption playbook is itself a Red Team exercise). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
+
 **Quality signals.** Every technique is linked to a named EP Rule of Procedure or precedent.
 
 ---
@@ -718,6 +768,8 @@ If a future run finds `coverage.unrecognizedGroups` is non-empty, update the ups
 **Mandatory Mermaid.** `graph LR` actors × target institutions with edge labels for capability.
 
 **Depth floor (breaking):** flat 30 lines.
+
+**Mandatory SATs.** `Red Team / Devil's Advocate` (§4.1 technique 7, primary — the Diamond Model is applied from the adversary's perspective) · `Key Assumptions Check` (§4.1 technique 2, supporting — validate intent and capability assumptions for each actor). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
 
 **Quality signals.** No personal-life data on MEPs; analysis stays strictly on public parliamentary role.
 
@@ -976,7 +1028,33 @@ Older `motions-*` runs mirror `intelligence/coalition-dynamics.md`, `intelligenc
 
 **Quality signals.** ≥300 lines. ≥6 segments fully profiled. Swing-segment register. 14-language accessibility note.
 
+**Mandatory SATs.** `Stakeholder Mapping` (§4.2 supporting, primary — segment profiling is a form of citizen-group stakeholder mapping) · `Key Assumptions Check` (§4.1 technique 2, supporting — validate that segment stability assumptions hold for the current cycle; see [`voter-segmentation-methodology.md`](voter-segmentation-methodology.md) for Eurobarometer fallback rules). See [`osint-tradecraft-standards.md §4`](osint-tradecraft-standards.md).
+
 **Cross-refs.** → `electoral-domain-methodology.md` · → `stakeholder-map.md`.
+
+### data-availability-assessment
+
+**Purpose.** Stage-A triage artifact required for every article-generating run. Records the per-source availability status of every EP MCP endpoint, IMF SDMX API, DOCEO XML (voting records), and World Bank data source for the current run. Sets `manifest.dataMode` which drives degraded-floor selection in Stage C. Produced before any Stage-B analysis artifact.
+
+**Required sources.** All EP MCP tool calls attempted in Stage A: `get_voting_records`, `get_latest_votes`, `get_adopted_texts`, `get_procedures_feed`, `get_procedures`, `get_current_meps`, `get_plenary_sessions`, `get_committee_documents_feed`. IMF probe via `scripts/imf-mcp-probe.sh`. World Bank MCP calls if used.
+
+**Construction steps.** (1) Call each EP MCP tool with a date-bounded probe query. Record outcome (full / partial / empty / error). (2) Probe IMF SDMX endpoint — record status (live / F6 / timeout). Check `data/cache/imf/` for prior-run cache. (3) Check `get_voting_records` and `get_latest_votes` for RCV data freshness — compute lag in weeks. (4) Check `get_procedures_feed` for STALENESS_WARNING. (5) Select `dataMode` per the decision table. (6) Write `manifest.dataMode` field. (7) Produce Mermaid source-availability diagram.
+
+**Quality signals.** ≥80 lines. Per-source triage table with ≥8 rows. `dataMode` field explicitly declared. `manifest.json` update noted. Mermaid flowchart present.
+
+**Cross-refs.** → `mcp-reliability-audit.md` · → `reference-quality-thresholds.json §degradedFloorFactors` · → `intelligence/voting-patterns.degraded.md` (when `degraded-voting`) · → `intelligence/economic-context.fallback.md` (when `degraded-imf`).
+
+### procedures-proxy
+
+**Purpose.** Companion artifact to `mcp-reliability-audit.md` produced whenever `get_procedures_feed` returns a STALENESS_WARNING (1972–1987 tail data). Documents the mitigation chain applied (`get_procedures` paginated list + `get_adopted_texts` proxy) so individual Stage-B artifacts do not need to re-document it.
+
+**Required sources.** `get_procedures_feed` (outcome: STALENESS_WARNING captured). `get_procedures` (paginated list — current data). `get_adopted_texts` (outcome-proxy for procedure completions). Optionally `get_meeting_decisions` (session-level procedure decisions).
+
+**Construction steps.** (1) Record the `get_procedures_feed` STALENESS_WARNING (era, item count, date). (2) Confirm this is the known EP upstream pattern (not a new defect). (3) Call `get_procedures` paginated list — record current procedures in scope. (4) Call `get_adopted_texts` — record adopted-text outcomes matching procedures. (5) Produce Mermaid mitigation-chain diagram. (6) Record Admiralty grades for fallback sources (A2 for both). (7) Summarise impact on each Stage-B artifact.
+
+**Quality signals.** ≥60 lines. Staleness incident record table present. Mermaid flowchart of mitigation chain present. ≥2 fallback source rows. Impact table covering ≥3 Stage-B artifacts.
+
+**Cross-refs.** → `mcp-reliability-audit.md §Data-source bridge` · → `data-availability-assessment.md §5 Procedures-Feed Staleness Note` · → `.github/prompts/07-mcp-reference.md §11`.
 
 ---
 
@@ -995,6 +1073,9 @@ When authoring a run from scratch, always use the canonical folder names; when r
 
 ## 🔗 Related Documents
 
+- [`source-triangulation.md`](source-triangulation.md) — 4-step fallback ladder with confidence-label rules
+- [`confidence-calibration.md`](confidence-calibration.md) — unified 🟢/🟡/🔴 + WEP + Admiralty mapping
+- [`voter-segmentation-methodology.md`](voter-segmentation-methodology.md) — Eurobarometer integration and structural-segmentation fallback rules
 - [`ai-driven-analysis-guide.md`](ai-driven-analysis-guide.md) — 10-step analysis protocol (how to construct a run end-to-end)
 - [`artifact-catalog.md`](artifact-catalog.md) — single-page table of every artifact
 - [`political-swot-framework.md`](political-swot-framework.md) — SWOT methodology
@@ -1009,5 +1090,5 @@ When authoring a run from scratch, always use the canonical folder names; when r
 **Document Control:**
 - **Path:** `/analysis/methodologies/per-artifact-methodologies.md`
 - **Classification:** Public
-- **Version:** 1.4 — v1.4 (2026-04-25, late) adds the `### threat-analysis` section to match the new `threat-assessment/threat-analysis.md` row in `artifact-catalog.md` (group now 5/5 reconciled). v1.3 (2026-04-25) refreshes dates and tightens cross-references for the v3.2 methodology release; no `### artifact section` was added or removed. v1.2 (2026-04-23) added the `extended/` folder with 12 optional deep-intelligence artifacts (executive-brief, devils-advocate-analysis, historical-parallels, coalition-mathematics, forward-indicators, intelligence-assessment, implementation-feasibility, media-framing-analysis, comparative-international, cross-reference-map, data-download-manifest, voter-segmentation) from the riksdagsmonitor port. v1.1 added voting-patterns, workflow-audit, cross-session-intelligence, deep-analysis, session-baseline and documented the `existing/` legacy folder + `risk/` folder variant. v1.0 was the initial per-artifact construction rules extracted from Run 184 reference benchmark.
+- **Version:** 1.5 — v1.5 (2026-05-14) adds `**Mandatory SATs.**` lines to every artifact section (primary + supporting SATs now grep-able as `^\*\*Mandatory SATs\.\*\*`); adds cross-references to new methodology pages `source-triangulation.md`, `confidence-calibration.md`, and `voter-segmentation-methodology.md`; updates the Cross-Cutting Tradecraft Reference section to reflect the per-artifact SAT contract. v1.4 (2026-04-25, late) adds the `### threat-analysis` section to match the new `threat-assessment/threat-analysis.md` row in `artifact-catalog.md` (group now 5/5 reconciled). v1.3 (2026-04-25) refreshes dates and tightens cross-references for the v3.2 methodology release; no `### artifact section` was added or removed. v1.2 (2026-04-23) added the `extended/` folder with 12 optional deep-intelligence artifacts (executive-brief, devils-advocate-analysis, historical-parallels, coalition-mathematics, forward-indicators, intelligence-assessment, implementation-feasibility, media-framing-analysis, comparative-international, cross-reference-map, data-download-manifest, voter-segmentation) from the riksdagsmonitor port. v1.1 added voting-patterns, workflow-audit, cross-session-intelligence, deep-analysis, session-baseline and documented the `existing/` legacy folder + `risk/` folder variant. v1.0 was the initial per-artifact construction rules extracted from Run 184 reference benchmark.
 - **Next Review:** 2026-07-31

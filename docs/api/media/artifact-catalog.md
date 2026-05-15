@@ -134,6 +134,28 @@ Every row in the catalog below answers these six questions about one artifact:
 
 ---
 
+## 📊 Stage-A Triage Artifacts (1 mandatory + 1 companion — produced before any Stage-B analysis)
+
+Stage-A artifacts are written before any `intelligence/`, `classification/`, or `risk-scoring/` analysis. `data-availability-assessment.md` sets `manifest.dataMode`, which determines whether Stage-B artifacts use full-data or degraded-mode templates. It is the only artifact whose `dataMode` field drives the floor-selection logic in `scripts/validate-analysis-completeness.js`. `procedures-proxy.md` is a companion produced whenever `get_procedures_feed` returns a STALENESS_WARNING.
+
+| Artifact | Purpose (1 line) | Methodology | Template | Min lines | Mermaid type |
+|---|---|---|---|:---:|---|
+| `data-availability-assessment.md` | Stage A (mandatory, every run). Per-source triage table recording availability of every EP MCP endpoint, IMF API, and DOCEO XML feed; sets `manifest.dataMode` which drives degraded-floor selection in Stage C. | [per-artifact-methodologies.md §data-availability-assessment](per-artifact-methodologies.md#data-availability-assessment) | [data-availability-assessment.md](../templates/data-availability-assessment.md) | 80 | flowchart LR (source availability status) |
+| `intelligence/procedures-proxy.md` | Stage B companion triggered by STALENESS_WARNING. Standardised record of the `get_procedures_feed` staleness pattern (1972–1987 tail) and the adopted-texts + `get_procedures` mitigation applied; referenced from `mcp-reliability-audit.md`. | [per-artifact-methodologies.md §procedures-proxy](per-artifact-methodologies.md#procedures-proxy) | [intelligence/procedures-proxy.md](../templates/intelligence/procedures-proxy.md) | 60 | flowchart LR (mitigation chain) |
+
+---
+
+## 🟡 Degraded-Mode Template Variants (2 variants — activated by `manifest.dataMode`)
+
+These variants replace their full-data counterparts when `manifest.dataMode` is set by the Stage-A `data-availability-assessment.md` artifact. The validator reads `manifest.dataMode` and applies `degradedFloorFactor: 0.85` to all configured floors. Structural checks (Mermaid, WEP, Admiralty, SATs, requiredSections) are never reduced. The variant artifacts are stored at the same relative path as the base artifact — they replace the base artifact under the same `intelligence/` path in the run directory.
+
+| Artifact | Purpose (1 line) | Methodology | Template | Min lines (breaking, degraded) | Mermaid type |
+|---|---|---|---|:---:|---|
+| `intelligence/voting-patterns.degraded.md` | Activated when `dataMode = "degraded-voting"` (RCV data lag > 4 weeks). Structural seat-share and adopted-texts proxy analysis of coalition viability when RCV data is unavailable — all confidence labels in §§2–6 capped at 🟡 MEDIUM, ≥3 inline "(structural proxy — no RCV data)" labels mandatory. Replaces `intelligence/voting-patterns.md`. | [per-artifact-methodologies.md §voting-patterns](per-artifact-methodologies.md#voting-patterns) | [intelligence/voting-patterns.degraded.md](../templates/intelligence/voting-patterns.degraded.md) | 128 | graph LR (seat-share proxy network) |
+| `intelligence/economic-context.fallback.md` | Activated when `dataMode = "degraded-imf"` (IMF SDMX API returned F6 / timeout). IMF-fallback economic context using prior-run cache or training-data WEO KB-estimates; every KB-estimate claim carries `[KB-ESTIMATE]` prefix and explicit WEO vintage. Replaces `intelligence/economic-context.md`. | [per-artifact-methodologies.md §economic-context](per-artifact-methodologies.md#economic-context) | [intelligence/economic-context.fallback.md](../templates/intelligence/economic-context.fallback.md) | 157 | xyChart + flowchart |
+
+---
+
 ## 🧠 `intelligence/` — 27 Artifacts
 
 The analytical core. This section catalogs the full set of `intelligence/` artifacts that may be produced across EU Parliament Monitor workflows. The required subset varies by article type and scope; follow [`ai-driven-analysis-guide.md`](ai-driven-analysis-guide.md) for per-workflow requirements, including cases where `cross-session-intelligence.md` is only required for weekly/monthly/quarterly scopes (not for breaking news). The 8 long-horizon and electoral artifacts at the bottom of the table are produced by the 6 `news-<long-horizon>.md` workflows added in 2026-Q2 and are governed by [`forward-projection-methodology.md`](forward-projection-methodology.md) and [`electoral-cycle-methodology.md`](electoral-cycle-methodology.md). Per-artifact depth floors are keyed by article type in [`reference-quality-thresholds.json`](reference-quality-thresholds.json).
@@ -427,5 +449,5 @@ Mermaid is **mandatory** in `intelligence/`, `classification/`,
 **Document Control:**
 - **Path:** `/analysis/methodologies/artifact-catalog.md`
 - **Classification:** Public
-- **Version:** 1.4 — v1.4 (2026-05-02) adds rows for the 8 long-horizon and electoral artifacts (`forward-projection.md`, `legislative-pipeline-forecast.md`, `parliamentary-calendar-projection.md`, `term-arc.md`, `seat-projection.md`, `mandate-fulfilment-scorecard.md`, `presidency-trio-context.md`, `commission-wp-alignment.md`) introduced by the Look-Ahead epic; `intelligence/` group count bumped from 19 → 27. v1.3 (2026-04-25) reconciled per-group counts with disk: `threat-assessment/` row added for `threat-analysis.md` (now 5/5), `extended/` heading clarified to "12 Artifacts + 1 Legacy Mirror", and the read-order line bumped from "39 templates" to "51 templates". v1.1 added `extended/` folder (12 optional deep-intelligence artifacts) from riksdagsmonitor port (2026-04-23); v1.0 was initial extraction from Run 184 benchmark and 2026-04-20 / 2026-04-21 daily runs.
+- **Version:** 1.5 — v1.5 (2026-05-14) adds two new catalog sections: "Stage-A Triage Artifacts" (`data-availability-assessment.md` mandatory for every run, `intelligence/procedures-proxy.md` triggered by STALENESS_WARNING) and "Degraded-Mode Template Variants" (`intelligence/voting-patterns.degraded.md` for `degraded-voting`, `intelligence/economic-context.fallback.md` for `degraded-imf`); `reference-quality-thresholds.json` v1.6.0 adds `degradedFloorFactors` section and per-article-type floors for all four new templates. v1.4 (2026-05-02) adds rows for the 8 long-horizon and electoral artifacts (`forward-projection.md`, `legislative-pipeline-forecast.md`, `parliamentary-calendar-projection.md`, `term-arc.md`, `seat-projection.md`, `mandate-fulfilment-scorecard.md`, `presidency-trio-context.md`, `commission-wp-alignment.md`) introduced by the Look-Ahead epic; `intelligence/` group count bumped from 19 → 27. v1.3 (2026-04-25) reconciled per-group counts with disk: `threat-assessment/` row added for `threat-analysis.md` (now 5/5), `extended/` heading clarified to "12 Artifacts + 1 Legacy Mirror", and the read-order line bumped from "39 templates" to "51 templates". v1.1 added `extended/` folder (12 optional deep-intelligence artifacts) from riksdagsmonitor port (2026-04-23); v1.0 was initial extraction from Run 184 benchmark and 2026-04-20 / 2026-04-21 daily runs.
 - **Next Review:** 2026-07-31
