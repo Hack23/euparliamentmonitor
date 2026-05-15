@@ -1,0 +1,63 @@
+{
+  "articleType": "propositions",
+  "date": "2026-05-15",
+  "analysisDir": "analysis/daily/2026-05-15/propositions",
+  "files": {
+    "classification/actor-mapping.md": true,
+    "classification/forces-analysis.md": true,
+    "classification/impact-matrix.md": true,
+    "classification/significance-classification.md": true,
+    "documents/document-analysis-index.md": true,
+    "executive-brief.md": true,
+    "existing/pipeline-health.md": true,
+    "extended/media-framing-analysis.md": true,
+    "intelligence/analysis-index.md": true,
+    "intelligence/coalition-dynamics.md": true,
+    "intelligence/cross-run-diff.md": true,
+    "intelligence/economic-context.md": true,
+    "intelligence/forward-projection.md": true,
+    "intelligence/historical-baseline.md": true,
+    "intelligence/mcp-reliability-audit.md": true,
+    "intelligence/methodology-reflection.md": true,
+    "intelligence/pestle-analysis.md": true,
+    "intelligence/reference-analysis-quality.md": true,
+    "intelligence/scenario-forecast.md": true,
+    "intelligence/significance-scoring.md": true,
+    "intelligence/stakeholder-map.md": true,
+    "intelligence/synthesis-summary.md": true,
+    "intelligence/threat-model.md": true,
+    "intelligence/voting-patterns.md": true,
+    "intelligence/wildcards-blackswans.md": true,
+    "intelligence/workflow-audit.md": true,
+    "risk-scoring/legislative-velocity-risk.md": true,
+    "risk-scoring/political-capital-risk.md": true,
+    "risk-scoring/quantitative-swot.md": true,
+    "risk-scoring/risk-matrix.md": true,
+    "threat-assessment/actor-threat-profiles.md": true,
+    "threat-assessment/consequence-trees.md": true,
+    "threat-assessment/legislative-disruption.md": true,
+    "threat-assessment/political-threat-landscape.md": true
+  },
+  "history": [
+    {
+      "runId": "propositions-run264-1778825897",
+      "timestamp": "2026-05-15T06:40:21Z",
+      "artifactCount": 34,
+      "passCount": 2,
+      "rewriteCount": 34,
+      "dataQuality": "DEGRADED",
+      "gateResult": "PENDING"
+    }
+  ],
+  "pass2": {
+    "rewriteCount": 34,
+    "completedAt": "2026-05-15T06:40:21Z"
+  },
+  "dataQuality": {
+    "adopted_texts": "OPERATIONAL",
+    "procedures_feed": "DEGRADED",
+    "committee_documents": "UNAVAILABLE",
+    "external_documents": "EMPTY",
+    "vote_records": "UNAVAILABLE"
+  }
+}
