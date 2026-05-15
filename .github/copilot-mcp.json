@@ -1,4 +1,5 @@
 {
+  "_mcpProbe": "Run `npm run mcp:probe` for a token-redacted MCP reliability matrix (EP/IMF/WB).",
   "mcpServers": {
     "github": {
       "type": "http",

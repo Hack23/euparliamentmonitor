@@ -25,6 +25,36 @@ const WB_BINARY_FILE = process.platform === 'win32' ? `${WB_BINARY_NAME}.cmd` : 
 const WB_DEFAULT_SERVER = resolve(dirname(fileURLToPath(import.meta.url)), `../../node_modules/.bin/${WB_BINARY_FILE}`);
 /** Fallback payload when indicator data is unavailable (empty CSV) */
 const INDICATOR_FALLBACK = '';
+/** EU-27 ISO country codes used for aggregate World Bank fallback queries. */
+const EU27_ISO2_CODES = [
+    'AT',
+    'BE',
+    'BG',
+    'HR',
+    'CY',
+    'CZ',
+    'DK',
+    'EE',
+    'FI',
+    'FR',
+    'DE',
+    'GR',
+    'HU',
+    'IE',
+    'IT',
+    'LV',
+    'LT',
+    'LU',
+    'MT',
+    'NL',
+    'PL',
+    'PT',
+    'RO',
+    'SK',
+    'SI',
+    'ES',
+    'SE',
+];
 /**
  * Canonical list of tools exposed by the World Bank MCP gateway. The news
  * workflows, probe script, and the integration test suite all reference this
@@ -95,6 +125,106 @@ export class WorldBankMCPClient extends MCPConnection {
             return { content: [{ type: 'text', text: INDICATOR_FALLBACK }] };
         }
     }
+    /**
+     * Aggregate a World Bank indicator across EU-27 member states.
+     *
+     * This is a client-side fallback for aggregate codes such as `EUU` that are
+     * rejected by the upstream `worldbank-mcp` server.
+     *
+     * **Important:** This method uses simple summation (`aggregation: "sum"`),
+     * which is only meaningful for **additive** flow/stock metrics (e.g.,
+     * absolute GDP in USD, total population, total exports). For ratios,
+     * percentages, rates, or per-capita indicators (e.g., GDP growth %,
+     * GDP per capita, school enrollment %, health expenditure as % of GDP),
+     * a plain sum is mathematically incorrect. Callers must verify the
+     * indicator is additive before using the result.
+     *
+     * @param toolName - World Bank MCP tool (`get-economic-data`, `get-social-data`, `get-education-data`, `get-health-data`)
+     * @param indicator - Indicator key accepted by the selected tool (must be an additive metric — not a ratio or percentage)
+     * @param years - Number of years to request (default 10)
+     * @returns MCP-like JSON payload with summed year-series across EU-27 (includes `aggregation: "sum"` field)
+     */
+    async getEU27Aggregate(toolName, indicator, years = 10) {
+        if (!indicator || indicator.trim().length === 0) {
+            console.warn('getEU27Aggregate called without required indicator');
+            return { content: [{ type: 'text', text: '{"scope":"EU27","series":[]}' }] };
+        }
+        const seriesByYear = new Map();
+        const failedCountries = [];
+        const noDataCountries = [];
+        const results = await Promise.allSettled(EU27_ISO2_CODES.map(async (countryCode) => {
+            const result = await this.callTool(toolName, { countryCode, indicator, years });
+            return { countryCode, result };
+        }));
+        for (let i = 0; i < results.length; i++) {
+            const settled = results[i];
+            if (!settled || settled.status === 'rejected') {
+                const cc = EU27_ISO2_CODES[i] ?? 'XX';
+                console.warn(`getEU27Aggregate: ${toolName} failed for ${cc}`);
+                failedCountries.push(cc);
+                continue;
+            }
+            const { countryCode, result } = settled.value;
+            const contributed = _accumulateCountryData(result, seriesByYear);
+            if (!contributed) {
+                noDataCountries.push(countryCode);
+            }
+        }
+        const series = [...seriesByYear.entries()]
+            .sort((a, b) => a[0] - b[0])
+            .map(([year, value]) => ({ year, value }));
+        const contributingCountries = EU27_ISO2_CODES.length - failedCountries.length - noDataCountries.length;
+        return {
+            content: [
+                {
+                    type: 'text',
+                    text: JSON.stringify({
+                        scope: 'EU27',
+                        tool: toolName,
+                        indicator,
+                        years,
+                        aggregation: 'sum',
+                        series,
+                        contributingCountries,
+                        failedCountries,
+                        noDataCountries,
+                    }),
+                },
+            ],
+        };
+    }
+}
+/**
+ * Parse a single country result and accumulate valid data points into the year map.
+ *
+ * @param result - MCP tool result from a single country call
+ * @param seriesByYear - Accumulator map of year → summed value
+ * @returns true if at least one valid data point was added
+ */
+function _accumulateCountryData(result, seriesByYear) {
+    const text = result.content?.[0]?.text;
+    if (typeof text !== 'string' || text.length === 0) {
+        return false;
+    }
+    let parsed;
+    try {
+        parsed = JSON.parse(text);
+    }
+    catch {
+        return false;
+    }
+    const data = Array.isArray(parsed.data) ? parsed.data : [];
+    let contributed = false;
+    for (const point of data) {
+        if (typeof point?.year === 'number' &&
+            Number.isFinite(point.year) &&
+            typeof point?.value === 'number' &&
+            Number.isFinite(point.value)) {
+            seriesByYear.set(point.year, (seriesByYear.get(point.year) ?? 0) + point.value);
+            contributed = true;
+        }
+    }
+    return contributed;
 }
 /** Singleton World Bank MCP client instance */
 let wbClientInstance = null;
