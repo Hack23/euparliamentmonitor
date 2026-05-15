@@ -107,7 +107,7 @@ flowchart LR
 | Field | Value |
 |-------|-------|
 | **EP MCP gateway URL** | (from EP_MCP_GATEWAY_URL env var — do not log actual URL; record ✅/❌) |
-| **EP MCP server version** | 1.3.4 (from MCP config) |
+| **EP MCP server version** | 1.3.6 (from MCP config) |
 | **IMF SDMX probe script** | `scripts/imf-mcp-probe.sh` (was it called? ✅/❌) |
 | **Pre-fetch script** | `scripts/prefetch-ep-feeds.sh` (outcome: ✅ OK / ⚠️ partial / ❌ failed) |
 | **Run trigger** | workflow_dispatch / schedule / push |
