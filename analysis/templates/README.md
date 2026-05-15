@@ -14,12 +14,12 @@
 
 <p align="center">
   <a href="#"><img src="https://img.shields.io/badge/Owner-CEO-0A66C2?style=for-the-badge" alt="Owner"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Version-3.3-555?style=for-the-badge" alt="Version"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--02-success?style=for-the-badge" alt="Effective Date"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Version-3.4-555?style=for-the-badge" alt="Version"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Effective-2026--05--14-success?style=for-the-badge" alt="Effective Date"/></a>
   <a href="#"><img src="https://img.shields.io/badge/Classification-Public-green?style=for-the-badge" alt="Classification"/></a>
 </p>
 
-**📋 Document Owner:** CEO | **📄 Version:** 3.3 | **📅 Last Updated:** 2026-05-02 (UTC)
+**📋 Document Owner:** CEO | **📄 Version:** 3.4 | **📅 Last Updated:** 2026-05-14 (UTC)
 **🔄 Review Cycle:** Quarterly | **⏰ Next Review:** 2026-07-31
 **🏢 Owner:** Hack23 AB (Org.nr 5595347807) | **🏷️ Classification:** Public
 
@@ -44,6 +44,9 @@
 | **[Classification Guide](../methodologies/political-classification-guide.md)** | 🏷️ Methodology | 7-dimension EP event classification | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-classification-guide.md) |
 | **[Style Guide](../methodologies/political-style-guide.md)** | ✍️ Methodology | Editorial and analytical style standards | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md) |
 | **[OSINT Tradecraft Standards](../methodologies/osint-tradecraft-standards.md)** | 🕵️ Methodology | ICD 203 · Admiralty source grades · Kent/WEP probability bands · SAT catalog · OSINT ethics | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/osint-tradecraft-standards.md) |
+| **[Source Triangulation](../methodologies/source-triangulation.md)** | 🔍 Methodology | **NEW** 4-step fallback ladder (EP MCP → cross-source → historical analogy → KB integration) with confidence-label rules per step | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md) |
+| **[Confidence Calibration](../methodologies/confidence-calibration.md)** | 🎯 Methodology | **NEW** Unified 🟢/🟡/🔴 marker + WEP band + Admiralty grade + Tier-1/2/3 data-tier canonical table | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md) |
+| **[Voter Segmentation Methodology](../methodologies/voter-segmentation-methodology.md)** | 🗳️ Methodology | **NEW** Eurobarometer integration, structural-segmentation fallback (Rung 1–3), citation requirements, confidence rules | [View Source](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md) |
 
 </div>
 
@@ -57,9 +60,11 @@ All templates in this library implement professional intelligence-community disc
 |-----------|----------|---------------------------|
 | **Estimative Language (WEP)** | Kent / ICD 203 probability bands (*Almost Certain* → *Almost No Chance*) + explicit time horizon | `synthesis-summary.md` Top Findings, `deep-analysis.md` Executive Summary, `methodology-reflection.md` §12 |
 | **Source Grading (Admiralty)** | A–F reliability × 1–6 credibility (e.g. `A1` = EP plenary record, `C3` = press) | `synthesis-summary.md` Top Findings, all probabilistic artifacts |
-| **Confidence Separation** | Confidence-in-evidence (HIGH / MEDIUM / LOW) tracked separately from WEP probability | All 🟢/🟡/🔴 confidence markers across templates |
-| **Structured Analytic Techniques** | ≥10 SATs applied per run (e.g. ACH, Key Assumptions Check, Pre-Mortem, Scenario Analysis, Red-Team, Indicators) | `methodology-reflection.md` §12, `per-artifact-methodologies.md` SAT entries |
+| **Confidence Separation** | Confidence-in-evidence (HIGH / MEDIUM / LOW) tracked separately from WEP probability — see [`confidence-calibration.md`](../methodologies/confidence-calibration.md) | All 🟢/🟡/🔴 confidence markers across templates |
+| **Source Triangulation Fallback** | 4-step ladder: EP MCP → cross-source → historical analogy → KB integration — see [`source-triangulation.md`](../methodologies/source-triangulation.md) | All degraded-mode claims; `mcp-reliability-audit.md` logs step reached |
+| **Structured Analytic Techniques** | ≥10 SATs applied per run (e.g. ACH, Key Assumptions Check, Pre-Mortem, Scenario Analysis, Red-Team, Indicators); each artifact has a `**Mandatory SATs.**` line — see [`per-artifact-methodologies.md`](../methodologies/per-artifact-methodologies.md) | `methodology-reflection.md` §12, every artifact's `**Mandatory SATs.**` declaration |
 | **ICD 203 BLUF** | Executive Summary opens with BLUF + WEP band + confidence + rationale | `deep-analysis.md` Executive Summary |
+| **Voter Segmentation** | Eurobarometer primary; Rung-1/2/3 structural fallback with explicit disclosure — see [`voter-segmentation-methodology.md`](../methodologies/voter-segmentation-methodology.md) | `extended/voter-segmentation.md` |
 
 ---
 

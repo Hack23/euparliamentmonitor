@@ -1,8 +1,8 @@
 {
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Per-artifact minimum line-count floors used by scripts/validate-analysis-completeness.js to enforce Rule 22 (Per-Artifact Depth Floors) of analysis/methodologies/ai-driven-analysis-guide.md. Values are derived from the Run 184 reference benchmark (analysis/daily/2026-04-18/breaking-run184/) minus a 10% tolerance, rounded down to the nearest 5 lines. A file below its threshold MUST trigger Pass 2; it MUST NOT be shipped with a note. When an articleType × relativePath entry is absent the validator falls back to the CLI --min-lines flag (DEFAULT_MIN_LINES = 30). When a per-artifact entry is present the effective floor is max(perArtifact, --min-lines), so --min-lines can raise but never lower a configured floor.",
   "schemaChangelog": {
-    "1.5.0": "Mandatory: extended/media-framing-analysis.md is now required for every article-generating workflow (breaking, week/month/quarter/year-ahead and -in-review, committee-reports, motions, propositions, term-outlook, election-cycle, deep-analysis). Per-article-type line floors added to every entry under thresholds[]. The artifact is produced during Pass 2 (or late Pass 1) once the rest of the analysis context is in place — see analytical-supplementary-methodology.md §AS4 and per-artifact-methodologies.md §media-framing-analysis.",
+    "1.6.0": "Additive: requiredSATs field added to tradecraftQualitySignals. Maps each artifact relativePath to its mandatory Structured Analytic Techniques drawn from per-artifact-methodologies.md **Mandatory SATs.** lines. Checked in ADVISORY mode by scripts/validate-analysis-completeness.js (--sat-check flag); does not block Stage C on legacy artifacts. New methodology pages source-triangulation.md, confidence-calibration.md, and voter-segmentation-methodology.md added 2026-05-14.",
     "1.4.0": "Additive: dataMode support in manifest.json. Valid values: full (default), title-only, degraded-imf, degraded-voting, minimal. When dataMode != full, the validator applies a line-floor reduction factor (title-only: 0.75, degraded-imf/degraded-voting: 0.85, minimal: 0.65) so structurally constrained runs can pass Stage C. Structural checks (mermaid, WEP, Admiralty, SATs, requiredSections) remain unchanged.",
     "1.3.0": "Additive: forward-projection.md line floors added for week-ahead (80) and month-ahead (120) to match §9.4 stronger Stage-C gate.",
     "1.2.0": "Additive: introduce thresholds for the four new long-horizon and electoral article types (quarter-ahead, quarter-in-review, year-ahead, year-in-review, term-outlook, election-cycle). Adds line floors for the eight new analysis artifacts (forward-projection, legislative-pipeline-forecast, parliamentary-calendar-projection, term-arc, seat-projection, mandate-fulfilment-scorecard, presidency-trio-context, commission-wp-alignment).",
@@ -45,7 +45,38 @@
     ],
     "satDocumentationRequired": [
       "intelligence/methodology-reflection.md"
-    ]
+    ],
+    "requiredSATsNote": "ADVISORY mode — these SAT citations are checked by scripts/validate-analysis-completeness.js (--sat-check flag) but do NOT block Stage C on legacy artifacts. For current runs, a missing SAT citation triggers a Pass-2 action item in methodology-reflection.md, not a build failure. Each value is the array of SAT names that MUST be mentioned in the artifact (case-insensitive substring match on the SAT name). Source: per-artifact-methodologies.md **Mandatory SATs.** lines v1.5.",
+    "requiredSATs": {
+      "executive-brief.md": ["Key Assumptions Check", "Quality of Information Check"],
+      "intelligence/synthesis-summary.md": ["Key Assumptions Check", "Quality of Information Check", "Scenario Analysis"],
+      "intelligence/stakeholder-map.md": ["Stakeholder Mapping", "ACH"],
+      "intelligence/scenario-forecast.md": ["Scenario Analysis", "Pre-Mortem", "Key Assumptions Check", "Indicators"],
+      "intelligence/pestle-analysis.md": ["PESTLE", "Force-Field Analysis"],
+      "intelligence/threat-model.md": ["Key Assumptions Check", "Red Team", "ACH"],
+      "intelligence/coalition-dynamics.md": ["ACH", "Indicators"],
+      "intelligence/cross-run-diff.md": ["Bayesian Update", "Quality of Information Check"],
+      "intelligence/economic-context.md": ["Quality of Information Check", "Bayesian Update"],
+      "intelligence/historical-baseline.md": ["Bayesian Update", "Key Assumptions Check"],
+      "intelligence/significance-scoring.md": ["Key Assumptions Check", "Competing Hypotheses Matrix"],
+      "intelligence/political-threat-landscape.md": ["Key Assumptions Check", "Red Team", "Indicators"],
+      "intelligence/wildcards-blackswans.md": ["High-Impact", "Indicators", "What-If Analysis"],
+      "intelligence/mcp-reliability-audit.md": ["Quality of Information Check", "Red Team"],
+      "intelligence/reference-analysis-quality.md": ["Quality of Information Check", "Key Assumptions Check"],
+      "intelligence/voting-patterns.md": ["ACH", "Bayesian Update"],
+      "intelligence/cross-session-intelligence.md": ["Bayesian Update", "Indicators"],
+      "classification/actor-mapping.md": ["Stakeholder Mapping", "ACH"],
+      "classification/forces-analysis.md": ["Force-Field Analysis", "Key Assumptions Check"],
+      "classification/impact-matrix.md": ["Stakeholder Mapping", "What-If Analysis"],
+      "risk-scoring/risk-matrix.md": ["Key Assumptions Check", "ACH", "What-If Analysis"],
+      "risk-scoring/quantitative-swot.md": ["SWOT", "Bayesian Update"],
+      "risk-scoring/political-capital-risk.md": ["Stakeholder Mapping", "Key Assumptions Check"],
+      "risk-scoring/legislative-velocity-risk.md": ["Indicators", "Key Assumptions Check"],
+      "threat-assessment/consequence-trees.md": ["What-If Analysis", "High-Impact"],
+      "threat-assessment/legislative-disruption.md": ["What-If Analysis", "Red Team"],
+      "threat-assessment/actor-threat-profiles.md": ["Red Team", "Key Assumptions Check"],
+      "extended/voter-segmentation.md": ["Stakeholder Mapping", "Key Assumptions Check"]
+    }
   },
   "referenceBenchmark": {
     "runDir": "analysis/daily/2026-04-18/breaking-run184/",
