@@ -101,8 +101,8 @@ indicators, see [`imf-indicator-mapping.md §2`](imf-indicator-mapping.md).
 | `propositions`      | Topic-specific non-economic indicators (health/education/environment/defence) | Council, Commission, MEPs      |
 | `motions`           | Same as `propositions`; distributional via WB Governance (non-economic) | Civil society, national parties |
 | `month-ahead`       | Relevant non-economic context (health, education, environment) for EU27 | Institutional actors           |
-| `weekly-review`     | At least one non-economic indicator per policy cluster discussed  | General public, researchers     |
-| `monthly-review`    | Same as `weekly-review` plus `POPULATION`, `LIFE_EXPECTANCY` when relevant | Subscribers, press            |
+| `week-in-review`    | At least one non-economic indicator per policy cluster discussed  | General public, researchers     |
+| `month-in-review`   | Same as `week-in-review` plus `POPULATION`, `LIFE_EXPECTANCY` when relevant | Subscribers, press            |
 
 **Economic indicators for every article type above → IMF.** See
 [`imf-indicator-mapping.md §2,§8`](imf-indicator-mapping.md) for
