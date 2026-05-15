@@ -350,17 +350,18 @@ prefetch-ep-feeds.sh → prefetch-status.json (prefetchMode)
 
 | `prefetchMode` / `dataMode` | Meaning | Line-floor factor |
 |-----------------------------|---------|-------------------|
-| `green` / `full` | All feeds fetched; IMF & voting OK | 1.00 |
+| `full` (or `green` alias) | All feeds fetched; IMF & voting OK | 1.00 |
 | `degraded-feeds` | 1+ feeds unavailable after 3 retries | 0.80 |
 | `degraded-imf` | IMF data unavailable | 0.85 |
 | `degraded-voting` | EP roll-call data absent | 0.85 |
 | `title-only` | Only titles/metadata available | 0.75 |
 | `minimal` | Most EP feeds unavailable + IMF absent | 0.65 |
 
-Stage A agents must read `prefetch-status.json` and write `manifest.dataMode`
-before Stage B. Stage C's `npm run validate-analysis` then auto-reduces floors
-so structurally constrained runs can pass without agent self-declaration.
-Structural checks (Mermaid, WEP, Admiralty, SATs) are **never** reduced.
+Stage A agents must copy `prefetchMode` directly from `prefetch-status.json`
+into `manifest.dataMode` before Stage B. Stage C's `npm run validate-analysis`
+then auto-reduces floors so structurally constrained runs can pass without
+agent self-declaration. Structural checks (Mermaid, WEP, Admiralty, SATs) are
+**never** reduced.
 
 **Thresholds cache**: to avoid re-reading
 `analysis/methodologies/reference-quality-thresholds.json` per artifact (a
