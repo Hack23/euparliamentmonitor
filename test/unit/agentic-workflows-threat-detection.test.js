@@ -525,7 +525,8 @@ describe('agentic workflow threat detection policy', () => {
       expect(
         content,
         `${workflow} must declare engine.model: ${expectedModel}`,
-      ).toMatch(new RegExp(`\\n  model: ${expectedModel.replace(/[.\-]/g, '\\$&')}\\b`));
+      // Escape all regex metacharacters (including backslash) — CodeQL js/incomplete-sanitization.
+      ).toMatch(new RegExp(`\\n  model: ${expectedModel.replace(/[\\^$.*+?()[\]{}|\-]/g, '\\$&')}\\b`));
     }
   });
 
