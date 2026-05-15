@@ -199,6 +199,9 @@ const SERVER_HEALTH_FALLBACK = '{"server": null, "feeds": []}';
 /** Fallback payload for adopted texts tools */
 const ADOPTED_TEXTS_FALLBACK = '{"texts": []}';
 
+/** Canonical text used when a feed payload is unavailable without explicit detail. */
+const FEED_UNAVAILABLE_REASON = 'feed unavailable';
+
 /**
  * Substring matched (case-insensitively) in error messages to identify the
  * EP Open Data Portal indexing lag (5–15 days between identifier publication
@@ -356,11 +359,17 @@ function _isEmptyStringSentinel(payload: Record<string, unknown> | undefined): b
 }
 
 /**
- * Year threshold for detecting historical-only (recess-mode) procedures feed responses.
- * Any response where ALL dated items are from this year or earlier is considered recess mode.
+ * Staleness threshold for procedures feed responses.
+ * Any response where the newest dated item is earlier than this year is treated as stale.
  * See `.github/prompts/07-mcp-reference.md` §11 row #5.
  */
-const PROCEDURES_RECESS_YEAR_THRESHOLD = 1995;
+const PROCEDURES_STALENESS_YEAR_THRESHOLD = 2020;
+
+/** Per-tool reliability timeout for selected high-latency EP MCP calls (milliseconds). */
+const TOOL_RELIABILITY_TIMEOUT_MS = 15_000;
+
+/** Number of retries for selected high-latency EP MCP calls when timeout is detected. */
+const TOOL_RELIABILITY_TIMEOUT_RETRIES = 1;
 
 /**
  * Minimum plausible year for EP procedure dates.
@@ -399,8 +408,9 @@ function extractProcedureItemYear(obj: Record<string, unknown>): number {
 }
 
 /**
- * Detect whether a procedures feed response is in "recess mode" — i.e., all items
- * have dates from `PROCEDURES_RECESS_YEAR_THRESHOLD` or earlier (historical archive).
+ * Detect whether a procedures feed response is in a stale historical-tail mode —
+ * i.e., the newest dated item is older than
+ * {@link PROCEDURES_STALENESS_YEAR_THRESHOLD}.
  *
  * During parliamentary recesses the EP procedures/feed endpoint may return historical
  * archive data in ID order rather than current procedures. This function detects that
@@ -411,13 +421,13 @@ function extractProcedureItemYear(obj: Record<string, unknown>): number {
  * `reference` (first four characters). The first valid 4-digit year found in the
  * range `[1952, 2100]` is used.
  *
- * Returns `false` when the payload is `undefined`, contains no items, or any item
- * yields a year later than the threshold (the feed has current data).
+ * Returns `false` when the payload is `undefined`, contains no items, or has no
+ * parseable years.
  *
  * @param payload - Parsed procedures feed payload
- * @returns `true` when all dated items are from `PROCEDURES_RECESS_YEAR_THRESHOLD` or earlier
+ * @returns `true` when the newest dated item is earlier than `PROCEDURES_STALENESS_YEAR_THRESHOLD`
  */
-export function detectProceduresFeedRecessMode(
+export function detectProceduresFeedStaleTail(
   payload: Record<string, unknown> | undefined
 ): boolean {
   if (!payload) return false;
@@ -436,7 +446,8 @@ export function detectProceduresFeedRecessMode(
     }
   }
 
-  return years.length > 0 && years.every((y) => y <= PROCEDURES_RECESS_YEAR_THRESHOLD);
+  if (years.length === 0) return false;
+  return Math.max(...years) < PROCEDURES_STALENESS_YEAR_THRESHOLD;
 }
 
 // ─── Election Calendar Context ─────────────────────────────────────────────
@@ -599,7 +610,165 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
       if (isFeedUnavailable(result)) {
         return this._recordToolFailure(
           toolName,
-          `UPSTREAM_404: ${result.content?.[0]?.text?.slice(0, 200) ?? 'feed unavailable'}`,
+          `UPSTREAM_404: ${result.content?.[0]?.text?.slice(0, 200) ?? FEED_UNAVAILABLE_REASON}`,
+          fallbackText
+        );
+      }
+
+      this._failedTools.delete(toolName);
+      return result;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      return this._recordToolFailure(toolName, message, fallbackText);
+    }
+  }
+
+  /**
+   * Build a standardized per-tool timeout error.
+   *
+   * @param toolName - MCP tool name
+   * @param timeoutMs - Timeout budget per attempt in milliseconds
+   * @param cause - Optional underlying error cause
+   * @returns Timeout error with optional cause attached
+   */
+  private _buildReliabilityTimeoutError(toolName: string, timeoutMs: number, cause?: Error): Error {
+    return new Error(`UPSTREAM_TIMEOUT: ${toolName} exceeded per-tool timeout (${timeoutMs}ms)`, {
+      cause,
+    });
+  }
+
+  /**
+   * Execute one MCP tool attempt with a per-tool timeout guard.
+   *
+   * @param toolName - MCP tool name
+   * @param args - Tool arguments
+   * @param timeoutMs - Timeout budget per attempt in milliseconds
+   * @returns Tool result for a single attempt
+   */
+  private async _callToolOnceWithReliabilityTimeout(
+    toolName: string,
+    args: object,
+    timeoutMs: number
+  ): Promise<MCPToolResult> {
+    let timer: NodeJS.Timeout | undefined;
+    const timeoutPromise = new Promise<MCPToolResult>((_, reject) => {
+      timer = setTimeout(
+        () => reject(this._buildReliabilityTimeoutError(toolName, timeoutMs)),
+        timeoutMs
+      );
+    });
+    try {
+      return await Promise.race([this.callToolWithRetry(toolName, args, 0), timeoutPromise]);
+    } finally {
+      if (timer) clearTimeout(timer);
+    }
+  }
+
+  /**
+   * Decide retry/throw behavior for a failed reliability-timed attempt.
+   *
+   * @param toolName - MCP tool name
+   * @param timeoutMs - Timeout budget per attempt in milliseconds
+   * @param error - Last attempt error
+   * @param timeoutObserved - Whether a timeout has already been observed in this call
+   * @param attempt - Current attempt index (0-based)
+   * @param timeoutRetries - Maximum timeout retry count
+   * @returns Retry decision state
+   */
+  private _decideReliabilityAttemptError(
+    toolName: string,
+    timeoutMs: number,
+    error: Error,
+    timeoutObserved: boolean,
+    attempt: number,
+    timeoutRetries: number
+  ): { retry: boolean; timeoutObserved: boolean; error?: Error } {
+    const isTimeout = classifyToolError(error.message) === 'TIMEOUT';
+    if (isTimeout) {
+      if (attempt < timeoutRetries) {
+        return { retry: true, timeoutObserved: true };
+      }
+      return { retry: false, timeoutObserved: true, error };
+    }
+    if (timeoutObserved) {
+      return {
+        retry: false,
+        timeoutObserved: true,
+        error: this._buildReliabilityTimeoutError(toolName, timeoutMs, error),
+      };
+    }
+    return { retry: false, timeoutObserved, error };
+  }
+
+  /**
+   * Call a tool with per-tool timeout and one timeout-only retry budget.
+   * Non-timeout errors are surfaced immediately unless a timeout was observed
+   * first, in which case a normalized `UPSTREAM_TIMEOUT` error is thrown to
+   * preserve timeout classification for downstream diagnostics.
+   *
+   * @param toolName - MCP tool name
+   * @param args - Tool arguments
+   * @param timeoutMs - Timeout budget per attempt in milliseconds
+   * @param timeoutRetries - Additional attempts when timeout is detected
+   * @returns Tool result when call succeeds within timeout budget
+   */
+  private async callToolWithReliabilityTimeout(
+    toolName: string,
+    args: object,
+    timeoutMs: number = TOOL_RELIABILITY_TIMEOUT_MS,
+    timeoutRetries: number = TOOL_RELIABILITY_TIMEOUT_RETRIES
+  ): Promise<MCPToolResult> {
+    let lastError: Error = new Error(`Timed out calling ${toolName}`);
+    let timeoutObserved = false;
+    for (let attempt = 0; attempt <= timeoutRetries; attempt++) {
+      try {
+        return await this._callToolOnceWithReliabilityTimeout(toolName, args, timeoutMs);
+      } catch (error) {
+        lastError = error instanceof Error ? error : new Error(String(error));
+        const decision = this._decideReliabilityAttemptError(
+          toolName,
+          timeoutMs,
+          lastError,
+          timeoutObserved,
+          attempt,
+          timeoutRetries
+        );
+        timeoutObserved = decision.timeoutObserved;
+        if (decision.retry) {
+          continue;
+        }
+        throw decision.error ?? lastError;
+      }
+    }
+    throw lastError;
+  }
+
+  /**
+   * Wrapper variant of {@link safeCallTool} that enforces per-tool timeout/retry policy.
+   *
+   * @param toolName - MCP tool name
+   * @param args - Tool arguments or arg factory
+   * @param fallbackText - JSON fallback payload
+   * @returns Tool result or fallback
+   */
+  private async safeCallToolWithReliabilityTimeout(
+    toolName: string,
+    args: object | (() => object),
+    fallbackText: string
+  ): Promise<MCPToolResult> {
+    this._calledTools.add(toolName);
+    try {
+      const resolvedArgs = typeof args === 'function' ? args() : args;
+      const result = await this.callToolWithReliabilityTimeout(toolName, resolvedArgs);
+
+      if (result.isError === true) {
+        return this._recordToolFailure(toolName, result.content?.[0]?.text ?? '', fallbackText);
+      }
+
+      if (isFeedUnavailable(result)) {
+        return this._recordToolFailure(
+          toolName,
+          `UPSTREAM_404: ${result.content?.[0]?.text?.slice(0, 200) ?? FEED_UNAVAILABLE_REASON}`,
           fallbackText
         );
       }
@@ -756,7 +925,11 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
    * (pre-v1.2.14) must not assume them.
    */
   async getPlenarySessions(options: GetPlenarySessionsOptions = {}): Promise<MCPToolResult> {
-    return this.safeCallTool('get_plenary_sessions', options, '{"data": [], "total": 0}');
+    return this.safeCallToolWithReliabilityTimeout(
+      'get_plenary_sessions',
+      options,
+      '{"data": [], "total": 0}'
+    );
   }
 
   /**
@@ -800,7 +973,11 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   async monitorLegislativePipeline(
     options: MonitorLegislativePipelineOptions = {}
   ): Promise<MCPToolResult> {
-    return this.safeCallTool('monitor_legislative_pipeline', options, '{"procedures": []}');
+    return this.safeCallToolWithReliabilityTimeout(
+      'monitor_legislative_pipeline',
+      options,
+      '{"procedures": []}'
+    );
   }
 
   /**
@@ -1024,7 +1201,11 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   async generatePoliticalLandscape(
     options: GeneratePoliticalLandscapeOptions = {}
   ): Promise<MCPToolResult> {
-    return this.safeCallTool('generate_political_landscape', options, '{"landscape": null}');
+    return this.safeCallToolWithReliabilityTimeout(
+      'generate_political_landscape',
+      options,
+      '{"landscape": null}'
+    );
   }
 
   /**
@@ -1381,7 +1562,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
    * @returns Latest plenary vote records with NEAR_REALTIME freshness
    */
   async getLatestVotes(options: GetLatestVotesOptions = {}): Promise<MCPToolResult> {
-    return this.safeCallTool(
+    return this.safeCallToolWithReliabilityTimeout(
       'get_latest_votes',
       options,
       '{"votes": [], "dataFreshness": "NEAR_REALTIME"}'
@@ -1696,15 +1877,15 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   /**
    * Get procedures feed (most recent updates via EP API v2)
    *
-   * Post-processes the response to detect "recess mode" — when the EP procedures
-   * feed returns historical archive data (all items dated ≤ 1995) instead of
-   * current procedures. This happens during parliamentary recesses when the EP API
-   * serves its historical archive in ID order.
+   * Post-processes the response to detect stale historical tail — when the EP procedures
+   * feed returns archive data (newest dated item < 2020) instead of
+   * current procedures. This happens when the EP API serves its historical archive
+   * in ID order due to upstream ordering degradation.
    *
-   * When recess mode is detected:
-   * - `recessMode: true` is added to the payload
-   * - A `RECESS_MODE: …` entry is appended to `dataQualityWarnings[]`
-   * - A `🟡 procedures-feed: recess mode` console warning is emitted
+   * When a stale tail is detected:
+   * - `staleTail: true` is added to the payload
+   * - A `STALE_TAIL: …` entry is appended to `dataQualityWarnings[]`
+   * - A `🟡 procedures-feed: stale historical tail` console warning is emitted
    *
    * The tool is **not** recorded as failed — this is documented EP API behaviour
    * classified as 🟢 LIMITATION in `.github/prompts/07-mcp-reference.md` §11 row #5.
@@ -1712,7 +1893,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
    * `get_adopted_texts({ year: $YEAR })` or `track_legislation({ procedureId })`.
    *
    * @param options - Pagination options
-   * @returns Procedures feed data, possibly with `recessMode: true` added to the payload
+   * @returns Procedures feed data, possibly with `staleTail: true` added to the payload
    */
   async getProceduresFeed(options: GetProceduresFeedOptions = {}): Promise<MCPToolResult> {
     const result = await this.safeCallTool(
@@ -1722,19 +1903,19 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
     );
 
     const payload = _parseResultPayload(result);
-    if (detectProceduresFeedRecessMode(payload)) {
+    if (detectProceduresFeedStaleTail(payload)) {
       console.warn(
-        '🟡 procedures-feed: recess mode — response contains only historical procedures (≤1995); use get_adopted_texts({ year: $YEAR }) or track_legislation({ procedureId }) instead'
+        '🟡 procedures-feed: stale historical tail — newest procedure year is <2020; use get_adopted_texts({ year: $YEAR }) or track_legislation({ procedureId }) instead'
       );
       const existingWarnings = Array.isArray(payload?.['dataQualityWarnings'])
         ? (payload['dataQualityWarnings'] as string[])
         : [];
       const augmented: Record<string, unknown> = {
         ...(payload as Record<string, unknown>),
-        recessMode: true,
+        staleTail: true,
         dataQualityWarnings: [
           ...existingWarnings,
-          'RECESS_MODE: procedures-feed returned historical archive (all items ≤1995) — likely parliamentary recess; fallback: get_adopted_texts({ year: $YEAR }) or track_legislation({ procedureId })',
+          'STALE_TAIL: procedures-feed returned stale historical tail (max year <2020) — likely upstream ordering degradation; fallback: get_adopted_texts({ year: $YEAR }) or track_legislation({ procedureId })',
         ],
       };
       const augmentedText = JSON.stringify(augmented);
@@ -1874,7 +2055,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   async getCommitteeDocumentsFeed(
     options: GetCommitteeDocumentsFeedOptions = {}
   ): Promise<MCPToolResult> {
-    return this.safeCallTool(
+    return this.safeCallToolWithReliabilityTimeout(
       'get_committee_documents_feed',
       options,
       EuropeanParliamentMCPClient.FEED_FALLBACK
@@ -1906,7 +2087,7 @@ export class EuropeanParliamentMCPClient extends MCPConnection {
   async getExternalDocumentsFeed(
     options: GetExternalDocumentsFeedOptions = {}
   ): Promise<MCPToolResult> {
-    return this.safeCallTool(
+    return this.safeCallToolWithReliabilityTimeout(
       'get_external_documents_feed',
       options,
       EuropeanParliamentMCPClient.FEED_FALLBACK

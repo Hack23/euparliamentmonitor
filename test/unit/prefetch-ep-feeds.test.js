@@ -49,11 +49,17 @@ function runPrefetch(args, extraEnv = {}) {
     cwd: tmpRoot,
     env: { ...process.env, ...extraEnv },
     encoding: 'utf8',
+    // The script runs ep_api_probe() (curl --max-time 10) before the feed
+    // loop, which can consume most of the default 10s Vitest timeout in CI
+    // where the EP API is unreachable. Cap child-process wall-clock at 15s.
+    timeout: 15_000,
   });
 }
 
 describe('scripts/prefetch-ep-feeds.sh', () => {
-  it('exits 2 on unknown feed name (fail-fast for workflow config bugs)', () => {
+  // The script runs ep_api_probe (curl --max-time 10) before the feed loop,
+  // which can approach the default 10s Vitest timeout in CI. Use 20s.
+  it('exits 2 on unknown feed name (fail-fast for workflow config bugs)', { timeout: 20_000 }, () => {
     const result = runPrefetch(['propositions', 'bogus-feed']);
     expect(result.status).toBe(2);
     expect(result.stderr).toContain('unknown feed name: bogus-feed');

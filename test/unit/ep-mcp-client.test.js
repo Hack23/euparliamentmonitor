@@ -2626,7 +2626,7 @@ describe('ep-mcp-client', () => {
       consoleOutput.restore();
     });
 
-    it('should add recessMode:true when all items are pre-1995 (historical archive)', async () => {
+    it('should add staleTail:true when response is stale historical tail (max year < 2020)', async () => {
       const historicalPayload = {
         items: [
           {
@@ -2655,12 +2655,12 @@ describe('ep-mcp-client', () => {
       const result = await client.getProceduresFeed();
 
       const parsed = JSON.parse(result.content[0].text);
-      expect(parsed.recessMode).toBe(true);
+      expect(parsed.staleTail).toBe(true);
       expect(Array.isArray(parsed.dataQualityWarnings)).toBe(true);
-      expect(parsed.dataQualityWarnings.some((w) => w.startsWith('RECESS_MODE:'))).toBe(true);
+      expect(parsed.dataQualityWarnings.some((w) => w.startsWith('STALE_TAIL:'))).toBe(true);
     });
 
-    it('should emit a 🟡 console warning on recess mode', async () => {
+    it('should emit a 🟡 console warning on stale tail detection', async () => {
       const historicalPayload = {
         items: [
           {
@@ -2678,10 +2678,10 @@ describe('ep-mcp-client', () => {
 
       const warnMessages = consoleOutput.warnings.filter((m) => m.includes('🟡'));
       expect(warnMessages.length).toBeGreaterThan(0);
-      expect(warnMessages[0]).toContain('recess mode');
+      expect(warnMessages[0]).toContain('stale historical tail');
     });
 
-    it('should NOT set recessMode when items contain current-year procedures', async () => {
+    it('should NOT set staleTail when items contain current-year procedures', async () => {
       const currentPayload = {
         items: [
           {
@@ -2704,19 +2704,19 @@ describe('ep-mcp-client', () => {
       const result = await client.getProceduresFeed();
 
       const parsed = JSON.parse(result.content[0].text);
-      expect(parsed.recessMode).toBeUndefined();
+      expect(parsed.staleTail).toBeUndefined();
     });
 
-    it('should NOT set recessMode on an empty items array', async () => {
+    it('should NOT set staleTail on an empty items array', async () => {
       vi.spyOn(client, 'callToolWithRetry').mockResolvedValueOnce({
         content: [{ type: 'text', text: '{"items":[]}' }],
       });
       const result = await client.getProceduresFeed();
       const parsed = JSON.parse(result.content[0].text);
-      expect(parsed.recessMode).toBeUndefined();
+      expect(parsed.staleTail).toBeUndefined();
     });
 
-    it('should NOT record get_procedures_feed as failed when recess mode is detected', async () => {
+    it('should NOT record get_procedures_feed as failed when stale tail is detected', async () => {
       const historicalPayload = {
         items: [
           {
@@ -2735,7 +2735,7 @@ describe('ep-mcp-client', () => {
       expect(client.getFailedTools().has('get_procedures_feed')).toBe(false);
     });
 
-    it('should also detect recess mode via procedures[] shape', async () => {
+    it('should also detect stale tail via procedures[] shape', async () => {
       const proceduresShapePayload = {
         procedures: [
           { id: 'proc-001', dateInitiated: '1980-04-01', dateLastActivity: '1982-09-10' },
@@ -2748,10 +2748,10 @@ describe('ep-mcp-client', () => {
       const result = await client.getProceduresFeed();
 
       const parsed = JSON.parse(result.content[0].text);
-      expect(parsed.recessMode).toBe(true);
+      expect(parsed.staleTail).toBe(true);
     });
 
-    it('should preserve existing dataQualityWarnings when appending RECESS_MODE', async () => {
+    it('should preserve existing dataQualityWarnings when appending STALE_TAIL', async () => {
       const historicalPayload = {
         items: [
           {
@@ -2771,28 +2771,28 @@ describe('ep-mcp-client', () => {
       const parsed = JSON.parse(result.content[0].text);
       expect(parsed.dataQualityWarnings).toHaveLength(2);
       expect(parsed.dataQualityWarnings[0]).toBe('STALENESS_WARNING: existing warning');
-      expect(parsed.dataQualityWarnings[1]).toMatch(/^RECESS_MODE:/);
+      expect(parsed.dataQualityWarnings[1]).toMatch(/^STALE_TAIL:/);
     });
   });
 
-  describe('detectProceduresFeedRecessMode helper function', () => {
-    let detectProceduresFeedRecessMode;
+  describe('detectProceduresFeedStaleTail helper function', () => {
+    let detectProceduresFeedStaleTail;
 
     beforeEach(async () => {
-      ({ detectProceduresFeedRecessMode } = await import('../../scripts/mcp/ep-mcp-client.js'));
+      ({ detectProceduresFeedStaleTail } = await import('../../scripts/mcp/ep-mcp-client.js'));
     });
 
     it('should return false for undefined payload', () => {
-      expect(detectProceduresFeedRecessMode(undefined)).toBe(false);
+      expect(detectProceduresFeedStaleTail(undefined)).toBe(false);
     });
 
     it('should return false for empty items array', () => {
-      expect(detectProceduresFeedRecessMode({ items: [] })).toBe(false);
+      expect(detectProceduresFeedStaleTail({ items: [] })).toBe(false);
     });
 
-    it('should return true for all-pre-1995 items (via dateInitiated)', () => {
+    it('should return true for historical-tail items where max year is before 2020', () => {
       expect(
-        detectProceduresFeedRecessMode({
+        detectProceduresFeedStaleTail({
           items: [
             { dateInitiated: '1972-03-15' },
             { dateInitiated: '1985-01-10' },
@@ -2804,15 +2804,15 @@ describe('ep-mcp-client', () => {
 
     it('should return true for items using reference field (1990/0001 pattern)', () => {
       expect(
-        detectProceduresFeedRecessMode({
+        detectProceduresFeedStaleTail({
           items: [{ reference: '1990/0001(SYN)' }],
         })
       ).toBe(true);
     });
 
-    it('should return false when any item has a post-1995 year', () => {
+    it('should return false when any item has a year in 2020 or later', () => {
       expect(
-        detectProceduresFeedRecessMode({
+        detectProceduresFeedStaleTail({
           items: [
             { dateInitiated: '1972-03-15' },
             { dateInitiated: '2024-01-01' }, // current year
@@ -2823,7 +2823,7 @@ describe('ep-mcp-client', () => {
 
     it('should return false when all items lack date fields', () => {
       expect(
-        detectProceduresFeedRecessMode({
+        detectProceduresFeedStaleTail({
           items: [{ id: 'no-date' }, { title: 'no date here' }],
         })
       ).toBe(false);
@@ -2831,7 +2831,7 @@ describe('ep-mcp-client', () => {
 
     it('should handle procedures[] shape', () => {
       expect(
-        detectProceduresFeedRecessMode({
+        detectProceduresFeedStaleTail({
           procedures: [{ dateInitiated: '1980-01-01', dateLastActivity: '1982-01-01' }],
         })
       ).toBe(true);
@@ -2839,26 +2839,34 @@ describe('ep-mcp-client', () => {
 
     it('should use dateLastActivity as fallback when dateInitiated is absent', () => {
       expect(
-        detectProceduresFeedRecessMode({
+        detectProceduresFeedStaleTail({
           items: [{ dateLastActivity: '1990-06-01' }],
         })
       ).toBe(true);
     });
 
-    it('should return false for borderline 1996 year (just above threshold)', () => {
+    it('should return true for borderline 2019 year (just below threshold)', () => {
       expect(
-        detectProceduresFeedRecessMode({
-          items: [{ dateInitiated: '1996-01-01' }],
+        detectProceduresFeedStaleTail({
+          items: [{ dateInitiated: '2019-01-01' }],
+        })
+      ).toBe(true);
+    });
+
+    it('should return false for borderline 2020 year (exact threshold, not stale)', () => {
+      expect(
+        detectProceduresFeedStaleTail({
+          items: [{ dateInitiated: '2020-12-31' }],
         })
       ).toBe(false);
     });
 
-    it('should return true for borderline 1995 year (exactly at threshold)', () => {
+    it('should return false when mixed years include a post-2019 item', () => {
       expect(
-        detectProceduresFeedRecessMode({
-          items: [{ dateInitiated: '1995-12-31' }],
+        detectProceduresFeedStaleTail({
+          items: [{ dateInitiated: '2019-06-01' }, { dateInitiated: '2021-03-01' }],
         })
-      ).toBe(true);
+      ).toBe(false);
     });
   });
 

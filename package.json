@@ -74,6 +74,7 @@
     "optimize-css": "node scripts/optimize-css.js",
     "minify-assets": "node scripts/minify-assets.js",
     "validate-ep-api": "npx tsx src/utils/validate-ep-api.ts",
+    "mcp:probe": "npx tsx src/utils/mcp-probe.ts",
     "lint:prompts": "node scripts/lint-prompts.js",
     "htmlhint": "sh -c 'htmlhint *.html; set -- news/*.html; if [ -e \"$1\" ]; then htmlhint \"$@\"; else echo \"No news/*.html files to lint\"; fi'",
     "serve": "python3 -m http.server 8080",
