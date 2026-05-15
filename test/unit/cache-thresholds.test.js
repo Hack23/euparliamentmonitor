@@ -72,6 +72,15 @@ describe('normaliseSlug', () => {
     expect(normaliseSlug('breaking-run-123-456')).toBe('breaking');
   });
 
+  it('strips legacy -run<digits> suffix (no hyphen between run and digits)', () => {
+    // Legacy run-folder names like `breaking-run184` were used pre-aggregator;
+    // some external callers still pass that form. See analysis/daily/2026-04-18/
+    // for examples (breaking-run183, breaking-run184, breaking-run185).
+    expect(normaliseSlug('breaking-run184')).toBe('breaking');
+    expect(normaliseSlug('week-in-review-run12')).toBe('week-in-review');
+    expect(normaliseSlug('translate-run129')).toBe('translate');
+  });
+
   it('leaves complex slugs without run-ID unchanged', () => {
     expect(normaliseSlug('committee-reports')).toBe('committee-reports');
   });

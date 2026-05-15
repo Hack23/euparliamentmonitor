@@ -150,19 +150,21 @@ function extractTagContents(xml, tag) {
 
 /**
  * Extract the value of a named XML attribute from a tag string.
+ * Supports both double-quoted (`attr="value"`) and single-quoted
+ * (`attr='value'`) forms — both are valid XML.
  *
  * @param {string} tagStr - The full opening tag (e.g. `<Result.For Total="45">`)
  * @param {string} attr   - Attribute name
  * @returns {string} Attribute value, or empty string if not found
  */
 function extractAttr(tagStr, attr) {
-  const prefix = `${attr}="`;
-  const startIdx = tagStr.indexOf(prefix);
-  if (startIdx === -1) return '';
-  const valueStart = startIdx + prefix.length;
-  const valueEnd = tagStr.indexOf('"', valueStart);
-  if (valueEnd === -1) return '';
-  return tagStr.slice(valueStart, valueEnd);
+  // Match: <whitespace>attr<whitespace?>=<whitespace?>"value"  or  'value'
+  // The regex is anchored on word boundary so `Identifier` doesn't also
+  // match e.g. `XIdentifier`.
+  const re = new RegExp(`\\b${attr}\\s*=\\s*(?:"([^"]*)"|'([^']*)')`);
+  const m = tagStr.match(re);
+  if (!m) return '';
+  return m[1] ?? m[2] ?? '';
 }
 
 /**
@@ -189,14 +191,17 @@ export function parseDoceoXml(xmlText) {
   const votes = [];
   const parsedAt = new Date().toISOString();
 
-  // Split on RollCallVote.Result blocks (note trailing space to avoid matching RollCallVote.Results)
-  const blockOpen = '<RollCallVote.Result ';
+  // Tolerate any whitespace (space, tab, newline) after the tag name before
+  // attributes. Valid XML can put a newline before the first attribute, and
+  // an exact-string `<RollCallVote.Result ` match would silently drop every
+  // vote in such a document.
+  const blockOpenRe = /<RollCallVote\.Result(\s|>)/g;
   const blockClose = '</RollCallVote.Result>';
 
-  let pos = 0;
-  while (pos < xmlText.length) {
-    const blockStart = xmlText.indexOf(blockOpen, pos);
-    if (blockStart === -1) break;
+  let m;
+  blockOpenRe.lastIndex = 0;
+  while ((m = blockOpenRe.exec(xmlText)) !== null) {
+    const blockStart = m.index;
 
     const blockEnd = xmlText.indexOf(blockClose, blockStart);
     if (blockEnd === -1) break;
@@ -238,7 +243,8 @@ export function parseDoceoXml(xmlText) {
       membersAbstention,
     });
 
-    pos = blockEnd + blockClose.length;
+    // Advance the regex past this block so the next exec() searches forward.
+    blockOpenRe.lastIndex = blockEnd + blockClose.length;
   }
 
   return { votes, parsedAt, voteCount: votes.length };
@@ -505,7 +511,13 @@ export async function main(argv = process.argv.slice(2)) {
 
   if (result.publicationLag) {
     process.stdout.write(
-      JSON.stringify({ status: 'publication-lag', url: result.url, date, term }) + '\n',
+      JSON.stringify({
+        status: 'publication-lag',
+        publicationLag: true,
+        url: result.url,
+        date,
+        term,
+      }) + '\n',
     );
     process.exit(0);
   }

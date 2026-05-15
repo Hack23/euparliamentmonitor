@@ -168,6 +168,45 @@ describe('parseDoceoXml', () => {
     expect(result.votes[0].date).toBe('2026-05-14');
     expect(result.votes[0].method).toBe('Roll');
   });
+
+  it('tolerates whitespace (newline) after the RollCallVote.Result tag name', () => {
+    // Valid XML can split attributes across lines.
+    const xml = `<?xml version="1.0"?>
+<RollCallVote.Results>
+  <RollCallVote.Result
+    Identifier="P10-RCV-2026-05-14-099"
+    Method="Roll"
+    Date="2026-05-14">
+    <RollCallVote.Description.Text>Multi-line opening tag</RollCallVote.Description.Text>
+    <Result.For Total="100"></Result.For>
+    <Result.Against Total="50"></Result.Against>
+    <Result.Abstention Total="10"></Result.Abstention>
+  </RollCallVote.Result>
+</RollCallVote.Results>`;
+    const result = parseDoceoXml(xml);
+    expect(result.voteCount).toBe(1);
+    expect(result.votes[0].id).toBe('P10-RCV-2026-05-14-099');
+    expect(result.votes[0].for).toBe(100);
+  });
+
+  it('accepts both single- and double-quoted XML attributes', () => {
+    const xml = `<?xml version="1.0"?>
+<RollCallVote.Results>
+  <RollCallVote.Result Identifier='P10-SQ-001' Method='Roll' Date='2026-05-14'>
+    <RollCallVote.Description.Text>Single-quoted attrs</RollCallVote.Description.Text>
+    <Result.For Total='42'></Result.For>
+    <Result.Against Total="17"></Result.Against>
+    <Result.Abstention Total='3'></Result.Abstention>
+  </RollCallVote.Result>
+</RollCallVote.Results>`;
+    const result = parseDoceoXml(xml);
+    expect(result.voteCount).toBe(1);
+    expect(result.votes[0].id).toBe('P10-SQ-001');
+    expect(result.votes[0].method).toBe('Roll');
+    expect(result.votes[0].for).toBe(42);
+    expect(result.votes[0].against).toBe(17);
+    expect(result.votes[0].abstention).toBe(3);
+  });
 });
 
 // ---------------------------------------------------------------------------

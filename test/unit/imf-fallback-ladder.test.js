@@ -24,6 +24,7 @@ import {
   tryCache,
   buildEconomicContextPayload,
   runFallbackLadder,
+  computeImfPeriodWindow,
 } from '../../scripts/imf-fallback-ladder.js';
 
 // ---------------------------------------------------------------------------
@@ -94,9 +95,61 @@ const WB_PAYLOAD = [
 // tryImfSdmx
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// computeImfPeriodWindow
+// ---------------------------------------------------------------------------
+
+describe('computeImfPeriodWindow', () => {
+  it('returns a 5-year window (year-1 .. year+3) for an explicit year', () => {
+    const w = computeImfPeriodWindow(2026);
+    expect(w.startYear).toBe(2025);
+    expect(w.endYear).toBe(2029);
+    expect(w.years).toEqual([2025, 2026, 2027, 2028, 2029]);
+  });
+
+  it('advances the window when runYear advances', () => {
+    const w2030 = computeImfPeriodWindow(2030);
+    expect(w2030.startYear).toBe(2029);
+    expect(w2030.endYear).toBe(2033);
+    expect(w2030.years).toContain(2030);
+    expect(w2030.years).toContain(2033);
+  });
+
+  it('uses current UTC year when runYear is omitted', () => {
+    const w = computeImfPeriodWindow();
+    const nowY = new Date().getUTCFullYear();
+    expect(w.startYear).toBe(nowY - 1);
+    expect(w.endYear).toBe(nowY + 3);
+  });
+});
+
+describe('tryImfSdmx (dynamic period window)', () => {
+  it('embeds the dynamic year range in the SDMX query URL', async () => {
+    let capturedUrl = null;
+    const captureFetch = async (url) => {
+      capturedUrl = url;
+      return { ok: true, status: 200, async text() { return '{}'; } };
+    };
+    await tryImfSdmx({ fetchImpl: captureFetch, runYear: 2030 });
+    expect(capturedUrl).toMatch(/startPeriod=2029/);
+    expect(capturedUrl).toMatch(/endPeriod=2033/);
+  });
+});
+
+describe('tryImfDataMapper (dynamic period window)', () => {
+  it('embeds the dynamic year list in the DataMapper query URL', async () => {
+    let capturedUrl = null;
+    const captureFetch = async (url) => {
+      capturedUrl = url;
+      return { ok: true, status: 200, async text() { return '{}'; } };
+    };
+    await tryImfDataMapper({ fetchImpl: captureFetch, runYear: 2030 });
+    expect(capturedUrl).toMatch(/periods=2029,2030,2031,2032,2033/);
+  });
+});
+
 describe('tryImfSdmx', () => {
-  it('returns data and correct provenance on success (series format)', async () => {
-    const result = await tryImfSdmx({
+  it('returns data and correct provenance on success (series format)', async () => {    const result = await tryImfSdmx({
       fetchImpl: mockFetch(SDMX_SERIES_PAYLOAD),
       baseUrl: 'https://api.imf.org/external/sdmx/3.0',
     });
@@ -299,15 +352,29 @@ describe('runFallbackLadder', () => {
   });
 
   it('writes output file when rung 2 succeeds (rung 1 fails)', async () => {
+    // URL-aware mock: rung 1 (SDMX) returns 500, rung 2 (DataMapper) returns
+    // a valid payload. The test asserts that runFallbackLadder lands on
+    // rung 2 specifically — not on rung 1 by accident.
+    const urlAwareFetch = async (url) => {
+      if (typeof url === 'string' && url.includes('sdmx')) {
+        return { ok: false, status: 500, async text() { return '{}'; } };
+      }
+      return {
+        ok: true,
+        status: 200,
+        async text() { return JSON.stringify(DATAMAPPER_PAYLOAD); },
+      };
+    };
+
     const result = await runFallbackLadder(tmpDir, {
-      fetchImpl: mockFetch(DATAMAPPER_PAYLOAD),
-      imfSdmxBase: 'http://localhost:9999', // Force rung 1 to use different base
+      fetchImpl: urlAwareFetch,
+      imfSdmxBase: 'https://api.imf.org/external/sdmx/3.0',
       imfDataMapperBase: 'https://www.imf.org/external/datamapper/api/v1',
     });
 
-    // Either rung 1 or rung 2 might succeed depending on which fetch impl wins
     expect(result.success).toBe(true);
-    expect(result.rung).toBeGreaterThanOrEqual(1);
+    expect(result.rung).toBe(2);
+    expect(result.provenance).toBe('imf-datamapper-v1');
     expect(result.outputFile).toBeTruthy();
     expect(fs.existsSync(result.outputFile)).toBe(true);
   });

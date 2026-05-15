@@ -35,18 +35,25 @@
 #   - Echoes a summary line with file count
 #   - Exits 2 (fail-fast) on unknown feed names — typos in workflow slug
 #     /feed lists would otherwise silently disable prefetch
-#   - Exits 1 when ALL feeds fail (0 successfully fetched) — indicates the
-#     EP API is completely unreachable; workflow can decide to retry the step
+#   - Exits 0 even when all feeds fail. The script writes a canonical
+#     unavailable-envelope placeholder for every failed feed, exports
+#     ANALYSIS_DIR, and lets the agent decide how to proceed (MCP fallback,
+#     prior-run data, etc.). This preserves the workflow's recovery contract:
+#     the news-*.md workflows have no `continue-on-error: true` on the
+#     prefetch step (drift-guarded in
+#     `test/unit/agentic-workflows-threat-detection.test.js`), so exit-1
+#     on transient upstream outages would block the agent from starting.
 #
 # Retry policy:
 #   - Readiness probe: HEAD to EP API root before the first fetch.
-#     If the probe fails, all feeds are written as placeholders and the
-#     script exits 1 immediately (avoids wasting curl timeouts on each feed).
+#     The probe is ADVISORY — a failed probe logs a warning and proceeds
+#     with per-feed GET retries (HEAD can fail independently, e.g. 405).
+#     Per-feed `fetch_with_retry` is the authoritative reachability check.
 #   - Per-feed retry: up to 3 retries with exponential backoff.
 #     Backoff delays: 5s (retry 1), 15s (retry 2), 45s (retry 3).
-#   - If ALL feeds exhaust all retries (zero successful fetches), exits 1.
-#     If SOME feeds succeed and others fail, exits 0 (downstream handles
-#     the placeholder envelopes with the `status === "unavailable"` check).
+#   - Always exits 0 on completion regardless of fetched/placeholder ratio
+#     (downstream handles placeholders via the `status === "unavailable"`
+#     contract). The summary line reports the counts for triage.
 #
 # Per-feed timeouts:
 #   - `events`  → 120s (EP API is documented as slow for this feed)
@@ -178,13 +185,12 @@ write_unavailable_placeholder() {
 }
 
 # ---------------------------------------------------------------------------
-# Pre-flight readiness probe — run before the first feed fetch to avoid
-# burning N × (curl timeout) seconds when the EP API is entirely down.
+# Pre-flight readiness probe — ADVISORY ONLY. A failed HEAD probe logs a
+# warning and proceeds with per-feed GET retries (fetch_with_retry is the
+# authoritative reachability check; HEAD can 405 independently of GET).
 # ---------------------------------------------------------------------------
-EP_API_REACHABLE=1
 if ! ep_api_probe; then
-  echo "⚠️  EP API readiness probe failed -- API may be unreachable; all feeds will be placeholders" >&2
-  EP_API_REACHABLE=0
+  echo "⚠️  EP API readiness probe failed (advisory) — proceeding with per-feed retries" >&2
 fi
 
 FETCHED=0
@@ -202,12 +208,7 @@ for feed in "$@"; do
   out_file="${ANALYSIS_DIR}/data/${feed}-feed.json"
   feed_to=$(feed_timeout "$feed")
 
-  if [ "$EP_API_REACHABLE" -eq 0 ]; then
-    # Readiness probe failed — skip curl entirely to avoid timeouts.
-    write_unavailable_placeholder "$out_file" "$feed"
-    echo "⚠️  ${feed}-feed skipped (API unreachable) — placeholder written"
-    PLACEHOLDERS=$((PLACEHOLDERS + 1))
-  elif fetch_with_retry "$feed" "$out_file" "$feed_to"; then
+  if fetch_with_retry "$feed" "$out_file" "$feed_to"; then
     echo "✅ ${feed}-feed fetched (timeout=${feed_to}s)"
     FETCHED=$((FETCHED + 1))
   else
@@ -229,11 +230,10 @@ fi
 FILE_COUNT=$(find "${ANALYSIS_DIR}/data/" -maxdepth 1 -type f | wc -l)
 echo "Pre-fetch complete: ${FETCHED} fetched, ${PLACEHOLDERS} placeholders, ${FILE_COUNT} total files in ${ANALYSIS_DIR}/data/"
 
-# Exit 1 when ALL feeds failed (0 successfully fetched) — the EP API is
-# completely unreachable and the agent would have no data to work with.
-# A partial failure (some feeds OK) exits 0; downstream handles placeholders
-# via the `status === "unavailable"` contract.
+# Always exit 0 — placeholders preserve the workflow's recovery contract.
+# When ALL feeds fail (FETCHED=0), log a clear warning so triage can flag
+# the run as data-degraded, but do NOT block the agent from starting:
+# downstream can use MCP fallback or prior-run analysis data.
 if [ "$FETCHED" -eq 0 ] && [ "$PLACEHOLDERS" -gt 0 ]; then
-  echo "❌ All ${PLACEHOLDERS} feed(s) failed — EP API unreachable" >&2
-  exit 1
+  echo "⚠️  All ${PLACEHOLDERS} feed(s) failed — agent will proceed with placeholders (data-degraded run)" >&2
 fi

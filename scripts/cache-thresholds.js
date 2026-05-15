@@ -64,10 +64,12 @@ const CACHE_FILENAME = 'thresholds-cache.json';
  * @returns {string} Canonical article-type key
  */
 export function normaliseSlug(slug) {
-  // Strip run-ID suffixes like `-run-<digits>` (e.g. `-run-123`) or
-  // `-run-<digits>-<digits>` (e.g. `-run-123-456` where the second group
-  // is a sub-run identifier used in some long-horizon workflows).
-  return slug.replace(/-run-\d+(-\d+)?$/, '');
+  // Strip run-ID suffixes in either form:
+  //   - `-run-<digits>` (e.g. `breaking-run-1234`) — newer workflow runs
+  //   - `-run<digits>`  (e.g. `breaking-run184`)   — legacy folder names
+  // Each form may carry an optional `-<digits>` sub-run suffix used by
+  // long-horizon workflows (e.g. `breaking-run-123-456`).
+  return slug.replace(/-run-?\d+(-\d+)?$/, '');
 }
 
 // ---------------------------------------------------------------------------

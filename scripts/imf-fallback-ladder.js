@@ -72,6 +72,24 @@ const IMF_DATAMAPPER_INDICATORS = ['NGDP_RPCH', 'PCPIPCH', 'GGXCNL_NGDP', 'LUR',
 /** Target IMF area code for Euro Area. */
 const IMF_EURO_AREA = 'EAQ';
 
+/**
+ * Compute the dynamic [startYear, endYear] window for IMF queries.
+ * IMF WEO publishes ~5 forecast years from any given vintage; we request
+ * one historical year + the run year + 3 forecast years so the window
+ * advances automatically as `runYear` advances.
+ *
+ * @param {number} [runYear] - Reference year (defaults to current UTC year)
+ * @returns {{ startYear: number, endYear: number, years: number[] }}
+ */
+export function computeImfPeriodWindow(runYear) {
+  const y = runYear ?? new Date().getUTCFullYear();
+  const startYear = y - 1;
+  const endYear = y + 3;
+  const years = [];
+  for (let yr = startYear; yr <= endYear; yr++) years.push(yr);
+  return { startYear, endYear, years };
+}
+
 /** Request timeout in milliseconds. */
 const FETCH_TIMEOUT_MS = 30_000;
 
@@ -138,7 +156,8 @@ async function fetchJson(url, options = {}) {
  */
 export async function tryImfSdmx(options = {}) {
   const baseUrl = options.baseUrl ?? IMF_SDMX_BASE;
-  const query = `data/dataflow/IMF.RES/WEO/+/${IMF_EURO_AREA}.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP.A?startPeriod=2024&endPeriod=2027&format=jsondata`;
+  const { startYear, endYear } = computeImfPeriodWindow(options.runYear);
+  const query = `data/dataflow/IMF.RES/WEO/+/${IMF_EURO_AREA}.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP.A?startPeriod=${startYear}&endPeriod=${endYear}&format=jsondata`;
   const url = `${baseUrl}/${query}`;
 
   // IMF SDMX 3.0 requires Ocp-Apim-Subscription-Key since 2025
@@ -257,7 +276,8 @@ function _extractSdmxObservations(payload) {
 export async function tryImfDataMapper(options = {}) {
   const baseUrl = options.baseUrl ?? IMF_DATAMAPPER_BASE;
   const indicators = IMF_DATAMAPPER_INDICATORS.join('+');
-  const url = `${baseUrl}/${indicators}/${IMF_EURO_AREA}?periods=2024,2025,2026,2027`;
+  const { years } = computeImfPeriodWindow(options.runYear);
+  const url = `${baseUrl}/${indicators}/${IMF_EURO_AREA}?periods=${years.join(',')}`;
 
   const result = await fetchJson(url, { fetchImpl: options.fetchImpl });
 
@@ -445,7 +465,7 @@ export function buildEconomicContextPayload(data, provenance, rung) {
  * }>}
  */
 export async function runFallbackLadder(outputDir, options = {}) {
-  const { dryRun = false, fetchImpl, cacheFile } = options;
+  const { dryRun = false, fetchImpl, cacheFile, runYear } = options;
 
   const rungs = [
     {
@@ -455,6 +475,7 @@ export async function runFallbackLadder(outputDir, options = {}) {
         tryImfSdmx({
           fetchImpl,
           baseUrl: options.imfSdmxBase,
+          runYear,
         }),
     },
     {
@@ -464,6 +485,7 @@ export async function runFallbackLadder(outputDir, options = {}) {
         tryImfDataMapper({
           fetchImpl,
           baseUrl: options.imfDataMapperBase,
+          runYear,
         }),
     },
     {
