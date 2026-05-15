@@ -126,9 +126,13 @@ const FORBIDDEN_PHRASES = [
   // clause before any mention of the source file. The pattern is
   // intentionally not anchored to a line start to catch mid-paragraph
   // inline instructions.
+  // Negative look-behind excludes the negated forms ("don't / do not /
+  // never / not" within a short window before the read-verb) so guidance
+  // such as "Never load reference-quality-thresholds.json directly — use
+  // the cache" passes the lint without a false positive.
   // news-unified-runtime.md is a shared prompt import, not a
   // news-*.md workflow body, so its Rule 3 example is unaffected.
-  /(?:read|cat|load|open)\b[^.\n]{0,60}reference-quality-thresholds\.json/i,
+  /(?<!\b(?:don't|do not|never|not|avoid|without)\s{0,20})(?:read|cat|load|open)\b[^.\n]{0,60}reference-quality-thresholds\.json/i,
   // IMF-primary editorial policy: IMF is the SOLE authoritative source
   // for every economic / fiscal / monetary / trade / FDI / exchange-rate /
   // banking-soundness claim. World Bank is for non-economic domains.

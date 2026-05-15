@@ -139,9 +139,11 @@ Combine the prefetch result with live Stage A probes:
 | EP roll-call data missing (0 voting records) | `degraded-voting` | 0.85 |
 | Most EP feeds unavailable + IMF absent | `minimal` | 0.65 |
 
-When multiple degradations apply, pick the **lower** (more conservative) factor:
-- `degraded-feeds` (0.80) + `degraded-imf` (0.85) → both degradations active simultaneously means most EP feeds AND IMF are unavailable, which matches `minimal` (0.65) semantics — use `minimal`
-- `degraded-feeds` alone → use `degraded-feeds` (0.80)
+When multiple degradations apply simultaneously, **pick the lowest factor from
+the table above and stop**. Do not compose modes — `degraded-feeds` + `degraded-imf`
+resolves to `degraded-feeds` (0.80 < 0.85). Use `minimal` only when its own
+trigger ("most EP feeds unavailable + IMF absent") independently applies; do
+not infer `minimal` by combining two single-axis degradations.
 
 ### Step 3 — Write dataMode to manifest.json
 

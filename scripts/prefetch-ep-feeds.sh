@@ -100,10 +100,11 @@ ACCEPT_HDR="Accept: application/ld+json"
 TIMEOUT_EVENTS=120
 TIMEOUT_DEFAULT=60
 
-# Retry configuration. Each feed is attempted up to (MAX_RETRIES+1) = 3
-# total times before the unavailable-envelope placeholder is written.
+# Retry configuration. Each feed is attempted once and then retried up to
+# MAX_RETRIES times before the unavailable-envelope placeholder is written
+# (total attempts = MAX_RETRIES + 1 = 4 by default: 1 initial + 3 retries).
 # Delays follow an exponential backoff: 5s → 15s → 45s.
-MAX_RETRIES=2
+MAX_RETRIES=3
 RETRY_DELAY_1=5
 RETRY_DELAY_2=15
 RETRY_DELAY_3=45
@@ -145,15 +146,19 @@ fetch_with_retry() {
   local attempt=0
   local delay=0
 
-  while [ "$attempt" -le 3 ]; do
+  # Loop exactly MAX_RETRIES+1 times (initial attempt + MAX_RETRIES retries).
+  # The retry constants are the single source of truth — updating
+  # MAX_RETRIES / RETRY_DELAY_* changes runtime behaviour without further
+  # code edits, and the drift-guard tests verify the two layers stay in sync.
+  while [ "$attempt" -le "$MAX_RETRIES" ]; do
     if [ "$attempt" -gt 0 ]; then
       # Shell-safety: use case for delay lookup (no array indirect expansion).
       case "$attempt" in
-        1) delay=5 ;;
-        2) delay=15 ;;
-        *) delay=45 ;;
+        1) delay="$RETRY_DELAY_1" ;;
+        2) delay="$RETRY_DELAY_2" ;;
+        *) delay="$RETRY_DELAY_3" ;;
       esac
-      echo "⏳ ${feed_name}: retry ${attempt}/3 — waiting ${delay}s ..." >&2
+      echo "⏳ ${feed_name}: retry ${attempt}/${MAX_RETRIES} — waiting ${delay}s ..." >&2
       sleep "$delay"
     fi
 
@@ -255,7 +260,10 @@ fi
 TOTAL_FEEDS=$((FETCHED + PLACEHOLDERS))
 
 # Write prefetch-status.json so the agent can read the degraded-mode signal
-# at Stage A without parsing the step output log.
+# at Stage A without parsing the step output log. Ensure data/ exists even
+# when no feeds were processed (edge case: all feeds rejected upstream or
+# the loop wrote nothing) so the `printf > …` below cannot fail under set -e.
+mkdir -p "${ANALYSIS_DIR}/data"
 printf '{"prefetchMode":"%s","fetched":%d,"placeholders":%d,"total":%d,"generatedAt":"%s","source":"prefetch-ep-feeds.sh"}\n' \
   "$PREFETCH_DATA_MODE" "$FETCHED" "$PLACEHOLDERS" "$TOTAL_FEEDS" "$NOW_ISO" \
   > "${ANALYSIS_DIR}/data/prefetch-status.json"

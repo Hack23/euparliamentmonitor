@@ -26,12 +26,18 @@
 #   ${ANALYSIS_DIR}/runs/thresholds-cache.json  — filtered thresholds for the slug
 #
 # The output file contains:
-#   - .defaults         — global default floors (fallback when per-type entry absent)
-#   - .perArticleType   — entry keyed to the active slug only (omitted if not present)
+#   - .thresholds       — object keyed by the active article-type slug only
+#                         (e.g. { "breaking": { "executive-brief.md": 180, ... } }).
+#                         Empty object when the source has no entry for the slug.
 #   - .tradecraftQualitySignals — structural signal arrays from the source JSON
 #   - .filteredForArticleType — slug for provenance / debugging
 #   - .cachedAt         — ISO timestamp
 #   - .version          — schema version from the source file
+#
+# Note: the source `reference-quality-thresholds.json` has no top-level
+# `defaults` key — the global fallback when a per-artifact entry is absent
+# is the validator's `--min-lines` CLI flag (DEFAULT_MIN_LINES = 30 in
+# scripts/validate-analysis-completeness.js), not a JSON field.
 #
 # Safety notes (AWF shell-safety filter compliance):
 #   - No nested parameter expansion, no indirect expansion, no `${var@P}`
@@ -102,27 +108,28 @@ const out = {
   cachedAt: new Date().toISOString(),
 };
 
-// Copy global defaults if present.
-if (raw.defaults !== undefined) {
-  out.defaults = raw.defaults;
-}
-
 // Copy tradecraftQualitySignals for structural-check references.
 if (raw.tradecraftQualitySignals !== undefined) {
   out.tradecraftQualitySignals = raw.tradecraftQualitySignals;
 }
 
-// Copy only the entry for the active article type from thresholds[].
-// The thresholds array contains objects with an `articleType` field.
-if (Array.isArray(raw.thresholds)) {
-  const entry = raw.thresholds.find((t) => t.articleType === articleType);
-  if (entry) {
-    out.thresholds = [entry];
+// Filter `thresholds` to only the active article-type slug.
+// The source schema keys `thresholds` by article-type slug (object), e.g.
+//   { "breaking": { "executive-brief.md": 180, ... }, "week-in-review": {...} }
+// We emit a single-entry object so consumers can read
+// `cache.thresholds[articleType]` with the same shape as the source file.
+if (raw.thresholds && typeof raw.thresholds === 'object' && !Array.isArray(raw.thresholds)) {
+  const entry = raw.thresholds[articleType];
+  if (entry && typeof entry === 'object') {
+    out.thresholds = { [articleType]: entry };
   } else {
-    // No per-type entry: write an empty array so callers can distinguish
-    // "filtered but absent" from "JSON read error".
-    out.thresholds = [];
+    // No per-type entry: write an empty object so callers can distinguish
+    // "filtered but absent" from "JSON read error". Downstream consumers
+    // fall back to the validator's --min-lines CLI default.
+    out.thresholds = {};
   }
+} else {
+  out.thresholds = {};
 }
 
 try {

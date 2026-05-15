@@ -16,20 +16,10 @@ let tmpRoot;
 
 beforeAll(() => {
   tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'cache-thresholds-test-'));
-  // Make a git repo so resolve-analysis-dir.sh (which cache script calls via
-  // git rev-parse) can run without escaping to the real repo root.
-  spawnSync('git', ['init', '-q'], { cwd: tmpRoot });
-  spawnSync('git', ['commit', '--allow-empty', '-m', 'init', '-q'], {
-    cwd: tmpRoot,
-    env: {
-      ...process.env,
-      GIT_AUTHOR_NAME: 't',
-      GIT_AUTHOR_EMAIL: 't@t',
-      GIT_COMMITTER_NAME: 't',
-      GIT_COMMITTER_EMAIL: 't@t',
-    },
-  });
-  // Copy the real thresholds file into the tmp repo so the script can find it.
+  // The cache script derives REPO_ROOT via `dirname "$0"/..` (two single-level
+  // command substitutions — no git rev-parse, no resolve-analysis-dir.sh
+  // delegation). The fake repo only needs the source thresholds JSON at the
+  // expected relative path; no git init is required.
   fs.mkdirSync(path.join(tmpRoot, 'analysis', 'methodologies'), { recursive: true });
   fs.copyFileSync(THRESHOLDS_SRC, path.join(tmpRoot, 'analysis', 'methodologies', 'reference-quality-thresholds.json'));
 });
@@ -114,6 +104,44 @@ describe('scripts/cache-analysis-thresholds.sh', () => {
     expect(cache.version).toBe(source.version);
     // Cache must be valid JSON
     expect(cache).toBeTruthy();
+  });
+
+  it('cache JSON contains the per-slug threshold entries for the active article type', () => {
+    // Regression test: an earlier version treated `thresholds` as an array
+    // and used `.find((t) => t.articleType === slug)`, which silently emitted
+    // an empty array because the source schema keys `thresholds` by slug
+    // (object). This test asserts the per-artifact floors are actually
+    // present so a future schema/script mismatch fails loudly.
+    const analysisDir = path.join(tmpRoot, 'analysis', 'daily', '2026-01-01', 'breaking-floors');
+    fs.mkdirSync(analysisDir, { recursive: true });
+    runCacheScript([analysisDir, 'breaking']);
+
+    const cacheFile = path.join(analysisDir, 'runs', 'thresholds-cache.json');
+    const cache = JSON.parse(fs.readFileSync(cacheFile, 'utf8'));
+    const source = JSON.parse(fs.readFileSync(THRESHOLDS_SRC, 'utf8'));
+
+    expect(cache.thresholds).toBeTruthy();
+    expect(typeof cache.thresholds).toBe('object');
+    expect(Object.keys(cache.thresholds).length).toBeGreaterThan(0);
+    expect(cache.thresholds.breaking).toBeTruthy();
+    // The per-artifact floors must match the source file for the active slug.
+    expect(cache.thresholds.breaking).toEqual(source.thresholds.breaking);
+    // A representative known floor from the source (executive-brief.md = 180).
+    expect(cache.thresholds.breaking['executive-brief.md']).toBe(
+      source.thresholds.breaking['executive-brief.md'],
+    );
+  });
+
+  it('cache JSON contains an empty thresholds object when the slug is absent from the source', () => {
+    const analysisDir = path.join(tmpRoot, 'analysis', 'daily', '2026-01-01', 'unknown-slug');
+    fs.mkdirSync(analysisDir, { recursive: true });
+    const result = runCacheScript([analysisDir, 'no-such-article-type']);
+    expect(result.status).toBe(0);
+
+    const cacheFile = path.join(analysisDir, 'runs', 'thresholds-cache.json');
+    const cache = JSON.parse(fs.readFileSync(cacheFile, 'utf8'));
+    expect(cache.thresholds).toEqual({});
+    expect(cache.filteredForArticleType).toBe('no-such-article-type');
   });
 
   it('creates the runs/ directory if it does not exist', () => {

@@ -412,4 +412,23 @@ describe('scripts/lint-prompts.js', () => {
     expect(result.code).toBe(0);
     expect(result.stdout).toContain('0 violations');
   });
+
+  it('allows negated guidance about reference-quality-thresholds.json (do not / never / don\'t / avoid)', () => {
+    // Regression test for the lint-prompts.js banned-pattern false-positive
+    // raised in PR #1935 review: phrases like "Never load …", "Don't read …",
+    // and "Avoid opening …" must NOT trip the per-artifact-direct-read rule.
+    writeWorkflow(
+      'news-ok-negated.md',
+      '# Title\n' +
+        'imports:\n  - .github/agents/news-generation.agent.md\n  - shared/mcp/news-mcp-servers.md\n\n' +
+        "Don't read reference-quality-thresholds.json directly — use the cache.\n" +
+        'Never load reference-quality-thresholds.json per artifact; read runs/thresholds-cache.json instead.\n' +
+        'Do not open reference-quality-thresholds.json from inside the artifact loop.\n' +
+        'Avoid opening reference-quality-thresholds.json in Pass 2.\n' +
+        'Call safeoutputs___create_pull_request at the end.\n',
+    );
+    const result = runLint(tmpDir);
+    expect(result.code).toBe(0);
+    expect(result.stdout).toContain('0 violations');
+  });
 });
