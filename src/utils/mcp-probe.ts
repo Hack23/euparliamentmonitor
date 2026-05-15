@@ -168,7 +168,8 @@ export function getEPArgs(tool: string): Record<string, unknown> | null {
 
   if (Object.prototype.hasOwnProperty.call(byName, tool)) {
     const entry = byName[tool];
-    return entry === null ? null : (entry ?? { limit: 1 });
+    if (entry === null) return null;
+    return entry ?? { limit: 1 };
   }
 
   return { limit: 1 };
