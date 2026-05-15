@@ -677,7 +677,7 @@ grep -i "auth" /tmp/gh-aw/mcp-logs/mcp-gateway.log | tail -n 20
 
 | Symptom | Likely Cause | Immediate Mitigation |
 |---|---|---|
-| `get_committee_documents_feed` returns 404/error envelope | Upstream feed instability in `european-parliament-mcp-server@1.3.4` | Fallback to `get_committee_documents({ limit: 20 })` and mark source as degraded |
+| `get_committee_documents_feed` returns 404/error envelope | Upstream feed instability in `european-parliament-mcp-server@1.3.6` | Fallback to `get_committee_documents({ limit: 20 })` and mark source as degraded |
 | `get_external_documents_feed` returns 0 items in active periods | Feed freshness lag or upstream ordering issue | Fallback to `get_external_documents({ limit: 20 })`; keep `dataFreshness` warning |
 | `get_events_feed` times out | EP upstream endpoint latency spikes (30-120s+) | Treat as slow-feed warning, fallback to `get_events({ limit: 20 })` |
 | `get_procedures_feed` returns historical-tail data | Upstream stale ordering (max year < 2020) | Reject as stale, set `staleTail: true`, fallback to `get_procedures`/`track_legislation` |
