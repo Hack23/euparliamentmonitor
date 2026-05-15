@@ -1,1 +1,1 @@
-{"status":"unavailable","items":[],"itemCount":0,"generatedAt":"2026-05-15T10:20:28Z","feed":"documents","source":"prefetch-ep-feeds.sh"}
+{"@id":"https://data.europarl.europa.eu/eli/dl/doc/OJ-10-2026-05-18","error":"404 Not Found from POST https://admin.data.europarl.europa.eu/api/v2/documents/?view=uri&view-version=v2.1","@context":{"error":{"@id":"https://data.europarl.europa.eu/application/error"}}}
