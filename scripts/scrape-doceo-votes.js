@@ -158,10 +158,11 @@ function extractTagContents(xml, tag) {
  * @returns {string} Attribute value, or empty string if not found
  */
 function extractAttr(tagStr, attr) {
-  // Match: <whitespace>attr<whitespace?>=<whitespace?>"value"  or  'value'
-  // The regex is anchored on word boundary so `Identifier` doesn't also
-  // match e.g. `XIdentifier`.
-  const re = new RegExp(`\\b${attr}\\s*=\\s*(?:"([^"]*)"|'([^']*)')`);
+  // Escape regex metacharacters in attr name to prevent pattern injection
+  // even though callers currently pass safe literals.
+  const safeAttr = attr.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  // Match: <word boundary>attr<whitespace?>=<whitespace?>"value"  or  'value'
+  const re = new RegExp(`\\b${safeAttr}\\s*=\\s*(?:"([^"]*)"|'([^']*)')`);
   const m = tagStr.match(re);
   if (!m) return '';
   return m[1] ?? m[2] ?? '';
@@ -192,10 +193,11 @@ export function parseDoceoXml(xmlText) {
   const parsedAt = new Date().toISOString();
 
   // Tolerate any whitespace (space, tab, newline) after the tag name before
-  // attributes. Valid XML can put a newline before the first attribute, and
-  // an exact-string `<RollCallVote.Result ` match would silently drop every
-  // vote in such a document.
-  const blockOpenRe = /<RollCallVote\.Result(\s|>)/g;
+  // attributes, OR an immediate `>` for an attribute-less opening. Valid XML
+  // can put a newline before the first attribute, and an exact-string
+  // `<RollCallVote.Result ` match would silently drop every vote in such a
+  // document. Non-capturing alternation avoids an unused capture group.
+  const blockOpenRe = /<RollCallVote\.Result(?:\s|>)/g;
   const blockClose = '</RollCallVote.Result>';
 
   let m;
