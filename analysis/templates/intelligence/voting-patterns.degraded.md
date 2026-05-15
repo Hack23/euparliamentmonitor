@@ -5,7 +5,7 @@
 artifactId: voting-patterns.degraded
 methodology: ../../methodologies/per-artifact-methodologies.md#voting-patterns
 catalogRow: ../../methodologies/artifact-catalog.md
-depthFloorBreaking: 128
+depthFloorBreaking: 127
 mermaidType: graph LR (group agreement network — inferred from seat share)
 partialsDir: ../_partials/
 variant: degraded-voting
@@ -25,8 +25,8 @@ TWO-PASS      : Pass 1 ≈ 60% of the artifact's time budget — fill every requ
 DEPTH FLOOR   : degradedFloorFactor = 0.85 × base floor (defined per article-type in
                 reference-quality-thresholds.json). Example: breaking full-data base floor
                 from voting-patterns.md = 150; degraded floor = floor(150 × 0.85) = 127.
-                The depthFloorBreaking = 128 in this template's frontmatter reflects the
-                breaking floor configured in reference-quality-thresholds.json §breaking.
+                The depthFloorBreaking = 127 in this template's frontmatter reflects the
+                validator's Math.floor(150 × 0.85) = 127 computation.
                 The validator reads manifest.dataMode = "degraded-voting" and applies the
                 factor automatically — you do NOT set the floor manually.
 CONFIDENCE CAP: *** MANDATORY *** All confidence labels in §§2–6 MUST be capped at
@@ -305,7 +305,7 @@ For each group: describe structural positioning based on publicly known programm
 
 | Check | Threshold | Source |
 |-------|-----------|--------|
-| Line floor | 0.85 × per article-type base floor (breaking: 128, motions: 170) | `reference-quality-thresholds.json degradedFloorFactor` |
+| Line floor | 0.85 × per article-type base floor (breaking: 127, motions: 170) | `reference-quality-thresholds.json degradedFloorFactor` |
 | Degraded-Data Declaration section present | §"Degraded-Data Declaration" H2 | structural contract |
 | Confidence cap markers | ≥3 occurrences of "🟡 MEDIUM" in §§2–6 | template requirement |
 | Structural proxy labels | ≥3 occurrences of "(structural proxy — no RCV data)" | template requirement |
@@ -315,4 +315,4 @@ For each group: describe structural positioning based on publicly known programm
 
 ---
 
-**Document Control:** `analysis/templates/intelligence/voting-patterns.degraded.md` · Template v1.0 · Variant: `degraded-voting` · Base: `voting-patterns.md` · Full-data base floor (breaking): 150 · Degraded floor (breaking): 128 (= floor(150 × 0.85)) · `degradedFloorFactor: 0.85` · See [`../../methodologies/reference-quality-thresholds.json`](../../methodologies/reference-quality-thresholds.json) for per-article-type computed floors.
+**Document Control:** `analysis/templates/intelligence/voting-patterns.degraded.md` · Template v1.0 · Variant: `degraded-voting` · Base: `voting-patterns.md` · Full-data base floor (breaking): 150 · Degraded floor (breaking): 127 (= Math.floor(150 × 0.85)) · `degradedFloorFactor: 0.85` · See [`../../methodologies/reference-quality-thresholds.json`](../../methodologies/reference-quality-thresholds.json) for per-article-type computed floors.
