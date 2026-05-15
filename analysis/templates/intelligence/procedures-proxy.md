@@ -3,8 +3,8 @@
 
 <!-- ANALYSIS-TEMPLATE-FRONTMATTER:v1
 artifactId: procedures-proxy
-methodology: ../methodologies/per-artifact-methodologies.md#mcp-reliability-audit
-catalogRow: ../methodologies/artifact-catalog.md
+methodology: ../../methodologies/per-artifact-methodologies.md#procedures-proxy
+catalogRow: ../../methodologies/artifact-catalog.md
 depthFloorBreaking: 60
 mermaidType: flowchart LR (procedures-feed staleness mitigation chain)
 partialsDir: ../_partials/
@@ -40,7 +40,7 @@ PARTIALS      : Reusable chunks live in ../_partials/ — link to them, do not c
 
 > **📌 Template Instructions:** Copy to `analysis/daily/{date}/{article-type}-run{N}/intelligence/procedures-proxy.md`. Produced whenever `get_procedures_feed` returns the known 1972–1987 tail (STALENESS_WARNING). Documents the mitigation chain applied and provides the adopted-texts proxy evidence. Referenced from `mcp-reliability-audit.md §"Data-source bridge"`.
 
-> **🎯 Purpose:** Standardised record of the `get_procedures_feed` staleness pattern and the mitigation applied. Prevents each agent from re-discovering and re-documenting the same known upstream limitation independently. See the authoritative triage entry in [`.github/prompts/07-mcp-reference.md §11`](../../.github/prompts/07-mcp-reference.md).
+> **🎯 Purpose:** Standardised record of the `get_procedures_feed` staleness pattern and the mitigation applied. Prevents each agent from re-discovering and re-documenting the same known upstream limitation independently. See the authoritative triage entry in [`.github/prompts/07-mcp-reference.md §11`](../../../.github/prompts/07-mcp-reference.md).
 
 ---
 
@@ -130,11 +130,11 @@ State which tools were called, how many records each returned, and whether the c
 
 ## 🔗 Cross-References
 
-- [`.github/prompts/07-mcp-reference.md §11`](../../.github/prompts/07-mcp-reference.md) — Audit-Recurring Items Triage Table (procedures-feed staleness is a documented behaviour, not a defect)
+- [`.github/prompts/07-mcp-reference.md §11`](../../../.github/prompts/07-mcp-reference.md) — Audit-Recurring Items Triage Table (procedures-feed staleness is a documented behaviour, not a defect)
 - [`../mcp-reliability-audit.md`](../mcp-reliability-audit.md) — parent audit artifact; §"Data-source bridge" references this file
 - [`../data-availability-assessment.md`](../data-availability-assessment.md) — Stage A triage artifact; §5 "Procedures-Feed Staleness Note" triggers this template
 - [`../../methodologies/osint-tradecraft-standards.md`](../../methodologies/osint-tradecraft-standards.md) — Admiralty grade for EP API sources
 
 ---
 
-**Document Control:** `analysis/templates/intelligence/procedures-proxy.md` · Template v1.0 · Triggered by: `get_procedures_feed` STALENESS_WARNING · See [`.github/prompts/07-mcp-reference.md §11`](../../.github/prompts/07-mcp-reference.md) for the authoritative triage classification.
+**Document Control:** `analysis/templates/intelligence/procedures-proxy.md` · Template v1.0 · Triggered by: `get_procedures_feed` STALENESS_WARNING · See [`.github/prompts/07-mcp-reference.md §11`](../../../.github/prompts/07-mcp-reference.md) for the authoritative triage classification.

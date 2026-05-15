@@ -48,8 +48,11 @@ function parseCatalog() {
     const line = raw.trim();
     if (!line.startsWith('|')) continue;
     // Match an artifact row whose first column is a backticked relative path
-    // ending in .md. The first capture group is the artifact path.
-    const m = line.match(/^\|\s+`([a-z][a-z0-9/_-]+\.md)`\s+\|/);
+    // ending in .md. The first capture group is the artifact path. The
+    // character class includes `.` so degraded-mode variant filenames using
+    // the `<artifact>.<variant>.md` convention (e.g.
+    // `intelligence/voting-patterns.degraded.md`) are not silently skipped.
+    const m = line.match(/^\|\s+`([a-z][a-z0-9./_-]+\.md)`\s+\|/);
     if (!m) continue;
     const cells = line
       .split('|')
