@@ -66,9 +66,26 @@ import { fileURLToPath } from 'node:url';
  * @returns {string} Resolved absolute path
  */
 export function resolveArtifactPath(specPath, baseDir) {
-  if (path.isAbsolute(specPath)) return specPath;
   const base = baseDir ?? process.cwd();
-  return path.resolve(base, specPath);
+
+  // Reject absolute paths when baseDir is provided — forces confinement
+  if (baseDir && path.isAbsolute(specPath)) {
+    throw new Error(`Absolute paths are not allowed when --base-dir is set: ${specPath}`);
+  }
+
+  if (path.isAbsolute(specPath)) return specPath;
+
+  const resolved = path.resolve(base, specPath);
+
+  // Prevent path traversal: resolved path must be within baseDir
+  if (baseDir) {
+    const normalizedBase = path.resolve(base);
+    if (!resolved.startsWith(normalizedBase + path.sep) && resolved !== normalizedBase) {
+      throw new Error(`Path traversal detected: "${specPath}" resolves outside base-dir "${baseDir}"`);
+    }
+  }
+
+  return resolved;
 }
 
 // ---------------------------------------------------------------------------
@@ -111,9 +128,38 @@ export function extendArtifact(spec, baseDir, dryRun = false) {
     };
   }
 
-  const resolvedPath = resolveArtifactPath(spec.path, baseDir);
+  let resolvedPath;
+  try {
+    resolvedPath = resolveArtifactPath(spec.path, baseDir);
+  } catch (err) {
+    return {
+      path: spec.path,
+      resolvedPath: '',
+      mode: spec.mode ?? 'append',
+      ok: false,
+      linesBefore: 0,
+      linesAfter: 0,
+      bytesWritten: 0,
+      error: String(err.message ?? err),
+    };
+  }
   const mode = spec.mode ?? 'append';
   const overwrite = spec.overwrite ?? false;
+
+  // Reject unknown mode values
+  const VALID_MODES = ['append', 'create', 'prepend'];
+  if (!VALID_MODES.includes(mode)) {
+    return {
+      path: spec.path,
+      resolvedPath,
+      mode,
+      ok: false,
+      linesBefore: 0,
+      linesAfter: 0,
+      bytesWritten: 0,
+      error: `Invalid mode "${mode}": must be one of ${VALID_MODES.join(', ')}`,
+    };
+  }
 
   // --- pre-flight ---
   let linesBefore = 0;

@@ -76,8 +76,27 @@ export function buildDoceoUrl(date, term = EP_CURRENT_TERM) {
 // ---------------------------------------------------------------------------
 
 /**
+ * Decode common XML entities in a text string.
+ *
+ * @param {string} text - Text that may contain XML entity references
+ * @returns {string} Decoded text
+ */
+function decodeXmlEntities(text) {
+  if (!text) return text;
+  return text
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&apos;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(parseInt(code, 10)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
+}
+
+/**
  * Extract all text occurrences of a simple XML tag from a source string.
  * Only works for non-nested, single-line tag content.
+ * Decodes XML entities in extracted text.
  *
  * @param {string} xml  - Source XML text
  * @param {string} tag  - Tag name (without `<` / `>`)
@@ -110,7 +129,7 @@ function extractTagContents(xml, tag) {
       continue;
     }
 
-    results.push(xml.slice(contentStart, contentEnd).trim());
+    results.push(decodeXmlEntities(xml.slice(contentStart, contentEnd).trim()));
     searchFrom = contentEnd + closeTag.length;
   }
 

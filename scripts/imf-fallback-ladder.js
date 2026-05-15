@@ -53,8 +53,12 @@ const IMF_DATAMAPPER_BASE = 'https://www.imf.org/external/datamapper/api/v1';
 /** World Bank API base URL for country-level indicators. */
 const WORLD_BANK_API_BASE = 'https://api.worldbank.org/v2';
 
-/** Subset of EU countries used for World Bank proxy aggregation. */
-const EU_PROXY_COUNTRIES = ['DEU', 'FRA', 'ITA', 'ESP', 'NLD', 'BEL', 'AUT', 'SWE', 'POL'];
+/** All EU27 member state ISO-3166-1 alpha-3 codes for World Bank proxy aggregation. */
+const EU_PROXY_COUNTRIES = [
+  'AUT', 'BEL', 'BGR', 'HRV', 'CYP', 'CZE', 'DNK', 'EST', 'FIN', 'FRA',
+  'DEU', 'GRC', 'HUN', 'IRL', 'ITA', 'LVA', 'LTU', 'LUX', 'MLT', 'NLD',
+  'POL', 'PRT', 'ROU', 'SVK', 'SVN', 'ESP', 'SWE',
+];
 
 /** World Bank indicator → IMF indicator mapping. */
 const WB_TO_IMF_INDICATOR = {
@@ -137,7 +141,17 @@ export async function tryImfSdmx(options = {}) {
   const query = `data/dataflow/IMF.RES/WEO/+/${IMF_EURO_AREA}.NGDP_RPCH+PCPIPCH+GGXCNL_NGDP.A?startPeriod=2024&endPeriod=2027&format=jsondata`;
   const url = `${baseUrl}/${query}`;
 
-  const result = await fetchJson(url, { fetchImpl: options.fetchImpl });
+  // IMF SDMX 3.0 requires Ocp-Apim-Subscription-Key since 2025
+  const headers = {};
+  const primaryKey = process.env.IMF_API_PRIMARY_KEY;
+  const secondaryKey = process.env.IMF_API_SECONDARY_KEY;
+  if (primaryKey) {
+    headers['Ocp-Apim-Subscription-Key'] = primaryKey;
+  } else if (secondaryKey) {
+    headers['Ocp-Apim-Subscription-Key'] = secondaryKey;
+  }
+
+  const result = await fetchJson(url, { fetchImpl: options.fetchImpl, headers });
 
   if (!result.ok || !result.data) {
     return { data: null, provenance: `imf-sdmx:unavailable(${result.status})` };
@@ -167,38 +181,63 @@ function _extractSdmxObservations(payload) {
 
   const dataSets = Array.isArray(sdmxData.dataSets) ? sdmxData.dataSets : [];
   const structure = sdmxData.structure;
-  const dimensions = structure?.dimensions?.observation ?? [];
+  const dimensions = structure?.dimensions ?? {};
+
+  // Build dimension value lookups from structure metadata
+  const seriesDims = Array.isArray(dimensions.series) ? dimensions.series : [];
+  const obsDims = Array.isArray(dimensions.observation) ? dimensions.observation : [];
+
+  // Find the INDICATOR dimension (could be in series or observation dims)
+  const indicatorDim = seriesDims.find((d) => d.id === 'INDICATOR') ??
+    obsDims.find((d) => d.id === 'INDICATOR');
+  const indicatorValues = indicatorDim?.values ?? [];
+
+  // Find the TIME_PERIOD dimension (typically in observation dims)
+  const timeDim = obsDims.find((d) => d.id === 'TIME_PERIOD') ??
+    seriesDims.find((d) => d.id === 'TIME_PERIOD');
+  const timeValues = timeDim?.values ?? [];
 
   for (const dataSet of dataSets) {
+    // Handle flat observations format (key = colon-separated dimension indices)
     const observations = dataSet?.observations ?? {};
     for (const [key, value] of Object.entries(observations)) {
       const parts = key.split(':');
-      // Map dimension indices to label — simplified extraction
-      const indicatorIdx = parts[2] ?? '';
-      const periodIdx = parts[parts.length - 1] ?? '';
+      const indicatorIdx = parseInt(parts[2] ?? '0', 10);
+      const periodIdx = parseInt(parts[parts.length - 1] ?? '0', 10);
       const obsValue = Array.isArray(value) ? value[0] : null;
-      const obsKey = `obs_${indicatorIdx}_${periodIdx}`;
-      result[obsKey] = typeof obsValue === 'number' ? obsValue : null;
-    }
 
-    // Also handle series-based format
-    const series = dataSet?.series ?? {};
-    for (const [seriesKey, seriesData] of Object.entries(series)) {
-      const seriesObs = /** @type {any} */ (seriesData)?.observations ?? {};
-      for (const [periodKey, obsVal] of Object.entries(seriesObs)) {
-        const finalKey = `${seriesKey}:${periodKey}`;
-        const val = Array.isArray(obsVal) ? obsVal[0] : null;
-        result[finalKey] = typeof val === 'number' ? val : null;
+      const indicatorName = indicatorValues[indicatorIdx]?.id ?? `indicator_${indicatorIdx}`;
+      const periodName = timeValues[periodIdx]?.id ?? `period_${periodIdx}`;
+
+      if (typeof obsValue === 'number') {
+        if (!result[indicatorName]) result[indicatorName] = {};
+        result[indicatorName][periodName] = obsValue;
       }
     }
-  }
 
-  // Try to surface named indicators from dimensions metadata
-  const indicatorDim = dimensions.find(
-    (d) => d.id === 'INDICATOR' || d.id === 'REF_AREA' || d.id === 'FREQ',
-  );
-  if (indicatorDim && Array.isArray(indicatorDim.values)) {
-    result._indicatorNames = indicatorDim.values.map((v) => v.id || v.name || '');
+    // Handle series-based format (series key encodes dimension indices)
+    const series = dataSet?.series ?? {};
+    for (const [seriesKey, seriesData] of Object.entries(series)) {
+      const seriesParts = seriesKey.split(':');
+      // Find indicator index — typically the position matching the INDICATOR dim
+      const indicatorDimPos = seriesDims.findIndex((d) => d.id === 'INDICATOR');
+      const indicatorIdx = indicatorDimPos >= 0
+        ? parseInt(seriesParts[indicatorDimPos] ?? '0', 10)
+        : parseInt(seriesParts[0] ?? '0', 10);
+      const indicatorName = indicatorValues[indicatorIdx]?.id ?? `series_${seriesKey}`;
+
+      const seriesObs = /** @type {any} */ (seriesData)?.observations ?? {};
+      for (const [periodKey, obsVal] of Object.entries(seriesObs)) {
+        const periodIdx = parseInt(periodKey, 10);
+        const periodName = timeValues[periodIdx]?.id ?? periodKey;
+        const val = Array.isArray(obsVal) ? obsVal[0] : null;
+
+        if (typeof val === 'number') {
+          if (!result[indicatorName]) result[indicatorName] = {};
+          result[indicatorName][periodName] = val;
+        }
+      }
+    }
   }
 
   return Object.keys(result).length > 0 ? result : null;
@@ -358,13 +397,25 @@ export function buildEconomicContextPayload(data, provenance, rung) {
     3: 'worldbank-proxy',
     4: 'cached-vintage',
   };
+  const rungLabel = RUNG_LABELS[rung] ?? 'unknown';
+  const quality = rung === 1 ? 'authoritative' : rung === 2 ? 'good' : rung === 3 ? 'proxy' : 'stale';
+
+  // Attach per-field provenance so downstream agents can cite sources accurately
+  const fieldProvenance = {};
+  if (data && typeof data === 'object') {
+    for (const key of Object.keys(data)) {
+      fieldProvenance[key] = { rung, rungLabel, quality, source: provenance };
+    }
+  }
+
   return {
     generatedAt: new Date().toISOString(),
     provenance,
     rung,
-    rungLabel: RUNG_LABELS[rung] ?? 'unknown',
+    rungLabel,
     data,
-    quality: rung === 1 ? 'authoritative' : rung === 2 ? 'good' : rung === 3 ? 'proxy' : 'stale',
+    quality,
+    fieldProvenance,
   };
 }
 
@@ -450,7 +501,7 @@ export async function runFallbackLadder(outputDir, options = {}) {
         fs.writeFileSync(outputFile, JSON.stringify(payload, null, 2), 'utf8');
       }
 
-      process.stdout.write(
+      process.stderr.write(
         `✅ Economic context data from rung ${rung.n} (${rung.label}): ${result.provenance}\n`,
       );
 

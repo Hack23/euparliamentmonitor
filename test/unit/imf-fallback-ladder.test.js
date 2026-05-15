@@ -59,8 +59,13 @@ const SDMX_SERIES_PAYLOAD = {
     ],
     structure: {
       dimensions: {
-        observation: [
+        series: [
+          { id: 'REF_AREA', values: [{ id: 'EAQ' }] },
           { id: 'INDICATOR', values: [{ id: 'NGDP_RPCH' }, { id: 'PCPIPCH' }] },
+          { id: 'FREQ', values: [{ id: 'A' }] },
+        ],
+        observation: [
+          { id: 'TIME_PERIOD', values: [{ id: '2025' }, { id: '2026' }] },
         ],
       },
     },
@@ -97,6 +102,11 @@ describe('tryImfSdmx', () => {
     });
     expect(result.data).toBeTruthy();
     expect(result.provenance).toBe('imf-sdmx-3.0');
+    // Verify named indicators are extracted correctly
+    expect(result.data).toHaveProperty('NGDP_RPCH');
+    expect(result.data).toHaveProperty('PCPIPCH');
+    expect(result.data.NGDP_RPCH).toHaveProperty('2025', 2.3);
+    expect(result.data.PCPIPCH).toHaveProperty('2025', 5.4);
   });
 
   it('returns null data on network failure', async () => {
@@ -246,6 +256,20 @@ describe('buildEconomicContextPayload', () => {
     expect(payload).toHaveProperty('rungLabel', 'imf-sdmx-3.0');
     expect(payload).toHaveProperty('quality', 'authoritative');
     expect(payload).toHaveProperty('data');
+    expect(payload).toHaveProperty('fieldProvenance');
+  });
+
+  it('includes per-field provenance metadata', () => {
+    const data = { NGDP_RPCH: { '2025': 1.8 }, PCPIPCH: { '2025': 2.5 } };
+    const payload = buildEconomicContextPayload(data, 'imf-sdmx-3.0', 1);
+    expect(payload.fieldProvenance).toHaveProperty('NGDP_RPCH');
+    expect(payload.fieldProvenance).toHaveProperty('PCPIPCH');
+    expect(payload.fieldProvenance.NGDP_RPCH).toEqual({
+      rung: 1,
+      rungLabel: 'imf-sdmx-3.0',
+      quality: 'authoritative',
+      source: 'imf-sdmx-3.0',
+    });
   });
 
   it('sets quality=proxy for rung 3', () => {

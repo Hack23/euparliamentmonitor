@@ -387,4 +387,29 @@ describe('parseDoceoXml (edge cases)', () => {
     expect(result.votes[0].against).toBe(0);
     expect(result.votes[0].abstention).toBe(0);
   });
+
+  it('decodes XML entities in descriptions and member names', () => {
+    const xmlWithEntities = `<?xml version="1.0"?>
+<RollCallVote.Results>
+  <RollCallVote.Result Identifier="V001" Method="Roll" Date="2026-05-14">
+    <RollCallVote.Description.Text>Motion on &amp; regulation &lt;2026&gt;</RollCallVote.Description.Text>
+    <Result.For Total="100">
+      <PoliticalGroup.Vote Identifier="EPP">
+        <politicalGroup identifier="EPP">
+          <Member.Name FontSize="7" Id="1">M&#252;ller Hans</Member.Name>
+          <Member.Name FontSize="7" Id="2">O&apos;Brien Patrick</Member.Name>
+        </politicalGroup>
+      </PoliticalGroup.Vote>
+    </Result.For>
+    <Result.Against Total="50">
+    </Result.Against>
+    <Result.Abstention Total="10">
+    </Result.Abstention>
+  </RollCallVote.Result>
+</RollCallVote.Results>`;
+    const result = parseDoceoXml(xmlWithEntities);
+    expect(result.votes[0].description).toBe('Motion on & regulation <2026>');
+    expect(result.votes[0].membersFor).toContain('Müller Hans');
+    expect(result.votes[0].membersFor).toContain("O'Brien Patrick");
+  });
 });

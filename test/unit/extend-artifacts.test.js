@@ -39,7 +39,7 @@ afterEach(() => {
 // ---------------------------------------------------------------------------
 
 describe('resolveArtifactPath', () => {
-  it('returns absolute paths unchanged', () => {
+  it('returns absolute paths unchanged when no baseDir', () => {
     const abs = '/tmp/some/absolute/file.md';
     expect(resolveArtifactPath(abs)).toBe(abs);
   });
@@ -52,6 +52,24 @@ describe('resolveArtifactPath', () => {
   it('resolves relative paths against cwd when no baseDir', () => {
     const result = resolveArtifactPath('some/relative/file.md');
     expect(result).toBe(path.resolve('some/relative/file.md'));
+  });
+
+  it('rejects absolute paths when baseDir is provided', () => {
+    expect(() => resolveArtifactPath('/etc/passwd', '/base/dir')).toThrow(
+      'Absolute paths are not allowed',
+    );
+  });
+
+  it('rejects path traversal with ../', () => {
+    expect(() => resolveArtifactPath('../../../etc/passwd', '/base/dir')).toThrow(
+      'Path traversal detected',
+    );
+  });
+
+  it('rejects path traversal with embedded ../', () => {
+    expect(() => resolveArtifactPath('subdir/../../outside.md', '/base/dir')).toThrow(
+      'Path traversal detected',
+    );
   });
 });
 
@@ -247,6 +265,31 @@ describe('extendArtifact (error handling)', () => {
   it('returns error result for spec missing content', () => {
     const result = extendArtifact({ path: '/tmp/test.md' });
     expect(result.ok).toBe(false);
+  });
+
+  it('rejects unknown mode values', () => {
+    const filePath = path.join(tmpDir, 'mode-test.md');
+    const result = extendArtifact({ path: filePath, content: 'test', mode: 'upsert' });
+    expect(result.ok).toBe(false);
+    expect(result.error).toContain('Invalid mode "upsert"');
+  });
+
+  it('rejects path traversal when baseDir is set', () => {
+    const result = extendArtifact(
+      { path: '../../../etc/shadow', content: 'evil' },
+      tmpDir,
+    );
+    expect(result.ok).toBe(false);
+    expect(result.error).toContain('Path traversal detected');
+  });
+
+  it('rejects absolute paths when baseDir is set', () => {
+    const result = extendArtifact(
+      { path: '/etc/passwd', content: 'evil' },
+      tmpDir,
+    );
+    expect(result.ok).toBe(false);
+    expect(result.error).toContain('Absolute paths are not allowed');
   });
 
   it('creates parent directories recursively', () => {
