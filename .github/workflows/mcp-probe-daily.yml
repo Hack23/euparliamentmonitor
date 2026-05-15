@@ -1,0 +1,63 @@
+name: MCP Reliability Probe
+
+on:
+  schedule:
+    - cron: '30 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mcp-reliability-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GITHUB_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
+      GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
+      COPILOT_GITHUB_TOKEN: ${{ secrets.COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN }}
+      EP_REQUEST_TIMEOUT_MS: '180000'
+      IMF_API_TIMEOUT_MS: '180000'
+      IMF_API_PRIMARY_KEY: ${{ secrets.IMF_API_PRIMARY_KEY }}
+      IMF_API_SECONDARY_KEY: ${{ secrets.IMF_API_SECONDARY_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: '26'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund --prefer-offline
+
+      - name: Configure MCP gateway environment
+        shell: bash
+        run: |
+          source scripts/mcp-setup.sh
+          {
+            echo "EP_MCP_GATEWAY_URL=${EP_MCP_GATEWAY_URL}"
+            echo "WORLD_BANK_MCP_SERVER_URL=${WORLD_BANK_MCP_SERVER_URL}"
+            echo "FETCH_MCP_GATEWAY_URL=${FETCH_MCP_GATEWAY_URL}"
+            if [ -n "${EP_MCP_GATEWAY_API_KEY:-}" ]; then
+              echo 'EP_MCP_GATEWAY_API_KEY=[REDACTED]'
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Run MCP reliability probe
+        shell: bash
+        run: |
+          source scripts/mcp-setup.sh
+          mkdir -p builds/test-results
+          npm run mcp:probe -- --json-only | tee builds/test-results/mcp-probe.json
+
+      - name: Upload MCP probe artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: mcp-reliability-probe
+          path: builds/test-results/mcp-probe.json
+          retention-days: 14

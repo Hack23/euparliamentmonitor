@@ -327,7 +327,7 @@ back to World Bank for economic data (Stage C rejects WB economic claims):
    last-30-days window when no dates are supplied, but explicit dates
    remain the required calling pattern for reproducibility.
 7. **Chronic feed degradation — pivot fast, do not retry-loop.** The
-   `get_events_feed` API errors and `get_procedures_feed` `RECESS_MODE`
+   `get_events_feed` API errors and `get_procedures_feed` `STALE_TAIL`
    responses are **structural**, not transient. After **one** failed
    call, immediately pivot to the documented compensating source — do
    not retry the same feed multiple times within Stage A. Compensating
@@ -335,7 +335,7 @@ back to World Bank for economic data (Stage C rejects WB economic claims):
    - `get_events_feed` failure → `get_adopted_texts_feed` (today/one-week)
      + `get_meeting_decisions({ sittingId })` for the in-window plenary
      sittings.
-   - `get_procedures_feed` `RECESS_MODE` → `get_procedures({ processId })`
+   - `get_procedures_feed` `STALE_TAIL` → `get_procedures({ processId })`
      for procedure IDs harvested from adopted texts; for forward-looking
      workflows use `get_meeting_foreseen_activities({ sittingId })`
      fan-out (see §8b).
