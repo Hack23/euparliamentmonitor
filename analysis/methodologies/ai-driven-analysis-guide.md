@@ -29,7 +29,7 @@
 
 This guide is the **single authoritative protocol** every article-generating agentic workflow follows to turn European Parliament MCP data into reference-quality political intelligence. Canonical `ARTICLE_TYPE_SLUG` values (per [`src/config/article-horizons.ts`](../../src/config/article-horizons.ts)): `breaking`, `week-in-review`, `month-in-review`, `quarter-in-review`, `year-in-review`, `week-ahead`, `month-ahead`, `quarter-ahead`, `year-ahead`, `committee-reports`, `motions`, `propositions`, `term-outlook`, `election-cycle`, `deep-analysis`. Each maps to a `news-<slug>.md` workflow; the helper `news-translate.md` translates English source articles into 13 additional languages and is exempt from the single-PR rule.
 
-The guide is **positive and step-by-step**: each step describes exactly what to produce. Detailed per-artifact construction rules live in [`per-artifact-methodologies.md`](per-artifact-methodologies.md); the master map of every artifact lives in [`artifact-catalog.md`](artifact-catalog.md). See [`WEAKNESS-AUDIT-2026-05.md`](WEAKNESS-AUDIT-2026-05.md) for the dated review record of recent improvements.
+The guide is **positive and step-by-step**: each step describes exactly what to produce. Detailed per-artifact construction rules live in [`per-artifact-methodologies.md`](per-artifact-methodologies.md); the master map of every artifact lives in [`artifact-catalog.md`](artifact-catalog.md).
 
 ---
 
@@ -387,7 +387,7 @@ One pass is never sufficient. Pass 2 is where reference quality is achieved.
 4. Read the generated article HTML end-to-end. Every section must have ≥3 analytical paragraphs (not bullet lists), SWOT items with ≥80 words + severity badge, stakeholder perspectives with ≥150 words + evidence chain, a ≥200-word forward-outlook, and at least one Chart.js visualization with real data.
 5. Confirm the Analysis Sources footer was rendered by the aggregator. The post-purge pipeline emits the transparency footer from `manifest.files.*` via the [`src/aggregator/**` renderer](../../src/aggregator/article-html.ts); the legacy `renderAnalysisTransparencySection` helper in `src/templates/article-template.ts` was purged in the April-2026 aggregator-pipeline migration.
 6. Re-check color-coded Mermaid diagrams — every intelligence / classification / risk-scoring / threat-assessment artifact carries ≥1 diagram using the Hack23 colour palette from Step 2.
-7. Budget time: breaking / committee-reports / motions / propositions / week-ahead / month-ahead = ≥20 active minutes in Pass 1 + Pass 2 combined (≥12 Pass 1 + ≥8 Pass 2); week-in-review / month-in-review = ≥25 minutes (≥15 + ≥10); article-generator = 15 minutes × number of types. Finish the budget — there is always more depth to add.
+7. Budget time: breaking / committee-reports / motions / propositions / week-ahead / month-ahead = ≥20 active minutes in Pass 1 + Pass 2 combined (≥12 Pass 1 + ≥8 Pass 2); week-in-review / month-in-review = ≥25 minutes (≥15 + ≥10); quarter-in-review / year-in-review / quarter-ahead / year-ahead / deep-analysis = ≥30 minutes (≥18 + ≥12); term-outlook / election-cycle (claude-opus-4.7) = ≥37 minutes (≥22 + ≥15). Finish the budget — there is always more depth to add.
 
 **Product of Step 9:** every artifact meets its per-artifact depth floor and passes the quality signals in `per-artifact-methodologies.md`.
 
@@ -403,7 +403,7 @@ The final gate is **editorial** at Stage-C completeness review; pass it before t
     - Confirm every mandatory artifact for the run's article type (per [`artifact-catalog.md`](artifact-catalog.md)) is present in `manifest.files.*`.
     - Reject any residual `[AI_ANALYSIS_REQUIRED]` or other placeholder markers; if found, return to Step 9 Pass 2 and fill them in.
 
-    The legacy runtime gate `npm run validate-analysis -- --analysis-dir=… --article-type=…` (backed by `src/utils/validate-analysis-completeness.ts`) was **purged in the April-2026 aggregator-pipeline migration**. Enforcement is now editorial — the agentic-workflow reviewer applies the same line-floor and presence checks at Stage-C before creating the PR.
+    The validator CLI is still live: `npm run validate-analysis -- <runDir>` (backed by [`scripts/validate-analysis-completeness.js`](../../scripts/validate-analysis-completeness.js)) reads `manifest.files.*` and [`reference-quality-thresholds.json`](reference-quality-thresholds.json) and fails with exit code 1 if any artifact is missing, below its line floor, lacks a mandatory Mermaid block, or shows placeholder leakage. The duplicate `src/utils/validate-analysis-completeness.ts` runtime layer was purged in the April-2026 aggregator-pipeline migration; the surviving JS CLI is the Stage-C source of truth and is also applied editorially by the agentic-workflow reviewer before PR creation.
 
 2. Render the deterministic article HTML and visually scan it for fallback prose:
 
@@ -452,7 +452,7 @@ These principles are the positive restatement of the v4.5 rule list. Workflow fi
 | 7 | **Two passes, full time budget** — Pass 1 writes, Pass 2 reads everything back and expands; the full minimum time budget (20 min / 25 min / 15 × N) is used. | Rules 7, 22 (Pass 2) |
 | 8 | **AI-authored headlines and descriptions** — title and description come from the analysis after significance scoring; never from code or count-based templates. | Rule 9 |
 | 9 | **Complete data + historical baseline** — every metric is anchored to its 30-day / 90-day comparable baseline, every coalition claim attempts `get_voting_records`, every feed failure falls back to the direct endpoint. | Rules 14, 15, 17 |
-| 10 | **Read-before-article + footer + ratio + floors** — the pre-flight validator reads every artifact (≥30 lines flat + per-artifact floors from [`reference-quality-thresholds.json`](reference-quality-thresholds.json)), the article carries the manifest-driven Analysis Sources footer, and the article's analysis-citation ratio (≥1 artifact per 150 words; ≥1 per 100 for article-generator long-form) is met. | Rules 10, 16, 18, 19, 20, 21, 22 |
+| 10 | **Read-before-article + footer + ratio + floors** — the pre-flight validator reads every artifact (≥30 lines flat + per-artifact floors from [`reference-quality-thresholds.json`](reference-quality-thresholds.json)), the article carries the manifest-driven Analysis Sources footer, and the article's analysis-citation ratio (≥1 artifact per 150 words; ≥1 per 100 for long-form review / outlook articles) is met. | Rules 10, 16, 18, 19, 20, 21, 22 |
 | 11 | **OSINT / INTOP tradecraft discipline** — every probabilistic judgement uses a Words-of-Estimative-Probability band, every source citation carries an Admiralty grade (A1–F6 → 🟢/🟡/🔴), every run attests ≥10 SATs in `methodology-reflection.md`, and the OSINT scope in [`osint-tradecraft-standards.md`](osint-tradecraft-standards.md) §5 is respected. | New in v5.1 — cross-cutting layer applied by every framework. |
 | 12 | **IMF-primary economic evidence** — every economic / monetary / fiscal / trade / FDI / exchange-rate / banking claim in the article must cite **IMF** (SDMX code + vintage in prose + `data-vintage="..."` HTML attribute on the enclosing `<section>` + forecast marker within 30 words of any projected number); the per-article-type IMF indicator floor from [`imf-indicator-mapping.md §8`](imf-indicator-mapping.md#8-per-article-type-indicator-minimums) must be satisfied. World Bank is used for non-economic domains. Enforced editorially at Stage-C review — | New in v5.2. |
 
@@ -460,7 +460,7 @@ These principles are the positive restatement of the v4.5 rule list. Workflow fi
 
 ## ⭐ Reference-Quality Depth
 
-**Section anchor for the Stage-C editorial completeness review (`§Reference-Quality Depth`); the runtime helper `src/utils/validate-analysis-completeness.ts` that previously cross-referenced this anchor was purged in the April-2026 aggregator-pipeline migration.**
+**Section anchor for the Stage-C editorial completeness review (`§Reference-Quality Depth`). The line-floor and presence checks below are enforced by `scripts/validate-analysis-completeness.js` (`npm run validate-analysis -- <runDir>`); the duplicate `src/utils/validate-analysis-completeness.ts` runtime layer was purged in the April-2026 aggregator-pipeline migration.**
 
 Reference quality is measured, not subjective:
 
@@ -551,8 +551,7 @@ Every article-generating workflow produces **every mandatory artifact in every m
 > *category / count overview* only. **Do not create files using these heritage
 > names** — use the canonical filenames in [`artifact-catalog.md`](./artifact-catalog.md)
 > and the [`per-artifact-methodologies.md`](per-artifact-methodologies.md)
-> construction rules. The audit record for this is in
-> [`WEAKNESS-AUDIT-2026-05.md §W4`](WEAKNESS-AUDIT-2026-05.md).
+> construction rules.
 
 ```mermaid
 %%{init: {"theme":"dark","themeVariables":{"primaryColor":"#1565C0","primaryTextColor":"#ffffff","primaryBorderColor":"#0A3F7F","lineColor":"#90CAF9","secondaryColor":"#2E7D32","secondaryTextColor":"#ffffff","tertiaryColor":"#FF9800","tertiaryTextColor":"#000000","mainBkg":"#1565C0","secondBkg":"#2E7D32","tertiaryBkg":"#FF9800","noteBkgColor":"#FFC107","noteTextColor":"#000000","errorBkgColor":"#D32F2F","fontFamily":"Inter, Helvetica, Arial, sans-serif"}}}%%
@@ -698,8 +697,7 @@ writing any confidence label.
 The confidence ceiling is determined by the **data depth** field recorded in
 `intelligence/mcp-reliability-audit.md` and `intelligence/significance-scoring.md`
 during Step 3 (heritage Riksdagsmonitor pipelines called this file
-`data-summary.md`; that filename is **not canonical** in this repo — see
-[`WEAKNESS-AUDIT-2026-05.md §W5`](WEAKNESS-AUDIT-2026-05.md)):
+`data-summary.md`; that filename is **not canonical** in this repo):
 
 - **FULL-TEXT** document (complete text via EP MCP) → up to 🟢 HIGH / 🟦 5
 - **SUMMARY-only** document (metadata + abstract) → cap at 🟡 MEDIUM / 🟧 3
@@ -852,5 +850,5 @@ Every security-relevant control maps to **ISO 27001:2022**, **NIST CSF 2.0**, **
 **Document Control:**
 - **Path:** `/analysis/methodologies/ai-driven-analysis-guide.md`
 - **Classification:** Public
-- **Version:** 6.3 — v6.3 (2026-05-15) adds the top-of-document `🚀 Quick-Start Cheat-Sheet`, completes the Step 2 reading list to 15+ documents (adds `synthesis-methodology.md`, `strategic-extensions-methodology.md`, `per-document-methodology.md`, `structural-metadata-methodology.md`, `analytical-supplementary-methodology.md`, `forward-projection-methodology.md`, `electoral-domain-methodology.md`, `electoral-cycle-methodology.md`), updates the workflow slug list to the canonical 15-slug set (`week-in-review`, `month-in-review`, `quarter-in-review`, `year-in-review`, `quarter-ahead`, `year-ahead`, `term-outlook`, `election-cycle`, `deep-analysis`), reconciles the 3-marker 🟢/🟡/🔴 operational scale with the 5-level heritage scale via [`confidence-calibration.md`](confidence-calibration.md), relabels the legacy artifact diagram as a heritage / informational view, and corrects the confidence-ceiling reference from the non-canonical `data-summary.md` to `intelligence/mcp-reliability-audit.md` + `intelligence/significance-scoring.md`. Audit record in [`WEAKNESS-AUDIT-2026-05.md`](WEAKNESS-AUDIT-2026-05.md). v6.2 (2026-04-25, late) reframed the “39-Artifact Output Matrix” heading and surrounding prose as the **Mandatory + Optional Artifact Output Matrix**, pointed readers at `artifact-catalog.md` as the authoritative file-list, aligned the version-badge with the `Document Owner` line (was v5.1 vs v6.1), and refreshed the document control footer. v6.1 enhanced from v5.0 with riksdagsmonitor methodology improvements: added 39-artifact Output Matrix, Color-Coded Mermaid palette (Hack23 7-color), 5-Level Confidence Scale with Admiralty integration, Quality Gate Checklist with ICD 203 compliance gate, Template-to-Artifact Index, EP Document-Type → Primary Frameworks mapping, and ISMS Alignment section. Ported and adapted from [riksdagsmonitor ai-driven-analysis-guide v6.4](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md).
+- **Version:** 6.3 — v6.3 (2026-05-15) adds the top-of-document `🚀 Quick-Start Cheat-Sheet`, completes the Step 2 reading list to 15+ documents (adds `synthesis-methodology.md`, `strategic-extensions-methodology.md`, `per-document-methodology.md`, `structural-metadata-methodology.md`, `analytical-supplementary-methodology.md`, `forward-projection-methodology.md`, `electoral-domain-methodology.md`, `electoral-cycle-methodology.md`), updates the workflow slug list to the canonical 15-slug set (`week-in-review`, `month-in-review`, `quarter-in-review`, `year-in-review`, `quarter-ahead`, `year-ahead`, `term-outlook`, `election-cycle`, `deep-analysis`), reconciles the 3-marker 🟢/🟡/🔴 operational scale with the 5-level heritage scale via [`confidence-calibration.md`](confidence-calibration.md), relabels the legacy artifact diagram as a heritage / informational view, and corrects the confidence-ceiling reference from the non-canonical `data-summary.md` to `intelligence/mcp-reliability-audit.md` + `intelligence/significance-scoring.md`. v6.2 (2026-04-25, late) reframed the “39-Artifact Output Matrix” heading and surrounding prose as the **Mandatory + Optional Artifact Output Matrix**, pointed readers at `artifact-catalog.md` as the authoritative file-list, aligned the version-badge with the `Document Owner` line (was v5.1 vs v6.1), and refreshed the document control footer. v6.1 enhanced from v5.0 with riksdagsmonitor methodology improvements: added 39-artifact Output Matrix, Color-Coded Mermaid palette (Hack23 7-color), 5-Level Confidence Scale with Admiralty integration, Quality Gate Checklist with ICD 203 compliance gate, Template-to-Artifact Index, EP Document-Type → Primary Frameworks mapping, and ISMS Alignment section. Ported and adapted from [riksdagsmonitor ai-driven-analysis-guide v6.4](https://github.com/Hack23/riksdagsmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md).
 - **Next Review:** 2026-07-31
