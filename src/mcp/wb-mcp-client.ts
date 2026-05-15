@@ -234,9 +234,12 @@ function _accumulateCountryData(result: MCPToolResult, seriesByYear: Map<number,
   if (typeof text !== 'string' || text.length === 0) {
     return false;
   }
-  const parsed = JSON.parse(text) as {
-    data?: Array<{ year?: number; value?: number | null }>;
-  };
+  let parsed: { data?: Array<{ year?: number; value?: number | null }> };
+  try {
+    parsed = JSON.parse(text) as typeof parsed;
+  } catch {
+    return false;
+  }
   const data = Array.isArray(parsed.data) ? parsed.data : [];
   let contributed = false;
   for (const point of data) {

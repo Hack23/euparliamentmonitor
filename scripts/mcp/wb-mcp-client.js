@@ -206,7 +206,13 @@ function _accumulateCountryData(result, seriesByYear) {
     if (typeof text !== 'string' || text.length === 0) {
         return false;
     }
-    const parsed = JSON.parse(text);
+    let parsed;
+    try {
+        parsed = JSON.parse(text);
+    }
+    catch {
+        return false;
+    }
     const data = Array.isArray(parsed.data) ? parsed.data : [];
     let contributed = false;
     for (const point of data) {

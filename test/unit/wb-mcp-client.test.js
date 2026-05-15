@@ -130,6 +130,28 @@ describe('wb-mcp-client', () => {
         const result = await client.getEU27Aggregate('get-health-data', '', 1);
         expect(JSON.parse(result.content[0].text)).toEqual({ scope: 'EU27', series: [] });
       });
+
+      it('should treat malformed JSON responses as noDataCountries, not abort aggregation', async () => {
+        const malformedCodes = new Set(['AT', 'BE']); // 2 countries return malformed JSON
+        const callTool = vi.spyOn(client, 'callTool');
+        callTool.mockImplementation(async (_tool, args) => {
+          const cc = args.countryCode;
+          if (malformedCodes.has(cc)) {
+            return { content: [{ type: 'text', text: 'not valid json{{{' }] };
+          }
+          return {
+            content: [{ type: 'text', text: JSON.stringify({ data: [{ year: 2024, value: 1 }] }) }],
+          };
+        });
+
+        const result = await client.getEU27Aggregate('get-economic-data', 'GDP', 1);
+        const parsed = JSON.parse(result.content[0].text);
+
+        expect(parsed.noDataCountries).toHaveLength(2);
+        expect(parsed.failedCountries).toHaveLength(0);
+        expect(parsed.contributingCountries).toBe(25);
+        expect(parsed.series).toEqual([{ year: 2024, value: 25 }]);
+      });
     });
   });
 
