@@ -455,7 +455,9 @@ describe('agentic workflow threat detection policy', () => {
     const scriptContent = fs.readFileSync(prefetchScript, 'utf8');
 
     // Ensure all three data-mode values are present.
-    expect(scriptContent).toContain('PREFETCH_DATA_MODE="green"');
+    // NOTE: the script emits "full" (not "green") since the round-2 fix that
+    // eliminated the green→full manual translation at Stage A.
+    expect(scriptContent).toContain('PREFETCH_DATA_MODE="full"');
     expect(scriptContent).toContain('PREFETCH_DATA_MODE="degraded-feeds"');
     expect(scriptContent).toContain('PREFETCH_DATA_MODE="minimal"');
     // prefetch-status.json must be written.
