@@ -151,32 +151,29 @@ export class WorldBankMCPClient extends MCPConnection {
         }
         const seriesByYear = new Map();
         const failedCountries = [];
-        for (const countryCode of EU27_ISO2_CODES) {
-            try {
-                const result = await this.callTool(toolName, { countryCode, indicator, years });
-                const text = result.content?.[0]?.text;
-                if (typeof text !== 'string' || text.length === 0) {
-                    continue;
-                }
-                const parsed = JSON.parse(text);
-                const data = Array.isArray(parsed.data) ? parsed.data : [];
-                for (const point of data) {
-                    if (typeof point?.year === 'number' &&
-                        Number.isFinite(point.year) &&
-                        typeof point?.value === 'number' &&
-                        Number.isFinite(point.value)) {
-                        seriesByYear.set(point.year, (seriesByYear.get(point.year) ?? 0) + point.value);
-                    }
-                }
+        const noDataCountries = [];
+        const results = await Promise.allSettled(EU27_ISO2_CODES.map(async (countryCode) => {
+            const result = await this.callTool(toolName, { countryCode, indicator, years });
+            return { countryCode, result };
+        }));
+        for (let i = 0; i < results.length; i++) {
+            const settled = results[i];
+            if (!settled || settled.status === 'rejected') {
+                const cc = EU27_ISO2_CODES[i] ?? 'XX';
+                console.warn(`getEU27Aggregate: ${toolName} failed for ${cc}`);
+                failedCountries.push(cc);
+                continue;
             }
-            catch {
-                console.warn(`getEU27Aggregate: ${toolName} failed for ${countryCode}`);
-                failedCountries.push(countryCode);
+            const { countryCode, result } = settled.value;
+            const contributed = _accumulateCountryData(result, seriesByYear);
+            if (!contributed) {
+                noDataCountries.push(countryCode);
             }
         }
         const series = [...seriesByYear.entries()]
             .sort((a, b) => a[0] - b[0])
             .map(([year, value]) => ({ year, value }));
+        const contributingCountries = EU27_ISO2_CODES.length - failedCountries.length - noDataCountries.length;
         return {
             content: [
                 {
@@ -188,13 +185,40 @@ export class WorldBankMCPClient extends MCPConnection {
                         years,
                         aggregation: 'sum',
                         series,
-                        contributingCountries: EU27_ISO2_CODES.length - failedCountries.length,
+                        contributingCountries,
                         failedCountries,
+                        noDataCountries,
                     }),
                 },
             ],
         };
     }
+}
+/**
+ * Parse a single country result and accumulate valid data points into the year map.
+ *
+ * @param result - MCP tool result from a single country call
+ * @param seriesByYear - Accumulator map of year → summed value
+ * @returns true if at least one valid data point was added
+ */
+function _accumulateCountryData(result, seriesByYear) {
+    const text = result.content?.[0]?.text;
+    if (typeof text !== 'string' || text.length === 0) {
+        return false;
+    }
+    const parsed = JSON.parse(text);
+    const data = Array.isArray(parsed.data) ? parsed.data : [];
+    let contributed = false;
+    for (const point of data) {
+        if (typeof point?.year === 'number' &&
+            Number.isFinite(point.year) &&
+            typeof point?.value === 'number' &&
+            Number.isFinite(point.value)) {
+            seriesByYear.set(point.year, (seriesByYear.get(point.year) ?? 0) + point.value);
+            contributed = true;
+        }
+    }
+    return contributed;
 }
 /** Singleton World Bank MCP client instance */
 let wbClientInstance = null;

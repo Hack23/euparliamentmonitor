@@ -97,9 +97,10 @@ describe('wb-mcp-client', () => {
         expect(parsed.series).toEqual([{ year: 2024, value: 54 }]);
         expect(parsed.contributingCountries).toBe(27);
         expect(parsed.failedCountries).toEqual([]);
+        expect(parsed.noDataCountries).toEqual([]);
       });
 
-      it('should track failed countries when a subset of calls fail', async () => {
+      it('should track failed and noData countries separately', async () => {
         const callTool = vi.spyOn(client, 'callTool');
         let calls = 0;
         callTool.mockImplementation(async () => {
@@ -113,8 +114,9 @@ describe('wb-mcp-client', () => {
         const result = await client.getEU27Aggregate('get-social-data', 'POPULATION', 1);
         const parsed = JSON.parse(result.content[0].text);
 
-        expect(parsed.contributingCountries).toBe(25);
         expect(parsed.failedCountries).toHaveLength(2);
+        expect(parsed.noDataCountries).toHaveLength(25);
+        expect(parsed.contributingCountries).toBe(0);
       });
 
       it('should return empty aggregate fallback when indicator is missing', async () => {
