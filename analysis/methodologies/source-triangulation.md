@@ -234,16 +234,16 @@ The table below records the **minimum step** reached before a claim may be inclu
 
 | Artifact | Max confidence without Step 1 | Step-4 claims allowed? | Notes |
 |----------|------------------------------|----------------------|-------|
-| `intelligence/synthesis-summary.md` | 🟡 MEDIUM (Step 2) | ❌ Never | Top-5 findings require Step 1 or 2 |
-| `intelligence/scenario-forecast.md` | 🟡 MEDIUM (Step 2/3) | ❌ Scenarios only | Background only for Step 3/4 |
-| `intelligence/economic-context.md` | 🟡 MEDIUM (Step 2 IMF) | ❌ Never | IMF fallback ladder mandatory |
+| `intelligence/synthesis-summary.md` | 🟢 HIGH (Step 2, two A/B sources) / 🟡 MEDIUM (single source) | ❌ Never | Top-5 findings require Step 1 or 2 |
+| `intelligence/scenario-forecast.md` | 🟢 HIGH (Step 2, two A/B sources) / 🟡 MEDIUM (Step 2 single / Step 3) | ❌ Scenarios only | Background only for Step 3/4 |
+| `intelligence/economic-context.md` | 🟢 HIGH (Step 2 IMF corroborated) / 🟡 MEDIUM (single IMF source) | ❌ Never | IMF fallback ladder mandatory |
 | `intelligence/coalition-dynamics.md` | 🟡 MEDIUM (Step 3) | ❌ Never | Group composition from Step 1; cohesion from Step 3 |
 | `intelligence/threat-model.md` | 🟡 MEDIUM (Step 3) | ⚠️ Background | Label LOW; no headline threat from Step 4 |
-| `intelligence/stakeholder-map.md` | 🟡 MEDIUM (Step 2/3) | ⚠️ Background | Never cite Step 4 for power/alignment scores |
+| `intelligence/stakeholder-map.md` | 🟢 HIGH (Step 2, two A/B sources) / 🟡 MEDIUM (Step 2 single / Step 3) | ⚠️ Background | Never cite Step 4 for power/alignment scores |
 | `intelligence/pestle-analysis.md` | 🟡 MEDIUM (Step 3) | ⚠️ Background | Economic dimension requires Step 1/2 |
-| `risk-scoring/risk-matrix.md` | 🟡 MEDIUM (Step 2/3) | ❌ Never | Risk likelihood/impact requires ≥Step 2 |
+| `risk-scoring/risk-matrix.md` | 🟢 HIGH (Step 2, two A/B sources) / 🟡 MEDIUM (Step 2 single / Step 3) | ❌ Never | Risk likelihood/impact requires ≥Step 2 |
 | `extended/voter-segmentation.md` | 🟡 MEDIUM (Step 3) | ⚠️ Background | Eurobarometer first; see [`voter-segmentation-methodology.md`](voter-segmentation-methodology.md) |
-| `executive-brief.md` | 🟡 MEDIUM (Step 2) | ❌ Never | Decision-brief quality floor |
+| `executive-brief.md` | 🟢 HIGH (Step 2, two A/B sources) / 🟡 MEDIUM (single source) | ❌ Never | Decision-brief quality floor |
 
 ---
 
@@ -264,7 +264,7 @@ Run this checklist before submitting any artifact to Stage C:
 - [ ] **Step 1 exhausted first**: Every MCP tool relevant to this claim was attempted.
 - [ ] **Step markers present**: Every Step-2/3/4 claim carries a `[TRIANGULATION-STEP: N]` marker.
 - [ ] **Admiralty grades correct**: Grades match the step table above, not inflated.
-- [ ] **Confidence markers correct**: 🟢 only for Step 1; 🟡 for Step 2/3; 🔴 for Step 4.
+- [ ] **Confidence markers correct**: 🟢 for Step 1, or Step 2 when two independent A/B-grade sources agree; 🟡 for Step 2 (single source) or Step 3; 🔴 for Step 4.
 - [ ] **Step-4 placement**: Step-4 claims appear only in "what we do not know" / background / monitoring sections.
 - [ ] **mcp-reliability-audit.md updated**: Step reached and grade recorded for every degraded endpoint.
 - [ ] **methodology-reflection.md updated**: "Max triangulation step reached" logged.

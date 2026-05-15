@@ -203,7 +203,7 @@ Every `extended/voter-segmentation.md` artifact must cover **all applicable** se
 Every `extended/voter-segmentation.md` artifact must cite at least:
 
 1. **One Eurobarometer wave** (current or fallback Rung 1) — or explicitly state the Rung-2/3 fallback.
-2. **EP2024 election turnout data** (available from EP MCP `get_plenary_sessions` year=2024 or historical sources).
+2. **EP2024 election turnout data** (from the European Parliament official election results page at `europarl.europa.eu/election-results-2024/` or Eurostat dataset `TOUR_DEM_ELTURNOUT` — EP MCP does not provide election turnout data).
 3. **One World Bank demographic indicator** for the urban/rural or age/education dimension (via `world-bank-get-social-data` tool).
 4. **Hooghe/Marks academic citation** when Rung 2 is active (Hooghe, L. & Marks, G. (2018). *Cleavage theory meets Europe's crises*. European Journal of Political Research, 57(1), 109–135).
 
