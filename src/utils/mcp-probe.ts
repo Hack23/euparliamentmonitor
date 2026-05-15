@@ -81,7 +81,7 @@ export function formatProbeReport(report: ProbeReport): string {
   return JSON.stringify(report, null, 2);
 }
 
-function withTimeout<T>(promise: Promise<T>, timeoutMs: number, tool: string): Promise<T> {
+export function withTimeout<T>(promise: Promise<T>, timeoutMs: number, tool: string): Promise<T> {
   let timer: NodeJS.Timeout | undefined;
   const timeoutPromise = new Promise<T>((_, reject) => {
     timer = setTimeout(
@@ -94,7 +94,7 @@ function withTimeout<T>(promise: Promise<T>, timeoutMs: number, tool: string): P
   });
 }
 
-async function callWithTimeoutRetry<T>(
+export async function callWithTimeoutRetry<T>(
   fn: () => Promise<T>,
   timeoutMs: number,
   timeoutRetries: number,
@@ -114,7 +114,7 @@ async function callWithTimeoutRetry<T>(
   throw lastError;
 }
 
-function classifyProbeResult(result: MCPToolResult): ProbeSeverity {
+export function classifyProbeResult(result: MCPToolResult): ProbeSeverity {
   const text = result.content?.[0]?.text ?? '';
   if (result.isError === true) return 'red';
   if (!text || text.trim().length === 0) return 'yellow';
@@ -124,7 +124,7 @@ function classifyProbeResult(result: MCPToolResult): ProbeSeverity {
   return 'green';
 }
 
-function classifyProbeError(message: string): ProbeSeverity {
+export function classifyProbeError(message: string): ProbeSeverity {
   const lower = message.toLowerCase();
   if (
     lower.includes('timeout') ||
@@ -138,7 +138,7 @@ function classifyProbeError(message: string): ProbeSeverity {
   return 'red';
 }
 
-function getEPArgs(tool: string): Record<string, unknown> | null {
+export function getEPArgs(tool: string): Record<string, unknown> | null {
   if (tool.endsWith('_feed')) return { timeframe: 'one-week' };
 
   const byName: Record<string, Record<string, unknown> | null> = {
@@ -167,13 +167,14 @@ function getEPArgs(tool: string): Record<string, unknown> | null {
   };
 
   if (Object.prototype.hasOwnProperty.call(byName, tool)) {
-    return byName[tool] ?? { limit: 1 };
+    const entry = byName[tool];
+    return entry === null ? null : (entry ?? { limit: 1 });
   }
 
   return { limit: 1 };
 }
 
-function getWBArgs(tool: string): Record<string, unknown> {
+export function getWBArgs(tool: string): Record<string, unknown> {
   switch (tool) {
     case 'search-indicators':
       return { keyword: 'health' };

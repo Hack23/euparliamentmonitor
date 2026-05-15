@@ -36,7 +36,7 @@ export function redactSecrets(value) {
 export function formatProbeReport(report) {
     return JSON.stringify(report, null, 2);
 }
-function withTimeout(promise, timeoutMs, tool) {
+export function withTimeout(promise, timeoutMs, tool) {
     let timer;
     const timeoutPromise = new Promise((_, reject) => {
         timer = setTimeout(() => reject(new Error(`UPSTREAM_TIMEOUT: ${tool} exceeded ${String(timeoutMs)}ms`)), timeoutMs);
@@ -46,7 +46,7 @@ function withTimeout(promise, timeoutMs, tool) {
             clearTimeout(timer);
     });
 }
-async function callWithTimeoutRetry(fn, timeoutMs, timeoutRetries, tool) {
+export async function callWithTimeoutRetry(fn, timeoutMs, timeoutRetries, tool) {
     let lastError = new Error(`Failed to call ${tool}`);
     for (let attempt = 0; attempt <= timeoutRetries; attempt++) {
         try {
@@ -61,7 +61,7 @@ async function callWithTimeoutRetry(fn, timeoutMs, timeoutRetries, tool) {
     }
     throw lastError;
 }
-function classifyProbeResult(result) {
+export function classifyProbeResult(result) {
     const text = result.content?.[0]?.text ?? '';
     if (result.isError === true)
         return 'red';
@@ -72,7 +72,7 @@ function classifyProbeResult(result) {
     }
     return 'green';
 }
-function classifyProbeError(message) {
+export function classifyProbeError(message) {
     const lower = message.toLowerCase();
     if (lower.includes('timeout') ||
         lower.includes('not found') ||
@@ -83,7 +83,7 @@ function classifyProbeError(message) {
     }
     return 'red';
 }
-function getEPArgs(tool) {
+export function getEPArgs(tool) {
     if (tool.endsWith('_feed'))
         return { timeframe: 'one-week' };
     const byName = {
@@ -111,11 +111,12 @@ function getEPArgs(tool) {
         search_documents: { keyword: 'climate', limit: 1 },
     };
     if (Object.prototype.hasOwnProperty.call(byName, tool)) {
-        return byName[tool] ?? { limit: 1 };
+        const entry = byName[tool];
+        return entry === null ? null : (entry ?? { limit: 1 });
     }
     return { limit: 1 };
 }
-function getWBArgs(tool) {
+export function getWBArgs(tool) {
     switch (tool) {
         case 'search-indicators':
             return { keyword: 'health' };
