@@ -132,7 +132,10 @@ const FORBIDDEN_PHRASES = [
   // the cache" passes the lint without a false positive.
   // news-unified-runtime.md is a shared prompt import, not a
   // news-*.md workflow body, so its Rule 3 example is unaffected.
-  /(?<!\b(?:don't|do not|never|not|avoid|without)\s{0,20})(?:read|cat|load|open)\b[^.\n]{0,60}reference-quality-thresholds\.json/i,
+  // NOTE: The verb list covers the most common imperative forms but is not
+  // exhaustive — variants like "import", "parse", "inspect", "fetch" are
+  // not matched. This lint is a first defense; code review catches the rest.
+  /(?<!\b(?:don't|do not|never|not|avoid|without)\s{0,20})(?:re-?reads?|reads?|reading|cat|loads?|loading|open(?:s|ing)?|consult|slurp|fetch(?:es)?|parse[sd]?)\b[^.\n]{0,60}reference-quality-thresholds\.json/i,
   // IMF-primary editorial policy: IMF is the SOLE authoritative source
   // for every economic / fiscal / monetary / trade / FDI / exchange-rate /
   // banking-soundness claim. World Bank is for non-economic domains.

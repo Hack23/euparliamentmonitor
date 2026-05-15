@@ -137,6 +137,7 @@ Combine the prefetch result with live Stage A probes:
 | 1+ feeds unavailable (after 3 retries) | `degraded-feeds` | 0.80 |
 | IMF data unavailable / missing | `degraded-imf` | 0.85 |
 | EP roll-call data missing (0 voting records) | `degraded-voting` | 0.85 |
+| Only article title/metadata available | `title-only` | 0.75 |
 | Most EP feeds unavailable + IMF absent | `minimal` | 0.65 |
 
 When multiple degradations apply simultaneously, **pick the lowest factor from

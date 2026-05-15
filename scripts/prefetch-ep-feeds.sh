@@ -147,12 +147,14 @@ fetch_with_retry() {
   local delay=0
 
   # Loop exactly MAX_RETRIES+1 times (initial attempt + MAX_RETRIES retries).
-  # The retry constants are the single source of truth — updating
-  # MAX_RETRIES / RETRY_DELAY_* changes runtime behaviour without further
-  # code edits, and the drift-guard tests verify the two layers stay in sync.
+  # The delay ladder is fixed at three rungs (RETRY_DELAY_1/2/3). If
+  # MAX_RETRIES exceeds 3, retries 4+ reuse RETRY_DELAY_3 as the ceiling.
+  # The drift-guard tests verify these constants stay in sync with the code.
   while [ "$attempt" -le "$MAX_RETRIES" ]; do
     if [ "$attempt" -gt 0 ]; then
       # Shell-safety: use case for delay lookup (no array indirect expansion).
+      # Only three delay rungs exist; higher retry indices fall through to `*)`
+      # which reuses RETRY_DELAY_3 as the ceiling delay.
       case "$attempt" in
         1) delay="$RETRY_DELAY_1" ;;
         2) delay="$RETRY_DELAY_2" ;;
@@ -246,11 +248,11 @@ for feed in "$@"; do
 done
 
 # Determine the data mode from the prefetch results:
-#   green         — all feeds fetched successfully (0 placeholders)
+#   full           — all feeds fetched successfully (0 placeholders)
 #   degraded-feeds — 1+ feeds unavailable after retries, but some succeeded
 #   minimal        — every feed was unavailable after retries
 if [ "$PLACEHOLDERS" -eq 0 ]; then
-  PREFETCH_DATA_MODE="green"
+  PREFETCH_DATA_MODE="full"
 elif [ "$FETCHED" -eq 0 ]; then
   PREFETCH_DATA_MODE="minimal"
 else

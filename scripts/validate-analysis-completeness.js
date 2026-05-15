@@ -93,6 +93,7 @@ const PLACEHOLDER_PATTERNS = [
 // Structural checks (mermaid, WEP, Admiralty, SATs) are never reduced.
 const DATA_MODE_REDUCTION = {
   'full': 1.0,
+  'green': 1.0, // alias — prefetch-ep-feeds.sh emits 'full' since v1.6.0
   'title-only': 0.75,
   'degraded-imf': 0.85,
   'degraded-voting': 0.85,

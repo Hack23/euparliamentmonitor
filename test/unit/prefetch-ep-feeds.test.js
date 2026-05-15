@@ -109,9 +109,9 @@ describe('scripts/prefetch-ep-feeds.sh', () => {
     expect(scriptSource).toContain('"source":"prefetch-ep-feeds.sh"');
   });
 
-  it('sets PREFETCH_DATA_MODE=green when all feeds succeed', () => {
+  it('sets PREFETCH_DATA_MODE=full when all feeds succeed', () => {
     const scriptSource = fs.readFileSync(SCRIPT, 'utf8');
-    expect(scriptSource).toContain('PREFETCH_DATA_MODE="green"');
+    expect(scriptSource).toContain('PREFETCH_DATA_MODE="full"');
   });
 
   it('sets PREFETCH_DATA_MODE=degraded-feeds when some feeds fail', () => {
@@ -199,10 +199,9 @@ describe('scripts/prefetch-ep-feeds.sh', () => {
     // Collapse retry waits so 3 retries finish in ~0s rather than ~65s.
     // The retry constants are authoritative — fetch_with_retry reads them
     // via the case statement (RETRY_DELAY_1/2/3), so overriding the
-    // declarations is enough. We use replaceAll because the constant names
-    // also appear in the header comment (RETRY_DELAY_1=5s) which would
-    // otherwise consume the first-occurrence replacement and miss the real
-    // declaration on a later line.
+    // declarations is enough. We use replaceAll because each constant name
+    // appears twice in the file (once in the header comment and once in the
+    // assignment), and plain replace would only match the first occurrence.
     source = source.replaceAll('RETRY_DELAY_1=5', 'RETRY_DELAY_1=0');
     source = source.replaceAll('RETRY_DELAY_2=15', 'RETRY_DELAY_2=0');
     source = source.replaceAll('RETRY_DELAY_3=45', 'RETRY_DELAY_3=0');
