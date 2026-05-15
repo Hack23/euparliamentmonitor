@@ -251,6 +251,8 @@ The manifest **MUST** include a top-level `dataMode` field declaring the
 data-availability state of the run. This drives threshold adjustments in
 Stage C — the validator reduces line floors for structurally constrained runs.
 
+**Stage A — `data-availability-assessment` first:** Before writing any analysis artifact, produce `data-availability-assessment.md` in the run root. This artifact records the triage result for every data source (EP MCP endpoints, IMF SDMX, DOCEO XML, World Bank) and sets the `manifest.dataMode` field. Template: [`analysis/templates/data-availability-assessment.md`](../../analysis/templates/data-availability-assessment.md). When `dataMode = "degraded-voting"`, use [`analysis/templates/intelligence/voting-patterns.degraded.md`](../../analysis/templates/intelligence/voting-patterns.degraded.md) instead of the standard `voting-patterns.md`. When `dataMode = "degraded-imf"`, use [`analysis/templates/intelligence/economic-context.fallback.md`](../../analysis/templates/intelligence/economic-context.fallback.md) instead of `economic-context.md`.
+
 | `dataMode` value | When to set | Line-floor reduction |
 |------------------|-------------|---------------------|
 | `"full"` | All primary sources (EP MCP, IMF, voting records) available | 0% (default) |
