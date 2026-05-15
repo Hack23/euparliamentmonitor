@@ -68,22 +68,26 @@ echo "WORKFLOW_START_EPOCH=$WORKFLOW_START_EPOCH" >> "$GITHUB_ENV"
 
 > **⚠️ DATE GUARD**: When passing `dateFrom`/`dateTo` to any MCP tool,
 > always derive dates from `$TODAY` / `$LAST_WEEK` / `$LAST_MONTH`. Never
-> hard-code a year.
+> hard-code a year. **Slug-specific override**: if the importing workflow
+> exports custom `$DATE_FROM` / `$DATE_TO` variables (e.g. week-in-review's
+> D-36 → D-8 window), those take precedence over `$LAST_WEEK` for EP feed
+> calls in that workflow — the slug-specific Stage A block is authoritative.
 
 > **⏱️ MCP session lifetime**: `engine.mcp.session-timeout` is
-> NOT set — the gh-aw v0.71.3 compiler advertises the field but
-> the bundled gateway image `ghcr.io/github/gh-aw-mcpg:v0.3.1`
-> rejects it (`additionalProperties 'sessionTimeout' not
-> allowed`, run #25275823699 fingerprint). The MCP gateway uses
-> the upstream default session lifetime, and the gateway pings
-> backends at the upstream default interval so
-> EP / IMF / world-bank / memory sessions stay warm
-> across the 60-min run. The Stage C exit tripwire still fires
-> at the slug-specific elapsed-minute mark in
-> `src/config/article-horizons.ts` so Stage D + E retain enough
-> budget to land the single PR call by minute ≤ 45. See
+> NOT set. The MCP gateway (currently `ghcr.io/github/gh-aw-mcpg:v0.3.9`
+> under gh-aw v0.74.3) uses the upstream default session lifetime, and
+> pings backends at the upstream default keepalive interval so
+> EP / IMF / world-bank / memory sessions stay warm across the 60-min
+> run. The Stage C exit tripwire still fires at the slug-specific
+> elapsed-minute mark in `src/config/article-horizons.ts` so Stage D + E
+> retain enough budget to land the single PR call by minute ≤ 45.
+>
+> *Historical context*: on gh-aw v0.71.3, the compiler advertised
+> `engine.mcp.session-timeout` but gateway v0.3.1 rejected it
+> (`additionalProperties 'sessionTimeout' not allowed`, run
+> #25275823699). This was resolved by gateway v0.3.9. See
 > [`09-troubleshooting.md`](../../../prompts/09-troubleshooting.md) §5
-> for run #24963129839 historical context.
+> for run #24963129839 background.
 
 ### Stage B — Analysis (Ref: 02 §"Re-run improve/extend rule" — never no-op; see also [`02a-rerun-merge.md`](../../../prompts/02a-rerun-merge.md))
 
