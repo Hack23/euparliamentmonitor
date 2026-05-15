@@ -318,6 +318,18 @@ not use.
 
 **Security**: Read-only permissions by default, MCP data only from official EU Parliament / World Bank / IMF sources. Firewall policy via [`gh-aw-firewall` skill](../skills/gh-aw-firewall.md).
 
+## Helper Scripts — Invocation Order
+
+The following scripts are called by the pre-agent steps or at specific Stage entry points. Invocation order per run:
+
+| Order | Script | Stage | Purpose |
+|-------|--------|-------|---------|
+| 1 | `bash scripts/prefetch-ep-feeds.sh <slug> <feeds…>` | Pre-agent | EP Open Data feed fetch with 3-retry exponential backoff. Exits 1 when all feeds fail (API unreachable). Drift-guarded by `test/unit/prefetch-ep-feeds.test.js` and `test/unit/shell-safety.test.js`. |
+| 2 | `node scripts/scrape-doceo-votes.js --date <date> --slug <slug> --output-dir <dir>` | Stage A | Direct DOCEO RCV XML scrape for roll-call votes (bypasses EP MCP 4–6 week lag). Returns `publicationLag:true` on 404 — not an error. |
+| 3 | `node scripts/imf-fallback-ladder.js --output-dir <dir>` | Stage A | IMF economic data with 4-rung fallback: SDMX 3.0 → DataMapper → World Bank proxy → cached vintage. Writes `economic-context-data.json` with provenance. |
+| 4 | `node scripts/cache-thresholds.js --slug <slug> --run-id <run-id>` | **Stage B start** | Filter `reference-quality-thresholds.json` once per run. Eliminates 38+ per-artifact re-reads. Content-hashed for short-circuit. |
+| 5 | `node scripts/extend-artifacts.js --spec-file <path> --base-dir <dir>` | Stage B Pass 2 | Batch-extend multiple under-floor artifacts in one Node execution. Accepts JSON spec array `[{path, content, mode}]`. |
+
 ---
 
 ### 🏷️ Labeling & PR Automation

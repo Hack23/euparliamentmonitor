@@ -1,0 +1,43 @@
+{
+  "date": "2026-05-15",
+  "articleType": "motions",
+  "runId": "motions-run-1778828850",
+  "gateResult": "pending",
+  "slug": "2026-05-15-motions",
+  "articlePath": "analysis/daily/2026-05-15/motions/article.md",
+  "topFinding": "---",
+  "keyTakeaways": [
+    "A €500 million EU Livestock Emergency Fund by 2027",
+    "Mandatory biosecurity certification for farms receiving CAP payments after 2027",
+    "A revised EU Animal Disease Prevention and Control Regulation (ADPCR) annex to add H5N1 as a priority surveillance pathogen",
+    "A \"Food Security Dashboard\" providing real-time livestock inventory data to the Commission"
+  ],
+  "topRisks": [
+    "**R2/R3 (Hungary veto)**: Residual risk HIGH even after mitigation — legal workarounds exist but are complex and contested",
+    "**R1 (DMA delay)**: Residual risk MEDIUM — Commission has institutional incentive to respond but timeline is uncertain",
+    "**R4 (US trade war)**: Residual risk MEDIUM — depends heavily on US-EU diplomatic track"
+  ],
+  "keyDates": [
+    "Von der Leyen II Commission judges that aggressive DMA enforcement risks US tariff retaliation under Trump's \"digital fairness doctrine\" threat (explicit in Trump's October 2025 Geneva WTO statement)"
+  ],
+  "keyActors": [
+    "**Core**: EPP + S&D + Greens/EFA + ECR-Poles = ~480 MEPs",
+    "**Soft support**: Renew (minus ruralist dissenters) = ~420 total with Renew",
+    "**Opposition**: PfE + ESN + some EPP dissenters = ~178",
+    "**Core**: EPP + S&D + Renew + Greens + ECR = ~530 MEPs",
+    "**Blockers (Council)**: Hungary + (potentially Slovakia) = EU Council veto",
+    "**Core**: EPP + S&D + Renew + Greens = ~490 MEPs",
+    "**Council constraint**: Hungary veto"
+  ],
+  "macroContext": "---",
+  "sources": [
+    "classification/actor-mapping.md",
+    "executive-brief.md",
+    "intelligence/economic-context.md",
+    "intelligence/scenario-forecast.md",
+    "intelligence/stakeholder-map.md",
+    "intelligence/synthesis-summary.md",
+    "risk-scoring/quantitative-swot.md",
+    "risk-scoring/risk-matrix.md"
+  ]
+}
