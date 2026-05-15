@@ -66,11 +66,12 @@ case "$ARTICLE_TYPE" in
     ;;
 esac
 
-# Locate the repository root via git; fall back to the working directory so
-# the script works in sandbox test environments that initialise a bare repo.
+# Locate the repository root via dirname; fall back to the working directory so
+# the script works in sandbox test environments.
 SCRIPT_DIR=$(dirname "$0")
-REPO_ROOT=$(cd "$SCRIPT_DIR/.." 2>/dev/null && pwd)
-if [ ! -d "$REPO_ROOT" ]; then
+REPO_ROOT=$(cd "$SCRIPT_DIR/.." && pwd) || true
+if [ -z "$REPO_ROOT" ] || [ ! -d "$REPO_ROOT" ]; then
+  echo "warning: cd to parent of SCRIPT_DIR failed; falling back to pwd" >&2
   REPO_ROOT=$(pwd)
 fi
 

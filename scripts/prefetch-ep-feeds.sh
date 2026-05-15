@@ -59,7 +59,7 @@
 #     contract). The summary line reports the counts for triage.
 #
 # Retry behaviour:
-#   - Each feed is attempted up to MAX_RETRIES+1 times (default 3 total)
+#   - Each feed is attempted up to MAX_RETRIES+1 times (default 4 total: 1 initial + 3 retries)
 #   - Backoff delays: RETRY_DELAY_1=5s, RETRY_DELAY_2=15s, RETRY_DELAY_3=45s
 #   - After all attempts are exhausted a DEGRADED message is printed to stderr
 #     so the failure is clearly visible in the step output (fail loudly)

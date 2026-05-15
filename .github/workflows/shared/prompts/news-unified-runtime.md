@@ -118,7 +118,7 @@ self-declaration.
 The pre-agent step wrote `${ANALYSIS_DIR}/data/prefetch-status.json` with:
 ```json
 {
-  "prefetchMode": "green|degraded-feeds|minimal",
+  "prefetchMode": "full|degraded-feeds|minimal",
   "fetched": N,
   "placeholders": M,
   "total": T
@@ -140,11 +140,14 @@ Combine the prefetch result with live Stage A probes:
 | Only article title/metadata available | `title-only` | 0.75 |
 | Most EP feeds unavailable + IMF absent | `minimal` | 0.65 |
 
-When multiple degradations apply simultaneously, **pick the lowest factor from
-the table above and stop**. Do not compose modes — `degraded-feeds` + `degraded-imf`
-resolves to `degraded-feeds` (0.80 < 0.85). Use `minimal` only when its own
-trigger ("most EP feeds unavailable + IMF absent") independently applies; do
-not infer `minimal` by combining two single-axis degradations.
+When multiple degradations apply simultaneously, **pick the single most-severe
+single-axis mode whose trigger independently applies**. Never compose modes —
+e.g. if feeds are degraded AND IMF is unavailable, declare `degraded-feeds`
+(0.80) because its trigger ("1+ feeds unavailable") independently applies and
+has a lower factor than `degraded-imf` (0.85). Only choose `minimal` (0.65)
+when its own trigger ("most EP feeds unavailable + IMF absent") independently
+applies as a single observed condition; do not infer `minimal` by combining
+two single-axis degradations.
 
 ### Step 3 — Write dataMode to manifest.json
 
