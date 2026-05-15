@@ -27,7 +27,18 @@
 
 ## 🎯 Purpose
 
-This guide is the **single authoritative protocol** every article-generating agentic workflow follows to turn European Parliament MCP data into reference-quality political intelligence. Canonical `ARTICLE_TYPE_SLUG` values (per [`src/config/article-horizons.ts`](../../src/config/article-horizons.ts)): `breaking`, `week-in-review`, `month-in-review`, `quarter-in-review`, `year-in-review`, `week-ahead`, `month-ahead`, `quarter-ahead`, `year-ahead`, `committee-reports`, `motions`, `propositions`, `term-outlook`, `election-cycle`, `deep-analysis`. Each maps to a `news-<slug>.md` workflow; the helper `news-translate.md` translates English source articles into 13 additional languages and is exempt from the single-PR rule.
+This guide is the **single authoritative protocol** every article-generating agentic workflow follows to turn European Parliament MCP data into reference-quality political intelligence.
+
+The canonical `ARTICLE_TYPE_SLUG` values are defined in [`src/config/article-horizons.ts`](../../src/config/article-horizons.ts) and group naturally by horizon:
+
+| Horizon | Slugs |
+|---|---|
+| **Reactive** | `breaking`, `committee-reports`, `motions`, `propositions` |
+| **Retrospective** | `week-in-review`, `month-in-review`, `quarter-in-review`, `year-in-review` |
+| **Prospective** | `week-ahead`, `month-ahead`, `quarter-ahead`, `year-ahead` |
+| **Long-horizon** | `term-outlook`, `election-cycle`, `deep-analysis` |
+
+Each slug maps to a `news-<slug>.md` workflow. The helper `news-translate.md` translates English source articles into 13 additional languages and is exempt from the single-PR rule.
 
 The guide is **positive and step-by-step**: each step describes exactly what to produce. Detailed per-artifact construction rules live in [`per-artifact-methodologies.md`](per-artifact-methodologies.md); the master map of every artifact lives in [`artifact-catalog.md`](artifact-catalog.md).
 
@@ -700,7 +711,7 @@ during Step 3 in `intelligence/mcp-reliability-audit.md` (per-source
 availability) and propagated into `intelligence/significance-scoring.md`
 (per-claim confidence ceiling). Heritage Riksdagsmonitor pipelines combined
 both responsibilities into a single `data-summary.md` file; that filename is
-**not canonical** in this repo — use the two separate canonical files above. The depth-to-ceiling mapping is:
+**not canonical** in this repo. Use the depth-to-ceiling mapping below:
 
 - **FULL-TEXT** document (complete text via EP MCP) → up to 🟢 HIGH / 🟦 5
 - **SUMMARY-only** document (metadata + abstract) → cap at 🟡 MEDIUM / 🟧 3
