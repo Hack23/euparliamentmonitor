@@ -4,7 +4,8 @@
 /**
  * Drift-guard for `analysis/templates/*.md`.
  *
- * Every template (except `README.md` and anything under `_partials/`) MUST
+ * Every Stage-B template (except `README.md`, the translation-only scaffold,
+ * and anything under `_partials/`) MUST
  * include:
  *   1. The canonical ANALYSIS-TEMPLATE-FRONTMATTER:v1 block with all required
  *      keys (artifactId, methodology, catalogRow, depthFloorBreaking,
@@ -40,7 +41,10 @@ const REQUIRED_FRONTMATTER_KEYS = [
   'partialsDir',
 ];
 
-const EXCLUDED_BASENAMES = new Set(['README.md']);
+const EXCLUDED_BASENAMES = new Set([
+  'README.md',
+  'executive-brief-translation-template.md',
+]);
 
 function listTemplateFiles() {
   return fs
