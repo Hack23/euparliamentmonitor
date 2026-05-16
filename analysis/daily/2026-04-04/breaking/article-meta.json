@@ -5,11 +5,21 @@
   "gateResult": "PENDING",
   "slug": "2026-04-04-breaking-breaking",
   "articlePath": "analysis/daily/2026-04-04/breaking/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "Coalition arithmetic on 2026-04-04 confirms the previous day's structural picture: PPE 38% asymmetric dominance and the Renew–ECR cohesion signal (~0.95) continuing.",
+  "keyTakeaways": [
+    "🔴 **Renew–ECR 0.95 cohesion sustained** day-over-day; structural-axis hypothesis still on the table. (🟡 Medium)",
+    "🟠 **PPE 38% structural dominance** unchanged; all viable majorities require PPE. (🟢 High)",
+    "🟢 **Grand Coalition 60%, Super-Grand 65%, Centre-Right alternative 57%** remain the three viable majority pathways. (🟢 High)",
+    "🟡 **Fragmentation index ~4.4 effective parties** — stable. (🟡 Medium)",
+    "🔵 **Methodological caveat:** PPE pair scores still 0.00 by size-ratio model artifact. (🟢 High)",
+    "🟣 **Cross-reference:** sibling `breaking-2` covers EP10 Q1 legislative pipeline; `breaking-3` documents recess-period analytical limitations; `breaking-4` performs adopted-texts deep-dive. (🟢 High)",
+    "🩷 **Disruption vector:** Renew–ECR materialisation would reduce S&D leverage. (🟡 Medium)"
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
-  "sources": []
+  "sources": [
+    "executive-brief.md"
+  ]
 }

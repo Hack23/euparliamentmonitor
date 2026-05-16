@@ -5,11 +5,21 @@
   "gateResult": "PENDING",
   "slug": "2026-03-31-breaking",
   "articlePath": "analysis/daily/2026-03-31/breaking/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "No breaking signal on 2026-03-31; final day of the EP's first post-March recess week.",
+  "keyTakeaways": [
+    "🔴 **No tier-1 breaking items** — five consecutive recess days now logged. (🟢 High)",
+    "🟠 **No new procedures opened or adopted texts dated 2026-03-31.** (🟢 High)",
+    "🟢 **Coalition arithmetic stable** — PPE 38% / S&D 22% Grand Coalition 60% remains the only majority path. (🟢 High)",
+    "🟡 **Carryover risk:** Braun immunity-waiver precedent (TA-10-2026-0088) sets template for further Polish-judiciary EP cases — confirmed retrospectively by Jaki waiver in April. (🟡 Medium at the time)",
+    "🔵 **Economic carry-over:** US customs-tariff adjustment (TA-10-2026-0096) and HDV emission-credits (TA-10-2026-0084) remain dominant external/industrial signals. (🟢 High)",
+    "🟣 **Cross-reference:** see `2026-04-01/breaking` for first full account of post-March feed-endpoint reliability anomalies. (🟢 High)",
+    "🩷 **Disruption vector:** none acute; structural PPE-dominance and US-trade-pressure risks inherited. (🟡 Medium)"
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
-  "sources": []
+  "sources": [
+    "executive-brief.md"
+  ]
 }

@@ -1,7 +1,7 @@
 ---
-title: "🧩 Political Intelligence Synthesis — Legislative Propositions (2026-04-09)"
-description: "- 100 adopted texts between January 20 and March 26 across 6 plenary sessions Published 2026-04-09 · analysis run PROP-2026-04-09-001, with source-linked voting, committee…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-09", "run PROP-2026-04-09-001", "Political", "Intelligence", "Synthesis", "Legislative", "adopted", "texts", "between", "January"]
+title: "Propositions, 9 April 2026"
+description: "The 9 April propositions synthesis documents the pre-recess output baseline: 100 adopted texts between 20 January and 26 March across 6 plenary sessions."
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-09", "run PROP-2026-04-09-001", "April", "synthesis", "documents", "recess", "output", "baseline", "adopted", "texts"]
 date: 2026-04-09
 article_type: propositions
 slug: 2026-04-09-propositions
@@ -12,12 +12,51 @@ layout: article
 ---
 # Propositions — 2026-04-09
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+The 9 April propositions synthesis documents the **pre-recess output baseline: 100 adopted texts between 20 January and 26 March across 6 plenary sessions**. The number (100 over ~10 weeks across 6 sittings) yields an average of ~16.7 texts/sitting and ~10 texts/week. This is the empirical Q1 2026 throughput baseline against which Q2 trajectory will be measured. *Confidence: HIGH on counters; Admiralty: A1.*
+
+### Three Decisions
+
+1. **Anchor 100 adopted texts / 10 weeks / 6 sittings as the canonical Q1 2026 throughput baseline.** Any Q2 deviation from ~16.7 texts/sitting will be measured against this anchor. *Confidence: HIGH.*
+2. **Treat the per-sitting average (~16.7 texts) as the analytical-pipeline planning unit.** Capacity planning, translation-pipeline scaling, and news-workflow scoping should use this unit. *Confidence: HIGH.*
+3. **Document 20 January–26 March as the EP10 Year-3 Q1 operational window.** This window's bounds become the institutional-memory reference for subsequent Q-on-Q comparisons. *Confidence: HIGH.*
+
+### 60-Second Read
+
+The 100-texts/6-sittings/10-weeks anchor is the **most analytically useful single Q1 2026 throughput metric**. It converts the headline +46.2 % YoY abstraction into operational planning units. Each plenary sitting averages 16.7 texts — a number that capacity planning can scale against.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| Q2 per-sitting average drops below 16.7 texts | MED | MED |
+| Planning-unit framing not adopted by downstream consumers | MED | LOW–MED |
+| 6-sitting Q1 sample size insufficient for trend extrapolation | LOW–MED | LOW |
+
+### Source Quality
+
+- 100 texts / 6 sittings / 10 weeks: **A1**
+- Per-sitting average: **A2** (derived)
+- 20 January–26 March window: **A1**
+
+### Provenance
+
+- Run: `propositions` (2026-04-09, run ID PROP-2026-04-09-001)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: baseline reading anchored on EP-published counters.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `existing/voting-patterns.md` |
@@ -2361,6 +2400,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -2416,6 +2456,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -2428,9 +2469,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -2439,6 +2482,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/executive-brief.md) | `executive-brief.md` |
 | section-significance | [significance-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/classification/significance-classification.md) | `classification/significance-classification.md` |
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/propositions/classification/forces-analysis.md) | `classification/forces-analysis.md` |

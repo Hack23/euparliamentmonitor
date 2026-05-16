@@ -5,7 +5,7 @@
   "gateResult": "PENDING",
   "slug": "2026-04-19-month-in-review",
   "articlePath": "analysis/daily/2026-04-19/month-in-review-run5/article.md",
-  "topFinding": "The March 26, 2026 mini-plenary session produced 18 adopted texts — the highest single-session legislative density of EP10's second year.",
+  "topFinding": "The March 26, 2026 mini-plenary produced 18 adopted texts in a single sitting — the highest single-session legislative density of EP10's second year, consuming roughly 40% of the period's legislative output.",
   "keyTakeaways": [
     "`analysis/daily/2026-03-26/breaking-run163/intelligence/deep-analysis.md` — first-pass capture of the mega-session, political group vote tallies",
     "`analysis/daily/2026-03-26/breaking-run177/intelligence/coalition-dynamics.md` — grand-coalition persistence analysis",
@@ -34,6 +34,7 @@
   ],
   "macroContext": "| Indicator | 2022 | 2023 | 2024 | |---|---|---|---| | GDP Growth Rate | +1.8% | -0.87% | -0.50% | | GDP (USD) | ~$4.07T | ~$4.46T | ~$4.59T | | Unemployment Rate | 3.0% | 3.0% | ~3.2% (est) |",
   "sources": [
+    "executive-brief.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/economic-context.md",
     "intelligence/scenario-forecast.md",

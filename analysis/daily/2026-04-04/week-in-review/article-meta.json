@@ -5,8 +5,16 @@
   "gateResult": "PENDING",
   "slug": "2026-04-04-week-in-review",
   "articlePath": "analysis/daily/2026-04-04/week-in-review/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "Week of 30 March → 4 April 2026 was a full recess week with the two defining intelligence signals being analytical/operational rather than legislative: (1) confirmation of EP feed-API DEGRADED state across 8 endpoints, and (2) formalisation of the EP10 coalition arithmetic showing PPE 38% structural dominance plus…",
+  "keyTakeaways": [
+    "🔴 **EP API DEGRADED state** confirmed by 3-run probe on 2026-04-03; 5/8 mandatory feeds failing. (🟢 High)",
+    "🟠 **Coalition arithmetic** formalised: PPE 38% structural dominance; Renew–ECR 0.95 cohesion signal; Grand-Coalition 60% default. (🟡 Medium on cohesion interpretation; 🟢 High on seat shares)",
+    "🟢 **Anti-corruption / institutional-reform cluster** (TA-10-2026-0094 + 3) carry-over remains the dominant Q1 legislative signal. (🟢 High)",
+    "🟡 **No plenary, no committee sittings, no new procedures** during the week. (🟢 High)",
+    "🔵 **Economic context:** US-EU trade trajectory continues; Mercosur ECJ opinion awaited. (🟢 High)",
+    "🟣 **Cross-reference:** four 2026-04-04 sibling runs converge on the same triad. (🟢 High)",
+    "🩷 **Disruption vector:** Polish-judiciary follow-on (Braun-precedent) is the highest-probability vector for an April-plenary surprise. (🟡 Medium)"
+  ],
   "topRisks": [
     "**Score**: 0.0/5",
     "**Confidence**: low",
@@ -22,6 +30,7 @@
   "macroContext": "",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
     "risk-scoring/quantitative-swot.md",
     "risk-scoring/risk-matrix.md"
   ]

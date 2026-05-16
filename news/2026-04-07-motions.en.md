@@ -1,7 +1,7 @@
 ---
-title: "Quantitative risk scoring across 0 identified political dimensions."
-description: "Quantitative risk scoring across 0 identified political dimensions. Published 2026-04-07 · analysis run 2188e763-6b62-4b96-a650-76749ba22e0f, with source-linked voting, committee…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-07", "run 2188e763-6b62-4b96-a650-76749ba22e0f", "Quantitative", "risk", "scoring", "across", "identified", "political", "dimensions", "Published"]
+title: "Motions: Day-12 Voting-Pattern Stress Test | 2026-04-07"
+description: "This Day-12 motions run is the bimodal-coalition stress test on the April 6 finding — it asks: does the bimodal coalition system survive a 24-hour holdover under degraded API…"
+keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-07", "run 2188e763-6b62-4b96-a650-76749ba22e0f", "Voting", "Pattern", "Stress", "Test", "This", "bimodal", "coalition", "April"]
 date: 2026-04-07
 article_type: motions
 slug: 2026-04-07-motions
@@ -12,12 +12,113 @@ layout: article
 ---
 # Motions — 2026-04-07
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### 🎯 BLUF
+
+**This Day-12 motions run is the **bimodal-coalition stress test** on the April 6 finding — it asks: does the bimodal coalition system survive a 24-hour holdover under degraded API conditions, and what additional structural insight does the Day-12 reading add?** Answer: yes, bimodality is structurally robust, and the Day-12 run adds the **opposition-coordination diagnostic**: ECR (78 seats) + PfE (84 seats) + Left (46 seats) = 208 max votes, well below the 264 blocking threshold and 360 majority threshold. The opposition's structural inability to coordinate a blocking minority on either bimodal track is now confirmed across two independent run-days. The run's distinguishing contribution beyond Day-11 is the **opposition-cohesion taxonomy**: even when ECR aligns with grand-coalition tracks (Anti-Corruption transposition), and even when PfE peels off from right-of-centre tracks (occasional Renew-Greens overlap on environmental files), the structural opposition arithmetic does not change — **EP10's opposition operates as a permanent structural minority below blocking threshold** until at least Q3 2027 when the next major group realignment becomes possible. This is the Day-12 motions run's most lasting structural contribution: a *closed-form arithmetic statement* about EP10 opposition capacity.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Decision | Who decides | Deadline | Evidence |
+|:-:|----------|-------------|:--------:|----------|
+| 1 | **Opposition-coordination assessment** — 208 max vs. 264 blocking; structural minority confirmed | ECR + PfE + Left coordinators | rolling | §Opposition arithmetic |
+| 2 | **Bimodal-coalition durability finding** — robust across 2 run-days; institutional planning anchor | Conference of Presidents | rolling | §Bimodal validation |
+| 3 | **Q3 2027 realignment watch** — earliest structural opposition-capacity change | Strategic-planning ops | long-horizon | §Realignment forecast |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Bimodal-coalition validated across 2 run-days** — structurally robust.
+- 🟠 **Opposition structural minority confirmed** — 208 max vs. 264 blocking.
+- 🟢 **ECR 78 + PfE 84 + Left 46 = 208** — verifiable arithmetic.
+- 🟡 **Permanent until Q3 2027** — earliest realignment possibility.
+- 🔵 **5 High-confidence methods** — coalition + cross-session + deep + stakeholder + voting.
+- 🟣 **19 analysis files** — full motions methodology coverage.
+- 🩷 **Day 12/18 — recess 67% complete**.
+- ⚪ **Confidence MEDIUM** — recess analytical work; arithmetic HIGH.
+
+---
+
+### ➕ Opposition Arithmetic (run's distinguishing contribution)
+
+| Group | Seats | Q1 2026 voting role |
+|-------|------:|--------------------|
+| ECR | 78 | File-conditional (joins right-of-centre on economic-finance; defects on rule-of-law) |
+| PfE | 84 | Right-of-centre track member; occasional Renew-Greens overlap on environmental |
+| Left | 46 | Permanent opposition |
+| **Sum** | **208** | **Below 264 blocking threshold; below 360 majority threshold** |
+
+---
+
+### ⚠️ Risk Snapshot
+
+```mermaid
+quadrantChart
+    title Opposition Arithmetic Risk Heatmap — 2026-04-07
+    x-axis Low Likelihood --> High Likelihood
+    y-axis Low Impact --> High Impact
+    quadrant-1 Manage closely
+    quadrant-2 Top priority
+    quadrant-3 Monitor
+    quadrant-4 Plan & contain
+    "Opposition tactical coordination spike": [0.30, 0.55]
+    "Bimodal-coalition fracture (new realignment)": [0.15, 0.85]
+    "ECR defection from right-of-centre": [0.45, 0.65]
+    "PfE Greens-overlap normalisation": [0.35, 0.50]
+    "Q3 2027 realignment early signals": [0.20, 0.45]
+    "Committee Week bimodal stress test": [0.85, 0.75]
+```
+
+---
+
+### 🔮 Top Forward Triggers (next 14 days)
+
+1. **April 14 — Committee Week opens** — bimodal stress test Day 1.
+2. **April 15 — US tariff T-0** — opposition-coordination spike potential.
+3. **April 17 — ECB rate decision** — economic-finance track external trigger.
+4. **April 20-23 — first post-recess plenary** — full bimodal validation.
+5. **Long horizon Q3 2027** — earliest structural realignment possibility.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **Opposition arithmetic (A1):** primary EP MEP-seat records; verifiable per group.
+- **Bimodal-coalition validation (A2):** coalition-dynamics + voting-patterns cross-verified.
+- **Q3 2027 realignment forecast (A3):** electoral-cycle methodology; medium-confidence horizon.
+- **5 High-confidence methods (A1):** systematic methodology.
+- **Net confidence:** 🟢 HIGH on arithmetic; 🟡 MEDIUM on 2027 realignment forecast.
+
+---
+
+### 📎 Run Artifacts
+
+| Layer | Artifact | Why |
+|-------|----------|-----|
+| Article | `article.md` | Public-facing motions narrative |
+| Synthesis | `existing/synthesis-summary.md` | Opposition-arithmetic + bimodal-validation |
+| Methods | classification · existing · risk-scoring · threat-assessment | Standard motions methodology |
+| Companion | breaking (06:36) · breaking-2 (18:20) · committee-reports · propositions | Day-12 daily cluster |
+
+---
+
+**Document Control**
+- **Template reference:** `analysis/templates/executive-brief.md`
+- **Artifact path:** `analysis/daily/2026-04-07/motions/executive-brief.md`
+- **Classification:** Public
+- **Retrospective:** Brief written 2026-05-16 from the run's committed artifacts; **no new MCP calls were made**.
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `existing/voting-patterns.md` |
@@ -931,6 +1032,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -986,6 +1088,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -998,9 +1101,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -1009,6 +1114,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/executive-brief.md) | `executive-brief.md` |
 | section-significance | [significance-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/classification/significance-classification.md) | `classification/significance-classification.md` |
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/motions/classification/forces-analysis.md) | `classification/forces-analysis.md` |

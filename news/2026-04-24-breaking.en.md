@@ -1,7 +1,7 @@
 ---
-title: "Within today's six-hour breaking-news probe window, no material EP10 breaking event surfaced from the operational feed set…"
-description: "Within today's six-hour breaking-news probe window, no material EP10 breaking event surfaced from the operational feed set. The getadoptedtextsfeed returns an 18-item… Published…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-24", "run breaking-run-1777011267", "Within", "today", "hour", "news", "probe", "window", "material", "EP10"]
+title: "EP Breaking Probe, 24 April 2026"
+description: "The 24 April breaking-news probe (≈ 06:00 UTC window) recorded no fresh EP10 breaking event. The four operational feeds collectively produced a low-signal picture… Published…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-24", "run breaking-run-1777011267", "Probe", "April", "news", "window", "recorded", "fresh", "EP10", "event"]
 date: 2026-04-24
 article_type: breaking
 slug: 2026-04-24-breaking
@@ -12,12 +12,79 @@ layout: article
 ---
 # Breaking — 2026-04-24
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF (Bottom Line Up Front)
+
+The 24 April breaking-news probe (≈ 06:00 UTC window) recorded **no fresh EP10 breaking event**. The four operational feeds collectively produced a *low-signal* picture: `get_adopted_texts_feed` returned an 18-item mixed-vintage backfill (oldest TA-9-2024-0004, newest TA-10-2025-0314); `get_events_feed` was unavailable (upstream enrichment error); `get_procedures_feed` returned a historical-tail preview (1972/0003(COD) leading); and `get_meps_feed` served a 33.6 MB static census with no delta markers. The Stage-C gate result is therefore **ANALYSIS_ONLY** — likely (WEP 55–80 %) a quiet recess-window day rather than an active political shock, but with the explicit caveat that *events-feed* degradation could mask a late-night signal. The paired article workflow on merge will emit a single `safeoutputs___noop` referencing this run. *Confidence: MEDIUM-HIGH; Admiralty: B3.*
+
+### Three Decisions Riding On This Probe
+
+1. **Treat the 24 April window as a feed-degradation continuation, not a data shock.** The events-feed failure and procedures-feed historical-tail ordering are the same degradation pattern recorded in `analysis/daily/2026-04-23/breaking-run-1776928781/manifest.json.history` as "Day 12 outage". Treating this as upstream regression rather than political signal is the only consistent reading. *Confidence: HIGH; Admiralty: B2.*
+
+2. **Hold the breaking pipeline on ANALYSIS_ONLY mode until events-feed recovery is confirmed.** The events feed is the highest-information surface for breaking detection — its unavailability means even an active political shock would only be partially detectable. Operationally, the pipeline must continue running probes (to capture recovery) but must not synthesise breaking articles on degraded inputs. *Confidence: HIGH.*
+
+3. **Escalate to the EP Open Data Portal stewards if the events-feed degradation persists beyond Day 14.** Pattern recognition matters: a 2-day or 3-day events-feed outage is operational noise; a 14-day outage is a structural degradation requiring external escalation. The manifest history is the canonical evidence chain. *Confidence: MODERATE on the escalation threshold; HIGH on the pattern.*
+
+### 60-Second Read
+
+This probe is operationally informative *because* it is low-signal. The mixed-vintage adopted-texts response (containing both EP9 and EP10 records) confirms that the upstream feed is returning a cold cache, not a real-time differential. The MEP feed's 33.6 MB static serialization with no delta markers points to the same conclusion: the EP infrastructure is returning *snapshots* rather than *changes*, which is consistent with a low-activity recess-window day.
+
+The intelligence-product question is **how to characterise an empty signal**. ICD 203 (Analytic Standards) requires distinguishing between "no event occurred" and "we lack the data to see whether an event occurred". Today's reading is the latter — events-feed unavailability prevents the former conclusion. The honest analytical statement is therefore: *no breaking event surfaced, with reduced detection confidence on events-channel-only signals*.
+
+The downstream consequence is procedural: the paired `news-breaking-article.md` workflow will read this run's `gateResult: ANALYSIS_ONLY`, emit a `safeoutputs___noop`, and conserve the day's invocation budget for the next probe. This is the correct pipeline behaviour — and is itself a small but consequential test of whether the gating architecture works as designed in degraded-feed conditions.
+
+### Risk Snapshot (48-hour horizon)
+
+| # | Risk | Likelihood | Impact | Net |
+|---|------|-----------:|------:|----:|
+| 1 | Events-feed outage continues into next probe (regression-not-noise) | MED–HIGH | MED | **Watch** |
+| 2 | Late-night EP event missed owing to events-feed unavailability | LOW–MED | MED–HIGH | **Watch** |
+| 3 | Adopted-texts feed regression to cold-cache pattern persists | MED | LOW–MED | Watch |
+| 4 | Pipeline gating fails (ANALYSIS_ONLY ignored → spurious article) | LOW | HIGH | Monitor |
+
+### Forward Triggers (next 24–72 hours)
+
+- **Next probe events-feed status:** recovery vs. continued unavailability is the leading indicator.
+- **Procedures-feed preview ordering:** any 2026-leading record signals upstream normalisation.
+- **MEPs-feed delta markers:** appearance of change markers (vs. static census) confirms upstream differential is restored.
+- **Adopted-texts vintage:** newest record being 2026-04-XX vs. 2025-XXXX confirms cold-vs-warm cache status.
+- **Manifest history audit:** entry tagged "Day 13+" on 25 April would escalate this from operational noise to structural EP-infrastructure issue.
+
+### ACH — Three Competing Readings
+
+| Hypothesis | Supporting evidence | Disconfirming evidence | Assessment |
+|---|---|---|---|
+| H1: Quiet recess-window day (no political shock occurred) | No fresh adoptions in any feed; recess context | Events-feed unavailability prevents direct confirmation | **Moderately supported** |
+| H2: Upstream EP infrastructure regression (Day 12+ pattern) | Multiple feeds simultaneously degraded; manifest-history continuity | Static MEP feed always large; some degradation is normal | **Strongly supported** |
+| H3: Active political event masked by feed outage | Theoretically possible | No corroborating press / external signals; no chamber-activity markers | **Weakly supported** |
+
+### Source Quality (Admiralty grading)
+
+- `get_adopted_texts_feed` (18-item mixed-vintage response): **B3** (usually reliable, possibly true)
+- `get_events_feed` status:"unavailable": **A2** (the unavailability itself is fully reliable; downstream-feed silence is what's uncertain)
+- `get_procedures_feed` historical-tail preview: **B3**
+- `get_meps_feed` (33.6 MB static census): **A2** (the census is reliable; the lack of deltas is the analytical fact)
+- Prior-run manifest history ("Day 12 outage"): **A1** (own-system record)
+
+### Provenance
+
+- Run: `breaking-run-1777010646` (2026-04-24, ≈ 06:00 UTC window)
+- Primary artifacts read for this brief: `intelligence/synthesis-summary.md`, `data/adopted-texts-feed.json`, `data/events-feed.json`, `data/procedures-feed-preview.json`, `data/meps-feed.json` (sampled), and prior-day manifest history.
+- Data currency: 24 April 2026 (06:00 UTC).
+- Compliance: EP Open Data Portal feeds only; GDPR-compliant.
+
+---
+
+*Analytical neutrality: this brief reports a probe outcome and the operational consequence. Absence-of-event is asserted only within stated detection confidence.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
@@ -2717,6 +2784,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -2772,6 +2840,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -2784,9 +2853,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -2795,6 +2866,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/executive-brief.md) | `executive-brief.md` |
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-24/breaking/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |

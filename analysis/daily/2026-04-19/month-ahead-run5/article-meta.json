@@ -5,7 +5,7 @@
   "gateResult": "PENDING",
   "slug": "2026-04-19-month-ahead",
   "articlePath": "analysis/daily/2026-04-19/month-ahead-run5/article.md",
-  "topFinding": "European Parliament returns from Easter recess on April 27, 2026 — Day 14 of the recess — to face the densest post-break legislative programme since the Parliament's first post-COVID return in September 2020.",
+  "topFinding": "Parliament returns from Easter recess on April 27, 2026 — Day 14 of the recess — to face the densest post-break legislative programme since the first post-COVID return in September 2020.",
   "keyTakeaways": [
     "**Trade defence**: EPP internal tension between German/Austrian auto MEPs (oppose escalation) and French/southern MEPs (support reciprocity). If USTR imposes Section 301 tariffs, EPP's coherence on any strengthened counter-measures response is questionable.",
     "**BRRD3 burden-sharing**: S&D wants strong bail-in provisions; EPP wants protection for retail depositors and public-sector banks. Greens want climate risk integration. This is a genuine three-way negotiation.",
@@ -35,6 +35,7 @@
   ],
   "macroContext": "---",
   "sources": [
+    "executive-brief.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/economic-context.md",
     "intelligence/scenario-forecast.md",

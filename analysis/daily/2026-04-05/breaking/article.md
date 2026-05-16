@@ -1,7 +1,7 @@
 ---
-title: "Breaking News Intelligence Brief - European Parliament"
-description: "The European Parliament remains in Easter recess (27 March - 13 April 2026). No parliamentary sessions, committee meetings, or votes are scheduled."
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-05", "News", "Intelligence", "Brief", "European", "Parliament", "remains", "Easter", "recess", "March"]
+title: "Breaking | 2026-04-05"
+description: "No breaking news developments on 2026-04-05; EP is in Easter recess (Day 10 of 18, 27 March → 13 April 2026). No parliamentary sessions, committee meetings, or votes scheduled."
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-05", "news", "developments", "Easter", "recess", "March", "April", "parliamentary", "sessions", "committee"]
 date: 2026-04-05
 article_type: breaking
 slug: 2026-04-05-breaking-breaking
@@ -12,12 +12,104 @@ layout: article
 ---
 # Breaking — 2026-04-05
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### 🎯 BLUF
+
+**No breaking news developments on 2026-04-05; EP is in Easter recess (Day 10 of 18, 27 March → 13 April 2026).** No parliamentary sessions, committee meetings, or votes scheduled. The week's intelligence signals (DEGRADED feed-API state, PPE 38% structural dominance, anti-corruption reform cluster) are inherited from the 2026-04-03 / 04-04 substantive runs. **🟢 HIGH confidence** the inactivity is calendar-driven.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Decision | Who Decides | Deadline | Evidence |
+|:-:|----------|-------------|:--------:|----------|
+| 1 | **Editorial:** SKIP daily breaking | Editor | +12h | Recess Day 10 of 18 |
+| 2 | **Monitoring:** maintain endpoint health watch | Data pipeline | daily | DEGRADED state |
+| 3 | **Forward-watch:** Commission Tuesday 7 April, recess end 13 April | Analysis lead | 2026-04-07 | Q1→Q2 transition |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **No new EP activity** on 2026-04-05 (Sunday, Easter recess Day 10/18). (🟢 High)
+- 🟠 **DEGRADED feed-API state continues** from 2026-04-03 probe. (🟢 High)
+- 🟢 **Carry-over watch list:** anti-corruption (TA-10-2026-0094), Braun immunity (TA-10-2026-0088), US tariff (TA-10-2026-0096), HDV emissions (TA-10-2026-0084). (🟢 High)
+- 🟡 **Coalition arithmetic stable**: PPE 38% / Grand Coalition 60%. (🟢 High)
+- 🔵 **Economic context:** US-EU trade trajectory unchanged. (🟢 High)
+- 🟣 **Cross-reference:** sibling `breaking-2` and `breaking-3` provide cross-session mid-recess synthesis. (🟢 High)
+- 🩷 **Disruption vector:** none acute. (🟢 High)
+- ⚪ **Carry-forward:** 8 days to recess end.
+
+---
+
+### 🗂️ Top Documents / Procedures Table
+
+| Rank | EP reference | Title (short) | Significance | Confidence |
+|:----:|--------------|---------------|:------------:|:----------:|
+| 1 | — | No new procedures or adopted texts on 2026-04-05 | 0.0 | 🟢 HIGH |
+| 2 | TA-10-2026-0094 | Anti-corruption (carry-over) | 9.0 | 🟢 HIGH |
+| 3 | TA-10-2026-0088 | Braun immunity (carry-over) | 7.0 | 🟢 HIGH |
+
+---
+
+### ⚠️ Risk & Threat Snapshot
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟠 DEGRADED feed persistence<br/>L×I = 4×3 = 12"] --> CONS["Watch 14 Apr"]
+    R2["🟡 Recess attention vacuum<br/>L×I = 3×3 = 9"] --> CONS
+    R3["🟢 No acute trigger today<br/>L×I = 1×1 = 1"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FFC107,color:#000000
+    style R3 fill:#2E7D32,color:#FFFFFF
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| Risk | L | I | Score | Trigger | Source | Admiralty |
+|------|:-:|:-:|:-----:|---------|--------|:---------:|
+| DEGRADED feed persistence | 4 | 3 | 12 | Past 14 April | 2026-04-03/breaking-2 | A1 |
+| Recess attention vacuum | 3 | 3 | 9 | US or PL surprise | EP calendar | A2 |
+
+---
+
+### 🔮 Top Forward Trigger
+
+**Commission Tuesday 7 April 2026** (first post-Easter college tabling) and **recess end 13 April**.
+
+---
+
+### 🛡️ Source Quality Assessment
+
+- **Primary sources:** EP calendar; carry-over Q1 cluster.
+- **Confidence:** 🟢 HIGH on calendar driver.
+
+---
+
+### 📎 Links
+
+| Link | Path |
+|------|------|
+| Article | `./article.md` |
+| Sibling runs | `analysis/daily/2026-04-05/breaking-2/`, `breaking-3/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Document Control**
+- **Template:** `/analysis/templates/executive-brief.md`
+- **Artifact path:** `analysis/daily/2026-04-05/breaking/executive-brief.md`
+- **Classification:** Public
+- **Retrospective generation:** Back-fill session.
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `intelligence-brief.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
@@ -733,6 +825,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -788,6 +881,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -800,9 +894,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -811,6 +907,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking/executive-brief.md) | `executive-brief.md` |
 | section-supplementary-intelligence | [intelligence-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking/intelligence-brief.md) | `intelligence-brief.md` |
 | section-supplementary-intelligence | [political-landscape-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking/political-landscape-analysis.md) | `political-landscape-analysis.md` |
 | section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-05/breaking/risk-assessment.md) | `risk-assessment.md` |

@@ -5,8 +5,16 @@
   "gateResult": "PENDING",
   "slug": "2026-03-28-month-in-review",
   "articlePath": "analysis/daily/2026-03-28/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "EP10 ecosystem snapshot at March end, no acute month-of-March synthesis signal.",
+  "keyTakeaways": [
+    "🔴 **Headline disconnect:** title promises \"Political Actor Mapping: EP10 Ecosystem Analysis\"; underlying classification output shows 0 actors and ROUTINE significance — month-end synthesis quality is degraded. (🟢 High)",
+    "🟠 **March 2026 legislative output (carryover):** ~96 adopted texts across the month, dominated by the 9-12 March Strasbourg week (≥7 high-significance items) and the 25-26 March Brussels mini-plenary. (🟢 High)",
+    "🟢 **Key March tier-1 texts:** TA-10-2026-0060 (ECB Vice-President), TA-10-2026-0084 (HDV emission credits 2025-29), TA-10-2026-0083 (Georgia political prisoners), TA-10-2026-0096 (US customs tariff), TA-10-2026-0088 (Braun immunity). (🟢 High)",
+    "🟡 **Coalition arithmetic unchanged across March:** PPE 38% / S&D 22% / Renew 5% — Grand Coalition (60%) viable, Centre-Right (57%) ideologically fragmented. (🟢 High)",
+    "🔵 **Economic context:** ECB Vice-President confirmation provides institutional baseline; US-EU trade adjustment introduces fresh external-shock vector for Q2. (🟢 High)",
+    "🟣 **Cross-reference:** see 2026-03-26 and 2026-03-25 articles for the substantive material this month-in-review claims to synthesise. (🟢 High)",
+    "🩷 **Disruption vector:** Braun immunity-waiver creates EP-Polish-judiciary precedent that recurs in April (Jaki waiver TA-10-2026-0105). (🟡 Medium — confirmed retrospectively from April runs)"
+  ],
   "topRisks": [
     "**Score**: 0.0/5",
     "**Confidence**: low",
@@ -22,6 +30,7 @@
   "macroContext": "",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
     "risk-scoring/quantitative-swot.md",
     "risk-scoring/risk-matrix.md"
   ]

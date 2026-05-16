@@ -1,7 +1,7 @@
 ---
-title: "Quantitative risk scoring across 0 identified political dimensions."
-description: "Quantitative risk scoring across 0 identified political dimensions. Published 2026-04-03 · analysis run ddaeac0a-0829-43fb-8588-46bf89f410a4, with source-linked voting, committee…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-03", "run ddaeac0a-0829-43fb-8588-46bf89f410a4", "Quantitative", "risk", "scoring", "across", "identified", "political", "dimensions", "Published"]
+title: "Motions | 2026-04-03"
+description: "No new motions tabled on 2026-04-03; recess week 2 of 4, DEGRADED feed state confirmed by sibling breaking-2. Run ddaeac0a-0829-43fb-8588-46bf89f410a4 returned \"Quantitative risk…"
+keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-03", "run ddaeac0a-0829-43fb-8588-46bf89f410a4", "tabled", "recess", "week", "DEGRADED", "feed", "state", "confirmed", "sibling"]
 date: 2026-04-03
 article_type: motions
 slug: 2026-04-03-motions
@@ -12,12 +12,105 @@ layout: article
 ---
 # Motions — 2026-04-03
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### 🎯 BLUF
+
+**No new motions tabled on 2026-04-03; recess week 2 of 4, DEGRADED feed state confirmed by sibling `breaking-2`.** Run `ddaeac0a-0829-43fb-8588-46bf89f410a4` returned **"Quantitative risk scoring across 0 identified political dimensions"** — zero classified actors, ROUTINE significance. First April motion tabling not expected before ~17-20 April. The March carry-over motions inventory dominates the April watch list: Georgia political prisoners (TA-10-2026-0083), HDV emission credits (TA-10-2026-0084), US customs tariff (TA-10-2026-0096), Braun-precedent immunity follow-on, anti-corruption (TA-10-2026-0094). **🟢 HIGH confidence** empty state is calendar- and feed-degradation-driven.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Decision | Who Decides | Deadline | Evidence |
+|:-:|----------|-------------|:--------:|----------|
+| 1 | **Editorial:** SKIP motions daily | Editor | +24h | Empty run + DEGRADED feeds |
+| 2 | **Monitoring:** flag first April motion-tabling wave 17-20 April | Analyst | 2026-04-17 | EP tabling pattern |
+| 3 | **Forward-watch:** track motion mix for Scenario A (trade) vs B (RoL) vs C (economic) | Analysis lead | 2026-04-20 | Pre-plenary calibration |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **No new motions tabled** on 2026-04-03; recess. (🟢 High)
+- 🟠 **0 actors classified**; "Quantitative risk scoring across 0 identified political dimensions" template state. (🟢 High)
+- 🟢 **March carry-over motions** anchor April watch list. (🟢 High)
+- 🟡 **Risk dimensions all "none"** today. (🟢 High)
+- 🔵 **Economic context:** US tariff retaliation and anti-corruption transposition dominate. (🟢 High)
+- 🟣 **Cross-reference:** sibling `breaking-3` covers the anti-corruption-reform cluster that will generate follow-on motions in April. (🟢 High)
+- 🩷 **Disruption vector:** none acute today. (🟢 High)
+- ⚪ **Carry-forward:** Mercosur ECJ opinion likely to spawn motion(s) once published.
+
+---
+
+### 🗂️ Top Documents / Procedures — Motions Watch
+
+| Rank | EP reference | Title (short) | Significance | Confidence | Status |
+|:----:|--------------|---------------|:------------:|:----------:|--------|
+| 1 | — | No new motions on 2026-04-03 | 0.0 | 🟢 HIGH | Recess + DEGRADED feeds |
+| 2 | TA-10-2026-0094 | Anti-corruption directive follow-on motions | 8.0 | 🟢 HIGH | Adopted 26 March |
+| 3 | TA-10-2026-0083 | Georgia political prisoners (carry-over) | 7.0 | 🟢 HIGH | Implementation watch |
+
+---
+
+### ⚠️ Risk & Threat Snapshot
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟠 EP-Polish judiciary motion track<br/>Braun precedent<br/>L×I = 4×3 = 12"] --> CONS["April plenary"]
+    R2["🟠 US-EU trade motions<br/>L×I = 3×4 = 12"] --> CONS
+    R3["🟡 Anti-corruption transposition motions<br/>L×I = 3×3 = 9"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FF9800,color:#000000
+    style R3 fill:#FFC107,color:#000000
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| Risk | L | I | Score | Trigger | Source | Admiralty |
+|------|:-:|:-:|:-----:|---------|--------|:---------:|
+| EP-Polish judiciary motion track | 4 | 3 | 12 | New immunity case | TA-10-2026-0088 | A1 |
+| US-EU trade motions | 3 | 4 | 12 | US action | TA-10-2026-0096 | A1 |
+| Anti-corruption follow-on motions | 3 | 3 | 9 | National transposition friction | TA-10-2026-0094 | A2 |
+
+---
+
+### 🔮 Top Forward Trigger
+
+**First April motion-tabling wave ~17-20 April 2026.** Topic mix calibrates April-plenary scenario.
+
+---
+
+### 🛡️ Source Quality Assessment
+
+- **Primary sources:** Run `ddaeac0a-0829-43fb-8588-46bf89f410a4`; sibling `breaking-2` confirms DEGRADED feed state.
+- **Confidence:** 🟢 HIGH on calendar driver.
+
+---
+
+### 📎 Links
+
+| Link | Path |
+|------|------|
+| Article | `./article.md` |
+| Sibling runs | `analysis/daily/2026-04-03/breaking/`, `breaking-2/`, `breaking-3/`, `committee-reports/`, `propositions/`, `week-ahead/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Document Control**
+- **Template:** `/analysis/templates/executive-brief.md`
+- **Artifact path:** `analysis/daily/2026-04-03/motions/executive-brief.md`
+- **Classification:** Public
+- **Retrospective generation:** Back-fill session.
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `existing/voting-patterns.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
@@ -822,6 +915,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -877,6 +971,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -889,9 +984,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -900,6 +997,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/motions/executive-brief.md) | `executive-brief.md` |
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/motions/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/motions/classification/forces-analysis.md) | `classification/forces-analysis.md` |
 | section-actors-forces | [impact-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/motions/classification/impact-matrix.md) | `classification/impact-matrix.md` |

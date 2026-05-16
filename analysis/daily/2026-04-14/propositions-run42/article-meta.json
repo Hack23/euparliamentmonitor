@@ -5,8 +5,16 @@
   "gateResult": "PENDING",
   "slug": "2026-04-14-propositions-run42",
   "articlePath": "analysis/daily/2026-04-14/propositions-run42/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "Parliament returns from Easter recess facing what the run characterises as \"the most consequential first-day-back agenda of the 10th parliamentary term\" — TA-10-2026-0096 US tariff countermeasures activate April 15 with zero buffer between recess end (April 13) and Commission implementing acts (April 15).",
+  "keyTakeaways": [
+    "🔴 **TA-10-2026-0096 activates April 15** — T-1 at run time; Day-1 INTA session is the only oversight window.",
+    "🟠 **Two coalition patterns from March 26** — Grand+Greens on trade/anti-corruption; EPP+ECR+PfE on defence/security.",
+    "🟢 **Top-5 significance (run-authored):** Tariff T-0 (8.8) · Banking SRMR3 (7.8) · Anti-Corruption (7.2) · 13-COD pipeline (6.8) · Mercosur safeguard (6.4).",
+    "🟡 **Scenario A (likely) — managed transition** with normal COD processing.",
+    "🔵 **Scenario B (possible) — escalation overload** absorbing INTA/ECON bandwidth.",
+    "🟣 **Scenario C (unlikely) — coalition fracture on trade response.**",
+    "🩷 **Risk summary:** Geopolitical CRITICAL · Policy Implementation HIGH · Institutional MEDIUM · Coalition Stability MEDIUM · Legislative Throughput MEDIUM."
+  ],
   "topRisks": [
     "Scenario A (Likely, 50%): Commission deploys limited tariff adjustments; US-EU negotiate 90-day pause",
     "Scenario B (Possible, 30%): Full countermeasures deployed; escalatory spiral through Q2",
@@ -16,6 +24,7 @@
   "keyActors": [],
   "macroContext": "",
   "sources": [
+    "executive-brief.md",
     "risk-scoring/risk-matrix.md"
   ]
 }

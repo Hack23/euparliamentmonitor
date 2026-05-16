@@ -1,7 +1,7 @@
 ---
-title: "Quantitative risk scoring across 0 identified political dimensions."
-description: "Quantitative risk scoring across 0 identified political dimensions. Published 2026-04-09 · analysis run 5a4d35ce-02d6-4d99-9822-cf0f06c6662c, with source-linked voting, committee…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-09", "run 5a4d35ce-02d6-4d99-9822-cf0f06c6662c", "Quantitative", "risk", "scoring", "across", "identified", "political", "dimensions", "Published"]
+title: "Committee Reports, 9 April 2026"
+description: "The 9 April committee-reports analytical run records 0 political dimensions surfaced from fresh signal during Easter recess. The output is procedural-continuity."
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-09", "run 5a4d35ce-02d6-4d99-9822-cf0f06c6662c", "Committee", "Reports", "April", "analytical", "records", "political", "dimensions", "surfaced"]
 date: 2026-04-09
 article_type: committee-reports
 slug: 2026-04-09-committee-reports
@@ -12,12 +12,50 @@ layout: article
 ---
 # Committee Reports — 2026-04-09
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+The 9 April committee-reports analytical run records **0 political dimensions surfaced from fresh signal** during Easter recess. The output is procedural-continuity. The substantive value: validation that the committee-reports track holds cadence during sustained recess. *Confidence: LOW-MEDIUM on fresh content; HIGH on continuity; Admiralty: B3.*
+
+### Three Decisions
+
+1. **Continue 0-dimension procedural runs as recess-period operational norm.** Pipeline reliability requires daily output even on no-fresh-signal days. *Confidence: HIGH.*
+2. **Reference prior-cluster catalogue for continuity content.** When fresh signal is absent, the trace-back to Q1 2026 cataloguing (104 texts, +46.2 % YoY) preserves analytical record. *Confidence: HIGH.*
+3. **Document 0-dimension recess pattern as architectural feature, not bug.** Suppressing empty-signal output would create downstream gap; producing 0-dimension artifacts is the correct design. *Confidence: HIGH.*
+
+### 60-Second Read
+
+Same pattern as 10 April motions and 10 April committee-reports continuity runs. Pipeline maintains daily cadence even during sustained feed unavailability.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| 0-dimension artifacts confused with pipeline failure | MED | LOW–MED |
+| Continuity-mode crowds out depth | LOW | LOW |
+| Recess cluster output not differentiated from low-signal days | MED | LOW |
+
+### Source Quality
+
+- 0-dimension observation: **A1**
+- Continuity-mode design: **A2**
+
+### Provenance
+
+- Run: `committee-reports` (2026-04-09)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: 0-dimension reading labelled procedurally.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `existing/voting-patterns.md` |
@@ -4473,6 +4511,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -4528,6 +4567,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -4540,9 +4580,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -4551,6 +4593,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/executive-brief.md) | `executive-brief.md` |
 | section-significance | [significance-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/classification/significance-classification.md) | `classification/significance-classification.md` |
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/committee-reports/classification/forces-analysis.md) | `classification/forces-analysis.md` |

@@ -5,8 +5,16 @@
   "gateResult": "PENDING",
   "slug": "2026-04-01-motions",
   "articlePath": "analysis/daily/2026-04-01/motions/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "No new motions for a resolution recorded on 2026-04-01.",
+  "keyTakeaways": [
+    "🔴 **No new motions tabled** on 2026-04-01; recess week, no tabling activity expected. (🟢 High)",
+    "🟠 **0 actors classified** in this motions-focused run; no rapporteurs or co-signatories identified. (🟢 High)",
+    "🟢 **Carry-over motions baseline:** five high-significance March texts remain the active reference points for April-plenary motion-stage activity. (🟢 High)",
+    "🟡 **Risk dimensions all \"none\"** — no acute motions-stage risk flagged today. (🟢 High)",
+    "🔵 **Economic context:** US customs tariff (TA-10-2026-0096) and ECB Vice-President (TA-10-2026-0060) are the dominant economic motion-baseline files. (🟢 High)",
+    "🟣 **Cross-reference:** sibling 2026-04-01/breaking documents 6/8 advisory-feed 404 pattern that explains today's data void. (🟢 High)",
+    "🩷 **Disruption vector:** none acute; structural PPE-dominance and external US-trade pressure inherited. (🟡 Medium)"
+  ],
   "topRisks": [
     "**Score**: 0.0/5",
     "**Confidence**: low",
@@ -22,6 +30,7 @@
   "macroContext": "",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
     "risk-scoring/quantitative-swot.md",
     "risk-scoring/risk-matrix.md"
   ]

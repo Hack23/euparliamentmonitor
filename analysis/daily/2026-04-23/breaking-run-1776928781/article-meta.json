@@ -5,7 +5,7 @@
   "gateResult": "PENDING",
   "slug": "2026-04-23-breaking",
   "articlePath": "analysis/daily/2026-04-23/breaking-run-1776928781/article.md",
-  "topFinding": "The March 26, 2026 plenary session, adopted exactly one week before President Trump's April 2 tariff proclamations, has undergone a dramatic retrospective reframing during the Easter recess.",
+  "topFinding": "*Eight days after T-0, the run undertakes a retrospective reframing of the March 26 plenary session: the file was adopted exactly one week before President Trump's April 2 tariff proclamations, and the events of T+0 through T+8 have transformed the political meaning of the March 26 decisions.",
   "keyTakeaways": [
     "**TA-0087 and TA-0088 — Grzegorz Braun (ECR/PL)**: Dual immunity waivers for the Polish far-right MEP signal multiple separate criminal proceedings. The ECR group's political management problem persists into the April 27 plenary week.",
     "**TA-0089 — Nikos Pappas (S&D/GR)**: Greek criminal proceedings. Cross-partisan \"both-sides\" framing.",
@@ -43,6 +43,7 @@
   "macroContext": "France's GDP reached €3.16 trillion in 2024 (World Bank data confirmed), suggesting approximately 3-4% nominal growth from €3.06T in 2023 (growth partially driven by inflation; real growth lower).",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/economic-context.md",
     "intelligence/scenario-forecast.md",

@@ -5,8 +5,16 @@
   "gateResult": "PENDING",
   "slug": "2026-04-02-motions",
   "articlePath": "analysis/daily/2026-04-02/motions/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "No new motions for a resolution tabled on 2026-04-02; recess week 2 of 4 continues.",
+  "keyTakeaways": [
+    "🔴 **No new motions tabled** on 2026-04-02; recess. (🟢 High)",
+    "🟠 **0 actors classified** in motions-focused run. (🟢 High)",
+    "🟢 **March carry-over motions inventory** anchors the April watch list. (🟢 High)",
+    "🟡 **Risk dimensions all \"none\"** today. (🟢 High)",
+    "🔵 **Economic context:** US tariff and ECB files dominant. (🟢 High)",
+    "🟣 **Cross-reference:** sibling 2026-04-02 runs empty-template. (🟢 High)",
+    "🩷 **Disruption vector:** none acute today. (🟢 High)"
+  ],
   "topRisks": [
     "**Score**: 0.0/5",
     "**Confidence**: low",
@@ -22,6 +30,7 @@
   "macroContext": "",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
     "risk-scoring/quantitative-swot.md",
     "risk-scoring/risk-matrix.md"
   ]

@@ -5,7 +5,7 @@
   "gateResult": "PENDING",
   "slug": "2026-04-12-breaking",
   "articlePath": "analysis/daily/2026-04-12/breaking-run163/article.md",
-  "topFinding": "This analysis consolidates findings from Run 163's five analysis categories (classification, threat assessment, risk scoring, intelligence, documents) based on EP MCP precomputed statistics (264KB) and cross-run editorial memory spanning April 8-12 (12 prior workflow runs).",
+  "topFinding": "Run 163 is the T-3 pre-activation consolidation probe — three days before TA-0096 / TA-0097 statutory operative status.",
   "keyTakeaways": [
     "April 8 analysis: Banking Union adoption details, anti-corruption passage",
     "April 9 analysis: Renew-ECR convergence pattern (0.95 cohesion), three-pole dynamics",
@@ -29,6 +29,7 @@
   "keyActors": [],
   "macroContext": "",
   "sources": [
+    "executive-brief.md",
     "intelligence/synthesis-summary.md",
     "risk-scoring/risk-matrix.md"
   ]

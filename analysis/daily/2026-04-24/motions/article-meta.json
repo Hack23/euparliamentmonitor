@@ -5,7 +5,7 @@
   "gateResult": "PENDING",
   "slug": "2026-04-24-motions-runmotions-run-1777010709",
   "articlePath": "analysis/daily/2026-04-24/motions/article.md",
-  "topFinding": "Headline judgement (WEP: LIKELY, ~65-80%, 6-month horizon): The March 2026 plenary cluster marks a structural reorientation of the Parliament's agenda from pure legislative throughput toward a hybrid rule-of-law + economic-sovereignty posture, driven by the combined pressure of Trump-II tariffs, the Braun immunity…",
+  "topFinding": "The March 2026 plenary cluster — three Strasbourg sitting days (10–12 March) plus two Brussels mini-sessions (25–26 March) — adopted 280+ texts and disposed of 239 individual agenda items in two days alone.",
   "keyTakeaways": [
     "**Housing** (TA-10-2026-0064, 2026-03-10) — A cross-group demand for",
     "**Combating corruption** (TA-10-2026-0094, 2026-03-26) — Cross-group",
@@ -34,6 +34,7 @@
   ],
   "macroContext": "Source confidence note: World Bank and IMF MCP probes timed out during this run (see mcp-reliability-audit.md when produced).",
   "sources": [
+    "executive-brief.md",
     "intelligence/economic-context.md",
     "intelligence/scenario-forecast.md",
     "intelligence/stakeholder-map.md",

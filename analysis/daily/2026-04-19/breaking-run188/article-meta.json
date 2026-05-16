@@ -5,7 +5,7 @@
   "gateResult": "PENDING",
   "slug": "2026-04-19-breaking-188",
   "articlePath": "analysis/daily/2026-04-19/breaking-run188/article.md",
-  "topFinding": "---",
+  "topFinding": "Run 188 (evening probe, Easter Recess Day 7, Series Run 10) records significance 18/50 — a modest upward drift from the 14–15/50 noise floor recorded earlier in the day (Runs 186, 187).",
   "keyTakeaways": [
     "Query the metadata layer for immediate title confirmation on new texts",
     "Query the content layer to confirm full accessibility",
@@ -37,6 +37,7 @@
   ],
   "macroContext": "The March 26 legislative package operates against the following EU macroeconomic backdrop (all data World Bank World Development Indicators 2024 release, indicator codes in brackets):",
   "sources": [
+    "executive-brief.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/economic-context.md",
     "intelligence/scenario-forecast.md",

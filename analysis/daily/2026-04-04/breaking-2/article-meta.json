@@ -5,11 +5,21 @@
   "gateResult": "PENDING",
   "slug": "2026-04-04-breaking-breaking-2",
   "articlePath": "analysis/daily/2026-04-04/breaking-2/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "EP10's first quarter of 2026 produced a substantively productive legislative pipeline despite the structural fragility of the dominant-PPE coalition arithmetic.",
+  "keyTakeaways": [
+    "🔴 **Q1 anchor texts (9 high-significance items)** — anti-corruption, ECB Vice-President, HDV emissions, US tariff, Better Law-Making, public access, Georgia, Mercosur, Braun. (🟢 High on adoptions)",
+    "🟠 **Pipeline health MODERATE** — high count masks Grand-Coalition dependence; rule-of-law and trade files most exposed to PPE-internal pressure. (🟡 Medium)",
+    "🟢 **Three plenary blocks** drove Q1 output: January / February / March (10 plenary days total). (🟢 High)",
+    "🟡 **Trilogue stage** unobservable for several Q1 files due to inter-institutional opacity. (🟡 Medium)",
+    "🔵 **Economic context:** ECB confirmation + US tariff + HDV emissions create a coherent industrial-economic Q1 narrative. (🟢 High)",
+    "🟣 **Cross-reference:** sibling `breaking` (coalition), `breaking-3` (recess analytics), `breaking-4` (adopted-texts deep-dive). (🟢 High)",
+    "🩷 **Disruption vector:** Mercosur ECJ opinion could re-open Q1 trade file mid-Q2. (🟡 Medium)"
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
-  "sources": []
+  "sources": [
+    "executive-brief.md"
+  ]
 }
