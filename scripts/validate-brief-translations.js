@@ -23,10 +23,12 @@
  *      adopted-text IDs like `TA-10-2026-0160`) must appear in the translation
  *      whenever they appear in the source.
  *   6. **Heading parity**             — H1/H2/H3 heading counts must match
- *      the source closely (H1 must match exactly; H2/H3 may differ by at most
- *      `HEADING_TOLERANCE`). LLMs frequently collapse or skip subsections,
- *      and this gate catches that without flagging legitimate small
- *      reformattings.
+ *      the source closely. H1 must match exactly (one per brief by style
+ *      guide). H2 must match exactly (`H2_TOLERANCE = 0`): each `##` heading
+ *      is a major section and dropping or merging one is the single most
+ *      common AI failure mode. H3 may differ by at most `H3_TOLERANCE` (1)
+ *      to allow legitimate sub-bullet fusion. The legacy `HEADING_TOLERANCE`
+ *      export is preserved as an alias for `H3_TOLERANCE`.
  *   7. **Mermaid block parity**       — every ```` ```mermaid ```` block in the
  *      source must appear at least once in the translation. Mermaid syntax
  *      is a machine-readable fixed token; dropping a diagram silently breaks
@@ -142,16 +144,25 @@ const FIXED_TOKEN_PATTERNS_GLOBAL = Object.freeze(
 );
 
 /**
- * Tolerance (in absolute count) for H2/H3 heading-count drift between the
- * source and the translation. H1 must match exactly: there is only one H1
- * per brief by convention.
+ * Tolerance (in absolute count) for H3 heading-count drift between the
+ * source and the translation.
  *
- * Why a small non-zero floor? Translators sometimes legitimately fuse two
- * very short sub-bullets into one paragraph, or split a long H3 into two
- * for readability in CJK scripts where dense text harms scanability. A
- * tolerance of 1 absorbs that without letting whole sections disappear.
+ * - **H1**: hard zero — every brief has exactly one H1 by style guide.
+ * - **H2**: hard zero (see `H2_TOLERANCE` below). H2 is a major section;
+ *   silently dropping or merging one is the single most common AI failure
+ *   mode and the validator must catch it even when the dropped section
+ *   contains no `FIXED_TOKEN_PATTERNS` matches to flag separately.
+ * - **H3**: tolerance of 1. Translators sometimes legitimately fuse two
+ *   very short sub-bullets into one paragraph, or split a long H3 into two
+ *   for readability in CJK scripts where dense text harms scanability.
+ *
+ * `HEADING_TOLERANCE` is preserved as a backward-compatible alias for
+ * `H3_TOLERANCE` so existing consumers (tests, downstream tooling that
+ * imports the constant) keep working.
  */
-export const HEADING_TOLERANCE = 1;
+export const H2_TOLERANCE = 0;
+export const H3_TOLERANCE = 1;
+export const HEADING_TOLERANCE = H3_TOLERANCE;
 
 /**
  * Pattern that matches a fenced ```mermaid block opener (case-insensitive).
@@ -409,13 +420,17 @@ export function validateTranslation(translationPath, repoRoot) {
     }
   }
 
-  // Gate 6 — heading parity. H1 must match exactly (briefs have exactly one
-  // by style guide); H2/H3 may drift by HEADING_TOLERANCE in absolute count.
+  // Gate 6 — heading parity. H1 and H2 must match exactly (briefs have
+  // exactly one H1 by style guide; each H2 is a major section that must
+  // round-trip). H3 may drift by H3_TOLERANCE in absolute count.
   for (const level of [1, 2, 3]) {
     const sourceCount = countHeadings(sourceText, level);
     if (sourceCount === 0) continue;
     const targetCount = countHeadings(targetText, level);
-    const tolerance = level === 1 ? 0 : HEADING_TOLERANCE;
+    let tolerance;
+    if (level === 1) tolerance = 0;
+    else if (level === 2) tolerance = H2_TOLERANCE;
+    else tolerance = H3_TOLERANCE;
     if (Math.abs(sourceCount - targetCount) > tolerance) {
       violations.push({
         translationPath: rel,

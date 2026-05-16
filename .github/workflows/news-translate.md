@@ -243,8 +243,11 @@ that fail ANY gate will be flagged in the PR comment:
    `data-vintage="WEO-…"`, EP adopted-text ID (`TA-NN-YYYY-NNNN`), and
    procedure ID (`YYYY/NNNN(COD|INI|NLE)`) in the source MUST appear
    verbatim in the translation.
-6. **Heading parity** — H1 count must match exactly; H2/H3 counts may differ
-   by at most one heading. Missing or merged sections are rejected.
+6. **Heading parity** — H1 and H2 counts must match the source **exactly**
+   (zero tolerance for either); H3 counts may differ by at most one
+   heading. Dropping or merging a `## Section` — including a
+   duplicate-titled addendum such as `## IMF Economic Context — May 2026
+   Update` — is rejected.
 7. **Mermaid block parity** — every source ```` ```mermaid ```` opener must
    appear in the translation so diagrams remain renderable.
 
@@ -310,17 +313,31 @@ without calling safeoutputs. **An empty PR is never the right outcome.**
 For each queue entry, in order:
 
 1. **Read the source brief in full** (`sourcePath`).
-2. **Open the translator guide** (`analysis/methodologies/executive-brief-translation-guide.md`)
+2. **Count source headings BEFORE writing any translation**:
+   ```bash
+   echo "Source H1: $(grep -cE '^# [^#]' "$SOURCE_PATH")"
+   echo "Source H2: $(grep -cE '^## [^#]' "$SOURCE_PATH")"
+   echo "Source H3: $(grep -cE '^### ' "$SOURCE_PATH")"
+   ```
+   Every translation MUST have the same H1 and H2 counts (zero tolerance).
+   Pay special attention to duplicate-titled sections — e.g. a source
+   that contains both `## IMF Economic Context` AND
+   `## IMF Economic Context — May 2026 Update` has **two** distinct H2
+   sections, not one. Do not collapse them.
+3. **Open the translator guide** (`analysis/methodologies/executive-brief-translation-guide.md`)
    to the per-language terminology table for the languages you're producing.
-3. **For each `lang` in `missingLangs`**, create a sibling next to
+4. **For each `lang` in `missingLangs`**, create a sibling next to
    `sourcePath`: replace the source filename `executive-brief.md` with
    `executive-brief_<lang>.md`. For canonical entries that is
    `analysis/daily/<date>/<slug>/executive-brief_<lang>.md`; for
    `isExtended: true` entries it is
    `analysis/daily/<date>/<slug>/extended/executive-brief_<lang>.md`.
-   Use the `edit` / `create` tool:
+   Use the `create` tool (preferred for new files; pass `path` and
+   `file_text` explicitly on every call) or `edit` (for files that
+   already exist on disk):
    - Mirror the source structure 1:1 (heading count, list count, table
-     rows, blockquote count, emoji-marker positions).
+     rows, blockquote count, emoji-marker positions). Every `##` in the
+     source MUST have a matching `##` in the translation.
    - Translate every prose section into the target language. Pass 1 first
      covers every section once; Pass 2 re-reads the entire file and
      expands cramped passages, fixes terminology drift, and verifies
@@ -331,21 +348,22 @@ For each queue entry, in order:
      emoji (`🟢 HIGH` / `🟡 MEDIUM` / `🔴 LOW`), classification stamps.
    - Apply per-language register from § 4 of the translator guide
      (Nordic / EU-core / RTL / CJK).
-4. **Self-validate** the brief you just finished:
+5. **Self-validate** the brief you just finished:
     ```bash
     node scripts/validate-brief-translations.js \
       --paths <source-directory>/executive-brief_*.md
     ```
    If any gate flags a translation, **re-translate it now**, do not let it
-   slip into the PR.
-5. **Flush** — after all 13 languages for this brief are produced AND the
+   slip into the PR. Heading-parity violations almost always mean a
+   missing `##` section — go back and add the missing translation.
+6. **Flush** — after all 13 languages for this brief are produced AND the
    self-validator returns zero violations for this brief's `_<lang>.md`
    files, call `safeoutputs___create_pull_request`. The template literal
    below uses two bookkeeping variables you maintain in your own head as
    you iterate over the queue:
 
    - `COMPLETED_COUNT` — number of briefs whose 13 language siblings have
-     all been written AND validator-clean (incremented after step 4 of
+     all been written AND validator-clean (incremented after step 5 of
      this iteration).
    - `QUEUED_COUNT` — `totals.queued` from `/tmp/gh-aw/discovery/queue.json`
      (read once in Step 1; this is `2` on a default run, up to `4` on
@@ -360,7 +378,7 @@ For each queue entry, in order:
    })
    ```
 
-6. **Move to the next queue entry** until the queue is empty OR you've
+7. **Move to the next queue entry** until the queue is empty OR you've
    used ≥ 50 minutes of the 60-minute cap.
 
 ### Step 3 — Final flush

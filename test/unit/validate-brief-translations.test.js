@@ -17,6 +17,8 @@ import {
   LENGTH_FLOOR_RATIO,
   MAX_ENGLISH_PATTERNS,
   HEADING_TOLERANCE,
+  H2_TOLERANCE,
+  H3_TOLERANCE,
   EN_PATTERNS,
   FIXED_TOKEN_PATTERNS,
   parseArgs,
@@ -277,8 +279,11 @@ describe('validate-brief-translations', () => {
   });
 
   describe('heading-parity gate', () => {
-    it('exposes a small non-zero tolerance for H2/H3', () => {
-      expect(HEADING_TOLERANCE).toBe(1);
+    it('exposes zero tolerance for H1 and H2, and a small non-zero tolerance for H3', () => {
+      expect(H2_TOLERANCE).toBe(0);
+      expect(H3_TOLERANCE).toBe(1);
+      // Backward-compat alias still resolves to the H3 floor.
+      expect(HEADING_TOLERANCE).toBe(H3_TOLERANCE);
     });
 
     it('counts H1/H2/H3 occurrences correctly', () => {
@@ -313,6 +318,45 @@ describe('validate-brief-translations', () => {
       expect(gates).toContain('heading-parity');
       const headingViolation = violations.find((v) => v.gate === 'heading-parity');
       expect(headingViolation.message).toContain('H2');
+    });
+
+    it('flags a translation that drops a single H2 section (zero tolerance for H2)', () => {
+      // Regression test for run #25973420743 — translator dropped the
+      // second `## IMF Economic Context — May 2026 Update` section from
+      // every 2026-05-16/breaking/executive-brief_<lang>.md. With the
+      // legacy ±1 tolerance the heading-parity gate accepted 7/8 H2 and
+      // only the fixed-token gate caught it (because IMF appeared inside
+      // the dropped section). A section without any FIXED_TOKEN_PATTERNS
+      // match would have slipped through silently.
+      const richSource = [
+        '# Brief',
+        '## Section A',
+        'body a ' + 'filler '.repeat(40),
+        '## Section B',
+        'body b ' + 'filler '.repeat(40),
+        '## Section C',
+        'body c ' + 'filler '.repeat(40),
+        '## Section D',
+        'body d ' + 'filler '.repeat(40),
+      ].join('\n');
+      writeSource('2026-05-15', 'breaking', richSource);
+      // Translation drops exactly one H2 (Section D) — was within the
+      // legacy ±1 tolerance, must now be caught by H2_TOLERANCE = 0.
+      const oneMissing = [
+        '# Resumé',
+        '## Avsnitt A',
+        'kropp a ' + 'utfyllnad '.repeat(40),
+        '## Avsnitt B',
+        'kropp b ' + 'utfyllnad '.repeat(40),
+        '## Avsnitt C',
+        'kropp c ' + 'utfyllnad '.repeat(40),
+      ].join('\n');
+      const target = writeTranslation('2026-05-15', 'breaking', 'sv', oneMissing);
+      const violations = validateTranslation(target, tmpRoot);
+      const headingViolations = violations.filter((v) => v.gate === 'heading-parity');
+      expect(headingViolations.length).toBeGreaterThan(0);
+      expect(headingViolations[0].message).toContain('H2');
+      expect(headingViolations[0].message).toContain('±0');
     });
 
     it('does not flag a translation that drops a single H3 within tolerance', () => {
