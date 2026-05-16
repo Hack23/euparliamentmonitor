@@ -1722,7 +1722,10 @@ const PRIORITY_METADATA_BOLD_PREFIXES = [
  *   skipped by Pattern C
  */
 function isMetadataBoldLine(line) {
-    const inner = line.replace(/^\*\*([^*]+?)\*\*.*$/u, '$1').trim().toLowerCase();
+    const inner = line
+        .replace(/^\*\*([^*]+?)\*\*.*$/u, '$1')
+        .trim()
+        .toLowerCase();
     for (const prefix of PRIORITY_METADATA_BOLD_PREFIXES) {
         if (inner === prefix)
             return true;
