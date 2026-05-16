@@ -345,6 +345,15 @@ brief, and the first synthesis H1 are all generic, the published
 RSS, and sitemap-derived metadata will be generic too. The brief is what
 fixes that — fill it, then mirror it into the manifest.
 
+**Automated guard.** `npm run validate:manifest-seo` (script
+`scripts/validate-manifest-seo.js`) audits every
+`analysis/daily/<date>/<slug>/manifest.json` against six gates that
+mirror the contract above: `title-shape`, `title-length`,
+`description-shape`, `description-length`, `forbidden-prefix`, and
+`english-fallthrough`. Run it locally or in CI before merging Stage-B
+output; the validator exits non-zero on any failure-class violation
+unless `--no-fail` (advisory mode) is supplied.
+
 ## 7 · Analysis-to-Article Artifact Map (authoritative)
 
 Every analysis artifact referenced in `manifest.files.*` is walked by the

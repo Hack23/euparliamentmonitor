@@ -273,6 +273,32 @@ deterministic fallback tiers, is documented in
 [`.github/prompts/04-article-generation.md`](.github/prompts/04-article-generation.md)
 § 6.
 
+#### Automated SEO drift-guard
+
+The `scripts/validate-manifest-seo.js` validator (invoked via
+`npm run validate:manifest-seo`) audits every
+`analysis/daily/<date>/<slug>/manifest.json` against six gates that
+mirror this contract:
+
+1. **title-shape** — when present, the `title` field is a 14-language
+   object keyed by supported language codes.
+2. **title-length** — each title is ≤ 140 characters.
+3. **description-shape** — same shape rules as `title-shape`.
+4. **description-length** — each description is 60–200 characters
+   (CJK locales legitimately pack the same payload into ~60–80 characters).
+5. **forbidden-prefix** — neither titles nor descriptions begin with
+   reserved Stage-B preamble labels (`Run:`, `Purpose:`, `BLUF:`,
+   `Classification:`, `Window:`, etc.) that previously leaked into
+   SEO surfaces.
+6. **english-fallthrough** — when a non-English value duplicates the
+   English value verbatim, `manifest.metadataFallback[<lang>] = "en"`
+   must be declared so the static-site layer can surface a
+   pending-translation editorial note.
+
+Single-string `title` / `description` overrides remain accepted as a
+legacy/emergency degraded form, but they produce an advisory
+violation so editors notice the missing 14-language pack.
+
 ---
 
 ## 🧠 Methodologies That Shape the Article
