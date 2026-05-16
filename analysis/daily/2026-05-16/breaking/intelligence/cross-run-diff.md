@@ -104,3 +104,38 @@ Admiralty Grade: A1 — verified internal diff.
 **Total lines added this run:** ~800+ lines across 30+ artifacts
 
 *Cross-run diff updated: 2026-05-16 (Run 3). Admiralty Grade: A1.*
+
+## Run 4 Cross-Run Diff Extension
+
+### Run 4 vs Run 3 Comparison
+
+| Artifact | Run 3 Lines | Run 4 Target | Net Addition |
+|----------|-------------|--------------|--------------|
+| procedures-proxy.md | 61L | 94L | +33L ✅ |
+| workflow-audit.md | 104L | 127L+ | +23L+ ✅ |
+| data-availability-assessment.md | 89L | 126L | +37L ✅ |
+| [all 43 carryForward artifacts] | Prior L | Floor+20 | +20-40L each |
+
+### Intelligence Evolution Across Runs
+
+**Run 1** (breaking-run255): Initial analysis — 39 artifacts at base quality floors.
+**Run 2** (breaking-run251): Re-run — 40 artifacts extended by 20+ lines each; pass2.rewriteCount=40.
+**Run 3** (in progress): Re-run — 43 artifacts extended; new political landscape data integrated.
+**Run 4** (this run): Re-run — 43 artifacts extended with live May 16, 2026 EP API data.
+
+### New Intelligence Added (Run 4)
+
+1. **Political group composition update** — 717 MEPs confirmed (EPP 183, S&D 136, PfE 85).
+2. **Stability score 84/100** — STABLE trend; PPE dominance risk HIGH but structural.
+3. **No new plenary votes today** (2026-05-16 non-plenary Saturday) — DOCEO XML unavailable.
+4. **Events feed 404** — confirmed EP API pattern on non-plenary days; not an outage signal.
+5. **Procedures feed historical ordering** — confirms low-activity weekend API degradation mode.
+
+### Forward Diff Indicators
+
+Next plenary week will likely trigger fresh adopted texts feed population. Monitor:
+- DMA enforcement resolution (TA-0160) for Commission response filing
+- Ukraine accountability framework (TA-0161) for Council delegation
+- Budget guidelines 2027 (TA-0112) for interinstitutional negotiation calendar
+
+*Cross-run diff updated: Run 4, 2026-05-16. Admiralty Grade: A1.*

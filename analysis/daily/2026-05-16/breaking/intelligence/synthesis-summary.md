@@ -217,3 +217,40 @@ All three are achievable but none are certain. IMF's baseline scenario (EU 1.4% 
 assumes all three proceed without major disruption. Downside scenarios require contingency.
 
 *Synthesis updated: Run 3, 2026-05-16. Admiralty Grade: B2.*
+
+## Run 4 Synthesis Extension — Live Political Context Integration
+
+### Post-Plenary Political Landscape Assessment (2026-05-16)
+
+Three weeks after the April 28-30 Strasbourg plenary, the political context has evolved as follows:
+
+**EP Parliamentary Balance (Current):**
+The 9-group EP10 parliament (717 MEPs) maintains its structural stability (84/100 score).
+The emergence of ESN (27 seats) as a distinct ninth group has not altered the primary coalition
+formula: EPP+S&D+Renew (396 seats) continues to provide the governing majority on most issues.
+
+**Implications for the April 2026 Decisions:**
+
+The three-week period post-adoption typically determines whether a resolution catalyzes
+institutional action or fades into the record. Based on the political landscape:
+
+1. **DMA Enforcement (TA-0160):** Commission acknowledgment due within 90 days (by July 28).
+   The EPP+Renew coalition alignment on enforcement creates credible political pressure.
+   Commissioner DG COMP has strong incentives to demonstrate EP responsiveness before Q3 hearings.
+
+2. **Ukraine Accountability (TA-0161):** ECR's support (confirmed in coalition math) gives
+   this resolution unusual cross-ideological legitimacy. Council delegations from ECR-governed
+   member states (Italy, Hungary less so; Poland, Finland, Czech Republic yes) are more likely
+   to advance Council-level follow-up.
+
+3. **Budget 2027 (TA-0112):** Commission's September 2026 budget proposal is the next
+   definitive milestone. The EP's early guidelines establish the political parameters within
+   which the Commission must draft — a successful use of EP pre-emptive power.
+
+### Synthesis Confidence Level (Run 4)
+
+🟢 **B2 — Reliable, Probably True** — Core synthesis based on confirmed institutional outputs
+(adopted texts, live political group data, IMF economic context). Coalition estimates and
+implementation timelines carry inherent uncertainty (±15% in timeline estimates).
+
+*Synthesis summary updated: Run 4, 2026-05-16. Post-plenary political assessment added.*

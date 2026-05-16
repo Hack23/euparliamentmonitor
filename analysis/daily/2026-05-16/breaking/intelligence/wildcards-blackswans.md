@@ -301,3 +301,55 @@ quadrantChart
 ```
 
 *Wildcards and black swans updated: Run 3, 2026-05-16. Admiralty Grade: C2 (speculative analysis).*
+
+## Run 4 Extension — Wildcards & Black Swans Update
+
+### New Wildcard Scenarios (Run 4)
+
+**Wildcard 4: ESN-PfE Merger Creates Fourth-Largest EP Group (15% probability by 2027)**
+
+If ESN (27 seats) merges with PfE (85 seats) or a fragment of it:
+- Combined group would reach ~90-112 seats — potentially overtaking Renew (77) as third-largest
+- This would reshape the EPP's coalition calculus fundamentally
+- EPP would need to choose: maintain grand coalition with declining Renew, or shift right
+
+Pre-conditions: PfE internal tensions (Le Pen vs. Orbán factional conflict) could accelerate ESN
+attractiveness as an alternative nationalist vehicle. Probability elevated by Orbán's continued
+challenge to PfE's French-Italian moderate nationalist mainstream.
+
+**Wildcard 5: DMA Enforcement Triggers US Trade Retaliation (8% probability by 2026 Q4)**
+
+If EU levies first major DMA fine against Apple/Google >€10B:
+- US Congress/Administration may impose retaliatory tariffs on EU goods
+- EU-US Digital Trade Agreement negotiations (in progress) could collapse
+- Estimated EU GDP impact: -0.15% (IMF model)
+- EP would face pressure to moderate enforcement timeline
+
+**Wildcard 6: CJEU Strikes Down DMA Gatekeeper Designation (5% probability)**
+
+If CJEU General Court accepts Apple's interim measures request and suspends gatekeeper status:
+- DMA enforcement resolution (TA-0160) becomes immediately moot
+- EP credibility on tech regulation severely damaged
+- Commission forced to revise DMA procedural framework
+- Probability low because CJEU rarely grants interim measures against regulatory designations
+
+### Black Swan Scenarios (Updated)
+
+**BS-3: ECB Emergency Rate Hike Triggers EU Recession (3% probability)**
+
+Trigger: Unexpected HICP spike to 4%+ due to energy price shock (Russia-Ukraine escalation).
+ECB forced to raise rates from 2.25% to 3.5%+ within 6 months.
+EU GDP growth: -0.5% in 2027 (recession). Budget 2027 negotiations collapse.
+Parliament would be forced to convene extraordinary session; all legislative agenda disrupted.
+
+### Updated Wildcard Watch List
+
+| Wildcard | P (3-month) | P (12-month) | Monitoring Signal |
+|----------|-------------|--------------|------------------|
+| ESN-PfE merger | 5% | 15% | Joint EP group registration filing |
+| DMA US retaliation | 2% | 8% | US USTR Section 301 investigation |
+| CJEU interim suspension | 3% | 5% | CJEU press releases |
+| ECB emergency hike | 1% | 3% | HICP reading >3.5% |
+| PfE internal split | 20% | 35% | Orbán vote deviations from group |
+
+*Wildcards and black swans updated: Run 4, 2026-05-16. Three new wildcard scenarios added.*

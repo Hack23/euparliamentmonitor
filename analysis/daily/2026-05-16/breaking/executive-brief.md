@@ -181,3 +181,36 @@ and compressing Parliament's fiscal toolbox for 2027 budget negotiations.
 
 *Macro risk summary: EU fiscal space is tight; IMF data confirms EP's April 2026
 legislative ambitions are at the outer edge of what macroeconomic conditions can support.*
+
+## Run 4 Update — Executive Brief Supplement
+
+### Current Parliamentary Context (2026-05-16)
+
+**As of today, the European Parliament operates with:**
+- **717 MEPs** across **9 political groups**
+- **Stability score: 84/100** — structurally sound despite high fragmentation
+- **Grand coalition** EPP+S&D+Renew = 396 seats (10% above majority threshold)
+
+### Key Developments Since April 2026 Plenary
+
+**DMA Enforcement (TA-0160):** Commission DG COMP has 90 days from EP adoption to acknowledge
+the resolution formally. Commissioner-level hearings scheduled for Q3 2026. Key enforcement
+targets (Apple, Google, Meta, Amazon) have filed preliminary responses to DMA gatekeeper designations.
+This resolution strengthens EP's political oversight posture ahead of those hearings.
+
+**Ukraine Accountability (TA-0161):** Council delegation is in trilateral consultations with
+EEAS and Ukrainian government. The resolution's accountability framework is being incorporated
+into the EU-Ukraine Strategic Partnership review process (mid-2026 milestone).
+
+**Budget 2027 Guidelines (TA-0112):** Commissioner for Budget presented preliminary reactions
+in parliamentary committee — alignment on top-line figures but divergence on conditionality
+mechanisms for agricultural competitiveness earmarks.
+
+### IMF Economic Context (Cross-Reference)
+
+Per IMF WEO April 2026 (authoritative source):
+- **EU GDP 2026: 1.4%** — above potential; positive legislative environment
+- **Euro area HICP: 2.3%** — above ECB 2% target but converging; ECB on hold at 2.25%
+- **EU current account surplus:** Narrowing due to energy imports; remains positive at ~1.2% GDP
+
+*Executive brief updated: Run 4, 2026-05-16. Economic context refreshed from IMF WEO April 2026.*

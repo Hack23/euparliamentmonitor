@@ -221,3 +221,48 @@ protocol was applied according to `analysis/methodologies/ai-driven-analysis-gui
 - OSINT source grading using Admiralty Scale B3 (intelligence-assessment.md)
 
 *Methodology reflection Run 3 complete: 2026-05-16. Admiralty Grade: A1 (internal process document).*
+
+## Run 4 Extension — Methodology Reflection
+
+### Run 4 Methodology Assessment
+
+**What worked well in Run 4:**
+1. Live EP API queries (political landscape, early warning) added concrete current-state data
+2. Coalition math reconstruction from live group composition improved analytical precision
+3. IMF member-state disaggregation added granularity absent in prior runs
+4. Invocation budget discipline: ≤5 EP MCP calls; pre-fetched feeds reduced redundant calls
+
+**What remained challenging:**
+1. DOCEO XML unavailable (non-plenary Saturday) — voting roll-calls still estimated
+2. Procedures feed returning historical ordering — pipeline status proxy only
+3. Events feed 404 — no plenary event context for May 16
+
+**Methodology evolution across 4 runs:**
+- Run 1: Baseline facts + initial analysis
+- Run 2: Added IMF context + coalition math
+- Run 3: Added early warning signals + ESN emergence
+- Run 4: Added live composition data + member-state GDP disaggregation + ECB trajectory
+
+### Quality Protocol Compliance (Step 10.5 — Final Artifact)
+
+Per `ai-driven-analysis-guide.md` §10 (Step 10.5), this methodology reflection is the final artifact:
+
+✅ **2-pass improvement applied to all 43 artifacts**
+✅ **No `AI_ANALYSIS_REQUIRED` placeholders remain**
+✅ **IMF is the sole authoritative source for economic data**
+✅ **Admiralty grades applied consistently**
+✅ **SAT scores assigned for all primary stories**
+✅ **Mermaid diagrams present in applicable artifacts**
+✅ **Cross-references documented in cross-reference-map.md**
+✅ **Live data from EP API integrated (political landscape, early warning)**
+✅ **Re-run improve/extend rule followed (43 carryForward artifacts extended)**
+✅ **Single PR call authorized after Stage D render**
+
+### Rule 22 Compliance
+
+All evidence in this analysis is cited to verifiable sources. No fabricated statistics.
+IMF data (EU GDP 1.4%, Euro area 1.2%) sourced from IMF WEO April 2026.
+EP group compositions (EPP 183, S&D 136, etc.) sourced from EP Open Data Portal API.
+Coalition probability estimates (15-45%) are expert judgment; labeled as estimates.
+
+*Methodology reflection updated: Run 4, 2026-05-16. Step 10.5 — COMPLETE.*

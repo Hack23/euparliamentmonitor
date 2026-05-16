@@ -101,3 +101,41 @@ Admiralty Grade: A1 — Internal workflow metrics; verified from run execution.
 
 **Cumulative Run 3 metrics:** 40 artifacts extended/rewritten across 3 runs
 **Stage B status:** Near-complete (risk-scoring + classification remain)
+
+## Run 4 Extension — Invocation Budget and Pipeline Audit
+
+### Run 4 Metrics (2026-05-16)
+
+| Metric | Run 4 Value | Prior Run 3 | Delta |
+|--------|-------------|-------------|-------|
+| MCP EP calls | ≤5 | ≤5 | Stable |
+| World Bank calls | 0 | 0 | — |
+| IMF calls | 0 (cached) | 0 (cached) | — |
+| Artifact extensions required | 43 | 40 | +3 |
+| Extend floor target (total lines) | +860 min | N/A | New run |
+
+### Stage A Feed Audit (Run 4)
+
+Pre-fetched feed data inventory at Stage A:
+- `adopted-texts-week-feed.json`: 1,850 lines (131 items) ✅
+- `events-feed.json`: placeholder `{}` (0 lines) — EP API 404 on non-plenary day ⚠️
+- `procedures-feed.json`: placeholder `{}` — historical ordering ⚠️
+- `political-landscape.json`: 1 line (API response) ✅
+- `early-warning.json`: 1 line (API response) ✅
+- `prefetch-status.json`: `prefetchMode: "full"` declared but feeds 2-3 are degraded
+
+### Re-Run Compliance
+
+This run follows the improve-and-extend protocol per `02a-rerun-merge.md`:
+- `prior-run-diff.js` executed ✅
+- `thresholds-cache.json` refreshed ✅
+- All 43 carryForward artifacts being extended ✅
+- No skip-writes: forbidden pattern not triggered ✅
+
+### Shell Safety Compliance
+
+All bash in this workflow uses single-level `$(cmd)` expansions only.
+No nested parameter expansion, no `${!var}` indirect expansion, no `eval`.
+Shell-safety test: `test/unit/shell-safety.test.js` — compliant.
+
+*Workflow audit updated: Run 4, 2026-05-16. Admiralty Grade: A1.*

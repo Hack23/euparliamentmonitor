@@ -58,3 +58,37 @@ Admiralty Grade: C3 — Proxy data; procedures API returned historical ordering.
 *Primary data limitation: EP procedures feed returns historical ordering on non-plenary days.*
 *This document should be superseded by a fresh procedures feed query on the next plenary day.*
 *For real-time procedures status, consult EP Legislative Observatory directly.*
+
+## Run 4 Extension — May 16, 2026 Parliamentary Landscape Update
+
+### Political Group Composition (Live Data — 2026-05-16)
+
+Fresh EP political landscape data confirms 717 MEPs across 9 groups as of 2026-05-16:
+
+| Group | Seats | Seat Share | Coalition Signal |
+|-------|-------|------------|-----------------|
+| EPP | 183 | 25.52% | Dominant anchor |
+| S&D | 136 | 18.97% | Progressive pole |
+| PfE | 85 | 11.85% | Populist right |
+| ECR | 81 | 11.30% | Conservative right |
+| Renew | 77 | 10.74% | Liberal centre |
+| Greens/EFA | 53 | 7.39% | Green-progressive |
+| The Left | 45 | 6.28% | Radical left |
+| NI | 30 | 4.18% | Non-attached |
+| ESN | 27 | 3.77% | Nationalist right |
+
+**Majority threshold:** 360 seats. Grand coalition (EPP + S&D + Renew) = 396 seats (55.2%).
+
+### Early Warning Assessment Update (2026-05-16)
+
+- **Stability Score:** 84/100 (STABLE trend)
+- **Risk Level:** MEDIUM
+- **High severity warning:** PPE dominance risk (19x size of smallest group)
+- **Implications for procedure adoption:** Multi-coalition required; no single bloc achieves majority
+
+### Procedures Pipeline Status
+
+No new procedures advanced on 2026-05-16 (non-plenary day). Next plenary week: TBC per EP calendar.
+Proxy status remains valid from April 2026 plenary; legislative tracker should be refreshed on next sitting day.
+
+*Updated: Run 4, 2026-05-16. Early warning data incorporated from live EP API.*

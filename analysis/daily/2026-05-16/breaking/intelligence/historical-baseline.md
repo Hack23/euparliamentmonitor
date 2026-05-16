@@ -188,3 +188,41 @@ EU-level investment in digital infrastructure and climate transition — providi
 external legitimacy for EP's budget priority framework.
 
 *Historical baseline updated: 2026-05-16. Admiralty Grade: A2.*
+
+## Run 4 Extension — Historical Baseline Enrichment
+
+### Comparative EP10 Context (2024-2026 Timeline)
+
+**EP10 plenary output to date (Sept 2024 — May 2026):**
+
+The April 28-30, 2026 session fits within the broader EP10 legislative trajectory:
+
+| Period | Key Legislative Output | Significance |
+|--------|----------------------|-------------|
+| Sept-Dec 2024 | Inaugural session; Commission investiture | CONSTITUTIONAL |
+| Jan-Mar 2025 | Green Deal revision; AI Act implementation rules | HIGH |
+| Apr-June 2025 | Ukraine support package; MFF revision rejected | HIGH |
+| July-Sept 2025 | Summer recess; committee work dominant | MEDIUM |
+| Oct-Dec 2025 | Budget 2026 agreement; trade policy reset | HIGH |
+| Jan-Mar 2026 | DMA gatekeeper enforcement; ECB annual report | HIGH |
+| Apr 28-30, 2026 | DMA enforcement + Ukraine accountability + Budget guidelines | HIGH |
+
+### Historical Precedent for April 2026 Decisions
+
+**DMA Enforcement (TA-0160) — Historical Parallel:**
+GDPR enforcement pathway (2018-2020): Parliament resolution → Commission DPA coordination →
+First major fine (WhatsApp €225M, 2021). DMA enforcement is expected to accelerate given:
+- Commission's direct enforcement powers (vs. GDPR's national DPA delegation)
+- Political pressure from EP resolution establishing formal parliamentary monitoring
+
+**Ukraine Accountability (TA-0161) — Historical Parallel:**
+Kosovo accountability framework (2006-2010): EP resolutions on war crimes accountability
+eventually contributed to EULEX rule-of-law mission. Template is: EP resolution → Council/EEAS
+operational mandate → institutional follow-through over 3-5 years.
+
+**Budget 2027 Guidelines (TA-0112) — Historical Precedent:**
+EP successfully used 2013 and 2020 budget guidelines to shift MFF priorities (2013: cohesion
+increase; 2020: Green Deal earmark). The 2026 guidelines follow this pattern — establishing
+EP red lines before Council position crystalizes.
+
+*Historical baseline updated: Run 4, 2026-05-16. EP10 timeline integrated.*

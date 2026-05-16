@@ -21,6 +21,14 @@
       "rewriteCount": 40,
       "dataMode": "degraded-feeds",
       "gateResult": "pending"
+    },
+    {
+      "runId": "breaking-run260-1778959102",
+      "timestamp": "2026-05-16T19:33:12.000Z",
+      "artifactCount": 43,
+      "rewriteCount": 43,
+      "dataMode": "degraded-feeds",
+      "gateResult": "pending"
     }
   ],
   "files": {
@@ -196,5 +204,5 @@
     "euHICP": 2.3,
     "ecbDepositRate": 2.25
   },
-  "pass2RewriteCount": 40
+  "pass2RewriteCount": 43
 }

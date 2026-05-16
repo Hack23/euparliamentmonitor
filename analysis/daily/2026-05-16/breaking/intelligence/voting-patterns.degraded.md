@@ -160,3 +160,33 @@ Corrected based on cross-validation: ~525 FOR / ~175 AGAINST / ~17 ABSTAIN
 
 *Degraded voting analysis updated: Run 3, 2026-05-16. Cross-validation improves confidence.*
 *Expected full roll-call data: May 21, 2026. Admiralty Grade: C2 (proxy, cross-validated).*
+
+## Run 4 Extension — Degraded Voting Data Supplemental Analysis
+
+### Why Voting Data is Degraded (2026-05-16)
+
+1. **Non-plenary Saturday:** EP does not publish DOCEO XML on weekends outside plenary weeks
+2. **DOCEO publication delay:** Roll-call votes from April 28-30 may still be in processing queue
+3. **EP API structure:** The `/voting-records` endpoint shows 6-8 week publication delay (known issue)
+
+### Structural Voting Indicators (Proxy for Roll-Call Gaps)
+
+Using group composition as proxy (per degraded-voting methodology):
+
+**DMA Enforcement (TA-0160) — estimated vote breakdown:**
+- For: EPP (183) + S&D (136) + Renew (77) + Greens (53) = ~449 potential
+- Against: PfE (85) + ECR (81) + ESN (27) + some NI = ~200-210 potential
+- Abstain: Some NI + peripheral = ~50-60 potential
+- **Estimated result:** ~440 For / ~200 Against / ~50 Abstain
+
+**Ukraine Accountability (TA-0161) — estimated vote breakdown:**
+- For: EPP (183) + S&D (136) + Renew (77) + Greens (53) + ECR (60 of 81) + Left (30 of 45) = ~540
+- Against: PfE (40) + ESN (20) + some NI = ~80
+- **Estimated result:** ~540 For / ~80 Against / ~100 Abstain
+
+### Admiralty Confidence on Degraded Estimates
+
+🟡 **C3** — Proxy estimates based on group size and historical coalition patterns. Actual DOCEO
+data, when published, will provide vote-by-vote breakdown. These estimates carry ±10% margin.
+
+*Voting patterns (degraded) updated: Run 4, 2026-05-16. Roll-call data pending DOCEO publication.*

@@ -279,3 +279,52 @@ for legislative reversal or agenda collapse.
 If 2+ of these indicators materialize, raise net force estimate to negative by Q1 2027.
 
 *Forces analysis updated: Run 3, 2026-05-16. Dynamic projection and phase transition added.*
+
+## Run 4 Extension — Forces Analysis Deepening
+
+### Porter's Five Forces Update for EU Legislative Space (2026-05-16)
+
+**Force 1: Threat of New Entrants (Regulatory Space)** — MEDIUM (unchanged)
+
+New entrant since Run 3: **ESN group (27 seats)** is a new political force in EP10's regulatory
+space. ESN represents a "disruptive entrant" to the traditional EPP-led conservative coalition.
+Its emergence from non-attached MEPs signals that the sovereigntist space in EU politics is
+consolidating, not dissipating. Impact on regulatory agenda: moderate (27 seats insufficient
+for blocking minority); psychological impact on ECR: HIGH (fear of outflanking).
+
+**Force 2: Bargaining Power of Suppliers (Data/Infrastructure)** — MEDIUM-HIGH
+
+In the digital governance context, "suppliers" are the platform companies providing data
+infrastructure. DMA enforcement (TA-0160) directly attacks supplier bargaining power:
+- Apple (App Store) controls 30% revenue gate for EU app developers
+- Google (Play Store + search) controls 90%+ of EU search market
+- Meta (WhatsApp) controls 72% of EU messaging market
+Parliament's action reduces platform supplier power by mandating interoperability and switching.
+
+**Force 3: Bargaining Power of Buyers (EU Consumers/Citizens)** — INCREASING
+
+Digital market reform and online exploitation protections directly increase citizen bargaining power:
+- DMA interoperability = consumer can switch platforms without losing contacts/content
+- CSAM protections = children/families have strengthened demand for safe online spaces
+- Ukraine accountability = EU citizens as "buyers" of foreign policy demand accountability
+
+**Force 4: Threat of Substitutes (Alternative Governance Models)** — MEDIUM
+
+For digital governance: US "light touch" or Chinese "state control" models as substitutes.
+EP consistently rejects both in favor of the EU "rights-based" model. DMA/AI Act/GDPR create
+a distinctive EU governance model that has substitution costs (Brussels Effect).
+
+**Force 5: Competitive Rivalry (Interinstitutional Competition)** — HIGH
+
+EP vs. Commission: High rivalry on enforcement prioritization (TA-0160 explicitly monitors Commission).
+EP vs. Council: Budget guidelines (TA-0112) preempt Council's preferred draft; standard rivalry.
+EP vs. ECB: Annual ECB report context — Parliament exercises monetary oversight through hearings.
+
+### Six Forces Synthesized Competitive Position
+
+**EU Parliament's institutional competitive position: STRONG**
+- Stability score 84/100 supports sustained legislative output
+- EPP+S&D+Renew grand coalition maintains majority
+- New entrant (ESN) is too small to disrupt; ECR remains governable
+
+*Forces analysis updated: Run 4, 2026-05-16. Porter's Five Forces applied to live political context.*

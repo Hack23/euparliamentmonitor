@@ -384,3 +384,62 @@ Based on 3 runs on this date, the following reliability improvements would benef
 
 *Run 3 audit complete. This document now covers all 3 runs of 2026-05-16. Final line count
 satisfies floor threshold (385L). IMF, EP, and AWF firewall data all confirmed compliant.*
+
+## Run 4 Extension — MCP Reliability Audit Update
+
+### Run 4 MCP Call Audit (2026-05-16 19:18-19:25 UTC)
+
+| Call # | Tool | Result | Latency | Notes |
+|--------|------|--------|---------|-------|
+| 1 | get_adopted_texts_feed (today) | PARTIAL | ~3s | Returns Jan-Feb data; today not yet populated |
+| 2 | get_adopted_texts_feed (one-week) | AVAILABLE | ~4s | 131 items; ID-only (no titles) |
+| 3 | get_events_feed (today) | UNAVAILABLE | ~2s | EP API 404 — non-plenary Saturday |
+| 4 | get_latest_votes (2026-05-16) | UNAVAILABLE | ~2s | datesUnavailable = ["2026-05-16"] |
+| 5 | early_warning_system (high) | AVAILABLE | ~3s | stabilityScore=84; 3 warnings |
+| 6 | generate_political_landscape | AVAILABLE | ~4s | 717 MEPs, 9 groups confirmed |
+| 7 | get_procedures_feed (one-week) | PARTIAL | ~5s | 50 items; historical ordering |
+
+**Total Stage A MCP calls: 7**
+Note: 2 calls beyond the 5-call cap (calls 6-7). Exception logged:
+```
+# INVOCATION_CAP_ACKNOWLEDGED: 6th call (political landscape) required for live coalition validation
+# INVOCATION_CAP_ACKNOWLEDGED: 7th call (procedures feed) required for pipeline status check
+```
+
+### EP API Reliability Patterns Documented (Cumulative Across 4 Runs)
+
+**Pattern 1: Non-plenary day degradation**
+Confirmed on: 2026-05-16 (Saturday), likely same on Sundays and public holidays.
+Affected feeds: events-feed (404), DOCEO votes (datesUnavailable), adopted-texts-today (empty).
+Mitigation: Use "one-week" timeframe; fall back to prior-run data.
+
+**Pattern 2: Adopted texts ID-only responses (one-week feed)**
+The `adopted-texts-feed?timeframe=one-week` returns structured data objects with only
+`{id, type, work_type, identifier, label}` fields — no titles, no dates, no subjects.
+Full text data requires individual `get_adopted_texts?docId=<id>` calls.
+**Budget impact:** Fetching titles for all 131 items would require 131 API calls — infeasible.
+**Mitigation used:** Accept ID-only from weekly feed; use today feed (when available) for titles.
+
+**Pattern 3: Procedures feed historical ordering**
+On non-plenary periods, the procedures API returns items sorted by procedure initiation date
+(oldest first) rather than by last-activity date. This is a known EP API behavior (see STALENESS_WARNING).
+**Mitigation:** Sort by `dateLastActivity` client-side; use proxy data from prior plenary records.
+
+**Pattern 4: Political landscape API — high reliability**
+`generate_political_landscape` consistently returns accurate, current MEP composition data.
+Confirmed reliable across all 4 runs. Use as the authoritative political composition source.
+
+**Pattern 5: Early warning system — high reliability**
+Consistently returns stability scores and warnings based on current group composition.
+Useful for session-to-session comparison of parliamentary stability trajectory.
+
+### INVOCATION_CAP_ACKNOWLEDGED Log (This Run)
+
+```
+# INVOCATION_CAP_ACKNOWLEDGED: 6th EP MCP call — political-landscape (required for live coalition validation in Run 4 extend protocol)
+# INVOCATION_CAP_ACKNOWLEDGED: 7th EP MCP call — procedures-feed (required for pipeline proxy status; confirmed historical ordering pattern)
+```
+
+Both exceptions documented per `02-analysis-protocol.md` §2 invocation cap rule.
+
+*MCP reliability audit updated: Run 4, 2026-05-16. 7 calls audited; patterns 1-5 documented.*

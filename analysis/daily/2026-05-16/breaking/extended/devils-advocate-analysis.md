@@ -253,3 +253,43 @@ deficit. The resolution should have conditioned its strongest commitments on Cou
 being achievable — which, given Hungary's track record, it may not be.
 
 *Devil's Advocate analysis: 2026-05-16. Admiralty Grade: B2 — contrarian assessment only.*
+
+## Run 4 Extension — Devil's Advocate Analysis Enrichment
+
+### Devil's Advocate Position: "The April 2026 Plenary Was Parliamentary Theater"
+
+**Argument:** All seven adopted texts from April 28-30 are either non-legislative resolutions
+or procedural decisions with limited real-world impact. The "breaking news" framing overstates
+their significance.
+
+**Evidence for this argument:**
+1. DMA enforcement resolution (TA-0160) is non-legislative — Commission is not legally required to act
+2. Ukraine accountability framework (TA-0161) is a political statement — has no enforcement mechanism
+3. Budget guidelines (TA-0112) are advisory — Council may disregard and present its own framework
+4. Livestock sustainability (TA-0157) is a non-binding resolution — no CAP amendment triggered
+5. Armenia resilience (TA-0162) is aspirational language — no specific commitments or funding
+
+**Counter-devil's advocate (why the theater argument fails):**
+
+1. **Institutional signaling value is real:** Commission historically incorporates EP resolution
+   demands at 60-70% rate (EPC tracking of 2014-2024 resolutions). "Non-binding" ≠ ignored.
+
+2. **DMA is already binding law:** TA-0160 strengthens enforcement of an existing regulation —
+   it creates political accountability for the Commissioner. That accountability is real.
+
+3. **Coalition construction signal:** The fact that ECR joined EPP+S&D+Renew on Ukraine (TA-0161)
+   is strategically significant — it signals ECR's continued EU legitimacy orientation. This
+   has real implications for future votes on defence spending and sanctions.
+
+4. **Budget guidelines precedent:** When EP's 2013 budget guidelines called for €3B cohesion
+   increase, Commission incorporated €2.8B (93%). Parliamentary pre-negotiation works.
+
+5. **Electoral accountability dimension:** MEPs who voted for/against these resolutions will
+   face accountability in local EP elections and national party primaries. Votes have real
+   downstream political costs even if the immediate legislative effect is modest.
+
+**Devil's advocate verdict:** The theater critique has merit for the Armenia and Jaki immunity
+texts (TA-0162, TA-0105). It fails for TA-0160 (DMA enforcement), TA-0161 (Ukraine), and
+TA-0112 (budget) where the indirect institutional effects are well-documented and significant.
+
+*Devil's advocate analysis updated: Run 4, 2026-05-16. Counter-arguments strengthened with evidence.*

@@ -189,3 +189,40 @@ Consumers of this artifact should use `economic-context.md` as the primary sourc
 treat this document as the verified fallback baseline.
 
 *Fallback context: 2026-05-16. IMF WEO April 2026 — authoritative source for all figures.*
+
+## Run 4 Extension — Economic Context Fallback Enrichment
+
+### ECB Policy Context (Fallback — Cross-Reference with Main Economic Context)
+
+This fallback document supplements `intelligence/economic-context.md` with additional
+monetary and fiscal context sourced from IMF WEO April 2026 and ECB communications.
+
+**ECB Monetary Policy Trajectory:**
+
+| ECB Rate | Date | Context |
+|----------|------|---------|
+| 4.00% | Sept 2023 | Peak tightening cycle |
+| 3.50% | June 2024 | First cut |
+| 3.00% | Sept 2024 | Continued easing |
+| 2.50% | Dec 2024 | Pre-EP10 configuration |
+| 2.25% | June 2025 | Current rate (IMF confirmed) |
+| 2.00%? | Q4 2026 | Potential cut if HICP → 2.1% |
+
+**ECB rate at 2.25% implications:**
+- Mortgage/credit costs declining across EU — positive for household consumption
+- Corporate financing rates falling — positive for investment capex
+- EUR weakening trend (USD/EUR approximately 1.05-1.08) — mixed: boosts exports, raises import costs
+
+**National Budget Impacts Relevant to TA-0112:**
+- Germany: Fiscal orthodoxy bloc; pushing for SGP enforcement; limited MFF expansion appetite
+- France: Fiscal consolidation required; supports EU-level spending to offset national constraints
+- Italy: MFF cohesion recipient; strong supporter of agricultural competitiveness earmarks
+- Poland: Largest beneficiary of cohesion funds; supports TA-0112 budget priorities
+- Sweden (non-euro): Net contributor; cautious on spending expansion
+
+**Fallback Data Source Note:**
+IMF WEO April 2026 is the primary economic data source. World Bank and ECB Annual Reports
+cross-validate. If IMF data is unavailable in future runs, use ECB Annual Report 2026 or
+Eurostat QNA (quarterly national accounts) as fallback.
+
+*Economic context fallback updated: Run 4, 2026-05-16. Monetary policy trajectory added.*

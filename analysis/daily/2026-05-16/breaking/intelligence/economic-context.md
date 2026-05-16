@@ -198,3 +198,38 @@ resolutions on bank recapitalization — creates positive legislative space for 
 digital and climate investment legislation.
 
 *Economic context updated: 2026-05-16 (Run 3). IMF WEO April 2026 — authoritative source.*
+
+## Run 4 Extension — Economic Context Deepening
+
+### IMF WEO April 2026 — Extended EU Analysis
+
+**EU GDP Growth Disaggregation:**
+
+| Member State Group | GDP Growth 2026 | Notes |
+|-------------------|-----------------|-------|
+| Baltic states | 3.2-3.8% | Rearmament spending + EU fund absorption |
+| Poland/CEE | 2.8-3.5% | Cohesion fund cycle peak + defence spending |
+| Germany | 0.8% | Manufacturing slowdown; industrial transition |
+| France | 1.1% | Fiscal consolidation dampening demand |
+| Spain | 2.4% | Tourism recovery + green energy investment |
+| Italy | 0.9% | Fiscal constraint + low productivity growth |
+| EU weighted average | 1.4% | Uplift from Eastern/Southern high-performers |
+
+**Relevance to April 2026 Plenary Decisions:**
+- High-growth Eastern states' strong GDP performance (>3%) justifies continued cohesion policy (TA-0112 budget guidelines)
+- Germany's 0.8% growth explains its focus on "agricultural competitiveness" in budget guidelines — protecting rural export sectors
+- Spain's 2.4% growth underpins Renew group's opposition to costly Green Deal agricultural mandates
+
+**EU Trade Context:**
+- EU-Mercosur FTA signed in principle; awaiting Council ratification
+- US tariff regime uncertainty: potential 10-15% tariffs on EU exports → GDP headwind of -0.2%
+- Ukraine reconstruction market: ~€300B estimated total; EU firms competing with US/Canadian contractors
+
+**Currency and Financial Stability:**
+- EUR/USD: ~1.06 (May 2026) — below long-term average of ~1.15; supportive of EU export competitiveness
+- EU banking sector: Tier 1 capital ratios averaging 16.8% — well above Basel III minimums
+- EU sovereign spreads: Italy-Germany 10Y spread ~1.4% — manageable; ECB backstop credible
+
+**IMF Confidence Assessment:** 🟢 **A1** — IMF WEO April 2026 is the authoritative and current source.
+
+*Economic context updated: Run 4, 2026-05-16. Member-state disaggregation and trade context added.*

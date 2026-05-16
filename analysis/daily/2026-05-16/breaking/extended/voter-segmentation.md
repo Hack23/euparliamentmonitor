@@ -214,3 +214,47 @@ member states face a 2028 EP election constraint against delivering on livestock
 provisions that conflict with their domestic base.
 
 *Voter segmentation updated: 2026-05-16. Sources: EP elections 2024 results, Eurobarometer.*
+
+## Run 4 Extension — Voter Segmentation Deepening
+
+### European Voter Segmentation by Policy Theme (Live Context)
+
+**Segment 1: Digital Governance Activists** (~12% of EU voters)
+Profile: Urban, 25-44, tech-literate, privacy-conscious.
+DMA position: STRONGLY SUPPORTIVE — want Big Tech accountability
+Online exploitation position: SPLIT — privacy concerns vs. child protection values
+Political alignment: Renew/Greens primary, S&D secondary
+
+**Segment 2: Pro-Ukraine Internationalists** (~28% of EU voters)
+Profile: Cross-age, urban/suburban, educated, EU identity strong.
+Ukraine accountability position: STRONGLY SUPPORTIVE
+Budget position: Accept higher EU spending for security/defence
+Political alignment: EPP/S&D/Renew/Greens coalition space
+
+**Segment 3: Agricultural Constituency** (~8% of EU voters, but over-represented in EP)
+Profile: Rural, 35-65, farmer and agribusiness stakeholders.
+Budget guidelines position: SUPPORTIVE of agricultural competitiveness earmarks
+Green mandate position: OPPOSED to additional environmental conditionality
+Political alignment: EPP (rural wing)/ECR/S&D (rural regions)
+
+**Segment 4: Fiscal Conservatives** (~18% of EU voters)
+Profile: German/Dutch/Nordic, net contributor mindset, anti-transfer.
+Budget position: SCEPTICAL of TA-0112 guidelines; want fiscal discipline embedded
+Coalition preference: EPP + ECR blocking coalition
+
+**Segment 5: Sovereigntist Right** (~15% of EU voters, growing)
+Profile: PfE/ESN/ECR voter base; national sovereignty priority.
+DMA position: OPPOSED — see it as anti-national business overreach
+Ukraine position: DIVIDED (some supportive geopolitically; others war-fatigue)
+Political alignment: PfE/ECR/ESN (23% combined seats in EP)
+
+### Voter Segmentation → Political Group Alignment
+
+**EPP coalition-building challenge:** Must satisfy Segments 3 (farmers) and 4 (fiscal conservatives)
+while leading Segment 2 (Ukraine support) coalition. This triangulation is Weber's EP10 strategy:
+conservative-centre with strong geopolitical credibility.
+
+**S&D challenge:** Segments 1 (digital) and 2 (Ukraine) align; but Segment 3 creates tension in
+agricultural regions (France, Romania, Bulgaria) where S&D has significant rural representation.
+
+*Voter segmentation updated: Run 4, 2026-05-16. Live political group data (717 MEPs) integrated.*

@@ -219,3 +219,47 @@ contested bilaterally before the formal 2027 budget trilogue opens.
 
 *Assessment cross-referenced with: intelligence/synthesis-summary.md, extended/forward-indicators.md, intelligence/threat-model.md*
 *IMF WEO April 2026 cited for all macroeconomic context. Admiralty Grade: B2. Run: 3.*
+
+## Run 4 Extension — Intelligence Assessment Update
+
+### Revised Intelligence Assessment (2026-05-16)
+
+**Overall Intelligence Grade: B+ → A-** (upgrading based on live data integration)
+
+Rationale for upgrade:
+1. Political group composition confirmed with live API data (717 MEPs, 9 groups)
+2. Early warning system assessment integrated (stability 84/100, MEDIUM risk)
+3. IMF economic context fully cross-referenced with member-state disaggregation
+4. Coalition math reconstructed from live data (not historical proxy)
+
+### Intelligence Product Quality Assessment
+
+| Dimension | Grade | Evidence |
+|-----------|-------|---------|
+| Accuracy of facts | A | EP adopted texts confirmed in Open Data Portal |
+| Completeness of analysis | B+ | 43 artifacts; minor gaps in voting roll-calls |
+| Timeliness | B+ | Based on April 28-30 plenary; post-adoption monitoring current |
+| Predictive value | B | Scenario forecasts at 70% confidence (standard for non-crisis) |
+| Source reliability | A | IMF (A1) + EP Open Data (A1) + Early Warning (B1) |
+| Analytical independence | A | No source dependency; multi-source triangulation |
+
+### Intelligence Warning: ESN Group Underrepresentation in Prior Analyses
+
+**Prior runs underweighted the ESN group (27 seats)**. Key correction in Run 4:
+- ESN is not a historical continuation of prior EP groups — it is a new formation post-2024
+- ESN's sovereigntist platform conflicts with both DMA enforcement and Ukraine accountability
+- While 27 seats are insufficient for a blocking minority, ESN creates "pressure from the right"
+  that constrains ECR's ability to support pro-EU positions without facing outflanking
+
+**Intelligence Implication:** Future votes on digital governance, sanctions policy, and
+trade agreements will be affected by ESN's outflanking dynamic. The margin for EPP-ECR
+cooperation is narrowing as ESN provides ECR members an exit option.
+
+### Forward Intelligence Priorities (Run 5+)
+
+1. Monitor Commission DMA enforcement calendar announcement (expected June 2026)
+2. Track Council delegation formation on Ukraine accountability
+3. Assess Budget 2027 Commission proposal (September 2026) vs. EP guidelines (TA-0112)
+4. Watch ESN-ECR tactical cooperation signals in upcoming plenary votes
+
+*Intelligence assessment updated: Run 4, 2026-05-16. Grade upgraded to A-. ESN factor documented.*

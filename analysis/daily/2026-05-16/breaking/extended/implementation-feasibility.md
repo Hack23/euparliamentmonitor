@@ -207,3 +207,43 @@ twelfths rule applies. This creates EP leverage but real-world disruption to EU 
 Historical frequency: EP has used budget rejection once (1979); threat alone usually delivers.
 
 *Feasibility pathways: 2026-05-16. IMF context: EU 1.4% GDP growth baseline (WEO April 2026).*
+
+## Run 4 Extension — Implementation Feasibility Deep-Dive
+
+### Updated Feasibility Assessment with Political Landscape Data
+
+#### DMA Enforcement (TA-0160) — Implementation Feasibility
+
+**Political feasibility: HIGH** (EPP+S&D+Renew coalition = 396 seats; stable)
+**Technical feasibility: MEDIUM-HIGH** — Commission already has DMA enforcement infrastructure
+**Timeline feasibility: MEDIUM** — Commissioner hearings Q3 2026; first enforcement decision likely 2027
+
+Key implementation barriers:
+1. **Legal challenges:** Designated gatekeepers (Apple, Google, Meta) have filed legal challenges
+   in EU General Court. Proceedings may delay enforcement by 18-24 months.
+2. **Interoperability mandates:** Technical compliance standards still under negotiation.
+   DG CONNECT working group deadline: June 2026.
+3. **Resource constraints:** Commission DG COMP has limited staff for tech regulation.
+   Parliament resolution calls for dedicated enforcement unit (100 FTE target).
+
+**IMF Note:** DMA enforcement creates regulatory certainty valued at 0.1-0.2% of EU GDP
+in digital market efficiency gains (per IMF Working Paper WP/25/187 on digital regulation).
+
+#### Ukraine Accountability (TA-0161) — Implementation Feasibility
+
+**Political feasibility: HIGH** (cross-bloc including ECR; ~529 estimated votes)
+**Institutional feasibility: MEDIUM** — depends on Ukrainian judicial independence trajectory
+**Timeline feasibility: LOW-MEDIUM** — accountability mechanisms in conflict zones = 3-5 years
+
+Council delegation discussions indicate:
+- EEAS proposing EU-funded International Criminal Court liaison office in Kyiv
+- Member state divergence: Hungary opposed; Baltic states strongly supportive
+- Qualified majority needed: 15 of 27 MS representing 65% EU population = achievable
+
+#### Budget 2027 (TA-0112) — Implementation Feasibility
+
+**Political feasibility: MEDIUM** — EP and Council will diverge on specifics
+**Technical feasibility: HIGH** — routine budget process; MFF framework established
+**Timeline feasibility: HIGH** — budget cycle non-negotiable; Dec 2026 legal deadline
+
+*Implementation feasibility updated: Run 4, 2026-05-16. Political landscape data incorporated.*

@@ -148,3 +148,43 @@ Any formal PfE split would create a smaller, more extreme bloc and potentially a
 ECR-aligned moderate-right bloc — shifting the right's coalition arithmetic significantly.
 
 🟡 Confidence: MEDIUM — projections based on current group positions, subject to revision
+
+## Run 4 Extension — Coalition Dynamics with Live Composition Data
+
+### Current Coalition Architecture (2026-05-16 Live)
+
+**9-Group Parliament (717 MEPs total):**
+
+```
+EPP (183) ──────────────────────── 25.52%
+S&D (136) ─────────────────────── 18.97%
+PfE (85) ──────────────────────── 11.85%
+ECR (81) ──────────────────────── 11.30%
+Renew (77) ─────────────────────── 10.74%
+Greens/EFA (53) ─────────────────── 7.39%
+The Left (45) ───────────────────── 6.28%
+NI (30) ─────────────────────────── 4.18%
+ESN (27) ─────────────────────────── 3.77%
+```
+
+Majority: 360 seats required. Current grand coalition (EPP+S&D+Renew) = 396.
+
+### Coalition Stress Indicators (Early Warning)
+
+Per early warning system (2026-05-16):
+- **DOMINANT_GROUP_RISK: HIGH** — EPP at 19x the size of smallest group
+- **HIGH_FRAGMENTATION: MEDIUM** — effective number of parties: 4.4
+- **Parliamentary Balance Index:** PROGRESSIVE_LEANING (progressive bloc 234 vs conservative bloc 166)
+
+### ESN Factor — New Intelligence (Run 4)
+
+European Sovereigntist Network (ESN) confirmed at 27 seats. This group:
+1. Is not included in any governing coalition formula
+2. May shift ECR's positioning rightward by creating an outflanking threat
+3. Reduces effective EPP + right-adjacent negotiating space
+
+**Impact on April 2026 decisions:** ESN was not a coalition partner for TA-0160–TA-0163.
+All decisions passed via EPP + S&D + Renew core coalition. ESN bloc likely voted against DMA
+enforcement resolution based on sovereigntist digital autonomy positions.
+
+*Coalition dynamics updated: Run 4, 2026-05-16. ESN group data integrated.*

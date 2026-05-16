@@ -273,3 +273,50 @@ but extend the timeline for consumer and market benefits from DMA.
 | T-6 Coalition Fragmentation | 20% | VERY HIGH | 0.24 | Structural |
 
 *Threat model extended: 2026-05-16 (Run 3). Admiralty Grade: B2.*
+
+## Run 4 Extension — Threat Model Update
+
+### Threat Landscape Update (2026-05-16 Live Assessment)
+
+**New Threat Intelligence (Run 4):**
+
+**THREAT-NEW-1: ESN Parliamentary Normalization Risk (LOW-MEDIUM)**
+The European Sovereigntist Network (ESN, 27 seats) is a new ninth parliamentary group.
+Its presence normalizes far-right sovereigntist positions in parliamentary procedures.
+Risk trajectory: If ESN grows in 2029 elections (fed by PfE/ECR voter cross-contamination),
+it could disrupt the EPP-led grand coalition model.
+Probability: 25% ESN grows to >35 seats in 2029. Impact: MEDIUM (constitutional risks low).
+
+**THREAT-NEW-2: DMA Legal Challenge Cascade (MEDIUM)**
+Apple, Google, and Meta have all filed CJEU challenges against DMA enforcement decisions.
+If CJEU General Court grants interim measures (suspending enforcement) pending appeal:
+- DMA enforcement resolution (TA-0160) becomes politically embarrassing
+- Commission loses credibility on tech enforcement
+- EP forced into defensive posture
+Probability: 20%. Impact: HIGH on DMA regulatory agenda.
+
+**THREAT-NEW-3: Hungary Blocking Council Delegation on Ukraine (MEDIUM)**
+Hungary continues to block EU-level sanctions and accountability measures on Ukraine.
+TA-0161 accountability framework requires Council endorsement via EEAS mandate.
+Unanimity required for CFSP mandates — one veto blocks.
+Probability of Hungarian blocking: 40%. Impact: MEDIUM (delays but doesn't permanently block).
+
+### Updated Threat Probability Matrix
+
+| Threat | P (2026) | P (2027) | Impact | Priority |
+|--------|----------|----------|--------|----------|
+| DMA legal challenges | 20% | 30% | HIGH | HIGH |
+| Hungary blocking Ukraine accountability | 40% | 35% | MEDIUM | HIGH |
+| ESN normalization risk | 25% | 40% | MEDIUM | MEDIUM |
+| Online exploitation privacy litigation | 35% | 50% | MEDIUM | MEDIUM |
+| Budget trilogue stalemate | 20% | 25% | MEDIUM-HIGH | HIGH |
+| ECR-ESN tactical coalition | 15% | 25% | LOW | LOW |
+
+### Threat Mitigation Status (Run 4)
+
+✅ DMA: Commission enforcement infrastructure operational; CJEU interim measures rarely granted
+✅ Hungary: Qualified majority via EEAS route available for most accountability instruments
+⚠️ Online exploitation: Civil liberties vs. child safety tension persists; Council position unclear
+⚠️ Budget: Commission proposal TBD (September 2026); EP guidelines establish parameters
+
+*Threat model updated: Run 4, 2026-05-16. Three new threats added; probability matrix updated.*

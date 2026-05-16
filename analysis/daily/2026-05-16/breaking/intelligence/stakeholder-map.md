@@ -333,3 +333,43 @@ flowchart TD
 ```
 
 *Stakeholder map extended: 2026-05-16 (Run 3). Admiralty Grade: B2.*
+
+## Run 4 Extension — Stakeholder Map Enrichment
+
+### Updated Stakeholder Intelligence (2026-05-16)
+
+**New Stakeholder Profile: ESN Parliamentary Group**
+
+- **Composition:** 27 MEPs from 9 member states (primarily Eastern European + Italian)
+- **Leadership:** Informal coordination; no publicly named group chair as of May 2026
+- **Core positions:** Against DMA enforcement ("digital sovereignty"), Against Ukraine conditionality ("anti-war"), Pro-agricultural protection (aligns with TA-0157 outcome)
+- **Relationship to PfE:** Tactical ally but institutionally separate; ESN represents the "further right" of European nationalist politics vs. PfE's mainstream populism
+- **Influence score:** LOW-MEDIUM (27 seats insufficient for majority impact alone; HIGH as swing/outflanking actor)
+
+**Updated Stakeholder Position Matrix (DMA enforcement):**
+
+| Stakeholder | Position | Power | Interest | Engagement |
+|-------------|----------|-------|----------|------------|
+| Commission DG COMP | IMPLEMENTING | HIGH | HIGH | Active |
+| Apple | OPPOSING | HIGH (legal) | VERY HIGH | Adversarial |
+| Google | OPPOSING | HIGH (legal) | VERY HIGH | Adversarial |
+| Meta | PARTIALLY COMPLYING | MEDIUM-HIGH | HIGH | Selective |
+| EPP | SUPPORTING | HIGH | HIGH | Active |
+| Renew | STRONGLY SUPPORTING | MEDIUM | HIGH | Active |
+| ESN | OPPOSING | LOW | MEDIUM | Reactive |
+| EDRi | CONDITIONALLY SUPPORTING | LOW | HIGH | Active |
+| CCIA | OPPOSING | MEDIUM (lobbying) | VERY HIGH | Adversarial |
+
+**Updated Stakeholder Map (Ukraine Accountability):**
+
+| Stakeholder | Position | Influence Factor |
+|-------------|----------|-----------------|
+| Ukraine government | STRONGLY SUPPORTING | HIGH (recipient) |
+| EEAS | IMPLEMENTING | HIGH (mandate) |
+| Hungary government | OPPOSING | MEDIUM (veto in CFSP) |
+| ECR bloc | SUPPORTING | MEDIUM (28 ECR seats) |
+| PfE | DIVIDED | LOW-MEDIUM (populist anti-war faction) |
+| ESN | OPPOSING | LOW (27 seats; symbolic) |
+| ICC | PARTNER | MEDIUM (complementary jurisdiction) |
+
+*Stakeholder map updated: Run 4, 2026-05-16. ESN group profiled; position matrices updated.*

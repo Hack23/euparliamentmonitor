@@ -238,3 +238,38 @@ with IMF medium-term scenario.
 | Budget 2027 | Council negotiations | Council-EP trilogue | Budget adoption | Implementation | Evaluation |
 
 *Impact matrix updated: Run 3, 2026-05-16. IMF-calibrated scoring and horizon analysis.*
+
+## Run 4 Extension — Impact Matrix with Live Political Data
+
+### Impact Re-Quantification (2026-05-16)
+
+**New political context for impact scoring:**
+- EPP dominance (183/717 = 25.52%) — increases EPP's agenda-setting power (+5% impact multiplier)
+- Stability score 84/100 — institutional stability reduces implementation delay risk (-10% timeline)
+- ESN 27 seats — new rightward pull; increases probability of DMA/online exploitation resistance (+5%)
+
+**Revised Impact Scores:**
+
+| Document | Economic Impact | Political Impact | Social Impact | Composite |
+|----------|----------------|-----------------|---------------|-----------|
+| TA-0160 (DMA) | HIGH (0.1-0.2% EU GDP efficiency) | HIGH (EP enforcement credibility) | MEDIUM (consumer choice) | **8.2/10** |
+| TA-0161 (Ukraine) | MEDIUM (reconstruction market) | VERY HIGH (EU credibility) | HIGH (security/humanitarian) | **8.8/10** |
+| TA-0112 (Budget) | MEDIUM-HIGH (resource allocation) | HIGH (MFF template) | MEDIUM-HIGH (cohesion) | **7.9/10** |
+| TA-0157 (Livestock) | MEDIUM (agri-sector €180B) | MEDIUM (farmer coalition) | MEDIUM (sustainability) | **6.5/10** |
+| TA-0162 (Armenia) | LOW (bilateral trade <€2B) | MEDIUM (neighbourhood policy) | MEDIUM (democracy support) | **5.8/10** |
+| TA-0163 (Online exploitation) | LOW-MEDIUM (platform compliance) | HIGH (civil liberties signal) | HIGH (child protection) | **7.1/10** |
+| TA-0105 (Jaki immunity) | NEGLIGIBLE | LOW-MEDIUM (EU-Poland relations) | LOW | **3.2/10** |
+
+### Aggregate Impact Projection
+
+**2026 calendar year impact (5-year discounted):**
+- DMA: ~€15-30B market efficiency value (Commission DG COMP estimate range)
+- Ukraine accountability: Enabling value for ~€300B reconstruction market
+- Budget guidelines: €1.2T MFF envelope directional influence
+
+**Societal Impact Distribution:**
+Digital governance affects ~440M EU internet users (95% of adult population).
+Ukraine accountability affects ~40M Ukrainian citizens + EU security architecture.
+Agricultural guidelines affect ~9M EU farm holdings.
+
+*Impact matrix updated: Run 4, 2026-05-16. Live political context integrated; composite scores revised.*

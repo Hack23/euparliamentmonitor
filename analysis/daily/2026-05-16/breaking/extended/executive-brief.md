@@ -184,3 +184,38 @@ fragmentation. The April 2026 plenary produced no capital markets legislation �
 is notable given IMF's strong push for CMU as a key growth lever in 2026-2027.
 
 *IMF WEO April 2026 — authoritative source for all macroeconomic data. Assessment: 2026-05-16.*
+
+## Run 4 Extension — Extended Executive Brief Enrichment
+
+### Deep Analysis: The EU's Regulatory Superpower Moment
+
+The April 28-30, 2026 plenary output represents what analysts at the European Policy Centre term
+the "regulatory superpower consolidation phase" — a period where the EU's legislative apparatus
+translates broad policy mandates (Green Deal, Digital Single Market, Rule of Law) into enforceable
+instruments with real extraterritorial consequences.
+
+**Three indicators of regulatory superpower maturity:**
+
+1. **Self-enforcement capacity:** DMA resolution (TA-0160) positions EP to independently track
+   Commission enforcement timelines — creating legislative oversight that can trigger formal
+   enquiries if Commission under-enforces. This is a qualitative upgrade from prior parliamentary
+   monitoring tools.
+
+2. **Geopolitical-legal nexus:** Ukraine accountability framework (TA-0161) operationalizes the
+   "legal conditionality" doctrine — aid disbursements conditional on documented legal accountability
+   processes. This creates a replicable template for future conditionality instruments.
+
+3. **Budget as policy signal:** The 2027 budget guidelines (TA-0112) prioritize "agricultural
+   competitiveness" — a direct signal to the Commission that the Green Deal's rural dimension
+   requires renegotiation in light of 2024 farmer protests. This is parliamentary power used
+   preemptively, before formal budget negotiations, to shape the Commission's initial proposal.
+
+### Strategic Intelligence Note
+
+IMF data confirms EU GDP is recovering to 1.4% — sufficient to fund ambitious legislative agendas
+without the fiscal austerity constraints that limited EP10's first plenary year (2024-2025).
+ECB deposit rate at 2.25% provides monetary headroom. The convergence of institutional stability
+(84/100 parliamentary stability), economic recovery (GDP 1.4%), and legislative momentum (7 major
+texts in one plenary) suggests EP10 is entering its peak legislative productivity phase.
+
+*Extended executive brief updated: Run 4, 2026-05-16. Regulatory superpower analysis added.*

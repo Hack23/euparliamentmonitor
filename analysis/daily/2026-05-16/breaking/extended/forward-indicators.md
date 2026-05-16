@@ -185,3 +185,44 @@ impact assessment:
 | Q4 2026 | Chat Control Commission revised text | Cross-cutting coalition test |
 
 *Forward indicators: IMF WEO April 2026 (authoritative economic source). Updated: 2026-05-16.*
+
+## Run 4 Extension — Forward Indicators Update
+
+### May–September 2026 Forward Indicator Dashboard
+
+**Legislative Pipeline Indicators:**
+
+| Indicator | Status | Direction | Horizon |
+|-----------|--------|-----------|---------|
+| DMA enforcement hearings | Scheduled Q3 2026 | 🟢 Positive | 3 months |
+| Ukraine reconstruction vote | Pending Council | 🟡 Neutral | 2-4 months |
+| Budget 2027 trilogue start | Expected H2 2026 | 🟡 Neutral | 3-5 months |
+| MFF mid-term review | Q4 2026 | 🟡 Neutral | 5 months |
+| CSAM directive Council | Stalled | 🔴 Negative | 6+ months |
+| EP10 plenary calendar | Published | 🟢 Available | Ongoing |
+
+**Economic Forward Indicators (IMF-based):**
+
+- EU GDP 2027 forecast: **1.6%** (IMF WEO April 2026 — conditional on geopolitical stability)
+- Euro area inflation 2027: **2.0%** (target convergence; ECB normalization possible)
+- ECB rate decision: Q4 2026 potential cut to 2.00% if HICP reaches 2.1%
+- EU fiscal deficit: Converging toward 3% SGP limit for most member states
+
+**Political Group Stability Indicators:**
+
+- EPP leadership (Weber) contract: Secure through EP10 term end (2029)
+- S&D leadership: Under internal review following 2024 election loss
+- PfE-ECR convergence risk: Moderate (15% probability of formal parliamentary alliance)
+- Renew membership: Critical threshold — decline to <70 seats would trigger strategy review
+
+### Event Horizon Calendar (H2 2026)
+
+| Date | Event | Significance |
+|------|-------|-------------|
+| June 2026 | EP plenary (Strasbourg) | First post-spring session; DMA hearings prep |
+| July 2026 | EU-UK Summit | Trade alignment and regulatory equivalence |
+| Sept 2026 | Budget 2027 Commission proposal | Triggers trilogue with EP guidelines as reference |
+| Oct 2026 | European Council | MFF review agenda; geopolitical priorities |
+| Nov 2026 | IMF WEO Update | Economic projections affecting budget math |
+
+*Forward indicators updated: Run 4, 2026-05-16. H2 2026 horizon calendar added.*

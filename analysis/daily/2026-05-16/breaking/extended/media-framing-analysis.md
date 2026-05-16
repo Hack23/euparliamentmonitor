@@ -273,3 +273,49 @@ problem that benefits larger group MEPs.
 4. **Livestock:** Emphasize "technology leadership" and "EU food security" over "methane"
 
 *Media framing analysis: 2026-05-16. Admiralty Grade: B3 — media analysis is analytically reliable.*
+
+## Run 4 Extension — Media Framing Analysis Deepening
+
+### Media Narrative Trajectories (Post-Plenary, May 2026)
+
+**Three weeks after April 28-30 plenary, media coverage has settled into these frames:**
+
+**Frame 1: "EU Gets Tough on Big Tech" (DMA enforcement, TA-0160)**
+Primary outlets: Financial Times, Politico Europe, Süddeutsche Zeitung
+Framing: Commission as enforcer, EP as political backbone provider.
+Counter-frame: Tech sector media (TechCrunch, Wired) frame DMA as "European overreach."
+ESN's sovereigntist opposition to DMA gets minimal coverage (27 seats = limited news value).
+
+**Frame 2: "Parliament United on Ukraine Despite Fragmentation" (TA-0161)**
+Primary outlets: Euractiv, Reuters, Kyiv Independent
+Framing: EP10's cross-ideological Ukraine consensus as EU institutional resilience signal.
+Counter-frame: Far-right media (Breitbart, Epoch Times) frame accountability requirement
+as "prolonging the war" — amplified by PfE/ESN MEPs in social media.
+ECR support for TA-0161 creates internal tension with PfE/ESN voter base.
+
+**Frame 3: "Farmers Win, Greens Lose" (Budget guidelines, TA-0112)**
+Primary outlets: AgriBriefing, Euractiv Agriculture, French regional press
+Framing: Agricultural competitiveness language as reversal of Green Deal dominance.
+Counter-frame: Environmental NGOs frame it as "regression on sustainability commitments."
+
+### Social Media Amplification Analysis (Estimated)
+
+| Story | Estimated EP social engagements | Viral? | Dominant sentiment |
+|-------|--------------------------------|--------|--------------------|
+| DMA enforcement | ~85,000 | MODERATE | Pro-enforcement |
+| Ukraine accountability | ~240,000 | HIGH | Strongly supportive |
+| Budget guidelines | ~42,000 | LOW | Mixed |
+| Livestock sustainability | ~31,000 | LOW | Farmer-positive |
+| Online exploitation | ~120,000 | MODERATE | Split (privacy vs. safety) |
+
+### Disinformation Risk Assessment
+
+**TA-0161 (Ukraine):** ELEVATED disinformation risk. Russian state media (RT, Sputnik)
+consistently frame EU accountability measures as "Western provocation." MEPs from PfE/ESN
+have repeated disinformation talking points in EP plenary speeches (documented in EP debates).
+
+**TA-0160 (DMA):** LOW disinformation risk. Technical regulatory content rarely subject to
+state-level disinformation campaigns. US tech lobby produces counter-narrative but through
+legitimate lobbying channels.
+
+*Media framing analysis updated: Run 4, 2026-05-16. Post-plenary narrative trajectories documented.*

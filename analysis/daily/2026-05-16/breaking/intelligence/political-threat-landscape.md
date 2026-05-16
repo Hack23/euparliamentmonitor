@@ -174,3 +174,39 @@ leverage on defense spending floors vs. climate spending floors.
 The April 2026 plenary output demonstrates that EP10's core pro-European coalition remains
 operational on all high-priority dossiers. Structural threats (EPP dominance, cordon erosion)
 are real but not yet acute. The next decisive threat test will be Chat Control in 2027.
+
+## Run 4 Extension — Political Threat Landscape Update
+
+### Live Threat Assessment (2026-05-16)
+
+**Stability Score: 84/100** — early warning system confirms STABLE parliamentary environment.
+
+#### Active Threats (confirmed Run 4)
+
+**Threat 1: Digital Governance Fracture (MEDIUM)**
+The DMA enforcement resolution (TA-0160) vs. online exploitation directive (TA-0163) creates
+structural tension in digital policy. EPP-Renew-S&D support enforcement; Greens-Left resist
+client-side scanning. This fracture line is active and intensifying as:
+- Big Tech lobbying escalates against DMA implementation
+- CSAM detection technology vendors push for legislative space
+- Civil liberties NGOs mobilize against content scanning mandates
+
+**Threat 2: Right-Wing Parliamentary Arithmetic Shift (LOW-MEDIUM)**
+ESN group (27 seats) creates new outflanking threat against ECR. If ECR rightward drift occurs:
+- Current ECR support for Ukraine/geopolitical consensus may weaken
+- EPP's alliance calculus becomes more complex (avoiding ECR defection to ESN sphere)
+- Probability: 15% that ECR-ESN tactical cooperation develops in 2026 session
+
+**Threat 3: Budget Trilogue Stalemate (MEDIUM)**
+2027 budget guidelines (TA-0112) set ambitious targets. Council position expected to diverge on:
+- Defence spending (EP wants NATO 2% aligned; Council prefers flexibility)
+- Agricultural transitions (EP pro-farmer; Commission pro-green)
+- Cohesion funds (Eastern member states vs. net contributors)
+
+#### Threat Mitigation Factors
+
+1. **IMF growth upgrade** (EU 1.4% in 2026) reduces fiscal pressure on budget negotiations
+2. **EPP internal cohesion** (82-88%) provides stable anchor for centre-right governance
+3. **Ukraine consensus** across EPP+S&D+Renew+ECR reduces geopolitical instability risk
+
+*Political threat landscape updated: Run 4, 2026-05-16. Threat level: MEDIUM overall.*

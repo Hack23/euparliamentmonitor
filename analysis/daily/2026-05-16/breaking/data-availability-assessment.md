@@ -86,3 +86,41 @@ These figures are used as the authoritative economic backdrop for all policy ana
 this run's artifact set.
 
 *Data assessment finalized: 2026-05-16. Admiralty Grade: A2 for this assessment itself.*
+
+## Run 4 Update — May 16, 2026 Feed Availability Re-Assessment
+
+### Live Feed Status (2026-05-16 19:20 UTC)
+
+| Feed | Status | Notes |
+|------|--------|-------|
+| adopted-texts-feed (today) | PARTIAL | Returns Jan-Feb 2026 data; today feed not yet populated |
+| adopted-texts-feed (one-week) | AVAILABLE | 131 identifiers; no titles in response |
+| events-feed (today) | UNAVAILABLE | EP API 404 — non-plenary day upstream gap |
+| procedures-feed (one-week) | PARTIAL | Historical ordering detected; 50 items, pre-2026 |
+| political-landscape | AVAILABLE | 717 MEPs, 9 groups confirmed |
+| early-warning | AVAILABLE | Stability 84/100, MEDIUM risk |
+| DOCEO votes (2026-05-16) | UNAVAILABLE | No plenary session today |
+
+### Data Mode Confirmation
+
+Current mode: **degraded-feeds** (factor 0.80) — consistent with earlier runs. Events feed 404 and
+procedures API historical-ordering confirm non-plenary-day degradation pattern. All per-artifact
+line floors apply 0.80 factor per manifest declaration.
+
+### IMF Context Status
+
+IMF WEO April 2026 data confirmed available in prior runs:
+- EU GDP growth 2026: **1.4%** (↑ from 1.1% IMF WEO Oct 2025 estimate)
+- Euro area GDP 2026: **1.2%**
+- EU HICP inflation: **2.3%**
+- ECB deposit rate: **2.25%** (post-June 2025 cut from 2.50%)
+
+Economic context from IMF remains valid baseline; no new WEO release expected until October 2026.
+
+### Confidence Assessment
+
+🟡 **MEDIUM** — Feed degradation pattern is structural (non-plenary Saturday), not indicative of
+EP API instability. Core analysis corpus (April 28-30 Strasbourg plenary) remains complete and
+verified. Adopted texts feed confirms 131+ documents in scope. All 39 required artifacts produced.
+
+*Data availability assessment updated: Run 4, 2026-05-16.*

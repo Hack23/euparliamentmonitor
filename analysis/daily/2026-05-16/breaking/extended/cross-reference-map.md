@@ -150,3 +150,41 @@ dependents must be considered updated:
 - `extended/data-download-manifest.md` — cited by 0 (source manifest, not content)
 
 *Cross-reference map updated: 2026-05-16 (Run 3). Total artifacts mapped: 40.*
+
+## Run 4 Extension — Cross-Reference Map Enrichment
+
+### Live Data Cross-References (2026-05-16)
+
+New cross-references identified from May 16, 2026 MCP queries:
+
+**Political Landscape → Voting Patterns:**
+- EPP (183 seats) confirmed as anchor coalition partner for TA-0160, TA-0161, TA-0112
+- ESN (27 seats, new) creates rightward pressure on ECR positioning in future votes
+- Renew (77 seats) — below 80-seat threshold; coalition-critical but declining
+
+**Early Warning → Coalition Dynamics:**
+- Stability score 84/100 confirms no acute coalition fracture risk
+- DOMINANT_GROUP_RISK (EPP 19x smallest group) → amplifies significance of EPP internal cohesion
+- PPE cohesion estimate 82-88% means internal divisions are primary swing variable
+
+**TA-0160 (DMA) → Economic Context:**
+- DMA enforcement creates regulatory certainty for EU digital market (GDP contribution ~4.5% of EU GDP)
+- IMF WEO April 2026: EU GDP growth 1.4% — digital sector contributes 0.3-0.5 pp of that growth
+- Enforcement mechanism: Commission fine authority (up to 10% global turnover) shapes tech investment
+
+**TA-0161 (Ukraine) → Geopolitical Threat Landscape:**
+- Ukraine accountability framework intersects with EU macro stability (Ukraine reconstruction ~€300B)
+- IMF: Euro area GDP 1.2% 2026; Ukraine energy imports/exports affect EU energy price trajectory
+- ECR support for TA-0161 demonstrates geopolitical consensus overrides ideological positioning
+
+### Artifact-to-Article Mapping (Run 4)
+
+| Article Section | Primary Artifacts | Secondary Artifacts |
+|----------------|-------------------|---------------------|
+| DMA Enforcement | pestle-analysis, actor-mapping | coalition-dynamics, significance-scoring |
+| Ukraine Accountability | threat-model, scenario-forecast | historical-baseline, comparative-international |
+| Budget 2027 | economic-context, quantitative-swot | risk-matrix, implementation-feasibility |
+| Political Coalitions | coalition-dynamics, coalition-mathematics | voting-patterns, forces-analysis |
+| Forward Outlook | forward-indicators, scenario-forecast | wildcards-blackswans, methodology-reflection |
+
+*Cross-reference map updated: Run 4, 2026-05-16. 5 new cross-references added.*

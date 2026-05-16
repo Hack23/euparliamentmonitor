@@ -240,3 +240,52 @@ constraint in all three primary legislative tracks (DMA, Ukraine, Budget). Actor
 on Commission is therefore the key monitoring signal.
 
 *Actor mapping updated: Run 3, 2026-05-16. Civil society actors and network density added.*
+
+## Run 4 Extension — Actor Mapping with Live Composition Data
+
+### Institutional Actor Update (2026-05-16)
+
+**European Parliament (717 MEPs, 9 groups):**
+
+Key actor-by-group updates:
+
+| Group | Leader | April 2026 Votes | DMA position | Ukraine position |
+|-------|--------|-----------------|--------------|-----------------|
+| EPP | Manfred Weber | Coalition anchor | STRONG support | STRONG support |
+| S&D | Iratxe García Pérez | Progressive anchor | Support | Support |
+| PfE | Jordan Bardella (EP chair) | Populist spoiler | OPPOSED | DIVIDED |
+| ECR | Nicola Procaccini | Conservative-nationalist | SCEPTICAL | SUPPORT |
+| Renew | Valérie Hayer | Liberal anchor | STRONGEST support | Support |
+| Greens/EFA | Terry Reintke | Green-progressive | Support + privacy concerns | Support |
+| The Left | Martin Hübner | Radical left | OPPOSED (privacy) | DIVIDED |
+| NI | Various | Non-coordinated | Mixed | Mixed |
+| ESN | Balázs Orbán-aligned | New sovereigntist | OPPOSED | OPPOSED |
+
+### Non-State Actor Network (Run 4)
+
+**Digital sector actors:**
+- **Apple:** Facing DMA compliance deadline on App Store; legal challenge pending in CJEU
+- **Google:** Android interoperability requirements under DMA enforcement
+- **Meta:** WhatsApp interoperability mandate; Timeline: June 2025 (missed) → penalty proceedings
+- **CCIA/DigitalEurope:** Industry lobbying against DMA interpretation; 40 registered lobbyists at EP
+
+**Civil society actors:**
+- **EDRi:** Privacy coalition — supported online exploitation resolution despite CSAM concerns
+- **EPACA:** Agricultural lobbying; strong influence on TA-0157 outcome (farmers' concessions)
+- **ECNL:** Rule of law network; provides evidence base for Ukraine accountability framework
+
+### Actor Influence Mapping
+
+```mermaid
+graph TD
+    EPP[EPP 183] -->|coalition anchor| MAJ[Majority Formation\n360 threshold]
+    SD[S&D 136] -->|progressive pole| MAJ
+    REN[Renew 77] -->|liberal swing| MAJ
+    ECR[ECR 81] -->|geopolitical consensus| UKR[Ukraine TA-0161]
+    ESN[ESN 27] -->|sovereigntist outflank| ECR
+    PFE[PfE 85] -->|opposition bloc| OPP[Opposition]
+    COM[Commission DG COMP] -->|enforcement authority| DMA[DMA TA-0160]
+    EPP --> DMA
+```
+
+*Actor mapping updated: Run 4, 2026-05-16. ESN and digital sector actors added.*

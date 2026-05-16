@@ -112,3 +112,33 @@ to change absent new external developments affecting geopolitical or market sign
 
 *Classification updated: 2026-05-16. Based on April 28-30, 2026 Strasbourg plenary output.
 Next classification review: upon Commission DMA enforcement calendar release (June 2026).*
+
+## Run 4 Significance Classification — Updated Political Group Context
+
+### Revised Significance Scores with Live Composition Data (2026-05-16)
+
+**Political landscape update** — 717 MEPs total; coalition arithmetic revalidated:
+
+| Legislation | EP Majority Needed | Coalition Achieved | Significance Adjustment |
+|-------------|-------------------|--------------------|------------------------|
+| TA-0160 (DMA) | 359 votes | EPP+S&D+Renew = 396 | CONFIRMED HIGH |
+| TA-0161 (Ukraine) | 359 votes | Cross-bloc including ECR = 400+ | CONFIRMED HIGH |
+| TA-0112 (Budget) | 359 votes | EPP+S&D+Renew = 396 | CONFIRMED HIGH |
+| TA-0162 (Armenia) | 359 votes | EPP+S&D+Renew+Greens = 449 | CONFIRMED MEDIUM-HIGH |
+| TA-0157 (Livestock) | 359 votes | EPP+S&D+ECR = 400 | CONFIRMED MEDIUM |
+
+### ESN Group — New Factor (Run 4)
+
+The **European Sovereigntist Network (ESN)** with 27 seats (3.77%) was not present in EP9.
+Its emergence as a 9th group has reduced the effective coalition space for left-progressive measures.
+Combined right-wing bloc (PfE + ECR + ESN + NI) = 223 seats — sufficient as blocking minority
+(>360 threshold) only if joined by EPP rightward shift. Current EPP leadership (Weber) maintains
+centrist positioning, making this blocking coalition unlikely on most legislative items.
+
+### Significance Tier Stability Assessment
+
+🟢 **STABLE** — The significance tiers assigned in Runs 1-3 remain valid. No new legislative
+developments observed on 2026-05-16 (non-plenary day). Classification horizon: until June 2026
+plenary or Commission DMA response filing, whichever comes first.
+
+*Significance classification updated: Run 4, 2026-05-16.*

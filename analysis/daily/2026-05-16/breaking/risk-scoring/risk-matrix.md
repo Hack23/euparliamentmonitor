@@ -166,3 +166,45 @@ the three risks are correlated. Joint probability of all three materializing: ~8
 A stress scenario involving all three would require EU-level emergency fiscal coordination.
 
 *Risk matrix updated: Run 3, 2026-05-16. Velocity analysis and correlation matrix added.*
+
+## Run 4 Extension — Risk Matrix Update
+
+### Risk Re-Assessment with Live Political Data (2026-05-16)
+
+**Political Stability Risk: LOW → VERY LOW**
+- Early warning stability score: 84/100 (STABLE)
+- No political crises or group realignments detected in Run 4 data
+- PPE dominance risk is structural (HIGH), but this is a chronic condition, not acute risk
+
+**Legislative Pipeline Risk: MEDIUM** (unchanged)
+
+| Risk Factor | Probability | Impact | Risk Score | Trend |
+|-------------|-------------|--------|------------|-------|
+| DMA enforcement delay | 25% | HIGH | 3.75 | ↓ Reducing |
+| Ukraine accountability stall | 35% | HIGH | 5.25 | → Stable |
+| Budget 2027 trilogue failure | 20% | MEDIUM | 2.50 | → Stable |
+| Online exploitation privacy clash | 45% | MEDIUM | 4.50 | ↑ Increasing |
+| ESN disruption of right coalition | 30% | LOW | 1.50 | → Stable |
+
+**Geopolitical Risk: MEDIUM** (unchanged from prior runs)
+
+Ukraine conflict escalation risk: 20% probability of significant escalation affecting EP legislative
+calendar. If escalation occurs, emergency legislative procedures could displace normal plenary agenda.
+This was flagged in scenario-forecast.md as "Scenario 2: Geopolitical Escalation" with 20% probability.
+
+**IMF Economic Risk: LOW**
+- EU GDP 2026 upwardly revised to 1.4% (from 1.1% in Oct 2025 WEO)
+- Euro area GDP 1.2% — modest but positive growth supports budget stability
+- ECB deposit rate 2.25% — stable monetary environment reduces financial risk
+
+### Risk Score Trend (Runs 1-4)
+
+| Risk Dimension | Run 1 | Run 2 | Run 3 | Run 4 |
+|----------------|-------|-------|-------|-------|
+| Political stability | MEDIUM | LOW | LOW | VERY LOW |
+| Legislative pipeline | HIGH | MEDIUM | MEDIUM | MEDIUM |
+| Geopolitical | HIGH | MEDIUM | MEDIUM | MEDIUM |
+| Economic | MEDIUM | LOW | LOW | LOW |
+| Composite | MEDIUM-HIGH | MEDIUM | MEDIUM | MEDIUM-LOW |
+
+*Risk matrix updated: Run 4, 2026-05-16. Composite risk: MEDIUM-LOW (improved from MEDIUM).*

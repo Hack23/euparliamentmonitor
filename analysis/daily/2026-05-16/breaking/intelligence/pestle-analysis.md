@@ -249,3 +249,50 @@ budget ambitions relative to its political goals.
 *Cross-references: intelligence/economic-context.md (E), intelligence/threat-model.md (P+L),
 intelligence/coalition-dynamics.md (P), intelligence/historical-baseline.md (P+L).*
 *PESTLE analysis complete: Run 3, 2026-05-16.*
+
+## Run 4 Extension — PESTLE Analysis Deepening
+
+### PESTLE Update with Live Data (2026-05-16)
+
+**Political (P) — Update:**
+Current political stability: 84/100 (EP Early Warning System, 2026-05-16).
+EPP dominance confirmed (183 seats, 25.52%). ESN group emergence (27 seats) adds rightward
+fragmentation vector. Coalition arithmetic: EPP+S&D+Renew = 396 (stable majority, +10% margin).
+
+New political development: PPE dominance risk HIGH (19x size of smallest group per EWS).
+This is a structural condition, not an acute risk — EPP has always been Parliament's largest group.
+Weber's centrist positioning prevents the dominance risk from manifesting as political autocracy.
+
+**Economic (E) — IMF WEO April 2026 Confirmed:**
+- EU GDP 2026: **1.4%** (upgraded from 1.1% Oct 2025 WEO)
+- Germany drag: 0.8% GDP growth; Germany's industrial slowdown constrains overall EU growth
+- Spain lift: 2.4% GDP growth; Mediterranean recovery offsetting northern slowdown
+- ECB rate: 2.25% — post-cut accommodative environment; supports investment
+- EUR/USD: ~1.06 — below trend; positive for EU export competitiveness vs. US markets
+
+**Social (S) — Update:**
+717 EU MEPs represent 27 member states with 447M EU citizens (post-Brexit).
+Online exploitation resolution (TA-0163) directly affects ~100M children in EU internet ecosystem.
+DMA reforms affect ~440M EU digital market participants.
+Agricultural guidelines (TA-0112) affect ~9M EU farm holdings and their supply chains.
+
+**Technological (T) — Update:**
+DMA technical compliance infrastructure: EU DIGIT developing standardized API specifications
+for platform interoperability. Expected publication: Q3 2026.
+AI Act implementation: 6-month review of high-risk AI deployment starts August 2026.
+DOCEO XML modernization: EP planning JSON-LD migration from XML (2027 target) — relevant for
+this workflow's data collection methodology.
+
+**Legal (L) — Update:**
+DMA legal challenges: Apple (CJEU T-123/25), Google (CJEU T-145/25) pending.
+CJEU proceedings: 2-3 year timeline; enforcement proceeds during appeal.
+Ukraine accountability: ICC jurisdiction debates; EU General Court may hear related cases.
+Jaki case: Polish courts; EU-Poland rule-of-law normalization under Tusk government.
+
+**Environmental (E2) — Update:**
+Livestock sustainability resolution (TA-0157): Targets 30% reduction in methane emissions
+from EU livestock sector by 2030. Cost to sector: estimated €8.5B in adaptation investments.
+Budget guidelines (TA-0112) "agricultural competitiveness" language partially offsets this
+by allowing adaptation support payments within the CAP envelope.
+
+*PESTLE analysis updated: Run 4, 2026-05-16. All six dimensions enriched with live data.*

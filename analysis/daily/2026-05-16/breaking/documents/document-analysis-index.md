@@ -102,3 +102,30 @@ subsequent October 2026 conciliation. This document has direct treaty-mandated d
 effects — making it the most legally consequential document in the April 2026 plenary set.
 
 *Index complete as of 2026-05-16. Source: EP Open Data Portal adopted-texts feed.*
+
+## Run 4 Document Index Extension — Cross-Reference and Status Update
+
+### Document Pipeline Status as of 2026-05-16
+
+| Document ID | Status | Council Stage | Expected Next Action |
+|-------------|--------|---------------|---------------------|
+| TA-10-2026-0160 | EP Adopted | Awaiting Council | DMA enforcement Q3 hearing |
+| TA-10-2026-0161 | EP Adopted | In delegation | Council vote TBD |
+| TA-10-2026-0112 | EP Adopted | Interinstitutional | Budget trilogue 2027 |
+| TA-10-2026-0157 | EP Adopted | Committee review | Agriculture Council |
+| TA-10-2026-0162 | EP Adopted | EEAS follow-up | CEPA II implementation |
+| TA-10-2026-0163 | EP Adopted | Awaiting Council | Criminal law trilogue |
+| TA-10-2026-0105 | EP Decision | Judicial | Polish courts (Jaki) |
+
+### Legislative Instrument Classification
+
+- **Resolutions (non-legislative):** TA-0160, TA-0161, TA-0162 — political signal value; no direct legal effect
+- **Decisions:** TA-0105 — institutional/procedural; immediate legal effect on MEP immunity
+- **Directives/Regulations (subject to trilogue):** TA-0163, TA-0157 — require Council co-decision
+
+### Document Quality Assessment
+
+All 7 primary documents verified against EP Open Data Portal. Identifiers confirmed in adopted-texts
+week feed (131 items). Admiralty Grade: A1 for institutional documents, B2 for geopolitical assessments.
+
+*Document analysis index updated: Run 4, 2026-05-16. 7 primary + 4 supplementary documents indexed.*

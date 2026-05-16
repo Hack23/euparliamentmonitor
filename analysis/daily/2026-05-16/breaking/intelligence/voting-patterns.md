@@ -148,3 +148,36 @@ xychart-beta
 *Admiralty Grade: C2. Roll-call data expected ~21 May 2026.*
 *This analysis will be superseded by actual roll-call data when EP publishes it.*
 *Proxy methodology based on Hix-Noury-Roland EP voting literature. IMF economic context frames significance analysis.*
+
+## Run 4 Extension — Voting Patterns Update
+
+### Live Voting Data Status (2026-05-16)
+
+DOCEO XML unavailable for 2026-05-16 (non-plenary Saturday). No new roll-call votes recorded.
+Most recent available voting data: April 28-30, 2026 Strasbourg plenary.
+
+### Political Group Cohesion Estimates — April 2026
+
+Based on structural coalition data (EP API group composition + early warning indicators):
+
+| Group | Estimated Cohesion | Basis |
+|-------|-------------------|-------|
+| EPP | 82-88% | Historical EP10 pattern; Weber discipline strong |
+| S&D | 78-85% | Progressive solidarity; some national variation |
+| PfE | 65-75% | National sovereignty tensions; Le Pen/Orbán divergence |
+| ECR | 70-78% | Conservative alignment; Polish delegation discipline |
+| Renew | 72-80% | Liberal platform; strongest on digital/trade |
+| Greens/EFA | 80-87% | High cohesion; EFA regional parties occasionally diverge |
+| The Left | 85-92% | Ideologically cohesive; small delegation unified |
+| ESN | 60-70% | New group; cohesion norms not yet established |
+| NI | N/A | Non-attached; vote independently by definition |
+
+### Voting Pattern Implications for April 2026 Texts
+
+**TA-0160 (DMA):** Renew + EPP + S&D core; Greens supporting. PfE/ECR/ESN likely opposing.
+**TA-0161 (Ukraine):** Rare cross-bloc unity including ECR (geopolitical issue trumps left-right axis).
+**TA-0163 (Online Exploitation):** Split vote — EPP/S&D/Renew vs Greens/Left on privacy grounds.
+
+These patterns are consistent with EP10 coalition norms established since September 2024 elections.
+
+*Voting patterns updated: Run 4, 2026-05-16. DOCEO unavailable; estimates based on structural data.*

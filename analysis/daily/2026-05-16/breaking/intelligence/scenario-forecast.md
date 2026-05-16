@@ -291,3 +291,53 @@ xychart-beta
 
 *Scenario forecast extended: 2026-05-16 (Run 3). IMF WEO April 2026 cited for economic context.*
 *Admiralty Grade: B2. All probability estimates are analyst judgement, not actuarial calculations.*
+
+## Run 4 Extension — Scenario Forecast Update
+
+### Scenario Probability Updates (2026-05-16)
+
+**New data inputs for scenario revision:**
+- Political stability score: 84/100 (STABLE) — reduces probability of political disruption scenarios
+- EPP+S&D+Renew coalition = 396 seats — reinforces baseline scenario
+- IMF GDP upgrade (EU 1.4% 2026) — positive for all scenarios involving legislative productivity
+- ESN group confirmation (27 seats) — marginal negative for right-ward coalitions
+
+### Scenario 1: Baseline — Steady Legislative Progress (Updated: 65% → 68%)
+
+**Upward revision rationale:** Stability score 84/100 and IMF GDP upgrade both support baseline.
+
+Key markers for this scenario:
+- DMA enforcement framework released on schedule (Q3 2026) ✓
+- Ukraine accountability Council delegation formed (H2 2026) ✓
+- Budget 2027 Commission proposal within EP guidelines (September 2026) ✓
+- EPP internal cohesion maintained (82-88%) ✓
+
+**IMF Economic Anchor:** EU GDP 1.4% creates fiscal space for budget negotiations within
+existing MFF envelope — reducing likelihood of budget crisis.
+
+### Scenario 2: Geopolitical Escalation (Updated: 20% → 18%)
+
+**Downward revision rationale:** Ukraine frontline stabilization signals reduced escalation risk.
+
+### Scenario 3: Digital Governance Fracture (Updated: 10% → 11%)
+
+**Marginal upward revision:** ESN group (27 seats) adds new voice to DMA skepticism.
+If ESN + ECR (108 combined seats) develop tactical alliance: combined CSAM resistance bloc
+could force Committee on Civil Liberties into extended hearings — delaying TA-0163 implementation.
+
+### Scenario 4: Budget Crisis (Updated: 5% — unchanged)
+
+Hungary-blocking risk remains the primary trigger for this scenario (40% probability of
+Hungarian veto on any CFSP accountability measure). However, budget itself bypasses
+unanimous CFSP pathway — QMV route available. Scenario 4 remains unlikely.
+
+### Forward Scenario Markers (H2 2026)
+
+| Date | Marker | Scenario Signal |
+|------|--------|----------------|
+| June 2026 | DMA enforcement framework | S1 if on time; S3 if delayed |
+| July 2026 | European Council on Ukraine | S1/S2 depending on agenda |
+| Sept 2026 | Budget Commission proposal | S1 if within guidelines; S4 if rejected |
+| Nov 2026 | EP plenary (Strasbourg) | S3 if online exploitation committee blocked |
+
+*Scenario forecast updated: Run 4, 2026-05-16. Probabilities revised with live data inputs.*

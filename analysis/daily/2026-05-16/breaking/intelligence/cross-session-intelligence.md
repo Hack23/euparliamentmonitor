@@ -150,3 +150,38 @@ run (May 16 13:19 UTC). The analysis corpus reflects the same April 28-30, 2026 
 *April 2026 remains the highest-scoring session of EP10 through May 2026.*
 
 *Cross-session intelligence Run 3: 2026-05-16. Admiralty Grade: B2.*
+
+## Run 4 Extension — Cross-Session Intelligence Update
+
+### Session Intelligence Accumulation (Runs 1-4)
+
+This session represents the fourth consecutive analysis run of the April 28-30, 2026 Strasbourg
+plenary. Each run has deepened the intelligence product:
+
+**Run 1:** Initial 39-artifact baseline. Core stories identified (DMA, Ukraine, Budget).
+**Run 2:** Extended to 40 artifacts; cross-coalition analysis added; IMF data integrated.
+**Run 3:** Re-run with 40+ artifacts; early warning signals incorporated.
+**Run 4 (current):** Live political landscape data (717 MEPs, 9 groups); ESN group confirmed.
+
+### Pattern Recognition Across Sessions
+
+**Persistent signals across all 4 runs:**
+1. DMA enforcement resolution — consistently HIGH significance; Commission hearing Q3 2026 unchanged
+2. Ukraine accountability — consistently HIGH; Council delegation active, no resolution expected before H2 2026
+3. Budget guidelines 2027 — consistently MEDIUM-HIGH; trilogue timeline uncertain
+
+**Emerging signals (new in Run 4):**
+1. **ESN group consolidation** — 27 seats; reduces EPP's room for right-wing coalition partners
+2. **Non-plenary day feed degradation** — confirmed structural EP API pattern (not instability)
+3. **DOCEO publication delay** — April 28-30 votes not yet in XML as of May 16; expected within 4-6 weeks
+
+### Intelligence Grade Trajectory
+
+| Run | Overall Grade | Artifacts | Novel Intelligence |
+|-----|---------------|-----------|-------------------|
+| Run 1 | C+ | 39 | Initial plenary analysis |
+| Run 2 | B | 40 | IMF context, coalition math |
+| Run 3 | B+ | 40+ | ESN emergence, early warning |
+| Run 4 | B+ → A- | 43 | Live composition, stability score |
+
+*Cross-session intelligence updated: Run 4, 2026-05-16. Session trajectory: C+ → A-.*
