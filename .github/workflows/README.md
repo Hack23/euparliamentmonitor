@@ -107,6 +107,9 @@ imports:
       workflowName: "News: EU Parliament <Title> — Unified"
   - shared/mcp/news-mcp-servers.md
   - shared/prompts/news-unified-runtime.md
+  - uses: shared/prompts/news-unified-stages.md
+    with:
+      slug: <article-type-slug>
 ```
 
 | Component | Owns |
@@ -119,6 +122,7 @@ imports:
 | [`shared/config/news-pat-pr-fallback.md`](shared/config/news-pat-pr-fallback.md) | `post-steps:` (agent-patch capture) + `jobs.pat-pr-fallback` (host-side PAT recovery) — parameterized by `slug` and `workflowName`. The PAT recovery contract (`scripts/gh-aw-pat-pr-fallback.sh` short-circuits on `GH_AW_SAFE_OUTPUTS_RESULT=success`) lives here. |
 | [`shared/mcp/news-mcp-servers.md`](shared/mcp/news-mcp-servers.md) | Frontmatter-only shared MCP mounts (EP / IMF / WB / sequential-thinking / fetch-proxy) |
 | [`shared/prompts/news-unified-runtime.md`](shared/prompts/news-unified-runtime.md) | Repeated unified-workflow runtime instructions (required reading + Stage order) |
+| [`shared/prompts/news-unified-stages.md`](shared/prompts/news-unified-stages.md) | **(Phase D, May-2026)** Per-slug **Stages narrative** parameterized by `slug`: 🗓️ Date Context + Stable Folder Resolution bash, Stage B Analysis (re-run merge rule + Pass 1/2 + PREFLIGHT_ATTESTATION), Stage C Completeness Gate (gate lines + Elapsed-Time Tripwire), Stage D `generate-article` invocation, Stage E SINGLE_PR_ATTESTATION + `safeoutputs___create_pull_request` spec, 🚫 Never section, ⏱️ MCP session lifetime callout. ~176 byte-identical lines per workflow extracted (2,496 lines deduplicated across the 14 article workflows). |
 
 `news-translate.md` imports `news-common-settings.md` + the MCP/prompt components and keeps its
 translation-specific prompt body (multi-call flush pattern, exempt from single-PR rule).
@@ -128,7 +132,7 @@ translation-specific prompt body (multi-call flush pattern, exempt from single-P
 ```mermaid
 flowchart LR
     subgraph "news-<slug>.md (14 article workflows)"
-        WF["• name<br/>• schedule (cron)<br/>• concurrency.group<br/>• safe-outputs.max-patch-size<br/>• create-pull-request.labels<br/>• engine.model<br/>• Stage A-E prompt body"]
+        WF["• name<br/>• schedule (cron)<br/>• concurrency.group<br/>• safe-outputs.max-patch-size<br/>• create-pull-request.labels<br/>• engine.model<br/>• Workflow Parameters table<br/>• Article-Type Specifics<br/>• Stage A bash + slug-specific extensions"]
     end
 
     subgraph "shared/config/ (Phase A1-C extractions)"
@@ -142,6 +146,7 @@ flowchart LR
     subgraph "shared/mcp/ & shared/prompts/"
         MCP["news-mcp-<br/>servers.md"]
         RT["news-unified-<br/>runtime.md"]
+        STAGES["news-unified-<br/>stages.md<br/><i>+ slug input<br/>(Phase D, May-2026)</i>"]
     end
 
     subgraph ".github/agents/"
@@ -156,6 +161,7 @@ flowchart LR
     WF -->|uses: with slug + workflowName| PATPR
     WF -->|imports| MCP
     WF -->|imports| RT
+    WF -->|uses: with slug| STAGES
 ```
 
 The arrow style distinguishes plain imports from parameterized
