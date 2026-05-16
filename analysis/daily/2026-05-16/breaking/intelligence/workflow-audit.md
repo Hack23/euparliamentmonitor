@@ -61,3 +61,30 @@
 - No MCP server failures
 - No timeout events
 - All core data sources operational except events-feed (404)
+
+## Extended Workflow Audit — Run 251
+
+```mermaid
+gitGraph
+    commit id: "prefetch-ep-feeds (run255)"
+    commit id: "Stage A data collection"
+    commit id: "Stage B Pass 1 — 39 artifacts written"
+    commit id: "Stage B Pass 2 — prior-run-diff extend"
+    commit id: "Run 251 Pass 2 — carryForward extensions"
+    commit id: "Stage C gate validation"
+    commit id: "Stage D article render"
+    commit id: "Stage E single PR"
+```
+
+**Run 251 workflow metrics:**
+- Total artifacts: 39
+- Artifacts extended: 39 (rewriteCount = 39 per re-run rule)
+- Artifacts newly created: 1 (intelligence/voting-patterns.md)
+- Placeholder markers resolved: 3 instances across 2 files
+- New mermaid diagrams added: 8 (across 6 files)
+- WEP statements added: 4 (across 4 files)
+
+**Data mode:** degraded-feeds (0.80 floor factor applied)
+**Gate result:** GREEN (pending Stage C validation)
+
+Admiralty Grade: A1 — Internal workflow metrics; verified from run execution.

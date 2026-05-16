@@ -118,3 +118,27 @@ protection, a positive institutional integrity signal.
 geopolitical dossiers (Ukraine, Armenia) and predictable left-right divisions on digital
 privacy/security trade-offs. The 2027 budget guidelines signal EP's emerging fiscal priorities
 for the Draghi competitiveness agenda.
+
+## WEP Statement
+
+WEP: EU Parliament April 2026 legislative outputs were substantive and indicate Coalition Delta stability; however the US-EU digital trade friction and Ukrainian accountability verification represent higher-than-baseline geopolitical tail risks requiring executive attention.
+
+## Strategic Priorities for Q2 2026 Decision-Makers
+
+1. **Monitor DMA enforcement calendar (June 2026)** — the Commission's enforcement timeline
+   announcement is the most important near-term signal for EU-US trade relations
+2. **Prepare Ukraine milestone communication strategy** — verification transparency is essential
+   to maintaining parliamentary and public support for Ukraine financial commitments
+3. **Secure Budget 2027 coalition position before September trilogue** — ensuring EP coalition
+   holds on budget ambitions requires pre-trilogue coordination meetings
+4. **Track ECB rate signals** — HICP at 2.3% (threshold 2.5%) creates rate pause risk
+   that would affect 2026 investment outlook for DMA-regulated sectors
+
+Admiralty Grade: B2 — Executive brief synthesised from confirmed EP and IMF data.
+
+**WEP: Highly Likely** — Implementation of April 2026 EP legislative outputs will proceed on-schedule given Coalition Delta stability, subject to US trade friction on DMA enforcement (Likely delay risk) and Ukrainian accountability verification (Roughly Even chance of minor shortfall).
+
+*Assessment period: April 28 - May 16, 2026. Next major event: Commission DMA enforcement calendar release (expected June 2026). Admiralty Grade: B2.*
+*Monitor key decisions: (1) DMA enforcement calendar June 2026; (2) Ukraine milestone verification Q3 2026; (3) Budget 2027 trilogue September 2026; (4) ECB rate decision if HICP exceeds 2.5%.*
+
+*Prepared: May 16, 2026. Run: breaking-run251. dataMode: degraded-feeds.*

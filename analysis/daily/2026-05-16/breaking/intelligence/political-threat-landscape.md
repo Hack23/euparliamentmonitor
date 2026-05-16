@@ -102,3 +102,42 @@ EU-US digital deal that trades DMA flexibility for tariff relief — this is the
 near-term threat to EP regulatory autonomy in the digital domain  
 **Confidence:** 🟡 MEDIUM (based on political landscape data and IMF trade projections;
 no classified intelligence input)
+
+## WEP Assessment
+
+WEP: Highly Likely — The primary political threat to EU Parliament institutional effectiveness in the April-May 2026 period is the combination of (1) PfE/ECR legislative obstruction, (2) Hungarian Council blocking, and (3) US trade pressure on DMA enforcement — three distinct threat vectors that are not coordinated but are mutually reinforcing in their aggregate effect of slowing Coalition Delta's legislative programme.
+
+## Extended Threat Analysis — Q2-Q4 2026
+
+**Threat Vector 1: Democratic Backsliding Normalization**
+The most structurally dangerous trend is the gradual normalization of democratic backsliding
+within EU institutions. The Braun privilege restoration (TA-0104) — while procedurally
+justified — creates a precedent that MEP institutional privileges can withstand public
+accountability pressure. If this norm spreads to other accountability mechanisms, it
+weakens the EP's own institutional integrity narrative.
+
+**Threat Vector 2: Transatlantic Democratic Alignment Erosion**
+The Trump administration's second term (2025-2029) creates a structural threat to the
+transatlantic values alliance that underpins EU foreign policy. Congressional shifts have
+already reduced US financial commitments to Ukraine. EU Parliament's strong Ukraine support
+(TA-0161) creates a widening gap between EP political positioning and US executive branch
+posture — a gap that Orbán/Fico actively exploit to legitimise their positions.
+
+**Threat Vector 3: Information Environment Degradation**
+EP plenary deliberations are increasingly accompanied by coordinated disinformation campaigns
+targeting public perception of legislative outcomes. TA-0161, TA-0160, and TA-0163 all
+attracted Russian-linked amplification of opposition narratives. The EP's institutional
+communications capacity is structurally under-resourced relative to state-backed
+disinformation actors.
+
+**Threat Matrix Summary:**
+
+| Threat | Probability (12mo) | Impact | Mitigation Strength |
+|--------|-------------------|--------|---------------------|
+| PfE/ECR minority blocking | 45% | Medium | High (coalition majority) |
+| Council unanimity failure (MFF) | 20% | Severe | Medium |
+| US trade retaliation on DMA | 25% | Moderate | Low-Medium |
+| EP internal democracy erosion | 15% | High | Medium |
+| Disinformation campaign impact | 60% | Low-Medium | Low |
+
+Admiralty Grade: B2 — Assessment well-sourced; probability estimates are indicative.
