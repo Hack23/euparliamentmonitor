@@ -182,13 +182,7 @@ const HEADLINE_SOFT_MIN = 60;
  * full stops are next, and semicolons last. Single ASCII space is
  * always a fallback boundary handled separately.
  */
-const HEADLINE_CLAUSE_BOUNDARIES: readonly string[] = [
-  ': ',
-  ' — ',
-  ' – ',
-  '. ',
-  '; ',
-];
+const HEADLINE_CLAUSE_BOUNDARIES: readonly string[] = [': ', ' — ', ' – ', '. ', '; '];
 
 /** Localized labels used to enrich short or duplicate-prone meta descriptions. */
 const SEO_CONTEXT_LABELS: LanguageMap<{

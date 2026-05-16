@@ -284,10 +284,7 @@ export function buildLegacyBackfillDescription(
   // staining translated cards with English category nouns.
   const category = detectCategory(slug);
   const langCode = (lang || 'en').toLowerCase() as LanguageCode;
-  const categoryLabels = getLocalizedString(
-    ARTICLE_TYPE_LABELS,
-    langCode
-  ) as ArticleCategoryLabels;
+  const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, langCode) as ArticleCategoryLabels;
   const label = categoryLabels[category] ?? formatSlug(slug);
   const prefix = `${date} — ${label}`;
   const body = trimmedDescription || label;
