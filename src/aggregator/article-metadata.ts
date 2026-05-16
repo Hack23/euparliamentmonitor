@@ -150,6 +150,16 @@ const DESCRIPTION_MAX_LENGTH = 180;
 /** Target minimum `<meta description>` length before we append context. */
 const DESCRIPTION_MIN_LENGTH = 140;
 
+/**
+ * Length below which a raw description is considered too short to stand
+ * on its own and gets enriched with date/context. Independent from
+ * {@link DESCRIPTION_MIN_LENGTH} (which controls sentence-boundary
+ * truncation behaviour). Set lower than DESCRIPTION_MIN_LENGTH so a
+ * clean 100-140 char prose lede is preserved verbatim instead of being
+ * padded with date/context boilerplate.
+ */
+const ENRICHMENT_TRIGGER_LENGTH = 100;
+
 /** Maximum `<title>` length — anything longer is truncated with an ellipsis. */
 const TITLE_MAX_LENGTH = 140;
 
@@ -347,6 +357,8 @@ const ARTIFACT_CATEGORY_PREFIXES: readonly string[] = [
   'economic context',
   'executive brief',
   'executive briefing',
+  'executive intelligence brief',
+  'executive intelligence briefing',
   'executive summary',
   'forward indicators',
   'historical baseline',
@@ -721,6 +733,8 @@ export function extractFirstH1(markdown: string): string {
  */
 export function extractStrongProseLine(markdown: string): string {
   let inFence = false;
+  const buffer: string[] = [];
+  let bufferLen = 0;
   for (const raw of markdown.split('\n')) {
     const line = raw.trim();
     if (line.startsWith('```') || line.startsWith('~~~')) {
@@ -728,12 +742,23 @@ export function extractStrongProseLine(markdown: string): string {
       continue;
     }
     if (inFence) continue;
-    if (shouldSkipDescriptionLine(line)) continue;
+    if (buffer.length > 0 && line === '') {
+      // Blank line terminates the current paragraph.
+      break;
+    }
+    if (line === '') continue;
+    if (shouldSkipDescriptionLine(line)) {
+      if (buffer.length > 0) break;
+      continue;
+    }
     const plain = stripLeadingProseLabel(stripInlineMarkdown(line));
-    if (plain.length < 40) continue;
-    return truncateDescription(plain);
+    if (buffer.length === 0 && plain.length < 40) continue;
+    buffer.push(plain);
+    bufferLen += plain.length + 1;
+    if (bufferLen >= DESCRIPTION_MAX_LENGTH) break;
   }
-  return '';
+  if (buffer.length === 0) return '';
+  return truncateDescription(buffer.join(' '));
 }
 
 /**
@@ -755,6 +780,8 @@ export function extractLedeAfterHeading(markdown: string): string {
   const lines = markdown.split('\n');
   let inLede = false;
   let inFence = false;
+  const buffer: string[] = [];
+  let bufferLen = 0;
   for (let i = 0; i < lines.length; i++) {
     const raw = lines[i] ?? '';
     const line = raw.trim();
@@ -764,17 +791,29 @@ export function extractLedeAfterHeading(markdown: string): string {
     }
     if (inFence) continue;
     if (/^#{2,3}\s+/.test(line)) {
+      if (buffer.length > 0) break;
       const headingText = normaliseHeadingText(line.replace(/^#{2,3}\s+/, ''));
       inLede = EDITORIAL_LEDE_HEADINGS.some((h) => isLedeHeadingMatch(headingText, h));
       continue;
     }
     if (!inLede) continue;
-    if (shouldSkipDescriptionLine(line)) continue;
+    if (buffer.length > 0 && line === '') {
+      // Blank line terminates the lede paragraph.
+      break;
+    }
+    if (line === '') continue;
+    if (shouldSkipDescriptionLine(line)) {
+      if (buffer.length > 0) break;
+      continue;
+    }
     const plain = stripLeadingProseLabel(stripInlineMarkdown(line));
-    if (plain.length < 40) continue;
-    return truncateDescription(plain);
+    if (buffer.length === 0 && plain.length < 40) continue;
+    buffer.push(plain);
+    bufferLen += plain.length + 1;
+    if (bufferLen >= DESCRIPTION_MAX_LENGTH) break;
   }
-  return '';
+  if (buffer.length === 0) return '';
+  return truncateDescription(buffer.join(' '));
 }
 
 /**
@@ -995,7 +1034,103 @@ export function isGenericHeading(heading: string, articleType: string, date: str
     return true;
   }
 
+  if (isCategoryNounHeading(normalized, articleType)) return true;
+
   return false;
+}
+
+/**
+ * Curated category-noun whitelist per article-type slug. These are the
+ * boring "EU Parliament &lt;Type&gt;" / "EP10 &lt;Type&gt;" headings that the
+ * executive-brief authoring conventions allow as decorative H1s but
+ * which carry **no editorial information** — they merely restate the
+ * article category. When such a heading reaches the metadata resolver
+ * it must be flagged generic so the resolver falls through to the
+ * BLUF / lede summary instead of using the category noun as `<title>`.
+ *
+ * Keys are slugs (`article-type` form). Values are lowercase category
+ * cores, matched after stripping institutional prefixes
+ * (`eu parliament `, `european parliament `, `ep `, `ep10 `, `ep11 `)
+ * and trailing date qualifiers (`· 2026-05-15`, `— 2026-05-15`,
+ * `(May 2026)`, `: 19–22 May 2026` is **kept** because date ranges
+ * carry editorial info — only single-date suffixes are stripped).
+ */
+const CATEGORY_NOUN_CORES: Readonly<Record<string, readonly string[]>> = {
+  breaking: ['breaking', 'breaking news'],
+  'week-in-review': ['week in review'],
+  'week-ahead': ['week ahead'],
+  'month-in-review': ['month in review'],
+  'month-ahead': ['month ahead'],
+  'quarter-in-review': ['quarter in review'],
+  'quarter-ahead': ['quarter ahead'],
+  'year-in-review': ['year in review'],
+  'year-ahead': ['year ahead'],
+  'committee-reports': [
+    'committee reports',
+    'committee activity',
+    'committee activity report',
+    'committee activity reports',
+  ],
+  motions: [
+    'motions',
+    'motions and adopted texts',
+    'plenary votes and resolutions',
+    'plenary votes resolutions',
+  ],
+  propositions: ['propositions', 'legislative propositions', 'legislative procedures'],
+  'election-cycle': ['election cycle'],
+  'term-outlook': ['term outlook'],
+};
+
+/**
+ * Return `true` when the heading is a bare category-noun string for the
+ * supplied `articleType` slug, regardless of the institutional prefix
+ * (`EU Parliament `, `European Parliament `, `EP `, `EP10 `, `EP11 `).
+ * Strips a trailing single-date qualifier (` · YYYY-MM-DD`,
+ * ` — YYYY-MM-DD`, `(May 2026)`, `(2026)`) before matching; date-range
+ * qualifiers (`: 19–22 May 2026`) carry editorial information and are
+ * NOT stripped, so headings like `EP Week Ahead: 19–22 May 2026` are
+ * preserved as legitimate editorial headlines.
+ *
+ * @param normalized - Heading text after whitespace collapse
+ * @param articleType - Article-type slug
+ * @returns `true` when the heading is category-noun boilerplate
+ */
+function isCategoryNounHeading(normalized: string, articleType: string): boolean {
+  const cores = CATEGORY_NOUN_CORES[articleType];
+  if (!cores || cores.length === 0) return false;
+
+  let core = normalized.toLowerCase();
+
+  // Strip institutional prefix (longest-first match).
+  const prefixes = [
+    "the european parliament's ",
+    'european parliament ',
+    'eu parliament ',
+    'ep11 ',
+    'ep10 ',
+    'ep ',
+  ];
+  for (const p of prefixes) {
+    if (core.startsWith(p)) {
+      core = core.slice(p.length);
+      break;
+    }
+  }
+
+  // Strip trailing single-date qualifier. We deliberately do NOT strip
+  // date *ranges* (`19–22 may 2026`, `28-30 april 2026`) because those
+  // identify a specific reporting window — that IS editorial content.
+  // Patterns stripped:
+  //   ` · 2026-05-15`, ` — 2026-05-15`, ` - 2026-05-15`, `: 2026-05-15`
+  //   ` (may 2026)`, ` (2026)`
+  core = core.replace(/\s*[·:—–-]\s*\d{4}-\d{2}-\d{2}\s*$/u, '');
+  core = core.replace(/\s*\(\s*[a-z]{3,9}\s+\d{4}\s*\)\s*$/u, '');
+  core = core.replace(/\s*\(\s*\d{4}\s*\)\s*$/u, '');
+  // Trailing punctuation residue.
+  core = core.replace(/[\s\-—–:·]+$/u, '').trim();
+
+  return cores.includes(core);
 }
 
 /**
@@ -1575,9 +1710,21 @@ function composeContextualTitle(
 }
 
 /**
- * Add localized article context, date, run id and evidence language to short
- * meta descriptions. This turns generic type-level subtitles into
+ * Add localized article context to short or duplicate-prone meta
+ * descriptions. This turns generic type-level subtitles into
  * page-specific descriptions suitable for search snippets.
+ *
+ * Internal artefact identifiers (`runId`) are deliberately NOT included
+ * in the description: they leak into Google snippets as opaque tokens
+ * like `breaking-run255-1778894853` and provide no value to readers.
+ * The verbose `evidence` boilerplate (`with source-linked voting,
+ * committee and legislative intelligence`) is also dropped — it pads
+ * bytes without adding editorial information and was the dominant
+ * source of mid-sentence ellipsis truncation observed in production.
+ *
+ * The reader-hint suffix (`labels.reader`) is preserved because it
+ * supplies a stable localized intent signal even when the lede is
+ * very short.
  *
  * @param lang - Target language code
  * @param baseDescription - Best description from manifest/editorial/template
@@ -1585,7 +1732,7 @@ function composeContextualTitle(
  * @param editorial.headline - Artifact-derived headline
  * @param editorial.summary - Artifact-derived summary
  * @param date - ISO article date
- * @param runId - Optional analysis run id
+ * @param _runId - Reserved (formerly emitted; no longer used)
  * @returns Description in the target language context, capped for SEO snippets
  */
 function composeContextualDescription(
@@ -1593,12 +1740,11 @@ function composeContextualDescription(
   baseDescription: string,
   editorial: { readonly headline: string; readonly summary: string },
   date: string,
-  runId: string
+  _runId: string
 ): string {
   const labels = getLocalizedString(SEO_CONTEXT_LABELS, lang);
   const parts = [baseDescription.trim()];
-  const runPart = runId ? ` · ${labels.run} ${runId}` : '';
-  parts.push(`${labels.date} ${date}${runPart}, ${labels.evidence}`);
+  parts.push(`${labels.date} ${date}.`);
   const context = pickFirstNonEmpty([editorial.summary, editorial.headline]);
   if (context && !containsNormalized(parts[0] ?? '', context)) {
     parts.push(`${labels.context}: ${context}`);
@@ -1608,14 +1754,30 @@ function composeContextualDescription(
 }
 
 /**
- * Append a run qualifier to otherwise duplicate-prone fallback titles.
+ * Append a short run qualifier to otherwise duplicate-prone fallback
+ * titles. Sanitizes the raw `runId` (which is an internal artefact
+ * identifier of the shape `<slug>-run<N>[-<unix-ts>]`) so user-facing
+ * `<title>` strings never expose Unix timestamps or the full opaque
+ * token. Only the short ordinal `N` is retained.
+ *
+ * Examples:
+ * - `breaking-run255-1778894853` → `Run 255`
+ * - `committee-reports-run330-1778735854` → `Run 330`
+ * - `breaking-run-001` → `Run 001`
+ *
+ * When the runId does not match the canonical shape, the qualifier is
+ * omitted entirely rather than leak an unknown-format token into SEO
+ * surfaces.
  *
  * @param title - Base title
- * @param runId - Optional run id
- * @returns Title with run qualifier when available
+ * @param runId - Optional run id (sanitized before use)
+ * @returns Title with short run qualifier, or unchanged when sanitization fails
  */
 function withRunQualifier(title: string, runId: string): string {
-  return runId ? `${title} — Run ${runId}` : title;
+  if (!runId) return title;
+  const match = /-run-?(\d+)(?:-\d+)?$/u.exec(runId);
+  if (!match) return title;
+  return `${title} — Run ${match[1]}`;
 }
 
 /**
@@ -1794,8 +1956,7 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   ]);
 
   const description =
-    rawDescription.length >= DESCRIPTION_MIN_LENGTH &&
-    containsNormalized(rawDescription, input.date)
+    rawDescription.length >= ENRICHMENT_TRIGGER_LENGTH
       ? rawDescription
       : composeContextualDescription(
           input.lang,
