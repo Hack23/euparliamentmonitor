@@ -1,7 +1,7 @@
 ---
-title: "The week of 29 April – 6 May 2026 sees the European Parliament's legislative pipeline operating at record pace for EP10's second year…"
-description: "The week of 29 April – 6 May 2026 sees the European Parliament's legislative pipeline operating at record pace for EP10's second year, with 935 active procedures and 114…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-06", "run propositions-run265-1778094352", "week", "April", "sees", "European", "Parliament", "legislative", "pipeline", "operating"]
+title: "Event description"
+description: ": The EPP Group formally shifts its coalition preference from the centrist (EPP+S&D+RE) model to a right-majority (EPP+ECR+PfE) framework on key economic legislation."
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-06", "run propositions-run265-1778094352", "Event", "description", "Group", "formally", "shifts", "coalition", "preference", "from"]
 date: 2026-05-06
 article_type: propositions
 slug: 2026-05-06-propositions

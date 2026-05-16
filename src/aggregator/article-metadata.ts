@@ -1450,7 +1450,19 @@ export function extractArtifactHighlight(
   );
   if (direct.headline) return { headline: direct.headline, summary: direct.summary };
 
-  const topLevel = safeReaddir(runDir).filter((f) => f.endsWith('.md') && f !== 'manifest.json');
+  // Top-level fallback scan — used only when none of the canonical
+  // editorial artefacts produced a non-generic H1. We must NOT pick up
+  // translated sibling briefs (`executive-brief_<lang>.md`,
+  // `synthesis-summary_<lang>.md`, …) here, because their H1s are
+  // legitimate localized headlines that the English-only
+  // {@link isGenericHeading} detector cannot recognise as boilerplate.
+  // Letting them through poisoned the English `<title>` and
+  // `<meta description>` for the 2026-05-15 batch with Arabic content
+  // from `executive-brief_ar.md`. See {@link isTranslatedSiblingBrief}
+  // and the regression test in `test/unit/article-metadata.test.js`.
+  const topLevel = safeReaddir(runDir).filter(
+    (f) => f.endsWith('.md') && f !== 'manifest.json' && !isTranslatedSiblingBrief(f)
+  );
   const fallback = scanCandidatesForHighlight(runDir, topLevel, articleType, date);
   if (fallback.headline) return { headline: fallback.headline, summary: fallback.summary };
 
@@ -1459,6 +1471,30 @@ export function extractArtifactHighlight(
     return { headline: '', summary: summaryOnly };
   }
   return null;
+}
+
+/**
+ * Filename suffix pattern that identifies a translated sibling brief
+ * (e.g. `executive-brief_ar.md`, `synthesis-summary_zh.md`). The
+ * `_<lang>` token is matched against {@link ALL_LANGUAGES} so we never
+ * exclude a legitimate English artefact whose name happens to end in
+ * `_<two-letter-suffix>.md`.
+ */
+const TRANSLATED_SIBLING_SUFFIX_RE = new RegExp(`_(${ALL_LANGUAGES.join('|')})\\.md$`, 'i');
+
+/**
+ * Return `true` when a top-level `.md` filename looks like a translated
+ * sibling of a canonical editorial artefact (e.g.
+ * `executive-brief_ar.md`). These files must be excluded from the
+ * top-level fallback scan in {@link extractArtifactHighlight} because
+ * their localized H1s evade the English-only generic-heading detector
+ * and would otherwise hijack the English SEO surfaces.
+ *
+ * @param filename - Run-relative `.md` filename (no path separators)
+ * @returns `true` when the file is a translated sibling brief
+ */
+export function isTranslatedSiblingBrief(filename: string): boolean {
+  return TRANSLATED_SIBLING_SUFFIX_RE.test(filename);
 }
 
 /**
@@ -1531,6 +1567,25 @@ function probeCandidateForHighlight(
   if (headline && !isGenericHeading(headline, articleType, date)) {
     return { cleanHighlight: { headline: truncateTitle(headline), summary } };
   }
+  // The artefact H1 is generic boilerplate (`Executive Brief — EU Parliament
+  // Breaking News`). Before falling back to a stripped category-core
+  // headline, try to surface the FIRST NAMED PRIORITY FINDING from the
+  // brief's `## Key Developments` / `## Priority Dossiers` /
+  // `## Top Findings` block. This is the canonical Stage-B authoring
+  // pattern (see `analysis/templates/executive-brief.md`) — every brief
+  // lists its top dossiers as `**Name** (procedure-code, date) — paragraph`
+  // or `### N. Name (committee)`. Surfacing that name produces a
+  // distinctive editorial headline ("Digital Markets Act Enforcement",
+  // "Ukraine War Accountability") instead of a stripped category noun.
+  const priority = extractPriorityFindingHighlight(body);
+  if (priority?.headline) {
+    return {
+      cleanHighlight: {
+        headline: truncateTitle(priority.headline),
+        summary: priority.summary || summary,
+      },
+    };
+  }
   if (headline) {
     const stripped = stripArtifactCategoryAffix(headline);
     if (stripped && !isGenericHeading(stripped, articleType, date)) {
@@ -1538,6 +1593,436 @@ function probeCandidateForHighlight(
     }
   }
   return { summary };
+}
+
+/**
+ * Section headings inside the executive brief that introduce the
+ * named-priority-finding block (matched case-insensitively against the
+ * decoration-stripped heading text, see {@link normaliseHeadingText}).
+ */
+const PRIORITY_FINDING_SECTION_HEADINGS: readonly string[] = [
+  'key developments',
+  'key findings',
+  'key intelligence summary',
+  'key judgements',
+  'key judgments',
+  'headline intelligence',
+  'headline judgements',
+  'headline judgments',
+  'lead story',
+  'policy intelligence alerts',
+  'priority dossiers',
+  'priority dossiers under committee scrutiny',
+  'priority findings',
+  'priority intelligence assessment',
+  'priority items',
+  'top findings',
+  'top developments',
+  'top dossiers',
+  'top trigger events',
+  'top triggers',
+  'trigger events',
+  'top documents',
+  'top procedures',
+  'top 3 triggers',
+  'wep assessment',
+  'high priority',
+  'highest priority',
+];
+
+/**
+ * Mine the FIRST named priority finding from an executive-brief–style
+ * artefact body. Looks for a section heading from
+ * {@link PRIORITY_FINDING_SECTION_HEADINGS} and returns the first dossier
+ * name + descriptive paragraph found inside it. Supports the three
+ * canonical Stage-B authoring patterns:
+ *
+ *   1. **Bold-in-numbered-list** (breaking briefs):
+ *      `1. **Digital Markets Act Enforcement** (TA-10-2026-0160, 2026-04-30)`
+ *      `   Parliament adopted a resolution …`
+ *   2. **Numbered subheading** (committee briefs):
+ *      `### 1. Clean Industrial Deal Implementation (ITRE/ENVI)`
+ *      `The Clean Industrial Deal framework …`
+ *   3. **Bold-leading paragraph** (synthesis variants):
+ *      `**Trigger 1: DMA Enforcement Resolution** (TA-10-2026-0160)`
+ *      `- Significance: 🟢 HIGH IMPACT …`
+ *
+ * Trailing parenthesised metadata (`(TA-10-2026-0160, 2026-04-30)`,
+ * `(ITRE/ENVI)`) is stripped from the headline so it stays headline-shaped
+ * (`Digital Markets Act Enforcement`) rather than boilerplate
+ * (`Digital Markets Act Enforcement (TA-10-2026-0160, 2026-04-30)`).
+ *
+ * @param body - Editorial artefact body
+ * @returns `{headline, summary}` when a priority finding was identified;
+ *   `null` when the body has no priority section or no usable item inside
+ */
+export function extractPriorityFindingHighlight(
+  body: string
+): { readonly headline: string; readonly summary: string } | null {
+  if (!body) return null;
+  const lines = body.split('\n');
+  return scanPrioritySection(lines) ?? scanH2StoryHeadings(lines);
+}
+
+/**
+ * Strategy 1 — scan inside the first recognised priority-finding
+ * section heading for a usable item (Pattern A/B/C/D). Returns `null`
+ * when the section is absent or contains no matchable item.
+ *
+ * @param lines - Body lines (already split on `\n`)
+ * @returns `{headline, summary}` when an item was identified
+ */
+function scanPrioritySection(
+  lines: readonly string[]
+): { readonly headline: string; readonly summary: string } | null {
+  const sectionStart = findPrioritySectionStart(lines);
+  if (sectionStart < 0) return null;
+  for (let i = sectionStart + 1; i < lines.length; i++) {
+    const line = (lines[i] ?? '').trim();
+    if (!line) continue;
+    // Stop at the next H2 (sibling section) but allow `### …` and
+    // `#### …` subheadings inside (e.g. `### 🔴 HIGH PRIORITY` between
+    // the section header and the first list item).
+    if (/^##(?!#)/.test(line)) return null;
+    const candidate = extractPriorityFindingItem(lines, i);
+    if (candidate) return candidate;
+  }
+  return null;
+}
+
+/**
+ * Story-keyword tokens used by `## Lead Story:` / `## Story N:` /
+ * `## Trigger N:` H2 heading detection. Kept as a runtime list so the
+ * regex stays bounded and bypasses the unsafe-regex lint by avoiding
+ * deep alternation.
+ */
+const H2_STORY_TOKENS: readonly string[] = [
+  'Lead Story',
+  'Story',
+  'Trigger',
+  'Alert',
+  'Judgement',
+  'Judgment',
+];
+
+/**
+ * Strategy 2 — walk every `## …` H2 heading and try to recognise a
+ * story-style heading (`## 📌 Lead Story: Russia Accountability`,
+ * `## Story 1 — DMA Enforcement`). Used as a fallback when no priority
+ * section was found, because motions briefs publish each lead story as
+ * its own H2 without a parent section.
+ *
+ * @param lines - Body lines (already split on `\n`)
+ * @returns `{headline, summary}` when a story heading was identified
+ */
+function scanH2StoryHeadings(
+  lines: readonly string[]
+): { readonly headline: string; readonly summary: string } | null {
+  for (let i = 0; i < lines.length; i++) {
+    const line = (lines[i] ?? '').trim();
+    if (!line.startsWith('## ')) continue;
+    const headingText = line.replace(/^##\s+/u, '');
+    const storyHeadline = extractH2StoryHeadline(headingText);
+    if (!storyHeadline) continue;
+    const result = buildPriorityResult(storyHeadline, '', lines, i);
+    if (result?.headline) return result;
+  }
+  return null;
+}
+
+/**
+ * Recognise the H2-story shape (`📌 Lead Story: Title`, `Story 1 —
+ * Title`, `Trigger 2: Title`) and return the residual headline portion.
+ * Returns an empty string when the heading does not match a story
+ * keyword. Implemented as discrete string operations (rather than one
+ * dense regex) to keep the function under the unsafe-regex linter and
+ * cognitive-complexity budgets.
+ *
+ * @param headingText - Heading text with the leading `## ` already removed
+ * @returns Residual headline or empty string
+ */
+function extractH2StoryHeadline(headingText: string): string {
+  // Strip a short leading decoration / emoji block (up to 4 non-alphanumerics).
+  const stripped = headingText.replace(/^[^A-Za-z0-9]{0,4}\s*/u, '');
+  for (const token of H2_STORY_TOKENS) {
+    if (!stripped.toLowerCase().startsWith(token.toLowerCase())) continue;
+    let rest = stripped.slice(token.length).trim();
+    // `Story 1` / `Trigger 2` — accept and consume the trailing digit.
+    if (token !== 'Lead Story') {
+      const digit = rest.match(/^\d+\b/u);
+      if (!digit) continue;
+      rest = rest.slice(digit[0].length).trim();
+    }
+    // Require an explicit `:` / `—` / `–` / `-` / `.` separator before
+    // the residual headline so plain prose H2s never match.
+    const sep = rest.match(/^[:—–\-.]\s+(.+)$/u);
+    if (sep?.[1]) return sep[1].trim();
+  }
+  return '';
+}
+
+/**
+ * Locate the line index of the first priority-finding section heading
+ * inside an artefact body. Returns `-1` when no such heading exists.
+ *
+ * @param lines - Body lines (already split on `\n`)
+ * @returns Line index of the `## …` heading, or `-1`
+ */
+function findPrioritySectionStart(lines: readonly string[]): number {
+  for (let i = 0; i < lines.length; i++) {
+    const line = (lines[i] ?? '').trim();
+    const match = line.match(/^#{2,4}\s+(.+)$/u);
+    if (!match) continue;
+    const text = normaliseHeadingText(match[1] ?? '');
+    if (!text) continue;
+    if (headingMatchesPriorityProbe(text)) return i;
+  }
+  return -1;
+}
+
+/**
+ * Word-boundary substring matcher for the priority-finding section
+ * detector. Extracted from {@link findPrioritySectionStart} to keep its
+ * cognitive complexity within budget.
+ *
+ * @param text - Heading text already normalised by {@link normaliseHeadingText}
+ * @returns `true` when one of {@link PRIORITY_FINDING_SECTION_HEADINGS}
+ *   appears as a word-bounded substring of {@link text}
+ */
+function headingMatchesPriorityProbe(text: string): boolean {
+  for (const probe of PRIORITY_FINDING_SECTION_HEADINGS) {
+    if (text === probe) return true;
+    const idx = text.indexOf(probe);
+    if (idx < 0) continue;
+    const before = idx === 0 ? ' ' : (text[idx - 1] ?? ' ');
+    const after = text[idx + probe.length] ?? ' ';
+    if (!/[A-Za-z0-9]/.test(before) && !/[A-Za-z0-9]/.test(after)) return true;
+  }
+  return false;
+}
+
+/**
+ * Try to recognise a priority-finding item starting at {@link i}. Returns
+ * the resolved `{headline, summary}` pair when the item matches one of the
+ * three authoring patterns; returns `null` otherwise so the caller can
+ * advance to the next line.
+ *
+ * @param lines - Body lines (already split on `\n`)
+ * @param i - Index of the candidate line
+ * @returns Priority-finding pair when matched, `null` otherwise
+ */
+function extractPriorityFindingItem(
+  lines: readonly string[],
+  i: number
+): { readonly headline: string; readonly summary: string } | null {
+  const line = (lines[i] ?? '').trim();
+  // Pattern A — numbered list item with bold title:
+  //   `1. **Digital Markets Act Enforcement** (TA-10-2026-0160, 2026-04-30)`
+  const numberedBold = line.match(/^\d+\.\s+\*\*([^*]+?)\*\*\s*(.*)$/u);
+  if (numberedBold) {
+    return buildPriorityResult(numberedBold[1] ?? '', numberedBold[2] ?? '', lines, i);
+  }
+  // Pattern B — numbered subheading. Requires an explicit separator
+  // (`:` / `.` / `)` / `·` / `–` / `—` / `-`) after the number so
+  // dotted decimal section labels like `### 2.1 Close to Adoption`
+  // do NOT leak into the headline. Examples:
+  //   `### 1. Clean Industrial Deal Implementation (ITRE/ENVI)`
+  //   `### 1 · Headline Judgements` (middle dot)
+  //   `### KJ-1: Digital Regulation Enforcement …`
+  //   `### KF-3: Banking Union Completion`
+  //   `### T-2: DMA Enforcement Resolution`
+  const taggedHeading = line.match(
+    /^#{3,4}\s+(?:[A-Z]{1,3}-?\d+|\d+(?:\.\d+)*)\s*[:.)·–—-]+\s*(.+)$/u
+  );
+  if (taggedHeading) {
+    return buildPriorityResult(taggedHeading[1] ?? '', '', lines, i);
+  }
+  // Pattern D — word-prefixed subheading (`### Alert 1 — Title 🔴`,
+  // `### Judgement 1 — Title`, `### Trigger 1: DMA Enforcement`):
+  const wordTaggedHeading = line.match(
+    /^#{3,4}\s+(?:Alert|Judgement|Judgment|Finding|Story|Item|Trigger|Highlight|Dossier|Priority|Top)\s+\d+\s*[:.)·–—\s-]+(.+)$/iu
+  );
+  if (wordTaggedHeading) {
+    return buildPriorityResult(wordTaggedHeading[1] ?? '', '', lines, i);
+  }
+  // Pattern C — bold-leading paragraph trigger:
+  //   `**Trigger 1: DMA Enforcement Resolution** (TA-10-2026-0160)`
+  //   `**Digital Markets Act Enforcement**`
+  // Rejected when:
+  //   - the bold body is longer than a plausible headline (>110 chars) —
+  //     that's a bold paragraph lede masquerading as a headline (e.g.
+  //     `**This period captures the April 2026 Strasbourg …**`)
+  //   - the bold body is a metadata key (`**Admiralty Grade: B/2**`,
+  //     `**Reporting Window:** …`, `**Date:** …`) — these are banner
+  //     rows, not editorial headlines
+  const boldOnly = line.match(/^\*\*([^*]+?)\*\*\s*(.*)$/u);
+  if (boldOnly && !line.startsWith('**Confidence') && !isMetadataBoldLine(line)) {
+    const candidate = (boldOnly[1] ?? '').trim();
+    if (candidate.length > 0 && candidate.length <= 110) {
+      return buildPriorityResult(candidate, boldOnly[2] ?? '', lines, i);
+    }
+  }
+  return null;
+}
+
+/**
+ * Bold prefix tokens that indicate a metadata banner row rather than an
+ * editorial headline. The Stage-B brief template uses these consistently
+ * as the lede block (`**Reporting Window:** 3 Apr – 1 May 2026`,
+ * `**Admiralty Grade:** B/2`, `**Date:** 2026-05-15`); they must never
+ * leak into `<title>`.
+ */
+const PRIORITY_METADATA_BOLD_PREFIXES: readonly string[] = [
+  'admiralty',
+  'classification',
+  'confidence',
+  'data sources',
+  'data quality',
+  'date',
+  'generated',
+  'lead author',
+  'methodology',
+  'reporting window',
+  'run',
+  'session',
+  'source',
+  'sources',
+  'time horizon',
+  'wep',
+];
+
+/**
+ * Recognise a metadata-banner bold line (`**Admiralty Grade: B/2**`,
+ * `**Reporting Window:** 3 Apr – 1 May 2026`). The check is
+ * deliberately case-insensitive and tolerant of trailing colons inside
+ * or outside the bold delimiters.
+ *
+ * @param line - Trimmed source line (already known to start with `**`)
+ * @returns `true` when the line is a metadata banner that must be
+ *   skipped by Pattern C
+ */
+function isMetadataBoldLine(line: string): boolean {
+  const inner = line.replace(/^\*\*([^*]+?)\*\*.*$/u, '$1').trim().toLowerCase();
+  for (const prefix of PRIORITY_METADATA_BOLD_PREFIXES) {
+    if (inner === prefix) return true;
+    if (inner.startsWith(`${prefix}:`)) return true;
+    if (inner.startsWith(`${prefix} `) && inner.includes(':')) return true;
+    if (inner.startsWith(`${prefix}—`) || inner.startsWith(`${prefix} —`)) return true;
+  }
+  return false;
+}
+
+/**
+ * Compose the `{headline, summary}` pair for one matched priority-finding
+ * item. Cleans `Trigger N:` / `N.` prefixes off the headline, strips the
+ * trailing `(TA-10-…, …)` / `(ITRE/ENVI)` metadata, and gathers the
+ * following prose lines as the summary.
+ *
+ * @param rawHeadline - Raw bold title or numbered-heading text
+ * @param tail - Same-line trailing text (after the bold close / heading)
+ * @param lines - Body lines (already split on `\n`)
+ * @param i - Index of the matched line
+ * @returns Cleaned `{headline, summary}` — headline may be empty when
+ *   cleaning collapses it below a minimum length, in which case the
+ *   caller falls through
+ */
+function buildPriorityResult(
+  rawHeadline: string,
+  tail: string,
+  lines: readonly string[],
+  i: number
+): { readonly headline: string; readonly summary: string } | null {
+  const cleaned = cleanPriorityHeadline(rawHeadline);
+  if (cleaned.length < 5) return null;
+  // Use whatever same-line text trails the bold/heading as the first
+  // sentence of the summary, then continue gathering prose from the
+  // following lines until a blank line / new bullet / new heading.
+  const summaryLines: string[] = [];
+  // Strip leading parens-metadata (`(TA-10-2026-0160, 2026-04-30)`) and
+  // trailing parens-metadata from the tail so the summary starts with
+  // editorial prose, not a procedure-code citation.
+  let tailText = stripInlineMarkdown(tail).trim();
+  tailText = tailText.replace(/^\([^()]{3,80}\)\s*/u, '');
+  tailText = stripPriorityTailMetadata(tailText).trim();
+  if (tailText) summaryLines.push(tailText);
+  for (let j = i + 1; j < lines.length; j++) {
+    const next = (lines[j] ?? '').trim();
+    if (!next) {
+      if (summaryLines.length > 0) break;
+      continue;
+    }
+    if (/^#{1,6}\s/.test(next)) break;
+    if (/^\d+\.\s/.test(next) || /^[-*]\s/.test(next)) break;
+    if (next.startsWith('**Confidence') || next.startsWith('- **Confidence')) continue;
+    if (shouldSkipDescriptionLine(next)) continue;
+    summaryLines.push(stripInlineMarkdown(next));
+    if (summaryLines.join(' ').length >= DESCRIPTION_MAX_LENGTH) break;
+  }
+  const summary = truncateDescription(summaryLines.join(' '));
+  return { headline: cleaned, summary };
+}
+
+/**
+ * Normalise a priority-finding headline: drop the
+ * `Trigger N:` / `Dossier N:` / leading-numeric prefix, strip trailing
+ * parenthesised metadata (`(TA-10-2026-0160, 2026-04-30)`,
+ * `(ITRE/ENVI)`), and trim residual punctuation. The result is a
+ * headline-shaped string suitable for `<title>` use.
+ *
+ * @param raw - Raw bold-title or heading text
+ * @returns Cleaned headline (may be empty after stripping)
+ */
+function cleanPriorityHeadline(raw: string): string {
+  let text = stripInlineMarkdown(raw).trim();
+  // Drop leading emoji / decoration (`🔴 CRITICAL — Title`, `🎯 Title`,
+  // `🔑 Title`). Run twice to handle stacked emoji + label combos.
+  for (let pass = 0; pass < 2; pass++) {
+    text = text.replace(/^[^\p{L}\p{N}]+/u, '').trim();
+    text = text.replace(
+      /^(?:CRITICAL|HIGH(?:\s*PRIORITY)?|MEDIUM(?:\s*PRIORITY)?|LOW(?:\s*PRIORITY)?|URGENT|ALERT|PRIORITY)\s*[:—–-]\s*/iu,
+      ''
+    );
+  }
+  // Drop "Trigger 1:" / "Dossier 2:" / "Priority 3:" style prefixes.
+  text = text.replace(
+    /^(?:Trigger|Dossier|Priority|Finding|Item|Highlight|Top|Story|Alert|Judgement|Judgment)\s+\d+\s*[:–—-]\s*/iu,
+    ''
+  );
+  // Drop a stray leading "1. " / "2) " / "2.1 " ordinal.
+  text = text.replace(/^\d+(?:\.\d+)*\s*[.):·\s]\s*/u, '');
+  // Trailing cleanup runs in a loop until stable so combined patterns
+  // like "Title (Confidence, 80%): 🔴" collapse all the way down to
+  // "Title".
+  let previous = '';
+  while (previous !== text) {
+    previous = text;
+    // Drop trailing emoji + confidence marker (`🔴 CRITICAL`, `🟡 MEDIUM`).
+    text = text.replace(
+      /\s*[^\p{L}\p{N}\s]?\s*(?:CRITICAL|HIGH(?:\s*PRIORITY)?|MEDIUM(?:\s*PRIORITY)?|LOW(?:\s*PRIORITY)?)\s*$/iu,
+      ''
+    );
+    // Strip trailing parenthesised metadata (procedure codes / committee tags).
+    text = stripPriorityTailMetadata(text);
+    // Drop a single trailing emoji left after metadata stripping.
+    text = text.replace(/\s+[^\p{L}\p{N}\s]+\s*$/u, '');
+    // Drop trailing colons / dashes left over.
+    text = text.replace(/[\s:—–-]+$/u, '');
+    text = text.trim();
+  }
+  return text;
+}
+
+/**
+ * Strip the trailing parenthesised metadata that briefs append to every
+ * priority-finding name — procedure codes, dates, committee tags. The
+ * regex is intentionally non-greedy so it removes only the LAST
+ * parenthesised group on the line.
+ *
+ * @param text - Headline or paragraph text
+ * @returns Text with the trailing `(…)` stripped
+ */
+function stripPriorityTailMetadata(text: string): string {
+  return text.replace(/\s*\([^()]{3,80}\)\s*$/u, '').trim();
 }
 
 /**

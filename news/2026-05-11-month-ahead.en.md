@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Month Ahead: 11 May – 10 June 2026"
-description: "Confidence Level: 🟡 Medium (EP API partial data — full agenda not yet published) Published 2026-05-11. for democratic-accountability readers tracking EU institutional consequences"
-keywords: ["EU Parliament", "month ahead", "legislative agenda", "European Parliament", "plenary session", "2026-05-11", "run month-ahead-run269-1778459566", "Parliament", "Month", "Ahead", "June", "Confidence", "Level", "Medium", "partial", "data"]
+title: "Clean Industrial Deal"
+description: "Following Commission President von der Leyen's second-term recalibration of the Green Deal, the CID repackages decarbonisation targets within a competitiveness framework."
+keywords: ["EU Parliament", "month ahead", "legislative agenda", "European Parliament", "plenary session", "2026-05-11", "run month-ahead-run269-1778459566", "Clean", "Industrial", "Deal", "Following", "Commission", "President", "Leyen", "second", "term"]
 date: 2026-05-11
 article_type: month-ahead
 slug: 2026-05-11-month-ahead

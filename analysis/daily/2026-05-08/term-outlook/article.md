@@ -1,7 +1,7 @@
 ---
-title: "The European Parliament's EP10 term (2024–2029) has entered its decisive second year with a structurally rightward-shifted parliament…"
-description: "The European Parliament's EP10 term (2024–2029) has entered its decisive second year with a structurally rightward-shifted parliament navigating a historic convergence of crises…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Term Outlook", "2026-05-08", "run term-outlook-run444-1778232545", "European", "Parliament", "EP10", "term", "entered", "decisive", "second", "year", "with", "structurally"]
+title: "EPP remains dominant broker"
+description: "With 185 seats, EPP controls committee chair nominations, rapporteurships, and the agenda-setting authority of the Conference of Presidents. This structural advantage compounds…"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Term Outlook", "2026-05-08", "run term-outlook-run444-1778232545", "remains", "dominant", "broker", "With", "seats", "controls", "committee", "chair", "nominations", "rapporteurships"]
 date: 2026-05-08
 article_type: term-outlook
 slug: 2026-05-08-term-outlook

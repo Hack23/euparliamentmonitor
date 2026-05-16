@@ -1,7 +1,7 @@
 ---
-title: "Key Legislative Developments — Deep Analysis (2026-05-08)"
-description: "The Digital Markets Act (DMA, Regulation 2022/1925) entered into force on 1 November 2022 and has been applicable since 6 March 2024. By March 2024, six \"gatekeepers\" were…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-08", "run breaking-run373-1778202056", "Legislative", "Developments", "Deep", "Analysis", "Digital", "Markets", "Regulation", "entered"]
+title: "TA-10-2026-0160"
+description: "— \"Enforcement of the Digital Markets Act\" adopted 30 April 2026 — marks a political escalation. After two full years of DMA applicability, MEPs are publicly demanding…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-08", "run breaking-run373-1778202056", "Enforcement", "Digital", "Markets", "adopted", "April", "marks", "political", "escalation"]
 date: 2026-05-08
 article_type: breaking
 slug: 2026-05-08-breaking

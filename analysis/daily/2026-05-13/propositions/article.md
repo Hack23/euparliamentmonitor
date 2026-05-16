@@ -1,5 +1,5 @@
 ---
-title: "The week of May 13, 2026 in the European Parliament is best characterized by a single phrase: enforcement assertiveness. The EP's major…"
+title: "The week of May 13, 2026 in the European Parliament is best characterized by a single phrase: enforcement assertiveness."
 description: "The week of May 13, 2026 in the European Parliament is best characterized by a single phrase: enforcement assertiveness. The EP's major legislative actions are not about creating…"
 keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-13", "week", "European", "Parliament", "best", "characterized", "single", "phrase", "enforcement", "assertiveness"]
 date: 2026-05-13

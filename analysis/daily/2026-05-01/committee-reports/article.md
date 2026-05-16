@@ -1,7 +1,7 @@
 ---
-title: "The last week of April 2026 affirmed EP10's record-setting legislative productivity pace. Five committees delivered substantive outputs…"
-description: "The last week of April 2026 affirmed EP10's record-setting legislative productivity pace. Five committees delivered substantive outputs spanning the full spectrum from binding…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-01", "last", "week", "April", "affirmed", "EP10", "record", "setting", "legislative", "productivity"]
+title: "EP10 Year 2 Productivity Peak Confirmed"
+description: "The April 2026 plenary close provides definitive confirmation that EP10's second full legislative year is tracking to record committee and plenary output."
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-01", "EP10", "Year", "Productivity", "Peak", "Confirmed", "April", "plenary", "close", "provides"]
 date: 2026-05-01
 article_type: committee-reports
 slug: 2026-05-01-committee-reports
