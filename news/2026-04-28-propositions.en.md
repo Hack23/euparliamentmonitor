@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament Propositions"
-description: "Run Date: 2026-04-28 | Article Type: propositions | Data Window: 2026-04-21 → 2026-04-28 Published 2026-04-28 · analysis run propositions-run-1777356258, with source-linked…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-28", "run propositions-run-1777356258", "Parliament", "Date", "Article", "Type", "Data", "Window", "Published", "analysis"]
+description: "The European Parliament's 10th term entered its most consequential legislative phase of Spring 2026 during the week under review. 104 legislative texts have been adopted since…"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-28", "run propositions-run-1777356258", "Parliament", "European", "10th", "term", "entered", "most", "consequential", "legislative"]
 date: 2026-04-28
 article_type: propositions
 slug: 2026-04-28-propositions

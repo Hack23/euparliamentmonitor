@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament Motions — 11 May 2026"
-description: "WEP Confidence: Likely (65–85%) | Admiralty Grade: B2 (Reliable source, probably true) Published 2026-05-11 · analysis run motions-run393-1778484518, with source-linked voting…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-11", "run motions-run393-1778484518", "Parliament", "Confidence", "Likely", "Admiralty", "Grade", "Reliable", "source", "probably"]
+description: "The European Parliament's April 28–30, 2026 Strasbourg plenary delivered a dense legislative agenda that simultaneously advanced digital rights enforcement, reaffirmed… Published…"
+keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-11", "run motions-run393-1778484518", "Parliament", "European", "April", "Strasbourg", "plenary", "delivered", "dense", "legislative"]
 date: 2026-05-11
 article_type: motions
 slug: 2026-05-11-motions

@@ -171,6 +171,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/media-framing-analysis.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -3499,6 +3500,1697 @@ All 33 mandatory artifacts written in Pass 1. No `[AI_ANALYSIS_REQUIRED]` placeh
 *Methodology Reflection v1.0 | 2026-05-15 | EU Parliament Monitor | Hack23 AB | Apache-2.0*
 *Written as the final artifact per analysis protocol Step 10.5*
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**التاريخ:** 2026-05-15 | **نوع المقال:** Propositions | **التصنيف:** عام
+**الثقة:** 🟡 MEDIUM | **جودة البيانات:** جزئية — واجهة برمجة تطبيقات البرلمان الأوروبي متدهورة؛ النصوص المعتمدة المصدر الأساسي
+
+---
+
+### 🔑 النتائج الرئيسية
+
+#### 1. ارتفاع الإنتاج التشريعي — سباق الربيع 2026
+أظهر البرلمان الأوروبي سرعة تشريعية استثنائية في الربعين الأول والثاني من 2026، مع اعتماد **51 نصاً رسمياً** بين يناير ومايو 2026. يمثل ذلك سباقاً تشريعياً يتزامن مع منتصف الدورة البرلمانية العاشرة، مع مرور حزم كبيرة في مجالات إصلاح القطاع المصرفي، ومكافحة الفساد، والحوكمة الرقمية، والسياسة التجارية إلى التصويت النهائي.
+
+**الثقة:** 🟢 HIGH — استناداً إلى 51 نصاً معتمداً مؤكداً من بوابة البيانات المفتوحة للبرلمان الأوروبي.
+
+#### 2. إتمام الاتحاد المصرفي — SRMR3 وحزمة مكافحة الفساد
+اعتُمد نصان تشريعيان مهمان في 26 مارس 2026:
+- **SRMR3** (`2023/0111(COD)`) — تدابير التدخل المبكر، وشروط التسوية، وتمويل تدابير التسوية — استكمال ركيزة حاسمة في هيكل الاتحاد المصرفي.
+- **توجيه مكافحة الفساد** (`2023/0135(COD)`) — يضع معايير جنائية على مستوى الاتحاد الأوروبي لجرائم الفساد، مؤجل منذ 2023.
+
+تشير هذه الاعتمادات إلى القدرة المستمرة لتحالف حزب الشعب الأوروبي-التحالف التقدمي-تجديد أوروبا على تحقيق الإصلاحات المؤسسية رغم تزايد الضغوط القومية.
+
+**الثقة:** 🟢 HIGH — النصوص المعتمدة المؤكدة TA-10-2026-0092 وTA-10-2026-0094.
+
+#### 3. حزمة تطبيق قانون الأسواق الرقمية
+اعتمد البرلمان **تطبيق قانون الأسواق الرقمية** (TA-10-2026-0160) في 30 أبريل 2026، مما يشير إلى تصاعد رقابة البرلمان الأوروبي على أنشطة تطبيق المفوضية ضد شركات التكنولوجيا الكبرى. يحدث هذا في الوقت الذي تدخل فيه إجراءات تطبيق قانون الأسواق الرقمية ضد آبل وميتا وألفابيت مرحلتها الحاسمة.
+
+**الثقة:** 🟢 HIGH — مؤكد TA-10-2026-0160.
+
+#### 4. التوترات التجارية بين الاتحاد الأوروبي والولايات المتحدة — تدابير مضادة جمركية
+يعكس اعتماد **تعديل الرسوم الجمركية على البضائع ذات الأصل الأمريكي** (`2025/0261`) في 26 مارس 2026 الاستجابة التشريعية الرسمية للاتحاد الأوروبي لتصعيد الرسوم الجمركية الأمريكية في عهد ولاية إدارة ترامب الثانية. يضع ذلك البرلمان بوصفه جهة فاعلة استباقية في سياسة التدابير التجارية المضادة.
+
+**الثقة:** 🟢 HIGH — مؤكد TA-10-2026-0096.
+
+#### 5. توجيهات ميزانية البرلمان الأوروبي 2027 — هامش مالي تحت الضغط
+اعتُمدت في 28 أبريل 2026، وتضع توجيهات ميزانية 2027 (`TA-10-2026-0112`) الموقف التفاوضي للبرلمان للدورة السنوية للميزانية المقبلة. يُعلن الاعتماد الموازي للتقديرات المؤسسية للبرلمان الأوروبي (`TA-10-2026-04-30-ANN01`) عن موسم ميزانية مثير للجدل مع المفوضية والمجلس.
+
+**الثقة:** 🟢 HIGH — النصوص المعتمدة المؤكدة.
+
+#### 6. البنية التحتية لبيانات البرلمان الأوروبي — تدهور حاد في الجودة
+**ملاحظة حاسمة:** تُعيد بوابة البيانات المفتوحة للبرلمان الأوروبي بيانات متدهورة بشدة اعتباراً من 2026-05-15:
+- تعيد قناة الإجراءات إجراءات تاريخية من سبعينيات وثمانينيات القرن الماضي فقط
+- قناة وثائق اللجان "غير متاحة"
+- تعيد قناة الوثائق الخارجية 0 عناصر
+- تُعيد مراقبة خط أنابيب التشريع نتائج فارغة (0 إجراءات)
+- تصويتات XML DOCEO غير متاحة للأسبوع الحالي
+
+يمثل ذلك خللاً منهجياً في جودة البيانات يُقيّد ماديًا الاستخبارات الاستشرافية لخط أنابيب التشريع. يوثق تدقيق موثوقية MCP هذا بالتفصيل.
+
+**الثقة:** 🟢 HIGH — مُلاحظ مباشرة خلال جمع بيانات المرحلة أ.
+
+---
+
+### 📊 تحليل وتيرة التشريع
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4bf7686f) -->
+
+**التوزيع الشهري (مؤكد من البيانات المفتوحة للبرلمان الأوروبي):**
+- يناير 2026: 7 نصوص معتمدة (TA-10-2026-0004 إلى -0026)
+- فبراير 2026: 7 نصوص معتمدة (الاستقرار المالي، المساعدات الإنسانية، التجارة)
+- مارس 2026: 15 نصاً معتمداً (المصارف، مكافحة الفساد، التجارة، البيئة)
+- أبريل 2026: 19 نصاً معتمداً (الميزانية، رعاية الحيوان، الرقمي، السياسة الخارجية)
+- مايو 2026: تأكيد نصين فأكثر؛ بيانات الأسبوع من 11 إلى 15 مايو في انتظار المعالجة
+
+---
+
+### 🎯 نقاط العمل ذات الأولوية لصانعي القرار
+
+| الأولوية | القضية | الجدول الزمني | الجهة الفاعلة الرئيسية | مستوى الخطر |
+|----------|-------|----------|-----------|------------|
+| 🔴 حاسمة | تدهور البنية التحتية لبيانات البرلمان الأوروبي | فوري | تكنولوجيا المعلومات وخدمات البيانات في البرلمان | عالٍ |
+| 🟠 عالية | المفاوثات الثلاثية لـ SRMR3 تنتظر تنفيذ المجلس/المفوضية | الربع الثالث-الرابع 2026 | لجنة ECON | عالٍ |
+| 🟠 عالية | آليات رصد تطبيق قانون الأسواق الرقمية | جارٍ 2026 | لجنة IMCO | متوسط |
+| 🟡 متوسطة | مفاوضات ميزانية الاتحاد الأوروبي 2027 | مايو–ديسمبر 2026 | لجنة BUDG | متوسط |
+| 🟡 متوسطة | الجدول الزمني لتصديق الاتحاد الأوروبي-ميركوسور | 2026–2027 | لجنة INTA | متوسط |
+| 🟢 منخفضة | تنفيذ لائحة رعاية الحيوان | 2027 وما بعده | لجنة AGRI | منخفض |
+
+---
+
+### 📈 أفق المقترحات الاستشرافي (مايو–نوفمبر 2026)
+
+#### المقترحات المقبلة المتوقعة
+بناءً على برنامج عمل المفوضية لعام 2026 وتحليل التقويم البرلماني:
+
+1. **حزمة حوكمة الذكاء الاصطناعي المرحلة الثانية** — الأعمال المفوضة بموجب قانون الذكاء الاصطناعي في الاتحاد الأوروبي متوقعة في الربع الثالث 2026
+2. **اللائحة الأوروبية لصناعة الدفاع (EDIP)** — أداة ميزانية لصناعة الدفاع؛ حاسمة في ضوء السياق الروسي-الأوكراني
+3. **قانون المواد الخام الحيوية الثاني في الاتحاد الأوروبي** — توسيع/مراجعة متوقعة بعد استعراض التشريع الأولي
+4. **تنفيذ توجيه العمل على المنصات** — أنظمة رصد نقل القوانين في الدول الأعضاء
+5. **مراجعة إعداد تقارير الاستدامة للشركات (CSRD)** — حزمة تبسيط شاملة تحت ضغط المفوضية
+6. **حزمة التشريعات المتعلقة باليورو الرقمي** — تنسيق البنك المركزي الأوروبي/المفوضية في انتظار تعيينات نواب الرئيس (TA-10-2026-0033، -0060)
+
+#### تحذيرات التقويم التشريعي
+- **الجلسة العامة يونيو 2026** (ستراسبورغ): تصويت متوقع على عدة نتائج مفاوثات ثلاثية معلقة
+- **يوليو 2026**: بدء الإجازة الصيفية — موعد نهائي لتصويتات اللجان الهامة قبل الاستراحة
+- **سبتمبر 2026**: استئناف السنة البرلمانية — من المتوقع أن تكون قائمة الأولويات ثقيلة
+- **أكتوبر/نوفمبر 2026**: مراجعة نصف مدة برنامج عمل المفوضية
+
+---
+
+### ⚡ مصفوفة ثقة الاستخبارات
+
+| النتيجة | جودة الأدلة | الثقة | مسار التحقق |
+|---------|----------------|-----------|-------------------|
+| تأكيد 51 نصاً معتمداً | البيانات الأولية للبرلمان الأوروبي | 🟢 HIGH | بوابة البيانات المفتوحة للبرلمان الأوروبي |
+| إتمام الاتحاد المصرفي | نصوص TA مؤكدة | 🟢 HIGH | بوابة البيانات المفتوحة للبرلمان الأوروبي |
+| إجراء تطبيق قانون الأسواق الرقمية | نص TA مؤكد | 🟢 HIGH | بوابة البيانات المفتوحة للبرلمان الأوروبي |
+| إجراءات خط الأنابيب متدهورة | ملاحظة مباشرة | 🟢 HIGH | مخرجات أدوات MCP |
+| المقترحات المستقبلية (الربع الثالث/الرابع) | استنتاج من برنامج عمل المفوضية | 🟡 MEDIUM | موقع المفوضية |
+| ديناميكيات الائتلاف | مستنبطة من أنماط التصويت | 🟡 MEDIUM | XML DOCEO (غير متاح) |
+| آفاق مفاوضات الميزانية | نمط تاريخي + نصوص معتمدة | 🟡 MEDIUM | تدفقات لجنة BUDG |
+
+---
+
+### 🔄 تقييم جودة البيانات
+
+| المصدر | الحالة | الموثوقية | التأثير |
+|--------|--------|-------------|--------|
+| النصوص المعتمدة للبرلمان الأوروبي 2026 | ✅ وظيفي | عالية | 51 عنصراً متاحاً |
+| قناة إجراءات البرلمان الأوروبي | ❌ متدهورة | منخفضة | تعيد بيانات السبعينيات فقط |
+| قناة وثائق اللجان | ❌ غير متاحة | لا شيء | لم يتم إرجاع بيانات |
+| قناة الوثائق الخارجية | ❌ فارغة | لا شيء | تم إرجاع 0 عنصر |
+| تصويتات XML DOCEO | ❌ غير متاحة | لا شيء | لا توجد بيانات للأسبوع الحالي |
+| مراقبة خط أنابيب التشريع | ⚠️ متدهورة | منخفضة | تم إرجاع 0 إجراء |
+
+**التقييم:** تعمل هذه الجولة في ظل ظروف بيانات البرلمان الأوروبي المتدهورة بشدة. تُحافظ على جودة التحليل من خلال:
+1. مجموعة بيانات غنية من النصوص المعتمدة (51 عنصراً مع مراجع الإجراءات)
+2. تحليل الأنماط التاريخية والمعرفة ببرنامج عمل المفوضية
+3. بيانات السياق الاقتصادي من IMF/World Bank (عند الاقتضاء)
+4. استنتاج الخبراء من الجداول الزمنية التشريعية المعروفة
+
+---
+
+*تم الإنشاء: 2026-05-15 | EU Parliament Monitor | Hack23 AB | Apache-2.0*
+
+### Executive Brief Da
+
+### 🔑 Vigtige resultater
+
+#### 1. Stigende lovgivningsproduktion — Forårsrush 2026
+Europa-Parlamentet har demonstreret exceptionel lovgivningshastighed i Q1-Q2 2026 ved at vedtage **51 formelle tekster** mellem januar og maj 2026. Dette repræsenterer et lovgivningsrush, der falder sammen med midtvejspunktet for den 10. parlamentariske valgperiode, med store pakker inden for bankreform, antikorruption, digital styring og handelspolitik, der er kommet igennem til endelig afstemning.
+
+**Tillid:** 🟢 HIGH — Baseret på 51 bekræftede vedtagne tekster fra EP Open Data Portal.
+
+#### 2. Bankforbundsafslutning — SRMR3 og antikorruptionspakke
+To centrale lovgivningsmæssige tekster blev vedtaget den 26. marts 2026:
+- **SRMR3** (`2023/0111(COD)`) — Tidlige interventionsforanstaltninger, betingelser for afvikling og finansiering af afviklingsforanstaltninger — fuldførelse af en kritisk søjle i bankforbundets arkitektur.
+- **Antikorruptionsdirektivet** (`2023/0135(COD)`) — fastsætter EU-dækkende strafferetlige standarder for korruptionsforbrydelser, længe forsinket siden 2023.
+
+Disse vedtagelser signalerer EPP-S&D-Renew-koalitionens fortsatte kapacitet til at levere på institutionel reform trods stigende nationalistiske pres.
+
+**Tillid:** 🟢 HIGH — Bekræftede vedtagne tekster TA-10-2026-0092 og TA-10-2026-0094.
+
+#### 3. Digital Markets Act håndhævelsespakke
+Parlamentet vedtog **Håndhævelse af Digital Markets Act** (TA-10-2026-0160) den 30. april 2026, signalerende øget EP-tilsyn med Kommissionens håndhævelsesaktiviteter mod Big Tech-portvogtere. Dette sker, mens DMA-håndhævelsessager mod Apple, Meta og Alphabet er ved at gå ind i deres kritiske fase.
+
+**Tillid:** 🟢 HIGH — Bekræftet TA-10-2026-0160.
+
+#### 4. EU-USA handelsspændinger — Toldmodforanstaltninger
+Vedtagelsen af **Tilpasning af told på varer af USA-oprindelse** (`2025/0261`) den 26. marts 2026 afspejler EU's formelle lovgivningsmæssige respons på USA's toldoptrapning under Trump-administrationens anden periode. Dette positionerer Parlamentet som en proaktiv aktør i handelsmotforanstaltningspolitik.
+
+**Tillid:** 🟢 HIGH — Bekræftet TA-10-2026-0096.
+
+#### 5. EP 2027 budgetretningslinjer — Finansielt råderum under pres
+Vedtaget den 28. april 2026 fastsætter 2027-budgetretningslinjerne (`TA-10-2026-0112`) Parlamentets forhandlingsposition for den kommende årlige budgetcyklus. Den parallelle vedtagelse af EP's institutionelle overslag (`TA-10-2026-04-30-ANN01`) signalerer en omstridt budgetsæson med Kommissionen og Rådet.
+
+**Tillid:** 🟢 HIGH — Bekræftede vedtagne tekster.
+
+#### 6. EP's datainfrastruktur — Alvorlig kvalitetsforringelse
+**KRITISK OBSERVATION:** EP Open Data Portal returnerer alvorligt forringet data pr. 2026-05-15:
+- Procedurefeedet returnerer kun historiske procedurer fra 1970'erne-1980'erne
+- Komitédokumentfeedet er "utilgængeligt"
+- Eksternt dokumentfeed returnerer 0 elementer
+- Lovgivningspipeline-overvågning returnerer tomme resultater (0 procedurer)
+- DOCEO XML-afstemninger utilgængelige for den aktuelle uge
+
+Dette repræsenterer en systemisk datakvalitetsfejl, der materielt begrænser den fremadskuende lovgivningspipelineefterretning. MCP-pålideligheds-auditen dokumenterer dette i detaljer.
+
+**Tillid:** 🟢 HIGH — Direkte observeret ved indsamling af Stage A-data.
+
+---
+
+### 📊 Analyse af lovgivningshastighed
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4bf7686f) -->
+
+**Månedlig opdeling (bekræftet fra EP Open Data):**
+- Januar 2026: 7 vedtagne tekster (TA-10-2026-0004 til -0026)
+- Februar 2026: 7 vedtagne tekster (finansiel stabilitet, humanitær bistand, handel)
+- Marts 2026: 15 vedtagne tekster (bank, antikorruption, handel, miljø)
+- April 2026: 19 vedtagne tekster (budget, dyrevelfærd, digitalt, udenrigspolitik)
+- Maj 2026: 2+ tekster bekræftet; ugen 11.–15. maj data afventer
+
+---
+
+### 🎯 Prioriterede handlingspunkter for politikere
+
+| Prioritet | Spørgsmål | Tidslinje | Nøgleaktør | Risikoniveau |
+|----------|-------|----------|-----------|------------|
+| 🔴 KRITISK | EP-datainfrastrukturforringelse | Øjeblikkeligt | EP IT & Datatjenester | Høj |
+| 🟠 HØJ | SRMR3-trialoguer afventer Råds-/Kommissionsimplementering | Q3-Q4 2026 | ECON-udvalg | Høj |
+| 🟠 HØJ | DMA-håndhævelsesovervågningsmekanismer | Løbende 2026 | IMCO-udvalg | Medium |
+| 🟡 MEDIUM | 2027 EU-budgetforhandlinger | Maj–December 2026 | BUDG-udvalg | Medium |
+| 🟡 MEDIUM | EU-Mercosur-ratificeringstidslinje | 2026–2027 | INTA-udvalg | Medium |
+| 🟢 LAV | Implementering af dyrevelfærdsforordning | 2027 og frem | AGRI-udvalg | Lav |
+
+---
+
+### 📈 Fremadskuende propositionshorisont (maj–november 2026)
+
+#### Forventede kommende forslag
+Baseret på Kommissionens arbejdsprogram 2026 og analyse af parlamentarisk kalender:
+
+1. **AI-styrningspakke fase 2** — Delegerede retsakter under EU's AI-lov forventes Q3 2026
+2. **Europæisk forsvarsindustriforordning (EDIP)** — Budgetinstrument til forsvarsindustri; kritisk i lyset af Rusland-Ukraine-konteksten
+3. **EU's lov om kritiske råmaterialer II** — Udvidelse/revision forventes efter gennemgang af indledende lovgivning
+4. **Platformsarbejdsdirektivets implementering** — Overvågning af transponering i medlemsstat
+5. **Gennemgang af virksomheders bæredygtighedsrapportering (CSRD)** — Omnibus-forenklingspakke under Kommissionspres
+6. **Digital euro-lovgivningspakke** — ECB/Kommissionskoordinering afventer efter ECB's vicepræsidentudnævnelser (TA-10-2026-0033, -0060)
+
+#### Lovgivningskalenderadvarsler
+- **Juni 2026-plenarmøde** (Strasbourg): Forventet afstemning om flere afventende trialogeresultater
+- **Juli 2026**: Sommerferie begynder — frist for vigtige udvalgsstemmer inden pause
+- **September 2026**: Parlamentsåret genoptages — prioritetskøen forventes at være tung
+- **Oktober/november 2026**: Midtvejsgennemgang af Kommissionens arbejdsprogram
+
+---
+
+### ⚡ Efterretningskonfidensmatrix
+
+| Resultat | Evidenskvalitet | Tillid | Verifikationssti |
+|---------|----------------|-----------|-------------------|
+| 51 vedtagne tekster bekræftet | Primære EP-data | 🟢 HIGH | EP Open Data Portal |
+| Bankforbundsfuldførelse | Bekræftede TA-tekster | 🟢 HIGH | EP Open Data Portal |
+| DMA-håndhævelsesforanstaltning | Bekræftet TA-tekst | 🟢 HIGH | EP Open Data Portal |
+| Pipelineprocedurer forringet | Direkte observation | 🟢 HIGH | MCP-værktøjsoutput |
+| Fremtidige forslag (Q3/Q4) | Kommissionens Arbejdsprogram-inferens | 🟡 MEDIUM | Kommissionswebsite |
+| Koalitionsdynamik | Udledt fra afstemningsmodeller | 🟡 MEDIUM | DOCEO XML (utilgængeligt) |
+| Budgetforhandlingsudsigter | Historisk mønster + vedtagne tekster | 🟡 MEDIUM | BUDG-udvalgsfeeds |
+
+---
+
+### 🔄 Datakvalitetsvurdering
+
+| Kilde | Status | Pålidelighed | Indvirkning |
+|--------|--------|-------------|--------|
+| EP Vedtagne tekster 2026 | ✅ Funktionelle | HØJ | 51 elementer tilgængelige |
+| EP Procedurefeed | ❌ Forringet | LAV | Returnerer kun 1970'er-data |
+| Komitédokumentfeed | ❌ Utilgængeligt | INGEN | Ingen data returneret |
+| Eksternt dokumentfeed | ❌ Tomt | INGEN | 0 elementer returneret |
+| DOCEO XML-afstemninger | ❌ Utilgængelige | INGEN | Ingen data for nuværende uge |
+| Lovgivningspipeline-overvågning | ⚠️ Forringet | LAV | 0 procedurer returneret |
+
+**Vurdering:** Denne kørsel opererer under alvorligt forringede EP-datavilkår. Analysekvaliteten opretholdes gennem:
+1. Rigt datasæt for vedtagne tekster (51 elementer med procedurereferences)
+2. Historisk mønsteranalyse og viden om Kommissionens arbejdsprogram
+3. IMF/World Bank økonomisk kontekstdata (hvor relevant)
+4. Ekspertinferens fra kendte lovgivningstidslinjer
+
+---
+
+*Genereret: 2026-05-15 | EU Parliament Monitor | Hack23 AB | Apache-2.0*
+
+### Executive Brief De
+
+### 🔑 Wichtigste Erkenntnisse
+
+#### 1. Anstieg der Gesetzgebungsproduktion — Frühjahrs-Sprint 2026
+Das Europäische Parlament hat im Q1-Q2 2026 eine außergewöhnliche Gesetzgebungsgeschwindigkeit demonstriert und **51 formale Texte** zwischen Januar und Mai 2026 angenommen. Dies stellt einen Gesetzgebungs-Sprint dar, der mit dem Halbzeitpunkt der 10. Legislaturperiode zusammenfällt, mit großen Paketen in Bankreform, Antikorruption, digitaler Governance und Handelspolitik, die durch die abschließenden Abstimmungen gegangen sind.
+
+**Vertrauen:** 🟢 HIGH — Basierend auf 51 bestätigten angenommenen Texten aus dem EP Open Data Portal.
+
+#### 2. Bankenunions-Vollendung — SRMR3 und Antikorruptionspaket
+Zwei wichtige Gesetzgebungstexte wurden am 26. März 2026 angenommen:
+- **SRMR3** (`2023/0111(COD)`) — Frühinterventionsmaßnahmen, Abwicklungsbedingungen und Finanzierung von Abwicklungsmaßnahmen — Vervollständigung eines kritischen Pfeilers der Bankenunionsarchitektur.
+- **Antikorruptionsrichtlinie** (`2023/0135(COD)`) — legt EU-weite strafrechtliche Standards für Korruptionsdelikte fest, seit 2023 lange verzögert.
+
+Diese Annahmen signalisieren die anhaltende Kapazität der EPP-S&D-Renew-Koalition für institutionelle Reformen trotz zunehmendem nationalistischen Druck.
+
+**Vertrauen:** 🟢 HIGH — Bestätigte angenommene Texte TA-10-2026-0092 und TA-10-2026-0094.
+
+#### 3. Digital Markets Act-Durchsetzungspaket
+Das Parlament nahm **Durchsetzung des Digital Markets Act** (TA-10-2026-0160) am 30. April 2026 an, was eine verstärkte EP-Aufsicht über die Durchsetzungsaktivitäten der Kommission gegen Big-Tech-Gatekeeper signalisiert. Dies geschieht, während die DMA-Durchsetzungsverfahren gegen Apple, Meta und Alphabet in ihre kritische Phase eintreten.
+
+**Vertrauen:** 🟢 HIGH — Bestätigt TA-10-2026-0160.
+
+#### 4. EU-USA-Handelskonflikt — Zoll-Gegenmaßnahmen
+Die Annahme der **Anpassung von Zöllen für Waren US-amerikanischen Ursprungs** (`2025/0261`) am 26. März 2026 spiegelt die formelle Gesetzgebungsreaktion der EU auf die US-Zollerhöhungen während der zweiten Amtszeit der Trump-Administration wider. Dies positioniert das Parlament als proaktiven Akteur in der Handelsgegensatzpolitik.
+
+**Vertrauen:** 🟢 HIGH — Bestätigt TA-10-2026-0096.
+
+#### 5. EP-Haushaltslinien 2027 — Finanzieller Spielraum unter Druck
+Die am 28. April 2026 angenommenen Haushaltslinien 2027 (`TA-10-2026-0112`) legen die Verhandlungsposition des Parlaments für den kommenden jährlichen Haushaltszyklus fest. Die parallele Annahme der institutionellen Voranschläge des EP (`TA-10-2026-04-30-ANN01`) kündigt eine kontroverse Haushaltssaison mit der Kommission und dem Rat an.
+
+**Vertrauen:** 🟢 HIGH — Bestätigte angenommene Texte.
+
+#### 6. EP-Dateninfrastruktur — Schwerwiegende Qualitätsverschlechterung
+**KRITISCHE BEOBACHTUNG:** Das EP Open Data Portal gibt ab 2026-05-15 schwer degradierte Daten zurück:
+- Der Verfahrens-Feed gibt nur historische Verfahren aus den 1970er-1980er Jahren zurück
+- Der Ausschussdokumenten-Feed ist "nicht verfügbar"
+- Externer Dokumenten-Feed gibt 0 Einträge zurück
+- Gesetzgebungs-Pipeline-Überwachung gibt leere Ergebnisse zurück (0 Verfahren)
+- DOCEO-XML-Abstimmungen für die aktuelle Woche nicht verfügbar
+
+Dies stellt einen systemischen Datenqualitätsfehler dar, der die vorausschauende Gesetzgebungs-Pipeline-Intelligenz materiell einschränkt. Die MCP-Zuverlässigkeitsrevision dokumentiert dies ausführlich.
+
+**Vertrauen:** 🟢 HIGH — Direkt bei der Stage-A-Datenerhebung beobachtet.
+
+---
+
+### 📊 Analyse der Gesetzgebungsgeschwindigkeit
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4bf7686f) -->
+
+**Monatliche Aufschlüsselung (bestätigt aus EP Open Data):**
+- Januar 2026: 7 angenommene Texte (TA-10-2026-0004 bis -0026)
+- Februar 2026: 7 angenommene Texte (Finanzstabilität, humanitäre Hilfe, Handel)
+- März 2026: 15 angenommene Texte (Bank, Antikorruption, Handel, Umwelt)
+- April 2026: 19 angenommene Texte (Haushalt, Tierschutz, Digital, Außenpolitik)
+- Mai 2026: 2+ Texte bestätigt; Woche 11.–15. Mai Daten ausstehend
+
+---
+
+### 🎯 Priorisierte Aktionspunkte für Entscheidungsträger
+
+| Priorität | Frage | Zeitplan | Schlüsselakteur | Risikoniveau |
+|----------|-------|----------|-----------|------------|
+| 🔴 KRITISCH | EP-Dateninfrastrukturverschlechterung | Sofort | EP IT & Datendienste | Hoch |
+| 🟠 HOCH | SRMR3-Trilog wartet auf Rats-/Kommissionsimplementierung | Q3-Q4 2026 | ECON-Ausschuss | Hoch |
+| 🟠 HOCH | DMA-Durchsetzungsüberwachungsmechanismen | Laufend 2026 | IMCO-Ausschuss | Mittel |
+| 🟡 MITTEL | Verhandlungen zum EU-Haushalt 2027 | Mai–Dezember 2026 | BUDG-Ausschuss | Mittel |
+| 🟡 MITTEL | EU-Mercosur-Ratifizierungszeitplan | 2026–2027 | INTA-Ausschuss | Mittel |
+| 🟢 NIEDRIG | Implementierung der Tierschutzverordnung | 2027 und danach | AGRI-Ausschuss | Niedrig |
+
+---
+
+### 📈 Vorausschauender Propositions-Horizont (Mai–November 2026)
+
+#### Erwartete kommende Vorschläge
+Basierend auf dem Arbeitsprogramm der Kommission 2026 und der parlamentarischen Kalenderanalyse:
+
+1. **KI-Governance-Paket Phase 2** — Delegierte Rechtsakte unter dem EU-KI-Gesetz erwartet für Q3 2026
+2. **Europäische Verteidigungsindustrieverordnung (EDIP)** — Haushaltsinstrument für die Verteidigungsindustrie; kritisch angesichts des Russland-Ukraine-Kontexts
+3. **EU-Gesetz über kritische Rohstoffe II** — Erweiterung/Revision nach Überprüfung der Erstgesetzgebung erwartet
+4. **Implementierung der Plattformarbeits-Richtlinie** — Überwachungssystem für die Mitgliedstaatentransposition
+5. **Überprüfung der Unternehmens-Nachhaltigkeitsberichterstattung (CSRD)** — Omnibus-Vereinfachungspaket unter Kommissionsdruck
+6. **Digitaler Euro-Gesetzgebungspaket** — EZB/Kommissionskoordinierung ausstehend nach EZB-Vizepräsidenternennungen (TA-10-2026-0033, -0060)
+
+#### Gesetzgebungskalender-Warnungen
+- **Juni 2026 Plenum** (Straßburg): Erwartete Abstimmung über mehrere ausstehende Trilogergebnisse
+- **Juli 2026**: Sommerpause beginnt — Frist für wichtige Ausschussabstimmungen vor der Pause
+- **September 2026**: Parlamentsjahr nimmt wieder auf — Prioritätswarteschlange wird voraussichtlich schwer sein
+- **Oktober/November 2026**: Halbzeitüberprüfung des Arbeitsprogramms der Kommission
+
+---
+
+### ⚡ Geheimdienstvertrauen-Matrix
+
+| Befund | Beweisqualität | Vertrauen | Verifizierungspfad |
+|---------|----------------|-----------|-------------------|
+| 51 angenommene Texte bestätigt | Primäre EP-Daten | 🟢 HIGH | EP Open Data Portal |
+| Bankenunions-Vollendung | Bestätigte TA-Texte | 🟢 HIGH | EP Open Data Portal |
+| DMA-Durchsetzungsmaßnahme | Bestätigter TA-Text | 🟢 HIGH | EP Open Data Portal |
+| Pipeline-Verfahren degradiert | Direkte Beobachtung | 🟢 HIGH | MCP-Tool-Ausgabe |
+| Zukünftige Vorschläge (Q3/Q4) | Kommissions-Arbeitsprogramm-Inferenz | 🟡 MEDIUM | Kommissionswebsite |
+| Koalitionsdynamik | Abgeleitet aus Abstimmungsmustern | 🟡 MEDIUM | DOCEO XML (nicht verfügbar) |
+| Haushaltverhandlungsaussichten | Historisches Muster + angenommene Texte | 🟡 MEDIUM | BUDG-Ausschuss-Feeds |
+
+---
+
+### 🔄 Datenqualitätsbewertung
+
+| Quelle | Status | Zuverlässigkeit | Auswirkung |
+|--------|--------|-------------|--------|
+| EP Angenommene Texte 2026 | ✅ Funktionsfähig | HOCH | 51 Einträge verfügbar |
+| EP Verfahrens-Feed | ❌ Degradiert | NIEDRIG | Gibt nur 1970er-Daten zurück |
+| Ausschussdokumenten-Feed | ❌ Nicht verfügbar | KEINE | Keine Daten zurückgegeben |
+| Externer Dokumenten-Feed | ❌ Leer | KEINE | 0 Einträge zurückgegeben |
+| DOCEO XML-Abstimmungen | ❌ Nicht verfügbar | KEINE | Keine Daten für aktuelle Woche |
+| Gesetzgebungs-Pipeline-Überwachung | ⚠️ Degradiert | NIEDRIG | 0 Verfahren zurückgegeben |
+
+**Bewertung:** Dieser Lauf operiert unter schwer degradierten EP-Datenbedingungen. Die Analysequalität wird aufrechterhalten durch:
+1. Reichhaltiger Datensatz für angenommene Texte (51 Einträge mit Verfahrensreferenzen)
+2. Historische Musteranalyse und Kenntnisse des Kommissions-Arbeitsprogramms
+3. IMF/World Bank wirtschaftliche Kontextdaten (wo anwendbar)
+4. Experteninferenz aus bekannten Gesetzgebungszeitplänen
+
+---
+
+*Generiert: 2026-05-15 | EU Parliament Monitor | Hack23 AB | Apache-2.0*
+
+### Executive Brief Es
+
+### 🔑 Principales conclusiones
+
+#### 1. Aumento de producción legislativa — Sprint primaveral 2026
+El Parlamento Europeo ha demostrado una velocidad legislativa excepcional en el Q1-Q2 2026, adoptando **51 textos formales** entre enero y mayo de 2026. Esto representa un sprint legislativo que coincide con el punto medio de la 10ª legislatura, con grandes paquetes en reforma bancaria, anticorrupción, gobernanza digital y política comercial que han superado las votaciones finales.
+
+**Confianza:** 🟢 HIGH — Basado en 51 textos adoptados confirmados del Portal de Datos Abiertos del PE.
+
+#### 2. Finalización de la unión bancaria — SRMR3 y paquete anticorrupción
+Dos textos legislativos importantes fueron adoptados el 26 de marzo de 2026:
+- **SRMR3** (`2023/0111(COD)`) — Medidas de intervención temprana, condiciones de resolución y financiación de medidas de resolución — completando un pilar crítico de la arquitectura de la unión bancaria.
+- **Directiva anticorrupción** (`2023/0135(COD)`) — establece estándares penales a escala de la UE para delitos de corrupción, con largo retraso desde 2023.
+
+Estas adopciones señalan la capacidad continua de la coalición PPE-S&D-Renew para impulsar reformas institucionales a pesar de la creciente presión nacionalista.
+
+**Confianza:** 🟢 HIGH — Textos adoptados confirmados TA-10-2026-0092 y TA-10-2026-0094.
+
+#### 3. Paquete de aplicación del Digital Markets Act
+El Parlamento adoptó **la aplicación del Digital Markets Act** (TA-10-2026-0160) el 30 de abril de 2026, señalando una mayor supervisión del PE sobre las actividades de aplicación de la Comisión contra los guardianes de acceso Big Tech. Esto ocurre mientras los procedimientos de aplicación del DMA contra Apple, Meta y Alphabet entran en su fase crítica.
+
+**Confianza:** 🟢 HIGH — Confirmado TA-10-2026-0160.
+
+#### 4. Tensiones comerciales UE-EE.UU. — Contramedidas arancelarias
+La adopción de **el ajuste de aranceles sobre mercancías de origen estadounidense** (`2025/0261`) el 26 de marzo de 2026 refleja la respuesta legislativa formal de la UE a la escalada arancelaria de EE.UU. durante el segundo mandato de la administración Trump. Esto posiciona al Parlamento como un actor proactivo en la política de contramedidas comerciales.
+
+**Confianza:** 🟢 HIGH — Confirmado TA-10-2026-0096.
+
+#### 5. Directrices presupuestarias 2027 del PE — Margen financiero bajo presión
+Adoptadas el 28 de abril de 2026, las directrices presupuestarias 2027 (`TA-10-2026-0112`) establecen la posición negociadora del Parlamento para el próximo ciclo presupuestario anual. La adopción paralela de las estimaciones institucionales del PE (`TA-10-2026-04-30-ANN01`) anuncia una temporada presupuestaria controvertida con la Comisión y el Consejo.
+
+**Confianza:** 🟢 HIGH — Textos adoptados confirmados.
+
+#### 6. Infraestructura de datos del PE — Grave degradación de la calidad
+**OBSERVACIÓN CRÍTICA:** El Portal de Datos Abiertos del PE devuelve datos gravemente degradados a partir de 2026-05-15:
+- El flujo de procedimientos devuelve solo procedimientos históricos de los años 1970-1980
+- El flujo de documentos de comités está "no disponible"
+- El flujo de documentos externos devuelve 0 elementos
+- La supervisión del pipeline legislativo devuelve resultados vacíos (0 procedimientos)
+- Los votos XML DOCEO no están disponibles para la semana actual
+
+Esto representa un fallo sistémico de calidad de datos que limita materialmente la inteligencia prospectiva del pipeline legislativo. La auditoría de confiabilidad MCP documenta esto en detalle.
+
+**Confianza:** 🟢 HIGH — Observado directamente durante la recopilación de datos de la Etapa A.
+
+---
+
+### 📊 Análisis del ritmo legislativo
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4bf7686f) -->
+
+**Desglose mensual (confirmado desde EP Open Data):**
+- Enero 2026: 7 textos adoptados (TA-10-2026-0004 a -0026)
+- Febrero 2026: 7 textos adoptados (estabilidad financiera, ayuda humanitaria, comercio)
+- Marzo 2026: 15 textos adoptados (banca, anticorrupción, comercio, medio ambiente)
+- Abril 2026: 19 textos adoptados (presupuesto, bienestar animal, digital, política exterior)
+- Mayo 2026: 2+ textos confirmados; datos de la semana del 11 al 15 de mayo pendientes
+
+---
+
+### 🎯 Puntos de acción prioritarios para los responsables políticos
+
+| Prioridad | Asunto | Calendario | Actor clave | Nivel de riesgo |
+|----------|-------|----------|-----------|------------|
+| 🔴 CRÍTICO | Degradación de la infraestructura de datos del PE | Inmediatamente | PE IT y Servicios de Datos | Alto |
+| 🟠 ALTO | Trílogos SRMR3 pendientes de implementación del Consejo/Comisión | Q3-Q4 2026 | Comisión ECON | Alto |
+| 🟠 ALTO | Mecanismos de supervisión de aplicación del DMA | En curso 2026 | Comisión IMCO | Medio |
+| 🟡 MEDIO | Negociaciones presupuestarias UE 2027 | Mayo–Diciembre 2026 | Comisión BUDG | Medio |
+| 🟡 MEDIO | Calendario de ratificación UE-Mercosur | 2026–2027 | Comisión INTA | Medio |
+| 🟢 BAJO | Implementación del reglamento de bienestar animal | 2027 en adelante | Comisión AGRI | Bajo |
+
+---
+
+### 📈 Horizonte prospectivo de proposiciones (mayo–noviembre 2026)
+
+#### Próximas propuestas esperadas
+Basado en el programa de trabajo de la Comisión 2026 y el análisis del calendario parlamentario:
+
+1. **Paquete de gobernanza de IA fase 2** — Actos delegados bajo la Ley de IA de la UE esperados para el Q3 2026
+2. **Reglamento europeo de la industria de defensa (EDIP)** — Instrumento presupuestario para la industria de defensa; crítico dado el contexto Rusia-Ucrania
+3. **Ley de materias primas críticas II de la UE** — Ampliación/revisión esperada tras la revisión de la legislación inicial
+4. **Implementación de la Directiva sobre trabajo en plataformas** — Sistemas de seguimiento de transposición de los Estados miembros
+5. **Revisión de la información de sostenibilidad corporativa (CSRD)** — Paquete de simplificación Ómnibus bajo presión de la Comisión
+6. **Paquete legislativo del euro digital** — Coordinación BCE/Comisión pendiente tras los nombramientos de vicepresidentes del BCE (TA-10-2026-0033, -0060)
+
+#### Advertencias del calendario legislativo
+- **Pleno de junio de 2026** (Estrasburgo): Votación esperada sobre varios resultados de trílogos pendientes
+- **Julio 2026**: Comienza el receso de verano — plazo para votaciones importantes de comisiones antes del descanso
+- **Septiembre 2026**: El año parlamentario se reanuda — se espera que la cola de prioridades sea intensa
+- **Octubre/noviembre 2026**: Revisión de medio término del programa de trabajo de la Comisión
+
+---
+
+### ⚡ Matriz de confianza de inteligencia
+
+| Resultado | Calidad de evidencia | Confianza | Ruta de verificación |
+|---------|----------------|-----------|-------------------|
+| 51 textos adoptados confirmados | Datos primarios del PE | 🟢 HIGH | Portal de Datos Abiertos del PE |
+| Finalización de la unión bancaria | Textos TA confirmados | 🟢 HIGH | Portal de Datos Abiertos del PE |
+| Medida de aplicación DMA | Texto TA confirmado | 🟢 HIGH | Portal de Datos Abiertos del PE |
+| Procedimientos del pipeline degradados | Observación directa | 🟢 HIGH | Salida de herramientas MCP |
+| Futuras propuestas (Q3/Q4) | Inferencia del programa de trabajo de la Comisión | 🟡 MEDIUM | Sitio web de la Comisión |
+| Dinámica de coalición | Deducido de patrones de votación | 🟡 MEDIUM | DOCEO XML (no disponible) |
+| Perspectivas de negociaciones presupuestarias | Patrón histórico + textos adoptados | 🟡 MEDIUM | Flujos de la comisión BUDG |
+
+---
+
+### 🔄 Evaluación de calidad de datos
+
+| Fuente | Estado | Fiabilidad | Impacto |
+|--------|--------|-------------|--------|
+| PE Textos adoptados 2026 | ✅ Funcional | ALTO | 51 elementos disponibles |
+| Flujo de procedimientos PE | ❌ Degradado | BAJO | Devuelve solo datos de los años 1970 |
+| Flujo de documentos de comités | ❌ No disponible | NINGUNO | No se devolvieron datos |
+| Flujo de documentos externos | ❌ Vacío | NINGUNO | 0 elementos devueltos |
+| Votos XML DOCEO | ❌ No disponibles | NINGUNO | No hay datos para la semana actual |
+| Supervisión del pipeline legislativo | ⚠️ Degradada | BAJO | 0 procedimientos devueltos |
+
+**Evaluación:** Esta ejecución opera bajo condiciones de datos del PE gravemente degradadas. La calidad del análisis se mantiene a través de:
+1. Conjunto de datos rico en textos adoptados (51 elementos con referencias de procedimientos)
+2. Análisis de patrones históricos y conocimiento del programa de trabajo de la Comisión
+3. Datos de contexto económico IMF/World Bank (cuando corresponda)
+4. Inferencia experta a partir de calendarios legislativos conocidos
+
+---
+
+*Generado: 2026-05-15 | EU Parliament Monitor | Hack23 AB | Apache-2.0*
+
+### Executive Brief Fi
+
+### 🔑 Tärkeimmät havainnot
+
+#### 1. Lainsäädäntötuotannon kasvu — Kevään sprintti 2026
+Euroopan parlamentti on osoittanut poikkeuksellista lainsäädäntövauhtia Q1-Q2 2026, hyväksymällä **51 virallista tekstiä** tammikuun ja toukokuun 2026 välillä. Tämä edustaa lainsäädäntösprinttiä, joka osuu yksiin 10. parlamentaarisen vaalikauden puolivälin kanssa, suurten pankki-, korruptionvastaisen, digitaalisen hallinnon ja kauppapolitiikkapakettien läpäistyä lopullisessa äänestyksessä.
+
+**Luotettavuus:** 🟢 HIGH — Perustuu 51 vahvistettuun hyväksyttyyn tekstiin EP:n Open Data Portalista.
+
+#### 2. Pankkiunionin viimeistely — SRMR3 ja korruptionvastainen paketti
+Kaksi tärkeää lainsäädäntötekstiä hyväksyttiin 26. maaliskuuta 2026:
+- **SRMR3** (`2023/0111(COD)`) — Varhaistoimenpiteet, kriisinhallintaedellytykset ja kriisinhallintarahoitus — pankkiunionin arkkitehtuurin kriittisen pilarin viimeistely.
+- **Korruptionvastainen direktiivi** (`2023/0135(COD)`) — vahvistaa EU:n laajuiset rikosoikeudelliset standardit korruptiorikoksille, pitkään viivästynyt vuodesta 2023.
+
+Nämä hyväksynnät viestivät EPP-S&D-Renew-koalition jatkuvasta kapasiteetista institutionaalisiin uudistuksiin lisääntyneestä nationalistisesta paineesta huolimatta.
+
+**Luotettavuus:** 🟢 HIGH — Vahvistetut hyväksytyt tekstit TA-10-2026-0092 ja TA-10-2026-0094.
+
+#### 3. Digitaalisia markkinoita koskevan lain (DMA) toimeenpanopaketti
+Parlamentti hyväksyi **Digitaalisia markkinoita koskevan lain toimeenpanon** (TA-10-2026-0160) 30. huhtikuuta 2026, viestien lisääntyvästä EP:n valvonnasta komission toimeenpanosta suurten teknologiaportinvartijoita vastaan. Tämä tapahtuu, kun DMA-toimeenpanoprosessit Applea, Metaa ja Alphabetia vastaan siirtyvät kriittiseen vaiheeseen.
+
+**Luotettavuus:** 🟢 HIGH — Vahvistettu TA-10-2026-0160.
+
+#### 4. EU-USA kauppakiista — Tullivastapaketti
+**Yhdysvalloista peräisin oleviin tavaroihin kohdistuvien tullien mukauttamisen** (`2025/0261`) hyväksyminen 26. maaliskuuta 2026 heijastaa EU:n muodollista lainsäädäntövastetta Yhdysvaltojen tullien nostamiseen Trumpin hallinnon toisen kauden aikana. Tämä asemoi parlamentin proaktiiviseksi toimijaksi kaupan vastapakettipolitiikassa.
+
+**Luotettavuus:** 🟢 HIGH — Vahvistettu TA-10-2026-0096.
+
+#### 5. EP:n 2027 budjettisuuntaviivat — Finansiaalinen peliala paineessa
+Hyväksytty 28. huhtikuuta 2026, 2027 budjettisuuntaviivat (`TA-10-2026-0112`) asettavat parlamentin neuvotteluaseman tulevalle vuosibudjettisyklille. Euroopan parlamentin institutionaalisten arvioiden (`TA-10-2026-04-30-ANN01`) samanaikainen hyväksyminen ennakoi kiistanalaista budsjettikautta komission ja neuvoston kanssa.
+
+**Luotettavuus:** 🟢 HIGH — Vahvistetut hyväksytyt tekstit.
+
+#### 6. EP:n datainfrastruktuuri — Vakava laadun heikkeneminen
+**KRIITTINEN HAVAINTO:** EP:n Open Data Portal palauttaa vakavasti heikentynyttä dataa 2026-05-15 alkaen:
+- Menettelysyöte palauttaa vain historiallisia menettelyjä 1970-1980-luvuilta
+- Komiteadokumenttisyöte on "ei saatavilla"
+- Ulkoinen dokumenttisyöte palauttaa 0 kohdetta
+- Lainsäädäntöpipeline-valvonta palauttaa tyhjiä tuloksia (0 menettelyä)
+- DOCEO XML-äänestykset ovat saavuttamattomissa nykyisellä viikolla
+
+Tämä edustaa järjestelmällistä tietolaatuongelmaa, joka oleellisesti rajoittaa ennakoivaa lainsäädäntöpipelinetiedustelua. MCP-luotettavuustarkastus dokumentoi tämän yksityiskohtaisesti.
+
+**Luotettavuus:** 🟢 HIGH — Suoraan havaittu Stage A -tiedonkeruussa.
+
+---
+
+### 📊 Lainsäädäntövauhdin analyysi
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4bf7686f) -->
+
+**Kuukausittainen erittely (vahvistettu EP Open Datasta):**
+- Tammikuu 2026: 7 hyväksyttyä tekstiä (TA-10-2026-0004 – -0026)
+- Helmikuu 2026: 7 hyväksyttyä tekstiä (rahoitusvakaus, humanitaarinen apu, kauppa)
+- Maaliskuu 2026: 15 hyväksyttyä tekstiä (pankki, korruptionvastainen, kauppa, ympäristö)
+- Huhtikuu 2026: 19 hyväksyttyä tekstiä (budjetti, eläinsuojelu, digitaaliset, ulkopolitiikka)
+- Toukokuu 2026: 2+ tekstiä vahvistettu; viikko 11.–15. toukokuuta data odottaa
+
+---
+
+### 🎯 Prioritoidut toimintapisteet päätöksentekijöille
+
+| Prioriteetti | Asia | Aikajana | Avaintoimija | Riskitaso |
+|----------|-------|----------|-----------|------------|
+| 🔴 KRIITTINEN | EP:n datainfrastruktuurin heikkeneminen | Välittömästi | EP IT & Datapalvelut | Korkea |
+| 🟠 KORKEA | SRMR3-trilogit odottavat neuvoston/komission toimeenpanoa | Q3-Q4 2026 | ECON-valiokunta | Korkea |
+| 🟠 KORKEA | DMA-toimeenpanon valvontamekanismit | Jatkuva 2026 | IMCO-valiokunta | Keskisuuri |
+| 🟡 KESKISUURI | 2027 EU-budjettineuvottelut | Toukokuu–Joulukuu 2026 | BUDG-valiokunta | Keskisuuri |
+| 🟡 KESKISUURI | EU-Mercosur-ratifiointiaikataulu | 2026–2027 | INTA-valiokunta | Keskisuuri |
+| 🟢 MATALA | Eläinten hyvinvointiasetuksen toimeenpano | 2027 ja eteenpäin | AGRI-valiokunta | Matala |
+
+---
+
+### 📈 Tulevaisuuden propositiohorisontti (toukokuu–marraskuu 2026)
+
+#### Odotettavat tulevat ehdotukset
+Perustuen komission 2026 työohjelmaan ja parlamentariseen kalenterianalyysiin:
+
+1. **Tekoälyhallintopaketti vaihe 2** — Delegoidut säädökset EU:n tekoälylain nojalla odotettu Q3 2026
+2. **Eurooppalainen puolustusalan teollisuusasetus (EDIP)** — Budjettinstrumentti puolustustoimialalle; kriittinen Venäjä-Ukraina-kontekstissa
+3. **EU:n kriittisiä raaka-aineita koskeva laki II** — Laajennusta/tarkistusta odotetaan alkuperäisen lainsäädännön arvioinnin jälkeen
+4. **Alustatyödirektiivin toimeenpano** — Jäsenvaltioiden transposition seurantajärjestelmät
+5. **Yritysvastuullisuusraportoinnin tarkistus (CSRD)** — Omnibus-yksinkertaistamispaketti komission paineessa
+6. **Digitaalinen euro -lainsäädäntöpaketti** — EKP:n/komission koordinointi odottaa EKP:n varapuheenjohtajanimityksiä (TA-10-2026-0033, -0060)
+
+#### Lainsäädäntökalenterivaroitukset
+- **Kesäkuu 2026 täysistunto** (Strasbourg): Odotettu äänestys useista odottavista trilogin tuloksista
+- **Heinäkuu 2026**: Kesäloma alkaa — tärkeiden valiokuntaäänestyksiä deadline ennen taukoa
+- **Syyskuu 2026**: Parlamenttivuosi jatkuu — prioriteettijonon odotetaan olevan raskas
+- **Lokakuu/marraskuu 2026**: Komission työohjelman puolivälitarkistus
+
+---
+
+### ⚡ Tiedusteluluottamusmatriisi
+
+| Havainto | Todisteiden laatu | Luotettavuus | Vahvistuspolku |
+|---------|----------------|-----------|-------------------|
+| 51 hyväksyttyä tekstiä vahvistettu | Ensisijaiset EP-tiedot | 🟢 HIGH | EP Open Data Portal |
+| Pankkiunionin viimeistely | Vahvistetut TA-tekstit | 🟢 HIGH | EP Open Data Portal |
+| DMA-toimeenpanotoimenpide | Vahvistettu TA-teksti | 🟢 HIGH | EP Open Data Portal |
+| Pipelinemenettelyt heikentyneet | Suora havainto | 🟢 HIGH | MCP-työkalutuloste |
+| Tulevat ehdotukset (Q3/Q4) | Komission Työohjelma-päätelmä | 🟡 MEDIUM | Komission verkkosivusto |
+| Koalitiodynamiikka | Päätelty äänestysmalleista | 🟡 MEDIUM | DOCEO XML (ei saatavilla) |
+| Budjettineuvottelunäkymät | Historiallinen malli + hyväksytyt tekstit | 🟡 MEDIUM | BUDG-valiokunnan syötteet |
+
+---
+
+### 🔄 Tietolaadun arviointi
+
+| Lähde | Tila | Luotettavuus | Vaikutus |
+|--------|--------|-------------|--------|
+| EP Hyväksytyt tekstit 2026 | ✅ Toimivat | KORKEA | 51 kohdetta saatavilla |
+| EP Menettelysyöte | ❌ Heikentynyt | MATALA | Palauttaa vain 1970-luvun dataa |
+| Komiteadokumenttisyöte | ❌ Ei saatavilla | EI MITÄÄN | Ei dataa palautettu |
+| Ulkoinen dokumenttisyöte | ❌ Tyhjä | EI MITÄÄN | 0 kohdetta palautettu |
+| DOCEO XML-äänestykset | ❌ Ei saatavilla | EI MITÄÄN | Ei dataa nykyiselle viikolle |
+| Lainsäädäntöpipeline-valvonta | ⚠️ Heikentynyt | MATALA | 0 menettelyä palautettu |
+
+**Arvio:** Tämä ajosuoritus toimii vakavasti heikentyneissä EP-dataolosuhteissa. Analyysikvaliteetti ylläpidetään seuraavasti:
+1. Rikas hyväksyttyjen tekstien tietoaineisto (51 kohdetta, joissa menettelyviittaukset)
+2. Historiallinen mallianalyysi ja tietämys komission työohjelmasta
+3. IMF/World Bank taloudellinen kontekstidata (tarvittaessa)
+4. Asiantuntijapäätelmät tunnetuista lainsäädäntöaikatauluista
+
+---
+
+*Luotu: 2026-05-15 | EU Parliament Monitor | Hack23 AB | Apache-2.0*
+
+### Executive Brief Fr
+
+### 🔑 Principales conclusions
+
+#### 1. Surge de production législative — Sprint printanier 2026
+Le Parlement européen a démontré une cadence législative exceptionnelle au Q1-Q2 2026, avec l'adoption de **51 textes formels** entre janvier et mai 2026. Cela représente un sprint législatif coïncidant avec le mi-parcours de la 10e législature, avec de grands paquets dans la réforme bancaire, l'antiblanchiment, la gouvernance numérique et la politique commerciale ayant passé les votes finals.
+
+**Confiance :** 🟢 HIGH — Basé sur 51 textes adoptés confirmés du portail Open Data du PE.
+
+#### 2. Achèvement de l'union bancaire — SRMR3 et paquet anticorruption
+Deux textes législatifs majeurs ont été adoptés le 26 mars 2026 :
+- **SRMR3** (`2023/0111(COD)`) — Mesures d'intervention précoce, conditions de résolution et financement des mesures de résolution — achèvement d'un pilier critique de l'architecture de l'union bancaire.
+- **Directive anticorruption** (`2023/0135(COD)`) — établit des normes pénales à l'échelle de l'UE pour les infractions de corruption, longtemps retardée depuis 2023.
+
+Ces adoptions signalent la capacité continue de la coalition PPE-S&D-Renew à livrer des réformes institutionnelles malgré une pression nationaliste croissante.
+
+**Confiance :** 🟢 HIGH — Textes adoptés confirmés TA-10-2026-0092 et TA-10-2026-0094.
+
+#### 3. Paquet d'application du Digital Markets Act
+Le Parlement a adopté **l'application du Digital Markets Act** (TA-10-2026-0160) le 30 avril 2026, signalant une supervision accrue du PE sur les activités d'application de la Commission contre les gardiens Big Tech. Cela intervient alors que les procédures d'application DMA contre Apple, Meta et Alphabet entrent dans leur phase critique.
+
+**Confiance :** 🟢 HIGH — Confirmé TA-10-2026-0160.
+
+#### 4. Tensions commerciales UE-USA — Contre-mesures tarifaires
+L'adoption de **l'ajustement des droits de douane sur les marchandises d'origine américaine** (`2025/0261`) le 26 mars 2026 reflète la réponse législative formelle de l'UE à l'escalade tarifaire américaine sous le second mandat de l'administration Trump. Cela positionne le Parlement comme un acteur proactif dans la politique de contre-mesures commerciales.
+
+**Confiance :** 🟢 HIGH — Confirmé TA-10-2026-0096.
+
+#### 5. Lignes directrices budgétaires 2027 du PE — Marge financière sous pression
+Adoptées le 28 avril 2026, les lignes directrices budgétaires 2027 (`TA-10-2026-0112`) établissent la position de négociation du Parlement pour le prochain cycle budgétaire annuel. L'adoption parallèle des prévisions institutionnelles du PE (`TA-10-2026-04-30-ANN01`) annonce une saison budgétaire controversée avec la Commission et le Conseil.
+
+**Confiance :** 🟢 HIGH — Textes adoptés confirmés.
+
+#### 6. Infrastructure de données du PE — Dégradation grave de la qualité
+**OBSERVATION CRITIQUE :** Le portail Open Data du PE retourne des données gravement dégradées au 2026-05-15 :
+- Le flux de procédures retourne uniquement des procédures historiques des années 1970-1980
+- Le flux de documents des comités est « indisponible »
+- Le flux de documents externes retourne 0 éléments
+- La surveillance du pipeline législatif retourne des résultats vides (0 procédures)
+- Les votes XML DOCEO indisponibles pour la semaine en cours
+
+Cela représente un défaut systémique de qualité des données qui limite matériellement le renseignement prospectif sur le pipeline législatif. L'audit de fiabilité MCP documente cela en détail.
+
+**Confiance :** 🟢 HIGH — Observé directement lors de la collecte de données de l'étape A.
+
+---
+
+### 📊 Analyse du rythme législatif
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4bf7686f) -->
+
+**Répartition mensuelle (confirmée depuis EP Open Data) :**
+- Janvier 2026 : 7 textes adoptés (TA-10-2026-0004 à -0026)
+- Février 2026 : 7 textes adoptés (stabilité financière, aide humanitaire, commerce)
+- Mars 2026 : 15 textes adoptés (banque, anticorruption, commerce, environnement)
+- Avril 2026 : 19 textes adoptés (budget, bien-être animal, numérique, politique étrangère)
+- Mai 2026 : 2+ textes confirmés ; données de la semaine du 11 au 15 mai en attente
+
+---
+
+### 🎯 Points d'action prioritaires pour les décideurs
+
+| Priorité | Question | Calendrier | Acteur clé | Niveau de risque |
+|----------|-------|----------|-----------|------------|
+| 🔴 CRITIQUE | Dégradation de l'infrastructure de données du PE | Immédiatement | PE IT & Services de données | Élevé |
+| 🟠 ÉLEVÉ | Trilogues SRMR3 en attente de mise en œuvre Conseil/Commission | Q3-Q4 2026 | Commission ECON | Élevé |
+| 🟠 ÉLEVÉ | Mécanismes de surveillance de l'application DMA | En cours 2026 | Commission IMCO | Moyen |
+| 🟡 MOYEN | Négociations budgétaires UE 2027 | Mai–Décembre 2026 | Commission BUDG | Moyen |
+| 🟡 MOYEN | Calendrier de ratification UE-Mercosur | 2026–2027 | Commission INTA | Moyen |
+| 🟢 FAIBLE | Mise en œuvre du règlement sur le bien-être animal | 2027 et au-delà | Commission AGRI | Faible |
+
+---
+
+### 📈 Horizon prospectif des propositions (mai–novembre 2026)
+
+#### Prochaines propositions attendues
+Basé sur le programme de travail de la Commission 2026 et l'analyse du calendrier parlementaire :
+
+1. **Paquet de gouvernance de l'IA phase 2** — Actes délégués au titre de la loi sur l'IA de l'UE attendus au Q3 2026
+2. **Règlement européen sur l'industrie de défense (EDIP)** — Instrument budgétaire pour l'industrie de défense ; critique dans le contexte Russie-Ukraine
+3. **Loi UE sur les matières premières critiques II** — Extension/révision attendue après examen de la législation initiale
+4. **Mise en œuvre de la directive sur le travail sur plateforme** — Systèmes de surveillance de transposition des États membres
+5. **Révision du reporting de durabilité des entreprises (CSRD)** — Paquet de simplification Omnibus sous pression de la Commission
+6. **Paquet législatif sur l'euro numérique** — Coordination BCE/Commission en attente après les nominations des vice-présidents de la BCE (TA-10-2026-0033, -0060)
+
+#### Alertes du calendrier législatif
+- **Séance plénière de juin 2026** (Strasbourg) : Vote attendu sur plusieurs résultats de trilogues en attente
+- **Juillet 2026** : Les vacances d'été commencent — délai pour les votes importants des commissions avant la pause
+- **Septembre 2026** : L'année parlementaire reprend — la file d'attente des priorités devrait être chargée
+- **Octobre/novembre 2026** : Revue à mi-parcours du programme de travail de la Commission
+
+---
+
+### ⚡ Matrice de confiance du renseignement
+
+| Résultat | Qualité des preuves | Confiance | Chemin de vérification |
+|---------|----------------|-----------|-------------------|
+| 51 textes adoptés confirmés | Données primaires du PE | 🟢 HIGH | Portail Open Data du PE |
+| Achèvement de l'union bancaire | Textes TA confirmés | 🟢 HIGH | Portail Open Data du PE |
+| Mesure d'application DMA | Texte TA confirmé | 🟢 HIGH | Portail Open Data du PE |
+| Procédures du pipeline dégradées | Observation directe | 🟢 HIGH | Sortie des outils MCP |
+| Propositions futures (Q3/Q4) | Inférence du programme de travail Commission | 🟡 MEDIUM | Site web de la Commission |
+| Dynamiques de coalition | Déduit des schémas de vote | 🟡 MEDIUM | DOCEO XML (indisponible) |
+| Perspectives de négociations budgétaires | Schéma historique + textes adoptés | 🟡 MEDIUM | Flux de la commission BUDG |
+
+---
+
+### 🔄 Évaluation de la qualité des données
+
+| Source | Statut | Fiabilité | Impact |
+|--------|--------|-------------|--------|
+| PE Textes adoptés 2026 | ✅ Fonctionnel | ÉLEVÉ | 51 éléments disponibles |
+| Flux de procédures PE | ❌ Dégradé | FAIBLE | Retourne uniquement les données des années 1970 |
+| Flux de documents des comités | ❌ Indisponible | AUCUNE | Aucune donnée retournée |
+| Flux de documents externes | ❌ Vide | AUCUNE | 0 éléments retournés |
+| Votes XML DOCEO | ❌ Indisponibles | AUCUNE | Aucune donnée pour la semaine en cours |
+| Surveillance du pipeline législatif | ⚠️ Dégradée | FAIBLE | 0 procédures retournées |
+
+**Évaluation :** Cette exécution opère dans des conditions de données PE gravement dégradées. La qualité de l'analyse est maintenue grâce à :
+1. Riche ensemble de données de textes adoptés (51 éléments avec références de procédures)
+2. Analyse des schémas historiques et connaissance du programme de travail de la Commission
+3. Données de contexte économique IMF/World Bank (le cas échéant)
+4. Inférence d'experts à partir des calendriers législatifs connus
+
+---
+
+*Généré : 2026-05-15 | EU Parliament Monitor | Hack23 AB | Apache-2.0*
+
+### Executive Brief He
+
+**תאריך:** 2026-05-15 | **סוג מאמר:** Propositions | **סיווג:** ציבורי
+**ביטחון:** 🟡 MEDIUM | **איכות נתונים:** חלקית — ה-API של הפרלמנט הורד ב-Performance; טקסטים שאומצו הם המקור הראשוני
+
+---
+
+### 🔑 ממצאים עיקריים
+
+#### 1. עלייה בייצור חקיקתי — ספרינט אביב 2026
+הפרלמנט האירופי הפגין קצב חקיקה יוצא דופן ברבעונים הראשון והשני של 2026, עם אימוץ **51 טקסטים רשמיים** בין ינואר למאי 2026. זה מייצג ספרינט חקיקה החופף לנקודת האמצע של המחזור הפרלמנטרי ה-10, עם חבילות גדולות ברפורמת בנקאות, מאבק בשחיתות, ממשל דיגיטלי ומדיניות סחר שעברו לאמצות סופית.
+
+**ביטחון:** 🟢 HIGH — בהתבסס על 51 טקסטים שאומצו ואומתו מפורטל הנתונים הפתוחים של הפרלמנט האירופי.
+
+#### 2. השלמת איחוד הבנקים — SRMR3 וחבילת מאבק בשחיתות
+שני טקסטים חקיקתיים חשובים אומצו ב-26 במרץ 2026:
+- **SRMR3** (`2023/0111(COD)`) — אמצעי התערבות מוקדמת, תנאי פירוק ומימון אמצעי פירוק — השלמת עמוד תווך קריטי בארכיטקטורת איחוד הבנקים.
+- **הנחיית מאבק בשחיתות** (`2023/0135(COD)`) — קובעת תקני פלילי ברמה האירופאית לעבירות שחיתות, שהתעכב מאז 2023.
+
+אימוצים אלו מסמנים את יכולתו המתמשכת של קואליציית EPP-S&D-Renew לספק רפורמות מוסדיות חרף לחץ לאומני הולך וגובר.
+
+**ביטחון:** 🟢 HIGH — טקסטים שאומצו ואומתו TA-10-2026-0092 ו-TA-10-2026-0094.
+
+#### 3. חבילת אכיפת חוק השווקים הדיגיטליים
+הפרלמנט אימץ את **אכיפת חוק השווקים הדיגיטליים** (TA-10-2026-0160) ב-30 באפריל 2026, המסמנת פיקוח מוגבר של הפרלמנט על פעילויות האכיפה של הוועדה נגד שומרי הסף של Big Tech. זה מתרחש בשעה שהליכי האכיפה של ה-DMA נגד Apple, Meta ו-Alphabet נכנסים לשלב הקריטי שלהם.
+
+**ביטחון:** 🟢 HIGH — מאושר TA-10-2026-0160.
+
+#### 4. מתחים סחר EU-ארה"ב — אמצעי נגד תעריפיים
+אימוץ **התאמת מכסי מכסה על סחורות ממוצא אמריקאי** (`2025/0261`) ב-26 במרץ 2026 משקף את התגובה החקיקתית הרשמית של האיחוד האירופי להסלמת התעריפים האמריקאית תחת תקופת הכהונה השנייה של ממשל טראמפ. זה ממצב את הפרלמנט כשחקן פרואקטיבי במדיניות אמצעי הנגד הסחריים.
+
+**ביטחון:** 🟢 HIGH — מאושר TA-10-2026-0096.
+
+#### 5. קווים מנחים לתקציב 2027 של הפרלמנט האירופי — מרחב פיסקלי תחת לחץ
+אומץ ב-28 באפריל 2026, קווי המנחים לתקציב 2027 (`TA-10-2026-0112`) קובעים את עמדת המשא ומתן של הפרלמנט למחזור התקציב השנתי הקרוב. האימוץ המקביל של הערכות המוסדיות של הפרלמנט האירופי (`TA-10-2026-04-30-ANN01`) מבשר עונת תקציב שנויה במחלוקת עם הוועדה והמועצה.
+
+**ביטחון:** 🟢 HIGH — טקסטים שאומצו ואומתו.
+
+#### 6. תשתית נתונים של הפרלמנט האירופי — ירידה חמורה באיכות
+**תצפית קריטית:** פורטל הנתונים הפתוחים של הפרלמנט האירופי מחזיר נתונים שנפגעו קשות נכון ל-2026-05-15:
+- פיד ההליכים מחזיר רק הליכים היסטוריים מהשנות ה-70-80
+- פיד מסמכי הוועדה "לא זמין"
+- פיד המסמכים החיצוניים מחזיר 0 פריטים
+- ניטור צינור החקיקה מחזיר תוצאות ריקות (0 הליכים)
+- הצבעות XML DOCEO אינן זמינות לשבוע הנוכחי
+
+זה מייצג כשל שיטתי באיכות הנתונים המגביל באופן מהותי את המודיעין הצופה קדימה בצינור החקיקה. ביקורת אמינות ה-MCP מתעדת זאת בפירוט.
+
+**ביטחון:** 🟢 HIGH — נצפה ישירות במהלך איסוף נתוני שלב א'.
+
+---
+
+### 📊 ניתוח קצב החקיקה
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4bf7686f) -->
+
+**פירוט חודשי (מאושר מ-EP Open Data):**
+- ינואר 2026: 7 טקסטים שאומצו (TA-10-2026-0004 עד -0026)
+- פברואר 2026: 7 טקסטים שאומצו (יציבות פיננסית, סיוע הומניטרי, סחר)
+- מרץ 2026: 15 טקסטים שאומצו (בנקאות, מאבק בשחיתות, סחר, סביבה)
+- אפריל 2026: 19 טקסטים שאומצו (תקציב, רווחת בעלי חיים, דיגיטלי, מדיניות חוץ)
+- מאי 2026: 2+ טקסטים מאושרים; נתוני השבוע 11-15 מאי ממתינים
+
+---
+
+### 🎯 נקודות פעולה בעדיפות לקובעי מדיניות
+
+| עדיפות | נושא | לוח זמנים | שחקן מפתח | רמת סיכון |
+|----------|-------|----------|-----------|------------|
+| 🔴 קריטי | ירידה בתשתית נתוני הפרלמנט האירופי | מיידי | IT ושירותי נתונים של הפרלמנט | גבוהה |
+| 🟠 גבוהה | משא ומתן משולש SRMR3 ממתין ליישום המועצה/הוועדה | Q3-Q4 2026 | ועדת ECON | גבוהה |
+| 🟠 גבוהה | מנגנוני ניטור אכיפת DMA | שוטף 2026 | ועדת IMCO | בינוני |
+| 🟡 בינוני | משא ומתן על תקציב EU 2027 | מאי–דצמבר 2026 | ועדת BUDG | בינוני |
+| 🟡 בינוני | לוח זמנים לאישרור EU-Mercosur | 2026–2027 | ועדת INTA | בינוני |
+| 🟢 נמוך | יישום תקנת רווחת בעלי חיים | 2027 ואילך | ועדת AGRI | נמוכה |
+
+---
+
+### 📈 אופק הצעות צופה קדימה (מאי–נובמבר 2026)
+
+#### הצעות עתידיות צפויות
+בהתבסס על תוכנית העבודה של הוועדה לשנת 2026 וניתוח לוח השנה הפרלמנטרי:
+
+1. **חבילת ממשל AI שלב 2** — פעולות מואצלות לפי חוק ה-AI של האיחוד האירופי צפויות ברבעון השלישי 2026
+2. **תקנת תעשיית הביטחון האירופית (EDIP)** — מכשיר תקציבי לתעשיית הביטחון; קריטי לאור ההקשר הרוסי-אוקראיני
+3. **חוק חומרי הגלם הקריטיים II של האיחוד האירופי** — הרחבה/עדכון צפויים לאחר בחינת החקיקה הראשונית
+4. **יישום הנחיית עבודת הפלטפורמות** — מערכות ניטור השתלה בחוק למדינות חברות
+5. **עדכון דיווח הקיימות של חברות (CSRD)** — חבילת פישוט Omnibus תחת לחץ הוועדה
+6. **חבילת החקיקה של היורו הדיגיטלי** — תיאום ECB/ועדה ממתין לאחר מינוי סגן-הנשיאים של ה-ECB (TA-10-2026-0033, -0060)
+
+#### אזהרות לוח שנה חקיקתי
+- **מליאה יוני 2026** (שטרסבורג): הצבעה צפויה על מספר תוצאות משולשות ממתינות
+- **יולי 2026**: חופשת הקיץ מתחילה — מועד אחרון להצבעות ועדה חשובות לפני ההפסקה
+- **ספטמבר 2026**: שנת הפרלמנט מתחדשת — תור העדיפויות צפוי להיות כבד
+- **אוקטובר/נובמבר 2026**: סקירת אמצע תקופת תוכנית העבודה של הוועדה
+
+---
+
+### ⚡ מטריצת ביטחון מודיעין
+
+| ממצא | איכות ראיות | ביטחון | נתיב אימות |
+|---------|----------------|-----------|-------------------|
+| 51 טקסטים שאומצו מאושרים | נתונים ראשוניים של הפרלמנט | 🟢 HIGH | פורטל נתונים פתוחים של הפרלמנט |
+| השלמת איחוד הבנקים | טקסטי TA מאושרים | 🟢 HIGH | פורטל נתונים פתוחים של הפרלמנט |
+| אמצעי אכיפת DMA | טקסט TA מאושר | 🟢 HIGH | פורטל נתונים פתוחים של הפרלמנט |
+| הליכי צינור נפגעו | תצפית ישירה | 🟢 HIGH | פלט כלי MCP |
+| הצעות עתידיות (Q3/Q4) | היסק מתוכנית עבודת הוועדה | 🟡 MEDIUM | אתר הוועדה |
+| דינמיקת קואליציה | נלמד מדפוסי הצבעה | 🟡 MEDIUM | DOCEO XML (לא זמין) |
+| סיכויי משא ומתן תקציבי | דפוס היסטורי + טקסטים שאומצו | 🟡 MEDIUM | פידים של ועדת BUDG |
+
+---
+
+### 🔄 הערכת איכות נתונים
+
+| מקור | סטטוס | אמינות | השפעה |
+|--------|--------|-------------|--------|
+| טקסטים שאומצו 2026 של הפרלמנט | ✅ פעיל | גבוהה | 51 פריטים זמינים |
+| פיד הליכים של הפרלמנט | ❌ נפגע | נמוכה | מחזיר רק נתונים משנות ה-70 |
+| פיד מסמכי ועדות | ❌ לא זמין | אין | לא הוחזרו נתונים |
+| פיד מסמכים חיצוניים | ❌ ריק | אין | הוחזרו 0 פריטים |
+| הצבעות DOCEO XML | ❌ לא זמין | אין | אין נתונים לשבוע הנוכחי |
+| ניטור צינור חקיקה | ⚠️ נפגע | נמוכה | הוחזרו 0 הליכים |
+
+**הערכה:** הפעלה זו פועלת בתנאי נתוני פרלמנט אירופי שנפגעו קשות. איכות הניתוח נשמרת באמצעות:
+1. מערך נתונים עשיר של טקסטים שאומצו (51 פריטים עם הפניות להליכים)
+2. ניתוח דפוסים היסטוריים וידע על תוכנית עבודת הוועדה
+3. נתוני הקשר כלכלי מ-IMF/World Bank (במקרה הצורך)
+4. היסק מומחים מלוחות זמנים חקיקתיים ידועים
+
+---
+
+*נוצר: 2026-05-15 | EU Parliament Monitor | Hack23 AB | Apache-2.0*
+
+### Executive Brief Ja
+
+**日付：** 2026-05-15 | **記事タイプ：** Propositions | **分類：** 公開
+**信頼度：** 🟡 MEDIUM | **データ品質：** 部分的 — EP API 劣化；採択テキストが主要情報源
+
+---
+
+### 🔑 主要な所見
+
+#### 1. 立法生産量の急増 — 2026年春のスプリント
+欧州議会は2026年第1四半期から第2四半期にかけて例外的な立法ペースを示し、2026年1月から5月の間に**51件の正式テキスト**を採択した。これは第10立法期の中間点と重なる立法スプリントを表しており、銀行改革、汚職対策、デジタルガバナンス、貿易政策の大型パッケージが最終採決を通過した。
+
+**信頼度：** 🟢 HIGH — EP Open Data Portalからの51件の確認済み採択テキストに基づく。
+
+#### 2. 銀行同盟の完成 — SRMR3と汚職対策パッケージ
+2026年3月26日に2件の重要な立法テキストが採択された：
+- **SRMR3** (`2023/0111(COD)`) — 早期介入措置、破綻処理の条件および措置の資金調達 — 銀行同盟の構造における重要な柱の完成。
+- **汚職対策指令** (`2023/0135(COD)`) — 汚職犯罪に関するEU全域の刑事基準を定める、2023年から長らく遅延。
+
+これらの採択は、高まるナショナリスト圧力にもかかわらず、EPP-S&D-Renew連立が制度改革を実施し続ける能力があることを示している。
+
+**信頼度：** 🟢 HIGH — 確認済み採択テキスト TA-10-2026-0092 および TA-10-2026-0094。
+
+#### 3. デジタル市場法執行パッケージ
+議会は2026年4月30日に**デジタル市場法の執行**（TA-10-2026-0160）を採択し、Big Techゲートキーパーに対する欧州委員会の執行活動への欧州議会の監視強化を示した。Apple、Meta、Alphabetに対するDMA執行手続きが重要局面に入る中、このタイミングで採択された。
+
+**信頼度：** 🟢 HIGH — 確認済み TA-10-2026-0160。
+
+#### 4. EU-米国貿易紛争 — 関税対抗措置
+2026年3月26日に**米国原産品に対する関税の調整**（`2025/0261`）が採択されたことは、トランプ政権第2期における米国の関税引き上げへのEUの正式な立法的対応を反映している。これにより議会は貿易対抗措置政策における積極的なアクターとして位置づけられる。
+
+**信頼度：** 🟢 HIGH — 確認済み TA-10-2026-0096。
+
+#### 5. 欧州議会2027年予算指針 — 財政空間への圧力
+2026年4月28日に採択された2027年予算指針（`TA-10-2026-0112`）は、来年の年次予算サイクルに向けた議会の交渉立場を確定する。EP制度的見積もりの並行採択（`TA-10-2026-04-30-ANN01`）は、委員会・理事会との論争的な予算シーズンを予告している。
+
+**信頼度：** 🟢 HIGH — 確認済み採択テキスト。
+
+#### 6. EPデータインフラ — 深刻な品質劣化
+**重大な観察：** EP Open Data Portalは2026-05-15時点で深刻に劣化したデータを返している：
+- 手続きフィードは1970年代〜1980年代の歴史的手続きのみを返す
+- 委員会文書フィードは「利用不可」
+- 外部文書フィードは0件を返す
+- 立法パイプライン監視は空の結果（0手続き）を返す
+- DOCEO XML投票は現在の週について利用不可
+
+これは前向き立法パイプライン情報を実質的に制限する体系的なデータ品質上の欠陥を表している。MCP信頼性監査がこれを詳細に記録している。
+
+**信頼度：** 🟢 HIGH — Stage Aデータ収集中に直接観察。
+
+---
+
+### 📊 立法ペース分析
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4bf7686f) -->
+
+**月別内訳（EP Open Dataから確認）：**
+- 2026年1月：7件採択テキスト（TA-10-2026-0004〜-0026）
+- 2026年2月：7件採択テキスト（金融安定、人道支援、貿易）
+- 2026年3月：15件採択テキスト（銀行、汚職対策、貿易、環境）
+- 2026年4月：19件採択テキスト（予算、動物福祉、デジタル、外交政策）
+- 2026年5月：2件以上確認済み；5月11〜15日週のデータ待ち
+
+---
+
+### 🎯 政策立案者への優先行動ポイント
+
+| 優先度 | 課題 | タイムライン | 主要アクター | リスクレベル |
+|----------|-------|----------|-----------|------------|
+| 🔴 重大 | EPデータインフラ劣化 | 即時 | EP IT & データサービス | 高 |
+| 🟠 高 | SRMR3三者協議 — 理事会/委員会実施待ち | Q3-Q4 2026 | ECON委員会 | 高 |
+| 🟠 高 | DMA執行監視メカニズム | 継続的 2026 | IMCO委員会 | 中 |
+| 🟡 中 | EU 2027年予算交渉 | 5月〜12月 2026 | BUDG委員会 | 中 |
+| 🟡 中 | EU-メルコスール批准スケジュール | 2026〜2027 | INTA委員会 | 中 |
+| 🟢 低 | 動物福祉規則の実施 | 2027年以降 | AGRI委員会 | 低 |
+
+---
+
+### 📈 提案の将来展望（2026年5月〜11月）
+
+#### 今後予想される提案
+委員会の2026年作業計画および議会日程分析に基づく：
+
+1. **AIガバナンスパッケージ第2フェーズ** — EU AI法に基づく委任行為が2026年第3四半期に予定
+2. **欧州防衛産業規制（EDIP）** — 防衛産業向け予算手段；ロシア-ウクライナ情勢を踏まえ重要
+3. **EU重要原材料法II** — 初期立法の見直し後に拡張/改訂が予定
+4. **プラットフォーム労働指令の実施** — 加盟国転置監視システム
+5. **企業持続可能性報告（CSRD）の見直し** — 委員会の圧力下でのオムニバス簡素化パッケージ
+6. **デジタルユーロ立法パッケージ** — ECB副総裁人事（TA-10-2026-0033、-0060）後のECB/委員会調整を待つ
+
+#### 立法カレンダーの注意点
+- **2026年6月本会議**（ストラスブール）：複数の保留中の三者協議結果の採決予定
+- **2026年7月**：夏季休会開始 — 休会前の重要な委員会投票の締め切り
+- **2026年9月**：議会年の再開 — 優先事項キューは重くなる見込み
+- **2026年10/11月**：委員会作業計画の中間見直し
+
+---
+
+### ⚡ 情報信頼度マトリクス
+
+| 所見 | 証拠の質 | 信頼度 | 検証パス |
+|---------|----------------|-----------|-------------------|
+| 51件採択テキスト確認 | EP一次データ | 🟢 HIGH | EP Open Data Portal |
+| 銀行同盟の完成 | 確認済みTAテキスト | 🟢 HIGH | EP Open Data Portal |
+| DMA執行措置 | 確認済みTAテキスト | 🟢 HIGH | EP Open Data Portal |
+| パイプライン手続き劣化 | 直接観察 | 🟢 HIGH | MCPツール出力 |
+| 将来の提案（Q3/Q4） | 委員会作業計画からの推論 | 🟡 MEDIUM | 欧州委員会ウェブサイト |
+| 連立ダイナミクス | 投票パターンから推論 | 🟡 MEDIUM | DOCEO XML（利用不可） |
+| 予算交渉見通し | 歴史的パターン＋採択テキスト | 🟡 MEDIUM | BUDG委員会フィード |
+
+---
+
+### 🔄 データ品質評価
+
+| ソース | ステータス | 信頼性 | 影響 |
+|--------|--------|-------------|--------|
+| EP採択テキスト2026 | ✅ 機能中 | 高 | 51件利用可能 |
+| EP手続きフィード | ❌ 劣化 | 低 | 1970年代データのみ返す |
+| 委員会文書フィード | ❌ 利用不可 | なし | データ返却なし |
+| 外部文書フィード | ❌ 空 | なし | 0件返却 |
+| DOCEO XML投票 | ❌ 利用不可 | なし | 現在週のデータなし |
+| 立法パイプライン監視 | ⚠️ 劣化 | 低 | 0手続き返却 |
+
+**評価：** この実行は深刻に劣化したEPデータ状況下で動作している。分析品質は以下により維持される：
+1. 採択テキストの豊富なデータセット（手続き参照付き51件）
+2. 歴史的パターン分析と欧州委員会作業計画に関する知識
+3. IMF/World Bankの経済コンテキストデータ（適用可能な場合）
+4. 既知の立法スケジュールからの専門家推論
+
+---
+
+*作成：2026-05-15 | EU Parliament Monitor | Hack23 AB | Apache-2.0*
+
+### Executive Brief Ko
+
+**날짜:** 2026-05-15 | **기사 유형:** Propositions | **분류:** 공개
+**신뢰도:** 🟡 MEDIUM | **데이터 품질:** 부분적 — EP API 저하; 채택 텍스트가 주요 출처
+
+---
+
+### 🔑 주요 발견사항
+
+#### 1. 입법 생산 급증 — 2026년 봄 스프린트
+유럽 의회는 2026년 1분기~2분기에 걸쳐 2026년 1월부터 5월까지 **51건의 공식 텍스트**를 채택하며 예외적인 입법 속도를 보였다. 이는 제10차 입법기 중간 지점과 맞물리는 입법 스프린트를 나타내며, 은행 개혁, 반부패, 디지털 거버넌스, 통상 정책 분야의 대형 패키지들이 최종 표결을 통과했다.
+
+**신뢰도:** 🟢 HIGH — EP 공개 데이터 포털의 51건 확인된 채택 텍스트 기반.
+
+#### 2. 은행연합 완성 — SRMR3 및 반부패 패키지
+2026년 3월 26일 두 가지 중요한 입법 텍스트가 채택되었다:
+- **SRMR3** (`2023/0111(COD)`) — 조기 개입 조치, 정리 조건 및 정리 조치 자금 조달 — 은행연합 구조의 핵심 기둥 완성.
+- **반부패 지침** (`2023/0135(COD)`) — 부패 범죄에 관한 EU 전역 형사 기준 수립, 2023년부터 오랫동안 지연됨.
+
+이러한 채택은 고조되는 민족주의 압력에도 불구하고 EPP-S&D-Renew 연합이 제도 개혁을 지속적으로 추진하는 능력을 보여준다.
+
+**신뢰도:** 🟢 HIGH — 확인된 채택 텍스트 TA-10-2026-0092 및 TA-10-2026-0094.
+
+#### 3. 디지털 시장법 집행 패키지
+의회는 2026년 4월 30일 **디지털 시장법 집행**(TA-10-2026-0160)을 채택하여 Big Tech 게이트키퍼에 대한 위원회의 집행 활동에 대한 EP 감독 강화를 알렸다. 이는 Apple, Meta, Alphabet에 대한 DMA 집행 절차가 핵심 단계에 진입하는 시기에 이루어졌다.
+
+**신뢰도:** 🟢 HIGH — 확인된 TA-10-2026-0160.
+
+#### 4. EU-미국 무역 갈등 — 관세 대응 조치
+2026년 3월 26일 **미국산 상품에 대한 관세 조정**(`2025/0261`) 채택은 트럼프 행정부 2기의 미국 관세 인상에 대한 EU의 공식 입법적 대응을 반영한다. 이로써 의회는 무역 대응 조치 정책의 적극적인 행위자로 자리매김한다.
+
+**신뢰도:** 🟢 HIGH — 확인된 TA-10-2026-0096.
+
+#### 5. EP 2027년 예산 지침 — 재정 여력 압박
+2026년 4월 28일 채택된 2027년 예산 지침(`TA-10-2026-0112`)은 다가오는 연간 예산 주기에 대한 의회의 협상 입장을 확립한다. EP 제도적 추정치(`TA-10-2026-04-30-ANN01`)의 병행 채택은 위원회 및 이사회와의 논쟁적인 예산 시즌을 예고한다.
+
+**신뢰도:** 🟢 HIGH — 확인된 채택 텍스트.
+
+#### 6. EP 데이터 인프라 — 심각한 품질 저하
+**중요 관찰:** EP 공개 데이터 포털은 2026-05-15 기준으로 심각하게 저하된 데이터를 반환하고 있다:
+- 절차 피드가 1970~1980년대 역사적 절차만 반환
+- 위원회 문서 피드가 "이용 불가"
+- 외부 문서 피드가 0건 반환
+- 입법 파이프라인 모니터링이 빈 결과 반환 (0개 절차)
+- 현재 주의 DOCEO XML 투표 이용 불가
+
+이는 전향적 입법 파이프라인 정보를 실질적으로 제한하는 체계적인 데이터 품질 결함을 나타낸다. MCP 신뢰성 감사가 이를 상세히 기록하고 있다.
+
+**신뢰도:** 🟢 HIGH — Stage A 데이터 수집 중 직접 관찰.
+
+---
+
+### 📊 입법 속도 분석
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4bf7686f) -->
+
+**월별 분석 (EP 공개 데이터에서 확인):**
+- 2026년 1월: 7건 채택 텍스트 (TA-10-2026-0004 ~ -0026)
+- 2026년 2월: 7건 채택 텍스트 (금융 안정, 인도적 지원, 무역)
+- 2026년 3월: 15건 채택 텍스트 (은행, 반부패, 무역, 환경)
+- 2026년 4월: 19건 채택 텍스트 (예산, 동물 복지, 디지털, 외교 정책)
+- 2026년 5월: 2건 이상 확인; 5월 11~15일 주 데이터 대기 중
+
+---
+
+### 🎯 정책 입안자를 위한 우선 행동 포인트
+
+| 우선순위 | 사안 | 타임라인 | 핵심 행위자 | 위험 수준 |
+|----------|-------|----------|-----------|------------|
+| 🔴 긴급 | EP 데이터 인프라 저하 | 즉시 | EP IT & 데이터 서비스 | 높음 |
+| 🟠 높음 | SRMR3 삼자 협의 — 이사회/위원회 이행 대기 | Q3-Q4 2026 | ECON 위원회 | 높음 |
+| 🟠 높음 | DMA 집행 모니터링 메커니즘 | 2026년 지속 | IMCO 위원회 | 중간 |
+| 🟡 중간 | EU 2027년 예산 협상 | 5월~12월 2026 | BUDG 위원회 | 중간 |
+| 🟡 중간 | EU-메르코수르 비준 일정 | 2026~2027 | INTA 위원회 | 중간 |
+| 🟢 낮음 | 동물 복지 규정 이행 | 2027년 이후 | AGRI 위원회 | 낮음 |
+
+---
+
+### 📈 전향적 제안 지평선 (2026년 5월~11월)
+
+#### 예상되는 향후 제안
+위원회 2026년 작업 계획 및 의회 일정 분석에 기반:
+
+1. **AI 거버넌스 패키지 2단계** — EU AI법에 따른 위임 행위 2026년 3분기 예정
+2. **유럽 방위 산업 규정 (EDIP)** — 방위 산업을 위한 예산 수단; 러시아-우크라이나 맥락에서 중요
+3. **EU 핵심 원자재법 II** — 초기 입법 검토 후 확장/개정 예정
+4. **플랫폼 노동 지침 이행** — 회원국 전치 모니터링 시스템
+5. **기업 지속가능성 보고(CSRD) 검토** — 위원회 압박 하의 옴니버스 간소화 패키지
+6. **디지털 유로 입법 패키지** — ECB 부총재 임명(TA-10-2026-0033, -0060) 후 ECB/위원회 조율 대기
+
+#### 입법 일정 경고
+- **2026년 6월 본회의** (스트라스부르): 여러 계류 중인 삼자 협의 결과 표결 예정
+- **2026년 7월**: 하계 휴회 시작 — 휴회 전 주요 위원회 표결 마감일
+- **2026년 9월**: 의회 연도 재개 — 우선순위 대기열 무거울 전망
+- **2026년 10/11월**: 위원회 작업 계획 중간 검토
+
+---
+
+### ⚡ 정보 신뢰도 매트릭스
+
+| 발견사항 | 증거 품질 | 신뢰도 | 검증 경로 |
+|---------|----------------|-----------|-------------------|
+| 51건 채택 텍스트 확인 | EP 1차 데이터 | 🟢 HIGH | EP 공개 데이터 포털 |
+| 은행연합 완성 | 확인된 TA 텍스트 | 🟢 HIGH | EP 공개 데이터 포털 |
+| DMA 집행 조치 | 확인된 TA 텍스트 | 🟢 HIGH | EP 공개 데이터 포털 |
+| 파이프라인 절차 저하 | 직접 관찰 | 🟢 HIGH | MCP 도구 출력 |
+| 향후 제안 (Q3/Q4) | 위원회 작업 계획 추론 | 🟡 MEDIUM | 유럽 위원회 웹사이트 |
+| 연합 역학 | 투표 패턴에서 추론 | 🟡 MEDIUM | DOCEO XML (이용 불가) |
+| 예산 협상 전망 | 역사적 패턴 + 채택 텍스트 | 🟡 MEDIUM | BUDG 위원회 피드 |
+
+---
+
+### 🔄 데이터 품질 평가
+
+| 출처 | 상태 | 신뢰성 | 영향 |
+|--------|--------|-------------|--------|
+| EP 채택 텍스트 2026 | ✅ 정상 | 높음 | 51건 이용 가능 |
+| EP 절차 피드 | ❌ 저하 | 낮음 | 1970년대 데이터만 반환 |
+| 위원회 문서 피드 | ❌ 이용 불가 | 없음 | 데이터 반환 없음 |
+| 외부 문서 피드 | ❌ 빈 결과 | 없음 | 0건 반환 |
+| DOCEO XML 투표 | ❌ 이용 불가 | 없음 | 현재 주 데이터 없음 |
+| 입법 파이프라인 모니터링 | ⚠️ 저하 | 낮음 | 0개 절차 반환 |
+
+**평가:** 이번 실행은 심각하게 저하된 EP 데이터 상황에서 운영된다. 분석 품질은 다음을 통해 유지된다:
+1. 채택 텍스트의 풍부한 데이터셋 (절차 참조 포함 51건)
+2. 역사적 패턴 분석 및 위원회 작업 계획 지식
+3. IMF/World Bank 경제 맥락 데이터 (해당 시)
+4. 알려진 입법 일정에서의 전문가 추론
+
+---
+
+*생성일: 2026-05-15 | EU Parliament Monitor | Hack23 AB | Apache-2.0*
+
+### Executive Brief Nl
+
+### 🔑 Belangrijkste bevindingen
+
+#### 1. Toename van wetgevingsproductie — Lentesprint 2026
+Het Europees Parlement heeft in Q1-Q2 2026 een uitzonderlijke wetgevingssnelheid gedemonstreerd, met de aanneming van **51 formele teksten** tussen januari en mei 2026. Dit vertegenwoordigt een wetgevingssprint die samenvalt met het middelpunt van de 10e zittingsperiode, met grote pakketten op het gebied van bankhervormingen, anticorruptie, digitaal bestuur en handelsbeleid die door de definitieve stemmingen zijn gegaan.
+
+**Vertrouwen:** 🟢 HIGH — Gebaseerd op 51 bevestigde aangenomen teksten van het EP Open Data Portal.
+
+#### 2. Voltooiing van de bankenunie — SRMR3 en anticorruptiepakket
+Twee belangrijke wetgevingsteksten werden aangenomen op 26 maart 2026:
+- **SRMR3** (`2023/0111(COD)`) — Vroege interventiemaatregelen, afwikkelingsvoorwaarden en financiering van afwikkelingsmaatregelen — voltooiing van een kritieke pijler van de bankenunie-architectuur.
+- **Anticorruptierichtlijn** (`2023/0135(COD)`) — stelt EU-brede strafrechtelijke normen vast voor corruptieomissies, lang vertraagd sinds 2023.
+
+Deze aannamen signaleren het voortdurende vermogen van de EVP-S&D-Renew-coalitie om institutionele hervormingen te leveren ondanks toenemende nationalistische druk.
+
+**Vertrouwen:** 🟢 HIGH — Bevestigde aangenomen teksten TA-10-2026-0092 en TA-10-2026-0094.
+
+#### 3. Handhavingspakket Digital Markets Act
+Het Parlement nam de **Handhaving van de Digital Markets Act** aan (TA-10-2026-0160) op 30 april 2026, wat verhoogd EP-toezicht op de handhavingsactiviteiten van de Commissie tegen Big Tech-poortwachters signaleert. Dit vindt plaats terwijl DMA-handhavingsprocedures tegen Apple, Meta en Alphabet hun kritieke fase ingaan.
+
+**Vertrouwen:** 🟢 HIGH — Bevestigd TA-10-2026-0160.
+
+#### 4. EU-VS-handelsconflict — Tegenmaatregelen op tarieven
+De aanneming van **de aanpassing van douanerechten op goederen van Amerikaanse oorsprong** (`2025/0261`) op 26 maart 2026 weerspiegelt de formele wetgevingsreactie van de EU op de tariefescalatie van de VS tijdens de tweede termijn van de Trump-administratie. Dit positioneert het Parlement als een proactieve actor in het beleid voor handelstegenmaatregelen.
+
+**Vertrouwen:** 🟢 HIGH — Bevestigd TA-10-2026-0096.
+
+#### 5. EP-begrotingsrichtsnoeren 2027 — Financiële speelruimte onder druk
+Aangenomen op 28 april 2026 stellen de begrotingsrichtsnoeren 2027 (`TA-10-2026-0112`) de onderhandelingspositie van het Parlement vast voor de komende jaarlijkse begrotingscyclus. De parallelle aanneming van de institutionele ramingen van het EP (`TA-10-2026-04-30-ANN01`) kondigt een omstreden begrotingsseizoen met de Commissie en de Raad aan.
+
+**Vertrouwen:** 🟢 HIGH — Bevestigde aangenomen teksten.
+
+#### 6. EP-data-infrastructuur — Ernstige kwaliteitsverslechtering
+**KRITIEKE OBSERVATIE:** Het EP Open Data Portal geeft per 2026-05-15 ernstig gedegradeerde gegevens terug:
+- De proceduresitstroom geeft alleen historische procedures uit de jaren 1970-1980 terug
+- De documentenstroom van commissies is "niet beschikbaar"
+- Externe documentenstroom geeft 0 items terug
+- Wetgevingspipeline-monitoring geeft lege resultaten terug (0 procedures)
+- DOCEO XML-stemmen niet beschikbaar voor de huidige week
+
+Dit vertegenwoordigt een systemische datakwaliteitsdefect dat de vooruitblikkende wetgevingspipeline-inlichtingen materieel beperkt. De MCP-betrouwbaarheidsaudit documenteert dit in detail.
+
+**Vertrouwen:** 🟢 HIGH — Direct waargenomen tijdens de Stage A-gegevensverzameling.
+
+---
+
+### 📊 Analyse van wetgevingssnelheid
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4bf7686f) -->
+
+**Maandelijkse uitsplitsing (bevestigd vanuit EP Open Data):**
+- Januari 2026: 7 aangenomen teksten (TA-10-2026-0004 tot -0026)
+- Februari 2026: 7 aangenomen teksten (financiële stabiliteit, humanitaire hulp, handel)
+- Maart 2026: 15 aangenomen teksten (bank, anticorruptie, handel, milieu)
+- April 2026: 19 aangenomen teksten (begroting, dierenwelzijn, digitaal, buitenlands beleid)
+- Mei 2026: 2+ teksten bevestigd; gegevens van de week 11-15 mei in afwachting
+
+---
+
+### 🎯 Geprioriteerde actiepunten voor beleidsmakers
+
+| Prioriteit | Kwestie | Tijdlijn | Sleutelactor | Risiconiveau |
+|----------|-------|----------|-----------|------------|
+| 🔴 KRITIEK | Verslechtering van EP-data-infrastructuur | Onmiddellijk | EP IT & Dataservices | Hoog |
+| 🟠 HOOG | SRMR3-triloguen in afwachting van Raads-/Commissieimplementering | Q3-Q4 2026 | ECON-commissie | Hoog |
+| 🟠 HOOG | DMA-handhavingstoezichtmechanismen | Doorlopend 2026 | IMCO-commissie | Gemiddeld |
+| 🟡 GEMIDDELD | EU-begrotingsonderhandelingen 2027 | Mei–December 2026 | BUDG-commissie | Gemiddeld |
+| 🟡 GEMIDDELD | EU-Mercosur-ratificatietijdlijn | 2026–2027 | INTA-commissie | Gemiddeld |
+| 🟢 LAAG | Implementering van dierenwelzijnsverordening | 2027 en verder | AGRI-commissie | Laag |
+
+---
+
+### 📈 Vooruitblikkend propositionshorizon (mei–november 2026)
+
+#### Verwachte komende voorstellen
+Gebaseerd op het Werkprogramma van de Commissie 2026 en analyse van de parlementaire kalender:
+
+1. **AI-bestuurspakket fase 2** — Gedelegeerde handelingen onder de EU-AI-wet verwacht in Q3 2026
+2. **Europese verordening defensie-industrie (EDIP)** — Budgetinstrument voor de defensie-industrie; kritiek gezien de Rusland-Oekraïne-context
+3. **EU-wet kritieke grondstoffen II** — Uitbreiding/herziening verwacht na evaluatie van de initiële wetgeving
+4. **Implementering van de platformarbeidrichtlijn** — Monitoringsystemen voor omzetting in lidstaten
+5. **Herziening van bedrijfsrapportage over duurzaamheid (CSRD)** — Omnibus-vereenvoudigingspakket onder druk van de Commissie
+6. **Wetgevingspakket digitale euro** — ECB/Commissie-coördinatie in afwachting na benoemingen van vicevoorzitters van de ECB (TA-10-2026-0033, -0060)
+
+#### Wetgevingskalenderwaarschuwingen
+- **Plenaire vergadering juni 2026** (Straatsburg): Verwachte stemming over meerdere lopende trilogieresultaten
+- **Juli 2026**: Zomervakantie begint — deadline voor belangrijke commissiestemmingen vóór de onderbreking
+- **September 2026**: Het parlementaire jaar hervat — de prioriteitenwachtrij wordt naar verwachting zwaar
+- **Oktober/november 2026**: Halftijdse herziening van het werkprogramma van de Commissie
+
+---
+
+### ⚡ Inlichtingen-vertrouwensmatrix
+
+| Bevinding | Bewijskwaliteit | Vertrouwen | Verificatiepad |
+|---------|----------------|-----------|-------------------|
+| 51 aangenomen teksten bevestigd | Primaire EP-gegevens | 🟢 HIGH | EP Open Data Portal |
+| Voltooiing bankenunie | Bevestigde TA-teksten | 🟢 HIGH | EP Open Data Portal |
+| DMA-handhavingsmaatregel | Bevestigde TA-tekst | 🟢 HIGH | EP Open Data Portal |
+| Pipeline-procedures gedegradeerd | Directe observatie | 🟢 HIGH | MCP-tooluitvoer |
+| Toekomstige voorstellen (Q3/Q4) | Gevolgtrekking werkprogramma Commissie | 🟡 MEDIUM | Website Commissie |
+| Coalitiedynamiek | Afgeleid van stempatronen | 🟡 MEDIUM | DOCEO XML (niet beschikbaar) |
+| Begrotingsonderhandelingsperspectieven | Historisch patroon + aangenomen teksten | 🟡 MEDIUM | BUDG-commissiestreamers |
+
+---
+
+### 🔄 Gegevenskwaliteitsbeoordeling
+
+| Bron | Status | Betrouwbaarheid | Impact |
+|--------|--------|-------------|--------|
+| EP Aangenomen teksten 2026 | ✅ Functioneel | HOOG | 51 items beschikbaar |
+| EP Procedurestream | ❌ Gedegradeerd | LAAG | Geeft alleen data uit de jaren 1970 terug |
+| Commissiedocumentenstream | ❌ Niet beschikbaar | GEEN | Geen gegevens teruggegeven |
+| Externe documentenstream | ❌ Leeg | GEEN | 0 items teruggegeven |
+| DOCEO XML-stemmen | ❌ Niet beschikbaar | GEEN | Geen gegevens voor de huidige week |
+| Wetgevingspipeline-monitoring | ⚠️ Gedegradeerd | LAAG | 0 procedures teruggegeven |
+
+**Beoordeling:** Deze uitvoering opereert onder ernstig gedegradeerde EP-dataomstandigheden. De analysekwaliteit wordt gehandhaafd via:
+1. Rijke dataset aangenomen teksten (51 items met procedureverwijzingen)
+2. Historische patroonanalyse en kennis van het werkprogramma van de Commissie
+3. IMF/World Bank economische contextgegevens (indien van toepassing)
+4. Expertinferentie uit bekende wetgevingstijdlijnen
+
+---
+
+*Gegenereerd: 2026-05-15 | EU Parliament Monitor | Hack23 AB | Apache-2.0*
+
+### Executive Brief No
+
+### 🔑 Viktige funn
+
+#### 1. Økning i lovgivningsproduksjon — Vårsprint 2026
+Europaparlamentet har demonstrert eksepsjonell lovgivningshastighet i Q1-Q2 2026, med vedtakelse av **51 formelle tekster** mellom januar og mai 2026. Dette representerer et lovgivningssprint som sammenfaller med midtpunktet av den 10. parlamentariske valgperiode, med store pakker innen bankreform, antikorrupsjon, digital styring og handelspolitikk som har kommet gjennom til endelig avstemning.
+
+**Tillit:** 🟢 HIGH — Basert på 51 bekreftede vedtatte tekster fra EP Open Data Portal.
+
+#### 2. Bankunionsavslutning — SRMR3 og antikorrupsjonspakke
+To viktige lovgivningstekster ble vedtatt 26. mars 2026:
+- **SRMR3** (`2023/0111(COD)`) — Tidlige intervensjonsstiltak, vilkår for avvikling og finansiering av avviklingstiltak — fullføring av en kritisk pilar i bankstrukturens arkitektur.
+- **Antikorrupsjonsdirektivet** (`2023/0135(COD)`) — fastsetter EU-dekkende strafferettslige standarder for korrupsjonsforbrytelser, lenge forsinket siden 2023.
+
+Disse vedtakelsene signalerer EPP-S&D-Renew-koalisjonens fortsatte kapasitet til å levere på institusjonell reform til tross for økt nasjonalistisk press.
+
+**Tillit:** 🟢 HIGH — Bekreftede vedtatte tekster TA-10-2026-0092 og TA-10-2026-0094.
+
+#### 3. Digital Markets Act-håndhevelsespakke
+Parlamentet vedtok **Håndhevelse av Digital Markets Act** (TA-10-2026-0160) 30. april 2026, noe som signalerer økt EP-tilsyn med Kommisjonens håndhevelsesaktiviteter mot Big Tech-portvakter. Dette skjer mens DMA-håndhevelsessaker mot Apple, Meta og Alphabet er på vei inn i sin kritiske fase.
+
+**Tillit:** 🟢 HIGH — Bekreftet TA-10-2026-0160.
+
+#### 4. EU-USA handelskonflikt — Toll-mottiltak
+Vedtakelsen av **Justering av toll på varer av USA-opprinnelse** (`2025/0261`) 26. mars 2026 gjenspeiler EUs formelle lovgivningsmessige svar på USAs tollopptrapping under Trump-administrasjonens andre periode. Dette posisjonerer Parlamentet som en proaktiv aktør i handelsmottiltakspolitikk.
+
+**Tillit:** 🟢 HIGH — Bekreftet TA-10-2026-0096.
+
+#### 5. EP 2027-budsjettretningslinjer — Finansielt handlingsrom under press
+Vedtatt 28. april 2026 fastsetter 2027-budsjettretningslinjene (`TA-10-2026-0112`) Parlamentets forhandlingsposisjon for den kommende årlige budsjettsyklusen. Den parallelle vedtakelsen av EPs institusjonelle estimater (`TA-10-2026-04-30-ANN01`) signalerer en kontroversiell budsjettsesong med Kommisjonen og Rådet.
+
+**Tillit:** 🟢 HIGH — Bekreftede vedtatte tekster.
+
+#### 6. EPs datainfrastruktur — Alvorlig kvalitetsforringelse
+**KRITISK OBSERVASJON:** EP Open Data Portal returnerer alvorlig forringet data per 2026-05-15:
+- Prosedyrfeeden returnerer bare historiske prosedyrer fra 1970-1980-tallet
+- Komitédokumentfeeden er "utilgjengelig"
+- Eksternt dokumentfeed returnerer 0 elementer
+- Lovgivningspipeline-overvåking returnerer tomme resultater (0 prosedyrer)
+- DOCEO XML-stemmer utilgjengelige for inneværende uke
+
+Dette representerer en systemisk datakvalitetsfeil som materielt begrenser den fremoverskuende lovgivningspipelineetterretningen. MCP-pålitelighetsrevisjonen dokumenterer dette i detalj.
+
+**Tillit:** 🟢 HIGH — Direkte observert ved innsamling av Stage A-data.
+
+---
+
+### 📊 Analyse av lovgivningshastighet
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4bf7686f) -->
+
+**Månedlig fordeling (bekreftet fra EP Open Data):**
+- Januar 2026: 7 vedtatte tekster (TA-10-2026-0004 til -0026)
+- Februar 2026: 7 vedtatte tekster (finansiell stabilitet, humanitær bistand, handel)
+- Mars 2026: 15 vedtatte tekster (bank, antikorrupsjon, handel, miljø)
+- April 2026: 19 vedtatte tekster (budsjett, dyrevelferd, digitalt, utenrikspolitikk)
+- Mai 2026: 2+ tekster bekreftet; uken 11.–15. mai data avventer
+
+---
+
+### 🎯 Prioriterte handlingspunkter for beslutningstakere
+
+| Prioritet | Spørsmål | Tidslinje | Nøkkelaktør | Risikonivå |
+|----------|-------|----------|-----------|------------|
+| 🔴 KRITISK | EP-datainfrastrukturforringelse | Umiddelbart | EP IT & Datatjenester | Høy |
+| 🟠 HØY | SRMR3-trialoguer avventer Råds-/Kommisjonens implementering | Q3-Q4 2026 | ECON-komité | Høy |
+| 🟠 HØY | DMA-håndhevelsesovervåkingsmekanismer | Løpende 2026 | IMCO-komité | Medium |
+| 🟡 MEDIUM | 2027 EU-budsjettforhandlinger | Mai–Desember 2026 | BUDG-komité | Medium |
+| 🟡 MEDIUM | EU-Mercosur-ratifiseringstidslinje | 2026–2027 | INTA-komité | Medium |
+| 🟢 LAV | Implementering av dyrevelferdregulering | 2027 og fremover | AGRI-komité | Lav |
+
+---
+
+### 📈 Fremoverskuende proposisjonshorisont (mai–november 2026)
+
+#### Forventede kommende forslag
+Basert på Kommisjonens arbeidsprogram 2026 og analyse av parlamentarisk kalender:
+
+1. **AI-styrningspakke fase 2** — Delegerte rettsakter under EUs AI-lov forventes Q3 2026
+2. **Europeisk forsvarsindustriforordning (EDIP)** — Budsjettinstrument for forsvarsindustri; kritisk i lys av Russland-Ukraina-konteksten
+3. **EUs lov om kritiske råmaterialer II** — Utvidelse/revisjon forventes etter gjennomgang av initial lovgivning
+4. **Implementering av plattformarbeidsdirektivet** — Overvåking av transponering i medlemsstat
+5. **Gjennomgang av rapportering om bærekraft for foretak (CSRD)** — Omnibus-forenklingspaket under Kommisjonens press
+6. **Lovgivningspakke for digital euro** — ECB/Kommisjonens koordinering avventer etter ECBs visepresidentutnevnelser (TA-10-2026-0033, -0060)
+
+#### Advarsler for lovgivningskalenderen
+- **Juni 2026-plenum** (Strasbourg): Forventet avstemning om flere ventende trialogeresultater
+- **Juli 2026**: Sommerferien begynner — frist for viktige komitéavstemninger før pause
+- **September 2026**: Parlamentsåret gjenopptas — prioritetskøen forventes å være tung
+- **Oktober/november 2026**: Halvtidsvurdering av Kommisjonens arbeidsprogram
+
+---
+
+### ⚡ Etterretningskonfidens-matrise
+
+| Funn | Evidenskvalitet | Tillit | Verifiseringssti |
+|---------|----------------|-----------|-------------------|
+| 51 vedtatte tekster bekreftet | Primære EP-data | 🟢 HIGH | EP Open Data Portal |
+| Bankuionsavslutning | Bekreftede TA-tekster | 🟢 HIGH | EP Open Data Portal |
+| DMA-håndhevelsestiltak | Bekreftet TA-tekst | 🟢 HIGH | EP Open Data Portal |
+| Pipelinesrosedyrer forringet | Direkte observasjon | 🟢 HIGH | MCP-verktøyutdata |
+| Fremtidige forslag (Q3/Q4) | Kommisjonens Arbeidsprogram-inferens | 🟡 MEDIUM | Kommisjonens nettside |
+| Koalisjonsdynamikk | Sluttet fra stemme-mønstre | 🟡 MEDIUM | DOCEO XML (utilgjengelig) |
+| Budsjettforhandlingsutsikter | Historisk mønster + vedtatte tekster | 🟡 MEDIUM | BUDG-komitéfeeds |
+
+---
+
+### 🔄 Datakvalitetsvurdering
+
+| Kilde | Status | Pålitelighet | Innvirkning |
+|--------|--------|-------------|--------|
+| EP Vedtatte tekster 2026 | ✅ Funksjonelle | HØY | 51 elementer tilgjengelige |
+| EP Prosedyrefeed | ❌ Forringet | LAV | Returnerer bare 1970-tallsdata |
+| Komitédokumentfeed | ❌ Utilgjengelig | INGEN | Ingen data returnert |
+| Eksternt dokumentfeed | ❌ Tom | INGEN | 0 elementer returnert |
+| DOCEO XML-stemmer | ❌ Utilgjengelige | INGEN | Ingen data for inneværende uke |
+| Lovgivningspipeline-overvåking | ⚠️ Forringet | LAV | 0 prosedyrer returnert |
+
+**Vurdering:** Denne kjøringen opererer under alvorlig forringede EP-dataforhold. Analysekvaliteten opprettholdes gjennom:
+1. Rikt datasett for vedtatte tekster (51 elementer med prosedyrereferanser)
+2. Historisk mønsteranalyse og kunnskap om Kommisjonens arbeidsprogram
+3. IMF/World Bank økonomisk kontekstdata (der relevant)
+4. Ekspertinferens fra kjente lovgivningstidslinjer
+
+---
+
+*Generert: 2026-05-15 | EU Parliament Monitor | Hack23 AB | Apache-2.0*
+
+### Executive Brief Sv
+
+### 🔑 Viktiga resultat
+
+#### 1. Surge i lagstiftningsproduktion — Vårspurt 2026
+Europaparlamentet har uppvisat exceptionell lagstiftningshastighet under Q1-Q2 2026, med antagande av **51 formella texter** mellan januari och maj 2026. Detta representerar en lagstiftningsspurt som sammanfaller med mitten av den 10:e parlamentariska mandatperioden, med stora paket inom bankreform, antikorruption, digital styrning och handelspolitik som klarat slutomröstningarna.
+
+**Tillit:** 🟢 HIGH — Baserat på 51 bekräftade antagna texter från EP Open Data Portal.
+
+#### 2. Bankkonsolidering — SRMR3 och antikorruptionspaket
+Två viktiga lagstiftningsåtgärder antogs den 26 mars 2026:
+- **SRMR3** (`2023/0111(COD)`) — Tidiga interventionsåtgärder, villkor för resolution och finansiering av resolutionsåtgärder — kompletterande en kritisk pelare i bankstrukturens arkitektur.
+- **Antikorruptionsdirektivet** (`2023/0135(COD)`) — fastställer EU-övergripande straffrättsliga standarder för korruptionsbrott, länge försenat sedan 2023.
+
+Dessa antaganden signalerar EPP-S&D-Renew-koalitionens fortsatta förmåga att leverera institutionella reformer trots ökat nationalistiskt tryck.
+
+**Tillit:** 🟢 HIGH — Bekräftade antagna texter TA-10-2026-0092 och TA-10-2026-0094.
+
+#### 3. Paket om tillämpning av lagen om digitala marknader
+Parlamentet antog **Tillämpning av lagen om digitala marknader** (TA-10-2026-0160) den 30 april 2026, vilket signalerar ökat EP-tillsyn av kommissionens tillämpningsverksamhet mot Big Tech-gatekeeper. Detta sker när DMA-tillämpningsprocesserna mot Apple, Meta och Alphabet träder in i sin kritiska fas.
+
+**Tillit:** 🟢 HIGH — Bekräftat TA-10-2026-0160.
+
+#### 4. EU-USA-handelskonflikt — Tullmotåtgärder
+Antagandet av **Justering av tullar för varor av USA-ursprung** (`2025/0261`) den 26 mars 2026 återspeglar EU:s formella lagstiftningssvar på USA:s tulleskaleringen under Trump-administrationens andra mandatperiod. Detta positionerar parlamentet som en proaktiv aktör i handelsmotåtgärdspolitiken.
+
+**Tillit:** 🟢 HIGH — Bekräftat TA-10-2026-0096.
+
+#### 5. EP:s budgetriktlinjer 2027 — Finansiellt utrymme under press
+Antagna den 28 april 2026, sätter 2027 års budgetriktlinjer (`TA-10-2026-0112`) parlamentets förhandlingsposition för den kommande budgetcykeln. Det parallella antagandet av EP:s institutionella uppskattningar (`TA-10-2026-04-30-ANN01`) signalerar en kontroversiell budgetsäsong med kommissionen och rådet.
+
+**Tillit:** 🟢 HIGH — Bekräftade antagna texter.
+
+#### 6. EP:s datainfrastruktur — Allvarlig kvalitetsförsämring
+**KRITISK OBSERVATION:** EP Open Data Portal returnerar kraftigt försämrade data per 2026-05-15:
+- Procedurflödet returnerar enbart historiska procedurer från 1970-1980-talen
+- Kommittédokumentflödet är "ej tillgängligt"
+- Externt dokumentflöde returnerar 0 poster
+- Lagstiftningspipelineövervakning returnerar tomma resultat (0 procedurer)
+- DOCEO XML-röster ej tillgängliga för nuvarande vecka
+
+Detta representerar ett systemfel i datakvaliteten som materiellt begränsar den framåtblickande lagstiftningspipelineintelligensen. MCP-tillförlitlighetsrevisionen dokumenterar detta i detalj.
+
+**Tillit:** 🟢 HIGH — Direkt observerat vid insamling av Stage A-data.
+
+---
+
+### 📊 Analys av lagstiftningshastighet
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4bf7686f) -->
+
+**Månadsvis uppdelning (bekräftad från EP Open Data):**
+- Januari 2026: 7 antagna texter (TA-10-2026-0004 till -0026)
+- Februari 2026: 7 antagna texter (finansiell stabilitet, humanitärt bistånd, handel)
+- Mars 2026: 15 antagna texter (bank, antikorruption, handel, miljö)
+- April 2026: 19 antagna texter (budget, djurskydd, digitalt, utrikespolitik)
+- Maj 2026: 2+ texter bekräftade; veckan 11–15 maj data väntar
+
+---
+
+### 🎯 Prioriterade åtgärdspunkter för beslutsfattare
+
+| Prioritet | Fråga | Tidslinje | Nyckelaktör | Risknivå |
+|----------|-------|----------|-----------|------------|
+| 🔴 KRITISK | EP:s datainfrastrukturförsämring | Omedelbart | EP IT & Datatjänster | Hög |
+| 🟠 HÖG | SRMR3-trialoguer väntar råds-/kommissionsimplementering | Q3-Q4 2026 | ECON-utskott | Hög |
+| 🟠 HÖG | DMA-tillämpningsövervakningsmekanismer | Pågående 2026 | IMCO-utskott | Medium |
+| 🟡 MEDIUM | 2027 EU-budgetförhandlingar | Maj–December 2026 | BUDG-utskott | Medium |
+| 🟡 MEDIUM | EU-Mercosur-ratificeringstidslinje | 2026–2027 | INTA-utskott | Medium |
+| 🟢 LÅG | Implementering av djurskyddsförordning | 2027 och framåt | AGRI-utskott | Låg |
+
+---
+
+### 📈 Framåtblickande propositionshorisont (maj–november 2026)
+
+#### Förväntade kommande förslag
+Baserat på kommissionens arbetsprogram 2026 och analys av parlamentarisk kalender:
+
+1. **AI-styrningspaket fas 2** — Delegerade akter under EU:s AI-lag förväntas Q3 2026
+2. **Europeisk försvarsindustriförordning (EDIP)** — Budgetinstrument för försvarsindustrin; kritisk med tanke på Ryssland-Ukraina-kontexten
+3. **EU:s lag om kritiska råmaterial II** — Utökning/revision förväntad efter genomgång av initial lagstiftning
+4. **Genomförande av plattformsarbetsdirektivet** — Övervakningssystem för transponering i medlemsstat
+5. **Granskning av rapportering om hållbarhet för företag (CSRD)** — Omnibusförenklingspaket under kommissionstryck
+6. **Lagstiftningspaket för digital euro** — ECB/kommissionssamordning väntar efter ECB:s vice ordförandetillsättningar (TA-10-2026-0033, -0060)
+
+#### Varningar för lagstiftningskalendern
+- **Juni 2026 plenum** (Strasbourg): Förväntad omröstning om flera väntande trialogresultat
+- **Juli 2026**: Sommaruppehåll börjar — deadline för viktiga utskottsomröstningar före uppehållet
+- **September 2026**: Parlamentsåret återupptas — prioritetskön förväntas vara tung
+- **Oktober/november 2026**: Halvtidsgranskning av kommissionens arbetsprogram
+
+---
+
+### ⚡ Underrättelsekonfidensmtrix
+
+| Resultat | Evidenskvalitet | Tillit | Verifieringsväg |
+|---------|----------------|-----------|-------------------|
+| 51 antagna texter bekräftade | Primär EP-data | 🟢 HIGH | EP Open Data Portal |
+| Bankkonsolidering | Bekräftade TA-texter | 🟢 HIGH | EP Open Data Portal |
+| DMA-tillämpningsåtgärd | Bekräftad TA-text | 🟢 HIGH | EP Open Data Portal |
+| Pipelineprocedurer försämrade | Direkt observation | 🟢 HIGH | MCP-verktygsutdata |
+| Framtida förslag (Q3/Q4) | Kommissionens Arbetsprogram inferens | 🟡 MEDIUM | Kommissionswebbplats |
+| Koalitionsdynamik | Slutledning från röstmönster | 🟡 MEDIUM | DOCEO XML (ej tillgängligt) |
+| Budgetförhandlingsutsikter | Historiskt mönster + antagna texter | 🟡 MEDIUM | BUDG-utskottsflöden |
+
+---
+
+### 🔄 Datakvalitetsbedömning
+
+| Källa | Status | Tillförlitlighet | Påverkan |
+|--------|--------|-------------|--------|
+| EP Antagna texter 2026 | ✅ Funktionell | HÖG | 51 poster tillgängliga |
+| EP Procedurflöde | ❌ Försämrat | LÅG | Returnerar enbart 1970-talsdata |
+| Kommittédokumentflöde | ❌ Ej tillgängligt | INGEN | Inga data returnerade |
+| Externt dokumentflöde | ❌ Tomt | INGEN | 0 poster returnerade |
+| DOCEO XML-röster | ❌ Ej tillgängliga | INGEN | Ingen data för nuvarande vecka |
+| Lagstiftningspipelineövervakning | ⚠️ Försämrad | LÅG | 0 procedurer returnerade |
+
+**Bedömning:** Denna körning opererar under kraftigt försämrade EP-dataförhållanden. Analyskvaliteten upprätthålls genom:
+1. Rikt dataset för antagna texter (51 poster med procedurreferenser)
+2. Historisk mönsteranalys och kunskap om kommissionens arbetsprogram
+3. IMF/World Bank ekonomiska kontextdata (där tillämplig)
+4. Expertslutsledning från kända lagstiftningstidlinjer
+
+---
+
+*Genererat: 2026-05-15 | EU Parliament Monitor | Hack23 AB | Apache-2.0*
+
+### Executive Brief Zh
+
+**日期：** 2026-05-15 | **文章类型：** Propositions | **分类：** 公开
+**可信度：** 🟡 MEDIUM | **数据质量：** 部分 — EP API 降级；通过文本为主要来源
+
+---
+
+### 🔑 主要发现
+
+#### 1. 立法产出激增 — 2026年春季冲刺
+欧洲议会在2026年第一、二季度展现出非凡的立法速度，2026年1月至5月间共通过**51项正式文本**。这代表着与第10届欧洲议会任期中期重合的立法冲刺，银行改革、反腐、数字治理和贸易政策领域的重大一揽子计划均通过了最终表决。
+
+**可信度：** 🟢 HIGH — 基于欧洲议会开放数据门户的51项已确认通过文本。
+
+#### 2. 银行业联盟完成 — SRMR3与反腐一揽子计划
+2026年3月26日，两项重要立法文本获得通过：
+- **SRMR3** (`2023/0111(COD)`) — 早期干预措施、处置条件及处置措施融资 — 完成银行业联盟架构的关键支柱。
+- **反腐指令** (`2023/0135(COD)`) — 制定欧盟范围内腐败犯罪的刑事标准，自2023年起长期延迟。
+
+这些通过表明，尽管民族主义压力不断上升，欧洲人民党-社会党进步联盟-复兴欧洲联盟仍具有持续推进制度改革的能力。
+
+**可信度：** 🟢 HIGH — 已确认通过文本 TA-10-2026-0092 和 TA-10-2026-0094。
+
+#### 3. 数字市场法执法一揽子计划
+议会于2026年4月30日通过了**数字市场法执法**（TA-10-2026-0160），表明欧洲议会加强了对委员会针对大型科技守门人执法活动的监督。这发生在针对苹果、Meta和Alphabet的数字市场法执法程序进入关键阶段之际。
+
+**可信度：** 🟢 HIGH — 已确认 TA-10-2026-0160。
+
+#### 4. 欧美贸易紧张 — 关税反制措施
+2026年3月26日通过的**对美国原产商品关税调整**（`2025/0261`）反映了欧盟对特朗普政府第二任期美国关税升级的正式立法回应。这将议会定位为贸易反制措施政策的积极参与者。
+
+**可信度：** 🟢 HIGH — 已确认 TA-10-2026-0096。
+
+#### 5. 欧洲议会2027年预算指引 — 财政空间承压
+2026年4月28日通过的2027年预算指引（`TA-10-2026-0112`）确立了议会在即将到来的年度预算周期中的谈判立场。欧洲议会机构估算（`TA-10-2026-04-30-ANN01`）的同步通过预示着与委员会和理事会之间充满争议的预算季。
+
+**可信度：** 🟢 HIGH — 已确认通过文本。
+
+#### 6. 欧洲议会数据基础设施 — 严重质量下降
+**重要观察：** 截至2026-05-15，欧洲议会开放数据门户返回严重降级的数据：
+- 程序信息流仅返回1970-1980年代的历史程序
+- 委员会文件信息流"不可用"
+- 外部文件信息流返回0条
+- 立法管道监测返回空结果（0条程序）
+- 本周DOCEO XML投票不可用
+
+这代表一种系统性数据质量缺陷，实质性地限制了前瞻性立法管道情报。MCP可靠性审计对此进行了详细记录。
+
+**可信度：** 🟢 HIGH — 在A阶段数据收集期间直接观察到。
+
+---
+
+### 📊 立法速度分析
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4bf7686f) -->
+
+**月度明细（来自欧洲议会开放数据确认）：**
+- 2026年1月：7项通过文本（TA-10-2026-0004 至 -0026）
+- 2026年2月：7项通过文本（金融稳定、人道主义援助、贸易）
+- 2026年3月：15项通过文本（银行、反腐、贸易、环境）
+- 2026年4月：19项通过文本（预算、动物福利、数字、外交政策）
+- 2026年5月：已确认2项以上；5月11-15日周数据待定
+
+---
+
+### 🎯 政策制定者优先行动要点
+
+| 优先级 | 议题 | 时间线 | 关键行为者 | 风险等级 |
+|----------|-------|----------|-----------|------------|
+| 🔴 紧急 | 欧洲议会数据基础设施降级 | 立即 | 欧洲议会IT与数据服务 | 高 |
+| 🟠 高 | SRMR3三方对话 — 等待理事会/委员会执行 | Q3-Q4 2026 | ECON委员会 | 高 |
+| 🟠 高 | 数字市场法执法监督机制 | 2026年持续 | IMCO委员会 | 中 |
+| 🟡 中 | 欧盟2027年预算谈判 | 5月-12月 2026 | BUDG委员会 | 中 |
+| 🟡 中 | 欧盟-南方共同市场批准时间表 | 2026-2027 | INTA委员会 | 中 |
+| 🟢 低 | 动物福利条例实施 | 2027年及之后 | AGRI委员会 | 低 |
+
+---
+
+### 📈 前瞻性提案地平线（2026年5月-11月）
+
+#### 预期中的即将提案
+基于委员会2026年工作计划及议会日历分析：
+
+1. **人工智能治理一揽子计划第二阶段** — 欧盟AI法授权行为预计于2026年第三季度出台
+2. **欧洲国防工业法规（EDIP）** — 国防工业预算工具；在俄乌背景下至关重要
+3. **欧盟关键原材料法II** — 初始立法审查后预计扩展/修订
+4. **平台劳动指令实施** — 成员国转置监测系统
+5. **企业可持续发展报告（CSRD）审查** — 委员会压力下的综合简化一揽子计划
+6. **数字欧元立法一揽子计划** — 欧洲央行副行长任命后等待欧洲央行/委员会协调（TA-10-2026-0033、-0060）
+
+#### 立法日历警告
+- **2026年6月全体会议**（斯特拉斯堡）：预计就多项待决三方结果进行表决
+- **2026年7月**：夏季休会开始 — 休会前重要委员会表决截止日
+- **2026年9月**：议会年重新开启 — 优先议题队列预计较重
+- **2026年10/11月**：委员会工作计划期中审查
+
+---
+
+### ⚡ 情报可信度矩阵
+
+| 发现 | 证据质量 | 可信度 | 验证路径 |
+|---------|----------------|-----------|-------------------|
+| 已确认51项通过文本 | 欧洲议会一手数据 | 🟢 HIGH | 欧洲议会开放数据门户 |
+| 银行业联盟完成 | 已确认TA文本 | 🟢 HIGH | 欧洲议会开放数据门户 |
+| 数字市场法执法措施 | 已确认TA文本 | 🟢 HIGH | 欧洲议会开放数据门户 |
+| 管道程序降级 | 直接观察 | 🟢 HIGH | MCP工具输出 |
+| 未来提案（Q3/Q4） | 委员会工作计划推断 | 🟡 MEDIUM | 欧洲委员会网站 |
+| 联盟动态 | 从投票模式推断 | 🟡 MEDIUM | DOCEO XML（不可用） |
+| 预算谈判前景 | 历史模式+通过文本 | 🟡 MEDIUM | BUDG委员会信息流 |
+
+---
+
+### 🔄 数据质量评估
+
+| 来源 | 状态 | 可靠性 | 影响 |
+|--------|--------|-------------|--------|
+| 欧洲议会通过文本2026 | ✅ 正常 | 高 | 51项可用 |
+| 欧洲议会程序信息流 | ❌ 降级 | 低 | 仅返回1970年代数据 |
+| 委员会文件信息流 | ❌ 不可用 | 无 | 未返回数据 |
+| 外部文件信息流 | ❌ 为空 | 无 | 返回0条 |
+| DOCEO XML投票 | ❌ 不可用 | 无 | 本周无数据 |
+| 立法管道监测 | ⚠️ 降级 | 低 | 返回0条程序 |
+
+**评估：** 本次运行在严重降级的欧洲议会数据条件下运行。分析质量通过以下方式保持：
+1. 丰富的通过文本数据集（含程序参考的51条）
+2. 历史模式分析及委员会工作计划知识
+3. IMF/World Bank经济背景数据（如适用）
+4. 来自已知立法时间表的专家推断
+
+---
+
+*生成日期：2026-05-15 | EU Parliament Monitor | Hack23 AB | Apache-2.0*
+
 > **Provenance & Audit**
 >
 > - **Article type:** `propositions`
@@ -3642,4 +5334,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/propositions/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [workflow-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/propositions/intelligence/workflow-audit.md) | `intelligence/workflow-audit.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/propositions/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/propositions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/propositions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/propositions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/propositions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/propositions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/propositions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/propositions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/propositions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/propositions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/propositions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/propositions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/propositions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/propositions/executive-brief_zh.md) | `executive-brief_zh.md` |
 
