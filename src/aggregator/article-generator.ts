@@ -612,9 +612,7 @@ function getMetadataEntry(map: ResolvedMetadata, lang: LanguageCode): ResolvedMe
   if (descriptor?.value) {
     return descriptor.value as ResolvedMetadataEntry;
   }
-  const en = Object.getOwnPropertyDescriptor(map, 'en')?.value as
-    | ResolvedMetadataEntry
-    | undefined;
+  const en = Object.getOwnPropertyDescriptor(map, 'en')?.value as ResolvedMetadataEntry | undefined;
   return en ?? { title: '', description: '', keywords: [], source: 'template' };
 }
 

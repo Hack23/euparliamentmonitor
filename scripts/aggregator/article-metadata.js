@@ -1574,9 +1574,7 @@ function resolveOneLanguage(input) {
         : composeContextualDescription(input.lang, rawDescription, editorial, input.date, input.runId);
     const truncatedTitle = truncateTitle(title);
     const truncatedDescription = truncateDescription(description);
-    const source = manifestTitle || manifestDescription
-        ? 'manifest'
-        : perLanguage.source;
+    const source = manifestTitle || manifestDescription ? 'manifest' : perLanguage.source;
     return {
         title: truncatedTitle,
         description: truncatedDescription,

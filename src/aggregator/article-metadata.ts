@@ -1808,9 +1808,8 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   const truncatedTitle = truncateTitle(title);
   const truncatedDescription = truncateDescription(description);
 
-  const source: ResolvedMetadataEntry['source'] = manifestTitle || manifestDescription
-    ? 'manifest'
-    : perLanguage.source;
+  const source: ResolvedMetadataEntry['source'] =
+    manifestTitle || manifestDescription ? 'manifest' : perLanguage.source;
 
   return {
     title: truncatedTitle,

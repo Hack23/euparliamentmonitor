@@ -48,7 +48,9 @@ describe('shouldSkipDescriptionLine — tightened leak filter', () => {
 
   it('rejects emoji-prefixed metadata banners', () => {
     expect(
-      shouldSkipDescriptionLine('📋 Analysis Owner: EU Parliament Monitor | 📅 Generated: 2026-04-01')
+      shouldSkipDescriptionLine(
+        '📋 Analysis Owner: EU Parliament Monitor | 📅 Generated: 2026-04-01'
+      )
     ).toBe(true);
     expect(shouldSkipDescriptionLine('🏛 Parliamentary Term: EP10')).toBe(true);
     expect(shouldSkipDescriptionLine('📊 Confidence: High')).toBe(true);
@@ -273,15 +275,13 @@ describe('isGenericHeading', () => {
   });
 
   it('rejects the legacy "EU Parliament <Type> — <date>" form', () => {
-    expect(
-      isGenericHeading('EU Parliament Breaking — 2026-04-14', 'breaking', '2026-04-14')
-    ).toBe(true);
+    expect(isGenericHeading('EU Parliament Breaking — 2026-04-14', 'breaking', '2026-04-14')).toBe(
+      true
+    );
   });
 
   it('rejects the collision-suffix "Breaking Breaking — <date>" form', () => {
-    expect(
-      isGenericHeading('Breaking Breaking — 2026-04-20', 'breaking', '2026-04-20')
-    ).toBe(true);
+    expect(isGenericHeading('Breaking Breaking — 2026-04-20', 'breaking', '2026-04-20')).toBe(true);
   });
 
   it('accepts any non-genuine-editorial headline', () => {
@@ -293,11 +293,7 @@ describe('isGenericHeading', () => {
       )
     ).toBe(false);
     expect(
-      isGenericHeading(
-        'Coalition Realignment After Plenary Vote',
-        'motions',
-        '2026-04-20'
-      )
+      isGenericHeading('Coalition Realignment After Plenary Vote', 'motions', '2026-04-20')
     ).toBe(false);
   });
 
@@ -318,13 +314,9 @@ describe('isGenericHeading', () => {
         '2026-05-09'
       )
     ).toBe(true);
-    expect(
-      isGenericHeading(
-        'Intelligence Briefing — 2026-04-20',
-        'breaking',
-        '2026-04-20'
-      )
-    ).toBe(true);
+    expect(isGenericHeading('Intelligence Briefing — 2026-04-20', 'breaking', '2026-04-20')).toBe(
+      true
+    );
     expect(
       isGenericHeading('Breaking News Analysis: Coalition Shift', 'breaking', '2026-04-20')
     ).toBe(true);
@@ -857,7 +849,11 @@ describe('extractLedeAfterHeading', () => {
   });
 
   it('returns empty when no lede heading exists', () => {
-    const md = ['# Just a heading', '', 'Plain prose, but no lede heading anywhere in the doc.'].join('\n');
+    const md = [
+      '# Just a heading',
+      '',
+      'Plain prose, but no lede heading anywhere in the doc.',
+    ].join('\n');
     expect(extractLedeAfterHeading(md)).toBe('');
   });
 
@@ -957,9 +953,7 @@ describe('stripLeadingProseLabel', () => {
       stripLeadingProseLabel(
         'KEY MOTION: TA-10-2026-0160 demands stronger DMA enforcement against Big Tech gatekeepers.'
       )
-    ).toBe(
-      'TA-10-2026-0160 demands stronger DMA enforcement against Big Tech gatekeepers.'
-    );
+    ).toBe('TA-10-2026-0160 demands stronger DMA enforcement against Big Tech gatekeepers.');
   });
 
   it('strips a hyphenated all-caps label opener (TIER-1, BLUF, etc.)', () => {
@@ -982,9 +976,9 @@ describe('stripLeadingProseLabel', () => {
 
   it('returns the line unchanged when the opener is too short to be a label', () => {
     // Only `OK:` — too short, would false-match an actual sentence opener.
-    expect(stripLeadingProseLabel('OK: that decision matters and here is why it matters now.')).toBe(
-      'OK: that decision matters and here is why it matters now.'
-    );
+    expect(
+      stripLeadingProseLabel('OK: that decision matters and here is why it matters now.')
+    ).toBe('OK: that decision matters and here is why it matters now.');
   });
 
   it('returns the line unchanged when the opener uses lowercase letters', () => {
@@ -1010,9 +1004,9 @@ describe('stripArtifactCategoryAffix', () => {
     expect(stripArtifactCategoryAffix('Synthesis Summary — EP Motions & Adopted Texts')).toBe(
       'EP Motions & Adopted Texts'
     );
-    expect(
-      stripArtifactCategoryAffix('Intelligence Synthesis Summary — EP10 Year in Review')
-    ).toBe('EP10 Year in Review');
+    expect(stripArtifactCategoryAffix('Intelligence Synthesis Summary — EP10 Year in Review')).toBe(
+      'EP10 Year in Review'
+    );
   });
 
   it('strips a suffix-form category label', () => {
