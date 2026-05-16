@@ -1,5 +1,5 @@
 ---
-title: "Coverage: April 28–30, 2026 Strasbourg Plenary | Propositions Edition Analyst: AI-First Analysis Pipeline v2.5 | WEP/Admiralty grades…"
+title: "Coverage: April 28–30, 2026 Strasbourg Plenary | Propositions Edition Analyst"
 description: "Coverage: April 28–30, 2026 Strasbourg Plenary | Propositions Edition Analyst: AI-First Analysis Pipeline v2.5 | WEP/Admiralty grades applied"
 keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-01", "run propositions-run-1777615486", "Coverage", "April", "Strasbourg", "Plenary", "Edition", "Analyst", "First", "Analysis"]
 date: 2026-05-01

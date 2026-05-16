@@ -1,7 +1,7 @@
 ---
-title: "Breaking News | 2026-05-04"
-description: "The European Parliament's April 28-30 mini-plenary session in Brussels delivered an unusually dense cluster of high-salience resolutions on a single day — April 30, 2026…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-04", "run breaking-run-2026-05-04", "News", "European", "Parliament", "April", "mini", "plenary", "session", "Brussels"]
+title: "Russia-Ukraine Accountability Resolution"
+description: "The Parliament adopted \"Ensuring accountability and justice in response to Russia's continued attacks against the civilian population in Ukraine\" — a binding political statement…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-04", "run breaking-run-2026-05-04", "Russia", "Ukraine", "Accountability", "Resolution", "Parliament", "adopted", "Ensuring", "justice"]
 date: 2026-05-04
 article_type: breaking
 slug: 2026-05-04-breaking

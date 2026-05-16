@@ -1,6 +1,6 @@
 ---
-title: "1. The 2024 election cemented a structural regime change, not a cyclical swing. Top-two concentration has fallen 19.4 percentage points…"
-description: "1. The 2024 election cemented a structural regime change, not a cyclical swing. Top-two concentration has fallen 19.4 percentage points (63.9% → 44.5%) over six EP terms."
+title: "The 2024 election cemented a structural regime change, not a cyclical swing."
+description: "Top-two concentration has fallen 19.4 percentage points (63.9% → 44.5%) over six EP terms. Minimum winning coalition size has stepped up from 2 to 3 groups since 2019."
 keywords: ["EU Parliament", "European Parliament", "political intelligence", "Election Cycle", "2026-05-14", "run election-cycle-run-1778754201", "election", "cemented", "structural", "regime", "change", "cyclical", "swing", "concentration", "fallen", "percentage"]
 date: 2026-05-14
 article_type: election-cycle

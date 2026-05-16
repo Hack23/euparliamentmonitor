@@ -20,10 +20,12 @@ import {
   extractFirstH1,
   extractFirstSentence,
   extractLedeAfterHeading,
+  extractPriorityFindingHighlight,
   extractStrongProseLine,
   humanizeSlug,
   isArtifactCategoryHeading,
   isGenericHeading,
+  isTranslatedSiblingBrief,
   resolveArticleMetadata,
   shouldSkipDescriptionLine,
   stripArtifactCategoryAffix,
@@ -386,11 +388,15 @@ describe('isGenericHeading', () => {
     // `EP Week Ahead: 19–22 May 2026` is editorial content — it specifies
     // the reporting window. Only *single-date* qualifiers (` · YYYY-MM-DD`,
     // `(May 2026)`) are stripped before the category-noun comparison.
+    expect(isGenericHeading('EP Week Ahead: 19–22 May 2026', 'week-ahead', '2026-05-15')).toBe(
+      false
+    );
     expect(
-      isGenericHeading('EP Week Ahead: 19–22 May 2026', 'week-ahead', '2026-05-15')
-    ).toBe(false);
-    expect(
-      isGenericHeading('EU Parliament Committee Activity, 6–13 May 2026', 'committee-reports', '2026-05-13')
+      isGenericHeading(
+        'EU Parliament Committee Activity, 6–13 May 2026',
+        'committee-reports',
+        '2026-05-13'
+      )
     ).toBe(false);
     expect(
       isGenericHeading('Breaking News: EP April 2026 Plenary Outcomes', 'breaking', '2026-05-15')
@@ -420,8 +426,12 @@ describe('isGenericHeading', () => {
     // `isBareInstitutionalHeading` gate is overridden by per-articleType
     // category-noun matching for slugged forms, and any trailing
     // editorial content escapes the bare set entirely.
-    expect(isGenericHeading('EU Parliament Adopts AI Act Amendments', 'breaking', '2026-05-15')).toBe(false);
-    expect(isGenericHeading('European Parliament Plenary: April Outcomes', 'breaking', '2026-05-15')).toBe(false);
+    expect(
+      isGenericHeading('EU Parliament Adopts AI Act Amendments', 'breaking', '2026-05-15')
+    ).toBe(false);
+    expect(
+      isGenericHeading('European Parliament Plenary: April Outcomes', 'breaking', '2026-05-15')
+    ).toBe(false);
   });
 });
 
@@ -874,7 +884,9 @@ describe('resolveArticleMetadata — priority ladder', () => {
     for (const lang of ALL_LANGUAGES) {
       const entry = Object.getOwnPropertyDescriptor(result, lang)?.value;
       expect(entry.description).not.toMatch(/analysis run/i);
-      expect(entry.description).not.toMatch(/analyskörning|analysekørsel|analysekjøring|analyysiajo|Analyselauf|cycle d.analyse|ejecución de análisis|analyserun|تشغيل التحليل|הרצת ניתוח|分析実行|분석 실행|分析运行/);
+      expect(entry.description).not.toMatch(
+        /analyskörning|analysekørsel|analysekjøring|analyysiajo|Analyselauf|cycle d.analyse|ejecución de análisis|analyserun|تشغيل التحليل|הרצת ניתוח|分析実行|분석 실행|分析运行/
+      );
       expect(entry.description).not.toMatch(/breaking-run\d+-\d{8,}/);
       expect(entry.title).not.toMatch(/analysis run/i);
       expect(entry.title).not.toMatch(/breaking-run\d+-\d{8,}/);
@@ -1244,5 +1256,240 @@ describe('stripArtifactCategoryAffix', () => {
   it('falls back to empty when the rescued core is too short', () => {
     // After stripping, only `EU` remains — below the 5-char minimum.
     expect(stripArtifactCategoryAffix('EU — Executive Brief')).toBe('');
+  });
+});
+
+describe('isTranslatedSiblingBrief — translated sibling exclusion', () => {
+  it('flags every `*_<lang>.md` filename for the 14 supported languages', () => {
+    // Regression guard for the bug that injected Arabic content into the
+    // English homepage card for the 2026-05-15 batch: when
+    // `executive-brief.md`'s H1 was generic, the top-level fallback scan
+    // walked translated siblings (`executive-brief_ar.md`, …) and the
+    // first non-English H1 won.
+    for (const lang of ALL_LANGUAGES) {
+      if (lang === 'en') continue;
+      expect(isTranslatedSiblingBrief(`executive-brief_${lang}.md`)).toBe(true);
+      expect(isTranslatedSiblingBrief(`synthesis-summary_${lang}.md`)).toBe(true);
+    }
+  });
+
+  it('does NOT flag canonical English artefacts', () => {
+    expect(isTranslatedSiblingBrief('executive-brief.md')).toBe(false);
+    expect(isTranslatedSiblingBrief('synthesis-summary.md')).toBe(false);
+    expect(isTranslatedSiblingBrief('coalition-dynamics.md')).toBe(false);
+    expect(isTranslatedSiblingBrief('deep-analysis.md')).toBe(false);
+    expect(isTranslatedSiblingBrief('article.md')).toBe(false);
+  });
+
+  it('does NOT flag filenames whose suffix happens to look like a language code but isn’t one', () => {
+    // `_eu` / `_uk` are NOT in ALL_LANGUAGES (Ukrainian is not yet a
+    // supported locale); they must remain English artefacts.
+    expect(isTranslatedSiblingBrief('mff-overview_eu.md')).toBe(false);
+    expect(isTranslatedSiblingBrief('whatever_uk.md')).toBe(false);
+  });
+});
+
+describe('extractArtifactHighlight — translated-sibling exclusion (regression)', () => {
+  let tmpRun;
+
+  beforeEach(() => {
+    tmpRun = fs.mkdtempSync(path.join(os.tmpdir(), 'ep-translated-sibling-'));
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmpRun, { recursive: true, force: true });
+  });
+
+  it('does NOT pick up Arabic content from `executive-brief_ar.md` when the English brief H1 is generic', () => {
+    // English brief — generic boilerplate H1 (the bug trigger).
+    fs.writeFileSync(
+      path.join(tmpRun, 'executive-brief.md'),
+      ['# Executive Brief — EU Parliament Committee Reports', '', 'Generic prose.'].join('\n'),
+      'utf8'
+    );
+    // Translated sibling — Arabic H1 that the English-only
+    // `isGenericHeading` detector cannot recognise as boilerplate.
+    fs.writeFileSync(
+      path.join(tmpRun, 'executive-brief_ar.md'),
+      ['# الملخص التنفيذي — تقارير لجان البرلمان الأوروبي', '', 'محتوى عربي.'].join('\n'),
+      'utf8'
+    );
+    const result = extractArtifactHighlight(tmpRun, 'committee-reports', '2026-05-15');
+    // The result MUST NOT contain Arabic text — the translated sibling
+    // is excluded from the fallback scan and the resolver returns the
+    // safe summary-only outcome (or null).
+    if (result?.headline) {
+      expect(result.headline).not.toMatch(/[\u0590-\u08FF]/);
+    }
+    if (result?.summary) {
+      expect(result.summary).not.toMatch(/[\u0590-\u08FF]/);
+    }
+  });
+});
+
+describe('extractPriorityFindingHighlight', () => {
+  it('extracts the first bold-in-numbered-list dossier name (breaking briefs)', () => {
+    // Canonical Stage-B authoring pattern documented in
+    // `analysis/templates/executive-brief.md` for breaking briefs:
+    // `1. **Title** (TA-…, date)\n   Paragraph …`
+    const md = [
+      '# Executive Brief — EU Parliament Breaking News',
+      '',
+      '## Key Developments (2026-04-28 to 2026-04-30)',
+      '',
+      '### 🔴 HIGH PRIORITY',
+      '',
+      "1. **Digital Markets Act Enforcement** (TA-10-2026-0160, 2026-04-30) Parliament adopted a resolution on enforcement of the Digital Markets Act, signalling growing frustration with the Commission's pace of action against designated gatekeepers.",
+      '',
+      "2. **Ukraine War Accountability** (TA-10-2026-0161, 2026-04-30) Parliament demanded accountability and justice for Russia's continued attacks against Ukrainian civilian infrastructure.",
+    ].join('\n');
+    const result = extractPriorityFindingHighlight(md);
+    expect(result).not.toBeNull();
+    expect(result.headline).toBe('Digital Markets Act Enforcement');
+    expect(result.summary).toContain('Parliament adopted a resolution');
+    expect(result.summary).not.toContain('TA-10-2026-0160');
+  });
+
+  it('extracts the first numbered subheading (committee-reports briefs)', () => {
+    const md = [
+      '# Executive Brief — EU Parliament Committee Reports',
+      '',
+      '## Priority Dossiers',
+      '',
+      '### 1. Clean Industrial Deal Implementation (ITRE/ENVI)',
+      '',
+      "The Clean Industrial Deal framework — the Commission's flagship industrial competitiveness strategy — is generating parallel committee work across ITRE.",
+    ].join('\n');
+    const result = extractPriorityFindingHighlight(md);
+    expect(result).not.toBeNull();
+    expect(result.headline).toBe('Clean Industrial Deal Implementation');
+    expect(result.summary).toContain('Clean Industrial Deal framework');
+  });
+
+  it('extracts `### KJ-1: Title` tagged-heading items (motions briefs)', () => {
+    const md = [
+      '## 🔑 Key Judgements',
+      '',
+      "### KJ-1: Digital Regulation Enforcement Has Become the EP's Dominant Legislative Lever",
+      '',
+      'Three of the five named resolutions targeted digital platform accountability.',
+    ].join('\n');
+    const result = extractPriorityFindingHighlight(md);
+    expect(result).not.toBeNull();
+    expect(result.headline).toBe(
+      "Digital Regulation Enforcement Has Become the EP's Dominant Legislative Lever"
+    );
+  });
+
+  it('extracts `### Alert N — Title` word-tagged headings (propositions briefs)', () => {
+    const md = [
+      '## 💡 Policy Intelligence Alerts',
+      '',
+      '### Alert 1 — DMA Enforcement Escalation 🔴',
+      '',
+      'Commission expected to issue first formal non-compliance decisions in Q3 2026.',
+    ].join('\n');
+    const result = extractPriorityFindingHighlight(md);
+    expect(result).not.toBeNull();
+    expect(result.headline).toBe('DMA Enforcement Escalation');
+  });
+
+  it('extracts the first H2 `## 📌 Lead Story:` heading even without a parent priority section (motions briefs)', () => {
+    const md = [
+      '# Executive Brief — EU Parliament Motions',
+      '',
+      '## Session Statistics',
+      '',
+      'Stats prose.',
+      '',
+      '## 📌 Lead Story: Russia Accountability & Ukraine Resolution',
+      '',
+      "Parliament's lead resolution this session addressed Russia's continued attacks against Ukraine.",
+    ].join('\n');
+    const result = extractPriorityFindingHighlight(md);
+    expect(result).not.toBeNull();
+    expect(result.headline).toBe('Russia Accountability & Ukraine Resolution');
+  });
+
+  it('strips trailing parenthesised confidence metadata from the headline', () => {
+    const md = [
+      '## Key Judgements',
+      '',
+      '1. **EPP remains dominant broker (Highly Probable, 80%):** With 185 seats, EPP controls committee chair nominations.',
+    ].join('\n');
+    const result = extractPriorityFindingHighlight(md);
+    expect(result).not.toBeNull();
+    expect(result.headline).toBe('EPP remains dominant broker');
+  });
+
+  it('strips leading "🔴 CRITICAL — " priority decoration from the headline', () => {
+    const md = [
+      '## High Priority',
+      '',
+      '1. **🔴 CRITICAL — MFF 2028-2034 Interim Report Adopted** (April 28 — TA-10-2026-0111)',
+      '   The MFF interim report passed with cross-party support.',
+    ].join('\n');
+    const result = extractPriorityFindingHighlight(md);
+    expect(result).not.toBeNull();
+    expect(result.headline).toBe('MFF 2028-2034 Interim Report Adopted');
+  });
+
+  it('rejects bold paragraph ledes longer than 110 chars (prevents runaway titles)', () => {
+    const md = [
+      '## 🔴 Priority Intelligence Assessment',
+      '',
+      '**This period captures the April 2026 Strasbourg mini-plenary (28–30 April) — one of the most consequential legislative sessions of EP Term 10 to date, delivering 14 adopted texts.**',
+    ].join('\n');
+    const result = extractPriorityFindingHighlight(md);
+    // The 180-char bold paragraph must not be treated as a headline —
+    // the resolver returns `null` so the caller falls through to the
+    // next tier.
+    expect(result).toBeNull();
+  });
+
+  it('rejects metadata banner bolds (`**Admiralty Grade: B/2**`, `**Reporting Window:** …`)', () => {
+    const md = [
+      '## 🔴 Priority Intelligence Assessment',
+      '',
+      '**Admiralty Grade: B/2** — Sources confirmed via EP Open Data Portal.',
+      '',
+      '**Reporting Window:** 3 April – 1 May 2026',
+    ].join('\n');
+    const result = extractPriorityFindingHighlight(md);
+    expect(result).toBeNull();
+  });
+
+  it('does NOT match `### 2.1 Close to Adoption` decimal-section headings (prevents stray-digit titles)', () => {
+    // Regression guard: `### 2.1 Close to Adoption` previously matched
+    // Pattern B and leaked `1 Close to Adoption` (stray decimal tail)
+    // into the article title. Requires explicit separator after the
+    // numeric prefix now.
+    const md = [
+      '## Top Findings',
+      '',
+      '### 2.1 Close to Adoption (H1-2026, PL Presidency)',
+      '',
+      'Body prose.',
+    ].join('\n');
+    const result = extractPriorityFindingHighlight(md);
+    // Either null or the headline must not start with a stray digit.
+    if (result?.headline) {
+      expect(result.headline).not.toMatch(/^\d/);
+    }
+  });
+
+  it('returns null when the body has no priority section AND no H2 story heading', () => {
+    const md = [
+      '# Executive Brief — Something',
+      '',
+      '## Reporting Window',
+      '',
+      'Generic prose without any priority finding.',
+    ].join('\n');
+    expect(extractPriorityFindingHighlight(md)).toBeNull();
+  });
+
+  it('returns null for empty input', () => {
+    expect(extractPriorityFindingHighlight('')).toBeNull();
   });
 });

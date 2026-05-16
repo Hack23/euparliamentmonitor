@@ -1,7 +1,7 @@
 ---
-title: "The European Parliament's committee system entered the week of 12–16 May 2026 with a packed legislative agenda across at least seven…"
-description: "The European Parliament's committee system entered the week of 12–16 May 2026 with a packed legislative agenda across at least seven standing committees."
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-14", "run committee-reports-run330-1778735854", "European", "Parliament", "committee", "system", "entered", "week", "with", "packed"]
+title: "Legislative Density — April–May 2026 Plenary Wave"
+description: "Between January and April 2026, the European Parliament adopted 50+ texts across financial regulation (SRMR3), environmental policy (livestock, emissions), digital markets, trade…"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-14", "run committee-reports-run330-1778735854", "Legislative", "Density", "April", "Plenary", "Wave", "Between", "January", "European"]
 date: 2026-05-14
 article_type: committee-reports
 slug: 2026-05-14-committee-reports

@@ -1,7 +1,7 @@
 ---
-title: "The European Parliament's 10th parliamentary term (2024–2029) has entered its second year of operation at a critical inflection point…"
-description: "The European Parliament's 10th parliamentary term (2024–2029) has entered its second year of operation at a critical inflection point. The term's defining characteristics…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Term Outlook", "2026-05-04", "run term-outlook-run-1777895963", "European", "Parliament", "10th", "parliamentary", "term", "entered", "second", "year", "operation", "critical"]
+title: "Structural Multi-Coalition Requirement"
+description: "EP10 operates under an unprecedented structural constraint: no two-group majority is arithmetically possible for the first time in EP history."
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Term Outlook", "2026-05-04", "run term-outlook-run-1777895963", "Structural", "Multi", "Coalition", "Requirement", "EP10", "operates", "under", "unprecedented", "constraint", "group"]
 date: 2026-05-04
 article_type: term-outlook
 slug: 2026-05-04-term-outlook

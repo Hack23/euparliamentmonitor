@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Motions | 28 April – 5 May 2026"
-description: "The European Parliament's April plenary session was bookended by a politically explosive act: the approval of a request to lift the parliamentary immunity of Patryk Jaki (ECR…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-05", "run motions-run-1777963626", "Parliament", "April", "European", "plenary", "session", "bookended", "politically", "explosive"]
+title: "Strategic significance"
+description: "Two immunity waivers against Polish MEPs within five weeks represents an acceleration of the pattern established in EP10. It signals that: (1) Poland's judicial authority is…"
+keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-05", "run motions-run-1777963626", "Strategic", "significance", "immunity", "waivers", "against", "Polish", "MEPs", "within"]
 date: 2026-05-05
 article_type: motions
 slug: 2026-05-05-motions

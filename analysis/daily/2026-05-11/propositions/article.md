@@ -1,5 +1,5 @@
 ---
-title: "The European Parliament is navigating a period of intense legislative consolidation in spring 2026. The weeks spanning late April…"
+title: "The European Parliament is navigating a period of intense legislative consolidation in spring 2026."
 description: "The European Parliament is navigating a period of intense legislative consolidation in spring 2026. The weeks spanning late April and early May 2026 saw a dense cluster…"
 keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-11", "run propositions-run251-1778480471", "European", "Parliament", "navigating", "period", "intense", "legislative", "consolidation", "spring"]
 date: 2026-05-11

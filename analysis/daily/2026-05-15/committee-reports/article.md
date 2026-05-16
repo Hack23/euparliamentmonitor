@@ -1,7 +1,7 @@
 ---
-title: "الملخص التنفيذي — تقارير لجان البرلمان الأوروبي"
-description: "يمر نظام لجان البرلمان الأوروبي، في منتصف مايو 2026، بمرحلة تشريعية مكثفة ضمن الفترة البرلمانية العاشرة (2024-2029). تعالج ست وعشرون لجنة دائمة ما يزيد على 340 ملفاً تشريعياً…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-15", "run committee-reports-run-1778822323", "الملخص", "التنفيذي", "تقارير", "لجان", "البرلمان", "الأوروبي", "نظام", "منتصف"]
+title: "Clean Industrial Deal Implementation"
+description: "The Clean Industrial Deal framework — the Commission's flagship industrial competitiveness strategy — is generating parallel committee work across ITRE (industry, energy)…"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-15", "run committee-reports-run-1778822323", "Clean", "Industrial", "Deal", "Implementation", "framework", "Commission", "flagship", "competitiveness"]
 date: 2026-05-15
 article_type: committee-reports
 slug: 2026-05-15-committee-reports

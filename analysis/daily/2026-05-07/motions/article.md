@@ -1,7 +1,7 @@
 ---
-title: "EP Motions & Adopted Texts"
-description: "The European Parliament's April 28–30, 2026 plenary session produced 13 adopted texts spanning discharge proceedings, digital regulation enforcement, foreign policy resolutions…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-07", "run motions-run540-1778167043", "Adopted", "Texts", "European", "Parliament", "April", "plenary", "session", "produced"]
+title: "DMA Enforcement Gap"
+description: "— Parliament's motion demands the Commission complete ongoing DMA investigations within 6 months. Apple (iOS interoperability), Meta (advertising consent), and Alphabet (search…"
+keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-07", "run motions-run540-1778167043", "Enforcement", "Parliament", "motion", "demands", "Commission", "complete", "ongoing", "investigations"]
 date: 2026-05-07
 article_type: motions
 slug: 2026-05-07-motions

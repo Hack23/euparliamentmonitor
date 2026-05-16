@@ -1,7 +1,7 @@
 ---
-title: "The European Parliament's April 28–30, 2026 Strasbourg plenary produced a landmark wave of legislation spanning digital enforcement…"
-description: "The European Parliament's April 28–30, 2026 Strasbourg plenary produced a landmark wave of legislation spanning digital enforcement, agricultural resilience, criminal justice…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-14", "run propositions-run313-1778747315", "European", "Parliament", "April", "Strasbourg", "plenary", "produced", "landmark", "wave"]
+title: "Convergence themes"
+description: "Three distinct legislative axes converged this session: (1) platform/digital accountability (DMA + cyberbullying), (2) geopolitical posture (Ukraine accountability + Armenia)…"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-14", "run propositions-run313-1778747315", "Convergence", "themes", "Three", "distinct", "legislative", "axes", "converged", "this"]
 date: 2026-05-14
 article_type: propositions
 slug: 2026-05-14-propositions

@@ -1,7 +1,7 @@
 ---
-title: "The European Parliament's 10th term entered its most consequential legislative phase of Spring 2026 during the week under review. 104…"
-description: "The European Parliament's 10th term entered its most consequential legislative phase of Spring 2026 during the week under review. 104 legislative texts have been adopted since…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-28", "run propositions-run-1777356258", "European", "Parliament", "10th", "term", "entered", "most", "consequential", "legislative"]
+title: "Political Intelligence Analysis"
+description: "— actor motivations, coalition mathematics Published 2026-04-28. for democratic-accountability readers tracking EU institutional consequences"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-28", "run propositions-run-1777356258", "Political", "Intelligence", "Analysis", "actor", "motivations", "coalition", "mathematics", "Published"]
 date: 2026-04-28
 article_type: propositions
 slug: 2026-04-28-propositions

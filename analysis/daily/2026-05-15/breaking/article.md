@@ -1,7 +1,7 @@
 ---
-title: "Breaking News: EP April 2026 Plenary Outcomes"
+title: "DMA Enforcement Resolution"
 description: "The European Parliament's April 28–30, 2026 plenary session produced six significant legislative and political actions that collectively signal three macro-level shifts: (1)…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-15", "run breaking-run343-1778808690", "News", "April", "Plenary", "Outcomes", "European", "Parliament", "session", "produced"]
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-15", "run breaking-run343-1778808690", "Enforcement", "Resolution", "European", "Parliament", "April", "plenary", "session", "produced"]
 date: 2026-05-15
 article_type: breaking
 slug: 2026-05-15-breaking

@@ -1,7 +1,7 @@
 ---
-title: "Extended Executive Brief — Breaking News 2026-05-14"
-description: "Standard: Extended Economist-grade intelligence brief Published 2026-05-14. for democratic-accountability readers tracking EU institutional consequences"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-14", "run breaking-run-1778722670", "Extended", "Executive", "Brief", "News", "Standard", "Economist", "grade", "intelligence"]
+title: "MFF 2028-2034 Interim Report Adopted"
+description: "The Parliament adopted its interim report on the Multiannual Financial Framework for 2028-2034, establishing the legislative foundation for the next seven-year EU budget cycle."
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-14", "run breaking-run-1778722670", "Interim", "Report", "Adopted", "Parliament", "Multiannual", "Financial", "Framework", "establishing"]
 date: 2026-05-14
 article_type: breaking
 slug: 2026-05-14-breaking
