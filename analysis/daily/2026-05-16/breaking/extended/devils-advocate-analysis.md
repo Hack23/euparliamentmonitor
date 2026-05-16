@@ -111,3 +111,90 @@ positive finding — but even here, distinguishing expressive from consequential
 analytically important. The most concerning finding from adversarial analysis: the livestock
 sustainability resolution is likely to follow the Farm to Fork → delay → policy failure
 pattern established in EP8-EP9.
+
+## Extended Devil's Advocate — Challenging Consensus Narratives
+
+### Challenge 3: "DMA enforcement strengthens European sovereignty"
+
+**Standard narrative:** By enforcing the DMA against US tech giants, the EU is asserting
+regulatory sovereignty and creating a genuinely competitive digital market.
+
+**Devil's advocate counter-case:**
+The DMA enforcement may actually *weaken* European digital competitiveness in three ways:
+
+1. **Compliance investment redirection:** US tech companies will spend €2-5 billion
+   collectively on DMA compliance infrastructure — money that does not create new services,
+   lower prices, or improve user experience. European consumers may face higher prices and
+   fewer free services as companies monetise compliance costs.
+
+2. **Innovation chilling effect:** DMA gatekeeper obligations (interoperability, data
+   portability, self-preferencing restrictions) impose architectural constraints that may
+   slow the introduction of AI-integrated services in EU markets. Apple's cautious EU
+   rollout of AI features vs immediate US availability is the first data point.
+
+3. **No European champion benefit:** The DMA's purpose is market access for European
+   startups, but the startups positioned to benefit from DMA interoperability mandates
+   are more likely to be US-based intermediaries than EU-based platforms. The EU has
+   no major platform company positioned to absorb market share freed up by DMA constraints.
+
+**Verdict:** The devil's advocate case is partially valid — DMA enforcement has genuine
+costs as well as benefits. The consensus narrative may underweight the innovation costs.
+However, the long-term structural argument (competitive digital market benefits exceed
+short-term costs) is probably correct at the 10-year horizon.
+
+### Challenge 4: "Coalition Delta represents European democratic consensus"
+
+**Standard narrative:** The EPP-S&D-Renew-Greens coalition represents a broad democratic
+consensus spanning from centre-right to progressive, covering 62%+ of EP seats.
+
+**Devil's advocate counter-case:**
+Coalition Delta's stability may mask a legitimacy problem:
+
+1. **Electoral mandate divergence:** In the 2024 EP elections, EPP and the far-right combined
+   received more votes than the traditional centre-left/liberal/green coalition. Coalition Delta
+   governs against the revealed preference of a plurality of European voters for more conservative
+   or nationalist policies on immigration and fiscal discipline.
+
+2. **Internal coherence overstated:** The coalition's visible unity on headline votes (Ukraine,
+   DMA) conceals persistent and meaningful disagreements on agricultural policy, migration,
+   fiscal rules, and climate ambition. On any specific vote where EPP and Greens disagree,
+   the coalition fractures — it is not a stable governing coalition but a vote-by-vote alignment.
+
+3. **Commission pre-determination:** Many of the "EP decisions" in the April 2026 session
+   merely endorse Commission proposals that were already agreed in Council. The EP's role is
+   legitimation, not initiation. This inflates the apparent significance of EP votes.
+
+**Verdict:** The devil's advocate case has merit on democratic legitimacy questions, but
+coalition mathematics remain — the institutional majority exists regardless of the
+philosophical objections. The more interesting challenge is whether the coalition's visible
+unity will survive the 2027 MFF negotiations, where fiscal trade-offs are explicit.
+
+### Challenge 5: "Ukraine accountability framework will work"
+
+**Standard narrative:** The accountability conditions in TA-0161 will ensure Ukraine aid is
+used effectively and maintain political support for the support programme.
+
+**Devil's advocate counter-case:**
+Accountability frameworks in conflict conditions have a poor historical record:
+
+1. **Verification capacity limits:** In active conflict, normal EU monitoring mechanisms
+   (in-country auditors, document trails) are severely degraded. Ukrainian institutions may
+   genuinely meet the letter of conditions while the substance of effective use is undermined
+   by wartime conditions beyond their control.
+
+2. **Political weaponisation:** Every accountability shortfall — however minor or context-justified
+   — will be amplified by PfE and the Russian information environment as evidence of "rampant
+   corruption" in Ukraine. The accountability framework paradoxically creates political
+   ammunition for opponents of Ukraine support.
+
+3. **Precedent risk:** If the EU establishes that financial aid requires detailed governance
+   conditions, future beneficiaries (including potential EU enlargement candidates, potential
+   post-conflict reconstruction beneficiaries) may view EU aid as politically intrusive. This
+   could reduce demand for EU financial instruments in favour of less-conditional alternatives.
+
+**Verdict:** The accountability framework is probably net-positive despite these risks. The
+alternative (unconditional aid) has its own political vulnerability problems. But policymakers
+should actively manage the weaponisation risk — proactive communication around verification
+results, regardless of outcome.
+
+Admiralty Grade: B2 — Devil's advocate analysis; not necessarily the assessed consensus view.

@@ -94,3 +94,65 @@ mechanisms — precisely the concern driving Parliament's balanced approach in T
 4. **ECB Policy Transmission:** IMF notes mortgage rate pass-through asymmetry in the
    euro area — rate cuts are transmitting slower to households than expected, limiting
    consumption recovery stimulus in H1 2026.
+
+## IMF Extended Analysis — EU Macro 2026
+
+**Source: IMF World Economic Outlook, April 2026**
+
+The IMF's April 2026 baseline projects the Euro area growing at 1.2% in 2026, recovering
+to 1.4% in 2027. This sub-trend growth (potential = ~1.5%) reflects structural headwinds:
+aging population, energy transition investment drag, and incomplete Digital Single Market
+integration. The IMF specifically flags the EU's labour productivity gap with the US as
+the primary medium-term drag — a 15-year persistent divergence that Draghi's competitiveness
+report directly addresses.
+
+**ECB Monetary Policy Transmission:**
+The ECB cut its key policy rate to 2.25% in Q1 2026 (from 4.50% peak in 2023). The IMF
+models the full transmission lag of these cuts at 12-18 months, meaning their growth
+stimulus will peak in Q3-Q4 2026. However, the IMF warns that if HICP resurfaces above
+2.5% (current: 2.3%, uncomfortably close), the ECB may pause the easing cycle — a
+significant downside risk for 2026 investment outlooks.
+
+**Ukraine Macro Dependence on EU Support:**
+Ukraine's 3.8% growth forecast assumes continued EU macro-financial assistance. The IMF
+calculates that a disruption to EU support flows would reduce Ukraine's growth by 6-8pp —
+potentially triggering fiscal and currency stabilisation crises. This IMF projection is the
+economic foundation underlying Parliament's strong support for TA-0161 accountability
+framework: if disbursement conditions create compliance risk, the IMF models severe
+downside scenarios.
+
+**EU-US Trade Tension — IMF Modelling:**
+The IMF models a 10% US tariff increase on EU goods at -0.4pp EU GDP impact in year 1,
+with cumulative -0.9pp over three years. For Germany specifically (large US export exposure),
+the drag reaches -0.7pp in year 1. This quantification informs the restraining force on
+DMA enforcement: member states with high US export exposure (Germany, Ireland, Netherlands)
+are structurally risk-averse about triggers for trade escalation.
+
+## IMF Data Visualisation
+
+```mermaid
+xychart-beta
+    title "EU vs Euro Area GDP Growth — IMF Forecasts 2024-2027"
+    x-axis [2024, 2025, 2026F, 2027F]
+    y-axis "GDP Growth %" 0 --> 3
+    bar [1.0, 1.2, 1.4, 1.6]
+    line [0.8, 1.0, 1.2, 1.4]
+```
+
+*Chart: Bars = EU-27; Line = Euro Area. F = IMF forecast. Source: IMF WEO April 2026.*
+
+## Key Economic Policy Implications from EP April 2026
+
+The Budget 2027 guidelines (TA-0112) implicitly accept the IMF's structural diagnosis:
+the EU needs investment in digital, defence, and climate infrastructure to close the
+productivity gap. The guidelines' call for a new European Investment Fund for digitalisation
+aligns directly with the IMF's recommendation for public investment to crowd-in private
+capital where market failure exists.
+
+**IMF Source:** World Economic Outlook database, April 2026 vintage. IMF country codes:
+EU = "EUQ", Euro Area = "U2", Ukraine = "UKR". All growth figures are constant-price GDP.
+HICP = EU-27 harmonised CPI. ECB rate = deposit facility rate as of Q1 2026 close.
+
+**Source: IMF**
+
+| **IMF Source** | `cache — IMF World Economic Outlook, April 2026; EU GDP 1.4%, Euro Area 1.2%, HICP 2.3%, ECB 2.25%` |

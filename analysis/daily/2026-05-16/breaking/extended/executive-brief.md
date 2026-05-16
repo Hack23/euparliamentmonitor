@@ -117,3 +117,47 @@ The combination of DMA enforcement (strategic autonomy test), Ukraine accountabi
 constitutes a session that shapes the EU's medium-term strategic trajectory in measurable ways.
 None of these texts are individually landmark, but their collective strategic coherence —
 all three advancing a "strategic EU" agenda — is the structural significance marker.
+
+## WEP Statement
+
+WEP: Highly Likely — EU Parliament April 2026 plenary delivered nine significant legislative outputs with Coalition Delta (530+ seats) maintaining structural majority stability; DMA enforcement and Ukraine accountability are the highest-urgency implementation priorities for Q3-Q4 2026; fiscal architecture debate will intensify through 2027 MFF negotiations.
+
+## Extended Strategic Briefing
+
+### Decision Points for Q2-Q3 2026
+
+**Decision 1: Commission DMA enforcement calendar announcement (June 2026)**
+*For: EU policymakers and business*
+The Commission DG COMP enforcement calendar announcement will be the most significant
+single signal of the post-April-2026 political season. If the calendar accelerates
+(first non-compliance decisions Q3 2026): strong EP/Commission alignment signal.
+If delayed: signals US diplomatic pressure is taking effect or internal Commission
+risk-aversion is overriding EP political mandate.
+
+**Decision 2: Ukraine milestone verification launch (Q2-Q3 2026)**
+*For: EU foreign affairs and security policymakers*
+The first formal milestone verification for the Ukraine Facility (under the accountability
+framework EP endorsed in TA-0161) will test the mechanism's credibility. Policymakers
+should prepare public communication materials for three scenarios: (a) verification passes
+with minor observations; (b) verification passes with conditions; (c) verification flagged
+with shortfalls requiring remediation.
+
+**Decision 3: Budget 2027 Council position (September 2026)**
+*For: Finance ministers and EU budget negotiators*
+Parliament's budget guidelines (TA-0112) set a high investment ambition. Council's counter-
+position in September 2026 will reveal whether net-contributor member states (Germany,
+Netherlands, Austria) are willing to support Draghi-scale investment increases. The
+negotiating range between Parliament and Council openings determines whether 2027 is an
+investment year or an austerity year for EU programmes.
+
+### Bottom Line Assessment
+
+The April 2026 EU Parliament session produced a strong legislative record on geopolitical
+(Ukraine), regulatory (DMA), and institutional (budget) priorities. Coalition Delta's
+stability is the enabling condition. The implementation challenge ahead is not parliamentary —
+it is external: US trade posture on DMA, Russian pressure on Ukraine/Armenia, and
+Hungarian Council obstruction on budget and rule-of-law. Parliament's influence on these
+external variables is indirect but not negligible: strong EP resolutions create political
+costs for backsliding and political cover for Commission assertiveness.
+
+Admiralty Grade: B2 — Executive assessment well-sourced from confirmed EP and IMF data.

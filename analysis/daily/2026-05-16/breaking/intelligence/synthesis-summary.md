@@ -147,3 +147,24 @@ TA-0161), digital regulatory assertiveness (accelerating, TA-0160), and climate-
 body to a co-equal EU legislative institution with a coherent geopolitical identity.
 
 Admiralty Grade: B2 — Source reliable; information probably true given political landscape confirmation.
+
+## Extended Synthesis — Cross-Domain Integration
+
+The April 2026 EP plenary outputs represent the intersection of three megatrends that have
+dominated EU politics since 2022: geopolitical reprioritisation (Ukraine war forcing security
+spending above climate spending), digital regulatory completion (DMA/DSA/AI Act enforcement
+phase), and fiscal architecture debate (Draghi vs austerity frameworks).
+
+The synthesis finding is that these three megatrends are momentarily aligned in the same
+direction: Coalition Delta's majority supports investment in all three domains. This is
+unusual — historically, fiscal hawks and climate advocates have been in tension within
+the same coalition. The EP10 configuration creates a temporary window where the EPP's
+defence investment priority, S&D's industrial policy priority, and Greens' climate priority
+all justify the same budget structure.
+
+**The window is time-limited.** The 2027 MFF negotiations will force explicit trade-offs
+between these priorities. The synthesis assessment is that the April 2026 legislative
+outcomes are banking political capital for those negotiations — establishing precedents
+and expectations that constrain the 2027 outcome in EP-favourable directions.
+
+Admiralty Grade: B2 — Synthesised from confirmed EP legislative outputs + IMF data.

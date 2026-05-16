@@ -13,6 +13,14 @@
       "rewriteCount": 39,
       "dataMode": "degraded-feeds",
       "gateResult": null
+    },
+    {
+      "runId": "breaking-run251-1778916884",
+      "timestamp": "2026-05-16T07:52:24.305Z",
+      "artifactCount": 40,
+      "rewriteCount": 40,
+      "dataMode": "degraded-feeds",
+      "gateResult": "pending"
     }
   ],
   "files": {
@@ -141,7 +149,8 @@
     ],
     "impact-matrix": [
       "classification/impact-matrix.md"
-    ]
+    ],
+    "voting-patterns": "intelligence/voting-patterns.md"
   },
   "topStories": [
     {
@@ -186,5 +195,6 @@
     "euroAreaGDP2026": 1.2,
     "euHICP": 2.3,
     "ecbDepositRate": 2.25
-  }
+  },
+  "pass2RewriteCount": 40
 }

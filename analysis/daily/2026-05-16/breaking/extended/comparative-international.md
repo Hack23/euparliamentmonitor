@@ -79,3 +79,83 @@ The most important international comparative finding: EP10 is operating in a glo
 where its two largest analogues (US Congress, UK Parliament) are both more politically
 gridlocked on digital governance and less capable of coherent foreign policy signaling.
 This creates a genuine EU governance advantage that the April 2026 resolutions reinforce.
+
+## Extended Comparative Analysis — International Context
+
+### Comparison 3: EU DMA vs US Antitrust Approach
+
+The contrast between EU and US approaches to big tech regulation has become a defining
+strategic divergence in international economic governance:
+
+**US approach (Sherman Act + FTC Act):**
+- Case-by-case antitrust litigation (DOJ v Google, FTC v Meta)
+- No presumptive ex ante obligations
+- Remedies generally limited to structural separation or behavioural commitments
+- Timeline: 5-10+ years from investigation to final remedy
+- Recent shift: Biden DOJ/FTC pursued more aggressive antitrust stance; Trump era uncertain
+
+**EU approach (DMA):**
+- Ex ante platform obligations for designated gatekeepers (pre-emptive rules)
+- No need to prove abuse — structural position triggers obligations
+- Fast enforcement timeline: compliance decision within 6-12 months of non-compliance notice
+- Extraterritorial application: US companies must comply for EU market access
+
+**Strategic implications:**
+EU DMA provides faster market contestability outcomes but at higher regulatory certainty
+cost (rules may be over-inclusive). US approach provides more targeted remedies but at
+decades-long timeline cost. Other major markets are watching: South Korea, Japan, UK
+all developing comparable DMA-style regulations.
+
+**For international observers:** The EU-US divergence on tech regulation is creating a
+two-tier digital market. Companies must now operate two compliance architectures. The
+question is whether this leads to: (a) convergence toward EU standards globally; (b)
+market separation where US and EU services diverge; or (c) negotiated trans-Atlantic
+minimum standard. Option (a) is the EU's strategic objective.
+
+### Comparison 4: EU-Ukraine Support vs US-Ukraine Support Trajectory
+
+The diverging trajectories of EU and US Ukraine support in 2025-2026 provide international
+comparative context for EP's April 2026 TA-0161:
+
+| Dimension | EU (2025-2026) | US (Trump admin 2025-2026) |
+|-----------|---------------|---------------------------|
+| Annual financial commitment | ~€17-20 billion | Reduced significantly |
+| Accountability conditions | Milestone-based (TA-0161) | Ad hoc |
+| Political durability | High (Coalition Delta stable) | Low (Congressional flux) |
+| Peace negotiation posture | Kyiv decides | US-brokered pressure |
+| Public opinion | Generally stable 55-60% support | Declining |
+
+**International assessment:** As US support becomes less reliable, EU support has become
+the primary financial anchor for Ukraine. This shifts burden-sharing within the "West"
+significantly and creates EU-US friction over negotiation posture (EU backs Kyiv's
+sovereignty principles; US pressure toward territorial compromises).
+
+**Historical parallel:** The pattern mirrors NATO burden-sharing disputes of the 1970s-1980s,
+where European countries increasingly funded their own security as US domestic politics
+shifted. EU financial leadership on Ukraine support in 2025-2026 is creating institutional
+capacity and expectations that will persist beyond the current crisis.
+
+### Comparison 5: EP Budget Ambitions vs Other Parliamentary Budget Institutions
+
+The EU Parliament's budget role (TA-0112) is comparatively weak by international standards:
+
+| Institution | Budget Role | Initiation Right | Veto Right |
+|-------------|-------------|-----------------|-----------|
+| US Congress | Very Strong | Yes | Yes (shutdown authority) |
+| German Bundestag | Strong | No (executive) | Yes |
+| UK Parliament | Strong | No (executive) | Yes |
+| EU Parliament | Moderate | No (Commission) | Partial |
+| EP specific | Co-decision (annual) | No | Limited by Treaty |
+
+The EP cannot initiate spending proposals — that right belongs exclusively to the Commission.
+EP's leverage is in amending and blocking annual budgets, and in the MFF negotiation where EP
+consent is required. This structural limitation means EP budget resolutions (TA-0112) set
+political precedent rather than directly binding budget outcomes.
+
+Admiralty Grade: B2 — Comparative analysis based on confirmed institutional frameworks.
+
+## Summary Assessment
+
+The EU's comparative institutional position on digital regulation and Ukraine support is stronger than any peer institution. The EP budget role remains comparatively constrained. Admiralty Grade: B2.
+
+The EP's comparative institutional position on Ukraine support and DMA enforcement is the most assertive in any democratic legislature globally.

@@ -143,3 +143,79 @@ measures (accelerated legislative procedures, emergency plenary sessions, Treaty
 economic hardship invocations) would be necessary. The April 2026 Ukraine accountability and
 budget guidelines frameworks would serve as foundational references even in this crisis —
 institutional investment in clear policy positions pays dividends in crisis management.
+
+## Wildcard: AI-Driven Regulatory Arbitrage Collapse
+
+**Probability:** 3% / **Impact:** Catastrophic / **Trigger window:** 12-24 months
+
+**Scenario narrative:** A large US technology gatekeeper (most likely Apple or Meta)
+responds to Commission DMA enforcement decisions not with compliance negotiation but with
+full-scale regulatory arbitrage — restructuring EU-facing entities under non-EU jurisdiction,
+pulling key services from the EU Digital Single Market, and filing WTO challenges against
+the DMA's extraterritorial application. This is not theoretical: the legal architecture for
+such a move has been explored by major platforms' European legal teams since 2023.
+
+The wildcard's black-swan quality is that most policymakers assume platforms will ultimately
+comply because EU market access is too valuable to sacrifice. But if US government policy
+shifts toward viewing DMA as an illegal trade barrier — and USTR adds DMA enforcement to a
+section 301 investigation — the calculus for platforms shifts dramatically. Platforms might
+prefer to take the short-term EU market access hit if doing so creates a trade dispute
+pathway that ultimately nullifies the DMA.
+
+**EP impact if this wildcard fires:**
+- Coalition Delta fractures: EPP business wing demands Commission stand down enforcement
+- S&D and Greens demand EP invoke Article 14 parliamentary oversight of Commission
+- EU Digital Single Market narrative collapses across multiple legislative dossiers
+- Draghi competitiveness agenda loses its key institutional driver (DMA as leverage)
+
+**Early warning indicators:** USTR section 301 filings against DMA; platform restructuring
+announcements in Ireland; EPP business wing MEPs requesting Commission briefings on DMA
+enforcement calendar; unexpected US-EU trade agenda shifts in G7 meetings.
+
+## Wildcard: Orbán Council Blocking Minority — Budget 2027 Impasse
+
+**Probability:** 8% / **Impact:** Severe / **Trigger window:** 6-18 months
+
+**Scenario narrative:** Hungary and Slovakia, backed by at least two additional member
+states, form a blocking minority in the Council (minimum 4 member states representing
+35%+ of EU population) to reject the Commission's draft 2027 budget proposal. Under
+Article 312 TFEU, the multi-annual financial framework requires unanimity, giving any
+single member state a veto. The 2014-2020 and 2021-2027 MFFs both required last-minute
+special deals to overcome Hungarian resistance.
+
+For the 2028-2034 MFF negotiation (which begins in earnest Q1 2027), Orbán's political
+situation may have changed — potential re-election in 2026 with strengthened majority, or
+alternatively potential domestic political weakening. The budget wildcard fires if Orbán
+calculates that a full blocking play delivers more domestic political benefit than a
+negotiated concession deal.
+
+**EP impact if this wildcard fires:**
+- EP's budget guidelines (TA-0112) become moot — Parliament cannot force MFF through alone
+- Article 312(4) emergency arrangements (no MFF → 2027 commitments = 2026 ceiling)
+- Coalition Delta unites against Hungary but has no direct leverage in Council
+- Crisis creates political opportunity for EU Treaty reform debate (qualified majority for MFF)
+
+**Early warning indicators:** Hungary national election outcome; Orbán statements on EU
+budget contributions; Commission Rule-of-Law payments to Hungary (indicator of bilateral
+deal-making temperature); PfE-ECR coordination on budget in EP committees.
+
+## Cascade Risk: Combined Wildcard Scenario (DMA Arbitrage + Budget Impasse)
+
+If both wildcards fire simultaneously, the EU's institutional credibility faces a systemic
+stress test. The DMA arbitrage scenario removes EU digital market governance leverage; the
+budget impasse scenario freezes EU investment commitments. Combined, they create a narrative
+of EU institutional dysfunction that strengthens anti-EU political movements in 2027-2029
+member state elections.
+
+**Systemic cascade: DMA collapse + Budget freeze → → →**
+1. Investment confidence in EU markets falls; sovereign spreads widen
+2. European Central Bank faces dilemma: easing cycle threatened by institutional risk premium
+3. Far-right EP groups gain narrative traction for EP10/11 transition
+4. IMF scenario B (stress) materialises: EU GDP -0.8pp 2027, Euro area -0.6pp
+
+**Mitigation architecture:** The single most important safeguard is EU-US trade framework
+agreement that explicitly carves out digital regulation authority — removing the US WTO
+arbitrage pathway. This is why early warning monitoring should track trans-Atlantic trade
+agenda alongside EP legislative outcomes.
+
+Admiralty Grade: C2 — Assessment by analyst; probability estimates are indicative only.
