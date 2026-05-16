@@ -334,7 +334,16 @@ For each queue entry, in order:
    slip into the PR.
 5. **Flush** — after all 13 languages for this brief are produced AND the
    self-validator returns zero violations for this brief's `_<lang>.md`
-   files, call `safeoutputs___create_pull_request`:
+   files, call `safeoutputs___create_pull_request`. The template literal
+   below uses two bookkeeping variables you maintain in your own head as
+   you iterate over the queue:
+
+   - `COMPLETED_COUNT` — number of briefs whose 13 language siblings have
+     all been written AND validator-clean (incremented after step 4 of
+     this iteration).
+   - `QUEUED_COUNT` — `totals.queued` from `/tmp/gh-aw/discovery/queue.json`
+     (read once in Step 1; this is `2` on a default run, up to `4` on
+     catch-up runs).
 
    ```javascript
    safeoutputs___create_pull_request({

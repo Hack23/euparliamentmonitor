@@ -78,15 +78,58 @@ export const EN_PATTERNS = [
  * Proper-noun / fixed-string tokens that translators MUST preserve verbatim
  * when they appear in the source. Tokens are matched case-sensitively.
  */
-export const FIXED_TOKEN_PATTERNS = [
+/**
+ * Tokens that MUST be preserved verbatim in every translation.
+ *
+ * Each pattern matches one class of "fixed token" — proper nouns, ID
+ * formats, or machine-readable attributes — that the translator agent
+ * must NOT localise. The five quality gates apply the rule like this:
+ * if the SOURCE contains N matches of a pattern but the TRANSLATION
+ * contains zero, the gate fires.
+ *
+ *  - `IMF`         — International Monetary Fund. Stays Latin-script even in
+ *                    Arabic, Hebrew, Japanese, Korean, Chinese translations.
+ *  - `WEO`         — IMF World Economic Outlook publication acronym.
+ *  - `World Bank`  — proper noun, never translated.
+ *  - `Fiscal Monitor` — IMF publication name; stays English.
+ *  - `data-vintage="WEO-<Month>-YYYY"` — machine-readable HTML attribute used
+ *                    by downstream renderers; the `WEO-Month-Year` shape
+ *                    must round-trip exactly.
+ *  - `TA-NN-YYYY-NNNN` — European Parliament adopted-text reference
+ *                    (e.g. `TA-10-2026-0160`); cited verbatim in news articles.
+ *  - `YYYY/NNNN(III)` — EP legislative procedure ID (e.g. `2024/0001(COD)`
+ *                    where `III` is one of COD, INI, NLE, RSP, BUD …); used
+ *                    as a stable handle by EUR-Lex / OEIL.
+ *
+ * Patterns are anchored with `\b` word boundaries where appropriate so that
+ * sub-string false positives (e.g. `WEOlogical` or `IMFinity`) do not match.
+ *
+ * @type {readonly RegExp[]}
+ */
+export const FIXED_TOKEN_PATTERNS = Object.freeze([
   /\bIMF\b/,
   /\bWEO\b/,
   /\bWorld Bank\b/,
   /\bFiscal Monitor\b/,
   /data-vintage="WEO-[A-Za-z]+-\d{4}"/,
-  /\bTA-\d{1,2}-\d{4}-\d{4}\b/,        // EP adopted-text references
-  /\b\d{4}\/\d{4}\([A-Z]{3}\)/,         // EP procedure IDs (e.g. 2024/0001(COD))
-];
+  /\bTA-\d{1,2}-\d{4}-\d{4}\b/,
+  /\b\d{4}\/\d{4}\([A-Z]{3}\)/,
+]);
+
+/**
+ * Pre-compiled `g`-flag variants of FIXED_TOKEN_PATTERNS.
+ *
+ * `String#match(regex)` only returns ALL matches when the regex has the
+ * `g` flag. We pre-compile the global variants once at module load (instead
+ * of in the per-translation validation loop) to avoid creating a fresh
+ * RegExp object on every call to `validateTranslation`. Frozen so the
+ * collection cannot be mutated by callers.
+ *
+ * @type {readonly RegExp[]}
+ */
+const FIXED_TOKEN_PATTERNS_GLOBAL = Object.freeze(
+  FIXED_TOKEN_PATTERNS.map((re) => new RegExp(re.source, 'g')),
+);
 
 /**
  * @typedef {Object} Violation
@@ -247,10 +290,12 @@ export function validateTranslation(translationPath, repoRoot) {
   }
 
   const sourceText = fs.readFileSync(sourcePath, 'utf8');
-  for (const re of FIXED_TOKEN_PATTERNS) {
-    const sourceMatches = sourceText.match(new RegExp(re, 'g')) || [];
+  for (let i = 0; i < FIXED_TOKEN_PATTERNS_GLOBAL.length; i++) {
+    const reGlobal = FIXED_TOKEN_PATTERNS_GLOBAL[i];
+    const reSingle = FIXED_TOKEN_PATTERNS[i];
+    const sourceMatches = sourceText.match(reGlobal) || [];
     if (sourceMatches.length === 0) continue;
-    const targetMatches = targetText.match(new RegExp(re, 'g')) || [];
+    const targetMatches = targetText.match(reGlobal) || [];
     if (targetMatches.length === 0) {
       violations.push({
         translationPath: rel,
@@ -258,7 +303,7 @@ export function validateTranslation(translationPath, repoRoot) {
         lang,
         gate: 'fixed-token-preservation',
         message:
-          `Source contains ${sourceMatches.length} matches of ${re} ` +
+          `Source contains ${sourceMatches.length} matches of ${reSingle} ` +
           `but translation contains none — proper noun / data-vintage MUST be preserved verbatim`,
       });
     }
