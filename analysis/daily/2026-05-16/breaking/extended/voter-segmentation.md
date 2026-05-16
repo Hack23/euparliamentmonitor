@@ -103,3 +103,73 @@ ambivalence; all others are supportive.
 Most broadly controversial: Online Exploitation/Chat Control (TA-0163) — segments 1, 3, 5 have
 reservations; segments 4, 6 broadly supportive; clear left-right split.
 Most narrowly relevant: Livestock Sustainability (TA-0157) — primarily affects Segments 2 and 4.
+
+## Extended Voter Segmentation Analysis
+
+### Segment 5: Young Urban Progressives (18-34, urban areas)
+
+**Size:** ~18% of EU electorate
+**Key concerns:** Climate action, digital rights, cost of living, housing affordability
+**Engagement with April 2026 EP outputs:**
+- HIGH engagement: TA-0163 (online exploitation — digital rights relevance)
+- MEDIUM engagement: DMA enforcement (digital platform fairness)
+- LOW engagement: Budget 2027 (perceived as abstract fiscal politics)
+- VERY LOW engagement: Ukraine accountability conditionality details
+
+**EP relevance:** This segment is poorly served by current EP communication strategies.
+Complex regulatory texts (DMA, accountability frameworks) do not translate well to
+social media formats this segment uses. The Greens/EFA and The Left are better at
+translating EP outputs into this segment's preference language. EPP and S&D are structurally
+less effective with this demographic.
+
+### Segment 6: Rural and Agricultural Interests (all ages, rural areas)
+
+**Size:** ~12% of EU electorate (concentrated in France, Germany, Poland, Hungary, Romania)
+**Key concerns:** Farm income protection, CAP continuity, fuel costs, regulatory burden
+**Engagement with April 2026 EP outputs:**
+- HIGH engagement: TA-0157 (livestock regulation — directly affects this segment)
+- MEDIUM engagement: Budget 2027 (CAP spending implications)
+- LOW engagement: Ukraine, DMA, Armenia (perceived as urban/geopolitical preoccupations)
+
+**EP relevance:** The 2024 farmer protests demonstrated this segment's capacity for
+disruptive political action. TA-0157's adoption will generate significant farmer
+advocacy reactions in Q2-Q3 2026 as the text's specific requirements become clear.
+EPP's agricultural wing is the primary parliamentary representative of this segment's
+concerns; ECR and PfE compete for this segment's votes.
+
+### Segment 7: Business and Trade-Exposed Workers
+
+**Size:** ~25% of EU workforce, particularly in Germany, Netherlands, Belgium, Sweden
+**Key concerns:** EU trade policy, regulatory compliance costs, competitiveness vs US/China
+**Engagement with April 2026 EP outputs:**
+- HIGH engagement: DMA enforcement (direct compliance cost implications)
+- HIGH engagement: Budget 2027 (investment vs fiscal discipline)
+- MEDIUM engagement: Ukraine (reconstruction contracts vs conflict escalation risk)
+- LOW engagement: Armenia CEPA, Online Exploitation
+
+**EP relevance:** This segment is well-represented through employer associations and
+BUSINESSEUROPE. The EPP business wing is the primary parliamentary advocate. Key tension:
+this segment wants both EU single market access (favours DMA) and US trade stability
+(opposes DMA enforcement that triggers US retaliation).
+
+## Cross-Segment Strategic Implications
+
+**Coalition Delta's voter base tension:**
+Coalition Delta (EPP+S&D+Renew+Greens) must simultaneously serve:
+- Young progressives (Greens + Left alignment)
+- Business interests (EPP + Renew alignment)
+- Agricultural interests (partially EPP)
+- Working class (S&D)
+- Internationalist/pro-EU engaged citizens (all Coalition Delta)
+
+The April 2026 session's mix of texts (Ukraine + DMA + Agriculture + Budget) actually
+served all these segments simultaneously — a rare alignment that reflects Coalition Delta's
+legislative strategy of bundling appeals across voter segments.
+
+**Far-right voter base:**
+PfE+ESN's voters (Segments 1-3 from prior analysis: sovereign-nationalist, anti-
+immigration, rural populist) were actively opposed to or disengaged from April 2026 outputs.
+This reinforces the "Coalition Delta governs for its base; far-right opposition governs for
+its base" binary that characterises EP10.
+
+Admiralty Grade: B2 — Voter segmentation based on EP elections 2024 data + Eurobarometer.

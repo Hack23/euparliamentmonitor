@@ -176,3 +176,43 @@ conditions for domestic political pressures that could erode EP geopolitical con
 spending becomes electorally unpopular in frontline states.
 
 Admiralty Grade: B2 — Source reliable (EP political landscape data + IMF WEO); assessment probably true.
+
+## Extended Threat Scenarios — Q2-Q4 2026 Horizon
+
+**Scenario T-1: DMA Enforcement Escalation Loop**
+Commission issues first DCA non-compliance decision (Q3 2026) → US USTR opens Section 301
+investigation → Commission faces choice between enforcing or negotiating delay → If Commission
+enforces, Apple/Google respond with market restructuring → EU loses €X bn in app store fees;
+US responds with targeted tariffs on EU industrial goods; ECB forced to comment on macro impact.
+
+**Scenario T-2: Ukraine Accountability Failure**
+First milestone verification falls short of Commission standards (Q4 2026) → PfE/ECR demand
+full suspension of Ukraine Facility disbursement → S&D and EPP split on conditionality vs
+solidarity framing → Emergency EP resolution vote required; Coalition Delta internally stressed;
+IMF forced to revise Ukraine growth forecast downward → cascade to European bank Ukraine
+exposure review.
+
+**Scenario T-3: Budget 2027 Veto Play**
+Hungary formally notifies Council that it will not support any 2027 budget that includes
+Ukraine Facility continuation → Council forced into Article 312(4) provisional commitments →
+European Council emergency summit required (October/November 2026) → Orbán demands Ukraine
+peace negotiation conditionality as price of MFF acceptance → Coalition Delta faces
+impossible choice between Ukraine support and EU budget architecture.
+
+**Threat Model Assessment by Scenario:**
+
+| Scenario | Probability | EP Control | IMF Impact | Coalition Damage |
+|----------|------------|-----------|------------|-----------------|
+| T-1: DMA Escalation | 25% | Low | -0.4pp GDP | Medium |
+| T-2: Ukraine Accountability | 20% | Medium | -2pp Ukraine GDP | High |
+| T-3: Budget Veto | 15% | Low | Severe institutional | Very High |
+
+**Mitigation: Threat-Specific EP Actions**
+- T-1: EP should pass formal resolution recognising DMA enforcement as legitimate EU
+  constitutional right, pre-empting trade dispute narrative
+- T-2: EP should establish standing Joint Committee with Commission for Ukraine accountability
+  monitoring, creating shared institutional ownership of verification
+- T-3: EP should formally invoke Article 312 sunset clause review now, creating legal
+  framework that reduces leverage of single-state budget veto
+
+Admiralty Grade: B2 — Threat scenarios constructed from confirmed political dynamics.

@@ -119,3 +119,16 @@ All vote predictions above are proxy-based estimates from coalition seat analysi
 historical voting pattern data. Confidence levels reflect this structural limitation.
 
 Next refresh: approximately June 1, 2026 when EP roll-call API publishes April 28-30 data.
+
+## Degraded Mode Mermaid Context
+
+```mermaid
+timeline
+    title Voting Data Availability Timeline — April 2026 Plenary
+    2026-04-28 : Plenary votes cast (roll-call records created)
+    2026-05-16 : TODAY — roll-call data NOT yet published
+    2026-05-21 : Expected: EP Open Data Portal publishes voting records
+    2026-06-01 : Full roll-call data available for deep analysis
+```
+
+*Note: This document uses proxy methodology until live roll-call data is available.*

@@ -100,3 +100,13 @@ combination of high-priority geopolitical texts and a substantive budget guideli
 The livestock and online exploitation resolutions bring the average down because they
 document contested debates rather than resolved policies. Historical comparison: comparable
 to March 2023 (7.3/10, AI Act trialogue launch) and September 2022 (7.5/10, REPowerEU).
+
+## Significance Score Visualisation
+
+```mermaid
+xychart-beta
+    title "April 2026 EP Texts — Significance Scores"
+    x-axis ["TA-0161\nUkraine", "TA-0160\nDMA", "TA-0112\nBudget", "TA-0163\nOnline", "TA-0162\nArmenia", "TA-0157\nLivestock", "TA-0165\nSea", "TA-0105\nJaki", "TA-0104\nBraun"]
+    y-axis "Significance (0-100)" 0 --> 100
+    bar [95, 90, 85, 75, 60, 55, 40, 35, 30]
+```

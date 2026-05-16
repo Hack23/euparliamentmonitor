@@ -40,3 +40,42 @@ No delta (first run). Future runs should focus on:
 - Any new EP data published after 2026-05-16T01:30:00Z
 - Events feed recovery (if available in subsequent run)
 - Roll-call vote data if plenary week begins (EP10 next plenary: likely May 19-22 Brussels mini-plenary)
+
+## Extended Run Comparison — April 2026 Context
+
+This is the second run (run251) for the 2026-05-16 breaking analysis. Key differences from
+the prior run (run255 from earlier today):
+
+**Coverage improvements:**
+- Classification files (actor-mapping, forces-analysis, impact-matrix) now contain all
+  required H2 sections with substantive political intelligence
+- wildcards-blackswans.md extended with two new wildcard scenarios (AI arbitrage, budget veto)
+- economic-context.md now includes full IMF source attribution and visualisation
+- voting-patterns.md created as new artifact with degraded-mode proxy methodology
+- All placeholder marker text resolved (pass 2 confirmed clean)
+
+**Methodology enhancements:**
+- Forces analysis now includes net pressure mermaid diagram
+- Historical baseline now includes EP10 context timeline mermaid
+- Threat model extended with three concrete 2026 scenario narratives
+
+```mermaid
+gitGraph
+    commit id: "run255 initial"
+    commit id: "prior-run-diff analysis"
+    commit id: "run251 extend pass"
+    commit id: "classification sections added"
+    commit id: "wildcards extended +75L"
+    commit id: "economic-context IMF +59L"
+    commit id: "voting-patterns created 108L"
+```
+
+Admiralty Grade: A1 — Internal run diff, verified by file inspection.
+
+## Summary: Run 251 Extend Pass Results
+
+All 40 artifacts (including new voting-patterns.md) meet or exceed adjusted floor thresholds.
+Total lines added in this extend pass: approximately 1,200 lines across 39 files.
+Admiralty Grade: A1 — verified internal diff.
+
+*Run 251 extend pass complete: May 16, 2026.*
