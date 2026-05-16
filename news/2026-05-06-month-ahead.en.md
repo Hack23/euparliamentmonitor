@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Month Ahead"
-description: "The European Parliament enters its critical May–June 2026 legislative sprint with three dominant agenda clusters: (1) the European Defence Industrial Strategy (EDIS)… Published…"
-keywords: ["EU Parliament", "month ahead", "legislative agenda", "European Parliament", "plenary session", "2026-05-06", "run month-ahead-run261-1778107666", "Parliament", "Month", "Ahead", "European", "enters", "critical", "June", "legislative", "sprint"]
+title: "The European Parliament enters its critical May–June 2026 legislative sprint with three dominant agenda clusters: (1) the European Defence…"
+description: "The European Parliament enters its critical May–June 2026 legislative sprint with three dominant agenda clusters: (1) the European Defence Industrial Strategy (EDIS)…"
+keywords: ["EU Parliament", "month ahead", "legislative agenda", "European Parliament", "plenary session", "2026-05-06", "run month-ahead-run261-1778107666", "European", "Parliament", "enters", "critical", "June", "legislative", "sprint", "with", "three"]
 date: 2026-05-06
 article_type: month-ahead
 slug: 2026-05-06-month-ahead

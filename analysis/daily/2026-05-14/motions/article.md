@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Motions & Adopted Texts"
-description: "T10-0161/2026 — Ensuring accountability and justice in response to Russia's continued attacks against the civilian population in Ukraine (Adopted 2026-04-30) Published 2026-05-14…"
+description: "T10-0161/2026 — Ensuring accountability and justice in response to Russia's continued attacks against the civilian population in Ukraine (Adopted 2026-04-30)"
 keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-14", "run motions-run306-1778742150", "Parliament", "Adopted", "Texts", "Ensuring", "accountability", "justice", "response", "Russia"]
 date: 2026-05-14
 article_type: motions

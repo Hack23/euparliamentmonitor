@@ -619,17 +619,48 @@ export function extractFirstH1(markdown) {
     return '';
 }
 /**
- * Walk every line of the Markdown source and return the first line that
- * survives {@link shouldSkipDescriptionLine}. Inline Markdown decorations
- * are stripped and the result is truncated to fit `<meta description>`.
+ * Process one Markdown line against the in-progress paragraph buffer.
+ * Returns the desired loop control: `'continue'` (skip silently),
+ * `'break'` (paragraph terminated — emit), or `'collected'` (line was
+ * pushed into the buffer; caller checks the cap separately).
+ *
+ * Factored out of the two extractors to reduce cognitive complexity.
+ *
+ * @param line - Trimmed Markdown line
+ * @param buf - In-progress paragraph buffer (mutated on `'collected'`)
+ * @returns Loop control directive
+ */
+function collectProseLine(line, buf) {
+    const hasBuffer = buf.lines.length > 0;
+    if (hasBuffer && line === '')
+        return 'break';
+    if (line === '')
+        return 'continue';
+    if (shouldSkipDescriptionLine(line))
+        return hasBuffer ? 'break' : 'continue';
+    const plain = stripLeadingProseLabel(stripInlineMarkdown(line));
+    if (!hasBuffer && plain.length < 40)
+        return 'continue';
+    buf.lines.push(plain);
+    buf.byteCount += plain.length + 1;
+    return 'collected';
+}
+/**
+ * Walk every line of the Markdown source and return the first paragraph
+ * that survives {@link shouldSkipDescriptionLine}. Consecutive non-blank
+ * prose lines are joined with a single space so hard-wrapped ledes
+ * (column-95 conventional wrap) produce a clean 140-180-character
+ * description rather than just the first 60-90-char line.
+ *
+ * Inline Markdown decorations are stripped and the result is truncated
+ * to fit `<meta description>`.
  *
  * @param markdown - Markdown source
  * @returns Prose description, or empty string when nothing qualifies
  */
 export function extractStrongProseLine(markdown) {
     let inFence = false;
-    const buffer = [];
-    let bufferLen = 0;
+    const buf = { lines: [], byteCount: 0 };
     for (const raw of markdown.split('\n')) {
         const line = raw.trim();
         if (line.startsWith('```') || line.startsWith('~~~')) {
@@ -638,90 +669,93 @@ export function extractStrongProseLine(markdown) {
         }
         if (inFence)
             continue;
-        if (buffer.length > 0 && line === '') {
-            // Blank line terminates the current paragraph.
+        const directive = collectProseLine(line, buf);
+        if (directive === 'continue')
+            continue;
+        if (directive === 'break')
             break;
-        }
-        if (line === '')
-            continue;
-        if (shouldSkipDescriptionLine(line)) {
-            if (buffer.length > 0)
-                break;
-            continue;
-        }
-        const plain = stripLeadingProseLabel(stripInlineMarkdown(line));
-        if (buffer.length === 0 && plain.length < 40)
-            continue;
-        buffer.push(plain);
-        bufferLen += plain.length + 1;
-        if (bufferLen >= DESCRIPTION_MAX_LENGTH)
+        if (buf.byteCount >= DESCRIPTION_MAX_LENGTH)
             break;
     }
-    if (buffer.length === 0)
+    if (buf.lines.length === 0)
         return '';
-    return truncateDescription(buffer.join(' '));
+    return truncateDescription(buf.lines.join(' '));
 }
 /**
- * Walk the body of an editorial artefact and, when it contains a `## …`
- * heading whose text matches one of `EDITORIAL_LEDE_HEADINGS`,
- * return the first prose paragraph that follows that heading. This is
- * the journalist's lede ("60-Second Read", "TL;DR", "BLUF — …", …) and
- * is exactly the sentence that should power `<meta description>` and
- * the OG/Twitter description fields.
+ * Classify one Markdown line for the {@link extractLedeAfterHeading}
+ * walker. The returned directive is then applied to walker state by
+ * {@link applyLedeDirective}.
  *
- * Returns the empty string when no lede heading is found or no qualifying
- * prose follows it. Inline Markdown is stripped and the result is
- * truncated to fit `<meta description>`.
- *
- * @param markdown - Editorial artefact source
- * @returns Lede paragraph, or empty string when none matched
+ * @param line - Trimmed Markdown line
+ * @param isInFence - True when the previous line opened a fenced block
+ * @param inLede - True when the previous line was inside a lede heading block
+ * @param hasBuffered - True when at least one prose line has been collected
+ * @returns Directive describing how the walker should treat this line
  */
+function classifyLedeLine(line, isInFence, inLede, hasBuffered) {
+    if (line.startsWith('```') || line.startsWith('~~~'))
+        return { kind: 'fence' };
+    if (isInFence)
+        return { kind: 'pause' };
+    if (/^#{2,3}\s+/.test(line)) {
+        if (hasBuffered)
+            return { kind: 'pause' };
+        const headingText = normaliseHeadingText(line.replace(/^#{2,3}\s+/, ''));
+        const match = EDITORIAL_LEDE_HEADINGS.some((h) => isLedeHeadingMatch(headingText, h));
+        return { kind: 'heading', inLede: match };
+    }
+    return inLede ? { kind: 'collect' } : { kind: 'pause' };
+}
+/**
+ * Apply one directive emitted by {@link classifyLedeLine} to the walk
+ * state. Returns `'break'` to stop the walk, `'continue'` to skip to
+ * the next line, or `'collect'` when the caller should now run
+ * {@link collectProseLine}. Mutates `state` for fence/in-lede toggles.
+ *
+ * @param directive - Classification of the current line
+ * @param state - Walk state (mutated in place)
+ * @param state.inFence - True when the current line is inside a fenced block
+ * @param state.inLede - True when the current line is inside a lede heading block
+ * @param hasBuffered - Whether any prose has already been collected
+ * @returns Loop control directive
+ */
+function applyLedeDirective(directive, state, hasBuffered) {
+    if (directive.kind === 'fence') {
+        state.inFence = !state.inFence;
+        return 'continue';
+    }
+    if (directive.kind === 'heading') {
+        if (hasBuffered)
+            return 'break';
+        state.inLede = directive.inLede;
+        return 'continue';
+    }
+    if (directive.kind === 'pause')
+        return 'continue';
+    return 'collect';
+}
 export function extractLedeAfterHeading(markdown) {
-    const lines = markdown.split('\n');
-    let inLede = false;
-    let inFence = false;
-    const buffer = [];
-    let bufferLen = 0;
-    for (let i = 0; i < lines.length; i++) {
-        const raw = lines[i] ?? '';
+    const state = { inFence: false, inLede: false };
+    const buf = { lines: [], byteCount: 0 };
+    for (const raw of markdown.split('\n')) {
         const line = raw.trim();
-        if (line.startsWith('```') || line.startsWith('~~~')) {
-            inFence = !inFence;
-            continue;
-        }
-        if (inFence)
-            continue;
-        if (/^#{2,3}\s+/.test(line)) {
-            if (buffer.length > 0)
-                break;
-            const headingText = normaliseHeadingText(line.replace(/^#{2,3}\s+/, ''));
-            inLede = EDITORIAL_LEDE_HEADINGS.some((h) => isLedeHeadingMatch(headingText, h));
-            continue;
-        }
-        if (!inLede)
-            continue;
-        if (buffer.length > 0 && line === '') {
-            // Blank line terminates the lede paragraph.
+        const directive = classifyLedeLine(line, state.inFence, state.inLede, buf.lines.length > 0);
+        const action = applyLedeDirective(directive, state, buf.lines.length > 0);
+        if (action === 'break')
             break;
-        }
-        if (line === '')
+        if (action === 'continue')
             continue;
-        if (shouldSkipDescriptionLine(line)) {
-            if (buffer.length > 0)
-                break;
+        const collect = collectProseLine(line, buf);
+        if (collect === 'continue')
             continue;
-        }
-        const plain = stripLeadingProseLabel(stripInlineMarkdown(line));
-        if (buffer.length === 0 && plain.length < 40)
-            continue;
-        buffer.push(plain);
-        bufferLen += plain.length + 1;
-        if (bufferLen >= DESCRIPTION_MAX_LENGTH)
+        if (collect === 'break')
+            break;
+        if (buf.byteCount >= DESCRIPTION_MAX_LENGTH)
             break;
     }
-    if (buffer.length === 0)
+    if (buf.lines.length === 0)
         return '';
-    return truncateDescription(buffer.join(' '));
+    return truncateDescription(buf.lines.join(' '));
 }
 /**
  * Normalise a Markdown heading's text for comparison against the
@@ -1596,10 +1630,24 @@ function composeContextualDescription(lang, baseDescription, editorial, date, _r
 function withRunQualifier(title, runId) {
     if (!runId)
         return title;
-    const match = /-run-?(\d+)(?:-\d+)?$/u.exec(runId);
-    if (!match)
-        return title;
-    return `${title} — Run ${match[1]}`;
+    // Walk segments backwards: find the last `run<digits>` token. The
+    // runId shape is `<slug>-run<N>[-<unix-ts>]` — we explicitly avoid a
+    // single regex with overlapping `\d+` groups, which the SonarJS
+    // unsafe-regex rule flags as catastrophic-backtracking-prone.
+    const segments = runId.split('-');
+    for (const seg of segments) {
+        const m = /^run(\d+)$/u.exec(seg);
+        if (m)
+            return `${title} — Run ${m[1]}`;
+        const m2 = /^run$/u.exec(seg);
+        if (m2) {
+            const idx = segments.indexOf(seg);
+            const next = segments[idx + 1];
+            if (next && /^\d+$/u.test(next))
+                return `${title} — Run ${next}`;
+        }
+    }
+    return title;
 }
 /**
  * Case-insensitive containment check after whitespace normalization.

@@ -1,7 +1,7 @@
 ---
-title: "EP10 Term Outlook"
+title: "The European Parliament's EP10 term (2024–2029) has entered its decisive second year with a structurally rightward-shifted parliament…"
 description: "The European Parliament's EP10 term (2024–2029) has entered its decisive second year with a structurally rightward-shifted parliament navigating a historic convergence of crises…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Term Outlook", "2026-05-08", "run term-outlook-run444-1778232545", "EP10", "Term", "Outlook", "European", "Parliament", "entered", "decisive", "second", "year", "with"]
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Term Outlook", "2026-05-08", "run term-outlook-run444-1778232545", "European", "Parliament", "EP10", "term", "entered", "decisive", "second", "year", "with", "structurally"]
 date: 2026-05-08
 article_type: term-outlook
 slug: 2026-05-08-term-outlook

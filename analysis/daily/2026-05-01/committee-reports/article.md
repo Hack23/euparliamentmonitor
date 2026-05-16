@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Committee Reports"
-description: "The last week of April 2026 affirmed EP10's record-setting legislative productivity pace. Published 2026-05-01, with source-linked voting, committee and legislative intelligence…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-01", "Parliament", "Committee", "Reports", "last", "week", "April", "affirmed", "EP10", "record"]
+title: "The last week of April 2026 affirmed EP10's record-setting legislative productivity pace. Five committees delivered substantive outputs…"
+description: "The last week of April 2026 affirmed EP10's record-setting legislative productivity pace. Five committees delivered substantive outputs spanning the full spectrum from binding…"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-01", "last", "week", "April", "affirmed", "EP10", "record", "setting", "legislative", "productivity"]
 date: 2026-05-01
 article_type: committee-reports
 slug: 2026-05-01-committee-reports

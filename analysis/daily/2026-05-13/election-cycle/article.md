@@ -1,7 +1,7 @@
 ---
-title: "EP10 Election Cycle"
-description: "The European Parliament's EP10 term (2024–2029) has entered its decisive second year with a structurally rightward-shifted parliament navigating a historic convergence of crises…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Election Cycle", "2026-05-13", "EP10", "Election", "Cycle", "European", "Parliament", "term", "entered", "decisive", "second", "year", "with"]
+title: "2024–2029 Term"
+description: "The 2024–2029 European Parliament term began with a structurally fragmented chamber (717 MEPs across 9 groups, fragmentation index 6.58) in which the centrist EPP+S&D+Renew…"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Election Cycle", "2026-05-13", "Term", "European", "Parliament", "began", "with", "structurally", "fragmented", "chamber", "MEPs", "across", "groups"]
 date: 2026-05-13
 article_type: election-cycle
 slug: 2026-05-13-election-cycle

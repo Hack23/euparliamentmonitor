@@ -1,6 +1,6 @@
 ---
 title: "Breaking News: Post-Recess Convergence Intelligence (T-2 to Tariff Activation) | 2026-04-13"
-description: "*This is an analysis-only run on the final recess day — the decision not to publish a breaking article is itself the headline. Despite intense external pressure (T-2…"
+description: "*This is an analysis-only run on the final recess day — the decision not to publish a breaking article is itself the headline. Despite intense external pressure (T-2 to the April…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-13", "News", "Post", "Recess", "Convergence", "Intelligence", "Tariff", "Activation", "This", "analysis"]
 date: 2026-04-13
 article_type: breaking

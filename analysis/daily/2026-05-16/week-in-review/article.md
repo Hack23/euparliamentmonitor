@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Week in Review"
-description: "This period captures the April 2026 Strasbourg mini-plenary (28–30 April) — one of the most consequential legislative sessions of EP Term 10 to date, delivering 14 adopted texts…"
-keywords: ["EU Parliament", "week in review", "European Parliament", "summary", "legislation", "2026-05-16", "Parliament", "Week", "Review", "This", "period", "captures", "April", "Strasbourg", "mini", "plenary"]
+title: "EU Parliament"
+description: "CIA Coalition Analysis Methodology | Cohesion Proxies Applied Published 2026-05-16. for democratic-accountability readers tracking EU institutional consequences"
+keywords: ["EU Parliament", "week in review", "European Parliament", "summary", "legislation", "2026-05-16", "Parliament", "Coalition", "Analysis", "Methodology", "Cohesion", "Proxies", "Applied", "Published", "democratic", "accountability"]
 date: 2026-05-16
 article_type: week-in-review
 slug: 2026-05-16-week-in-review

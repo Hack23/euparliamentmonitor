@@ -1,7 +1,7 @@
 ---
-title: "EP10 Election Cycle"
+title: "The European Parliament's EP10 term (2024–2029) has entered its decisive second year with a structurally rightward-shifted parliament…"
 description: "The European Parliament's EP10 term (2024–2029) has entered its decisive second year with a structurally rightward-shifted parliament navigating a historic convergence of crises…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Election Cycle", "2026-05-09", "run election-cycle-run297-1778325628", "EP10", "Election", "Cycle", "European", "Parliament", "term", "entered", "decisive", "second", "year"]
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Election Cycle", "2026-05-09", "run election-cycle-run297-1778325628", "European", "Parliament", "EP10", "term", "entered", "decisive", "second", "year", "with", "structurally"]
 date: 2026-05-09
 article_type: election-cycle
 slug: 2026-05-09-election-cycle

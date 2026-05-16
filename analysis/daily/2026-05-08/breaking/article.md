@@ -1,7 +1,7 @@
 ---
-title: "European Parliament Breaking News"
-description: "The European Parliament concluded its April Strasbourg plenary session (28–30 April 2026) with a legislative and political output of exceptional density."
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-08", "run breaking-run373-1778202056", "European", "Parliament", "News", "concluded", "April", "Strasbourg", "plenary", "session"]
+title: "Key Legislative Developments — Deep Analysis (2026-05-08)"
+description: "The Digital Markets Act (DMA, Regulation 2022/1925) entered into force on 1 November 2022 and has been applicable since 6 March 2024. By March 2024, six \"gatekeepers\" were…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-08", "run breaking-run373-1778202056", "Legislative", "Developments", "Deep", "Analysis", "Digital", "Markets", "Regulation", "entered"]
 date: 2026-05-08
 article_type: breaking
 slug: 2026-05-08-breaking

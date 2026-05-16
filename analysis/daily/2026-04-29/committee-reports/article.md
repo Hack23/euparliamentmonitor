@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Committee Reports, April 28, 2026"
-description: "April 28 will be remembered as the session where Parliament simultaneously set the terms for the EU's next budget decade, modernised its trade preference architecture… Published…"
+description: "April 28 will be remembered as the session where Parliament simultaneously set the terms for the EU's next budget decade, modernised its trade preference architecture…"
 keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-29", "Parliament", "Committee", "Reports", "April", "will", "remembered", "session", "where", "simultaneously"]
 date: 2026-04-29
 article_type: committee-reports

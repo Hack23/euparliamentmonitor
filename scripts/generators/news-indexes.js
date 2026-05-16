@@ -140,17 +140,32 @@ function backfillOneLegacyArticleSeo(filename, descriptions) {
     const needsDescription = shouldBackfillDescription(meta.description, descriptions);
     if (hasKeywords && !needsDescription)
         return false;
+    // Suppress leaky tokens (run-ids, "analysis run" jargon) from both
+    // the Markdown body we feed the resolver AND the `manifest.description`
+    // override, so the resolver derives `<meta description>` from a clean
+    // editorial signal rather than echoing the legacy junk back unchanged.
+    const titleHasLeaks = descriptionHasLeakyToken(meta.title);
+    const descHasLeaks = descriptionHasLeakyToken(meta.description);
+    const safeTitle = titleHasLeaks ? formatSlug(parsed.slug) : meta.title;
+    const safeDescription = descHasLeaks ? '' : meta.description;
     const articleType = String(detectCategory(parsed.slug));
     const resolved = resolveArticleMetadata({
         articleType,
         date: parsed.date,
-        markdown: `# ${meta.title || formatSlug(parsed.slug)}\n\n${meta.description}`,
-        manifest: buildBackfillManifest(parsed.slug, meta.title, meta.description, needsDescription),
+        markdown: `# ${safeTitle || formatSlug(parsed.slug)}\n\n${safeDescription}`,
+        manifest: buildBackfillManifest(parsed.slug, safeTitle, safeDescription, needsDescription),
     });
     const entry = Object.getOwnPropertyDescriptor(resolved, parsed.lang)?.value;
-    const fallbackKeywords = buildSeoKeywords(parsed.lang, articleType, parsed.date, parsed.slug, meta.title, meta.description);
+    const fallbackKeywords = buildSeoKeywords(parsed.lang, articleType, parsed.date, parsed.slug, safeTitle, safeDescription);
+    // Never echo a leaky description into the rewrite, even as a last-resort
+    // fallback. If the resolver produced nothing clean, fall back to a
+    // page-specific stub built from the slug.
+    const resolverDescription = entry?.description ?? '';
+    const baseDescription = resolverDescription && !descriptionHasLeakyToken(resolverDescription)
+        ? resolverDescription
+        : safeDescription || formatSlug(parsed.slug);
     const description = needsDescription
-        ? buildLegacyBackfillDescription(parsed.date, parsed.slug, parsed.lang, entry?.description ?? meta.description)
+        ? buildLegacyBackfillDescription(parsed.date, parsed.slug, parsed.lang, baseDescription)
         : meta.description;
     const keywords = entry?.keywords ?? fallbackKeywords;
     const nextHtml = applyArticleSeoBackfill(html, description, keywords);
@@ -178,16 +193,44 @@ function buildLegacyBackfillDescription(date, slug, lang, description) {
     return `${contextual.slice(0, 177).replace(/[.,;:—\s-]+$/u, '')}…`;
 }
 /**
+ * Regex pattern that flags internal artefact identifiers
+ * (`<slug>-run<N>-<unix-ts>`). Used by
+ * {@link descriptionHasLeakyToken} to force backfill of legacy articles
+ * whose `<meta description>` was authored before the resolver started
+ * stripping run-ids and "analysis run" jargon. Mirrors
+ * `FORBIDDEN_PATTERNS` in `scripts/validate-manifest-seo.js`.
+ */
+const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
+/**
+ * Detect whether a legacy article description contains the run-id or
+ * "analysis run" jargon that was prevalent in pre-aggregator brief
+ * authorship. These tokens are deemed unfit for `<meta description>`
+ * regardless of length and force a backfill rewrite.
+ *
+ * @param description - Current description value
+ * @returns True when the description contains a forbidden internal token
+ */
+function descriptionHasLeakyToken(description) {
+    if (!description)
+        return false;
+    const lower = description.toLowerCase();
+    if (lower.includes('analysis run'))
+        return true;
+    return LEAKY_RUNID_RE.test(description);
+}
+/**
  * Determine whether a meta description needs backfilling.
  *
  * @param description - Current description
  * @param descriptions - Description frequency map
- * @returns True when the description is missing, short or duplicated
+ * @returns True when the description is missing, short, duplicated, or
+ *   contains internal run-id tokens that must not appear in SEO surfaces
  */
 function shouldBackfillDescription(description, descriptions) {
     return (!description ||
         description.length < MIN_ARTICLE_DESCRIPTION_LENGTH ||
-        (descriptions.get(description) ?? 0) > 1);
+        (descriptions.get(description) ?? 0) > 1 ||
+        descriptionHasLeakyToken(description));
 }
 /**
  * Build the manifest projection for legacy SEO backfill.

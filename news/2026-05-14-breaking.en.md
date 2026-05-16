@@ -1,7 +1,7 @@
 ---
-title: "Executive Intelligence Brief — EU Parliament Breaking News"
-description: "The European Parliament's April 28-30, 2026 plenary session in Brussels produced an exceptionally dense legislative output encompassing the Multiannual Financial Framework (MFF)…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-14", "run breaking-run-1778722670", "Executive", "Intelligence", "Brief", "Parliament", "News", "European", "April", "plenary"]
+title: "Extended Executive Brief — Breaking News 2026-05-14"
+description: "Standard: Extended Economist-grade intelligence brief Published 2026-05-14. for democratic-accountability readers tracking EU institutional consequences"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-14", "run breaking-run-1778722670", "Extended", "Executive", "Brief", "News", "Standard", "Economist", "grade", "intelligence"]
 date: 2026-05-14
 article_type: breaking
 slug: 2026-05-14-breaking

@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Breaking News"
-description: "Analysis Period: April 28–30, 2026 (most recent completed Strasbourg plenary) Published 2026-05-10 · analysis run breaking-run605-1778419139, with source-linked voting, committee…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-10", "run breaking-run605-1778419139", "Parliament", "News", "Analysis", "Period", "April", "most", "recent", "completed"]
+title: "Extended Executive Brief"
+description: "This extended executive brief synthesises the full analytical output from four consecutive EU Parliament Monitor breaking news runs on 2026-05-10, representing the most…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-10", "run breaking-run605-1778419139", "Extended", "Executive", "Brief", "This", "synthesises", "full", "analytical", "output"]
 date: 2026-05-10
 article_type: breaking
 slug: 2026-05-10-breaking

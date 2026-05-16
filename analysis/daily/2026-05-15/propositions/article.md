@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Legislative Propositions"
-description: "The European Parliament has demonstrated exceptional legislative velocity in Q1-Q2 2026, adopting 51 formal texts between January and May 2026."
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-15", "Parliament", "Legislative", "European", "demonstrated", "exceptional", "velocity", "adopting", "formal", "texts"]
+title: "التقرير التنفيذي: مقترحات تشريعية للبرلمان الأوروبي"
+description: "أظهر البرلمان الأوروبي سرعة تشريعية استثنائية في الربعين الأول والثاني من 2026، مع اعتماد 51 نصاً رسمياً بين يناير ومايو 2026. يمثل ذلك سباقاً تشريعياً يتزامن مع منتصف الدورة…"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-15", "التقرير", "التنفيذي", "مقترحات", "تشريعية", "للبرلمان", "الأوروبي", "أظهر", "البرلمان", "سرعة"]
 date: 2026-05-15
 article_type: propositions
 slug: 2026-05-15-propositions

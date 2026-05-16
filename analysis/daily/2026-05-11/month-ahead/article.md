@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Month Ahead: 11 May – 10 June 2026"
-description: "Confidence Level: 🟡 Medium (EP API partial data — full agenda not yet published) Published 2026-05-11 · analysis run month-ahead-run269-1778459566, with source-linked voting…"
+description: "Confidence Level: 🟡 Medium (EP API partial data — full agenda not yet published) Published 2026-05-11. for democratic-accountability readers tracking EU institutional consequences"
 keywords: ["EU Parliament", "month ahead", "legislative agenda", "European Parliament", "plenary session", "2026-05-11", "run month-ahead-run269-1778459566", "Parliament", "Month", "Ahead", "June", "Confidence", "Level", "Medium", "partial", "data"]
 date: 2026-05-11
 article_type: month-ahead

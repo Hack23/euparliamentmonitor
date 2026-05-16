@@ -22,6 +22,7 @@ import {
   TITLE_MAX_LENGTH,
   TITLE_MIN_LENGTH,
   detectForbiddenPrefix,
+  detectLeakyRunIdOrJargon,
   effectiveTextLength,
   findAllManifests,
   parseArgs,
@@ -125,6 +126,46 @@ describe('detectForbiddenPrefix', () => {
   it('tolerates non-string input', () => {
     expect(detectForbiddenPrefix(null)).toBeNull();
     expect(detectForbiddenPrefix(42)).toBeNull();
+  });
+});
+
+describe('detectLeakyRunIdOrJargon', () => {
+  it('flags "analysis run" jargon (live-site 2026-05 regression)', () => {
+    // The live-site regression on https://euparliamentmonitor.com/news/
+    // surfaced descriptions of the form
+    //   "Published 2026-05-16 · analysis run breaking-run255-1778894853, …"
+    // The detector must catch BOTH the English jargon and the run-id token.
+    expect(
+      detectLeakyRunIdOrJargon(
+        'Published 2026-05-16 · analysis run breaking-run255-1778894853, with source-linked…'
+      )
+    ).toBe('analysis run');
+  });
+  it('flags the canonical run-id pattern <slug>-run<N>-<unix-ts>', () => {
+    expect(detectLeakyRunIdOrJargon('… breaking-run255-1778894853 …')).toBe(
+      'breaking-run255-1778894853'
+    );
+    expect(detectLeakyRunIdOrJargon('committee-reports-run330-1778735854 anywhere')).toBe(
+      'committee-reports-run330-1778735854'
+    );
+  });
+  it('returns null for clean editorial prose', () => {
+    expect(
+      detectLeakyRunIdOrJargon(
+        'Banking union pact narrows ECON deadlines as plenary closes the file.'
+      )
+    ).toBeNull();
+  });
+  it('tolerates non-string input', () => {
+    expect(detectLeakyRunIdOrJargon(null)).toBeNull();
+    expect(detectLeakyRunIdOrJargon(undefined)).toBeNull();
+    expect(detectLeakyRunIdOrJargon(42)).toBeNull();
+  });
+  it('does not flag short ordinal-only mentions (Run 255)', () => {
+    // Stage-B may legitimately emit short collision-disambiguators like
+    // " — Run 255" in fallback titles after withRunQualifier sanitisation.
+    // The detector must NOT flag these — only the long unix-ts form is leaky.
+    expect(detectLeakyRunIdOrJargon('Breaking — 2026-05-16 — Run 255')).toBeNull();
   });
 });
 

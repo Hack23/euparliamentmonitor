@@ -1,7 +1,7 @@
 ---
-title: "EP Breaking News"
-description: "What happened: The EP's end-of-April 2026 plenary session produced a historically dense legislative output. In five days, MEPs adopted an interim report on the 2028–2034…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-12", "run breaking-run-1778577220", "News", "What", "happened", "April", "plenary", "session", "produced", "historically"]
+title: "Synthesis — EP Breaking News"
+description: "The European Parliament's April 28–30, 2026 Strasbourg session produced outputs that simultaneously advance three distinct but intersecting political projects: (1) the EU's…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-12", "run breaking-run-1778577220", "Synthesis", "News", "European", "Parliament", "April", "Strasbourg", "session", "produced"]
 date: 2026-05-12
 article_type: breaking
 slug: 2026-05-12-breaking

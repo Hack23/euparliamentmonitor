@@ -1,7 +1,7 @@
 ---
-title: "EP Committee Reports"
-description: "The European Parliament's committee system delivered a significant legislative output batch in the week of 27 April – 4 May 2026, with nine adopted texts spanning digital market…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-04", "run committee-reports-run-1777871291", "Committee", "Reports", "European", "Parliament", "system", "delivered", "significant", "legislative"]
+title: "EP Committee Reports Week 27 Apr–4 May 2026"
+description: "This synthesis applies the Intelligence Community (IC) structured analytic technique of Key Assumptions Check (KAC) combined with Convergent Evidence Mapping to identify…"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-04", "run committee-reports-run-1777871291", "Committee", "Reports", "Week", "This", "synthesis", "applies", "Intelligence", "Community"]
 date: 2026-05-04
 article_type: committee-reports
 slug: 2026-05-04-committee-reports

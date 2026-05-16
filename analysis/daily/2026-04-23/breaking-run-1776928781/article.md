@@ -1,6 +1,6 @@
 ---
 title: "Breaking: Tariff Retrospective Reframing One Week Post-Activation | 2026-04-23"
-description: "*Eight days after T-0, the run undertakes a retrospective reframing of the March 26 plenary session: the file was adopted exactly one week before President Trump's April 2…"
+description: "*Eight days after T-0, the run undertakes a retrospective reframing of the March 26 plenary session: the file was adopted exactly one week before President Trump's April 2 tariff…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-23", "run breaking-run-1776928781", "Tariff", "Retrospective", "Reframing", "Week", "Post", "Activation", "Eight", "days"]
 date: 2026-04-23
 article_type: breaking

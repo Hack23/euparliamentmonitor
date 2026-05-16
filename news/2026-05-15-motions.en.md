@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Motions · 2026-05-15"
-description: "The European Parliament's Strasbourg plenary of 28–30 April 2026 produced a landmark cluster of motions that collectively define the Parliament's assertive posture across three…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-15", "run motions-run-1778828850", "Parliament", "European", "Strasbourg", "plenary", "April", "produced", "landmark", "cluster"]
+title: "موجز تنفيذي — قرارات البرلمان الأوروبي · 2026-05-15"
+description: "نطاق WEP: محتمل (60–80%) — تعكس القرارات توافقاً قوياً متعدد الأطراف حول التنظيم الرقمي والتضامن الجيوسياسي"
+keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-15", "run motions-run-1778828850", "موجز", "تنفيذي", "قرارات", "البرلمان", "الأوروبي", "نطاق", "محتمل", "تعكس"]
 date: 2026-05-15
 article_type: motions
 slug: 2026-05-15-motions

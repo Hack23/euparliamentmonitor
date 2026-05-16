@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Year Ahead"
-description: "The European Parliament faces its most consequential twelve months since the 2024 election. EPP dominance (183/717 seats, 25.5%) within a highly fragmented nine-group chamber…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year Ahead", "2026-05-11", "run year-ahead-run598-1778488878", "Parliament", "Year", "Ahead", "European", "faces", "most", "consequential", "twelve", "months", "since"]
+title: "Commission Work Programme Alignment: EU Parliament Year Ahead"
+description: "The European Commission Work Programme (CWP) for 2026 sets out priority initiatives. EP alignment is assessed by matching CWP priorities against EP's observed legislative…"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year Ahead", "2026-05-11", "run year-ahead-run598-1778488878", "Commission", "Work", "Programme", "Alignment", "Parliament", "Year", "Ahead", "European", "sets", "priority"]
 date: 2026-05-11
 article_type: year-ahead
 slug: 2026-05-11-year-ahead

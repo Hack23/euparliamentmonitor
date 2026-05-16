@@ -1,7 +1,7 @@
 ---
-title: "EP Committee Reports"
-description: "The European Parliament's committee system entered the week of 12–16 May 2026 Published 2026-05-14 · analysis run committee-reports-run330-1778735854, with source-linked voting…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-14", "run committee-reports-run330-1778735854", "Committee", "Reports", "European", "Parliament", "system", "entered", "week", "Published"]
+title: "The European Parliament's committee system entered the week of 12–16 May 2026 with a packed legislative agenda across at least seven…"
+description: "The European Parliament's committee system entered the week of 12–16 May 2026 with a packed legislative agenda across at least seven standing committees."
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-14", "run committee-reports-run330-1778735854", "European", "Parliament", "committee", "system", "entered", "week", "with", "packed"]
 date: 2026-05-14
 article_type: committee-reports
 slug: 2026-05-14-committee-reports

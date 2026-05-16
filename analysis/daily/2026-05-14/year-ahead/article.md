@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Year Ahead"
-description: "The European Parliament's 2026-2027 legislative year unfolds amid three structural realities: an EPP dominant bloc (25.5% of seats, 183 MEPs) requiring multi-coalition majority…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year Ahead", "2026-05-14", "run year-ahead-run-1778763163", "Parliament", "Year", "Ahead", "European", "legislative", "unfolds", "amid", "three", "structural", "realities"]
+title: "EU Parliament Year Ahead 2026-2027"
+description: "EPP's 183-seat dominance (25.52%) in the 10th Parliament makes it the indispensable coalition anchor for every legislative act. No majority is achievable without EPP…"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year Ahead", "2026-05-14", "run year-ahead-run-1778763163", "Parliament", "Year", "Ahead", "seat", "dominance", "10th", "makes", "indispensable", "coalition", "anchor"]
 date: 2026-05-14
 article_type: year-ahead
 slug: 2026-05-14-year-ahead
