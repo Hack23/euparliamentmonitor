@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Propositions"
+title: "The European Parliament's April 28–30, 2026 Strasbourg plenary produced a landmark wave of legislation spanning digital enforcement…"
 description: "The European Parliament's April 28–30, 2026 Strasbourg plenary produced a landmark wave of legislation spanning digital enforcement, agricultural resilience, criminal justice…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-14", "run propositions-run313-1778747315", "Parliament", "European", "April", "Strasbourg", "plenary", "produced", "landmark", "wave"]
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-14", "run propositions-run313-1778747315", "European", "Parliament", "April", "Strasbourg", "plenary", "produced", "landmark", "wave"]
 date: 2026-05-14
 article_type: propositions
 slug: 2026-05-14-propositions

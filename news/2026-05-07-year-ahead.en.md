@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Year Ahead"
-description: "The European Parliament enters a pivotal legislative year from May 2026 to May 2027, facing three simultaneous pressure systems: (1) defence integration accelerating under…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year Ahead", "2026-05-07", "run year-ahead-25527407922", "Parliament", "Year", "Ahead", "European", "enters", "pivotal", "legislative", "from", "facing", "three"]
+title: "EU Parliament Year Ahead 2026–2027"
+description: "The EP10 enters 2026–2027 as Europe's most consequential parliamentary actor in decades, simultaneously managing active defence integration (ReArm Europe), climate policy…"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year Ahead", "2026-05-07", "run year-ahead-25527407922", "Parliament", "Year", "Ahead", "EP10", "enters", "Europe", "most", "consequential", "parliamentary", "actor"]
 date: 2026-05-07
 article_type: year-ahead
 slug: 2026-05-07-year-ahead

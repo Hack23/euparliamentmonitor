@@ -1,6 +1,6 @@
 ---
 title: "EP Week Ahead: 19–22 May 2026"
-description: "WEP Assessment: LIKELY (60–65%) the week delivers significant legislative votes with cross-group coalition dynamics Published 2026-05-15, with source-linked voting, committee…"
+description: "WEP Assessment: LIKELY (60–65%) the week delivers significant legislative votes with cross-group coalition dynamics"
 keywords: ["EU Parliament", "week ahead", "committee meetings", "plenary debate", "European Parliament", "legislation", "2026-05-15", "Week", "Ahead", "Assessment", "LIKELY", "delivers", "significant", "legislative", "votes", "with"]
 date: 2026-05-15
 article_type: week-ahead

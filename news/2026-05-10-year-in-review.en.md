@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Year in Review: May 2025–May 2026"
-description: "The European Parliament's tenth term (EP10) completed its first full operational year (May 2025–May 2026) amid accelerating legislative output, a structurally rightward…"
+description: "The European Parliament's tenth term (EP10) completed its first full operational year (May 2025–May 2026) amid accelerating legislative output, a structurally rightward political…"
 keywords: ["EU Parliament", "European Parliament", "political intelligence", "Year In Review", "2026-05-10", "run year-in-review-run430-1778425601", "Parliament", "Year", "Review", "European", "tenth", "term", "EP10", "completed", "first", "full"]
 date: 2026-05-10
 article_type: year-in-review

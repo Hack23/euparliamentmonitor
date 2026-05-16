@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Propositions"
-description: "The final week of April 2026 delivered one of the most substantive legislative batches of the EP10 term: three urgency resolutions, a landmark animal welfare regulation…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-01", "run propositions-run-1777615486", "Parliament", "final", "week", "April", "delivered", "most", "substantive", "legislative"]
+title: "Coverage: April 28–30, 2026 Strasbourg Plenary | Propositions Edition Analyst: AI-First Analysis Pipeline v2.5 | WEP/Admiralty grades…"
+description: "Coverage: April 28–30, 2026 Strasbourg Plenary | Propositions Edition Analyst: AI-First Analysis Pipeline v2.5 | WEP/Admiralty grades applied"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-05-01", "run propositions-run-1777615486", "Coverage", "April", "Strasbourg", "Plenary", "Edition", "Analyst", "First", "Analysis"]
 date: 2026-05-01
 article_type: propositions
 slug: 2026-05-01-propositions

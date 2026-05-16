@@ -1,6 +1,6 @@
 ---
 title: "EP Breaking Probe, 24 April 2026"
-description: "The 24 April breaking-news probe (≈ 06:00 UTC window) recorded no fresh EP10 breaking event. The four operational feeds collectively produced a low-signal picture… Published…"
+description: "The 24 April breaking-news probe (≈ 06:00 UTC window) recorded no fresh EP10 breaking event. The four operational feeds collectively produced a low-signal picture…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-24", "run breaking-run-1777011267", "Probe", "April", "news", "window", "recorded", "fresh", "EP10", "event"]
 date: 2026-04-24
 article_type: breaking

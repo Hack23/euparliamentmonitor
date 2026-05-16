@@ -1,7 +1,7 @@
 ---
-title: "EP Committee Reports"
+title: "The European Parliament concluded a highly productive April 28–30 plenary session in Strasbourg, adopting 19 texts and advancing its…"
 description: "The European Parliament concluded a highly productive April 28–30 plenary session in Strasbourg, adopting 19 texts and advancing its legislative agenda across digital, trade…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-08", "run committee-reports-run263-1778221903", "Committee", "Reports", "European", "Parliament", "concluded", "highly", "productive", "April"]
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-08", "run committee-reports-run263-1778221903", "European", "Parliament", "concluded", "highly", "productive", "April", "plenary", "session"]
 date: 2026-05-08
 article_type: committee-reports
 slug: 2026-05-08-committee-reports

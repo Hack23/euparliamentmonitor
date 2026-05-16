@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Breaking News"
-description: "The European Parliament's April 2026 plenary session (Strasbourg, 28–30 April) delivered a Published 2026-05-16 · analysis run breaking-run255-1778894853, with source-linked…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-16", "run breaking-run255-1778894853", "Parliament", "News", "European", "April", "plenary", "session", "Strasbourg", "delivered"]
+title: "Extended Executive Brief — April 2026 EP Session (Deep Analysis)"
+description: "The April 2026 EU Parliament session produced a strong legislative record on geopolitical (Ukraine), regulatory (DMA), and institutional (budget) priorities."
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-16", "run breaking-run255-1778894853", "Extended", "Executive", "Brief", "April", "Session", "Deep", "Analysis", "Parliament"]
 date: 2026-05-16
 article_type: breaking
 slug: 2026-05-16-breaking

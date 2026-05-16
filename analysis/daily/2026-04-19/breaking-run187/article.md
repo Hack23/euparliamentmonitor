@@ -1,6 +1,6 @@
 ---
 title: "Run 187, 19 April 2026"
-description: "Run 187 (mid-day probe, Easter Recess Day 8, Series Run 9) records significance 14/50 — even lower than Run 190's Easter Monday floor, confirming that mid-recess… Published…"
+description: "Run 187 (mid-day probe, Easter Recess Day 8, Series Run 9) records significance 14/50 — even lower than Run 190's Easter Monday floor, confirming that mid-recess…"
 keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-19", "run 187", "April", "probe", "Easter", "Recess", "Series", "records", "significance", "even"]
 date: 2026-04-19
 article_type: breaking

@@ -1,6 +1,6 @@
 ---
 title: "EU Parliament Motions — 11 May 2026"
-description: "The European Parliament's April 28–30, 2026 Strasbourg plenary delivered a dense legislative agenda that simultaneously advanced digital rights enforcement, reaffirmed… Published…"
+description: "The European Parliament's April 28–30, 2026 Strasbourg plenary delivered a dense legislative agenda that simultaneously advanced digital rights enforcement, reaffirmed…"
 keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-11", "run motions-run393-1778484518", "Parliament", "European", "April", "Strasbourg", "plenary", "delivered", "dense", "legislative"]
 date: 2026-05-11
 article_type: motions

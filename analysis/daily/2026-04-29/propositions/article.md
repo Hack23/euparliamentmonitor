@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Propositions"
+title: "The April 28, 2026 Strasbourg plenary session was one of the most legislatively dense sittings of EP10, adopting 22 texts across nine…"
 description: "The April 28, 2026 Strasbourg plenary session was one of the most legislatively dense sittings of EP10, adopting 22 texts across nine policy domains — from the multiannual…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-29", "run propositions-run-1777442543", "Parliament", "April", "Strasbourg", "plenary", "session", "most", "legislatively", "dense"]
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-29", "run propositions-run-1777442543", "April", "Strasbourg", "plenary", "session", "most", "legislatively", "dense", "sittings"]
 date: 2026-04-29
 article_type: propositions
 slug: 2026-04-29-propositions

@@ -18,6 +18,7 @@ import {
   deriveWeekRange,
   extractArtifactHighlight,
   extractFirstH1,
+  extractFirstSentence,
   extractLedeAfterHeading,
   extractStrongProseLine,
   humanizeSlug,
@@ -258,6 +259,29 @@ describe('extractStrongProseLine', () => {
   it('returns empty when nothing qualifies', () => {
     expect(extractStrongProseLine('# only a heading')).toBe('');
   });
+
+  it('joins consecutive hard-wrapped prose lines into a single description paragraph', () => {
+    // Live-site regression (2026-05-16): briefs whose lede was hard-wrapped
+    // at column ~95 returned only the first line (88 chars) from the
+    // extractor, tripping the enrichment trigger and leaking the
+    // "Published … · analysis run …" boilerplate into <meta description>.
+    // The fix paragraph-joins consecutive non-blank, non-skip lines into
+    // a single ≥140-char prose snippet.
+    const md = [
+      '# Executive Brief — EU Parliament Breaking News',
+      '',
+      "The European Parliament's April 2026 plenary session (Strasbourg, 28-30 April) delivered a",
+      'dense legislative output spanning digital regulation enforcement, Ukraine war accountability,',
+      'and fiscal governance activation through 2027 budget guidelines.',
+      '',
+      'A second paragraph that must NOT be joined into the first.',
+    ].join('\n');
+    const desc = extractStrongProseLine(md);
+    expect(desc.length).toBeGreaterThanOrEqual(140);
+    expect(desc).toContain('European Parliament');
+    expect(desc).toContain('legislative output');
+    expect(desc).not.toContain('second paragraph');
+  });
 });
 
 describe('humanizeSlug', () => {
@@ -324,6 +348,136 @@ describe('isGenericHeading', () => {
 
   it('rejects empty headings', () => {
     expect(isGenericHeading('', 'breaking', '2026-04-14')).toBe(true);
+  });
+
+  it('rejects bare "EU Parliament <Type>" category-noun headings (post-PR-#1969 fix)', () => {
+    // Live-site regression (https://euparliamentmonitor.com/news/) observed
+    // 2026-05-16: executive briefs whose H1 reads
+    //   `# Executive Brief — EU Parliament Breaking News`
+    // had the `Executive Brief — ` prefix stripped, leaving the bare
+    // category noun as the article `<title>`. Editorial content carries no
+    // information when restated as the category name — flag these.
+    expect(isGenericHeading('EU Parliament Breaking News', 'breaking', '2026-05-16')).toBe(true);
+    expect(
+      isGenericHeading('EU Parliament Committee Reports', 'committee-reports', '2026-05-15')
+    ).toBe(true);
+    expect(isGenericHeading('EU Parliament Motions', 'motions', '2026-05-15')).toBe(true);
+    expect(isGenericHeading('EU Parliament Motions · 2026-05-15', 'motions', '2026-05-15')).toBe(
+      true
+    );
+    expect(
+      isGenericHeading('EU Parliament Legislative Propositions', 'propositions', '2026-05-15')
+    ).toBe(true);
+    expect(isGenericHeading('EU Parliament Election Cycle', 'election-cycle', '2026-05-14')).toBe(
+      true
+    );
+    expect(isGenericHeading('EU Parliament Year Ahead', 'year-ahead', '2026-05-14')).toBe(true);
+    expect(isGenericHeading('EU Parliament Week in Review', 'week-in-review', '2026-05-16')).toBe(
+      true
+    );
+    expect(isGenericHeading('EP10 Election Cycle', 'election-cycle', '2026-05-13')).toBe(true);
+    expect(isGenericHeading('EP Committee Reports', 'committee-reports', '2026-05-14')).toBe(true);
+    expect(
+      isGenericHeading('European Parliament Year in Review', 'year-in-review', '2026-05-14')
+    ).toBe(true);
+  });
+
+  it('preserves date-range editorial headlines as non-generic', () => {
+    // `EP Week Ahead: 19–22 May 2026` is editorial content — it specifies
+    // the reporting window. Only *single-date* qualifiers (` · YYYY-MM-DD`,
+    // `(May 2026)`) are stripped before the category-noun comparison.
+    expect(
+      isGenericHeading('EP Week Ahead: 19–22 May 2026', 'week-ahead', '2026-05-15')
+    ).toBe(false);
+    expect(
+      isGenericHeading('EU Parliament Committee Activity, 6–13 May 2026', 'committee-reports', '2026-05-13')
+    ).toBe(false);
+    expect(
+      isGenericHeading('Breaking News: EP April 2026 Plenary Outcomes', 'breaking', '2026-05-15')
+    ).toBe(false);
+  });
+
+  it('rejects bare institutional self-references (Round 3 fix)', () => {
+    // Live-site regression: executive briefs occasionally author the H1
+    // as the publisher / institution name alone — `# EU Parliament`,
+    // `# Hack23 AB`, `# Executive Brief`. These carry no editorial
+    // information and would produce pathological `<title>EU Parliament`
+    // strings if surfaced. Catch-all for the 14 known bare forms.
+    expect(isGenericHeading('EU Parliament', 'breaking', '2026-05-16')).toBe(true);
+    expect(isGenericHeading('European Parliament', 'committee-reports', '2026-05-15')).toBe(true);
+    expect(isGenericHeading('The European Parliament', 'motions', '2026-05-15')).toBe(true);
+    expect(isGenericHeading('EP', 'breaking', '2026-05-16')).toBe(true);
+    expect(isGenericHeading('EP10', 'term-outlook', '2026-05-16')).toBe(true);
+    expect(isGenericHeading('Hack23', 'breaking', '2026-05-16')).toBe(true);
+    expect(isGenericHeading('Hack23 AB', 'breaking', '2026-05-16')).toBe(true);
+    expect(isGenericHeading('Executive Brief', 'breaking', '2026-05-16')).toBe(true);
+    expect(isGenericHeading('Intelligence Brief', 'breaking', '2026-05-16')).toBe(true);
+    expect(isGenericHeading('Briefing', 'breaking', '2026-05-16')).toBe(true);
+    // With trailing single-date qualifier — still rejected.
+    expect(isGenericHeading('EU Parliament — 2026-05-15', 'breaking', '2026-05-15')).toBe(true);
+    expect(isGenericHeading('Hack23 AB · 2026-05-15', 'breaking', '2026-05-15')).toBe(true);
+    // BUT: institutional name + editorial qualifier IS editorial. The
+    // `isBareInstitutionalHeading` gate is overridden by per-articleType
+    // category-noun matching for slugged forms, and any trailing
+    // editorial content escapes the bare set entirely.
+    expect(isGenericHeading('EU Parliament Adopts AI Act Amendments', 'breaking', '2026-05-15')).toBe(false);
+    expect(isGenericHeading('European Parliament Plenary: April Outcomes', 'breaking', '2026-05-15')).toBe(false);
+  });
+});
+
+describe('extractFirstSentence (Round 3 fix)', () => {
+  it('returns short paragraphs unchanged', () => {
+    expect(extractFirstSentence('EP10 plenary held in Strasbourg.')).toBe(
+      'EP10 plenary held in Strasbourg.'
+    );
+    expect(extractFirstSentence('')).toBe('');
+  });
+
+  it('extracts the first complete sentence past the soft-min', () => {
+    // First sentence is past the 60-char soft-min and shorter than the
+    // 140-char hard cap — return it as-is.
+    const para =
+      'The European Parliament adopted three landmark legislative texts in April. Coalitions held on AI Act amendments.';
+    expect(extractFirstSentence(para)).toBe(
+      'The European Parliament adopted three landmark legislative texts in April.'
+    );
+  });
+
+  it('skips common abbreviations that contain a period', () => {
+    // `e.g.` and `Q1.` must not terminate the sentence — search continues
+    // to the real terminator.
+    const para =
+      'The Q1. plenary calendar (e.g. April 28–30) sets the legislative ceiling for the EP10 mid-term. Coalitions held.';
+    expect(extractFirstSentence(para)).toBe(
+      'The Q1. plenary calendar (e.g. April 28–30) sets the legislative ceiling for the EP10 mid-term.'
+    );
+  });
+
+  it('skips all-caps single-letter initials (U.S., E.U.)', () => {
+    const para =
+      'The E.U. Council formally adopted the directive on 14 May 2026, marking a structural shift. Implementation begins.';
+    expect(extractFirstSentence(para)).toBe(
+      'The E.U. Council formally adopted the directive on 14 May 2026, marking a structural shift.'
+    );
+  });
+
+  it('falls back to original paragraph when no terminator fits the window', () => {
+    // No terminator in the 60-char→TITLE_MAX_LENGTH*1.5 window — return
+    // the original so downstream truncateTitle can clause-break it cleanly.
+    const para =
+      'The European Parliament continues a sustained legislative cadence across the April 2026 Strasbourg plenary with coalition dynamics that show EPP-S&D consensus on banking-union files and a sharper split on AI Act amendments which will surface in May and June plenaries with regulatory tightening anticipated across digital and environmental policy clusters';
+    const result = extractFirstSentence(para);
+    expect(result).toBe(para);
+  });
+
+  it('produces grammatically complete titles when fed through truncateTitle', () => {
+    const para =
+      'The EP10 mid-term marks a structural shift in EU economic governance. Subsequent paragraphs cover banking union and AI Act details.';
+    const sentence = extractFirstSentence(para);
+    const title = truncateTitle(sentence);
+    // No mid-clause ellipsis — title ends at a sentence boundary.
+    expect(title.endsWith('…')).toBe(false);
+    expect(title).toContain('EP10 mid-term');
   });
 });
 
@@ -544,8 +698,12 @@ describe('resolveArticleMetadata — priority ladder', () => {
     for (const lang of ALL_LANGUAGES) {
       const entry = Object.getOwnPropertyDescriptor(result, lang)?.value;
       expect(entry.title.length).toBeGreaterThan(5);
-      expect(entry.description.length).toBeGreaterThanOrEqual(120);
-      expect(entry.description).toContain('2026-04-20');
+      // Clean prose ledes ≥ 100 chars are now preserved verbatim (no
+      // date-padding boilerplate). The fixture lede is 103 chars; the
+      // assertion floor is set just below it so the test asserts the
+      // new "no enrichment when description already substantive"
+      // contract rather than the old "always pad to 120+" behaviour.
+      expect(entry.description.length).toBeGreaterThanOrEqual(100);
       expect(entry.keywords.length).toBeGreaterThan(3);
     }
   });
@@ -701,6 +859,28 @@ describe('resolveArticleMetadata — priority ladder', () => {
     expect(en.description.length).toBeLessThanOrEqual(301);
   });
 
+  it('never leaks internal run-ids or "analysis run" boilerplate into <meta description>', () => {
+    // Live-site regression (2026-05-16): short ledes triggered the
+    // enrichment path which emitted strings like
+    //   "Published 2026-05-16 · analysis run breaking-run255-1778894853, with source-linked …"
+    // Run-ids are internal artefact identifiers and must never reach
+    // user-facing SEO snippets. Drift-guarded here across all 14 languages.
+    const result = resolveArticleMetadata({
+      articleType: 'breaking',
+      date: '2026-05-16',
+      markdown: '# Breaking — 2026-05-16\n\nShort lede.',
+      manifest: { runId: 'breaking-run255-1778894853' },
+    });
+    for (const lang of ALL_LANGUAGES) {
+      const entry = Object.getOwnPropertyDescriptor(result, lang)?.value;
+      expect(entry.description).not.toMatch(/analysis run/i);
+      expect(entry.description).not.toMatch(/analyskörning|analysekørsel|analysekjøring|analyysiajo|Analyselauf|cycle d.analyse|ejecución de análisis|analyserun|تشغيل التحليل|הרצת ניתוח|分析実行|분석 실행|分析运行/);
+      expect(entry.description).not.toMatch(/breaking-run\d+-\d{8,}/);
+      expect(entry.title).not.toMatch(/analysis run/i);
+      expect(entry.title).not.toMatch(/breaking-run\d+-\d{8,}/);
+    }
+  });
+
   it('covers all 14 languages with non-empty title+description in every tier', () => {
     const result = resolveArticleMetadata({
       articleType: 'motions',
@@ -710,7 +890,13 @@ describe('resolveArticleMetadata — priority ladder', () => {
     for (const lang of ALL_LANGUAGES) {
       const entry = Object.getOwnPropertyDescriptor(result, lang)?.value;
       expect(entry.title.length).toBeGreaterThan(5);
-      expect(entry.description.length).toBeGreaterThanOrEqual(100);
+      // Pure template-fallback case (no editorial content available).
+      // The description after composeContextualDescription enrichment is
+      // template-subtitle + date suffix + reader hint. Floor lowered to
+      // 60 chars because date/run-id padding was removed from the
+      // enrichment path; the reader hint alone is ~50-90 chars across
+      // the 14 supported languages.
+      expect(entry.description.length).toBeGreaterThanOrEqual(60);
       expect(entry.keywords.length).toBeGreaterThan(3);
     }
   });
@@ -791,7 +977,7 @@ describe('extractArtifactHighlight', () => {
     expect(result.summary).toContain('plenary outcome');
   });
 
-  it('extracts the `## 60-Second Read` paragraph as the summary even when the H1 is the structural label', () => {
+  it('returns an empty headline (with summary) when the H1 strips to a category-noun', () => {
     fs.writeFileSync(
       path.join(tmpRun, 'executive-brief.md'),
       [
@@ -809,13 +995,16 @@ describe('extractArtifactHighlight', () => {
     );
     const result = extractArtifactHighlight(tmpRun, 'week-in-review', '2026-05-09');
     expect(result).not.toBeNull();
-    // Headline is recovered from the artefact-category H1 by stripping
-    // the `Executive Brief — ` prefix — leaving the editorial-topic core
-    // `EU Parliament Week in Review`. This is far better than falling
-    // through to the localized template fallback.
-    expect(result.headline).toBe('EU Parliament Week in Review');
-    // Summary comes from the `## 60-Second Read` paragraph, not from the
-    // `**Reporting Window:**` preamble.
+    // The artefact H1 (`Executive Brief — EU Parliament Week in Review`)
+    // strips to the bare category-noun `EU Parliament Week in Review`,
+    // which `isGenericHeading` now flags as boilerplate per the
+    // category-noun whitelist (see CATEGORY_NOUN_CORES). The resolver
+    // therefore declines to use it as a `<title>` and returns the
+    // summary only — letting the upstream caller derive a prose-based
+    // headline from the lede instead of repeating the article category.
+    expect(result.headline).toBe('');
+    // Summary still comes from the `## 60-Second Read` paragraph, not
+    // from the `**Reporting Window:**` preamble.
     expect(result.summary).toContain('European Parliament');
     expect(result.summary).toContain('April 2026 plenary sessions');
     expect(result.summary).not.toContain('Reporting Window');

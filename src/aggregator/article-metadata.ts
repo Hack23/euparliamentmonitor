@@ -150,8 +150,39 @@ const DESCRIPTION_MAX_LENGTH = 180;
 /** Target minimum `<meta description>` length before we append context. */
 const DESCRIPTION_MIN_LENGTH = 140;
 
+/**
+ * Length below which a raw description is considered too short to stand
+ * on its own and gets enriched with date/context. Independent from
+ * {@link DESCRIPTION_MIN_LENGTH} (which controls sentence-boundary
+ * truncation behaviour). Set lower than DESCRIPTION_MIN_LENGTH so a
+ * clean 100-140 char prose lede is preserved verbatim instead of being
+ * padded with date/context boilerplate.
+ */
+const ENRICHMENT_TRIGGER_LENGTH = 100;
+
 /** Maximum `<title>` length — anything longer is truncated with an ellipsis. */
 const TITLE_MAX_LENGTH = 140;
+
+/**
+ * Soft target for headline-style titles produced as a fallback from
+ * BLUF/lede prose. When the candidate exceeds `TITLE_MAX_LENGTH`, the
+ * truncator first looks for a natural clause boundary
+ * (`.`, `:`, `—`, `;`) inside the `[HEADLINE_SOFT_MIN, TITLE_MAX_LENGTH]`
+ * window and breaks there instead of mid-clause-with-ellipsis. This
+ * turns a 137-character truncated prose paragraph into a complete
+ * journalistic clause, which scans much better in news cards and SERP
+ * snippets without sacrificing the keyword-rich opening.
+ */
+const HEADLINE_SOFT_MIN = 60;
+
+/**
+ * Punctuation marks that signal a natural clause boundary inside a
+ * BLUF / lede paragraph. Listed in preferred-break order: a colon or
+ * em-dash that introduces a list of consequences is the best break,
+ * full stops are next, and semicolons last. Single ASCII space is
+ * always a fallback boundary handled separately.
+ */
+const HEADLINE_CLAUSE_BOUNDARIES: readonly string[] = [': ', ' — ', ' – ', '. ', '; '];
 
 /** Localized labels used to enrich short or duplicate-prone meta descriptions. */
 const SEO_CONTEXT_LABELS: LanguageMap<{
@@ -347,6 +378,8 @@ const ARTIFACT_CATEGORY_PREFIXES: readonly string[] = [
   'economic context',
   'executive brief',
   'executive briefing',
+  'executive intelligence brief',
+  'executive intelligence briefing',
   'executive summary',
   'forward indicators',
   'historical baseline',
@@ -684,11 +717,139 @@ export function truncateDescription(text: string): string {
  */
 export function truncateTitle(text: string): string {
   if (text.length <= TITLE_MAX_LENGTH) return text;
+  // Prefer ending at a natural clause boundary inside the
+  // `[HEADLINE_SOFT_MIN, TITLE_MAX_LENGTH]` window so the truncated
+  // title reads as a complete journalistic clause rather than a
+  // mid-sentence prose snippet. Iterate boundaries in priority order;
+  // when a candidate falls in the window, break there and drop the
+  // ellipsis since the result is grammatically complete.
+  const search = text.slice(0, TITLE_MAX_LENGTH);
+  for (const boundary of HEADLINE_CLAUSE_BOUNDARIES) {
+    const idx = search.lastIndexOf(boundary);
+    if (idx >= HEADLINE_SOFT_MIN) {
+      const clean = stripTrailingStopWordsAndPunctuation(text.slice(0, idx));
+      if (clean.length >= HEADLINE_SOFT_MIN) return clean;
+    }
+  }
   const cut = text.slice(0, TITLE_MAX_LENGTH - 1);
   const lastSpace = cut.lastIndexOf(' ');
   let safe = lastSpace > TITLE_MAX_LENGTH - 40 ? cut.slice(0, lastSpace) : cut;
   safe = stripTrailingStopWordsAndPunctuation(safe);
   return `${safe}…`;
+}
+
+/**
+ * Return the first complete sentence from a prose paragraph, suitable
+ * for use as a fallback editorial title when the artefact H1 is
+ * categorical (e.g. `# EU Parliament Committee Reports`) and the
+ * resolver must derive `<title>` from the BLUF / lede summary instead.
+ *
+ * A "sentence" is the prefix up to the first sentence-terminator
+ * (`. `, `! `, `? `, `; `) inside the `[HEADLINE_SOFT_MIN,
+ * TITLE_MAX_LENGTH]` window. Common abbreviations (`Q1.`, `Q2.`,
+ * `H1.`, `H2.`, `Mr.`, `Mrs.`, `e.g.`, `i.e.`, `vs.`) are skipped
+ * so they don't terminate the sentence prematurely. When no
+ * acceptable terminator exists in the window, returns the entire
+ * input unchanged so {@link truncateTitle} can handle clause-boundary
+ * truncation downstream.
+ *
+ * This produces journalistically clean titles even for the
+ * propositions / committee-reports cases where the BLUF paragraph
+ * opens with a single long sentence that exceeds 140 chars —
+ * `truncateTitle` then breaks on a clause boundary, and the result is
+ * still grammatical because the input was a sentence prefix rather
+ * than an arbitrary paragraph slice.
+ *
+ * @param paragraph - Prose paragraph (post-{@link stripInlineMarkdown})
+ * @returns First sentence, or the original paragraph when none can be
+ *   identified within the soft-min window
+ */
+export function extractFirstSentence(paragraph: string): string {
+  const trimmed = paragraph.trim();
+  if (trimmed.length <= HEADLINE_SOFT_MIN) return trimmed;
+  // Limit terminator search to TITLE_MAX_LENGTH * 1.5 — beyond that
+  // we'd rather let truncateTitle clause-truncate the original
+  // paragraph than return a too-long first sentence.
+  const window = trimmed.slice(0, Math.floor(TITLE_MAX_LENGTH * 1.5));
+  // Skip common abbreviations that contain a period inside a token
+  // (Q1., e.g., i.e., vs., Mr., Mrs., No., U.S., E.U.). We walk
+  // candidate terminator positions; a position counts only when the
+  // char before it is *not* part of a known abbreviation token.
+  const terminators = ['. ', '! ', '? ', '; '];
+  let bestIdx = -1;
+  for (const t of terminators) {
+    let from = HEADLINE_SOFT_MIN;
+    let idx: number;
+    while ((idx = window.indexOf(t, from)) !== -1) {
+      if (!isAbbreviationBoundary(window, idx) && idx < window.length - 1) {
+        if (bestIdx === -1 || idx < bestIdx) bestIdx = idx;
+        break;
+      }
+      from = idx + t.length;
+    }
+  }
+  if (bestIdx >= HEADLINE_SOFT_MIN) {
+    return trimmed.slice(0, bestIdx + 1).trim();
+  }
+  return trimmed;
+}
+
+/**
+ * Abbreviation tokens (lowercase, including the trailing period) that
+ * should NOT count as sentence terminators when {@link extractFirstSentence}
+ * scans for a `.` boundary. Single-letter all-caps initials
+ * (`U.S.`, `E.U.`) are handled by the all-caps-initial check below.
+ */
+const ABBREVIATION_PREFIXES: readonly string[] = [
+  'mr.',
+  'mrs.',
+  'ms.',
+  'dr.',
+  'st.',
+  'no.',
+  'vs.',
+  'e.g.',
+  'i.e.',
+  'etc.',
+  'cf.',
+  'al.',
+  // EP fiscal-year and quarter shorthand: Q1., Q2., Q3., Q4., H1., H2., FY.
+  'q1.',
+  'q2.',
+  'q3.',
+  'q4.',
+  'h1.',
+  'h2.',
+  'fy.',
+];
+
+/**
+ * Check whether the character preceding the `.` at `idx` in `text`
+ * indicates an abbreviation (so the `.` is not a sentence terminator).
+ * Matches the {@link ABBREVIATION_PREFIXES} table and the all-caps
+ * single-letter initials pattern (`U.S.`, `E.U.`).
+ *
+ * @param text - Source text (lowercased segment + original mixed-case)
+ * @param idx - Index of the `.` character in `text`
+ * @returns `true` when the period at `idx` is part of an abbreviation
+ */
+function isAbbreviationBoundary(text: string, idx: number): boolean {
+  // All-caps single-letter initial like `U.S.` or `E.U.` — char at
+  // idx-1 is a capital letter, and idx-2 is either start of string,
+  // whitespace, or another single-letter+period pair.
+  if (idx >= 1) {
+    const prev = text.charCodeAt(idx - 1);
+    const isUpperLetter = prev >= 65 && prev <= 90;
+    if (isUpperLetter && (idx === 1 || text[idx - 2] === ' ' || text[idx - 2] === '.')) {
+      return true;
+    }
+  }
+  // ABBREVIATION_PREFIXES lookup — scan backwards from `.` to find the
+  // start of the word, then compare lowercased.
+  let start = idx;
+  while (start > 0 && /[a-zA-Z]/u.test(text[start - 1] ?? '')) start--;
+  const token = text.slice(start, idx + 1).toLowerCase();
+  return ABBREVIATION_PREFIXES.includes(token);
 }
 
 /**
@@ -712,15 +873,57 @@ export function extractFirstH1(markdown: string): string {
 }
 
 /**
- * Walk every line of the Markdown source and return the first line that
- * survives {@link shouldSkipDescriptionLine}. Inline Markdown decorations
- * are stripped and the result is truncated to fit `<meta description>`.
+ * Internal paragraph-collector state shared between
+ * {@link extractStrongProseLine} and {@link extractLedeAfterHeading}.
+ * Both walk Markdown line-by-line and concatenate consecutive prose
+ * lines into a single description-sized paragraph, terminating on a
+ * blank line, a skip-line, or the cap.
+ */
+interface ParagraphBuffer {
+  lines: string[];
+  byteCount: number;
+}
+
+/**
+ * Process one Markdown line against the in-progress paragraph buffer.
+ * Returns the desired loop control: `'continue'` (skip silently),
+ * `'break'` (paragraph terminated — emit), or `'collected'` (line was
+ * pushed into the buffer; caller checks the cap separately).
+ *
+ * Factored out of the two extractors to reduce cognitive complexity.
+ *
+ * @param line - Trimmed Markdown line
+ * @param buf - In-progress paragraph buffer (mutated on `'collected'`)
+ * @returns Loop control directive
+ */
+function collectProseLine(line: string, buf: ParagraphBuffer): 'continue' | 'break' | 'collected' {
+  const hasBuffer = buf.lines.length > 0;
+  if (hasBuffer && line === '') return 'break';
+  if (line === '') return 'continue';
+  if (shouldSkipDescriptionLine(line)) return hasBuffer ? 'break' : 'continue';
+  const plain = stripLeadingProseLabel(stripInlineMarkdown(line));
+  if (!hasBuffer && plain.length < 40) return 'continue';
+  buf.lines.push(plain);
+  buf.byteCount += plain.length + 1;
+  return 'collected';
+}
+
+/**
+ * Walk every line of the Markdown source and return the first paragraph
+ * that survives {@link shouldSkipDescriptionLine}. Consecutive non-blank
+ * prose lines are joined with a single space so hard-wrapped ledes
+ * (column-95 conventional wrap) produce a clean 140-180-character
+ * description rather than just the first 60-90-char line.
+ *
+ * Inline Markdown decorations are stripped and the result is truncated
+ * to fit `<meta description>`.
  *
  * @param markdown - Markdown source
  * @returns Prose description, or empty string when nothing qualifies
  */
 export function extractStrongProseLine(markdown: string): string {
   let inFence = false;
+  const buf: ParagraphBuffer = { lines: [], byteCount: 0 };
   for (const raw of markdown.split('\n')) {
     const line = raw.trim();
     if (line.startsWith('```') || line.startsWith('~~~')) {
@@ -728,21 +931,20 @@ export function extractStrongProseLine(markdown: string): string {
       continue;
     }
     if (inFence) continue;
-    if (shouldSkipDescriptionLine(line)) continue;
-    const plain = stripLeadingProseLabel(stripInlineMarkdown(line));
-    if (plain.length < 40) continue;
-    return truncateDescription(plain);
+    const directive = collectProseLine(line, buf);
+    if (directive === 'continue') continue;
+    if (directive === 'break') break;
+    if (buf.byteCount >= DESCRIPTION_MAX_LENGTH) break;
   }
-  return '';
+  if (buf.lines.length === 0) return '';
+  return truncateDescription(buf.lines.join(' '));
 }
 
 /**
  * Walk the body of an editorial artefact and, when it contains a `## …`
  * heading whose text matches one of `EDITORIAL_LEDE_HEADINGS`,
- * return the first prose paragraph that follows that heading. This is
- * the journalist's lede ("60-Second Read", "TL;DR", "BLUF — …", …) and
- * is exactly the sentence that should power `<meta description>` and
- * the OG/Twitter description fields.
+ * return the first prose paragraph that follows that heading. Consecutive
+ * non-blank lines are paragraph-joined (see {@link extractStrongProseLine}).
  *
  * Returns the empty string when no lede heading is found or no qualifying
  * prose follows it. Inline Markdown is stripped and the result is
@@ -751,30 +953,94 @@ export function extractStrongProseLine(markdown: string): string {
  * @param markdown - Editorial artefact source
  * @returns Lede paragraph, or empty string when none matched
  */
-export function extractLedeAfterHeading(markdown: string): string {
-  const lines = markdown.split('\n');
-  let inLede = false;
-  let inFence = false;
-  for (let i = 0; i < lines.length; i++) {
-    const raw = lines[i] ?? '';
-    const line = raw.trim();
-    if (line.startsWith('```') || line.startsWith('~~~')) {
-      inFence = !inFence;
-      continue;
-    }
-    if (inFence) continue;
-    if (/^#{2,3}\s+/.test(line)) {
-      const headingText = normaliseHeadingText(line.replace(/^#{2,3}\s+/, ''));
-      inLede = EDITORIAL_LEDE_HEADINGS.some((h) => isLedeHeadingMatch(headingText, h));
-      continue;
-    }
-    if (!inLede) continue;
-    if (shouldSkipDescriptionLine(line)) continue;
-    const plain = stripLeadingProseLabel(stripInlineMarkdown(line));
-    if (plain.length < 40) continue;
-    return truncateDescription(plain);
+/**
+ * Loop-state directive emitted by {@link advanceLedeState} for one
+ * line of a `## 60-Second Read`-style block. `'enter'` and `'leave'`
+ * adjust the in-lede flag; `'collect'` defers to {@link collectProseLine};
+ * `'skip-fence'` toggles the fence flag; `'break-buffer-has-content'`
+ * stops the walk because we hit the next heading mid-paragraph.
+ */
+type LedeDirective =
+  | { kind: 'fence' }
+  | { kind: 'heading'; inLede: boolean }
+  | { kind: 'collect' }
+  | { kind: 'pause' };
+
+/**
+ * Classify one Markdown line for the {@link extractLedeAfterHeading}
+ * walker. The returned directive is then applied to walker state by
+ * {@link applyLedeDirective}.
+ *
+ * @param line - Trimmed Markdown line
+ * @param isInFence - True when the previous line opened a fenced block
+ * @param inLede - True when the previous line was inside a lede heading block
+ * @param hasBuffered - True when at least one prose line has been collected
+ * @returns Directive describing how the walker should treat this line
+ */
+function classifyLedeLine(
+  line: string,
+  isInFence: boolean,
+  inLede: boolean,
+  hasBuffered: boolean
+): LedeDirective {
+  if (line.startsWith('```') || line.startsWith('~~~')) return { kind: 'fence' };
+  if (isInFence) return { kind: 'pause' };
+  if (/^#{2,3}\s+/.test(line)) {
+    if (hasBuffered) return { kind: 'pause' };
+    const headingText = normaliseHeadingText(line.replace(/^#{2,3}\s+/, ''));
+    const match = EDITORIAL_LEDE_HEADINGS.some((h) => isLedeHeadingMatch(headingText, h));
+    return { kind: 'heading', inLede: match };
   }
-  return '';
+  return inLede ? { kind: 'collect' } : { kind: 'pause' };
+}
+
+/**
+ * Apply one directive emitted by {@link classifyLedeLine} to the walk
+ * state. Returns `'break'` to stop the walk, `'continue'` to skip to
+ * the next line, or `'collect'` when the caller should now run
+ * {@link collectProseLine}. Mutates `state` for fence/in-lede toggles.
+ *
+ * @param directive - Classification of the current line
+ * @param state - Walk state (mutated in place)
+ * @param state.inFence - True when the current line is inside a fenced block
+ * @param state.inLede - True when the current line is inside a lede heading block
+ * @param hasBuffered - Whether any prose has already been collected
+ * @returns Loop control directive
+ */
+function applyLedeDirective(
+  directive: LedeDirective,
+  state: { inFence: boolean; inLede: boolean },
+  hasBuffered: boolean
+): 'break' | 'continue' | 'collect' {
+  if (directive.kind === 'fence') {
+    state.inFence = !state.inFence;
+    return 'continue';
+  }
+  if (directive.kind === 'heading') {
+    if (hasBuffered) return 'break';
+    state.inLede = directive.inLede;
+    return 'continue';
+  }
+  if (directive.kind === 'pause') return 'continue';
+  return 'collect';
+}
+
+export function extractLedeAfterHeading(markdown: string): string {
+  const state = { inFence: false, inLede: false };
+  const buf: ParagraphBuffer = { lines: [], byteCount: 0 };
+  for (const raw of markdown.split('\n')) {
+    const line = raw.trim();
+    const directive = classifyLedeLine(line, state.inFence, state.inLede, buf.lines.length > 0);
+    const action = applyLedeDirective(directive, state, buf.lines.length > 0);
+    if (action === 'break') break;
+    if (action === 'continue') continue;
+    const collect = collectProseLine(line, buf);
+    if (collect === 'continue') continue;
+    if (collect === 'break') break;
+    if (buf.byteCount >= DESCRIPTION_MAX_LENGTH) break;
+  }
+  if (buf.lines.length === 0) return '';
+  return truncateDescription(buf.lines.join(' '));
 }
 
 /**
@@ -995,7 +1261,157 @@ export function isGenericHeading(heading: string, articleType: string, date: str
     return true;
   }
 
+  if (isCategoryNounHeading(normalized, articleType)) return true;
+
+  if (isBareInstitutionalHeading(normalized)) return true;
+
   return false;
+}
+
+/**
+ * Lower-cased institutional self-references that an executive-brief
+ * authoring template sometimes emits as the H1 when the agent forgot to
+ * substitute a real headline. They identify the publisher / institution
+ * but carry **zero editorial information** — they would produce
+ * pathological `<title>EU Parliament</title>` strings if surfaced.
+ * Matched after whitespace collapse + lowercase, with any trailing
+ * punctuation / single-date qualifier stripped so `EU Parliament ·
+ * 2026-05-15` and `Hack23 AB —` both resolve here. Date *ranges*
+ * (`(May 2026)`, `: 19–22 May 2026`) are preserved as editorial
+ * content, matching the {@link isCategoryNounHeading} contract.
+ */
+const BARE_INSTITUTIONAL_HEADINGS: readonly string[] = [
+  'eu parliament',
+  'european parliament',
+  'the european parliament',
+  'ep',
+  'ep10',
+  'ep11',
+  'hack23',
+  'hack23 ab',
+  'eu parliament monitor',
+  'european parliament monitor',
+  'executive brief',
+  'briefing',
+  'intelligence brief',
+  'intelligence briefing',
+];
+
+/**
+ * Return `true` when the heading is one of {@link BARE_INSTITUTIONAL_HEADINGS}
+ * — an institutional self-reference with no editorial content. Strips a
+ * trailing single-date qualifier first so `EU Parliament — 2026-05-15`
+ * and `Hack23 AB · 2026-05-15` are caught. Date ranges and any token
+ * after the institutional noun are preserved (so
+ * `EU Parliament Week Ahead: 19–22 May 2026` is *not* flagged here —
+ * that path is owned by {@link isCategoryNounHeading} for `week-ahead`).
+ *
+ * @param normalized - Heading text after whitespace collapse
+ * @returns `true` when the heading is bare institutional boilerplate
+ */
+function isBareInstitutionalHeading(normalized: string): boolean {
+  let core = normalized.toLowerCase();
+  // Same single-date / parenthetical stripping as isCategoryNounHeading
+  // so the same heading shape is recognized via either gate.
+  core = core.replace(/\s*[·:—–-]\s*\d{4}-\d{2}-\d{2}\s*$/u, '');
+  core = core.replace(/\s*\(\s*[a-z]{3,9}\s+\d{4}\s*\)\s*$/u, '');
+  core = core.replace(/\s*\(\s*\d{4}\s*\)\s*$/u, '');
+  core = core.replace(/[\s\-—–:·.]+$/u, '').trim();
+  return BARE_INSTITUTIONAL_HEADINGS.includes(core);
+}
+
+/**
+ * Curated category-noun whitelist per article-type slug. These are the
+ * boring "EU Parliament &lt;Type&gt;" / "EP10 &lt;Type&gt;" headings that the
+ * executive-brief authoring conventions allow as decorative H1s but
+ * which carry **no editorial information** — they merely restate the
+ * article category. When such a heading reaches the metadata resolver
+ * it must be flagged generic so the resolver falls through to the
+ * BLUF / lede summary instead of using the category noun as `<title>`.
+ *
+ * Keys are slugs (`article-type` form). Values are lowercase category
+ * cores, matched after stripping institutional prefixes
+ * (`eu parliament `, `european parliament `, `ep `, `ep10 `, `ep11 `)
+ * and trailing date qualifiers (`· 2026-05-15`, `— 2026-05-15`,
+ * `(May 2026)`, `: 19–22 May 2026` is **kept** because date ranges
+ * carry editorial info — only single-date suffixes are stripped).
+ */
+const CATEGORY_NOUN_CORES: Readonly<Record<string, readonly string[]>> = {
+  breaking: ['breaking', 'breaking news'],
+  'week-in-review': ['week in review'],
+  'week-ahead': ['week ahead'],
+  'month-in-review': ['month in review'],
+  'month-ahead': ['month ahead'],
+  'quarter-in-review': ['quarter in review'],
+  'quarter-ahead': ['quarter ahead'],
+  'year-in-review': ['year in review'],
+  'year-ahead': ['year ahead'],
+  'committee-reports': [
+    'committee reports',
+    'committee activity',
+    'committee activity report',
+    'committee activity reports',
+  ],
+  motions: [
+    'motions',
+    'motions and adopted texts',
+    'plenary votes and resolutions',
+    'plenary votes resolutions',
+  ],
+  propositions: ['propositions', 'legislative propositions', 'legislative procedures'],
+  'election-cycle': ['election cycle'],
+  'term-outlook': ['term outlook'],
+};
+
+/**
+ * Return `true` when the heading is a bare category-noun string for the
+ * supplied `articleType` slug, regardless of the institutional prefix
+ * (`EU Parliament `, `European Parliament `, `EP `, `EP10 `, `EP11 `).
+ * Strips a trailing single-date qualifier (` · YYYY-MM-DD`,
+ * ` — YYYY-MM-DD`, `(May 2026)`, `(2026)`) before matching; date-range
+ * qualifiers (`: 19–22 May 2026`) carry editorial information and are
+ * NOT stripped, so headings like `EP Week Ahead: 19–22 May 2026` are
+ * preserved as legitimate editorial headlines.
+ *
+ * @param normalized - Heading text after whitespace collapse
+ * @param articleType - Article-type slug
+ * @returns `true` when the heading is category-noun boilerplate
+ */
+function isCategoryNounHeading(normalized: string, articleType: string): boolean {
+  const cores = CATEGORY_NOUN_CORES[articleType];
+  if (!cores || cores.length === 0) return false;
+
+  let core = normalized.toLowerCase();
+
+  // Strip institutional prefix (longest-first match).
+  const prefixes = [
+    "the european parliament's ",
+    'european parliament ',
+    'eu parliament ',
+    'ep11 ',
+    'ep10 ',
+    'ep ',
+  ];
+  for (const p of prefixes) {
+    if (core.startsWith(p)) {
+      core = core.slice(p.length);
+      break;
+    }
+  }
+
+  // Strip trailing single-date qualifier. We deliberately do NOT strip
+  // date *ranges* (`19–22 may 2026`, `28-30 april 2026`) because those
+  // identify a specific reporting window — that IS editorial content.
+  // Patterns stripped:
+  //   ` · 2026-05-15`, ` — 2026-05-15`, ` - 2026-05-15`, `: 2026-05-15`
+  //   ` (may 2026)`, ` (2026)`
+  core = core.replace(/\s*[·:—–-]\s*\d{4}-\d{2}-\d{2}\s*$/u, '');
+  core = core.replace(/\s*\(\s*[a-z]{3,9}\s+\d{4}\s*\)\s*$/u, '');
+  core = core.replace(/\s*\(\s*\d{4}\s*\)\s*$/u, '');
+  // Trailing punctuation residue.
+  core = core.replace(/[\s\-—–:·]+$/u, '').trim();
+
+  return cores.includes(core);
 }
 
 /**
@@ -1538,7 +1954,14 @@ function resolveEditorialContent(opts: ResolveMetadataOptions): {
 
   const summary = artefactSummary || aggregatedSummary;
   if (summary) {
-    return { headline: truncateTitle(summary), summary };
+    // The H1 is generic (category-noun, bare-institutional, or
+    // template-style) so we have to derive `<title>` from the BLUF/
+    // lede paragraph. Extract the first complete sentence so the
+    // resulting title is grammatically self-contained — falling back
+    // to clause-boundary truncation downstream when the sentence
+    // itself overruns TITLE_MAX_LENGTH.
+    const firstSentence = extractFirstSentence(summary);
+    return { headline: truncateTitle(firstSentence), summary };
   }
 
   return { headline: '', summary: '' };
@@ -1575,9 +1998,21 @@ function composeContextualTitle(
 }
 
 /**
- * Add localized article context, date, run id and evidence language to short
- * meta descriptions. This turns generic type-level subtitles into
+ * Add localized article context to short or duplicate-prone meta
+ * descriptions. This turns generic type-level subtitles into
  * page-specific descriptions suitable for search snippets.
+ *
+ * Internal artefact identifiers (`runId`) are deliberately NOT included
+ * in the description: they leak into Google snippets as opaque tokens
+ * like `breaking-run255-1778894853` and provide no value to readers.
+ * The verbose `evidence` boilerplate (`with source-linked voting,
+ * committee and legislative intelligence`) is also dropped — it pads
+ * bytes without adding editorial information and was the dominant
+ * source of mid-sentence ellipsis truncation observed in production.
+ *
+ * The reader-hint suffix (`labels.reader`) is preserved because it
+ * supplies a stable localized intent signal even when the lede is
+ * very short.
  *
  * @param lang - Target language code
  * @param baseDescription - Best description from manifest/editorial/template
@@ -1585,7 +2020,7 @@ function composeContextualTitle(
  * @param editorial.headline - Artifact-derived headline
  * @param editorial.summary - Artifact-derived summary
  * @param date - ISO article date
- * @param runId - Optional analysis run id
+ * @param _runId - Reserved (formerly emitted; no longer used)
  * @returns Description in the target language context, capped for SEO snippets
  */
 function composeContextualDescription(
@@ -1593,12 +2028,11 @@ function composeContextualDescription(
   baseDescription: string,
   editorial: { readonly headline: string; readonly summary: string },
   date: string,
-  runId: string
+  _runId: string
 ): string {
   const labels = getLocalizedString(SEO_CONTEXT_LABELS, lang);
   const parts = [baseDescription.trim()];
-  const runPart = runId ? ` · ${labels.run} ${runId}` : '';
-  parts.push(`${labels.date} ${date}${runPart}, ${labels.evidence}`);
+  parts.push(`${labels.date} ${date}.`);
   const context = pickFirstNonEmpty([editorial.summary, editorial.headline]);
   if (context && !containsNormalized(parts[0] ?? '', context)) {
     parts.push(`${labels.context}: ${context}`);
@@ -1608,14 +2042,43 @@ function composeContextualDescription(
 }
 
 /**
- * Append a run qualifier to otherwise duplicate-prone fallback titles.
+ * Append a short run qualifier to otherwise duplicate-prone fallback
+ * titles. Sanitizes the raw `runId` (which is an internal artefact
+ * identifier of the shape `<slug>-run<N>[-<unix-ts>]`) so user-facing
+ * `<title>` strings never expose Unix timestamps or the full opaque
+ * token. Only the short ordinal `N` is retained.
+ *
+ * Examples:
+ * - `breaking-run255-1778894853` → `Run 255`
+ * - `committee-reports-run330-1778735854` → `Run 330`
+ * - `breaking-run-001` → `Run 001`
+ *
+ * When the runId does not match the canonical shape, the qualifier is
+ * omitted entirely rather than leak an unknown-format token into SEO
+ * surfaces.
  *
  * @param title - Base title
- * @param runId - Optional run id
- * @returns Title with run qualifier when available
+ * @param runId - Optional run id (sanitized before use)
+ * @returns Title with short run qualifier, or unchanged when sanitization fails
  */
 function withRunQualifier(title: string, runId: string): string {
-  return runId ? `${title} — Run ${runId}` : title;
+  if (!runId) return title;
+  // Walk segments backwards: find the last `run<digits>` token. The
+  // runId shape is `<slug>-run<N>[-<unix-ts>]` — we explicitly avoid a
+  // single regex with overlapping `\d+` groups, which the SonarJS
+  // unsafe-regex rule flags as catastrophic-backtracking-prone.
+  const segments = runId.split('-');
+  for (const seg of segments) {
+    const m = /^run(\d+)$/u.exec(seg);
+    if (m) return `${title} — Run ${m[1]}`;
+    const m2 = /^run$/u.exec(seg);
+    if (m2) {
+      const idx = segments.indexOf(seg);
+      const next = segments[idx + 1];
+      if (next && /^\d+$/u.test(next)) return `${title} — Run ${next}`;
+    }
+  }
+  return title;
 }
 
 /**
@@ -1794,8 +2257,7 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   ]);
 
   const description =
-    rawDescription.length >= DESCRIPTION_MIN_LENGTH &&
-    containsNormalized(rawDescription, input.date)
+    rawDescription.length >= ENRICHMENT_TRIGGER_LENGTH
       ? rawDescription
       : composeContextualDescription(
           input.lang,

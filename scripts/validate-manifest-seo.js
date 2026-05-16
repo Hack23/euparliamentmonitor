@@ -28,7 +28,11 @@
  *      `[DESCRIPTION_MIN_LENGTH, DESCRIPTION_MAX_LENGTH]`.
  *   5. **forbidden-prefix**  — title/description must not start with a
  *      Stage-B preamble label such as `Run:`, `Purpose:`, `BLUF:`, …
- *   6. **english-fallthrough** — when a non-English value equals the `en`
+ *   6. **leaky-runid**       — title/description must not contain
+ *      internal run-id tokens (`<slug>-run<N>-<unix-ts>`) or the
+ *      English jargon "analysis run". Added 2026-05 after a live-site
+ *      regression on https://euparliamentmonitor.com/news/.
+ *   7. **english-fallthrough** — when a non-English value equals the `en`
  *      value verbatim, `manifest.metadataFallback[<lang>] = "en"` must be
  *      declared so the static-site layer can surface a "pending
  *      translation" editorial note. Recorded as a violation when the
@@ -104,6 +108,36 @@ export const FORBIDDEN_PREFIXES = Object.freeze([
 ]);
 
 /**
+ * Forbidden substrings that must NEVER appear anywhere in an SEO surface,
+ * not just as a leading prefix. These are internal artefact identifiers
+ * and run-pipeline jargon that leak into search snippets if the
+ * description-enrichment path embeds them.
+ *
+ * Live-site regression (2026-05-16, https://euparliamentmonitor.com/news/):
+ * `<meta description>` contained strings like
+ *   "Published 2026-05-16 · analysis run breaking-run255-1778894853, with …"
+ * The fix in `src/aggregator/article-metadata.ts` removes the run-id and
+ * "analysis run" token from `composeContextualDescription`. This list
+ * is the drift-guard that fails CI if either ever returns.
+ *
+ * Matched case-insensitively as plain substrings. Run-id patterns are
+ * matched as regex below.
+ */
+export const FORBIDDEN_SUBSTRINGS = Object.freeze([
+  'analysis run',
+  'analyse run',
+]);
+
+/**
+ * Regex patterns that must not match anywhere in an SEO surface. These
+ * catch the canonical run-id shape `<slug>-run<N>-<unix-ts>` even when
+ * the surrounding label is missing or localized.
+ */
+export const FORBIDDEN_PATTERNS = Object.freeze([
+  /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu,
+]);
+
+/**
  * Identify the article slug from a manifest path under `analysis/daily/`.
  * @param {string} manifestPath - Absolute or repo-relative manifest path
  * @returns {{date: string, slug: string} | null}
@@ -173,6 +207,27 @@ export function detectForbiddenPrefix(value) {
   const head = value.trim().slice(0, 40).toLowerCase();
   for (const prefix of FORBIDDEN_PREFIXES) {
     if (head.startsWith(prefix)) return prefix;
+  }
+  return null;
+}
+
+/**
+ * Detect whether a value contains any forbidden substring or run-id
+ * regex pattern. Returns the first matching token for use in the
+ * violation message, or null when the value is clean.
+ *
+ * @param {string} value
+ * @returns {string | null} matching token, or null
+ */
+export function detectLeakyRunIdOrJargon(value) {
+  if (typeof value !== 'string') return null;
+  const lower = value.toLowerCase();
+  for (const token of FORBIDDEN_SUBSTRINGS) {
+    if (lower.includes(token)) return token;
+  }
+  for (const pattern of FORBIDDEN_PATTERNS) {
+    const m = pattern.exec(value);
+    if (m) return m[0];
   }
   return null;
 }
@@ -264,6 +319,15 @@ function validateLangMap(ctx) {
         lang,
         gate: 'forbidden-prefix',
         message: `${kind} for "${lang}" begins with reserved Stage-B label "${prefix}"`,
+      });
+    }
+    const leaked = detectLeakyRunIdOrJargon(value);
+    if (leaked) {
+      violations.push({
+        manifestPath: manifestRel,
+        lang,
+        gate: 'leaky-runid',
+        message: `${kind} for "${lang}" contains internal token "${leaked}" — run-ids and "analysis run" jargon must not leak into SEO surfaces`,
       });
     }
   }

@@ -1,7 +1,7 @@
 ---
-title: "European Parliament Breaking News"
-description: "The European Parliament enters May 2026 navigating an unprecedented convergence of legal accountability crises, digital regulatory enforcement battles, and institutional…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-09", "run breaking-run-1778332692", "European", "Parliament", "News", "enters", "navigating", "unprecedented", "convergence", "legal"]
+title: "Breaking News 2026-05-09"
+description: "The European Parliament adopted 13 legislative texts in 72 hours (April 28–30, 2026) while simultaneously hosting the most significant institutional challenge of EP10: Patriots…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-05-09", "run breaking-run-1778332692", "News", "European", "Parliament", "adopted", "legislative", "texts", "hours", "April"]
 date: 2026-05-09
 article_type: breaking
 slug: 2026-05-09-breaking

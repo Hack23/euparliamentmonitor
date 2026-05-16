@@ -190,12 +190,21 @@ function backfillOneLegacyArticleSeo(
   const needsDescription = shouldBackfillDescription(meta.description, descriptions);
   if (hasKeywords && !needsDescription) return false;
 
+  // Suppress leaky tokens (run-ids, "analysis run" jargon) from both
+  // the Markdown body we feed the resolver AND the `manifest.description`
+  // override, so the resolver derives `<meta description>` from a clean
+  // editorial signal rather than echoing the legacy junk back unchanged.
+  const titleHasLeaks = descriptionHasLeakyToken(meta.title);
+  const descHasLeaks = descriptionHasLeakyToken(meta.description);
+  const safeTitle = titleHasLeaks ? formatSlug(parsed.slug) : meta.title;
+  const safeDescription = descHasLeaks ? '' : meta.description;
+
   const articleType = String(detectCategory(parsed.slug));
   const resolved = resolveArticleMetadata({
     articleType,
     date: parsed.date,
-    markdown: `# ${meta.title || formatSlug(parsed.slug)}\n\n${meta.description}`,
-    manifest: buildBackfillManifest(parsed.slug, meta.title, meta.description, needsDescription),
+    markdown: `# ${safeTitle || formatSlug(parsed.slug)}\n\n${safeDescription}`,
+    manifest: buildBackfillManifest(parsed.slug, safeTitle, safeDescription, needsDescription),
   });
   const entry = Object.getOwnPropertyDescriptor(resolved, parsed.lang)?.value as
     | { readonly title: string; readonly description: string; readonly keywords: readonly string[] }
@@ -205,16 +214,19 @@ function backfillOneLegacyArticleSeo(
     articleType,
     parsed.date,
     parsed.slug,
-    meta.title,
-    meta.description
+    safeTitle,
+    safeDescription
   );
+  // Never echo a leaky description into the rewrite, even as a last-resort
+  // fallback. If the resolver produced nothing clean, fall back to a
+  // page-specific stub built from the slug.
+  const resolverDescription = entry?.description ?? '';
+  const baseDescription =
+    resolverDescription && !descriptionHasLeakyToken(resolverDescription)
+      ? resolverDescription
+      : safeDescription || formatSlug(parsed.slug);
   const description = needsDescription
-    ? buildLegacyBackfillDescription(
-        parsed.date,
-        parsed.slug,
-        parsed.lang,
-        entry?.description ?? meta.description
-      )
+    ? buildLegacyBackfillDescription(parsed.date, parsed.slug, parsed.lang, baseDescription)
     : meta.description;
   const keywords = entry?.keywords ?? fallbackKeywords;
   const nextHtml = applyArticleSeoBackfill(html, description, keywords);
@@ -224,26 +236,100 @@ function backfillOneLegacyArticleSeo(
 }
 
 /**
- * Prefix legacy descriptions with date and slug context so duplicate strings
- * become page-specific before the 180-character snippet cap.
+ * Prefix legacy descriptions with date and **localized** category label
+ * so duplicate strings become page-specific before the 180-character
+ * snippet cap. Two-tier strategy:
  *
- * @param date - Article date
- * @param slug - Article slug
- * @param lang - Article language
- * @param description - Candidate description
- * @returns Page-specific description
+ * 1. **Substantive resolver output** (≥{@link MIN_ARTICLE_DESCRIPTION_LENGTH}
+ *    chars) is returned **unchanged** — no prefix is prepended. The
+ *    description is already unique per page because it contains
+ *    article-specific editorial content (named bills, vote outcomes,
+ *    coalition dynamics). Adding a bureaucratic prefix in that case
+ *    only steals SERP characters from real content.
+ * 2. **Short / placeholder** descriptions get a localized prefix
+ *    `${date} — ${ARTICLE_TYPE_LABELS[lang][category]} —` so the
+ *    duplicate-deduper still works on legacy articles whose
+ *    `<meta description>` is `formatSlug(slug)`-only or a generic stub.
+ *    The category noun is **translated** via {@link ARTICLE_TYPE_LABELS}
+ *    so Arabic / Hebrew / Swedish cards no longer carry the English
+ *    "EN Committee Reports" wart that the prior single-language
+ *    `formatSlug(slug)` form produced.
+ *
+ * @param date - Article date (ISO YYYY-MM-DD)
+ * @param slug - Article slug (used to derive the category)
+ * @param lang - Article language (ISO 639-1 lower-case code)
+ * @param description - Candidate description (resolver output preferred)
+ * @returns Page-specific description, prefix-free when description is
+ *   already substantive
  */
-function buildLegacyBackfillDescription(
+export function buildLegacyBackfillDescription(
   date: string,
   slug: string,
   lang: string,
   description: string
 ): string {
-  const contextual = `${date} ${lang.toUpperCase()} ${formatSlug(slug)} — ${description}`
-    .replace(/\s+/g, ' ')
-    .trim();
-  if (contextual.length <= 180) return contextual;
-  return `${contextual.slice(0, 177).replace(/[.,;:—\s-]+$/u, '')}…`;
+  const trimmedDescription = description.trim();
+  if (trimmedDescription.length >= MIN_ARTICLE_DESCRIPTION_LENGTH) {
+    // The resolver produced a real, substantive description. It is
+    // already unique-per-page because it embeds article-specific
+    // editorial content (named bills, coalition outcomes, etc.).
+    // Return it verbatim so SERP / social-card snippets carry pure
+    // editorial signal instead of `${date} ${LANG} Committee Reports —`
+    // boilerplate. The 180-char snippet cap is still applied so the
+    // result fits Google / OG description budgets.
+    return capDescriptionLength(trimmedDescription);
+  }
+  // Short / placeholder description — fall back to a *localized*
+  // prefix so the per-page disambiguation still works without
+  // staining translated cards with English category nouns.
+  const category = detectCategory(slug);
+  const langCode = (lang || 'en').toLowerCase() as LanguageCode;
+  const categoryLabels = getLocalizedString(ARTICLE_TYPE_LABELS, langCode) as ArticleCategoryLabels;
+  const label = categoryLabels[category] ?? formatSlug(slug);
+  const prefix = `${date} — ${label}`;
+  const body = trimmedDescription || label;
+  const contextual = `${prefix} — ${body}`.replace(/\s+/g, ' ').trim();
+  return capDescriptionLength(contextual);
+}
+
+/**
+ * Clamp a description to the 180-character SERP-friendly cap with a
+ * trailing ellipsis when truncated. Extracted from
+ * {@link buildLegacyBackfillDescription} so both the prefix-free and
+ * prefixed branches share identical clamping behaviour.
+ *
+ * @param text - Candidate description
+ * @returns Description ≤180 chars, ending with `…` on truncation
+ */
+function capDescriptionLength(text: string): string {
+  if (text.length <= 180) return text;
+  return `${text.slice(0, 177).replace(/[.,;:—\s-]+$/u, '')}…`;
+}
+
+/**
+ * Regex pattern that flags internal artefact identifiers
+ * (`<slug>-run<N>-<unix-ts>`). Used by
+ * {@link descriptionHasLeakyToken} to force backfill of legacy articles
+ * whose `<meta description>` was authored before the resolver started
+ * stripping run-ids and "analysis run" jargon. Mirrors
+ * `FORBIDDEN_PATTERNS` in `scripts/validate-manifest-seo.js`.
+ */
+const LEAKY_RUNID_RE = /\b[a-z][a-z-]*-run-?\d+-\d{8,}\b/iu;
+
+/**
+ * Detect whether a legacy article description contains the run-id or
+ * "analysis run" jargon that was prevalent in pre-aggregator brief
+ * authorship. These tokens are deemed unfit for `<meta description>`
+ * regardless of length and force a backfill rewrite.
+ *
+ * @param description - Current description value
+ * @returns True when the description contains a forbidden internal token
+ */
+function descriptionHasLeakyToken(description: string): boolean {
+  if (!description) return false;
+  const lower = description.toLowerCase();
+  if (lower.includes('analysis run')) return true;
+  return LEAKY_RUNID_RE.test(description);
 }
 
 /**
@@ -251,7 +337,8 @@ function buildLegacyBackfillDescription(
  *
  * @param description - Current description
  * @param descriptions - Description frequency map
- * @returns True when the description is missing, short or duplicated
+ * @returns True when the description is missing, short, duplicated, or
+ *   contains internal run-id tokens that must not appear in SEO surfaces
  */
 function shouldBackfillDescription(
   description: string,
@@ -260,7 +347,8 @@ function shouldBackfillDescription(
   return (
     !description ||
     description.length < MIN_ARTICLE_DESCRIPTION_LENGTH ||
-    (descriptions.get(description) ?? 0) > 1
+    (descriptions.get(description) ?? 0) > 1 ||
+    descriptionHasLeakyToken(description)
   );
 }
 

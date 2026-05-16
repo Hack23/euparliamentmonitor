@@ -1,7 +1,7 @@
 ---
-title: "EP10 Term Outlook"
-description: "The European Parliament's tenth legislative term (EP10, July 2024–June 2029) has entered its critical middle phase. With roughly 37 months remaining until the next European…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Term Outlook", "2026-05-07", "run term-outlook-run367-1778164061", "EP10", "Term", "Outlook", "European", "Parliament", "tenth", "legislative", "July", "June", "entered"]
+title: "EP10 Term Synthesis Summary"
+description: "The European Parliament's tenth term (EP10) is proceeding through a structural transformation that will define European governance for the remainder of this decade."
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Term Outlook", "2026-05-07", "run term-outlook-run367-1778164061", "EP10", "Term", "Synthesis", "Summary", "European", "Parliament", "tenth", "proceeding", "through", "structural"]
 date: 2026-05-07
 article_type: term-outlook
 slug: 2026-05-07-term-outlook

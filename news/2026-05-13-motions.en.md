@@ -1,6 +1,6 @@
 ---
 title: "EP Motions and Adopted Texts: April–May 2026"
-description: "The European Parliament's April 2026 plenary week (28–30 April) was defined by four landmark resolutions addressing digital market enforcement, Russian accountability… Published…"
+description: "The European Parliament's April 2026 plenary week (28–30 April) was defined by four landmark resolutions addressing digital market enforcement, Russian accountability…"
 keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-05-13", "run motions-run375-1778655547", "Adopted", "Texts", "April", "European", "Parliament", "plenary", "week", "defined"]
 date: 2026-05-13
 article_type: motions

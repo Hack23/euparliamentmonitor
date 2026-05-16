@@ -1,6 +1,6 @@
 ---
 title: "Propositions: Pre-Recess Legislative Pipeline Retrospective | 2026-04-06"
-description: "This Easter Monday propositions run produces the Q1 2026 legislative-pipeline retrospective — at 11,320 article lines and 20 analytical methods, the most comprehensive…"
+description: "This Easter Monday propositions run produces the Q1 2026 legislative-pipeline retrospective — at 11,320 article lines and 20 analytical methods, the most comprehensive single-run…"
 keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-06", "run 0815db62-e5a4-49dc-aa6f-1259c7d7b904", "Recess", "Legislative", "Pipeline", "Retrospective", "This", "Easter", "Monday", "produces"]
 date: 2026-04-06
 article_type: propositions

@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Week in Review"
+title: "The European Parliament's April 2026 plenary sessions (primarily the Strasbourg session of 27–30 April) produced a dense legislative…"
 description: "The European Parliament's April 2026 plenary sessions (primarily the Strasbourg session of 27–30 April) produced a dense legislative harvest across three strategic fault lines…"
-keywords: ["EU Parliament", "week in review", "European Parliament", "summary", "legislation", "2026-05-09", "run week-in-review-run-1778309196", "Parliament", "Week", "Review", "European", "April", "plenary", "sessions", "primarily", "Strasbourg"]
+keywords: ["EU Parliament", "week in review", "European Parliament", "summary", "legislation", "2026-05-09", "run week-in-review-run-1778309196", "European", "Parliament", "April", "plenary", "sessions", "primarily", "Strasbourg", "session", "produced"]
 date: 2026-05-09
 article_type: week-in-review
 slug: 2026-05-09-week-in-review

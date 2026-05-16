@@ -1,6 +1,6 @@
 ---
 title: "Committee Reports: Q1 2026 Power Rankings (ECON Leads, INTA Closes) | 2026-04-13"
-description: "Q1 2026 committee output ranks ECON and INTA as the two most consequential committees of the quarter — and the run's most operationally useful contribution is a 5-deep… Published…"
+description: "Q1 2026 committee output ranks ECON and INTA as the two most consequential committees of the quarter — and the run's most operationally useful contribution is a 5-deep…"
 keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run47", "2026-04-13", "run 43b9989e-4e2a-4672-aa00-f50e936aa128", "Committee", "Reports", "Power", "Rankings", "ECON", "Leads", "INTA", "Closes", "output", "ranks"]
 date: 2026-04-13
 article_type: committee-reports-run47

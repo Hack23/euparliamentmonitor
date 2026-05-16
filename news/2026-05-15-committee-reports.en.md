@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Committee Reports"
-description: "The European Parliament's committee system enters mid-May 2026 in an intensive legislative phase of the 10th parliamentary term (2024–2029). Twenty-six standing committees are…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-15", "run committee-reports-run-1778822323", "Parliament", "Committee", "Reports", "European", "system", "enters", "intensive", "legislative"]
+title: "الملخص التنفيذي — تقارير لجان البرلمان الأوروبي"
+description: "يمر نظام لجان البرلمان الأوروبي، في منتصف مايو 2026، بمرحلة تشريعية مكثفة ضمن الفترة البرلمانية العاشرة (2024-2029). تعالج ست وعشرون لجنة دائمة ما يزيد على 340 ملفاً تشريعياً…"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-05-15", "run committee-reports-run-1778822323", "الملخص", "التنفيذي", "تقارير", "لجان", "البرلمان", "الأوروبي", "نظام", "منتصف"]
 date: 2026-05-15
 article_type: committee-reports
 slug: 2026-05-15-committee-reports

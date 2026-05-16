@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Term Outlook"
+title: "EP10 enters the second half of its mandate with a structurally constrained but operational grand coalition (EPP+S&D+Renew, 396 seats, +37…"
 description: "EP10 enters the second half of its mandate with a structurally constrained but operational grand coalition (EPP+S&D+Renew, 396 seats, +37 over majority threshold), facing…"
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Term Outlook", "2026-05-10", "run term-outlook-run294-1778452482", "Parliament", "Term", "Outlook", "EP10", "enters", "second", "half", "mandate", "with", "structurally"]
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Term Outlook", "2026-05-10", "run term-outlook-run294-1778452482", "EP10", "enters", "second", "half", "mandate", "with", "structurally", "constrained", "operational", "grand"]
 date: 2026-05-10
 article_type: term-outlook
 slug: 2026-05-10-term-outlook
