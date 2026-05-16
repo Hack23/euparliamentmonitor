@@ -128,6 +128,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/media-framing-analysis.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -3741,6 +3742,1255 @@ This analysis set meets the reference quality standards for the motions article 
 
 **PREFLIGHT_ATTESTATION: read 35/35 artifacts from analysis/daily/2026-05-15/motions (LINES 4200+ lines, FRAMEWORKS 5 frameworks applied)**
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**التصنيف:** عام | **درجة الأميرالية:** B2 (مصدر موثوق؛ مؤكد من بيانات البرلمان الأوروبي المتعددة)
+**نطاق WEP:** محتمل (60–80%) — تعكس القرارات توافقاً قوياً متعدد الأطراف حول التنظيم الرقمي والتضامن الجيوسياسي
+
+---
+
+### 📋 ملخص لصانعي القرار
+
+أسفرت الجلسة العامة للبرلمان الأوروبي في ستراسبورغ خلال الفترة من 28 إلى 30 أبريل 2026 عن حزمة بارزة من القرارات تُعرِّف مجتمعةً الموقف الحازم للبرلمان على ثلاثة محاور استراتيجية: **تنظيم السوق الرقمية**، و**التضامن الجيوسياسي** (أوكرانيا، أرمينيا)، و**الصمود المجتمعي** (التنمر الإلكتروني، الأمن الغذائي). تُشير هذه القرارات إلى برلمان أوروبي بات أكثر استعداداً للمطالبة بإجراءات تنفيذية بدلاً من الاكتفاء بإصدار قرارات إعلانية — وهو تحوّل ذو تداعيات جوهرية على المفوضية الأوروبية وشركات التكنولوجيا والدول الأعضاء في الاتحاد الأوروبي.
+
+يمثّل **قرار إنفاذ قانون الأسواق الرقمية** (TA-10-2026-0160) أشد تدخل للبرلمان حتى الآن في مواجهة عدم امتثال المنصات، إذ يُسمّي سلوكيات محددة لحراس البوابات ويطالب المفوضية بتسريع التحقيقات بموجب المادة 20 من قانون DMA. ويُعزز **قرار المساءلة الخاص بأوكرانيا** (TA-10-2026-0161) التوافق في صفوف البرلمان الأوروبي خلف المحكمة الخاصة لجريمة العدوان، مع توسيع بنية المساءلة لتشمل الهجمات على البنية التحتية. أما **قرار أرمينيا** (TA-10-2026-0162) فيُعمّق دعم البرلمان ليريفان في مسارها نحو الاندماج الأوروبي، ويُضاعف الضغط على المجلس لرفع الحصار عن مفاوضات اتفاقية الشراكة. ويوفر **قرار التنمر الإلكتروني** (TA-10-2026-0163) الصلاحية السياسية لتوجيه بشأن الأحكام الجنائية لمكافحة التحرش عبر الإنترنت، ويسد ثغرة في نظام التطبيق المدني لقانون الخدمات الرقمية DSA.
+
+---
+
+### 🗓️ نافذة السياق
+
+| المعيار | القيمة |
+|-----------|-------|
+| تاريخ التحليل | 2026-05-15 |
+| نافذة البيانات | 28 أبريل – 15 مايو 2026 |
+| الجلسة العامة الرئيسية | ستراسبورغ، 28–30 أبريل 2026 |
+| دورة البرلمان الأوروبي | الدورة التشريعية العاشرة (2024–2029) |
+| مرحلة الدورة الانتخابية | تعزيز منتصف المدة؛ علاقات المفوضية والبرلمان في مرحلة حازمة متنامية |
+
+---
+
+### 🔑 الأحكام الرئيسية
+
+#### KJ-1: أصبح إنفاذ التنظيم الرقمي الرافعة التشريعية المهيمنة للبرلمان الأوروبي
+🟢 **ثقة عالية (WEP: شبه مؤكد، 90%+)**
+
+إن اعتماد TA-10-2026-0160 بشأن إنفاذ قانون DMA، إلى جانب قرارات عام 2026 السابقة حول تنفيذ قانون الذكاء الاصطناعي والتزامات المنصات بموجب قانون DSA، يرسّخ نمطاً ثابتاً للبرلمان الأوروبي: سنّ التشريعات الإطارية، ومراقبة تنفيذ المفوضية، والتصعيد عبر القرارات حين يُعدّ التطبيق قاصراً. وقد أكدت الخدمة القانونية للبرلمان الأوروبي أن الأخير يملك الصفة القانونية لرفع دعوى ضد المفوضية بسبب إخفاقها في استخدام صلاحيات قانون DMA. وقد تشارك في رعاية قرار الإنفاذ المقرر في مجموعة EPP أكسيل فوس، ومقررة المجموعة الاشتراكية الظل كريستل شالديموز — إشارة ثنائية الحزبية إلى أن تنظيم التكنولوجيا يتجاوز الانقسامات اليسارية-اليمينية في EP10.
+
+#### KJ-2: تتوسع بنية المساءلة الخاصة بأوكرانيا لتتجاوز جرائم الحرب
+🟢 **ثقة عالية (WEP: محتمل، 70–80%)**
+
+يُطالب TA-10-2026-0161 صراحةً بالمساءلة الجنائية عن الهجمات المتعمدة على البنية التحتية المدنية (الطاقة والمياه والرعاية الصحية). وهذا يمتد إطار الإحالة إلى المحكمة الجنائية الدولية إلى رقعة "الحرب الهجينة" حيث عانى القانون الدولي الجنائي تاريخياً من صعوبات الإسناد. ويُسمّي القرار وقائع محددة: الضربات التي استهدفت مستشفى أوديسا في ديسمبر 2025، وهجوم فبراير 2026 على شبكة الكهرباء في خاركيف. ويضع البرلمان الأوروبي نفسه ضامناً سياسياً للهندسة القانونية، مع استشعاره أن انسحاب الولايات المتحدة في عهد ترامب سيستلزم تعزيز المؤسسات القضائية الأوروبية.
+
+#### KJ-3: أرمينيا مشروع البرلمان الأوروبي المرجعي القادم للاندماج الأوروبي
+🟡 **ثقة متوسطة (WEP: محتمل، 65%)**
+
+اعتُمد TA-10-2026-0162 بأغلبية واسعة بشكل غير مألوف (يُقدَّر بـ 480+/50−/30 امتناع استناداً إلى قرارات مماثلة)، ما يعكس معاملة محور S&D+Renew+الخضر لأرمينيا باعتبارها قصة نجاح في التحول الديمقراطي يمكن لآفاق الاندماج الأوروبي أن تُرسّخها. ويكشف الانقسام داخل مجموعة EPP — إذ صوّت البرلمانيون المجريون ضد القرار في تعبير عن توجه بودابست نحو موسكو — عن صدع في تماسك المجموعة فيما يخص سياسة الجوار الشرقي، وهو ما سيتعين على المقررة ناتالي لوازو (Renew) إدارته في وفد العلاقات مع منطقة جنوب القوقاز.
+
+#### KJ-4: توجيه التنمر الإلكتروني قابل للتطبيق سياسياً في الفترة 2026–2027
+🟡 **ثقة متوسطة (WEP: محتمل، 60–70%)**
+
+يمثّل TA-10-2026-0163 الذي يُوجب أحكاماً جنائية لمكافحة التنمر الإلكتروني على المنصات، تحولاً نوعياً من "مسؤولية المنصة" إلى "المسؤولية الجنائية المشتركة" — مفهوم تجنّبه البرلمان الأوروبي في السابق بفعل مخاوف مجموعة Renew المتعلقة بحرية التعبير. ويُشير اعتماد القرار بدعم من Renew إلى أن رواية أزمة الصحة النفسية، لا سيما في أعقاب تقرير البرلمان الأوروبي لعام 2025 حول الصحة النفسية للشباب، قدّمت غطاءً سياسياً كافياً ليقبل الليبراليون المدنيون بالعتبات الجنائية للتحرش الأكثر حدةً.
+
+---
+
+### 📊 ديناميكيات الائتلاف
+
+| القرار | EPP | S&D | Renew | الخضر/EFA | ECR | ID/الوطنيون | اليسار | النتيجة |
+|--------|-----|-----|-------|------------|-----|-------------|------|---------|
+| إنفاذ DMA | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **معتمد** |
+| مساءلة أوكرانيا | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ⚠️ | **معتمد** |
+| صمود أرمينيا | ⚠️ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **معتمد** |
+| التنمر الإلكتروني | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **معتمد** |
+| الثروة الحيوانية/الأمن الغذائي | ✅ | ⚠️ | ⚠️ | ❌ | ✅ | ✅ | ❌ | **معتمد** |
+
+*الرمز: ✅ دعم قوي؛ ⚠️ منقسم/مشروط؛ ❌ ضد*
+
+---
+
+### 💶 السياق الاقتصادي الكلي (IMF WEO 2026)
+
+تُمثّل الخلفية الاقتصادية السياسية لهذه القرارات تعافياً غير متكافئ في منطقة اليورو:
+
+| البلد | نمو الناتج المحلي الإجمالي 2026 | التضخم 2026 | الرصيد المالي 2026 |
+|---------|----------------|----------------|---------------------|
+| **ألمانيا** | +0.79% | 2.65% | -3.78% |
+| **فرنسا** | +0.86% | 1.84% | -4.94% |
+| **إيطاليا** | +0.52% | 2.64% | -2.82% |
+
+يُولّد النمو الخافت لألمانيا البالغ 0.79% في أعقاب سنتين من الانكماش ضغطاً سياسياً في البوندستاغ يُسهم بصورة غير مباشرة في تشكيل ديناميكيات البرلمان الأوروبي: إذ يواجه البرلمانيون الأوروبيون الألمان في مجموعتَي EPP وS&D دوائر تطالب إما بالتخفيف التنظيمي (كتلة EPP) أو بالحماية الرقمية للعمال (كتلة S&D)، مما يُفسّر الرعاية المشتركة لقرار إنفاذ DMA الذي يخدم كلا الجمهورَين في آنٍ واحد.
+
+ويضع العجز المالي الفرنسي المزمن المرتفع (−4.94% من الناتج المحلي الإجمالي) باريس في موقف مُحرج سياسياً إذ تطالب في الوقت ذاته بتطبيق أكثر صرامة لقانون DMA على شركات التكنولوجيا الأمريكية وتقاوم أي ضريبة رقمية قد تستفزّ ردود فعل أمريكية بشكل رسوم جمركية — وهو توتر واضح في الدعم المشروط من مجموعة Renew لـ TA-10-2026-0160.
+
+---
+
+### ⚡ التداعيات الفورية (الأيام التسعون القادمة)
+
+1. **إنفاذ DMA**: يُتوقع أن تُسرّع المديرية العامة للمنافسة في المفوضية التحقيق في متجر Apple App Store وقضايا Google Shopping بموجب المادة 26(4) من قانون DMA؛ وقد يُستشهد بقرار البرلمان في مراسلات المفوضية مع لجنة IMCO البرلمانية (يونيو 2026).
+2. **المحكمة الأوكرانية**: ستُقدّم رئاسة المجلس (بولندا) مقترح لائحة بشأن آلية المساهمة في المحكمة الخاصة بحلول 30 يونيو 2026؛ ويوفر قرار البرلمان الأوروبي غطاءً سياسياً للدول الأعضاء المترددة.
+3. **أرمينيا**: تنعقد اللجنة البرلمانية المشتركة الاتحاد الأوروبي-أرمينيا في أكتوبر 2026؛ ويُشكّل القرار الصلاحية التفاوضية للبرلمان الأوروبي للحصول على تفضيلات تجارية محسّنة.
+4. **توجيه التنمر الإلكتروني**: تُتوقع أن تنشر المديرية العامة للعدالة ورقة استشارية في الربع الثالث من 2026؛ ويوفر TA-10-2026-0163 الصلاحية السياسية اللازمة.
+5. **الثروة الحيوانية**: يُقدّم "الحوار الاستراتيجي حول مستقبل الزراعة في الاتحاد الأوروبي" التابع للمفوضية تقريره النهائي بحلول يوليو 2026؛ ويُؤيّد قرار البرلمان مسار عمل مرونة أمراض الحيوان.
+
+---
+
+### 🎯 التقييم الاستراتيجي
+
+تُمثّل حزمة قرارات أبريل 2026 البرلمانَ الأوروبي في ذروة حزمه خلال دورة منتصف المدة. فقد انتقل البرلمان من رسم جداول الأعمال إلى الرقابة الفاعلة على التنفيذ — إذ يضع قرار DMA المفوضيةَ فعلياً في موضع الإشعار بأن البرلمان سيوظّف أدواته الميزانياتية والمؤسسية لتسريع التطبيق. وتعكس القرارات الجيوسياسية (أوكرانيا، أرمينيا) الطابع المميز لـ EP10 بوصفه مشرّعاً شكّلته غزوة 2022: فالتوافق الحزبي المتعدد على سياسة الجوار الشرقي أعمق وأمتن مما كان عليه في EP9.
+
+ويكشف قرار الثروة الحيوانية والأمن الغذائي عن قدرة البرلمان الأوروبي على تشكيل ائتلافات متعددة الأيديولوجيات في السياسة الزراعية والغذائية: إذ تتغلب مجموعات EPP + ECR + الوطنيين على الائتلاف الحضري-الأخضر، غير أن القرار صِيغ بشكل كافٍ من الشمولية بحيث أن امتناع S&D عن التصويت بدلاً من التصويت ضده قلّص التكاليف السياسية على الوسط اليساري. ومن المرجح أن يستمر نمط "الامتناع البناء" هذا في الملفات الزراعية قُبيل مراجعة السياسة الزراعية المشتركة في منتصف المدة عام 2027.
+
+**على المحللين متابعة**: رد المفوضية على قرار DMA (يستحق في غضون 8 أسابيع وفقاً للمادة 216(5) من النظام الداخلي للبرلمان الأوروبي)؛ وتقدّم المجلس في مشروع لائحة المحكمة الأوكرانية؛ وأي إجراءات تأديبية داخلية في مجموعة EPP ضد البرلمانيين المجريين الذين صوّتوا ضد قرار أرمينيا.
+
+### Executive Brief Da
+
+### 📋 Sammendrag for beslutningstagere
+
+Europa-Parlamentets plenarmøde i Strasbourg den 28.–30. april 2026 frembragte en historisk klynge af beslutninger, der samlet definerer Parlamentets beslutsomme holdning på tre strategiske fronter: **regulering af det digitale marked**, **geopolitisk solidaritet** (Ukraine, Armenien) og **samfundsmæssig robusthed** (cybermobning, fødevaresikkerhed). Beslutningerne signalerer et EP, der i stigende grad kræver håndhævelsesforanstaltninger frem for blot at vedtage deklaratoriske beslutninger — et skift med væsentlige konsekvenser for Europa-Kommissionen, teknologigatekeepere og EU's medlemsstater.
+
+**Beslutningen om håndhævelse af loven om digitale markeder** (TA-10-2026-0160) markerer EP's hidtil mest kraftfulde indgreb mod platformenes manglende overholdelse, navngiver specifikke gatekeeperbehaviours og kræver, at Kommissionen fremskynder undersøgelser i henhold til DMA's artikel 20. **Beslutningen om Ukraines ansvarsplacering** (TA-10-2026-0161) bekræfter EP's konsensus bag den Særlige Domstol for Aggressionsforbrydelsen og udvider ansvarsarkitekturen til at omfatte infrastrukturangreb. **Armenien-beslutningen** (TA-10-2026-0162) uddyber EP's støtte til Jerevan på vejen mod EU-integration og øger presset på Rådet for at ophæve blokaden af forhandlingerne om associeringsaftalen. **Cybermobningsbeslutningen** (TA-10-2026-0163) giver det politiske mandat til et direktiv om strafferetlige bestemmelser mod onlinetrakasseri og udfylder et hul i DSA's civile håndhævelsesregime.
+
+---
+
+### 🗓️ Kontekstvindue
+
+| Parameter | Værdi |
+|-----------|-------|
+| Analysedato | 2026-05-15 |
+| Datavindue | 28. april – 15. maj 2026 |
+| Primært plenarmøde | Strasbourg, 28.–30. april 2026 |
+| EP-periode | 10. valgperiode (2024–2029) |
+| Fase i valgcyklus | Midtvejskonsolidering; Kommissions–Parlamentets relationer i en stadig mere assertiv fase |
+
+---
+
+### 🔑 Centrale vurderinger
+
+#### KJ-1: Håndhævelse af digital regulering er blevet EP's dominerende lovgivningsredskab
+🟢 **Høj tillid (WEP: Næsten sikkert, 90%+)**
+
+Vedtagelsen af TA-10-2026-0160 om DMA-håndhævelse kombineret med tidligere 2026-beslutninger om gennemførelse af AI-forordningen og DSA's platformsforpligtelser etablerer et konsekvent EP-mønster: vedtag rammelovgivning, overvåg Kommissionens håndhævelse, eskalér via beslutning når håndhævelsen vurderes utilstrækkelig. EP's juridiske tjeneste har bekræftet Parlamentets adgang til at anlægge sag mod Kommissionen for manglende brug af DMA-beføjelserne. EPP's ordfører Axel Voss og S&D's skyggeordfører Christel Schaldemose var fælles forslagsstillere til håndhævelsesbeslutningen — et tværpolitisk signal om, at teknologiregulering overskrider venstre-højre-skellet i EP10.
+
+#### KJ-2: Ukraines ansvarsarkitektur udvides ud over krigsforbrydelser
+🟢 **Høj tillid (WEP: Sandsynlig, 70–80%)**
+
+TA-10-2026-0161 opfordrer udtrykkeligt til strafferetlig ansvarsplacering for bevidste angreb på civil infrastruktur (energi, vand, sundhedsvæsen). Dette udvider ICC-henvisningsrammen til "hybridkrig"-territoriet, hvor international strafferet historisk set har haft svært ved attribution. Beslutningen navngiver specifikke hændelser: bombningerne af Odessa-hospitalet i december 2025 og angrebet på Kharkivs elnet i februar 2026. EP positionerer sig som den retslige arkitekturs politiske garant i forventning om, at en Trump-eras USA-tilbagetrækning vil kræve stærkere europæiske retsinstitutioner.
+
+#### KJ-3: Armenien er EP's næste flagskibsprojekt for EU-integration
+🟡 **Middel tillid (WEP: Sandsynlig, 65%)**
+
+TA-10-2026-0162 blev vedtaget med et usædvanlig stærkt flertal (anslået 480+/50−/30 hverken-eller baseret på sammenlignelige beslutninger), hvilket afspejler, at S&D+Renew+Grønne-aksen behandler Armenien som en demokratisk overgangshistorie, som EU-integrationsperspektivet kan konsolidere. EPP-splittelsen — ungarsk MEP'er stemte imod og afspejlede Budapests tilpasning til Moskva — afslører en brudspalte i EPP's sammenhæng om den østlige naboskabspolitik, som ordfører Nathalie Loiseau (Renew) skal håndtere i Delegationen for Forbindelserne med Sydkaukasus.
+
+#### KJ-4: Cybermobningsdirektivet er politisk gennemførligt i 2026–2027
+🟡 **Middel tillid (WEP: Sandsynlig, 60–70%)**
+
+TA-10-2026-0163, der pålægger strafferetlige bestemmelser for cybermobning på platforme, markerer et kvalitativt skift fra "platformsansvar" til "strafferetligt medansvar" — et begreb, EP tidligere havde undgået grundet ytringsfrihedshensyn fra Renew. Beslutningens vedtagelse med Renews støtte signalerer, at narrativet om den mentale sundhedskrise, især efter EP's rapport om unges mentale sundhed i 2025, har givet tilstrækkelig politisk dækning til, at borgerlige liberale kan acceptere strafferetlige tærskler for den alvorligste chikane.
+
+---
+
+### 📊 Koalitionsdynamik
+
+| Beslutning | EPP | S&D | Renew | Grønne/EFA | ECR | ID/Patrioter | Venstre | Udfald |
+|--------|-----|-----|-------|------------|-----|-------------|------|---------|
+| DMA-håndhævelse | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Vedtaget** |
+| Ukraines ansvarsplacering | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ⚠️ | **Vedtaget** |
+| Armeniens modstandsdygtighed | ⚠️ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Vedtaget** |
+| Cybermobning | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Vedtaget** |
+| Husdyr/fødevaresikkerhed | ✅ | ⚠️ | ⚠️ | ❌ | ✅ | ✅ | ❌ | **Vedtaget** |
+
+*Forklaring: ✅ Stærk støtte; ⚠️ Delt/betinget; ❌ Imod*
+
+---
+
+### 💶 Makroøkonomisk kontekst (IMF WEO 2026)
+
+Det politisk-økonomiske baggrundstæppe for disse beslutninger er en ujævn genopretning i eurozonen:
+
+| Land | BNP-vækst 2026 | Inflation 2026 | Finansiel balance 2026 |
+|---------|----------------|----------------|---------------------|
+| **Tyskland** | +0,79% | 2,65% | -3,78% |
+| **Frankrig** | +0,86% | 1,84% | -4,94% |
+| **Italien** | +0,52% | 2,64% | -2,82% |
+
+Tysklands afdæmpede vækst på 0,79% efter to år med kontraktion skaber politisk pres i Forbundsdagen, som indirekte former EP-dynamikken: tyske MEP'er i EPP og S&D møder vælgere, der kræver enten reguleringsafhjælpning (EPP-blokken) eller digitalt beskyttelse for arbejdstagere (S&D-blokken), hvilket forklarer det fælles sponsorat af DMA-håndhævelsesbeslutningen, der tjener begge vælgergrupper.
+
+Frankrigs vedvarende høje finansunderskud (−4,94% af BNP) placerer Paris i den politisk pinlige position at kræve strengere DMA-håndhævelse mod amerikanske teknologivirksomheder og samtidig modstå enhver digital beskatning, der kan provokere amerikanske toldsatser — en spænding, der er synlig i Renew-gruppens betingede støtte til TA-10-2026-0160.
+
+---
+
+### ⚡ Umiddelbare konsekvenser (de næste 90 dage)
+
+1. **DMA-håndhævelse**: Kommissionens GD COMP forventes at fremskynde Apples App Store-undersøgelse og Google Shopping-sager i henhold til artikel 26(4) DMA; EP-beslutningen kan blive citeret i Kommissionens kommunikation til Parlamentets IMCO-udvalg (juni 2026).
+2. **Ukrainetribunalen**: Rådsformandskabet (Polen) vil fremsætte et forordningsforslag om bidragsmekanisme til den Særlige Domstol senest den 30. juni 2026; EP's beslutning giver politisk dækning til vakkelende medlemsstater.
+3. **Armenien**: EU-Armenien Fælles Parlamentarisk Komité mødes i oktober 2026; beslutningen vil fungere som EP's forhandlingsmandat for forbedrede handelspræferencer.
+4. **Cybermobningsdirektiv**: GD RETLIGE ANLIGGENDER forventes at offentliggøre et konsultationsdokument i Q3 2026; TA-10-2026-0163 giver det politiske mandat.
+5. **Husdyr**: Kommissionens "Strategiske Dialog om Fremtiden for EU-Landbruget" skal indgive sin endelige rapport senest juli 2026; EP-beslutningen godkender dens arbejdsstrøm om dyresygdomsmodstandsdygtighed.
+
+---
+
+### 🎯 Strategisk vurdering
+
+Aprilpakken 2026 af beslutninger repræsenterer EP ved sin mest beslutsomme position i midtvejscyklussen. Parlamentet er gået fra dagsordensætning til aktiv håndhævelsesovervågning — DMA-beslutningen sætter i praksis Kommissionen på plads om, at Parlamentet vil bruge sine budgetmæssige og institutionelle magtmidler til at fremskynde håndhævelsen. De geopolitiske beslutninger (Ukraine, Armenien) afspejler EP10's særegne karakter som en lovgiver formet af 2022-invasionen: den tværpolitiske konsensus om den østlige naboskabspolitik er dybere og mere holdbar end i EP9.
+
+Husdyr- og fødevaresikkerhedsbeslutningen afslører EP's kapacitet til tværideologisk koalition i landbrugs- og fødevarepolitik: EPP + ECR + Patrioter stemmer den urbane-grønne koalition ned, men beslutningen var udformet bredt nok til, at S&D-afholdenhed snarere end modstand minimerede de politiske omkostninger for centervenstreaktørerne. Dette mønster med "konstruktiv afholdenhed" vil sandsynligvis fortsætte på landbrugsspørgsmål frem mod midtvejsgennemgangen af GJP i 2027.
+
+**Analytikere bør følge**: Kommissionens svar på DMA-beslutningen (forfalder inden for 8 uger i henhold til EP's forretningsorden artikel 216(5)); Rådets fremskridt med Ukrainetribunal-forordningen; og eventuelle interne disciplinære foranstaltninger i EPP mod ungarsk MEP'er, der stemte mod Armenien-beslutningen.
+
+### Executive Brief De
+
+### 📋 Zusammenfassung für Entscheidungsträger
+
+Die Plenarsitzung des Europäischen Parlaments in Straßburg vom 28. bis 30. April 2026 brachte ein wegweisendes Bündel von Entschließungen hervor, das kollektiv die entschlossene Haltung des Parlaments auf drei strategischen Fronten definiert: **Regulierung des digitalen Markts**, **geopolitische Solidarität** (Ukraine, Armenien) und **gesellschaftliche Resilienz** (Cybermobbing, Ernährungssicherheit). Die Entschließungen signalisieren ein EP, das zunehmend Durchsetzungsmaßnahmen fordert, anstatt lediglich deklaratorische Resolutionen zu verabschieden — eine Verschiebung mit materiellen Konsequenzen für die Europäische Kommission, Tech-Gatekeeper und EU-Mitgliedstaaten.
+
+Die **Entschließung zur Durchsetzung des Gesetzes über digitale Märkte** (TA-10-2026-0160) markiert das bisher kraftvollste Eingreifen des EP gegen die Nichteinhaltung durch Plattformen, benennt spezifische Gatekeeper-Verhaltensweisen und fordert die Kommission auf, Ermittlungen nach Artikel 20 DMA zu beschleunigen. Die **Entschließung zur Rechenschaftspflicht der Ukraine** (TA-10-2026-0161) bekräftigt den EP-Konsens hinter dem Sondertribunal für das Verbrechen der Aggression und erweitert gleichzeitig die Rechenschaftsarchitektur auf Infrastrukturangriffe. Die **Armenien-Entschließung** (TA-10-2026-0162) vertieft die EP-Unterstützung für Jerewan auf dem Weg zur EU-Integration und erhöht den Druck auf den Rat, die Blockade der Assoziierungsabkommensverhandlungen aufzuheben. Die **Cybermobbing-Entschließung** (TA-10-2026-0163) gibt das politische Mandat für eine Richtlinie über strafrechtliche Bestimmungen für Online-Belästigung und schließt eine Lücke im zivilrechtlichen Durchsetzungsregime des DSA.
+
+---
+
+### 🗓️ Kontextfenster
+
+| Parameter | Wert |
+|-----------|-------|
+| Analysedatum | 2026-05-15 |
+| Datenfenster | 28. April – 15. Mai 2026 |
+| Primäre Plenarsitzung | Straßburg, 28.–30. April 2026 |
+| EP-Wahlperiode | 10. Legislaturperiode (2024–2029) |
+| Phase im Wahlzyklus | Halbzeit-Konsolidierung; Kommissions–Parlamentsbeziehungen in einer zunehmend assertiven Phase |
+
+---
+
+### 🔑 Kernaussagen
+
+#### KJ-1: Durchsetzung der digitalen Regulierung ist zum dominierenden Gesetzgebungsinstrument des EP geworden
+🟢 **Hohe Konfidenz (WEP: Nahezu sicher, 90%+)**
+
+Die Verabschiedung von TA-10-2026-0160 zur DMA-Durchsetzung in Kombination mit früheren Entschließungen aus 2026 zur Umsetzung des KI-Gesetzes und den Plattformpflichten des DSA etabliert ein konsequentes EP-Muster: Rahmengesetzgebung verabschieden, Kommissionsdurchsetzung überwachen, per Entschließung eskalieren, wenn die Durchsetzung als unzureichend gilt. Der Rechtsdienst des EP hat bestätigt, dass das Parlament befugt ist, eine Klage gegen die Kommission wegen Nichtnutzung der DMA-Befugnisse einzureichen. EPP-Berichterstatter Axel Voss und S&D-Schattenberichterstatterin Christel Schaldemose waren gemeinsame Sponsoren der Durchsetzungsentschließung — ein fraktionsübergreifendes Signal, dass Tech-Regulierung die Links-Rechts-Spaltung im EP10 überwindet.
+
+#### KJ-2: Ukraines Rechenschaftsarchitektur weitet sich über Kriegsverbrechen hinaus aus
+🟢 **Hohe Konfidenz (WEP: Wahrscheinlich, 70–80%)**
+
+TA-10-2026-0161 fordert ausdrücklich strafrechtliche Rechenschaftspflicht für vorsätzliche Angriffe auf zivile Infrastruktur (Energie, Wasser, Gesundheitsversorgung). Dies dehnt den IStGH-Überweisungsrahmen auf das „Hybridkrieg"-Terrain aus, wo das internationale Strafrecht historisch mit der Attribution zu kämpfen hatte. Die Entschließung benennt konkrete Vorfälle: die Dezember-2025-Angriffe auf das Odessa-Krankenhaus und den Februar-2026-Angriff auf das Charkiwer Stromnetz. Das EP positioniert sich als politischer Garant der Rechtsarchitektur und antizipiert, dass ein Rückzug der USA in der Trump-Ära stärkere europäische Justizinstitutionen erfordert.
+
+#### KJ-3: Armenien ist das nächste EU-Integrations-Flaggschiff des EP
+🟡 **Mittlere Konfidenz (WEP: Wahrscheinlich, 65%)**
+
+TA-10-2026-0162 wurde mit einer ungewöhnlich starken Mehrheit verabschiedet (geschätzte 480+/50−/30 Enthaltungen auf der Basis vergleichbarer Entschließungen), was widerspiegelt, dass die S&D+Renew+Grüne-Achse Armenien als demokratische Übergangserfolgsgeschichte betrachtet, die die EU-Integrationsperspektive konsolidieren kann. Die EPP-Spaltung — ungarische Abgeordnete stimmten dagegen, was Budapests Ausrichtung auf Moskau widerspiegelt — offenbart eine Bruchlinie in der EPP-Kohäsion in der östlichen Nachbarschaftspolitik, die Berichterstatterin Nathalie Loiseau (Renew) in der Delegation für die Beziehungen zum Südkaukasus managen wird müssen.
+
+#### KJ-4: Die Cybermobbing-Richtlinie ist 2026–2027 politisch umsetzbar
+🟡 **Mittlere Konfidenz (WEP: Wahrscheinlich, 60–70%)**
+
+TA-10-2026-0163, das strafrechtliche Bestimmungen für Cybermobbing auf Plattformen vorschreibt, markiert eine qualitative Verschiebung von „Plattformhaftung" hin zu „strafrechtlicher Mitverantwortung" — ein Konzept, das das EP bisher wegen Redefreiheitsbedenken von Renew vermieden hatte. Die Verabschiedung der Entschließung mit Renew-Unterstützung signalisiert, dass das Narrativ der psychischen Gesundheitskrise, insbesondere nach dem EP-Jugendbericht zur psychischen Gesundheit 2025, ausreichende politische Deckung für Bürgerrechtsliberale geliefert hat, um strafrechtliche Schwellen für die schwerste Belästigung zu akzeptieren.
+
+---
+
+### 📊 Koalitionsdynamik
+
+| Entschließung | EPP | S&D | Renew | Grüne/EFA | ECR | ID/Patrioten | Linke | Ergebnis |
+|--------|-----|-----|-------|------------|-----|-------------|------|---------|
+| DMA-Durchsetzung | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Angenommen** |
+| Ukraine-Rechenschaftspflicht | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ⚠️ | **Angenommen** |
+| Armeniens Resilienz | ⚠️ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Angenommen** |
+| Cybermobbing | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Angenommen** |
+| Nutztierhaltung/Ernährungssicherheit | ✅ | ⚠️ | ⚠️ | ❌ | ✅ | ✅ | ❌ | **Angenommen** |
+
+*Legende: ✅ Starke Unterstützung; ⚠️ Gespalten/bedingt; ❌ Dagegen*
+
+---
+
+### 💶 Makroökonomischer Kontext (IMF WEO 2026)
+
+Der politökonomische Hintergrund dieser Entschließungen ist eine ungleichmäßige Erholung im Euroraum:
+
+| Land | BIP-Wachstum 2026 | Inflation 2026 | Finanzierungssaldo 2026 |
+|---------|----------------|----------------|---------------------|
+| **Deutschland** | +0,79% | 2,65% | -3,78% |
+| **Frankreich** | +0,86% | 1,84% | -4,94% |
+| **Italien** | +0,52% | 2,64% | -2,82% |
+
+Deutschlands mageres Wachstum von 0,79% nach zwei Jahren Kontraktion erzeugt politischen Druck im Bundestag, der indirekt die EP-Dynamik prägt: Deutsche Abgeordnete in EPP und S&D begegnen Wahlkreisen, die entweder Regulierungserleichterungen (EPP-Fraktion) oder digitalen Schutz für Arbeitnehmer (S&D-Fraktion) fordern, was das gemeinsame Sponsoring der DMA-Durchsetzungsentschließung erklärt, die beiden Wahlkreisen zugutekommt.
+
+Frankreichs anhaltend hohes Finanzierungsdefizit (−4,94% des BIP) bringt Paris in die politisch heikle Position, gleichzeitig eine strengere DMA-Durchsetzung gegenüber US-Technologieunternehmen zu fordern und jede digitale Besteuerung abzulehnen, die US-Gegenzölle provozieren könnte — eine Spannung, die in der bedingten Unterstützung der Renew-Gruppe für TA-10-2026-0160 sichtbar wird.
+
+---
+
+### ⚡ Unmittelbare Folgen (nächste 90 Tage)
+
+1. **DMA-Durchsetzung**: Die GD COMP der Kommission dürfte die Untersuchung von Apple App Store und Google Shopping-Fälle nach Artikel 26(4) DMA beschleunigen; die EP-Entschließung könnte in der Kommissionskommunikation an den IMCO-Ausschuss (Juni 2026) zitiert werden.
+2. **Ukraine-Tribunal**: Der Ratsvorsitz (Polen) wird bis zum 30. Juni 2026 einen Verordnungsvorschlag für den Finanzierungsmechanismus des Sondertribunals vorlegen; die EP-Entschließung bietet politische Deckung für zögernde Mitgliedstaaten.
+3. **Armenien**: Der Gemeinsame Parlamentarische Ausschuss EU-Armenien tagt im Oktober 2026; die Entschließung dient als Verhandlungsmandat des EP für verbesserte Handelspräferenzen.
+4. **Cybermobbing-Richtlinie**: Die GD JUSTIZ veröffentlicht voraussichtlich im Q3 2026 ein Konsultationspapier; TA-10-2026-0163 gibt das politische Mandat.
+5. **Nutztierhaltung**: Der „Strategische Dialog über die Zukunft der EU-Landwirtschaft" der Kommission legt bis Juli 2026 seinen Schlussbericht vor; die EP-Entschließung billigt seinen Arbeitsbereich zur Tierseuchenresilienz.
+
+---
+
+### 🎯 Strategische Bewertung
+
+Das April-2026-Entschließungspaket repräsentiert das EP auf dem Höhepunkt seiner Entschlossenheit im Halbzeitzyklus. Das Parlament hat sich von der Tagesordnungsgestaltung hin zur aktiven Durchsetzungsüberwachung bewegt — die DMA-Entschließung stellt die Kommission faktisch in Kenntnis, dass das Parlament sein Haushalts- und institutionelles Machtinstrumentarium nutzen wird, um die Durchsetzung zu beschleunigen. Die geopolitischen Entschließungen (Ukraine, Armenien) spiegeln den besonderen Charakter des EP10 als eines durch die Invasion 2022 geprägten Gesetzgebers wider: der fraktionsübergreifende Konsens in der östlichen Nachbarschaftspolitik ist tiefer und beständiger als im EP9.
+
+Die Entschließung zur Nutztierhaltung und Ernährungssicherheit offenbart die EP-Kapazität für ideologieübergreifende Koalitionen in der Agrar- und Lebensmittelpolitik: EPP + ECR + Patrioten überstimmen die städtisch-grüne Koalition, aber die Entschließung wurde breit genug formuliert, dass S&D-Enthaltungen statt Gegenstimmen die politischen Kosten für die Mitte-Links-Akteure minimierten. Dieses „konstruktive Enthaltungs"-Muster dürfte bei Agrarfragen vor der GAP-Halbzeitüberprüfung 2027 fortbestehen.
+
+**Analysten sollten verfolgen**: Die Antwort der Kommission auf die DMA-Entschließung (fällig binnen 8 Wochen gemäß EP-Geschäftsordnung Artikel 216(5)); die Fortschritte des Rates bei der Ukraine-Tribunal-Verordnung; und etwaige interne Disziplinarmaßnahmen in der EPP gegen ungarische Abgeordnete, die gegen die Armenien-Entschließung gestimmt haben.
+
+### Executive Brief Es
+
+### 📋 Resumen para responsables de toma de decisiones
+
+La sesión plenaria del Parlamento Europeo en Estrasburgo del 28 al 30 de abril de 2026 produjo un grupo histórico de resoluciones que definen colectivamente la postura decidida del Parlamento en tres frentes estratégicos: **regulación del mercado digital**, **solidaridad geopolítica** (Ucrania, Armenia) y **resiliencia social** (ciberacoso, seguridad alimentaria). Las resoluciones señalan un PE cada vez más dispuesto a exigir medidas de ejecución en lugar de limitarse a aprobar resoluciones declaratorias — un cambio con implicaciones materiales para la Comisión Europea, los guardianes tecnológicos y los Estados miembros de la UE.
+
+La **resolución sobre la aplicación de la Ley de Mercados Digitales** (TA-10-2026-0160) marca la intervención más enérgica del PE hasta la fecha contra el incumplimiento de las plataformas, designa comportamientos específicos de los guardianes de acceso y exige que la Comisión acelere las investigaciones al amparo del artículo 20 del DMA. La **resolución sobre la responsabilidad de Ucrania** (TA-10-2026-0161) refuerza el consenso del PE en favor del Tribunal Especial para el Crimen de Agresión y amplía la arquitectura de responsabilidad a los ataques contra infraestructuras. La **resolución sobre Armenia** (TA-10-2026-0162) profundiza el apoyo del PE a Ereván en su camino hacia la integración europea, intensificando la presión sobre el Consejo para que desbloquee las negociaciones del Acuerdo de Asociación. La **resolución sobre el ciberacoso** (TA-10-2026-0163) proporciona el mandato político para una Directiva sobre disposiciones penales en materia de acoso en línea, cubriendo una laguna en el régimen de aplicación civil del DSA.
+
+---
+
+### 🗓️ Ventana de contexto
+
+| Parámetro | Valor |
+|-----------|-------|
+| Fecha de análisis | 2026-05-15 |
+| Ventana de datos | 28 de abril – 15 de mayo de 2026 |
+| Sesión plenaria principal | Estrasburgo, 28–30 de abril de 2026 |
+| Período del PE | 10.ª legislatura (2024–2029) |
+| Fase del ciclo electoral | Consolidación de la mitad del mandato; relaciones Comisión–Parlamento en una fase cada vez más asertiva |
+
+---
+
+### 🔑 Valoraciones clave
+
+#### KJ-1: La aplicación de la regulación digital se ha convertido en el principal instrumento legislativo del PE
+🟢 **Alta confianza (WEP: Casi seguro, 90%+)**
+
+La aprobación de TA-10-2026-0160 sobre la aplicación del DMA, combinada con anteriores resoluciones de 2026 sobre la implementación de la Ley de IA y las obligaciones de las plataformas en virtud del DSA, establece un patrón constante del PE: aprobar legislación marco, supervisar la aplicación por parte de la Comisión, escalar mediante resolución cuando la aplicación se considere insuficiente. El Servicio Jurídico del PE ha confirmado la legitimación del Parlamento para emprender acciones contra la Comisión por no hacer uso de las potestades del DMA. El ponente del PPE Axel Voss y la ponente ficticia del S&D Christel Schaldemose copatrocinaron la resolución sobre aplicación — señal bipartidista de que la regulación tecnológica trasciende las divisiones izquierda-derecha en el PE10.
+
+#### KJ-2: La arquitectura de responsabilidad de Ucrania se amplía más allá de los crímenes de guerra
+🟢 **Alta confianza (WEP: Probable, 70–80%)**
+
+TA-10-2026-0161 reclama expresamente responsabilidad penal por los ataques deliberados contra infraestructuras civiles (energía, agua, atención sanitaria). Esto extiende el marco de remisión a la CPI al terreno de la «guerra híbrida», donde el derecho penal internacional ha tenido históricamente dificultades con la atribución. La resolución menciona incidentes concretos: los ataques de diciembre de 2025 contra el hospital de Odesa y el ataque de febrero de 2026 a la red eléctrica de Járkov. El PE se posiciona como garante político de la arquitectura judicial, anticipando que la retirada de Estados Unidos en la era Trump requerirá instituciones judiciales europeas más sólidas.
+
+#### KJ-3: Armenia es el próximo buque insignia del PE para la integración europea
+🟡 **Confianza media (WEP: Probable, 65%)**
+
+TA-10-2026-0162 se aprobó con una mayoría insólitamente amplia (estimada en 480+/50−/30 abstenciones sobre la base de resoluciones comparables), lo que refleja que el eje S&D+Renew+Verdes trata a Armenia como un caso de éxito en la transición democrática que la perspectiva de integración europea puede consolidar. La fractura en el PPE —los eurodiputados húngaros votaron en contra, reflejando la alineación de Budapest con Moscú— revela una línea de fractura en la cohesión del PPE sobre la política de vecindad oriental que la ponente Nathalie Loiseau (Renew) deberá gestionar en la Delegación para las Relaciones con el Cáucaso Meridional.
+
+#### KJ-4: La Directiva sobre ciberacoso es políticamente viable en 2026–2027
+🟡 **Confianza media (WEP: Probable, 60–70%)**
+
+TA-10-2026-0163, que impone disposiciones penales para el ciberacoso en plataformas, marca un cambio cualitativo de la «responsabilidad de las plataformas» a la «corresponsabilidad penal» — un concepto que el PE había evitado previamente por las preocupaciones de Renew sobre la libertad de expresión. La aprobación de la resolución con el apoyo de Renew indica que la narrativa de la crisis de salud mental, especialmente tras el informe del PE sobre la salud mental de los jóvenes en 2025, ha proporcionado suficiente cobertura política para que los liberales en materia de derechos civiles acepten umbrales penales para el acoso más grave.
+
+---
+
+### 📊 Dinámica de coaliciones
+
+| Resolución | PPE | S&D | Renew | Verdes/ALE | ECR | ID/Patriotas | Izquierda | Resultado |
+|--------|-----|-----|-------|------------|-----|-------------|------|---------|
+| Aplicación DMA | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Aprobada** |
+| Responsabilidad Ucrania | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ⚠️ | **Aprobada** |
+| Resiliencia Armenia | ⚠️ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Aprobada** |
+| Ciberacoso | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Aprobada** |
+| Ganadería/Seguridad alimentaria | ✅ | ⚠️ | ⚠️ | ❌ | ✅ | ✅ | ❌ | **Aprobada** |
+
+*Leyenda: ✅ Apoyo fuerte; ⚠️ Dividido/condicional; ❌ En contra*
+
+---
+
+### 💶 Contexto macroeconómico (IMF WEO 2026)
+
+El telón de fondo político-económico de estas resoluciones es una recuperación desigual en la zona del euro:
+
+| País | Crecimiento PIB 2026 | Inflación 2026 | Saldo fiscal 2026 |
+|---------|----------------|----------------|---------------------|
+| **Alemania** | +0,79% | 2,65% | -3,78% |
+| **Francia** | +0,86% | 1,84% | -4,94% |
+| **Italia** | +0,52% | 2,64% | -2,82% |
+
+El anémico crecimiento de Alemania del 0,79% tras dos años de contracción genera presión política en el Bundestag que condiciona indirectamente la dinámica del PE: los eurodiputados alemanes en el PPE y en el S&D se enfrentan a circunscripciones que exigen bien alivio regulatorio (bloque PPE) bien protección digital para los trabajadores (bloque S&D), lo que explica el copatrocinio conjunto de la resolución sobre aplicación del DMA que sirve simultáneamente a ambos electorados.
+
+El persistente déficit fiscal elevado de Francia (−4,94% del PIB) coloca a París en la incómoda posición política de exigir simultáneamente una aplicación más estricta del DMA contra las empresas tecnológicas estadounidenses y resistir cualquier tributación digital que pudiera provocar aranceles de represalia americanos — una tensión visible en el apoyo condicionado del grupo Renew a TA-10-2026-0160.
+
+---
+
+### ⚡ Implicaciones inmediatas (próximos 90 días)
+
+1. **Aplicación del DMA**: Se espera que la DG COMP de la Comisión acelere la investigación sobre el App Store de Apple y los casos de Google Shopping al amparo del artículo 26(4) del DMA; la resolución del PE puede citarse en las comunicaciones de la Comisión a la comisión IMCO del Parlamento (junio de 2026).
+2. **Tribunal de Ucrania**: La Presidencia del Consejo (Polonia) presentará una propuesta de reglamento sobre el mecanismo de contribución al Tribunal Especial antes del 30 de junio de 2026; la resolución del PE ofrece cobertura política a los Estados miembros vacilantes.
+3. **Armenia**: La Comisión Parlamentaria Mixta UE-Armenia se reúne en octubre de 2026; la resolución servirá como mandato negociador del PE para preferencias comerciales mejoradas.
+4. **Directiva sobre ciberacoso**: Se espera que la DG JUSTICIA publique un documento de consulta en el tercer trimestre de 2026; TA-10-2026-0163 proporciona el mandato político.
+5. **Ganadería**: El «Diálogo estratégico sobre el futuro de la agricultura de la UE» de la Comisión presentará su informe final antes de julio de 2026; la resolución del PE respalda su línea de trabajo sobre resiliencia frente a enfermedades animales.
+
+---
+
+### 🎯 Evaluación estratégica
+
+El paquete de resoluciones de abril de 2026 representa al PE en el punto de mayor asertividad de su ciclo de mitad de mandato. El Parlamento ha pasado de establecer la agenda a ejercer una supervisión activa de la ejecución — la resolución sobre el DMA pone en la práctica a la Comisión sobre aviso de que el Parlamento utilizará sus instrumentos de poder presupuestarios e institucionales para acelerar la aplicación. Las resoluciones geopolíticas (Ucrania, Armenia) reflejan el carácter distintivo del PE10 como legislador moldeado por la invasión de 2022: el consenso transpartidista sobre la política de vecindad oriental es más profundo y duradero que en el PE9.
+
+La resolución sobre ganadería y seguridad alimentaria revela la capacidad del PE para formar coaliciones trans-ideológicas en la política agraria y alimentaria: PPE + ECR + Patriotas votan en contra de la coalición urbana-verde, pero la resolución fue redactada con suficiente amplitud para que las abstenciones del S&D en lugar de votos en contra minimizaran los costes políticos para la centro-izquierda. Este patrón de «abstención constructiva» probablemente persistirá en cuestiones agrarias de cara a la revisión intermedia de la PAC en 2027.
+
+**Los analistas deben vigilar**: La respuesta de la Comisión a la resolución sobre el DMA (vence en 8 semanas de conformidad con el artículo 216(5) del Reglamento interno del PE); los avances del Consejo en el reglamento sobre el tribunal de Ucrania; y cualquier posible medida disciplinaria interna en el PPE contra los eurodiputados húngaros que votaron en contra de la resolución sobre Armenia.
+
+### Executive Brief Fi
+
+### 📋 Yhteenveto päätöksentekijöille
+
+Euroopan parlamentin Strasbourgin täysistunto 28.–30. huhtikuuta 2026 tuotti merkittävän päätöslauselmapaketin, joka kokonaisuudessaan määrittelee parlamentin päättäväisen aseman kolmella strategisella rintamalla: **digitaalisten markkinoiden sääntely**, **geopoliittinen solidaarisuus** (Ukraina, Armenia) ja **yhteiskunnallinen kriisinkestävyys** (verkkokiusaaminen, elintarviketurvallisuus). Päätöslauselmat osoittavat, että EP haluaa yhä enemmän vaatia täytäntöönpanotoimia pelkkien julistuksellisten päätöslauselmien hyväksymisen sijaan — muutos, jolla on konkreettisia seurauksia Euroopan komissiolle, teknologiayritysportinvartijoille ja EU:n jäsenvaltioille.
+
+**Digitaalisia markkinoita koskevan lain täytäntöönpanoa koskeva päätöslauselma** (TA-10-2026-0160) merkitsee EP:n tähänastista voimakkaisinta puuttumista alustojen noudattamatta jättämiseen: se nimeää erityisiä portinvartijatoimintoja ja vaatii komissiota nopeuttamaan DMA:n 20 artiklan mukaisia tutkimuksia. **Ukrainan vastuuvelvollisuutta koskeva päätöslauselma** (TA-10-2026-0161) vahvistaa EP:n yhteisymmärryksen aggressiorikoksen erityistuomioistuimen takana samalla kun se laajentaa vastuuarkkitehtuurin kattamaan infrastruktuurihyökkäykset. **Armenia-päätöslauselma** (TA-10-2026-0162) syventää EP:n tukea Jerevanille EU-integraation polulla ja lisää painetta neuvostoon assosiointisopimuksen neuvottelujen eston purkamiseksi. **Verkkokiusaamispäätöslauselma** (TA-10-2026-0163) antaa poliittisen mandaatin direktiiville online-häirinnän rikosoikeudellisista säännöksistä ja täyttää aukon DSA:n siviilioikeudellisessa täytäntöönpanojärjestelmässä.
+
+---
+
+### 🗓️ Kontekstiikkuna
+
+| Parametri | Arvo |
+|-----------|-------|
+| Analyysipäivä | 2026-05-15 |
+| Dataikkuna | 28. huhtikuuta – 15. toukokuuta 2026 |
+| Ensisijainen täysistunto | Strasbourg, 28.–30. huhtikuuta 2026 |
+| EP-kausi | 10. vaalikausi (2024–2029) |
+| Vaihe vaaliketjussa | Välivaiheen vakiinnuttaminen; komissio–parlamenttisuhteet yhä assertiivisemmassa vaiheessa |
+
+---
+
+### 🔑 Keskeiset arviot
+
+#### KJ-1: Digitaalisen sääntelyn täytäntöönpanosta on tullut EP:n tärkein lainsäädäntöväline
+🟢 **Korkea luottamus (WEP: Lähes varma, 90%+)**
+
+TA-10-2026-0160:n hyväksyminen DMA-täytäntöönpanosta yhdistettynä aiempiin vuoden 2026 päätöslauselmiin tekoälylain täytäntöönpanosta ja DSA:n alustavelvoitteista luo johdonmukaisen EP-mallin: hyväksy puitesäädös, seuraa komission täytäntöönpanoa, eskaloi päätöslauselmalla kun täytäntöönpano arvioidaan riittämättömäksi. EP:n oikeudellinen yksikkö on vahvistanut parlamentin oikeuden nostaa kanne komissiota vastaan DMA-valtuuksien käyttämättä jättämisestä. EPP:n esittelijä Axel Voss ja S&D:n varjoesittelijä Christel Schaldemose olivat yhteisesti täytäntöönpanopäätöslauselman esittäjiä — puolueiden välinen signaali siitä, että teknologiasääntely ylittää vasemmisto-oikeisto-jaon EP10:ssä.
+
+#### KJ-2: Ukrainan vastuuarkkitehtuuri laajenee sotarikosten ulkopuolelle
+🟢 **Korkea luottamus (WEP: Todennäköinen, 70–80%)**
+
+TA-10-2026-0161 vaatii nimenomaisesti rikosoikeudellista vastuuvelvollisuutta siviili-infrastruktuurin (energia, vesi, terveydenhuolto) tahallisista hyökkäyksistä. Tämä laajentaa ICC:n lähetysraamin "hybridisodan" alueelle, jossa kansainvälisellä rikosoikeudella on historiallisesti ollut vaikeuksia attribuoinnin kanssa. Päätöslauselma nimeää erityisiä tapauksia: joulukuun 2025 Odesan sairaalaiskut ja helmikuun 2026 Harkovan sähköverkkohyökkäyksen. EP asemoituu oikeudellisen arkkitehtuurin poliittiseksi takaajaksi ennakoiden, että Trump-aikakauden Yhdysvaltojen vetäytyminen vaatisi vahvempia eurooppalaisia oikeusinstituutioita.
+
+#### KJ-3: Armenia on EP:n seuraava EU-integraation lippulaiva
+🟡 **Kohtalainen luottamus (WEP: Todennäköinen, 65%)**
+
+TA-10-2026-0162 hyväksyttiin epätavallisen vahvalla enemmistöllä (arvioitu 480+/50−/30 tyhjää verrannollisiin päätöslauselmiin), mikä heijastaa sitä, että S&D+Renew+Vihreät-akseli käsittelee Armeniaa demokratiatransitioiden menestystarinana, jonka EU-integrationäkymä voi lujittaa. EPP:n jakautuminen — unkarilaisten europarlamentaarikkojen äänestäessä vastaan Budapestin Moskva-suuntauksen heijastuksena — paljastaa EPP:n koheesiossa olevan murtumalinjan itäisen naapuruuspolitiikan suhteen, jota esittelijä Nathalie Loiseau (Renew) joutuu hallitsemaan Etelä-Kaukasian suhteita käsittelevässä valtuuskunnassa.
+
+#### KJ-4: Verkkokiusaamisdirektiivi on poliittisesti toteuttamiskelpoinen 2026–2027
+🟡 **Kohtalainen luottamus (WEP: Todennäköinen, 60–70%)**
+
+TA-10-2026-0163, joka edellyttää rikosoikeudellisia säännöksiä alustoilla tapahtuvasta verkkokiusaamisesta, merkitsee laadullista siirtymää "alustavastuusta" "rikosoikeudelliseen osavastuuriseen" — käsite, jota EP oli aiemmin välttänyt Renewin sananvapaushuolien vuoksi. Päätöslauselman hyväksyminen Renewin tuella osoittaa, että mielenterveysperäinen kriisinarratiivi, erityisesti EP:n nuorten mielenterveyttä koskevan vuoden 2025 raportin jälkeen, on antanut riittävän poliittisen suojan kansalaisvapausliberaaleille hyväksyä rikosoikeudelliset kynnykset vakavimmalle häirinnälle.
+
+---
+
+### 📊 Koalitiodynamiikka
+
+| Päätöslauselma | EPP | S&D | Renew | Vihreät/EFA | ECR | ID/Patriootit | Vasen | Tulos |
+|--------|-----|-----|-------|------------|-----|-------------|------|---------|
+| DMA-täytäntöönpano | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Hyväksytty** |
+| Ukrainan vastuuvelvollisuus | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ⚠️ | **Hyväksytty** |
+| Armenian kriisinkestävyys | ⚠️ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Hyväksytty** |
+| Verkkokiusaaminen | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Hyväksytty** |
+| Karjaeläimet/elintarviketurvallisuus | ✅ | ⚠️ | ⚠️ | ❌ | ✅ | ✅ | ❌ | **Hyväksytty** |
+
+*Selite: ✅ Vahva tuki; ⚠️ Jakaantunut/ehdollinen; ❌ Vastaan*
+
+---
+
+### 💶 Makrotaloudellinen konteksti (IMF WEO 2026)
+
+Näiden päätöslauselmien poliittis-taloudellinen tausta on euroalueen epätasainen elpyminen:
+
+| Maa | BKT-kasvu 2026 | Inflaatio 2026 | Julkisen talouden saldo 2026 |
+|---------|----------------|----------------|---------------------|
+| **Saksa** | +0,79% | 2,65% | -3,78% |
+| **Ranska** | +0,86% | 1,84% | -4,94% |
+| **Italia** | +0,52% | 2,64% | -2,82% |
+
+Saksan vaatimaton 0,79%:n kasvu kahden supistumisen jälkeen luo poliittista painetta Bundestagissa, mikä vaikuttaa välillisesti EP-dynamiikkaan: EPP:n ja S&D:n saksalaiset europarlamentaarikot kohtaavat äänestäjiä, jotka vaativat joko sääntelyhelpotuuksia (EPP-ryhmä) tai digitaalista suojaa työntekijöille (S&D-ryhmä), mikä selittää DMA-täytäntöönpanopäätöslauselman yhteisen sponsoroinnin, joka palvelee molempia äänestäjäryhmiä.
+
+Ranskan jatkuvasti korkea budjettialijäämä (−4,94% BKT:stä) asettaa Pariisin poliittisesti kiusalliseen asemaan: samanaikaisesti vaaditaan tiukempaa DMA-täytäntöönpanoa yhdysvaltalaisia teknologiayrityksiä vastaan ja vastustetaan mitään digitaaliverotusta, joka voisi provosoimia yhdysvaltalaiset vastatullit — jännitys, joka näkyy Renew-ryhmän ehdollisessa tuessa TA-10-2026-0160:lle.
+
+---
+
+### ⚡ Välittömät seuraukset (seuraavat 90 päivää)
+
+1. **DMA-täytäntöönpano**: Komission pääosasto COMP:n odotetaan nopeuttavan Applen App Store -tutkintaa ja Googlen Shopping-tapauksia DMA:n 26(4) artiklan nojalla; EP-päätöslauselmaan saatetaan viitata komission viestinnässä parlamentin IMCO-valiokunnalle (kesäkuu 2026).
+2. **Ukrainan tuomioistuin**: Neuvoston puheenjohtajamaa (Puola) esittää asetusluonnoksen erityistuomioistuimen rahoitusmekanismista viimeistään 30. kesäkuuta 2026; EP:n päätöslauselma antaa poliittisen suojan epäröiville jäsenvaltioille.
+3. **Armenia**: EU-Armenia yhteinen parlamentaarinen komitea kokoontuu lokakuussa 2026; päätöslauselma toimii EP:n neuvottelumandaattina parannettujen kauppaetuuksien suhteen.
+4. **Verkkokiusaamisdirektiivi**: Pääosaston OIKEUS odotetaan julkaisevan kuulemisasiakirjan Q3:lla 2026; TA-10-2026-0163 antaa poliittisen mandaatin.
+5. **Karjaeläimet**: Komission "Strateginen dialogi EU:n maatalouden tulevaisuudesta" jättää loppuraporttinsa viimeistään heinäkuussa 2026; EP:n päätöslauselma tukee sen eläintautien kriisinkestävyystyötä.
+
+---
+
+### 🎯 Strateginen arvio
+
+Huhtikuun 2026 päätöslauselmarypäs edustaa EP:ää sen päättäväisimmällä hetkellä välivaiheen syklissä. Parlamentti on siirtynyt agendanasettamisesta aktiiviseen täytäntöönpanon valvontaan — DMA-päätöslauselma asettaa käytännössä komission tietoiseksi siitä, että parlamentti käyttää budjetti- ja institutionaalisia valtakeinojaan täytäntöönpanon nopeuttamiseksi. Geopoliittiset päätöslauselmat (Ukraina, Armenia) heijastavat EP10:n erityistä luonnetta lainsäätäjänä, jonka on muovannut vuoden 2022 hyökkäys: puolueiden välinen yhteisymmärrys itäisen naapuruuspolitiikan suhteen on syvempää ja kestävämpää kuin EP9:ssä.
+
+Karjaeläimiä ja elintarviketurvallisuutta koskeva päätöslauselma paljastaa EP:n kyvyn ideologisiin yhteenliittymiin maatalous- ja elintarvikepolitiikassa: EPP + ECR + Patriootit äänestävät kaupungistuneen vihreän koalition alas, mutta päätöslauselma muotoiltiin riittävän laajasti niin, että S&D:n pidättäytyminen pikemminkin kuin vastustaminen minimoi poliittiset kustannukset keskustavasemmistolle. Tämä "rakentavan pidättäytymisen" malli säilyy todennäköisesti maatalousnäkökohdissa ennen YMP:n väliarvioita 2027.
+
+**Analyytikoiden tulisi seurata**: Komission vastausta DMA-päätöslauselmaan (määräaika 8 viikon kuluessa EP:n työjärjestyksen 216(5) artiklan nojalla); neuvoston edistymistä Ukrainan tuomioistuinaseta kanssa; sekä mahdollisia EPP:n sisäisiä kurinpidollisia toimia unkarilaisia europarlamentaarikkoita vastaan, jotka äänestivät Armenia-päätöslauselmaa vastaan.
+
+### Executive Brief Fr
+
+### 📋 Résumé à l'intention des décideurs
+
+La séance plénière du Parlement européen à Strasbourg du 28 au 30 avril 2026 a produit un ensemble de résolutions marquantes qui définissent collectivement la posture déterminée du Parlement sur trois fronts stratégiques : **régulation du marché numérique**, **solidarité géopolitique** (Ukraine, Arménie) et **résilience sociétale** (cyberharcèlement, sécurité alimentaire). Ces résolutions signalent un PE de plus en plus enclin à exiger des mesures d'exécution plutôt qu'à se contenter d'adopter des résolutions déclaratoires — un changement aux implications matérielles pour la Commission européenne, les contrôleurs d'accès technologiques et les États membres de l'UE.
+
+La **résolution sur l'application du règlement sur les marchés numériques** (TA-10-2026-0160) marque l'intervention la plus ferme du PE à ce jour contre le non-respect par les plateformes, désignant des comportements spécifiques de contrôleurs d'accès et exigeant que la Commission accélère les enquêtes au titre de l'article 20 du DMA. La **résolution sur la responsabilité de l'Ukraine** (TA-10-2026-0161) réaffirme le consensus du PE en faveur du Tribunal spécial pour le crime d'agression, tout en élargissant l'architecture de responsabilité aux attaques contre les infrastructures. La **résolution sur l'Arménie** (TA-10-2026-0162) renforce le soutien du PE à Erevan dans la voie de l'intégration européenne, en accentuant la pression sur le Conseil pour débloquer les négociations de l'accord d'association. La **résolution sur le cyberharcèlement** (TA-10-2026-0163) fournit le mandat politique pour une directive sur les dispositions pénales en matière de harcèlement en ligne, comblant une lacune dans le régime d'application civile du DSA.
+
+---
+
+### 🗓️ Fenêtre de contexte
+
+| Paramètre | Valeur |
+|-----------|-------|
+| Date d'analyse | 2026-05-15 |
+| Fenêtre de données | 28 avril – 15 mai 2026 |
+| Séance plénière principale | Strasbourg, 28–30 avril 2026 |
+| Terme EP | 10e législature (2024–2029) |
+| Phase du cycle électoral | Consolidation de mi-mandat ; relations Commission–Parlement entrant dans une phase plus assertive |
+
+---
+
+### 🔑 Jugements clés
+
+#### KJ-1 : L'application de la régulation numérique est devenue le principal levier législatif du PE
+🟢 **Haute confiance (WEP : Quasi-certain, 90%+)**
+
+L'adoption de TA-10-2026-0160 sur l'application du DMA, combinée aux résolutions antérieures de 2026 sur la mise en œuvre de la loi sur l'IA et les obligations des plateformes au titre du DSA, établit un schéma constant du PE : adopter une législation-cadre, surveiller l'application par la Commission, escalader via une résolution lorsque l'application est jugée insuffisante. Le service juridique du PE a confirmé la capacité du Parlement à engager une action contre la Commission pour défaut d'utilisation des pouvoirs du DMA. Le rapporteur EPP Axel Voss et la rapporteure fictive S&D Christel Schaldemose ont coparrainé la résolution sur l'application — signal bipartisan que la régulation technologique transcende les clivages gauche-droite au PE10.
+
+#### KJ-2 : L'architecture de responsabilité de l'Ukraine s'étend au-delà des crimes de guerre
+🟢 **Haute confiance (WEP : Probable, 70–80%)**
+
+TA-10-2026-0161 appelle explicitement à la responsabilité pénale pour les attaques délibérées contre des infrastructures civiles (énergie, eau, soins de santé). Cela étend le cadre de renvoi à la CPI au territoire de la « guerre hybride », où le droit pénal international a historiquement eu du mal avec l'attribution. La résolution cite des incidents spécifiques : les frappes de décembre 2025 contre l'hôpital d'Odessa et l'attaque de février 2026 contre le réseau électrique de Kharkiv. Le PE se positionne comme le garant politique de l'architecture judiciaire, anticipant que le désengagement américain à l'ère Trump nécessitera des institutions judiciaires européennes plus robustes.
+
+#### KJ-3 : L'Arménie est le prochain projet phare d'intégration européenne du PE
+🟡 **Confiance moyenne (WEP : Probable, 65%)**
+
+TA-10-2026-0162 a été adoptée avec une majorité inhabituellement forte (estimée à 480+/50−/30 abstentions sur la base de résolutions comparables), reflétant que l'axe S&D+Renew+Verts traite l'Arménie comme une réussite de la transition démocratique que la perspective d'intégration européenne peut consolider. La division au sein du PPE — les eurodéputés hongrois ont voté contre, reflétant l'alignement de Budapest sur Moscou — révèle une ligne de fracture dans la cohésion du PPE sur la politique de voisinage oriental que la rapporteure Nathalie Loiseau (Renew) devra gérer au sein de la délégation pour les relations avec le Caucase du Sud.
+
+#### KJ-4 : La directive sur le cyberharcèlement est politiquement viable en 2026–2027
+🟡 **Confiance moyenne (WEP : Probable, 60–70%)**
+
+TA-10-2026-0163 imposant des dispositions pénales pour le cyberharcèlement sur les plateformes marque un changement qualitatif de la « responsabilité des plateformes » à la « coresponsabilité pénale » — un concept que le PE avait précédemment évité en raison des préoccupations de Renew en matière de liberté d'expression. L'adoption de la résolution avec le soutien de Renew signale que le narratif de la crise de santé mentale, notamment suite au rapport 2025 du PE sur la santé mentale des jeunes, a fourni une couverture politique suffisante pour que les libéraux civils acceptent des seuils pénaux pour les formes les plus graves de harcèlement.
+
+---
+
+### 📊 Dynamiques de coalition
+
+| Résolution | PPE | S&D | Renew | Verts/ALE | ECR | ID/Patriotes | Gauche | Résultat |
+|--------|-----|-----|-------|------------|-----|-------------|------|---------|
+| Application DMA | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Adoptée** |
+| Responsabilité Ukraine | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ⚠️ | **Adoptée** |
+| Résilience Arménie | ⚠️ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Adoptée** |
+| Cyberharcèlement | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Adoptée** |
+| Élevage/Sécurité alimentaire | ✅ | ⚠️ | ⚠️ | ❌ | ✅ | ✅ | ❌ | **Adoptée** |
+
+*Légende : ✅ Fort soutien ; ⚠️ Divisé/conditionnel ; ❌ Contre*
+
+---
+
+### 💶 Contexte macroéconomique (IMF WEO 2026)
+
+Le contexte d'économie politique de ces résolutions est celui d'une reprise inégale dans la zone euro :
+
+| Pays | Croissance PIB 2026 | Inflation 2026 | Solde budgétaire 2026 |
+|---------|----------------|----------------|---------------------|
+| **Allemagne** | +0,79% | 2,65% | -3,78% |
+| **France** | +0,86% | 1,84% | -4,94% |
+| **Italie** | +0,52% | 2,64% | -2,82% |
+
+La croissance anémique de l'Allemagne à 0,79% après deux années de contraction crée une pression politique au Bundestag qui conditionne indirectement la dynamique du PE : les eurodéputés allemands au sein du PPE et du S&D font face à des circonscriptions exigeant soit un allègement réglementaire (bloc PPE) soit une protection numérique pour les travailleurs (bloc S&D), ce qui explique le coparrainage conjoint de la résolution sur l'application du DMA qui sert simultanément les deux électorats.
+
+Le déficit budgétaire persistant de la France (−4,94% du PIB) place Paris dans la position politiquement inconfortable d'exiger simultanément une application plus stricte du DMA contre les entreprises technologiques américaines tout en résistant à toute taxation numérique susceptible de provoquer des représailles tarifaires américaines — une tension visible dans le soutien conditionnel du groupe Renew à TA-10-2026-0160.
+
+---
+
+### ⚡ Implications immédiates (90 prochains jours)
+
+1. **Application du DMA** : La DG COMP de la Commission devrait accélérer l'enquête sur l'App Store d'Apple et les affaires Google Shopping au titre de l'article 26(4) DMA ; la résolution du PE pourrait être citée dans les communications de la Commission à la commission IMCO du Parlement (juin 2026).
+2. **Tribunal ukrainien** : La présidence du Conseil (Pologne) présentera une proposition de règlement sur le mécanisme de contribution au Tribunal spécial d'ici le 30 juin 2026 ; la résolution du PE offre une couverture politique aux États membres hésitants.
+3. **Arménie** : La Commission parlementaire mixte UE-Arménie se réunit en octobre 2026 ; la résolution servira de mandat de négociation du PE pour des préférences commerciales renforcées.
+4. **Directive sur le cyberharcèlement** : La DG JUSTICE devrait publier un document de consultation au T3 2026 ; TA-10-2026-0163 fournit le mandat politique.
+5. **Élevage** : Le « Dialogue stratégique sur l'avenir de l'agriculture de l'UE » de la Commission doit présenter son rapport final d'ici juillet 2026 ; la résolution du PE approuve son volet sur la résilience aux maladies animales.
+
+---
+
+### 🎯 Évaluation stratégique
+
+Le paquet de résolutions d'avril 2026 représente le PE à son niveau d'assertivité maximal dans le cycle de mi-mandat. Le Parlement a opéré un glissement de la définition de l'agenda vers la surveillance active de l'exécution — la résolution sur le DMA met en pratique la Commission en demeure que le Parlement utilisera ses pouvoirs budgétaires et institutionnels pour accélérer l'application. Les résolutions géopolitiques (Ukraine, Arménie) reflètent le caractère distinctif du PE10 en tant que législature façonnée par l'invasion de 2022 : le consensus transpartisan sur la politique de voisinage oriental est plus profond et plus durable qu'au PE9.
+
+La résolution sur l'élevage et la sécurité alimentaire révèle la capacité du PE à former des coalitions trans-idéologiques dans la politique agricole et alimentaire : PPE + ECR + Patriotes mettent en minorité la coalition urbaine-verte, mais la résolution a été formulée assez largement pour que les abstentions S&D plutôt que les votes contre minimisent les coûts politiques pour la centre-gauche. Ce schéma d'« abstention constructive » devrait persister sur les questions agricoles à l'approche de la révision à mi-parcours de la PAC en 2027.
+
+**Les analystes doivent surveiller** : La réponse de la Commission à la résolution sur le DMA (due dans les 8 semaines conformément à l'article 216(5) du règlement intérieur du PE) ; les progrès du Conseil sur le règlement relatif au tribunal ukrainien ; et toute éventuelle mesure disciplinaire interne au PPE à l'encontre des eurodéputés hongrois ayant voté contre la résolution sur l'Arménie.
+
+### Executive Brief He
+
+**סיווג:** ציבורי | **דרגת אמינות:** B2 (מקור אמין; מאושר על-ידי נתוני הפרלמנט האירופי המרובים)
+**רצועת WEP:** סביר (60–80%) — ההחלטות משקפות קונסנסוס רחב בין-מפלגתי בנושא הרגולציה הדיגיטלית והסולידריות הגיאופוליטית
+
+---
+
+### 📋 סיכום לקובעי מדיניות
+
+המליאה של הפרלמנט האירופי בשטרסבורג בין 28 ל-30 באפריל 2026 הניבה אשכול פורץ-דרך של החלטות המגדיר יחדיו את עמדת הפרלמנט הנחרצת בשלושה חזיתות אסטרטגיות: **רגולציה של שוק דיגיטלי**, **סולידריות גיאופוליטית** (אוקראינה, ארמניה) ו**חוסן חברתי** (בריונות רשת, ביטחון תזונתי). ההחלטות מסמנות פרלמנט אירופי שנהיה נחוש יותר ויותר לדרוש צעדי אכיפה במקום להסתפק בהצבעה על החלטות הצהרתיות — מעבר עם השלכות מהותיות על הנציבות האירופית, חברות הטכנולוגיה השולטות בשוק ועל מדינות האיחוד.
+
+**החלטת אכיפת חוק השווקים הדיגיטליים** (TA-10-2026-0160) מהווה את ההתערבות הנחרצת ביותר של הפרלמנט עד כה נגד אי-ציות הפלטפורמות, מציינת התנהגויות ספציפיות של שומרי-הסף ודורשת מהנציבות להאיץ חקירות לפי סעיף 20 ל-DMA. **החלטת אחריות אוקראינה** (TA-10-2026-0161) מחזקת את הקונסנסוס של הפרלמנט מאחורי בית-הדין המיוחד לפשע התוקפנות ומרחיבה את ארכיטקטורת האחריות לתקיפות תשתיות. **החלטת ארמניה** (TA-10-2026-0162) מעמיקה את תמיכת הפרלמנט ביריוואן בדרכה לאינטגרציה אירופאית ומגבירה את הלחץ על המועצה לבטל את החסימה על משא ומתן הסכם השיתוף. **החלטת הבריונות ברשת** (TA-10-2026-0163) מספקת את הסמכות הפוליטית לדירקטיבה בדבר הוראות פליליות להטרדה מקוונת, וממלאת פוטנציאל חסר במשטר האכיפה האזרחי של ה-DSA.
+
+---
+
+### 🗓️ חלון הקשר
+
+| פרמטר | ערך |
+|-----------|-------|
+| תאריך ניתוח | 2026-05-15 |
+| חלון נתונים | 28 באפריל – 15 במאי 2026 |
+| מושב מליאה ראשי | שטרסבורג, 28–30 באפריל 2026 |
+| כהונת הפרלמנט | הכהונה החקיקתית העשירית (2024–2029) |
+| שלב במחזור הבחירות | איחוד אמצע כהונה; יחסי הנציבות-הפרלמנט בשלב נחרץ יותר ויותר |
+
+---
+
+### 🔑 הערכות מפתח
+
+#### KJ-1: אכיפת הרגולציה הדיגיטלית הפכה לכלי החקיקתי הדומיננטי של הפרלמנט
+🟢 **אמון גבוה (WEP: כמעט ודאי, 90%+)**
+
+אימוץ TA-10-2026-0160 בנושא אכיפת DMA, בשילוב עם ההחלטות הקודמות של 2026 בנושא יישום חוק הבינה המלאכותית וחובות הפלטפורמות לפי ה-DSA, מבסס דפוס עקבי של הפרלמנט האירופי: קבלת חקיקת מסגרת, מעקב אחר אכיפת הנציבות, הסלמה בהחלטות כאשר האכיפה נחשבת בלתי מספקת. שירות המשפטי של הפרלמנט אישר את כשירותו להגיש תביעה נגד הנציבות בגין אי-שימוש בסמכויות ה-DMA. המדווח מטעם EPP אקסל פוס ומדווחת-הצל מטעם S&D כריסטל שלדמוז היו נותני-חסות משותפים להחלטת האכיפה — אות דו-מפלגתי שרגולציית הטכנולוגיה חוצה את הקווים ימין-שמאל ב-EP10.
+
+#### KJ-2: ארכיטקטורת האחריות של אוקראינה מתרחבת מעבר לפשעי מלחמה
+🟢 **אמון גבוה (WEP: סביר, 70–80%)**
+
+TA-10-2026-0161 קורא במפורש לאחריות פלילית על תקיפות מכוונות של תשתיות אזרחיות (אנרגיה, מים, בריאות). זה מרחיב את מסגרת ההפניה לבית-הדין הפלילי הבין-לאומי לתחום "מלחמת ההיברידים" שבו הדין הפלילי הבין-לאומי התקשה היסטורית עם ייחוס. ההחלטה מציינת אירועים ספציפיים: הפצצות בית-החולים באודסה בדצמבר 2025 ומתקפת פברואר 2026 על רשת החשמל בחרקיב. הפרלמנט מציב את עצמו כערב פוליטי של הארכיטקטורה המשפטית, בציפייה שנסיגת ארצות הברית בעידן טראמפ תדרוש מוסדות שיפוטיים אירופאיים חזקים יותר.
+
+#### KJ-3: ארמניה היא ספינת הדגל הבאה של הפרלמנט לאינטגרציה אירופאית
+🟡 **אמון בינוני (WEP: סביר, 65%)**
+
+TA-10-2026-0162 אושר ברוב חריג (מוערך ב-480+/50−/30 נמנעים על בסיס החלטות דומות), המשקף שציר S&D+Renew+ירוקים מתייחס לארמניה כאל סיפור הצלחה של מעבר דמוקרטי שאפשרות האינטגרציה האירופאית יכולה לבסס. הפיצול בתוך EPP — חברי פרלמנט הונגרים הצביעו נגד, המשקף את ההתאמה של בודפשט למוסקוה — חושף קו שבר בלכידות EPP בנוגע למדיניות השכנות המזרחית, שהמדווחת נתלי לואזו (Renew) תצטרך לנהל בוועדה לקשרים עם דרום הקווקז.
+
+#### KJ-4: דירקטיבת הבריונות ברשת ישימה פוליטית ב-2026–2027
+🟡 **אמון בינוני (WEP: סביר, 60–70%)**
+
+TA-10-2026-0163 המחייב הוראות פליליות לבריונות ברשת בפלטפורמות מהווה מעבר איכותי מ"אחריות פלטפורמה" ל"אחריות פלילית משותפת" — מושג שהפרלמנט נמנע ממנו בעבר בשל חששות של Renew לגבי חופש הביטוי. אשרור ההחלטה בתמיכת Renew מסמן שנרטיב משבר בריאות הנפש, בעיקר בעקבות דוח 2025 של הפרלמנט בנושא בריאות הנפש של צעירים, סיפק כיסוי פוליטי מספיק לליברלים אזרחיים לקבל סף פלילי להטרדה החמורה ביותר.
+
+---
+
+### 📊 דינמיקת קואליציה
+
+| החלטה | EPP | S&D | Renew | ירוקים/EFA | ECR | ID/פטריוטים | שמאל | תוצאה |
+|--------|-----|-----|-------|------------|-----|-------------|------|---------|
+| אכיפת DMA | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **אושר** |
+| אחריות אוקראינה | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ⚠️ | **אושר** |
+| חוסן ארמניה | ⚠️ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **אושר** |
+| בריונות ברשת | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **אושר** |
+| בקר/ביטחון תזונתי | ✅ | ⚠️ | ⚠️ | ❌ | ✅ | ✅ | ❌ | **אושר** |
+
+*מקרא: ✅ תמיכה חזקה; ⚠️ מפוצל/מותנה; ❌ נגד*
+
+---
+
+### 💶 הקשר מאקרו-כלכלי (IMF WEO 2026)
+
+הרקע הפוליטי-כלכלי להחלטות אלו הוא התאוששות לא אחידה באזור האירו:
+
+| מדינה | צמיחת תוצר מקומי גולמי 2026 | אינפלציה 2026 | יתרת תקציב 2026 |
+|---------|----------------|----------------|---------------------|
+| **גרמניה** | +0.79% | 2.65% | -3.78% |
+| **צרפת** | +0.86% | 1.84% | -4.94% |
+| **איטליה** | +0.52% | 2.64% | -2.82% |
+
+הצמיחה הרדומה של גרמניה ב-0.79% לאחר שנתיים של התכווצות יוצרת לחץ פוליטי בבונדסטאג המשפיע באופן עקיף על דינמיקת הפרלמנט האירופי: חברי פרלמנט גרמניים ב-EPP וב-S&D מתמודדים עם מצביעים הדורשים הן הקלה בנטל הרגולציה (כוח EPP) והן הגנה דיגיטלית לעובדים (כוח S&D), דבר המסביר את החסות המשותפת להחלטת אכיפת DMA המשרתת שתי הציבורים בו זמנית.
+
+הגירעון הפיסקלי המתמיד הגבוה של צרפת (−4.94% מהתוצר המקומי הגולמי) מציב את פריז במצב פוליטי לא נוח של דרישה בו-זמנית לאכיפה קפדנית יותר של DMA נגד חברות טכנולוגיה אמריקאיות, ובמקביל התנגדות לכל מיסוי דיגיטלי שעלול לעורר תגמול אמריקאי בצורת מכסים — מתח בולט בתמיכה המותנית של קבוצת Renew ב-TA-10-2026-0160.
+
+---
+
+### ⚡ השלכות מיידיות (90 הימים הקרובים)
+
+1. **אכיפת DMA**: המנהל הכללי לתחרות של הנציבות צפוי להאיץ את חקירת חנות האפליקציות של Apple ותיקי Google Shopping לפי סעיף 26(4) ל-DMA; ההחלטה עשויה להיות מצוטטת בתקשורת הנציבות לוועדת IMCO של הפרלמנט (יוני 2026).
+2. **בית-הדין האוקראיני**: יוזמת המועצה (פולין) תגיש הצעת תקנות לגבי מנגנון תרומות לבית-הדין המיוחד לפני 30 ביוני 2026; החלטת הפרלמנט מספקת כיסוי פוליטי למדינות-חברות מהססות.
+3. **ארמניה**: הוועדה הפרלמנטרית המשותפת האיחוד האירופי-ארמניה מתכנסת באוקטובר 2026; ההחלטה תשמש ככתב הסמכה של הפרלמנט למשא ומתן על העדפות סחר משופרות.
+4. **דירקטיבת הבריונות ברשת**: המנהל הכללי לצדק צפוי לפרסם מסמך ייעוץ בחציון שלישי 2026; TA-10-2026-0163 מספק את הסמכות הפוליטית.
+5. **בקר**: "הדיאלוג האסטרטגי על עתיד החקלאות באיחוד האירופי" של הנציבות אמור להגיש דוח סופי לפני יולי 2026; החלטת הפרלמנט מאשרת את מסלול העבודה שלו לחוסן מחלות בעלי-חיים.
+
+---
+
+### 🎯 הערכה אסטרטגית
+
+חבילת ההחלטות של אפריל 2026 מייצגת את הפרלמנט האירופי בשיא הנחרצות שלו במחזור אמצע-הכהונה. הפרלמנט עבר מקביעת סדר-היום לפיקוח אכיפה פעיל — החלטת DMA מציבה למעשה את הנציבות בפני הודעה שהפרלמנט ישתמש בכוחות התקציביים והמוסדיים שלו להאצת האכיפה. ההחלטות הגיאופוליטיות (אוקראינה, ארמניה) משקפות את האופי המייחד את EP10 כמחוקק שעוצב על-ידי הפלישה של 2022: הקונסנסוס הבין-מפלגתי על מדיניות השכנות המזרחית הוא עמוק ועמיד יותר מאשר ב-EP9.
+
+ההחלטה בנושא בקר וביטחון תזונתי חושפת את יכולתו של הפרלמנט לקואליציות בין-אידיאולוגיות במדיניות חקלאות ומזון: EPP + ECR + פטריוטים מנצחים את הקואליציה העירונית-ירוקה, אך ההחלטה נוסחה מספיק רחב כדי שהימנעויות S&D במקום הצבעות נגד ימזערו את העלויות הפוליטיות עבור מרכז-שמאל. דפוס "הימנעות קונסטרוקטיבית" זה ככל הנראה ימשיך בנושאים חקלאיים לקראת סקירת אמצע-הדרך של CAP ב-2027.
+
+**על אנליסטים לעקוב**: תגובת הנציבות להחלטת DMA (פג תוקפה תוך 8 שבועות לפי סעיף 216(5) לתקנון הפרלמנט האירופי); ההתקדמות של המועצה בתקנות בית-הדין האוקראיני; וכל צעד משמעת פנימי אפשרי ב-EPP נגד חברי פרלמנט הונגרים שהצביעו נגד החלטת ארמניה.
+
+### Executive Brief Ja
+
+**分類：** 公開 | **信頼度等級：** B2（信頼性の高い情報源；複数の欧州議会データにより確認）
+**WEPバンド：** 可能性高（60–80%）— 決議はデジタル規制と地政学的連帯に関する幅広い超党派合意を反映
+
+---
+
+### 📋 意思決定者向け要約
+
+2026年4月28日から30日にかけてストラスブールで開催された欧州議会の本会議は、三つの戦略的側面における議会の断固たる姿勢を集合的に定義する画期的な決議パッケージを生み出した：**デジタル市場規制**、**地政学的連帯**（ウクライナ、アルメニア）、**社会的強靭性**（サイバーいじめ、食料安全保障）。これらの決議は、単に宣言的な決議を採択するのではなく、執行措置を要求することに積極的になった欧州議会の姿勢を示している。この転換は欧州委員会、大手テクノロジー企業、そしてEU加盟国に対して具体的な影響をもたらす。
+
+**デジタル市場法の執行に関する決議**（TA-10-2026-0160）は、プラットフォームの不遵守に対するEPのこれまでで最も強力な介入を示し、特定のゲートキーパー行動を名指しし、欧州委員会にDMA第20条に基づく調査の加速を求めている。**ウクライナの説明責任に関する決議**（TA-10-2026-0161）は、侵略犯罪特別裁判所を支持するEPの合意を強固にしつつ、説明責任の枠組みをインフラ攻撃にまで拡大している。**アルメニア決議**（TA-10-2026-0162）はEUへの統合という道においてエレバンへの支援を深め、理事会が連合協定交渉の障害を取り除くよう圧力を強める。**サイバーいじめ決議**（TA-10-2026-0163）はオンライン嫌がらせに関する刑事規定の指令に向けた政治的権限を付与し、DSA民事執行制度のギャップを埋める。
+
+---
+
+### 🗓️ コンテキスト・ウィンドウ
+
+| パラメーター | 値 |
+|-----------|-------|
+| 分析日 | 2026-05-15 |
+| データウィンドウ | 2026年4月28日 – 5月15日 |
+| 主要本会議 | ストラスブール、2026年4月28日–30日 |
+| 欧州議会会期 | 第10立法期（2024–2029） |
+| 選挙サイクルの段階 | 任期中盤の安定期；委員会–議会関係はより積極的な段階へ |
+
+---
+
+### 🔑 主要判断
+
+#### KJ-1：デジタル規制の執行が欧州議会の主要な立法手段となった
+🟢 **高信頼（WEP：ほぼ確実、90%+）**
+
+DMA執行に関するTA-10-2026-0160の採択と、2026年の先行するAI法実施およびDSAプラットフォーム義務に関する決議を組み合わせると、一貫したEPのパターンが確立される：枠組み立法を採択し、欧州委員会の執行を監視し、執行が不十分と見なされた際に決議でエスカレートする。EPの法務局は、委員会がDMAの権限を行使しない場合、議会が委員会に対して訴訟を提起する権限があることを確認した。EPP報告者アクセル・フォス氏とS&D影の報告者クリスティエル・シャルデモーズ氏が共同でこの執行決議を後援したことは、テクノロジー規制がEP10における左右の対立を超えていることを示す超党派のシグナルである。
+
+#### KJ-2：ウクライナの説明責任の枠組みが戦争犯罪を超えて拡大
+🟢 **高信頼（WEP：可能性高、70–80%）**
+
+TA-10-2026-0161は、民間インフラ（エネルギー、水、医療）への意図的な攻撃に対する刑事上の説明責任を明示的に求めている。これにより、国際刑事法が歴史的に帰属の問題に苦慮してきた「ハイブリッド戦争」の領域にICC付託の枠組みが拡大する。決議は具体的な事例を挙げている：2025年12月のオデーサ病院への攻撃と2026年2月のハルキウ電力網への攻撃。EPは法的枠組みの政治的保証人として自らを位置づけ、トランプ政権時代の米国の関与縮小がより強力な欧州の司法機関を必要とすることを見越している。
+
+#### KJ-3：アルメニアはEPの次のEU統合旗艦事業
+🟡 **中信頼（WEP：可能性高、65%）**
+
+TA-10-2026-0162は異例なほど強い多数決で採択された（比較可能な決議に基づく推定480+/50−/30棄権）。これはS&D+Renew+緑の党の連合がアルメニアを民主主義への移行の成功例として扱い、EU統合の見通しがそれを強化できると見ていることを反映している。EPP内の分裂—ハンガリー議員がブダペストのモスクワへの接近を反映して反対票を投じた—は、報告者ナタリー・ロワゾー氏（Renew）が南コーカサス関係代表団において対処しなければならない東方近隣政策に関するEPPの結束の亀裂を露わにしている。
+
+#### KJ-4：サイバーいじめ指令は2026–2027年に政治的に実現可能
+🟡 **中信頼（WEP：可能性高、60–70%）**
+
+プラットフォーム上のサイバーいじめに刑事規定を義務付けるTA-10-2026-0163は、「プラットフォームの責任」から「刑事的共同責任」への質的転換を示している。これはRenewの表現の自由への懸念から欧州議会が以前は避けていた概念だ。Renewの支持を得て決議が採択されたことは、特に2025年のEPの若者の精神衛生報告書を受けて精神衛生危機の物語が、市民の自由を重んじるリベラルが最も深刻な嫌がらせに対する刑事的閾値を受け入れるのに十分な政治的カバーを提供したことを示している。
+
+---
+
+### 📊 連合動態
+
+| 決議 | EPP | S&D | Renew | 緑の党/EFA | ECR | ID/愛国者 | 左派 | 結果 |
+|--------|-----|-----|-------|------------|-----|-------------|------|---------|
+| DMA執行 | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **採択** |
+| ウクライナの説明責任 | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ⚠️ | **採択** |
+| アルメニアの強靭性 | ⚠️ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **採択** |
+| サイバーいじめ | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **採択** |
+| 家畜・食料安全保障 | ✅ | ⚠️ | ⚠️ | ❌ | ✅ | ✅ | ❌ | **採択** |
+
+*凡例：✅ 強い支持；⚠️ 分裂/条件付き；❌ 反対*
+
+---
+
+### 💶 マクロ経済的背景（IMF WEO 2026）
+
+これらの決議の政治経済的背景は、ユーロ圏の不均一な回復である：
+
+| 国 | GDP成長率 2026 | インフレ率 2026 | 財政収支 2026 |
+|---------|----------------|----------------|---------------------|
+| **ドイツ** | +0.79% | 2.65% | -3.78% |
+| **フランス** | +0.86% | 1.84% | -4.94% |
+| **イタリア** | +0.52% | 2.64% | -2.82% |
+
+二年連続の収縮後、ドイツの0.79%という低成長は連邦議会に政治的圧力をもたらし、EP力学に間接的な影響を与えている：EPPとS&DのドイツのEP議員は、規制緩和（EPPブロック）またはデジタル労働者保護（S&Dブロック）のいずれかを求める選挙区と向き合っており、両方の選挙区に同時に応えるDMA執行決議の共同後援が説明される。
+
+フランスの持続的に高い財政赤字（GDP比-4.94%）は、パリを、米国テクノロジー企業に対するより厳しいDMA執行を要求しながら同時に米国の報復関税を招きかねないデジタル課税に反対するという政治的に不快な立場に置いている。この緊張はTA-10-2026-0160に対するRenewグループの条件付き支持に顕れている。
+
+---
+
+### ⚡ 直近の影響（今後90日間）
+
+1. **DMA執行**：欧州委員会競争総局がDMA第26条(4)に基づくApple App Store調査とGoogle Shopping案件を加速させることが予想される；EP決議は6月2026年のIMCO委員会への欧州委員会通信で引用される可能性がある。
+2. **ウクライナ裁判所**：理事会議長国（ポーランド）が2026年6月30日までに特別裁判所の貢献メカニズムに関する規則提案を提出する；EP決議は躊躇している加盟国への政治的カバーを提供する。
+3. **アルメニア**：EU-アルメニア合同議会委員会が2026年10月に開催される；決議はEPの強化された貿易特恵に関する交渉権限として機能する。
+4. **サイバーいじめ指令**：司法総局が2026年第3四半期に協議文書を発行することが予想される；TA-10-2026-0163が政治的権限を付与する。
+5. **家畜**：欧州委員会の「EU農業の未来に関する戦略的対話」が2026年7月までに最終報告書を提出する；EP決議は動物疾病強靭性の作業ストリームを支持している。
+
+---
+
+### 🎯 戦略的評価
+
+2026年4月の決議パッケージは、任期中盤サイクルにおいてEPが最も積極的な時点にあることを示している。議会は議題設定から能動的な執行監視へと移行した—DMA決議は事実上、欧州委員会に対して議会が執行を加速させるために予算と制度的権力手段を活用するという通知を出している。地政学的決議（ウクライナ、アルメニア）は2022年の侵攻によって形成された立法府としてのEP10の独自の性格を反映している：東方近隣政策に関する超党派合意はEP9よりも深く持続的である。
+
+家畜・食料安全保障決議は農食品政策における超イデオロギー的連合を形成するEPの能力を明らかにしている：EPP+ECR+愛国者が都市部・環境連合に対して優位に立つが、決議はS&Dの棄権（反対票ではなく）が中道左派への政治的コストを最小化するよう十分に幅広く作成された。この「建設的棄権」のパターンは、2027年のCAP中間見直しを前にして農業問題において継続する可能性が高い。
+
+**アナリストが監視すべき点**：DMA決議に対する欧州委員会の応答（欧州議会規則第216条(5)に従い8週間以内に期限）；ウクライナ裁判所規制に関する理事会の進捗；アルメニア決議に反対票を投じたハンガリー議員に対するEPP内の懲戒措置の可能性。
+
+### Executive Brief Ko
+
+**분류:** 공개 | **신뢰도 등급:** B2 (신뢰할 수 있는 출처; 복수의 유럽의회 데이터로 확인됨)
+**WEP 범위:** 가능성 높음 (60–80%) — 결의안은 디지털 규제와 지정학적 연대에 관한 강력한 초당적 합의를 반영함
+
+---
+
+### 📋 의사결정권자를 위한 요약
+
+2026년 4월 28일부터 30일까지 스트라스부르에서 열린 유럽의회 본회의는 세 가지 전략적 측면에서 의회의 단호한 입장을 집합적으로 정의하는 획기적인 결의안 패키지를 도출했다: **디지털 시장 규제**, **지정학적 연대** (우크라이나, 아르메니아), **사회적 회복력** (사이버 괴롭힘, 식량 안보). 이 결의안들은 단순히 선언적 결의안을 채택하는 것이 아닌 집행 조치를 요구하는 데 더욱 적극적인 유럽의회를 보여주며, 이는 유럽 집행위원회, 빅테크 게이트키퍼, EU 회원국들에게 실질적인 영향을 미치는 전환을 의미한다.
+
+**디지털 시장법 집행에 관한 결의안** (TA-10-2026-0160)은 플랫폼의 불준수에 대한 유럽의회의 역대 가장 강력한 개입으로, 구체적인 게이트키퍼 행동을 명시하고 유럽 집행위원회에 DMA 제20조에 따른 조사 가속화를 요구한다. **우크라이나 책임 결의안** (TA-10-2026-0161)은 침략 범죄 특별재판소를 지지하는 의회의 합의를 강화하는 동시에 책임 체계를 인프라 공격으로 확대한다. **아르메니아 결의안** (TA-10-2026-0162)은 EU 통합을 향한 에레반에 대한 유럽의회의 지지를 심화하며, 연합 협정 협상 차단 해제를 위해 이사회에 대한 압박을 강화한다. **사이버 괴롭힘 결의안** (TA-10-2026-0163)은 온라인 괴롭힘에 대한 형사 규정을 담은 지침의 정치적 위임을 제공하며, DSA 민사 집행 체계의 공백을 채운다.
+
+---
+
+### 🗓️ 상황 창
+
+| 매개변수 | 값 |
+|-----------|-------|
+| 분석 날짜 | 2026-05-15 |
+| 데이터 창 | 2026년 4월 28일 – 5월 15일 |
+| 주요 본회의 | 스트라스부르, 2026년 4월 28일–30일 |
+| 유럽의회 임기 | 제10대 (2024–2029) |
+| 선거 주기 단계 | 임기 중반 안정화; 집행위원회–의회 관계가 더욱 강경한 단계로 진입 |
+
+---
+
+### 🔑 핵심 판단
+
+#### KJ-1: 디지털 규제 집행이 유럽의회의 지배적인 입법 수단이 됨
+🟢 **높은 신뢰도 (WEP: 거의 확실, 90%+)**
+
+DMA 집행에 관한 TA-10-2026-0160 채택과, 2026년 AI법 시행 및 DSA 플랫폼 의무에 관한 이전 결의안을 결합하면 일관된 유럽의회 패턴이 확립된다: 기본법 채택, 집행위원회 집행 모니터링, 집행이 불충분하다고 판단될 때 결의안을 통한 에스컬레이션. 유럽의회 법률 서비스는 집행위원회가 DMA 권한을 행사하지 않을 경우 의회가 집행위원회를 상대로 소송을 제기할 법적 지위가 있음을 확인했다. EPP 보고자 악셀 보스와 S&D 그림자 보고자 크리스텔 샬데모스가 공동으로 집행 결의안을 발의했다 — 기술 규제가 EP10에서 좌우 분열을 초월한다는 초당적 신호다.
+
+#### KJ-2: 우크라이나 책임 체계가 전쟁 범죄를 넘어 확대
+🟢 **높은 신뢰도 (WEP: 가능성 높음, 70–80%)**
+
+TA-10-2026-0161은 민간 인프라(에너지, 수도, 의료)에 대한 의도적 공격에 대한 형사 책임을 명시적으로 요구한다. 이로써 국제형사법이 역사적으로 귀속 문제에 어려움을 겪어온 '하이브리드 전쟁' 영역으로 ICC 회부 틀이 확장된다. 결의안은 구체적인 사건을 명시한다: 2025년 12월 오데사 병원 공격과 2026년 2월 하르키우 전력망 공격. 유럽의회는 트럼프 시대 미국의 후퇴가 더 강력한 유럽 사법 기관을 필요로 할 것을 예상하며 법적 체계의 정치적 보증인으로서의 위치를 확립하고 있다.
+
+#### KJ-3: 아르메니아는 유럽의회의 다음 EU 통합 기함 사업
+🟡 **중간 신뢰도 (WEP: 가능성 높음, 65%)**
+
+TA-10-2026-0162는 유례없이 강력한 다수결로 채택되었다 (비교 가능한 결의안을 기준으로 추정 480+/50−/30 기권). 이는 S&D+Renew+녹색당 축이 아르메니아를 EU 통합 전망이 공고히 할 수 있는 민주주의 전환의 성공 사례로 보고 있음을 반영한다. EPP 내 분열 — 헝가리 의원들이 부다페스트의 모스크바 정렬을 반영하여 반대표를 던짐 — 은 보고자 나탈리 루아조 (Renew)가 남캅카스 관계 대표단에서 관리해야 할 동방 근린 정책에 대한 EPP 결속력의 균열을 드러낸다.
+
+#### KJ-4: 사이버 괴롭힘 지침은 2026–2027년 정치적으로 실현 가능
+🟡 **중간 신뢰도 (WEP: 가능성 높음, 60–70%)**
+
+플랫폼에서의 사이버 괴롭힘에 대한 형사 규정을 의무화하는 TA-10-2026-0163는 '플랫폼 책임'에서 '형사 공동 책임'으로의 질적 전환을 보여준다 — 이는 표현의 자유에 대한 Renew의 우려로 유럽의회가 이전에 피했던 개념이다. Renew의 지지를 받아 결의안이 채택된 것은, 특히 2025년 유럽의회의 청소년 정신 건강 보고서 이후 정신 건강 위기 서사가 시민 자유주의자들이 가장 심각한 괴롭힘에 대한 형사적 임계값을 수용하기에 충분한 정치적 커버를 제공했음을 시사한다.
+
+---
+
+### 📊 연합 역학
+
+| 결의안 | EPP | S&D | Renew | 녹색당/EFA | ECR | ID/애국자 | 좌파 | 결과 |
+|--------|-----|-----|-------|------------|-----|-------------|------|---------|
+| DMA 집행 | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **채택** |
+| 우크라이나 책임 | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ⚠️ | **채택** |
+| 아르메니아 회복력 | ⚠️ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **채택** |
+| 사이버 괴롭힘 | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **채택** |
+| 가축/식량 안보 | ✅ | ⚠️ | ⚠️ | ❌ | ✅ | ✅ | ❌ | **채택** |
+
+*범례: ✅ 강한 지지; ⚠️ 분열/조건부; ❌ 반대*
+
+---
+
+### 💶 거시경제적 맥락 (IMF WEO 2026)
+
+이 결의안들의 정치경제적 배경은 유로존의 불균등한 회복이다:
+
+| 국가 | GDP 성장률 2026 | 인플레이션 2026 | 재정 수지 2026 |
+|---------|----------------|----------------|---------------------|
+| **독일** | +0.79% | 2.65% | -3.78% |
+| **프랑스** | +0.86% | 1.84% | -4.94% |
+| **이탈리아** | +0.52% | 2.64% | -2.82% |
+
+2년 연속 위축 이후 독일의 미미한 0.79% 성장은 연방의회에 정치적 압박을 가하며, 이는 유럽의회 역학에 간접적인 영향을 미친다: EPP와 S&D의 독일 의원들은 규제 완화(EPP 블록)를 요구하는 선거구와 디지털 근로자 보호(S&D 블록)를 요구하는 선거구 모두를 상대해야 하며, 이것이 두 선거구를 동시에 충족하는 DMA 집행 결의안의 공동 발의를 설명한다.
+
+프랑스의 지속적으로 높은 재정 적자 (GDP 대비 -4.94%)는 파리를 미국 기술 기업에 대한 더 강력한 DMA 집행을 요구하면서도 동시에 미국의 보복 관세를 유발할 수 있는 디지털 과세에 반대하는 정치적으로 불편한 입장에 놓는다 — TA-10-2026-0160에 대한 Renew 그룹의 조건부 지지에서 볼 수 있는 긴장이다.
+
+---
+
+### ⚡ 즉각적인 영향 (향후 90일)
+
+1. **DMA 집행**: 집행위원회 경쟁총국이 DMA 제26조(4)에 따라 Apple App Store 조사와 Google Shopping 사건을 가속화할 것으로 예상된다; 유럽의회 결의안은 6월 2026년 IMCO 위원회에 대한 집행위원회 통신에서 인용될 수 있다.
+2. **우크라이나 재판소**: 이사회 의장국 (폴란드)이 2026년 6월 30일까지 특별 재판소 기여 메커니즘에 관한 규정 제안을 제출할 것이다; 유럽의회 결의안은 주저하는 회원국들에 정치적 커버를 제공한다.
+3. **아르메니아**: EU-아르메니아 합동 의회 위원회가 2026년 10월에 개최된다; 결의안은 강화된 무역 특혜 협상에서 유럽의회의 협상 위임으로 기능할 것이다.
+4. **사이버 괴롭힘 지침**: 사법총국이 2026년 3분기에 협의 문서를 발표할 것으로 예상된다; TA-10-2026-0163이 정치적 위임을 제공한다.
+5. **가축**: 집행위원회의 'EU 농업의 미래에 관한 전략적 대화'가 2026년 7월까지 최종 보고서를 제출한다; 유럽의회 결의안은 동물 질병 회복력 업무 흐름을 지지한다.
+
+---
+
+### 🎯 전략적 평가
+
+2026년 4월 결의안 패키지는 임기 중반 주기에서 유럽의회가 가장 단호한 지점에 있음을 보여준다. 의회는 의제 설정에서 적극적인 집행 감독으로 이동했다 — DMA 결의안은 사실상 의회가 집행을 가속화하기 위해 예산 및 제도적 권력 수단을 사용할 것임을 집행위원회에 통보한다. 지정학적 결의안(우크라이나, 아르메니아)은 2022년 침공에 의해 형성된 입법부로서 EP10의 독특한 성격을 반영한다: 동방 근린 정책에 관한 초당적 합의는 EP9보다 더 깊고 더 오래 지속된다.
+
+가축 및 식량 안보 결의안은 농식품 정책에서 초이념적 연합을 형성하는 유럽의회의 능력을 드러낸다: EPP + ECR + 애국자는 도시-환경 연합을 압도하지만, 결의안은 S&D의 기권(반대가 아닌)이 중도 좌파에 대한 정치적 비용을 최소화하도록 충분히 폭넓게 작성되었다. 이 '건설적 기권' 패턴은 2027년 CAP 중간 검토를 앞두고 농업 문제에서 지속될 가능성이 높다.
+
+**분석가들이 주목해야 할 사항**: DMA 결의안에 대한 집행위원회의 답변 (유럽의회 규칙 제216조(5)에 따라 8주 이내); 우크라이나 재판소 규정에 관한 이사회의 진행 상황; 아르메니아 결의안에 반대표를 던진 헝가리 의원들에 대한 EPP 내 내부 징계 조치 가능성.
+
+### Executive Brief Nl
+
+### 📋 Samenvatting voor beleidsmakers
+
+De plenaire vergadering van het Europees Parlement in Straatsburg van 28 tot 30 april 2026 produceerde een baanbrekend pakket resoluties dat gezamenlijk de resolute houding van het Parlement op drie strategische fronten definieert: **regulering van de digitale markt**, **geopolitieke solidariteit** (Oekraïne, Armenië) en **maatschappelijke veerkracht** (cyberpesten, voedselzekerheid). De resoluties signaleren een EP dat steeds meer handhavingsmaatregelen eist in plaats van louter verklarende resoluties aan te nemen — een verschuiving met materiële gevolgen voor de Europese Commissie, technologische poortwachters en EU-lidstaten.
+
+De **resolutie over de handhaving van de Digital Markets Act** (TA-10-2026-0160) markeert de meest krachtige interventie van het EP tot nu toe tegen niet-naleving door platforms, benoemt specifiek gatekeepergedrag en eist dat de Commissie onderzoeken krachtens artikel 20 van de DMA versnelt. De **resolutie over de verantwoordingsplicht van Oekraïne** (TA-10-2026-0161) bevestigt de EP-consensus achter het Speciaal Tribunaal voor het Misdrijf van Agressie en breidt de verantwoordingsarchitectuur uit naar aanvallen op infrastructuur. De **resolutie over Armenië** (TA-10-2026-0162) verdiept de EP-steun voor Jerevan op weg naar EU-integratie en vergroot de druk op de Raad om de blokkade van de onderhandelingen over de Associatieovereenkomst op te heffen. De **resolutie over cyberpesten** (TA-10-2026-0163) geeft het politieke mandaat voor een richtlijn over strafrechtelijke bepalingen voor online intimidatie en vult een leemte in het civielrechtelijke handhavingsregime van de DSA.
+
+---
+
+### 🗓️ Contextvenster
+
+| Parameter | Waarde |
+|-----------|-------|
+| Analysedatum | 2026-05-15 |
+| Datavenster | 28 april – 15 mei 2026 |
+| Primaire plenaire vergadering | Straatsburg, 28–30 april 2026 |
+| EP-termijn | 10e zittingsperiode (2024–2029) |
+| Fase in electorale cyclus | Halverwege consolidatie; Commissie–Parlement-betrekkingen in een steeds assertievere fase |
+
+---
+
+### 🔑 Kernbeoordelingen
+
+#### KJ-1: Handhaving van digitale regulering is het dominerende wetgevingsinstrument van het EP geworden
+🟢 **Hoge betrouwbaarheid (WEP: Nagenoeg zeker, 90%+)**
+
+De aanneming van TA-10-2026-0160 over DMA-handhaving, gecombineerd met eerdere resoluties uit 2026 over de uitvoering van de AI Act en platformverplichtingen onder de DSA, vestigt een consistent EP-patroon: kaderregelgeving aannemen, Commissiehandhaving monitoren, escaleren via resolutie wanneer handhaving onvoldoende wordt geacht. De juridische dienst van het EP heeft bevestigd dat het Parlement bevoegd is om een actie in te stellen tegen de Commissie wegens het niet gebruiken van DMA-bevoegdheden. EPP-rapporteur Axel Voss en S&D-schaduwrapporteur Christel Schaldemose waren gezamenlijke co-indieners van de handhavingsresolutie — een bipartijdig signaal dat technologieregulering de links-rechts-scheidslijn in EP10 overstijgt.
+
+#### KJ-2: De verantwoordingsarchitectuur van Oekraïne breidt zich uit voorbij oorlogsmisdaden
+🟢 **Hoge betrouwbaarheid (WEP: Waarschijnlijk, 70–80%)**
+
+TA-10-2026-0161 roept uitdrukkelijk op tot strafrechtelijke verantwoordingsplicht voor opzettelijke aanvallen op civiele infrastructuur (energie, water, gezondheidszorg). Dit breidt het ICC-verwijzingskader uit naar het terrein van de „hybride oorlog" waar het internationaal strafrecht historisch heeft geworsteld met attributie. De resolutie noemt specifieke incidenten: de beschietingen van het ziekenhuis van Odessa in december 2025 en de aanval op het elektriciteitsnet van Charkov in februari 2026. Het EP positioneert zich als politieke garant van de juridische architectuur, anticiperend op het feit dat een Amerikaanse terugtrekking in het Trump-tijdperk sterkere Europese rechtsinstellingen vereist.
+
+#### KJ-3: Armenië is het volgende EU-integratieflaggenschip van het EP
+🟡 **Gemiddelde betrouwbaarheid (WEP: Waarschijnlijk, 65%)**
+
+TA-10-2026-0162 werd aangenomen met een ongewoon grote meerderheid (geschat op 480+/50−/30 onthoudingen op basis van vergelijkbare resoluties), wat weerspiegelt dat de S&D+Renew+Groenen-as Armenië behandelt als een democratisch transitiesucces dat de EU-integratieperspectief kan consolideren. De EPP-splitsing — Hongaarse EP-leden stemden tegen, wat Boedapests afstemming op Moskou weerspiegelt — onthult een breukzone in EPP-cohesie over het oostelijk nabuurschapsbeleid die rapporteur Nathalie Loiseau (Renew) zal moeten managen in de Delegatie voor de betrekkingen met de Zuidelijke Kaukasus.
+
+#### KJ-4: De richtlijn inzake cyberpesten is politiek haalbaar in 2026–2027
+🟡 **Gemiddelde betrouwbaarheid (WEP: Waarschijnlijk, 60–70%)**
+
+TA-10-2026-0163, dat strafrechtelijke bepalingen voor cyberpesten op platforms voorschrijft, markeert een kwalitatieve verschuiving van „platformaansprakelijkheid" naar „strafrechtelijke medeaansprakelijkheid" — een concept dat het EP eerder had vermeden vanwege zorgen van Renew over vrijheid van meningsuiting. De aanneming van de resolutie met Renew-steun signaleert dat het narratief van de geestelijke gezondheidscrisis, met name na het EP-rapport over geestelijke gezondheid van jongeren uit 2025, voldoende politieke dekking heeft geboden voor burgerrechtsliberalen om strafrechtelijke drempels voor de ernstigste intimidatie te aanvaarden.
+
+---
+
+### 📊 Coalitiedynamiek
+
+| Resolutie | EVP | S&D | Renew | Groenen/EFA | ECR | ID/Patriotten | Links | Uitkomst |
+|--------|-----|-----|-------|------------|-----|-------------|------|---------|
+| DMA-handhaving | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Aangenomen** |
+| Verantwoording Oekraïne | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ⚠️ | **Aangenomen** |
+| Veerkracht Armenië | ⚠️ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Aangenomen** |
+| Cyberpesten | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Aangenomen** |
+| Veehouderij/Voedselzekerheid | ✅ | ⚠️ | ⚠️ | ❌ | ✅ | ✅ | ❌ | **Aangenomen** |
+
+*Legenda: ✅ Sterke steun; ⚠️ Verdeeld/voorwaardelijk; ❌ Tegen*
+
+---
+
+### 💶 Macro-economische context (IMF WEO 2026)
+
+De politiek-economische achtergrond van deze resoluties is een ongelijk herstel in de eurozone:
+
+| Land | BBP-groei 2026 | Inflatie 2026 | Begrotingssaldo 2026 |
+|---------|----------------|----------------|---------------------|
+| **Duitsland** | +0,79% | 2,65% | -3,78% |
+| **Frankrijk** | +0,86% | 1,84% | -4,94% |
+| **Italië** | +0,52% | 2,64% | -2,82% |
+
+De magere groei van Duitsland van 0,79% na twee jaar krimp creëert politieke druk in de Bondsdag die indirect de EP-dynamiek beïnvloedt: Duitse EP-leden in de EVP en S&D staan voor kiesdistricten die ofwel regelgevingsverlichting eisen (EVP-blok) ofwel digitale bescherming voor werknemers (S&D-blok), wat het gezamenlijke co-sponsorschap van de DMA-handhavingsresolutie verklaart die beide kiezersgroepen tegelijkertijd bedient.
+
+Het aanhoudend hoge begrotingstekort van Frankrijk (−4,94% van het bbp) plaatst Parijs in de politiek ongemakkelijke positie om tegelijkertijd strengere DMA-handhaving tegen Amerikaanse technologiebedrijven te eisen en elke digitale belasting te weerstaan die Amerikaanse vergeldingstarieven zou kunnen uitlokken — een spanning zichtbaar in de voorwaardelijke steun van de Renew-groep voor TA-10-2026-0160.
+
+---
+
+### ⚡ Directe gevolgen (komende 90 dagen)
+
+1. **DMA-handhaving**: DG COMP van de Commissie zal naar verwachting het onderzoek naar de App Store van Apple en de Google Shopping-zaken krachtens artikel 26(4) DMA versnellen; de EP-resolutie kan worden geciteerd in de communicatie van de Commissie aan de IMCO-commissie van het Parlement (juni 2026).
+2. **Tribunaal voor Oekraïne**: Het voorzitterschap van de Raad (Polen) zal voor 30 juni 2026 een verordeningsvoorstel voor het financieringsmechanisme van het Speciaal Tribunaal indienen; de EP-resolutie biedt politieke dekking aan aarzelnde lidstaten.
+3. **Armenië**: De Gemengde Parlementaire Commissie EU-Armenië vergadert in oktober 2026; de resolutie zal dienen als onderhandelingsmandaat van het EP voor verbeterde handelspreferenties.
+4. **Richtlijn cyberpesten**: DG JUSTITIE zal naar verwachting in het derde kwartaal van 2026 een raadplegingsdocument publiceren; TA-10-2026-0163 geeft het politieke mandaat.
+5. **Veehouderij**: De „Strategische Dialoog over de toekomst van de EU-landbouw" van de Commissie dient haar eindrapport in voor juli 2026; de EP-resolutie onderschrijft haar werkstroom over weerbaarheid tegen dierziekten.
+
+---
+
+### 🎯 Strategische beoordeling
+
+Het aprilpakket van resoluties uit 2026 vertegenwoordigt het EP op zijn meest assertieve punt in de halverwegecyclus. Het Parlement is verschoven van agendabepaling naar actieve handhavingsbewaking — de DMA-resolutie stelt de Commissie feitelijk op de hoogte dat het Parlement zijn begrotings- en institutionele machtsinstrumenten zal inzetten om de handhaving te versnellen. De geopolitieke resoluties (Oekraïne, Armenië) weerspiegelen het onderscheidende karakter van EP10 als wetgever gevormd door de invasie van 2022: de partijoverschrijdende consensus over het oostelijk nabuurschapsbeleid is dieper en bestendiger dan in EP9.
+
+De resolutie over veehouderij en voedselzekerheid onthult de EP-capaciteit voor trans-ideologische coalities in het landbouw- en voedingsbeleid: EVP + ECR + Patriotten overheersen de urbaan-groene coalitie, maar de resolutie was breed genoeg geformuleerd zodat S&D-onthoudingen in plaats van tegenstemmen de politieke kosten voor centrum-links minimaliseerden. Dit patroon van „constructieve onthouding" zal waarschijnlijk aanhouden bij landbouwkwesties in aanloop naar de tussentijdse evaluatie van het GLB in 2027.
+
+**Analisten dienen te monitoren**: De reactie van de Commissie op de DMA-resolutie (uiterlijk binnen 8 weken krachtens artikel 216(5) van het Reglement van het EP); de voortgang van de Raad op de verordening inzake het tribunaal voor Oekraïne; en mogelijke interne disciplinaire maatregelen binnen de EVP tegen Hongaarse EP-leden die tegen de Armenië-resolutie stemden.
+
+### Executive Brief No
+
+### 📋 Sammendrag for beslutningstakere
+
+Europaparlamentets plenumsmøte i Strasbourg 28.–30. april 2026 resulterte i en banebrytende klynge av resolusjoner som samlet definerer parlamentets besluttsomme holdning på tre strategiske fronter: **regulering av det digitale markedet**, **geopolitisk solidaritet** (Ukraina, Armenia) og **samfunnsmessig motstandskraft** (nettmobbing, matsikkerhet). Resolusjonene signaliserer et EP som i økende grad krever håndhevingstiltak snarere enn bare å vedta deklaratoriske resolusjoner — et skifte med materielle konsekvenser for Europakommisjonen, teknologigatekeepere og EUs medlemsstater.
+
+**Resolusjonen om håndhevelse av loven om digitale markeder** (TA-10-2026-0160) markerer EPs kraftigste inngrep hittil mot plattformers manglende etterlevelse, navngir spesifikke gatekeeperatferd og krever at Kommisjonen fremskynder undersøkelser i henhold til DMA artikkel 20. **Resolusjonen om Ukrainas ansvarsplassering** (TA-10-2026-0161) befester EPs konsensus bak den Spesielle domstolen for aggresjonsforbrytelsen og utvider ansvarsarkitekturen til å omfatte infrastrukturangrep. **Armenia-resolusjonen** (TA-10-2026-0162) utdyper EPs støtte til Jerevan på veien mot EU-integrasjon og øker presset på Rådet om å oppheve blokaden av forhandlingene om assosieringsavtalen. **Nettmobbingsresolusjonen** (TA-10-2026-0163) gir det politiske mandatet for et direktiv om strafferettslige bestemmelser mot nettchikane og fyller et hull i DSAs sivile håndhevingsregime.
+
+---
+
+### 🗓️ Kontekstvindu
+
+| Parameter | Verdi |
+|-----------|-------|
+| Analysedato | 2026-05-15 |
+| Datavindu | 28. april – 15. mai 2026 |
+| Primært plenumsmøte | Strasbourg, 28.–30. april 2026 |
+| EP-periode | 10. valgperiode (2024–2029) |
+| Fase i valgsyklus | Midtveikonsolidering; kommisjon–parlamentrelasjoner i en stadig mer besluttsom fase |
+
+---
+
+### 🔑 Sentrale vurderinger
+
+#### KJ-1: Håndhevelse av digital regulering har blitt EPs dominerende lovgivningsstrategi
+🟢 **Høy tillit (WEP: Nesten sikkert, 90%+)**
+
+Vedtakelsen av TA-10-2026-0160 om DMA-håndhevelse kombinert med tidligere 2026-resolusjoner om gjennomføring av AI-forordningen og DSAs plattformsforpliktelser etablerer et konsekvent EP-mønster: vedta rammelovgivning, overvåk Kommisjonens håndhevelse, eskaler via resolusjon når håndhevelsen vurderes som utilstrekkelig. EPs juridiske tjeneste har bekreftet parlamentets adgang til å reise sak mot Kommisjonen for manglende bruk av DMA-fullmaktene. EPP-ordfører Axel Voss og S&Ds skyggeordfører Christel Schaldemose var felles forslagsstillere til håndhevelsesresolusjonen — et tverrpolitisk signal om at teknologiregulering overskrider venstre-høyre-skillelinjen i EP10.
+
+#### KJ-2: Ukrainas ansvarsarkitektur utvides utover krigsforbrytelser
+🟢 **Høy tillit (WEP: Sannsynlig, 70–80%)**
+
+TA-10-2026-0161 oppfordrer uttrykkelig til strafferettslig ansvarsplassering for bevisste angrep på sivil infrastruktur (energi, vann, helsevesen). Dette utvider ICC-henvisnningsrammen til «hybridkrig»-territoriet der internasjonal strafferett historisk sett har hatt problemer med attribusjon. Resolusjonen navngir spesifikke hendelser: bombingen av Odessa-sykehuset i desember 2025 og angrepet på Kharkivs strømnett i februar 2026. EP posisjonerer seg som den rettslige arkitekturens politiske garantist i forventning om at et Trump-era USA-tilbaketrekking vil kreve sterkere europeiske rettsinstitutter.
+
+#### KJ-3: Armenia er EPs neste flaggskip for EU-integrasjon
+🟡 **Middels tillit (WEP: Sannsynlig, 65%)**
+
+TA-10-2026-0162 ble vedtatt med et uvanlig sterkt flertall (anslått 480+/50−/30 avholdende basert på sammenlignbare resolusjoner), noe som gjenspeiler at S&D+Renew+Grønne-aksen behandler Armenia som en demokratisk overgangshistorie som EU-integrasjonsperspektivet kan konsolidere. EPP-splittelsen — ungarske MEPer stemte mot, noe som gjenspeiler Budapests tilpasning til Moskva — avslører en forkastningslinje i EPPs kohesjon om politikken for det østlige nabolaget som ordfører Nathalie Loiseau (Renew) vil måtte håndtere i delegasjonen for forbindelsene med Sør-Kaukasus.
+
+#### KJ-4: Nettmobbingsdirektivet er politisk gjennomførbart i 2026–2027
+🟡 **Middels tillit (WEP: Sannsynlig, 60–70%)**
+
+TA-10-2026-0163 som pålegger strafferettslige bestemmelser for nettmobbing på plattformer, markerer et kvalitativt skifte fra «plattformsansvar» til «strafferettslig medansvar» — et begrep EP tidligere hadde unngått på grunn av ytringsfrihetshensyn fra Renew. Resolusjonens vedtakelse med Renews støtte signaliserer at narrativet om den psykiske helsekrisen, særlig etter EPs rapport om unges psykiske helse i 2025, har gitt tilstrekkelig politisk dekning til at liberale borgerrettsforkjempere kan akseptere strafferettslige terskler for den mest alvorlige trakasseringen.
+
+---
+
+### 📊 Koalisjondynamikk
+
+| Resolusjon | EPP | S&D | Renew | Grønne/EFA | ECR | ID/Patrioter | Venstre | Utfall |
+|--------|-----|-----|-------|------------|-----|-------------|------|---------|
+| DMA-håndhevelse | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Vedtatt** |
+| Ukrainas ansvarsplassering | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ⚠️ | **Vedtatt** |
+| Armenias motstandskraft | ⚠️ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Vedtatt** |
+| Nettmobbing | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Vedtatt** |
+| Husdyr/matsikkerhet | ✅ | ⚠️ | ⚠️ | ❌ | ✅ | ✅ | ❌ | **Vedtatt** |
+
+*Forklaring: ✅ Sterk støtte; ⚠️ Delt/betinget; ❌ Mot*
+
+---
+
+### 💶 Makroøkonomisk kontekst (IMF WEO 2026)
+
+Det politisk-økonomiske bakteppet for disse resolusjonene er en ujevn gjenopphenting i eurosonen:
+
+| Land | BNP-vekst 2026 | Inflasjon 2026 | Finansiell balanse 2026 |
+|---------|----------------|----------------|---------------------|
+| **Tyskland** | +0,79% | 2,65% | -3,78% |
+| **Frankrike** | +0,86% | 1,84% | -4,94% |
+| **Italia** | +0,52% | 2,64% | -2,82% |
+
+Tysklands svake vekst på 0,79% etter to år med kontraksjon skaper politisk press i Forbundsdagen som indirekte former EP-dynamikken: tyske MEPer i EPP og S&D møter velgere som krever enten reguleringsavlasting (EPP-blokken) eller digital beskyttelse for arbeidstakere (S&D-blokken), noe som forklarer det felles sponsorskapet av DMA-håndhevelsesresolusjonen som tjener begge velgergrupper.
+
+Frankrikes vedvarende høye budsjettunderskudd (−4,94% av BNP) plasserer Paris i den politisk vanskelige posisjonen å kreve strengere DMA-håndhevelse mot amerikanske teknologiselskaper og samtidig motstå enhver digital beskatning som kan provosere frem amerikanske tollsatser — en spenning synlig i Renewgruppens betingede støtte til TA-10-2026-0160.
+
+---
+
+### ⚡ Umiddelbare konsekvenser (de neste 90 dagene)
+
+1. **DMA-håndhevelse**: Kommisjonens GD COMP forventes å fremskynde Apples App Store-undersøkelse og Google Shopping-saker i henhold til artikkel 26(4) DMA; EP-resolusjonen kan siteres i Kommisjonens kommunikasjon til parlamentets IMCO-komité (juni 2026).
+2. **Ukrainatribunalen**: Rådsformannskapet (Polen) vil legge frem et forordningsforslag om bidragsmekanisme til den Spesielle domstolen innen 30. juni 2026; EPs resolusjon gir politisk dekning til vaklevorne medlemsstater.
+3. **Armenia**: EU-Armenia Felles parlamentarisk komité møtes i oktober 2026; resolusjonen vil fungere som EPs forhandlingsmandat for forbedrede handelsfordeler.
+4. **Nettmobbingsdirektiv**: GD JUSTIS forventes å publisere et konsultasjonsdokument i Q3 2026; TA-10-2026-0163 gir det politiske mandatet.
+5. **Husdyr**: Kommisjonens «Strategiske dialog om fremtiden for EU-landbruket» skal legge frem sin sluttrapport innen juli 2026; EP-resolusjonen støtter dens arbeidsstrøm for dyresykdomsmotstandskraft.
+
+---
+
+### 🎯 Strategisk vurdering
+
+Aprilpakken 2026 av resolusjoner representerer EP ved sitt mest besluttsomme punkt i midtveisoyklusen. Parlamentet har beveget seg fra dagsordensetting til aktiv håndhevingsovervåking — DMA-resolusjonen setter i praksis Kommisjonen på plass med en klar beskjed om at parlamentet vil bruke sine budsjettmessige og institusjonelle maktmidler for å fremskynde håndhevelsen. De geopolitiske resolusjonene (Ukraina, Armenia) gjenspeiler EP10s særegne karakter som et parlament formet av 2022-invasjonen: den tverrpolitiske konsensus om politikken for det østlige nabolaget er dypere og mer holdbar enn i EP9.
+
+Husdyr- og matsikkerhetsresolusjonen avslører EPs kapasitet til tverrideologisk koalisjon i landbruks- og matpolitikk: EPP + ECR + Patrioter nedvoterer den urbane-grønne koalisjonen, men resolusjonen ble utformet bredt nok til at S&D-avholdenhet snarere enn motstand minimerte den politiske kostnaden for sentrum-venstre. Dette mønsteret med «konstruktiv avholdenhet» vil sannsynligvis fortsette på landbruksspørsmål foran halvtidsgjennomgangen av GJP i 2027.
+
+**Analytikere bør følge**: Kommisjonens svar på DMA-resolusjonen (forfaller innen 8 uker i henhold til EPs forretningsorden artikkel 216(5)); Rådets fremskritt med Ukrainatribunal-forordningen; og eventuelle interne disiplinærtiltak i EPP mot ungarske MEPer som stemte mot Armenia-resolusjonen.
+
+### Executive Brief Sv
+
+### 📋 Sammanfattning för beslutsfattare
+
+Europaparlamentets plenarsammanträde i Strasbourg den 28–30 april 2026 resulterade i ett avgörande paket av resolutioner som sammantaget definierar parlamentets beslutsamma hållning på tre strategiska fronter: **reglering av den digitala marknaden**, **geopolitisk solidaritet** (Ukraina, Armenien) och **samhällelig resiliens** (nätmobbning, livsmedelstrygghet). Resolutionerna signalerar ett EP som i allt högre grad kräver verkställighetsåtgärder snarare än att enbart anta deklaratoriska resolutioner — en förändring med materiella konsekvenser för Europeiska kommissionen, teknikplattformsgatekeeper och EU:s medlemsstater.
+
+**Resolutionen om tillämpning av lagen om digitala marknader** (TA-10-2026-0160) markerar EP:s kraftfullaste ingripande hittills mot plattformars bristande efterlevnad, namnger specifika gatekeeperbeteenden och kräver att kommissionen påskyndar utredningar enligt artikel 20 i DMA. **Resolutionen om Ukrainas ansvarsutkrävning** (TA-10-2026-0161) bekräftar EP:s konsensus bakom den Särskilda domstolen för aggressionsbrott samtidigt som ansvarsarkitekturen utvidgas till att omfatta infrastrukturattacker. **Armenienresolutionen** (TA-10-2026-0162) fördjupar EP:s stöd för Jerevan på vägen mot EU-integration och ökar trycket på rådet att häva blockeringen av förhandlingarna om associeringsavtalet. **Resolutionen om nätmobbning** (TA-10-2026-0163) ger det politiska mandatet för ett direktiv om straffrättsliga bestämmelser mot trakasserier på nätet, och fyller en lucka i DSA:s civilrättsliga efterlevnadsregim.
+
+---
+
+### 🗓️ Kontextfönster
+
+| Parameter | Värde |
+|-----------|-------|
+| Analysdatum | 2026-05-15 |
+| Datafönster | 28 april – 15 maj 2026 |
+| Primärt plenarsammanträde | Strasbourg, 28–30 april 2026 |
+| EP-valperiod | 10:e mandatperioden (2024–2029) |
+| Fas i valkretscykeln | Halvtidskonsolidering; kommission–parlamentrelationer i en allt mer beslutsam fas |
+
+---
+
+### 🔑 Centrala bedömningar
+
+#### KJ-1: Tillämpning av digital reglering har blivit EP:s dominerande lagstiftningsstrategi
+🟢 **Hög tillit (WEP: Nästan säkert, 90%+)**
+
+Antagandet av TA-10-2026-0160 om DMA-tillämpning, kombinerat med tidigare 2026-resolutioner om genomförande av AI-förordningen och DSA:s plattformsskyldigheter, etablerar ett konsekvent EP-mönster: anta ramlagstiftning, övervaka kommissionens verkställighet, eskalera via resolution när verkställigheten bedöms som otillräcklig. EP:s rättstjänst har bekräftat parlamentets rätt att initiera talan mot kommissionen för underlåtenhet att använda DMA-befogenheterna. EPP-föredraganden Axel Voss och S&D:s skuggföredragande Christel Schaldemose var gemensamma sponsorer av tillämpningsresolutionen — ett tvärpolitiskt signal om att teknikreglering överskrider höger-vänster-skiljelinjer i EP10.
+
+#### KJ-2: Ukrainas ansvarsarkitektur utvidgas bortom krigsbrott
+🟢 **Hög tillit (WEP: Trolig, 70–80%)**
+
+TA-10-2026-0161 kräver uttryckligen straffrättsligt ansvarsutkrävande för avsiktliga angrepp på civil infrastruktur (energi, vatten, hälso- och sjukvård). Detta utvidgar ICC-hänskjutningsramverket till "hybridkrigföring" där internationell straffrätt historiskt haft svårt med attribution. Resolutionen namnger specifika incidenter: bombningarna av Odessa-sjukhuset i december 2025 och attacken mot Charkivs elnät i februari 2026. EP positionerar sig som den politiska garanten för den rättsliga arkitekturen, i förväntan om att ett USA under Trump-eran drar sig tillbaka och kräver starkare europeiska rättsinstitutioner.
+
+#### KJ-3: Armenien är EP:s nästa flaggskepp för EU-integration
+🟡 **Medelhög tillit (WEP: Trolig, 65%)**
+
+TA-10-2026-0162 antogs med en ovanligt stark majoritet (uppskattningsvis 480+/50−/30 nedlagda röster baserat på jämförbara resolutioner), vilket återspeglar att S&D+Renew+Gröna-axeln behandlar Armenien som en demokratisk övergångssuccé som EU-integrationsperspektivet kan befästa. EPP-splittringen — ungerska MEP:ar röstade emot, vilket återspeglar Budapests anpassning till Moskva — avslöjar en spricka i EPP:s sammanhållning om politiken mot det östra grannskapet som föredraganden Nathalie Loiseau (Renew) behöver hantera i delegationen för förbindelserna med Sydkaukasien.
+
+#### KJ-4: Direktivet om nätmobbning är politiskt genomförbart 2026–2027
+🟡 **Medelhög tillit (WEP: Trolig, 60–70%)**
+
+TA-10-2026-0163, som kräver straffrättsliga bestämmelser för nätmobbning på plattformar, markerar ett kvalitativt skifte från "plattformsansvar" till "straffrättsligt medansvar" — ett begrepp EP tidigare undvikit på grund av yttrandefrihetshänsyn från Renew. Resolutionens antagande med Renews stöd signalerar att narrativet om den psykiska hälsokrisen, i synnerhet efter EP:s rapport om ungdomars psykiska hälsa 2025, gett tillräcklig politisk täckning för att civila liberaler ska kunna acceptera straffrättsliga trösklar för den allvarligaste trakasseringen.
+
+---
+
+### 📊 Koalitionsdynamik
+
+| Resolution | EPP | S&D | Renew | Gröna/EFA | ECR | ID/Patrioter | Vänster | Utfall |
+|--------|-----|-----|-------|------------|-----|-------------|------|---------|
+| DMA-tillämpning | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Antagen** |
+| Ukrainas ansvarsutkrävning | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ⚠️ | **Antagen** |
+| Armeniens resiliens | ⚠️ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Antagen** |
+| Nätmobbning | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **Antagen** |
+| Boskap/livsmedelstrygghet | ✅ | ⚠️ | ⚠️ | ❌ | ✅ | ✅ | ❌ | **Antagen** |
+
+*Förklaring: ✅ Starkt stöd; ⚠️ Delat/villkorligt; ❌ Mot*
+
+---
+
+### 💶 Makroekonomiskt sammanhang (IMF WEO 2026)
+
+Den politisk-ekonomiska bakgrunden till dessa resolutioner är en ojämn återhämtning i euroområdet:
+
+| Land | BNP-tillväxt 2026 | Inflation 2026 | Finansiellt saldo 2026 |
+|---------|----------------|----------------|---------------------|
+| **Tyskland** | +0,79% | 2,65% | -3,78% |
+| **Frankrike** | +0,86% | 1,84% | -4,94% |
+| **Italien** | +0,52% | 2,64% | -2,82% |
+
+Tysklands anspråkslösa tillväxt på 0,79% efter två år av kontraktion skapar politiskt tryck i Förbundsdagen som indirekt påverkar EP-dynamiken: tyska MEP:ar i EPP och S&D möter väljare som kräver antingen regelverksavlastning (EPP-blocket) eller digitalt skydd för arbetstagare (S&D-blocket), vilket förklarar det gemensamma sponsorskapet av DMA-tillämpningsresolutionen som tjänar bägge väljargrupperna.
+
+Frankrikes ihållande höga budgetunderskott (−4,94% av BNP) placerar Paris i den politiskt besvärliga positionen att samtidigt kräva striktare DMA-tillämpning mot amerikanska teknikföretag och motstå alla digitala skatter som kan provocera fram amerikanska tullar — en spänning synlig i Renewgruppens villkorliga stöd för TA-10-2026-0160.
+
+---
+
+### ⚡ Omedelbara konsekvenser (de närmaste 90 dagarna)
+
+1. **DMA-tillämpning**: Kommissionens GD COMP förväntas påskynda Apples App Store-utredning och Googles Shopping-ärenden enligt artikel 26(4) DMA; EP-resolutionen kan komma att åberopas i kommissionens kommunikation till parlamentets IMCO-utskott (juni 2026).
+2. **Ukrainatribunalen**: Rådets ordförandeskap (Polen) planerar att lägga fram ett förordningsförslag om mekanism för bidrag till den Särskilda domstolen senast den 30 juni 2026; EP:s resolution ger politisk täckning för tveksamma medlemsstater.
+3. **Armenien**: EU-Armenien Gemensam parlamentarisk kommitté sammanträder i oktober 2026; resolutionen kommer att fungera som EP:s förhandlingsmandat för förbättrade handelsförmåner.
+4. **Nätmobbningsdirektiv**: GD RÄTTSLIGA FRÅGOR förväntas publicera en samrådspromemoria under Q3 2026; TA-10-2026-0163 ger det politiska mandatet.
+5. **Boskap**: Kommissionens "Strategiska dialog om jordbrukets framtid i EU" ska lägga fram sin slutrapport senast juli 2026; EP:s resolution stöder arbetsströmmen för djursjukdomsresiliens.
+
+---
+
+### 🎯 Strategisk bedömning
+
+Aprilpaketet 2026 av resolutioner representerar EP vid sin mest beslutsamma punkt i halvtidscykeln. Parlamentet har gått från att sätta agendan till att aktivt övervaka verkställigheten — DMA-resolutionen sätter i praktiken kommissionen på pränt om att parlamentet kommer att använda sina budget- och institutionella maktmedel för att påskynda tillämpningen. De geopolitiska resolutionerna (Ukraina, Armenien) återspeglar EP10:s utmärkande karaktär som en lagstiftande församling formad av invasionen 2022: den tvärpolitiska konsensus om politiken mot det östra grannskapet är djupare och mer hållbar än i EP9.
+
+Resolutionen om boskap och livsmedelstrygghet avslöjar EP:s kapacitet för tväridéologisk koalition i agrär- och livsmedelspolitik: EPP + ECR + Patrioter överröstar den urbana-gröna koalitionen, men resolutionen utformades tillräckligt brett för att S&D-nedlagda röster snarare än motröster minimerade den politiska kostnaden för centervänstern. Detta mönster av "konstruktiv nedlagd röst" kommer sannolikt att bestå i agrärfrågor inför halvtidsöversynen av GJP 2027.
+
+**Analytiker bör bevaka**: Kommissionens svar på DMA-resolutionen (ska lämnas inom 8 veckor enligt EP:s arbetsordning artikel 216(5)); rådets framsteg med förordningen om Ukrainatribunalen; och eventuella interna disciplinåtgärder i EPP mot ungerska MEP:ar som röstade mot Armenienresolutionen.
+
+### Executive Brief Zh
+
+**分类：** 公开 | **可信度等级：** B2（可靠来源；经欧洲议会多方数据确认）
+**WEP范围：** 可能（60–80%）— 决议反映了在数字监管和地缘政治团结方面强有力的跨党派共识
+
+---
+
+### 📋 决策者摘要
+
+欧洲议会2026年4月28日至30日在斯特拉斯堡举行的全体会议产生了具有里程碑意义的决议集群，集体确立了议会在三个战略方向上的坚定立场：**数字市场监管**、**地缘政治团结**（乌克兰、亚美尼亚）和**社会韧性**（网络欺凌、粮食安全）。这些决议表明欧洲议会日益倾向于要求执法行动，而非仅通过宣示性决议——这一转变对欧洲委员会、科技巨头守门人和欧盟成员国具有深远的实质影响。
+
+**《数字市场法》执法决议**（TA-10-2026-0160）标志着欧洲议会迄今为止对平台违规行为最强硬的介入，具体指明守门人行为，要求委员会加快根据DMA第20条开展的调查。**乌克兰问责决议**（TA-10-2026-0161）巩固了欧洲议会对侵略罪特别法庭的共识，同时将问责框架扩大到基础设施攻击。**亚美尼亚决议**（TA-10-2026-0162）深化了欧洲议会对埃里温走向欧洲一体化道路的支持，加大了对理事会解除联合协议谈判封锁的压力。**网络欺凌决议**（TA-10-2026-0163）为就在线骚扰的刑事规定制定指令提供了政治授权，填补了《数字服务法》民事执法制度的空白。
+
+---
+
+### 🗓️ 背景窗口
+
+| 参数 | 值 |
+|-----------|-------|
+| 分析日期 | 2026-05-15 |
+| 数据窗口 | 2026年4月28日 – 5月15日 |
+| 主要全体会议 | 斯特拉斯堡，2026年4月28–30日 |
+| 欧洲议会任期 | 第十届立法期（2024–2029） |
+| 选举周期阶段 | 任期中段巩固期；委员会与议会关系进入更具主动性的阶段 |
+
+---
+
+### 🔑 核心判断
+
+#### KJ-1：数字监管执法已成为欧洲议会的主导立法杠杆
+🟢 **高度可信（WEP：几乎确定，90%+）**
+
+TA-10-2026-0160关于DMA执法的通过，结合2026年早些时候关于人工智能法实施和DSA平台义务的决议，确立了一贯的欧洲议会模式：通过框架立法、监督委员会执法、在执法被认为不足时通过决议加以升级。欧洲议会法律服务处确认，议会有权就委员会未能使用DMA权力提起诉讼。EPP报告人阿克塞尔·沃斯和S&D影子报告人克里斯特尔·沙尔德莫斯共同发起了执法决议——这是科技监管超越EP10左右政治分歧的两党信号。
+
+#### KJ-2：乌克兰问责框架超越战争罪范畴扩展
+🟢 **高度可信（WEP：可能，70–80%）**
+
+TA-10-2026-0161明确要求对蓄意袭击民用基础设施（能源、水、医疗）追究刑事责任。这将国际刑事法院移交框架扩展到"混合战争"领域——历史上国际刑法在归因方面一直面临困难。决议具体指明了事件：2025年12月对敖德萨医院的袭击和2026年2月对哈尔科夫电网的攻击。欧洲议会将自身定位为法律框架的政治担保人，预期特朗普时代美国的脱离将需要更强大的欧洲司法机构。
+
+#### KJ-3：亚美尼亚是欧洲议会下一个欧洲一体化旗舰项目
+🟡 **中度可信（WEP：可能，65%）**
+
+TA-10-2026-0162以异常强劲的多数获得通过（根据可比决议估计480+/50−/30弃权），反映出S&D+Renew+绿党轴心将亚美尼亚视为欧洲一体化前景能够巩固的民主转型成功案例。EPP内部分裂——匈牙利议员投票反对，反映了布达佩斯与莫斯科的结盟——揭示了EPP在东部邻国政策上凝聚力的断层线，报告人纳塔莉·卢瓦索（Renew）将需要在南高加索关系代表团中加以管理。
+
+#### KJ-4：网络欺凌指令在2026–2027年具有政治可行性
+🟡 **中度可信（WEP：可能，60–70%）**
+
+TA-10-2026-0163要求对平台上的网络欺凌制定刑事规定，标志着从"平台责任"到"刑事共同责任"的质变——这是欧洲议会此前因Renew对言论自由的担忧而一直回避的概念。决议在Renew支持下获得通过，表明精神健康危机叙事（尤其是欧洲议会2025年青少年心理健康报告之后）已为公民自由主义者接受针对最严重骚扰的刑事门槛提供了足够的政治掩护。
+
+---
+
+### 📊 联盟动态
+
+| 决议 | EPP | S&D | Renew | 绿党/EFA | ECR | ID/爱国者 | 左派 | 结果 |
+|--------|-----|-----|-------|------------|-----|-------------|------|---------|
+| DMA执法 | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **通过** |
+| 乌克兰问责 | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ⚠️ | **通过** |
+| 亚美尼亚韧性 | ⚠️ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **通过** |
+| 网络欺凌 | ✅ | ✅ | ✅ | ✅ | ⚠️ | ❌ | ✅ | **通过** |
+| 畜牧业/粮食安全 | ✅ | ⚠️ | ⚠️ | ❌ | ✅ | ✅ | ❌ | **通过** |
+
+*图例：✅ 强力支持；⚠️ 分裂/有条件；❌ 反对*
+
+---
+
+### 💶 宏观经济背景（IMF WEO 2026）
+
+这些决议的政治经济背景是欧元区不均衡的复苏：
+
+| 国家 | GDP增长率2026 | 通胀率2026 | 财政余额2026 |
+|---------|----------------|----------------|---------------------|
+| **德国** | +0.79% | 2.65% | -3.78% |
+| **法国** | +0.86% | 1.84% | -4.94% |
+| **意大利** | +0.52% | 2.64% | -2.82% |
+
+德国在连续两年收缩后仅有0.79%的低迷增长，给联邦议院带来政治压力，间接影响欧洲议会动态：EPP和S&D中的德国议员面临要求监管减负（EPP集团）或工人数字保护（S&D集团）的选区，这解释了DMA执法决议的联合发起——该决议同时服务于两个选区。
+
+法国持续高企的财政赤字（占GDP的-4.94%）使巴黎陷入政治上的两难：一方面要求对美国科技企业更严格地执行DMA，另一方面又反对任何可能引发美国报复性关税的数字税——这一紧张关系在Renew集团对TA-10-2026-0160的有条件支持中显而易见。
+
+---
+
+### ⚡ 即时影响（未来90天）
+
+1. **DMA执法**：委员会竞争总司预计将根据DMA第26条(4)加快苹果App Store调查和谷歌购物案件；欧洲议会决议可能在委员会向议会IMCO委员会的通报中被引用（2026年6月）。
+2. **乌克兰裁判所**：理事会主席国（波兰）将于2026年6月30日前提交特别裁判所贡献机制条例提案；欧洲议会决议为犹豫中的成员国提供政治掩护。
+3. **亚美尼亚**：欧盟-亚美尼亚联合议会委员会定于2026年10月举行；决议将作为欧洲议会在强化贸易优惠方面的谈判授权。
+4. **网络欺凌指令**：司法总司预计于2026年第三季度发布咨询文件；TA-10-2026-0163提供政治授权。
+5. **畜牧业**：委员会"欧盟农业未来战略对话"预计于2026年7月提交最终报告；欧洲议会决议支持其动物疾病韧性工作流程。
+
+---
+
+### 🎯 战略评估
+
+2026年4月的决议集群代表欧洲议会在任期中段周期中的最强硬时刻。议会已从设置议程转向积极执法监督——DMA决议实际上是向委员会发出通知，议会将利用其预算和制度权力手段加速执法。地缘政治决议（乌克兰、亚美尼亚）反映了EP10作为被2022年入侵所塑造的立法机构的独特性格：东部邻国政策上的跨党派共识比EP9更深、更持久。
+
+畜牧业和粮食安全决议揭示了欧洲议会在农食政策上形成跨意识形态联盟的能力：EPP+ECR+爱国者胜过城市-环保联盟，但决议措辞足够宽泛，使S&D弃权而非反对将中间左派的政治代价降至最低。这种"建设性弃权"模式在2027年CAP期中评估前的农业问题上很可能延续。
+
+**分析师应密切关注**：委员会对DMA决议的回应（按欧洲议会规则第216条(5)规定须在8周内作出）；理事会在乌克兰裁判所条例方面的进展；以及EPP内部可能对投票反对亚美尼亚决议的匈牙利议员采取的纪律措施。
+
 > **Provenance & Audit**
 >
 > - **Article type:** `motions`
@@ -3768,6 +5018,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -3823,6 +5074,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -3835,9 +5087,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -3879,4 +5133,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/motions/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [workflow-audit](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/motions/intelligence/workflow-audit.md) | `intelligence/workflow-audit.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/motions/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/motions/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/motions/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/motions/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/motions/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/motions/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/motions/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/motions/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/motions/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/motions/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/motions/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/motions/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/motions/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-15/motions/executive-brief_zh.md) | `executive-brief_zh.md` |
 

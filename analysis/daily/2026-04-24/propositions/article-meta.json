@@ -5,7 +5,7 @@
   "gateResult": "PENDING",
   "slug": "2026-04-24-propositions",
   "articlePath": "analysis/daily/2026-04-24/propositions/article.md",
-  "topFinding": "BLUF (ICD-203): Over the past 30 days the European Parliament has indexed 104 adopted-text records for 2026 (TA-10-2026-0001 … TA-10-2026-0104) on the Open Data Portal, but zero body contents were retrievable during this run.",
+  "topFinding": "The 30-day propositions window indexed 104 adopted-text records for 2026 (TA-10-2026-0001 … TA-10-2026-0104) on the EP Open Data Portal — a quantitatively healthy but qualitatively opaque pipeline (zero document body contents were retrievable during this run owing to EP indexing-lag).",
   "keyTakeaways": [
     "2024: 676 procedures / 72 legislative acts adopted",
     "2025: 923 procedures / 78 legislative acts adopted (+36.5% procedures)",
@@ -38,6 +38,7 @@
   ],
   "macroContext": "IMF requirement: This artifact uses World Bank indicators (Germany + France bilaterals) after attempted Eurozone aggregates (EUU, EMU) failed to resolve in the current World Bank MCP deployment (worldbank-mcp@1.0.1).",
   "sources": [
+    "executive-brief.md",
     "intelligence/economic-context.md",
     "intelligence/scenario-forecast.md",
     "intelligence/stakeholder-map.md",

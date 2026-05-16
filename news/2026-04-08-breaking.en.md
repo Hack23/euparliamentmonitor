@@ -1,7 +1,7 @@
 ---
-title: "🧩 Political Intelligence Synthesis — European Parliament"
-description: "🔍 Items Tracked: 57 adopted texts | 0 events | 0 procedures | 737 MEP updates Published 2026-04-08, with source-linked voting, committee and legislative intelligence…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-08", "Political", "Intelligence", "Synthesis", "European", "Parliament", "Items", "Tracked", "adopted", "texts"]
+title: "Breaking, 8 April 2026"
+description: "The 8 April breaking brief records the pre-recess inventory snapshot: 57 adopted texts | 0 events | 0 procedures | 737 MEP updates tracked. This is the cataloguing baseline 5…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-08", "April", "brief", "records", "recess", "inventory", "snapshot", "adopted", "texts", "events"]
 date: 2026-04-08
 article_type: breaking
 slug: 2026-04-08-breaking
@@ -12,12 +12,50 @@ layout: article
 ---
 # Breaking — 2026-04-08
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+The 8 April breaking brief records the **pre-recess inventory snapshot**: **57 adopted texts | 0 events | 0 procedures | 737 MEP updates** tracked. This is the cataloguing baseline 5 days before TA-0096 / TA-0097 statutory T-0 activation. The 737 MEP updates number is structurally interesting — it suggests a recent MEP-data refresh cycle during which the EP backend re-published the full active-MEP roster. *Confidence: MEDIUM-HIGH; Admiralty: A2.*
+
+### Three Decisions
+
+1. **Document the pre-recess inventory snapshot as the institutional-memory anchor for the recess cluster.** Every subsequent recess-cluster run measures from this 57-text / 737-MEP baseline. *Confidence: HIGH.*
+2. **Treat the 737 MEP-updates number as the recent-refresh signal.** A near-full-roster refresh during a quiet pre-recess window indicates EP backend maintenance activity that is operationally relevant to downstream pipelines depending on MEP data freshness. *Confidence: MEDIUM-HIGH.*
+3. **Anchor the 8 April → T-0 (15 April) interval as the pre-activation cataloguing window.** The 7-day window is the institutional preparation interval; subsequent runs measure progress toward operational readiness. *Confidence: HIGH.*
+
+### 60-Second Read
+
+Pre-recess inventory snapshots establish baselines. Today's 57-text / 737-MEP-update snapshot is the canonical reference for the recess cluster. The MEP-roster refresh signal is operationally informative for any pipeline downstream of MEP data (translation, news, scorecards).
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| MEP-roster refresh introduces data-quality artifacts | LOW–MED | MED |
+| Pre-recess inventory not adopted as canonical baseline | MED | LOW–MED |
+| 0-event / 0-procedure baseline misread as anomaly | LOW | LOW |
+
+### Source Quality
+
+- 57 texts / 0 events / 0 procedures / 737 MEPs: **A1**
+- Pre-recess interpretation: **B2**
+
+### Provenance
+
+- Run: `breaking` (2026-04-08, pre-recess inventory)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: inventory snapshot labelled empirically.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `cross-session-intelligence.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
@@ -1439,6 +1477,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -1494,6 +1533,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -1506,9 +1546,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -1517,6 +1559,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/executive-brief.md) | `executive-brief.md` |
 | section-supplementary-intelligence | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/cross-session-intelligence.md) | `cross-session-intelligence.md` |
 | section-supplementary-intelligence | [political-landscape-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/political-landscape-analysis.md) | `political-landscape-analysis.md` |
 | section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-08/breaking/risk-assessment.md) | `risk-assessment.md` |

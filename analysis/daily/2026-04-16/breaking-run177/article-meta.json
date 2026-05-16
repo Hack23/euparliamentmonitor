@@ -5,7 +5,7 @@
   "gateResult": "PENDING",
   "slug": "2026-04-16-breaking-177",
   "articlePath": "analysis/daily/2026-04-16/breaking-run177/article.md",
-  "topFinding": "This analysis-only run (Run 177) was conducted on 16 April 2026, the second day of the European Parliament's inter-session period (April 14-26), at T+2 since tariff countermeasures activation.",
+  "topFinding": "Run 177 is the T+2 post-tariff inter-session probe (T = 2 April Trump tariffs; T+2 = 16 April), conducted on Day 2 of the European Parliament's inter-session period (14–26 April).",
   "keyTakeaways": [
     "**DEGRADED MODE**: Activated due to server health check showing 0/13 operational feeds at cold start. Skipped `today` timeframe, went directly to `one-week` for all feeds. Skipped analytical tools (voting anomalies, political landscape, early warning system) to conserve timeout budget.",
     "**Sequential thinking**: 4-step reasoning chain used for significance scoring, risk assessment, and SWOT analysis.",
@@ -29,6 +29,7 @@
   ],
   "macroContext": "",
   "sources": [
+    "executive-brief.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/synthesis-summary.md",
     "risk-scoring/risk-matrix.md"

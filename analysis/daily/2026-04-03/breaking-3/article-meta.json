@@ -5,11 +5,21 @@
   "gateResult": "PENDING",
   "slug": "2026-04-03-breaking-breaking-3",
   "articlePath": "analysis/daily/2026-04-03/breaking-3/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "The March 2026 plenary sessions produced a coherent four-text institutional-reform package — the most significant such cluster since the December 2022 Qatargate crisis.",
+  "keyTakeaways": [
+    "🔴 **TA-10-2026-0094 (anti-corruption directive)** — adopted 26 March 2026 after three years in procedure (proposed 2023). Foundational EU-wide harmonisation. (🟢 High on adoption; 🟡 Medium on framing significance)",
+    "🟠 **TA-10-2026-0088 (Braun immunity waiver)** — adopted same plenary; sets recent precedent for waivers of MEPs facing national criminal proceedings. (🟢 High)",
+    "🟢 **TA-10-2026-0063 (Better Law-Making report)** — adopted 10 March; baselines the regulatory-quality debate for the rest of EP10. (🟢 High)",
+    "🟡 **TA-10-2026-0065 (public access to documents review)** — adopted 10 March; complements the anti-corruption directive on the transparency vector. (🟢 High)",
+    "🔵 **Economic context:** anti-corruption directive harmonisation reduces compliance-cost variance for cross-border firms; positive single-market signal. (🟡 Medium)",
+    "🟣 **Cross-reference:** Qatargate (December 2022) was the catalysing political-corruption shock that began the reform arc culminating in this March 2026 cluster. (🟡 Medium)",
+    "🩷 **Disruption vector:** Braun-precedent spill-over to other MEPs facing national investigations (confirmed retrospectively by Jaki waiver TA-10-2026-0105 in April). (🟡 Medium at the time)"
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
-  "sources": []
+  "sources": [
+    "executive-brief.md"
+  ]
 }

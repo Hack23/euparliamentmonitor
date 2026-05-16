@@ -5,11 +5,19 @@
   "gateResult": "PENDING",
   "slug": "2026-04-16-committee-reports-run50",
   "articlePath": "analysis/daily/2026-04-16/committee-reports-run50/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "Run 50 documents the record Q1 2026 committee output: 114 legislative acts adopted — a +46 % increase over the full-year 2025 total of 78 acts.",
+  "keyTakeaways": [
+    "EP aggregate counters (Q1 2026 = 114): **A1**",
+    "YoY comparison vs. 2025 (78): **A1**",
+    "Bespoke-coalition causal interpretation: **B2**",
+    "Run: `committee-reports-run50` (2026-04-16)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
-  "sources": []
+  "sources": [
+    "executive-brief.md"
+  ]
 }

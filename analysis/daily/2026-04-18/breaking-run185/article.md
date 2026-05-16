@@ -1,7 +1,7 @@
 ---
-title: "April 18, 2026"
-description: "title: \"🧠 Intelligence Synthesis Summary — API Plateau & 9-Day Countdown (Run 185)\" Published 2026-04-18, with source-linked voting, committee and legislative intelligence…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-18", "April", "title", "Intelligence", "Synthesis", "Summary", "Plateau", "Countdown", "Published", "with"]
+title: "Run 185, 18 April 2026"
+description: "Run 185 (evening probe, Easter Recess Day 5) confirms API plateau stability at the post-Tier-1 state: composite 17.5/50, mode ANALYSISONLY, feeds 2/13 (direct-test confirmed)."
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-18", "April", "evening", "probe", "Easter", "Recess", "confirms", "plateau", "stability", "post"]
 date: 2026-04-18
 article_type: breaking
 slug: 2026-04-18-breaking-185
@@ -12,12 +12,53 @@ layout: article
 ---
 # Breaking — 2026-04-18
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Run 185 (evening probe, Easter Recess Day 5) confirms **API plateau stability** at the post-Tier-1 state: composite **17.5/50**, mode ANALYSIS_ONLY, feeds 2/13 (direct-test confirmed). The probe's three operational contributions: (i) **TA-10-2026-0099 to -0104 individual endpoint tests confirm a staged-release pattern** rather than a fresh-publication delay; (ii) a **`get_documents_feed` parameter error is documented**, isolating it from the broader outage as a separate upstream issue; (iii) **T-9 countdown to plenary return** is calibrated. The plateau-stability signal reduces the likelihood that Tier-1 was a false positive. *Confidence: MEDIUM; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Treat the Tier-1 plateau (~ 17–18/50) as the operationally stable state until Tier-2 transition.** With three consecutive probes (183, 184, 185) clustered in the 17.5–24/50 band, the post-Tier-1 plateau is empirically confirmed. Pipeline expectation: continued ANALYSIS_ONLY until 22–24 April Tier-2 window. *Confidence: HIGH.*
+2. **Separate the documents-feed parameter error from the broader outage.** The error is a *parameter validation* issue (not an upstream availability issue) and should be routed to the gateway team rather than treated as part of the EP-backend recovery cycle. *Confidence: HIGH.*
+3. **Confirm staged-release pattern as the recovery dynamic.** TA-10-2026-0099 through -0104 returning individually at staggered intervals (not as a bulk drop) is consistent with a backend re-indexing that prioritises older / lower-volume documents first. *Confidence: MEDIUM-HIGH.*
+
+### 60-Second Read
+
+The evening probe captures the **plateau-after-inflection** dynamic: post-Tier-1 recovery, before Tier-2, with composite-risk stable in the high teens. The probe's three operational findings (staged-release confirmation, parameter-error isolation, T-9 calibration) are individually small but collectively confirm that the recovery dynamic is on-trajectory.
+
+The 9-day countdown to plenary return becomes the dominant forward-planning horizon: by 27 April, the analytical pipeline must be operating at full feed parity to handle expected plenary-week signal volume.
+
+### Risk Snapshot (T-9 to T-0)
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| Tier-1 plateau extends past 24 April (no Tier-2) | LOW–MED | MED |
+| Documents-feed parameter error masks other issues | LOW | LOW–MED |
+| Plenary return arrives before full Tier-2 recovery | LOW–MED | MED |
+
+### Source Quality
+
+- EP feeds (2/13 direct-test confirmed): **B3**
+- Staged-release pattern observation: **B2**
+- Parameter-error categorisation: **A2**
+
+### Provenance
+
+- Run: `breaking-run185` (2026-04-18, evening, recess Day 5)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: plateau-stability reading flagged as empirical, not predictive.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
@@ -1301,6 +1342,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -1356,6 +1398,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -1368,9 +1411,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -1379,6 +1424,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/executive-brief.md) | `executive-brief.md` |
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-18/breaking-run185/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |

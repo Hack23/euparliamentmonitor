@@ -1,7 +1,7 @@
 ---
-title: "Political Intelligence Synthesis — Easter Recess Final Weekend (Run 158)"
-description: "documentsAnalyzed: 0 live feeds, 264K chars precomputed stats, 11.6K chars coalition dynamics Published 2026-04-11, with source-linked voting, committee and legislative…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-11", "Political", "Intelligence", "Synthesis", "Easter", "Recess", "Final", "Weekend", "documentsAnalyzed", "live"]
+title: "Run 158, 11 April 2026"
+description: "Run 158 (Easter Recess Final Weekend) extends Run 157 with an additional 11.6K characters of coalition-dynamics analysis layered onto the 264K precomputed stats baseline."
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-11", "April", "Easter", "Recess", "Final", "Weekend", "extends", "with", "additional", "characters"]
 date: 2026-04-11
 article_type: breaking
 slug: 2026-04-11-breaking-158
@@ -12,12 +12,51 @@ layout: article
 ---
 # Breaking — 2026-04-11
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Run 158 (Easter Recess Final Weekend) extends Run 157 with an additional **11.6K characters of coalition-dynamics analysis** layered onto the 264K precomputed stats baseline. The framing — "final weekend" — captures that 11 April is the last weekend before the Tariff T-0 / recess-return convergence on 15 April. The analytical contribution: coalition-dynamics modelling for the post-recess plenary cycle, anchored on EP10's stable EPP + S&D + Renew working coalition (~ 397 seats) holding through the recess. *Confidence: MEDIUM; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Anchor the coalition-dynamics analytical layer as a recurring recess-cluster output.** 11.6K characters of coalition modelling on a degraded-feed day is a high signal-to-noise contribution; subsequent recess-cluster runs should normalise this output. *Confidence: HIGH.*
+2. **Treat "final weekend" framing as the canonical recess-endpoint signal.** Weekend-final framings naturally anchor the institutional transition pivot to the post-recess cycle. *Confidence: MEDIUM-HIGH.*
+3. **Confirm EPP + S&D + Renew working-coalition stability through recess.** The 397-seat working majority holds through the recess — no observable fissure events. *Confidence: MEDIUM (no roll-call confirmation; behavioural inference only).*
+
+### 60-Second Read
+
+The Final Weekend probe adds coalition-dynamics depth to the recess-cluster's analytical record. The substantive finding (working-coalition stability) is positive evidence for plenary-return continuity, with the standard caveat that pre-roll-call inference cannot conclusively confirm cohesion.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| Working-coalition fissures emerge during T-0 / plenary-return | LOW–MED | HIGH |
+| Coalition-dynamics analytical layer not maintained at this granularity | MED | LOW–MED |
+| Final-weekend framing collapses to single transition narrative | LOW | LOW |
+
+### Source Quality
+
+- 264K precomputed stats: **B2**
+- 11.6K coalition-dynamics analysis: **B2**
+- Working-coalition stability inference: **C2** (no roll-call confirmation)
+
+### Provenance
+
+- Run: `breaking-run158` (2026-04-11, Recess Final Weekend, T-4)
+- Compliance: EP Open Data Portal + precomputed stats + coalition modelling. GDPR-compliant.
+
+---
+*Analytical neutrality: pre-roll-call inferences explicitly labelled.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `coalition-intelligence.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
@@ -1003,6 +1042,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -1058,6 +1098,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -1070,9 +1111,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -1081,6 +1124,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/executive-brief.md) | `executive-brief.md` |
 | section-supplementary-intelligence | [coalition-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/coalition-intelligence.md) | `coalition-intelligence.md` |
 | section-supplementary-intelligence | [political-risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/political-risk-assessment.md) | `political-risk-assessment.md` |
 | section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-11/breaking-run158/significance-scoring.md) | `significance-scoring.md` |

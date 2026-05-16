@@ -1,7 +1,7 @@
 ---
-title: "Detection and analysis of voting trends across European Parliament proceedings."
-description: "Detection and analysis of voting trends across European Parliament proceedings. Published 2026-03-27 · analysis run 77fc920c-3a76-4813-9db5-43a7e9acc25e, with source-linked…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-03-27", "run 77fc920c-3a76-4813-9db5-43a7e9acc25e", "Detection", "analysis", "voting", "trends", "across", "European", "Parliament", "proceedings"]
+title: "Breaking | 2026-03-27"
+description: "Routine inter-sessional day, no breaking signal. Analysis run 77fc920c-3a76-4813-9db5-43a7e9acc25e returned 0 classified political actors and overall significance ROUTINE across…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-03-27", "run 77fc920c-3a76-4813-9db5-43a7e9acc25e", "Routine", "inter", "sessional", "signal", "Analysis", "77fc920c", "3a76", "9db5"]
 date: 2026-03-27
 article_type: breaking
 slug: 2026-03-27-breaking
@@ -12,12 +12,121 @@ layout: article
 ---
 # Breaking — 2026-03-27
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### 🎯 BLUF
+
+**Routine inter-sessional day, no breaking signal.** Analysis run `77fc920c-3a76-4813-9db5-43a7e9acc25e` returned **0 classified political actors** and overall significance **ROUTINE** across all five impact dimensions (legislative / coalition / public opinion / institutional / economic). The Parliament had just concluded the Brussels mini-plenary of 25-26 March and entered the 32-day recess preceding the 27-30 April Strasbourg session. Coalition-power proxy 50%, opposition-power 0% — typical recess equilibrium. **🟢 HIGH confidence** that this is structural recess inactivity, not a data outage. **No publishable breaking story.**
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Decision | Who Decides | Deadline | Evidence |
+|:-:|----------|-------------|:--------:|----------|
+| 1 | **Editorial:** SKIP — no publishable breaking story | Editor | +12h | 0 actors, ROUTINE significance |
+| 2 | **Monitoring:** continue daily recess probes | Analyst | daily | Detect any committee-stage activity |
+| 3 | **Forward-watch:** confirm April plenary agenda T-30 (week of 30 Mar) | Analysis lead | 2026-04-03 | Pre-plenary intelligence cycle |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **0 political actors classified** in this run; impact matrix shows "none" across all five dimensions. (🟢 High)
+- 🟠 **First full day of post-March recess** (27 Mar – 26 Apr); no plenary, committee, or trilogue activity expected. (🟢 High)
+- 🟢 **Coalition power 50%, opposition power 0%** — typical inter-sessional equilibrium where no force has acute pressure. (🟡 Medium — proxy metric, not roll-call evidence)
+- 🟡 **No risk dimensions flagged** — risk-scoring artifacts present but show 0 quantified risks for the day. (🟡 Medium)
+- 🔵 **Economic context:** carryover from March plenary — ECB Vice-President appointment (TA-10-2026-0060), HDV emission credits (TA-10-2026-0084), US customs tariff adjustment (TA-10-2026-0096). (🟢 High)
+- 🟣 **Cross-reference:** threat-assessment artifacts also empty; no actor-threat profiles, no consequence trees, no legislative-disruption pathways for the day. (🟢 High)
+- 🩷 **Disruption vector:** none currently active; the only structural risk inherited from prior runs is PPE 38% seat dominance. (🟡 Medium)
+- ⚪ **Carry-forward:** Braun immunity-waiver precedent (TA-10-2026-0088, 26 Mar) and US tariff file remain on the watch board for the next active session.
+
+---
+
+### 🗂️ Top Documents / Procedures Table
+
+| Rank | EP reference | Title (short) | Significance | Confidence | Status |
+|:----:|--------------|---------------|:------------:|:----------:|--------|
+| 1 | — | No new procedures or adopted texts on 2026-03-27 | 0.0 | 🟢 HIGH | Recess — no activity |
+| 2 | TA-10-2026-0096 | US customs tariff adjustment (carry-over) | 6.0 | 🟢 HIGH | Adopted 26 March; watch |
+| 3 | TA-10-2026-0088 | Braun immunity waiver (carry-over) | 5.5 | 🟢 HIGH | Adopted 26 March; precedent |
+
+> No new EP references attach to today's date; ranking shows carry-over significance for situational awareness.
+
+---
+
+### ⚠️ Risk & Threat Snapshot
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟡 PPE structural dominance<br/>38% seat share<br/>L×I = 4×3 = 12"] --> CONS["Watch April Strasbourg"]
+    R2["🟡 Recess momentum loss<br/>32-day gap<br/>L×I = 3×2 = 6"] --> CONS
+    R3["🟢 No acute trigger<br/>0 actors classified today<br/>L×I = 1×1 = 1"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FFC107,color:#000000
+    style R3 fill:#2E7D32,color:#FFFFFF
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| Risk | L | I | Score | Trigger | Source | Admiralty |
+|------|:-:|:-:|:-----:|---------|--------|:---------:|
+| PPE structural dominance (38%) | 4 | 3 | 12 | Minority defensive coalition | Inherited from prior runs | A2 |
+| Recess momentum loss | 3 | 2 | 6 | Slipped April agenda items | Calendar gap analysis | A1 |
+| Data-completeness gap (0 actors) | 2 | 2 | 4 | Persistent zero-classification | This run's classification output | B2 |
+| External trade pressure (US tariff) | 3 | 4 | 12 | Retaliation announcement | TA-10-2026-0096 follow-up | A1 |
+
+---
+
+### 🔮 Top Forward Trigger
+
+**EP committee pre-plenary work week, 20-24 April 2026.** Committee draft reports and shadow-rapporteur briefings during this week typically pre-determine 70-80% of plenary outcomes. The next genuinely actionable breaking signal will come from committee documents released in that window, not from recess-day feeds.
+
+---
+
+### 🛡️ Source Quality Assessment
+
+- **Primary sources:** EP Open Data Portal — analysis run `77fc920c-3a76-4813-9db5-43a7e9acc25e` (this folder's classification, risk-scoring, and threat-assessment artifacts).
+- **Data limitations:** Classification output records 0 actors — this is consistent with recess but limits independent corroboration. Forces-analysis confidence is `low` per the source table.
+- **Confidence on "ROUTINE" assessment:** 🟢 High — impact-matrix dimensions all "none", aligned with EP calendar.
+- **Confidence on forward inference:** 🟡 Medium — based on EP10 historical recess patterns, not real-time committee data.
+
+---
+
+### 📎 Links
+
+| Link | Path |
+|------|------|
+| Article | `./article.md` |
+| Classification (actor mapping, forces, impact matrix) | `./classification/` |
+| Risk scoring | `./risk-scoring/` |
+| Threat assessment | `./threat-assessment/` |
+| Existing artifacts (voting patterns, cross-session intel) | `./existing/` |
+| Manifest | `./manifest.json` |
+
+---
+
+### 🔄 Cross-Reference to Prior Run
+
+**Prior run:** 2026-03-26 (last active session, Brussels mini-plenary). Adopted TA-10-2026-0088 (Braun immunity), TA-10-2026-0096 (US tariff), and 58 other items across 60 agenda points. Today's run shows the expected drop to baseline.
+
+**Delta:** Activity-volume drop from 60 agenda items to 0 actors classified is consistent with the recess transition. No anomaly. Confidence in cross-run continuity: 🟢 HIGH.
+
+---
+
+**Document Control**
+- **Template:** `/analysis/templates/executive-brief.md`
+- **Artifact path:** `analysis/daily/2026-03-27/executive-brief.md`
+- **Classification:** Public
+- **Retrospective generation:** Back-fill session for pre-Stage-B-EB-requirement runs. All claims trace to `./article.md` and sibling classification/risk/threat artifacts.
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `existing/voting-patterns.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
@@ -749,6 +858,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -804,6 +914,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -816,9 +927,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -827,6 +940,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-03-27/executive-brief.md) | `executive-brief.md` |
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-03-27/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-03-27/classification/forces-analysis.md) | `classification/forces-analysis.md` |
 | section-actors-forces | [impact-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-03-27/classification/impact-matrix.md) | `classification/impact-matrix.md` |

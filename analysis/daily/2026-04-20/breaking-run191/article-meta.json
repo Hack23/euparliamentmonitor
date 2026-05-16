@@ -5,7 +5,7 @@
   "gateResult": "PENDING",
   "slug": "2026-04-20-breaking-191",
   "articlePath": "analysis/daily/2026-04-20/breaking-run191/article.md",
-  "topFinding": "Date: Monday 2026-04-20 (EP Easter recess Day 8 of 13; Easter Sunday was April 5) Run ID: 191 Mode: ANALYSIS_ONLY — Parliament in Easter recess (Day 8), no breaking news threshold met Significance Score: 16/50 (threshold: 20/50 for article generation) Composite Risk: 16/50 (↑ from 15/50 in Run 190)",
+  "topFinding": "Run 191 (Easter Monday evening probe) records Recess Day 8 / API Outage Day 11 in continued ANALYSISONLY mode.",
   "keyTakeaways": [
     "Zero adopted texts dated today (April 20)",
     "Zero events from today's EP feeds",
@@ -37,6 +37,7 @@
   ],
   "macroContext": "The European Union's macroeconomic environment in early 2026 provides the context for interpreting the March 26 legislative package's economic implications and the forward risk landscape.",
   "sources": [
+    "executive-brief.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/economic-context.md",
     "intelligence/scenario-forecast.md",

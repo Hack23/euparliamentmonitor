@@ -1,7 +1,7 @@
 ---
-title: "Easter Recess Day 8 / Run 187"
-description: "Easter recess continues. Parliament remains suspended until April 27. Run 187 — the ninth monitoring run in the Easter Recess series — generates one material intelligence…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-19", "run 187", "Easter", "Recess", "continues", "Parliament", "remains", "suspended", "until", "April"]
+title: "Run 187, 19 April 2026"
+description: "Run 187 (mid-day probe, Easter Recess Day 8, Series Run 9) records significance 14/50 — even lower than Run 190's Easter Monday floor, confirming that mid-recess… Published…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-19", "run 187", "April", "probe", "Easter", "Recess", "Series", "records", "significance", "even"]
 date: 2026-04-19
 article_type: breaking
 slug: 2026-04-19-breaking-187
@@ -12,12 +12,52 @@ layout: article
 ---
 # Breaking — 2026-04-19
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Run 187 (mid-day probe, Easter Recess Day 8, Series Run 9) records significance **14/50** — even lower than Run 190's Easter Monday floor, confirming that mid-recess Saturday-equivalent days exhibit equal or greater quiescence than Easter Monday itself. No fresh adoptions, no events. The probe's analytical value is **floor-validation**: a second independent ANALYSIS_ONLY data point at the same magnitude as the Easter Monday probe confirms the recess-window noise floor is stable at 14–15/50. *Confidence: MEDIUM; Admiralty: B3.*
+
+### Three Decisions
+
+1. **Confirm 14–15/50 as the recess-series empirical floor.** Two independent runs (187 and 190) at the same magnitude is sufficient to anchor the noise floor. Future probe scoring should treat anything below this band as a calibration anomaly. *Confidence: HIGH.*
+2. **Maintain the multi-probe-per-day cadence through recess endpoint.** Runs 187 + 188 (same day) and the prior-day pattern confirm that multi-probe-per-day cadence catches recess-cluster signal-distribution variation without false-positive risk. *Confidence: HIGH.*
+3. **Hold INTA pre-positioning monitoring through T-8 to T-6 (19–21 April).** USTR window opens 21 April; INTA readiness signals (Commission press, Bernd Lange statements) become observable during this window. *Confidence: MEDIUM.*
+
+### 60-Second Read
+
+Mid-recess probes serve a calibration purpose — they confirm the pipeline's noise-floor is consistent and stable. Today's reading is **14/50**, statistically indistinguishable from the prior Easter Monday floor at 15/50, validating the gating architecture's stability under sustained low-signal conditions.
+
+The forward-window context (T-8 to plenary return, T-2 to USTR window) is unchanged from Run 186's calibration. Operational planning baseline is intact: Tier-2 API recovery in 22–24 April band; USTR window opening 21 April UTC.
+
+### Risk Snapshot (T-8 to T-0)
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| USTR action 21 April | MED | HIGH |
+| API Tier-2 slip past 24 April | LOW–MED | MED |
+| Pre-plenary coalition stress | MED | MED |
+
+### Source Quality
+
+- EP feeds (degraded): **B3**
+- Noise-floor calibration (independent 2-data-point): **B2**
+
+### Provenance
+
+- Run: `breaking-run187` (2026-04-19, Series Run 9, recess Day 8)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: noise-floor validation reading.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `intelligence/significance-scoring.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
@@ -930,6 +970,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -985,6 +1026,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -997,9 +1039,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -1008,6 +1052,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/executive-brief.md) | `executive-brief.md` |
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-significance | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/intelligence/significance-scoring.md) | `intelligence/significance-scoring.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-19/breaking-run187/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |

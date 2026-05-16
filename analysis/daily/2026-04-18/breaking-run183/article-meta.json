@@ -5,7 +5,7 @@
   "gateResult": "PENDING",
   "slug": "2026-04-18-breaking-183",
   "articlePath": "analysis/daily/2026-04-18/breaking-run183/article.md",
-  "topFinding": "---",
+  "topFinding": "Run 183 (Easter Recess Day 5) records the highest composite-risk score of the recess series so far: 24/50 — driven not by fresh adoptions but by accumulating analytical weight: TA-10-2026-0099 to -0104 data-gap documentation, an EPP coalition anomaly under analysis, and the T+4 trade scenario recalibration following…",
   "keyTakeaways": [
     "AI developers are recalculating compliance obligations under the modified AI Act threshold",
     "Banking supervisors are beginning BRRD3 transposition analysis",
@@ -29,6 +29,7 @@
   ],
   "macroContext": "",
   "sources": [
+    "executive-brief.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/synthesis-summary.md",
     "risk-scoring/quantitative-swot.md",

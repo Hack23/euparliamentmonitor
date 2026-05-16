@@ -5,11 +5,19 @@
   "gateResult": "PENDING",
   "slug": "2026-04-15-breaking-174",
   "articlePath": "analysis/daily/2026-04-15/breaking-run174/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "Run 174 extends Run 173's Tariff T-0 finding by anchoring TA-10-2026-0096 activation as the EU's first retaliatory tariff package against the United States in the current trade cycle.",
+  "keyTakeaways": [
+    "TA-10-2026-0096 activation status: **A1**",
+    "Bilateral retaliatory framing: **B2**",
+    "Plenary endorsement projection: **C3**",
+    "Run: `breaking-run174` (2026-04-15, T-0 + institutional reset)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
-  "sources": []
+  "sources": [
+    "executive-brief.md"
+  ]
 }

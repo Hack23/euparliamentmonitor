@@ -38,6 +38,7 @@ import {
   extractStrongProseLine,
   type MetadataManifest,
   type ResolvedMetadata,
+  type ResolvedMetadataEntry,
 } from './article-metadata.js';
 import { buildArticleMeta, serializeArticleMeta } from './article-meta.js';
 import { renderMarkdown } from './markdown-renderer.js';
@@ -606,22 +607,13 @@ function pickEarliestIndex(a: number, b: number): number {
  * @returns The entry for `lang` (always populated by
  *          `resolveArticleMetadata`)
  */
-function getMetadataEntry(
-  map: ResolvedMetadata,
-  lang: LanguageCode
-): { readonly title: string; readonly description: string; readonly keywords: readonly string[] } {
+function getMetadataEntry(map: ResolvedMetadata, lang: LanguageCode): ResolvedMetadataEntry {
   const descriptor = Object.getOwnPropertyDescriptor(map, lang);
   if (descriptor?.value) {
-    return descriptor.value as {
-      readonly title: string;
-      readonly description: string;
-      readonly keywords: readonly string[];
-    };
+    return descriptor.value as ResolvedMetadataEntry;
   }
-  const en = Object.getOwnPropertyDescriptor(map, 'en')?.value as
-    | { readonly title: string; readonly description: string; readonly keywords: readonly string[] }
-    | undefined;
-  return en ?? { title: '', description: '', keywords: [] };
+  const en = Object.getOwnPropertyDescriptor(map, 'en')?.value as ResolvedMetadataEntry | undefined;
+  return en ?? { title: '', description: '', keywords: [], source: 'template' };
 }
 
 /**
@@ -907,12 +899,9 @@ function applyCliOverrides(
   titleOverride: string | undefined,
   descriptionOverride: string | undefined
 ): ResolvedMetadata {
-  const result: Record<
+  const result: Record<LanguageCode, ResolvedMetadataEntry> = Object.create(null) as Record<
     LanguageCode,
-    { readonly title: string; readonly description: string; readonly keywords: readonly string[] }
-  > = Object.create(null) as Record<
-    LanguageCode,
-    { readonly title: string; readonly description: string; readonly keywords: readonly string[] }
+    ResolvedMetadataEntry
   >;
   for (const lang of ALL_LANGUAGES) {
     const entry = getMetadataEntry(base, lang);
@@ -921,6 +910,7 @@ function applyCliOverrides(
         title: titleOverride ?? entry.title,
         description: descriptionOverride ?? entry.description,
         keywords: entry.keywords,
+        source: titleOverride || descriptionOverride ? 'manifest' : entry.source,
       },
       enumerable: true,
       writable: true,

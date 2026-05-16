@@ -5,11 +5,21 @@
   "gateResult": "PENDING",
   "slug": "2026-04-03-breaking-breaking",
   "articlePath": "analysis/daily/2026-04-03/breaking/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "EP10 coalition arithmetic shows a structurally asymmetric parliament centred on PPE (38% sampled seats) with a notable Renew–ECR cohesion signal of 0.95.",
+  "keyTakeaways": [
+    "🔴 **Renew–ECR cohesion 0.95 (strengthening)** — strongest signal in the 28-pair matrix; potential new axis. (🟡 Medium — structural proxy)",
+    "🟠 **PPE structural dominance (38%)** means every viable majority routes through PPE; opposition forced to negotiate from a permanently asymmetric position. (🟢 High)",
+    "🟢 **Grand Coalition (PPE+S&D = 60%)** remains the default; Super-Grand (PPE+S&D+Renew = 65%) provides cushion against defection. (🟢 High)",
+    "🟡 **Fragmentation index ~4.4 effective parties** — *lower* than EP9 (~5.2); consolidation favours majority formation but concentrates power. (🟡 Medium)",
+    "🔵 **The Left–NI 0.65, S&D–ECR 0.60, Renew–The Left 0.60** — secondary alliance signals show anti-establishment / pragmatic cross-cutting alignments. (🟡 Medium)",
+    "🟣 **Methodological caveat:** PPE pair scores all 0.00 in the size-ratio model — mathematical artifact, NOT absence of cooperation. 🔴 Low confidence on PPE-pair values. (🟢 High)",
+    "🩷 **Disruption vector:** Renew–ECR axis materialising could reduce S&D leverage over PPE in trade and digital files. (🟡 Medium)"
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
-  "sources": []
+  "sources": [
+    "executive-brief.md"
+  ]
 }

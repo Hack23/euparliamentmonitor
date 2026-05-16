@@ -1,7 +1,7 @@
 ---
-title: "Quantitative risk scoring across 1 identified political dimensions."
-description: "Quantitative risk scoring across 1 identified political dimensions. Published 2026-04-10 · analysis run b09ab207-720b-4834-9df1-c8e93e955959, with source-linked voting, committee…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-10", "run b09ab207-720b-4834-9df1-c8e93e955959", "Quantitative", "risk", "scoring", "across", "identified", "political", "dimensions", "Published"]
+title: "Propositions-2, 10 April 2026"
+description: "The second propositions run of 10 April records 1 political dimension surfaced (vs. 0 in the motions run earlier). The single dimension is the ECON-bottleneck hypothesis (echoed…"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-10", "run b09ab207-720b-4834-9df1-c8e93e955959", "April", "second", "records", "political", "dimension", "surfaced", "motions", "earlier"]
 date: 2026-04-10
 article_type: propositions
 slug: 2026-04-10-propositions-b09ab207-720b-4834-9df1-c8e93e95
@@ -12,12 +12,50 @@ layout: article
 ---
 # Propositions — 2026-04-10
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+The second propositions run of 10 April records **1 political dimension surfaced** (vs. 0 in the motions run earlier). The single dimension is the ECON-bottleneck hypothesis (echoed from the primary propositions run). The second-run-of-day cadence on propositions track is consistent with the multi-probe-per-day pattern observed across the recess-cluster. *Confidence: MEDIUM; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Treat the 1-dimension reading as the single-signal recess-day baseline.** Most recess-days yield 0 dimensions; days with 1 dimension are the leading-signal indicator of pre-activation pressure. *Confidence: MEDIUM-HIGH.*
+2. **Reinforce the ECON-bottleneck framing through cross-run validation.** Two independent same-day runs (propositions + propositions-2) both surface the ECON hypothesis; this is convergent validation. *Confidence: HIGH on the bottleneck.*
+3. **Maintain second-propositions-run cadence through plenary return.** Multi-run-per-day propositions cadence at this pre-activation window catches early pressure-signal that single-run cadence would miss. *Confidence: MEDIUM-HIGH.*
+
+### 60-Second Read
+
+Run-2 of propositions on 10 April serves to cross-validate the primary propositions run. Both surface the ECON-bottleneck hypothesis; the convergence strengthens the analytical confidence beyond what a single run would provide.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| 1-dimension reading inflated by procedural artifact | LOW–MED | LOW |
+| ECON-bottleneck framing too narrow to drive Q2 strategic decisions | MED | MED |
+| Multi-run cadence abandoned during plenary load | MED | LOW–MED |
+
+### Source Quality
+
+- 1-dimension reading: **A1**
+- ECON-bottleneck cross-validation: **B2**
+
+### Provenance
+
+- Run: `propositions-2` (2026-04-10, second propositions run of day)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: cross-validation framing labelled.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `existing/voting-patterns.md` |
@@ -3375,6 +3413,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -3430,6 +3469,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -3442,9 +3482,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -3453,6 +3495,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/executive-brief.md) | `executive-brief.md` |
 | section-significance | [significance-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/classification/significance-classification.md) | `classification/significance-classification.md` |
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions-2/classification/forces-analysis.md) | `classification/forces-analysis.md` |

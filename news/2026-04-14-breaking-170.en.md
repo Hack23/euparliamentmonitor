@@ -1,7 +1,7 @@
 ---
-title: "The European Parliament faces a convergence of three independent threat vectors as it returns from Easter recess on April 15:"
-description: "The European Parliament faces a convergence of three independent threat vectors as it returns from Easter recess on April 15: Published 2026-04-14, with source-linked voting…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-14", "European", "Parliament", "faces", "convergence", "three", "independent", "threat", "vectors", "returns"]
+title: "Run 170, 14 April 2026"
+description: "Run 170 identifies three independent threat vectors converging on the EP's 15 April recess-return: (i) tariff-activation (TA-10-2026-0096 + TA-10-2026-0097 statutory T-0); (ii)…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-14", "April", "identifies", "three", "independent", "threat", "vectors", "converging", "recess", "return"]
 date: 2026-04-14
 article_type: breaking
 slug: 2026-04-14-breaking-170
@@ -12,12 +12,53 @@ layout: article
 ---
 # Breaking — 2026-04-14
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Run 170 identifies **three independent threat vectors converging** on the EP's 15 April recess-return: (i) **tariff-activation** (TA-10-2026-0096 + TA-10-2026-0097 statutory T-0); (ii) **plenary-preparation pressure** (committee groups reactivating after 14-day inter-session gap); (iii) **external-pressure signalling cycle** (USTR Section 301 window now 7 days out). The convergence is structurally interesting because each vector independently elevates institutional load; their simultaneous arrival on 15 April compounds the demand on EP analytical and operational capacity. *Confidence: MEDIUM; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Treat the three-vector convergence as the operational test of EP10's institutional bandwidth under simultaneous stress.** This is not a routine recess-return — it is a multi-vector load arrival. Capacity-planning consumers must scale accordingly. *Confidence: MEDIUM-HIGH.*
+2. **Anchor 15 April as the institutional-bandwidth high-water mark of the inter-session period.** Subsequent 7-day-window probes will measure decay from this peak. *Confidence: HIGH.*
+3. **Maintain three-vector tracking through plenary week.** Each vector has its own sub-trajectory; tracking them independently produces better signal than aggregating into a single composite. *Confidence: HIGH.*
+
+### 60-Second Read
+
+Independent-vector convergence is the **operationally consequential** part of Run 170's analysis. Each vector — tariff activation, plenary preparation, external-pressure signalling — individually elevates institutional load; their simultaneous arrival on 15 April is the structural reason that this recess-return is operationally distinct from a routine return.
+
+The framework choice (three vectors, tracked independently) avoids the common analytical error of collapsing multi-dimensional stress into a single composite, which obscures sub-trajectory differences.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| Institutional bandwidth saturates at 15 April peak | MED | MED–HIGH |
+| One vector dominates analysis, masking others | MED | MED |
+| External-pressure vector escalates faster than expected | MED | HIGH |
+
+### Source Quality
+
+- Three-vector identification: **B2**
+- Statutory T-0 dates: **A1**
+- USTR window timing: **A1**
+
+### Provenance
+
+- Run: `breaking-run170` (2026-04-14, three-vector convergence)
+- Compliance: EP Open Data Portal feeds + USTR public records. GDPR-compliant.
+
+---
+*Analytical neutrality: convergence framing labelled as analytical construct.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/political-threat-landscape.md` |
@@ -897,6 +938,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -952,6 +994,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -964,9 +1007,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -975,6 +1020,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run170/executive-brief.md) | `executive-brief.md` |
 | section-significance | [significance-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run170/classification/significance-classification.md) | `classification/significance-classification.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run170/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run170/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |

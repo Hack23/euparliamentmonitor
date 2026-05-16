@@ -190,7 +190,12 @@ describe('deriveMetadataForFile — full pipeline', () => {
         </section>`,
     });
     const meta = deriveMetadataForFile(
-      { slug: '2026-02-24-propositions', articleType: 'propositions', date: '2026-02-24', lang: 'en' },
+      {
+        slug: '2026-02-24-propositions',
+        articleType: 'propositions',
+        date: '2026-02-24',
+        lang: 'en',
+      },
       html
     );
     expect(meta.title).toContain('registered more than sixty');
@@ -202,7 +207,8 @@ describe('deriveMetadataForFile — full pipeline', () => {
   it('keeps a rich editorial H1 when one already exists', () => {
     const html = buildHtml({
       title: 'Banking Union Breakthrough and Anti-Corruption Landmark',
-      description: 'A landmark resolution closes the banking union gap and strengthens anti-corruption oversight.',
+      description:
+        'A landmark resolution closes the banking union gap and strengthens anti-corruption oversight.',
       body: `<p>The plenary adopted the resolution by a decisive margin on Tuesday, closing a six-year debate and triggering immediate criticism from two national delegations about implementation timelines.</p>`,
     });
     const meta = deriveMetadataForFile(
@@ -227,11 +233,14 @@ describe('deriveMetadataForFile — full pipeline', () => {
     expect(meta.description.length).toBeGreaterThan(10);
   });
 
-  it('uses localized template plus editorial context when body language does not match filename language', () => {
+  it('uses English editorial verbatim when body language does not match filename language and no localized brief exists', () => {
     // Aggregator regression case — the file is `-sv.html` but the body
-    // is still rendered in English (known PR#1404 regression). The
-    // backport must keep the Swedish template shell, while appending the
-    // artifact-derived editorial topic so SEO metadata remains page-specific.
+    // is still rendered in English (known PR#1404 regression). Per the
+    // current SEO contract (prompt § 6.2 priority 3) the Swedish file
+    // inherits the English brief headline verbatim when no localized
+    // `executive-brief_sv.md` exists for the run; the old `<localized
+    // template> — <English headline>` concatenation is no longer emitted
+    // because it produced mixed-language `<title>` strings.
     const englishBody =
       '<h1>Banking Union Breakthrough and Anti-Corruption Landmark</h1>' +
       '<p>The European Parliament this week closed the final gap in the banking union with a landmark resolution adopted by the plenary on Tuesday evening.</p>';
@@ -245,9 +254,12 @@ describe('deriveMetadataForFile — full pipeline', () => {
       { slug: '2026-04-14-breaking', articleType: 'breaking', date: '2026-04-14', lang: 'sv' },
       html
     );
-    expect(meta.title).toMatch(/Senaste|Betydande/);
     expect(meta.title).toContain('Banking Union Breakthrough');
-    expect(meta.description).toContain('2026-04-14');
+    expect(meta.title).not.toMatch(/Senaste|Betydande/);
+    // The English summary is long enough to satisfy the SEO floor; the
+    // contextual-date appendix is allowed to be truncated when the
+    // editorial sentence already fills the budget.
+    expect(meta.description).toContain('banking union');
     expect(meta.description.length).toBeGreaterThanOrEqual(120);
   });
 
@@ -296,18 +308,29 @@ describe('rewriteHtml — idempotency + surface coverage', () => {
     const body = `<section class="lede"><p>${'x'.repeat(120)}</p></section>`;
     const html = buildHtml({ title: originalTitle, description: originalDesc, body });
 
-    const newMeta = { title: 'Landmark Banking Union Resolution', description: 'A decisive plenary result reshapes the anti-corruption framework.' };
+    const newMeta = {
+      title: 'Landmark Banking Union Resolution',
+      description: 'A decisive plenary result reshapes the anti-corruption framework.',
+    };
     const rewritten = rewriteHtml(html, newMeta);
 
     // <title>
-    expect(rewritten).toContain('<title>Landmark Banking Union Resolution — EU Parliament Monitor</title>');
+    expect(rewritten).toContain(
+      '<title>Landmark Banking Union Resolution — EU Parliament Monitor</title>'
+    );
     // Meta tags
     expect(rewritten).toContain(`<meta name="description" content="${newMeta.description}">`);
     expect(rewritten).toContain(`<meta name="twitter:title" content="${newMeta.title}">`);
-    expect(rewritten).toContain(`<meta name="twitter:description" content="${newMeta.description}">`);
+    expect(rewritten).toContain(
+      `<meta name="twitter:description" content="${newMeta.description}">`
+    );
     expect(rewritten).toContain(`<meta property="og:title" content="${newMeta.title}">`);
-    expect(rewritten).toContain(`<meta property="og:description" content="${newMeta.description}">`);
-    expect(rewritten).toContain(`<meta property="og:image:alt" content="${newMeta.title} — EU Parliament Monitor">`);
+    expect(rewritten).toContain(
+      `<meta property="og:description" content="${newMeta.description}">`
+    );
+    expect(rewritten).toContain(
+      `<meta property="og:image:alt" content="${newMeta.title} — EU Parliament Monitor">`
+    );
     // JSON-LD
     expect(rewritten).toContain(`"headline": "${newMeta.title}"`);
     expect(rewritten).toContain(`"description": "${newMeta.description}"`);
@@ -322,7 +345,10 @@ describe('rewriteHtml — idempotency + surface coverage', () => {
       description: 'Recent legislative proposals.',
       body: `<p>${'x'.repeat(200)}</p>`,
     });
-    const meta = { title: 'New Editorial Headline', description: 'New editorial description text used across the metadata surfaces.' };
+    const meta = {
+      title: 'New Editorial Headline',
+      description: 'New editorial description text used across the metadata surfaces.',
+    };
     const once = rewriteHtml(html, meta);
     const twice = rewriteHtml(once, meta);
     expect(twice).toBe(once);
@@ -348,7 +374,9 @@ describe('rewriteHtml — idempotency + surface coverage', () => {
   it('preserves the original <head> structure for tags we do not rewrite', () => {
     const html = buildHtml({ title: 't', description: 'd', body: '<p>x</p>' });
     const rewritten = rewriteHtml(html, { title: 'NEW', description: 'NEW DESC' });
-    expect(rewritten).toContain('<meta name="keywords" content="European Parliament, legislative">');
+    expect(rewritten).toContain(
+      '<meta name="keywords" content="European Parliament, legislative">'
+    );
     expect(rewritten).toContain('<meta charset="UTF-8">');
   });
 
@@ -357,7 +385,8 @@ describe('rewriteHtml — idempotency + surface coverage', () => {
     // first single quote inside a double-quoted attribute.
     const html = buildHtml({
       title: "Parliament's Legislative Procedures",
-      description: "The Parliament's term is entering year two with a busy legislative agenda and measurable acceleration across committees.",
+      description:
+        "The Parliament's term is entering year two with a busy legislative agenda and measurable acceleration across committees.",
       body: '<p>x</p>',
     });
     const rewritten = rewriteHtml(html, {
@@ -369,12 +398,12 @@ describe('rewriteHtml — idempotency + surface coverage', () => {
     expect(rewritten).toContain('<meta property="og:title" content="New Headline">');
     expect(rewritten).toContain('<meta property="og:description" content="New description text.">');
     expect(rewritten).toContain('<meta name="twitter:title" content="New Headline">');
-    expect(rewritten).toContain('<meta name="twitter:description" content="New description text.">');
+    expect(rewritten).toContain(
+      '<meta name="twitter:description" content="New description text.">'
+    );
     // …and the old description value survives ONLY in the untouched body,
     // not in any head tag (regex is quote-aware).
-    expect(rewritten).not.toMatch(
-      /<meta[^>]*name="description"[^>]*content="The Parliament/
-    );
+    expect(rewritten).not.toMatch(/<meta[^>]*name="description"[^>]*content="The Parliament/);
     expect(rewritten).not.toMatch(
       /<meta[^>]*property="og:description"[^>]*content="The Parliament/
     );
@@ -471,9 +500,7 @@ describe('chooseTitle — tier fallback branches', async () => {
   });
 
   it('falls back to the template when neither H1 nor prose are usable', () => {
-    expect(chooseTitle('Breaking — 2026-04-20', '', 'Template Title', file)).toBe(
-      'Template Title'
-    );
+    expect(chooseTitle('Breaking — 2026-04-20', '', 'Template Title', file)).toBe('Template Title');
   });
 
   it('skips a too-short first sentence and returns the template', () => {
@@ -510,9 +537,7 @@ describe('isGenericBodyH1 — historic + date-suffix patterns', async () => {
   });
 
   it('flags the "<Short-Phrase> — <ISO-date>" form even for run-suffixed types', () => {
-    expect(isGenericBodyH1('Breaking — 2026-04-20', 'breaking-190', '2026-04-20')).toBe(
-      true
-    );
+    expect(isGenericBodyH1('Breaking — 2026-04-20', 'breaking-190', '2026-04-20')).toBe(true);
     expect(isGenericBodyH1('Week In Review - 2026-04-20', 'week-in-review', '2026-04-20')).toBe(
       true
     );
@@ -541,9 +566,7 @@ describe('extractFirstSentence — boundary + cap branches', async () => {
   });
 
   it('returns the whole prose when no terminator is present and within cap', () => {
-    expect(extractFirstSentence('Short prose no terminator')).toBe(
-      'Short prose no terminator'
-    );
+    expect(extractFirstSentence('Short prose no terminator')).toBe('Short prose no terminator');
   });
 
   it('truncates long sentences with an ellipsis at word boundary', () => {

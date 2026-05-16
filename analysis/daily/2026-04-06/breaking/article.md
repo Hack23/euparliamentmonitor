@@ -1,7 +1,7 @@
 ---
-title: "Political SWOT Analysis — Easter Monday Recess Intelligence"
-description: "Framework: Cross-SWOT interference analysis with TOWS matrix Published 2026-04-06, with source-linked voting, committee and legislative intelligence for democratic-accountability…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-06", "Political", "SWOT", "Analysis", "Easter", "Monday", "Recess", "Intelligence", "Framework", "Cross"]
+title: "Easter Monday Recess Intelligence | 2026-04-06"
+description: "Easter Monday produced zero parliamentary activity by design — yet the run records the single most consequential structural finding of the recess fortnight: 6 of 8 EP API…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-06", "Easter", "Monday", "Recess", "Intelligence", "produced", "zero", "parliamentary", "activity", "design"]
 date: 2026-04-06
 article_type: breaking
 slug: 2026-04-06-breaking-breaking
@@ -12,12 +12,113 @@ layout: article
 ---
 # Breaking — 2026-04-06
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### 🎯 BLUF
+
+**Easter Monday produced zero parliamentary activity by design — yet the run records the single most consequential structural finding of the recess fortnight: 6 of 8 EP API endpoints have returned 404 errors continuously since 28 March, an 11-day persistent degradation pattern with no recovery signals.** This data-availability collapse is not a transient incident but a structural shift that constrains all downstream monitoring through the post-Easter committee restart. The run separates *structural inactivity* (a public holiday across 27 member states produces zero events by definition) from *data gaps* (advisory feeds — committee documents, parliamentary questions, procedures, plenary documents — are silent because the endpoints are broken, not because no documents exist). The political-SWOT extracts a counter-intuitive but well-evidenced finding: with **EP10 on track for 114 legislative acts in 2026 (+46% vs. 2025)** and an **85-item adopted-texts backlog accumulated through the recess**, the post-13 April restart will load a four-day committee week with a quarter's worth of pent-up work. The most consequential *risk* is **T2 right-bloc formalisation (EPP+ECR+PfE = 57% potential supermajority)** scored HIGH — the question the run leaves open and that subsequent runs will answer is whether the Renew-pivot grand coalition (EPP+S&D+Renew = 55% with −5.5% surplus deficit) holds discipline once the tariff and banking files force every flagship vote into ad-hoc coalition-building. The week's silence is therefore *loaded*, not *empty*.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Decision | Who decides | Deadline | Evidence |
+|:-:|----------|-------------|:--------:|----------|
+| 1 | **API recovery escalation** — 11-day persistent 404 pattern needs an owner before committee restart; otherwise the post-recess week opens with no live monitoring of committee assignments | EP IT secretariat; data-pipeline-specialist | **before 14 April committee restart** | §Data Collection Results; 6/8 endpoints 404 since 28 March |
+| 2 | **Pre-brief Conference of Committee Chairs on 85-item backlog** — pipeline prioritisation needs to be settled in advance of the 14-17 April committee window, not improvised on Day 1 | Conference of Committee Chairs | April 14 (T-8 at run time) | §Opportunities O1; 85-item adopted-texts feed backlog |
+| 3 | **Right-bloc-supermajority falsification test design** — T2 (PPE+ECR+PfE = 57%) is the highest-severity threat; the first post-Easter trade vote is the natural falsifier of whether the bloc formalises | EPP/ECR/PfE group leaderships; observers | first post-recess trade vote | §Threats T2 (HIGH severity) |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **0 parliamentary events Monday** — public holiday across 27 MS; zero is the *expected* value, not a data gap.
+- 🟠 **6/8 API endpoints 404 for 11 consecutive days** — structural, not transient; HIGH confidence (15+ runs).
+- 🟢 **EP10 on track for 114 acts (+46% YoY)** vs. 78 in 2025 — record pace projected.
+- 🟡 **85-item adopted-texts backlog** during recess — Q2 will start with a loaded pipeline.
+- 🔵 **Stability score 84/100; 0 voting anomalies** — institutional integrity intact through the silence.
+- 🟣 **Grand-coalition arithmetic: EPP+S&D = 60% of seats** — majority-capable on paper but with the −5.5% surplus deficit prior runs flagged.
+- 🩷 **T2 — right-bloc supermajority potential (EPP+ECR+PfE = 57%)** — highest-severity threat in the SWOT.
+- ⚪ **737 MEP records** — MEP feed and adopted-texts feed are the only two operational signal sources.
+
+---
+
+### ⚠️ Risk Snapshot (from `risk-matrix.md`)
+
+```mermaid
+quadrantChart
+    title Easter Monday Risk Heatmap — 2026-04-06
+    x-axis Low Impact --> High Impact
+    y-axis Low Likelihood --> High Likelihood
+    quadrant-1 "HIGH RISK"
+    quadrant-2 "WATCH"
+    quadrant-3 "MONITOR"
+    quadrant-4 "MEDIUM RISK"
+    "API continuity": [0.4, 0.6]
+    "Right-bloc formalisation (T2)": [0.85, 0.45]
+    "Post-recess pipeline jam": [0.70, 0.55]
+    "Renew-pivot dependency": [0.60, 0.50]
+```
+
+The single risk plotted by the run is API continuity in the WATCH quadrant; this brief extends the snapshot with three named risks visible in the run's SWOT but not in the quadrantChart proper. Net **risk level MEDIUM, stability score 84/100, delta vs. April 5 stable** — the run's headline judgement holds.
+
+---
+
+### 🧭 ACH — The "Quiet but Loaded" Reading
+
+- **H1 — Routine recess.** API outage is transient (Easter maintenance, returns post-13 April); 85-item backlog is normal Q1 throughput. *Favoured by* stability score 84/100, zero anomalies.
+- **H2 — Structural API decline + coalition stress.** 11-day persistent pattern is *not* transient; the 85-item backlog will collide with the 4-day committee restart week and force right-bloc formalisation on at least one trade-defence file. *Favoured by* 11-day persistence (15+ monitoring runs), T2 HIGH severity, prior-run trajectory.
+
+Both hypotheses remain live at run time. The 14 April committee restart and the first post-recess trade vote are the natural falsifiers; the brief reads H1 as the *planning baseline* and H2 as the *contingency case*.
+
+---
+
+### 🔮 Top Forward Triggers (next 14 days)
+
+1. **April 13 (T-7) — final day of recess.** API recovery signal (or lack of) is the binary indicator.
+2. **April 14–17 — committee restart week.** 85-item backlog meets 4-day window; pipeline-triage decisions decide whether the record Q1 pace breaks.
+3. **April 15 — US tariff deadline.** Forces every group's first post-recess trade-vote signal; falsifier for T2 right-bloc formalisation.
+4. **April 17 — ECB rate decision** (run-flagged catalyst) — may activate ECON committee on Day 4 of restart week.
+5. **April 27–30 Strasbourg plenary** — first plenary opportunity to consolidate or break the record-pace projection.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **Precomputed stats 2004–2026 (A1):** the brief's most reliable signal; 114-act projection and 84/100 stability score both derive from this.
+- **Adopted-texts feed (A2 — one-week fallback):** 85 items; the "today" view threw a JSON parse error and the run fell back to the weekly window.
+- **MEP feed (A1):** 737 records — second of two operational endpoints.
+- **Six 404 endpoints (documented gap):** events, procedures, documents, plenary docs, committee docs, questions — *existence* of underlying activity cannot be confirmed via API for the recess period.
+- **Net confidence:** 🟡 MEDIUM on synthesis; 🟢 HIGH on the API-outage finding itself (objectively verified across 15+ monitoring runs); 🟡 MEDIUM on the right-bloc T2 threat (structural arithmetic is firm, behavioural test is post-recess).
+
+---
+
+### 📎 Run Artifacts (Read-Before-Decide)
+
+| Layer | Artifact | Why |
+|-------|----------|-----|
+| Article | `article.md` | Public-facing Easter Monday narrative |
+| Significance | `significance-classification.md` | Recess-day classification with 8-feed audit |
+| Risk | `risk-matrix.md` | 5×5 matrix; API continuity in WATCH quadrant |
+| Threat | `political-threat-landscape.md` | 5-framework political-threat (STRIDE rejected) |
+| SWOT | `political-swot-analysis.md` | 4S/4W/4O/4T with TOWS interference matrix |
+| Companion | `2026-04-13/breaking-run168/`, `2026-04-11/week-in-review-run8/` | Recess-fortnight bracketing |
+
+---
+
+**Document Control**
+- **Template reference:** `analysis/templates/executive-brief.md`
+- **Artifact path:** `analysis/daily/2026-04-06/breaking/executive-brief.md`
+- **Classification:** Public
+- **Retrospective:** Brief written 2026-05-16 from the run's committed artifacts; **no new MCP calls were made**. The 🟡 MEDIUM confidence and the API-outage finding are preserved exactly as the run committed them.
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-matrix.md` |
 | [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `political-swot-analysis.md` |
 
@@ -565,6 +666,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -620,6 +722,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -632,9 +735,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -643,6 +748,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking/executive-brief.md) | `executive-brief.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking/risk-matrix.md) | `risk-matrix.md` |
 | section-supplementary-intelligence | [political-swot-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking/political-swot-analysis.md) | `political-swot-analysis.md` |
 | section-supplementary-intelligence | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking/political-threat-landscape.md) | `political-threat-landscape.md` |

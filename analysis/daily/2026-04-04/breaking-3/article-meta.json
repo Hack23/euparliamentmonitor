@@ -5,11 +5,21 @@
   "gateResult": "PENDING",
   "slug": "2026-04-04-breaking-breaking-3",
   "articlePath": "analysis/daily/2026-04-04/breaking-3/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "No new breaking developments on 2026-04-04; the EP is in Easter recess (27 March → 13 April).",
+  "keyTakeaways": [
+    "🔴 **No new breaking developments** on 2026-04-04. (🟢 High)",
+    "🟠 **Run-3 enrichment:** full document titles and procedure references appended to carry-over Q1 cluster. (🟢 High)",
+    "🟢 **Recess continues** (Day 9 of 18); 4 days remain. (🟢 High)",
+    "🟡 **No data-pipeline regression** today; analytical tools still operational per 2026-04-03/breaking-2 baseline. (🟢 High)",
+    "🔵 **Economic context:** carry-over US-tariff and ECB Vice-President files remain primary. (🟢 High)",
+    "🟣 **Cross-reference:** see siblings for substantive coalition / pipeline / adopted-texts analysis. (🟢 High)",
+    "🩷 **Disruption vector:** none acute today. (🟢 High)"
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
-  "sources": []
+  "sources": [
+    "executive-brief.md"
+  ]
 }

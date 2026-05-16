@@ -5,7 +5,7 @@
   "gateResult": "PENDING",
   "slug": "2026-04-18-breaking-184",
   "articlePath": "analysis/daily/2026-04-18/breaking-run184/article.md",
-  "topFinding": "---",
+  "topFinding": "Run 184 records the first positive API recovery signal of the outage cluster (composite 18/50; mode ANALYSIS_ONLY): TA-10-2026-0099 to -0104 are now confirmed to exist in the EP backend index (metadata-only; bodies still 404).",
   "keyTakeaways": [
     "EPP Group official website (group.epp.eu) for whipping communications",
     "EPP President Weber's public statements (European Parliament website)",
@@ -32,6 +32,7 @@
   ],
   "macroContext": "(0.5%).",
   "sources": [
+    "executive-brief.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/economic-context.md",
     "intelligence/scenario-forecast.md",

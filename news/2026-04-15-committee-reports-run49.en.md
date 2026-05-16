@@ -1,7 +1,7 @@
 ---
-title: "TA-10-2026-0096 and TA-10-2026-0097 became operational on April 15, 2026. The 21-day compliance window from the March 26 plenary adoption…"
-description: "TA-10-2026-0096 and TA-10-2026-0097 became operational on April 15, 2026. The 21-day compliance window from the March 26 plenary adoption has expired."
-keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run49", "2026-04-15", "run 0ab28c94-41e0-433e-b6cf-599f19f30e71", "became", "operational", "April", "compliance", "window", "from", "March", "plenary", "adoption"]
+title: "Committee Reports Run 49, 15 April 2026"
+description: "Run 49 records the operational activation of BOTH TA-10-2026-0096 and TA-10-2026-0097 on 15 April — the 21-day compliance window from the 26 March plenary adoption has expired…"
+keywords: ["EU Parliament", "European Parliament", "political intelligence", "Committee Reports Run49", "2026-04-15", "run 0ab28c94-41e0-433e-b6cf-599f19f30e71", "Committee", "Reports", "April", "records", "operational", "activation", "BOTH", "compliance", "window", "from"]
 date: 2026-04-15
 article_type: committee-reports-run49
 slug: 2026-04-15-committee-reports-run49
@@ -12,12 +12,53 @@ layout: article
 ---
 # Committee Reports Run49 — 2026-04-15
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Run 49 records the **operational activation of BOTH TA-10-2026-0096 and TA-10-2026-0097** on 15 April — the **21-day compliance window from the 26 March plenary adoption has expired** and both trade-defence instruments are now legally operative. The committee-track framing (vs. breaking-track) emphasises the **structural-institutional dimension**: INTA committee under Bernd Lange (S&D / DE) is now the operational steward of two active EU autonomous trade-defence tools. *Confidence: HIGH on statutory facts; Admiralty: A1.*
+
+### Three Decisions
+
+1. **Anchor the EU trade-defence operational posture on the dual-instrument activation (TA-0096 + TA-0097).** Run 50's headline framing should treat 15 April as the date when the EU acquired *two* simultaneously-operative autonomous trade-defence instruments — not just one. This doubles the EU's response capability. *Confidence: HIGH.*
+2. **Position INTA under Bernd Lange as the operational committee-of-record for trade-defence governance.** The committee's institutional ownership of both instruments creates a single operational locus for Commission interaction. *Confidence: HIGH.*
+3. **Treat the 21-day compliance window as the canonical EU adoption-to-activation interval.** This interval is now an empirical anchor for downstream consumers planning EU-instrument operational timelines. *Confidence: HIGH.*
+
+### 60-Second Read
+
+The dual-instrument activation (TA-0096 + TA-0097 both operative on 15 April) is structurally more consequential than a single-instrument activation. TA-0096 (quota framework) + TA-0097 (non-application of customs duties) together form a *coherent two-instrument toolkit* — the EU has both volume controls and duty controls operative simultaneously.
+
+INTA's stewardship under Bernd Lange concentrates the operational authority, simplifying Commission-EP interaction.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| Both instruments deployed simultaneously (escalation) | LOW–MED | HIGH |
+| Lange / INTA leadership transition during operational period | LOW | MED–HIGH |
+| Commission underuses available instruments | MED | MED |
+
+### Source Quality
+
+- TA-0096 / TA-0097 statutory activation: **A1**
+- 21-day window calculation: **A1**
+- INTA committee-of-record framing: **A2**
+
+### Provenance
+
+- Run: `committee-reports-run49` (2026-04-15)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: statutory facts cited with high confidence; political projections separately graded.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
@@ -689,6 +730,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -744,6 +786,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -756,9 +799,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -767,6 +812,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/committee-reports-run49/executive-brief.md) | `executive-brief.md` |
 | section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/committee-reports-run49/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-stakeholder-map | [stakeholder-impact](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/committee-reports-run49/existing/stakeholder-impact.md) | `existing/stakeholder-impact.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/committee-reports-run49/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |

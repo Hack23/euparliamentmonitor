@@ -1,7 +1,7 @@
 ---
-title: "EU Parliament Intelligence Brief"
-description: "Mode: DEGRADED (server health unavailable) | Run: 180 | Confidence: 🟡 Medium Published 2026-04-17 · analysis run 180, with source-linked voting, committee and legislative…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-17", "run 180", "Parliament", "Intelligence", "Brief", "Mode", "DEGRADED", "server", "health", "unavailable"]
+title: "Run 180, 17 April 2026"
+description: "Run 180 (T+3 recess probe) is a DEGRADED-mode run — the EP server health endpoint was unavailable for the probe, requiring direct feed-level health inference."
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-17", "run 180", "April", "recess", "probe", "DEGRADED", "mode", "server", "health", "endpoint"]
 date: 2026-04-17
 article_type: breaking
 slug: 2026-04-17-breaking-180
@@ -12,12 +12,53 @@ layout: article
 ---
 # Breaking — 2026-04-17
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Run 180 (T+3 recess probe) is a **DEGRADED-mode** run — the EP server health endpoint was unavailable for the probe, requiring direct feed-level health inference. The two operational alerts: **tariff escalation (13.1/25, ELEVATED)** and **defence implementation (9.5/25, ELEVATED)**, both in the ELEVATED rather than CRITICAL band. No new EP items published. Plenary returns 27 April (T+10 from this probe). The run's analytical anchor is **TA-10-2026-0097 readiness** as the EU's pre-positioned trade-defence instrument awaiting potential USTR Section 301 activation. *Confidence: MEDIUM (degraded probe); Admiralty: B3.*
+
+### Three Decisions
+
+1. **Treat DEGRADED-mode as the operationally-valid downgrade from ANALYSIS_ONLY when server health is unobservable.** This run validates that the pipeline gracefully degrades when health probes fail, rather than collapsing to error. The downstream consumer impact is reduced confidence labelling, not loss of artifact. *Confidence: HIGH.*
+2. **Maintain ELEVATED rather than CRITICAL alert level on the two primary tracks.** Tariff escalation and defence implementation are persistent ELEVATED-band concerns through the recess — neither has produced a CRITICAL trigger yet. The gating discipline of not over-escalating is the correct operational posture. *Confidence: HIGH.*
+3. **Anchor TA-10-2026-0097 as the canonical EU trade-defence instrument reference.** Every run in this cluster cites TA-0097 as the pre-positioned instrument; consistency of reference is itself an institutional-memory anchor for downstream consumers and translation pipelines. *Confidence: HIGH.*
+
+### 60-Second Read
+
+T+3 probes — three days into Easter recess — capture the operational state where institutional activity is minimal but external-pressure clocks (USTR, NATO defence-spending review, etc.) continue running. The DEGRADED-mode reading is operationally noteworthy: it demonstrates the pipeline's graceful-degradation behaviour when upstream observability is partially compromised.
+
+The dual-ELEVATED alert structure (tariffs + defence) reflects the dominant 2026 H1 political-economy frame: the EU as a price-taker on US foreign-economic policy combined with a producer-of-record on its own defence-industrial strategy.
+
+### Risk Snapshot (next 7 days)
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| Tariff alert escalates to CRITICAL on USTR action | MED | HIGH |
+| Defence alert escalates on NATO summit outcomes | LOW–MED | MED–HIGH |
+| Server health remains unobservable through recess endpoint | LOW–MED | MED |
+
+### Source Quality
+
+- EP feed direct-tests: **B3** (degraded mode)
+- TA-10-2026-0097 readiness signal: **A1** (adopted text)
+- Composite alert scores: **B2**
+
+### Provenance
+
+- Run: `breaking-run180` (2026-04-17, T+3)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: DEGRADED-mode reading explicitly labelled.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
@@ -947,6 +988,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -1002,6 +1044,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -1014,9 +1057,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -1025,6 +1070,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run180/executive-brief.md) | `executive-brief.md` |
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run180/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-significance | [significance-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run180/classification/significance-classification.md) | `classification/significance-classification.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run180/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |

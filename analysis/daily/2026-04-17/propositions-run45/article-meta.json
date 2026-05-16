@@ -5,13 +5,20 @@
   "gateResult": "PENDING",
   "slug": "2026-04-17-propositions-run45",
   "articlePath": "analysis/daily/2026-04-17/propositions-run45/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "Run 45 is a recess-window propositions analytical run anchored on the EP10 Year-3 peak-velocity sprint thesis: the projected 935-procedure 2026 throughput peak relative to the 2004–2026 series.",
+  "keyTakeaways": [
+    "EP aggregate-stats series (2004–2026): **B2**",
+    "Year-3 peak-velocity thesis: **B2** (constructed framing)",
+    "Frontmatter recursion observation: **A1** (observable system fact)",
+    "Run: `propositions-run45` (2026-04-17, recess window)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
   "sources": [
+    "executive-brief.md",
     "risk-scoring/risk-matrix.md"
   ]
 }

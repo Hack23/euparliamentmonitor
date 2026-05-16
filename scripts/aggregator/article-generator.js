@@ -444,7 +444,7 @@ function getMetadataEntry(map, lang) {
         return descriptor.value;
     }
     const en = Object.getOwnPropertyDescriptor(map, 'en')?.value;
-    return en ?? { title: '', description: '', keywords: [] };
+    return en ?? { title: '', description: '', keywords: [], source: 'template' };
 }
 /**
  * Count the number of articles the site currently publishes, derived
@@ -699,6 +699,7 @@ function applyCliOverrides(base, titleOverride, descriptionOverride) {
                 title: titleOverride ?? entry.title,
                 description: descriptionOverride ?? entry.description,
                 keywords: entry.keywords,
+                source: titleOverride || descriptionOverride ? 'manifest' : entry.source,
             },
             enumerable: true,
             writable: true,

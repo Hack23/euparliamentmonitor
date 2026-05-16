@@ -1,7 +1,7 @@
 ---
-title: "Detection and analysis of voting trends across European Parliament proceedings."
-description: "Detection and analysis of voting trends across European Parliament proceedings. Published 2026-04-02 · analysis run a3fdcdee-e95c-4a90-a4de-4c41509e1c1d, with source-linked…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-02", "run a3fdcdee-e95c-4a90-a4de-4c41509e1c1d", "Detection", "analysis", "voting", "trends", "across", "European", "Parliament", "proceedings"]
+title: "Propositions | 2026-04-02"
+description: "No new Commission propositions or EP own-initiative procedures opened on 2026-04-02. Run a3fdcdee-e95c-4a90-a4de-4c41509e1c1d returned 0 classified actors and ROUTINE…"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-02", "run a3fdcdee-e95c-4a90-a4de-4c41509e1c1d", "Commission", "initiative", "procedures", "opened", "a3fdcdee", "e95c", "4a90", "a4de"]
 date: 2026-04-02
 article_type: propositions
 slug: 2026-04-02-propositions
@@ -12,12 +12,107 @@ layout: article
 ---
 # Propositions — 2026-04-02
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### 🎯 BLUF
+
+**No new Commission propositions or EP own-initiative procedures opened on 2026-04-02.** Run `a3fdcdee-e95c-4a90-a4de-4c41509e1c1d` returned **0 classified actors** and **ROUTINE** significance, mirroring the 2026-04-01/propositions empty state. The 6/8 advisory-feed 404 pattern logged on 2026-04-01 continues; `get_procedures_feed` is among the affected endpoints. Substantive propositions inventory entering April is therefore the inherited pipeline (HDV emissions framework TA-10-2026-0084, ECB Vice-President procedure TA-10-2026-0060, Better Law-Making report TA-10-2026-0063, EU-Mercosur ECJ referral TA-10-2026-0008). **🟢 HIGH confidence** the empty state is calendar- and feed-availability-driven; **🟡 MEDIUM confidence** on absence of new procedures during the feed-API degradation.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Decision | Who Decides | Deadline | Evidence |
+|:-:|----------|-------------|:--------:|----------|
+| 1 | **Editorial:** SKIP propositions daily | Editor | +24h | Empty run output |
+| 2 | **Monitoring:** continue feed-health watch; flag 48h+ of `get_procedures_feed` 404s as incident | Data pipeline | 2026-04-03 | Sustained pattern |
+| 3 | **Forward-watch:** Commission Tuesday meeting 7 April 2026 — first post-Easter college tabling | Analysis lead | 2026-04-07 | Commission cadence |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **No new procedures** on 2026-04-02; `get_procedures_feed` 404 continues. (🟡 Medium)
+- 🟠 **0 actors classified**; no Commissioner, DG, or rapporteur identified. (🟢 High)
+- 🟢 **Pipeline carry-over** anchors April watch list (HDV, ECB, Better Law-Making, Mercosur). (🟢 High)
+- 🟡 **Risk dimensions all "none"** today. (🟢 High)
+- 🔵 **Economic context:** anticipated Q2 propositions on AI Act implementing rules, Defence Industrial Strategy, MFF preparatory communications. (🟡 Medium)
+- 🟣 **Cross-reference:** sibling 2026-04-02 runs empty-template; 2026-04-03/breaking-2 formalises the feed-API concern. (🟢 High)
+- 🩷 **Disruption vector:** US trade pressure may force a fast-track Commission proposition in April. (🟡 Medium)
+- ⚪ **Carry-forward:** Mercosur ECJ opinion remains the highest-impact pending propositions trigger.
+
+---
+
+### 🗂️ Top Documents / Procedures — Propositions Watch
+
+| Rank | EP reference | Title (short) | Significance | Confidence | Status |
+|:----:|--------------|---------------|:------------:|:----------:|--------|
+| 1 | — | No new propositions on 2026-04-02 | 0.0 | 🟡 MEDIUM | Feed 404 caveat |
+| 2 | TA-10-2026-0008 | EU-Mercosur ECJ referral (pending) | 8.0 | 🟡 MEDIUM | Court opinion expected |
+| 3 | TA-10-2026-0084 | HDV emission credits 2025-2029 | 7.0 | 🟢 HIGH | Transposition pipeline |
+
+---
+
+### ⚠️ Risk & Threat Snapshot
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟠 Procedures feed reliability<br/>multi-day 404<br/>L×I = 4×3 = 12"] --> CONS["Escalate if 48h+"]
+    R2["🟠 US trade fast-track<br/>L×I = 3×4 = 12"] --> CONS
+    R3["🟡 Mercosur opinion contingency<br/>L×I = 3×3 = 9"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FF9800,color:#000000
+    style R3 fill:#FFC107,color:#000000
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| Risk | L | I | Score | Trigger | Source | Admiralty |
+|------|:-:|:-:|:-----:|---------|--------|:---------:|
+| Procedures feed reliability | 4 | 3 | 12 | 48h+ sustained 404 | Sibling breaking runs | B2 |
+| US trade fast-track proposition | 3 | 4 | 12 | US action | TA-10-2026-0096 | A1 |
+| Mercosur opinion contingency | 3 | 3 | 9 | Court releases | TA-10-2026-0008 | A2 |
+| MFF preparatory friction | 3 | 4 | 12 | Q2 Commission communication | Commission cadence | B2 |
+
+---
+
+### 🔮 Top Forward Trigger
+
+**Commission Tuesday meeting 7 April 2026** — first post-Easter college tabling; topical mix calibrates Q2 propositions watch list.
+
+---
+
+### 🛡️ Source Quality Assessment
+
+- **Primary sources:** EP Open Data Portal; run `a3fdcdee-e95c-4a90-a4de-4c41509e1c1d`.
+- **Data limitations:** `get_procedures_feed` 404 prevents corroboration.
+- **Confidence:** 🟡 MEDIUM on procedural-absence claim; 🟢 HIGH on calendar driver.
+
+---
+
+### 📎 Links
+
+| Link | Path |
+|------|------|
+| Article | `./article.md` |
+| Sibling runs | `analysis/daily/2026-04-02/breaking/`, `committee-reports/`, `motions/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Document Control**
+- **Template:** `/analysis/templates/executive-brief.md`
+- **Artifact path:** `analysis/daily/2026-04-02/propositions/executive-brief.md`
+- **Classification:** Public
+- **Retrospective generation:** Back-fill session.
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `existing/voting-patterns.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
@@ -749,6 +844,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -804,6 +900,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -816,9 +913,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -827,6 +926,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/executive-brief.md) | `executive-brief.md` |
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/classification/forces-analysis.md) | `classification/forces-analysis.md` |
 | section-actors-forces | [impact-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-02/propositions/classification/impact-matrix.md) | `classification/impact-matrix.md` |

@@ -5,8 +5,16 @@
   "gateResult": "PENDING",
   "slug": "2026-04-03-motions",
   "articlePath": "analysis/daily/2026-04-03/motions/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "No new motions tabled on 2026-04-03; recess week 2 of 4, DEGRADED feed state confirmed by sibling breaking-2.",
+  "keyTakeaways": [
+    "🔴 **No new motions tabled** on 2026-04-03; recess. (🟢 High)",
+    "🟠 **0 actors classified**; \"Quantitative risk scoring across 0 identified political dimensions\" template state. (🟢 High)",
+    "🟢 **March carry-over motions** anchor April watch list. (🟢 High)",
+    "🟡 **Risk dimensions all \"none\"** today. (🟢 High)",
+    "🔵 **Economic context:** US tariff retaliation and anti-corruption transposition dominate. (🟢 High)",
+    "🟣 **Cross-reference:** sibling `breaking-3` covers the anti-corruption-reform cluster that will generate follow-on motions in April. (🟢 High)",
+    "🩷 **Disruption vector:** none acute today. (🟢 High)"
+  ],
   "topRisks": [
     "**Score**: 0.0/5",
     "**Confidence**: low",
@@ -22,6 +30,7 @@
   "macroContext": "",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
     "risk-scoring/quantitative-swot.md",
     "risk-scoring/risk-matrix.md"
   ]

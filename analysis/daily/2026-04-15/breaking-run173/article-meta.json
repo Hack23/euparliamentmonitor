@@ -5,11 +5,19 @@
   "gateResult": "PENDING",
   "slug": "2026-04-15-breaking-173",
   "articlePath": "analysis/daily/2026-04-15/breaking-run173/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "Run 173 marks Tariff T-0 — the activation of TA-10-2026-0096 as the EU's first autonomous trade-defence action under the current US-EU geopolitical framework.",
+  "keyTakeaways": [
+    "21-day compliance window calculation: **A1** (statutory)",
+    "TA-10-2026-0096 activation status: **A1**",
+    "Commission readiness assessment: **C3**",
+    "Run: `breaking-run173` (2026-04-15, T-0)",
+    "Compliance: EP Open Data Portal + statutory window only. GDPR-compliant."
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
-  "sources": []
+  "sources": [
+    "executive-brief.md"
+  ]
 }
