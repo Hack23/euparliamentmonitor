@@ -233,6 +233,31 @@ describe('discover-untranslated-briefs', () => {
       // Canonical comes first when both have the same missing count + slug + date.
       expect(result.queue[0].isExtended).toBe(false);
     });
+
+    it('reports topMissingLangs aggregated across the whole backlog', () => {
+      // Three briefs: brief A is fully translated, brief B is missing only ja,
+      // brief C is missing every language. Expected top: ja=2 (B+C), then
+      // every other language=1, capped at 3 entries.
+      makeBrief('2026-05-15', 'fully-done', { existing: [...TARGET_LANGS] });
+      makeBrief('2026-05-15', 'partial', { existing: TARGET_LANGS.filter((l) => l !== 'ja') });
+      makeBrief('2026-05-15', 'fresh');
+      const sources = findExecutiveBriefSources(tmpRoot, { includeExtended: false, maxAgeDays: 180 });
+      const result = buildQueue(sources, 10);
+      expect(result.totals.topMissingLangs).toHaveLength(3);
+      expect(result.totals.topMissingLangs[0]).toEqual({ lang: 'ja', count: 2 });
+      // Remaining slots are count=1 entries sorted alphabetically by lang.
+      for (const entry of result.totals.topMissingLangs.slice(1)) {
+        expect(entry.count).toBe(1);
+        expect(TARGET_LANGS).toContain(entry.lang);
+      }
+    });
+
+    it('returns an empty topMissingLangs when nothing is missing', () => {
+      makeBrief('2026-05-15', 'done', { existing: [...TARGET_LANGS] });
+      const sources = findExecutiveBriefSources(tmpRoot, { includeExtended: false, maxAgeDays: 180 });
+      const result = buildQueue(sources, 10);
+      expect(result.totals.topMissingLangs).toEqual([]);
+    });
   });
 
   describe('main (integration)', () => {

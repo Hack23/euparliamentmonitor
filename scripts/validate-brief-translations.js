@@ -21,6 +21,15 @@
  *      localised (`IMF`, `WEO`, `World Bank`, `data-vintage="WEO-…"`, EP
  *      adopted-text IDs like `TA-10-2026-0160`) must appear in the translation
  *      whenever they appear in the source.
+ *   6. **Heading parity**             — H1/H2/H3 heading counts must match
+ *      the source closely (H1 must match exactly; H2/H3 may differ by at most
+ *      `HEADING_TOLERANCE`). LLMs frequently collapse or skip subsections,
+ *      and this gate catches that without flagging legitimate small
+ *      reformattings.
+ *   7. **Mermaid block parity**       — every ```` ```mermaid ```` block in the
+ *      source must appear at least once in the translation. Mermaid syntax
+ *      is a machine-readable fixed token; dropping a diagram silently breaks
+ *      downstream HTML rendering.
  *
  * Each translation that fails any gate produces a structured report entry.
  * The process exits with code 1 if any failures are present (unless
@@ -131,6 +140,54 @@ const FIXED_TOKEN_PATTERNS_GLOBAL = Object.freeze(
   FIXED_TOKEN_PATTERNS.map((re) => new RegExp(re.source, 'g')),
 );
 
+/**
+ * Tolerance (in absolute count) for H2/H3 heading-count drift between the
+ * source and the translation. H1 must match exactly: there is only one H1
+ * per brief by convention.
+ *
+ * Why a small non-zero floor? Translators sometimes legitimately fuse two
+ * very short sub-bullets into one paragraph, or split a long H3 into two
+ * for readability in CJK scripts where dense text harms scanability. A
+ * tolerance of 1 absorbs that without letting whole sections disappear.
+ */
+export const HEADING_TOLERANCE = 1;
+
+/**
+ * Pattern that matches a fenced ```mermaid block opener (case-insensitive).
+ * We match only the opening fence — counting openers is enough because
+ * Mermaid blocks are always closed by a `` ``` `` line, and an unclosed
+ * block in source would already break Markdown rendering elsewhere.
+ */
+const MERMAID_OPENER = /^```mermaid\s*$/gim;
+
+/** Count occurrences of a global regex in a string. */
+function countGlobal(text, regex) {
+  // Clone to avoid lastIndex state bleeding across calls.
+  const re = new RegExp(regex.source, regex.flags);
+  let count = 0;
+  while (re.exec(text) !== null) count += 1;
+  return count;
+}
+
+/**
+ * Count Markdown heading lines at a given ATX level. Only matches the
+ * canonical leading-`#` form — setext (`===` / `---`) underlines are
+ * outside the executive-brief style guide.
+ *
+ * @param {string} text
+ * @param {1|2|3} level
+ */
+export function countHeadings(text, level) {
+  const re = new RegExp(`^#{${level}}\\s+\\S`, 'gm');
+  return countGlobal(text, re);
+}
+
+/** Count fenced \`\`\`mermaid blocks in the given text. */
+export function countMermaidBlocks(text) {
+  return countGlobal(text, MERMAID_OPENER);
+}
+
+
 /** Count exact token occurrences returned by one fixed-token pattern. */
 function countMatches(text, regex) {
   const counts = new Map();
@@ -139,6 +196,31 @@ function countMatches(text, regex) {
     counts.set(token, (counts.get(token) || 0) + 1);
   }
   return counts;
+}
+
+/**
+ * Aggregate a violation list into a `{ key: count }` map for the validator
+ * report. Items with falsy values at `key` are skipped so the filename-gate
+ * violation (which has `lang: ''`) doesn't pollute the byLang summary.
+ * Keys in the returned object are sorted alphabetically so the emitted JSON
+ * is byte-stable across runs.
+ *
+ * @param {Array<Object>} items
+ * @param {string} key
+ * @returns {Object<string, number>}
+ */
+export function aggregateByKey(items, key) {
+  const counts = new Map();
+  for (const item of items) {
+    const value = item[key];
+    if (!value) continue;
+    counts.set(value, (counts.get(value) || 0) + 1);
+  }
+  const sorted = {};
+  for (const k of [...counts.keys()].sort()) {
+    sorted[k] = counts.get(k);
+  }
+  return sorted;
 }
 
 /**
@@ -326,6 +408,45 @@ export function validateTranslation(translationPath, repoRoot) {
     }
   }
 
+  // Gate 6 — heading parity. H1 must match exactly (briefs have exactly one
+  // by style guide); H2/H3 may drift by HEADING_TOLERANCE in absolute count.
+  for (const level of [1, 2, 3]) {
+    const sourceCount = countHeadings(sourceText, level);
+    if (sourceCount === 0) continue;
+    const targetCount = countHeadings(targetText, level);
+    const tolerance = level === 1 ? 0 : HEADING_TOLERANCE;
+    if (Math.abs(sourceCount - targetCount) > tolerance) {
+      violations.push({
+        translationPath: rel,
+        sourcePath: sourceRel,
+        lang,
+        gate: 'heading-parity',
+        message:
+          `Translation has ${targetCount} H${level} heading(s); source has ${sourceCount} ` +
+          `(tolerance ±${tolerance}). Whole subsections appear to be missing or merged.`,
+      });
+    }
+  }
+
+  // Gate 7 — Mermaid block parity. Every ```mermaid opener in the source
+  // must appear at least once in the translation. Diagrams are fixed
+  // machine-readable assets and must round-trip verbatim.
+  const sourceMermaid = countMermaidBlocks(sourceText);
+  if (sourceMermaid > 0) {
+    const targetMermaid = countMermaidBlocks(targetText);
+    if (targetMermaid < sourceMermaid) {
+      violations.push({
+        translationPath: rel,
+        sourcePath: sourceRel,
+        lang,
+        gate: 'mermaid-parity',
+        message:
+          `Translation contains ${targetMermaid} \`\`\`mermaid block(s); source has ${sourceMermaid}. ` +
+          `Mermaid diagram syntax MUST be preserved verbatim — the downstream renderer parses these blocks.`,
+      });
+    }
+  }
+
   return violations;
 }
 
@@ -364,6 +485,8 @@ export function main(argv) {
     totals: {
       filesChecked: paths.length,
       violations: violations.length,
+      byGate: aggregateByKey(violations, 'gate'),
+      byLang: aggregateByKey(violations, 'lang'),
     },
     violations,
   };

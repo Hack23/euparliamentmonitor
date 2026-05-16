@@ -49,7 +49,12 @@
  *       "sourcesWithGaps": 92,
  *       "translationsMissing": 1196,
  *       "queued": 2,
- *       "queuedTranslations": 26
+ *       "queuedTranslations": 26,
+ *       "topMissingLangs": [
+ *         { "lang": "ja", "count": 92 },
+ *         { "lang": "ko", "count": 92 },
+ *         { "lang": "zh", "count": 92 }
+ *       ]
  *     },
  *     "queue": [
  *       {
@@ -228,10 +233,14 @@ export function findMissingLangs(source) {
 export function buildQueue(sources, maxBriefs) {
   const withGaps = [];
   let totalMissing = 0;
+  const missingByLang = new Map();
   for (const source of sources) {
     const missing = findMissingLangs(source);
     if (missing.length === 0) continue;
     totalMissing += missing.length;
+    for (const lang of missing) {
+      missingByLang.set(lang, (missingByLang.get(lang) || 0) + 1);
+    }
     withGaps.push({
       date: source.date,
       slug: source.slug,
@@ -256,6 +265,15 @@ export function buildQueue(sources, maxBriefs) {
   const queue = withGaps.slice(0, maxBriefs);
   const queuedTranslations = queue.reduce((sum, item) => sum + item.missingCount, 0);
 
+  // Top 3 most-blocked target languages across the entire backlog. Operators
+  // skim this to spot e.g. "Japanese keeps falling behind" without parsing
+  // the full queue. Sort by count desc, then language code asc for stable
+  // tie-breaking.
+  const topMissingLangs = [...missingByLang.entries()]
+    .sort((a, b) => (b[1] - a[1]) || (a[0] < b[0] ? -1 : 1))
+    .slice(0, 3)
+    .map(([lang, count]) => ({ lang, count }));
+
   return {
     totals: {
       sourcesScanned: sources.length,
@@ -263,6 +281,7 @@ export function buildQueue(sources, maxBriefs) {
       translationsMissing: totalMissing,
       queued: queue.length,
       queuedTranslations,
+      topMissingLangs,
     },
     queue,
   };

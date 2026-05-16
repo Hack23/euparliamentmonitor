@@ -227,6 +227,16 @@ Automated gates that block PR creation when violated:
    `scripts/validate-brief-translations.js`).
 5. **Fixed-token preservation** — every IMF/WEO/EP/data-vintage token in
    the source must appear in the translation.
+6. **Heading parity** — H1 count must match the source exactly; H2/H3
+   counts may differ by at most `HEADING_TOLERANCE` (1). Catches the
+   common AI failure of collapsing or skipping sub-sections.
+7. **Mermaid block parity** — every \`\`\`mermaid block opener in the
+   source must appear at least once in the translation. Diagrams are
+   machine-readable and round-trip verbatim.
+
+The validator report `totals` includes `byGate` and `byLang` aggregations
+so operators can see at a glance which gates and which languages are
+failing without parsing the full violations list.
 
 ---
 
@@ -258,6 +268,8 @@ Operating-model highlights:
 | Translating `IMF` to `FMI` (Spanish/French) | Fixed-token preservation gate |
 | Translating EP adopted-text IDs (`TA-10-2026-0160`) | Fixed-token preservation gate |
 | Localising `data-vintage="WEO-April-2026"` to `data-vintage="WEO-abril-2026"` | Fixed-token preservation gate |
+| Dropping 3 of 4 `## Section` headings or merging them into prose | Heading-parity gate |
+| Omitting a ```` ```mermaid ```` diagram or replacing it with a prose summary | Mermaid block parity gate |
 | Reorganising section order | Structural fidelity rule § 3.1 |
 | Adding a new section ("Translator's note") | Structural fidelity rule § 3.6 |
 | Using machine-translation passthrough without quality review | Manual review / language register checks |
