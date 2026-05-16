@@ -60,6 +60,16 @@ export const SUPPORTED_LANGS = Object.freeze(new Set(ALL_LANGUAGES));
 export const TITLE_MAX_LENGTH = 140;
 
 /**
+ * Inclusive lower bound for `<title>` length. The editorial contract
+ * documents 70 characters as the active-voice target; this floor is a
+ * defense-in-depth guard so degenerate single-word titles cannot pass
+ * the shape gate. CJK characters (`ja`, `ko`, `zh`) are weighted 2× via
+ * {@link effectiveTextLength} so a legitimate 15-character CJK headline
+ * still clears this floor.
+ */
+export const TITLE_MIN_LENGTH = 20;
+
+/**
  * Inclusive lower bound for `<meta description>` length. Sized to admit
  * CJK locales (`ja`, `ko`, `zh`) which legitimately encode the same
  * editorial payload in 60–80 characters — Google's snippet display
@@ -168,6 +178,36 @@ export function detectForbiddenPrefix(value) {
 }
 
 /**
+ * CJK Unified Ideographs, Hiragana, Katakana, Hangul Syllables, and the
+ * common Halfwidth/Fullwidth forms. Used by {@link effectiveTextLength}
+ * to weight CJK characters as 2× their raw codepoint count, so that
+ * length floors expressed for Latin scripts still admit legitimately
+ * shorter CJK editorial payloads.
+ */
+const CJK_RE =
+  /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uac00-\ud7af\uff00-\uffef]/u;
+
+/**
+ * Compute the effective length of a string for length-gate purposes,
+ * weighting CJK script characters as 2× their codepoint width. A 17-char
+ * `zh` headline therefore reports an effective length around 34, which
+ * carries roughly the same information density as a 34-char Latin
+ * headline. Surrogate pairs are counted as a single grapheme.
+ *
+ * @param {string} value
+ * @returns {number}
+ */
+export function effectiveTextLength(value) {
+  if (typeof value !== 'string') return 0;
+  const trimmed = value.trim();
+  let total = 0;
+  for (const ch of trimmed) {
+    total += CJK_RE.test(ch) ? 2 : 1;
+  }
+  return total;
+}
+
+/**
  * Validate one (kind, value-by-lang) projection of a manifest's SEO
  * metadata. Pushes violations into the supplied accumulator.
  *
@@ -179,7 +219,7 @@ export function detectForbiddenPrefix(value) {
  */
 function validateLangMap(ctx) {
   const { manifestRel, kind, values, violations } = ctx;
-  const minLen = kind === 'title' ? 1 : DESCRIPTION_MIN_LENGTH;
+  const minLen = kind === 'title' ? TITLE_MIN_LENGTH : DESCRIPTION_MIN_LENGTH;
   const maxLen = kind === 'title' ? TITLE_MAX_LENGTH : DESCRIPTION_MAX_LENGTH;
 
   for (const [lang, value] of Object.entries(values)) {
@@ -201,13 +241,13 @@ function validateLangMap(ctx) {
       });
       continue;
     }
-    const length = value.trim().length;
+    const length = effectiveTextLength(value);
     if (length < minLen || length > maxLen) {
       violations.push({
         manifestPath: manifestRel,
         lang,
         gate: `${kind}-length`,
-        message: `${kind} for "${lang}" is ${length} chars; expected ${minLen}–${maxLen}`,
+        message: `${kind} for "${lang}" has effective length ${length}; expected ${minLen}–${maxLen}`,
       });
     }
     const prefix = detectForbiddenPrefix(value);
@@ -226,6 +266,12 @@ function validateLangMap(ctx) {
  * Detect english-fallthrough cases: a non-English value identical to the
  * English value where `manifest.metadataFallback[<lang>] = "en"` is missing.
  *
+ * The 13 non-English locales are collapsed into a **single** violation
+ * entry per `(manifest, kind)` to keep the report compact when a whole
+ * manifest is untranslated. The affected language list is preserved on
+ * the entry as `affectedLangs` so downstream tools can still identify
+ * each locale that needs attention.
+ *
  * @param {object} ctx
  * @param {string} ctx.manifestRel
  * @param {'title'|'description'} ctx.kind
@@ -237,20 +283,26 @@ function detectFallthrough(ctx) {
   const { manifestRel, kind, values, fallback, violations } = ctx;
   const en = typeof values.en === 'string' ? values.en.trim() : '';
   if (!en) return;
+  const affected = [];
   for (const lang of ALL_LANGUAGES) {
     if (lang === 'en') continue;
     const value = typeof values[lang] === 'string' ? values[lang].trim() : '';
     if (!value || value !== en) continue;
     if (fallback?.[lang] === 'en') continue;
-    violations.push({
-      manifestPath: manifestRel,
-      lang,
-      gate: 'english-fallthrough',
-      message:
-        `${kind} for "${lang}" duplicates the "en" value but ` +
-        `manifest.metadataFallback["${lang}"] is not set to "en"`,
-    });
+    affected.push(lang);
   }
+  if (affected.length === 0) return;
+  violations.push({
+    manifestPath: manifestRel,
+    lang: affected.length === 1 ? affected[0] : '*',
+    gate: 'english-fallthrough',
+    affectedLangs: affected,
+    message:
+      `${kind} duplicates the "en" value for ${affected.length} locale` +
+      `${affected.length === 1 ? '' : 's'} (${affected.join(', ')}) but ` +
+      `manifest.metadataFallback is not declared as "en" for ` +
+      `${affected.length === 1 ? 'that locale' : 'those locales'}`,
+  });
 }
 
 /**
@@ -342,7 +394,20 @@ export function runValidation(manifestPaths, repoRoot, { quiet = false } = {}) {
   return allViolations;
 }
 
-/** Parse CLI argv. Exported for unit tests. */
+/**
+ * Parse CLI argv. Exported for unit tests.
+ *
+ * The `--paths` flag accepts one or more positional values terminated by
+ * either (a) the next `--…` flag, or (b) the conventional `--` sentinel
+ * (consumed and not added to `paths`). This lets callers express
+ * end-of-positional explicitly:
+ *
+ *   `validate-manifest-seo.js --paths a.json b.json -- --some-future-flag`
+ *
+ * Manifest paths that legitimately begin with `--` cannot be passed via
+ * `--paths` without the `--` sentinel preceding them; this is a known
+ * limitation matching standard POSIX argv conventions.
+ */
 export function parseArgs(argv) {
   const opts = {
     repoRoot: process.cwd(),
@@ -359,8 +424,15 @@ export function parseArgs(argv) {
         i += 1;
         break;
       case '--paths':
-        while (i + 1 < argv.length && !argv[i + 1].startsWith('--')) {
-          opts.paths.push(argv[i + 1]);
+        while (i + 1 < argv.length) {
+          const next = argv[i + 1];
+          if (next === '--') {
+            // Conventional end-of-positional sentinel — consume and stop.
+            i += 1;
+            break;
+          }
+          if (next.startsWith('--')) break;
+          opts.paths.push(next);
           i += 1;
         }
         break;
@@ -378,7 +450,7 @@ export function parseArgs(argv) {
       case '-h':
         process.stdout.write(
           'Usage: validate-manifest-seo.js [--repo-root <path>] ' +
-            '[--paths <manifest.json>...] [--report <path>] [--no-fail] [--quiet]\n'
+            '[--paths <manifest.json>... [--]] [--report <path>] [--no-fail] [--quiet]\n'
         );
         process.exit(0);
         break;

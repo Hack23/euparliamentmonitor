@@ -20,7 +20,9 @@ import {
   FORBIDDEN_PREFIXES,
   SUPPORTED_LANGS,
   TITLE_MAX_LENGTH,
+  TITLE_MIN_LENGTH,
   detectForbiddenPrefix,
+  effectiveTextLength,
   findAllManifests,
   parseArgs,
   parseManifestLocation,
@@ -98,6 +100,10 @@ describe('constants', () => {
   it('title max matches article-metadata.ts', () => {
     expect(TITLE_MAX_LENGTH).toBe(140);
   });
+  it('title min is a defense-in-depth floor below editorial target', () => {
+    expect(TITLE_MIN_LENGTH).toBeGreaterThanOrEqual(15);
+    expect(TITLE_MIN_LENGTH).toBeLessThan(70);
+  });
   it('forbidden-prefix list covers Stage-B preamble labels', () => {
     expect(FORBIDDEN_PREFIXES).toContain('run:');
     expect(FORBIDDEN_PREFIXES).toContain('purpose:');
@@ -122,6 +128,30 @@ describe('detectForbiddenPrefix', () => {
   });
 });
 
+describe('effectiveTextLength', () => {
+  it('counts Latin characters as 1 each', () => {
+    expect(effectiveTextLength('Banking union deal')).toBe(18);
+  });
+  it('weights CJK characters as 2', () => {
+    // '银行联盟协议考验EPP与S&D纪律' — 11 CJK chars + 6 ASCII = 11*2 + 6 = 28.
+    const value = '银行联盟协议考验EPP与S&D纪律';
+    expect(effectiveTextLength(value)).toBe(28);
+  });
+  it('weights Hiragana/Katakana/Hangul as 2', () => {
+    expect(effectiveTextLength('銀行同盟')).toBe(8); // 4 CJK ideographs
+    expect(effectiveTextLength('은행동맹')).toBe(8); // 4 Hangul syllables
+    expect(effectiveTextLength('カタカナ')).toBe(8); // 4 Katakana
+  });
+  it('trims surrounding whitespace before counting', () => {
+    expect(effectiveTextLength('   hello   ')).toBe(5);
+  });
+  it('returns 0 for non-strings', () => {
+    expect(effectiveTextLength(null)).toBe(0);
+    expect(effectiveTextLength(undefined)).toBe(0);
+    expect(effectiveTextLength(42)).toBe(0);
+  });
+});
+
 describe('parseManifestLocation', () => {
   it('parses date + slug from an analysis/daily manifest path', () => {
     expect(parseManifestLocation('analysis/daily/2026-05-16/breaking/manifest.json')).toEqual({
@@ -142,6 +172,11 @@ describe('parseManifestLocation', () => {
 describe('parseArgs', () => {
   it('accumulates positional --paths arguments', () => {
     const opts = parseArgs(['--paths', 'a.json', 'b.json', '--quiet']);
+    expect(opts.paths).toEqual(['a.json', 'b.json']);
+    expect(opts.quiet).toBe(true);
+  });
+  it('supports the conventional `--` sentinel as end-of-positional', () => {
+    const opts = parseArgs(['--paths', 'a.json', 'b.json', '--', '--quiet']);
     expect(opts.paths).toEqual(['a.json', 'b.json']);
     expect(opts.quiet).toBe(true);
   });
@@ -210,12 +245,22 @@ describe('validateManifest', () => {
 
   it('flags titles longer than TITLE_MAX_LENGTH', () => {
     const longTitle = 'A'.repeat(TITLE_MAX_LENGTH + 5);
-    const t = fullMap('OK');
+    const t = fullMap('OK editorial title for length test');
     t.fr = longTitle;
     write(makeManifest({ title: t }));
     const v = validateManifest(manifestPath, tmp);
     expect(
       v.some((entry) => entry.gate === 'title-length' && entry.lang === 'fr')
+    ).toBe(true);
+  });
+
+  it('flags titles shorter than TITLE_MIN_LENGTH', () => {
+    const t = fullMap('Acceptable editorial banking-union headline');
+    t.de = 'Too short';
+    write(makeManifest({ title: t }));
+    const v = validateManifest(manifestPath, tmp);
+    expect(
+      v.some((entry) => entry.gate === 'title-length' && entry.lang === 'de')
     ).toBe(true);
   });
 
@@ -240,7 +285,7 @@ describe('validateManifest', () => {
   });
 
   it('flags forbidden Stage-B preamble prefixes', () => {
-    const t = fullMap('OK editorial title');
+    const t = fullMap('OK editorial banking-union headline');
     t.de = 'Run: 04 — breaking 2026-05-16';
     write(makeManifest({ title: t }));
     const v = validateManifest(manifestPath, tmp);
@@ -249,16 +294,48 @@ describe('validateManifest', () => {
     ).toBe(true);
   });
 
-  it('flags english fallthrough without metadataFallback declaration', () => {
+  it('collapses english fallthrough into a single per-(manifest, kind) entry', () => {
     const t = fullMap('English banking-union headline');
     write(makeManifest({ title: t }));
     const v = validateManifest(manifestPath, tmp);
     const fallthroughs = v.filter((entry) => entry.gate === 'english-fallthrough');
-    // All 13 non-English locales duplicate the English value.
-    expect(fallthroughs).toHaveLength(13);
-    for (const entry of fallthroughs) {
-      expect(entry.lang).not.toBe('en');
-    }
+    // 13 non-English locales duplicate the English title → one collapsed entry.
+    expect(fallthroughs).toHaveLength(1);
+    const [entry] = fallthroughs;
+    expect(entry.lang).toBe('*');
+    expect(entry.affectedLangs).toHaveLength(13);
+    expect(entry.affectedLangs).not.toContain('en');
+    expect(entry.message).toMatch(/13 locales/);
+  });
+
+  it('reports english fallthrough for title and description independently', () => {
+    write(
+      makeManifest({
+        title: fullMap('English banking-union headline'),
+        description: fullMap(
+          'Parliament narrows banking-union supervision deadlines while exposing fresh coalition pressure on EPP, S&D and Renew before the next plenary vote.'
+        ),
+      })
+    );
+    const v = validateManifest(manifestPath, tmp);
+    const fallthroughs = v.filter((entry) => entry.gate === 'english-fallthrough');
+    // One collapsed entry per kind (title, description).
+    expect(fallthroughs).toHaveLength(2);
+    const messages = fallthroughs.map((e) => e.message).join('|');
+    expect(messages).toMatch(/title/);
+    expect(messages).toMatch(/description/);
+  });
+
+  it('uses the single lang code when only one locale duplicates English', () => {
+    const t = { ...LOCALIZED_TITLES };
+    // Force a single-locale duplicate of the English value.
+    t.de = t.en;
+    write(makeManifest({ title: t }));
+    const v = validateManifest(manifestPath, tmp);
+    const fallthroughs = v.filter((entry) => entry.gate === 'english-fallthrough');
+    expect(fallthroughs).toHaveLength(1);
+    expect(fallthroughs[0].lang).toBe('de');
+    expect(fallthroughs[0].affectedLangs).toEqual(['de']);
   });
 
   it('accepts english fallthrough when metadataFallback declares it', () => {

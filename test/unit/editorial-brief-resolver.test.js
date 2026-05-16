@@ -134,7 +134,9 @@ describe('resolveLocalizedBriefHighlight', () => {
   });
 
   it('returns null when the brief is empty after preamble stripping', () => {
+    // REUSE-IgnoreStart
     writeBrief('fi', '<!-- SPDX-License-Identifier: Apache-2.0 -->\n');
+    // REUSE-IgnoreEnd
     expect(
       resolveLocalizedBriefHighlight(runDir, 'fi', 'breaking', '2026-05-16')
     ).toBeNull();
@@ -155,6 +157,31 @@ describe('resolveLocalizedBriefHighlight', () => {
     expect(result).not.toBeNull();
     expect(result.headline).toBe('');
     expect(result.summary).toContain('Het bankuniecompromis');
+  });
+
+  it('strips a multi-line SPDX HTML-comment preamble before parsing', () => {
+    writeBrief(
+      'de',
+      [
+        // REUSE-IgnoreStart
+        '<!--',
+        '  SPDX-FileCopyrightText: 2024-2026 Hack23 AB',
+        '  SPDX-License-Identifier: Apache-2.0',
+        '-->',
+        // REUSE-IgnoreEnd
+        '',
+        '# Bankenunion-Deal prüft EPP–S&D-Disziplin',
+        '',
+        '## BLUF',
+        '',
+        'Der Bankenunion-Kompromiss verschärft Aufsichtsfristen vor der nächsten Abstimmung.',
+      ].join('\n')
+    );
+    const result = resolveLocalizedBriefHighlight(runDir, 'de', 'breaking', '2026-05-16');
+    expect(result).not.toBeNull();
+    expect(result.headline).toContain('Bankenunion-Deal');
+    expect(result.headline).not.toContain('SPDX');
+    expect(result.headline).not.toContain('<!--');
   });
 });
 

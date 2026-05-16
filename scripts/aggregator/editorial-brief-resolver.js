@@ -49,6 +49,23 @@ export function localizedBriefCandidates(lang) {
  * preamble. Kept private here so the localized path doesn't depend on
  * non-exported helpers from `article-metadata.ts`.
  *
+ * Both single-line (`<!-- … -->`) and multi-line comment blocks (where
+ * `<!--` and `-->` appear on different lines) are stripped, so SPDX
+ * headers written as
+ *
+ *   ```
+ *   <!--
+ *     SPDX-FileCopyrightText: 2024-2026 Hack23 AB
+ *     SPDX-License-Identifier: Apache-2.0
+ *   -->
+ *   ```
+ *
+ * are handled symmetrically with the single-line form. An unterminated
+ * `<!--` block (no closing `-->`) is treated as malformed and the body
+ * is returned starting at that line — downstream `extractFirstH1` will
+ * then fail to find a heading and the caller will return `null`, which
+ * is the safe behaviour for a broken brief.
+ *
  * @param abs - Absolute file path
  * @returns File contents with SPDX comment lines dropped, or `''` on error
  */
@@ -68,13 +85,35 @@ function readArtefactBody(abs) {
             i++;
             continue;
         }
-        if (line.startsWith('<!--') && line.endsWith('-->')) {
+        if (line.startsWith('<!--') && line.endsWith('-->') && line.length >= 7) {
             i++;
+            continue;
+        }
+        if (line.startsWith('<!--')) {
+            // Multi-line comment block — scan forward to the closing `-->`.
+            const closeIdx = findCommentClose(lines, i);
+            if (closeIdx === -1)
+                break; // malformed: bail out, retain content
+            i = closeIdx + 1;
             continue;
         }
         break;
     }
     return lines.slice(i).join('\n');
+}
+/**
+ * Locate the line index of the first `-->` at or after `start`.
+ *
+ * @param lines - File lines being scanned (read-only)
+ * @param start - Line index where the unterminated `<!--` was seen
+ * @returns Closing line index, or `-1` when no terminator is found.
+ */
+function findCommentClose(lines, start) {
+    for (let j = start; j < lines.length; j++) {
+        if ((lines[j] ?? '').includes('-->'))
+            return j;
+    }
+    return -1;
 }
 /**
  * Compute the editorial headline from a localized brief body. Returns
