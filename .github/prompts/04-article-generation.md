@@ -140,14 +140,83 @@ paragraph (≥ 60 words) interpreting the data must be present in the artifact.
 
 ## 6 · SEO Title · Description · Search Intent
 
-The aggregator derives the article `<title>` / `<meta name="description">`
-through the 5-tier editorial-highlight resolver in
-`src/aggregator/article-metadata.ts`. Tier ordering:
+### 6.1 · The executive brief is the single source of truth
 
-1. **Manifest override** (authored by you, Stage-B agent): when you have
-   an editorial headline, write a **14-language title/description metadata
-   pack** into `manifest.json` alongside `articleType` + `files`. This is only
-   metadata, not full article-body translation:
+Every published HTML variant (`news/<slug>-<lang>.html`) inherits its
+`<title>`, `<meta name="description">`, Open Graph / Twitter card copy,
+JSON-LD `headline` / `description`, news-index card, RSS entry, and sitemap
+record from the **same resolved per-language metadata pair**. That pair
+**must** be derived from the run's `executive-brief.md` (and, when present,
+its localized siblings `executive-brief_<lang>.md`) — not from generic
+templates, not from artifact-category H1s, and not from Stage-B preamble
+banners. The brief is what an editor reads to decide whether to publish; if
+the SEO surfaces don't reflect the brief's BLUF + 60-Second Read + Top
+Documents/Procedures ranking, the article fails the editorial intent of the
+pipeline even when the validator passes it.
+
+The brief template at
+[`analysis/templates/executive-brief.md`](../../analysis/templates/executive-brief.md)
+already contains the canonical authoring surface in
+**`## 🌍 14-Language SEO Metadata Pack`** — a 14-row table
+(`en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh`) where each row
+holds a `Title candidate (≤70 chars)` and a
+`Description candidate (150–160 chars)` for that language. **Fill this table
+before Stage D.** Every cell must be a fluent localized phrase that reflects
+the brief's #1 significance-ranked finding — not English copied verbatim,
+not machine-style transliteration, not a date/type boilerplate string.
+
+### 6.2 · Localized-brief priority ladder
+
+When the [`news-translate`](../../.github/workflows/news-translate.md)
+workflow has produced sibling `executive-brief_<lang>.md` files (see
+[`executive-brief-translation-guide.md`](../../analysis/methodologies/executive-brief-translation-guide.md)),
+those translated briefs become the **authoritative** localized source for
+their language. The Stage-B agent therefore resolves the `<lang>`
+title/description pair as follows, **before** writing the manifest:
+
+| Priority | Source for `manifest.title.<lang>` / `manifest.description.<lang>` |
+|:--:|---|
+| 1 | `analysis/daily/<date>/<slug>/executive-brief_<lang>.md` — its translated `# H1` (cleaned, ≤70 chars) **and** the translated lede paragraph under `## 📰 60-Second Read` / `## 🎯 BLUF`, trimmed to 150–160 chars. This is fully localized prose written by the translator. |
+| 2 | The `<lang>` row of the English `executive-brief.md` `## 🌍 14-Language SEO Metadata Pack` table — when the Stage-B author filled the row but no localized brief exists yet. |
+| 3 | The English `en` row of the same table, used **verbatim** for the missing locale. Document this in `manifest.metadataFallback[<lang>] = "en"` so the static-site layer can render an editorial note ("Published in English while localized brief is pending."). |
+| 4 | Aggregator resolver tiers 2–5 in `src/aggregator/article-metadata.ts` (artifact H1, lede paragraph, aggregated H1, strong prose, localized template) — these are the deterministic safety net the renderer applies when the manifest has no override for a language. They must never be the *intended* outcome for a published article; reaching them means the Stage-B contract was not honored. |
+
+**Rule of thumb:** prefer the highest-priority source available *per
+language*. A run may legitimately have full English + Swedish + German
+localized briefs (priority 1) while Finnish and Korean still resolve to
+priority 2 or 3 — that asymmetry is acceptable. What is **not** acceptable
+is leaving any locale on priority 4 when the brief carries the editorial
+highlight that should have driven that locale's headline.
+
+### 6.3 · Content rule: always context-based on brief highlights
+
+Every title and every description **must** be derived from one of these
+brief sections (verbatim phrases are not required; faithful summarization
+is):
+
+- `## 🎯 BLUF (Bottom Line Up Front)` — the journalist's headline judgement.
+  Used as the **title backbone**: the named actor (committee, political
+  group, MEP, institution) plus the concrete action plus the political
+  consequence.
+- `## 📰 60-Second Read` — the bullet that earned 🔴 / 🟠 priority. Used as
+  the **description backbone**: one policy consequence + one named
+  stakeholder impact.
+- `## 🗂️ Top Documents / Procedures Table` — the rank-1 procedure / adopted
+  text ID. Preserved verbatim in titles when it carries semantic load
+  (e.g. `TA-10-2026-0096`, `2024/0001(COD)`).
+- `## ⚠️ Risk & Threat Snapshot` and `## 🔮 Top Forward Trigger` — used to
+  sharpen the description's "why it matters" angle, especially for
+  forward-looking horizons (week-ahead, month-ahead, year-ahead,
+  term-outlook).
+
+Titles or descriptions that do not trace to one of these sections **fail
+the editorial contract** and must be rewritten during Pass 2.
+
+### 6.4 · Manifest authoring (Stage-B output)
+
+After section 6.2 has chosen the right source per language, copy the
+resolved pairs into `manifest.json` alongside `articleType` + `files`. This
+is only metadata, not full article-body translation:
 
    ```jsonc
    {
@@ -192,24 +261,37 @@ through the 5-tier editorial-highlight resolver in
    Both fields still accept a string as an emergency degraded fallback, but
    the standard output is a complete object with exactly these 14 keys:
    `en`, `sv`, `da`, `no`, `fi`, `de`, `fr`, `es`, `nl`, `ar`, `he`, `ja`,
-   `ko`, `zh`. Missing languages transparently fall through to lower tiers,
-   but do not omit a language merely to save time.
-2. **First artefact H1** — the resolver promotes the first non-generic
-   `# …` heading it finds by walking the manifest's file list in
-   canonical order. Your synthesis-summary's first heading is therefore
-   the de-facto headline when no manifest override is written.
-3. **Aggregated-markdown H1** — any non-generic top-level heading.
-4. **First strong prose paragraph** — with a tightened leak filter that
-   blocks mermaid `%%{init}` blocks, `title …` directives, emoji-banner
-   metadata, and `Analysis Date:` / `Classification:` / `Run:` /
-   `Window:` / `Purpose:` / `BLUF (ICD-203):` / `Composition layer:`
-   rows. Any paragraph beginning with such a prefix is skipped.
-5. **Localized template** — last-resort `*_TITLES(date)` fallback from
-   `src/constants/language-articles.ts`.
+   `ko`, `zh`. Missing languages transparently fall through to the
+   aggregator's deterministic resolver tiers, **but do not omit a language
+   merely to save time**: a Stage-B run that has access to the English
+   brief (always) and one or more localized briefs (when `news-translate`
+   has run for this `<date>/<slug>`) has everything it needs to fill every
+   key for those languages.
 
-**Rule for Stage-B agents**: write `manifest.title` and
-`manifest.description` **with the day's actual editorial highlight in all
-14 languages** whenever possible. Required qualities:
+### 6.5 · Aggregator deterministic resolver (safety net)
+
+The aggregator's resolver in `src/aggregator/article-metadata.ts` walks
+the following tiers per language, in order, and stops at the first hit:
+
+1. **Manifest override** — `manifest.title.<lang>` / `manifest.description.<lang>` (authored in § 6.4).
+2. **First editorial-artefact H1** — promoted from the first non-generic `# …` heading by walking the manifest's file list in canonical order. `executive-brief.md` and `extended/executive-brief.md` come **before** `intelligence/synthesis-summary.md` in this list precisely so the brief's headline wins over Stage-B preamble.
+3. **Editorial lede paragraph** — first qualifying prose paragraph under a `## 🎯 BLUF` / `## 📰 60-Second Read` / `## TL;DR` / `## Executive Summary` heading inside the editorial artefact, stripped of all-caps BLUF labels (`SITUATION:`, `BOTTOM LINE:`, `BLUF:`, …).
+4. **Aggregated-markdown H1 / first strong prose paragraph** — last-resort scan with a tightened leak filter that blocks mermaid `%%{init}` blocks, `title …` directives, emoji-banner metadata, and `Analysis Date:` / `Classification:` / `Run:` / `Window:` / `Purpose:` / `BLUF (ICD-203):` / `Composition layer:` rows.
+5. **Localized template** — last-resort `*_TITLES(date)` fallback from `src/constants/language-articles.ts`. Reaching this tier for an article that actually shipped means the Stage-B contract above was not honored; treat any production article with a tier-5 title/description as an editorial defect.
+
+**Localized-brief resolver behavior (planned).** Tier 2 currently walks
+`executive-brief.md` for **all** languages. When tier 1 falls through for a
+language `<lang>` and `executive-brief_<lang>.md` exists in the run
+directory, the resolver should prefer that file's translated H1 / lede over
+the English brief's H1 / lede for that language only. Until that resolver
+extension lands, the Stage-B agent achieves the same effect explicitly by
+copying the localized brief's translated headline and lede into
+`manifest.title.<lang>` / `manifest.description.<lang>` per § 6.2 priority 1.
+
+### 6.6 · Required qualities of every (title, description) pair
+
+Required qualities for **every** locale (English and every translated
+locale, regardless of which priority tier produced the pair):
 
 - active voice, ≤ 70 chars, names the actor / institution / legislative file
 - never contains raw metrics, article-type labels, or date-centric
@@ -222,10 +304,12 @@ through the 5-tier editorial-highlight resolver in
 - each locale gets its own fluent title/description pair; do not use one
   shared English string, literal machine-looking translation, or generic
   type/date boilerplate across variants
-- preserve procedure IDs, committee acronyms, political-group acronyms and
-  named institutions; translate the reader-facing framing around them
-- this is not full article translation — generate only title, description and
-  optional `searchIntentTerms`
+- preserve procedure IDs (`TA-10-2026-0096`, `2024/0001(COD)`),
+  committee acronyms (`ECON`, `LIBE`, `ENVI`), political-group acronyms
+  (`EPP`, `S&D`, `Renew`, `ID`, `ECR`, `Greens/EFA`, `The Left`), and named
+  institutions; translate the reader-facing framing around them
+- this is not full article translation — generate only title, description
+  and optional `searchIntentTerms`
 - search intent: ensure the title or first two headings contain the natural
   language terms citizens would search for (committee acronym, procedure title,
   policy area, and one named institution) without keyword stuffing
@@ -234,22 +318,41 @@ through the 5-tier editorial-highlight resolver in
   one of these prefixes would be used verbatim)
 
 When you DO NOT write a manifest override, make sure the first heading
-of `intelligence/synthesis-summary.md` meets the same rules, because the
-Tier-2 fallback will promote it into the `<title>`.
+of `executive-brief.md` (and the `# H1` of every translated
+`executive-brief_<lang>.md` that exists for this run) meets the same
+rules, because the Tier-2 fallback will promote that heading into the
+`<title>`. **Generic artifact-category H1s such as
+`# Executive Brief — Breaking News (2026-05-15)` are filtered out by
+`isGenericHeading` and will fall through to the next tier** — author a
+real editorial headline instead.
 
 **SEO self-check before Stage D:**
 
 | Check | Pass condition |
 |---|---|
 | Specificity | Title names an EP actor, committee, procedure, vote, or policy file. |
+| Brief alignment | Title traces to the brief's `## 🎯 BLUF`; description traces to the brief's `## 📰 60-Second Read` or `## 🔮 Top Forward Trigger`. |
 | Click value | Description explains why the development matters politically, not merely that it occurred. |
-| Evidence hygiene | Title/description only use facts already present in `synthesis-summary.md` or `significance-scoring.md`. |
+| Evidence hygiene | Title/description only use facts already present in `executive-brief.md` (or the relevant `executive-brief_<lang>.md`) — i.e. its BLUF, 60-Second Read, Top Documents/Procedures table, or Risk & Threat Snapshot. |
 | IMF relevance | If the article has economic stakes, description alludes to the economic pressure only when `economic-context.md` cites IMF evidence. |
 | Locale safety | `manifest.title` and `manifest.description` contain all 14 language keys; non-English fields are fluent localized metadata, not English boilerplate. |
+| Translated-brief honored | For every `<lang>` where `executive-brief_<lang>.md` exists in the run directory, the manifest value for `<lang>` reflects the **translated** brief's headline and lede, not the English brief's row. |
+| Fallback transparency | For every `<lang>` where no localized brief exists AND the English brief's `<lang>` row is empty, the manifest is filled from the English `en` row and `manifest.metadataFallback[<lang>] = "en"` is set. |
 
-The aggregator does not invent SEO copy. If the manifest and first synthesis H1
-are generic, the published `<title>`, Open Graph headline, Twitter card, JSON-LD
-headline, indexes, RSS, and sitemap-derived metadata will be generic too.
+The aggregator does not invent SEO copy. If the manifest, the executive
+brief, and the first synthesis H1 are all generic, the published
+`<title>`, Open Graph headline, Twitter card, JSON-LD headline, indexes,
+RSS, and sitemap-derived metadata will be generic too. The brief is what
+fixes that — fill it, then mirror it into the manifest.
+
+**Automated guard.** `npm run validate:manifest-seo` (script
+`scripts/validate-manifest-seo.js`) audits every
+`analysis/daily/<date>/<slug>/manifest.json` against six gates that
+mirror the contract above: `title-shape`, `title-length`,
+`description-shape`, `description-length`, `forbidden-prefix`, and
+`english-fallthrough`. Run it locally or in CI before merging Stage-B
+output; the validator exits non-zero on any failure-class violation
+unless `--no-fail` (advisory mode) is supplied.
 
 ## 7 · Analysis-to-Article Artifact Map (authoritative)
 

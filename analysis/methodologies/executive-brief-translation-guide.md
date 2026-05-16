@@ -114,6 +114,18 @@ The Markdown structure of the translation MUST mirror the source:
    translated; only `title:` / `description:` values are localised.
 9. **Citation footnotes / source lists**: URLs are preserved verbatim; the
    anchor / link-text is localised.
+10. **`## 🌍 14-Language SEO Metadata Pack` table**: when the source brief
+    contains this 14-row table, the translated brief must keep all 14 rows
+    in the same order (`en, sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko,
+    zh`). Each row's `Title candidate` and `Description candidate` cells
+    stay **per-language** — they are *not* re-translated into the target
+    language. The downstream article generator reads the translated brief's
+    own row for the target language as the authoritative SEO metadata for
+    that locale (see
+    [`../../.github/prompts/04-article-generation.md`](../../.github/prompts/04-article-generation.md)
+    § 6). The translator may *improve* the target-language row during
+    Pass 2 if the source row is empty or weak, but must not erase rows
+    for other languages.
 
 ---
 
