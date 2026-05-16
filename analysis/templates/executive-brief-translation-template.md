@@ -2,11 +2,13 @@
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
 <!-- ANALYSIS-TEMPLATE-FRONTMATTER:v1
-artifactId: executive-brief-translation
+artifactId: executive-brief-translation-template
 methodology: ../methodologies/executive-brief-translation-guide.md
 catalogRow: ../methodologies/artifact-catalog.md
-sourceArtifact: ./executive-brief.md
+depthFloorBreaking: 0
 mermaidType: none
+partialsDir: ./_partials/
+sourceArtifact: ./executive-brief.md
 -->
 
 <!-- AI-INSTRUCTIONS:v1
@@ -25,14 +27,18 @@ STRUCTURE     : Mirror the source 1:1 — same headings, same list counts, same
 FIXED TOKENS  : IMF, WEO, World Bank, Fiscal Monitor, data-vintage="WEO-…",
                 TA-NN-YYYY-NNNN, YYYY/NNNN(COD|INI|NLE), ISO country/currency
                 codes, numerical figures, classification stamps — ALL VERBATIM.
+DEPTH FLOOR   : depthFloorBreaking is 0 because the translated artifact's depth
+                is dictated by the source brief, not by the validator's line
+                floor. Length parity is instead enforced by the 50% byte-floor
+                gate in scripts/validate-brief-translations.js.
 LENGTH FLOOR  : Translated byte size must be ≥ 50% of source size. For CJK
                 this typically lands around 70%; below 50% is auto-rejected.
 NO PLACEHOLDERS: [TODO], [TBD], "(to be filled)", or any sentinel from the
                 English authoring template — none may appear in the committed
                 translation.
-VALIDATION    : scripts/validate-brief-translations.js runs in Step 4 of the
-                news-translate workflow and after every PR push. A failure
-                rejects the file from the PR.
+VALIDATION    : scripts/validate-brief-translations.js runs in the
+                news-translate workflow post-step and after every PR push.
+                A failure rejects the file from the PR.
 -->
 
 <!--

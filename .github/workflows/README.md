@@ -84,7 +84,33 @@ Each workflow renders articles using `npm run generate-article -- --run "${ANALY
 
 | Workflow (`.md`) | Purpose | Trigger |
 |---|---|---|
-| [`news-translate.md`](news-translate.md) | 14-language translation with multi-call flush pattern (exempt from single-PR rule) | Manual (`workflow_dispatch`) only |
+| [`news-translate.md`](news-translate.md) | Translates every untranslated `analysis/daily/**/executive-brief.md` source into 13 non-English language siblings (`executive-brief_<lang>.md`). AI-only translation; scripted substitution is forbidden. Exempt from single-PR rule (one PR per UTC run-date, updated by all 3 daily runs). | Scheduled (cron `30 6,12,18 * * *` UTC) + `workflow_dispatch` |
+
+##### Translation cadence and sizing
+
+The workflow runs on cron 3×/day at 06:30 / 12:30 / 18:30 UTC (staggered against article-generation slots).
+Each run translates **2 source briefs × 13 languages = 26 markdown files by default** (operator can override `max_briefs` up to 4 via `workflow_dispatch`).
+Steady-state throughput: **78 translations/day**, which clears the typical ~1 100-file backlog in ~14 days and then catches every newly-landed brief same-day.
+
+Pipeline components (bounded contexts, single-purpose):
+
+| Component | Owns | Tested by |
+|---|---|---|
+| [`scripts/discover-untranslated-briefs.js`](../../scripts/discover-untranslated-briefs.js) | Filesystem scan, priority queue, `MAX_BRIEFS` cap | [`test/unit/discover-untranslated-briefs.test.js`](../../test/unit/discover-untranslated-briefs.test.js) (22 tests) |
+| [`scripts/validate-brief-translations.js`](../../scripts/validate-brief-translations.js) | 5-gate quality validator (filename, source presence, length floor 50 %, English fall-through, fixed-token preservation) | [`test/unit/validate-brief-translations.test.js`](../../test/unit/validate-brief-translations.test.js) (17 tests) |
+| [`analysis/methodologies/executive-brief-translation-guide.md`](../../analysis/methodologies/executive-brief-translation-guide.md) | Canonical AI translator contract (terminology tables, register rules, FIXED TOKEN list) | [`test/unit/news-translate-workflow-contract.test.js`](../../test/unit/news-translate-workflow-contract.test.js) |
+| [`analysis/templates/executive-brief-translation-template.md`](../../analysis/templates/executive-brief-translation-template.md) | Target-language shell with AI instructions | `template-structure.test.js` + `analysis-templates-referenced.test.js` |
+| [`.github/workflows/news-translate.md`](news-translate.md) | Orchestration only — discovery + validation are delegated to the scripts above | `news-translate-workflow-contract.test.js` (14 tests) |
+
+##### Run-locally commands
+
+```bash
+# Preview the next queue (default: 2 briefs).
+npm run discover:untranslated-briefs -- --max-briefs 2
+
+# Validate every executive-brief_<lang>.md in the repo.
+npm run validate:translations
+```
 
 #### Shared-import pattern
 
