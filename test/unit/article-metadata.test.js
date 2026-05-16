@@ -388,11 +388,15 @@ describe('isGenericHeading', () => {
     // `EP Week Ahead: 19–22 May 2026` is editorial content — it specifies
     // the reporting window. Only *single-date* qualifiers (` · YYYY-MM-DD`,
     // `(May 2026)`) are stripped before the category-noun comparison.
+    expect(isGenericHeading('EP Week Ahead: 19–22 May 2026', 'week-ahead', '2026-05-15')).toBe(
+      false
+    );
     expect(
-      isGenericHeading('EP Week Ahead: 19–22 May 2026', 'week-ahead', '2026-05-15')
-    ).toBe(false);
-    expect(
-      isGenericHeading('EU Parliament Committee Activity, 6–13 May 2026', 'committee-reports', '2026-05-13')
+      isGenericHeading(
+        'EU Parliament Committee Activity, 6–13 May 2026',
+        'committee-reports',
+        '2026-05-13'
+      )
     ).toBe(false);
     expect(
       isGenericHeading('Breaking News: EP April 2026 Plenary Outcomes', 'breaking', '2026-05-15')
@@ -422,8 +426,12 @@ describe('isGenericHeading', () => {
     // `isBareInstitutionalHeading` gate is overridden by per-articleType
     // category-noun matching for slugged forms, and any trailing
     // editorial content escapes the bare set entirely.
-    expect(isGenericHeading('EU Parliament Adopts AI Act Amendments', 'breaking', '2026-05-15')).toBe(false);
-    expect(isGenericHeading('European Parliament Plenary: April Outcomes', 'breaking', '2026-05-15')).toBe(false);
+    expect(
+      isGenericHeading('EU Parliament Adopts AI Act Amendments', 'breaking', '2026-05-15')
+    ).toBe(false);
+    expect(
+      isGenericHeading('European Parliament Plenary: April Outcomes', 'breaking', '2026-05-15')
+    ).toBe(false);
   });
 });
 
@@ -876,7 +884,9 @@ describe('resolveArticleMetadata — priority ladder', () => {
     for (const lang of ALL_LANGUAGES) {
       const entry = Object.getOwnPropertyDescriptor(result, lang)?.value;
       expect(entry.description).not.toMatch(/analysis run/i);
-      expect(entry.description).not.toMatch(/analyskörning|analysekørsel|analysekjøring|analyysiajo|Analyselauf|cycle d.analyse|ejecución de análisis|analyserun|تشغيل التحليل|הרצת ניתוח|分析実行|분석 실행|分析运行/);
+      expect(entry.description).not.toMatch(
+        /analyskörning|analysekørsel|analysekjøring|analyysiajo|Analyselauf|cycle d.analyse|ejecución de análisis|analyserun|تشغيل التحليل|הרצת ניתוח|分析実行|분석 실행|分析运行/
+      );
       expect(entry.description).not.toMatch(/breaking-run\d+-\d{8,}/);
       expect(entry.title).not.toMatch(/analysis run/i);
       expect(entry.title).not.toMatch(/breaking-run\d+-\d{8,}/);
@@ -1331,7 +1341,7 @@ describe('extractPriorityFindingHighlight', () => {
       '',
       "1. **Digital Markets Act Enforcement** (TA-10-2026-0160, 2026-04-30) Parliament adopted a resolution on enforcement of the Digital Markets Act, signalling growing frustration with the Commission's pace of action against designated gatekeepers.",
       '',
-      '2. **Ukraine War Accountability** (TA-10-2026-0161, 2026-04-30) Parliament demanded accountability and justice for Russia\'s continued attacks against Ukrainian civilian infrastructure.',
+      "2. **Ukraine War Accountability** (TA-10-2026-0161, 2026-04-30) Parliament demanded accountability and justice for Russia's continued attacks against Ukrainian civilian infrastructure.",
     ].join('\n');
     const result = extractPriorityFindingHighlight(md);
     expect(result).not.toBeNull();

@@ -1906,7 +1906,10 @@ const PRIORITY_METADATA_BOLD_PREFIXES: readonly string[] = [
  *   skipped by Pattern C
  */
 function isMetadataBoldLine(line: string): boolean {
-  const inner = line.replace(/^\*\*([^*]+?)\*\*.*$/u, '$1').trim().toLowerCase();
+  const inner = line
+    .replace(/^\*\*([^*]+?)\*\*.*$/u, '$1')
+    .trim()
+    .toLowerCase();
   for (const prefix of PRIORITY_METADATA_BOLD_PREFIXES) {
     if (inner === prefix) return true;
     if (inner.startsWith(`${prefix}:`)) return true;
