@@ -763,20 +763,20 @@ jobs:
                   "inputSchema": {
                     "additionalProperties": false,
                     "properties": {
-                      "article_date": {
-                        "default": "",
-                        "description": "Date of articles to translate (YYYY-MM-DD, default: today)",
-                        "type": "string"
-                      },
-                      "article_types": {
-                        "default": "",
-                        "description": "Article types to translate (comma-separated: week-ahead,motions,propositions,committee-reports,breaking,week-in-review,month-in-review,month-ahead)",
-                        "type": "string"
-                      },
-                      "force_translation": {
-                        "default": true,
-                        "description": "Force translation even if translations already exist",
+                      "include_extended": {
+                        "default": false,
+                        "description": "Also process extended/executive-brief.md (legacy path). Default false.",
                         "type": "boolean"
+                      },
+                      "max_age_days": {
+                        "default": "180",
+                        "description": "Skip executive-brief.md files older than this many days. Default 180.",
+                        "type": "string"
+                      },
+                      "max_briefs": {
+                        "default": "2",
+                        "description": "Maximum number of source briefs to translate this run (1-4). Default 2.",
+                        "type": "string"
                       }
                     },
                     "type": "object"
