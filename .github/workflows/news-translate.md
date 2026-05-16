@@ -226,7 +226,7 @@ engine:
 > half-translated brief is worse than no PR. The validator rejects partial
 > coverage, and reviewers should never see a "1/13 languages done" PR.
 
-## 🛡️ Five Quality Gates (auto-enforced after the PR is created)
+## 🛡️ Seven Quality Gates (auto-enforced before the PR is created)
 
 The post-step `Validate brief translations` runs
 `scripts/validate-brief-translations.js` and posts the report. Translations
@@ -243,6 +243,10 @@ that fail ANY gate will be flagged in the PR comment:
    `data-vintage="WEO-…"`, EP adopted-text ID (`TA-NN-YYYY-NNNN`), and
    procedure ID (`YYYY/NNNN(COD|INI|NLE)`) in the source MUST appear
    verbatim in the translation.
+6. **Heading parity** — H1 count must match exactly; H2/H3 counts may differ
+   by at most one heading. Missing or merged sections are rejected.
+7. **Mermaid block parity** — every source ```` ```mermaid ```` opener must
+   appear in the translation so diagrams remain renderable.
 
 ## 🔁 Execution Order
 
@@ -390,7 +394,8 @@ caps the queue; the AI does not need to ration its own work.
 - **Never** translate before reading the translator guide.
 - **Never** translate by running `sed`/`awk`/`tr` over the source.
 - **Never** add new sections or merge sections — structural fidelity is
-  enforced by validator gate #3 (length floor) and human review.
+  enforced by validator gates #6 (heading parity), #7 (Mermaid parity), and
+  human review.
 - **Never** translate FIXED TOKENS. `IMF` stays `IMF`; `World Bank` stays
   `World Bank`; `TA-10-2026-0160` stays `TA-10-2026-0160`.
 - **Never** call `safeoutputs___create_pull_request` before at least one

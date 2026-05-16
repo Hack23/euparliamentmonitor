@@ -96,11 +96,11 @@ Pipeline components (bounded contexts, single-purpose):
 
 | Component | Owns | Tested by |
 |---|---|---|
-| [`scripts/discover-untranslated-briefs.js`](../../scripts/discover-untranslated-briefs.js) | Filesystem scan, priority queue, `MAX_BRIEFS` cap | [`test/unit/discover-untranslated-briefs.test.js`](../../test/unit/discover-untranslated-briefs.test.js) (22 tests) |
-| [`scripts/validate-brief-translations.js`](../../scripts/validate-brief-translations.js) | 5-gate quality validator (filename, source presence, length floor 50 %, English fall-through, fixed-token preservation) | [`test/unit/validate-brief-translations.test.js`](../../test/unit/validate-brief-translations.test.js) (17 tests) |
+| [`scripts/discover-untranslated-briefs.js`](../../scripts/discover-untranslated-briefs.js) | Filesystem scan, priority queue, `MAX_BRIEFS` cap | [`test/unit/discover-untranslated-briefs.test.js`](../../test/unit/discover-untranslated-briefs.test.js) (24 tests) |
+| [`scripts/validate-brief-translations.js`](../../scripts/validate-brief-translations.js) | 7-gate quality validator (filename, source presence, length floor 50 %, English fall-through, fixed-token preservation, heading parity, Mermaid parity) | [`test/unit/validate-brief-translations.test.js`](../../test/unit/validate-brief-translations.test.js) (31 tests) |
 | [`analysis/methodologies/executive-brief-translation-guide.md`](../../analysis/methodologies/executive-brief-translation-guide.md) | Canonical AI translator contract (terminology tables, register rules, FIXED TOKEN list) | [`test/unit/news-translate-workflow-contract.test.js`](../../test/unit/news-translate-workflow-contract.test.js) |
 | [`analysis/templates/executive-brief-translation-template.md`](../../analysis/templates/executive-brief-translation-template.md) | Target-language shell with AI instructions | `template-structure.test.js` + `analysis-templates-referenced.test.js` |
-| [`.github/workflows/news-translate.md`](news-translate.md) | Orchestration only — discovery + validation are delegated to the scripts above | `news-translate-workflow-contract.test.js` (14 tests) |
+| [`.github/workflows/news-translate.md`](news-translate.md) | Orchestration only — discovery + validation are delegated to the scripts above | `news-translate-workflow-contract.test.js` (17 tests) |
 
 ##### Run-locally commands
 

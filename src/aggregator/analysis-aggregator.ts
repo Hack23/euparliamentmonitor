@@ -38,11 +38,6 @@ import {
   type Manifest,
   type ManifestFiles,
 } from './manifest/index.js';
-
-const TRADECRAFT_EXCLUDED_FILES = new Set([
-  'analysis/methodologies/executive-brief-translation-guide.md',
-  'analysis/templates/executive-brief-translation-template.md',
-]);
 import type { TocSection, IncludedArtifact } from './reader-guide-constants.js';
 import {
   READER_GUIDE_SECTION_ID,
@@ -56,6 +51,11 @@ export {
   READER_GUIDE_SECTION_IDS,
   READER_GUIDE_SECTION_TITLE,
 } from './reader-guide-constants.js';
+
+const TRADECRAFT_EXCLUDED_FILES = new Set([
+  'analysis/methodologies/executive-brief-translation-guide.md',
+  'analysis/templates/executive-brief-translation-template.md',
+]);
 
 /** Result of {@link aggregateAnalysisRun}. */
 export interface AggregatedRun {
@@ -177,11 +177,7 @@ export function discoverTradecraftFiles(repoRoot: string): string[] {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
     for (const entry of entries) {
       const rel = `${sub}/${entry.name}`;
-      if (
-        entry.isFile() &&
-        entry.name.endsWith('.md') &&
-        !TRADECRAFT_EXCLUDED_FILES.has(rel)
-      ) {
+      if (entry.isFile() && entry.name.endsWith('.md') && !TRADECRAFT_EXCLUDED_FILES.has(rel)) {
         result.push(rel);
       }
     }

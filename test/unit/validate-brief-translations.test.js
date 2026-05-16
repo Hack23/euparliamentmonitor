@@ -4,7 +4,7 @@
 /**
  * Unit tests for scripts/validate-brief-translations.js.
  *
- * Exercises each of the five quality gates in isolation against a temporary
+ * Exercises each of the seven quality gates in isolation against a temporary
  * `analysis/daily/` layout.
  */
 

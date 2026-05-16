@@ -8,7 +8,7 @@
  * discovery logic can be exercised without touching the real repo state.
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -22,6 +22,7 @@ import {
   buildQueue,
   main,
 } from '../../scripts/discover-untranslated-briefs.js';
+import { ALL_LANGUAGES } from '../../scripts/constants/language-core.js';
 
 let tmpRoot;
 
@@ -40,10 +41,12 @@ function makeBrief(date, slug, opts = {}) {
 }
 
 beforeEach(() => {
+  vi.spyOn(Date, 'now').mockReturnValue(Date.parse('2026-05-16T12:00:00Z'));
   tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'discover-briefs-'));
 });
 
 afterEach(() => {
+  vi.restoreAllMocks();
   fs.rmSync(tmpRoot, { recursive: true, force: true });
 });
 
@@ -52,6 +55,7 @@ describe('discover-untranslated-briefs', () => {
     it('contains exactly the 13 non-English language codes', () => {
       expect(TARGET_LANGS).toHaveLength(13);
       expect(TARGET_LANGS).not.toContain('en');
+      expect(TARGET_LANGS).toEqual(ALL_LANGUAGES.filter((lang) => lang !== 'en'));
       for (const code of ['sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl', 'ar', 'he', 'ja', 'ko', 'zh']) {
         expect(TARGET_LANGS).toContain(code);
       }

@@ -7,7 +7,7 @@
  * @description Drift-guard / quality validator for executive-brief translations.
  *
  * Validates every `analysis/daily/<date>/<slug>/executive-brief_<lang>.md`
- * companion in the repo (or a caller-supplied subset) against five gates:
+ * companion in the repo (or a caller-supplied subset) against seven gates:
  *
  *   1. **Filename ↔ language code**  — suffix `_<lang>.md` must use a code in
  *      `TARGET_LANGS`.
@@ -17,8 +17,9 @@
  *   4. **No English fall-through**   — at most `MAX_ENGLISH_PATTERNS` (default 4)
  *      hits of the `EN_PATTERNS` regex set may appear in the body. Untranslated
  *      copies trip this gate.
- *   5. **Frontmatter / fixed-string parity** — proper nouns that must NEVER be
- *      localised (`IMF`, `WEO`, `World Bank`, `data-vintage="WEO-…"`, EP
+ *   5. **Fixed-token preservation** — proper nouns that must NEVER be
+ *      localised (`IMF`, `WEO`, `World Bank`, `Fiscal Monitor`,
+ *      `data-vintage="WEO-…"`, EP
  *      adopted-text IDs like `TA-10-2026-0160`) must appear in the translation
  *      whenever they appear in the source.
  *   6. **Heading parity**             — H1/H2/H3 heading counts must match
@@ -92,7 +93,7 @@ export const EN_PATTERNS = [
  *
  * Each pattern matches one class of "fixed token" — proper nouns, ID
  * formats, or machine-readable attributes — that the translator agent
- * must NOT localise. The five quality gates apply the rule like this:
+ * must NOT localise. The fixed-token preservation gate applies the rule like this:
  * every exact token instance from the SOURCE must also appear in the
  * TRANSLATION at least the same number of times.
  *

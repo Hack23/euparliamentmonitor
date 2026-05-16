@@ -65,13 +65,20 @@ he, ja, ko, zh`).
 
 ## 2. Mandatory preservation rules (FIXED TOKENS)
 
-The validator rejects translations that drop any of these. They MUST appear
-verbatim — **never** transliterated, translated, or reformatted:
+These items MUST appear verbatim — **never** transliterated, translated, or
+reformatted. The automated fixed-token gate rejects drops of exact source
+instances for the validator-enforced subset below:
 
-- `IMF`, `WEO`, `Fiscal Monitor`, `World Economic Outlook`, `World Bank`
-- `data-vintage="WEO-April-2026"` and any other `data-vintage="…"` attribute
+- `IMF`, `WEO`, `Fiscal Monitor`, `World Bank`
+- `data-vintage="WEO-April-2026"` and any other `data-vintage="WEO-…"` attribute
 - EP adopted-text references: `TA-10-2026-0160`
 - EP procedure IDs: `2024/0001(COD)`, `2026/2050(INI)` etc.
+
+The remaining preservation rules are mandatory editorial checks. Some are
+partly covered by other automated gates (heading parity, Mermaid block parity,
+length floor), but translators must verify them manually before flushing:
+
+- `World Economic Outlook`
 - ISO country codes in tables: `DE`, `FR`, `IT` …
 - ISO currency codes: `EUR`, `USD`, `GBP`
 - Numerical figures and units: `2.3%`, `€450 bn`, `EUR 12.4 bn`

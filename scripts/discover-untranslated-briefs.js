@@ -74,11 +74,10 @@ import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 
-/** Canonical 13 non-English target language codes. Mirrors ALL_LANGUAGES − ['en']. */
-export const TARGET_LANGS = Object.freeze([
-  'sv', 'da', 'no', 'fi', 'de', 'fr', 'es', 'nl',
-  'ar', 'he', 'ja', 'ko', 'zh',
-]);
+import { ALL_LANGUAGES } from './constants/language-core.js';
+
+/** Canonical 13 non-English target language codes, derived from ALL_LANGUAGES. */
+export const TARGET_LANGS = Object.freeze(ALL_LANGUAGES.filter((lang) => lang !== 'en'));
 
 /** Manual-dispatch upper bound that keeps one 60-minute run inside budget. */
 export const MAX_BRIEFS_LIMIT = 4;
