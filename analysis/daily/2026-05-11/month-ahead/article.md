@@ -1,7 +1,7 @@
 ---
 title: "EU Parliament Month Ahead: 11 May – 10 June 2026"
-description: "Produced: 2026-05-11 | Article Type: month-ahead | Horizon: 30 days Published 2026-05-11 · analysis run month-ahead-run269-1778459566, with source-linked voting, committee…"
-keywords: ["EU Parliament", "month ahead", "legislative agenda", "European Parliament", "plenary session", "2026-05-11", "run month-ahead-run269-1778459566", "Parliament", "Month", "Ahead", "June", "Produced", "Article", "Type", "Horizon", "days"]
+description: "Confidence Level: 🟡 Medium (EP API partial data — full agenda not yet published) Published 2026-05-11 · analysis run month-ahead-run269-1778459566, with source-linked voting…"
+keywords: ["EU Parliament", "month ahead", "legislative agenda", "European Parliament", "plenary session", "2026-05-11", "run month-ahead-run269-1778459566", "Parliament", "Month", "Ahead", "June", "Confidence", "Level", "Medium", "partial", "data"]
 date: 2026-05-11
 article_type: month-ahead
 slug: 2026-05-11-month-ahead

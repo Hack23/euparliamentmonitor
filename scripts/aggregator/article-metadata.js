@@ -399,26 +399,36 @@ export function shouldSkipDescriptionLine(line) {
     }
     if (/^[-*_=~.]{3,}$/.test(line))
         return true;
-    // Language-agnostic banner-row detector. Stage-B artefacts open with a
-    // metadata banner of the shape
-    //   `**Date:** 2026-05-15 | **Type:** Breaking | **Run:** breaking-run-001`
-    // and its localized siblings — notably Japanese / Chinese / Korean
-    // briefs which place the full-width colon `：` **inside** the bold
-    // span (`**日付：**`) rather than after it. The `METADATA_LINE_PREFIXES`
-    // table above only covers the English vocabulary; this catches the
-    // structural shape directly: a line that starts with `**`, contains
-    // at least one `|` separator, and carries two-or-more bold key
-    // markers that end with — or are followed by — an ASCII colon `:` or
-    // full-width colon `：`. Banner rows look identical in every language
-    // we publish, so detecting them here keeps localized briefs from
-    // leaking their first banner line into the `<meta description>`.
-    if (line.startsWith('**') && line.includes('|')) {
-        const inside = (line.match(/\*\*[^*]+[:：]\s*\*\*/g) ?? []).length;
-        const after = (line.match(/\*\*[^*]+\*\*\s*[:：]/g) ?? []).length;
-        if (inside + after >= 2)
-            return true;
-    }
+    if (isLocalizedBannerRow(line))
+        return true;
     return false;
+}
+/**
+ * Language-agnostic banner-row detector. Stage-B artefacts open with a
+ * metadata banner of the shape
+ *   `**Date:** 2026-05-15 | **Type:** Breaking | **Run:** breaking-run-001`
+ * and its localized siblings — notably Japanese / Chinese / Korean briefs
+ * which place the full-width colon `：` **inside** the bold span
+ * (`**日付：**`) rather than after it. The `METADATA_LINE_PREFIXES` table
+ * only covers the English vocabulary; this helper catches the structural
+ * shape directly: a line that starts with `**`, contains at least one
+ * `|` separator, and carries two-or-more bold key markers that end with
+ * — or are followed by — an ASCII colon `:` or full-width colon `：`.
+ * Banner rows look identical in every language we publish, so detecting
+ * them here keeps localized briefs from leaking their first banner line
+ * into the `<meta description>`.
+ *
+ * @param line - Trimmed source line
+ * @returns `true` when the line is a banner row in any locale
+ */
+function isLocalizedBannerRow(line) {
+    if (!line.startsWith('**'))
+        return false;
+    if (!line.includes('|'))
+        return false;
+    const inside = (line.match(/\*\*[^*]+[:：]\s*\*\*/g) ?? []).length;
+    const after = (line.match(/\*\*[^*]+\*\*\s*[:：]/g) ?? []).length;
+    return inside + after >= 2;
 }
 /**
  * Strip inline Markdown decorations so we can use the remaining text as
