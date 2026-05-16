@@ -33,6 +33,10 @@ on:
         type: boolean
         required: false
         default: false
+      mode:
+        description: "Discovery prioritisation: fresh-then-backlog (default) | backlog-only | newest-first."
+        required: false
+        default: "fresh-then-backlog"
 
 permissions:
   contents: read
@@ -149,6 +153,8 @@ steps:
       MAX_BRIEFS: ${{ github.event.inputs.max_briefs || '2' }}
       MAX_AGE_DAYS: ${{ github.event.inputs.max_age_days || '180' }}
       INCLUDE_EXTENDED: ${{ github.event.inputs.include_extended || 'false' }}
+      DISCOVERY_MODE: ${{ github.event.inputs.mode || 'fresh-then-backlog' }}
+      RUN_NUMBER: ${{ github.run_number }}
     run: |
       set -euo pipefail
       mkdir -p /tmp/gh-aw/discovery
@@ -160,6 +166,8 @@ steps:
       node scripts/discover-untranslated-briefs.js \
         --max-briefs "$MAX_BRIEFS" \
         --max-age-days "$MAX_AGE_DAYS" \
+        --mode "$DISCOVERY_MODE" \
+        --run-number "$RUN_NUMBER" \
         --output /tmp/gh-aw/discovery/queue.json \
         $EXTENDED_FLAG
       echo "Discovery queue summary:"
@@ -301,6 +309,16 @@ Each queue entry has the shape:
 }
 ```
 
+**Queue ordering (`fresh-then-backlog`, default):** slot 0 is the newest
+source with any missing language ("fresh slice"); slots 1+ are the
+*oldest* sources with gaps in date-ascending order, finishing half-done
+briefs before starting blank ones ("backlog slice"). This policy is what
+actually drains the long-tail backlog — older briefs cannot be perpetually
+starved by today's wins. **Treat every queue entry identically: full
+13-language translation per brief, no fast-path for the fresh slot.** The
+`totals.freshNewestDate` and `totals.backlogOldestDate` fields show the
+extents of what's still missing across the entire repository.
+
 If `totals.queued == 0`, the workflow has nothing to do. Write a short
 note to `${ANALYSIS_DIR}/no-work.md` explaining this, then END THE RUN
 without calling safeoutputs. **An empty PR is never the right outcome.**
@@ -397,9 +415,17 @@ caps the queue; the AI does not need to ration its own work.
   enforced by validator gates #6 (heading parity), #7 (Mermaid parity), and
   human review.
 - **Never** translate FIXED TOKENS. `IMF` stays `IMF`; `World Bank` stays
-  `World Bank`; `TA-10-2026-0160` stays `TA-10-2026-0160`.
+  `World Bank`; `TA-10-2026-0160` stays `TA-10-2026-0160`. **Dutch (`nl`)
+  in particular**: `IMF blijft IMF`; `WEO blijft WEO` — never localise to
+  `IMV` / `Wereldwijde Economische Vooruitzichten`. Run validator gate #5
+  in Step 2.4 to catch token drift before flush.
 - **Never** call `safeoutputs___create_pull_request` before at least one
   brief has all 13 languages produced and is validator-clean.
+- **Never** skip a queue entry because its date is old; backlog parity is
+  the workflow's primary KPI. The `fresh-then-backlog` discovery policy
+  guarantees slot 0 is always the day's newest brief, so slots 1+ exist
+  *specifically* to drain the long tail — translate them with the same
+  rigour as the fresh slot.
 - **Never** include `news/**`, `src/**`, `scripts/**`, or `.github/**` in
   the PR. The `excluded-files` config blocks them; do not work around it.
 
