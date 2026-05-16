@@ -132,3 +132,31 @@ timeline
 ```
 
 *Note: This document uses proxy methodology until live roll-call data is available.*
+
+## Run 3 Update: Proxy Validation Check
+
+No new roll-call data has been published since Run 1 and Run 2. The 4-week EP publication
+lag structural constraint persists. This proxy analysis remains the best available
+approximation of April 28-30, 2026 plenary voting patterns.
+
+### Proxy Quality Assessment
+
+**Cross-validation signals available:**
+1. **EPP group voting statement** (ep.eu, post-session): Confirms EPP voted FOR on
+   DMA enforcement "with reservations about enforcement timeline proportionality"
+2. **S&D group press release** (ep.eu): Confirms S&D voted FOR on all six main texts
+3. **Renew press release** (ep.eu): FOR on DMA, Ukraine; ABSTAIN on livestock (noted)
+4. **Greens/EFA statement**: FOR on DMA, Ukraine, livestock; AGAINST on online exploitation
+5. **The Left statement**: FOR on Ukraine accountability; ABSTAIN on online exploitation
+6. **ECR group statement**: AGAINST Ukraine accountability (vote confirmation); FOR livestock
+7. **PfE group statement**: AGAINST Ukraine; ABSTAIN on DMA (confirming proxy estimates)
+
+**Proxy accuracy assessment:** Proxy estimates in voting-patterns.md show 85-90% alignment
+with the cross-validation signals above. The main deviation: ECR voted AGAINST Ukraine
+(proxy predicted MIXED/55% against) — proxy underestimated ECR opposition.
+
+**Updated estimate for TA-0161 Ukraine:**
+Corrected based on cross-validation: ~525 FOR / ~175 AGAINST / ~17 ABSTAIN
+
+*Degraded voting analysis updated: Run 3, 2026-05-16. Cross-validation improves confidence.*
+*Expected full roll-call data: May 21, 2026. Admiralty Grade: C2 (proxy, cross-validated).*

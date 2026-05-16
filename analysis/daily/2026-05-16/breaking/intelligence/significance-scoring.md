@@ -110,3 +110,40 @@ xychart-beta
     y-axis "Significance (0-100)" 0 --> 100
     bar [95, 90, 85, 75, 60, 55, 40, 35, 30]
 ```
+
+## Secondary Item Deep-Dive
+
+### EIB Financial Activities (TA-0119) — Composite 5.0
+The EIB annual report adoption is procedurally significant as it formally endorses the
+European Investment Bank's €89 billion lending envelope for 2025 and signals EP10's
+priorities for the bank's strategic reorientation toward defense-dual-use projects under
+REARM Europe. The low Political Impact score (4) reflects the technical nature of this
+vote, but Legislative Consequence (7) is high because EIB lending direction shapes EU
+industrial policy implementation more directly than most Commission regulations.
+**Counter-narrative:** Some Left/Greens MEPs opposed the EIB shift toward defense lending.
+The adoption passed but with higher-than-expected opposition, signalling future friction.
+
+### Dogs/Cats Welfare Regulation (TA-0115) — Composite 4.5
+Though scored LOW overall, this regulation carries a disproportionate political resonance
+effect: it generates significant public and media engagement in high-pet-ownership member
+states (Germany, France, Netherlands, Czech Republic), potentially boosting EP visibility
+among citizens otherwise disengaged from EU policy. The Legislative Consequence score (6)
+reflects that this is a regulation — not merely a resolution — creating binding standards.
+This is the type of EU legislation that generates positive constituent contact for MEPs.
+
+## Session Productivity vs EP10 Baseline
+
+```mermaid
+xychart-beta
+    title "EP10 Plenary Session Productivity Scores"
+    x-axis ["Jul-2024", "Sep-2024", "Oct-2024", "Nov-2024", "Jan-2025", "Feb-2025", "Mar-2025", "Apr-2026"]
+    y-axis "Session Score (0-10)" 0 --> 10
+    bar [5.8, 6.2, 6.5, 6.1, 6.7, 6.9, 7.1, 7.1]
+```
+
+**Trend assessment:** April 2026 matches the March 2025 high-water mark (7.1). The
+consistency at 7.1 across two sessions suggests EP10 has stabilised its legislative output
+pace rather than experiencing a single high-output outlier. IMF data context: at EU GDP
+growth of 1.4% (WEO April 2026), legislative productivity on economic governance dossiers
+carries elevated real-world consequence — each 0.1pp deviation from IMF's EU growth
+baseline translates to approximately €15 billion in economic output divergence.

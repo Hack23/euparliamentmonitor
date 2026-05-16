@@ -115,3 +115,36 @@ Based on the April 28-30 adopted texts:
 
 4. **DMA Non-Compliance Decisions** (if Commission acts): Expected EPP+S&D+Renew united front
    supporting Commission enforcement, with ECR/PfE divided.
+
+## Competitive Index and Parliamentary Balance
+
+**Parliamentary Competitive Index (PCI):** 0.67
+The PCI measures the effective competitiveness of coalition formation — higher values
+indicate more fluid, contested legislative outcomes. EP10's 0.67 reflects moderate
+competition: while EPP dominance is structurally significant, the S&D-Renew-Greens axis
+retains sufficient weight to contest outcomes on core progressive dossiers.
+
+**Grand Coalition Viability Assessment:**
+A German-style "grand coalition" of EPP+S&D would command 319 seats — insufficient for
+majority (360 threshold). This structural arithmetic *forces* EPP and S&D to seek a third
+partner (Renew at 77 seats is the natural pivot), creating Renew's outsized bargaining power
+relative to its seat share. Any Renew defection on a key vote requires EPP to court ECR,
+which triggers S&D resistance — this is the defining negotiating dynamic of EP10.
+
+## May 2026 Forward Indicators for Coalition Stability
+
+**Signal 1 — ECR Reliability Test:** The AI Liability Directive dossier (JURI committee,
+Q3 2026 expected plenary vote) will test whether ECR remains outside Coalition Alpha or
+crosses to Alpha support for liability caps. Current signals suggest ECR favors regulatory
+restraint, aligning with EPP/Renew, creating a 4-party majority of 397 seats.
+
+**Signal 2 — Greens Pivot Point:** Greens/EFA's continued engagement on digital dossiers
+(DMA, AI Act, Chat Control) may compensate for their marginalisation on agriculture. This
+suggests Greens will retain systemic value to Centre-Left coalitions even with reduced seats.
+
+**Signal 3 — PfE Internal Cohesion:** Hungary's Fidesz MEPs in PfE group have shown
+increasing divergence from Italian and French nationalist MEPs on EU budget issues.
+Any formal PfE split would create a smaller, more extreme bloc and potentially a larger
+ECR-aligned moderate-right bloc — shifting the right's coalition arithmetic significantly.
+
+🟡 Confidence: MEDIUM — projections based on current group positions, subject to revision

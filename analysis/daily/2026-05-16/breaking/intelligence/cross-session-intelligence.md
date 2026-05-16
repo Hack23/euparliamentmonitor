@@ -118,3 +118,35 @@ session's output volume (9 texts) is above mean (6.5 texts per plenary session i
 
 
 *Admiralty Grade: B2 — Cross-session analysis based on EP10 session records.*
+
+## Run 3 Cross-Session Update
+
+**Session context continuity assessment (Run 251 → Run 254):**
+No new EP plenary sessions have occurred between the prior run (May 16 07:52 UTC) and this
+run (May 16 13:19 UTC). The analysis corpus reflects the same April 28-30, 2026 adopted texts.
+
+**Persistence signals:**
+- Coalition Delta stability: no new votes to confirm/deny; assessment unchanged
+- DMA enforcement: no new Commission announcements; pre-June 2026 calendar still expected
+- Ukraine accountability: no new verification events; Q2-Q3 2026 timeline unchanged
+
+**New intelligence added in Run 3:**
+1. OSINT signals compilation (Big Tech lobbying spike, Kyiv proactive messaging)
+2. IMF macro-policy alignment analysis (extended throughout artifacts)
+3. Social media framing analysis and vulnerability map
+4. Scenario modeling for coalition stress tests
+5. Implementation pathway detail for DMA, Ukraine, and Budget
+
+**Session comparison — EP10 monthly output:**
+
+| Month | Session | Texts Adopted | Significance Score | Notes |
+|-------|---------|---------------|-------------------|-------|
+| Apr-2026 | Strasbourg | 9 | 7.1 | DMA, Ukraine, Budget |
+| Mar-2026 | Strasbourg | 8 | 6.8 | AI Liability, Cybersecurity |
+| Feb-2026 | Brussels mini | 3 | 5.5 | Procedural votes |
+| Feb-2026 | Strasbourg | 7 | 6.5 | Electoral reform, MiFID II |
+| Jan-2026 | Strasbourg | 6 | 6.1 | State aid, Pharmaceuticals |
+
+*April 2026 remains the highest-scoring session of EP10 through May 2026.*
+
+*Cross-session intelligence Run 3: 2026-05-16. Admiralty Grade: B2.*

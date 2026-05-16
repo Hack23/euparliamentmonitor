@@ -130,3 +130,39 @@ The April 2026 legislative outcomes are politically durable but implementation-d
 External actors (US, Russia, Hungary) present the primary risk concentration.
 
 Admiralty Grade: B2 — Risk scores are probabilistic estimates from political analysis.
+
+## Run 3 Risk Refinements
+
+### Risk Velocity Analysis
+
+Risk velocity measures how quickly a risk could materialize and escalate:
+
+| Risk | Velocity | Lead Time | Early Warning Signal |
+|------|----------|-----------|---------------------|
+| US WTO Challenge (DMA) | HIGH | 3-6 months | USTR statement on digital trade |
+| Ukraine Ceasefire Collapse | VERY HIGH | Days | Front-line military movement |
+| EPP Internal Split | LOW | 12-18 months | EPP leadership primary signals |
+| Budget 2027 Rejection | MEDIUM | 6 months | Member state 2027 fiscal positions |
+| IMF Stress Scenario | MEDIUM | 6-12 months | Trade deficit trends, HICP trajectory |
+
+**Priority monitoring based on velocity × impact:**
+- Ukraine Ceasefire Risk: CRITICAL (high velocity × existential impact)
+- US WTO Challenge: HIGH (high velocity × high legislative impact)
+- Budget 2027: MEDIUM (medium velocity × medium institutional impact)
+
+### Risk Correlation Matrix
+
+Cross-risk dependencies (when one risk escalates, it amplifies another):
+
+```
+Ukraine Ceasefire Collapse → EPP Internal Split (EPP eastern wing pressure)
+US WTO Challenge → Budget 2027 Rejection (trade uncertainty clouds fiscal projections)
+IMF Stress Scenario → EPP Internal Split (economic hardship → populist pressure)
+Budget 2027 Rejection → Coalition Restructuring
+```
+
+**Risk amplification pathway:** Ukraine Ceasefire ↔ IMF Stress ↔ Budget Rejection = 
+the three risks are correlated. Joint probability of all three materializing: ~8% (non-negligible).
+A stress scenario involving all three would require EU-level emergency fiscal coordination.
+
+*Risk matrix updated: Run 3, 2026-05-16. Velocity analysis and correlation matrix added.*

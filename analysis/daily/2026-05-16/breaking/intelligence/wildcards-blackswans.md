@@ -219,3 +219,85 @@ arbitrage pathway. This is why early warning monitoring should track trans-Atlan
 agenda alongside EP legislative outcomes.
 
 Admiralty Grade: C2 — Assessment by analyst; probability estimates are indicative only.
+
+## Extended Wildcard Catalog
+
+### Wildcard W-5: Sudden EP Composition Change (Black Swan)
+
+**Trigger:** Death, serious health incident, or corruption scandal affecting multiple
+senior MEPs from a key coalition group simultaneously.
+
+**Probability:** 2% (very low individual probability × 705 MEPs = non-negligible system probability)
+**Impact:** HIGH — if Coalition Delta loses 10+ seats to NI/vacancy, majority arithmetic
+changes for 3-6 months during by-election process. PfE could exploit this window.
+
+**Historical precedent:** 2014 — death of Italian MEP in plane crash; 2019 — corruption
+investigation removed 2 EPP MEPs; 2021 — health crisis affected several MEPs during COVID.
+These events have not historically broken coalitions, but they created procedural disruptions.
+
+**EP resilience:** By-election processes are handled nationally and typically resolved in
+6-8 weeks for most member states. Coalition mathematics are resilient to 5-10 seat losses
+on non-emergency votes. Emergency votes (budget, MFF) require formal presence rules.
+
+🔴 Monitor: LOW priority (low probability) | Preparedness: institutional resilience
+
+### Wildcard W-6: ECB Emergency Rate Decision
+
+**Trigger:** HICP rises above 3.0% by August 2026 (energy spike or supply chain disruption),
+forcing ECB to announce emergency rate hike path.
+
+**Probability:** 12% (not negligible — energy price risk elevated)
+**Impact:** MEDIUM-HIGH — raises cost of EU investment instruments; compresses 2027 budget
+envelope for investment programs; may trigger EP emergency economic resolution
+
+**IMF connection:** IMF April 2026 WEO flags energy price volatility as a key EU risk.
+The baseline (HICP 2.3%) is at the outer edge of ECB tolerance. Any 0.5pp upside surprise
+would trigger ECB communication shift from "data-dependent pause" to "resuming tightening."
+
+**Legislative impact:** EP would likely respond with an emergency resolution calling for
+ECB-EP dialogue on growth-rate policy coordination — which the ECB (independent) would
+reject but which would generate politically useful messaging for EPP/S&D.
+
+🟡 Monitor: MEDIUM priority | Watch: monthly HICP releases (May, June, July 2026)
+
+### Wildcard W-7: Major Ransomware Attack on EP IT Infrastructure
+
+**Trigger:** State-sponsored (Russia, North Korea, or Iran-linked) ransomware attack
+targeting EP parliamentary management systems, committee workflow, or MEP communications.
+
+**Probability:** 15% (EP has been targeted before — 2022 DDoS attack; 2021 system breach)
+**Impact:** HIGH institutional disruption; MEDIUM legislative impact (paper-based backup
+processes exist for voting and formal document management)
+
+**EP IT security status:** EP has invested significantly in cybersecurity since 2022 DDoS.
+However, 705 MEPs accessing systems from multiple national networks creates a large
+attack surface. Spear-phishing of MEP staff is the highest-probability entry vector.
+
+**Legislative context:** The Cybersecurity Act (CSA) and NIS2 Directive — both EU
+legislative products — provide the framework for critical infrastructure protection.
+A successful EP attack would be the ultimate irony: EP's cybersecurity legislation
+failing to protect EP itself.
+
+🟠 Monitor: MEDIUM-HIGH priority | Preparedness: CERT-EU maintains continuous monitoring
+
+### Black Swan Ensemble Risk
+
+```mermaid
+quadrantChart
+    title Wildcard Map: Probability vs Impact
+    x-axis Low Probability --> High Probability
+    y-axis Low Impact --> High Impact
+    quadrant-1 Manage Carefully
+    quadrant-2 Primary Focus
+    quadrant-3 Low Priority
+    quadrant-4 Opportunistic Monitor
+    W1-Ceasefire: [0.15, 0.9]
+    W2-US-DMA: [0.25, 0.85]
+    W3-Pandemic: [0.05, 0.95]
+    W4-EPP-Split: [0.12, 0.8]
+    W5-MEP-Loss: [0.02, 0.65]
+    W6-ECB-Rate: [0.12, 0.6]
+    W7-Cyber: [0.15, 0.7]
+```
+
+*Wildcards and black swans updated: Run 3, 2026-05-16. Admiralty Grade: C2 (speculative analysis).*

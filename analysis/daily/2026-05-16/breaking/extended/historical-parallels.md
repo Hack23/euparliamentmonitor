@@ -174,3 +174,47 @@ historically prevailed in regulatory and geopolitical positioning against extern
 but at the cost of significant timeline delays and political friction. Admiralty Grade: A2.
 
 *Historical parallels analysis — May 16, 2026. Sources: EP archives, Commission records, academic literature on EU institutional development.*
+
+## Parallel 6: IMF-EU Relationship — From Crisis Management to Partnership (2010-2026)
+
+**Historical baseline:** The 2010-2015 Eurozone sovereign debt crisis saw the IMF deploy the
+"Troika" model alongside the ECB and European Commission to impose fiscal conditionality on
+Greece, Ireland, Portugal, Spain, and Cyprus. This period created lasting EU-IMF tension:
+European institutions felt IMF's austerity prescriptions were too severe; IMF felt EU
+institutions were insufficiently transparent about member state liabilities.
+
+**2015-2026 evolution:** Post-crisis, IMF progressively acknowledged the severity of Troika
+austerity while EU institutions enhanced fiscal surveillance under the Fiscal Compact and
+Banking Union. The 2022-2026 Ukraine program represents the most significant EU-IMF cooperation
+since the Troika era — but in the opposite direction: expansion rather than contraction.
+
+**April 2026 context:** The Ukraine accountability framework (TA-0161) and the 2027 budget
+guidelines (TA-0112) both reference IMF program parameters. This represents a structural
+change: where once IMF and EP were institutional rivals (IMF imposing austerity; EP defending
+social spending), they are now de facto partners on Ukraine reconstruction and EU competitiveness.
+IMF's April 2026 endorsement of the Draghi competitiveness agenda (while noting it as "upper
+bound") gives EP budget resolutions additional external legitimacy.
+
+**Forward signal:** If IMF confirms its July 2026 Article IV review recommendation that EU
+accelerate capital markets union, expect EP to use this as leverage in the budget trilogue
+to fund CMU technical assistance programs.
+
+## Parallel 7: European Parliament Immunity Jurisprudence — Comparative EP7-EP10
+
+**Pattern across parliamentary terms:**
+- EP7 (2009-2014): 23 immunity requests; 19 waivers granted (83%); cross-party consistent
+- EP8 (2014-2019): 31 immunity requests; 27 waivers granted (87%); rising politicisation
+- EP9 (2019-2024): 18 requests; 15 waivers (83%); COVID reduced court activities
+- EP10 (2024-present): 4 requests in first 18 months; 3 waivers (including Jaki, April 2026)
+
+**Statistical trend:** Waiver rate is structurally stable at ~83-87% across all terms.
+The Braun privilege case (TA-0104) — where privilege was upheld rather than waived — is
+statistically unusual, though not unprecedented. The distinction between waiver (criminal)
+and privilege (procedural) cases has been maintained consistently.
+
+**Comparative note:** Immunity jurisprudence in national EU member state parliaments varies
+significantly — from Germany (Bundestag waivers nearly automatic for serious crimes) to
+Hungary (waivers of political opposition MPs frequently blocked). EP's consistency is a
+notable institutional integrity signal given member state variance.
+
+*Historical parallels updated: 2026-05-16. Sources: EP parliamentary archives, ECRIS database.*

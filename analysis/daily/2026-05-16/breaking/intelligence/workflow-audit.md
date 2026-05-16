@@ -88,3 +88,16 @@ gitGraph
 **Gate result:** GREEN (pending Stage C validation)
 
 Admiralty Grade: A1 — Internal workflow metrics; verified from run execution.
+
+## Run 3 Audit Update (2026-05-16)
+
+**Run 3 additions (this update):**
+- voting-patterns.md: 109L → 150L (+41 lines, Rice Index table, cohesion mermaid)
+- voting-patterns.degraded.md: 135L → 162L (+27 lines, cross-validation signals)
+- wildcards-blackswans.md: 222L → 303L (+81 lines, W5, W6, W7, ensemble quadrant chart)
+- workflow-audit.md: updated with Run 3 statistics
+- risk-scoring files: extensions in progress
+- classification files: actor-mapping, forces-analysis, impact-matrix extensions in progress
+
+**Cumulative Run 3 metrics:** 40 artifacts extended/rewritten across 3 runs
+**Stage B status:** Near-complete (risk-scoring + classification remain)

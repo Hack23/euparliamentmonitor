@@ -202,3 +202,41 @@ of legislative initiative means EP actor maps always feed back to Commission imp
 capacity as the binding constraint.
 
 Admiralty Grade: B2 — Source reliable (EP political landscape data); assessment probably true.
+
+## Run 3 Actor Map Update
+
+### New Actor: Civil Society & Advocacy Organizations
+
+**Category:** External Influence (non-state, non-institutional)
+**Relevant dossiers:** All six primary legislative texts
+
+Key actors in this category:
+1. **Transparency International EU** — monitors anti-corruption elements of Ukraine
+   accountability mechanism. Positioned: STRONG SUPPORT for accountability. Influence pathway:
+   media relations, EP committee written inputs.
+
+2. **European Digital Rights (EDRi)** — monitors DMA enforcement for privacy/civil liberties
+   aspects. Positioned: CONDITIONAL SUPPORT (welcomes enforcement but wants stronger privacy
+   safeguards in Commission investigative procedures). Influence pathway: litigation threat,
+   MEP briefings.
+
+3. **Farmers' unions (Copa-Cogeca)** — monitors livestock methane reduction dossier.
+   Positioned: STRONG OPPOSITION to mandatory targets; CONDITIONAL on voluntary vs.
+   mandatory structure. Influence pathway: EPP agricultural wing MEPs, Council agriculture ministers.
+
+4. **Big Tech industry (Google, Meta, Apple via lobbying)** — heavily engaged on DMA
+   enforcement. Positioned: AGAINST enforcement timeline; lobbying for administrative
+   proportionality review. Influence pathway: Commission DG COMP consultation, legal challenge.
+
+### Actor Network Density
+
+The actor ecosystem around these six legislative texts is high-density:
+- Commission (center) → Council (member states) → EP (co-legislator) = formal triangle
+- Lobbying/civil society → EP committees → Group coordinators = informal influence path
+- External states → diplomatic channels → Council Presidency = geopolitical dimension
+
+**Network choke point:** The Commission's implementation capacity is the single biggest
+constraint in all three primary legislative tracks (DMA, Ukraine, Budget). Actor convergence
+on Commission is therefore the key monitoring signal.
+
+*Actor mapping updated: Run 3, 2026-05-16. Civil society actors and network density added.*

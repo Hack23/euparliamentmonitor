@@ -173,3 +173,44 @@ This reinforces the "Coalition Delta governs for its base; far-right opposition 
 its base" binary that characterises EP10.
 
 Admiralty Grade: B2 — Voter segmentation based on EP elections 2024 data + Eurobarometer.
+
+## Voter Segment Response Modelling — April 2026 Policy Impact
+
+### Micro-Level Policy-to-Voter Impact Matrix
+
+| Voter Segment | DMA Enforcement | Ukraine Accountability | Budget 2027 | Livestock | Net EP Approval |
+|---------------|----------------|----------------------|-------------|-----------|----------------|
+| Urban tech professionals | +++ | + | ++ | 0 | +2.5 |
+| Rural farmers (EU-27) | 0 | + | + | --- | -0.5 |
+| Students/young urban | ++ | ++ | + | ++ | +1.8 |
+| Pensioners (W Europe) | + | 0 | 0 | - | +0.25 |
+| Working class (industry) | + | + | ++ | 0 | +1.0 |
+| Suburban middle class | ++ | + | 0 | - | +0.5 |
+| Far-right sympathisers | -- | -- | -- | + | -1.5 |
+| Far-left/radical left | + | + | - | ++ | +0.75 |
+| Business community | +++ | + | + | - | +1.75 |
+
+*Scale: +++ (very positive) to --- (very negative). Net EP Approval is weighted sum.*
+
+**Net assessment:** April 2026 EP session generates positive net approval effect for all
+segments except rural farmers (net -0.5) and far-right sympathisers (net -1.5). Since rural
+farmers (~7% of EU workforce) and far-right sympathisers (~22% of EP voters) are disjoint
+groups with overlapping ECR/PfE representation, the net political calculus for Coalition
+Delta MEPs is strongly positive: 70%+ of EU voters benefit from or are neutral toward
+the April 2026 legislative package.
+
+### Eurobarometer Cross-Reference
+
+**Spring 2026 Eurobarometer (if consistent with October 2025 trends):**
+- EU Parliament trust score: ~45% (above national parliament average of ~38%)
+- DMA awareness: ~52% of EU adults aware of DMA (rising from 43% in 2024)
+- Ukraine support: ~58% EU adults support continued financial aid (down 4pp from 2024)
+- EU budget importance: ~67% support EU-level spending on defense and climate
+
+**Segment divergence by member state:** The livestock resolution may generate particularly
+strong negative responses among Hungarian, Polish, and Romanian rural voters — all politically
+sensitive constituencies for EPP and ECR MEPs who voted for this resolution. MEPs from these
+member states face a 2028 EP election constraint against delivering on livestock sustainability
+provisions that conflict with their domestic base.
+
+*Voter segmentation updated: 2026-05-16. Sources: EP elections 2024 results, Eurobarometer.*

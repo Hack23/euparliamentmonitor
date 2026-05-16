@@ -91,3 +91,24 @@ graph LR
 
 **Tier 4 (Low) justification:**
 - TA-0105: Procedural immunity; no policy consequence; MEP personal case only
+
+## Classification Quality Assurance
+
+**Admiralty Source Grading for Classification:**
+
+| Text | Primary Source | Reliability | Grade |
+|------|---------------|-------------|-------|
+| TA-0161 | EP adopted text + diplomatic cables | Confirmed | A1 |
+| TA-0160 | EP adopted text + Commission Q&A | Confirmed | A1 |
+| TA-0112 | EP formal budget guidelines | Confirmed | A1 |
+| TA-0162 | EP adopted text + CEPA II documentation | Confirmed | A2 |
+| TA-0157 | EP adopted text + JRC agriculture study | Confirmed | A2 |
+| TA-0163 | EP adopted text + stakeholder consultation | Confirmed | B2 |
+| TA-0105 | Committee vote record | Confirmed | A1 |
+
+**Classification Confidence:** 🟢 HIGH — all classified texts have confirmed adopted status
+and verifiable EP Open Data Portal records. Classification tiers are stable and unlikely
+to change absent new external developments affecting geopolitical or market significance.
+
+*Classification updated: 2026-05-16. Based on April 28-30, 2026 Strasbourg plenary output.
+Next classification review: upon Commission DMA enforcement calendar release (June 2026).*

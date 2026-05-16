@@ -53,3 +53,8 @@ flowchart LR
 ```
 
 Admiralty Grade: C3 — Proxy data; procedures API returned historical ordering.
+
+*Procedures proxy updated: Run 3, 2026-05-16. Admiralty Grade: C3 (proxy data only).*
+*Primary data limitation: EP procedures feed returns historical ordering on non-plenary days.*
+*This document should be superseded by a fresh procedures feed query on the next plenary day.*
+*For real-time procedures status, consult EP Legislative Observatory directly.*

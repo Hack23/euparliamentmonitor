@@ -222,3 +222,72 @@ WEP: Almost Certain that at least one of the three main April 2026 legislative c
 within the 12-month forecast horizon. The probability of all three delivering as intended is
 estimated at no more than 15% (Scenario A extended, full delivery version).
 
+
+## Extended Scenario Analysis — Sub-Scenarios
+
+### Sub-Scenario A1: DMA Structural Remedy (High-Impact Low-Probability)
+
+**Base case:** Commission issues fine-based enforcement without structural remedy (divestiture).
+**Sub-scenario A1:** Commission issues first structural remedy against Apple requiring full
+interoperability of iMessage with third-party messaging platforms.
+
+**Probability:** 8% (low — requires CJEU fast-track validation; new legal territory)
+**Impact if occurs:** Very HIGH — signals EU willing to force business model changes
+on US Big Tech; triggers US Congressional response; potential trade escalation
+
+**EP role in sub-scenario A1:** EP would need to pass supporting resolution (likely) and
+review Article 26 DMA structural remedy provisions in a follow-up legislative report.
+IMCO committee would be activated; Commission/EP coordination would be tight.
+
+**IMF context:** Structural remedy affecting Apple's EU business model could reduce
+Apple's EU revenue contribution — Ireland (major US tech hub) would be particularly
+sensitive. IMF Ireland 2026 Article IV review would flag this scenario as fiscal risk.
+
+### Sub-Scenario B1: Ukraine Accountability — Milestone Failure
+
+**Base case:** Ukrainian government meets Q2-Q3 2026 accountability milestones.
+**Sub-scenario B1:** Independent Audit Board identifies major governance concerns
+(procurement fraud, asset misappropriation at €500M+ scale) triggering tranche suspension.
+
+**Probability:** 15% (low-medium — wartime governance degradation risk; serious risk)
+**Impact if occurs:** HIGH — political ammunition for PfE/ESN; potential S&D defection
+on next Ukraine support vote; IMF Ukraine program suspension becomes possible
+
+**EP role in sub-scenario B1:** Emergency resolution by AFET; potential emergency
+Commissioner hearing; suspension of Ukraine Facility tranche with conditionality review.
+Coalition Delta would likely hold (EPP+S&D would distinguish governance failure from
+Ukraine abandonment), but with meaningful political cost.
+
+**IMF context:** IMF Ukraine Article IV is scheduled for Q3 2026. If milestone failure
+occurs before this review, IMF would flag it in the Article IV report, amplifying
+political pressure on EU to suspend support and creating coordination challenge
+between EP accountability demands and IMF program continuity.
+
+### Sub-Scenario C1: Budget 2027 Rejection
+
+**Base case:** EP and Council reach budget agreement in December 2026 conciliation.
+**Sub-scenario C1:** EP rejects the final budget in December 2026 vote (provisional twelfths).
+
+**Probability:** 5% (very low — EP has used this weapon strategically, not tactically)
+**Impact if occurs:** HIGH for institutional dynamics; Medium for actual program spending
+(twelfths rule maintains essential spending); Major for EP-Council relationship
+
+**EP role in sub-scenario C1:** Would require EPP and S&D to agree on rejection — unlikely.
+More probable trigger: Renew defection on budget priorities creates blocking minority.
+IMF analysis: provisional twelfths would preserve EU GDP contribution to growth but
+delay investment programs — estimated 0.05pp growth cost in 2027 scenario.
+
+## Forecast Confidence Evolution
+
+```mermaid
+xychart-beta
+    title "Scenario Probability vs Time Horizon"
+    x-axis ["3 months", "6 months", "12 months", "18 months"]
+    y-axis "Assessment Confidence (%)" 0 --> 100
+    line [75, 60, 45, 30]
+```
+
+*Confidence declines as time horizon extends — this is the fundamental forecasting constraint.*
+
+*Scenario forecast extended: 2026-05-16 (Run 3). IMF WEO April 2026 cited for economic context.*
+*Admiralty Grade: B2. All probability estimates are analyst judgement, not actuarial calculations.*

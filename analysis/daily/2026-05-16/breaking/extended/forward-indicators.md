@@ -142,3 +142,46 @@ Admiralty Grade: B2 — Indicators framework based on confirmed EP procedures an
 *Indicator framework updated: May 16, 2026. Next systematic review: June 1, 2026.*
 
 *Admiralty Grade: B2. All forward projections are probabilistic estimates.*
+
+## IMF Economic Forward Indicators (EU Context)
+
+The following IMF-tracked metrics serve as economic leading indicators for EP legislative
+impact assessment:
+
+### IMF Watch List — Q2-Q3 2026
+
+**GDP Trajectory:**
+- IMF forecast: EU 1.4%, Euro area 1.2% for full-year 2026
+- Key risk: German weakness (0.8% growth) could drag euro area below 1.0% if IFO
+  business confidence continues declining (April 2026 IFO: 86.9, below neutral 100)
+- EP legislative response signal: If growth falls below 1.0%, expect emergency EP
+  resolution on industrial policy acceleration, potentially accelerating EDIP and
+  CMU legislation timelines
+
+**Inflation Trajectory:**
+- Current HICP: 2.3% (ECB target band 2.0%)
+- Risk corridor: 2.5% triggers ECB rate discussion; 3.0% triggers rate hike path
+- EP legislative signal: Rising energy costs are the primary HICP upside risk — EP's
+  energy diversification resolutions (post-Ukraine, RepowerEU implementation) are the
+  medium-term hedge
+
+**Trade Context:**
+- IMF April 2026: US tariff announcement risk creates 0.3-0.5pp EU growth drag scenario
+- DMA enforcement timing intersects with US-EU trade tension calendar
+- EP strategy: maintain DMA enforcement while negotiating US tech trade deal (pending)
+
+### Key Event Calendar (Q2-Q3 2026)
+
+| Date | Event | EP Forward Significance |
+|------|-------|------------------------|
+| June 2026 | ECB rate decision | HICP 2.3% → likely pause |
+| June 2026 | Commission DMA enforcement calendar | Tests TA-0160 mandate |
+| June 2026 | Commission 2027 budget draft (Article 314) | Tests TA-0112 guidelines |
+| July 2026 | EP Summer recess begins | No plenary until September |
+| Sep 2026 | EP resumes; Council budget response | Budget trilogue opens |
+| Oct 2026 | EP budget vote (first reading) | Coalition test |
+| Dec 2026 | Budget conciliation and final vote | Key EP leverage moment |
+| Q4 2026 | Armenia CEPA II Council ratification | Coalition Delta signal |
+| Q4 2026 | Chat Control Commission revised text | Cross-cutting coalition test |
+
+*Forward indicators: IMF WEO April 2026 (authoritative economic source). Updated: 2026-05-16.*

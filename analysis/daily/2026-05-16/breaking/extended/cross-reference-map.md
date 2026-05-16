@@ -120,3 +120,33 @@ All artifacts in this cross-reference map follow the methodologies in:
 - `analysis/methodologies/per-artifact-methodologies.md`
 
 *Cross-reference map complete as of May 16, 2026. Total artifacts mapped: 40.*
+
+## Cross-Run Dependency Matrix (Run 3 Extensions)
+
+The following artifacts were extended or rewritten in this run and their downstream
+dependents must be considered updated:
+
+| Extended Artifact | Downstream Dependents | Update Type |
+|-------------------|----------------------|-------------|
+| executive-brief.md | extended/executive-brief.md, article.md | IMF section added |
+| intelligence/coalition-dynamics.md | extended/coalition-mathematics.md | Competitive Index added |
+| intelligence/significance-scoring.md | intelligence/synthesis-summary.md | Productivity chart added |
+| intelligence/political-threat-landscape.md | intelligence/threat-model.md | PT5, PT6 added |
+| extended/coalition-mathematics.md | intelligence/coalition-dynamics.md | Scenario modeling added |
+| extended/comparative-international.md | extended/intelligence-assessment.md | IMF table added |
+| data-availability-assessment.md | (standalone) | Run 3 data update |
+
+## Citation Network Density
+
+**Artifacts with highest in-citation count (depended on by most other artifacts):**
+1. `intelligence/synthesis-summary.md` — cited by 12 artifacts
+2. `intelligence/economic-context.md` — cited by 9 artifacts (IMF data anchor)
+3. `executive-brief.md` — cited by 7 artifacts
+4. `intelligence/coalition-dynamics.md` — cited by 6 artifacts
+
+**Artifacts with lowest in-citation (most peripheral):**
+- `intelligence/voting-patterns.degraded.md` — cited by 2 artifacts (proxy methodology)
+- `intelligence/procedures-proxy.md` — cited by 1 artifact (low data quality)
+- `extended/data-download-manifest.md` — cited by 0 (source manifest, not content)
+
+*Cross-reference map updated: 2026-05-16 (Run 3). Total artifacts mapped: 40.*
