@@ -101,6 +101,9 @@ describe('news-translate workflow contract', () => {
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
     expect(workflow).toMatch(/node scripts\/validate-brief-translations\.js/);
     expect(workflow).toMatch(/Validate brief translations/);
+    const validatorBlock = workflow.match(/- name: Validate brief translations[\s\S]*?\n\nengine:/)?.[0] ?? '';
+    expect(validatorBlock).not.toMatch(/--no-fail/);
+    expect(validatorBlock).not.toMatch(/\|\|\s*true/);
   });
 
   it('imports the shared common-settings and MCP-servers configs', () => {
@@ -136,8 +139,10 @@ describe('news-translate workflow contract', () => {
   it('keys the PR branch by run date, not by run id', () => {
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
     expect(workflow).toMatch(/news\/translate-briefs-/);
+    expect(workflow).toMatch(/job-discriminator:\s*translate-briefs\b/);
     // Must NOT include ${RUN_ID} in the branch name (legacy regression).
     expect(workflow).not.toMatch(/news\/translate-briefs-\$\{RUN_ID\}/);
+    expect(workflow).not.toMatch(/github\.run_attempt/);
   });
 });
 

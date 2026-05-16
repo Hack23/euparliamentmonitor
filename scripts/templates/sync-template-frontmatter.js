@@ -5,8 +5,8 @@
  * @file scripts/templates/sync-template-frontmatter.js
  *
  * Idempotent sync of canonical front-matter + AI-instructions block into every
- * `analysis/templates/*.md` template (excluding README.md and the `_partials/`
- * directory).
+ * Stage-B `analysis/templates/*.md` template (excluding README.md, the
+ * `_partials/` directory, and the news-translate-only template).
  *
  * Inputs:
  *   - analysis/methodologies/reference-quality-thresholds.json (breaking floors)
@@ -52,8 +52,8 @@ const CATALOG_PATH = path.join(METHODOLOGIES_DIR, 'artifact-catalog.md');
 const FRONTMATTER_TOKEN = 'ANALYSIS-TEMPLATE-FRONTMATTER:v1';
 const AI_INSTRUCTIONS_TOKEN = 'AI-INSTRUCTIONS:v1';
 
-// Templates excluded from the sync (README + the _partials directory itself).
-const EXCLUDED = new Set(['README.md']);
+// Templates excluded from the sync (README + translation-only scaffold).
+const EXCLUDED = new Set(['README.md', 'executive-brief-translation-template.md']);
 
 // Framework templates that are not directly in the catalog (composed artifacts)
 // — we map them by hand to their methodology section.

@@ -51,10 +51,10 @@ imports:
   - shared/config/news-common-settings.md
   - shared/mcp/news-mcp-servers.md
 
-# Concurrency key uses the UTC date so all three daily runs collapse onto the
-# same lease and target the same PR branch.
+# Concurrency uses one workflow-wide lease so scheduled runs and re-runs cannot
+# race while targeting the shared daily `news/translate-briefs-<date>` branch.
 concurrency:
-  job-discriminator: translate-briefs-${{ github.run_attempt }}
+  job-discriminator: translate-briefs
 
 tools:
   timeout: 180            # per-tool-call cap
@@ -172,19 +172,18 @@ post-steps:
     run: bash scripts/gh-aw-capture-agent-patch.sh
 
   # Always run the validator on whatever the agent produced. The script
-  # exits non-zero on any violation; `continue-on-error: true` keeps the
-  # workflow result green so we can surface the report in PR comments
-  # rather than as a job failure.
+  # exits non-zero on any violation; preserve that status so invalid
+  # translations are rejected instead of slipping into the safe-output PR.
   - name: Validate brief translations
     if: always()
-    continue-on-error: true
     run: |
       mkdir -p /tmp/gh-aw/validation
+      set +e
       node scripts/validate-brief-translations.js \
-        --report /tmp/gh-aw/validation/report.json \
-        --no-fail \
-        --quiet || true
+        --report /tmp/gh-aw/validation/report.json
+      VALIDATION_STATUS=$?
       node -e 'const r=require("/tmp/gh-aw/validation/report.json");console.log("Translations checked:",r.totals.filesChecked,"violations:",r.totals.violations);if(r.violations.length){for(const v of r.violations.slice(0,20)){console.log("•",v.translationPath,"["+v.gate+"]",v.message);}}'
+      exit "$VALIDATION_STATUS"
 
 engine:
   id: copilot
@@ -309,9 +308,13 @@ For each queue entry, in order:
 1. **Read the source brief in full** (`sourcePath`).
 2. **Open the translator guide** (`analysis/methodologies/executive-brief-translation-guide.md`)
    to the per-language terminology table for the languages you're producing.
-3. **For each `lang` in `missingLangs`**, create
-   `analysis/daily/<date>/<slug>/executive-brief_<lang>.md` using the
-   `edit` / `create` tool:
+3. **For each `lang` in `missingLangs`**, create a sibling next to
+   `sourcePath`: replace the source filename `executive-brief.md` with
+   `executive-brief_<lang>.md`. For canonical entries that is
+   `analysis/daily/<date>/<slug>/executive-brief_<lang>.md`; for
+   `isExtended: true` entries it is
+   `analysis/daily/<date>/<slug>/extended/executive-brief_<lang>.md`.
+   Use the `edit` / `create` tool:
    - Mirror the source structure 1:1 (heading count, list count, table
      rows, blockquote count, emoji-marker positions).
    - Translate every prose section into the target language. Pass 1 first
@@ -325,11 +328,10 @@ For each queue entry, in order:
    - Apply per-language register from § 4 of the translator guide
      (Nordic / EU-core / RTL / CJK).
 4. **Self-validate** the brief you just finished:
-   ```bash
-   node scripts/validate-brief-translations.js \
-     --paths analysis/daily/<date>/<slug>/executive-brief_*.md \
-     --no-fail --quiet
-   ```
+    ```bash
+    node scripts/validate-brief-translations.js \
+      --paths <source-directory>/executive-brief_*.md
+    ```
    If any gate flags a translation, **re-translate it now**, do not let it
    slip into the PR.
 5. **Flush** — after all 13 languages for this brief are produced AND the

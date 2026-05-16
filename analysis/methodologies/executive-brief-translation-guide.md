@@ -221,13 +221,12 @@ Automated gates that block PR creation when violated:
 
 1. **Filename ↔ language code** — `executive-brief_<lang>.md` with `<lang>`
    in `TARGET_LANGS`.
-2. **Length floor** — translated byte size ≥ 50 % of source byte size.
-3. **No English fall-through** — fewer than 5 hits of `EN_PATTERNS` (see
+2. **Source presence** — sibling `executive-brief.md` exists.
+3. **Length floor** — translated byte size ≥ 50 % of source byte size.
+4. **No English fall-through** — fewer than 5 hits of `EN_PATTERNS` (see
    `scripts/validate-brief-translations.js`).
-4. **Fixed-token preservation** — every IMF/WEO/EP/data-vintage token in
+5. **Fixed-token preservation** — every IMF/WEO/EP/data-vintage token in
    the source must appear in the translation.
-5. **Frontmatter parity** — if the source has frontmatter, the translation
-   has identical keys.
 
 ---
 

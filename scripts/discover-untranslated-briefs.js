@@ -22,11 +22,11 @@
  * Priority rules (newest-first, oldest-first within a brief):
  *
  *   1. Sort by `<date>` descending so today's briefs win.
- *   2. Within the same date, sort by `<slug>` alphabetically so the run is
+ *   2. Within the same date, briefs with *more* missing languages outrank
+ *      briefs with fewer missing languages so partial coverage gets completed
+ *      quickly.
+ *   3. Remaining ties sort by `<slug>` alphabetically so the run is
  *      deterministic and reviewers can predict which slugs land first.
- *   3. Briefs with *more* missing languages outrank briefs with fewer
- *      missing languages on the same (date, slug) tie so partial coverage
- *      gets completed quickly.
  *
  * Invocation:
  *
@@ -75,6 +75,9 @@ export const TARGET_LANGS = Object.freeze([
   'ar', 'he', 'ja', 'ko', 'zh',
 ]);
 
+/** Manual-dispatch upper bound that keeps one 60-minute run inside budget. */
+export const MAX_BRIEFS_LIMIT = 4;
+
 /**
  * Parse CLI argv into an options object. Exported for unit tests.
  * @param {string[]} argv
@@ -120,8 +123,12 @@ export function parseArgs(argv) {
         }
     }
   }
-  if (!Number.isFinite(opts.maxBriefs) || opts.maxBriefs < 1) {
-    throw new Error('--max-briefs must be a positive integer');
+  if (
+    !Number.isFinite(opts.maxBriefs) ||
+    opts.maxBriefs < 1 ||
+    opts.maxBriefs > MAX_BRIEFS_LIMIT
+  ) {
+    throw new Error(`--max-briefs must be an integer between 1 and ${MAX_BRIEFS_LIMIT}`);
   }
   if (!Number.isFinite(opts.maxAgeDays) || opts.maxAgeDays < 1) {
     throw new Error('--max-age-days must be a positive integer');

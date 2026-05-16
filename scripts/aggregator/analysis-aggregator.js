@@ -16,6 +16,10 @@ import { cleanArtifact, githubBlobUrl } from './clean-artifact.js';
 import { treeUrl } from './infra/github-urls.js';
 import { buildKeyTakeaways, KEY_TAKEAWAYS_SECTION_ID, KEY_TAKEAWAYS_SECTION_TITLE, } from './key-takeaways.js';
 import { flattenManifestFiles as _flattenManifestFiles, latestGateResult as _latestGateResult, resolveArticleType as _resolveArticleType, resolveRunId as _resolveRunId, } from './manifest/index.js';
+const TRADECRAFT_EXCLUDED_FILES = new Set([
+    'analysis/methodologies/executive-brief-translation-guide.md',
+    'analysis/templates/executive-brief-translation-template.md',
+]);
 import { READER_GUIDE_SECTION_ID, READER_GUIDE_SECTION_IDS, READER_GUIDE_SECTION_TITLE, } from './reader-guide-constants.js';
 export { READER_GUIDE_SECTION_ID, READER_GUIDE_SECTION_IDS, READER_GUIDE_SECTION_TITLE, } from './reader-guide-constants.js';
 /**
@@ -94,8 +98,11 @@ export function discoverTradecraftFiles(repoRoot) {
             continue;
         const entries = fs.readdirSync(dir, { withFileTypes: true });
         for (const entry of entries) {
-            if (entry.isFile() && entry.name.endsWith('.md')) {
-                result.push(`${sub}/${entry.name}`);
+            const rel = `${sub}/${entry.name}`;
+            if (entry.isFile() &&
+                entry.name.endsWith('.md') &&
+                !TRADECRAFT_EXCLUDED_FILES.has(rel)) {
+                result.push(rel);
             }
         }
     }

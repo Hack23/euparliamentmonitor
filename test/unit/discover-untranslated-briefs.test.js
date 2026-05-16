@@ -15,6 +15,7 @@ import path from 'node:path';
 
 import {
   TARGET_LANGS,
+  MAX_BRIEFS_LIMIT,
   parseArgs,
   findExecutiveBriefSources,
   findMissingLangs,
@@ -73,13 +74,13 @@ describe('discover-untranslated-briefs', () => {
     it('parses every supported flag', () => {
       const opts = parseArgs([
         '--repo-root', '/tmp/x',
-        '--max-briefs', '5',
+        '--max-briefs', '4',
         '--max-age-days', '30',
         '--output', '/tmp/q.json',
         '--include-extended',
       ]);
       expect(opts.repoRoot).toBe('/tmp/x');
-      expect(opts.maxBriefs).toBe(5);
+      expect(opts.maxBriefs).toBe(4);
       expect(opts.maxAgeDays).toBe(30);
       expect(opts.output).toBe('/tmp/q.json');
       expect(opts.includeExtended).toBe(true);
@@ -90,7 +91,12 @@ describe('discover-untranslated-briefs', () => {
     });
 
     it('rejects non-positive --max-briefs', () => {
-      expect(() => parseArgs(['--max-briefs', '0'])).toThrow(/positive integer/);
+      expect(() => parseArgs(['--max-briefs', '0'])).toThrow(/between 1 and 4/);
+    });
+
+    it('rejects --max-briefs values above the workflow budget', () => {
+      expect(MAX_BRIEFS_LIMIT).toBe(4);
+      expect(() => parseArgs(['--max-briefs', '40'])).toThrow(/between 1 and 4/);
     });
 
     it('rejects non-positive --max-age-days', () => {

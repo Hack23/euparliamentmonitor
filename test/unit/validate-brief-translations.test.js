@@ -215,6 +215,33 @@ describe('validate-brief-translations', () => {
       const violations = validateTranslation(target, tmpRoot);
       expect(violations.some((v) => v.gate === 'fixed-token-preservation')).toBe(true);
     });
+
+    it('flags altered or dropped exact fixed-token instances', () => {
+      writeSource('2026-05-15', 'breaking', [
+        REALISTIC_SOURCE,
+        'Follow-up TA-10-2026-0161 cites data-vintage="WEO-October-2026".',
+        'Extra content '.repeat(80),
+      ].join('\n'));
+      const altered = [
+        '# Sammanfattning — Brådskande nyheter',
+        '**Datum:** 2026-05-15',
+        '**Klassificering:** UNCLASSIFIED // OPEN SOURCE',
+        '',
+        '## 🎯 BLUF',
+        'Europaparlamentet antog TA-10-2026-0160 om DMA-tillsyn.',
+        'IMF World Economic Outlook (WEO) data-vintage="WEO-April-2026" prognosticerar 1,4 % tillväxt.',
+        'Förfarande 2024/0001(COD) går vidare till trilog.',
+        'Uppföljningen TA-10-2026-9999 hänvisar till data-vintage="WEO-November-2026".',
+        '',
+        'Upprepa innehåll för att ge filen en meningsfull byte-storlek '.repeat(80),
+      ].join('\n');
+      const target = writeTranslation('2026-05-15', 'breaking', 'sv', altered);
+      const violations = validateTranslation(target, tmpRoot);
+      const fixed = violations.filter((v) => v.gate === 'fixed-token-preservation');
+      expect(fixed.length).toBeGreaterThan(0);
+      expect(fixed.map((v) => v.message).join('\n')).toContain('TA-10-2026-0161');
+      expect(fixed.map((v) => v.message).join('\n')).toContain('data-vintage="WEO-October-2026"');
+    });
   });
 
   describe('runValidation', () => {

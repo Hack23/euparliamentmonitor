@@ -84,8 +84,8 @@ export const EN_PATTERNS = [
  * Each pattern matches one class of "fixed token" — proper nouns, ID
  * formats, or machine-readable attributes — that the translator agent
  * must NOT localise. The five quality gates apply the rule like this:
- * if the SOURCE contains N matches of a pattern but the TRANSLATION
- * contains zero, the gate fires.
+ * every exact token instance from the SOURCE must also appear in the
+ * TRANSLATION at least the same number of times.
  *
  *  - `IMF`         — International Monetary Fund. Stays Latin-script even in
  *                    Arabic, Hebrew, Japanese, Korean, Chinese translations.
@@ -130,6 +130,16 @@ export const FIXED_TOKEN_PATTERNS = Object.freeze([
 const FIXED_TOKEN_PATTERNS_GLOBAL = Object.freeze(
   FIXED_TOKEN_PATTERNS.map((re) => new RegExp(re.source, 'g')),
 );
+
+/** Count exact token occurrences returned by one fixed-token pattern. */
+function countMatches(text, regex) {
+  const counts = new Map();
+  const matches = text.match(regex) || [];
+  for (const token of matches) {
+    counts.set(token, (counts.get(token) || 0) + 1);
+  }
+  return counts;
+}
 
 /**
  * @typedef {Object} Violation
@@ -293,18 +303,25 @@ export function validateTranslation(translationPath, repoRoot) {
   for (let i = 0; i < FIXED_TOKEN_PATTERNS_GLOBAL.length; i++) {
     const reGlobal = FIXED_TOKEN_PATTERNS_GLOBAL[i];
     const reSingle = FIXED_TOKEN_PATTERNS[i];
-    const sourceMatches = sourceText.match(reGlobal) || [];
-    if (sourceMatches.length === 0) continue;
-    const targetMatches = targetText.match(reGlobal) || [];
-    if (targetMatches.length === 0) {
+    const sourceCounts = countMatches(sourceText, reGlobal);
+    if (sourceCounts.size === 0) continue;
+    const targetCounts = countMatches(targetText, reGlobal);
+    const missingTokens = [];
+    for (const [token, sourceCount] of sourceCounts.entries()) {
+      const targetCount = targetCounts.get(token) || 0;
+      if (targetCount < sourceCount) {
+        missingTokens.push(`${token} (${targetCount}/${sourceCount})`);
+      }
+    }
+    if (missingTokens.length > 0) {
       violations.push({
         translationPath: rel,
         sourcePath: sourceRel,
         lang,
         gate: 'fixed-token-preservation',
         message:
-          `Source contains ${sourceMatches.length} matches of ${reSingle} ` +
-          `but translation contains none — proper noun / data-vintage MUST be preserved verbatim`,
+          `Translation is missing exact ${reSingle} token(s): ${missingTokens.join(', ')} ` +
+          `— proper noun / data-vintage identifiers MUST be preserved verbatim`,
       });
     }
   }

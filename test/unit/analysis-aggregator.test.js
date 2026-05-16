@@ -249,6 +249,8 @@ describe('discoverTradecraftFiles', () => {
       files.some((f) => f.startsWith('analysis/templates/'));
     expect(hasAny).toBe(true);
     for (const f of files) expect(f.endsWith('.md')).toBe(true);
+    expect(files).not.toContain('analysis/methodologies/executive-brief-translation-guide.md');
+    expect(files).not.toContain('analysis/templates/executive-brief-translation-template.md');
   });
 });
 
