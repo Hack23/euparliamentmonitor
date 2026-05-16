@@ -66,6 +66,31 @@ const DESCRIPTION_MIN_LENGTH = 140;
 const ENRICHMENT_TRIGGER_LENGTH = 100;
 /** Maximum `<title>` length — anything longer is truncated with an ellipsis. */
 const TITLE_MAX_LENGTH = 140;
+/**
+ * Soft target for headline-style titles produced as a fallback from
+ * BLUF/lede prose. When the candidate exceeds `TITLE_MAX_LENGTH`, the
+ * truncator first looks for a natural clause boundary
+ * (`.`, `:`, `—`, `;`) inside the `[HEADLINE_SOFT_MIN, TITLE_MAX_LENGTH]`
+ * window and breaks there instead of mid-clause-with-ellipsis. This
+ * turns a 137-character truncated prose paragraph into a complete
+ * journalistic clause, which scans much better in news cards and SERP
+ * snippets without sacrificing the keyword-rich opening.
+ */
+const HEADLINE_SOFT_MIN = 60;
+/**
+ * Punctuation marks that signal a natural clause boundary inside a
+ * BLUF / lede paragraph. Listed in preferred-break order: a colon or
+ * em-dash that introduces a list of consequences is the best break,
+ * full stops are next, and semicolons last. Single ASCII space is
+ * always a fallback boundary handled separately.
+ */
+const HEADLINE_CLAUSE_BOUNDARIES = [
+    ': ',
+    ' — ',
+    ' – ',
+    '. ',
+    '; ',
+];
 /** Localized labels used to enrich short or duplicate-prone meta descriptions. */
 const SEO_CONTEXT_LABELS = {
     en: {
@@ -590,6 +615,21 @@ export function truncateDescription(text) {
 export function truncateTitle(text) {
     if (text.length <= TITLE_MAX_LENGTH)
         return text;
+    // Prefer ending at a natural clause boundary inside the
+    // `[HEADLINE_SOFT_MIN, TITLE_MAX_LENGTH]` window so the truncated
+    // title reads as a complete journalistic clause rather than a
+    // mid-sentence prose snippet. Iterate boundaries in priority order;
+    // when a candidate falls in the window, break there and drop the
+    // ellipsis since the result is grammatically complete.
+    const search = text.slice(0, TITLE_MAX_LENGTH);
+    for (const boundary of HEADLINE_CLAUSE_BOUNDARIES) {
+        const idx = search.lastIndexOf(boundary);
+        if (idx >= HEADLINE_SOFT_MIN) {
+            const clean = stripTrailingStopWordsAndPunctuation(text.slice(0, idx));
+            if (clean.length >= HEADLINE_SOFT_MIN)
+                return clean;
+        }
+    }
     const cut = text.slice(0, TITLE_MAX_LENGTH - 1);
     const lastSpace = cut.lastIndexOf(' ');
     let safe = lastSpace > TITLE_MAX_LENGTH - 40 ? cut.slice(0, lastSpace) : cut;
