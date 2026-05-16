@@ -1,0 +1,190 @@
+{
+  "articleType": "breaking",
+  "runId": "breaking-run255-1778894853",
+  "date": "2026-05-16",
+  "dataMode": "degraded-feeds",
+  "createdAt": "2026-05-16T00:00:00Z",
+  "history": [
+    {
+      "runId": "breaking-run255-1778894853",
+      "timestamp": "2026-05-16T00:00:00Z",
+      "pass": 2,
+      "artifactCount": 39,
+      "rewriteCount": 39,
+      "dataMode": "degraded-feeds",
+      "gateResult": null
+    }
+  ],
+  "files": {
+    "executive-brief": [
+      "executive-brief.md"
+    ],
+    "data-availability-assessment": [
+      "data-availability-assessment.md"
+    ],
+    "synthesis-summary": [
+      "intelligence/synthesis-summary.md"
+    ],
+    "coalition-dynamics": [
+      "intelligence/coalition-dynamics.md"
+    ],
+    "economic-context": [
+      "intelligence/economic-context.md"
+    ],
+    "economic-context-fallback": [
+      "intelligence/economic-context.fallback.md"
+    ],
+    "pestle-analysis": [
+      "intelligence/pestle-analysis.md"
+    ],
+    "stakeholder-map": [
+      "intelligence/stakeholder-map.md"
+    ],
+    "scenario-forecast": [
+      "intelligence/scenario-forecast.md"
+    ],
+    "threat-model": [
+      "intelligence/threat-model.md"
+    ],
+    "wildcards-blackswans": [
+      "intelligence/wildcards-blackswans.md"
+    ],
+    "historical-baseline": [
+      "intelligence/historical-baseline.md"
+    ],
+    "significance-scoring": [
+      "intelligence/significance-scoring.md"
+    ],
+    "political-threat-landscape": [
+      "intelligence/political-threat-landscape.md"
+    ],
+    "voting-patterns-degraded": [
+      "intelligence/voting-patterns.degraded.md"
+    ],
+    "workflow-audit": [
+      "intelligence/workflow-audit.md"
+    ],
+    "mcp-reliability-audit": [
+      "intelligence/mcp-reliability-audit.md"
+    ],
+    "cross-session-intelligence": [
+      "intelligence/cross-session-intelligence.md"
+    ],
+    "cross-run-diff": [
+      "intelligence/cross-run-diff.md"
+    ],
+    "analysis-index": [
+      "intelligence/analysis-index.md"
+    ],
+    "procedures-proxy": [
+      "intelligence/procedures-proxy.md"
+    ],
+    "reference-analysis-quality": [
+      "intelligence/reference-analysis-quality.md"
+    ],
+    "methodology-reflection": [
+      "intelligence/methodology-reflection.md"
+    ],
+    "risk-matrix": [
+      "risk-scoring/risk-matrix.md"
+    ],
+    "quantitative-swot": [
+      "risk-scoring/quantitative-swot.md"
+    ],
+    "document-analysis-index": [
+      "documents/document-analysis-index.md"
+    ],
+    "significance-classification": [
+      "classification/significance-classification.md"
+    ],
+    "extended-executive-brief": [
+      "extended/executive-brief.md"
+    ],
+    "devils-advocate-analysis": [
+      "extended/devils-advocate-analysis.md"
+    ],
+    "historical-parallels": [
+      "extended/historical-parallels.md"
+    ],
+    "coalition-mathematics": [
+      "extended/coalition-mathematics.md"
+    ],
+    "forward-indicators": [
+      "extended/forward-indicators.md"
+    ],
+    "intelligence-assessment": [
+      "extended/intelligence-assessment.md"
+    ],
+    "implementation-feasibility": [
+      "extended/implementation-feasibility.md"
+    ],
+    "media-framing-analysis": [
+      "extended/media-framing-analysis.md"
+    ],
+    "comparative-international": [
+      "extended/comparative-international.md"
+    ],
+    "voter-segmentation": [
+      "extended/voter-segmentation.md"
+    ],
+    "cross-reference-map": [
+      "extended/cross-reference-map.md"
+    ],
+    "data-download-manifest": [
+      "extended/data-download-manifest.md"
+    ],
+    "actor-mapping": [
+      "classification/actor-mapping.md"
+    ],
+    "forces-analysis": [
+      "classification/forces-analysis.md"
+    ],
+    "impact-matrix": [
+      "classification/impact-matrix.md"
+    ]
+  },
+  "topStories": [
+    {
+      "id": "TA-0161",
+      "title": "Ukraine Accountability Framework",
+      "significance": "HIGH"
+    },
+    {
+      "id": "TA-0160",
+      "title": "Digital Markets Act Enforcement",
+      "significance": "HIGH"
+    },
+    {
+      "id": "TA-0112",
+      "title": "Budget Guidelines 2027",
+      "significance": "MEDIUM-HIGH"
+    },
+    {
+      "id": "TA-0162",
+      "title": "Armenia Resilience",
+      "significance": "MEDIUM"
+    },
+    {
+      "id": "TA-0157",
+      "title": "Livestock Sustainability",
+      "significance": "MEDIUM"
+    },
+    {
+      "id": "TA-0163",
+      "title": "Online Exploitation",
+      "significance": "MEDIUM"
+    },
+    {
+      "id": "TA-0105",
+      "title": "Jaki Immunity",
+      "significance": "LOW"
+    }
+  ],
+  "economicContext": {
+    "source": "IMF WEO April 2026",
+    "euGDP2026": 1.4,
+    "euroAreaGDP2026": 1.2,
+    "euHICP": 2.3,
+    "ecbDepositRate": 2.25
+  }
+}

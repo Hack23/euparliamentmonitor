@@ -1,0 +1,1 @@
+{"riskLevel":"MEDIUM","stabilityScore":84,"warnings":[{"type":"HIGH_FRAGMENTATION","severity":"MEDIUM"},{"type":"DOMINANT_GROUP_RISK","severity":"HIGH"},{"type":"SMALL_GROUP_QUORUM_RISK","severity":"LOW"}],"computedAttributes":{"criticalWarnings":0,"highWarnings":1}}
