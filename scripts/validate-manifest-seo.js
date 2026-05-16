@@ -183,6 +183,13 @@ export function detectForbiddenPrefix(value) {
  * to weight CJK characters as 2× their raw codepoint count, so that
  * length floors expressed for Latin scripts still admit legitimately
  * shorter CJK editorial payloads.
+ *
+ * Ranges:
+ *   - `\u3040-\u30ff` — Hiragana + Katakana
+ *   - `\u3400-\u4dbf` — CJK Unified Ideographs Extension A
+ *   - `\u4e00-\u9fff` — CJK Unified Ideographs (main block)
+ *   - `\uac00-\ud7af` — Hangul Syllables
+ *   - `\uff00-\uffef` — Halfwidth and Fullwidth Forms
  */
 const CJK_RE =
   /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uac00-\ud7af\uff00-\uffef]/u;

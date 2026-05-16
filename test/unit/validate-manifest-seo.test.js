@@ -135,6 +135,8 @@ describe('effectiveTextLength', () => {
   it('weights CJK characters as 2', () => {
     // '银行联盟协议考验EPP与S&D纪律' — 11 CJK chars + 6 ASCII = 11*2 + 6 = 28.
     const value = '银行联盟协议考验EPP与S&D纪律';
+    // Self-document the underlying character count assumption.
+    expect([...value].length).toBe(17);
     expect(effectiveTextLength(value)).toBe(28);
   });
   it('weights Hiragana/Katakana/Hangul as 2', () => {

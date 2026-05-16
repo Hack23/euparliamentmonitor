@@ -137,7 +137,10 @@ function readArtefactBody(abs: string): string {
 }
 
 /**
- * Locate the line index of the first `-->` at or after `start`.
+ * Locate the line index of the first line that ends with `-->` at or
+ * after `start`. The terminator must appear at end-of-line (after a
+ * trim) so an inline `-->` embedded in editorial prose cannot be
+ * mis-read as the close of an SPDX preamble block.
  *
  * @param lines - File lines being scanned (read-only)
  * @param start - Line index where the unterminated `<!--` was seen
@@ -145,7 +148,7 @@ function readArtefactBody(abs: string): string {
  */
 function findCommentClose(lines: readonly string[], start: number): number {
   for (let j = start; j < lines.length; j++) {
-    if ((lines[j] ?? '').includes('-->')) return j;
+    if ((lines[j] ?? '').trimEnd().endsWith('-->')) return j;
   }
   return -1;
 }
