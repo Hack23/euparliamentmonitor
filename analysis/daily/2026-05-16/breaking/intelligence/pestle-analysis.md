@@ -201,3 +201,51 @@ past the 2026 election cycle in multiple member states.
 
 The ETS carbon price (est. €65-70/tonne Q1 2026, up from €45 in 2023) is providing market-based
 decarbonization incentives that partially compensate for the absence of binding EP mandates.
+
+### Legal (Extended — IMF Dimension)
+
+The April 2026 EP session operates in a dense legal context shaped by several concurrent
+treaty and regulatory frameworks:
+
+**DMA Legal Architecture:**
+The DMA is a directly applicable EU regulation (Article 288 TFEU) — unlike EP resolutions,
+its provisions create directly enforceable rights for business users against gatekeepers.
+The TA-0160 resolution requests Commission enforcement, but the legal mechanism (periodic
+payments, periodic penalty payments, structural remedies) derives entirely from the DMA
+text itself. EP's role is political pressure, not legal authority.
+IMF connection: IMF legal counsel opinions on trade remedy law will inform whether DMA
+structural remedies (divestiture) are consistent with WTO Article XVII commitments on
+national treatment for foreign companies.
+
+**Ukraine Accountability Legal Architecture:**
+The proposed Special Tribunal for the Crime of Aggression requires establishing a new
+international legal instrument. Three legal theories are in competition:
+1. ICC Protocol amendment — requires 2/3 member state ratification (slow, uncertain)
+2. UN General Assembly subsidiary organ (Ferencz Model) — requires UNGA resolution (feasible)
+3. Council of Europe convention-based hybrid tribunal (most practical near-term option)
+EP resolution endorses option 3 implicitly. IMF legal framework for asset seizure is the
+parallel track — seizure requires a separate UN-backed or G7-coordinated legal instrument.
+
+**Budget 2027 Legal Framework:**
+Article 314 TFEU provides the constitutional framework for the annual budget procedure.
+Key legal constraints: MFF regulation caps total budget spending at 1.10% of EU GNI
+(commitment appropriations). EP cannot exceed this cap through amendments — it can only
+redistribute within the envelope. This legal ceiling is the primary constraint on EP's
+budget ambitions relative to its political goals.
+
+### Summary PESTLE Matrix
+
+| Factor | Signal | Intensity | Direction |
+|--------|--------|-----------|-----------|
+| Political | Coalition Delta stable | HIGH | ↗ Positive |
+| Economic | EU GDP 1.4%; HICP 2.3% | MEDIUM | → Neutral |
+| Social | Farmer unrest; digital citizens' rights | MEDIUM | ↗ Complex |
+| Technological | DMA enforcement; AI Act implementation | HIGH | ↗ Positive |
+| Legal | Asset seizure; DMA enforcement | HIGH | → Complex |
+| Environmental | Livestock methane; ETS carbon price | MEDIUM | ↗ Progressive |
+
+*PESTLE analysis extended: 2026-05-16. IMF WEO April 2026 cited. Admiralty Grade: B2.*
+
+*Cross-references: intelligence/economic-context.md (E), intelligence/threat-model.md (P+L),
+intelligence/coalition-dynamics.md (P), intelligence/historical-baseline.md (P+L).*
+*PESTLE analysis complete: Run 3, 2026-05-16.*

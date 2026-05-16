@@ -126,3 +126,43 @@ graph TD
 - **Pass 2 extensions:** 15+ artifacts extended
 - **Placeholder markers cleared:** All
 
+
+## Run 3 Extension Summary (2026-05-16)
+
+This run (Run 3) applied the improve/extend protocol to all prior-run artifacts.
+The following artifacts were extended or rewritten:
+
+### Carryforward Extensions (prior lines → new lines)
+- `classification/actor-mapping.md`: 205L → extended to 225+L (+20)
+- `classification/forces-analysis.md`: 244L → extended to 264+L (+20)
+- `classification/impact-matrix.md`: 203L → extended to 223+L (+20)
+- `intelligence/political-threat-landscape.md`: 144L → 176L (+32, PT5/PT6 added)
+- `intelligence/significance-scoring.md`: 113L → 149L (+36, secondary analysis + chart)
+- `intelligence/coalition-dynamics.md`: 117L → 150L (+33, competitive index added)
+
+### Rewrite completions (floor satisfied)
+- `executive-brief.md`: 145L → 183L (IMF macro section)
+- `extended/coalition-mathematics.md`: 162L → 207L (scenario modeling + quadrant chart)
+- `extended/comparative-international.md`: 162L → 219L (IMF data tables)
+- `extended/cross-reference-map.md`: 123L → 152L (run 3 dependency matrix)
+- `extended/data-download-manifest.md`: 138L → 176L (run 3 provenance)
+- `extended/devils-advocate-analysis.md`: 201L → 255L (counter-args 4+5)
+- `extended/executive-brief.md`: 164L → 186L (IMF alignment)
+- `extended/forward-indicators.md`: 145L → 187L (event calendar + IMF indicators)
+- `extended/historical-parallels.md`: 177L → 220L (parallels 6+7)
+- `extended/implementation-feasibility.md`: 161L → 209L (pathways analysis)
+- `extended/intelligence-assessment.md`: 179L → 221L (OSINT signals)
+- `extended/media-framing-analysis.md`: 218L → 275L (social media + visibility map)
+- `extended/voter-segmentation.md`: 176L → 216L (micro-level matrix + Eurobarometer)
+
+## Total Artifact Quality Summary
+
+**Current run artifact line counts (selected):**
+- intelligence/stakeholder-map.md: 246L (target 305L — needs further extension)
+- intelligence/scenario-forecast.md: 225L (target 280L — needs extension)
+- intelligence/wildcards-blackswans.md: 222L (target 275L — needs extension)
+- intelligence/pestle-analysis.md: 204L (target 250L — needs extension)
+- intelligence/threat-model.md: 219L (target 250L — needs extension)
+- intelligence/mcp-reliability-audit.md: 309L (target 385L — needs extension)
+
+*Run 3 analysis index updated: 2026-05-16. Total runs completed on this date: 3.*

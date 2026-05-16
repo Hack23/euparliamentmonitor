@@ -168,3 +168,52 @@ outcomes are banking political capital for those negotiations — establishing p
 and expectations that constrain the 2027 outcome in EP-favourable directions.
 
 Admiralty Grade: B2 — Synthesised from confirmed EP legislative outputs + IMF data.
+
+## Run 3 Synthesis Update
+
+### IMF Economic Integration Assessment
+
+The synthesis is strengthened by IMF macro context. April 2026 EP legislative outputs
+collectively address three of the four IMF-identified EU structural weaknesses:
+1. ✅ **Digital competitiveness gap** (Draghi Report, IMF endorsed) → addressed by DMA enforcement
+2. ✅ **Defense investment gap** (REARM Europe, IMF noted) → addressed by Budget 2027 guidelines
+3. ⚠️ **Fiscal fragmentation** (capital markets union) → NOT addressed in April 2026 session
+4. ✅ **Geopolitical stability investment** (Ukraine support) → addressed by TA-0161
+
+The unaddressed CMU gap is the single most important omission from the April 2026 session
+relative to IMF recommendations. CMU legislation requires ECOFIN leadership (not EP), but
+EP could initiate an own-initiative resolution to pressure Commission. The absence of any
+CMU signal in April 2026 is a strategic gap.
+
+### Cross-Theme Interaction Matrix
+
+| Theme | DMA | Ukraine | Budget | Livestock | Risk |
+|-------|-----|---------|--------|-----------|------|
+| DMA Enforcement | — | Neutral | Positive | Neutral | Moderate |
+| Ukraine Support | Neutral | — | Tension | Neutral | Moderate |
+| Budget 2027 | Positive | Tension | — | Complex | Low |
+| Livestock Sustainability | Neutral | Neutral | Complex | — | Low |
+
+**Key interactions:**
+- DMA + Budget 2027: Both reference Draghi competitiveness agenda — mutually reinforcing
+- Ukraine + Budget: Defense spending (EDIP) in budget guidelines partly Ukraine-driven
+- Ukraine + Budget: Tension over conditionality vs speed of fund release
+- Budget + Livestock: Just Transition fund envelope insufficient for both goals
+
+### Strategic Synthesis Conclusion
+
+The April 2026 EP session was the most productive non-emergency session of EP10 to date.
+The combination of geopolitical (Ukraine), regulatory (DMA), fiscal (Budget), and
+sectoral (Livestock, Armenia) outputs covers the full spectrum of EU strategic priorities.
+The Coalition Delta (530 seats) demonstrated institutional cohesion across all major votes.
+
+The three critical success factors for these legislative outputs to achieve their intended
+impact by end-2026:
+1. **Commission enforcement will** (June 2026 DMA calendar) — external to EP control
+2. **Ukraine governance cooperation** (Q3 2026 milestone verification) — geopolitically uncertain
+3. **Council budget flexibility** (September 2026 position) — domestically contested
+
+All three are achievable but none are certain. IMF's baseline scenario (EU 1.4% growth)
+assumes all three proceed without major disruption. Downside scenarios require contingency.
+
+*Synthesis updated: Run 3, 2026-05-16. Admiralty Grade: B2.*

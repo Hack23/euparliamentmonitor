@@ -158,3 +158,52 @@ member state compliance is the variable requiring ongoing monitoring.
 **Overall recommendation:** Maintain implementation monitoring focus on DMA enforcement and Ukraine accountability — these two dossiers will determine whether the April 2026 EP session is remembered as a legislative success or a political aspiration.
 
 *Next monitoring update due: June 2026 after Commission DMA calendar release.*
+
+## Detailed Feasibility Pathway Analysis
+
+### DMA Enforcement Implementation Pathway
+
+**Step 1 — Commission enforcement calendar (June 2026):** Commission must publish enforcement
+decision timelines for Apple (interoperability), Google (search ranking), and Meta (advertising).
+Feasibility: 🟢 HIGH — institutional obligation; Commission DG COMP has 120-person DMA team.
+
+**Step 2 — Non-compliance decisions (Q3-Q4 2026):** If gatekeepers fail to comply with
+interoperability/self-preferencing obligations, Commission can issue up to 10% global turnover
+fines. Feasibility: 🟡 MEDIUM — legal challenge risk; Apple and Google have already initiated
+appeals in CJEU. Timeline uncertainty of 18-36 months for final resolution.
+
+**Step 3 — Periodic payments enforcement (ongoing):** DMA allows daily penalty accumulation
+for continued non-compliance. Feasibility: 🟢 HIGH — automated via DG COMP monitoring systems.
+
+**Critical path constraint:** Article 26 DMA enables "structural remedies" (forced divestiture)
+only if repeated non-compliance is proven. This 3-5 year timeline is incompatible with EP's
+urgency demand. Structural remedy is not a realistic short-term outcome despite EP language.
+
+### Ukraine Accountability Implementation Pathway
+
+**Step 1 — Asset seizure legal framework (Q3-Q4 2026):** Council must pass a new EU regulation
+enabling full asset seizure beyond interest use. Requires qualified majority (possible with
+current composition) but faces legal challenge risk from third-country-reciprocity arguments.
+
+**Step 2 — Special Tribunal negotiations (2026-2027):** Establishing the hybrid ICC/ILC
+tribunal requires UN General Assembly resolution and treaty ratification by 60+ states.
+Current count: 43 endorsements. Feasibility: 🟡 MEDIUM — needs 17 more state ratifications.
+
+**Step 3 — Milestone verification launch (Q2-Q3 2026):** Ukrainian government must
+demonstrate compliance with anti-corruption conditions for the next Ukraine Facility tranche.
+IMF Article IV review (due July 2026) will serve as independent verification benchmark.
+
+### Budget 2027 Implementation Pathway
+
+Under Article 314 TFEU:
+1. Commission draft budget: June 15, 2026 (statutory deadline)
+2. Council first reading position: late September 2026
+3. EP first reading: October 2026 (42-day rule)
+4. Conciliation committee: November 2026 (21 days)
+5. EP final vote: December 2026 (14 days)
+
+**Feasibility constraint:** If EP and Council disagree after conciliation, 12-month provisional
+twelfths rule applies. This creates EP leverage but real-world disruption to EU programs.
+Historical frequency: EP has used budget rejection once (1979); threat alone usually delivers.
+
+*Feasibility pathways: 2026-05-16. IMF context: EU 1.4% GDP growth baseline (WEO April 2026).*

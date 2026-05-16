@@ -159,3 +159,32 @@ stronger US government pressure. GDPR fines were large but did not threaten US f
 presence in EU market. DMA gatekeeper designation + structural remedy could do so.
 
 Admiralty Grade: A2 — Historical analogy well-supported; forward projection = analyst assessment.
+
+## Precedent 4: EP Budget Leverage History — Treaty-Based Veto (1979-2026)
+
+**Historical pattern:**
+- **1979:** First directly elected EP rejected the 1979 draft budget — tested Parliament's
+  new budgetary powers under the 1970 Budget Treaty. Council eventually conceded; precedent
+  established that EP rejection is credible, not merely rhetorical.
+- **1985:** EP invoked legal action against Council for budget underfunding of Structural Funds.
+  CJEU ruled in EP's favor — establishing that EP budget rights are judicially enforceable.
+- **1999-2000:** EP's rejection of the Commission (Santer) and its implication for budget
+  approval demonstrated that parliamentary accountability and budget power are interlocking.
+- **2010-2013:** MFF negotiations — EP refused to approve 2014-2020 MFF until conditionality
+  provisions were strengthened. Result: €6 billion additional EP-priority programs.
+- **2020-2021:** MFF/RRF negotiations — EP conditioned MFF consent on rule-of-law mechanism.
+  Council conceded; Hungary and Poland's Eurosceptic vetoes were rendered ineffective.
+
+**April 2026 Budget Guidelines (TA-0112) historical position:**
+The April 2026 budget guidelines are the formal opening move in this established bargaining
+pattern. History suggests EP will receive 60-70% of its stated priorities in final agreement.
+The Draghi competitiveness agenda, defense investment, and climate transition are all
+well-positioned relative to historical precedent. The 2027 budget outcome is likely
+to be a modest EP win — not a transformational shift in EU spending architecture.
+
+**IMF comparative note:** IMF has consistently supported stronger EU fiscal capacity
+since the 2012 'whatever it takes' period. The April 2026 WEO explicitly supports
+EU-level investment in digital infrastructure and climate transition — providing
+external legitimacy for EP's budget priority framework.
+
+*Historical baseline updated: 2026-05-16. Admiralty Grade: A2.*

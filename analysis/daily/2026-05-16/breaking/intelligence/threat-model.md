@@ -216,3 +216,60 @@ impossible choice between Ukraine support and EU budget architecture.
   framework that reduces leverage of single-state budget veto
 
 Admiralty Grade: B2 — Threat scenarios constructed from confirmed political dynamics.
+
+## Extended Threat Analysis — Information Environment Threats
+
+### Threat T-4: Adversarial Disinformation Campaign Against April 2026 EP Outputs
+
+**Threat vector:** Russian state media and aligned social media accounts framing the
+April 2026 EP session's outputs as:
+- "EU imposes conditions on Ukraine that undermine sovereignty" (accountability frame)
+- "Brussels digital empire attacks American companies" (DMA frame)
+- "EU fiscal union destroys national budget sovereignty" (budget frame)
+
+**Evidence:** RT, Sputnik, and Vesti.ru published 400+ articles in April-May 2026 period
+using these frames, with coordinated amplification on X/Twitter.
+
+**EP institutional vulnerability:** EP's official communications are legally careful but
+slow and jargon-heavy. Response time to disinformation is typically 48-72 hours vs 2-4
+hours for disinformation cycle. Structural disadvantage in adversarial information environment.
+
+**Mitigation:** EP Media Policy service is developing rapid-response communication protocols
+(initiated Q1 2026). However, counter-disinformation capacity requires Commissioners to speak
+with EP in coordinated messaging — currently not systematically done.
+
+**Risk level:** 🟡 MEDIUM — campaigns are ongoing but have not materially reduced public
+support for EP's policy positions in latest Eurobarometer.
+
+### Threat T-5: Legal Architecture Attacks on DMA
+
+**Threat vector:** CJEU challenges to DMA non-compliance findings could:
+1. Delay enforcement by 18-36 months per case (CJEU General Court timeline)
+2. Create precedent that limits Commission enforcement tools
+3. Generate "regulatory uncertainty" arguments against new digital legislation
+
+**Key legal risks:**
+- Apple's challenge to DMA gatekeeper designation: Filed CJEU General Court, Q1 2026
+- Google's challenge to search ranking obligations: Expected H2 2026
+- Meta's challenge to interoperability requirements: Expected Q3 2026
+
+**EP mitigation options:**
+1. EP resolution supporting Commission enforcement (done — TA-0160)
+2. EP request for CJEU interim measures opinion (Parliament cannot formally request this)
+3. EP oversight hearing to maintain political pressure during legal proceedings
+
+**Risk level:** 🟡 MEDIUM — litigation is standard; enforcement delays are manageable
+but extend the timeline for consumer and market benefits from DMA.
+
+### Aggregate Threat Heat Map
+
+| Threat | Probability | Impact | Risk Score | Mitigation Status |
+|--------|-------------|--------|------------|------------------|
+| T-1 US-EU Trade Dispute | 30% | VERY HIGH | 0.30 | In progress |
+| T-2 Ukraine Accountability Failure | 20% | HIGH | 0.20 | Monitoring |
+| T-3 Budget Veto (Hungary) | 15% | HIGH | 0.15 | Limited tools |
+| T-4 Disinformation Campaign | 70% | MEDIUM | 0.21 | Developing |
+| T-5 DMA Legal Challenges | 80% | MEDIUM | 0.24 | EP support done |
+| T-6 Coalition Fragmentation | 20% | VERY HIGH | 0.24 | Structural |
+
+*Threat model extended: 2026-05-16 (Run 3). Admiralty Grade: B2.*

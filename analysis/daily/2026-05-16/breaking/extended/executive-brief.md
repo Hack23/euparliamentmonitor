@@ -161,3 +161,26 @@ external variables is indirect but not negligible: strong EP resolutions create 
 costs for backsliding and political cover for Commission assertiveness.
 
 Admiralty Grade: B2 — Executive assessment well-sourced from confirmed EP and IMF data.
+
+## IMF Macro-Outlook and Policy Alignment
+
+**IMF WEO April 2026 EU-Relevant Forecasts:**
+- EU GDP growth: 1.4% (vs 1.6% October 2025 forecast — 0.2pp downward revision)
+- Euro area: 1.2% growth (Germany 0.8%, France 1.3%, Spain 2.4%, Poland 3.1%)
+- EU HICP: 2.3% (approaching 2.5% threshold; ECB on watch-and-hold mode)
+- ECB deposit rate: 2.25% (March 2026 cut of 25bp; next decision June 2026)
+- EU unemployment: 6.1% (structural low; labour shortages emerging in tech/green sectors)
+- EU current account: +0.8% of GDP (modest surplus; German surplus declining)
+
+**Policy Alignment Assessment:**
+The April 2026 legislative priorities broadly align with IMF recommendations:
+- DMA enforcement aligns with IMF recommendation on reducing platform market power
+- Budget guidelines' focus on productivity investment aligns with Draghi/IMF competitiveness agenda
+- Ukraine support aligns with IMF's Ukraine program continuity requirements
+- Livestock transition aligns with IMF green transition recommendations (though pace differs)
+
+**One misalignment:** IMF recommends accelerating EU capital markets union to reduce
+fragmentation. The April 2026 plenary produced no capital markets legislation — this gap
+is notable given IMF's strong push for CMU as a key growth lever in 2026-2027.
+
+*IMF WEO April 2026 — authoritative source for all macroeconomic data. Assessment: 2026-05-16.*

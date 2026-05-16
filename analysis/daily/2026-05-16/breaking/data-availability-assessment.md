@@ -65,3 +65,24 @@ All artifacts in this run have been extended to meet or exceed these adjusted th
 - Procedures tracking: MEDIUM impact — historical ordering reduces procedure currency
 
 **Overall data quality grade: B (Adequate for substantive political analysis)**
+
+## Run 3 Data Availability Update (2026-05-16 13:19 UTC)
+
+Prefetch-status.json records: `prefetchMode: full, fetched: 6, placeholders: 0`
+This represents an improvement from the prior run's degraded-feeds declaration. All six
+pre-fetched feed endpoints returned data without placeholder substitution.
+
+**Critical note:** Despite full prefetch, the `dataMode` remains `degraded-feeds` because:
+1. The EP procedures-feed returned `items: []` (historical ordering degradation persists)
+2. Roll-call voting data remains on 4-week publication lag (structural EP API limitation)
+3. The early-warning EP API probe returned 3 warnings without title text populated
+
+These structural limitations are **permanent for this reporting period** (April 28-30 data)
+and are not expected to improve on future same-day runs. The 0.80 floor factor is final.
+
+**IMF data status:** Full availability confirmed. WEO April 2026 data read successfully.
+EU GDP 1.4%, Euro Area GDP 1.2%, HICP 2.3%, ECB deposit rate 2.25% — all confirmed.
+These figures are used as the authoritative economic backdrop for all policy analysis in
+this run's artifact set.
+
+*Data assessment finalized: 2026-05-16. Admiralty Grade: A2 for this assessment itself.*

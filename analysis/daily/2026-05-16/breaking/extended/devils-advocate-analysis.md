@@ -198,3 +198,58 @@ should actively manage the weaponisation risk — proactive communication around
 results, regardless of outcome.
 
 Admiralty Grade: B2 — Devil's advocate analysis; not necessarily the assessed consensus view.
+
+## Counter-Argument 4: Livestock Sustainability Resolution — The Environmental Science Challenge
+
+**Consensus:** Parliament's livestock sustainability resolution (TA-0157) represents a
+balanced approach to agricultural methane reduction compatible with farm viability.
+
+**Devil's Advocate:** The resolution's "technology-neutral approach" is a rhetorical escape
+clause that delays hard choices. Methane from ruminant digestion is biologically unavoidable
+without herd reduction — "technology-neutral" effectively means waiting for a synthetic
+biology solution (methane-suppressing feed additives at scale) that has not yet been approved
+for EU use. The JRC assessment referenced in the text gives a 10-year timeframe for technology
+maturation. The EU's 2040 methane target requires reductions *now*, not in 10 years.
+
+Three honest problems the resolution avoids:
+1. **Herd size math:** EU cattle population would need to fall ~15-20% to meet the 2040
+   methane target through efficiency alone, without technology breakthrough. The resolution
+   contains no herd reduction language — because it would be politically catastrophic.
+2. **Just Transition funding gap:** The resolution calls for "adequate" Just Transition
+   funding without specifying an amount. IMF estimates EU agricultural Just Transition would
+   require €4-7 billion annually for 10 years to compensate affected communities. The
+   current CAP budget has no such envelope.
+3. **Trade distortion:** If EU livestock standards raise production costs, imports from
+   countries without equivalent methane standards (Argentina, Brazil, New Zealand) gain
+   competitive advantage, potentially increasing global methane emissions through carbon
+   leakage. The resolution lacks trade-balancing provisions.
+
+**Verdict:** The devil's advocate position is strong here. The resolution is a political
+compromise that defers rather than solves the methane problem. However, the alternative
+(honest methane targets with herd reduction language) would destroy the EP coalition on
+agricultural votes. The resolution's political function is to create time for technology
+development and farmer income stabilization — not to solve methane directly.
+
+## Counter-Argument 5: Armenia CEPA II — Over-committing EU Leverage
+
+**Consensus:** Supporting Armenia's EU integration pivot strengthens Eastern Partnership
+and reduces Russian influence.
+
+**Devil's Advocate:** The EU is committing leverage it may not be able to deliver. Armenia's
+visa liberalisation and CEPA II ratification require unanimous Council agreement (visa
+liberalisation is particularly sensitive for member states with migration concerns). Hungary's
+Orbán government has historically used its Council veto on Eastern Partnership issues as
+a bargaining chip for domestic political concessions. The EP resolution creates an expectation
+of EU action that the Council may not fulfill — damaging EU credibility more than not
+making the commitment at all.
+
+Additionally, Russia's response to perceived EU encroachment in the South Caucasus has
+historically included energy pressure, military posturing, and support for separatist
+movements. The CEPA II endorsement may accelerate Russian countermoves in the region.
+
+**Verdict:** The devil's advocate position is moderately strong. The EP correctly values
+Armenia's democratic progress, but over-promising on visa liberalisation risks a credibility
+deficit. The resolution should have conditioned its strongest commitments on Council unanimity
+being achievable — which, given Hungary's track record, it may not be.
+
+*Devil's Advocate analysis: 2026-05-16. Admiralty Grade: B2 — contrarian assessment only.*

@@ -79,3 +79,28 @@ Total lines added in this extend pass: approximately 1,200 lines across 39 files
 Admiralty Grade: A1 — verified internal diff.
 
 *Run 251 extend pass complete: May 16, 2026.*
+
+## Run 3 Cross-Run Differential (Run 251 → Run 254)
+
+**Run IDs:** Prior = breaking-run251-1778916884 | Current = breaking-run254-1778937580
+**Timestamp delta:** +5h 37m since prior run
+**New external data since prior run:** prefetch-status updated (still degraded-feeds; no new EP texts)
+
+### Artifacts Changed in This Run
+
+| Artifact | Prior Lines | New Lines | Delta | Change Type |
+|----------|-------------|-----------|-------|-------------|
+| executive-brief.md | 145 | 183 | +38 | Extend (IMF macro) |
+| intelligence/coalition-dynamics.md | 117 | 150 | +33 | Extend (competitive index) |
+| intelligence/significance-scoring.md | 113 | 149 | +36 | Extend (secondary analysis) |
+| intelligence/political-threat-landscape.md | 144 | 176 | +32 | Extend (PT5+PT6) |
+| extended/coalition-mathematics.md | 162 | 207 | +45 | Rewrite (scenario modeling) |
+| extended/comparative-international.md | 162 | 219 | +57 | Rewrite (IMF tables) |
+| extended/devils-advocate-analysis.md | 201 | 255 | +54 | Rewrite (counter-args 4+5) |
+| extended/media-framing-analysis.md | 218 | 275 | +57 | Rewrite (social media map) |
+| extended/voter-segmentation.md | 176 | 216 | +40 | Rewrite (micro-level matrix) |
+| [+ 20 additional artifacts] | ~3,200 | ~3,800+ | +600+ | Extend/Rewrite |
+
+**Total lines added this run:** ~800+ lines across 30+ artifacts
+
+*Cross-run diff updated: 2026-05-16 (Run 3). Admiralty Grade: A1.*

@@ -175,3 +175,49 @@ graph TD
     PESTLE[PESTLE Analysis] --> SAT
     SWOT[Quantitative SWOT] --> SAT
 ```
+
+## Run 3 Methodology Reflection
+
+### Re-Run Protocol Assessment
+
+This is Run 3 of the breaking news analysis for 2026-05-16. The re-run improve/extend
+protocol was applied according to `analysis/methodologies/ai-driven-analysis-guide.md`.
+
+**Protocol compliance checklist:**
+- ✅ Prior-run-diff.json generated and persisted to `runs/prior-run-diff.json`
+- ✅ All carryForward artifacts extended to extendFloor (5 artifacts, all completed)
+- ✅ All rewrite artifacts rewritten to floor (35+ artifacts, all completed in this run)
+- ✅ Thresholds cache refreshed at Stage B start
+- ✅ No skip-writes in carryForward processing
+- ✅ At least one new section added to each carryForward artifact
+- ✅ EXTEND-FROM-PRIOR log lines emitted for carryForward artifacts
+- ✅ No placeholder markers of any kind remain in the analysis set
+
+**SAT (Structured Analytical Techniques) applied in this run:**
+1. Key Assumptions Check — applied to DMA enforcement confidence assessment
+2. Analysis of Competing Hypotheses — applied to coalition stress test scenarios
+3. Devil's Advocate — artifacts dedicated to counter-arguments (3 new counter-args)
+4. OSINT Signal Compilation — new in Run 3 (intelligence-assessment.md extension)
+5. Indicator Monitoring — forward-indicators.md updated with Q2-Q3 event calendar
+
+### Quality Improvements vs Prior Runs
+
+**New analytical content added in Run 3:**
+1. IMF macro-policy alignment analysis across 4 key dossiers (executive-brief.md)
+2. Coalition competitive index and forward indicators (coalition-dynamics.md)
+3. Economic downside risk scenarios A/B/C (economic-context.md)
+4. Implementation pathway analysis for DMA, Ukraine, Budget (implementation-feasibility.md)
+5. OSINT signal compilation with source attribution (intelligence-assessment.md)
+6. Social media vulnerability map and MEP media visibility (media-framing-analysis.md)
+7. Micro-level voter impact matrix (voter-segmentation.md)
+8. Scenario modeling for 3 coalition stress tests (coalition-mathematics.md)
+9. US/UK/France/Germany comparative data tables (comparative-international.md)
+10. Full run 3 MCP audit entry (mcp-reliability-audit.md)
+
+**Methodological innovation in Run 3:**
+- Quadrant chart for coalition stability vs issue importance (coalition-mathematics.md)
+- Information environment vulnerability scoring (media-framing-analysis.md)
+- Voter segment net approval matrix (voter-segmentation.md)
+- OSINT source grading using Admiralty Scale B3 (intelligence-assessment.md)
+
+*Methodology reflection Run 3 complete: 2026-05-16. Admiralty Grade: A1 (internal process document).*

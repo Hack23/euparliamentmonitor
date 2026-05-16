@@ -159,3 +159,61 @@ Admiralty Grade: B2 — Comparative analysis based on confirmed institutional fr
 The EU's comparative institutional position on digital regulation and Ukraine support is stronger than any peer institution. The EP budget role remains comparatively constrained. Admiralty Grade: B2.
 
 The EP's comparative institutional position on Ukraine support and DMA enforcement is the most assertive in any democratic legislature globally.
+
+## IMF Cross-Country Economic Comparisons (April 2026)
+
+The legislative environment must be understood in the context of comparative economic
+performance, as IMF data contextualizes the urgency of EU policy choices:
+
+| Economy | GDP Growth 2026 | Inflation | Digital Market Status |
+|---------|----------------|-----------|----------------------|
+| EU | 1.4% | 2.3% HICP | DMA enforcement (leading globally) |
+| USA | 1.9% | 2.8% CPI | FTC active; no DMA equivalent |
+| China | 4.2% | 0.8% CPI | National champions model; anti-competitive |
+| Japan | 0.8% | 2.1% | Limited digital enforcement framework |
+| UK | 1.2% | 3.1% | CMA pro-competition; no DMA-equivalent |
+| India | 6.4% | 4.5% | Digital competition rules developing |
+
+*Source: IMF WEO April 2026 — authoritative source for all economic comparisons.*
+
+**Comparative Reading:** The EU is growing more slowly than the US and China, yet investing
+more heavily in market regulation. This reflects the "Brussels Effect" strategy: trade
+normative weight for market access constraints. The DMA enforcement initiative costs
+short-term political capital with US trade partners (Big Tech lobbying pressure) in exchange
+for establishing global digital regulation standards that eventually all multinational
+companies must comply with regardless of origin.
+
+## Comparative Ukraine Support Assessment (G7+EU, May 2026)
+
+| Actor | Financial Support (cumulative) | Military Support | Legal Mechanism |
+|-------|-------------------------------|-----------------|----------------|
+| EU | €135B (MFA, grants, loans) | ~€24B (EDIP/EPF) | Ukraine Facility |
+| USA | ~$175B (FY22-FY25 total) | Javelin, HIMARS, air defense | Congressional approval |
+| UK | £15B | Challenger 2, Storm Shadow | Executive power |
+| Germany | €23B | Leopard 2, Patriot systems | Bundestag approval |
+| France | €3B | SCALP missiles | Presidential decree |
+| Japan | $8.5B | Non-lethal + reconstruction | ODA framework |
+
+*Sources: EC Ukraine Facility tracker; Congressional Research Service; UK DSTL estimates.*
+
+**EP's Comparative Role:** The April 2026 TA-0161 resolution's demand for accountability
+is structurally unique — no other legislature has formally mandated a Special Tribunal for
+the Crime of Aggression with a specific legal mechanism (hybrid ICC/ILC approach). The EP's
+resolution is more legally specific than the US Congress's Ukraine accountability provisions
+or the UK Parliament's statements. This specificity increases EP's reputational stake in the
+accountability outcome.
+
+## Cross-Legislative Comparison: Budget Procedures
+
+| Legislature | Budget Initiative | Override Mechanism | Key Constraint |
+|-------------|-----------------|-------------------|----------------|
+| US Congress | Both chambers (originate in House) | Presidential veto override | Debt ceiling |
+| German Bundestag | Federal government proposes | Simple majority | Constitutional debt brake |
+| UK Parliament | Treasury proposes | Commons majority | No formal veto |
+| EU Parliament | Commission proposes | Conciliation then EP consent | MFF cap |
+| French AN | Government proposes | Parliament votes | Article 49-3 bypass option |
+
+*Comparative assessment confirms EP's budget role as structurally constrained but
+treaty-protected. The 2027 budget trilogue will test EP's strategic use of this constraint.*
+
+*Analysis period: 2026-05-16. IMF economic data: WEO April 2026 (authoritative source).*

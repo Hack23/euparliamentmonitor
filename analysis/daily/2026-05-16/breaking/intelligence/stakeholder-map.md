@@ -243,3 +243,93 @@ fracture line in the current majority. Monitor EPP leadership statements on DMA 
 | EU Agriculture | HIGH (electoral) | HIGH | Avoid binding rules | Got JRC study compromise |
 | Digital Rights NGOs | LOW (EP) | VERY HIGH | Block Chat Control | Lost; will litigate |
 | Armenia | LOW (EP) | HIGH | Membership path | Symbolic declaration only |
+
+## Extended Stakeholder Profiles
+
+### Stakeholder Deep-Dive: EU Commission (DG COMP)
+
+**Primary interest:** DMA enforcement credibility — the Commission needs to demonstrate
+that the DMA is more than a "paper tiger" to maintain its role as the world's leading
+digital regulator. DG COMP has approximately 120 dedicated DMA enforcement staff, the
+largest regulatory enforcement team on any single EU legislation.
+
+**Behavioral prediction post-April 2026 EP resolution:**
+The EP resolution (TA-0160) creates formal political pressure for DG COMP to accelerate
+its enforcement timeline. Based on historical patterns (GDPR 2018-2020 enforcement),
+Commission will respond by:
+1. Publishing an enforcement calendar (June 2026 — confirms intent)
+2. Issuing preliminary findings on 2-3 gatekeepers (Q3 2026 — demonstrates action)
+3. Formal non-compliance decisions with penalties (Q4 2026 - Q1 2027 — confirms seriousness)
+
+DG COMP is aware that being perceived as weak on enforcement damages the EU's negotiating
+position in any US-EU tech trade talks. The EP resolution gives DG COMP internal Commission
+political support to resist any push from DG TRADE to moderate enforcement pace.
+
+**IMF connection:** IMF has recommended EU address digital market concentration in its
+Annual Article IV consultations since 2023. DG COMP enforcement acceleration aligns with
+IMF's competition policy recommendations — providing additional external legitimacy.
+Estimated DMA enforcement benefit per IMF digital competition model: +0.2pp long-run growth.
+
+🟢 Confidence: HIGH | Position: Supporting | Influence: VERY HIGH
+
+### Stakeholder Deep-Dive: Ukrainian Government
+
+**Primary interest:** Securing and maintaining EU financial support (€50B Ukraine Facility)
+while demonstrating governance reforms sufficient to satisfy accountability conditions.
+Ukrainian government has proactive communications strategy around accountability — as
+evidenced by May 2026 EU affairs ministry publications (OSINT signal).
+
+**Behavioral prediction:**
+Ukraine will comply with accountability framework conditions at the minimum required level
+to secure tranche releases. The political economy of compliance is strongly positive:
+each verified tranche release both sustains EU financial support AND demonstrates
+democratic institutional capacity — a key EU membership candidacy signal.
+
+**Key constraint:** Wartime governance is structurally degraded. Transparency mechanisms
+that function in peacetime (court oversight, parliamentary scrutiny, audit trails) are
+partially suspended or degraded by military necessity. Ukraine's compliance will be
+technically observable but structurally imperfect — a sustainable ambiguity that both
+sides (EU and Ukraine) benefit from managing rather than resolving.
+
+🟡 Confidence: MEDIUM | Position: Cooperative-conditional | Influence: HIGH
+
+### Stakeholder Deep-Dive: US Big Tech (Apple, Google, Meta, Amazon)
+
+**Primary interest:** Delay or moderate DMA enforcement to reduce structural remedy risk.
+Active lobbying strategy: hire EU-specialist former Commission officials (documented in
+EP lobbying registry), fund academic research questioning DMA economic analysis, emphasize
+job creation in EU member states as diplomatic leverage.
+
+**Behavioral prediction post-April 2026 EP resolution:**
+Big Tech will shift from legislative lobbying (DMA is passed law — no longer changeable)
+to enforcement-phase procedural delay. Specific tactics:
+1. CJEU challenges to Commission preliminary findings (extends timeline by 18-36 months)
+2. "Compliance theater" — announce compliance measures that meet letter but not spirit
+3. Member state bilateral lobbying (Ireland, Netherlands, Poland — US tech hub states)
+4. WTO dispute filing preparation (protects US government negotiating position)
+
+**IMF connection:** IMF notes Big Tech's EU operations contribute approximately €95 billion
+annually to EU GDP through employment, tax (after optimization), and platform services value.
+The EU faces genuine economic interdependence trade-offs in enforcement intensity.
+
+🟢 Confidence: HIGH | Position: Opposing | Influence: HIGH
+
+### Stakeholder Network Visualization
+
+```mermaid
+flowchart TD
+    EP[EU Parliament\nCoalition Delta] -->|mandates| COM[EU Commission\nDG COMP]
+    COM -->|enforces| BT[US Big Tech\nGatekeepers]
+    BT -->|lobbies| MS[Member States\nIE/NL/PL]
+    MS -->|influence| COUNCIL[EU Council]
+    COUNCIL -->|agrees/delays| COM
+    EP -->|monitors| COM
+    UA[Ukraine Government] -->|compliance signals| COM
+    COM -->|tranche decisions| UA
+    IMF[IMF Program] -->|verification| UA
+    UA -->|political signal| EP
+    CJEU[CJEU Appeals] -.->|delays| COM
+    NGO[Civil Society\nNGOs] -->|monitor| EP
+```
+
+*Stakeholder map extended: 2026-05-16 (Run 3). Admiralty Grade: B2.*

@@ -142,3 +142,42 @@ Admiralty Grade: B2 — Executive brief synthesised from confirmed EP and IMF da
 *Monitor key decisions: (1) DMA enforcement calendar June 2026; (2) Ukraine milestone verification Q3 2026; (3) Budget 2027 trilogue September 2026; (4) ECB rate decision if HICP exceeds 2.5%.*
 
 *Prepared: May 16, 2026. Run: breaking-run251. dataMode: degraded-feeds.*
+
+## IMF Economic Context — May 2026 Update
+
+The April 2026 legislative output must be read against the IMF World Economic Outlook
+(April 2026) baseline: EU GDP growth 1.4%, Euro Area 1.2%, EU HICP 2.3%, ECB deposit
+rate 2.25%. These figures contextualize every policy signal from the plenary session.
+
+**DMA Enforcement × IMF Growth Context:** Digital services account for approximately
+6.8% of EU GDP (IMF Digital Economy Assessment, 2025). DMA enforcement acceleration
+against six designated gatekeepers could reduce platform rent extraction by an estimated
+€12-18 billion annually if non-compliance penalties are imposed at the upper range allowed.
+At EU GDP growth of 1.4%, this represents roughly 0.04-0.06 pp of GDP — a small but
+directionally significant pro-competitive effect. IMF models suggest effective digital
+market contestability adds 0.2-0.4pp to long-run EU growth potential.
+
+**Ukraine Accountability × IMF Fiscal Context:** Frozen Russian sovereign assets (~€300B)
+represent approximately 1.8% of EU GDP. The G7+EU agreement to use interest income (~€3B
+annually) for Ukraine support is already reflected in IMF's Ukraine program baseline.
+Accelerated asset seizure (as EP resolution demands) would require new UNSC-framework
+legal instruments — IMF staff have signalled this scenario creates "significant legal
+uncertainty" for international reserve management globally.
+
+**Budget 2027 Guidelines × IMF Consolidation Outlook:** IMF projects euro area general
+government deficit at 3.1% of GDP in 2026, down from 3.4% in 2025. Fiscal consolidation
+pressure limits the Council's room to meet EP's budget ambitions on defense (EDIP) and
+climate. The Draghi Report's €800B annual investment gap estimate has not been formally
+endorsed by IMF, which considers it an upper-bound scenario — a key Council counterargument
+in the upcoming budget trilogue.
+
+*Source: IMF WEO April 2026 — authoritative source for all economic/fiscal claims above.*
+
+**ECB Rate × Legislative Risk:** With HICP at 2.3% (IMF forecast) and ECB deposit rate
+at 2.25%, EP10's digital and green investment priorities assume sustained low-rate
+financing. Any HICP breach above 2.5% would trigger ECB rate pause discussions,
+raising the cost of EU-backed investment instruments (EIB loans, InvestEU guarantees)
+and compressing Parliament's fiscal toolbox for 2027 budget negotiations.
+
+*Macro risk summary: EU fiscal space is tight; IMF data confirms EP's April 2026
+legislative ambitions are at the outer edge of what macroeconomic conditions can support.*

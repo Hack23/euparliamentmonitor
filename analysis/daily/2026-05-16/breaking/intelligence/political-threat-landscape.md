@@ -141,3 +141,36 @@ disinformation actors.
 | Disinformation campaign impact | 60% | Low-Medium | Low |
 
 Admiralty Grade: B2 — Assessment well-sourced; probability estimates are indicative.
+
+### PT5 — Digital Sovereignty vs Civil Liberties Fracture (🟡 MEDIUM)
+The Chat Control regulation (Commission proposal pending second attempt post-2024 rejection)
+is expected to trigger the sharpest intra-coalition split of EP10. EPP and S&D's law
+enforcement constituencies support some content scanning obligations; Greens, The Left,
+and Renew libertarians oppose. Unlike Ukraine (where PfE/ESN are isolated outliers), Chat
+Control creates a cross-cutting fracture within the Centre coalition — potentially enabling
+ECR/PfE votes to tip the balance in favor of surveillance provisions.
+
+### PT6 — Budget Negotiation Leverage War (🟢 LOW-MEDIUM)
+The 2027 budget trilogue (Oct-Dec 2026) will see Council attempting to underfund the EP's
+priorities (Erasmus, cross-border infrastructure, research). EP has historically used the
+budget vote as its most potent inter-institutional leverage tool: EP9's 2021 budget veto
+forced Council to accept MFF/RRF package with rule-of-law conditionality. EP10 has similar
+leverage on defense spending floors vs. climate spending floors.
+
+## Threat Response Assessment
+
+| Threat | EP Response Capacity | Timeline | Mitigation Effectiveness |
+|--------|---------------------|----------|-------------------------|
+| PT1 Cordon erosion | MODERATE — formal rules exist | Q3-Q4 2026 | 🟡 60% |
+| PT2 PfE/ESN Ukraine bloc | HIGH — coalition arithmetic holds | Ongoing | 🟢 85% |
+| PT3 Partner state erosion | LOW-MODERATE — soft power only | 12-18 months | 🔴 35% |
+| PT4 EPP dominance | MODERATE — S&D-Renew can block | Systemic | 🟡 65% |
+| PT5 Chat Control fracture | UNCERTAIN — depends on Commission text | Q1-Q2 2027 | 🟡 55% |
+| PT6 Budget leverage | HIGH — treaty-based veto rights | Q4 2026 | 🟢 80% |
+
+## Aggregate Threat Level
+
+**Overall Political Threat Level: 🟡 MEDIUM** (stabilityScore: 84/100)
+The April 2026 plenary output demonstrates that EP10's core pro-European coalition remains
+operational on all high-priority dossiers. Structural threats (EPP dominance, cordon erosion)
+are real but not yet acute. The next decisive threat test will be Chat Control in 2027.

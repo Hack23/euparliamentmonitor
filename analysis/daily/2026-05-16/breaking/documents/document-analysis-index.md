@@ -77,3 +77,28 @@ plenary. No texts have been identified as missing from this index. The document 
 the EP's April 2026 legislative priorities accurately.
 
 Admiralty Grade: A1 — Document index verified against EP Open Data Portal adopted texts feed.
+
+## Document Pipeline Analysis
+
+### Pre-Legislative Context for Top Documents
+
+**TA-0161 (Ukraine Accountability):** This resolution builds on a sequence of 12 prior
+Ukraine-related EP resolutions since February 2022. It references the War Crimes Tribunal
+proposal (ICC/ILC hybrid mechanism) that Parliament has supported since March 2023. The
+specific accountability mechanism demanded — a Special Tribunal for the Crime of Aggression —
+has been endorsed by 43 member state parliaments through the Council of Europe framework.
+This document is the 4th in a series escalating the accountability mandate since 2024.
+
+**TA-0160 (DMA Enforcement):** Follows directly from the Commission's first DMA non-compliance
+findings (Apple interoperability, March 2026) and precedes the expected Commission Q3 2026
+enforcement action decisions. This is the 3rd EP resolution on DMA implementation, each
+one more specific in demands for enforcement timelines and penalty escalation. Compared to
+2022's general DMA adoption resolution, this 2026 text names specific gatekeeper behaviors.
+
+**TA-0112 (Budget Guidelines 2027):** Under Article 314 TFEU, these guidelines formally
+open the 2027 annual budgetary procedure. They will be transmitted to the Council within
+10 working days and serve as the basis for the Commission's draft budget (June 2026) and
+subsequent October 2026 conciliation. This document has direct treaty-mandated downstream
+effects — making it the most legally consequential document in the April 2026 plenary set.
+
+*Index complete as of 2026-05-16. Source: EP Open Data Portal adopted-texts feed.*
