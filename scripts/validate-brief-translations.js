@@ -405,7 +405,8 @@ export function validateTranslation(translationPath, repoRoot) {
         message:
           `Translation is missing exact ${reSingle} token(s): ${missingTokens.join(', ')} ` +
           `— proper noun / data-vintage identifiers MUST be preserved verbatim. ` +
-          `Self-check before flush: \`node scripts/validate-brief-translations.js --paths <dir>/executive-brief_${lang}.md\` — ` +
+          `Self-check before flush: \`node scripts/validate-brief-translations.js --paths ${rel}\` ` +
+          `(or \`--paths ${path.posix.dirname(rel)}/executive-brief_*.md\` to validate every sibling). ` +
           `Dutch example: \`IMF\` stays \`IMF\` (never \`IMV\`); \`WEO\` stays \`WEO\` ` +
           `(never \`Wereldwijde Economische Vooruitzichten\`).`,
       });
