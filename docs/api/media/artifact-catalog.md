@@ -31,7 +31,7 @@ This catalog is the **single source of truth** for every markdown artifact an ag
 
 - the **methodology** the AI agent applies when writing it,
 - the **template** that defines its output shape,
-- the **minimum line floor** enforced by `src/utils/validate-analysis-completeness.ts`,
+- the **minimum line floor** enforced by `scripts/validate-analysis-completeness.js` (`npm run validate-analysis`),
 - the **mandatory color-coded Mermaid diagram** type, and
 - the **EP MCP data sources** feeding it.
 
@@ -267,6 +267,7 @@ Used by `motions`, `propositions`, and long-form quarter / month-in-review workf
 | Artifact | Purpose (1 line) | Methodology | Template | Min lines (reco) | Mermaid type |
 |---|---|---|---|:---:|---|
 | `executive-brief.md` | ≤90-second decision brief for senior readers (BLUF + key judgments + 3 actions). This is the first rendered article artifact. | [synthesis-methodology.md §executive-brief](synthesis-methodology.md) | [executive-brief.md](../templates/executive-brief.md) | 180 | flowchart LR (BLUF → judgments → actions) |
+| `executive-brief_<lang>.md` (× 13) | Per-language translation siblings of `executive-brief.md`, one for each non-English code in `{sv, da, no, fi, de, fr, es, nl, ar, he, ja, ko, zh}`. Produced by the scheduled `news-translate.md` workflow (3×/day cron). Validator: `scripts/validate-brief-translations.js` (7 gates). | [executive-brief-translation-guide.md](executive-brief-translation-guide.md) | [executive-brief-translation-template.md](../templates/executive-brief-translation-template.md) | ≥ 50 % of source bytes | (none — mirrors source) |
 | `extended/executive-brief.md` | Backwards-compatible legacy location for the same brief; use only when an older run already wrote it there. | [synthesis-methodology.md §executive-brief](synthesis-methodology.md) | [executive-brief.md](../templates/executive-brief.md) | 180 | flowchart LR (BLUF → judgments → actions) |
 | `extended/devils-advocate-analysis.md` | Adversarial challenge to the run's consensus view (ACH + Red Team). | [osint-tradecraft-standards.md §Red Team + ACH](osint-tradecraft-standards.md) | [devils-advocate-analysis.md](../templates/devils-advocate-analysis.md) | 240 | graph TD (hypothesis × evidence) |
 | `extended/historical-parallels.md` | ≥3 EU historical precedents with parallel mechanisms + divergence points. | [strategic-extensions-methodology.md §historical-parallels](strategic-extensions-methodology.md) | [historical-parallels.md](../templates/historical-parallels.md) | 230 | timeline |

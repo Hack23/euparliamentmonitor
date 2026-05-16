@@ -122,59 +122,20 @@ agent when Stage B2 begins and ends):**
 
 **Re-run improve/extend rule (§1 of the plan) — never no-op:**
 
-When `${ANALYSIS_DIR}/manifest.json` already exists with a non-empty
-`history[]`, every re-run MUST **detect** the prior analysis (and any
-already-rendered article under `news/`) and **deepen** it. Re-running a
-workflow on the same date+type is **never** a no-op: every artifact is
-either *extended* (raised in line count, evidence, or new sections) or
-*rewritten*. Article markdown and HTML are always regenerated from the
-updated analysis.
+The canonical re-run rule lives in [`02a-rerun-merge.md`](02a-rerun-merge.md)
+(extracted from this file to provide a single source of truth shared with
+[`shared/prompts/news-unified-stages.md`](../workflows/shared/prompts/news-unified-stages.md),
+which every article workflow imports). Read that file end-to-end before
+running Stage B on a folder where `${ANALYSIS_DIR}/manifest.json` already
+exists. Headline invariants — see [`02a-rerun-merge.md`](02a-rerun-merge.md)
+for the full contract, helper-script details, and Stage-C wiring:
 
-1. Load existing `manifest.json` — treat the folder as a resume candidate,
-   not a conflict.
-2. Always run the prior-run diff helper (no env flag, always-on):
-   ```bash
-   npm run prior-run-diff -- "${ANALYSIS_DIR}"
-   ```
-   The helper emits a `priorRunDiff` plan with `mode: "improve-and-extend"`:
-   - `carryForward[]` — artifacts already at/above floor in the prior run.
-     **These are must-extend targets, not skip-write targets.** Each entry
-     exposes `priorLines` (current on-disk size from the prior run) and
-     `extendFloor` (= `max(threshold floor, priorLines + 20)`). Stage B
-     MUST raise each artifact past `extendFloor` AND add at least one of:
-     a new section, ≥3 new evidence citations, or ≥1 new chart/diagram.
-   - `rewrite[]` — artifacts below floor or missing. Write a stronger
-     version from scratch, sized to the catalog floor.
-
-   Persist the plan to `${ANALYSIS_DIR}/runs/prior-run-diff.json` for
-   Stage C.
-3. Run Stage-B Pass 1 + Pass 2 producing every mandatory artifact. For
-   each carry-forward entry, log a single line per artifact when it is
-   re-written so the Stage-C reviewer can see the delta:
-   ```text
-   [EXTEND-FROM-PRIOR: <relativePath> prior=<priorLines>L → new=<newLines>L (+<delta>)]
-   ```
-   Skip-writes (`[CARRY-FORWARD: …]`) are forbidden — emitting one is a
-   Stage-C RED.
-4. For artifacts in `rewrite[]`, write a stronger version (overwriting
-   the prior file) sized to the catalog floor.
-5. Run Stage C — if GREEN, append a history entry with
-   `gateResult: "GREEN"`. Stage C validates every artifact via
-   `npm run validate-analysis` and additionally checks each
-   carry-forward artifact's new line count exceeds its `extendFloor`.
-
-> **Always-on.** The legacy `ENABLE_PRIOR_RUN_MERGE` env flag is no longer
-> read by `scripts/aggregator/prior-run-diff.js`. The helper runs
-> unconditionally so re-runs cannot accidentally regress to the
-> pre-2026-05 skip-write behaviour. Do not gate this rule on any env
-> variable in workflow `env:` blocks.
-
-> **Article render is always re-rendered on re-runs.** Stage D
-> (`npm run generate-article`) is invoked on every workflow run regardless
-> of analysis mtime; the renderer is byte-for-byte deterministic so an
-> unchanged analysis still produces an identical, freshly written
-> `article.md` + localized HTML files. Skipping Stage D on the basis of
-> "no changes" is forbidden — see `04-article-generation.md`.
+- Re-runs are NEVER a no-op. Every artifact is either *extended*
+  (carryForward — must reach `extendFloor`) or *rewritten*.
+- Article markdown + HTML are always re-rendered (no mtime short-circuit).
+- `manifest.pass2.rewriteCount === 0` on a re-run is a Stage-C hard RED.
+- The `ENABLE_PRIOR_RUN_MERGE` env flag is gone — the helper runs
+  unconditionally. Do not gate this rule on any env variable.
 
 > **Canonical paths:** `synthesis-summary.md` lives under `intelligence/` (the
 > canonical location, as enforced by `reference-quality-thresholds.json`).

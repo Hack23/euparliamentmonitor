@@ -238,21 +238,66 @@ The most important Stage-D rule is: **agents do not author article prose in Stag
 
 The public `<title>`, `<meta name="description">`, Open Graph / Twitter card
 fields, JSON-LD headline/description, news indexes, RSS, and sitemap metadata
-all inherit from the same resolved article metadata. Stage-B agents therefore
-set SEO quality before rendering:
+all inherit from the same resolved article metadata. **The executive brief is
+the single source of truth for that metadata** — Stage-B agents set SEO
+quality before rendering:
 
-1. Prefer `manifest.title` and `manifest.description` when the synthesis has a
-   clear editorial highlight.
-2. Keep titles ≤70 characters, active, specific, and actor-led.
-3. Keep descriptions 150–160 characters, consequence-led, and distinct from the
+1. The brief template `analysis/templates/executive-brief.md` carries a
+   **`## 🌍 14-Language SEO Metadata Pack`** table — one row per supported
+   language with `Title candidate (≤70 chars)` and
+   `Description candidate (150–160 chars)` columns. Fill this table during
+   Stage-B Pass 2.
+2. When the [`news-translate`](.github/workflows/news-translate.md) workflow
+   has produced sibling `executive-brief_<lang>.md` files for the run,
+   each translated brief's `# H1` and `## 🎯 BLUF` / `## 📰 60-Second Read`
+   lede are the **authoritative** localized source for that language and
+   take precedence over the English brief's `<lang>` row.
+3. Copy the resolved per-language `(title, description)` pairs into
+   `manifest.title.<lang>` and `manifest.description.<lang>`. When a locale
+   has no translated brief AND its row in the English pack is unfilled, copy
+   the English `en` row and set `manifest.metadataFallback[<lang>] = "en"`.
+4. Keep titles ≤70 characters, active, specific, and actor-led. Keep
+   descriptions 150–160 characters, consequence-led, and distinct from the
    lede.
-4. Put search-intent terms in human prose and headings: committee acronyms,
+5. Put search-intent terms in human prose and headings: committee acronyms,
    procedure titles, policy areas, institutions, and named stakeholders.
-5. Never publish date/type boilerplate such as "EU Parliament Breaking —
+6. Never publish date/type boilerplate such as "EU Parliament Breaking —
    YYYY-MM-DD" unless no article is rendered.
-6. For economic stories, use IMF-backed wording only when
+7. For economic stories, use IMF-backed wording only when
    `intelligence/economic-context.md` contains IMF vintage, SDMX code, and policy
    bridge evidence.
+
+The full per-language priority ladder, including the
+`executive-brief_<lang>.md` precedence rule and the aggregator's
+deterministic fallback tiers, is documented in
+[`.github/prompts/04-article-generation.md`](.github/prompts/04-article-generation.md)
+§ 6.
+
+#### Automated SEO drift-guard
+
+The `scripts/validate-manifest-seo.js` validator (invoked via
+`npm run validate:manifest-seo`) audits every
+`analysis/daily/<date>/<slug>/manifest.json` against six gates that
+mirror this contract:
+
+1. **title-shape** — when present, the `title` field is a 14-language
+   object keyed by supported language codes.
+2. **title-length** — each title is ≤ 140 characters.
+3. **description-shape** — same shape rules as `title-shape`.
+4. **description-length** — each description is 60–200 characters
+   (CJK locales legitimately pack the same payload into ~60–80 characters).
+5. **forbidden-prefix** — neither titles nor descriptions begin with
+   reserved Stage-B preamble labels (`Run:`, `Purpose:`, `BLUF:`,
+   `Classification:`, `Window:`, etc.) that previously leaked into
+   SEO surfaces.
+6. **english-fallthrough** — when a non-English value duplicates the
+   English value verbatim, `manifest.metadataFallback[<lang>] = "en"`
+   must be declared so the static-site layer can surface a
+   pending-translation editorial note.
+
+Single-string `title` / `description` overrides remain accepted as a
+legacy/emergency degraded form, but they produce an advisory
+violation so editors notice the missing 14-language pack.
 
 ---
 
@@ -541,11 +586,16 @@ The **rendered HTML body order matches this skeleton 1:1**. The HTML pipeline re
 
 `<title>`, `<meta description>`, OG/Twitter tags, and the `NewsArticle` JSON-LD `headline` / `description` all flow from the same per-language priority ladder in [`src/aggregator/article-metadata.ts`](./src/aggregator/article-metadata.ts) (`resolveArticleMetadata`):
 
-1. **Manifest override** — `manifest.title` / `manifest.description` (string or per-language map). Stage-B agents set these when they have a hand-crafted headline.
+1. **Manifest override** — `manifest.title.<lang>` / `manifest.description.<lang>` (string or per-language map). Stage-B agents set these from the executive brief's **`## 🌍 14-Language SEO Metadata Pack`** table; when sibling `executive-brief_<lang>.md` translations exist they take per-language precedence over the English brief's row (see [`.github/prompts/04-article-generation.md`](./.github/prompts/04-article-generation.md) § 6 for the full ladder).
 2. **Editorial artefact H1** — first non-generic `# …` from the canonical editorial-artefact list, in this order: `executive-brief.md` → `extended/executive-brief.md` → `intelligence/synthesis-summary.md` → `intelligence/executive-summary.md` → `intelligence/intelligence-briefing.md` → run-root fallbacks. H1s that are artefact-category labels (`Synthesis Summary — …`, `Executive Brief — …`, `Intelligence Briefing — …`, `Breaking News Analysis — …`, `Committee Activity Report — …`) are treated as **generic** by `isGenericHeading` so they cannot leak into the SEO surfaces.
-3. **Editorial lede paragraph** — when an editorial artefact's H1 is generic but it carries a `## 60-Second Read` / `## TL;DR` / `## BLUF` / `## Executive Summary` / `## Headline Judgement` (or other heading in `EDITORIAL_LEDE_HEADINGS`), the resolver pulls the first qualifying prose paragraph **inside that section** as the description. Heading matching is emoji-tolerant (`🎯 Headline Judgement` is recognised).
-4. **Aggregated H1 / strong prose** — falls through to the aggregated Markdown's own H1 then the first strong prose paragraph that survives the metadata-leak filter.
-5. **Localized template fallback** — last-resort per-language template from `buildTemplateFallback(articleType, date, committee?)` so every locale always has a non-empty `{title, description}` pair.
+3. **Priority-finding extraction** — when the canonical brief H1 is generic, `extractPriorityFindingHighlight` mines the **first named dossier** out of the executive brief's `## Key Developments` / `## Priority Dossiers` / `## Key Judgements` / `## 🔴 Priority Intelligence Assessment` / `## 🎯 WEP Assessment` / `## 💡 Policy Intelligence Alerts` (and ~25 other recognised) section headings, plus an H2-level `## 📌 Lead Story:` / `## Story N:` / `## Trigger N:` fallback scan when no parent section exists (motions briefs). Recognised item patterns: (A) `1. **Title** (proc-code, date) Body…` bold-in-numbered-list; (B) `### 1. Title (committee)` / `### 1 · Title` numbered subheadings — decimal-section labels like `### 2.1 Close to Adoption` are explicitly **rejected**; (B') `### KJ-1: Title` / `### T-2: Title` tag-coded headings; (D) `### Alert N — Title` / `### Judgement N — Title` word-prefixed headings; (C) `**Title** Body…` bold-leading paragraphs, with two hard guards — bold body must be ≤110 chars (no paragraph-lede leakage) and must not match the metadata-banner prefix list (`**Admiralty Grade:**`, `**Reporting Window:**`, `**Confidence**`, `**Date:**`, etc.). Leading `🔴 CRITICAL —` / `🎯` / `1.` decoration and trailing `(TA-10-2026-0160, 2026-04-30)` / `(Highly Probable, 80%)` parens-metadata are stripped before the headline reaches `<title>`.
+4. **Editorial lede paragraph** — when an editorial artefact's H1 is generic and no priority finding was identified, the resolver pulls the first qualifying prose paragraph inside `## 60-Second Read` / `## TL;DR` / `## BLUF` / `## Executive Summary` / `## Headline Judgement` (or other heading in `EDITORIAL_LEDE_HEADINGS`) as the description. Heading matching is emoji-tolerant (`🎯 Headline Judgement` is recognised).
+5. **Aggregated H1 / strong prose** — falls through to the aggregated Markdown's own H1 then the first strong prose paragraph that survives the metadata-leak filter.
+6. **Localized template fallback** — last-resort per-language template from `buildTemplateFallback(articleType, date, committee?)` so every locale always has a non-empty `{title, description}` pair. Reaching this tier for a published article means the Stage-B contract above was not honored — treat it as an editorial defect.
+
+> **Translated-sibling exclusion (2026-05 critical fix).** The top-level artefact-fallback scan now skips every `*_<lang>.md` translated sibling brief (`executive-brief_ar.md`, `executive-brief_de.md`, …) via `isTranslatedSiblingBrief`. Prior to this guard, when the canonical English `executive-brief.md` H1 was generic the resolver alphabetically walked translated siblings and the Arabic `_ar.md` H1 (which the English-only `isGenericHeading` detector treated as non-generic) hijacked the English `<title>`, meta description, and homepage card. Regression test: `extractArtifactHighlight — translated-sibling exclusion (regression)` in `test/unit/article-metadata.test.js`.
+
+> **Localized-brief precedence (planned resolver extension).** Tier 2 currently walks the English `executive-brief.md` for every language. When a translated `executive-brief_<lang>.md` exists in the run directory and the manifest carries no override for `<lang>`, the resolver should prefer that file's translated H1 / lede over the English brief for that language. Until that extension lands, the Stage-B agent achieves the same effect explicitly by copying the translated brief's headline and lede into `manifest.title.<lang>` / `manifest.description.<lang>`.
 
 The `shouldSkipDescriptionLine` filter rejects every Stage-B preamble row that previously leaked into descriptions: `**Purpose:** …`, `**Reporting Window:** …`, `**Date:** … | **Horizon:** … | **Confidence:** …`, `**Admiralty Grade:** B2 | **WEP Band:** Probable …`, plus all the historical metadata banners (`Analysis Date`, `Run`, `Series`, `Window`, …). The full prefix list lives in `METADATA_LINE_PREFIXES` and is unit-tested in `test/unit/article-metadata.test.js`.
 
@@ -631,15 +681,15 @@ Additionally, `collectRunArtifacts()` skips:
 
 ## 🧭 Metadata Resolution
 
-The article title and description are resolved by `src/aggregator/article-metadata.ts`:
+The article title and description are resolved by `src/aggregator/article-metadata.ts` from the **executive brief** through the following ladder:
 
-1. `manifest.title` / `manifest.description` string or per-language object.
-2. First non-generic artifact H1 in manifest order.
-3. Aggregated Markdown H1.
-4. First strong prose paragraph, with filters for banners, Mermaid directives, `Run:`, `Purpose:`, `BLUF`, etc.
-5. Localized article-type templates.
+1. `manifest.title.<lang>` / `manifest.description.<lang>` (per-language map) — copied by the Stage-B agent from the brief's **`## 🌍 14-Language SEO Metadata Pack`** table. When `executive-brief_<lang>.md` translations exist, that file's translated headline and lede take per-language precedence over the English brief's `<lang>` row; when neither localized brief nor a filled `<lang>` row exists, the English `en` row is used verbatim and `manifest.metadataFallback[<lang>] = "en"` records the fallback.
+2. First non-generic editorial-artefact H1 — `executive-brief.md` is walked before `synthesis-summary.md` in the canonical list so the brief's headline wins over Stage-B preamble.
+3. Editorial lede paragraph under `## 🎯 BLUF` / `## 📰 60-Second Read` / `## TL;DR` / `## Executive Summary` inside the editorial artefact.
+4. Aggregated Markdown H1 / first strong prose paragraph, with filters for banners, Mermaid directives, `Run:`, `Purpose:`, `BLUF`, etc.
+5. Localized article-type templates (last-resort safety net).
 
-**Best practice:** Stage-B agents should write concise editorial metadata into `manifest.json` whenever the run has a clear political highlight. Without manifest overrides, fallback metadata may be technically correct but less editorially attractive, as seen in some 2026-04-24 generated examples where a long WEP judgment becomes the `<title>`.
+**Best practice:** Stage-B agents fill the brief's 14-Language SEO Metadata Pack during Pass 2 and mirror it into `manifest.json` before Stage D. Every title and description must trace to a brief highlight (BLUF, 60-Second Read, Top Documents/Procedures, Risk & Threat Snapshot, or Top Forward Trigger) — never to a generic artifact-category H1 or date/type boilerplate. Without manifest overrides, fallback metadata may be technically correct but less editorially attractive, as seen in some 2026-04-24 generated examples where a long WEP judgment becomes the `<title>`.
 
 ---
 

@@ -84,7 +84,33 @@ Each workflow renders articles using `npm run generate-article -- --run "${ANALY
 
 | Workflow (`.md`) | Purpose | Trigger |
 |---|---|---|
-| [`news-translate.md`](news-translate.md) | 14-language translation with multi-call flush pattern (exempt from single-PR rule) | Manual (`workflow_dispatch`) only |
+| [`news-translate.md`](news-translate.md) | Translates every untranslated `analysis/daily/**/executive-brief.md` source into 13 non-English language siblings (`executive-brief_<lang>.md`). AI-only translation; scripted substitution is forbidden. Exempt from single-PR rule (one PR per UTC run-date, updated by all 3 daily runs). | Scheduled (cron `30 6,12,18 * * *` UTC) + `workflow_dispatch` |
+
+##### Translation cadence and sizing
+
+The workflow runs on cron 3×/day at 06:30 / 12:30 / 18:30 UTC (staggered against article-generation slots).
+Each run translates **2 source briefs × 13 languages = 26 markdown files by default** (operator can override `max_briefs` up to 4 via `workflow_dispatch`).
+Steady-state throughput: **78 translations/day**, which clears the typical ~1 100-file backlog in ~14 days and then catches every newly-landed brief same-day.
+
+Pipeline components (bounded contexts, single-purpose):
+
+| Component | Owns | Tested by |
+|---|---|---|
+| [`scripts/discover-untranslated-briefs.js`](../../scripts/discover-untranslated-briefs.js) | Filesystem scan, priority queue, `MAX_BRIEFS` cap | [`test/unit/discover-untranslated-briefs.test.js`](../../test/unit/discover-untranslated-briefs.test.js) (24 tests) |
+| [`scripts/validate-brief-translations.js`](../../scripts/validate-brief-translations.js) | 7-gate quality validator (filename, source presence, length floor 50 %, English fall-through, fixed-token preservation, heading parity, Mermaid parity) | [`test/unit/validate-brief-translations.test.js`](../../test/unit/validate-brief-translations.test.js) (31 tests) |
+| [`analysis/methodologies/executive-brief-translation-guide.md`](../../analysis/methodologies/executive-brief-translation-guide.md) | Canonical AI translator contract (terminology tables, register rules, FIXED TOKEN list) | [`test/unit/news-translate-workflow-contract.test.js`](../../test/unit/news-translate-workflow-contract.test.js) |
+| [`analysis/templates/executive-brief-translation-template.md`](../../analysis/templates/executive-brief-translation-template.md) | Target-language shell with AI instructions | `template-structure.test.js` + `analysis-templates-referenced.test.js` |
+| [`.github/workflows/news-translate.md`](news-translate.md) | Orchestration only — discovery + validation are delegated to the scripts above | `news-translate-workflow-contract.test.js` (17 tests) |
+
+##### Run-locally commands
+
+```bash
+# Preview the next queue (default: 2 briefs).
+npm run discover:untranslated-briefs -- --max-briefs 2
+
+# Validate every executive-brief_<lang>.md in the repo.
+npm run validate:translations
+```
 
 #### Shared-import pattern
 
@@ -107,6 +133,9 @@ imports:
       workflowName: "News: EU Parliament <Title> — Unified"
   - shared/mcp/news-mcp-servers.md
   - shared/prompts/news-unified-runtime.md
+  - uses: shared/prompts/news-unified-stages.md
+    with:
+      slug: <article-type-slug>
 ```
 
 | Component | Owns |
@@ -119,6 +148,7 @@ imports:
 | [`shared/config/news-pat-pr-fallback.md`](shared/config/news-pat-pr-fallback.md) | `post-steps:` (agent-patch capture) + `jobs.pat-pr-fallback` (host-side PAT recovery) — parameterized by `slug` and `workflowName`. The PAT recovery contract (`scripts/gh-aw-pat-pr-fallback.sh` short-circuits on `GH_AW_SAFE_OUTPUTS_RESULT=success`) lives here. |
 | [`shared/mcp/news-mcp-servers.md`](shared/mcp/news-mcp-servers.md) | Frontmatter-only shared MCP mounts (EP / IMF / WB / sequential-thinking / fetch-proxy) |
 | [`shared/prompts/news-unified-runtime.md`](shared/prompts/news-unified-runtime.md) | Repeated unified-workflow runtime instructions (required reading + Stage order) |
+| [`shared/prompts/news-unified-stages.md`](shared/prompts/news-unified-stages.md) | **(Phase D, May-2026)** Per-slug **Stages narrative** parameterized by `slug`: 🗓️ Date Context + Stable Folder Resolution bash, Stage B Analysis (re-run merge rule + Pass 1/2 + PREFLIGHT_ATTESTATION), Stage C Completeness Gate (gate lines + Elapsed-Time Tripwire), Stage D `generate-article` invocation, Stage E SINGLE_PR_ATTESTATION + `safeoutputs___create_pull_request` spec, 🚫 Never section, ⏱️ MCP session lifetime callout. ~176 byte-identical lines per workflow extracted (2,496 lines deduplicated across the 14 article workflows). |
 
 `news-translate.md` imports `news-common-settings.md` + the MCP/prompt components and keeps its
 translation-specific prompt body (multi-call flush pattern, exempt from single-PR rule).
@@ -128,7 +158,7 @@ translation-specific prompt body (multi-call flush pattern, exempt from single-P
 ```mermaid
 flowchart LR
     subgraph "news-<slug>.md (14 article workflows)"
-        WF["• name<br/>• schedule (cron)<br/>• concurrency.group<br/>• safe-outputs.max-patch-size<br/>• create-pull-request.labels<br/>• engine.model<br/>• Stage A-E prompt body"]
+        WF["• name<br/>• schedule (cron)<br/>• concurrency.group<br/>• safe-outputs.max-patch-size<br/>• create-pull-request.labels<br/>• engine.model<br/>• Workflow Parameters table<br/>• Article-Type Specifics<br/>• Stage A bash + slug-specific extensions"]
     end
 
     subgraph "shared/config/ (Phase A1-C extractions)"
@@ -142,6 +172,7 @@ flowchart LR
     subgraph "shared/mcp/ & shared/prompts/"
         MCP["news-mcp-<br/>servers.md"]
         RT["news-unified-<br/>runtime.md"]
+        STAGES["news-unified-<br/>stages.md<br/><i>+ slug input<br/>(Phase D, May-2026)</i>"]
     end
 
     subgraph ".github/agents/"
@@ -156,6 +187,7 @@ flowchart LR
     WF -->|uses: with slug + workflowName| PATPR
     WF -->|imports| MCP
     WF -->|imports| RT
+    WF -->|uses: with slug| STAGES
 ```
 
 The arrow style distinguishes plain imports from parameterized

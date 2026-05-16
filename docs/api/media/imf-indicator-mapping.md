@@ -248,8 +248,8 @@ The editorial floors applied at Stage-C completeness review:
 | `committee-reports` | 3 | ECON ≥ 4, BUDG ≥ 3, INTA ≥ 3, AFET/SEDE ≥ 2 |
 | `week-ahead` | 2 | — |
 | `month-ahead` | 2 | — |
-| `weekly-review` / `week-in-review` | 1 | — |
-| `monthly-review` / `month-in-review` | 2 | — |
+| `week-in-review` | 1 | — |
+| `month-in-review` | 2 | — |
 | `breaking` | 1 | — |
 | `motions` | 1 | — |
 | `propositions` | 1 | — |
@@ -282,7 +282,7 @@ The vintage decision is the most error-prone part of IMF integration.
 Below are six EP-domain scenarios showing how to pick the right vintage
 for the article date.
 
-### Scenario 10.1 — `weekly-review` published 2026-04-25
+### Scenario 10.1 — `week-in-review` published 2026-04-25
 
 **Required**: WEO `NGDP_RPCH` real GDP growth EU/EA, `PCPI_PCH` headline
 inflation, IFS `FPOLM_PA` ECB policy rate.
