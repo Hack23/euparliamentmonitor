@@ -100,9 +100,10 @@ truly needs them — most modern Markdown renderers handle this automatically).
 
 The Markdown structure of the translation MUST mirror the source:
 
-1. **Same number of `#`/`##`/`###` headings, same order.** H1 and H2
+1. **Same number of `#` and `##` headings, same order** — H1 and H2
    counts are enforced strictly by the heading-parity gate (zero
-   tolerance); H3 may drift by one (legitimate sub-bullet fusion).
+   tolerance). `###` (H3) counts may drift by one to accommodate
+   legitimate sub-bullet fusion in CJK languages.
 2. **Same number of list items per list.**
 3. **Same number of table rows and columns; column headers are translated,
    numeric cells are preserved.**

@@ -313,11 +313,12 @@ without calling safeoutputs. **An empty PR is never the right outcome.**
 For each queue entry, in order:
 
 1. **Read the source brief in full** (`sourcePath`).
-2. **Count source headings BEFORE writing any translation**:
+2. **Count source headings BEFORE writing any translation**
+   (use the `sourcePath` value from the queue entry):
    ```bash
-   echo "Source H1: $(grep -cE '^# [^#]' "$SOURCE_PATH")"
-   echo "Source H2: $(grep -cE '^## [^#]' "$SOURCE_PATH")"
-   echo "Source H3: $(grep -cE '^### ' "$SOURCE_PATH")"
+   echo "Source H1: $(grep -cE '^# [^#]' "$sourcePath")"
+   echo "Source H2: $(grep -cE '^## [^#]' "$sourcePath")"
+   echo "Source H3: $(grep -cE '^### ' "$sourcePath")"
    ```
    Every translation MUST have the same H1 and H2 counts (zero tolerance).
    Pay special attention to duplicate-titled sections — e.g. a source
@@ -335,9 +336,11 @@ For each queue entry, in order:
    Use the `create` tool (preferred for new files; pass `path` and
    `file_text` explicitly on every call) or `edit` (for files that
    already exist on disk):
-   - Mirror the source structure 1:1 (heading count, list count, table
-     rows, blockquote count, emoji-marker positions). Every `##` in the
-     source MUST have a matching `##` in the translation.
+   - Mirror the source structure: exact H1 and H2 counts (zero
+     tolerance), H3 count within ±1 (legitimate CJK sub-bullet fusion),
+     same list count, table rows, blockquote count, emoji-marker
+     positions. Every `##` in the source MUST have a matching `##` in
+     the translation.
    - Translate every prose section into the target language. Pass 1 first
      covers every section once; Pass 2 re-reads the entire file and
      expands cramped passages, fixes terminology drift, and verifies
