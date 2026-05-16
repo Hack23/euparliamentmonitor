@@ -637,6 +637,120 @@ export function truncateTitle(text) {
     return `${safe}…`;
 }
 /**
+ * Return the first complete sentence from a prose paragraph, suitable
+ * for use as a fallback editorial title when the artefact H1 is
+ * categorical (e.g. `# EU Parliament Committee Reports`) and the
+ * resolver must derive `<title>` from the BLUF / lede summary instead.
+ *
+ * A "sentence" is the prefix up to the first sentence-terminator
+ * (`. `, `! `, `? `, `; `) inside the `[HEADLINE_SOFT_MIN,
+ * TITLE_MAX_LENGTH]` window. Common abbreviations (`Q1.`, `Q2.`,
+ * `H1.`, `H2.`, `Mr.`, `Mrs.`, `e.g.`, `i.e.`, `vs.`) are skipped
+ * so they don't terminate the sentence prematurely. When no
+ * acceptable terminator exists in the window, returns the entire
+ * input unchanged so {@link truncateTitle} can handle clause-boundary
+ * truncation downstream.
+ *
+ * This produces journalistically clean titles even for the
+ * propositions / committee-reports cases where the BLUF paragraph
+ * opens with a single long sentence that exceeds 140 chars —
+ * `truncateTitle` then breaks on a clause boundary, and the result is
+ * still grammatical because the input was a sentence prefix rather
+ * than an arbitrary paragraph slice.
+ *
+ * @param paragraph - Prose paragraph (post-{@link stripInlineMarkdown})
+ * @returns First sentence, or the original paragraph when none can be
+ *   identified within the soft-min window
+ */
+export function extractFirstSentence(paragraph) {
+    const trimmed = paragraph.trim();
+    if (trimmed.length <= HEADLINE_SOFT_MIN)
+        return trimmed;
+    // Limit terminator search to TITLE_MAX_LENGTH * 1.5 — beyond that
+    // we'd rather let truncateTitle clause-truncate the original
+    // paragraph than return a too-long first sentence.
+    const window = trimmed.slice(0, Math.floor(TITLE_MAX_LENGTH * 1.5));
+    // Skip common abbreviations that contain a period inside a token
+    // (Q1., e.g., i.e., vs., Mr., Mrs., No., U.S., E.U.). We walk
+    // candidate terminator positions; a position counts only when the
+    // char before it is *not* part of a known abbreviation token.
+    const terminators = ['. ', '! ', '? ', '; '];
+    let bestIdx = -1;
+    for (const t of terminators) {
+        let from = HEADLINE_SOFT_MIN;
+        let idx;
+        while ((idx = window.indexOf(t, from)) !== -1) {
+            if (!isAbbreviationBoundary(window, idx) && idx < window.length - 1) {
+                if (bestIdx === -1 || idx < bestIdx)
+                    bestIdx = idx;
+                break;
+            }
+            from = idx + t.length;
+        }
+    }
+    if (bestIdx >= HEADLINE_SOFT_MIN) {
+        return trimmed.slice(0, bestIdx + 1).trim();
+    }
+    return trimmed;
+}
+/**
+ * Abbreviation tokens (lowercase, including the trailing period) that
+ * should NOT count as sentence terminators when {@link extractFirstSentence}
+ * scans for a `.` boundary. Single-letter all-caps initials
+ * (`U.S.`, `E.U.`) are handled by the all-caps-initial check below.
+ */
+const ABBREVIATION_PREFIXES = [
+    'mr.',
+    'mrs.',
+    'ms.',
+    'dr.',
+    'st.',
+    'no.',
+    'vs.',
+    'e.g.',
+    'i.e.',
+    'etc.',
+    'cf.',
+    'al.',
+    // EP fiscal-year and quarter shorthand: Q1., Q2., Q3., Q4., H1., H2., FY.
+    'q1.',
+    'q2.',
+    'q3.',
+    'q4.',
+    'h1.',
+    'h2.',
+    'fy.',
+];
+/**
+ * Check whether the character preceding the `.` at `idx` in `text`
+ * indicates an abbreviation (so the `.` is not a sentence terminator).
+ * Matches the {@link ABBREVIATION_PREFIXES} table and the all-caps
+ * single-letter initials pattern (`U.S.`, `E.U.`).
+ *
+ * @param text - Source text (lowercased segment + original mixed-case)
+ * @param idx - Index of the `.` character in `text`
+ * @returns `true` when the period at `idx` is part of an abbreviation
+ */
+function isAbbreviationBoundary(text, idx) {
+    // All-caps single-letter initial like `U.S.` or `E.U.` — char at
+    // idx-1 is a capital letter, and idx-2 is either start of string,
+    // whitespace, or another single-letter+period pair.
+    if (idx >= 1) {
+        const prev = text.charCodeAt(idx - 1);
+        const isUpperLetter = prev >= 65 && prev <= 90;
+        if (isUpperLetter && (idx === 1 || text[idx - 2] === ' ' || text[idx - 2] === '.')) {
+            return true;
+        }
+    }
+    // ABBREVIATION_PREFIXES lookup — scan backwards from `.` to find the
+    // start of the word, then compare lowercased.
+    let start = idx;
+    while (start > 0 && /[a-zA-Z]/u.test(text[start - 1] ?? ''))
+        start--;
+    const token = text.slice(start, idx + 1).toLowerCase();
+    return ABBREVIATION_PREFIXES.includes(token);
+}
+/**
  * Return the first Markdown H1 (`# …`) in the supplied text, stripped of
  * the leading `#` and trailing anchor syntax. Returns an empty string when
  * no H1 is present.
@@ -1012,7 +1126,59 @@ export function isGenericHeading(heading, articleType, date) {
     }
     if (isCategoryNounHeading(normalized, articleType))
         return true;
+    if (isBareInstitutionalHeading(normalized))
+        return true;
     return false;
+}
+/**
+ * Lower-cased institutional self-references that an executive-brief
+ * authoring template sometimes emits as the H1 when the agent forgot to
+ * substitute a real headline. They identify the publisher / institution
+ * but carry **zero editorial information** — they would produce
+ * pathological `<title>EU Parliament</title>` strings if surfaced.
+ * Matched after whitespace collapse + lowercase, with any trailing
+ * punctuation / single-date qualifier stripped so `EU Parliament ·
+ * 2026-05-15` and `Hack23 AB —` both resolve here. Date *ranges*
+ * (`(May 2026)`, `: 19–22 May 2026`) are preserved as editorial
+ * content, matching the {@link isCategoryNounHeading} contract.
+ */
+const BARE_INSTITUTIONAL_HEADINGS = [
+    'eu parliament',
+    'european parliament',
+    'the european parliament',
+    'ep',
+    'ep10',
+    'ep11',
+    'hack23',
+    'hack23 ab',
+    'eu parliament monitor',
+    'european parliament monitor',
+    'executive brief',
+    'briefing',
+    'intelligence brief',
+    'intelligence briefing',
+];
+/**
+ * Return `true` when the heading is one of {@link BARE_INSTITUTIONAL_HEADINGS}
+ * — an institutional self-reference with no editorial content. Strips a
+ * trailing single-date qualifier first so `EU Parliament — 2026-05-15`
+ * and `Hack23 AB · 2026-05-15` are caught. Date ranges and any token
+ * after the institutional noun are preserved (so
+ * `EU Parliament Week Ahead: 19–22 May 2026` is *not* flagged here —
+ * that path is owned by {@link isCategoryNounHeading} for `week-ahead`).
+ *
+ * @param normalized - Heading text after whitespace collapse
+ * @returns `true` when the heading is bare institutional boilerplate
+ */
+function isBareInstitutionalHeading(normalized) {
+    let core = normalized.toLowerCase();
+    // Same single-date / parenthetical stripping as isCategoryNounHeading
+    // so the same heading shape is recognized via either gate.
+    core = core.replace(/\s*[·:—–-]\s*\d{4}-\d{2}-\d{2}\s*$/u, '');
+    core = core.replace(/\s*\(\s*[a-z]{3,9}\s+\d{4}\s*\)\s*$/u, '');
+    core = core.replace(/\s*\(\s*\d{4}\s*\)\s*$/u, '');
+    core = core.replace(/[\s\-—–:·.]+$/u, '').trim();
+    return BARE_INSTITUTIONAL_HEADINGS.includes(core);
 }
 /**
  * Curated category-noun whitelist per article-type slug. These are the
@@ -1580,7 +1746,14 @@ function resolveEditorialContent(opts) {
     }
     const summary = artefactSummary || aggregatedSummary;
     if (summary) {
-        return { headline: truncateTitle(summary), summary };
+        // The H1 is generic (category-noun, bare-institutional, or
+        // template-style) so we have to derive `<title>` from the BLUF/
+        // lede paragraph. Extract the first complete sentence so the
+        // resulting title is grammatically self-contained — falling back
+        // to clause-boundary truncation downstream when the sentence
+        // itself overruns TITLE_MAX_LENGTH.
+        const firstSentence = extractFirstSentence(summary);
+        return { headline: truncateTitle(firstSentence), summary };
     }
     return { headline: '', summary: '' };
 }

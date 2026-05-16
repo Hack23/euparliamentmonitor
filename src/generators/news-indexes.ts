@@ -236,26 +236,77 @@ function backfillOneLegacyArticleSeo(
 }
 
 /**
- * Prefix legacy descriptions with date and slug context so duplicate strings
- * become page-specific before the 180-character snippet cap.
+ * Prefix legacy descriptions with date and **localized** category label
+ * so duplicate strings become page-specific before the 180-character
+ * snippet cap. Two-tier strategy:
  *
- * @param date - Article date
- * @param slug - Article slug
- * @param lang - Article language
- * @param description - Candidate description
- * @returns Page-specific description
+ * 1. **Substantive resolver output** (≥{@link MIN_ARTICLE_DESCRIPTION_LENGTH}
+ *    chars) is returned **unchanged** — no prefix is prepended. The
+ *    description is already unique per page because it contains
+ *    article-specific editorial content (named bills, vote outcomes,
+ *    coalition dynamics). Adding a bureaucratic prefix in that case
+ *    only steals SERP characters from real content.
+ * 2. **Short / placeholder** descriptions get a localized prefix
+ *    `${date} — ${ARTICLE_TYPE_LABELS[lang][category]} —` so the
+ *    duplicate-deduper still works on legacy articles whose
+ *    `<meta description>` is `formatSlug(slug)`-only or a generic stub.
+ *    The category noun is **translated** via {@link ARTICLE_TYPE_LABELS}
+ *    so Arabic / Hebrew / Swedish cards no longer carry the English
+ *    "EN Committee Reports" wart that the prior single-language
+ *    `formatSlug(slug)` form produced.
+ *
+ * @param date - Article date (ISO YYYY-MM-DD)
+ * @param slug - Article slug (used to derive the category)
+ * @param lang - Article language (ISO 639-1 lower-case code)
+ * @param description - Candidate description (resolver output preferred)
+ * @returns Page-specific description, prefix-free when description is
+ *   already substantive
  */
-function buildLegacyBackfillDescription(
+export function buildLegacyBackfillDescription(
   date: string,
   slug: string,
   lang: string,
   description: string
 ): string {
-  const contextual = `${date} ${lang.toUpperCase()} ${formatSlug(slug)} — ${description}`
-    .replace(/\s+/g, ' ')
-    .trim();
-  if (contextual.length <= 180) return contextual;
-  return `${contextual.slice(0, 177).replace(/[.,;:—\s-]+$/u, '')}…`;
+  const trimmedDescription = description.trim();
+  if (trimmedDescription.length >= MIN_ARTICLE_DESCRIPTION_LENGTH) {
+    // The resolver produced a real, substantive description. It is
+    // already unique-per-page because it embeds article-specific
+    // editorial content (named bills, coalition outcomes, etc.).
+    // Return it verbatim so SERP / social-card snippets carry pure
+    // editorial signal instead of `${date} ${LANG} Committee Reports —`
+    // boilerplate. The 180-char snippet cap is still applied so the
+    // result fits Google / OG description budgets.
+    return capDescriptionLength(trimmedDescription);
+  }
+  // Short / placeholder description — fall back to a *localized*
+  // prefix so the per-page disambiguation still works without
+  // staining translated cards with English category nouns.
+  const category = detectCategory(slug);
+  const langCode = (lang || 'en').toLowerCase() as LanguageCode;
+  const categoryLabels = getLocalizedString(
+    ARTICLE_TYPE_LABELS,
+    langCode
+  ) as ArticleCategoryLabels;
+  const label = categoryLabels[category] ?? formatSlug(slug);
+  const prefix = `${date} — ${label}`;
+  const body = trimmedDescription || label;
+  const contextual = `${prefix} — ${body}`.replace(/\s+/g, ' ').trim();
+  return capDescriptionLength(contextual);
+}
+
+/**
+ * Clamp a description to the 180-character SERP-friendly cap with a
+ * trailing ellipsis when truncated. Extracted from
+ * {@link buildLegacyBackfillDescription} so both the prefix-free and
+ * prefixed branches share identical clamping behaviour.
+ *
+ * @param text - Candidate description
+ * @returns Description ≤180 chars, ending with `…` on truncation
+ */
+function capDescriptionLength(text: string): string {
+  if (text.length <= 180) return text;
+  return `${text.slice(0, 177).replace(/[.,;:—\s-]+$/u, '')}…`;
 }
 
 /**

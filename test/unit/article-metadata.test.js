@@ -18,6 +18,7 @@ import {
   deriveWeekRange,
   extractArtifactHighlight,
   extractFirstH1,
+  extractFirstSentence,
   extractLedeAfterHeading,
   extractStrongProseLine,
   humanizeSlug,
@@ -394,6 +395,89 @@ describe('isGenericHeading', () => {
     expect(
       isGenericHeading('Breaking News: EP April 2026 Plenary Outcomes', 'breaking', '2026-05-15')
     ).toBe(false);
+  });
+
+  it('rejects bare institutional self-references (Round 3 fix)', () => {
+    // Live-site regression: executive briefs occasionally author the H1
+    // as the publisher / institution name alone — `# EU Parliament`,
+    // `# Hack23 AB`, `# Executive Brief`. These carry no editorial
+    // information and would produce pathological `<title>EU Parliament`
+    // strings if surfaced. Catch-all for the 14 known bare forms.
+    expect(isGenericHeading('EU Parliament', 'breaking', '2026-05-16')).toBe(true);
+    expect(isGenericHeading('European Parliament', 'committee-reports', '2026-05-15')).toBe(true);
+    expect(isGenericHeading('The European Parliament', 'motions', '2026-05-15')).toBe(true);
+    expect(isGenericHeading('EP', 'breaking', '2026-05-16')).toBe(true);
+    expect(isGenericHeading('EP10', 'term-outlook', '2026-05-16')).toBe(true);
+    expect(isGenericHeading('Hack23', 'breaking', '2026-05-16')).toBe(true);
+    expect(isGenericHeading('Hack23 AB', 'breaking', '2026-05-16')).toBe(true);
+    expect(isGenericHeading('Executive Brief', 'breaking', '2026-05-16')).toBe(true);
+    expect(isGenericHeading('Intelligence Brief', 'breaking', '2026-05-16')).toBe(true);
+    expect(isGenericHeading('Briefing', 'breaking', '2026-05-16')).toBe(true);
+    // With trailing single-date qualifier — still rejected.
+    expect(isGenericHeading('EU Parliament — 2026-05-15', 'breaking', '2026-05-15')).toBe(true);
+    expect(isGenericHeading('Hack23 AB · 2026-05-15', 'breaking', '2026-05-15')).toBe(true);
+    // BUT: institutional name + editorial qualifier IS editorial. The
+    // `isBareInstitutionalHeading` gate is overridden by per-articleType
+    // category-noun matching for slugged forms, and any trailing
+    // editorial content escapes the bare set entirely.
+    expect(isGenericHeading('EU Parliament Adopts AI Act Amendments', 'breaking', '2026-05-15')).toBe(false);
+    expect(isGenericHeading('European Parliament Plenary: April Outcomes', 'breaking', '2026-05-15')).toBe(false);
+  });
+});
+
+describe('extractFirstSentence (Round 3 fix)', () => {
+  it('returns short paragraphs unchanged', () => {
+    expect(extractFirstSentence('EP10 plenary held in Strasbourg.')).toBe(
+      'EP10 plenary held in Strasbourg.'
+    );
+    expect(extractFirstSentence('')).toBe('');
+  });
+
+  it('extracts the first complete sentence past the soft-min', () => {
+    // First sentence is past the 60-char soft-min and shorter than the
+    // 140-char hard cap — return it as-is.
+    const para =
+      'The European Parliament adopted three landmark legislative texts in April. Coalitions held on AI Act amendments.';
+    expect(extractFirstSentence(para)).toBe(
+      'The European Parliament adopted three landmark legislative texts in April.'
+    );
+  });
+
+  it('skips common abbreviations that contain a period', () => {
+    // `e.g.` and `Q1.` must not terminate the sentence — search continues
+    // to the real terminator.
+    const para =
+      'The Q1. plenary calendar (e.g. April 28–30) sets the legislative ceiling for the EP10 mid-term. Coalitions held.';
+    expect(extractFirstSentence(para)).toBe(
+      'The Q1. plenary calendar (e.g. April 28–30) sets the legislative ceiling for the EP10 mid-term.'
+    );
+  });
+
+  it('skips all-caps single-letter initials (U.S., E.U.)', () => {
+    const para =
+      'The E.U. Council formally adopted the directive on 14 May 2026, marking a structural shift. Implementation begins.';
+    expect(extractFirstSentence(para)).toBe(
+      'The E.U. Council formally adopted the directive on 14 May 2026, marking a structural shift.'
+    );
+  });
+
+  it('falls back to original paragraph when no terminator fits the window', () => {
+    // No terminator in the 60-char→TITLE_MAX_LENGTH*1.5 window — return
+    // the original so downstream truncateTitle can clause-break it cleanly.
+    const para =
+      'The European Parliament continues a sustained legislative cadence across the April 2026 Strasbourg plenary with coalition dynamics that show EPP-S&D consensus on banking-union files and a sharper split on AI Act amendments which will surface in May and June plenaries with regulatory tightening anticipated across digital and environmental policy clusters';
+    const result = extractFirstSentence(para);
+    expect(result).toBe(para);
+  });
+
+  it('produces grammatically complete titles when fed through truncateTitle', () => {
+    const para =
+      'The EP10 mid-term marks a structural shift in EU economic governance. Subsequent paragraphs cover banking union and AI Act details.';
+    const sentence = extractFirstSentence(para);
+    const title = truncateTitle(sentence);
+    // No mid-clause ellipsis — title ends at a sentence boundary.
+    expect(title.endsWith('…')).toBe(false);
+    expect(title).toContain('EP10 mid-term');
   });
 });
 
