@@ -1831,11 +1831,15 @@ function extractPriorityFindingItem(
   //   `### KJ-1: Digital Regulation Enforcement …`
   //   `### KF-3: Banking Union Completion`
   //   `### T-2: DMA Enforcement Resolution`
-  const taggedHeading = line.match(
-    /^#{3,4}\s+(?:[A-Z]{1,3}-?\d+|\d+(?:\.\d+)*)\s*[:.)·–—-]+\s*(.+)$/u
-  );
-  if (taggedHeading) {
-    return buildPriorityResult(taggedHeading[1] ?? '', '', lines, i);
+  // Two narrow patterns instead of one wide alternation to keep the
+  // pattern within the unsafe-regex linter's complexity budget.
+  const numericHeading = line.match(/^#{3,4}\s+\d+[:.)·–—\s-]\s*(.+)$/u);
+  if (numericHeading) {
+    return buildPriorityResult(numericHeading[1] ?? '', '', lines, i);
+  }
+  const tagHeading = line.match(/^#{3,4}\s+[A-Z]{1,3}-?\d+[:.)·–—\s-]\s*(.+)$/u);
+  if (tagHeading) {
+    return buildPriorityResult(tagHeading[1] ?? '', '', lines, i);
   }
   // Pattern D — word-prefixed subheading (`### Alert 1 — Title 🔴`,
   // `### Judgement 1 — Title`, `### Trigger 1: DMA Enforcement`):
@@ -1934,9 +1938,41 @@ function buildPriorityResult(
 ): { readonly headline: string; readonly summary: string } | null {
   const cleaned = cleanPriorityHeadline(rawHeadline);
   if (cleaned.length < 5) return null;
-  // Use whatever same-line text trails the bold/heading as the first
-  // sentence of the summary, then continue gathering prose from the
-  // following lines until a blank line / new bullet / new heading.
+  const summaryLines = collectPrioritySummaryLines(tail, lines, i);
+  const summary = truncateDescription(summaryLines.join(' '));
+  return { headline: cleaned, summary };
+}
+
+/**
+ * Decide whether a follow-up line is a hard stop for priority-finding
+ * summary gathering (next heading / next list item) — collapses three
+ * boolean checks out of {@link buildPriorityResult}'s main loop.
+ *
+ * @param line - Trimmed follow-up line
+ * @returns `true` when the gathering loop must break
+ */
+function isPrioritySummaryStopper(line: string): boolean {
+  if (/^#{1,6}\s/.test(line)) return true;
+  if (/^\d+\.\s/.test(line)) return true;
+  if (/^[-*]\s/.test(line)) return true;
+  return false;
+}
+
+/**
+ * Gather the summary prose for a priority-finding item — the same-line
+ * tail (with leading procedure-code parens stripped) plus subsequent
+ * prose lines until a blank line / new heading / new bullet is hit.
+ *
+ * @param tail - Same-line text that trails the bold/heading
+ * @param lines - Full body lines
+ * @param i - Index of the matched headline line
+ * @returns Ordered list of summary segments (already clean)
+ */
+function collectPrioritySummaryLines(
+  tail: string,
+  lines: readonly string[],
+  i: number
+): readonly string[] {
   const summaryLines: string[] = [];
   // Strip leading parens-metadata (`(TA-10-2026-0160, 2026-04-30)`) and
   // trailing parens-metadata from the tail so the summary starts with
@@ -1951,15 +1987,13 @@ function buildPriorityResult(
       if (summaryLines.length > 0) break;
       continue;
     }
-    if (/^#{1,6}\s/.test(next)) break;
-    if (/^\d+\.\s/.test(next) || /^[-*]\s/.test(next)) break;
+    if (isPrioritySummaryStopper(next)) break;
     if (next.startsWith('**Confidence') || next.startsWith('- **Confidence')) continue;
     if (shouldSkipDescriptionLine(next)) continue;
     summaryLines.push(stripInlineMarkdown(next));
     if (summaryLines.join(' ').length >= DESCRIPTION_MAX_LENGTH) break;
   }
-  const summary = truncateDescription(summaryLines.join(' '));
-  return { headline: cleaned, summary };
+  return summaryLines;
 }
 
 /**
@@ -1972,36 +2006,138 @@ function buildPriorityResult(
  * @param raw - Raw bold-title or heading text
  * @returns Cleaned headline (may be empty after stripping)
  */
+/**
+ * Leading priority-label tokens stripped by {@link cleanPriorityHeadline}
+ * (`🔴 CRITICAL — Title` → `Title`). Kept as a list to bypass the
+ * unsafe-regex lint by avoiding deep alternation in a single pattern.
+ */
+const PRIORITY_LABEL_TOKENS: readonly string[] = [
+  'CRITICAL',
+  'HIGH PRIORITY',
+  'HIGH',
+  'MEDIUM PRIORITY',
+  'MEDIUM',
+  'LOW PRIORITY',
+  'LOW',
+  'URGENT',
+  'ALERT',
+  'PRIORITY',
+];
+
+/**
+ * Trailing confidence-marker tokens stripped by
+ * {@link cleanPriorityHeadline}. Same rationale as
+ * {@link PRIORITY_LABEL_TOKENS}.
+ */
+const PRIORITY_TRAILING_TOKENS: readonly string[] = [
+  'CRITICAL',
+  'HIGH PRIORITY',
+  'HIGH',
+  'MEDIUM PRIORITY',
+  'MEDIUM',
+  'LOW PRIORITY',
+  'LOW',
+];
+
+/**
+ * Leading editorial-prefix tokens stripped by
+ * {@link cleanPriorityHeadline} (`Trigger 1: Title` → `Title`).
+ */
+const PRIORITY_LEADING_PREFIX_TOKENS: readonly string[] = [
+  'Trigger',
+  'Dossier',
+  'Priority',
+  'Finding',
+  'Item',
+  'Highlight',
+  'Top',
+  'Story',
+  'Alert',
+  'Judgement',
+  'Judgment',
+];
+
+/**
+ * Strip a leading priority decoration (`🔴 `, `CRITICAL — `) from a
+ * candidate headline. Extracted from {@link cleanPriorityHeadline} to
+ * keep cognitive complexity within budget.
+ *
+ * @param text - Candidate headline (already trimmed)
+ * @returns Headline with the leading decoration removed
+ */
+function stripPriorityLeadingDecoration(text: string): string {
+  let out = text;
+  for (let pass = 0; pass < 2; pass++) {
+    out = out.replace(/^[^\p{L}\p{N}]+/u, '').trim();
+    for (const token of PRIORITY_LABEL_TOKENS) {
+      if (out.toLowerCase().startsWith(token.toLowerCase())) {
+        const rest = out.slice(token.length).trim();
+        const sep = rest.match(/^[:—–-]\s*(.+)$/u);
+        if (sep?.[1]) {
+          out = sep[1].trim();
+          break;
+        }
+      }
+    }
+  }
+  return out;
+}
+
+/**
+ * Strip a leading editorial prefix (`Trigger 1: `, `Dossier 2: `) and a
+ * stray leading ordinal (`1. `, `2.1 `) from a candidate headline.
+ *
+ * @param text - Candidate headline
+ * @returns Headline with the leading editorial decoration removed
+ */
+function stripPriorityLeadingPrefix(text: string): string {
+  let out = text;
+  for (const token of PRIORITY_LEADING_PREFIX_TOKENS) {
+    if (!out.toLowerCase().startsWith(token.toLowerCase())) continue;
+    const rest = out.slice(token.length);
+    const match = rest.match(/^\s+\d+\s*[:–—-]\s*(.+)$/u);
+    if (match?.[1]) {
+      out = match[1];
+      break;
+    }
+  }
+  // Drop a stray leading "1. " / "2) " ordinal.
+  out = out.replace(/^\d+[.):·\s]\s*/u, '');
+  return out;
+}
+
+/**
+ * Strip a trailing confidence marker (`🔴 CRITICAL`, `🟡 MEDIUM`) from a
+ * candidate headline. Single pass — caller invokes inside a fixed-point
+ * loop.
+ *
+ * @param text - Candidate headline
+ * @returns Headline with the trailing confidence marker removed
+ */
+function stripPriorityTrailingMarker(text: string): string {
+  let out = text;
+  for (const token of PRIORITY_TRAILING_TOKENS) {
+    const pattern = new RegExp(`\\s+[^\\p{L}\\p{N}\\s]?\\s*${token}\\s*$`, 'iu');
+    const next = out.replace(pattern, '');
+    if (next !== out) {
+      out = next;
+      break;
+    }
+  }
+  return out;
+}
+
 function cleanPriorityHeadline(raw: string): string {
   let text = stripInlineMarkdown(raw).trim();
-  // Drop leading emoji / decoration (`🔴 CRITICAL — Title`, `🎯 Title`,
-  // `🔑 Title`). Run twice to handle stacked emoji + label combos.
-  for (let pass = 0; pass < 2; pass++) {
-    text = text.replace(/^[^\p{L}\p{N}]+/u, '').trim();
-    text = text.replace(
-      /^(?:CRITICAL|HIGH(?:\s*PRIORITY)?|MEDIUM(?:\s*PRIORITY)?|LOW(?:\s*PRIORITY)?|URGENT|ALERT|PRIORITY)\s*[:—–-]\s*/iu,
-      ''
-    );
-  }
-  // Drop "Trigger 1:" / "Dossier 2:" / "Priority 3:" style prefixes.
-  text = text.replace(
-    /^(?:Trigger|Dossier|Priority|Finding|Item|Highlight|Top|Story|Alert|Judgement|Judgment)\s+\d+\s*[:–—-]\s*/iu,
-    ''
-  );
-  // Drop a stray leading "1. " / "2) " / "2.1 " ordinal.
-  text = text.replace(/^\d+(?:\.\d+)*\s*[.):·\s]\s*/u, '');
-  // Trailing cleanup runs in a loop until stable so combined patterns
+  text = stripPriorityLeadingDecoration(text);
+  text = stripPriorityLeadingPrefix(text);
+  // Trailing cleanup runs in a fixed-point loop so combined patterns
   // like "Title (Confidence, 80%): 🔴" collapse all the way down to
   // "Title".
   let previous = '';
   while (previous !== text) {
     previous = text;
-    // Drop trailing emoji + confidence marker (`🔴 CRITICAL`, `🟡 MEDIUM`).
-    text = text.replace(
-      /\s*[^\p{L}\p{N}\s]?\s*(?:CRITICAL|HIGH(?:\s*PRIORITY)?|MEDIUM(?:\s*PRIORITY)?|LOW(?:\s*PRIORITY)?)\s*$/iu,
-      ''
-    );
-    // Strip trailing parenthesised metadata (procedure codes / committee tags).
+    text = stripPriorityTrailingMarker(text);
     text = stripPriorityTailMetadata(text);
     // Drop a single trailing emoji left after metadata stripping.
     text = text.replace(/\s+[^\p{L}\p{N}\s]+\s*$/u, '');

@@ -1,7 +1,7 @@
 ---
 title: "Political Intelligence Analysis"
-description: "(CIA methodology) — actor motivations, coalition mathematics Published 2026-04-28. for democratic-accountability readers tracking EU institutional consequences"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-28", "run propositions-run-1777356258", "Political", "Intelligence", "Analysis", "methodology", "actor", "motivations", "coalition", "mathematics"]
+description: "— actor motivations, coalition mathematics Published 2026-04-28. for democratic-accountability readers tracking EU institutional consequences"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-28", "run propositions-run-1777356258", "Political", "Intelligence", "Analysis", "actor", "motivations", "coalition", "mathematics", "Published"]
 date: 2026-04-28
 article_type: propositions
 slug: 2026-04-28-propositions
