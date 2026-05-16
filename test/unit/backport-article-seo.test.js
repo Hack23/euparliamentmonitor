@@ -227,11 +227,14 @@ describe('deriveMetadataForFile — full pipeline', () => {
     expect(meta.description.length).toBeGreaterThan(10);
   });
 
-  it('uses localized template plus editorial context when body language does not match filename language', () => {
+  it('uses English editorial verbatim when body language does not match filename language and no localized brief exists', () => {
     // Aggregator regression case — the file is `-sv.html` but the body
-    // is still rendered in English (known PR#1404 regression). The
-    // backport must keep the Swedish template shell, while appending the
-    // artifact-derived editorial topic so SEO metadata remains page-specific.
+    // is still rendered in English (known PR#1404 regression). Per the
+    // current SEO contract (prompt § 6.2 priority 3) the Swedish file
+    // inherits the English brief headline verbatim when no localized
+    // `executive-brief_sv.md` exists for the run; the old `<localized
+    // template> — <English headline>` concatenation is no longer emitted
+    // because it produced mixed-language `<title>` strings.
     const englishBody =
       '<h1>Banking Union Breakthrough and Anti-Corruption Landmark</h1>' +
       '<p>The European Parliament this week closed the final gap in the banking union with a landmark resolution adopted by the plenary on Tuesday evening.</p>';
@@ -245,9 +248,12 @@ describe('deriveMetadataForFile — full pipeline', () => {
       { slug: '2026-04-14-breaking', articleType: 'breaking', date: '2026-04-14', lang: 'sv' },
       html
     );
-    expect(meta.title).toMatch(/Senaste|Betydande/);
     expect(meta.title).toContain('Banking Union Breakthrough');
-    expect(meta.description).toContain('2026-04-14');
+    expect(meta.title).not.toMatch(/Senaste|Betydande/);
+    // The English summary is long enough to satisfy the SEO floor; the
+    // contextual-date appendix is allowed to be truncated when the
+    // editorial sentence already fills the budget.
+    expect(meta.description).toContain('banking union');
     expect(meta.description.length).toBeGreaterThanOrEqual(120);
   });
 

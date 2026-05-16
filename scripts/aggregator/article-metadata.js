@@ -9,42 +9,48 @@
  * published article carry a unique, content-reflective headline and
  * description in every language variant.
  *
- * Priority ladder (per language, highest wins):
+ * Priority ladder (per language, highest wins) — matches the editorial
+ * contract documented in
+ * [`.github/prompts/04-article-generation.md`](../../.github/prompts/04-article-generation.md) § 6.2:
  *
  * 1. **Manifest override** — `manifest.title` / `manifest.description` on
  *    the analysis-run manifest, either as a plain string (applied to every
  *    language) or a `LanguageMap<string>` object for explicit per-language
- *    values. Authored by Stage-B agents when they have an editorial
- *    headline for the day.
- * 2. **Artefact editorial H1** — first `# …` heading from the first
+ *    values.
+ * 2. **Localized executive brief** — for non-English `<lang>`, the
+ *    translated sibling `executive-brief_<lang>.md` (or
+ *    `extended/executive-brief_<lang>.md`) under the run directory.
+ *    Resolved via `editorial-brief-resolver.ts`. This is the authoritative
+ *    localized source produced by the `news-translate` workflow.
+ * 3. **English executive brief, verbatim** — the English brief
+ *    (`executive-brief.md` / `extended/executive-brief.md`) used as a
+ *    fall-through when a locale has no translated brief yet. Recorded in
+ *    `metadataFallback[<lang>] = "en"` so editors can audit which locales
+ *    fell through.
+ * 4. **Artefact editorial H1** — first `# …` heading from the first
  *    substantive artefact under the run directory (e.g.
  *    `intelligence/synthesis-summary.md`, `breaking-news-analysis.md`).
  *    Accepted only when the heading is not a generic
  *    `${humanize(articleType)} — ${date}` form.
- * 3. **Aggregated-markdown H1** — the first `# …` heading in the aggregator
- *    output, accepted under the same non-generic rule. In practice this
- *    tier rarely fires because the aggregator itself writes the generic
- *    default, but it covers hand-edited or historic aggregates.
- * 4. **First strong prose paragraph** — the first line of the aggregated
- *    Markdown that survives {@link shouldSkipDescriptionLine}. Used for
- *    `description`; also used for `title` as a last editorial-content
- *    resort when every heading-level source is generic.
- * 5. **Localized template** — the per-article-type `*_TITLES` generator
- *    from `src/constants/language-articles.ts`. Always parameterised by
- *    date (or derived values), so the title changes from run to run even
- *    when this last tier fires — but still the "boring repeated" option.
+ * 5. **Aggregated-markdown H1** — the first `# …` heading in the aggregator
+ *    output, accepted under the same non-generic rule.
+ * 6. **First strong prose paragraph** — the first line of the aggregated
+ *    Markdown that survives {@link shouldSkipDescriptionLine}.
+ * 7. **Localized template** — the per-article-type `*_TITLES` generator
+ *    from `src/constants/language-articles.ts`. Last resort.
  *
- * Artifact-derived highlights (tiers 2–4) are used as page-specific
- * context across all 14 variants: English can use them directly, while
- * non-English variants keep the localized article-type template and append
- * the editorial topic/summary. This prevents duplicate metadata across
- * same-type pages while keeping the surrounding snippet language-specific
- * until full per-language body translations are present.
+ * Tiers 2–6 produce the same shape ({headline, summary}); the resolver
+ * picks the highest-available tier per language. When a localized brief
+ * (tier 2) is present, the headline replaces the localized template
+ * verbatim — no concatenation. Locales without a translated brief inherit
+ * the English brief content (tier 3) so SEO surfaces never fall back to
+ * boring type-level templates while real editorial content exists.
  */
 import fs from 'fs';
 import path from 'path';
 import { ALL_LANGUAGES, getLocalizedString } from '../constants/language-core.js';
 import { BREAKING_NEWS_TITLES, COMMITTEE_REPORTS_TITLES, ELECTION_CYCLE_TITLES, LOCALIZED_KEYWORDS, MONTH_AHEAD_TITLES, MONTHLY_REVIEW_TITLES, MOTIONS_TITLES, PROPOSITIONS_TITLES, QUARTER_AHEAD_TITLES, QUARTER_IN_REVIEW_TITLES, TERM_OUTLOOK_TITLES, WEEK_AHEAD_TITLES, WEEKLY_REVIEW_TITLES, YEAR_AHEAD_TITLES, YEAR_IN_REVIEW_TITLES, } from '../constants/language-articles.js';
+import { resolveLocalizedBriefHighlight } from './editorial-brief-resolver.js';
 /** Maximum `<meta description>` length we will emit. */
 const DESCRIPTION_MAX_LENGTH = 180;
 /** Target minimum `<meta description>` length before we append context. */
@@ -393,6 +399,25 @@ export function shouldSkipDescriptionLine(line) {
     }
     if (/^[-*_=~.]{3,}$/.test(line))
         return true;
+    // Language-agnostic banner-row detector. Stage-B artefacts open with a
+    // metadata banner of the shape
+    //   `**Date:** 2026-05-15 | **Type:** Breaking | **Run:** breaking-run-001`
+    // and its localized siblings — notably Japanese / Chinese / Korean
+    // briefs which place the full-width colon `：` **inside** the bold
+    // span (`**日付：**`) rather than after it. The `METADATA_LINE_PREFIXES`
+    // table above only covers the English vocabulary; this catches the
+    // structural shape directly: a line that starts with `**`, contains
+    // at least one `|` separator, and carries two-or-more bold key
+    // markers that end with — or are followed by — an ASCII colon `:` or
+    // full-width colon `：`. Banner rows look identical in every language
+    // we publish, so detecting them here keeps localized briefs from
+    // leaking their first banner line into the `<meta description>`.
+    if (line.startsWith('**') && line.includes('|')) {
+        const inside = (line.match(/\*\*[^*]+[:：]\s*\*\*/g) ?? []).length;
+        const after = (line.match(/\*\*[^*]+\*\*\s*[:：]/g) ?? []).length;
+        if (inside + after >= 2)
+            return true;
+    }
     return false;
 }
 /**
@@ -629,7 +654,7 @@ export function extractLedeAfterHeading(markdown) {
             continue;
         if (/^#{2,3}\s+/.test(line)) {
             const headingText = normaliseHeadingText(line.replace(/^#{2,3}\s+/, ''));
-            inLede = EDITORIAL_LEDE_HEADINGS.some((h) => headingText === h || headingText.startsWith(`${h} `) || headingText.startsWith(`${h}:`));
+            inLede = EDITORIAL_LEDE_HEADINGS.some((h) => isLedeHeadingMatch(headingText, h));
             continue;
         }
         if (!inLede)
@@ -659,6 +684,32 @@ function normaliseHeadingText(raw) {
         .replace(/^[^A-Za-z0-9]+/, '')
         .trim()
         .toLowerCase();
+}
+/**
+ * Word-boundary match against an editorial-lede whitelist entry. Matches
+ * when the normalised heading equals the whitelist entry exactly, or when
+ * the entry is followed by any non-alphanumeric character — covering
+ * localized parenthetical glosses written with ASCII or full-width
+ * punctuation (e.g. `bluf (bottom line up front)`, `bluf（結論先出し）`,
+ * `bluf — 핵심 결론`, `60-second read — what happened`).
+ *
+ * @param headingText - Normalised heading text (lower-case, decoration-stripped)
+ * @param whitelistEntry - Lower-case whitelist entry from
+ *                        {@link EDITORIAL_LEDE_HEADINGS}
+ * @returns `true` when `headingText` begins with `whitelistEntry` at a
+ *          word boundary
+ */
+function isLedeHeadingMatch(headingText, whitelistEntry) {
+    if (headingText === whitelistEntry)
+        return true;
+    if (!headingText.startsWith(whitelistEntry))
+        return false;
+    const next = headingText.charAt(whitelistEntry.length);
+    // Word boundary — anything that is not an ASCII letter/digit is a
+    // separator we accept. This works uniformly across ASCII parentheses,
+    // CJK full-width brackets `（`, dashes `— – -`, colons `:`, and the
+    // ideographic full-width colon `：`.
+    return next === '' || !/[a-z0-9]/.test(next);
 }
 /**
  * Return `true` when an artefact-H1 begins with one of the
@@ -1314,23 +1365,29 @@ function resolveEditorialContent(opts) {
     return { headline: '', summary: '' };
 }
 /**
- * Enrich a localized fallback title with the article-specific editorial
- * headline so translated variants are not reduced to duplicate type/date
- * templates when the source artifacts carry a real story.
+ * Pick the per-language SEO title from the resolved editorial pair and
+ * the localized template fallback. The decision tree mirrors the priority
+ * ladder in the module header:
  *
- * @param lang - Target language code
- * @param fallbackTitle - Localized article-type fallback title
- * @param editorialHeadline - Artifact-derived editorial headline
+ *   - When an editorial headline exists (either translated brief or
+ *     English brief / aggregated source), use it **verbatim** — no
+ *     concatenation with the localized type/date template. Concatenation
+ *     historically produced strings like
+ *     `Senaste Nytt: Betydande Parlamentariska Händelser — 2026-05-15 — Breaking News: EP April 2026 Plenary Outcomes`
+ *     which mix two languages in a single `<title>` and are blocked by
+ *     `scripts/validate-manifest-seo.js`'s `english-fallthrough` gate.
+ *   - When no editorial headline exists at all, fall back to the
+ *     localized type/date template plus a run qualifier so same-type pages
+ *     remain distinguishable.
+ *
+ * @param fallbackTitle - Localized article-type template title
+ * @param editorialHeadline - Editorial headline (localized or English)
  * @param runId - Optional run id used only when no editorial headline exists
  * @returns SEO title candidate
  */
-function composeContextualTitle(lang, fallbackTitle, editorialHeadline, runId) {
-    if (lang === 'en') {
-        return editorialHeadline || withRunQualifier(fallbackTitle, runId);
-    }
-    if (editorialHeadline) {
-        return `${fallbackTitle} — ${editorialHeadline}`;
-    }
+function composeContextualTitle(fallbackTitle, editorialHeadline, runId) {
+    if (editorialHeadline)
+        return editorialHeadline;
     return withRunQualifier(fallbackTitle, runId);
 }
 /**
@@ -1449,41 +1506,122 @@ function dedupeKeywords(candidates) {
  */
 export function resolveArticleMetadata(opts) {
     const manifest = opts.manifest ?? {};
-    const editorial = resolveEditorialContent(opts);
+    const englishEditorial = resolveEditorialContent(opts);
     const template = buildTemplateFallback(opts.articleType, opts.date, manifest.committee);
     const runId = manifest.runId?.trim() ?? '';
     const result = Object.create(null);
     for (const lang of ALL_LANGUAGES) {
-        const manifestTitle = manifestOverrideFor(manifest.title, lang);
-        const manifestDescription = manifestOverrideFor(manifest.description, lang);
-        const fallback = template[lang];
-        const contextualTitle = composeContextualTitle(lang, fallback.title, editorial.headline, runId);
-        const titleCandidates = [manifestTitle, contextualTitle, fallback.title];
-        const descCandidates = [
-            manifestDescription,
-            lang === 'en' ? editorial.summary : '',
-            fallback.subtitle,
-        ];
-        const title = pickFirstNonEmpty(titleCandidates) || fallback.title;
-        const rawDescription = pickFirstNonEmpty(descCandidates) || fallback.subtitle;
-        const description = rawDescription.length >= DESCRIPTION_MIN_LENGTH &&
-            containsNormalized(rawDescription, opts.date)
-            ? rawDescription
-            : composeContextualDescription(lang, rawDescription, editorial, opts.date, runId);
-        const truncatedTitle = truncateTitle(title);
-        const truncatedDescription = truncateDescription(description);
+        const entry = resolveOneLanguage({
+            lang,
+            manifest,
+            englishEditorial,
+            template: template[lang],
+            runDir: opts.runDir,
+            articleType: opts.articleType,
+            date: opts.date,
+            runId,
+        });
         Object.defineProperty(result, lang, {
-            value: {
-                title: truncatedTitle,
-                description: truncatedDescription,
-                keywords: buildSeoKeywords(lang, opts.articleType, opts.date, runId, truncatedTitle, truncatedDescription),
-            },
+            value: entry,
             enumerable: true,
             writable: true,
             configurable: true,
         });
     }
     return result;
+}
+/**
+ * Resolve `{title, description, keywords, source}` for one language. The
+ * priority ladder is:
+ *
+ *   1. manifest override (per-language wins, then string fall-through)
+ *   2. localized executive brief (`executive-brief_<lang>.md`) headline +
+ *      summary — only for non-English `<lang>`
+ *   3. English executive brief / aggregated editorial — verbatim for
+ *      non-English locales that have no translated brief yet, so the
+ *      SEO surfaces never collapse to a boring type/date template while a
+ *      real editorial highlight exists
+ *   4. localized template fallback
+ *
+ * @param input - Per-language inputs
+ * @returns One resolved metadata entry
+ */
+function resolveOneLanguage(input) {
+    const manifestTitle = manifestOverrideFor(input.manifest.title, input.lang);
+    const manifestDescription = manifestOverrideFor(input.manifest.description, input.lang);
+    const perLanguage = resolvePerLanguageEditorial(input);
+    const editorial = perLanguage.editorial;
+    const contextualTitle = composeContextualTitle(input.template.title, editorial.headline, input.runId);
+    const title = pickFirstNonEmpty([manifestTitle, contextualTitle, input.template.title]);
+    const rawDescription = pickFirstNonEmpty([
+        manifestDescription,
+        editorial.summary,
+        input.template.subtitle,
+    ]);
+    const description = rawDescription.length >= DESCRIPTION_MIN_LENGTH &&
+        containsNormalized(rawDescription, input.date)
+        ? rawDescription
+        : composeContextualDescription(input.lang, rawDescription, editorial, input.date, input.runId);
+    const truncatedTitle = truncateTitle(title);
+    const truncatedDescription = truncateDescription(description);
+    const source = manifestTitle || manifestDescription
+        ? 'manifest'
+        : perLanguage.source;
+    return {
+        title: truncatedTitle,
+        description: truncatedDescription,
+        keywords: buildSeoKeywords(input.lang, input.articleType, input.date, input.runId, truncatedTitle, truncatedDescription),
+        source,
+    };
+}
+/**
+ * Select the editorial `{headline, summary}` pair for one language,
+ * preferring the translated `executive-brief_<lang>.md` over the English
+ * brief. Records which tier provided the content so the caller can wire
+ * up the editorial fallback note and the manifest-SEO validator without
+ * re-scanning the run directory.
+ *
+ * - For `lang === 'en'`: always returns the English `englishEditorial`
+ *   pair (whose source is the canonical English brief / aggregated
+ *   Markdown / artefact ladder in {@link resolveEditorialContent}).
+ * - For non-English `<lang>`: probes `runDir` for
+ *   `executive-brief_<lang>.md` (and the `extended/` sibling) and
+ *   prefers its headline + lede. Falls through to the English editorial
+ *   when no translated brief exists.
+ *
+ * @param input - Per-language inputs
+ * @returns Editorial pair plus the tier that produced it
+ */
+function resolvePerLanguageEditorial(input) {
+    if (input.lang !== 'en' && input.runDir) {
+        const localized = resolveLocalizedBriefHighlight(input.runDir, input.lang, input.articleType, input.date);
+        if (localized && (localized.headline || localized.summary)) {
+            // Prefer the localized headline; if missing, allow the localized
+            // summary to drive the title via {@link composeContextualTitle}'s
+            // `editorialHeadline || fallbackTitle` path while still feeding the
+            // localized summary into the description.
+            return {
+                editorial: {
+                    headline: localized.headline,
+                    summary: localized.summary,
+                },
+                source: 'localized-brief',
+            };
+        }
+    }
+    // No localized brief — fall through to the English editorial pair.
+    if (input.englishEditorial.headline || input.englishEditorial.summary) {
+        return {
+            editorial: input.englishEditorial,
+            source: input.lang === 'en' ? 'english-editorial' : 'english-brief',
+        };
+    }
+    // Nothing editorial at all → caller will fall back to the localized
+    // template.
+    return {
+        editorial: { headline: '', summary: '' },
+        source: 'template',
+    };
 }
 /**
  * Return the first non-empty, trimmed entry from a candidate list, or

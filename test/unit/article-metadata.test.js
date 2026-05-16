@@ -525,10 +525,14 @@ describe('resolveArticleMetadata — priority ladder', () => {
     expect(de.length).toBeGreaterThan(5);
   });
 
-  it('non-English languages enrich localized templates with the editorial headline', () => {
-    // Simulate the aggregator case: English editorial H1 exists in the
-    // aggregated Markdown, but every non-EN variant must still surface a
-    // locale-appropriate title rather than the English headline.
+  it('non-English languages use the English editorial headline verbatim when no localized brief exists', () => {
+    // Per `.github/prompts/04-article-generation.md` § 6.2 priority 3:
+    // when a locale has no translated `executive-brief_<lang>.md`, the
+    // English brief content is used verbatim across every language (with
+    // `source: "english-brief"` / `"english-editorial"` recording the
+    // fall-through). The old concatenation
+    // `<localized template> — <English headline>` mixed two languages in
+    // one `<title>` and is now forbidden.
     const result = resolveArticleMetadata({
       articleType: 'breaking',
       date: '2026-04-20',
@@ -537,12 +541,14 @@ describe('resolveArticleMetadata — priority ladder', () => {
     });
     const en = Object.getOwnPropertyDescriptor(result, 'en')?.value;
     expect(en.title).toBe('Banking Union Breakthrough and Anti-Corruption Landmark');
+    expect(en.source).toBe('english-editorial');
     const sv = Object.getOwnPropertyDescriptor(result, 'sv')?.value;
     const de = Object.getOwnPropertyDescriptor(result, 'de')?.value;
-    expect(sv.title).toContain('Banking Union Breakthrough');
-    expect(sv.title).toMatch(/Senaste|Betydande/);
-    expect(de.title).toContain('Anti-Corruption Landmark');
-    expect(de.title).toMatch(/Eilmeldung|Bedeutende/);
+    expect(sv.title).toBe('Banking Union Breakthrough and Anti-Corruption Landmark');
+    expect(sv.source).toBe('english-brief');
+    expect(de.title).toBe('Banking Union Breakthrough and Anti-Corruption Landmark');
+    expect(de.source).toBe('english-brief');
+    expect(sv.title).not.toMatch(/Senaste|Betydande/);
     for (const lang of ALL_LANGUAGES) {
       const entry = Object.getOwnPropertyDescriptor(result, lang)?.value;
       expect(entry.title.length).toBeGreaterThan(5);
@@ -550,6 +556,66 @@ describe('resolveArticleMetadata — priority ladder', () => {
       expect(entry.description).toContain('2026-04-20');
       expect(entry.keywords.length).toBeGreaterThan(3);
     }
+  });
+
+  it('Tier 2 — localized executive-brief sibling wins over English editorial for that language', () => {
+    writeArtefact(
+      'executive-brief.md',
+      '# Banking Union Breakthrough and Anti-Corruption Landmark\n\nThe European Parliament this week closed the final gap in the banking union with a landmark resolution adopted on Tuesday.'
+    );
+    writeArtefact(
+      'executive-brief_sv.md',
+      '# Bankunionsuppgörelse prövar EPP–S&D-disciplin\n\nParlamentet stängde denna vecka den sista luckan i bankunionen genom en landmärkesresolution som antogs på tisdagen och prövar EPP–S&D-disciplinen.'
+    );
+    writeArtefact(
+      'executive-brief_de.md',
+      '# Bankenunion-Deal prüft EPP–S&D-Disziplin\n\nDas Parlament schloss diese Woche die letzte Lücke in der Bankenunion mit einer wegweisenden Resolution, die am Dienstag angenommen wurde und die EPP–S&D-Disziplin auf die Probe stellt.'
+    );
+    const result = resolveArticleMetadata({
+      articleType: 'breaking',
+      date: '2026-04-20',
+      markdown: '# Aggregated heading\n\nAggregated prose body.',
+      runDir: tmpRun,
+    });
+    const en = Object.getOwnPropertyDescriptor(result, 'en')?.value;
+    expect(en.title).toBe('Banking Union Breakthrough and Anti-Corruption Landmark');
+    expect(en.source).toBe('english-editorial');
+
+    const sv = Object.getOwnPropertyDescriptor(result, 'sv')?.value;
+    expect(sv.title).toBe('Bankunionsuppgörelse prövar EPP–S&D-disciplin');
+    expect(sv.source).toBe('localized-brief');
+    expect(sv.description).toContain('Parlamentet');
+
+    const de = Object.getOwnPropertyDescriptor(result, 'de')?.value;
+    expect(de.title).toBe('Bankenunion-Deal prüft EPP–S&D-Disziplin');
+    expect(de.source).toBe('localized-brief');
+    expect(de.description).toContain('Parlament');
+
+    // Locales without a translated brief fall through to the English
+    // brief verbatim (priority 3 from prompt § 6.2).
+    const fr = Object.getOwnPropertyDescriptor(result, 'fr')?.value;
+    expect(fr.title).toBe('Banking Union Breakthrough and Anti-Corruption Landmark');
+    expect(fr.source).toBe('english-brief');
+  });
+
+  it('Tier 2 — extended/executive-brief_<lang>.md is honoured when the top-level translated brief is absent', () => {
+    writeArtefact(
+      'executive-brief.md',
+      '# English Headline Story\n\nEnglish lede paragraph that is long enough to satisfy SEO heuristics.'
+    );
+    writeArtefact(
+      'extended/executive-brief_ja.md',
+      '# 銀行同盟合意がEPP・S&D規律を試す\n\n議会は今週、火曜日に採択された画期的な決議によって銀行同盟の最後のギャップを埋めた。'
+    );
+    const result = resolveArticleMetadata({
+      articleType: 'breaking',
+      date: '2026-04-20',
+      markdown: '# Aggregated heading\n\nAggregated prose body.',
+      runDir: tmpRun,
+    });
+    const ja = Object.getOwnPropertyDescriptor(result, 'ja')?.value;
+    expect(ja.title).toBe('銀行同盟合意がEPP・S&D規律を試す');
+    expect(ja.source).toBe('localized-brief');
   });
 
   it('non-English languages still honour an explicit per-language manifest override', () => {
@@ -806,6 +872,51 @@ describe('extractLedeAfterHeading', () => {
     const lede = extractLedeAfterHeading(md);
     expect(lede).toContain('actual lede sentence');
     expect(lede).not.toContain('Reporting Window');
+  });
+
+  it('matches a Japanese BLUF heading with full-width parentheses', () => {
+    const md = [
+      '# エグゼクティブ・ブリーフ — 速報',
+      '**日付：** 2026-05-15 | **記事タイプ：** 速報 | **実行：** breaking-run-001',
+      '',
+      '## 🎯 BLUF（結論先出し）',
+      '',
+      '欧州議会の2026年4月28日〜30日の本会議は、六つの重要な立法・政治的行動を生み出した。それらはまとめて三つのマクロレベルの転換を示している。',
+    ].join('\n');
+    const lede = extractLedeAfterHeading(md);
+    expect(lede).toContain('欧州議会');
+    expect(lede).not.toContain('日付');
+  });
+
+  it('matches a Korean BLUF heading with em-dash gloss', () => {
+    const md = [
+      '## 🎯 BLUF — 핵심 결론',
+      '',
+      '유럽의회는 2026년 4월 28일부터 30일까지의 본회의에서 여섯 가지 중요한 입법 및 정치적 결정을 내렸으며 이는 세 가지 거시적 변화를 보여준다.',
+    ].join('\n');
+    expect(extractLedeAfterHeading(md)).toContain('유럽의회');
+  });
+
+  it('rejects a localized banner row even when its keys are not in the English METADATA_LINE_PREFIXES list', () => {
+    // Generic banner shape — `**Key:** Value | **Key:** Value` — must be
+    // rejected regardless of language. Japanese full-width colon `：` is
+    // the most common variant in published briefs.
+    expect(
+      shouldSkipDescriptionLine(
+        '**日付：** 2026-05-15 | **記事タイプ：** 速報 | **実行：** breaking-run-001'
+      )
+    ).toBe(true);
+    expect(
+      shouldSkipDescriptionLine(
+        '**التاريخ:** 2026-05-15 | **النوع:** عاجل | **التشغيل:** breaking-run-001'
+      )
+    ).toBe(true);
+    // Plain prose with one inline link must not be rejected by this rule.
+    expect(
+      shouldSkipDescriptionLine(
+        'The European Parliament closed the final gap in the banking union with a landmark resolution adopted by the plenary on Tuesday evening.'
+      )
+    ).toBe(false);
   });
 });
 
