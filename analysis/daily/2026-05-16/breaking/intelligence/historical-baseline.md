@@ -118,3 +118,44 @@ The April 2026 plenary is notable for the combination of:
 This combination places April 2026 in the "constructive" category rather than "crisis response"
 or "landmark legislation" categories. Equivalent historical benchmarks: June 2016 (post-Brexit
 vote EP response), September 2015 (migration crisis response), March 2020 (COVID emergency).
+
+## Historical Precedent Timeline
+
+```mermaid
+timeline
+    title EU Parliament Institutional Milestones Relevant to April 2026 Context
+    2019-07 : Von der Leyen elected Commission President (narrow 383/374)
+    2020-07 : COVID Recovery Fund (NGEU) €750bn agreed — first EU bonds
+    2022-02 : Russia invades Ukraine; EU sanctions architecture begins
+    2022-06 : Ukraine candidate status granted in record time (3 months)
+    2022-12 : Qatargate corruption scandal; EP credibility damaged
+    2024-03 : AI Act adopted — world's first comprehensive AI regulation
+    2024-06 : EP10 elections — EPP largest group; far-right surge
+    2024-07 : Von der Leyen re-elected (401/720 — wider than EP9 margin)
+    2024-07 : Ukraine Facility (€50bn 2024-2027) begins disbursement
+    2025-01 : DMA first gatekeeper obligations enforcement deadline
+    2025-04 : Draghi Competitiveness Report implementation begins
+    2026-04 : April 2026 Plenary — this analysis cycle
+```
+
+## Historical Analogy — DMA vs Pre-GDPR Tech Regulation
+
+The April 2026 DMA enforcement context closely parallels the pre-GDPR enforcement period
+(2015-2018), when EU institutions spent three years building political consensus for
+enforcement authority before the first major fines were issued. In the GDPR case:
+
+- European Parliament played an amplification role (resolutions supporting Commission)
+- First major fines came 24 months after regulation entered force
+- US tech companies went through a public "we'll comply" phase before legal challenges
+- Trade pressure from US government was present but did not change enforcement outcome
+
+The DMA parallel suggests: first major enforcement decisions Q3-Q4 2026; companies will
+publicly cooperate while pursuing WTO/arbitration challenges behind the scenes; outcome
+depends on Commission's institutional resolve under political pressure.
+
+**Key difference from GDPR:** DMA is more explicitly structural (market access conditions)
+than GDPR (data rights). Market access remedies create larger economic stakes and therefore
+stronger US government pressure. GDPR fines were large but did not threaten US firm
+presence in EU market. DMA gatekeeper designation + structural remedy could do so.
+
+Admiralty Grade: A2 — Historical analogy well-supported; forward projection = analyst assessment.

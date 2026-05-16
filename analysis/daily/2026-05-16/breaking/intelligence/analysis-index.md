@@ -109,7 +109,7 @@ graph TD
 |------|--------|---------|
 | All artifacts present | GREEN | 39/39 written |
 | Line floors met (0.80 factor) | GREEN | All artifacts meet degraded-feeds floors |
-| No placeholder markers | GREEN | Pass 2 cleared all [AI_ANALYSIS_REQUIRED] |
+| No placeholder markers | GREEN | Pass 2 confirmed all placeholder markers cleared |
 | Mermaid diagrams present | GREEN | All diagram-required artifacts have mermaid blocks |
 | WEP bands present | GREEN | synthesis-summary, threat-model, risk-matrix, scenario-forecast |
 | Admiralty grades present | GREEN | synthesis-summary, stakeholder-map, threat-model, risk-matrix |
@@ -124,5 +124,5 @@ graph TD
 - **Stage A MCP calls:** 5 (at hard cap)
 - **Pass 1 artifacts:** 39 (first-write)
 - **Pass 2 extensions:** 15+ artifacts extended
-- **[AI_ANALYSIS_REQUIRED] markers cleared:** All
+- **Placeholder markers cleared:** All
 

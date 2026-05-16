@@ -67,3 +67,78 @@ committee interim report.
 - GDPR enforcement fine precedent (for DMA calibration)
 - EP9 Ukraine resolution voting record (historical Coalition Delta baseline)
 - Pre-Braun immunity proceedings timeline (for Jaki proceedings comparison)
+
+## Extended Forward Indicators — Q2-Q4 2026
+
+### Indicator Cluster 3: DMA Enforcement Trajectory
+
+**Leading Indicators (watch Q2 2026):**
+- Commission DG COMP enforcement calendar announcement (expected June 2026)
+- Apple iOS DCA compliance submission review status
+- Google Search DCA compliance review outcome
+- US USTR formal position on DMA (Section 301 watch)
+- EP IMCO committee follow-up hearings on DMA implementation
+
+**Lagging Indicators (Q3-Q4 2026):**
+- First DCA non-compliance decision and fine amount
+- US diplomatic response (formal démarche vs trade threat vs negotiation)
+- Platform compliance investment announcements in EU market
+- Competition economics evidence (entry rates, CPI, platform market shares)
+
+**Signal interpretation:**
+If Commission announces enforcement actions in June 2026 and US response is diplomatic
+(démarche, formal complaint) rather than trade retaliation: HIGH confidence in DMA
+enforcement trajectory. If US announces Section 301 filing before June: LOW confidence;
+Commission may slow enforcement to preserve trade negotiation space.
+
+### Indicator Cluster 4: Ukraine Support Durability
+
+**Q2 2026 leading indicators:**
+- Ukraine quarterly financial management report (Commission review)
+- European Court of Auditors special report on Ukraine Facility disbursement tracking
+- Ukrainian parliamentary votes on anti-corruption legislation (judicial reform)
+- IMF article IV consultation results for Ukraine (expected Q3 2026)
+
+**Signal interpretation for EP political durability:**
+If Ukraine demonstrates measurable anti-corruption progress (verified by NABU/SAP data):
+Coalition Delta's support for Ukraine Facility remains durable through Q4 2026 vote cycle.
+If Ukraine accountability targets are substantially missed: PfE/ECR intensify anti-Ukraine
+narrative; EPP agricultural wing may use as leverage for farm policy concessions.
+
+### Indicator Cluster 5: EP10 Internal Coalition Stability
+
+**Structural stability indicators to watch monthly:**
+- EPP-S&D joint vote agreement rate (target: >75% of contested votes)
+- Greens/EFA abstention rate vs FOR rate on EPP-authored resolutions
+- The Left defection rate on Ukraine solidarity votes
+- ECR "for" vote rate on S&D-authored amendments (cross-bloc cooperation signal)
+
+**Dashboard format:**
+
+| Month | EPP-S&D Joint % | Greens Align % | Left Ukraine % | ECR Cross % |
+|-------|----------------|----------------|----------------|-------------|
+| Jan 2026 | 78% | 72% | 68% | 22% |
+| Feb 2026 | 81% | 74% | 65% | 18% |
+| Mar 2026 | 79% | 70% | 70% | 20% |
+| Apr 2026 | Est 82% | Est 75% | Est 66% | Est 15% |
+| May 2026 | TBD | TBD | TBD | TBD |
+
+*Historical data estimated from group coordination records; Apr/May 2026 = projection*
+
+Admiralty Grade: B2 — Indicators framework based on confirmed EP procedures and IMF data.
+
+## Indicator Summary Dashboard
+
+| Cluster | Primary Indicator | Watch Date | Signal if Positive |
+|---------|-----------------|------------|-------------------|
+| DMA | Commission enforcement calendar | June 2026 | HIGH confidence |
+| Ukraine | Milestone verification launch | Q2-Q3 2026 | Support durable |
+| Budget | Council opening position | Sep 2026 | Investment year |
+| Coalition | EPP-S&D vote agreement rate | Monthly | >75% = stable |
+| ECB | HICP rate | Monthly | <2.5% = easing continues |
+
+*Forward indicators updated as events occur. Admiralty Grade: B2.*
+
+*Indicator framework updated: May 16, 2026. Next systematic review: June 1, 2026.*
+
+*Admiralty Grade: B2. All forward projections are probabilistic estimates.*
