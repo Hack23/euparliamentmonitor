@@ -5,7 +5,7 @@
   "gateResult": "PENDING",
   "slug": "2026-04-21-breaking-run193",
   "articlePath": "analysis/daily/2026-04-21/breaking-run193/article.md",
-  "topFinding": "The March 26, 2026 plenary session has emerged from 26 days of data obscurity as Parliament's most consequential single-session legislative output of Q1 2026.",
+  "topFinding": "Run 193 (afternoon probe) crossed the 20/50 significance threshold at 22/50 and produced the first ARTICLEGENERATED gate result since the API outage began 11 April.",
   "keyTakeaways": [
     "**TA-0087 and TA-0088**: Two separate immunity waiver requests for Grzegorz Braun (ECR/PL), a far-right MEP with a documented record of extreme statements. The dual waiver suggests multiple separate criminal proceedings. This is significant for ECR group management — Braun's continued presence creates political costs for the group's aspirations to institutional responsibility.",
     "**TA-0089**: Immunity waiver for Nikos Pappas (S&D/GR), a Greek MEP, involving Greek criminal proceedings. The adoption of an S&D immunity waiver on the same day as two ECR waivers creates a \"both sides\" optics that may have facilitated an easier vote.",
@@ -29,6 +29,7 @@
   ],
   "macroContext": "",
   "sources": [
+    "executive-brief.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/scenario-forecast.md",
     "intelligence/stakeholder-map.md",

@@ -5,8 +5,16 @@
   "gateResult": "PENDING",
   "slug": "2026-04-02-committee-reports",
   "articlePath": "analysis/daily/2026-04-02/committee-reports/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "No new committee reports on 2026-04-02; recess week 2 of 4 continues.",
+  "keyTakeaways": [
+    "🔴 **No committee documents indexed** today; recess week, no committee sittings scheduled. (🟢 High)",
+    "🟠 **0 actors classified**; no rapporteurs, shadow rapporteurs, or committee chairs identified. (🟢 High)",
+    "🟢 **Committee carry-over baseline:** ECON, TRAN/ENVI, JURI, AFET portfolios remain the active Q2 surfaces. (🟢 High)",
+    "🟡 **Risk dimensions all \"none\"** — no acute committee-stage risk today. (🟢 High)",
+    "🔵 **Economic context:** ECON's ECB confirmation provides Q2 institutional anchor. (🟢 High)",
+    "🟣 **Cross-reference:** sibling 2026-04-02 runs all empty-template; system-wide recess pattern. (🟢 High)",
+    "🩷 **Disruption vector:** none acute today. (🟢 High)"
+  ],
   "topRisks": [
     "**Score**: 0.0/5",
     "**Confidence**: low",
@@ -22,6 +30,7 @@
   "macroContext": "",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
     "risk-scoring/quantitative-swot.md",
     "risk-scoring/risk-matrix.md"
   ]

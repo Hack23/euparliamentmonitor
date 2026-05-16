@@ -5,8 +5,16 @@
   "gateResult": "PENDING",
   "slug": "2026-04-07-propositions",
   "articlePath": "analysis/daily/2026-04-07/propositions/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "This Day-12 propositions run is the trilogue-bandwidth diagnostic on the 18-file Q2 pipeline identified in the April 6 propositions run — it asks: can 18 files trilogue in Q2 (April-June) given known Council and Commission bandwidth constraints, and what is the realistic throughput?",
+  "keyTakeaways": [
+    "🔴 **Q2 throughput model produced** — 11-13 files realistic vs. 18 ambition.",
+    "🟠 **5 highest-slip-risk files identified** — 3 environmental · 1 digital · 1 rule-of-law.",
+    "🟢 **Council Coreper 36 slots Q2** — Banking Union alone consumes 6.",
+    "🟡 **DG-FISMA over-committed** — Commission interpretation bottleneck.",
+    "🔵 **12/18 rapporteurs dual-mandated** — capacity strain.",
+    "🟣 **5 High-confidence methods** — coalition + cross-session + deep + stakeholder + voting.",
+    "🩷 **19 analysis files** — full propositions methodology coverage."
+  ],
   "topRisks": [
     "**Score**: 0.0/5",
     "**Confidence**: low",
@@ -22,6 +30,7 @@
   "macroContext": "",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
     "risk-scoring/quantitative-swot.md",
     "risk-scoring/risk-matrix.md"
   ]

@@ -1,7 +1,7 @@
 ---
-title: "The March 2026 committee output cycle affects all six stakeholder groups, with ECON banking reforms and LIBE anti-corruption measures…"
-description: "The March 2026 committee output cycle affects all six stakeholder groups, with ECON banking reforms and LIBE anti-corruption measures carrying the broadest cross-stakeholder…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-07", "run 7c308bf3-07de-408c-ab85-b115b19c2f7e", "March", "committee", "output", "cycle", "affects", "stakeholder", "groups", "with"]
+title: "Committee Reports: ECON Q2 Dominance Map | 2026-04-07"
+description: "This Day-12 committee-reports run is the ECON Q2 dominance map* — a deeper version of the committee-power concentration finding surfaced on April 6, with one critical addition…"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-07", "run 7c308bf3-07de-408c-ab85-b115b19c2f7e", "Committee", "Reports", "ECON", "Dominance", "This", "deeper", "version", "power"]
 date: 2026-04-07
 article_type: committee-reports
 slug: 2026-04-07-committee-reports
@@ -12,12 +12,112 @@ layout: article
 ---
 # Committee Reports — 2026-04-07
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### 🎯 BLUF
+
+**This Day-12 committee-reports run is the **ECON Q2 dominance map** — a deeper version of the committee-power concentration finding surfaced on April 6, with one critical addition: explicit Q2 trilogue *sequencing* recommendations.** The run's distinguishing contribution is the **ECON sequencing finding**: while April 6 documented that ECON would dominate Q2 trilogue calendar, this run produces an actionable *order-of-operations* recommendation — SRMR3 (TA-10-2026-0092) **must trilogue first** because it is the most procedurally advanced and politically warmest (right-of-centre majority intact); DGSD2 (TA-10-2026-0090) **second** because it depends on SRMR3 capital-treatment-clarity; BRRD3 (TA-10-2026-0091) **third** because it is the most contested file (mixed-track adoption pattern). This sequencing recommendation directly informs Council Banking WP planning and gives EP rapporteurs a defensible trilogue order. The run reaffirms the Easter recess record: **ECON's SRMR3 + DGSD2 + BRRD3 represent completion of multi-year Banking Union dossiers** affecting the entire EU banking sector and financial-stability architecture. The 236-text cumulative pre-recess corpus reading remains stable and the API degraded environment (4/8 feeds active) does not materially affect committee-level analytical conclusions.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Decision | Who decides | Deadline | Evidence |
+|:-:|----------|-------------|:--------:|----------|
+| 1 | **ECON trilogue sequencing lock** — SRMR3 → DGSD2 → BRRD3 order | ECON chair + Council Banking WP | by April 14 | §Sequencing finding |
+| 2 | **BRRD3 mixed-track briefing** — most contested file; pre-trilogue coordinator meeting | Renew + PPE coordinators | by April 13 | §BRRD3 contestation |
+| 3 | **Banking Union trilogue calendar reservation** — 3-file ECON sequence needs Q2 slot block | Conference of Presidents + Council Coreper | by April 14 | §Calendar reservation |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **ECON Q2 dominance map produced** — actionable sequencing.
+- 🟠 **Trilogue order:** SRMR3 → DGSD2 → BRRD3.
+- 🟢 **SRMR3 first:** procedurally advanced + warm right-of-centre majority.
+- 🟡 **DGSD2 second:** depends on SRMR3 capital-treatment.
+- 🔵 **BRRD3 third:** most contested (mixed-track adoption).
+- 🟣 **236 adopted texts** in cumulative pre-recess corpus.
+- 🩷 **4/8 API feeds active** — committee-level analysis unaffected.
+- ⚪ **Confidence MEDIUM** — recess; pre-recess record HIGH.
+
+---
+
+### 🏛️ ECON Trilogue Sequencing (run's distinguishing contribution)
+
+| # | File | Procedural state | Political state | Reason for ordering |
+|:-:|------|------------------|-----------------|---------------------|
+| **1st** | **SRMR3** (TA-10-2026-0092) | Advanced; right-of-centre adoption | PPE+ECR+PfE+Renew majority intact | Procedurally warmest; Council-mandate-ready |
+| **2nd** | **DGSD2** (TA-10-2026-0090) | Mixed-track adoption (Renew file-conditional) | Depends on SRMR3 capital-treatment | Sequence-locked on SRMR3 |
+| **3rd** | **BRRD3** (TA-10-2026-0091) | Most contested adoption | Mixed-track + national-state contestation | Needs longest negotiation horizon |
+
+---
+
+### ⚠️ Risk Snapshot
+
+```mermaid
+quadrantChart
+    title ECON Q2 Sequencing Risk Heatmap — 2026-04-07
+    x-axis Low Likelihood --> High Likelihood
+    y-axis Low Impact --> High Impact
+    quadrant-1 Manage closely
+    quadrant-2 Top priority
+    quadrant-3 Monitor
+    quadrant-4 Plan & contain
+    "Council Banking WP mandate delay": [0.50, 0.85]
+    "SRMR3 right-of-centre exhaustion": [0.40, 0.75]
+    "DGSD2 Renew defection": [0.55, 0.65]
+    "BRRD3 contestation escalation": [0.70, 0.75]
+    "Out-of-sequence trilogue attempt": [0.35, 0.85]
+    "ECON calendar overload (3-file block)": [0.65, 0.75]
+```
+
+---
+
+### 🔮 Top Forward Triggers (next 14 days)
+
+1. **April 14 — Committee Week opens** — ECON Day 1; SRMR3 sequencing test.
+2. **April 17 — ECB rate decision** — external trigger on Banking Union files.
+3. **April 20-23 — first post-recess plenary** — Council BWG signalling window.
+4. **Late April — SRMR3 trilogue formal start** — sequencing validated or revised.
+5. **Mid-Q2 — DGSD2 → BRRD3 transitions** — sequence-locked progression.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **Pre-recess corpus (A1):** primary records; verifiable per TA-ID.
+- **Sequencing recommendation (A2):** committee-power methodology + procedural-state analysis.
+- **Mixed-track BRRD3 identification (A2):** voting-patterns cross-verified.
+- **20 methods (A1):** systematic full methodology coverage.
+- **Net confidence:** 🟢 HIGH on Q1 records; 🟡 MEDIUM on Q2 sequencing forecast.
+
+---
+
+### 📎 Run Artifacts
+
+| Layer | Artifact | Why |
+|-------|----------|-----|
+| Article | `article.md` | Public-facing committee-reports narrative |
+| Synthesis | `existing/synthesis-summary.md` | ECON sequencing finding |
+| Methods | classification · existing · risk-scoring · threat-assessment | Standard committee-reports methodology |
+| Companion | breaking (06:36) · breaking-2 (18:20) · motions · propositions | Day-12 daily cluster |
+
+---
+
+**Document Control**
+- **Template reference:** `analysis/templates/executive-brief.md`
+- **Artifact path:** `analysis/daily/2026-04-07/committee-reports/executive-brief.md`
+- **Classification:** Public
+- **Retrospective:** Brief written 2026-05-16 from the run's committed artifacts; **no new MCP calls were made**.
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `existing/voting-patterns.md` |
@@ -1329,6 +1429,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -1384,6 +1485,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -1396,9 +1498,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -1407,6 +1511,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/committee-reports/executive-brief.md) | `executive-brief.md` |
 | section-significance | [significance-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/committee-reports/classification/significance-classification.md) | `classification/significance-classification.md` |
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/committee-reports/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/committee-reports/classification/forces-analysis.md) | `classification/forces-analysis.md` |

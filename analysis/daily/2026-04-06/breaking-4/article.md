@@ -1,7 +1,7 @@
 ---
-title: "Easter Monday Daily Intelligence Closure"
-description: "Scope: Consolidation of 4 breaking-news runs (00:33, 06:45, 12:15, 18:18 UTC) + committee-reports + propositions + 2 extended breaking runs Published 2026-04-06…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-06", "Easter", "Monday", "Daily", "Intelligence", "Closure", "Scope", "Consolidation", "news", "runs"]
+title: "Easter Monday Run 4: Daily Intelligence Closure | 2026-04-06"
+description: "*Run-4 is the Easter Monday daily intelligence closure — the most intensively monitored day of the 18-day recess, producing 8 workflow runs, 61+ analysis artifacts, and ~16,000+…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-06", "Easter", "Monday", "Daily", "Intelligence", "Closure", "most", "intensively", "monitored", "recess"]
 date: 2026-04-06
 article_type: breaking
 slug: 2026-04-06-breaking-breaking-4
@@ -12,12 +12,116 @@ layout: article
 ---
 # Breaking — 2026-04-06
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### 🎯 BLUF
+
+**Run-4 is the Easter Monday *daily intelligence closure* — the most intensively monitored day of the 18-day recess, producing 8 workflow runs, 61+ analysis artifacts, and ~16,000+ lines of original analysis from a single zero-activity calendar day.** The run's distinguishing contribution is *not* a new structural finding (those were established in Runs 1–3) but the **consolidated cross-run consistency analysis** that validates the day's three findings against each other: **(1) Adopted-texts endpoint oscillation confirmed** — failure at 00:33 → success at 12:15 → failure again at 18:18, a qualitatively different signal from the consistent 404s on other endpoints, suggesting active maintenance rather than dead infrastructure; **(2) 85-86 adopted-texts pipeline stable** across all four breaking runs — 42 from 2026 (TA-10-2026-0035 to TA-10-2026-0104), 36 from 2025, 7 legacy EP9-2024 items; **(3) MEP feed as sole reliable baseline** (737 stable, no group-switching events). The closure run's *editorial value* is establishing that **Easter recess monitoring can be operationally sustained at zero parliamentary activity** — proving the intelligence pipeline's resilience and the value of structural readings even during institutional dormancy. Risk score 47 (MEDIUM); stability 84/100 (unchanged 11 days); recess 61% complete.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Decision | Who decides | Deadline | Evidence |
+|:-:|----------|-------------|:--------:|----------|
+| 1 | **API oscillation root-cause investigation** — qualitatively different from 404 pattern; maintenance vs. fault | Data-pipeline ops; EP MCP team | by April 10 | §Finding 1 (oscillation) |
+| 2 | **Pre-recess corpus as Q2 planning anchor** — 42 EP10-2026 texts define implementation pipeline | Conference of Presidents | rolling | §Finding 2 (pipeline stable) |
+| 3 | **Establish recess-monitoring sustainability baseline** — 8-run/day pattern is the new operational reference | EP intelligence ops | rolling | §Daily Dashboard |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Easter Monday closure** — 8 workflow runs, 61+ artifacts, ~16,000 lines.
+- 🟠 **API oscillation confirmed** — Mode B (fail) → success → fail again; novel signal.
+- 🟢 **737 MEPs stable** — sole consistently operational primary feed.
+- 🟡 **85-86 adopted texts stable** — 42 from 2026; +46% YoY trajectory.
+- 🔵 **Stability 84/100 unchanged for 11 days** — structural plateau.
+- 🟣 **Risk score 47 / MEDIUM** — no critical, 4 high, 7 medium, 4 low.
+- 🩷 **Recess 61% complete** — Day 11/18; T-8 to Committee Week.
+- ⚪ **Zero parliamentary activity** — expected EU-wide public holiday.
+
+---
+
+### 📊 Daily Dashboard (Run-4 distinguishing contribution)
+
+| Indicator | Status | Confidence |
+|-----------|--------|------------|
+| Breaking News | None confirmed (×4 today) | 🟢 HIGH |
+| API Status | 2/8 operational (oscillatory) | 🟡 MEDIUM |
+| Stability | 84/100 (11-day plateau) | 🟢 HIGH |
+| Risk Level | MEDIUM (47 total score) | 🟡 MEDIUM |
+| Recess Progress | 61% (11/18 days) | 🟢 HIGH |
+| Total Runs Today | 8 workflow runs | 🟢 HIGH |
+| MEP Feed | 737 stable | 🟢 HIGH |
+
+---
+
+### ⚠️ Risk Snapshot
+
+```mermaid
+quadrantChart
+    title Easter Monday Closure Risk Heatmap — 2026-04-06 18:18 UTC
+    x-axis Low Likelihood --> High Likelihood
+    y-axis Low Impact --> High Impact
+    quadrant-1 Manage closely
+    quadrant-2 Top priority
+    quadrant-3 Monitor
+    quadrant-4 Plan & contain
+    "Trilogue overload (post-recess)": [0.75, 0.85]
+    "US tariff implementation T-9": [0.85, 0.95]
+    "API oscillation = intermittent fault": [0.50, 0.55]
+    "Convergence zone Apr 14-23 stress": [0.85, 0.75]
+    "Recess-monitoring fatigue": [0.40, 0.40]
+    "Dual-track stress test pending": [0.85, 0.70]
+```
+
+---
+
+### 🔮 Top Forward Triggers (next 9 days to recess end)
+
+1. **April 8–10 — full API recovery window** (55% probability).
+2. **April 13 — Easter Monday week-2** — first weekday outside Easter; reactivation expected.
+3. **April 14 — Committee Week opens** — convergence-zone Day 1.
+4. **April 15 — US tariff T-0** — exogenous shock outside EP control.
+5. **April 17 — ECB rate decision** — economic-context activation.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **Oscillation observation (A1):** Run-4 direct triangulation across 4 breaking runs of the day.
+- **8-run consistency (A1):** systematic cross-run methodology; verifiable.
+- **Pre-recess corpus stability (A1):** 85-86 adopted texts across 4 runs.
+- **MEP feed 737 (A1):** primary record; sole reliable baseline.
+- **Net confidence:** 🟢 HIGH on consistency analysis; 🟡 MEDIUM on oscillation interpretation.
+
+---
+
+### 📎 Run Artifacts
+
+| Layer | Artifact | Why |
+|-------|----------|-----|
+| Article | `article.md` | Public-facing closure narrative |
+| Synthesis | `synthesis-summary.md` | 8-run consolidation + cross-run consistency |
+| Methods | classification · existing · risk-scoring · threat-assessment | Standard recess-monitoring suite |
+| Companion | All 7 other Easter Monday runs (breaking, breaking-2, breaking-3, committee-reports, motions, propositions, plus 2 extended) | Daily intelligence stack |
+
+---
+
+**Document Control**
+- **Template reference:** `analysis/templates/executive-brief.md`
+- **Artifact path:** `analysis/daily/2026-04-06/breaking-4/executive-brief.md`
+- **Classification:** Public
+- **Retrospective:** Brief written 2026-05-16 from the run's committed artifacts; **no new MCP calls were made**.
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-matrix.md` |
 | [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `coalition-analysis.md` |
 
@@ -1501,6 +1605,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -1556,6 +1661,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -1568,9 +1674,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -1579,6 +1687,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/executive-brief.md) | `executive-brief.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/risk-matrix.md) | `risk-matrix.md` |
 | section-supplementary-intelligence | [coalition-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/coalition-analysis.md) | `coalition-analysis.md` |
 | section-supplementary-intelligence | [cross-session-intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-06/breaking-4/cross-session-intelligence.md) | `cross-session-intelligence.md` |

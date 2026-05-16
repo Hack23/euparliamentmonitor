@@ -1,7 +1,7 @@
 ---
-title: "Political Intelligence Synthesis — Easter Recess Day 12"
-description: "analyst: news-breaking workflow (run 24067705038) Published 2026-04-07 · analysis run d9f79a7a-aa2f-4a35-aa13-d6df91d7b296, with source-linked voting, committee and legislative…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-07", "run d9f79a7a-aa2f-4a35-aa13-d6df91d7b296", "Political", "Intelligence", "Synthesis", "Easter", "Recess", "analyst", "news", "workflow"]
+title: "Easter Recess Day 12 Morning Intelligence | 2026-04-07"
+description: "The Day-12 morning breaking run is the day's structural anchor — at 44 analysis artifacts and 3,391 lines, it produces the most comprehensive single-run pre-recess corpus…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-07", "run d9f79a7a-aa2f-4a35-aa13-d6df91d7b296", "Easter", "Recess", "Morning", "Intelligence", "structural", "anchor", "analysis", "artifacts"]
 date: 2026-04-07
 article_type: breaking
 slug: 2026-04-07-breaking-d9f79a7a-aa2f-4a35-aa13-d6df91d7
@@ -12,12 +12,113 @@ layout: article
 ---
 # Breaking — 2026-04-07
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### 🎯 BLUF
+
+**The Day-12 morning breaking run is the day's **structural anchor** — at 44 analysis artifacts and 3,391 lines, it produces the most comprehensive single-run pre-recess corpus analysis of the entire 18-day recess period.** Its distinguishing contribution is **18 per-file political-intelligence dossiers** on the March 26 pre-recess sprint — each adopted text gets a dedicated dossier covering vote-dispersion, coalition track, committee-power locus, stakeholder-impact, and Q2-Q3 implementation trajectory. The aggregated reading reinforces the dual-track coalition pattern surfaced on April 6 but adds granularity: **the 18 files split 11 right-of-centre, 5 grand-coalition, 2 mixed-track** (Banking Union DGSD2 and BRRD3 both used hybrid PPE+ECR+S&D with file-conditional Renew alignment). The run also produces the recess period's most-quoted *T-8 to Committee Week* operational summary — six confirmed forward triggers (April 14 committee week · April 15 US tariff T-0 · April 17 ECB rate · April 20-23 plenary · late-April Banking Union Council mandate · Q2 27-MS transposition kick-off) — that becomes the editorial reference for all subsequent recess runs. **The Day-12 morning structural baseline is the EP10 Year 2 recess intelligence record's high-water mark for analytical density.** Per-file dossiers raise the EP10 pre-recess corpus to its most granular operational-readiness state.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Decision | Who decides | Deadline | Evidence |
+|:-:|----------|-------------|:--------:|----------|
+| 1 | **Per-file Q2 implementation pre-load** — 18 dossiers ready; pre-load Council coordinators | Council Presidency + EP rapporteurs | by April 14 | §Per-file dossiers (18) |
+| 2 | **T-8 to T-0 day-counter ops** — 6-trigger sequence requires sequential trip-wire monitoring | EP intelligence ops; press service | rolling daily | §Forward triggers (6-trigger) |
+| 3 | **Mixed-track files watch** — DGSD2/BRRD3 hybrid track requires Renew-coordinator briefing | Renew + PPE coordinators | by April 14 | §18-file split (11/5/2) |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **44 artifacts, 3,391 lines** — day's structural anchor.
+- 🟠 **18 per-file dossiers** — March 26 sprint at maximum granularity.
+- 🟢 **18-file track split:** 11 right-of-centre · 5 grand · 2 mixed.
+- 🟡 **6-trigger forward-trigger sequence** — Apr 14 · 15 · 17 · 20-23 · late · Q2.
+- 🔵 **737 MEP feed stable** — baseline holds.
+- 🟣 **Recess Day 12/18 — 67% complete** — T-8 to Committee Week.
+- 🩷 **Confidence MEDIUM** — pre-recess HIGH; Q2 forecast MEDIUM.
+- ⚪ **Structural baseline for all subsequent recess runs**.
+
+---
+
+### 📂 18-File Track Split (run's distinguishing contribution)
+
+| Track | Count | Flagship files | Operational note |
+|-------|------:|---------------|------------------|
+| **Right-of-centre** | 11 | Banking Union SRMR3 · STEP-II · AI-Copyright · ETS amendments · 7 economic-finance | Q2 trilogue right-track |
+| **Grand coalition** | 5 | Anti-Corruption · 4 rule-of-law family | Q2-Q4 transposition |
+| **Mixed track (hybrid)** | 2 | DGSD2 (TA-0090) · BRRD3 (TA-0091) | Renew file-conditional alignment |
+
+---
+
+### ⚠️ Risk Snapshot
+
+```mermaid
+quadrantChart
+    title Day-12 Morning Structural Baseline Risk Heatmap — 2026-04-07
+    x-axis Low Likelihood --> High Likelihood
+    y-axis Low Impact --> High Impact
+    quadrant-1 Manage closely
+    quadrant-2 Top priority
+    quadrant-3 Monitor
+    quadrant-4 Plan & contain
+    "T-8 dual-track Committee Week stress": [0.85, 0.80]
+    "Mixed-track Renew defection risk": [0.55, 0.70]
+    "T-0 US tariff (April 15)": [0.95, 0.90]
+    "ECB rate-decision external shock": [0.85, 0.70]
+    "Q2 trilogue 18-file overload": [0.85, 0.85]
+    "Per-file dossier interpretation drift": [0.30, 0.45]
+```
+
+---
+
+### 🔮 Top Forward Triggers (run's published 6-sequence)
+
+1. **April 14 — Committee Week opens** — dual-track Day 1.
+2. **April 15 — US tariff T-0** — exogenous shock.
+3. **April 17 — ECB rate decision** — economic-context activation.
+4. **April 20-23 — first post-recess plenary** — bimodal stress test.
+5. **Late April — Banking Union Council mandate** — trilogue gate.
+6. **Q2 — 27-MS Anti-Corruption transposition kick-off** — grand-coalition durability.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **18 per-file dossiers (A1):** primary adopted-texts feed + per-document methodology.
+- **18-file track split (A2):** voting-patterns + coalition-dynamics cross-verified.
+- **6-trigger sequence (A1):** institutional calendar + EP MCP records verifiable.
+- **737 MEPs (A1):** primary record stable across all runs.
+- **Net confidence:** 🟢 HIGH on Day-12 baseline; 🟡 MEDIUM on Q2 forecast.
+
+---
+
+### 📎 Run Artifacts
+
+| Layer | Artifact | Why |
+|-------|----------|-----|
+| Article | `article.md` (2,562 lines published) | Public-facing Day-12 morning narrative |
+| Synthesis | `synthesis-summary.md` | 18-dossier consolidation |
+| Methods | classification · existing · risk-scoring · threat-assessment · documents (18 per-file dossiers) | Full methodology + per-document layer |
+| Companion | breaking-2 (18:20 UTC) — evening update | Same-day companion |
+
+---
+
+**Document Control**
+- **Template reference:** `analysis/templates/executive-brief.md`
+- **Artifact path:** `analysis/daily/2026-04-07/breaking/executive-brief.md`
+- **Classification:** Public
+- **Retrospective:** Brief written 2026-05-16 from the run's committed artifacts; **no new MCP calls were made**.
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `existing/voting-patterns.md` |
@@ -2443,6 +2544,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -2498,6 +2600,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -2510,9 +2613,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -2521,6 +2626,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/executive-brief.md) | `executive-brief.md` |
 | section-significance | [significance-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/classification/significance-classification.md) | `classification/significance-classification.md` |
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-07/breaking/classification/forces-analysis.md) | `classification/forces-analysis.md` |

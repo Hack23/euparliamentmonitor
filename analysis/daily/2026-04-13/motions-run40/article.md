@@ -1,7 +1,7 @@
 ---
-title: "title: \"title: \\\"title: \\\\\\\"title: \\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title…"
-description: "title: \"title: \\\"title: \\\\\\\"title: \\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"tit…"
-keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-13", "title"]
+title: "Motions Run 40, 13 April 2026"
+description: "Run 40 (second motions-track run of 13 April) extends Run 39's positioning with continued cataloguing of the March 2026 motion cluster's institutional follow-through."
+keywords: ["EU Parliament", "plenary votes", "resolutions", "European Parliament", "voting record", "Motions", "2026-04-13", "April", "second", "track", "extends", "positioning", "with", "continued", "cataloguing", "March"]
 date: 2026-04-13
 article_type: motions
 slug: 2026-04-13-motions-40
@@ -12,12 +12,50 @@ layout: article
 ---
 # Motions — 2026-04-13
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Run 40 (second motions-track run of 13 April) extends Run 39's positioning with continued cataloguing of the March 2026 motion cluster's institutional follow-through. The cataloguing focuses on the *non-trade-defence* motions: TA-0064 housing framework, TA-0094 anti-corruption, TA-0088 Braun waiver — these are the motions that risk losing analytical attention as the trade-defence files dominate. *Confidence: MEDIUM; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Continue non-trade-defence motion cataloguing as the dedicated analytical work of the motions track.** The track's purpose during T-N windows is precisely to prevent crowd-out by headline trade files. *Confidence: HIGH.*
+2. **Document Run 39 / Run 40 same-day pairing as a cataloguing-redundancy pattern.** Two independent motions-track runs on the same day reinforce the parallel-stream framework's robustness. *Confidence: HIGH.*
+3. **Hold motions-track focus on TA-0064 / TA-0088 / TA-0094 as the canonical recess-period non-trade trio.** These three texts collectively define the EP10 "clean-hands + housing + rights" narrative beneath the trade-defence headline. *Confidence: MEDIUM-HIGH.*
+
+### 60-Second Read
+
+Run 40's contribution is *redundancy* — same-day motions-track work that validates Run 39's continuity discipline. The canonical recess-period non-trade trio (housing / Braun / anti-corruption) is preserved in the analytical record.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| Same-day motions runs duplicative without distinct contribution | MED | LOW |
+| Non-trade motion-cluster loses political momentum during T-0 | MED–HIGH | MED |
+| Canonical trio cataloguing narrows to single file (housing dominance) | MED | LOW–MED |
+
+### Source Quality
+
+- TA-0064 / -0088 / -0094 cataloguing: **A1** (adopted text records)
+- Canonical-trio framing: **B2** (constructed)
+
+### Provenance
+
+- Run: `motions-run40` (2026-04-13, T-2, second run)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: redundancy framing labelled.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
 | [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/political-threat-landscape.md` |
@@ -714,6 +752,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -769,6 +808,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -781,9 +821,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -792,6 +834,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/executive-brief.md) | `executive-brief.md` |
 | section-significance | [significance-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/classification/significance-classification.md) | `classification/significance-classification.md` |
 | section-risk | [risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/risk-scoring/risk-matrix.md) | `risk-scoring/risk-matrix.md` |
 | section-threat | [political-threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/motions-run40/threat-assessment/political-threat-landscape.md) | `threat-assessment/political-threat-landscape.md` |

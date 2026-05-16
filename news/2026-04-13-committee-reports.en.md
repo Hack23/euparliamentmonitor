@@ -1,7 +1,7 @@
 ---
-title: "title: \"title: \\\"title: \\\\\\\"title: \\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title…"
-description: "title: \"title: \\\"title: \\\\\\\"title: \\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"tit…"
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-13", "run 44", "title"]
+title: "Committee Reports Run 44, 13 April 2026"
+description: "Run 44 is a T-2 pre-Tariff-activation committee-track positioning run (T-0 = 15 April activation of TA-0096 + TA-0097). The article exhibits the known frontmatter recursion…"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-13", "run 44", "Committee", "Reports", "April", "Tariff", "activation", "track", "positioning", "article"]
 date: 2026-04-13
 article_type: committee-reports
 slug: 2026-04-13-committee-reports
@@ -12,12 +12,50 @@ layout: article
 ---
 # Committee Reports — 2026-04-13
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Run 44 is a **T-2 pre-Tariff-activation committee-track positioning run** (T-0 = 15 April activation of TA-0096 + TA-0097). The article exhibits the known frontmatter recursion cataloguing artifact (no analytical impact). The committee-track contribution is documenting INTA's institutional preparedness for the imminent dual-instrument activation under Bernd Lange's stewardship. *Confidence: MEDIUM; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Document INTA committee operational readiness 2 days before T-0.** Pre-activation readiness state (committee resources, rapporteur availability, technical infrastructure) is the leading indicator of post-activation deployment speed. *Confidence: HIGH.*
+2. **Route frontmatter recursion to the article-aggregator team.** Persistent issue across multiple runs (45, 169, 175, 44 et al.). *Confidence: HIGH.*
+3. **Anchor committee-reports-run44 as the canonical T-2 committee-track reference for future activation-cycle comparison.** Subsequent EU instruments will have analogous T-N windows; reference patterns matter. *Confidence: MEDIUM.*
+
+### 60-Second Read
+
+T-2 committee-track runs document institutional preparedness. The substantive value is in establishing the baseline-state from which post-activation operational metrics will be measured.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| INTA preparedness insufficient for T-0 activation load | LOW–MED | MED |
+| Frontmatter recursion masks analytical content | LOW | LOW |
+| Committee-track reference framework not adopted by downstream consumers | MED | LOW |
+
+### Source Quality
+
+- INTA preparedness inference: **B2**
+- Statutory T-0 anchor: **A1**
+
+### Provenance
+
+- Run: `committee-reports-run44` (2026-04-13, T-2)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: T-N framing labelled.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `existing/api-outage-diagnostic.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
@@ -172,6 +210,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -227,6 +266,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -239,9 +279,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -250,5 +292,6 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/committee-reports-run44/executive-brief.md) | `executive-brief.md` |
 | section-supplementary-intelligence | [api-outage-diagnostic](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-13/committee-reports-run44/existing/api-outage-diagnostic.md) | `existing/api-outage-diagnostic.md` |
 

@@ -1,7 +1,7 @@
 ---
-title: "Coalition Dynamics Assessment — 4 April 2026"
-description: "title: \"Coalition Dynamics Assessment — 2026-04-04\" Published 2026-04-04, with source-linked voting, committee and legislative intelligence for democratic-accountability readers…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-04", "Coalition", "Dynamics", "Assessment", "April", "title", "Published", "with", "source", "linked"]
+title: "Breaking (Coalition Dynamics) | 2026-04-04"
+description: "Coalition arithmetic on 2026-04-04 confirms the previous day's structural picture: PPE 38% asymmetric dominance and the Renew–ECR cohesion signal (~0.95) continuing."
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-04", "Coalition", "Dynamics", "arithmetic", "confirms", "previous", "structural", "picture", "asymmetric", "dominance"]
 date: 2026-04-04
 article_type: breaking
 slug: 2026-04-04-breaking-breaking
@@ -12,12 +12,108 @@ layout: article
 ---
 # Breaking — 2026-04-04
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### 🎯 BLUF
+
+**Coalition arithmetic on 2026-04-04 confirms the previous day's structural picture: PPE 38% asymmetric dominance and the Renew–ECR cohesion signal (~0.95) continuing.** The article presents a fresh seat-ratio cohesion calculation with the same 28 pair matrix; results converge on yesterday's. Grand Coalition (PPE+S&D = 60%) remains the default; Super-Grand (PPE+S&D+Renew = 65%) provides cushion; Centre-Right alternative (PPE+ECR+PfE = 57%) still binds S&D to the centre via competitive pressure. The marginal new finding versus 2026-04-03 is the stability of the cohesion measures across a 24-hour window — consistent values support the structural-asymmetry hypothesis even if they cannot yet falsify the proxy. **🟡 MEDIUM confidence** — same structural-proxy caveat applies; roll-call validation still pending Q1 publication.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Decision | Who Decides | Deadline | Evidence |
+|:-:|----------|-------------|:--------:|----------|
+| 1 | **Editorial:** SKIP daily re-publication; consolidate with 2026-04-03 coalition piece | Editor | +12h | Findings converge with prior day |
+| 2 | **Monitoring:** maintain Renew–ECR cohesion watch through April plenary | Analyst | 2026-04-30 | Validation window |
+| 3 | **Forward-watch:** integrate post-plenary roll-call data once Q1 votes publish (late May) | Analysis lead | 2026-05-31 | Falsification test |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **Renew–ECR 0.95 cohesion sustained** day-over-day; structural-axis hypothesis still on the table. (🟡 Medium)
+- 🟠 **PPE 38% structural dominance** unchanged; all viable majorities require PPE. (🟢 High)
+- 🟢 **Grand Coalition 60%, Super-Grand 65%, Centre-Right alternative 57%** remain the three viable majority pathways. (🟢 High)
+- 🟡 **Fragmentation index ~4.4 effective parties** — stable. (🟡 Medium)
+- 🔵 **Methodological caveat:** PPE pair scores still 0.00 by size-ratio model artifact. (🟢 High)
+- 🟣 **Cross-reference:** sibling `breaking-2` covers EP10 Q1 legislative pipeline; `breaking-3` documents recess-period analytical limitations; `breaking-4` performs adopted-texts deep-dive. (🟢 High)
+- 🩷 **Disruption vector:** Renew–ECR materialisation would reduce S&D leverage. (🟡 Medium)
+- ⚪ **Carry-forward:** wait for late-May roll-call data to validate.
+
+---
+
+### 🗂️ Top Findings Table
+
+| Rank | Finding | Cohesion / Share | Confidence | Status |
+|:----:|---------|:----------------:|:----------:|--------|
+| 1 | Renew–ECR cohesion (day-over-day stable) | 0.95 | 🟡 MEDIUM | Pending validation |
+| 2 | Grand Coalition viability | 60% | 🟢 HIGH | Default |
+| 3 | Super-Grand cushion | 65% | 🟢 HIGH | Available |
+| 4 | Centre-Right alternative | 57% | 🟢 HIGH | Disciplinary lever on S&D |
+
+---
+
+### ⚠️ Risk & Threat Snapshot
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🔴 PPE structural dominance<br/>L×I = 5×4 = 20"] --> CONS["April plenary"]
+    R2["🟠 Renew–ECR axis stability<br/>day-over-day<br/>L×I = 3×4 = 12"] --> CONS
+    R3["🟡 Proxy methodology<br/>no roll-calls<br/>L×I = 4×3 = 12"] --> CONS
+    style R1 fill:#D32F2F,color:#FFFFFF
+    style R2 fill:#FF9800,color:#000000
+    style R3 fill:#FFC107,color:#000000
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| Risk | L | I | Score | Trigger | Source | Admiralty |
+|------|:-:|:-:|:-----:|---------|--------|:---------:|
+| PPE structural dominance | 5 | 4 | 20 | All viable majorities require PPE | Coalition arithmetic | A1 |
+| Renew–ECR axis stability | 3 | 4 | 12 | Day-over-day cohesion | Cohesion matrix | B2 |
+| Methodological proxy | 4 | 3 | 12 | No roll-calls available | EP API delay | A2 |
+
+---
+
+### 🔮 Top Forward Trigger
+
+**Day-3 cohesion re-probe and ultimately April Strasbourg roll-call data (late May).** Sustained day-over-day stability strengthens the structural-axis hypothesis even without roll-calls.
+
+---
+
+### 🛡️ Source Quality Assessment
+
+- **Primary sources:** EP MCP analytical tools (operational per `breaking-2` API health probe); 28-pair cohesion matrix.
+- **Confidence on day-over-day stability:** 🟢 HIGH.
+- **Confidence on axis interpretation:** 🟡 MEDIUM — same structural caveats as 2026-04-03/breaking.
+
+---
+
+### 📎 Links
+
+| Link | Path |
+|------|------|
+| Article | `./article.md` |
+| Sibling runs | `analysis/daily/2026-04-04/breaking-2/`, `breaking-3/`, `breaking-4/`, `week-in-review/` |
+| Prior coalition assessment | `analysis/daily/2026-04-03/breaking/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Document Control**
+- **Template:** `/analysis/templates/executive-brief.md`
+- **Artifact path:** `analysis/daily/2026-04-04/breaking/executive-brief.md`
+- **Classification:** Public
+- **Retrospective generation:** Back-fill session.
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `coalition-dynamics-assessment.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
@@ -1409,6 +1505,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -1464,6 +1561,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -1476,9 +1574,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -1487,6 +1587,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking/executive-brief.md) | `executive-brief.md` |
 | section-supplementary-intelligence | [coalition-dynamics-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking/coalition-dynamics-assessment.md) | `coalition-dynamics-assessment.md` |
 | section-supplementary-intelligence | [coalition-threat-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking/coalition-threat-assessment.md) | `coalition-threat-assessment.md` |
 | section-supplementary-intelligence | [intelligence-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-04/breaking/intelligence-brief.md) | `intelligence-brief.md` |

@@ -5,7 +5,7 @@
   "gateResult": "PENDING",
   "slug": "2026-04-19-breaking-186",
   "articlePath": "analysis/daily/2026-04-19/breaking-run186/article.md",
-  "topFinding": "---",
+  "topFinding": "Run 186 establishes the T-8 countdown intelligence baseline to the 27 April plenary return.",
   "keyTakeaways": [
     "**EPP**: memberCount=0 (API anomaly — estimated ~187; 🔴 Low confidence on exact count)",
     "**S&D**: 135 seats (exact, 🟢 High confidence)",
@@ -29,6 +29,7 @@
   ],
   "macroContext": "---",
   "sources": [
+    "executive-brief.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/economic-context.md",
     "intelligence/scenario-forecast.md",

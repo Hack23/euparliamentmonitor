@@ -5,8 +5,16 @@
   "gateResult": "PENDING",
   "slug": "2026-03-27-breaking",
   "articlePath": "analysis/daily/2026-03-27/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "Routine inter-sessional day, no breaking signal.",
+  "keyTakeaways": [
+    "🔴 **0 political actors classified** in this run; impact matrix shows \"none\" across all five dimensions. (🟢 High)",
+    "🟠 **First full day of post-March recess** (27 Mar – 26 Apr); no plenary, committee, or trilogue activity expected. (🟢 High)",
+    "🟢 **Coalition power 50%, opposition power 0%** — typical inter-sessional equilibrium where no force has acute pressure. (🟡 Medium — proxy metric, not roll-call evidence)",
+    "🟡 **No risk dimensions flagged** — risk-scoring artifacts present but show 0 quantified risks for the day. (🟡 Medium)",
+    "🔵 **Economic context:** carryover from March plenary — ECB Vice-President appointment (TA-10-2026-0060), HDV emission credits (TA-10-2026-0084), US customs tariff adjustment (TA-10-2026-0096). (🟢 High)",
+    "🟣 **Cross-reference:** threat-assessment artifacts also empty; no actor-threat profiles, no consequence trees, no legislative-disruption pathways for the day. (🟢 High)",
+    "🩷 **Disruption vector:** none currently active; the only structural risk inherited from prior runs is PPE 38% seat dominance. (🟡 Medium)"
+  ],
   "topRisks": [
     "**Score**: 0.0/5",
     "**Confidence**: low",
@@ -22,6 +30,7 @@
   "macroContext": "",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
     "risk-scoring/quantitative-swot.md",
     "risk-scoring/risk-matrix.md"
   ]

@@ -5,13 +5,19 @@
   "gateResult": "PENDING",
   "slug": "2026-04-13-motions-39",
   "articlePath": "analysis/daily/2026-04-13/motions-run39/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "Run 39 is a T-2 pre-Tariff-activation motions-track positioning run.",
+  "keyTakeaways": [
+    "Motions-cluster cataloguing: **A2**",
+    "Parallel-stream framework: **B2** (constructed)",
+    "Run: `motions-run39` (2026-04-13, T-2)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
   "sources": [
+    "executive-brief.md",
     "risk-scoring/risk-matrix.md"
   ]
 }

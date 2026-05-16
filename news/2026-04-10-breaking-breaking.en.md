@@ -1,7 +1,7 @@
 ---
-title: "Breaking News Intelligence Brief"
-description: "dataAvailability: Unavailable (Easter recess Day 15) Published 2026-04-10, with source-linked voting, committee and legislative intelligence for democratic-accountability readers…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-10", "News", "Intelligence", "Brief", "dataAvailability", "Unavailable", "Easter", "recess", "Published", "with"]
+title: "Breaking, 10 April 2026"
+description: "The 10 April breaking brief records Easter Recess Day 15 with dataAvailability: Unavailable. The analytical mode operates on precomputed-stats + editorial-memory substrate only…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-10", "April", "brief", "records", "Easter", "Recess", "with", "dataAvailability", "Unavailable", "analytical"]
 date: 2026-04-10
 article_type: breaking
 slug: 2026-04-10-breaking-breaking
@@ -12,12 +12,51 @@ layout: article
 ---
 # Breaking — 2026-04-10
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+The 10 April breaking brief records **Easter Recess Day 15** with `dataAvailability: Unavailable`. The analytical mode operates on precomputed-stats + editorial-memory substrate only; no live EP-feed signal is usable. The brief's strategic value is *continuity preservation* during sustained feed outage — maintaining analytical pipeline cadence so that downstream consumers have artifact availability even in degraded conditions. *Confidence: MEDIUM (analytical substrate only); Admiralty: B3.*
+
+### Three Decisions
+
+1. **Maintain daily breaking-brief cadence through sustained feed unavailability.** The pipeline's value is partly its reliability; daily output even on degraded inputs preserves downstream-consumer expectations. *Confidence: HIGH.*
+2. **Continue T-N pre-activation positioning through 14 April (T-1).** With T-0 on 15 April, the next 5 days are the convergence window; daily probes preserve the analytical record. *Confidence: HIGH.*
+3. **Document the dataAvailability state explicitly in every probe.** When feeds are unavailable, the explicit labelling is more important than usual — consumers should not assume freshness. *Confidence: HIGH.*
+
+### 60-Second Read
+
+Day-15 of the Easter recess is operationally the deepest point of feed unavailability. The pipeline runs on precomputed-stats substrate and produces continuity output. The substantive value is procedural (continuity) rather than content-fresh (none available).
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| Feeds remain unavailable through T-0 | LOW–MED | MED |
+| Continuity-mode mistaken for fresh-signal mode by consumers | MED | LOW–MED |
+| Editorial memory drift during sustained outage | LOW | MED |
+
+### Source Quality
+
+- Precomputed-stats baseline: **B2**
+- Editorial memory: **C2**
+- Data unavailability observation: **A1**
+
+### Provenance
+
+- Run: `breaking` (2026-04-10, Recess Day 15)
+- Compliance: EP Open Data Portal + precomputed stats. GDPR-compliant.
+
+---
+*Analytical neutrality: continuity-mode explicitly labelled.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `political-classification.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
@@ -1691,6 +1730,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -1746,6 +1786,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -1758,9 +1799,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -1769,6 +1812,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/executive-brief.md) | `executive-brief.md` |
 | section-supplementary-intelligence | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/political-classification.md) | `political-classification.md` |
 | section-supplementary-intelligence | [political-risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/political-risk-assessment.md) | `political-risk-assessment.md` |
 | section-supplementary-intelligence | [pre-restart-intelligence-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/breaking/pre-restart-intelligence-brief.md) | `pre-restart-intelligence-brief.md` |

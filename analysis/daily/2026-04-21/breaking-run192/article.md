@@ -1,7 +1,7 @@
 ---
-title: "EP Breaking News Run 192"
-description: "Run 192 marks Day 1 of the post-Easter work week — the first day EU institutions are operational after the Easter Monday bank holiday. The European Parliament remains in Easter…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-21", "News", "marks", "post", "Easter", "work", "week", "first", "institutions", "operational"]
+title: "Run 192, 21 April 2026"
+description: "Run 192 is the morning ANALYSIS_ONLY probe on Day 1 of the post-Easter work week (Parliament remains in Easter recess until 27 April). No breaking event surfaced."
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-21", "April", "morning", "ANALYSIS", "ONLY", "probe", "post", "Easter", "work", "week"]
 date: 2026-04-21
 article_type: breaking
 slug: 2026-04-21-breaking
@@ -12,12 +12,68 @@ layout: article
 ---
 # Breaking — 2026-04-21
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Run 192 is the **morning ANALYSIS_ONLY probe** on Day 1 of the post-Easter work week (Parliament remains in Easter recess until 27 April). **No breaking event** surfaced. Five strategic markers anchor the run: (i) the **USTR Section 301 review window officially opened** today — the first day USTR can announce new EU-targeted investigations or notices of intent on retaliatory tariffs (flagged targets: French/Austrian/Spanish DSTs, EU pharmaceutical-pricing provisions, CAP subsidies); (ii) the **EP API content outage entered Day 12**, masking any late-night adoption signal; (iii) **6-day countdown to Parliament's 27 April plenary return** begins; (iv) the **roll-call vote publication window is now overdue** for late-March plenary votes; (v) the **Commission Housing Initiative soft deadline (TA-10-2026-0064 follow-up) passes today** with no observed Commission action. *Confidence: MEDIUM; Admiralty: B2 on EP feeds; B3 on USTR window inference.*
+
+### Three Decisions Riding On This Probe
+
+1. **Pre-position the INTA committee response template against potential USTR Section 301 action.** Bernd Lange (S&D / DE, INTA chair) authored TA-10-2026-0097 (non-application of customs duties) on 26 March — providing the Commission a legal mandate to suspend specific EU tariff obligations if US retaliation is deemed disproportionate. The instrument is operational. Whether USTR action this week activates TA-0097 is the dominant 48-hour political question. *Confidence: HIGH on legal status; MODERATE on activation probability.*
+
+2. **Set 22–24 April as the API Tier-2 recovery empirical window.** The 11-day API outage now exceeds historical EP outage durations, but Day-12+ recovery has been the historical pattern. Pipeline planning must assume continued ANALYSIS_ONLY gating until Tier-2 recovery is confirmed via direct feed-content tests. *Confidence: MEDIUM (empirical range from prior outage cycles).*
+
+3. **Note the Commission Housing Initiative soft-deadline pass without follow-up.** The deadline was non-binding but politically symbolic; absence of Commission action today is the leading indicator that the housing-framework call (TA-10-2026-0064) is absorbing into political memory rather than converting to legislative proposal. This validates the higher-likelihood risk noted in earlier briefs. *Confidence: MODERATE.*
+
+### 60-Second Read
+
+The morning probe captures the **transition state** between Easter recess and the post-recess legislative cycle. Operationally, the day is quiet — no EP plenary, no committee meetings, no fresh adoptions. Strategically, three external clocks are running: USTR Section 301 (Washington EST, business day just begun at probe time); EP API recovery (empirical range narrowing); and the 27 April plenary preparation (committee groups will activate around 23–24 April).
+
+The composite-risk score (≈17/50) reflects the gap between *operational quiescence* (low score) and *external-pressure proximity* (USTR window opening is a non-trivial upward driver). The correct gating outcome (ANALYSIS_ONLY) is consistent with the threshold logic.
+
+The most consequential single fact remains the **availability of TA-10-2026-0097** as a pre-positioned EU response instrument. The morning probe documents that the instrument is in place; whether it activates depends on a USTR move that today's window makes possible but not certain.
+
+### Risk Snapshot (24–48-hour horizon)
+
+| # | Risk | Likelihood | Impact |
+|---|------|-----------:|------:|
+| 1 | USTR Section 301 action against EU sectors this week | MED | HIGH |
+| 2 | EP API outage continues past 22 April Tier-2 recovery window | MED | MED |
+| 3 | Commission silent on housing follow-up over next 7 days | HIGH | MED |
+| 4 | Late-day EP signal missed owing to events-feed unavailability | LOW–MED | MED |
+
+### Forward Triggers (next 24–72 h)
+
+- **USTR Federal Register notices:** any EU-related Section 301 notice = TA-0097 activation candidate.
+- **Run 193 (afternoon):** if `get_adopted_texts_feed` shifts from cold cache to active-update mode, Tier-2 recovery is empirically confirmed.
+- **Commission press readout:** any housing-related statement reverses the silent-on-follow-up signal.
+- **Roll-call vote publication:** appearance of late-March roll-call data confirms backend processing recovery.
+
+### Source Quality
+
+- EP `get_adopted_texts_feed` (cold cache, mixed vintage): **B3**
+- EP `get_events_feed` unavailable: **A2** (the unavailability is fully observable)
+- USTR Section 301 window timing: **A1** (statutory)
+- Bernd Lange / INTA / TA-0097 architecture: **A1** (EP adopted text)
+- Forward-looking 48-hour projections: **C3**
+
+### Provenance
+
+- Run: `breaking-run192` (2026-04-21, morning probe)
+- Primary artifacts read: `intelligence/synthesis-summary.md`, `data/adopted-texts-feed.json`, `data/events-feed.json`.
+- Compliance: EP Open Data Portal + USTR public notices only. GDPR-compliant.
+
+---
+*Analytical neutrality: directional claims hedged with confidence levels.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `intelligence/stakeholder-map.md` |
@@ -878,6 +934,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -933,6 +990,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -945,9 +1003,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -956,6 +1016,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/executive-brief.md) | `executive-brief.md` |
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-stakeholder-map | [stakeholder-map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-21/breaking-run192/intelligence/stakeholder-map.md) | `intelligence/stakeholder-map.md` |

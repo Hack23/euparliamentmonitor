@@ -1,7 +1,7 @@
 ---
-title: "🧩 Political Intelligence Synthesis — European Parliament"
-description: "1. Legislative Backlog Risk — NEW (12/25 HIGH): 30+ adopted texts + 13 COD procedures must be processed in a 4-day committee window (April 14-17)."
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-09", "Political", "Intelligence", "Synthesis", "European", "Parliament", "Legislative", "Backlog", "Risk", "HIGH"]
+title: "Breaking, 9 April 2026"
+description: "The 9 April breaking brief identifies a NEW legislative-backlog risk at 12/25 HIGH: 30+ adopted texts + 13 COD procedures must be processed in a 4-day committee window (14–17…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-09", "April", "brief", "identifies", "legislative", "backlog", "risk", "HIGH", "adopted", "texts"]
 date: 2026-04-09
 article_type: breaking
 slug: 2026-04-09-breaking
@@ -12,12 +12,51 @@ layout: article
 ---
 # Breaking — 2026-04-09
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+The 9 April breaking brief identifies a **NEW legislative-backlog risk at 12/25 HIGH**: **30+ adopted texts + 13 COD procedures must be processed in a 4-day committee window (14–17 April)**. The risk is structural: the post-recess committee week has insufficient calendar capacity for the accumulated workload, creating a bottleneck that will spill into the plenary week and beyond. *Confidence: MEDIUM-HIGH; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Anchor the 14–17 April committee window as the EP10 Q2 throughput stress test.** Whether the committee infrastructure handles the 30+ texts + 13 CODs in 4 days defines the Q2 throughput trajectory. *Confidence: HIGH.*
+2. **Pre-position downstream consumers for committee-week signal volume.** Analytical pipeline, translation pipeline, and news workflows should scale capacity for 14–17 April peak load. *Confidence: HIGH.*
+3. **Treat 12/25 HIGH backlog risk as actionable, not merely advisory.** Risk levels at this magnitude warrant committee-leadership awareness and prioritisation discipline. *Confidence: MEDIUM-HIGH.*
+
+### 60-Second Read
+
+The legislative-backlog risk is the dominant Q2 2026 throughput-cycle finding. 30+ texts + 13 CODs over 4 days = approximately 11 file-actions per day, which exceeds historical committee-week throughput. The bottleneck is empirical, not hypothetical.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| Backlog spills into plenary week 27–30 April | HIGH | MED–HIGH |
+| Committee-leadership cannot prioritise effectively | MED | MED |
+| Trilogue files delayed by committee-week backlog | MED | MED–HIGH |
+
+### Source Quality
+
+- Backlog count (30+ texts + 13 CODs): **A2**
+- 4-day committee window: **A1**
+- 12/25 HIGH classification: **B2**
+
+### Provenance
+
+- Run: `breaking` (2026-04-09)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: backlog risk labelled with severity grade.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `coalition-sentiment-analysis.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
@@ -2588,6 +2627,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -2643,6 +2683,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -2655,9 +2696,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -2666,6 +2709,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/executive-brief.md) | `executive-brief.md` |
 | section-supplementary-intelligence | [coalition-sentiment-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/coalition-sentiment-analysis.md) | `coalition-sentiment-analysis.md` |
 | section-supplementary-intelligence | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/political-classification.md) | `political-classification.md` |
 | section-supplementary-intelligence | [post-recess-preparedness](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-09/breaking/post-recess-preparedness.md) | `post-recess-preparedness.md` |

@@ -5,8 +5,16 @@
   "gateResult": "PENDING",
   "slug": "2026-04-13-committee-reports-run47",
   "articlePath": "analysis/daily/2026-04-13/committee-reports-run47/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "Q1 2026 committee output ranks ECON and INTA as the two most consequential committees of the quarter — and the run's most operationally useful contribution is a 5-deep significance ranking on which subsequent Q2 decisions can be sequenced.",
+  "keyTakeaways": [
+    "🔴 **100 adopted texts in Q1 2026** — most productive Q1 in EP10; ECON + INTA lead.",
+    "🟠 **3 CRITICAL items in a single 4-day committee-week window** — pipeline-triage decision matters.",
+    "🟢 **TA-10-2026-0096 (US Tariff Response)** — significance **9.6/10**, risk **25/25 CRITICAL** — INTA lead.",
+    "🟡 **TA-10-2026-0090/0091/0092 (Banking Union Triple Package)** — significance 9.2/10; **14-year reform completes**.",
+    "🔵 **TA-10-2026-0094 (Anti-Corruption Directive)** — significance 8.8/10; **first EU-wide criminal-law on corruption**; LIBE lead.",
+    "🟣 **TA-10-2026-0060 (ECB VP Appointment)** — significance 7.2/10; institutional-coherence signal.",
+    "🩷 **TA-10-2026-0008 (EU-Mercosur CJEU Opinion)** — significance 6.8/10; legal-base anchor for ratification debate."
+  ],
   "topRisks": [
     "INTA handles tariff deadline within existing framework",
     "Committees resume normal pace within 1 week",
@@ -21,6 +29,7 @@
   "keyActors": [],
   "macroContext": "",
   "sources": [
+    "executive-brief.md",
     "risk-scoring/risk-matrix.md"
   ]
 }

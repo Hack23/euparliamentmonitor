@@ -1,7 +1,7 @@
 ---
-title: "The European Parliament's Q1 2026 output of 104 adopted texts, 46.2% above the 2025 pace, reveals a significant concentration…"
-description: "The European Parliament's Q1 2026 output of 104 adopted texts, 46.2% above the 2025 pace, reveals a significant concentration of legislative power in ECON and LIBE committees."
-keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-10", "run committee-reports-2026-04-10", "European", "Parliament", "output", "adopted", "texts", "above", "pace", "reveals"]
+title: "Committee Reports, 10 April 2026"
+description: "Q1 2026 output of 104 adopted texts is +46.2 % above the 2025 pace — the highest single-quarter throughput in the observed 2004–2026 series. The structural finding under…"
+keywords: ["EU Parliament", "committee activity", "European Parliament", "committee report", "legislation", "Committee Reports", "2026-04-10", "run committee-reports-2026-04-10", "Committee", "Reports", "April", "output", "adopted", "texts", "above", "pace"]
 date: 2026-04-10
 article_type: committee-reports
 slug: 2026-04-10-committee-reports
@@ -12,12 +12,51 @@ layout: article
 ---
 # Committee Reports — 2026-04-10
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Q1 2026 output of **104 adopted texts is +46.2 % above the 2025 pace** — the highest single-quarter throughput in the observed 2004–2026 series. The structural finding under the throughput headline: **ECON and LIBE committees concentrate the legislative power**, having authored or co-authored disproportionate share of Q1 output (financial-regulation files via ECON; rule-of-law and digital-rights files via LIBE). The concentration matters because it identifies the two committees whose rapporteurs and chairs hold the largest operational influence in EP10. *Confidence: HIGH on aggregate counters; MEDIUM on concentration-pattern characterisation; Admiralty: A2.*
+
+### Three Decisions
+
+1. **Anchor the "ECON + LIBE concentration" pattern as the EP10 Q1 2026 operational signature.** Two committees concentrating disproportionate legislative throughput is the canonical mid-term-parliament pattern; ECON's banking-union files and LIBE's rule-of-law files are the headlines. *Confidence: MEDIUM-HIGH.*
+2. **Position ECON chair and LIBE chair as the highest-leverage individual MEPs in Q1 2026.** Committee chairs of high-throughput committees hold disproportionate operational power; identifying them anchors downstream stakeholder mapping. *Confidence: HIGH.*
+3. **Treat the +46.2 % YoY pace as the sustainable EP10 Year-3 operating rate, not an anomaly.** Q1 patterns rarely persist intact through full year, but the +46.2 % anchor is large enough that even 50 % decay through Q2–Q4 would still produce record full-year output. *Confidence: MEDIUM.*
+
+### 60-Second Read
+
+The 104-texts / +46.2 % YoY headline is the Q1 2026 structural fact. The ECON + LIBE concentration is the political-economy interpretation that gives the headline structural meaning: power in EP10 concentrates around financial-regulation and rule-of-law files, mirroring the broader EU institutional agenda.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| Q2–Q4 pace decays sharply below +46.2 % | MED | MED |
+| ECON / LIBE concentration distorts EP10 narrative | MED | LOW–MED |
+| Committee-chair turnover during mid-term | LOW | MED–HIGH |
+
+### Source Quality
+
+- Q1 2026 = 104 texts: **A1**
+- +46.2 % YoY calculation: **A1**
+- ECON + LIBE concentration: **B2**
+
+### Provenance
+
+- Run: `committee-reports` (2026-04-10)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: concentration pattern labelled as analytical observation.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
 | [Stakeholder impact](#section-stakeholder-map) | who gains, who loses, and which institutions or citizens feel the policy effect | `existing/stakeholder-impact.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/political-risk-matrix.md` |
@@ -455,6 +494,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -510,6 +550,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -522,9 +563,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -533,6 +576,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/executive-brief.md) | `executive-brief.md` |
 | section-significance | [significance-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/classification/significance-classification.md) | `classification/significance-classification.md` |
 | section-stakeholder-map | [stakeholder-impact](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/existing/stakeholder-impact.md) | `existing/stakeholder-impact.md` |
 | section-risk | [political-risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/committee-reports/risk-scoring/political-risk-matrix.md) | `risk-scoring/political-risk-matrix.md` |

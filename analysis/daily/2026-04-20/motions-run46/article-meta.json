@@ -5,7 +5,7 @@
   "gateResult": "PENDING",
   "slug": "2026-04-20-motions",
   "articlePath": "analysis/daily/2026-04-20/motions-run46/article.md",
-  "topFinding": "| Field | Value | |-------|-------| | Document Type | Master Synthesis | | Period | Q1 2026 (January–March) | | Parliament Term | EP10 (2024–2029) | | Run ID | motions-run46 | | Confidence Level | HIGH (multiple corroborating sources) | | Last Updated | 2026-04-20 |",
+  "topFinding": "*Q1 2026 is the master-synthesis run's defining claim: \"a decisive inflection point for EP10\" — and the data backs it.",
   "keyTakeaways": [
     "**Speed**: 104 adopted texts in 12 sitting days = 8.7 texts/day average (EP9 average: 5.2)",
     "**Scope**: Simultaneous action across all major policy domains",
@@ -31,6 +31,7 @@
   "macroContext": "The European Parliament's record Q1 2026 legislative output — 567 roll-call votes, 180 resolutions, 114 legislative acts — is not occurring in an economic vacuum.",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
     "intelligence/economic-context.md",
     "intelligence/scenario-forecast.md",
     "intelligence/stakeholder-map.md",

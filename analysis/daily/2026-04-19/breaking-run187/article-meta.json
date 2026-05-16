@@ -5,8 +5,13 @@
   "gateResult": "PENDING",
   "slug": "2026-04-19-breaking-187",
   "articlePath": "analysis/daily/2026-04-19/breaking-run187/article.md",
-  "topFinding": "---",
-  "keyTakeaways": [],
+  "topFinding": "Run 187 (mid-day probe, Easter Recess Day 8, Series Run 9) records significance 14/50 — even lower than Run 190's Easter Monday floor, confirming that mid-recess Saturday-equivalent days exhibit equal or greater quiescence than Easter Monday itself.",
+  "keyTakeaways": [
+    "EP feeds (degraded): **B3**",
+    "Noise-floor calibration (independent 2-data-point): **B2**",
+    "Run: `breaking-run187` (2026-04-19, Series Run 9, recess Day 8)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [
@@ -21,6 +26,7 @@
   ],
   "macroContext": "",
   "sources": [
+    "executive-brief.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/synthesis-summary.md"
   ]

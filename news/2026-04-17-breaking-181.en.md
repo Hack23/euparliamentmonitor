@@ -1,7 +1,7 @@
 ---
-title: "April 17, 2026"
-description: "title: \"🧠 Intelligence Synthesis Summary — EP T+3 Secondary Sprint Analysis\" Published 2026-04-17, with source-linked voting, committee and legislative intelligence…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-17", "April", "title", "Intelligence", "Synthesis", "Summary", "Secondary", "Sprint", "Analysis", "Published"]
+title: "Run 181, 17 April 2026"
+description: "Run 181 (T+3, mid-day) extends prior recess-probe coverage with new analytical focus on the March 2026 secondary-sprint legislative cluster — texts not covered in earlier-day…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-17", "April", "extends", "prior", "recess", "probe", "coverage", "with", "analytical", "focus"]
 date: 2026-04-17
 article_type: breaking
 slug: 2026-04-17-breaking-181
@@ -12,12 +12,53 @@ layout: article
 ---
 # Breaking — 2026-04-17
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Run 181 (T+3, mid-day) extends prior recess-probe coverage with **new analytical focus on the March 2026 secondary-sprint legislative cluster** — texts not covered in earlier-day Runs 179/180. Composite risk **22.6/50** (above 20/50 threshold in the analytical-substance dimension; mode remains ANALYSIS_ONLY pending fresh primary-feed adoption). The run operates under Rule-5 extended-analysis discipline (ai-driven-analysis-guide.md), substituting analytical depth for fresh signal during sustained recess quiescence. *Confidence: MEDIUM; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Document the "secondary sprint" March cluster as a distinct analytical category.** The primary March 2026 cluster (TA-0087 to -0104 from 26 March, including the trade-defence triple package) is well-cataloged. The "secondary sprint" refers to mid-March committee-level outputs and procedural texts that constitute the *operational scaffolding* for the primary cluster. This second-order analytical layer matters for institutional-memory and downstream-consumer documentation. *Confidence: MEDIUM-HIGH.*
+2. **Apply ai-driven-analysis-guide Rule 5 (extended-analysis-only) explicitly to the recess cluster.** Rule 5 sanctions analytical depth as a substitute for fresh signal when external conditions justify sustained analytical engagement without gate-crossing. This is the canonical case. *Confidence: HIGH.*
+3. **Hold composite-risk band 17–24/50 as the recess-period operating range.** Three consecutive probes (180–181 today plus prior 183–185) all cluster in this band — the empirical operating range is confirmed. *Confidence: HIGH.*
+
+### 60-Second Read
+
+T+3 mid-day probes serve to *deepen* the analytical record rather than to detect breaking events. Run 181's contribution is the **secondary-sprint cluster documentation** — surfacing the procedural scaffolding (committee-level outputs, rapporteur appointments, opinion-committee referrals) that enabled the primary 26 March legislative output. For downstream consumers building institutional-memory of EP10's operational mechanics, this scaffolding is as analytically valuable as the headline adoptions.
+
+The 22.6/50 composite score reflects accumulated analytical weight, not fresh adoption — consistent with the recess-cluster pattern.
+
+### Risk Snapshot (T+3 to plenary)
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| Secondary-sprint analysis insufficiently documented for plenary preparation | LOW–MED | LOW–MED |
+| Composite-risk drifts above 25/50 without gate-crossing on fresh signal | MED | LOW |
+| Rule-5 extended-analysis discipline misinterpreted as gating workaround | LOW | MED |
+
+### Source Quality
+
+- March 2026 secondary-sprint cataloguing: **A2** (EP committee documentation)
+- Composite-risk methodology: **B2**
+- Rule-5 application: **A1** (internal-discipline citation)
+
+### Provenance
+
+- Run: `breaking-run181` (2026-04-17, T+3, secondary-sprint focus)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: extended-analysis discipline explicitly cited.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `intelligence/coalition-dynamics.md` |
@@ -992,6 +1033,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -1047,6 +1089,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -1059,9 +1102,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -1070,6 +1115,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run181/executive-brief.md) | `executive-brief.md` |
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run181/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run181/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-coalitions-voting | [coalition-dynamics](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-17/breaking-run181/intelligence/coalition-dynamics.md) | `intelligence/coalition-dynamics.md` |

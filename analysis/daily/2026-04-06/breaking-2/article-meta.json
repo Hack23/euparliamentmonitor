@@ -5,11 +5,21 @@
   "gateResult": "PENDING",
   "slug": "2026-04-06-breaking-breaking-2",
   "articlePath": "analysis/daily/2026-04-06/breaking-2/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "*The Run-2 distinguishing contribution — produced 06:45 UTC on Easter Monday — is the Dual-Track Coalition Pattern discovery: SRMR3 (TA-10-2026-0092) passed via a right-of-centre track (EPP+ECR+PfE+Renew) while the Anti-Corruption Directive (TA-10-2026-0094) passed via the Grand Coalition (EPP+S&D+Renew+Greens),…",
+  "keyTakeaways": [
+    "🔴 **Easter Monday Run-2 (06:45 UTC)** — 8 new methods; no breaking news; structural finding.",
+    "🟠 **Dual-track coalition discovered** — SRMR3 right-of-centre vs. anti-corruption grand coalition.",
+    "🟢 **PPE power index 95/100** — no viable majority excludes PPE; structural dominance.",
+    "🟡 **HHI 0.1517** — multi-polar parliamentary system; PPE as indispensable hub.",
+    "🔵 **Force-field inversion** — defence integration (8/10) > green transition (5/10).",
+    "🟣 **API failure-mode evolution** — 404 → JSON parse → timeout; possible backend signal.",
+    "🩷 **737 MEPs stable** — feed continues to provide reliable baseline."
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
-  "sources": []
+  "sources": [
+    "executive-brief.md"
+  ]
 }

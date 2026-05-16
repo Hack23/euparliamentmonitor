@@ -5,8 +5,16 @@
   "gateResult": "PENDING",
   "slug": "2026-04-03-propositions",
   "articlePath": "analysis/daily/2026-04-03/propositions/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "No new Commission propositions or EP own-initiative procedures opened on 2026-04-03.",
+  "keyTakeaways": [
+    "🔴 **No new procedures** on 2026-04-03; `get_procedures_feed` timeout across 3 probes. (🟢 High)",
+    "🟠 **0 actors classified**; ROUTINE significance. (🟢 High)",
+    "🟢 **Pipeline carry-over** anchors watch list. (🟢 High)",
+    "🟡 **Risk dimensions all \"none\"** today. (🟢 High)",
+    "🔵 **Economic context:** anticipated Q2 propositions on AI Act implementing rules, Defence Industrial Strategy, MFF prep. (🟡 Medium)",
+    "🟣 **Cross-reference:** sibling `breaking-2` formalises DEGRADED API state. (🟢 High)",
+    "🩷 **Disruption vector:** US trade pressure may force a fast-track Commission proposition in April. (🟡 Medium)"
+  ],
   "topRisks": [
     "**Score**: 0.0/5",
     "**Confidence**: low",
@@ -22,6 +30,7 @@
   "macroContext": "",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
     "risk-scoring/quantitative-swot.md",
     "risk-scoring/risk-matrix.md"
   ]

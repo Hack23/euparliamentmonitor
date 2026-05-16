@@ -5,11 +5,15 @@
   "gateResult": "PENDING",
   "slug": "2026-04-29-motions",
   "articlePath": "analysis/daily/2026-04-29/motions/article.md",
-  "topFinding": "Almost Certainly (A1, confidence HIGH): The April 28, 2026 Strasbourg plenary session marked a significant week for the EP, delivering 17 adopted texts across budget, justice, environment, trade, and institutional domains.",
+  "topFinding": "The 28 April plenary day delivered 17 adopted texts spanning budget, justice, environment, trade, and institutional dossiers.",
   "keyTakeaways": [
     "Committee composition and positions (PRIV, BUDG, ENVI, PECH, JURI)",
     "Historical voting alignments from comparable motions",
-    "Political group stated positions from debates"
+    "Political group stated positions from debates",
+    "**Commission MFF 2028–2034 proposal (mid-2026):** distance from TA-0111 ceilings is the structural-tension leading indicator.",
+    "**Council 2027 draft budget (July):** see analogous metric against TA-0112.",
+    "**Commission gender-violence directive update:** any proposal text on consent-based definitions converts TA-0120 from political ammunition to operative law.",
+    "**JURI immunity-request inbox:** any new request from Hungary, Italy, or Spain expands precedent beyond Polish-Romanian axis."
   ],
   "topRisks": [
     "🔴 CRITICAL: 15–25",
@@ -34,6 +38,7 @@
   "macroContext": "",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
     "intelligence/scenario-forecast.md",
     "intelligence/stakeholder-map.md",
     "intelligence/synthesis-summary.md",

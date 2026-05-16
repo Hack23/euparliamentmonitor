@@ -5,13 +5,15 @@
   "gateResult": "PENDING",
   "slug": "2026-04-17-breaking-181",
   "articlePath": "analysis/daily/2026-04-17/breaking-run181/article.md",
-  "topFinding": "---",
+  "topFinding": "Run 181 (T+3, mid-day) extends prior recess-probe coverage with new analytical focus on the March 2026 secondary-sprint legislative cluster — texts not covered in earlier-day Runs 179/180.",
   "keyTakeaways": [
     "**Social innovation** (housing resolution — cross-party, citizen-responsive)",
     "**Regulatory rollback** (Better Law-Making — EPP deregulatory agenda)",
     "**Geopolitical positioning** (EU-Canada, WTO Yaoundé — multilateral rules champion)",
     "**Democratic resilience** (Braun immunity — rule-of-law norms)",
-    "**Strategic autonomy** (enlargement strategy — geopolitical security buffer)"
+    "**Strategic autonomy** (enlargement strategy — geopolitical security buffer)",
+    "March 2026 secondary-sprint cataloguing: **A2** (EP committee documentation)",
+    "Composite-risk methodology: **B2**"
   ],
   "topRisks": [
     "KTM-Austria application (TA-10-2026-0037): Motorbike manufacturer. The EGF was designed for auto and steel. If motorcycle manufacturers are already filing, structural broadening of displacement is occurring earlier than modelled.",
@@ -31,6 +33,7 @@
   ],
   "macroContext": "",
   "sources": [
+    "executive-brief.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/synthesis-summary.md",
     "risk-scoring/quantitative-swot.md",

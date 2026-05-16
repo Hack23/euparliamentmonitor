@@ -5,11 +5,21 @@
   "gateResult": "PENDING",
   "slug": "2026-04-05-breaking-breaking",
   "articlePath": "analysis/daily/2026-04-05/breaking/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "No breaking news developments on 2026-04-05; EP is in Easter recess (Day 10 of 18, 27 March → 13 April 2026).",
+  "keyTakeaways": [
+    "🔴 **No new EP activity** on 2026-04-05 (Sunday, Easter recess Day 10/18). (🟢 High)",
+    "🟠 **DEGRADED feed-API state continues** from 2026-04-03 probe. (🟢 High)",
+    "🟢 **Carry-over watch list:** anti-corruption (TA-10-2026-0094), Braun immunity (TA-10-2026-0088), US tariff (TA-10-2026-0096), HDV emissions (TA-10-2026-0084). (🟢 High)",
+    "🟡 **Coalition arithmetic stable**: PPE 38% / Grand Coalition 60%. (🟢 High)",
+    "🔵 **Economic context:** US-EU trade trajectory unchanged. (🟢 High)",
+    "🟣 **Cross-reference:** sibling `breaking-2` and `breaking-3` provide cross-session mid-recess synthesis. (🟢 High)",
+    "🩷 **Disruption vector:** none acute. (🟢 High)"
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
-  "sources": []
+  "sources": [
+    "executive-brief.md"
+  ]
 }

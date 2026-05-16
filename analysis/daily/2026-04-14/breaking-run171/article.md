@@ -1,7 +1,7 @@
 ---
-title: "🧩 Political Intelligence Synthesis — Tariff T-0 Convergence and Post-Recess Pipeline"
-description: "This synthesis builds on intelligence from 8+ prior runs during the Easter recess period: Published 2026-04-14, with source-linked voting, committee and legislative intelligence…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-14", "Political", "Intelligence", "Synthesis", "Tariff", "Convergence", "Post", "Recess", "Pipeline", "This"]
+title: "Run 171, 14 April 2026"
+description: "Run 171 is the synthesis run that consolidates intelligence from 8+ prior recess-period runs into a single Tariff T-0 convergence narrative. The synthesis frame: the Easter…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-14", "April", "synthesis", "that", "consolidates", "intelligence", "from", "prior", "recess", "period"]
 date: 2026-04-14
 article_type: breaking
 slug: 2026-04-14-breaking-171
@@ -12,12 +12,53 @@ layout: article
 ---
 # Breaking — 2026-04-14
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Run 171 is the **synthesis run** that consolidates intelligence from 8+ prior recess-period runs into a single Tariff T-0 convergence narrative. The synthesis frame: the Easter recess was structurally a *T-N pre-activation positioning period*, not a quiet interval. Each of the 8 prior runs added one piece of T-0 readiness (legal status, Commission readiness inference, INTA stewardship, dual-instrument framing, three-vector convergence). The aggregate narrative becomes the canonical EP10 trade-defence-activation story. *Confidence: MEDIUM-HIGH; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Adopt Run 171 as the canonical T-0 narrative reference.** Subsequent runs through the activation cycle can cite Run 171's synthesis rather than re-deriving the narrative each time. This is operationally efficient. *Confidence: HIGH.*
+2. **Treat the recess period (5–14 April) as the EU's T-N pre-activation window.** This re-frames the recess from "institutional quiescence" to "structured pre-activation positioning". Both characterisations are accurate; the latter is analytically more useful. *Confidence: MEDIUM-HIGH.*
+3. **Maintain the synthesis-run cadence (1× per institutional inflection point).** Synthesis runs should occur at structural transition moments (T-N → T-0; T-0 → T+N; recess → plenary). They are not daily-cadence runs but transition-point runs. *Confidence: HIGH.*
+
+### 60-Second Read
+
+Synthesis runs serve a different function from detection runs: they take prior accumulated intelligence and reframe it into a coherent narrative. Run 171's contribution is the **re-framing** of the recess from "quiet interval" to "structured T-N positioning period" — which makes the entire recess-period analytical work fit a single coherent purpose.
+
+The 8-run consolidation also serves as a quality-assurance audit: any prior run that does not fit the synthesis narrative is flagged for re-examination.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| Synthesis narrative oversimplifies prior-run nuance | MED | LOW–MED |
+| Subsequent runs over-rely on Run 171 reference rather than fresh analysis | MED | LOW–MED |
+| T-N positioning framing politically contested | LOW–MED | LOW |
+
+### Source Quality
+
+- 8+ prior recess-period runs: **B2 aggregate**
+- T-N positioning framing: **B2** (constructed)
+- Statutory T-0 date: **A1**
+
+### Provenance
+
+- Run: `breaking-run171` (2026-04-14, synthesis run)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: synthesis framing explicitly labelled.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `political-classification.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
@@ -1135,6 +1176,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -1190,6 +1232,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -1202,9 +1245,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -1213,6 +1258,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run171/executive-brief.md) | `executive-brief.md` |
 | section-supplementary-intelligence | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run171/political-classification.md) | `political-classification.md` |
 | section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run171/risk-assessment.md) | `risk-assessment.md` |
 | section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run171/significance-scoring.md) | `significance-scoring.md` |

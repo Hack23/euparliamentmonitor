@@ -1,7 +1,7 @@
 ---
-title: "EP Week Ahead 2026-05-18 to 2026-05-21"
-description: "The European Parliament's Strasbourg plenary of 18–21 May 2026 is a HIGH-significance legislative week at the threshold of the EU legislative calendar's summer sprint."
-keywords: ["EU Parliament", "week ahead", "committee meetings", "plenary debate", "European Parliament", "legislation", "2026-05-08", "run week-ahead-run265-1778230116", "Week", "Ahead", "European", "Parliament", "Strasbourg", "plenary", "HIGH", "significance"]
+title: "EP Week Ahead: May 18–21, 2026 (Strasbourg Plenary) | 2026-05-08"
+description: "The Strasbourg plenary of 18–21 May 2026 is a HIGH-significance legislative week at the threshold of the EU legislative calendar's summer sprint."
+keywords: ["EU Parliament", "week ahead", "committee meetings", "plenary debate", "European Parliament", "legislation", "2026-05-08", "run week-ahead-run265-1778230116", "Week", "Ahead", "Strasbourg", "Plenary", "HIGH", "significance", "legislative", "threshold"]
 date: 2026-05-08
 article_type: week-ahead
 slug: 2026-05-08-week-ahead
@@ -12,12 +12,123 @@ layout: article
 ---
 # Week Ahead — 2026-05-08
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### 🎯 BLUF
+
+**The Strasbourg plenary of 18–21 May 2026 is a HIGH-significance legislative week at the threshold of the EU legislative calendar's summer sprint.** Fifty-three scheduled activities — **24 debates and 17 vote items across four session days** — make this one of the busiest plenary weeks of the EP10 term. The political arithmetic of EP10 places **Renew Europe (77 seats) as kingmaker on any vote requiring the 361-seat majority**: the **grand coalition EPP+S&D+Renew = 398** is the structural default; the **right flank EPP+ECR+PfE = 351** is **10 seats below majority** and requires NI or ESN support for viability. The week's political narrative is defined by **EPP's structural choice between consolidating the centre-grand coalition and exploring right-flank alignments** — this choice will set the tone for EP10's second half. **Stability score 84/100** confirms the chamber is structurally sound despite a fragmentation index of 6.55. The single highest-scoring R-06 risk (Score 12/25) is **"EPP + far-right normalisation on security/migration items"** — the week's plenary is the first realistic operational test of whether EPP whips toward the grand-coalition or the right-flank pathway under live legislative pressure. Wednesday 20 May (5 debates, **9 vote items — peak legislative day**) is the operationally most intense moment of the week.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Decision | Who decides | Deadline | Evidence |
+|:-:|----------|-------------|:--------:|----------|
+| 1 | **Renew Europe whip strategy across the week** — kingmaker on every flagship vote; Tuesday's 6 votes are the first behavioural test | Renew group leadership | **Tuesday May 19** | §1 Political Group Architecture; §2 Session Schedule Intelligence |
+| 2 | **EPP grand-coalition vs. right-flank framing on security/migration items** — R-06 (12/25) is the highest risk; the week's plenary is the operational test | EPP whip; Conference of Presidents | Wednesday May 20 (peak day) | §4 Critical Risk Assessment; R-06 |
+| 3 | **Pre-summer-recess first-reading prioritisation** — the plenary represents a critical node in completing first-reading positions before August recess | Conference of Committee Chairs; rapporteurs | end of plenary May 21 | §3 Legislative Pipeline Status (STRONG momentum) |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **53 scheduled activities across 4 days** — 24 debates, 17 vote items, 13 meeting-part time slots — one of the **busiest plenary weeks of EP10**.
+- 🟠 **9 political groups, 719 MEPs**; fragmentation index **6.55 (HIGH)**.
+- 🟢 **EPP 185 seats (25.73%)** — dominant but not a majority alone.
+- 🟡 **Grand coalition EPP+S&D+Renew = 398 seats** = structural default for mainstream legislation.
+- 🔵 **Right flank EPP+ECR+PfE = 351 seats** = **10 below majority** — needs NI or ESN.
+- 🟣 **Stability score 84/100** — structurally sound despite fragmentation.
+- 🩷 **Wednesday May 20 = peak day** (5 debates, **9 vote items**); Monday is positioning; Tuesday is first legislative test; Thursday is consolidation.
+- ⚪ **31 A10-series plenary documents** submitted for 2026; **258+ adopted texts** in EP10 cumulative database; pipeline momentum **STRONG**.
+
+---
+
+### 📅 Session-by-Session Intelligence
+
+| Day | Debates | Votes | Operational role |
+|-----|:-------:|:-----:|------------------|
+| **Mon May 18** | 7 | 0 | Positioning day — parties signal intentions |
+| **Tue May 19** | 5 | **6** | **First legislative tests** of coalition arithmetic |
+| **Wed May 20** | 5 | **9** | **Peak legislative day** — highest political intensity |
+| **Thu May 21** | 5 | 2 | Consolidation and final positions |
+| **Total** | **24** | **17** | 13 meeting-part time slots |
+
+Wednesday is therefore the **operational pivot**: if the EPP-whip signal across Tuesday's 6 votes shows grand-coalition discipline, the 9 Wednesday votes proceed predictably; if Tuesday shows right-flank slippage on security/migration items, Wednesday becomes an operational stress test.
+
+---
+
+### ⚠️ Risk Snapshot (from `risk/risk-matrix.md`)
+
+| ID | Risk | Score | Confidence |
+|:--:|------|:-----:|:----------:|
+| **R-06** | **EPP + far-right normalisation on security / migration** | **12/25** | 🟢 (highest in register) |
+| R-01 | Coalition fracture on a flagship vote | medium | 🟡 |
+| R-02 | Vote failure (no qualified majority) | medium | 🟡 |
+| R-07 | Wrecking amendments on a digital file | medium | 🟡 |
+| R-13 | MEP absence dropping participation below 95% | medium | 🟡 |
+| **R-10** | **EP API returns empty activity titles** — *operational monitoring constrained* | data-limitation | 🟢 (confirmed) |
+
+R-06 is the operationally most consequential risk; R-10 is the data-quality risk that constrains how robustly R-06 can be monitored *in real time*.
+
+---
+
+### 🌍 International Context Anchors
+
+- **Ukraine / Russia:** EP10's strong Ukraine-support coalition is expected to continue on this week's defence votes — `compare_political_groups` shows pattern stability since EP10 inauguration.
+- **US–EU trade tensions:** post-2025 tariff context creates pressure for an assertive EU trade position; cross-reference TA-10-2026-0096 cluster.
+- **Digital regulation:** AI Act implementation context; **EU first-mover advantage in global AI governance at stake** — *the first enforcement case is the legacy question* (cross-reference year-in-review Year 3 priorities).
+- **IMF macro:** EU GDP growth 2026 estimated **~1.4%** (🟡 MEDIUM — *direct IMF SDMX query not successful via current tool chain; EWS contextual estimates used*). Euro area inflation returning toward 2% target. **German fiscal conservatism vs. Southern EU expansionary preferences** is the divergent fiscal frame within which all spending votes occur.
+
+---
+
+### 🔮 Top Forward Triggers (this week)
+
+1. **Monday May 18 — opening statements.** Parties signal intentions; right-flank EPP framing on security/migration is the leading indicator for Wednesday.
+2. **Tuesday May 19 — first 6 votes.** First behavioural confirmation of grand-coalition vs. right-flank pathway.
+3. **Wednesday May 20 — 9-vote peak.** Operational stress test of EP10 coalition geometry.
+4. **Thursday May 21 — consolidation.** Final-position votes; whether the week closes with the grand-coalition pathway intact.
+
+---
+
+### 🛡️ Source-Quality Assessment
+
+- **Calendar (A1):** `get_plenary_sessions` confirms the 4-day Strasbourg block; activity count 53 is run-confirmed.
+- **Coalition arithmetic (A2):** seat-share figures are direct from `generate_political_landscape`.
+- **Stability score 84/100 (A2):** `early_warning_system` synthetic signal derived from group composition.
+- **R-10 documented:** EP API returns empty activity titles for the week — *titles* not present in run data, schedule slots and counts are. This is the brief's documented data gap.
+- **IMF macro (🟡):** direct SDMX query unsuccessful in this run; EWS contextual estimates used. The ~1.4% GDP growth figure should not be over-weighted in any decision.
+- **Net confidence:** 🟢 HIGH on calendar + arithmetic + stability score; 🟡 MEDIUM on vote-outcome projection (titles missing); 🟡 MEDIUM on macro envelope.
+
+---
+
+### 📎 Run Artifacts (Read-Before-Decide)
+
+| Layer | Artifact | Why |
+|-------|----------|-----|
+| Article | `article.md` | Public-facing week-ahead narrative |
+| Synthesis | `intelligence/synthesis-summary.md` | Five key findings + session-schedule intel (authoritative) |
+| Coalition | `intelligence/coalition-dynamics.md` | Grand-coalition vs. right-flank arithmetic |
+| Risk | `risk/risk-matrix.md` | R-01 → R-10 with the R-06 EPP/far-right normalisation focus |
+| Calendar | §Session Schedule Intelligence | Day-by-day session map |
+| Pipeline | `intelligence/legislative-pipeline-forecast.md` (if present) | 31 A10-series docs + 258+ cumulative |
+| Reliability | `intelligence/mcp-reliability-audit.md` | R-10 documented (empty activity titles) |
+| Macro | `intelligence/economic-context.md` | IMF SDMX failure + EWS contextual estimates |
+
+---
+
+**Document Control**
+- **Template reference:** `analysis/templates/executive-brief.md`
+- **Artifact path:** `analysis/daily/2026-05-08/week-ahead/executive-brief.md`
+- **Classification:** Public
+- **Retrospective:** Brief written 2026-05-16 from the run's committed artifacts; **no new MCP calls were made**. The R-10 data-quality flag and IMF SDMX failure are preserved, not retroactively filled.
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Integrated thesis](#section-synthesis) | the lead political reading that connects facts, actors, risks, and confidence | `intelligence/synthesis-summary.md` |
 | [Significance scoring](#section-significance) | why this story outranks or trails other same-day European Parliament signals | `classification/significance-classification.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
@@ -2861,6 +2972,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -2916,6 +3028,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -2928,9 +3041,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -2939,6 +3054,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-08/week-ahead/executive-brief.md) | `executive-brief.md` |
 | section-synthesis | [synthesis-summary](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-08/week-ahead/intelligence/synthesis-summary.md) | `intelligence/synthesis-summary.md` |
 | section-significance | [significance-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-08/week-ahead/classification/significance-classification.md) | `classification/significance-classification.md` |
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-08/week-ahead/classification/actor-mapping.md) | `classification/actor-mapping.md` |

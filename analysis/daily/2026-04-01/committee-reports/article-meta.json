@@ -5,8 +5,16 @@
   "gateResult": "PENDING",
   "slug": "2026-04-01-committee-reports",
   "articlePath": "analysis/daily/2026-04-01/committee-reports/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "No new committee reports identified for 2026-04-01; first full day of post-March committee recess.",
+  "keyTakeaways": [
+    "🔴 **No committee documents in today's feed** — `get_committee_documents_feed` returned 404 in concurrent breaking-news run. (🟡 Medium — endpoint health is the qualifier, not absence of work)",
+    "🟠 **0 actors classified** in this committee-reports run; no rapporteurs, shadow rapporteurs, or committee chairs identified. (🟢 High)",
+    "🟢 **Committee carry-over baseline:** ECON (ECB), TRAN/ENVI (HDV emissions), JURI (immunity), AFET (Georgia) remain the active March-into-Q2 portfolios. (🟢 High)",
+    "🟡 **Risk dimensions all \"none\"** — no acute committee-stage risk flagged today. (🟢 High)",
+    "🔵 **Economic context:** ECON's ECB Vice-President confirmation provides Q2 institutional anchor. (🟢 High)",
+    "🟣 **Cross-reference:** sibling 2026-04-01/breaking article documents the 6/8 advisory-feed 404 pattern that explains the data absence here. (🟢 High)",
+    "🩷 **Disruption vector:** none acute; structural PPE-dominance and committee-chair concentration risks inherited. (🟡 Medium)"
+  ],
   "topRisks": [
     "**Score**: 0.0/5",
     "**Confidence**: low",
@@ -22,6 +30,7 @@
   "macroContext": "",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
     "risk-scoring/quantitative-swot.md",
     "risk-scoring/risk-matrix.md"
   ]

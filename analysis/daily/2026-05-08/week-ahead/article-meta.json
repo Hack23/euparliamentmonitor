@@ -5,7 +5,7 @@
   "gateResult": "PENDING",
   "slug": "2026-05-08-week-ahead",
   "articlePath": "analysis/daily/2026-05-08/week-ahead/article.md",
-  "topFinding": "The European Parliament's Strasbourg plenary of 18–21 May 2026 is a HIGH-significance legislative week at the threshold of the EU legislative calendar's summer sprint.",
+  "topFinding": "The Strasbourg plenary of 18–21 May 2026 is a HIGH-significance legislative week at the threshold of the EU legislative calendar's summer sprint.",
   "keyTakeaways": [
     "**9 groups, 719 MEPs, HIGH fragmentation** (Laakso-Taagepera index 6.55)",
     "**EPP dominance** with 25.73% seat share — but not a majority alone",
@@ -39,6 +39,7 @@
   "macroContext": "⚠️ DATA LIMITATION NOTICE: Direct IMF SDMX API queries were not resolvable in this run due to toolchain constraints in the sandbox environment.",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/economic-context.md",
     "intelligence/scenario-forecast.md",

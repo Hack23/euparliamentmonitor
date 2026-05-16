@@ -5,8 +5,14 @@
   "gateResult": "PENDING",
   "slug": "2026-04-17-committee-reports-run53",
   "articlePath": "analysis/daily/2026-04-17/committee-reports-run53/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "Run 53 is a recess-window analytical run that re-scores the March 2026 Strasbourg multi-domain legislative sprint across five committee jurisdictions (BUDG, AFET, AGRI, IMCO, JURI).",
+  "keyTakeaways": [
+    "March 2026 adopted-text catalogue: **A1**",
+    "Five-committee-jurisdiction frame (constructed): **B2**",
+    "Significance scoring methodology: **B2**",
+    "Run: `committee-reports-run53` (2026-04-17, recess window, analytical run)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
   "topRisks": [
     "Highest: Council rollback of Talent Pool standards",
     "Systemic: Trade policy coordination gaps across EMPL, ITRE, INTA, ENVI committees"
@@ -15,6 +21,7 @@
   "keyActors": [],
   "macroContext": "",
   "sources": [
+    "executive-brief.md",
     "risk-scoring/risk-matrix.md"
   ]
 }

@@ -1,7 +1,7 @@
 ---
-title: "title: \"title: \\\"title: \\\\\\\"title: \\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title…"
-description: "title: \"title: \\\"title: \\\\\\\"title: \\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"title: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"tit…"
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-14", "title"]
+title: "Run 169, 14 April 2026"
+description: "Run 169 is a T-1 pre-Tariff-T-0 probe (one day before TA-10-2026-0096 / TA-10-2026-0097 statutory activation on 15 April). The article frontmatter exhibits the known recursive…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-14", "April", "Tariff", "probe", "before", "statutory", "activation", "article", "frontmatter", "exhibits"]
 date: 2026-04-14
 article_type: breaking
 slug: 2026-04-14-breaking-169
@@ -12,12 +12,50 @@ layout: article
 ---
 # Breaking — 2026-04-14
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Run 169 is a T-1 pre-Tariff-T-0 probe (one day before TA-10-2026-0096 / TA-10-2026-0097 statutory activation on 15 April). The article frontmatter exhibits the known recursive cataloguing artifact; substantive content under the artifact tracks the imminent activation. Mode: ANALYSIS_ONLY; no fresh adoption signal. The strategic value is *pre-activation positioning documentation*: capturing the institutional state on the day before the dual-instrument trade-defence toolkit becomes operative. *Confidence: MEDIUM; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Document the T-1 institutional state as the pre-activation baseline.** Tomorrow's T-0 reading is calibrated against this T-1 baseline; any deviation from baseline-state expectations on T-0 must be interpretable against this anchor. *Confidence: HIGH.*
+2. **Route the frontmatter recursion to the article-aggregator pipeline team.** Same systemic artifact as Runs 45, 175, 169 et al. — a persistent downstream issue requiring architecture-level attention rather than per-run fixes. *Confidence: HIGH.*
+3. **Maintain ANALYSIS_ONLY gate through T-1 → T-0 transition.** Activation is statutory, not signal-driven; no breaking-event detection logic should trigger purely on T-0 calendar arrival. *Confidence: HIGH.*
+
+### 60-Second Read
+
+T-1 probes establish the baseline. The institutional state today is: TA-0096 + TA-0097 adopted but not yet operative; Commission readiness for deployment unknown; political endorsement reserved for plenary return; EP API content outage continues at Day 3-5 level. Tomorrow's T-0 changes one variable (statutory operative status); the others remain.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| T-0 reading inconsistent with T-1 baseline | LOW | MED |
+| Frontmatter recursion persists into translation pipeline | MED | LOW |
+| ANALYSIS_ONLY gate misfires on T-0 calendar trigger | LOW | LOW |
+
+### Source Quality
+
+- Statutory T-0 date: **A1**
+- T-1 institutional state observation: **B2**
+
+### Provenance
+
+- Run: `breaking-run169` (2026-04-14, T-1)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: baseline reading with explicit comparison anchor.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/political-classification.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-assessment.md` |
 | [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/political-threat-landscape.md` |
@@ -1004,6 +1042,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -1059,6 +1098,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -1071,9 +1111,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -1082,6 +1124,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/executive-brief.md) | `executive-brief.md` |
 | section-actors-forces | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/classification/political-classification.md) | `classification/political-classification.md` |
 | section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-risk | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-14/breaking-run169/risk-scoring/risk-assessment.md) | `risk-scoring/risk-assessment.md` |

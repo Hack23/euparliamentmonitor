@@ -5,11 +5,18 @@
   "gateResult": "PENDING",
   "slug": "2026-04-10-breaking-156",
   "articlePath": "analysis/daily/2026-04-10/breaking-run156/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "Run 156 is the Easter Recess Day 15, T-5 breaking probe, conducted over a 28-minute analysis window (18:17–18:45 UTC).",
+  "keyTakeaways": [
+    "Pipeline telemetry (18:17–18:45 UTC): **A1**",
+    "T-N anchor reading: **B2**",
+    "Run: `breaking-run156` (2026-04-10, Recess Day 15, T-5)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
-  "sources": []
+  "sources": [
+    "executive-brief.md"
+  ]
 }

@@ -5,8 +5,13 @@
   "gateResult": "PENDING",
   "slug": "2026-04-10-propositions-b09ab207-720b-4834-9df1-c8e93e95",
   "articlePath": "analysis/daily/2026-04-10/propositions-2/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "The second propositions run of 10 April records 1 political dimension surfaced (vs.",
+  "keyTakeaways": [
+    "1-dimension reading: **A1**",
+    "ECON-bottleneck cross-validation: **B2**",
+    "Run: `propositions-2` (2026-04-10, second propositions run of day)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
   "topRisks": [
     "**Score**: 2.6/5",
     "**Confidence**: medium",
@@ -22,6 +27,7 @@
   "macroContext": "",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
     "risk-scoring/quantitative-swot.md",
     "risk-scoring/risk-matrix.md"
   ]

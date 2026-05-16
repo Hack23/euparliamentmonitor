@@ -5,11 +5,21 @@
   "gateResult": "PENDING",
   "slug": "2026-04-13-propositions-run41",
   "articlePath": "analysis/daily/2026-04-13/propositions-run41/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "Q2 2026 opens with a single dominant file: TA-10-2026-0096 US Tariff Countermeasures — significance 7.40 raw (7.95 unadjusted), risk 16/25 CRITICAL — adopted March 26 and entering implementation on April 15.",
+  "keyTakeaways": [
+    "🔴 **TA-10-2026-0096 (US Tariff Countermeasures)** — significance 7.40; risk **16/25 CRITICAL**; T-2 at run time.",
+    "🟠 **TA-10-2026-0092 (Banking Resolution SRMR3)** — significance 7.10; **14-year Banking Union project closing**.",
+    "🟢 **TA-10-2026-0094 (Anti-Corruption Directive)** — significance 7.05; **first EU-wide criminal-law competence on corruption**; post-Qatargate.",
+    "🟡 **TA-10-2026-0095 (CSAM Regulation Extension)** — significance 6.80; medium risk; digital-rights dossier.",
+    "🔵 **TA-10-2026-0058 (EU Talent Pool)** — significance 6.70; the period's clearest *opportunity-coded* file.",
+    "🟣 **13 pending CODs** — record post-recess backlog; 4-day committee restart window.",
+    "🩷 **SWOT 6S/4W/4O/6T** — threat-heavy but Grand-Coalition position stronger than opposition's on every ranked file."
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
-  "sources": []
+  "sources": [
+    "executive-brief.md"
+  ]
 }

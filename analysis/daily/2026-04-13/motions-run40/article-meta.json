@@ -5,13 +5,19 @@
   "gateResult": "PENDING",
   "slug": "2026-04-13-motions-40",
   "articlePath": "analysis/daily/2026-04-13/motions-run40/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "Run 40 (second motions-track run of 13 April) extends Run 39's positioning with continued cataloguing of the March 2026 motion cluster's institutional follow-through.",
+  "keyTakeaways": [
+    "TA-0064 / -0088 / -0094 cataloguing: **A1** (adopted text records)",
+    "Canonical-trio framing: **B2** (constructed)",
+    "Run: `motions-run40` (2026-04-13, T-2, second run)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
   "sources": [
+    "executive-brief.md",
     "risk-scoring/risk-matrix.md"
   ]
 }

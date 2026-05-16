@@ -1,7 +1,7 @@
 ---
-title: "🧩 Political Intelligence Synthesis — Legislative Propositions (2026-04-10)"
-description: "- ECON faces Banking Union trilogue (3 files) + new 2026 COD procedures + ECB oversight Published 2026-04-10 · analysis run PROP-2026-04-10-001, with source-linked voting…"
-keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-10", "run PROP-2026-04-10-001", "Political", "Intelligence", "Synthesis", "Legislative", "ECON", "faces", "Banking", "Union"]
+title: "Propositions, 10 April 2026"
+description: "The 10 April propositions synthesis identifies ECON committee's structural workload concentration as the dominant Q2 2026 propositions-track signal: 3 Banking Union trilogue…"
+keywords: ["EU Parliament", "legislative procedures", "European Parliament", "proposal", "regulation", "Propositions", "2026-04-10", "run PROP-2026-04-10-001", "April", "synthesis", "identifies", "ECON", "committee", "structural", "workload", "concentration"]
 date: 2026-04-10
 article_type: propositions
 slug: 2026-04-10-propositions-PROP-2026-04-10-001
@@ -12,12 +12,50 @@ layout: article
 ---
 # Propositions — 2026-04-10
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+The 10 April propositions synthesis identifies **ECON committee's structural workload concentration** as the dominant Q2 2026 propositions-track signal: **3 Banking Union trilogue files + new 2026 COD procedures + ECB oversight files** all converging on ECON capacity. The synthesis frames ECON as the EP10 Year-3 throughput bottleneck — the committee whose operational capacity defines the upper bound of EU financial-regulatory legislative velocity. *Confidence: MEDIUM-HIGH; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Anchor ECON-bottleneck hypothesis as the dominant Q2 2026 propositions-track frame.** With Banking Union trilogue + new CODs + ECB oversight all in ECON, the committee's capacity is the binding constraint on financial-regulation legislative velocity. *Confidence: MEDIUM-HIGH.*
+2. **Document the three-track ECON workload (trilogue + CODs + oversight) as analytically distinct.** Trilogue files require Council negotiation capacity; CODs require rapporteur capacity; ECB oversight requires hearing capacity. The three workstream types compete for different resources within ECON. *Confidence: HIGH.*
+3. **Pre-position downstream consumers for ECON-related signal volume increase in Q2.** Capacity planning should scale to the three-track ECON load. *Confidence: HIGH.*
+
+### 60-Second Read
+
+The ECON-bottleneck hypothesis is the Q2 2026 propositions-track headline. Three independent workload streams converging on a single committee creates the natural pipeline pinch-point; subsequent runs measure trajectory against this anchor.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| ECON capacity saturates in Q2 producing trilogue delays | MED–HIGH | MED–HIGH |
+| Banking Union trilogue stalls (Council issue) | MED | HIGH |
+| ECB oversight files crowd out rapporteur capacity | MED | MED |
+
+### Source Quality
+
+- ECON workload identification: **B2**
+- Banking Union trilogue + COD + ECB oversight cataloguing: **A2**
+
+### Provenance
+
+- Run: `propositions` (2026-04-10, run ID PROP-2026-04-10-001)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: bottleneck-hypothesis labelled.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/significance-scoring.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/political-risk-matrix.md` |
 | [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/threat-landscape.md` |
@@ -396,6 +434,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -451,6 +490,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -463,9 +503,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -474,6 +516,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/executive-brief.md) | `executive-brief.md` |
 | section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-risk | [political-risk-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/risk-scoring/political-risk-matrix.md) | `risk-scoring/political-risk-matrix.md` |
 | section-threat | [threat-landscape](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-10/propositions/threat-assessment/threat-landscape.md) | `threat-assessment/threat-landscape.md` |

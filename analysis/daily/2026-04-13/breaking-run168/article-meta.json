@@ -5,13 +5,22 @@
   "gateResult": "PENDING",
   "slug": "2026-04-13-breaking",
   "articlePath": "analysis/daily/2026-04-13/breaking-run168/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "*This is an analysis-only run on the final recess day — the decision not to publish a breaking article is itself the headline.",
+  "keyTakeaways": [
+    "🔴 **Tariff risk 20/25 CRITICAL** — escalated from 16/25 (props-run41 earlier same day) on T-2 proximity alone.",
+    "🟠 **Analysis-only PR — no breaking article** — significance below breaking threshold despite the risk score.",
+    "🟢 **Tariff trajectory across 3 runs:** 8.4/10 (Apr 10) → 16/25 (Apr 13 props) → **20/25** (this run).",
+    "🟡 **EP API 42% success rate** — adopted-texts and MEP feeds operational; 4 advisory feeds INTERNAL_ERROR.",
+    "🔵 **51 adopted texts (2026) catalogued** — Q1 record output confirmed via feed-fallback.",
+    "🟣 **0 today-dated events in any feed** — recess-day silence is the *expected* state.",
+    "🩷 **5 prior April-13 runs converge** — motions/committee-reports/propositions/breaking all read ~14.8 composite on the same date."
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
   "sources": [
+    "executive-brief.md",
     "risk-scoring/quantitative-swot.md",
     "risk-scoring/risk-matrix.md"
   ]

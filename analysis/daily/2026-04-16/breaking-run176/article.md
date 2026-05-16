@@ -1,7 +1,7 @@
 ---
-title: "This index consolidates per-document intelligence for the key legislative texts under monitoring during the post-Easter inter-session…"
-description: "This index consolidates per-document intelligence for the key legislative texts under monitoring during the post-Easter inter-session period."
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-16", "This", "index", "consolidates", "document", "intelligence", "legislative", "texts", "under", "monitoring"]
+title: "Run 176, 16 April 2026"
+description: "Run 176 is a per-document-intelligence consolidation probe during the post-Easter inter-session monitoring period (14–26 April). The probe does not detect a breaking event — its…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-16", "April", "document", "intelligence", "consolidation", "probe", "during", "post", "Easter", "inter"]
 date: 2026-04-16
 article_type: breaking
 slug: 2026-04-16-breaking-176
@@ -12,12 +12,50 @@ layout: article
 ---
 # Breaking — 2026-04-16
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Run 176 is a **per-document-intelligence consolidation probe** during the post-Easter inter-session monitoring period (14–26 April). The probe does not detect a breaking event — its contribution is **horizontal consolidation** of per-document intelligence across the legislative texts under sustained monitoring (the 26 March cluster + ongoing files). This serves the same forward-planning function as Run-186's T-8 calibration but at the per-document granularity. *Confidence: MEDIUM; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Adopt per-document-intelligence consolidation as the canonical inter-session analytical mode.** When fresh signal is absent, the operationally valuable analytical work is *consolidation*: cross-referencing per-document intelligence across the prior-week cluster to surface dependencies, contradictions, and gaps. *Confidence: HIGH.*
+2. **Hold the inter-session monitoring discipline through 26 April.** The 14–26 April window is a *14-day* analytical gap during which downstream consumers depend on the consolidation work to maintain institutional memory of legislative trajectory. *Confidence: HIGH.*
+3. **Document the consolidation-vs-detection mode split as a recess-cluster architectural feature.** Breaking-runs detect; committee/propositions runs catalogue; per-document consolidation runs cross-reference. The three-mode pipeline structure is operationally validated by this inter-session period. *Confidence: HIGH.*
+
+### 60-Second Read
+
+The consolidation probe's analytical value is not in fresh detection but in cross-document linkage. By systematically cross-referencing per-document intelligence across the monitoring set, the probe surfaces dependencies and contradictions that single-document analyses miss.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| Inter-session monitoring gap allows missed cross-document signal | LOW–MED | MED |
+| Consolidation work duplicated across runs | MED | LOW |
+| Consolidation outputs underutilised by downstream consumers | MED | LOW–MED |
+
+### Source Quality
+
+- Per-document intelligence inputs: **B2**
+- Cross-document linkage methodology: **B2**
+
+### Provenance
+
+- Run: `breaking-run176` (2026-04-16, inter-session window)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: consolidation work is analytical, not predictive.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/political-classification.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-assessment.md` |
 | [Threat landscape](#section-threat) | hostile actors, attack vectors, consequence trees, and legislative-disruption pathways | `threat-assessment/threat-analysis.md` |
@@ -894,6 +932,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -949,6 +988,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -961,9 +1001,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -972,6 +1014,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/executive-brief.md) | `executive-brief.md` |
 | section-actors-forces | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/classification/political-classification.md) | `classification/political-classification.md` |
 | section-actors-forces | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/classification/significance-scoring.md) | `classification/significance-scoring.md` |
 | section-risk | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-16/breaking-run176/risk-scoring/risk-assessment.md) | `risk-scoring/risk-assessment.md` |

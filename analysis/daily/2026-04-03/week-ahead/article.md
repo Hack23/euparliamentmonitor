@@ -1,7 +1,7 @@
 ---
-title: "Quantitative risk scoring across 0 identified political dimensions."
-description: "Quantitative risk scoring across 0 identified political dimensions. Published 2026-04-03 · analysis run d2e395b4-2fc9-4924-8b79-554b0453c034, with source-linked voting, committee…"
-keywords: ["EU Parliament", "week ahead", "committee meetings", "plenary debate", "European Parliament", "legislation", "2026-04-03", "run d2e395b4-2fc9-4924-8b79-554b0453c034", "Quantitative", "risk", "scoring", "across", "identified", "political", "dimensions", "Published"]
+title: "Week Ahead | 2026-04-03"
+description: "Week of 6-12 April 2026 will be a quiet Easter-recess week — no plenary, no formal committee sittings, limited Commission Tuesday activity. Run… Published 2026-04-03 · analysis…"
+keywords: ["EU Parliament", "week ahead", "committee meetings", "plenary debate", "European Parliament", "legislation", "2026-04-03", "run d2e395b4-2fc9-4924-8b79-554b0453c034", "Week", "Ahead", "April", "will", "quiet", "Easter", "recess", "plenary"]
 date: 2026-04-03
 article_type: week-ahead
 slug: 2026-04-03-week-ahead
@@ -12,12 +12,109 @@ layout: article
 ---
 # Week Ahead — 2026-04-03
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### 🎯 BLUF
+
+**Week of 6-12 April 2026 will be a quiet Easter-recess week — no plenary, no formal committee sittings, limited Commission Tuesday activity.** Run `d2e395b4-2fc9-4924-8b79-554b0453c034` returned **"Quantitative risk scoring across 0 identified political dimensions"** with zero classified actors. The week's most notable institutional event is the Commission Tuesday meeting (7 April), the first post-Easter college tabling, which may yield new propositions or trade-response communications. EP committee work nominally resumes the following week (13-17 April). **🟡 MEDIUM confidence** on the "quiet week" projection given the DEGRADED EP-API state limits forward signal; **🟢 HIGH confidence** that no plenary or formal committee voting is scheduled.
+
+---
+
+### 🧭 3 Decisions This Brief Supports
+
+| # | Decision | Who Decides | Deadline | Evidence |
+|:-:|----------|-------------|:--------:|----------|
+| 1 | **Editorial:** publish quiet-week outlook with Commission 7 April emphasis | Editor | +24h | Calendar + Commission cadence |
+| 2 | **Monitoring:** capture Commission 7 April outputs in a dedicated probe | Analyst | 2026-04-07 | First post-Easter college tabling |
+| 3 | **Forward-watch:** pre-plenary intelligence cycle begins 13 April | Analysis lead | 2026-04-13 | Committee work-week |
+
+---
+
+### 📰 60-Second Read
+
+- 🔴 **No EP plenary** scheduled 6-12 April 2026; Easter Sunday 12 April. (🟢 High)
+- 🟠 **Commission Tuesday 7 April 2026** is the only confirmed inter-institutional event with intelligence value. (🟢 High)
+- 🟢 **0 actors classified** in this run — week-ahead synthesis is structurally underpowered. (🟢 High)
+- 🟡 **DEGRADED API state** continues from 2026-04-03/breaking-2 — week-ahead probes will likely also suffer. (🟢 High)
+- 🔵 **Economic context:** IMF April WEO release window aligns with the following week; fiscal-stress data may colour MFF debate during plenary. (🟢 High)
+- 🟣 **Cross-reference:** see 2026-04-03/breaking, breaking-2, breaking-3 for substantive Friday content. (🟢 High)
+- 🩷 **Disruption vector:** US trade announcement during Easter week could force fast-track Commission proposition. (🟡 Medium)
+- ⚪ **Carry-forward:** track Polish-judiciary developments for Braun-precedent follow-on cases.
+
+---
+
+### 🗂️ Top Events / Triggers — Week of 6-12 April 2026
+
+| Rank | Event | Date | Significance | Confidence |
+|:----:|-------|------|:------------:|:----------:|
+| 1 | Commission Tuesday meeting | 7 April | 7.0 | 🟢 HIGH |
+| 2 | Easter Sunday (calendar marker) | 12 April | 3.0 | 🟢 HIGH |
+| 3 | Easter Monday (recess end T-1) | 13 April | 5.0 | 🟢 HIGH |
+| 4 | No EP committee sittings | week | 0.0 | 🟢 HIGH |
+| 5 | No EP plenary | week | 0.0 | 🟢 HIGH |
+
+---
+
+### ⚠️ Risk & Threat Snapshot
+
+```mermaid
+%%{init: {"theme":"dark"}}%%
+graph LR
+    R1["🟠 US trade surprise during recess<br/>L×I = 3×4 = 12"] --> CONS["Watch Commission 7 Apr"]
+    R2["🟡 Mercosur ECJ opinion lands<br/>during recess<br/>L×I = 2×4 = 8"] --> CONS
+    R3["🟡 DEGRADED feed persistence<br/>blocks week-ahead intel<br/>L×I = 4×3 = 12"] --> CONS
+    style R1 fill:#FF9800,color:#000000
+    style R2 fill:#FFC107,color:#000000
+    style R3 fill:#FFC107,color:#000000
+    style CONS fill:#1565C0,color:#FFFFFF
+```
+
+| Risk | L | I | Score | Trigger | Source | Admiralty |
+|------|:-:|:-:|:-----:|---------|--------|:---------:|
+| US trade surprise during recess | 3 | 4 | 12 | US announcement | TA-10-2026-0096 | A1 |
+| Mercosur ECJ opinion during recess | 2 | 4 | 8 | Court releases | TA-10-2026-0008 | A2 |
+| DEGRADED feed persistence | 4 | 3 | 12 | Past 14 April | Sibling `breaking-2` | A1 |
+| Polish-judiciary follow-on case | 3 | 3 | 9 | New investigation | TA-10-2026-0088 | A2 |
+
+---
+
+### 🔮 Top Forward Trigger
+
+**Commission Tuesday meeting 7 April 2026.** First post-Easter college tabling will set the topical mix for the 27-30 April Strasbourg plenary; absence of trade or institutional-reform tabling would signal a deliberate scenario-C (economic/industrial) weighting.
+
+---
+
+### 🛡️ Source Quality Assessment
+
+- **Primary sources:** Run `d2e395b4-2fc9-4924-8b79-554b0453c034`; EP calendar; Commission cadence.
+- **Data limitations:** Forward inference under DEGRADED feed state; week-ahead probes will be unreliable.
+- **Confidence:** 🟢 HIGH on calendar facts; 🟡 MEDIUM on event-density projection.
+
+---
+
+### 📎 Links
+
+| Link | Path |
+|------|------|
+| Article | `./article.md` |
+| Sibling runs | `analysis/daily/2026-04-03/breaking/`, `breaking-2/`, `breaking-3/`, `committee-reports/`, `motions/`, `propositions/` |
+| Manifest | `./manifest.json` |
+
+---
+
+**Document Control**
+- **Template:** `/analysis/templates/executive-brief.md`
+- **Artifact path:** `analysis/daily/2026-04-03/week-ahead/executive-brief.md`
+- **Classification:** Public
+- **Retrospective generation:** Back-fill session.
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Actors and forces](#section-actors-forces) | who is driving the story, what political forces line up behind them, and which institutional levers they can pull | `classification/actor-mapping.md` |
 | [Coalitions and voting](#section-coalitions-voting) | political group alignment, voting evidence, and coalition pressure points | `existing/voting-patterns.md` |
 | [Risk assessment](#section-risk) | policy, institutional, coalition, communications, and implementation risk register | `risk-scoring/risk-matrix.md` |
@@ -822,6 +919,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -877,6 +975,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -889,9 +988,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -900,6 +1001,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/week-ahead/executive-brief.md) | `executive-brief.md` |
 | section-actors-forces | [actor-mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/week-ahead/classification/actor-mapping.md) | `classification/actor-mapping.md` |
 | section-actors-forces | [forces-analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/week-ahead/classification/forces-analysis.md) | `classification/forces-analysis.md` |
 | section-actors-forces | [impact-matrix](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-03/week-ahead/classification/impact-matrix.md) | `classification/impact-matrix.md` |

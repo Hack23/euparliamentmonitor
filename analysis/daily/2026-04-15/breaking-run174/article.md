@@ -1,7 +1,7 @@
 ---
-title: "🧩 Political Intelligence Synthesis — Tariff T-0 Activation Day and Post-Recess Institutional Reset"
-description: "Analytical Assessment: The activation of TA-10-2026-0096 marks the EU's first retaliatory tariff package against the United States in the current trade cycle."
-keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-15", "Political", "Intelligence", "Synthesis", "Tariff", "Activation", "Post", "Recess", "Institutional", "Reset"]
+title: "Run 174, 15 April 2026"
+description: "Run 174 extends Run 173's Tariff T-0 finding by anchoring TA-10-2026-0096 activation as the EU's first retaliatory tariff package against the United States in the current trade…"
+keywords: ["EU Parliament", "breaking news", "European Parliament", "legislation", "plenary vote", "Breaking", "2026-04-15", "April", "extends", "Tariff", "finding", "anchoring", "activation", "first", "retaliatory", "package"]
 date: 2026-04-15
 article_type: breaking
 slug: 2026-04-15-breaking-174
@@ -12,12 +12,53 @@ layout: article
 ---
 # Breaking — 2026-04-15
 
+<h2 id="section-executive-brief">Executive Brief</h2>
+
+### BLUF
+
+Run 174 extends Run 173's Tariff T-0 finding by anchoring **TA-10-2026-0096 activation as the EU's first retaliatory tariff package against the United States in the current trade cycle**. The framing shift from Run 173 ("first autonomous trade-defence action") to Run 174 ("first retaliatory package") narrows the analytical lens: the instrument is not generic; it is *specifically* retaliatory in the US-EU bilateral context. The "post-recess institutional reset" frame anchors the 27 April plenary as the institutional moment when the activation will be politically endorsed (or revisited). *Confidence: MEDIUM-HIGH; Admiralty: B2.*
+
+### Three Decisions
+
+1. **Adopt the "first retaliatory package" framing for downstream consumers needing precise bilateral-context labelling.** "Autonomous trade-defence action" is broader; "retaliatory package" specifies the US-EU bilateral dyad. Both framings are accurate; the more precise one is preferable in policy contexts. *Confidence: HIGH.*
+2. **Treat the 27 April plenary as the political-endorsement-or-revision moment for TA-0096.** Whether the plenary debates the activation, holds a confidence vote, or moves to subsequent files defines the EP's political ownership of the instrument. *Confidence: HIGH.*
+3. **Document the institutional-reset framing as the post-recess pipeline architecture.** The 27 April plenary is not a continuation of the March cycle — it is an institutional reset following the 14-day inter-session gap. This framing matters for capacity planning. *Confidence: MEDIUM-HIGH.*
+
+### 60-Second Read
+
+The retaliatory-package framing is the politically-precise label for what TA-0096 actually is. Calling it "autonomous trade-defence" is technically true but politically generic; calling it "first retaliatory package" makes the US-EU bilateral context explicit, which is the operationally useful frame for press, Commission, and Council audiences.
+
+The 27 April plenary is the institutional reset — the moment when the political endorsement (or revision) of the activation becomes part of the EP's formal record.
+
+### Risk Snapshot
+
+| Risk | Likelihood | Impact |
+|---|---:|---:|
+| Plenary endorses activation without modification | MED–HIGH | MED |
+| Plenary debates revision under EPP pressure | LOW–MED | HIGH |
+| US response misreads "retaliatory" framing as escalation | MED | HIGH |
+
+### Source Quality
+
+- TA-10-2026-0096 activation status: **A1**
+- Bilateral retaliatory framing: **B2**
+- Plenary endorsement projection: **C3**
+
+### Provenance
+
+- Run: `breaking-run174` (2026-04-15, T-0 + institutional reset)
+- Compliance: EP Open Data Portal feeds only. GDPR-compliant.
+
+---
+*Analytical neutrality: framings clearly labelled with their context.*
+
 <h2 id="reader-intelligence-guide">Reader Intelligence Guide</h2>
 
 Use this guide to read the article as a political-intelligence product rather than a raw artifact dump. High-value reader lenses appear first; technical provenance remains available in the audit appendices.
 
 | Reader need | What you'll get | Source artifact |
 |---|---|---|
+| [BLUF and editorial decisions](#section-executive-brief) | fast answer to what happened, why it matters, who is accountable, and the next dated trigger | `executive-brief.md` |
 | [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `political-classification.md` |
 
 <h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
@@ -1426,6 +1467,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Cross Reference Map](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-reference-map.md)
 - [Cross Run Diff](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-run-diff.md)
 - [Cross Session Intelligence](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/cross-session-intelligence.md)
+- [Data Availability Assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-availability-assessment.md)
 - [Data Download Manifest](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/data-download-manifest.md)
 - [Deep Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/deep-analysis.md)
 - [Devils Advocate Analysis](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/templates/devils-advocate-analysis.md)
@@ -1481,6 +1523,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Ai Driven Analysis Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/ai-driven-analysis-guide.md)
 - [Analytical Supplementary Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/analytical-supplementary-methodology.md)
 - [Artifact Catalog](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/artifact-catalog.md)
+- [Confidence Calibration](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/confidence-calibration.md)
 - [Electoral Cycle Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-cycle-methodology.md)
 - [Electoral Domain Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/electoral-domain-methodology.md)
 - [Forward Projection Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/forward-projection-methodology.md)
@@ -1493,9 +1536,11 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
 - [Synthesis Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/synthesis-methodology.md)
+- [Voter Segmentation Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/voter-segmentation-methodology.md)
 - [Worldbank Indicator Mapping](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/worldbank-indicator-mapping.md)
 
 <h2 id="aggregator-analysis-index">Analysis Index</h2>
@@ -1504,6 +1549,7 @@ Every artifact below was read by the aggregator and contributed to this article.
 
 | Section | Artifact | Path |
 |---|---|---|
+| section-executive-brief | [executive-brief](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/executive-brief.md) | `executive-brief.md` |
 | section-supplementary-intelligence | [political-classification](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/political-classification.md) | `political-classification.md` |
 | section-supplementary-intelligence | [risk-assessment](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/risk-assessment.md) | `risk-assessment.md` |
 | section-supplementary-intelligence | [significance-scoring](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-04-15/breaking-run174/significance-scoring.md) | `significance-scoring.md` |

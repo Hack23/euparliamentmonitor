@@ -5,7 +5,7 @@
   "gateResult": "PENDING",
   "slug": "2026-05-11-term-outlook",
   "articlePath": "analysis/daily/2026-05-11/term-outlook/article.md",
-  "topFinding": "EP10 will deliver a partial, multi-coalition legislative record between 2026-05-11 and the 2029 election (WEP Likely, horizon: full term, confidence Moderate).",
+  "topFinding": "EP10 will deliver a partial, multi-coalition legislative record between now and the 2029 election — the term's strategic frame is structural fiscal pressure, not acute political crisis.",
   "keyTakeaways": [
     "Forces field analysis → `classification/forces-analysis.md`",
     "Actor influence map → `classification/actor-mapping.md`",
@@ -27,6 +27,7 @@
   "macroContext": "These macro constraints map directly to the term-outlook coalition arithmetic:",
   "sources": [
     "classification/actor-mapping.md",
+    "executive-brief.md",
     "extended/forward-indicators.md",
     "intelligence/coalition-dynamics.md",
     "intelligence/economic-context.md",

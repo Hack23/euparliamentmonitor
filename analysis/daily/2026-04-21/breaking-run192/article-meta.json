@@ -5,7 +5,7 @@
   "gateResult": "PENDING",
   "slug": "2026-04-21-breaking",
   "articlePath": "analysis/daily/2026-04-21/breaking-run192/article.md",
-  "topFinding": "Date: 2026-04-21 | Run: 192 | Mode: ANALYSIS_ONLY | Series Run: 14",
+  "topFinding": "Run 192 is the morning ANALYSIS_ONLY probe on Day 1 of the post-Easter work week (Parliament remains in Easter recess until 27 April).",
   "keyTakeaways": [
     "**Formal legislative record completion**: The 18 March 26 texts need to be formally notified to the Council via EP Secretary-General process — expected to occur in the April 27-30 window regardless of API content availability",
     "**Post-recess political statements**: Group coordinators will seek speaking time on EU strategic priorities — defence, US tariffs, housing",
@@ -29,6 +29,7 @@
   ],
   "macroContext": "",
   "sources": [
+    "executive-brief.md",
     "intelligence/scenario-forecast.md",
     "intelligence/stakeholder-map.md",
     "intelligence/synthesis-summary.md",

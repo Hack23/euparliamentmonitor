@@ -5,11 +5,19 @@
   "gateResult": "PENDING",
   "slug": "2026-04-14-breaking-171",
   "articlePath": "analysis/daily/2026-04-14/breaking-run171/article.md",
-  "topFinding": "",
-  "keyTakeaways": [],
+  "topFinding": "Run 171 is the synthesis run that consolidates intelligence from 8+ prior recess-period runs into a single Tariff T-0 convergence narrative.",
+  "keyTakeaways": [
+    "8+ prior recess-period runs: **B2 aggregate**",
+    "T-N positioning framing: **B2** (constructed)",
+    "Statutory T-0 date: **A1**",
+    "Run: `breaking-run171` (2026-04-14, synthesis run)",
+    "Compliance: EP Open Data Portal feeds only. GDPR-compliant."
+  ],
   "topRisks": [],
   "keyDates": [],
   "keyActors": [],
   "macroContext": "",
-  "sources": []
+  "sources": [
+    "executive-brief.md"
+  ]
 }
