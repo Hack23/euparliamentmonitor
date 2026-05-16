@@ -63,6 +63,8 @@
     "build:check-tests": "tsc --project tsconfig.test.json --noEmit",
     "copy-vendor": "node scripts/copy-vendor.js",
     "validate-analysis": "node scripts/validate-analysis-completeness.js",
+    "discover:untranslated-briefs": "node scripts/discover-untranslated-briefs.js",
+    "validate:translations": "node scripts/validate-brief-translations.js",
     "sync:templates": "node scripts/templates/sync-template-frontmatter.js",
     "sync:templates:check": "node scripts/templates/sync-template-frontmatter.js --check",
     "prior-run-diff": "node scripts/aggregator/prior-run-diff.js",

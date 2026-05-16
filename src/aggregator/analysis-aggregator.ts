@@ -52,6 +52,11 @@ export {
   READER_GUIDE_SECTION_TITLE,
 } from './reader-guide-constants.js';
 
+const TRADECRAFT_EXCLUDED_FILES = new Set([
+  'analysis/methodologies/executive-brief-translation-guide.md',
+  'analysis/templates/executive-brief-translation-template.md',
+]);
+
 /** Result of {@link aggregateAnalysisRun}. */
 export interface AggregatedRun {
   /** Final Markdown document (provenance + sections + appendices). */
@@ -171,8 +176,9 @@ export function discoverTradecraftFiles(repoRoot: string): string[] {
     if (!fs.existsSync(dir)) continue;
     const entries = fs.readdirSync(dir, { withFileTypes: true });
     for (const entry of entries) {
-      if (entry.isFile() && entry.name.endsWith('.md')) {
-        result.push(`${sub}/${entry.name}`);
+      const rel = `${sub}/${entry.name}`;
+      if (entry.isFile() && entry.name.endsWith('.md') && !TRADECRAFT_EXCLUDED_FILES.has(rel)) {
+        result.push(rel);
       }
     }
   }

@@ -14,6 +14,16 @@ News-generating workflows write ONLY to these directories:
 |-----------|---------|------------------------|
 | `news/` | Article Markdown + HTML files rendered by the aggregator | unified `news-<type>.md` workflows during Stage D |
 | `analysis/daily/` | Analysis artifacts (`.md`, `manifest.json`) + canonical run-dir `article.md` | unified `news-<type>.md` workflows during Stages A–D |
+| `analysis/daily/<date>/<slug>/executive-brief_<lang>.md` | Per-language translations of the executive brief (13 non-English language siblings) | `news-translate.md` workflow (scheduled 3×/day) |
+| `analysis/translation-runs/<date>/` | Per-run summary + run-marker artefacts | `news-translate.md` workflow |
+
+The `news-translate.md` workflow is bounded to the translation scope only: it
+creates `executive-brief_<lang>.md` siblings (using the
+`executive-brief-translation-template` template under `analysis/templates/`,
+governed by `analysis/methodologies/executive-brief-translation-guide.md`)
+and a per-run summary under `analysis/translation-runs/`. It MUST NOT modify
+the source `executive-brief.md`, any `news/**` HTML, or anything outside
+those two directory trees.
 
 **Unified-workflow scope guardrails:**
 
