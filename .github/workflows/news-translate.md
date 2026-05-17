@@ -317,7 +317,7 @@ For each queue entry, in order:
    (assign `sourcePath` from the current queue entry first):
    ```bash
    # Example: resolve sourcePath for the current queue index ($entryIndex)
-   sourcePath="$(python3 - "$entryIndex" <<'PY'
+   python3 - "$entryIndex" > /tmp/gh-aw/source-path.txt <<'PY' || exit 1
 import json
 import sys
 from pathlib import Path
@@ -332,7 +332,7 @@ except (FileNotFoundError, json.JSONDecodeError, ValueError, IndexError, TypeErr
     print(f"Failed to resolve sourcePath from {queue_path}: {exc}", file=sys.stderr)
     sys.exit(1)
 PY
-)" || exit 1
+   IFS= read -r sourcePath < /tmp/gh-aw/source-path.txt
    if [ -z "${sourcePath:-}" ] || [ ! -f "$sourcePath" ]; then
      echo "Missing or invalid sourcePath: $sourcePath" >&2
      exit 1
