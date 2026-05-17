@@ -328,13 +328,14 @@ import sys
 from pathlib import Path
 
 queue_path = Path("/tmp/gh-aw/discovery/queue.json")
+raw_index = sys.argv[1] if len(sys.argv) > 1 else "<missing>"
 try:
     payload = json.loads(queue_path.read_text(encoding="utf-8"))
     queue = payload.get("queue", [])
-    idx = int(sys.argv[1])
+    idx = int(raw_index)
     print(queue[idx].get("sourcePath", ""))
 except (FileNotFoundError, json.JSONDecodeError, ValueError, IndexError, TypeError) as exc:
-    print(f"Failed to read/parse queue or access entry index {sys.argv[1]} in {queue_path}: {exc}", file=sys.stderr)
+    print(f"Failed to read/parse queue or access entry index {raw_index} in {queue_path}: {exc}", file=sys.stderr)
     sys.exit(1)
 PY
    IFS= read -r sourcePath < /tmp/gh-aw/source-path.txt
