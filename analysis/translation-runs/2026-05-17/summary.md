@@ -1,8 +1,17 @@
 # Translation Run Summary — 2026-05-17
 
-Run ID: 212 | Branch: news/translate-briefs-2026-05-17
+Run ID: 213 | Branch: news/translate-briefs-2026-05-17 | Mode: backlog-only
 
-## Brief 1: 2026-05-16/breaking (8 H2, fresh slot)
+## Run 213 Additional Briefs (2026-04-01 backlog)
+
+### Brief: 2026-04-01/month-ahead (9 H2, backlog) — Validator: ✅ 13/13 PASS
+### Brief: 2026-04-01/motions (9 H2, backlog) — Validator: ✅ 13/13 PASS
+
+All 26 translations passed 7 quality gates. Fixed tokens (IMF, WEO, TA-IDs) preserved verbatim.
+
+---
+
+## Run 212 Brief 1: 2026-05-16/breaking (8 H2, fresh slot)
 All 13 languages translated and validator-clean.
 | Lang | Accuracy | Fluency | Terminology | Completeness | Formatting |
 |------|:--------:|:-------:|:-----------:|:------------:|:----------:|
