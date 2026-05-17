@@ -316,7 +316,8 @@ For each queue entry, in order:
 2. **Count source headings BEFORE writing any translation**
    (assign `sourcePath` from the current queue entry first):
    ```bash
-   sourcePath="<current queue entry sourcePath>"
+   # Example: resolve sourcePath for the current queue index ($entryIndex)
+   sourcePath="$(node -e 'const fs=require("node:fs");const q=JSON.parse(fs.readFileSync("/tmp/gh-aw/discovery/queue.json","utf8"));const i=Number(process.argv[1]);console.log(q.queue?.[i]?.sourcePath ?? "");' "$entryIndex")"
    if [ -z "${sourcePath:-}" ] || [ ! -f "$sourcePath" ]; then
      echo "Missing or invalid sourcePath: $sourcePath" >&2
      exit 1
