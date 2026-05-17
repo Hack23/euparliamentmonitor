@@ -117,6 +117,45 @@ describe('cross-context import drift-guard', () => {
     expect(offenders).toEqual([]);
   });
 
+  it('src/aggregator/metadata/ leaf modules have NO upward runtime imports', () => {
+    // Bounded-context rule: `metadata/` leaf modules (everything except
+    // the `index.ts` barrel) MUST NOT have a *runtime* dependency on any
+    // aggregator module outside their own directory. Type-only
+    // re-exports (`export type ... from`) are erased at compile time and
+    // are permitted because they introduce no graph coupling at runtime.
+    function nonTypeImportsMatching(file, predicate) {
+      const src = readFileSync(file, 'utf8');
+      // Skip `import type { … } from '…'` and `export type { … } from '…'`.
+      const stripped = src
+        .replace(/import\s+type\s*\{[^}]*\}\s*from\s*['"][^'"]+['"]\s*;?/g, '')
+        .replace(/export\s+type\s*\{[^}]*\}\s*from\s*['"][^'"]+['"]\s*;?/g, '');
+      const re = /(?:from\s+|import\s*\()\s*['"]([^'"]+)['"]/g;
+      const hits = [];
+      let m;
+      while ((m = re.exec(stripped))) {
+        if (predicate(m[1])) hits.push({ file: relative(SRC, file), spec: m[1] });
+      }
+      return hits;
+    }
+    const offenders = FILES.filter(
+      (f) => f.includes(`${SRC}aggregator/metadata/`) && !f.endsWith('/index.ts')
+    ).flatMap((f) =>
+      nonTypeImportsMatching(f, (spec) => {
+        if (spec.startsWith('./')) return false;
+        // Forbid any upward runtime reach into the aggregator orchestrator layer.
+        if (spec.startsWith('../') && !spec.startsWith('../../')) return true;
+        // Allow types and constants.
+        if (spec.startsWith('../../types/')) return false;
+        if (spec.startsWith('../../constants/')) return false;
+        if (spec.startsWith('../../utils/')) return false;
+        if (!spec.startsWith('.')) return false;
+        // Anything else two-dots-up that isn't an allowed neutral zone is suspect.
+        return true;
+      })
+    );
+    expect(offenders).toEqual([]);
+  });
+
   it('legacy re-export shims contain only export-from statements', () => {
     const shims = [
       join(SRC, 'constants', 'og-locales.ts'),
