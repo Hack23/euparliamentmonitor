@@ -209,6 +209,7 @@ Use this guide to read the article as a political-intelligence product rather th
 | [Extended intelligence](#section-extended-intel) | devil's-advocate critique, comparative parallels, historical precedents, and media framing | `extended/media-framing-analysis.md` |
 | [MCP data reliability](#section-mcp-reliability) | which feeds were healthy, which were degraded, and how data limits bound conclusions | `intelligence/mcp-reliability-audit.md` |
 | [Analytical quality and reflection](#section-quality-reflection) | self-assessment scores, methodology audit, structured analytic techniques, and known limitations | `intelligence/analysis-index.md` |
+| [Supplementary intelligence](#section-supplementary-intelligence) | additional markdown discovered in the run that has not yet been assigned to a canonical section | `executive-brief_ar.md` |
 
 <h2 id="section-key-takeaways">Key Takeaways</h2>
 
@@ -3413,6 +3414,1650 @@ _Methodology reflection produced per Step 10.5 of the 10-step analysis protocol
 in `analysis/methodologies/ai-driven-analysis-guide.md`. This is the final artifact
 of Stage B._
 
+<h2 id="section-supplementary-intelligence">Supplementary Intelligence</h2>
+
+### Executive Brief Ar
+
+**التاريخ:** 2026-05-14 | **التشغيل:** committee-reports | **التصنيف:** عام
+**درجة الأدميرالية:** B2 (مصدر موثوق؛ صحيح على الأرجح)
+**نطاق WEP:** محتمل (فترة ثقة 60–80 %)
+
+---
+
+### 🎯 BLUF (الخلاصة مقدماً)
+
+دخل نظام لجان البرلمان الأوروبي أسبوع 12–16 مايو 2026 بأجندة تشريعية مكتظة تمتد عبر سبع لجان دائمة على الأقل. تتمحور المحاور الرئيسية حول: (1) **الحوكمة الرقمية** — صوّت المجلس العام على تطبيق لائحة الأسواق الرقمية وتشريعات مكافحة التنمر الإلكتروني في آخر جلسة عامة في أبريل؛ (2) **التحول البيئي** — تعالج لجنة ENVI ملف الاستدامة في قطاع الثروة الحيوانية وقضايا انبعاثات المركبات الثقيلة المتبقية؛ (3) **إتمام الاتحاد المصرفي** — أصبح إصلاح آلية التسوية SRMR3 قانوناً رسمياً وأوجد عملاً في ECON وAFCO بشأن هيكلية الإشراف؛ و(4) **مرونة التجارة** — لا تزال لائحة التدابير المضادة للرسوم الجمركية الأمريكية المعتمدة في مارس تحرّك تدقيق INTA وAFET.
+
+**أبرز حدث هذا الأسبوع**: تطلق قرار المبادئ التوجيهية للميزانية الأوروبية 2027 (TA-10-2026-0112، المعتمد في 28 أبريل) الدورة الميزانوية السنوية. تدخل لجنة BUDG الآن في مرحلة الإعداد للتوافق قبل صدور مسودة الميزانية من المفوضية المتوقعة في يونيو 2026.
+
+---
+
+### 60-Second Read
+
+| الأولوية | اللجنة | الملف | الحالة | الأهمية |
+|---------|--------|------|--------|---------|
+| 🔴 حرج | BUDG | المبادئ التوجيهية للميزانية 2027 (TA-10-2026-0112) | معتمد 28 أبر.؛ BUDG يعدّ تعديلات | إطار يزيد عن 185 مليار EUR؛ صراع مؤسسي على النفوذ |
+| 🔴 حرج | ECON | SRMR3 — آلية تسوية البنوك (TA-10-2026-0092) | معتمد 26 مار.؛ مرحلة الكوميتولوجيا | مخاطر نظامية — معلم بارز للاتحاد المصرفي |
+| 🟠 مرتفع | ENVI | استدامة قطاع الثروة الحيوانية (TA-10-2026-0157) | معتمد 30 أبر.؛ تدابير التنفيذ معلقة | التوازن السياسي من المزرعة إلى المائدة؛ خلاف EPP-S&D |
+| 🟠 مرتفع | IMCO/LIBE | تطبيق لائحة الأسواق الرقمية (TA-10-2026-0160) | معتمد 30 أبر.؛ متابعة المفوضية | مساءلة Big Tech؛ البُعد عبر الأطلسي |
+| 🟠 مرتفع | LIBE | التنمر الإلكتروني/التحرش عبر الإنترنت (TA-10-2026-0163) | معتمد 30 أبر.؛ المفاوضات الثلاثية وشيكة | مسؤولية المنصات؛ صلة بحماية الأطفال |
+| 🟡 متوسط | INTA | التدابير المضادة للرسوم الجمركية الأمريكية (TA-10-2026-0096) | معتمد 26 مار.؛ مراجعة اللجنة جارية | ديناميكيات حرب التجارة؛ تعرض بقيمة 26 مليار EUR |
+| 🟡 متوسط | JURI/LIBE | التوجيه المناهض للفساد (TA-10-2026-0094) | معتمد 26 مار.؛ التحويل الوطني تحت المراقبة | سيادة القانون؛ مصداقية البرلمان الأوروبي المؤسسية |
+| 🟢 مراقبة | AFCO | المصادقة على إصلاح قانون الانتخابات | جلسات الاستماع جارية | البُعد الدستوري؛ تأخر الدول الأعضاء |
+
+---
+
+### Committee Productivity Snapshot (أسبوع 12–16 مايو 2026)
+
+تعمل لجان البرلمان الأوروبي الـ22 الدائمة وفق جدول الأسبوع الجلسة العامة المعتاد. أبرز أنشطة الاجتماعات هذا الأسبوع:
+
+- **ENVI** (الرئيس: TBC): جلسة التدوين لوائح تنفيذية لرصيد انبعاثات المركبات الثقيلة (لائحة معتمدة TA-10-2026-0084). تتواصل مداولات المقرر بشأن إجراءات المتابعة لقطاع الثروة الحيوانية.
+
+- **ECON** (الرئيس: TBC): مراقبة ما بعد اعتماد SRMR3؛ جلسة الحوار الفصلي مع البنك المركزي الأوروبي. السوق الثانوية للقروض المعدومة — مشاورات المقررين الظل جارية.
+
+- **BUDG** (الرئيس: TBC): متابعة المبادئ التوجيهية للميزانية 2027؛ تقديرات البرلمان للسنة المالية 2027 (TA-10-2026-04-30-ANN01) قيد المراجعة الداخلية.
+
+- **IMCO**: صقل إطار التطبيق بعد DMA. بطاقات الأداء لتنفيذ تنظيم الخدمات الرقمية.
+
+- **LIBE**: التحضير للمفاوضات الثلاثية حول توجيه التنمر الإلكتروني. مراجعة مفهوم الدولة الثالثة الآمنة (متابعة TA-10-2026-0026).
+
+- **INTA**: مراقبة التدابير المضادة للرسوم الجمركية الأمريكية؛ متابعة WTO ياوندي بعد MC14 (26–29 مارس 2026).
+
+- **JURI/AFCO**: مراجعة وضع المصادقة على قانون الانتخابات في 27 دولة عضو.
+
+---
+
+### 🚦 تقييم الثقة
+
+| الادعاء | WEP | الأدميرالية | الأساس |
+|---------|-----|------------|--------|
+| BUDG تدخل مرحلة التوافق | محتمل | B2 | النص المعتمد + الجدول الزمني الإجرائي |
+| بدء كوميتولوجيا SRMR3 | محتمل جداً | B2 | النص المعتمد + قواعد الإجراءات التشريعية للاتحاد الأوروبي |
+| تطبيق DMA يثير متابعة IMCO | محتمل | C2 | لغة قرار البرلمان الأوروبي + التزام المفوضية |
+| ملف الثروة الحيوانية يخلق توتر EPP-S&D | محتمل | C3 | استنتاج من نمط التصويت على النص المعتمد |
+| الوضع الجمركي الأمريكي مستقر دون عتبة الأزمة | ممكن | C3 | قرار البرلمان الأوروبي + بيانات المفوضية |
+
+---
+
+### التوقعات الاستراتيجية (7 أيام)
+
+يواجه نظام اللجان تقاطعاً من متطلبات المتابعة بعد الاعتماد (SRMR3، DMA، التنمر الإلكتروني، الثروة الحيوانية) إلى جانب إطلاق دورة ميزانية 2027. سيخضع المقررون في اللجان لضغط لتسليم تقاريرهم قبل الجلسة العامة ليونيو. يظل الوضع الجمركي بين الولايات المتحدة والاتحاد الأوروبي في أعقاب WTO MC14 في ياوندي المخاطرة الخارجية الرئيسية التي قد تعطل عمل اللجان المجدول.
+
+**على صانعي القرار مراقبة**: ردود BUDG على مسودة ميزانية المفوضية في يونيو؛ أول جلسة استماع لرقابة SRMR3 في ECON؛ الجدول الزمني للمفاوضات الثلاثية للتنمر الإلكتروني في LIBE؛ موقف INTA من تجديد التدابير المضادة للرسوم الجمركية الأمريكية.
+
+---
+
+### مصادر البيانات
+
+- النصوص المعتمدة للبرلمان الأوروبي 2026 (TA-10-2026-0092 إلى TA-10-2026-0163)
+- بوابة البيانات المفتوحة للبرلمان الأوروبي: `/adopted-texts?year=2026` (تم استرداد 50 عنصراً)
+- وثائق لجان البرلمان الأوروبي: `/committee-documents` (سلسلة AFCO، أكثر من 50 وثيقة)
+- تحليل نشاط لجنتي ENVI وECON: بوابة البيانات المفتوحة للبرلمان الأوروبي
+- `european-parliament-analyze_committee_activity` (ENVI, ECON)
+- `european-parliament-monitor_legislative_pipeline` (الإجراءات النشطة)
+- نافذة التاريخ: 2026-05-07 إلى 2026-05-14
+
+---
+
+### 🗓️ التقويم التشريعي
+
+تقع أسبوع 12–16 مايو 2026 في **الأسبوع البرلماني الدولي** — فترة بين الجلسات العامة تجتمع فيها اللجان بشكل مكثف. يفسر هذا السياق الهيكلي سبب كون الناتج على مستوى اللجان مرتفعاً بشكل غير متناسب: لا تتنافس أي قاعة جلسة عامة على جداول أعمال أعضاء البرلمان، مما يعظم حضور اللجان وإنجازات المقررين.
+
+#### المواعيد النهائية الوشيكة
+
+| الموعد النهائي | الملف | اللجنة | عواقب التأخير |
+|--------------|------|--------|--------------|
+| يونيو 2026 | مسودة ميزانية المفوضية 2027 | BUDG | يفقد البرلمان الأوروبي وقتاً للتوافق |
+| مايو 2026 | قواعد تنفيذ SRMR3 | ECON | فراغ إشراف مصرفي |
+| يونيو 2026 | تقرير تطبيق DMA | IMCO | تقييم الامتثال من المفوضية متأخر |
+| يوليو 2026 | ختام مفاوضات التنمر الإلكتروني الثلاثية | LIBE | الغموض القانوني للمنصات يستمر |
+
+#### حسابات الائتلاف
+
+يشكّل EPP (187 مقعداً) وS&D (136 مقعداً) العمود الفقري للأغلبية الفعلية في معظم تقارير اللجان في 2026. تلعب Renew Europe (77 مقعداً) دوراً محورياً حاسماً في ملفات الحوكمة الرقمية والتجارة. يدعم ECR (78 مقعداً) أحكام رفع القيود في سياق تطبيق DMA. Greens/EFA (53 مقعداً) ضروريون لتشكيل أغلبية ENVI.
+
+**ديناميكية المحور الرئيسية**: في ملف قطاع الثروة الحيوانية، اتحد EPP وECR لتخفيف معايير سلامة الغذاء، في حين سعت S&D وGreens وRenew Europe إلى قواعد تتبع أكثر صرامة. يعكس الحل الوسط الناتج (TA-10-2026-0157) توافقاً غير معتاد بين اليمين المعتدل + اليمين المتطرف حول رفع القيود الزراعية.
+
+---
+
+### 📊 خريطة الاستخبارات عبر اللجان
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4c0b18dd) -->
+
+---
+
+### المسرد
+
+| الاختصار | الاسم الكامل |
+|---|---|
+| BUDG | لجنة الميزانيات |
+| ECON | لجنة الشؤون الاقتصادية والنقدية |
+| ENVI | لجنة البيئة والمناخ وسلامة الغذاء |
+| IMCO | لجنة السوق الداخلية وحماية المستهلك |
+| LIBE | لجنة الحريات المدنية والعدالة والشؤون الداخلية |
+| INTA | لجنة التجارة الدولية |
+| JURI | لجنة الشؤون القانونية |
+| AFCO | لجنة الشؤون الدستورية |
+| AFET | لجنة الشؤون الخارجية |
+| SRMR3 | لائحة آلية التسوية الموحدة (المراجعة الثالثة) |
+| DMA | لائحة الأسواق الرقمية |
+| WTO MC14 | المؤتمر الوزاري الرابع عشر لمنظمة التجارة العالمية |
+| EPP | حزب الشعب الأوروبي |
+| S&D | التحالف التقدمي للاشتراكيين والديمقراطيين |
+| ECR | المحافظون والإصلاحيون الأوروبيون |
+
+### Executive Brief Da
+
+### 🎯 BLUF (Bundlinje på forhånd)
+
+Europa-Parlamentets udvalgsystem indledte ugen 12.–16. maj 2026 med en fyldt lovgivningsdagsorden på tværs af mindst syv stående udvalg. De dominerende temaer er: (1) **digital forvaltning** — plenarmødet stemte om håndhævelse af den digitale markedslov og lovgivning mod cybermobning på det sidste aprilplenarmøde; (2) **miljøomstilling** — ENVI-udvalget behandler både bæredygtighedsfilen for husdyrsektoren og resterende spørgsmål om udledning fra tunge køretøjer; (3) **færdiggørelse af bankunionen** — SRMR3-reformen af resolutionsmekanismen er nu formelt lov og skaber arbejde i ECON og AFCO om tilsynsarkitekturen; og (4) **handelsmæssig modstandsdygtighed** — forordningen om modforanstaltninger mod amerikanske toldsatser, der blev vedtaget i marts, fortsætter med at drive INTA og AFETs granskning.
+
+**Vigtigste begivenhed denne uge**: Resolutionen om EU's budgetretningslinjer for 2027 (TA-10-2026-0112, vedtaget 28. april) indleder den årlige budgetcyklus. BUDG-udvalget er nu i forligelsesforberedende fase forud for Kommissionens udkast til budget, der forventes i juni 2026.
+
+---
+
+### 60-Second Read
+
+| Prioritet | Udvalg | Fil | Status | Betydning |
+|-----------|--------|-----|--------|-----------|
+| 🔴 KRITISK | BUDG | 2027 Budgetretningslinjer (TA-10-2026-0112) | Vedtaget 28. apr; BUDG udformer ændringsforslag | 185+ mia. EUR ramme; institutionel magtkamp |
+| 🔴 KRITISK | ECON | SRMR3 — Bankresolutionsmekanisme (TA-10-2026-0092) | Vedtaget 26. mar; komitologifase | Systemrisiko — bankunionens milepæl |
+| 🟠 HØJ | ENVI | Bæredygtighed i husdyrsektoren (TA-10-2026-0157) | Vedtaget 30. apr; gennemførelsesforanstaltninger afventer | Jord-til-bord politisk balance; EPP-S&D-skillelinje |
+| 🟠 HØJ | IMCO/LIBE | Håndhævelse af den digitale markedslov (TA-10-2026-0160) | Vedtaget 30. apr; Kommissionens opfølgning | Big Tech-ansvarlighed; transatlantisk dimension |
+| 🟠 HØJ | LIBE | Cybermobning/online-chikane (TA-10-2026-0163) | Vedtaget 30. apr; trilog forestår | Platformsansvar; børnebeskyttelsesneksus |
+| 🟡 MELLEM | INTA | Modforanstaltninger mod amerikanske toldsatser (TA-10-2026-0096) | Vedtaget 26. mar; udvalgsgennemgang igangværende | Handelskrigsdynamik; 26 mia. EUR eksponering |
+| 🟡 MELLEM | JURI/LIBE | Korruptionsdirektiv (TA-10-2026-0094) | Vedtaget 26. mar; national gennemførelse overvåges | Retsstatsprincippet; EP's institutionelle troværdighed |
+| 🟢 OVERVÅGNING | AFCO | Ratificering af valglovsreform | Udvalgshøringer igangværende | Konstitutionel dimension; forsinkelse i medlemsstaterne |
+
+---
+
+### Committee Productivity Snapshot (uge 12.–16. maj 2026)
+
+EP's 22 stående udvalg arbejder efter en standard plenarmugeplanlægning. Vigtig mødeaktivitet denne uge:
+
+- **ENVI** (formand: TBC): Markeringssession om gennemførelsesforordninger for emissionskreditter til tunge køretøjer (forordning vedtaget TA-10-2026-0084). Ordførerdrøftelser om opfølgningsforanstaltninger for husdyrsektoren fortsætter.
+
+- **ECON** (formand: TBC): SRMR3 post-vedtagelsesovervågning; kvartalsvis ECB-dialogsession. Sekundærmarkedet for misligholdte lån — skyggeordførerkonsultationer igangværende.
+
+- **BUDG** (formand: TBC): Opfølgning på budgetretningslinjer for 2027; Parlamentets overslag for regnskabsår 2027 (TA-10-2026-04-30-ANN01) under intern gennemgang.
+
+- **IMCO**: Forfining af håndhævelsesramme efter DMA. Implementeringsscorecards for regulering af digitale tjenester.
+
+- **LIBE**: Forberedelse af trilog om cybermobningsdirektivet. Gennemgang af konceptet om sikkert tredjeland (opfølgning af TA-10-2026-0026).
+
+- **INTA**: Overvågning af modforanstaltninger mod amerikanske toldsatser; WTO Yaoundé-opfølgning efter MC14 (26.–29. marts 2026).
+
+- **JURI/AFCO**: Statusgennemgang af ratificering af valgloven i 27 medlemsstater.
+
+---
+
+### 🚦 Konfidensvurdering
+
+| Påstand | WEP | Admiralitet | Grundlag |
+|---------|-----|-------------|----------|
+| BUDG går ind i forligelsesfase | Sandsynlig | B2 | Vedtaget tekst + procedurens tidslinje |
+| SRMR3 komitologistart | Meget sandsynlig | B2 | Vedtaget tekst + EU's lovgivningsprocedureregler |
+| DMA-håndhævelse udløser IMCO-opfølgning | Sandsynlig | C2 | EP-resolutionssprog + Kommissionens forpligtelse |
+| Husdyrsfilen skaber EPP-S&D-spænding | Sandsynlig | C3 | Vedtaget teksts afstemningmønster-slutning |
+| Amerikansk toldsituation stabiliseret under krisetærskel | Mulig | C3 | EP-resolution + Kommissionsudtalelser |
+
+---
+
+### Strategisk udsigt (7 dage)
+
+Udvalgsystemet står over for en konvergens af krav om opfølgning efter vedtagelse (SRMR3, DMA, cybermobning, husdyr) sideløbende med lanceringen af 2027-budgetcyklussen. Udvalgsordførere vil være under pres for at levere deres betænkninger forud for juniplenarmødet. Den amerikanskse toldsituation efter WTO's MC14 i Yaoundé er fortsat den primære eksterne risiko, der kan forstyrre planlagt udvalgsarbejde.
+
+**Beslutningstagere bør overvåge**: BUDGs reaktion på Kommissionens budgetudkast i juni; ECONs første SRMR3-tilsynshøring; LIBEs cybermobningstrilogtidslinje; INTAs holdning til fornyelse af modforanstaltninger mod amerikanske toldsatser.
+
+---
+
+### Datakilder
+
+- EP's vedtagne tekster 2026 (TA-10-2026-0092 til TA-10-2026-0163)
+- EP's åbne dataportal: `/adopted-texts?year=2026` (50 elementer hentet)
+- EP-udvalgsdokumenter: `/committee-documents` (AFCO-serien, 50+ dokumenter)
+- ENVI & ECON-udvalgsaktivitetsanalyse: EP's åbne dataportal
+- `european-parliament-analyze_committee_activity` (ENVI, ECON)
+- `european-parliament-monitor_legislative_pipeline` (aktive procedurer)
+- Datovindue: 2026-05-07 til 2026-05-14
+
+---
+
+### 🗓️ Lovgivningsmæssig kalender
+
+Ugen 12.–16. maj 2026 falder i **Interparlamentarisk uge** — en periode mellem plenarmøderne, hvor udvalg mødes intensivt. Denne strukturelle kontekst forklarer, hvorfor output på udvalgsniveau er uforholdsmæssigt højt: ingen plenarsal konkurrerer om MEP'ernes tidsplaner, hvilket maksimerer udvalgsdeltagelse og ordførerresultater.
+
+#### Forestående frister
+
+| Frist | Fil | Udvalg | Konsekvens af forsinkelse |
+|-------|-----|--------|--------------------------|
+| Juni 2026 | Kommissionens budgetudkast 2027 | BUDG | EP mister tid til forligelse |
+| Maj 2026 | SRMR3-gennemførelsesregler | ECON | Banktilsynsvakuum |
+| Juni 2026 | DMA-håndhævelsesrapport | IMCO | Kommissionens efterlevningsvurdering forsinkes |
+| Juli 2026 | Afslutning af cybermobningstrilog | LIBE | Platformers retslige usikkerhed forlænges |
+
+#### Koalitionsaritmetik
+
+EPP (187 pladser) og S&D (136 pladser) udgør den de facto majoritetsrygrad for de fleste udvalgsrapporter i 2026. Renew Europe (77 pladser) spiller en afgørende svingprolle på digitale styrings- og handelsfiler. ECR (78 pladser) støtter dereguleringsprovisionerne i DMA-håndhævelseskonteksten. Greens/EFA (53 pladser) er afgørende for ENVI-majoritetsdannelsen.
+
+**Vigtig svingdynamik**: På husdyrssektorfilen sluttede EPP og ECR sig sammen for at blødgøre fødevaresikkerhedsstandarderne, mens S&D, Greens og Renew Europe søgte stærkere sporbarhedsregler. Det resulterende kompromis (TA-10-2026-0157) afspejler en usædvanlig center-højre + yderste højre-tilpasning om landbrugsderegulering.
+
+---
+
+### 📊 Tværudvalg efterretningskort
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4c0b18dd) -->
+
+---
+
+### Ordliste
+
+| Forkortelse | Fuldt navn |
+|---|---|
+| BUDG | Budgetudvalget |
+| ECON | Udvalget om Økonomi og Valutaforhold |
+| ENVI | Udvalget om Miljø, Klima og Fødevaresikkerhed |
+| IMCO | Udvalget om det Indre Marked og Forbrugerbeskyttelse |
+| LIBE | Udvalget om Borgernes Rettigheder og Retlige og Indre Anliggender |
+| INTA | Udvalget om International Handel |
+| JURI | Retsudvalget |
+| AFCO | Udvalget om Konstitutionelle Anliggender |
+| AFET | Udenrigsudvalget |
+| SRMR3 | Forordningen om den Fælles Afviklingsmekanisme (3. revision) |
+| DMA | Den Digitale Markedslov |
+| WTO MC14 | Verdenshandelsorganisationens 14. ministerkonference |
+| EPP | Det Europæiske Folkeparti |
+| S&D | Det Progressive Forbund af Socialdemokrater |
+| ECR | De Europæiske Konservative og Reformister |
+
+### Executive Brief De
+
+### 🎯 BLUF (Kernaussage vorab)
+
+Das Ausschusssystem des Europäischen Parlaments trat in die Woche vom 12. bis 16. Mai 2026 mit einer vollgepackten Gesetzgebungsagenda in mindestens sieben ständigen Ausschüssen ein. Die dominierenden Themen sind: (1) **digitale Governance** — das Plenum stimmte im letzten April-Plenum über die Durchsetzung des Gesetzes über digitale Märkte und Cybermobbing-Gesetzgebung ab; (2) **ökologischer Wandel** — der ENVI-Ausschuss bearbeitet sowohl die Nachhaltigkeitsdatei für den Viehsektor als auch offene Fragen zu Schadstoffemissionen schwerer Nutzfahrzeuge; (3) **Vollendung der Bankenunion** — die SRMR3-Reform des Abwicklungsmechanismus ist nun formell Gesetz und erzeugt Arbeitsaufwand in ECON und AFCO zur Aufsichtsarchitektur; und (4) **handelspolitische Widerstandsfähigkeit** — die im März angenommene Verordnung zu Gegenmaßnahmen gegen US-Zölle treibt weiterhin die Überprüfung durch INTA und AFET.
+
+**Wichtigstes Ereignis dieser Woche**: Die Entschließung zu den EU-Haushaltsleitlinien 2027 (TA-10-2026-0112, angenommen am 28. April) eröffnet den jährlichen Haushaltszyklus. Der BUDG-Ausschuss tritt nun in die Vorbereitungsphase des Vermittlungsverfahrens ein, bevor im Juni 2026 der Kommissionsentwurf für den Haushalt erwartet wird.
+
+---
+
+### 60-Second Read
+
+| Priorität | Ausschuss | Datei | Status | Bedeutung |
+|-----------|-----------|-------|--------|-----------|
+| 🔴 KRITISCH | BUDG | 2027 Haushaltsleitlinien (TA-10-2026-0112) | Angenommen 28. Apr.; BUDG erarbeitet Änderungsanträge | 185+ Mrd. EUR Rahmen; institutioneller Machtkampf |
+| 🔴 KRITISCH | ECON | SRMR3 — Bankenabwicklungsmechanismus (TA-10-2026-0092) | Angenommen 26. März; Komitologiephase | Systemrisiko — Meilenstein der Bankenunion |
+| 🟠 HOCH | ENVI | Nachhaltigkeit im Viehsektor (TA-10-2026-0157) | Angenommen 30. Apr.; Durchführungsmaßnahmen ausstehend | Farm-to-fork politisches Gleichgewicht; EPP-S&D-Spaltung |
+| 🟠 HOCH | IMCO/LIBE | Durchsetzung des Gesetzes über digitale Märkte (TA-10-2026-0160) | Angenommen 30. Apr.; Kommissionsfolge | Big Tech-Rechenschaftspflicht; transatlantische Dimension |
+| 🟠 HOCH | LIBE | Cybermobbing/Online-Belästigung (TA-10-2026-0163) | Angenommen 30. Apr.; Trilog unmittelbar bevorstehend | Plattformhaftung; Bezug zum Kinderschutz |
+| 🟡 MITTEL | INTA | US-Zoll-Gegenmaßnahmen (TA-10-2026-0096) | Angenommen 26. März; Ausschussüberprüfung laufend | Handelskriegsdynamik; 26 Mrd. EUR Exposition |
+| 🟡 MITTEL | JURI/LIBE | Korruptionsrichtlinie (TA-10-2026-0094) | Angenommen 26. März; nationale Umsetzung im Blick | Rechtsstaatlichkeit; institutionelle Glaubwürdigkeit des EP |
+| 🟢 BEOBACHTUNG | AFCO | Ratifizierung der Wahlrechtsreform | Ausschussanhörungen laufend | Verfassungsdimension; Verzögerung in Mitgliedstaaten |
+
+---
+
+### Committee Productivity Snapshot (Woche 12.–16. Mai 2026)
+
+Die 22 ständigen Ausschüsse des EP arbeiten nach einem Standard-Plenarwochenplan. Wichtige Sitzungsaktivitäten dieser Woche:
+
+- **ENVI** (Vorsitz: TBC): Markierungssitzung zu Durchführungsverordnungen für Emissionsgutschriften schwerer Nutzfahrzeuge (Verordnung angenommen TA-10-2026-0084). Berichterstatter-Beratungen zu Folgemaßnahmen für den Viehsektor dauern an.
+
+- **ECON** (Vorsitz: TBC): SRMR3-Überwachung nach Annahme; vierteljährliche EZB-Dialogsitzung. Sekundärmarkt für notleidende Kredite — Schattenberichterstatter-Konsultationen laufend.
+
+- **BUDG** (Vorsitz: TBC): Folgemaßnahmen zu den Haushaltsleitlinien 2027; Parlamentsvoranschlag für Haushaltsjahr 2027 (TA-10-2026-04-30-ANN01) in interner Prüfung.
+
+- **IMCO**: Verfeinerung des Durchsetzungsrahmens nach dem DMA. Bewertungskarten zur Umsetzung der Regulierung digitaler Dienste.
+
+- **LIBE**: Trilog-Vorbereitung zur Cybermobbing-Richtlinie. Überprüfung des Konzepts sicherer Drittstaat (Folgemaßnahme TA-10-2026-0026).
+
+- **INTA**: Überwachung der US-Zoll-Gegenmaßnahmen; WTO Yaoundé-Folgemaßnahme nach MC14 (26.–29. März 2026).
+
+- **JURI/AFCO**: Statusüberprüfung der Ratifizierung des Wahlgesetzes in 27 Mitgliedstaaten.
+
+---
+
+### 🚦 Vertrauensbewertung
+
+| Aussage | WEP | Admiralität | Grundlage |
+|---------|-----|-------------|-----------|
+| BUDG tritt in Vermittlungsphase ein | Wahrscheinlich | B2 | Angenommener Text + Verfahrenszeitplan |
+| SRMR3-Komitologiestart | Sehr wahrscheinlich | B2 | Angenommener Text + EU-Gesetzgebungsverfahrensregeln |
+| DMA-Durchsetzung löst IMCO-Folgemaßnahme aus | Wahrscheinlich | C2 | EP-Entschließungssprache + Kommissionsverpflichtung |
+| Viehdatei erzeugt EPP-S&D-Spannungen | Wahrscheinlich | C3 | Schlussfolgerung aus dem Abstimmungsmuster des angenommenen Textes |
+| US-Zollsituation unterhalb der Krisenschwelle stabilisiert | Möglich | C3 | EP-Entschließung + Kommissionserklärungen |
+
+---
+
+### Strategischer Ausblick (7 Tage)
+
+Das Ausschusssystem steht vor einer Konvergenz von Anforderungen an Nachfolgetätigkeiten nach der Annahme (SRMR3, DMA, Cybermobbing, Vieh) parallel zum Start des Haushaltszyklus 2027. Ausschussberichterstatter werden unter Druck stehen, ihre Berichte vor dem Juni-Plenum vorzulegen. Die US-EU-Zollsituation nach dem WTO MC14 in Yaoundé bleibt das wesentlichste externe Risiko, das die geplante Ausschussarbeit stören könnte.
+
+**Entscheidungsträger sollten beobachten**: BUDGs Reaktion auf den Kommissionsentwurf für den Haushalt im Juni; ECONs erste SRMR3-Überwachungsanhörung; LIBEs Zeitplan für den Cybermobbing-Trilog; INTAs Haltung zur Erneuerung der US-Zoll-Gegenmaßnahmen.
+
+---
+
+### Datenquellen
+
+- EP-Angenommene Texte 2026 (TA-10-2026-0092 bis TA-10-2026-0163)
+- EP Open Data Portal: `/adopted-texts?year=2026` (50 Einträge abgerufen)
+- EP-Ausschussdokumente: `/committee-documents` (AFCO-Reihe, 50+ Dokumente)
+- Analyse der Ausschussaktivität ENVI & ECON: EP Open Data Portal
+- `european-parliament-analyze_committee_activity` (ENVI, ECON)
+- `european-parliament-monitor_legislative_pipeline` (aktive Verfahren)
+- Datumsfenster: 2026-05-07 bis 2026-05-14
+
+---
+
+### 🗓️ Legislativer Kalender
+
+Die Woche vom 12. bis 16. Mai 2026 fällt in die **Interparlamentarische Woche** — einen Zeitraum zwischen Plenarsitzungen, in dem Ausschüsse intensiv tagen. Dieser strukturelle Kontext erklärt, warum die Ausschussproduktion unverhältnismäßig hoch ist: Kein Plenarsaal konkurriert um die Zeitpläne der Abgeordneten, was Ausschussanwesenheit und Berichterstatterleistungen maximiert.
+
+#### Unmittelbare Fristen
+
+| Frist | Datei | Ausschuss | Konsequenz bei Verzögerung |
+|-------|-------|-----------|---------------------------|
+| Juni 2026 | Kommissionshaushaltsentwurf 2027 | BUDG | EP verliert Zeit für Vermittlung |
+| Mai 2026 | SRMR3-Durchführungsregeln | ECON | Bankenaufsichtsvakuum |
+| Juni 2026 | DMA-Durchsetzungsbericht | IMCO | Kommissions-Compliance-Bewertung verzögert |
+| Juli 2026 | Abschluss des Cybermobbing-Trilogs | LIBE | Rechtliche Unsicherheit für Plattformen verlängert |
+
+#### Koalitionsarithmetik
+
+EPP (187 Sitze) und S&D (136 Sitze) bilden das de facto Mehrheitsrückgrat für die meisten Ausschussberichte im Jahr 2026. Renew Europe (77 Sitze) spielt eine entscheidende Swing-Rolle bei Dateien zur digitalen Governance und zum Handel. ECR (78 Sitze) unterstützt Deregulierungsbestimmungen im DMA-Durchsetzungskontext. Greens/EFA (53 Sitze) sind entscheidend für die ENVI-Mehrheitsbildung.
+
+**Wichtige Swing-Dynamik**: Bei der Viehdatei schlossen sich EPP und ECR zusammen, um Lebensmittelsicherheitsstandards abzuschwächen, während S&D, Greens und Renew Europe stärkere Rückverfolgbarkeitsregeln anstrebten. Der resultierende Kompromiss (TA-10-2026-0157) spiegelt eine ungewöhnliche Mitte-rechts + äußerst-rechts-Angleichung bei der Agrarderegulierung wider.
+
+---
+
+### 📊 Ausschussübergreifende Nachrichtenkarte
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4c0b18dd) -->
+
+---
+
+### Glossar
+
+| Abkürzung | Vollständiger Name |
+|---|---|
+| BUDG | Haushaltsausschuss |
+| ECON | Ausschuss für Wirtschaft und Währung |
+| ENVI | Ausschuss für Umwelt, Klimawandel und Lebensmittelsicherheit |
+| IMCO | Ausschuss für Binnenmarkt und Verbraucherschutz |
+| LIBE | Ausschuss für bürgerliche Freiheiten, Justiz und Inneres |
+| INTA | Ausschuss für internationalen Handel |
+| JURI | Rechtsausschuss |
+| AFCO | Ausschuss für konstitutionelle Fragen |
+| AFET | Ausschuss für auswärtige Angelegenheiten |
+| SRMR3 | Verordnung über den einheitlichen Abwicklungsmechanismus (3. Überarbeitung) |
+| DMA | Gesetz über digitale Märkte |
+| WTO MC14 | 14. Ministerkonferenz der Welthandelsorganisation |
+| EPP | Europäische Volkspartei |
+| S&D | Progressive Allianz der Sozialdemokraten |
+| ECR | Europäische Konservative und Reformisten |
+
+### Executive Brief Es
+
+### 🎯 BLUF (Conclusión al inicio)
+
+El sistema de comisiones del Parlamento Europeo inició la semana del 12 al 16 de mayo de 2026 con una agenda legislativa cargada en al menos siete comisiones permanentes. Los temas dominantes son: (1) **gobernanza digital** — el Pleno votó sobre la aplicación del Reglamento de Mercados Digitales y la legislación contra el ciberacoso en el último Pleno de abril; (2) **transición medioambiental** — la comisión ENVI está procesando tanto el expediente de sostenibilidad del sector ganadero como las cuestiones residuales sobre emisiones de vehículos pesados; (3) **culminación de la unión bancaria** — la reforma SRMR3 del mecanismo de resolución es ahora formalmente ley y genera trabajo en ECON y AFCO sobre la arquitectura de supervisión; y (4) **resiliencia comercial** — el reglamento de contramedidas a los aranceles estadounidenses adoptado en marzo sigue impulsando el escrutinio de INTA y AFET.
+
+**Principal detonante esta semana**: La resolución sobre las orientaciones presupuestarias de la UE para 2027 (TA-10-2026-0112, adoptada el 28 de abril) pone en marcha el ciclo presupuestario anual. La comisión BUDG entra ahora en fase de preparación de la conciliación antes del proyecto de presupuesto de la Comisión esperado para junio de 2026.
+
+---
+
+### 60-Second Read
+
+| Prioridad | Comisión | Expediente | Estado | Importancia |
+|-----------|---------|-----------|--------|------------|
+| 🔴 CRÍTICO | BUDG | Orientaciones presupuestarias 2027 (TA-10-2026-0112) | Adoptado el 28 abr.; BUDG elabora enmiendas | Marco de 185+ Mmde EUR; lucha de poder institucional |
+| 🔴 CRÍTICO | ECON | SRMR3 — Mecanismo de resolución bancaria (TA-10-2026-0092) | Adoptado el 26 mar.; fase de comitología | Riesgo sistémico — hito de la unión bancaria |
+| 🟠 ALTO | ENVI | Sostenibilidad en el sector ganadero (TA-10-2026-0157) | Adoptado el 30 abr.; medidas de ejecución pendientes | Equilibrio político de la granja a la mesa; divergencia EPP-S&D |
+| 🟠 ALTO | IMCO/LIBE | Aplicación del Reglamento de Mercados Digitales (TA-10-2026-0160) | Adoptado el 30 abr.; seguimiento de la Comisión | Responsabilidad Big Tech; dimensión transatlántica |
+| 🟠 ALTO | LIBE | Ciberacoso/acoso en línea (TA-10-2026-0163) | Adoptado el 30 abr.; trílogo inminente | Responsabilidad de las plataformas; nexo con la protección de la infancia |
+| 🟡 MEDIO | INTA | Contramedidas a los aranceles estadounidenses (TA-10-2026-0096) | Adoptado el 26 mar.; revisión en comisión en curso | Dinámica de guerra comercial; exposición de 26 Mmde EUR |
+| 🟡 MEDIO | JURI/LIBE | Directiva anticorrupción (TA-10-2026-0094) | Adoptado el 26 mar.; transposición nacional vigilada | Estado de derecho; credibilidad institucional del PE |
+| 🟢 SEGUIMIENTO | AFCO | Ratificación de la reforma de la ley electoral | Audiencias en comisión en curso | Dimensión constitucional; retraso en Estados miembros |
+
+---
+
+### Committee Productivity Snapshot (semana del 12 al 16 de mayo de 2026)
+
+Las 22 comisiones permanentes del PE trabajan según un calendario estándar de semana plenaria. Actividades de reunión destacadas esta semana:
+
+- **ENVI** (Presidencia: TBC): Sesión de marcado sobre reglamentos de ejecución de créditos de emisión para vehículos pesados (Reglamento adoptado TA-10-2026-0084). Las deliberaciones del ponente sobre medidas de seguimiento del sector ganadero continúan.
+
+- **ECON** (Presidencia: TBC): Supervisión post-adopción de SRMR3; sesión de diálogo trimestral con el BCE. Mercado secundario de préstamos dudosos — consultas de ponente alternativo en curso.
+
+- **BUDG** (Presidencia: TBC): Seguimiento de las orientaciones presupuestarias para 2027; estimaciones del Parlamento para el ejercicio 2027 (TA-10-2026-04-30-ANN01) en revisión interna.
+
+- **IMCO**: Refinamiento del marco de aplicación post-DMA. Cuadros de mando de implementación de la regulación de servicios digitales.
+
+- **LIBE**: Preparación del trílogo sobre la directiva de ciberacoso. Revisión del concepto de país tercero seguro (seguimiento de TA-10-2026-0026).
+
+- **INTA**: Seguimiento de las contramedidas a los aranceles estadounidenses; seguimiento de la OMC Yaundé tras la CM14 (26–29 de marzo de 2026).
+
+- **JURI/AFCO**: Revisión del estado de ratificación de la ley electoral en 27 Estados miembros.
+
+---
+
+### 🚦 Evaluación de confianza
+
+| Afirmación | WEP | Almirantazgo | Base |
+|------------|-----|-------------|------|
+| BUDG entra en fase de conciliación | Probable | B2 | Texto adoptado + calendario procesal |
+| Inicio de la comitología SRMR3 | Muy probable | B2 | Texto adoptado + normas del procedimiento legislativo de la UE |
+| La aplicación del DMA desencadena el seguimiento de IMCO | Probable | C2 | Lenguaje de la resolución del PE + obligación de la Comisión |
+| El expediente ganadero genera tensión EPP-S&D | Probable | C3 | Inferencia del patrón de votación del texto adoptado |
+| Situación arancelaria estadounidense estabilizada por debajo del umbral de crisis | Posible | C3 | Resolución del PE + declaraciones de la Comisión |
+
+---
+
+### Perspectivas estratégicas (7 días)
+
+El sistema de comisiones afronta una convergencia de demandas de seguimiento post-adopción (SRMR3, DMA, ciberacoso, ganadería) junto con el lanzamiento del ciclo presupuestario 2027. Los ponentes de las comisiones estarán bajo presión para entregar sus informes antes del Pleno de junio. La situación arancelaria entre EE.UU. y la UE tras la OMC CM14 en Yaundé sigue siendo el principal riesgo externo que podría interrumpir el trabajo planificado de las comisiones.
+
+**Los responsables de tomar decisiones deben vigilar**: La respuesta de BUDG al proyecto de presupuesto de la Comisión en junio; la primera audiencia de supervisión SRMR3 de ECON; el calendario del trílogo de ciberacoso de LIBE; la posición de INTA sobre la renovación de las contramedidas a los aranceles estadounidenses.
+
+---
+
+### Fuentes de datos
+
+- Textos adoptados del PE 2026 (TA-10-2026-0092 a TA-10-2026-0163)
+- Portal Open Data del PE: `/adopted-texts?year=2026` (50 elementos recuperados)
+- Documentos de comisiones del PE: `/committee-documents` (serie AFCO, 50+ documentos)
+- Análisis de actividad de las comisiones ENVI y ECON: Portal Open Data del PE
+- `european-parliament-analyze_committee_activity` (ENVI, ECON)
+- `european-parliament-monitor_legislative_pipeline` (procedimientos activos)
+- Ventana de fechas: 2026-05-07 al 2026-05-14
+
+---
+
+### 🗓️ Calendario legislativo
+
+La semana del 12 al 16 de mayo de 2026 corresponde a la **Semana Interparlamentaria** — un período entre sesiones plenarias en el que las comisiones se reúnen de forma intensiva. Este contexto estructural explica por qué la producción a nivel de comisiones es desproporcionadamente alta: ningún hemiciclo compite por los horarios de los eurodiputados, lo que maximiza la asistencia a las comisiones y los resultados de los ponentes.
+
+#### Plazos inminentes
+
+| Plazo | Expediente | Comisión | Consecuencia de retraso |
+|-------|-----------|---------|------------------------|
+| Junio 2026 | Proyecto de presupuesto 2027 de la Comisión | BUDG | El PE pierde tiempo para la conciliación |
+| Mayo 2026 | Normas de ejecución SRMR3 | ECON | Vacío de supervisión bancaria |
+| Junio 2026 | Informe de aplicación del DMA | IMCO | Evaluación de cumplimiento de la Comisión retrasada |
+| Julio 2026 | Conclusión del trílogo de ciberacoso | LIBE | La incertidumbre jurídica de las plataformas se prolonga |
+
+#### Aritmética de coalición
+
+El PPE (187 escaños) y el S&D (136 escaños) forman la columna vertebral de facto de la mayoría para la mayoría de los informes de comisión en 2026. Renew Europe (77 escaños) juega un papel fundamental de bisagra en los expedientes de gobernanza digital y comercio. El ECR (78 escaños) apoya las disposiciones de desregulación en el contexto de la aplicación del DMA. Los Verdes/ALE (53 escaños) son cruciales para la formación de mayoría en ENVI.
+
+**Dinámica de bisagra clave**: En el expediente del sector ganadero, el PPE y el ECR se unieron para suavizar las normas de seguridad alimentaria, mientras que S&D, Verdes y Renew Europe buscaban normas de trazabilidad más estrictas. El compromiso resultante (TA-10-2026-0157) refleja una alineación inusual de centro-derecha + extrema derecha sobre la desregulación agrícola.
+
+---
+
+### 📊 Mapa de inteligencia inter-comisiones
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4c0b18dd) -->
+
+---
+
+### Glosario
+
+| Abreviatura | Nombre completo |
+|---|---|
+| BUDG | Comisión de Presupuestos |
+| ECON | Comisión de Asuntos Económicos y Monetarios |
+| ENVI | Comisión de Medio Ambiente, Clima y Seguridad Alimentaria |
+| IMCO | Comisión de Mercado Interior y Protección del Consumidor |
+| LIBE | Comisión de Libertades Civiles, Justicia y Asuntos de Interior |
+| INTA | Comisión de Comercio Internacional |
+| JURI | Comisión de Asuntos Jurídicos |
+| AFCO | Comisión de Asuntos Constitucionales |
+| AFET | Comisión de Asuntos Exteriores |
+| SRMR3 | Reglamento del Mecanismo Único de Resolución (3.ª revisión) |
+| DMA | Reglamento de Mercados Digitales |
+| WTO MC14 | 14.ª Conferencia Ministerial de la Organización Mundial del Comercio |
+| EPP | Partido Popular Europeo |
+| S&D | Alianza Progresista de Socialistas y Demócratas |
+| ECR | Conservadores y Reformistas Europeos |
+
+### Executive Brief Fi
+
+### 🎯 BLUF (Johtopäätös ensin)
+
+Euroopan parlamentin valiokuntajärjestelmä aloitti viikon 12.–16. toukokuuta 2026 täyteen pakatulla lainsäädäntöagendalla vähintään seitsemässä pysyvässä valiokunnassa. Hallitsevat teemat ovat: (1) **digitaalinen hallinto** — täysistunto äänesti digitaalisia markkinoita koskevan lain toimeenpanosta ja verkkokiusaamista koskevasta lainsäädännöstä viimeisessä huhtikuun täysistunnossa; (2) **ympäristösiirtymä** — ENVI-valiokunta käsittelee sekä karjatalousalan kestävyystiedostoa että raskaiden ajoneuvojen jäljellä olevia päästökysymyksiä; (3) **pankkiunionin loppuunsaattaminen** — SRMR3-kriisinratkaisumekanismin uudistus on nyt virallisesti laki ja luo työtä ECON:lle ja AFCO:lle valvonta-arkkitehtuurin osalta; ja (4) **kaupan häiriönsietokyky** — maaliskuussa hyväksytty asetus Yhdysvaltain tulleja koskevista vastatoimista jatkaa INTA:n ja AFET:n tarkastelujen käynnistämistä.
+
+**Tärkeimmät tapahtumat tällä viikolla**: EU:n vuoden 2027 budjettiohjeiden päätöslauselma (TA-10-2026-0112, hyväksytty 28. huhtikuuta) käynnistää vuotuisen budjettisyklin. BUDG-valiokunta siirtyy nyt sovittelun valmisteluvaiheeseen ennen kuin komissio julkaisee budjettiehdotuksensa kesäkuussa 2026.
+
+---
+
+### 60-Second Read
+
+| Prioriteetti | Valiokunta | Tiedosto | Tila | Merkitys |
+|--------------|-----------|---------|------|----------|
+| 🔴 KRIITTINEN | BUDG | 2027 Budjettiohjeet (TA-10-2026-0112) | Hyväksytty 28. huhtik.; BUDG laatii tarkistuksia | 185+ mrd. EUR kehys; institutionaalinen valtataistelu |
+| 🔴 KRIITTINEN | ECON | SRMR3 — Pankkien kriisinratkaisumekanismi (TA-10-2026-0092) | Hyväksytty 26. maalisk.; komitologiavaihe | Systeemiriski — pankkiunionin virstanpylväs |
+| 🟠 KORKEA | ENVI | Karjatalousalan kestävyys (TA-10-2026-0157) | Hyväksytty 30. huhtik.; täytäntöönpanotoimenpiteet odottavat | Pellolta pöytään poliittinen tasapaino; EPP-S&D-jakolinja |
+| 🟠 KORKEA | IMCO/LIBE | Digitaalisia markkinoita koskevan lain toimeenpano (TA-10-2026-0160) | Hyväksytty 30. huhtik.; komission seuranta | Big Tech -vastuullisuus; transatlanttinen ulottuvuus |
+| 🟠 KORKEA | LIBE | Verkkokiusaaminen/online-häirintä (TA-10-2026-0163) | Hyväksytty 30. huhtik.; triloginki tulossa | Alustavastuullisuus; lasten suojelemisen yhteys |
+| 🟡 KESKITASO | INTA | Yhdysvaltain tulleja koskevat vastatoimet (TA-10-2026-0096) | Hyväksytty 26. maalisk.; valiokunnan tarkastelu käynnissä | Kauppasodan dynamiikka; 26 mrd. EUR altistuminen |
+| 🟡 KESKITASO | JURI/LIBE | Korruptiodirektiivi (TA-10-2026-0094) | Hyväksytty 26. maalisk.; kansallista implementointia seurataan | Oikeusvaltioperiaate; EP:n institutionaalinen uskottavuus |
+| 🟢 SEURANTA | AFCO | Vaalilainsäädännön uudistuksen ratifiointi | Valiokunnan kuulemisia käynnissä | Perustuslaillinen ulottuvuus; jäsenvaltioiden viive |
+
+---
+
+### Committee Productivity Snapshot (viikko 12.–16. toukokuuta 2026)
+
+EP:n 22 pysyvää valiokuntaa toimivat tavallisen täysistuntoviikon aikataulun mukaisesti. Tärkeät kokousaktiviteetit tällä viikolla:
+
+- **ENVI** (puheenjohtaja: TBC): Merkintäistunto raskaiden ajoneuvojen päästöhyvitysten täytäntöönpanoasetuksista (asetus hyväksytty TA-10-2026-0084). Esittelijäneuvottelut karjatalousalan seurantatoimenpiteistä jatkuvat.
+
+- **ECON** (puheenjohtaja: TBC): SRMR3 hyväksymisen jälkeinen valvonta; neljännesvuosittainen EKP-vuoropuheluistunto. NPL-sekundäärimarkkinat — varjoesittelijäkuulemiset käynnissä.
+
+- **BUDG** (puheenjohtaja: TBC): Vuoden 2027 budjettiohjeiden seuranta; parlamentin arviot varainhoitovuodelle 2027 (TA-10-2026-04-30-ANN01) sisäisessä tarkastelussa.
+
+- **IMCO**: DMA:n jälkeisen täytäntöönpanokehyksen tarkentaminen. Digitaalisten palveluiden sääntelyn toimeenpanon tuloskortti.
+
+- **LIBE**: Verkkokiusaamisdirektiivin trilogin valmistelu. Turvallisen kolmannen maan käsitteen tarkastelu (TA-10-2026-0026 seuranta).
+
+- **INTA**: Yhdysvaltain tulleja koskevien vastatoimien seuranta; WTO Yaoundén seuranta MC14:n jälkeen (26.–29. maaliskuuta 2026).
+
+- **JURI/AFCO**: Vaalilainsäädännön ratifioinnin tila 27 jäsenvaltiossa.
+
+---
+
+### 🚦 Luottamusarviointi
+
+| Väite | WEP | Admiraliteetti | Peruste |
+|-------|-----|----------------|---------|
+| BUDG siirtyy sovitteluvaiheeseen | Todennäköinen | B2 | Hyväksytty teksti + menettelyllinen aikataulu |
+| SRMR3 komitologia käynnistyminen | Hyvin todennäköinen | B2 | Hyväksytty teksti + EU:n lainsäädäntömenettelysäännöt |
+| DMA-täytäntöönpano käynnistää IMCO-seurannan | Todennäköinen | C2 | EP-päätöslauselman kieli + komission velvoite |
+| Karjatalousjutu luo EPP-S&D-jännitystä | Todennäköinen | C3 | Hyväksytyn tekstin äänestyskaavapäätelmä |
+| Yhdysvaltain tullit vakautunut kriisikynnyksen alapuolelle | Mahdollinen | C3 | EP-päätöslauselma + komission lausunnot |
+
+---
+
+### Strateginen näkymä (7 päivää)
+
+Valiokuntajärjestelmä kohtaa konvergenssin hyväksymisen jälkeisistä seurantavaatimuksista (SRMR3, DMA, verkkokiusaaminen, karjatalous) samanaikaisesti vuoden 2027 budjettisyklin käynnistymisen kanssa. Valiokunnan esittelijät ovat paineessa toimittaa raporttinsa ennen kesäkuun täysistuntoa. Yhdysvaltain tullit WTO:n MC14:n jälkeen Yaoundéssa ovat edelleen ensisijainen ulkoinen riski, joka voi häiritä suunniteltua valiokuntien työtä.
+
+**Päätöksentekijöiden tulisi seurata**: BUDG:n vastaus komission kesäkuun budjettiehdotukseen; ECON:n ensimmäinen SRMR3-valvontakuuleminen; LIBE:n verkkokiusaamistrilogi-aikataulu; INTA:n kanta Yhdysvaltain tulleja koskevien vastatoimien uusimiseen.
+
+---
+
+### Tietolähteet
+
+- EP:n hyväksytyt tekstit 2026 (TA-10-2026-0092 – TA-10-2026-0163)
+- EP:n avoin dataportti: `/adopted-texts?year=2026` (50 kohdetta haettu)
+- EP:n valiokunnan asiakirjat: `/committee-documents` (AFCO-sarja, 50+ asiakirjaa)
+- ENVI- ja ECON-valiokunnan aktiviteettianalyysi: EP:n avoin dataportti
+- `european-parliament-analyze_committee_activity` (ENVI, ECON)
+- `european-parliament-monitor_legislative_pipeline` (aktiiviset menettelyt)
+- Päivämääräikkuna: 2026-05-07 – 2026-05-14
+
+---
+
+### 🗓️ Lainsäädäntökalenteri
+
+Viikko 12.–16. toukokuuta 2026 sijoittuu **Interparlamentaariselle viikolle** — täysistuntojen väliselle jaksolle, jolloin valiokunnat kokoontuvat intensiivisesti. Tämä rakenteellinen konteksti selittää, miksi valiokuntatasoinen tuotos on suhteettoman korkea: mikään täysistunto ei kilpaile EP-jäsenten aikatauluista, mikä maksimoi valiokunnan osallistumisen ja esittelijöiden tulokset.
+
+#### Tulevat määräajat
+
+| Määräaika | Tiedosto | Valiokunta | Viivästymisen seuraus |
+|-----------|---------|-----------|----------------------|
+| Kesäkuu 2026 | Komission budjettiehdotus 2027 | BUDG | EP menettää aikaa sovitteluun |
+| Toukokuu 2026 | SRMR3 täytäntöönpanosäännöt | ECON | Pankkivalvonnan tyhjiö |
+| Kesäkuu 2026 | DMA:n täytäntöönpanoraportti | IMCO | Komission vaatimustenmukaisuusarviointi viivästyy |
+| Heinäkuu 2026 | Verkkokiusaamistrilogi päätökseen | LIBE | Alustojen oikeudellinen epävarmuus jatkuu |
+
+#### Koalitioaritmetiikka
+
+EPP (187 paikkaa) ja S&D (136 paikkaa) muodostavat de facto enemmistön selkärangan useimmissa valiokuntaraporteissa vuonna 2026. Renew Europe (77 paikkaa) toimii ratkaisevana keinulautahahmona digitaalisen hallinnon ja kauppajutuissa. ECR (78 paikkaa) tukee purkusäädöksiä DMA:n täytäntöönpanokontekstissa. Greens/EFA (53 paikkaa) on ratkaiseva ENVI:n enemmistön muodostumisessa.
+
+**Tärkeä heilahdus-dynamiikka**: Karjatalousalan tiedostossa EPP ja ECR liittyivät yhteen pehmentääkseen elintarviketurvallisuusstandardeja, kun taas S&D, Greens ja Renew Europe hakivat vahvempia jäljitettävyyssääntöjä. Tuloksena syntynyt kompromissi (TA-10-2026-0157) heijastaa epätavallista oikeisto- + äärioikeisto-linjautumista maatalouden sääntelyn purkamisen suhteen.
+
+---
+
+### 📊 Poikkivaliokuntainen tiedustelukartasto
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4c0b18dd) -->
+
+---
+
+### Sanasto
+
+| Lyhenne | Koko nimi |
+|---|---|
+| BUDG | Budjettivaliokunta |
+| ECON | Talous- ja raha-asioiden valiokunta |
+| ENVI | Ympäristö-, ilmasto- ja elintarviketurvallisuusvaliokunta |
+| IMCO | Sisämarkkina- ja kuluttajansuojavaliokunta |
+| LIBE | Kansalaisvapauksien sekä oikeus- ja sisäasioiden valiokunta |
+| INTA | Kansainvälisen kaupan valiokunta |
+| JURI | Oikeudellisten asioiden valiokunta |
+| AFCO | Perussopimus-, työjärjestys- ja toimielinasioiden valiokunta |
+| AFET | Ulkoasioiden valiokunta |
+| SRMR3 | Yhteistä kriisinratkaisumekanismia koskeva asetus (3. tarkistus) |
+| DMA | Digitaalisia markkinoita koskeva laki |
+| WTO MC14 | Maailman kauppajärjestön 14. ministerikonferenssi |
+| EPP | Euroopan kansanpuolue |
+| S&D | Sosialistien ja demokraattien progressiivinen liitto |
+| ECR | Euroopan konservatiivit ja reformistit |
+
+### Executive Brief Fr
+
+### 🎯 BLUF (Conclusion en tête)
+
+Le système de commissions du Parlement européen a entamé la semaine du 12 au 16 mai 2026 avec un agenda législatif chargé couvrant au moins sept commissions permanentes. Les thèmes dominants sont : (1) **gouvernance numérique** — la séance plénière a voté sur l'application du règlement sur les marchés numériques et la législation sur le cyberharcèlement lors de la dernière session plénière d'avril ; (2) **transition environnementale** — la commission ENVI traite à la fois le dossier de durabilité du secteur de l'élevage et les questions résiduelles sur les émissions des poids lourds ; (3) **achèvement de l'union bancaire** — la réforme SRMR3 du mécanisme de résolution est désormais formellement en vigueur, générant des travaux au sein d'ECON et d'AFCO sur l'architecture de supervision ; et (4) **résilience commerciale** — le règlement sur les contre-mesures aux droits de douane américains adopté en mars continue d'alimenter l'examen d'INTA et d'AFET.
+
+**Principale actualité cette semaine** : La résolution sur les orientations budgétaires de l'UE pour 2027 (TA-10-2026-0112, adoptée le 28 avril) lance le cycle budgétaire annuel. La commission BUDG entre désormais en phase de préparation de la conciliation avant la publication du projet de budget de la Commission attendue en juin 2026.
+
+---
+
+### 60-Second Read
+
+| Priorité | Commission | Dossier | Statut | Importance |
+|----------|-----------|--------|--------|-----------|
+| 🔴 CRITIQUE | BUDG | Orientations budgétaires 2027 (TA-10-2026-0112) | Adopté le 28 avr. ; BUDG élabore des amendements | Cadre de 185+ Mrd EUR ; lutte de pouvoir institutionnelle |
+| 🔴 CRITIQUE | ECON | SRMR3 — Mécanisme de résolution bancaire (TA-10-2026-0092) | Adopté le 26 mars ; phase de comitologie | Risque systémique — jalon de l'union bancaire |
+| 🟠 ÉLEVÉ | ENVI | Durabilité du secteur de l'élevage (TA-10-2026-0157) | Adopté le 30 avr. ; mesures d'exécution en attente | Équilibre politique de la ferme à la table ; divergence EPP-S&D |
+| 🟠 ÉLEVÉ | IMCO/LIBE | Application du règlement sur les marchés numériques (TA-10-2026-0160) | Adopté le 30 avr. ; suivi de la Commission | Responsabilité Big Tech ; dimension transatlantique |
+| 🟠 ÉLEVÉ | LIBE | Cyberharcèlement/harcèlement en ligne (TA-10-2026-0163) | Adopté le 30 avr. ; trilog imminent | Responsabilité des plateformes ; lien avec la protection de l'enfance |
+| 🟡 MOYEN | INTA | Contre-mesures aux droits de douane américains (TA-10-2026-0096) | Adopté le 26 mars ; examen en commission en cours | Dynamique de la guerre commerciale ; exposition de 26 Mrd EUR |
+| 🟡 MOYEN | JURI/LIBE | Directive anti-corruption (TA-10-2026-0094) | Adopté le 26 mars ; transposition nationale suivie | État de droit ; crédibilité institutionnelle du PE |
+| 🟢 SURVEILLANCE | AFCO | Ratification de la réforme de la loi électorale | Auditions en commission en cours | Dimension constitutionnelle ; retard dans les États membres |
+
+---
+
+### Committee Productivity Snapshot (semaine du 12 au 16 mai 2026)
+
+Les 22 commissions permanentes du PE travaillent selon un calendrier standard de semaine plénière. Activités de réunion importantes cette semaine :
+
+- **ENVI** (Présidence : TBC) : Session de marquage sur les règlements d'exécution relatifs aux crédits d'émissions pour les véhicules lourds (règlement adopté TA-10-2026-0084). Les délibérations du rapporteur sur les mesures de suivi du secteur de l'élevage se poursuivent.
+
+- **ECON** (Présidence : TBC) : Surveillance post-adoption SRMR3 ; session trimestrielle de dialogue avec la BCE. Marché secondaire des NPL — consultations des rapporteurs fictifs en cours.
+
+- **BUDG** (Présidence : TBC) : Suivi des orientations budgétaires 2027 ; prévisions du Parlement pour l'exercice 2027 (TA-10-2026-04-30-ANN01) en cours d'examen interne.
+
+- **IMCO** : Affinement du cadre d'application post-DMA. Tableaux de bord de mise en œuvre de la réglementation des services numériques.
+
+- **LIBE** : Préparation du trilog sur la directive cyberharcèlement. Examen du concept de pays tiers sûr (suivi de TA-10-2026-0026).
+
+- **INTA** : Surveillance des contre-mesures aux droits de douane américains ; suivi de l'OMC Yaoundé après la CM14 (26–29 mars 2026).
+
+- **JURI/AFCO** : Examen du statut de ratification de la loi électorale dans 27 États membres.
+
+---
+
+### 🚦 Évaluation de la confiance
+
+| Affirmation | WEP | Amirauté | Base |
+|-------------|-----|----------|------|
+| BUDG entre en phase de conciliation | Probable | B2 | Texte adopté + calendrier procédural |
+| Lancement de la comitologie SRMR3 | Très probable | B2 | Texte adopté + règles de procédure législative de l'UE |
+| L'application du DMA déclenche un suivi IMCO | Probable | C2 | Langage de la résolution du PE + obligation de la Commission |
+| Le dossier élevage génère des tensions EPP-S&D | Probable | C3 | Inférence à partir du schéma de vote du texte adopté |
+| Situation tarifaire américaine stabilisée sous le seuil de crise | Possible | C3 | Résolution du PE + déclarations de la Commission |
+
+---
+
+### Perspectives stratégiques (7 jours)
+
+Le système de commissions fait face à une convergence de demandes de suivi post-adoption (SRMR3, DMA, cyberharcèlement, élevage) parallèlement au lancement du cycle budgétaire 2027. Les rapporteurs des commissions seront sous pression pour remettre leurs rapports avant la session plénière de juin. La situation tarifaire États-Unis–UE après l'OMC CM14 à Yaoundé reste le principal risque externe susceptible de perturber les travaux des commissions prévus.
+
+**Les décideurs devraient surveiller** : La réponse de BUDG au projet de budget de la Commission en juin ; la première audition de surveillance SRMR3 d'ECON ; le calendrier du trilog cyberharcèlement de LIBE ; la position d'INTA sur le renouvellement des contre-mesures aux droits de douane américains.
+
+---
+
+### Sources de données
+
+- Textes adoptés du PE 2026 (TA-10-2026-0092 à TA-10-2026-0163)
+- Portail Open Data du PE : `/adopted-texts?year=2026` (50 éléments récupérés)
+- Documents de commissions du PE : `/committee-documents` (série AFCO, 50+ documents)
+- Analyse de l'activité des commissions ENVI et ECON : Portail Open Data du PE
+- `european-parliament-analyze_committee_activity` (ENVI, ECON)
+- `european-parliament-monitor_legislative_pipeline` (procédures actives)
+- Fenêtre de dates : 2026-05-07 au 2026-05-14
+
+---
+
+### 🗓️ Calendrier législatif
+
+La semaine du 12 au 16 mai 2026 correspond à la **Semaine interparlementaire** — une période entre les sessions plénières durant laquelle les commissions se réunissent intensivement. Ce contexte structurel explique pourquoi la production au niveau des commissions est disproportionnellement élevée : aucune salle plénière ne se dispute les emplois du temps des eurodéputés, ce qui maximise la présence en commission et les résultats des rapporteurs.
+
+#### Échéances imminentes
+
+| Échéance | Dossier | Commission | Conséquence en cas de retard |
+|----------|--------|-----------|------------------------------|
+| Juin 2026 | Projet de budget 2027 de la Commission | BUDG | Le PE perd du temps pour la conciliation |
+| Mai 2026 | Règles d'exécution SRMR3 | ECON | Vide de supervision bancaire |
+| Juin 2026 | Rapport sur l'application du DMA | IMCO | Évaluation de conformité de la Commission retardée |
+| Juillet 2026 | Conclusion du trilog cyberharcèlement | LIBE | L'incertitude juridique des plateformes se prolonge |
+
+#### Arithmétique de coalition
+
+Le PPE (187 sièges) et le S&D (136 sièges) forment l'épine dorsale de la majorité de facto pour la plupart des rapports de commissions en 2026. Renew Europe (77 sièges) joue un rôle pivot déterminant sur les dossiers de gouvernance numérique et commerciale. L'ECR (78 sièges) soutient les dispositions de déréglementation dans le contexte de l'application du DMA. Les Verts/ALE (53 sièges) sont essentiels pour la formation de la majorité au sein d'ENVI.
+
+**Dynamique de pivot cruciale** : Sur le dossier élevage, le PPE et l'ECR se sont unis pour assouplir les normes de sécurité alimentaire, tandis que le S&D, les Verts et Renew Europe recherchaient des règles de traçabilité plus strictes. Le compromis résultant (TA-10-2026-0157) reflète un alignement inhabituel centre-droit + extrême-droite sur la déréglementation agricole.
+
+---
+
+### 📊 Carte de renseignement inter-commissions
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4c0b18dd) -->
+
+---
+
+### Glossaire
+
+| Abréviation | Nom complet |
+|---|---|
+| BUDG | Commission des budgets |
+| ECON | Commission des affaires économiques et monétaires |
+| ENVI | Commission de l'environnement, du climat et de la sécurité alimentaire |
+| IMCO | Commission du marché intérieur et de la protection des consommateurs |
+| LIBE | Commission des libertés civiles, de la justice et des affaires intérieures |
+| INTA | Commission du commerce international |
+| JURI | Commission des affaires juridiques |
+| AFCO | Commission des affaires constitutionnelles |
+| AFET | Commission des affaires étrangères |
+| SRMR3 | Règlement sur le mécanisme de résolution unique (3e révision) |
+| DMA | Règlement sur les marchés numériques |
+| WTO MC14 | 14e Conférence ministérielle de l'Organisation mondiale du commerce |
+| EPP | Parti populaire européen |
+| S&D | Alliance progressiste des socialistes et démocrates |
+| ECR | Conservateurs et réformistes européens |
+
+### Executive Brief He
+
+**תאריך:** 2026-05-14 | **הרצה:** committee-reports | **סיווג:** ציבורי
+**דרגת אדמירליות:** B2 (מקור אמין; כנראה נכון)
+**רצועת WEP:** סביר (רווח ביטחון 60–80%)
+
+---
+
+### 🎯 BLUF (מסקנה מראש)
+
+מערכת הוועדות של הפרלמנט האירופי פתחה את שבוע 12–16 במאי 2026 עם סדר יום חקיקתי עמוס הפרוס על פני שבע ועדות קבועות לפחות. הנושאים הדומיננטיים הם: (1) **ממשל דיגיטלי** — המליאה הצביעה על אכיפת תקנת שווקי הדיגיטל וחקיקה נגד פגיעה מקוונת במהלך מפגש המליאה האחרון של אפריל; (2) **מעבר סביבתי** — ועדת ENVI מעבדת גם את תיק הקיימות בענף בעלי החיים וגם שאלות שוליות בנושא פליטות רכבים כבדים; (3) **השלמת האיחוד הבנקאי** — רפורמת SRMR3 של מנגנון ההסדרה היא כעת חוק פורמלי ויוצרת עבודה ב-ECON וב-AFCO בנושא ארכיטקטורת הפיקוח; ו-(4) **חוסן מסחרי** — תקנת אמצעי הנגד לתעריפי ארה"ב שאומצה במרץ ממשיכה להניע בדיקה של INTA ו-AFET.
+
+**הדק הראשי השבוע**: החלטת הנחיות התקציב של האיחוד האירופי ל-2027 (TA-10-2026-0112, אומצה ב-28 באפריל) מפעילה את מחזור התקציב השנתי. ועדת BUDG נכנסת כעת לשלב ההכנה לגישור לפני טיוטת התקציב של הנציבות הצפויה ביוני 2026.
+
+---
+
+### 60-Second Read
+
+| עדיפות | ועדה | תיק | סטטוס | משמעות |
+|--------|------|-----|-------|--------|
+| 🔴 קריטי | BUDG | הנחיות תקציב 2027 (TA-10-2026-0112) | אומץ 28 אפר'; BUDG מנסח תיקונים | מסגרת של 185+ מיליארד EUR; מאבק כוח מוסדי |
+| 🔴 קריטי | ECON | SRMR3 — מנגנון הסדרת בנקים (TA-10-2026-0092) | אומץ 26 מרץ; שלב קומיטולוגיה | סיכון סיסטמי — אבן דרך של האיחוד הבנקאי |
+| 🟠 גבוה | ENVI | קיימות בענף בעלי החיים (TA-10-2026-0157) | אומץ 30 אפר'; אמצעי יישום בהמתנה | איזון פוליטי מהחווה לשולחן; פיצול EPP-S&D |
+| 🟠 גבוה | IMCO/LIBE | אכיפת תקנת שווקי הדיגיטל (TA-10-2026-0160) | אומץ 30 אפר'; מעקב נציבות | אחריות Big Tech; ממד טרנס-אטלנטי |
+| 🟠 גבוה | LIBE | פגיעה מקוונת/הטרדה באינטרנט (TA-10-2026-0163) | אומץ 30 אפר'; טרילוג קרוב | אחריות פלטפורמות; קשר להגנת ילדים |
+| 🟡 בינוני | INTA | אמצעי נגד לתעריפי ארה"ב (TA-10-2026-0096) | אומץ 26 מרץ; סקירת ועדה מתמשכת | דינמיקת מלחמת סחר; חשיפה של 26 מיליארד EUR |
+| 🟡 בינוני | JURI/LIBE | הנחיית מניעת שחיתות (TA-10-2026-0094) | אומץ 26 מרץ; עקיבת יישום לאומי | שלטון החוק; אמינות מוסדית של הפרלמנט האירופי |
+| 🟢 מעקב | AFCO | אישרור רפורמת חוק הבחירות | ישיבות שמיעה מתמשכות | ממד חוקתי; עיכוב במדינות החברות |
+
+---
+
+### Committee Productivity Snapshot (שבוע 12–16 במאי 2026)
+
+22 הוועדות הקבועות של הפרלמנט האירופי פועלות לפי לוח זמנים סטנדרטי של שבוע מליאה. פעילויות ישיבות חשובות השבוע:
+
+- **ENVI** (יו"ר: TBC): מפגש סימון לתקנות יישום לזיכויי פליטות לרכבים כבדים (תקנה שאומצה TA-10-2026-0084). דיוני המדווח על אמצעי מעקב בענף בעלי החיים נמשכים.
+
+- **ECON** (יו"ר: TBC): פיקוח לאחר אימוץ SRMR3; מפגש דיאלוג רבעוני עם הבנק המרכזי האירופי. שוק משני להלוואות בעייתיות — התייעצויות עם מדווחי צל מתמשכות.
+
+- **BUDG** (יו"ר: TBC): מעקב אחר הנחיות תקציב 2027; הערכות הפרלמנט לשנת הכספים 2027 (TA-10-2026-04-30-ANN01) בסקירה פנימית.
+
+- **IMCO**: שיפור מסגרת האכיפה לאחר DMA. כרטיסי ניקוד ליישום רגולציית שירותים דיגיטליים.
+
+- **LIBE**: הכנת הטרילוג על הנחיית פגיעה מקוונת. סקירת מושג מדינת צד שלישי בטוחה (מעקב TA-10-2026-0026).
+
+- **INTA**: ניטור אמצעי הנגד לתעריפי ארה"ב; מעקב WTO יאונדה לאחר MC14 (26–29 מרץ 2026).
+
+- **JURI/AFCO**: סקירת מצב אישרור חוק הבחירות ב-27 מדינות חברות.
+
+---
+
+### 🚦 הערכת אמינות
+
+| טענה | WEP | אדמירליות | בסיס |
+|------|-----|-----------|------|
+| BUDG נכנסת לשלב גישור | סביר | B2 | טקסט שאומץ + ציר זמן פרוצדורלי |
+| השקת קומיטולוגיית SRMR3 | סביר מאוד | B2 | טקסט שאומץ + כללי הליך חקיקה אירופי |
+| אכיפת DMA מפעילה מעקב IMCO | סביר | C2 | שפת החלטת הפרלמנט האירופי + התחייבות הנציבות |
+| תיק בעלי החיים יוצר מתח EPP-S&D | סביר | C3 | מסקנה מדפוס הצבעה על הטקסט שאומץ |
+| מצב התעריפים האמריקאי מייצב מתחת לסף המשבר | אפשרי | C3 | החלטת הפרלמנט האירופי + הצהרות הנציבות |
+
+---
+
+### תחזית אסטרטגית (7 ימים)
+
+מערכת הוועדות מתמודדת עם התכנסות של דרישות מעקב לאחר אימוץ (SRMR3, DMA, פגיעה מקוונת, בעלי חיים) לצד השקת מחזור תקציב 2027. מדווחי הוועדות יהיו תחת לחץ לספק את דוחותיהם לפני מפגש המליאה של יוני. מצב התעריפים בין ארה"ב לאיחוד האירופי לאחר WTO MC14 ביאונדה נשאר הסיכון החיצוני הראשי שעלול לשבש עבודת הוועדות המתוכננת.
+
+**קובעי מדיניות צריכים לעקוב**: תגובת BUDG לטיוטת תקציב הנציבות ביוני; ישיבת הפיקוח הראשונה של SRMR3 ב-ECON; ציר הזמן של הטרילוג לפגיעה מקוונת של LIBE; עמדת INTA על חידוש אמצעי הנגד לתעריפי ארה"ב.
+
+---
+
+### מקורות נתונים
+
+- טקסטים שאומצו על ידי הפרלמנט האירופי 2026 (TA-10-2026-0092 עד TA-10-2026-0163)
+- פורטל הנתונים הפתוחים של הפרלמנט האירופי: `/adopted-texts?year=2026` (50 פריטים אוחזרו)
+- מסמכי ועדות הפרלמנט האירופי: `/committee-documents` (סדרת AFCO, 50+ מסמכים)
+- ניתוח פעילות ועדות ENVI ו-ECON: פורטל הנתונים הפתוחים של הפרלמנט האירופי
+- `european-parliament-analyze_committee_activity` (ENVI, ECON)
+- `european-parliament-monitor_legislative_pipeline` (הליכים פעילים)
+- חלון תאריכים: 2026-05-07 עד 2026-05-14
+
+---
+
+### 🗓️ לוח שנה חקיקתי
+
+שבוע 12–16 במאי 2026 נופל ב**שבוע הבין-פרלמנטרי** — תקופה בין מפגשי מליאה שבה ועדות נפגשות בעצימות. ההקשר המבני הזה מסביר מדוע התפוקה ברמת הוועדות גבוהה באופן לא פרופורציונלי: אין אולם מליאה המתחרה על לוחות הזמנים של חברי הפרלמנט האירופי, מה שמקסם נוכחות בוועדות ותוצרי מדווחים.
+
+#### מועדים קרובים
+
+| מועד אחרון | תיק | ועדה | השלכות עיכוב |
+|-----------|-----|------|-------------|
+| יוני 2026 | טיוטת תקציב הנציבות 2027 | BUDG | הפרלמנט האירופי מאבד זמן לגישור |
+| מאי 2026 | כללי יישום SRMR3 | ECON | ריק פיקוח בנקאי |
+| יוני 2026 | דוח אכיפת DMA | IMCO | הערכת ציות של הנציבות מתעכבת |
+| יולי 2026 | סיום טרילוג פגיעה מקוונת | LIBE | אי-ודאות משפטית של פלטפורמות נמשכת |
+
+#### חשבון הקואליציה
+
+EPP (187 מושבים) ו-S&D (136 מושבים) מהווים את עמוד השדרה של הרוב הפועלי ברוב דוחות הוועדות ב-2026. Renew Europe (77 מושבים) ממלאת תפקיד ציר מכריע בתיקי ממשל דיגיטלי ומסחר. ECR (78 מושבים) תומכת בהוראות רגולציה מופחתת בהקשר אכיפת DMA. Greens/EFA (53 מושבים) חיוניים ליצירת רוב ב-ENVI.
+
+**דינמיקת ציר מרכזית**: בתיק ענף בעלי החיים, EPP ו-ECR התאחדו להקל על תקני בטיחות מזון, בעוד S&D, Greens ו-Renew Europe ביקשו כללי מעקב מחמירים יותר. הפשרה שהתקבלה (TA-10-2026-0157) משקפת התאמה יוצאת דופן של ימין-מרכז + קצה ימין על בטול רגולציה חקלאית.
+
+---
+
+### 📊 מפת מודיעין בין-ועדתית
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4c0b18dd) -->
+
+---
+
+### מילון מונחים
+
+| קיצור | שם מלא |
+|---|---|
+| BUDG | ועדת התקציבים |
+| ECON | ועדת ענייני כלכלה ומוניטרים |
+| ENVI | ועדת הסביבה, האקלים ובטיחות המזון |
+| IMCO | ועדת השוק הפנימי והגנת הצרכן |
+| LIBE | ועדת חירויות אזרחיות, צדק וענייני פנים |
+| INTA | ועדת הסחר הבינלאומי |
+| JURI | ועדת ענייני משפט |
+| AFCO | ועדת ענייני חוקתיים |
+| AFET | ועדת ענייני חוץ |
+| SRMR3 | תקנת מנגנון ההסדרה האחיד (מהדורה שלישית) |
+| DMA | תקנת שווקי הדיגיטל |
+| WTO MC14 | הוועידה המיניסטריאלית ה-14 של ארגון הסחר העולמי |
+| EPP | המפלגה העממית האירופית |
+| S&D | הברית המתקדמת של סוציאליסטים ודמוקרטים |
+| ECR | השמרנים והרפורמיסטים האירופיים |
+
+### Executive Brief Ja
+
+**日付：** 2026-05-14 | **実行：** committee-reports | **分類：** 公開
+**信頼性評価：** B2（信頼できる情報源；おそらく真実）
+**WEPバンド：** 蓋然的（信頼区間60〜80%）
+
+---
+
+### 🎯 BLUF（結論を先に）
+
+欧州議会の委員会制度は、2026年5月12〜16日の週、少なくとも7つの常任委員会にわたる充実した立法議題とともに始まりました。主要テーマは次のとおりです。（1）**デジタルガバナンス** — 本会議は4月最後の本会議でデジタル市場法の執行およびサイバーいじめに関する立法について採決しました。（2）**環境移行** — ENVI委員会は畜産部門の持続可能性案件と重量車輌の残存排出ガス問題を処理中です。（3）**銀行同盟の完成** — SRMR3の破綻処理メカニズム改革が正式に発効し、監督アーキテクチャに関してECONとAFCOに作業を生じさせています。（4）**貿易の強靱性** — 3月に採択された対米関税対抗措置規則が引き続きINTAとAFETの審査を牽引しています。
+
+**今週の最重要トリガー**：2027年EU予算ガイドライン決議（TA-10-2026-0112、4月28日採択）が年次予算サイクルを開始しました。BUDG委員会は、2026年6月に予定されている欧州委員会の予算案前の調停準備段階に入りました。
+
+---
+
+### 60-Second Read
+
+| 優先度 | 委員会 | 案件 | 状態 | 重要度 |
+|-------|--------|------|------|--------|
+| 🔴 緊急 | BUDG | 2027年予算ガイドライン（TA-10-2026-0112） | 4月28日採択；BUDGが修正案作成中 | 1,850億EUR超の枠組み；機関間の権力争い |
+| 🔴 緊急 | ECON | SRMR3 — 銀行破綻処理メカニズム（TA-10-2026-0092） | 3月26日採択；コミトロジー段階 | システミックリスク — 銀行同盟の節目 |
+| 🟠 高 | ENVI | 畜産部門の持続可能性（TA-10-2026-0157） | 4月30日採択；実施措置待ち | 農場から食卓への政治的バランス；EPP-S&D分裂 |
+| 🟠 高 | IMCO/LIBE | デジタル市場法の執行（TA-10-2026-0160） | 4月30日採択；欧州委員会がフォローアップ | Big Tech の説明責任；大西洋横断的側面 |
+| 🟠 高 | LIBE | サイバーいじめ/オンライン嫌がらせ（TA-10-2026-0163） | 4月30日採択；トリローグ間近 | プラットフォームの責任；子どもの保護との関連 |
+| 🟡 中 | INTA | 対米関税対抗措置（TA-10-2026-0096） | 3月26日採択；委員会審査継続 | 貿易戦争の動向；260億EUR の暴露リスク |
+| 🟡 中 | JURI/LIBE | 汚職防止指令（TA-10-2026-0094） | 3月26日採択；各国の国内法転換を監視 | 法の支配；欧州議会の機関的信頼性 |
+| 🟢 監視 | AFCO | 選挙法改正の批准 | 委員会公聴会進行中 | 憲法的側面；加盟国の遅延 |
+
+---
+
+### Committee Productivity Snapshot（2026年5月12〜16日の週）
+
+欧州議会の22常任委員会は標準的な本会議週スケジュールで運営されています。今週の重要な会議活動：
+
+- **ENVI**（委員長：TBC）：重量車輌排出クレジットの実施規則に関するマークアップ会議（規則採択済み TA-10-2026-0084）。畜産部門のフォローアップ措置に関する報告者審議が継続中。
+
+- **ECON**（委員長：TBC）：SRMR3採択後の監督；欧州中央銀行との四半期対話セッション。不良債権の流通市場 — シャドーラポーターとの協議継続中。
+
+- **BUDG**（委員長：TBC）：2027年予算ガイドラインのフォローアップ；2027年度の議会見積もり（TA-10-2026-04-30-ANN01）が内部審査中。
+
+- **IMCO**：DMA後の執行枠組みの精緻化。デジタルサービス規制の実施スコアカード。
+
+- **LIBE**：サイバーいじめ指令のトリローグ準備。第三国の安全概念に関する審査（TA-10-2026-0026のフォローアップ）。
+
+- **INTA**：対米関税対抗措置の監視；MC14後のWTOヤウンデフォローアップ（2026年3月26〜29日）。
+
+- **JURI/AFCO**：27加盟国での選挙法批准状況の審査。
+
+---
+
+### 🚦 信頼性評価
+
+| 主張 | WEP | 信頼性 | 根拠 |
+|------|-----|--------|------|
+| BUDGが調停段階に入る | 蓋然的 | B2 | 採択テキスト＋手続き上のタイムライン |
+| SRMR3コミトロジー開始 | 非常に蓋然的 | B2 | 採択テキスト＋EU立法手続き規則 |
+| DMA執行がIMCOのフォローアップを誘発 | 蓋然的 | C2 | 欧州議会決議の文言＋欧州委員会の義務 |
+| 畜産案件がEPP-S&D間の緊張を生む | 蓋然的 | C3 | 採択テキストの投票パターンからの推論 |
+| 対米関税状況が危機閾値を下回る水準で安定 | 可能性あり | C3 | 欧州議会決議＋欧州委員会声明 |
+
+---
+
+### 戦略的展望（7日間）
+
+委員会制度は、採択後のフォローアップ要求（SRMR3、DMA、サイバーいじめ、畜産）と2027年予算サイクルの開始が同時進行する状況に直面しています。委員会の報告者は6月本会議前に報告書を提出するよう圧力を受けることになります。ヤウンデでのWTO MC14後の米国・EU間の関税状況は、予定されている委員会作業を混乱させる可能性がある主要な外部リスクとして残っています。
+
+**意思決定者が注視すべき点**：6月の欧州委員会予算案に対するBUDGの対応；ECONの最初のSRMR3監督ヒアリング；LIBEのサイバーいじめトリローグのタイムライン；対米関税対抗措置の更新に関するINTAの姿勢。
+
+---
+
+### データソース
+
+- 欧州議会採択テキスト2026年（TA-10-2026-0092〜TA-10-2026-0163）
+- 欧州議会オープンデータポータル：`/adopted-texts?year=2026`（50件取得）
+- 欧州議会委員会文書：`/committee-documents`（AFCOシリーズ、50件以上）
+- ENVI・ECON委員会活動分析：欧州議会オープンデータポータル
+- `european-parliament-analyze_committee_activity`（ENVI、ECON）
+- `european-parliament-monitor_legislative_pipeline`（活動中の手続き）
+- 対象期間：2026-05-07〜2026-05-14
+
+---
+
+### 🗓️ 立法カレンダー
+
+2026年5月12〜16日の週は、**欧州議会間週**に当たります — 本会議と本会議の間の期間で、委員会が集中的に会合を開きます。この構造的な文脈が、委員会レベルの生産性が不均衡に高い理由を説明しています。本会議場が欧州議会議員のスケジュールを奪い合うことなく、委員会への出席と報告者の成果を最大化します。
+
+#### 差し迫った期限
+
+| 期限 | 案件 | 委員会 | 遅延の結果 |
+|------|------|--------|-----------|
+| 2026年6月 | 欧州委員会の2027年予算案 | BUDG | 欧州議会が調停の時間を失う |
+| 2026年5月 | SRMR3実施規則 | ECON | 銀行監督の空白 |
+| 2026年6月 | DMA執行報告書 | IMCO | 欧州委員会のコンプライアンス評価が遅延 |
+| 2026年7月 | サイバーいじめトリローグの終結 | LIBE | プラットフォームの法的不確実性が継続 |
+
+#### 連立の計算
+
+EPP（187議席）とS&D（136議席）が2026年のほとんどの委員会報告書において事実上の過半数の基盤を形成しています。Renew Europe（77議席）はデジタルガバナンスと貿易の案件において重要なスウィング役を果たしています。ECR（78議席）はDMA執行の文脈において規制緩和条項を支持しています。Greens/EFA（53議席）はENVI委員会の過半数形成において不可欠な存在です。
+
+**重要なスウィングのダイナミクス**：畜産部門の案件では、EPPとECRが食品安全基準を緩和するために連携したのに対し、S&D、Greens、Renew Europeはより厳格なトレーサビリティ規則を求めました。その結果生まれた妥協案（TA-10-2026-0157）は、農業規制緩和についての中道右派と極右の異例な連携を反映しています。
+
+---
+
+### 📊 委員会横断的インテリジェンスマップ
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4c0b18dd) -->
+
+---
+
+### 略語集
+
+| 略語 | 正式名称 |
+|---|---|
+| BUDG | 予算委員会 |
+| ECON | 経済通貨委員会 |
+| ENVI | 環境・気候・食品安全委員会 |
+| IMCO | 域内市場・消費者保護委員会 |
+| LIBE | 市民的自由・司法・内務委員会 |
+| INTA | 国際貿易委員会 |
+| JURI | 法務委員会 |
+| AFCO | 憲法問題委員会 |
+| AFET | 外務委員会 |
+| SRMR3 | 単一破綻処理メカニズム規則（第3次改定） |
+| DMA | デジタル市場法 |
+| WTO MC14 | 世界貿易機関第14回閣僚会議 |
+| EPP | 欧州人民党 |
+| S&D | 社会主義者・民主主義者進歩同盟 |
+| ECR | 欧州保守改革派 |
+
+### Executive Brief Ko
+
+**날짜:** 2026-05-14 | **실행:** committee-reports | **분류:** 공개
+**신뢰도 등급:** B2 (신뢰할 수 있는 출처; 아마도 사실)
+**WEP 대역:** 개연성 있음 (신뢰 구간 60–80%)
+
+---
+
+### 🎯 BLUF (결론 먼저)
+
+유럽의회의 위원회 시스템은 적어도 7개 상임 위원회에 걸친 빽빽한 입법 의제와 함께 2026년 5월 12~16일 주를 시작했습니다. 지배적인 주제는 다음과 같습니다. (1) **디지털 거버넌스** — 본회의는 4월 마지막 본회의에서 디지털 시장법 집행과 사이버 폭력 방지 법률에 대해 표결했습니다. (2) **환경 전환** — ENVI 위원회는 축산 부문 지속가능성 파일과 중량 차량의 잔여 배출 문제를 모두 처리하고 있습니다. (3) **은행 동맹 완성** — SRMR3 결의 메커니즘 개혁이 이제 공식적으로 법률이 되어 감독 체계에 관해 ECON과 AFCO에 작업을 창출하고 있습니다. (4) **무역 회복력** — 3월에 채택된 대미 관세 대응 조치 규정이 INTA와 AFET의 검토를 계속 추동하고 있습니다.
+
+**이번 주 주요 트리거**: 2027년 EU 예산 지침 결의(TA-10-2026-0112, 4월 28일 채택)가 연례 예산 사이클을 개시했습니다. BUDG 위원회는 이제 2026년 6월에 예상되는 유럽위원회 예산 초안 전에 조정 준비 단계에 들어갔습니다.
+
+---
+
+### 60-Second Read
+
+| 우선순위 | 위원회 | 파일 | 현황 | 중요성 |
+|---------|--------|------|------|--------|
+| 🔴 긴급 | BUDG | 2027년 예산 지침 (TA-10-2026-0112) | 4월 28일 채택; BUDG 수정안 작성 중 | 1,850억 EUR 이상 프레임워크; 기관 간 권력 다툼 |
+| 🔴 긴급 | ECON | SRMR3 — 은행 결의 메커니즘 (TA-10-2026-0092) | 3월 26일 채택; 코미톨로지 단계 | 시스템 리스크 — 은행 동맹 이정표 |
+| 🟠 높음 | ENVI | 축산 부문 지속가능성 (TA-10-2026-0157) | 4월 30일 채택; 이행 조치 대기 중 | 농장에서 식탁까지 정치적 균형; EPP-S&D 분열 |
+| 🟠 높음 | IMCO/LIBE | 디지털 시장법 집행 (TA-10-2026-0160) | 4월 30일 채택; 유럽위원회 후속 조치 | Big Tech 책임; 대서양 횡단 차원 |
+| 🟠 높음 | LIBE | 사이버 폭력/온라인 괴롭힘 (TA-10-2026-0163) | 4월 30일 채택; 삼자 협상 임박 | 플랫폼 책임; 아동 보호 연계 |
+| 🟡 중간 | INTA | 대미 관세 대응 조치 (TA-10-2026-0096) | 3월 26일 채택; 위원회 검토 진행 중 | 무역 전쟁 역학; 260억 EUR 노출 |
+| 🟡 중간 | JURI/LIBE | 반부패 지침 (TA-10-2026-0094) | 3월 26일 채택; 각국 전환 모니터링 | 법치주의; 유럽의회의 기관적 신뢰성 |
+| 🟢 모니터링 | AFCO | 선거법 개혁 비준 | 위원회 청문회 진행 중 | 헌법적 차원; 회원국 지연 |
+
+---
+
+### Committee Productivity Snapshot (2026년 5월 12~16일 주)
+
+유럽의회의 22개 상임 위원회는 표준 본회의 주 일정에 따라 운영되고 있습니다. 이번 주 주요 회의 활동:
+
+- **ENVI** (위원장: TBC): 중량 차량 배출 크레딧 이행 규정에 대한 마크업 회의 (규정 채택 TA-10-2026-0084). 축산 부문 후속 조치에 관한 보고자 논의가 계속됩니다.
+
+- **ECON** (위원장: TBC): SRMR3 채택 후 감독; 유럽중앙은행과의 분기별 대화 세션. 부실 대출 유통 시장 — 그림자 보고자 협의 진행 중.
+
+- **BUDG** (위원장: TBC): 2027년 예산 지침 후속 조치; 2027 회계연도 의회 추정치 (TA-10-2026-04-30-ANN01) 내부 검토 중.
+
+- **IMCO**: DMA 이후 집행 프레임워크 정교화. 디지털 서비스 규제 이행 점수표.
+
+- **LIBE**: 사이버 폭력 지침 삼자 협상 준비. 안전 제3국 개념 검토 (TA-10-2026-0026 후속).
+
+- **INTA**: 대미 관세 대응 조치 모니터링; MC14 이후 WTO 야운데 후속 (2026년 3월 26~29일).
+
+- **JURI/AFCO**: 27개 회원국에서의 선거법 비준 현황 검토.
+
+---
+
+### 🚦 신뢰도 평가
+
+| 주장 | WEP | 신뢰도 | 근거 |
+|------|-----|--------|------|
+| BUDG 조정 단계 진입 | 개연성 있음 | B2 | 채택 텍스트 + 절차적 일정 |
+| SRMR3 코미톨로지 개시 | 매우 개연성 있음 | B2 | 채택 텍스트 + EU 입법 절차 규칙 |
+| DMA 집행으로 IMCO 후속 조치 유발 | 개연성 있음 | C2 | 유럽의회 결의 언어 + 유럽위원회 의무 |
+| 축산 파일로 EPP-S&D 긴장 발생 | 개연성 있음 | C3 | 채택 텍스트 투표 패턴 추론 |
+| 미국 관세 상황 위기 임계값 이하 안정 | 가능성 있음 | C3 | 유럽의회 결의 + 유럽위원회 성명 |
+
+---
+
+### 전략적 전망 (7일)
+
+위원회 시스템은 채택 후 후속 조치 요구(SRMR3, DMA, 사이버 폭력, 축산)와 2027년 예산 사이클 개시가 동시에 진행되는 상황에 직면해 있습니다. 위원회 보고자들은 6월 본회의 전에 보고서를 제출해야 하는 압박을 받을 것입니다. 야운데에서의 WTO MC14 이후 미국과 EU 사이의 관세 상황은 예정된 위원회 작업을 방해할 수 있는 주요 외부 리스크로 남아 있습니다.
+
+**정책 결정자들이 주목해야 할 사항**: 6월 유럽위원회 예산 초안에 대한 BUDG의 반응; ECON의 첫 SRMR3 감독 청문회; LIBE의 사이버 폭력 삼자 협상 일정; 대미 관세 대응 조치 갱신에 관한 INTA의 입장.
+
+---
+
+### 데이터 출처
+
+- 유럽의회 채택 텍스트 2026 (TA-10-2026-0092~TA-10-2026-0163)
+- 유럽의회 공개 데이터 포털: `/adopted-texts?year=2026` (50개 항목 검색)
+- 유럽의회 위원회 문서: `/committee-documents` (AFCO 시리즈, 50개 이상)
+- ENVI & ECON 위원회 활동 분석: 유럽의회 공개 데이터 포털
+- `european-parliament-analyze_committee_activity` (ENVI, ECON)
+- `european-parliament-monitor_legislative_pipeline` (활성 절차)
+- 날짜 범위: 2026-05-07~2026-05-14
+
+---
+
+### 🗓️ 입법 달력
+
+2026년 5월 12~16일 주는 **유럽의회 간 주(Interparliamentary Week)**에 해당합니다 — 위원회가 집중적으로 회의를 개최하는 본회의 사이의 기간입니다. 이 구조적 맥락은 위원회 수준의 생산성이 불균형적으로 높은 이유를 설명합니다. 어떤 본회의장도 의원들의 일정을 두고 경쟁하지 않아 위원회 참석과 보고자 결과물이 최대화됩니다.
+
+#### 임박한 기한
+
+| 기한 | 파일 | 위원회 | 지연의 결과 |
+|------|------|--------|-----------|
+| 2026년 6월 | 유럽위원회 2027년 예산 초안 | BUDG | 유럽의회가 조정을 위한 시간을 잃음 |
+| 2026년 5월 | SRMR3 이행 규칙 | ECON | 은행 감독 공백 |
+| 2026년 6월 | DMA 집행 보고서 | IMCO | 유럽위원회 준수 평가 지연 |
+| 2026년 7월 | 사이버 폭력 삼자 협상 마무리 | LIBE | 플랫폼의 법적 불확실성 연장 |
+
+#### 연정 산술
+
+EPP (187석)와 S&D (136석)는 2026년 대부분의 위원회 보고서에서 사실상의 다수결 기반을 형성하고 있습니다. Renew Europe (77석)은 디지털 거버넌스와 무역 파일에서 중요한 스윙 역할을 합니다. ECR (78석)은 DMA 집행 맥락에서 규제 완화 조항을 지지합니다. Greens/EFA (53석)는 ENVI의 다수결 구성에 필수적입니다.
+
+**핵심 스윙 역학**: 축산 부문 파일에서 EPP와 ECR은 식품 안전 기준 완화를 위해 연합했고, S&D, Greens, Renew Europe은 보다 엄격한 추적 가능성 규칙을 추구했습니다. 그 결과 나온 타협안(TA-10-2026-0157)은 농업 규제 완화에 대한 중도 우파 + 극우의 이례적인 공조를 반영합니다.
+
+---
+
+### 📊 위원회 간 인텔리전스 지도
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4c0b18dd) -->
+
+---
+
+### 약어 목록
+
+| 약어 | 전체 명칭 |
+|---|---|
+| BUDG | 예산 위원회 |
+| ECON | 경제통화위원회 |
+| ENVI | 환경·기후·식품안전위원회 |
+| IMCO | 역내시장·소비자보호위원회 |
+| LIBE | 시민자유·사법·내무위원회 |
+| INTA | 국제무역위원회 |
+| JURI | 법무위원회 |
+| AFCO | 헌법문제위원회 |
+| AFET | 외교위원회 |
+| SRMR3 | 단일결의메커니즘규정 (3차 개정) |
+| DMA | 디지털 시장법 |
+| WTO MC14 | 세계무역기구 제14차 각료회의 |
+| EPP | 유럽인민당 |
+| S&D | 사회주의자·민주주의자 진보동맹 |
+| ECR | 유럽보수개혁파 |
+
+### Executive Brief Nl
+
+### 🎯 BLUF (Kernboodschap vooraf)
+
+Het commissiestelsel van het Europees Parlement trad de week van 12–16 mei 2026 in met een volle wetgevingsagenda verspreid over ten minste zeven vaste commissies. De dominante thema's zijn: (1) **digitaal bestuur** — de plenaire vergadering stemde in het laatste aprilplenaire over de handhaving van de wet op de digitale markten en wetgeving tegen cyberpesten; (2) **ecologische transitie** — de ENVI-commissie verwerkt zowel het duurzaamheidsdossier voor de veehouderijsector als resterende vragen over emissies van zware voertuigen; (3) **voltooiing van de bankenunie** — de SRMR3-hervorming van het afwikkelingsmechanisme is nu formeel wet en genereert werk in ECON en AFCO over de toezichtarchitectuur; en (4) **handelsstabiliteit** — de verordening inzake tegenmaatregelen op Amerikaanse tarieven die in maart werd aangenomen, blijft INTA en AFET aandrijven tot nader onderzoek.
+
+**Belangrijkste trigger deze week**: De resolutie over de EU-begrotingsrichtsnoeren voor 2027 (TA-10-2026-0112, aangenomen op 28 april) luidt de jaarlijkse begrotingscyclus in. De BUDG-commissie gaat nu de voorbereidingsfase van de bemiddeling in vóór het begrotingsontwerp van de Commissie dat in juni 2026 wordt verwacht.
+
+---
+
+### 60-Second Read
+
+| Prioriteit | Commissie | Dossier | Status | Belang |
+|------------|-----------|--------|--------|--------|
+| 🔴 KRITIEK | BUDG | Begrotingsrichtsnoeren 2027 (TA-10-2026-0112) | Aangenomen 28 apr.; BUDG stelt amendementen op | Kader van 185+ mrd. EUR; institutionele machtsstrijd |
+| 🔴 KRITIEK | ECON | SRMR3 — Bankafwikkelingsmechanisme (TA-10-2026-0092) | Aangenomen 26 mrt.; comitologiefase | Systeemrisico — mijlpaal bankenunie |
+| 🟠 HOOG | ENVI | Duurzaamheid in de veehouderijsector (TA-10-2026-0157) | Aangenomen 30 apr.; uitvoeringsmaatregelen in afwachting | Van boer tot bord politiek evenwicht; EPP-S&D-kloof |
+| 🟠 HOOG | IMCO/LIBE | Handhaving van de wet op de digitale markten (TA-10-2026-0160) | Aangenomen 30 apr.; follow-up Commissie | Big Tech-verantwoordingsplicht; transatlantische dimensie |
+| 🟠 HOOG | LIBE | Cyberpesten/online intimidatie (TA-10-2026-0163) | Aangenomen 30 apr.; trilogie aanstaande | Platformaansprakelijkheid; nexus bescherming van kinderen |
+| 🟡 GEMIDDELD | INTA | Tegenmaatregelen op Amerikaanse tarieven (TA-10-2026-0096) | Aangenomen 26 mrt.; commissiebeoordeling lopend | Handelsoorlogdynamiek; blootstelling van 26 mrd. EUR |
+| 🟡 GEMIDDELD | JURI/LIBE | Antikorruptierichtlijn (TA-10-2026-0094) | Aangenomen 26 mrt.; nationale omzetting gemonitord | Rechtsstaat; institutionele geloofwaardigheid PE |
+| 🟢 MONITORING | AFCO | Ratificatie van hervorming kieswet | Commissiehearings lopend | Constitutionele dimensie; vertraging in lidstaten |
+
+---
+
+### Committee Productivity Snapshot (week van 12–16 mei 2026)
+
+De 22 vaste commissies van het EP werken volgens een standaard plenaire weekschema. Belangrijke vergaderactiviteit deze week:
+
+- **ENVI** (Voorzitter: TBC): Markeeringsessie over uitvoeringsverordeningen voor emissietegoeden voor zware voertuigen (Verordening aangenomen TA-10-2026-0084). Rapporteursbesprekingen over vervolgmaatregelen voor de veehouderijsector gaan door.
+
+- **ECON** (Voorzitter: TBC): SRMR3-toezicht na aanneming; kwartaaldialoogsessie met de ECB. Secundaire markt voor NPL's — schaduwrapporteursconsultaties lopend.
+
+- **BUDG** (Voorzitter: TBC): Follow-up begrotingsrichtsnoeren voor 2027; ramingen van het Parlement voor begrotingsjaar 2027 (TA-10-2026-04-30-ANN01) onder intern onderzoek.
+
+- **IMCO**: Verfijning van het handhavingskader na DMA. Scorecards voor de implementatie van regulering van digitale diensten.
+
+- **LIBE**: Voorbereiding trilogie over de cyberpestrichtlijn. Herziening van het concept veilig derde land (follow-up TA-10-2026-0026).
+
+- **INTA**: Monitoring tegenmaatregelen op Amerikaanse tarieven; WTO Yaoundé-follow-up na MC14 (26–29 maart 2026).
+
+- **JURI/AFCO**: Statusbeoordeling ratificatie kieswet in 27 lidstaten.
+
+---
+
+### 🚦 Betrouwbaarheidsbeoordeling
+
+| Bewering | WEP | Admiraliteit | Basis |
+|---------|-----|-------------|-------|
+| BUDG gaat bemiddelingsfase in | Waarschijnlijk | B2 | Aangenomen tekst + procedurele tijdlijn |
+| Start comitologie SRMR3 | Zeer waarschijnlijk | B2 | Aangenomen tekst + EU-wetgevingsprocedureregels |
+| DMA-handhaving triggert IMCO-follow-up | Waarschijnlijk | C2 | Taal EP-resolutie + verplichting Commissie |
+| Veehouderijdossier genereert EPP-S&D-spanning | Waarschijnlijk | C3 | Gevolgtrekking uit stempatroon aangenomen tekst |
+| Amerikaanse tariefssituatie gestabiliseerd onder crisisdrempel | Mogelijk | C3 | EP-resolutie + verklaringen Commissie |
+
+---
+
+### Strategisch vooruitzicht (7 dagen)
+
+Het commissiestelsel staat voor een samenloop van eisen voor post-aanneming follow-up (SRMR3, DMA, cyberpesten, veehouderij) naast de lancering van de begrotingscyclus 2027. Commissierapporteurs zullen onder druk staan om hun rapporten voor het juniplenaire te leveren. De Amerikaanse tariefssituatie na de WTO MC14 in Yaoundé blijft het voornaamste externe risico dat het geplande commissiewerk kan verstoren.
+
+**Beslissers dienen te monitoren**: De reactie van BUDG op het begrotingsontwerp van de Commissie in juni; de eerste SRMR3-toezichtshearing van ECON; de tijdlijn van de cyberpestentrilogie van LIBE; de houding van INTA ten aanzien van de verlenging van de tegenmaatregelen op Amerikaanse tarieven.
+
+---
+
+### Gegevensbronnen
+
+- Aangenomen teksten EP 2026 (TA-10-2026-0092 t/m TA-10-2026-0163)
+- EP Open Data Portal: `/adopted-texts?year=2026` (50 items opgehaald)
+- EP-commissiedocumenten: `/committee-documents` (AFCO-reeks, 50+ documenten)
+- Analyse commissieactiviteit ENVI & ECON: EP Open Data Portal
+- `european-parliament-analyze_committee_activity` (ENVI, ECON)
+- `european-parliament-monitor_legislative_pipeline` (actieve procedures)
+- Datumvenster: 2026-05-07 t/m 2026-05-14
+
+---
+
+### 🗓️ Wetgevingskalender
+
+De week van 12–16 mei 2026 valt in de **Interparlementaire week** — een periode tussen plenaire vergaderingen waarin commissies intensief bijeenkomen. Deze structurele context verklaart waarom de commissieproductie disproportioneel hoog is: geen plenaire zaal concurreert om de agenda's van EP-leden, wat commissieaanwezigheid en rapporteursprestaties maximaliseert.
+
+#### Naderende deadlines
+
+| Deadline | Dossier | Commissie | Gevolg van vertraging |
+|----------|--------|-----------|----------------------|
+| Juni 2026 | Begrotingsontwerp 2027 Commissie | BUDG | EP verliest tijd voor bemiddeling |
+| Mei 2026 | Uitvoeringsregels SRMR3 | ECON | Bankentoezichtvacuüm |
+| Juni 2026 | Handhavingsrapport DMA | IMCO | Nalevingsbeoordeling Commissie vertraagd |
+| Juli 2026 | Afsluiting cyberpestentrilogie | LIBE | Rechtsonzekerheid platforms verlengd |
+
+#### Coalitierekenkunde
+
+EPP (187 zetels) en S&D (136 zetels) vormen de de facto meerderheidsruggegraat voor de meeste commissierapporten in 2026. Renew Europe (77 zetels) speelt een cruciale scharnierfunctie op dossiers betreffende digitaal bestuur en handel. ECR (78 zetels) steunt dereguleringsbepalingen in de context van DMA-handhaving. Greens/EFA (53 zetels) zijn cruciaal voor de meerderheidsvorming in ENVI.
+
+**Cruciale scharnierdynamiek**: In het veehouderijdossier sloten EPP en ECR zich aaneen om voedselveiligheidsnormen te verzachten, terwijl S&D, Greens en Renew Europe strengere traceerbaarheidsregels nastreefden. Het resulterende compromis (TA-10-2026-0157) weerspiegelt een ongebruikelijke centrum-rechts + uiterst rechts-afstemming over de deregulering van de landbouw.
+
+---
+
+### 📊 Commissieoverstijgende inlichtingenkaart
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4c0b18dd) -->
+
+---
+
+### Woordenlijst
+
+| Afkorting | Volledige naam |
+|---|---|
+| BUDG | Begrotingscommissie |
+| ECON | Commissie economische en monetaire zaken |
+| ENVI | Commissie milieu, klimaat en voedselveiligheid |
+| IMCO | Commissie interne markt en consumentenbescherming |
+| LIBE | Commissie burgerlijke vrijheden, justitie en binnenlandse zaken |
+| INTA | Commissie internationale handel |
+| JURI | Commissie juridische zaken |
+| AFCO | Commissie constitutionele zaken |
+| AFET | Commissie buitenlandse zaken |
+| SRMR3 | Verordening betreffende het gemeenschappelijk afwikkelingsmechanisme (3e herziening) |
+| DMA | Wet op de digitale markten |
+| WTO MC14 | 14e Ministeriële Conferentie van de Wereldhandelsorganisatie |
+| EPP | Europese Volkspartij |
+| S&D | Progressieve Alliantie van Socialisten en Democraten |
+| ECR | Europese Conservatieven en Hervormers |
+
+### Executive Brief No
+
+### 🎯 BLUF (Bunnlinje på forhånd)
+
+Europaparlamentets komitésystem innledet uken 12.–16. mai 2026 med en fullpakket lovgivningsagenda på tvers av minst syv stående komitéer. De dominerende temaene er: (1) **digital styring** — plenumsmøtet stemte over håndhevelse av den digitale markedsloven og lovgivning mot nettmobbing på det siste aprilplenumsmøtet; (2) **miljøomstilling** — ENVI-komitéen behandler både bærekraftfilen for husdyrsektoren og gjenstående spørsmål om utslipp fra tunge kjøretøy; (3) **fullføring av bankunionen** — SRMR3-reformen av resolusjonsmekanismen er nå formelt lov og skaper arbeid i ECON og AFCO om tilsynsarkitekturen; og (4) **handelsmessig motstandsdyktighet** — forordningen om mottiltak mot amerikanske toll som ble vedtatt i mars, fortsetter å drive INTA og AFETs gransking.
+
+**Viktigste begivenhet denne uken**: Resolusjonen om EUs budsjettretningslinjer for 2027 (TA-10-2026-0112, vedtatt 28. april) innleder den årlige budsjettsyklusen. BUDG-komitéen er nå i forliksforberedelsesfase i forkant av Kommisjonens budsjettforslag som forventes i juni 2026.
+
+---
+
+### 60-Second Read
+
+| Prioritet | Komité | Fil | Status | Betydning |
+|-----------|--------|-----|--------|-----------|
+| 🔴 KRITISK | BUDG | 2027 Budsjettretningslinjer (TA-10-2026-0112) | Vedtatt 28. apr; BUDG utarbeider endringsforslag | 185+ mrd. EUR rammeverk; institusjonell maktkamp |
+| 🔴 KRITISK | ECON | SRMR3 — Bankresolusjonsmekanisme (TA-10-2026-0092) | Vedtatt 26. mar; komitologifase | Systemrisiko — milepæl for bankunionen |
+| 🟠 HØY | ENVI | Bærekraft i husdyrsektoren (TA-10-2026-0157) | Vedtatt 30. apr; gjennomføringstiltak avventer | Jord-til-bord politisk balanse; EPP-S&D-skillelinje |
+| 🟠 HØY | IMCO/LIBE | Håndhevelse av den digitale markedsloven (TA-10-2026-0160) | Vedtatt 30. apr; Kommisjonens oppfølging | Big Tech-ansvarlighet; transatlantisk dimensjon |
+| 🟠 HØY | LIBE | Nettmobbing/online-trakassering (TA-10-2026-0163) | Vedtatt 30. apr; trilog forestår | Plattformsansvar; barnebeskyttelsesneksus |
+| 🟡 MIDDELS | INTA | Mottiltak mot amerikanske toll (TA-10-2026-0096) | Vedtatt 26. mar; komitégransking pågår | Handelskrigsdynamikk; 26 mrd. EUR eksponering |
+| 🟡 MIDDELS | JURI/LIBE | Korrupsjonsdirektiv (TA-10-2026-0094) | Vedtatt 26. mar; nasjonal transposisjon overvåkes | Rettsstatsprinsippet; EPs institusjonelle troverdighet |
+| 🟢 OVERVÅKING | AFCO | Ratifisering av valglovreform | Komitéhøringer pågår | Konstitusjonell dimensjon; forsinkelse i medlemsstatene |
+
+---
+
+### Committee Productivity Snapshot (uke 12.–16. mai 2026)
+
+EPs 22 stående komitéer arbeider etter en standard plenumsukeplan. Viktig møteaktivitet denne uken:
+
+- **ENVI** (leder: TBC): Markeringssesjon om gjennomføringsforordninger for utslippskreditter for tunge kjøretøy (forordning vedtatt TA-10-2026-0084). Ordførerdrøftinger om oppfølgingstiltak for husdyrsektoren fortsetter.
+
+- **ECON** (leder: TBC): SRMR3 etter-vedtakelsesovervåking; kvartalsvis ECB-dialogsesjon. Sekundærmarkedet for misligholdte lån — skyggeordførerkonsultasjoner pågår.
+
+- **BUDG** (leder: TBC): Oppfølging av budsjettretningslinjer for 2027; Parlamentets overslag for regnskapsår 2027 (TA-10-2026-04-30-ANN01) under intern gjennomgang.
+
+- **IMCO**: Forfining av håndhevelsesrammeverk etter DMA. Implementeringsscorecard for regulering av digitale tjenester.
+
+- **LIBE**: Forberedelse av trilog om nettmobbingsdirektivet. Gjennomgang av begrepet sikkert tredjeland (oppfølging av TA-10-2026-0026).
+
+- **INTA**: Overvåking av mottiltak mot amerikanske toll; WTO Yaoundé-oppfølging etter MC14 (26.–29. mars 2026).
+
+- **JURI/AFCO**: Statusgjennomgang av ratifisering av valgloven i 27 medlemsstater.
+
+---
+
+### 🚦 Konfidensvurdering
+
+| Påstand | WEP | Admiralitet | Grunnlag |
+|---------|-----|-------------|----------|
+| BUDG går inn i forliksfase | Sannsynlig | B2 | Vedtatt tekst + prosedyremessig tidslinje |
+| SRMR3 komitologistart | Svært sannsynlig | B2 | Vedtatt tekst + EUs lovgivningsprosedyreregler |
+| DMA-håndhevelse utløser IMCO-oppfølging | Sannsynlig | C2 | EP-resolusjonsspråk + Kommisjonens forpliktelse |
+| Husdyrfilen skaper EPP-S&D-spenning | Sannsynlig | C3 | Vedtatt teksts avstemingsmønster-slutning |
+| Amerikansk tollsituasjon stabilisert under kriseterskelen | Mulig | C3 | EP-resolusjon + Kommisjonsuttalelser |
+
+---
+
+### Strategisk utsikt (7 dager)
+
+Komitésystemet møter en konvergens av krav om oppfølging etter vedtakelse (SRMR3, DMA, nettmobbing, husdyr) parallelt med lanseringen av 2027-budsjettsyklusen. Komitéordførere vil stå under press for å levere sine rapporter i forkant av juniplenumsmøtet. Den amerikanske tollsituasjonen etter WTOs MC14 i Yaoundé er fortsatt den viktigste eksterne risikoen som kan forstyrre planlagt komitéarbeid.
+
+**Beslutningstakere bør overvåke**: BUDGs respons på Kommisjonens budsjettforslag i juni; ECONs første SRMR3-tilsynshøring; LIBEs tidslinje for nettmobbingstrilogen; INTAs holdning til fornyelse av mottiltak mot amerikanske toll.
+
+---
+
+### Datakilder
+
+- EPs vedtatte tekster 2026 (TA-10-2026-0092 til TA-10-2026-0163)
+- EPs åpne dataportal: `/adopted-texts?year=2026` (50 elementer hentet)
+- EP-komitédokumenter: `/committee-documents` (AFCO-serien, 50+ dokumenter)
+- ENVI & ECON-komitéaktivitetsanalyse: EPs åpne dataportal
+- `european-parliament-analyze_committee_activity` (ENVI, ECON)
+- `european-parliament-monitor_legislative_pipeline` (aktive prosedyrer)
+- Datovindu: 2026-05-07 til 2026-05-14
+
+---
+
+### 🗓️ Lovgivningsmessig kalender
+
+Uken 12.–16. mai 2026 faller i **Interparlamentarisk uke** — en periode mellom plenumsmøtene der komitéer møtes intensivt. Denne strukturelle konteksten forklarer hvorfor komitéproduktiviteten er uforholdsmessig høy: ingen plenumssal konkurrerer om MEPs tidsplaner, noe som maksimerer komitédeltakelse og ordførerresultater.
+
+#### Forestående frister
+
+| Frist | Fil | Komité | Konsekvens av forsinkelse |
+|-------|-----|--------|--------------------------|
+| Juni 2026 | Kommisjonens budsjettforslag 2027 | BUDG | EP mister tid til forliksforhandlinger |
+| Mai 2026 | SRMR3 gjennomføringsregler | ECON | Banktilsynsvakuum |
+| Juni 2026 | DMA-håndhevelsesrapport | IMCO | Kommisjonens etterlevingsvurdering forsinkes |
+| Juli 2026 | Avslutning av nettmobbingstrilog | LIBE | Plattformers rettslige usikkerhet forlenges |
+
+#### Koalisjonsaritmetikk
+
+EPP (187 seter) og S&D (136 seter) utgjør den de facto majoritetsryggraden for de fleste komitérapporter i 2026. Renew Europe (77 seter) spiller en avgjørende svingrollerrolle på digitale styrings- og handelsfiler. ECR (78 seter) støtter dereguleringsprovisionene i DMA-håndhevelseskonteksten. Greens/EFA (53 seter) er avgjørende for ENVI-majoritetsbygging.
+
+**Viktig svingdynamikk**: På husdyrsektorfilen sluttet EPP og ECR seg sammen for å myke opp mattrygghetsstandardene, mens S&D, Greens og Renew Europe søkte sterkere sporbarhetskrav. Det resulterende kompromisset (TA-10-2026-0157) reflekterer en uvanlig sentrum-høyre + ytterste høyre-tilpasning om landbruksderegulering.
+
+---
+
+### 📊 Tverrkomité etterretningskart
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4c0b18dd) -->
+
+---
+
+### Ordliste
+
+| Forkortelse | Fullt navn |
+|---|---|
+| BUDG | Budsjettkomitéen |
+| ECON | Komitéen for økonomi og pengepolitikk |
+| ENVI | Komitéen for miljø, klima og mattrygghet |
+| IMCO | Komitéen for det indre marked og forbrukerbeskyttelse |
+| LIBE | Komitéen for borgernes rettigheter og rettslige og innenrikse anliggender |
+| INTA | Komitéen for internasjonal handel |
+| JURI | Rettskomitéen |
+| AFCO | Komitéen for konstitusjonelle anliggender |
+| AFET | Utenrikskomitéen |
+| SRMR3 | Forordningen om den felles resolusjonsmekanismen (3. revisjon) |
+| DMA | Den digitale markedsloven |
+| WTO MC14 | Verdenshandelsorganisasjonens 14. ministerkonferanse |
+| EPP | Det europeiske folkepartiet |
+| S&D | Det progressive forbundet av sosialdemokrater |
+| ECR | De europeiske konservative og reformistene |
+
+### Executive Brief Sv
+
+### 🎯 BLUF (Slutsats i förväg)
+
+Europaparlamentets utskottssystem inledde veckan 12–16 maj 2026 med en fullspäckad lagstiftningsagenda i minst sju stående utskott. De dominerande temana är: (1) **digital styrning** — plenarsammanträdet röstade om tillämpningen av den digitala marknadslagen och lagstiftning mot nätmobbning vid det sista aprilplenariet; (2) **miljöomställning** — ENVI-utskottet behandlar hållbarhetsfilen för boskapssektorn och återstående frågor om avgasutsläpp från tunga fordon; (3) **slutförande av bankunionen** — SRMR3-reformen för resolutionsmekanismen har nu trätt i kraft och sätter avtryck i ECON och AFCO vad gäller tillsynsarkitekturen; och (4) **handelsmotståndskraft** — förordningen om motåtgärder mot amerikanska tullar som antogs i mars fortsätter att driva granskning i INTA och AFET.
+
+**Viktigaste händelse denna vecka**: Resolutionen om EU:s budgetriktlinjer för 2027 (TA-10-2026-0112, antagen 28 april) inleder den årliga budgetcykeln. BUDG-utskottet går nu in i förlikningsförberedande fas inför kommissionens utkast till budget som förväntas i juni 2026.
+
+---
+
+### 60-Second Read
+
+| Prioritet | Utskott | Fil | Status | Betydelse |
+|-----------|---------|-----|--------|-----------|
+| 🔴 KRITISK | BUDG | 2027 Budgetriktlinjer (TA-10-2026-0112) | Antagen 28 apr; BUDG utarbetar ändringsförslag | 185 miljarder euro+ ramverk; institutionell maktkonflikt |
+| 🔴 KRITISK | ECON | SRMR3 — Bankresoltningsmekanism (TA-10-2026-0092) | Antagen 26 mars; kommittologifas | Systemrisk — milstolpe för bankunionen |
+| 🟠 HÖG | ENVI | Hållbarhet inom boskapssektorn (TA-10-2026-0157) | Antagen 30 apr; genomförandeåtgärder väntar | Politisk balans från jord till bord; EPP-S&D-skiljelinje |
+| 🟠 HÖG | IMCO/LIBE | Tillämpning av den digitala marknadslagen (TA-10-2026-0160) | Antagen 30 apr; kommissionens uppföljning | Ansvarsskyldighet för Big Tech; transatlantisk dimension |
+| 🟠 HÖG | LIBE | Nätmobbning/online-trakasserier (TA-10-2026-0163) | Antagen 30 apr; trilog förestår | Plattformsansvar; kopplingen till barnsskydd |
+| 🟡 MEDEL | INTA | Motåtgärder mot amerikanska tullar (TA-10-2026-0096) | Antagen 26 mars; utskottsgranskning pågår | Handelskrigsdynamik; 26 miljarder euro i riskzon |
+| 🟡 MEDEL | JURI/LIBE | Korruptionsdirektiv (TA-10-2026-0094) | Antagen 26 mars; nationell transposition bevakas | Rättsstatsprincipen; EP:s institutionella trovärdighet |
+| 🟢 BEVAKNING | AFCO | Ratificering av vallagreform | Utskottshörningar pågår | Konstitutionell dimension; eftersläpning i medlemsstaterna |
+
+---
+
+### Committee Productivity Snapshot (vecka 12–16 maj 2026)
+
+EP:s 22 stående utskott arbetar enligt ett ordinarie plenarveckoschema. Viktig mötesaktivitet denna vecka:
+
+- **ENVI** (ordförande: TBC): Markeringssession om genomförandeförordningar för utsläppskrediter för tunga fordon (förordning antagen TA-10-2026-0084). Föredragandediskussioner om uppföljningsåtgärder för boskapssektorn fortsätter.
+
+- **ECON** (ordförande: TBC): SRMR3 post-antagningsöversyn; kvartalsdialog med ECB. Sekundärmarknaden för NPLer — skuggföredragandekonsultationer pågår.
+
+- **BUDG** (ordförande: TBC): Uppföljning av budgetriktlinjerna för 2027; parlamentets beräkningar för budgetåret 2027 (TA-10-2026-04-30-ANN01) under intern granskning.
+
+- **IMCO**: Förfining av tillämpningsramverk efter DMA. Rapportkort för genomförande av digitala tjänsteregleringar.
+
+- **LIBE**: Förberedelse för trilog om cybermobbningstdirektivet. Granskning av begreppet säkert tredjeland (uppföljning av TA-10-2026-0026).
+
+- **INTA**: Övervakning av motåtgärder mot amerikanska tullar; WTO Yaoundé-uppföljning efter MC14 (26–29 mars 2026).
+
+- **JURI/AFCO**: Statusgranskning av ratificering av vallagen i 27 medlemsstater.
+
+---
+
+### 🚦 Konfidensanalys
+
+| Påstående | WEP | Admiralitet | Grund |
+|-----------|-----|-------------|-------|
+| BUDG går in i förlikningsfas | Troligtvis | B2 | Antagen text + processuell tidslinje |
+| SRMR3 kommittologistart | Mycket troligtvis | B2 | Antagen text + EU:s lagstiftningsprocedurregler |
+| DMA-tillämpning utlöser IMCO-uppföljning | Troligtvis | C2 | EP-resolutionsspråk + kommissionsförpliktelse |
+| Boskapsfilen skapar EPP-S&D-spänning | Troligtvis | C3 | Slutsats av röstningsmönster för antagen text |
+| USA-tullsituationen stabiliserad under kriströskel | Möjligen | C3 | EP-resolution + kommissionsuttalanden |
+
+---
+
+### Strategisk prognos (7 dagar)
+
+Utskottssystemet står inför en konvergens av krav på uppföljning efter antagning (SRMR3, DMA, nätmobbning, boskap) parallellt med starten av 2027 års budgetcykel. Utskottsföredraganden kommer att stå under press att leverera sina betänkanden inför juniplenaret. Den amerikanska tullsituationen efter WTO:s MC14 i Yaoundé kvarstår som den huvudsakliga externa risken som kan störa planerat utskottsarbete.
+
+**Beslutsfattare bör bevaka**: BUDG:s svar på kommissionens budgetutkast i juni; ECON:s första SRMR3-granskningsmöte; LIBE:s tidslinje för nätmobbningstrilogen; INTA:s hållning om förnyelse av motåtgärder mot amerikanska tullar.
+
+---
+
+### Datakällor
+
+- EP antagna texter 2026 (TA-10-2026-0092 till TA-10-2026-0163)
+- EP:s öppna dataportal: `/adopted-texts?year=2026` (50 poster hämtade)
+- EP-utskottsdokument: `/committee-documents` (AFCO-serien, 50+ dokument)
+- Analys av ENVI- och ECON-utskottens aktivitet: EP:s öppna dataportal
+- `european-parliament-analyze_committee_activity` (ENVI, ECON)
+- `european-parliament-monitor_legislative_pipeline` (aktiva förfaranden)
+- Datumintervall: 2026-05-07 till 2026-05-14
+
+---
+
+### 🗓️ Lagstiftningskalender
+
+Veckan 12–16 maj 2026 infaller under **Interparlamentarisk vecka** — en period mellan plenarsammanträdena då utskotten möts intensivt. Detta strukturella sammanhang förklarar varför utskottsproduktionen är oproportionerligt hög: inget plenararbete konkurrerar om ledamöternas scheman, vilket maximerar utskottsnärvaron och föredragandenas leveranser.
+
+#### Kommande deadlines
+
+| Deadline | Fil | Utskott | Konsekvens av försening |
+|----------|-----|---------|------------------------|
+| Juni 2026 | Kommissionens budgetutkast 2027 | BUDG | EP förlorar tid för förlikning |
+| Maj 2026 | SRMR3 genomföranderegler | ECON | Tillsynsvakuum inom bankväsendet |
+| Juni 2026 | DMA-tillämpningsrapport | IMCO | Kommissionens efterlevnadsbedömning fördröjs |
+| Juli 2026 | Avslutning av nätmobbningstrilogen | LIBE | Rättslig osäkerhet för plattformar kvarstår |
+
+#### Koalitionsaritmetik
+
+EPP (187 mandat) och S&D (136 mandat) bildar ryggraden i den faktiska majoriteten för de flesta utskottsbetänkanden 2026. Renew Europe (77 mandat) spelar en central svängroll i digitala styrnings- och handelsfiler. ECR (78 mandat) stöder avregleringsbestämmelserna i DMA-tillämpningssammanhanget. Greens/EFA (53 mandat) är avgörande för ENVI-majoritetsskapandet.
+
+**Viktig svängdynamik**: I boskapssektorfilen förenade sig EPP och ECR för att mildra livsmedelssäkerhetsstandarderna, medan S&D, Greens och Renew Europe sökte starkare spårbarhetskrav. Den resulterande kompromissen (TA-10-2026-0157) återspeglar en ovanlig center-höger + ytterst höger-anpassning vad gäller jordbruksavreglering.
+
+---
+
+### 📊 Tvärutskottlig underrättelsekarta
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4c0b18dd) -->
+
+---
+
+### Ordlista
+
+| Förkortning | Fullständigt namn |
+|---|---|
+| BUDG | Budgetutskottet |
+| ECON | Utskottet för ekonomi och valutafrågor |
+| ENVI | Utskottet för miljö, klimat och livsmedelssäkerhet |
+| IMCO | Utskottet för den inre marknaden och konsumentskydd |
+| LIBE | Utskottet för medborgerliga fri- och rättigheter samt rättsliga och inrikes frågor |
+| INTA | Utskottet för internationell handel |
+| JURI | Utskottet för rättsliga frågor |
+| AFCO | Utskottet för konstitutionella frågor |
+| AFET | Utskottet för utrikesfrågor |
+| SRMR3 | Förordningen om den gemensamma resolutionsmekanismen (3:e revisionen) |
+| DMA | Den digitala marknadslagen |
+| WTO MC14 | Världshandelsorganisationens 14:e ministerkonferens |
+| EPP | Europeiska folkpartiet |
+| S&D | Progressiva förbundet av socialdemokrater och demokrater |
+| ECR | Europeiska konservativa och reformister |
+
+### Executive Brief Zh
+
+**日期：** 2026-05-14 | **运行：** committee-reports | **分类：** 公开
+**可信度评级：** B2（可靠来源；可能属实）
+**WEP区间：** 可能（置信区间60–80%）
+
+---
+
+### 🎯 BLUF（结论在前）
+
+欧洲议会委员会体系以至少七个常设委员会的充实立法议程开启了2026年5月12至16日这一周。主要议题包括：（1）**数字治理** — 全体会议在4月最后一次全体会议上就《数字市场法》执法和网络欺凌立法进行了表决；（2）**环境转型** — ENVI委员会正在处理畜牧业可持续发展文件和重型车辆残余排放问题；（3）**完善银行业联盟** — SRMR3破产处置机制改革现已正式成为法律，在监管架构方面为ECON和AFCO创造了工作；（4）**贸易韧性** — 3月通过的对美关税反制措施条例继续推动INTA和AFET的审查。
+
+**本周核心触发点**：2027年欧盟预算准则决议（TA-10-2026-0112，4月28日通过）启动年度预算周期。BUDG委员会现已进入调解准备阶段，等待欧盟委员会在2026年6月发布预算草案。
+
+---
+
+### 60-Second Read
+
+| 优先级 | 委员会 | 文件 | 状态 | 重要性 |
+|-------|--------|------|------|--------|
+| 🔴 紧急 | BUDG | 2027年预算准则（TA-10-2026-0112） | 4月28日通过；BUDG起草修正案 | 1850亿欧元以上框架；机构权力争夺 |
+| 🔴 紧急 | ECON | SRMR3 — 银行破产处置机制（TA-10-2026-0092） | 3月26日通过；共同体程序阶段 | 系统性风险 — 银行业联盟里程碑 |
+| 🟠 高 | ENVI | 畜牧业可持续发展（TA-10-2026-0157） | 4月30日通过；实施措施待定 | 从农场到餐桌的政治平衡；EPP-S&D分歧 |
+| 🟠 高 | IMCO/LIBE | 《数字市场法》执法（TA-10-2026-0160） | 4月30日通过；欧盟委员会跟进 | Big Tech问责；跨大西洋维度 |
+| 🟠 高 | LIBE | 网络欺凌/在线骚扰（TA-10-2026-0163） | 4月30日通过；三方谈判即将启动 | 平台责任；儿童保护关联 |
+| 🟡 中 | INTA | 对美关税反制措施（TA-10-2026-0096） | 3月26日通过；委员会审查进行中 | 贸易战动态；260亿欧元敞口 |
+| 🟡 中 | JURI/LIBE | 反腐指令（TA-10-2026-0094） | 3月26日通过；各国转化立法监测中 | 法治；欧洲议会的机构公信力 |
+| 🟢 监测 | AFCO | 选举法改革批准 | 委员会听证进行中 | 宪法维度；成员国滞后 |
+
+---
+
+### Committee Productivity Snapshot（2026年5月12至16日周）
+
+欧洲议会22个常设委员会按标准全体会议周日程运作。本周重要会议活动：
+
+- **ENVI**（主席：TBC）：重型车辆排放配额实施法规标注会议（条例已通过 TA-10-2026-0084）。畜牧业后续措施的报告员审议仍在持续。
+
+- **ECON**（主席：TBC）：SRMR3通过后监督；与欧洲中央银行的季度对话会议。不良贷款二级市场 — 影子报告员磋商进行中。
+
+- **BUDG**（主席：TBC）：2027年预算准则跟进；2027财年议会估算（TA-10-2026-04-30-ANN01）接受内部审查。
+
+- **IMCO**：完善DMA后执法框架。数字服务监管实施评分卡。
+
+- **LIBE**：网络欺凌指令三方谈判准备。审查安全第三国概念（TA-10-2026-0026跟进）。
+
+- **INTA**：监测对美关税反制措施；MC14后WTO雅温得跟进（2026年3月26至29日）。
+
+- **JURI/AFCO**：27个成员国选举法批准状态审查。
+
+---
+
+### 🚦 可信度评估
+
+| 主张 | WEP | 可信度 | 依据 |
+|------|-----|--------|------|
+| BUDG进入调解阶段 | 可能 | B2 | 已通过文本＋程序时间表 |
+| SRMR3共同体程序启动 | 很可能 | B2 | 已通过文本＋欧盟立法程序规则 |
+| DMA执法触发IMCO跟进 | 可能 | C2 | 欧洲议会决议措辞＋委员会义务 |
+| 畜牧业文件引发EPP-S&D紧张 | 可能 | C3 | 从通过文本的投票模式推断 |
+| 美国关税局势稳定在危机门槛以下 | 有可能 | C3 | 欧洲议会决议＋委员会声明 |
+
+---
+
+### 战略展望（7天）
+
+委员会体系面临通过后跟进工作（SRMR3、DMA、网络欺凌、畜牧业）与2027年预算周期启动同步交汇的局面。各委员会报告员将承受在6月全体会议前完成报告的压力。雅温得WTO MC14之后的美欧关税形势依然是可能扰乱委员会预定工作的主要外部风险。
+
+**决策者应关注**：BUDG对6月委员会预算草案的回应；ECON首次SRMR3监督听证；LIBE网络欺凌三方谈判时间表；INTA在续期对美关税反制措施上的立场。
+
+---
+
+### 数据来源
+
+- 欧洲议会2026年通过文本（TA-10-2026-0092至TA-10-2026-0163）
+- 欧洲议会开放数据门户：`/adopted-texts?year=2026`（已检索50条）
+- 欧洲议会委员会文件：`/committee-documents`（AFCO系列，50余份）
+- ENVI与ECON委员会活动分析：欧洲议会开放数据门户
+- `european-parliament-analyze_committee_activity`（ENVI，ECON）
+- `european-parliament-monitor_legislative_pipeline`（活跃程序）
+- 日期范围：2026-05-07至2026-05-14
+
+---
+
+### 🗓️ 立法日历
+
+2026年5月12至16日所在周为**欧洲议会间周** — 两次全体会议之间委员会密集开会的时期。这一结构性背景解释了为何委员会层面的产出格外高：没有任何全体会议会场与议员时间表竞争，从而最大化委员会出席率和报告员的成果。
+
+#### 临近截止日期
+
+| 截止日期 | 文件 | 委员会 | 延误后果 |
+|---------|------|--------|---------|
+| 2026年6月 | 欧盟委员会2027年预算草案 | BUDG | 欧洲议会失去调解时间 |
+| 2026年5月 | SRMR3实施规则 | ECON | 银行监管真空 |
+| 2026年6月 | DMA执法报告 | IMCO | 委员会合规评估延误 |
+| 2026年7月 | 网络欺凌三方谈判结束 | LIBE | 平台法律不确定性延续 |
+
+#### 联盟算术
+
+EPP（187席）与S&D（136席）构成2026年大多数委员会报告的事实上的多数骨干。Renew Europe（77席）在数字治理和贸易文件上扮演关键摇摆角色。ECR（78席）在DMA执法背景下支持放松管制条款。Greens/EFA（53席）对ENVI多数形成至关重要。
+
+**关键摇摆动态**：在畜牧业文件上，EPP与ECR联手软化食品安全标准，而S&D、Greens与Renew Europe则寻求更严格的可追溯性规则。由此产生的妥协方案（TA-10-2026-0157）体现了中右翼与极右翼在农业放松管制上罕见的协调。
+
+---
+
+### 📊 跨委员会情报地图
+
+<!-- mermaid block deduplicated: identical to earlier occurrence (hash=4c0b18dd) -->
+
+---
+
+### 术语表
+
+| 缩写 | 全称 |
+|---|---|
+| BUDG | 预算委员会 |
+| ECON | 经济货币事务委员会 |
+| ENVI | 环境、气候与食品安全委员会 |
+| IMCO | 内部市场与消费者保护委员会 |
+| LIBE | 公民自由、司法与内政委员会 |
+| INTA | 国际贸易委员会 |
+| JURI | 法律事务委员会 |
+| AFCO | 宪法事务委员会 |
+| AFET | 外交事务委员会 |
+| SRMR3 | 单一处置机制条例（第三次修订） |
+| DMA | 数字市场法 |
+| WTO MC14 | 世界贸易组织第十四届部长级会议 |
+| EPP | 欧洲人民党 |
+| S&D | 社会主义者与民主主义者进步联盟 |
+| ECR | 欧洲保守主义与改革主义者 |
+
 > **Provenance & Audit**
 >
 > - **Article type:** `committee-reports`
@@ -3509,6 +5154,7 @@ This article is produced under the [Hack23 AB](https://hack23.com) intelligence 
 - [Political Style Guide](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-style-guide.md)
 - [Political Swot Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-swot-framework.md)
 - [Political Threat Framework](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/political-threat-framework.md)
+- [Seo Headers Policy](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/seo-headers-policy.md)
 - [Source Triangulation](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/source-triangulation.md)
 - [Strategic Extensions Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/strategic-extensions-methodology.md)
 - [Structural Metadata Methodology](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/methodologies/structural-metadata-methodology.md)
@@ -3543,4 +5189,17 @@ Every artifact below was read by the aggregator and contributed to this article.
 | section-quality-reflection | [analysis-index](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/committee-reports/intelligence/analysis-index.md) | `intelligence/analysis-index.md` |
 | section-quality-reflection | [reference-analysis-quality](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/committee-reports/intelligence/reference-analysis-quality.md) | `intelligence/reference-analysis-quality.md` |
 | section-quality-reflection | [methodology-reflection](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/committee-reports/intelligence/methodology-reflection.md) | `intelligence/methodology-reflection.md` |
+| section-supplementary-intelligence | [executive-brief_ar](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/committee-reports/executive-brief_ar.md) | `executive-brief_ar.md` |
+| section-supplementary-intelligence | [executive-brief_da](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/committee-reports/executive-brief_da.md) | `executive-brief_da.md` |
+| section-supplementary-intelligence | [executive-brief_de](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/committee-reports/executive-brief_de.md) | `executive-brief_de.md` |
+| section-supplementary-intelligence | [executive-brief_es](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/committee-reports/executive-brief_es.md) | `executive-brief_es.md` |
+| section-supplementary-intelligence | [executive-brief_fi](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/committee-reports/executive-brief_fi.md) | `executive-brief_fi.md` |
+| section-supplementary-intelligence | [executive-brief_fr](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/committee-reports/executive-brief_fr.md) | `executive-brief_fr.md` |
+| section-supplementary-intelligence | [executive-brief_he](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/committee-reports/executive-brief_he.md) | `executive-brief_he.md` |
+| section-supplementary-intelligence | [executive-brief_ja](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/committee-reports/executive-brief_ja.md) | `executive-brief_ja.md` |
+| section-supplementary-intelligence | [executive-brief_ko](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/committee-reports/executive-brief_ko.md) | `executive-brief_ko.md` |
+| section-supplementary-intelligence | [executive-brief_nl](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/committee-reports/executive-brief_nl.md) | `executive-brief_nl.md` |
+| section-supplementary-intelligence | [executive-brief_no](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/committee-reports/executive-brief_no.md) | `executive-brief_no.md` |
+| section-supplementary-intelligence | [executive-brief_sv](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/committee-reports/executive-brief_sv.md) | `executive-brief_sv.md` |
+| section-supplementary-intelligence | [executive-brief_zh](https://github.com/Hack23/euparliamentmonitor/blob/main/analysis/daily/2026-05-14/committee-reports/executive-brief_zh.md) | `executive-brief_zh.md` |
 
