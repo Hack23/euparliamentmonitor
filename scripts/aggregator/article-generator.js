@@ -445,7 +445,7 @@ function getMetadataEntry(map, lang) {
         return descriptor.value;
     }
     const en = Object.getOwnPropertyDescriptor(map, 'en')?.value;
-    return en ?? { title: '', description: '', extendedDescription: '', keywords: [], source: 'template' };
+    return (en ?? { title: '', description: '', extendedDescription: '', keywords: [], source: 'template' });
 }
 /**
  * Count the number of articles the site currently publishes, derived

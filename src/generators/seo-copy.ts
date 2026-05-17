@@ -258,8 +258,7 @@ const NEWS_INDEX_OVERLAYS: Record<string, Overlay> = {
     faqHeading: 'よくある質問',
   },
   ko: {
-    keywords:
-      '유럽 의회, EU 뉴스, 유럽 의원, 본회의, AI 저널리즘, 의회 정보 분석, EU 정책, Hack23',
+    keywords: '유럽 의회, EU 뉴스, 유럽 의원, 본회의, AI 저널리즘, 의회 정보 분석, EU 정책, Hack23',
     ogImageAlt: 'EU 의회 모니터 — AI 기반 의회 정보 분석',
     breadcrumbHome: '홈',
     breadcrumbCurrent: '뉴스',
@@ -267,8 +266,7 @@ const NEWS_INDEX_OVERLAYS: Record<string, Overlay> = {
     faqHeading: '자주 묻는 질문',
   },
   zh: {
-    keywords:
-      '欧洲议会, 欧盟新闻, 欧洲议员, 全体会议, 人工智能新闻, 议会情报, 欧盟政策, Hack23',
+    keywords: '欧洲议会, 欧盟新闻, 欧洲议员, 全体会议, 人工智能新闻, 议会情报, 欧盟政策, Hack23',
     ogImageAlt: 'EU议会监测 — 人工智能驱动的议会情报',
     breadcrumbHome: '首页',
     breadcrumbCurrent: '新闻',
@@ -378,8 +376,7 @@ const SITEMAP_OVERLAYS: Record<string, Overlay> = {
     faqHeading: 'サイトマップについて',
   },
   ko: {
-    keywords:
-      '사이트맵, EU 의회 모니터, 아카이브, 뉴스 색인, 의회 기사, 투명성, RSS, Hack23',
+    keywords: '사이트맵, EU 의회 모니터, 아카이브, 뉴스 색인, 의회 기사, 투명성, RSS, Hack23',
     ogImageAlt: 'EU 의회 모니터 — 게시된 모든 기사의 사이트맵',
     breadcrumbHome: '홈',
     breadcrumbCurrent: '사이트맵',
@@ -387,8 +384,7 @@ const SITEMAP_OVERLAYS: Record<string, Overlay> = {
     faqHeading: '사이트맵 안내',
   },
   zh: {
-    keywords:
-      '网站地图, EU议会监测, 存档, 新闻索引, 议会文章, 透明度, RSS, Hack23',
+    keywords: '网站地图, EU议会监测, 存档, 新闻索引, 议会文章, 透明度, RSS, Hack23',
     ogImageAlt: 'EU议会监测 — 所有已发布文章的网站地图',
     breadcrumbHome: '首页',
     breadcrumbCurrent: '网站地图',
