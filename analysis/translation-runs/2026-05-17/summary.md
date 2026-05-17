@@ -1,6 +1,6 @@
 # Translation Run Summary — 2026-05-17
 
-**Run ID:** 209
+**Run ID:** 211
 **Branch:** news/translate-briefs-2026-05-17
 **Briefs processed:** 2/2
 **Total translations:** 26 (13 languages × 2 briefs)
