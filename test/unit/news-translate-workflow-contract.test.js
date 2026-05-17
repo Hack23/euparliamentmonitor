@@ -240,7 +240,8 @@ describe('news-translate workflow contract', () => {
     // compare against the 50-minute emergency threshold.
     expect(workflow).toMatch(/ELAPSED_MIN/);
     expect(workflow).toMatch(/REMAINING_MIN/);
-    expect(workflow).toMatch(/-ge 50|>=\s*50/);
+    // The workflow uses bash's `-ge` comparison for the 50-min threshold.
+    expect(workflow).toMatch(/-ge\s+50\b/);
     // The prompt body must explicitly authorize partial-progress flushes
     // (cancelling the legacy "Never flush before 13 langs complete" rule).
     expect(workflow).toMatch(/emergency partial flush|emergency-flush|EMERGENCY FLUSH/i);

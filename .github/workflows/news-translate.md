@@ -577,6 +577,14 @@ PY
    - `QUEUED_COUNT` — `totals.queued` from `/tmp/gh-aw/discovery/queue.json`
      (read once in Step 1; this is `2` on a default run, up to `4` on
      catch-up runs).
+   - `PARTIAL_BRIEF_PATH` *(emergency flush only)* — `sourcePath` of the
+     in-progress brief at the moment the Step 4b marker fired (e.g.
+     `analysis/daily/2026-04-01/propositions/executive-brief.md`).
+   - `PARTIAL_LANG_COUNT` *(emergency flush only)* — number of language
+     siblings already written to disk for the in-progress brief (e.g.
+     `10` when `ar` and `he` are done but `ja`, `ko`, `zh` are not).
+     Compute with `ls "${BRIEF_DIR}"/executive-brief_*.md | wc -l`
+     immediately before calling `safeoutputs___create_pull_request`.
 
    ```javascript
    safeoutputs___create_pull_request({
