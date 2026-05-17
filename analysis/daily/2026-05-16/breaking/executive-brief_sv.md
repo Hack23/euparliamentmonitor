@@ -1,212 +1,91 @@
 <!-- SPDX-FileCopyrightText: 2026 Hack23 AB -->
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 
-# Executive Brief — EU-parlamentets Breaking News
-**Datum:** 2026-05-16 | **Klassificering:** 🟢 PUBLIC | **Admiralitetsgrad:** B2
+# Verkställande sammanfattning — EU-parlamentet Senaste nytt
+**Datum:** 2026-05-16 | **Klassificering:** 🟢 PUBLIC | **Admiralitetsnivå:** B2
 
-## Headline Intelligence
+## Underrättelseöversikt
 
-Europaparlamentets plenarsession i april 2026 (Strasbourg, 28–30 april) levererade
-ett tätt lagstiftningspaket som spänner över tillämpning av digital reglering,
-ansvarsutkrävande kring Ukrainakriget, hållbarhet inom jordbruket, demokratisk
-motståndskraft i EU:s grannskap samt kriminalisering av nätexploatering. Sessionen
-markerar ett avgörande ögonblick när EP10 konsoliderar sin tidiga lagstiftningsagenda
-inför budgetcykeln 2027, medan geopolitiska påtryckningar från Rysslands fortsatta
-aggression och utvecklingen i det östliga partnerskapet omformar EU:s utrikespolitiska
-hållning.
+Europaparlamentets plenarsession i april 2026 (Strasbourg, 28–30 april) levererade ett tätt lagstiftningsresultat som spände över tillämpning av digital reglering, ukrainsk krigsansvarskyldighet, jordbrukshållbarhet, demokratisk motståndskraft i EU:s grannskap och styrning av onlineexploatering. Sessionen utgör ett avgörande tillfälle när EP10 konsoliderar sin tidiga lagstiftningsagenda inför 2027 års budgetcykel, medan geopolitiska påtryckningar från Rysslands fortsatta aggression och Östliga partnerskapets utveckling omformar EU:s utrikespolitiska hållning.
 
-## Key Developments (2026-04-28 to 2026-04-30)
+## Nyckelhändelser (2026-04-28 till 2026-04-30)
 
 ### 🔴 HÖG PRIORITET
 
 1. **Tillämpning av lagen om digitala marknader** (TA-10-2026-0160, 2026-04-30)
-   Parlamentet antog en resolution om tillämpningen av lagen om digitala marknader (DMA)
-   och signalerade växande frustration över kommissionens arbetstakt gentemot utsedda
-   grindvakter (Apple, Google, Meta, Amazon, Microsoft, Booking.com). Med de första
-   formella förfarandena i gång uppmanade parlamentsledamöterna till utökade resurser för
-   DMA-efterlevnadsdirektoratet och tydligare tidsplaner för sanktioner vid
-   bristande efterlevnad. Detta positionerar EU som den globala digitala
-   regleringsstandardens sättare vid ett tillfälle då amerikanska Big Tech samtidigt
-   möter kongressionstryck. 🟡 Konfidensgrad: MEDEL-HÖG (antagen text; efterlevnadstakt
-   osäker)
+   Parlamentet antog en resolution om tillämpningen av lagen om digitala marknader och signalerade därmed ökande frustration med kommissionens åtgärdstakt gentemot utsedda grindvakter (Apple, Google, Meta, Amazon, Microsoft, Booking.com). Med de första formella förfarandena igång uppmanade MEP:arna till utökade resurser för DMA:s tillsynsdirektorat och tydligare tidsplaner för sanktioner vid bristande efterlevnad. Detta positionerar EU som den globala standarden för digital reglering vid ett tillfälle när USA:s storteknologibolag simultaneously är under kongresstryck. 🟡 Konfidensgrad: MEDIUM-HÖG (antagen text; tillämpningstakt osäker)
 
-2. **Ukrainas krigsansvar** (TA-10-2026-0161, 2026-04-30)
-   Parlamentet krävde ansvarsutkrävande och rättvisa för Rysslands fortsatta attacker mot
-   ukrainsk civil infrastruktur, efterlyste påskyndade mekanismer för beslagtagande av
-   frysta ryska suveräna tillgångar (~300 miljarder euro) och uppmanade rådet att
-   slutföra Ukraine Support Instrument inom ramen för REARM Europe-initiativet.
-   Resolutionen kom dagarna efter tredårsdagen av attacken mot Zaporizjzja-kraftverket
-   2022 och bär hög symbolisk och diplomatisk tyngd.
-   🔴 Konfidensgrad: HÖG (brett tvärpartistöd)
+2. **Ukrainsk krigsansvarskyldighet** (TA-10-2026-0161, 2026-04-30)
+   Parlamentet krävde ansvarsskyldighet och rättvisa för Rysslands fortsatta angrepp mot ukrainsk civil infrastruktur, och uppmanade till accelererade mekanismer för tillgångsbeslaget av frysta ryska suveräna tillgångar (~300 miljarder euro) och att rådet ska slutföra stödinstrumentet för Ukraina inom ramen för REARM Europe-initiativet. Resolutionen kom dagarna efter tredessårsdagen av attacken på Zaporizjzja-kraftverket 2022, med hög symbolisk och diplomatisk tyngd. 🔴 Konfidensgrad: HÖG (enhälligt stöd från alla partier)
 
-3. **Budgetriktlinjer 2027** (TA-10-2026-0112, 2026-04-28)
-   Parlamentet godkände budgetriktlinjer för 2027 och signalerade sina prioriteringar
-   för nästa årsbudgetcykel. Centrala prioriteringar inkluderar försvarskapacitetsuppbyggnad
-   under EDIP, jordbrukskonkurrenskraft efter CAP-reformöversynen, digital infrastruktur
-   och klimatomställning. Riktlinjerna refererar uttryckligen till Draghirapporten om
-   konkurrenskraftsgap, vilket markerar en övergång mot produktivitetsfokuserade
-   budgetprioriteringar. 🟢 Konfidensgrad: HÖG (formellt riktlinjedokument)
+3. **Budgetriktlinjer för 2027** (TA-10-2026-0112, 2026-04-28)
+   Parlamentet godkände budgetriktlinjer för 2027 och signalerade sina prioriteringar för nästa årliga budgetcykel. Centrala prioriteringar inkluderar uppbyggnad av försvarskapacitet under EDIP, jordbrukskonkurrenskraft efter CAP-reformgranskningen, digital infrastruktur och klimatomställning. Riktlinjerna hänvisar uttryckligen till Draghi-rapportens konkurrenskraftsgapsfynd, vilket markerar ett skifte mot produktivitetsfokuserade budgetprioriteringar. 🟢 Konfidensgrad: HÖG (formellt riktlinjedokument)
 
-### 🟡 MEDEL PRIORITET
+### 🟡 MEDELPRIORITETET
 
 4. **Demokratisk motståndskraft i Armenien** (TA-10-2026-0162, 2026-04-30)
-   Parlamentet antog en resolution till stöd för Armeniens demokratiska konsolidering
-   och noterade Jerevan pivotering bort från CSTO och fördjupade EU-Armenien-relationer
-   inklusive undertecknandet av det nya övergripande och förstärkta partnerskapsavtalet
-   (CEPA II). Resolutionen uppmanar till liberaliserade visaordningar och förstärkt stöd
-   för Armeniens rättsreformfärdplan. Geopolitiskt betydelsefullt när Rysslands inflytande
-   i södra Kaukasus fortsätter att urholkas.
-   🟡 Konfidensgrad: MEDEL (diplomatisk resolution; genomförande osäkert)
+   Parlamentet antog en resolution till stöd för Armeniens demokratiska konsolidering och noterade Jerevan's pivotering bort från CSTO och fördjupade EU-Armenienrelationer inklusive undertecknandet av det nya omfattande och förstärkta partnerskapsavtalet (CEPA II). Resolutionen uppmanar till liberaliserade viseringsarrangemang och ökat stöd för Armeniens reformplan för rättsväsendet. Geopolitiskt betydelsefull i och med att Rysslands inflytande i södra Kaukasus fortsätter att urholkas. 🟡 Konfidensgrad: MEDIUM (diplomatisk resolution; genomförande osäkert)
 
-5. **Hållbarhet inom djurhållningssektorn** (TA-10-2026-0157, 2026-04-30)
-   Parlamentsledamöterna antog en resolution om att säkra en hållbar framtid för EU:s
-   djurhållningssektor, med en balans mellan djurvälfärd, miljömål och jordbrukarnas
-   försörjning. Resolutionen erkänner 2040-klimatmålens tryck på metanutsläpp från
-   boskap, samtidigt som den efterlyser en teknikneutral strategi och tillräcklig
-   finansiering av rättvis omställning för berörda jordbrukssamhällen i östra och
-   södra medlemsstater. 🟡 Konfidensgrad: MEDEL (icke-bindande resolution;
-   CAP-förhandlingar pågår)
+5. **Hållbarhet i boskapsektorn** (TA-10-2026-0157, 2026-04-30)
+   MEP:arna antog en resolution om att säkra en hållbar framtid för EU:s boskapsektor, med balans mellan djurvälfärd, miljömål och jordbrukarnas försörjning. Resolutionen erkänner klimatmåltrycket för 2040 på metanutsläpp från boskap, samtidigt som den kräver ett teknikneutralt tillvägagångssätt och tillräcklig finansiering för rättvis omställning för berörda jordbrukssamhällen i östra och södra medlemsstater. 🟡 Konfidensgrad: MEDIUM (icke-bindande resolution; CAP-förhandlingar pågår)
 
-6. **Kriminalisering av nätexploatering** (TA-10-2026-0163, 2026-04-30)
-   Parlamentet efterlyste riktade straffrättsliga bestämmelser och plattformsansvar för
-   att effektivt bekämpa sexuella övergrepp mot barn online (CSAM) och grooming.
-   Resolutionen uppmanar till att återuppliva den stillade Chat Control-förordningen och
-   förespråkar krav på teknik för sökning på klientsidan, trots medborgerliga
-   frihetsrelaterade invändningar från Vänstern och Gröna/EFA. Detta representerar en
-   fortsatt skiljelinje mellan säkerhetsfokuserade och integritetsfokuserade
-   parlamentsledamöter. 🟡 Konfidensgrad: MEDEL (omtvistat politikområde;
-   rådets ståndpunkt osäker)
+6. **Kriminalisering av onlineexploatering** (TA-10-2026-0163, 2026-04-30)
+   Parlamentet uppmanade till riktade straffrättsliga bestämmelser och plattformsansvar för att effektivt bekämpa sexuellt barnmissbruksmaterial (CSAM) och grooming online. Resolutionen uppmanar till återupptag av den fastnade Chat Control-förordningen och driver på för mandat för teknik för skanning på klientsidan, trots de medborgerliga frihetsproblem som The Left och Greens/EFA lyfte fram. Detta representerar en fortsatt skiljelinje mellan säkerhetsfokuserade och integritetsfokuserade MEP:ar. 🟡 Konfidensgrad: MEDIUM (kontroversiellt politikområde; rådsposition osäker)
 
 ### 🟢 LÄGRE PRIORITET
 
-7. **Immunitetshävning: Patryk Jaki** (TA-10-2026-0105, 2026-04-28)
-   Parlamentet röstade för att häva immuniteten för ECR-parlamentsledamoten Patryk Jaki
-   (Polen) i samband med pågående polska domstolsförfaranden. Hävningen följer den
-   tidigare immunitetshävningen för Grzegorz Braun (mars 2026) och belyser pågående
-   ansvarsprövningar mot polska högerextrema politiker.
-   🟢 Konfidensgrad: HÖG (formell procedurrösning)
+7. **Immunitetsupphävning: Patryk Jaki** (TA-10-2026-0105, 2026-04-28)
+   Parlamentet röstade för att upphäva ECR MEP Patryk Jakis (Polen) immunitet i samband med pågående polska rättsliga förfaranden. Upphävandet följer det tidigare Grzegorz Braun-upphävandet (mars 2026) och belyser pågående ansvarsskyldighetsförfaranden mot polska högerextremistiska politiker. 🟢 Konfidensgrad: HÖG (formell procedurell omröstning)
 
-8. **Trafficking-krisen i Haiti** (TA-10-2026-0151, 2026-04-30)
-   Parlamentet fördömde eskalerande trafficking och exploatering från kriminella grupper
-   i Haiti, uppmanade till ett förstärkt mandat för the Multinational Security Support
-   (MSS)-missionen och EU:s bistånd villkorat av ansvarsutkrävande för gängvåldsoffers
-   skull. 🟢 Konfidensgrad: MEDEL (humanitär kris; begränsad direkt EU-hävstång)
+8. **Haitis trafficking-kris** (TA-10-2026-0151, 2026-04-30)
+   Parlamentet fördömde eskalerande handel och exploatering av kriminella grupper i Haiti och uppmanade till förstärkt mandat för den multinationella säkerhetsstödsmissionen (MSS) och EU-utvecklingsstöd villkorat av ansvarsskyldighet för offren för gängvåld. 🟢 Konfidensgrad: MEDIUM (humanitär kris; begränsad EU-direkt hävstång)
 
-## Political Landscape Context
+## Politiskt landskapssammanhang
 
-Parlamentet verkar med 717 parlamentsledamöter fördelade på 9 politiska grupper.
-EPP (183 platser/25,5 %) förblir dominerande men kräver koalitionspartner för
-lagstiftande majoritet. Stabilitetspoängen ligger på 84/100 med MEDEL samlad risk,
-även om en HOG-svårighetsgrad dominansrisksignal är aktiv. Stor koalitionsviabilitet
-mellan EPP+S&D (319 platser) faller precis under tröskeln på 360 platser, vilket gör
-trepartikoalitioner strukturellt nödvändiga för de flesta beslut. Det progressiva blocket
-(Gröna/EFA + S&D + Vänstern + Renew = ~311 platser) och det konservativa blocket
-(EPP + PfE + ECR + ESN = ~376 platser) uppvisar en framväxande högercentermajoritet i
-sociala frågor och säkerhetsfrågor, medan digitala ärenden och klimatärenden fortfarande
-attraherar stöd över blockgränserna.
+Parlamentet är aktivt med 717 MEP:ar fördelade på 9 politiska grupper. EPP (183 platser/25,5%) förblir dominant men behöver koalitionspartner för lagstiftande majoriteter. Stabilitetspoängen är 84/100 med MEDIUM övergripande risk, men en HÖG-allvarlighets-dominanrisksignal är aktiv. Storkoalitionens livskraft mellan EPP+S&D (319 platser) är strax under tröskelns 360 platser, vilket gör trepartskoalitioner strukturellt nödvändiga för de flesta beslut. Det progressiva blocket (Greens/EFA + S&D + The Left + Renew = ~311 platser) och det konservativa blocket (EPP + PfE + ECR + ESN = ~376 platser) visar en framväxande höger-av-centrum-majoritet på sociala och säkerhetsfrågor, medan digitala och klimatärenden fortfarande lockar stöd över blockgränser.
 
-## IMF Economic Context
+## IMF Ekonomisk kontext
 
-IMF World Economic Outlook 2026 projicerar EU BNP-tillväxt på 1,4 % för 2026 (nedjusterat
-0,3 procentenheter jämfört med WEO oktober 2025), vilket speglar motvind från tullar i
-EU-USA:s handelsspänningar, kvarstående energiprisvolatilitet och fortfarande förhöjda
-upplåningskostnader trots ECB:s normalisering av penningpolitiken. DMA-tillämpningsdebatten
-utspelar sig mot denna bakgrund av dämpad tillväxt, där digital marknadskontestabilitet
-i allt högre grad formuleras som ett konkurrenskraftskrav. Budgetriktlinjerna för 2027
-som antogs av parlamentet speglar EP:s medvetenhet om fiskalutrymmesbegränsningarna
-under stabilitets- och tillväxtpaktens reformerade ramverk (ikraft 2025), som kräver att
-medlemsstater visar upp medellånga strukturella finansiella konsolideringsvägar.
+IMF World Economic Outlook 2026 projicerar EU:s BNP-tillväxt till 1,4% för 2026 (nedjusterat med 0,3 pp från WEO oktober 2025), vilket återspeglar tullavgiftsmotvindar från USA-EU-handelsstrider, ihållande energiprisvolatilitet och fortfarande höga lånekostnader trots ECB:s policynormalisering. DMA:s tillsätningsdebatt utspelar sig mot bakgrunden av denna dämpade tillväxt, där digital marknadskonkurrens alltmer framställs som ett konkurrenskraftskrav. Budgetriktlinjerna för 2027 som parlamentet antog återspeglar EP:s medvetenhet om de finanspolitiska utrymmesrestriktionerna under stabilitet- och tillväxtpaktens reformerade ramverk (giltigt från 2025), vilket kräver att medlemsstaterna påvisar medelfristiga strukturella finanspolitiska konsolideringsvägar.
 
-## Assessment
+## Bedömning
 
-Plenarsessionen i april 2026 visar ett parlament som aktivt hävdar lagstiftningsauktoritet
-över flera politikområden simultant. Kombinationen av DMA-tillämpningstryck, krav på
-Ukrainaansvar och prioritering av budgeten 2027 avslöjar en institution som använder sin
-dagordningsmakt för att forma kommissionens och rådets beteende trots avsaknad av formellt
-lagstiftningsinitiativ. Mönstret av immunitetshävningar för högerextremistiska
-parlamentsledamöter (Braun, Jaki) signalerar att EP-utskott bearbetar
-ansvarsprövningar utan partipolitiskt skydd — ett positivt institutionellt
-integritetssignal.
+Plenarsessionen i april 2026 visar ett parlament som aktivt hävdar lagstiftande auktoritet över flera politikområden simultaneously. Kombinationen av DMA-tillämpningstryck, ukrainska ansvarsskyldighetsutmaningar och budgetprioriteteringar för 2027 avslöjar en institution som använder sin dagordningssättningsmakt för att forma kommissionens och rådets beteende trots avsaknaden av formellt lagstiftningsinitiativ. Immunitetsupphäsningsmönstret för högerextrema MEP:ar (Braun, Jaki) signalerar att EP-utskotten behandlar ansvarsskyldighetsärenden utan partiskydd, ett positivt institutionellt integritetssignal.
 
-**Slutsats:** April 2026 markerar en produktiv plenaromgång med starkt tvärpartistöd
-kring geopolitiska dossiers (Ukraina, Armenien) och förutsägbara vänster-högerskillnader
-i digitala integritets-/säkerhetsavvägningar. Budgetriktlinjerna för 2027 signalerar EP:s
-framväxande finansiella prioriteringar för Draghis konkurrenskraftsagenda.
+**Sammanfattning:** April 2026 markerar ett produktivt plenum med starkt tvärspartiellt samförstånd om geopolitiska ärenden (Ukraina, Armenien) och förutsägbara vänster-höger-delningar på avvägningar om digital integritet/säkerhet. Budgetriktlinjerna för 2027 signalerar EP:s framväxande finanspolitiska prioriteringar för Draghis konkurrenskraftsagenda.
 
-## WEP Statement
+## WEP-uttalande
 
-WEP: EU-parlamentets lagstiftningsresultat april 2026 var substantiella och indikerar
-Koalition Delta-stabilitet; dock representerar USA-EU:s digitala handelsspänningar och
-verifieringen av ukrainskt ansvar högre-än-baslinjegeopolitiska svansrisker som kräver
-chefsuppmärksamhet.
+WEP: EU-parlamentets lagstiftningsresultat från april 2026 var substantiella och indikerar Koalition Delta-stabilitet; dock representerar USA-EU:s digitala handelsfriktion och den ukrainska ansvarsskyldighetsverifieringen högre-än-baslinjegeopolitiska svantsrisker som kräver chefsmärksamhet.
 
-## Strategic Priorities for Q2 2026 Decision-Makers
+## Strategiska prioriteringar för Q2 2026 beslutfattare
 
-1. **Övervaka DMA-tillämpningskalender (juni 2026)** — kommissionens tidplanssignal
-   för tillämpning är den viktigaste kortsiktiga indikatorn för EU-USA:s handelsrelationer
-2. **Förbered kommunikationsstrategi för Ukraina-milstolpar** — transparens kring
-   verifiering är väsentlig för att upprätthålla parlamentariskt och folkligt stöd
-   för Ukrainas finansiella åtaganden
-3. **Säkra budgetkoalitionsposition 2027 inför september-trilog** — att säkerställa att
-   EP-koalitionen håller kring budgetambitioner kräver förtrilogsamordningsmöten
-4. **Följ ECB:s räntesignaler** — HIKP på 2,3 % (tröskel 2,5 %) skapar risk för
-   räntepaus som skulle påverka 2026 investeringsutsikter för DMA-reglerade sektorer
+1. **Bevaka DMA:s tillämpningskalender (juni 2026)** — kommissionens tillämpningstidslinjmeddeddelande är den viktigaste närtermssignalen för EU-USA-handelsrelationerna
+2. **Förbered kommunikationsstrategi för ukrainska milstolpar** — verifieringstransparens är nödvändig för att upprätthålla parlamentets och allmänhetens stöd för Ukrainas finansiella åtaganden
+3. **Säkra Budget 2027-koalitionsposition inför septembertrilogen** — att säkerställa att EP-koalitionen håller fast vid budgetambitionerna kräver möten för förkoordinering före trilogen
+4. **Spåra ECB-räntesignaler** — HIKP på 2,3% (tröskel 2,5%) skapar risk för räntepaus som skulle påverka 2026 investeringsutsikterna för DMA-reglerade sektorer
 
-Admiralitetsgrad: B2 — Executive brief sammanställd från bekräftade EP- och IMF-data.
+Admiralitetsnivå: B2 — Verkställande sammanfattning synthesiserad från bekräftade EP- och IMF-data.
 
-**WEP: Mycket troligt** — Genomförande av EP:s lagstiftningsresultat april 2026
-kommer att fortgå planenligt med tanke på Koalition Delta-stabilitet, med förbehåll
-för USA-handelsfriktioner kring DMA-tillämpning (trolig förseningsrisk) och ukrainsk
-ansvarsverifiering (ungefär jämna chanser för ett litet underskott).
+**WEP: Ytterst troligt** — Genomförandet av EP:s lagstiftningsresultat från april 2026 kommer att fortlöpa planenligt givet Koalition Delta-stabiliteten, med förbehåll för USA:s handelsfriktion om DMA-tillämpning (Trolig förseningsrisk) och ukrainsk ansvarsskyldighetsverifiering (Ungefär jämna chanser för en mindre brist).
 
-*Bedömningsperiod: 28 april – 16 maj 2026. Nästa viktiga händelse: Kommissionens
-DMA-tillämpningskalender (förväntas juni 2026). Admiralitetsgrad: B2.*
-*Bevaka viktiga beslut: (1) DMA-tillämpningskalender juni 2026; (2) Verifiering av
-Ukrainaansvar Q3 2026; (3) Budget 2027 trilog september 2026;
-(4) ECB-räntebeslut om HIKP överstiger 2,5 %.*
+*Bedömningsperiod: 28 april – 16 maj 2026. Nästa stora händelse: Kommissionens DMA-tillämpningskalendermeddelande (förväntat juni 2026). Admiralitetsnivå: B2.*
+*Bevaka nyckelbreslut: (1) DMA-tillämpningskalender juni 2026; (2) Ukrainas milstolpsverifiering Q3 2026; (3) Budget 2027-trilogen september 2026; (4) ECB-räntebeslut om HIKP överstiger 2,5%.*
 
-*Framtagen: 16 maj 2026. Körning: breaking-run251. dataMode: degraded-feeds.*
+*Utarbetad: 16 maj 2026. Körning: breaking-run251. dataLäge: degraded-feeds.*
 
-## IMF Economic Context — May 2026 Update
+## IMF Ekonomisk kontext — Maj 2026-uppdatering
 
-Lagstiftningsresultaten från april 2026 måste läsas mot IMF World Economic Outlook
-(april 2026) baslinjen: EU BNP-tillväxt 1,4 %, euroområdet 1,2 %, EU HIKP 2,3 %,
-ECB:s depositionsränta 2,25 %. Dessa siffror kontextualiserar varje politisk signal
-från plenarsessionen.
+Lagstiftningsresultaten från april 2026 måste läsas mot IMF World Economic Outlook (april 2026) baslinjen: EU:s BNP-tillväxt 1,4%, euroområdets 1,2%, EU:s HIKP 2,3%, ECB:s inlåningsränta 2,25%. Dessa siffror kontextualiserar varje politisk signal från plenarsessionen.
 
-**DMA-tillämpning × IMF-tillväxtkontext:** Digitala tjänster utgör ungefär 6,8 % av
-EU:s BNP (IMF Digital Economy Assessment, 2025). Accelererad DMA-tillämpning mot sex
-utsedda grindvakter kan minska plattformarnas uttagsextraktion med uppskattningsvis
-12–18 miljarder euro årligen om böter för bristande efterlevnad påförs i det övre
-tillåtna intervallet. Med EU BNP-tillväxt på 1,4 % representerar detta ungefär 0,04–0,06
-procentenheter av BNP — en liten men riktningskänslig prokonkurrenseffekt. IMF-modeller
-tyder på att effektiv digital marknadskontestabilitet tillför 0,2–0,4 procentenheter
-till EU:s långsiktiga tillväxtpotential.
+**DMA-tillämpning × IMF-tillväxtkontext:** Digitala tjänster utgör ungefär 6,8% av EU:s BNP (IMF Digital Economy Assessment, 2025). DMA-tillämpningsacceleration mot sex utsedda grindvakter kan minska plattformarnas hyrextrahering med uppskattningsvis 12–18 miljarder euro årligen om sanktioner för bristande efterlevnad påförs i det övre tillåtna intervallet. Med EU:s BNP-tillväxt på 1,4% representerar detta ungefär 0,04–0,06 pp av BNP — en liten men riktningsvis betydande prokonkurrenseffekt. IMF-modeller antyder att effektiv digital marknadskonkurrens tillför 0,2–0,4 pp till EU:s långsiktiga tillväxtpotential.
 
-**Ukrainas ansvar × IMF:s finanspolitiska kontext:** Frysta ryska suveräna tillgångar
-(~300 miljarder euro) motsvarar ungefär 1,8 % av EU:s BNP. G7+EU-avtalet om att använda
-ränteinkomster (~3 miljarder euro per år) till stöd för Ukraina är redan inbakat i IMF:s
-Ukraine-programbaslinjen. Accelererat beslagtagande av tillgångar (som EP:s resolution
-kräver) skulle kräva nya UNSC-ramverksrättsliga instrument — IMF-personalen har signalerat
-att detta scenario skapar "avsevärd rättslig osäkerhet" för global förvaltning av
-internationella reserver.
+**Ukrainas ansvarsskyldighet × IMF:s finanspolitiska sammanhang:** Frysta ryska suveräna tillgångar (~300 mdr euro) representerar ungefär 1,8% av EU:s BNP. G7+EU-avtalet om att använda ränteinkomster (~3 mdr euro per år) för stöd till Ukraina är redan inbegripet i IMF:s Ukraina-programbaslinjen. Accelererat tillgångsbeslag (som EP:s resolution kräver) skulle kräva nya UNSC-ramverkliga rättsinstrument — IMF-personal har signalerat att detta scenario skapar "avsevärd rättslig osäkerhet" för internationell reservförvaltning globalt.
 
-**Budgetriktlinjer 2027 × IMF:s konsolideringsutsikter:** IMF projicerar euroområdets
-offentliga underskott på 3,1 % av BNP 2026, ned från 3,4 % 2025. Finanskonsolideringspressen
-begränsar rådets utrymme att möta EP:s budgetambitioner kring försvar (EDIP) och klimat.
-Draghirapporten om ett investeringsgap på 800 miljarder euro per år har inte formellt
-godkänts av IMF, som betraktar det som ett maximalscenario — ett viktigt moträkneargument
-från rådet inför den kommande budgettrilogen.
+**Budget 2027-riktlinjer × IMF:s konsolideringsöversikt:** IMF projicerar euroområdets offentliga underskott till 3,1% av BNP 2026, ned från 3,4% 2025. Finanspolitiskt konsolideringstryck begränsar rådets utrymme att möta EP:s budgetambitioner på försvar (EDIP) och klimat. Draghi-rapportens uppskattning om 800 mdr euro i år-till-år-investeringsgap har inte formellt godkänts av IMF, som ser detta som ett övre gränsscenario — ett viktigt motargument från rådet i den kommande budgettrilogen.
 
-*Källa: IMF WEO april 2026 — auktoritativ källa för alla ekonomi-/finanspåståenden ovan.*
+*Källa: IMF WEO april 2026 — auktoritativ källa för alla ekonomiska/finanspolitiska påståenden ovan.*
 
-**ECB-ränta × legislativ risk:** Med HIKP på 2,3 % (IMF-prognos) och ECB:s
-depositionsränta på 2,25 % förutsätter EP10:s digitala och gröna investeringsprioriteringar
-varaktigt låg räntenivå. En HIKP-överskridning av 2,5 % skulle utlösa diskussioner om
-ECB-räntepaus, vilket ökar kostnaden för EU-stödda investeringsinstrument (EIB-lån,
-InvestEU-garantier) och krymper parlamentets finanspolitiska verktygslåda för
-budgetförhandlingarna 2027.
+**ECB-ränta × Lagstiftningsrisk:** Med HIKP på 2,3% (IMF-prognos) och ECB:s inlåningsränta på 2,25%, antar EP10:s digitala och gröna investeringsprioriteringar hållbara lågräntefinansieringar. Varje HIKP-överskridning över 2,5% skulle utlösa ECB-räntepausdiskussioner, höja kostnaden för EU-stödda investeringsinstrument (EIB-lån, InvestEU-garantier) och pressa parlamentets finanspolitiska verktygslåda för 2027 budgetförhandlingar.
 
-*Makrorisksammanfattning: EU:s fiskalutrymme är trångt; IMF-data bekräftar att EP:s
-lagstiftningsambitioner från april 2026 befinner sig i utkanten av vad makroekonomiska
-förhållanden kan bära.*
+*Makrorisksammanfattning: EU:s finanspolitiska utrymme är trångt; IMF-data bekräftar att EP:s lagstiftningsambitioner från april 2026 befinner sig vid den yttre gränsen av vad makroekonomiska förhållanden kan stödja.*
