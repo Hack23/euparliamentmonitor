@@ -408,9 +408,24 @@ PY
    `analysis/daily/<date>/<slug>/executive-brief_<lang>.md`; for
    `isExtended: true` entries it is
    `analysis/daily/<date>/<slug>/extended/executive-brief_<lang>.md`.
-   Use the `create` tool (preferred for new files; pass `path` and
-   `file_text` explicitly on every call) or `edit` (for files that
-   already exist on disk):
+
+   > **⚠️ TOOL REQUIREMENT — read before writing:** Use the `create`
+   > tool **exclusively** (pass `path` and `file_text` explicitly on
+   > every call). **NEVER** use `cat > file << 'EOF'` shell heredocs —
+   > heredocs silently truncate when the translation content fills the
+   > context, causing the last H2 section(s) to vanish without any
+   > error. Use `edit` only for files that already exist on disk.
+
+   Before writing the first word of any translation, enumerate the
+   source H2 titles so you know the full checklist:
+   ```bash
+   grep -E '^## ' "$sourcePath"
+   ```
+   Treat every line printed as a **MUST-TRANSLATE** item. The last H2
+   title printed is the one most often dropped — write or verify it
+   explicitly. Do **not** begin a new language until you have confirmed
+   the previous one contains every H2 from this list.
+
    - Mirror the source structure: exact H1 and H2 counts (zero
      tolerance), H3 count within ±1 (legitimate CJK sub-bullet fusion),
      same list count, table rows, blockquote count, emoji-marker
@@ -426,6 +441,28 @@ PY
      emoji (`🟢 HIGH` / `🟡 MEDIUM` / `🔴 LOW`), classification stamps.
    - Apply per-language register from § 4 of the translator guide
      (Nordic / EU-core / RTL / CJK).
+
+   **4a. Mandatory H2 spot-check per language** — run immediately after
+   creating each `executive-brief_<lang>.md`, BEFORE moving to the next
+   language. A mismatch means a section was dropped (almost always the
+   last H2). Fix the translation NOW; do not continue to the next
+   language until this exits 0.
+
+   ```bash
+   set -euo pipefail
+   src_h2=$(grep -cE '^## ' "$sourcePath" || echo 0)
+   out_h2=$(grep -cE '^## ' "${BRIEF_DIR}/executive-brief_${lang}.md" || echo 0)
+   if [ "$src_h2" != "$out_h2" ]; then
+     echo "❌ H2 MISMATCH for ${lang}: source=${src_h2} translation=${out_h2}" >&2
+     echo "Source H2 titles:" >&2
+     grep -E '^## ' "$sourcePath" >&2
+     echo "Translation H2 titles:" >&2
+     grep -E '^## ' "${BRIEF_DIR}/executive-brief_${lang}.md" >&2
+     exit 1
+   fi
+   echo "✅ H2 spot-check OK for ${lang}: ${out_h2}/${src_h2}"
+   ```
+
 5. **Self-validate** the brief you just finished. **This is a hard gate.
     Do not call `safeoutputs___create_pull_request` until this step
     reports zero violations for the brief's siblings.**
@@ -518,6 +555,11 @@ caps the queue; the AI does not need to ration its own work.
 
 - **Never** translate before reading the translator guide.
 - **Never** translate by running `sed`/`awk`/`tr` over the source.
+- **Never** use `cat > file << 'EOF'` shell heredocs to write translation
+  content. Heredocs silently truncate when the output fills the context
+  window, dropping the last H2 section(s) without any visible error —
+  this is the root cause of the recurring "7/8 H2" failures. Use the
+  `create` tool exclusively.
 - **Never** add new sections or merge sections — structural fidelity is
   enforced by validator gates #6 (heading parity), #7 (Mermaid parity), and
   human review.

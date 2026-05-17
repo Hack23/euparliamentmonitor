@@ -120,6 +120,34 @@ describe('news-translate workflow contract', () => {
     expect(workflow).toMatch(/distinct sections/i);
   });
 
+  it('bans shell heredocs for translation output in the Never section', () => {
+    // Regression hardening for run #25994653245 — the agent used
+    // `cat > file << 'EOF'` heredocs which silently truncate at context
+    // limits, dropping the last H2 section(s). The "Never" section MUST
+    // explicitly prohibit this pattern so future agents cannot repeat it.
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    // The workflow must mention heredoc in the Never / forbidden section.
+    expect(workflow).toMatch(/heredoc/i);
+    // Must direct the agent to use the create tool exclusively.
+    expect(workflow).toMatch(/create.*tool.*exclusively|exclusively.*create.*tool/i);
+  });
+
+  it('requires a per-language H2 spot-check immediately after each file creation', () => {
+    // Regression hardening for run #25994653245 — the agent systematically
+    // dropped the last H2 (`## IMF Economic Context — May 2026 Update`) in
+    // all 13 sibling translations before the final self-validate caught it.
+    // The prompt MUST include an inline bash spot-check that fires after
+    // EACH individual language file is created so the error is caught
+    // before moving to the next language (not after all 13 are done).
+    workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
+    // A per-language H2 count check bash block must be present.
+    expect(workflow).toMatch(/H2 spot.check/i);
+    expect(workflow).toMatch(/src_h2.*grep.*\^## /s);
+    expect(workflow).toMatch(/out_h2.*grep.*\^## /s);
+    // The check must compare source vs translation count.
+    expect(workflow).toMatch(/src_h2.*out_h2|out_h2.*src_h2/s);
+  });
+
   it('makes the in-agent self-validator a hard pre-flush gate', () => {
     // Regression hardening: in run #25983007788 the agent flushed a PR
     // without re-running the validator on the brief it had just
