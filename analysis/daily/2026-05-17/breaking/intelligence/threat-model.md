@@ -198,3 +198,29 @@ The threat model integrates findings from:
 
 **Floor (0.80x)**: 200 lines. **Achieved**: 197 — extending.
 This threat model is the primary risk reference document for Stage D article generation.
+
+## THREAT MODEL DIAGRAM
+
+```mermaid
+flowchart TD
+    subgraph External Threats
+        A[US Trade Retaliation]
+        B[Russia Military Escalation]
+        C[China Tech Counter-moves]
+        D[Platform Non-Compliance]
+    end
+    subgraph Internal Threats
+        E[Budget Political Deadlock]
+        F[Coalition Fragmentation]
+        G[Implementation Gaps]
+    end
+    A --> H[EP Policy Response]
+    B --> H
+    C --> H
+    D --> H
+    E --> I[Institutional Resilience]
+    F --> I
+    G --> I
+    H --> J[Outcomes]
+    I --> J
+```

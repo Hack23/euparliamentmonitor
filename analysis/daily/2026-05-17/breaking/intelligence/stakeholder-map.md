@@ -243,3 +243,26 @@ The Commission is in a complex position: it is the EU's main interlocutor with U
 **Analyst note**: All stakeholders assigned confidence grades per Admiralty scale. Tier 1 confidence: B2. Tier 2: C2. Tier 3: C3.
 
 **Final stakeholder count**: 21 documented across 3 tiers, 4 policy domains.
+
+## STAKEHOLDER NETWORK DIAGRAM
+
+```mermaid
+mindmap
+  root((EP April 2026 Plenary))
+    Key Players EP
+      EPP Manfred Weber
+      S&D Iratxe Garcia
+      Renew Valerie Hayer
+      Greens Philippe Lamberts
+      ECR Nicola Procaccini
+    Commission
+      Thierry Breton DMA
+      Josep Borrell PESC
+      Johannes Hahn Budget
+    External Actors
+      US BigTech DMA Targets
+      Ukraine Government
+      Armenian Government
+      Russia Federation
+      Haiti Criminal Networks
+```

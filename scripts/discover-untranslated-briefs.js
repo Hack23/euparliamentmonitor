@@ -88,7 +88,14 @@
  *         "sourcePath": "analysis/daily/2026-05-15/breaking/executive-brief.md",
  *         "missingLangs": ["sv","da","no","fi","de","fr","es","nl","ar","he","ja","ko","zh"],
  *         "missingCount": 13,
- *         "isExtended": false
+ *         "isExtended": false,
+ *         "sourceH2Count": 8,
+ *         "sourceH2Titles": [
+ *           { "line": 7, "title": "Headline Intelligence" },
+ *           { "line": 96, "title": "IMF Economic Context" },
+ *           { "line": 146, "title": "IMF Economic Context — May 2026 Update" }
+ *         ],
+ *         "sourceFixedTokens": { "IMF": 17, "WEO": 2, "TA-id": 4 }
  *       },
  *       ...
  *     ]
@@ -274,6 +281,71 @@ export function findMissingLangs(source) {
 }
 
 /**
+ * Fixed-token classes the translator must preserve verbatim. Aligned with
+ * `scripts/validate-brief-translations.js` `FIXED_TOKEN_PATTERNS` so the
+ * discovery report and the validator surface the same shape of evidence.
+ * Keys are stable identifiers (used by the agent prompt); values are the
+ * global regex the count is computed against.
+ *
+ * @type {ReadonlyArray<{ key: string, pattern: RegExp }>}
+ */
+const FIXED_TOKEN_CLASSES = Object.freeze([
+  { key: 'IMF', pattern: /\bIMF\b/g },
+  { key: 'WEO', pattern: /\bWEO\b/g },
+  { key: 'World Bank', pattern: /\bWorld Bank\b/g },
+  { key: 'Fiscal Monitor', pattern: /\bFiscal Monitor\b/g },
+  { key: 'data-vintage', pattern: /data-vintage="WEO-[A-Za-z]+-\d{4}"/g },
+  { key: 'TA-id', pattern: /\bTA-\d{1,2}-\d{4}-\d{4}\b/g },
+  { key: 'procedure-id', pattern: /\b\d{4}\/\d{4}\([A-Z]{3}\)/g },
+]);
+
+/**
+ * Extract H2 section titles from a markdown source file. Returns the
+ * 1-based line number and the visible title (with the leading `## `
+ * stripped). The agent uses this to spot duplicate-titled sections such
+ * as `## IMF Economic Context` followed by
+ * `## IMF Economic Context — May 2026 Update`, which were silently
+ * collapsed across all 13 translations in run #25983007788. Surfacing the
+ * full title list at discovery time eliminates the ambiguity before any
+ * translation work begins.
+ *
+ * @param {string} absPath
+ * @returns {Array<{ line: number, title: string }>}
+ */
+export function extractH2Titles(absPath) {
+  if (!fs.existsSync(absPath)) return [];
+  const text = fs.readFileSync(absPath, 'utf8');
+  const lines = text.split('\n');
+  const out = [];
+  for (let i = 0; i < lines.length; i += 1) {
+    const match = /^##\s+(\S.*)$/.exec(lines[i]);
+    if (match) out.push({ line: i + 1, title: match[1].trim() });
+  }
+  return out;
+}
+
+/**
+ * Count occurrences of each FIXED_TOKEN class in the source brief. Only
+ * classes with at least one match are emitted, so the queue entry stays
+ * compact for short briefs.
+ *
+ * @param {string} absPath
+ * @returns {Record<string, number>}
+ */
+export function countFixedTokens(absPath) {
+  if (!fs.existsSync(absPath)) return {};
+  const text = fs.readFileSync(absPath, 'utf8');
+  const counts = {};
+  for (const { key, pattern } of FIXED_TOKEN_CLASSES) {
+    const re = new RegExp(pattern.source, pattern.flags);
+    let n = 0;
+    while (re.exec(text) !== null) n += 1;
+    if (n > 0) counts[key] = n;
+  }
+  return counts;
+}
+
+/**
  * Build the prioritised queue. See module docstring for ordering rules.
  *
  * @param {ReturnType<typeof findExecutiveBriefSources>} sources
@@ -306,6 +378,16 @@ export function buildQueue(sources, options) {
     for (const lang of missing) {
       missingByLang.set(lang, (missingByLang.get(lang) || 0) + 1);
     }
+    // Pre-compute structural targets for the translator agent so it has
+    // explicit visibility into duplicate-titled H2 sections and the
+    // verbatim-preserve token budget BEFORE any translation is written.
+    // Surfacing these here (rather than relying on the agent to discover
+    // them) prevents the regression observed in run #25983007788, where
+    // 13 sibling translations of a single brief silently collapsed a
+    // `## IMF Economic Context — May 2026 Update` section because the
+    // agent treated it as a duplicate of `## IMF Economic Context`.
+    const sourceH2Titles = extractH2Titles(source.absPath);
+    const sourceFixedTokens = countFixedTokens(source.absPath);
     withGaps.push({
       date: source.date,
       slug: source.slug,
@@ -313,6 +395,9 @@ export function buildQueue(sources, options) {
       missingLangs: missing,
       missingCount: missing.length,
       isExtended: source.isExtended,
+      sourceH2Titles,
+      sourceH2Count: sourceH2Titles.length,
+      sourceFixedTokens,
     });
   }
 

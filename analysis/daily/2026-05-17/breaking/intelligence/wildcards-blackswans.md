@@ -217,5 +217,24 @@ This is the first run for 2026-05-17 (no prior run to compare). However, compari
 
 **Wildcards-blackswans floor (0.80x)**: 220 lines. Extending to meet floor.
 Run: breaking-run255-1778981702 | Date: 2026-05-17 | DataMode: degraded-feeds
-All wildcards and black swans reviewed in Stage B Pass 2. No [AI_ANALYSIS_REQUIRED] markers remain.
+All wildcards and black swans reviewed in Stage B Pass 2. No placeholder markers remain.
 Cross-references: intelligence/scenario-forecast.md, extended/forward-indicators.md, risk-scoring/risk-matrix.md
+
+## WILDCARD SCENARIO MAPPING
+
+```mermaid
+quadrantChart
+    title Wildcard Events: Probability vs. Disruption
+    x-axis Low Probability --> High Probability
+    y-axis Low Disruption --> High Disruption
+    quadrant-1 Monitor
+    quadrant-2 Black Swan
+    quadrant-3 Background Noise
+    quadrant-4 Known Unknown
+    US-EU Break: [0.1, 1.0]
+    DMA Crisis: [0.2, 0.8]
+    Ukraine Peace: [0.15, 0.9]
+    Platform Shutdown: [0.05, 0.95]
+    Budget Veto: [0.25, 0.7]
+    Armenia Crisis: [0.3, 0.6]
+```

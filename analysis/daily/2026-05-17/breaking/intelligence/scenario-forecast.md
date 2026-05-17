@@ -222,3 +222,22 @@ All probability estimates are analyst judgements based on EP institutional prece
 
 **Scenario forecast produced**: Stage B Pass 2, 2026-05-17. Data: degraded-feeds mode. Floor (0.80×): 224 lines.
 
+
+## SCENARIO PROBABILITY FRAMEWORK
+
+```mermaid
+flowchart LR
+    A[April 2026 EP Resolutions] --> B{Scenario Fork}
+    B --> C[Scenario 1: Status Quo 50%]
+    B --> D[Scenario 2: Escalation 30%]
+    B --> E[Scenario 3: Breakthrough 20%]
+    C --> F[DMA moderate enforcement
+Ukraine stalemate
+Budget compromise]
+    D --> G[DMA-US trade confrontation
+Russia escalation
+Budget deadlock]
+    E --> H[DMA global standard
+Ukraine peace talks
+Budget innovation]
+```

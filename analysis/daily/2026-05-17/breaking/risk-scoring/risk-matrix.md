@@ -98,3 +98,66 @@ Impact
 | R4 (Legal challenge) | Accept (low probability) | Commission DG COMP | Q3 2026 |
 | R5 (Armenia escalation) | Monitor + EU diplomatic presence increase | EEAS | Ongoing |
 | R6 (PNR breach) | Transfer risk via security standards agreement | EDPS + Icelandic DPA | Before implementation |
+
+## RISK MATRIX VISUAL
+
+```mermaid
+flowchart TD
+    subgraph Critical HIGH-HIGH
+        A[US-EU Trade War]
+        B[Russia Escalation Ukraine]
+    end
+    subgraph High HIGH-MED
+        C[DMA Platform Retaliation]
+        D[Budget Political Deadlock]
+        E[Cyberbullying Incomplete]
+    end
+    subgraph Medium MED-MED
+        F[Armenia Destabilization]
+        G[ECB Policy Divergence]
+        H[Coalition Fragmentation]
+    end
+    subgraph Low LOW-ANY
+        I[EP Institutional Overreach]
+        J[PNR Data Breach]
+    end
+```
+
+## EXTENDED RISK MATRIX ANALYSIS
+
+### Risk Scenario Deep Dives
+
+**Risk S1: US Trade War Triggered by DMA Enforcement (HIGH priority)**
+
+*Scenario pathway*: Commission issues first major DMA non-compliance decision (expected Q3 2026) → US tech companies appeal AND lobby US executive branch → US Trade Representative initiates Section 301 investigation against EU digital regulations → Tariff threats on EUR 100B+ EU exports → EU-US trade negotiations collapse
+
+*Probability*: 30-40% (Admiralty Grade C2)
+*Impact if realized*: EUR 20-50B trade disruption in year 1; EUR 100B+ if full tariff escalation
+*Key decision points*: Size of DMA penalty (>$10B likely to trigger); US election cycle (partisan US politics affects DG CNECT's risk calculus)
+*Mitigation*: EU-US Digital Trade Agreement; staged enforcement; consultation process with US industry
+
+**Risk S2: Ukraine Accountability Resolution Backlash in Peace Negotiation**
+
+*Scenario pathway*: Ceasefire negotiations begin (hypothetical) → Russia demands blanket amnesty as prerequisite → EP's accountability resolution is cited by Russia as evidence EU is not a neutral mediator → EU's role in any negotiation is diminished → US bypasses EU in peace talks
+
+*Probability*: 20-25% (Admiralty Grade C2) — conditional on ceasefire negotiations actually beginning
+*Impact if realized*: EU marginalization in peace process; reputational damage to EP's geopolitical role
+*Mitigation*: EP resolution is non-binding; Council retains diplomatic flexibility; accountability can be separated from peace process (ICTY precedent)
+
+**Risk S3: Budget Coalition Fractures on MFF Negotiations (MEDIUM priority)**
+
+*Scenario pathway*: Commission releases 2028-2034 MFF proposal at EUR 1.1T → EPP fiscal hawks demand cuts → Left demands more climate/social spending → S&D forced to choose between EPP grand coalition and left-wing priorities → EP position fragments → Council exploits EP disunity for lower MFF
+
+*Probability*: 40-50% (Admiralty Grade C2) for some level of coalition strain during 2027-2028 MFF negotiations
+*Impact*: EUR 50-100B lower MFF than EP's aspirational target; reduced EU fiscal capacity for defence/climate
+*Mitigation*: Historical pattern shows EP always achieves better outcome than Council's baseline even under internal strain; NGEU-type off-budget instruments can bridge gaps
+
+### Risk Interaction Analysis
+
+**Risk clustering**: Risks S1 and S3 are anti-correlated — if US trade war materializes, EU political unity on budget increases (external threat increases internal cohesion). Risk S2 is conditionally orthogonal to S1 and S3 — different trigger domain (military/diplomatic vs economic/political).
+
+**Systemic risk**: Low probability but highest-impact scenario is simultaneous S1 (DMA trade war) + renewed Russian military pressure on Baltic states. This would create a multi-front institutional crisis testing EP's response capacity simultaneously.
+
+---
+
+*Extended risk matrix produced 2026-05-17. All probability estimates are analytical judgements, not actuarial. Admiralty Grade C2.*

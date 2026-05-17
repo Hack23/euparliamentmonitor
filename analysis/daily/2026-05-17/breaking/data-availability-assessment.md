@@ -34,3 +34,42 @@ Rationale: Multiple feeds (events, committee docs, documents, parliamentary ques
 - IMF World Economic Outlook (April 2026) data provides independent economic context
 - Historical EP political group data (EPP 188, S&D 136, Patriots 84, ECR 78, Renew 77, Greens/EFA 53, Left 46, ESN 25, non-attached 27) enables coalition analysis
 - EP public record for the 10th term provides institutional context for all resolutions adopted
+
+## DETAILED DATA AVAILABILITY MATRIX
+
+| Endpoint | Status | Items Retrieved | Quality | Notes |
+|---------|--------|----------------|---------|-------|
+| EP Adopted Texts Feed | ✅ Available | 50 (2026 vintage) | High | Primary data source |
+| EP MEPs Feed | ✅ Available | 608 MEPs | High | Current mandate holders |
+| EP Events Feed | ❌ 404 Error | 0 | N/A | Upstream EP API failure |
+| EP Procedures Feed | ❌ 404 Error | 0 | N/A | Upstream EP API failure |
+| EP Committee Docs | ❌ 404 Error | 0 | N/A | Upstream EP API failure |
+| EP Documents Feed | ❌ 404 Error | 0 | N/A | Upstream EP API failure |
+| IMF WEO April 2026 | ✅ Cache | Full | Authoritative | WEO data cached |
+| EP API Direct Query | ✅ Available | 31 adopted texts 2026 | High | Supplemental to feed |
+
+## DATA MODE DECLARATION
+
+**Data Mode**: `degraded-feeds` — Four of six EP feed endpoints returned 404 errors during Stage A data collection. Adopted texts and MEPs feeds succeeded. IMF data available via cache.
+
+**Floor Factor Applied**: 0.80 (degraded-feeds mode per data-mode specification)
+
+**Mitigation Measures**:
+1. Direct EP API queries supplemented failed feeds (adopted texts, procedures via procedureReference fields)
+2. IMF WEO April 2026 data available via cache — full economic analysis possible
+3. Voting data derives from DOCEO XML check — no current-week votes available (May 17 plenary not yet concluded)
+4. Coalition analysis uses political group seat distribution as proxy for voting estimates
+
+## IMPACT ON ANALYSIS
+
+| Artifact Category | Impact of Degraded Feeds | Mitigation Applied |
+|-----------------|--------------------------|-------------------|
+| Adopted Texts Analysis | None — feed succeeded | N/A |
+| Voting Patterns | Moderate — no roll-call data | Seat-share proxy analysis |
+| Procedure Tracking | Moderate — procedures feed failed | procedureReference from adopted texts |
+| Committee Activity | Moderate — committee docs failed | Focus on adopted texts context |
+| Economic Context | None — IMF cache available | Full IMF WEO analysis |
+| Stakeholder Map | Low — MEPs feed succeeded | Full MEP list available |
+| Political Intelligence | Low | Multiple proxies available |
+
+**Conclusion**: Data availability permits comprehensive analysis with the above mitigations. Stage C gate adjusted for degraded-feeds floor factor (0.80).
