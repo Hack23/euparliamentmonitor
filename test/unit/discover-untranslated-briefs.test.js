@@ -122,6 +122,11 @@ describe('discover-untranslated-briefs', () => {
       expect(() => parseArgs(['--run-number', '-2'])).toThrow(/non-negative integer/);
     });
 
+    it('rejects malformed --run-number values', () => {
+      expect(() => parseArgs(['--run-number', '17abc'])).toThrow(/non-negative integer/);
+      expect(() => parseArgs(['--run-number', '1.5'])).toThrow(/non-negative integer/);
+    });
+
     it('advertises the documented set of discovery modes', () => {
       expect(DISCOVERY_MODES).toEqual([
         'fresh-then-backlog',

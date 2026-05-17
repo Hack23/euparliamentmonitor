@@ -155,7 +155,7 @@ export function parseArgs(argv) {
         i += 1;
         break;
       case '--run-number':
-        opts.runNumber = Number.parseInt(argv[i + 1], 10);
+        opts.runNumber = Number(argv[i + 1]);
         i += 1;
         break;
       case '--help':
@@ -184,7 +184,7 @@ export function parseArgs(argv) {
       `--mode must be one of: ${DISCOVERY_MODES.join(', ')} (got "${opts.mode}")`,
     );
   }
-  if (!Number.isFinite(opts.runNumber) || opts.runNumber < 0) {
+  if (!Number.isInteger(opts.runNumber) || opts.runNumber < 0) {
     throw new Error('--run-number must be a non-negative integer');
   }
   return opts;

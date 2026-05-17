@@ -199,6 +199,11 @@ function countMatches(text, regex) {
   return counts;
 }
 
+/** Quote an argument for safe copy/paste in POSIX shells. */
+function shellQuote(arg) {
+  return `'${String(arg).replace(/'/g, `'\"'\"'`)}'`;
+}
+
 /**
  * Aggregate a violation list into a `{ key: count }` map for the validator
  * report. Items with falsy values at `key` are skipped so the filename-gate
@@ -397,6 +402,8 @@ export function validateTranslation(translationPath, repoRoot) {
       }
     }
     if (missingTokens.length > 0) {
+      const relQuoted = shellQuote(rel);
+      const siblingGlobQuoted = shellQuote(`${path.posix.dirname(rel)}/executive-brief_*.md`);
       violations.push({
         translationPath: rel,
         sourcePath: sourceRel,
@@ -405,8 +412,8 @@ export function validateTranslation(translationPath, repoRoot) {
         message:
           `Translation is missing exact ${reSingle} token(s): ${missingTokens.join(', ')} ` +
           `— proper noun / data-vintage identifiers MUST be preserved verbatim. ` +
-          `Self-check before flush: \`node scripts/validate-brief-translations.js --paths ${rel}\` ` +
-          `(or \`--paths ${path.posix.dirname(rel)}/executive-brief_*.md\` to validate every sibling). ` +
+          `Self-check before flush: \`node scripts/validate-brief-translations.js --paths ${relQuoted}\` ` +
+          `(or \`--paths ${siblingGlobQuoted}\` to validate every sibling). ` +
           `Dutch example: \`IMF\` stays \`IMF\` (never \`IMV\`); \`WEO\` stays \`WEO\` ` +
           `(never \`Wereldwijde Economische Vooruitzichten\`).`,
       });

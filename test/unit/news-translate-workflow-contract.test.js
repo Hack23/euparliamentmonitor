@@ -93,6 +93,8 @@ describe('news-translate workflow contract', () => {
     expect(workflow).toMatch(
       /node scripts\/discover-untranslated-briefs\.js/,
     );
+    expect(workflow).toMatch(/--mode "\$DISCOVERY_MODE"/);
+    expect(workflow).toMatch(/--run-number "\$RUN_NUMBER"/);
     // The queue is consumed from a deterministic temp path.
     expect(workflow).toMatch(/\/tmp\/gh-aw\/discovery\/queue\.json/);
   });
