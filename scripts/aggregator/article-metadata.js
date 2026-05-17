@@ -53,6 +53,18 @@ import { BREAKING_NEWS_TITLES, COMMITTEE_REPORTS_TITLES, ELECTION_CYCLE_TITLES, 
 import { resolveLocalizedBriefHighlight } from './editorial-brief-resolver.js';
 /** Maximum `<meta description>` length we will emit. */
 const DESCRIPTION_MAX_LENGTH = 180;
+/**
+ * Maximum `og:description` / `twitter:description` length we will
+ * emit. Facebook truncates at ~300 characters in the preview card;
+ * Twitter at ~200. We aim for the longer cap so LinkedIn / Slack
+ * (which use the full OG payload) get the full BLUF context, then
+ * let Twitter clip naturally. Below this length the extended
+ * description is emitted verbatim; above it we sentence-boundary
+ * truncate the same way as {@link truncateDescription}.
+ */
+const EXTENDED_DESCRIPTION_MAX_LENGTH = 300;
+/** Target minimum extended-description length before we even emit it. */
+const EXTENDED_DESCRIPTION_MIN_LENGTH = 200;
 /** Target minimum `<meta description>` length before we append context. */
 const DESCRIPTION_MIN_LENGTH = 140;
 /**
@@ -600,6 +612,38 @@ export function truncateDescription(text) {
     return `${safe}…`;
 }
 /**
+ * Clamp an extended description to {@link EXTENDED_DESCRIPTION_MAX_LENGTH}
+ * characters using the same sentence-boundary-preserving logic as
+ * {@link truncateDescription}. Returns `''` when the input is empty
+ * or shorter than the meta-description maximum (no point in emitting
+ * an "extended" description that's actually shorter than the regular
+ * one).
+ *
+ * @param text - Raw extended-description text (e.g. full BLUF paragraph)
+ * @returns Truncated extended description, or `''` when not worth emitting
+ */
+export function truncateExtendedDescription(text) {
+    const trimmed = text.trim();
+    if (!trimmed)
+        return '';
+    // Don't emit an extended description that is shorter than the
+    // short meta-description budget — there's no SEO win and it would
+    // make `og:description` shorter than `<meta description>`.
+    if (trimmed.length <= DESCRIPTION_MAX_LENGTH)
+        return '';
+    if (trimmed.length <= EXTENDED_DESCRIPTION_MAX_LENGTH)
+        return trimmed;
+    const cut = trimmed.slice(0, EXTENDED_DESCRIPTION_MAX_LENGTH - 1);
+    const sentenceEnd = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('! '), cut.lastIndexOf('? '));
+    if (sentenceEnd >= EXTENDED_DESCRIPTION_MIN_LENGTH) {
+        return cut.slice(0, sentenceEnd + 1).replace(/\s+$/, '');
+    }
+    const lastSpace = cut.lastIndexOf(' ');
+    let safe = lastSpace > EXTENDED_DESCRIPTION_MAX_LENGTH - 60 ? cut.slice(0, lastSpace) : cut;
+    safe = stripTrailingStopWordsAndPunctuation(safe);
+    return `${safe}…`;
+}
+/**
  * Clamp a title to `TITLE_MAX_LENGTH` characters in the same
  * word-boundary-preserving fashion as {@link truncateDescription}.
  *
@@ -904,6 +948,41 @@ export function extractLedeAfterHeading(markdown) {
     if (buf.lines.length === 0)
         return '';
     return truncateDescription(buf.lines.join(' '));
+}
+/**
+ * Same parsing rules as {@link extractLedeAfterHeading} but with a
+ * larger byte budget so the full BLUF paragraph (typically 200-300
+ * characters in the editorial style guide) is captured for use as
+ * `og:description` / `twitter:description`. Returns the joined
+ * paragraph clamped via {@link truncateExtendedDescription} (which
+ * returns `''` when the result wouldn't be longer than the regular
+ * meta description).
+ *
+ * @param markdown - Brief body (SPDX preamble already stripped)
+ * @returns Extended lede paragraph, or `''` when not worth emitting
+ */
+export function extractExtendedLedeAfterHeading(markdown) {
+    const state = { inFence: false, inLede: false };
+    const buf = { lines: [], byteCount: 0 };
+    for (const raw of markdown.split('\n')) {
+        const line = raw.trim();
+        const directive = classifyLedeLine(line, state.inFence, state.inLede, buf.lines.length > 0);
+        const action = applyLedeDirective(directive, state, buf.lines.length > 0);
+        if (action === 'break')
+            break;
+        if (action === 'continue')
+            continue;
+        const collect = collectProseLine(line, buf);
+        if (collect === 'continue')
+            continue;
+        if (collect === 'break')
+            break;
+        if (buf.byteCount >= EXTENDED_DESCRIPTION_MAX_LENGTH)
+            break;
+    }
+    if (buf.lines.length === 0)
+        return '';
+    return truncateExtendedDescription(buf.lines.join(' '));
 }
 /**
  * Normalise a Markdown heading's text for comparison against the
@@ -2334,6 +2413,7 @@ function resolveEditorialContent(opts) {
             return {
                 headline: highlight.headline,
                 summary: highlight.summary,
+                extendedSummary: extractExtendedLedeAfterHeading(markdown),
             };
         }
         if (highlight?.summary) {
@@ -2342,10 +2422,12 @@ function resolveEditorialContent(opts) {
     }
     const aggregatedH1 = extractFirstH1(markdown);
     const aggregatedSummary = extractStrongProseLine(markdown);
+    const aggregatedExtended = extractExtendedLedeAfterHeading(markdown);
     if (aggregatedH1 && !isGenericHeading(aggregatedH1, articleType, date)) {
         return {
             headline: truncateTitle(aggregatedH1),
             summary: artefactSummary || aggregatedSummary,
+            extendedSummary: aggregatedExtended,
         };
     }
     const summary = artefactSummary || aggregatedSummary;
@@ -2357,9 +2439,13 @@ function resolveEditorialContent(opts) {
         // to clause-boundary truncation downstream when the sentence
         // itself overruns TITLE_MAX_LENGTH.
         const firstSentence = extractFirstSentence(summary);
-        return { headline: truncateTitle(firstSentence), summary };
+        return {
+            headline: truncateTitle(firstSentence),
+            summary,
+            extendedSummary: aggregatedExtended,
+        };
     }
-    return { headline: '', summary: '' };
+    return { headline: '', summary: '', extendedSummary: '' };
 }
 /**
  * Pick the per-language SEO title from the resolved editorial pair and
@@ -2603,10 +2689,23 @@ function resolveOneLanguage(input) {
         : composeContextualDescription(input.lang, rawDescription, editorial, input.date, input.runId);
     const truncatedTitle = truncateTitle(title);
     const truncatedDescription = truncateDescription(description);
+    // The extended description tracks the same source as the short
+    // description: when a manifest description overrides, use it
+    // verbatim (no point synthesising an extended form from the brief
+    // when the editor explicitly chose the manifest copy); otherwise
+    // use the editorial extended summary lifted from the brief BLUF.
+    // `truncateExtendedDescription` returns `''` when the candidate
+    // wouldn't be longer than the regular meta description, so callers
+    // can fall back to {@link description} via a simple `||`.
+    const extendedSource = manifestDescription
+        ? manifestDescription
+        : editorial.extendedSummary || rawDescription;
+    const truncatedExtendedDescription = truncateExtendedDescription(extendedSource);
     const source = manifestTitle || manifestDescription ? 'manifest' : perLanguage.source;
     return {
         title: truncatedTitle,
         description: truncatedDescription,
+        extendedDescription: truncatedExtendedDescription,
         keywords: buildSeoKeywords(input.lang, input.articleType, input.date, input.runId, truncatedTitle, truncatedDescription),
         source,
     };
@@ -2641,6 +2740,7 @@ function resolvePerLanguageEditorial(input) {
                 editorial: {
                     headline: localized.headline,
                     summary: localized.summary,
+                    extendedSummary: localized.extendedSummary,
                 },
                 source: 'localized-brief',
             };
@@ -2656,7 +2756,7 @@ function resolvePerLanguageEditorial(input) {
     // Nothing editorial at all → caller will fall back to the localized
     // template.
     return {
-        editorial: { headline: '', summary: '' },
+        editorial: { headline: '', summary: '', extendedSummary: '' },
         source: 'template',
     };
 }

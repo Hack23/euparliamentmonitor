@@ -366,6 +366,7 @@ function writeLanguageVariant(lang, slug, aggregated, englishHtml, chromeOptions
         body: bodyHtml,
         title: entry.title,
         description: perLangDescription,
+        extendedDescription: entry.extendedDescription,
         keywords: entry.keywords,
         date: aggregated.date,
         articleType: aggregated.articleType,
@@ -444,7 +445,7 @@ function getMetadataEntry(map, lang) {
         return descriptor.value;
     }
     const en = Object.getOwnPropertyDescriptor(map, 'en')?.value;
-    return en ?? { title: '', description: '', keywords: [], source: 'template' };
+    return en ?? { title: '', description: '', extendedDescription: '', keywords: [], source: 'template' };
 }
 /**
  * Count the number of articles the site currently publishes, derived

@@ -14,6 +14,8 @@ import { PROJECT_ROOT, APP_VERSION, BUILD_SHORT, NEWS_DIR, BASE_URL } from '../c
 import { getNewsIndexSeo } from './seo-copy.js';
 import { buildHeadFreshnessTags } from '../constants/build-info-meta.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SECTION_HEADINGS, NO_ARTICLES_MESSAGES, SKIP_LINK_TEXTS, AI_SECTION_CONTENT, FILTER_LABELS, ARTICLE_TYPE_LABELS, HEADER_SUBTITLE_LABELS, getLocalizedString, getTextDirection, } from '../constants/languages.js';
+import { buildOgLocaleTags } from '../constants/og-locales.js';
+import { ORG_SAME_AS, buildTwitterAttributionTags } from '../constants/social-handles.js';
 import { buildResponsiveBannerPicture, buildResponsiveIconLinks, buildResponsiveSocialImageMeta, buildSiteFooter, buildSiteHeader, } from '../templates/section-builders.js';
 import { getNewsArticles, groupArticlesByLanguage, formatSlug, parseArticleFilename, extractArticleMeta, escapeHTML, atomicWrite, } from '../utils/file-utils.js';
 import { writeMetadataDatabase } from '../utils/news-metadata.js';
@@ -500,7 +502,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
     }).replace(/</g, '\\u003c');
     const organizationJsonLd = JSON.stringify({
         '@context': SCHEMA_ORG,
-        '@type': 'Organization',
+        '@type': 'NewsMediaOrganization',
         '@id': `${BASE_URL}/#organization`,
         name: 'Hack23 AB',
         url: 'https://hack23.com',
@@ -510,7 +512,7 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
             width: 192,
             height: 192,
         },
-        sameAs: ['https://github.com/Hack23', 'https://hack23.com'],
+        sameAs: [...ORG_SAME_AS],
     }).replace(/</g, '\\u003c');
     const collectionPageJsonLd = JSON.stringify({
         '@context': SCHEMA_ORG,
@@ -578,6 +580,9 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
         siteTitle: heroTitle,
         languageSwitcherHtml: buildLangSwitcher(lang),
     });
+    const ogLocaleTags = buildOgLocaleTags(lang);
+    const twitterAttribution = buildTwitterAttributionTags();
+    const twitterAttributionBlock = twitterAttribution ? `\n${twitterAttribution}` : '';
     return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>
@@ -594,16 +599,17 @@ export function generateIndexHTML(lang, articles, metaMap = new Map()) {
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta http-equiv="Content-Language" content="${lang}">
   <link rel="canonical" href="${canonicalUrl}">
+  <link rel="preconnect" href="https://hack23.com" crossorigin>
   <meta property="og:type" content="website">
   <meta property="og:title" content="${heroTitle}">
   <meta property="og:description" content="${description}">
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="EU Parliament Monitor">
-  <meta property="og:locale" content="${lang}">
+${ogLocaleTags}
 ${buildResponsiveSocialImageMeta(seo.ogImageAlt)}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${heroTitle}">
-  <meta name="twitter:description" content="${description}">
+  <meta name="twitter:description" content="${description}">${twitterAttributionBlock}
   ${buildHreflangTags()}
   <!-- Favicons -->
 ${buildResponsiveIconLinks('')}
