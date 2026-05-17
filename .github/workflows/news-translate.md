@@ -316,6 +316,7 @@ For each queue entry, in order:
 2. **Count source headings BEFORE writing any translation**
    (assign `sourcePath` from the current queue entry first):
    ```bash
+   # entryIndex must be set by your queue loop (0-based current queue position).
    # Example: resolve sourcePath for the current queue index ($entryIndex)
    if [ -z "${entryIndex:-}" ]; then
      echo "Missing entryIndex for current queue entry" >&2
