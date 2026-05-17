@@ -18,9 +18,16 @@
  *   - `FIXME(#42): coerce Y to UTC before compare`
  *   - `XXX(#7): legacy compat — remove after 2027-Q1`
  *
- * Rejected forms:
- *   - `TODO: defer X` — no issue link, fails CI
- *   - `// fixme later` — bare, no `:` and no link, fails CI
+ * Rejected forms (require a tracking issue, fail CI):
+ *   - `TODO: defer X` — no `(#NNNN)` issue link
+ *   - `FIXME handle null case` — no `(#NNNN)` issue link
+ *   - `XXX(legacy)` — parenthetical present but not the `(#NNNN)` form
+ *
+ * Scope. Only the upper-case spellings `TODO`, `FIXME`, and `XXX`
+ * followed by `:`, `(`, or whitespace are matched. Lower-case forms
+ * like `// fixme later` and identifiers like `todoList` are *not*
+ * flagged — they generate too many false positives across the
+ * codebase and aren't the editorial markers this guard is targeting.
  *
  * Exit codes:
  *   0 — no marker, or every marker carries `(#NNNN)`

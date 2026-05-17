@@ -93,7 +93,7 @@
     "test:e2e:headed": "playwright test --headed",
     "test:e2e:debug": "playwright test --debug",
     "test:e2e:report": "playwright show-report",
-    "lint": "eslint src/",
+    "lint": "eslint src/ && node scripts/lint-src-todos.js",
     "lint:fix": "eslint src/ --fix",
     "knip": "knip",
     "knip:production": "knip --production",

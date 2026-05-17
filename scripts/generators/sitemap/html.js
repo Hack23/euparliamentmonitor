@@ -23,8 +23,7 @@ import { BASE_URL, BUILD_SHORT, THEME_TOGGLE_SCRIPT } from '../../constants/conf
 import { buildHeadFreshnessTags } from '../../constants/build-info-meta.js';
 import { getSitemapSeo } from '../seo-copy.js';
 import { ALL_LANGUAGES, LANGUAGE_NAMES, LANGUAGE_FLAGS, PAGE_TITLES, PAGE_DESCRIPTIONS, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../../constants/languages.js';
-import { buildOgLocaleTags } from '../../constants/og-locales.js';
-import { ORG_SAME_AS, buildTwitterAttributionTags } from '../../constants/social-handles.js';
+import { buildOgLocaleTags, ORG_SAME_AS, buildTwitterAttributionTags, } from '../../constants/seo/index.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { detectCategory } from '../../utils/article-category.js';
 import { ARTICLE_TYPE_LABELS, FOOTER_POLITICAL_INTELLIGENCE_LABELS, } from '../../constants/language-ui.js';

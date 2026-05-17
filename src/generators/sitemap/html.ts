@@ -34,8 +34,11 @@ import {
   getLocalizedString,
   getTextDirection,
 } from '../../constants/languages.js';
-import { buildOgLocaleTags } from '../../constants/og-locales.js';
-import { ORG_SAME_AS, buildTwitterAttributionTags } from '../../constants/social-handles.js';
+import {
+  buildOgLocaleTags,
+  ORG_SAME_AS,
+  buildTwitterAttributionTags,
+} from '../../constants/seo/index.js';
 import { escapeHTML } from '../../utils/file-utils.js';
 import { detectCategory } from '../../utils/article-category.js';
 import {

@@ -25,8 +25,11 @@ import {
   getLocalizedString,
   getTextDirection,
 } from '../../constants/languages.js';
-import { buildOgLocaleTags } from '../../constants/og-locales.js';
-import { ORG_SAME_AS, buildTwitterAttributionTags } from '../../constants/social-handles.js';
+import {
+  buildOgLocaleTags,
+  ORG_SAME_AS,
+  buildTwitterAttributionTags,
+} from '../../constants/seo/index.js';
 import { FOOTER_SITEMAP_LABELS } from '../../constants/language-ui.js';
 import {
   buildResponsiveIconLinks,

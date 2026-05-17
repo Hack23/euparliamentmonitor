@@ -15,8 +15,7 @@
 import { BASE_URL, BUILD_SHORT, THEME_TOGGLE_SCRIPT } from '../../constants/config.js';
 import { buildHeadFreshnessTags } from '../../constants/build-info-meta.js';
 import { ALL_LANGUAGES, LANGUAGE_FLAGS, LANGUAGE_NAMES, PAGE_TITLES, SKIP_LINK_TEXTS, getLocalizedString, getTextDirection, } from '../../constants/languages.js';
-import { buildOgLocaleTags } from '../../constants/og-locales.js';
-import { ORG_SAME_AS, buildTwitterAttributionTags } from '../../constants/social-handles.js';
+import { buildOgLocaleTags, ORG_SAME_AS, buildTwitterAttributionTags, } from '../../constants/seo/index.js';
 import { FOOTER_SITEMAP_LABELS } from '../../constants/language-ui.js';
 import { buildResponsiveIconLinks, buildResponsiveSocialImageMeta, buildSiteFooter, buildSiteHeader, buildPageBanner, } from '../../templates/section-builders.js';
 import { escapeHTML } from '../../utils/file-utils.js';

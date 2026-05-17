@@ -32,8 +32,11 @@ import {
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
-import { buildOgLocaleTags } from '../constants/og-locales.js';
-import { ORG_SAME_AS, buildTwitterAttributionTags } from '../constants/social-handles.js';
+import {
+  buildOgLocaleTags,
+  ORG_SAME_AS,
+  buildTwitterAttributionTags,
+} from '../constants/seo/index.js';
 import {
   buildResponsiveBannerPicture,
   buildResponsiveIconLinks,
@@ -167,6 +170,41 @@ function backfillLegacyArticleSeo(filenames: readonly string[]): number {
   let updated = 0;
   for (const filename of filenames) {
     if (backfillOneLegacyArticleSeo(filename, descriptions)) updated++;
+  }
+  return updated;
+}
+
+/**
+ * Heal JSON-LD `description` field corruption left behind by a prior
+ * version of {@link applyArticleSeoBackfill}. The old regex
+ * `"description":"[^"]*"` terminated at the first JSON-escaped quote
+ * (`\"`), so every rebuild prepended a new value in front of the
+ * previous description's tail — producing an unparseable JSON-LD
+ * block whose `description` value was followed by a run of repeated
+ * fragments before `,"datePublished"`.
+ *
+ * This pass is idempotent: when the JSON-LD is already well-formed,
+ * the regex `[^,]*` matches the empty string and the file is left
+ * unchanged. It runs unconditionally because the original backfill
+ * path skips files whose `<meta name="description">` is already
+ * clean, even when their JSON-LD is corrupted.
+ *
+ * @param filenames - News article filenames to inspect
+ * @returns Number of HTML files updated
+ */
+export function healJsonLdDescriptionCorruption(filenames: readonly string[]): number {
+  let updated = 0;
+  for (const filename of filenames) {
+    const filepath = path.join(NEWS_DIR, filename);
+    const html = readArticleHtml(filepath);
+    if (!html) continue;
+    const next = html.replace(
+      /("description":"(?:\\.|[^"\\])*")[^,]*(,"datePublished")/u,
+      '$1$2'
+    );
+    if (next === html) continue;
+    atomicWrite(filepath, next);
+    updated++;
   }
   return updated;
 }
@@ -403,12 +441,19 @@ function requireFsRead(filepath: string): string {
 /**
  * Apply SEO meta tag replacements to a complete article HTML document.
  *
+ * Exported for the regression test in
+ * `test/unit/news-indexes-jsonld-description-regex.test.js`, which
+ * locks in the JSON-LD description regex against the duplicate-tail
+ * bug (the legacy `"description":"[^"]*"` pattern terminated at the
+ * first JSON-escaped quote `\"` and left the previous description's
+ * tail in place, accumulating duplicates on every prebuild run).
+ *
  * @param html - Existing article HTML
  * @param description - Backfilled meta description
  * @param keywords - Backfilled keyword list
  * @returns Updated HTML
  */
-function applyArticleSeoBackfill(
+export function applyArticleSeoBackfill(
   html: string,
   description: string,
   keywords: readonly string[]
@@ -442,7 +487,22 @@ function applyArticleSeoBackfill(
   }
 
   const jsonDescription = JSON.stringify(description).slice(1, -1).replace(/</g, '\\u003c');
-  next = next.replace(/"description":"[^"]*"/u, `"description":"${jsonDescription}"`);
+  // Match a JSON string value safely: every `"` inside the description
+  // is JSON-escaped as `\"`, so the inner pattern must accept either an
+  // escape sequence (`\\.`) or a non-quote/non-backslash character —
+  // otherwise the match terminates at the first `\"` and leaves the
+  // tail of the previous description in place, which on subsequent
+  // prebuild runs appears to "duplicate" the description fragment.
+  next = next.replace(/"description":"(?:\\.|[^"\\])*"/u, `"description":"${jsonDescription}"`);
+  // Heal any previously-corrupted JSON-LD where the old buggy regex
+  // left an orphan tail between the description's closing quote and
+  // the next known field (`,"datePublished"`). The pattern is
+  // idempotent: when there is no orphan, `[^,]*` matches the empty
+  // string and the file is unchanged.
+  next = next.replace(
+    /("description":"(?:\\.|[^"\\])*")[^,]*(,"datePublished")/u,
+    '$1$2'
+  );
   return next;
 }
 
@@ -842,6 +902,11 @@ function main(): void {
   const backfilled = backfillLegacyArticleSeo(articles);
   if (backfilled > 0) {
     console.log(`🔎 Backfilled SEO metadata for ${backfilled} legacy article file(s)`);
+  }
+
+  const healed = healJsonLdDescriptionCorruption(articles);
+  if (healed > 0) {
+    console.log(`🩹 Healed JSON-LD description corruption in ${healed} article file(s)`);
   }
 
   const hreflangBackfilled = backfillArticleHreflang(articles);
