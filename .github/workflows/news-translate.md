@@ -328,7 +328,10 @@ import sys
 from pathlib import Path
 
 queue_path = Path("/tmp/gh-aw/discovery/queue.json")
-raw_index = sys.argv[1] if len(sys.argv) > 1 else "<missing>"
+if len(sys.argv) < 2:
+    print("Missing required argument: entry index", file=sys.stderr)
+    sys.exit(1)
+raw_index = sys.argv[1]
 try:
     payload = json.loads(queue_path.read_text(encoding="utf-8"))
     queue = payload.get("queue", [])
