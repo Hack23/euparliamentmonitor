@@ -154,6 +154,20 @@ The Markdown structure of the translation MUST mirror the source:
   the source uses one as a fixed token (e.g. `Big Tech`).
 - Spanish: peninsular Spanish (es-ES); avoid Latin-American specific
   vocabulary.
+- Dutch (`nl`): formal *u*-form where direct address is unavoidable;
+  prefer impersonal constructions. **Fixed-token preservation (validator
+  gate #5) is the most common Dutch failure mode** — the IMF/WEO acronyms
+  must stay in Latin script as-is:
+  - `IMF` blijft `IMF` — **nooit** `IMV` of `Internationaal Monetair Fonds`
+    in plaats van het acroniem.
+  - `WEO` blijft `WEO` — **nooit** `Wereldwijde Economische Vooruitzichten`
+    of `Wereld Economische Vooruitblik`.
+  - `World Bank` blijft `World Bank` — **nooit** `Wereldbank` als die in
+    de bron `World Bank` is.
+  - `Fiscal Monitor` blijft `Fiscal Monitor`; `data-vintage="WEO-…"` blijft
+    woord-voor-woord ongewijzigd.
+  When in doubt: if the English source uses the Latin acronym, the Dutch
+  translation uses the same Latin acronym.
 
 ### 4.3 RTL (ar / he)
 

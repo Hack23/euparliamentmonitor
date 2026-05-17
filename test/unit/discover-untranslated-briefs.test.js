@@ -16,6 +16,7 @@ import path from 'node:path';
 import {
   TARGET_LANGS,
   MAX_BRIEFS_LIMIT,
+  DISCOVERY_MODES,
   parseArgs,
   findExecutiveBriefSources,
   findMissingLangs,
@@ -73,6 +74,8 @@ describe('discover-untranslated-briefs', () => {
       expect(opts.maxAgeDays).toBe(180);
       expect(opts.includeExtended).toBe(false);
       expect(opts.output).toBe(null);
+      expect(opts.mode).toBe('fresh-then-backlog');
+      expect(opts.runNumber).toBe(0);
     });
 
     it('parses every supported flag', () => {
@@ -82,12 +85,16 @@ describe('discover-untranslated-briefs', () => {
         '--max-age-days', '30',
         '--output', '/tmp/q.json',
         '--include-extended',
+        '--mode', 'backlog-only',
+        '--run-number', '17',
       ]);
       expect(opts.repoRoot).toBe('/tmp/x');
       expect(opts.maxBriefs).toBe(4);
       expect(opts.maxAgeDays).toBe(30);
       expect(opts.output).toBe('/tmp/q.json');
       expect(opts.includeExtended).toBe(true);
+      expect(opts.mode).toBe('backlog-only');
+      expect(opts.runNumber).toBe(17);
     });
 
     it('throws on unknown flag', () => {
@@ -105,6 +112,27 @@ describe('discover-untranslated-briefs', () => {
 
     it('rejects non-positive --max-age-days', () => {
       expect(() => parseArgs(['--max-age-days', '-1'])).toThrow(/positive integer/);
+    });
+
+    it('rejects unknown --mode values', () => {
+      expect(() => parseArgs(['--mode', 'random'])).toThrow(/--mode must be one of/);
+    });
+
+    it('rejects negative --run-number values', () => {
+      expect(() => parseArgs(['--run-number', '-2'])).toThrow(/non-negative integer/);
+    });
+
+    it('rejects malformed --run-number values', () => {
+      expect(() => parseArgs(['--run-number', '17abc'])).toThrow(/non-negative integer/);
+      expect(() => parseArgs(['--run-number', '1.5'])).toThrow(/non-negative integer/);
+    });
+
+    it('advertises the documented set of discovery modes', () => {
+      expect(DISCOVERY_MODES).toEqual([
+        'fresh-then-backlog',
+        'backlog-only',
+        'newest-first',
+      ]);
     });
   });
 
@@ -193,7 +221,7 @@ describe('discover-untranslated-briefs', () => {
   });
 
   describe('buildQueue', () => {
-    it('caps the queue at maxBriefs', () => {
+    it('caps the queue at maxBriefs (default mode)', () => {
       makeBrief('2026-05-15', 'a');
       makeBrief('2026-05-15', 'b');
       makeBrief('2026-05-15', 'c');
@@ -206,17 +234,75 @@ describe('discover-untranslated-briefs', () => {
       expect(result.totals.queuedTranslations).toBe(2 * 13);
     });
 
-    it('sorts newest-date first, then more-missing first, then slug-alphabetical', () => {
+    it('fresh-then-backlog: queue is [newest, oldest, ...] for maxBriefs >= 2', () => {
+      makeBrief('2026-05-14', 'zeta');
+      makeBrief('2026-05-15', 'alpha', { existing: ['sv'] });            // 12 missing
+      makeBrief('2026-05-15', 'beta');                                    // 13 missing
+      makeBrief('2026-05-10', 'gamma');                                   // backlog
+      const sources = findExecutiveBriefSources(tmpRoot, { includeExtended: false, maxAgeDays: 180 });
+      const result = buildQueue(sources, { maxBriefs: 3, mode: 'fresh-then-backlog' });
+      // Slot 0 = fresh slice (newest source with gaps, tie-break more-missing
+      // → beta). Slots 1+ = oldest-first backlog excluding the fresh entry.
+      expect(result.queue.map((q) => `${q.date}/${q.slug}`)).toEqual([
+        '2026-05-15/beta',     // fresh slot
+        '2026-05-10/gamma',    // backlog oldest
+        '2026-05-14/zeta',     // backlog next
+      ]);
+      expect(result.totals.freshNewestDate).toBe('2026-05-15');
+      expect(result.totals.backlogOldestDate).toBe('2026-05-10');
+    });
+
+    it('fresh-then-backlog: backlog tie-breaks by missingCount ASC then slug', () => {
+      makeBrief('2026-05-14', 'half', { existing: ['sv', 'de', 'fr', 'es', 'nl', 'da', 'no'] }); // 6 missing
+      makeBrief('2026-05-14', 'fresh-zero');                                                       // 13 missing
+      makeBrief('2026-05-16', 'today');                                                            // newest
+      const sources = findExecutiveBriefSources(tmpRoot, { includeExtended: false, maxAgeDays: 180 });
+      const result = buildQueue(sources, { maxBriefs: 3, mode: 'fresh-then-backlog' });
+      // Fresh slot = today; backlog drains the half-done brief first (finish
+      // partial coverage before starting a fully-blank one).
+      expect(result.queue.map((q) => `${q.date}/${q.slug}`)).toEqual([
+        '2026-05-16/today',
+        '2026-05-14/half',
+        '2026-05-14/fresh-zero',
+      ]);
+    });
+
+    it('fresh-then-backlog with maxBriefs=1 alternates by run-number parity', () => {
+      makeBrief('2026-05-10', 'oldest');
+      makeBrief('2026-05-16', 'newest');
+      const sources = findExecutiveBriefSources(tmpRoot, { includeExtended: false, maxAgeDays: 180 });
+      const even = buildQueue(sources, { maxBriefs: 1, mode: 'fresh-then-backlog', runNumber: 0 });
+      const odd = buildQueue(sources, { maxBriefs: 1, mode: 'fresh-then-backlog', runNumber: 1 });
+      const even2 = buildQueue(sources, { maxBriefs: 1, mode: 'fresh-then-backlog', runNumber: 2 });
+      expect(even.queue.map((q) => q.slug)).toEqual(['newest']);
+      expect(odd.queue.map((q) => q.slug)).toEqual(['oldest']);
+      expect(even2.queue.map((q) => q.slug)).toEqual(['newest']);
+    });
+
+    it('backlog-only: drains oldest-first across the entire backlog', () => {
+      makeBrief('2026-05-15', 'newest');
+      makeBrief('2026-05-10', 'oldest');
+      makeBrief('2026-05-12', 'middle');
+      const sources = findExecutiveBriefSources(tmpRoot, { includeExtended: false, maxAgeDays: 180 });
+      const result = buildQueue(sources, { maxBriefs: 3, mode: 'backlog-only' });
+      expect(result.queue.map((q) => q.slug)).toEqual(['oldest', 'middle', 'newest']);
+    });
+
+    it('newest-first: legacy ordering (newest date, more-missing, slug asc)', () => {
       makeBrief('2026-05-14', 'zeta');
       makeBrief('2026-05-15', 'alpha', { existing: ['sv'] });            // 12 missing
       makeBrief('2026-05-15', 'beta');                                    // 13 missing
       const sources = findExecutiveBriefSources(tmpRoot, { includeExtended: false, maxAgeDays: 180 });
-      const result = buildQueue(sources, 10);
+      const result = buildQueue(sources, { maxBriefs: 10, mode: 'newest-first' });
       expect(result.queue.map((q) => `${q.date}/${q.slug}`)).toEqual([
         '2026-05-15/beta',     // newest + 13 missing
         '2026-05-15/alpha',    // newest + 12 missing
         '2026-05-14/zeta',
       ]);
+    });
+
+    it('throws on invalid mode', () => {
+      expect(() => buildQueue([], { maxBriefs: 1, mode: 'bogus' })).toThrow(/invalid mode/);
     });
 
     it('omits fully-translated briefs from the queue', () => {
@@ -228,6 +314,30 @@ describe('discover-untranslated-briefs', () => {
       expect(result.queue[0].slug).toBe('pending');
       expect(result.totals.sourcesScanned).toBe(2);
       expect(result.totals.sourcesWithGaps).toBe(1);
+    });
+
+    it('drops sources that already have all 13 translations (skip-when-exists guarantee)', () => {
+      makeBrief('2026-05-15', 'fully-translated', { existing: [...TARGET_LANGS] });
+      const sources = findExecutiveBriefSources(tmpRoot, { includeExtended: false, maxAgeDays: 180 });
+      const result = buildQueue(sources, 10);
+      // sourcesWithGaps === 0; queue empty; no zero-missing entries leak in.
+      expect(result.queue).toEqual([]);
+      expect(result.totals.sourcesWithGaps).toBe(0);
+      expect(result.totals.translationsMissing).toBe(0);
+      expect(result.totals.freshNewestDate).toBeNull();
+      expect(result.totals.backlogOldestDate).toBeNull();
+    });
+
+    it('excludes already-translated languages from missingLangs (sv+de present → 11 missing)', () => {
+      makeBrief('2026-05-15', 'partial', { existing: ['sv', 'de'] });
+      const sources = findExecutiveBriefSources(tmpRoot, { includeExtended: false, maxAgeDays: 180 });
+      const result = buildQueue(sources, 10);
+      expect(result.queue).toHaveLength(1);
+      const entry = result.queue[0];
+      expect(entry.missingLangs).not.toContain('sv');
+      expect(entry.missingLangs).not.toContain('de');
+      expect(entry.missingLangs).toHaveLength(11);
+      expect(entry.missingCount).toBe(11);
     });
 
     it('prefers the canonical source over its extended/ sibling on the same slug', () => {
@@ -261,6 +371,16 @@ describe('discover-untranslated-briefs', () => {
       const sources = findExecutiveBriefSources(tmpRoot, { includeExtended: false, maxAgeDays: 180 });
       const result = buildQueue(sources, 10);
       expect(result.totals.topMissingLangs).toEqual([]);
+    });
+
+    it('reports freshNewestDate and backlogOldestDate spanning all sources with gaps', () => {
+      makeBrief('2026-05-10', 'old');
+      makeBrief('2026-05-13', 'mid');
+      makeBrief('2026-05-16', 'new');
+      const sources = findExecutiveBriefSources(tmpRoot, { includeExtended: false, maxAgeDays: 180 });
+      const result = buildQueue(sources, 2);
+      expect(result.totals.freshNewestDate).toBe('2026-05-16');
+      expect(result.totals.backlogOldestDate).toBe('2026-05-10');
     });
   });
 

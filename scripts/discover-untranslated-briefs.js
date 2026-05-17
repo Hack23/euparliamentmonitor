@@ -19,14 +19,34 @@
  * comfortably inside the gh-aw safe-outputs 10 MB patch ceiling and the
  * Claude Sonnet 4.6 60-minute wall-clock budget.
  *
- * Priority rules (newest-first, oldest-first within a brief):
+ * Priority rules — `fresh-then-backlog` mode (default):
  *
- *   1. Sort by `<date>` descending so today's briefs win.
- *   2. Within the same date, briefs with *more* missing languages outrank
- *      briefs with fewer missing languages so partial coverage gets completed
- *      quickly.
- *   3. Remaining ties sort by `<slug>` alphabetically so the run is
- *      deterministic and reviewers can predict which slugs land first.
+ *   The queue is built from two pools so the day's newest brief still gets
+ *   timely coverage on at least one of the three daily runs, while the
+ *   long-tail backlog of older briefs (currently ~92 sources / ~1,196 missing
+ *   translations) actually drains rather than being starved by today's wins.
+ *
+ *   1. **Fresh slice** (at most 1 entry per run): newest source with any
+ *      missing language. Tie-breakers: more-missing first, slug asc,
+ *      non-extended first.
+ *   2. **Backlog slice** (remaining `max-briefs - 1` slots): every other
+ *      source with gaps, sorted by `<date>` ASC (oldest first), then
+ *      `missingCount` ASC (finish half-done briefs before starting new
+ *      ones), then `<slug>` ASC, then non-extended first.
+ *
+ *   Final queue = `freshSlice.concat(backlogSlice)`.
+ *
+ *   When `--max-briefs 1`, alternate fresh/backlog by run-number parity
+ *   (`--run-number`, default 0, normally driven by `$GITHUB_RUN_NUMBER`) so
+ *   the scheduled cadence still drains backlog while preserving freshness.
+ *
+ * Alternative modes (via `--mode`):
+ *
+ *   - `backlog-only` — drop the fresh slot entirely; oldest-first across the
+ *     entire backlog. Useful for catch-up batches.
+ *   - `newest-first` — legacy behaviour: newest date first, more-missing
+ *     first, slug asc. Retained for one-off operator dispatch where the
+ *     operator explicitly wants today's brief covered first.
  *
  * Invocation:
  *
@@ -34,6 +54,8 @@
  *     [--repo-root <path>] \
  *     [--max-briefs <n>]      # default 2
  *     [--max-age-days <n>]    # default 180; older briefs are skipped
+ *     [--mode <name>]         # fresh-then-backlog | backlog-only | newest-first
+ *     [--run-number <n>]      # parity selector when --max-briefs 1
  *     [--output <path>]       # default stdout
  *     [--include-extended]    # also scan extended/executive-brief.md
  *
@@ -44,12 +66,15 @@
  * Output JSON shape:
  *   {
  *     "generatedAt": "2026-05-16T08:24:16.909Z",
+ *     "options": { "mode": "fresh-then-backlog", "runNumber": 207, ... },
  *     "totals": {
  *       "sourcesScanned": 92,
  *       "sourcesWithGaps": 92,
  *       "translationsMissing": 1196,
  *       "queued": 2,
  *       "queuedTranslations": 26,
+ *       "freshNewestDate": "2026-05-16",
+ *       "backlogOldestDate": "2025-11-19",
  *       "topMissingLangs": [
  *         { "lang": "ja", "count": 92 },
  *         { "lang": "ko", "count": 92 },
@@ -82,6 +107,13 @@ export const TARGET_LANGS = Object.freeze(ALL_LANGUAGES.filter((lang) => lang !=
 /** Manual-dispatch upper bound that keeps one 60-minute run inside budget. */
 export const MAX_BRIEFS_LIMIT = 4;
 
+/** Discovery prioritisation modes. */
+export const DISCOVERY_MODES = Object.freeze([
+  'fresh-then-backlog',
+  'backlog-only',
+  'newest-first',
+]);
+
 /**
  * Parse CLI argv into an options object. Exported for unit tests.
  * @param {string[]} argv
@@ -93,6 +125,8 @@ export function parseArgs(argv) {
     maxAgeDays: 180,
     output: null,
     includeExtended: false,
+    mode: 'fresh-then-backlog',
+    runNumber: 0,
   };
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
@@ -116,6 +150,14 @@ export function parseArgs(argv) {
       case '--include-extended':
         opts.includeExtended = true;
         break;
+      case '--mode':
+        opts.mode = argv[i + 1];
+        i += 1;
+        break;
+      case '--run-number':
+        opts.runNumber = Number(argv[i + 1]);
+        i += 1;
+        break;
       case '--help':
       case '-h':
         printHelp();
@@ -137,14 +179,22 @@ export function parseArgs(argv) {
   if (!Number.isFinite(opts.maxAgeDays) || opts.maxAgeDays < 1) {
     throw new Error('--max-age-days must be a positive integer');
   }
+  if (!DISCOVERY_MODES.includes(opts.mode)) {
+    throw new Error(
+      `--mode must be one of: ${DISCOVERY_MODES.join(', ')} (got "${opts.mode}")`,
+    );
+  }
+  if (!Number.isInteger(opts.runNumber) || opts.runNumber < 0) {
+    throw new Error('--run-number must be a non-negative integer');
+  }
   return opts;
 }
 
 function printHelp() {
   process.stdout.write(
     'Usage: discover-untranslated-briefs.js [--repo-root <path>] ' +
-      '[--max-briefs <n>] [--max-age-days <n>] [--output <path>] ' +
-      '[--include-extended]\n'
+      '[--max-briefs <n>] [--max-age-days <n>] [--mode <name>] ' +
+      '[--run-number <n>] [--output <path>] [--include-extended]\n',
   );
 }
 
@@ -227,9 +277,25 @@ export function findMissingLangs(source) {
  * Build the prioritised queue. See module docstring for ordering rules.
  *
  * @param {ReturnType<typeof findExecutiveBriefSources>} sources
- * @param {number} maxBriefs
+ * @param {number | { maxBriefs: number, mode?: string, runNumber?: number }} options
+ *   Numeric form retained for backward compatibility — equivalent to
+ *   `{ maxBriefs, mode: 'fresh-then-backlog', runNumber: 0 }`.
  */
-export function buildQueue(sources, maxBriefs) {
+export function buildQueue(sources, options) {
+  const opts =
+    typeof options === 'number'
+      ? { maxBriefs: options, mode: 'fresh-then-backlog', runNumber: 0 }
+      : {
+          maxBriefs: options.maxBriefs,
+          mode: options.mode || 'fresh-then-backlog',
+          runNumber: Number.isFinite(options.runNumber) ? options.runNumber : 0,
+        };
+  if (!DISCOVERY_MODES.includes(opts.mode)) {
+    throw new Error(
+      `buildQueue: invalid mode "${opts.mode}" (expected one of ${DISCOVERY_MODES.join(', ')})`,
+    );
+  }
+
   const withGaps = [];
   let totalMissing = 0;
   const missingByLang = new Map();
@@ -250,18 +316,53 @@ export function buildQueue(sources, maxBriefs) {
     });
   }
 
-  // Sort: newest date first; then more-missing first (finish partial briefs);
-  // then slug alphabetical for determinism.
-  withGaps.sort((a, b) => {
+  // Two canonical orderings drive the three modes.
+  const newestFirst = (a, b) => {
     if (a.date !== b.date) return a.date < b.date ? 1 : -1;
     if (a.missingCount !== b.missingCount) return b.missingCount - a.missingCount;
     if (a.slug !== b.slug) return a.slug < b.slug ? -1 : 1;
-    // Prefer non-extended over extended when both exist for the same slug
     if (a.isExtended !== b.isExtended) return a.isExtended ? 1 : -1;
     return 0;
-  });
+  };
+  const oldestFirstFinishPartial = (a, b) => {
+    if (a.date !== b.date) return a.date < b.date ? -1 : 1;
+    // Within the same date, finish briefs that are closer to completion
+    // first (fewer missing languages → ascending).
+    if (a.missingCount !== b.missingCount) return a.missingCount - b.missingCount;
+    if (a.slug !== b.slug) return a.slug < b.slug ? -1 : 1;
+    if (a.isExtended !== b.isExtended) return a.isExtended ? 1 : -1;
+    return 0;
+  };
 
-  const queue = withGaps.slice(0, maxBriefs);
+  let queue;
+  if (opts.mode === 'newest-first') {
+    queue = [...withGaps].sort(newestFirst).slice(0, opts.maxBriefs);
+  } else if (opts.mode === 'backlog-only') {
+    queue = [...withGaps].sort(oldestFirstFinishPartial).slice(0, opts.maxBriefs);
+  } else {
+    // fresh-then-backlog
+    const newestSorted = [...withGaps].sort(newestFirst);
+    const oldestSorted = [...withGaps].sort(oldestFirstFinishPartial);
+    if (opts.maxBriefs === 1) {
+      // Alternate fresh/backlog by run-number parity so the scheduled
+      // cadence still drains backlog while preserving freshness on every
+      // other slot. Even run-numbers (0, 2, ...) take the fresh slot;
+      // odd run-numbers take the oldest backlog slot.
+      const pool = opts.runNumber % 2 === 0 ? newestSorted : oldestSorted;
+      queue = pool.slice(0, 1);
+    } else {
+      const freshSlice = newestSorted.slice(0, 1);
+      const freshKey = freshSlice[0]
+        ? `${freshSlice[0].date}\u0000${freshSlice[0].slug}\u0000${freshSlice[0].isExtended}`
+        : null;
+      const backlogSlice = oldestSorted
+        .filter(
+          (entry) => `${entry.date}\u0000${entry.slug}\u0000${entry.isExtended}` !== freshKey,
+        )
+        .slice(0, Math.max(0, opts.maxBriefs - 1));
+      queue = [...freshSlice, ...backlogSlice];
+    }
+  }
   const queuedTranslations = queue.reduce((sum, item) => sum + item.missingCount, 0);
 
   // Top 3 most-blocked target languages across the entire backlog. Operators
@@ -273,6 +374,17 @@ export function buildQueue(sources, maxBriefs) {
     .slice(0, 3)
     .map(([lang, count]) => ({ lang, count }));
 
+  // Operator-visibility extents: newest source still carrying gaps (the
+  // candidate for the fresh slot) and oldest source still carrying gaps
+  // (the candidate for the backlog slot). Both fall back to null when the
+  // backlog is empty.
+  let freshNewestDate = null;
+  let backlogOldestDate = null;
+  for (const entry of withGaps) {
+    if (freshNewestDate === null || entry.date > freshNewestDate) freshNewestDate = entry.date;
+    if (backlogOldestDate === null || entry.date < backlogOldestDate) backlogOldestDate = entry.date;
+  }
+
   return {
     totals: {
       sourcesScanned: sources.length,
@@ -280,6 +392,8 @@ export function buildQueue(sources, maxBriefs) {
       translationsMissing: totalMissing,
       queued: queue.length,
       queuedTranslations,
+      freshNewestDate,
+      backlogOldestDate,
       topMissingLangs,
     },
     queue,
@@ -296,13 +410,19 @@ export function main(argv) {
     includeExtended: opts.includeExtended,
     maxAgeDays: opts.maxAgeDays,
   });
-  const { totals, queue } = buildQueue(sources, opts.maxBriefs);
+  const { totals, queue } = buildQueue(sources, {
+    maxBriefs: opts.maxBriefs,
+    mode: opts.mode,
+    runNumber: opts.runNumber,
+  });
   const payload = {
     generatedAt: new Date().toISOString(),
     options: {
       maxBriefs: opts.maxBriefs,
       maxAgeDays: opts.maxAgeDays,
       includeExtended: opts.includeExtended,
+      mode: opts.mode,
+      runNumber: opts.runNumber,
     },
     totals,
     queue,

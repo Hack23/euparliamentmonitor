@@ -246,8 +246,11 @@ describe('validate-brief-translations', () => {
       const violations = validateTranslation(target, tmpRoot);
       const fixed = violations.filter((v) => v.gate === 'fixed-token-preservation');
       expect(fixed.length).toBeGreaterThan(0);
-      expect(fixed.map((v) => v.message).join('\n')).toContain('TA-10-2026-0161');
-      expect(fixed.map((v) => v.message).join('\n')).toContain('data-vintage="WEO-October-2026"');
+      const messages = fixed.map((v) => v.message).join('\n');
+      expect(messages).toContain('TA-10-2026-0161');
+      expect(messages).toContain('data-vintage="WEO-October-2026"');
+      expect(messages).toContain("--paths 'analysis/daily/2026-05-15/breaking/executive-brief_sv.md'");
+      expect(messages).toContain("--paths 'analysis/daily/2026-05-15/breaking/executive-brief_*.md'");
     });
   });
 
