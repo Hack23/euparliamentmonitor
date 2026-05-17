@@ -32,6 +32,8 @@ import {
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
+import { buildOgLocaleTags } from '../constants/og-locales.js';
+import { ORG_SAME_AS, buildTwitterAttributionTags } from '../constants/social-handles.js';
 import {
   buildResponsiveBannerPicture,
   buildResponsiveIconLinks,
@@ -633,7 +635,7 @@ export function generateIndexHTML(
 
   const organizationJsonLd = JSON.stringify({
     '@context': SCHEMA_ORG,
-    '@type': 'Organization',
+    '@type': 'NewsMediaOrganization',
     '@id': `${BASE_URL}/#organization`,
     name: 'Hack23 AB',
     url: 'https://hack23.com',
@@ -643,7 +645,7 @@ export function generateIndexHTML(
       width: 192,
       height: 192,
     },
-    sameAs: ['https://github.com/Hack23', 'https://hack23.com'],
+    sameAs: [...ORG_SAME_AS],
   }).replace(/</g, '\\u003c');
 
   const collectionPageJsonLd = JSON.stringify({
@@ -719,6 +721,10 @@ export function generateIndexHTML(
     languageSwitcherHtml: buildLangSwitcher(lang),
   });
 
+  const ogLocaleTags = buildOgLocaleTags(lang);
+  const twitterAttribution = buildTwitterAttributionTags();
+  const twitterAttributionBlock = twitterAttribution ? `\n${twitterAttribution}` : '';
+
   return `<!DOCTYPE html>
 <html lang="${lang}" dir="${dir}">
 <head>
@@ -735,16 +741,17 @@ export function generateIndexHTML(
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta http-equiv="Content-Language" content="${lang}">
   <link rel="canonical" href="${canonicalUrl}">
+  <link rel="preconnect" href="https://hack23.com" crossorigin>
   <meta property="og:type" content="website">
   <meta property="og:title" content="${heroTitle}">
   <meta property="og:description" content="${description}">
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="EU Parliament Monitor">
-  <meta property="og:locale" content="${lang}">
+${ogLocaleTags}
 ${buildResponsiveSocialImageMeta(seo.ogImageAlt)}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${heroTitle}">
-  <meta name="twitter:description" content="${description}">
+  <meta name="twitter:description" content="${description}">${twitterAttributionBlock}
   ${buildHreflangTags()}
   <!-- Favicons -->
 ${buildResponsiveIconLinks('')}

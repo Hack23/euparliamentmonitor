@@ -36,6 +36,7 @@ import type { LanguageCode } from '../types/index.js';
 import {
   extractFirstH1,
   extractLedeAfterHeading,
+  extractExtendedLedeAfterHeading,
   extractStrongProseLine,
   isGenericHeading,
   stripArtifactCategoryAffix,
@@ -62,6 +63,15 @@ import {
 export interface LocalizedBriefHighlight {
   readonly headline: string;
   readonly summary: string;
+  /**
+   * Longer (up to ~300 chars) summary lifted from the same brief BLUF
+   * paragraph as {@link summary}, used for `og:description` and
+   * `twitter:description`. Empty string when the BLUF is short enough
+   * that the regular `summary` already captures it — see
+   * `truncateExtendedDescription` for the cutoff. The caller should
+   * fall back to {@link summary} when this field is empty.
+   */
+  readonly extendedSummary: string;
   readonly sourceFile: string;
   readonly sourceLang: LanguageCode;
 }
@@ -216,11 +226,13 @@ export function resolveLocalizedBriefHighlight(
     const headline = deriveHeadline(body, articleType, date);
     const lede = extractLedeAfterHeading(body);
     const summary = lede || extractStrongProseLine(body);
+    const extendedSummary = extractExtendedLedeAfterHeading(body);
 
     if (headline || summary) {
       return {
         headline,
         summary,
+        extendedSummary,
         sourceFile: rel,
         sourceLang: lang,
       };

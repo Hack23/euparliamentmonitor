@@ -51,9 +51,12 @@ import {
   getLocalizedString,
   getTextDirection,
 } from '../constants/languages.js';
+import { buildOgLocaleTags } from '../constants/og-locales.js';
+import { ORG_SAME_AS, buildTwitterAttributionTags } from '../constants/social-handles.js';
 import type { LanguageCode } from '../types/index.js';
 import { ArticleCategory } from '../types/index.js';
 import { escapeHTML } from '../utils/file-utils.js';
+import { stripHtmlTags } from '../utils/html-sanitize.js';
 import {
   buildResponsiveIconLinks,
   buildResponsiveSocialImageMeta,
@@ -80,6 +83,71 @@ import {
   getCuratedDescription,
   getArtifactInfo,
 } from '../generators/political-intelligence-descriptions.js';
+
+/**
+ * Resolve a localized article type label *without* the leading icon
+ * emoji. Used for the OpenGraph `article:section` meta and the JSON-LD
+ * `articleSection` field, where emoji break Google's NewsArticle
+ * structured-data validator.
+ *
+ * @param slug - Raw article type slug (e.g. "motions", "week-ahead")
+ * @param lang - Target language code
+ * @returns Localized label without icon (e.g. "Plenary Votes & Resolutions")
+ */
+function getLocalizedArticleTypePlain(slug: string, lang: LanguageCode): string {
+  const labels = getLocalizedString(ARTICLE_TYPE_LABELS, lang);
+  return (labels as Record<string, string>)[slug] ?? slug.replace(/-/g, ' ');
+}
+
+/**
+ * Google's NewsArticle structured-data validator hard-caps the
+ * `headline` field at 110 characters. Page `<title>` can be longer
+ * (we already truncate to a higher limit in
+ * `article-metadata.ts::truncateTitle`), but the JSON-LD headline
+ * needs its own, tighter cap or the article loses Top Stories
+ * carousel eligibility.
+ *
+ * Truncation prefers the last sentence boundary or em-dash within
+ * the 110-char window so we don't slice through a noun phrase.
+ *
+ * @param title - Resolved article title (already escaped-safe text)
+ * @returns Headline ≤ 110 characters, suitable for `NewsArticle.headline`
+ */
+const HEADLINE_LIMIT = 110;
+function truncateHeadline(title: string): string {
+  const trimmed = title.trim();
+  if (trimmed.length <= HEADLINE_LIMIT) return trimmed;
+  // Prefer the last em-dash, en-dash, colon, or sentence boundary
+  // before the limit so the truncated headline still reads as a
+  // self-contained phrase.
+  const window = trimmed.slice(0, HEADLINE_LIMIT);
+  const breakIdx = Math.max(
+    window.lastIndexOf(' — '),
+    window.lastIndexOf(' – '),
+    window.lastIndexOf(': '),
+    window.lastIndexOf('. '),
+    window.lastIndexOf(' ')
+  );
+  return breakIdx > 60 ? window.slice(0, breakIdx).trimEnd() : window.trimEnd();
+}
+
+/**
+ * Build the localized `<title>` separator for the
+ * `{articleTitle} {sep} {siteTitle}` pattern. LTR locales use the
+ * right-pointing guillemet (»); RTL locales (Arabic, Hebrew) use the
+ * left-pointing guillemet («) so the visual hierarchy reads from the
+ * primary title towards the site name without breaking bidi flow.
+ *
+ * The previous em-dash separator collided with em-dashes inside
+ * article titles (the editorial style uses `Title — Subtitle`) and
+ * rendered ambiguously in screen readers.
+ *
+ * @param lang - Target language code
+ * @returns `" » "` for LTR locales, `" « "` for RTL
+ */
+function getTitleSeparator(lang: LanguageCode): string {
+  return getTextDirection(lang) === 'rtl' ? ' « ' : ' » ';
+}
 
 /**
  * Resolve a localized article type label with icon. Falls back to the
@@ -128,6 +196,15 @@ export interface WrapArticleOptions {
   readonly title: string;
   /** Article description — shown in `<meta name="description">` and OG. */
   readonly description: string;
+  /**
+   * Optional: longer (up to ~300 chars) editorial summary lifted from
+   * the language-specific executive brief BLUF. When provided, used
+   * for `og:description` and `twitter:description`; falls back to
+   * `description` when absent. Lets social-card previews show the
+   * full BLUF paragraph while the short `<meta description>` stays
+   * within Google's ~160-char snippet budget.
+   */
+  readonly extendedDescription?: string;
   /** SEO keywords — shown in `<meta name="keywords">`. */
   readonly keywords?: readonly string[];
   /** Canonical ISO date of the run (YYYY-MM-DD). */
@@ -1063,24 +1140,72 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   const tocHtml = buildArticleToc(options.toc ?? [], safeLang);
   const articleMainClass = tocHtml.length > 0 ? 'article-main--with-toc' : 'article-main--no-toc';
 
+  const articleSectionLabel = getLocalizedArticleTypePlain(options.articleType, safeLang);
+
+  // Count words from the rendered body for the JSON-LD `wordCount`
+  // field (Google's NewsArticle structured-data validator emits a
+  // warning when this is missing). Done by stripping HTML tags from
+  // the rendered body then splitting on whitespace — fast and
+  // CodeQL-safe.
+  const bodyText = stripHtmlTags(options.body);
+  const wordCount = bodyText.split(/\s+/u).filter((w) => w.length > 0).length;
+
+  // Build the JSON-LD image graph. Google requires NewsArticle.image
+  // to be an array (or single ImageObject) with explicit width/height
+  // covering at least one of the 1:1, 4:3, 16:9 aspect ratios for
+  // Top Stories carousel eligibility.
+  const jsonLdImages = [
+    {
+      '@type': 'ImageObject',
+      url: `${BASE_URL}/images/og-image-1200.jpg`,
+      width: 1200,
+      height: 630,
+    },
+    {
+      '@type': 'ImageObject',
+      url: `${BASE_URL}/images/og-image-1200.webp`,
+      width: 1200,
+      height: 630,
+    },
+    {
+      '@type': 'ImageObject',
+      url: `${BASE_URL}/images/og-image-1200.avif`,
+      width: 1200,
+      height: 630,
+    },
+  ];
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',
-    headline: options.title,
+    headline: truncateHeadline(options.title),
     description: options.description,
     datePublished: options.date,
     dateModified: options.date,
     inLanguage: safeLang,
     url: canonicalUrl,
-    image: `${BASE_URL}/images/og-image-1200.jpg`,
-    author: { '@type': 'Organization', name: PUBLISHER_NAME, url: 'https://hack23.com' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+    image: jsonLdImages,
+    author: {
+      '@type': 'NewsMediaOrganization',
+      name: PUBLISHER_NAME,
+      url: 'https://hack23.com',
+      sameAs: [...ORG_SAME_AS],
+    },
     publisher: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
       name: PUBLISHER_NAME,
       url: 'https://hack23.com',
       logo: { '@type': 'ImageObject', url: `${BASE_URL}/images/apple-touch-icon.png` },
+      sameAs: [...ORG_SAME_AS],
     },
-    articleSection: options.articleType,
+    articleSection: articleSectionLabel,
+    wordCount,
+    keywords: (options.keywords ?? []).join(', '),
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.article-dek', '.article-body > p:first-of-type'],
+    },
     isPartOf: {
       '@type': 'WebSite',
       name: SITE_NAME,
@@ -1106,7 +1231,7 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
       {
         '@type': 'ListItem',
         position: 2,
-        name: options.articleType.replace(/-/g, ' '),
+        name: articleSectionLabel,
         item: `${BASE_URL}/news/`,
       },
       {
@@ -1121,12 +1246,24 @@ export function wrapArticleHtml(options: WrapArticleOptions): string {
   const structuredData = [jsonLd, breadcrumbLd];
   const jsonLdString = JSON.stringify(structuredData).replace(/</g, '\\u003c');
 
-  const pageTitle = `${options.title} — ${siteTitle}`;
+  const pageTitle = `${options.title}${getTitleSeparator(safeLang)}${siteTitle}`;
   const keywords = (options.keywords ?? []).map((keyword) => keyword.trim()).filter(Boolean);
   const keywordsMeta =
     keywords.length > 0
       ? `  <meta name="keywords" content="${escapeHTML(keywords.join(', '))}">\n`
       : '';
+  // Use the longer extended description for og:description/twitter:description
+  // when available so social-card previews show the full BLUF
+  // paragraph; the short meta description stays within Google's
+  // ~160-char snippet budget.
+  const socialDescription =
+    options.extendedDescription && options.extendedDescription.length > 0
+      ? options.extendedDescription
+      : options.description;
+  const ogLocaleTags = buildOgLocaleTags(safeLang);
+  const twitterAttribution = buildTwitterAttributionTags();
+  const twitterAttributionBlock = twitterAttribution ? `\n${twitterAttribution}` : '';
+
   const header = buildSiteHeader({
     lang: safeLang,
     pathPrefix: '../',
@@ -1149,19 +1286,25 @@ ${keywordsMeta}  <meta name="robots" content="index, follow, max-image-preview:l
   <meta name="author" content="${PUBLISHER_NAME}">
   <meta name="publisher" content="${PUBLISHER_NAME}">
   <meta name="date" content="${options.date}">
-  <meta name="article:published_time" content="${options.date}">
+  <meta property="article:published_time" content="${options.date}">
+  <meta property="article:modified_time" content="${options.date}">
+  <meta property="article:section" content="${escapeHTML(articleSectionLabel)}">
+  <meta property="article:author" content="${PUBLISHER_NAME}">
+  <meta property="article:publisher" content="https://hack23.com">
   <link rel="canonical" href="${canonicalUrl}">
 ${hreflangLinks}
+  <link rel="alternate" type="application/rss+xml" title="EU Parliament Monitor RSS" href="${BASE_URL}/rss.xml">
+  <link rel="preconnect" href="https://hack23.com" crossorigin>
   <meta property="og:type" content="article">
   <meta property="og:title" content="${escapeHTML(options.title)}">
-  <meta property="og:description" content="${escapeHTML(options.description)}">
+  <meta property="og:description" content="${escapeHTML(socialDescription)}">
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:site_name" content="EU Parliament Monitor">
-  <meta property="og:locale" content="${safeLang}">
-${buildResponsiveSocialImageMeta(`${options.title} — EU Parliament Monitor`)}
+${ogLocaleTags}
+${buildResponsiveSocialImageMeta(`${options.title}${getTitleSeparator(safeLang)}EU Parliament Monitor`)}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHTML(options.title)}">
-  <meta name="twitter:description" content="${escapeHTML(options.description)}">
+  <meta name="twitter:description" content="${escapeHTML(socialDescription)}">${twitterAttributionBlock}
 ${buildResponsiveIconLinks('../')}
   <link rel="manifest" href="../site.webmanifest">
   <meta name="color-scheme" content="light dark">

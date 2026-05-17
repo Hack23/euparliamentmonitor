@@ -150,10 +150,14 @@ const PI_EN: PageSeoCopy = {
 };
 
 // =============================================================================
-// Localised overlays. Only the breadcrumb labels, FAQ headings and keyword
-// strings are translated for now — the FAQ Q/A bodies remain in English to
-// keep the visible-text/structured-data byte-equivalence guarantee trivial to
-// audit. Full FAQ translation is tracked in a follow-up issue.
+// Localised overlays. Breadcrumb labels, FAQ headings, keyword strings and
+// ogImageAlt are translated for all 13 non-English locales. The FAQ Q/A
+// bodies themselves are still rendered in English so the visible-text /
+// structured-data byte-equivalence guarantee remains trivial to audit.
+// Per-language FAQ Q/A translation is tracked in a follow-up issue and
+// should be delivered alongside a regression test that asserts the
+// rendered `<details>` blocks match the corresponding JSON-LD
+// `acceptedAnswer.text` values byte-for-byte.
 // =============================================================================
 
 type Overlay = Partial<PageSeoCopy>;
@@ -168,18 +172,27 @@ const NEWS_INDEX_OVERLAYS: Record<string, Overlay> = {
     faqHeading: 'Vanliga frågor',
   },
   da: {
+    keywords:
+      'Europa-Parlamentet, EU-nyheder, medlemmer, plenarmøder, AI-journalistik, parlamentarisk efterretning, EU-politik, Hack23',
+    ogImageAlt: 'EU Parliament Monitor — AI-drevet parlamentarisk efterretning',
     breadcrumbHome: 'Hjem',
     breadcrumbCurrent: 'Nyheder',
     breadcrumbAriaLabel: 'Brødkrumme',
     faqHeading: 'Ofte stillede spørgsmål',
   },
   no: {
+    keywords:
+      'Europaparlamentet, EU-nyheter, parlamentsmedlemmer, plenarsesjoner, AI-journalistikk, parlamentarisk etterretning, EU-politikk, Hack23',
+    ogImageAlt: 'EU Parliament Monitor — AI-drevet parlamentarisk etterretning',
     breadcrumbHome: 'Hjem',
     breadcrumbCurrent: 'Nyheter',
     breadcrumbAriaLabel: 'Brødsmulesti',
     faqHeading: 'Ofte stilte spørsmål',
   },
   fi: {
+    keywords:
+      'Euroopan parlamentti, EU-uutiset, parlamentin jäsenet, täysistunnot, AI-journalismi, parlamentaarinen tiedustelu, EU-politiikka, Hack23',
+    ogImageAlt: 'EU Parliament Monitor — Tekoälypohjainen parlamentaarinen tiedustelu',
     breadcrumbHome: 'Etusivu',
     breadcrumbCurrent: 'Uutiset',
     breadcrumbAriaLabel: 'Murupolku',
@@ -218,30 +231,45 @@ const NEWS_INDEX_OVERLAYS: Record<string, Overlay> = {
     faqHeading: 'Veelgestelde vragen',
   },
   ar: {
+    keywords:
+      'البرلمان الأوروبي, أخبار الاتحاد الأوروبي, نواب البرلمان الأوروبي, الجلسات العامة, الصحافة بالذكاء الاصطناعي, الاستخبارات البرلمانية, سياسة الاتحاد الأوروبي, Hack23',
+    ogImageAlt: 'مراقب البرلمان الأوروبي — الاستخبارات البرلمانية المدعومة بالذكاء الاصطناعي',
     breadcrumbHome: 'الرئيسية',
     breadcrumbCurrent: 'الأخبار',
     breadcrumbAriaLabel: 'مسار التنقل',
     faqHeading: 'الأسئلة الشائعة',
   },
   he: {
+    keywords:
+      'הפרלמנט האירופי, חדשות האיחוד האירופי, חברי פרלמנט, מליאות, עיתונאות בינה מלאכותית, מודיעין פרלמנטרי, מדיניות האיחוד האירופי, Hack23',
+    ogImageAlt: 'מוניטור הפרלמנט האירופי — מודיעין פרלמנטרי מבוסס בינה מלאכותית',
     breadcrumbHome: 'דף הבית',
     breadcrumbCurrent: 'חדשות',
     breadcrumbAriaLabel: 'נתיב ניווט',
     faqHeading: 'שאלות נפוצות',
   },
   ja: {
+    keywords:
+      '欧州議会, EUニュース, 欧州議会議員, 本会議, AIジャーナリズム, 議会情報分析, EU政策, Hack23',
+    ogImageAlt: 'EU議会モニター — AIによる議会情報分析',
     breadcrumbHome: 'ホーム',
     breadcrumbCurrent: 'ニュース',
     breadcrumbAriaLabel: 'パンくずリスト',
     faqHeading: 'よくある質問',
   },
   ko: {
+    keywords:
+      '유럽 의회, EU 뉴스, 유럽 의원, 본회의, AI 저널리즘, 의회 정보 분석, EU 정책, Hack23',
+    ogImageAlt: 'EU 의회 모니터 — AI 기반 의회 정보 분석',
     breadcrumbHome: '홈',
     breadcrumbCurrent: '뉴스',
     breadcrumbAriaLabel: '경로',
     faqHeading: '자주 묻는 질문',
   },
   zh: {
+    keywords:
+      '欧洲议会, 欧盟新闻, 欧洲议员, 全体会议, 人工智能新闻, 议会情报, 欧盟政策, Hack23',
+    ogImageAlt: 'EU议会监测 — 人工智能驱动的议会情报',
     breadcrumbHome: '首页',
     breadcrumbCurrent: '新闻',
     breadcrumbAriaLabel: '面包屑导航',
@@ -251,78 +279,117 @@ const NEWS_INDEX_OVERLAYS: Record<string, Overlay> = {
 
 const SITEMAP_OVERLAYS: Record<string, Overlay> = {
   sv: {
+    keywords:
+      'webbplatskarta, EU-parlamentsmonitor, arkiv, nyhetsindex, parlamentariska artiklar, transparens, RSS, Hack23',
+    ogImageAlt: 'EU-parlamentsmonitor — Webbplatskarta över alla publicerade artiklar',
     breadcrumbHome: 'Hem',
     breadcrumbCurrent: 'Webbplatskarta',
     breadcrumbAriaLabel: 'Brödsmulor',
     faqHeading: 'Om webbplatskartan',
   },
   da: {
+    keywords:
+      'sitemap, EU Parliament Monitor, arkiv, nyhedsindeks, parlamentariske artikler, transparens, RSS, Hack23',
+    ogImageAlt: 'EU Parliament Monitor — Sitemap over alle publicerede artikler',
     breadcrumbHome: 'Hjem',
     breadcrumbCurrent: 'Sitemap',
     breadcrumbAriaLabel: 'Brødkrumme',
     faqHeading: 'Om dette sitemap',
   },
   no: {
+    keywords:
+      'nettstedskart, EU Parliament Monitor, arkiv, nyhetsindeks, parlamentariske artikler, transparens, RSS, Hack23',
+    ogImageAlt: 'EU Parliament Monitor — Nettstedskart over alle publiserte artikler',
     breadcrumbHome: 'Hjem',
     breadcrumbCurrent: 'Nettstedskart',
     breadcrumbAriaLabel: 'Brødsmulesti',
     faqHeading: 'Om nettstedskartet',
   },
   fi: {
+    keywords:
+      'sivukartta, EU-parlamenttimonitori, arkisto, uutishakemisto, parlamentaariset artikkelit, läpinäkyvyys, RSS, Hack23',
+    ogImageAlt: 'EU-parlamenttimonitori — Sivukartta kaikista julkaistuista artikkeleista',
     breadcrumbHome: 'Etusivu',
     breadcrumbCurrent: 'Sivukartta',
     breadcrumbAriaLabel: 'Murupolku',
     faqHeading: 'Tietoa sivukartasta',
   },
   de: {
+    keywords:
+      'Seitenübersicht, EU Parliament Monitor, Archiv, Nachrichtenindex, parlamentarische Artikel, Transparenz, RSS, Hack23',
+    ogImageAlt: 'EU Parliament Monitor — Seitenübersicht aller veröffentlichten Artikel',
     breadcrumbHome: 'Startseite',
     breadcrumbCurrent: 'Seitenübersicht',
     breadcrumbAriaLabel: 'Brotkrümelnavigation',
     faqHeading: 'Über diese Seitenübersicht',
   },
   fr: {
+    keywords:
+      'plan du site, EU Parliament Monitor, archives, index actualités, articles parlementaires, transparence, RSS, Hack23',
+    ogImageAlt: 'EU Parliament Monitor — Plan du site de tous les articles publiés',
     breadcrumbHome: 'Accueil',
     breadcrumbCurrent: 'Plan du site',
     breadcrumbAriaLabel: "Fil d'Ariane",
     faqHeading: 'À propos du plan du site',
   },
   es: {
+    keywords:
+      'mapa del sitio, EU Parliament Monitor, archivo, índice de noticias, artículos parlamentarios, transparencia, RSS, Hack23',
+    ogImageAlt: 'EU Parliament Monitor — Mapa de todos los artículos publicados',
     breadcrumbHome: 'Inicio',
     breadcrumbCurrent: 'Mapa del sitio',
     breadcrumbAriaLabel: 'Ruta de navegación',
     faqHeading: 'Acerca de este mapa del sitio',
   },
   nl: {
+    keywords:
+      'sitemap, EU Parliament Monitor, archief, nieuwsindex, parlementaire artikelen, transparantie, RSS, Hack23',
+    ogImageAlt: 'EU Parliament Monitor — Sitemap van alle gepubliceerde artikelen',
     breadcrumbHome: 'Startpagina',
     breadcrumbCurrent: 'Sitemap',
     breadcrumbAriaLabel: 'Kruimelpad',
     faqHeading: 'Over deze sitemap',
   },
   ar: {
+    keywords:
+      'خريطة الموقع, مراقب البرلمان الأوروبي, أرشيف, فهرس الأخبار, مقالات برلمانية, الشفافية, RSS, Hack23',
+    ogImageAlt: 'مراقب البرلمان الأوروبي — خريطة الموقع لجميع المقالات المنشورة',
     breadcrumbHome: 'الرئيسية',
     breadcrumbCurrent: 'خريطة الموقع',
     breadcrumbAriaLabel: 'مسار التنقل',
     faqHeading: 'حول خريطة الموقع',
   },
   he: {
+    keywords:
+      'מפת אתר, מוניטור הפרלמנט האירופי, ארכיון, אינדקס חדשות, מאמרים פרלמנטריים, שקיפות, RSS, Hack23',
+    ogImageAlt: 'מוניטור הפרלמנט האירופי — מפת אתר של כל המאמרים שפורסמו',
     breadcrumbHome: 'דף הבית',
     breadcrumbCurrent: 'מפת אתר',
     breadcrumbAriaLabel: 'נתיב ניווט',
     faqHeading: 'אודות מפת האתר',
   },
   ja: {
+    keywords:
+      'サイトマップ, EU議会モニター, アーカイブ, ニュースインデックス, 議会記事, 透明性, RSS, Hack23',
+    ogImageAlt: 'EU議会モニター — 公開されたすべての記事のサイトマップ',
     breadcrumbHome: 'ホーム',
     breadcrumbCurrent: 'サイトマップ',
     breadcrumbAriaLabel: 'パンくずリスト',
     faqHeading: 'サイトマップについて',
   },
   ko: {
+    keywords:
+      '사이트맵, EU 의회 모니터, 아카이브, 뉴스 색인, 의회 기사, 투명성, RSS, Hack23',
+    ogImageAlt: 'EU 의회 모니터 — 게시된 모든 기사의 사이트맵',
     breadcrumbHome: '홈',
     breadcrumbCurrent: '사이트맵',
     breadcrumbAriaLabel: '경로',
     faqHeading: '사이트맵 안내',
   },
   zh: {
+    keywords:
+      '网站地图, EU议会监测, 存档, 新闻索引, 议会文章, 透明度, RSS, Hack23',
+    ogImageAlt: 'EU议会监测 — 所有已发布文章的网站地图',
     breadcrumbHome: '首页',
     breadcrumbCurrent: '网站地图',
     breadcrumbAriaLabel: '面包屑导航',

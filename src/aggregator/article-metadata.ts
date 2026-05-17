@@ -75,6 +75,16 @@ import { resolveLocalizedBriefHighlight } from './editorial-brief-resolver.js';
 export interface ResolvedMetadataEntry {
   readonly title: string;
   readonly description: string;
+  /**
+   * Optional longer (up to ~300 chars) editorial summary lifted from
+   * the language-specific executive brief BLUF paragraph. Used for
+   * `og:description` and `twitter:description` so social-card previews
+   * can show the full Bottom-Line-Up-Front context, while the
+   * short `description` stays within Google's ~160-char snippet
+   * budget. Empty string when no longer summary is available — the
+   * caller should then fall back to {@link description}.
+   */
+  readonly extendedDescription: string;
   readonly keywords: readonly string[];
   /**
    * `"localized-brief"` when the title/description came from a translated
@@ -146,6 +156,20 @@ export interface ResolveMetadataOptions {
 
 /** Maximum `<meta description>` length we will emit. */
 const DESCRIPTION_MAX_LENGTH = 180;
+
+/**
+ * Maximum `og:description` / `twitter:description` length we will
+ * emit. Facebook truncates at ~300 characters in the preview card;
+ * Twitter at ~200. We aim for the longer cap so LinkedIn / Slack
+ * (which use the full OG payload) get the full BLUF context, then
+ * let Twitter clip naturally. Below this length the extended
+ * description is emitted verbatim; above it we sentence-boundary
+ * truncate the same way as {@link truncateDescription}.
+ */
+const EXTENDED_DESCRIPTION_MAX_LENGTH = 300;
+
+/** Target minimum extended-description length before we even emit it. */
+const EXTENDED_DESCRIPTION_MIN_LENGTH = 200;
 
 /** Target minimum `<meta description>` length before we append context. */
 const DESCRIPTION_MIN_LENGTH = 140;
@@ -709,6 +733,36 @@ export function truncateDescription(text: string): string {
 }
 
 /**
+ * Clamp an extended description to {@link EXTENDED_DESCRIPTION_MAX_LENGTH}
+ * characters using the same sentence-boundary-preserving logic as
+ * {@link truncateDescription}. Returns `''` when the input is empty
+ * or shorter than the meta-description maximum (no point in emitting
+ * an "extended" description that's actually shorter than the regular
+ * one).
+ *
+ * @param text - Raw extended-description text (e.g. full BLUF paragraph)
+ * @returns Truncated extended description, or `''` when not worth emitting
+ */
+export function truncateExtendedDescription(text: string): string {
+  const trimmed = text.trim();
+  if (!trimmed) return '';
+  // Don't emit an extended description that is shorter than the
+  // short meta-description budget — there's no SEO win and it would
+  // make `og:description` shorter than `<meta description>`.
+  if (trimmed.length <= DESCRIPTION_MAX_LENGTH) return '';
+  if (trimmed.length <= EXTENDED_DESCRIPTION_MAX_LENGTH) return trimmed;
+  const cut = trimmed.slice(0, EXTENDED_DESCRIPTION_MAX_LENGTH - 1);
+  const sentenceEnd = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('! '), cut.lastIndexOf('? '));
+  if (sentenceEnd >= EXTENDED_DESCRIPTION_MIN_LENGTH) {
+    return cut.slice(0, sentenceEnd + 1).replace(/\s+$/, '');
+  }
+  const lastSpace = cut.lastIndexOf(' ');
+  let safe = lastSpace > EXTENDED_DESCRIPTION_MAX_LENGTH - 60 ? cut.slice(0, lastSpace) : cut;
+  safe = stripTrailingStopWordsAndPunctuation(safe);
+  return `${safe}…`;
+}
+
+/**
  * Clamp a title to `TITLE_MAX_LENGTH` characters in the same
  * word-boundary-preserving fashion as {@link truncateDescription}.
  *
@@ -1041,6 +1095,36 @@ export function extractLedeAfterHeading(markdown: string): string {
   }
   if (buf.lines.length === 0) return '';
   return truncateDescription(buf.lines.join(' '));
+}
+
+/**
+ * Same parsing rules as {@link extractLedeAfterHeading} but with a
+ * larger byte budget so the full BLUF paragraph (typically 200-300
+ * characters in the editorial style guide) is captured for use as
+ * `og:description` / `twitter:description`. Returns the joined
+ * paragraph clamped via {@link truncateExtendedDescription} (which
+ * returns `''` when the result wouldn't be longer than the regular
+ * meta description).
+ *
+ * @param markdown - Brief body (SPDX preamble already stripped)
+ * @returns Extended lede paragraph, or `''` when not worth emitting
+ */
+export function extractExtendedLedeAfterHeading(markdown: string): string {
+  const state = { inFence: false, inLede: false };
+  const buf: ParagraphBuffer = { lines: [], byteCount: 0 };
+  for (const raw of markdown.split('\n')) {
+    const line = raw.trim();
+    const directive = classifyLedeLine(line, state.inFence, state.inLede, buf.lines.length > 0);
+    const action = applyLedeDirective(directive, state, buf.lines.length > 0);
+    if (action === 'break') break;
+    if (action === 'continue') continue;
+    const collect = collectProseLine(line, buf);
+    if (collect === 'continue') continue;
+    if (collect === 'break') break;
+    if (buf.byteCount >= EXTENDED_DESCRIPTION_MAX_LENGTH) break;
+  }
+  if (buf.lines.length === 0) return '';
+  return truncateExtendedDescription(buf.lines.join(' '));
 }
 
 /**
@@ -2550,6 +2634,7 @@ function manifestOverrideFor(
 function resolveEditorialContent(opts: ResolveMetadataOptions): {
   readonly headline: string;
   readonly summary: string;
+  readonly extendedSummary: string;
 } {
   const { articleType, date, markdown, runDir } = opts;
 
@@ -2560,6 +2645,7 @@ function resolveEditorialContent(opts: ResolveMetadataOptions): {
       return {
         headline: highlight.headline,
         summary: highlight.summary,
+        extendedSummary: extractExtendedLedeAfterHeading(markdown),
       };
     }
     if (highlight?.summary) {
@@ -2569,10 +2655,12 @@ function resolveEditorialContent(opts: ResolveMetadataOptions): {
 
   const aggregatedH1 = extractFirstH1(markdown);
   const aggregatedSummary = extractStrongProseLine(markdown);
+  const aggregatedExtended = extractExtendedLedeAfterHeading(markdown);
   if (aggregatedH1 && !isGenericHeading(aggregatedH1, articleType, date)) {
     return {
       headline: truncateTitle(aggregatedH1),
       summary: artefactSummary || aggregatedSummary,
+      extendedSummary: aggregatedExtended,
     };
   }
 
@@ -2585,10 +2673,14 @@ function resolveEditorialContent(opts: ResolveMetadataOptions): {
     // to clause-boundary truncation downstream when the sentence
     // itself overruns TITLE_MAX_LENGTH.
     const firstSentence = extractFirstSentence(summary);
-    return { headline: truncateTitle(firstSentence), summary };
+    return {
+      headline: truncateTitle(firstSentence),
+      summary,
+      extendedSummary: aggregatedExtended,
+    };
   }
 
-  return { headline: '', summary: '' };
+  return { headline: '', summary: '', extendedSummary: '' };
 }
 
 /**
@@ -2836,7 +2928,11 @@ export function resolveArticleMetadata(opts: ResolveMetadataOptions): ResolvedMe
 interface PerLanguageInputs {
   readonly lang: LanguageCode;
   readonly manifest: MetadataManifest;
-  readonly englishEditorial: { readonly headline: string; readonly summary: string };
+  readonly englishEditorial: {
+    readonly headline: string;
+    readonly summary: string;
+    readonly extendedSummary: string;
+  };
   readonly template: LangTitleSubtitle;
   readonly runDir?: string | undefined;
   readonly articleType: string;
@@ -2894,12 +2990,26 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
   const truncatedTitle = truncateTitle(title);
   const truncatedDescription = truncateDescription(description);
 
+  // The extended description tracks the same source as the short
+  // description: when a manifest description overrides, use it
+  // verbatim (no point synthesising an extended form from the brief
+  // when the editor explicitly chose the manifest copy); otherwise
+  // use the editorial extended summary lifted from the brief BLUF.
+  // `truncateExtendedDescription` returns `''` when the candidate
+  // wouldn't be longer than the regular meta description, so callers
+  // can fall back to {@link description} via a simple `||`.
+  const extendedSource = manifestDescription
+    ? manifestDescription
+    : editorial.extendedSummary || rawDescription;
+  const truncatedExtendedDescription = truncateExtendedDescription(extendedSource);
+
   const source: ResolvedMetadataEntry['source'] =
     manifestTitle || manifestDescription ? 'manifest' : perLanguage.source;
 
   return {
     title: truncatedTitle,
     description: truncatedDescription,
+    extendedDescription: truncatedExtendedDescription,
     keywords: buildSeoKeywords(
       input.lang,
       input.articleType,
@@ -2931,7 +3041,11 @@ function resolveOneLanguage(input: PerLanguageInputs): ResolvedMetadataEntry {
  * @returns Editorial pair plus the tier that produced it
  */
 function resolvePerLanguageEditorial(input: PerLanguageInputs): {
-  readonly editorial: { readonly headline: string; readonly summary: string };
+  readonly editorial: {
+    readonly headline: string;
+    readonly summary: string;
+    readonly extendedSummary: string;
+  };
   readonly source: ResolvedMetadataEntry['source'];
 } {
   if (input.lang !== 'en' && input.runDir) {
@@ -2950,6 +3064,7 @@ function resolvePerLanguageEditorial(input: PerLanguageInputs): {
         editorial: {
           headline: localized.headline,
           summary: localized.summary,
+          extendedSummary: localized.extendedSummary,
         },
         source: 'localized-brief',
       };
@@ -2965,7 +3080,7 @@ function resolvePerLanguageEditorial(input: PerLanguageInputs): {
   // Nothing editorial at all → caller will fall back to the localized
   // template.
   return {
-    editorial: { headline: '', summary: '' },
+    editorial: { headline: '', summary: '', extendedSummary: '' },
     source: 'template',
   };
 }
