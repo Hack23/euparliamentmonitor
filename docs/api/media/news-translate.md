@@ -33,6 +33,10 @@ on:
         type: boolean
         required: false
         default: false
+      mode:
+        description: "Discovery prioritisation: fresh-then-backlog (default) | backlog-only | newest-first."
+        required: false
+        default: "fresh-then-backlog"
 
 permissions:
   contents: read
@@ -149,6 +153,8 @@ steps:
       MAX_BRIEFS: ${{ github.event.inputs.max_briefs || '2' }}
       MAX_AGE_DAYS: ${{ github.event.inputs.max_age_days || '180' }}
       INCLUDE_EXTENDED: ${{ github.event.inputs.include_extended || 'false' }}
+      DISCOVERY_MODE: ${{ github.event.inputs.mode || 'fresh-then-backlog' }}
+      RUN_NUMBER: ${{ github.run_number }}
     run: |
       set -euo pipefail
       mkdir -p /tmp/gh-aw/discovery
@@ -160,6 +166,8 @@ steps:
       node scripts/discover-untranslated-briefs.js \
         --max-briefs "$MAX_BRIEFS" \
         --max-age-days "$MAX_AGE_DAYS" \
+        --mode "$DISCOVERY_MODE" \
+        --run-number "$RUN_NUMBER" \
         --output /tmp/gh-aw/discovery/queue.json \
         $EXTENDED_FLAG
       echo "Discovery queue summary:"
@@ -220,11 +228,18 @@ engine:
 | Read any artifact in `analysis/daily/**/` for terminology context | Edit `news/**/*.html`, `.github/**`, `src/**`, `scripts/**`, `package.json` |
 | Read `/tmp/gh-aw/discovery/queue.json` | Read other unrelated repository files |
 | Run `node scripts/validate-brief-translations.js --paths …` to self-check | Use `sed`/`awk`/regex/`tr` to translate narrative content |
-| Call `safeoutputs___create_pull_request` after each fully-translated brief | Call `safeoutputs___create_pull_request` before at least one brief is fully translated (= all 13 missing languages produced and validator-clean) |
+| Call `safeoutputs___create_pull_request` after each fully-translated brief | Call `safeoutputs___create_pull_request` with zero translations produced (no files on disk) |
+| Emergency partial flush when wall-clock budget is exhausted (≥ 50 min elapsed OR `<10 min remaining`) — see § Step 4b | Silently let the engine time out / terminate without flushing any progress |
 
-> **Why the safeoutputs deferral matters**: an empty PR or a PR with a
-> half-translated brief is worse than no PR. The validator rejects partial
-> coverage, and reviewers should never see a "1/13 languages done" PR.
+> **Why a flush-before-timeout safety net matters**: prior runs have died
+> mid-brief (e.g. 10/13 languages written, engine terminated) and lost
+> ~15-25 minutes of translation work because no PR was ever created. The
+> safe-outputs system requires the agent to explicitly call
+> `create_pull_request`; if the engine dies without that call, **all
+> uncommitted translations are discarded**. Therefore: prefer a partial-
+> brief PR (flagged by the validator post-step) over zero output. An empty
+> PR is still worse than no PR — the safety net only fires when ≥ 1
+> translation file has been written to disk.
 
 ## 🛡️ Seven Quality Gates (auto-enforced before the PR is created)
 
@@ -242,9 +257,17 @@ that fail ANY gate will be flagged in the PR comment:
 5. **Fixed-token preservation** — every `IMF`, `WEO`, `World Bank`,
    `data-vintage="WEO-…"`, EP adopted-text ID (`TA-NN-YYYY-NNNN`), and
    procedure ID (`YYYY/NNNN(COD|INI|NLE)`) in the source MUST appear
-   verbatim in the translation.
-6. **Heading parity** — H1 count must match exactly; H2/H3 counts may differ
-   by at most one heading. Missing or merged sections are rejected.
+   verbatim in the translation. The discovery queue exposes the exact
+   per-token count for every queued source as `sourceFixedTokens`; treat
+   that map as your verbatim-preserve budget per brief.
+6. **Heading parity** — H1 and H2 counts must match the source **exactly**
+   (zero tolerance for either); H3 counts may differ by at most one
+   heading. Dropping or merging a `## Section` — including a
+   duplicate-titled addendum such as `## IMF Economic Context — May 2026
+   Update` — is rejected. When the validator flags an H2 mismatch it
+   quotes the full source H2 title list back at you, and (when the
+   mismatch is exactly one section) names the **Likely dropped** title
+   directly so you know what to re-translate.
 7. **Mermaid block parity** — every source ```` ```mermaid ```` opener must
    appear in the translation so diagrams remain renderable.
 
@@ -261,6 +284,14 @@ BRANCH="news/translate-briefs-${RUN_DATE}"
 
 ANALYSIS_DIR="analysis/translation-runs/${RUN_DATE}"
 mkdir -p "${ANALYSIS_DIR}"
+
+# Wall-clock budget tracking — every later bash block checks elapsed
+# minutes against this anchor to decide when to fire the emergency
+# partial flush (Step 4b). Stored in /tmp so subsequent agent steps
+# can re-source it without re-exporting from this block.
+WORKFLOW_START_EPOCH=$(date -u +%s)
+echo "${WORKFLOW_START_EPOCH}" > /tmp/gh-aw/workflow-start-epoch
+echo "Workflow start epoch: ${WORKFLOW_START_EPOCH}"
 
 # Record a run marker so safeoutputs always sees ≥1 working-directory change
 # when the agent decides to flush. The marker file is intentionally outside
@@ -297,9 +328,41 @@ Each queue entry has the shape:
   "sourcePath": "analysis/daily/2026-05-15/breaking/executive-brief.md",
   "missingLangs": ["sv","da","no","fi","de","fr","es","nl","ar","he","ja","ko","zh"],
   "missingCount": 13,
-  "isExtended": false
+  "isExtended": false,
+  "sourceH2Count": 8,
+  "sourceH2Titles": [
+    { "line": 7,   "title": "Headline Intelligence" },
+    { "line": 96,  "title": "IMF Economic Context" },
+    { "line": 146, "title": "IMF Economic Context — May 2026 Update" }
+  ],
+  "sourceFixedTokens": { "IMF": 17, "WEO": 2, "TA-id": 4 }
 }
 ```
+
+> **`sourceH2Titles` is the single most important field to scan before
+> translating.** If two H2 titles share a common prefix (e.g.
+> `IMF Economic Context` and `IMF Economic Context — May 2026 Update`),
+> they are **distinct sections**. Never collapse them. The validator's
+> heading-parity gate (`H2_TOLERANCE = 0`) will reject a translation that
+> drops or merges any source H2 — and the violation message will quote
+> the missing title back at you.
+
+> **`sourceFixedTokens` is your verbatim-preservation budget.** Every
+> count listed here MUST appear at least that many times in every
+> translation. If the source has `IMF: 17`, every `executive-brief_<lang>.md`
+> must contain the exact token `IMF` at least 17 times. Translating
+> `IMF` to `IMV` / `صندوق النقد` / `IWF` is forbidden — copy the Latin-
+> script token verbatim.
+
+**Queue ordering (`fresh-then-backlog`, default):** slot 0 is the newest
+source with any missing language ("fresh slice"); slots 1+ are the
+*oldest* sources with gaps in date-ascending order, finishing half-done
+briefs before starting blank ones ("backlog slice"). This policy is what
+actually drains the long-tail backlog — older briefs cannot be perpetually
+starved by today's wins. **Treat every queue entry identically: full
+13-language translation per brief, no fast-path for the fresh slot.** The
+`totals.freshNewestDate` and `totals.backlogOldestDate` fields show the
+extents of what's still missing across the entire repository.
 
 If `totals.queued == 0`, the workflow has nothing to do. Write a short
 note to `${ANALYSIS_DIR}/no-work.md` explaining this, then END THE RUN
@@ -310,17 +373,86 @@ without calling safeoutputs. **An empty PR is never the right outcome.**
 For each queue entry, in order:
 
 1. **Read the source brief in full** (`sourcePath`).
-2. **Open the translator guide** (`analysis/methodologies/executive-brief-translation-guide.md`)
+2. **Count source headings BEFORE writing any translation**
+   (assign `sourcePath` from the current queue entry first):
+   ```bash
+   # entryIndex must be set by your queue loop (0-based current queue position).
+   # Example: resolve sourcePath for the current queue index ($entryIndex)
+   if [ -z "${entryIndex:-}" ]; then
+     echo "Missing entryIndex for current queue entry" >&2
+     exit 1
+   fi
+   python3 - "$entryIndex" > /tmp/gh-aw/source-path.txt <<'PY' || exit 1
+import json
+import sys
+from pathlib import Path
+
+queue_path = Path("/tmp/gh-aw/discovery/queue.json")
+if len(sys.argv) < 2:
+    print("Missing required argument: entry index", file=sys.stderr)
+    sys.exit(1)
+raw_index = sys.argv[1]
+try:
+    payload = json.loads(queue_path.read_text(encoding="utf-8"))
+    queue = payload.get("queue", [])
+    idx = int(raw_index)
+    print(queue[idx].get("sourcePath", ""))
+except (FileNotFoundError, json.JSONDecodeError, ValueError, IndexError, TypeError) as exc:
+    print(f"Failed to read/parse queue or access entry index {raw_index} in {queue_path}: {exc}", file=sys.stderr)
+    sys.exit(1)
+PY
+   IFS= read -r sourcePath < /tmp/gh-aw/source-path.txt
+   if [ -z "${sourcePath:-}" ] || [ ! -f "$sourcePath" ]; then
+     echo "Missing or invalid sourcePath: $sourcePath" >&2
+     exit 1
+   fi
+   echo "Source H1: $(grep -cE '^# [^#]' "$sourcePath")"
+   echo "Source H2: $(grep -cE '^## [^#]' "$sourcePath")"
+   echo "Source H3: $(grep -cE '^### ' "$sourcePath")"
+   ```
+   Every translation MUST have the same H1 and H2 counts (zero tolerance).
+   Pay special attention to duplicate-titled sections — e.g. a source
+   that contains both `## IMF Economic Context` AND
+   `## IMF Economic Context — May 2026 Update` has **two** distinct H2
+   sections, not one. Do not collapse them.
+3. **Open the translator guide** (`analysis/methodologies/executive-brief-translation-guide.md`)
    to the per-language terminology table for the languages you're producing.
-3. **For each `lang` in `missingLangs`**, create a sibling next to
+4. **For each `lang` in `missingLangs`**, create a sibling next to
    `sourcePath`: replace the source filename `executive-brief.md` with
    `executive-brief_<lang>.md`. For canonical entries that is
    `analysis/daily/<date>/<slug>/executive-brief_<lang>.md`; for
    `isExtended: true` entries it is
    `analysis/daily/<date>/<slug>/extended/executive-brief_<lang>.md`.
-   Use the `edit` / `create` tool:
-   - Mirror the source structure 1:1 (heading count, list count, table
-     rows, blockquote count, emoji-marker positions).
+
+   > **⚠️ TOOL REQUIREMENT — read before writing:** Use the `create`
+   > tool **exclusively** (pass `path` and `file_text` explicitly on
+   > every call). **NEVER** use `cat > file << 'EOF'` shell heredocs —
+   > heredocs silently truncate when the translation content fills the
+   > context, causing the last H2 section(s) to vanish without any
+   > error. Use `edit` only for files that already exist on disk.
+
+   Before writing the first word of any translation, enumerate the
+   source H2 titles so you know the full checklist (`$sourcePath` is
+   already set by step 2's bash block):
+   ```bash
+   set -euo pipefail
+   if [ -z "${sourcePath:-}" ] || [ ! -f "$sourcePath" ]; then
+     echo "sourcePath not set or file missing: ${sourcePath:-<unset>}" >&2; exit 1
+   fi
+   echo "=== Source H2 checklist ==="
+   grep -E '^## ' "$sourcePath"
+   echo "==========================="
+   ```
+   Treat every line printed as a **MUST-TRANSLATE** item. The last H2
+   title printed is the one most often dropped — write or verify it
+   explicitly. Do **not** begin a new language until you have confirmed
+   the previous one contains every H2 from this list.
+
+   - Mirror the source structure: exact H1 and H2 counts (zero
+     tolerance), H3 count within ±1 (legitimate CJK sub-bullet fusion),
+     same list count, table rows, blockquote count, emoji-marker
+     positions. Every `##` in the source MUST have a matching `##` in
+     the translation.
    - Translate every prose section into the target language. Pass 1 first
      covers every section once; Pass 2 re-reads the entire file and
      expands cramped passages, fixes terminology drift, and verifies
@@ -331,25 +463,150 @@ For each queue entry, in order:
      emoji (`🟢 HIGH` / `🟡 MEDIUM` / `🔴 LOW`), classification stamps.
    - Apply per-language register from § 4 of the translator guide
      (Nordic / EU-core / RTL / CJK).
-4. **Self-validate** the brief you just finished:
+
+   **4a. Mandatory H2 spot-check per language** — run immediately after
+   creating each `executive-brief_<lang>.md`, BEFORE moving to the next
+   language. A mismatch means a section was dropped (almost always the
+   last H2). Fix the translation NOW; do not continue to the next
+   language until this exits 0.
+
     ```bash
-    node scripts/validate-brief-translations.js \
-      --paths <source-directory>/executive-brief_*.md
+    set -euo pipefail
+    BRIEF_DIR=$(dirname "$sourcePath")
+    src_h2=$(grep -cE '^## ' "$sourcePath" || true)
+    out_h2=$(grep -cE '^## ' "${BRIEF_DIR}/executive-brief_${lang}.md" || true)
+    if [ "$src_h2" != "$out_h2" ]; then
+     echo "❌ H2 MISMATCH for ${lang}: source=${src_h2} translation=${out_h2}" >&2
+     echo "Source H2 titles:" >&2
+     grep -E '^## ' "$sourcePath" >&2 || true
+     echo "Translation H2 titles:" >&2
+     grep -E '^## ' "${BRIEF_DIR}/executive-brief_${lang}.md" >&2 || true
+     exit 1
+   fi
+   echo "✅ H2 spot-check OK for ${lang}: ${out_h2}/${src_h2}"
+   ```
+
+   **4b. Wall-clock safety net — emergency partial flush.** After every
+   language file is written and H2-checked, compute elapsed minutes
+   from `WORKFLOW_START_EPOCH`. If **≥ 50 minutes** have elapsed (or
+   `<10 minutes` remain of the 60-minute cap), **STOP translating
+   immediately** and call `safeoutputs___create_pull_request` with
+   whatever files are already on disk — even if the current brief is
+   only partially translated (e.g. 10/13 languages). A partial-brief
+   PR is **always** preferable to an engine timeout that loses all
+   work. Record the missing language codes in the emergency-flush
+   marker and in the PR body (the validator only checks files that
+   exist — it cannot flag absent siblings, so the gap list must come
+   from the marker and the `PARTIAL_LANG_COUNT` bookkeeping vars in
+   Step 6). Reviewers can re-queue the missing languages on the next
+   cron tick.
+
+   ```bash
+   set -euo pipefail
+   START_EPOCH=$(cat /tmp/gh-aw/workflow-start-epoch)
+   NOW_EPOCH=$(date -u +%s)
+   ELAPSED_MIN=$(( (NOW_EPOCH - START_EPOCH) / 60 ))
+   REMAINING_MIN=$(( 60 - ELAPSED_MIN ))
+   echo "⏱️  Elapsed: ${ELAPSED_MIN} min | Remaining: ${REMAINING_MIN} min"
+   if [ "${ELAPSED_MIN}" -ge 50 ] || [ "${REMAINING_MIN}" -le 10 ]; then
+     echo "🚨 EMERGENCY FLUSH WINDOW REACHED — call safeoutputs___create_pull_request NOW with partial progress, then end the run." >&2
+     # Record a breadcrumb so post-step diagnostics can correlate the early
+     # flush. Include the missing-language list because the validator only
+     # checks files that exist and cannot detect absent siblings.
+     BRIEF_DIR=$(dirname "$sourcePath")
+     WRITTEN_LANGS=$(ls "${BRIEF_DIR}"/executive-brief_*.md 2>/dev/null | \
+       sed 's|.*executive-brief_||;s|\.md$||' | tr '\n' ',' | sed 's/,$//')
+     ALL_LANGS="sv,da,no,fi,de,fr,es,nl,ar,he,ja,ko,zh"
+     MISSING_LANGS=""
+     for lang in $(printf '%s' "${ALL_LANGS}" | tr ',' '\n'); do
+       if [ ! -f "${BRIEF_DIR}/executive-brief_${lang}.md" ]; then
+         if [ -z "${MISSING_LANGS}" ]; then
+           MISSING_LANGS="${lang}"
+         else
+           MISSING_LANGS="${MISSING_LANGS},${lang}"
+         fi
+       fi
+     done
+     printf 'emergency_flush_triggered_at=%s\nelapsed_min=%s\nwritten_langs=%s\nmissing_langs=%s\n' \
+       "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "${ELAPSED_MIN}" \
+       "${WRITTEN_LANGS}" "${MISSING_LANGS}" \
+       > "${ANALYSIS_DIR}/emergency-flush-${RUN_ID}.marker"
+     echo "Written languages: ${WRITTEN_LANGS}" >&2
+     echo "Missing languages: ${MISSING_LANGS}" >&2
+   fi
+   ```
+
+   When the emergency-flush marker is written, call
+   `safeoutputs___create_pull_request` immediately with the
+   partial-progress title format (see Step 6 alternative below) and
+   **do not start another language**. The next scheduled cron run
+   will pick up the remaining languages via the discovery queue
+   (missing-language detection is automatic).
+
+5. **Self-validate** the brief you just finished. **This is a hard gate.
+    Do not call `safeoutputs___create_pull_request` until this step
+    reports zero violations for the brief's siblings.**
+
+    ```bash
+    set -euo pipefail
+    BRIEF_DIR=$(dirname "$sourcePath")
+    if node scripts/validate-brief-translations.js \
+         --paths "${BRIEF_DIR}/executive-brief_*.md" \
+         --report "${ANALYSIS_DIR}/validator-${BRIEF_DIR//\//_}.json"; then
+      echo "✅ Brief at ${BRIEF_DIR} is validator-clean — safe to flush."
+    else
+      echo "❌ Validator violations remain in ${BRIEF_DIR}. Re-translate before flush." >&2
+      node -e 'const r=require(process.argv[2]); for (const v of r.violations) console.error("•", v.translationPath, "["+v.gate+"]", v.message);' \
+        "${ANALYSIS_DIR}/validator-${BRIEF_DIR//\//_}.json"
+      exit 1
+    fi
     ```
-   If any gate flags a translation, **re-translate it now**, do not let it
-   slip into the PR.
-5. **Flush** — after all 13 languages for this brief are produced AND the
-   self-validator returns zero violations for this brief's `_<lang>.md`
-   files, call `safeoutputs___create_pull_request`. The template literal
-   below uses two bookkeeping variables you maintain in your own head as
-   you iterate over the queue:
+
+    If any gate flagged a translation, **re-translate it now** — do not
+    let it slip into the PR. Common diagnoses and fixes:
+
+    - `heading-parity` H2 mismatch → re-read the validator's
+      `Source H2 titles: [...]` list. If it includes `Likely dropped:
+      [...]`, that section literally needs to be added back to the
+      translation. Duplicate-titled H2s (e.g. `IMF Economic Context` AND
+      `IMF Economic Context — May 2026 Update`) are **distinct
+      sections** — never collapse them.
+    - `fixed-token-preservation` → search the translation for every
+      missing token; re-insert it verbatim (never localised). Cross-
+      check against `sourceFixedTokens` from the discovery queue.
+    - `mermaid-parity` → copy every ```` ```mermaid ```` block from the
+      source unchanged; never translate diagram node text.
+    - `length-floor` / `english-fallthrough` → the translation is
+      probably a stub or contains untranslated paragraphs; redo it.
+
+    Only after the validator returns exit 0 may you proceed to the
+    flush step. **Exception**: when the Step 4b emergency-flush
+    marker file exists at
+    `${ANALYSIS_DIR}/emergency-flush-${RUN_ID}.marker`, you MAY skip
+    this hard gate and proceed directly to the partial-progress flush
+    (Step 6, alternative title). Validator failures will surface in
+    the post-step report and the PR comment — that is intended; do
+    not let strict validation block the emergency rescue.
+6. **Flush** — after step 5 reported `✅` (or after the emergency-flush
+    marker was written in Step 4b), call
+    `safeoutputs___create_pull_request`. The template literal below uses
+    two bookkeeping variables you maintain in your own head as you
+    iterate over the queue:
 
    - `COMPLETED_COUNT` — number of briefs whose 13 language siblings have
-     all been written AND validator-clean (incremented after step 4 of
+     all been written AND validator-clean (incremented after step 5 of
      this iteration).
    - `QUEUED_COUNT` — `totals.queued` from `/tmp/gh-aw/discovery/queue.json`
      (read once in Step 1; this is `2` on a default run, up to `4` on
      catch-up runs).
+   - `PARTIAL_BRIEF_PATH` *(emergency flush only)* — `sourcePath` of the
+     in-progress brief at the moment the Step 4b marker fired (e.g.
+     `analysis/daily/2026-04-01/propositions/executive-brief.md`).
+   - `PARTIAL_LANG_COUNT` *(emergency flush only)* — number of language
+     siblings already written to disk for the in-progress brief (e.g.
+     `10` when `ar` and `he` are done but `ja`, `ko`, `zh` are not).
+     Compute with `ls "${BRIEF_DIR}"/executive-brief_*.md | wc -l`
+     immediately before calling `safeoutputs___create_pull_request`.
 
    ```javascript
    safeoutputs___create_pull_request({
@@ -360,8 +617,23 @@ For each queue entry, in order:
    })
    ```
 
-6. **Move to the next queue entry** until the queue is empty OR you've
-   used ≥ 50 minutes of the 60-minute cap.
+   **Alternative title — partial-progress / emergency flush** (use when
+   the Step 4b marker was written or the current brief is partially
+   translated):
+
+   ```javascript
+   safeoutputs___create_pull_request({
+     title: `[news] Translate executive briefs — ${RUN_DATE} (PARTIAL: ${COMPLETED_COUNT} complete + ${PARTIAL_LANG_COUNT}/13 in progress)`,
+     body: `Emergency partial flush at wall-clock budget exhaustion.\n\nCompleted briefs: ${COMPLETED_COUNT}/${QUEUED_COUNT}. Partial brief (${PARTIAL_BRIEF_PATH}): ${PARTIAL_LANG_COUNT}/13 languages written.\n\n**Missing languages** (not validated by post-step — listed here because the validator only checks files that exist): ${MISSING_LANGS}\n\nThe next scheduled cron run will resume the missing languages automatically via the discovery queue.\n\nSee analysis/translation-runs/${RUN_DATE}/emergency-flush-${RUN_ID}.marker for the full gap record (written_langs + missing_langs fields).`,
+     base: "main",
+     head: `news/translate-briefs-${RUN_DATE}`,
+   })
+   ```
+
+7. **Move to the next queue entry** until the queue is empty OR you've
+   used ≥ 50 minutes of the 60-minute cap (the Step 4b check enforces
+   this automatically — when the marker is written, end the run after
+   the emergency flush).
 
 ### Step 3 — Final flush
 
@@ -379,27 +651,52 @@ When the queue is empty (or the wall-clock budget is exhausted):
 
 | Minutes | Action |
 |---------|--------|
-| 0-1 | Step 0 date context; Step 1 read queue |
+| 0-1 | Step 0 date context (records `WORKFLOW_START_EPOCH`); Step 1 read queue |
 | 1-25 | Translate brief #1 (13 languages, Pass 1 + Pass 2). First flush at ~25. |
-| 25-50 | Translate brief #2 (13 languages, Pass 1 + Pass 2). Second flush at ~50. |
-| 50-55 | Step 3 summary + final flush |
-| 55-60 | Buffer for retry and graceful exit |
+| 25-48 | Translate brief #2 (13 languages, Pass 1 + Pass 2). Second flush at ~48. |
+| 48-50 | **Step 4b emergency-flush window**: any in-progress translation MUST stop and flush whatever is on disk by minute ≤ 50. |
+| 50-55 | Step 3 summary + final flush. **Final flush must land by minute ≤ 55.** |
+| 55-60 | Buffer for retry and graceful exit. |
 
 Stretch: if `max_briefs` is overridden to 3 or 4 (catch-up mode), tighten
 each per-brief window proportionally. The script-level discovery already
-caps the queue; the AI does not need to ration its own work.
+caps the queue; the AI does not need to ration its own work. The Step 4b
+wall-clock guard is the failsafe — if anything overruns, it forces an
+emergency partial flush instead of letting the engine time out with no PR.
 
 ## 🚫 Never
 
 - **Never** translate before reading the translator guide.
 - **Never** translate by running `sed`/`awk`/`tr` over the source.
+- **Never** use `cat > file << 'EOF'` shell heredocs to write translation
+  content. Heredocs silently truncate when the output fills the context
+  window, dropping the last H2 section(s) without any visible error —
+  this is the root cause of the recurring "7/8 H2" failures. Use the
+  `create` tool exclusively.
 - **Never** add new sections or merge sections — structural fidelity is
   enforced by validator gates #6 (heading parity), #7 (Mermaid parity), and
   human review.
 - **Never** translate FIXED TOKENS. `IMF` stays `IMF`; `World Bank` stays
-  `World Bank`; `TA-10-2026-0160` stays `TA-10-2026-0160`.
-- **Never** call `safeoutputs___create_pull_request` before at least one
-  brief has all 13 languages produced and is validator-clean.
+  `World Bank`; `TA-10-2026-0160` stays `TA-10-2026-0160`. **Dutch (`nl`)
+  in particular**: `IMF blijft IMF`; `WEO blijft WEO` — never localise to
+  `IMV` / `Wereldwijde Economische Vooruitzichten`. Run validator gate #5
+  in Step 2.4 to catch token drift before flush.
+- **Never** call `safeoutputs___create_pull_request` with **zero
+  `executive-brief_<lang>.md` translation files** written — the run
+  marker written by Step 0 does not count. An empty-translation PR is
+  the only flush that is always worse than no flush. Partial-brief
+  flushes are explicitly **allowed** by Step 4b's emergency safety net
+  (≥ 1 `executive-brief_<lang>.md` file on disk is sufficient).
+- **Never** let the engine time out or terminate without flushing
+  whatever translations are already on disk. The Step 4b wall-clock
+  guard fires at ≥ 50 elapsed minutes (or ≤ 10 remaining); when it
+  does, call `safeoutputs___create_pull_request` immediately with the
+  partial-progress title — even mid-brief — and end the run.
+- **Never** skip a queue entry because its date is old; backlog parity is
+  the workflow's primary KPI. The `fresh-then-backlog` discovery policy
+  guarantees slot 0 is always the day's newest brief, so slots 1+ exist
+  *specifically* to drain the long tail — translate them with the same
+  rigour as the fresh slot.
 - **Never** include `news/**`, `src/**`, `scripts/**`, or `.github/**` in
   the PR. The `excluded-files` config blocks them; do not work around it.
 
