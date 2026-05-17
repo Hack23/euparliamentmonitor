@@ -417,9 +417,16 @@ PY
    > error. Use `edit` only for files that already exist on disk.
 
    Before writing the first word of any translation, enumerate the
-   source H2 titles so you know the full checklist:
+   source H2 titles so you know the full checklist (`$sourcePath` is
+   already set by step 2's bash block):
    ```bash
+   set -euo pipefail
+   if [ -z "${sourcePath:-}" ] || [ ! -f "$sourcePath" ]; then
+     echo "sourcePath not set or file missing: ${sourcePath:-<unset>}" >&2; exit 1
+   fi
+   echo "=== Source H2 checklist ==="
    grep -E '^## ' "$sourcePath"
+   echo "==========================="
    ```
    Treat every line printed as a **MUST-TRANSLATE** item. The last H2
    title printed is the one most often dropped — write or verify it

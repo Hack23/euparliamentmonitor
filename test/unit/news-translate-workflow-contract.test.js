@@ -142,8 +142,10 @@ describe('news-translate workflow contract', () => {
     workflow = fs.readFileSync(WORKFLOW_FILE, 'utf8');
     // A per-language H2 count check bash block must be present.
     expect(workflow).toMatch(/H2 spot.check/i);
-    expect(workflow).toMatch(/src_h2.*grep.*\^## /s);
-    expect(workflow).toMatch(/out_h2.*grep.*\^## /s);
+    // The variables src_h2 and out_h2 must be populated via grep for ## headings.
+    // Allow for optional whitespace between grep flags/pattern components.
+    expect(workflow).toMatch(/src_h2\s*=.*grep.*\^\s*##/s);
+    expect(workflow).toMatch(/out_h2\s*=.*grep.*\^\s*##/s);
     // The check must compare source vs translation count.
     expect(workflow).toMatch(/src_h2.*out_h2|out_h2.*src_h2/s);
   });
